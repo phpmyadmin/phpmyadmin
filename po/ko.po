@@ -3,10 +3,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-05-07 15:39+0200\n"
+"POT-Creation-Date: 2013-05-09 08:26+0200\n"
 "PO-Revision-Date: 2013-05-08 15:44+0200\n"
 "Last-Translator: Yungu Kim <crimsonpi@gmail.com>\n"
-"Language-Team: Korean <http://l10n.cihar.com/projects/phpmyadmin/master/ko/>\n"
+"Language-Team: Korean <http://l10n.cihar.com/projects/phpmyadmin/master/ko/"
+">\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -406,7 +407,7 @@ msgstr "수정됨"
 
 #: db_tracking.php:83 js/messages.php:163 libraries/Menu.class.php:458
 #: libraries/rte/rte_events.lib.php:426 libraries/rte/rte_list.lib.php:78
-#: server_status.php:395 sql.php:1094 tbl_tracking.php:767
+#: server_status.php:395 sql.php:1108 tbl_tracking.php:767
 msgid "Status"
 msgstr "상태"
 
@@ -526,7 +527,6 @@ msgid "Geometry %d:"
 msgstr "기하데이터"
 
 #: gis_data_editor.php:206
-#| msgid "Point"
 msgid "Point:"
 msgstr "포인트:"
 
@@ -653,7 +653,7 @@ msgid "Could not load import plugins, please check your installation!"
 msgstr ""
 "가져오기 플러그인을 로드할 수 없습니다. 올바로 설치되었는지 확인해주세요!"
 
-#: import.php:518 sql.php:305 sql.php:1156
+#: import.php:518 sql.php:305 sql.php:1170
 #, php-format
 msgid "Bookmark %s created"
 msgstr "북마크 %s가 생성되었습니다."
@@ -1361,7 +1361,7 @@ msgstr "SQL 해석"
 #: libraries/plugins/export/ExportHtmlword.class.php:484
 #: libraries/plugins/export/ExportOdt.class.php:562
 #: libraries/plugins/export/ExportTexytext.class.php:435
-#: libraries/rte/rte_list.lib.php:68 server_status.php:391 sql.php:1099
+#: libraries/rte/rte_list.lib.php:68 server_status.php:391 sql.php:1113
 msgid "Time"
 msgstr "시간"
 
@@ -2630,7 +2630,7 @@ msgid "Check All"
 msgstr "모두 체크"
 
 #: libraries/DisplayResults.class.php:5060
-#: libraries/DisplayResults.class.php:5258 libraries/Menu.class.php:279
+#: libraries/DisplayResults.class.php:5327 libraries/Menu.class.php:279
 #: libraries/Menu.class.php:366 libraries/Menu.class.php:478
 #: libraries/Util.class.php:3453 libraries/Util.class.php:3454
 #: libraries/config/messages.inc.php:162 libraries/display_export.lib.php:98
@@ -2641,33 +2641,33 @@ msgstr "모두 체크"
 msgid "Export"
 msgstr "내보내기"
 
-#: libraries/DisplayResults.class.php:5158
+#: libraries/DisplayResults.class.php:5162 view_create.php:151
+msgid "Create view"
+msgstr "뷰 생성"
+
+#: libraries/DisplayResults.class.php:5217
 msgid "Query results operations"
 msgstr "쿼리 결과 처리방법"
 
-#: libraries/DisplayResults.class.php:5182 libraries/Header.class.php:334
+#: libraries/DisplayResults.class.php:5251 libraries/Header.class.php:334
 #: libraries/structure.lib.php:299 libraries/structure.lib.php:362
 #: libraries/structure.lib.php:1481
 msgid "Print view"
 msgstr "인쇄용 보기"
 
-#: libraries/DisplayResults.class.php:5200
+#: libraries/DisplayResults.class.php:5269
 msgid "Print view (with full texts)"
 msgstr "인쇄용 보기 (전체 텍스트)"
 
-#: libraries/DisplayResults.class.php:5271 tbl_chart.php:151
+#: libraries/DisplayResults.class.php:5340 tbl_chart.php:151
 msgid "Display chart"
 msgstr "차트 표시"
 
-#: libraries/DisplayResults.class.php:5296
+#: libraries/DisplayResults.class.php:5365
 msgid "Visualize GIS data"
 msgstr "GIS 데이터를 시각화"
 
-#: libraries/DisplayResults.class.php:5328 view_create.php:151
-msgid "Create view"
-msgstr "뷰 생성"
-
-#: libraries/DisplayResults.class.php:5517
+#: libraries/DisplayResults.class.php:5573
 msgid "Link not found"
 msgstr "링크를 찾을 수 없습니다."
 
@@ -3562,8 +3562,8 @@ msgid ""
 "A timestamp, range is '0001-01-01 00:00:00' UTC to '9999-12-31 23:59:59' "
 "UTC; TIMESTAMP(6) can store microseconds"
 msgstr ""
-"타임스탬프, '0001-01-01 00:00:00' UTC 부터 '9999-12-31 23:59:59' UTC 까지의 범위를 가짐, "
-"TIMESTAMP(6)은 마이크로 초를 저장할 수 있음"
+"타임스탬프, '0001-01-01 00:00:00' UTC 부터 '9999-12-31 23:59:59' UTC 까지의 "
+"범위를 가짐, TIMESTAMP(6)은 마이크로 초를 저장할 수 있음"
 
 #: libraries/Types.class.php:734
 msgid ""
@@ -3580,7 +3580,7 @@ msgstr ""
 msgid "Max: %s%s"
 msgstr "최대: %s%s"
 
-#: libraries/Util.class.php:674 sql.php:1026
+#: libraries/Util.class.php:674 sql.php:1040
 #, fuzzy
 #| msgid "SQL query"
 msgid "SQL query:"
@@ -3641,7 +3641,7 @@ msgctxt "Inline edit query"
 msgid "Inline"
 msgstr "인라인"
 
-#: libraries/Util.class.php:1432 sql.php:1090
+#: libraries/Util.class.php:1432 sql.php:1104
 msgid "Profiling"
 msgstr "프로파일링"
 
@@ -4696,8 +4696,8 @@ msgid ""
 "features, see [doc@linked-tables]phpMyAdmin configuration storage[/doc] in "
 "documentation"
 msgstr ""
-"추가적인 기능을 사용하기 위해 phpMyAdmin 설정 저장공간을 설정하세요. 설명서의 [doc@linked-"
-"tables]phpMyAdmin configuration storage[/doc] 참고"
+"추가적인 기능을 사용하기 위해 phpMyAdmin 설정 저장공간을 설정하세요. 설명서"
+"의 [doc@linked-tables]phpMyAdmin configuration storage[/doc] 참고"
 
 #: libraries/config/messages.inc.php:204
 msgid "Changes tracking"
@@ -4753,10 +4753,10 @@ msgid ""
 "strong].[br][em][a@http://sqlvalidator.mimer.com/]Mimer SQL Validator[/a], "
 "Copyright 2002 Upright Database Technology. All rights reserved.[/em]"
 msgstr ""
-"SQL 유효성 검사 서비스를 사용할 시 참고사항: [strong]모든 SQL 구문은 통계상의 목적으로 익멱으로 "
-"저장됩니다.[/strong][br][em][a@http://sqlvalidator.mimer.com/]Mimer SQL "
-"Validator[/a], Copyright 2002 Upright Database Technology. All rights "
-"reserved.[/em]"
+"SQL 유효성 검사 서비스를 사용할 시 참고사항: [strong]모든 SQL 구문은 통계상"
+"의 목적으로 익멱으로 저장됩니다.[/strong][br][em][a@http://sqlvalidator."
+"mimer.com/]Mimer SQL Validator[/a], Copyright 2002 Upright Database "
+"Technology. All rights reserved.[/em]"
 
 #: libraries/config/messages.inc.php:220
 msgid "Startup"
@@ -6309,7 +6309,7 @@ msgstr "데이터베이스 :"
 msgid "Table(s):"
 msgstr "테이블 :"
 
-#: libraries/display_export.lib.php:164 sql.php:1030
+#: libraries/display_export.lib.php:164 sql.php:1044
 msgid "Rows:"
 msgstr "행 :"
 
@@ -7805,13 +7805,13 @@ msgstr ""
 #: libraries/plugins/export/ExportSql.class.php:601
 #: libraries/plugins/export/ExportXml.class.php:191
 #: libraries/replication_gui.lib.php:68 libraries/replication_gui.lib.php:293
-#: libraries/server_privileges.lib.php:1081 sql.php:1020
+#: libraries/server_privileges.lib.php:1081 sql.php:1034
 msgid "Host:"
 msgstr ""
 
 #: libraries/plugins/export/ExportLatex.class.php:223
 #: libraries/plugins/export/ExportSql.class.php:608
-#: libraries/plugins/export/ExportXml.class.php:196 sql.php:1023
+#: libraries/plugins/export/ExportXml.class.php:196 sql.php:1037
 #, fuzzy
 #| msgid "Generate"
 msgid "Generation Time:"
@@ -7828,7 +7828,7 @@ msgstr "PHP 확장:"
 #: libraries/plugins/export/ExportLatex.class.php:251
 #: libraries/plugins/export/ExportSql.class.php:760
 #: libraries/plugins/export/ExportXml.class.php:390
-#: libraries/plugins/export/PMA_ExportPdf.class.php:115 sql.php:1021
+#: libraries/plugins/export/PMA_ExportPdf.class.php:115 sql.php:1035
 #, fuzzy
 #| msgid "Database"
 msgid "Database:"
@@ -8300,7 +8300,8 @@ msgstr "고급 기능을 설정을 쉽게 설정하기:"
 #: libraries/relation.lib.php:259
 msgid ""
 "Create the needed tables with the <code>examples/create_tables.sql</code>."
-msgstr "<code>examples/create_tables.sql</code>에서 필요한 테이블을 생성하세요."
+msgstr ""
+"<code>examples/create_tables.sql</code>에서 필요한 테이블을 생성하세요."
 
 #: libraries/relation.lib.php:265
 msgid "Create a pma user and give access to these tables."
@@ -9503,7 +9504,7 @@ msgstr ""
 msgid "Bookmark this SQL query:"
 msgstr ""
 
-#: libraries/sql_query_form.lib.php:326 sql.php:1240
+#: libraries/sql_query_form.lib.php:326 sql.php:1254
 msgid "Let every user access this bookmark"
 msgstr ""
 
@@ -11808,17 +11809,17 @@ msgstr "PHP 코드 보기"
 msgid "Validated SQL"
 msgstr "SQL 검사"
 
-#: sql.php:1018
+#: sql.php:1032
 msgid "SQL result"
 msgstr "SQL 결과"
 
-#: sql.php:1025
+#: sql.php:1039
 #, fuzzy
 #| msgid "Generate"
 msgid "Generated by:"
 msgstr "생성"
 
-#: sql.php:1147
+#: sql.php:1161
 msgid ""
 "This table does not contain a unique column. Grid edit, checkbox, Edit, Copy "
 "and Delete features are not available."
@@ -11826,16 +11827,16 @@ msgstr ""
 "이 테이블에는 유일 속성을 가진 컬럼이 없습니다. 격자창 편집, 체크박스, 편집, "
 "복사, 삭제 기능을 사용할 수 없습니다."
 
-#: sql.php:1196
+#: sql.php:1210
 #, php-format
 msgid "Problems with indexes of table `%s`"
 msgstr ""
 
-#: sql.php:1228 sql.php:1248
+#: sql.php:1242 sql.php:1262
 msgid "Bookmark this SQL query"
 msgstr "이 SQL 질의를 북마크함"
 
-#: sql.php:1232
+#: sql.php:1246
 msgid "Label:"
 msgstr ""
 

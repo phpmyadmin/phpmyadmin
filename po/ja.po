@@ -3,11 +3,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-05-07 15:39+0200\n"
+"POT-Creation-Date: 2013-05-09 08:26+0200\n"
 "PO-Revision-Date: 2013-05-07 15:08+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Japanese "
-"<http://l10n.cihar.com/projects/phpmyadmin/master/ja/>\n"
+"Language-Team: Japanese <http://l10n.cihar.com/projects/phpmyadmin/master/ja/"
+">\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -418,7 +418,7 @@ msgstr "更新日時"
 
 #: db_tracking.php:83 js/messages.php:163 libraries/Menu.class.php:458
 #: libraries/rte/rte_events.lib.php:426 libraries/rte/rte_list.lib.php:78
-#: server_status.php:395 sql.php:1094 tbl_tracking.php:767
+#: server_status.php:395 sql.php:1108 tbl_tracking.php:767
 msgid "Status"
 msgstr "状態"
 
@@ -679,7 +679,7 @@ msgstr ""
 "インポートプラグインが読み込めません。正しくインストールされているか確認して"
 "ください！"
 
-#: import.php:518 sql.php:305 sql.php:1156
+#: import.php:518 sql.php:305 sql.php:1170
 #, php-format
 msgid "Bookmark %s created"
 msgstr "ブックマーク %s を作成しました"
@@ -1412,7 +1412,7 @@ msgstr "EXPLAIN の結果"
 #: libraries/plugins/export/ExportHtmlword.class.php:484
 #: libraries/plugins/export/ExportOdt.class.php:562
 #: libraries/plugins/export/ExportTexytext.class.php:435
-#: libraries/rte/rte_list.lib.php:68 server_status.php:391 sql.php:1099
+#: libraries/rte/rte_list.lib.php:68 server_status.php:391 sql.php:1113
 msgid "Time"
 msgstr "時間"
 
@@ -2720,7 +2720,7 @@ msgid "Check All"
 msgstr "すべてチェックする"
 
 #: libraries/DisplayResults.class.php:5060
-#: libraries/DisplayResults.class.php:5258 libraries/Menu.class.php:279
+#: libraries/DisplayResults.class.php:5327 libraries/Menu.class.php:279
 #: libraries/Menu.class.php:366 libraries/Menu.class.php:478
 #: libraries/Util.class.php:3453 libraries/Util.class.php:3454
 #: libraries/config/messages.inc.php:162 libraries/display_export.lib.php:98
@@ -2731,33 +2731,33 @@ msgstr "すべてチェックする"
 msgid "Export"
 msgstr "エクスポート"
 
-#: libraries/DisplayResults.class.php:5158
+#: libraries/DisplayResults.class.php:5162 view_create.php:151
+msgid "Create view"
+msgstr "ビューを作成する"
+
+#: libraries/DisplayResults.class.php:5217
 msgid "Query results operations"
 msgstr "クエリ結果操作"
 
-#: libraries/DisplayResults.class.php:5182 libraries/Header.class.php:334
+#: libraries/DisplayResults.class.php:5251 libraries/Header.class.php:334
 #: libraries/structure.lib.php:299 libraries/structure.lib.php:362
 #: libraries/structure.lib.php:1481
 msgid "Print view"
 msgstr "印刷用画面"
 
-#: libraries/DisplayResults.class.php:5200
+#: libraries/DisplayResults.class.php:5269
 msgid "Print view (with full texts)"
 msgstr "印刷用画面 (全テキストを含む)"
 
-#: libraries/DisplayResults.class.php:5271 tbl_chart.php:151
+#: libraries/DisplayResults.class.php:5340 tbl_chart.php:151
 msgid "Display chart"
 msgstr "グラフで表示する"
 
-#: libraries/DisplayResults.class.php:5296
+#: libraries/DisplayResults.class.php:5365
 msgid "Visualize GIS data"
 msgstr "空間情報のデータを視覚化する"
 
-#: libraries/DisplayResults.class.php:5328 view_create.php:151
-msgid "Create view"
-msgstr "ビューを作成する"
-
-#: libraries/DisplayResults.class.php:5517
+#: libraries/DisplayResults.class.php:5573
 msgid "Link not found"
 msgstr "リンク先が見つかりません"
 
@@ -3704,7 +3704,7 @@ msgstr "列挙型、定義しておいた列挙リストより値を取ること
 msgid "Max: %s%s"
 msgstr "最長: %s%s"
 
-#: libraries/Util.class.php:674 sql.php:1026
+#: libraries/Util.class.php:674 sql.php:1040
 #, fuzzy
 #| msgid "SQL query"
 msgid "SQL query:"
@@ -3765,7 +3765,7 @@ msgctxt "Inline edit query"
 msgid "Inline"
 msgstr "インライン"
 
-#: libraries/Util.class.php:1432 sql.php:1090
+#: libraries/Util.class.php:1432 sql.php:1104
 msgid "Profiling"
 msgstr "プロファイリング"
 
@@ -6647,7 +6647,7 @@ msgstr "データベース:"
 msgid "Table(s):"
 msgstr "テーブル:"
 
-#: libraries/display_export.lib.php:164 sql.php:1030
+#: libraries/display_export.lib.php:164 sql.php:1044
 msgid "Rows:"
 msgstr "行:"
 
@@ -8222,7 +8222,7 @@ msgstr "1 行目にカラム名を追加する"
 #: libraries/plugins/export/ExportSql.class.php:601
 #: libraries/plugins/export/ExportXml.class.php:191
 #: libraries/replication_gui.lib.php:68 libraries/replication_gui.lib.php:293
-#: libraries/server_privileges.lib.php:1081 sql.php:1020
+#: libraries/server_privileges.lib.php:1081 sql.php:1034
 #, fuzzy
 #| msgid "Host"
 msgid "Host:"
@@ -8230,7 +8230,7 @@ msgstr "ホスト"
 
 #: libraries/plugins/export/ExportLatex.class.php:223
 #: libraries/plugins/export/ExportSql.class.php:608
-#: libraries/plugins/export/ExportXml.class.php:196 sql.php:1023
+#: libraries/plugins/export/ExportXml.class.php:196 sql.php:1037
 #, fuzzy
 #| msgid "Generation Time"
 msgid "Generation Time:"
@@ -8247,7 +8247,7 @@ msgstr "PHP のバージョン"
 #: libraries/plugins/export/ExportLatex.class.php:251
 #: libraries/plugins/export/ExportSql.class.php:760
 #: libraries/plugins/export/ExportXml.class.php:390
-#: libraries/plugins/export/PMA_ExportPdf.class.php:115 sql.php:1021
+#: libraries/plugins/export/PMA_ExportPdf.class.php:115 sql.php:1035
 #, fuzzy
 #| msgid "Database"
 msgid "Database:"
@@ -9969,7 +9969,7 @@ msgstr "クリア"
 msgid "Bookmark this SQL query:"
 msgstr "この SQL をブックマークする"
 
-#: libraries/sql_query_form.lib.php:326 sql.php:1240
+#: libraries/sql_query_form.lib.php:326 sql.php:1254
 msgid "Let every user access this bookmark"
 msgstr "すべてのユーザがこのブックマークを利用できるようにする"
 
@@ -12407,17 +12407,17 @@ msgstr "PHP コードとして表示"
 msgid "Validated SQL"
 msgstr "検証した SQL 文"
 
-#: sql.php:1018
+#: sql.php:1032
 msgid "SQL result"
 msgstr "SQL の結果"
 
-#: sql.php:1025
+#: sql.php:1039
 #, fuzzy
 #| msgid "Generated by"
 msgid "Generated by:"
 msgstr "生成環境"
 
-#: sql.php:1147
+#: sql.php:1161
 #, fuzzy
 #| msgid ""
 #| "This table does not contain a unique column. Features related to the grid "
@@ -12430,16 +12430,16 @@ msgstr ""
 "ボックス、編集、コピー、削除のリンクに関連する機能は、保存後に動作しない場合"
 "があります。"
 
-#: sql.php:1196
+#: sql.php:1210
 #, php-format
 msgid "Problems with indexes of table `%s`"
 msgstr "テーブル `%s` のインデックスに問題があります"
 
-#: sql.php:1228 sql.php:1248
+#: sql.php:1242 sql.php:1262
 msgid "Bookmark this SQL query"
 msgstr "この SQL をブックマークする"
 
-#: sql.php:1232
+#: sql.php:1246
 #, fuzzy
 #| msgid "Label"
 msgid "Label:"

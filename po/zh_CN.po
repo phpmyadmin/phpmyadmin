@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-05-07 15:39+0200\n"
+"POT-Creation-Date: 2013-05-09 08:26+0200\n"
 "PO-Revision-Date: 2013-04-25 16:12+0200\n"
 "Last-Translator: greensea g <gs@bbxy.net>\n"
 "Language-Team: Simplified Chinese <http://l10n.cihar.com/projects/phpmyadmin/"
@@ -405,7 +405,7 @@ msgstr "更新"
 
 #: db_tracking.php:83 js/messages.php:163 libraries/Menu.class.php:458
 #: libraries/rte/rte_events.lib.php:426 libraries/rte/rte_list.lib.php:78
-#: server_status.php:395 sql.php:1094 tbl_tracking.php:767
+#: server_status.php:395 sql.php:1108 tbl_tracking.php:767
 msgid "Status"
 msgstr "状态"
 
@@ -647,7 +647,7 @@ msgstr "没有字符集转换库，无法转换文件字符集"
 msgid "Could not load import plugins, please check your installation!"
 msgstr "无法加载导入插件，请检查你的安装！"
 
-#: import.php:518 sql.php:305 sql.php:1156
+#: import.php:518 sql.php:305 sql.php:1170
 #, php-format
 msgid "Bookmark %s created"
 msgstr "已创建书签 %s"
@@ -1349,7 +1349,7 @@ msgstr "分析输出"
 #: libraries/plugins/export/ExportHtmlword.class.php:484
 #: libraries/plugins/export/ExportOdt.class.php:562
 #: libraries/plugins/export/ExportTexytext.class.php:435
-#: libraries/rte/rte_list.lib.php:68 server_status.php:391 sql.php:1099
+#: libraries/rte/rte_list.lib.php:68 server_status.php:391 sql.php:1113
 msgid "Time"
 msgstr "时间"
 
@@ -2620,7 +2620,7 @@ msgid "Check All"
 msgstr "全选"
 
 #: libraries/DisplayResults.class.php:5060
-#: libraries/DisplayResults.class.php:5258 libraries/Menu.class.php:279
+#: libraries/DisplayResults.class.php:5327 libraries/Menu.class.php:279
 #: libraries/Menu.class.php:366 libraries/Menu.class.php:478
 #: libraries/Util.class.php:3453 libraries/Util.class.php:3454
 #: libraries/config/messages.inc.php:162 libraries/display_export.lib.php:98
@@ -2631,33 +2631,33 @@ msgstr "全选"
 msgid "Export"
 msgstr "导出"
 
-#: libraries/DisplayResults.class.php:5158
+#: libraries/DisplayResults.class.php:5162 view_create.php:151
+msgid "Create view"
+msgstr "新建视图"
+
+#: libraries/DisplayResults.class.php:5217
 msgid "Query results operations"
 msgstr "查询结果选项"
 
-#: libraries/DisplayResults.class.php:5182 libraries/Header.class.php:334
+#: libraries/DisplayResults.class.php:5251 libraries/Header.class.php:334
 #: libraries/structure.lib.php:299 libraries/structure.lib.php:362
 #: libraries/structure.lib.php:1481
 msgid "Print view"
 msgstr "打印预览"
 
-#: libraries/DisplayResults.class.php:5200
+#: libraries/DisplayResults.class.php:5269
 msgid "Print view (with full texts)"
 msgstr "打印预览 (全文显示)"
 
-#: libraries/DisplayResults.class.php:5271 tbl_chart.php:151
+#: libraries/DisplayResults.class.php:5340 tbl_chart.php:151
 msgid "Display chart"
 msgstr "显示图表"
 
-#: libraries/DisplayResults.class.php:5296
+#: libraries/DisplayResults.class.php:5365
 msgid "Visualize GIS data"
 msgstr "可视化 GIS 数据"
 
-#: libraries/DisplayResults.class.php:5328 view_create.php:151
-msgid "Create view"
-msgstr "新建视图"
-
-#: libraries/DisplayResults.class.php:5517
+#: libraries/DisplayResults.class.php:5573
 msgid "Link not found"
 msgstr "找不到链接"
 
@@ -3569,7 +3569,7 @@ msgstr "在已定义值列表中取值的枚举类型"
 msgid "Max: %s%s"
 msgstr "最大限制：%s %s"
 
-#: libraries/Util.class.php:674 sql.php:1026
+#: libraries/Util.class.php:674 sql.php:1040
 #, fuzzy
 #| msgid "SQL query"
 msgid "SQL query:"
@@ -3630,7 +3630,7 @@ msgctxt "Inline edit query"
 msgid "Inline"
 msgstr "快速编辑"
 
-#: libraries/Util.class.php:1432 sql.php:1090
+#: libraries/Util.class.php:1432 sql.php:1104
 msgid "Profiling"
 msgstr "性能分析"
 
@@ -6310,7 +6310,7 @@ msgstr "数据库："
 msgid "Table(s):"
 msgstr "数据表："
 
-#: libraries/display_export.lib.php:164 sql.php:1030
+#: libraries/display_export.lib.php:164 sql.php:1044
 msgid "Rows:"
 msgstr "记录："
 
@@ -7808,7 +7808,7 @@ msgstr "首行保存字段名"
 #: libraries/plugins/export/ExportSql.class.php:601
 #: libraries/plugins/export/ExportXml.class.php:191
 #: libraries/replication_gui.lib.php:68 libraries/replication_gui.lib.php:293
-#: libraries/server_privileges.lib.php:1081 sql.php:1020
+#: libraries/server_privileges.lib.php:1081 sql.php:1034
 #, fuzzy
 #| msgid "Host"
 msgid "Host:"
@@ -7816,7 +7816,7 @@ msgstr "主机"
 
 #: libraries/plugins/export/ExportLatex.class.php:223
 #: libraries/plugins/export/ExportSql.class.php:608
-#: libraries/plugins/export/ExportXml.class.php:196 sql.php:1023
+#: libraries/plugins/export/ExportXml.class.php:196 sql.php:1037
 #, fuzzy
 #| msgid "Generation Time"
 msgid "Generation Time:"
@@ -7833,7 +7833,7 @@ msgstr "PHP 版本"
 #: libraries/plugins/export/ExportLatex.class.php:251
 #: libraries/plugins/export/ExportSql.class.php:760
 #: libraries/plugins/export/ExportXml.class.php:390
-#: libraries/plugins/export/PMA_ExportPdf.class.php:115 sql.php:1021
+#: libraries/plugins/export/PMA_ExportPdf.class.php:115 sql.php:1035
 #, fuzzy
 #| msgid "Database"
 msgid "Database:"
@@ -9509,7 +9509,7 @@ msgstr "清除"
 msgid "Bookmark this SQL query:"
 msgstr "将此 SQL 查询加为书签"
 
-#: libraries/sql_query_form.lib.php:326 sql.php:1240
+#: libraries/sql_query_form.lib.php:326 sql.php:1254
 msgid "Let every user access this bookmark"
 msgstr "让所有用户均可访问此书签"
 
@@ -11824,32 +11824,32 @@ msgstr "显示为 PHP 代码"
 msgid "Validated SQL"
 msgstr "已校验的 SQL"
 
-#: sql.php:1018
+#: sql.php:1032
 msgid "SQL result"
 msgstr "SQL 查询结果"
 
-#: sql.php:1025
+#: sql.php:1039
 #, fuzzy
 #| msgid "Generated by"
 msgid "Generated by:"
 msgstr "生成者"
 
-#: sql.php:1147
+#: sql.php:1161
 msgid ""
 "This table does not contain a unique column. Grid edit, checkbox, Edit, Copy "
 "and Delete features are not available."
 msgstr "该表没有唯一字段。单元格编辑、复选框、编辑、复制和删除无法正常使用。"
 
-#: sql.php:1196
+#: sql.php:1210
 #, php-format
 msgid "Problems with indexes of table `%s`"
 msgstr "数据表 `%s` 的索引存在问题"
 
-#: sql.php:1228 sql.php:1248
+#: sql.php:1242 sql.php:1262
 msgid "Bookmark this SQL query"
 msgstr "将此 SQL 查询加为书签"
 
-#: sql.php:1232
+#: sql.php:1246
 #, fuzzy
 #| msgid "Label"
 msgid "Label:"

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-05-07 15:39+0200\n"
+"POT-Creation-Date: 2013-05-09 08:26+0200\n"
 "PO-Revision-Date: 2013-05-07 17:04+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: Dutch <http://l10n.cihar.com/projects/phpmyadmin/master/nl/>\n"
@@ -407,7 +407,7 @@ msgstr "Bijgewerkt"
 
 #: db_tracking.php:83 js/messages.php:163 libraries/Menu.class.php:458
 #: libraries/rte/rte_events.lib.php:426 libraries/rte/rte_list.lib.php:78
-#: server_status.php:395 sql.php:1094 tbl_tracking.php:767
+#: server_status.php:395 sql.php:1108 tbl_tracking.php:767
 msgid "Status"
 msgstr "Status"
 
@@ -657,7 +657,7 @@ msgstr ""
 "De plugins voor het importeren konden niet worden geladen, controleer uw "
 "installatie!"
 
-#: import.php:518 sql.php:305 sql.php:1156
+#: import.php:518 sql.php:305 sql.php:1170
 #, php-format
 msgid "Bookmark %s created"
 msgstr "Bladwijzer %s aangemaakt"
@@ -1375,7 +1375,7 @@ msgstr "Verklaar resultaat"
 #: libraries/plugins/export/ExportHtmlword.class.php:484
 #: libraries/plugins/export/ExportOdt.class.php:562
 #: libraries/plugins/export/ExportTexytext.class.php:435
-#: libraries/rte/rte_list.lib.php:68 server_status.php:391 sql.php:1099
+#: libraries/rte/rte_list.lib.php:68 server_status.php:391 sql.php:1113
 msgid "Time"
 msgstr "Tijd"
 
@@ -2664,7 +2664,7 @@ msgid "Check All"
 msgstr "Selecteer alles"
 
 #: libraries/DisplayResults.class.php:5060
-#: libraries/DisplayResults.class.php:5258 libraries/Menu.class.php:279
+#: libraries/DisplayResults.class.php:5327 libraries/Menu.class.php:279
 #: libraries/Menu.class.php:366 libraries/Menu.class.php:478
 #: libraries/Util.class.php:3453 libraries/Util.class.php:3454
 #: libraries/config/messages.inc.php:162 libraries/display_export.lib.php:98
@@ -2675,33 +2675,33 @@ msgstr "Selecteer alles"
 msgid "Export"
 msgstr "Exporteren"
 
-#: libraries/DisplayResults.class.php:5158
+#: libraries/DisplayResults.class.php:5162 view_create.php:151
+msgid "Create view"
+msgstr "VIEW aanmaken"
+
+#: libraries/DisplayResults.class.php:5217
 msgid "Query results operations"
 msgstr "Handelingen voor queryresultaat"
 
-#: libraries/DisplayResults.class.php:5182 libraries/Header.class.php:334
+#: libraries/DisplayResults.class.php:5251 libraries/Header.class.php:334
 #: libraries/structure.lib.php:299 libraries/structure.lib.php:362
 #: libraries/structure.lib.php:1481
 msgid "Print view"
 msgstr "Afdrukken"
 
-#: libraries/DisplayResults.class.php:5200
+#: libraries/DisplayResults.class.php:5269
 msgid "Print view (with full texts)"
 msgstr "Afdrukken (met volledige teksten)"
 
-#: libraries/DisplayResults.class.php:5271 tbl_chart.php:151
+#: libraries/DisplayResults.class.php:5340 tbl_chart.php:151
 msgid "Display chart"
 msgstr "Grafiek weergeven"
 
-#: libraries/DisplayResults.class.php:5296
+#: libraries/DisplayResults.class.php:5365
 msgid "Visualize GIS data"
 msgstr "GIS-gegevens visualiseren"
 
-#: libraries/DisplayResults.class.php:5328 view_create.php:151
-msgid "Create view"
-msgstr "VIEW aanmaken"
-
-#: libraries/DisplayResults.class.php:5517
+#: libraries/DisplayResults.class.php:5573
 msgid "Link not found"
 msgstr "Link niet gevonden"
 
@@ -3669,7 +3669,7 @@ msgstr "Een opsomming, gekozen uit de lijst van gedefiniëerde waarden"
 msgid "Max: %s%s"
 msgstr "Maximale grootte: %s%s"
 
-#: libraries/Util.class.php:674 sql.php:1026
+#: libraries/Util.class.php:674 sql.php:1040
 msgid "SQL query:"
 msgstr "SQL-query:"
 
@@ -3730,7 +3730,7 @@ msgctxt "Inline edit query"
 msgid "Inline"
 msgstr "Rechtstreeks"
 
-#: libraries/Util.class.php:1432 sql.php:1090
+#: libraries/Util.class.php:1432 sql.php:1104
 msgid "Profiling"
 msgstr "Profiling"
 
@@ -5600,9 +5600,6 @@ msgid "Control host"
 msgstr "Controle machine"
 
 #: libraries/config/messages.inc.php:389
-#| msgid ""
-#| "An alternate port to connect to the host that holds the configuration "
-#| "storage; leave blank to use the already defined port"
 msgid ""
 "An alternate port to connect to the host that holds the configuration "
 "storage; leave blank to use the default port, or the already defined port, "
@@ -6545,7 +6542,7 @@ msgstr "Databank(en):"
 msgid "Table(s):"
 msgstr "Tabel(len):"
 
-#: libraries/display_export.lib.php:164 sql.php:1030
+#: libraries/display_export.lib.php:164 sql.php:1044
 msgid "Rows:"
 msgstr "Rijen:"
 
@@ -8090,13 +8087,13 @@ msgstr "Kolomnamen in de eerste regel plaatsen:"
 #: libraries/plugins/export/ExportSql.class.php:601
 #: libraries/plugins/export/ExportXml.class.php:191
 #: libraries/replication_gui.lib.php:68 libraries/replication_gui.lib.php:293
-#: libraries/server_privileges.lib.php:1081 sql.php:1020
+#: libraries/server_privileges.lib.php:1081 sql.php:1034
 msgid "Host:"
 msgstr "Machine:"
 
 #: libraries/plugins/export/ExportLatex.class.php:223
 #: libraries/plugins/export/ExportSql.class.php:608
-#: libraries/plugins/export/ExportXml.class.php:196 sql.php:1023
+#: libraries/plugins/export/ExportXml.class.php:196 sql.php:1037
 msgid "Generation Time:"
 msgstr "Gegenereerd op:"
 
@@ -8109,7 +8106,7 @@ msgstr "PHP-versie:"
 #: libraries/plugins/export/ExportLatex.class.php:251
 #: libraries/plugins/export/ExportSql.class.php:760
 #: libraries/plugins/export/ExportXml.class.php:390
-#: libraries/plugins/export/PMA_ExportPdf.class.php:115 sql.php:1021
+#: libraries/plugins/export/PMA_ExportPdf.class.php:115 sql.php:1035
 msgid "Database:"
 msgstr "Databank:"
 
@@ -9841,7 +9838,7 @@ msgstr "Leegmaken"
 msgid "Bookmark this SQL query:"
 msgstr "Deze SQL-query onthouden:"
 
-#: libraries/sql_query_form.lib.php:326 sql.php:1240
+#: libraries/sql_query_form.lib.php:326 sql.php:1254
 msgid "Let every user access this bookmark"
 msgstr "Elke gebruiker toegang geven tot deze bladwijzer"
 
@@ -12322,15 +12319,15 @@ msgstr "Getoond als PHP-code"
 msgid "Validated SQL"
 msgstr "Gevalideerde SQL"
 
-#: sql.php:1018
+#: sql.php:1032
 msgid "SQL result"
 msgstr "SQL-resultaat"
 
-#: sql.php:1025
+#: sql.php:1039
 msgid "Generated by:"
 msgstr "Gegenereerd door:"
 
-#: sql.php:1147
+#: sql.php:1161
 msgid ""
 "This table does not contain a unique column. Grid edit, checkbox, Edit, Copy "
 "and Delete features are not available."
@@ -12338,16 +12335,16 @@ msgstr ""
 "Deze tabel bevat geen unieke kolom. Functies zoals rasterbewerkingen, "
 "checkboxen, Bewerken, Kopiëren en Verwijderen, zijn niet beschikbaar."
 
-#: sql.php:1196
+#: sql.php:1210
 #, php-format
 msgid "Problems with indexes of table `%s`"
 msgstr "Problemen met de indexen van de tabel `%s`"
 
-#: sql.php:1228 sql.php:1248
+#: sql.php:1242 sql.php:1262
 msgid "Bookmark this SQL query"
 msgstr "Deze SQL-query opslaan"
 
-#: sql.php:1232
+#: sql.php:1246
 msgid "Label:"
 msgstr "Label:"
 

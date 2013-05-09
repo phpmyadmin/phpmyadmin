@@ -3,11 +3,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-05-07 15:39+0200\n"
+"POT-Creation-Date: 2013-05-09 08:26+0200\n"
 "PO-Revision-Date: 2013-05-07 17:29+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Traditional Chinese "
-"<http://l10n.cihar.com/projects/phpmyadmin/master/zh_TW/>\n"
+"Language-Team: Traditional Chinese <http://l10n.cihar.com/projects/"
+"phpmyadmin/master/zh_TW/>\n"
 "Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -413,7 +413,7 @@ msgstr "更新"
 
 #: db_tracking.php:83 js/messages.php:163 libraries/Menu.class.php:458
 #: libraries/rte/rte_events.lib.php:426 libraries/rte/rte_list.lib.php:78
-#: server_status.php:395 sql.php:1094 tbl_tracking.php:767
+#: server_status.php:395 sql.php:1108 tbl_tracking.php:767
 msgid "Status"
 msgstr "狀態"
 
@@ -657,7 +657,7 @@ msgstr "沒有字元集轉換函式庫，無法轉換檔案字元集"
 msgid "Could not load import plugins, please check your installation!"
 msgstr "無法載入匯入插件，請檢查您的安裝！"
 
-#: import.php:518 sql.php:305 sql.php:1156
+#: import.php:518 sql.php:305 sql.php:1170
 #, php-format
 msgid "Bookmark %s created"
 msgstr "已建立書籤 %s"
@@ -1374,7 +1374,7 @@ msgstr "輸出說明"
 #: libraries/plugins/export/ExportHtmlword.class.php:484
 #: libraries/plugins/export/ExportOdt.class.php:562
 #: libraries/plugins/export/ExportTexytext.class.php:435
-#: libraries/rte/rte_list.lib.php:68 server_status.php:391 sql.php:1099
+#: libraries/rte/rte_list.lib.php:68 server_status.php:391 sql.php:1113
 msgid "Time"
 msgstr "時間"
 
@@ -2659,7 +2659,7 @@ msgid "Check All"
 msgstr "全選"
 
 #: libraries/DisplayResults.class.php:5060
-#: libraries/DisplayResults.class.php:5258 libraries/Menu.class.php:279
+#: libraries/DisplayResults.class.php:5327 libraries/Menu.class.php:279
 #: libraries/Menu.class.php:366 libraries/Menu.class.php:478
 #: libraries/Util.class.php:3453 libraries/Util.class.php:3454
 #: libraries/config/messages.inc.php:162 libraries/display_export.lib.php:98
@@ -2670,33 +2670,33 @@ msgstr "全選"
 msgid "Export"
 msgstr "匯出"
 
-#: libraries/DisplayResults.class.php:5158
+#: libraries/DisplayResults.class.php:5162 view_create.php:151
+msgid "Create view"
+msgstr "新建視圖"
+
+#: libraries/DisplayResults.class.php:5217
 msgid "Query results operations"
 msgstr "查詢結果選項"
 
-#: libraries/DisplayResults.class.php:5182 libraries/Header.class.php:334
+#: libraries/DisplayResults.class.php:5251 libraries/Header.class.php:334
 #: libraries/structure.lib.php:299 libraries/structure.lib.php:362
 #: libraries/structure.lib.php:1481
 msgid "Print view"
 msgstr "列印預覽"
 
-#: libraries/DisplayResults.class.php:5200
+#: libraries/DisplayResults.class.php:5269
 msgid "Print view (with full texts)"
 msgstr "列印預覽 (全文顯示)"
 
-#: libraries/DisplayResults.class.php:5271 tbl_chart.php:151
+#: libraries/DisplayResults.class.php:5340 tbl_chart.php:151
 msgid "Display chart"
 msgstr "顯示圖表"
 
-#: libraries/DisplayResults.class.php:5296
+#: libraries/DisplayResults.class.php:5365
 msgid "Visualize GIS data"
 msgstr "虛擬的 GIS 資料"
 
-#: libraries/DisplayResults.class.php:5328 view_create.php:151
-msgid "Create view"
-msgstr "新建視圖"
-
-#: libraries/DisplayResults.class.php:5517
+#: libraries/DisplayResults.class.php:5573
 msgid "Link not found"
 msgstr "找不到連結"
 
@@ -3612,7 +3612,7 @@ msgstr ""
 msgid "Max: %s%s"
 msgstr "最大限制：%s %s"
 
-#: libraries/Util.class.php:674 sql.php:1026
+#: libraries/Util.class.php:674 sql.php:1040
 #, fuzzy
 #| msgid "SQL query"
 msgid "SQL query:"
@@ -3673,7 +3673,7 @@ msgctxt "Inline edit query"
 msgid "Inline"
 msgstr "行間"
 
-#: libraries/Util.class.php:1432 sql.php:1090
+#: libraries/Util.class.php:1432 sql.php:1104
 msgid "Profiling"
 msgstr "概要"
 
@@ -6450,7 +6450,7 @@ msgstr "資料庫："
 msgid "Table(s):"
 msgstr "資料表："
 
-#: libraries/display_export.lib.php:164 sql.php:1030
+#: libraries/display_export.lib.php:164 sql.php:1044
 msgid "Rows:"
 msgstr "記錄："
 
@@ -6913,7 +6913,9 @@ msgid ""
 "This is the amount of memory allocated to the record cache used to cache "
 "table data. The default value is 32MB. This memory is used to cache changes "
 "to the handle data (.xtd) and row pointer (.xtr) files."
-msgstr "用於快取表資料的快取記憶體大小。預設值爲 32MB。該快取用於記錄處理器資料 (*.xtd) 和行指標 (*.xtr) 檔案。"
+msgstr ""
+"用於快取表資料的快取記憶體大小。預設值爲 32MB。該快取用於記錄處理器資料 (*."
+"xtd) 和行指標 (*.xtr) 檔案。"
 
 #: libraries/engines/pbxt.lib.php:38
 msgid "Log cache size"
@@ -6966,7 +6968,8 @@ msgid ""
 "value of this variable can be increased to increase the total amount of data "
 "that can be stored in the database."
 msgstr ""
-"資料日志檔案的最大大小。預設值爲 64MB。PBXT 最多可以建立 32000 個資料日誌，可用於所有的表。增加該值可以增加資料庫所能儲存資料的大小。"
+"資料日志檔案的最大大小。預設值爲 64MB。PBXT 最多可以建立 32000 個資料日誌，可"
+"用於所有的表。增加該值可以增加資料庫所能儲存資料的大小。"
 
 #: libraries/engines/pbxt.lib.php:63
 msgid "Garbage threshold"
@@ -6987,7 +6990,9 @@ msgid ""
 "The size of the buffer used when writing a data log. The default is 256MB. "
 "The engine allocates one buffer per thread, but only if the thread is "
 "required to write a data log."
-msgstr "寫入資料日誌時使用的快取大小。預設值爲 256MB。資料引擎會爲每一個需要進行資料日誌寫入的程序分配一個快取區。"
+msgstr ""
+"寫入資料日誌時使用的快取大小。預設值爲 256MB。資料引擎會爲每一個需要進行資料"
+"日誌寫入的程序分配一個快取區。"
 
 #: libraries/engines/pbxt.lib.php:73
 msgid "Data file grow size"
@@ -7015,7 +7020,9 @@ msgid ""
 "system will maintain. If the number of logs exceeds this value then old logs "
 "will be deleted, otherwise they are renamed and given the next highest "
 "number."
-msgstr "系統維護的交易日誌數量 (pbxt/system/*.xt)。如果日誌數量大於此值，舊的日誌將會被刪除，或者被以升序數字序列重命名。"
+msgstr ""
+"系統維護的交易日誌數量 (pbxt/system/*.xt)。如果日誌數量大於此值，舊的日誌將會"
+"被刪除，或者被以升序數字序列重命名。"
 
 #: libraries/engines/pbxt.lib.php:131
 #, php-format
@@ -7963,7 +7970,7 @@ msgstr "首行儲存欄位名稱"
 #: libraries/plugins/export/ExportSql.class.php:601
 #: libraries/plugins/export/ExportXml.class.php:191
 #: libraries/replication_gui.lib.php:68 libraries/replication_gui.lib.php:293
-#: libraries/server_privileges.lib.php:1081 sql.php:1020
+#: libraries/server_privileges.lib.php:1081 sql.php:1034
 #, fuzzy
 #| msgid "Host"
 msgid "Host:"
@@ -7971,7 +7978,7 @@ msgstr "主機"
 
 #: libraries/plugins/export/ExportLatex.class.php:223
 #: libraries/plugins/export/ExportSql.class.php:608
-#: libraries/plugins/export/ExportXml.class.php:196 sql.php:1023
+#: libraries/plugins/export/ExportXml.class.php:196 sql.php:1037
 #, fuzzy
 #| msgid "Generation Time"
 msgid "Generation Time:"
@@ -7988,7 +7995,7 @@ msgstr "PHP 版本"
 #: libraries/plugins/export/ExportLatex.class.php:251
 #: libraries/plugins/export/ExportSql.class.php:760
 #: libraries/plugins/export/ExportXml.class.php:390
-#: libraries/plugins/export/PMA_ExportPdf.class.php:115 sql.php:1021
+#: libraries/plugins/export/PMA_ExportPdf.class.php:115 sql.php:1035
 #, fuzzy
 #| msgid "Database"
 msgid "Database:"
@@ -8194,7 +8201,9 @@ msgid ""
 "If the data in each row of the file is not in the same order as in the "
 "database, list the corresponding column names here. Column names must be "
 "separated by commas and not enclosed in quotations."
-msgstr "若檔案每行的資料和資料庫中的順序不一致，請在此列出對應的欄位名稱。欄位名稱間用半角逗號分隔且不能用引號括起。"
+msgstr ""
+"若檔案每行的資料和資料庫中的順序不一致，請在此列出對應的欄位名稱。欄位名稱間"
+"用半角逗號分隔且不能用引號括起。"
 
 #: libraries/plugins/import/ImportCsv.class.php:81
 #: libraries/plugins/import/ImportLdi.class.php:66
@@ -8214,7 +8223,9 @@ msgstr "匯入 CSV 檔案 %s 時有無效參數"
 msgid ""
 "Invalid column (%s) specified! Ensure that columns names are spelled "
 "correctly, separated by commas, and not enclosed in quotes."
-msgstr "無效欄位 (%s)！請檢查欄位名稱是否拼寫正確，使用半角逗號分隔，並且不要用引號括起。"
+msgstr ""
+"無效欄位 (%s)！請檢查欄位名稱是否拼寫正確，使用半角逗號分隔，並且不要用引號括"
+"起。"
 
 #: libraries/plugins/import/ImportCsv.class.php:272
 #: libraries/plugins/import/ImportCsv.class.php:547
@@ -8318,10 +8329,11 @@ msgid ""
 "documentation for PHP's strftime() function and for \"utc\" it is done using "
 "gmdate() function."
 msgstr ""
-"將一個 TIME、TIMESTAMP、DATETIME 或數字 UNIX 時間戳欄位格式化顯示爲日期。第一個選項是小時偏移量，該值將加到時間戳中 "
-"(預設：0)。第二個選項用於指定時間格式字元串。第三個選項決定顯示本地時間還是 UTC 時間 "
-"(填入“local”或“utc”)，所以填“local”(參見 PHP 的 strftime() 函數檔案)和“utc”(參見 PHP 的 "
-"gmdate() 函數文檔)所到的結果是不一樣的。"
+"將一個 TIME、TIMESTAMP、DATETIME 或數字 UNIX 時間戳欄位格式化顯示爲日期。第一"
+"個選項是小時偏移量，該值將加到時間戳中 (預設：0)。第二個選項用於指定時間格式"
+"字元串。第三個選項決定顯示本地時間還是 UTC 時間 (填入“local”或“utc”)，所以"
+"填“local”(參見 PHP 的 strftime() 函數檔案)和“utc”(參見 PHP 的 gmdate() 函數文"
+"檔)所到的結果是不一樣的。"
 
 #: libraries/plugins/transformations/abstract/DownloadTransformationsPlugin.class.php:31
 msgid ""
@@ -8330,7 +8342,8 @@ msgid ""
 "of a column which contains the filename. If you use the second option, you "
 "need to set the first option to the empty string."
 msgstr ""
-"欄位中顯示一個二進制資料的下載連線。第一個選項是檔案名稱，或使用第二個選項，用資料表中的一個欄位值作爲檔案名稱。如果想使用欄位值作爲檔案名稱，第一個選項"
+"欄位中顯示一個二進制資料的下載連線。第一個選項是檔案名稱，或使用第二個選項，"
+"用資料表中的一個欄位值作爲檔案名稱。如果想使用欄位值作爲檔案名稱，第一個選項"
 "必須留空。"
 
 #: libraries/plugins/transformations/abstract/ExternalTransformationsPlugin.class.php:31
@@ -8369,13 +8382,16 @@ msgstr ""
 msgid ""
 "Displays the contents of the column as-is, without running it through "
 "htmlspecialchars(). That is, the column is assumed to contain valid HTML."
-msgstr "顯示欄位的原始內容，不使用 htmlspecialchars() 處理。即假定內容爲合法的 HTML 程式碼。"
+msgstr ""
+"顯示欄位的原始內容，不使用 htmlspecialchars() 處理。即假定內容爲合法的 HTML "
+"程式碼。"
 
 #: libraries/plugins/transformations/abstract/HexTransformationsPlugin.class.php:31
 msgid ""
 "Displays hexadecimal representation of data. Optional first parameter "
 "specifies how often space will be added (defaults to 2 nibbles)."
-msgstr "顯示十六進制的資料。第一個參數設定需要增加多少個空格 (預設值爲一個字元寬度)。"
+msgstr ""
+"顯示十六進制的資料。第一個參數設定需要增加多少個空格 (預設值爲一個字元寬度)。"
 
 #: libraries/plugins/transformations/abstract/ImageLinkTransformationsPlugin.class.php:33
 msgid "Displays a link to download this image."
@@ -8405,8 +8421,9 @@ msgid ""
 "option is the string to append and/or prepend when truncation occurs "
 "(Default: \"…\")."
 msgstr ""
-"顯示部分字元串。第一個選項定義了文字開始輸出的字數 (預設爲 0)。第二個選項是要返回的字數 "
-"(預設直到結尾)。第三個選項是當發生截取的時候，將會加在字元串之前/後的輸出 (預設爲：“…”)。"
+"顯示部分字元串。第一個選項定義了文字開始輸出的字數 (預設爲 0)。第二個選項是要"
+"返回的字數 (預設直到結尾)。第三個選項是當發生截取的時候，將會加在字元串之前/"
+"後的輸出 (預設爲：“…”)。"
 
 #: libraries/plugins/transformations/abstract/TextImageLinkTransformationsPlugin.class.php:33
 msgid ""
@@ -8414,15 +8431,17 @@ msgid ""
 "option is a URL prefix like \"http://www.example.com/\". The second and "
 "third options are the width and the height in pixels."
 msgstr ""
-"顯示圖片和連結，欄位內包含檔案名稱。第一個選項是類似“http://www.example.com/”這樣的 URL "
-"前綴。第二和第三個選項是以像素爲單位的寬度和高度。"
+"顯示圖片和連結，欄位內包含檔案名稱。第一個選項是類似“http://www.example."
+"com/”這樣的 URL 前綴。第二和第三個選項是以像素爲單位的寬度和高度。"
 
 #: libraries/plugins/transformations/abstract/TextLinkTransformationsPlugin.class.php:33
 msgid ""
 "Displays a link; the column contains the filename. The first option is a URL "
 "prefix like \"http://www.example.com/\". The second option is a title for "
 "the link."
-msgstr "顯示連結，欄位內包含檔案名稱。第一個選項是類似“http://www.example.com/”這樣的 URL 前綴。第二個選項是連結的標題。"
+msgstr ""
+"顯示連結，欄位內包含檔案名稱。第一個選項是類似“http://www.example.com/”這樣"
+"的 URL 前綴。第二個選項是連結的標題。"
 
 #: libraries/relation.lib.php:87
 msgid "not OK"
@@ -8504,8 +8523,8 @@ msgid ""
 "Enable advanced features in configuration file (<code>config.inc.php</"
 "code>), for example by starting from <code>config.sample.inc.php</code>."
 msgstr ""
-"在設定檔案 (<code>config.inc.php</code>) 中啓用進階功能，參見 "
-"<code>config.sample.inc.php</code> 中的範例。"
+"在設定檔案 (<code>config.inc.php</code>) 中啓用進階功能，參見 <code>config."
+"sample.inc.php</code> 中的範例。"
 
 #: libraries/relation.lib.php:278
 msgid "Re-login to phpMyAdmin to load the updated configuration file."
@@ -9733,7 +9752,7 @@ msgstr "清除"
 msgid "Bookmark this SQL query:"
 msgstr "將此 SQL 查詢加爲書籤"
 
-#: libraries/sql_query_form.lib.php:326 sql.php:1240
+#: libraries/sql_query_form.lib.php:326 sql.php:1254
 msgid "Let every user access this bookmark"
 msgstr "讓所有使用者均可訪問此書籤"
 
@@ -12099,17 +12118,17 @@ msgstr "顯示爲 PHP 程式碼"
 msgid "Validated SQL"
 msgstr "已校驗的 SQL"
 
-#: sql.php:1018
+#: sql.php:1032
 msgid "SQL result"
 msgstr "SQL 查詢結果"
 
-#: sql.php:1025
+#: sql.php:1039
 #, fuzzy
 #| msgid "Generated by"
 msgid "Generated by:"
 msgstr "產生者"
 
-#: sql.php:1147
+#: sql.php:1161
 #, fuzzy
 #| msgid ""
 #| "This table does not contain a unique column. Features related to the grid "
@@ -12119,16 +12138,16 @@ msgid ""
 "and Delete features are not available."
 msgstr "這個資料表不含唯一的資料欄位，跟修改、複製、刪除有關的功能可能會無效。"
 
-#: sql.php:1196
+#: sql.php:1210
 #, php-format
 msgid "Problems with indexes of table `%s`"
 msgstr "資料表 `%s` 的索引存在問題"
 
-#: sql.php:1228 sql.php:1248
+#: sql.php:1242 sql.php:1262
 msgid "Bookmark this SQL query"
 msgstr "將此 SQL 查詢加爲書籤"
 
-#: sql.php:1232
+#: sql.php:1246
 #, fuzzy
 #| msgid "Label"
 msgid "Label:"

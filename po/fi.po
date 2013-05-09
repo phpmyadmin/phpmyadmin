@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-05-07 15:39+0200\n"
+"POT-Creation-Date: 2013-05-09 08:26+0200\n"
 "PO-Revision-Date: 2013-04-06 13:51+0200\n"
 "Last-Translator: Jouni Kähkönen <asdfsdf@asdfasdfasdf.com>\n"
 "Language-Team: Finnish <http://l10n.cihar.com/projects/phpmyadmin/master/fi/"
@@ -419,7 +419,7 @@ msgstr "Päivitetty"
 
 #: db_tracking.php:83 js/messages.php:163 libraries/Menu.class.php:458
 #: libraries/rte/rte_events.lib.php:426 libraries/rte/rte_list.lib.php:78
-#: server_status.php:395 sql.php:1094 tbl_tracking.php:767
+#: server_status.php:395 sql.php:1108 tbl_tracking.php:767
 msgid "Status"
 msgstr "Tila"
 
@@ -671,7 +671,7 @@ msgstr "Tiedoston merkistöä ei voida muuttaa ilman merkistökirjastoa"
 msgid "Could not load import plugins, please check your installation!"
 msgstr "Tuontiin tarvittavaa lisäosaa ei voida tuoda, tarkista asetukset!"
 
-#: import.php:518 sql.php:305 sql.php:1156
+#: import.php:518 sql.php:305 sql.php:1170
 #, php-format
 msgid "Bookmark %s created"
 msgstr "Kirjanmerkki %s luotu"
@@ -1415,7 +1415,7 @@ msgstr "Selitä SQL-kysely"
 #: libraries/plugins/export/ExportHtmlword.class.php:484
 #: libraries/plugins/export/ExportOdt.class.php:562
 #: libraries/plugins/export/ExportTexytext.class.php:435
-#: libraries/rte/rte_list.lib.php:68 server_status.php:391 sql.php:1099
+#: libraries/rte/rte_list.lib.php:68 server_status.php:391 sql.php:1113
 msgid "Time"
 msgstr "Aika"
 
@@ -2728,7 +2728,7 @@ msgid "Check All"
 msgstr "Valitse kaikki"
 
 #: libraries/DisplayResults.class.php:5060
-#: libraries/DisplayResults.class.php:5258 libraries/Menu.class.php:279
+#: libraries/DisplayResults.class.php:5327 libraries/Menu.class.php:279
 #: libraries/Menu.class.php:366 libraries/Menu.class.php:478
 #: libraries/Util.class.php:3453 libraries/Util.class.php:3454
 #: libraries/config/messages.inc.php:162 libraries/display_export.lib.php:98
@@ -2739,33 +2739,33 @@ msgstr "Valitse kaikki"
 msgid "Export"
 msgstr "Vienti"
 
-#: libraries/DisplayResults.class.php:5158
+#: libraries/DisplayResults.class.php:5162 view_create.php:151
+msgid "Create view"
+msgstr "Luo näkymä"
+
+#: libraries/DisplayResults.class.php:5217
 msgid "Query results operations"
 msgstr "Kyselytulosten toimenpiteet"
 
-#: libraries/DisplayResults.class.php:5182 libraries/Header.class.php:334
+#: libraries/DisplayResults.class.php:5251 libraries/Header.class.php:334
 #: libraries/structure.lib.php:299 libraries/structure.lib.php:362
 #: libraries/structure.lib.php:1481
 msgid "Print view"
 msgstr "Tulostusversio"
 
-#: libraries/DisplayResults.class.php:5200
+#: libraries/DisplayResults.class.php:5269
 msgid "Print view (with full texts)"
 msgstr "Tulostusversio (kokonaisin tekstein)"
 
-#: libraries/DisplayResults.class.php:5271 tbl_chart.php:151
+#: libraries/DisplayResults.class.php:5340 tbl_chart.php:151
 msgid "Display chart"
 msgstr "Näytä kaavio"
 
-#: libraries/DisplayResults.class.php:5296
+#: libraries/DisplayResults.class.php:5365
 msgid "Visualize GIS data"
 msgstr ""
 
-#: libraries/DisplayResults.class.php:5328 view_create.php:151
-msgid "Create view"
-msgstr "Luo näkymä"
-
-#: libraries/DisplayResults.class.php:5517
+#: libraries/DisplayResults.class.php:5573
 msgid "Link not found"
 msgstr "Linkkiä ei löydy"
 
@@ -3688,7 +3688,7 @@ msgstr ""
 msgid "Max: %s%s"
 msgstr "Enimmäiskoko: %s%s"
 
-#: libraries/Util.class.php:674 sql.php:1026
+#: libraries/Util.class.php:674 sql.php:1040
 #, fuzzy
 #| msgid "SQL query"
 msgid "SQL query:"
@@ -3749,7 +3749,7 @@ msgctxt "Inline edit query"
 msgid "Inline"
 msgstr "Muokkaus"
 
-#: libraries/Util.class.php:1432 sql.php:1090
+#: libraries/Util.class.php:1432 sql.php:1104
 msgid "Profiling"
 msgstr "Profilointi"
 
@@ -6570,7 +6570,7 @@ msgstr "Tietokanta(-kannat):"
 msgid "Table(s):"
 msgstr "Taulu(t):"
 
-#: libraries/display_export.lib.php:164 sql.php:1030
+#: libraries/display_export.lib.php:164 sql.php:1044
 msgid "Rows:"
 msgstr "Rivit:"
 
@@ -8159,7 +8159,7 @@ msgstr "Aseta sarakkeiden nimet ensimmäiselle riville"
 #: libraries/plugins/export/ExportSql.class.php:601
 #: libraries/plugins/export/ExportXml.class.php:191
 #: libraries/replication_gui.lib.php:68 libraries/replication_gui.lib.php:293
-#: libraries/server_privileges.lib.php:1081 sql.php:1020
+#: libraries/server_privileges.lib.php:1081 sql.php:1034
 #, fuzzy
 #| msgid "Host"
 msgid "Host:"
@@ -8167,7 +8167,7 @@ msgstr "Palvelin"
 
 #: libraries/plugins/export/ExportLatex.class.php:223
 #: libraries/plugins/export/ExportSql.class.php:608
-#: libraries/plugins/export/ExportXml.class.php:196 sql.php:1023
+#: libraries/plugins/export/ExportXml.class.php:196 sql.php:1037
 #, fuzzy
 #| msgid "Generation Time"
 msgid "Generation Time:"
@@ -8184,7 +8184,7 @@ msgstr "PHP:n versio"
 #: libraries/plugins/export/ExportLatex.class.php:251
 #: libraries/plugins/export/ExportSql.class.php:760
 #: libraries/plugins/export/ExportXml.class.php:390
-#: libraries/plugins/export/PMA_ExportPdf.class.php:115 sql.php:1021
+#: libraries/plugins/export/PMA_ExportPdf.class.php:115 sql.php:1035
 #, fuzzy
 #| msgid "Database"
 msgid "Database:"
@@ -10036,7 +10036,7 @@ msgstr "Tyhjennä"
 msgid "Bookmark this SQL query:"
 msgstr "Tallenna SQL-kysely"
 
-#: libraries/sql_query_form.lib.php:326 sql.php:1240
+#: libraries/sql_query_form.lib.php:326 sql.php:1254
 msgid "Let every user access this bookmark"
 msgstr "Anna kaikkien käyttäjien käyttää tätä kirjanmerkkiä"
 
@@ -12646,17 +12646,17 @@ msgstr "Näytetään PHP-koodina"
 msgid "Validated SQL"
 msgstr "Tarkista SQL-lause"
 
-#: sql.php:1018
+#: sql.php:1032
 msgid "SQL result"
 msgstr "SQL-kyselyn tulos"
 
-#: sql.php:1025
+#: sql.php:1039
 #, fuzzy
 #| msgid "Generated by"
 msgid "Generated by:"
 msgstr "Luontiympäristö"
 
-#: sql.php:1147
+#: sql.php:1161
 #, fuzzy
 #| msgid ""
 #| "This table does not contain a unique column. Features related to the grid "
@@ -12669,16 +12669,16 @@ msgstr ""
 "valintaneliöihin, Muokkaa-, Kopioi- ja Poista-linkkeihin liittyvät "
 "ominaisuudet eivät ehkä ole toiminnassa tallennuksen jälkeen."
 
-#: sql.php:1196
+#: sql.php:1210
 #, php-format
 msgid "Problems with indexes of table `%s`"
 msgstr "Taulun \"%s\" indeksien kanssa on ongelmia"
 
-#: sql.php:1228 sql.php:1248
+#: sql.php:1242 sql.php:1262
 msgid "Bookmark this SQL query"
 msgstr "Tallenna SQL-kysely"
 
-#: sql.php:1232
+#: sql.php:1246
 #, fuzzy
 #| msgid "Label"
 msgid "Label:"
