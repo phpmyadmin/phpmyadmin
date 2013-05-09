@@ -1,0 +1,52 @@
+<!DOCTYPE html> 
+<html>
+<head>
+<meta charset="utf-8">
+<title>jQuery Mobile Web App</title>
+<link href="jquery-mobile/jquery.mobile.theme-1.0.min.css" rel="stylesheet" type="text/css"/>
+<link href="jquery-mobile/jquery.mobile.structure-1.0.min.css" rel="stylesheet" type="text/css"/>
+<script src="jquery-mobile/jquery-1.6.4.min.js" type="text/javascript"></script>
+<script src="jquery-mobile/jquery.mobile-1.0.min.js" type="text/javascript"></script>
+
+<script>
+$(document).bind('deviceready', function(){
+	$('#button').bind('touchstart', function(){
+		navigator.camera.getPicture(function(data){
+			$('.capture')
+			.attr('src', 'data:image/jpeg;base64,' +data)
+			.css('visibility', 'visible');
+			}, function(error){
+				console.log('There was an error');
+				},
+				{
+					destinationType: Camera.DestinationType.DATA_URL,
+					sourceType: Camera.PictureSourceType.CAMERA,
+					allowEdit: false,
+					targetWidth: 135,
+					targetHeight: 135
+					
+					});
+		});
+});
+</script>
+</head> 
+<body> 
+
+<div data-role="page" id="page">
+	<div data-role="header">
+		<h1>The Test Page</h1>
+	</div>
+	<div data-role="content">	
+				
+	  <img id="display_pic" class="capture" /> 
+      
+	</div>
+	<div data-role="footer">
+		<h4><button id="button">Camera</button></h4>
+	</div>
+</div>
+
+
+
+</body>
+</html>
