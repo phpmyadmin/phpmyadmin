@@ -27,7 +27,7 @@ exit;
 
 
 /**
- * Prints server Engines information
+ * setup HTML for server Engines information
  *
  * @param null
  *
@@ -51,7 +51,7 @@ function PMA_getServerEnginesHtml()
 }
 
 /**
- * Prints server all Engines information
+ * setup HTML for server all Engines information
  *
  * @param null
  *
@@ -106,7 +106,7 @@ function PMA_getAllServerEnginesHtml()
 }
 
 /**
- * Prints a given Storage Engine
+ * setup HTML for a given Storage Engine
  *
  * @param null
  *
