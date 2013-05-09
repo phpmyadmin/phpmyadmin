@@ -360,11 +360,25 @@ class Node
     public function getData($type, $pos, $searchClause = '')
     {
         // @todo obey the DisableIS directive
-        $query  = "SELECT `SCHEMA_NAME` ";
-        $query .= "FROM `INFORMATION_SCHEMA`.`SCHEMATA` ";
-        $query .= $this->_getWhereClause($searchClause); 
+        $query  = "SELECT ";
+        
+        if ($GLOBALS['cfg']['Server']['CountTables'] === true)
+        {
+			$query .= "CONCAT(`TABLE_SCHEMA`, \" (\", COUNT(`TABLE_NAME`),\")\") AS `SCHEMA_NAME` ";
+			$query .= "FROM `INFORMATION_SCHEMA`.`TABLES` ";
+			$query .= $this->_getWhereClause($searchClause); 
+			$query .= "GROUP BY TABLE_SCHEMA ";
+		}
+		else
+		{
+			$query .= "`SCHEMA_NAME` ";
+			$query .= "FROM `INFORMATION_SCHEMA`.`SCHEMATA` ";
+			$query .= $this->_getWhereClause($searchClause); 
+		}
+        
         $query .= "ORDER BY `SCHEMA_NAME` ASC ";
         $query .= "LIMIT $pos, {$GLOBALS['cfg']['MaxNavigationItems']}";
+                
         return PMA_DBI_fetchResult($query);
     }
 
