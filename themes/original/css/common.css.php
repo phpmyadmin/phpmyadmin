@@ -772,12 +772,6 @@ ul#topmenu2 a.tabactive {
 ul#topmenu > li.active {
      border-bottom:      1pt solid <?php echo $GLOBALS['cfg']['MainBackground']; ?>;
 }
-
-/* disabled tabs */
-ul#topmenu span.tab,
-a.error {
-    cursor:             url(<?php echo $_SESSION['PMA_Theme']->getImgPath('error.ico');?>), default;
-}
 /* end topmenu */
 
 /* zoom search */
