@@ -356,7 +356,7 @@ class AuthenticationCookie extends AuthenticationPlugin
            && $GLOBALS['cfg']['Servers'][$GLOBALS['url_params']['server']]['captchaLogin']
         ) {
             if (  !empty($_POST["recaptcha_challenge_field"])
-               && !empty( $_POST["recaptcha_response_field"])
+               && !empty($_POST["recaptcha_response_field"])
             ) {
                 require_once('libraries/plugins/auth/recaptchalib.php');
 
@@ -370,13 +370,17 @@ class AuthenticationCookie extends AuthenticationPlugin
 
                 // Check if the captcha entered is valid, if not stop the login.
                 if ( !$resp->is_valid ) {
-                    return false;
+                    echo "Invalid captcha!";
+                    $_SESSION['last_valid_captcha'] = false;
+                } else {
+                    $_SESSION['last_valid_captcha'] = true;
                 }
             } else {
-                // Check if the user wants to login without entered captcha.
+                if ( !isset($_SESSION['last_valid_captcha']) || !$_SESSION['last_valid_captcha'] )
+                    return false;
             }
         }
-        
+
         if (! empty($_REQUEST['old_usr'])) {
             // The user wants to be logged out
             // -> delete his choices that were stored in session
