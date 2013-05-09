@@ -164,7 +164,7 @@ function getServerStateGeneralInfoHtml($ServerStatusData)
  */
 function getServerStateTrafficHtml($ServerStatusData)
 {   
-    $retval = '<table id="serverstatustraffic" class="data noclick">';
+    $retval  = '<table id="serverstatustraffic" class="data noclick">';
     $retval .= '<thead>';
     $retval .= '<tr>';
     $retval .= '<th colspan="2">';
@@ -252,7 +252,7 @@ function getServerStateTrafficHtml($ServerStatusData)
  */
 function getServerStateConnectionsHtml($ServerStatusData)
 {
-    $retval = '<table id="serverstatusconnections" class="data noclick">';
+    $retval  = '<table id="serverstatusconnections" class="data noclick">';
     $retval .= '<thead>';
     $retval .= '<tr>';
     $retval .= '<th colspan="2">' . __('Connections') . '</th>';
@@ -433,7 +433,7 @@ function getTableProcesslistHtml($ServerStatusData)
 
     $result = PMA_DBI_query($sql_query);
     
-    $retval = '<table id="tableprocesslist" class="data clearfloat noclick sortable">';
+    $retval  = '<table id="tableprocesslist" class="data clearfloat noclick sortable">';
     $retval .= '<thead>';
     $retval .= '<tr>';
     $retval .= '<th>' . __('Processes') . '</th>';
