@@ -1,0 +1,49 @@
+#!/bin/sh
+# vim: expandtab sw=4 ts=4 sts=4:
+export LC_ALL=C
+
+# Exit on failure
+set -e
+
+# Update pot (template), ensure that advisor is at the end
+LOCS=`ls po/*.po | sed 's@.*/\(.*\)\.po@\1@'`
+xgettext \
+    -d phpmyadmin \
+    --msgid-bugs-address=phpmyadmin-devel@lists.sourceforge.net \
+    -o po/phpmyadmin.pot \
+    --language=PHP \
+    --add-comments=l10n \
+    --add-location \
+    --debug \
+    --from-code=utf-8 \
+    --keyword=__ --keyword=_pgettext:1c,2 --keyword=_ngettext:1,2 \
+    --copyright-holder="phpMyAdmin devel team" \
+    `find . -name '*.php' -not -path './test/*' -not -path './po/*' -not -path './release/*' | sort`
+
+# Generate PHP code for advisor rules
+php ./scripts/advisor2po >> po/phpmyadmin.pot
+
+ver=`sed -n "/PMA_VERSION', '/ s/.*PMA_VERSION', '\(.*\)'.*/\1/p" libraries/Config.class.php`
+
+sed -i '
+    s/SOME DESCRIPTIVE TITLE/phpMyAdmin translation/;
+    s/PACKAGE/phpMyAdmin/;
+    s/(C) YEAR/(C) 2003 - '`date +%Y`'/;
+    s/VERSION/'$ver'/;
+    ' po/phpmyadmin.pot
+
+# Update po files (translations)
+for loc in $LOCS ; do
+    sed -i '
+        s/SOME DESCRIPTIVE TITLE/phpMyAdmin translation/;
+        s/PACKAGE/phpMyAdmin/;
+        s/(C) YEAR/(C) 2003 - '`date +%Y`'/;
+        s/VERSION/'$ver'/;
+        s/Project-Id-Version: phpMyAdmin .*/Project-Id-Version: phpMyAdmin '$ver'\\n"/;
+        ' po/$loc.po
+    msgmerge --previous -U po/$loc.po po/phpmyadmin.pot
+done
+
+# Commit changes
+git add po/*.po po/phpmyadmin.pot
+git commit -m 'Update po files'

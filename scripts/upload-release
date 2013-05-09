@@ -1,0 +1,34 @@
+#!/bin/sh
+
+set -e
+set -u
+
+if [ $# -lt 2 ] ; then
+    echo 'Usage: upload-release USERNAME VERSION [DIR]'
+    echo 'Must be called in directory with binaries or with path'
+    exit 1
+fi
+USER=$1
+REL=$2
+
+if [ $# -gt 2 ] ; then
+    cd "$3"
+fi
+
+sftp $USER,phpmyadmin@frs.sourceforge.net <<EOT
+cd /home/frs/project/p/ph/phpmyadmin/phpMyAdmin
+mkdir $REL
+cd $REL
+put phpMyAdmin-$REL-all-languages.tar.bz2
+put phpMyAdmin-$REL-english.tar.bz2
+put phpMyAdmin-$REL-all-languages.tar.xz
+put phpMyAdmin-$REL-english.tar.xz
+put phpMyAdmin-$REL-all-languages.tar.gz
+put phpMyAdmin-$REL-english.tar.gz
+put phpMyAdmin-$REL-all-languages.zip	
+put phpMyAdmin-$REL-english.zip
+put phpMyAdmin-$REL-all-languages.7z	
+put phpMyAdmin-$REL-english.7z
+put phpMyAdmin-$REL-notes.html
+EOT
+
