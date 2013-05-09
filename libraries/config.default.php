@@ -394,6 +394,15 @@ $cfg['Servers'][$i]['tracking'] = '';
 $cfg['Servers'][$i]['userconfig'] = '';
 
 /**
+ * table to store user Information
+ *   - leave blank for no User details
+ *     SUGGESTED: 'pma__user_info'
+ *
+ * @global string $cfg['Servers'][$i]['userinfo']
+ */
+$cfg['Servers'][$i]['userinfo'] = '';
+
+/**
  * Maximum number of records saved in $cfg['Servers'][$i]['table_uiprefs'] table.
  *
  * In case where tables in databases is modified (e.g. dropped or renamed),

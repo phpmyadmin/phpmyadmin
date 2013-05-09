@@ -57,6 +57,7 @@ $cfg['Servers'][$i]['AllowNoPassword'] = false;
 // $cfg['Servers'][$i]['tracking'] = 'pma__tracking';
 // $cfg['Servers'][$i]['designer_coords'] = 'pma__designer_coords';
 // $cfg['Servers'][$i]['userconfig'] = 'pma__userconfig';
+// $cfg['Servers'][$i]['userinfo'] = 'pma__user_info';
 // $cfg['Servers'][$i]['recent'] = 'pma__recent';
 /* Contrib / Swekey authentication */
 // $cfg['Servers'][$i]['auth_swekey_config'] = '/etc/swekey-pma.conf';

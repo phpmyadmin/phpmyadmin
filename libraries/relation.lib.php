@@ -240,6 +240,17 @@ function PMA_getRelationsParamDiagnostic($cfgRelation)
             $messages
         );
         $retval .= PMA_getDiagMessageForParameter(
+            'userinfo',
+            isset($cfgRelation['userinfo']),
+            $messages,
+            'userinfo'
+        );
+        $retval .= PMA_getDiagMessageForFeature(
+            __('userinfo'),
+            'userinfowork',
+            $messages
+        );
+        $retval .= PMA_getDiagMessageForParameter(
             'userconfig',
             isset($cfgRelation['userconfig']),
             $messages,
@@ -359,6 +370,7 @@ function PMA__getRelationsParam()
     $cfgRelation['trackingwork'] = false;
     $cfgRelation['designerwork'] = false;
     $cfgRelation['userconfigwork'] = false;
+    $cfgRelation['userinfowork'] = false;
     $cfgRelation['allworks']    = false;
     $cfgRelation['user']        = null;
     $cfgRelation['db']          = null;
@@ -420,6 +432,8 @@ function PMA__getRelationsParam()
             $cfgRelation['tracking'] = $curr_table[0];
         } elseif ($curr_table[0] == $GLOBALS['cfg']['Server']['userconfig']) {
             $cfgRelation['userconfig'] = $curr_table[0];
+        } elseif ($curr_table[0] == $GLOBALS['cfg']['Server']['userinfo']) {
+            $cfgRelation['userinfo'] = $curr_table[0];
         }
     } // end while
     PMA_DBI_free_result($tab_rs);
@@ -458,6 +472,10 @@ function PMA__getRelationsParam()
 
     if (isset($cfgRelation['userconfig'])) {
         $cfgRelation['userconfigwork']   = true;
+    }
+    
+    if (isset($cfgRelation['userinfo'])) {
+        $cfgRelation['userinfowork']   = true;
     }
 
     // we do not absolutely need that the internal relations or the PDF

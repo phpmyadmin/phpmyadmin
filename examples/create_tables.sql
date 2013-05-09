@@ -239,3 +239,19 @@ CREATE TABLE IF NOT EXISTS `pma__userconfig` (
 )
   ENGINE=MyISAM COMMENT='User preferences storage for phpMyAdmin'
   DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;
+  
+-- ---------------------------------------------------------
+
+--
+-- Table structure for table 'pma__user_info'
+--
+
+CREATE TABLE IF NOT EXISTS `pma__user_info` (
+  `user` varchar(64) COLLATE utf8_bin NOT NULL,
+  `host` varchar(64) COLLATE utf8_bin NOT NULL,
+  `full_name` varchar(100) COLLATE utf8_bin NOT NULL,
+  `user_desc` tinytext COLLATE utf8_bin,
+  `user_mail` varchar(64) COLLATE utf8_bin DEFAULT NULL,
+  `user_contact` varchar(20) COLLATE utf8_bin DEFAULT NULL,
+  `user_icon` blob
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='User Information Storage for phpMyAdmin';
