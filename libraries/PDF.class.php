@@ -9,7 +9,7 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
-require_once './libraries/tcpdf/tcpdf.php';
+require_once TCPDF_INC;
 
 /**
  * PDF font to use.
