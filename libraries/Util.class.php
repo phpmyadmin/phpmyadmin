@@ -1765,15 +1765,9 @@ class PMA_Util
             ) {
                 $tab['class'] = 'active';
             } elseif (is_null($tab['active']) && empty($GLOBALS['active_page'])
-              && (basename($GLOBALS['PMA_PHP_SELF']) == $tab['link'])
-              && empty($tab['warning'])) {
+              && (basename($GLOBALS['PMA_PHP_SELF']) == $tab['link'])) {
                 $tab['class'] = 'active';
             }
-        }
-
-        if (! empty($tab['warning'])) {
-            $tab['class'] .= ' error';
-            $tab['attr'] .= ' title="' . htmlspecialchars($tab['warning']) . '"';
         }
 
         // If there are any tab specific URL parameters, merge those with

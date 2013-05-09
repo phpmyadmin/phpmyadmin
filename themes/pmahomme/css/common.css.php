@@ -1022,13 +1022,6 @@ ul#topmenu > li.active {
     /* border-bottom: 0pt solid <?php echo $GLOBALS['cfg']['MainBackground']; ?>; */
     border-right: 0;
 }
-
-/* disabled tabs */
-ul#topmenu span.tab,
-a.error {
-    cursor: url(<?php echo $_SESSION['PMA_Theme']->getImgPath('error.ico');?>), default;
-    color: #ccc;
-}
 /* end topmenu */
 
 /* zoom search */
