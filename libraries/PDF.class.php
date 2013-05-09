@@ -45,7 +45,6 @@ class PMA_PDF extends TCPDF
     ) {
         parent::__construct();
         $this->SetAuthor('phpMyAdmin ' . PMA_VERSION);
-        $this->AliasNbPages();
         $this->AddFont('DejaVuSans', '', 'dejavusans.php');
         $this->AddFont('DejaVuSans', 'B', 'dejavusansb.php');
         $this->SetFont(PMA_PDF_FONT, '', 14);
@@ -70,6 +69,17 @@ class PMA_PDF extends TCPDF
             // set footerset
             $this->footerset[$this->page] = 1;
         }
+    }
+
+    /**
+     * Function to test an empty string (was in tcpdf < 6.0)
+     *
+     * @param string $str to test
+     *
+     * @return boolean
+     */
+    public function empty_string($str) {
+            return (is_null($str) OR (is_string($str) AND (strlen($str) == 0)));
     }
 
     /**
