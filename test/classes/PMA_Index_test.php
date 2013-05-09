@@ -18,7 +18,7 @@ require_once 'libraries/Index.class.php';
  */
 class PMA_Index_Test extends PHPUnit_Framework_TestCase
 {
-    protected $params;
+    $params = array();
 
     /**
      * Configures parameters.
@@ -27,7 +27,6 @@ class PMA_Index_Test extends PHPUnit_Framework_TestCase
      */
     function setup()
     {
-        $params = array();
         $params['columns'] = "PMA_columns";
         $params['Schema'] = "PMA_Schema";
         $params['Table'] = "PMA_Table";
@@ -44,7 +43,7 @@ class PMA_Index_Test extends PHPUnit_Framework_TestCase
      *
      * @return void
      */
-    public function testConstructor()
+    function testConstructor()
     {
         $index = new PMA_Index($params);
         $this->assertEquals(
