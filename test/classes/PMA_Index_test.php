@@ -27,16 +27,16 @@ class PMA_Index_Test extends PHPUnit_Framework_TestCase
      */
     function setup()
     {
-		$params = array();
-		$params['columns'] = "PMA_columns";
-		$params['Schema'] = "PMA_Schema";
-		$params['Table'] = "PMA_Table";
-		$params['Key_name'] = "PMA_Key_name";
-		$params['Index_type'] = "PMA_Index_type";
-		$params['Comment'] = "PMA_Comment";
-		$params['Index_comment'] = "PMA_Index_comment";
-		$params['Non_unique'] = "PMA_Non_unique";
-		$params['Packed'] = "PMA_Packed";
+        $params = array();
+        $params['columns'] = "PMA_columns";
+        $params['Schema'] = "PMA_Schema";
+        $params['Table'] = "PMA_Table";
+        $params['Key_name'] = "PMA_Key_name";
+        $params['Index_type'] = "PMA_Index_type";
+        $params['Comment'] = "PMA_Comment";
+        $params['Index_comment'] = "PMA_Index_comment";
+        $params['Non_unique'] = "PMA_Non_unique";
+        $params['Packed'] = "PMA_Packed";
     }
 
     /**
