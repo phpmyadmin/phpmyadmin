@@ -933,7 +933,7 @@ class PMA_DisplayResults
             __('Headers every %s rows'),
             '<input type="text" size="3" name="repeat_cells" value="'
             . $_SESSION['tmp_user_values']['repeat_cells']
-            . '" class="textfield" /> '
+            . '" class="textfield" onfocus="this.select()" /> '
         );
 
         return $additional_fields_html;
