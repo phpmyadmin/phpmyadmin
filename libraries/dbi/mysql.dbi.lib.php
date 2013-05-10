@@ -167,7 +167,7 @@ function PMA_DBI_connect(
         // server, for example in the Synchronize feature, so do not
         // go back to main login if it fails
         if (! $auxiliary_connection) {
-            PMA_log_user($user, 'mysql-denied');
+            PMA_logUser($user, 'mysql-denied');
             global $auth_plugin;
             $auth_plugin->authFails();
         } else {
