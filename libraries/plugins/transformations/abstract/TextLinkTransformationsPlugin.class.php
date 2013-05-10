@@ -58,12 +58,10 @@ abstract class TextLinkTransformationsPlugin extends TransformationsPlugin
                 . '</a>'
         );
 
-        $buffer = PMA_transformation_global_html_replace(
+        return PMA_transformation_global_html_replace(
             $buffer,
             $transform_options
         );
-
-        return $buffer;
     }
 
     /**

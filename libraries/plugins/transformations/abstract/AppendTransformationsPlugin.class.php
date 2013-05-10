@@ -49,9 +49,7 @@ abstract class AppendTransformationsPlugin extends TransformationsPlugin
             $options[0] = '';
         }
         //just append the option to the original text
-        $newtext = $buffer . htmlspecialchars($options[0]);
-
-        return $newtext;
+        return $buffer . htmlspecialchars($options[0]);
     }
 
     /**

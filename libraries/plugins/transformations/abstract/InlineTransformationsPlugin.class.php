@@ -63,12 +63,10 @@ abstract class InlineTransformationsPlugin extends TransformationsPlugin
                 . '" alt="[__BUFFER__]" width="320" height="240" />'
             );
         }
-        $buffer = PMA_transformation_global_html_replace(
+        return PMA_transformation_global_html_replace(
             $buffer,
             $transform_options
         );
-
-        return $buffer;
     }
 
     /**

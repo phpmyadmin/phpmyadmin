@@ -49,12 +49,10 @@ abstract class ImageLinkTransformationsPlugin extends TransformationsPlugin
             'string' => '<a href="transformation_wrapper.php'
                 . $options['wrapper_link'] . '" alt="[__BUFFER__]">[BLOB]</a>'
         );
-        $buffer = PMA_transformation_global_html_replace(
+        return PMA_transformation_global_html_replace(
             $buffer,
             $transform_options
         );
-
-        return $buffer;
     }
 
     /**
