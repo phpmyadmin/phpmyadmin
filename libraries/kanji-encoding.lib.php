@@ -20,14 +20,13 @@ if (! defined('PHPMYADMIN')) {
  * codes list
  * 2002/1/4 by Y.Kawada
  *
- * @global  string   the current encoding code
  * @global  string   the available encoding codes list
  *
  * @return boolean  always true
  */
 function PMA_Kanji_checkEncoding()
 {
-    global $internal_enc, $enc_list;
+    global $enc_list;
 
     $internal_enc = mb_internal_encoding();
     if ($internal_enc == 'EUC-JP') {
