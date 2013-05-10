@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-05-10 10:24+0200\n"
-"PO-Revision-Date: 2013-05-03 15:29+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Portuguese <http://l10n.cihar.com/projects/phpmyadmin/master/"
-"pt/>\n"
+"PO-Revision-Date: 2013-05-11 00:09+0200\n"
+"Last-Translator: JP KAN <jpkk69@gmail.com>\n"
+"Language-Team: Portuguese "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/pt/>\n"
 "Language: pt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -41,10 +41,9 @@ msgstr ""
 "browser encontram-se definidas para não permitir actualizações entre janelas."
 
 #: browse_foreigners.php:166
-#, fuzzy
 #| msgid "Search"
 msgid "Search:"
-msgstr "Pesquisar"
+msgstr "Pesquisar:"
 
 #: browse_foreigners.php:170 gis_data_editor.php:396 js/messages.php:209
 #: libraries/DbSearch.class.php:455 libraries/DisplayResults.class.php:1657
@@ -342,24 +341,21 @@ msgstr "em uso"
 
 #: db_printview.php:185 libraries/plugins/export/ExportSql.class.php:946
 #: libraries/schema/Pdf_Relation_Schema.class.php:1337
-#, fuzzy
 #| msgid "Creation"
 msgid "Creation:"
-msgstr "Criação"
+msgstr "Criação:"
 
 #: db_printview.php:194 libraries/plugins/export/ExportSql.class.php:959
 #: libraries/schema/Pdf_Relation_Schema.class.php:1342
-#, fuzzy
 #| msgid "Last update"
 msgid "Last update:"
-msgstr "Última actualização"
+msgstr "Última atualização:"
 
 #: db_printview.php:203 libraries/plugins/export/ExportSql.class.php:972
 #: libraries/schema/Pdf_Relation_Schema.class.php:1347
-#, fuzzy
 #| msgid "Last check"
 msgid "Last check:"
-msgstr "Última Verificação"
+msgstr "Última Verificação:"
 
 #: db_printview.php:220 libraries/structure.lib.php:176
 #, php-format
@@ -529,10 +525,9 @@ msgid "Use OpenStreetMaps as Base Layer"
 msgstr "Usar OpenStreetMaps como camada base"
 
 #: gis_data_editor.php:161
-#, fuzzy
 #| msgid "SRID"
 msgid "SRID:"
-msgstr "SRID"
+msgstr "SRID:"
 
 #: gis_data_editor.php:184
 #, fuzzy, php-format
@@ -541,10 +536,9 @@ msgid "Geometry %d:"
 msgstr "Geometria"
 
 #: gis_data_editor.php:206
-#, fuzzy
 #| msgid "Point"
 msgid "Point:"
-msgstr "Ponto"
+msgstr "Ponto:"
 
 #: gis_data_editor.php:207 gis_data_editor.php:234 gis_data_editor.php:289
 #: gis_data_editor.php:362 js/messages.php:300
