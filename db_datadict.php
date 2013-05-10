@@ -97,17 +97,17 @@ foreach ($tables as $table) {
             $indexes[] = $row['Key_name'];
             $lastIndex = $row['Key_name'];
         }
-        $indexes_info[$row['Key_name']]['Sequences'][]     = $row['Seq_in_index'];
-        $indexes_info[$row['Key_name']]['Non_unique']      = $row['Non_unique'];
+        $indexes_info[$row['Key_name']]['Sequences'][] = $row['Seq_in_index'];
+        $indexes_info[$row['Key_name']]['Non_unique'] = $row['Non_unique'];
         if (isset($row['Cardinality'])) {
             $indexes_info[$row['Key_name']]['Cardinality'] = $row['Cardinality'];
         }
         // I don't know what does following column mean....
         // $indexes_info[$row['Key_name']]['Packed']          = $row['Packed'];
 
-        $indexes_info[$row['Key_name']]['Comment']     = $row['Comment'];
+        $indexes_info[$row['Key_name']]['Comment'] = $row['Comment'];
 
-        $indexes_data[$row['Key_name']][$row['Seq_in_index']]['Column_name']  = $row['Column_name'];
+        $indexes_data[$row['Key_name']][$row['Seq_in_index']]['Column_name'] = $row['Column_name'];
         if (isset($row['Sub_part'])) {
             $indexes_data[$row['Key_name']][$row['Seq_in_index']]['Sub_part'] = $row['Sub_part'];
         }
@@ -155,7 +155,8 @@ foreach ($tables as $table) {
      * Displays the comments of the table if MySQL >= 3.23
      */
     if (!empty($show_comment)) {
-        echo __('Table comments:') . ' ' . htmlspecialchars($show_comment) . '<br /><br />';
+        echo __('Table comments:') . ' ';
+        echo htmlspecialchars($show_comment) . '<br /><br />';
     }
 
     /**
@@ -186,7 +187,9 @@ foreach ($tables as $table) {
 
         // reformat mysql query output
         // set or enum types: slashes single quotes inside options
-        if ('set' == $extracted_columnspec['type'] || 'enum' == $extracted_columnspec['type']) {
+        if ('set' == $extracted_columnspec['type']
+            || 'enum' == $extracted_columnspec['type']
+        ) {
             $type_nowrap  = '';
 
         } else {
@@ -208,9 +211,9 @@ foreach ($tables as $table) {
             && $analyzed_sql[0]['create_table_fields'][$field_name]['type'] == 'TIMESTAMP'
             && $analyzed_sql[0]['create_table_fields'][$field_name]['timestamp_not_null']
         ) {
-            // here, we have a TIMESTAMP that SHOW FULL COLUMNS reports as having the
-            // NULL attribute, but SHOW CREATE TABLE says the contrary. Believe
-            // the latter.
+            // here, we have a TIMESTAMP that SHOW FULL COLUMNS reports as
+            // having the NULL attribute, but SHOW CREATE TABLE says the
+            // contrary. Believe the latter.
             /**
              * @todo merge this logic with the one in tbl_structure.php
              * or move it in a function similar to PMA_DBI_getColumnsFull()
@@ -231,7 +234,9 @@ foreach ($tables as $table) {
         }
         echo '</td>';
         echo '<td' . $type_nowrap . ' lang="en" dir="ltr">' . $type . '</td>';
-        echo '<td>' . (($row['Null'] == 'NO') ? __('No') : __('Yes')) . '</td>';
+        echo '<td>';
+        echo (($row['Null'] == 'NO') ? __('No') : __('Yes'));
+        echo '</td>';
         echo '<td class="nowrap">';
         if (isset($row['Default'])) {
             echo $row['Default'];
@@ -241,7 +246,11 @@ foreach ($tables as $table) {
         if ($have_rel) {
             echo '    <td>';
             if (isset($res_rel[$field_name])) {
-                echo htmlspecialchars($res_rel[$field_name]['foreign_table'] . ' -> ' . $res_rel[$field_name]['foreign_field']);
+                echo htmlspecialchars(
+                    $res_rel[$field_name]['foreign_table']
+                    . ' -> '
+                    . $res_rel[$field_name]['foreign_field']
+                );
             }
             echo '</td>' . "\n";
         }
@@ -255,7 +264,9 @@ foreach ($tables as $table) {
 
             echo '    <td>';
             if (isset($mime_map[$field_name])) {
-                echo htmlspecialchars(str_replace('_', '/', $mime_map[$field_name]['mimetype']));
+                echo htmlspecialchars(
+                    str_replace('_', '/', $mime_map[$field_name]['mimetype'])
+                );
             }
             echo '</td>' . "\n";
         }
