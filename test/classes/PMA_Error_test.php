@@ -13,6 +13,11 @@ require_once 'libraries/Error.class.php';
 require_once 'libraries/Message.class.php';
 require_once 'libraries/sanitizing.lib.php';
 
+/**
+ * Erorr class testing.
+ *
+ * @package PhpMyAdmin-test
+ */
 class PMA_Error_Test extends PHPUnit_Framework_TestCase
 {
     /**

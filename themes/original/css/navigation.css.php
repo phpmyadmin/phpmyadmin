@@ -21,6 +21,7 @@ if (! defined('PMA_MINIMUM_COMMON') && ! defined('TESTSUITE')) {
     color: <?php echo $GLOBALS['cfg']['NaviColor']; ?>;
     width: <?php echo $GLOBALS['cfg']['NaviWidth']; ?>px;
     overflow: hidden;
+    overflow-y: auto;
     position: fixed;
     top: 0;
     <?php echo $left; ?>: 0;

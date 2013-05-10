@@ -8,16 +8,13 @@ http://sourceforge.net/donate/index.php?group_id=128076
 ------------------------------------------------------------
 
 Name: TCPDF
-Version: 5.9.207
-Release date: 2013-03-04
+Version: 6.0.012
+Release date: 2013-04-24
 Author:	Nicola Asuni
 
 Copyright (c) 2002-2013:
 	Nicola Asuni
 	Tecnick.com LTD
-	Manor Coach House, Church Hill
-	Aldershot, Hants, GU12 4RQ
-	UK
 	www.tecnick.com
 
 URLs:
@@ -26,6 +23,8 @@ URLs:
 
 Description:
 	TCPDF is a PHP class for generating PDF files on-the-fly without requiring external extensions.
+	This library includes also a class to extract data from existing PDF documents and
+	classes to generate 1D and 2D barcodes in various formats.
 
 Main Features:
     * no external libraries are required for the basic functions;

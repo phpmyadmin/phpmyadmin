@@ -144,7 +144,7 @@ function PMA_DBI_connect($user, $password, $is_controluser = false,
         // server, for example in the Synchronize feature, so do not
         // go back to main login if it fails
         if (! $auxiliary_connection) {
-            PMA_log_user($user, 'drizzle-denied');
+            PMA_logUser($user, 'drizzle-denied');
             global $auth_plugin;
             $auth_plugin->authFails();
         } else {

@@ -452,7 +452,7 @@ $links .= '</div>';
  */
 $response->addHTML('<div>');
 $response->addHTML($ServerStatusData->getMenuHtml());
-$response->addHTML(getPrintMonitorHtml($ServerStatusData));
+$response->addHTML(PMA_getMonitorHtml($ServerStatusData));
 $response->addHTML($form);
 $response->addHTML($links);
 $response->addHTML('</div>');
@@ -465,9 +465,9 @@ exit;
  *
  * @return string
  */
-function getPrintMonitorHtml($ServerStatusData)
+function PMA_getMonitorHtml($ServerStatusData)
 {
-    $retval = getTabLinksHtml();
+    $retval = PMA_getTabLinksHtml();
     $retval .= getPopContentHtml();
 
     $retval .= '<div id="monitorInstructionsDialog" title="';
@@ -684,13 +684,11 @@ function PMA_getRefreshList($name,
 }
 
 /**
- * Prints html with Tab Links
- *
- * @param null
+ * Returns html with Tab Links
  *
  * @return string
  */
-function getTabLinksHtml()
+function PMA_getTabLinksHtml()
 {
     $retval  = '<div class="tabLinks">';
     $retval .= '<a href="#pauseCharts">';
@@ -708,14 +706,12 @@ function getTabLinksHtml()
     $retval .= __('Done rearranging/editing charts');
     $retval .= '</a>';
     $retval .= '</div>';
-    
+
     return $retval;
 }
 
 /**
- * Prints html with Pop Content
- *
- * @param null
+ * Returns html with Pop Content
  *
  * @return string
  */

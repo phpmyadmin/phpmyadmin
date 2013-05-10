@@ -1,6 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
+ * Renders data dictionary
  *
  * @package PhpMyAdmin
  */
@@ -96,17 +97,17 @@ foreach ($tables as $table) {
             $indexes[] = $row['Key_name'];
             $lastIndex = $row['Key_name'];
         }
-        $indexes_info[$row['Key_name']]['Sequences'][]     = $row['Seq_in_index'];
-        $indexes_info[$row['Key_name']]['Non_unique']      = $row['Non_unique'];
+        $indexes_info[$row['Key_name']]['Sequences'][] = $row['Seq_in_index'];
+        $indexes_info[$row['Key_name']]['Non_unique'] = $row['Non_unique'];
         if (isset($row['Cardinality'])) {
             $indexes_info[$row['Key_name']]['Cardinality'] = $row['Cardinality'];
         }
         // I don't know what does following column mean....
         // $indexes_info[$row['Key_name']]['Packed']          = $row['Packed'];
 
-        $indexes_info[$row['Key_name']]['Comment']     = $row['Comment'];
+        $indexes_info[$row['Key_name']]['Comment'] = $row['Comment'];
 
-        $indexes_data[$row['Key_name']][$row['Seq_in_index']]['Column_name']  = $row['Column_name'];
+        $indexes_data[$row['Key_name']][$row['Seq_in_index']]['Column_name'] = $row['Column_name'];
         if (isset($row['Sub_part'])) {
             $indexes_data[$row['Key_name']][$row['Seq_in_index']]['Sub_part'] = $row['Sub_part'];
         }
@@ -154,22 +155,19 @@ foreach ($tables as $table) {
      * Displays the comments of the table if MySQL >= 3.23
      */
     if (!empty($show_comment)) {
-        echo __('Table comments:') . ' ' . htmlspecialchars($show_comment) . '<br /><br />';
+        echo __('Table comments:') . ' ';
+        echo htmlspecialchars($show_comment) . '<br /><br />';
     }
 
     /**
      * Displays the table structure
      */
-    ?>
 
-<table width="100%" class="print">
-<tr><th width="50"><?php echo __('Column'); ?></th>
-    <th width="80"><?php echo __('Type'); ?></th>
-<?php /*    <th width="50"><?php echo __('Attributes'); ?></th>*/ ?>
-    <th width="40"><?php echo __('Null'); ?></th>
-    <th width="70"><?php echo __('Default'); ?></th>
-<?php /*    <th width="50"><?php echo __('Extra'); ?></th>*/ ?>
-    <?php
+    echo '<table width="100%" class="print">';
+    echo '<tr><th width="50">' . __('Column') . '</th>';
+    echo '<th width="80">' . __('Type') . '</th>';
+    echo '<th width="40">' . __('Null') . '</th>';
+    echo '<th width="70">' . __('Default') . '</th>';
     if ($have_rel) {
         echo '    <th>' . __('Links to') . '</th>' . "\n";
     }
@@ -177,9 +175,7 @@ foreach ($tables as $table) {
     if ($cfgRelation['mimework']) {
         echo '    <th>MIME</th>' . "\n";
     }
-    ?>
-</tr>
-    <?php
+    echo '</tr>';
     $odd_row = true;
     foreach ($columns as $row) {
 
@@ -191,7 +187,9 @@ foreach ($tables as $table) {
 
         // reformat mysql query output
         // set or enum types: slashes single quotes inside options
-        if ('set' == $extracted_columnspec['type'] || 'enum' == $extracted_columnspec['type']) {
+        if ('set' == $extracted_columnspec['type']
+            || 'enum' == $extracted_columnspec['type']
+        ) {
             $type_nowrap  = '';
 
         } else {
@@ -213,9 +211,9 @@ foreach ($tables as $table) {
             && $analyzed_sql[0]['create_table_fields'][$field_name]['type'] == 'TIMESTAMP'
             && $analyzed_sql[0]['create_table_fields'][$field_name]['timestamp_not_null']
         ) {
-            // here, we have a TIMESTAMP that SHOW FULL COLUMNS reports as having the
-            // NULL attribute, but SHOW CREATE TABLE says the contrary. Believe
-            // the latter.
+            // here, we have a TIMESTAMP that SHOW FULL COLUMNS reports as
+            // having the NULL attribute, but SHOW CREATE TABLE says the
+            // contrary. Believe the latter.
             /**
              * @todo merge this logic with the one in tbl_structure.php
              * or move it in a function similar to PMA_DBI_getColumnsFull()
@@ -224,31 +222,35 @@ foreach ($tables as $table) {
              */
              $row['Null'] = 'NO';
         }
-        ?>
-<tr class="<?php echo $odd_row ? 'odd' : 'even'; $odd_row = ! $odd_row; ?>">
-    <td class="nowrap">
-        <?php
+        echo '<tr class="';
+        echo $odd_row ? 'odd' : 'even'; $odd_row = ! $odd_row;
+        echo '">';
+        echo '<td class="nowrap">';
+
         if (isset($pk_array[$row['Field']])) {
             echo '<u>' . htmlspecialchars($field_name) . '</u>';
         } else {
             echo htmlspecialchars($field_name);
         }
-        ?>
-    </td>
-    <td<?php echo $type_nowrap; ?> lang="en" dir="ltr"><?php echo $type; ?></td>
-<?php /*    <td<?php echo $type_nowrap; ?>><?php echo $attribute; ?></td>*/ ?>
-    <td><?php echo (($row['Null'] == 'NO') ? __('No') : __('Yes')); ?></td>
-    <td class="nowrap"><?php
-    if (isset($row['Default'])) {
-        echo $row['Default'];
-    }
-    ?></td>
-<?php /*    <td<?php echo $type_nowrap; ?>><?php echo $row['Extra']; ?></td>*/ ?>
-        <?php
+        echo '</td>';
+        echo '<td' . $type_nowrap . ' lang="en" dir="ltr">' . $type . '</td>';
+        echo '<td>';
+        echo (($row['Null'] == 'NO') ? __('No') : __('Yes'));
+        echo '</td>';
+        echo '<td class="nowrap">';
+        if (isset($row['Default'])) {
+            echo $row['Default'];
+        }
+        echo '</td>';
+
         if ($have_rel) {
             echo '    <td>';
             if (isset($res_rel[$field_name])) {
-                echo htmlspecialchars($res_rel[$field_name]['foreign_table'] . ' -> ' . $res_rel[$field_name]['foreign_field']);
+                echo htmlspecialchars(
+                    $res_rel[$field_name]['foreign_table']
+                    . ' -> '
+                    . $res_rel[$field_name]['foreign_field']
+                );
             }
             echo '</td>' . "\n";
         }
@@ -262,25 +264,21 @@ foreach ($tables as $table) {
 
             echo '    <td>';
             if (isset($mime_map[$field_name])) {
-                echo htmlspecialchars(str_replace('_', '/', $mime_map[$field_name]['mimetype']));
+                echo htmlspecialchars(
+                    str_replace('_', '/', $mime_map[$field_name]['mimetype'])
+                );
             }
             echo '</td>' . "\n";
         }
-        ?>
-</tr>
-        <?php
+        echo '</tr>';
     } // end foreach
     $count++;
-    ?>
-</table>
-<?php
-// display indexes information
+    echo '</table>';
+    // display indexes information
     if (count(PMA_Index::getFromTable($table, $db)) > 0) {
         echo PMA_Index::getView($table, $db, true);
     }
-?>
-</div>
-    <?php
+    echo '</div>';
 } //ends main while
 
 /**

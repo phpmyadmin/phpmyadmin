@@ -291,7 +291,7 @@ function PMA_exportOutputHandler($line)
 
     // Kanji encoding convert feature
     if ($GLOBALS['output_kanji_conversion']) {
-        $line = PMA_kanji_str_conv(
+        $line = PMA_Kanji_strConv(
             $line,
             $GLOBALS['knjenc'],
             isset($GLOBALS['xkana']) ? $GLOBALS['xkana'] : ''
@@ -390,7 +390,7 @@ if ($what == 'sql') {
     $crlf = PMA_Util::whichCrlf();
 }
 
-$output_kanji_conversion = function_exists('PMA_kanji_str_conv') && $type != 'xls';
+$output_kanji_conversion = function_exists('PMA_Kanji_strConv') && $type != 'xls';
 
 // Do we need to convert charset?
 $output_charset_conversion = $asfile

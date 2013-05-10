@@ -435,12 +435,12 @@ $html .= '</p>';
 $html .= PMA_pluginGetOptions('Export', $export_list);
 $html .= '</div>';
 
-if (function_exists('PMA_set_enc_form')) {
+if (function_exists('PMA_Kanji_encodingForm')) {
     // Encoding setting form appended by Y.Kawada
     // Japanese encoding setting
     $html .= '<div class="exportoptions" id="kanji_encoding">';
     $html .= '<h3>' . __('Encoding Conversion:') . '</h3>';
-    $html .= PMA_set_enc_form('            ');
+    $html .= PMA_Kanji_encodingForm();
     $html .= '</div>';
 }
 

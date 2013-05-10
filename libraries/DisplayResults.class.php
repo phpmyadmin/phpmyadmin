@@ -152,7 +152,7 @@ class PMA_DisplayResults
         'mime_map' => null,
 
         /** boolean */
-        'resultSetContainsUniqueKey' => null
+        'has_unique' => null
     );
 
     /**
@@ -233,23 +233,23 @@ class PMA_DisplayResults
      * @param type $unlim_num_rows integer the total number of rows returned by
      *                                     the SQL query without any appended
      *                                     "LIMIT" clause programmatically
-     * @param type $fields_meta    array   meta information about fields
-     * @param type $is_count       boolean
-     * @param type $is_export      integer
-     * @param type $is_func        boolean
-     * @param type $is_analyse     integer
-     * @param type $num_rows       integer total no. of rows returned by SQL query
-     * @param type $fields_cnt     integer total no.of fields returned by SQL query
-     * @param type $querytime      double  time taken for execute the SQL query
-     * @param type $pmaThemeImage  string  path for theme images directory
-     * @param type $text_dir       string
-     * @param type $is_maint       boolean
-     * @param type $is_explain     boolean
-     * @param type $is_show        boolean
-     * @param type $showtable      array   table definitions
-     * @param type $printview      string
-     * @param type $url_query      string  URL query
-     * @param type $resultSetContainsUniqueKey  boolean
+     * @param type $fields_meta   array   meta information about fields
+     * @param type $is_count      boolean
+     * @param type $is_export     integer
+     * @param type $is_func       boolean
+     * @param type $is_analyse    integer
+     * @param type $num_rows      integer total no. of rows returned by SQL query
+     * @param type $fields_cnt    integer total no.of fields returned by SQL query
+     * @param type $querytime     double  time taken for execute the SQL query
+     * @param type $pmaThemeImage string  path for theme images directory
+     * @param type $text_dir      string
+     * @param type $is_maint      boolean
+     * @param type $is_explain    boolean
+     * @param type $is_show       boolean
+     * @param type $showtable     array   table definitions
+     * @param type $printview     string
+     * @param type $url_query     string  URL query
+     * @param type $has_unique    boolean
      *
      * @return  void
      *
@@ -259,7 +259,7 @@ class PMA_DisplayResults
         $unlim_num_rows, $fields_meta, $is_count, $is_export, $is_func,
         $is_analyse, $num_rows, $fields_cnt, $querytime, $pmaThemeImage, $text_dir,
         $is_maint, $is_explain, $is_show, $showtable, $printview, $url_query,
-        $resultSetContainsUniqueKey
+        $has_unique
     ) {
 
         $this->__set('unlim_num_rows', $unlim_num_rows);
@@ -279,7 +279,7 @@ class PMA_DisplayResults
         $this->__set('showtable', $showtable);
         $this->__set('printview', $printview);
         $this->__set('url_query', $url_query);
-        $this->__set('resultSetContainsUniqueKey', $resultSetContainsUniqueKey);
+        $this->__set('has_unique', $has_unique);
 
     } // end of the 'setProperties()' function
 
@@ -933,7 +933,7 @@ class PMA_DisplayResults
             __('Headers every %s rows'),
             '<input type="text" size="3" name="repeat_cells" value="'
             . $_SESSION['tmp_user_values']['repeat_cells']
-            . '" class="textfield" /> '
+            . '" class="textfield" onfocus="this.select()" /> '
         );
 
         return $additional_fields_html;
@@ -2469,7 +2469,7 @@ class PMA_DisplayResults
         // name of the class added to all grid editable elements;
         // if we don't have all the columns of a unique key in the result set,
         //  do not permit grid editing
-        if ($is_limited_display || ! $this->__get('resultSetContainsUniqueKey')) {
+        if ($is_limited_display || ! $this->__get('has_unique')) {
             $grid_edit_class = '';
         } else {
             switch ($GLOBALS['cfg']['GridEditing']) {
@@ -5147,7 +5147,7 @@ class PMA_DisplayResults
      * @access private
      *
      * @see _getResultsOperations()
-     */   
+     */
     private function _getLinkForCreateView($analyzed_sql, $url_query)
     {
         $results_operations_html = '';
@@ -5166,9 +5166,9 @@ class PMA_DisplayResults
                 . '</span>' . "\n";
         }
         return $results_operations_html;
-    
+
     }
-    
+
     /**
      * Calls the _getResultsOperations with $only_view as true
      *
@@ -5178,17 +5178,17 @@ class PMA_DisplayResults
      *
      * @access public
      *
-     */   
+     */
     public function getCreateViewQueryResultOp($analyzed_sql)
     {
-        
+
         $results_operations_html = '';
         $fake_display_mode       = array();
         //calling to _getResultOperations with a fake display mode
         //and setting only_view parameter to be true to generate just view
         $results_operations_html .= $this->_getResultsOperations(
-                                            $fake_display_mode, 
-                                            $analyzed_sql, 
+                                            $fake_display_mode,
+                                            $analyzed_sql,
                                             true
                                             );
         return $results_operations_html;
@@ -5216,7 +5216,7 @@ class PMA_DisplayResults
         $header_shown = false;
         $header = '<fieldset><legend>' . __('Query results operations')
             . '</legend>';
-            
+
         $_url_params = array(
                     'db'        => $this->__get('db'),
                     'table'     => $this->__get('table'),
@@ -5224,12 +5224,12 @@ class PMA_DisplayResults
                     'sql_query' => $this->__get('sql_query'),
                 );
         $url_query = PMA_generate_common_url($_url_params);
-        
+
         if (!$header_shown) {
             $results_operations_html .= $header;
             $header_shown = true;
         }
-        // if empty result set was produced we need to 
+        // if empty result set was produced we need to
         // show only view and not other options
         if ($only_view == true) {
             $results_operations_html .= $this->_getLinkForCreateView($analyzed_sql,$url_query);
@@ -5238,7 +5238,7 @@ class PMA_DisplayResults
                 $results_operations_html .= '</fieldset><br />';
             }
          return $results_operations_html;
-        }      
+        }
 
         if (($the_disp_mode[6] == '1') || ($the_disp_mode[9] == '1')) {
             // Displays "printable view" link if required

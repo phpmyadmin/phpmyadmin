@@ -654,7 +654,7 @@ if (isset($GLOBALS['show_as_php']) || ! empty($GLOBALS['validatequery'])) {
      */
 
     // tmpfile remove after convert encoding appended by Y.Kawada
-    if (function_exists('PMA_kanji_file_conv')
+    if (function_exists('PMA_Kanji_fileConv')
         && (isset($textfile) && file_exists($textfile))
     ) {
         unlink($textfile);
@@ -879,7 +879,7 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
                                                      );
             $response->addHTML($createViewHTML.'<br />');
         }
-        
+
         $response->addJSON(isset($extra_data) ? $extra_data : array());
         if (empty($_REQUEST['ajax_page_request'])) {
             $response->addJSON('message', $message);
@@ -917,7 +917,7 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
             // Echo at least one character to prevent showing last page from history
             echo " ";
         }
-        
+
     } else {
         // avoid a redirect loop when last record was deleted
         if (0 == $num_rows && 'sql.php' == $cfg['DefaultTabTable']) {
@@ -1082,14 +1082,14 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
         $disp_mode = 'urdr111101';
     }
 
-    $resultSetContainsUniqueKey = PMA_resultSetContainsUniqueKey(
+    $has_unique = PMA_resultSetContainsUniqueKey(
         $db, $table, $fields_meta
     );
 
     // hide edit and delete links:
     // - for information_schema
     // - if the result set does not contain all the columns of a unique key
-    if (PMA_is_system_schema($db) || ! $resultSetContainsUniqueKey) {
+    if (PMA_is_system_schema($db) || ! $has_unique) {
         $disp_mode = 'nnnn110111';
         $msg = PMA_message::notice(
             __(
@@ -1118,7 +1118,7 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
         $html_output .= getTableHtmlForMultipleQueries(
             $displayResultsObject, $db, $sql_data, $goto,
             $pmaThemeImage, $text_dir, $printview, $url_query,
-            $disp_mode, $sql_limit_to_append, $resultSetContainsUniqueKey
+            $disp_mode, $sql_limit_to_append, $has_unique
         );
     } else {
         $_SESSION['is_multi_query'] = false;
@@ -1126,7 +1126,7 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
             $unlim_num_rows, $fields_meta, $is_count, $is_export, $is_func,
             $is_analyse, $num_rows, $fields_cnt, $querytime, $pmaThemeImage,
             $text_dir, $is_maint, $is_explain, $is_show, $showtable,
-            $printview, $url_query, $resultSetContainsUniqueKey
+            $printview, $url_query, $has_unique
         );
 
         $html_output .= $displayResultsObject->getTable($result, $disp_mode, $analyzed_sql);

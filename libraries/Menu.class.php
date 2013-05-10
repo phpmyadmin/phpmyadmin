@@ -315,10 +315,6 @@ class PMA_Menu
             $tabs['operation']['text'] = __('Operations');
         }
 
-        if ($table_info_num_rows == 0 && ! $tbl_is_view) {
-            $tabs['browse']['warning'] = __('Table seems to be empty!');
-            $tabs['search']['warning'] = __('Table seems to be empty!');
-        }
         return $tabs;
     }
 

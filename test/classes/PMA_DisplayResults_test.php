@@ -444,7 +444,7 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
                 41,
                 '123',
                 false,
-                '330'
+                '333'
             )
         );
     }

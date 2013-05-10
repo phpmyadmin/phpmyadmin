@@ -37,3 +37,5 @@ phpunit.xml
 /test/bootstrap.php
 # Jenkins
 /build/
+# Netbeans ide stuff
+/nbproject/

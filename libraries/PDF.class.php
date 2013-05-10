@@ -9,7 +9,7 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
-require_once './libraries/tcpdf/tcpdf.php';
+require_once TCPDF_INC;
 
 /**
  * PDF font to use.
@@ -45,7 +45,6 @@ class PMA_PDF extends TCPDF
     ) {
         parent::__construct();
         $this->SetAuthor('phpMyAdmin ' . PMA_VERSION);
-        $this->AliasNbPages();
         $this->AddFont('DejaVuSans', '', 'dejavusans.php');
         $this->AddFont('DejaVuSans', 'B', 'dejavusansb.php');
         $this->SetFont(PMA_PDF_FONT, '', 14);
@@ -87,7 +86,12 @@ class PMA_PDF extends TCPDF
      */
     function SetAlias($name, $value)
     {
-        $this->Alias[$this->UTF8ToUTF16BE($name)] = $this->UTF8ToUTF16BE($value);
+        $name = TCPDF_FONTS::UTF8ToUTF16BE(
+            $name, false, true, $this->CurrentFont
+        );
+        $this->Alias[$name] = TCPDF_FONTS::UTF8ToUTF16BE(
+            $value, false, true, $this->CurrentFont
+        );
     }
 
     /**
