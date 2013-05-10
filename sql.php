@@ -654,7 +654,7 @@ if (isset($GLOBALS['show_as_php']) || ! empty($GLOBALS['validatequery'])) {
      */
 
     // tmpfile remove after convert encoding appended by Y.Kawada
-    if (function_exists('PMA_kanji_file_conv')
+    if (function_exists('PMA_Kanji_fileConv')
         && (isset($textfile) && file_exists($textfile))
     ) {
         unlink($textfile);

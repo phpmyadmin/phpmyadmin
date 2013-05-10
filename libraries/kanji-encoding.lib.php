@@ -25,7 +25,7 @@ if (! defined('PHPMYADMIN')) {
  *
  * @return boolean  always true
  */
-function PMA_internal_enc_check()
+function PMA_Kanji_checkEncoding()
 {
     global $internal_enc, $enc_list;
 
@@ -37,7 +37,7 @@ function PMA_internal_enc_check()
     }
 
     return true;
-} // end of the 'PMA_internal_enc_check' function
+} // end of the 'PMA_Kanji_checkEncoding' function
 
 
 /**
@@ -48,7 +48,7 @@ function PMA_internal_enc_check()
  *
  * @return boolean  always true
  */
-function PMA_change_enc_order()
+function PMA_Kanji_changeOrder()
 {
     global $enc_list;
 
@@ -60,7 +60,7 @@ function PMA_change_enc_order()
     }
 
     return true;
-} // end of the 'PMA_change_enc_order' function
+} // end of the 'PMA_Kanji_changeOrder' function
 
 
 /**
@@ -75,7 +75,7 @@ function PMA_change_enc_order()
  *
  * @return string   the converted string
  */
-function PMA_kanji_str_conv($str, $enc, $kana)
+function PMA_Kanji_strConv($str, $enc, $kana)
 {
     global $enc_list;
 
@@ -94,7 +94,7 @@ function PMA_kanji_str_conv($str, $enc, $kana)
         $dist = $str;
     }
     return $dist;
-} // end of the 'PMA_kanji_str_conv' function
+} // end of the 'PMA_Kanji_strConv' function
 
 
 /**
@@ -107,7 +107,7 @@ function PMA_kanji_str_conv($str, $enc, $kana)
  *
  * @return string   the name of the converted file
  */
-function PMA_kanji_file_conv($file, $enc, $kana)
+function PMA_Kanji_fileConv($file, $enc, $kana)
 {
     if ($enc == '' && $kana == '') {
         return $file;
@@ -116,19 +116,19 @@ function PMA_kanji_file_conv($file, $enc, $kana)
     $tmpfname = tempnam('', $enc);
     $fpd      = fopen($tmpfname, 'wb');
     $fps      = fopen($file, 'r');
-    PMA_change_enc_order();
+    PMA_Kanji_changeOrder();
     while (!feof($fps)) {
         $line = fgets($fps, 4096);
-        $dist = PMA_kanji_str_conv($line, $enc, $kana);
+        $dist = PMA_Kanji_strConv($line, $enc, $kana);
         fputs($fpd, $dist);
     } // end while
-    PMA_change_enc_order();
+    PMA_Kanji_changeOrder();
     fclose($fps);
     fclose($fpd);
     unlink($file);
 
     return $tmpfname;
-} // end of the 'PMA_kanji_file_conv' function
+} // end of the 'PMA_Kanji_fileConv' function
 
 
 /**
@@ -139,7 +139,7 @@ function PMA_kanji_file_conv($file, $enc, $kana)
  *
  * @return string   xhtml code for the radio controls
  */
-function PMA_set_enc_form($spaces)
+function PMA_Kanji_encodingForm($spaces)
 {
     return "\n"
              /* l10n: This is currently used only in Japanese locales */
@@ -153,9 +153,9 @@ function PMA_set_enc_form($spaces)
            . $spaces . '<label for="kj-kana">' . __('Convert to Kana') . '</label><br />' . "\n"
            . $spaces . '</li>' . "\n" . '</ul>'
            ;
-} // end of the 'PMA_set_enc_form' function
+} // end of the 'PMA_Kanji_encodingForm' function
 
 
-PMA_internal_enc_check();
+PMA_Kanji_checkEncoding();
 
 ?>

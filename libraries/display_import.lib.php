@@ -322,10 +322,10 @@ if (! (isset($timeout_passed) && $timeout_passed)) {
         <div class="clearfloat"></div>
     <?php
 // Encoding setting form appended by Y.Kawada
-if (function_exists('PMA_set_enc_form')) { ?>
+if (function_exists('PMA_Kanji_encodingForm')) { ?>
         <div class="importoptions" id="kanji_encoding">
             <h3><?php echo __('Encoding Conversion:'); ?></h3>
-            <?php echo PMA_set_enc_form('            '); ?>
+            <?php echo PMA_Kanji_encodingForm('            '); ?>
         </div>
     <?php
 }
