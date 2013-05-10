@@ -233,23 +233,23 @@ class PMA_DisplayResults
      * @param type $unlim_num_rows integer the total number of rows returned by
      *                                     the SQL query without any appended
      *                                     "LIMIT" clause programmatically
-     * @param type $fields_meta    array   meta information about fields
-     * @param type $is_count       boolean
-     * @param type $is_export      integer
-     * @param type $is_func        boolean
-     * @param type $is_analyse     integer
-     * @param type $num_rows       integer total no. of rows returned by SQL query
-     * @param type $fields_cnt     integer total no.of fields returned by SQL query
-     * @param type $querytime      double  time taken for execute the SQL query
-     * @param type $pmaThemeImage  string  path for theme images directory
-     * @param type $text_dir       string
-     * @param type $is_maint       boolean
-     * @param type $is_explain     boolean
-     * @param type $is_show        boolean
-     * @param type $showtable      array   table definitions
-     * @param type $printview      string
-     * @param type $url_query      string  URL query
-     * @param type $has_unique  boolean
+     * @param type $fields_meta   array   meta information about fields
+     * @param type $is_count      boolean
+     * @param type $is_export     integer
+     * @param type $is_func       boolean
+     * @param type $is_analyse    integer
+     * @param type $num_rows      integer total no. of rows returned by SQL query
+     * @param type $fields_cnt    integer total no.of fields returned by SQL query
+     * @param type $querytime     double  time taken for execute the SQL query
+     * @param type $pmaThemeImage string  path for theme images directory
+     * @param type $text_dir      string
+     * @param type $is_maint      boolean
+     * @param type $is_explain    boolean
+     * @param type $is_show       boolean
+     * @param type $showtable     array   table definitions
+     * @param type $printview     string
+     * @param type $url_query     string  URL query
+     * @param type $has_unique    boolean
      *
      * @return  void
      *

@@ -109,20 +109,17 @@ function PMA_getTableNameBySQL($sql, $tables)
  * Generate table html when SQL statement have multiple queries
  * which return displayable results
  *
- * @param PMA_DisplayResults $displayResultsObject       object
- * @param string             $db                         database name
- * @param array              $sql_data                   information about
- *                                                        SQL statement
- * @param string             $goto                       URL to go back in case
- *                                                        of errors
- * @param string             $pmaThemeImage              path for theme images
- *                                                        directory
- * @param string             $text_dir                   text direction
- * @param string             $printview                  whether printview is enabled
- * @param string             $url_query                  URL query
- * @param array              $disp_mode                  the display mode
- * @param string             $sql_limit_to_append        limit clause
- * @param bool               $has_unique result contains a unique key
+ * @param object $displayResultsObject PMA_DisplayResults object
+ * @param string $db                   database name
+ * @param array  $sql_data             information about SQL statement
+ * @param string $goto                 URL to go back in case of errors
+ * @param string $pmaThemeImage        path for theme images  directory
+ * @param string $text_dir             text direction
+ * @param string $printview            whether printview is enabled
+ * @param string $url_query            URL query
+ * @param array  $disp_mode            the display mode
+ * @param string $sql_limit_to_append  limit clause
+ * @param bool   $has_unique           result contains a unique key
  *
  * @return string   $table_html   html content
  */
