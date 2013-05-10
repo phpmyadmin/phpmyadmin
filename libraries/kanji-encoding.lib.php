@@ -26,13 +26,13 @@ if (! defined('PHPMYADMIN')) {
  */
 function PMA_Kanji_checkEncoding()
 {
-    global $enc_list;
+    global $kanji_encoding_list;
 
     $internal_enc = mb_internal_encoding();
     if ($internal_enc == 'EUC-JP') {
-        $enc_list = 'ASCII,EUC-JP,SJIS,JIS';
+        $kanji_encoding_list = 'ASCII,EUC-JP,SJIS,JIS';
     } else {
-        $enc_list = 'ASCII,SJIS,EUC-JP,JIS';
+        $kanji_encoding_list = 'ASCII,SJIS,EUC-JP,JIS';
     }
 
     return true;
@@ -49,13 +49,13 @@ function PMA_Kanji_checkEncoding()
  */
 function PMA_Kanji_changeOrder()
 {
-    global $enc_list;
+    global $kanji_encoding_list;
 
-    $parts = explode(',', $enc_list);
+    $parts = explode(',', $kanji_encoding_list);
     if ($parts[1] == 'EUC-JP') {
-        $enc_list = 'ASCII,SJIS,EUC-JP,JIS';
+        $kanji_encoding_list = 'ASCII,SJIS,EUC-JP,JIS';
     } else {
-        $enc_list = 'ASCII,EUC-JP,SJIS,JIS';
+        $kanji_encoding_list = 'ASCII,EUC-JP,SJIS,JIS';
     }
 
     return true;
@@ -76,19 +76,19 @@ function PMA_Kanji_changeOrder()
  */
 function PMA_Kanji_strConv($str, $enc, $kana)
 {
-    global $enc_list;
+    global $kanji_encoding_list;
 
     if ($enc == '' && $kana == '') {
         return $str;
     }
-    $nw       = mb_detect_encoding($str, $enc_list);
+    $string_encoding = mb_detect_encoding($str, $kanji_encoding_list);
 
     if ($kana == 'kana') {
-        $dist = mb_convert_kana($str, 'KV', $nw);
+        $dist = mb_convert_kana($str, 'KV', $string_encoding);
         $str  = $dist;
     }
-    if ($nw != $enc && $enc != '') {
-        $dist = mb_convert_encoding($str, $enc, $nw);
+    if ($string_encoding != $enc && $enc != '') {
+        $dist = mb_convert_encoding($str, $enc, $string_encoding);
     } else {
         $dist = $str;
     }
