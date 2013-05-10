@@ -52,8 +52,8 @@ function PMA_Kanji_changeOrder()
 {
     global $enc_list;
 
-    $p            = explode(',', $enc_list);
-    if ($p[1] == 'EUC-JP') {
+    $parts = explode(',', $enc_list);
+    if ($parts[1] == 'EUC-JP') {
         $enc_list = 'ASCII,SJIS,EUC-JP,JIS';
     } else {
         $enc_list = 'ASCII,EUC-JP,SJIS,JIS';
@@ -142,17 +142,17 @@ function PMA_Kanji_fileConv($file, $enc, $kana)
 function PMA_Kanji_encodingForm($spaces)
 {
     return "\n"
-             /* l10n: This is currently used only in Japanese locales */
-           . $spaces . '<ul>' . "\n" . '<li>'
-           . $spaces . '<input type="radio" name="knjenc" value="" checked="checked" id="kj-none" /><label for="kj-none">' . _pgettext('None encoding conversion', 'None') . "</label>\n"
-           . $spaces . '<input type="radio" name="knjenc" value="EUC-JP" id="kj-euc" /><label for="kj-euc">EUC</label>' . "\n"
-           . $spaces . '<input type="radio" name="knjenc" value="SJIS" id="kj-sjis" /><label for="kj-sjis">SJIS</label>' . "\n"
-           . $spaces . '</li>' . "\n" . '<li>'
-           . $spaces . '<input type="checkbox" name="xkana" value="kana" id="kj-kana" />' . "\n"
-           /* l10n: This is currently used only in Japanese locales */
-           . $spaces . '<label for="kj-kana">' . __('Convert to Kana') . '</label><br />' . "\n"
-           . $spaces . '</li>' . "\n" . '</ul>'
-           ;
+        . $spaces . '<ul>' . "\n" . '<li>'
+        /* l10n: This is currently used only in Japanese locales */
+        . $spaces . '<input type="radio" name="knjenc" value="" checked="checked" id="kj-none" /><label for="kj-none">' . _pgettext('None encoding conversion', 'None') . "</label>\n"
+        . $spaces . '<input type="radio" name="knjenc" value="EUC-JP" id="kj-euc" /><label for="kj-euc">EUC</label>' . "\n"
+        . $spaces . '<input type="radio" name="knjenc" value="SJIS" id="kj-sjis" /><label for="kj-sjis">SJIS</label>' . "\n"
+        . $spaces . '</li>' . "\n" . '<li>'
+        . $spaces . '<input type="checkbox" name="xkana" value="kana" id="kj-kana" />' . "\n"
+        /* l10n: This is currently used only in Japanese locales */
+        . $spaces . '<label for="kj-kana">' . __('Convert to Kana') . '</label><br />' . "\n"
+        . $spaces . '</li>' . "\n" . '</ul>'
+        ;
 } // end of the 'PMA_Kanji_encodingForm' function
 
 
