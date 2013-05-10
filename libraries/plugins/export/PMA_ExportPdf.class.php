@@ -36,7 +36,7 @@ class PMA_ExportPdf extends PMA_PDF
      */
     function checkPageBreak($h = 0, $y = '', $addpage = true)
     {
-        if ($this->empty_string($y)) {
+        if (TCPDF_STATIC::empty_string($y)) {
             $y = $this->y;
         }
         $current_page = $this->page;

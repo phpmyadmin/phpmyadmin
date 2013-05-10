@@ -77,17 +77,6 @@ class PMA_PDF extends TCPDF
     }
 
     /**
-     * Function to test an empty string (was in tcpdf < 6.0)
-     *
-     * @param string $str to test
-     *
-     * @return boolean
-     */
-    public function empty_string($str) {
-            return (is_null($str) OR (is_string($str) AND (strlen($str) == 0)));
-    }
-
-    /**
      * Function to set alias which will be expanded on page rendering.
      *
      * @param string $name  name of the alias
