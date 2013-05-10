@@ -27,7 +27,6 @@ class PMA_Index_Test extends PHPUnit_Framework_TestCase
      */
     public function setup()
     {
-        $this->params['columns'] = "PMA_columns";
         $this->params['Schema'] = "PMA_Schema";
         $this->params['Table'] = "PMA_Table";
         $this->params['Key_name'] = "PMA_Key_name";
