@@ -765,22 +765,22 @@ function PMA_setDbComment($db, $comment = '')
     }
 
     if (strlen($comment)) {
-        $upd_query = "
-             INSERT INTO
-                    " . PMA_Util::backquote($cfgRelation['db']) . "." . PMA_Util::backquote($cfgRelation['column_info']) . "
-                    (`db_name`, `table_name`, `column_name`, `comment`)
-             VALUES (
-                   '" . PMA_Util::sqlAddSlashes($db) . "',
-                   '',
-                   '(db_comment)',
-                   '" . PMA_Util::sqlAddSlashes($comment) . "')
-             ON DUPLICATE KEY UPDATE
-                `comment` = '" . PMA_Util::sqlAddSlashes($comment) . "'";
+        $upd_query = 'INSERT INTO '
+            . PMA_Util::backquote($cfgRelation['db']) . '.'
+            . PMA_Util::backquote($cfgRelation['column_info'])
+            . ' (`db_name`, `table_name`, `column_name`, `comment`)'
+            . ' VALUES (\''.
+            . PMA_Util::sqlAddSlashes($db)
+            . "', '', '(db_comment)', '"
+            . PMA_Util::sqlAddSlashes($comment)
+            . "') "
+            . ' ON DUPLICATE KEY UPDATE '
+            . "`comment` = '" . PMA_Util::sqlAddSlashes($comment) . "'";
     } else {
-        $upd_query = '
-             DELETE FROM
-                    ' . PMA_Util::backquote($cfgRelation['db']) . '.' . PMA_Util::backquote($cfgRelation['column_info']) . '
-              WHERE `db_name`     = \'' . PMA_Util::sqlAddSlashes($db) . '\'
+        $upd_query = 'DELETE FROM '
+            . PMA_Util::backquote($cfgRelation['db']) . '.'
+            . PMA_Util::backquote($cfgRelation['column_info'])
+            . ' WHERE `db_name`     = \'' . PMA_Util::sqlAddSlashes($db) . '\'
                 AND `table_name`  = \'\'
                 AND `column_name` = \'(db_comment)\'';
     }
@@ -841,8 +841,9 @@ function PMA_setHistory($db, $table, $username, $sqlquery)
     }
 
     PMA_queryAsControlUser(
-        'INSERT INTO
-                ' . PMA_Util::backquote($cfgRelation['db']) . '.' . PMA_Util::backquote($cfgRelation['history']) . '
+        'INSERT INTO '
+        . PMA_Util::backquote($cfgRelation['db']) . '.'
+        . PMA_Util::backquote($cfgRelation['history']) . '
               (`username`,
                 `db`,
                 `table`,
@@ -919,8 +920,9 @@ function PMA_purgeHistory($username)
 
     if ($max_time = PMA_DBI_fetchValue($search_query, 0, 0, $GLOBALS['controllink'])) {
         PMA_queryAsControlUser(
-            'DELETE FROM
-                    ' . PMA_Util::backquote($cfgRelation['db']) . '.' . PMA_Util::backquote($cfgRelation['history']) . '
+            'DELETE FROM '
+            . PMA_Util::backquote($cfgRelation['db']) . '.'
+            . PMA_Util::backquote($cfgRelation['history']) . '
               WHERE `username` = \'' . PMA_Util::sqlAddSlashes($username) . '\'
                 AND `timevalue` <= \'' . $max_time . '\''
         );
@@ -966,7 +968,9 @@ function PMA_buildForeignDropdown($foreign, $data, $mode)
             $value  = htmlspecialchars($value);
         } else {
             $vtitle  = htmlspecialchars($value);
-            $value  = htmlspecialchars(substr($value, 0, $GLOBALS['cfg']['LimitChars']) . '...');
+            $value  = htmlspecialchars(
+                substr($value, 0, $GLOBALS['cfg']['LimitChars']) . '...'
+            );
         }
 
         $reloption = '<option value="' . htmlspecialchars($key) . '"';
@@ -1088,8 +1092,9 @@ function PMA_foreignDropdown($disp_row, $foreign_field, $foreign_display, $data,
  * @access  public
  */
 
-function PMA_getForeignData($foreigners, $field, $override_total, $foreign_filter, $foreign_limit)
-{
+function PMA_getForeignData(
+    $foreigners, $field, $override_total, $foreign_filter, $foreign_limit
+) {
     // we always show the foreign field in the drop-down; if a display
     // field is defined, we show it besides the foreign field
     $foreign_link = false;
@@ -1109,23 +1114,31 @@ function PMA_getForeignData($foreigners, $field, $override_total, $foreign_filte
 
         $the_total   = PMA_Table::countRecords($foreign_db, $foreign_table, true);
 
-        if ($override_total == true || $the_total < $GLOBALS['cfg']['ForeignKeyMaxLimit']) {
+        if ($override_total == true
+            || $the_total < $GLOBALS['cfg']['ForeignKeyMaxLimit']
+        ) {
             // foreign_display can be false if no display field defined:
             $foreign_display = PMA_getDisplayField($foreign_db, $foreign_table);
 
             $f_query_main = 'SELECT ' . PMA_Util::backquote($foreign_field)
-                        . (($foreign_display == false) ? '' : ', ' . PMA_Util::backquote($foreign_display));
-            $f_query_from = ' FROM ' . PMA_Util::backquote($foreign_db) . '.' . PMA_Util::backquote($foreign_table);
-            $f_query_filter = empty($foreign_filter) ? '' : ' WHERE ' . PMA_Util::backquote($foreign_field)
-                            . ' LIKE "%' . PMA_Util::sqlAddSlashes($foreign_filter, true) . '%"'
-                            . (($foreign_display == false) ? '' : ' OR ' . PMA_Util::backquote($foreign_display)
-                                . ' LIKE "%' . PMA_Util::sqlAddSlashes($foreign_filter, true) . '%"'
-                                );
-            $f_query_order = ($foreign_display == false) ? '' :' ORDER BY ' . PMA_Util::backquote($foreign_table) . '.' . PMA_Util::backquote($foreign_display);
+                . (($foreign_display == false) ? '' : ', ' . PMA_Util::backquote($foreign_display));
+            $f_query_from = ' FROM ' . PMA_Util::backquote($foreign_db)
+                . '.' . PMA_Util::backquote($foreign_table);
+            $f_query_filter = empty($foreign_filter) ? '' : ' WHERE '
+                . PMA_Util::backquote($foreign_field)
+                . ' LIKE "%' . PMA_Util::sqlAddSlashes($foreign_filter, true) . '%"'
+                . (($foreign_display == false) ? '' : ' OR ' . PMA_Util::backquote($foreign_display)
+                    . ' LIKE "%' . PMA_Util::sqlAddSlashes($foreign_filter, true) . '%"'
+                );
+            $f_query_order = ($foreign_display == false) ? '' :' ORDER BY '
+                . PMA_Util::backquote($foreign_table) . '.'
+                . PMA_Util::backquote($foreign_display);
             $f_query_limit = isset($foreign_limit) ? $foreign_limit : '';
 
             if (!empty($foreign_filter)) {
-                $res = PMA_DBI_query('SELECT COUNT(*)' . $f_query_from . $f_query_filter);
+                $res = PMA_DBI_query(
+                    'SELECT COUNT(*)' . $f_query_from . $f_query_filter
+                );
                 if ($res) {
                     $the_total = PMA_DBI_fetchValue($res);
                     @PMA_DBI_freeResult($res);
@@ -1134,12 +1147,15 @@ function PMA_getForeignData($foreigners, $field, $override_total, $foreign_filte
                 }
             }
 
-            $disp  = PMA_DBI_query($f_query_main . $f_query_from . $f_query_filter . $f_query_order . $f_query_limit);
+            $disp  = PMA_DBI_query(
+                $f_query_main . $f_query_from . $f_query_filter
+                . $f_query_order . $f_query_limit
+            );
             if ($disp && PMA_DBI_numRows($disp) > 0) {
-                // If a resultset has been created, pre-cache it in the $disp_row array
-                // This helps us from not needing to use mysql_data_seek by accessing a pre-cached
-                // PHP array. Usually those resultsets are not that big, so a performance hit should
-                // not be expected.
+                // If a resultset has been created, pre-cache it in the $disp_row
+                // array. This helps us from not needing to use mysql_data_seek by
+                // accessing a pre-cached PHP array. Usually those resultsets are
+                // not that big, so a performance hit should not be expected.
                 $disp_row = array();
                 while ($single_disp_row = @PMA_DBI_fetchAssoc($disp)) {
                     $disp_row[] = $single_disp_row;
@@ -1154,7 +1170,9 @@ function PMA_getForeignData($foreigners, $field, $override_total, $foreign_filte
 
     $foreignData['foreign_link'] = $foreign_link;
     $foreignData['the_total'] = isset($the_total) ? $the_total : null;
-    $foreignData['foreign_display'] = isset($foreign_display) ? $foreign_display : null;
+    $foreignData['foreign_display'] = (
+        isset($foreign_display) ? $foreign_display : null
+    );
     $foreignData['disp_row'] = isset($disp_row) ? $disp_row : null;
     $foreignData['foreign_field'] = isset($foreign_field) ? $foreign_field : null;
     return $foreignData;
@@ -1192,12 +1210,12 @@ function PMA_getRelatives($all_tables, $master)
         $in_know = '(\'' . implode('\', \'', $known_tables) . '\')';
         $in_left = '(\'' . implode('\', \'', $remaining_tables) . '\')';
         $rel_query = 'SELECT *'
-                   . '  FROM ' . PMA_Util::backquote($GLOBALS['cfgRelation']['db'])
-                   .       '.' . PMA_Util::backquote($GLOBALS['cfgRelation']['relation'])
-                   . ' WHERE ' . $from . '_db = \'' . PMA_Util::sqlAddSlashes($GLOBALS['db']) . '\''
-                   . '   AND ' . $to   . '_db = \'' . PMA_Util::sqlAddSlashes($GLOBALS['db']) . '\''
-                   . '   AND ' . $from . '_table IN ' . $in_know
-                   . '   AND ' . $to   . '_table IN ' . $in_left;
+            . '  FROM ' . PMA_Util::backquote($GLOBALS['cfgRelation']['db'])
+            .       '.' . PMA_Util::backquote($GLOBALS['cfgRelation']['relation'])
+            . ' WHERE ' . $from . '_db = \'' . PMA_Util::sqlAddSlashes($GLOBALS['db']) . '\''
+            . '   AND ' . $to   . '_db = \'' . PMA_Util::sqlAddSlashes($GLOBALS['db']) . '\''
+            . '   AND ' . $from . '_table IN ' . $in_know
+            . '   AND ' . $to   . '_table IN ' . $in_left;
         $relations = @PMA_DBI_query($rel_query, $GLOBALS['controllink']);
         while ($row = PMA_DBI_fetchAssoc($relations)) {
             $found_table                = $row[$to . '_table'];
