@@ -97,7 +97,12 @@ class PMA_PDF extends TCPDF
      */
     function SetAlias($name, $value)
     {
-        $this->Alias[$this->UTF8ToUTF16BE($name)] = $this->UTF8ToUTF16BE($value);
+        $name = TCPDF_FONTS::UTF8ToUTF16BE(
+            $name, false, true, $this->CurrentFont
+        );
+        $this->Alias[$name] = TCPDF_FONTS::UTF8ToUTF16BE(
+            $value, false, true, $this->CurrentFont
+        );
     }
 
     /**
