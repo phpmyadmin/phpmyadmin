@@ -11,6 +11,8 @@ phpMyAdmin - ChangeLog
 + PMA_DBI functions in database interface libraries renamed to be compliant with PEAR standards
 + rfe #1412 Creating a view from an empty set of results
 
+4.0.2.0 (not yet released)
+
 4.0.1.0 (not yet released)
 - bug #3879 Import broken for CSV using LOAD DATA
 - bug #3889 When login fails and error display is active, login data is displayed
