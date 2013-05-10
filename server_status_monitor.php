@@ -433,7 +433,7 @@ $ServerStatusData = new PMA_ServerStatusData();
 $response->addHTML('<div>');
 $response->addHTML($ServerStatusData->getMenuHtml());
 $response->addHTML(getPrintMonitorHtml($ServerStatusData));
-$response->addHTML(getClientSideDataAndLinksHtml());
+$response->addHTML(getClientSideDataAndLinksHtml($ServerStatusData));
 $response->addHTML('</div>');
 exit;
 
@@ -763,11 +763,11 @@ function getPopContentHtml()
 /**
  * Define some data and links needed on the client side
  *
- * @param null
+ * @param object $ServerStatusData An instance of the PMA_ServerStatusData class
  *
  * @return string
  */
-function getClientSideDataAndLinksHtml()
+function getClientSideDataAndLinksHtml($ServerStatusData)
 {
 	/**
 	 * Define some data needed on the client side
