@@ -122,14 +122,14 @@ function PMA_getTableNameBySQL($sql, $tables)
  * @param string             $url_query                  URL query
  * @param array              $disp_mode                  the display mode
  * @param string             $sql_limit_to_append        limit clause
- * @param bool               $resultSetContainsUniqueKey result contains a unique key
+ * @param bool               $has_unique result contains a unique key
  *
  * @return string   $table_html   html content
  */
 function getTableHtmlForMultipleQueries(
     $displayResultsObject, $db, $sql_data, $goto, $pmaThemeImage,
     $text_dir, $printview, $url_query, $disp_mode, $sql_limit_to_append,
-    $resultSetContainsUniqueKey
+    $has_unique
 ) {
     $table_html = '';
 
@@ -239,7 +239,7 @@ function getTableHtmlForMultipleQueries(
                 $unlim_num_rows, $fields_meta, $is_count, $is_export, $is_func,
                 $is_analyse, $num_rows, $fields_cnt, $querytime, $pmaThemeImage,
                 $text_dir, $is_maint, $is_explain, $is_show, $showtable,
-                $printview, $url_query, $resultSetContainsUniqueKey
+                $printview, $url_query, $has_unique
             );
         }
 
