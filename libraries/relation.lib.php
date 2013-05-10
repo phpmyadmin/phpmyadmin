@@ -769,7 +769,7 @@ function PMA_setDbComment($db, $comment = '')
             . PMA_Util::backquote($cfgRelation['db']) . '.'
             . PMA_Util::backquote($cfgRelation['column_info'])
             . ' (`db_name`, `table_name`, `column_name`, `comment`)'
-            . ' VALUES (\''.
+            . ' VALUES (\''
             . PMA_Util::sqlAddSlashes($db)
             . "', '', '(db_comment)', '"
             . PMA_Util::sqlAddSlashes($comment)
