@@ -279,78 +279,98 @@ if (!empty($submit_mult) && !empty($what)) {
             $_url_params['original_url_query'] = $original_url_query;
         }
     }
-    if ($what == 'replace_prefix_tbl' || $what == 'copy_tbl_change_prefix') { ?>
-        <form action="<?php echo $action; ?>" method="post">
-        <?php echo PMA_generate_common_hidden_inputs($_url_params); ?>
-        <fieldset class = "input">
-                <legend><?php echo ($what == 'replace_prefix_tbl' ? __('Replace table prefix') : __('Copy table with prefix')) ?>:</legend>
-                <table>
-                <tr>
-                <td><?php echo __('From'); ?></td><td><input type="text" name="from_prefix" id="initialPrefix" /></td>
-                </tr>
-                <tr>
-                <td><?php echo __('To'); ?> </td><td><input type="text" name="to_prefix" id="newPrefix" /></td>
-                </tr>
-                </table>
-        </fieldset>
-        <fieldset class="tblFooters">
-                <input type="hidden" name="mult_btn" value="<?php echo __('Yes'); ?>" />
-                <input type="submit" value="<?php echo __('Submit'); ?>" id="buttonYes" />
-        </fieldset>
-        </form>
-    <?php
-    } elseif ($what == 'add_prefix_tbl') { ?>
-        <form action="<?php echo $action; ?>" method="post">
-        <?php echo PMA_generate_common_hidden_inputs($_url_params); ?>
-        <fieldset class = "input">
-                <legend><?php echo __('Add table prefix') ?>:</legend>
-                <table>
-                <tr>
-                <td><?php echo __('Add prefix'); ?></td>     <td><input type="text" name="add_prefix" id="txtPrefix" /></td>
-                </tr>
-                </table>
-        </fieldset>
-        <fieldset class="tblFooters">
-                <input type="hidden" name="mult_btn" value="<?php echo __('Yes'); ?>" />
-                <input type="submit" value="<?php echo __('Submit'); ?>" id="buttonYes" />
-        </fieldset>
-        </form>
-    <?php
-    } else { ?>
-        <fieldset class="confirmation">
-            <legend><?php
-                if ($what == 'drop_db') {
-                    echo  __('You are about to DESTROY a complete database!') . '&nbsp;';
-                }
-                echo __('Do you really want to execute the following query?');
-            ?>:</legend>
-            <code><?php echo $full_query; ?></code>
-        </fieldset>
-        <fieldset class="tblFooters">
-            <form action="<?php echo $action; ?>" method="post">
-            <?php
-            echo PMA_generate_common_hidden_inputs($_url_params);
-            // Display option to disable foreign key checks while dropping tables
-            if ($what == 'drop_tbl') { ?>
-                <div id="foreignkeychk">
-                <span class="fkc_switch"><?php echo __('Foreign key check:'); ?></span>
-                <span class="checkbox"><input type="checkbox" name="fk_check" value="1" id="fkc_checkbox"<?php
-                $default_fk_check_value = (PMA_DBI_fetchValue('SHOW VARIABLES LIKE \'foreign_key_checks\';', 0, 1) == 'ON') ? 1 : 0;
-                echo ($default_fk_check_value) ? ' checked="checked"' : '' ?>/></span>
-                <span id="fkc_status" class="fkc_switch"><?php echo ($default_fk_check_value) ? __('(Enabled)') : __('(Disabled)'); ?></span>
-                </div><?php
-            } ?>
-            <input type="hidden" name="mult_btn" value="<?php echo __('Yes'); ?>" />
-            <input type="submit" value="<?php echo __('Yes'); ?>" id="buttonYes" />
-            </form>
+    if ($what == 'replace_prefix_tbl' || $what == 'copy_tbl_change_prefix') {
+        echo '<form action="' . $action . '" method="post">';
+        echo PMA_generate_common_hidden_inputs($_url_params);
+        echo '<fieldset class = "input">';
+        echo '<legend>';
+        if ($what == 'replace_prefix_tbl') {
+            echo __('Replace table prefix:');
+        } else {
+            echo __('Copy table with prefix:');
+        }
+        echo '</legend>';
+        echo '<table>';
+        echo '<tr>';
+        echo '<td>' . __('From') . '</td>';
+        echo '<td>';
+        echo '<input type="text" name="from_prefix" id="initialPrefix" />';
+        echo '</td>';
+        echo '</tr>';
+        echo '<tr>';
+        echo '<td>' . __('To') . '</td>';
+        echo '<td>';
+        echo '<input type="text" name="to_prefix" id="newPrefix" />';
+        echo '</td>';
+        echo '</tr>';
+        echo '</table>';
+        echo '</fieldset>';
+        echo '<fieldset class="tblFooters">';
+        echo '<input type="hidden" name="mult_btn" value="' . __('Yes') . '" />';
+        echo '<input type="submit" value="' . __('Submit') . '" id="buttonYes" />';
+        echo '</fieldset>';
+        echo '</form>';
+    } elseif ($what == 'add_prefix_tbl') {
+        echo '<form action="' . $action . '" method="post">';
+        echo PMA_generate_common_hidden_inputs($_url_params);
+        echo '<fieldset class = "input">';
+        echo '<legend>' . __('Add table prefix:') . '</legend>';
+        echo '<table>';
+        echo '<tr>';
+        echo '<td>' . __('Add prefix') . '</td>';
+        echo '<td>';
+        echo '<input type="text" name="add_prefix" id="txtPrefix" />';
+        echo '</td>';
+        echo '</tr>';
+        echo '<tr>';
+        echo '</table>';
+        echo '</fieldset>';
+        echo '<fieldset class="tblFooters">';
+        echo '<input type="hidden" name="mult_btn" value="' . __('Yes') . '" />';
+        echo '<input type="submit" value="' . __('Submit') . '" id="buttonYes" />';
+        echo '</fieldset>';
+        echo '</form>';
+    } else {
+        echo '<fieldset class="confirmation">';
+        echo '<legend>';
+        if ($what == 'drop_db') {
+            echo  __('You are about to DESTROY a complete database!') . ' ';
+        }
+        echo __('Do you really want to execute the following query?');
+        echo '</legend>';
+        echo '<code>' . $full_query . '</code>';
+        echo '</fieldset>';
+        echo '<fieldset class="tblFooters">';
+        echo '<form action="' . $action . '" method="post">';
+        echo PMA_generate_common_hidden_inputs($_url_params);
+        // Display option to disable foreign key checks while dropping tables
+        if ($what == 'drop_tbl') {
+            echo '<div id="foreignkeychk">';
+            echo '<span class="fkc_switch">';
+            echo __('Foreign key check:');
+            echo '</span>';
+            echo '<span class="checkbox">';
+            echo '<input type="checkbox" name="fk_check" value="1" id="fkc_checkbox"';
+            $default_fk_check_value = PMA_DBI_fetchValue('SHOW VARIABLES LIKE \'foreign_key_checks\';', 0, 1) == 'ON';
+            if ($default_fk_check_value) {
+                echo ' checked="checked"';
+            }
+            echo '/></span>';
+            echo '<span id="fkc_status" class="fkc_switch">'
+            echo ($default_fk_check_value) ? __('(Enabled)') : __('(Disabled)');
+            echo '</span>';
+            echo '</div>';
+        }
+        echo '<input type="hidden" name="mult_btn" value="' . __('Yes') . '" />';
+        echo '<input type="submit" value="' . __('Yes') . '" id="buttonYes" />';
+        echo '</form>';
 
-            <form action="<?php echo $action; ?>" method="post">
-                <?php echo PMA_generate_common_hidden_inputs($_url_params); ?>
-                <input type="hidden" name="mult_btn" value="<?php echo __('No'); ?>" />
-                <input type="submit" value="<?php echo __('No'); ?>" id="buttonNo" />
-            </form>
-        </fieldset>
-    <?php
+        echo '<form action="' . $action . '" method="post">';
+        echo PMA_generate_common_hidden_inputs($_url_params);
+        echo '<input type="hidden" name="mult_btn" value="' . __('No') . '" />';
+        echo '<input type="submit" value="' . __('No') . '" id="buttonNo" />';
+        echo '</form>';
+        echo '</fieldset>';
     }
     exit;
 
@@ -375,10 +395,10 @@ if (!empty($submit_mult) && !empty($what)) {
     if ($query_type == 'primary_fld') {
         // Gets table primary key
         PMA_DBI_selectDb($db);
-        $result      = PMA_DBI_query(
+        $result = PMA_DBI_query(
             'SHOW KEYS FROM ' . PMA_Util::backquote($table) . ';'
         );
-        $primary     = '';
+        $primary = '';
         while ($row = PMA_DBI_fetchAssoc($result)) {
             // Backups the list of primary keys
             if ($row['Key_name'] == 'PRIMARY') {
