@@ -1,6 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
+ * Main loader script
  *
  * @package PhpMyAdmin
  */
@@ -389,7 +390,13 @@ if ($server != 0
     && $cfg['Server']['password'] == ''
 ) {
     trigger_error(
-        __('Your configuration file contains settings (root with no password) that correspond to the default MySQL privileged account. Your MySQL server is running with this default, is open to intrusion, and you really should fix this security hole by setting a password for user \'root\'.'),
+        __(
+            'Your configuration file contains settings (root with no password)'
+            . ' that correspond to the default MySQL privileged account.'
+            . ' Your MySQL server is running with this default, is open to'
+            . ' intrusion, and you really should fix this security hole by'
+            . ' setting a password for user \'root\'.'
+        ),
         E_USER_WARNING
     );
 }
@@ -400,7 +407,11 @@ if ($server != 0
  */
 if (@extension_loaded('mbstring') && @ini_get('mbstring.func_overload') > 1) {
     trigger_error(
-        __('You have enabled mbstring.func_overload in your PHP configuration. This option is incompatible with phpMyAdmin and might cause some data to be corrupted!'),
+        __(
+            'You have enabled mbstring.func_overload in your PHP '
+            . 'configuration. This option is incompatible with phpMyAdmin '
+            . 'and might cause some data to be corrupted!'
+        ),
         E_USER_WARNING
     );
 }
@@ -411,7 +422,12 @@ if (@extension_loaded('mbstring') && @ini_get('mbstring.func_overload') > 1) {
  */
 if (! @extension_loaded('mbstring')) {
     trigger_error(
-        __('The mbstring PHP extension was not found and you seem to be using a multibyte charset. Without the mbstring extension phpMyAdmin is unable to split strings correctly and it may result in unexpected results.'),
+        __(
+            'The mbstring PHP extension was not found and you seem to be using'
+            . ' a multibyte charset. Without the mbstring extension phpMyAdmin'
+            . ' is unable to split strings correctly and it may result in'
+            . ' unexpected results.'
+        ),
         E_USER_WARNING
     );
 }
@@ -576,8 +592,9 @@ if (file_exists('libraries/language_stats.inc.php')) {
  *
  * @return void
  */
-function PMA_printListItem($name, $id = null, $url = null, $mysql_help_page = null,
-    $target = null, $a_id = null, $class = null, $a_class = null
+function PMA_printListItem($name, $id = null, $url = null,
+    $mysql_help_page = null, $target = null, $a_id = null, $class = null,
+    $a_class = null
 ) {
     echo '<li id="' . $id . '"';
     if (null !== $class) {
