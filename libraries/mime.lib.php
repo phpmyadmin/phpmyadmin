@@ -13,7 +13,7 @@ if (! defined('PHPMYADMIN')) {
 /**
  * Tries to detect MIME type of content.
  *
- * @param string &$test
+ * @param string &$test First few bytes of content to use for detection
  *
  * @return string
  */
