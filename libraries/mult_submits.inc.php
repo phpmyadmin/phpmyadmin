@@ -356,7 +356,7 @@ if (!empty($submit_mult) && !empty($what)) {
                 echo ' checked="checked"';
             }
             echo '/></span>';
-            echo '<span id="fkc_status" class="fkc_switch">'
+            echo '<span id="fkc_status" class="fkc_switch">';
             echo ($default_fk_check_value) ? __('(Enabled)') : __('(Disabled)');
             echo '</span>';
             echo '</div>';
