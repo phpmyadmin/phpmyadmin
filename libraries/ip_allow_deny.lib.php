@@ -169,7 +169,7 @@ function PMA_ipv4MaskTest($testRange, $ipToTest)
 function PMA_ipv6MaskTest($test_range, $ip_to_test)
 {
     $result = true;
-    
+
     // convert to lowercase for easier comparison
     $test_range = strtolower($test_range);
     $ip_to_test = strtolower($ip_to_test);
@@ -217,24 +217,24 @@ function PMA_ipv6MaskTest($test_range, $ip_to_test)
 
         $pos = 31;
         while ($flexbits > 0) {
-          // Get the character at this position
-          $orig = substr($last_hex, $pos, 1);
+            // Get the character at this position
+            $orig = substr($last_hex, $pos, 1);
 
-          // Convert it to an integer
-          $origval = hexdec($orig);
+            // Convert it to an integer
+            $origval = hexdec($orig);
 
-          // OR it with (2^flexbits)-1, with flexbits limited to 4 at a time
-          $newval = $origval | (pow(2, min(4, $flexbits)) - 1);
+            // OR it with (2^flexbits)-1, with flexbits limited to 4 at a time
+            $newval = $origval | (pow(2, min(4, $flexbits)) - 1);
 
-          // Convert it back to a hexadecimal character
-          $new = dechex($newval);
+            // Convert it back to a hexadecimal character
+            $new = dechex($newval);
 
-          // And put that character back in the string
-          $last_hex = substr_replace($last_hex, $new, $pos, 1);
+            // And put that character back in the string
+            $last_hex = substr_replace($last_hex, $new, $pos, 1);
 
-          // We processed one nibble, move to previous position
-          $flexbits -= 4;
-          $pos -= 1;
+            // We processed one nibble, move to previous position
+            $flexbits -= 4;
+            $pos -= 1;
         }
 
         // check if the IP to test is within the range
