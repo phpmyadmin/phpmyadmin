@@ -18,7 +18,7 @@ require_once 'libraries/Index.class.php';
  */
 class PMA_Index_Test extends PHPUnit_Framework_TestCase
 {
-    private $params = array();
+    private $_params = array();
 
     /**
      * Configures parameters.
@@ -27,14 +27,14 @@ class PMA_Index_Test extends PHPUnit_Framework_TestCase
      */
     public function setup()
     {
-        $this->params['Schema'] = "PMA_Schema";
-        $this->params['Table'] = "PMA_Table";
-        $this->params['Key_name'] = "PMA_Key_name";
-        $this->params['Index_type'] = "PMA_Index_type";
-        $this->params['Comment'] = "PMA_Comment";
-        $this->params['Index_comment'] = "PMA_Index_comment";
-        $this->params['Non_unique'] = "PMA_Non_unique";
-        $this->params['Packed'] = "PMA_Packed";
+        $this->_params['Schema'] = "PMA_Schema";
+        $this->_params['Table'] = "PMA_Table";
+        $this->_params['Key_name'] = "PMA_Key_name";
+        $this->_params['Index_type'] = "PMA_Index_type";
+        $this->_params['Comment'] = "PMA_Comment";
+        $this->_params['Index_comment'] = "PMA_Index_comment";
+        $this->_params['Non_unique'] = "PMA_Non_unique";
+        $this->_params['Packed'] = "PMA_Packed";
     }
 
     /**
@@ -44,7 +44,7 @@ class PMA_Index_Test extends PHPUnit_Framework_TestCase
      */
     public function testConstructor()
     {
-        $index = new PMA_Index($this->params);
+        $index = new PMA_Index($this->_params);
         $this->assertEquals(
             'PMA_Index_comment',
             $index->getComment()
