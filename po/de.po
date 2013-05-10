@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-05-02 13:12+0200\n"
-"PO-Revision-Date: 2013-05-09 14:09+0200\n"
-"Last-Translator: J. M. <me@mynetx.net>\n"
+"PO-Revision-Date: 2013-05-10 12:23+0200\n"
+"Last-Translator: Jan Erik Zassenhaus <jan.zassenhaus@jgerman.de>\n"
 "Language-Team: German <http://l10n.cihar.com/projects/phpmyadmin/4-0/de/>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
@@ -7492,7 +7492,7 @@ msgstr "Schnellfilter löschen"
 
 #: libraries/navigation/NavigationTree.class.php:1060
 msgid "filter items by name"
-msgstr "Elemente nach Namen filtern"
+msgstr "Nach Name filtern"
 
 #. l10n: The word "Node" must not be translated here
 #: libraries/navigation/NodeFactory.class.php:41
