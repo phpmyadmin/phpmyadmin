@@ -110,26 +110,32 @@ if (isset($_POST['submit_export'])
         if (!$all_ok) {
             // mimic original form and post json in a hidden field
             include 'libraries/user_preferences.inc.php';
-            $msg = PMA_Message::error(__('Configuration contains incorrect data for some fields.'));
+            $msg = PMA_Message::error(
+                __('Configuration contains incorrect data for some fields.')
+            );
             $msg->display();
             echo '<div class="config-form">';
             $form_display->displayErrors();
             echo '</div>';
             echo '<form action="prefs_manage.php" method="post">';
             echo PMA_generate_common_hidden_inputs() . "\n";
-            echo '<input type="hidden" name="json" value="' . htmlspecialchars($json) . '" />';
+            echo '<input type="hidden" name="json" value="'
+                . htmlspecialchars($json) . '" />';
             echo '<input type="hidden" name="fix_errors" value="1" />';
             if (! empty($_POST['import_merge'])) {
                 echo '<input type="hidden" name="import_merge" value="1" />';
             }
             if ($return_url) {
-                echo '<input type="hidden" name="return_url" value="' . htmlspecialchars($return_url) . '" />';
+                echo '<input type="hidden" name="return_url" value="'
+                    . htmlspecialchars($return_url) . '" />';
             }
             echo '<p>';
             echo __('Do you want to import remaining settings?');
             echo '</p>';
-            echo '<input type="submit" name="submit_import" value="' . __('Yes') . '" />';
-            echo '<input type="submit" name="submit_ignore" value="' . __('No') . '" />';
+            echo '<input type="submit" name="submit_import" value="'
+                . __('Yes') . '" />';
+            echo '<input type="submit" name="submit_ignore" value="'
+                . __('No') . '" />';
             echo '</form>';
             exit;
         }
