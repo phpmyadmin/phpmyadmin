@@ -57,10 +57,12 @@ class PMA_getIcon_test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['PropertiesIconic'] = true;
         $alternate_text = 'alt_str';
 
+        // Here we are checking for an icon embeded inside a span (i.e not a menu
+        // bar icon
         $this->assertEquals(
             '<span class="nowrap"><img src="themes/dot.gif" title="' . $alternate_text . '" alt="' . $alternate_text
             . '" class="icon ic_b_comment" /> ' . $alternate_text . '</span>',
-            PMA_Util::getIcon('b_comment.png', $alternate_text, true)
+            PMA_Util::getIcon('b_comment.png', $alternate_text, true, false)
         );
 
     }

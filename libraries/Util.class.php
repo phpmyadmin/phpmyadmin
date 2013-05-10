@@ -95,11 +95,13 @@ class PMA_Util
      * @param string  $icon       name of icon file
      * @param string  $alternate  alternate text
      * @param boolean $force_text whether to force alternate text to be displayed
+     * @param boolean $menu_icon  whether this icon is for the menu bar or not
      *
      * @return string an html snippet
      */
-    public static function getIcon($icon, $alternate = '', $force_text = false)
-    {
+    public static function getIcon($icon, $alternate = '', $force_text = false,
+        $menu_icon = false
+    ) {
         // $cfg['PropertiesIconic'] is true or both
         $include_icon = ($GLOBALS['cfg']['PropertiesIconic'] !== false);
         // $cfg['PropertiesIconic'] is false or both
@@ -107,8 +109,9 @@ class PMA_Util
         $include_text = ($force_text
             || ($GLOBALS['cfg']['PropertiesIconic'] !== true));
 
-        // Always use a span (we rely on this in js/sql.js)
-        $button = '<span class="nowrap">';
+        // Sometimes use a span (we rely on this in js/sql.js). But for menu bar
+        // we don't need a span
+        $button = $menu_icon ? '' : '<span class="nowrap">';
         if ($include_icon) {
             $button .= self::getImage($icon, $alternate);
         }
@@ -118,7 +121,7 @@ class PMA_Util
         if ($include_text) {
             $button .= $alternate;
         }
-        $button .= '</span>';
+        $button .= $menu_icon ? '' : '</span>';
 
         return $button;
     }
@@ -1797,8 +1800,7 @@ class PMA_Util
             // avoid generating an alt tag, because it only illustrates
             // the text that follows and if browser does not display
             // images, the text is duplicated
-            $tab['text'] = self::getImage(htmlentities($tab['icon']))
-                . $tab['text'];
+            $tab['text'] = self::getIcon($tab['icon'], $tab['text'], false, true);
 
         } elseif (empty($tab['text'])) {
             // check to not display an empty link-text
