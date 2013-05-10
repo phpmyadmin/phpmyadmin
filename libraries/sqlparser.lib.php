@@ -126,7 +126,13 @@ function PMA_SQP_isError()
 function PMA_SQP_throwError($message, $sql)
 {
     global $SQP_errorString;
-    $SQP_errorString = '<p>'.__('There seems to be an error in your SQL query. The MySQL server error output below, if there is any, may also help you in diagnosing the problem') . '</p>' . "\n"
+    $SQP_errorString = '<p>'
+        . __(
+            'There seems to be an error in your SQL query. The MySQL server '
+            . 'error output below, if there is any, may also help you in '
+            . 'diagnosing the problem'
+        )
+        . '</p>' . "\n"
         . '<pre>' . "\n"
         . 'ERROR: ' . $message . "\n"
         . 'SQL: ' . htmlspecialchars($sql) .  "\n"
@@ -168,17 +174,29 @@ function PMA_SQP_bug($message, $sql)
     );
 
 
-    $SQP_errorString .= __('There is a chance that you may have found a bug in the SQL parser. Please examine your query closely, and check that the quotes are correct and not mis-matched. Other possible failure causes may be that you are uploading a file with binary outside of a quoted text area. You can also try your query on the MySQL command line interface. The MySQL server error output below, if there is any, may also help you in diagnosing the problem. If you still have problems or if the parser fails where the command line interface succeeds, please reduce your SQL query input to the single query that causes problems, and submit a bug report with the data chunk in the CUT section below:')
-         . '<br />' . "\n"
-         . '----' . __('BEGIN CUT') . '----' . '<br />' . "\n"
-         . $encodedstr . "\n"
-         . '----' . __('END CUT') . '----' . '<br />' . "\n";
+    $SQP_errorString .= __(
+        'There is a chance that you may have found a bug in the SQL parser. '
+        . 'Please examine your query closely, and check that the quotes are '
+        . 'correct and not mis-matched. Other possible failure causes may be '
+        . 'that you are uploading a file with binary outside of a quoted text '
+        . 'area. You can also try your query on the MySQL command line '
+        . 'interface. The MySQL server error output below, if there is any, '
+        . 'may also help you in diagnosing the problem. If you still have '
+        . 'problems or if the parser fails where the command line interface '
+        . 'succeeds, please reduce your SQL query input to the single query '
+        . 'that causes problems, and submit a bug report with the data chunk '
+        . 'in the CUT section below:'
+    );
+    $SQP_errorString .=  '<br />' . "\n"
+        . '----' . __('BEGIN CUT') . '----' . '<br />' . "\n"
+        . $encodedstr . "\n"
+        . '----' . __('END CUT') . '----' . '<br />' . "\n";
 
     $SQP_errorString .= '----' . __('BEGIN RAW') . '----<br />' . "\n"
-         . '<pre>' . "\n"
-         . $debugstr
-         . '</pre>' . "\n"
-         . '----' . __('END RAW') . '----<br />' . "\n";
+        . '<pre>' . "\n"
+        . $debugstr
+        . '</pre>' . "\n"
+        . '----' . __('END RAW') . '----<br />' . "\n";
 
 } // end of the "PMA_SQP_bug()" function
 
@@ -353,7 +371,8 @@ function PMA_SQP_parse($sql)
                 if ($pos < 0) {
                     if ($c == '`') {
                         /*
-                         * Behave same as MySQL and accept end of query as end of backtick.
+                         * Behave same as MySQL and accept end of query as end
+                         * of backtick.
                          * I know this is sick, but MySQL behaves like this:
                          *
                          * SELECT * FROM `table
@@ -362,7 +381,9 @@ function PMA_SQP_parse($sql)
                          *
                          * SELECT * FROM `table`
                          */
-                        $pos_quote_separator = PMA_strpos(' ' . $sql, $GLOBALS['sql_delimiter'], $oldpos + 1) - 1;
+                        $pos_quote_separator = PMA_strpos(
+                            ' ' . $sql, $GLOBALS['sql_delimiter'], $oldpos + 1
+                        ) - 1;
                         if ($pos_quote_separator < 0) {
                             $len += 1;
                             $sql .= '`';
@@ -370,16 +391,22 @@ function PMA_SQP_parse($sql)
                             $pos = $len;
                         } else {
                             $len += 1;
-                            $sql = PMA_substr($sql, 0, $pos_quote_separator) . '`' . PMA_substr($sql, $pos_quote_separator);
+                            $sql = PMA_substr($sql, 0, $pos_quote_separator)
+                                . '`' . PMA_substr($sql, $pos_quote_separator);
                             $sql_array['raw'] = $sql;
                             $pos = $pos_quote_separator;
                         }
-                        if (class_exists('PMA_Message') && $GLOBALS['is_ajax_request'] != true) {
-                            PMA_Message::notice(__('Automatically appended backtick to the end of query!'))->display();
+                        if (class_exists('PMA_Message')
+                            && $GLOBALS['is_ajax_request'] != true
+                        ) {
+                            PMA_Message::notice(
+                                __('Automatically appended backtick to the end of query!')
+                            )->display();
                         }
                     } else {
-                        $debugstr = __('Unclosed quote') . ' @ ' . $startquotepos. "\n"
-                                  . 'STR: ' . htmlspecialchars($quotetype);
+                        $debugstr = __('Unclosed quote')
+                            . ' @ ' . $startquotepos. "\n"
+                            . 'STR: ' . htmlspecialchars($quotetype);
                         PMA_SQP_throwError($debugstr, $sql);
                         return $sql_array;
                     }
@@ -393,10 +420,16 @@ function PMA_SQP_parse($sql)
 
                 // Checks for MySQL escaping using a \
                 // And checks for ANSI escaping using the $quotetype character
-                if (($pos < $len) && PMA_STR_charIsEscaped($sql, $pos) && $c != '`') {
+                if (($pos < $len)
+                    && PMA_STR_charIsEscaped($sql, $pos)
+                    && $c != '`'
+                ) {
                     $pos ++;
                     continue;
-                } elseif (($pos + 1 < $len) && (PMA_substr($sql, $pos, 1) == $quotetype) && (PMA_substr($sql, $pos + 1, 1) == $quotetype)) {
+                } elseif (($pos + 1 < $len)
+                    && (PMA_substr($sql, $pos, 1) == $quotetype)
+                    && (PMA_substr($sql, $pos + 1, 1) == $quotetype)
+                ) {
                     $pos = $pos + 2;
                     continue;
                 } else {
@@ -488,8 +521,17 @@ function PMA_SQP_parse($sql)
             $is_identifier           = $previous_was_punct;
             $is_sql_variable         = $c == '@' && ! $previous_was_quote;
             $is_user                 = $c == '@' && $previous_was_quote;
-            $is_digit                = !$is_identifier && !$is_sql_variable && PMA_STR_isDigit($c);
-            $is_hex_digit            = $is_digit && $c == '0' && $count2 < $len && PMA_substr($sql, $count2, 1) == 'x';
+            $is_digit                = (
+                !$is_identifier
+                && !$is_sql_variable
+                && PMA_STR_isDigit($c)
+            );
+            $is_hex_digit            = (
+                $is_digit
+                && $c == '0'
+                && $count2 < $len
+                && PMA_substr($sql, $count2, 1) == 'x'
+            );
             $is_float_digit          = $c == '.';
             $is_float_digit_exponent = false;
 
@@ -530,8 +572,11 @@ function PMA_SQP_parse($sql)
                         $is_float_digit = true;
                         continue;
                     } else {
-                        $debugstr = __('Invalid Identifer') . ' @ ' . ($count1+1) . "\n"
-                                  . 'STR: ' . htmlspecialchars(PMA_substr($sql, $count1, $count2 - $count1));
+                        $debugstr = __('Invalid Identifer')
+                            . ' @ ' . ($count1+1) . "\n"
+                            . 'STR: ' . htmlspecialchars(
+                                PMA_substr($sql, $count1, $count2 - $count1)
+                            );
                         PMA_SQP_throwError($debugstr, $sql);
                         return $sql_array;
                     }
@@ -645,8 +690,9 @@ function PMA_SQP_parse($sql)
                      * "select x&~1 from t"
                      * becomes "select x & ~ 1 from t" ?
                      */
-                    $debugstr =  __('Unknown Punctuation String') . ' @ ' . ($count1+1) . "\n"
-                              . 'STR: ' . htmlspecialchars($punct_data);
+                    $debugstr =  __('Unknown Punctuation String')
+                        . ' @ ' . ($count1+1) . "\n"
+                        . 'STR: ' . htmlspecialchars($punct_data);
                     PMA_SQP_throwError($debugstr, $sql);
                     return $sql_array;
                 }
@@ -660,7 +706,7 @@ function PMA_SQP_parse($sql)
         $count2++;
 
         $debugstr = 'C1 C2 LEN: ' . $count1 . ' ' . $count2 . ' ' . $len .  "\n"
-                  . 'STR: ' . PMA_substr($sql, $count1, $count2 - $count1) . "\n";
+            . 'STR: ' . PMA_substr($sql, $count1, $count2 - $count1) . "\n";
         PMA_SQP_bug($debugstr, $sql);
         return $sql_array;
 
@@ -1922,7 +1968,8 @@ function PMA_SQP_analyze($arr)
                             || $third_upper_data == 'NO'
                         ) {
                             if ($arr[$i+3]['type'] == 'alpha_reservedWord') {
-                                $value = $third_upper_data . '_' . strtoupper($arr[$i+3]['data']);
+                                $value = $third_upper_data . '_'
+                                    . strtoupper($arr[$i+3]['data']);
                             }
                         } elseif ($third_upper_data == 'CURRENT_TIMESTAMP') {
                             if ($clause == 'on_update'
@@ -2623,7 +2670,9 @@ function PMA_SQP_formatHtml(
                 }
                 break;
             case 'SET':
-                if ($docu && ($i == 0 || $arr[$i - 1]['data'] != 'CHARACTER')) {
+                if ($docu
+                    && ($i == 0 || $arr[$i - 1]['data'] != 'CHARACTER')
+                ) {
                     $before .= PMA_Util::showMySQLDocu(
                         'SQL-Syntax',
                         $arr[$i]['data'],
