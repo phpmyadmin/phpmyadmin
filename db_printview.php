@@ -27,58 +27,6 @@ $err_url = 'db_sql.php?' . PMA_generate_common_url($db);
 $cfgRelation = PMA_getRelationsParam();
 
 /**
- * Gets the list of the table in the current db and informations about these
- * tables if possible
- *
- * @todo merge this speedup _optionaly_ into PMA_DBI_getTablesFull()
- *
-// speedup view on locked tables
-// Special speedup for newer MySQL Versions (in 4.0 format changed)
-if ($cfg['SkipLockedTables'] == true) {
-    $result = PMA_DBI_query('SHOW OPEN TABLES FROM ' . PMA_Util::backquote($db) . ';');
-    // Blending out tables in use
-    if ($result != false && PMA_DBI_numRows($result) > 0) {
-        while ($tmp = PMA_DBI_fetchRow($result)) {
-            // if in use memorize tablename
-            if (preg_match('@in_use=[1-9]+@i', $tmp[0])) {
-                $sot_cache[$tmp[0]] = true;
-            }
-        }
-        PMA_DBI_freeResult($result);
-
-        if (isset($sot_cache)) {
-            $result      = PMA_DBI_query('SHOW TABLES FROM ' . PMA_Util::backquote($db) . ';', null, PMA_DBI_QUERY_STORE);
-            if ($result != false && PMA_DBI_numRows($result) > 0) {
-                while ($tmp = PMA_DBI_fetchRow($result)) {
-                    if (! isset($sot_cache[$tmp[0]])) {
-                        $sts_result  = PMA_DBI_query('SHOW TABLE STATUS FROM ' . PMA_Util::backquote($db) . ' LIKE \'' . sqlAddSlashes($tmp[0], true) . '\';');
-                        $sts_tmp     = PMA_DBI_fetchAssoc($sts_result);
-                        $tables[]    = $sts_tmp;
-                    } else { // table in use
-                        $tables[]    = array('Name' => $tmp[0]);
-                    }
-                }
-                PMA_DBI_freeResult($result);
-                $sot_ready = true;
-            }
-        }
-        unset($tmp, $result);
-    }
-}
-
-if (! isset($sot_ready)) {
-    $result      = PMA_DBI_query('SHOW TABLE STATUS FROM ' . PMA_Util::backquote($db) . ';');
-    if (PMA_DBI_numRows($result) > 0) {
-        while ($sts_tmp = PMA_DBI_fetchAssoc($result)) {
-            $tables[] = $sts_tmp;
-        }
-        PMA_DBI_freeResult($result);
-        unset($res);
-    }
-}
- */
-
-/**
  * If there is at least one table, displays the printer friendly view, else
  * an error message
  */
