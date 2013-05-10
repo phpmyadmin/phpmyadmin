@@ -1,6 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
+ * Helper for multi submit forms
  *
  * @package PhpMyAdmin
  */
@@ -44,11 +45,13 @@ if (! empty($submit_mult)
 ) {
     define('PMA_SUBMIT_MULT', 1);
     if (isset($selected_db) && !empty($selected_db)) {
-        // coming from server database view - do something with selected databases
+        // coming from server database view - do something with
+        // selected databases
         $selected     = $selected_db;
         $what         = 'drop_db';
     } elseif (isset($selected_tbl) && !empty($selected_tbl)) {
-        // coming from database structure view - do something with selected tables
+        // coming from database structure view - do something with
+        // selected tables
         if ($submit_mult == 'print') {
             include './tbl_printview.php';
         } else {
@@ -78,7 +81,8 @@ if (! empty($submit_mult)
             } // end switch
         }
     } elseif (isset($selected_fld) && !empty($selected_fld)) {
-        // coming from table structure view - do something with selected columns/fileds
+        // coming from table structure view - do something with
+        // selected columns/fileds
         $selected     = $selected_fld;
         switch ($submit_mult) {
         case 'drop':
@@ -87,8 +91,10 @@ if (! empty($submit_mult)
         case 'primary':
             // Gets table primary key
             PMA_DBI_selectDb($db);
-            $result      = PMA_DBI_query('SHOW KEYS FROM ' . PMA_Util::backquote($table) . ';');
-            $primary     = '';
+            $result = PMA_DBI_query(
+                'SHOW KEYS FROM ' . PMA_Util::backquote($table) . ';'
+            );
+            $primary = '';
             while ($row = PMA_DBI_fetchAssoc($result)) {
                 // Backups the list of primary keys
                 if ($row['Key_name'] == 'PRIMARY') {
@@ -255,8 +261,9 @@ if (!empty($submit_mult) && !empty($what)) {
     }
     foreach ($selected as $idx => $sval) {
         if ($what == 'row_delete') {
-            $_url_params['selected'][] = 'DELETE FROM ' . PMA_Util::backquote($db) . '.' . PMA_Util::backquote($table)
-            . ' WHERE ' . urldecode($sval) . ' LIMIT 1;';
+            $_url_params['selected'][] = 'DELETE FROM '
+                . PMA_Util::backquote($db) . '.' . PMA_Util::backquote($table)
+                . ' WHERE ' . urldecode($sval) . ' LIMIT 1;';
         } else {
             $_url_params['selected'][] = $sval;
         }
@@ -360,13 +367,17 @@ if (!empty($submit_mult) && !empty($what)) {
         $sql_query_views = '';
     }
     $selected_cnt   = count($selected);
-    $run_parts      = false; // whether to run query after each pass
-    $use_sql        = false; // whether to include sql.php at the end (to display results)
+    // whether to run query after each pass
+    $run_parts      = false;
+    // whether to include sql.php at the end (to display results)
+    $use_sql        = false;
 
     if ($query_type == 'primary_fld') {
         // Gets table primary key
         PMA_DBI_selectDb($db);
-        $result      = PMA_DBI_query('SHOW KEYS FROM ' . PMA_Util::backquote($table) . ';');
+        $result      = PMA_DBI_query(
+            'SHOW KEYS FROM ' . PMA_Util::backquote($table) . ';'
+        );
         $primary     = '';
         while ($row = PMA_DBI_fetchAssoc($result)) {
             // Backups the list of primary keys
