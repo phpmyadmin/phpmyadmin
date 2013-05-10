@@ -60,7 +60,7 @@ function PMA_queryAsControlUser($sql, $show_error = true, $options = 0)
 function PMA_getRelationsParam()
 {
     if (empty($_SESSION['relation'][$GLOBALS['server']])) {
-        $_SESSION['relation'][$GLOBALS['server']] = PMA__getRelationsParam();
+        $_SESSION['relation'][$GLOBALS['server']] = PMA_checkRelationsParam();
     }
 
     // just for BC but needs to be before PMA_getRelationsParamDiagnostic()
@@ -344,7 +344,7 @@ function PMA_getDiagMessageForParameter($parameter,
  * @access  protected
  * @return array    the relation parameters for the current user
  */
-function PMA__getRelationsParam()
+function PMA_checkRelationsParam()
 {
     $cfgRelation                = array();
     $cfgRelation['relwork']     = false;
@@ -938,7 +938,7 @@ function PMA_purgeHistory($username)
  *
  * @access  protected
  */
-function PMA__foreignDropdownBuild($foreign, $data, $mode)
+function PMA_buildForeignDropdown($foreign, $data, $mode)
 {
     $reloptions = array();
 
@@ -991,7 +991,7 @@ function PMA__foreignDropdownBuild($foreign, $data, $mode)
     } // end foreach
 
     return $reloptions;
-} // end of 'PMA__foreignDropdownBuild' function
+} // end of 'PMA_buildForeignDropdown' function
 
 /**
  * Outputs dropdown with values of foreign fields
@@ -1035,25 +1035,25 @@ function PMA_foreignDropdown($disp_row, $foreign_field, $foreign_display, $data,
     if ($foreign_display) {
         if (PMA_isValid($GLOBALS['cfg']['ForeignKeyDropdownOrder'], 'array')) {
             if (PMA_isValid($GLOBALS['cfg']['ForeignKeyDropdownOrder'][0])) {
-                $top = PMA__foreignDropdownBuild(
+                $top = PMA_buildForeignDropdown(
                     $foreign,
                     $data,
                     $GLOBALS['cfg']['ForeignKeyDropdownOrder'][0]
                 );
             }
             if (PMA_isValid($GLOBALS['cfg']['ForeignKeyDropdownOrder'][1])) {
-                $bottom = PMA__foreignDropdownBuild(
+                $bottom = PMA_buildForeignDropdown(
                     $foreign,
                     $data,
                     $GLOBALS['cfg']['ForeignKeyDropdownOrder'][1]
                 );
             }
         } else {
-            $top = PMA__foreignDropdownBuild($foreign, $data, 'id-content');
-            $bottom = PMA__foreignDropdownBuild($foreign, $data, 'content-id');
+            $top = PMA_buildForeignDropdown($foreign, $data, 'id-content');
+            $bottom = PMA_buildForeignDropdown($foreign, $data, 'content-id');
         }
     } else {
-        $top = PMA__foreignDropdownBuild($foreign, $data, 'id-only');
+        $top = PMA_buildForeignDropdown($foreign, $data, 'id-only');
     }
 
     // beginning of dropdown
