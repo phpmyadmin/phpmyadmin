@@ -378,7 +378,10 @@ if (!empty($submit_mult) && !empty($what)) {
     /**
      * Executes the query - dropping rows, columns/fields, tables or dbs
      */
-    if ($query_type == 'drop_db' || $query_type == 'drop_tbl' || $query_type == 'drop_fld') {
+    if ($query_type == 'drop_db'
+        || $query_type == 'drop_tbl'
+        || $query_type == 'drop_fld'
+    ) {
         include_once './libraries/relation_cleanup.lib.php';
     }
 
@@ -570,7 +573,7 @@ if (!empty($submit_mult) && !empty($what)) {
     } // end for
 
     if ($query_type == 'drop_tbl') {
-        $default_fk_check_value = (PMA_DBI_fetchValue('SHOW VARIABLES LIKE \'foreign_key_checks\';', 0, 1) == 'ON') ? 1 : 0;
+        $default_fk_check_value = PMA_DBI_fetchValue('SHOW VARIABLES LIKE \'foreign_key_checks\';', 0, 1) == 'ON';
         if (!empty($sql_query)) {
             $sql_query .= ';';
         } elseif (!empty($sql_query_views)) {
