@@ -1,6 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
+ * Renders data dictionary
  *
  * @package PhpMyAdmin
  */
@@ -160,16 +161,12 @@ foreach ($tables as $table) {
     /**
      * Displays the table structure
      */
-    ?>
 
-<table width="100%" class="print">
-<tr><th width="50"><?php echo __('Column'); ?></th>
-    <th width="80"><?php echo __('Type'); ?></th>
-<?php /*    <th width="50"><?php echo __('Attributes'); ?></th>*/ ?>
-    <th width="40"><?php echo __('Null'); ?></th>
-    <th width="70"><?php echo __('Default'); ?></th>
-<?php /*    <th width="50"><?php echo __('Extra'); ?></th>*/ ?>
-    <?php
+    echo '<table width="100%" class="print">';
+    echo '<tr><th width="50">' . __('Column') . '</th>';
+    echo '<th width="80">' . __('Type') . '</th>';
+    echo '<th width="40">' . __('Null') . '</th>';
+    echo '<th width="70">' . __('Default') . '</th>';
     if ($have_rel) {
         echo '    <th>' . __('Links to') . '</th>' . "\n";
     }
@@ -177,9 +174,7 @@ foreach ($tables as $table) {
     if ($cfgRelation['mimework']) {
         echo '    <th>MIME</th>' . "\n";
     }
-    ?>
-</tr>
-    <?php
+    echo '</tr>';
     $odd_row = true;
     foreach ($columns as $row) {
 
@@ -224,27 +219,25 @@ foreach ($tables as $table) {
              */
              $row['Null'] = 'NO';
         }
-        ?>
-<tr class="<?php echo $odd_row ? 'odd' : 'even'; $odd_row = ! $odd_row; ?>">
-    <td class="nowrap">
-        <?php
+        echo '<tr class="';
+        echo $odd_row ? 'odd' : 'even'; $odd_row = ! $odd_row;
+        echo '">';
+        echo '<td class="nowrap">';
+
         if (isset($pk_array[$row['Field']])) {
             echo '<u>' . htmlspecialchars($field_name) . '</u>';
         } else {
             echo htmlspecialchars($field_name);
         }
-        ?>
-    </td>
-    <td<?php echo $type_nowrap; ?> lang="en" dir="ltr"><?php echo $type; ?></td>
-<?php /*    <td<?php echo $type_nowrap; ?>><?php echo $attribute; ?></td>*/ ?>
-    <td><?php echo (($row['Null'] == 'NO') ? __('No') : __('Yes')); ?></td>
-    <td class="nowrap"><?php
-    if (isset($row['Default'])) {
-        echo $row['Default'];
-    }
-    ?></td>
-<?php /*    <td<?php echo $type_nowrap; ?>><?php echo $row['Extra']; ?></td>*/ ?>
-        <?php
+        echo '</td>';
+        echo '<td' . $type_nowrap . ' lang="en" dir="ltr">' . $type . '</td>';
+        echo '<td>' . (($row['Null'] == 'NO') ? __('No') : __('Yes')) . '</td>';
+        echo '<td class="nowrap">';
+        if (isset($row['Default'])) {
+            echo $row['Default'];
+        }
+        echo '</td>';
+
         if ($have_rel) {
             echo '    <td>';
             if (isset($res_rel[$field_name])) {
@@ -266,21 +259,15 @@ foreach ($tables as $table) {
             }
             echo '</td>' . "\n";
         }
-        ?>
-</tr>
-        <?php
+        echo '</tr>';
     } // end foreach
     $count++;
-    ?>
-</table>
-<?php
-// display indexes information
+    echo '</table>';
+    // display indexes information
     if (count(PMA_Index::getFromTable($table, $db)) > 0) {
         echo PMA_Index::getView($table, $db, true);
     }
-?>
-</div>
-    <?php
+    echo '</div>';
 } //ends main while
 
 /**
