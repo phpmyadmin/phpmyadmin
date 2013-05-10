@@ -159,6 +159,7 @@ class PMA_Header
         $this->_scripts->addFile('jquery/jquery.debounce-1.0.5.js');
         $this->_scripts->addFile('jquery/jquery.menuResizer-1.0.js');
         $this->_scripts->addFile('rte.js');
+        $this->_scripts->addFile('pma_login_help.js');
 
         // Here would not be a good place to add CodeMirror because
         // the user preferences have not been merged at this point
