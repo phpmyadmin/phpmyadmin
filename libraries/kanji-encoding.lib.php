@@ -140,14 +140,23 @@ function PMA_Kanji_encodingForm()
 {
     return "\n"
         . '<ul>' . "\n" . '<li>'
+        . '<input type="radio" name="knjenc" value="" checked="checked" id="kj-none" />'
+        . '<label for="kj-none">'
         /* l10n: This is currently used only in Japanese locales */
-        . '<input type="radio" name="knjenc" value="" checked="checked" id="kj-none" /><label for="kj-none">' . _pgettext('None encoding conversion', 'None') . "</label>\n"
-        . '<input type="radio" name="knjenc" value="EUC-JP" id="kj-euc" /><label for="kj-euc">EUC</label>' . "\n"
-        . '<input type="radio" name="knjenc" value="SJIS" id="kj-sjis" /><label for="kj-sjis">SJIS</label>' . "\n"
+        . _pgettext('None encoding conversion', 'None')
+        . "</label>\n"
+        . '<input type="radio" name="knjenc" value="EUC-JP" id="kj-euc" />'
+        . '<label for="kj-euc">EUC</label>' . "\n"
+        . '<input type="radio" name="knjenc" value="SJIS" id="kj-sjis" />'
+        . '<label for="kj-sjis">SJIS</label>' . "\n"
         . '</li>' . "\n" . '<li>'
-        . '<input type="checkbox" name="xkana" value="kana" id="kj-kana" />' . "\n"
+        . '<input type="checkbox" name="xkana" value="kana" id="kj-kana" />'
+        . "\n"
+        . '<label for="kj-kana">'
         /* l10n: This is currently used only in Japanese locales */
-        . '<label for="kj-kana">' . __('Convert to Kana') . '</label><br />' . "\n"
+        . __('Convert to Kana')
+        . '</label><br />'
+        . "\n"
         . '</li>' . "\n" . '</ul>'
         ;
 } // end of the 'PMA_Kanji_encodingForm' function
