@@ -169,7 +169,8 @@ $html .= '<a href="server_binlog.php' . PMA_generate_common_url($this_url_params
 if ($num_rows >= $GLOBALS['cfg']['MaxRows']) {
     $this_url_params = $url_params;
     $this_url_params['pos'] = $pos + $GLOBALS['cfg']['MaxRows'];
-    $html .= ' - <a href="server_binlog.php' . PMA_generate_common_url($this_url_params)
+    $html .= ' - <a href="server_binlog.php'
+        . PMA_generate_common_url($this_url_params)
         . '"';
     if ($GLOBALS['cfg']['NavigationBarIconic']) {
         $html .= ' title="' . _pgettext('Next page', 'Next') . '">';

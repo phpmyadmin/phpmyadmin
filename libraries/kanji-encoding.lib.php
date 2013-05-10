@@ -140,7 +140,8 @@ function PMA_Kanji_encodingForm()
 {
     return "\n"
         . '<ul>' . "\n" . '<li>'
-        . '<input type="radio" name="knjenc" value="" checked="checked" id="kj-none" />'
+        . '<input type="radio" name="knjenc" value="" checked="checked" '
+        . 'id="kj-none" />'
         . '<label for="kj-none">'
         /* l10n: This is currently used only in Japanese locales */
         . _pgettext('None encoding conversion', 'None')
