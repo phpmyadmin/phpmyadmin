@@ -28,19 +28,17 @@ $scripts->addFile('server_status_advisor.js');
  */
 $response->addHTML('<div>');
 $response->addHTML($ServerStatusData->getMenuHtml());
-$response->addHTML(getPrintAdvisorHtml($ServerStatusData));
+$response->addHTML(PMA_getAdvisorHtml($ServerStatusData));
 $response->addHTML('</div>');
 exit;
 
 
 /**
- * Prints html with Advisor
- *
- * @param null
+ * Returns html with Advisor
  *
  * @return string
  */
-function getPrintAdvisorHtml()
+function PMA_getAdvisorHtml()
 {
 	$output  = '<a href="#openAdvisorInstructions">';
 	$output .= PMA_Util::getIcon('b_help.png', __('Instructions'));
@@ -84,7 +82,7 @@ function getPrintAdvisorHtml()
 	    )
 	);
 	$output .= '</div>';
- 
+
 	return $output;
 }
 
