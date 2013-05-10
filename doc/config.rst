@@ -993,6 +993,21 @@ Server connection settings
 
     Lifetime in seconds of the ``TABLE STATUS`` cache if 
     :config:option:`$cfg['Servers'][$i]['StatusCacheDatabases']` is used.
+    
+.. config:option:: $cfg['Servers'][$i]['userinfo']
+
+    :type: string
+    :default: ``''``
+
+    Since release 4.0.x phpMyAdmin can be configured to remember User Information.
+    A Separate Profile can be created by individual Users. These profiles are visible
+    to other users also, but can only be edited by the Owner.
+
+    To allow the usage of these functionality persistently:
+
+    * set up :config:option:`$cfg['Servers'][$i]['pmadb']` and the phpMyAdmin configuration storage
+    * put the table name in :config:option:`$cfg['Servers'][$i]['userinfo']` (e.g.
+      ``pma__user_info``)
 
 Generic settings
 ----------------

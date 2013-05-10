@@ -2470,8 +2470,16 @@ function PMA_getTableBodyForUserRightsTable($db_rights, $link_edit, $link_export
                 . 'for="checkbox_sel_users_' . $index_checkbox . '">'
                 . (empty($host['User'])
                     ? '<span style="color: #FF0000">' . __('Any') . '</span>'
-                    : htmlspecialchars($host['User'])) . '</label></td>' . "\n"
-                . '<td>' . htmlspecialchars($host['Host']) . '</td>' . "\n";
+                    : '<a class=disableAjax href=user_info.php?user=' . $host['User']
+                    . '&host=' . $host['Host'] . '&token=' . $_SESSION[' PMA_token '] 
+                    . '>' . htmlspecialchars($host['User'])) . '</a></label></td>' . "\n";
+                    if (!empty($GLOBALS['cfg']['Server']['pmadb']) && !empty($GLOBALS['cfg']['Server']['userinfo'])) {
+                        $html_output .= '<td><a class=disableAjax href=user_info.php?user=' . $host['User']
+                                     . '&host=' . $host['Host'] . '&token=' . $_SESSION[' PMA_token ']. '>' 
+                                     . htmlspecialchars($host['Host']) . '</a></td>' . "\n";
+                    } else {
+                        $html_output .= '<td>' . htmlspecialchars($host['Host']) . '</td>' . "\n";
+                    }
 
             $html_output .= '<td>';
             switch ($host['Password']) {
