@@ -325,7 +325,7 @@ if (! (isset($timeout_passed) && $timeout_passed)) {
 if (function_exists('PMA_Kanji_encodingForm')) { ?>
         <div class="importoptions" id="kanji_encoding">
             <h3><?php echo __('Encoding Conversion:'); ?></h3>
-            <?php echo PMA_Kanji_encodingForm('            '); ?>
+            <?php echo PMA_Kanji_encodingForm(); ?>
         </div>
     <?php
 }

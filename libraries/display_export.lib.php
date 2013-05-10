@@ -440,7 +440,7 @@ if (function_exists('PMA_Kanji_encodingForm')) {
     // Japanese encoding setting
     $html .= '<div class="exportoptions" id="kanji_encoding">';
     $html .= '<h3>' . __('Encoding Conversion:') . '</h3>';
-    $html .= PMA_Kanji_encodingForm('            ');
+    $html .= PMA_Kanji_encodingForm();
     $html .= '</div>';
 }
 

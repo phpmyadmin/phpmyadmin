@@ -138,7 +138,7 @@ function PMA_sqlQueryForm($query = true, $display_tab = false, $delimiter = ';')
 
     // Encoding setting form appended by Y.Kawada
     if (function_exists('PMA_Kanji_encodingForm')) {
-        echo PMA_Kanji_encodingForm('    ');
+        echo PMA_Kanji_encodingForm();
     }
 
     $html = '</form>' . "\n";

@@ -134,23 +134,21 @@ function PMA_Kanji_fileConv($file, $enc, $kana)
  * Defines radio form fields to switch between encoding modes
  * 2002/1/4 by Y.Kawada
  *
- * @param string $spaces spaces character to prepend the output with
- *
  * @return string   xhtml code for the radio controls
  */
-function PMA_Kanji_encodingForm($spaces)
+function PMA_Kanji_encodingForm()
 {
     return "\n"
-        . $spaces . '<ul>' . "\n" . '<li>'
+        . '<ul>' . "\n" . '<li>'
         /* l10n: This is currently used only in Japanese locales */
-        . $spaces . '<input type="radio" name="knjenc" value="" checked="checked" id="kj-none" /><label for="kj-none">' . _pgettext('None encoding conversion', 'None') . "</label>\n"
-        . $spaces . '<input type="radio" name="knjenc" value="EUC-JP" id="kj-euc" /><label for="kj-euc">EUC</label>' . "\n"
-        . $spaces . '<input type="radio" name="knjenc" value="SJIS" id="kj-sjis" /><label for="kj-sjis">SJIS</label>' . "\n"
-        . $spaces . '</li>' . "\n" . '<li>'
-        . $spaces . '<input type="checkbox" name="xkana" value="kana" id="kj-kana" />' . "\n"
+        . '<input type="radio" name="knjenc" value="" checked="checked" id="kj-none" /><label for="kj-none">' . _pgettext('None encoding conversion', 'None') . "</label>\n"
+        . '<input type="radio" name="knjenc" value="EUC-JP" id="kj-euc" /><label for="kj-euc">EUC</label>' . "\n"
+        . '<input type="radio" name="knjenc" value="SJIS" id="kj-sjis" /><label for="kj-sjis">SJIS</label>' . "\n"
+        . '</li>' . "\n" . '<li>'
+        . '<input type="checkbox" name="xkana" value="kana" id="kj-kana" />' . "\n"
         /* l10n: This is currently used only in Japanese locales */
-        . $spaces . '<label for="kj-kana">' . __('Convert to Kana') . '</label><br />' . "\n"
-        . $spaces . '</li>' . "\n" . '</ul>'
+        . '<label for="kj-kana">' . __('Convert to Kana') . '</label><br />' . "\n"
+        . '</li>' . "\n" . '</ul>'
         ;
 } // end of the 'PMA_Kanji_encodingForm' function
 
