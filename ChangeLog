@@ -30,6 +30,7 @@ phpMyAdmin - ChangeLog
 - bug #3909 [import] Import of CSV FIle to selected table doesn't work
 - bug #3904 Browsing an empty table should not display its Structure
 - bug #3908 Calendar widget improperly redirects to home 
+- bug #3918 Greyed out tabs when there are no rows fixed 
 - bug #3916 [interface] Missing scrollbar (original theme)
 + [vendor] add tcpdf path to vendor_config.php
 - bug fix compat with tcpdf >= 6.0 (tested with 6.0.012)
