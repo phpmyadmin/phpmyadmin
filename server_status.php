@@ -84,7 +84,6 @@ function getServerTrafficHtml($ServerStatusData)
  */
 function getServerStateGeneralInfoHtml($ServerStatusData)
 { 
-    $hour_factor    = 3600 / $ServerStatusData->status['Uptime'];
     $start_time = PMA_DBI_fetchValue(
         'SELECT UNIX_TIMESTAMP() - ' . $ServerStatusData->status['Uptime']
     );
@@ -164,6 +163,7 @@ function getServerStateGeneralInfoHtml($ServerStatusData)
  */
 function getServerStateTrafficHtml($ServerStatusData)
 {   
+    $hour_factor    = 3600 / $ServerStatusData->status['Uptime'];
     $retval  = '<table id="serverstatustraffic" class="data noclick">';
     $retval .= '<thead>';
     $retval .= '<tr>';
@@ -252,6 +252,7 @@ function getServerStateTrafficHtml($ServerStatusData)
  */
 function getServerStateConnectionsHtml($ServerStatusData)
 {
+    $hour_factor    = 3600 / $ServerStatusData->status['Uptime'];
     $retval  = '<table id="serverstatusconnections" class="data noclick">';
     $retval .= '<thead>';
     $retval .= '<tr>';
