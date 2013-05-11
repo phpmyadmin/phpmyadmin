@@ -84,12 +84,12 @@ class PMA_Index_Test extends PHPUnit_Framework_TestCase
     {
         $index = new PMA_Index();
         $index->addColumns($this->_params['columns']);       
-        $this->assertTrue($this->hasColumn("column1"));       
-        $this->assertTrue($this->hasColumn("column2"));       
-        $this->assertTrue($this->hasColumn("column3"));
+        $this->assertTrue($index->hasColumn("column1"));       
+        $this->assertTrue($index->hasColumn("column2"));       
+        $this->assertTrue($index->hasColumn("column3"));
         $this->assertEquals(
             3,
-            $this->getColumnCount()
+            $index->getColumnCount()
         );
     }
         
@@ -103,7 +103,7 @@ class PMA_Index_Test extends PHPUnit_Framework_TestCase
         $index = new PMA_Index();
         $index->addColumns($this->_params['columns']);
         
-        $index_columns = $this->getColumns();
+        $index_columns = $index->getColumns();
         $index_column = $index_columns['column1'];
         $this->assertEquals(
             'column1',
