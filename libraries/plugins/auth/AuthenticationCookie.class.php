@@ -247,16 +247,21 @@ class AuthenticationCookie extends AuthenticationPlugin
         ) {
             // If enabled show captcha to the user on the login screen.
             echo '<script type="text/javascript"
-                    src="http://www.google.com/recaptcha/api/challenge?k=' . $GLOBALS['cfg']['captchaLoginPublicKey'] . '">
+                    src="https://www.google.com/recaptcha/api/challenge?k=' . $GLOBALS['cfg']['captchaLoginPublicKey'] . '">
                  </script>
                  <noscript>
-                    <iframe src="http://www.google.com/recaptcha/api/noscript?k=' . $GLOBALS['cfg']['captchaLoginPublicKey'] . '"
+                    <iframe src="https://www.google.com/recaptcha/api/noscript?k=' . $GLOBALS['cfg']['captchaLoginPublicKey'] . '"
                         height="300" width="500" frameborder="0"></iframe><br>
                     <textarea name="recaptcha_challenge_field" rows="3" cols="40">
                     </textarea>
                     <input type="hidden" name="recaptcha_response_field"
                         value="manual_challenge">
-                 </noscript>';
+                 </noscript>
+                 <script type="text/javascript">
+                    $("#recaptcha_reload_btn").addClass("disableAjax");
+                    $("#recaptcha_switch_audio_btn").addClass("disableAjax");
+                    $("#recaptcha_switch_img_btn").addClass("disableAjax");
+                 </script>';
         }
 
         echo '</fieldset>
