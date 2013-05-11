@@ -625,4 +625,147 @@ function PMA_getHtmlForOptionsList($values, $selected_values)
     }
     return $options;
 }
+
+/**
+ * Checks the sql query for 'DROP DATABASE'
+ *
+ * @param string   $sql_query        SQL query
+ *
+ * @return bool    $is_drop_database SQL query contains 'DROP DATABASE'
+ */
+function PMA_isDropDatabase($sql_query)
+{
+    $is_drop_database = preg_match(
+        '/DROP[[:space:]]+(DATABASE|SCHEMA)[[:space:]]+/i',
+        $sql_query
+    );
+    return $is_drop_database;
+}
+
+/**
+ * Displays a MySQL error message when 'DROP DATABASE' statements are disabled
+ *
+ * @param string   $err_url     error url to return
+ *
+ * @return void
+ */
+function PMA_showDropDatabaseErrorMessage($err_url)
+{
+    PMA_Util::mysqlDie(
+        __('"DROP DATABASE" statements are disabled.'),
+        '',
+        '',
+        $err_url
+    );
+}
+
+/**
+ * Set globals from $_POST parameters
+ *
+ * @return void
+ */
+function PMA_setGlobalsFromPostParameters()
+{
+    $post_params = array(
+        'bkm_all_users',
+        'fields',
+        'store_bkm'
+    );
+    PMA_setGlobals($_POST, $post_params);
+}
+
+/**
+ * Set globals from $_GET parameters
+ *
+ * @return void
+ */
+function PMA_setGlobalsFromGetParameters()
+{
+    $get_params = array(
+        'id_bookmark',
+        'label',
+        'sql_query'
+    );
+    PMA_setGlobals($_GET, $get_params);
+}
+
+/**
+ * Set globals from $_REQUEST parameters
+ *
+ * @return void
+ */
+function PMA_setGlobalsFromRequestParameters()
+{
+    $request_params = array(
+        'printview'
+    );
+    PMA_setGlobals($_REQUEST, $request_params);
+}
+
+/**
+ * Set globals from the given parameter list
+ *
+ * @param array    $params      list of parameters
+ * @param array    $param_keys  list of keys of the parameters
+ * 
+ * @return void
+ */
+function PMA_setGlobals($params, $param_keys)
+{
+    foreach ($param_keys as $one_param_key) {
+        if (isset($params[$one_param_key])) {
+            $GLOBALS[$one_param_key] = $params[$one_param_key];
+        }
+    }
+}
+
+/**
+ * Adds the required javascript scripts to the response header
+ *
+ * @return void
+ */
+function PMA_addScripts()
+{
+    $response = PMA_Response::getInstance();
+    $header   = $response->getHeader();
+    $scripts  = $header->getScripts();
+    $scripts->addFile('jquery/jquery-ui-timepicker-addon.js');
+    $scripts->addFile('tbl_change.js');
+    // the next one needed because sql.php may do a "goto" to tbl_structure.php
+    $scripts->addFile('tbl_structure.js');
+    $scripts->addFile('indexes.js');
+    $scripts->addFile('gis_data_editor.js');
+
+    if (isset($_SESSION['profiling'])) {
+        /* < IE 9 doesn't support canvas natively */
+        if (PMA_USR_BROWSER_AGENT == 'IE' && PMA_USR_BROWSER_VER < 9) {
+            $scripts->addFile('canvg/flashcanvas.js');
+        }
+        $scripts->addFile('jqplot/jquery.jqplot.js');
+        $scripts->addFile('jqplot/plugins/jqplot.pieRenderer.js');
+        $scripts->addFile('canvg/canvg.js');
+    }
+}
+
+/**
+ * Returns the error url
+ *
+ * @param string   $back        go back file name
+ * @param string   $goto        go forward file name
+ * @param string   $db          current database
+ * @param string   $table       current table
+ *
+ * @return string  $err_url     error url
+ */
+function PMA_getErrorUrl($back, $goto, $db, $table)
+{
+    $err_url = (! empty($back) ? $back : $goto)
+        . '?' . PMA_generate_common_url($db)
+        . ((strpos(' ' . $goto, 'db_') != 1 && strlen($table))
+            ? '&amp;table=' . urlencode($table)
+            : ''
+        );
+    return $err_url;
+}
+
 ?>

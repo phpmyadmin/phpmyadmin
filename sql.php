@@ -18,68 +18,22 @@ require_once 'libraries/check_user_privileges.lib.php';
 require_once 'libraries/bookmark.lib.php';
 require_once 'libraries/sql.lib.php';
 
-$response = PMA_Response::getInstance();
-$header   = $response->getHeader();
-$scripts  = $header->getScripts();
-$scripts->addFile('jquery/jquery-ui-timepicker-addon.js');
-$scripts->addFile('tbl_change.js');
-// the next one needed because sql.php may do a "goto" to tbl_structure.php
-$scripts->addFile('tbl_structure.js');
-$scripts->addFile('indexes.js');
-$scripts->addFile('gis_data_editor.js');
+// Add the required javascript scripts to the response header
+PMA_addScripts();
 
-/**
- * Set ajax_reload in the response if it was already set
- */
+// Set ajax_reload in the response if it was already set
 if (isset($ajax_reload) && $ajax_reload['reload'] === true) {
     $response->addJSON('ajax_reload', $ajax_reload);
 }
 
-/**
- * Sets globals from $_POST
- */
-$post_params = array(
-    'bkm_all_users',
-    'fields',
-    'store_bkm'
-);
-foreach ($post_params as $one_post_param) {
-    if (isset($_POST[$one_post_param])) {
-        $GLOBALS[$one_post_param] = $_POST[$one_post_param];
-    }
-}
+// Sets globals from $_POST
+PMA_setGlobalsFromPostParameters();
 
-/**
- * Sets globals from $_GET
- */
-$get_params = array(
-    'id_bookmark',
-    'label',
-    'sql_query'
-);
-foreach ($get_params as $one_get_param) {
-    if (isset($_GET[$one_get_param])) {
-        $GLOBALS[$one_get_param] = $_GET[$one_get_param];
-    }
-}
+// Sets globals from $_GET
+PMA_setGlobalsFromGetParameters();
 
-
-if (isset($_REQUEST['printview'])) {
-    $GLOBALS['printview'] = $_REQUEST['printview'];
-}
-
-if (isset($_SESSION['profiling'])) {
-    $response = PMA_Response::getInstance();
-    $header   = $response->getHeader();
-    $scripts  = $header->getScripts();
-    /* < IE 9 doesn't support canvas natively */
-    if (PMA_USR_BROWSER_AGENT == 'IE' && PMA_USR_BROWSER_VER < 9) {
-        $scripts->addFile('canvg/flashcanvas.js');
-    }
-    $scripts->addFile('jqplot/jquery.jqplot.js');
-    $scripts->addFile('jqplot/plugins/jqplot.pieRenderer.js');
-    $scripts->addFile('canvg/canvg.js');
-}
+// Sets globals from $_REQUEST
+PMA_setGlobalsFromRequestParameters();
 
 if (!isset($_SESSION['is_multi_query'])) {
     $_SESSION['is_multi_query'] = false;
@@ -106,12 +60,7 @@ if (! empty($goto)) {
 } // end if
 
 if (! isset($err_url)) {
-    $err_url = (! empty($back) ? $back : $goto)
-        . '?' . PMA_generate_common_url($db)
-        . ((strpos(' ' . $goto, 'db_') != 1 && strlen($table))
-            ? '&amp;table=' . urlencode($table)
-            : ''
-        );
+    $err_url = PMA_getErrorUrl($back, $goto, $db, $table);
 } // end if
 
 // Coming from a bookmark dialog
@@ -244,10 +193,7 @@ if (empty($sql_query) && strlen($table) && strlen($db)) {
 }
 
 // instead of doing the test twice
-$is_drop_database = preg_match(
-    '/DROP[[:space:]]+(DATABASE|SCHEMA)[[:space:]]+/i',
-    $sql_query
-);
+$is_drop_database = PMA_isDropDatabase($sql_query);
 
 /**
  * Check rights in case of DROP DATABASE
@@ -261,12 +207,7 @@ if (! defined('PMA_CHK_DROP')
     && $is_drop_database
     && ! $is_superuser
 ) {
-    PMA_Util::mysqlDie(
-        __('"DROP DATABASE" statements are disabled.'),
-        '',
-        '',
-        $err_url
-    );
+    PMA_showDropDatabaseErrorMessage($err_url);
 } // end if
 
 // Include PMA_Index class for use in PMA_DisplayResults class
