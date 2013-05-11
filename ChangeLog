@@ -17,6 +17,7 @@ phpMyAdmin - ChangeLog
 + rfe #1422 [interface] Provide feedback if no columns selected for multi-submit
 - bug #3799 [interface] Incorrect select field change on ctrl key navigation in Firefox
 - bug #3885 [browse] display_binary_as_hex option causes unexpected behavior
++ rfe #785  Support for user information
 
 4.0.0.0 (not yet released)
 + Patch #3481047 for rfe #3480477 Insert as new row enhancement

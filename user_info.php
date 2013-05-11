@@ -14,7 +14,6 @@ $scripts  = $header->getScripts();
 $scripts->addFile('user_info.js');
 echo $header->getDisplay();
 
- 
 //if form for updation was submitted
 if (isset($_POST['editform'])) {
     //take the host and user information from $cfg. No need to pass them as $_POST
@@ -58,7 +57,7 @@ if (isset($_POST['editform'])) {
     }
 
     //Send The Parameters to the function for Insertion/Updation
-    $result = PMA_doInsert_Update($host, $user, $newname, $newcontact,
+    $result = PMA_doInsert_UpdateUserInfo($host, $user, $newname, $newcontact,
                            $newmail, $newdesc, $newimg, $ext);			
 }
 
@@ -80,10 +79,9 @@ if ($user == $cfg['Server']['user'] && $host == $cfg['Server']['host']) {
        $edit = true;
 }
 
-list($name, $contact, $desc, $mail, $html_info) = PMA_showFetchedInfo($host, $user);
-
-
 //return the Fetched Html via array. Let's Keep all the output part of code in same place
+list($name, $contact, $desc, $mail, $html_info) = PMA_getHTMLAndFetchedUserInfo($host, $user);
+
 $html .= $html_info;
 
 //only the user can change his information and no other

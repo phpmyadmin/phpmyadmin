@@ -234,12 +234,13 @@ CREATE TABLE IF NOT EXISTS `pma__userconfig` (
 --
 
 CREATE TABLE IF NOT EXISTS `pma__user_info` (
-  `user` varchar(64) COLLATE utf8_bin NOT NULL,
-  `host` varchar(64) COLLATE utf8_bin NOT NULL,
-  `full_name` varchar(100) COLLATE utf8_bin NOT NULL,
-  `user_desc` tinytext COLLATE utf8_bin NOT NULL,
+  `user` varchar(64) NOT NULL,
+  `host` varchar(64) NOT NULL,
+  `full_name` varchar(100) NOT NULL,
+  `user_desc` tinytext NOT NULL,
   `user_mail` int(64) NOT NULL,
-  `user_contact` varchar(20) COLLATE utf8_bin NOT NULL,
+  `user_contact` varchar(20) NOT NULL,
   `user_icon` blob NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='User Information Storage for phpMyAdmin';
+) ENGINE=InnoDB COMMENT='User Information Storage for phpMyAdmin'
+  COLLATE=utf8_bin;
 

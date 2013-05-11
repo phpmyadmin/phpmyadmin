@@ -15,14 +15,14 @@ if (! defined('PHPMYADMIN')) {
  *
  * @return array
  */
-function PMA_showFetchedInfo($host, $user)
+function PMA_getHTMLAndFetchedUserInfo($host, $user)
 {
-header("X-Content-Security-Policy: allow 'self'; img-src data:");
-header(
+        header("X-Content-Security-Policy: allow 'self'; img-src data:");
+        header(
                     "X-WebKit-CSP: allow 'self';"
                     . "options inline-script eval-script;"
                     . "img-src 'self' data:; "
-                );
+              );
         $query = "SELECT * FROM ". PMA_Util::backquote($GLOBALS['cfg']['Server']['pmadb'])."."
         . PMA_Util::backquote($GLOBALS['cfg']['Server']['userinfo'])
         . " WHERE User = '". PMA_Util::sqlAddSlashes($user) . "' 
@@ -41,7 +41,7 @@ header(
        $html  = "";
        $html .= "<h2> User Details</h2>"
             . "<table id=display_table><tr>"
-            . '<td><div id= \'user_img\' ><img src = "data:image/png|image/jpeg|image/gif;base64,' 
+            . '<td><div id= user_img><img src = "data:image/png|image/jpeg|image/gif;base64,' 
             . htmlspecialchars(base64_encode($icon)) . '" width=150 height=150 /></div></td>'
             . "<td><div id= 'details_text'>"
             . "<h1>" . htmlspecialchars($name) . "</h1>"
@@ -69,7 +69,7 @@ header(
  * 
  * @return string string containing html
  */
-function PMA_doInsert_Update($host, $user, $newname, $newcontact, $newmail, $newdesc, $newimg)
+function PMA_doInsert_UpdateUserInfo($host, $user, $newname, $newcontact, $newmail, $newdesc, $newimg)
 {
     $dmltype = "SELECT COUNT(*) from ". PMA_Util::backquote($GLOBALS['cfg']['Server']['pmadb'])."."
                 . PMA_Util::backquote($GLOBALS['cfg']['Server']['userinfo'])." where user = '". $user . "'"
