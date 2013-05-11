@@ -104,7 +104,7 @@ class PMA_Index_Test extends PHPUnit_Framework_TestCase
         $index->addColumns($this->_params['columns']);
         
         $index_columns = $this->getColumns();
-        $index_column = $index_columns[0];
+        $index_column = $index_columns['index1'];
         $this->assertEquals(
             'column1',
             $index_column->getName();
