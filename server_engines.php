@@ -18,21 +18,54 @@ require 'libraries/server_common.inc.php';
 require 'libraries/StorageEngine.class.php';
 
 /**
- * Did the user request information about a certain storage engine?
+ * start output
  */
-$html = '';
-if (empty($_REQUEST['engine'])
-    || ! PMA_StorageEngine::isValid($_REQUEST['engine'])
-) {
+$response = PMA_Response::getInstance();
+$response->addHTML(PMA_getServerEnginesHtml());
 
+exit;
+
+
+/**
+ * setup HTML for server Engines information
+ *
+ * @param null
+ *
+ * @return string
+ */
+function PMA_getServerEnginesHtml()
+{
+	/**
+	 * Did the user request information about a certain storage engine?
+	 */
+	$html = '';
+	if (empty($_REQUEST['engine'])
+	    || ! PMA_StorageEngine::isValid($_REQUEST['engine'])
+	) {
+	    $html .= PMA_getAllServerEnginesHtml();	
+	} else {
+	    $html .= PMA_getSpecifiedServerEnginesHtml();
+	}
+	
+	return $html;
+}
+
+/**
+ * setup HTML for server all Engines information
+ *
+ * @param null
+ *
+ * @return string
+ */
+function PMA_getAllServerEnginesHtml()
+{
     /**
      * Displays the sub-page heading
      */
-    $html .= '<h2>' . "\n"
+    $html = '<h2>' . "\n"
         . PMA_Util::getImage('b_engine.png')
         . "\n" . __('Storage Engines') . "\n"
         . '</h2>' . "\n";
-
 
     /**
      * Displays the table header
@@ -68,13 +101,23 @@ if (empty($_REQUEST['engine'])
     unset($odd_row, $engine, $details);
     $html .= '</tbody>' . "\n"
         . '</table>' . "\n";
+    
+    return $html;
+}
 
-} else {
-
+/**
+ * setup HTML for a given Storage Engine
+ *
+ * @param null
+ *
+ * @return string
+ */
+function PMA_getSpecifiedServerEnginesHtml()
+{
     /**
      * Displays details about a given Storage Engine
      */
-
+    $html = ''; 
     $engine_plugin = PMA_StorageEngine::getEngine($_REQUEST['engine']);
     $html .= '<h2>' . "\n"
         . PMA_Util::getImage('b_engine.png')
@@ -124,9 +167,8 @@ if (empty($_REQUEST['engine'])
            . '</p>' . "\n"
            . $engine_plugin->getHtmlVariables();
     }
+    
+    return $html;
 }
-
-$response = PMA_Response::getInstance();
-$response->addHTML($html);
 
 ?>
