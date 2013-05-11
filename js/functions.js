@@ -3849,3 +3849,35 @@ $('a.login-link').live('click', function (e) {
     e.preventDefault();
     window.location.reload(true);
 });
+
+/**
+ * Dynamically adjust the width of the boxes
+ * on the table and db operations pages
+ */
+(function () {
+    function DynamicBoxes() {
+        var $boxContainer = $('#boxContainer');
+        if ($boxContainer.length) {
+            var minWidth = $boxContainer.data('box-width');
+            var viewport = $(window).width() - $('#pma_navigation').width();
+            var slots = Math.floor(viewport / minWidth);
+            $boxContainer.children()
+            .each(function () {
+                if (viewport < minWidth) {
+                    $(this).width(minWidth);
+                } else {
+                    $(this).css('width', ((1 /  slots) * 100) + "%");
+                }
+            })
+            .removeClass('clearfloat')
+            .filter(':nth-child(' + slots + 'n+1)')
+            .addClass('clearfloat');
+        }
+    }
+    AJAX.registerOnload('functions.js', function () {
+        DynamicBoxes();
+    });
+    $(function () {
+        $(window).resize(DynamicBoxes);
+    });
+})();

@@ -626,10 +626,13 @@ function PMA_getHtmlForOrderTheTable($columns)
             . htmlspecialchars($fieldname['Field']) . '</option>' . "\n";
     }
     $html_output .= '</select> ' . __('(singly)') . ' '
-        . '<select name="order_order">'
-        . '<option value="asc">' . __('Ascending') . '</option>'
-        . '<option value="desc">' . __('Descending') . '</option>'
-        . '</select>'
+        . '<br />'
+        . '<input id="order_order_asc" name="order_order"'
+        . ' type="radio" value="asc" checked="checked" />'
+        . '<label for="order_order_asc">' . __('Ascending') . '</label>'
+        . '<input id="order_order_desc" name="order_order"'
+        . ' type="radio" value="desc" />'
+        . '<label for="order_order_desc">' . __('Descending') . '</label>'
         . '</fieldset>'
         . '<fieldset class="tblFooters">'
         . '<input type="hidden" name="submitorderby" value="1" />'
@@ -666,12 +669,12 @@ function PMA_getHtmlForMoveTable()
             . 'name="target_db" value="' . htmlspecialchars($GLOBALS['db'])
             . '"/>';
     } else {
-        $html_output .= '<select name="target_db">'
+        $html_output .= '<select class="halfWidth" name="target_db">'
             . $GLOBALS['pma']->databases->getHtmlOptions(true, false)
             . '</select>';
     }
     $html_output .= '&nbsp;<strong>.</strong>&nbsp;';
-    $html_output .= '<input type="text" size="20" name="new_name"'
+    $html_output .= '<input class="halfWidth" type="text" size="20" name="new_name"'
         . ' onfocus="this.select()"'
         . 'value="' . htmlspecialchars($GLOBALS['table']) . '" /><br />';
 
@@ -996,16 +999,16 @@ function PMA_getHtmlForCopytable()
         . __('Copy table to (database<b>.</b>table):') . '</legend>';
 
     if (count($GLOBALS['pma']->databases) > $GLOBALS['cfg']['MaxDbList']) {
-        $html_output .= '<input type="text" maxlength="100" '
+        $html_output .= '<input class="halfWidth" type="text" maxlength="100" '
             . 'size="30" name="target_db" '
             . 'value="'. htmlspecialchars($GLOBALS['db']) . '"/>';
     } else {
-        $html_output .= '<select name="target_db">'
+        $html_output .= '<select class="halfWidth" name="target_db">'
             . $GLOBALS['pma']->databases->getHtmlOptions(true, false)
             . '</select>';
     }
     $html_output .= '&nbsp;<strong>.</strong>&nbsp;';
-    $html_output .= '<input type="text" size="20" name="new_name" '
+    $html_output .= '<input class="halfWidth" type="text" size="20" name="new_name" '
         . 'onfocus="this.select()" '
         . 'value="'. htmlspecialchars($GLOBALS['table']) . '"/><br />';
 
