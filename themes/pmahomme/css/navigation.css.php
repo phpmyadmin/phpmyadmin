@@ -83,6 +83,11 @@ if (! defined('PMA_MINIMUM_COMMON') && ! defined('TESTSUITE')) {
     width: 80%;
 }
 
+#pma_navigation_content > img.throbber {
+    display: block;
+    margin: .3em auto 0;
+}
+
 /* Navigation tree*/
 #pma_navigation_tree {
     margin: 5px 0 0;

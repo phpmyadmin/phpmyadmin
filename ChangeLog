@@ -2,6 +2,7 @@ phpMyAdmin - ChangeLog
 ======================
 
 4.0.2.0 (not yet released)
++ center loading indicator for navigation refresh, related to bug #3920
 
 4.0.1.0 (not yet released)
 - bug #3879 Import broken for CSV using LOAD DATA
