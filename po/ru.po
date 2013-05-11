@@ -4,17 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-05-02 13:12+0200\n"
-"PO-Revision-Date: 2013-02-16 14:58+0200\n"
+"PO-Revision-Date: 2013-05-11 21:28+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
-"Language-Team: Russian <http://l10n.cihar.com/projects/phpmyadmin/master/ru/"
-">\n"
+"Language-Team: Russian <http://l10n.cihar.com/projects/phpmyadmin/4-0/ru/>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 1.5-dev\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
+"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 1.6-dev\n"
 
 #: browse_foreigners.php:36 browse_foreigners.php:60 js/messages.php:344
 #: libraries/DisplayResults.class.php:809
@@ -5330,7 +5329,6 @@ msgid "Server/library difference warning"
 msgstr "Предупреждение различия Сервера/библиотеки"
 
 #: libraries/config/messages.inc.php:336
-#, fuzzy
 #| msgid ""
 #| "Disable the default warning that is displayed on the database details "
 #| "Structure page if any of the required tables for the phpMyAdmin "
@@ -5340,11 +5338,12 @@ msgid ""
 "column names in a table are reserved MySQL words"
 msgstr ""
 "Отключить предупреждение отображаемое на странице структуры базы данных при "
-"отсутствии таблиц необходимых для хранения конфигурации phpMyAdmin"
+"наличии столбцов таблицы с именами являющимися зарезервированными словами "
+"MySQL"
 
 #: libraries/config/messages.inc.php:337
 msgid "MySQL reserved word warning"
-msgstr ""
+msgstr "Предупреждение о зарезервированном слове MySQL"
 
 #: libraries/config/messages.inc.php:339
 msgid "Iconic table operations"
@@ -5667,7 +5666,6 @@ msgid "Connect without password"
 msgstr "Соединять без пароля"
 
 #: libraries/config/messages.inc.php:408
-#, fuzzy
 #| msgid ""
 #| "You can use MySQL wildcard characters (% and _), escape them if you want "
 #| "to use their literal instances, i.e. use [kbd]'my\\_db'[/kbd] and not "
@@ -5681,10 +5679,7 @@ msgid ""
 msgstr ""
 "Вы можете использовать подстановочные символы (% и _), экранируйте их, если "
 "хотите использовать, как обычные литературные символы, т.е. используйте "
-"[kbd]'my\\_db'[/kbd] а не [kbd]'my_db'[/kbd]. С помощью данной настройки "
-"можно сортировать список баз данных, для чего достаточно ввести их имена в "
-"определенном порядке и использовать [kbd]*[/kbd] в конце для вывода "
-"оставшихся в алфавитном порядке."
+"[kbd]'my\\_db'[/kbd], а не [kbd]'my_db'[/kbd]."
 
 #: libraries/config/messages.inc.php:409
 msgid "Show only listed databases"
@@ -7778,7 +7773,7 @@ msgstr ""
 
 #: libraries/plugins/auth/AuthenticationConfig.class.php:142
 msgid "Retry to connect"
-msgstr ""
+msgstr "Повторить попытку соединения"
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:44
 msgid "Failed to use Blowfish from mcrypt!"
@@ -12360,27 +12355,24 @@ msgid "Foreign key constraint"
 msgstr "Ограничение внешнего ключа"
 
 #: tbl_relation.php:498
-#, fuzzy
 #| msgid "Constraints for table"
 msgid "Constraint name"
-msgstr "Ограничения внешнего ключа таблицы"
+msgstr "Ограничения внешнего ключа"
 
 #: tbl_relation.php:529
-#, fuzzy
 #| msgid "No index defined!"
 msgid "No index defined! Create one below"
-msgstr "Индекс не определен!"
+msgstr "Индекс не определен! Создайте индекс внизу"
 
 #: tbl_structure.php:125
-#, fuzzy
 #| msgid "No rows selected"
 msgid "No column selected."
-msgstr "Для совершения действия необходимо выбрать одну или несколько строк"
+msgstr "Не выбран столбец."
 
 #: tbl_structure.php:149
 #, php-format
 msgid "The column name '%s' is a MySQL reserved keyword."
-msgstr ""
+msgstr "Столбец с именем '%s' является зарезервированным словом MySQL."
 
 #: tbl_tracking.php:135
 #, php-format
@@ -12657,7 +12649,6 @@ msgid "Long query time"
 msgstr "Время выполнения длинных запросов"
 
 #: libraries/advisory_rules.txt:80
-#, fuzzy
 #| msgid ""
 #| "long_query_time is set to 10 seconds or more, thus only slow queries that "
 #| "take above 10 seconds are logged."
@@ -12665,8 +12656,8 @@ msgid ""
 "{long_query_time} is set to 10 seconds or more, thus only slow queries that "
 "take above 10 seconds are logged."
 msgstr ""
-"Значение long_query_time установлено в 10 секунд или более, таким образом, "
-"только медленные запросы превышающие по времени выполнения 10 секунд будут "
+"Значение {long_query_time} равно 10 секундам или более, таким образом, "
+"только медленные запросы, превышающие по времени выполнения 10 секунд, будут "
 "записаны в журнал."
 
 #: libraries/advisory_rules.txt:81
@@ -13078,7 +13069,6 @@ msgstr ""
 "Слишком большое количество сортировок вызывают создание временных таблиц."
 
 #: libraries/advisory_rules.txt:215 libraries/advisory_rules.txt:222
-#, fuzzy
 #| msgid ""
 #| "Consider increasing sort_buffer_size and/or read_rnd_buffer_size, "
 #| "depending on your system memory limits"
@@ -13086,8 +13076,8 @@ msgid ""
 "Consider increasing {sort_buffer_size} and/or {read_rnd_buffer_size}, "
 "depending on your system memory limits"
 msgstr ""
-"Рассмотрите возможность увеличения sort_buffer_size и/или "
-"read_rnd_buffer_size, в зависимости от ограничения памяти вашей системы"
+"Рассмотрите возможность увеличения {sort_buffer_size} и/или "
+"{read_rnd_buffer_size}, в зависимости от ограничения памяти вашей системы"
 
 #: libraries/advisory_rules.txt:216
 #, php-format
@@ -13246,10 +13236,9 @@ msgid "tmp_table_size vs. max_heap_table_size"
 msgstr "tmp_table_size против max_heap_table_size"
 
 #: libraries/advisory_rules.txt:265
-#, fuzzy
 #| msgid "tmp_table_size and max_heap_table_size are not the same."
 msgid "{tmp_table_size} and {max_heap_table_size} are not the same."
-msgstr "tmp_table_size и max_heap_table_size не одно и то же."
+msgstr "{tmp_table_size} и {max_heap_table_size} не одно и то же."
 
 #: libraries/advisory_rules.txt:266
 msgid ""
@@ -13452,7 +13441,6 @@ msgstr ""
 "ошибки \"Слишком много открытых файлов\"."
 
 #: libraries/advisory_rules.txt:338 libraries/advisory_rules.txt:345
-#, fuzzy
 #| msgid ""
 #| "Consider increasing {open_files_limit}, and check the error log when "
 #| "restarting after changing open_files_limit."
@@ -13461,7 +13449,7 @@ msgid ""
 "restarting after changing {open_files_limit}."
 msgstr ""
 "Рассмотрите возможность увеличения значения переменной {open_files_limit}, и "
-"после ее изменения и перезагрузки, проверьте журнал ошибок."
+"после её изменения и перезагрузки проверьте журнал ошибок."
 
 #: libraries/advisory_rules.txt:339
 #, php-format
@@ -13592,7 +13580,6 @@ msgid "Slow_launch_threads is above 2s"
 msgstr "Slow_launch_threads выше 2 сек."
 
 #: libraries/advisory_rules.txt:387
-#, fuzzy
 #| msgid ""
 #| "Set slow_launch_time to 1s or 2s to correctly count threads that are slow "
 #| "to launch"
@@ -13600,7 +13587,7 @@ msgid ""
 "Set {slow_launch_time} to 1s or 2s to correctly count threads that are slow "
 "to launch"
 msgstr ""
-"Установите переменную slow_launch_time на 1 или 2 сек., чтобы корректно "
+"Установите переменную {slow_launch_time} на 1 или 2 сек., чтобы корректно "
 "считать медленно запускаемые потоки"
 
 #: libraries/advisory_rules.txt:388
@@ -13613,7 +13600,6 @@ msgid "Percentage of used connections"
 msgstr "Процентное соотношение использованных соединений"
 
 #: libraries/advisory_rules.txt:395
-#, fuzzy
 #| msgid ""
 #| "The maximum amount of used connections is getting close to the value of "
 #| "max_connections."
@@ -13622,10 +13608,9 @@ msgid ""
 "{max_connections}."
 msgstr ""
 "Максимальный размер использованных соединений приближается к значению "
-"max_connections."
+"{max_connections}."
 
 #: libraries/advisory_rules.txt:396
-#, fuzzy
 #| msgid ""
 #| "Increase max_connections, or decrease wait_timeout so that connections "
 #| "that do not close database handlers properly get killed sooner. Make sure "
@@ -13635,8 +13620,8 @@ msgid ""
 "that do not close database handlers properly get killed sooner. Make sure "
 "the code closes database handlers properly."
 msgstr ""
-"Увеличьте max_connections, или уменьшите wait_timeout чтобы соединения с "
-"незакрытыми операторами базы данных быстрее уничтожались. Убедитесь, что в "
+"Увеличьте {max_connections}, или уменьшите {wait_timeout}, чтобы соединения "
+"с незакрытыми операторами базы данных быстрее уничтожались. Убедитесь, что в "
 "коде корректно закрываются операторы базы данных."
 
 #: libraries/advisory_rules.txt:397
@@ -13872,10 +13857,9 @@ msgid "MyISAM concurrent inserts"
 msgstr "Одновременные вставки MyISAM"
 
 #: libraries/advisory_rules.txt:462
-#, fuzzy
 #| msgid "Enable concurrent_insert by setting it to 1"
 msgid "Enable {concurrent_insert} by setting it to 1"
-msgstr "Включите concurrent_insert установив значение в 1"
+msgstr "Включите {concurrent_insert}, установив значение в 1"
 
 #: libraries/advisory_rules.txt:463
 msgid ""
