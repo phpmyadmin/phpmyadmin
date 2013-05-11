@@ -532,7 +532,7 @@ class PMA_Index
         $no_indexes .= '</div>';
 
         if (! $print_mode) {
-            $r  = '<fieldset>';
+            $r  = '<fieldset class="index_info">';
             $r .= '<legend id="index_header">' . __('Indexes');
             $r .= PMA_Util::showMySQLDocu(
                 'optimization', 'optimizing-database-structure'

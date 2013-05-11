@@ -436,6 +436,8 @@ if (! $tbl_is_view
     && ! $db_is_information_schema
     && 'ARCHIVE' !=  $tbl_storage_engine
 ) {
+    //return the list of index
+    $response->addJSON('indexes_list', PMA_Index::getView($GLOBALS['table'], $GLOBALS['db']));
     $response->addHTML(PMA_getHtmlForDisplayIndexes());
 }
 

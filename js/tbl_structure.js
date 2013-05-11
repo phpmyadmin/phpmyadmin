@@ -193,7 +193,7 @@ AJAX.registerOnload('tbl_structure.js', function () {
                         $('#tablestatistics').html(data.tableStat);
                     }
                     // refresh the list of indexes (comes from sql.php)
-                    $('#indexes').html(data.indexes_list);
+                    $('.index_info').replaceWith(data.indexes_list);
                     PMA_reloadNavigation();
                 } else {
                     PMA_ajaxShowMessage(PMA_messages.strErrorProcessingRequest + " : " + data.error, false);
