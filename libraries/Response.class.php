@@ -213,7 +213,11 @@ class PMA_Response
      */
     public function addHTML($content)
     {
-        if ($content instanceof PMA_Message) {
+        if (is_array($content)) {
+            foreach ($content as $msg) {
+                $this->addHTML($msg);
+            }
+        } elseif ($content instanceof PMA_Message) {
             $this->_HTML .= $content->getDisplay();
         } else {
             $this->_HTML .= $content;
