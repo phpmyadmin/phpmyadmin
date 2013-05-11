@@ -82,8 +82,8 @@ if (! defined('PMA_MINIMUM_COMMON') && ! defined('TESTSUITE')) {
 #pma_navigation #databaseList,
 #pma_navigation div.pageselector.dbselector {
     text-align:         center;
-    margin-bottom:      0.5em;
-    padding-bottom:     0.5em;
+    margin-bottom:      0.3em;
+    padding-bottom:     0.3em;
     border: 0;
 }
 
@@ -91,6 +91,16 @@ if (! defined('PMA_MINIMUM_COMMON') && ! defined('TESTSUITE')) {
 #pma_navigation #serverChoice select
  {
     width: 80%;
+}
+
+#pma_navigation #recentTableList {
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+#pma_navigation_content > img.throbber {
+    display: block;
+    margin: 0 auto;
 }
 
 /* Navigation tree*/
