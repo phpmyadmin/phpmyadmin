@@ -209,6 +209,30 @@ class PMA_Table
     }
 
     /**
+     * Returns whether the table is actually an updatable view
+     *
+     * @param string $db    database
+     * @param string $table table
+     *
+     * @return whether the given is an updatable view
+     */
+    static public function isUpdatableView($db = null, $table = null)
+    {
+        if (empty($db) || empty($table)) {
+            return false;
+        }
+
+        $result = PMA_DBI_fetch_result(
+            "SELECT TABLE_NAME
+            FROM information_schema.VIEWS
+            WHERE TABLE_SCHEMA = '" . PMA_Util::sqlAddSlashes($db) . "'
+                AND TABLE_NAME = '" . PMA_Util::sqlAddSlashes($table) . "'
+                AND IS_UPDATABLE = 'YES'"
+        );
+        return $result ? true : false;
+    }
+
+    /**
      * sets given $value for given $param
      *
      * @param string $param name

@@ -753,6 +753,7 @@ if (isset($GLOBALS['show_as_php']) || ! empty($GLOBALS['validatequery'])) {
     // Counts the total number of rows for the same 'SELECT' query without the
     // 'LIMIT' clause that may have been programatically added
 
+    $justBrowsing = false;
     if (empty($sql_limit_to_append)) {
         $unlim_num_rows         = $num_rows;
         // if we did not append a limit, set this to get a correct
@@ -778,6 +779,7 @@ if (isset($GLOBALS['show_as_php']) || ! empty($GLOBALS['validatequery'])) {
             && ! isset($find_real_end)
         ) {
             // "j u s t   b r o w s i n g"
+            $justBrowsing = true;
             $unlim_num_rows = PMA_Table::countRecords($db, $table);
 
         } else { // n o t   " j u s t   b r o w s i n g "
@@ -1233,7 +1235,14 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
     // hide edit and delete links:
     // - for information_schema
     // - if the result set does not contain all the columns of a unique key
-    if (PMA_is_system_schema($db) || ! $resultSetContainsUniqueKey) {
+    //   and we are not just browing all the columns of an updatable view
+    $updatableView
+        = $justBrowsing
+        && trim($analyzed_sql[0]['select_expr_clause']) == '*'
+        && PMA_Table::isUpdatableView($db, $table);
+    if (PMA_is_system_schema($db)
+        || ! ($resultSetContainsUniqueKey || $updatableView)
+    ) {
         $disp_mode = 'nnnn110111';
         $msg = PMA_message::notice(
             __(
