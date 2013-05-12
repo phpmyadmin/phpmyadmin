@@ -362,7 +362,7 @@ function PMA_DBI_getTables($database, $link = null)
  *
  * @access  private
  */
-function PMA_usort_comparison_callback($a, $b)
+function PMA_usortComparisonCallback($a, $b)
 {
     if ($GLOBALS['cfg']['NaturalOrder']) {
         $sorter = 'strnatcasecmp';
@@ -380,7 +380,7 @@ function PMA_usort_comparison_callback($a, $b)
     return ($GLOBALS['callback_sort_order'] == 'ASC' ? 1 : -1) * $sorter(
         $a[$GLOBALS['callback_sort_by']], $b[$GLOBALS['callback_sort_by']]
     );
-} // end of the 'PMA_usort_comparison_callback()' function
+} // end of the 'PMA_usortComparisonCallback()' function
 
 /**
  * returns array of all tables in given db or dbs
@@ -1016,7 +1016,7 @@ function PMA_DBI_getDatabasesFull($database = null, $force_stats = false,
     if ($apply_limit_and_order_manual) {
         $GLOBALS['callback_sort_order'] = $sort_order;
         $GLOBALS['callback_sort_by'] = $sort_by;
-        usort($databases, 'PMA_usort_comparison_callback');
+        usort($databases, 'PMA_usortComparisonCallback');
         unset($GLOBALS['callback_sort_order'], $GLOBALS['callback_sort_by']);
 
         /**
