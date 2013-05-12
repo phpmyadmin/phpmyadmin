@@ -423,8 +423,9 @@ Yes. This procedure was tested with phpMyAdmin 2.6.1, PHP 4.3.9 in
 1.34 Can I access directly to database or table pages?
 ------------------------------------------------------
 
-Yes. Out of the box, you can use :term:`URL` like http://server/phpMyAdmin/index.php?server=X&db=databas
-e&table=table&target=script. For ``server`` you use the server number
+Yes. Out of the box, you can use :term:`URL` like
+http://server/phpMyAdmin/index.php?server=X&db=database&table=table&target=script.
+For ``server`` you use the server number
 which refers to the order of the server paragraph in
 :file:`config.inc.php`. Table and script parts are optional. If you want
 http://server/phpMyAdmin/database[/table][/script] :term:`URL`, you need to do some configuration. Following
