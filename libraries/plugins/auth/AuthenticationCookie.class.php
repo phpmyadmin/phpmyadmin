@@ -329,6 +329,8 @@ class AuthenticationCookie extends AuthenticationPlugin
      */
     public function authCheck()
     {
+        global $conn_error;
+        
         // Initialization
         /**
          * @global $GLOBALS['pma_auth_server'] the user provided server to
@@ -375,8 +377,9 @@ class AuthenticationCookie extends AuthenticationPlugin
 
                 // Check if the captcha entered is valid, if not stop the login.
                 if ( !$resp->is_valid ) {
-                    return false;
+                    $conn_error = __('Entered captcha is wrong, try again!');
                     $_SESSION['last_valid_captcha'] = false;
+                    return false;
                 } else {
                     $_SESSION['last_valid_captcha'] = true;
                 }
