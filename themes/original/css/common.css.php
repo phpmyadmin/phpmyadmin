@@ -1305,7 +1305,18 @@ li.no_bullets {
     width: 48%;
     float: <?php echo $left; ?>;
 }
-
+.operations_half_width input[type=text],
+.operations_half_width select {
+    width: 95%;
+}
+.operations_half_width input[type=text].halfWidth,
+.operations_half_width select.halfWidth {
+    width: 40%;
+}
+.operations_half_width ul {
+    list-style-type: none;
+    padding: 0;
+}
 .operations_full_width {
     width: 100%;
     clear: both;
