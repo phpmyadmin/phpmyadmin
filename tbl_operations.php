@@ -230,6 +230,8 @@ $columns = PMA_DBI_getColumns($GLOBALS['db'], $GLOBALS['table']);
 /**
  * Displays the page
  */
+$response->addHTML('<div id="boxContainer" data-box-width="300">');
+
 /**
  * Order the table
  */
@@ -277,8 +279,6 @@ $response->addHTML(
  * Copy table
  */
 $response->addHTML(PMA_getHtmlForCopytable());
-
-$response->addHTML('<br class="clearfloat"/>');
 
 /**
  * Table maintenance
@@ -344,7 +344,6 @@ if (! (isset($db_is_information_schema) && $db_is_information_schema)) {
         )
     );
 }
-$response->addHTML('<br class="clearfloat">');
 
 if (PMA_Partition::havePartitioning()) {
     $partition_names = PMA_Partition::getPartitionNames($db, $table);
@@ -374,5 +373,7 @@ if ($cfgRelation['relwork'] && ! $is_innodb) {
     } // end if ($foreign)
 
 } // end  if (!empty($cfg['Server']['relation']))
+
+$response->addHTML('</div>');
 
 ?>
