@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * set of functions with the create/addfield features in pma
+ * set of functions that needed for tbl_create.php and tbl_addfield.php in pma
  *
  * @package PhpMyAdmin
  */
@@ -207,6 +207,7 @@ function PMA_getFieldCreationStatements($is_create_tbl = true)
     if (count($definitions)) {
         $sql_statement = implode(', ', $definitions);
     }
+    $sql_statement = preg_replace('@, $@', '', $sql_statement);
     
     return $sql_statement;
     

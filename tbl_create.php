@@ -71,7 +71,6 @@ if (isset($_REQUEST['do_save_data'])) {
     require_once 'libraries/create_addfield.lib.php';
     // get field addition statements
     $sql_statement = PMA_getFieldCreationStatements(true);
-    $sql_statement = preg_replace('@, $@', '', $sql_statement);
     
     // Builds the 'create table' statement
     $sql_query = 'CREATE TABLE ' . PMA_Util::backquote($db) . '.'
