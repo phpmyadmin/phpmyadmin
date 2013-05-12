@@ -791,11 +791,23 @@ class PMA_Index_Column
      */
     private $_cardinality = null;
 
+    /**
+     * Constructor
+     *
+     * @param array $params an array containing the parameters of the index column
+     */
     public function __construct($params = array())
     {
         $this->set($params);
     }
 
+    /**
+     * Sets parameters of the index column
+     *
+     * @param array $params an array containing the parameters of the index column
+     *
+     * @return void
+     */
     public function set($params)
     {
         if (isset($params['Column_name'])) {
@@ -818,21 +830,44 @@ class PMA_Index_Column
         }
     }
 
+    /**
+     * Returns the column name
+     *
+     * @return string column name
+     */
     public function getName()
     {
         return $this->_name;
     }
 
+    /**
+     * Return the column collation
+     *
+     * @return string column collation
+     */
     public function getCollation()
     {
         return $this->_collation;
     }
 
+    /**
+     * Returns the cardinality of the column
+     *
+     * @return int cardinality of the column
+     */
     public function getCardinality()
     {
         return $this->_cardinality;
     }
 
+    /**
+     * Returns whether the column is nullable
+     *
+     * @param boolean $as_text whether to returned the string representation
+     *
+     * @return mixed nullability of the column. True/false or Yes/No depending
+     *               on the value of the $as_text parameter
+     */
     public function getNull($as_text = false)
     {
         return $as_text
@@ -840,6 +875,11 @@ class PMA_Index_Column
             : $this->_null;
     }
 
+    /**
+     * Returns the sequence number of the column in the index
+     *
+     * @return int sequence number of the column in the index
+     */
     public function getSeqInIndex()
     {
         return $this->_seq_in_index;
@@ -850,6 +890,11 @@ class PMA_Index_Column
         return $this->_sub_part;
     }
 
+    /**
+     * Gets the properties in an array for comparison purposes
+     *
+     * @return array an array containing the properties of the index column
+     */
     public function getCompareData()
     {
         return array(
