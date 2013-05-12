@@ -203,8 +203,17 @@ class PMA_NavigationTree
             $this->_pos,
             $this->_searchClause
         );
-        foreach ($data as $db) {
+        foreach ($data as $db) 
+        {
+			$count = "";
+			if ($GLOBALS['cfg']['Server']['CountTables'] === true)
+			{
+				$exploded_name = explode(" ", $db);
+				$count = " ".array_pop($exploded_name);
+				$db = implode(" ", $exploded_name);
+			}
             $node = PMA_NodeFactory::getInstance('Node_Database', $db);
+            $node->label_name .= " ".$count;
             $this->_tree->addChild($node);
         }
 
@@ -934,7 +943,7 @@ class PMA_NavigationTree
                         $title = '';
                     }
                     $retval .= "<a$linkClass$title href='$link'>";
-                    $retval .= htmlspecialchars($node->real_name);
+                    $retval .= htmlspecialchars($node->label_name);
                     $retval .= "</a>";
                 }
             } else {
