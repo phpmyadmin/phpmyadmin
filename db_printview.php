@@ -113,7 +113,7 @@ if ($num_tables == 0) {
             echo '<table width="100%">';
 
             if (! empty($sts_data['Create_time'])) {
-                echo '<tr>'
+                echo '<tr>';
                 echo '<td class="right">' . __('Creation:') . '</td>';
                 echo '<td class="right">';
                 echo PMA_Util::localisedDate(strtotime($sts_data['Create_time']));
