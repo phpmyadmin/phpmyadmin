@@ -453,6 +453,7 @@ function PMA_getHtmlForPrintViewHeader($db, $sql_query, $num_rows)
     $versions .= "&nbsp;/&nbsp;";
     $versions .= "MySQL&nbsp;" . PMA_MYSQL_STR_VERSION;
 
+    $header = '';
     $header .= "<h1>" . __('SQL result') . "</h1>";
     $header .= "<p>";
     $header .= "<strong>" . __('Host:') . "</strong> $hostname<br />";
@@ -483,6 +484,7 @@ function PMA_getHtmlForPrintViewHeader($db, $sql_query, $num_rows)
  */
 function PMA_getHtmlForProfilingChart($url_query, $pma_token, $profiling_results)
 {
+    $profiling_table = '';
     $profiling_table .= '<script type="text/javascript">';
     $profiling_table .= 'pma_token = \'' . $pma_token . '\';';
     $profiling_table .= 'url_query = \'' . $url_query . '\';';
