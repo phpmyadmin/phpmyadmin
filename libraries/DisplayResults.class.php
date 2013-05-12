@@ -5232,7 +5232,9 @@ class PMA_DisplayResults
         // if empty result set was produced we need to
         // show only view and not other options
         if ($only_view == true) {
-            $results_operations_html .= $this->_getLinkForCreateView($analyzed_sql,$url_query);
+            $results_operations_html .= $this->_getLinkForCreateView(
+                $analyzed_sql, $url_query
+            );
 
             if ($header_shown) {
                 $results_operations_html .= '</fieldset><br />';
@@ -5386,7 +5388,9 @@ class PMA_DisplayResults
             $header_shown = true;
         }
 
-        $results_operations_html .= $this->_getLinkForCreateView($analyzed_sql,$url_query);
+        $results_operations_html .= $this->_getLinkForCreateView(
+            $analyzed_sql, $url_query
+        );
 
         if ($header_shown) {
             $results_operations_html .= '</fieldset><br />';
