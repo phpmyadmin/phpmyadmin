@@ -103,6 +103,7 @@ $post_params = array(
         'csv_null',
         'csv_columns',
         'csv_structure_or_data',
+        // csv_replace should have been here but we use it directly from $_POST
         'latex_caption',
         'latex_structure_or_data',
         'latex_structure_caption',
