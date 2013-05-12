@@ -5187,10 +5187,10 @@ class PMA_DisplayResults
         //calling to _getResultOperations with a fake display mode
         //and setting only_view parameter to be true to generate just view
         $results_operations_html .= $this->_getResultsOperations(
-                                            $fake_display_mode,
-                                            $analyzed_sql,
-                                            true
-                                            );
+            $fake_display_mode,
+            $analyzed_sql,
+            true
+        );
         return $results_operations_html;
     }
 
@@ -5239,7 +5239,7 @@ class PMA_DisplayResults
             if ($header_shown) {
                 $results_operations_html .= '</fieldset><br />';
             }
-         return $results_operations_html;
+            return $results_operations_html;
         }
 
         if (($the_disp_mode[6] == '1') || ($the_disp_mode[9] == '1')) {
