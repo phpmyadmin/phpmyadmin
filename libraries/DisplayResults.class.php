@@ -5209,8 +5209,7 @@ class PMA_DisplayResults
      */
     private function _getResultsOperations(
         $the_disp_mode, $analyzed_sql, $only_view = false
-    )
-    {
+    ) {
         $results_operations_html = '';
         $fields_meta = $this->__get('fields_meta'); // To safe use in foreach
         $header_shown = false;
