@@ -3944,7 +3944,7 @@ class PMA_DisplayResults
      * Get the resulted table with the vertical direction mode.
      *
      * @param array $analyzed_sql the analyzed query
-     * @param array $is_display display mode
+     * @param array $is_display   display mode
      *
      * @return string       html content
      *
@@ -4143,8 +4143,8 @@ class PMA_DisplayResults
     /**
      * Get checkboxes for multiple row data operations
      *
-     * @param string $dir _left / _right
-     * @param array $is_display display mode
+     * @param string $dir        _left / _right
+     * @param array  $is_display display mode
      *
      * @return  $checkBoxes_html html content
      *
