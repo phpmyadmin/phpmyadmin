@@ -85,6 +85,7 @@ if (isset($_REQUEST['do_save_data'])) {
     } // end for
 
     // Change following code segments into functions
+    // SQL_query_generator();
     // Builds the fields creation statements
     for ($i = 0; $i < $field_cnt; $i++) {
         // '0' is also empty for php :-(
