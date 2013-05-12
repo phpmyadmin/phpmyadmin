@@ -87,7 +87,7 @@ abstract class PMA_List extends ArrayObject
         $options = '';
         foreach ($this as $each_item) {
             if (false === $include_information_schema
-                && PMA_is_system_schema($each_item)
+                && PMA_isSystemSchema($each_item)
             ) {
                 continue;
             }

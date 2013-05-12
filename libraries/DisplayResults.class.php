@@ -3944,7 +3944,7 @@ class PMA_DisplayResults
      * Get the resulted table with the vertical direction mode.
      *
      * @param array $analyzed_sql the analyzed query
-     * @param array $is_display display mode
+     * @param array $is_display   display mode
      *
      * @return string       html content
      *
@@ -4143,8 +4143,8 @@ class PMA_DisplayResults
     /**
      * Get checkboxes for multiple row data operations
      *
-     * @param string $dir _left / _right
-     * @param array $is_display display mode
+     * @param string $dir        _left / _right
+     * @param array  $is_display display mode
      *
      * @return  $checkBoxes_html html content
      *
@@ -5187,10 +5187,10 @@ class PMA_DisplayResults
         //calling to _getResultOperations with a fake display mode
         //and setting only_view parameter to be true to generate just view
         $results_operations_html .= $this->_getResultsOperations(
-                                            $fake_display_mode,
-                                            $analyzed_sql,
-                                            true
-                                            );
+            $fake_display_mode,
+            $analyzed_sql,
+            true
+        );
         return $results_operations_html;
     }
 
@@ -5209,8 +5209,7 @@ class PMA_DisplayResults
      */
     private function _getResultsOperations(
         $the_disp_mode, $analyzed_sql, $only_view = false
-    )
-    {
+    ) {
         $results_operations_html = '';
         $fields_meta = $this->__get('fields_meta'); // To safe use in foreach
         $header_shown = false;
@@ -5232,12 +5231,14 @@ class PMA_DisplayResults
         // if empty result set was produced we need to
         // show only view and not other options
         if ($only_view == true) {
-            $results_operations_html .= $this->_getLinkForCreateView($analyzed_sql,$url_query);
+            $results_operations_html .= $this->_getLinkForCreateView(
+                $analyzed_sql, $url_query
+            );
 
             if ($header_shown) {
                 $results_operations_html .= '</fieldset><br />';
             }
-         return $results_operations_html;
+            return $results_operations_html;
         }
 
         if (($the_disp_mode[6] == '1') || ($the_disp_mode[9] == '1')) {
@@ -5386,7 +5387,9 @@ class PMA_DisplayResults
             $header_shown = true;
         }
 
-        $results_operations_html .= $this->_getLinkForCreateView($analyzed_sql,$url_query);
+        $results_operations_html .= $this->_getLinkForCreateView(
+            $analyzed_sql, $url_query
+        );
 
         if ($header_shown) {
             $results_operations_html .= '</fieldset><br />';
@@ -5979,9 +5982,9 @@ class PMA_DisplayResults
      * Display binary fields as hex string for PHP <5.4,
      * otherwise escape the contents if it may be displayed as hex
      *
-     * @param string $content         String to parse
-     * @param string $binary_or_blob  'binary' or 'blob'
-     * @param int    $hexlength       optional, get substring
+     * @param string $content        String to parse
+     * @param string $binary_or_blob binary' or 'blob'
+     * @param int    $hexlength      optional, get substring
      *
      * @return Displayable version of the binary string
      *

@@ -962,7 +962,7 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
         }
 
         // hide edit and delete links for information_schema
-        if (PMA_is_system_schema($db)) {
+        if (PMA_isSystemSchema($db)) {
             $disp_mode = 'nnnn110111';
         }
 
@@ -1089,7 +1089,7 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
     // hide edit and delete links:
     // - for information_schema
     // - if the result set does not contain all the columns of a unique key
-    if (PMA_is_system_schema($db) || ! $has_unique) {
+    if (PMA_isSystemSchema($db) || ! $has_unique) {
         $disp_mode = 'nnnn110111';
         $msg = PMA_message::notice(
             __(

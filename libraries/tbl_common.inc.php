@@ -17,7 +17,7 @@ require_once './libraries/bookmark.lib.php';
 // Check parameters
 PMA_Util::checkParameters(array('db', 'table'));
 
-$db_is_information_schema = PMA_is_system_schema($db);
+$db_is_information_schema = PMA_isSystemSchema($db);
 
 /**
  * Set parameters for links

@@ -206,7 +206,7 @@ if (empty($is_info)) {
 }
 
 $_REQUEST['db_collation'] = PMA_getDbCollation($db);
-$is_information_schema = PMA_is_system_schema($db);
+$is_information_schema = PMA_isSystemSchema($db);
 
 $response->addHTML('<div id="boxContainer" data-box-width="300">');
 

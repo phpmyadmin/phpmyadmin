@@ -240,7 +240,7 @@ class PMA_Menu
      */
     private function _getTableTabs()
     {
-        $db_is_information_schema = PMA_is_system_schema($this->_db);
+        $db_is_information_schema = PMA_isSystemSchema($this->_db);
         $tbl_is_view = PMA_Table::isView($this->_db, $this->_table);
         $table_info_num_rows = PMA_Table::countRecords($this->_db, $this->_table);
 
@@ -325,7 +325,7 @@ class PMA_Menu
      */
     private function _getDbTabs()
     {
-        $db_is_information_schema = PMA_is_system_schema($this->_db);
+        $db_is_information_schema = PMA_isSystemSchema($this->_db);
         $num_tables = count(PMA_DBI_getTables($this->_db));
         $is_superuser = PMA_isSuperuser();
 
