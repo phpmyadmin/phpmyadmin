@@ -244,7 +244,7 @@ if ($databases_count > 0) {
     $odd_row = true;
     foreach ($databases as $current) {
         $tr_class = $odd_row ? 'odd' : 'even';
-        if (PMA_is_system_schema($current['SCHEMA_NAME'], true)) {
+        if (PMA_isSystemSchema($current['SCHEMA_NAME'], true)) {
             $tr_class .= ' noclick';
         }
         $html .= '<tr class="' . $tr_class . '">' . "\n";

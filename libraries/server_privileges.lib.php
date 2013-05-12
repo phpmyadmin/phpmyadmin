@@ -364,9 +364,9 @@ function PMA_getSqlQueryForDisplayPrivTable($db, $table, $username, $hostname)
 /**
  * Displays the privileges form table
  *
- * @param string  $db       the database
- * @param string  $table    the table
- * @param boolean $submit   wheather to display the submit button or not
+ * @param string  $db     the database
+ * @param string  $table  the table
+ * @param boolean $submit wheather to display the submit button or not
  *
  * @global  array      $cfg         the phpMyAdmin configuration
  * @global  ressource  $user_link   the database connection
@@ -737,9 +737,9 @@ function PMA_getHtmlForNotAttachedPrivilegesToTableSpecificColumn($row)
 /**
  * Get HTML for global or database specific privileges
  *
- * @param string $db       the database
- * @param string $table    the table
- * @param string $row      first row from result or boolean false
+ * @param string $db    the database
+ * @param string $table the table
+ * @param string $row   first row from result or boolean false
  *
  * @return string $html_output
  */
@@ -1427,7 +1427,7 @@ function PMA_getWithClauseForAddUserAndUpdatePrivs()
 /**
  * Get HTML for addUsersForm, This function call if isset($_REQUEST['adduser'])
  *
- * @param string $dbname
+ * @param string $dbname database name
  *
  * @return string HTML for addUserForm
  */

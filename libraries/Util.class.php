@@ -823,7 +823,7 @@ class PMA_Util
                 // set this because PMA_Table::countRecords() can use it
                 $tbl_is_view = $table['TABLE_TYPE'] == 'VIEW';
 
-                if ($tbl_is_view || PMA_is_system_schema($db)) {
+                if ($tbl_is_view || PMA_isSystemSchema($db)) {
                     $table['Rows'] = PMA_Table::countRecords(
                         $db,
                         $table['Name'],

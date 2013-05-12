@@ -18,7 +18,7 @@ PMA_Util::checkParameters(array('db'));
 
 $is_show_stats = $cfg['ShowStats'];
 
-$db_is_information_schema = PMA_is_system_schema($db);
+$db_is_information_schema = PMA_isSystemSchema($db);
 if ($db_is_information_schema) {
     $is_show_stats = false;
 }
