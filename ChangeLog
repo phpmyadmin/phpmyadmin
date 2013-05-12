@@ -5,7 +5,8 @@ phpMyAdmin - ChangeLog
 + center loading indicator for navigation refresh, related to bug #3920
 - bug #3925 Table sorting in navigation panel is case-sensitive
 - bug #3915 Import of CSV file (Replace table data with file) with duplicate
-values 
+values
+- bug #3926 View is not updatable
 
 4.0.1.0 (not yet released)
 - bug #3879 Import broken for CSV using LOAD DATA
