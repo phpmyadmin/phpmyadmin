@@ -1138,9 +1138,9 @@ class PMA_NavigationTree
             return 1;
         }
         if ($GLOBALS['cfg']['NaturalOrder']) {
-            return strnatcmp($a->name, $b->name);
+            return strnatcasecmp($a->name, $b->name);
         } else {
-            return strcmp($a->name, $b->name);
+            return strcasecmp($a->name, $b->name);
         }
     }
 }
