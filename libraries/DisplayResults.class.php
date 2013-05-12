@@ -5982,9 +5982,9 @@ class PMA_DisplayResults
      * Display binary fields as hex string for PHP <5.4,
      * otherwise escape the contents if it may be displayed as hex
      *
-     * @param string $content         String to parse
-     * @param string $binary_or_blob  'binary' or 'blob'
-     * @param int    $hexlength       optional, get substring
+     * @param string $content        String to parse
+     * @param string $binary_or_blob binary' or 'blob'
+     * @param int    $hexlength      optional, get substring
      *
      * @return Displayable version of the binary string
      *
