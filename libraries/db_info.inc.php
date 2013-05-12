@@ -41,7 +41,7 @@ $is_show_stats = $cfg['ShowStats'];
  */
 $db_is_information_schema = false;
 
-if (PMA_is_system_schema($db)) {
+if (PMA_isSystemSchema($db)) {
     $is_show_stats = false;
     $db_is_information_schema = true;
 }

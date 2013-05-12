@@ -81,7 +81,7 @@ function PMA_buildHtmlForDb(
             . 'title="' . htmlspecialchars($current['SCHEMA_NAME']) . '" '
             . 'value="' . htmlspecialchars($current['SCHEMA_NAME']) . '"';
 
-        if (PMA_is_system_schema($current['SCHEMA_NAME'], true)) {
+        if (PMA_isSystemSchema($current['SCHEMA_NAME'], true)) {
             $out .= ' disabled="disabled"';
         }
         $out .= ' /></td>';

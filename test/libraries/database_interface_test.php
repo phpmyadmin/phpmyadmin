@@ -66,7 +66,7 @@ class PMA_DBI_Test extends PHPUnit_Framework_TestCase
      */
     function testSystemSchema($schema, $expected)
     {
-        $this->assertEquals($expected, PMA_is_system_schema($schema));
+        $this->assertEquals($expected, PMA_isSystemSchema($schema));
     }
 
     /**

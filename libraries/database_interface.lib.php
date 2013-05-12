@@ -2092,7 +2092,7 @@ function PMA_DBI_formatError($error_number, $error_message)
  *
  * @return bool
  */
-function PMA_is_system_schema($schema_name, $test_for_mysql_schema = false)
+function PMA_isSystemSchema($schema_name, $test_for_mysql_schema = false)
 {
     return strtolower($schema_name) == 'information_schema'
             || (!PMA_DRIZZLE && strtolower($schema_name) == 'performance_schema')

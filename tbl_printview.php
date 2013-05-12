@@ -222,7 +222,7 @@ foreach ($the_tables as $key => $table) {
     } // end foreach
     echo '</tbody>';
     echo '</table>';
-    if (! $tbl_is_view && !PMA_is_system_schema($db)) {
+    if (! $tbl_is_view && !PMA_isSystemSchema($db)) {
         /**
          * Displays indexes
          */

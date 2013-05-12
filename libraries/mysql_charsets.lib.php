@@ -186,7 +186,7 @@ function PMA_generateCharsetQueryPart($collation)
  */
 function PMA_getDbCollation($db)
 {
-    if (PMA_is_system_schema($db)) {
+    if (PMA_isSystemSchema($db)) {
         // We don't have to check the collation of the virtual
         // information_schema database: We know it!
         return 'utf8_general_ci';
