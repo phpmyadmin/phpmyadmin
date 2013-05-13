@@ -237,8 +237,7 @@ class ConfigFile
             );
             if (($value === $default_value && (defined('PMA_SETUP')
                 || $instance_default_value === $default_value))
-                || (empty($value) && empty($default_value) && (defined('PMA_SETUP')
-                || empty($current_global)))
+                || (empty($value) && empty($default_value) && (defined('PMA_SETUP')))
             ) {
                 PMA_arrayRemove($path, $_SESSION[$this->_id]);
                 return;
