@@ -82,8 +82,12 @@ class PMA_Index_Test extends PHPUnit_Framework_TestCase
             'PMA_Non_unique',
             $index->getNonUnique()
         );
-        $this->assertEquals(
-            'PMA_Comment\nPMA_Index_comment',
+        $this->assertContains(
+            'PMA_Comment',
+            $index->getComments()
+        );
+        $this->assertContains(
+            'PMA_Index_comment',
             $index->getComments()
         );
         $this->assertEquals(
