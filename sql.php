@@ -636,6 +636,19 @@ if (isset($GLOBALS['show_as_php']) || ! empty($GLOBALS['validatequery'])) {
     // Grabs the profiling results
     if (isset($_SESSION['profiling']) && PMA_Util::profilingSupported()) {
         $profiling_results = PMA_DBI_fetchResult('SHOW PROFILE;');
+        $profiling_results_summary = PMA_DBI_fetchResult('
+		SELECT STATE, SUM(DURATION) AS Total_R,
+		   ROUND(
+			  100 * SUM(DURATION) /
+				 (SELECT SUM(DURATION)
+				  FROM INFORMATION_SCHEMA.PROFILING
+				  WHERE QUERY_ID = 1
+			  ), 2) AS Pct_R,
+		   COUNT(*) AS Calls,
+		   SUM(DURATION) / COUNT(*) AS "R/Call"
+		FROM INFORMATION_SCHEMA.PROFILING
+		WHERE QUERY_ID = 1
+		GROUP BY STATE;');
     }
 
     // Checks if the current database has changed
@@ -1067,6 +1080,105 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
 
     if (isset($profiling_results)) {
         // pma_token/url_query needed for chart export
+        $html_output .= '<script type="text/javascript">';
+        $html_output .= 'pma_token = \'' . $_SESSION[' PMA_token '] . '\';';
+        $html_output .= 'url_query = \''
+            . (isset($url_query) ? $url_query : PMA_generate_common_url($db))
+            . '\';';
+        $html_output .= 'AJAX.registerOnload(\'sql.js\',makeProfilingChart);';
+        $html_output .= '</script>';
+
+        $html_output .= '<fieldset><legend>' . __('Profiling') . '</legend>' . "\n";
+        $html_output .= '<div style="float: left;">';
+        $html_output .= '<table id="profiletable"><thead>' . "\n";
+        $html_output .= ' <tr>' .  "\n";
+        $html_output .= '  <th>' . __('Order') . '<div class="sorticon"></div></th>' . "\n";
+        $html_output .= '  <th>' . __('Status')
+            . PMA_Util::showMySQLDocu(
+                'general-thread-states', 'general-thread-states'
+            )
+            .  '<div class="sorticon"></div></th>' . "\n";
+        $html_output .= '  <th>' . __('Time') . '<div class="sorticon"></div></th>' . "\n";
+        $html_output .= ' </tr></thead><tbody>' .  "\n";
+
+        $chart_json = Array();
+        $i = 1;
+        foreach ($profiling_results as $one_result) {
+            $html_output .= ' <tr>' .  "\n";
+            $html_output .= '<td>' . $i++ . '</td>' .  "\n";
+            $html_output .= '<td>' . ucwords($one_result['Status']) . '</td>' .  "\n";
+            $html_output .= '<td class="right">'
+                . (PMA_Util::formatNumber($one_result['Duration'], 3, 1))
+                . 's<span style="display:none;" class="rawvalue">' . $one_result['Duration'] . '</span></td>' .  "\n";
+            if (isset($chart_json[ucwords($one_result['Status'])])) {
+                $chart_json[ucwords($one_result['Status'])]
+                    += $one_result['Duration'];
+            } else {
+                $chart_json[ucwords($one_result['Status'])]
+                    = $one_result['Duration'];
+            }
+        }
+
+        $html_output .= '</tbody></table>' . "\n";
+        $html_output .= '</div>';
+
+        $html_output .= '<div style="float: left; margin-left:10px;">';
+        $html_output .= '<table id="profilesummarytable"><thead>' . "\n";
+        $html_output .= ' <tr>' .  "\n";
+        $html_output .= '  <th>' . __('State') . '<div class="sorticon"></div></th>' . "\n";
+        $html_output .= '  <th>' . __('Total_R') . '<div class="sorticon"></div></th>' . "\n";
+        $html_output .= '  <th>' . __('Pct_R') . '<div class="sorticon"></div></th>' . "\n";
+        $html_output .= '  <th>' . __('Calls') . '<div class="sorticon"></div></th>' . "\n";
+        $html_output .= '  <th>' . __('R/Call') . '<div class="sorticon"></div></th>' . "\n";
+        $html_output .= ' </tr></thead><tbody>' .  "\n";
+        foreach ($profiling_results_summary as $one_result) {
+            $html_output .= ' <tr>' .  "\n";
+            $html_output .= '<td>' . ucwords($one_result['STATE']) . '</td>' .  "\n";
+            $html_output .= '<td align="right">' . PMA_Util::formatNumber($one_result['Total_R'], 3, 1) . 's<span style="display:none;" class="rawvalue">' . $one_result['Total_R'] . '</span></td>' .  "\n";
+            $html_output .= '<td align="right">' . $one_result['Pct_R'] . '%</td>' .  "\n";
+            $html_output .= '<td align="right">' . $one_result['Calls'] . '</td>' .  "\n";
+            $html_output .= '<td align="right">' . PMA_Util::formatNumber($one_result['R/Call'], 3, 1) . 's<span style="display:none;" class="rawvalue">' . $one_result['R/Call'] . '</span></td>' .  "\n";
+            $html_output .= ' </tr>' .  "\n";
+        }
+
+        $html_output .= '</tbody></table>' . "\n";
+	$html_output .= <<<EOT
+<script type="text/javascript">
+    var pma_theme_image = '{$GLOBALS['pmaThemeImage']}';
+    $('#profiletable').tablesorter({
+        widgets: ['zebra'],
+        sortList: [[0,0]],
+        textExtraction: function(node){
+            if(node.children.length > 0){
+                return node.children[0].innerHTML;
+            }else{
+                return node.innerHTML;
+            }
+        }
+    });
+
+    $('#profilesummarytable').tablesorter({
+        widgets: ['zebra'],
+        sortList: [[1,1]],
+        textExtraction: function(node){
+            if(node.children.length > 0){
+                return node.children[0].innerHTML;
+            }else{
+                return node.innerHTML;
+            }
+        }
+    });
+</script>
+EOT;
+        $html_output .= "</div>";
+
+        //require_once 'libraries/chart.lib.php';
+        $html_output .= '<div id="profilingChartData" style="display:none;">';
+        $html_output .= json_encode($chart_json);
+        $html_output .= '</div>';
+        $html_output .= '<div id="profilingchart" style="display:none;">';
+        $html_output .= '</div>';
+        $html_output .= '</fieldset>' . "\n";
         $token = $_SESSION[' PMA_token '];
         $url = (isset($url_query) ? $url_query : PMA_generate_common_url($db));
 

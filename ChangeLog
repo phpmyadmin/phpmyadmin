@@ -11,19 +11,20 @@ phpMyAdmin - ChangeLog
 + PMA_DBI functions in database interface libraries renamed to be compliant with PEAR standards
 + rfe #1412 Creating a view from an empty set of results
 + Improved layout on db and table operations pages
++ rfe #1363 Improved query profiler
 
 4.0.2.0 (not yet released)
 + center loading indicator for navigation refresh, related to bug #3920
 - bug #3925 Table sorting in navigation panel is case-sensitive
 - bug #3915 Import of CSV file (Replace table data with file) with duplicate
-values 
-- bug #3898 Structure not refreshed after column drop 
+values
+- bug #3898 Structure not refreshed after column drop
 
 4.0.1.0 (not yet released)
 - bug #3879 Import broken for CSV using LOAD DATA
 - bug #3889 When login fails and error display is active, login data is displayed
 - bug #3890 [import] Web server upload directory import fails
-- bug #3891 [import] Server upload folder import file name missing in success message 
+- bug #3891 [import] Server upload folder import file name missing in success message
 + rfe #1421 [auth] Add retry button on connection failure with config auth
 - bug #3894 [interface] Provide feedback if no columns selected for multi-submit
 - bug #3799 [interface] Incorrect select field change on ctrl key navigation in Firefox
@@ -35,8 +36,8 @@ values
 - bug #3905 [export] Custom Exporting exports all databases
 - bug #3909 [import] Import of CSV FIle to selected table doesn't work
 - bug #3904 Browsing an empty table should not display its Structure
-- bug #3908 Calendar widget improperly redirects to home 
-- bug #3918 Greyed out tabs when there are no rows fixed 
+- bug #3908 Calendar widget improperly redirects to home
+- bug #3918 Greyed out tabs when there are no rows fixed
 - bug #3916 [interface] Missing scrollbar (original theme)
 + [vendor] add tcpdf path to vendor_config.php
 - bug fix compat with tcpdf >= 6.0 (tested with 6.0.012)
@@ -130,7 +131,7 @@ VerboseMultiSubmit, ReplaceHelpImg
 - bug #3762 [core] Make Advisor work on Windows withou COM extension.
 - bug #3519 [export] Prevent infinite recursion in PDF export.
 - bug #3827 Table specific privileges not displayed for db name containing
-underscore 
+underscore
 - rfe #1386 Add IF NOT EXISTS clause when copying database
 - No longer package .travis.yml configuration file when creating a release.
 - bug #3830 Can't export custom query because it lowercases table names
@@ -164,7 +165,7 @@ underscore
 - bug #3828 MariaDB reported as MySQL
 - bug #3854 Incorrect header for Safari 6.0
 - bug #3705 Attempt to open trigger for edit gives NULL
-- Use HTML5 DOCTYPE 
+- Use HTML5 DOCTYPE
 - [security] Self-XSS on GIS visualisation page, reported by Janek Vind
 - bug #3800 Incorrect keyhandler behaviour #2
 
