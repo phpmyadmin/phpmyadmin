@@ -126,7 +126,7 @@ function PMA_getTableNameBySQL($sql, $tables)
 function getTableHtmlForMultipleQueries(
     $displayResultsObject, $db, $sql_data, $goto, $pmaThemeImage,
     $text_dir, $printview, $url_query, $disp_mode, $sql_limit_to_append,
-    $has_unique
+    $editable
 ) {
     $table_html = '';
 
@@ -236,7 +236,7 @@ function getTableHtmlForMultipleQueries(
                 $unlim_num_rows, $fields_meta, $is_count, $is_export, $is_func,
                 $is_analyse, $num_rows, $fields_cnt, $querytime, $pmaThemeImage,
                 $text_dir, $is_maint, $is_explain, $is_show, $showtable,
-                $printview, $url_query, $has_unique
+                $printview, $url_query, $editable
             );
         }
 

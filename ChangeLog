@@ -18,6 +18,7 @@ phpMyAdmin - ChangeLog
 - bug #3915 Import of CSV file (Replace table data with file) with duplicate
 values 
 - bug #3898 Structure not refreshed after column drop 
+- bug #3926 View is not updatable
 
 4.0.1.0 (not yet released)
 - bug #3879 Import broken for CSV using LOAD DATA
