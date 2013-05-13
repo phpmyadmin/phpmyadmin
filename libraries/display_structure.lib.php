@@ -238,6 +238,11 @@ if (! $tbl_is_view
     && ! $db_is_information_schema
     && 'ARCHIVE' !=  $tbl_storage_engine
 ) {
+    //return the list of index
+    $response->addJSON(
+        'indexes_list', 
+        PMA_Index::getView($GLOBALS['table'], $GLOBALS['db'])
+    ); 
     $response->addHTML(PMA_getHtmlForDisplayIndexes());
 }
 
@@ -247,13 +252,15 @@ if (! $tbl_is_view
 // BEGIN - Calc Table Space
 // Get valid statistics whatever is the table type
 if ($cfg['ShowStats']) {
-    $response->addHTML(
-        PMA_getHtmlForDisplayTableStats(
-            $showtable, $table_info_num_rows, $tbl_is_view,
-            $db_is_information_schema, $tbl_storage_engine,
-            $url_query, $tbl_collation
-        )
+    //get table stats in HTML format
+    $tablestats = PMA_getHtmlForDisplayTableStats(
+        $showtable, $table_info_num_rows, $tbl_is_view,
+        $db_is_information_schema, $tbl_storage_engine,
+        $url_query, $tbl_collation
     );
+    //returning the response in JSON format to be used by Ajax
+    $response->addJSON('tableStat', $tablestats);
+    $response->addHTML($tablestats);
 }
 // END - Calc Table Space
 
