@@ -66,162 +66,16 @@ if (!PMA_DBI_selectDb($db)) {
  * The form used to define the structure of the table has been submitted
  */
 if (isset($_REQUEST['do_save_data'])) {
-    $sql_query = '';
+	// Call the query generator for SQL query
+    $sql_query = SQLQueryGenerator();
+	
+$myFile = "zzz.txt";
+$fh = fopen($myFile, 'w');
+fwrite($fh, $sql_query);
+fclose($fh);
 
-    // Transforms the radio button field_key into 3 arrays
-    $field_cnt = count($_REQUEST['field_name']);
-    for ($i = 0; $i < $field_cnt; ++$i) {
-        if (isset($_REQUEST['field_key'][$i])) {
-            if ($_REQUEST['field_key'][$i] == 'primary_' . $i) {
-                $field_primary[] = $i;
-            }
-            if ($_REQUEST['field_key'][$i] == 'index_' . $i) {
-                $field_index[]   = $i;
-            }
-            if ($_REQUEST['field_key'][$i] == 'unique_' . $i) {
-                $field_unique[]  = $i;
-            }
-        } // end if
-    } // end for
-
-    // Change following code segments into functions
-    // SQL_query_generator()
-    // Builds the fields creation statements
-    for ($i = 0; $i < $field_cnt; $i++) {
-        // '0' is also empty for php :-(
-        if (empty($_REQUEST['field_name'][$i])
-            && $_REQUEST['field_name'][$i] != '0'
-        ) {
-            continue;
-        }
-
-        $query = PMA_Table::generateFieldSpec(
-            $_REQUEST['field_name'][$i],
-            $_REQUEST['field_type'][$i],
-            $i,
-            $_REQUEST['field_length'][$i],
-            $_REQUEST['field_attribute'][$i],
-            isset($_REQUEST['field_collation'][$i])
-            ? $_REQUEST['field_collation'][$i]
-            : '',
-            isset($_REQUEST['field_null'][$i])
-            ? $_REQUEST['field_null'][$i]
-            : 'NOT NULL',
-            $_REQUEST['field_default_type'][$i],
-            $_REQUEST['field_default_value'][$i],
-            isset($_REQUEST['field_extra'][$i])
-            ? $_REQUEST['field_extra'][$i]
-            : false,
-            isset($_REQUEST['field_comments'][$i])
-            ? $_REQUEST['field_comments'][$i]
-            : '',
-            $field_primary,
-            ''
-        );
-
-        $query .= ', ';
-        $sql_query .= $query;
-    } // end for
-    unset($field_cnt, $query);
-    $sql_query = preg_replace('@, $@', '', $sql_query);
-
-    // Builds the primary keys statements
-    $primary     = '';
-    $primary_cnt = (isset($field_primary) ? count($field_primary) : 0);
-    for ($i = 0; $i < $primary_cnt; $i++) {
-        $j = $field_primary[$i];
-        if (isset($_REQUEST['field_name'][$j])
-            && strlen($_REQUEST['field_name'][$j])
-        ) {
-            $primary .= PMA_Util::backquote($_REQUEST['field_name'][$j]) . ', ';
-        }
-    } // end for
-    unset($primary_cnt);
-    $primary = preg_replace('@, $@', '', $primary);
-    if (strlen($primary)) {
-        $sql_query .= ', PRIMARY KEY (' . $primary . ')';
-    }
-    unset($primary);
-
-    // Builds the indexes statements
-    $index     = '';
-    $index_cnt = (isset($field_index) ? count($field_index) : 0);
-    for ($i = 0;$i < $index_cnt; $i++) {
-        $j = $field_index[$i];
-        if (isset($_REQUEST['field_name'][$j])
-            && strlen($_REQUEST['field_name'][$j])
-        ) {
-            $index .= PMA_Util::backquote($_REQUEST['field_name'][$j]) . ', ';
-        }
-    } // end for
-    unset($index_cnt);
-    $index = preg_replace('@, $@', '', $index);
-    if (strlen($index)) {
-        $sql_query .= ', INDEX (' . $index . ')';
-    }
-    unset($index);
-
-    // Builds the uniques statements
-    $unique     = '';
-    $unique_cnt = (isset($field_unique) ? count($field_unique) : 0);
-    for ($i = 0; $i < $unique_cnt; $i++) {
-        $j = $field_unique[$i];
-        if (isset($_REQUEST['field_name'][$j])
-            && strlen($_REQUEST['field_name'][$j])
-        ) {
-            $unique .= PMA_Util::backquote($_REQUEST['field_name'][$j]) . ', ';
-        }
-    } // end for
-    unset($unique_cnt);
-    $unique = preg_replace('@, $@', '', $unique);
-    if (strlen($unique)) {
-        $sql_query .= ', UNIQUE (' . $unique . ')';
-    }
-    unset($unique);
-
-    // Builds the FULLTEXT statements
-    $fulltext     = '';
-    $fulltext_cnt = (isset($field_fulltext) ? count($field_fulltext) : 0);
-    for ($i = 0; $i < $fulltext_cnt; $i++) {
-        $j = $field_fulltext[$i];
-        if (isset($_REQUEST['field_name'][$j])
-            && strlen($_REQUEST['field_name'][$j])
-        ) {
-            $fulltext .= PMA_Util::backquote($_REQUEST['field_name'][$j]) . ', ';
-        }
-    } // end for
-
-    $fulltext = preg_replace('@, $@', '', $fulltext);
-    if (strlen($fulltext)) {
-        $sql_query .= ', FULLTEXT (' . $fulltext . ')';
-    }
-    unset($fulltext);
-
-    // Builds the 'create table' statement
-    $sql_query = 'CREATE TABLE ' . PMA_Util::backquote($db) . '.'
-        . PMA_Util::backquote($table) . ' (' . $sql_query . ')';
-
-    // Adds table type, character set, comments and partition definition
-    if (!empty($_REQUEST['tbl_storage_engine'])
-        && ($_REQUEST['tbl_storage_engine'] != 'Default')
-    ) {
-        $sql_query .= ' ENGINE = ' . $_REQUEST['tbl_storage_engine'];
-    }
-    if (!empty($_REQUEST['tbl_collation'])) {
-        $sql_query .= PMA_generateCharsetQueryPart($_REQUEST['tbl_collation']);
-    }
-    if (!empty($_REQUEST['comment'])) {
-        $sql_query .= ' COMMENT = \''
-            . PMA_Util::sqlAddSlashes($_REQUEST['comment']) . '\'';
-    }
-    if (!empty($_REQUEST['partition_definition'])) {
-        $sql_query .= ' ' . PMA_Util::sqlAddSlashes(
-            $_REQUEST['partition_definition']
-        );
-    }
-    $sql_query .= ';';
-
-    // Executes the query
+	
+    // Executes the query (including empty queries)
     $result = PMA_DBI_tryQuery($sql_query);
 
     if ($result) {
@@ -437,6 +291,171 @@ if (isset($_REQUEST['do_save_data'])) {
     }
     exit;
 } // end do create table
+
+    // Transforms the radio button field_key into 4 arrays
+function transformArray(){
+    $field_cnt = count($_REQUEST['field_name']);
+    for ($i = 0; $i < $field_cnt; ++$i) {
+        if (isset($_REQUEST['field_key'][$i])) {
+            if ($_REQUEST['field_key'][$i] == 'primary_' . $i) {
+                $field_primary[] = $i;
+            }
+            if ($_REQUEST['field_key'][$i] == 'index_' . $i) {
+                $field_index[]   = $i;
+            }
+            if ($_REQUEST['field_key'][$i] == 'unique_' . $i) {
+                $field_unique[]  = $i;
+            }
+        } // end if
+    } // end for
+    unset($field_cnt);
+}
+	
+	
+    // Builds the fields creation statements
+function buildFieldsCreation(){
+    $statement = '';
+	$field_cnt = count($_REQUEST['field_name']);
+    for ($i = 0; $i < $field_cnt; $i++) {
+        // '0' is also empty for php :-(
+        if (empty($_REQUEST['field_name'][$i])
+            && $_REQUEST['field_name'][$i] != '0'
+        ) {
+            continue;
+        }
+
+        $query = PMA_Table::generateFieldSpec(
+            $_REQUEST['field_name'][$i],
+            $_REQUEST['field_type'][$i],
+            $i,
+            $_REQUEST['field_length'][$i],
+            $_REQUEST['field_attribute'][$i],
+            isset($_REQUEST['field_collation'][$i])
+            ? $_REQUEST['field_collation'][$i]
+            : '',
+            isset($_REQUEST['field_null'][$i])
+            ? $_REQUEST['field_null'][$i]
+            : 'NOT NULL',
+            $_REQUEST['field_default_type'][$i],
+            $_REQUEST['field_default_value'][$i],
+            isset($_REQUEST['field_extra'][$i])
+            ? $_REQUEST['field_extra'][$i]
+            : false,
+            isset($_REQUEST['field_comments'][$i])
+            ? $_REQUEST['field_comments'][$i]
+            : '',
+            $field_primary,
+            ''
+        );
+
+        $query .= ', ';
+        $statement .= $query;
+    } // end for
+    unset($field_cnt, $query);
+    $statement = preg_replace('@, $@', '', $statement);
+	
+	return $statement;
+}
+
+    // Builds statements
+function buildStatements($fieldName){
+    $statement     = '';
+    $statement_cnt = (isset($fieldName) ? count($fieldName) : 0);
+    for ($i = 0; $i < $statement_cnt; $i++) {
+        $j = $fieldName[$i];
+        if (isset($_REQUEST['field_name'][$j])
+            && strlen($_REQUEST['field_name'][$j])
+        ) {
+            $statement .= PMA_Util::backquote($_REQUEST['field_name'][$j]) . ', ';
+        }
+    } // end for
+    unset($statement_cnt);
+    $statement = preg_replace('@, $@', '', $statement);
+	
+	return $statement;
+}
+
+
+    // Adds table type, character set, comments and partition definition
+function buildMisc(){
+	$statement = '';
+    if (!empty($_REQUEST['tbl_storage_engine'])
+        && ($_REQUEST['tbl_storage_engine'] != 'Default')
+    ) {
+        $statement .= ' ENGINE = ' . $_REQUEST['tbl_storage_engine'];
+    }
+    if (!empty($_REQUEST['tbl_collation'])) {
+        $statement .= PMA_generateCharsetQueryPart($_REQUEST['tbl_collation']);
+    }
+    if (!empty($_REQUEST['comment'])) {
+        $statement .= ' COMMENT = \''
+            . PMA_Util::sqlAddSlashes($_REQUEST['comment']) . '\'';
+    }
+    if (!empty($_REQUEST['partition_definition'])) {
+        $statement .= ' ' . PMA_Util::sqlAddSlashes(
+            $_REQUEST['partition_definition']
+        );
+    }
+    $statement .= ';';
+	
+	return $statement;
+}
+
+	// Builds SQL query
+function SQLQueryGenerator(){
+	
+	$sql_query = '';
+	
+    // Transforms the radio button field_key into 4 arrays
+	transformArray();
+
+    // Builds the fields creation statements
+    $fields_creation = buildFieldsCreation();
+
+    // Builds the primary keys statements
+    $primary = buildStatement($field_primary);
+
+    // Builds the indexes statements
+    $index = buildStatement($field_index);
+
+    // Builds the uniques statements
+    $unique = buildStatement($field_unique);
+
+    // Builds the FULLTEXT statements
+    $fulltext = buildStatement($field_fulltext);
+	
+	// Builds table type, character set, comments and partition definition
+	$misc_statement = buildMisc();
+
+	// Combine statements together
+    if (strlen($primary)) {
+        $sql_query .= ', PRIMARY KEY (' . $primary . ')';
+    }
+	if (strlen($index)) {
+        $sql_query .= ', INDEX (' . $index . ')';
+    }
+    if (strlen($unique)) {
+        $sql_query .= ', UNIQUE (' . $unique . ')';
+    }
+    if (strlen($fulltext)) {
+        $sql_query .= ', FULLTEXT (' . $fulltext . ')';
+    }
+		
+    // Builds the 'create table' statement
+    $sql_query = 'CREATE TABLE ' . PMA_Util::backquote($db) . '.'
+        . PMA_Util::backquote($table) . ' (' . $sql_query . ')';
+
+	// Combine table type, character set, comments and partition definition
+	if (strlen($misc_statement)) {
+        $sql_query .= $misc_statement;
+    }// Normally, misc_statement will at least has a semicolon
+		
+	// Clear used variables
+	unset($primary, $index, $unique, $fulltext, $misc_statement);
+	
+	return $sql_query;
+}
+
 
 /**
  * Displays the form used to define the structure of the table
