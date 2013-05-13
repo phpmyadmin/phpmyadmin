@@ -66,14 +66,9 @@ if (!PMA_DBI_selectDb($db)) {
  * The form used to define the structure of the table has been submitted
  */
 if (isset($_REQUEST['do_save_data'])) {
-	// Call the query generator for SQL query
-    $sql_query = SQLQueryGenerator();
-	
-$myFile = "zzz.txt";
-$fh = fopen($myFile, 'w');
-fwrite($fh, $sql_query);
-fclose($fh);
 
+	// Call the query generator for SQL query
+    $sql_query = SQLQueryGenerator($db, $table); // Pass db and table
 	
     // Executes the query (including empty queries)
     $result = PMA_DBI_tryQuery($sql_query);
@@ -292,8 +287,17 @@ fclose($fh);
     exit;
 } // end do create table
 
-    // Transforms the radio button field_key into 4 arrays
+   /**
+    * Transforms the radio button field_key into 4 arrays
+    * 
+    * @return an array of dicts for access of array elements
+    */ 
 function transformArray(){
+	$field_primary = array();
+	$field_index = array();
+	$field_unique = array();
+	$field_fulltext = array();
+	
     $field_cnt = count($_REQUEST['field_name']);
     for ($i = 0; $i < $field_cnt; ++$i) {
         if (isset($_REQUEST['field_key'][$i])) {
@@ -305,14 +309,26 @@ function transformArray(){
             }
             if ($_REQUEST['field_key'][$i] == 'unique_' . $i) {
                 $field_unique[]  = $i;
+			}
+			if ($_REQUEST['field_key'][$i] == 'fulltext_' . $i) {
+                $field_fulltext[]  = $i;
             }
         } // end if
     } // end for
     unset($field_cnt);
+	return array(
+				"primary" => $field_primary, 
+				"index" => $field_index, 
+				"unique" => $field_unique, 
+				"fulltext" => $field_fulltext);
 }
 	
 	
-    // Builds the fields creation statements
+    /**
+     * Builds the fields creation statements
+	 * 
+	 * @return a string of fields
+     */
 function buildFieldsCreation(){
     $statement = '';
 	$field_cnt = count($_REQUEST['field_name']);
@@ -353,12 +369,17 @@ function buildFieldsCreation(){
     } // end for
     unset($field_cnt, $query);
     $statement = preg_replace('@, $@', '', $statement);
-	
+
 	return $statement;
 }
 
-    // Builds statements
-function buildStatements($fieldName){
+    /**
+     * Builds the index part of PRIMARY, INDEX, UNIQUE, and FULLTEXT statements 
+	 * 
+	 * @param array $fieldName: the field name of the array of the indexes
+	 * @return a string of corresponding indexes
+     */
+function buildStatement($fieldName){
     $statement     = '';
     $statement_cnt = (isset($fieldName) ? count($fieldName) : 0);
     for ($i = 0; $i < $statement_cnt; $i++) {
@@ -376,7 +397,11 @@ function buildStatements($fieldName){
 }
 
 
-    // Adds table type, character set, comments and partition definition
+    /**
+     * Adds table type, character set, comments and partition definition
+	 * 
+	 * @return a string of miscellaneous items 
+     */
 function buildMisc(){
 	$statement = '';
     if (!empty($_REQUEST['tbl_storage_engine'])
@@ -401,33 +426,42 @@ function buildMisc(){
 	return $statement;
 }
 
-	// Builds SQL query
-function SQLQueryGenerator(){
+	/**
+	 * Builds the SQL query required to create the table
+	 * 
+	 * @param string $db: the database selected to perform the action
+	 * @param string $table: the table which is about to create
+	 * @return a complete SQL query
+	 */
+function SQLQueryGenerator($db, $table){
 	
 	$sql_query = '';
-	
+		
     // Transforms the radio button field_key into 4 arrays
-	transformArray();
+	$fieldArray= transformArray();
 
     // Builds the fields creation statements
     $fields_creation = buildFieldsCreation();
 
     // Builds the primary keys statements
-    $primary = buildStatement($field_primary);
+    $primary = buildStatement($fieldArray[primary]);
 
     // Builds the indexes statements
-    $index = buildStatement($field_index);
+    $index = buildStatement($fieldArray[index]);
 
     // Builds the uniques statements
-    $unique = buildStatement($field_unique);
+    $unique = buildStatement($fieldArray[unique]);
 
     // Builds the FULLTEXT statements
-    $fulltext = buildStatement($field_fulltext);
+    $fulltext = buildStatement($fieldArray[fulltext]);
 	
 	// Builds table type, character set, comments and partition definition
 	$misc_statement = buildMisc();
 
 	// Combine statements together
+	if (strlen($fields_creation)) {
+        $sql_query .= $fields_creation;
+    }
     if (strlen($primary)) {
         $sql_query .= ', PRIMARY KEY (' . $primary . ')';
     }
