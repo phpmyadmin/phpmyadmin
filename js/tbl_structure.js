@@ -169,8 +169,8 @@ AJAX.registerOnload('tbl_structure.js', function () {
         var question = $.sprintf(PMA_messages.strDoYouReally, 'ALTER TABLE `' + escapeHtml(curr_table_name) + '` DROP `' + escapeHtml(curr_column_name) + '`;');
         $(this).PMA_confirm(question, $(this).attr('href'), function (url) {
             var $msg = PMA_ajaxShowMessage(PMA_messages.strDroppingColumn, false);
-            $.get(url, {'is_js_confirmed' : 1, 'ajax_request' : true}, function (data) {
-                if (data.success === true) {
+            $.get(url, {'is_js_confirmed' : 1, 'ajax_request' : true, 'ajax_page_request' : true}, function (data) {
+                if (data.success == true) {
                     PMA_ajaxRemoveMessage($msg);
                     if ($('#result_query').length) {
                         $('#result_query').remove();
@@ -188,8 +188,12 @@ AJAX.registerOnload('tbl_structure.js', function () {
                     }
                     $after_field_item.remove();
                     $curr_row.hide("medium").remove();
+                    //refresh table stats
+                    if (data.tableStat) {
+                        $('#tablestatistics').html(data.tableStat);
+                    }
                     // refresh the list of indexes (comes from sql.php)
-                    $('#indexes').html(data.indexes_list);
+                    $('.index_info').replaceWith(data.indexes_list);
                     PMA_reloadNavigation();
                 } else {
                     PMA_ajaxShowMessage(PMA_messages.strErrorProcessingRequest + " : " + data.error, false);
