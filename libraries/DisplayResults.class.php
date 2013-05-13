@@ -279,7 +279,6 @@ class PMA_DisplayResults
         $this->__set('showtable', $showtable);
         $this->__set('printview', $printview);
         $this->__set('url_query', $url_query);
-        $this->__set('has_unique', $has_unique);
         $this->__set('editable', $editable);
 
     } // end of the 'setProperties()' function
