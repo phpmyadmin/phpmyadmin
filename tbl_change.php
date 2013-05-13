@@ -131,14 +131,8 @@ if (! empty($disp_message)) {
 
 /**
  * Get the analysis of SHOW CREATE TABLE for this table
- * @todo should be handled by class Table
  */
-$show_create_table = PMA_DBI_fetch_value(
-    'SHOW CREATE TABLE ' . PMA_Util::backquote($db) . '.' . PMA_Util::backquote($table),
-    0, 1
-);
-$analyzed_sql = PMA_SQP_analyze(PMA_SQP_parse($show_create_table));
-unset($show_create_table);
+$analyzed_sql = PMA_Table::analyzeStructure($db, $table);
 
 /**
  * Get the list of the fields of the current table
