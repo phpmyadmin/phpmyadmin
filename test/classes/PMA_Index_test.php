@@ -37,9 +37,18 @@ class PMA_Index_Test extends PHPUnit_Framework_TestCase
         $this->_params['Packed'] = "PMA_Packed";
         
         //test add columns
-        $column1 = array("Column_name"=>"column1","Seq_in_index"=>"index1");
-        $column2 = array("Column_name"=>"column2","Seq_in_index"=>"index2");
-        $column3 = array("Column_name"=>"column3","Seq_in_index"=>"index3");
+        $column1 = array("Column_name"=>"column1","Seq_in_index"=>"index1",
+                         "Collation"=>"Collation1","Cardinality"=>"Cardinality1",
+                         "Null"=>"null1"
+                        );
+        $column2 = array("Column_name"=>"column2","Seq_in_index"=>"index2",
+                         "Collation"=>"Collation2","Cardinality"=>"Cardinality2",
+                         "Null"=>"null2"
+                        );
+        $column3 = array("Column_name"=>"column3","Seq_in_index"=>"index3",
+                         "Collation"=>"Collation3","Cardinality"=>"Cardinality3",
+                         "Null"=>"null3"
+                        );
         $this->_params['columns'][] = $column1;
         $this->_params['columns'][] = $column2;
         $this->_params['columns'][] = $column3;
@@ -73,6 +82,19 @@ class PMA_Index_Test extends PHPUnit_Framework_TestCase
             'PMA_Non_unique',
             $index->getNonUnique()
         );
+        $this->assertContains(
+            'PMA_Comment',
+            $index->getComments()
+        );
+        $this->assertContains(
+            'PMA_Index_comment',
+            $index->getComments()
+        );
+        $this->assertEquals(
+            'INDEX',
+            $index->getChoice()
+        );
+        
     }
     
     /**
@@ -92,7 +114,22 @@ class PMA_Index_Test extends PHPUnit_Framework_TestCase
             $index->getColumnCount()
         );
     }
-        
+ 
+    /**
+     * Test for get Name & set Name
+     *
+     * @return void
+     */
+    public function testName()
+    {
+        $index = new PMA_Index();
+        $index->setName('PMA_name');
+        $this->assertEquals(
+            'PMA_name',
+            $index->getName()
+        );
+    }
+       
     /**
      * Test for PMA_Index_Column
      *
@@ -112,6 +149,14 @@ class PMA_Index_Test extends PHPUnit_Framework_TestCase
         $this->assertEquals(
             'index1',
             $index_column->getSeqInIndex()
+        );
+        $this->assertEquals(
+            'Collation1',
+            $index_column->getCollation()
+        );
+        $this->assertEquals(
+            'Cardinality1',
+            $index_column->getCardinality()
         );
     }
 }
