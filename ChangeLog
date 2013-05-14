@@ -19,6 +19,8 @@ phpMyAdmin - ChangeLog
 values 
 - bug #3898 Structure not refreshed after column drop 
 - bug #3926 View is not updatable
+- bug #3919 PropertiesIconic not honored
+- bug #3930 Databases to choose for specific privileges show up escaped
 
 4.0.1.0 (not yet released)
 - bug #3879 Import broken for CSV using LOAD DATA
