@@ -2280,9 +2280,9 @@ function PMA_getTableForDisplayAllTableSpecificRights($username, $hostname
  *
  * @return string HTML snippet
  */
-function PMA_getHTmlForDisplaySelectDbInEditPrivs($found_rows)
+function PMA_getHtmlForDisplaySelectDbInEditPrivs($found_rows)
 {
-    $pred_db_array =PMA_DBI_fetchResult('SHOW DATABASES;');
+    $pred_db_array = PMA_DBI_fetchResult('SHOW DATABASES;');
 
     $html_output = '<label for="text_dbname">'
         . __('Add privileges on the following database:') . '</label>' . "\n";
@@ -2291,14 +2291,15 @@ function PMA_getHTmlForDisplaySelectDbInEditPrivs($found_rows)
             . '<option value="" selected="selected">'
             . __('Use text field:') . '</option>' . "\n";
         foreach ($pred_db_array as $current_db) {
+            $current_db_show = $current_db;
             $current_db = PMA_Util::escapeMysqlWildcards($current_db);
             // cannot use array_diff() once, outside of the loop,
             // because the list of databases has special characters
             // already escaped in $found_rows,
             // contrary to the output of SHOW DATABASES
-            if (empty($found_rows) || ! in_array($current_db, $found_rows)) {
+            if (empty($found_rows) || ! in_array($current_db_show, $found_rows)) {
                 $html_output .= '<option value="' . htmlspecialchars($current_db) . '">'
-                    . htmlspecialchars($current_db) . '</option>' . "\n";
+                    . htmlspecialchars($current_db_show) . '</option>' . "\n";
             }
         }
         $html_output .= '</select>' . "\n";
@@ -3073,7 +3074,7 @@ function PMA_getHtmlForDisplayUserProperties($dbname_is_wildcard,$url_dbname,
 
         if (! strlen($dbname)) {
             // no database name was given, display select db
-            $html_output .= PMA_getHTmlForDisplaySelectDbInEditPrivs($found_rows);
+            $html_output .= PMA_getHtmlForDisplaySelectDbInEditPrivs($found_rows);
 
         } else {
             $html_output .= PMA_displayTablesInEditPrivs($dbname, $found_rows);
