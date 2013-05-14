@@ -11,6 +11,7 @@ values
 - bug #3926 View is not updatable
 - bug #3919 PropertiesIconic not honored
 - bug #3930 Databases to choose for specific privileges show up escaped
+- bug #3910 Export database with empty table as a php array, does not produce valid PHP
 
 4.0.1.0 (not yet released)
 - bug #3879 Import broken for CSV using LOAD DATA
@@ -33,7 +34,6 @@ values
 - bug #3916 [interface] Missing scrollbar (original theme)
 + [vendor] add tcpdf path to vendor_config.php
 - bug fix compat with tcpdf >= 6.0 (tested with 6.0.012)
-- bug #3910 Export database with empty table as a php array, does not produce valid PHP
 
 4.0.0.0 (2013-05-03)
 + Patch #3481047 for rfe #3480477 Insert as new row enhancement
