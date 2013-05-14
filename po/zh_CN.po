@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-05-02 13:12+0200\n"
-"PO-Revision-Date: 2013-04-20 18:43+0200\n"
-"Last-Translator: greensea g <gs@bbxy.net>\n"
-"Language-Team: Simplified Chinese <http://l10n.cihar.com/projects/"
-"phpmyadmin/4-0/zh_CN/>\n"
+"PO-Revision-Date: 2013-05-14 06:43+0200\n"
+"Last-Translator: Randall Fan <fanrandall@gmail.com>\n"
+"Language-Team: Simplified Chinese "
+"<http://l10n.cihar.com/projects/phpmyadmin/4-0/zh_CN/>\n"
 "Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,7 +19,7 @@ msgstr ""
 #: libraries/DisplayResults.class.php:809
 #: libraries/server_privileges.lib.php:2604
 msgid "Show all"
-msgstr "显示所有"
+msgstr "显示全部"
 
 #: browse_foreigners.php:77 libraries/PDF.class.php:66
 #: libraries/Util.class.php:2547
@@ -3415,7 +3415,7 @@ msgstr "从一组最多64个成员的集合中选择的单个值"
 
 #: libraries/Types.class.php:358
 msgid "A type that can store a geometry of any type"
-msgstr "一个能存储任何类型几何形状的类型"
+msgstr "一个能存储任何几何形状的类型"
 
 #: libraries/Types.class.php:360
 msgid "A point in 2-dimensional space"
@@ -6334,7 +6334,7 @@ msgstr "正在上传要导入的文件…"
 #: libraries/display_import.lib.php:94
 #, php-format
 msgid "%s/sec."
-msgstr "%s/秒"
+msgstr "%s/秒。"
 
 #: libraries/display_import.lib.php:101
 msgid "About %MIN min. %SEC sec. remaining."
@@ -11545,11 +11545,11 @@ msgstr "没有可显示数据"
 
 #: tbl_chart.php:62 tbl_gis_visualization.php:24
 msgid "No SQL query was set to fetch data."
-msgstr "没有设置SQL 查询来检索数据"
+msgstr "没有设置SQL 查询来检索数据。"
 
 #: tbl_chart.php:124
 msgid "No numeric columns present in the table to plot."
-msgstr "在将表格转为图标是没有找到数字类型的列"
+msgstr "在将表格转为图表时没有找到数字类型的列。"
 
 #: tbl_chart.php:154
 msgctxt "Chart type"
@@ -11744,10 +11744,9 @@ msgid "No index defined! Create one below"
 msgstr "没有已定义的索引！在下面创建一个"
 
 #: tbl_structure.php:125
-#, fuzzy
 #| msgid "No rows selected"
 msgid "No column selected."
-msgstr "没有选中任何行"
+msgstr "没有选中任何列。"
 
 #: tbl_structure.php:149
 #, php-format

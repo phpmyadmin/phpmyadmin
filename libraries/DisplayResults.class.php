@@ -152,7 +152,7 @@ class PMA_DisplayResults
         'mime_map' => null,
 
         /** boolean */
-        'resultSetContainsUniqueKey' => null
+        'editable' => null
     );
 
     /**
@@ -249,7 +249,7 @@ class PMA_DisplayResults
      * @param type $showtable      array   table definitions
      * @param type $printview      string
      * @param type $url_query      string  URL query
-     * @param type $resultSetContainsUniqueKey  boolean
+     * @param type $editable       boolean whether the resutls set is editable
      *
      * @return  void
      *
@@ -259,7 +259,7 @@ class PMA_DisplayResults
         $unlim_num_rows, $fields_meta, $is_count, $is_export, $is_func,
         $is_analyse, $num_rows, $fields_cnt, $querytime, $pmaThemeImage, $text_dir,
         $is_maint, $is_explain, $is_show, $showtable, $printview, $url_query,
-        $resultSetContainsUniqueKey
+        $editable
     ) {
 
         $this->__set('unlim_num_rows', $unlim_num_rows);
@@ -279,7 +279,7 @@ class PMA_DisplayResults
         $this->__set('showtable', $showtable);
         $this->__set('printview', $printview);
         $this->__set('url_query', $url_query);
-        $this->__set('resultSetContainsUniqueKey', $resultSetContainsUniqueKey);
+        $this->__set('editable', $editable);
 
     } // end of the 'setProperties()' function
 
@@ -2469,7 +2469,7 @@ class PMA_DisplayResults
         // name of the class added to all grid editable elements;
         // if we don't have all the columns of a unique key in the result set,
         //  do not permit grid editing
-        if ($is_limited_display || ! $this->__get('resultSetContainsUniqueKey')) {
+        if ($is_limited_display || ! $this->__get('editable')) {
             $grid_edit_class = '';
         } else {
             switch ($GLOBALS['cfg']['GridEditing']) {
