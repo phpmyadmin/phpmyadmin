@@ -646,7 +646,13 @@ if (isset($GLOBALS['show_as_php']) || ! empty($GLOBALS['validatequery'])) {
     } while (PMA_DBI_next_result());
 
     $is_procedure = false;
-    if (stripos($full_sql_query, 'call') !== false) {
+    
+    // Since multpile query execution is anyway handled,
+    // ignore the where clause of the first sql statement
+    // which might contain a phrase like 'call '
+    if (preg_match("/\bcall\b/i", $full_sql_query)
+        && empty($analyzed_sql[0]['where_clause'])
+    ) {
         $is_procedure = true;
     }
 
