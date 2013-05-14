@@ -1022,6 +1022,33 @@ Generic settings
 
         This setting can be adjusted by your vendor.
 
+.. config:option:: $cfg['VersionCheckProxyUrl']
+
+    :type: string
+    :default: ""
+
+    The url of the proxy to be used when retrieving the information about
+    the latest version of phpMyAdmin. You need this if the server where
+    phpMyAdmin is installed does not have direct access to the internet.
+    The format is: "hostname:portnumber"
+
+.. config:option:: $cfg['VersionCheckProxyUser']
+
+    :type: string
+    :default: ""
+
+    The username for authenticating with the proxy. By default, no
+    authentication is performed. If a username is supplied, Basic
+    Authentication will be performed. No other types of authentication
+    are currently supported.
+
+.. config:option:: $cfg['VersionCheckProxyPass']
+
+    :type: string
+    :default: ""
+
+    The password for authenticating with the proxy.
+
 .. config:option:: $cfg['MaxDbList']
 
     :type: integer
