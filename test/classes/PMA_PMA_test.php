@@ -26,15 +26,15 @@ class PMA_PMA_Test extends PHPUnit_Framework_TestCase
     public function testGetAndSet()
     {
         $pma = new PMA();
-        $pma->set('userlink', 'PMA_userlink');
-        $pma->set('controllink', 'PMA_controllink');
+        $pma->__set('userlink', 'PMA_userlink');
+        $pma->__set('controllink', 'PMA_controllink');
         $this->assertEquals(
             'PMA_userlink',
-            $pma->get('userlink')
+            $pma->__get('userlink')
         );
         $this->assertEquals(
             'PMA_controllink',
-            $pma->get('controllink')
+            $pma->__get('controllink')
         );
     }
 }
