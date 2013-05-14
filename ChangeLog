@@ -22,6 +22,7 @@ values
 - bug #3926 View is not updatable
 - bug #3919 PropertiesIconic not honored
 - bug #3930 Databases to choose for specific privileges show up escaped
+- bug #3910 Export database with empty table as a php array, does not produce valid PHP
 
 4.0.1.0 (not yet released)
 - bug #3879 Import broken for CSV using LOAD DATA
