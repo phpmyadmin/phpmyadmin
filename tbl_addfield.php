@@ -52,8 +52,8 @@ if (isset($_REQUEST['do_save_data'])) {
     unset($_REQUEST['do_save_data']);
     
     require_once 'libraries/create_addfield.lib.php';
-    // get field addition statements
-    $sql_statement = PMA_getFieldCreationStatements(false);
+    // get column addition statements
+    $sql_statement = PMA_getColumnCreationStatements(false);
 
     // To allow replication, we first select the db to use and then run queries
     // on this db.
