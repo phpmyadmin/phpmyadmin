@@ -2273,14 +2273,15 @@ function PMA_getHTmlForDisplaySelectDbInEditPrivs($found_rows)
             . '<option value="" selected="selected">'
             . __('Use text field') . ':</option>' . "\n";
         foreach ($pred_db_array as $current_db) {
+            $current_db_show = $current_db;
             $current_db = PMA_Util::escapeMysqlWildcards($current_db);
             // cannot use array_diff() once, outside of the loop,
             // because the list of databases has special characters
             // already escaped in $found_rows,
             // contrary to the output of SHOW DATABASES
-            if (empty($found_rows) || ! in_array($current_db, $found_rows)) {
+            if (empty($found_rows) || ! in_array($current_db_show, $found_rows)) {
                 $html_output .= '<option value="' . htmlspecialchars($current_db) . '">'
-                    . htmlspecialchars($current_db) . '</option>' . "\n";
+                    . htmlspecialchars($current_db_show) . '</option>' . "\n";
             }
         }
         $html_output .= '</select>' . "\n";
