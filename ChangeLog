@@ -28,6 +28,7 @@ values
 - bug #3916 [interface] Missing scrollbar (original theme)
 + [vendor] add tcpdf path to vendor_config.php
 - bug fix compat with tcpdf >= 6.0 (tested with 6.0.012)
+- bug #3910 Export database with empty table as a php array, does not produce valid PHP
 
 4.0.0.0 (2013-05-03)
 + Patch #3481047 for rfe #3480477 Insert as new row enhancement
