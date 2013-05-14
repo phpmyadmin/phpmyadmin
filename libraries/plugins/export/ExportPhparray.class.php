@@ -191,15 +191,15 @@ class ExportPhparray extends ExportPlugin
 
         $buffer = '';
         $record_cnt = 0;
+        // Output table name as comment
         $buffer .= $crlf . '// '
                     . PMA_Util::backquote($db) . '.'
                     . PMA_Util::backquote($table) . $crlf;
-                $buffer .= '$' . $tablefixed . ' = array(';
-                
+        $buffer .= '$' . $tablefixed . ' = array(';
+        
         while ($record = PMA_DBI_fetch_row($result)) {
             $record_cnt++;
 
-            // Output table name as comment if it's the first record of the table
             if ($record_cnt == 1) {
                 $buffer .= $crlf . '  array(';
             } else {
