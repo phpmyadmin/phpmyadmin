@@ -193,10 +193,10 @@ class ExportPhparray extends ExportPlugin
         $record_cnt = 0;
         // Output table name as comment
         $buffer .= $crlf . '// '
-                    . PMA_Util::backquote($db) . '.'
-                    . PMA_Util::backquote($table) . $crlf;
+            . PMA_Util::backquote($db) . '.'
+            . PMA_Util::backquote($table) . $crlf;
         $buffer .= '$' . $tablefixed . ' = array(';
-        
+
         while ($record = PMA_DBI_fetchRow($result)) {
             $record_cnt++;
 
