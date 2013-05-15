@@ -386,7 +386,8 @@ if (!$GLOBALS['sqlvalidator_error']) {
                 $this->service_link, $this->username, $this->password,
                 $this->calling_program, $this->calling_program_version,
                 $this->target_dbms, $this->target_dbms_version,
-                $this->connection_technology, $this->connection_technology_version
+                $this->connection_technology, $this->connection_technology_version,
+                true // FIXME: Are we to tell them that we are interactive?
             );
 
             if (isset($this->session_data)

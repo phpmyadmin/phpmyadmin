@@ -36,6 +36,7 @@ $post_params = array(
     'local_import_file'
 );
 
+// TODO: adapt full list of allowed parameters, as in export.php
 foreach ($post_params as $one_post_param) {
     if (isset($_POST[$one_post_param])) {
         $GLOBALS[$one_post_param] = $_POST[$one_post_param];

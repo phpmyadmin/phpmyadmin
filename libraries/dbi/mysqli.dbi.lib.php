@@ -388,12 +388,10 @@ function PMA_DBI_next_result($link = null)
  */
 function PMA_DBI_store_result()
 {
-    if (empty($link)) {
-        if (isset($GLOBALS['userlink'])) {
-            $link = $GLOBALS['userlink'];
-        } else {
-            return false;
-        }
+    if (isset($GLOBALS['userlink'])) {
+        $link = $GLOBALS['userlink'];
+    } else {
+        return false;
     }
     return mysqli_store_result($link);
 }

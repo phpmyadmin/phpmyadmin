@@ -365,7 +365,7 @@ function PMA_replication_gui_master_addslaveuser()
         . __('Password') . '"'
         . '            onchange="if (this.value == \'none\') { pma_pw.value = \'\'; pma_pw2.value = \'\'; } else if (this.value == \'userdefined\') { pma_pw.focus(); pma_pw.select(); }">'
         . '        <option value="none"';
-    if (isset($GLOBALS['username']) && $mode != 'change') {
+    if (isset($GLOBALS['username'])) {
         echo '  selected="selected"';
     }
     echo '>' . __('No Password') . '</option>'
