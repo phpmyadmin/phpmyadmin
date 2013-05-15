@@ -13,7 +13,7 @@ if (! defined('PHPMYADMIN')) {
 /**
  * Transforms the radio button field_key into 4 arrays
  * 
- * @return array An array of arrays which represents coulmn keys for each index type
+ * @return array An array of arrays which represents column keys for each index type
  */
 function PMA_getIndexedColumns()
 {
@@ -46,10 +46,10 @@ function PMA_getIndexedColumns()
 }
 
 /**
- * Initiate the coulmn creation statement according to the table creation or
- * add coulmns to a exsiting table
+ * Initiate the column creation statement according to the table creation or
+ * add columns to a exsiting table
  * 
- * @param int     $field_cnt     number of coulmns
+ * @param int     $field_cnt     number of columns
  * @param boolean $is_create_tbl true if requirement is to get the statement 
  *                               for table creation
  * 
@@ -67,7 +67,7 @@ function PMA_buildColumnCreationStatement($field_cnt ,$is_create_tbl = true)
             continue;
         }
 
-        $definition = getStatementPrefix($is_create_tbl) . 
+        $definition = PMA_getStatementPrefix($is_create_tbl) . 
                 PMA_Table::generateFieldSpec(
                     $_REQUEST['field_name'][$i],
                     $_REQUEST['field_type'][$i],
@@ -100,9 +100,9 @@ function PMA_buildColumnCreationStatement($field_cnt ,$is_create_tbl = true)
 }
 
 /**
- * Set coulmn creation suffix according to requested position of the new coulmn
+ * Set column creation suffix according to requested position of the new column
  * 
- * @param int     $current_field_num current coulmn number
+ * @param int     $current_field_num current column number
  * @param boolean $is_create_tbl     true if requirement is to get the statement 
  *                                   for table creation
  * 
@@ -136,7 +136,7 @@ function PMA_setColumnCreationStatementSuffix($current_field_num ,$is_create_tbl
 /**
  * Create relevent index statements
  * 
- * @param array   $indexed_fields an array of index coulmns
+ * @param array   $indexed_fields an array of index columns
  * @param string  $index_type     index type that which represents 
  *                                the index type of $indexed_fields
  * @param boolean $is_create_tbl  true if requirement is to get the statement 
@@ -152,7 +152,7 @@ function PMA_buildIndexStatements($indexed_fields, $index_type,  $is_create_tbl 
         foreach ($indexed_fields as $field_nr) {
             $fields[] = PMA_Util::backquote($_REQUEST['field_name'][$field_nr]);
         }
-        $statement[] = getStatementPrefix($is_create_tbl)
+        $statement[] = PMA_getStatementPrefix($is_create_tbl)
         .' '.$index_type.' (' . implode(', ', $fields) . ') ';
         unset($fields);
     }
@@ -161,14 +161,14 @@ function PMA_buildIndexStatements($indexed_fields, $index_type,  $is_create_tbl 
 }
 
 /**
- * Statement prefix for the PMA_buildCoulmnCreationStatement()
+ * Statement prefix for the PMA_buildColumnCreationStatement()
  * 
  * @param boolean $is_create_tbl true if requirement is to get the statement 
  *                               for table creation
  * 
  * @return string $sql_prefix prefix
  */
-function getStatementPrefix($is_create_tbl = true)
+function PMA_getStatementPrefix($is_create_tbl = true)
 {
     $sql_prefix = " ";
     if ( !$is_create_tbl) {
@@ -178,7 +178,7 @@ function getStatementPrefix($is_create_tbl = true)
 }
 
 /**
- * Returns sql statement according to the coulmn and index specifications as requested
+ * Returns sql statement according to the column and index specifications as requested
  * 
  * @param boolean $is_create_tbl true if requirement is to get the statement 
  *                               for table creation
