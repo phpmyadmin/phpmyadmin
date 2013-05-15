@@ -129,7 +129,7 @@ class ExportHtmlword extends ExportPlugin
             <html>
             <head>
                 <meta http-equiv="Content-type" content="text/html;charset='
-            . (isset($charsetOfFile) ? $charsetOfFile : 'utf-8') . '" />
+            . (isset($charset_of_file) ? $charset_of_file : 'utf-8') . '" />
             </head>
             <body>'
         );
@@ -287,10 +287,10 @@ class ExportHtmlword extends ExportPlugin
             . '</tr>';
 
         /**
-         * Get the unique keys in the table
+         * Get the unique keys in the view
          */
         $unique_keys = array();
-        $keys = PMA_DBI_get_table_indexes($db, $table);
+        $keys = PMA_DBI_get_table_indexes($db, $view);
         foreach ($keys as $key) {
             if ($key['Non_unique'] == 0) {
                 $unique_keys[] = $key['Column_name'];

@@ -2543,7 +2543,7 @@ class PMA_DisplayResults
 
             // In print view these variable needs toinitialized
             $del_url = $del_query = $del_str = $edit_anchor_class
-                = $edit_str = $js_conf = $copy_url = $copy_str = null;
+                = $edit_str = $js_conf = $copy_url = $copy_str = $edit_url = null;
 
             // 1.2 Defines the URLs for the modify/delete link(s)
 
@@ -2579,7 +2579,8 @@ class PMA_DisplayResults
                     list($del_query, $del_url, $del_str, $js_conf)
                         = $this->_getDeleteAndKillLinks(
                             $where_clause, $clause_is_unique,
-                            $url_sql_query, $is_display['del_lnk']
+                            $url_sql_query, $is_display['del_lnk'],
+                            $row
                         );
 
                 } // end if (1.2.2)
@@ -2641,8 +2642,9 @@ class PMA_DisplayResults
             //    output
             $this->_gatherLinksForLaterOutputs(
                 $row_no, $is_display, $where_clause, $where_clause_html, $js_conf,
-                $del_url, $del_query, $del_str, $edit_anchor_class, $edit_str,
-                $copy_url, $copy_str, $alternating_color_class, $condition_array
+                $del_url, $del_query, $del_str, $edit_anchor_class, $edit_url,
+                $edit_str, $copy_url, $copy_str, $alternating_color_class,
+                $condition_array
             );
 
             $table_body_html .= $directionCondition ? "\n" : '';
@@ -2932,6 +2934,7 @@ class PMA_DisplayResults
      * @param string  $del_query               the query for delete row
      * @param string  $del_str                 the label for delete row
      * @param string  $edit_anchor_class       the class for html element for edit
+     * @param string  $edit_url                the url for edit row
      * @param string  $edit_str                the label for edit row
      * @param string  $copy_url                the url for copy row
      * @param string  $copy_str                the label for copy row
@@ -2947,7 +2950,7 @@ class PMA_DisplayResults
      */
     private function _gatherLinksForLaterOutputs(
         $row_no, $is_display, $where_clause, $where_clause_html, $js_conf,
-        $del_url, $del_query, $del_str, $edit_anchor_class, $edit_str,
+        $del_url, $del_query, $del_str, $edit_anchor_class, $edit_url, $edit_str,
         $copy_url, $copy_str, $alternating_color_class, $condition_array
     ) {
 
@@ -3332,6 +3335,7 @@ class PMA_DisplayResults
      * @param boolean $clause_is_unique the unique condition of clause
      * @param string  $url_sql_query    the analyzed sql query
      * @param string  $del_lnk          the delete link of current row
+     * @param array   $row              the current row
      *
      * @return  array                       4 element array - $del_query,
      *                                      $del_url, $del_str, $js_conf
@@ -3341,7 +3345,7 @@ class PMA_DisplayResults
      * @see     _getTableBody()
      */
     private function _getDeleteAndKillLinks(
-        $where_clause, $clause_is_unique, $url_sql_query, $del_lnk
+        $where_clause, $clause_is_unique, $url_sql_query, $del_lnk, $row
     ) {
 
         $goto = $this->__get('goto');
@@ -3398,13 +3402,13 @@ class PMA_DisplayResults
 
             $_url_params = array(
                     'db'        => 'mysql',
-                    'sql_query' => 'KILL ' . $row[0], //FIXME:variable $row is undefined
+                    'sql_query' => 'KILL ' . $row[0],
                     'goto'      => $lnk_goto,
                 );
 
             $del_url  = 'sql.php' . PMA_generate_common_url($_url_params);
-            $del_query = 'KILL ' . $row[0]; //FIXME:variable $row is undefined
-            $js_conf  = 'KILL ' . $row[0]; //FIXME:variable $row is undefined
+            $del_query = 'KILL ' . $row[0];
+            $js_conf  = 'KILL ' . $row[0];
             $del_str = PMA_Util::getIcon(
                 'b_drop.png', __('Kill')
             );
@@ -5151,6 +5155,7 @@ class PMA_DisplayResults
      */
     private function _getResultsOperations($the_disp_mode, $analyzed_sql)
     {
+        global $printview;
 
         $results_operations_html = '';
         $fields_meta = $this->__get('fields_meta'); // To safe use in foreach
@@ -5851,41 +5856,41 @@ class PMA_DisplayResults
 
             $ret .= $this->_getCheckboxForMultiRowSubmissions(
                 $del_url, $is_display, $row_no, $where_clause_html, $condition_array,
-                $del_query, $id_suffix = '_left', '', '', ''
+                $del_query, $id_suffix = '_left', ''
             );
 
             $ret .= $this->_getEditLink(
-                $edit_url, $class, $edit_str, $where_clause, $where_clause_html, ''
+                $edit_url, $class, $edit_str, $where_clause, $where_clause_html
             );
 
             $ret .= $this->_getCopyLink(
                 $copy_url, $copy_str, $where_clause, $where_clause_html, ''
             );
 
-            $ret .= $this->_getDeleteLink($del_url, $del_str, $js_conf, '', '');
+            $ret .= $this->_getDeleteLink($del_url, $del_str, $js_conf, '');
 
         } elseif ($position == self::POSITION_RIGHT) {
 
-            $ret .= $this->_getDeleteLink($del_url, $del_str, $js_conf, '', '');
+            $ret .= $this->_getDeleteLink($del_url, $del_str, $js_conf, '');
 
             $ret .= $this->_getCopyLink(
                 $copy_url, $copy_str, $where_clause, $where_clause_html, ''
             );
 
             $ret .= $this->_getEditLink(
-                $edit_url, $class, $edit_str, $where_clause, $where_clause_html, ''
+                $edit_url, $class, $edit_str, $where_clause, $where_clause_html
             );
 
             $ret .= $this->_getCheckboxForMultiRowSubmissions(
                 $del_url, $is_display, $row_no, $where_clause_html, $condition_array,
-                $del_query, $id_suffix = '_right', '', '', ''
+                $del_query, $id_suffix = '_right', ''
             );
 
         } else { // $position == self::POSITION_NONE
 
             $ret .= $this->_getCheckboxForMultiRowSubmissions(
                 $del_url, $is_display, $row_no, $where_clause_html, $condition_array,
-                $del_query, $id_suffix = '_left', '', '', ''
+                $del_query, $id_suffix = '_left', ''
             );
         }
 

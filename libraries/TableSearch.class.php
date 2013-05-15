@@ -465,12 +465,13 @@ EOT;
      * @param mixed  $criteriaValues Search criteria input
      * @param string $names          Name of the column on which search is submitted
      * @param string $func_type      Search function/operator
+     * @param string $types          Type of the field
      * @param bool   $geom_func      Whether geometry functions should be applied
      *
      * @return string part of where clause.
      */
     private function _getGeomWhereClause($criteriaValues, $names,
-        $func_type, $geom_func = null
+        $func_type, $types, $geom_func = null
     ) {
         $geom_unary_functions = array(
             'IsEmpty' => 1,
@@ -480,7 +481,7 @@ EOT;
         );
         $where = '';
 
-        // Get details about the geometry fucntions
+        // Get details about the geometry functions
         $geom_funcs = PMA_Util::getGISFunctions($types, true, false);
         // New output type is the output type of the function being applied
         $types = $geom_funcs[$geom_func]['type'];
@@ -531,7 +532,7 @@ EOT;
         // If geometry function is set
         if ($geom_func != null && trim($geom_func) != '') {
             return $this->_getGeomWhereClause(
-                $criteriaValues, $names, $func_type, $geom_func
+                $criteriaValues, $names, $func_type, $types, $geom_func
             );
         }
 

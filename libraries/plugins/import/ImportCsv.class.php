@@ -105,8 +105,10 @@ class ImportCsv extends AbstractImportCsv
      */
     public function doImport()
     {
-        global $db, $table, $csv_terminated, $csv_enclosed, $csv_escaped, $csv_new_line;
-        // $csv_replace should have been here but we use directly from $_POST
+        global $db, $table, $csv_terminated, $csv_enclosed, $csv_escaped,
+            $csv_new_line, $csv_columns, $err_url;
+        // $csv_replace and $csv_ignore should have been here,
+        // but we use directly from $_POST
         global $error, $timeout_passed, $finished;
 
         $replacements = array(
@@ -172,7 +174,7 @@ class ImportCsv extends AbstractImportCsv
                 $sql_template = 'REPLACE';
             } else {
                 $sql_template = 'INSERT';
-                if (isset($csv_ignore)) {
+                if (isset($_POST['csv_ignore'])) {
                     $sql_template .= ' IGNORE';
                 }
             }
