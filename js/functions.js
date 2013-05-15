@@ -3551,7 +3551,7 @@ function PMA_getCellValue(td) {
  */
 AJAX.registerTeardown('functions.js', function() {
     $('a.themeselect').die('click');
-    $('.autosubmit').unbind('change');
+    $('.autosubmit').die('change');
     $('a.take_theme').unbind('click');
 });
 
@@ -3571,7 +3571,7 @@ AJAX.registerOnload('functions.js', function() {
     /**
      * Automatic form submission on change.
      */
-    $('.autosubmit').change(function(e) {
+    $('.autosubmit').live('change', function(e) {
         $(this).closest('form').submit();
     });
 
