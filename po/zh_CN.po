@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-05-10 10:24+0200\n"
-"PO-Revision-Date: 2013-04-25 16:12+0200\n"
-"Last-Translator: greensea g <gs@bbxy.net>\n"
-"Language-Team: Simplified Chinese <http://l10n.cihar.com/projects/phpmyadmin/"
-"master/zh_CN/>\n"
+"PO-Revision-Date: 2013-05-14 06:43+0200\n"
+"Last-Translator: Randall Fan <fanrandall@gmail.com>\n"
+"Language-Team: Simplified Chinese "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/zh_CN/>\n"
 "Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,7 +19,7 @@ msgstr ""
 #: libraries/DisplayResults.class.php:809
 #: libraries/server_privileges.lib.php:2622
 msgid "Show all"
-msgstr "显示所有"
+msgstr "显示全部"
 
 #: browse_foreigners.php:77 libraries/PDF.class.php:67
 #: libraries/Util.class.php:2541
@@ -338,7 +338,6 @@ msgstr "创建时间："
 
 #: db_printview.php:194 libraries/plugins/export/ExportSql.class.php:959
 #: libraries/schema/Pdf_Relation_Schema.class.php:1342
-#, fuzzy
 #| msgid "Last update"
 msgid "Last update:"
 msgstr "最后更新："
@@ -514,10 +513,9 @@ msgstr "以 OpenStreetMaps 为背景"
 
 # what's the f**k word of "SRID"?
 #: gis_data_editor.php:161
-#, fuzzy
 #| msgid "SRID"
 msgid "SRID:"
-msgstr "SRID"
+msgstr "SRID:"
 
 #: gis_data_editor.php:184
 #, fuzzy, php-format
@@ -731,36 +729,32 @@ msgid "User:"
 msgstr "用户："
 
 #: index.php:258
-#, fuzzy
 #| msgid "Server charset"
 msgid "Server charset:"
-msgstr "服务器字符集"
+msgstr "服务器字符集:"
 
 #: index.php:270
 msgid "Web server"
 msgstr "网站服务器"
 
 #: index.php:283
-#, fuzzy
 #| msgid "Database client version"
 msgid "Database client version:"
-msgstr "数据库客户端版本"
+msgstr "数据库客户端版本:"
 
 #: index.php:287
-#, fuzzy
 #| msgid "PHP extension"
 msgid "PHP extension:"
-msgstr "PHP 扩展"
+msgstr "PHP 扩展:"
 
 #: index.php:301
 msgid "Show PHP information"
 msgstr "显示 PHP 信息"
 
 #: index.php:324
-#, fuzzy
 #| msgid "Version information"
 msgid "Version information:"
-msgstr "版本信息"
+msgstr "版本信息："
 
 #: index.php:333 libraries/Util.class.php:430 libraries/Util.class.php:516
 #: libraries/config/FormDisplay.tpl.php:145
@@ -844,7 +838,6 @@ msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
 msgstr "配置文件现在需要一个短语密码。"
 
 #: index.php:476
-#, fuzzy
 #| msgid ""
 #| "Directory [code]config[/code], which is used by the setup script, still "
 #| "exists in your phpMyAdmin directory. You should remove it once phpMyAdmin "
@@ -855,8 +848,8 @@ msgid ""
 "once phpMyAdmin has been configured. Otherwise the security of your server "
 "may be compromised by unauthorized people downloading your configuration."
 msgstr ""
-"安装时所用的 [code]config[/code] 文件夹尚未删除，如果 phpMyAdmin 已经安装配置"
-"好，请立即删除该文件夹。"
+"安装时所用的 [code]config[/code] 文件夹尚未删除，如果 phpMyAdmin "
+"已经安装配置好，请立即删除该文件夹。否则，未经授权的人员可通过下载配置文件入侵服务器。"
 
 #: index.php:486
 #, php-format
@@ -2267,22 +2260,19 @@ msgid "Column:"
 msgstr "字段"
 
 #: libraries/DBQbe.class.php:406
-#, fuzzy
 #| msgid "Sort"
 msgid "Sort:"
-msgstr "排序"
+msgstr "排序："
 
 #: libraries/DBQbe.class.php:468 libraries/DisplayResults.class.php:903
-#, fuzzy
 #| msgid "Show"
 msgid "Show:"
-msgstr "显示"
+msgstr "显示："
 
 #: libraries/DBQbe.class.php:513
-#, fuzzy
 #| msgid "Criteria"
 msgid "Criteria:"
-msgstr "条件"
+msgstr "条件："
 
 #: libraries/DBQbe.class.php:576
 msgid "Add/Delete criteria rows"
@@ -2301,14 +2291,13 @@ msgid "Use Tables"
 msgstr "使用表"
 
 #: libraries/DBQbe.class.php:653 libraries/DBQbe.class.php:757
-#, fuzzy
 #| msgid "Or"
 msgid "Or:"
-msgstr "或"
+msgstr "或："
 
 #: libraries/DBQbe.class.php:657 libraries/DBQbe.class.php:742
 msgid "And:"
-msgstr ""
+msgstr "和："
 
 #: libraries/DBQbe.class.php:661
 msgid "Ins"
@@ -2319,10 +2308,9 @@ msgid "Del"
 msgstr "删除"
 
 #: libraries/DBQbe.class.php:680
-#, fuzzy
 #| msgid "Modify"
 msgid "Modify:"
-msgstr "修改"
+msgstr "修改："
 
 #: libraries/DBQbe.class.php:737
 msgid "Ins:"
@@ -2464,10 +2452,9 @@ msgid "Number of rows:"
 msgstr "记录数："
 
 #: libraries/DisplayResults.class.php:917
-#, fuzzy
 #| msgid "Mode"
 msgid "Mode:"
-msgstr "模式"
+msgstr "模式："
 
 #: libraries/DisplayResults.class.php:919
 msgid "horizontal"
@@ -3099,16 +3086,14 @@ msgid "Target database `%s` was not found!"
 msgstr "未找到目标数据库 %s ！"
 
 #: libraries/Table.class.php:1164
-#, fuzzy
 #| msgid "Invalid database"
 msgid "Invalid database:"
-msgstr "无效的数据库"
+msgstr "无效的数据库："
 
 #: libraries/Table.class.php:1178
-#, fuzzy
 #| msgid "Invalid table name"
 msgid "Invalid table name:"
-msgstr "无效的数据表名"
+msgstr "无效的数据表名："
 
 #: libraries/Table.class.php:1210
 #, php-format
@@ -3255,10 +3240,9 @@ msgid "Theme path not found for theme %s!"
 msgstr "找不到主题 %s 的路径！"
 
 #: libraries/Theme_Manager.class.php:363
-#, fuzzy
 #| msgid "Theme"
 msgid "Theme:"
-msgstr "主题"
+msgstr "主题："
 
 #: libraries/Types.class.php:296
 msgid ""
@@ -3465,7 +3449,7 @@ msgstr "从一组最多64个成员的集合中选择的单个值"
 
 #: libraries/Types.class.php:358
 msgid "A type that can store a geometry of any type"
-msgstr "一个能存储任何类型几何形状的类型"
+msgstr "一个能存储任何几何形状的类型"
 
 #: libraries/Types.class.php:360
 msgid "A point in 2-dimensional space"
@@ -3567,10 +3551,9 @@ msgid "Max: %s%s"
 msgstr "最大限制：%s %s"
 
 #: libraries/Util.class.php:674 libraries/sql.lib.php:467
-#, fuzzy
 #| msgid "SQL query"
 msgid "SQL query:"
-msgstr "SQL 查询"
+msgstr "SQL 查询："
 
 #: libraries/Util.class.php:718 libraries/rte/rte_events.lib.php:114
 #: libraries/rte/rte_events.lib.php:123 libraries/rte/rte_events.lib.php:140
@@ -6456,7 +6439,7 @@ msgstr "正在上传要导入的文件…"
 #: libraries/display_import.lib.php:94
 #, php-format
 msgid "%s/sec."
-msgstr "%s/秒"
+msgstr "%s/秒。"
 
 #: libraries/display_import.lib.php:101
 msgid "About %MIN min. %SEC sec. remaining."
@@ -10116,10 +10099,9 @@ msgid "FOREIGN KEY relation added"
 msgstr "已添加外键关联"
 
 #: pmd_relation_new.php:82
-#, fuzzy
 #| msgid "Error: Relation not added."
 msgid "Error: Relational features are disabled!"
-msgstr "错误：关系未添加。"
+msgstr "错误：关系功能被禁用！"
 
 #: pmd_relation_new.php:98
 msgid "Internal relation added"
@@ -11860,11 +11842,11 @@ msgstr "没有可显示数据"
 
 #: tbl_chart.php:62 tbl_gis_visualization.php:24
 msgid "No SQL query was set to fetch data."
-msgstr "没有设置SQL 查询来检索数据"
+msgstr "没有设置SQL 查询来检索数据。"
 
 #: tbl_chart.php:124
 msgid "No numeric columns present in the table to plot."
-msgstr "在将表格转为图标是没有找到数字类型的列"
+msgstr "在将表格转为图表时没有找到数字类型的列。"
 
 #: tbl_chart.php:154
 msgctxt "Chart type"
@@ -12062,10 +12044,9 @@ msgid "Choose column to display:"
 msgstr "选择要显示的字段"
 
 #: tbl_structure.php:125
-#, fuzzy
 #| msgid "No rows selected"
 msgid "No column selected."
-msgstr "没有选中任何行"
+msgstr "没有选中任何列。"
 
 #: tbl_structure.php:149
 #, php-format

@@ -14,13 +14,18 @@ phpMyAdmin - ChangeLog
 + rfe #1363 Improved query profiler
 
 4.0.2.0 (not yet released)
+- bug #3902 Cannot browse when table name contains keyword "call"
 + center loading indicator for navigation refresh, related to bug #3920
 - bug #3925 Table sorting in navigation panel is case-sensitive
 - bug #3915 Import of CSV file (Replace table data with file) with duplicate
 values 
 - bug #3898 Structure not refreshed after column drop 
+- bug #3926 View is not updatable
+- bug #3919 PropertiesIconic not honored
+- bug #3930 Databases to choose for specific privileges show up escaped
+- bug #3910 Export database with empty table as a php array, does not produce valid PHP
 
-4.0.1.0 (not yet released)
+4.0.1.0 (2013-05-14)
 - bug #3879 Import broken for CSV using LOAD DATA
 - bug #3889 When login fails and error display is active, login data is displayed
 - bug #3890 [import] Web server upload directory import fails
