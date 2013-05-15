@@ -62,7 +62,7 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
     }
 
     public function testGetFontsizeForm()
-    {  
+    {
         $this->assertContains(
             '<form name="form_fontsize_selection" id="form_fontsize_selection"',
             PMA_Config::getFontsizeForm()
@@ -72,6 +72,51 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
             '<label for="select_fontsize">',
             PMA_Config::getFontsizeForm()
         );
+
+        //test getFontsizeOptions for "em" unit
+        $_COOKIE['pma_fontsize'] = "10em";
+        $this->assertContains(
+            '<option value="7em"',
+            PMA_Config::getFontsizeForm()
+        );
+        $this->assertContains(
+            '<option value="8em"',
+            PMA_Config::getFontsizeForm()
+        );
+
+        //test getFontsizeOptions for "pt" unit
+        $_COOKIE['pma_fontsize'] = "10pt";
+        $this->assertContains(
+            '<option value="2pt"',
+            PMA_Config::getFontsizeForm()
+        );
+        $this->assertContains(
+            '<option value="4pt"',
+            PMA_Config::getFontsizeForm()
+        );
+ 
+        //test getFontsizeOptions for "px" unit
+        $_COOKIE['pma_fontsize'] = "10px";
+        $this->assertContains(
+            '<option value="5px"',
+            PMA_Config::getFontsizeForm()
+        );
+        $this->assertContains(
+            '<option value="6px"',
+            PMA_Config::getFontsizeForm()
+        );
+
+        //test getFontsizeOptions for unknown unit
+        $_COOKIE['pma_fontsize'] = "10abc";
+        $this->assertContains(
+            '<option value="7abc"',
+            PMA_Config::getFontsizeForm()
+        );
+        $this->assertContains(
+            '<option value="8abc"',
+            PMA_Config::getFontsizeForm()
+        );    
+        unset($_COOKIE['pma_fontsize']);
     }
 
     public function testCheckOutputCompression()
