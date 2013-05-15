@@ -112,7 +112,7 @@ function PMA_setColumnCreationStatementSuffix($current_field_num ,$is_create_tbl
 {
     // no suffix is needed if request is a table creation
     $sql_suffix = " ";
-    if (!$is_create_tbl) {
+    if (! $is_create_tbl) {
         if ($_REQUEST['field_where'] != 'last') {
             // Only the first field can be added somewhere other than at the end
             if ($current_field_num == 0) {
@@ -171,7 +171,7 @@ function PMA_buildIndexStatements($indexed_fields, $index_type,  $is_create_tbl 
 function PMA_getStatementPrefix($is_create_tbl = true)
 {
     $sql_prefix = " ";
-    if ( !$is_create_tbl) {
+    if (! $is_create_tbl) {
         $sql_prefix = ' ADD ';
     }
     return $sql_prefix;
