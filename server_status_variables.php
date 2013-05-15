@@ -44,9 +44,9 @@ $scripts->addFile('server_status_sorter.js');
 
 $response->addHTML('<div>');
 $response->addHTML($ServerStatusData->getMenuHtml());
-$response->addHTML(getFilterHtml($ServerStatusData));
-$response->addHTML(getLinkSuggestionsHtml($ServerStatusData));
-$response->addHTML(getVariablesTableHtml($ServerStatusData));
+$response->addHTML(PMA_getFilterHtml($ServerStatusData));
+$response->addHTML(PMA_getLinkSuggestionsHtml($ServerStatusData));
+$response->addHTML(PMA_getVariablesTableHtml($ServerStatusData));
 $response->addHTML('</div>');
 
 exit;
@@ -58,7 +58,7 @@ exit;
  *
  * @return string
  */
-function getFilterHtml($ServerStatusData)
+function PMA_getFilterHtml($ServerStatusData)
 {
     $filterAlert = '';
     if (! empty($_REQUEST['filterAlert'])) {
@@ -127,7 +127,7 @@ function getFilterHtml($ServerStatusData)
  *
  * @return string
  */
-function getLinkSuggestionsHtml($ServerStatusData)
+function PMA_getLinkSuggestionsHtml($ServerStatusData)
 {
     $retval  = '<div id="linkSuggestions" class="defaultLinks" style="display:none">';
     $retval .= '<p class="notice">' . __('Related links:');
@@ -161,10 +161,10 @@ function getLinkSuggestionsHtml($ServerStatusData)
  *
  * @return string
  */
-function getVariablesTableHtml($ServerStatusData)
+function PMA_getVariablesTableHtml($ServerStatusData)
 {
     $retval  = '';
-    $strShowStatus = getStatusVariablesDescriptions();
+    $strShowStatus = PMA_getStatusVariablesDescriptions();
     /**
      * define some alerts
      */
@@ -320,7 +320,7 @@ function getVariablesTableHtml($ServerStatusData)
  *
  * @return array
  */
-function getStatusVariablesDescriptions()
+function PMA_getStatusVariablesDescriptions()
 {
     /**
      * Messages are built using the message name

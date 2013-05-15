@@ -98,7 +98,7 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
                 );
                 $response->addJSON(
                     'variable',
-                    formatVariable($_REQUEST['varName'], $varValue[1])
+                    PMA_formatVariable($_REQUEST['varName'], $varValue[1])
                 );
             } else {
                 $response->isSuccess(false);
@@ -198,7 +198,7 @@ foreach ($serverVars as $name => $value) {
     }
     $output .= '</div>'
         . '<div class="var-value value' . (PMA_isSuperuser() ? ' editable' : '') . '">&nbsp;'
-        . formatVariable($name, $value)
+        . PMA_formatVariable($name, $value)
         . '</div>'
         . '<div style="clear:both"></div>'
         . '</div>';
@@ -207,7 +207,7 @@ foreach ($serverVars as $name => $value) {
         $output .= '<div class="var-row' . ($odd_row ? ' odd' : ' even') . '">'
             . '<div class="var-name session">(' . __('Session value') . ')</div>'
             . '<div class="var-value value">&nbsp;' 
-            . formatVariable($name, $serverVarsSession[$name]) . '</div>'
+            . PMA_formatVariable($name, $serverVarsSession[$name]) . '</div>'
             . '<div style="clear:both"></div>'
             . '</div>';
     }
@@ -226,7 +226,7 @@ $response->addHtml($output);
  *
  * @return formatted string
  */
-function formatVariable($name, $value)
+function PMA_formatVariable($name, $value)
 {
     global $VARIABLE_DOC_LINKS;
 
