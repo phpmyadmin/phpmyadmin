@@ -78,7 +78,9 @@ if (isset($_SESSION['profiling'])) {
     }
     $scripts->addFile('jqplot/jquery.jqplot.js');
     $scripts->addFile('jqplot/plugins/jqplot.pieRenderer.js');
+    $scripts->addFile('jqplot/plugins/jqplot.highlighter.js');
     $scripts->addFile('canvg/canvg.js');
+    $scripts->addFile('jquery/jquery.tablesorter.js');
 }
 
 if (!isset($_SESSION['is_multi_query'])) {

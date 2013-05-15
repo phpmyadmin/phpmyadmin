@@ -579,6 +579,9 @@ function makeProfilingChart()
 {
     if ($('#profilingchart').length === 0
         || $('#profilingchart').html().length !== 0
+        || !$.jqplot
+        || !$.jqplot.Highlighter
+        || !$.jqplot.PieRenderer
     ) {
         return;
     }
@@ -594,3 +597,42 @@ function makeProfilingChart()
 
     PMA_createProfilingChartJqplot('profilingchart', data);
 }
+
+/*
+ * initialize proofiling data tables
+ */
+function initProfilingTables()
+{
+    if (!$.tablesorter) {
+        return;
+    }
+
+    $('#profiletable').tablesorter({
+        widgets: ['zebra'],
+        sortList: [[0,0]],
+        textExtraction: function (node) {
+            if (node.children.length > 0) {
+                return node.children[0].innerHTML;
+            } else {
+                return node.innerHTML;
+            }
+        }
+    });
+    
+    $('#profilesummarytable').tablesorter({
+        widgets: ['zebra'],
+        sortList: [[1,1]],
+        textExtraction: function (node) {
+            if (node.children.length > 0) {
+                return node.children[0].innerHTML;
+            } else {
+                return node.innerHTML;
+            }
+        }
+    });
+}
+
+AJAX.registerOnload('sql.js', function () {
+    makeProfilingChart();
+    initProfilingTables();
+});

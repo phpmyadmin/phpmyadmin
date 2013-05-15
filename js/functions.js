@@ -1675,6 +1675,14 @@ function PMA_createProfilingChartJqplot(target, data)
                     showDataLabels:  true
                 }
             },
+            highlighter: {
+                show:true,
+                tooltipLocation: 'se',
+                sizeAdjust: 0,
+                tooltipAxes: 'pieref',
+                useAxesFormatters: false,
+                formatString:'%s, %.9Ps'
+            },
             legend: {
                 show: true,
                 location: 'e'
