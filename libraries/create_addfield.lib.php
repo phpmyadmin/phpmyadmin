@@ -47,7 +47,7 @@ function PMA_getIndexedColumns()
 
 /**
  * Initiate the column creation statement according to the table creation or
- * add columns to a exsiting table
+ * add columns to a existing table
  * 
  * @param int     $field_cnt     number of columns
  * @param boolean $is_create_tbl true if requirement is to get the statement 
