@@ -599,7 +599,7 @@ function makeProfilingChart()
 }
 
 /*
- * initialize proofiling data tables
+ * initialize profiling data tables
  */
 function initProfilingTables()
 {
