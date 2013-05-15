@@ -16,8 +16,8 @@ phpMyAdmin - ChangeLog
 - bug #3902 Cannot browse when table name contains keyword "call"
 + center loading indicator for navigation refresh, related to bug #3920
 - bug #3925 Table sorting in navigation panel is case-sensitive
-- bug #3915 Import of CSV file (Replace table data with file) with duplicate
-values 
+- bug #3915 Import of CSV file (Replace table data with file) with duplicate values
+- bug #3907 undefined variables, function parameter problems
 - bug #3898 Structure not refreshed after column drop 
 - bug #3926 View is not updatable
 - bug #3919 PropertiesIconic not honored

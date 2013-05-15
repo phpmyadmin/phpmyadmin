@@ -294,7 +294,7 @@ if (! isset($GLOBALS['repl_clear_scr'])) {
         echo '<br />';
         echo '<ul>';
         echo ' <li><a href="#" id="slave_status_href">' . __('See slave status table') . '</a>';
-        echo PMA_replication_print_status_table('slave', true, false);
+        PMA_replication_print_status_table('slave', true, false);
         echo ' </li>';
 
         echo ' <li><a href="#" id="slave_control_href">' . __('Control slave:') . '</a>';

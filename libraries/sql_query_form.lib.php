@@ -446,7 +446,9 @@ function PMA_sqlQueryFormBookmark()
  */
 function PMA_sqlQueryFormUpload()
 {
-    $errors = array ();
+    global $timeout_passed, $local_import_file;
+
+    $errors = array();
 
     // we allow only SQL here
     $matcher = '@\.sql(\.(' . PMA_supportedDecompressions() . '))?$@';

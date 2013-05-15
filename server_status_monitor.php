@@ -293,10 +293,10 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
                             .  implode(
                                 ' ',
                                 PMA_Util::formatByteDown(
-                                    strlen($row['argument'])
-                                ),
-                                2,
-                                2
+                                    strlen($row['argument']),
+                                    2,
+                                    2
+                                )
                             )
                             . ']';
                     }

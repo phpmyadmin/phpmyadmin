@@ -347,7 +347,7 @@ class ExportOdt extends ExportPlugin
          */
         $GLOBALS['odt_buffer'] .=
             '<table:table table:name="'
-            . htmlspecialchars($table) . '_data">';
+            . htmlspecialchars($view) . '_data">';
         $columns_cnt = 4;
         $GLOBALS['odt_buffer'] .=
             '<table:table-column'
