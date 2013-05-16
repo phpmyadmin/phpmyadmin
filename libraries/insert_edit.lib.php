@@ -2125,8 +2125,8 @@ function PMA_transformEditedValues($db, $table,
  * @return array $cur_value
  */
 function PMA_getCurrentValueAsAnArrayForMultipleEdit($multi_edit_colummns,
-    $multi_edit_columns_name, $multi_edit_funcs, $multi_edit_salt, 
-    $gis_from_text_functions, $current_value, $gis_from_wkb_functions, 
+    $multi_edit_columns_name, $multi_edit_funcs, $multi_edit_salt,
+    $gis_from_text_functions, $current_value, $gis_from_wkb_functions,
     $func_optional_param, $func_no_param, $key
 ) {
     if (empty($multi_edit_funcs[$key])) {
@@ -2149,9 +2149,9 @@ function PMA_getCurrentValueAsAnArrayForMultipleEdit($multi_edit_colummns,
         && in_array($multi_edit_funcs[$key], $func_optional_param))
     ) {
         if (isset($multi_edit_salt[$key]) && ($multi_edit_funcs[$key] == "AES_ENCRYPT")) {
-            return $multi_edit_funcs[$key] . '(' . $current_value . ",'" 
+            return $multi_edit_funcs[$key] . '(' . $current_value . ",'"
                    . PMA_Util::sqlAddSlashes($multi_edit_salt[$key]) . "')";
-        } else { 
+        } else {
         return $multi_edit_funcs[$key] . '(' . $current_value . ')';
         }
     } else {

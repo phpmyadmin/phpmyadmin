@@ -11,7 +11,7 @@ phpMyAdmin - ChangeLog
 + PMA_DBI functions in database interface libraries renamed to be compliant with PEAR standards
 + rfe #1412 Creating a view from an empty set of results
 + Improved layout on db and table operations pages
-+ rfe #1410 Added support for AES_ENCRYPT for blob fields 
++ rfe #1410 Added support for AES_ENCRYPT for blob fields
 
 4.0.2.0 (not yet released)
 - bug #3902 Cannot browse when table name contains keyword "call"
