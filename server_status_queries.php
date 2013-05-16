@@ -103,6 +103,7 @@ function PMA_getQueryStatisticsHtml($ServerStatusData)
  */
 function PMA_getServerStatusQueriesDetailsHtml($ServerStatusData)
 {
+    $hour_factor   = 3600 / $ServerStatusData->status['Uptime'];
     $used_queries = $ServerStatusData->used_queries;
     $total_queries = array_sum($used_queries);
     // reverse sort by value to show most used statements first
