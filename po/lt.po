@@ -4,17 +4,17 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-05-10 10:24+0200\n"
-"PO-Revision-Date: 2013-02-11 19:03+0200\n"
-"Last-Translator: Edgaras Janušauskas <edgaras.janusauskas@gmail.com>\n"
-"Language-Team: Lithuanian <http://l10n.cihar.com/projects/phpmyadmin/master/"
-"lt/>\n"
+"PO-Revision-Date: 2013-05-16 14:41+0200\n"
+"Last-Translator: Rytis Slatkevičius <rytis.s@gmail.com>\n"
+"Language-Team: Lithuanian "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/lt/>\n"
 "Language: lt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && (n"
-"%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 1.5-dev\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && (n%"
+"100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 1.6-dev\n"
 
 #: browse_foreigners.php:36 browse_foreigners.php:60 js/messages.php:335
 #: libraries/DisplayResults.class.php:809
@@ -1314,10 +1314,10 @@ msgid "Differential"
 msgstr "Skirtumas"
 
 #: js/messages.php:145
-#, fuzzy, php-format
+#, php-format
 #| msgid "Divided by %s:"
 msgid "Divided by %s"
-msgstr "Padalintas į %s:"
+msgstr "Padalintas į %s"
 
 #: js/messages.php:146
 msgid "Unit"
@@ -1332,10 +1332,9 @@ msgid "From general log"
 msgstr ""
 
 #: js/messages.php:150
-#, fuzzy
 #| msgid "Loading logs"
 msgid "Analysing logs"
-msgstr "Įkeliami žurnalai"
+msgstr "Analizuojami žurnalai"
 
 #: js/messages.php:151
 msgid "Analysing & loading logs. This may take a while."
@@ -1438,10 +1437,9 @@ msgid "Group queries, ignoring variable data in WHERE clauses"
 msgstr "Sugrupuoti užklausas, nepaisant kintamųjų duomenų WHERE dalyje"
 
 #: js/messages.php:178
-#, fuzzy
 #| msgid "Number of inserted rows"
 msgid "Sum of grouped rows:"
-msgstr "Įkeltų eilučių skaičius"
+msgstr "Sugrupuotų eilučių suma:"
 
 #: js/messages.php:179
 msgid "Total:"
