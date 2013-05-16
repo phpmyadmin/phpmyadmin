@@ -49,7 +49,7 @@ if (!defined('E_DEPRECATED')) {
 /**
  * the error handler
  */
-require './libraries/Error_Handler.class.php';
+require_once './libraries/Error_Handler.class.php';
 
 /**
  * initialize the error handler
@@ -87,47 +87,47 @@ define('PHPMYADMIN', true);
 /**
  * core functions
  */
-require './libraries/core.lib.php';
+require_once './libraries/core.lib.php';
 
 /**
  * Input sanitizing
  */
-require './libraries/sanitizing.lib.php';
+require_once './libraries/sanitizing.lib.php';
 
 /**
  * the PMA_Theme class
  */
-require './libraries/Theme.class.php';
+require_once './libraries/Theme.class.php';
 
 /**
  * the PMA_Theme_Manager class
  */
-require './libraries/Theme_Manager.class.php';
+require_once './libraries/Theme_Manager.class.php';
 
 /**
  * the PMA_Config class
  */
-require './libraries/Config.class.php';
+require_once './libraries/Config.class.php';
 
 /**
  * the relation lib, tracker needs it
  */
-require './libraries/relation.lib.php';
+require_once './libraries/relation.lib.php';
 
 /**
  * the PMA_Tracker class
  */
-require './libraries/Tracker.class.php';
+require_once './libraries/Tracker.class.php';
 
 /**
  * the PMA_Table class
  */
-require './libraries/Table.class.php';
+require_once './libraries/Table.class.php';
 
 /**
  * the PMA_Types class
  */
-require './libraries/Types.class.php';
+require_once './libraries/Types.class.php';
 
 if (! defined('PMA_MINIMUM_COMMON')) {
     /**
@@ -338,7 +338,7 @@ if ($GLOBALS['PMA_Config']->get('ForceSSL')
 /**
  * include session handling after the globals, to prevent overwriting
  */
-require './libraries/session.inc.php';
+require_once './libraries/session.inc.php';
 
 /**
  * init some variables LABEL_variables_init
@@ -557,7 +557,7 @@ if (PMA_isValid($_REQUEST['sql_query'])) {
 /**
  * lang detection is done here
  */
-require './libraries/select_lang.lib.php';
+require_once './libraries/select_lang.lib.php';
 
 // Defines the cell alignment values depending on text direction
 if ($GLOBALS['text_dir'] == 'ltr') {
