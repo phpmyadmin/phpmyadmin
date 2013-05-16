@@ -420,7 +420,7 @@ function PMA_getHtmlForRelationalColumnDropdown($db, $table, $column, $curr_valu
             $foreignData['foreign_field'],
             $foreignData['foreign_display'],
             $curr_value,
-            $cfg['ForeignKeyMaxLimit']
+            $GLOBALS['cfg']['ForeignKeyMaxLimit']
         );
         $dropdown = '<select>' . $dropdown . '</select>';
     }
@@ -440,12 +440,12 @@ function PMA_getHtmlForRelationalColumnDropdown($db, $table, $column, $curr_valu
 function PMA_getHtmlForPrintViewHeader($db, $sql_query, $num_rows)
 {
     $hostname = '';
-    if ($cfg['Server']['verbose']) {
-        $hostname = $cfg['Server']['verbose'];
+    if ( $GLOBALS['cfg']['Server']['verbose']) {
+        $hostname =  $GLOBALS['cfg']['Server']['verbose'];
     } else {
-        $hostname = $cfg['Server']['host'];
-        if (! empty($cfg['Server']['port'])) {
-            $hostname .= $cfg['Server']['port'];
+        $hostname =  $GLOBALS['cfg']['Server']['host'];
+        if (! empty( $GLOBALS['cfg']['Server']['port'])) {
+            $hostname .=  $GLOBALS['cfg']['Server']['port'];
         }
     }
 
