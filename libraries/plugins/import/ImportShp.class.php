@@ -78,7 +78,8 @@ class ImportShp extends ImportPlugin
      */
     public function doImport()
     {
-        global $db, $error, $finished;
+        global $db, $error, $finished, $compression,
+            $import_file, $local_import_file;
 
         if ((int) ini_get('memory_limit') < 512) {
             @ini_set('memory_limit', '512M');
@@ -106,8 +107,8 @@ class ImportShp extends ImportPlugin
             // If we can extract the zip archive to 'TempDir'
             // and use the files in it for import
             if ($compression == 'application/zip'
-                && ! empty($cfg['TempDir'])
-                && is_writable($cfg['TempDir'])
+                && ! empty($GLOBALS['cfg']['TempDir'])
+                && is_writable($GLOBALS['cfg']['TempDir'])
             ) {
                 $dbf_file_name = PMA_findFileFromZipArchive(
                     '/^.*\.dbf$/i', $import_file
@@ -117,11 +118,11 @@ class ImportShp extends ImportPlugin
                     // Extract the .dbf file and point to it.
                     $extracted =  PMA_zipExtract(
                         $import_file,
-                        realpath($cfg['TempDir']),
+                        realpath($GLOBALS['cfg']['TempDir']),
                         array($dbf_file_name)
                     );
                     if ($extracted) {
-                        $dbf_file_path = realpath($cfg['TempDir'])
+                        $dbf_file_path = realpath($GLOBALS['cfg']['TempDir'])
                             . (PMA_IS_WINDOWS ? '\\' : '/') . $dbf_file_name;
                         $temp_dbf_file = true;
                         // Replace the .dbf with .*, as required
@@ -133,7 +134,7 @@ class ImportShp extends ImportPlugin
                     }
                 }
             } elseif (! empty($local_import_file)
-                && ! empty($cfg['UploadDir'])
+                && ! empty($GLOBALS['cfg']['UploadDir'])
                 && $compression == 'none'
             ) {
                 // If file is in UploadDir, use .dbf file in the same UploadDir
@@ -158,7 +159,10 @@ class ImportShp extends ImportPlugin
         }
 
         // Delete the .dbf file extracted to 'TempDir'
-        if ($temp_dbf_file) {
+        if ($temp_dbf_file
+            && isset($dbf_file_path)
+            && file_exists($dbf_file_path)
+        ) {
             unlink($dbf_file_path);
         }
 

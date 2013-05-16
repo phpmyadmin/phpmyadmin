@@ -106,7 +106,7 @@ class PMA_VISIO extends XMLWriter
      * Sets Visio XML .VDX Document Properties
      *
      * DocumentProperties tag contains document property elements such as
-       the document's Title,Subject,Creator and templates tags
+     * the document's Title,Subject,Creator and templates tags
      *
      * @return void
      * @access private
@@ -257,11 +257,11 @@ class Table_Stats
         $this->_showInfo = $showInfo;
 
         // height and width
-        $this->_setHeightTable($fontSize);
+        $this->_setHeightTable($this->fontSize);
 
         // setWidth must me after setHeight, because title
         // can include table height which changes table width
-        $this->_setWidthTable($font, $fontSize);
+        $this->_setWidthTable($this->font, $this->fontSize);
         if ($same_wide_width < $this->width) {
             $same_wide_width = $this->width;
         }

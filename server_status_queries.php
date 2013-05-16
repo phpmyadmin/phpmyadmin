@@ -42,7 +42,7 @@ $scripts->addFile('server_status_sorter.js');
 // Add the html content to the response
 $response->addHTML('<div>');
 $response->addHTML($ServerStatusData->getMenuHtml());
-$response->addHTML(getQueryStatisticsHtml($ServerStatusData));
+$response->addHTML(PMA_getQueryStatisticsHtml($ServerStatusData));
 $response->addHTML('</div>');
 exit;
 
@@ -53,7 +53,7 @@ exit;
  *
  * @return string
  */
-function getQueryStatisticsHtml($ServerStatusData)
+function PMA_getQueryStatisticsHtml($ServerStatusData)
 {
     $retval = '';
 
@@ -89,7 +89,7 @@ function getQueryStatisticsHtml($ServerStatusData)
     $retval .= '</span>';
     $retval .= '</h3>';
 
-    $retval .= getServerStatusQueriesDetailsHtml($ServerStatusData);
+    $retval .= PMA_getServerStatusQueriesDetailsHtml($ServerStatusData);
 
     return $retval;
 }
@@ -101,8 +101,9 @@ function getQueryStatisticsHtml($ServerStatusData)
  *
  * @return string
  */
-function getServerStatusQueriesDetailsHtml($ServerStatusData)
+function PMA_getServerStatusQueriesDetailsHtml($ServerStatusData)
 {
+    $hour_factor   = 3600 / $ServerStatusData->status['Uptime'];
     $used_queries = $ServerStatusData->used_queries;
     $total_queries = array_sum($used_queries);
     // reverse sort by value to show most used statements first

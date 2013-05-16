@@ -576,6 +576,33 @@ $cfg['ServerDefault'] = 1;
 $cfg['VersionCheck'] = VERSION_CHECK_DEFAULT;
 
 /**
+ * The url of the proxy to be used when retrieving the information about
+ * the latest version of phpMyAdmin. You need this if the server where
+ * phpMyAdmin is installed does not have direct access to the internet.
+ * The format is: "hostname:portnumber"
+ *
+ * @global string $cfg['VersionCheckProxyUrl']
+ */
+$cfg['VersionCheckProxyUrl'] = "";
+
+/**
+ * The username for authenticating with the proxy. By default, no
+ * authentication is performed. If a username is supplied, Basic
+ * Authentication will be performed. No other types of authentication
+ * are currently supported.
+ *
+ * @global string $cfg['VersionCheckProxyUser']
+ */
+$cfg['VersionCheckProxyUser'] = "";
+
+/**
+ * The password for authenticating with the proxy.
+ *
+ * @global string $cfg['VersionCheckProxyPass']
+ */
+$cfg['VersionCheckProxyPass'] = "";
+
+/**
  * maximum number of db's displayed in database list
  *
  * @global integer $cfg['MaxDbList']

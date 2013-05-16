@@ -21,9 +21,39 @@ if (isset($_SESSION['cache']['version_check'])
     $save = true;
     $file = 'http://www.phpmyadmin.net/home_page/version.json';
     if (ini_get('allow_url_fopen')) {
-        $response = file_get_contents($file);
+        if (strlen($cfg['VersionCheckProxyUrl'])) {
+            $context = array(
+                'http' => array(
+                    'proxy' => $cfg['VersionCheckProxyUrl'],
+                    'request_fulluri' => true
+                )
+            );
+            if (strlen($cfg['VersionCheckProxyUser'])) {
+                $auth = base64_encode(
+                    $cfg['VersionCheckProxyUser'] . ':' . $cfg['VersionCheckProxyPass']
+                );
+                $context['http']['header'] = 'Proxy-Authorization: Basic ' . $auth;
+            }
+            $response = file_get_contents(
+                $file,
+                false,
+                stream_context_create($context)
+            );
+        } else {
+            $response = file_get_contents($file);
+        }
     } else if (function_exists('curl_init')) {
         $curl_handle = curl_init($file);
+        if (strlen($cfg['VersionCheckProxyUrl'])) {
+            curl_setopt($curl_handle, CURLOPT_PROXY, $cfg['VersionCheckProxyUrl']);
+            if (strlen($cfg['VersionCheckProxyUser'])) {
+                curl_setopt(
+                    $curl_handle,
+                    CURLOPT_PROXYUSERPWD,
+                    $cfg['VersionCheckProxyUser'] . ':' . $cfg['VersionCheckProxyPass']
+                );
+            }
+        }
         curl_setopt($curl_handle, CURLOPT_RETURNTRANSFER, 1);
         $response = curl_exec($curl_handle);
     }

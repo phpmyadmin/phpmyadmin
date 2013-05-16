@@ -1235,7 +1235,7 @@ class PMA_DbQbe
             // Create LEFT JOINS out of Relations
             if ($cfgRelation['relwork'] && count($all_tables) > 0) {
                 // Get tables and columns with valid where clauses
-                $valid_where_clauses = $this->_getWhereClauseTablesAndColumns($this->_criteria);
+                $valid_where_clauses = $this->_getWhereClauseTablesAndColumns();
                 $where_clause_tables = $valid_where_clauses['where_clause_tables'];
                 $where_clause_columns = $valid_where_clauses['where_clause_columns'];
                 // Get master table

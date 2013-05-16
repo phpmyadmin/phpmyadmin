@@ -414,10 +414,10 @@ function PMA_DBI_fetchRow($result)
  */
 function PMA_DBI_dataSeek($result, $offset)
 {
-    if ($offset > count($GLOBALS['dummy_queries'][$i]['result'])) {
+    if ($offset > count($GLOBALS['dummy_queries'][$result]['result'])) {
         return false;
     }
-    $GLOBALS['dummy_queries'][$i]['pos'] = $offset;
+    $GLOBALS['dummy_queries'][$result]['pos'] = $offset;
     return true;
 }
 

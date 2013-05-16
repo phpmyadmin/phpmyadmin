@@ -1453,6 +1453,8 @@ function PMA_getTableAltersArray($is_myisam_or_aria, $is_isam, $pack_keys,
     $checksum, $is_aria, $page_checksum, $delay_key_write, $is_innodb,
     $is_pbxt, $row_format, $new_tbl_storage_engine, $transactional, $tbl_collation
 ) {
+    global $auto_increment;
+
     $table_alters = array();
 
     if (isset($_REQUEST['comment'])
@@ -1538,7 +1540,7 @@ function PMA_getTableAltersArray($is_myisam_or_aria, $is_isam, $pack_keys,
  * @param string $tbl_storage_engine table storage engine
  *
  * @return array ($is_myisam_or_aria, $is_innodb, $is_isam,
-                  $is_berkeleydb, $is_aria, $is_pbxt)
+ *                $is_berkeleydb, $is_aria, $is_pbxt)
  */
 function PMA_setGlobalVariablesForEngine($tbl_storage_engine)
 {

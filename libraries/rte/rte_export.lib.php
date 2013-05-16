@@ -42,11 +42,11 @@ function PMA_RTE_handleExport($item_name, $export_data)
         $_db = htmlspecialchars(PMA_Util::backquote($db));
         $message  = __('Error in processing request:') . ' '
                   . sprintf(PMA_RTE_getWord('not_found'), $item_name, $_db);
-        $response = PMA_message::error($response);
+        $response = PMA_message::error($message);
         if ($GLOBALS['is_ajax_request'] == true) {
             $response = PMA_Response::getInstance();
             $response->isSuccess(false);
-            $response->addJSON('message', $response);
+            $response->addJSON('message', $message);
             exit;
         } else {
             $response->display();
