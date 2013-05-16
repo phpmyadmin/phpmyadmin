@@ -433,7 +433,7 @@ $ServerStatusData = new PMA_ServerStatusData();
 $response->addHTML('<div>');
 $response->addHTML($ServerStatusData->getMenuHtml());
 $response->addHTML(PMA_getMonitorHtml($ServerStatusData));
-$response->addHTML(getClientSideDataAndLinksHtml($ServerStatusData));
+$response->addHTML(PMA_getClientSideDataAndLinksHtml($ServerStatusData));
 $response->addHTML('</div>');
 exit;
 
@@ -446,8 +446,8 @@ exit;
  */
 function PMA_getMonitorHtml($ServerStatusData)
 {
-    $retval = PMA_getTabLinksHtml();
-    $retval .= getPopContentHtml();
+    $retval  = PMA_getTabLinksHtml();
+    $retval .= PMA_getPopContentHtml();
 
     $retval .= '<div id="monitorInstructionsDialog" title="';
     $retval .= __('Monitor Instructions') . '" style="display:none;">';
@@ -694,7 +694,7 @@ function PMA_getTabLinksHtml()
  *
  * @return string
  */
-function getPopContentHtml()
+function PMA_getPopContentHtml()
 {
     $retval  = '<div class="popupContent settingsPopup">';
     $retval .= '<a href="#addNewChart">';
@@ -763,7 +763,7 @@ function getPopContentHtml()
  *
  * @return string
  */
-function getClientSideDataAndLinksHtml($ServerStatusData)
+function PMA_getClientSideDataAndLinksHtml($ServerStatusData)
 {
 	/**
 	 * Define some data needed on the client side
