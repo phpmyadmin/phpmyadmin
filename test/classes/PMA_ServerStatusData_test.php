@@ -9,6 +9,8 @@
 /*
  * Include to test.
  */
+require_once 'libraries/common.inc.php';
+require_once 'libraries/server_common.inc.php';
 require_once 'libraries/ServerStatusData.class.php';
 
 class PMA_ServerStatusData_Test extends PHPUnit_Framework_TestCase
