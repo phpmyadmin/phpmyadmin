@@ -55,11 +55,11 @@ class PMA_Util_Test extends PHPUnit_Framework_TestCase
     {
         $this->assertEquals(
             "abc",
-            PMA_Util::createGISData("abc");
+            PMA_Util::createGISData("abc")
         );
         $this->assertEquals(
             "GeomFromText('POINT(.)',10)",
-            PMA_Util::createGISData("'POINT()',10");
+            PMA_Util::createGISData("'POINT()',10")
         );
     }
 
@@ -94,7 +94,7 @@ class PMA_Util_Test extends PHPUnit_Framework_TestCase
     {
         $this->assertContains(
             '<select class="pageselector  ajax" name="pma">',
-            PMA_Util::pageselector("pma",3);
+            PMA_Util::pageselector("pma",3)
         );
     }
 }
