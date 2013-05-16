@@ -159,7 +159,7 @@ class PMA_Config
     {
         if (PMA_getenv('HTTP_USER_AGENT')) {
             $HTTP_USER_AGENT = PMA_getenv('HTTP_USER_AGENT');
-        } elseif (! isset($HTTP_USER_AGENT)) {
+        } else {
             $HTTP_USER_AGENT = '';
         }
 
