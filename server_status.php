@@ -46,7 +46,7 @@ if (! empty($_REQUEST['kill'])) {
 $response = PMA_Response::getInstance();
 $response->addHTML('<div>');
 $response->addHTML($ServerStatusData->getMenuHtml());
-$response->addHTML(getServerTrafficHtml($ServerStatusData));
+$response->addHTML(PMA_getServerTrafficHtml($ServerStatusData));
 $response->addHTML('</div>');
 
 exit;
@@ -58,19 +58,19 @@ exit;
  *
  * @return string
  */
-function getServerTrafficHtml($ServerStatusData)
+function PMA_getServerTrafficHtml($ServerStatusData)
 {
     //display the server state General Information
-    $retval  = getServerStateGeneralInfoHtml($ServerStatusData);
+    $retval  = PMA_getServerStateGeneralInfoHtml($ServerStatusData);
 
     //display the server state traffic
-    $retval .= getServerStateTrafficHtml($ServerStatusData);
+    $retval .= PMA_getServerStateTrafficHtml($ServerStatusData);
 
     //display the server state connection information
-    $retval .= getServerStateConnectionsHtml($ServerStatusData);
+    $retval .= PMA_getServerStateConnectionsHtml($ServerStatusData);
 
     //display the Table Process List information
-    $retval .= getTableProcesslistHtml($ServerStatusData);
+    $retval .= PMA_getTableProcesslistHtml($ServerStatusData);
 
     return $retval;
 }
@@ -82,7 +82,7 @@ function getServerTrafficHtml($ServerStatusData)
  *
  * @return string
  */
-function getServerStateGeneralInfoHtml($ServerStatusData)
+function PMA_getServerStateGeneralInfoHtml($ServerStatusData)
 { 
     $start_time = PMA_DBI_fetchValue(
         'SELECT UNIX_TIMESTAMP() - ' . $ServerStatusData->status['Uptime']
@@ -161,7 +161,7 @@ function getServerStateGeneralInfoHtml($ServerStatusData)
  *
  * @return string
  */
-function getServerStateTrafficHtml($ServerStatusData)
+function PMA_getServerStateTrafficHtml($ServerStatusData)
 {   
     $hour_factor    = 3600 / $ServerStatusData->status['Uptime'];
     $retval  = '<table id="serverstatustraffic" class="data noclick">';
@@ -250,7 +250,7 @@ function getServerStateTrafficHtml($ServerStatusData)
  *
  * @return string
  */
-function getServerStateConnectionsHtml($ServerStatusData)
+function PMA_getServerStateConnectionsHtml($ServerStatusData)
 {
     $hour_factor    = 3600 / $ServerStatusData->status['Uptime'];
     $retval  = '<table id="serverstatusconnections" class="data noclick">';
@@ -349,7 +349,7 @@ function getServerStateConnectionsHtml($ServerStatusData)
  *
  * @return string
  */
-function getTableProcesslistHtml($ServerStatusData)
+function PMA_getTableProcesslistHtml($ServerStatusData)
 {
     $url_params = array();
 
