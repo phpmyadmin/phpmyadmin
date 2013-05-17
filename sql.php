@@ -1224,6 +1224,11 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
         echo '</div>';
         echo '<div id="profilingchart" style="display:none;">';
         echo '</div>';
+        echo '<script type="text/javascript">';
+        echo 'if($.jqplot !== undefined && $.jqplot.PieRenderer !== undefined) {';
+        echo 'makeProfilingChart();';
+        echo '}';
+        echo '</script>';
         echo '</fieldset>' . "\n";
     }
 
