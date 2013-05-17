@@ -10526,7 +10526,7 @@ msgstr "IO 스레드만 중지"
 
 #: server_replication.php:318
 msgid "Error management:"
-msgstr ""
+msgstr "에러 관리:"
 
 #: server_replication.php:320
 msgid "Skipping errors might lead into unsynchronized master and slave!"
