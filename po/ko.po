@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-05-02 13:12+0200\n"
-"PO-Revision-Date: 2013-05-09 03:47+0200\n"
-"Last-Translator: Jin-oh Kang <jinoh67@gmail.com>\n"
+"PO-Revision-Date: 2013-05-17 07:16+0200\n"
+"Last-Translator: Yungu Kim <crimsonpi@gmail.com>\n"
 "Language-Team: Korean <http://l10n.cihar.com/projects/phpmyadmin/4-0/ko/>\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
@@ -6695,16 +6695,18 @@ msgid ""
 "value of this variable can be increased to increase the total amount of data "
 "that can be stored in the database."
 msgstr ""
+"데이터 로그 파일의 최대 크기. 기본값은 64MB입니다. PBXT는 최대 32000개의 데이터 로그를 생성할 수 있으며, 이 로그는 모든 "
+"테이블이 사용합니다. 따라서, 이 변수의 값을 증가하여, 데이터베이스에 저장될 수 있는 총 데이터의 양을 늘릴 수 있습니다."
 
 #: libraries/engines/pbxt.lib.php:63
 msgid "Garbage threshold"
-msgstr ""
+msgstr "가비지 한계값"
 
 #: libraries/engines/pbxt.lib.php:64
 msgid ""
 "The percentage of garbage in a data log file before it is compacted. This is "
 "a value between 1 and 99. The default is 50."
-msgstr ""
+msgstr "데이터 로그 파일이 압축되지 않는 가비지의 퍼센테이지. 1에서 99 사이의 값을 가지며, 기본 값은 50."
 
 #: libraries/engines/pbxt.lib.php:68
 msgid "Log buffer size"
@@ -8099,7 +8101,7 @@ msgstr ""
 #: libraries/relation.lib.php:173
 msgid ""
 "Please see the documentation on how to update your column_comments table"
-msgstr ""
+msgstr "도큐먼트에서 column_comments 테이블을 업데이트하는 방법을 참고하세요"
 
 #: libraries/relation.lib.php:183 libraries/sql_query_form.lib.php:387
 msgid "Bookmarked SQL query"
@@ -8111,7 +8113,7 @@ msgstr "SQL 내력(히스토리)"
 
 #: libraries/relation.lib.php:216
 msgid "Persistent recently used tables"
-msgstr ""
+msgstr "영속적인 최근 사용한 테이블"
 
 #: libraries/relation.lib.php:227
 msgid "Persistent tables' UI preferences"
