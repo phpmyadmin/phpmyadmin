@@ -4,10 +4,9 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-05-10 10:24+0200\n"
-"PO-Revision-Date: 2013-05-09 03:47+0200\n"
-"Last-Translator: han goo Kang <kgcrom@hotmail.com>\n"
-"Language-Team: Korean <http://l10n.cihar.com/projects/phpmyadmin/master/ko/"
-">\n"
+"PO-Revision-Date: 2013-05-17 07:34+0200\n"
+"Last-Translator: Yungu Kim <crimsonpi@gmail.com>\n"
+"Language-Team: Korean <http://l10n.cihar.com/projects/phpmyadmin/master/ko/>\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -6801,20 +6800,22 @@ msgid ""
 "value of this variable can be increased to increase the total amount of data "
 "that can be stored in the database."
 msgstr ""
+"데이터 로그 파일의 최대 크기. 기본값은 64MB입니다. PBXT는 최대 32000개의 데이터 로그를 생성할 수 있으며, 이 로그는 모든 "
+"테이블이 사용합니다. 따라서, 이 변수의 값을 증가하여, 데이터베이스에 저장될 수 있는 총 데이터의 양을 늘릴 수 있습니다."
 
 #: libraries/engines/pbxt.lib.php:63
 msgid "Garbage threshold"
-msgstr ""
+msgstr "가비지 한계값"
 
 #: libraries/engines/pbxt.lib.php:64
 msgid ""
 "The percentage of garbage in a data log file before it is compacted. This is "
 "a value between 1 and 99. The default is 50."
-msgstr ""
+msgstr "데이터 로그 파일이 압축되지 않는 가비지의 퍼센테이지. 1에서 99 사이의 값을 가지며, 기본 값은 50."
 
 #: libraries/engines/pbxt.lib.php:68
 msgid "Log buffer size"
-msgstr ""
+msgstr "로그 버퍼 크기"
 
 #: libraries/engines/pbxt.lib.php:69
 msgid ""
@@ -6822,22 +6823,24 @@ msgid ""
 "The engine allocates one buffer per thread, but only if the thread is "
 "required to write a data log."
 msgstr ""
+"데이터 로그를 기록할 때 사용되는 버퍼의 크기. 기본 값은 256MB 입니다. 단, 데이터 로그를 기록하기 위해 스레드가 필요할 때만 "
+"스레드 당 하나의 버퍼를 할당합니다."
 
 #: libraries/engines/pbxt.lib.php:73
 msgid "Data file grow size"
-msgstr ""
+msgstr "데이터 파일 증가량"
 
 #: libraries/engines/pbxt.lib.php:74
 msgid "The grow size of the handle data (.xtd) files."
-msgstr ""
+msgstr "핸들 데이터 파일들(.xtd)의 증가량."
 
 #: libraries/engines/pbxt.lib.php:78
 msgid "Row file grow size"
-msgstr ""
+msgstr "행(row) 파일 증가량"
 
 #: libraries/engines/pbxt.lib.php:79
 msgid "The grow size of the row pointer (.xtr) files."
-msgstr ""
+msgstr "행 포인터 파일들(.xtr)의 증가량."
 
 #: libraries/engines/pbxt.lib.php:83
 msgid "Log file count"
@@ -8266,7 +8269,7 @@ msgstr "버전 정보"
 #: libraries/relation.lib.php:173
 msgid ""
 "Please see the documentation on how to update your column_comments table"
-msgstr ""
+msgstr "도큐먼트에서 column_comments 테이블을 업데이트하는 방법을 참고하세요"
 
 #: libraries/relation.lib.php:183 libraries/sql_query_form.lib.php:400
 msgid "Bookmarked SQL query"
@@ -8277,20 +8280,18 @@ msgid "SQL history"
 msgstr "SQL 내력(히스토리)"
 
 #: libraries/relation.lib.php:216
-#, fuzzy
 #| msgid "There are no recent tables"
 msgid "Persistent recently used tables"
-msgstr "최근 테이블이 없습니다."
+msgstr "영속적인 최근 사용한 테이블"
 
 #: libraries/relation.lib.php:227
-#, fuzzy
 #| msgid "Could not save table UI preferences"
 msgid "Persistent tables' UI preferences"
-msgstr "테이블 UI 설정을 저장할 수 없습니다."
+msgstr "영속적인 테이블의 UI 환경설정"
 
 #: libraries/relation.lib.php:249
 msgid "User preferences"
-msgstr ""
+msgstr "사용자 환경설정"
 
 #: libraries/relation.lib.php:255
 msgid "Quick steps to setup advanced features:"
@@ -10491,39 +10492,37 @@ msgstr "Slave 상태 보기"
 
 #: server_replication.php:300
 msgid "Control slave:"
-msgstr ""
+msgstr "슬레이브 조정:"
 
 #: server_replication.php:303
-#, fuzzy
 #| msgid "Full texts"
 msgid "Full start"
-msgstr "전체 텍스트"
+msgstr "전체 시작"
 
 #: server_replication.php:303
-#, fuzzy
 #| msgid "Full texts"
 msgid "Full stop"
-msgstr "전체 텍스트"
+msgstr "전체 중지"
 
 #: server_replication.php:304
 msgid "Reset slave"
-msgstr ""
+msgstr "슬레이브 리셋"
 
 #: server_replication.php:306
 msgid "Start SQL Thread only"
-msgstr ""
+msgstr "SQL 스레드만 시작"
 
 #: server_replication.php:308
 msgid "Stop SQL Thread only"
-msgstr ""
+msgstr "SQL 스레드만 중지"
 
 #: server_replication.php:311
 msgid "Start IO Thread only"
-msgstr ""
+msgstr "IO 스레드만 시작"
 
 #: server_replication.php:313
 msgid "Stop IO Thread only"
-msgstr ""
+msgstr "IO 스레드만 중지"
 
 #: server_replication.php:318
 msgid "Error management:"
