@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-05-10 10:24+0200\n"
-"PO-Revision-Date: 2013-05-17 07:34+0200\n"
+"PO-Revision-Date: 2013-05-17 07:41+0200\n"
 "Last-Translator: Yungu Kim <crimsonpi@gmail.com>\n"
 "Language-Team: Korean <http://l10n.cihar.com/projects/phpmyadmin/master/ko/>\n"
 "Language: ko\n"
@@ -1304,7 +1304,7 @@ msgstr "일반 로그로부터"
 
 #: js/messages.php:150
 msgid "Analysing logs"
-msgstr "로그를 분석하고 있습니다."
+msgstr "로그 분석 중"
 
 #: js/messages.php:151
 msgid "Analysing & loading logs. This may take a while."
@@ -3037,7 +3037,7 @@ msgstr "열려있는 테이블 보기"
 
 #: libraries/ServerStatusData.class.php:214
 msgid "Show slave hosts"
-msgstr "Slave 호스트 보기"
+msgstr "슬레이브 호스트 보기"
 
 #: libraries/ServerStatusData.class.php:218 server_replication.php:170
 msgid "Show master status"
@@ -3045,7 +3045,7 @@ msgstr "마스터 상태 보기"
 
 #: libraries/ServerStatusData.class.php:221
 msgid "Show slave status"
-msgstr "Slave 상태 보기"
+msgstr "슬레이브 상태 보기"
 
 #: libraries/ServerStatusData.class.php:226
 msgid "Flush query cache"
