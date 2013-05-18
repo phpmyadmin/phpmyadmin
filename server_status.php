@@ -127,11 +127,6 @@ function PMA_getServerStateGeneralInfoHtml($ServerStatusData)
                 . 'in <b>replication</b> process.'
             );
         }
-        $retval .= ' ';
-        $retval .= __(
-            'For further information about replication status on the server, '
-            . 'please visit the <a href="#replication">replication section</a>.'
-        );
         $retval .= '</p>';
     }
 
