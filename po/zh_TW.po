@@ -3,15 +3,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-05-18 07:01-0400\n"
-"PO-Revision-Date: 2013-05-07 17:29+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Traditional Chinese <http://l10n.cihar.com/projects/"
-"phpmyadmin/master/zh_TW/>\n"
+"POT-Creation-Date: 2013-05-10 10:24+0200\n"
+"PO-Revision-Date: 2013-05-17 21:41+0200\n"
+"Last-Translator: Andrew Choi <andrew@tophk.net>\n"
+"Language-Team: Traditional Chinese "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/zh_TW/>\n"
+"Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: zh_TW\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 1.6-dev\n"
 
@@ -40,10 +40,9 @@ msgstr ""
 "更新。"
 
 #: browse_foreigners.php:166
-#, fuzzy
 #| msgid "Search"
 msgid "Search:"
-msgstr "搜尋"
+msgstr "搜尋："
 
 #: browse_foreigners.php:170 gis_data_editor.php:396 js/messages.php:209
 #: libraries/DbSearch.class.php:455 libraries/DisplayResults.class.php:1657
@@ -117,10 +116,9 @@ msgstr "資料庫註釋： "
 
 #: db_datadict.php:158 libraries/schema/Pdf_Relation_Schema.class.php:1332
 #: libraries/tbl_columns_definition_form.inc.php:836 tbl_printview.php:120
-#, fuzzy
 #| msgid "Table comments"
 msgid "Table comments:"
-msgstr "表註釋"
+msgstr "表註釋："
 
 #: db_datadict.php:167 libraries/Index.class.php:565
 #: libraries/TableSearch.class.php:183 libraries/TableSearch.class.php:1190
@@ -335,24 +333,21 @@ msgstr "使用中"
 
 #: db_printview.php:117 libraries/plugins/export/ExportSql.class.php:946
 #: libraries/schema/Pdf_Relation_Schema.class.php:1337
-#, fuzzy
 #| msgid "Creation"
 msgid "Creation:"
-msgstr "建立時間"
+msgstr "建立時間："
 
 #: db_printview.php:126 libraries/plugins/export/ExportSql.class.php:959
 #: libraries/schema/Pdf_Relation_Schema.class.php:1342
-#, fuzzy
 #| msgid "Last update"
 msgid "Last update:"
-msgstr "最後更新"
+msgstr "最後更新："
 
 #: db_printview.php:135 libraries/plugins/export/ExportSql.class.php:972
 #: libraries/schema/Pdf_Relation_Schema.class.php:1347
-#, fuzzy
 #| msgid "Last check"
 msgid "Last check:"
-msgstr "最後檢查"
+msgstr "最後檢查："
 
 #: db_printview.php:149 libraries/structure.lib.php:176
 #, php-format
@@ -7810,7 +7805,7 @@ msgstr "您可以輸入以空格分隔的 主機名/IP網址 和 連結埠。"
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:213
 msgid "Username:"
-msgstr "使用者名稱"
+msgstr "使用者名稱："
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:225
 #, fuzzy
@@ -7841,6 +7836,7 @@ msgid "Wrong username/password. Access denied."
 msgstr "帳號/密碼錯誤，拒絕訪問。"
 
 #: libraries/plugins/auth/AuthenticationSignon.class.php:102
+#, fuzzy
 msgid "Can not find signon authentication script:"
 msgstr "無法找到對應的認證指令"
 
@@ -7899,7 +7895,7 @@ msgstr "刪除欄位中的回車換行符號"
 
 #: libraries/plugins/export/ExportExcel.class.php:78
 msgid "Excel edition:"
-msgstr "Excel 版本"
+msgstr "Excel版本："
 
 #: libraries/plugins/export/ExportHtmlword.class.php:81
 #: libraries/plugins/export/ExportLatex.class.php:157
@@ -9333,11 +9329,11 @@ msgstr "目前伺服器"
 
 #: libraries/server_privileges.lib.php:135 server_privileges.php:94
 msgid "No privileges."
-msgstr "無權限"
+msgstr "沒有權限"
 
 #: libraries/server_privileges.lib.php:145 server_privileges.php:59
 msgid "Includes all privileges except GRANT."
-msgstr "除了授權 (GRANT) 以外的所有權限"
+msgstr "除了GRANT以外，包括了所有的權限。"
 
 #: libraries/server_privileges.lib.php:167
 #: libraries/server_privileges.lib.php:635
@@ -9355,7 +9351,7 @@ msgstr "允許插入和替換資料"
 #: libraries/server_privileges.lib.php:645
 #: libraries/server_privileges.lib.php:812 server_privileges.php:93
 msgid "Allows changing data."
-msgstr "允許修改資料"
+msgstr "允許改變資料"
 
 #: libraries/server_privileges.lib.php:179
 #: libraries/server_privileges.lib.php:813 server_privileges.php:68
