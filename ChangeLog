@@ -13,6 +13,7 @@ phpMyAdmin - ChangeLog
 - bug #3930 Databases to choose for specific privileges show up escaped
 - bug #3910 Export database with empty table as a php array, does not produce valid PHP
 - bug #3936 Query profiler chart not loading from SQL Query page
+- bug #3946 Missing CSV import option "Do not abort on INSERT error"
 
 4.0.1.0 (2013-05-14)
 - bug #3879 Import broken for CSV using LOAD DATA
