@@ -83,6 +83,12 @@ class ImportCsv extends AbstractImportCsv
             );
             $generalOptions->addProperty($leaf);
         }
+
+        $leaf = new BoolPropertyItem();
+        $leaf->setName("ignore");
+        $leaf->setText(__('Do not abort on INSERT error'));
+        $generalOptions->addProperty($leaf);
+
     }
 
     /**
