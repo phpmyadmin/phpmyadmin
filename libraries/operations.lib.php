@@ -868,8 +868,7 @@ function PMA_getTableOptionFieldset($comment, $tbl_collation,
         );
     } // end if (ARIA)
 
-    if (isset($_REQUEST['auto_increment'])
-        && strlen($_REQUEST['auto_increment']) > 0
+    if (strlen($auto_increment) > 0
         && ($is_myisam_or_aria || $is_innodb || $is_pbxt)
     ) {
         $html_output .= '<tr><td>'
