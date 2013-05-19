@@ -163,7 +163,7 @@ function formatDate(date, format) {
         while ((format.charAt(i_format) == c) && (i_format < format.length)) {
             token += format.charAt(i_format++);
         }
-        if (value[token] !== null) {
+        if (value[token] !== null && value[token] !== undefined) {
             result = result + value[token];
         } else {
             result = result + token;
