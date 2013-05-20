@@ -110,24 +110,5 @@ class PMA_List_Database_test extends PHPUnit_Framework_TestCase
         );
     }
 
-    /**
-     * Test for getGroupedDetails
-     *
-     * @return void
-     */
-    public function testGetGroupedDetails()
-    {
-        $GLOBALS['cfg']['ShowTooltip'] = true;
-        $GLOBALS['cfgRelation']['commwork'] = true;
-        $GLOBALS['server'] = 1;
-        $GLOBALS['cfg']['NavigationTreeEnableGrouping'] = true;
-        $GLOBALS['cfg']['NavigationTreeDbSeparator'] = array('|',',');
-
-        $this->assertEquals(
-            $this->object->getGroupedDetails(10, 100),
-            array()
-        );
-    }
-
 }
 ?>
