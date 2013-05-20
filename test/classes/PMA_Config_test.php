@@ -74,6 +74,8 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
         );
 
         //test getFontsizeOptions for "em" unit
+        $fontsize = $GLOBALS['PMA_Config']->get('fontsize');
+        $GLOBALS['PMA_Config']->set('fontsize', '');
         $_COOKIE['pma_fontsize'] = "10em";
         $this->assertContains(
             '<option value="7em"',
@@ -117,6 +119,8 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
             PMA_Config::getFontsizeForm()
         );    
         unset($_COOKIE['pma_fontsize']);
+        //rollback the fontsize setting
+        $GLOBALS['PMA_Config']->set('fontsize', $fontsize);
     }
 
     public function testCheckOutputCompression()
