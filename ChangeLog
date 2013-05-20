@@ -15,6 +15,7 @@ phpMyAdmin - ChangeLog
 - bug #3936 Query profiler chart not loading from SQL Query page
 - bug #3946 Missing CSV import option "Do not abort on INSERT error"
 - bug #3943 Missing Operations>Table options>AUTO_INCREMENT
+- bug Missing CREATE DATABASE statement when exporting at database level
 
 4.0.1.0 (2013-05-14)
 - bug #3879 Import broken for CSV using LOAD DATA
