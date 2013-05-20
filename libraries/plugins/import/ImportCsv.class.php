@@ -115,7 +115,7 @@ class ImportCsv extends AbstractImportCsv
             $csv_new_line, $csv_columns, $err_url;
         // $csv_replace and $csv_ignore should have been here,
         // but we use directly from $_POST
-        global $error, $timeout_passed, $finished;
+        global $error, $timeout_passed, $finished, $message;
 
         $replacements = array(
             '\\n'   => "\n",
