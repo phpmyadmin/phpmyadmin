@@ -317,60 +317,6 @@ class PMA_List_Database extends PMA_List
     }
 
     /**
-     * returns html code for list with dbs
-     *
-     * @return string html code list
-     */
-    public function getHtmlListGrouped($selected = '', $offset = 0, $count = 0)
-    {
-        if (true === $selected) {
-            $selected = $this->getDefault();
-        }
-
-        $return = '<ul id="databaseList" lang="en" dir="ltr">' . "\n";
-        foreach ($this->getGroupedDetails($offset, $count) as $group => $dbs) {
-            if (count($dbs) > 1) {
-                $return .= '<li class="dbgroup"><span>' . htmlspecialchars($group)
-                    . '</span><ul>' . "\n";
-                // whether display db_name cut by the group part
-                $cut = true;
-            } else {
-                // .. or full
-                $cut = false;
-            }
-            foreach ($dbs as $db) {
-                $return .= '<li';
-                if ($db['name'] == $selected) {
-                    $return .= ' class="selected"';
-                }
-                $return .= '><a';
-                if (! empty($db['comment'])) {
-                    $return .= ' title="' . htmlspecialchars($db['comment']) . '"';
-                }
-                $return .= ' href="' . $GLOBALS['cfg']['DefaultTabDatabase']
-                    . '?' . PMA_generate_common_url($db['name'])
-                    . '">';
-                if ($cut) {
-                    $return .= htmlspecialchars($db['disp_name_cut']);
-                } else {
-                    $return .= htmlspecialchars($db['disp_name']);
-                }
-
-                if (! empty($db['num_tables'])) {
-                    $return .= ' (' . $db['num_tables'] . ')';
-                }
-                $return .= '</a></li>' . "\n";
-            }
-            if (count($dbs) > 1) {
-                $return .= '</ul></li>' . "\n";
-            }
-        }
-        $return .= '</ul>';
-
-        return $return;
-    }
-
-    /**
      * returns html code for select form element with dbs
      *
      * @todo IE can not handle different text directions in select boxes so,

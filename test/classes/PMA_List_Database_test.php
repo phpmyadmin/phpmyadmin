@@ -129,24 +129,5 @@ class PMA_List_Database_test extends PHPUnit_Framework_TestCase
         );
     }
 
-    /**
-     * Test for getHtmlListGrouped
-     *
-     * @return void
-     */
-    public function testGetHtmlListGrouped()
-    {
-        $GLOBALS['cfg']['ShowTooltip'] = true;
-        $GLOBALS['cfgRelation']['commwork'] = true;
-        $GLOBALS['server'] = 1;
-        $GLOBALS['cfg']['NavigationTreeEnableGrouping'] = true;
-        $GLOBALS['cfg']['NavigationTreeDbSeparator'] = array('|',',');
-
-        $this->assertEquals(
-            $this->object->getHtmlListGrouped(true, 5, 5),
-            '<ul id="databaseList" lang="en" dir="ltr">
-</ul>'
-        );
-    }
 }
 ?>
