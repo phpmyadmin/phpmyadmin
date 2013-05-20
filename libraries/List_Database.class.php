@@ -230,19 +230,6 @@ class PMA_List_Database extends PMA_List
     }
 
     /**
-     * returns a part of the items
-     *
-     * @param integer $offset
-     * @param integer $count
-     *
-     * @return array  some items
-     */
-    public function getLimitedItems($offset, $count)
-    {
-        return array_slice($this->getArrayCopy(), $offset, $count);
-    }
-
-    /**
      * this is just a backup, if all is fine this can be deleted later
      *
      * @deprecated
