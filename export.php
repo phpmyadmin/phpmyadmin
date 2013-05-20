@@ -720,6 +720,9 @@ do {
         if (! $export_plugin->exportDBHeader($db)) {
             break;
         }
+        if (! $export_plugin->exportDBCreate($db)) {
+            break;
+        }
 
         if (method_exists($export_plugin, 'exportRoutines')
             && strpos($GLOBALS['sql_structure_or_data'], 'structure') !== false

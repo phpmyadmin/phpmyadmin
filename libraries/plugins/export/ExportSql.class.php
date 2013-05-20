@@ -706,7 +706,7 @@ class ExportSql extends ExportPlugin
                 return false;
             }
         }
-        $create_query = 'CREATE DATABASE '
+        $create_query = 'CREATE DATABASE IF NOT EXISTS '
             . (isset($GLOBALS['sql_backquotes'])
             ? PMA_Util::backquoteCompat($db, $compat) : $db);
         $collation = PMA_getDbCollation($db);
