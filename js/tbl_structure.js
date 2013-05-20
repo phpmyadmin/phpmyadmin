@@ -64,6 +64,7 @@ AJAX.registerOnload('tbl_structure.js', function() {
                     $("#page_content")
                         .empty()
                         .append(data.message)
+                        .append(data.sql_query)
                         .show();
                     $("#result_query .notice").remove();
                     $form.remove();
