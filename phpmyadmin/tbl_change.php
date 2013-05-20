@@ -116,8 +116,7 @@ $scripts->addFile('functions.js');
 $scripts->addFile('tbl_change.js');
 $scripts->addFile('jquery/jquery-ui-timepicker-addon.js');
 $scripts->addFile('gis_data_editor.js');
-//for find and replace feature
-$scripts->addFile('findreplace.js');
+$scripts->addFile('on_replace.js');
 
 /**
  * Displays the query submitted and its result
@@ -133,14 +132,20 @@ if (! empty($disp_message)) {
 
 /**
  * Get the analysis of SHOW CREATE TABLE for this table
+ * @todo should be handled by class Table
  */
-$analyzed_sql = PMA_Table::analyzeStructure($db, $table);
+$show_create_table = PMA_DBI_fetch_value(
+    'SHOW CREATE TABLE ' . PMA_Util::backquote($db) . '.' . PMA_Util::backquote($table),
+    0, 1
+);
+$analyzed_sql = PMA_SQP_analyze(PMA_SQP_parse($show_create_table));
+unset($show_create_table);
 
 /**
  * Get the list of the fields of the current table
  */
-PMA_DBI_selectDb($db);
-$table_fields = array_values(PMA_DBI_getColumns($db, $table));
+PMA_DBI_select_db($db);
+$table_fields = array_values(PMA_DBI_get_columns($db, $table));
 
 $paramTableDbArray = array($table, $db);
 
@@ -208,50 +213,6 @@ $url_params['table'] = $table;
 $url_params = PMA_urlParamsInEditMode(
     $url_params, $where_clause_array, $where_clause
 );
-
-//form for find and relace feature
-$html_output .= '<div id="find_replace_div" '
-    .'style="display: block; width: auto;'
-    .'min-height: 0px; height: auto; padding-top: 0px;"'
-    .'class="ui-dialog-content ui-widget-content" scrolltop="0" scrollleft="0">';
-$fields_cnt = count($table_fields);
-$choices=array();
-
-$html_output .= '<form name="find_replace_form" id="find_replace_form" >'
-    .'<h4>Find and replace column wise:'
-    .'<input type="radio" name="option" value="bystring" id="bystring" checked/>'
-    .'by string &nbsp;&nbsp;'
-    .'<input type="radio" name="option" value="byword" id="byword" />'
-    .'by word &nbsp&nbsp'
-    .'<input type="radio" name="option" value="bycolumn" id="bycolumn"/>'
-    .'by column&nbsp&nbsp</h4>';
-
-//adding columns to the form
-for ($i = 0; $i < $fields_cnt; $i++) {
-    $column=$table_fields[$i]['Field'];
-    $html_output .='<input type="radio" name="column" '
-        .'value="'.$column.'" id="'.$column.'"/>'.$column.'&nbsp&nbsp';
-}
-
-$html_output .= '<br><br><input type="text" name="find_text" '
-    .'id="find_text" name="find_text" value="" size="20" />'
-    .'<button type="button" onclick="countNow();" value="Find" '
-    .'id="find" name="find" >Count</button>'
-    .'<button type="button" value="up" onclick="goUp();" id="up" name="up">'
-    .'Find:Up</button>'
-    .'<button type="button" value="down" onclick="goDown();" '
-    .'id="down" name="down">Find:Down</button><br>'
-    .'<input type="text" name="replace_text" id="replace_text" value="" size="20" />'
-    .'<button type="button" value="replace_once" onclick="replaceOnce();" '
-    .'id="replace_once" name="replace_once">Replace Once</button>'
-    .'<button type="button" value="replace_all" onclick="replaceAll();" '
-    .'id="replace_all" name="replace_all">Replace All</button>'
-    .'&nbsp&nbsp&nbsp&nbsp&nbsp<button type="button" value="reset" '
-    .'onclick="resetAll();" id="reset_all" name="reset_all">Reset All</button>'
-    .'</form></div>'
-    .'<button type="button"  onclick="minmax();" id="find_replace_button" '
-    .'name="find_replace_button">find & replace: HIDE</button><br>';
-
 
 //Insert/Edit form
 //If table has blob fields we have to disable ajax.
@@ -332,7 +293,7 @@ foreach ($rows as $row_id => $current_row) {
             = PMA_Util::extractColumnSpec($column['Type']);
 
         if (-1 === $column['len']) {
-            $column['len'] = PMA_DBI_fieldLen($current_result, $i);
+            $column['len'] = PMA_DBI_field_len($current_result, $i);
             // length is unknown for geometry fields,
             // make enough space to edit very simple WKTs
             if (-1 === $column['len']) {
@@ -478,6 +439,51 @@ if ($insert_mode) {
         $table, $db, $where_clause_array, $err_url
     );
 }
+
+
+/**
+*form for "find and replace" feature
+*when a user edit a row or change multiple rows this form will apear at the bottom
+*
+*
+*/
+
+if (!$insert_mode){
+	$html_output .="<form id='replaceForm' method='post' action='tbl_find_replace.php' name='replaceForm' enctype='multipart/form-data'>
+	<input type='hidden' name='goto' value='tbl_sql.php'>";
+	
+	$html_output .=PMA_generate_common_hidden_inputs($_form_params);
+	
+	
+	$fields_cnt = count($table_fields);
+	$choices=array();
+	$html_output .= "<br><br><br><h3>select a column</h3>";
+	for ($i = 0; $i < $fields_cnt; $i++) {
+		$column=$table_fields[$i]['Field'];
+		$html_output .="<input type='radio' name='column' value='".$column."' id='".$column."'/>".$column."&nbsp&nbsp";
+	}
+	$replaceOption = array('selected'=>'selected /', 'all'=>'all ');
+	
+	
+	
+	$html_output .="<br>
+	<h3>Find What?</h3><input type='text' name='find' value='' size='20' class='textfield'>
+	<br>
+	<h3>Replace &nbsp&nbsp ";
+	
+	$html_output .="<input type='radio' name='option' value='select' id='option_selected' checked/>selected /";
+	$html_output .="<input type='radio' name='option' value='all' id='option_all'/>all ";
+	$html_output .= "&nbsp&nbsp rows With?</h3><input type='text' name='replace' value='' size='20' class='textfield'/>
+
+
+	<td colspan='3' align='right' valign='middle'>
+           <input type='submit' class='control_at_footer' value='".__('Go')."'  id='buttonReplace' />
+           <input type='reset' class='control_at_footer' value='".__('Reset')."' />
+     </td>
+	 </form>";
+
+}
+
 $response->addHTML($html_output);
 
 ?>
