@@ -317,59 +317,6 @@ class PMA_List_Database extends PMA_List
     }
 
     /**
-     * returns html code for select form element with dbs
-     *
-     * @todo IE can not handle different text directions in select boxes so,
-     * as mostly names will be in english, we set the whole selectbox to LTR
-     * and EN
-     *
-     * @return string html code select
-     */
-    public function getHtmlSelectGrouped($selected = '', $offset = 0, $count = 0)
-    {
-        if (true === $selected) {
-            $selected = $this->getDefault();
-        }
-
-        $return = '<select name="db" id="lightm_db" lang="en" dir="ltr"'
-            . ' onchange="if (this.value != \'\') PMA_commonActions.openDb(this.value);">' . "\n"
-            . '<option value="" dir="' . htmlspecialchars($GLOBALS['text_dir']) . '">'
-            . '(' . __('Databases') . ') ...</option>' . "\n";
-        foreach ($this->getGroupedDetails($offset, $count) as $group => $dbs) {
-            if (count($dbs) > 1) {
-                $return .= '<optgroup label="' . htmlspecialchars($group)
-                    . '">' . "\n";
-                // whether display db_name cuted by the group part
-                $cut = true;
-            } else {
-                // .. or full
-                $cut = false;
-            }
-            foreach ($dbs as $db) {
-                $return .= '<option value="' . htmlspecialchars($db['name']) . '"'
-                    .' title="' . htmlspecialchars($db['comment']) . '"';
-                if ($db['name'] == $selected
-                    || (PMA_DRIZZLE
-                    && strtolower($db['name']) == strtolower($selected))
-                ) {
-                    $return .= ' selected="selected"';
-                }
-                $return .= '>' . htmlspecialchars($cut ? $db['disp_name_cut'] : $db['disp_name']);
-                if (! empty($db['num_tables'])) {
-                    $return .= ' (' . htmlspecialchars($db['num_tables']) . ')';
-                }
-                $return .= '</option>' . "\n";
-            }
-            if (count($dbs) > 1) {
-                $return .= '</optgroup>' . "\n";
-            }
-        }
-        $return .= '</select>';
-
-        return $return;
-    }
-
-    /**
      * this is just a backup, if all is fine this can be deleted later
      *
      * @deprecated
