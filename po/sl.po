@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-05-02 13:12+0200\n"
-"PO-Revision-Date: 2013-05-03 16:35+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"PO-Revision-Date: 2013-05-20 16:14+0200\n"
+"Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: Slovenian <http://l10n.cihar.com/projects/phpmyadmin/4-0/sl/>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
@@ -6203,19 +6203,19 @@ msgstr "ZIP"
 
 #: libraries/config/setup.forms.php:41
 msgid "Config authentication"
-msgstr "Overitev preko konfiguracije"
+msgstr "Overitev s konfiguracijo"
 
 #: libraries/config/setup.forms.php:45
 msgid "Cookie authentication"
-msgstr "Overitev preko piškotka"
+msgstr "Overitev s piškotkom"
 
 #: libraries/config/setup.forms.php:48
 msgid "HTTP authentication"
-msgstr "Overitev preko HTTP"
+msgstr "Overitev s HTTP"
 
 #: libraries/config/setup.forms.php:51
 msgid "Signon authentication"
-msgstr "Overitev preko signon"
+msgstr "Overitev s signon"
 
 #: libraries/config/setup.forms.php:247
 #: libraries/config/user_preferences.forms.php:152
@@ -6241,12 +6241,12 @@ msgstr "Po meri"
 #: libraries/config/setup.forms.php:288
 #: libraries/config/user_preferences.forms.php:191
 msgid "Database export options"
-msgstr "Možnosti za izvoz zbirke podatkov"
+msgstr "Možnosti izvoza zbirke podatkov"
 
 #: libraries/config/setup.forms.php:321
 #: libraries/config/user_preferences.forms.php:224
 msgid "CSV for MS Excel"
-msgstr "CSV-podatki za MS Excel"
+msgstr "CSV za MS Excel"
 
 #: libraries/config/setup.forms.php:344
 #: libraries/config/user_preferences.forms.php:247
@@ -6272,28 +6272,28 @@ msgstr "Ne morem se povezati s strežnikom MySQL"
 
 #: libraries/config/validate.lib.php:282
 msgid "Empty username while using config authentication method"
-msgstr "Počisti uporabniško ime med uporabo overitvenega načina config"
+msgstr "Počisti uporabniško ime pri uporabi overitvenega načina config"
 
 #: libraries/config/validate.lib.php:289
 msgid "Empty signon session name while using signon authentication method"
-msgstr "Počisti ime seje signon med uporabo overitvenega načina signon"
+msgstr "Počisti ime seje signon pri uporabi overitvenega načina signon"
 
 #: libraries/config/validate.lib.php:298
 msgid "Empty signon URL while using signon authentication method"
-msgstr "Počisti URL signon med uporabo overitvenega načina signon"
+msgstr "Počisti URL signon pri uporabi overitvenega načina signon"
 
 #: libraries/config/validate.lib.php:346
 msgid "Empty phpMyAdmin control user while using pmadb"
-msgstr "Počisti krmilnega uporabnika phpMyAdmin med uporabo pmadb"
+msgstr "Počisti krmilnega uporabnika phpMyAdmin pri uporabi pmadb"
 
 #: libraries/config/validate.lib.php:351
 msgid "Empty phpMyAdmin control user password while using pmadb"
-msgstr "Počisti geslo krmilnega uporabnika phpMyAdmin med uporabo pmadb"
+msgstr "Počisti geslo krmilnega uporabnika phpMyAdmin pri uporabi pmadb"
 
 #: libraries/config/validate.lib.php:443
 #, php-format
 msgid "Incorrect IP address: %s"
-msgstr "Napačen IP-naslov: %s"
+msgstr "Nepravilni IP-naslov: %s"
 
 #: libraries/core.lib.php:290
 #, php-format
