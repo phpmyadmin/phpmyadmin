@@ -55,18 +55,6 @@ class PMA_List_Database_test extends PHPUnit_Framework_TestCase
         $this->assertEquals(true, $arr->exists('single_db'));
     }
 
-    public function testLimitedItems()
-    {
-        $arr = new PMA_List_Database;
-        $this->assertEquals(array('single_db'), $arr->getLimitedItems(0, 1));
-    }
-
-    public function testLimitedItems_empty()
-    {
-        $arr = new PMA_List_Database;
-        $this->assertEquals(array(), $arr->getLimitedItems(1, 1));
-    }
-
     public function testHtmlOptions()
     {
         $arr = new PMA_List_Database;
@@ -110,43 +98,5 @@ class PMA_List_Database_test extends PHPUnit_Framework_TestCase
         );
     }
 
-    /**
-     * Test for getGroupedDetails
-     *
-     * @return void
-     */
-    public function testGetGroupedDetails()
-    {
-        $GLOBALS['cfg']['ShowTooltip'] = true;
-        $GLOBALS['cfgRelation']['commwork'] = true;
-        $GLOBALS['server'] = 1;
-        $GLOBALS['cfg']['NavigationTreeEnableGrouping'] = true;
-        $GLOBALS['cfg']['NavigationTreeDbSeparator'] = array('|',',');
-
-        $this->assertEquals(
-            $this->object->getGroupedDetails(10, 100),
-            array()
-        );
-    }
-
-    /**
-     * Test for getHtmlListGrouped
-     *
-     * @return void
-     */
-    public function testGetHtmlListGrouped()
-    {
-        $GLOBALS['cfg']['ShowTooltip'] = true;
-        $GLOBALS['cfgRelation']['commwork'] = true;
-        $GLOBALS['server'] = 1;
-        $GLOBALS['cfg']['NavigationTreeEnableGrouping'] = true;
-        $GLOBALS['cfg']['NavigationTreeDbSeparator'] = array('|',',');
-
-        $this->assertEquals(
-            $this->object->getHtmlListGrouped(true, 5, 5),
-            '<ul id="databaseList" lang="en" dir="ltr">
-</ul>'
-        );
-    }
 }
 ?>

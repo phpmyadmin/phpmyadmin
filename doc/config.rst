@@ -915,14 +915,6 @@ Server connection settings
     * ``'SELECT SCHEMA_NAME FROM information_schema.SCHEMATA'``
     * ``false``
 
-.. config:option:: $cfg['Servers'][$i]['CountTables']
-
-    :type: boolean
-    :default: false
-
-    Whether to count the number of tables for each database when preparing
-    the list of databases for the navigation panel.
-
 .. config:option:: $cfg['Servers'][$i]['SignonScript']
 
     :type: string
