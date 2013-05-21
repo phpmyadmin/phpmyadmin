@@ -1,11 +1,11 @@
 <?php
 //============================================================+
 // File name   : tcpdf.php
-// Version     : 6.0.012
+// Version     : 6.0.018
 // Begin       : 2002-08-03
-// Last Update : 2013-04-03
+// Last Update : 2013-05-19
 // Author      : Nicola Asuni - Tecnick.com LTD - www.tecnick.com - info@tecnick.com
-// License     : http://www.tecnick.com/pagefiles/tcpdf/LICENSE.TXT GNU-LGPLv3
+// License     : GNU-LGPL v3 (http://www.gnu.org/copyleft/lesser.html)
 // -------------------------------------------------------------------
 // Copyright (C) 2002-2013 Nicola Asuni - Tecnick.com LTD
 //
@@ -80,7 +80,7 @@
 // Denis Van Nuffelen for Dynamic Form.
 // Jacek Czekaj for multibyte justification
 // Anthony Ferrara for the reintroduction of legacy image methods.
-// Sourceforge user 1707880 (hucste) for line-trough mode.
+// Sourceforge user 1707880 (hucste) for line-through mode.
 // Larry Stanbery for page groups.
 // Martin Hall-May for transparency.
 // Aaron C. Spike for Polycurve method.
@@ -139,26 +139,21 @@
  * Tools to encode your unicode fonts are on fonts/utils directory.</p>
  * @package com.tecnick.tcpdf
  * @author Nicola Asuni
- * @version 6.0.012
+ * @version 6.0.018
  */
 
-if (!defined('K_TCPDF_EXTERNAL_CONFIG')) {
-	// Main configuration file. Define the K_TCPDF_EXTERNAL_CONFIG constant to skip this file.
-	require_once(dirname(__FILE__).'/config/tcpdf_config.php');
-}
-
-// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
+// TCPDF configuration
+require_once(__DIR__.'/tcpdf_autoconfig.php');
 // TCPDF static font methods and data
-require_once(dirname(__FILE__).'/include/tcpdf_font_data.php');
+require_once(__DIR__.'/include/tcpdf_font_data.php');
 // TCPDF static font methods and data
-require_once(dirname(__FILE__).'/include/tcpdf_fonts.php');
+require_once(__DIR__.'/include/tcpdf_fonts.php');
 // TCPDF static color methods and data
-require(dirname(__FILE__).'/include/tcpdf_colors.php');
+require_once(__DIR__.'/include/tcpdf_colors.php');
 // TCPDF static image methods and data
-require(dirname(__FILE__).'/include/tcpdf_images.php');
+require_once(__DIR__.'/include/tcpdf_images.php');
 // TCPDF static methods and data
-require_once(dirname(__FILE__).'/include/tcpdf_static.php');
+require_once(__DIR__.'/include/tcpdf_static.php');
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -168,7 +163,7 @@ require_once(dirname(__FILE__).'/include/tcpdf_static.php');
  * TCPDF project (http://www.tcpdf.org) has been originally derived in 2002 from the Public Domain FPDF class by Olivier Plathey (http://www.fpdf.org), but now is almost entirely rewritten.<br>
  * @package com.tecnick.tcpdf
  * @brief PHP class for generating PDF documents without requiring external extensions.
- * @version 6.0.012
+ * @version 6.0.018
  * @author Nicola Asuni - info@tecnick.com
  */
 class TCPDF {
@@ -901,7 +896,7 @@ class TCPDF {
 	protected $n_js;
 
 	/**
-	 * line trough state
+	 * line through state
 	 * @protected
 	 * @since 2.8.000 (2008-03-19)
 	 */
@@ -4013,7 +4008,7 @@ class TCPDF {
 	 * Returns the length of a string in user unit. A font must be selected.<br>
 	 * @param $s (string) The string whose length is to be computed
 	 * @param $fontname (string) Family font. It can be either a name defined by AddFont() or one of the standard families. It is also possible to pass an empty string, in that case, the current family is retained.
-	 * @param $fontstyle (string) Font style. Possible values are (case insensitive):<ul><li>empty string: regular</li><li>B: bold</li><li>I: italic</li><li>U: underline</li><li>D: line-trough</li><li>O: overline</li></ul> or any combination. The default value is regular.
+	 * @param $fontstyle (string) Font style. Possible values are (case insensitive):<ul><li>empty string: regular</li><li>B: bold</li><li>I: italic</li><li>U: underline</li><li>D: line-through</li><li>O: overline</li></ul> or any combination. The default value is regular.
 	 * @param $fontsize (float) Font size in points. The default value is the current size.
 	 * @param $getarray (boolean) if true returns an array of characters widths, if false returns the total length.
 	 * @return mixed int total string length or array of characted widths
@@ -4029,7 +4024,7 @@ class TCPDF {
 	 * Returns the string length of an array of chars in user unit or an array of characters widths. A font must be selected.<br>
 	 * @param $sa (string) The array of chars whose total length is to be computed
 	 * @param $fontname (string) Family font. It can be either a name defined by AddFont() or one of the standard families. It is also possible to pass an empty string, in that case, the current family is retained.
-	 * @param $fontstyle (string) Font style. Possible values are (case insensitive):<ul><li>empty string: regular</li><li>B: bold</li><li>I: italic</li><li>U: underline</li><li>D: line trough</li><li>O: overline</li></ul> or any combination. The default value is regular.
+	 * @param $fontstyle (string) Font style. Possible values are (case insensitive):<ul><li>empty string: regular</li><li>B: bold</li><li>I: italic</li><li>U: underline</li><li>D: line through</li><li>O: overline</li></ul> or any combination. The default value is regular.
 	 * @param $fontsize (float) Font size in points. The default value is the current size.
 	 * @param $getarray (boolean) if true returns an array of characters widths, if false returns the total length.
 	 * @return mixed int total string length or array of characted widths
@@ -4268,12 +4263,6 @@ class TCPDF {
 			}
 			return $fontdata;
 		}
-		if (isset($type)) {
-			unset($type);
-		}
-		if (isset($cw)) {
-			unset($cw);
-		}
 		// get specified font directory (if any)
 		$fontdir = false;
 		if (!TCPDF_STATIC::empty_string($fontfile)) {
@@ -4455,7 +4444,7 @@ class TCPDF {
 	 * If you just wish to change the current font size, it is simpler to call SetFontSize().
 	 * Note: for the standard fonts, the font metric files must be accessible. There are three possibilities for this:<ul><li>They are in the current directory (the one where the running script lies)</li><li>They are in one of the directories defined by the include_path parameter</li><li>They are in the directory defined by the K_PATH_FONTS constant</li></ul><br />
 	 * @param $family (string) Family font. It can be either a name defined by AddFont() or one of the standard Type1 families (case insensitive):<ul><li>times (Times-Roman)</li><li>timesb (Times-Bold)</li><li>timesi (Times-Italic)</li><li>timesbi (Times-BoldItalic)</li><li>helvetica (Helvetica)</li><li>helveticab (Helvetica-Bold)</li><li>helveticai (Helvetica-Oblique)</li><li>helveticabi (Helvetica-BoldOblique)</li><li>courier (Courier)</li><li>courierb (Courier-Bold)</li><li>courieri (Courier-Oblique)</li><li>courierbi (Courier-BoldOblique)</li><li>symbol (Symbol)</li><li>zapfdingbats (ZapfDingbats)</li></ul> It is also possible to pass an empty string. In that case, the current family is retained.
-	 * @param $style (string) Font style. Possible values are (case insensitive):<ul><li>empty string: regular</li><li>B: bold</li><li>I: italic</li><li>U: underline</li><li>D: line trough</li><li>O: overline</li></ul> or any combination. The default value is regular. Bold and italic styles do not apply to Symbol and ZapfDingbats basic fonts or other fonts when not defined.
+	 * @param $style (string) Font style. Possible values are (case insensitive):<ul><li>empty string: regular</li><li>B: bold</li><li>I: italic</li><li>U: underline</li><li>D: line through</li><li>O: overline</li></ul> or any combination. The default value is regular. Bold and italic styles do not apply to Symbol and ZapfDingbats basic fonts or other fonts when not defined.
 	 * @param $size (float) Font size in points. The default value is the current size. If no size has been specified since the beginning of the document, the value taken is 12
 	 * @param $fontfile (string) The font definition file. By default, the name is built from the family and style, in lower case with no spaces.
 	 * @param $subset (mixed) if true embedd only a subset of the font (stores only the information related to the used characters); if false embedd full font; if 'default' uses the default value set using setFontSubsetting(). This option is valid only for TrueTypeUnicode fonts. If you want to enable users to change the document, set this parameter to false. If you subset the font, the person who receives your PDF would need to have your same font in order to make changes to your PDF. The file size of the PDF would also be smaller because you are embedding only part of a font.
@@ -9624,7 +9613,7 @@ class TCPDF {
 		// if required, add standard sRGB_IEC61966-2.1 blackscaled ICC colour profile
 		if ($this->pdfa_mode OR $this->force_srgb) {
 			$iccobj = $this->_newobj();
-			$icc = file_get_contents(dirname(__FILE__).'/include/sRGB.icc');
+			$icc = file_get_contents(__DIR__.'/include/sRGB.icc');
 			$filter = '';
 			if ($this->compress) {
 				$filter = ' /Filter /FlateDecode';
@@ -10857,7 +10846,7 @@ class TCPDF {
 	 * @param $user_pass (String) user password. Empty by default.
 	 * @param $owner_pass (String) owner password. If not specified, a random value is used.
 	 * @param $mode (int) encryption strength: 0 = RC4 40 bit; 1 = RC4 128 bit; 2 = AES 128 bit; 3 = AES 256 bit.
-	 * @param $pubkeys (String) array of recipients containing public-key certificates ('c') and permissions ('p'). For example: array(array('c' => 'file://../config/cert/tcpdf.crt', 'p' => array('print')))
+	 * @param $pubkeys (String) array of recipients containing public-key certificates ('c') and permissions ('p'). For example: array(array('c' => 'file://../examples/data/cert/tcpdf.crt', 'p' => array('print')))
 	 * @public
 	 * @since 2.0.000 (2008-01-02)
 	 * @author Nicola Asuni
@@ -13427,8 +13416,7 @@ class TCPDF {
 		++$this->n; // signature object ($this->sig_obj_id + 1)
 		$this->signature_data = array();
 		if (strlen($signing_cert) == 0) {
-			$signing_cert = 'file://'.dirname(__FILE__).'/config/cert/tcpdf.crt';
-			$private_key_password = 'tcpdfdemo';
+			$this->Error('Please provide a certificate file and password!');
 		}
 		if (strlen($private_key) == 0) {
 			$private_key = $signing_cert;
@@ -15063,7 +15051,7 @@ class TCPDF {
 		if (TCPDF_STATIC::empty_string(trim($code))) {
 			return;
 		}
-		require_once(dirname(__FILE__).'/tcpdf_barcodes_1d.php');
+		require_once(__DIR__.'/tcpdf_barcodes_1d.php');
 		// save current graphic settings
 		$gvars = $this->getGraphicVars();
 		// create new barcode object
@@ -15379,7 +15367,7 @@ class TCPDF {
 		if (TCPDF_STATIC::empty_string(trim($code))) {
 			return;
 		}
-		require_once(dirname(__FILE__).'/tcpdf_barcodes_2d.php');
+		require_once(__DIR__.'/tcpdf_barcodes_2d.php');
 		// save current graphic settings
 		$gvars = $this->getGraphicVars();
 		// create new barcode object
@@ -16508,7 +16496,7 @@ class TCPDF {
 										// underline
 										$dom[$key]['fontstyle'] .= 'U';
 									} elseif ($dec{0} == 'l') {
-										// line-trough
+										// line-through
 										$dom[$key]['fontstyle'] .= 'D';
 									} elseif ($dec{0} == 'o') {
 										// overline
@@ -18811,7 +18799,7 @@ Putting 1 is equivalent to putting 0 and calling Ln() just after. Default value:
 				if (isset($tag['attribute']['action'])) {
 					$this->form_action = $tag['attribute']['action'];
 				} else {
-					$this->form_action = K_PATH_URL.$_SERVER['SCRIPT_NAME'];
+					$this->Error('Please explicitly set action attribute path!');
 				}
 				if (isset($tag['attribute']['enctype'])) {
 					$this->form_enctype = $tag['attribute']['enctype'];
@@ -21017,7 +21005,9 @@ Putting 1 is equivalent to putting 0 and calling Ln() just after. Default value:
 			--$newpage;
 			return "this.addField(\'".$matches[1]."\',\'".$matches[2]."\',".$newpage."";'), $tmpjavascript);
 		// return to last page
-		$this->lastPage(true);
+		if ($this->numpages > 0) {
+			$this->lastPage(true);
+		}
 		return true;
 	}
 
@@ -23911,12 +23901,18 @@ Putting 1 is equivalent to putting 0 and calling Ln() just after. Default value:
 				} else {
 					$x = 0;
 				}
+				if (isset($attribs['dx'])) {
+					$x += $this->getHTMLUnitToUnits($attribs['dx'], 0, $this->svgunit, false);
+				}
 				if (isset($attribs['y'])) {
 					$y = $this->getHTMLUnitToUnits($attribs['y'], 0, $this->svgunit, false);
 				} elseif ($name == 'tspan') {
 					$y = $this->y;
 				} else {
 					$y = 0;
+				}
+				if (isset($attribs['dy'])) {
+					$y += $this->getHTMLUnitToUnits($attribs['dy'], 0, $this->svgunit, false);
 				}
 				$svgstyle['text-color'] = $svgstyle['fill'];
 				$this->svgtext = '';

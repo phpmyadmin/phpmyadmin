@@ -8,8 +8,8 @@ http://sourceforge.net/donate/index.php?group_id=128076
 ------------------------------------------------------------
 
 Name: TCPDF
-Version: 6.0.012
-Release date: 2013-04-24
+Version: 6.0.018
+Release date: 2013-05-19
 Author:	Nicola Asuni
 
 Copyright (c) 2002-2013:
@@ -18,8 +18,8 @@ Copyright (c) 2002-2013:
 	www.tecnick.com
 
 URLs:
-	http:  www.tcpdf.org
-	http:  www.sourceforge.net/projects/tcpdf
+	http://www.tcpdf.org
+	http://www.sourceforge.net/projects/tcpdf
 
 Description:
 	TCPDF is a PHP class for generating PDF files on-the-fly without requiring external extensions.
@@ -86,7 +86,7 @@ License
 	See LICENSE.TXT file for more information.
 
 Third party fonts
-	This library includes third party font files released with different licenses.
+	This library may include third party font files released with different licenses.
 	These fonts are not required by TCPDF but have been included as you convenience.
 	The original TTF font files have been renamed for compatibility with TCPDF and compressed using the gzcompress PHP function that uses the ZLIB data format (.z files).
 	To get the original distribution archives please check the information on fonts subfolders:

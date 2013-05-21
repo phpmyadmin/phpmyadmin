@@ -465,7 +465,7 @@ Server connection settings
 
     Since release 2.2.4 you can describe, in a special 'relation' table,
     which column is a key in another table (a foreign key). phpMyAdmin
-    currently uses this to
+    currently uses this to:
 
     * make clickable, when you browse the master table, the data values that
       point to the foreign table;

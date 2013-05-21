@@ -5,7 +5,7 @@
 // Begin       : 2002-08-03
 // Last Update : 2013-04-01
 // Author      : Nicola Asuni - Tecnick.com LTD - www.tecnick.com - info@tecnick.com
-// License     : http://www.tecnick.com/pagefiles/tcpdf/LICENSE.TXT GNU-LGPLv3
+// License     : GNU-LGPL v3 (http://www.gnu.org/copyleft/lesser.html)
 // -------------------------------------------------------------------
 // Copyright (C) 2002-2013 Nicola Asuni - Tecnick.com LTD
 //
@@ -55,7 +55,7 @@ class TCPDF_STATIC {
 	 * Current TCPDF version.
 	 * @private static
 	 */
-	private static $tcpdf_version = '6.0.012';
+	private static $tcpdf_version = '6.0.018';
 
 	/**
 	 * String alias for total number of pages.
