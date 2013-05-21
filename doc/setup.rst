@@ -262,9 +262,6 @@ file!** Input these statements from the phpMyAdmin :term:`SQL` Query window or
 mysql command–line client. Of course you have to replace ``localhost`` with the
 webserver's host if it's not the same as the MySQL server's one. 
 
-If you want to use the many new relation and bookmark features:  (this of
-course requires that your :ref:`linked-tables` be set up).
-
 .. code-block:: mysql
    
    GRANT USAGE ON mysql.* TO 'pma'@'localhost' IDENTIFIED BY 'pmapass';
@@ -286,8 +283,7 @@ If you want to use the many new relation and bookmark features:
    
    GRANT SELECT, INSERT, UPDATE, DELETE ON <pma_db>.* TO 'pma'@'localhost';
    
-(this of course requires that your phpMyAdmin
-configuration storage be set up).
+(this of course requires that your :ref:`linked-tables` be set up).
    
 Then each of the *true* users should be granted a set of privileges
 on a set of particular databases. Normally you shouldn't give global
