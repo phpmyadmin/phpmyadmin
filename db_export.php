@@ -40,7 +40,7 @@ $multi_values .= ' onclick="setSelectOptions(\'dump\', \'table_select[]\', true)
 $multi_values .= __('Select All');
 $multi_values .= '</a>';
 $multi_values .= ' / ';
-$multi_values .= '<a href="#';
+$multi_values .= '<a href="#"';
 $multi_values .= ' onclick="setSelectOptions(\'dump\', \'table_select[]\', false); return false;">';
 $multi_values .= __('Unselect All');
 $multi_values .= '</a><br />';
@@ -66,10 +66,12 @@ foreach ($tables as $each_table) {
         } else {
             $is_selected = '';
         }
-    } elseif (! empty($unselectall)
-        || (! empty($table_select) && !in_array($each_table['Name'], $table_select))
-    ) {
-        $is_selected = '';
+    } elseif (isset($table_select)) {
+        if (in_array($each_table['Name'], $table_select)) {
+            $is_selected = ' selected="selected"';
+        } else {
+            $is_selected = '';
+        }
     } else {
         $is_selected = ' selected="selected"';
     }
