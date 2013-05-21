@@ -28,7 +28,7 @@ $scripts->addFile('server_status_advisor.js');
  */
 $response->addHTML('<div>');
 $response->addHTML($ServerStatusData->getMenuHtml());
-$response->addHTML(PMA_getAdvisorHtml($ServerStatusData));
+$response->addHTML(PMA_getAdvisorHtml());
 $response->addHTML('</div>');
 exit;
 
