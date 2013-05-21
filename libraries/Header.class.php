@@ -355,7 +355,7 @@ class PMA_Header
                 // so we can conditionally add CodeMirror
                 if ($GLOBALS['cfg']['CodemirrorEnable']) {
                     $this->_scripts->addFile('codemirror/lib/codemirror.js');
-                    $this->_scripts->addFile('codemirror/mode/mysql/mysql.js');
+                    $this->_scripts->addFile('codemirror/mode/sql/sql.js');
                 }
                 if ($this->_userprefsOfferImport) {
                     $this->_scripts->addFile('config.js');
