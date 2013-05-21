@@ -633,9 +633,8 @@ do {
         }
         // Walk over databases
         foreach ($GLOBALS['pma']->databases as $current_db) {
-            if ((isset($tmp_select)
-                && strpos(' ' . $tmp_select, '|' . $current_db . '|'))
-                || ! isset($tmp_select)
+            if (isset($tmp_select)
+                && strpos(' ' . $tmp_select, '|' . $current_db . '|')
             ) {
                 if (! $export_plugin->exportDBHeader($current_db)) {
                     break 2;
