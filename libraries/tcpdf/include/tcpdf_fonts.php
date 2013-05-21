@@ -1,9 +1,9 @@
 <?php
 //============================================================+
 // File name   : tcpdf_fonts.php
-// Version     : 1.0.005
+// Version     : 1.0.006
 // Begin       : 2008-01-01
-// Last Update : 2013-04-01
+// Last Update : 2013-05-13
 // Author      : Nicola Asuni - Tecnick.com LTD - www.tecnick.com - info@tecnick.com
 // License     : GNU-LGPL v3 (http://www.gnu.org/copyleft/lesser.html)
 // -------------------------------------------------------------------
@@ -42,7 +42,7 @@
  * @class TCPDF_FONTS
  * Font methods for TCPDF library.
  * @package com.tecnick.tcpdf
- * @version 1.0.005
+ * @version 1.0.006
  * @author Nicola Asuni - info@tecnick.com
  */
 class TCPDF_FONTS {
@@ -57,12 +57,13 @@ class TCPDF_FONTS {
 	 * @param $platid (int) Platform ID for CMAP table to extract (when building a Unicode font for Windows this value should be 3, for Macintosh should be 1).
 	 * @param $encid (int) Encoding ID for CMAP table to extract (when building a Unicode font for Windows this value should be 1, for Macintosh should be 0). When Platform ID is 3, legal values for Encoding ID are: 0=Symbol, 1=Unicode, 2=ShiftJIS, 3=PRC, 4=Big5, 5=Wansung, 6=Johab, 7=Reserved, 8=Reserved, 9=Reserved, 10=UCS-4.
 	 * @param $addcbbox (boolean) If true includes the character bounding box information on the php font file.
-	 * @return (string) TCPDF font name.
+	 * @param $link (boolean) If true link to system font instead of copying the font data (not transportable) - Note: do not work with Type1 fonts.
+	 * @return (string) TCPDF font name or boolean false in case of error.
 	 * @author Nicola Asuni
 	 * @since 5.9.123 (2010-09-30)
 	 * @public static
 	 */
-	public static function addTTFfont($fontfile, $fonttype='', $enc='', $flags=32, $outpath='', $platid=3, $encid=1, $addcbbox=false) {
+	public static function addTTFfont($fontfile, $fonttype='', $enc='', $flags=32, $outpath='', $platid=3, $encid=1, $addcbbox=false, $link=false) {
 		if (!file_exists($fontfile)) {
 			// Could not find file
 			return false;
@@ -92,7 +93,7 @@ class TCPDF_FONTS {
 			// this font already exist (delete it from fonts folder to rebuild it)
 			return $font_name;
 		}
-		$fmetric['file'] = $font_name.'.z';
+		$fmetric['file'] = $font_name;
 		$fmetric['ctg'] = $font_name.'.ctg.z';
 		// get font data
 		$font = file_get_contents($fontfile);
@@ -178,6 +179,7 @@ class TCPDF_FONTS {
 			$encrypted = substr($font, (12 + $fmetric['size1']), $fmetric['size2']);
 			$data .= $encrypted;
 			// store compressed font
+			$fmetric['file'] .= '.z';
 			$fp = fopen($outpath.$fmetric['file'], 'wb');
 			fwrite($fp, gzcompress($data));
 			fclose($fp);
@@ -347,10 +349,16 @@ class TCPDF_FONTS {
 		} else {
 			// ---------- TRUE TYPE ----------
 			if ($fmetric['type'] != 'cidfont0') {
-				// store compressed font
-				$fp = fopen($outpath.$fmetric['file'], 'wb');
-				fwrite($fp, gzcompress($font));
-				fclose($fp);
+				if ($link) {
+					// creates a symbolic link to the existing font
+					symlink($fontfile, $outpath.$fmetric['file']);
+				} else {
+					// store compressed font
+					$fmetric['file'] .= '.z';
+					$fp = fopen($outpath.$fmetric['file'], 'wb');
+					fwrite($fp, gzcompress($font));
+					fclose($fp);
+				}
 			}
 			$offset = 0; // offset position of the font data
 			if (TCPDF_STATIC::_getULONG($font, $offset) != 0x10000) {
