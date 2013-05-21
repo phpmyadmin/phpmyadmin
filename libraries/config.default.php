@@ -470,13 +470,6 @@ $cfg['Servers'][$i]['DisableIS'] = true;
 $cfg['Servers'][$i]['ShowDatabasesCommand'] = 'SHOW DATABASES';
 
 /**
- * Whether to count tables when showing database list
- *
- * @global array $cfg['Servers'][$i]['CountTables']
- */
-$cfg['Servers'][$i]['CountTables'] = false;
-
-/**
  * Whether the tracking mechanism creates
  * versions for tables and views automatically.
  *
