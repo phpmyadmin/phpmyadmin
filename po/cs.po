@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-05-21 14:02+0200\n"
-"PO-Revision-Date: 2013-05-07 16:48+0200\n"
+"PO-Revision-Date: 2013-05-21 14:16+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Czech <http://l10n.cihar.com/projects/phpmyadmin/master/cs/>\n"
 "Language: cs\n"
@@ -3873,10 +3873,9 @@ msgid "numeric key detected"
 msgstr "detekován číselný klíč"
 
 #: libraries/config.values.php:49 libraries/config.values.php:64
-#, fuzzy
 #| msgid "Ins"
 msgid "Icons"
-msgstr "Přidat"
+msgstr "Ikony"
 
 #: libraries/config.values.php:50 libraries/config.values.php:65
 #, fuzzy
