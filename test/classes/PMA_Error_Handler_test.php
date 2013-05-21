@@ -177,6 +177,8 @@ class PMA_Error_Handler_Test extends PHPUnit_Framework_TestCase
      * Test for countErrors
      *
      * @return void
+     *
+     * @group medium
      */
     public function testCountErrors()
     {
