@@ -356,6 +356,8 @@ class PMA_Header
                 if ($GLOBALS['cfg']['CodemirrorEnable']) {
                     $this->_scripts->addFile('codemirror/lib/codemirror.js');
                     $this->_scripts->addFile('codemirror/mode/sql/sql.js');
+                    $this->_scripts->addFile('codemirror/addon/runmode/runmode.js');
+                    $this->_scripts->addFile('codemirror/addon/runmode/colorize.js');
                 }
                 if ($this->_userprefsOfferImport) {
                     $this->_scripts->addFile('config.js');

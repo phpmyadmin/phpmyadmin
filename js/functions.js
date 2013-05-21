@@ -3446,6 +3446,10 @@ AJAX.registerOnload('functions.js', function () {
             $elm.focus().bind('keydown', catchKeypressesFromSqlTextboxes);
         }
     }
+    $elm = $('code.sql');
+    if ($elm.length > 0) {
+        CodeMirror.colorize($elm, 'text/x-mysql');
+    }
 });
 AJAX.registerTeardown('functions.js', function () {
     if (codemirror_editor) {
