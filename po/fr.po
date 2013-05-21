@@ -4,10 +4,9 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-05-21 14:02+0200\n"
-"PO-Revision-Date: 2013-05-07 23:09+0200\n"
-"Last-Translator: Jean-Noël AVILA <jn.avila@free.fr>\n"
-"Language-Team: French <http://l10n.cihar.com/projects/phpmyadmin/master/fr/"
-">\n"
+"PO-Revision-Date: 2013-05-21 19:21+0200\n"
+"Last-Translator: Marc Delisle <marc@infomarc.info>\n"
+"Language-Team: French <http://l10n.cihar.com/projects/phpmyadmin/master/fr/>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -3927,16 +3926,14 @@ msgid "numeric key detected"
 msgstr "Clé numérique détectée"
 
 #: libraries/config.values.php:49 libraries/config.values.php:64
-#, fuzzy
 #| msgid "Ins"
 msgid "Icons"
-msgstr "Ajouter"
+msgstr "Icônes"
 
 #: libraries/config.values.php:50 libraries/config.values.php:65
-#, fuzzy
 #| msgid "Test"
 msgid "Text"
-msgstr "Test"
+msgstr "Texte"
 
 #: libraries/config.values.php:51 libraries/config.values.php:58
 #: libraries/config.values.php:66
@@ -6281,12 +6278,15 @@ msgid ""
 "is installed does not have direct access to the internet. The format is: "
 "\"hostname:portnumber\""
 msgstr ""
+"L'URL du serveur mandataire à utiliser pour récupérer l'information au sujet "
+"de la plus récente version de phpMyAdmin. Ceci est nécessaire si le serveur "
+"sur lequel phpMyAdmin est installé n'a pas d'accès direct à Internet. Le "
+"format est «nom de serveur:numéro de port»"
 
 #: libraries/config/messages.inc.php:523
-#, fuzzy
 #| msgid "Version check"
 msgid "Version check proxy url"
-msgstr "Vérification de version"
+msgstr "URL du serveur mandataire pour la vérification de version"
 
 #: libraries/config/messages.inc.php:524
 msgid ""
@@ -6294,22 +6294,24 @@ msgid ""
 "authentication is performed. If a username is supplied, Basic Authentication "
 "will be performed. No other types of authentication are currently supported."
 msgstr ""
+"Le code utilisateur pour s'authentifier sur le serveur mandataire. Par "
+"défaut, aucune authentification ne se produit. Si un code utilisateur est "
+"fourni, l'authentification de base sera utilisée. Aucun autre type "
+"d'authentification n'est permis pour le moment."
 
 #: libraries/config/messages.inc.php:525
-#, fuzzy
 #| msgid "Version check"
 msgid "Version check proxy username"
-msgstr "Vérification de version"
+msgstr "Code utilisateur du serveur mandataire pour la vérification de version"
 
 #: libraries/config/messages.inc.php:526
 msgid "The password for authenticating with the proxy"
-msgstr ""
+msgstr "Le mot de passe pour s'authentifier sur le serveur mandataire"
 
 #: libraries/config/messages.inc.php:527
-#, fuzzy
 #| msgid "Version check"
 msgid "Version check proxy password"
-msgstr "Vérification de version"
+msgstr "Mot de passe du serveur mandataire pour la vérification de version"
 
 #: libraries/config/messages.inc.php:529
 msgid ""
@@ -7341,16 +7343,14 @@ msgid "Convert to Kana"
 msgstr "Conversion en kana"
 
 #: libraries/mult_submits.inc.php:288
-#, fuzzy
 #| msgid "Replace table prefix"
 msgid "Replace table prefix:"
-msgstr "Remplacer le préfixe de table"
+msgstr "Remplacer le préfixe de table : "
 
 #: libraries/mult_submits.inc.php:290
-#, fuzzy
 #| msgid "Copy table with prefix"
 msgid "Copy table with prefix:"
-msgstr "Copier la table avec un préfixe"
+msgstr "Copier la table avec un préfixe : "
 
 #: libraries/mult_submits.inc.php:295
 msgid "From"
@@ -7366,10 +7366,9 @@ msgid "Submit"
 msgstr "Exécuter"
 
 #: libraries/mult_submits.inc.php:317
-#, fuzzy
 #| msgid "Add table prefix"
 msgid "Add table prefix:"
-msgstr "Ajouter un préfixe de table"
+msgstr "Ajouter un préfixe de table : "
 
 #: libraries/mult_submits.inc.php:320
 msgid "Add prefix"
