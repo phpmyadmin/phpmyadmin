@@ -33,6 +33,7 @@ phpMyAdmin - ChangeLog
 - bug #3924 Show warning when CSV file does not contain data for all columns
 - bug #3947 Missing Sql Query after modify structure
 - bug #3948 Server export problems
+- bug #3917 CountTables directive is deprecated
 
 4.0.1.0 (2013-05-14)
 - bug #3879 Import broken for CSV using LOAD DATA

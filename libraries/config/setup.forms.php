@@ -60,8 +60,7 @@ $forms['Servers']['Server_config'] = array('Servers' => array(1 => array(
     'DisableIS',
     'AllowDeny/order',
     'AllowDeny/rules',
-    'ShowDatabasesCommand',
-    'CountTables')));
+    'ShowDatabasesCommand')));
 $forms['Servers']['Server_pmadb'] = array('Servers' => array(1 => array(
     'pmadb' => 'phpmyadmin',
     'controlhost',
