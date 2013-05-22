@@ -16,6 +16,7 @@ phpMyAdmin - ChangeLog
 + [interface] Upgraded CodeMirror to 3.x series
 
 4.0.3.0 (not yet released)
+- bug #3941 Recent tables list always empty
 
 4.0.2.0 (not yet released)
 - bug #3902 Cannot browse when table name contains keyword "call"

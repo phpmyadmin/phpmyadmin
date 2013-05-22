@@ -395,6 +395,8 @@ class PMA_Header
                 }
                 $retval .= '<div id="page_content">';
                 $retval .= $this->getMessage();
+            }
+            if ($this->_isEnabled && empty($_REQUEST['recent_table'])) {
                 $retval .= $this->_addRecentTable(
                     $GLOBALS['db'],
                     $GLOBALS['table']
