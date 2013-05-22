@@ -203,12 +203,12 @@ foreach ($tables as $table) {
         } else {
             $row['Default'] = htmlspecialchars($row['Default']);
         }
-        $field_name = $row['Field'];
+        $column_name = $row['Field'];
 
         if (PMA_MYSQL_INT_VERSION < 50025
-            && ! empty($analyzed_sql[0]['create_table_fields'][$field_name]['type'])
-            && $analyzed_sql[0]['create_table_fields'][$field_name]['type'] == 'TIMESTAMP'
-            && $analyzed_sql[0]['create_table_fields'][$field_name]['timestamp_not_null']
+            && ! empty($analyzed_sql[0]['create_table_fields'][$column_name]['type'])
+            && $analyzed_sql[0]['create_table_fields'][$column_name]['type'] == 'TIMESTAMP'
+            && $analyzed_sql[0]['create_table_fields'][$column_name]['timestamp_not_null']
         ) {
             // here, we have a TIMESTAMP that SHOW FULL COLUMNS reports as
             // having the NULL attribute, but SHOW CREATE TABLE says the
@@ -227,9 +227,9 @@ foreach ($tables as $table) {
         echo '<td class="nowrap">';
 
         if (isset($pk_array[$row['Field']])) {
-            echo '<u>' . htmlspecialchars($field_name) . '</u>';
+            echo '<u>' . htmlspecialchars($column_name) . '</u>';
         } else {
-            echo htmlspecialchars($field_name);
+            echo htmlspecialchars($column_name);
         }
         echo '</td>';
         echo '<td' . $type_nowrap . ' lang="en" dir="ltr">' . $type . '</td>';
@@ -244,27 +244,27 @@ foreach ($tables as $table) {
 
         if ($have_rel) {
             echo '    <td>';
-            if (isset($res_rel[$field_name])) {
+            if (isset($res_rel[$column_name])) {
                 echo htmlspecialchars(
-                    $res_rel[$field_name]['foreign_table']
+                    $res_rel[$column_name]['foreign_table']
                     . ' -> '
-                    . $res_rel[$field_name]['foreign_field']
+                    . $res_rel[$column_name]['foreign_field']
                 );
             }
             echo '</td>' . "\n";
         }
         echo '    <td>';
-        if (isset($comments[$field_name])) {
-            echo htmlspecialchars($comments[$field_name]);
+        if (isset($comments[$column_name])) {
+            echo htmlspecialchars($comments[$column_name]);
         }
         echo '</td>' . "\n";
         if ($cfgRelation['mimework']) {
             $mime_map = PMA_getMIME($db, $table, true);
 
             echo '    <td>';
-            if (isset($mime_map[$field_name])) {
+            if (isset($mime_map[$column_name])) {
                 echo htmlspecialchars(
-                    str_replace('_', '/', $mime_map[$field_name]['mimetype'])
+                    str_replace('_', '/', $mime_map[$column_name]['mimetype'])
                 );
             }
             echo '</td>' . "\n";
