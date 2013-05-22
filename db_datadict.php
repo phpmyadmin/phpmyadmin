@@ -118,7 +118,6 @@ foreach ($tables as $table) {
      * Gets columns properties
      */
     $columns = PMA_DBI_getColumns($db, $table);
-    $fields_cnt  = count($columns);
 
     if (PMA_MYSQL_INT_VERSION < 50025) {
         // We need this to correctly learn if a TIMESTAMP is NOT NULL, since
