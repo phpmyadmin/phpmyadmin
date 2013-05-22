@@ -1352,6 +1352,7 @@ AJAX.registerOnload('functions.js', function () {
         var $form = $(this).prev('form');
         var sql_query  = $form.find("input[name='sql_query']").val();
         var $inner_sql = $(this).parent().prev().find('.inner_sql');
+        var $sql_highlight = $(this).parent().prev().find('.sql-highlight');
         var old_text   = $inner_sql.html();
 
         var new_content = "<textarea name=\"sql_query_edit\" id=\"sql_query_edit\">" + sql_query + "</textarea>\n";
@@ -1364,6 +1365,7 @@ AJAX.registerOnload('functions.js', function () {
         }
         $editor_area.html(new_content);
         $inner_sql.hide();
+        $sql_highlight.hide();
 
         bindCodeMirrorToInlineEditor();
         return false;
@@ -1387,8 +1389,8 @@ AJAX.registerOnload('functions.js', function () {
 
     $("input#sql_query_edit_discard").live('click', function () {
         $('div#inline_editor_outer')
-            .empty()
-            .siblings('.inner_sql').show();
+            .siblings('.sql-highlight').show();
+        $('div#inline_editor_outer').remove();
     });
 
     $('input.sqlbutton').click(function (evt) {
@@ -1496,7 +1498,7 @@ function PMA_highlightSQL(base)
         var $sql = $(this);
         /* We only care about visible elements to avoid double processing */
         if ($sql.is(":visible")) {
-            var $highlight = $('<div class="cm-s-default"></div>');
+            var $highlight = $('<div class="sql-highlight cm-s-default"></div>');
             $sql.append($highlight);
             console.log('Highlight SQL: ' + $sql.text());
             CodeMirror.runMode($sql.text(), 'text/x-mysql', $highlight[0]);
