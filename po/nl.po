@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-05-21 14:02+0200\n"
-"PO-Revision-Date: 2013-05-21 10:21+0200\n"
+"PO-Revision-Date: 2013-05-22 11:07+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: Dutch <http://l10n.cihar.com/projects/phpmyadmin/master/nl/>\n"
 "Language: nl\n"
@@ -6280,12 +6280,15 @@ msgid ""
 "is installed does not have direct access to the internet. The format is: "
 "\"hostname:portnumber\""
 msgstr ""
+"De url voor de proxy die gebruikt moet worden bij het ophalen van de "
+"informatie over de meest recente versie van phpMyAdmin. U heeft dit nodig "
+"als de server waarop phpMyAdmin geïnstalleerd is geen directe toegang tot "
+"het internet heeft. Het formaat is: \"servernaam:poortnummer\""
 
 #: libraries/config/messages.inc.php:523
-#, fuzzy
 #| msgid "Version check"
 msgid "Version check proxy url"
-msgstr "Versiecontrole"
+msgstr "Versiecontrole proxy url"
 
 #: libraries/config/messages.inc.php:524
 msgid ""
@@ -6295,20 +6298,18 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:525
-#, fuzzy
 #| msgid "Version check"
 msgid "Version check proxy username"
-msgstr "Versiecontrole"
+msgstr "Versiecontrole proxy gebruikersnaam"
 
 #: libraries/config/messages.inc.php:526
 msgid "The password for authenticating with the proxy"
 msgstr ""
 
 #: libraries/config/messages.inc.php:527
-#, fuzzy
 #| msgid "Version check"
 msgid "Version check proxy password"
-msgstr "Versiecontrole"
+msgstr "Versiecontrole proxy wachtwoord"
 
 #: libraries/config/messages.inc.php:529
 msgid ""
