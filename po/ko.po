@@ -4,10 +4,9 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-05-21 14:02+0200\n"
-"PO-Revision-Date: 2013-05-17 07:41+0200\n"
-"Last-Translator: Yungu Kim <crimsonpi@gmail.com>\n"
-"Language-Team: Korean <http://l10n.cihar.com/projects/phpmyadmin/master/ko/"
-">\n"
+"PO-Revision-Date: 2013-05-22 09:16+0200\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"Language-Team: Korean <http://l10n.cihar.com/projects/phpmyadmin/master/ko/>\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -8767,7 +8766,7 @@ msgstr ""
 #, php-format
 msgid "%d row affected by the last statement inside the procedure"
 msgid_plural "%d rows affected by the last statement inside the procedure"
-msgstr[0] ""
+msgstr[0] "프로시저 수행 중 가장 최근의 구문에 의해 %d개의 로우가 영향을 받음"
 
 #: libraries/rte/rte_routines.lib.php:1505
 #: libraries/rte/rte_routines.lib.php:1513
@@ -10345,11 +10344,11 @@ msgid "Character Sets and Collations"
 msgstr ""
 
 #: server_databases.php:117
-#, fuzzy, php-format
+#, php-format
 #| msgid "Your SQL query has been executed successfully"
 msgid "%1$d database has been dropped successfully."
 msgid_plural "%1$d databases have been dropped successfully."
-msgstr[0] "질의가 성공적으로 실행되었습니다."
+msgstr[0] "%1$d개의 데이터베이스를 삭제했습니다."
 
 #: server_databases.php:138
 msgid "Databases statistics"
@@ -10863,18 +10862,18 @@ msgid "Query analyzer"
 msgstr "질의 분석기"
 
 #: server_status_monitor.php:654
-#, fuzzy, php-format
+#, php-format
 #| msgid "per second"
 msgid "%d second"
 msgid_plural "%d seconds"
-msgstr[0] "초당"
+msgstr[0] "%d 초"
 
 #: server_status_monitor.php:657
-#, fuzzy, php-format
+#, php-format
 #| msgid "per minute"
 msgid "%d minute"
 msgid_plural "%d minutes"
-msgstr[0] "분당"
+msgstr[0] "%d 분"
 
 #: server_status_monitor.php:674
 msgid "Start Monitor"
