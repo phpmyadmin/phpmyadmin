@@ -67,19 +67,6 @@ if (isset($_REQUEST['printview'])) {
     $GLOBALS['printview'] = $_REQUEST['printview'];
 }
 
-if (isset($_SESSION['profiling'])) {
-    $response = PMA_Response::getInstance();
-    $header   = $response->getHeader();
-    $scripts  = $header->getScripts();
-    /* < IE 9 doesn't support canvas natively */
-    if (PMA_USR_BROWSER_AGENT == 'IE' && PMA_USR_BROWSER_VER < 9) {
-        $scripts->addFile('canvg/flashcanvas.js');
-    }
-    $scripts->addFile('jqplot/jquery.jqplot.js');
-    $scripts->addFile('jqplot/plugins/jqplot.pieRenderer.js');
-    $scripts->addFile('canvg/canvg.js');
-}
-
 if (!isset($_SESSION['is_multi_query'])) {
     $_SESSION['is_multi_query'] = false;
 }
