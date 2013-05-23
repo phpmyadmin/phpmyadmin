@@ -99,7 +99,7 @@ if (isset($GLOBALS['sr_take_action'])) {
             } else {
                 $_SESSION['replication']['m_correct']  = true;
 
-                if (! PMA_replication_slave_change_master($sr['username'], $sr['pma_pw'], $sr['hostname'], $sr['port'], $position, true, false)) {
+                if (! PMA_Replication_Slave_changeMaster($sr['username'], $sr['pma_pw'], $sr['hostname'], $sr['port'], $position, true, false)) {
                     $_SESSION['replication']['sr_action_status'] = 'error';
                     $_SESSION['replication']['sr_action_info'] = __('Unable to change master');
                 } else {

@@ -195,7 +195,7 @@ function PMA_Replication_Slave_control($action, $control = null, $link = null)
  *
  * @return output of CHANGE MASTER mysql command
  */
-function PMA_replication_slave_change_master($user, $password, $host, $port,
+function PMA_Replication_Slave_changeMaster($user, $password, $host, $port,
     $pos, $stop = true, $start = true, $link = null
 ) {
     if ($stop) {
@@ -247,7 +247,7 @@ function PMA_replication_connect_to_master($user, $password, $host = null, $port
  * @param mixed $link mysql link
  *
  * @return array an array containing File and Position in MySQL replication
- * on master server, useful for PMA_replication_slave_change_master
+ * on master server, useful for PMA_Replication_Slave_changeMaster
  */
 function PMA_replication_slave_bin_log_master($link = null)
 {
