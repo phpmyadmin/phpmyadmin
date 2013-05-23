@@ -1,16 +1,16 @@
 # Automatically generated <>, 2010.
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 4.0.2-dev\n"
+"Project-Id-Version: phpMyAdmin 4.0.3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-05-21 14:02+0200\n"
+"POT-Creation-Date: 2013-05-23 02:54-0400\n"
 "PO-Revision-Date: 2013-05-12 22:13+0200\n"
 "Last-Translator: Lassi Ruonavaara <lassi@ruonavaara.fi>\n"
 "Language-Team: Finnish <http://l10n.cihar.com/projects/phpmyadmin/4-0/fi/>\n"
-"Language: fi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: fi\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 1.6-dev\n"
 
@@ -617,11 +617,11 @@ msgstr ""
 #: import.php:107
 #, php-format
 msgid ""
-"You probably tried to upload a file that is too large. Please refer to "
-"%sdocumentation%s for a workaround for this limit."
+"You probably tried to upload a file that is too large. Please refer to %"
+"sdocumentation%s for a workaround for this limit."
 msgstr ""
-"Yritit ehkä lähettää palvelimelle liian suurta tiedostoa. Katso %sohjeista"
-"%s, kuinka tämän rajoituksen voi poistaa."
+"Yritit ehkä lähettää palvelimelle liian suurta tiedostoa. Katso %sohjeista%"
+"s, kuinka tämän rajoituksen voi poistaa."
 
 #: import.php:250 import.php:516
 msgid "Showing bookmark"
@@ -2633,11 +2633,11 @@ msgstr "lauseessa"
 #: libraries/DisplayResults.class.php:4910 libraries/structure.lib.php:653
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation"
-"%s."
+"This view has at least this number of rows. Please refer to %sdocumentation%"
+"s."
 msgstr ""
-"Tässä näkymässä on vähintään tämän luvun verran rivejä. Katso lisätietoja "
-"%sohjeista%s."
+"Tässä näkymässä on vähintään tämän luvun verran rivejä. Katso lisätietoja %"
+"sohjeista%s."
 
 #: libraries/DisplayResults.class.php:4923
 msgid "Showing rows"
@@ -2778,12 +2778,12 @@ msgstr "Avaa uusi phpMyAdmin-ikkuna"
 msgid "Click on the bar to scroll to top of page"
 msgstr ""
 
-#: libraries/Header.class.php:619
+#: libraries/Header.class.php:621
 #: libraries/plugins/auth/AuthenticationCookie.class.php:269
 msgid "Cookies must be enabled past this point."
 msgstr "Selaimessa on oltava evästeet päällä tästä lähtien."
 
-#: libraries/Header.class.php:624
+#: libraries/Header.class.php:626
 #: libraries/plugins/auth/AuthenticationCookie.class.php:172
 msgid "Javascript must be enabled past this point"
 msgstr "Javaskripti on oltava päällä tämän jälkeen"
@@ -3359,20 +3359,20 @@ msgstr ""
 
 #: libraries/Types.class.php:308
 msgid ""
-"A small floating-point number, allowable values are -3.402823466E+38 to "
-"-1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
+"A small floating-point number, allowable values are -3.402823466E+38 to -"
+"1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
 msgstr ""
-"Pieni liukuluku, mahdolliset arvot ovat välillä -3.402823466E+38 - "
-"-1.175494351E-38, 0 ja 1.175494351E-38 - 3.402823466E+38"
+"Pieni liukuluku, mahdolliset arvot ovat välillä -3.402823466E+38 - -"
+"1.175494351E-38, 0 ja 1.175494351E-38 - 3.402823466E+38"
 
 #: libraries/Types.class.php:310
 msgid ""
-"A double-precision floating-point number, allowable values are "
-"-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
+"A double-precision floating-point number, allowable values are -"
+"1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
 "2.2250738585072014E-308 to 1.7976931348623157E+308"
 msgstr ""
-"Kaksoistarkkuuksinen liukuluku, mahdolliset arvot ovat välillä "
-"-1.7976931348623157E+308 - -2.2250738585072014E-308, 0, ja "
+"Kaksoistarkkuuksinen liukuluku, mahdolliset arvot ovat välillä -"
+"1.7976931348623157E+308 - -2.2250738585072014E-308, 0, ja "
 "2.2250738585072014E-308 - 1.7976931348623157E+308"
 
 #: libraries/Types.class.php:312
@@ -4629,10 +4629,6 @@ msgstr "Pääkehys"
 #: libraries/config/messages.inc.php:184
 msgid "Microsoft Office"
 msgstr "Microsoft Office"
-
-#: libraries/config/messages.inc.php:186
-msgid "Open Document"
-msgstr "Avaa dokumentti"
 
 #: libraries/config/messages.inc.php:188
 msgid "Other core settings"
@@ -6212,7 +6208,9 @@ msgstr "CSV käyttäen LOAD DATA -kyselyä"
 #: libraries/config/setup.forms.php:255 libraries/config/setup.forms.php:348
 #: libraries/config/user_preferences.forms.php:160
 #: libraries/config/user_preferences.forms.php:252
-msgid "Open Document Spreadsheet"
+#, fuzzy
+#| msgid "Open Document Spreadsheet"
+msgid "OpenDocument Spreadsheet"
 msgstr "Open Document -laskentataulukko"
 
 #: libraries/config/setup.forms.php:262
@@ -6242,7 +6240,9 @@ msgstr "Microsoft Word 2000"
 
 #: libraries/config/setup.forms.php:352
 #: libraries/config/user_preferences.forms.php:256
-msgid "Open Document Text"
+#, fuzzy
+#| msgid "Open Document Text"
+msgid "OpenDocument Text"
 msgstr "Open Document -teksti"
 
 #: libraries/config/validate.lib.php:214
@@ -6473,8 +6473,8 @@ msgstr ""
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: "
-"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: %"
+"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Tämä arvo on tukittu %1$sstrftime%2$s mukaan, joten voi käyttää "
 "ajanmuodostostusmerkkijonoja. Lisäksi tapahtuu seuraavat muutokset: %3$s. "
@@ -6995,8 +6995,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:131
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the "
-"%sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the %"
+"sPrimeBase XT Home Page%s."
 msgstr ""
 
 #: libraries/engines/pbxt.lib.php:133
@@ -7708,11 +7708,11 @@ msgstr "Tervetuloa, toivottaa %s"
 #: libraries/plugins/auth/AuthenticationConfig.class.php:102
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the "
-"%1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the %"
+"1$ssetup script%2$s to create one."
 msgstr ""
-"Et liene luonut asetustiedostoa. Voit luoda asetustiedoston "
-"%1$sasetusskriptillä%2$s."
+"Et liene luonut asetustiedostoa. Voit luoda asetustiedoston %1"
+"$sasetusskriptillä%2$s."
 
 #: libraries/plugins/auth/AuthenticationConfig.class.php:122
 msgid ""
@@ -9716,8 +9716,8 @@ msgstr "Käyttäjien yleiskatsaus"
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should "
-"%sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should %"
+"sreload the privileges%s before you continue."
 msgstr ""
 "Huom: PhpMyAdmin hakee käyttäjien käyttöoikeudet suoraan MySQL-palvelimen "
 "käyttöoikeustauluista. Näiden taulujen sisältö saattaa poiketa palvelimen "
@@ -13150,8 +13150,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:179
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s"
-"%%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s%"
+"%. It should be above 80%%"
 msgstr ""
 
 #: libraries/advisory_rules.txt:181
@@ -13286,8 +13286,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:216
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than "
-"10%%."
+"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
+"%."
 msgstr ""
 
 #: libraries/advisory_rules.txt:218
@@ -14015,6 +14015,9 @@ msgstr ""
 msgid "concurrent_insert is set to 0"
 msgstr "Enim. yhtäaikaisia yhteyksiä"
 
+#~ msgid "Open Document"
+#~ msgstr "Avaa dokumentti"
+
 #~ msgid "Table seems to be empty!"
 #~ msgstr "Taulu on tyhjä!"
 
@@ -14317,8 +14320,8 @@ msgstr "Enim. yhtäaikaisia yhteyksiä"
 #~ "No description is available for this transformation.<br />Please ask the "
 #~ "author what %s does."
 #~ msgstr ""
-#~ "Tälle muunnokselle ei ole saatavilla kuvausta.<br />Kysy tekijältä, mitä "
-#~ "%s tekee."
+#~ "Tälle muunnokselle ei ole saatavilla kuvausta.<br />Kysy tekijältä, mitä %"
+#~ "s tekee."
 
 #~ msgid ""
 #~ "MIME types printed in italics do not have a separate transformation "
@@ -14444,8 +14447,8 @@ msgstr "Enim. yhtäaikaisia yhteyksiä"
 #~ msgid ""
 #~ "Are you sure you want to disable all BLOB references for database %s?"
 #~ msgstr ""
-#~ "Haluatko varmasti poistaa käytöstä kaikki BLOB-viittaukset tietokannasta "
-#~ "%s?"
+#~ "Haluatko varmasti poistaa käytöstä kaikki BLOB-viittaukset tietokannasta %"
+#~ "s?"
 
 #, fuzzy
 #~ msgid "Unknown error while uploading."
