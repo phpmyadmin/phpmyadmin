@@ -57,7 +57,7 @@ class ExportOdt extends ExportPlugin
         include_once "$props/options/items/RadioPropertyItem.class.php";
 
         $exportPluginProperties = new ExportPluginProperties();
-        $exportPluginProperties->setText('Open Document Text');
+        $exportPluginProperties->setText('OpenDocument Text');
         $exportPluginProperties->setExtension('odt');
         $exportPluginProperties->setMimeType(
             'application/vnd.oasis.opendocument.text'

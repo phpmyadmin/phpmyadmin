@@ -252,7 +252,7 @@ $forms['Import']['Csv'] = array('Import' => array(
         'ldi_local_option',
         ':group:end'));
 $forms['Import']['Open_Document'] = array('Import' => array(
-    ':group:' . __('Open Document Spreadsheet'),
+    ':group:' . __('OpenDocument Spreadsheet'),
         'ods_col_names',
         'ods_empty_rows',
         'ods_recognize_percentages',
@@ -345,11 +345,11 @@ $forms['Export']['Microsoft_Office'] = array('Export' => array(
         'htmlword_null',
         'htmlword_columns'));
 $forms['Export']['Open_Document'] = array('Export' => array(
-    ':group:' . __('Open Document Spreadsheet'),
+    ':group:' . __('OpenDocument Spreadsheet'),
         'ods_columns',
         'ods_null',
         ':group:end',
-    ':group:' . __('Open Document Text'),
+    ':group:' . __('OpenDocument Text'),
         'odt_structure_or_data',
         ':group:' . __('Structure'),
             'odt_relation',

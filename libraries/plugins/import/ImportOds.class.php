@@ -53,7 +53,7 @@ class ImportOds extends ImportPlugin
         include_once "$props/options/items/BoolPropertyItem.class.php";
 
         $importPluginProperties = new ImportPluginProperties();
-        $importPluginProperties->setText('Open Document Spreadsheet');
+        $importPluginProperties->setText('OpenDocument Spreadsheet');
         $importPluginProperties->setExtension('ods');
         $importPluginProperties->setOptionsText(__('Options'));
 
