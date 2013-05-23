@@ -6,13 +6,13 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-05-23 02:58-0400\n"
-"PO-Revision-Date: 2013-05-21 15:45+0200\n"
+"PO-Revision-Date: 2013-05-23 12:43+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Czech <http://l10n.cihar.com/projects/phpmyadmin/master/cs/>\n"
+"Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: cs\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 "X-Generator: Weblate 1.6-dev\n"
 
@@ -6182,6 +6182,10 @@ msgid ""
 "is installed does not have direct access to the internet. The format is: "
 "\"hostname:portnumber\""
 msgstr ""
+"Adresa URL proxy serveru, který má být použit při načítání informací o "
+"nejnovější verzi phpMyAdmina. Toto potřebujete pokud na serveru, kde je "
+"nainstalován phpMyAdmin, nemí přímý přístup k internetu. Formát je: "
+"\"hostname:portnumber\""
 
 #: libraries/config/messages.inc.php:523
 msgid "Version check proxy url"
@@ -6193,6 +6197,10 @@ msgid ""
 "authentication is performed. If a username is supplied, Basic Authentication "
 "will be performed. No other types of authentication are currently supported."
 msgstr ""
+"Uživatelské jméno pro přihlášení k serveru proxy. Ve výchozím nastavení není "
+"prováděno žádné ověřování. Pokud je zadáno uživatelské jméno, bude "
+"provedeno základní ověřování. V současné době nejsou podporovány žádné další "
+"typy ověřování."
 
 #: libraries/config/messages.inc.php:525
 msgid "Version check proxy username"
@@ -6200,7 +6208,7 @@ msgstr "Uživatel proxy pro kontrolu verze"
 
 #: libraries/config/messages.inc.php:526
 msgid "The password for authenticating with the proxy"
-msgstr ""
+msgstr "Heslo pro přihlášení k serveru proxy"
 
 #: libraries/config/messages.inc.php:527
 msgid "Version check proxy password"
@@ -6242,7 +6250,6 @@ msgstr "CSV pomocí LOAD DATA"
 #: libraries/config/setup.forms.php:260 libraries/config/setup.forms.php:353
 #: libraries/config/user_preferences.forms.php:160
 #: libraries/config/user_preferences.forms.php:252
-#, fuzzy
 #| msgid "Open Document Spreadsheet"
 msgid "OpenDocument Spreadsheet"
 msgstr "Sešit OpenDocument"
@@ -6274,7 +6281,6 @@ msgstr "Microsoft Word 2000"
 
 #: libraries/config/setup.forms.php:357
 #: libraries/config/user_preferences.forms.php:256
-#, fuzzy
 #| msgid "Open Document Text"
 msgid "OpenDocument Text"
 msgstr "Text OpenDocument"
