@@ -269,7 +269,7 @@ function PMA_Replication_Slave_binLogMaster($link = null)
  * @return array array of replicated databases
  */
 
-function PMA_replication_master_replicated_dbs($link = null)
+function PMA_Replication_Master_getReplicatedDbs($link = null)
 {
     // let's find out, which databases are replicated
     $data = PMA_DBI_fetchResult('SHOW MASTER STATUS', null, null, $link);
