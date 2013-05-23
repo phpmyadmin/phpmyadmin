@@ -33,7 +33,7 @@ class PMA_Index_Test extends PHPUnit_Framework_TestCase
         $this->_params['Index_type'] = "PMA_Index_type";
         $this->_params['Comment'] = "PMA_Comment";
         $this->_params['Index_comment'] = "PMA_Index_comment";
-        $this->_params['Non_unique'] = "0";
+        $this->_params['Non_unique'] = "PMA_Non_unique";
         $this->_params['Packed'] = "PMA_Packed";
         
         //test add columns
@@ -79,7 +79,7 @@ class PMA_Index_Test extends PHPUnit_Framework_TestCase
             $index->getPacked()
         );
         $this->assertEquals(
-            '0',
+            'PMA_Non_unique',
             $index->getNonUnique()
         );
         $this->assertContains(
@@ -95,20 +95,6 @@ class PMA_Index_Test extends PHPUnit_Framework_TestCase
             $index->getChoice()
         );
         
-    }
-
-    /**
-     * Test for singleton
-     *
-     * @return void
-     */
-    public function testSingleton()
-    {
-        $index = PMA_Index::singleton("pma_database", "pma_table", "pma_index");
-        $this->assertEquals(
-            'pma_index',
-            $index->getName()
-        );
     }
 
     /**
@@ -130,26 +116,13 @@ class PMA_Index_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for generateIndexSelector
-     *
-     * @return void
-     */
-    public function testGenerateIndexSelector()
-    {
-        $index = new PMA_Index($this->_params);
-        $this->assertContains(
-            '<option value="INDEX',
-            $index->generateIndexSelector()
-        );
-    }
-
-    /**
      * Test for isUnique
      *
      * @return void
      */
     public function testIsUniquer()
     {
+        $this->_params['Non_unique'] = "0";
         $index = new PMA_Index($this->_params);
         $this->assertTrue(
             $index->isUnique()
