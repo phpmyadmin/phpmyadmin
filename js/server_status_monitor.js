@@ -1320,7 +1320,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
         });
 
         $('#gridchart' + runtime.chartAI).bind('jqplotMouseUp', function (ev, gridpos, datapos, neighbor, plot) {
-            if (! drawTimeSpan) {
+            if (! drawTimeSpan || editMode) {
                 return;
             }
 
@@ -1339,7 +1339,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
         });
 
         $('#gridchart' + runtime.chartAI).bind('jqplotMouseMove', function (ev, gridpos, datapos, neighbor, plot) {
-            if (! drawTimeSpan) {
+            if (! drawTimeSpan || editMode) {
                 return;
             }
             if (selectionStartX !== undefined) {
