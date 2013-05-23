@@ -33,7 +33,7 @@ class PMA_Index_Test extends PHPUnit_Framework_TestCase
         $this->_params['Index_type'] = "PMA_Index_type";
         $this->_params['Comment'] = "PMA_Comment";
         $this->_params['Index_comment'] = "PMA_Index_comment";
-        $this->_params['Non_unique'] = "PMA_Non_unique";
+        $this->_params['Non_unique'] = "0";
         $this->_params['Packed'] = "PMA_Packed";
         
         //test add columns
@@ -79,7 +79,7 @@ class PMA_Index_Test extends PHPUnit_Framework_TestCase
             $index->getPacked()
         );
         $this->assertEquals(
-            'PMA_Non_unique',
+            '0',
             $index->getNonUnique()
         );
         $this->assertContains(
@@ -96,7 +96,70 @@ class PMA_Index_Test extends PHPUnit_Framework_TestCase
         );
         
     }
-    
+
+    /**
+     * Test for singleton
+     *
+     * @return void
+     */
+    public function testSingleton()
+    {
+        $index = PMA_Index::singleton("pma_database", "pma_table", "pma_index");
+        $this->assertEquals(
+            'pma_index',
+            $index->getName()
+        );
+    }
+
+    /**
+     * Test for getIndexChoices
+     *
+     * @return void
+     */
+    public function testGetIndexChoices()
+    {
+        $index_choices = PMA_Index::getIndexChoices();
+        $this->assertEquals(
+            5,
+            count($index_choices)
+        );
+        $this->assertEquals(
+            'PRIMARY,INDEX,UNIQUE,SPATIAL,FULLTEXT',
+            implode(",", $index_choices)
+        );
+    }
+
+    /**
+     * Test for generateIndexSelector
+     *
+     * @return void
+     */
+    public function testGenerateIndexSelector()
+    {
+        $index = new PMA_Index($this->_params);
+        $this->assertContains(
+            '<option value="INDEX',
+            $index->generateIndexSelector()
+        );
+    }
+
+    /**
+     * Test for isUnique
+     *
+     * @return void
+     */
+    public function testIsUniquer()
+    {
+        $index = new PMA_Index($this->_params);
+        $this->assertTrue(
+            $index->isUnique()
+        );
+        $this->assertEquals(
+            'Yes',
+            $index->isUnique(true)
+        );
+    }
+
     /**
      * Test for add Columns
      *
