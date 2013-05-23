@@ -765,26 +765,26 @@ function PMA_getPopContentHtml()
  */
 function PMA_getClientSideDataAndLinksHtml($ServerStatusData)
 {
-	/**
-	 * Define some data needed on the client side
+    /**
+     * Define some data needed on the client side
      */
-	$input = '<input type="hidden" name="%s" value="%s" />';
-	$form  = '<form id="js_data" class="hide">';
-	$form .= sprintf($input, 'server_time', microtime(true) * 1000);
-	$form .= sprintf($input, 'server_os', PHP_OS);
-	$form .= sprintf($input, 'is_superuser', PMA_isSuperuser());
-	$form .= sprintf($input, 'server_db_isLocal', $ServerStatusData->db_isLocal);
-	$form .= '</form>';
-	/**
-	 * Define some links used on client side
-	 */
-	$links  = '<div id="profiling_docu" class="hide">';
-	$links .= PMA_Util::showMySQLDocu('general-thread-states', 'general-thread-states');
-	$links .= '</div>';
-	$links .= '<div id="explain_docu" class="hide">';
-	$links .= PMA_Util::showMySQLDocu('explain-output', 'explain-output');
-	$links .= '</div>';
-	
-	return $form . $links;
+    $input = '<input type="hidden" name="%s" value="%s" />';
+    $form  = '<form id="js_data" class="hide">';
+    $form .= sprintf($input, 'server_time', microtime(true) * 1000);
+    $form .= sprintf($input, 'server_os', PHP_OS);
+    $form .= sprintf($input, 'is_superuser', PMA_isSuperuser());
+    $form .= sprintf($input, 'server_db_isLocal', $ServerStatusData->db_isLocal);
+    $form .= '</form>';
+    /**
+     * Define some links used on client side
+     */
+    $links  = '<div id="profiling_docu" class="hide">';
+    $links .= PMA_Util::showMySQLDocu('general-thread-states', 'general-thread-states');
+    $links .= '</div>';
+    $links .= '<div id="explain_docu" class="hide">';
+    $links .= PMA_Util::showMySQLDocu('explain-output', 'explain-output');
+    $links .= '</div>';
+    
+    return $form . $links;
 }
 ?>
