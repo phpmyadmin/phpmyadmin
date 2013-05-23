@@ -48,7 +48,7 @@ class ExportOds extends ExportPlugin
         include_once "$props/options/items/HiddenPropertyItem.class.php";
 
         $exportPluginProperties = new ExportPluginProperties();
-        $exportPluginProperties->setText('Open Document Spreadsheet');
+        $exportPluginProperties->setText('OpenDocument Spreadsheet');
         $exportPluginProperties->setExtension('ods');
         $exportPluginProperties->setMimeType(
             'application/vnd.oasis.opendocument.spreadsheet'

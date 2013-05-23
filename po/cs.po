@@ -5,8 +5,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-05-21 14:02+0200\n"
-"PO-Revision-Date: 2013-05-21 15:45+0200\n"
+"POT-Creation-Date: 2013-05-23 02:58-0400\n"
+"PO-Revision-Date: 2013-05-23 12:43+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Czech <http://l10n.cihar.com/projects/phpmyadmin/master/cs/>\n"
 "Language: cs\n"
@@ -117,12 +117,12 @@ msgstr "Byla vytvořena databáze %1$s."
 msgid "Database comment: "
 msgstr "Komentář k databázi: "
 
-#: db_datadict.php:158 libraries/schema/Pdf_Relation_Schema.class.php:1332
+#: db_datadict.php:157 libraries/schema/Pdf_Relation_Schema.class.php:1332
 #: libraries/tbl_columns_definition_form.inc.php:836 tbl_printview.php:120
 msgid "Table comments:"
 msgstr "Komentář k tabulce:"
 
-#: db_datadict.php:167 libraries/Index.class.php:565
+#: db_datadict.php:166 libraries/Index.class.php:565
 #: libraries/TableSearch.class.php:183 libraries/TableSearch.class.php:1190
 #: libraries/display_indexes.lib.php:117 libraries/insert_edit.lib.php:1566
 #: libraries/plugins/export/ExportHtmlword.class.php:276
@@ -140,7 +140,7 @@ msgstr "Komentář k tabulce:"
 msgid "Column"
 msgstr "Pole"
 
-#: db_datadict.php:168 db_printview.php:49 libraries/Index.class.php:562
+#: db_datadict.php:167 db_printview.php:49 libraries/Index.class.php:562
 #: libraries/TableSearch.class.php:184 libraries/insert_edit.lib.php:241
 #: libraries/insert_edit.lib.php:245
 #: libraries/plugins/export/ExportHtmlword.class.php:279
@@ -163,7 +163,7 @@ msgstr "Pole"
 msgid "Type"
 msgstr "Typ"
 
-#: db_datadict.php:169 libraries/Index.class.php:568
+#: db_datadict.php:168 libraries/Index.class.php:568
 #: libraries/TableSearch.class.php:1191 libraries/insert_edit.lib.php:1575
 #: libraries/plugins/export/ExportHtmlword.class.php:282
 #: libraries/plugins/export/ExportHtmlword.class.php:397
@@ -180,7 +180,7 @@ msgstr "Typ"
 msgid "Null"
 msgstr "Nulový"
 
-#: db_datadict.php:170 libraries/plugins/export/ExportHtmlword.class.php:285
+#: db_datadict.php:169 libraries/plugins/export/ExportHtmlword.class.php:285
 #: libraries/plugins/export/ExportHtmlword.class.php:400
 #: libraries/plugins/export/ExportLatex.class.php:511
 #: libraries/plugins/export/ExportOdt.class.php:367
@@ -195,7 +195,7 @@ msgstr "Nulový"
 msgid "Default"
 msgstr "Výchozí"
 
-#: db_datadict.php:172 libraries/plugins/export/ExportHtmlword.class.php:404
+#: db_datadict.php:171 libraries/plugins/export/ExportHtmlword.class.php:404
 #: libraries/plugins/export/ExportLatex.class.php:513
 #: libraries/plugins/export/ExportOdt.class.php:469
 #: libraries/plugins/export/ExportTexytext.class.php:374
@@ -204,7 +204,7 @@ msgstr "Výchozí"
 msgid "Links to"
 msgstr "Odkazuje na"
 
-#: db_datadict.php:174 db_printview.php:53
+#: db_datadict.php:173 db_printview.php:53
 #: libraries/config/messages.inc.php:92 libraries/config/messages.inc.php:107
 #: libraries/config/messages.inc.php:129
 #: libraries/plugins/export/ExportHtmlword.class.php:409
@@ -217,7 +217,7 @@ msgstr "Odkazuje na"
 msgid "Comments"
 msgstr "Komentáře"
 
-#: db_datadict.php:238 js/messages.php:231 libraries/Index.class.php:431
+#: db_datadict.php:237 js/messages.php:231 libraries/Index.class.php:431
 #: libraries/Index.class.php:470 libraries/Index.class.php:874
 #: libraries/config/FormDisplay.tpl.php:258 libraries/mult_submits.inc.php:370
 #: libraries/mult_submits.inc.php:371
@@ -239,7 +239,7 @@ msgstr "Komentáře"
 msgid "No"
 msgstr "Ne"
 
-#: db_datadict.php:238 js/messages.php:230 libraries/Index.class.php:432
+#: db_datadict.php:237 js/messages.php:230 libraries/Index.class.php:432
 #: libraries/Index.class.php:469 libraries/Index.class.php:874
 #: libraries/config/FormDisplay.tpl.php:258 libraries/mult_submits.inc.php:74
 #: libraries/mult_submits.inc.php:109 libraries/mult_submits.inc.php:118
@@ -600,8 +600,8 @@ msgstr "Z funkcí zvolte „GeomFromText“ a vložte níže uvedený text jako 
 #: import.php:107
 #, php-format
 msgid ""
-"You probably tried to upload a file that is too large. Please refer to "
-"%sdocumentation%s for a workaround for this limit."
+"You probably tried to upload a file that is too large. Please refer to %"
+"sdocumentation%s for a workaround for this limit."
 msgstr ""
 "Pravděpodobně jste se pokusili nahrát příliš velký soubor. Přečtěte si "
 "prosím %sdokumentaci%s, jak toto omezení obejít."
@@ -2598,8 +2598,8 @@ msgstr "v dotazu"
 #: libraries/DisplayResults.class.php:4910 libraries/structure.lib.php:653
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation"
-"%s."
+"This view has at least this number of rows. Please refer to %sdocumentation%"
+"s."
 msgstr ""
 "Tento pohled má alespoň tolik řádek. Podrobnosti naleznete v %sdokumentaci%s."
 
@@ -2743,12 +2743,12 @@ msgstr "Otevřít nové okno phpMyAdmina"
 msgid "Click on the bar to scroll to top of page"
 msgstr "Klikněte na pruh pro posunutí stránky nahoru"
 
-#: libraries/Header.class.php:621
+#: libraries/Header.class.php:623
 #: libraries/plugins/auth/AuthenticationCookie.class.php:269
 msgid "Cookies must be enabled past this point."
 msgstr "Přihlášení vyžaduje povolené cookies."
 
-#: libraries/Header.class.php:626
+#: libraries/Header.class.php:628
 #: libraries/plugins/auth/AuthenticationCookie.class.php:172
 msgid "Javascript must be enabled past this point"
 msgstr "Pro použití phpMyAdmina musíte mít zapnutý Javascript"
@@ -3334,20 +3334,20 @@ msgstr ""
 
 #: libraries/Types.class.php:308
 msgid ""
-"A small floating-point number, allowable values are -3.402823466E+38 to "
-"-1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
+"A small floating-point number, allowable values are -3.402823466E+38 to -"
+"1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
 msgstr ""
 "Číslo s pohyblivou desetinnou čárkou, podporované rozsahy od -3.402823466E"
 "+38 od -1.175494351E-38, 0, a od 1.175494351E-38 do 3.402823466E+38"
 
 #: libraries/Types.class.php:310
 msgid ""
-"A double-precision floating-point number, allowable values are "
-"-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
+"A double-precision floating-point number, allowable values are -"
+"1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
 "2.2250738585072014E-308 to 1.7976931348623157E+308"
 msgstr ""
-"Číslo s pohyblivou desetinnou čárkou, podporované rozsahy od "
-"-1.7976931348623157E+308 do -2.2250738585072014E-308, 0, a od "
+"Číslo s pohyblivou desetinnou čárkou, podporované rozsahy od -"
+"1.7976931348623157E+308 do -2.2250738585072014E-308, 0, a od "
 "2.2250738585072014E-308 do 1.7976931348623157E+308"
 
 #: libraries/Types.class.php:312
@@ -3873,12 +3873,10 @@ msgid "numeric key detected"
 msgstr "detekován číselný klíč"
 
 #: libraries/config.values.php:49 libraries/config.values.php:64
-#| msgid "Ins"
 msgid "Icons"
 msgstr "Ikony"
 
 #: libraries/config.values.php:50 libraries/config.values.php:65
-#| msgid "Test"
 msgid "Text"
 msgstr "Text"
 
@@ -4660,10 +4658,6 @@ msgstr "Hlavní panel"
 #: libraries/config/messages.inc.php:184
 msgid "Microsoft Office"
 msgstr "Microsoft Office"
-
-#: libraries/config/messages.inc.php:186
-msgid "Open Document"
-msgstr "Open Document"
 
 #: libraries/config/messages.inc.php:188
 msgid "Other core settings"
@@ -6188,9 +6182,12 @@ msgid ""
 "is installed does not have direct access to the internet. The format is: "
 "\"hostname:portnumber\""
 msgstr ""
+"Adresa URL proxy serveru, který má být použit při načítání informací o "
+"nejnovější verzi phpMyAdmina. Toto potřebujete pokud na serveru, kde je "
+"nainstalován phpMyAdmin, nemí přímý přístup k internetu. Formát je: "
+"\"hostname:portnumber\""
 
 #: libraries/config/messages.inc.php:523
-#| msgid "Version check"
 msgid "Version check proxy url"
 msgstr "Adresa proxy pro kontrolu verze"
 
@@ -6200,18 +6197,20 @@ msgid ""
 "authentication is performed. If a username is supplied, Basic Authentication "
 "will be performed. No other types of authentication are currently supported."
 msgstr ""
+"Uživatelské jméno pro přihlášení k serveru proxy. Ve výchozím nastavení není "
+"prováděno žádné ověřování. Pokud je zadáno uživatelské jméno, bude "
+"provedeno základní ověřování. V současné době nejsou podporovány žádné další "
+"typy ověřování."
 
 #: libraries/config/messages.inc.php:525
-#| msgid "Version check"
 msgid "Version check proxy username"
 msgstr "Uživatel proxy pro kontrolu verze"
 
 #: libraries/config/messages.inc.php:526
 msgid "The password for authenticating with the proxy"
-msgstr ""
+msgstr "Heslo pro přihlášení k serveru proxy"
 
 #: libraries/config/messages.inc.php:527
-#| msgid "Version check"
 msgid "Version check proxy password"
 msgstr "Heslo proxy pro kontrolu verze"
 
@@ -6251,7 +6250,8 @@ msgstr "CSV pomocí LOAD DATA"
 #: libraries/config/setup.forms.php:260 libraries/config/setup.forms.php:353
 #: libraries/config/user_preferences.forms.php:160
 #: libraries/config/user_preferences.forms.php:252
-msgid "Open Document Spreadsheet"
+#| msgid "Open Document Spreadsheet"
+msgid "OpenDocument Spreadsheet"
 msgstr "Sešit OpenDocument"
 
 #: libraries/config/setup.forms.php:267
@@ -6281,7 +6281,8 @@ msgstr "Microsoft Word 2000"
 
 #: libraries/config/setup.forms.php:357
 #: libraries/config/user_preferences.forms.php:256
-msgid "Open Document Text"
+#| msgid "Open Document Text"
+msgid "OpenDocument Text"
 msgstr "Text OpenDocument"
 
 #: libraries/config/validate.lib.php:214
@@ -6522,8 +6523,8 @@ msgstr ", @TABLE@ bude nahrazen jménem tabulky"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: "
-"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: %"
+"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Tato hodnota je interpretována pomocí %1$sstrftime%2$s, takže můžete použít "
 "libovolné řetězce pro formátování data a času. Dále budou provedena "
@@ -7068,8 +7069,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:131
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the "
-"%sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the %"
+"sPrimeBase XT Home Page%s."
 msgstr ""
 "Dokumentace a další informace o PBXT můžete nalézt na %sstránkách PrimeBase "
 "XT%s."
@@ -7226,12 +7227,10 @@ msgid "Convert to Kana"
 msgstr "Převést na Kanu"
 
 #: libraries/mult_submits.inc.php:288
-#| msgid "Replace table prefix"
 msgid "Replace table prefix:"
 msgstr "Změnit tabulce předponu:"
 
 #: libraries/mult_submits.inc.php:290
-#| msgid "Copy table with prefix"
 msgid "Copy table with prefix:"
 msgstr "Zkopírovat tabulku s předponou:"
 
@@ -7249,7 +7248,6 @@ msgid "Submit"
 msgstr "Provést"
 
 #: libraries/mult_submits.inc.php:317
-#| msgid "Add table prefix"
 msgid "Add table prefix:"
 msgstr "Přidat tabulce předponu:"
 
@@ -7756,8 +7754,8 @@ msgstr "Vítejte v %s"
 #: libraries/plugins/auth/AuthenticationConfig.class.php:102
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the "
-"%1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the %"
+"1$ssetup script%2$s to create one."
 msgstr ""
 "Pravděpodobná příčina je, že nemáte vytvořený konfigurační soubor. Pro jeho "
 "vytvoření by se vám mohl hodit %1$snastavovací skript%2$s."
@@ -9682,8 +9680,8 @@ msgstr "Přehled uživatelů"
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should "
-"%sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should %"
+"sreload the privileges%s before you continue."
 msgstr ""
 "Poznámka: phpMyAdmin získává oprávnění přímo z tabulek MySQL. Obsah těchto "
 "tabulek se může lišit od oprávnění, která server právě používá, pokud byly "
@@ -10067,8 +10065,8 @@ msgid ""
 "For a list of available transformation options and their MIME type "
 "transformations, click on %stransformation descriptions%s"
 msgstr ""
-"Pro seznam dostupných parametrů transformací a jejich MIME typů klikněte na "
-"%spopisy transformací%s"
+"Pro seznam dostupných parametrů transformací a jejich MIME typů klikněte na %"
+"spopisy transformací%s"
 
 #: libraries/tbl_columns_definition_form.inc.php:171
 msgid "Transformation options"
@@ -10403,8 +10401,8 @@ msgid ""
 "You can set more settings by modifying config.inc.php, eg. by using %sSetup "
 "script%s."
 msgstr ""
-"Více věcí můžete nastavit úpravou config.inc.php, např. použitím "
-"%sNastavovacího skriptu%s."
+"Více věcí můžete nastavit úpravou config.inc.php, např. použitím %"
+"sNastavovacího skriptu%s."
 
 #: prefs_manage.php:308
 msgid "Save to browser's storage"
@@ -12053,8 +12051,8 @@ msgid ""
 "If using cookie authentication and %sLogin cookie store%s is not 0, %sLogin "
 "cookie validity%s must be set to a value less or equal to it."
 msgstr ""
-"Při použití přihlašování přes cookies a při %sUkládádání přihlašovaci cookie"
-"%s vyšší než 0 musí být %sPlatnost přihlašovací cookie%s nastavena na vyšší "
+"Při použití přihlašování přes cookies a při %sUkládádání přihlašovaci cookie%"
+"s vyšší než 0 musí být %sPlatnost přihlašovací cookie%s nastavena na vyšší "
 "hodnotu než je tato."
 
 #: setup/lib/index.lib.php:314
@@ -12065,8 +12063,8 @@ msgid ""
 "protection may not be reliable if your IP belongs to an ISP where thousands "
 "of users, including you, are connected to."
 msgstr ""
-"Pokud to považujete za nutné, použijte další možnosti zabezpečení - "
-"%somezení počítačů%s a %sseznam důvěryhodných proxy%s. Nicméně zabezpečení "
+"Pokud to považujete za nutné, použijte další možnosti zabezpečení - %"
+"somezení počítačů%s a %sseznam důvěryhodných proxy%s. Nicméně zabezpečení "
 "založené na IP adresách nemusí být spolehlivé, pokud je vaše IP adresa "
 "dynamicky přidělována poskytovatelem spolu s mnoha dalšími uživateli."
 
@@ -12630,8 +12628,8 @@ msgid ""
 "You have a slow query rate of %s per hour, you should have less than 1%% per "
 "hour."
 msgstr ""
-"Četnost pomalých dotazů na tomto serveru je %s za hodinu, měla by být pod "
-"1%%."
+"Četnost pomalých dotazů na tomto serveru je %s za hodinu, měla by být pod 1%"
+"%."
 
 #: libraries/advisory_rules.txt:77
 msgid "Long query time"
@@ -12896,8 +12894,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:179
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s"
-"%%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s%"
+"%. It should be above 80%%"
 msgstr ""
 "V současné době je volno %s%% mezipaměti. Tato hodnota by se měla držet nad "
 "80%%"
@@ -13045,11 +13043,11 @@ msgstr ""
 #: libraries/advisory_rules.txt:216
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than "
-"10%%."
+"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
+"%."
 msgstr ""
-"%s%% všech řazení využilo dočasných tabulek, tato hodnota by měla být pod "
-"10%%."
+"%s%% všech řazení využilo dočasných tabulek, tato hodnota by měla být pod 10%"
+"%."
 
 #: libraries/advisory_rules.txt:218
 msgid "Rate of sorts that cause temporary tables"
@@ -13795,6 +13793,9 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert je nastaveno na 0"
+
+#~ msgid "Open Document"
+#~ msgstr "Open Document"
 
 #~ msgid "Count tables when showing database list"
 #~ msgstr "Zda počítat tabulky, když se zobrazuje seznam databází"
