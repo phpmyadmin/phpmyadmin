@@ -165,7 +165,7 @@ function PMA_extractDbOrTable($string, $what = 'db')
  *
  * @return mixed output of PMA_DBI_tryQuery
  */
-function PMA_replication_slave_control($action, $control = null, $link = null)
+function PMA_Replication_Slave_control($action, $control = null, $link = null)
 {
     $action = strtoupper($action);
     $control = strtoupper($control);
@@ -199,7 +199,7 @@ function PMA_replication_slave_change_master($user, $password, $host, $port,
     $pos, $stop = true, $start = true, $link = null
 ) {
     if ($stop) {
-        PMA_replication_slave_control("STOP", null, $link);
+        PMA_Replication_Slave_control("STOP", null, $link);
     }
 
     $out = PMA_DBI_tryQuery(
@@ -213,7 +213,7 @@ function PMA_replication_slave_change_master($user, $password, $host, $port,
     );
 
     if ($start) {
-        PMA_replication_slave_control("START", null, $link);
+        PMA_Replication_Slave_control("START", null, $link);
     }
 
     return $out;

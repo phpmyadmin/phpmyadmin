@@ -113,11 +113,11 @@ if (isset($GLOBALS['sr_take_action'])) {
         }
     } elseif (isset($GLOBALS['sr_slave_server_control'])) {
         if ($GLOBALS['sr_slave_action'] == 'reset') {
-            PMA_replication_slave_control("STOP");
+            PMA_Replication_Slave_control("STOP");
             PMA_DBI_tryQuery("RESET SLAVE;");
-            PMA_replication_slave_control("START");
+            PMA_Replication_Slave_control("START");
         } else {
-            PMA_replication_slave_control(
+            PMA_Replication_Slave_control(
                 $GLOBALS['sr_slave_action'],
                 $GLOBALS['sr_slave_control_parm']
             );
@@ -129,9 +129,9 @@ if (isset($GLOBALS['sr_take_action'])) {
         if (isset($GLOBALS['sr_skip_errors_count'])) {
             $count = $GLOBALS['sr_skip_errors_count'] * 1;
         }
-        PMA_replication_slave_control("STOP");
+        PMA_Replication_Slave_control("STOP");
         PMA_DBI_tryQuery("SET GLOBAL SQL_SLAVE_SKIP_COUNTER = ".$count.";");
-        PMA_replication_slave_control("START");
+        PMA_Replication_Slave_control("START");
 
     }
 
