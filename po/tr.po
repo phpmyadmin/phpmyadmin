@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-05-23 02:54-0400\n"
-"PO-Revision-Date: 2013-05-23 09:13+0200\n"
+"PO-Revision-Date: 2013-05-23 09:26+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish <http://l10n.cihar.com/projects/phpmyadmin/4-0/tr/>\n"
 "Language: tr\n"
@@ -6223,7 +6223,7 @@ msgstr "VERİ YÜKLE kullanarak CSV"
 #: libraries/config/user_preferences.forms.php:252
 #| msgid "Open Document Spreadsheet"
 msgid "OpenDocument Spreadsheet"
-msgstr "OpenDocument Tablolama Belgesi"
+msgstr "OpenDocument Hesap Tablosu"
 
 #: libraries/config/setup.forms.php:262
 #: libraries/config/user_preferences.forms.php:167
