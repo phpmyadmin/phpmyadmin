@@ -927,8 +927,9 @@ class PMA_NavigationTree
                     if ($GLOBALS['cfg']['ShowTooltip']) {
                         $title = $node->getComment();
                         if ($title) {
-                            $title = " title='"
-                                . htmlentities($title, ENT_QUOTES) . "'";
+                            $title = ' title="'
+                                . htmlentities($title, ENT_QUOTES, 'UTF-8') 
+                                . '"';
                         }
                     } else {
                         $title = '';
