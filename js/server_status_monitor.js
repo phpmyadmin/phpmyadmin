@@ -1275,7 +1275,7 @@ AJAX.registerOnload('server_status_monitor.js', function() {
 
             selectionTimeDiff.push(datapos.xaxis);
 
-            if (selectionTimeDiff[1] < selectionTimeDiff[0]) {
+            if (selectionTimeDiff[1] <= selectionTimeDiff[0]) {
                 selectionTimeDiff = [];
                 return;
             }
