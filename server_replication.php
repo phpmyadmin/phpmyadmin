@@ -79,7 +79,7 @@ if (isset($GLOBALS['sr_take_action'])) {
         $_SESSION['replication']['sr_action_info'] = __('Unknown error');
 
         // Attempt to connect to the new master server
-        $link_to_master = PMA_replication_connect_to_master(
+        $link_to_master = PMA_Replication_connectToMaster(
             $sr['username'], $sr['pma_pw'], $sr['hostname'], $sr['port']
         );
 

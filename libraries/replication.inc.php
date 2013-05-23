@@ -230,7 +230,7 @@ function PMA_Replication_Slave_changeMaster($user, $password, $host, $port,
  *
  * @return mixed $link mysql link on success
  */
-function PMA_replication_connect_to_master($user, $password, $host = null, $port = null, $socket = null)
+function PMA_Replication_connectToMaster($user, $password, $host = null, $port = null, $socket = null)
 {
     $server = array();
     $server["host"] = $host;
