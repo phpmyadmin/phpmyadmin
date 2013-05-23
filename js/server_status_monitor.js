@@ -1268,8 +1268,8 @@ AJAX.registerOnload('server_status_monitor.js', function() {
                 .fadeIn();
         });
 
-        $('#gridchart' + runtime.chartAI).bind('jqplotMouseUp', function(ev, gridpos, datapos, neighbor, plot) {
-            if (! drawTimeSpan) {
+        $('#gridchart' + runtime.chartAI).bind('jqplotMouseUp', function (ev, gridpos, datapos, neighbor, plot) {
+            if (! drawTimeSpan || editMode) {
                 return;
             }
 
@@ -1287,8 +1287,8 @@ AJAX.registerOnload('server_status_monitor.js', function() {
             drawTimeSpan = false;
         });
 
-        $('#gridchart' + runtime.chartAI).bind('jqplotMouseMove', function(ev, gridpos, datapos, neighbor, plot) {
-            if (! drawTimeSpan) {
+        $('#gridchart' + runtime.chartAI).bind('jqplotMouseMove', function (ev, gridpos, datapos, neighbor, plot) {
+            if (! drawTimeSpan || editMode) {
                 return;
             }
             if (selectionStartX != undefined) {
