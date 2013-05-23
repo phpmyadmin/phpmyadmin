@@ -4,14 +4,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-05-21 14:02+0200\n"
-"PO-Revision-Date: 2013-05-22 01:52+0200\n"
-"Last-Translator: Airton Torres <airton.torres@gmail.com>\n"
+"PO-Revision-Date: 2013-05-23 17:25+0200\n"
+"Last-Translator: Rodrigo Souza <rodrigo.chrome@live.com>\n"
 "Language-Team: Portuguese (Brazil) "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/pt_BR/>\n"
+"Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: pt_BR\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 "X-Generator: Weblate 1.6-dev\n"
 
@@ -3928,16 +3928,14 @@ msgid "numeric key detected"
 msgstr "tecla numérica detectada"
 
 #: libraries/config.values.php:49 libraries/config.values.php:64
-#, fuzzy
 #| msgid "Ins"
 msgid "Icons"
-msgstr "Inserir"
+msgstr "Ícones"
 
 #: libraries/config.values.php:50 libraries/config.values.php:65
-#, fuzzy
 #| msgid "Test"
 msgid "Text"
-msgstr "Teste"
+msgstr "Texto"
 
 #: libraries/config.values.php:51 libraries/config.values.php:58
 #: libraries/config.values.php:66
@@ -6282,10 +6280,9 @@ msgstr ""
 "\"hostname:portnumber\""
 
 #: libraries/config/messages.inc.php:523
-#, fuzzy
 #| msgid "Version check"
 msgid "Version check proxy url"
-msgstr "Verificação de versão"
+msgstr "URL do proxy da verificação de versão"
 
 #: libraries/config/messages.inc.php:524
 msgid ""
@@ -6298,20 +6295,18 @@ msgstr ""
 "Básica. Nenhum outro tipo de autenticação é suportado atualmente."
 
 #: libraries/config/messages.inc.php:525
-#, fuzzy
 #| msgid "Version check"
 msgid "Version check proxy username"
-msgstr "Verificação de versão"
+msgstr "Nome de usuário do proxy da verificação de versão"
 
 #: libraries/config/messages.inc.php:526
 msgid "The password for authenticating with the proxy"
-msgstr ""
+msgstr "A senha para autenticação com o proxy"
 
 #: libraries/config/messages.inc.php:527
-#, fuzzy
 #| msgid "Version check"
 msgid "Version check proxy password"
-msgstr "Verificação de versão"
+msgstr "Senha do proxy da verificação de versão"
 
 #: libraries/config/messages.inc.php:529
 msgid ""
@@ -6349,10 +6344,9 @@ msgstr "CSV usando LOAD DATA"
 #: libraries/config/setup.forms.php:260 libraries/config/setup.forms.php:353
 #: libraries/config/user_preferences.forms.php:160
 #: libraries/config/user_preferences.forms.php:252
-#, fuzzy
 #| msgid "Open Document Spreadsheet"
 msgid "OpenDocument Spreadsheet"
-msgstr "Planilha Open Document"
+msgstr "Planilha Open-Document"
 
 #: libraries/config/setup.forms.php:267
 #: libraries/config/user_preferences.forms.php:167
@@ -6381,10 +6375,9 @@ msgstr "Microsoft Word 2000"
 
 #: libraries/config/setup.forms.php:357
 #: libraries/config/user_preferences.forms.php:256
-#, fuzzy
 #| msgid "Open Document Text"
 msgid "OpenDocument Text"
-msgstr "Texto Open Document"
+msgstr "Texto Open-Document"
 
 #: libraries/config/validate.lib.php:214
 msgid "Could not initialize Drizzle connection library"
@@ -7346,16 +7339,14 @@ msgid "Convert to Kana"
 msgstr "Converter para Katakana"
 
 #: libraries/mult_submits.inc.php:288
-#, fuzzy
 #| msgid "Replace table prefix"
 msgid "Replace table prefix:"
-msgstr "Substituir o prefixo de tabelas"
+msgstr "Substituir o prefixo de tabelas:"
 
 #: libraries/mult_submits.inc.php:290
-#, fuzzy
 #| msgid "Copy table with prefix"
 msgid "Copy table with prefix:"
-msgstr "Copiar tabelas com prefixo"
+msgstr "Copiar tabelas com prefixo:"
 
 #: libraries/mult_submits.inc.php:295
 msgid "From"
@@ -7371,10 +7362,9 @@ msgid "Submit"
 msgstr "Submit"
 
 #: libraries/mult_submits.inc.php:317
-#, fuzzy
 #| msgid "Add table prefix"
 msgid "Add table prefix:"
-msgstr "Adicionar prefixo de tabelas"
+msgstr "Adicionar prefixo de tabelas:"
 
 #: libraries/mult_submits.inc.php:320
 msgid "Add prefix"
