@@ -18,6 +18,7 @@ phpMyAdmin - ChangeLog
 4.0.3.0 (not yet released)
 - bug #3941 Recent tables list always empty
 - bug #3933 Do not translate "Open Document" in export settings
+- bug #3927 List of tables is missing after expanding in the navigation frame
 
 4.0.2.0 (not yet released)
 - bug #3902 Cannot browse when table name contains keyword "call"
