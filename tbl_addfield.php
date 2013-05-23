@@ -50,8 +50,8 @@ if (isset($_REQUEST['do_save_data'])) {
     //avoid an incorrect calling of PMA_updateColumns() via
     //tbl_structure.php below
     unset($_REQUEST['do_save_data']);
-    
-    require_once 'libraries/create_addfield.lib.php';
+
+    include_once 'libraries/create_addfield.lib.php';
     // get column addition statements
     $sql_statement = PMA_getColumnCreationStatements(false);
 

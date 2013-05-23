@@ -961,8 +961,8 @@ function PMA_getServerSlaveStatus($server_slave_status, $truename)
             $do = true;
         }
         foreach ($server_slave_Wild_Do_Table as $db_table) {
-            $table_part = PMA_extract_db_or_table($db_table, 'table');
-            if (($GLOBALS['db'] == PMA_extract_db_or_table($db_table, 'db'))
+            $table_part = PMA_extractDbOrTable($db_table, 'table');
+            if (($GLOBALS['db'] == PMA_extractDbOrTable($db_table, 'db'))
                 && (preg_match("@^" . substr($table_part, 0, strlen($table_part) - 1) . "@", $truename))
             ) {
                 $do = true;
@@ -975,8 +975,8 @@ function PMA_getServerSlaveStatus($server_slave_status, $truename)
             $ignored = true;
         }
         foreach ($server_slave_Wild_Ignore_Table as $db_table) {
-            $table_part = PMA_extract_db_or_table($db_table, 'table');
-            if (($db == PMA_extract_db_or_table($db_table))
+            $table_part = PMA_extractDbOrTable($db_table, 'table');
+            if (($db == PMA_extractDbOrTable($db_table))
                 && (preg_match("@^" . substr($table_part, 0, strlen($table_part) - 1) . "@", $truename))
             ) {
                 $ignored = true;
@@ -2508,14 +2508,14 @@ function PMA_moveColumns($db, $table)
 
 /**
  * Get columns with unique index
- * 
+ *
  * @param string $db    database name
  * @param string $table tablename
- * 
+ *
  * @return array $columns_with_unique_index  An array of columns with unique index,
  *                                            with $column name as the array key
  */
-function PMA_getColumnsWithUniqueIndex($db ,$table) 
+function PMA_getColumnsWithUniqueIndex($db ,$table)
 {
     $columns_with_unique_index = array();
     foreach (PMA_Index::getFromTable($table, $db) as $index) {
@@ -2531,22 +2531,22 @@ function PMA_getColumnsWithUniqueIndex($db ,$table)
 
 /**
  * Check column names for MySQL reserved words
- * 
+ *
  * @param string $db    database name
  * @param string $table tablename
- * 
+ *
  * @return array $messages      array of PMA_Messages
  */
-function PMA_getReservedWordColumnNameMessages($db ,$table) 
+function PMA_getReservedWordColumnNameMessages($db ,$table)
 {
     $messages = array();
     if ($GLOBALS['cfg']['ReservedWordDisableWarning'] === false) {
         $pma_table = new PMA_Table($table, $db);
-        $columns = $pma_table->getReservedColumnNames();        
+        $columns = $pma_table->getReservedColumnNames();
         if (!empty($columns)) {
             foreach ($columns as $column) {
                 $msg = PMA_message::notice(
-                                __('The column name \'%s\' is a MySQL reserved keyword.')
+                    __('The column name \'%s\' is a MySQL reserved keyword.')
                 );
                 $msg->addParam($column);
                 $messages[] = $msg;

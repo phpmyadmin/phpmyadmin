@@ -30,14 +30,14 @@ $scripts->addFile('indexes.js');
  */
 if (isset($_REQUEST['move_columns'])
     && is_array($_REQUEST['move_columns'])
-    && $response->isAjax() 
+    && $response->isAjax()
 ) {
     PMA_moveColumns($db, $table);
     exit;
 }
 
 /**
- * A click on Change has been made for one column 
+ * A click on Change has been made for one column
  */
 if (isset($_REQUEST['change_column'])) {
     PMA_displayHtmlForColumnChange($db, $table, null, 'tbl_structure.php');
@@ -140,7 +140,7 @@ $url_params['goto'] = 'tbl_structure.php';
 $url_params['back'] = 'tbl_structure.php';
 
 // Check column names for MySQL reserved words
-$reserved_word_column_messages = PMA_getReservedWordColumnNameMessages($db ,$table);
+$reserved_word_column_messages = PMA_getReservedWordColumnNameMessages($db, $table);
 $response->addHTML($reserved_word_column_messages);
 
 /**
@@ -159,7 +159,7 @@ require_once 'libraries/Index.class.php';
 // @todo should be: $server->db($db)->table($table)->primary()
 $primary = PMA_Index::getPrimary($table, $db);
 
-$columns_with_unique_index = PMA_getColumnsWithUniqueIndex($db ,$table);
+$columns_with_unique_index = PMA_getColumnsWithUniqueIndex($db, $table);
 
 // 3. Get fields
 $fields = (array) PMA_DBI_getColumns($db, $table, null, true);

@@ -127,7 +127,9 @@ if (isset($_REQUEST['get_relational_values'])
     } else {
         $curr_value = $_REQUEST['curr_value'];
     }
-    $dropdown = PMA_getHtmlForRelationalColumnDropdown($db, $table, $column, $curr_value);
+    $dropdown = PMA_getHtmlForRelationalColumnDropdown(
+        $db, $table, $column, $curr_value
+    );
     $response = PMA_Response::getInstance();
     $response->addJSON('dropdown', $dropdown);
     exit;
@@ -543,7 +545,7 @@ if (isset($GLOBALS['show_as_php']) || ! empty($GLOBALS['validatequery'])) {
     } while (PMA_DBI_nextResult());
 
     $is_procedure = false;
-    
+
     // Since multiple query execution is anyway handled,
     // ignore the WHERE clause of the first sql statement
     // which might contain a phrase like 'call '
@@ -870,8 +872,8 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
         $query__type = PMA_DisplayResults::QUERY_TYPE_SELECT;
         if ($analyzed_sql[0]['querytype'] == $query__type) {
             $createViewHTML = $displayResultsObject->getCreateViewQueryResultOp(
-                                                         $analyzed_sql
-                                                     );
+                $analyzed_sql
+            );
             $response->addHTML($createViewHTML.'<br />');
         }
 
@@ -1130,7 +1132,9 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
             $printview, $url_query, $editable
         );
 
-        $html_output .= $displayResultsObject->getTable($result, $disp_mode, $analyzed_sql);
+        $html_output .= $displayResultsObject->getTable(
+            $result, $disp_mode, $analyzed_sql
+        );
         PMA_DBI_freeResult($result);
     }
 
@@ -1143,7 +1147,9 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
         foreach ($selected as $idx => $tbl_name) {
             $check = PMA_Index::findDuplicates($tbl_name, $db);
             if (! empty($check)) {
-                $html_output .= sprintf(__('Problems with indexes of table `%s`'), $tbl_name);
+                $html_output .= sprintf(
+                    __('Problems with indexes of table `%s`'), $tbl_name
+                );
                 $html_output .= $check;
             }
         }
