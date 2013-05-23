@@ -3,15 +3,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-05-21 14:02+0200\n"
+"POT-Creation-Date: 2013-05-23 02:58-0400\n"
 "PO-Revision-Date: 2013-05-10 12:23+0200\n"
 "Last-Translator: Jan Erik Zassenhaus <jan.zassenhaus@jgerman.de>\n"
 "Language-Team: German <http://l10n.cihar.com/projects/phpmyadmin/master/de/"
 ">\n"
-"Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: de\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 1.6-dev\n"
 
@@ -118,14 +118,14 @@ msgstr "Die Datenbank %1$s wurde erzeugt."
 msgid "Database comment: "
 msgstr "Datenbankkommentar: "
 
-#: db_datadict.php:158 libraries/schema/Pdf_Relation_Schema.class.php:1332
+#: db_datadict.php:157 libraries/schema/Pdf_Relation_Schema.class.php:1332
 #: libraries/tbl_columns_definition_form.inc.php:836 tbl_printview.php:120
 #, fuzzy
 #| msgid "Table comments"
 msgid "Table comments:"
 msgstr "Tabellen-Kommentar"
 
-#: db_datadict.php:167 libraries/Index.class.php:565
+#: db_datadict.php:166 libraries/Index.class.php:565
 #: libraries/TableSearch.class.php:183 libraries/TableSearch.class.php:1190
 #: libraries/display_indexes.lib.php:117 libraries/insert_edit.lib.php:1566
 #: libraries/plugins/export/ExportHtmlword.class.php:276
@@ -143,7 +143,7 @@ msgstr "Tabellen-Kommentar"
 msgid "Column"
 msgstr "Spalte"
 
-#: db_datadict.php:168 db_printview.php:49 libraries/Index.class.php:562
+#: db_datadict.php:167 db_printview.php:49 libraries/Index.class.php:562
 #: libraries/TableSearch.class.php:184 libraries/insert_edit.lib.php:241
 #: libraries/insert_edit.lib.php:245
 #: libraries/plugins/export/ExportHtmlword.class.php:279
@@ -166,7 +166,7 @@ msgstr "Spalte"
 msgid "Type"
 msgstr "Typ"
 
-#: db_datadict.php:169 libraries/Index.class.php:568
+#: db_datadict.php:168 libraries/Index.class.php:568
 #: libraries/TableSearch.class.php:1191 libraries/insert_edit.lib.php:1575
 #: libraries/plugins/export/ExportHtmlword.class.php:282
 #: libraries/plugins/export/ExportHtmlword.class.php:397
@@ -183,7 +183,7 @@ msgstr "Typ"
 msgid "Null"
 msgstr "Null"
 
-#: db_datadict.php:170 libraries/plugins/export/ExportHtmlword.class.php:285
+#: db_datadict.php:169 libraries/plugins/export/ExportHtmlword.class.php:285
 #: libraries/plugins/export/ExportHtmlword.class.php:400
 #: libraries/plugins/export/ExportLatex.class.php:511
 #: libraries/plugins/export/ExportOdt.class.php:367
@@ -198,7 +198,7 @@ msgstr "Null"
 msgid "Default"
 msgstr "Standard"
 
-#: db_datadict.php:172 libraries/plugins/export/ExportHtmlword.class.php:404
+#: db_datadict.php:171 libraries/plugins/export/ExportHtmlword.class.php:404
 #: libraries/plugins/export/ExportLatex.class.php:513
 #: libraries/plugins/export/ExportOdt.class.php:469
 #: libraries/plugins/export/ExportTexytext.class.php:374
@@ -207,7 +207,7 @@ msgstr "Standard"
 msgid "Links to"
 msgstr "Verweise"
 
-#: db_datadict.php:174 db_printview.php:53
+#: db_datadict.php:173 db_printview.php:53
 #: libraries/config/messages.inc.php:92 libraries/config/messages.inc.php:107
 #: libraries/config/messages.inc.php:129
 #: libraries/plugins/export/ExportHtmlword.class.php:409
@@ -220,7 +220,7 @@ msgstr "Verweise"
 msgid "Comments"
 msgstr "Kommentare"
 
-#: db_datadict.php:238 js/messages.php:231 libraries/Index.class.php:431
+#: db_datadict.php:237 js/messages.php:231 libraries/Index.class.php:431
 #: libraries/Index.class.php:470 libraries/Index.class.php:874
 #: libraries/config/FormDisplay.tpl.php:258 libraries/mult_submits.inc.php:370
 #: libraries/mult_submits.inc.php:371
@@ -242,7 +242,7 @@ msgstr "Kommentare"
 msgid "No"
 msgstr "Nein"
 
-#: db_datadict.php:238 js/messages.php:230 libraries/Index.class.php:432
+#: db_datadict.php:237 js/messages.php:230 libraries/Index.class.php:432
 #: libraries/Index.class.php:469 libraries/Index.class.php:874
 #: libraries/config/FormDisplay.tpl.php:258 libraries/mult_submits.inc.php:74
 #: libraries/mult_submits.inc.php:109 libraries/mult_submits.inc.php:118
@@ -306,8 +306,8 @@ msgid ""
 "The phpMyAdmin configuration storage has been deactivated. To find out why "
 "click %shere%s."
 msgstr ""
-"Der phpMyAdmin Konfigurations-Speicher wurde deaktiviert. Klicken Sie %shier"
-"%s um herauszufinden warum."
+"Der phpMyAdmin Konfigurations-Speicher wurde deaktiviert. Klicken Sie %shier%"
+"s um herauszufinden warum."
 
 #: db_printview.php:47 db_tracking.php:79 db_tracking.php:198
 #: libraries/Menu.class.php:190 libraries/config/messages.inc.php:510
@@ -625,11 +625,11 @@ msgstr ""
 #: import.php:107
 #, php-format
 msgid ""
-"You probably tried to upload a file that is too large. Please refer to "
-"%sdocumentation%s for a workaround for this limit."
+"You probably tried to upload a file that is too large. Please refer to %"
+"sdocumentation%s for a workaround for this limit."
 msgstr ""
-"Möglicherweise wurde eine zu große Datei hochgeladen. Bitte lesen Sie die "
-"%sDokumentation%s zur Lösung diese Problems."
+"Möglicherweise wurde eine zu große Datei hochgeladen. Bitte lesen Sie die %"
+"sDokumentation%s zur Lösung diese Problems."
 
 #: import.php:250 import.php:516
 msgid "Showing bookmark"
@@ -2695,8 +2695,8 @@ msgstr "in der Abfrage"
 #: libraries/DisplayResults.class.php:4910 libraries/structure.lib.php:653
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation"
-"%s."
+"This view has at least this number of rows. Please refer to %sdocumentation%"
+"s."
 msgstr ""
 "Dieser Ansicht hat mindestens diese Anzahl von Datensätzen. Bitte lesen Sie "
 "die %sDokumentation%s."
@@ -2845,12 +2845,12 @@ msgstr "Neues phpMyAdmin-Fenster"
 msgid "Click on the bar to scroll to top of page"
 msgstr "Klicken Sie auf die Leiste, um zum Anfang der Seite zu scrollen"
 
-#: libraries/Header.class.php:621
+#: libraries/Header.class.php:623
 #: libraries/plugins/auth/AuthenticationCookie.class.php:269
 msgid "Cookies must be enabled past this point."
 msgstr "Ab diesem Punkt müssen Cookies aktiviert sein."
 
-#: libraries/Header.class.php:626
+#: libraries/Header.class.php:628
 #: libraries/plugins/auth/AuthenticationCookie.class.php:172
 msgid "Javascript must be enabled past this point"
 msgstr "Javascript muss ab hier aktiviert sein"
@@ -3444,20 +3444,20 @@ msgstr ""
 
 #: libraries/Types.class.php:308
 msgid ""
-"A small floating-point number, allowable values are -3.402823466E+38 to "
-"-1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
+"A small floating-point number, allowable values are -3.402823466E+38 to -"
+"1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
 msgstr ""
-"Eine kleine Fließkommazahl, erlaubte Werte sind -3,402823466E+38 bis "
-"-1,175494351E-38, 0, und 1,175494351E-38 bis 3,402823466E+38"
+"Eine kleine Fließkommazahl, erlaubte Werte sind -3,402823466E+38 bis -"
+"1,175494351E-38, 0, und 1,175494351E-38 bis 3,402823466E+38"
 
 #: libraries/Types.class.php:310
 msgid ""
-"A double-precision floating-point number, allowable values are "
-"-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
+"A double-precision floating-point number, allowable values are -"
+"1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
 "2.2250738585072014E-308 to 1.7976931348623157E+308"
 msgstr ""
-"Eine Fließkommazahl mit doppelter Genauigkeit, erlaubte Werte sind "
-"-1,7976931348623157E+308 bis -2,2250738585072014E-308, 0, und "
+"Eine Fließkommazahl mit doppelter Genauigkeit, erlaubte Werte sind -"
+"1,7976931348623157E+308 bis -2,2250738585072014E-308, 0, und "
 "2,2250738585072014E-308 bis 1.7976931348623157E+308"
 
 #: libraries/Types.class.php:312
@@ -3497,8 +3497,8 @@ msgstr "Ein Datum, unterstützter Bereich ist %1$s bis %2$s"
 #, php-format
 msgid "A date and time combination, supported range is %1$s to %2$s"
 msgstr ""
-"Eine Kombination aus Datum und Uhrzeit, unterstützter Bereich ist %1$s bis "
-"%2$s"
+"Eine Kombination aus Datum und Uhrzeit, unterstützter Bereich ist %1$s bis %2"
+"$s"
 
 #: libraries/Types.class.php:324
 msgid ""
@@ -4812,10 +4812,6 @@ msgstr "Hauptpanel"
 #: libraries/config/messages.inc.php:184
 msgid "Microsoft Office"
 msgstr "Microsoft Office"
-
-#: libraries/config/messages.inc.php:186
-msgid "Open Document"
-msgstr "Dokument öffnen"
 
 #: libraries/config/messages.inc.php:188
 msgid "Other core settings"
@@ -6444,7 +6440,9 @@ msgstr "CSV mit LOAD DATA"
 #: libraries/config/setup.forms.php:260 libraries/config/setup.forms.php:353
 #: libraries/config/user_preferences.forms.php:160
 #: libraries/config/user_preferences.forms.php:252
-msgid "Open Document Spreadsheet"
+#, fuzzy
+#| msgid "Open Document Spreadsheet"
+msgid "OpenDocument Spreadsheet"
 msgstr "Open Document Kalkulationstabelle"
 
 #: libraries/config/setup.forms.php:267
@@ -6474,7 +6472,9 @@ msgstr "Microsoft Word 2000"
 
 #: libraries/config/setup.forms.php:357
 #: libraries/config/user_preferences.forms.php:256
-msgid "Open Document Text"
+#, fuzzy
+#| msgid "Open Document Text"
+msgid "OpenDocument Text"
 msgstr "Open Document Text"
 
 #: libraries/config/validate.lib.php:214
@@ -6727,8 +6727,8 @@ msgstr ", @TABLE@ wird durch den Tabellennamen ersetzt"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: "
-"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: %"
+"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Dieser Wert wird mit %1$sstrftime%2$s geparst. Sie können also Platzhalter "
 "für Datum und Uhrzeit verwenden. Darüber hinaus werden folgende Umformungen "
@@ -7286,8 +7286,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:131
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the "
-"%sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the %"
+"sPrimeBase XT Home Page%s."
 msgstr ""
 "Dokumentation und weitere Informationen über PBXT sind auf der %sPrimeBase "
 "XT-Website%s verfügbar."
@@ -7992,8 +7992,8 @@ msgstr "Willkommen bei %s"
 #: libraries/plugins/auth/AuthenticationConfig.class.php:102
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the "
-"%1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the %"
+"1$ssetup script%2$s to create one."
 msgstr ""
 "Sie haben möglicherweise noch keine Konfigurationsdatei erstellt. Sei können "
 "das %1$sSetup-Skript%2$s verwenden, um eine zu erstellen."
@@ -10010,8 +10010,8 @@ msgstr "Benutzerübersicht"
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should "
-"%sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should %"
+"sreload the privileges%s before you continue."
 msgstr ""
 "Hinweis: phpMyAdmin liest die Benutzerprofile direkt aus den entsprechenden "
 "MySQL-Tabellen aus. Der Inhalt dieser Tabellen kann sich von den "
@@ -12518,8 +12518,8 @@ msgstr ""
 "Sie haben die [kbd]config[/kbd] Authentifizierung gewählt und einen "
 "Benutzernamen und Passwort für Auto-Login eingegeben, was für Server im "
 "Internet nicht wünschenswert ist. Jeder, der Ihre phpMyAdmin-URL kennt oder "
-"errät, kann direkt auf Ihre phpMyAdmin-Oberfläche zugreifen. Setzen Sie den "
-"%sAuthentifizierungstyp%s auf [kbd]cookie[/kbd] oder [kbd]http[/kbd]."
+"errät, kann direkt auf Ihre phpMyAdmin-Oberfläche zugreifen. Setzen Sie den %"
+"sAuthentifizierungstyp%s auf [kbd]cookie[/kbd] oder [kbd]http[/kbd]."
 
 #: setup/lib/index.lib.php:318
 #, php-format
@@ -13366,8 +13366,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:179
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s"
-"%%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s%"
+"%. It should be above 80%%"
 msgstr ""
 "Das aktuelle Verhältnis von freiem Abfrage-Zwischenspeicher zur Größe des "
 "gesamten Abfrage-Zwischenspeichers ist %s%%. Es sollte über 80%% betragen"
@@ -13524,8 +13524,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:216
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than "
-"10%%."
+"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
+"%."
 msgstr ""
 "%s%% aller Sortierungen verursachen temporäre Tabellen, dieser Wert sollte "
 "kleiner als 10%% sein."
@@ -14311,6 +14311,9 @@ msgstr ""
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert ist auf 0 gesetzt"
 
+#~ msgid "Open Document"
+#~ msgstr "Dokument öffnen"
+
 #~ msgid "Count tables when showing database list"
 #~ msgstr "Zähle Tabellen bei Anzeige der Datenbank-Liste"
 
@@ -15071,8 +15074,8 @@ msgstr "concurrent_insert ist auf 0 gesetzt"
 #~ "directory %s."
 #~ msgstr ""
 #~ "Die Unterstützung für Oberflächendesigns ist deaktiviert. Bitte "
-#~ "überprüfen Sie Ihre Konfiguration und / oder Ihre Designs im Verzeichnis "
-#~ "%s."
+#~ "überprüfen Sie Ihre Konfiguration und / oder Ihre Designs im Verzeichnis %"
+#~ "s."
 
 #~ msgid "The following queries have been executed:"
 #~ msgstr "Die folgenden Abfragen wurden ausgeführt:"

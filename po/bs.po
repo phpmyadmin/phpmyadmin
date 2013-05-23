@@ -3,17 +3,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-05-21 14:02+0200\n"
+"POT-Creation-Date: 2013-05-23 02:58-0400\n"
 "PO-Revision-Date: 2013-04-05 12:08+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Bosnian <http://l10n.cihar.com/projects/phpmyadmin/master/bs/"
 ">\n"
-"Language: bs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Language: bs\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
+"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 1.5-dev\n"
 
 #: browse_foreigners.php:36 browse_foreigners.php:60 js/messages.php:335
@@ -117,14 +117,14 @@ msgstr "Baza %1$s je kreirana."
 msgid "Database comment: "
 msgstr "Komentar baze: "
 
-#: db_datadict.php:158 libraries/schema/Pdf_Relation_Schema.class.php:1332
+#: db_datadict.php:157 libraries/schema/Pdf_Relation_Schema.class.php:1332
 #: libraries/tbl_columns_definition_form.inc.php:836 tbl_printview.php:120
 #, fuzzy
 #| msgid "Table comments"
 msgid "Table comments:"
 msgstr "Komentari tabele"
 
-#: db_datadict.php:167 libraries/Index.class.php:565
+#: db_datadict.php:166 libraries/Index.class.php:565
 #: libraries/TableSearch.class.php:183 libraries/TableSearch.class.php:1190
 #: libraries/display_indexes.lib.php:117 libraries/insert_edit.lib.php:1566
 #: libraries/plugins/export/ExportHtmlword.class.php:276
@@ -142,7 +142,7 @@ msgstr "Komentari tabele"
 msgid "Column"
 msgstr "Kolona"
 
-#: db_datadict.php:168 db_printview.php:49 libraries/Index.class.php:562
+#: db_datadict.php:167 db_printview.php:49 libraries/Index.class.php:562
 #: libraries/TableSearch.class.php:184 libraries/insert_edit.lib.php:241
 #: libraries/insert_edit.lib.php:245
 #: libraries/plugins/export/ExportHtmlword.class.php:279
@@ -165,7 +165,7 @@ msgstr "Kolona"
 msgid "Type"
 msgstr "Tip"
 
-#: db_datadict.php:169 libraries/Index.class.php:568
+#: db_datadict.php:168 libraries/Index.class.php:568
 #: libraries/TableSearch.class.php:1191 libraries/insert_edit.lib.php:1575
 #: libraries/plugins/export/ExportHtmlword.class.php:282
 #: libraries/plugins/export/ExportHtmlword.class.php:397
@@ -182,7 +182,7 @@ msgstr "Tip"
 msgid "Null"
 msgstr "Null"
 
-#: db_datadict.php:170 libraries/plugins/export/ExportHtmlword.class.php:285
+#: db_datadict.php:169 libraries/plugins/export/ExportHtmlword.class.php:285
 #: libraries/plugins/export/ExportHtmlword.class.php:400
 #: libraries/plugins/export/ExportLatex.class.php:511
 #: libraries/plugins/export/ExportOdt.class.php:367
@@ -197,7 +197,7 @@ msgstr "Null"
 msgid "Default"
 msgstr "Podrazumjevano"
 
-#: db_datadict.php:172 libraries/plugins/export/ExportHtmlword.class.php:404
+#: db_datadict.php:171 libraries/plugins/export/ExportHtmlword.class.php:404
 #: libraries/plugins/export/ExportLatex.class.php:513
 #: libraries/plugins/export/ExportOdt.class.php:469
 #: libraries/plugins/export/ExportTexytext.class.php:374
@@ -206,7 +206,7 @@ msgstr "Podrazumjevano"
 msgid "Links to"
 msgstr "Veze ka"
 
-#: db_datadict.php:174 db_printview.php:53
+#: db_datadict.php:173 db_printview.php:53
 #: libraries/config/messages.inc.php:92 libraries/config/messages.inc.php:107
 #: libraries/config/messages.inc.php:129
 #: libraries/plugins/export/ExportHtmlword.class.php:409
@@ -219,7 +219,7 @@ msgstr "Veze ka"
 msgid "Comments"
 msgstr "Komentari"
 
-#: db_datadict.php:238 js/messages.php:231 libraries/Index.class.php:431
+#: db_datadict.php:237 js/messages.php:231 libraries/Index.class.php:431
 #: libraries/Index.class.php:470 libraries/Index.class.php:874
 #: libraries/config/FormDisplay.tpl.php:258 libraries/mult_submits.inc.php:370
 #: libraries/mult_submits.inc.php:371
@@ -241,7 +241,7 @@ msgstr "Komentari"
 msgid "No"
 msgstr "Ne"
 
-#: db_datadict.php:238 js/messages.php:230 libraries/Index.class.php:432
+#: db_datadict.php:237 js/messages.php:230 libraries/Index.class.php:432
 #: libraries/Index.class.php:469 libraries/Index.class.php:874
 #: libraries/config/FormDisplay.tpl.php:258 libraries/mult_submits.inc.php:74
 #: libraries/mult_submits.inc.php:109 libraries/mult_submits.inc.php:118
@@ -633,8 +633,8 @@ msgstr ""
 #: import.php:107
 #, php-format
 msgid ""
-"You probably tried to upload a file that is too large. Please refer to "
-"%sdocumentation%s for a workaround for this limit."
+"You probably tried to upload a file that is too large. Please refer to %"
+"sdocumentation%s for a workaround for this limit."
 msgstr ""
 
 #: import.php:250 import.php:516
@@ -2824,8 +2824,8 @@ msgstr "u upitu"
 #: libraries/DisplayResults.class.php:4910 libraries/structure.lib.php:653
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation"
-"%s."
+"This view has at least this number of rows. Please refer to %sdocumentation%"
+"s."
 msgstr ""
 
 #: libraries/DisplayResults.class.php:4923
@@ -2967,12 +2967,12 @@ msgstr ""
 msgid "Click on the bar to scroll to top of page"
 msgstr ""
 
-#: libraries/Header.class.php:621
+#: libraries/Header.class.php:623
 #: libraries/plugins/auth/AuthenticationCookie.class.php:269
 msgid "Cookies must be enabled past this point."
 msgstr "Kolačići (Cookies) moraju u ovom slučaju biti aktivirani."
 
-#: libraries/Header.class.php:626
+#: libraries/Header.class.php:628
 #: libraries/plugins/auth/AuthenticationCookie.class.php:172
 #, fuzzy
 #| msgid "Cookies must be enabled past this point."
@@ -3568,14 +3568,14 @@ msgstr ""
 
 #: libraries/Types.class.php:308
 msgid ""
-"A small floating-point number, allowable values are -3.402823466E+38 to "
-"-1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
+"A small floating-point number, allowable values are -3.402823466E+38 to -"
+"1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
 msgstr ""
 
 #: libraries/Types.class.php:310
 msgid ""
-"A double-precision floating-point number, allowable values are "
-"-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
+"A double-precision floating-point number, allowable values are -"
+"1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
 "2.2250738585072014E-308 to 1.7976931348623157E+308"
 msgstr ""
 
@@ -4913,12 +4913,6 @@ msgstr "Dodaj novo polje"
 #: libraries/config/messages.inc.php:184
 msgid "Microsoft Office"
 msgstr ""
-
-#: libraries/config/messages.inc.php:186
-#, fuzzy
-#| msgid "Documentation"
-msgid "Open Document"
-msgstr "Dokumentacija"
 
 #: libraries/config/messages.inc.php:188
 msgid "Other core settings"
@@ -6428,8 +6422,10 @@ msgstr ""
 #: libraries/config/setup.forms.php:260 libraries/config/setup.forms.php:353
 #: libraries/config/user_preferences.forms.php:160
 #: libraries/config/user_preferences.forms.php:252
-msgid "Open Document Spreadsheet"
-msgstr ""
+#, fuzzy
+#| msgid "Documentation"
+msgid "OpenDocument Spreadsheet"
+msgstr "Dokumentacija"
 
 #: libraries/config/setup.forms.php:267
 #: libraries/config/user_preferences.forms.php:167
@@ -6458,8 +6454,10 @@ msgstr ""
 
 #: libraries/config/setup.forms.php:357
 #: libraries/config/user_preferences.forms.php:256
-msgid "Open Document Text"
-msgstr ""
+#, fuzzy
+#| msgid "Documentation"
+msgid "OpenDocument Text"
+msgstr "Dokumentacija"
 
 #: libraries/config/validate.lib.php:214
 msgid "Could not initialize Drizzle connection library"
@@ -6722,8 +6720,8 @@ msgstr ""
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: "
-"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: %"
+"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 
 #: libraries/display_export.lib.php:341
@@ -7238,8 +7236,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:131
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the "
-"%sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the %"
+"sPrimeBase XT Home Page%s."
 msgstr ""
 
 #: libraries/engines/pbxt.lib.php:133
@@ -7971,8 +7969,8 @@ msgstr "Dobrodošli na %s"
 #: libraries/plugins/auth/AuthenticationConfig.class.php:102
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the "
-"%1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the %"
+"1$ssetup script%2$s to create one."
 msgstr ""
 
 #: libraries/plugins/auth/AuthenticationConfig.class.php:122
@@ -10002,8 +10000,8 @@ msgstr "Pregled korisnika"
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should "
-"%sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should %"
+"sreload the privileges%s before you continue."
 msgstr ""
 "Napomena: phpMyAdmin uzima privilegije korisnika direktno iz MySQL tabela "
 "privilegija. Sadržaj ove tabele može se razlikovati od privilegija koje "
@@ -13152,8 +13150,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:179
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s"
-"%%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s%"
+"%. It should be above 80%%"
 msgstr ""
 
 #: libraries/advisory_rules.txt:181
@@ -13280,8 +13278,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:216
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than "
-"10%%."
+"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
+"%."
 msgstr ""
 
 #: libraries/advisory_rules.txt:218
