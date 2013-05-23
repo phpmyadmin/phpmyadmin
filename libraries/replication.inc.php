@@ -249,7 +249,7 @@ function PMA_Replication_connectToMaster($user, $password, $host = null, $port =
  * @return array an array containing File and Position in MySQL replication
  * on master server, useful for PMA_Replication_Slave_changeMaster
  */
-function PMA_replication_slave_bin_log_master($link = null)
+function PMA_Replication_Slave_binLogMaster($link = null)
 {
     $data = PMA_DBI_fetchResult('SHOW MASTER STATUS', null, null, $link);
     $output = array();

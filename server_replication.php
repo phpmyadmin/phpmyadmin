@@ -91,7 +91,7 @@ if (isset($GLOBALS['sr_take_action'])) {
             );
         } else {
             // Read the current master position
-            $position = PMA_replication_slave_bin_log_master($link_to_master);
+            $position = PMA_Replication_Slave_binLogMaster($link_to_master);
 
             if (empty($position)) {
                 $_SESSION['replication']['sr_action_status'] = 'error';
