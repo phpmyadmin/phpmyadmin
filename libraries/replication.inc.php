@@ -75,7 +75,8 @@ $slave_variables  = array(
     'Seconds_Behind_Master',
 );
 /**
- * define important variables, which need to be watched for correct running of replication in slave mode
+ * define important variables, which need to be watched for
+ * correct running of replication in slave mode
  *
  * @usedby PMA_replication_print_status_table()
  */
@@ -159,8 +160,10 @@ function PMA_extractDbOrTable($string, $what = 'db')
  * Configures replication slave
  *
  * @param string $action  possible values: START or STOP
- * @param string $control default: null, possible values: SQL_THREAD or IO_THREAD or null.
- *                        If it is set to null, it controls both SQL_THREAD and IO_THREAD
+ * @param string $control default: null,
+ *                        possible values: SQL_THREAD or IO_THREAD or null.
+ *                        If it is set to null, it controls both
+ *                        SQL_THREAD and IO_THREAD
  * @param mixed  $link    mysql link
  *
  * @return mixed output of PMA_DBI_tryQuery
@@ -230,8 +233,9 @@ function PMA_Replication_Slave_changeMaster($user, $password, $host, $port,
  *
  * @return mixed $link mysql link on success
  */
-function PMA_Replication_connectToMaster($user, $password, $host = null, $port = null, $socket = null)
-{
+function PMA_Replication_connectToMaster(
+    $user, $password, $host = null, $port = null, $socket = null
+) {
     $server = array();
     $server["host"] = $host;
     $server["port"] = $port;
