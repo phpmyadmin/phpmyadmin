@@ -928,7 +928,8 @@ class PMA_NavigationTree
                         $title = $node->getComment();
                         if ($title) {
                             $title = " title='"
-                                . htmlentities($title, ENT_QUOTES) . "'";
+                                . htmlentities($title, ENT_QUOTES, 'UTF-8') 
+                                . "'";
                         }
                     } else {
                         $title = '';
