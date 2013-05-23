@@ -961,8 +961,8 @@ function PMA_getServerSlaveStatus($server_slave_status, $truename)
             $do = true;
         }
         foreach ($server_slave_Wild_Do_Table as $db_table) {
-            $table_part = PMA_extract_db_or_table($db_table, 'table');
-            if (($GLOBALS['db'] == PMA_extract_db_or_table($db_table, 'db'))
+            $table_part = PMA_extractDbOrTable($db_table, 'table');
+            if (($GLOBALS['db'] == PMA_extractDbOrTable($db_table, 'db'))
                 && (preg_match("@^" . substr($table_part, 0, strlen($table_part) - 1) . "@", $truename))
             ) {
                 $do = true;
@@ -975,8 +975,8 @@ function PMA_getServerSlaveStatus($server_slave_status, $truename)
             $ignored = true;
         }
         foreach ($server_slave_Wild_Ignore_Table as $db_table) {
-            $table_part = PMA_extract_db_or_table($db_table, 'table');
-            if (($db == PMA_extract_db_or_table($db_table))
+            $table_part = PMA_extractDbOrTable($db_table, 'table');
+            if (($db == PMA_extractDbOrTable($db_table))
                 && (preg_match("@^" . substr($table_part, 0, strlen($table_part) - 1) . "@", $truename))
             ) {
                 $ignored = true;

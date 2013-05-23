@@ -145,7 +145,7 @@ foreach ($replication_types as $type) {
  *
  * @return $string the extracted part
  */
-function PMA_extract_db_or_table($string, $what = 'db')
+function PMA_extractDbOrTable($string, $what = 'db')
 {
     $list = explode(".", $string);
     if ('db' == $what) {
