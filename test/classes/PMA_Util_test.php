@@ -94,7 +94,7 @@ class PMA_Util_Test extends PHPUnit_Framework_TestCase
     {
         $this->assertContains(
             '<select class="pageselector  ajax" name="pma" >',
-            PMA_Util::pageselector("pma",3)
+            PMA_Util::pageselector("pma", 3)
         );
     }
 }

@@ -67,11 +67,11 @@ if (!PMA_DBI_selectDb($db)) {
  */
 if (isset($_REQUEST['do_save_data'])) {
     $sql_query = '';
-    
-    require_once 'libraries/create_addfield.lib.php';
+
+    include_once 'libraries/create_addfield.lib.php';
     // get column addition statements
     $sql_statement = PMA_getColumnCreationStatements(true);
-    
+
     // Builds the 'create table' statement
     $sql_query = 'CREATE TABLE ' . PMA_Util::backquote($db) . '.'
         . PMA_Util::backquote($table) . ' (' . $sql_statement . ')';
