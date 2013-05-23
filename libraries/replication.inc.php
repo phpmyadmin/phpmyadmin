@@ -75,7 +75,8 @@ $slave_variables  = array(
     'Seconds_Behind_Master',
 );
 /**
- * define important variables, which need to be watched for correct running of replication in slave mode
+ * define important variables, which need to be watched for
+ * correct running of replication in slave mode
  *
  * @usedby PMA_replication_print_status_table()
  */
@@ -110,29 +111,48 @@ foreach ($replication_types as $type) {
     }
     if (${"server_{$type}_status"}) {
         if ($type == "master") {
-            ${"server_{$type}_Do_DB"} = explode(",", $server_master_replication[0]["Binlog_Do_DB"]);
+            ${"server_{$type}_Do_DB"} = explode(
+                ",", $server_master_replication[0]["Binlog_Do_DB"]
+            );
             $replication_info[$type]['Do_DB'] = ${"server_{$type}_Do_DB"};
 
-            ${"server_{$type}_Ignore_DB"} = explode(",", $server_master_replication[0]["Binlog_Ignore_DB"]);
+            ${"server_{$type}_Ignore_DB"} = explode(
+                ",", $server_master_replication[0]["Binlog_Ignore_DB"]
+            );
             $replication_info[$type]['Ignore_DB'] = ${"server_{$type}_Ignore_DB"};
         } elseif ($type == "slave") {
-            ${"server_{$type}_Do_DB"} = explode(",", $server_slave_replication[0]["Replicate_Do_DB"]);
+            ${"server_{$type}_Do_DB"} = explode(
+                ",", $server_slave_replication[0]["Replicate_Do_DB"]
+            );
             $replication_info[$type]['Do_DB'] = ${"server_{$type}_Do_DB"};
 
-            ${"server_{$type}_Ignore_DB"} = explode(",", $server_slave_replication[0]["Replicate_Ignore_DB"]);
+            ${"server_{$type}_Ignore_DB"} = explode(
+                ",", $server_slave_replication[0]["Replicate_Ignore_DB"]
+            );
             $replication_info[$type]['Ignore_DB'] = ${"server_{$type}_Ignore_DB"};
 
-            ${"server_{$type}_Do_Table"} = explode(",", $server_slave_replication[0]["Replicate_Do_Table"]);
+            ${"server_{$type}_Do_Table"} = explode(
+                ",", $server_slave_replication[0]["Replicate_Do_Table"]
+            );
             $replication_info[$type]['Do_Table'] = ${"server_{$type}_Do_Table"};
 
-            ${"server_{$type}_Ignore_Table"} = explode(",", $server_slave_replication[0]["Replicate_Ignore_Table"]);
-            $replication_info[$type]['Ignore_Table'] = ${"server_{$type}_Ignore_Table"};
+            ${"server_{$type}_Ignore_Table"} = explode(
+                ",", $server_slave_replication[0]["Replicate_Ignore_Table"]
+            );
+            $replication_info[$type]['Ignore_Table']
+                = ${"server_{$type}_Ignore_Table"};
 
-            ${"server_{$type}_Wild_Do_Table"} = explode(",", $server_slave_replication[0]["Replicate_Wild_Do_Table"]);
-            $replication_info[$type]['Wild_Do_Table'] = ${"server_{$type}_Wild_Do_Table"};
+            ${"server_{$type}_Wild_Do_Table"} = explode(
+                ",", $server_slave_replication[0]["Replicate_Wild_Do_Table"]
+            );
+            $replication_info[$type]['Wild_Do_Table']
+                = ${"server_{$type}_Wild_Do_Table"};
 
-            ${"server_{$type}_Wild_Ignore_Table"} = explode(",", $server_slave_replication[0]["Replicate_Wild_Ignore_Table"]);
-            $replication_info[$type]['Wild_Ignore_Table'] = ${"server_{$type}_Wild_Ignore_Table"};
+            ${"server_{$type}_Wild_Ignore_Table"} = explode(
+                ",", $server_slave_replication[0]["Replicate_Wild_Ignore_Table"]
+            );
+            $replication_info[$type]['Wild_Ignore_Table']
+                = ${"server_{$type}_Wild_Ignore_Table"};
         }
     }
 }
@@ -145,7 +165,7 @@ foreach ($replication_types as $type) {
  *
  * @return $string the extracted part
  */
-function PMA_extract_db_or_table($string, $what = 'db')
+function PMA_extractDbOrTable($string, $what = 'db')
 {
     $list = explode(".", $string);
     if ('db' == $what) {
@@ -159,13 +179,15 @@ function PMA_extract_db_or_table($string, $what = 'db')
  * Configures replication slave
  *
  * @param string $action  possible values: START or STOP
- * @param string $control default: null, possible values: SQL_THREAD or IO_THREAD or null.
- *                        If it is set to null, it controls both SQL_THREAD and IO_THREAD
+ * @param string $control default: null,
+ *                        possible values: SQL_THREAD or IO_THREAD or null.
+ *                        If it is set to null, it controls both
+ *                        SQL_THREAD and IO_THREAD
  * @param mixed  $link    mysql link
  *
  * @return mixed output of PMA_DBI_tryQuery
  */
-function PMA_replication_slave_control($action, $control = null, $link = null)
+function PMA_Replication_Slave_control($action, $control = null, $link = null)
 {
     $action = strtoupper($action);
     $control = strtoupper($control);
@@ -195,11 +217,11 @@ function PMA_replication_slave_control($action, $control = null, $link = null)
  *
  * @return output of CHANGE MASTER mysql command
  */
-function PMA_replication_slave_change_master($user, $password, $host, $port,
+function PMA_Replication_Slave_changeMaster($user, $password, $host, $port,
     $pos, $stop = true, $start = true, $link = null
 ) {
     if ($stop) {
-        PMA_replication_slave_control("STOP", null, $link);
+        PMA_Replication_Slave_control("STOP", null, $link);
     }
 
     $out = PMA_DBI_tryQuery(
@@ -213,7 +235,7 @@ function PMA_replication_slave_change_master($user, $password, $host, $port,
     );
 
     if ($start) {
-        PMA_replication_slave_control("START", null, $link);
+        PMA_Replication_Slave_control("START", null, $link);
     }
 
     return $out;
@@ -230,8 +252,9 @@ function PMA_replication_slave_change_master($user, $password, $host, $port,
  *
  * @return mixed $link mysql link on success
  */
-function PMA_replication_connect_to_master($user, $password, $host = null, $port = null, $socket = null)
-{
+function PMA_Replication_connectToMaster(
+    $user, $password, $host = null, $port = null, $socket = null
+) {
     $server = array();
     $server["host"] = $host;
     $server["port"] = $port;
@@ -247,9 +270,9 @@ function PMA_replication_connect_to_master($user, $password, $host = null, $port
  * @param mixed $link mysql link
  *
  * @return array an array containing File and Position in MySQL replication
- * on master server, useful for PMA_replication_slave_change_master
+ * on master server, useful for PMA_Replication_Slave_changeMaster
  */
-function PMA_replication_slave_bin_log_master($link = null)
+function PMA_Replication_Slave_binLogMaster($link = null)
 {
     $data = PMA_DBI_fetchResult('SHOW MASTER STATUS', null, null, $link);
     $output = array();
@@ -269,7 +292,7 @@ function PMA_replication_slave_bin_log_master($link = null)
  * @return array array of replicated databases
  */
 
-function PMA_replication_master_replicated_dbs($link = null)
+function PMA_Replication_Master_getReplicatedDbs($link = null)
 {
     // let's find out, which databases are replicated
     $data = PMA_DBI_fetchResult('SHOW MASTER STATUS', null, null, $link);

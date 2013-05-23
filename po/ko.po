@@ -4,13 +4,13 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-05-21 14:02+0200\n"
-"PO-Revision-Date: 2013-05-22 09:16+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"PO-Revision-Date: 2013-05-23 17:03+0200\n"
+"Last-Translator: Yungu Kim <crimsonpi@gmail.com>\n"
 "Language-Team: Korean <http://l10n.cihar.com/projects/phpmyadmin/master/ko/>\n"
+"Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ko\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 1.6-dev\n"
 
@@ -5543,27 +5543,26 @@ msgstr ""
 "스케이프 하세요([kbd]'my_db'[/kbd]로 하지 말고 [kbd]'my\\_db'[/kbd])."
 
 #: libraries/config/messages.inc.php:409
-#, fuzzy
 #| msgid "Show open tables"
 msgid "Show only listed databases"
-msgstr "열려있는 테이블 보기"
+msgstr "리스트에 있는 데이터베이스만 보여주기"
 
 #: libraries/config/messages.inc.php:410 libraries/config/messages.inc.php:451
 msgid "Leave empty if not using config auth"
-msgstr ""
+msgstr "config 인증을 사용하지 않을 경우 비워두세요"
 
 #: libraries/config/messages.inc.php:411
 msgid "Password for config auth"
-msgstr ""
+msgstr "config 인증용 패스워드"
 
 #: libraries/config/messages.inc.php:412
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__pdf_pages[/kbd]"
-msgstr ""
+msgstr "PDF 스키마를 제공하지 않을 경우 비워두세요. 제안값: [kbd]pma__pdf_pages[/kbd]"
 
 #: libraries/config/messages.inc.php:413
 msgid "PDF schema: pages table"
-msgstr ""
+msgstr "PDF 스키마: 페이지 테이블"
 
 #: libraries/config/messages.inc.php:414
 msgid ""
@@ -5571,6 +5570,9 @@ msgid ""
 "phpmyadmin.net/pma/pmadb]pmadb[/a] for complete information. Leave blank for "
 "no support. Suggested: [kbd]phpmyadmin[/kbd]"
 msgstr ""
+"관계(릴레이션), 북마크, PDF 기능을 위한 데이터베이스. 자세한 정보는 "
+"[a@http://wiki.phpmyadmin.net/pma/pmadb]pmadb[/a]를 참고하세요. 이 기능들을 제공하지 않으려면 "
+"비워두세요. 권장값: [kbd]phpmyadmin[/kbd]"
 
 #: libraries/config/messages.inc.php:415
 msgid "Database name"
@@ -5578,7 +5580,7 @@ msgstr "데이터베이스명"
 
 #: libraries/config/messages.inc.php:416
 msgid "Port on which MySQL server is listening, leave empty for default"
-msgstr ""
+msgstr "MySQL 서버의 네트워크 포트. 기본값을 쓰려면 비워두세요"
 
 #: libraries/config/messages.inc.php:417
 msgid "Server port"
@@ -11895,47 +11897,44 @@ msgstr "표시할 데이터 없음"
 
 #: tbl_chart.php:62 tbl_gis_visualization.php:24
 msgid "No SQL query was set to fetch data."
-msgstr ""
+msgstr "데이터를 가져오기 위한 SQL 쿼리가 없습니다."
 
 #: tbl_chart.php:124
 msgid "No numeric columns present in the table to plot."
-msgstr ""
+msgstr "테이블에 숫자형 컬럼이 없어 표시할 수 없습니다."
 
 #: tbl_chart.php:154
-#, fuzzy
 #| msgid "Mar"
 msgctxt "Chart type"
 msgid "Bar"
-msgstr "3월"
+msgstr "가로 막대"
 
 #: tbl_chart.php:156
-#, fuzzy
 #| msgid "Column"
 msgctxt "Chart type"
 msgid "Column"
-msgstr "컬럼명"
+msgstr "세로 막대"
 
 #: tbl_chart.php:159
 msgctxt "Chart type"
 msgid "Line"
-msgstr ""
+msgstr "선형"
 
 #: tbl_chart.php:161
 msgctxt "Chart type"
 msgid "Spline"
-msgstr ""
+msgstr "곡선형"
 
 #: tbl_chart.php:163
 msgctxt "Chart type"
 msgid "Area"
-msgstr ""
+msgstr "영역"
 
 #: tbl_chart.php:166
-#, fuzzy
 #| msgid "PiB"
 msgctxt "Chart type"
 msgid "Pie"
-msgstr "PB"
+msgstr "원형"
 
 #: tbl_chart.php:170
 msgctxt "Chart type"
@@ -11944,7 +11943,7 @@ msgstr "타임라인"
 
 #: tbl_chart.php:177
 msgid "Stacked"
-msgstr ""
+msgstr "누적"
 
 #: tbl_chart.php:180
 msgid "Chart title"
@@ -11952,17 +11951,16 @@ msgstr "차트 제목"
 
 #: tbl_chart.php:184
 msgid "X-Axis:"
-msgstr ""
+msgstr "X축:"
 
 #: tbl_chart.php:200
-#, fuzzy
 #| msgid "Series"
 msgid "Series:"
-msgstr "시리즈"
+msgstr "시리즈:"
 
 #: tbl_chart.php:229
 msgid "X-Axis label:"
-msgstr ""
+msgstr "X축 레이블:"
 
 #: tbl_chart.php:232
 msgid "X Values"

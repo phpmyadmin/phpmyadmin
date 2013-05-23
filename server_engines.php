@@ -35,19 +35,19 @@ exit;
  */
 function PMA_getServerEnginesHtml()
 {
-	/**
-	 * Did the user request information about a certain storage engine?
-	 */
-	$html = '';
-	if (empty($_REQUEST['engine'])
-	    || ! PMA_StorageEngine::isValid($_REQUEST['engine'])
-	) {
-	    $html .= PMA_getAllServerEnginesHtml();	
-	} else {
-	    $html .= PMA_getSpecifiedServerEnginesHtml();
-	}
-	
-	return $html;
+    /**
+     * Did the user request information about a certain storage engine?
+     */
+    $html = '';
+    if (empty($_REQUEST['engine'])
+        || ! PMA_StorageEngine::isValid($_REQUEST['engine'])
+    ) {
+        $html .= PMA_getAllServerEnginesHtml();    
+    } else {
+        $html .= PMA_getSpecifiedServerEnginesHtml();
+    }
+    
+    return $html;
 }
 
 /**

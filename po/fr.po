@@ -6340,10 +6340,9 @@ msgstr "CSV via LOAD DATA"
 #: libraries/config/setup.forms.php:260 libraries/config/setup.forms.php:353
 #: libraries/config/user_preferences.forms.php:160
 #: libraries/config/user_preferences.forms.php:252
-#, fuzzy
 #| msgid "Open Document Spreadsheet"
 msgid "OpenDocument Spreadsheet"
-msgstr "Open Document Spreadsheet"
+msgstr "Tableur OpenDocument"
 
 #: libraries/config/setup.forms.php:267
 #: libraries/config/user_preferences.forms.php:167

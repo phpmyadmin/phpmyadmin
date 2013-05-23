@@ -362,7 +362,7 @@ class Node
         // @todo obey the DisableIS directive
         $query  = "SELECT `SCHEMA_NAME` ";
         $query .= "FROM `INFORMATION_SCHEMA`.`SCHEMATA` ";
-        $query .= $this->_getWhereClause($searchClause); 
+        $query .= $this->_getWhereClause($searchClause);
         $query .= "ORDER BY `SCHEMA_NAME` ASC ";
         $query .= "LIMIT $pos, {$GLOBALS['cfg']['MaxNavigationItems']}";
         return PMA_DBI_fetchResult($query);
@@ -394,7 +394,7 @@ class Node
         if (! $GLOBALS['cfg']['Servers'][$GLOBALS['server']]['DisableIS']) {
             $query  = "SELECT COUNT(*) ";
             $query .= "FROM `INFORMATION_SCHEMA`.`SCHEMATA` ";
-            $query .= $this->_getWhereClause($searchClause); 
+            $query .= $this->_getWhereClause($searchClause);
             $retval = (int)PMA_DBI_fetchValue($query);
         } else {
             $query = "SHOW DATABASES ";
@@ -412,11 +412,11 @@ class Node
 
     /**
      * Returns the WHERE clause depending on the $searchClause parameter
-     * and the hide_db directive  
+     * and the hide_db directive
      *
      * @param string $searchClause A string used to filter the results of the query
      *
-     * @return string 
+     * @return string
      */
     private function _getWhereClause($searchClause = '')
     {

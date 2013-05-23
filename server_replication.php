@@ -79,7 +79,7 @@ if (isset($GLOBALS['sr_take_action'])) {
         $_SESSION['replication']['sr_action_info'] = __('Unknown error');
 
         // Attempt to connect to the new master server
-        $link_to_master = PMA_replication_connect_to_master(
+        $link_to_master = PMA_Replication_connectToMaster(
             $sr['username'], $sr['pma_pw'], $sr['hostname'], $sr['port']
         );
 
@@ -91,7 +91,7 @@ if (isset($GLOBALS['sr_take_action'])) {
             );
         } else {
             // Read the current master position
-            $position = PMA_replication_slave_bin_log_master($link_to_master);
+            $position = PMA_Replication_Slave_binLogMaster($link_to_master);
 
             if (empty($position)) {
                 $_SESSION['replication']['sr_action_status'] = 'error';
@@ -99,7 +99,7 @@ if (isset($GLOBALS['sr_take_action'])) {
             } else {
                 $_SESSION['replication']['m_correct']  = true;
 
-                if (! PMA_replication_slave_change_master($sr['username'], $sr['pma_pw'], $sr['hostname'], $sr['port'], $position, true, false)) {
+                if (! PMA_Replication_Slave_changeMaster($sr['username'], $sr['pma_pw'], $sr['hostname'], $sr['port'], $position, true, false)) {
                     $_SESSION['replication']['sr_action_status'] = 'error';
                     $_SESSION['replication']['sr_action_info'] = __('Unable to change master');
                 } else {
@@ -113,11 +113,11 @@ if (isset($GLOBALS['sr_take_action'])) {
         }
     } elseif (isset($GLOBALS['sr_slave_server_control'])) {
         if ($GLOBALS['sr_slave_action'] == 'reset') {
-            PMA_replication_slave_control("STOP");
+            PMA_Replication_Slave_control("STOP");
             PMA_DBI_tryQuery("RESET SLAVE;");
-            PMA_replication_slave_control("START");
+            PMA_Replication_Slave_control("START");
         } else {
-            PMA_replication_slave_control(
+            PMA_Replication_Slave_control(
                 $GLOBALS['sr_slave_action'],
                 $GLOBALS['sr_slave_control_parm']
             );
@@ -129,9 +129,9 @@ if (isset($GLOBALS['sr_take_action'])) {
         if (isset($GLOBALS['sr_skip_errors_count'])) {
             $count = $GLOBALS['sr_skip_errors_count'] * 1;
         }
-        PMA_replication_slave_control("STOP");
+        PMA_Replication_Slave_control("STOP");
         PMA_DBI_tryQuery("SET GLOBAL SQL_SLAVE_SKIP_COUNTER = ".$count.";");
-        PMA_replication_slave_control("START");
+        PMA_Replication_Slave_control("START");
 
     }
 
