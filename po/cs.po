@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-05-24 11:13+0200\n"
-"PO-Revision-Date: 2013-05-24 11:16+0200\n"
+"PO-Revision-Date: 2013-05-24 11:28+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Czech <http://l10n.cihar.com/projects/phpmyadmin/master/cs/>\n"
 "Language: cs\n"
@@ -2234,11 +2234,11 @@ msgid "Unexpected characters on line %s."
 msgstr "Neočekávané znaky na řádku %s."
 
 #: libraries/Advisor.class.php:434
-#, fuzzy, php-format
+#, php-format
 #| msgid "Unexpected character on line %1$s. Expected tab, but found \"%2$s\""
 msgid "Unexpected character on line %1$s. Expected tab, but found \"%2$s\"."
 msgstr ""
-"Neočekávaný znak na řádku %1$s. Očekáván tabelátor, ale nalezeno „%2$s“"
+"Neočekávaný znak na řádku %1$s. Očekáván tabelátor, ale nalezeno „%2$s“."
 
 #: libraries/Advisor.class.php:467
 msgid "per second"
@@ -4022,16 +4022,16 @@ msgid "\"%s\" requires %s extension"
 msgstr "„%s“ vyžaduje rozšíření %s"
 
 #: libraries/config/FormDisplay.class.php:792
-#, fuzzy, php-format
+#, php-format
 #| msgid "import will not work, missing function (%s)"
 msgid "Compressed import will not work due to missing function %s."
-msgstr "import nebude fungovat, chybí funkce (%s)"
+msgstr "Komprimovaný import nebude fungovat kvůli chybějící funkci %s."
 
 #: libraries/config/FormDisplay.class.php:798
-#, fuzzy, php-format
+#, php-format
 #| msgid "export will not work, missing function (%s)"
 msgid "Compressed export will not work due to missing function %s."
-msgstr "export nebude fungovat, chybí funkce (%s)"
+msgstr "Komprimovaný export nebude fungovat kvůli chybějící funkci %s."
 
 #: libraries/config/FormDisplay.class.php:808
 msgid "SQL Validator is disabled"
