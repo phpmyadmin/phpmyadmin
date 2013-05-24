@@ -381,7 +381,7 @@ class PMA_DBI_Dummy implements PMA_DBI_Extension
      */
     public function fetchArray($result)
     {
-        $data = PMA_DBI_fetchAny($result);
+        $data = $this->fetchAny($result);
         if (is_array($data)
             && isset($GLOBALS['dummy_queries'][$result]['columns'])
         ) {
@@ -402,7 +402,7 @@ class PMA_DBI_Dummy implements PMA_DBI_Extension
      */
     public function fetchAssoc($result)
     {
-        $data = PMA_DBI_fetchAny($result);
+        $data = $this->fetchAny($result);
         if (is_array($data)
             && isset($GLOBALS['dummy_queries'][$result]['columns'])
         ) {
@@ -424,7 +424,7 @@ class PMA_DBI_Dummy implements PMA_DBI_Extension
      */
     public function fetchRow($result)
     {
-        $data = PMA_DBI_fetchAny($result);
+        $data = $this->fetchAny($result);
         return $data;
     }
 

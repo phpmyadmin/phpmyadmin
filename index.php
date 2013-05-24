@@ -502,11 +502,11 @@ if ($server > 0) {
  * (a difference on the third digit does not count).
  * If someday there is a constant that we can check about mysqlnd,
  * we can use it instead of strpos().
- * If no default server is set, $GLOBALS['dbi']->getClientInfo() is not defined yet.
+ * If no default server is set, $GLOBALS['dbi'] is not defined yet.
  * Drizzle can speak MySQL protocol, so don't warn about version mismatch for
  * Drizzle servers.
  */
-if (function_exists('PMA_DBI_getClientInfo') && !PMA_DRIZZLE) {
+if (isset($GLOBALS['dbi']) && !PMA_DRIZZLE) {
     $_client_info = $GLOBALS['dbi']->getClientInfo();
     if ($server > 0
         && strpos($_client_info, 'mysqlnd') === false

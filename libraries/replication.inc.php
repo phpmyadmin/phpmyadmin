@@ -185,7 +185,7 @@ function PMA_extractDbOrTable($string, $what = 'db')
  *                        SQL_THREAD and IO_THREAD
  * @param mixed  $link    mysql link
  *
- * @return mixed output of PMA_DBI_tryQuery
+ * @return mixed output of DatabaseInterface::tryQuery
  */
 function PMA_Replication_Slave_control($action, $control = null, $link = null)
 {

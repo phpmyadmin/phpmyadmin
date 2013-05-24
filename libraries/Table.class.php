@@ -250,7 +250,7 @@ class PMA_Table
         $analyzed_sql = array();
         if (self::isView($db, $table)) {
             // For a view, 'SHOW CREATE TABLE' returns the definition,
-            // but the structure of the view. So, we try to mock 
+            // but the structure of the view. So, we try to mock
             // the result of analyzing 'SHOW CREATE TABLE' query.
             $analyzed_sql[0] = array();
             $analyzed_sql[0]['create_table_fields'] = array();
@@ -360,8 +360,8 @@ class PMA_Table
      * @param boolean $force_read    read new rather than serving from cache
      * @param boolean $disable_error if true, disables error message
      *
-     * @todo PMA_DBI_getTablesFull needs to be merged somehow into this class
-     * or at least better documented
+     * @todo DatabaseInterface::getTablesFull needs to be merged
+     * somehow into this class or at least better documented
      *
      * @return mixed
      */
