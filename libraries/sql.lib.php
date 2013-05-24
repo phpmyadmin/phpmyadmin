@@ -492,7 +492,7 @@ function PMA_getHtmlForProfilingChart($url_query, $pma_token, $profiling_results
 
     $profiling_table .= '<fieldset><legend>' . __('Profiling') . '</legend>' . "\n";
     $profiling_table .= '<div style="float: left;">';
-    $profiling_table .= '<h3>Detailed profile</h3>';
+    $profiling_table .= '<h3>' . __('Detailed profile') . '</h3>';
     $profiling_table .= '<table id="profiletable"><thead>' . "\n";
     $profiling_table .= ' <tr>' . "\n";
     $profiling_table .= '  <th>' . __('Order')
@@ -540,7 +540,7 @@ function PMA_getHtmlForProfilingChart($url_query, $pma_token, $profiling_results
     $profiling_table .= '</div>';
 
     $profiling_table .= '<div style="float: left; margin-left:10px;">';
-    $profiling_table .= '<h3>Summary by state</h3>';
+    $profiling_table .= '<h3>' . __('Summary by state') . '</h3>';
     $profiling_table .= '<table id="profilesummarytable"><thead>' . "\n";
     $profiling_table .= ' <tr>' . "\n";
     $profiling_table .= '  <th>' . __('State')
