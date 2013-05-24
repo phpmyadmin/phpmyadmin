@@ -4128,7 +4128,7 @@ msgid "maximum %s"
 msgstr "अधिकतम %s"
 
 #: libraries/config/FormDisplay.tpl.php:221
-msgid "This setting is disabled, it will not be applied to your configuration"
+msgid "This setting is disabled, it will not be applied to your configuration."
 msgstr "यह सेटिंग अक्षम है, यह आपके विन्यास में लागू नहीं की जा सकेगी"
 
 #: libraries/config/FormDisplay.tpl.php:309

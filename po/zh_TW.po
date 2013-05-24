@@ -3954,7 +3954,7 @@ msgid "maximum %s"
 msgstr "最大 %s"
 
 #: libraries/config/FormDisplay.tpl.php:221
-msgid "This setting is disabled, it will not be applied to your configuration"
+msgid "This setting is disabled, it will not be applied to your configuration."
 msgstr "此設定已停用，不會套用到您的設定中"
 
 #: libraries/config/FormDisplay.tpl.php:309

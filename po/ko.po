@@ -4013,7 +4013,7 @@ msgid "maximum %s"
 msgstr "최대 %s"
 
 #: libraries/config/FormDisplay.tpl.php:221
-msgid "This setting is disabled, it will not be applied to your configuration"
+msgid "This setting is disabled, it will not be applied to your configuration."
 msgstr "이 설정은 비활성화되어 있어, 당신의 환경설정에는 적용되지 않습니다"
 
 #: libraries/config/FormDisplay.tpl.php:309

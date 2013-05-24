@@ -4044,7 +4044,7 @@ msgid "maximum %s"
 msgstr "maximálně %s"
 
 #: libraries/config/FormDisplay.tpl.php:221
-msgid "This setting is disabled, it will not be applied to your configuration"
+msgid "This setting is disabled, it will not be applied to your configuration."
 msgstr "Tato volba není přístupná, nebude použita ve vašich nastaveních"
 
 #: libraries/config/FormDisplay.tpl.php:309

@@ -4067,7 +4067,7 @@ msgid "maximum %s"
 msgstr "en fazla %s"
 
 #: libraries/config/FormDisplay.tpl.php:221
-msgid "This setting is disabled, it will not be applied to your configuration"
+msgid "This setting is disabled, it will not be applied to your configuration."
 msgstr "Bu ayar etkisizleştirildi, yapılandırmanıza uygulanmayacaktır"
 
 #: libraries/config/FormDisplay.tpl.php:309

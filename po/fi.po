@@ -4118,7 +4118,7 @@ msgid "maximum %s"
 msgstr "Enintään %s"
 
 #: libraries/config/FormDisplay.tpl.php:221
-msgid "This setting is disabled, it will not be applied to your configuration"
+msgid "This setting is disabled, it will not be applied to your configuration."
 msgstr "Tämä asetus on poissa käytöstä; sitä ei käytetä asetusmäärittelyssäsi"
 
 #: libraries/config/FormDisplay.tpl.php:309

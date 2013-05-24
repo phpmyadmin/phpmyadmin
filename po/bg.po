@@ -4060,7 +4060,7 @@ msgid "maximum %s"
 msgstr "най-много %s"
 
 #: libraries/config/FormDisplay.tpl.php:221
-msgid "This setting is disabled, it will not be applied to your configuration"
+msgid "This setting is disabled, it will not be applied to your configuration."
 msgstr "Тази настройка е забранена, тя няма да влияе на конфигурацията"
 
 #: libraries/config/FormDisplay.tpl.php:309

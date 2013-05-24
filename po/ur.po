@@ -4218,7 +4218,7 @@ msgid "maximum %s"
 msgstr "زیادہ سے زیادہ %s"
 
 #: libraries/config/FormDisplay.tpl.php:221
-msgid "This setting is disabled, it will not be applied to your configuration"
+msgid "This setting is disabled, it will not be applied to your configuration."
 msgstr "ترتیب غیرفعال ہے، یہ آپ کے تشکیلات میں لاگوں نہیں ہوسکتی"
 
 #: libraries/config/FormDisplay.tpl.php:309

@@ -218,7 +218,7 @@ function PMA_displayInput($path, $name, $type, $value, $description = '',
     if ($option_is_disabled) {
         echo '<span class="disabled-notice" title="';
         echo __(
-            'This setting is disabled, it will not be applied to your configuration'
+            'This setting is disabled, it will not be applied to your configuration.'
         );
         echo '">' . __('Disabled') . "</span>";
     }

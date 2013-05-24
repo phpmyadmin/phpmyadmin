@@ -4095,7 +4095,7 @@ msgid "maximum %s"
 msgstr "μέγιστος αριθμός %s"
 
 #: libraries/config/FormDisplay.tpl.php:221
-msgid "This setting is disabled, it will not be applied to your configuration"
+msgid "This setting is disabled, it will not be applied to your configuration."
 msgstr ""
 "Αυτή η ρύθμιση είναι απενεργοποιημένη και δεν θα εφαρμοστεί στις ρυθμίσεις "
 "σας"
