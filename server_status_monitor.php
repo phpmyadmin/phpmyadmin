@@ -457,7 +457,7 @@ function PMA_getMonitorHtml($ServerStatusData)
         . ' will need to set log_output to \'TABLE\' and have either the'
         . ' slow_query_log or general_log enabled. Note however, that the'
         . ' general_log produces a lot of data and increases server load'
-        . ' by up to 15%'
+        . ' by up to 15%.'
     );
 
     if (PMA_MYSQL_INT_VERSION < 50106) {
@@ -784,7 +784,7 @@ function PMA_getClientSideDataAndLinksHtml($ServerStatusData)
     $links .= '<div id="explain_docu" class="hide">';
     $links .= PMA_Util::showMySQLDocu('explain-output', 'explain-output');
     $links .= '</div>';
-    
+
     return $form . $links;
 }
 ?>
