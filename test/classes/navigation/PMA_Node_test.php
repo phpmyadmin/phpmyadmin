@@ -291,9 +291,7 @@ class Node_Test extends PHPUnit_Framework_TestCase
         if (! isset($GLOBALS['cfg'])) {
             $GLOBALS['cfg'] = array();
         }
-        if (! isset($GLOBALS['cfg']['MaxNavigationItems'])) {
-            $GLOBALS['cfg']['MaxNavigationItems'] = $limit;
-        }
+        $GLOBALS['cfg']['MaxNavigationItems'] = $limit;
 
         $expectedSql  = "SELECT `SCHEMA_NAME` ";
         $expectedSql .= "FROM `INFORMATION_SCHEMA`.`SCHEMATA` ";
