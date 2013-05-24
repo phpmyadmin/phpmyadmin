@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-05-24 11:13+0200\n"
-"PO-Revision-Date: 2013-05-24 11:34+0200\n"
+"PO-Revision-Date: 2013-05-24 11:50+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/tr/>\n"
@@ -4044,16 +4044,16 @@ msgid "\"%s\" requires %s extension"
 msgstr "\"%s\", %s uzantısı gerektirir"
 
 #: libraries/config/FormDisplay.class.php:792
-#, fuzzy, php-format
+#, php-format
 #| msgid "import will not work, missing function (%s)"
 msgid "Compressed import will not work due to missing function %s."
-msgstr "içe aktarma çalışmayacak, eksik işlev (%s)"
+msgstr "Sıkıştırılmış içe aktarma eksik %s işlevinden dolayı çalışmayacak."
 
 #: libraries/config/FormDisplay.class.php:798
-#, fuzzy, php-format
+#, php-format
 #| msgid "export will not work, missing function (%s)"
 msgid "Compressed export will not work due to missing function %s."
-msgstr "dışa aktarma çalışmayacak, eksik işlev (%s)"
+msgstr "Sıkıştırılmış dışa aktarma eksik %s işlevinden dolayı çalışmayacak."
 
 #: libraries/config/FormDisplay.class.php:808
 msgid "SQL Validator is disabled"
