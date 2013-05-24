@@ -304,16 +304,18 @@ class Node_Test extends PHPUnit_Framework_TestCase
         // It would have been better to mock _getWhereClause method
         // but stangely, mocking private methods is not supported in PHPUnit
         $node = PMA_NodeFactory::getInstance();
-        $origDbExt = $GLOBALS['extension'];
+        $origDbi = $GLOBALS['dbi'];
 
-        $dbExt = $this->getMock('PMA_DBI_Dummy');
-        $dbExt->expects($this->once())
-            ->method('realQuery')
+        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+            ->disableOriginalConstructor()
+            ->getMock();
+        $dbi->expects($this->once())
+            ->method('fetchResult')
             ->with($expectedSql);
-        $GLOBALS['extension'] = $dbExt;
+        $GLOBALS['dbi'] = $dbi;
         $node->getData('', $pos);
 
-        $GLOBALS['extension'] = $origDbExt;
+        $GLOBALS['dbi'] = $origDbi;
     }
 
     /**
@@ -342,16 +344,18 @@ class Node_Test extends PHPUnit_Framework_TestCase
         // It would have been better to mock _getWhereClause method
         // but stangely, mocking private methods is not supported in PHPUnit
         $node = PMA_NodeFactory::getInstance();
-        $origDbExt = $GLOBALS['extension'];
+        $origDbi = $GLOBALS['dbi'];
 
-        $dbExt = $this->getMock('PMA_DBI_Dummy');
-        $dbExt->expects($this->once())
-            ->method('realQuery')
+        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+            ->disableOriginalConstructor()
+            ->getMock();
+        $dbi->expects($this->once())
+            ->method('fetchValue')
             ->with($query);
-        $GLOBALS['extension'] = $dbExt;
+        $GLOBALS['dbi'] = $dbi;
         $node->getPresence();
 
-        $GLOBALS['extension'] = $origDbExt;
+        $GLOBALS['dbi'] = $origDbi;
     }
 
     /**
@@ -374,25 +378,29 @@ class Node_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['Servers'][0]['DisableIS'] = true;
 
         $node = PMA_NodeFactory::getInstance();
-        $origDbExt = $GLOBALS['extension'];
+        $origDbi = $GLOBALS['dbi'];
 
         // test with no search clause
-        $dbExt = $this->getMock('PMA_DBI_Dummy');
-        $dbExt->expects($this->once())
-            ->method('realQuery')
+        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+            ->disableOriginalConstructor()
+            ->getMock();
+        $dbi->expects($this->once())
+            ->method('tryQuery')
             ->with("SHOW DATABASES ");
-        $GLOBALS['extension'] = $dbExt;
+        $GLOBALS['dbi'] = $dbi;
         $node->getPresence();
 
         // test with a search clause
-        $dbExt = $this->getMock('PMA_DBI_Dummy');
-        $dbExt->expects($this->once())
-            ->method('realQuery')
+        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+            ->disableOriginalConstructor()
+            ->getMock();
+        $dbi->expects($this->once())
+            ->method('tryQuery')
             ->with("SHOW DATABASES LIKE '%dbname%' ");
-        $GLOBALS['extension'] = $dbExt;
+        $GLOBALS['dbi'] = $dbi;
         $node->getPresence('', 'dbname');
 
-        $GLOBALS['extension'] = $origDbExt;
+        $GLOBALS['dbi'] = $origDbi;
     }
 
     public function testComment()
