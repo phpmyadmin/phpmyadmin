@@ -3395,7 +3395,7 @@ msgstr ""
 #: libraries/Types.class.php:302
 msgid ""
 "A 4-byte integer, signed range is -2,147,483,648 to 2,147,483,647, unsigned "
-"range is 0 to 4,294,967,295."
+"range is 0 to 4,294,967,295"
 msgstr ""
 "Un enteiro de catro bytes; o intervalo asinado é desde -2.147.483.648 até "
 "2.147.483.647; o intervalo sen asinar é desde 0 até 4.294.967.295."

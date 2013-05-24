@@ -3619,7 +3619,7 @@ msgstr ""
 #: libraries/Types.class.php:302
 msgid ""
 "A 4-byte integer, signed range is -2,147,483,648 to 2,147,483,647, unsigned "
-"range is 0 to 4,294,967,295."
+"range is 0 to 4,294,967,295"
 msgstr ""
 
 #: libraries/Types.class.php:304

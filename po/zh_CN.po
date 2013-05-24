@@ -3245,7 +3245,7 @@ msgstr ""
 #: libraries/Types.class.php:302
 msgid ""
 "A 4-byte integer, signed range is -2,147,483,648 to 2,147,483,647, unsigned "
-"range is 0 to 4,294,967,295."
+"range is 0 to 4,294,967,295"
 msgstr ""
 "4比特的整数，有符号的表示范围是-2147483648到2147483647,无符号的表示范围是0到"
 "4294967295。"
