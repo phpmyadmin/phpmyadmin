@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-05-24 11:13+0200\n"
-"PO-Revision-Date: 2013-05-23 15:21+0200\n"
+"PO-Revision-Date: 2013-05-24 14:00+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: Dutch <http://l10n.cihar.com/projects/phpmyadmin/master/nl/>\n"
 "Language: nl\n"
@@ -2225,17 +2225,17 @@ msgstr "PHP gaf de volgende fout : %s"
 #: libraries/Advisor.class.php:107
 #, php-format
 msgid "Failed evaluating precondition for rule '%s'."
-msgstr "Validatie van de preconditie van regel '%s' is mislukt"
+msgstr "Validatie van de preconditie van regel '%s' is mislukt."
 
 #: libraries/Advisor.class.php:124
 #, php-format
 msgid "Failed calculating value for rule '%s'."
-msgstr "Berekening van waarde voor regel '%s' is mislukt"
+msgstr "Berekening van waarde voor regel '%s' is mislukt."
 
 #: libraries/Advisor.class.php:143
 #, php-format
 msgid "Failed running test for rule '%s'."
-msgstr "Test uitvoeren voor regel '%s' is mislukt"
+msgstr "Test uitvoeren voor regel '%s' is mislukt."
 
 #: libraries/Advisor.class.php:225
 #, php-format
@@ -2248,23 +2248,23 @@ msgid ""
 "Invalid rule declaration on line %1$s, expected line %2$s of previous rule."
 msgstr ""
 "Ongeldige regeldeclaratie op lijn %1$s, lijn %2$s van de vorige regel "
-"verwacht"
+"verwacht."
 
 #: libraries/Advisor.class.php:412
 #, php-format
 msgid "Invalid rule declaration on line %s."
-msgstr "Ongeldige regeldeclaratie op lijn %s"
+msgstr "Ongeldige regeldeclaratie op lijn %s."
 
 #: libraries/Advisor.class.php:420
 #, php-format
 msgid "Unexpected characters on line %s."
-msgstr "Onverwachte tekens op lijn %s"
+msgstr "Onverwachte tekens op lijn %s."
 
 #: libraries/Advisor.class.php:434
-#, fuzzy, php-format
+#, php-format
 #| msgid "Unexpected character on line %1$s. Expected tab, but found \"%2$s\""
 msgid "Unexpected character on line %1$s. Expected tab, but found \"%2$s\"."
-msgstr "Onverwacht teken op lijn %1$s. Tab verwacht, \"%2$s\" gevonden"
+msgstr "Onverwacht teken op lijn %1$s. Tab verwacht, \"%2$s\" gevonden."
 
 #: libraries/Advisor.class.php:467
 msgid "per second"
@@ -4102,7 +4102,7 @@ msgstr "maximum %s"
 msgid "This setting is disabled, it will not be applied to your configuration."
 msgstr ""
 "Deze instelling is uitgeschakeld, het is niet van toepassing op uw "
-"configuratie"
+"configuratie."
 
 #: libraries/config/FormDisplay.tpl.php:309
 #, php-format
@@ -10817,9 +10817,8 @@ msgid ""
 "should see a message informing you, that this server <b>is</b> configured as "
 "master."
 msgstr ""
-"Nadat u bovenstaande regels aan uw instellingen heeft toegevoegd en de MySQL-"
-"server heeft herstart klikt u op Start. Hierna zou u de melding moeten "
-"krijgen dat de server <b>is</b> ingesteld als master"
+"Nadat u de MySQL-server herstart heeft, klikt u op Start. Hierna zou u de "
+"melding moeten krijgen dat de server  ingesteld <b>is</b> als master."
 
 #: server_replication.php:281
 msgid "Slave SQL Thread not running!"
