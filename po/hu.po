@@ -3,15 +3,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-05-24 11:13+0200\n"
+"POT-Creation-Date: 2013-05-24 09:03-0400\n"
 "PO-Revision-Date: 2013-04-03 09:47+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Hungarian <http://l10n.cihar.com/projects/phpmyadmin/master/"
 "hu/>\n"
-"Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: hu\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 1.5-dev\n"
 
@@ -236,8 +236,8 @@ msgstr "Megjegyzések"
 #: libraries/server_privileges.lib.php:2163
 #: libraries/server_privileges.lib.php:2483
 #: libraries/server_privileges.lib.php:2497 libraries/structure.lib.php:1268
-#: libraries/user_preferences.lib.php:282 prefs_manage.php:138 sql.php:329
-#: sql.php:424 sql.php:425 tbl_printview.php:186 tbl_tracking.php:345
+#: libraries/user_preferences.lib.php:282 prefs_manage.php:138 sql.php:344
+#: sql.php:439 sql.php:440 tbl_printview.php:186 tbl_tracking.php:345
 #: tbl_tracking.php:399 tbl_tracking.php:404
 msgid "No"
 msgstr "Nem"
@@ -263,7 +263,7 @@ msgstr "Nem"
 #: libraries/server_privileges.lib.php:2480
 #: libraries/server_privileges.lib.php:2497 libraries/structure.lib.php:1268
 #: libraries/user_preferences.lib.php:280 prefs_manage.php:136
-#: server_databases.php:103 server_databases.php:110 sql.php:422 sql.php:423
+#: server_databases.php:103 server_databases.php:110 sql.php:437 sql.php:438
 #: tbl_printview.php:187 tbl_structure.php:84 tbl_tracking.php:345
 #: tbl_tracking.php:397 tbl_tracking.php:402
 msgid "Yes"
@@ -417,7 +417,7 @@ msgstr "frissítve"
 
 #: db_tracking.php:83 js/messages.php:163 libraries/Menu.class.php:454
 #: libraries/rte/rte_events.lib.php:426 libraries/rte/rte_list.lib.php:78
-#: libraries/sql.lib.php:498 server_status.php:391 tbl_tracking.php:767
+#: server_status.php:391 tbl_tracking.php:767
 msgid "Status"
 msgstr "Állapot"
 
@@ -620,11 +620,11 @@ msgstr ""
 #: import.php:107
 #, php-format
 msgid ""
-"You probably tried to upload a file that is too large. Please refer to "
-"%sdocumentation%s for a workaround for this limit."
+"You probably tried to upload a file that is too large. Please refer to %"
+"sdocumentation%s for a workaround for this limit."
 msgstr ""
-"Ön bizonyára túl nagy fájlt próbált meg feltölteni. Kérjük, nézzen utána a "
-"%sdokumentációban%s a korlátozás feloldása végett."
+"Ön bizonyára túl nagy fájlt próbált meg feltölteni. Kérjük, nézzen utána a %"
+"sdokumentációban%s a korlátozás feloldása végett."
 
 #: import.php:250 import.php:516
 msgid "Showing bookmark"
@@ -672,7 +672,7 @@ msgstr ""
 "Nem lehetett betölteni az importáló beépülő modulokat. Kérjük, ellenőrizze a "
 "telepítését!"
 
-#: import.php:519 sql.php:294 sql.php:1108
+#: import.php:519 sql.php:309 sql.php:1123
 #, php-format
 msgid "Bookmark %s created"
 msgstr "A(z) %s könyvjelző elkészült"
@@ -931,7 +931,7 @@ msgstr ""
 "A szerver Suhosinnal fut. Kérjük, hogy a lehetséges problémáknak nézzen "
 "utána a %sdokumentációban%s."
 
-#: js/messages.php:27 libraries/import.lib.php:118 sql.php:254
+#: js/messages.php:27 libraries/import.lib.php:118 sql.php:269
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "A \"DROP DATABASE\" utasítást letiltották."
 
@@ -940,7 +940,7 @@ msgstr "A \"DROP DATABASE\" utasítást letiltották."
 msgid "Do you really want to execute \"%s\"?"
 msgstr "Valóban végre szeretné hajtani: „%s”?"
 
-#: js/messages.php:31 libraries/mult_submits.inc.php:337 sql.php:376
+#: js/messages.php:31 libraries/mult_submits.inc.php:337 sql.php:391
 msgid "You are about to DESTROY a complete database!"
 msgstr "Ön a teljes adatbázis MEGSEMMISÍTÉSÉRE készül!"
 
@@ -1400,7 +1400,7 @@ msgstr "A kimenet magyarázata"
 #: libraries/plugins/export/ExportHtmlword.class.php:484
 #: libraries/plugins/export/ExportOdt.class.php:562
 #: libraries/plugins/export/ExportTexytext.class.php:435
-#: libraries/rte/rte_list.lib.php:68 libraries/sql.lib.php:503
+#: libraries/rte/rte_list.lib.php:68 libraries/sql.lib.php:505
 #: server_status.php:387
 msgid "Time"
 msgstr "Idő"
@@ -2657,11 +2657,11 @@ msgstr "lekérdezésben"
 #: libraries/DisplayResults.class.php:4910 libraries/structure.lib.php:653
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation"
-"%s."
+"This view has at least this number of rows. Please refer to %sdocumentation%"
+"s."
 msgstr ""
-"Ebben a nézetben legalább ennyi számú sor van. Kérjük, hogy nézzen utána a "
-"%sdokumentációban%s."
+"Ebben a nézetben legalább ennyi számú sor van. Kérjük, hogy nézzen utána a %"
+"sdokumentációban%s."
 
 #: libraries/DisplayResults.class.php:4923
 msgid "Showing rows"
@@ -2671,7 +2671,7 @@ msgstr "Megjelenített sorok"
 msgid "total"
 msgstr "összesen"
 
-#: libraries/DisplayResults.class.php:4950 sql.php:853
+#: libraries/DisplayResults.class.php:4950 sql.php:868
 #, php-format
 msgid "Query took %01.4f sec"
 msgstr "a lekérdezés %01.4f másodpercig tartott"
@@ -3392,14 +3392,14 @@ msgstr ""
 
 #: libraries/Types.class.php:308
 msgid ""
-"A small floating-point number, allowable values are -3.402823466E+38 to "
-"-1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
+"A small floating-point number, allowable values are -3.402823466E+38 to -"
+"1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
 msgstr ""
 
 #: libraries/Types.class.php:310
 msgid ""
-"A double-precision floating-point number, allowable values are "
-"-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
+"A double-precision floating-point number, allowable values are -"
+"1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
 "2.2250738585072014E-308 to 1.7976931348623157E+308"
 msgstr ""
 
@@ -3696,7 +3696,7 @@ msgctxt "Inline edit query"
 msgid "Inline"
 msgstr "Belső"
 
-#: libraries/Util.class.php:1435 libraries/sql.lib.php:494
+#: libraries/Util.class.php:1435 libraries/sql.lib.php:493
 msgid "Profiling"
 msgstr "Adatgyűjtés"
 
@@ -6683,8 +6683,8 @@ msgstr ", @TABLE@ lesz a tábla neve"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: "
-"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: %"
+"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Ennek az értéknek az értelmezése a(z) %1$sstrftime%2$s használatával "
 "történik, vagyis időformázó karakterláncokat használhat. Továbbá a következő "
@@ -7242,8 +7242,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:131
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the "
-"%sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the %"
+"sPrimeBase XT Home Page%s."
 msgstr ""
 
 #: libraries/engines/pbxt.lib.php:133
@@ -7259,7 +7259,7 @@ msgid "No data found for GIS visualization."
 msgstr "Nem található adat a GIS megjelenítőhöz."
 
 #: libraries/import.lib.php:187 libraries/insert_edit.lib.php:120
-#: libraries/rte/rte_routines.lib.php:1443 sql.php:848 tbl_get_field.php:55
+#: libraries/rte/rte_routines.lib.php:1443 sql.php:863 tbl_get_field.php:55
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "A MySQL üres eredményhalmazt adott vissza (pl. nulla sorok)."
 
@@ -7379,11 +7379,11 @@ msgstr ""
 "A TAB billentyűvel értékről értékre lépkedhet, vagy a CTRL+nyilakkal bárhová "
 "léphet"
 
-#: libraries/insert_edit.lib.php:1912 sql.php:843
+#: libraries/insert_edit.lib.php:1912 sql.php:858
 msgid "Showing SQL query"
 msgstr "Megjelenítés SQL lekérdezésként"
 
-#: libraries/insert_edit.lib.php:1937 sql.php:823
+#: libraries/insert_edit.lib.php:1937 sql.php:838
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "A beszúrt sor azonosítószáma: %1$d"
@@ -7434,7 +7434,7 @@ msgstr "Tábla előtagjának lecserélése"
 msgid "Add prefix"
 msgstr ""
 
-#: libraries/mult_submits.inc.php:339 sql.php:416
+#: libraries/mult_submits.inc.php:339 sql.php:431
 msgid "Do you really want to execute the following query?"
 msgstr "Valóban végre szeretné hajtani a következő lekérdezést?"
 
@@ -7956,11 +7956,11 @@ msgstr "Üdvözli a %s"
 #: libraries/plugins/auth/AuthenticationConfig.class.php:102
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the "
-"%1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the %"
+"1$ssetup script%2$s to create one."
 msgstr ""
-"Ön valószínűleg nem hozta létre a konfigurációs fájlt. A "
-"%1$stelepítőszkripttel%2$s el tudja készíteni."
+"Ön valószínűleg nem hozta létre a konfigurációs fájlt. A %1"
+"$stelepítőszkripttel%2$s el tudja készíteni."
 
 #: libraries/plugins/auth/AuthenticationConfig.class.php:122
 msgid ""
@@ -9968,13 +9968,13 @@ msgstr "Felhasználók áttekintése"
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should "
-"%sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should %"
+"sreload the privileges%s before you continue."
 msgstr ""
 "Megjegyzés: a phpMyAdmin a felhasználók jogait közvetlenül a MySQL "
 "privilégium táblákból veszi. Ezen táblák tartalma eltérhet a szerver által "
-"használt jogoktól, ha a módosításuk kézzel történt. Ebben az esetben "
-"%stöltse be újra a jogokat%s a folytatás előtt."
+"használt jogoktól, ha a módosításuk kézzel történt. Ebben az esetben %"
+"stöltse be újra a jogokat%s a folytatás előtt."
 
 #: libraries/server_privileges.lib.php:3032
 msgid "The selected user was not found in the privilege table."
@@ -9993,6 +9993,53 @@ msgstr "SQL-eredmény"
 #| msgid "Generated by"
 msgid "Generated by:"
 msgstr "Készítette"
+
+#: libraries/sql.lib.php:495
+#, fuzzy
+#| msgid "Data file grow size"
+msgid "Detailed profile"
+msgstr "Az adatfájl növekedési mérete"
+
+#: libraries/sql.lib.php:498
+#, fuzzy
+#| msgid "Other"
+msgid "Order"
+msgstr "Egyéb"
+
+#: libraries/sql.lib.php:500 libraries/sql.lib.php:546
+#, fuzzy
+#| msgctxt "Start of recurring event"
+#| msgid "Start"
+msgid "State"
+msgstr "Kezdés"
+
+#: libraries/sql.lib.php:543
+msgid "Summary by state"
+msgstr ""
+
+#: libraries/sql.lib.php:551
+#, fuzzy
+#| msgid "Total time:"
+msgid "Total Time"
+msgstr "Teljes idő:"
+
+#: libraries/sql.lib.php:553
+#, fuzzy
+#| msgid "Time"
+msgid "% Time"
+msgstr "Idő"
+
+#: libraries/sql.lib.php:555
+#, fuzzy
+#| msgid "Close"
+msgid "Calls"
+msgstr "Bezárás"
+
+#: libraries/sql.lib.php:557
+#, fuzzy
+#| msgid "Time"
+msgid "ø Time"
+msgstr "Idő"
 
 #: libraries/sql_query_form.lib.php:188
 #, php-format
@@ -10014,7 +10061,7 @@ msgstr "Törlés"
 msgid "Bookmark this SQL query:"
 msgstr "Az SQL-lekérdezés hozzáadása a könyvjelzőkhöz"
 
-#: libraries/sql_query_form.lib.php:326 sql.php:1196
+#: libraries/sql_query_form.lib.php:326 sql.php:1211
 msgid "Let every user access this bookmark"
 msgstr ""
 "A hozzáférés ehhez a könyvjelzőhöz az összes felhasználó számára "
@@ -10110,8 +10157,8 @@ msgid ""
 "The SQL validator could not be initialized. Please check if you have "
 "installed the necessary PHP extensions as described in the %sdocumentation%s."
 msgstr ""
-"Nem lehetett inicializálni az SQL ellenőrzőt. Ellenőrizze, hogy a "
-"%sdokumentációban%s leírtak szerint telepítette-e a szükséges PHP-"
+"Nem lehetett inicializálni az SQL ellenőrzőt. Ellenőrizze, hogy a %"
+"sdokumentációban%s leírtak szerint telepítette-e a szükséges PHP-"
 "kiterjesztést."
 
 #: libraries/structure.lib.php:68 tbl_operations.php:311
@@ -10722,8 +10769,8 @@ msgid ""
 "You can set more settings by modifying config.inc.php, eg. by using %sSetup "
 "script%s."
 msgstr ""
-"További beállításokat állíthat be a config.inc.php modosításával, pl. "
-"%sBeállító parancsfájl%s használatával."
+"További beállításokat állíthat be a config.inc.php modosításával, pl. %"
+"sBeállító parancsfájl%s használatával."
 
 #: prefs_manage.php:308
 msgid "Save to browser's storage"
@@ -12458,42 +12505,42 @@ msgstr ""
 msgid "Wrong data"
 msgstr "Hibás adat"
 
-#: sql.php:216
+#: sql.php:231
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr ""
 "A(z) „%s” könyvjelző használata alapértelmezett tallózás lekérdezésként."
 
-#: sql.php:298
+#: sql.php:313
 #, fuzzy
 #| msgid "Bookmark %s created"
 msgid "Bookmark not created"
 msgstr "A(z) %s könyvjelző elkészült"
 
-#: sql.php:840
+#: sql.php:855
 msgid "Showing as PHP code"
 msgstr "Megjelenítés PHP kódként"
 
-#: sql.php:845
+#: sql.php:860
 msgid "Validated SQL"
 msgstr "Érvényes SQL"
 
-#: sql.php:1099
+#: sql.php:1114
 msgid ""
 "This table does not contain a unique column. Grid edit, checkbox, Edit, Copy "
 "and Delete features are not available."
 msgstr ""
 
-#: sql.php:1151
+#: sql.php:1166
 #, php-format
 msgid "Problems with indexes of table `%s`"
 msgstr "Probléma a(z) `%s` tábla indexeivel"
 
-#: sql.php:1184 sql.php:1204
+#: sql.php:1199 sql.php:1219
 msgid "Bookmark this SQL query"
 msgstr "Az SQL-lekérdezés hozzáadása a könyvjelzőkhöz"
 
-#: sql.php:1188
+#: sql.php:1203
 #, fuzzy
 #| msgid "Label"
 msgid "Label:"
@@ -13236,8 +13283,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:179
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s"
-"%%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s%"
+"%. It should be above 80%%"
 msgstr ""
 
 #: libraries/advisory_rules.txt:181
@@ -13368,8 +13415,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:216
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than "
-"10%%."
+"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
+"%."
 msgstr ""
 
 #: libraries/advisory_rules.txt:218
@@ -14703,8 +14750,8 @@ msgstr "A concurrent_insert 0-ra van állítva"
 #~ "No themes support; please check your configuration and/or your themes in "
 #~ "directory %s."
 #~ msgstr ""
-#~ "Nincs téma támogatás, ellenőrizze a beállításokat és/vagy a témákat a(z) "
-#~ "%s könyvtárban."
+#~ "Nincs téma támogatás, ellenőrizze a beállításokat és/vagy a témákat a(z) %"
+#~ "s könyvtárban."
 
 #~ msgid "Switch to"
 #~ msgstr "Váltás"

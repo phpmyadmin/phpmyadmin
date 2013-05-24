@@ -3,15 +3,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-05-24 11:13+0200\n"
+"POT-Creation-Date: 2013-05-24 09:03-0400\n"
 "PO-Revision-Date: 2013-04-10 00:41+0200\n"
 "Last-Translator: Jakub S <jakub.st@gmail.com>\n"
 "Language-Team: Polish <http://l10n.cihar.com/projects/phpmyadmin/master/pl/"
 ">\n"
-"Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: pl\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 1.5-dev\n"
@@ -237,8 +237,8 @@ msgstr "Komentarze"
 #: libraries/server_privileges.lib.php:2163
 #: libraries/server_privileges.lib.php:2483
 #: libraries/server_privileges.lib.php:2497 libraries/structure.lib.php:1268
-#: libraries/user_preferences.lib.php:282 prefs_manage.php:138 sql.php:329
-#: sql.php:424 sql.php:425 tbl_printview.php:186 tbl_tracking.php:345
+#: libraries/user_preferences.lib.php:282 prefs_manage.php:138 sql.php:344
+#: sql.php:439 sql.php:440 tbl_printview.php:186 tbl_tracking.php:345
 #: tbl_tracking.php:399 tbl_tracking.php:404
 msgid "No"
 msgstr "Nie"
@@ -264,7 +264,7 @@ msgstr "Nie"
 #: libraries/server_privileges.lib.php:2480
 #: libraries/server_privileges.lib.php:2497 libraries/structure.lib.php:1268
 #: libraries/user_preferences.lib.php:280 prefs_manage.php:136
-#: server_databases.php:103 server_databases.php:110 sql.php:422 sql.php:423
+#: server_databases.php:103 server_databases.php:110 sql.php:437 sql.php:438
 #: tbl_printview.php:187 tbl_structure.php:84 tbl_tracking.php:345
 #: tbl_tracking.php:397 tbl_tracking.php:402
 msgid "Yes"
@@ -419,7 +419,7 @@ msgstr "Zaktualizowana"
 
 #: db_tracking.php:83 js/messages.php:163 libraries/Menu.class.php:454
 #: libraries/rte/rte_events.lib.php:426 libraries/rte/rte_list.lib.php:78
-#: libraries/sql.lib.php:498 server_status.php:391 tbl_tracking.php:767
+#: server_status.php:391 tbl_tracking.php:767
 msgid "Status"
 msgstr "Status"
 
@@ -622,8 +622,8 @@ msgstr ""
 #: import.php:107
 #, php-format
 msgid ""
-"You probably tried to upload a file that is too large. Please refer to "
-"%sdocumentation%s for a workaround for this limit."
+"You probably tried to upload a file that is too large. Please refer to %"
+"sdocumentation%s for a workaround for this limit."
 msgstr ""
 "Prawdopodobnie próbował załadować plik, który jest zbyt duży. Proszę "
 "zapoznać się %sdokumentacją%s, aby obejść te ograniczenia."
@@ -671,7 +671,7 @@ msgstr ""
 msgid "Could not load import plugins, please check your installation!"
 msgstr "Nie udało się wczytać wtyczek importu. Proszę sprawdzić instalację!"
 
-#: import.php:519 sql.php:294 sql.php:1108
+#: import.php:519 sql.php:309 sql.php:1123
 #, php-format
 msgid "Bookmark %s created"
 msgstr "Zakładka %s utworzona"
@@ -925,10 +925,10 @@ msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
 "issues."
 msgstr ""
-"Serwer działa pod ochroną Suhosina. Możliwe problemy opisuje %sdokumentacja"
-"%s."
+"Serwer działa pod ochroną Suhosina. Możliwe problemy opisuje %sdokumentacja%"
+"s."
 
-#: js/messages.php:27 libraries/import.lib.php:118 sql.php:254
+#: js/messages.php:27 libraries/import.lib.php:118 sql.php:269
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "Instrukcje \"DROP DATABASE\" są wyłączone."
 
@@ -937,7 +937,7 @@ msgstr "Instrukcje \"DROP DATABASE\" są wyłączone."
 msgid "Do you really want to execute \"%s\"?"
 msgstr "Czy na pewno chcesz wykonać \"%s\"?"
 
-#: js/messages.php:31 libraries/mult_submits.inc.php:337 sql.php:376
+#: js/messages.php:31 libraries/mult_submits.inc.php:337 sql.php:391
 msgid "You are about to DESTROY a complete database!"
 msgstr "Masz zamiar ZNISZCZYĆ całą bazę danych!"
 
@@ -1408,7 +1408,7 @@ msgstr "Wyjaśnij wynik przetworzenia danych"
 #: libraries/plugins/export/ExportHtmlword.class.php:484
 #: libraries/plugins/export/ExportOdt.class.php:562
 #: libraries/plugins/export/ExportTexytext.class.php:435
-#: libraries/rte/rte_list.lib.php:68 libraries/sql.lib.php:503
+#: libraries/rte/rte_list.lib.php:68 libraries/sql.lib.php:505
 #: server_status.php:387
 msgid "Time"
 msgstr "Czas"
@@ -2670,8 +2670,8 @@ msgstr "w zapytaniu"
 #: libraries/DisplayResults.class.php:4910 libraries/structure.lib.php:653
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation"
-"%s."
+"This view has at least this number of rows. Please refer to %sdocumentation%"
+"s."
 msgstr ""
 "Ten widok ma przynajmniej taką liczbę wierszy (rekordów). Proszę odnieść się "
 "do %sdokumentacji%s."
@@ -2684,7 +2684,7 @@ msgstr "Pokaż wiersze"
 msgid "total"
 msgstr "wszystkich"
 
-#: libraries/DisplayResults.class.php:4950 sql.php:853
+#: libraries/DisplayResults.class.php:4950 sql.php:868
 #, php-format
 msgid "Query took %01.4f sec"
 msgstr "Wykonanie zapytania trwało %01.4f sekund(y)"
@@ -3419,16 +3419,16 @@ msgstr ""
 
 #: libraries/Types.class.php:308
 msgid ""
-"A small floating-point number, allowable values are -3.402823466E+38 to "
-"-1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
+"A small floating-point number, allowable values are -3.402823466E+38 to -"
+"1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
 msgstr ""
 "Małe wartości zmiennoprzecinkowych numer, dopuszczalne są - 3.402823466E 38 "
 "do - 1.175494351E-38, 0 i 1.175494351E-38 do 3.402823466E 38"
 
 #: libraries/Types.class.php:310
 msgid ""
-"A double-precision floating-point number, allowable values are "
-"-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
+"A double-precision floating-point number, allowable values are -"
+"1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
 "2.2250738585072014E-308 to 1.7976931348623157E+308"
 msgstr ""
 "Podwójnej precyzji numer, dopuszczalne wartości zmiennoprzecinkowych są - "
@@ -3772,7 +3772,7 @@ msgctxt "Inline edit query"
 msgid "Inline"
 msgstr "W linii"
 
-#: libraries/Util.class.php:1435 libraries/sql.lib.php:494
+#: libraries/Util.class.php:1435 libraries/sql.lib.php:493
 msgid "Profiling"
 msgstr "Profilowanie"
 
@@ -6044,8 +6044,8 @@ msgstr "Szczegółowa nazwa serwera"
 #: libraries/config/messages.inc.php:455
 msgid "Whether a user should be displayed a &quot;show all (rows)&quot; button"
 msgstr ""
-"Czy użytkownik powinien mieć wyświetlony przycisk \"pokaż wszystkie "
-"(wiersze)\";"
+"Czy użytkownik powinien mieć wyświetlony przycisk \"pokaż wszystkie (wiersze)"
+"\";"
 
 #: libraries/config/messages.inc.php:456
 msgid "Allow to display all the rows"
@@ -6717,8 +6717,8 @@ msgstr ", @TABLE@ zostanie zastąpione nazwą wybranej tabeli"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: "
-"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: %"
+"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Wartość ta jest interpretowana za pomocą %1$sstrftime%2$s, dzięki czemu "
 "można używać wartości czasu formatowania. Dodatkowo po transformacji stanie "
@@ -7275,8 +7275,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:131
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the "
-"%sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the %"
+"sPrimeBase XT Home Page%s."
 msgstr ""
 "Dokumentacja i dodatkowe informacje o PBXT można znaleźć na %sStronie "
 "domowej PrimeBase XT%s."
@@ -7294,7 +7294,7 @@ msgid "No data found for GIS visualization."
 msgstr "Nie znaleziono danych do wizualizacji GIS."
 
 #: libraries/import.lib.php:187 libraries/insert_edit.lib.php:120
-#: libraries/rte/rte_routines.lib.php:1443 sql.php:848 tbl_get_field.php:55
+#: libraries/rte/rte_routines.lib.php:1443 sql.php:863 tbl_get_field.php:55
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL zwrócił pusty wynik (zero wierszy)."
 
@@ -7415,11 +7415,11 @@ msgstr ""
 "Użyj TAB, aby przejść z wartości do wartości, lub CTRL+strzałki do "
 "poruszania się w dowolnym miejscu"
 
-#: libraries/insert_edit.lib.php:1912 sql.php:843
+#: libraries/insert_edit.lib.php:1912 sql.php:858
 msgid "Showing SQL query"
 msgstr "Wyświetl zapytanie SQL"
 
-#: libraries/insert_edit.lib.php:1937 sql.php:823
+#: libraries/insert_edit.lib.php:1937 sql.php:838
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "Id wstawionego wiersza: %1$d"
@@ -7470,7 +7470,7 @@ msgstr "Dodaj prefiks tabeli"
 msgid "Add prefix"
 msgstr "Dodaj prefiks"
 
-#: libraries/mult_submits.inc.php:339 sql.php:416
+#: libraries/mult_submits.inc.php:339 sql.php:431
 msgid "Do you really want to execute the following query?"
 msgstr "Czy na pewno chcesz wykonać następującą kwerendę?"
 
@@ -7973,8 +7973,8 @@ msgstr "Witamy w %s"
 #: libraries/plugins/auth/AuthenticationConfig.class.php:102
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the "
-"%1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the %"
+"1$ssetup script%2$s to create one."
 msgstr ""
 "Prawdopodobnie powodem jest brak utworzonego pliku konfiguracyjnego. Możesz "
 "użyć %1$s skryptu instalacyjnego %2$s, aby utworzyć jedną."
@@ -9949,8 +9949,8 @@ msgstr "Omówienie użytkowników"
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should "
-"%sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should %"
+"sreload the privileges%s before you continue."
 msgstr ""
 "Uwaga: phpMyAdmin pobiera uprawnienia użytkowników wprost z tabeli uprawnień "
 "MySQL-a. Zawartość tej tabeli, jeśli zostały w niej dokonane ręczne zmiany, "
@@ -9975,6 +9975,53 @@ msgstr "Wynik SQL"
 msgid "Generated by:"
 msgstr "Wygenerowany przez"
 
+#: libraries/sql.lib.php:495
+#, fuzzy
+#| msgid "Data file grow size"
+msgid "Detailed profile"
+msgstr "Wzrost rozmiaru pliku danych"
+
+#: libraries/sql.lib.php:498
+#, fuzzy
+#| msgid "Other"
+msgid "Order"
+msgstr "Inne"
+
+#: libraries/sql.lib.php:500 libraries/sql.lib.php:546
+#, fuzzy
+#| msgctxt "Start of recurring event"
+#| msgid "Start"
+msgid "State"
+msgstr "Pocz"
+
+#: libraries/sql.lib.php:543
+msgid "Summary by state"
+msgstr ""
+
+#: libraries/sql.lib.php:551
+#, fuzzy
+#| msgid "Total time:"
+msgid "Total Time"
+msgstr "Czas ogółem:"
+
+#: libraries/sql.lib.php:553
+#, fuzzy
+#| msgid "Time"
+msgid "% Time"
+msgstr "Czas"
+
+#: libraries/sql.lib.php:555
+#, fuzzy
+#| msgid "Close"
+msgid "Calls"
+msgstr "Zamknij"
+
+#: libraries/sql.lib.php:557
+#, fuzzy
+#| msgid "Time"
+msgid "ø Time"
+msgstr "Czas"
+
 #: libraries/sql_query_form.lib.php:188
 #, php-format
 msgid "Run SQL query/queries on server %s"
@@ -9995,7 +10042,7 @@ msgstr "Wyczyść"
 msgid "Bookmark this SQL query:"
 msgstr "Pamiętaj zapytanie SQL"
 
-#: libraries/sql_query_form.lib.php:326 sql.php:1196
+#: libraries/sql_query_form.lib.php:326 sql.php:1211
 msgid "Let every user access this bookmark"
 msgstr "Niech każdy użytkownik ma dostęp do tej zakładki"
 
@@ -10090,8 +10137,8 @@ msgid ""
 "installed the necessary PHP extensions as described in the %sdocumentation%s."
 msgstr ""
 "Analizator składni SQL nie mógł zostać zainicjowany. Sprawdź, czy "
-"zainstalowane są niezbędne rozszerzenia PHP, tak jak zostało to opisane w "
-"%sdokumentacji%s."
+"zainstalowane są niezbędne rozszerzenia PHP, tak jak zostało to opisane w %"
+"sdokumentacji%s."
 
 #: libraries/structure.lib.php:68 tbl_operations.php:311
 #, php-format
@@ -10342,8 +10389,8 @@ msgid ""
 "For a list of available transformation options and their MIME type "
 "transformations, click on %stransformation descriptions%s"
 msgstr ""
-"Aby uzyskać listę dostępnych opcji transformacji i ich typów MIME, kliknij "
-"%sopisy transformacji%s"
+"Aby uzyskać listę dostępnych opcji transformacji i ich typów MIME, kliknij %"
+"sopisy transformacji%s"
 
 #: libraries/tbl_columns_definition_form.inc.php:171
 msgid "Transformation options"
@@ -12387,8 +12434,8 @@ msgid ""
 "If using cookie authentication and %sLogin cookie store%s is not 0, %sLogin "
 "cookie validity%s must be set to a value less or equal to it."
 msgstr ""
-"W przypadku korzystania z uwierzytelniania cookie i przechowywać "
-"%sciasteczek logowania%s nie jest 0, %sWażności plików cookie%s logowania "
+"W przypadku korzystania z uwierzytelniania cookie i przechowywać %"
+"sciasteczek logowania%s nie jest 0, %sWażności plików cookie%s logowania "
 "muszą być ustawione na wartość mniejsza lub równa jej."
 
 #: setup/lib/index.lib.php:314
@@ -12461,24 +12508,24 @@ msgstr "Klucz powinien zawierać litery, cyfry [em]i[/em] znaki specjalne."
 msgid "Wrong data"
 msgstr "Nieprawidłowe dane"
 
-#: sql.php:216
+#: sql.php:231
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr "Korzystanie z zakładki \"%s\" jako domyślne przeglądanie zapytania."
 
-#: sql.php:298
+#: sql.php:313
 msgid "Bookmark not created"
 msgstr "Zakładka nie utworzona"
 
-#: sql.php:840
+#: sql.php:855
 msgid "Showing as PHP code"
 msgstr "Pokaż jako kod PHP"
 
-#: sql.php:845
+#: sql.php:860
 msgid "Validated SQL"
 msgstr "Weryfikacje SQL"
 
-#: sql.php:1099
+#: sql.php:1114
 msgid ""
 "This table does not contain a unique column. Grid edit, checkbox, Edit, Copy "
 "and Delete features are not available."
@@ -12486,16 +12533,16 @@ msgstr ""
 "Tabela ta nie zawiera unikalnej kolumny. Funkcje związane z edycją siatki, "
 "pól wyboru, edycji, kopiowania i usuwania łącza może nie działać."
 
-#: sql.php:1151
+#: sql.php:1166
 #, php-format
 msgid "Problems with indexes of table `%s`"
 msgstr "Problemy z indeksami tabeli `%s`"
 
-#: sql.php:1184 sql.php:1204
+#: sql.php:1199 sql.php:1219
 msgid "Bookmark this SQL query"
 msgstr "Pamiętaj zapytanie SQL"
 
-#: sql.php:1188
+#: sql.php:1203
 #, fuzzy
 #| msgid "Label"
 msgid "Label:"
@@ -13260,8 +13307,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:179
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s"
-"%%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s%"
+"%. It should be above 80%%"
 msgstr ""
 "Bieżący współczynnik wolnej pamięci pamięci podręcznej zapytań do "
 "całkowitego zapytania wielkości cache to %s%%. Powinno być powyżej 80%%"
@@ -13417,8 +13464,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:216
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than "
-"10%%."
+"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
+"%."
 msgstr ""
 "%s%% wszelkiego rodzaju spowodować tabel tymczasowych, ta wartość ta powinna "
 "być niższa niż 10%%."
@@ -13971,8 +14018,8 @@ msgstr ""
 #, php-format
 msgid "%s%% of all connections are aborted. This value should be below 1%%"
 msgstr ""
-"%s%% wszystkich połączeń jest przerwana. Ta wartość ta powinna być poniżej "
-"1%%"
+"%s%% wszystkich połączeń jest przerwana. Ta wartość ta powinna być poniżej 1%"
+"%"
 
 #: libraries/advisory_rules.txt:406
 msgid "Rate of aborted connections"
@@ -14950,8 +14997,8 @@ msgstr "concurrent_insert jest ustawiony na 0"
 #~ "The result of this query can't be used for a chart. See [doc@faq6-29]FAQ "
 #~ "6.29[/doc]"
 #~ msgstr ""
-#~ "W wyniku tej kwerendy nie może być używany dla wykresu. Zobacz "
-#~ "[doc@faq6-29]FAQ 6.29[/doc]"
+#~ "W wyniku tej kwerendy nie może być używany dla wykresu. Zobacz [doc@faq6-"
+#~ "29]FAQ 6.29[/doc]"
 
 #~ msgid "Theme / Style"
 #~ msgstr "Motyw / Styl"
