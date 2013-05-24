@@ -3,15 +3,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-05-23 02:58-0400\n"
+"POT-Creation-Date: 2013-05-24 11:13+0200\n"
 "PO-Revision-Date: 2013-05-07 15:03+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Persian <http://l10n.cihar.com/projects/phpmyadmin/master/fa/"
 ">\n"
+"Language: fa\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: fa\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 1.6-dev\n"
 
@@ -236,8 +236,8 @@ msgstr "توضيحات"
 #: libraries/server_privileges.lib.php:2163
 #: libraries/server_privileges.lib.php:2483
 #: libraries/server_privileges.lib.php:2497 libraries/structure.lib.php:1268
-#: libraries/user_preferences.lib.php:282 prefs_manage.php:138 sql.php:340
-#: sql.php:435 sql.php:436 tbl_printview.php:186 tbl_tracking.php:345
+#: libraries/user_preferences.lib.php:282 prefs_manage.php:138 sql.php:329
+#: sql.php:424 sql.php:425 tbl_printview.php:186 tbl_tracking.php:345
 #: tbl_tracking.php:399 tbl_tracking.php:404
 msgid "No"
 msgstr "خير"
@@ -263,7 +263,7 @@ msgstr "خير"
 #: libraries/server_privileges.lib.php:2480
 #: libraries/server_privileges.lib.php:2497 libraries/structure.lib.php:1268
 #: libraries/user_preferences.lib.php:280 prefs_manage.php:136
-#: server_databases.php:103 server_databases.php:110 sql.php:433 sql.php:434
+#: server_databases.php:103 server_databases.php:110 sql.php:422 sql.php:423
 #: tbl_printview.php:187 tbl_structure.php:84 tbl_tracking.php:345
 #: tbl_tracking.php:397 tbl_tracking.php:402
 msgid "Yes"
@@ -624,11 +624,11 @@ msgstr ""
 #: import.php:107
 #, fuzzy, php-format
 #| msgid ""
-#| "You probably tried to upload too large file. Please refer to %"
-#| "sdocumentation%s for ways to workaround this limit."
+#| "You probably tried to upload too large file. Please refer to "
+#| "%sdocumentation%s for ways to workaround this limit."
 msgid ""
-"You probably tried to upload a file that is too large. Please refer to %"
-"sdocumentation%s for a workaround for this limit."
+"You probably tried to upload a file that is too large. Please refer to "
+"%sdocumentation%s for a workaround for this limit."
 msgstr ""
 "احتمالاً شما سعی کردید یک فایل حجیم را اپلور کنید.لطفاً برای راهکار در مورد "
 "این محدودیت به%sنوشتار%s مراجعه کنید."
@@ -674,7 +674,7 @@ msgstr "نمی توان کاراکترها را بدون داشتن کتابخا
 msgid "Could not load import plugins, please check your installation!"
 msgstr "خطا در بارگزار پلاگین ها, لطفا مراحل نصب را چک کنید"
 
-#: import.php:519 sql.php:305 sql.php:1119
+#: import.php:519 sql.php:294 sql.php:1108
 #, php-format
 msgid "Bookmark %s created"
 msgstr "بوک مارک  %s ایجاد شده"
@@ -837,8 +837,8 @@ msgid ""
 "this security hole by setting a password for user 'root'."
 msgstr ""
 "پرونده پيكربندي شما حاوي تنظيماتي است (كاربر root بدون اسم رمز) كه مرتبط با "
-"حساب پيش‌فرض MySQL مي‌باشد. اجراي MySQL با اين پيش‌فرض باعث ورود غيرمجاز مي‌شود "
-"، و شما بايد اين حفره امنيتي را ذرست كنيد."
+"حساب پيش‌فرض MySQL مي‌باشد. اجراي MySQL با اين پيش‌فرض باعث ورود غيرمجاز "
+"مي‌شود ، و شما بايد اين حفره امنيتي را ذرست كنيد."
 
 #: index.php:411
 msgid ""
@@ -906,7 +906,7 @@ msgid ""
 "issues."
 msgstr ""
 
-#: js/messages.php:27 libraries/import.lib.php:118 sql.php:265
+#: js/messages.php:27 libraries/import.lib.php:118 sql.php:254
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "عبارت \"DROP DATABASE\" غیر فعال است"
 
@@ -916,7 +916,7 @@ msgstr "عبارت \"DROP DATABASE\" غیر فعال است"
 msgid "Do you really want to execute \"%s\"?"
 msgstr "آيا مطمئن هستيد "
 
-#: js/messages.php:31 libraries/mult_submits.inc.php:337 sql.php:387
+#: js/messages.php:31 libraries/mult_submits.inc.php:337 sql.php:376
 msgid "You are about to DESTROY a complete database!"
 msgstr "شما برای حذف کامل پایگاه داده اقدام کرده اید!"
 
@@ -2281,7 +2281,7 @@ msgstr ""
 
 #: libraries/Advisor.class.php:434
 #, php-format
-msgid "Unexpected character on line %1$s. Expected tab, but found \"%2$s\""
+msgid "Unexpected character on line %1$s. Expected tab, but found \"%2$s\"."
 msgstr ""
 
 #: libraries/Advisor.class.php:467
@@ -2664,8 +2664,8 @@ msgstr "داخل کوئری"
 #: libraries/DisplayResults.class.php:4910 libraries/structure.lib.php:653
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 msgstr ""
 "در این نما حداقل این تعداد از سطرها موجود می باشد . لطفا به %sنوشتار%s "
 "مراجعه کنید ."
@@ -2678,7 +2678,7 @@ msgstr ""
 msgid "total"
 msgstr "جمع كل"
 
-#: libraries/DisplayResults.class.php:4950 sql.php:864
+#: libraries/DisplayResults.class.php:4950 sql.php:853
 #, php-format
 msgid "Query took %01.4f sec"
 msgstr ""
@@ -3408,14 +3408,14 @@ msgstr ""
 
 #: libraries/Types.class.php:308
 msgid ""
-"A small floating-point number, allowable values are -3.402823466E+38 to -"
-"1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
+"A small floating-point number, allowable values are -3.402823466E+38 to "
+"-1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
 msgstr ""
 
 #: libraries/Types.class.php:310
 msgid ""
-"A double-precision floating-point number, allowable values are -"
-"1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
+"A double-precision floating-point number, allowable values are "
+"-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
 "2.2250738585072014E-308 to 1.7976931348623157E+308"
 msgstr ""
 
@@ -3903,19 +3903,19 @@ msgstr "روش احراز هویت در تنظیمات صحیح نمی باشد:
 msgid "You should upgrade to %s %s or later."
 msgstr "شما باید به  %s %s یا جدیدتر به روز شوید."
 
-#: libraries/common.inc.php:1062
+#: libraries/common.inc.php:1077
 msgid "Error: Token mismatch"
 msgstr ""
 
-#: libraries/common.inc.php:1106
+#: libraries/common.inc.php:1121
 msgid "GLOBALS overwrite attempt"
 msgstr ""
 
-#: libraries/common.inc.php:1113
+#: libraries/common.inc.php:1128
 msgid "possible exploit"
 msgstr "احتمال وجود exploit"
 
-#: libraries/common.inc.php:1122
+#: libraries/common.inc.php:1137
 msgid "numeric key detected"
 msgstr "کلید عددی یافت شد"
 
@@ -4072,14 +4072,16 @@ msgid "\"%s\" requires %s extension"
 msgstr "\"%s\" نیاز به پسوند %s دارد"
 
 #: libraries/config/FormDisplay.class.php:792
-#, php-format
-msgid "import will not work, missing function (%s)"
+#, fuzzy, php-format
+#| msgid "import will not work, missing function (%s)"
+msgid "Compressed import will not work due to missing function %s."
 msgstr "وارد کردن داده کار نمی کند، تابع (%s) یافت نشد"
 
 #: libraries/config/FormDisplay.class.php:798
-#, php-format
-msgid "export will not work, missing function (%s)"
-msgstr ""
+#, fuzzy, php-format
+#| msgid "import will not work, missing function (%s)"
+msgid "Compressed export will not work due to missing function %s."
+msgstr "وارد کردن داده کار نمی کند، تابع (%s) یافت نشد"
 
 #: libraries/config/FormDisplay.class.php:808
 msgid "SQL Validator is disabled"
@@ -6443,8 +6445,8 @@ msgstr ""
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 
 #: libraries/display_export.lib.php:341
@@ -6953,8 +6955,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:131
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the %"
-"sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the "
+"%sPrimeBase XT Home Page%s."
 msgstr ""
 
 #: libraries/engines/pbxt.lib.php:133
@@ -6971,7 +6973,7 @@ msgid "No data found for GIS visualization."
 msgstr ""
 
 #: libraries/import.lib.php:187 libraries/insert_edit.lib.php:120
-#: libraries/rte/rte_routines.lib.php:1443 sql.php:859 tbl_get_field.php:55
+#: libraries/rte/rte_routines.lib.php:1443 sql.php:848 tbl_get_field.php:55
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL يك نتيجه خالي داد. (مثلا 0 سطر)."
 
@@ -7091,11 +7093,11 @@ msgid ""
 "Use TAB key to move from value to value, or CTRL+arrows to move anywhere"
 msgstr ""
 
-#: libraries/insert_edit.lib.php:1912 sql.php:854
+#: libraries/insert_edit.lib.php:1912 sql.php:843
 msgid "Showing SQL query"
 msgstr ""
 
-#: libraries/insert_edit.lib.php:1937 sql.php:834
+#: libraries/insert_edit.lib.php:1937 sql.php:823
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr ""
@@ -7150,7 +7152,7 @@ msgstr "جایگزینی پیشوند جدول"
 msgid "Add prefix"
 msgstr ""
 
-#: libraries/mult_submits.inc.php:339 sql.php:427
+#: libraries/mult_submits.inc.php:339 sql.php:416
 #, fuzzy
 #| msgid "Do you really want to "
 msgid "Do you really want to execute the following query?"
@@ -7377,18 +7379,18 @@ msgid_plural "%s other results found"
 msgstr[0] ""
 msgstr[1] ""
 
-#: libraries/navigation/NavigationTree.class.php:1041
+#: libraries/navigation/NavigationTree.class.php:1042
 #, fuzzy
 #| msgid "Alter table order by"
 msgid "filter databases by name"
 msgstr "تغيير جدول مرتب شده با"
 
-#: libraries/navigation/NavigationTree.class.php:1042
-#: libraries/navigation/NavigationTree.class.php:1075
+#: libraries/navigation/NavigationTree.class.php:1043
+#: libraries/navigation/NavigationTree.class.php:1076
 msgid "Clear Fast Filter"
 msgstr ""
 
-#: libraries/navigation/NavigationTree.class.php:1074
+#: libraries/navigation/NavigationTree.class.php:1075
 #, fuzzy
 #| msgid "Alter table order by"
 msgid "filter items by name"
@@ -7688,8 +7690,8 @@ msgstr "به %s خوش‌آمديد"
 #: libraries/plugins/auth/AuthenticationConfig.class.php:102
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 msgstr ""
 "احتمالا فایل تنظیمات ایجاد نکرده اید.می توانید از %1$ssetup script%2$s برای "
 "ایجاد آن استفاده نمایید."
@@ -9627,8 +9629,8 @@ msgstr ""
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 msgstr ""
 
 #: libraries/server_privileges.lib.php:3032
@@ -9668,7 +9670,7 @@ msgstr "تقویم"
 msgid "Bookmark this SQL query:"
 msgstr ""
 
-#: libraries/sql_query_form.lib.php:326 sql.php:1203
+#: libraries/sql_query_form.lib.php:326 sql.php:1196
 msgid "Let every user access this bookmark"
 msgstr ""
 
@@ -10965,6 +10967,12 @@ msgstr ""
 msgid "Done rearranging/editing charts"
 msgstr ""
 
+#: server_status_monitor.php:704
+#, fuzzy
+#| msgid "Remove database"
+msgid "Rearrange/edit charts"
+msgstr "حذف پایگاه داده"
+
 #: server_status_monitor.php:708
 #, fuzzy
 msgid "Refresh rate"
@@ -11928,28 +11936,28 @@ msgstr ""
 msgid "Wrong data"
 msgstr "No databases"
 
-#: sql.php:227
+#: sql.php:216
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr ""
 
-#: sql.php:309
+#: sql.php:298
 #, fuzzy
 #| msgid "Bookmark %s created"
 msgid "Bookmark not created"
 msgstr "بوک مارک  %s ایجاد شده"
 
-#: sql.php:851
+#: sql.php:840
 msgid "Showing as PHP code"
 msgstr ""
 
-#: sql.php:856
+#: sql.php:845
 #, fuzzy
 #| msgid "Validate SQL"
 msgid "Validated SQL"
 msgstr "معتبرسازي SQL"
 
-#: sql.php:1110
+#: sql.php:1099
 #, fuzzy
 #| msgid ""
 #| "This table does not contain a unique column. Features related to the grid "
@@ -11961,16 +11969,16 @@ msgstr ""
 "این جدول هیچ مقدار کلیدی ندارد. امکانات ویرایش جدولی، چک باکس ها ، ویرایش ، "
 "کپی و حذف ممکن است کار نکنند."
 
-#: sql.php:1159
+#: sql.php:1151
 #, php-format
 msgid "Problems with indexes of table `%s`"
 msgstr ""
 
-#: sql.php:1191 sql.php:1211
+#: sql.php:1184 sql.php:1204
 msgid "Bookmark this SQL query"
 msgstr ""
 
-#: sql.php:1195
+#: sql.php:1188
 #, fuzzy
 #| msgid "Data Label"
 msgid "Label:"
@@ -12736,8 +12744,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:179
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s%"
-"%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s"
+"%%. It should be above 80%%"
 msgstr ""
 
 #: libraries/advisory_rules.txt:181
@@ -12865,8 +12873,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:216
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
-"%."
+"%s%% of all sorts cause temporary tables, this value should be lower than "
+"10%%."
 msgstr ""
 
 #: libraries/advisory_rules.txt:218
