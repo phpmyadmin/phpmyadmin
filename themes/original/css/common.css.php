@@ -1187,6 +1187,34 @@ div#profilingchart {
     float: left;
 }
 
+#profilingchart .jqplot-highlighter-tooltip{
+    top: auto !important;
+    left: 11px;
+    bottom:24px;
+}
+
+#profilesummarytable th.header, #profiletable th.header{
+    cursor: pointer;
+}
+
+#profilesummarytable th.header .sorticon, #profiletable th.header .sorticon{
+    width: 16px;
+    height: 16px;
+    background-repeat: no-repeat;
+    background-position: right center;
+    display: inline-block;
+    vertical-align: middle;
+    float: right;
+}
+
+#profilesummarytable th.headerSortUp .sorticon, #profiletable th.headerSortUp .sorticon{
+    background-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath('s_desc.png');?>);
+}
+
+#profilesummarytable th.headerSortDown .sorticon, #profiletable th.headerSortDown .sorticon{
+    background-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath('s_asc.png');?>);
+}
+
 /* END profiling */
 
 /* querybox */
@@ -1248,7 +1276,7 @@ div#queryboxcontainer div#bookmarkoptions {
 /* iconic view for ul items */
 
 li.no_bullets {
-    list-style-type:none !important;    
+    list-style-type:none !important;
     margin-left: -25px !important;      //align with other list items which have bullets
 }
 
