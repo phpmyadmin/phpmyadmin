@@ -9,6 +9,7 @@
 require_once 'libraries/navigation/NodeFactory.class.php';
 require_once 'libraries/Util.class.php';
 require_once 'libraries/Theme.class.php';
+require_once 'libraries/database_interface.lib.php';
 
 
 class Node_Test extends PHPUnit_Framework_TestCase
@@ -217,6 +218,181 @@ class Node_Test extends PHPUnit_Framework_TestCase
         $this->assertEquals(false, $grandChild->hasSiblings());
         // Should return true for node that are three levels deeps
         $this->assertEquals(true, $greatGrandChild->hasSiblings());
+    }
+
+    /**
+     * Tests private method _getWhereClause()
+     *
+     * @return void
+     * @test
+     */
+    public function testGetWhereClause()
+    {
+        $method = new ReflectionMethod(
+            'Node', '_getWhereClause'
+        );
+        $method->setAccessible(true);
+
+        // Vanilla case
+        $node = PMA_NodeFactory::getInstance();
+        $this->assertEquals(
+            "WHERE TRUE ", $method->invoke($node)
+        );
+
+        // When a schema names is passed as search clause
+        $this->assertEquals(
+            "WHERE TRUE AND `SCHEMA_NAME` LIKE '%schemaName%' ",
+            $method->invoke($node, 'schemaName')
+        );
+
+        if (! isset($GLOBALS['cfg'])) {
+            $GLOBALS['cfg'] = array();
+        }
+        if (! isset($GLOBALS['cfg']['Server'])) {
+            $GLOBALS['cfg']['Server'] = array();
+        }
+
+        // When hide_db regular expression is present
+        $GLOBALS['cfg']['Server']['hide_db'] = 'regexpHideDb';
+        $this->assertEquals(
+            "WHERE TRUE AND `SCHEMA_NAME` NOT REGEXP 'regexpHideDb' ",
+            $method->invoke($node)
+        );
+        unset($GLOBALS['cfg']['Server']['hide_db']);
+
+        // When only_db directive is present and it's a single db
+        $GLOBALS['cfg']['Server']['only_db'] = 'stringOnlyDb';
+        $this->assertEquals(
+            "WHERE TRUE AND ( `SCHEMA_NAME` LIKE 'stringOnlyDb' )",
+            $method->invoke($node)
+        );
+        unset($GLOBALS['cfg']['Server']['only_db']);
+
+        // When only_db directive is present and it's an array of dbs
+        $GLOBALS['cfg']['Server']['only_db'] = array('onlyDbOne', 'onlyDbTwo');
+        $this->assertEquals(
+            "WHERE TRUE AND ( `SCHEMA_NAME` LIKE 'onlyDbOne' "
+            . "OR `SCHEMA_NAME` LIKE 'onlyDbTwo' )",
+            $method->invoke($node)
+        );
+        unset($GLOBALS['cfg']['Server']['only_db']);
+    }
+
+    /**
+     * Tests getData() method
+     *
+     * @return void
+     * @test
+     */
+    public function testGetData()
+    {
+        $pos = 10;
+        $limit = 20;
+        if (! isset($GLOBALS['cfg'])) {
+            $GLOBALS['cfg'] = array();
+        }
+        if (! isset($GLOBALS['cfg']['MaxNavigationItems'])) {
+            $GLOBALS['cfg']['MaxNavigationItems'] = $limit;
+        }
+
+        $expectedSql  = "SELECT `SCHEMA_NAME` ";
+        $expectedSql .= "FROM `INFORMATION_SCHEMA`.`SCHEMATA` ";
+        $expectedSql .= "WHERE TRUE ";
+        $expectedSql .= "ORDER BY `SCHEMA_NAME` ASC ";
+        $expectedSql .= "LIMIT $pos, $limit";
+
+        // It would have been better to mock _getWhereClause method
+        // but stangely, mocking private methods is not supported in PHPUnit
+        $node = PMA_NodeFactory::getInstance();
+        $origDbExt = $GLOBALS['extension'];
+
+        $dbExt = $this->getMock('PMA_DBI_Dummy');
+        $dbExt->expects($this->once())
+            ->method('realQuery')
+            ->with($expectedSql);
+        $GLOBALS['extension'] = $dbExt;
+        $node->getData('', $pos);
+
+        $GLOBALS['extension'] = $origDbExt;
+    }
+
+    /**
+     * Tests the getPresence method when DisableIS is false
+     *
+     * @return void
+     * @test
+     */
+    public function testGetPresenceWithEnabledIS()
+    {
+        if (! isset($GLOBALS['cfg'])) {
+            $GLOBALS['cfg'] = array();
+        }
+        if (! isset($GLOBALS['cfg']['Servers'])) {
+            $GLOBALS['cfg']['Servers'] = array();
+        }
+        if (! isset($GLOBALS['cfg']['Servers'][0])) {
+            $GLOBALS['cfg']['Servers'][0] = array();
+        }
+        $GLOBALS['cfg']['Servers'][0]['DisableIS'] = false;
+
+        $query  = "SELECT COUNT(*) ";
+        $query .= "FROM `INFORMATION_SCHEMA`.`SCHEMATA` ";
+        $query .= "WHERE TRUE ";
+
+        // It would have been better to mock _getWhereClause method
+        // but stangely, mocking private methods is not supported in PHPUnit
+        $node = PMA_NodeFactory::getInstance();
+        $origDbExt = $GLOBALS['extension'];
+
+        $dbExt = $this->getMock('PMA_DBI_Dummy');
+        $dbExt->expects($this->once())
+            ->method('realQuery')
+            ->with($query);
+        $GLOBALS['extension'] = $dbExt;
+        $node->getPresence();
+
+        $GLOBALS['extension'] = $origDbExt;
+    }
+
+    /**
+     * Tests the getPresence method when DisableIS is true
+     *
+     * @return void
+     * @test
+     */
+    public function testGetPresenceWithDisabledIS()
+    {
+        if (! isset($GLOBALS['cfg'])) {
+            $GLOBALS['cfg'] = array();
+        }
+        if (! isset($GLOBALS['cfg']['Servers'])) {
+            $GLOBALS['cfg']['Servers'] = array();
+        }
+        if (! isset($GLOBALS['cfg']['Servers'][0])) {
+            $GLOBALS['cfg']['Servers'][0] = array();
+        }
+        $GLOBALS['cfg']['Servers'][0]['DisableIS'] = true;
+
+        $node = PMA_NodeFactory::getInstance();
+        $origDbExt = $GLOBALS['extension'];
+
+        // test with no search clause
+        $dbExt = $this->getMock('PMA_DBI_Dummy');
+        $dbExt->expects($this->once())
+            ->method('realQuery')
+            ->with("SHOW DATABASES ");
+        $GLOBALS['extension'] = $dbExt;
+        $node->getPresence();
+
+        // test with a search clause
+        $dbExt = $this->getMock('PMA_DBI_Dummy');
+        $dbExt->expects($this->once())
+            ->method('realQuery')
+            ->with("SHOW DATABASES LIKE '%dbname%' ");
+        $GLOBALS['extension'] = $dbExt;
+        $node->getPresence('', 'dbname');
+
+        $GLOBALS['extension'] = $origDbExt;
     }
 
     public function testComment()
