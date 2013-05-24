@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-05-23 02:58-0400\n"
+"POT-Creation-Date: 2013-05-24 09:03-0400\n"
 "PO-Revision-Date: 2013-05-21 20:04+0200\n"
 "Last-Translator: Chung-Lun Chiang <benck@benck.tw>\n"
 "Language-Team: Traditional Chinese <http://l10n.cihar.com/projects/"
@@ -229,8 +229,8 @@ msgstr "註釋"
 #: libraries/server_privileges.lib.php:2163
 #: libraries/server_privileges.lib.php:2483
 #: libraries/server_privileges.lib.php:2497 libraries/structure.lib.php:1268
-#: libraries/user_preferences.lib.php:282 prefs_manage.php:138 sql.php:340
-#: sql.php:435 sql.php:436 tbl_printview.php:186 tbl_tracking.php:345
+#: libraries/user_preferences.lib.php:282 prefs_manage.php:138 sql.php:344
+#: sql.php:439 sql.php:440 tbl_printview.php:186 tbl_tracking.php:345
 #: tbl_tracking.php:399 tbl_tracking.php:404
 msgid "No"
 msgstr "否"
@@ -256,7 +256,7 @@ msgstr "否"
 #: libraries/server_privileges.lib.php:2480
 #: libraries/server_privileges.lib.php:2497 libraries/structure.lib.php:1268
 #: libraries/user_preferences.lib.php:280 prefs_manage.php:136
-#: server_databases.php:103 server_databases.php:110 sql.php:433 sql.php:434
+#: server_databases.php:103 server_databases.php:110 sql.php:437 sql.php:438
 #: tbl_printview.php:187 tbl_structure.php:84 tbl_tracking.php:345
 #: tbl_tracking.php:397 tbl_tracking.php:402
 msgid "Yes"
@@ -401,7 +401,7 @@ msgstr "更新"
 
 #: db_tracking.php:83 js/messages.php:163 libraries/Menu.class.php:454
 #: libraries/rte/rte_events.lib.php:426 libraries/rte/rte_list.lib.php:78
-#: libraries/sql.lib.php:498 server_status.php:391 tbl_tracking.php:767
+#: server_status.php:391 tbl_tracking.php:767
 msgid "Status"
 msgstr "狀態"
 
@@ -637,7 +637,7 @@ msgstr "沒有字元集轉換函式庫，無法轉換檔案字元集"
 msgid "Could not load import plugins, please check your installation!"
 msgstr "無法載入匯入插件，請檢查您的安裝！"
 
-#: import.php:519 sql.php:305 sql.php:1119
+#: import.php:519 sql.php:309 sql.php:1123
 #, php-format
 msgid "Bookmark %s created"
 msgstr "已建立書籤 %s"
@@ -865,7 +865,7 @@ msgid ""
 "issues."
 msgstr "伺服器上運行了 Suhosin。請先查看%s檔案%s中是否有類似的情況。"
 
-#: js/messages.php:27 libraries/import.lib.php:118 sql.php:265
+#: js/messages.php:27 libraries/import.lib.php:118 sql.php:269
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "刪除資料庫的指令「DROP DATABASE」已經被停用。"
 
@@ -874,7 +874,7 @@ msgstr "刪除資料庫的指令「DROP DATABASE」已經被停用。"
 msgid "Do you really want to execute \"%s\"?"
 msgstr "您確定要執行「%s」？"
 
-#: js/messages.php:31 libraries/mult_submits.inc.php:337 sql.php:387
+#: js/messages.php:31 libraries/mult_submits.inc.php:337 sql.php:391
 msgid "You are about to DESTROY a complete database!"
 msgstr "您將要刪除一個完整的資料庫！"
 
@@ -1334,7 +1334,7 @@ msgstr "輸出說明"
 #: libraries/plugins/export/ExportHtmlword.class.php:484
 #: libraries/plugins/export/ExportOdt.class.php:562
 #: libraries/plugins/export/ExportTexytext.class.php:435
-#: libraries/rte/rte_list.lib.php:68 libraries/sql.lib.php:503
+#: libraries/rte/rte_list.lib.php:68 libraries/sql.lib.php:505
 #: server_status.php:387
 msgid "Time"
 msgstr "時間"
@@ -2161,17 +2161,17 @@ msgstr "PHP回傳以下錯誤：%s"
 
 #: libraries/Advisor.class.php:107
 #, php-format
-msgid "Failed evaluating precondition for rule '%s'"
+msgid "Failed evaluating precondition for rule '%s'."
 msgstr ""
 
 #: libraries/Advisor.class.php:124
 #, php-format
-msgid "Failed calculating value for rule '%s'"
+msgid "Failed calculating value for rule '%s'."
 msgstr ""
 
 #: libraries/Advisor.class.php:143
 #, php-format
-msgid "Failed running test for rule '%s'"
+msgid "Failed running test for rule '%s'."
 msgstr ""
 
 #: libraries/Advisor.class.php:225
@@ -2182,22 +2182,23 @@ msgstr ""
 #: libraries/Advisor.class.php:395
 #, php-format
 msgid ""
-"Invalid rule declaration on line %1$s, expected line %2$s of previous rule"
+"Invalid rule declaration on line %1$s, expected line %2$s of previous rule."
 msgstr ""
 
 #: libraries/Advisor.class.php:412
 #, php-format
-msgid "Invalid rule declaration on line %s"
+msgid "Invalid rule declaration on line %s."
 msgstr "第 %s 行規則宣告無效"
 
 #: libraries/Advisor.class.php:420
 #, php-format
-msgid "Unexpected characters on line %s"
+msgid "Unexpected characters on line %s."
 msgstr "第 %s 行有不明符號"
 
 #: libraries/Advisor.class.php:434
-#, php-format
-msgid "Unexpected character on line %1$s. Expected tab, but found \"%2$s\""
+#, fuzzy, php-format
+#| msgid "Unexpected character on line %1$s. Expected tab, but found \"%2$s\""
+msgid "Unexpected character on line %1$s. Expected tab, but found \"%2$s\"."
 msgstr "第 %1$s 行有不明符號。應該要是「tab」，但我們找到「%2$s」"
 
 #: libraries/Advisor.class.php:467
@@ -2572,7 +2573,7 @@ msgstr "顯示行"
 msgid "total"
 msgstr "總計"
 
-#: libraries/DisplayResults.class.php:4950 sql.php:864
+#: libraries/DisplayResults.class.php:4950 sql.php:868
 #, php-format
 msgid "Query took %01.4f sec"
 msgstr "查詢花費 %01.4f 秒"
@@ -3260,7 +3261,7 @@ msgstr ""
 #: libraries/Types.class.php:302
 msgid ""
 "A 4-byte integer, signed range is -2,147,483,648 to 2,147,483,647, unsigned "
-"range is 0 to 4,294,967,295."
+"range is 0 to 4,294,967,295"
 msgstr ""
 "四個位元組的整數，如果包含負數，範圍將在-2147483648至2147483647，如果不包含負"
 "數，範圍則在0至4294967295。"
@@ -3587,7 +3588,7 @@ msgctxt "Inline edit query"
 msgid "Inline"
 msgstr "行間"
 
-#: libraries/Util.class.php:1435 libraries/sql.lib.php:494
+#: libraries/Util.class.php:1435 libraries/sql.lib.php:493
 msgid "Profiling"
 msgstr "概要"
 
@@ -3766,19 +3767,19 @@ msgstr "設定檔案中設定的認證方式無效："
 msgid "You should upgrade to %s %s or later."
 msgstr "您應升級到 %s %s 或更高版本。"
 
-#: libraries/common.inc.php:1062
+#: libraries/common.inc.php:1077
 msgid "Error: Token mismatch"
 msgstr ""
 
-#: libraries/common.inc.php:1106
+#: libraries/common.inc.php:1121
 msgid "GLOBALS overwrite attempt"
 msgstr "嘗試覆寫 GLOBALS (全域變數)"
 
-#: libraries/common.inc.php:1113
+#: libraries/common.inc.php:1128
 msgid "possible exploit"
 msgstr "$_REQUEST 數量過多（駭客？）"
 
-#: libraries/common.inc.php:1122
+#: libraries/common.inc.php:1137
 msgid "numeric key detected"
 msgstr "$_GLOBALS 內含非法的數字鍵名"
 
@@ -3931,13 +3932,15 @@ msgid "\"%s\" requires %s extension"
 msgstr "“%s”功能需要 %s 外掛"
 
 #: libraries/config/FormDisplay.class.php:792
-#, php-format
-msgid "import will not work, missing function (%s)"
+#, fuzzy, php-format
+#| msgid "import will not work, missing function (%s)"
+msgid "Compressed import will not work due to missing function %s."
 msgstr "缺少函數 (%s)，匯入功能無效"
 
 #: libraries/config/FormDisplay.class.php:798
-#, php-format
-msgid "export will not work, missing function (%s)"
+#, fuzzy, php-format
+#| msgid "export will not work, missing function (%s)"
+msgid "Compressed export will not work due to missing function %s."
 msgstr "缺少函數 (%s)，匯出功能無效"
 
 #: libraries/config/FormDisplay.class.php:808
@@ -3954,7 +3957,7 @@ msgid "maximum %s"
 msgstr "最大 %s"
 
 #: libraries/config/FormDisplay.tpl.php:221
-msgid "This setting is disabled, it will not be applied to your configuration"
+msgid "This setting is disabled, it will not be applied to your configuration."
 msgstr "此設定已停用，不會套用到您的設定中"
 
 #: libraries/config/FormDisplay.tpl.php:309
@@ -6991,7 +6994,7 @@ msgid "No data found for GIS visualization."
 msgstr "沒有找到 GIS 虛擬所需資料。"
 
 #: libraries/import.lib.php:187 libraries/insert_edit.lib.php:120
-#: libraries/rte/rte_routines.lib.php:1443 sql.php:859 tbl_get_field.php:55
+#: libraries/rte/rte_routines.lib.php:1443 sql.php:863 tbl_get_field.php:55
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL 返回的查詢結果爲空 (即零行)。"
 
@@ -7111,11 +7114,11 @@ msgid ""
 "Use TAB key to move from value to value, or CTRL+arrows to move anywhere"
 msgstr "按 TAB 鍵跳到下一個數值，或 CTRL+方向鍵 作隨意移動"
 
-#: libraries/insert_edit.lib.php:1912 sql.php:854
+#: libraries/insert_edit.lib.php:1912 sql.php:858
 msgid "Showing SQL query"
 msgstr "顯示 SQL 查詢"
 
-#: libraries/insert_edit.lib.php:1937 sql.php:834
+#: libraries/insert_edit.lib.php:1937 sql.php:838
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "插入的行 id: %1$d"
@@ -7166,7 +7169,7 @@ msgstr "新增資料表的前綴文字"
 msgid "Add prefix"
 msgstr "新增前綴文字"
 
-#: libraries/mult_submits.inc.php:339 sql.php:427
+#: libraries/mult_submits.inc.php:339 sql.php:431
 #, fuzzy
 #| msgid "Do you really want to "
 msgid "Do you really want to execute the following query?"
@@ -7389,18 +7392,18 @@ msgid "%s other result found"
 msgid_plural "%s other results found"
 msgstr[0] ""
 
-#: libraries/navigation/NavigationTree.class.php:1041
+#: libraries/navigation/NavigationTree.class.php:1042
 #, fuzzy
 #| msgid "filter tables by name"
 msgid "filter databases by name"
 msgstr "請輸入部分或完整的表名"
 
-#: libraries/navigation/NavigationTree.class.php:1042
-#: libraries/navigation/NavigationTree.class.php:1075
+#: libraries/navigation/NavigationTree.class.php:1043
+#: libraries/navigation/NavigationTree.class.php:1076
 msgid "Clear Fast Filter"
 msgstr ""
 
-#: libraries/navigation/NavigationTree.class.php:1074
+#: libraries/navigation/NavigationTree.class.php:1075
 #, fuzzy
 #| msgid "filter tables by name"
 msgid "filter items by name"
@@ -9698,6 +9701,52 @@ msgstr "SQL 查詢結果"
 msgid "Generated by:"
 msgstr "產生者"
 
+#: libraries/sql.lib.php:495
+#, fuzzy
+#| msgid "Data file grow size"
+msgid "Detailed profile"
+msgstr "資料檔案增長大小"
+
+#: libraries/sql.lib.php:498
+#, fuzzy
+#| msgid "Other"
+msgid "Order"
+msgstr "其他"
+
+#: libraries/sql.lib.php:500 libraries/sql.lib.php:546
+#, fuzzy
+#| msgid "Startup"
+msgid "State"
+msgstr "起始頁"
+
+#: libraries/sql.lib.php:543
+msgid "Summary by state"
+msgstr ""
+
+#: libraries/sql.lib.php:551
+#, fuzzy
+#| msgid "Total time:"
+msgid "Total Time"
+msgstr "總計耗時："
+
+#: libraries/sql.lib.php:553
+#, fuzzy
+#| msgid "Time"
+msgid "% Time"
+msgstr "時間"
+
+#: libraries/sql.lib.php:555
+#, fuzzy
+#| msgid "Close"
+msgid "Calls"
+msgstr "關閉"
+
+#: libraries/sql.lib.php:557
+#, fuzzy
+#| msgid "Time"
+msgid "ø Time"
+msgstr "時間"
+
 #: libraries/sql_query_form.lib.php:188
 #, php-format
 msgid "Run SQL query/queries on server %s"
@@ -9718,7 +9767,7 @@ msgstr "清除"
 msgid "Bookmark this SQL query:"
 msgstr "將此 SQL 查詢加爲書籤"
 
-#: libraries/sql_query_form.lib.php:326 sql.php:1203
+#: libraries/sql_query_form.lib.php:326 sql.php:1211
 msgid "Let every user access this bookmark"
 msgstr "讓所有使用者均可訪問此書籤"
 
@@ -10654,7 +10703,7 @@ msgstr "現在，將下列行新增到您的 my.cnf 檔案最後，然後重新�
 msgid ""
 "Once you restarted MySQL server, please click on Go button. Afterwards, you "
 "should see a message informing you, that this server <b>is</b> configured as "
-"master"
+"master."
 msgstr ""
 "當 MySQL 伺服器重新啓動後，請點選 執行 按鈕。您應該看見一條提示資訊說此伺服器"
 "<b>已經</b>被設定爲主伺服器"
@@ -10856,7 +10905,7 @@ msgid ""
 "and track down time intensive queries. For the latter you will need to set "
 "log_output to 'TABLE' and have either the slow_query_log or general_log "
 "enabled. Note however, that the general_log produces a lot of data and "
-"increases server load by up to 15%"
+"increases server load by up to 15%."
 msgstr ""
 
 #: server_status_monitor.php:467
@@ -11021,6 +11070,12 @@ msgstr ""
 #: server_status_monitor.php:685
 msgid "Done rearranging/editing charts"
 msgstr ""
+
+#: server_status_monitor.php:704
+#, fuzzy
+#| msgid "Remove database"
+msgid "Rearrange/edit charts"
+msgstr "刪除資料庫"
 
 #: server_status_monitor.php:708
 #, fuzzy
@@ -12070,26 +12125,26 @@ msgstr "短語密碼應包含字母、數字[em]和[/em]特殊字元"
 msgid "Wrong data"
 msgstr "沒有資料庫"
 
-#: sql.php:227
+#: sql.php:231
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr "使用書籤 \"%s\" 作爲預設的查詢"
 
-#: sql.php:309
+#: sql.php:313
 #, fuzzy
 #| msgid "Bookmark %s created"
 msgid "Bookmark not created"
 msgstr "已建立書籤 %s"
 
-#: sql.php:851
+#: sql.php:855
 msgid "Showing as PHP code"
 msgstr "顯示爲 PHP 程式碼"
 
-#: sql.php:856
+#: sql.php:860
 msgid "Validated SQL"
 msgstr "已校驗的 SQL"
 
-#: sql.php:1110
+#: sql.php:1114
 #, fuzzy
 #| msgid ""
 #| "This table does not contain a unique column. Features related to the grid "
@@ -12099,16 +12154,16 @@ msgid ""
 "and Delete features are not available."
 msgstr "這個資料表不含唯一的資料欄位，跟修改、複製、刪除有關的功能可能會無效。"
 
-#: sql.php:1159
+#: sql.php:1166
 #, php-format
 msgid "Problems with indexes of table `%s`"
 msgstr "資料表 `%s` 的索引存在問題"
 
-#: sql.php:1191 sql.php:1211
+#: sql.php:1199 sql.php:1219
 msgid "Bookmark this SQL query"
 msgstr "將此 SQL 查詢加爲書籤"
 
-#: sql.php:1195
+#: sql.php:1203
 #, fuzzy
 #| msgid "Label"
 msgid "Label:"

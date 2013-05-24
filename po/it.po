@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-05-23 02:58-0400\n"
+"POT-Creation-Date: 2013-05-24 09:03-0400\n"
 "PO-Revision-Date: 2013-05-07 17:13+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Italian <http://l10n.cihar.com/projects/phpmyadmin/master/it/"
@@ -237,8 +237,8 @@ msgstr "Commenti"
 #: libraries/server_privileges.lib.php:2163
 #: libraries/server_privileges.lib.php:2483
 #: libraries/server_privileges.lib.php:2497 libraries/structure.lib.php:1268
-#: libraries/user_preferences.lib.php:282 prefs_manage.php:138 sql.php:340
-#: sql.php:435 sql.php:436 tbl_printview.php:186 tbl_tracking.php:345
+#: libraries/user_preferences.lib.php:282 prefs_manage.php:138 sql.php:344
+#: sql.php:439 sql.php:440 tbl_printview.php:186 tbl_tracking.php:345
 #: tbl_tracking.php:399 tbl_tracking.php:404
 msgid "No"
 msgstr "No"
@@ -264,7 +264,7 @@ msgstr "No"
 #: libraries/server_privileges.lib.php:2480
 #: libraries/server_privileges.lib.php:2497 libraries/structure.lib.php:1268
 #: libraries/user_preferences.lib.php:280 prefs_manage.php:136
-#: server_databases.php:103 server_databases.php:110 sql.php:433 sql.php:434
+#: server_databases.php:103 server_databases.php:110 sql.php:437 sql.php:438
 #: tbl_printview.php:187 tbl_structure.php:84 tbl_tracking.php:345
 #: tbl_tracking.php:397 tbl_tracking.php:402
 msgid "Yes"
@@ -418,7 +418,7 @@ msgstr "Aggiornato"
 
 #: db_tracking.php:83 js/messages.php:163 libraries/Menu.class.php:454
 #: libraries/rte/rte_events.lib.php:426 libraries/rte/rte_list.lib.php:78
-#: libraries/sql.lib.php:498 server_status.php:391 tbl_tracking.php:767
+#: server_status.php:391 tbl_tracking.php:767
 msgid "Status"
 msgstr "Stato"
 
@@ -679,7 +679,7 @@ msgstr ""
 "Non è stato possibile caricare i plugin di importazione, controlla la tua "
 "installazione!"
 
-#: import.php:519 sql.php:305 sql.php:1119
+#: import.php:519 sql.php:309 sql.php:1123
 #, php-format
 msgid "Bookmark %s created"
 msgstr "Segnalibro %s creato"
@@ -938,7 +938,7 @@ msgstr ""
 "Sul server è in esecuzione Suhosin. Controlla la documentazione: %"
 "sdocumentation%s per possibili problemi."
 
-#: js/messages.php:27 libraries/import.lib.php:118 sql.php:265
+#: js/messages.php:27 libraries/import.lib.php:118 sql.php:269
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "I comandi \"DROP DATABASE\" sono disabilitati."
 
@@ -947,7 +947,7 @@ msgstr "I comandi \"DROP DATABASE\" sono disabilitati."
 msgid "Do you really want to execute \"%s\"?"
 msgstr "Sei sicuro di voler eseguire \"%s\"?"
 
-#: js/messages.php:31 libraries/mult_submits.inc.php:337 sql.php:387
+#: js/messages.php:31 libraries/mult_submits.inc.php:337 sql.php:391
 msgid "You are about to DESTROY a complete database!"
 msgstr "Stai per DISTRUGGERE COMPLETAMENTE un intera base di dati!"
 
@@ -1421,7 +1421,7 @@ msgstr "Spiega l'output"
 #: libraries/plugins/export/ExportHtmlword.class.php:484
 #: libraries/plugins/export/ExportOdt.class.php:562
 #: libraries/plugins/export/ExportTexytext.class.php:435
-#: libraries/rte/rte_list.lib.php:68 libraries/sql.lib.php:503
+#: libraries/rte/rte_list.lib.php:68 libraries/sql.lib.php:505
 #: server_status.php:387
 msgid "Time"
 msgstr "Tempo"
@@ -2277,17 +2277,17 @@ msgstr "PHP ha restituito il seguente errore: %s"
 
 #: libraries/Advisor.class.php:107
 #, php-format
-msgid "Failed evaluating precondition for rule '%s'"
+msgid "Failed evaluating precondition for rule '%s'."
 msgstr ""
 
 #: libraries/Advisor.class.php:124
 #, php-format
-msgid "Failed calculating value for rule '%s'"
+msgid "Failed calculating value for rule '%s'."
 msgstr ""
 
 #: libraries/Advisor.class.php:143
 #, php-format
-msgid "Failed running test for rule '%s'"
+msgid "Failed running test for rule '%s'."
 msgstr ""
 
 #: libraries/Advisor.class.php:225
@@ -2298,22 +2298,23 @@ msgstr "Formattazione della stringa non riuscita per regola '%s'."
 #: libraries/Advisor.class.php:395
 #, php-format
 msgid ""
-"Invalid rule declaration on line %1$s, expected line %2$s of previous rule"
+"Invalid rule declaration on line %1$s, expected line %2$s of previous rule."
 msgstr ""
 
 #: libraries/Advisor.class.php:412
 #, php-format
-msgid "Invalid rule declaration on line %s"
+msgid "Invalid rule declaration on line %s."
 msgstr "Formato non valido per l'input CSV alla linea %s"
 
 #: libraries/Advisor.class.php:420
 #, php-format
-msgid "Unexpected characters on line %s"
+msgid "Unexpected characters on line %s."
 msgstr "Carattere inatteso alla riga %s"
 
 #: libraries/Advisor.class.php:434
-#, php-format
-msgid "Unexpected character on line %1$s. Expected tab, but found \"%2$s\""
+#, fuzzy, php-format
+#| msgid "Unexpected character on line %1$s. Expected tab, but found \"%2$s\""
+msgid "Unexpected character on line %1$s. Expected tab, but found \"%2$s\"."
 msgstr "Carattere inatteso alla riga %1$s. Atteso tab, trovato invece \"%2$s\""
 
 #: libraries/Advisor.class.php:467
@@ -2703,7 +2704,7 @@ msgstr "Mostrando le righe"
 msgid "total"
 msgstr "totale"
 
-#: libraries/DisplayResults.class.php:4950 sql.php:864
+#: libraries/DisplayResults.class.php:4950 sql.php:868
 #, php-format
 msgid "Query took %01.4f sec"
 msgstr "La query ha impiegato %01.4f sec"
@@ -3408,7 +3409,7 @@ msgstr ""
 #: libraries/Types.class.php:302
 msgid ""
 "A 4-byte integer, signed range is -2,147,483,648 to 2,147,483,647, unsigned "
-"range is 0 to 4,294,967,295."
+"range is 0 to 4,294,967,295"
 msgstr ""
 
 #: libraries/Types.class.php:304
@@ -3736,7 +3737,7 @@ msgctxt "Inline edit query"
 msgid "Inline"
 msgstr "Inline"
 
-#: libraries/Util.class.php:1435 libraries/sql.lib.php:494
+#: libraries/Util.class.php:1435 libraries/sql.lib.php:493
 msgid "Profiling"
 msgstr "Profiling"
 
@@ -3921,19 +3922,19 @@ msgstr "Metodo di autenticazione impostato nella configurazione non valido:"
 msgid "You should upgrade to %s %s or later."
 msgstr "Si dovrebbe aggiornare %s alla versione %s o successiva."
 
-#: libraries/common.inc.php:1062
+#: libraries/common.inc.php:1077
 msgid "Error: Token mismatch"
 msgstr ""
 
-#: libraries/common.inc.php:1106
+#: libraries/common.inc.php:1121
 msgid "GLOBALS overwrite attempt"
 msgstr "Tentativo di sovrascrivere GLOBALS"
 
-#: libraries/common.inc.php:1113
+#: libraries/common.inc.php:1128
 msgid "possible exploit"
 msgstr "possibile exploit"
 
-#: libraries/common.inc.php:1122
+#: libraries/common.inc.php:1137
 msgid "numeric key detected"
 msgstr "chiave numerica rilevata"
 
@@ -4090,13 +4091,15 @@ msgid "\"%s\" requires %s extension"
 msgstr "\"%s\" richiede l'estensione %s"
 
 #: libraries/config/FormDisplay.class.php:792
-#, php-format
-msgid "import will not work, missing function (%s)"
+#, fuzzy, php-format
+#| msgid "import will not work, missing function (%s)"
+msgid "Compressed import will not work due to missing function %s."
 msgstr "l'importazione non funzionerà, funzione (%s) mancante"
 
 #: libraries/config/FormDisplay.class.php:798
-#, php-format
-msgid "export will not work, missing function (%s)"
+#, fuzzy, php-format
+#| msgid "export will not work, missing function (%s)"
+msgid "Compressed export will not work due to missing function %s."
 msgstr "l'esportazione non funzionerà, funzione (%s) mancante"
 
 #: libraries/config/FormDisplay.class.php:808
@@ -4113,7 +4116,7 @@ msgid "maximum %s"
 msgstr "massimo %s"
 
 #: libraries/config/FormDisplay.tpl.php:221
-msgid "This setting is disabled, it will not be applied to your configuration"
+msgid "This setting is disabled, it will not be applied to your configuration."
 msgstr ""
 "Questa impostazione è disabilitata, non sarà applicata alla tua "
 "configurazione"
@@ -7344,7 +7347,7 @@ msgid "No data found for GIS visualization."
 msgstr "Nessun data trovato per la visualizzazione GIS."
 
 #: libraries/import.lib.php:187 libraries/insert_edit.lib.php:120
-#: libraries/rte/rte_routines.lib.php:1443 sql.php:859 tbl_get_field.php:55
+#: libraries/rte/rte_routines.lib.php:1443 sql.php:863 tbl_get_field.php:55
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL ha restituito un insieme vuoto (i.e. zero righe)."
 
@@ -7466,11 +7469,11 @@ msgstr ""
 "Usare il tasto TAB per spostare il cursore di valore in valore, o CTRL"
 "+frecce per spostarlo altrove"
 
-#: libraries/insert_edit.lib.php:1912 sql.php:854
+#: libraries/insert_edit.lib.php:1912 sql.php:858
 msgid "Showing SQL query"
 msgstr "Visualizzo la query SQL"
 
-#: libraries/insert_edit.lib.php:1937 sql.php:834
+#: libraries/insert_edit.lib.php:1937 sql.php:838
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "Inserita riga id: %1$d"
@@ -7521,7 +7524,7 @@ msgstr "Aggiungi un prefisso alla tabella"
 msgid "Add prefix"
 msgstr "Aggiungi prefisso"
 
-#: libraries/mult_submits.inc.php:339 sql.php:427
+#: libraries/mult_submits.inc.php:339 sql.php:431
 msgid "Do you really want to execute the following query?"
 msgstr "Sei sicuro di voler eseguire la seguente query?"
 
@@ -7745,18 +7748,18 @@ msgid_plural "%s other results found"
 msgstr[0] ""
 msgstr[1] ""
 
-#: libraries/navigation/NavigationTree.class.php:1041
+#: libraries/navigation/NavigationTree.class.php:1042
 msgid "filter databases by name"
 msgstr "filtra i database in base al nome"
 
-#: libraries/navigation/NavigationTree.class.php:1042
-#: libraries/navigation/NavigationTree.class.php:1075
+#: libraries/navigation/NavigationTree.class.php:1043
+#: libraries/navigation/NavigationTree.class.php:1076
 #, fuzzy
 #| msgid "Clear series"
 msgid "Clear Fast Filter"
 msgstr "Cancella la serie"
 
-#: libraries/navigation/NavigationTree.class.php:1074
+#: libraries/navigation/NavigationTree.class.php:1075
 msgid "filter items by name"
 msgstr "filtra elementi in base al nome"
 
@@ -10072,6 +10075,53 @@ msgstr "Risultato SQL"
 msgid "Generated by:"
 msgstr "Generato da"
 
+#: libraries/sql.lib.php:495
+#, fuzzy
+#| msgid "Data file grow size"
+msgid "Detailed profile"
+msgstr "Dimensione incremento del file dei dati"
+
+#: libraries/sql.lib.php:498
+#, fuzzy
+#| msgid "Other"
+msgid "Order"
+msgstr "Altre"
+
+#: libraries/sql.lib.php:500 libraries/sql.lib.php:546
+#, fuzzy
+#| msgctxt "Start of recurring event"
+#| msgid "Start"
+msgid "State"
+msgstr "Inizio"
+
+#: libraries/sql.lib.php:543
+msgid "Summary by state"
+msgstr ""
+
+#: libraries/sql.lib.php:551
+#, fuzzy
+#| msgid "Total time:"
+msgid "Total Time"
+msgstr "Tempo totale:"
+
+#: libraries/sql.lib.php:553
+#, fuzzy
+#| msgid "Time"
+msgid "% Time"
+msgstr "Tempo"
+
+#: libraries/sql.lib.php:555
+#, fuzzy
+#| msgid "Close"
+msgid "Calls"
+msgstr "Chiudi"
+
+#: libraries/sql.lib.php:557
+#, fuzzy
+#| msgid "Time"
+msgid "ø Time"
+msgstr "Tempo"
+
 #: libraries/sql_query_form.lib.php:188
 #, php-format
 msgid "Run SQL query/queries on server %s"
@@ -10092,7 +10142,7 @@ msgstr "Cancella"
 msgid "Bookmark this SQL query:"
 msgstr "Aggiungi ai preferiti questa query SQL"
 
-#: libraries/sql_query_form.lib.php:326 sql.php:1203
+#: libraries/sql_query_form.lib.php:326 sql.php:1211
 msgid "Let every user access this bookmark"
 msgstr "Permetti ad ogni utente di accedere a questo bookmark"
 
@@ -11048,7 +11098,7 @@ msgstr ""
 msgid ""
 "Once you restarted MySQL server, please click on Go button. Afterwards, you "
 "should see a message informing you, that this server <b>is</b> configured as "
-"master"
+"master."
 msgstr ""
 "Dopo aver riavviato il server MySQL, prego clacca sul pulsante Vai. Dovresti "
 "quindi vedere un messaggio che ti informerá che questo server <b>é</b> "
@@ -11272,7 +11322,7 @@ msgid ""
 "and track down time intensive queries. For the latter you will need to set "
 "log_output to 'TABLE' and have either the slow_query_log or general_log "
 "enabled. Note however, that the general_log produces a lot of data and "
-"increases server load by up to 15%"
+"increases server load by up to 15%."
 msgstr ""
 "Il Monitor phpMyAdmin può assistervi nell'ottimizzazione della "
 "configurazione del server e per il tracciamento di query intensive. Per "
@@ -11440,6 +11490,10 @@ msgstr "Istruzioni/Configurazione"
 #: server_status_monitor.php:685
 msgid "Done rearranging/editing charts"
 msgstr "Ho finito di modificare/muovere i grafici"
+
+#: server_status_monitor.php:704
+msgid "Rearrange/edit charts"
+msgstr "Muovi/modifica i grafici"
 
 #: server_status_monitor.php:708
 msgid "Refresh rate"
@@ -12586,24 +12640,24 @@ msgstr ""
 msgid "Wrong data"
 msgstr "Dati errati"
 
-#: sql.php:227
+#: sql.php:231
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr "Usa il segnalibro \"%s\" come la query di navigazione predefinita."
 
-#: sql.php:309
+#: sql.php:313
 msgid "Bookmark not created"
 msgstr "Segnalibro non creato"
 
-#: sql.php:851
+#: sql.php:855
 msgid "Showing as PHP code"
 msgstr "Visualizzo comel codice PHP"
 
-#: sql.php:856
+#: sql.php:860
 msgid "Validated SQL"
 msgstr "SQL Validato"
 
-#: sql.php:1110
+#: sql.php:1114
 #, fuzzy
 #| msgid ""
 #| "This table does not contain a unique column. Features related to the grid "
@@ -12616,16 +12670,16 @@ msgstr ""
 "modifica, copia ed eliminazione potrebbero non funzionare dopo il "
 "salvataggio."
 
-#: sql.php:1159
+#: sql.php:1166
 #, php-format
 msgid "Problems with indexes of table `%s`"
 msgstr "Problemi con gli indici della tabella `%s`"
 
-#: sql.php:1191 sql.php:1211
+#: sql.php:1199 sql.php:1219
 msgid "Bookmark this SQL query"
 msgstr "Aggiungi ai preferiti questa query SQL"
 
-#: sql.php:1195
+#: sql.php:1203
 #, fuzzy
 #| msgid "Label"
 msgid "Label:"
@@ -14437,9 +14491,6 @@ msgstr "concurrent_insert è impostato a 0"
 
 #~ msgid "Lines terminated by"
 #~ msgstr "Linee terminate da"
-
-#~ msgid "Rearrange/edit charts"
-#~ msgstr "Muovi/modifica i grafici"
 
 #~ msgid "ltr"
 #~ msgstr "ltr"

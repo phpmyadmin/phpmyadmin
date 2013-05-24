@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-05-23 02:58-0400\n"
+"POT-Creation-Date: 2013-05-24 09:03-0400\n"
 "PO-Revision-Date: 2013-04-25 16:02+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Hindi <http://l10n.cihar.com/projects/phpmyadmin/master/hi/>\n"
@@ -234,8 +234,8 @@ msgstr "टिप्पणी"
 #: libraries/server_privileges.lib.php:2163
 #: libraries/server_privileges.lib.php:2483
 #: libraries/server_privileges.lib.php:2497 libraries/structure.lib.php:1268
-#: libraries/user_preferences.lib.php:282 prefs_manage.php:138 sql.php:340
-#: sql.php:435 sql.php:436 tbl_printview.php:186 tbl_tracking.php:345
+#: libraries/user_preferences.lib.php:282 prefs_manage.php:138 sql.php:344
+#: sql.php:439 sql.php:440 tbl_printview.php:186 tbl_tracking.php:345
 #: tbl_tracking.php:399 tbl_tracking.php:404
 msgid "No"
 msgstr "नहीं"
@@ -261,7 +261,7 @@ msgstr "नहीं"
 #: libraries/server_privileges.lib.php:2480
 #: libraries/server_privileges.lib.php:2497 libraries/structure.lib.php:1268
 #: libraries/user_preferences.lib.php:280 prefs_manage.php:136
-#: server_databases.php:103 server_databases.php:110 sql.php:433 sql.php:434
+#: server_databases.php:103 server_databases.php:110 sql.php:437 sql.php:438
 #: tbl_printview.php:187 tbl_structure.php:84 tbl_tracking.php:345
 #: tbl_tracking.php:397 tbl_tracking.php:402
 msgid "Yes"
@@ -418,7 +418,7 @@ msgstr "अद्यतन"
 
 #: db_tracking.php:83 js/messages.php:163 libraries/Menu.class.php:454
 #: libraries/rte/rte_events.lib.php:426 libraries/rte/rte_list.lib.php:78
-#: libraries/sql.lib.php:498 server_status.php:391 tbl_tracking.php:767
+#: server_status.php:391 tbl_tracking.php:767
 msgid "Status"
 msgstr "स्थिति"
 
@@ -672,7 +672,7 @@ msgstr "अक्षर सेट रूपांतरण पुस्तका
 msgid "Could not load import plugins, please check your installation!"
 msgstr "आयात प्लगइन्स नहीं लोड किये जा सके. कृपया अपनी संस्थापना जाँचें."
 
-#: import.php:519 sql.php:305 sql.php:1119
+#: import.php:519 sql.php:309 sql.php:1123
 #, php-format
 msgid "Bookmark %s created"
 msgstr "बुकमार्क %s बनाया"
@@ -910,7 +910,7 @@ msgid ""
 "issues."
 msgstr ""
 
-#: js/messages.php:27 libraries/import.lib.php:118 sql.php:265
+#: js/messages.php:27 libraries/import.lib.php:118 sql.php:269
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "\"DROP DATABASE\" बयान अक्षम हैं."
 
@@ -919,7 +919,7 @@ msgstr "\"DROP DATABASE\" बयान अक्षम हैं."
 msgid "Do you really want to execute \"%s\"?"
 msgstr "क्या आप सचमुच \"%s\" निष्पादित चाहते है?"
 
-#: js/messages.php:31 libraries/mult_submits.inc.php:337 sql.php:387
+#: js/messages.php:31 libraries/mult_submits.inc.php:337 sql.php:391
 msgid "You are about to DESTROY a complete database!"
 msgstr "आप एक पूरा डॅटाबेस मिटाने जा रहे हैं!"
 
@@ -1399,7 +1399,7 @@ msgstr "परिणाम को समझाएँ"
 #: libraries/plugins/export/ExportHtmlword.class.php:484
 #: libraries/plugins/export/ExportOdt.class.php:562
 #: libraries/plugins/export/ExportTexytext.class.php:435
-#: libraries/rte/rte_list.lib.php:68 libraries/sql.lib.php:503
+#: libraries/rte/rte_list.lib.php:68 libraries/sql.lib.php:505
 #: server_status.php:387
 msgid "Time"
 msgstr "समय"
@@ -2255,17 +2255,17 @@ msgstr ""
 
 #: libraries/Advisor.class.php:107
 #, php-format
-msgid "Failed evaluating precondition for rule '%s'"
+msgid "Failed evaluating precondition for rule '%s'."
 msgstr ""
 
 #: libraries/Advisor.class.php:124
 #, php-format
-msgid "Failed calculating value for rule '%s'"
+msgid "Failed calculating value for rule '%s'."
 msgstr ""
 
 #: libraries/Advisor.class.php:143
 #, php-format
-msgid "Failed running test for rule '%s'"
+msgid "Failed running test for rule '%s'."
 msgstr ""
 
 #: libraries/Advisor.class.php:225
@@ -2276,23 +2276,23 @@ msgstr ""
 #: libraries/Advisor.class.php:395
 #, php-format
 msgid ""
-"Invalid rule declaration on line %1$s, expected line %2$s of previous rule"
+"Invalid rule declaration on line %1$s, expected line %2$s of previous rule."
 msgstr ""
 
 #: libraries/Advisor.class.php:412
 #, fuzzy, php-format
 #| msgid "Invalid format of CSV input on line %d."
-msgid "Invalid rule declaration on line %s"
+msgid "Invalid rule declaration on line %s."
 msgstr "CSV प्रारूप का अवैध इनपुट लाइन %d."
 
 #: libraries/Advisor.class.php:420
 #, php-format
-msgid "Unexpected characters on line %s"
+msgid "Unexpected characters on line %s."
 msgstr ""
 
 #: libraries/Advisor.class.php:434
 #, php-format
-msgid "Unexpected character on line %1$s. Expected tab, but found \"%2$s\""
+msgid "Unexpected character on line %1$s. Expected tab, but found \"%2$s\"."
 msgstr ""
 
 #: libraries/Advisor.class.php:467
@@ -2694,7 +2694,7 @@ msgstr "रौ देखिये"
 msgid "total"
 msgstr "कुल"
 
-#: libraries/DisplayResults.class.php:4950 sql.php:864
+#: libraries/DisplayResults.class.php:4950 sql.php:868
 #, php-format
 msgid "Query took %01.4f sec"
 msgstr "क्वरी को %01.4f सेकेंड का समय लगा"
@@ -3412,7 +3412,7 @@ msgstr ""
 #: libraries/Types.class.php:302
 msgid ""
 "A 4-byte integer, signed range is -2,147,483,648 to 2,147,483,647, unsigned "
-"range is 0 to 4,294,967,295."
+"range is 0 to 4,294,967,295"
 msgstr ""
 
 #: libraries/Types.class.php:304
@@ -3743,7 +3743,7 @@ msgctxt "Inline edit query"
 msgid "Inline"
 msgstr "इनलाइन"
 
-#: libraries/Util.class.php:1435 libraries/sql.lib.php:494
+#: libraries/Util.class.php:1435 libraries/sql.lib.php:493
 msgid "Profiling"
 msgstr "रूपरेखा"
 
@@ -3934,19 +3934,19 @@ msgstr "विन्यास में अवैध प्रमाणीकर
 msgid "You should upgrade to %s %s or later."
 msgstr "आपको %s %s या अधिक में नवीनीकृत करना चाहिए"
 
-#: libraries/common.inc.php:1062
+#: libraries/common.inc.php:1077
 msgid "Error: Token mismatch"
 msgstr ""
 
-#: libraries/common.inc.php:1106
+#: libraries/common.inc.php:1121
 msgid "GLOBALS overwrite attempt"
 msgstr ""
 
-#: libraries/common.inc.php:1113
+#: libraries/common.inc.php:1128
 msgid "possible exploit"
 msgstr ""
 
-#: libraries/common.inc.php:1122
+#: libraries/common.inc.php:1137
 msgid "numeric key detected"
 msgstr ""
 
@@ -4105,13 +4105,15 @@ msgid "\"%s\" requires %s extension"
 msgstr "\"%s\" को %s विस्तार की आवश्यकता है"
 
 #: libraries/config/FormDisplay.class.php:792
-#, php-format
-msgid "import will not work, missing function (%s)"
+#, fuzzy, php-format
+#| msgid "import will not work, missing function (%s)"
+msgid "Compressed import will not work due to missing function %s."
 msgstr "आयात काम नहीं करेगा, function (%s) लापता"
 
 #: libraries/config/FormDisplay.class.php:798
-#, php-format
-msgid "export will not work, missing function (%s)"
+#, fuzzy, php-format
+#| msgid "export will not work, missing function (%s)"
+msgid "Compressed export will not work due to missing function %s."
 msgstr "निर्यात काम नहीं करेगा, function (%s) लापता"
 
 #: libraries/config/FormDisplay.class.php:808
@@ -4128,7 +4130,7 @@ msgid "maximum %s"
 msgstr "अधिकतम %s"
 
 #: libraries/config/FormDisplay.tpl.php:221
-msgid "This setting is disabled, it will not be applied to your configuration"
+msgid "This setting is disabled, it will not be applied to your configuration."
 msgstr "यह सेटिंग अक्षम है, यह आपके विन्यास में लागू नहीं की जा सकेगी"
 
 #: libraries/config/FormDisplay.tpl.php:309
@@ -7155,7 +7157,7 @@ msgid "No data found for GIS visualization."
 msgstr "चार्ट के लिए कोई डेटा नहीं मिला"
 
 #: libraries/import.lib.php:187 libraries/insert_edit.lib.php:120
-#: libraries/rte/rte_routines.lib.php:1443 sql.php:859 tbl_get_field.php:55
+#: libraries/rte/rte_routines.lib.php:1443 sql.php:863 tbl_get_field.php:55
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL ने एक खाली परिणाम सेट लोताया"
 
@@ -7282,11 +7284,11 @@ msgid ""
 "Use TAB key to move from value to value, or CTRL+arrows to move anywhere"
 msgstr ""
 
-#: libraries/insert_edit.lib.php:1912 sql.php:854
+#: libraries/insert_edit.lib.php:1912 sql.php:858
 msgid "Showing SQL query"
 msgstr "SQL क्वेरी शो"
 
-#: libraries/insert_edit.lib.php:1937 sql.php:834
+#: libraries/insert_edit.lib.php:1937 sql.php:838
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "इनसर्ट रो id: %1$d"
@@ -7343,7 +7345,7 @@ msgstr "अनुक्रमणिका जोड़"
 msgid "Add prefix"
 msgstr "अनुक्रमणिका जोड़"
 
-#: libraries/mult_submits.inc.php:339 sql.php:427
+#: libraries/mult_submits.inc.php:339 sql.php:431
 #, fuzzy
 #| msgid "Do you really want to "
 msgid "Do you really want to execute the following query?"
@@ -7567,18 +7569,18 @@ msgid_plural "%s other results found"
 msgstr[0] ""
 msgstr[1] ""
 
-#: libraries/navigation/NavigationTree.class.php:1041
+#: libraries/navigation/NavigationTree.class.php:1042
 #, fuzzy
 #| msgid "Alter table order by"
 msgid "filter databases by name"
 msgstr "टेबल क्रमांक को बदलिये "
 
-#: libraries/navigation/NavigationTree.class.php:1042
-#: libraries/navigation/NavigationTree.class.php:1075
+#: libraries/navigation/NavigationTree.class.php:1043
+#: libraries/navigation/NavigationTree.class.php:1076
 msgid "Clear Fast Filter"
 msgstr ""
 
-#: libraries/navigation/NavigationTree.class.php:1074
+#: libraries/navigation/NavigationTree.class.php:1075
 #, fuzzy
 #| msgid "Alter table order by"
 msgid "filter items by name"
@@ -9880,6 +9882,52 @@ msgstr "SQLपरिणाम"
 msgid "Generated by:"
 msgstr "द्वारा उत्पन्न"
 
+#: libraries/sql.lib.php:495
+#, fuzzy
+#| msgid "Data files"
+msgid "Detailed profile"
+msgstr "डेटा फ़ाइलें"
+
+#: libraries/sql.lib.php:498
+#, fuzzy
+#| msgid "Other"
+msgid "Order"
+msgstr "अन्य"
+
+#: libraries/sql.lib.php:500 libraries/sql.lib.php:546
+#, fuzzy
+#| msgid "Startup"
+msgid "State"
+msgstr "स्टार्टअप"
+
+#: libraries/sql.lib.php:543
+msgid "Summary by state"
+msgstr ""
+
+#: libraries/sql.lib.php:551
+#, fuzzy
+#| msgid "Total time:"
+msgid "Total Time"
+msgstr "कुल समय:"
+
+#: libraries/sql.lib.php:553
+#, fuzzy
+#| msgid "Time"
+msgid "% Time"
+msgstr "समय"
+
+#: libraries/sql.lib.php:555
+#, fuzzy
+#| msgid "Close"
+msgid "Calls"
+msgstr "बंद"
+
+#: libraries/sql.lib.php:557
+#, fuzzy
+#| msgid "Time"
+msgid "ø Time"
+msgstr "समय"
+
 #: libraries/sql_query_form.lib.php:188
 #, php-format
 msgid "Run SQL query/queries on server %s"
@@ -9900,7 +9948,7 @@ msgstr "स्पष्ट"
 msgid "Bookmark this SQL query:"
 msgstr "इस SQL-क्वरी को बुकमार्क कीजिये "
 
-#: libraries/sql_query_form.lib.php:326 sql.php:1203
+#: libraries/sql_query_form.lib.php:326 sql.php:1211
 msgid "Let every user access this bookmark"
 msgstr "हर उपयोकर्ता को अनुमति दें इस बुकमार्क का उपयोग करने के लिए"
 
@@ -10850,7 +10898,7 @@ msgstr ""
 msgid ""
 "Once you restarted MySQL server, please click on Go button. Afterwards, you "
 "should see a message informing you, that this server <b>is</b> configured as "
-"master"
+"master."
 msgstr ""
 
 #: server_replication.php:281
@@ -11049,7 +11097,7 @@ msgid ""
 "and track down time intensive queries. For the latter you will need to set "
 "log_output to 'TABLE' and have either the slow_query_log or general_log "
 "enabled. Note however, that the general_log produces a lot of data and "
-"increases server load by up to 15%"
+"increases server load by up to 15%."
 msgstr ""
 
 #: server_status_monitor.php:467
@@ -11214,6 +11262,12 @@ msgstr ""
 #: server_status_monitor.php:685
 msgid "Done rearranging/editing charts"
 msgstr ""
+
+#: server_status_monitor.php:704
+#, fuzzy
+#| msgid "Remove database"
+msgid "Rearrange/edit charts"
+msgstr "डेटाबेस को हटा दे"
 
 #: server_status_monitor.php:708
 #, fuzzy
@@ -12185,26 +12239,26 @@ msgstr ""
 msgid "Wrong data"
 msgstr "कोइ डाटाबेस नहिं"
 
-#: sql.php:227
+#: sql.php:231
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr ""
 
-#: sql.php:309
+#: sql.php:313
 #, fuzzy
 #| msgid "Bookmark %s created"
 msgid "Bookmark not created"
 msgstr "बुकमार्क %s बनाया"
 
-#: sql.php:851
+#: sql.php:855
 msgid "Showing as PHP code"
 msgstr "PHP कोड की तरह दिखाएँ"
 
-#: sql.php:856
+#: sql.php:860
 msgid "Validated SQL"
 msgstr "SQL मान्य"
 
-#: sql.php:1110
+#: sql.php:1114
 #, fuzzy
 #| msgid ""
 #| "This table does not contain a unique column. Features related to the grid "
@@ -12216,16 +12270,16 @@ msgstr ""
 "इस टेबल में कोई भी विशिष्ट (unique) कॉलम नहीं है। इस बात कि सम्भावना है कि ग्रिड "
 "सम्पादन, टिक-बॉक्स, सम्पादन, प्रतिलिपि एवं मिटाने के लिंक से जुडी सुविधाएँ काम न करें।"
 
-#: sql.php:1159
+#: sql.php:1166
 #, php-format
 msgid "Problems with indexes of table `%s`"
 msgstr "`%s` टेबल के अनुक्रमित के साथ समस्याएँ"
 
-#: sql.php:1191 sql.php:1211
+#: sql.php:1199 sql.php:1219
 msgid "Bookmark this SQL query"
 msgstr "इस SQL-क्वरी को बुकमार्क कीजिये"
 
-#: sql.php:1195
+#: sql.php:1203
 #, fuzzy
 #| msgid "Label"
 msgid "Label:"

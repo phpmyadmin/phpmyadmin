@@ -3,15 +3,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-05-23 02:58-0400\n"
-"PO-Revision-Date: 2013-05-23 11:59+0200\n"
+"POT-Creation-Date: 2013-05-24 09:03-0400\n"
+"PO-Revision-Date: 2013-05-24 11:51+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
-"Language-Team: Turkish "
-"<http://l10n.cihar.com/projects/phpmyadmin/master/tr/>\n"
-"Language: tr\n"
+"Language-Team: Turkish <http://l10n.cihar.com/projects/phpmyadmin/master/tr/"
+">\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: tr\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 1.6-dev\n"
 
@@ -232,8 +232,8 @@ msgstr "Yorumlar"
 #: libraries/server_privileges.lib.php:2163
 #: libraries/server_privileges.lib.php:2483
 #: libraries/server_privileges.lib.php:2497 libraries/structure.lib.php:1268
-#: libraries/user_preferences.lib.php:282 prefs_manage.php:138 sql.php:340
-#: sql.php:435 sql.php:436 tbl_printview.php:186 tbl_tracking.php:345
+#: libraries/user_preferences.lib.php:282 prefs_manage.php:138 sql.php:344
+#: sql.php:439 sql.php:440 tbl_printview.php:186 tbl_tracking.php:345
 #: tbl_tracking.php:399 tbl_tracking.php:404
 msgid "No"
 msgstr "Hayır"
@@ -259,7 +259,7 @@ msgstr "Hayır"
 #: libraries/server_privileges.lib.php:2480
 #: libraries/server_privileges.lib.php:2497 libraries/structure.lib.php:1268
 #: libraries/user_preferences.lib.php:280 prefs_manage.php:136
-#: server_databases.php:103 server_databases.php:110 sql.php:433 sql.php:434
+#: server_databases.php:103 server_databases.php:110 sql.php:437 sql.php:438
 #: tbl_printview.php:187 tbl_structure.php:84 tbl_tracking.php:345
 #: tbl_tracking.php:397 tbl_tracking.php:402
 msgid "Yes"
@@ -406,7 +406,7 @@ msgstr "Güncellendi"
 
 #: db_tracking.php:83 js/messages.php:163 libraries/Menu.class.php:454
 #: libraries/rte/rte_events.lib.php:426 libraries/rte/rte_list.lib.php:78
-#: libraries/sql.lib.php:498 server_status.php:391 tbl_tracking.php:767
+#: server_status.php:391 tbl_tracking.php:767
 msgid "Status"
 msgstr "Durum"
 
@@ -649,7 +649,7 @@ msgstr ""
 msgid "Could not load import plugins, please check your installation!"
 msgstr "İçe aktarma eklentileri yüklenemedi, lütfen kurulumunuzu kontrol edin!"
 
-#: import.php:519 sql.php:305 sql.php:1119
+#: import.php:519 sql.php:309 sql.php:1123
 #, php-format
 msgid "Bookmark %s created"
 msgstr "Yer imi %s oluşturuldu"
@@ -887,7 +887,7 @@ msgstr ""
 "Sunucu Suhosin ile çalışıyor. Lütfen olası sorunlar için %sbelgeden%s "
 "yararlanın."
 
-#: js/messages.php:27 libraries/import.lib.php:118 sql.php:265
+#: js/messages.php:27 libraries/import.lib.php:118 sql.php:269
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "\"DROP DATABASE\" ifadesi etkisizleştirildi."
 
@@ -896,7 +896,7 @@ msgstr "\"DROP DATABASE\" ifadesi etkisizleştirildi."
 msgid "Do you really want to execute \"%s\"?"
 msgstr "\"%s\" sorgusunu çalıştırmak istediğinize emin misiniz?"
 
-#: js/messages.php:31 libraries/mult_submits.inc.php:337 sql.php:387
+#: js/messages.php:31 libraries/mult_submits.inc.php:337 sql.php:391
 msgid "You are about to DESTROY a complete database!"
 msgstr "Bütün bir veritabanını YOK ETMEK üzeresiniz!"
 
@@ -1365,7 +1365,7 @@ msgstr "Çıktıyı açıkla"
 #: libraries/plugins/export/ExportHtmlword.class.php:484
 #: libraries/plugins/export/ExportOdt.class.php:562
 #: libraries/plugins/export/ExportTexytext.class.php:435
-#: libraries/rte/rte_list.lib.php:68 libraries/sql.lib.php:503
+#: libraries/rte/rte_list.lib.php:68 libraries/sql.lib.php:505
 #: server_status.php:387
 msgid "Time"
 msgstr "Süre"
@@ -2213,18 +2213,18 @@ msgstr "PHP aşağıdaki hatayı verdi: %s"
 
 #: libraries/Advisor.class.php:107
 #, php-format
-msgid "Failed evaluating precondition for rule '%s'"
-msgstr "'%s' kuralı için önkoşul değerlendirmesi başarısız"
+msgid "Failed evaluating precondition for rule '%s'."
+msgstr "'%s' kuralı için önkoşul değerlendirmesi başarısız."
 
 #: libraries/Advisor.class.php:124
 #, php-format
-msgid "Failed calculating value for rule '%s'"
-msgstr "'%s' kuralı için değer hesaplaması başarısız"
+msgid "Failed calculating value for rule '%s'."
+msgstr "'%s' kuralı için değer hesaplaması başarısız."
 
 #: libraries/Advisor.class.php:143
 #, php-format
-msgid "Failed running test for rule '%s'"
-msgstr "'%s' kuralı için çalıştırılan deneme başarısız"
+msgid "Failed running test for rule '%s'."
+msgstr "'%s' kuralı için çalıştırılan deneme başarısız."
 
 #: libraries/Advisor.class.php:225
 #, php-format
@@ -2234,25 +2234,25 @@ msgstr "'%s' kuralı için dizgi biçimlendirme başarısız."
 #: libraries/Advisor.class.php:395
 #, php-format
 msgid ""
-"Invalid rule declaration on line %1$s, expected line %2$s of previous rule"
+"Invalid rule declaration on line %1$s, expected line %2$s of previous rule."
 msgstr ""
-"%1$s. satırda geçersiz kural bildirimi, önceki kuralın beklenen satırı %2$s"
+"%1$s. satırda geçersiz kural bildirimi, önceki kuralın beklenen satırı %2$s."
 
 #: libraries/Advisor.class.php:412
 #, php-format
-msgid "Invalid rule declaration on line %s"
-msgstr "%s. satırda geçersiz kural bildirimi"
+msgid "Invalid rule declaration on line %s."
+msgstr "%s. satırda geçersiz kural bildirimi."
 
 #: libraries/Advisor.class.php:420
 #, php-format
-msgid "Unexpected characters on line %s"
-msgstr "%s. satırda beklenmedik karakterler"
+msgid "Unexpected characters on line %s."
+msgstr "%s. satırda beklenmedik karakterler."
 
 #: libraries/Advisor.class.php:434
 #, php-format
-msgid "Unexpected character on line %1$s. Expected tab, but found \"%2$s\""
+msgid "Unexpected character on line %1$s. Expected tab, but found \"%2$s\"."
 msgstr ""
-"%1$s. satırda beklenmedik karakter. Beklenen sekme, ama bulunan \"%2$s\""
+"%1$s. satırda beklenmedik karakter. Beklenen sekme, ama bulunan \"%2$s\"."
 
 #: libraries/Advisor.class.php:467
 msgid "per second"
@@ -2621,7 +2621,7 @@ msgstr "Gösterilen satırlar"
 msgid "total"
 msgstr "toplam"
 
-#: libraries/DisplayResults.class.php:4950 sql.php:864
+#: libraries/DisplayResults.class.php:4950 sql.php:868
 #, php-format
 msgid "Query took %01.4f sec"
 msgstr "Sorgu %01.4f san. sürdü"
@@ -3317,10 +3317,10 @@ msgstr ""
 #: libraries/Types.class.php:302
 msgid ""
 "A 4-byte integer, signed range is -2,147,483,648 to 2,147,483,647, unsigned "
-"range is 0 to 4,294,967,295."
+"range is 0 to 4,294,967,295"
 msgstr ""
 "4-bayt'lık bir tamsayı, işaretli aralığı -2,147,483,648'den 2,147,483,647'ye "
-"kadardır, işaretsiz aralığı 0'dan 4,294,967,295'e kadardır."
+"kadardır, işaretsiz aralığı 0'dan 4,294,967,295'e kadardır"
 
 #: libraries/Types.class.php:304
 msgid ""
@@ -3694,7 +3694,7 @@ msgctxt "Inline edit query"
 msgid "Inline"
 msgstr "Sıralı"
 
-#: libraries/Util.class.php:1435 libraries/sql.lib.php:494
+#: libraries/Util.class.php:1435 libraries/sql.lib.php:493
 msgid "Profiling"
 msgstr "Profil çıkart"
 
@@ -3879,19 +3879,19 @@ msgstr "Yapılandırma içinde geçersiz kimlik doğrulaması yöntemi ayarı:"
 msgid "You should upgrade to %s %s or later."
 msgstr "%s %s veya sonrasına yükseltmelisiniz."
 
-#: libraries/common.inc.php:1062
+#: libraries/common.inc.php:1077
 msgid "Error: Token mismatch"
 msgstr "Hata: Belirti uyuşmazlığı"
 
-#: libraries/common.inc.php:1106
+#: libraries/common.inc.php:1121
 msgid "GLOBALS overwrite attempt"
 msgstr "GLOBALS üzerine yazma girişimi"
 
-#: libraries/common.inc.php:1113
+#: libraries/common.inc.php:1128
 msgid "possible exploit"
 msgstr "olası kötüye kullanma"
 
-#: libraries/common.inc.php:1122
+#: libraries/common.inc.php:1137
 msgid "numeric key detected"
 msgstr "sayısal tuş algılandı"
 
@@ -4045,13 +4045,13 @@ msgstr "\"%s\", %s uzantısı gerektirir"
 
 #: libraries/config/FormDisplay.class.php:792
 #, php-format
-msgid "import will not work, missing function (%s)"
-msgstr "içe aktarma çalışmayacak, eksik işlev (%s)"
+msgid "Compressed import will not work due to missing function %s."
+msgstr "Sıkıştırılmış içe aktarma eksik %s işlevinden dolayı çalışmayacak."
 
 #: libraries/config/FormDisplay.class.php:798
 #, php-format
-msgid "export will not work, missing function (%s)"
-msgstr "dışa aktarma çalışmayacak, eksik işlev (%s)"
+msgid "Compressed export will not work due to missing function %s."
+msgstr "Sıkıştırılmış dışa aktarma eksik %s işlevinden dolayı çalışmayacak."
 
 #: libraries/config/FormDisplay.class.php:808
 msgid "SQL Validator is disabled"
@@ -4067,8 +4067,8 @@ msgid "maximum %s"
 msgstr "en fazla %s"
 
 #: libraries/config/FormDisplay.tpl.php:221
-msgid "This setting is disabled, it will not be applied to your configuration"
-msgstr "Bu ayar etkisizleştirildi, yapılandırmanıza uygulanmayacaktır"
+msgid "This setting is disabled, it will not be applied to your configuration."
+msgstr "Bu ayar etkisizleştirildi, yapılandırmanıza uygulanmayacaktır."
 
 #: libraries/config/FormDisplay.tpl.php:309
 #, php-format
@@ -6309,7 +6309,6 @@ msgstr "VERİ YÜKLE kullanarak CSV"
 #: libraries/config/setup.forms.php:260 libraries/config/setup.forms.php:353
 #: libraries/config/user_preferences.forms.php:160
 #: libraries/config/user_preferences.forms.php:252
-#| msgid "Open Document Spreadsheet"
 msgid "OpenDocument Spreadsheet"
 msgstr "OpenDocument Hesap Tablosu"
 
@@ -6340,7 +6339,6 @@ msgstr "Microsoft Word 2000"
 
 #: libraries/config/setup.forms.php:357
 #: libraries/config/user_preferences.forms.php:256
-#| msgid "Open Document Text"
 msgid "OpenDocument Text"
 msgstr "OpenDocument Metni"
 
@@ -7162,7 +7160,7 @@ msgid "No data found for GIS visualization."
 msgstr "GIS görselleştirmesi için bulunan veri yok."
 
 #: libraries/import.lib.php:187 libraries/insert_edit.lib.php:120
-#: libraries/rte/rte_routines.lib.php:1443 sql.php:859 tbl_get_field.php:55
+#: libraries/rte/rte_routines.lib.php:1443 sql.php:863 tbl_get_field.php:55
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL boş bir sonuç kümesi döndürdü (yani sıfır satır)."
 
@@ -7282,11 +7280,11 @@ msgstr ""
 "Değerden değere geçmek için TAB tuşunu veya herhangi bir yere gitmek için "
 "CTRL+OK TUŞLARI'nı kullanın"
 
-#: libraries/insert_edit.lib.php:1912 sql.php:854
+#: libraries/insert_edit.lib.php:1912 sql.php:858
 msgid "Showing SQL query"
 msgstr "SQL sorgusu gösteriliyor"
 
-#: libraries/insert_edit.lib.php:1937 sql.php:834
+#: libraries/insert_edit.lib.php:1937 sql.php:838
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "Eklenen satır id: %1$d"
@@ -7331,7 +7329,7 @@ msgstr "Tablo ön eki ekle:"
 msgid "Add prefix"
 msgstr "Ön ek ekle"
 
-#: libraries/mult_submits.inc.php:339 sql.php:427
+#: libraries/mult_submits.inc.php:339 sql.php:431
 msgid "Do you really want to execute the following query?"
 msgstr "Aşağıdaki sorguya çalıştırmak istiyor musunuz?"
 
@@ -7552,16 +7550,16 @@ msgid "%s other result found"
 msgid_plural "%s other results found"
 msgstr[0] "%s diğer sonuç bulundu"
 
-#: libraries/navigation/NavigationTree.class.php:1041
+#: libraries/navigation/NavigationTree.class.php:1042
 msgid "filter databases by name"
 msgstr "veritabanlarını adına göre süz"
 
-#: libraries/navigation/NavigationTree.class.php:1042
-#: libraries/navigation/NavigationTree.class.php:1075
+#: libraries/navigation/NavigationTree.class.php:1043
+#: libraries/navigation/NavigationTree.class.php:1076
 msgid "Clear Fast Filter"
 msgstr "Hızlı Süzgeci Temizle"
 
-#: libraries/navigation/NavigationTree.class.php:1074
+#: libraries/navigation/NavigationTree.class.php:1075
 msgid "filter items by name"
 msgstr "öğeleri adına göre süz"
 
@@ -9790,6 +9788,53 @@ msgstr "SQL sonucu"
 msgid "Generated by:"
 msgstr "Üreten:"
 
+#: libraries/sql.lib.php:495
+#, fuzzy
+#| msgid "Data file grow size"
+msgid "Detailed profile"
+msgstr "Veri dosyası büyüme boyutu"
+
+#: libraries/sql.lib.php:498
+#, fuzzy
+#| msgid "Other"
+msgid "Order"
+msgstr "Diğer"
+
+#: libraries/sql.lib.php:500 libraries/sql.lib.php:546
+#, fuzzy
+#| msgctxt "Start of recurring event"
+#| msgid "Start"
+msgid "State"
+msgstr "Başlama"
+
+#: libraries/sql.lib.php:543
+msgid "Summary by state"
+msgstr ""
+
+#: libraries/sql.lib.php:551
+#, fuzzy
+#| msgid "Total time:"
+msgid "Total Time"
+msgstr "Toplam süre:"
+
+#: libraries/sql.lib.php:553
+#, fuzzy
+#| msgid "Time"
+msgid "% Time"
+msgstr "Süre"
+
+#: libraries/sql.lib.php:555
+#, fuzzy
+#| msgid "Close"
+msgid "Calls"
+msgstr "Kapat"
+
+#: libraries/sql.lib.php:557
+#, fuzzy
+#| msgid "Time"
+msgid "ø Time"
+msgstr "Süre"
+
 #: libraries/sql_query_form.lib.php:188
 #, php-format
 msgid "Run SQL query/queries on server %s"
@@ -9808,7 +9853,7 @@ msgstr "Temizle"
 msgid "Bookmark this SQL query:"
 msgstr "Bu SQL sorgusunu işaretle:"
 
-#: libraries/sql_query_form.lib.php:326 sql.php:1203
+#: libraries/sql_query_form.lib.php:326 sql.php:1211
 msgid "Let every user access this bookmark"
 msgstr "Her kullanıcının bu yer imine erişmesine izin ver"
 
@@ -10735,11 +10780,11 @@ msgstr ""
 msgid ""
 "Once you restarted MySQL server, please click on Go button. Afterwards, you "
 "should see a message informing you, that this server <b>is</b> configured as "
-"master"
+"master."
 msgstr ""
 "MySQL sunucusunu bir kez yeniden başlattığınızda, lütfen Git düğmesine "
 "tıklayın. Ondan sonra bu sunucunun master olarak <b>yapılandırıldığını</b> "
-"gösteren, sizi uyaran bir mesaj görmelisiniz"
+"gösteren, sizi uyaran bir mesaj görmelisiniz."
 
 #: server_replication.php:281
 msgid "Slave SQL Thread not running!"
@@ -10954,13 +10999,13 @@ msgid ""
 "and track down time intensive queries. For the latter you will need to set "
 "log_output to 'TABLE' and have either the slow_query_log or general_log "
 "enabled. Note however, that the general_log produces a lot of data and "
-"increases server load by up to 15%"
+"increases server load by up to 15%."
 msgstr ""
 "phpMyAdmin İzleyici sunucu yapılandırmasını uyarlamada ve yoğun sorgularda "
 "iz sürme süresinde size yardımcı olabilir. Sonrası için log_output'u "
 "'TABLE'a ayarlamanız gerekecektir ve ya slow_query_log ya da general_log "
 "etkinleştirilir. Ancak unutmayın, general_log çok fazla veri üretir ve "
-"sunucu yükünü %15'e kadar arttırır"
+"sunucu yükünü %15'e kadar arttırır."
 
 #: server_status_monitor.php:467
 msgid ""
@@ -11118,6 +11163,10 @@ msgstr "Yönergeler/Ayarlama"
 #: server_status_monitor.php:685
 msgid "Done rearranging/editing charts"
 msgstr "Çizelgeleri düzenlemeyi/yeniden düzeltmeyi bitir"
+
+#: server_status_monitor.php:704
+msgid "Rearrange/edit charts"
+msgstr "Çizelgeleri düzenle/yeniden düzelt"
 
 #: server_status_monitor.php:708
 msgid "Refresh rate"
@@ -12234,24 +12283,24 @@ msgstr "Anahtar harf, sayı [em]ve[/em] özel karakterler içermelidir."
 msgid "Wrong data"
 msgstr "Yanlış veri"
 
-#: sql.php:227
+#: sql.php:231
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr "Varsayılan gözatma sorgusu olarak \"%s\" yer imi kullanılıyor."
 
-#: sql.php:309
+#: sql.php:313
 msgid "Bookmark not created"
 msgstr "Yer imi oluşturulmadı"
 
-#: sql.php:851
+#: sql.php:855
 msgid "Showing as PHP code"
 msgstr "PHP kodu olarak gösteriliyor"
 
-#: sql.php:856
+#: sql.php:860
 msgid "Validated SQL"
 msgstr "Oanylı SQL"
 
-#: sql.php:1110
+#: sql.php:1114
 msgid ""
 "This table does not contain a unique column. Grid edit, checkbox, Edit, Copy "
 "and Delete features are not available."
@@ -12259,16 +12308,16 @@ msgstr ""
 "Bu tablo benzersiz bir sütun içermiyor. Izgara düzenleme, işaretleme kutusu, "
 "Düzenle, Kopyala ve Sil özellikleri kullanılabilir değil."
 
-#: sql.php:1159
+#: sql.php:1166
 #, php-format
 msgid "Problems with indexes of table `%s`"
 msgstr "`%s` tablosunun indeksleri ile ilgili sorunlar"
 
-#: sql.php:1191 sql.php:1211
+#: sql.php:1199 sql.php:1219
 msgid "Bookmark this SQL query"
 msgstr "Bu SQL sorgusunu işaretle"
 
-#: sql.php:1195
+#: sql.php:1203
 msgid "Label:"
 msgstr "Etiket:"
 
@@ -13971,9 +14020,6 @@ msgstr "concurrent_insert 0'a ayarlı"
 #~ msgid "Lines terminated by"
 #~ msgstr "Satırı sonlandıran"
 
-#~ msgid "Rearrange/edit charts"
-#~ msgstr "Çizelgeleri düzenle/yeniden düzelt"
-
 #~ msgid "ltr"
 #~ msgstr "ltr"
 
@@ -14410,7 +14456,7 @@ msgstr "concurrent_insert 0'a ayarlı"
 
 #~ msgid ""
 #~ "A normal-size integer. The signed range is -2,147,483,648 to "
-#~ "2,147,483,647. The unsigned range is 0 to 4,294,967,295."
+#~ "2,147,483,647. The unsigned range is 0 to 4,294,967,295"
 #~ msgstr ""
 #~ "Normal boyutta bir tamsayı. İşaretli aralığı -2,147,483,648'den "
 #~ "2,147,483,647'ye dir. İşaretsiz aralığı 0'dan 4,294,967,295'e dir."

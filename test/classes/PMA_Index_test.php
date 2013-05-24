@@ -96,7 +96,43 @@ class PMA_Index_Test extends PHPUnit_Framework_TestCase
         );
         
     }
-    
+
+    /**
+     * Test for getIndexChoices
+     *
+     * @return void
+     */
+    public function testGetIndexChoices()
+    {
+        $index_choices = PMA_Index::getIndexChoices();
+        $this->assertEquals(
+            5,
+            count($index_choices)
+        );
+        $this->assertEquals(
+            'PRIMARY,INDEX,UNIQUE,SPATIAL,FULLTEXT',
+            implode(",", $index_choices)
+        );
+    }
+
+    /**
+     * Test for isUnique
+     *
+     * @return void
+     */
+    public function testIsUniquer()
+    {
+        $this->_params['Non_unique'] = "0";
+        $index = new PMA_Index($this->_params);
+        $this->assertTrue(
+            $index->isUnique()
+        );
+        $this->assertEquals(
+            'Yes',
+            $index->isUnique(true)
+        );
+    }
+
     /**
      * Test for add Columns
      *

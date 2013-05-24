@@ -216,7 +216,7 @@ if (isset($GLOBALS['mr_configure'])) {
     echo '<br /><br />';
     echo __('Now, add the following lines at the end of [mysqld] section in your my.cnf and please restart the MySQL server afterwards.') . '<br />';
     echo '<pre id="rep"></pre>';
-    echo __('Once you restarted MySQL server, please click on Go button. Afterwards, you should see a message informing you, that this server <b>is</b> configured as master');
+    echo __('Once you restarted MySQL server, please click on Go button. Afterwards, you should see a message informing you, that this server <b>is</b> configured as master.');
     echo '</fieldset>';
     echo '<fieldset class="tblFooters">';
     echo ' <form method="post" action="server_replication.php" >';

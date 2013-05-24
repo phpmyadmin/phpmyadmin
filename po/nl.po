@@ -3,14 +3,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-05-21 14:02+0200\n"
-"PO-Revision-Date: 2013-05-23 15:19+0200\n"
+"POT-Creation-Date: 2013-05-24 09:03-0400\n"
+"PO-Revision-Date: 2013-05-24 14:00+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: Dutch <http://l10n.cihar.com/projects/phpmyadmin/master/nl/>\n"
-"Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: nl\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 1.6-dev\n"
 
@@ -230,8 +230,8 @@ msgstr "Opmerkingen"
 #: libraries/server_privileges.lib.php:2163
 #: libraries/server_privileges.lib.php:2483
 #: libraries/server_privileges.lib.php:2497 libraries/structure.lib.php:1268
-#: libraries/user_preferences.lib.php:282 prefs_manage.php:138 sql.php:340
-#: sql.php:435 sql.php:436 tbl_printview.php:186 tbl_tracking.php:345
+#: libraries/user_preferences.lib.php:282 prefs_manage.php:138 sql.php:344
+#: sql.php:439 sql.php:440 tbl_printview.php:186 tbl_tracking.php:345
 #: tbl_tracking.php:399 tbl_tracking.php:404
 msgid "No"
 msgstr "Nee"
@@ -257,7 +257,7 @@ msgstr "Nee"
 #: libraries/server_privileges.lib.php:2480
 #: libraries/server_privileges.lib.php:2497 libraries/structure.lib.php:1268
 #: libraries/user_preferences.lib.php:280 prefs_manage.php:136
-#: server_databases.php:103 server_databases.php:110 sql.php:433 sql.php:434
+#: server_databases.php:103 server_databases.php:110 sql.php:437 sql.php:438
 #: tbl_printview.php:187 tbl_structure.php:84 tbl_tracking.php:345
 #: tbl_tracking.php:397 tbl_tracking.php:402
 msgid "Yes"
@@ -405,7 +405,7 @@ msgstr "Bijgewerkt"
 
 #: db_tracking.php:83 js/messages.php:163 libraries/Menu.class.php:454
 #: libraries/rte/rte_events.lib.php:426 libraries/rte/rte_list.lib.php:78
-#: libraries/sql.lib.php:498 server_status.php:391 tbl_tracking.php:767
+#: server_status.php:391 tbl_tracking.php:767
 msgid "Status"
 msgstr "Status"
 
@@ -655,7 +655,7 @@ msgstr ""
 "De plugins voor het importeren konden niet worden geladen, controleer uw "
 "installatie!"
 
-#: import.php:519 sql.php:305 sql.php:1119
+#: import.php:519 sql.php:309 sql.php:1123
 #, php-format
 msgid "Bookmark %s created"
 msgstr "Bladwijzer %s aangemaakt"
@@ -892,7 +892,7 @@ msgid ""
 msgstr ""
 "De server gebruikt Suhosin. Zie de %sdocumentatie%s voor mogelijke problemen."
 
-#: js/messages.php:27 libraries/import.lib.php:118 sql.php:265
+#: js/messages.php:27 libraries/import.lib.php:118 sql.php:269
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "\"DROP DATABASE\" opdrachten zijn uitgeschakeld."
 
@@ -901,7 +901,7 @@ msgstr "\"DROP DATABASE\" opdrachten zijn uitgeschakeld."
 msgid "Do you really want to execute \"%s\"?"
 msgstr "Weet u zeker dat u de query \"%s\" wil uitvoeren?"
 
-#: js/messages.php:31 libraries/mult_submits.inc.php:337 sql.php:387
+#: js/messages.php:31 libraries/mult_submits.inc.php:337 sql.php:391
 msgid "You are about to DESTROY a complete database!"
 msgstr "U staat op het punt een volledige databank te VERWIJDEREN!"
 
@@ -1373,7 +1373,7 @@ msgstr "Verklaar resultaat"
 #: libraries/plugins/export/ExportHtmlword.class.php:484
 #: libraries/plugins/export/ExportOdt.class.php:562
 #: libraries/plugins/export/ExportTexytext.class.php:435
-#: libraries/rte/rte_list.lib.php:68 libraries/sql.lib.php:503
+#: libraries/rte/rte_list.lib.php:68 libraries/sql.lib.php:505
 #: server_status.php:387
 msgid "Time"
 msgstr "Tijd"
@@ -2224,18 +2224,18 @@ msgstr "PHP gaf de volgende fout : %s"
 
 #: libraries/Advisor.class.php:107
 #, php-format
-msgid "Failed evaluating precondition for rule '%s'"
-msgstr "Validatie van de preconditie van regel '%s' is mislukt"
+msgid "Failed evaluating precondition for rule '%s'."
+msgstr "Validatie van de preconditie van regel '%s' is mislukt."
 
 #: libraries/Advisor.class.php:124
 #, php-format
-msgid "Failed calculating value for rule '%s'"
-msgstr "Berekening van waarde voor regel '%s' is mislukt"
+msgid "Failed calculating value for rule '%s'."
+msgstr "Berekening van waarde voor regel '%s' is mislukt."
 
 #: libraries/Advisor.class.php:143
 #, php-format
-msgid "Failed running test for rule '%s'"
-msgstr "Test uitvoeren voor regel '%s' is mislukt"
+msgid "Failed running test for rule '%s'."
+msgstr "Test uitvoeren voor regel '%s' is mislukt."
 
 #: libraries/Advisor.class.php:225
 #, php-format
@@ -2245,25 +2245,26 @@ msgstr "Formatteren van tekenreeks voor regel '%s' is mislukt."
 #: libraries/Advisor.class.php:395
 #, php-format
 msgid ""
-"Invalid rule declaration on line %1$s, expected line %2$s of previous rule"
+"Invalid rule declaration on line %1$s, expected line %2$s of previous rule."
 msgstr ""
 "Ongeldige regeldeclaratie op lijn %1$s, lijn %2$s van de vorige regel "
-"verwacht"
+"verwacht."
 
 #: libraries/Advisor.class.php:412
 #, php-format
-msgid "Invalid rule declaration on line %s"
-msgstr "Ongeldige regeldeclaratie op lijn %s"
+msgid "Invalid rule declaration on line %s."
+msgstr "Ongeldige regeldeclaratie op lijn %s."
 
 #: libraries/Advisor.class.php:420
 #, php-format
-msgid "Unexpected characters on line %s"
-msgstr "Onverwachte tekens op lijn %s"
+msgid "Unexpected characters on line %s."
+msgstr "Onverwachte tekens op lijn %s."
 
 #: libraries/Advisor.class.php:434
 #, php-format
-msgid "Unexpected character on line %1$s. Expected tab, but found \"%2$s\""
-msgstr "Onverwacht teken op lijn %1$s. Tab verwacht, \"%2$s\" gevonden"
+#| msgid "Unexpected character on line %1$s. Expected tab, but found \"%2$s\""
+msgid "Unexpected character on line %1$s. Expected tab, but found \"%2$s\"."
+msgstr "Onverwacht teken op lijn %1$s. Tab verwacht, \"%2$s\" gevonden."
 
 #: libraries/Advisor.class.php:467
 msgid "per second"
@@ -2635,7 +2636,7 @@ msgstr "Weergave van records"
 msgid "total"
 msgstr "totaal"
 
-#: libraries/DisplayResults.class.php:4950 sql.php:864
+#: libraries/DisplayResults.class.php:4950 sql.php:868
 #, php-format
 msgid "Query took %01.4f sec"
 msgstr "query duurde %01.4f sec"
@@ -3339,10 +3340,10 @@ msgstr ""
 #: libraries/Types.class.php:302
 msgid ""
 "A 4-byte integer, signed range is -2,147,483,648 to 2,147,483,647, unsigned "
-"range is 0 to 4,294,967,295."
+"range is 0 to 4,294,967,295"
 msgstr ""
 "Een 4-byte integer, signed range van -2,147,483,648 tot 2,147,483,647, "
-"unsigned range van 0 tot 4,294,967,295."
+"unsigned range van 0 tot 4,294,967,295"
 
 #: libraries/Types.class.php:304
 msgid ""
@@ -3724,7 +3725,7 @@ msgctxt "Inline edit query"
 msgid "Inline"
 msgstr "Rechtstreeks"
 
-#: libraries/Util.class.php:1435 libraries/sql.lib.php:494
+#: libraries/Util.class.php:1435 libraries/sql.lib.php:493
 msgid "Profiling"
 msgstr "Profiling"
 
@@ -3908,19 +3909,19 @@ msgstr "Ongeldige authenticatiemethode opgegeven in configuratie:"
 msgid "You should upgrade to %s %s or later."
 msgstr "U moet upgraden naar %s %s of hoger."
 
-#: libraries/common.inc.php:1062
+#: libraries/common.inc.php:1077
 msgid "Error: Token mismatch"
 msgstr "Fout: token niet hetzelfde"
 
-#: libraries/common.inc.php:1106
+#: libraries/common.inc.php:1121
 msgid "GLOBALS overwrite attempt"
 msgstr "poging om GLOBALS te overschrijven"
 
-#: libraries/common.inc.php:1113
+#: libraries/common.inc.php:1128
 msgid "possible exploit"
 msgstr "mogelijk misbruik"
 
-#: libraries/common.inc.php:1122
+#: libraries/common.inc.php:1137
 msgid "numeric key detected"
 msgstr "numerieke toets gedetecteerd"
 
@@ -4073,13 +4074,15 @@ msgid "\"%s\" requires %s extension"
 msgstr "\"%s\" vereist de extensie %s"
 
 #: libraries/config/FormDisplay.class.php:792
-#, php-format
-msgid "import will not work, missing function (%s)"
+#, fuzzy, php-format
+#| msgid "import will not work, missing function (%s)"
+msgid "Compressed import will not work due to missing function %s."
 msgstr "importeren is niet mogelijk, functie ontbreekt (%s)"
 
 #: libraries/config/FormDisplay.class.php:798
-#, php-format
-msgid "export will not work, missing function (%s)"
+#, fuzzy, php-format
+#| msgid "export will not work, missing function (%s)"
+msgid "Compressed export will not work due to missing function %s."
 msgstr "exporteren is niet mogelijk, functie ontbreekt (%s)"
 
 #: libraries/config/FormDisplay.class.php:808
@@ -4096,10 +4099,10 @@ msgid "maximum %s"
 msgstr "maximum %s"
 
 #: libraries/config/FormDisplay.tpl.php:221
-msgid "This setting is disabled, it will not be applied to your configuration"
+msgid "This setting is disabled, it will not be applied to your configuration."
 msgstr ""
 "Deze instelling is uitgeschakeld, het is niet van toepassing op uw "
-"configuratie"
+"configuratie."
 
 #: libraries/config/FormDisplay.tpl.php:309
 #, php-format
@@ -6282,7 +6285,6 @@ msgstr ""
 "het internet heeft. Het formaat is: \"servernaam:poortnummer\""
 
 #: libraries/config/messages.inc.php:523
-#| msgid "Version check"
 msgid "Version check proxy url"
 msgstr "Versiecontrole proxy url"
 
@@ -6292,13 +6294,12 @@ msgid ""
 "authentication is performed. If a username is supplied, Basic Authentication "
 "will be performed. No other types of authentication are currently supported."
 msgstr ""
-"De gebruikersnaam voor de verificatie van de proxy. Standaard wordt geen "
+"De gebruikersnaam voor de authenticatie met de proxy. Standaard wordt geen "
 "verificatie uitgevoerd. Als een gebruikersnaam is opgegeven, wordt "
 "basisverificatie uitgevoerd. Andere types verificatie worden momenteel niet "
 "ondersteund."
 
 #: libraries/config/messages.inc.php:525
-#| msgid "Version check"
 msgid "Version check proxy username"
 msgstr "Versiecontrole proxy gebruikersnaam"
 
@@ -6307,7 +6308,6 @@ msgid "The password for authenticating with the proxy"
 msgstr "Het wachtwoord voor de authenticatie met de proxy"
 
 #: libraries/config/messages.inc.php:527
-#| msgid "Version check"
 msgid "Version check proxy password"
 msgstr "Versiecontrole proxy wachtwoord"
 
@@ -6347,7 +6347,6 @@ msgstr "CSV met behulp van LOAD DATA"
 #: libraries/config/setup.forms.php:260 libraries/config/setup.forms.php:353
 #: libraries/config/user_preferences.forms.php:160
 #: libraries/config/user_preferences.forms.php:252
-#| msgid "Open Document Spreadsheet"
 msgid "OpenDocument Spreadsheet"
 msgstr "OpenDocument-rekenblad"
 
@@ -6378,7 +6377,6 @@ msgstr "Microsoft Word 2000"
 
 #: libraries/config/setup.forms.php:357
 #: libraries/config/user_preferences.forms.php:256
-#| msgid "Open Document Text"
 msgid "OpenDocument Text"
 msgstr "OpenDocument Tekst"
 
@@ -7209,7 +7207,7 @@ msgid "No data found for GIS visualization."
 msgstr "Geen gegevens beschikbaar voor GIS-visualisatie."
 
 #: libraries/import.lib.php:187 libraries/insert_edit.lib.php:120
-#: libraries/rte/rte_routines.lib.php:1443 sql.php:859 tbl_get_field.php:55
+#: libraries/rte/rte_routines.lib.php:1443 sql.php:863 tbl_get_field.php:55
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL gaf een lege resultatenset terug (0 rijen)."
 
@@ -7328,11 +7326,11 @@ msgstr ""
 "Gebruik de TAB-toets om van waarde naar waarde te navigeren of CTRL+pijltjes "
 "om vrijuit te navigeren"
 
-#: libraries/insert_edit.lib.php:1912 sql.php:854
+#: libraries/insert_edit.lib.php:1912 sql.php:858
 msgid "Showing SQL query"
 msgstr "Toont SQL-query"
 
-#: libraries/insert_edit.lib.php:1937 sql.php:834
+#: libraries/insert_edit.lib.php:1937 sql.php:838
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "Toegevoegd rijnummer: %1$d"
@@ -7378,7 +7376,7 @@ msgstr "Tabelvoorvoegsel toevoegen:"
 msgid "Add prefix"
 msgstr "Voorvoegsel toevoegen"
 
-#: libraries/mult_submits.inc.php:339 sql.php:427
+#: libraries/mult_submits.inc.php:339 sql.php:431
 msgid "Do you really want to execute the following query?"
 msgstr "Weet u zeker dat u de volgende SQL-query wil uitvoeren?"
 
@@ -7601,16 +7599,16 @@ msgid_plural "%s other results found"
 msgstr[0] "%s ander resultaat gevonden"
 msgstr[1] "%s andere resultaten gevonden"
 
-#: libraries/navigation/NavigationTree.class.php:1041
+#: libraries/navigation/NavigationTree.class.php:1042
 msgid "filter databases by name"
 msgstr "databanken filteren op naam"
 
-#: libraries/navigation/NavigationTree.class.php:1042
-#: libraries/navigation/NavigationTree.class.php:1075
+#: libraries/navigation/NavigationTree.class.php:1043
+#: libraries/navigation/NavigationTree.class.php:1076
 msgid "Clear Fast Filter"
 msgstr "Snelle filter leegmaken"
 
-#: libraries/navigation/NavigationTree.class.php:1074
+#: libraries/navigation/NavigationTree.class.php:1075
 msgid "filter items by name"
 msgstr "elementen filteren op naam"
 
@@ -9865,6 +9863,53 @@ msgstr "SQL-resultaat"
 msgid "Generated by:"
 msgstr "Gegenereerd door:"
 
+#: libraries/sql.lib.php:495
+#, fuzzy
+#| msgid "Data file grow size"
+msgid "Detailed profile"
+msgstr "Groeistapgrootte voor gegevensbestand"
+
+#: libraries/sql.lib.php:498
+#, fuzzy
+#| msgid "Other"
+msgid "Order"
+msgstr "Andere"
+
+#: libraries/sql.lib.php:500 libraries/sql.lib.php:546
+#, fuzzy
+#| msgctxt "Start of recurring event"
+#| msgid "Start"
+msgid "State"
+msgstr "Begin"
+
+#: libraries/sql.lib.php:543
+msgid "Summary by state"
+msgstr ""
+
+#: libraries/sql.lib.php:551
+#, fuzzy
+#| msgid "Total time:"
+msgid "Total Time"
+msgstr "Totale tijd:"
+
+#: libraries/sql.lib.php:553
+#, fuzzy
+#| msgid "Time"
+msgid "% Time"
+msgstr "Tijd"
+
+#: libraries/sql.lib.php:555
+#, fuzzy
+#| msgid "Close"
+msgid "Calls"
+msgstr "Sluiten"
+
+#: libraries/sql.lib.php:557
+#, fuzzy
+#| msgid "Time"
+msgid "ø Time"
+msgstr "Tijd"
+
 #: libraries/sql_query_form.lib.php:188
 #, php-format
 msgid "Run SQL query/queries on server %s"
@@ -9883,7 +9928,7 @@ msgstr "Leegmaken"
 msgid "Bookmark this SQL query:"
 msgstr "Deze SQL-query onthouden:"
 
-#: libraries/sql_query_form.lib.php:326 sql.php:1203
+#: libraries/sql_query_form.lib.php:326 sql.php:1211
 msgid "Let every user access this bookmark"
 msgstr "Elke gebruiker toegang geven tot deze bladwijzer"
 
@@ -10817,11 +10862,10 @@ msgstr ""
 msgid ""
 "Once you restarted MySQL server, please click on Go button. Afterwards, you "
 "should see a message informing you, that this server <b>is</b> configured as "
-"master"
+"master."
 msgstr ""
-"Nadat u bovenstaande regels aan uw instellingen heeft toegevoegd en de MySQL-"
-"server heeft herstart klikt u op Start. Hierna zou u de melding moeten "
-"krijgen dat de server <b>is</b> ingesteld als master"
+"Nadat u de MySQL-server herstart heeft, klikt u op Start. Hierna zou u de "
+"melding moeten krijgen dat de server  ingesteld <b>is</b> als master."
 
 #: server_replication.php:281
 msgid "Slave SQL Thread not running!"
@@ -11041,7 +11085,7 @@ msgid ""
 "and track down time intensive queries. For the latter you will need to set "
 "log_output to 'TABLE' and have either the slow_query_log or general_log "
 "enabled. Note however, that the general_log produces a lot of data and "
-"increases server load by up to 15%"
+"increases server load by up to 15%."
 msgstr ""
 "De phpMyAdmin-monitor kan u helpen bij het optimaliseren van de "
 "serverconfiguratie en het opsporen van tijdrovende SQL-queries. Voor dit "
@@ -11210,6 +11254,10 @@ msgstr "Instructies/Setup"
 #: server_status_monitor.php:685
 msgid "Done rearranging/editing charts"
 msgstr "Klaar met herschikken/bewerken van de grafieken"
+
+#: server_status_monitor.php:704
+msgid "Rearrange/edit charts"
+msgstr "Herschikken/bewerken van de grafieken"
 
 #: server_status_monitor.php:708
 msgid "Refresh rate"
@@ -12349,24 +12397,24 @@ msgstr ""
 msgid "Wrong data"
 msgstr "Verkeerde gegevens"
 
-#: sql.php:227
+#: sql.php:231
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr "Bladwijzer \"%s\" wordt gebruikt als standaard browsequery."
 
-#: sql.php:309
+#: sql.php:313
 msgid "Bookmark not created"
 msgstr "Bladwijzer niet aangemaakt"
 
-#: sql.php:851
+#: sql.php:855
 msgid "Showing as PHP code"
 msgstr "Getoond als PHP-code"
 
-#: sql.php:856
+#: sql.php:860
 msgid "Validated SQL"
 msgstr "Gevalideerde SQL"
 
-#: sql.php:1110
+#: sql.php:1114
 msgid ""
 "This table does not contain a unique column. Grid edit, checkbox, Edit, Copy "
 "and Delete features are not available."
@@ -12374,16 +12422,16 @@ msgstr ""
 "Deze tabel bevat geen unieke kolom. Functies zoals rasterbewerkingen, "
 "checkboxen, Bewerken, Kopiëren en Verwijderen, zijn niet beschikbaar."
 
-#: sql.php:1159
+#: sql.php:1166
 #, php-format
 msgid "Problems with indexes of table `%s`"
 msgstr "Problemen met de indexen van de tabel `%s`"
 
-#: sql.php:1191 sql.php:1211
+#: sql.php:1199 sql.php:1219
 msgid "Bookmark this SQL query"
 msgstr "Deze SQL-query opslaan"
 
-#: sql.php:1195
+#: sql.php:1203
 msgid "Label:"
 msgstr "Label:"
 
@@ -14133,9 +14181,6 @@ msgstr "concurrent_insert is ingesteld op 0"
 
 #~ msgid "Lines terminated by"
 #~ msgstr "Regels beëindigd door"
-
-#~ msgid "Rearrange/edit charts"
-#~ msgstr "Herschikken/bewerken van de grafieken"
 
 #~ msgid "ltr"
 #~ msgstr "ltr"

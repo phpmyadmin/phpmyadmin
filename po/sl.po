@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-05-23 02:58-0400\n"
-"PO-Revision-Date: 2013-05-20 16:15+0200\n"
+"POT-Creation-Date: 2013-05-24 09:03-0400\n"
+"PO-Revision-Date: 2013-05-24 14:11+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: Slovenian <http://l10n.cihar.com/projects/phpmyadmin/master/"
 "sl/>\n"
@@ -232,8 +232,8 @@ msgstr "Pripombe"
 #: libraries/server_privileges.lib.php:2163
 #: libraries/server_privileges.lib.php:2483
 #: libraries/server_privileges.lib.php:2497 libraries/structure.lib.php:1268
-#: libraries/user_preferences.lib.php:282 prefs_manage.php:138 sql.php:340
-#: sql.php:435 sql.php:436 tbl_printview.php:186 tbl_tracking.php:345
+#: libraries/user_preferences.lib.php:282 prefs_manage.php:138 sql.php:344
+#: sql.php:439 sql.php:440 tbl_printview.php:186 tbl_tracking.php:345
 #: tbl_tracking.php:399 tbl_tracking.php:404
 msgid "No"
 msgstr "Ne"
@@ -259,7 +259,7 @@ msgstr "Ne"
 #: libraries/server_privileges.lib.php:2480
 #: libraries/server_privileges.lib.php:2497 libraries/structure.lib.php:1268
 #: libraries/user_preferences.lib.php:280 prefs_manage.php:136
-#: server_databases.php:103 server_databases.php:110 sql.php:433 sql.php:434
+#: server_databases.php:103 server_databases.php:110 sql.php:437 sql.php:438
 #: tbl_printview.php:187 tbl_structure.php:84 tbl_tracking.php:345
 #: tbl_tracking.php:397 tbl_tracking.php:402
 msgid "Yes"
@@ -409,7 +409,7 @@ msgstr "Posodobljeno"
 
 #: db_tracking.php:83 js/messages.php:163 libraries/Menu.class.php:454
 #: libraries/rte/rte_events.lib.php:426 libraries/rte/rte_list.lib.php:78
-#: libraries/sql.lib.php:498 server_status.php:391 tbl_tracking.php:767
+#: server_status.php:391 tbl_tracking.php:767
 msgid "Status"
 msgstr "Stanje"
 
@@ -653,7 +653,7 @@ msgid "Could not load import plugins, please check your installation!"
 msgstr ""
 "Ne morem naložiti vtičnikov za uvoz, prosimo, preverite vašo namestitev!"
 
-#: import.php:519 sql.php:305 sql.php:1119
+#: import.php:519 sql.php:309 sql.php:1123
 #, php-format
 msgid "Bookmark %s created"
 msgstr "Zaznamek %s je ustvarjen"
@@ -890,7 +890,7 @@ msgstr ""
 "Strežnik, ki teče z Suhosin. Prosimo, nanašajte se na %sdokumentacijo%s za "
 "morebitna vprašanja."
 
-#: js/messages.php:27 libraries/import.lib.php:118 sql.php:265
+#: js/messages.php:27 libraries/import.lib.php:118 sql.php:269
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "Poizvedbe \"DROP DATABASE\" so izključene."
 
@@ -899,7 +899,7 @@ msgstr "Poizvedbe \"DROP DATABASE\" so izključene."
 msgid "Do you really want to execute \"%s\"?"
 msgstr "Ali res želite izvesti \"%s\"?"
 
-#: js/messages.php:31 libraries/mult_submits.inc.php:337 sql.php:387
+#: js/messages.php:31 libraries/mult_submits.inc.php:337 sql.php:391
 msgid "You are about to DESTROY a complete database!"
 msgstr "S tem dejanjem boste UNIČILI celotno zbirko podatkov!"
 
@@ -1369,7 +1369,7 @@ msgstr "Razloži izhod"
 #: libraries/plugins/export/ExportHtmlword.class.php:484
 #: libraries/plugins/export/ExportOdt.class.php:562
 #: libraries/plugins/export/ExportTexytext.class.php:435
-#: libraries/rte/rte_list.lib.php:68 libraries/sql.lib.php:503
+#: libraries/rte/rte_list.lib.php:68 libraries/sql.lib.php:505
 #: server_status.php:387
 msgid "Time"
 msgstr "Čas"
@@ -2209,18 +2209,18 @@ msgstr "PHP je vrnil naslednjo napako: %s"
 
 #: libraries/Advisor.class.php:107
 #, php-format
-msgid "Failed evaluating precondition for rule '%s'"
-msgstr "Ovrednotenje predpogojev za pravilo '%s' je spodletelo"
+msgid "Failed evaluating precondition for rule '%s'."
+msgstr "Ovrednotenje predpogojev za pravilo '%s' je spodletelo."
 
 #: libraries/Advisor.class.php:124
 #, php-format
-msgid "Failed calculating value for rule '%s'"
-msgstr "Izračun vrednosti za pravilo '%s' je spodletel"
+msgid "Failed calculating value for rule '%s'."
+msgstr "Izračun vrednosti za pravilo '%s' je spodletel."
 
 #: libraries/Advisor.class.php:143
 #, php-format
-msgid "Failed running test for rule '%s'"
-msgstr "Zagon preizkusa za pravilo '%s' je spodletel"
+msgid "Failed running test for rule '%s'."
+msgstr "Zagon preizkusa za pravilo '%s' je spodletel."
 
 #: libraries/Advisor.class.php:225
 #, php-format
@@ -2230,26 +2230,27 @@ msgstr "Oblikovanje niza za pravilo '%s' je spodletelo."
 #: libraries/Advisor.class.php:395
 #, php-format
 msgid ""
-"Invalid rule declaration on line %1$s, expected line %2$s of previous rule"
+"Invalid rule declaration on line %1$s, expected line %2$s of previous rule."
 msgstr ""
 "Neveljavna označba v vrstici %1$s; pričakoval sem vrstico %2$s prejšnjega "
-"pravila"
+"pravila."
 
 #: libraries/Advisor.class.php:412
 #, php-format
-msgid "Invalid rule declaration on line %s"
-msgstr "Neveljavna označba pravila v vrstici %s"
+msgid "Invalid rule declaration on line %s."
+msgstr "Neveljavna označba pravila v vrstici %s."
 
 #: libraries/Advisor.class.php:420
 #, php-format
-msgid "Unexpected characters on line %s"
-msgstr "Nepričakovani znaki v vrstici %s"
+msgid "Unexpected characters on line %s."
+msgstr "Nepričakovani znaki v vrstici %s."
 
 #: libraries/Advisor.class.php:434
 #, php-format
-msgid "Unexpected character on line %1$s. Expected tab, but found \"%2$s\""
+msgid "Unexpected character on line %1$s. Expected tab, but found \"%2$s\"."
 msgstr ""
-"Neveljaven znak v vrstici %1$s. Pričakoval sem tabulator, vendar našel »%2$s«"
+"Nepričakovan znak v vrstici %1$s. Pričakoval sem tabulator, vendar našel »%2"
+"$s«."
 
 #: libraries/Advisor.class.php:467
 msgid "per second"
@@ -2623,7 +2624,7 @@ msgstr "Prikazujem vrstice"
 msgid "total"
 msgstr "skupaj"
 
-#: libraries/DisplayResults.class.php:4950 sql.php:864
+#: libraries/DisplayResults.class.php:4950 sql.php:868
 #, php-format
 msgid "Query took %01.4f sec"
 msgstr "Poizvedba je potrebovala %01.4f s"
@@ -3328,10 +3329,10 @@ msgstr ""
 #: libraries/Types.class.php:302
 msgid ""
 "A 4-byte integer, signed range is -2,147,483,648 to 2,147,483,647, unsigned "
-"range is 0 to 4,294,967,295."
+"range is 0 to 4,294,967,295"
 msgstr ""
-"4-bitno celo število; predznačen razpon je -2.147.483.648 do 2.147.483.647, "
-"nepredznačen razpon pa 0 do 4.294.967.295."
+"4-bitno celo število; predznačeni razpon je od -2.147.483.648 do "
+"2.147.483.647, nepredznačeni razpon pa od 0 do 4.294.967.295"
 
 #: libraries/Types.class.php:304
 msgid ""
@@ -3703,7 +3704,7 @@ msgctxt "Inline edit query"
 msgid "Inline"
 msgstr "V vrstici"
 
-#: libraries/Util.class.php:1435 libraries/sql.lib.php:494
+#: libraries/Util.class.php:1435 libraries/sql.lib.php:493
 msgid "Profiling"
 msgstr "Profiliranje"
 
@@ -3888,19 +3889,19 @@ msgstr "Neveljaven način overitve določen v konfiguracijski datoteki:"
 msgid "You should upgrade to %s %s or later."
 msgstr "%s bi morali nadgraditi na različico %s ali novejšo."
 
-#: libraries/common.inc.php:1062
+#: libraries/common.inc.php:1077
 msgid "Error: Token mismatch"
 msgstr "Napaka: Neujemanje žetonov"
 
-#: libraries/common.inc.php:1106
+#: libraries/common.inc.php:1121
 msgid "GLOBALS overwrite attempt"
 msgstr "poskus prepisa GLOBALS"
 
-#: libraries/common.inc.php:1113
+#: libraries/common.inc.php:1128
 msgid "possible exploit"
 msgstr "možno izkoriščanje"
 
-#: libraries/common.inc.php:1122
+#: libraries/common.inc.php:1137
 msgid "numeric key detected"
 msgstr "zaznana številska tipka"
 
@@ -4054,13 +4055,13 @@ msgstr "\"%s\" potrebuje razširitev %s"
 
 #: libraries/config/FormDisplay.class.php:792
 #, php-format
-msgid "import will not work, missing function (%s)"
-msgstr "uvoz ne bo deloval, manjka funkcija (%s)"
+msgid "Compressed import will not work due to missing function %s."
+msgstr "Stisnjeni uvoz ne bo deloval, saj manjka funkcija %s."
 
 #: libraries/config/FormDisplay.class.php:798
 #, php-format
-msgid "export will not work, missing function (%s)"
-msgstr "izvoz ne bo deloval, manjka funkcija (%s)"
+msgid "Compressed export will not work due to missing function %s."
+msgstr "Stisnjeni izvoz ne bo deloval, saj manjka funkcija %s."
 
 #: libraries/config/FormDisplay.class.php:808
 msgid "SQL Validator is disabled"
@@ -4076,9 +4077,9 @@ msgid "maximum %s"
 msgstr "največ %s"
 
 #: libraries/config/FormDisplay.tpl.php:221
-msgid "This setting is disabled, it will not be applied to your configuration"
+msgid "This setting is disabled, it will not be applied to your configuration."
 msgstr ""
-"Nastavitev je onemogočena, zato ne bo uporabljena pri vaši konfiguraciji"
+"Nastavitev je onemogočena, zato ne bo uporabljena pri vaši konfiguraciji."
 
 #: libraries/config/FormDisplay.tpl.php:309
 #, php-format
@@ -6297,10 +6298,8 @@ msgstr "CSV z uporabo LOAD DATA"
 #: libraries/config/setup.forms.php:260 libraries/config/setup.forms.php:353
 #: libraries/config/user_preferences.forms.php:160
 #: libraries/config/user_preferences.forms.php:252
-#, fuzzy
-#| msgid "Open Document Spreadsheet"
 msgid "OpenDocument Spreadsheet"
-msgstr "Preglednica Open Document"
+msgstr "Preglednica OpenDocument"
 
 #: libraries/config/setup.forms.php:267
 #: libraries/config/user_preferences.forms.php:167
@@ -6329,10 +6328,8 @@ msgstr "Microsoft Word 2000"
 
 #: libraries/config/setup.forms.php:357
 #: libraries/config/user_preferences.forms.php:256
-#, fuzzy
-#| msgid "Open Document Text"
 msgid "OpenDocument Text"
-msgstr "Besedilo Open Document"
+msgstr "Besedilo OpenDocument"
 
 #: libraries/config/validate.lib.php:214
 msgid "Could not initialize Drizzle connection library"
@@ -7145,7 +7142,7 @@ msgid "No data found for GIS visualization."
 msgstr "Za predstavitev GIS ni najdenih podatkov."
 
 #: libraries/import.lib.php:187 libraries/insert_edit.lib.php:120
-#: libraries/rte/rte_routines.lib.php:1443 sql.php:859 tbl_get_field.php:55
+#: libraries/rte/rte_routines.lib.php:1443 sql.php:863 tbl_get_field.php:55
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL je vrnil kot rezultat prazno množico (npr. nič vrstic)."
 
@@ -7266,11 +7263,11 @@ msgstr ""
 "Uporabite tipko TAB za premik od vrednosti do vrednosti ali CTRL+puščice za "
 "premik kamor koli"
 
-#: libraries/insert_edit.lib.php:1912 sql.php:854
+#: libraries/insert_edit.lib.php:1912 sql.php:858
 msgid "Showing SQL query"
 msgstr "Prikazovanje poizvedbe SQL"
 
-#: libraries/insert_edit.lib.php:1937 sql.php:834
+#: libraries/insert_edit.lib.php:1937 sql.php:838
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "Id vstavljene vrstice: %1$d"
@@ -7315,7 +7312,7 @@ msgstr "Dodaj predpono tabele:"
 msgid "Add prefix"
 msgstr "Dodaj predpono"
 
-#: libraries/mult_submits.inc.php:339 sql.php:427
+#: libraries/mult_submits.inc.php:339 sql.php:431
 msgid "Do you really want to execute the following query?"
 msgstr "Ali res želite izvesti naslednjo poizvedbo?"
 
@@ -7539,16 +7536,16 @@ msgstr[1] "najdena %s druga rezultata"
 msgstr[2] "najdeni %s drugi rezultati"
 msgstr[3] "najdenih %s drugih rezultatov"
 
-#: libraries/navigation/NavigationTree.class.php:1041
+#: libraries/navigation/NavigationTree.class.php:1042
 msgid "filter databases by name"
 msgstr "filtriraj zbirke podatkov po imenu"
 
-#: libraries/navigation/NavigationTree.class.php:1042
-#: libraries/navigation/NavigationTree.class.php:1075
+#: libraries/navigation/NavigationTree.class.php:1043
+#: libraries/navigation/NavigationTree.class.php:1076
 msgid "Clear Fast Filter"
 msgstr "Počisti hitri filter"
 
-#: libraries/navigation/NavigationTree.class.php:1074
+#: libraries/navigation/NavigationTree.class.php:1075
 msgid "filter items by name"
 msgstr "filtriraj predmete po imenu"
 
@@ -9774,6 +9771,53 @@ msgstr "Rezultat SQL"
 msgid "Generated by:"
 msgstr "Ustvaril:"
 
+#: libraries/sql.lib.php:495
+#, fuzzy
+#| msgid "Data file grow size"
+msgid "Detailed profile"
+msgstr "Velikost rasti podatkovnih datotek"
+
+#: libraries/sql.lib.php:498
+#, fuzzy
+#| msgid "Other"
+msgid "Order"
+msgstr "Drugo"
+
+#: libraries/sql.lib.php:500 libraries/sql.lib.php:546
+#, fuzzy
+#| msgctxt "Start of recurring event"
+#| msgid "Start"
+msgid "State"
+msgstr "Začetek"
+
+#: libraries/sql.lib.php:543
+msgid "Summary by state"
+msgstr ""
+
+#: libraries/sql.lib.php:551
+#, fuzzy
+#| msgid "Total time:"
+msgid "Total Time"
+msgstr "Skupni čas:"
+
+#: libraries/sql.lib.php:553
+#, fuzzy
+#| msgid "Time"
+msgid "% Time"
+msgstr "Čas"
+
+#: libraries/sql.lib.php:555
+#, fuzzy
+#| msgid "Close"
+msgid "Calls"
+msgstr "Zapri"
+
+#: libraries/sql.lib.php:557
+#, fuzzy
+#| msgid "Time"
+msgid "ø Time"
+msgstr "Čas"
+
 #: libraries/sql_query_form.lib.php:188
 #, php-format
 msgid "Run SQL query/queries on server %s"
@@ -9792,7 +9836,7 @@ msgstr "Počisti"
 msgid "Bookmark this SQL query:"
 msgstr "Označi to poizvedbo SQL:"
 
-#: libraries/sql_query_form.lib.php:326 sql.php:1203
+#: libraries/sql_query_form.lib.php:326 sql.php:1211
 msgid "Let every user access this bookmark"
 msgstr "Dovoli dostop do zaznamka vsem uporabnikom"
 
@@ -10721,11 +10765,11 @@ msgstr ""
 msgid ""
 "Once you restarted MySQL server, please click on Go button. Afterwards, you "
 "should see a message informing you, that this server <b>is</b> configured as "
-"master"
+"master."
 msgstr ""
 "Ko enkrat ponovno zaženete strežnik MySQL, prosimo, kliknite na gumb Pojdi. "
-"Nato bi morali videti sporočilo, ki vam sporoča, da <b>je</b> strežnik "
-"konfiguriran kot glavni strežnik"
+"Nato bi morali videti sporočilo, ki vam sporoča, da strežnik <b>je</b> "
+"konfiguriran kot glavni strežnik."
 
 #: server_replication.php:281
 msgid "Slave SQL Thread not running!"
@@ -10940,13 +10984,13 @@ msgid ""
 "and track down time intensive queries. For the latter you will need to set "
 "log_output to 'TABLE' and have either the slow_query_log or general_log "
 "enabled. Note however, that the general_log produces a lot of data and "
-"increases server load by up to 15%"
+"increases server load by up to 15%."
 msgstr ""
-"Nadziranje phpMyAdmin vam lahko pomaga pri optimiziranju konfiguracije "
+"Nadziranje phpMyAdmin vam lahko pomaga pri optimizaciji konfiguracije "
 "strežnika in izsleditvi časovno zahtevnih poizvedb. Za slednje morate "
-"nastaviti log_output na 'TABLE' in imeti omogočeno ali slow_query_log ali "
+"nastaviti log_output na 'TABLE' in imeti omogočen ali slow_query_log ali "
 "general_log. Vendar pomnite, da general_log ustvari ogromno podatkov in "
-"poveča obremenitev strežnika do 15 %"
+"poveča obremenitev strežnika do 15 %."
 
 #: server_status_monitor.php:467
 msgid ""
@@ -11109,6 +11153,10 @@ msgstr "Navodila/Namestitev"
 #: server_status_monitor.php:685
 msgid "Done rearranging/editing charts"
 msgstr "Preurejanje/urejanje grafikonov je končano"
+
+#: server_status_monitor.php:704
+msgid "Rearrange/edit charts"
+msgstr "Preuredi/uredi grafikone"
 
 #: server_status_monitor.php:708
 msgid "Refresh rate"
@@ -12218,24 +12266,24 @@ msgstr "Ključ naj vsebuje črke, številke [em]in[/em] posebne znake."
 msgid "Wrong data"
 msgstr "Napačni podatki"
 
-#: sql.php:227
+#: sql.php:231
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr "Uporaba zaznamka \"%s\" kot privzeto poizvedbo med brskanjem."
 
-#: sql.php:309
+#: sql.php:313
 msgid "Bookmark not created"
 msgstr "Zaznamek ni ustvarjen"
 
-#: sql.php:851
+#: sql.php:855
 msgid "Showing as PHP code"
 msgstr "Prikazovanje kot koda PHP"
 
-#: sql.php:856
+#: sql.php:860
 msgid "Validated SQL"
 msgstr "Preverjen SQL"
 
-#: sql.php:1110
+#: sql.php:1114
 msgid ""
 "This table does not contain a unique column. Grid edit, checkbox, Edit, Copy "
 "and Delete features are not available."
@@ -12243,16 +12291,16 @@ msgstr ""
 "Tabela ne vsebuje unikatnega stolpca. Zmožnosti urejanja mreže, potrditvena "
 "polja, Uredi, Kopiraj in Izbriši niso na voljo."
 
-#: sql.php:1159
+#: sql.php:1166
 #, php-format
 msgid "Problems with indexes of table `%s`"
 msgstr "Težave z indeksi tabele `%s`"
 
-#: sql.php:1191 sql.php:1211
+#: sql.php:1199 sql.php:1219
 msgid "Bookmark this SQL query"
 msgstr "Označi to poizvedbo SQL"
 
-#: sql.php:1195
+#: sql.php:1203
 msgid "Label:"
 msgstr "Oznaka:"
 
@@ -13962,9 +14010,6 @@ msgstr "concurrent_insert je nastavljeno na 0"
 
 #~ msgid "Lines terminated by"
 #~ msgstr "Vrstice so zaključene z"
-
-#~ msgid "Rearrange/edit charts"
-#~ msgstr "Preuredi/uredi grafikone"
 
 #~ msgid "ltr"
 #~ msgstr "ltr"

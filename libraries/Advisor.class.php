@@ -104,7 +104,7 @@ class Advisor
                 } catch (Exception $e) {
                     $this->storeError(
                         sprintf(
-                            __('Failed evaluating precondition for rule \'%s\''),
+                            __('Failed evaluating precondition for rule \'%s\'.'),
                             $rule['name']
                         ),
                         $e
@@ -121,7 +121,7 @@ class Advisor
                 } catch(Exception $e) {
                     $this->storeError(
                         sprintf(
-                            __('Failed calculating value for rule \'%s\''),
+                            __('Failed calculating value for rule \'%s\'.'),
                             $rule['name']
                         ),
                         $e
@@ -140,7 +140,7 @@ class Advisor
                 }  catch(Exception $e) {
                     $this->storeError(
                         sprintf(
-                            __('Failed running test for rule \'%s\''),
+                            __('Failed running test for rule \'%s\'.'),
                             $rule['name']
                         ),
                         $e
@@ -392,7 +392,7 @@ class Advisor
             if (substr($line, 0, 4) == 'rule') {
                 if ($ruleLine > 0) {
                     $errors[] = sprintf(
-                        __('Invalid rule declaration on line %1$s, expected line %2$s of previous rule'),
+                        __('Invalid rule declaration on line %1$s, expected line %2$s of previous rule.'),
                         $i + 1,
                         $ruleSyntax[$ruleLine++]
                     );
@@ -409,7 +409,7 @@ class Advisor
                     }
                 } else {
                     $errors[] = sprintf(
-                        __('Invalid rule declaration on line %s'),
+                        __('Invalid rule declaration on line %s.'),
                         $i + 1
                     );
                 }
@@ -417,7 +417,7 @@ class Advisor
             } else {
                 if ($ruleLine == -1) {
                     $errors[] = sprintf(
-                        __('Unexpected characters on line %s'),
+                        __('Unexpected characters on line %s.'),
                         $i + 1
                     );
                 }
@@ -431,7 +431,7 @@ class Advisor
                 // Non tabbed lines are not
                 if ($line[0] != "\t") {
                     $errors[] = sprintf(
-                        __('Unexpected character on line %1$s. Expected tab, but found "%2$s"'),
+                        __('Unexpected character on line %1$s. Expected tab, but found "%2$s".'),
                         $i + 1,
                         $line[0]
                     );
