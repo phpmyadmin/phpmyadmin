@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-05-24 11:13+0200\n"
-"PO-Revision-Date: 2013-05-23 14:52+0200\n"
+"PO-Revision-Date: 2013-05-24 12:24+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: Greek <http://l10n.cihar.com/projects/phpmyadmin/master/el/>\n"
 "Language: el\n"
@@ -2258,12 +2258,12 @@ msgid "Unexpected characters on line %s."
 msgstr "Μη έγκυρη χαρακτήρες στη γραμμή %s"
 
 #: libraries/Advisor.class.php:434
-#, fuzzy, php-format
+#, php-format
 #| msgid "Unexpected character on line %1$s. Expected tab, but found \"%2$s\""
 msgid "Unexpected character on line %1$s. Expected tab, but found \"%2$s\"."
 msgstr ""
-"Μη έγκυρος χαρακτήρας στη γραμμή %1$s. Αναμενότας στηλοθέτης, αλλά βρέθηκε "
-"«%2$s»"
+"Μη έγκυρος χαρακτήρας στη γραμμή %1$s. Αναμενότας στηλοθέτης, αλλά βρέθηκε «"
+"%2$s»."
 
 #: libraries/Advisor.class.php:467
 msgid "per second"
@@ -4073,16 +4073,16 @@ msgid "\"%s\" requires %s extension"
 msgstr "το «%s» απαιτεί την επέκταση %s"
 
 #: libraries/config/FormDisplay.class.php:792
-#, fuzzy, php-format
+#, php-format
 #| msgid "import will not work, missing function (%s)"
 msgid "Compressed import will not work due to missing function %s."
-msgstr "η εισαγωγή δεν θα λειτουργήσει γιατί λείπει η συνάρτηση (%s)"
+msgstr "η συμπιεσμένη εισαγωγή δεν θα λειτουργήσει γιατί λείπει η συνάρτηση %s."
 
 #: libraries/config/FormDisplay.class.php:798
-#, fuzzy, php-format
+#, php-format
 #| msgid "export will not work, missing function (%s)"
 msgid "Compressed export will not work due to missing function %s."
-msgstr "η εξαγωγή δεν θα λειτουργήσει γιατί λείπει η συνάρτηση (%s)"
+msgstr "Η συμπιεσμένη εξαγωγή δεν θα λειτουργήσει γιατί λείπει η συνάρτηση %s."
 
 #: libraries/config/FormDisplay.class.php:808
 msgid "SQL Validator is disabled"
