@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-05-24 11:13+0200\n"
-"PO-Revision-Date: 2013-05-23 11:59+0200\n"
+"PO-Revision-Date: 2013-05-24 11:34+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
-"Language-Team: Turkish <http://l10n.cihar.com/projects/phpmyadmin/master/tr/"
-">\n"
+"Language-Team: Turkish "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/tr/>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2249,11 +2249,10 @@ msgid "Unexpected characters on line %s."
 msgstr "%s. satırda beklenmedik karakterler"
 
 #: libraries/Advisor.class.php:434
-#, fuzzy, php-format
+#, php-format
 #| msgid "Unexpected character on line %1$s. Expected tab, but found \"%2$s\""
 msgid "Unexpected character on line %1$s. Expected tab, but found \"%2$s\"."
-msgstr ""
-"%1$s. satırda beklenmedik karakter. Beklenen sekme, ama bulunan \"%2$s\""
+msgstr "%1$s. satırda beklenmedik karakter. Beklenen sekme, ama bulunan \"%2$s\"."
 
 #: libraries/Advisor.class.php:467
 msgid "per second"
