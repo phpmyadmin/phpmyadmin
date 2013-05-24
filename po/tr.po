@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-05-24 09:03-0400\n"
-"PO-Revision-Date: 2013-05-24 15:32+0200\n"
+"PO-Revision-Date: 2013-05-24 15:33+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/tr/>\n"
@@ -9821,7 +9821,7 @@ msgstr "% Süre"
 #: libraries/sql.lib.php:555
 #| msgid "Close"
 msgid "Calls"
-msgstr "Aramalar"
+msgstr "Çağrılar"
 
 #: libraries/sql.lib.php:557
 #| msgid "Time"
