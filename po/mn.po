@@ -3,15 +3,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-05-23 02:58-0400\n"
+"POT-Creation-Date: 2013-05-24 11:13+0200\n"
 "PO-Revision-Date: 2013-04-25 15:34+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Mongolian <http://l10n.cihar.com/projects/phpmyadmin/master/"
 "mn/>\n"
+"Language: mn\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: mn\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 1.6-dev\n"
 
@@ -236,8 +236,8 @@ msgstr "Тайлбар"
 #: libraries/server_privileges.lib.php:2163
 #: libraries/server_privileges.lib.php:2483
 #: libraries/server_privileges.lib.php:2497 libraries/structure.lib.php:1268
-#: libraries/user_preferences.lib.php:282 prefs_manage.php:138 sql.php:340
-#: sql.php:435 sql.php:436 tbl_printview.php:186 tbl_tracking.php:345
+#: libraries/user_preferences.lib.php:282 prefs_manage.php:138 sql.php:329
+#: sql.php:424 sql.php:425 tbl_printview.php:186 tbl_tracking.php:345
 #: tbl_tracking.php:399 tbl_tracking.php:404
 msgid "No"
 msgstr "Үгүй"
@@ -263,7 +263,7 @@ msgstr "Үгүй"
 #: libraries/server_privileges.lib.php:2480
 #: libraries/server_privileges.lib.php:2497 libraries/structure.lib.php:1268
 #: libraries/user_preferences.lib.php:280 prefs_manage.php:136
-#: server_databases.php:103 server_databases.php:110 sql.php:433 sql.php:434
+#: server_databases.php:103 server_databases.php:110 sql.php:422 sql.php:423
 #: tbl_printview.php:187 tbl_structure.php:84 tbl_tracking.php:345
 #: tbl_tracking.php:397 tbl_tracking.php:402
 msgid "Yes"
@@ -631,8 +631,8 @@ msgstr ""
 #: import.php:107
 #, php-format
 msgid ""
-"You probably tried to upload a file that is too large. Please refer to %"
-"sdocumentation%s for a workaround for this limit."
+"You probably tried to upload a file that is too large. Please refer to "
+"%sdocumentation%s for a workaround for this limit."
 msgstr ""
 
 #: import.php:250 import.php:516
@@ -672,7 +672,7 @@ msgstr ""
 msgid "Could not load import plugins, please check your installation!"
 msgstr "Оруулах нэмэлтүүд дуудагдсангүй, суулгацаа шалгана уу!"
 
-#: import.php:519 sql.php:305 sql.php:1119
+#: import.php:519 sql.php:294 sql.php:1108
 #, php-format
 msgid "Bookmark %s created"
 msgstr "Тэмдэглэл %s нь үүсгэгдлээ"
@@ -916,7 +916,7 @@ msgid ""
 "issues."
 msgstr ""
 
-#: js/messages.php:27 libraries/import.lib.php:118 sql.php:265
+#: js/messages.php:27 libraries/import.lib.php:118 sql.php:254
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "\"ӨС устгах\" нь хаалттай."
 
@@ -926,7 +926,7 @@ msgstr "\"ӨС устгах\" нь хаалттай."
 msgid "Do you really want to execute \"%s\"?"
 msgstr "Та үнэхээр "
 
-#: js/messages.php:31 libraries/mult_submits.inc.php:337 sql.php:387
+#: js/messages.php:31 libraries/mult_submits.inc.php:337 sql.php:376
 msgid "You are about to DESTROY a complete database!"
 msgstr "Дүүрэн өгөгдлийн сан УСТГАХ тухай?"
 
@@ -2462,7 +2462,7 @@ msgstr ""
 
 #: libraries/Advisor.class.php:434
 #, php-format
-msgid "Unexpected character on line %1$s. Expected tab, but found \"%2$s\""
+msgid "Unexpected character on line %1$s. Expected tab, but found \"%2$s\"."
 msgstr ""
 
 #: libraries/Advisor.class.php:467
@@ -2870,8 +2870,8 @@ msgstr "асуултад"
 #: libraries/DisplayResults.class.php:4910 libraries/structure.lib.php:653
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 msgstr ""
 
 #: libraries/DisplayResults.class.php:4923
@@ -2882,7 +2882,7 @@ msgstr "Мөрүүдийг харуулж байна"
 msgid "total"
 msgstr "Нийт"
 
-#: libraries/DisplayResults.class.php:4950 sql.php:864
+#: libraries/DisplayResults.class.php:4950 sql.php:853
 #, php-format
 msgid "Query took %01.4f sec"
 msgstr "Асуулт нь %01.4f сек авлаа"
@@ -3618,14 +3618,14 @@ msgstr ""
 
 #: libraries/Types.class.php:308
 msgid ""
-"A small floating-point number, allowable values are -3.402823466E+38 to -"
-"1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
+"A small floating-point number, allowable values are -3.402823466E+38 to "
+"-1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
 msgstr ""
 
 #: libraries/Types.class.php:310
 msgid ""
-"A double-precision floating-point number, allowable values are -"
-"1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
+"A double-precision floating-point number, allowable values are "
+"-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
 "2.2250738585072014E-308 to 1.7976931348623157E+308"
 msgstr ""
 
@@ -4130,19 +4130,19 @@ msgstr "Тохиргоонд сонгогдсон буруу зөвшөөрли�
 msgid "You should upgrade to %s %s or later."
 msgstr "Та хувилбар %s -г %s -ээр сайжруулах хэрэгтэй эсвэл дараа."
 
-#: libraries/common.inc.php:1062
+#: libraries/common.inc.php:1077
 msgid "Error: Token mismatch"
 msgstr ""
 
-#: libraries/common.inc.php:1106
+#: libraries/common.inc.php:1121
 msgid "GLOBALS overwrite attempt"
 msgstr ""
 
-#: libraries/common.inc.php:1113
+#: libraries/common.inc.php:1128
 msgid "possible exploit"
 msgstr ""
 
-#: libraries/common.inc.php:1122
+#: libraries/common.inc.php:1137
 msgid "numeric key detected"
 msgstr ""
 
@@ -4310,12 +4310,12 @@ msgstr ""
 
 #: libraries/config/FormDisplay.class.php:792
 #, php-format
-msgid "import will not work, missing function (%s)"
+msgid "Compressed import will not work due to missing function %s."
 msgstr ""
 
 #: libraries/config/FormDisplay.class.php:798
 #, php-format
-msgid "export will not work, missing function (%s)"
+msgid "Compressed export will not work due to missing function %s."
 msgstr ""
 
 #: libraries/config/FormDisplay.class.php:808
@@ -6785,12 +6785,12 @@ msgstr ""
 #| "will be kept as is."
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Энэ утга нь %1$sstrftime%2$s -ийг хэрэглэж үүссэн, тиймээс та хугацааны "
-"тогтнолын тэмдэгтийг хэрэглэж болно. Нэмэлтээр дараах хувиргалт байх болно: %"
-"3$s. Бусад бичвэрүүд үүн шиг хадгалагдана."
+"тогтнолын тэмдэгтийг хэрэглэж болно. Нэмэлтээр дараах хувиргалт байх болно: "
+"%3$s. Бусад бичвэрүүд үүн шиг хадгалагдана."
 
 #: libraries/display_export.lib.php:341
 msgid "use this for future exports"
@@ -7334,8 +7334,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:131
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the %"
-"sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the "
+"%sPrimeBase XT Home Page%s."
 msgstr ""
 
 #: libraries/engines/pbxt.lib.php:133
@@ -7353,7 +7353,7 @@ msgid "No data found for GIS visualization."
 msgstr ""
 
 #: libraries/import.lib.php:187 libraries/insert_edit.lib.php:120
-#: libraries/rte/rte_routines.lib.php:1443 sql.php:859 tbl_get_field.php:55
+#: libraries/rte/rte_routines.lib.php:1443 sql.php:848 tbl_get_field.php:55
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL хоосон үр дүн буцаалаа (тэг мөрүүд г.м.)."
 
@@ -7479,11 +7479,11 @@ msgstr ""
 "TAB товчийг хэрэглэн утгаас утгын хооронд шилжинэ, эсвэл CTRL+сумууд-аар "
 "зөөгдөнө"
 
-#: libraries/insert_edit.lib.php:1912 sql.php:854
+#: libraries/insert_edit.lib.php:1912 sql.php:843
 msgid "Showing SQL query"
 msgstr "SQL асуудал харуулах"
 
-#: libraries/insert_edit.lib.php:1937 sql.php:834
+#: libraries/insert_edit.lib.php:1937 sql.php:823
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr ""
@@ -7540,7 +7540,7 @@ msgstr "Шинэ талбар нэмэх"
 msgid "Add prefix"
 msgstr "Шинэ талбар нэмэх"
 
-#: libraries/mult_submits.inc.php:339 sql.php:427
+#: libraries/mult_submits.inc.php:339 sql.php:416
 #, fuzzy
 #| msgid "Do you really want to "
 msgid "Do you really want to execute the following query?"
@@ -7764,18 +7764,18 @@ msgid_plural "%s other results found"
 msgstr[0] ""
 msgstr[1] ""
 
-#: libraries/navigation/NavigationTree.class.php:1041
+#: libraries/navigation/NavigationTree.class.php:1042
 #, fuzzy
 #| msgid "table name"
 msgid "filter databases by name"
 msgstr "хүснэгтийн нэр"
 
-#: libraries/navigation/NavigationTree.class.php:1042
-#: libraries/navigation/NavigationTree.class.php:1075
+#: libraries/navigation/NavigationTree.class.php:1043
+#: libraries/navigation/NavigationTree.class.php:1076
 msgid "Clear Fast Filter"
 msgstr ""
 
-#: libraries/navigation/NavigationTree.class.php:1074
+#: libraries/navigation/NavigationTree.class.php:1075
 #, fuzzy
 #| msgid "table name"
 msgid "filter items by name"
@@ -8066,11 +8066,11 @@ msgstr "%s-д тавтай морилно уу"
 #: libraries/plugins/auth/AuthenticationConfig.class.php:102
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 msgstr ""
-"Үүний шалтгаан нь магадгүй та тохиргооны файл үүсгээгүй байж болох юм. Та %1"
-"$ssetup script%2$s -ийг ашиглаж нэгийг үүсгэж болно."
+"Үүний шалтгаан нь магадгүй та тохиргооны файл үүсгээгүй байж болох юм. Та "
+"%1$ssetup script%2$s -ийг ашиглаж нэгийг үүсгэж болно."
 
 #: libraries/plugins/auth/AuthenticationConfig.class.php:122
 msgid ""
@@ -10133,8 +10133,8 @@ msgstr "User overview"
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 msgstr ""
 "Тэмдэглэл: phpMyAdmin нь MySQL-ийн онцгой эрхийн хүснэгтээс хэрэглэгчдийн "
 "онцгой эрхийг авна. Хэрэв тэд гараар өөрчлөгдсөн бол эдгээр хүснэгтийн "
@@ -10179,7 +10179,7 @@ msgstr ""
 msgid "Bookmark this SQL query:"
 msgstr "Энэ SQL-асуулт-ыг тэмдэглэх"
 
-#: libraries/sql_query_form.lib.php:326 sql.php:1203
+#: libraries/sql_query_form.lib.php:326 sql.php:1196
 msgid "Let every user access this bookmark"
 msgstr "Энэ тэмдэглэгээг бүх хэрэглэгчид хандахыг зөвшөөрөх"
 
@@ -11526,6 +11526,12 @@ msgstr ""
 msgid "Done rearranging/editing charts"
 msgstr ""
 
+#: server_status_monitor.php:704
+#, fuzzy
+#| msgid "Rename database to"
+msgid "Rearrange/edit charts"
+msgstr "Өгөгдлийн санг д.нэрлэх нь"
+
 #: server_status_monitor.php:708
 #, fuzzy
 msgid "Refresh rate"
@@ -12538,43 +12544,43 @@ msgstr ""
 msgid "Wrong data"
 msgstr "ӨС байхгүй"
 
-#: sql.php:227
+#: sql.php:216
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr ""
 
-#: sql.php:309
+#: sql.php:298
 #, fuzzy
 #| msgid "Bookmark %s created"
 msgid "Bookmark not created"
 msgstr "Тэмдэглэл %s нь үүсгэгдлээ"
 
-#: sql.php:851
+#: sql.php:840
 msgid "Showing as PHP code"
 msgstr "PHP кодоор харуулах"
 
-#: sql.php:856
+#: sql.php:845
 #, fuzzy
 #| msgid "Validate SQL"
 msgid "Validated SQL"
 msgstr "SQL-ийг батлах"
 
-#: sql.php:1110
+#: sql.php:1099
 msgid ""
 "This table does not contain a unique column. Grid edit, checkbox, Edit, Copy "
 "and Delete features are not available."
 msgstr ""
 
-#: sql.php:1159
+#: sql.php:1151
 #, php-format
 msgid "Problems with indexes of table `%s`"
 msgstr "Хүснэгт `%s`-ийн индекс асуудалтай"
 
-#: sql.php:1191 sql.php:1211
+#: sql.php:1184 sql.php:1204
 msgid "Bookmark this SQL query"
 msgstr "Энэ SQL-асуулт-ыг тэмдэглэх"
 
-#: sql.php:1195
+#: sql.php:1188
 #, fuzzy
 #| msgid "Label"
 msgid "Label:"
@@ -13347,8 +13353,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:179
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s%"
-"%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s"
+"%%. It should be above 80%%"
 msgstr ""
 
 #: libraries/advisory_rules.txt:181
@@ -13480,8 +13486,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:216
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
-"%."
+"%s%% of all sorts cause temporary tables, this value should be lower than "
+"10%%."
 msgstr ""
 
 #: libraries/advisory_rules.txt:218
@@ -14583,8 +14589,8 @@ msgstr "ХИ. давхацсан холболтууд"
 #~ "The additional features for working with linked tables have been "
 #~ "deactivated. To find out why click %shere%s."
 #~ msgstr ""
-#~ "Холбогдсон хүснэгтүүдтэй ажиллах нэмэлт онцлогууд идэвхгүй болжээ. %sЭнд%"
-#~ "s дарж шалгах."
+#~ "Холбогдсон хүснэгтүүдтэй ажиллах нэмэлт онцлогууд идэвхгүй болжээ. %sЭнд"
+#~ "%s дарж шалгах."
 
 #~ msgid "Ignore duplicate rows"
 #~ msgstr "Давхардсан мөрүүдийг алгасах"

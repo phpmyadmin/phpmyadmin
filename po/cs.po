@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-05-23 02:58-0400\n"
+"POT-Creation-Date: 2013-05-24 11:13+0200\n"
 "PO-Revision-Date: 2013-05-23 12:43+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Czech <http://l10n.cihar.com/projects/phpmyadmin/master/cs/>\n"
@@ -233,8 +233,8 @@ msgstr "Komentáře"
 #: libraries/server_privileges.lib.php:2163
 #: libraries/server_privileges.lib.php:2483
 #: libraries/server_privileges.lib.php:2497 libraries/structure.lib.php:1268
-#: libraries/user_preferences.lib.php:282 prefs_manage.php:138 sql.php:340
-#: sql.php:435 sql.php:436 tbl_printview.php:186 tbl_tracking.php:345
+#: libraries/user_preferences.lib.php:282 prefs_manage.php:138 sql.php:329
+#: sql.php:424 sql.php:425 tbl_printview.php:186 tbl_tracking.php:345
 #: tbl_tracking.php:399 tbl_tracking.php:404
 msgid "No"
 msgstr "Ne"
@@ -260,7 +260,7 @@ msgstr "Ne"
 #: libraries/server_privileges.lib.php:2480
 #: libraries/server_privileges.lib.php:2497 libraries/structure.lib.php:1268
 #: libraries/user_preferences.lib.php:280 prefs_manage.php:136
-#: server_databases.php:103 server_databases.php:110 sql.php:433 sql.php:434
+#: server_databases.php:103 server_databases.php:110 sql.php:422 sql.php:423
 #: tbl_printview.php:187 tbl_structure.php:84 tbl_tracking.php:345
 #: tbl_tracking.php:397 tbl_tracking.php:402
 msgid "Yes"
@@ -600,8 +600,8 @@ msgstr "Z funkcí zvolte „GeomFromText“ a vložte níže uvedený text jako 
 #: import.php:107
 #, php-format
 msgid ""
-"You probably tried to upload a file that is too large. Please refer to %"
-"sdocumentation%s for a workaround for this limit."
+"You probably tried to upload a file that is too large. Please refer to "
+"%sdocumentation%s for a workaround for this limit."
 msgstr ""
 "Pravděpodobně jste se pokusili nahrát příliš velký soubor. Přečtěte si "
 "prosím %sdokumentaci%s, jak toto omezení obejít."
@@ -649,7 +649,7 @@ msgid "Could not load import plugins, please check your installation!"
 msgstr ""
 "Nepodařilo se nahrát pluginy pro import, zkontrolujte prosím vaší instalaci!"
 
-#: import.php:519 sql.php:305 sql.php:1119
+#: import.php:519 sql.php:294 sql.php:1108
 #, php-format
 msgid "Bookmark %s created"
 msgstr "Vytvořen oblíbený dotaz %s"
@@ -883,7 +883,7 @@ msgstr ""
 "Server používá Suhosin. Prosím podívejte se do %sdokumentace%s pro popis "
 "problémů, které tím mohou být způsobeny."
 
-#: js/messages.php:27 libraries/import.lib.php:118 sql.php:265
+#: js/messages.php:27 libraries/import.lib.php:118 sql.php:254
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "Příkaz „DROP DATABASE“ je vypnutý."
 
@@ -892,7 +892,7 @@ msgstr "Příkaz „DROP DATABASE“ je vypnutý."
 msgid "Do you really want to execute \"%s\"?"
 msgstr "Opravdu si přejete provést „%s“?"
 
-#: js/messages.php:31 libraries/mult_submits.inc.php:337 sql.php:387
+#: js/messages.php:31 libraries/mult_submits.inc.php:337 sql.php:376
 msgid "You are about to DESTROY a complete database!"
 msgstr "Chystáte se ZRUŠIT celou databázi!"
 
@@ -2234,8 +2234,9 @@ msgid "Unexpected characters on line %s."
 msgstr "Neočekávané znaky na řádku %s"
 
 #: libraries/Advisor.class.php:434
-#, php-format
-msgid "Unexpected character on line %1$s. Expected tab, but found \"%2$s\""
+#, fuzzy, php-format
+#| msgid "Unexpected character on line %1$s. Expected tab, but found \"%2$s\""
+msgid "Unexpected character on line %1$s. Expected tab, but found \"%2$s\"."
 msgstr ""
 "Neočekávaný znak na řádku %1$s. Očekáván tabelátor, ale nalezeno „%2$s“"
 
@@ -2598,8 +2599,8 @@ msgstr "v dotazu"
 #: libraries/DisplayResults.class.php:4910 libraries/structure.lib.php:653
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 msgstr ""
 "Tento pohled má alespoň tolik řádek. Podrobnosti naleznete v %sdokumentaci%s."
 
@@ -2611,7 +2612,7 @@ msgstr "Zobrazeny záznamy"
 msgid "total"
 msgstr "celkem"
 
-#: libraries/DisplayResults.class.php:4950 sql.php:864
+#: libraries/DisplayResults.class.php:4950 sql.php:853
 #, php-format
 msgid "Query took %01.4f sec"
 msgstr "Dotaz trval %01.4f sekund"
@@ -3334,20 +3335,20 @@ msgstr ""
 
 #: libraries/Types.class.php:308
 msgid ""
-"A small floating-point number, allowable values are -3.402823466E+38 to -"
-"1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
+"A small floating-point number, allowable values are -3.402823466E+38 to "
+"-1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
 msgstr ""
 "Číslo s pohyblivou desetinnou čárkou, podporované rozsahy od -3.402823466E"
 "+38 od -1.175494351E-38, 0, a od 1.175494351E-38 do 3.402823466E+38"
 
 #: libraries/Types.class.php:310
 msgid ""
-"A double-precision floating-point number, allowable values are -"
-"1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
+"A double-precision floating-point number, allowable values are "
+"-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
 "2.2250738585072014E-308 to 1.7976931348623157E+308"
 msgstr ""
-"Číslo s pohyblivou desetinnou čárkou, podporované rozsahy od -"
-"1.7976931348623157E+308 do -2.2250738585072014E-308, 0, a od "
+"Číslo s pohyblivou desetinnou čárkou, podporované rozsahy od "
+"-1.7976931348623157E+308 do -2.2250738585072014E-308, 0, a od "
 "2.2250738585072014E-308 do 1.7976931348623157E+308"
 
 #: libraries/Types.class.php:312
@@ -3856,19 +3857,19 @@ msgstr "V nastavení máte špatnou přihlašovací metodu:"
 msgid "You should upgrade to %s %s or later."
 msgstr "Měli byste aktualizovat %s na verzi %s nebo vyšší."
 
-#: libraries/common.inc.php:1062
+#: libraries/common.inc.php:1077
 msgid "Error: Token mismatch"
 msgstr "Chyba: neplatný token"
 
-#: libraries/common.inc.php:1106
+#: libraries/common.inc.php:1121
 msgid "GLOBALS overwrite attempt"
 msgstr "Pokus o přepsání GLOBALS"
 
-#: libraries/common.inc.php:1113
+#: libraries/common.inc.php:1128
 msgid "possible exploit"
 msgstr "možný pokus o exploit"
 
-#: libraries/common.inc.php:1122
+#: libraries/common.inc.php:1137
 msgid "numeric key detected"
 msgstr "detekován číselný klíč"
 
@@ -4021,13 +4022,15 @@ msgid "\"%s\" requires %s extension"
 msgstr "„%s“ vyžaduje rozšíření %s"
 
 #: libraries/config/FormDisplay.class.php:792
-#, php-format
-msgid "import will not work, missing function (%s)"
+#, fuzzy, php-format
+#| msgid "import will not work, missing function (%s)"
+msgid "Compressed import will not work due to missing function %s."
 msgstr "import nebude fungovat, chybí funkce (%s)"
 
 #: libraries/config/FormDisplay.class.php:798
-#, php-format
-msgid "export will not work, missing function (%s)"
+#, fuzzy, php-format
+#| msgid "export will not work, missing function (%s)"
+msgid "Compressed export will not work due to missing function %s."
 msgstr "export nebude fungovat, chybí funkce (%s)"
 
 #: libraries/config/FormDisplay.class.php:808
@@ -6198,9 +6201,9 @@ msgid ""
 "will be performed. No other types of authentication are currently supported."
 msgstr ""
 "Uživatelské jméno pro přihlášení k serveru proxy. Ve výchozím nastavení není "
-"prováděno žádné ověřování. Pokud je zadáno uživatelské jméno, bude "
-"provedeno základní ověřování. V současné době nejsou podporovány žádné další "
-"typy ověřování."
+"prováděno žádné ověřování. Pokud je zadáno uživatelské jméno, bude provedeno "
+"základní ověřování. V současné době nejsou podporovány žádné další typy "
+"ověřování."
 
 #: libraries/config/messages.inc.php:525
 msgid "Version check proxy username"
@@ -6250,7 +6253,6 @@ msgstr "CSV pomocí LOAD DATA"
 #: libraries/config/setup.forms.php:260 libraries/config/setup.forms.php:353
 #: libraries/config/user_preferences.forms.php:160
 #: libraries/config/user_preferences.forms.php:252
-#| msgid "Open Document Spreadsheet"
 msgid "OpenDocument Spreadsheet"
 msgstr "Sešit OpenDocument"
 
@@ -6281,7 +6283,6 @@ msgstr "Microsoft Word 2000"
 
 #: libraries/config/setup.forms.php:357
 #: libraries/config/user_preferences.forms.php:256
-#| msgid "Open Document Text"
 msgid "OpenDocument Text"
 msgstr "Text OpenDocument"
 
@@ -6523,8 +6524,8 @@ msgstr ", @TABLE@ bude nahrazen jménem tabulky"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Tato hodnota je interpretována pomocí %1$sstrftime%2$s, takže můžete použít "
 "libovolné řetězce pro formátování data a času. Dále budou provedena "
@@ -7069,8 +7070,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:131
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the %"
-"sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the "
+"%sPrimeBase XT Home Page%s."
 msgstr ""
 "Dokumentace a další informace o PBXT můžete nalézt na %sstránkách PrimeBase "
 "XT%s."
@@ -7088,7 +7089,7 @@ msgid "No data found for GIS visualization."
 msgstr "Nebyla nalezena žádná data zobrazení GIS."
 
 #: libraries/import.lib.php:187 libraries/insert_edit.lib.php:120
-#: libraries/rte/rte_routines.lib.php:1443 sql.php:859 tbl_get_field.php:55
+#: libraries/rte/rte_routines.lib.php:1443 sql.php:848 tbl_get_field.php:55
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL vrátil prázdný výsledek (tj. nulový počet řádků)."
 
@@ -7206,11 +7207,11 @@ msgstr ""
 "Použijte klávesu TAB pro pohyb mezi hodnotami nebo CTRL+šipky po pohyb všemi "
 "směry"
 
-#: libraries/insert_edit.lib.php:1912 sql.php:854
+#: libraries/insert_edit.lib.php:1912 sql.php:843
 msgid "Showing SQL query"
 msgstr "Zobrazuji SQL dotaz"
 
-#: libraries/insert_edit.lib.php:1937 sql.php:834
+#: libraries/insert_edit.lib.php:1937 sql.php:823
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "ID vloženého řádku: %1$d"
@@ -7255,7 +7256,7 @@ msgstr "Přidat tabulce předponu:"
 msgid "Add prefix"
 msgstr "Přidat předponu"
 
-#: libraries/mult_submits.inc.php:339 sql.php:427
+#: libraries/mult_submits.inc.php:339 sql.php:416
 msgid "Do you really want to execute the following query?"
 msgstr "Opravdu si přejete vykonat následující příkaz?"
 
@@ -7478,16 +7479,16 @@ msgstr[0] "nalezen %s další výsledek"
 msgstr[1] "nalezeny %s další výsledky"
 msgstr[2] "nalezeno %s dalších výsledků"
 
-#: libraries/navigation/NavigationTree.class.php:1041
+#: libraries/navigation/NavigationTree.class.php:1042
 msgid "filter databases by name"
 msgstr "filtrovat databáze podle jména"
 
-#: libraries/navigation/NavigationTree.class.php:1042
-#: libraries/navigation/NavigationTree.class.php:1075
+#: libraries/navigation/NavigationTree.class.php:1043
+#: libraries/navigation/NavigationTree.class.php:1076
 msgid "Clear Fast Filter"
 msgstr "Vymazat filtr"
 
-#: libraries/navigation/NavigationTree.class.php:1074
+#: libraries/navigation/NavigationTree.class.php:1075
 msgid "filter items by name"
 msgstr "filtrovat položky podle jména"
 
@@ -7754,8 +7755,8 @@ msgstr "Vítejte v %s"
 #: libraries/plugins/auth/AuthenticationConfig.class.php:102
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 msgstr ""
 "Pravděpodobná příčina je, že nemáte vytvořený konfigurační soubor. Pro jeho "
 "vytvoření by se vám mohl hodit %1$snastavovací skript%2$s."
@@ -9680,8 +9681,8 @@ msgstr "Přehled uživatelů"
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 msgstr ""
 "Poznámka: phpMyAdmin získává oprávnění přímo z tabulek MySQL. Obsah těchto "
 "tabulek se může lišit od oprávnění, která server právě používá, pokud byly "
@@ -9722,7 +9723,7 @@ msgstr "Vyčistit"
 msgid "Bookmark this SQL query:"
 msgstr "Přidat tento SQL dotaz do oblíbených:"
 
-#: libraries/sql_query_form.lib.php:326 sql.php:1203
+#: libraries/sql_query_form.lib.php:326 sql.php:1196
 msgid "Let every user access this bookmark"
 msgstr "Umožnit všem uživatelům používat tuto oblíbenou položku"
 
@@ -10065,8 +10066,8 @@ msgid ""
 "For a list of available transformation options and their MIME type "
 "transformations, click on %stransformation descriptions%s"
 msgstr ""
-"Pro seznam dostupných parametrů transformací a jejich MIME typů klikněte na %"
-"spopisy transformací%s"
+"Pro seznam dostupných parametrů transformací a jejich MIME typů klikněte na "
+"%spopisy transformací%s"
 
 #: libraries/tbl_columns_definition_form.inc.php:171
 msgid "Transformation options"
@@ -10401,8 +10402,8 @@ msgid ""
 "You can set more settings by modifying config.inc.php, eg. by using %sSetup "
 "script%s."
 msgstr ""
-"Více věcí můžete nastavit úpravou config.inc.php, např. použitím %"
-"sNastavovacího skriptu%s."
+"Více věcí můžete nastavit úpravou config.inc.php, např. použitím "
+"%sNastavovacího skriptu%s."
 
 #: prefs_manage.php:308
 msgid "Save to browser's storage"
@@ -11029,6 +11030,10 @@ msgstr "Návod/Nastavení"
 #: server_status_monitor.php:685
 msgid "Done rearranging/editing charts"
 msgstr "Ukončit upravování grafů"
+
+#: server_status_monitor.php:704
+msgid "Rearrange/edit charts"
+msgstr "Upravit/Uspořádat grafy"
 
 #: server_status_monitor.php:708
 msgid "Refresh rate"
@@ -12051,8 +12056,8 @@ msgid ""
 "If using cookie authentication and %sLogin cookie store%s is not 0, %sLogin "
 "cookie validity%s must be set to a value less or equal to it."
 msgstr ""
-"Při použití přihlašování přes cookies a při %sUkládádání přihlašovaci cookie%"
-"s vyšší než 0 musí být %sPlatnost přihlašovací cookie%s nastavena na vyšší "
+"Při použití přihlašování přes cookies a při %sUkládádání přihlašovaci cookie"
+"%s vyšší než 0 musí být %sPlatnost přihlašovací cookie%s nastavena na vyšší "
 "hodnotu než je tato."
 
 #: setup/lib/index.lib.php:314
@@ -12063,8 +12068,8 @@ msgid ""
 "protection may not be reliable if your IP belongs to an ISP where thousands "
 "of users, including you, are connected to."
 msgstr ""
-"Pokud to považujete za nutné, použijte další možnosti zabezpečení - %"
-"somezení počítačů%s a %sseznam důvěryhodných proxy%s. Nicméně zabezpečení "
+"Pokud to považujete za nutné, použijte další možnosti zabezpečení - "
+"%somezení počítačů%s a %sseznam důvěryhodných proxy%s. Nicméně zabezpečení "
 "založené na IP adresách nemusí být spolehlivé, pokud je vaše IP adresa "
 "dynamicky přidělována poskytovatelem spolu s mnoha dalšími uživateli."
 
@@ -12125,24 +12130,24 @@ msgstr ""
 msgid "Wrong data"
 msgstr "Chybná data"
 
-#: sql.php:227
+#: sql.php:216
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr "Pro procházení databáze je použit oblíbený dotaz „%s\"."
 
-#: sql.php:309
+#: sql.php:298
 msgid "Bookmark not created"
 msgstr "Nebyl vytvořen oblíbený dotaz"
 
-#: sql.php:851
+#: sql.php:840
 msgid "Showing as PHP code"
 msgstr "Zobrazuji jako PHP kód"
 
-#: sql.php:856
+#: sql.php:845
 msgid "Validated SQL"
 msgstr "Proběhlo zkontrolování SQL"
 
-#: sql.php:1110
+#: sql.php:1099
 msgid ""
 "This table does not contain a unique column. Grid edit, checkbox, Edit, Copy "
 "and Delete features are not available."
@@ -12150,16 +12155,16 @@ msgstr ""
 "Tato tabulka neobsahuje unikátní klíč. Editování v mřížce, zaškrtávací "
 "políčka nebo odkazy na editaci a mazání proto nejsou k dispozici."
 
-#: sql.php:1159
+#: sql.php:1151
 #, php-format
 msgid "Problems with indexes of table `%s`"
 msgstr "Problémy s klíči v tabulce „%s\""
 
-#: sql.php:1191 sql.php:1211
+#: sql.php:1184 sql.php:1204
 msgid "Bookmark this SQL query"
 msgstr "Přidat tento SQL dotaz do oblíbených"
 
-#: sql.php:1195
+#: sql.php:1188
 msgid "Label:"
 msgstr "Název:"
 
@@ -12628,8 +12633,8 @@ msgid ""
 "You have a slow query rate of %s per hour, you should have less than 1%% per "
 "hour."
 msgstr ""
-"Četnost pomalých dotazů na tomto serveru je %s za hodinu, měla by být pod 1%"
-"%."
+"Četnost pomalých dotazů na tomto serveru je %s za hodinu, měla by být pod "
+"1%%."
 
 #: libraries/advisory_rules.txt:77
 msgid "Long query time"
@@ -12894,8 +12899,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:179
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s%"
-"%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s"
+"%%. It should be above 80%%"
 msgstr ""
 "V současné době je volno %s%% mezipaměti. Tato hodnota by se měla držet nad "
 "80%%"
@@ -13043,11 +13048,11 @@ msgstr ""
 #: libraries/advisory_rules.txt:216
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
-"%."
+"%s%% of all sorts cause temporary tables, this value should be lower than "
+"10%%."
 msgstr ""
-"%s%% všech řazení využilo dočasných tabulek, tato hodnota by měla být pod 10%"
-"%."
+"%s%% všech řazení využilo dočasných tabulek, tato hodnota by měla být pod "
+"10%%."
 
 #: libraries/advisory_rules.txt:218
 msgid "Rate of sorts that cause temporary tables"
@@ -13846,9 +13851,6 @@ msgstr "concurrent_insert je nastaveno na 0"
 
 #~ msgid "Lines terminated by"
 #~ msgstr "Řádky ukončené"
-
-#~ msgid "Rearrange/edit charts"
-#~ msgstr "Upravit/Uspořádat grafy"
 
 #~ msgid "ltr"
 #~ msgstr "ltr"
