@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-05-23 02:58-0400\n"
-"PO-Revision-Date: 2013-05-23 12:43+0200\n"
+"PO-Revision-Date: 2013-05-24 11:16+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Czech <http://l10n.cihar.com/projects/phpmyadmin/master/cs/>\n"
 "Language: cs\n"
@@ -2198,17 +2198,17 @@ msgstr "PHP selhalo s chybou: %s"
 #: libraries/Advisor.class.php:107
 #, php-format
 msgid "Failed evaluating precondition for rule '%s'."
-msgstr "Selhalo vyhodnocení podmínky pro pravidlo '%s'"
+msgstr "Selhalo vyhodnocení podmínky pro pravidlo '%s'."
 
 #: libraries/Advisor.class.php:124
 #, php-format
 msgid "Failed calculating value for rule '%s'."
-msgstr "Selhal výpočet hodnoty pro pravidlo '%s'"
+msgstr "Selhal výpočet hodnoty pro pravidlo '%s'."
 
 #: libraries/Advisor.class.php:143
 #, php-format
 msgid "Failed running test for rule '%s'."
-msgstr "Selhalo spuštění podmínky pro pravidlo „%s“"
+msgstr "Selhalo spuštění podmínky pro pravidlo „%s“."
 
 #: libraries/Advisor.class.php:225
 #, php-format
@@ -2221,17 +2221,17 @@ msgid ""
 "Invalid rule declaration on line %1$s, expected line %2$s of previous rule."
 msgstr ""
 "Neplatná definice pravidla na řádku %1$s, očekáván řádek %2$s z předchozího "
-"pravidla"
+"pravidla."
 
 #: libraries/Advisor.class.php:412
 #, php-format
 msgid "Invalid rule declaration on line %s."
-msgstr "Chybná definice pravidla na řádku %s"
+msgstr "Chybná definice pravidla na řádku %s."
 
 #: libraries/Advisor.class.php:420
 #, php-format
 msgid "Unexpected characters on line %s."
-msgstr "Neočekávané znaky na řádku %s"
+msgstr "Neočekávané znaky na řádku %s."
 
 #: libraries/Advisor.class.php:434
 #, php-format
@@ -3314,7 +3314,7 @@ msgid ""
 "range is 0 to 4,294,967,295"
 msgstr ""
 "Čtyřbajtové číslo, se znaménkem v rozsahu -2147483648 až 2147483647, bez "
-"znaménka 0 až 4294967295."
+"znaménka 0 až 4294967295"
 
 #: libraries/Types.class.php:304
 msgid ""
@@ -4045,7 +4045,7 @@ msgstr "maximálně %s"
 
 #: libraries/config/FormDisplay.tpl.php:221
 msgid "This setting is disabled, it will not be applied to your configuration."
-msgstr "Tato volba není přístupná, nebude použita ve vašich nastaveních"
+msgstr "Tato volba není přístupná, nebude použita ve vašich nastaveních."
 
 #: libraries/config/FormDisplay.tpl.php:309
 #, php-format
@@ -10650,7 +10650,7 @@ msgid ""
 "master."
 msgstr ""
 "Prosím klikněte na tlačítko po restartování MySQL serveru. Poté byste měli "
-"vidět zprávu informující vás že server <b>je</b> nastaven jako nadřízený"
+"vidět zprávu informující vás že server <b>je</b> nastaven jako nadřízený."
 
 #: server_replication.php:281
 msgid "Slave SQL Thread not running!"
@@ -10870,7 +10870,7 @@ msgstr ""
 "Monitor phpMyAdmina vám může pomoci s vyladěním nastavení serveru a nalézt "
 "náročné dotazy. Pro porovnávání dotazů budete potřebovat mít nastavený "
 "log_output na 'TABLE' a mít povolené záznam pomalých dotazů nebo všech "
-"dotazů. Zaznamenání všech dotazů ale může zvýšit zatížení serveru až o 15%"
+"dotazů. Zaznamenání všech dotazů ale může zvýšit zatížení serveru až o 15%."
 
 #: server_status_monitor.php:467
 msgid ""
