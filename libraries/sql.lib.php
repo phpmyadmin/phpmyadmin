@@ -130,14 +130,14 @@ function getTableHtmlForMultipleQueries(
 ) {
     $table_html = '';
 
-    $tables_array = PMA_DBI_getTables($db);
-    $databases_array = PMA_DBI_getDatabasesFull();
+    $tables_array = $GLOBALS['dbi']->getTables($db);
+    $databases_array = $GLOBALS['dbi']->getDatabasesFull();
     $multi_sql = implode(";", $sql_data['valid_sql']);
     $querytime_before = array_sum(explode(' ', microtime()));
 
     // Assignment for variable is not needed since the results are
     // looiping using the connection
-    @PMA_DBI_tryMultiQuery($multi_sql);
+    @$GLOBALS['dbi']->tryMultiQuery($multi_sql);
 
     $querytime_after = array_sum(explode(' ', microtime()));
     $querytime = $querytime_after - $querytime_before;
@@ -147,9 +147,9 @@ function getTableHtmlForMultipleQueries(
         $analyzed_sql = array();
         $is_affected = false;
 
-        $result = PMA_DBI_storeResult();
+        $result = $GLOBALS['dbi']->storeResult();
         $fields_meta = ($result !== false)
-            ? PMA_DBI_getFieldsMeta($result)
+            ? $GLOBALS['dbi']->getFieldsMeta($result)
             : array();
         $fields_cnt  = count($fields_meta);
 
@@ -221,9 +221,9 @@ function getTableHtmlForMultipleQueries(
         }
 
         if (! $is_affected) {
-            $num_rows = ($result) ? @PMA_DBI_numRows($result) : 0;
+            $num_rows = ($result) ? @$GLOBALS['dbi']->numRows($result) : 0;
         } elseif (! isset($num_rows)) {
-            $num_rows = @PMA_DBI_affectedRows();
+            $num_rows = @$GLOBALS['dbi']->affectedRows();
         }
 
         if (isset($sql_data['valid_sql'][$sql_no])) {
@@ -254,11 +254,11 @@ function getTableHtmlForMultipleQueries(
         );
 
         // Free the result to save the memory
-        PMA_DBI_freeResult($result);
+        $GLOBALS['dbi']->freeResult($result);
 
         $sql_no++;
 
-    } while (PMA_DBI_moreResults() && PMA_DBI_nextResult());
+    } while ($GLOBALS['dbi']->moreResults() && $GLOBALS['dbi']->nextResult());
 
     return $table_html;
 }
@@ -601,9 +601,9 @@ function PMA_getHtmlForSetColumn($db, $table, $column, $curr_value)
  */
 function PMA_getValuesForColumn($db, $table, $column)
 {
-    $field_info_query = PMA_DBI_getColumnsSql($db, $table, $column);
+    $field_info_query = $GLOBALS['dbi']->getColumnsSql($db, $table, $column);
 
-    $field_info_result = PMA_DBI_fetchResult(
+    $field_info_result = $GLOBALS['dbi']->fetchResult(
         $field_info_query, null, null, null, PMA_DBI_QUERY_STORE
     );
 

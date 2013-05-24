@@ -25,7 +25,7 @@ require_once 'libraries/Config.class.php';
 require_once 'libraries/url_generating.lib.php';
 
 require_once 'libraries/Table.class.php';
-require_once 'libraries/database_interface.lib.php';
+require_once 'libraries/DatabaseInterface.class.php';
 require_once 'libraries/php-gettext/gettext.inc';
 
 require_once 'config.sample.inc.php';

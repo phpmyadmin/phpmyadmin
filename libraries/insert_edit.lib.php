@@ -82,8 +82,8 @@ function PMA_analyzeWhereClauses(
             . PMA_Util::backquote($db) . '.'
             . PMA_Util::backquote($table)
             . ' WHERE ' . $where_clause . ';';
-        $result[$key_id] = PMA_DBI_query($local_query, null, PMA_DBI_QUERY_STORE);
-        $rows[$key_id]   = PMA_DBI_fetchAssoc($result[$key_id]);
+        $result[$key_id] = $GLOBALS['dbi']->query($local_query, null, PMA_DBI_QUERY_STORE);
+        $rows[$key_id]   = $GLOBALS['dbi']->fetchAssoc($result[$key_id]);
 
         $where_clauses[$key_id] = str_replace('\\', '\\\\', $where_clause);
         $has_unique_condition   = PMA_showEmptyResultMessageOrSetUniqueCondition(
@@ -126,7 +126,7 @@ function PMA_showEmptyResultMessageOrSetUniqueCondition($rows, $key_id,
          * exit if we want the message to be displayed
          */
     } else {// end if (no row returned)
-        $meta = PMA_DBI_getFieldsMeta($result[$key_id]);
+        $meta = $GLOBALS['dbi']->getFieldsMeta($result[$key_id]);
 
         list($unique_condition, $tmp_clause_is_unique)
             = PMA_Util::getUniqueCondition(
@@ -151,7 +151,7 @@ function PMA_showEmptyResultMessageOrSetUniqueCondition($rows, $key_id,
  */
 function PMA_loadFirstRow($table, $db)
 {
-    $result = PMA_DBI_query(
+    $result = $GLOBALS['dbi']->query(
         'SELECT * FROM ' . PMA_Util::backquote($db)
         . '.' . PMA_Util::backquote($table) . ' LIMIT 1;',
         null,
@@ -1786,9 +1786,9 @@ function PMA_setSessionForEditNext($one_where_clause)
         . '.' . PMA_Util::backquote($GLOBALS['table']) . ' WHERE '
         . str_replace('` =', '` >', $one_where_clause) . ' LIMIT 1;';
 
-    $res            = PMA_DBI_query($local_query);
-    $row            = PMA_DBI_fetchRow($res);
-    $meta           = PMA_DBI_getFieldsMeta($res);
+    $res            = $GLOBALS['dbi']->query($local_query);
+    $row            = $GLOBALS['dbi']->fetchRow($res);
+    $meta           = $GLOBALS['dbi']->getFieldsMeta($res);
     // must find a unique condition based on unique key,
     // not a combination of all fields
     list($unique_condition, $clause_is_unique)
@@ -1913,20 +1913,20 @@ function PMA_executeSqlQuery($url_params, $query)
             continue;
         }
         if ($GLOBALS['cfg']['IgnoreMultiSubmitErrors']) {
-            $result = PMA_DBI_tryQuery($single_query);
+            $result = $GLOBALS['dbi']->tryQuery($single_query);
         } else {
-            $result = PMA_DBI_query($single_query);
+            $result = $GLOBALS['dbi']->query($single_query);
         }
         if (! $result) {
-            $error_messages[] = PMA_Message::sanitize(PMA_DBI_getError());
+            $error_messages[] = PMA_Message::sanitize($GLOBALS['dbi']->getError());
         } else {
             // The next line contains a real assignment, it's not a typo
-            if ($tmp = @PMA_DBI_affectedRows()) {
+            if ($tmp = @$GLOBALS['dbi']->affectedRows()) {
                 $total_affected_rows += $tmp;
             }
             unset($tmp);
 
-            $insert_id = PMA_DBI_insertId();
+            $insert_id = $GLOBALS['dbi']->insertId();
             if ($insert_id != 0) {
                 // insert_id is id of FIRST record inserted in one insert, so if we
                 // inserted multiple rows, we had to increment this
@@ -1938,7 +1938,7 @@ function PMA_executeSqlQuery($url_params, $query)
                 $last_message->addParam($insert_id);
                 $last_messages[] = $last_message;
             }
-            PMA_DBI_freeResult($result);
+            $GLOBALS['dbi']->freeResult($result);
         }
         $warning_messages = PMA_getWarningMessages();
     }
@@ -1960,7 +1960,7 @@ function PMA_executeSqlQuery($url_params, $query)
 function PMA_getWarningMessages()
 {
     $warning_essages = array();
-    foreach (PMA_DBI_getWarnings() as $warning) {
+    foreach ($GLOBALS['dbi']->getWarnings() as $warning) {
         $warning_essages[] = PMA_Message::sanitize(
             $warning['Level'] . ': #' . $warning['Code'] . ' ' . $warning['Message']
         );
@@ -1993,11 +1993,11 @@ function PMA_getDisplayValueForForeignTableColumn($where_comparison,
             . '.' . PMA_Util::backquote($map[$relation_field]['foreign_table'])
             . ' WHERE ' . PMA_Util::backquote($map[$relation_field]['foreign_field'])
             . $where_comparison;
-        $dispresult  = PMA_DBI_tryQuery($dispsql, null, PMA_DBI_QUERY_STORE);
-        if ($dispresult && PMA_DBI_numRows($dispresult) > 0) {
-            list($dispval) = PMA_DBI_fetchRow($dispresult, 0);
+        $dispresult  = $GLOBALS['dbi']->tryQuery($dispsql, null, PMA_DBI_QUERY_STORE);
+        if ($dispresult && $GLOBALS['dbi']->numRows($dispresult) > 0) {
+            list($dispval) = $GLOBALS['dbi']->fetchRow($dispresult, 0);
         }
-        @PMA_DBI_freeResult($dispresult);
+        @$GLOBALS['dbi']->freeResult($dispresult);
         return $dispval;
     }
     return '';
@@ -2133,7 +2133,7 @@ function PMA_getCurrentValueAsAnArrayForMultipleEdit($multi_edit_colummns,
         return $current_value;
     } elseif ('UUID' === $multi_edit_funcs[$key]) {
         /* This way user will know what UUID new row has */
-        $uuid = PMA_DBI_fetchValue('SELECT UUID()');
+        $uuid = $GLOBALS['dbi']->fetchValue('SELECT UUID()');
         return "'" . $uuid . "'";
     } elseif ((in_array($multi_edit_funcs[$key], $gis_from_text_functions)
         && substr($current_value, 0, 3) == "'''")
@@ -2257,7 +2257,7 @@ function PMA_getCurrentValueForDifferentTypes($possibly_uploaded_val, $key,
         && $using_key && isset($multi_edit_columns_type)
         && is_array($multi_edit_columns_type) && isset($where_clause)
     ) {
-        $protected_row = PMA_DBI_fetchSingleRow(
+        $protected_row = $GLOBALS['dbi']->fetchSingleRow(
             'SELECT * FROM ' . PMA_Util::backquote($table)
             . ' WHERE ' . $where_clause . ';'
         );
@@ -2360,8 +2360,8 @@ function PMA_verifyWhetherValueCanBeTruncatedAndAppendExtraData(
         . PMA_Util::backquote($table)
         . ' WHERE ' . $_REQUEST['where_clause'][0];
 
-    if (PMA_DBI_fetchValue($sql_for_real_value) !== false) {
-        $extra_data['truncatableFieldValue'] = PMA_DBI_fetchValue($sql_for_real_value);
+    if ($GLOBALS['dbi']->fetchValue($sql_for_real_value) !== false) {
+        $extra_data['truncatableFieldValue'] = $GLOBALS['dbi']->fetchValue($sql_for_real_value);
     } else {
         $extra_data['isNeedToRecheck'] = false;
     }

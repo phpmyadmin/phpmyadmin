@@ -28,7 +28,7 @@ if (strlen($db) == 0) {
 /**
  * Defines the url to return to in case of error in a sql statement
  */
-if (PMA_DBI_getColumns($db, $table)) {
+if ($GLOBALS['dbi']->getColumns($db, $table)) {
     // table exists already
     PMA_Util::mysqlDie(
         sprintf(__('Table %s already exists!'), htmlspecialchars($table)),
@@ -53,7 +53,7 @@ if (isset($_REQUEST['submit_num_fields'])) {
 /**
  * Selects the database to work with
  */
-if (!PMA_DBI_selectDb($db)) {
+if (!$GLOBALS['dbi']->selectDb($db)) {
     PMA_Util::mysqlDie(
         sprintf(__('\'%s\' database does not exist.'), htmlspecialchars($db)),
         '',
@@ -97,7 +97,7 @@ if (isset($_REQUEST['do_save_data'])) {
     $sql_query .= ';';
 
     // Executes the query
-    $result = PMA_DBI_tryQuery($sql_query);
+    $result = $GLOBALS['dbi']->tryQuery($sql_query);
 
     if ($result) {
 
@@ -141,12 +141,12 @@ if (isset($_REQUEST['do_save_data'])) {
             $tbl_url_params['table'] = $table;
             $is_show_stats = $cfg['ShowStats'];
 
-            $tbl_stats_result = PMA_DBI_query(
+            $tbl_stats_result = $GLOBALS['dbi']->query(
                 'SHOW TABLE STATUS FROM ' . PMA_Util::backquote($db)
                 . ' LIKE \'' . PMA_Util::sqlAddSlashes($table, true) . '\';'
             );
-            $tbl_stats = PMA_DBI_fetchAssoc($tbl_stats_result);
-            PMA_DBI_freeResult($tbl_stats_result);
+            $tbl_stats = $GLOBALS['dbi']->fetchAssoc($tbl_stats_result);
+            $GLOBALS['dbi']->freeResult($tbl_stats_result);
             unset($tbl_stats_result);
 
             if ($is_show_stats) {
@@ -299,7 +299,7 @@ if (isset($_REQUEST['do_save_data'])) {
         if ($GLOBALS['is_ajax_request'] == true) {
             $response = PMA_Response::getInstance();
             $response->isSuccess(false);
-            $response->addJSON('message', PMA_DBI_getError());
+            $response->addJSON('message', $GLOBALS['dbi']->getError());
         } else {
             echo PMA_Util::mysqlDie('', '', '', $err_url, false);
             // An error happened while inserting/updating a table definition.

@@ -32,11 +32,11 @@ $err_url = 'index.php' . $url_query;
 /**
  * @global boolean Checks for superuser privileges
  */
-$is_superuser = PMA_isSuperuser();
+$is_superuser = $GLOBALS['dbi']->isSuperuser();
 
 // now, select the mysql db
 if ($is_superuser && ! PMA_DRIZZLE) {
-    PMA_DBI_selectDb('mysql', $userlink);
+    $GLOBALS['dbi']->selectDb('mysql', $userlink);
 }
 
 /**
@@ -44,7 +44,7 @@ if ($is_superuser && ! PMA_DRIZZLE) {
  */
 $binary_logs = PMA_DRIZZLE
     ? null
-    : PMA_DBI_fetchResult(
+    : $GLOBALS['dbi']->fetchResult(
         'SHOW MASTER LOGS',
         'Log_name',
         null,

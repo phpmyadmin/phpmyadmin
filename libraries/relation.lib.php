@@ -30,14 +30,14 @@ function PMA_queryAsControlUser($sql, $show_error = true, $options = 0)
     $cache_affected_rows = false;
 
     if ($show_error) {
-        $result = PMA_DBI_query(
+        $result = $GLOBALS['dbi']->query(
             $sql,
             $GLOBALS['controllink'],
             $options,
             $cache_affected_rows
         );
     } else {
-        $result = @PMA_DBI_tryQuery(
+        $result = @$GLOBALS['dbi']->tryQuery(
             $sql,
             $GLOBALS['controllink'],
             $options,
@@ -365,7 +365,7 @@ function PMA_checkRelationsParam()
 
     if ($GLOBALS['server'] == 0
         || empty($GLOBALS['cfg']['Server']['pmadb'])
-        || ! PMA_DBI_selectDb($GLOBALS['cfg']['Server']['pmadb'], $GLOBALS['controllink'])
+        || ! $GLOBALS['dbi']->selectDb($GLOBALS['cfg']['Server']['pmadb'], $GLOBALS['controllink'])
     ) {
         // No server selected -> no bookmark table
         // we return the array with the falses in it,
@@ -395,7 +395,7 @@ function PMA_checkRelationsParam()
         return $cfgRelation;
     }
 
-    while ($curr_table = @PMA_DBI_fetchRow($tab_rs)) {
+    while ($curr_table = @$GLOBALS['dbi']->fetchRow($tab_rs)) {
         if ($curr_table[0] == $GLOBALS['cfg']['Server']['bookmarktable']) {
             $cfgRelation['bookmark']        = $curr_table[0];
         } elseif ($curr_table[0] == $GLOBALS['cfg']['Server']['relation']) {
@@ -422,7 +422,7 @@ function PMA_checkRelationsParam()
             $cfgRelation['userconfig'] = $curr_table[0];
         }
     } // end while
-    PMA_DBI_freeResult($tab_rs);
+    $GLOBALS['dbi']->freeResult($tab_rs);
 
     if (isset($cfgRelation['relation'])) {
         $cfgRelation['relwork']         = true;
@@ -515,7 +515,7 @@ function PMA_getForeigners($db, $table, $column = '', $source = 'both')
             $rel_query .= ' AND `master_field` = '
                 . '\'' . PMA_Util::sqlAddSlashes($column) . '\'';
         }
-        $foreign = PMA_DBI_fetchResult(
+        $foreign = $GLOBALS['dbi']->fetchResult(
             $rel_query, 'master_field', null, $GLOBALS['controllink']
         );
     }
@@ -524,7 +524,7 @@ function PMA_getForeigners($db, $table, $column = '', $source = 'both')
 
         $show_create_table_query = 'SHOW CREATE TABLE '
             . PMA_Util::backquote($db) . '.' . PMA_Util::backquote($table);
-        $show_create_table = PMA_DBI_fetchValue($show_create_table_query, 0, 1);
+        $show_create_table = $GLOBALS['dbi']->fetchValue($show_create_table_query, 0, 1);
         $analyzed_sql = PMA_SQP_analyze(PMA_SQP_parse($show_create_table));
 
         foreach ($analyzed_sql[0]['foreign_keys'] as $one_key) {
@@ -621,7 +621,7 @@ function PMA_getDisplayField($db, $table)
               WHERE `db_name`    = \'' . PMA_Util::sqlAddSlashes($db) . '\'
                 AND `table_name` = \'' . PMA_Util::sqlAddSlashes($table) . '\'';
 
-        $row = PMA_DBI_fetchSingleRow(
+        $row = $GLOBALS['dbi']->fetchSingleRow(
             $disp_query, 'ASSOC', $GLOBALS['controllink']
         );
         if (isset($row['display_field'])) {
@@ -664,7 +664,7 @@ function PMA_getComments($db, $table = '')
 
     if ($table != '') {
         // MySQL native column comments
-        $columns = PMA_DBI_getColumns($db, $table, null, true);
+        $columns = $GLOBALS['dbi']->getColumns($db, $table, null, true);
         if ($columns) {
             foreach ($columns as $column) {
                 if (! empty($column['Comment'])) {
@@ -704,11 +704,11 @@ function PMA_getDbComment($db)
                 AND column_name = '(db_comment)'";
         $com_rs = PMA_queryAsControlUser($com_qry, true, PMA_DBI_QUERY_STORE);
 
-        if ($com_rs && PMA_DBI_numRows($com_rs) > 0) {
-            $row = PMA_DBI_fetchAssoc($com_rs);
+        if ($com_rs && $GLOBALS['dbi']->numRows($com_rs) > 0) {
+            $row = $GLOBALS['dbi']->fetchAssoc($com_rs);
             $comment = $row['comment'];
         }
-        PMA_DBI_freeResult($com_rs);
+        $GLOBALS['dbi']->freeResult($com_rs);
     }
 
     return $comment;
@@ -735,12 +735,12 @@ function PMA_getDbComments()
               WHERE `column_name` = '(db_comment)'";
         $com_rs = PMA_queryAsControlUser($com_qry, true, PMA_DBI_QUERY_STORE);
 
-        if ($com_rs && PMA_DBI_numRows($com_rs) > 0) {
-            while ($row = PMA_DBI_fetchAssoc($com_rs)) {
+        if ($com_rs && $GLOBALS['dbi']->numRows($com_rs) > 0) {
+            while ($row = $GLOBALS['dbi']->fetchAssoc($com_rs)) {
                 $comments[$row['db_name']] = $row['comment'];
             }
         }
-        PMA_DBI_freeResult($com_rs);
+        $GLOBALS['dbi']->freeResult($com_rs);
     }
 
     return $comments;
@@ -884,7 +884,7 @@ function PMA_getHistory($username)
           WHERE `username` = \'' . PMA_Util::sqlAddSlashes($username) . '\'
        ORDER BY `id` DESC';
 
-    return PMA_DBI_fetchResult($hist_query, null, null, $GLOBALS['controllink']);
+    return $GLOBALS['dbi']->fetchResult($hist_query, null, null, $GLOBALS['controllink']);
 } // end of 'PMA_getHistory()' function
 
 /**
@@ -918,7 +918,7 @@ function PMA_purgeHistory($username)
        ORDER BY `timevalue` DESC
           LIMIT ' . $GLOBALS['cfg']['QueryHistoryMax'] . ', 1';
 
-    if ($max_time = PMA_DBI_fetchValue($search_query, 0, 0, $GLOBALS['controllink'])) {
+    if ($max_time = $GLOBALS['dbi']->fetchValue($search_query, 0, 0, $GLOBALS['controllink'])) {
         PMA_queryAsControlUser(
             'DELETE FROM '
             . PMA_Util::backquote($cfgRelation['db']) . '.'
@@ -1136,31 +1136,31 @@ function PMA_getForeignData(
             $f_query_limit = isset($foreign_limit) ? $foreign_limit : '';
 
             if (!empty($foreign_filter)) {
-                $res = PMA_DBI_query(
+                $res = $GLOBALS['dbi']->query(
                     'SELECT COUNT(*)' . $f_query_from . $f_query_filter
                 );
                 if ($res) {
-                    $the_total = PMA_DBI_fetchValue($res);
-                    @PMA_DBI_freeResult($res);
+                    $the_total = $GLOBALS['dbi']->fetchValue($res);
+                    @$GLOBALS['dbi']->freeResult($res);
                 } else {
                     $the_total = 0;
                 }
             }
 
-            $disp  = PMA_DBI_query(
+            $disp  = $GLOBALS['dbi']->query(
                 $f_query_main . $f_query_from . $f_query_filter
                 . $f_query_order . $f_query_limit
             );
-            if ($disp && PMA_DBI_numRows($disp) > 0) {
+            if ($disp && $GLOBALS['dbi']->numRows($disp) > 0) {
                 // If a resultset has been created, pre-cache it in the $disp_row
                 // array. This helps us from not needing to use mysql_data_seek by
                 // accessing a pre-cached PHP array. Usually those resultsets are
                 // not that big, so a performance hit should not be expected.
                 $disp_row = array();
-                while ($single_disp_row = @PMA_DBI_fetchAssoc($disp)) {
+                while ($single_disp_row = @$GLOBALS['dbi']->fetchAssoc($disp)) {
                     $disp_row[] = $single_disp_row;
                 }
-                @PMA_DBI_freeResult($disp);
+                @$GLOBALS['dbi']->freeResult($disp);
             }
         } else {
             $disp_row = null;
@@ -1216,8 +1216,8 @@ function PMA_getRelatives($all_tables, $master)
             . '   AND ' . $to   . '_db = \'' . PMA_Util::sqlAddSlashes($GLOBALS['db']) . '\''
             . '   AND ' . $from . '_table IN ' . $in_know
             . '   AND ' . $to   . '_table IN ' . $in_left;
-        $relations = @PMA_DBI_query($rel_query, $GLOBALS['controllink']);
-        while ($row = PMA_DBI_fetchAssoc($relations)) {
+        $relations = @$GLOBALS['dbi']->query($rel_query, $GLOBALS['controllink']);
+        while ($row = $GLOBALS['dbi']->fetchAssoc($relations)) {
             $found_table                = $row[$to . '_table'];
             if (isset($remaining_tables[$found_table])) {
                 $fromclause
@@ -1426,7 +1426,7 @@ function PMA_REL_createPage($newpage, $cfgRelation, $db)
         . PMA_Util::sqlAddSlashes($newpage) . '\')';
     PMA_queryAsControlUser($ins_query, false);
 
-    return PMA_DBI_insertId(
+    return $GLOBALS['dbi']->insertId(
         isset($GLOBALS['controllink']) ? $GLOBALS['controllink'] : ''
     );
 }

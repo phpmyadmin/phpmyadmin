@@ -20,9 +20,9 @@ require_once 'pmd_save_pos.php';
 list($DB1, $T1) = explode(".", $T1);
 list($DB2, $T2) = explode(".", $T2);
 
-$tables = PMA_DBI_getTablesFull($db, $T1);
+$tables = $GLOBALS['dbi']->getTablesFull($db, $T1);
 $type_T1 = strtoupper($tables[$T1]['ENGINE']);
-$tables = PMA_DBI_getTablesFull($db, $T2);
+$tables = $GLOBALS['dbi']->getTablesFull($db, $T2);
 $type_T2 = strtoupper($tables[$T2]['ENGINE']);
 
 $try_to_delete_internal_relation = false;
@@ -39,7 +39,7 @@ if (PMA_Util::isForeignKeySupported($type_T1)
             . '.' . PMA_Util::backquote($T2) . ' DROP FOREIGN KEY '
             . PMA_Util::backquote($existrel_foreign[$F2]['constraint'])
             . ';';
-        $upd_rs     = PMA_DBI_query($upd_query);
+        $upd_rs     = $GLOBALS['dbi']->query($upd_query);
     } else {
         // there can be an internal relation even if InnoDB
         $try_to_delete_internal_relation = true;

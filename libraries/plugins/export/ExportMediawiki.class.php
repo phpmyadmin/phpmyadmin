@@ -202,7 +202,7 @@ class ExportMediawiki extends ExportPlugin
     ) {
         switch($export_mode) {
         case 'create_table':
-            $columns = PMA_DBI_getColumns($db, $table);
+            $columns = $GLOBALS['dbi']->getColumns($db, $table);
             $columns = array_values($columns);
             $row_cnt = count($columns);
 
@@ -300,7 +300,7 @@ class ExportMediawiki extends ExportPlugin
         // Add the table headers
         if ($GLOBALS['mediawiki_headers']) {
             // Get column names
-            $column_names = PMA_DBI_getColumnNames($db, $table);
+            $column_names = $GLOBALS['dbi']->getColumnNames($db, $table);
 
             // Add column names as table headers
             if ( ! is_null($column_names) ) {
@@ -315,10 +315,10 @@ class ExportMediawiki extends ExportPlugin
         }
 
         // Get the table data from the database
-        $result = PMA_DBI_query($sql_query, null, PMA_DBI_QUERY_UNBUFFERED);
-        $fields_cnt = PMA_DBI_numFields($result);
+        $result = $GLOBALS['dbi']->query($sql_query, null, PMA_DBI_QUERY_UNBUFFERED);
+        $fields_cnt = $GLOBALS['dbi']->numFields($result);
 
-        while ($row = PMA_DBI_fetchRow($result)) {
+        while ($row = $GLOBALS['dbi']->fetchRow($result)) {
             $output .= "|-" . $this->_exportCRLF();
 
             // Use '|' for separating table columns

@@ -189,7 +189,7 @@ function PMA_getHtmlBodyForTableSummary($num_tables, $server_slave_status,
         . '</th>';
 
     if (!($GLOBALS['cfg']['PropertiesNumColumns'] > 1)) {
-        $default_engine = PMA_DBI_fetchValue(
+        $default_engine = $GLOBALS['dbi']->fetchValue(
             'SHOW VARIABLES LIKE \'storage_engine\';',
             0,
             1
@@ -1445,7 +1445,7 @@ function PMA_getHtmlDivForMoveColumnsDialog()
  */
 function PMA_getHtmlForEditView($url_params)
 {
-    $create_view = PMA_DBI_getDefinition(
+    $create_view = $GLOBALS['dbi']->getDefinition(
         $GLOBALS['db'], 'VIEW', $GLOBALS['table']
     );
     $create_view = preg_replace('@^CREATE@', 'ALTER', $create_view);
@@ -2231,7 +2231,7 @@ function PMA_displayHtmlForColumnChange($db, $table, $selected, $action)
      * @todo optimize in case of multiple fields to modify
      */
     for ($i = 0; $i < $selected_cnt; $i++) {
-        $fields_meta[] = PMA_DBI_getColumns($db, $table, $selected[$i], true);
+        $fields_meta[] = $GLOBALS['dbi']->getColumns($db, $table, $selected[$i], true);
     }
     $num_fields  = count($fields_meta);
     // set these globals because tbl_columns_definition_form.inc.php
@@ -2248,14 +2248,14 @@ function PMA_displayHtmlForColumnChange($db, $table, $selected, $action)
     // could be executed to replace the info given by SHOW FULL COLUMNS FROM.
     /**
      * @todo put this code into a require()
-     * or maybe make it part of PMA_DBI_getColumns();
+     * or maybe make it part of $GLOBALS['dbi']->getColumns();
      */
 
     // We also need this to correctly learn if a TIMESTAMP is NOT NULL, since
     // SHOW FULL COLUMNS says NULL and SHOW CREATE TABLE says NOT NULL (tested
     // in MySQL 4.0.25).
 
-    $show_create_table = PMA_DBI_fetchValue(
+    $show_create_table = $GLOBALS['dbi']->fetchValue(
         'SHOW CREATE TABLE ' . PMA_Util::backquote($db) . '.' . PMA_Util::backquote($table),
         0, 1
     );
@@ -2338,9 +2338,9 @@ function PMA_updateColumns($db, $table)
 
     // To allow replication, we first select the db to use and then run queries
     // on this db.
-    if (! PMA_DBI_selectDb($db)) {
+    if (! $GLOBALS['dbi']->selectDb($db)) {
         PMA_Util::mysqlDie(
-            PMA_DBI_getError(),
+            $GLOBALS['dbi']->getError(),
             'USE ' . PMA_Util::backquote($db) . ';',
             '',
             $err_url
@@ -2349,7 +2349,7 @@ function PMA_updateColumns($db, $table)
     $sql_query = 'ALTER TABLE ' . PMA_Util::backquote($table) . ' ';
     $sql_query .= implode(', ', $changes) . $key_query;
     $sql_query .= ';';
-    $result    = PMA_DBI_tryQuery($sql_query);
+    $result    = $GLOBALS['dbi']->tryQuery($sql_query);
 
     $response = PMA_Response::getInstance();
     if ($result !== false) {
@@ -2402,7 +2402,7 @@ function PMA_updateColumns($db, $table)
         $response->isSuccess(false);
         $response->addJSON(
             'message',
-            PMA_Message::rawError(__('Query error') . ':<br />'.PMA_DBI_getError())
+            PMA_Message::rawError(__('Query error') . ':<br />'.$GLOBALS['dbi']->getError())
         );
         $regenerate = true;
     }
@@ -2419,12 +2419,12 @@ function PMA_updateColumns($db, $table)
  */
 function PMA_moveColumns($db, $table)
 {
-    PMA_DBI_selectDb($db);
+    $GLOBALS['dbi']->selectDb($db);
 
     /*
      * load the definitions for all columns
      */
-    $columns = PMA_DBI_getColumnsFull($db, $table);
+    $columns = $GLOBALS['dbi']->getColumnsFull($db, $table);
     $column_names = array_keys($columns);
     $changes = array();
     $we_dont_change_keys = array();
@@ -2491,8 +2491,8 @@ function PMA_moveColumns($db, $table)
     $move_query = 'ALTER TABLE ' . PMA_Util::backquote($table) . ' ';
     $move_query .= implode(', ', $changes);
     // move columns
-    $result = PMA_DBI_tryQuery($move_query);
-    $tmp_error = PMA_DBI_getError();
+    $result = $GLOBALS['dbi']->tryQuery($move_query);
+    $tmp_error = $GLOBALS['dbi']->getError();
     if ($tmp_error) {
         $response->isSuccess(false);
         $response->addJSON('message', PMA_Message::error($tmp_error));

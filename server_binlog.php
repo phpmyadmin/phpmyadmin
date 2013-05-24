@@ -48,14 +48,14 @@ if ($GLOBALS['cfg']['MaxRows'] !== 'all') {
 /**
  * Sends the query
  */
-$result = PMA_DBI_query($sql_query);
+$result = $GLOBALS['dbi']->query($sql_query);
 
 /**
  * prepare some vars for displaying the result table
  */
 // Gets the list of fields properties
 if (isset($result) && $result) {
-    $num_rows = PMA_DBI_numRows($result);
+    $num_rows = $GLOBALS['dbi']->numRows($result);
 } else {
     $num_rows = 0;
 }
@@ -194,7 +194,7 @@ $html .=  '</td>'
     . '<tbody>';
 
 $odd_row = true;
-while ($value = PMA_DBI_fetchAssoc($result)) {
+while ($value = $GLOBALS['dbi']->fetchAssoc($result)) {
     if (! $dontlimitchars
         && PMA_strlen($value['Info']) > $GLOBALS['cfg']['LimitChars']
     ) {

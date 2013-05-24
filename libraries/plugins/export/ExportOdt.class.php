@@ -244,12 +244,12 @@ class ExportOdt extends ExportPlugin
         global $what;
 
         // Gets the data from the database
-        $result = PMA_DBI_query($sql_query, null, PMA_DBI_QUERY_UNBUFFERED);
-        $fields_cnt = PMA_DBI_numFields($result);
-        $fields_meta = PMA_DBI_getFieldsMeta($result);
+        $result = $GLOBALS['dbi']->query($sql_query, null, PMA_DBI_QUERY_UNBUFFERED);
+        $fields_cnt = $GLOBALS['dbi']->numFields($result);
+        $fields_meta = $GLOBALS['dbi']->getFieldsMeta($result);
         $field_flags = array();
         for ($j = 0; $j < $fields_cnt; $j++) {
-            $field_flags[$j] = PMA_DBI_fieldFlags($result, $j);
+            $field_flags[$j] = $GLOBALS['dbi']->fieldFlags($result, $j);
         }
 
         $GLOBALS['odt_buffer'] .=
@@ -270,7 +270,7 @@ class ExportOdt extends ExportPlugin
                     '<table:table-cell office:value-type="string">'
                     . '<text:p>'
                         . htmlspecialchars(
-                            stripslashes(PMA_DBI_fieldName($result, $i))
+                            stripslashes($GLOBALS['dbi']->fieldName($result, $i))
                         )
                     . '</text:p>'
                     . '</table:table-cell>';
@@ -279,7 +279,7 @@ class ExportOdt extends ExportPlugin
         } // end if
 
         // Format the data
-        while ($row = PMA_DBI_fetchRow($result)) {
+        while ($row = $GLOBALS['dbi']->fetchRow($result)) {
             $GLOBALS['odt_buffer'] .= '<table:table-row>';
             for ($j = 0; $j < $fields_cnt; $j++) {
                 if (! isset($row[$j]) || is_null($row[$j])) {
@@ -319,7 +319,7 @@ class ExportOdt extends ExportPlugin
             } // end for
             $GLOBALS['odt_buffer'] .= '</table:table-row>';
         } // end while
-        PMA_DBI_freeResult($result);
+        $GLOBALS['dbi']->freeResult($result);
 
         $GLOBALS['odt_buffer'] .= '</table:table>';
 
@@ -340,7 +340,7 @@ class ExportOdt extends ExportPlugin
         /**
          * Gets fields properties
          */
-        PMA_DBI_selectDb($db);
+        $GLOBALS['dbi']->selectDb($db);
 
         /**
          * Displays the table structure
@@ -368,7 +368,7 @@ class ExportOdt extends ExportPlugin
             . '</table:table-cell>'
             . '</table:table-row>';
 
-        $columns = PMA_DBI_getColumns($db, $view);
+        $columns = $GLOBALS['dbi']->getColumns($db, $view);
         foreach ($columns as $column) {
             $GLOBALS['odt_buffer'] .= $this->formatOneColumnDefinition($column);
             $GLOBALS['odt_buffer'] .= '</table:table-row>';
@@ -416,7 +416,7 @@ class ExportOdt extends ExportPlugin
         /**
          * Gets fields properties
          */
-        PMA_DBI_selectDb($db);
+        $GLOBALS['dbi']->selectDb($db);
 
         // Check if we can use Relations
         if ($do_relation && ! empty($cfgRelation['relation'])) {
@@ -483,7 +483,7 @@ class ExportOdt extends ExportPlugin
         }
         $GLOBALS['odt_buffer'] .= '</table:table-row>';
 
-        $columns = PMA_DBI_getColumns($db, $table);
+        $columns = $GLOBALS['dbi']->getColumns($db, $table);
         foreach ($columns as $column) {
             $field_name = $column['Field'];
             $GLOBALS['odt_buffer'] .= $this->formatOneColumnDefinition($column);
@@ -569,7 +569,7 @@ class ExportOdt extends ExportPlugin
             . '</table:table-cell>'
             . '</table:table-row>';
 
-        $triggers = PMA_DBI_getTriggers($db, $table);
+        $triggers = $GLOBALS['dbi']->getTriggers($db, $table);
 
         foreach ($triggers as $trigger) {
             $GLOBALS['odt_buffer'] .= '<table:table-row>';
@@ -647,7 +647,7 @@ class ExportOdt extends ExportPlugin
             );
             break;
         case 'triggers':
-            $triggers = PMA_DBI_getTriggers($db, $table);
+            $triggers = $GLOBALS['dbi']->getTriggers($db, $table);
             if ($triggers) {
                 $GLOBALS['odt_buffer'] .=
                     '<text:h text:outline-level="2" text:style-name="Heading_2"'

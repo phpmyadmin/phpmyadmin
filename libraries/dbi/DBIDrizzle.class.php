@@ -150,7 +150,7 @@ class PMA_DBI_Drizzle implements PMA_DBI_Extension
                 );
                 return false;
             }
-            // we could be calling PMA_DBI_connect() to connect to another
+            // we could be calling $GLOBALS['dbi']->connect() to connect to another
             // server, for example in the Synchronize feature, so do not
             // go back to main login if it fails
             if (! $auxiliary_connection) {
@@ -161,7 +161,7 @@ class PMA_DBI_Drizzle implements PMA_DBI_Extension
                 return false;
             }
         } else {
-            PMA_DBI_postConnect($link, $is_controluser);
+            $GLOBALS['dbi']->postConnect($link, $is_controluser);
         }
 
         return $link;
@@ -388,7 +388,7 @@ class PMA_DBI_Drizzle implements PMA_DBI_Extension
         // the call to getError()
         $GLOBALS['errno'] = $error_number;
 
-        return PMA_DBI_formatError($error_number, $error_message);
+        return $GLOBALS['dbi']->formatError($error_number, $error_message);
     }
 
     /**
@@ -400,7 +400,7 @@ class PMA_DBI_Drizzle implements PMA_DBI_Extension
      */
     public function numRows($result)
     {
-        // see the note for PMA_DBI_tryQuery();
+        // see the note for $GLOBALS['dbi']->tryQuery();
         if (!is_bool($result)) {
             return @$result->numRows();
         } else {
@@ -431,7 +431,7 @@ class PMA_DBI_Drizzle implements PMA_DBI_Extension
         // When no controluser is defined, using mysqli_insert_id($link)
         // does not always return the last insert id due to a mixup with
         // the tracking mechanism, but this works:
-        return PMA_DBI_fetchValue('SELECT LAST_INSERT_ID();', 0, 0, $link);
+        return $GLOBALS['dbi']->fetchValue('SELECT LAST_INSERT_ID();', 0, 0, $link);
         // Curiously, this problem does not happen with the mysql extension but
         // there is another problem with BIGINT primary keys so insertId()
         // in the mysql extension also uses this logic.

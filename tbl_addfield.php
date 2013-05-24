@@ -57,13 +57,13 @@ if (isset($_REQUEST['do_save_data'])) {
 
     // To allow replication, we first select the db to use and then run queries
     // on this db.
-    PMA_DBI_selectDb($db)
+    $GLOBALS['dbi']->selectDb($db)
         or PMA_Util::mysqlDie(
-            PMA_DBI_getError(), 'USE ' . PMA_Util::backquote($db), '', $err_url
+            $GLOBALS['dbi']->getError(), 'USE ' . PMA_Util::backquote($db), '', $err_url
         );
     $sql_query    = 'ALTER TABLE ' .
         PMA_Util::backquote($table) . ' ' . $sql_statement . ';';
-    $result = PMA_DBI_tryQuery($sql_query);
+    $result = $GLOBALS['dbi']->tryQuery($sql_query);
 
     if ($result === true) {
         // If comments were sent, enable relation stuff

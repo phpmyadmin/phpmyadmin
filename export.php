@@ -649,7 +649,7 @@ do {
                     $export_plugin->exportRoutines($current_db);
                 }
 
-                $tables = PMA_DBI_getTables($current_db);
+                $tables = $GLOBALS['dbi']->getTables($current_db);
                 $views = array();
                 foreach ($tables as $table) {
                     // if this is a view, collect it for later;
@@ -836,7 +836,7 @@ do {
                     $sql_query = preg_replace('%;\s*$%', '', $sql_query);
                 }
                 $local_query = $sql_query . $add_query;
-                PMA_DBI_selectDb($db);
+                $GLOBALS['dbi']->selectDb($db);
             } else {
                 $local_query  = 'SELECT * FROM ' . PMA_Util::backquote($db)
                     . '.' . PMA_Util::backquote($table) . $add_query;

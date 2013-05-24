@@ -515,7 +515,7 @@ if (($_SESSION['tmp_user_values']['max_rows'] != 'all')
 }
 
 if (strlen($db)) {
-    PMA_DBI_selectDb($db);
+    $GLOBALS['dbi']->selectDb($db);
 }
 
 //  E x e c u t e    t h e    q u e r y
@@ -527,22 +527,22 @@ if (isset($GLOBALS['show_as_php']) || ! empty($GLOBALS['validatequery'])) {
     $unlim_num_rows = 0;
 } else {
     if (isset($_SESSION['profiling']) && PMA_Util::profilingSupported()) {
-        PMA_DBI_query('SET PROFILING=1;');
+        $GLOBALS['dbi']->query('SET PROFILING=1;');
     }
 
     // Measure query time.
     $querytime_before = array_sum(explode(' ', microtime()));
 
-    $result   = @PMA_DBI_tryQuery($full_sql_query, null, PMA_DBI_QUERY_STORE);
+    $result   = @$GLOBALS['dbi']->tryQuery($full_sql_query, null, PMA_DBI_QUERY_STORE);
 
     // If a stored procedure was called, there may be more results that are
     // queued up and waiting to be flushed from the buffer. So let's do that.
     do {
-        PMA_DBI_storeResult();
-        if (! PMA_DBI_moreResults()) {
+        $GLOBALS['dbi']->storeResult();
+        if (! $GLOBALS['dbi']->moreResults()) {
             break;
         }
-    } while (PMA_DBI_nextResult());
+    } while ($GLOBALS['dbi']->nextResult());
 
     $is_procedure = false;
 
@@ -560,7 +560,7 @@ if (isset($GLOBALS['show_as_php']) || ! empty($GLOBALS['validatequery'])) {
     $GLOBALS['querytime'] = $querytime_after - $querytime_before;
 
     // Displays an error message if required and stop parsing the script
-    $error = PMA_DBI_getError();
+    $error = $GLOBALS['dbi']->getError();
     if ($error) {
         if ($is_gotofile) {
             if (strpos($goto, 'db_') === 0 && strlen($table)) {
@@ -623,14 +623,14 @@ if (isset($GLOBALS['show_as_php']) || ! empty($GLOBALS['validatequery'])) {
     // mysql_affected_rows() reports about the last query done)
 
     if (! $is_affected) {
-        $num_rows = ($result) ? @PMA_DBI_numRows($result) : 0;
+        $num_rows = ($result) ? @$GLOBALS['dbi']->numRows($result) : 0;
     } elseif (! isset($num_rows)) {
-        $num_rows = @PMA_DBI_affectedRows();
+        $num_rows = @$GLOBALS['dbi']->affectedRows();
     }
 
     // Grabs the profiling results
     if (isset($_SESSION['profiling']) && PMA_Util::profilingSupported()) {
-        $profiling_results = PMA_DBI_fetchResult('SHOW PROFILE;');
+        $profiling_results = $GLOBALS['dbi']->fetchResult('SHOW PROFILE;');
     }
 
     // Checks if the current database has changed
@@ -640,7 +640,7 @@ if (isset($GLOBALS['show_as_php']) || ! empty($GLOBALS['validatequery'])) {
      * bug #2558 win: table list disappears (mixed case db names)
      * https://sourceforge.net/p/phpmyadmin/bugs/2558/
      * @todo RELEASE test and comit or rollback before release
-    $current_db = PMA_DBI_fetchValue('SELECT DATABASE()');
+    $current_db = $GLOBALS['dbi']->fetchValue('SELECT DATABASE()');
     if ($db !== $current_db) {
         $db     = $current_db;
         $reload = 1;
@@ -726,7 +726,7 @@ if (isset($GLOBALS['show_as_php']) || ! empty($GLOBALS['validatequery'])) {
 
             // run the count query
 
-            PMA_DBI_tryQuery($count_query);
+            $GLOBALS['dbi']->tryQuery($count_query);
             // if (mysql_error()) {
             // void.
             // I tried the case
@@ -742,7 +742,7 @@ if (isset($GLOBALS['show_as_php']) || ! empty($GLOBALS['validatequery'])) {
             // SELECT COUNT(*), f1 from t1 group by f1
             // and you click to sort on count(*)
             // }
-            $unlim_num_rows = PMA_DBI_fetchValue('SELECT FOUND_ROWS()');
+            $unlim_num_rows = $GLOBALS['dbi']->fetchValue('SELECT FOUND_ROWS()');
         } // end else "just browsing"
 
     } else { // not $is_select
@@ -812,7 +812,7 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
         } else {
             $message = PMA_Message::getMessageForInsertedRows($num_rows);
         }
-        $insert_id = PMA_DBI_insertId();
+        $insert_id = $GLOBALS['dbi']->insertId();
         if ($insert_id != 0) {
             // insert_id is id of FIRST record inserted in one insert,
             // so if we inserted multiple rows, we had to increment this
@@ -933,7 +933,7 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
     //If we are retrieving the full value of a truncated field or the original
     // value of a transformed field, show it here and exit
     if ($GLOBALS['grid_edit'] == true) {
-        $row = PMA_DBI_fetchRow($result);
+        $row = $GLOBALS['dbi']->fetchRow($result);
         $response = PMA_Response::getInstance();
         $response->addJSON('value', $row[0]);
         exit;
@@ -948,7 +948,7 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
 
         // Gets the list of fields properties
         if (isset($result) && $result) {
-            $fields_meta = PMA_DBI_getFieldsMeta($result);
+            $fields_meta = $GLOBALS['dbi']->getFieldsMeta($result);
             $fields_cnt  = count($fields_meta);
         }
 
@@ -959,7 +959,7 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
         }
 
         // hide edit and delete links for information_schema
-        if (PMA_isSystemSchema($db)) {
+        if ($GLOBALS['dbi']->isSystemSchema($db)) {
             $disp_mode = 'nnnn110111';
         }
 
@@ -1048,7 +1048,7 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
 
     // Gets the list of fields properties
     if (isset($result) && $result) {
-        $fields_meta = PMA_DBI_getFieldsMeta($result);
+        $fields_meta = $GLOBALS['dbi']->getFieldsMeta($result);
         $fields_cnt  = count($fields_meta);
     }
 
@@ -1092,7 +1092,7 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
         && trim($analyzed_sql[0]['select_expr_clause']) == '*'
         && PMA_Table::isUpdatableView($db, $table);
     $editable = $has_unique || $updatableView;
-    if (PMA_isSystemSchema($db) || ! $editable) {
+    if ($GLOBALS['dbi']->isSystemSchema($db) || ! $editable) {
         $disp_mode = 'nnnn110111';
         $msg = PMA_message::notice(
             __(
@@ -1135,7 +1135,7 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
         $html_output .= $displayResultsObject->getTable(
             $result, $disp_mode, $analyzed_sql
         );
-        PMA_DBI_freeResult($result);
+        $GLOBALS['dbi']->freeResult($result);
     }
 
     // BEGIN INDEX CHECK See if indexes should be checked.

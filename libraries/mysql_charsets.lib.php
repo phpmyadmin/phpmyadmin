@@ -19,17 +19,17 @@ if (! PMA_Util::cacheExists('mysql_charsets', true)) {
     $sql = PMA_DRIZZLE
         ? 'SELECT * FROM data_dictionary.CHARACTER_SETS'
         : 'SELECT * FROM information_schema.CHARACTER_SETS';
-    $res = PMA_DBI_query($sql);
+    $res = $GLOBALS['dbi']->query($sql);
 
     $mysql_charsets = array();
-    while ($row = PMA_DBI_fetchAssoc($res)) {
+    while ($row = $GLOBALS['dbi']->fetchAssoc($res)) {
         $mysql_charsets[] = $row['CHARACTER_SET_NAME'];
         // never used
         //$mysql_charsets_maxlen[$row['Charset']] = $row['Maxlen'];
         $mysql_charsets_descriptions[$row['CHARACTER_SET_NAME']]
             = $row['DESCRIPTION'];
     }
-    PMA_DBI_freeResult($res);
+    $GLOBALS['dbi']->freeResult($res);
 
     sort($mysql_charsets, SORT_STRING);
 
@@ -40,8 +40,8 @@ if (! PMA_Util::cacheExists('mysql_charsets', true)) {
     $sql = PMA_DRIZZLE
         ? 'SELECT * FROM data_dictionary.COLLATIONS'
         : 'SELECT * FROM information_schema.COLLATIONS';
-    $res = PMA_DBI_query($sql);
-    while ($row = PMA_DBI_fetchAssoc($res)) {
+    $res = $GLOBALS['dbi']->query($sql);
+    while ($row = $GLOBALS['dbi']->fetchAssoc($res)) {
         if (! is_array($mysql_collations[$row['CHARACTER_SET_NAME']])) {
             $mysql_collations[$row['CHARACTER_SET_NAME']]
                 = array($row['COLLATION_NAME']);
@@ -60,7 +60,7 @@ if (! PMA_Util::cacheExists('mysql_charsets', true)) {
             = !empty($mysql_charsets_available[$row['CHARACTER_SET_NAME']])
             || !empty($mysql_collations_available[$row['COLLATION_NAME']]);
     }
-    PMA_DBI_freeResult($res);
+    $GLOBALS['dbi']->freeResult($res);
     unset($res, $row);
 
     if (PMA_DRIZZLE
@@ -186,7 +186,7 @@ function PMA_generateCharsetQueryPart($collation)
  */
 function PMA_getDbCollation($db)
 {
-    if (PMA_isSystemSchema($db)) {
+    if ($GLOBALS['dbi']->isSystemSchema($db)) {
         // We don't have to check the collation of the virtual
         // information_schema database: We know it!
         return 'utf8_general_ci';
@@ -201,14 +201,14 @@ function PMA_getDbCollation($db)
             : 'SELECT DEFAULT_COLLATION_NAME FROM information_schema.SCHEMATA'
             . ' WHERE SCHEMA_NAME = \'' . PMA_Util::sqlAddSlashes($db)
             . '\' LIMIT 1';
-        return PMA_DBI_fetchValue($sql);
+        return $GLOBALS['dbi']->fetchValue($sql);
     } else {
-        PMA_DBI_selectDb($db);
-        $return = PMA_DBI_fetchValue(
+        $GLOBALS['dbi']->selectDb($db);
+        $return = $GLOBALS['dbi']->fetchValue(
             'SHOW VARIABLES LIKE \'collation_database\'', 0, 1
         );
         if ($db !== $GLOBALS['db']) {
-            PMA_DBI_selectDb($GLOBALS['db']);
+            $GLOBALS['dbi']->selectDb($GLOBALS['db']);
         }
         return $return;
     }
@@ -221,7 +221,7 @@ function PMA_getDbCollation($db)
  */
 function PMA_getServerCollation()
 {
-    return PMA_DBI_fetchValue(
+    return $GLOBALS['dbi']->fetchValue(
         'SHOW VARIABLES LIKE \'collation_server\'', 0, 1
     );
 }

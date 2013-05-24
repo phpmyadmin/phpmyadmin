@@ -184,7 +184,7 @@ function PMA_getMIME($db, $table, $strict = false)
            AND ( `mimetype` != \'\'' . (!$strict ? '
               OR `transformation` != \'\'
               OR `transformation_options` != \'\'' : '') . ')';
-    $result = PMA_DBI_fetchResult(
+    $result = $GLOBALS['dbi']->fetchResult(
         $com_qry, 'column_name', null, $GLOBALS['controllink']
     );
 
@@ -282,9 +282,9 @@ function PMA_setMIME($db, $table, $key, $mimetype, $transformation,
     
     $test_rs   = PMA_queryAsControlUser($test_qry, true, PMA_DBI_QUERY_STORE);
 
-    if ($test_rs && PMA_DBI_numRows($test_rs) > 0) {
-        $row = @PMA_DBI_fetchAssoc($test_rs);
-        PMA_DBI_freeResult($test_rs);
+    if ($test_rs && $GLOBALS['dbi']->numRows($test_rs) > 0) {
+        $row = @$GLOBALS['dbi']->fetchAssoc($test_rs);
+        $GLOBALS['dbi']->freeResult($test_rs);
 
         if (! $forcedelete
             && (strlen($mimetype) || strlen($transformation)
@@ -405,7 +405,7 @@ function PMA_clearTransformations($db, $table = '', $column = '')
         $delete_sql .= '`db_name` = \'' . $db . '\' ';
     }
     
-    return PMA_DBI_tryQuery($delete_sql);
+    return $GLOBALS['dbi']->tryQuery($delete_sql);
     
 }
 

@@ -27,7 +27,7 @@ $ServerStatusData = new PMA_ServerStatusData();
  * Kills a selected process
  */
 if (! empty($_REQUEST['kill'])) {
-    if (PMA_DBI_tryQuery('KILL ' . $_REQUEST['kill'] . ';')) {
+    if ($GLOBALS['dbi']->tryQuery('KILL ' . $_REQUEST['kill'] . ';')) {
         $message = PMA_Message::success(__('Thread %s was successfully killed.'));
     } else {
         $message = PMA_Message::error(
@@ -84,7 +84,7 @@ function PMA_getServerTrafficHtml($ServerStatusData)
  */
 function PMA_getServerStateGeneralInfoHtml($ServerStatusData)
 { 
-    $start_time = PMA_DBI_fetchValue(
+    $start_time = $GLOBALS['dbi']->fetchValue(
         'SELECT UNIX_TIMESTAMP() - ' . $ServerStatusData->status['Uptime']
     );
 
@@ -427,7 +427,7 @@ function PMA_getTableProcesslistHtml($ServerStatusData)
         }
     }
 
-    $result = PMA_DBI_query($sql_query);
+    $result = $GLOBALS['dbi']->query($sql_query);
     
     $retval  = '<table id="tableprocesslist" class="data clearfloat noclick sortable">';
     $retval .= '<thead>';
@@ -498,7 +498,7 @@ function PMA_getTableProcesslistHtml($ServerStatusData)
     $retval .= '<tbody>';
 
     $odd_row = true;
-    while ($process = PMA_DBI_fetchAssoc($result)) {
+    while ($process = $GLOBALS['dbi']->fetchAssoc($result)) {
 
         // Array keys need to modify due to the way it has used
         // to display column values

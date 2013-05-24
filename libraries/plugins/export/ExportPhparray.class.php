@@ -163,11 +163,11 @@ class ExportPhparray extends ExportPlugin
      */
     public function exportData($db, $table, $crlf, $error_url, $sql_query)
     {
-        $result = PMA_DBI_query($sql_query, null, PMA_DBI_QUERY_UNBUFFERED);
+        $result = $GLOBALS['dbi']->query($sql_query, null, PMA_DBI_QUERY_UNBUFFERED);
 
-        $columns_cnt = PMA_DBI_numFields($result);
+        $columns_cnt = $GLOBALS['dbi']->numFields($result);
         for ($i = 0; $i < $columns_cnt; $i++) {
-            $columns[$i] = stripslashes(PMA_DBI_fieldName($result, $i));
+            $columns[$i] = stripslashes($GLOBALS['dbi']->fieldName($result, $i));
         }
         unset($i);
 
@@ -197,7 +197,7 @@ class ExportPhparray extends ExportPlugin
             . PMA_Util::backquote($table) . $crlf;
         $buffer .= '$' . $tablefixed . ' = array(';
 
-        while ($record = PMA_DBI_fetchRow($result)) {
+        while ($record = $GLOBALS['dbi']->fetchRow($result)) {
             $record_cnt++;
 
             if ($record_cnt == 1) {
@@ -220,7 +220,7 @@ class ExportPhparray extends ExportPlugin
             return false;
         }
 
-        PMA_DBI_freeResult($result);
+        $GLOBALS['dbi']->freeResult($result);
         return true;
     }
 }

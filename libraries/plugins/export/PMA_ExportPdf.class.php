@@ -178,7 +178,7 @@ class PMA_ExportPdf extends PMA_PDF
         $tmpheight = array();
         $maxpage = $this->page;
 
-        while ($data = PMA_DBI_fetchRow($this->results)) {
+        while ($data = $GLOBALS['dbi']->fetchRow($this->results)) {
             $this->page = $currpage;
             // write the horizontal borders
             $this->Line($l, $h, $fullwidth+$l, $h);
@@ -277,9 +277,9 @@ class PMA_ExportPdf extends PMA_PDF
         /**
          * Pass 1 for column widths
          */
-        $this->results = PMA_DBI_query($query, null, PMA_DBI_QUERY_UNBUFFERED);
-        $this->numFields  = PMA_DBI_numFields($this->results);
-        $this->fields = PMA_DBI_getFieldsMeta($this->results);
+        $this->results = $GLOBALS['dbi']->query($query, null, PMA_DBI_QUERY_UNBUFFERED);
+        $this->numFields  = $GLOBALS['dbi']->numFields($this->results);
+        $this->fields = $GLOBALS['dbi']->getFieldsMeta($this->results);
 
         // sColWidth = starting col width (an average size width)
         $availableWidth = $this->w - $this->lMargin - $this->rMargin;
@@ -345,7 +345,7 @@ class PMA_ExportPdf extends PMA_PDF
         /**
           * @todo force here a LIMIT to avoid reading all rows
           */
-        while ($row = PMA_DBI_fetchRow($this->results)) {
+        while ($row = $GLOBALS['dbi']->fetchRow($this->results)) {
             foreach ($colFits as $key => $val) {
                 $stringWidth = $this->getstringwidth($row[$key]) + 6 ;
                 if ($adjustingMode && ($stringWidth > $this->sColWidth)) {
@@ -391,16 +391,16 @@ class PMA_ExportPdf extends PMA_PDF
 
         ksort($this->tablewidths);
 
-        PMA_DBI_freeResult($this->results);
+        $GLOBALS['dbi']->freeResult($this->results);
 
         // Pass 2
 
-        $this->results = PMA_DBI_query($query, null, PMA_DBI_QUERY_UNBUFFERED);
+        $this->results = $GLOBALS['dbi']->query($query, null, PMA_DBI_QUERY_UNBUFFERED);
         $this->setY($this->tMargin);
         $this->AddPage();
         $this->SetFont(PMA_PDF_FONT, '', 9);
         $this->morepagestable($this->FontSizePt);
-        PMA_DBI_freeResult($this->results);
+        $GLOBALS['dbi']->freeResult($this->results);
 
     } // end of mysqlReport function
 

@@ -174,7 +174,7 @@ class PMA_DBI_Mysql implements PMA_DBI_Extension
                 );
                 return false;
             }
-            // we could be calling PMA_DBI_connect() to connect to another
+            // we could be calling $GLOBALS['dbi']->connect() to connect to another
             // server, for example in the Synchronize feature, so do not
             // go back to main login if it fails
             if (! $auxiliary_connection) {
@@ -186,7 +186,7 @@ class PMA_DBI_Mysql implements PMA_DBI_Extension
             }
         } // end if
         if (! $server) {
-            PMA_DBI_postConnect($link, $is_controluser);
+            $GLOBALS['dbi']->postConnect($link, $is_controluser);
         }
         return $link;
     }
@@ -410,7 +410,7 @@ class PMA_DBI_Mysql implements PMA_DBI_Extension
         // the call to getError()
         $GLOBALS['errno'] = $error_number;
 
-        return PMA_DBI_formatError($error_number, $error_message);
+        return $GLOBALS['dbi']->formatError($error_number, $error_message);
     }
 
     /**
@@ -451,7 +451,7 @@ class PMA_DBI_Mysql implements PMA_DBI_Extension
         // and in the present function we don't know if the PK is BIGINT
         // so better play safe and use LAST_INSERT_ID()
         //
-        return PMA_DBI_fetchValue('SELECT LAST_INSERT_ID();', 0, 0, $link);
+        return $GLOBALS['dbi']->fetchValue('SELECT LAST_INSERT_ID();', 0, 0, $link);
     }
 
     /**

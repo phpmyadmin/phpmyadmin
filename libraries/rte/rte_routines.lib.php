@@ -52,7 +52,7 @@ function PMA_RTN_main()
     $columns  = "`SPECIFIC_NAME`, `ROUTINE_NAME`, `ROUTINE_TYPE`, ";
     $columns .= "`DTD_IDENTIFIER`, `ROUTINE_DEFINITION`";
     $where    = "ROUTINE_SCHEMA='" . PMA_Util::sqlAddSlashes($db) . "'";
-    $items    = PMA_DBI_fetchResult(
+    $items    = $GLOBALS['dbi']->fetchResult(
         "SELECT $columns FROM `INFORMATION_SCHEMA`.`ROUTINES` WHERE $where;"
     );
     echo PMA_RTE_getList('routine', $items);
@@ -283,34 +283,34 @@ function PMA_RTN_handleEditor()
                     );
                 } else {
                     // Backup the old routine, in case something goes wrong
-                    $create_routine = PMA_DBI_getDefinition(
+                    $create_routine = $GLOBALS['dbi']->getDefinition(
                         $db, $_REQUEST['item_original_type'],
                         $_REQUEST['item_original_name']
                     );
                     $drop_routine = "DROP {$_REQUEST['item_original_type']} "
                         . PMA_Util::backquote($_REQUEST['item_original_name'])
                         . ";\n";
-                    $result = PMA_DBI_tryQuery($drop_routine);
+                    $result = $GLOBALS['dbi']->tryQuery($drop_routine);
                     if (! $result) {
                         $errors[] = sprintf(
                             __('The following query has failed: "%s"'),
                             htmlspecialchars($drop_routine)
                         )
                         . '<br />'
-                        . __('MySQL said: ') . PMA_DBI_getError(null);
+                        . __('MySQL said: ') . $GLOBALS['dbi']->getError(null);
                     } else {
-                        $result = PMA_DBI_tryQuery($routine_query);
+                        $result = $GLOBALS['dbi']->tryQuery($routine_query);
                         if (! $result) {
                             $errors[] = sprintf(
                                 __('The following query has failed: "%s"'),
                                 htmlspecialchars($routine_query)
                             )
                             . '<br />'
-                            . __('MySQL said: ') . PMA_DBI_getError(null);
+                            . __('MySQL said: ') . $GLOBALS['dbi']->getError(null);
                             // We dropped the old routine,
                             // but were unable to create the new one
                             // Try to restore the backup query
-                            $result = PMA_DBI_tryQuery($create_routine);
+                            $result = $GLOBALS['dbi']->tryQuery($create_routine);
                             if (! $result) {
                                 // OMG, this is really bad! We dropped the query,
                                 // failed to create a new one
@@ -325,7 +325,7 @@ function PMA_RTN_handleEditor()
                                 . __('The backed up query was:')
                                 . "\"" . htmlspecialchars($create_routine) . "\""
                                 . '<br />'
-                                . __('MySQL said: ') . PMA_DBI_getError(null);
+                                . __('MySQL said: ') . $GLOBALS['dbi']->getError(null);
                             }
                         } else {
                             $message = PMA_Message::success(
@@ -340,14 +340,14 @@ function PMA_RTN_handleEditor()
                 }
             } else {
                 // 'Add a new routine' mode
-                $result = PMA_DBI_tryQuery($routine_query);
+                $result = $GLOBALS['dbi']->tryQuery($routine_query);
                 if (! $result) {
                     $errors[] = sprintf(
                         __('The following query has failed: "%s"'),
                         htmlspecialchars($routine_query)
                     )
                     . '<br /><br />'
-                    . __('MySQL said: ') . PMA_DBI_getError(null);
+                    . __('MySQL said: ') . $GLOBALS['dbi']->getError(null);
                 } else {
                     $message = PMA_Message::success(
                         __('Routine %1$s has been created.')
@@ -385,7 +385,7 @@ function PMA_RTN_handleEditor()
                     . PMA_Util::sqlAddSlashes($_REQUEST['item_name']) . "'"
                     . "AND ROUTINE_TYPE='"
                     . PMA_Util::sqlAddSlashes($_REQUEST['item_type']) . "'";
-                $routine  = PMA_DBI_fetchSingleRow(
+                $routine  = $GLOBALS['dbi']->fetchSingleRow(
                     "SELECT $columns FROM `INFORMATION_SCHEMA`.`ROUTINES`"
                     . " WHERE $where;"
                 );
@@ -618,7 +618,7 @@ function PMA_RTN_getDataFromName($name, $type, $all = true)
              . "AND ROUTINE_TYPE='" . PMA_Util::sqlAddSlashes($type) . "'";
     $query   = "SELECT $fields FROM INFORMATION_SCHEMA.ROUTINES WHERE $where;";
 
-    $routine = PMA_DBI_fetchSingleRow($query);
+    $routine = $GLOBALS['dbi']->fetchSingleRow($query);
 
     if (! $routine) {
         return false;
@@ -628,7 +628,7 @@ function PMA_RTN_getDataFromName($name, $type, $all = true)
     $retval['item_name'] = $routine['SPECIFIC_NAME'];
     $retval['item_type'] = $routine['ROUTINE_TYPE'];
     $parsed_query = PMA_SQP_parse(
-        PMA_DBI_getDefinition(
+        $GLOBALS['dbi']->getDefinition(
             $db,
             $routine['ROUTINE_TYPE'],
             $routine['SPECIFIC_NAME']
@@ -1349,7 +1349,7 @@ function PMA_RTN_handleExecute()
             $affected = 0;
 
             // Execute query
-            if (! PMA_DBI_tryMultiQuery($multiple_query)) {
+            if (! $GLOBALS['dbi']->tryMultiQuery($multiple_query)) {
                 $outcome = false;
             }
 
@@ -1373,13 +1373,13 @@ function PMA_RTN_handleExecute()
 
                 do {
 
-                    $result = PMA_DBI_storeResult();
-                    $num_rows = PMA_DBI_numRows($result);
+                    $result = $GLOBALS['dbi']->storeResult();
+                    $num_rows = $GLOBALS['dbi']->numRows($result);
 
                     if (($result !== false) && ($num_rows > 0)) {
 
                         $output .= "<table><tr>";
-                        foreach (PMA_DBI_getFieldsMeta($result) as $key => $field) {
+                        foreach ($GLOBALS['dbi']->getFieldsMeta($result) as $key => $field) {
                             $output .= "<th>";
                             $output .= htmlspecialchars($field->name);
                             $output .= "</th>";
@@ -1388,7 +1388,7 @@ function PMA_RTN_handleExecute()
 
                         $color_class = 'odd';
 
-                        while ($row = PMA_DBI_fetchAssoc($result)) {
+                        while ($row = $GLOBALS['dbi']->fetchAssoc($result)) {
                             $output .= "<tr>";
                             foreach ($row as $key => $value) {
                                 if ($value === null) {
@@ -1409,15 +1409,15 @@ function PMA_RTN_handleExecute()
 
                     }
 
-                    if (! PMA_DBI_moreResults()) {
+                    if (! $GLOBALS['dbi']->moreResults()) {
                         break;
                     }
 
                     $output .= "<br/>";
 
-                    PMA_DBI_freeResult($result);
+                    $GLOBALS['dbi']->freeResult($result);
 
-                } while (PMA_DBI_nextResult());
+                } while ($GLOBALS['dbi']->nextResult());
 
                 $output .= "</fieldset>";
 
@@ -1453,7 +1453,7 @@ function PMA_RTN_handleExecute()
                         htmlspecialchars($multiple_query)
                     )
                     . '<br /><br />'
-                    . __('MySQL said: ') . PMA_DBI_getError(null)
+                    . __('MySQL said: ') . $GLOBALS['dbi']->getError(null)
                 );
             }
 

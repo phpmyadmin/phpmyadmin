@@ -215,7 +215,7 @@ class PMA_Schema_PDF extends PMA_PDF
                 . ' WHERE db_name = \'' . PMA_Util::sqlAddSlashes($db) . '\''
                 . ' AND page_nr = \'' . $pdf_page_number . '\'';
             $test_rs = PMA_queryAsControlUser($test_query);
-            $pages = @PMA_DBI_fetchAssoc($test_rs);
+            $pages = @$GLOBALS['dbi']->fetchAssoc($test_rs);
             $this->SetFont($this->_ff, 'B', 14);
             $this->Cell(0, 6, ucfirst($pages['page_descr']), 'B', 1, 'C');
             $this->SetFont($this->_ff, '');
@@ -405,8 +405,8 @@ class Table_Stats
 
         $this->_tableName = $tableName;
         $sql = 'DESCRIBE ' . PMA_Util::backquote($tableName);
-        $result = PMA_DBI_tryQuery($sql, null, PMA_DBI_QUERY_STORE);
-        if (! $result || ! PMA_DBI_numRows($result)) {
+        $result = $GLOBALS['dbi']->tryQuery($sql, null, PMA_DBI_QUERY_STORE);
+        if (! $result || ! $GLOBALS['dbi']->numRows($result)) {
             $pdf->Error(sprintf(__('The %s table doesn\'t exist!'), $tableName));
         }
         // load fields
@@ -422,7 +422,7 @@ class Table_Stats
             }
             $this->fields = array_keys($all_columns);
         } else {
-            while ($row = PMA_DBI_fetchRow($result)) {
+            while ($row = $GLOBALS['dbi']->fetchRow($result)) {
                 $this->fields[] = $row[0];
             }
         }
@@ -444,7 +444,7 @@ class Table_Stats
              . ' AND   table_name = \'' . PMA_Util::sqlAddSlashes($tableName) . '\''
              . ' AND   pdf_page_number = ' . $pageNumber;
         $result = PMA_queryAsControlUser($sql, false, PMA_DBI_QUERY_STORE);
-        if (! $result || ! PMA_DBI_numRows($result)) {
+        if (! $result || ! $GLOBALS['dbi']->numRows($result)) {
             $pdf->Error(
                 sprintf(
                     __('Please configure the coordinates for table %s'),
@@ -452,7 +452,7 @@ class Table_Stats
                 )
             );
         }
-        list($this->x, $this->y) = PMA_DBI_fetchRow($result);
+        list($this->x, $this->y) = $GLOBALS['dbi']->fetchRow($result);
         $this->x = (double) $this->x;
         $this->y = (double) $this->y;
         /*
@@ -462,12 +462,12 @@ class Table_Stats
         /*
          * index
          */
-        $result = PMA_DBI_query(
+        $result = $GLOBALS['dbi']->query(
             'SHOW INDEX FROM ' . PMA_Util::backquote($tableName) . ';',
             null, PMA_DBI_QUERY_STORE
         );
-        if (PMA_DBI_numRows($result) > 0) {
-            while ($row = PMA_DBI_fetchAssoc($result)) {
+        if ($GLOBALS['dbi']->numRows($result) > 0) {
+            while ($row = $GLOBALS['dbi']->fetchAssoc($result)) {
                 if ($row['Key_name'] == 'PRIMARY') {
                     $this->primary[] = $row['Column_name'];
                 }
@@ -1151,7 +1151,7 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
             . ' WHERE page_nr = ' . $pageNumber;
         $_name_rs = PMA_queryAsControlUser($_name_sql);
         if ($_name_rs) {
-            $_name_row = PMA_DBI_fetchRow($_name_rs);
+            $_name_row = $GLOBALS['dbi']->fetchRow($_name_rs);
             $filename = $_name_row[0] . '.pdf';
         }
         if (empty($filename)) {
@@ -1189,7 +1189,7 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
                 'L', 0, $pdf->PMA_links['doc'][$table]['-']
             );
             // $pdf->Ln(1);
-            $fields = PMA_DBI_getColumns($GLOBALS['db'], $table);
+            $fields = $GLOBALS['dbi']->getColumns($GLOBALS['db'], $table);
             foreach ($fields as $row) {
                 $pdf->SetX(20);
                 $field_name = $row['Field'];
@@ -1261,7 +1261,7 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
             /**
              * Gets table keys and retains them
              */
-            $result = PMA_DBI_query(
+            $result = $GLOBALS['dbi']->query(
                 'SHOW KEYS FROM ' . PMA_Util::backquote($table) . ';'
             );
             $primary = '';
@@ -1271,7 +1271,7 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
             $indexes_data = array();
             $pk_array = array(); // will be use to emphasis prim. keys in the table
             // view
-            while ($row = PMA_DBI_fetchAssoc($result)) {
+            while ($row = $GLOBALS['dbi']->fetchAssoc($result)) {
                 // Backups the list of primary keys
                 if ($row['Key_name'] == 'PRIMARY') {
                     $primary .= $row['Column_name'] . ', ';
@@ -1301,13 +1301,13 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
                 }
             } // end while
             if ($result) {
-                PMA_DBI_freeResult($result);
+                $GLOBALS['dbi']->freeResult($result);
             }
 
             /**
              * Gets fields properties
              */
-            $columns = PMA_DBI_getColumns($db, $table);
+            $columns = $GLOBALS['dbi']->getColumns($db, $table);
             // Check if we can use Relations
             if (!empty($cfgRelation['relation'])) {
                 // Find which tables are related with the current one and write it in

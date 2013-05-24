@@ -162,7 +162,7 @@ $primary = PMA_Index::getPrimary($table, $db);
 $columns_with_unique_index = PMA_getColumnsWithUniqueIndex($db, $table);
 
 // 3. Get fields
-$fields = (array) PMA_DBI_getColumns($db, $table, null, true);
+$fields = (array) $GLOBALS['dbi']->getColumns($db, $table, null, true);
 
 // Get more complete field information
 // For now, this is done just for MySQL 4.1.2+ new TIMESTAMP options
@@ -175,7 +175,7 @@ $fields = (array) PMA_DBI_getColumns($db, $table, null, true);
 // and SHOW CREATE TABLE says NOT NULL (tested
 // in MySQL 4.0.25 and 5.0.21, http://bugs.mysql.com/20910).
 
-$show_create_table = PMA_DBI_fetchValue(
+$show_create_table = $GLOBALS['dbi']->fetchValue(
     'SHOW CREATE TABLE ' . PMA_Util::backquote($db) . '.'
     . PMA_Util::backquote($table),
     0, 1

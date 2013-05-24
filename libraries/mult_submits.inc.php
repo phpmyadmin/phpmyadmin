@@ -90,18 +90,18 @@ if (! empty($submit_mult)
             break;
         case 'primary':
             // Gets table primary key
-            PMA_DBI_selectDb($db);
-            $result = PMA_DBI_query(
+            $GLOBALS['dbi']->selectDb($db);
+            $result = $GLOBALS['dbi']->query(
                 'SHOW KEYS FROM ' . PMA_Util::backquote($table) . ';'
             );
             $primary = '';
-            while ($row = PMA_DBI_fetchAssoc($result)) {
+            while ($row = $GLOBALS['dbi']->fetchAssoc($result)) {
                 // Backups the list of primary keys
                 if ($row['Key_name'] == 'PRIMARY') {
                     $primary .= $row['Column_name'] . ', ';
                 }
             } // end while
-            PMA_DBI_freeResult($result);
+            $GLOBALS['dbi']->freeResult($result);
             if (empty($primary)) {
                 // no primary key, so we can safely create new
                 unset($submit_mult);
@@ -147,7 +147,7 @@ if (! empty($submit_mult)
     }
 } // end if
 
-$views = PMA_DBI_getVirtualTables($db);
+$views = $GLOBALS['dbi']->getVirtualTables($db);
 
 /**
  * Displays the confirmation form if required
@@ -351,7 +351,7 @@ if (!empty($submit_mult) && !empty($what)) {
             echo '</span>';
             echo '<span class="checkbox">';
             echo '<input type="checkbox" name="fk_check" value="1" id="fkc_checkbox"';
-            $default_fk_check_value = PMA_DBI_fetchValue('SHOW VARIABLES LIKE \'foreign_key_checks\';', 0, 1) == 'ON';
+            $default_fk_check_value = $GLOBALS['dbi']->fetchValue('SHOW VARIABLES LIKE \'foreign_key_checks\';', 0, 1) == 'ON';
             if ($default_fk_check_value) {
                 echo ' checked="checked"';
             }
@@ -397,18 +397,18 @@ if (!empty($submit_mult) && !empty($what)) {
 
     if ($query_type == 'primary_fld') {
         // Gets table primary key
-        PMA_DBI_selectDb($db);
-        $result = PMA_DBI_query(
+        $GLOBALS['dbi']->selectDb($db);
+        $result = $GLOBALS['dbi']->query(
             'SHOW KEYS FROM ' . PMA_Util::backquote($table) . ';'
         );
         $primary = '';
-        while ($row = PMA_DBI_fetchAssoc($result)) {
+        while ($row = $GLOBALS['dbi']->fetchAssoc($result)) {
             // Backups the list of primary keys
             if ($row['Key_name'] == 'PRIMARY') {
                 $primary .= $row['Column_name'] . ', ';
             }
         } // end while
-        PMA_DBI_freeResult($result);
+        $GLOBALS['dbi']->freeResult($result);
     }
 
     $rebuild_database_list = false;
@@ -557,9 +557,9 @@ if (!empty($submit_mult) && !empty($what)) {
         if ($run_parts) {
             $sql_query .= $a_query . ';' . "\n";
             if ($query_type != 'drop_db') {
-                PMA_DBI_selectDb($db);
+                $GLOBALS['dbi']->selectDb($db);
             }
-            $result = PMA_DBI_query($a_query);
+            $result = $GLOBALS['dbi']->query($a_query);
 
             if ($query_type == 'drop_db') {
                 PMA_clearTransformations($selected[$i]);
@@ -573,7 +573,7 @@ if (!empty($submit_mult) && !empty($what)) {
     } // end for
 
     if ($query_type == 'drop_tbl') {
-        $default_fk_check_value = PMA_DBI_fetchValue('SHOW VARIABLES LIKE \'foreign_key_checks\';', 0, 1) == 'ON';
+        $default_fk_check_value = $GLOBALS['dbi']->fetchValue('SHOW VARIABLES LIKE \'foreign_key_checks\';', 0, 1) == 'ON';
         if (!empty($sql_query)) {
             $sql_query .= ';';
         } elseif (!empty($sql_query_views)) {
@@ -585,26 +585,26 @@ if (!empty($submit_mult) && !empty($what)) {
     if ($use_sql) {
         include './sql.php';
     } elseif (!$run_parts) {
-        PMA_DBI_selectDb($db);
+        $GLOBALS['dbi']->selectDb($db);
         // for disabling foreign key checks while dropping tables
         if (! isset($_REQUEST['fk_check']) && $query_type == 'drop_tbl') {
-            PMA_DBI_query('SET FOREIGN_KEY_CHECKS = 0;');
+            $GLOBALS['dbi']->query('SET FOREIGN_KEY_CHECKS = 0;');
         }
-        $result = PMA_DBI_tryQuery($sql_query);
+        $result = $GLOBALS['dbi']->tryQuery($sql_query);
         if (! isset($_REQUEST['fk_check'])
             && $query_type == 'drop_tbl'
             && $default_fk_check_value
         ) {
-            PMA_DBI_query('SET FOREIGN_KEY_CHECKS = 1;');
+            $GLOBALS['dbi']->query('SET FOREIGN_KEY_CHECKS = 1;');
         }
         if ($result && !empty($sql_query_views)) {
             $sql_query .= ' ' . $sql_query_views . ';';
-            $result = PMA_DBI_tryQuery($sql_query_views);
+            $result = $GLOBALS['dbi']->tryQuery($sql_query_views);
             unset($sql_query_views);
         }
 
         if (! $result) {
-            $message = PMA_Message::error(PMA_DBI_getError());
+            $message = PMA_Message::error($GLOBALS['dbi']->getError());
         }
     }
     if ($rebuild_database_list) {

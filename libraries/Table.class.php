@@ -199,7 +199,7 @@ class PMA_Table
         }
 
         // query information_schema
-        $result = PMA_DBI_fetchResult(
+        $result = $GLOBALS['dbi']->fetchResult(
             "SELECT TABLE_NAME
             FROM information_schema.VIEWS
             WHERE TABLE_SCHEMA = '" . PMA_Util::sqlAddSlashes($db) . "'
@@ -222,7 +222,7 @@ class PMA_Table
             return false;
         }
 
-        $result = PMA_DBI_fetchResult(
+        $result = $GLOBALS['dbi']->fetchResult(
             "SELECT TABLE_NAME
             FROM information_schema.VIEWS
             WHERE TABLE_SCHEMA = '" . PMA_Util::sqlAddSlashes($db) . "'
@@ -255,7 +255,7 @@ class PMA_Table
             $analyzed_sql[0] = array();
             $analyzed_sql[0]['create_table_fields'] = array();
 
-            $results = PMA_DBI_fetchResult(
+            $results = $GLOBALS['dbi']->fetchResult(
                 "SELECT COLUMN_NAME, DATA_TYPE
                 FROM information_schema.COLUMNS
                 WHERE TABLE_SCHEMA = '" . PMA_Util::sqlAddSlashes($db) . "'
@@ -266,7 +266,7 @@ class PMA_Table
                     = array('type' => strtoupper($result['DATA_TYPE']));
             }
         } else {
-            $show_create_table = PMA_DBI_fetchValue(
+            $show_create_table = $GLOBALS['dbi']->fetchValue(
                 'SHOW CREATE TABLE ' . PMA_Util::backquote($db) . '.' . PMA_Util::backquote($table),
                 0,
                 1
@@ -373,7 +373,7 @@ class PMA_Table
         }
 
         if (! isset(PMA_Table::$cache[$db][$table]) || $force_read) {
-            PMA_DBI_getTablesFull($db, $table);
+            $GLOBALS['dbi']->getTablesFull($db, $table);
         }
 
         if (! isset(PMA_Table::$cache[$db][$table])) {
@@ -573,7 +573,7 @@ class PMA_Table
 
             if (! $force_exact) {
                 if (! isset(PMA_Table::$cache[$db][$table]['Rows']) && ! $is_view) {
-                    $tmp_tables = PMA_DBI_getTablesFull($db, $table);
+                    $tmp_tables = $GLOBALS['dbi']->getTablesFull($db, $table);
                     if (isset($tmp_tables[$table])) {
                         PMA_Table::$cache[$db][$table] = $tmp_tables[$table];
                     }
@@ -592,8 +592,8 @@ class PMA_Table
                 // Make an exception for views in I_S and D_D schema in
                 // Drizzle, as these map to in-memory data and should execute
                 // fast enough
-                if (! $is_view || (PMA_DRIZZLE && PMA_isSystemSchema($db))) {
-                    $row_count = PMA_DBI_fetchValue(
+                if (! $is_view || (PMA_DRIZZLE && $GLOBALS['dbi']->isSystemSchema($db))) {
+                    $row_count = $GLOBALS['dbi']->fetchValue(
                         'SELECT COUNT(*) FROM ' . PMA_Util::backquote($db) . '.'
                         . PMA_Util::backquote($table)
                     );
@@ -610,16 +610,16 @@ class PMA_Table
                         // so use a LIMIT clause.
                         // Use try_query because it can fail (when a VIEW is
                         // based on a table that no longer exists)
-                        $result = PMA_DBI_tryQuery(
+                        $result = $GLOBALS['dbi']->tryQuery(
                             'SELECT 1 FROM ' . PMA_Util::backquote($db) . '.'
                             . PMA_Util::backquote($table) . ' LIMIT '
                             . $GLOBALS['cfg']['MaxExactCountViews'],
                             null,
                             PMA_DBI_QUERY_STORE
                         );
-                        if (!PMA_DBI_getError()) {
-                            $row_count = PMA_DBI_numRows($result);
-                            PMA_DBI_freeResult($result);
+                        if (!$GLOBALS['dbi']->getError()) {
+                            $row_count = $GLOBALS['dbi']->numRows($result);
+                            $GLOBALS['dbi']->freeResult($result);
                         }
                     }
                 }
@@ -726,7 +726,7 @@ class PMA_Table
                 $table_copy_query, true, PMA_DBI_QUERY_STORE
             );
 
-            while ($table_copy_row = @PMA_DBI_fetchAssoc($table_copy_rs)) {
+            while ($table_copy_row = @$GLOBALS['dbi']->fetchAssoc($table_copy_rs)) {
                 $value_parts = array();
                 foreach ($table_copy_row as $_key => $_val) {
                     if (isset($row_fields[$_key]) && $row_fields[$_key] == 'cc') {
@@ -744,10 +744,10 @@ class PMA_Table
                      \'' . implode('\', \'', $new_value_parts) . '\')';
 
                 PMA_queryAsControlUser($new_table_query);
-                $last_id = PMA_DBI_insertId();
+                $last_id = $GLOBALS['dbi']->insertId();
             } // end while
 
-            PMA_DBI_freeResult($table_copy_rs);
+            $GLOBALS['dbi']->freeResult($table_copy_rs);
 
             return $last_id;
         }
@@ -815,7 +815,7 @@ class PMA_Table
 
         // Doing a select_db could avoid some problems with replicated databases,
         // when moving table from replicated one to not replicated one
-        PMA_DBI_selectDb($target_db);
+        $GLOBALS['dbi']->selectDb($target_db);
 
         $target = PMA_Util::backquote($target_db) . '.' . PMA_Util::backquote($target_table);
 
@@ -859,7 +859,7 @@ class PMA_Table
             if (PMA_DRIZZLE) {
                 $table_delimiter = 'quote_backtick';
             } else {
-                $server_sql_mode = PMA_DBI_fetchValue(
+                $server_sql_mode = $GLOBALS['dbi']->fetchValue(
                     "SHOW VARIABLES LIKE 'sql_mode'",
                     0,
                     1
@@ -918,7 +918,7 @@ class PMA_Table
                 $drop_query .= ' IF EXISTS '
                     . PMA_Util::backquote($target_db) . '.'
                     . PMA_Util::backquote($target_table);
-                PMA_DBI_query($drop_query);
+                $GLOBALS['dbi']->query($drop_query);
 
                 $GLOBALS['sql_query'] .= "\n" . $drop_query . ';';
 
@@ -927,7 +927,7 @@ class PMA_Table
                 $maintain_relations = true;
             }
 
-            @PMA_DBI_query($sql_structure);
+            @$GLOBALS['dbi']->query($sql_structure);
             $GLOBALS['sql_query'] .= "\n" . $sql_structure . ';';
 
             if (($move || isset($GLOBALS['add_constraints']))
@@ -971,7 +971,7 @@ class PMA_Table
                     $parsed_sql, 'query_only'
                 );
                 if ($mode == 'one_table') {
-                    PMA_DBI_query($GLOBALS['sql_constraints_query']);
+                    $GLOBALS['dbi']->query($GLOBALS['sql_constraints_query']);
                 }
                 $GLOBALS['sql_query'] .= "\n" . $GLOBALS['sql_constraints_query'];
                 if ($mode == 'one_table') {
@@ -987,12 +987,12 @@ class PMA_Table
             && ! PMA_Table::isView($target_db, $target_table)
         ) {
             $sql_set_mode = "SET SQL_MODE='NO_AUTO_VALUE_ON_ZERO'";
-            PMA_DBI_query($sql_set_mode);
+            $GLOBALS['dbi']->query($sql_set_mode);
             $GLOBALS['sql_query'] .= "\n\n" . $sql_set_mode . ';';
 
             $sql_insert_data = 'INSERT INTO ' . $target
                 . ' SELECT * FROM ' . $source;
-            PMA_DBI_query($sql_insert_data);
+            $GLOBALS['dbi']->query($sql_insert_data);
             $GLOBALS['sql_query']      .= "\n\n" . $sql_insert_data . ';';
         }
 
@@ -1003,7 +1003,7 @@ class PMA_Table
 
             // This could avoid some problems with replicated databases, when
             // moving table from replicated one to not replicated one
-            PMA_DBI_selectDb($source_db);
+            $GLOBALS['dbi']->selectDb($source_db);
 
             if (PMA_Table::isView($source_db, $source_table)) {
                 $sql_drop_query = 'DROP VIEW';
@@ -1011,7 +1011,7 @@ class PMA_Table
                 $sql_drop_query = 'DROP TABLE';
             }
             $sql_drop_query .= ' ' . $source;
-            PMA_DBI_query($sql_drop_query);
+            $GLOBALS['dbi']->query($sql_drop_query);
 
             // Renable table in configuration storage
             PMA_REL_renameTable(
@@ -1036,7 +1036,7 @@ class PMA_Table
                     $comments_copy_rs    = PMA_queryAsControlUser($comments_copy_query);
 
                     // Write every comment as new copied entry. [MIME]
-                    while ($comments_copy_row = PMA_DBI_fetchAssoc($comments_copy_rs)) {
+                    while ($comments_copy_row = $GLOBALS['dbi']->fetchAssoc($comments_copy_rs)) {
                         $new_comment_query = 'REPLACE INTO ' . PMA_Util::backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_Util::backquote($GLOBALS['cfgRelation']['column_info'])
                                     . ' (db_name, table_name, column_name, comment' . ($GLOBALS['cfgRelation']['mimework'] ? ', mimetype, transformation, transformation_options' : '') . ') '
                                     . ' VALUES('
@@ -1050,7 +1050,7 @@ class PMA_Table
                                     . ')';
                         PMA_queryAsControlUser($new_comment_query);
                     } // end while
-                    PMA_DBI_freeResult($comments_copy_rs);
+                    $GLOBALS['dbi']->freeResult($comments_copy_rs);
                     unset($comments_copy_rs);
                 }
 
@@ -1248,13 +1248,13 @@ class PMA_Table
         }
 
         // If the table is moved to a different database drop its triggers first
-        $triggers = PMA_DBI_getTriggers($this->getDbName(), $this->getName(), '');
+        $triggers = $GLOBALS['dbi']->getTriggers($this->getDbName(), $this->getName(), '');
         $handle_triggers = $this->getDbName() != $new_db && $triggers;
         if ($handle_triggers) {
             foreach ($triggers as $trigger) {
                 $sql = 'DROP TRIGGER IF EXISTS ' . PMA_Util::backquote($this->getDbName())
                     . '.' . PMA_Util::backquote($trigger['name']) . ';';
-                PMA_DBI_query($sql);
+                $GLOBALS['dbi']->query($sql);
             }
         }
 
@@ -1265,12 +1265,12 @@ class PMA_Table
             RENAME TABLE ' . $this->getFullName(true) . '
                   TO ' . $new_table->getFullName(true) . ';';
         // I don't think a specific error message for views is necessary
-        if (! PMA_DBI_query($GLOBALS['sql_query'])) {
+        if (! $GLOBALS['dbi']->query($GLOBALS['sql_query'])) {
             // Restore triggers in the old database
             if ($handle_triggers) {
-                PMA_DBI_selectDb($this->getDbName());
+                $GLOBALS['dbi']->selectDb($this->getDbName());
                 foreach ($triggers as $trigger) {
-                    PMA_DBI_query($trigger['create']);
+                    $GLOBALS['dbi']->query($trigger['create']);
                 }
             }
             $this->errors[] = sprintf(
@@ -1318,12 +1318,12 @@ class PMA_Table
      */
     public function getUniqueColumns($backquoted = true)
     {
-        $sql = PMA_DBI_getTableIndexesSql(
+        $sql = $GLOBALS['dbi']->getTableIndexesSql(
             $this->getDbName(),
             $this->getName(),
             'Non_unique = 0'
         );
-        $uniques = PMA_DBI_fetchResult(
+        $uniques = $GLOBALS['dbi']->fetchResult(
             $sql,
             array('Key_name', null),
             'Column_name'
@@ -1355,12 +1355,12 @@ class PMA_Table
      */
     public function getIndexedColumns($backquoted = true)
     {
-        $sql = PMA_DBI_getTableIndexesSql(
+        $sql = $GLOBALS['dbi']->getTableIndexesSql(
             $this->getDbName(),
             $this->getName(),
             'Seq_in_index = 1'
         );
-        $indexed = PMA_DBI_fetchResult($sql, 'Column_name', 'Column_name');
+        $indexed = $GLOBALS['dbi']->fetchResult($sql, 'Column_name', 'Column_name');
 
         $return = array();
         foreach ($indexed as $column) {
@@ -1383,7 +1383,7 @@ class PMA_Table
     public function getColumns($backquoted = true)
     {
         $sql = 'SHOW COLUMNS FROM ' . $this->getFullName(true);
-        $indexed = PMA_DBI_fetchResult($sql, 'Field', 'Field');
+        $indexed = $GLOBALS['dbi']->fetchResult($sql, 'Field', 'Field');
 
         $return = array();
         foreach ($indexed as $column) {
@@ -1410,7 +1410,7 @@ class PMA_Table
             . " AND `db_name` = '" . PMA_Util::sqlAddSlashes($this->db_name) . "'"
             . " AND `table_name` = '" . PMA_Util::sqlAddSlashes($this->name) . "'";
 
-        $row = PMA_DBI_fetchArray(PMA_queryAsControlUser($sql_query));
+        $row = $GLOBALS['dbi']->fetchArray(PMA_queryAsControlUser($sql_query));
         if (isset($row[0])) {
             return json_decode($row[0], true);
         } else {
@@ -1434,13 +1434,13 @@ class PMA_Table
             . "', '" . PMA_Util::sqlAddSlashes($this->name) . "', '"
             . PMA_Util::sqlAddSlashes(json_encode($this->uiprefs)) . "', NULL)";
 
-        $success = PMA_DBI_tryQuery($sql_query, $GLOBALS['controllink']);
+        $success = $GLOBALS['dbi']->tryQuery($sql_query, $GLOBALS['controllink']);
 
         if (!$success) {
             $message = PMA_Message::error(__('Could not save table UI preferences'));
             $message->addMessage('<br /><br />');
             $message->addMessage(
-                PMA_Message::rawError(PMA_DBI_getError($GLOBALS['controllink']))
+                PMA_Message::rawError($GLOBALS['dbi']->getError($GLOBALS['controllink']))
             );
             return $message;
         }
@@ -1448,7 +1448,7 @@ class PMA_Table
         // Remove some old rows in table_uiprefs if it exceeds the configured
         // maximum rows
         $sql_query = 'SELECT COUNT(*) FROM ' . $pma_table;
-        $rows_count = PMA_DBI_fetchValue($sql_query);
+        $rows_count = $GLOBALS['dbi']->fetchValue($sql_query);
         $max_rows = $GLOBALS['cfg']['Server']['MaxTableUiprefs'];
         if ($rows_count > $max_rows) {
             $num_rows_to_delete = $rows_count - $max_rows;
@@ -1456,7 +1456,7 @@ class PMA_Table
                 = ' DELETE FROM ' . $pma_table .
                 ' ORDER BY last_update ASC' .
                 ' LIMIT ' . $num_rows_to_delete;
-            $success = PMA_DBI_tryQuery($sql_query, $GLOBALS['controllink']);
+            $success = $GLOBALS['dbi']->tryQuery($sql_query, $GLOBALS['controllink']);
 
             if (!$success) {
                 $message = PMA_Message::error(
@@ -1467,7 +1467,7 @@ class PMA_Table
                 );
                 $message->addMessage('<br /><br />');
                 $message->addMessage(
-                    PMA_Message::rawError(PMA_DBI_getError($GLOBALS['controllink']))
+                    PMA_Message::rawError($GLOBALS['dbi']->getError($GLOBALS['controllink']))
                 );
                 print_r($message);
                 return $message;
