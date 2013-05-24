@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-05-24 09:03-0400\n"
-"PO-Revision-Date: 2013-05-24 11:50+0200\n"
+"PO-Revision-Date: 2013-05-24 11:51+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish <http://l10n.cihar.com/projects/phpmyadmin/master/tr/"
 ">\n"
@@ -2214,17 +2214,17 @@ msgstr "PHP aşağıdaki hatayı verdi: %s"
 #: libraries/Advisor.class.php:107
 #, php-format
 msgid "Failed evaluating precondition for rule '%s'."
-msgstr "'%s' kuralı için önkoşul değerlendirmesi başarısız"
+msgstr "'%s' kuralı için önkoşul değerlendirmesi başarısız."
 
 #: libraries/Advisor.class.php:124
 #, php-format
 msgid "Failed calculating value for rule '%s'."
-msgstr "'%s' kuralı için değer hesaplaması başarısız"
+msgstr "'%s' kuralı için değer hesaplaması başarısız."
 
 #: libraries/Advisor.class.php:143
 #, php-format
 msgid "Failed running test for rule '%s'."
-msgstr "'%s' kuralı için çalıştırılan deneme başarısız"
+msgstr "'%s' kuralı için çalıştırılan deneme başarısız."
 
 #: libraries/Advisor.class.php:225
 #, php-format
@@ -2236,17 +2236,17 @@ msgstr "'%s' kuralı için dizgi biçimlendirme başarısız."
 msgid ""
 "Invalid rule declaration on line %1$s, expected line %2$s of previous rule."
 msgstr ""
-"%1$s. satırda geçersiz kural bildirimi, önceki kuralın beklenen satırı %2$s"
+"%1$s. satırda geçersiz kural bildirimi, önceki kuralın beklenen satırı %2$s."
 
 #: libraries/Advisor.class.php:412
 #, php-format
 msgid "Invalid rule declaration on line %s."
-msgstr "%s. satırda geçersiz kural bildirimi"
+msgstr "%s. satırda geçersiz kural bildirimi."
 
 #: libraries/Advisor.class.php:420
 #, php-format
 msgid "Unexpected characters on line %s."
-msgstr "%s. satırda beklenmedik karakterler"
+msgstr "%s. satırda beklenmedik karakterler."
 
 #: libraries/Advisor.class.php:434
 #, php-format
@@ -3320,7 +3320,7 @@ msgid ""
 "range is 0 to 4,294,967,295"
 msgstr ""
 "4-bayt'lık bir tamsayı, işaretli aralığı -2,147,483,648'den 2,147,483,647'ye "
-"kadardır, işaretsiz aralığı 0'dan 4,294,967,295'e kadardır."
+"kadardır, işaretsiz aralığı 0'dan 4,294,967,295'e kadardır"
 
 #: libraries/Types.class.php:304
 msgid ""
@@ -4068,7 +4068,7 @@ msgstr "en fazla %s"
 
 #: libraries/config/FormDisplay.tpl.php:221
 msgid "This setting is disabled, it will not be applied to your configuration."
-msgstr "Bu ayar etkisizleştirildi, yapılandırmanıza uygulanmayacaktır"
+msgstr "Bu ayar etkisizleştirildi, yapılandırmanıza uygulanmayacaktır."
 
 #: libraries/config/FormDisplay.tpl.php:309
 #, php-format
@@ -10784,7 +10784,7 @@ msgid ""
 msgstr ""
 "MySQL sunucusunu bir kez yeniden başlattığınızda, lütfen Git düğmesine "
 "tıklayın. Ondan sonra bu sunucunun master olarak <b>yapılandırıldığını</b> "
-"gösteren, sizi uyaran bir mesaj görmelisiniz"
+"gösteren, sizi uyaran bir mesaj görmelisiniz."
 
 #: server_replication.php:281
 msgid "Slave SQL Thread not running!"
@@ -11005,7 +11005,7 @@ msgstr ""
 "iz sürme süresinde size yardımcı olabilir. Sonrası için log_output'u "
 "'TABLE'a ayarlamanız gerekecektir ve ya slow_query_log ya da general_log "
 "etkinleştirilir. Ancak unutmayın, general_log çok fazla veri üretir ve "
-"sunucu yükünü %15'e kadar arttırır"
+"sunucu yükünü %15'e kadar arttırır."
 
 #: server_status_monitor.php:467
 msgid ""

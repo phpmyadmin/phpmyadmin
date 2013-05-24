@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-05-24 09:03-0400\n"
-"PO-Revision-Date: 2013-05-24 12:24+0200\n"
+"PO-Revision-Date: 2013-05-24 12:26+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: Greek <http://l10n.cihar.com/projects/phpmyadmin/master/el/>\n"
 "MIME-Version: 1.0\n"
@@ -2222,17 +2222,17 @@ msgstr "Η PHP έδωσε το ακόλουθο σφάλμα: %s"
 #: libraries/Advisor.class.php:107
 #, php-format
 msgid "Failed evaluating precondition for rule '%s'."
-msgstr "Απέτυχε η αξιολόγηση προσυνθήκης για τον κανόνα «%s»"
+msgstr "Απέτυχε η αξιολόγηση προσυνθήκης για τον κανόνα «%s»."
 
 #: libraries/Advisor.class.php:124
 #, php-format
 msgid "Failed calculating value for rule '%s'."
-msgstr "Απέτυχε ο υπολογισμός τιμής για τον κανόνα «%s»"
+msgstr "Απέτυχε ο υπολογισμός τιμής για τον κανόνα «%s»."
 
 #: libraries/Advisor.class.php:143
 #, php-format
 msgid "Failed running test for rule '%s'."
-msgstr "Απέτυχε η εκτέλεση ελέγχου για τον κανόνα «%s»"
+msgstr "Απέτυχε η εκτέλεση ελέγχου για τον κανόνα «%s»."
 
 #: libraries/Advisor.class.php:225
 #, php-format
@@ -2245,17 +2245,17 @@ msgid ""
 "Invalid rule declaration on line %1$s, expected line %2$s of previous rule."
 msgstr ""
 "Μη έγκυρη διακήρυξη κανόνα στη γραμμή %1$s, αναμενόμενη γραμμή %2$s από "
-"προηγούμενο κανόνα"
+"προηγούμενο κανόνα."
 
 #: libraries/Advisor.class.php:412
 #, php-format
 msgid "Invalid rule declaration on line %s."
-msgstr "Μη έγκυρη διακήρυξη κανόνα στη γραμμή %s"
+msgstr "Μη έγκυρη διακήρυξη κανόνα στη γραμμή %s."
 
 #: libraries/Advisor.class.php:420
 #, php-format
 msgid "Unexpected characters on line %s."
-msgstr "Μη έγκυρη χαρακτήρες στη γραμμή %s"
+msgstr "Μη έγκυρη χαρακτήρες στη γραμμή %s."
 
 #: libraries/Advisor.class.php:434
 #, php-format
@@ -3343,7 +3343,7 @@ msgid ""
 "range is 0 to 4,294,967,295"
 msgstr ""
 "Ένας ακέραιος 4-byte, εύρος με πρόσημο είναι -2.147.483.648 έως "
-"2.147.483.647, εύρος χωρίς πρόσημο είναι 0 έως 4.294.967.295."
+"2.147.483.647, εύρος χωρίς πρόσημο είναι 0 έως 4.294.967.295"
 
 #: libraries/Types.class.php:304
 msgid ""
@@ -4099,7 +4099,7 @@ msgstr "μέγιστος αριθμός %s"
 msgid "This setting is disabled, it will not be applied to your configuration."
 msgstr ""
 "Αυτή η ρύθμιση είναι απενεργοποιημένη και δεν θα εφαρμοστεί στις ρυθμίσεις "
-"σας"
+"σας."
 
 #: libraries/config/FormDisplay.tpl.php:309
 #, php-format
@@ -10870,7 +10870,7 @@ msgid ""
 msgstr ""
 "Μόλις επανεκκινήσετε τον διακομιστή MySQL, πατήστε το κουμπί Μετάβαση. Μετά, "
 "θα πρέπει να δείτε ένα μύνημα που να σας πληροφορεί ότι αυτός ο διακομιστής "
-"<b>έχει</b> ρυθμιστεί ως πρωτεύων"
+"<b>έχει</b> ρυθμιστεί ως πρωτεύων."
 
 #: server_replication.php:281
 msgid "Slave SQL Thread not running!"
@@ -11096,7 +11096,7 @@ msgstr ""
 "χρειαστείτε να ορίσετε το log_output σε «TABLE» και να έχετε ενεργοποιήσει το "
 "slow_query_log ή το general_log. Σημειώστε, ωστόσο, ότι το general_log "
 "παράγει πολλά δεδομένα και αυξάνει τη χρήση πόρων του διακομιστή μέχρι και "
-"15%"
+"15%."
 
 #: server_status_monitor.php:467
 msgid ""
