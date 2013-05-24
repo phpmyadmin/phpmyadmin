@@ -48,7 +48,8 @@ if (defined('TESTSUITE')) {
     /**
      * For testsuite we use dummy driver which can fake some queries.
      */
-    include_once './libraries/dbi/dummy.lib.php';
+    include_once './libraries/dbi/DBIDummy.class.php';
+    $GLOBALS['extension'] = new PMA_DBI_Dummy();
 } else {
 
     /**
@@ -91,9 +92,20 @@ if (defined('TESTSUITE')) {
     /**
      * Including The DBI Plugin
      */
-    include_once './libraries/dbi/'
-        . $GLOBALS['cfg']['Server']['extension'] . '.dbi.lib.php';
-
+    switch($GLOBALS['cfg']['Server']['extension']) {
+    case 'mysql' :
+        include_once './libraries/dbi/DBIMysql.class.php';
+        $GLOBALS['extension'] = new PMA_DBI_Mysql();
+        break;
+    case 'mysqli' :
+        include_once './libraries/dbi/DBIMysqli.class.php';
+        $GLOBALS['extension'] = new PMA_DBI_Mysqli();
+        break;
+    case 'drizzle' :
+        include_once './libraries/dbi/DBIDrizzle.class.php';
+        $GLOBALS['extension'] = new PMA_DBI_Drizzle();
+        break;
+    }
 }
 
 /**
@@ -189,7 +201,7 @@ function PMA_DBI_tryQuery($query, $link = null, $options = 0,
         $time = microtime(true);
     }
 
-    $result = PMA_DBI_realQuery($query, $link, $options);
+    $result = $GLOBALS['extension']->realQuery($query, $link, $options);
 
     if ($cache_affected_rows) {
         $GLOBALS['cached_affected_rows'] = PMA_DBI_affectedRows($link, false);
@@ -225,7 +237,7 @@ function PMA_DBI_tryMultiQuery($multi_query = '', $link = null)
         }
     }
 
-    return PMA_DBI_realMultiQuery($link, $multi_query);
+    return $GLOBALS['extension']->realMultiQuery($link, $multi_query);
 
 }
 
@@ -2098,5 +2110,280 @@ function PMA_isSystemSchema($schema_name, $test_for_mysql_schema = false)
             || (!PMA_DRIZZLE && strtolower($schema_name) == 'performance_schema')
             || (PMA_DRIZZLE && strtolower($schema_name) == 'data_dictionary')
             || ($test_for_mysql_schema && !PMA_DRIZZLE && $schema_name == 'mysql');
+}
+
+/**
+ * connects to the database server
+ *
+ * @param string $user                 user name
+ * @param string $password             user password
+ * @param bool   $is_controluser       whether this is a control user connection
+ * @param array  $server               host/port/socket/persistent
+ * @param bool   $auxiliary_connection (when true, don't go back to login if
+ *                                     connection fails)
+ *
+ * @return mixed false on error or a connection object on success
+ */
+function PMA_DBI_connect(
+    $user, $password, $is_controluser = false, $server = null,
+    $auxiliary_connection = false
+) {
+    return $GLOBALS['extension']->connect(
+        $user, $password, $is_controluser, $server, $auxiliary_connection
+    );
+}
+
+/**
+ * selects given database
+ *
+ * @param string $dbname database name to select
+ * @param object $link   connection object
+ *
+ * @return boolean
+ */
+function PMA_DBI_selectDb($dbname, $link = null)
+{
+    return $GLOBALS['extension']->selectDb($dbname, $link);
+}
+
+/**
+ * returns array of rows with associative and numeric keys from $result
+ *
+ * @param object $result result set identifier
+ *
+ * @return array
+ */
+function PMA_DBI_fetchArray($result)
+{
+    return $GLOBALS['extension']->fetchArray($result);
+}
+
+/**
+ * returns array of rows with associative keys from $result
+ *
+ * @param object $result result set identifier
+ *
+ * @return array
+ */
+function PMA_DBI_fetchAssoc($result)
+{
+    return $GLOBALS['extension']->fetchAssoc($result);
+}
+
+/**
+ * returns array of rows with numeric keys from $result
+ *
+ * @param object $result result set identifier
+ *
+ * @return array
+ */
+function PMA_DBI_fetchRow($result)
+{
+    return $GLOBALS['extension']->fetchRow($result);
+}
+
+/**
+ * Adjusts the result pointer to an arbitrary row in the result
+ *
+ * @param object  $result database result
+ * @param integer $offset offset to seek
+ *
+ * @return bool true on success, false on failure
+ */
+function PMA_DBI_dataSeek($result, $offset)
+{
+    return $GLOBALS['extension']->dataSeek($result, $offset);
+}
+
+/**
+ * Frees memory associated with the result
+ *
+ * @param object $result database result
+ *
+ * @return void
+ */
+function PMA_DBI_freeResult($result)
+{
+    $GLOBALS['extension']->freeResult($result);
+}
+
+/**
+ * Check if there are any more query results from a multi query
+ *
+ * @param object $link the connection object
+ *
+ * @return bool true or false
+ */
+function PMA_DBI_moreResults($link = null)
+{
+    return $GLOBALS['extension']->moreResults($link = null);
+}
+
+/**
+ * Prepare next result from multi_query
+ *
+ * @param object $link the connection object
+ *
+ * @return bool true or false
+ */
+function PMA_DBI_nextResult($link = null)
+{
+    return $GLOBALS['extension']->nextResult($link = null);
+}
+
+/**
+ * Store the result returned from multi query
+ *
+ * @return mixed false when empty results / result set when not empty
+ */
+function PMA_DBI_storeResult()
+{
+    return $GLOBALS['extension']->storeResult();
+}
+
+/**
+ * Returns a string representing the type of connection used
+ *
+ * @param object $link mysql link
+ *
+ * @return string type of connection used
+ */
+function PMA_DBI_getHostInfo($link = null)
+{
+    return $GLOBALS['extension']->getHostInfo($link);
+}
+
+/**
+ * Returns the version of the MySQL protocol used
+ *
+ * @param object $link mysql link
+ *
+ * @return integer version of the MySQL protocol used
+ */
+function PMA_DBI_getProtoInfo($link = null)
+{
+    return $GLOBALS['extension']->getProtoInfo($link);
+}
+
+/**
+ * returns a string that represents the client library version
+ *
+ * @return string MySQL client library version
+ */
+function PMA_DBI_getClientInfo()
+{
+    return $GLOBALS['extension']->getClientInfo();
+}
+
+/**
+ * returns last error message or false if no errors occured
+ *
+ * @param object $link connection link
+ *
+ * @return string|bool $error or false
+ */
+function PMA_DBI_getError($link = null)
+{
+    return $GLOBALS['extension']->getError($link);
+}
+
+/**
+ * returns the number of rows returned by last query
+ *
+ * @param object $result result set identifier
+ *
+ * @return string|int
+ */
+function PMA_DBI_numRows($result)
+{
+    return $GLOBALS['extension']->numRows($result);
+}
+
+/**
+ * returns last inserted auto_increment id for given $link or $GLOBALS['userlink']
+ *
+ * @param object $link the connection object
+ *
+ * @return string|int
+ */
+function PMA_DBI_insertId($link = null)
+{
+    return $GLOBALS['extension']->insertId($link);
+}
+
+/**
+ * returns the number of rows affected by last query
+ *
+ * @param object $link           the connection object
+ * @param bool   $get_from_cache whether to retrieve from cache
+ *
+ * @return string|int
+ */
+function PMA_DBI_affectedRows($link = null, $get_from_cache = true)
+{
+    return $GLOBALS['extension']->affectedRows($link, $get_from_cache);
+}
+
+/**
+ * returns metainfo for fields in $result
+ *
+ * @param object $result result set identifier
+ *
+ * @return array meta info for fields in $result
+ */
+function PMA_DBI_getFieldsMeta($result)
+{
+    return $GLOBALS['extension']->getFieldsMeta($result);
+}
+
+/**
+ * return number of fields in given $result
+ *
+ * @param object $result result set identifier
+ *
+ * @return int field count
+ */
+function PMA_DBI_numFields($result)
+{
+    return $GLOBALS['extension']->numFields($result);
+}
+
+/**
+ * returns the length of the given field $i in $result
+ *
+ * @param object $result result set identifier
+ * @param int    $i      field
+ *
+ * @return int length of field
+ */
+function PMA_DBI_fieldLen($result, $i)
+{
+    return $GLOBALS['extension']->fieldLen($result, $i);
+}
+
+/**
+ * returns name of $i. field in $result
+ *
+ * @param object $result result set identifier
+ * @param int    $i      field
+ *
+ * @return string name of $i. field in $result
+ */
+function PMA_DBI_fieldName($result, $i)
+{
+    return $GLOBALS['extension']->fieldName($result, $i);
+}
+
+/**
+ * returns concatenated string of human readable field flags
+ *
+ * @param object $result result set identifier
+ * @param int    $i      field
+ *
+ * @return string field flags
+ */
+function PMA_DBI_fieldFlags($result, $i)
+{
+    return $GLOBALS['extension']->fieldFlags($result, $i);
 }
 ?>

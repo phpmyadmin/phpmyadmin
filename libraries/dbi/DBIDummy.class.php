@@ -14,6 +14,8 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
+require_once './libraries/dbi/DBIExtension.int.php';
+
 /**
  * Array of queries this "driver" supports
  */
@@ -34,8 +36,16 @@ $GLOBALS['dummy_queries'] = array(
     array(
         'query' => 'SHOW STORAGE ENGINES',
         'result' => array(
-            array('Engine' => 'dummy', 'Support' => 'YES', 'Comment' => 'dummy comment'),
-            array('Engine' => 'dummy2', 'Support' => 'NO', 'Comment' => 'dummy2 comment'),
+            array(
+                'Engine' => 'dummy',
+                'Support' => 'YES',
+                'Comment' => 'dummy comment'
+            ),
+            array(
+                'Engine' => 'dummy2',
+                'Support' => 'NO',
+                'Comment' => 'dummy2 comment'
+            ),
         )
     ),
     array(
@@ -260,252 +270,380 @@ if (! defined('PMA_DRIZZLE')) {
     define('PMA_DRIZZLE', 0);
 }
 
-
 /**
- * Run the multi query and output the results
+ * Fake database driver for testing purposes
  *
- * @param mysqli $link  mysqli object
- * @param string $query multi query statement to execute
+ * It has hardcoded results for given queries what makes easy to use it
+ * in testsuite. Feel free to include other queries which your test will
+ * need.
  *
- * @return boolean false always false since mysql extention not support
- *                       for multi query executions
+ * @package    PhpMyAdmin-DBI
+ * @subpackage Dummy
  */
-function PMA_DBI_realMultiQuery($link, $query)
+class PMA_DBI_Dummy implements PMA_DBI_Extension
 {
-    return false;
-}
+    /**
+     * connects to the database server
+     *
+     * @param string $user                 mysql user name
+     * @param string $password             mysql user password
+     * @param bool   $is_controluser       whether this is a control user connection
+     * @param array  $server               host/port/socket/persistent
+     * @param bool   $auxiliary_connection (when true, don't go back to login if
+     *                                     connection fails)
+     *
+     * @return mixed false on error or a mysqli object on success
+     */
+    public function connect(
+        $user, $password, $is_controluser = false, $server = null,
+        $auxiliary_connection = false
+    ) {
+        return true;
+    }
 
-/**
- * connects to the database server
- *
- * @param string $user                 mysql user name
- * @param string $password             mysql user password
- * @param bool   $is_controluser       whether this is a control user connection
- * @param array  $server               host/port/socket/persistent
- * @param bool   $auxiliary_connection (when true, don't go back to login if
- *                                     connection fails)
- *
- * @return mixed false on error or a mysqli object on success
- */
-function PMA_DBI_connect(
-    $user, $password, $is_controluser = false, $server = null,
-    $auxiliary_connection = false
-) {
-    return true;
-}
+    /**
+     * selects given database
+     *
+     * @param string   $dbname name of db to select
+     * @param resource $link   mysql link resource
+     *
+     * @return bool
+     */
+    public function selectDb($dbname, $link = null)
+    {
+        $GLOBALS['dummy_db'] = $dbname;
+        return true;
+    }
 
-/**
- * selects given database
- *
- * @param string   $dbname name of db to select
- * @param resource $link   mysql link resource
- *
- * @return bool
- */
-function PMA_DBI_selectDb($dbname, $link = null)
-{
-    $GLOBALS['dummy_db'] = $dbname;
-    return true;
-}
-
-/**
- * runs a query and returns the result
- *
- * @param string   $query   query to run
- * @param resource $link    mysql link resource
- * @param int      $options query options
- *
- * @return mixed
- */
-function PMA_DBI_realQuery($query, $link = null, $options = 0)
-{
-    $query = trim(preg_replace('/  */', ' ', str_replace("\n", ' ', $query)));
-    for ($i = 0; $i < count($GLOBALS['dummy_queries']); $i++) {
-        if ($GLOBALS['dummy_queries'][$i]['query'] == $query) {
-            $GLOBALS['dummy_queries'][$i]['pos'] = 0;
-            if (is_array($GLOBALS['dummy_queries'][$i]['result'])) {
-                return $i;
-            } else {
-                return false;
+    /**
+     * runs a query and returns the result
+     *
+     * @param string   $query   query to run
+     * @param resource $link    mysql link resource
+     * @param int      $options query options
+     *
+     * @return mixed
+     */
+    public function realQuery($query, $link = null, $options = 0)
+    {
+        $query = trim(preg_replace('/  */', ' ', str_replace("\n", ' ', $query)));
+        for ($i = 0; $i < count($GLOBALS['dummy_queries']); $i++) {
+            if ($GLOBALS['dummy_queries'][$i]['query'] == $query) {
+                $GLOBALS['dummy_queries'][$i]['pos'] = 0;
+                if (is_array($GLOBALS['dummy_queries'][$i]['result'])) {
+                    return $i;
+                } else {
+                    return false;
+                }
             }
         }
-    }
-    echo "Not supported query: $query\n";
-    return false;
-}
-
-/**
- * returns result data from $result
- *
- * @param resource $result result  MySQL result
- *
- * @return array
- */
-function PMA_DBI_fetchAny($result)
-{
-    $query_data = $GLOBALS['dummy_queries'][$result];
-    if ($query_data['pos'] >= count($query_data['result'])) {
+        echo "Not supported query: $query\n";
         return false;
     }
-    $ret = $query_data['result'][$query_data['pos']];
-    $GLOBALS['dummy_queries'][$result]['pos'] += 1;
-    return $ret;
-}
 
-/**
- * returns array of rows with associative and numeric keys from $result
- *
- * @param resource $result result  MySQL result
- *
- * @return array
- */
-function PMA_DBI_fetchArray($result)
-{
-    $data = PMA_DBI_fetchAny($result);
-    if (is_array($data) && isset($GLOBALS['dummy_queries'][$result]['columns'])) {
-        foreach ($data as $key => $val) {
-            $data[$GLOBALS['dummy_queries'][$result]['columns'][$key]] = $val;
+    /**
+     * Run the multi query and output the results
+     *
+     * @param object $link  connection object
+     * @param string $query multi query statement to execute
+     *
+     * @return result collection | boolean(false)
+     */
+    public function realMultiQuery($link, $query)
+    {
+        return false;
+    }
+
+    /**
+     * returns result data from $result
+     *
+     * @param resource $result result  MySQL result
+     *
+     * @return array
+     */
+    public function fetchAny($result)
+    {
+        $query_data = $GLOBALS['dummy_queries'][$result];
+        if ($query_data['pos'] >= count($query_data['result'])) {
+            return false;
+        }
+        $ret = $query_data['result'][$query_data['pos']];
+        $GLOBALS['dummy_queries'][$result]['pos'] += 1;
+        return $ret;
+    }
+
+    /**
+     * returns array of rows with associative and numeric keys from $result
+     *
+     * @param resource $result result  MySQL result
+     *
+     * @return array
+     */
+    public function fetchArray($result)
+    {
+        $data = PMA_DBI_fetchAny($result);
+        if (is_array($data)
+            && isset($GLOBALS['dummy_queries'][$result]['columns'])
+        ) {
+            foreach ($data as $key => $val) {
+                $data[$GLOBALS['dummy_queries'][$result]['columns'][$key]] = $val;
+            }
+            return $data;
         }
         return $data;
     }
-    return $data;
-}
 
-/**
- * returns array of rows with associative keys from $result
- *
- * @param resource $result MySQL result
- *
- * @return array
- */
-function PMA_DBI_fetchAssoc($result)
-{
-    $data = PMA_DBI_fetchAny($result);
-    if (is_array($data) && isset($GLOBALS['dummy_queries'][$result]['columns'])) {
-        $ret = array();
-        foreach ($data as $key => $val) {
-            $ret[$GLOBALS['dummy_queries'][$result]['columns'][$key]] = $val;
+    /**
+     * returns array of rows with associative keys from $result
+     *
+     * @param resource $result MySQL result
+     *
+     * @return array
+     */
+    public function fetchAssoc($result)
+    {
+        $data = PMA_DBI_fetchAny($result);
+        if (is_array($data)
+            && isset($GLOBALS['dummy_queries'][$result]['columns'])
+        ) {
+            $ret = array();
+            foreach ($data as $key => $val) {
+                $ret[$GLOBALS['dummy_queries'][$result]['columns'][$key]] = $val;
+            }
+            return $ret;
         }
-        return $ret;
+        return $data;
     }
-    return $data;
-}
 
-/**
- * returns array of rows with numeric keys from $result
- *
- * @param resource $result MySQL result
- *
- * @return array
- */
-function PMA_DBI_fetchRow($result)
-{
-    $data = PMA_DBI_fetchAny($result);
-    return $data;
-}
+    /**
+     * returns array of rows with numeric keys from $result
+     *
+     * @param resource $result MySQL result
+     *
+     * @return array
+     */
+    public function fetchRow($result)
+    {
+        $data = PMA_DBI_fetchAny($result);
+        return $data;
+    }
 
-/**
- * Adjusts the result pointer to an arbitrary row in the result
- *
- * @param resource $result database result
- * @param integer  $offset offset to seek
- *
- * @return bool true on success, false on failure
- */
-function PMA_DBI_dataSeek($result, $offset)
-{
-    if ($offset > count($GLOBALS['dummy_queries'][$result]['result'])) {
+    /**
+     * Adjusts the result pointer to an arbitrary row in the result
+     *
+     * @param resource $result database result
+     * @param integer  $offset offset to seek
+     *
+     * @return bool true on success, false on failure
+     */
+    public function dataSeek($result, $offset)
+    {
+        if ($offset > count($GLOBALS['dummy_queries'][$result]['result'])) {
+            return false;
+        }
+        $GLOBALS['dummy_queries'][$result]['pos'] = $offset;
+        return true;
+    }
+
+    /**
+     * Frees memory associated with the result
+     *
+     * @param resource $result database result
+     *
+     * @return void
+     */
+    public function freeResult($result)
+    {
+        return;
+    }
+
+    /**
+     * Check if there are any more query results from a multi query
+     *
+     * @param object $link the connection object
+     *
+     * @return bool false
+     */
+    public function moreResults($link = null)
+    {
         return false;
     }
-    $GLOBALS['dummy_queries'][$result]['pos'] = $offset;
-    return true;
-}
 
-/**
- * Frees memory associated with the result
- *
- * @param resource $result database result
- *
- * @return void
- */
-function PMA_DBI_freeResult($result)
-{
-    return;
-}
+    /**
+     * Prepare next result from multi_query
+     *
+     * @param object $link the connection object
+     *
+     * @return boo false
+     */
+    public function nextResult($link = null)
+    {
+        return false;
+    }
 
-/**
- * Check if there are any more query results from a multi query
- *
- * @return bool false
- */
-function PMA_DBI_moreResults()
-{
-    return false;
-}
+    /**
+     * Store the result returned from multi query
+     *
+     * @return mixed false when empty results / result set when not empty
+     */
+    public function storeResult()
+    {
+        return false;
+    }
 
-/**
- * Prepare next result from multi_query
- *
- * @return boo false
- */
-function PMA_DBI_nextResult()
-{
-    return false;
-}
+    /**
+     * Returns a string representing the type of connection used
+     *
+     * @param object $link mysql link
+     *
+     * @return string type of connection used
+     */
+    public function getHostInfo($link = null)
+    {
+        return '';
+    }
 
-/**
- * returns the number of rows returned by last query
- *
- * @param resource $result MySQL result
- *
- * @return string|int
- */
-function PMA_DBI_numRows($result)
-{
-    if (!is_bool($result)) {
-        return count($GLOBALS['dummy_queries'][$result]['result']);
-    } else {
+    /**
+     * Returns the version of the MySQL protocol used
+     *
+     * @param object $link mysql link
+     *
+     * @return integer version of the MySQL protocol used
+     */
+    public function getProtoInfo($link = null)
+    {
+        return -1;
+    }
+
+    /**
+     * returns a string that represents the client library version
+     *
+     * @return string MySQL client library version
+     */
+    public function getClientInfo()
+    {
+        return '';
+    }
+
+    /**
+     * returns last error message or false if no errors occured
+     *
+     * @param object $link connection link
+     *
+     * @return string|bool $error or false
+     */
+    public function getError($link = null)
+    {
+        return false;
+    }
+
+    /**
+     * returns the number of rows returned by last query
+     *
+     * @param resource $result MySQL result
+     *
+     * @return string|int
+     */
+    public function numRows($result)
+    {
+        if (!is_bool($result)) {
+            return count($GLOBALS['dummy_queries'][$result]['result']);
+        } else {
+            return 0;
+        }
+    }
+
+    /**
+     * returns last inserted auto_increment id for given $link
+     * or $GLOBALS['userlink']
+     *
+     * @param object $link the connection object
+     *
+     * @return string|int
+     */
+    public function insertId($link = null)
+    {
+        return -1;
+    }
+
+    /**
+     * returns the number of rows affected by last query
+     *
+     * @param resource $link           the mysql object
+     * @param bool     $get_from_cache whether to retrieve from cache
+     *
+     * @return string|int
+     */
+    public function affectedRows($link = null, $get_from_cache = true)
+    {
         return 0;
     }
-}
 
-/**
- * returns the number of rows affected by last query
- *
- * @param resource $link           the mysql object
- * @param bool     $get_from_cache whether to retrieve from cache
- *
- * @return string|int
- */
-function PMA_DBI_affectedRows($link = null, $get_from_cache = true)
-{
-    return 0;
-}
+    /**
+     * returns metainfo for fields in $result
+     *
+     * @param object $result result set identifier
+     *
+     * @return array meta info for fields in $result
+     */
+    public function getFieldsMeta($result)
+    {
+        return array();
+    }
 
-/**
- * return number of fields in given $result
- *
- * @param resource $result MySQL result
- *
- * @return int  field count
- */
-function PMA_DBI_numFields($result)
-{
-    if (isset($GLOBALS['dummy_queries'][$result]['columns'])) {
-        return count($GLOBALS['dummy_queries'][$result]['columns']);
-    } else {
-        return 0;
+    /**
+     * return number of fields in given $result
+     *
+     * @param resource $result MySQL result
+     *
+     * @return int  field count
+     */
+    public function numFields($result)
+    {
+        if (isset($GLOBALS['dummy_queries'][$result]['columns'])) {
+            return count($GLOBALS['dummy_queries'][$result]['columns']);
+        } else {
+            return 0;
+        }
+    }
+
+    /**
+     * returns the length of the given field $i in $result
+     *
+     * @param object $result result set identifier
+     * @param int    $i      field
+     *
+     * @return int length of field
+     */
+    public function fieldLen($result, $i)
+    {
+        return -1;
+    }
+
+    /**
+     * returns name of $i. field in $result
+     *
+     * @param object $result result set identifier
+     * @param int    $i      field
+     *
+     * @return string name of $i. field in $result
+     */
+    public function fieldName($result, $i)
+    {
+        return '';
+    }
+
+    /**
+     * returns concatenated string of human readable field flags
+     *
+     * @param object $result result set identifier
+     * @param int    $i      field
+     *
+     * @return string field flags
+     */
+    public function fieldFlags($result, $i)
+    {
+        return '';
     }
 }
-
-/**
- * returns last error message or false if no errors occured
- *
- * @param resource $link mysql link
- *
- * @return string|bool $error or false
- */
-function PMA_DBI_getError($link = null)
-{
-    return false;
-}
+?>
