@@ -1496,13 +1496,14 @@ function PMA_highlightSQL(base)
     var $elm = base.find('code.sql');
     $elm.each(function () {
         var $sql = $(this);
+        var $pre = $sql.find('pre');
         /* We only care about visible elements to avoid double processing */
-        if ($sql.is(":visible")) {
+        if ($pre.is(":visible")) {
             var $highlight = $('<div class="sql-highlight cm-s-default"></div>');
             $sql.append($highlight);
             console.log('Highlight SQL: ' + $sql.text());
             CodeMirror.runMode($sql.text(), 'text/x-mysql', $highlight[0]);
-            $sql.find('pre').hide();
+            $pre.hide();
         }
     });
 }
