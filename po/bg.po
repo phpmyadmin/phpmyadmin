@@ -2240,17 +2240,17 @@ msgstr "PHP върна следната грешка: %s"
 
 #: libraries/Advisor.class.php:107
 #, php-format
-msgid "Failed evaluating precondition for rule '%s'"
+msgid "Failed evaluating precondition for rule '%s'."
 msgstr "Неуспешно оценяване условието за правилото '%s'"
 
 #: libraries/Advisor.class.php:124
 #, php-format
-msgid "Failed calculating value for rule '%s'"
+msgid "Failed calculating value for rule '%s'."
 msgstr "Неуспешно изчисляване стойността за правилото '%s'"
 
 #: libraries/Advisor.class.php:143
 #, php-format
-msgid "Failed running test for rule '%s'"
+msgid "Failed running test for rule '%s'."
 msgstr "Неуспешно пускане на тест за правилото '%s'"
 
 #: libraries/Advisor.class.php:225
@@ -2261,19 +2261,19 @@ msgstr "Неуспешно форматиране низ за правилото
 #: libraries/Advisor.class.php:395
 #, php-format
 msgid ""
-"Invalid rule declaration on line %1$s, expected line %2$s of previous rule"
+"Invalid rule declaration on line %1$s, expected line %2$s of previous rule."
 msgstr ""
 "Невалидна декларация на правило на ред %1$s, очакван ред %2$s от предишно "
 "правило"
 
 #: libraries/Advisor.class.php:412
 #, php-format
-msgid "Invalid rule declaration on line %s"
+msgid "Invalid rule declaration on line %s."
 msgstr "Невалидна декларация на правило на ред %s"
 
 #: libraries/Advisor.class.php:420
 #, php-format
-msgid "Unexpected characters on line %s"
+msgid "Unexpected characters on line %s."
 msgstr "Неочаквани знаци на ред %s"
 
 #: libraries/Advisor.class.php:434

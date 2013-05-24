@@ -2197,17 +2197,17 @@ msgstr "PHP selhalo s chybou: %s"
 
 #: libraries/Advisor.class.php:107
 #, php-format
-msgid "Failed evaluating precondition for rule '%s'"
+msgid "Failed evaluating precondition for rule '%s'."
 msgstr "Selhalo vyhodnocení podmínky pro pravidlo '%s'"
 
 #: libraries/Advisor.class.php:124
 #, php-format
-msgid "Failed calculating value for rule '%s'"
+msgid "Failed calculating value for rule '%s'."
 msgstr "Selhal výpočet hodnoty pro pravidlo '%s'"
 
 #: libraries/Advisor.class.php:143
 #, php-format
-msgid "Failed running test for rule '%s'"
+msgid "Failed running test for rule '%s'."
 msgstr "Selhalo spuštění podmínky pro pravidlo „%s“"
 
 #: libraries/Advisor.class.php:225
@@ -2218,19 +2218,19 @@ msgstr "Selhalo formátování textu pro pravidlo „%s“."
 #: libraries/Advisor.class.php:395
 #, php-format
 msgid ""
-"Invalid rule declaration on line %1$s, expected line %2$s of previous rule"
+"Invalid rule declaration on line %1$s, expected line %2$s of previous rule."
 msgstr ""
 "Neplatná definice pravidla na řádku %1$s, očekáván řádek %2$s z předchozího "
 "pravidla"
 
 #: libraries/Advisor.class.php:412
 #, php-format
-msgid "Invalid rule declaration on line %s"
+msgid "Invalid rule declaration on line %s."
 msgstr "Chybná definice pravidla na řádku %s"
 
 #: libraries/Advisor.class.php:420
 #, php-format
-msgid "Unexpected characters on line %s"
+msgid "Unexpected characters on line %s."
 msgstr "Neočekávané znaky na řádku %s"
 
 #: libraries/Advisor.class.php:434

@@ -2154,17 +2154,17 @@ msgstr "php给出下述错误：%s"
 
 #: libraries/Advisor.class.php:107
 #, php-format
-msgid "Failed evaluating precondition for rule '%s'"
+msgid "Failed evaluating precondition for rule '%s'."
 msgstr "在预编译时出错，错误信息：“%s”"
 
 #: libraries/Advisor.class.php:124
 #, php-format
-msgid "Failed calculating value for rule '%s'"
+msgid "Failed calculating value for rule '%s'."
 msgstr "在数学计算时出错，错误信息：“%s”"
 
 #: libraries/Advisor.class.php:143
 #, php-format
-msgid "Failed running test for rule '%s'"
+msgid "Failed running test for rule '%s'."
 msgstr "规则‘%s’运行测试失败"
 
 #: libraries/Advisor.class.php:225
@@ -2175,17 +2175,17 @@ msgstr "格式化字符串 '%s' 失败。"
 #: libraries/Advisor.class.php:395
 #, php-format
 msgid ""
-"Invalid rule declaration on line %1$s, expected line %2$s of previous rule"
+"Invalid rule declaration on line %1$s, expected line %2$s of previous rule."
 msgstr "第%1$s行的规则声明无效，上一条规则应在第%2$s行"
 
 #: libraries/Advisor.class.php:412
 #, php-format
-msgid "Invalid rule declaration on line %s"
+msgid "Invalid rule declaration on line %s."
 msgstr "第 %s 行有无效的规则定义"
 
 #: libraries/Advisor.class.php:420
 #, php-format
-msgid "Unexpected characters on line %s"
+msgid "Unexpected characters on line %s."
 msgstr "第 %s 行有不应出现的字符"
 
 #: libraries/Advisor.class.php:434

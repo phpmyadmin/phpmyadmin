@@ -2265,17 +2265,17 @@ msgstr "PHP は以下のエラーを返しました: %s"
 
 #: libraries/Advisor.class.php:107
 #, php-format
-msgid "Failed evaluating precondition for rule '%s'"
+msgid "Failed evaluating precondition for rule '%s'."
 msgstr "事象名「%s」において、前提条件の評価に失敗しました。"
 
 #: libraries/Advisor.class.php:124
 #, php-format
-msgid "Failed calculating value for rule '%s'"
+msgid "Failed calculating value for rule '%s'."
 msgstr "事象名「%s」において、判断値の算出に失敗しました。"
 
 #: libraries/Advisor.class.php:143
 #, php-format
-msgid "Failed running test for rule '%s'"
+msgid "Failed running test for rule '%s'."
 msgstr "事象名「%s」において、判断の判定に失敗しました。"
 
 #: libraries/Advisor.class.php:225
@@ -2286,17 +2286,17 @@ msgstr "事象名「%s」において、表示書式の形成に失敗しまし�
 #: libraries/Advisor.class.php:395
 #, php-format
 msgid ""
-"Invalid rule declaration on line %1$s, expected line %2$s of previous rule"
+"Invalid rule declaration on line %1$s, expected line %2$s of previous rule."
 msgstr ""
 
 #: libraries/Advisor.class.php:412
 #, php-format
-msgid "Invalid rule declaration on line %s"
+msgid "Invalid rule declaration on line %s."
 msgstr "無効な事象定義がありました (行: %s)"
 
 #: libraries/Advisor.class.php:420
 #, php-format
-msgid "Unexpected characters on line %s"
+msgid "Unexpected characters on line %s."
 msgstr "予期しない文字 (行: %s)"
 
 #: libraries/Advisor.class.php:434

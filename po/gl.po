@@ -2254,17 +2254,17 @@ msgstr "PHP mostrou o seguinte erro:%s"
 
 #: libraries/Advisor.class.php:107
 #, php-format
-msgid "Failed evaluating precondition for rule '%s'"
+msgid "Failed evaluating precondition for rule '%s'."
 msgstr "Non foi posíbel avaliar a pre-condición da regra «%s»"
 
 #: libraries/Advisor.class.php:124
 #, php-format
-msgid "Failed calculating value for rule '%s'"
+msgid "Failed calculating value for rule '%s'."
 msgstr "Non foi posíbel calcular o valor da regra «%s»"
 
 #: libraries/Advisor.class.php:143
 #, php-format
-msgid "Failed running test for rule '%s'"
+msgid "Failed running test for rule '%s'."
 msgstr "Non foi posíbel executar a proba da regra «%s»"
 
 #: libraries/Advisor.class.php:225
@@ -2275,19 +2275,19 @@ msgstr "Produciuse un erro ao formatar a cadea para a regra «%s»."
 #: libraries/Advisor.class.php:395
 #, php-format
 msgid ""
-"Invalid rule declaration on line %1$s, expected line %2$s of previous rule"
+"Invalid rule declaration on line %1$s, expected line %2$s of previous rule."
 msgstr ""
 "A declaración da regra na liña %1$s é incorrecta; esperábase a liña %2$s da "
 "regra anterior"
 
 #: libraries/Advisor.class.php:412
 #, php-format
-msgid "Invalid rule declaration on line %s"
+msgid "Invalid rule declaration on line %s."
 msgstr "Hai unha declaración de regra incorrecta na liña %s"
 
 #: libraries/Advisor.class.php:420
 #, php-format
-msgid "Unexpected characters on line %s"
+msgid "Unexpected characters on line %s."
 msgstr "Hai caracteres inesperados na liña %s"
 
 #: libraries/Advisor.class.php:434

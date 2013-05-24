@@ -2209,17 +2209,17 @@ msgstr "PHP je vrnil naslednjo napako: %s"
 
 #: libraries/Advisor.class.php:107
 #, php-format
-msgid "Failed evaluating precondition for rule '%s'"
+msgid "Failed evaluating precondition for rule '%s'."
 msgstr "Ovrednotenje predpogojev za pravilo '%s' je spodletelo"
 
 #: libraries/Advisor.class.php:124
 #, php-format
-msgid "Failed calculating value for rule '%s'"
+msgid "Failed calculating value for rule '%s'."
 msgstr "Izračun vrednosti za pravilo '%s' je spodletel"
 
 #: libraries/Advisor.class.php:143
 #, php-format
-msgid "Failed running test for rule '%s'"
+msgid "Failed running test for rule '%s'."
 msgstr "Zagon preizkusa za pravilo '%s' je spodletel"
 
 #: libraries/Advisor.class.php:225
@@ -2230,19 +2230,19 @@ msgstr "Oblikovanje niza za pravilo '%s' je spodletelo."
 #: libraries/Advisor.class.php:395
 #, php-format
 msgid ""
-"Invalid rule declaration on line %1$s, expected line %2$s of previous rule"
+"Invalid rule declaration on line %1$s, expected line %2$s of previous rule."
 msgstr ""
 "Neveljavna označba v vrstici %1$s; pričakoval sem vrstico %2$s prejšnjega "
 "pravila"
 
 #: libraries/Advisor.class.php:412
 #, php-format
-msgid "Invalid rule declaration on line %s"
+msgid "Invalid rule declaration on line %s."
 msgstr "Neveljavna označba pravila v vrstici %s"
 
 #: libraries/Advisor.class.php:420
 #, php-format
-msgid "Unexpected characters on line %s"
+msgid "Unexpected characters on line %s."
 msgstr "Nepričakovani znaki v vrstici %s"
 
 #: libraries/Advisor.class.php:434

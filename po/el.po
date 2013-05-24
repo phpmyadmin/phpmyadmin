@@ -2221,17 +2221,17 @@ msgstr "Η PHP έδωσε το ακόλουθο σφάλμα: %s"
 
 #: libraries/Advisor.class.php:107
 #, php-format
-msgid "Failed evaluating precondition for rule '%s'"
+msgid "Failed evaluating precondition for rule '%s'."
 msgstr "Απέτυχε η αξιολόγηση προσυνθήκης για τον κανόνα «%s»"
 
 #: libraries/Advisor.class.php:124
 #, php-format
-msgid "Failed calculating value for rule '%s'"
+msgid "Failed calculating value for rule '%s'."
 msgstr "Απέτυχε ο υπολογισμός τιμής για τον κανόνα «%s»"
 
 #: libraries/Advisor.class.php:143
 #, php-format
-msgid "Failed running test for rule '%s'"
+msgid "Failed running test for rule '%s'."
 msgstr "Απέτυχε η εκτέλεση ελέγχου για τον κανόνα «%s»"
 
 #: libraries/Advisor.class.php:225
@@ -2242,19 +2242,19 @@ msgstr "Αποτυχία διαμόρφωσης κειμένου για τον �
 #: libraries/Advisor.class.php:395
 #, php-format
 msgid ""
-"Invalid rule declaration on line %1$s, expected line %2$s of previous rule"
+"Invalid rule declaration on line %1$s, expected line %2$s of previous rule."
 msgstr ""
 "Μη έγκυρη διακήρυξη κανόνα στη γραμμή %1$s, αναμενόμενη γραμμή %2$s από "
 "προηγούμενο κανόνα"
 
 #: libraries/Advisor.class.php:412
 #, php-format
-msgid "Invalid rule declaration on line %s"
+msgid "Invalid rule declaration on line %s."
 msgstr "Μη έγκυρη διακήρυξη κανόνα στη γραμμή %s"
 
 #: libraries/Advisor.class.php:420
 #, php-format
-msgid "Unexpected characters on line %s"
+msgid "Unexpected characters on line %s."
 msgstr "Μη έγκυρη χαρακτήρες στη γραμμή %s"
 
 #: libraries/Advisor.class.php:434

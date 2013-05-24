@@ -2190,17 +2190,17 @@ msgstr "PHP에서 다음과 같은 오류가 발생했습니다: %s"
 
 #: libraries/Advisor.class.php:107
 #, php-format
-msgid "Failed evaluating precondition for rule '%s'"
+msgid "Failed evaluating precondition for rule '%s'."
 msgstr "규칙 '%s'에 대한 precondition 계산 실패"
 
 #: libraries/Advisor.class.php:124
 #, php-format
-msgid "Failed calculating value for rule '%s'"
+msgid "Failed calculating value for rule '%s'."
 msgstr "규칙 '%s'에 대한 값 계산 실패"
 
 #: libraries/Advisor.class.php:143
 #, php-format
-msgid "Failed running test for rule '%s'"
+msgid "Failed running test for rule '%s'."
 msgstr "규칙 '%s'에 대한 테스트를 실행 못 함"
 
 #: libraries/Advisor.class.php:225
@@ -2211,17 +2211,17 @@ msgstr "규칙 '%s'를 변환하는데 실패했습니다."
 #: libraries/Advisor.class.php:395
 #, php-format
 msgid ""
-"Invalid rule declaration on line %1$s, expected line %2$s of previous rule"
+"Invalid rule declaration on line %1$s, expected line %2$s of previous rule."
 msgstr "이전 규칙의 %2$s 줄이 예상되었으나 규칙 %1$s이 잘못되었습니다"
 
 #: libraries/Advisor.class.php:412
 #, php-format
-msgid "Invalid rule declaration on line %s"
+msgid "Invalid rule declaration on line %s."
 msgstr "%s 행에 잘못된 규칙 선언"
 
 #: libraries/Advisor.class.php:420
 #, php-format
-msgid "Unexpected characters on line %s"
+msgid "Unexpected characters on line %s."
 msgstr "%s 라인에 알 수 없는 문자가 있습니다."
 
 #: libraries/Advisor.class.php:434
@@ -8096,13 +8096,13 @@ msgstr ""
 #: libraries/plugins/import/ImportCsv.class.php:281
 #: libraries/plugins/import/ImportCsv.class.php:556
 #, fuzzy, php-format
-#| msgid "Invalid rule declaration on line %s"
+#| msgid "Invalid rule declaration on line %s."
 msgid "Invalid format of CSV input on line %d."
 msgstr "%s 행에 잘못된 규칙 선언"
 
 #: libraries/plugins/import/ImportCsv.class.php:437
 #, fuzzy, php-format
-#| msgid "Invalid rule declaration on line %s"
+#| msgid "Invalid rule declaration on line %s."
 msgid "Invalid column count in CSV input on line %d."
 msgstr "%s 행에 잘못된 규칙 선언"
 

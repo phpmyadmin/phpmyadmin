@@ -2220,17 +2220,17 @@ msgstr "PHP вернул следующую ошибку: %s"
 
 #: libraries/Advisor.class.php:107
 #, php-format
-msgid "Failed evaluating precondition for rule '%s'"
+msgid "Failed evaluating precondition for rule '%s'."
 msgstr "Не удалось определить условия для правила '%s'"
 
 #: libraries/Advisor.class.php:124
 #, php-format
-msgid "Failed calculating value for rule '%s'"
+msgid "Failed calculating value for rule '%s'."
 msgstr "Не удалось подсчитать значение для правила '%s'"
 
 #: libraries/Advisor.class.php:143
 #, php-format
-msgid "Failed running test for rule '%s'"
+msgid "Failed running test for rule '%s'."
 msgstr "Не удалось запустить проверку правила '%s'"
 
 #: libraries/Advisor.class.php:225
@@ -2241,19 +2241,19 @@ msgstr "Не удалось форматировать строку для пр�
 #: libraries/Advisor.class.php:395
 #, php-format
 msgid ""
-"Invalid rule declaration on line %1$s, expected line %2$s of previous rule"
+"Invalid rule declaration on line %1$s, expected line %2$s of previous rule."
 msgstr ""
 "Неверное определение правила на строке %1$s, ожидается строка %2$s "
 "предыдущего правила"
 
 #: libraries/Advisor.class.php:412
 #, php-format
-msgid "Invalid rule declaration on line %s"
+msgid "Invalid rule declaration on line %s."
 msgstr "Неверное определение правила на строке %s"
 
 #: libraries/Advisor.class.php:420
 #, php-format
-msgid "Unexpected characters on line %s"
+msgid "Unexpected characters on line %s."
 msgstr "Неожиданные символы на строке %s"
 
 #: libraries/Advisor.class.php:434

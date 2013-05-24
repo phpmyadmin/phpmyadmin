@@ -2224,17 +2224,17 @@ msgstr "PHP gaf de volgende fout : %s"
 
 #: libraries/Advisor.class.php:107
 #, php-format
-msgid "Failed evaluating precondition for rule '%s'"
+msgid "Failed evaluating precondition for rule '%s'."
 msgstr "Validatie van de preconditie van regel '%s' is mislukt"
 
 #: libraries/Advisor.class.php:124
 #, php-format
-msgid "Failed calculating value for rule '%s'"
+msgid "Failed calculating value for rule '%s'."
 msgstr "Berekening van waarde voor regel '%s' is mislukt"
 
 #: libraries/Advisor.class.php:143
 #, php-format
-msgid "Failed running test for rule '%s'"
+msgid "Failed running test for rule '%s'."
 msgstr "Test uitvoeren voor regel '%s' is mislukt"
 
 #: libraries/Advisor.class.php:225
@@ -2245,19 +2245,19 @@ msgstr "Formatteren van tekenreeks voor regel '%s' is mislukt."
 #: libraries/Advisor.class.php:395
 #, php-format
 msgid ""
-"Invalid rule declaration on line %1$s, expected line %2$s of previous rule"
+"Invalid rule declaration on line %1$s, expected line %2$s of previous rule."
 msgstr ""
 "Ongeldige regeldeclaratie op lijn %1$s, lijn %2$s van de vorige regel "
 "verwacht"
 
 #: libraries/Advisor.class.php:412
 #, php-format
-msgid "Invalid rule declaration on line %s"
+msgid "Invalid rule declaration on line %s."
 msgstr "Ongeldige regeldeclaratie op lijn %s"
 
 #: libraries/Advisor.class.php:420
 #, php-format
-msgid "Unexpected characters on line %s"
+msgid "Unexpected characters on line %s."
 msgstr "Onverwachte tekens op lijn %s"
 
 #: libraries/Advisor.class.php:434

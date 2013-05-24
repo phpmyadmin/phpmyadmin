@@ -2217,17 +2217,17 @@ msgstr "PHP විසින් පහත දෝෂය දක්වන ලදී:
 
 #: libraries/Advisor.class.php:107
 #, php-format
-msgid "Failed evaluating precondition for rule '%s'"
+msgid "Failed evaluating precondition for rule '%s'."
 msgstr "'%s' රීතිය සඳහා පූර්ව කොන්දේසි විනිශ්චය කිරීම අසමත් විය"
 
 #: libraries/Advisor.class.php:124
 #, php-format
-msgid "Failed calculating value for rule '%s'"
+msgid "Failed calculating value for rule '%s'."
 msgstr "'%s' රීතිය සඳහා අගය ගණනය කිරීම අසමත් විය"
 
 #: libraries/Advisor.class.php:143
 #, php-format
-msgid "Failed running test for rule '%s'"
+msgid "Failed running test for rule '%s'."
 msgstr "'%s' රීතිය සඳහා පරීක්ෂණය සිදු කිරීම අසමත් විය"
 
 #: libraries/Advisor.class.php:225
@@ -2238,17 +2238,17 @@ msgstr "'%s' රීතිය සඳහා පෙළ සැකසීම අසම
 #: libraries/Advisor.class.php:395
 #, php-format
 msgid ""
-"Invalid rule declaration on line %1$s, expected line %2$s of previous rule"
+"Invalid rule declaration on line %1$s, expected line %2$s of previous rule."
 msgstr "%1$s පේළියේ වැරදි රීති අර්ථ දැක්වීමකි, පෙර රීතියේ %2$s වන පේළිය බලාපොරොත්තු විය"
 
 #: libraries/Advisor.class.php:412
 #, php-format
-msgid "Invalid rule declaration on line %s"
+msgid "Invalid rule declaration on line %s."
 msgstr "%s වන පේළියේ වැරදි රීති අර්ථදැක්වීමකි"
 
 #: libraries/Advisor.class.php:420
 #, php-format
-msgid "Unexpected characters on line %s"
+msgid "Unexpected characters on line %s."
 msgstr "%s වන පේළියේ අනපේක්ෂිත අනුලකුණකි"
 
 #: libraries/Advisor.class.php:434

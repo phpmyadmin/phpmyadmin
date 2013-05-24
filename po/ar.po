@@ -2204,17 +2204,17 @@ msgstr "ألقى PHP بالخطأ التالي: %s"
 
 #: libraries/Advisor.class.php:107
 #, php-format
-msgid "Failed evaluating precondition for rule '%s'"
+msgid "Failed evaluating precondition for rule '%s'."
 msgstr "فشلت في تقييم مسبق للقاعدة '%s'"
 
 #: libraries/Advisor.class.php:124
 #, php-format
-msgid "Failed calculating value for rule '%s'"
+msgid "Failed calculating value for rule '%s'."
 msgstr "فشلت في حساب القيمة للقاعدة '%s'"
 
 #: libraries/Advisor.class.php:143
 #, php-format
-msgid "Failed running test for rule '%s'"
+msgid "Failed running test for rule '%s'."
 msgstr "فشلت في تشغيل الإختبار للقاعدة '%s'"
 
 #: libraries/Advisor.class.php:225
@@ -2225,18 +2225,18 @@ msgstr "فشلت في تهيئة السلسلة للقاعدة '%s'."
 #: libraries/Advisor.class.php:395
 #, php-format
 msgid ""
-"Invalid rule declaration on line %1$s, expected line %2$s of previous rule"
+"Invalid rule declaration on line %1$s, expected line %2$s of previous rule."
 msgstr ""
 "إعلان قاعدة غير صالح على السطر %1$s، السطر المتوقع هو %2$s من القاعدة السابقة"
 
 #: libraries/Advisor.class.php:412
 #, php-format
-msgid "Invalid rule declaration on line %s"
+msgid "Invalid rule declaration on line %s."
 msgstr "إعلان قاعدة غير صحيح على السطر %s"
 
 #: libraries/Advisor.class.php:420
 #, php-format
-msgid "Unexpected characters on line %s"
+msgid "Unexpected characters on line %s."
 msgstr "أحرف غير متوقعة على السطر %s"
 
 #: libraries/Advisor.class.php:434
