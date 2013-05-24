@@ -10913,7 +10913,7 @@ msgstr ""
 msgid ""
 "Once you restarted MySQL server, please click on Go button. Afterwards, you "
 "should see a message informing you, that this server <b>is</b> configured as "
-"master"
+"master."
 msgstr ""
 
 #: server_replication.php:281

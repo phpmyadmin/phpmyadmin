@@ -10654,7 +10654,7 @@ msgstr "現在，將下列行新增到您的 my.cnf 檔案最後，然後重新�
 msgid ""
 "Once you restarted MySQL server, please click on Go button. Afterwards, you "
 "should see a message informing you, that this server <b>is</b> configured as "
-"master"
+"master."
 msgstr ""
 "當 MySQL 伺服器重新啓動後，請點選 執行 按鈕。您應該看見一條提示資訊說此伺服器"
 "<b>已經</b>被設定爲主伺服器"

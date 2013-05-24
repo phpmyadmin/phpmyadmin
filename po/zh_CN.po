@@ -10439,7 +10439,7 @@ msgstr "现在，将下列行添加到你的 my.cnf 文件最后，然后重新�
 msgid ""
 "Once you restarted MySQL server, please click on Go button. Afterwards, you "
 "should see a message informing you, that this server <b>is</b> configured as "
-"master"
+"master."
 msgstr ""
 "当 MySQL 服务器重新启动后，请点击 执行 按钮。你应该看见一条提示信息说此服务器"
 "<b>已经</b>被配置为主服务器"
