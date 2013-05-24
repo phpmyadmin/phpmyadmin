@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-05-23 02:58-0400\n"
-"PO-Revision-Date: 2013-05-20 16:15+0200\n"
+"PO-Revision-Date: 2013-05-24 02:04+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
-"Language-Team: Slovenian <http://l10n.cihar.com/projects/phpmyadmin/master/"
-"sl/>\n"
+"Language-Team: Slovenian "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/sl/>\n"
+"Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: sl\n"
-"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%"
-"100==4 ? 2 : 3;\n"
+"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
+"%100==4 ? 2 : 3;\n"
 "X-Generator: Weblate 1.6-dev\n"
 
 #: browse_foreigners.php:36 browse_foreigners.php:60 js/messages.php:335
@@ -6297,10 +6297,9 @@ msgstr "CSV z uporabo LOAD DATA"
 #: libraries/config/setup.forms.php:260 libraries/config/setup.forms.php:353
 #: libraries/config/user_preferences.forms.php:160
 #: libraries/config/user_preferences.forms.php:252
-#, fuzzy
 #| msgid "Open Document Spreadsheet"
 msgid "OpenDocument Spreadsheet"
-msgstr "Preglednica Open Document"
+msgstr "Preglednica OpenDocument"
 
 #: libraries/config/setup.forms.php:267
 #: libraries/config/user_preferences.forms.php:167
@@ -6329,10 +6328,9 @@ msgstr "Microsoft Word 2000"
 
 #: libraries/config/setup.forms.php:357
 #: libraries/config/user_preferences.forms.php:256
-#, fuzzy
 #| msgid "Open Document Text"
 msgid "OpenDocument Text"
-msgstr "Besedilo Open Document"
+msgstr "Besedilo OpenDocument"
 
 #: libraries/config/validate.lib.php:214
 msgid "Could not initialize Drizzle connection library"
