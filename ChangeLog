@@ -14,6 +14,7 @@ phpMyAdmin - ChangeLog
 + rfe #1410 Added support for AES_ENCRYPT for blob fields
 + rfe #1423 Clarify option text for icon/text settings
 + [interface] Upgraded CodeMirror to 3.x series
++ rfe #1363 Improved query profiler
 
 4.0.3.0 (not yet released)
 - bug #3941 Recent tables list always empty
