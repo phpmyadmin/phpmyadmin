@@ -682,7 +682,7 @@ function PMA_getTabLinksHtml()
     }
     $retval .= '<a href="#endChartEditMode" style="display:none;">';
     $retval .= PMA_Util::getImage('s_okay.png');
-    $retval .= __('Done rearranging/editing charts');
+    $retval .= __('Done dragging(rearranging) charts');
     $retval .= '</a>';
     $retval .= '</div>';
 
@@ -701,7 +701,7 @@ function PMA_getPopContentHtml()
     $retval .= PMA_Util::getImage('b_chart.png') . __('Add chart');
     $retval .= '</a>';
     $retval .= '<a href="#rearrangeCharts">';
-    $retval .= PMA_Util::getImage('b_tblops.png') . __('Rearrange/edit charts');
+    $retval .= PMA_Util::getImage('b_tblops.png') . __('Enable charts dragging');
     $retval .= '</a>';
     $retval .= '<div class="clearfloat paddingtop"></div>';
     $retval .= '<div class="floatleft">';
