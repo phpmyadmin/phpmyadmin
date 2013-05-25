@@ -593,9 +593,8 @@ EOT;
     $profiling_table .= '<div id="profilingchart" style="display:none;">';
     $profiling_table .= '</div>';
     $profiling_table .= '<script type="text/javascript">';
-    $profiling_table .= 'if($.jqplot !== undefined && $.jqplot.PieRenderer !== undefined) {';
     $profiling_table .= 'makeProfilingChart();';
-    $profiling_table .= '}';
+    $profiling_table .= 'initProfilingTables();';
     $profiling_table .= '</script>';
     $profiling_table .= '</fieldset>' . "\n";
 
