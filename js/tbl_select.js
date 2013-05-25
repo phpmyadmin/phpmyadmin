@@ -128,6 +128,7 @@ AJAX.registerOnload('tbl_select.js', function () {
             } else {
                 $("#sqlqueryresults").html(data.error);
             }
+            PMA_highlightSQL($('#sqlqueryresults'));
         }); // end $.post()
     });
 

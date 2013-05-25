@@ -304,6 +304,7 @@ AJAX.registerOnload('sql.js', function () {
                             $('<div id="result_query"></div>')
                                 .html(data.sql_query)
                                 .prependTo('#page_content');
+                            PMA_highlightSQL($('#page_content'));
                         }
                     });
                     PMA_reloadNavigation();
