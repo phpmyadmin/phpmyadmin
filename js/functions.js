@@ -1352,6 +1352,7 @@ AJAX.registerOnload('functions.js', function () {
         var $form = $(this).prev('form');
         var sql_query  = $form.find("input[name='sql_query']").val();
         var $inner_sql = $(this).parent().prev().find('.inner_sql');
+        var $sql_highlight = $(this).parent().prev().find('.sql-highlight');
         var old_text   = $inner_sql.html();
 
         var new_content = "<textarea name=\"sql_query_edit\" id=\"sql_query_edit\">" + sql_query + "</textarea>\n";
@@ -1364,6 +1365,7 @@ AJAX.registerOnload('functions.js', function () {
         }
         $editor_area.html(new_content);
         $inner_sql.hide();
+        $sql_highlight.hide();
 
         bindCodeMirrorToInlineEditor();
         return false;
@@ -1387,8 +1389,8 @@ AJAX.registerOnload('functions.js', function () {
 
     $("input#sql_query_edit_discard").live('click', function () {
         $('div#inline_editor_outer')
-            .empty()
-            .siblings('.inner_sql').show();
+            .siblings('.sql-highlight').show();
+        $('div#inline_editor_outer').remove();
     });
 
     $('input.sqlbutton').click(function (evt) {
@@ -1484,6 +1486,25 @@ function catchKeypressesFromSqlTextboxes(event) {
             $("#button_submit_query").trigger('click');
         }
     }
+}
+
+/**
+ * Higlights SQL using CodeMirror.
+ */
+function PMA_highlightSQL(base)
+{
+    var $elm = base.find('code.sql');
+    $elm.each(function () {
+        var $sql = $(this);
+        var $pre = $sql.find('pre');
+        /* We only care about visible elements to avoid double processing */
+        if ($pre.is(":visible")) {
+            var $highlight = $('<div class="sql-highlight cm-s-default"></div>');
+            $sql.append($highlight);
+            CodeMirror.runMode($sql.text(), 'text/x-mysql', $highlight[0]);
+            $pre.hide();
+        }
+    });
 }
 
 /**
@@ -1597,6 +1618,7 @@ function PMA_ajaxShowMessage(message, timeout)
             PMA_messages.strDismiss
         );
     }
+    PMA_highlightSQL($retval);
 
     return $retval;
 }
@@ -2117,6 +2139,7 @@ AJAX.registerOnload('functions.js', function () {
         $.post($form.attr('action'), $form.serialize() + "&submit_num_fields=1", function (data) {
             if (data.success) {
                 $("#page_content").html(data.message);
+                PMA_highlightSQL($('#page_content'));
                 PMA_verifyColumnsProperties();
                 PMA_ajaxRemoveMessage($msgbox);
             } else {
@@ -2225,6 +2248,7 @@ AJAX.registerOnload('functions.js', function () {
                     PMA_commonParams.set('table', tbl);
                     PMA_commonActions.refreshMain(false, function () {
                         $('#page_content').html(data.message);
+                        PMA_highlightSQL($('#page_content'));
                     });
                 } else {
                     PMA_ajaxShowMessage(data.error, false);
@@ -2255,6 +2279,7 @@ AJAX.registerOnload('functions.js', function () {
                 PMA_ajaxShowMessage(data.message);
                 $("<div id='sqlqueryresults' class='ajax'></div>").prependTo("#page_content");
                 $("#sqlqueryresults").html(data.sql_query);
+                PMA_highlightSQL($('#page_content'));
                 scrollToTop();
             } else if (data.success === true) {
                 var $temp_div = $("<div id='temp_div'></div>");
@@ -2263,6 +2288,7 @@ AJAX.registerOnload('functions.js', function () {
                 PMA_ajaxShowMessage($success);
                 $("<div id='sqlqueryresults' class='ajax'></div>").prependTo("#page_content");
                 $("#sqlqueryresults").html(data.message);
+                PMA_highlightSQL($('#page_content'));
                 PMA_init_slider();
                 $("#sqlqueryresults").children("fieldset,br").remove();
                 scrollToTop();
@@ -2407,6 +2433,7 @@ AJAX.registerOnload('functions.js', function () {
             $.post($the_form.attr('action'), $the_form.serialize() + '&change_pw=' + this_value, function (data) {
                 if (data.success === true) {
                     $("#page_content").prepend(data.message);
+                    PMA_highlightSQL($('#page_content'));
                     $("#change_password_dialog").hide().remove();
                     $("#edit_user_dialog").dialog("close").remove();
                     PMA_ajaxRemoveMessage($msgbox);
@@ -2817,6 +2844,7 @@ function indexEditorDialog(url, title, callback_success, callback_failure)
                     $('<div id="result_query"></div>')
                         .html(data.sql_query)
                         .prependTo('#page_content');
+                    PMA_highlightSQL($('#page_content'));
                 }
                 $("#result_query .notice").remove();
                 $("#result_query").prepend(data.message);
@@ -3421,6 +3449,7 @@ AJAX.registerOnload('functions.js', function () {
                     PMA_ajaxShowMessage(data.message);
                     $("<div id='sqlqueryresults'></div>").prependTo("#page_content");
                     $("#sqlqueryresults").html(data.sql_query);
+                    PMA_highlightSQL($('#page_content'));
                 } else {
                     PMA_ajaxShowMessage(data.error, false);
                 }
@@ -3454,6 +3483,7 @@ AJAX.registerOnload('functions.js', function () {
             $elm.focus().bind('keydown', catchKeypressesFromSqlTextboxes);
         }
     }
+    PMA_highlightSQL($('body'));
 });
 AJAX.registerTeardown('functions.js', function () {
     if (codemirror_editor) {

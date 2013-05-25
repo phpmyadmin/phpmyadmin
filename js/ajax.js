@@ -136,7 +136,7 @@ var AJAX = {
             return true;
         } else if (href && href.match(/^mailto/)) {
             return true;
-        } else if ($(this).hasClass('ui-datepicker-next') || 
+        } else if ($(this).hasClass('ui-datepicker-next') ||
                    $(this).hasClass('ui-datepicker-prev')
                   ) {
             return true;
@@ -255,6 +255,7 @@ var AJAX = {
                     $('#page_content').replaceWith(
                         "<div id='page_content'>" + data.message + "</div>"
                     );
+                    PMA_highlightSQL($('#page_content'));
                 }
 
                 if (data._selflink) {
@@ -277,6 +278,7 @@ var AJAX = {
                 }
                 if (data._displayMessage) {
                     $('#page_content').prepend(data._displayMessage);
+                    PMA_highlightSQL($('#page_content'));
                 }
 
                 $('#pma_errors').remove();
