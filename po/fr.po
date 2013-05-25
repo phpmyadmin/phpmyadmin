@@ -10816,7 +10816,7 @@ msgstr "Ajouter un graphique"
 #, fuzzy
 #| msgid "Enable highlighting"
 msgid "Enable charts dragging"
-msgstr "Active la surbrillance"
+msgstr "Active le mode glissement"
 
 #: server_status_monitor.php:496
 msgid "Refresh rate"
