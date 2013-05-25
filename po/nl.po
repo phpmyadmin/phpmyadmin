@@ -4,13 +4,13 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-05-25 07:30-0400\n"
-"PO-Revision-Date: 2013-05-23 15:16+0200\n"
+"PO-Revision-Date: 2013-05-25 13:57+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: Dutch <http://l10n.cihar.com/projects/phpmyadmin/4-0/nl/>\n"
+"Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: nl\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 1.6-dev\n"
 
@@ -10816,20 +10816,18 @@ msgid "Instructions/Setup"
 msgstr "Instructies/Setup"
 
 #: server_status_monitor.php:483
-#, fuzzy
 #| msgid "Done rearranging/editing charts"
 msgid "Done dragging (rearranging) charts"
-msgstr "Klaar met herschikken/bewerken van de grafieken"
+msgstr "Klaar met slepen (herschikken) van de grafieken"
 
 #: server_status_monitor.php:489 server_status_monitor.php:606
 msgid "Add chart"
 msgstr "Een grafiek toevoegen"
 
 #: server_status_monitor.php:492
-#, fuzzy
 #| msgid "Enable highlighting"
 msgid "Enable charts dragging"
-msgstr "Markeren inschakelen"
+msgstr "Grafieken verslepen ingeschakeld"
 
 #: server_status_monitor.php:496
 msgid "Refresh rate"
