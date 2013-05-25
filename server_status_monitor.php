@@ -682,7 +682,7 @@ function PMA_getTabLinksHtml()
     }
     $retval .= '<a href="#endChartEditMode" style="display:none;">';
     $retval .= PMA_Util::getImage('s_okay.png');
-    $retval .= __('Done dragging(rearranging) charts');
+    $retval .= __('Done dragging (rearranging) charts');
     $retval .= '</a>';
     $retval .= '</div>';
 
