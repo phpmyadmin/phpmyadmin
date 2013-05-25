@@ -101,6 +101,7 @@ function addUser($form)
             PMA_ajaxShowMessage(data.message);
             $("#result_query").remove();
             $('#page_content').prepend(data.sql_query);
+            PMA_highlightSQL($('#page_content'));
             $("#result_query").css({
                 'margin-top' : '0.5em'
             });
@@ -234,6 +235,7 @@ AJAX.registerOnload('server_privileges.js', function () {
                     .find("form[name=usersForm]")
                     .append('<input type="hidden" name="ajax_request" value="true" />')
                     .end();
+                PMA_highlightSQL($div);
                 displayPasswordGenerateButton();
                 PMA_showHints($div);
                 PMA_ajaxRemoveMessage($msgbox);
@@ -361,6 +363,8 @@ AJAX.registerOnload('server_privileges.js', function () {
                         $div.empty();
                     }
                     $div.html(data.message);
+                    PMA_highlightSQL($div);
+                    var $div = $('#edit_user_dialog');
                     displayPasswordGenerateButton();
                     $(checkboxes_sel).trigger("change");
                     PMA_ajaxRemoveMessage($msgbox);
@@ -430,6 +434,7 @@ AJAX.registerOnload('server_privileges.js', function () {
                 if (data.sql_query) {
                     $("#result_query").remove();
                     $('#page_content').prepend(data.sql_query);
+                    PMA_highlightSQL($('#page_content'));
                     $("#result_query").css({
                         'margin-top' : '0.5em'
                     });
