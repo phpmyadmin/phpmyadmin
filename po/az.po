@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-05-24 09:03-0400\n"
+"POT-Creation-Date: 2013-05-25 07:32-0400\n"
 "PO-Revision-Date: 2013-05-07 17:14+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Azerbaijani <http://l10n.cihar.com/projects/phpmyadmin/master/"
@@ -233,8 +233,8 @@ msgstr "Şərhlər"
 #: libraries/server_privileges.lib.php:2163
 #: libraries/server_privileges.lib.php:2483
 #: libraries/server_privileges.lib.php:2497 libraries/structure.lib.php:1268
-#: libraries/user_preferences.lib.php:282 prefs_manage.php:138 sql.php:344
-#: sql.php:439 sql.php:440 tbl_printview.php:186 tbl_tracking.php:345
+#: libraries/user_preferences.lib.php:282 prefs_manage.php:138 sql.php:329
+#: sql.php:424 sql.php:425 tbl_printview.php:186 tbl_tracking.php:345
 #: tbl_tracking.php:399 tbl_tracking.php:404
 msgid "No"
 msgstr "Xeyr"
@@ -260,7 +260,7 @@ msgstr "Xeyr"
 #: libraries/server_privileges.lib.php:2480
 #: libraries/server_privileges.lib.php:2497 libraries/structure.lib.php:1268
 #: libraries/user_preferences.lib.php:280 prefs_manage.php:136
-#: server_databases.php:103 server_databases.php:110 sql.php:437 sql.php:438
+#: server_databases.php:103 server_databases.php:110 sql.php:422 sql.php:423
 #: tbl_printview.php:187 tbl_structure.php:84 tbl_tracking.php:345
 #: tbl_tracking.php:397 tbl_tracking.php:402
 msgid "Yes"
@@ -672,7 +672,7 @@ msgstr ""
 msgid "Could not load import plugins, please check your installation!"
 msgstr ""
 
-#: import.php:519 sql.php:309 sql.php:1123
+#: import.php:519 sql.php:294 sql.php:1108
 #, php-format
 msgid "Bookmark %s created"
 msgstr ""
@@ -904,7 +904,7 @@ msgid ""
 "issues."
 msgstr ""
 
-#: js/messages.php:27 libraries/import.lib.php:118 sql.php:269
+#: js/messages.php:27 libraries/import.lib.php:118 sql.php:254
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "\"DROP DATABASE\" ifadeleri söndürülmüşdür (disabled)."
 
@@ -914,7 +914,7 @@ msgstr "\"DROP DATABASE\" ifadeleri söndürülmüşdür (disabled)."
 msgid "Do you really want to execute \"%s\"?"
 msgstr "Aşağıdakı sorğunu icra etdirmekten eminsiniz "
 
-#: js/messages.php:31 libraries/mult_submits.inc.php:337 sql.php:391
+#: js/messages.php:31 libraries/mult_submits.inc.php:337 sql.php:376
 msgid "You are about to DESTROY a complete database!"
 msgstr "Bütün bazanı YOX ETMEK üzeresiniz!"
 
@@ -2833,7 +2833,7 @@ msgstr "Gösterilen setirler"
 msgid "total"
 msgstr "cemi"
 
-#: libraries/DisplayResults.class.php:4950 sql.php:868
+#: libraries/DisplayResults.class.php:4950 sql.php:853
 #, php-format
 msgid "Query took %01.4f sec"
 msgstr "sorğu %01.4f saniyede icra edildi"
@@ -4071,19 +4071,19 @@ msgstr ""
 msgid "You should upgrade to %s %s or later."
 msgstr ""
 
-#: libraries/common.inc.php:1077
+#: libraries/common.inc.php:1079
 msgid "Error: Token mismatch"
 msgstr ""
 
-#: libraries/common.inc.php:1121
+#: libraries/common.inc.php:1123
 msgid "GLOBALS overwrite attempt"
 msgstr ""
 
-#: libraries/common.inc.php:1128
+#: libraries/common.inc.php:1130
 msgid "possible exploit"
 msgstr ""
 
-#: libraries/common.inc.php:1137
+#: libraries/common.inc.php:1139
 msgid "numeric key detected"
 msgstr ""
 
@@ -7264,7 +7264,7 @@ msgid "No data found for GIS visualization."
 msgstr ""
 
 #: libraries/import.lib.php:187 libraries/insert_edit.lib.php:120
-#: libraries/rte/rte_routines.lib.php:1443 sql.php:863 tbl_get_field.php:55
+#: libraries/rte/rte_routines.lib.php:1443 sql.php:848 tbl_get_field.php:55
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL boş netice çoxluğu gönderdi (ye'ni sıfır setir)."
 
@@ -7387,11 +7387,11 @@ msgid ""
 "Use TAB key to move from value to value, or CTRL+arrows to move anywhere"
 msgstr ""
 
-#: libraries/insert_edit.lib.php:1912 sql.php:858
+#: libraries/insert_edit.lib.php:1912 sql.php:843
 msgid "Showing SQL query"
 msgstr ""
 
-#: libraries/insert_edit.lib.php:1937 sql.php:838
+#: libraries/insert_edit.lib.php:1937 sql.php:823
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr ""
@@ -7448,7 +7448,7 @@ msgstr "Yeni sahe elave et"
 msgid "Add prefix"
 msgstr "Yeni sahe elave et"
 
-#: libraries/mult_submits.inc.php:339 sql.php:431
+#: libraries/mult_submits.inc.php:339 sql.php:416
 #, fuzzy
 #| msgid "Do you really want to "
 msgid "Do you really want to execute the following query?"
@@ -10090,7 +10090,7 @@ msgstr ""
 msgid "Bookmark this SQL query:"
 msgstr "Bu SQL sorğusunu bookmark-la"
 
-#: libraries/sql_query_form.lib.php:326 sql.php:1211
+#: libraries/sql_query_form.lib.php:326 sql.php:1196
 msgid "Let every user access this bookmark"
 msgstr ""
 
@@ -11426,13 +11426,12 @@ msgid "Instructions/Setup"
 msgstr ""
 
 #: server_status_monitor.php:685
-msgid "Done rearranging/editing charts"
+msgid "Done dragging (rearranging) charts"
 msgstr ""
 
 #: server_status_monitor.php:704
-#, fuzzy
-msgid "Rearrange/edit charts"
-msgstr "Cedveli yeniden adlandır"
+msgid "Enable charts dragging"
+msgstr ""
 
 #: server_status_monitor.php:708
 #, fuzzy
@@ -12398,41 +12397,41 @@ msgstr ""
 msgid "Wrong data"
 msgstr "Baza seçilmemişdir ve ya mövcud deyildir."
 
-#: sql.php:231
+#: sql.php:216
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr ""
 
-#: sql.php:313
+#: sql.php:298
 msgid "Bookmark not created"
 msgstr ""
 
-#: sql.php:855
+#: sql.php:840
 msgid "Showing as PHP code"
 msgstr ""
 
-#: sql.php:860
+#: sql.php:845
 #, fuzzy
 #| msgid "Validate SQL"
 msgid "Validated SQL"
 msgstr "SQL Tesdiqle"
 
-#: sql.php:1114
+#: sql.php:1099
 msgid ""
 "This table does not contain a unique column. Grid edit, checkbox, Edit, Copy "
 "and Delete features are not available."
 msgstr ""
 
-#: sql.php:1166
+#: sql.php:1151
 #, php-format
 msgid "Problems with indexes of table `%s`"
 msgstr ""
 
-#: sql.php:1199 sql.php:1219
+#: sql.php:1184 sql.php:1204
 msgid "Bookmark this SQL query"
 msgstr "Bu SQL sorğusunu bookmark-la"
 
-#: sql.php:1203
+#: sql.php:1188
 #, fuzzy
 #| msgid "Label"
 msgid "Label:"
@@ -14004,6 +14003,10 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr ""
+
+#, fuzzy
+#~ msgid "Rearrange/edit charts"
+#~ msgstr "Cedveli yeniden adlandır"
 
 #, fuzzy
 #~ msgid "Count tables"

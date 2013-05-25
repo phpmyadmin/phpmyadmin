@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-05-24 09:03-0400\n"
+"POT-Creation-Date: 2013-05-25 07:32-0400\n"
 "PO-Revision-Date: 2013-05-07 15:08+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Japanese <http://l10n.cihar.com/projects/phpmyadmin/master/ja/"
@@ -236,8 +236,8 @@ msgstr "コメント"
 #: libraries/server_privileges.lib.php:2163
 #: libraries/server_privileges.lib.php:2483
 #: libraries/server_privileges.lib.php:2497 libraries/structure.lib.php:1268
-#: libraries/user_preferences.lib.php:282 prefs_manage.php:138 sql.php:344
-#: sql.php:439 sql.php:440 tbl_printview.php:186 tbl_tracking.php:345
+#: libraries/user_preferences.lib.php:282 prefs_manage.php:138 sql.php:329
+#: sql.php:424 sql.php:425 tbl_printview.php:186 tbl_tracking.php:345
 #: tbl_tracking.php:399 tbl_tracking.php:404
 msgid "No"
 msgstr "いいえ"
@@ -263,7 +263,7 @@ msgstr "いいえ"
 #: libraries/server_privileges.lib.php:2480
 #: libraries/server_privileges.lib.php:2497 libraries/structure.lib.php:1268
 #: libraries/user_preferences.lib.php:280 prefs_manage.php:136
-#: server_databases.php:103 server_databases.php:110 sql.php:437 sql.php:438
+#: server_databases.php:103 server_databases.php:110 sql.php:422 sql.php:423
 #: tbl_printview.php:187 tbl_structure.php:84 tbl_tracking.php:345
 #: tbl_tracking.php:397 tbl_tracking.php:402
 msgid "Yes"
@@ -677,7 +677,7 @@ msgstr ""
 "インポートプラグインが読み込めません。正しくインストールされているか確認して"
 "ください！"
 
-#: import.php:519 sql.php:309 sql.php:1123
+#: import.php:519 sql.php:294 sql.php:1108
 #, php-format
 msgid "Bookmark %s created"
 msgstr "ブックマーク %s を作成しました"
@@ -931,7 +931,7 @@ msgstr ""
 "Suhosin が稼働しているため問題が発生する可能性があります。詳しくは%sドキュメ"
 "ント%sをご覧ください。"
 
-#: js/messages.php:27 libraries/import.lib.php:118 sql.php:269
+#: js/messages.php:27 libraries/import.lib.php:118 sql.php:254
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "DROP DATABASE 文は無効にされています。"
 
@@ -940,7 +940,7 @@ msgstr "DROP DATABASE 文は無効にされています。"
 msgid "Do you really want to execute \"%s\"?"
 msgstr "「%s」を本当に実行しますか？"
 
-#: js/messages.php:31 libraries/mult_submits.inc.php:337 sql.php:391
+#: js/messages.php:31 libraries/mult_submits.inc.php:337 sql.php:376
 msgid "You are about to DESTROY a complete database!"
 msgstr "データベースを完全に削除しようとしています!"
 
@@ -2692,7 +2692,7 @@ msgstr "行の表示"
 msgid "total"
 msgstr "合計"
 
-#: libraries/DisplayResults.class.php:4950 sql.php:868
+#: libraries/DisplayResults.class.php:4950 sql.php:853
 #, php-format
 msgid "Query took %01.4f sec"
 msgstr "クエリの実行時間 %01.4f 秒"
@@ -3944,19 +3944,19 @@ msgstr "設定ファイルに無効な認証方法が指定されています:"
 msgid "You should upgrade to %s %s or later."
 msgstr "%s を %s 以降にアップグレードしてください。"
 
-#: libraries/common.inc.php:1077
+#: libraries/common.inc.php:1079
 msgid "Error: Token mismatch"
 msgstr ""
 
-#: libraries/common.inc.php:1121
+#: libraries/common.inc.php:1123
 msgid "GLOBALS overwrite attempt"
 msgstr "GLOBALS 変数が書き換えられている可能性があります"
 
-#: libraries/common.inc.php:1128
+#: libraries/common.inc.php:1130
 msgid "possible exploit"
 msgstr "なんらかの攻撃をされている可能性があります"
 
-#: libraries/common.inc.php:1137
+#: libraries/common.inc.php:1139
 msgid "numeric key detected"
 msgstr "グローバル変数から数値キーが検出されました"
 
@@ -7315,7 +7315,7 @@ msgid "No data found for GIS visualization."
 msgstr "視覚化できる空間情報がありません。"
 
 #: libraries/import.lib.php:187 libraries/insert_edit.lib.php:120
-#: libraries/rte/rte_routines.lib.php:1443 sql.php:863 tbl_get_field.php:55
+#: libraries/rte/rte_routines.lib.php:1443 sql.php:848 tbl_get_field.php:55
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "返り値が空でした (行数 0)。"
 
@@ -7437,11 +7437,11 @@ msgstr ""
 "次の値に移動するときは TAB キーを使ってください。CTRL＋カーソルキーを使うと自"
 "由に移動できます"
 
-#: libraries/insert_edit.lib.php:1912 sql.php:858
+#: libraries/insert_edit.lib.php:1912 sql.php:843
 msgid "Showing SQL query"
 msgstr "SQL クエリを表示"
 
-#: libraries/insert_edit.lib.php:1937 sql.php:838
+#: libraries/insert_edit.lib.php:1937 sql.php:823
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "id %1$d の行を挿入しました"
@@ -7492,7 +7492,7 @@ msgstr "テーブル接頭辞の追加"
 msgid "Add prefix"
 msgstr "追加する接頭辞"
 
-#: libraries/mult_submits.inc.php:339 sql.php:431
+#: libraries/mult_submits.inc.php:339 sql.php:416
 msgid "Do you really want to execute the following query?"
 msgstr "以下のクエリを本当に実行しますか？"
 
@@ -10073,7 +10073,7 @@ msgstr "クリア"
 msgid "Bookmark this SQL query:"
 msgstr "この SQL をブックマークする"
 
-#: libraries/sql_query_form.lib.php:326 sql.php:1211
+#: libraries/sql_query_form.lib.php:326 sql.php:1196
 msgid "Let every user access this bookmark"
 msgstr "すべてのユーザがこのブックマークを利用できるようにする"
 
@@ -11399,12 +11399,16 @@ msgid "Instructions/Setup"
 msgstr "使用方法／セットアップ"
 
 #: server_status_monitor.php:685
-msgid "Done rearranging/editing charts"
+#, fuzzy
+#| msgid "Done rearranging/editing charts"
+msgid "Done dragging (rearranging) charts"
 msgstr "グラフの再配置／編集完了"
 
 #: server_status_monitor.php:704
-msgid "Rearrange/edit charts"
-msgstr "グラフの再配置／編集"
+#, fuzzy
+#| msgid "Enable highlighting"
+msgid "Enable charts dragging"
+msgstr "強調表示を有効にする"
 
 #: server_status_monitor.php:708
 msgid "Refresh rate"
@@ -12500,26 +12504,26 @@ msgstr "キーは文字、数字[em]それと[/em]特殊文字を含める必要
 msgid "Wrong data"
 msgstr "データが正しくありません"
 
-#: sql.php:231
+#: sql.php:216
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr "デフォルトの表示クエリとしてブックマーク \"%s\" を使用する。"
 
-#: sql.php:313
+#: sql.php:298
 #, fuzzy
 #| msgid "Bookmark %s created"
 msgid "Bookmark not created"
 msgstr "ブックマーク %s を作成しました"
 
-#: sql.php:855
+#: sql.php:840
 msgid "Showing as PHP code"
 msgstr "PHP コードとして表示"
 
-#: sql.php:860
+#: sql.php:845
 msgid "Validated SQL"
 msgstr "検証した SQL 文"
 
-#: sql.php:1114
+#: sql.php:1099
 #, fuzzy
 #| msgid ""
 #| "This table does not contain a unique column. Features related to the grid "
@@ -12532,16 +12536,16 @@ msgstr ""
 "ボックス、編集、コピー、削除のリンクに関連する機能は、保存後に動作しない場合"
 "があります。"
 
-#: sql.php:1166
+#: sql.php:1151
 #, php-format
 msgid "Problems with indexes of table `%s`"
 msgstr "テーブル `%s` のインデックスに問題があります"
 
-#: sql.php:1199 sql.php:1219
+#: sql.php:1184 sql.php:1204
 msgid "Bookmark this SQL query"
 msgstr "この SQL をブックマークする"
 
-#: sql.php:1203
+#: sql.php:1188
 #, fuzzy
 #| msgid "Label"
 msgid "Label:"
@@ -14289,6 +14293,9 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert は 0 に設定されています。"
+
+#~ msgid "Rearrange/edit charts"
+#~ msgstr "グラフの再配置／編集"
 
 #~ msgid "Open Document"
 #~ msgstr "Open Document"
