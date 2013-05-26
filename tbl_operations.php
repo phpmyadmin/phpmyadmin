@@ -43,7 +43,7 @@ require_once 'libraries/Partition.class.php';
 
 // reselect current db (needed in some cases probably due to
 // the calling of relation.lib.php)
-PMA_DBI_selectDb($GLOBALS['db']);
+$GLOBALS['dbi']->selectDb($GLOBALS['db']);
 
 /**
  * Gets tables informations
@@ -143,7 +143,7 @@ if (isset($_REQUEST['submitoptions'])) {
             . PMA_Util::backquote($GLOBALS['table']);
         $sql_query     .= "\r\n" . implode("\r\n", $table_alters);
         $sql_query     .= ';';
-        $result        .= PMA_DBI_query($sql_query) ? true : false;
+        $result        .= $GLOBALS['dbi']->query($sql_query) ? true : false;
         $reread_info    = true;
         unset($table_alters);
         $warning_messages = PMA_getWarningMessagesArray();
@@ -225,7 +225,7 @@ $url_params['goto']
 /**
  * Get columns names
  */
-$columns = PMA_DBI_getColumns($GLOBALS['db'], $GLOBALS['table']);
+$columns = $GLOBALS['dbi']->getColumns($GLOBALS['db'], $GLOBALS['table']);
 
 /**
  * Displays the page
@@ -363,7 +363,7 @@ unset($partition_names);
 // this choice (InnoDB maintains integrity by itself)
 
 if ($cfgRelation['relwork'] && ! $is_innodb) {
-    PMA_DBI_selectDb($GLOBALS['db']);
+    $GLOBALS['dbi']->selectDb($GLOBALS['db']);
     $foreign = PMA_getForeigners($GLOBALS['db'], $GLOBALS['table']);
 
     if ($foreign) {

@@ -43,7 +43,7 @@ if (strlen($table)) {
 /**
  * Selects the database
  */
-PMA_DBI_selectDb($db);
+$GLOBALS['dbi']->selectDb($db);
 
 
 /**
@@ -92,7 +92,7 @@ foreach ($the_tables as $key => $table) {
     /**
      * Gets fields properties
      */
-    $columns = PMA_DBI_getColumns($db, $table);
+    $columns = $GLOBALS['dbi']->getColumns($db, $table);
 
 
     // We need this to correctly learn if a TIMESTAMP is NOT NULL, since
@@ -100,7 +100,7 @@ foreach ($the_tables as $key => $table) {
     // and SHOW CREATE TABLE says NOT NULL (tested
     // in MySQL 4.0.25 and 5.0.21, http://bugs.mysql.com/20910).
 
-    $show_create_table = PMA_DBI_fetchValue(
+    $show_create_table = $GLOBALS['dbi']->fetchValue(
         'SHOW CREATE TABLE ' . PMA_Util::backquote($db) . '.'
         . PMA_Util::backquote($table),
         0, 1
@@ -160,7 +160,7 @@ foreach ($the_tables as $key => $table) {
         // the latter.
         /**
          * @todo merge this logic with the one in tbl_structure.php
-         * or move it in a function similar to PMA_DBI_getColumnsFull()
+         * or move it in a function similar to $GLOBALS['dbi']->getColumnsFull()
          * but based on SHOW CREATE TABLE because information_schema
          * cannot be trusted in this case (MySQL bug)
          */
@@ -222,7 +222,7 @@ foreach ($the_tables as $key => $table) {
     } // end foreach
     echo '</tbody>';
     echo '</table>';
-    if (! $tbl_is_view && !PMA_isSystemSchema($db)) {
+    if (! $tbl_is_view && !$GLOBALS['dbi']->isSystemSchema($db)) {
         /**
          * Displays indexes
          */

@@ -22,7 +22,7 @@ $scripts->addFile('server_privileges.js');
  * script
  */
 if (! $cfg['ShowChgPassword']) {
-    $cfg['ShowChgPassword'] = PMA_DBI_selectDb('mysql');
+    $cfg['ShowChgPassword'] = $GLOBALS['dbi']->selectDb('mysql');
 }
 if ($cfg['Server']['auth_type'] == 'config' || ! $cfg['ShowChgPassword']) {
     PMA_Message::error(
@@ -174,8 +174,8 @@ function PMA_ChangePassUrlParamsAndSubmitQuery(
     $local_query = 'SET password = ' . (($password == '')
         ? '\'\''
         : $hashing_function . '(\'' . PMA_Util::sqlAddSlashes($password) . '\')');
-    if (! @PMA_DBI_tryQuery($local_query)) {
-        PMA_Util::mysqlDie(PMA_DBI_getError(), $sql_query, false, $err_url);
+    if (! @$GLOBALS['dbi']->tryQuery($local_query)) {
+        PMA_Util::mysqlDie($GLOBALS['dbi']->getError(), $sql_query, false, $err_url);
     }
 }
 

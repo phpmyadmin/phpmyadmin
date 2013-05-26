@@ -45,7 +45,7 @@ foreach ($t_x as $key => $value) {
         . '.' . PMA_Util::backquote($GLOBALS['cfgRelation']['designer_coords'])
         . ' WHERE `db_name` = \'' . PMA_Util::sqlAddSlashes($DB) . '\''
         . ' AND `table_name` = \'' . PMA_Util::sqlAddSlashes($TAB) . '\'',
-        true, PMA_DBI_QUERY_STORE
+        true, PMA_DatabaseInterface::QUERY_STORE
     );
 
     PMA_queryAsControlUser(
@@ -59,7 +59,7 @@ foreach ($t_x as $key => $value) {
         . '\'' . PMA_Util::sqlAddSlashes($t_y[$key]) . '\', '
         . '\'' . PMA_Util::sqlAddSlashes($t_v[$key]) . '\', '
         . '\'' . PMA_Util::sqlAddSlashes($t_h[$key]) . '\')',
-        true, PMA_DBI_QUERY_STORE
+        true, PMA_DatabaseInterface::QUERY_STORE
     );
 }
 //----------------------------------------------------------------------------

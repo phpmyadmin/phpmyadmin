@@ -213,7 +213,7 @@ class PMA_Tracker
         " AND table_name = '" . PMA_Util::sqlAddSlashes($tablename) . "' " .
         " ORDER BY version DESC";
 
-        $row = PMA_DBI_fetchArray(PMA_queryAsControlUser($sql_query));
+        $row = $GLOBALS['dbi']->fetchArray(PMA_queryAsControlUser($sql_query));
 
         if (isset($row['tracking_active']) && $row['tracking_active'] == 1) {
             return true;
@@ -275,7 +275,7 @@ class PMA_Tracker
 
         // Get data definition snapshot of table
 
-        $columns = PMA_DBI_getColumns($dbname, $tablename, null, true);
+        $columns = $GLOBALS['dbi']->getColumns($dbname, $tablename, null, true);
         // int indices to reduce size
         $columns = array_values($columns);
         // remove Privileges to reduce size
@@ -283,7 +283,7 @@ class PMA_Tracker
             unset($columns[$i]['Privileges']);
         }
 
-        $indexes = PMA_DBI_getTableIndexes($dbname, $tablename);
+        $indexes = $GLOBALS['dbi']->getTableIndexes($dbname, $tablename);
 
         $snapshot = array('COLUMNS' => $columns, 'INDEXES' => $indexes);
         $snapshot = serialize($snapshot);
@@ -560,7 +560,7 @@ class PMA_Tracker
                 ? ' AND tracking & ' . self::_transformTrackingSet($statement) . ' <> 0'
                 : " AND FIND_IN_SET('" . $statement . "',tracking) > 0" ;
         }
-        $row = PMA_DBI_fetchArray(PMA_queryAsControlUser($sql_query));
+        $row = $GLOBALS['dbi']->fetchArray(PMA_queryAsControlUser($sql_query));
         return isset($row[0])
             ? $row[0]
             : -1;
@@ -592,7 +592,7 @@ class PMA_Tracker
         $sql_query .= " AND `version` = '" . PMA_Util::sqlAddSlashes($version) ."' ".
                      " ORDER BY `version` DESC LIMIT 1";
 
-        $mixed = PMA_DBI_fetchAssoc(PMA_queryAsControlUser($sql_query));
+        $mixed = $GLOBALS['dbi']->fetchAssoc(PMA_queryAsControlUser($sql_query));
 
         // Parse log
         $log_schema_entries = explode('# log ',  $mixed['schema_sql']);

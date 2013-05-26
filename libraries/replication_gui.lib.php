@@ -19,7 +19,7 @@ function PMA_replication_db_multibox()
     $multi_values .= '<select name="db_select[]" size="6" multiple="multiple" id="db_select">';
 
     foreach ($GLOBALS['pma']->databases as $current_db) {
-        if (PMA_isSystemSchema($current_db)) {
+        if ($GLOBALS['dbi']->isSystemSchema($current_db)) {
             continue;
         }
         if (! empty($selectall) || (isset($tmp_select) && strpos(' ' . $tmp_select, '|' . $current_db . '|'))) {
@@ -103,7 +103,7 @@ function PMA_replication_print_status_table($type, $hidden = false, $title = tru
     // [ERROR] Error reading packet from server: Misconfigured master - server id was not set ( server_errno=1236)
     // [ERROR] Got fatal error 1236: 'Misconfigured master - server id was not set' from master when reading data from binary log
     //
-    //$server_id = PMA_DBI_fetchValue("SHOW VARIABLES LIKE 'server_id'", 0, 1);
+    //$server_id = $GLOBALS['dbi']->fetchValue("SHOW VARIABLES LIKE 'server_id'", 0, 1);
 
     echo '<div id="replication_' . $type . '_section" style="' . ($hidden ? 'display: none;' : '') . '"> ';
 
@@ -184,7 +184,7 @@ function PMA_replication_print_slaves_table($hidden = false)
 {
 
     // Fetch data
-    $data = PMA_DBI_fetchResult('SHOW SLAVE HOSTS', null, null);
+    $data = $GLOBALS['dbi']->fetchResult('SHOW SLAVE HOSTS', null, null);
 
     echo '  <br />';
     echo '  <div id="replication_slaves_section" style="' . ($hidden ? 'display: none;' : '') . '"> ';
@@ -223,7 +223,7 @@ function PMA_replication_print_slaves_table($hidden = false)
 
 function PMA_replication_get_username_hostname_length()
 {
-    $fields_info = PMA_DBI_getColumns('mysql', 'user');
+    $fields_info = $GLOBALS['dbi']->getColumns('mysql', 'user');
     $username_length = 16;
     $hostname_length = 41;
     foreach ($fields_info as $val) {
@@ -294,7 +294,7 @@ function PMA_replication_gui_master_addslaveuser()
         . '</label>'
         . '<span class="options">'
         . '    <select name="pred_hostname" id="select_pred_hostname" title="' . __('Host') . '"';
-    $_current_user = PMA_DBI_fetchValue('SELECT USER();');
+    $_current_user = $GLOBALS['dbi']->fetchValue('SELECT USER();');
     if (! empty($_current_user)) {
         $thishost = str_replace("'", '', substr($_current_user, (strrpos($_current_user, '@') + 1)));
         if ($thishost == 'localhost' || $thishost == '127.0.0.1') {

@@ -32,13 +32,13 @@ class Advisor
 
         // Step 1: Get some variables to evaluate on
         $this->variables = array_merge(
-            PMA_DBI_fetchResult('SHOW GLOBAL STATUS', 0, 1),
-            PMA_DBI_fetchResult('SHOW GLOBAL VARIABLES', 0, 1)
+            $GLOBALS['dbi']->fetchResult('SHOW GLOBAL STATUS', 0, 1),
+            $GLOBALS['dbi']->fetchResult('SHOW GLOBAL VARIABLES', 0, 1)
         );
         if (PMA_DRIZZLE) {
             $this->variables = array_merge(
                 $this->variables,
-                PMA_DBI_fetchResult(
+                $GLOBALS['dbi']->fetchResult(
                     "SELECT concat('Com_', variable_name), variable_value
                     FROM data_dictionary.GLOBAL_STATEMENTS", 0, 1
                 )

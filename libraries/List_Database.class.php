@@ -122,18 +122,18 @@ class PMA_List_Database extends PMA_List
             $command = $this->command;
         }
 
-        $database_list = PMA_DBI_fetchResult($command, null, null, $this->db_link);
-        PMA_DBI_getError();
+        $database_list = $GLOBALS['dbi']->fetchResult($command, null, null, $this->db_link);
+        $GLOBALS['dbi']->getError();
 
         if ($GLOBALS['errno'] !== 0) {
             // failed to get database list, try the control user
             // (hopefully there is one and he has SHOW DATABASES right)
             $this->db_link = $this->db_link_control;
-            $database_list = PMA_DBI_fetchResult(
+            $database_list = $GLOBALS['dbi']->fetchResult(
                 $command, null, null, $this->db_link
             );
 
-            PMA_DBI_getError();
+            $GLOBALS['dbi']->getError();
 
             if ($GLOBALS['errno'] !== 0) {
                 // failed! we will display a warning that phpMyAdmin could not safely
@@ -244,7 +244,7 @@ class PMA_List_Database extends PMA_List
             WHERE `Select_priv` = 'Y'
             AND `User`
             IN ('" . PMA_Util::sqlAddSlashes($GLOBALS['cfg']['Server']['user']) . "', '')";
-        $tmp_mydbs = PMA_DBI_fetchResult(
+        $tmp_mydbs = $GLOBALS['dbi']->fetchResult(
             $local_query, null, null, $GLOBALS['controllink']
         );
         if ($tmp_mydbs) {
@@ -258,14 +258,14 @@ class PMA_List_Database extends PMA_List
             // populating $dblist[], as previous code did. But it is
             // now populated with actual database names instead of
             // with regular expressions.
-            $tmp_alldbs = PMA_DBI_query('SHOW DATABASES;', $GLOBALS['controllink']);
+            $tmp_alldbs = $GLOBALS['dbi']->query('SHOW DATABASES;', $GLOBALS['controllink']);
             // all databases cases - part 2
             if (isset($tmp_mydbs['%'])) {
-                while ($tmp_row = PMA_DBI_fetchRow($tmp_alldbs)) {
+                while ($tmp_row = $GLOBALS['dbi']->fetchRow($tmp_alldbs)) {
                     $dblist[] = $tmp_row[0];
                 } // end while
             } else {
-                while ($tmp_row = PMA_DBI_fetchRow($tmp_alldbs)) {
+                while ($tmp_row = $GLOBALS['dbi']->fetchRow($tmp_alldbs)) {
                     $tmp_db = $tmp_row[0];
                     if (isset($tmp_mydbs[$tmp_db]) && $tmp_mydbs[$tmp_db] == 1) {
                         $dblist[]           = $tmp_db;
@@ -295,7 +295,7 @@ class PMA_List_Database extends PMA_List
                     } // end if ... elseif ...
                 } // end while
             } // end else
-            PMA_DBI_freeResult($tmp_alldbs);
+            $GLOBALS['dbi']->freeResult($tmp_alldbs);
             unset($tmp_mydbs);
         } // end if
 
@@ -304,14 +304,14 @@ class PMA_List_Database extends PMA_List
         $local_query .= ' WHERE `Table_priv` LIKE \'%Select%\'';
         $local_query .= ' AND `User` = \'';
         $local_query .= PMA_Util::sqlAddSlashes($GLOBALS['cfg']['Server']['user']) . '\'';
-        $rs          = PMA_DBI_tryQuery($local_query, $GLOBALS['controllink']);
-        if ($rs && @PMA_DBI_numRows($rs)) {
-            while ($row = PMA_DBI_fetchAssoc($rs)) {
+        $rs          = $GLOBALS['dbi']->tryQuery($local_query, $GLOBALS['controllink']);
+        if ($rs && @$GLOBALS['dbi']->numRows($rs)) {
+            while ($row = $GLOBALS['dbi']->fetchAssoc($rs)) {
                 if (!in_array($row['Db'], $dblist)) {
                     $dblist[] = $row['Db'];
                 }
             } // end while
-            PMA_DBI_freeResult($rs);
+            $GLOBALS['dbi']->freeResult($rs);
         } // end if
     }
 }

@@ -418,8 +418,10 @@ class Table_Stats
 
         $this->_tableName = $tableName;
         $sql = 'DESCRIBE ' . PMA_Util::backquote($tableName);
-        $result = PMA_DBI_tryQuery($sql, null, PMA_DBI_QUERY_STORE);
-        if (! $result || ! PMA_DBI_numRows($result)) {
+        $result = $GLOBALS['dbi']->tryQuery(
+            $sql, null, PMA_DatabaseInterface::QUERY_STORE
+        );
+        if (! $result || ! $GLOBALS['dbi']->numRows($result)) {
             $eps->dieSchema(
                 $pageNumber, "EPS",
                 sprintf(__('The %s table doesn\'t exist!'), $tableName)
@@ -441,7 +443,7 @@ class Table_Stats
             }
             $this->fields = array_keys($all_columns);
         } else {
-            while ($row = PMA_DBI_fetchRow($result)) {
+            while ($row = $GLOBALS['dbi']->fetchRow($result)) {
                 $this->fields[] = $row[0];
             }
         }
@@ -465,9 +467,11 @@ class Table_Stats
             . ' WHERE db_name = \'' . PMA_Util::sqlAddSlashes($db) . '\''
             . ' AND   table_name = \'' . PMA_Util::sqlAddSlashes($tableName) . '\''
             . ' AND   pdf_page_number = ' . $pageNumber;
-        $result = PMA_queryAsControlUser($sql, false, PMA_DBI_QUERY_STORE);
+        $result = PMA_queryAsControlUser(
+            $sql, false, PMA_DatabaseInterface::QUERY_STORE
+        );
 
-        if (! $result || ! PMA_DBI_numRows($result)) {
+        if (! $result || ! $GLOBALS['dbi']->numRows($result)) {
             $eps->dieSchema(
                 $pageNumber, "EPS",
                 sprintf(
@@ -476,18 +480,18 @@ class Table_Stats
                 )
             );
         }
-        list($this->x, $this->y) = PMA_DBI_fetchRow($result);
+        list($this->x, $this->y) = $GLOBALS['dbi']->fetchRow($result);
         $this->x = (double) $this->x;
         $this->y = (double) $this->y;
         // displayfield
         $this->displayfield = PMA_getDisplayField($db, $tableName);
         // index
-        $result = PMA_DBI_query(
+        $result = $GLOBALS['dbi']->query(
             'SHOW INDEX FROM ' . PMA_Util::backquote($tableName) . ';',
-            null, PMA_DBI_QUERY_STORE
+            null, PMA_DatabaseInterface::QUERY_STORE
         );
-        if (PMA_DBI_numRows($result) > 0) {
-            while ($row = PMA_DBI_fetchAssoc($result)) {
+        if ($GLOBALS['dbi']->numRows($result) > 0) {
+            while ($row = $GLOBALS['dbi']->fetchAssoc($result)) {
                 if ($row['Key_name'] == 'PRIMARY') {
                     $this->primary[] = $row['Column_name'];
                 }

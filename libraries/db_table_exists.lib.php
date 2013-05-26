@@ -12,7 +12,7 @@ if (! defined('PHPMYADMIN')) {
 
 if (empty($is_db)) {
     if (strlen($db)) {
-        $is_db = @PMA_DBI_selectDb($db);
+        $is_db = @$GLOBALS['dbi']->selectDb($db);
     } else {
         $is_db = false;
     }
@@ -58,13 +58,13 @@ if (empty($is_table)
         $is_table = isset(PMA_Table::$cache[$db][$table]);
 
         if (! $is_table) {
-            $_result = PMA_DBI_tryQuery(
+            $_result = $GLOBALS['dbi']->tryQuery(
                 'SHOW TABLES LIKE \'' . PMA_Util::sqlAddSlashes($table, true)
                 . '\';',
-                null, PMA_DBI_QUERY_STORE
+                null, PMA_DatabaseInterface::QUERY_STORE
             );
-            $is_table = @PMA_DBI_numRows($_result);
-            PMA_DBI_freeResult($_result);
+            $is_table = @$GLOBALS['dbi']->numRows($_result);
+            $GLOBALS['dbi']->freeResult($_result);
         }
     } else {
         $is_table = false;
@@ -81,13 +81,13 @@ if (empty($is_table)
                  * @todo should this check really
                  * only happen if IS_TRANSFORMATION_WRAPPER?
                  */
-                $_result = PMA_DBI_tryQuery(
+                $_result = $GLOBALS['dbi']->tryQuery(
                     'SELECT COUNT(*) FROM ' . PMA_Util::backquote($table) . ';',
                     null,
-                    PMA_DBI_QUERY_STORE
+                    PMA_DatabaseInterface::QUERY_STORE
                 );
-                $is_table = ($_result && @PMA_DBI_numRows($_result));
-                PMA_DBI_freeResult($_result);
+                $is_table = ($_result && @$GLOBALS['dbi']->numRows($_result));
+                $GLOBALS['dbi']->freeResult($_result);
             }
 
             if (! $is_table) {

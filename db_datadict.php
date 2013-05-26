@@ -57,8 +57,8 @@ if ($cfgRelation['commwork']) {
 /**
  * Selects the database and gets tables names
  */
-PMA_DBI_selectDb($db);
-$tables = PMA_DBI_getTables($db);
+$GLOBALS['dbi']->selectDb($db);
+$tables = $GLOBALS['dbi']->getTables($db);
 
 $count  = 0;
 foreach ($tables as $table) {
@@ -77,8 +77,8 @@ foreach ($tables as $table) {
      * Gets table keys and retains them
      */
 
-    PMA_DBI_selectDb($db);
-    $indexes      = PMA_DBI_getTableIndexes($db, $table);
+    $GLOBALS['dbi']->selectDb($db);
+    $indexes      = $GLOBALS['dbi']->getTableIndexes($db, $table);
     $primary      = '';
     $indexes      = array();
     $lastIndex    = '';
@@ -117,7 +117,7 @@ foreach ($tables as $table) {
     /**
      * Gets columns properties
      */
-    $columns = PMA_DBI_getColumns($db, $table);
+    $columns = $GLOBALS['dbi']->getColumns($db, $table);
 
     if (PMA_MYSQL_INT_VERSION < 50025) {
         // We need this to correctly learn if a TIMESTAMP is NOT NULL, since
@@ -128,7 +128,7 @@ foreach ($tables as $table) {
         $show_create_table_query = 'SHOW CREATE TABLE '
             . PMA_Util::backquote($db) . '.'
             . PMA_Util::backquote($table);
-        $show_create_table = PMA_DBI_fetchValue(
+        $show_create_table = $GLOBALS['dbi']->fetchValue(
             $show_create_table_query, 0, 1
         );
         $analyzed_sql = PMA_SQP_analyze(PMA_SQP_parse($show_create_table));
@@ -215,7 +215,7 @@ foreach ($tables as $table) {
             // contrary. Believe the latter.
             /**
              * @todo merge this logic with the one in tbl_structure.php
-             * or move it in a function similar to PMA_DBI_getColumnsFull()
+             * or move it in a function similar to $GLOBALS['dbi']->getColumnsFull()
              * but based on SHOW CREATE TABLE because information_schema
              * cannot be trusted in this case (MySQL bug)
              */

@@ -248,7 +248,7 @@ if (isset($_REQUEST['submit_activate_now'])) {
 // Export as SQL execution
 if (isset($_REQUEST['report_export']) && $_REQUEST['export_type'] == 'execution') {
     foreach ($entries as $entry) {
-        $sql_result = PMA_DBI_query("/*NOTRACK*/\n" . $entry['statement']);
+        $sql_result = $GLOBALS['dbi']->query("/*NOTRACK*/\n" . $entry['statement']);
     }
     $msg = PMA_Message::success(__('SQL statements executed.'));
     $msg->display();
@@ -715,10 +715,10 @@ $sql_query = " SELECT DISTINCT db_name, table_name FROM " .
 
 $sql_result = PMA_queryAsControlUser($sql_query);
 
-if (PMA_DBI_numRows($sql_result) > 0) {
+if ($GLOBALS['dbi']->numRows($sql_result) > 0) {
     echo '<form method="post" action="tbl_tracking.php?' . $url_query . '">';
     echo '<select name="table">';
-    while ($entries = PMA_DBI_fetchArray($sql_result)) {
+    while ($entries = $GLOBALS['dbi']->fetchArray($sql_result)) {
         if (PMA_Tracker::isTracked($entries['db_name'], $entries['table_name'])) {
             $status = ' (' . __('active') . ')';
         } else {
@@ -752,7 +752,7 @@ $sql_query = " SELECT * FROM " .
 $sql_result = PMA_queryAsControlUser($sql_query);
 
 $last_version = 0;
-$maxversion = PMA_DBI_fetchArray($sql_result);
+$maxversion = $GLOBALS['dbi']->fetchArray($sql_result);
 $last_version = $maxversion['version'];
 
 if ($last_version > 0) {
@@ -771,8 +771,8 @@ if ($last_version > 0) {
     echo '<tbody>';
 
     $style = 'odd';
-    PMA_DBI_dataSeek($sql_result, 0);
-    while ($version = PMA_DBI_fetchArray($sql_result)) {
+    $GLOBALS['dbi']->dataSeek($sql_result, 0);
+    while ($version = $GLOBALS['dbi']->fetchArray($sql_result)) {
         if ($version['tracking_active'] == 1) {
             $version_status = __('active');
         } else {

@@ -14,7 +14,7 @@ require_once 'libraries/engines/pbxt.lib.php';
 require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/Util.class.php';
 require_once 'libraries/core.lib.php';
-require_once 'libraries/database_interface.lib.php';
+require_once 'libraries/database_interface.inc.php';
 require_once 'libraries/Tracker.class.php';
 
 class PMA_StorageEngine_pbxt_Test extends PHPUnit_Framework_TestCase

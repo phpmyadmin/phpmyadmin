@@ -34,7 +34,7 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
         if ($_REQUEST['type'] === 'getval') {
             // Send with correct charset
             header('Content-Type: text/html; charset=UTF-8');
-            $varValue = PMA_DBI_fetchSingleRow(
+            $varValue = $GLOBALS['dbi']->fetchSingleRow(
                 'SHOW GLOBAL VARIABLES WHERE Variable_name="'
                 . PMA_Util::sqlAddSlashes($_REQUEST['varName']) . '";',
                 'NUM'
@@ -86,12 +86,12 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
             }
 
             if (! preg_match("/[^a-zA-Z0-9_]+/", $_REQUEST['varName'])
-                && PMA_DBI_query(
+                && $GLOBALS['dbi']->query(
                     'SET GLOBAL ' . $_REQUEST['varName'] . ' = ' . $value
                 )
             ) {
                 // Some values are rounded down etc.
-                $varValue = PMA_DBI_fetchSingleRow(
+                $varValue = $GLOBALS['dbi']->fetchSingleRow(
                     'SHOW GLOBAL VARIABLES WHERE Variable_name="'
                     . PMA_Util::sqlAddSlashes($_REQUEST['varName'])
                     . '";', 'NUM'
@@ -144,8 +144,8 @@ $output .= PMA_Util::getImage(
 /**
  * Sends the queries and buffers the results
  */
-$serverVarsSession = PMA_DBI_fetchResult('SHOW SESSION VARIABLES;', 0, 1);
-$serverVars = PMA_DBI_fetchResult('SHOW GLOBAL VARIABLES;', 0, 1);
+$serverVarsSession = $GLOBALS['dbi']->fetchResult('SHOW SESSION VARIABLES;', 0, 1);
+$serverVars = $GLOBALS['dbi']->fetchResult('SHOW GLOBAL VARIABLES;', 0, 1);
 
 
 /**
@@ -197,7 +197,7 @@ foreach ($serverVars as $name => $value) {
         $output .= htmlspecialchars(str_replace('_', ' ', $name));
     }
     $output .= '</div>'
-        . '<div class="var-value value' . (PMA_isSuperuser() ? ' editable' : '') . '">&nbsp;'
+        . '<div class="var-value value' . ($GLOBALS['dbi']->isSuperuser() ? ' editable' : '') . '">&nbsp;'
         . PMA_formatVariable($name, $value)
         . '</div>'
         . '<div style="clear:both"></div>'

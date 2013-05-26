@@ -62,7 +62,7 @@ if (isset($_REQUEST['createview'])) {
         }
     }
 
-    if (PMA_DBI_tryQuery($sql_query)) {
+    if ($GLOBALS['dbi']->tryQuery($sql_query)) {
         
         include_once './libraries/tbl_views.lib.php';
         
@@ -85,7 +85,7 @@ if (isset($_REQUEST['createview'])) {
             
             // Store new transformations
             if ($new_transformations_sql != '') {
-                PMA_DBI_tryQuery($new_transformations_sql);
+                $GLOBALS['dbi']->tryQuery($new_transformations_sql);
             }
             
         }
@@ -108,13 +108,13 @@ if (isset($_REQUEST['createview'])) {
         
     } else {
         if ($GLOBALS['is_ajax_request'] != true) {
-            $message = PMA_Message::rawError(PMA_DBI_getError());
+            $message = PMA_Message::rawError($GLOBALS['dbi']->getError());
         } else {
             $response = PMA_Response::getInstance();
             $response->addJSON(
                 'message',
                 PMA_Message::error(
-                    "<i>$sql_query</i><br /><br />" . PMA_DBI_getError()
+                    "<i>$sql_query</i><br /><br />" . $GLOBALS['dbi']->getError()
                 )
             );
             $response->isSuccess(false);

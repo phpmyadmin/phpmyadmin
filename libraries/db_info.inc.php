@@ -41,7 +41,7 @@ $is_show_stats = $cfg['ShowStats'];
  */
 $db_is_information_schema = false;
 
-if (PMA_isSystemSchema($db)) {
+if ($GLOBALS['dbi']->isSystemSchema($db)) {
     $is_show_stats = false;
     $db_is_information_schema = true;
 }
@@ -66,34 +66,34 @@ $tooltip_aliasname = array();
 
 // Special speedup for newer MySQL Versions (in 4.0 format changed)
 if (true === $cfg['SkipLockedTables']) {
-    $db_info_result = PMA_DBI_query(
+    $db_info_result = $GLOBALS['dbi']->query(
         'SHOW OPEN TABLES FROM ' . PMA_Util::backquote($db) . ';'
     );
 
     // Blending out tables in use
-    if ($db_info_result && PMA_DBI_numRows($db_info_result) > 0) {
-        while ($tmp = PMA_DBI_fetchRow($db_info_result)) {
+    if ($db_info_result && $GLOBALS['dbi']->numRows($db_info_result) > 0) {
+        while ($tmp = $GLOBALS['dbi']->fetchRow($db_info_result)) {
             // if in use memorize tablename
             if (preg_match('@in_use=[1-9]+@i', $tmp[1])) {
                 $sot_cache[$tmp[0]] = true;
             }
         }
-        PMA_DBI_freeResult($db_info_result);
+        $GLOBALS['dbi']->freeResult($db_info_result);
 
         if (isset($sot_cache)) {
-            $db_info_result = PMA_DBI_query(
+            $db_info_result = $GLOBALS['dbi']->query(
                 'SHOW TABLES FROM ' . PMA_Util::backquote($db) . $tbl_group_sql . ';',
-                null, PMA_DBI_QUERY_STORE
+                null, PMA_DatabaseInterface::QUERY_STORE
             );
-            if ($db_info_result && PMA_DBI_numRows($db_info_result) > 0) {
-                while ($tmp = PMA_DBI_fetchRow($db_info_result)) {
+            if ($db_info_result && $GLOBALS['dbi']->numRows($db_info_result) > 0) {
+                while ($tmp = $GLOBALS['dbi']->fetchRow($db_info_result)) {
                     if (! isset($sot_cache[$tmp[0]])) {
-                        $sts_result  = PMA_DBI_query(
+                        $sts_result  = $GLOBALS['dbi']->query(
                             'SHOW TABLE STATUS FROM ' . PMA_Util::backquote($db)
                             . ' LIKE \'' . PMA_Util::sqlAddSlashes($tmp[0], true) . '\';'
                         );
-                        $sts_tmp     = PMA_DBI_fetchAssoc($sts_result);
-                        PMA_DBI_freeResult($sts_result);
+                        $sts_tmp     = $GLOBALS['dbi']->fetchAssoc($sts_result);
+                        $GLOBALS['dbi']->freeResult($sts_result);
                         unset($sts_result);
 
                         if (! isset($sts_tmp['Type']) && isset($sts_tmp['Engine'])) {
@@ -123,13 +123,13 @@ if (true === $cfg['SkipLockedTables']) {
 
                 $sot_ready = true;
             } elseif ($db_info_result) {
-                PMA_DBI_freeResult($db_info_result);
+                $GLOBALS['dbi']->freeResult($db_info_result);
             }
             unset($sot_cache);
         }
         unset($tmp);
     } elseif ($db_info_result) {
-        PMA_DBI_freeResult($db_info_result);
+        $GLOBALS['dbi']->freeResult($db_info_result);
     }
 }
 
@@ -163,14 +163,14 @@ if (! isset($sot_ready)) {
 
     if (! empty($tbl_group)) {
         // only tables for selected group
-        $tables = PMA_DBI_getTablesFull(
+        $tables = $GLOBALS['dbi']->getTablesFull(
             $db, $tbl_group, true, null, 0, false, $sort, $sort_order
         );
     } else {
         // all tables in db
         // - get the total number of tables
         //  (needed for proper working of the MaxTableList feature)
-        $tables = PMA_DBI_getTables($db);
+        $tables = $GLOBALS['dbi']->getTables($db);
         $total_num_tables = count($tables);
         if (isset($sub_part) && $sub_part == '_export') {
             // (don't fetch only a subset if we are coming from db_export.php,
@@ -180,12 +180,12 @@ if (! isset($sot_ready)) {
              *
              * @todo Page selector for table names?
              */
-            $tables = PMA_DBI_getTablesFull(
+            $tables = $GLOBALS['dbi']->getTablesFull(
                 $db, false, false, null, 0, false, $sort, $sort_order
             );
         } else {
             // fetch the details for a possible limited subset
-            $tables = PMA_DBI_getTablesFull(
+            $tables = $GLOBALS['dbi']->getTablesFull(
                 $db, false, false, null, $pos, true, $sort, $sort_order
             );
         }

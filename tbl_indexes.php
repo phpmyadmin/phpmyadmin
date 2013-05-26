@@ -15,7 +15,7 @@ require_once 'libraries/tbl_common.inc.php';
 
 // Get fields and stores their name/type
 $fields = array();
-foreach (PMA_DBI_getColumnsFull($db, $table) as $row) {
+foreach ($GLOBALS['dbi']->getColumnsFull($db, $table) as $row) {
     if (preg_match('@^(set|enum)\((.+)\)$@i', $row['Type'], $tmp)) {
         $tmp[2] = substr(
             preg_replace('@([^,])\'\'@', '\\1\\\'', ',' . $tmp[2]), 1
@@ -107,7 +107,7 @@ if (isset($_REQUEST['do_save_data'])) {
     $sql_query .= ';';
 
     if (! $error) {
-        PMA_DBI_query($sql_query);
+        $GLOBALS['dbi']->query($sql_query);
         $message = PMA_Message::success(
             __('Table %1$s has been altered successfully')
         );

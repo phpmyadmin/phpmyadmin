@@ -256,9 +256,9 @@ class AuthenticationSignon extends AuthenticationPlugin
                     __('No activity within %s seconds; please log in again'),
                     $GLOBALS['cfg']['LoginCookieValidity']
                 );
-            } elseif (PMA_DBI_getError()) {
+            } elseif ($GLOBALS['dbi']->getError()) {
                 $_SESSION['PMA_single_signon_error_message'] = PMA_sanitize(
-                    PMA_DBI_getError()
+                    $GLOBALS['dbi']->getError()
                 );
             } else {
                 $_SESSION['PMA_single_signon_error_message'] = __(

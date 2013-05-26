@@ -142,8 +142,8 @@ if (isset($fields_meta)) {
         . '.'
         . PMA_Util::backquote($table)
         . ' LIMIT 1';
-    $move_columns_sql_result = PMA_DBI_tryQuery($move_columns_sql_query);
-    $move_columns = PMA_DBI_getFieldsMeta($move_columns_sql_result);
+    $move_columns_sql_result = $GLOBALS['dbi']->tryQuery($move_columns_sql_query);
+    $move_columns = $GLOBALS['dbi']->getFieldsMeta($move_columns_sql_result);
     unset($move_columns_sql_query, $move_columns_sql_result);
 
     $header_cells[] = __('Move column');

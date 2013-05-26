@@ -31,7 +31,7 @@ $cfgRelation = PMA_getRelationsParam();
  * If there is at least one table, displays the printer friendly view, else
  * an error message
  */
-$tables = PMA_DBI_getTablesFull($db);
+$tables = $GLOBALS['dbi']->getTablesFull($db);
 $num_tables = count($tables);
 
 echo '<br />';

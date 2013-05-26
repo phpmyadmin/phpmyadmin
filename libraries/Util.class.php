@@ -633,7 +633,7 @@ class PMA_Util
         $error_msg = '';
 
         if (! $error_message) {
-            $error_message = PMA_DBI_getError();
+            $error_message = $GLOBALS['dbi']->getError();
         }
         if (! $the_query && ! empty($GLOBALS['sql_query'])) {
             $the_query = $GLOBALS['sql_query'];
@@ -791,7 +791,7 @@ class PMA_Util
         $sep = $GLOBALS['cfg']['NavigationTreeTableSeparator'];
 
         if ($tables === null) {
-            $tables = PMA_DBI_getTablesFull(
+            $tables = $GLOBALS['dbi']->getTablesFull(
                 $db, false, false, null, $limit_offset, $limit_count
             );
             if ($GLOBALS['cfg']['NaturalOrder']) {
@@ -826,7 +826,7 @@ class PMA_Util
                 // set this because PMA_Table::countRecords() can use it
                 $tbl_is_view = $table['TABLE_TYPE'] == 'VIEW';
 
-                if ($tbl_is_view || PMA_isSystemSchema($db)) {
+                if ($tbl_is_view || $GLOBALS['dbi']->isSystemSchema($db)) {
                     $table['Rows'] = PMA_Table::countRecords(
                         $db,
                         $table['Name'],
@@ -1397,7 +1397,7 @@ class PMA_Util
             // and do not set a constant as we might be switching servers
             if (defined('PMA_MYSQL_INT_VERSION')
                 && (PMA_MYSQL_INT_VERSION >= 50037)
-                && PMA_DBI_fetchValue("SHOW VARIABLES LIKE 'profiling'")
+                && $GLOBALS['dbi']->fetchValue("SHOW VARIABLES LIKE 'profiling'")
             ) {
                 self::cacheSet('profiling_supported', true, true);
             } else {
@@ -2181,7 +2181,7 @@ class PMA_Util
             $condition   = '';
             $con_key     = '';
             $con_val     = '';
-            $field_flags = PMA_DBI_fieldFlags($handle, $i);
+            $field_flags = $GLOBALS['dbi']->fieldFlags($handle, $i);
             $meta        = $fields_meta[$i];
 
             // do not use a column alias in a condition
@@ -3174,15 +3174,17 @@ class PMA_Util
             $wktsql .= ", SRID(x'" . $hex . "')";
         }
 
-        $wktresult  = PMA_DBI_tryQuery($wktsql, null, PMA_DBI_QUERY_STORE);
-        $wktarr     = PMA_DBI_fetchRow($wktresult, 0);
+        $wktresult  = $GLOBALS['dbi']->tryQuery(
+            $wktsql, null, PMA_DatabaseInterface::QUERY_STORE
+        );
+        $wktarr     = $GLOBALS['dbi']->fetchRow($wktresult, 0);
         $wktval     = $wktarr[0];
 
         if ($includeSRID) {
             $srid = $wktarr[1];
             $wktval = "'" . $wktval . "'," . $srid;
         }
-        @PMA_DBI_freeResult($wktresult);
+        @$GLOBALS['dbi']->freeResult($wktresult);
 
         return $wktval;
     }
@@ -3312,7 +3314,7 @@ class PMA_Util
 
         /* Fetch columns list if required */
         if (strpos($string, '@COLUMNS@') !== false) {
-            $columns_list = PMA_DBI_getColumns($GLOBALS['db'], $GLOBALS['table']);
+            $columns_list = $GLOBALS['dbi']->getColumns($GLOBALS['db'], $GLOBALS['table']);
 
             // sometimes the table no longer exists at this point
             if (! is_null($columns_list)) {
@@ -3851,7 +3853,7 @@ class PMA_Util
     {
         // Get the username for the current user in the format
         // required to use in the information schema database.
-        $user = PMA_DBI_fetchValue("SELECT CURRENT_USER();");
+        $user = $GLOBALS['dbi']->fetchValue("SELECT CURRENT_USER();");
         if ($user === false) {
             return false;
         }
@@ -3868,7 +3870,7 @@ class PMA_Util
                . "WHERE GRANTEE='%s' AND PRIVILEGE_TYPE='%s'";
 
         // Check global privileges first.
-        $user_privileges = PMA_DBI_fetchValue(
+        $user_privileges = $GLOBALS['dbi']->fetchValue(
             sprintf(
                 $query,
                 'USER_PRIVILEGES',
@@ -3885,7 +3887,7 @@ class PMA_Util
             // need to escape wildcards in db and table names, see bug #3518484
             $db = str_replace(array('%', '_'), array('\%', '\_'), $db);
             $query .= " AND TABLE_SCHEMA='%s'";
-            $schema_privileges = PMA_DBI_fetchValue(
+            $schema_privileges = $GLOBALS['dbi']->fetchValue(
                 sprintf(
                     $query,
                     'SCHEMA_PRIVILEGES',
@@ -3908,7 +3910,7 @@ class PMA_Util
             // need to escape wildcards in db and table names, see bug #3518484
             $tbl = str_replace(array('%', '_'), array('\%', '\_'), $tbl);
             $query .= " AND TABLE_NAME='%s'";
-            $table_privileges = PMA_DBI_fetchValue(
+            $table_privileges = $GLOBALS['dbi']->fetchValue(
                 sprintf(
                     $query,
                     'TABLE_PRIVILEGES',
@@ -4097,6 +4099,32 @@ class PMA_Util
                 . ': '
                 . PMA_Util::localisedDate(strtotime($table['Check_time']));
         }
+    }
+
+    /**
+     * Get regular expression which occur first inside the given sql query.
+     *
+     * @param Array  $regex_array Comparing regular expressions.
+     * @param String $query       SQL query to be checked.
+     *
+     * @return String Matching regular expression.
+     */
+    public static function getFirstOccuringRegularExpression($regex_array, $query)
+    {
+        $minimum_first_occurance_index = null;
+        $regex = null;
+
+        for ($i = 0; $i < count($regex_array); $i++) {
+            if (preg_match($regex_array[$i], $query, $matches, PREG_OFFSET_CAPTURE)) {
+                if (is_null($minimum_first_occurance_index)
+                    || ($matches[0][1] < $minimum_first_occurance_index)
+                ) {
+                    $regex = $regex_array[$i];
+                    $minimum_first_occurance_index = $matches[0][1];
+                }
+            }
+        }
+        return $regex;
     }
 }
 ?>

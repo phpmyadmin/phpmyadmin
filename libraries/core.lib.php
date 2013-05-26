@@ -323,13 +323,13 @@ function PMA_warnMissingExtension($extension, $fatal = false, $extra = '')
  */
 function PMA_getTableCount($db)
 {
-    $tables = PMA_DBI_tryQuery(
+    $tables = $GLOBALS['dbi']->tryQuery(
         'SHOW TABLES FROM ' . PMA_Util::backquote($db) . ';',
-        null, PMA_DBI_QUERY_STORE
+        null, PMA_DatabaseInterface::QUERY_STORE
     );
     if ($tables) {
-        $num_tables = PMA_DBI_numRows($tables);
-        PMA_DBI_freeResult($tables);
+        $num_tables = $GLOBALS['dbi']->numRows($tables);
+        $GLOBALS['dbi']->freeResult($tables);
     } else {
         $num_tables = 0;
     }

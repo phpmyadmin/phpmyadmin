@@ -305,8 +305,6 @@ class PMA_Error extends PMA_Message
             'mysql_pconnect',
             'mysqli_connect',
             'mysqli_real_connect',
-            'PMA_DBI_connect',
-            'PMA_DBI_realConnect',
         );
 
         if (in_array($function, $include_functions)) {
