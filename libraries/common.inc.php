@@ -1141,7 +1141,8 @@ unset($dummy);
 
 // here, the function does not exist with this configuration:
 // $cfg['ServerDefault'] = 0;
-$GLOBALS['is_superuser'] = function_exists('PMA_isSuperuser') && $GLOBALS['dbi']->isSuperuser();
+$GLOBALS['is_superuser']
+    = isset($GLOBALS['dbi']) && $GLOBALS['dbi']->isSuperuser();
 
 if (!empty($__redirect) && in_array($__redirect, $goto_whitelist)) {
     /**

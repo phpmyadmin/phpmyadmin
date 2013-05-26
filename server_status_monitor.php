@@ -772,7 +772,7 @@ function PMA_getClientSideDataAndLinksHtml($ServerStatusData)
     $form  = '<form id="js_data" class="hide">';
     $form .= sprintf($input, 'server_time', microtime(true) * 1000);
     $form .= sprintf($input, 'server_os', PHP_OS);
-    $form .= sprintf($input, 'is_superuser', PMA_isSuperuser());
+    $form .= sprintf($input, 'is_superuser', $GLOBALS['dbi']->isSuperuser());
     $form .= sprintf($input, 'server_db_isLocal', $ServerStatusData->db_isLocal);
     $form .= '</form>';
     /**
