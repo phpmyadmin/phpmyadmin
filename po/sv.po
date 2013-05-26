@@ -3,11 +3,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-05-24 09:03-0400\n"
-"PO-Revision-Date: 2013-05-24 12:37+0200\n"
+"POT-Creation-Date: 2013-05-25 07:32-0400\n"
+"PO-Revision-Date: 2013-05-24 15:32+0200\n"
 "Last-Translator: Anders Jonsson <jonars03@student.umu.se>\n"
-"Language-Team: Swedish "
-"<http://l10n.cihar.com/projects/phpmyadmin/master/sv/>\n"
+"Language-Team: Swedish <http://l10n.cihar.com/projects/phpmyadmin/master/sv/"
+">\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -232,8 +232,8 @@ msgstr "Kommentarer"
 #: libraries/server_privileges.lib.php:2163
 #: libraries/server_privileges.lib.php:2483
 #: libraries/server_privileges.lib.php:2497 libraries/structure.lib.php:1268
-#: libraries/user_preferences.lib.php:282 prefs_manage.php:138 sql.php:344
-#: sql.php:439 sql.php:440 tbl_printview.php:186 tbl_tracking.php:345
+#: libraries/user_preferences.lib.php:282 prefs_manage.php:138 sql.php:329
+#: sql.php:424 sql.php:425 tbl_printview.php:186 tbl_tracking.php:345
 #: tbl_tracking.php:399 tbl_tracking.php:404
 msgid "No"
 msgstr "Nej"
@@ -259,7 +259,7 @@ msgstr "Nej"
 #: libraries/server_privileges.lib.php:2480
 #: libraries/server_privileges.lib.php:2497 libraries/structure.lib.php:1268
 #: libraries/user_preferences.lib.php:280 prefs_manage.php:136
-#: server_databases.php:103 server_databases.php:110 sql.php:437 sql.php:438
+#: server_databases.php:103 server_databases.php:110 sql.php:422 sql.php:423
 #: tbl_printview.php:187 tbl_structure.php:84 tbl_tracking.php:345
 #: tbl_tracking.php:397 tbl_tracking.php:402
 msgid "Yes"
@@ -649,7 +649,7 @@ msgstr ""
 msgid "Could not load import plugins, please check your installation!"
 msgstr "Kunde inte läsa in tillägg för import, kontrollera din installation!"
 
-#: import.php:519 sql.php:309 sql.php:1123
+#: import.php:519 sql.php:294 sql.php:1108
 #, php-format
 msgid "Bookmark %s created"
 msgstr "Bokmärket %s har skapats"
@@ -881,7 +881,7 @@ msgid ""
 "issues."
 msgstr "Server körs med Suhosin. Se %sdokumentation%s för möjliga problem."
 
-#: js/messages.php:27 libraries/import.lib.php:118 sql.php:269
+#: js/messages.php:27 libraries/import.lib.php:118 sql.php:254
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "\"DROP DATABASE\"-satser är inaktiverade."
 
@@ -890,7 +890,7 @@ msgstr "\"DROP DATABASE\"-satser är inaktiverade."
 msgid "Do you really want to execute \"%s\"?"
 msgstr "Vill du verkligen exekvera \"%s\"?"
 
-#: js/messages.php:31 libraries/mult_submits.inc.php:337 sql.php:391
+#: js/messages.php:31 libraries/mult_submits.inc.php:337 sql.php:376
 msgid "You are about to DESTROY a complete database!"
 msgstr "Du är på väg att RADERA en hel databas!"
 
@@ -2609,7 +2609,7 @@ msgstr "Visar rader"
 msgid "total"
 msgstr "totalt"
 
-#: libraries/DisplayResults.class.php:4950 sql.php:868
+#: libraries/DisplayResults.class.php:4950 sql.php:853
 #, php-format
 msgid "Query took %01.4f sec"
 msgstr "Frågan tog %01.4f sek"
@@ -3865,19 +3865,19 @@ msgstr "Ogiltig metod för verifiering angiven i konfiguration:"
 msgid "You should upgrade to %s %s or later."
 msgstr "Du bör uppgradera till %s %s eller senare."
 
-#: libraries/common.inc.php:1077
+#: libraries/common.inc.php:1079
 msgid "Error: Token mismatch"
 msgstr "Fel: Token matchningsfel"
 
-#: libraries/common.inc.php:1121
+#: libraries/common.inc.php:1123
 msgid "GLOBALS overwrite attempt"
 msgstr "Överskrivningsförsök av GLOBALS"
 
-#: libraries/common.inc.php:1128
+#: libraries/common.inc.php:1130
 msgid "possible exploit"
 msgstr "möjlig exploatering"
 
-#: libraries/common.inc.php:1137
+#: libraries/common.inc.php:1139
 msgid "numeric key detected"
 msgstr "numerisk tangent upptäckt"
 
@@ -4031,13 +4031,11 @@ msgstr "\"%s\" kräver tillägget %s"
 
 #: libraries/config/FormDisplay.class.php:792
 #, php-format
-#| msgid "import will not work, missing function (%s)"
 msgid "Compressed import will not work due to missing function %s."
 msgstr "Komprimerad import fungerar inte på grund av saknad funktion %s."
 
 #: libraries/config/FormDisplay.class.php:798
 #, php-format
-#| msgid "export will not work, missing function (%s)"
 msgid "Compressed export will not work due to missing function %s."
 msgstr "Komprimerad export fungerar inte på grund av saknad funktion %s."
 
@@ -7116,7 +7114,7 @@ msgid "No data found for GIS visualization."
 msgstr "Inga data finns för GIS-visualisering."
 
 #: libraries/import.lib.php:187 libraries/insert_edit.lib.php:120
-#: libraries/rte/rte_routines.lib.php:1443 sql.php:863 tbl_get_field.php:55
+#: libraries/rte/rte_routines.lib.php:1443 sql.php:848 tbl_get_field.php:55
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL returnerade ett tomt resultat (dvs inga rader)."
 
@@ -7236,11 +7234,11 @@ msgstr ""
 "Använd TAB-tangenten för att flytta från värde till värde, eller CTRL+pil "
 "för att flytta vart som helst"
 
-#: libraries/insert_edit.lib.php:1912 sql.php:858
+#: libraries/insert_edit.lib.php:1912 sql.php:843
 msgid "Showing SQL query"
 msgstr "Visar SQL-fråga"
 
-#: libraries/insert_edit.lib.php:1937 sql.php:838
+#: libraries/insert_edit.lib.php:1937 sql.php:823
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "Infogade rad-id: %1$d"
@@ -7285,7 +7283,7 @@ msgstr "Lägg till tabellprefix:"
 msgid "Add prefix"
 msgstr "Lägg till prefix"
 
-#: libraries/mult_submits.inc.php:339 sql.php:431
+#: libraries/mult_submits.inc.php:339 sql.php:416
 msgid "Do you really want to execute the following query?"
 msgstr "Vill du verkligen exekvera följande fråga?"
 
@@ -9744,10 +9742,8 @@ msgid "Generated by:"
 msgstr "Genererad av:"
 
 #: libraries/sql.lib.php:495
-#, fuzzy
-#| msgid "Data file grow size"
 msgid "Detailed profile"
-msgstr "Växstorlek för datafil"
+msgstr "Detaljerad profil"
 
 #: libraries/sql.lib.php:498
 #, fuzzy
@@ -9773,8 +9769,6 @@ msgid "Total Time"
 msgstr "Total tid:"
 
 #: libraries/sql.lib.php:553
-#, fuzzy
-#| msgid "Time"
 msgid "% Time"
 msgstr "Tid"
 
@@ -9808,7 +9802,7 @@ msgstr "Rensa"
 msgid "Bookmark this SQL query:"
 msgstr "Skapa bokmärke för den här SQL-frågan:"
 
-#: libraries/sql_query_form.lib.php:326 sql.php:1211
+#: libraries/sql_query_form.lib.php:326 sql.php:1196
 msgid "Let every user access this bookmark"
 msgstr "Låt alla användare få tillgång till detta bokmärke"
 
@@ -11115,12 +11109,16 @@ msgid "Instructions/Setup"
 msgstr "Instruktioner/Setup"
 
 #: server_status_monitor.php:685
-msgid "Done rearranging/editing charts"
+#, fuzzy
+#| msgid "Done rearranging/editing charts"
+msgid "Done dragging (rearranging) charts"
 msgstr "Klar med ändring/redigering av diagram"
 
 #: server_status_monitor.php:704
-msgid "Rearrange/edit charts"
-msgstr "Ordna/redigera diagram"
+#, fuzzy
+#| msgid "Enable highlighting"
+msgid "Enable charts dragging"
+msgstr "Aktivera framhävning"
 
 #: server_status_monitor.php:708
 msgid "Refresh rate"
@@ -12229,24 +12227,24 @@ msgstr "Nyckeln ska innehålla bokstäver, siffror [em]och[/em] specialtecken."
 msgid "Wrong data"
 msgstr "Felaktigt data"
 
-#: sql.php:231
+#: sql.php:216
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr "Använd bokmärket \"%s\" som standard webbläsarfråga."
 
-#: sql.php:313
+#: sql.php:298
 msgid "Bookmark not created"
 msgstr "Bokmärke ej skapat"
 
-#: sql.php:855
+#: sql.php:840
 msgid "Showing as PHP code"
 msgstr "Visar som PHP-kod"
 
-#: sql.php:860
+#: sql.php:845
 msgid "Validated SQL"
 msgstr "Validerad SQL-kod"
 
-#: sql.php:1114
+#: sql.php:1099
 msgid ""
 "This table does not contain a unique column. Grid edit, checkbox, Edit, Copy "
 "and Delete features are not available."
@@ -12254,16 +12252,16 @@ msgstr ""
 "Denna tabell innehåller ingen unik kolumn. Funktionerna rutnätsredigera, "
 "kryssruta, redigera, kopiera och radera är inte tillgängliga."
 
-#: sql.php:1166
+#: sql.php:1151
 #, php-format
 msgid "Problems with indexes of table `%s`"
 msgstr "Problem med index för tabell `%s`"
 
-#: sql.php:1199 sql.php:1219
+#: sql.php:1184 sql.php:1204
 msgid "Bookmark this SQL query"
 msgstr "Skapa bokmärke för den här SQL-frågan"
 
-#: sql.php:1203
+#: sql.php:1188
 msgid "Label:"
 msgstr "Etikett:"
 
@@ -13897,6 +13895,9 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert är satt till 0"
+
+#~ msgid "Rearrange/edit charts"
+#~ msgstr "Ordna/redigera diagram"
 
 #~ msgid "Open Document"
 #~ msgstr "OpenDocument-format"

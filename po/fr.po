@@ -3,9 +3,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-05-24 09:03-0400\n"
-"PO-Revision-Date: 2013-05-23 13:11+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"POT-Creation-Date: 2013-05-25 07:32-0400\n"
+"PO-Revision-Date: 2013-05-25 11:58+0200\n"
+"Last-Translator: Jean-Noël AVILA <jn.avila@free.fr>\n"
 "Language-Team: French <http://l10n.cihar.com/projects/phpmyadmin/master/fr/"
 ">\n"
 "MIME-Version: 1.0\n"
@@ -233,8 +233,8 @@ msgstr "Commentaires"
 #: libraries/server_privileges.lib.php:2163
 #: libraries/server_privileges.lib.php:2483
 #: libraries/server_privileges.lib.php:2497 libraries/structure.lib.php:1268
-#: libraries/user_preferences.lib.php:282 prefs_manage.php:138 sql.php:344
-#: sql.php:439 sql.php:440 tbl_printview.php:186 tbl_tracking.php:345
+#: libraries/user_preferences.lib.php:282 prefs_manage.php:138 sql.php:329
+#: sql.php:424 sql.php:425 tbl_printview.php:186 tbl_tracking.php:345
 #: tbl_tracking.php:399 tbl_tracking.php:404
 msgid "No"
 msgstr "Non"
@@ -260,7 +260,7 @@ msgstr "Non"
 #: libraries/server_privileges.lib.php:2480
 #: libraries/server_privileges.lib.php:2497 libraries/structure.lib.php:1268
 #: libraries/user_preferences.lib.php:280 prefs_manage.php:136
-#: server_databases.php:103 server_databases.php:110 sql.php:437 sql.php:438
+#: server_databases.php:103 server_databases.php:110 sql.php:422 sql.php:423
 #: tbl_printview.php:187 tbl_structure.php:84 tbl_tracking.php:345
 #: tbl_tracking.php:397 tbl_tracking.php:402
 msgid "Yes"
@@ -654,7 +654,7 @@ msgstr ""
 "Chargement impossible des greffons d'importation, veuillez vérifier votre "
 "installation !"
 
-#: import.php:519 sql.php:309 sql.php:1123
+#: import.php:519 sql.php:294 sql.php:1108
 #, php-format
 msgid "Bookmark %s created"
 msgstr "Signet %s créé"
@@ -893,7 +893,7 @@ msgstr ""
 "Ce serveur utilise Suhosin. Veuillez vous référer à la %sdocumentation%s "
 "pour en connaître les conséquences possibles."
 
-#: js/messages.php:27 libraries/import.lib.php:118 sql.php:269
+#: js/messages.php:27 libraries/import.lib.php:118 sql.php:254
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "La commande «DROP DATABASE» est désactivée."
 
@@ -902,7 +902,7 @@ msgstr "La commande «DROP DATABASE» est désactivée."
 msgid "Do you really want to execute \"%s\"?"
 msgstr "Voulez-vous vraiment exécuter «%s» ?"
 
-#: js/messages.php:31 libraries/mult_submits.inc.php:337 sql.php:391
+#: js/messages.php:31 libraries/mult_submits.inc.php:337 sql.php:376
 msgid "You are about to DESTROY a complete database!"
 msgstr "Vous êtes sur le point de DÉTRUIRE une base de données !"
 
@@ -2219,17 +2219,17 @@ msgstr "PHP a émis l'erreur suivante : %s"
 #: libraries/Advisor.class.php:107
 #, php-format
 msgid "Failed evaluating precondition for rule '%s'."
-msgstr "Échec lors de l'évaluation de la précondition pour la règle «%s»"
+msgstr "Échec lors de l'évaluation de la précondition pour la règle «%s»."
 
 #: libraries/Advisor.class.php:124
 #, php-format
 msgid "Failed calculating value for rule '%s'."
-msgstr "Échec de calcul de la valeur pour la règle «%s»"
+msgstr "Échec de calcul de la valeur pour la règle «%s»."
 
 #: libraries/Advisor.class.php:143
 #, php-format
 msgid "Failed running test for rule '%s'."
-msgstr "Échec d'exécution du test pour la règle «%s»"
+msgstr "Échec d'exécution du test pour la règle «%s»."
 
 #: libraries/Advisor.class.php:225
 #, php-format
@@ -2242,25 +2242,24 @@ msgid ""
 "Invalid rule declaration on line %1$s, expected line %2$s of previous rule."
 msgstr ""
 "Règle invalide à la ligne %1$s, la ligne %2$s de la règle précédente était "
-"attendue"
+"attendue."
 
 #: libraries/Advisor.class.php:412
 #, php-format
 msgid "Invalid rule declaration on line %s."
-msgstr "Règle invalide à la ligne %s"
+msgstr "Règle invalide à la ligne %s."
 
 #: libraries/Advisor.class.php:420
 #, php-format
 msgid "Unexpected characters on line %s."
-msgstr "Caractères imprévus à la ligne %s"
+msgstr "Caractères imprévus à la ligne %s."
 
 #: libraries/Advisor.class.php:434
-#, fuzzy, php-format
-#| msgid "Unexpected character on line %1$s. Expected tab, but found \"%2$s\""
+#, php-format
 msgid "Unexpected character on line %1$s. Expected tab, but found \"%2$s\"."
 msgstr ""
-"Caractère imprévue à la ligne %1$s. Une tabulation était attendue, mais \"%2"
-"$s\" a été trouvé"
+"Caractère imprévu à la ligne %1$s. Une tabulation était attendue, mais \"%2$s"
+"\" a été trouvé."
 
 #: libraries/Advisor.class.php:467
 msgid "per second"
@@ -2633,7 +2632,7 @@ msgstr "Affichage des lignes"
 msgid "total"
 msgstr "total"
 
-#: libraries/DisplayResults.class.php:4950 sql.php:868
+#: libraries/DisplayResults.class.php:4950 sql.php:853
 #, php-format
 msgid "Query took %01.4f sec"
 msgstr "Traitement en %01.4f sec"
@@ -3340,9 +3339,9 @@ msgid ""
 "A 4-byte integer, signed range is -2,147,483,648 to 2,147,483,647, unsigned "
 "range is 0 to 4,294,967,295"
 msgstr ""
-"Un nombre entier de 4 octets. La fourchette des nombres avec signe est de -2 "
-"147 483 648 à 2 147 483 647. Pour les nombres sans signe, c'est de 0 à 4 294 "
-"967 295."
+"Un nombre entier de 4 octets. La fourchette des entiers relatifs est de -2 "
+"147 483 648 à 2 147 483 647. Pour les entiers positifs, c'est de 0 à 4 294 "
+"967 295"
 
 #: libraries/Types.class.php:304
 msgid ""
@@ -3911,19 +3910,19 @@ msgstr ""
 msgid "You should upgrade to %s %s or later."
 msgstr "Vous devriez utiliser %s en version %s ou plus récente."
 
-#: libraries/common.inc.php:1077
+#: libraries/common.inc.php:1079
 msgid "Error: Token mismatch"
 msgstr "Erreur: disparité du jeton"
 
-#: libraries/common.inc.php:1121
+#: libraries/common.inc.php:1123
 msgid "GLOBALS overwrite attempt"
 msgstr "Tentative d'écrasement de GLOBALS"
 
-#: libraries/common.inc.php:1128
+#: libraries/common.inc.php:1130
 msgid "possible exploit"
 msgstr "vulnérabilité possible"
 
-#: libraries/common.inc.php:1137
+#: libraries/common.inc.php:1139
 msgid "numeric key detected"
 msgstr "Clé numérique détectée"
 
@@ -4076,16 +4075,14 @@ msgid "\"%s\" requires %s extension"
 msgstr "«%s» requiert l'extension %s"
 
 #: libraries/config/FormDisplay.class.php:792
-#, fuzzy, php-format
-#| msgid "import will not work, missing function (%s)"
+#, php-format
 msgid "Compressed import will not work due to missing function %s."
-msgstr "importation impossible, fonction manquante (%s)"
+msgstr "Importation compressée impossible, fonction manquante (%s)."
 
 #: libraries/config/FormDisplay.class.php:798
-#, fuzzy, php-format
-#| msgid "export will not work, missing function (%s)"
+#, php-format
 msgid "Compressed export will not work due to missing function %s."
-msgstr "exportation impossible, fonction manquante (%s)"
+msgstr "Exportation compressée impossible, fonction manquante (%s)."
 
 #: libraries/config/FormDisplay.class.php:808
 msgid "SQL Validator is disabled"
@@ -4103,7 +4100,7 @@ msgstr "maximum %s"
 #: libraries/config/FormDisplay.tpl.php:221
 msgid "This setting is disabled, it will not be applied to your configuration."
 msgstr ""
-"Ce réglage est désactivé, il ne sera pas appliqué à votre configuration"
+"Ce réglage est désactivé, il ne sera pas appliqué à votre configuration."
 
 #: libraries/config/FormDisplay.tpl.php:309
 #, php-format
@@ -7195,7 +7192,7 @@ msgid "No data found for GIS visualization."
 msgstr "Données non disponibles pour visualisation GIS."
 
 #: libraries/import.lib.php:187 libraries/insert_edit.lib.php:120
-#: libraries/rte/rte_routines.lib.php:1443 sql.php:863 tbl_get_field.php:55
+#: libraries/rte/rte_routines.lib.php:1443 sql.php:848 tbl_get_field.php:55
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL a retourné un résultat vide (aucune ligne)."
 
@@ -7317,11 +7314,11 @@ msgstr ""
 "Utilisez la tabulation pour aller d'une valeur à l'autre, ou CTRL+flèches "
 "pour aller n'importe où"
 
-#: libraries/insert_edit.lib.php:1912 sql.php:858
+#: libraries/insert_edit.lib.php:1912 sql.php:843
 msgid "Showing SQL query"
 msgstr "Affichage de la requête SQL"
 
-#: libraries/insert_edit.lib.php:1937 sql.php:838
+#: libraries/insert_edit.lib.php:1937 sql.php:823
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "Identifiant de la ligne insérée : %1$d"
@@ -7366,7 +7363,7 @@ msgstr "Ajouter un préfixe de table : "
 msgid "Add prefix"
 msgstr "Ajouter un préfixe"
 
-#: libraries/mult_submits.inc.php:339 sql.php:431
+#: libraries/mult_submits.inc.php:339 sql.php:416
 msgid "Do you really want to execute the following query?"
 msgstr "Voulez-vous vraiment exécuter la requête suivante ?"
 
@@ -9854,51 +9851,36 @@ msgid "Generated by:"
 msgstr "Généré par : "
 
 #: libraries/sql.lib.php:495
-#, fuzzy
-#| msgid "Data file grow size"
 msgid "Detailed profile"
-msgstr "Taille de l'augmentation du fichier des données"
+msgstr "Profil détaillé"
 
 #: libraries/sql.lib.php:498
-#, fuzzy
-#| msgid "Other"
 msgid "Order"
-msgstr "Autres"
+msgstr "Ordre"
 
 #: libraries/sql.lib.php:500 libraries/sql.lib.php:546
-#, fuzzy
-#| msgctxt "Start of recurring event"
-#| msgid "Start"
 msgid "State"
-msgstr "Départ"
+msgstr "État"
 
 #: libraries/sql.lib.php:543
 msgid "Summary by state"
-msgstr ""
+msgstr "Résumé par état"
 
 #: libraries/sql.lib.php:551
-#, fuzzy
-#| msgid "Total time:"
 msgid "Total Time"
-msgstr "Temps total : "
+msgstr "Temps total"
 
 #: libraries/sql.lib.php:553
-#, fuzzy
-#| msgid "Time"
 msgid "% Time"
-msgstr "Moment"
+msgstr "% Temps"
 
 #: libraries/sql.lib.php:555
-#, fuzzy
-#| msgid "Close"
 msgid "Calls"
-msgstr "Fermer"
+msgstr "Appels"
 
 #: libraries/sql.lib.php:557
-#, fuzzy
-#| msgid "Time"
 msgid "ø Time"
-msgstr "Moment"
+msgstr "Temps moyen"
 
 #: libraries/sql_query_form.lib.php:188
 #, php-format
@@ -9918,7 +9900,7 @@ msgstr "Vider"
 msgid "Bookmark this SQL query:"
 msgstr "Conserver cette requête SQL dans les signets : "
 
-#: libraries/sql_query_form.lib.php:326 sql.php:1211
+#: libraries/sql_query_form.lib.php:326 sql.php:1196
 msgid "Let every user access this bookmark"
 msgstr "Signet visible pour les autres utilisateurs"
 
@@ -10854,8 +10836,8 @@ msgid ""
 "master."
 msgstr ""
 "Quand le serveur MySQL est redémarré, veuillez cliquer sur Exécuter. Par la "
-"suite vous devriez voir un message vous informant que ce serveur <b>est</b> "
-"configuré comme maître"
+"suite, vous devriez voir un message vous informant que ce serveur <b>est</b> "
+"configuré comme maître."
 
 #: server_replication.php:281
 msgid "Slave SQL Thread not running!"
@@ -11075,11 +11057,11 @@ msgid ""
 "enabled. Note however, that the general_log produces a lot of data and "
 "increases server load by up to 15%."
 msgstr ""
-"Le moniteur phpMyAdmin peut vous aider à optimiser la configuration serveur "
-"et à traquer les requêtes qui prennent beaucoup de temps. Pour ce faire vous "
-"devrez régler le paramètre log_output à 'TABLE' et activer le journal "
-"slow_query_log ou general_log. Cependant, general_log produit beaucoup de "
-"données et augmente jusqu'à 15% la charge du serveur"
+"Le moniteur phpMyAdmin peut vous aider à optimiser la configuration du "
+"serveur et à traquer les requêtes qui prennent beaucoup de temps. Pour ce "
+"faire vous devrez régler le paramètre log_output à 'TABLE' et activer le "
+"journal slow_query_log ou general_log. Cependant, general_log produit "
+"beaucoup de données et augmente jusqu'à 15% la charge du serveur."
 
 #: server_status_monitor.php:467
 msgid ""
@@ -11237,12 +11219,16 @@ msgid "Instructions/Setup"
 msgstr "Consignes / réglages"
 
 #: server_status_monitor.php:685
-msgid "Done rearranging/editing charts"
+#, fuzzy
+#| msgid "Done rearranging/editing charts"
+msgid "Done dragging (rearranging) charts"
 msgstr "Terminé de modifier les graphiques"
 
 #: server_status_monitor.php:704
-msgid "Rearrange/edit charts"
-msgstr "Modifier les graphiques"
+#, fuzzy
+#| msgid "Enable highlighting"
+msgid "Enable charts dragging"
+msgstr "Active le mode glissement"
 
 #: server_status_monitor.php:708
 msgid "Refresh rate"
@@ -12370,24 +12356,24 @@ msgstr ""
 msgid "Wrong data"
 msgstr "Données incorrectes"
 
-#: sql.php:231
+#: sql.php:216
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr "Le signet «%s» a été utilisé comme requête par défaut."
 
-#: sql.php:313
+#: sql.php:298
 msgid "Bookmark not created"
 msgstr "Signet non créé"
 
-#: sql.php:855
+#: sql.php:840
 msgid "Showing as PHP code"
 msgstr "Affichage du code PHP"
 
-#: sql.php:860
+#: sql.php:845
 msgid "Validated SQL"
 msgstr "SQL validé"
 
-#: sql.php:1114
+#: sql.php:1099
 msgid ""
 "This table does not contain a unique column. Grid edit, checkbox, Edit, Copy "
 "and Delete features are not available."
@@ -12396,16 +12382,16 @@ msgstr ""
 "cases à cocher ainsi que les liens Edition, Copie et Supprimer ne sont pas "
 "disponibles."
 
-#: sql.php:1166
+#: sql.php:1151
 #, php-format
 msgid "Problems with indexes of table `%s`"
 msgstr "Il y a des problèmes avec les index de la table `%s`"
 
-#: sql.php:1199 sql.php:1219
+#: sql.php:1184 sql.php:1204
 msgid "Bookmark this SQL query"
 msgstr "Conserver cette requête SQL dans les signets"
 
-#: sql.php:1203
+#: sql.php:1188
 msgid "Label:"
 msgstr "Intitulé : "
 
@@ -14085,6 +14071,9 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "Le paramètre concurrent_insert a une valeur de 0"
+
+#~ msgid "Rearrange/edit charts"
+#~ msgstr "Modifier les graphiques"
 
 #~ msgid "Open Document"
 #~ msgstr "Texte Open Document"

@@ -1358,7 +1358,10 @@ function PMA_RTN_handleExecute()
 
                 // Pass the SQL queries through the "pretty printer"
                 $output  = '<code class="sql" style="margin-bottom: 1em;">';
-                $output .= PMA_SQP_formatHtml(PMA_SQP_parse(implode($queries)));
+                $output .= PMA_SQP_format(
+                    PMA_SQP_parse(implode($queries)),
+                    'text'
+                );
                 $output .= '</code>';
 
                 // Display results

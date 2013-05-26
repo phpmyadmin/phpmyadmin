@@ -85,6 +85,7 @@ AJAX.registerOnload('tbl_structure.js', function () {
                         .append(data.message)
                         .append(data.sql_query)
                         .show();
+                    PMA_highlightSQL($('#page_content'));
                     $("#result_query .notice").remove();
                     $form.remove();
                     PMA_ajaxRemoveMessage($msg);
@@ -109,6 +110,7 @@ AJAX.registerOnload('tbl_structure.js', function () {
                 $('<div id="change_column_dialog" class="margin"></div>')
                     .html(data.message)
                     .insertBefore('#page_content');
+                PMA_highlightSQL($('#page_content'));
                 PMA_verifyColumnsProperties();
             } else {
                 PMA_ajaxShowMessage(PMA_messages.strErrorProcessingRequest + " : " + data.error, false);
@@ -135,6 +137,7 @@ AJAX.registerOnload('tbl_structure.js', function () {
                             .html(data.message)
                     )
                     .show();
+                PMA_highlightSQL($('#page_content'));
                 PMA_verifyColumnsProperties();
             } else {
                 $('#page_content').show();
@@ -180,6 +183,7 @@ AJAX.registerOnload('tbl_structure.js', function () {
                         $('<div id="result_query"></div>')
                             .html(data.sql_query)
                             .prependTo('#page_content');
+                        PMA_highlightSQL($('#page_content'));
                     }
                     toggleRowColors($curr_row.next());
                     // Adjust the row numbers
@@ -235,6 +239,7 @@ AJAX.registerOnload('tbl_structure.js', function () {
                                 $('<div id="result_query"></div>')
                                     .html(data.sql_query)
                                     .prependTo('#page_content');
+                                PMA_highlightSQL($('#page_content'));
                             }
                         });
                         PMA_reloadNavigation();

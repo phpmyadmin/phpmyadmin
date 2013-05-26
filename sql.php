@@ -68,21 +68,6 @@ if (isset($_REQUEST['printview'])) {
     $GLOBALS['printview'] = $_REQUEST['printview'];
 }
 
-if (isset($_SESSION['profiling'])) {
-    $response = PMA_Response::getInstance();
-    $header   = $response->getHeader();
-    $scripts  = $header->getScripts();
-    /* < IE 9 doesn't support canvas natively */
-    if (PMA_USR_BROWSER_AGENT == 'IE' && PMA_USR_BROWSER_VER < 9) {
-        $scripts->addFile('canvg/flashcanvas.js');
-    }
-    $scripts->addFile('jqplot/jquery.jqplot.js');
-    $scripts->addFile('jqplot/plugins/jqplot.pieRenderer.js');
-    $scripts->addFile('jqplot/plugins/jqplot.highlighter.js');
-    $scripts->addFile('canvg/canvg.js');
-    $scripts->addFile('jquery/jquery.tablesorter.js');
-}
-
 if (!isset($_SESSION['is_multi_query'])) {
     $_SESSION['is_multi_query'] = false;
 }
@@ -714,7 +699,7 @@ if (isset($GLOBALS['show_as_php']) || ! empty($GLOBALS['validatequery'])) {
             // take the left part, could be:
             // SELECT
             // (SELECT
-            $count_query = PMA_SQP_formatHtml(
+            $count_query = PMA_SQP_format(
                 $parsed_sql,
                 'query_only',
                 0,
@@ -722,7 +707,7 @@ if (isset($GLOBALS['show_as_php']) || ! empty($GLOBALS['validatequery'])) {
             );
             $count_query .= ' SQL_CALC_FOUND_ROWS ';
             // add everything that was after the first SELECT
-            $count_query .= PMA_SQP_formatHtml(
+            $count_query .= PMA_SQP_format(
                 $parsed_sql,
                 'query_only',
                 $analyzed_sql[0]['position_of_first_select'] + 1

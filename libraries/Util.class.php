@@ -405,10 +405,10 @@ class PMA_Util
             }
             break;
         case 'html':
-            $formatted_sql = PMA_SQP_formatHtml($parsed_sql, 'color');
+            $formatted_sql = PMA_SQP_format($parsed_sql, 'color');
             break;
         case 'text':
-            $formatted_sql = PMA_SQP_formatHtml($parsed_sql, 'text');
+            $formatted_sql = PMA_SQP_format($parsed_sql, 'text');
             break;
         default:
             break;
@@ -4099,6 +4099,32 @@ class PMA_Util
                 . ': '
                 . PMA_Util::localisedDate(strtotime($table['Check_time']));
         }
+    }
+
+    /**
+     * Get regular expression which occur first inside the given sql query.
+     *
+     * @param Array  $regex_array Comparing regular expressions.
+     * @param String $query       SQL query to be checked.
+     *
+     * @return String Matching regular expression.
+     */
+    public static function getFirstOccuringRegularExpression($regex_array, $query)
+    {
+        $minimum_first_occurance_index = null;
+        $regex = null;
+
+        for ($i = 0; $i < count($regex_array); $i++) {
+            if (preg_match($regex_array[$i], $query, $matches, PREG_OFFSET_CAPTURE)) {
+                if (is_null($minimum_first_occurance_index)
+                    || ($matches[0][1] < $minimum_first_occurance_index)
+                ) {
+                    $regex = $regex_array[$i];
+                    $minimum_first_occurance_index = $matches[0][1];
+                }
+            }
+        }
+        return $regex;
     }
 }
 ?>

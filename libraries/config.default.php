@@ -2764,7 +2764,7 @@ $cfg['SQP'] = array();
  *
  * @global string $cfg['SQP']['fmtType']
  */
-$cfg['SQP']['fmtType'] = 'html';
+$cfg['SQP']['fmtType'] = 'none';
 
 /**
  * Amount to indent each level (floats are valid)

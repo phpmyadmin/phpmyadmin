@@ -19,7 +19,7 @@
  * from the analyzer.
  *
  * If you want a pretty-printed version of the query, do:
- * $string = PMA_SQP_formatHtml($parsed_sql);
+ * $string = PMA_SQP_format($parsed_sql);
  * (note that that you need to have syntax.css.php included somehow in your
  * page for it to work, I recommend '<link rel="stylesheet" type="text/css"
  * href="syntax.css.php" />' at the moment.)
@@ -2174,10 +2174,10 @@ function PMA_SQP_formatHtml_colorize($arr)
 
 
 /**
- * Formats SQL queries to html
+ * Formats SQL queries
  *
  * @param array   $arr              The SQL queries
- * @param string  $mode             mode of printing
+ * @param string  $mode             formatting mode
  * @param integer $start_token      starting token
  * @param integer $number_of_tokens number of tokens to format, -1 = all
  *
@@ -2185,7 +2185,7 @@ function PMA_SQP_formatHtml_colorize($arr)
  *
  * @access public
  */
-function PMA_SQP_formatHtml(
+function PMA_SQP_format(
     $arr, $mode='color', $start_token=0,
     $number_of_tokens=-1
 ) {
@@ -2888,7 +2888,7 @@ function PMA_SQP_formatHtml(
         */
         $str .= $before;
         if ($mode=='color') {
-            $str .= PMA_SQP_formatHTML_colorize($arr[$i]);
+            $str .= PMA_SQP_formatHtml_colorize($arr[$i]);
         } elseif ($mode == 'text') {
             $str .= htmlspecialchars($arr[$i]['data']);
         } else {
@@ -2916,7 +2916,7 @@ function PMA_SQP_formatHtml(
     }
 
     return $str;
-} // end of the "PMA_SQP_formatHtml()" function
+} // end of the "PMA_SQP_format()" function
 
 /**
  * Gets SQL queries with no format

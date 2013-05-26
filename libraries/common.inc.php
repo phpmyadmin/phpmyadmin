@@ -1063,7 +1063,9 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         }
         $scripts->addFile('jqplot/jquery.jqplot.js');
         $scripts->addFile('jqplot/plugins/jqplot.pieRenderer.js');
+        $scripts->addFile('jqplot/plugins/jqplot.highlighter.js');
         $scripts->addFile('canvg/canvg.js');
+        $scripts->addFile('jquery/jquery.tablesorter.js');
     }
 
     /*

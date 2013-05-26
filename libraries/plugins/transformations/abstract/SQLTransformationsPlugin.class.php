@@ -43,7 +43,7 @@ abstract class SQLTransformationsPlugin extends TransformationsPlugin
      */
     public function applyTransformation($buffer, $options = array(), $meta = '')
     {
-        $result = PMA_SQP_formatHtml(PMA_SQP_parse($buffer));
+        $result = PMA_SQP_format(PMA_SQP_parse($buffer));
         // Need to clear error state not to break subsequent queries display.
         PMA_SQP_resetError();
         return $result;
