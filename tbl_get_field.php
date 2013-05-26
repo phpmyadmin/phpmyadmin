@@ -32,7 +32,7 @@ PMA_Util::checkParameters(
 );
 
 /* Select database */
-if (!PMA_DBI_selectDb($db)) {
+if (!$GLOBALS['dbi']->selectDb($db)) {
     PMA_Util::mysqlDie(
         sprintf(__('\'%s\' database does not exist.'), htmlspecialchars($db)),
         '', ''
@@ -40,7 +40,7 @@ if (!PMA_DBI_selectDb($db)) {
 }
 
 /* Check if table exists */
-if (!PMA_DBI_getColumns($db, $table)) {
+if (!$GLOBALS['dbi']->getColumns($db, $table)) {
     PMA_Util::mysqlDie(__('Invalid table name'));
 }
 
@@ -48,7 +48,7 @@ if (!PMA_DBI_getColumns($db, $table)) {
 $sql = 'SELECT ' . PMA_Util::backquote($transform_key)
     . ' FROM ' . PMA_Util::backquote($table)
     . ' WHERE ' . $where_clause . ';';
-$result = PMA_DBI_fetchValue($sql);
+$result = $GLOBALS['dbi']->fetchValue($sql);
 
 /* Check return code */
 if ($result === false) {

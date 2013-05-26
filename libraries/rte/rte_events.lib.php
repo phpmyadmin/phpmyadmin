@@ -67,7 +67,7 @@ function PMA_EVN_main()
     $where   = "EVENT_SCHEMA='" . PMA_Util::sqlAddSlashes($db) . "'";
     $query   = "SELECT $columns FROM `INFORMATION_SCHEMA`.`EVENTS` "
              . "WHERE $where ORDER BY `EVENT_NAME` ASC;";
-    $items   = PMA_DBI_fetchResult($query);
+    $items   = $GLOBALS['dbi']->fetchResult($query);
     echo PMA_RTE_getList('event', $items);
     /**
      * Display a link for adding a new event, if
@@ -97,33 +97,33 @@ function PMA_EVN_handleEditor()
             // Execute the created query
             if (! empty($_REQUEST['editor_process_edit'])) {
                 // Backup the old trigger, in case something goes wrong
-                $create_item = PMA_DBI_getDefinition(
+                $create_item = $GLOBALS['dbi']->getDefinition(
                     $db,
                     'EVENT',
                     $_REQUEST['item_original_name']
                 );
                 $drop_item = "DROP EVENT "
                     . PMA_Util::backquote($_REQUEST['item_original_name']) . ";\n";
-                $result = PMA_DBI_tryQuery($drop_item);
+                $result = $GLOBALS['dbi']->tryQuery($drop_item);
                 if (! $result) {
                     $errors[] = sprintf(
                         __('The following query has failed: "%s"'),
                         htmlspecialchars($drop_item)
                     )
                     . '<br />'
-                    . __('MySQL said: ') . PMA_DBI_getError(null);
+                    . __('MySQL said: ') . $GLOBALS['dbi']->getError(null);
                 } else {
-                    $result = PMA_DBI_tryQuery($item_query);
+                    $result = $GLOBALS['dbi']->tryQuery($item_query);
                     if (! $result) {
                         $errors[] = sprintf(
                             __('The following query has failed: "%s"'),
                             htmlspecialchars($item_query)
                         )
                         . '<br />'
-                        . __('MySQL said: ') . PMA_DBI_getError(null);
+                        . __('MySQL said: ') . $GLOBALS['dbi']->getError(null);
                         // We dropped the old item, but were unable to create
                         // the new one. Try to restore the backup query
-                        $result = PMA_DBI_tryQuery($create_item);
+                        $result = $GLOBALS['dbi']->tryQuery($create_item);
                         if (! $result) {
                             // OMG, this is really bad! We dropped the query,
                             // failed to create a new one
@@ -137,7 +137,7 @@ function PMA_EVN_handleEditor()
                             . __('The backed up query was:')
                             . "\"" . htmlspecialchars($create_item) . "\""
                             . '<br />'
-                            . __('MySQL said: ') . PMA_DBI_getError(null);
+                            . __('MySQL said: ') . $GLOBALS['dbi']->getError(null);
                         }
                     } else {
                         $message = PMA_Message::success(
@@ -151,14 +151,14 @@ function PMA_EVN_handleEditor()
                 }
             } else {
                 // 'Add a new item' mode
-                $result = PMA_DBI_tryQuery($item_query);
+                $result = $GLOBALS['dbi']->tryQuery($item_query);
                 if (! $result) {
                     $errors[] = sprintf(
                         __('The following query has failed: "%s"'),
                         htmlspecialchars($item_query)
                     )
                     . '<br /><br />'
-                    . __('MySQL said: ') . PMA_DBI_getError(null);
+                    . __('MySQL said: ') . $GLOBALS['dbi']->getError(null);
                 } else {
                     $message = PMA_Message::success(
                         __('Event %1$s has been created.')
@@ -190,7 +190,7 @@ function PMA_EVN_handleEditor()
                     . PMA_Util::sqlAddSlashes($_REQUEST['item_name']) . "'";
                 $query   = "SELECT " . $columns
                     . " FROM `INFORMATION_SCHEMA`.`EVENTS` WHERE " . $where. ";";
-                $event   = PMA_DBI_fetchSingleRow($query);
+                $event   = $GLOBALS['dbi']->fetchSingleRow($query);
                 $response->addJSON(
                     'name',
                     htmlspecialchars(strtoupper($_REQUEST['item_name']))
@@ -322,7 +322,7 @@ function PMA_EVN_getDataFromName($name)
     $where   = "EVENT_SCHEMA='" . PMA_Util::sqlAddSlashes($db) . "' "
              . "AND EVENT_NAME='" . PMA_Util::sqlAddSlashes($name) . "'";
     $query   = "SELECT $columns FROM `INFORMATION_SCHEMA`.`EVENTS` WHERE $where;";
-    $item    = PMA_DBI_fetchSingleRow($query);
+    $item    = $GLOBALS['dbi']->fetchSingleRow($query);
     if (! $item) {
         return false;
     }

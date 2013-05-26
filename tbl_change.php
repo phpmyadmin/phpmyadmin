@@ -137,8 +137,8 @@ $analyzed_sql = PMA_Table::analyzeStructure($db, $table);
 /**
  * Get the list of the fields of the current table
  */
-PMA_DBI_selectDb($db);
-$table_fields = array_values(PMA_DBI_getColumns($db, $table));
+$GLOBALS['dbi']->selectDb($db);
+$table_fields = array_values($GLOBALS['dbi']->getColumns($db, $table));
 
 $paramTableDbArray = array($table, $db);
 
@@ -286,7 +286,7 @@ foreach ($rows as $row_id => $current_row) {
             = PMA_Util::extractColumnSpec($column['Type']);
 
         if (-1 === $column['len']) {
-            $column['len'] = PMA_DBI_fieldLen($current_result, $i);
+            $column['len'] = $GLOBALS['dbi']->fieldLen($current_result, $i);
             // length is unknown for geometry fields,
             // make enough space to edit very simple WKTs
             if (-1 === $column['len']) {

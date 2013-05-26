@@ -246,21 +246,23 @@ class ExportCsv extends ExportPlugin
         global $what, $csv_terminated, $csv_separator, $csv_enclosed, $csv_escaped;
 
         // Gets the data from the database
-        $result = PMA_DBI_query($sql_query, null, PMA_DBI_QUERY_UNBUFFERED);
-        $fields_cnt = PMA_DBI_numFields($result);
+        $result = $GLOBALS['dbi']->query(
+            $sql_query, null, PMA_DatabaseInterface::QUERY_UNBUFFERED
+        );
+        $fields_cnt = $GLOBALS['dbi']->numFields($result);
 
         // If required, get fields name at the first line
         if (isset($GLOBALS['csv_columns'])) {
             $schema_insert = '';
             for ($i = 0; $i < $fields_cnt; $i++) {
                 if ($csv_enclosed == '') {
-                    $schema_insert .= stripslashes(PMA_DBI_fieldName($result, $i));
+                    $schema_insert .= stripslashes($GLOBALS['dbi']->fieldName($result, $i));
                 } else {
                     $schema_insert .= $csv_enclosed
                         . str_replace(
                             $csv_enclosed,
                             $csv_escaped . $csv_enclosed,
-                            stripslashes(PMA_DBI_fieldName($result, $i))
+                            stripslashes($GLOBALS['dbi']->fieldName($result, $i))
                         )
                         .  $csv_enclosed;
                 }
@@ -273,7 +275,7 @@ class ExportCsv extends ExportPlugin
         } // end if
 
         // Format the data
-        while ($row = PMA_DBI_fetchRow($result)) {
+        while ($row = $GLOBALS['dbi']->fetchRow($result)) {
             $schema_insert = '';
             for ($j = 0; $j < $fields_cnt; $j++) {
                 if (! isset($row[$j]) || is_null($row[$j])) {
@@ -336,7 +338,7 @@ class ExportCsv extends ExportPlugin
                 return false;
             }
         } // end while
-        PMA_DBI_freeResult($result);
+        $GLOBALS['dbi']->freeResult($result);
 
         return true;
     }

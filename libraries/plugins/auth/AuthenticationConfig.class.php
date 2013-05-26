@@ -68,7 +68,7 @@ class AuthenticationConfig extends AuthenticationPlugin
      */
     public function authFails()
     {
-        $conn_error = PMA_DBI_getError();
+        $conn_error = $GLOBALS['dbi']->getError();
         if (! $conn_error) {
             $conn_error = __('Cannot connect: invalid settings.');
         }

@@ -62,9 +62,9 @@ if (strlen($db)
         PMA_runProcedureAndFunctionDefinitions($db);
 
         // go back to current db, just in case
-        PMA_DBI_selectDb($db);
+        $GLOBALS['dbi']->selectDb($db);
 
-        $tables_full = PMA_DBI_getTablesFull($db);
+        $tables_full = $GLOBALS['dbi']->getTablesFull($db);
 
         include_once "libraries/plugin_interface.lib.php";
         // remove all foreign key constraints, otherwise we can get errors
@@ -109,7 +109,7 @@ if (strlen($db)
         }
 
         // go back to current db, just in case
-        PMA_DBI_selectDb($db);
+        $GLOBALS['dbi']->selectDb($db);
 
         // Duplicate the bookmarks for this db (done once for each db)
         PMA_duplicateBookmarks($_error, $db);
@@ -124,7 +124,7 @@ if (strlen($db)
             // if someday the RENAME DATABASE reappears, do not DROP
             $local_query = 'DROP DATABASE ' . PMA_Util::backquote($db) . ';';
             $sql_query .= "\n" . $local_query;
-            PMA_DBI_query($local_query);
+            $GLOBALS['dbi']->query($local_query);
 
             $message = PMA_Message::success(__('Database %1$s has been renamed to %2$s'));
             $message->addParam($db);
@@ -206,7 +206,7 @@ if (empty($is_info)) {
 }
 
 $_REQUEST['db_collation'] = PMA_getDbCollation($db);
-$is_information_schema = PMA_isSystemSchema($db);
+$is_information_schema = $GLOBALS['dbi']->isSystemSchema($db);
 
 $response->addHTML('<div id="boxContainer" data-box-width="300">');
 
@@ -285,7 +285,11 @@ if ($cfgRelation['pdfwork'] && $num_tables > 0) {
            FROM ' . PMA_Util::backquote($GLOBALS['cfgRelation']['db'])
             . '.' . PMA_Util::backquote($cfgRelation['pdf_pages']) . '
           WHERE db_name = \'' . PMA_Util::sqlAddSlashes($db) . '\'';
-    $test_rs    = PMA_queryAsControlUser($test_query, null, PMA_DBI_QUERY_STORE);
+    $test_rs = PMA_queryAsControlUser(
+        $test_query,
+        null,
+        PMA_DatabaseInterface::QUERY_STORE
+    );
 
     /*
      * Export Relational Schema View

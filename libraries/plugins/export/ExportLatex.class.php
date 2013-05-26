@@ -290,11 +290,13 @@ class ExportLatex extends ExportPlugin
      */
     public function exportData($db, $table, $crlf, $error_url, $sql_query)
     {
-        $result      = PMA_DBI_tryQuery($sql_query, null, PMA_DBI_QUERY_UNBUFFERED);
+        $result      = $GLOBALS['dbi']->tryQuery(
+            $sql_query, null, PMA_DatabaseInterface::QUERY_UNBUFFERED
+        );
 
-        $columns_cnt = PMA_DBI_numFields($result);
+        $columns_cnt = $GLOBALS['dbi']->numFields($result);
         for ($i = 0; $i < $columns_cnt; $i++) {
-            $columns[$i] = PMA_DBI_fieldName($result, $i);
+            $columns[$i] = $GLOBALS['dbi']->fieldName($result, $i);
         }
         unset($i);
 
@@ -370,7 +372,7 @@ class ExportLatex extends ExportPlugin
         }
 
         // print the whole table
-        while ($record = PMA_DBI_fetchAssoc($result)) {
+        while ($record = $GLOBALS['dbi']->fetchAssoc($result)) {
             $buffer = '';
             // print each row
             for ($i = 0; $i < $columns_cnt; $i++) {
@@ -403,7 +405,7 @@ class ExportLatex extends ExportPlugin
             return false;
         }
 
-        PMA_DBI_freeResult($result);
+        $GLOBALS['dbi']->freeResult($result);
         return true;
     } // end getTableLaTeX
 
@@ -452,7 +454,7 @@ class ExportLatex extends ExportPlugin
          * Get the unique keys in the table
          */
         $unique_keys = array();
-        $keys = PMA_DBI_getTableIndexes($db, $table);
+        $keys = $GLOBALS['dbi']->getTableIndexes($db, $table);
         foreach ($keys as $key) {
             if ($key['Non_unique'] == 0) {
                 $unique_keys[] = $key['Column_name'];
@@ -462,7 +464,7 @@ class ExportLatex extends ExportPlugin
         /**
          * Gets fields properties
          */
-        PMA_DBI_selectDb($db);
+        $GLOBALS['dbi']->selectDb($db);
 
         // Check if we can use Relations
         if ($do_relation && ! empty($cfgRelation['relation'])) {
@@ -563,7 +565,7 @@ class ExportLatex extends ExportPlugin
             return false;
         }
 
-        $fields = PMA_DBI_getColumns($db, $table);
+        $fields = $GLOBALS['dbi']->getColumns($db, $table);
         foreach ($fields as $row) {
             $extracted_columnspec
                 = PMA_Util::extractColumnSpec(

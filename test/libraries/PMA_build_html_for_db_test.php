@@ -16,7 +16,7 @@ require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/build_html_for_db.lib.php';
 require_once 'libraries/js_escape.lib.php';
 require_once 'libraries/Theme.class.php';
-require_once 'libraries/database_interface.lib.php';
+require_once 'libraries/database_interface.inc.php';
 require_once 'libraries/Tracker.class.php';
 require_once 'libraries/Types.class.php';
 require_once 'libraries/mysql_charsets.lib.php';

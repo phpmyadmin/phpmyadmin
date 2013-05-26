@@ -12,7 +12,7 @@
  */
 require_once 'libraries/common.inc.php';
 
-$is_superuser = PMA_isSuperuser();
+$is_superuser = $GLOBALS['dbi']->isSuperuser();
 
 /**
  * Gets a core script and starts output buffering work

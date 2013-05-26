@@ -28,7 +28,7 @@ if (isset($_REQUEST['flush'])) {
     );
 
     if (in_array($_REQUEST['flush'], $_flush_commands)) {
-        PMA_DBI_query('FLUSH ' . $_REQUEST['flush'] . ';');
+        $GLOBALS['dbi']->query('FLUSH ' . $_REQUEST['flush'] . ';');
     }
     unset($_flush_commands);
 }

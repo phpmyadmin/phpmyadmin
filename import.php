@@ -182,7 +182,7 @@ if ($import_type == 'table') {
 
 
 if (strlen($db)) {
-    PMA_DBI_selectDb($db);
+    $GLOBALS['dbi']->selectDb($db);
 }
 
 @set_time_limit($cfg['ExecTimeLimit']);
@@ -447,7 +447,7 @@ if ($GLOBALS['PMA_recoding_engine'] != PMA_CHARSET_NONE && isset($charset_of_fil
             __('Cannot convert file\'s character set without character set conversion library')
         );
     } else {
-        PMA_DBI_query('SET NAMES \'' . $charset_of_file . '\'');
+        $GLOBALS['dbi']->query('SET NAMES \'' . $charset_of_file . '\'');
         // We can not show query in this case, it is in different charset
         $sql_query_disabled = true;
         $reset_charset = true;
@@ -501,8 +501,8 @@ if ($file_to_unlink != '') {
 
 // Reset charset back, if we did some changes
 if ($reset_charset) {
-    PMA_DBI_query('SET CHARACTER SET utf8');
-    PMA_DBI_query(
+    $GLOBALS['dbi']->query('SET CHARACTER SET utf8');
+    $GLOBALS['dbi']->query(
         'SET SESSION collation_connection =\'' . $collation_connection . '\''
     );
 }

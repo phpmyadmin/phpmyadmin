@@ -816,7 +816,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         /**
          * Loads the proper database interface for this server
          */
-        include_once './libraries/database_interface.lib.php';
+        include_once './libraries/database_interface.inc.php';
 
         include_once './libraries/logging.lib.php';
 
@@ -951,14 +951,14 @@ if (! defined('PMA_MINIMUM_COMMON')) {
                 // otherwise we leave the $server_details['port'] unset,
                 // allowing it to take default mysql port
 
-                $controllink = PMA_DBI_connect(
+                $controllink = $GLOBALS['dbi']->connect(
                     $cfg['Server']['controluser'],
                     $cfg['Server']['controlpass'],
                     true,
                     $server_details
                 );
             } else {
-                $controllink = PMA_DBI_connect(
+                $controllink = $GLOBALS['dbi']->connect(
                     $cfg['Server']['controluser'],
                     $cfg['Server']['controlpass'],
                     true
@@ -967,7 +967,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         }
 
         // Connects to the server (validates user's login)
-        $userlink = PMA_DBI_connect(
+        $userlink = $GLOBALS['dbi']->connect(
             $cfg['Server']['user'], $cfg['Server']['password'], false
         );
 
@@ -1143,7 +1143,8 @@ unset($dummy);
 
 // here, the function does not exist with this configuration:
 // $cfg['ServerDefault'] = 0;
-$GLOBALS['is_superuser'] = function_exists('PMA_isSuperuser') && PMA_isSuperuser();
+$GLOBALS['is_superuser']
+    = isset($GLOBALS['dbi']) && $GLOBALS['dbi']->isSuperuser();
 
 if (!empty($__redirect) && in_array($__redirect, $goto_whitelist)) {
     /**

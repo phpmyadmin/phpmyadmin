@@ -287,7 +287,7 @@ class AuthenticationCookie extends AuthenticationPlugin
      *
      * this function DOES NOT check authentication - it just checks/provides
      * authentication credentials required to connect to the MySQL server
-     * usually with PMA_DBI_connect()
+     * usually with $GLOBALS['dbi']->connect()
      *
      * it returns false if something is missing - which usually leads to
      * auth() which displays login form
@@ -590,7 +590,7 @@ class AuthenticationCookie extends AuthenticationPlugin
                 __('No activity within %s seconds; please log in again'),
                 $GLOBALS['cfg']['LoginCookieValidity']
             );
-        } elseif (PMA_DBI_getError()) {
+        } elseif ($GLOBALS['dbi']->getError()) {
             $conn_error = '#' . $GLOBALS['errno'] . ' '
                 . __('Cannot log in to the MySQL server');
         } else {

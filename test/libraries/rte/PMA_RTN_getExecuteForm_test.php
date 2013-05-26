@@ -11,7 +11,7 @@ require_once 'libraries/sqlparser.lib.php';
 require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/url_generating.lib.php';
 require_once './libraries/Types.class.php';
-require_once 'libraries/database_interface.lib.php';
+require_once 'libraries/database_interface.inc.php';
 require_once 'libraries/Tracker.class.php';
 /*
  * Include to test.

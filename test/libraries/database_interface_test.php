@@ -10,7 +10,7 @@
  * Include to test.
  */
 require_once 'libraries/php-gettext/gettext.inc';
-require_once 'libraries/database_interface.lib.php';
+require_once 'libraries/database_interface.inc.php';
 require_once 'libraries/Tracker.class.php';
 
 /**
@@ -39,7 +39,7 @@ class PMA_DBI_Test extends PHPUnit_Framework_TestCase
      */
     function testQuery()
     {
-        $this->assertEquals(0, PMA_DBI_realQuery('SELECT 1'));
+        $this->assertEquals(0, $GLOBALS['dbi']->tryQuery('SELECT 1'));
     }
 
     /**
@@ -51,7 +51,7 @@ class PMA_DBI_Test extends PHPUnit_Framework_TestCase
      */
     function testFetch()
     {
-        $this->assertEquals(array('1'), PMA_DBI_fetchArray(0));
+        $this->assertEquals(array('1'), $GLOBALS['dbi']->fetchArray(0));
     }
 
     /**
@@ -66,7 +66,7 @@ class PMA_DBI_Test extends PHPUnit_Framework_TestCase
      */
     function testSystemSchema($schema, $expected)
     {
-        $this->assertEquals($expected, PMA_isSystemSchema($schema));
+        $this->assertEquals($expected, $GLOBALS['dbi']->isSystemSchema($schema));
     }
 
     /**
@@ -97,7 +97,7 @@ class PMA_DBI_Test extends PHPUnit_Framework_TestCase
     {
         $this->assertEquals(
             $expected,
-            PMA_DBI_formatError($number, $message)
+            $GLOBALS['dbi']->formatError($number, $message)
         );
     }
 
