@@ -1404,13 +1404,15 @@ class PMA_DatabaseInterface
      * returns value of given mysql server variable
      *
      * @param string $var  mysql server variable name
-     * @param int    $type PMA_DBI_GETVAR_SESSION|PMA_DBI_GETVAR_GLOBAL
+     * @param int    $type PMA_DatabaseInterface::GETVAR_SESSION |
+     *                     PMA_DatabaseInterface::GETVAR_GLOBAL
      * @param mixed  $link mysql link resource|object
      *
      * @return mixed   value for mysql server variable
      */
-    public function getVariable($var, $type = PMA_DBI_GETVAR_SESSION, $link = null)
-    {
+    public function getVariable(
+        $var, $type = PMA_DatabaseInterface::GETVAR_SESSION, $link = null
+    ) {
         if ($link === null) {
             if (isset($GLOBALS['userlink'])) {
                 $link = $GLOBALS['userlink'];
