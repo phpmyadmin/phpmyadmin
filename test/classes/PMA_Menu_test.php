@@ -13,7 +13,7 @@ require_once 'libraries/sanitizing.lib.php';
 require_once 'libraries/core.lib.php';
 require_once 'libraries/Menu.class.php';
 require_once 'libraries/Table.class.php';
-require_once 'libraries/DatabaseInterface.class.php';
+require_once 'libraries/database_interface.inc.php';
 require_once 'libraries/Tracker.class.php';
 require_once 'libraries/Util.class.php';
 require_once 'libraries/Theme.class.php';

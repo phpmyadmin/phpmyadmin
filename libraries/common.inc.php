@@ -816,7 +816,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         /**
          * Loads the proper database interface for this server
          */
-        include_once './libraries/DatabaseInterface.class.php';
+        include_once './libraries/database_interface.inc.php';
 
         include_once './libraries/logging.lib.php';
 

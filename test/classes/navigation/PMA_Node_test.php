@@ -9,7 +9,7 @@
 require_once 'libraries/navigation/NodeFactory.class.php';
 require_once 'libraries/Util.class.php';
 require_once 'libraries/Theme.class.php';
-require_once 'libraries/DatabaseInterface.class.php';
+require_once 'libraries/database_interface.inc.php';
 
 
 class Node_Test extends PHPUnit_Framework_TestCase

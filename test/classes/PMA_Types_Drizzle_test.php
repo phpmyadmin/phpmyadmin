@@ -11,7 +11,7 @@
 
 require_once 'libraries/Types.class.php';
 require_once 'libraries/php-gettext/gettext.inc';
-require_once 'libraries/DatabaseInterface.class.php';
+require_once 'libraries/database_interface.inc.php';
 require_once 'libraries/Tracker.class.php';
 
 class PMA_Types_Drizzle_Test extends PHPUnit_Framework_TestCase
