@@ -697,7 +697,7 @@ if (isset($GLOBALS['show_as_php']) || ! empty($GLOBALS['validatequery'])) {
             // take the left part, could be:
             // SELECT
             // (SELECT
-            $count_query = PMA_SQP_formatHtml(
+            $count_query = PMA_SQP_format(
                 $parsed_sql,
                 'query_only',
                 0,
@@ -705,7 +705,7 @@ if (isset($GLOBALS['show_as_php']) || ! empty($GLOBALS['validatequery'])) {
             );
             $count_query .= ' SQL_CALC_FOUND_ROWS ';
             // add everything that was after the first SELECT
-            $count_query .= PMA_SQP_formatHtml(
+            $count_query .= PMA_SQP_format(
                 $parsed_sql,
                 'query_only',
                 $analyzed_sql[0]['position_of_first_select'] + 1

@@ -405,10 +405,10 @@ class PMA_Util
             }
             break;
         case 'html':
-            $formatted_sql = PMA_SQP_formatHtml($parsed_sql, 'color');
+            $formatted_sql = PMA_SQP_format($parsed_sql, 'color');
             break;
         case 'text':
-            $formatted_sql = PMA_SQP_formatHtml($parsed_sql, 'text');
+            $formatted_sql = PMA_SQP_format($parsed_sql, 'text');
             break;
         default:
             break;
