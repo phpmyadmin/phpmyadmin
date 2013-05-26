@@ -27,9 +27,9 @@ if (! isset($sql_query) || $sql_query == '') {
 }
 
 // Execute the query and return the result
-$result = PMA_DBI_tryQuery($sql_query);
+$result = $GLOBALS['dbi']->tryQuery($sql_query);
 // Get the meta data of results
-$meta = PMA_DBI_getFieldsMeta($result);
+$meta = $GLOBALS['dbi']->getFieldsMeta($result);
 
 // Find the candidate fields for label column and spatial column
 $labelCandidates = array(); $spatialCandidates = array();
@@ -58,10 +58,10 @@ if (! isset($visualizationSettings['spatialColumn'])) {
 
 // Convert geometric columns from bytes to text.
 $modified_query = PMA_GIS_modifyQuery($sql_query, $visualizationSettings);
-$modified_result = PMA_DBI_tryQuery($modified_query);
+$modified_result = $GLOBALS['dbi']->tryQuery($modified_query);
 
 $data = array();
-while ($row = PMA_DBI_fetchAssoc($modified_result)) {
+while ($row = $GLOBALS['dbi']->fetchAssoc($modified_result)) {
     $data[] = $row;
 }
 

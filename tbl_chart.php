@@ -28,8 +28,8 @@ if (isset($_REQUEST['ajax_request'])
     $sql_with_limit = 'SELECT * FROM( ' . $sql_query . ' ) AS `temp_res` LIMIT '
         . $_REQUEST['pos'] . ', ' . $_REQUEST['session_max_rows'];
     $data = array();
-    $result = PMA_DBI_tryQuery($sql_with_limit);
-    while ($row = PMA_DBI_fetchAssoc($result)) {
+    $result = $GLOBALS['dbi']->tryQuery($sql_with_limit);
+    while ($row = $GLOBALS['dbi']->fetchAssoc($result)) {
         $data[] = $row;
     }
 
@@ -102,9 +102,9 @@ if (strlen($GLOBALS['table'])) {
 
 $data = array();
 
-$result = PMA_DBI_tryQuery($sql_query);
-$fields_meta = PMA_DBI_getFieldsMeta($result);
-while ($row = PMA_DBI_fetchAssoc($result)) {
+$result = $GLOBALS['dbi']->tryQuery($sql_query);
+$fields_meta = $GLOBALS['dbi']->getFieldsMeta($result);
+while ($row = $GLOBALS['dbi']->fetchAssoc($result)) {
     $data[] = $row;
 }
 

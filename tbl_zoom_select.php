@@ -61,9 +61,9 @@ if (isset($_REQUEST['get_data_row']) && $_REQUEST['get_data_row'] == true) {
     $extra_data = array();
     $row_info_query = 'SELECT * FROM `' . $_REQUEST['db'] . '`.`'
         . $_REQUEST['table'] . '` WHERE ' .  $_REQUEST['where_clause'];
-    $result = PMA_DBI_query($row_info_query . ";", null, PMA_DBI_QUERY_STORE);
-    $fields_meta = PMA_DBI_getFieldsMeta($result);
-    while ($row = PMA_DBI_fetchAssoc($result)) {
+    $result = $GLOBALS['dbi']->query($row_info_query . ";", null, PMA_DBI_QUERY_STORE);
+    $fields_meta = $GLOBALS['dbi']->getFieldsMeta($result);
+    while ($row = $GLOBALS['dbi']->fetchAssoc($result)) {
         // for bit fields we need to convert them to printable form
         $i = 0;
         foreach ($row as $col => $val) {
@@ -138,9 +138,9 @@ if (isset($zoom_submit)
     $sql_query .= ' LIMIT ' . $maxPlotLimit;
 
     //Query execution part
-    $result = PMA_DBI_query($sql_query . ";", null, PMA_DBI_QUERY_STORE);
-    $fields_meta = PMA_DBI_getFieldsMeta($result);
-    while ($row = PMA_DBI_fetchAssoc($result)) {
+    $result = $GLOBALS['dbi']->query($sql_query . ";", null, PMA_DBI_QUERY_STORE);
+    $fields_meta = $GLOBALS['dbi']->getFieldsMeta($result);
+    while ($row = $GLOBALS['dbi']->fetchAssoc($result)) {
         //Need a row with indexes as 0,1,2 for the getUniqueCondition
         // hence using a temporary array
         $tmpRow = array();
