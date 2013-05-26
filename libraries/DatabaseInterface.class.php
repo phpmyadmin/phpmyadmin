@@ -26,24 +26,6 @@ define('PMA_DBI_GETVAR_SESSION',    1);
  */
 define('PMA_DBI_GETVAR_GLOBAL',     2);
 
-/**
- * Checks whether database extension is loaded
- *
- * @param string $extension mysql extension to check
- *
- * @return bool
- */
-function PMA_DBI_checkDbExtension($extension = 'mysql')
-{
-    if ($extension == 'drizzle' && function_exists('drizzle_create')) {
-        return true;
-    } else if (function_exists($extension . '_connect')) {
-        return true;
-    }
-
-    return false;
-}
-
 $extension = null;
 if (defined('TESTSUITE')) {
     /**
@@ -56,7 +38,8 @@ if (defined('TESTSUITE')) {
     /**
      * check for requested extension
      */
-    if (! PMA_DBI_checkDbExtension($GLOBALS['cfg']['Server']['extension'])) {
+    $extensionName = $GLOBALS['cfg']['Server']['extension'];
+    if (! PMA_DatabaseInterface::checkDbExtension($extensionName)) {
 
         // if it fails try alternative extension ...
         // and display an error ...
@@ -66,21 +49,21 @@ if (defined('TESTSUITE')) {
          * and complete fail (no alternative extension too)
          */
         PMA_warnMissingExtension(
-            $GLOBALS['cfg']['Server']['extension'],
+            $extensionName,
             false,
             PMA_Util::showDocu('faq', 'faqmysql')
         );
 
-        if ($GLOBALS['cfg']['Server']['extension'] === 'mysql') {
+        if ($extensionName === 'mysql') {
             $alternativ_extension = 'mysqli';
         } else {
             $alternativ_extension = 'mysql';
         }
 
-        if (! PMA_DBI_checkDbExtension($alternativ_extension)) {
+        if (! PMA_DatabaseInterface::checkDbExtension($alternativ_extension)) {
             // if alternative fails too ...
             PMA_warnMissingExtension(
-                $GLOBALS['cfg']['Server']['extension'],
+                $extensionName,
                 true,
                 PMA_Util::showDocu('faq', 'faqmysql')
             );
@@ -111,37 +94,6 @@ if (defined('TESTSUITE')) {
 $GLOBALS['dbi'] = new PMA_DatabaseInterface($extension);
 
 /**
- * usort comparison callback
- *
- * @param string $a first argument to sort
- * @param string $b second argument to sort
- *
- * @return integer  a value representing whether $a should be before $b in the
- *                   sorted array or not
- *
- * @access  private
- */
-function PMA_usortComparisonCallback($a, $b)
-{
-    if ($GLOBALS['cfg']['NaturalOrder']) {
-        $sorter = 'strnatcasecmp';
-    } else {
-        $sorter = 'strcasecmp';
-    }
-    /* No sorting when key is not present */
-    if (! isset($a[$GLOBALS['callback_sort_by']])
-        || ! isset($b[$GLOBALS['callback_sort_by']])
-    ) {
-        return 0;
-    }
-    // produces f.e.:
-    // return -1 * strnatcasecmp($a["SCHEMA_TABLES"], $b["SCHEMA_TABLES"])
-    return ($GLOBALS['callback_sort_order'] == 'ASC' ? 1 : -1) * $sorter(
-        $a[$GLOBALS['callback_sort_by']], $b[$GLOBALS['callback_sort_by']]
-    );
-} // end of the 'PMA_usortComparisonCallback()' function
-
-/**
  * Main interface for database interactions
  *
  * @package PhpMyAdmin-DBI
@@ -158,6 +110,23 @@ class PMA_DatabaseInterface
     public function __construct($ext)
     {
         $this->_extension = $ext;
+    }
+
+    /**
+     * Checks whether database extension is loaded
+     *
+     * @param string $extension mysql extension to check
+     *
+     * @return bool
+     */
+    public static function checkDbExtension($extension = 'mysql')
+    {
+        if ($extension == 'drizzle' && function_exists('drizzle_create')) {
+            return true;
+        } else if (function_exists($extension . '_connect')) {
+            return true;
+        }
+        return false;
     }
 
     /**
@@ -1056,7 +1025,10 @@ class PMA_DatabaseInterface
         if ($apply_limit_and_order_manual) {
             $GLOBALS['callback_sort_order'] = $sort_order;
             $GLOBALS['callback_sort_by'] = $sort_by;
-            usort($databases, 'PMA_usortComparisonCallback');
+            usort(
+                $databases,
+                array('PMA_DatabaseInterface', '_usortComparisonCallback')
+            );
             unset($GLOBALS['callback_sort_order'], $GLOBALS['callback_sort_by']);
 
             /**
@@ -1069,6 +1041,37 @@ class PMA_DatabaseInterface
 
         return $databases;
     }
+
+    /**
+     * usort comparison callback
+     *
+     * @param string $a first argument to sort
+     * @param string $b second argument to sort
+     *
+     * @return integer  a value representing whether $a should be before $b in the
+     *                   sorted array or not
+     *
+     * @access  private
+     */
+    private static function _usortComparisonCallback($a, $b)
+    {
+        if ($GLOBALS['cfg']['NaturalOrder']) {
+            $sorter = 'strnatcasecmp';
+        } else {
+            $sorter = 'strcasecmp';
+        }
+        /* No sorting when key is not present */
+        if (! isset($a[$GLOBALS['callback_sort_by']])
+            || ! isset($b[$GLOBALS['callback_sort_by']])
+        ) {
+            return 0;
+        }
+        // produces f.e.:
+        // return -1 * strnatcasecmp($a["SCHEMA_TABLES"], $b["SCHEMA_TABLES"])
+        return ($GLOBALS['callback_sort_order'] == 'ASC' ? 1 : -1) * $sorter(
+        $a[$GLOBALS['callback_sort_by']], $b[$GLOBALS['callback_sort_by']]
+        );
+    } // end of the '_usortComparisonCallback()' method
 
     /**
      * returns detailed array with all columns for given table in database,
