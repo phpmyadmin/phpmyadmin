@@ -2108,20 +2108,20 @@ function PMA_is_system_schema($schema_name, $test_for_mysql_schema = false)
  *
  * @return String Matching regular expression.
  */
-function PMA_getFirstOccuringRegularExpression($regex_array, $query)
+function PMA_getFirstOccurringRegularExpression($regex_array, $query)
 {
     
-    $minimum_first_occurance_index = null;
+    $minimum_first_occurence_index = null;
     $regex = null;
     
     for ($i=0; $i<count($regex_array); $i++) {
         if (preg_match($regex_array[$i], $query, $matches, PREG_OFFSET_CAPTURE)) {
             
-            if (is_null($minimum_first_occurance_index)
-                || ($matches[0][1] < $minimum_first_occurance_index)
+            if (is_null($minimum_first_occurence_index)
+                || ($matches[0][1] < $minimum_first_occurence_index)
             ) {
                 $regex = $regex_array[$i];
-                $minimum_first_occurance_index = $matches[0][1];
+                $minimum_first_occurence_index = $matches[0][1];
             }
             
         }

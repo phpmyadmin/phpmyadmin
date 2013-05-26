@@ -43,7 +43,7 @@ if (! empty($sql_query)) {
             '/\bwhere\b/i', '/\bgroup by\b/i', '/\bhaving\b/i', '/\border by\b/i'
         );
         
-        $first_occuring_regex = PMA_getFirstOccuringRegularExpression(
+        $first_occurring_regex = PMA_getFirstOccurringRegularExpression(
             $regex_array, $sql_query
         );
 
@@ -52,8 +52,8 @@ if (! empty($sql_query)) {
         // the result set from a query such as
         // "SELECT `id`, `name` FROM `customers` WHERE id NOT IN
         //  ( SELECT id FROM companies WHERE name LIKE '%u%')"
-        if (! is_null($first_occuring_regex)) {
-            $temp_sql_array = preg_split($first_occuring_regex, $sql_query);
+        if (! is_null($first_occurring_regex)) {
+            $temp_sql_array = preg_split($first_occurring_regex, $sql_query);
             $sql_query = $temp_sql_array[0];
         }
 
