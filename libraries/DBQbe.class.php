@@ -261,7 +261,7 @@ class PMA_DbQbe
         $all_tables = $GLOBALS['dbi']->query(
             'SHOW TABLES FROM ' . PMA_Util::backquote($this->_db) . ';',
             null,
-            PMA_DBI_QUERY_STORE
+            PMA_DatabaseInterface::QUERY_STORE
         );
         $all_tables_count = $GLOBALS['dbi']->numRows($all_tables);
         if (0 == $all_tables_count) {

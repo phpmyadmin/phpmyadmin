@@ -280,7 +280,9 @@ function PMA_setMIME($db, $table, $key, $mimetype, $transformation,
             AND `table_name`  = \'' . PMA_Util::sqlAddSlashes($table) . '\'
             AND `column_name` = \'' . PMA_Util::sqlAddSlashes($key) . '\'';
     
-    $test_rs   = PMA_queryAsControlUser($test_qry, true, PMA_DBI_QUERY_STORE);
+    $test_rs   = PMA_queryAsControlUser(
+        $test_qry, true, PMA_DatabaseInterface::QUERY_STORE
+    );
 
     if ($test_rs && $GLOBALS['dbi']->numRows($test_rs) > 0) {
         $row = @$GLOBALS['dbi']->fetchAssoc($test_rs);

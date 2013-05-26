@@ -332,7 +332,9 @@ if ($cfgRelation['relwork']
         // [0] of the row is the name
     }
 
-    $tab_rs = $GLOBALS['dbi']->query($tab_query, null, PMA_DBI_QUERY_STORE);
+    $tab_rs = $GLOBALS['dbi']->query(
+        $tab_query, null, PMA_DatabaseInterface::QUERY_STORE
+    );
     $selectboxall[] = '';
     $selectboxall_foreign[] = '';
 
@@ -362,7 +364,7 @@ if ($cfgRelation['relwork']
 } // end if
 
 // Now find out the columns of our $table
-// need to use PMA_DBI_QUERY_STORE with $GLOBALS['dbi']->numRows() in mysqli
+// need to use PMA_DatabaseInterface::QUERY_STORE with $GLOBALS['dbi']->numRows() in mysqli
 $columns = $GLOBALS['dbi']->getColumns($db, $table);
 
 if (count($columns) > 0) {

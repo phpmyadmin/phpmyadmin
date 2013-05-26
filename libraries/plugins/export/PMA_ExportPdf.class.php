@@ -277,7 +277,9 @@ class PMA_ExportPdf extends PMA_PDF
         /**
          * Pass 1 for column widths
          */
-        $this->results = $GLOBALS['dbi']->query($query, null, PMA_DBI_QUERY_UNBUFFERED);
+        $this->results = $GLOBALS['dbi']->query(
+            $query, null, PMA_DatabaseInterface::QUERY_UNBUFFERED
+        );
         $this->numFields  = $GLOBALS['dbi']->numFields($this->results);
         $this->fields = $GLOBALS['dbi']->getFieldsMeta($this->results);
 
@@ -395,7 +397,7 @@ class PMA_ExportPdf extends PMA_PDF
 
         // Pass 2
 
-        $this->results = $GLOBALS['dbi']->query($query, null, PMA_DBI_QUERY_UNBUFFERED);
+        $this->results = $GLOBALS['dbi']->query($query, null, PMA_DatabaseInterface::QUERY_UNBUFFERED);
         $this->setY($this->tMargin);
         $this->AddPage();
         $this->SetFont(PMA_PDF_FONT, '', 9);

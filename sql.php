@@ -548,7 +548,9 @@ if (isset($GLOBALS['show_as_php']) || ! empty($GLOBALS['validatequery'])) {
     // Measure query time.
     $querytime_before = array_sum(explode(' ', microtime()));
 
-    $result   = @$GLOBALS['dbi']->tryQuery($full_sql_query, null, PMA_DBI_QUERY_STORE);
+    $result = @$GLOBALS['dbi']->tryQuery(
+        $full_sql_query, null, PMA_DatabaseInterface::QUERY_STORE
+    );
 
     // If a stored procedure was called, there may be more results that are
     // queued up and waiting to be flushed from the buffer. So let's do that.

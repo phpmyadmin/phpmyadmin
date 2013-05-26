@@ -82,7 +82,9 @@ function PMA_analyzeWhereClauses(
             . PMA_Util::backquote($db) . '.'
             . PMA_Util::backquote($table)
             . ' WHERE ' . $where_clause . ';';
-        $result[$key_id] = $GLOBALS['dbi']->query($local_query, null, PMA_DBI_QUERY_STORE);
+        $result[$key_id] = $GLOBALS['dbi']->query(
+            $local_query, null, PMA_DatabaseInterface::QUERY_STORE
+        );
         $rows[$key_id]   = $GLOBALS['dbi']->fetchAssoc($result[$key_id]);
 
         $where_clauses[$key_id] = str_replace('\\', '\\\\', $where_clause);
@@ -155,7 +157,7 @@ function PMA_loadFirstRow($table, $db)
         'SELECT * FROM ' . PMA_Util::backquote($db)
         . '.' . PMA_Util::backquote($table) . ' LIMIT 1;',
         null,
-        PMA_DBI_QUERY_STORE
+        PMA_DatabaseInterface::QUERY_STORE
     );
     $rows = array_fill(0, $GLOBALS['cfg']['InsertRows'], false);
     return array($result, $rows);
@@ -1993,7 +1995,9 @@ function PMA_getDisplayValueForForeignTableColumn($where_comparison,
             . '.' . PMA_Util::backquote($map[$relation_field]['foreign_table'])
             . ' WHERE ' . PMA_Util::backquote($map[$relation_field]['foreign_field'])
             . $where_comparison;
-        $dispresult  = $GLOBALS['dbi']->tryQuery($dispsql, null, PMA_DBI_QUERY_STORE);
+        $dispresult  = $GLOBALS['dbi']->tryQuery(
+            $dispsql, null, PMA_DatabaseInterface::QUERY_STORE
+        );
         if ($dispresult && $GLOBALS['dbi']->numRows($dispresult) > 0) {
             list($dispval) = $GLOBALS['dbi']->fetchRow($dispresult, 0);
         }

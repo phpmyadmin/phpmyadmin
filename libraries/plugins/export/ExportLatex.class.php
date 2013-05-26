@@ -290,7 +290,9 @@ class ExportLatex extends ExportPlugin
      */
     public function exportData($db, $table, $crlf, $error_url, $sql_query)
     {
-        $result      = $GLOBALS['dbi']->tryQuery($sql_query, null, PMA_DBI_QUERY_UNBUFFERED);
+        $result      = $GLOBALS['dbi']->tryQuery(
+            $sql_query, null, PMA_DatabaseInterface::QUERY_UNBUFFERED
+        );
 
         $columns_cnt = $GLOBALS['dbi']->numFields($result);
         for ($i = 0; $i < $columns_cnt; $i++) {

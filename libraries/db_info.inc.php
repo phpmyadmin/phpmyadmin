@@ -83,7 +83,7 @@ if (true === $cfg['SkipLockedTables']) {
         if (isset($sot_cache)) {
             $db_info_result = $GLOBALS['dbi']->query(
                 'SHOW TABLES FROM ' . PMA_Util::backquote($db) . $tbl_group_sql . ';',
-                null, PMA_DBI_QUERY_STORE
+                null, PMA_DatabaseInterface::QUERY_STORE
             );
             if ($db_info_result && $GLOBALS['dbi']->numRows($db_info_result) > 0) {
                 while ($tmp = $GLOBALS['dbi']->fetchRow($db_info_result)) {

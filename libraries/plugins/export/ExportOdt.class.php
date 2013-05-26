@@ -244,7 +244,9 @@ class ExportOdt extends ExportPlugin
         global $what;
 
         // Gets the data from the database
-        $result = $GLOBALS['dbi']->query($sql_query, null, PMA_DBI_QUERY_UNBUFFERED);
+        $result = $GLOBALS['dbi']->query(
+            $sql_query, null, PMA_DatabaseInterface::QUERY_UNBUFFERED
+        );
         $fields_cnt = $GLOBALS['dbi']->numFields($result);
         $fields_meta = $GLOBALS['dbi']->getFieldsMeta($result);
         $field_flags = array();

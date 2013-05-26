@@ -445,7 +445,9 @@ class ExportXml extends ExportPlugin
         if (isset($GLOBALS['xml_export_contents'])
             && $GLOBALS['xml_export_contents']
         ) {
-            $result = $GLOBALS['dbi']->query($sql_query, null, PMA_DBI_QUERY_UNBUFFERED);
+            $result = $GLOBALS['dbi']->query(
+                $sql_query, null, PMA_DatabaseInterface::QUERY_UNBUFFERED
+            );
 
             $columns_cnt = $GLOBALS['dbi']->numFields($result);
             $columns = array();

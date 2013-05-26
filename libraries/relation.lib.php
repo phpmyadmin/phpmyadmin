@@ -387,7 +387,9 @@ function PMA_checkRelationsParam()
         . PMA_Util::backquote(
             $GLOBALS['cfg']['Server']['pmadb']
         );
-    $tab_rs    = PMA_queryAsControlUser($tab_query, false, PMA_DBI_QUERY_STORE);
+    $tab_rs    = PMA_queryAsControlUser(
+        $tab_query, false, PMA_DatabaseInterface::QUERY_STORE
+    );
 
     if (! $tab_rs) {
         // query failed ... ?
@@ -702,7 +704,9 @@ function PMA_getDbComment($db)
               WHERE db_name     = '" . PMA_Util::sqlAddSlashes($db) . "'
                 AND table_name  = ''
                 AND column_name = '(db_comment)'";
-        $com_rs = PMA_queryAsControlUser($com_qry, true, PMA_DBI_QUERY_STORE);
+        $com_rs = PMA_queryAsControlUser(
+            $com_qry, true, PMA_DatabaseInterface::QUERY_STORE
+        );
 
         if ($com_rs && $GLOBALS['dbi']->numRows($com_rs) > 0) {
             $row = $GLOBALS['dbi']->fetchAssoc($com_rs);
@@ -733,7 +737,9 @@ function PMA_getDbComments()
                FROM " . PMA_Util::backquote($cfgRelation['db'])
                 . "." . PMA_Util::backquote($cfgRelation['column_info']) . "
               WHERE `column_name` = '(db_comment)'";
-        $com_rs = PMA_queryAsControlUser($com_qry, true, PMA_DBI_QUERY_STORE);
+        $com_rs = PMA_queryAsControlUser(
+            $com_qry, true, PMA_DatabaseInterface::QUERY_STORE
+        );
 
         if ($com_rs && $GLOBALS['dbi']->numRows($com_rs) > 0) {
             while ($row = $GLOBALS['dbi']->fetchAssoc($com_rs)) {

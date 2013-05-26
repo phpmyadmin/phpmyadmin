@@ -84,7 +84,7 @@ function get_columns_info()
                 true
             ),
             null,
-            PMA_DBI_QUERY_STORE
+            PMA_DatabaseInterface::QUERY_STORE
         );
         $tbl_name_i = $GLOBALS['PMD']['TABLE_NAME'][$i];
         $j = 0;
@@ -112,7 +112,7 @@ function get_script_contr()
     $alltab_rs = $GLOBALS['dbi']->query(
         'SHOW TABLES FROM ' . PMA_Util::backquote($GLOBALS['db']),
         null,
-        PMA_DBI_QUERY_STORE
+        PMA_DatabaseInterface::QUERY_STORE
     );
     while ($val = @$GLOBALS['dbi']->fetchRow($alltab_rs)) {
         $row = PMA_getForeigners($GLOBALS['db'], $val[0], '', 'internal');
@@ -255,7 +255,11 @@ function get_tab_pos()
            FROM " . PMA_Util::backquote($cfgRelation['db'])
         . "." . PMA_Util::backquote($cfgRelation['designer_coords']);
     $tab_pos = $GLOBALS['dbi']->fetchResult(
-        $query, 'name', null, $GLOBALS['controllink'], PMA_DBI_QUERY_STORE
+        $query, 
+        'name', 
+        null, 
+        $GLOBALS['controllink'], 
+        PMA_DatabaseInterface::QUERY_STORE
     );
     return count($tab_pos) ? $tab_pos : null;
 }

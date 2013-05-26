@@ -325,7 +325,7 @@ function PMA_getTableCount($db)
 {
     $tables = $GLOBALS['dbi']->tryQuery(
         'SHOW TABLES FROM ' . PMA_Util::backquote($db) . ';',
-        null, PMA_DBI_QUERY_STORE
+        null, PMA_DatabaseInterface::QUERY_STORE
     );
     if ($tables) {
         $num_tables = $GLOBALS['dbi']->numRows($tables);

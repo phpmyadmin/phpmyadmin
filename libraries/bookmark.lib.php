@@ -66,7 +66,7 @@ function PMA_Bookmark_getList($db)
         . ' AND user = \'' . PMA_Util::sqlAddSlashes($cfgBookmark['user']) . '\''
         . ' ORDER BY label';
     $per_user = $GLOBALS['dbi']->fetchResult(
-        $query, 'id', 'label', $controllink, PMA_DBI_QUERY_STORE
+        $query, 'id', 'label', $controllink, PMA_DatabaseInterface::QUERY_STORE
     );
 
     $query  = 'SELECT label, id FROM '. PMA_Util::backquote($cfgBookmark['db'])
@@ -75,7 +75,7 @@ function PMA_Bookmark_getList($db)
         . ' AND user = \'\''
         . ' ORDER BY label';
     $global = $GLOBALS['dbi']->fetchResult(
-        $query, 'id', 'label', $controllink, PMA_DBI_QUERY_STORE
+        $query, 'id', 'label', $controllink, PMA_DatabaseInterface::QUERY_STORE
     );
 
     foreach ($global as $key => $val) {

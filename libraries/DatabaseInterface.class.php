@@ -9,23 +9,6 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
-/**
- * Force STORE_RESULT method, ignored by classic MySQL.
- */
-define('PMA_DBI_QUERY_STORE',       1);
-/**
- * Do not read whole query.
- */
-define('PMA_DBI_QUERY_UNBUFFERED',  2);
-/**
- * Get session variable.
- */
-define('PMA_DBI_GETVAR_SESSION',    1);
-/**
- * Get global variable.
- */
-define('PMA_DBI_GETVAR_GLOBAL',     2);
-
 $extension = null;
 if (defined('TESTSUITE')) {
     /**
@@ -100,6 +83,23 @@ $GLOBALS['dbi'] = new PMA_DatabaseInterface($extension);
  */
 class PMA_DatabaseInterface
 {
+    /**
+     * Force STORE_RESULT method, ignored by classic MySQL.
+     */
+    const QUERY_STORE = 1;
+    /**
+     * Do not read whole query.
+     */
+    const QUERY_UNBUFFERED = 2;
+    /**
+     * Get session variable.
+     */
+    const GETVAR_SESSION = 1;
+    /**
+     * Get global variable.
+     */
+    const GETVAR_GLOBAL = 2;
+
     private $_extension;
 
     /**
@@ -378,7 +378,7 @@ class PMA_DatabaseInterface
             null,
             0,
             $link,
-            PMA_DBI_QUERY_STORE
+            PMA_DatabaseInterface::QUERY_STORE
         );
     }
 
@@ -1487,10 +1487,10 @@ class PMA_DatabaseInterface
         }
 
         switch ($type) {
-        case PMA_DBI_GETVAR_SESSION:
+        case self::GETVAR_SESSION:
             $modifier = ' SESSION';
             break;
-        case PMA_DBI_GETVAR_GLOBAL:
+        case self::GETVAR_GLOBAL:
             $modifier = ' GLOBAL';
             break;
         default:
@@ -1588,7 +1588,9 @@ class PMA_DatabaseInterface
         if (!PMA_DRIZZLE) {
             if (! empty($GLOBALS['collation_connection'])) {
                 $this->query(
-                    "SET CHARACTER SET 'utf8';", $link, PMA_DBI_QUERY_STORE
+                    "SET CHARACTER SET 'utf8';",
+                    $link,
+                    PMA_DatabaseInterface::QUERY_STORE
                 );
                 $set_collation_con_query = "SET collation_connection = '"
                     . PMA_Util::sqlAddSlashes($GLOBALS['collation_connection'])
@@ -1596,13 +1598,13 @@ class PMA_DatabaseInterface
                 $this->query(
                     $set_collation_con_query,
                     $link,
-                    PMA_DBI_QUERY_STORE
+                    PMA_DatabaseInterface::QUERY_STORE
                 );
             } else {
                 $this->query(
                     "SET NAMES 'utf8' COLLATE 'utf8_general_ci';",
                     $link,
-                    PMA_DBI_QUERY_STORE
+                    PMA_DatabaseInterface::QUERY_STORE
                 );
             }
         }
@@ -1647,7 +1649,12 @@ class PMA_DatabaseInterface
         $value = false;
 
         if (is_string($result)) {
-            $result = $this->tryQuery($result, $link, PMA_DBI_QUERY_STORE, false);
+            $result = $this->tryQuery(
+                $result,
+                $link,
+                PMA_DatabaseInterface::QUERY_STORE,
+                false
+            );
         }
 
         // return false if result is empty or false
@@ -1700,7 +1707,12 @@ class PMA_DatabaseInterface
     public function fetchSingleRow($result, $type = 'ASSOC', $link = null)
     {
         if (is_string($result)) {
-            $result = $this->tryQuery($result, $link, PMA_DBI_QUERY_STORE, false);
+            $result = $this->tryQuery(
+                $result,
+                $link,
+                PMA_DatabaseInterface::QUERY_STORE,
+                false
+            );
         }
 
         // return null if result is empty or false
@@ -2126,7 +2138,7 @@ class PMA_DatabaseInterface
                 $result = (bool) $GLOBALS['dbi']->tryQuery(
                     'SELECT COUNT(*) FROM mysql.user',
                     $GLOBALS['userlink'],
-                    PMA_DBI_QUERY_STORE
+                    PMA_DatabaseInterface::QUERY_STORE
                 );
             }
             PMA_Util::cacheSet('is_superuser', $result, true);

@@ -5574,7 +5574,11 @@ class PMA_DisplayResults
                     . PMA_Util::backquote($map[$meta->name][1])
                     . $where_comparison;
 
-                $dispresult = $GLOBALS['dbi']->tryQuery($dispsql, null, PMA_DBI_QUERY_STORE);
+                $dispresult = $GLOBALS['dbi']->tryQuery(
+                    $dispsql,
+                    null,
+                    PMA_DatabaseInterface::QUERY_STORE
+                );
 
                 if ($dispresult && $GLOBALS['dbi']->numRows($dispresult) > 0) {
                     list($dispval) = $GLOBALS['dbi']->fetchRow($dispresult, 0);

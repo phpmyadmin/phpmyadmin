@@ -903,12 +903,13 @@ class ExportSql extends ExportPlugin
             $compat = 'NONE';
         }
 
-        // need to use PMA_DBI_QUERY_STORE with $GLOBALS['dbi']->numRows() in mysqli
+        // need to use PMA_DatabaseInterface::QUERY_STORE 
+        // with $GLOBALS['dbi']->numRows() in mysqli
         $result = $GLOBALS['dbi']->query(
             'SHOW TABLE STATUS FROM ' . PMA_Util::backquote($db)
             . ' LIKE \'' . PMA_Util::sqlAddSlashes($table, true) . '\'',
             null,
-            PMA_DBI_QUERY_STORE
+            PMA_DatabaseInterface::QUERY_STORE
         );
         if ($result != false) {
             if ($GLOBALS['dbi']->numRows($result) > 0) {
@@ -1005,7 +1006,7 @@ class ExportSql extends ExportPlugin
         // results below. Nonetheless, we got 2 user reports about this
         // (see bug 1562533) so I removed the unbuffered mode.
         // $result = $GLOBALS['dbi']->query('SHOW CREATE TABLE ' . backquote($db)
-        // . '.' . backquote($table), null, PMA_DBI_QUERY_UNBUFFERED);
+        // . '.' . backquote($table), null, PMA_DatabaseInterface::QUERY_UNBUFFERED);
         //
         // Note: SHOW CREATE TABLE, at least in MySQL 5.1.23, does not
         // produce a displayable result for the default value of a BIT
@@ -1557,7 +1558,9 @@ class ExportSql extends ExportPlugin
         //  are used, we did not get the true column name in case of aliases)
         $analyzed_sql = PMA_SQP_analyze(PMA_SQP_parse($sql_query));
 
-        $result = $GLOBALS['dbi']->tryQuery($sql_query, null, PMA_DBI_QUERY_UNBUFFERED);
+        $result = $GLOBALS['dbi']->tryQuery(
+            $sql_query, null, PMA_DatabaseInterface::QUERY_UNBUFFERED
+        );
         // a possible error: the table has crashed
         $tmp_error = $GLOBALS['dbi']->getError();
         if ($tmp_error) {

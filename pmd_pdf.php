@@ -64,7 +64,7 @@ if (isset($mode)) {
             . " FROM " . $pmd_table
             . " WHERE db_name = '" . PMA_Util::sqlAddSlashes($db) . "'";
 
-        PMA_queryAsControlUser($sql, true, PMA_DBI_QUERY_STORE);
+        PMA_queryAsControlUser($sql, true, PMA_DatabaseInterface::QUERY_STORE);
     }
 
     if ('import' == $mode) {
@@ -79,7 +79,7 @@ if (isset($mode)) {
             AND
             ' . $pmd_table . '.`db_name`=\''. PMA_Util::sqlAddSlashes($db) . '\'
             AND pdf_page_number = ' . $pdf_page_number_q . ';',
-            true, PMA_DBI_QUERY_STORE
+            true, PMA_DatabaseInterface::QUERY_STORE
         );
     }
 }

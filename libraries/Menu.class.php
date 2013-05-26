@@ -435,7 +435,7 @@ class PMA_Menu
                 'Log_name',
                 null,
                 null,
-                PMA_DBI_QUERY_STORE
+                PMA_DatabaseInterface::QUERY_STORE
             );
         }
 

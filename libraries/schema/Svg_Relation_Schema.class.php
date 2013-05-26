@@ -384,7 +384,9 @@ class Table_Stats
 
         $this->_tableName = $tableName;
         $sql = 'DESCRIBE ' . PMA_Util::backquote($tableName);
-        $result = $GLOBALS['dbi']->tryQuery($sql, null, PMA_DBI_QUERY_STORE);
+        $result = $GLOBALS['dbi']->tryQuery(
+            $sql, null, PMA_DatabaseInterface::QUERY_STORE
+        );
         if (! $result || ! $GLOBALS['dbi']->numRows($result)) {
             $svg->dieSchema(
                 $pageNumber,
@@ -433,7 +435,9 @@ class Table_Stats
          . ' WHERE db_name = \'' . PMA_Util::sqlAddSlashes($db) . '\''
          . ' AND   table_name = \'' . PMA_Util::sqlAddSlashes($tableName) . '\''
          . ' AND   pdf_page_number = ' . $pageNumber;
-        $result = PMA_queryAsControlUser($sql, false, PMA_DBI_QUERY_STORE);
+        $result = PMA_queryAsControlUser(
+            $sql, false, PMA_DatabaseInterface::QUERY_STORE
+        );
 
         if (! $result || ! $GLOBALS['dbi']->numRows($result)) {
             $svg->dieSchema(
@@ -454,7 +458,7 @@ class Table_Stats
         $result = $GLOBALS['dbi']->query(
             'SHOW INDEX FROM ' . PMA_Util::backquote($tableName) . ';',
             null,
-            PMA_DBI_QUERY_STORE
+            PMA_DatabaseInterface::QUERY_STORE
         );
         if ($GLOBALS['dbi']->numRows($result) > 0) {
             while ($row = $GLOBALS['dbi']->fetchAssoc($result)) {

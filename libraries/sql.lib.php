@@ -669,7 +669,7 @@ function PMA_getValuesForColumn($db, $table, $column)
     $field_info_query = $GLOBALS['dbi']->getColumnsSql($db, $table, $column);
 
     $field_info_result = $GLOBALS['dbi']->fetchResult(
-        $field_info_query, null, null, null, PMA_DBI_QUERY_STORE
+        $field_info_query, null, null, null, PMA_DatabaseInterface::QUERY_STORE
     );
 
     $values = PMA_Util::parseEnumSetValues($field_info_result[0]['Type']);

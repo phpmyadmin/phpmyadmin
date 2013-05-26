@@ -182,7 +182,7 @@ class PMA_User_Schema
             . PMA_Util::backquote($cfgRelation['pdf_pages'])
             . ' WHERE db_name = \'' . PMA_Util::sqlAddSlashes($db) . '\'';
         $page_rs    = PMA_queryAsControlUser(
-            $page_query, false, PMA_DBI_QUERY_STORE
+            $page_query, false, PMA_DatabaseInterface::QUERY_STORE
         );
 
         if ($page_rs && $GLOBALS['dbi']->numRows($page_rs) > 0) {
@@ -248,7 +248,7 @@ class PMA_User_Schema
         $alltab_rs    = $GLOBALS['dbi']->query(
             'SHOW TABLES FROM ' . PMA_Util::backquote($db) . ';',
             null,
-            PMA_DBI_QUERY_STORE
+            PMA_DatabaseInterface::QUERY_STORE
         );
         while ($val = @$GLOBALS['dbi']->fetchRow($alltab_rs)) {
                $selectboxall[] = $val[0];
@@ -745,7 +745,7 @@ class PMA_User_Schema
                 . ' GROUP BY master_table'
                 . ' ORDER BY COUNT(master_table) DESC';
             $master_tables_rs = PMA_queryAsControlUser(
-                $master_tables, false, PMA_DBI_QUERY_STORE
+                $master_tables, false, PMA_DatabaseInterface::QUERY_STORE
             );
             if ($master_tables_rs && $GLOBALS['dbi']->numRows($master_tables_rs) > 0) {
                 /* first put all the master tables at beginning
@@ -886,7 +886,7 @@ class PMA_User_Schema
                     . ' AND   pdf_page_number = \''
                     . PMA_Util::sqlAddSlashes($this->chosenPage) . '\'';
                 $test_rs = PMA_queryAsControlUser(
-                    $test_query, false, PMA_DBI_QUERY_STORE
+                    $test_query, false, PMA_DatabaseInterface::QUERY_STORE
                 );
                 //echo $test_query;
                 if ($test_rs && $GLOBALS['dbi']->numRows($test_rs) > 0) {

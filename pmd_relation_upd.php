@@ -60,7 +60,7 @@ if ($try_to_delete_internal_relation) {
         . ' AND foreign_table = \'' . PMA_Util::sqlAddSlashes($T1) . '\''
         . ' AND foreign_field = \'' . PMA_Util::sqlAddSlashes($F1) . '\'',
         false,
-        PMA_DBI_QUERY_STORE
+        PMA_DatabaseInterface::QUERY_STORE
     );
 }
 PMD_return_upd(1, __('Relation deleted'));

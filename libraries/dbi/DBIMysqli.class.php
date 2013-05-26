@@ -267,9 +267,9 @@ class PMA_DBI_Mysqli implements PMA_DBI_Extension
      */
     public function realQuery($query, $link, $options)
     {
-        if ($options == ($options | PMA_DBI_QUERY_STORE)) {
+        if ($options == ($options | PMA_DatabaseInterface::QUERY_STORE)) {
             $method = MYSQLI_STORE_RESULT;
-        } elseif ($options == ($options | PMA_DBI_QUERY_UNBUFFERED)) {
+        } elseif ($options == ($options | PMA_DatabaseInterface::QUERY_UNBUFFERED)) {
             $method = MYSQLI_USE_RESULT;
         } else {
             $method = 0;

@@ -51,14 +51,14 @@ if (isset($where_clause)) {
     $result = $GLOBALS['dbi']->query(
         'SELECT * FROM ' . PMA_Util::backquote($table) . ' WHERE ' . $where_clause . ';',
         null,
-        PMA_DBI_QUERY_STORE
+        PMA_DatabaseInterface::QUERY_STORE
     );
     $row = $GLOBALS['dbi']->fetchAssoc($result);
 } else {
     $result = $GLOBALS['dbi']->query(
         'SELECT * FROM ' . PMA_Util::backquote($table) . ' LIMIT 1;',
         null,
-        PMA_DBI_QUERY_STORE
+        PMA_DatabaseInterface::QUERY_STORE
     );
     $row = $GLOBALS['dbi']->fetchAssoc($result);
 }

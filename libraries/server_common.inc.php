@@ -49,7 +49,7 @@ $binary_logs = PMA_DRIZZLE
         'Log_name',
         null,
         null,
-        PMA_DBI_QUERY_STORE
+        PMA_DatabaseInterface::QUERY_STORE
     );
 
 PMA_Util::checkParameters(

@@ -285,7 +285,11 @@ if ($cfgRelation['pdfwork'] && $num_tables > 0) {
            FROM ' . PMA_Util::backquote($GLOBALS['cfgRelation']['db'])
             . '.' . PMA_Util::backquote($cfgRelation['pdf_pages']) . '
           WHERE db_name = \'' . PMA_Util::sqlAddSlashes($db) . '\'';
-    $test_rs    = PMA_queryAsControlUser($test_query, null, PMA_DBI_QUERY_STORE);
+    $test_rs = PMA_queryAsControlUser(
+        $test_query,
+        null,
+        PMA_DatabaseInterface::QUERY_STORE
+    );
 
     /*
      * Export Relational Schema View

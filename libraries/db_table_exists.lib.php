@@ -61,7 +61,7 @@ if (empty($is_table)
             $_result = $GLOBALS['dbi']->tryQuery(
                 'SHOW TABLES LIKE \'' . PMA_Util::sqlAddSlashes($table, true)
                 . '\';',
-                null, PMA_DBI_QUERY_STORE
+                null, PMA_DatabaseInterface::QUERY_STORE
             );
             $is_table = @$GLOBALS['dbi']->numRows($_result);
             $GLOBALS['dbi']->freeResult($_result);
@@ -84,7 +84,7 @@ if (empty($is_table)
                 $_result = $GLOBALS['dbi']->tryQuery(
                     'SELECT COUNT(*) FROM ' . PMA_Util::backquote($table) . ';',
                     null,
-                    PMA_DBI_QUERY_STORE
+                    PMA_DatabaseInterface::QUERY_STORE
                 );
                 $is_table = ($_result && @$GLOBALS['dbi']->numRows($_result));
                 $GLOBALS['dbi']->freeResult($_result);

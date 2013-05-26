@@ -3174,7 +3174,9 @@ class PMA_Util
             $wktsql .= ", SRID(x'" . $hex . "')";
         }
 
-        $wktresult  = $GLOBALS['dbi']->tryQuery($wktsql, null, PMA_DBI_QUERY_STORE);
+        $wktresult  = $GLOBALS['dbi']->tryQuery(
+            $wktsql, null, PMA_DatabaseInterface::QUERY_STORE
+        );
         $wktarr     = $GLOBALS['dbi']->fetchRow($wktresult, 0);
         $wktval     = $wktarr[0];
 

@@ -315,7 +315,9 @@ class ExportMediawiki extends ExportPlugin
         }
 
         // Get the table data from the database
-        $result = $GLOBALS['dbi']->query($sql_query, null, PMA_DBI_QUERY_UNBUFFERED);
+        $result = $GLOBALS['dbi']->query(
+            $sql_query, null, PMA_DatabaseInterface::QUERY_UNBUFFERED
+        );
         $fields_cnt = $GLOBALS['dbi']->numFields($result);
 
         while ($row = $GLOBALS['dbi']->fetchRow($result)) {

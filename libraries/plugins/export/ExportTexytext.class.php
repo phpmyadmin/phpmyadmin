@@ -188,7 +188,9 @@ class ExportTexytext extends ExportPlugin
         }
 
         // Gets the data from the database
-        $result      = $GLOBALS['dbi']->query($sql_query, null, PMA_DBI_QUERY_UNBUFFERED);
+        $result      = $GLOBALS['dbi']->query(
+            $sql_query, null, PMA_DatabaseInterface::QUERY_UNBUFFERED
+        );
         $fields_cnt  = $GLOBALS['dbi']->numFields($result);
 
         // If required, get fields name at the first line

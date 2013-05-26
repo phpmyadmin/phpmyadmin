@@ -61,7 +61,9 @@ if (isset($_REQUEST['get_data_row']) && $_REQUEST['get_data_row'] == true) {
     $extra_data = array();
     $row_info_query = 'SELECT * FROM `' . $_REQUEST['db'] . '`.`'
         . $_REQUEST['table'] . '` WHERE ' .  $_REQUEST['where_clause'];
-    $result = $GLOBALS['dbi']->query($row_info_query . ";", null, PMA_DBI_QUERY_STORE);
+    $result = $GLOBALS['dbi']->query(
+        $row_info_query . ";", null, PMA_DatabaseInterface::QUERY_STORE
+    );
     $fields_meta = $GLOBALS['dbi']->getFieldsMeta($result);
     while ($row = $GLOBALS['dbi']->fetchAssoc($result)) {
         // for bit fields we need to convert them to printable form
@@ -138,7 +140,9 @@ if (isset($zoom_submit)
     $sql_query .= ' LIMIT ' . $maxPlotLimit;
 
     //Query execution part
-    $result = $GLOBALS['dbi']->query($sql_query . ";", null, PMA_DBI_QUERY_STORE);
+    $result = $GLOBALS['dbi']->query(
+        $sql_query . ";", null, PMA_DatabaseInterface::QUERY_STORE
+    );
     $fields_meta = $GLOBALS['dbi']->getFieldsMeta($result);
     while ($row = $GLOBALS['dbi']->fetchAssoc($result)) {
         //Need a row with indexes as 0,1,2 for the getUniqueCondition

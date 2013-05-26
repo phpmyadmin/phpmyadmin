@@ -615,7 +615,7 @@ class PMA_Table
                             . PMA_Util::backquote($table) . ' LIMIT '
                             . $GLOBALS['cfg']['MaxExactCountViews'],
                             null,
-                            PMA_DBI_QUERY_STORE
+                            PMA_DatabaseInterface::QUERY_STORE
                         );
                         if (!$GLOBALS['dbi']->getError()) {
                             $row_count = $GLOBALS['dbi']->numRows($result);
@@ -720,10 +720,10 @@ class PMA_Table
                   . PMA_Util::backquote($GLOBALS['cfgRelation'][$pma_table]) . '
                  WHERE ' . implode(' AND ', $where_parts);
 
-            // must use PMA_DBI_QUERY_STORE here, since we execute another
+            // must use PMA_DatabaseInterface::QUERY_STORE here, since we execute another
             // query inside the loop
             $table_copy_rs = PMA_queryAsControlUser(
-                $table_copy_query, true, PMA_DBI_QUERY_STORE
+                $table_copy_query, true, PMA_DatabaseInterface::QUERY_STORE
             );
 
             while ($table_copy_row = @$GLOBALS['dbi']->fetchAssoc($table_copy_rs)) {

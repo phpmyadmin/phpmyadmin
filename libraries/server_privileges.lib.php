@@ -2331,7 +2331,7 @@ function PMA_displayTablesInEditPrivs($dbname, $found_rows)
             PMA_Util::unescapeMysqlWildcards($dbname)
         ) . ';',
         null,
-        PMA_DBI_QUERY_STORE
+        PMA_DatabaseInterface::QUERY_STORE
     );
 
     if ($result) {
@@ -2588,7 +2588,7 @@ function PMA_getHtmlForDisplayTheInitials($array_initials, $conditional_class)
     $initials = $GLOBALS['dbi']->tryQuery(
         'SELECT DISTINCT UPPER(LEFT(`User`,1)) FROM `user` ORDER BY `User` ASC',
         null,
-        PMA_DBI_QUERY_STORE
+        PMA_DatabaseInterface::QUERY_STORE
     );
     while (list($tmp_initial) = $GLOBALS['dbi']->fetchRow($initials)) {
         $array_initials[$tmp_initial] = true;
@@ -2924,7 +2924,9 @@ function PMA_getHtmlForDisplayUserOverviewPage($link_edit, $pmaThemeImage,
         : '');
 
     $sql_query .= ' ORDER BY `User` ASC, `Host` ASC;';
-    $res = $GLOBALS['dbi']->tryQuery($sql_query, null, PMA_DBI_QUERY_STORE);
+    $res = $GLOBALS['dbi']->tryQuery(
+        $sql_query, null, PMA_DatabaseInterface::QUERY_STORE
+    );
 
     if (! $res) {
         // the query failed! This may have two reasons:
@@ -2933,7 +2935,9 @@ function PMA_getHtmlForDisplayUserOverviewPage($link_edit, $pmaThemeImage,
         // so let's try a more simple query
 
         $sql_query = 'SELECT * FROM `mysql`.`user`';
-        $res = $GLOBALS['dbi']->tryQuery($sql_query, null, PMA_DBI_QUERY_STORE);
+        $res = $GLOBALS['dbi']->tryQuery(
+            $sql_query, null, PMA_DatabaseInterface::QUERY_STORE
+        );
 
         if (! $res) {
             $html_output .= PMA_Message::error(__('No Privileges'))->getDisplay();
@@ -3118,7 +3122,7 @@ function PMA_getTablePrivsQueriesForChangeOrCopyUser($user_host_condition,
     $res = $GLOBALS['dbi']->query(
         'SELECT `Db`, `Table_name`, `Table_priv` FROM `mysql`.`tables_priv`' . $user_host_condition,
         $GLOBALS['userlink'],
-        PMA_DBI_QUERY_STORE
+        PMA_DatabaseInterface::QUERY_STORE
     );
     while ($row = $GLOBALS['dbi']->fetchAssoc($res)) {
 
@@ -3135,7 +3139,7 @@ function PMA_getTablePrivsQueriesForChangeOrCopyUser($user_host_condition,
             .' = \'' . PMA_Util::sqlAddSlashes($row['Table_name']) . "'"
             .';',
             null,
-            PMA_DBI_QUERY_STORE
+            PMA_DatabaseInterface::QUERY_STORE
         );
 
         $tmp_privs1 = PMA_extractPrivInfo($row);
