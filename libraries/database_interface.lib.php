@@ -2099,4 +2099,36 @@ function PMA_is_system_schema($schema_name, $test_for_mysql_schema = false)
             || (PMA_DRIZZLE && strtolower($schema_name) == 'data_dictionary')
             || ($test_for_mysql_schema && !PMA_DRIZZLE && $schema_name == 'mysql');
 }
+
+/**
+ * Get regular expression which occur first inside the given sql query.
+ *
+ * @param Array $regex_array Comparing regular expressions.
+ * @param String $query SQL query to be checked.
+ *
+ * @return String Matching regular expression.
+ */
+function PMA_getFirstOccurringRegularExpression($regex_array, $query)
+{
+    
+    $minimum_first_occurence_index = null;
+    $regex = null;
+    
+    for ($i = 0; $i < count($regex_array); $i++) {
+        if (preg_match($regex_array[$i], $query, $matches, PREG_OFFSET_CAPTURE)) {
+            
+            if (is_null($minimum_first_occurence_index)
+                || ($matches[0][1] < $minimum_first_occurence_index)
+            ) {
+                $regex = $regex_array[$i];
+                $minimum_first_occurence_index = $matches[0][1];
+            }
+            
+        }
+    }
+    
+    return $regex;
+    
+}
+
 ?>
