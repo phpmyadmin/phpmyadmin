@@ -46,6 +46,7 @@ if (! empty($sql_query)) {
         $first_occurring_regex = PMA_getFirstOccurringRegularExpression(
             $regex_array, $sql_query
         );
+        unset($regex_array);
 
         // The part "SELECT `id`, `name` FROM `customers`"
         // is not modified by the next code segment, when exporting 
@@ -56,6 +57,7 @@ if (! empty($sql_query)) {
             $temp_sql_array = preg_split($first_occurring_regex, $sql_query);
             $sql_query = $temp_sql_array[0];
         }
+        unset($first_occurring_regex, $temp_sql_array);
 
         // Append the where clause using the primary key of each row
         if (is_array($where_clause) && (count($where_clause) > 0)) {
