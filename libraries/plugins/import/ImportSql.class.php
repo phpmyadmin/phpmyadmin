@@ -49,7 +49,7 @@ class ImportSql extends ImportPlugin
         $importPluginProperties->setExtension('sql');
         $importPluginProperties->setOptionsText(__('Options'));
 
-        $compats = PMA_DBI_getCompatibilities();
+        $compats = $GLOBALS['dbi']->getCompatibilities();
         if (count($compats) > 0) {
             $values = array();
             foreach ($compats as $val) {
@@ -152,7 +152,7 @@ class ImportSql extends ImportPlugin
             $sql_modes[] = 'NO_AUTO_VALUE_ON_ZERO';
         }
         if (count($sql_modes) > 0) {
-            PMA_DBI_tryQuery('SET SQL_MODE="' . implode(',', $sql_modes) . '"');
+            $GLOBALS['dbi']->tryQuery('SET SQL_MODE="' . implode(',', $sql_modes) . '"');
         }
         unset($sql_modes);
 

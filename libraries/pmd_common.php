@@ -27,9 +27,9 @@ function get_tables_info()
     $GLOBALS['PMD']['OWNER'] = array();
     $GLOBALS['PMD']['TABLE_NAME_SMALL'] = array();
 
-    $tables = PMA_DBI_getTablesFull($GLOBALS['db']);
+    $tables = $GLOBALS['dbi']->getTablesFull($GLOBALS['db']);
     // seems to be needed later
-    PMA_DBI_selectDb($GLOBALS['db']);
+    $GLOBALS['dbi']->selectDb($GLOBALS['db']);
     $i = 0;
     foreach ($tables as $one_table) {
         $GLOBALS['PMD']['TABLE_NAME'][$i]
@@ -73,22 +73,22 @@ function get_tables_info()
  */
 function get_columns_info()
 {
-    PMA_DBI_selectDb($GLOBALS['db']);
+    $GLOBALS['dbi']->selectDb($GLOBALS['db']);
     $tab_column = array();
     for ($i = 0, $cnt = count($GLOBALS['PMD']["TABLE_NAME"]); $i < $cnt; $i++) {
-        $fields_rs = PMA_DBI_query(
-            PMA_DBI_getColumnsSql(
+        $fields_rs = $GLOBALS['dbi']->query(
+            $GLOBALS['dbi']->getColumnsSql(
                 $GLOBALS['db'],
                 $GLOBALS['PMD']["TABLE_NAME_SMALL"][$i],
                 null,
                 true
             ),
             null,
-            PMA_DBI_QUERY_STORE
+            PMA_DatabaseInterface::QUERY_STORE
         );
         $tbl_name_i = $GLOBALS['PMD']['TABLE_NAME'][$i];
         $j = 0;
-        while ($row = PMA_DBI_fetchAssoc($fields_rs)) {
+        while ($row = $GLOBALS['dbi']->fetchAssoc($fields_rs)) {
             $tab_column[$tbl_name_i]['COLUMN_ID'][$j]   = $j;
             $tab_column[$tbl_name_i]['COLUMN_NAME'][$j] = $row['Field'];
             $tab_column[$tbl_name_i]['TYPE'][$j]        = $row['Type'];
@@ -106,15 +106,15 @@ function get_columns_info()
  */
 function get_script_contr()
 {
-    PMA_DBI_selectDb($GLOBALS['db']);
+    $GLOBALS['dbi']->selectDb($GLOBALS['db']);
     $con["C_NAME"] = array();
     $i = 0;
-    $alltab_rs = PMA_DBI_query(
+    $alltab_rs = $GLOBALS['dbi']->query(
         'SHOW TABLES FROM ' . PMA_Util::backquote($GLOBALS['db']),
         null,
-        PMA_DBI_QUERY_STORE
+        PMA_DatabaseInterface::QUERY_STORE
     );
-    while ($val = @PMA_DBI_fetchRow($alltab_rs)) {
+    while ($val = @$GLOBALS['dbi']->fetchRow($alltab_rs)) {
         $row = PMA_getForeigners($GLOBALS['db'], $val[0], '', 'internal');
         //echo "<br> internal ".$GLOBALS['db']." - ".$val[0]." - ";
         //print_r($row);
@@ -254,8 +254,12 @@ function get_tab_pos()
                 `h` AS `H`
            FROM " . PMA_Util::backquote($cfgRelation['db'])
         . "." . PMA_Util::backquote($cfgRelation['designer_coords']);
-    $tab_pos = PMA_DBI_fetchResult(
-        $query, 'name', null, $GLOBALS['controllink'], PMA_DBI_QUERY_STORE
+    $tab_pos = $GLOBALS['dbi']->fetchResult(
+        $query, 
+        'name', 
+        null, 
+        $GLOBALS['controllink'], 
+        PMA_DatabaseInterface::QUERY_STORE
     );
     return count($tab_pos) ? $tab_pos : null;
 }

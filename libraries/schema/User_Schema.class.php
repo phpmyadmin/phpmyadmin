@@ -182,10 +182,10 @@ class PMA_User_Schema
             . PMA_Util::backquote($cfgRelation['pdf_pages'])
             . ' WHERE db_name = \'' . PMA_Util::sqlAddSlashes($db) . '\'';
         $page_rs    = PMA_queryAsControlUser(
-            $page_query, false, PMA_DBI_QUERY_STORE
+            $page_query, false, PMA_DatabaseInterface::QUERY_STORE
         );
 
-        if ($page_rs && PMA_DBI_numRows($page_rs) > 0) {
+        if ($page_rs && $GLOBALS['dbi']->numRows($page_rs) > 0) {
             ?>
             <form method="get" action="schema_edit.php" name="frm_select_page">
             <fieldset>
@@ -197,7 +197,7 @@ class PMA_User_Schema
             <select name="chpage" id="chpage" class="autosubmit">
             <option value="0"><?php echo __('Select page'); ?></option>
             <?php
-            while ($curr_page = PMA_DBI_fetchAssoc($page_rs)) {
+            while ($curr_page = $GLOBALS['dbi']->fetchAssoc($page_rs)) {
                 echo "\n" . '        '
                     . '<option value="' . $curr_page['page_nr'] . '"';
                 if (isset($this->chosenPage)
@@ -245,12 +245,12 @@ class PMA_User_Schema
          * We will need an array of all tables in this db
          */
         $selectboxall = array('--');
-        $alltab_rs    = PMA_DBI_query(
+        $alltab_rs    = $GLOBALS['dbi']->query(
             'SHOW TABLES FROM ' . PMA_Util::backquote($db) . ';',
             null,
-            PMA_DBI_QUERY_STORE
+            PMA_DatabaseInterface::QUERY_STORE
         );
-        while ($val = @PMA_DBI_fetchRow($alltab_rs)) {
+        while ($val = @$GLOBALS['dbi']->fetchRow($alltab_rs)) {
                $selectboxall[] = $val[0];
         }
 
@@ -271,7 +271,7 @@ class PMA_User_Schema
                 . PMA_Util::sqlAddSlashes($this->chosenPage) . '\'';
             $page_rs    = PMA_queryAsControlUser($page_query, false);
             $array_sh_page = array();
-            while ($temp_sh_page = @PMA_DBI_fetchAssoc($page_rs)) {
+            while ($temp_sh_page = @$GLOBALS['dbi']->fetchAssoc($page_rs)) {
                    $array_sh_page[] = $temp_sh_page;
             }
             /*
@@ -427,11 +427,11 @@ class PMA_User_Schema
             <label for="pdf_page_number_opt"><?php echo __('Page number:'); ?></label>
             <select name="pdf_page_number" id="pdf_page_number_opt">
                 <?php
-                while ($pages = @PMA_DBI_fetchAssoc($test_rs)) {
+                while ($pages = @$GLOBALS['dbi']->fetchAssoc($test_rs)) {
                     echo '                <option value="' . $pages['page_nr'] . '">'
                         . $pages['page_nr'] . ': ' . htmlspecialchars($pages['page_descr']) . '</option>' . "\n";
                 } // end while
-                PMA_DBI_freeResult($test_rs);
+                $GLOBALS['dbi']->freeResult($test_rs);
                 unset($test_rs);
                 ?>
             </select><br />
@@ -573,7 +573,7 @@ class PMA_User_Schema
                 . '</u>';
 
             if (isset($with_field_names)) {
-                $fields = PMA_DBI_getColumns($db, $temp_sh_page['table_name']);
+                $fields = $GLOBALS['dbi']->getColumns($db, $temp_sh_page['table_name']);
                 // if the table has been dropped from outside phpMyAdmin,
                 // we can no longer obtain its columns list
                 if ($fields) {
@@ -638,7 +638,7 @@ class PMA_User_Schema
             $export_type = 'pdf';
         }
 
-        PMA_DBI_selectDb($db);
+        $GLOBALS['dbi']->selectDb($db);
 
         include "libraries/schema/" . ucfirst($export_type)
             . "_Relation_Schema.class.php";
@@ -716,7 +716,7 @@ class PMA_User_Schema
              * and PBXT tables, as this logic is just to put
              * the tables on the layout, not to determine relations
              */
-            $tables = PMA_DBI_getTablesFull($db);
+            $tables = $GLOBALS['dbi']->getTablesFull($db);
             $foreignkey_tables = array();
             foreach ($tables as $table_name => $table_properties) {
                 if (PMA_Util::isForeignKeySupported($table_properties['ENGINE'])) {
@@ -745,14 +745,14 @@ class PMA_User_Schema
                 . ' GROUP BY master_table'
                 . ' ORDER BY COUNT(master_table) DESC';
             $master_tables_rs = PMA_queryAsControlUser(
-                $master_tables, false, PMA_DBI_QUERY_STORE
+                $master_tables, false, PMA_DatabaseInterface::QUERY_STORE
             );
-            if ($master_tables_rs && PMA_DBI_numRows($master_tables_rs) > 0) {
+            if ($master_tables_rs && $GLOBALS['dbi']->numRows($master_tables_rs) > 0) {
                 /* first put all the master tables at beginning
                  * of the list, so they are near the center of
                  * the schema
                  */
-                while (list(, $master_table) = PMA_DBI_fetchRow($master_tables_rs)) {
+                while (list(, $master_table) = $GLOBALS['dbi']->fetchRow($master_tables_rs)) {
                        $all_tables[] = $master_table;
                 }
 
@@ -886,10 +886,10 @@ class PMA_User_Schema
                     . ' AND   pdf_page_number = \''
                     . PMA_Util::sqlAddSlashes($this->chosenPage) . '\'';
                 $test_rs = PMA_queryAsControlUser(
-                    $test_query, false, PMA_DBI_QUERY_STORE
+                    $test_query, false, PMA_DatabaseInterface::QUERY_STORE
                 );
                 //echo $test_query;
-                if ($test_rs && PMA_DBI_numRows($test_rs) > 0) {
+                if ($test_rs && $GLOBALS['dbi']->numRows($test_rs) > 0) {
                     if (isset($arrvalue['delete']) && $arrvalue['delete'] == 'y') {
                         $ch_query = 'DELETE FROM '
                             . PMA_Util::backquote($GLOBALS['cfgRelation']['db'])

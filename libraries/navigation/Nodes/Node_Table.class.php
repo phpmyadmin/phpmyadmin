@@ -64,19 +64,19 @@ class Node_Table extends Node
                 $query .= "FROM `INFORMATION_SCHEMA`.`COLUMNS` ";
                 $query .= "WHERE `TABLE_NAME`='$table' ";
                 $query .= "AND `TABLE_SCHEMA`='$db'";
-                $retval = (int)PMA_DBI_fetchValue($query);
+                $retval = (int)$GLOBALS['dbi']->fetchValue($query);
             } else {
                 $db     = PMA_Util::backquote($db);
                 $table  = PMA_Util::backquote($table);
                 $query  = "SHOW COLUMNS FROM $table FROM $db";
-                $retval = (int)PMA_DBI_numRows(PMA_DBI_tryQuery($query));
+                $retval = (int)$GLOBALS['dbi']->numRows($GLOBALS['dbi']->tryQuery($query));
             }
             break;
         case 'indexes':
             $db     = PMA_Util::backquote($db);
             $table  = PMA_Util::backquote($table);
             $query  = "SHOW INDEXES FROM $table FROM $db";
-            $retval = (int)PMA_DBI_numRows(PMA_DBI_tryQuery($query));
+            $retval = (int)$GLOBALS['dbi']->numRows($GLOBALS['dbi']->tryQuery($query));
             break;
         case 'triggers':
             if (! $GLOBALS['cfg']['Servers'][$GLOBALS['server']]['DisableIS']) {
@@ -86,12 +86,12 @@ class Node_Table extends Node
                 $query .= "FROM `INFORMATION_SCHEMA`.`TRIGGERS` ";
                 $query .= "WHERE `EVENT_OBJECT_SCHEMA`='$db' ";
                 $query .= "AND `EVENT_OBJECT_TABLE`='$table'";
-                $retval = (int)PMA_DBI_fetchValue($query);
+                $retval = (int)$GLOBALS['dbi']->fetchValue($query);
             } else {
                 $db     = PMA_Util::backquote($db);
                 $table  = PMA_Util::sqlAddSlashes($table);
                 $query  = "SHOW TRIGGERS FROM $db WHERE `Table` = '$table'";
-                $retval = (int)PMA_DBI_numRows(PMA_DBI_tryQuery($query));
+                $retval = (int)$GLOBALS['dbi']->numRows($GLOBALS['dbi']->tryQuery($query));
             }
             break;
         default:
@@ -128,15 +128,15 @@ class Node_Table extends Node
                 $query .= "AND `TABLE_SCHEMA`='$db' ";
                 $query .= "ORDER BY `COLUMN_NAME` ASC ";
                 $query .= "LIMIT " . intval($pos) . ", $maxItems";
-                $retval = PMA_DBI_fetchResult($query);
+                $retval = $GLOBALS['dbi']->fetchResult($query);
             } else {
                 $db     = PMA_Util::backquote($db);
                 $table  = PMA_Util::backquote($table);
                 $query  = "SHOW COLUMNS FROM $table FROM $db";
-                $handle = PMA_DBI_tryQuery($query);
+                $handle = $GLOBALS['dbi']->tryQuery($query);
                 if ($handle !== false) {
                     $count = 0;
-                    while ($arr = PMA_DBI_fetchArray($handle)) {
+                    while ($arr = $GLOBALS['dbi']->fetchArray($handle)) {
                         if ($pos <= 0 && $count < $maxItems) {
                             $retval[] = $arr['Field'];
                             $count++;
@@ -150,10 +150,10 @@ class Node_Table extends Node
             $db     = PMA_Util::backquote($db);
             $table  = PMA_Util::backquote($table);
             $query  = "SHOW INDEXES FROM $table FROM $db";
-            $handle = PMA_DBI_tryQuery($query);
+            $handle = $GLOBALS['dbi']->tryQuery($query);
             if ($handle !== false) {
                 $count = 0;
-                while ($arr = PMA_DBI_fetchArray($handle)) {
+                while ($arr = $GLOBALS['dbi']->fetchArray($handle)) {
                     if (! in_array($arr['Key_name'], $retval)) {
                         if ($pos <= 0 && $count < $maxItems) {
                             $retval[] = $arr['Key_name'];
@@ -174,15 +174,15 @@ class Node_Table extends Node
                 $query .= "AND `EVENT_OBJECT_TABLE`='$table' ";
                 $query .= "ORDER BY `TRIGGER_NAME` ASC ";
                 $query .= "LIMIT " . intval($pos) . ", $maxItems";
-                $retval = PMA_DBI_fetchResult($query);
+                $retval = $GLOBALS['dbi']->fetchResult($query);
             } else {
                 $db     = PMA_Util::backquote($db);
                 $table  = PMA_Util::sqlAddSlashes($table);
                 $query  = "SHOW TRIGGERS FROM $db WHERE `Table` = '$table'";
-                $handle = PMA_DBI_tryQuery($query);
+                $handle = $GLOBALS['dbi']->tryQuery($query);
                 if ($handle !== false) {
                     $count = 0;
-                    while ($arr = PMA_DBI_fetchArray($handle)) {
+                    while ($arr = $GLOBALS['dbi']->fetchArray($handle)) {
                         if ($pos <= 0 && $count < $maxItems) {
                             $retval[] = $arr['Trigger'];
                             $count++;
@@ -214,12 +214,12 @@ class Node_Table extends Node
             $query .= "FROM `INFORMATION_SCHEMA`.`TABLES` ";
             $query .= "WHERE `TABLE_SCHEMA`='$db' ";
             $query .= "AND `TABLE_NAME`='$table' ";
-            $retval = PMA_DBI_fetchValue($query);
+            $retval = $GLOBALS['dbi']->fetchValue($query);
         } else {
             $db     = PMA_Util::backquote($db);
             $query  = "SHOW TABLE STATUS FROM $db ";
             $query .= "WHERE Name = '$table'";
-            $arr = PMA_DBI_fetchAssoc(PMA_DBI_tryQuery($query));
+            $arr = $GLOBALS['dbi']->fetchAssoc($GLOBALS['dbi']->tryQuery($query));
             $retval = $arr['Comment'];
         }
         return $retval;

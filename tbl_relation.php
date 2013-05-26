@@ -182,8 +182,8 @@ if (isset($_REQUEST['destination_foreign'])) {
                 $table, $existrel_foreign[$master_field]['constraint']
             );
             $display_query .= $drop_query . "\n";
-            PMA_DBI_tryQuery($drop_query);
-            $tmp_error_drop = PMA_DBI_getError();
+            $GLOBALS['dbi']->tryQuery($drop_query);
+            $tmp_error_drop = $GLOBALS['dbi']->getError();
 
             if (! empty($tmp_error_drop)) {
                 $seen_error = true;
@@ -203,8 +203,8 @@ if (isset($_REQUEST['destination_foreign'])) {
             );
 
             $display_query .= $create_query . "\n";
-            PMA_DBI_tryQuery($create_query);
-            $tmp_error_create = PMA_DBI_getError();
+            $GLOBALS['dbi']->tryQuery($create_query);
+            $tmp_error_create = $GLOBALS['dbi']->getError();
             if (! empty($tmp_error_create)) {
                 $seen_error = true;
 
@@ -241,7 +241,7 @@ if (isset($_REQUEST['destination_foreign'])) {
                     $options_array[$existrel_foreign[$master_field]['on_update']]
                 );
                 $display_query .= $sql_query_recreate . "\n";
-                PMA_DBI_tryQuery($sql_query_recreate);
+                $GLOBALS['dbi']->tryQuery($sql_query_recreate);
             }
         }
     } // end foreach
@@ -332,11 +332,13 @@ if ($cfgRelation['relwork']
         // [0] of the row is the name
     }
 
-    $tab_rs = PMA_DBI_query($tab_query, null, PMA_DBI_QUERY_STORE);
+    $tab_rs = $GLOBALS['dbi']->query(
+        $tab_query, null, PMA_DatabaseInterface::QUERY_STORE
+    );
     $selectboxall[] = '';
     $selectboxall_foreign[] = '';
 
-    while ($curr_table = PMA_DBI_fetchRow($tab_rs)) {
+    while ($curr_table = $GLOBALS['dbi']->fetchRow($tab_rs)) {
         $current_table = new PMA_Table($curr_table[0], $db);
 
         // explicitely ask for non-quoted list of indexed columns
@@ -362,8 +364,8 @@ if ($cfgRelation['relwork']
 } // end if
 
 // Now find out the columns of our $table
-// need to use PMA_DBI_QUERY_STORE with PMA_DBI_numRows() in mysqli
-$columns = PMA_DBI_getColumns($db, $table);
+// need to use PMA_DatabaseInterface::QUERY_STORE with $GLOBALS['dbi']->numRows() in mysqli
+$columns = $GLOBALS['dbi']->getColumns($db, $table);
 
 if (count($columns) > 0) {
 

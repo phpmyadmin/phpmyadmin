@@ -18,7 +18,7 @@ PMA_Util::checkParameters(array('db'));
 
 $is_show_stats = $cfg['ShowStats'];
 
-$db_is_information_schema = PMA_isSystemSchema($db);
+$db_is_information_schema = $GLOBALS['dbi']->isSystemSchema($db);
 if ($db_is_information_schema) {
     $is_show_stats = false;
 }
@@ -36,11 +36,11 @@ $err_url   = $cfg['DefaultTabDatabase'] . '?' . PMA_generate_common_url($db);
  */
 if (! isset($is_db) || ! $is_db) {
     if (strlen($db)) {
-        $is_db = PMA_DBI_selectDb($db);
+        $is_db = $GLOBALS['dbi']->selectDb($db);
         // This "Command out of sync" 2014 error may happen, for example
         // after calling a MySQL procedure; at this point we can't select
         // the db but it's not necessarily wrong
-        if (PMA_DBI_getError() && $GLOBALS['errno'] == 2014) {
+        if ($GLOBALS['dbi']->getError() && $GLOBALS['errno'] == 2014) {
             $is_db = true;
             unset($GLOBALS['errno']);
         }
@@ -75,7 +75,7 @@ if (isset($_REQUEST['submitcollation'])
     $sql_query        = 'ALTER DATABASE '
         . PMA_Util::backquote($db)
         . ' DEFAULT' . PMA_generateCharsetQueryPart($_REQUEST['db_collation']);
-    $result           = PMA_DBI_query($sql_query);
+    $result           = $GLOBALS['dbi']->query($sql_query);
     $message          = PMA_Message::success();
     unset($db_charset);
 

@@ -40,15 +40,15 @@ $sql = "SELECT p.plugin_name, p.plugin_type, p.is_active, m.module_name, m.modul
     FROM data_dictionary.plugins p
         JOIN data_dictionary.modules m USING (module_name)
     ORDER BY m.module_name, p.plugin_type, p.plugin_name";
-$res = PMA_DBI_query($sql);
+$res = $GLOBALS['dbi']->query($sql);
 $plugins = array();
 $modules = array();
-while ($row = PMA_DBI_fetchAssoc($res)) {
+while ($row = $GLOBALS['dbi']->fetchAssoc($res)) {
     $plugins[$row['plugin_type']][] = $row;
     $modules[$row['module_name']]['info'] = $row;
     $modules[$row['module_name']]['plugins'][$row['plugin_type']][] = $row;
 }
-PMA_DBI_freeResult($res);
+$GLOBALS['dbi']->freeResult($res);
 
 // sort plugin list (modules are already sorted)
 ksort($plugins);

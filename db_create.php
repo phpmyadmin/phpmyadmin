@@ -52,10 +52,10 @@ if (! empty($db_collation)) {
 }
 $sql_query .= ';';
 
-$result = PMA_DBI_tryQuery($sql_query);
+$result = $GLOBALS['dbi']->tryQuery($sql_query);
 
 if (! $result) {
-    $message = PMA_Message::rawError(PMA_DBI_getError());
+    $message = PMA_Message::rawError($GLOBALS['dbi']->getError());
     // avoid displaying the not-created db name in header or navi panel
     $GLOBALS['db'] = '';
     $GLOBALS['table'] = '';
@@ -91,7 +91,7 @@ if (! $result) {
          */
         $db_url_params['db'] = $new_db;
 
-        $is_superuser = PMA_isSuperuser();
+        $is_superuser = $GLOBALS['dbi']->isSuperuser();
         $column_order = PMA_getColumnOrder();
         $url_query = PMA_generate_common_url($new_db);
 

@@ -11,7 +11,7 @@
 
 require_once 'libraries/StorageEngine.class.php';
 require_once 'libraries/engines/mrg_myisam.lib.php';
-require_once 'libraries/database_interface.lib.php';
+require_once 'libraries/database_interface.inc.php';
 require_once 'libraries/Tracker.class.php';
 
 class PMA_StorageEngine_mrg_myisam_Test extends PHPUnit_Framework_TestCase

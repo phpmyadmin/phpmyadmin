@@ -152,7 +152,7 @@ if ($cfg['ShowCreateDb']) {
  * Gets the databases list
  */
 if ($server > 0) {
-    $databases = PMA_DBI_getDatabasesFull(
+    $databases = $GLOBALS['dbi']->getDatabasesFull(
         null, $dbstats, null, $sort_by, $sort_order, $pos, true
     );
     $databases_count = count($GLOBALS['pma']->databases);
@@ -244,7 +244,7 @@ if ($databases_count > 0) {
     $odd_row = true;
     foreach ($databases as $current) {
         $tr_class = $odd_row ? 'odd' : 'even';
-        if (PMA_isSystemSchema($current['SCHEMA_NAME'], true)) {
+        if ($GLOBALS['dbi']->isSystemSchema($current['SCHEMA_NAME'], true)) {
             $tr_class .= ' noclick';
         }
         $html .= '<tr class="' . $tr_class . '">' . "\n";

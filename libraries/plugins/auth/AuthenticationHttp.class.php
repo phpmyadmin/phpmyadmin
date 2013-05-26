@@ -225,7 +225,7 @@ class AuthenticationHttp extends AuthenticationPlugin
      */
     public function authFails()
     {
-        $error = PMA_DBI_getError();
+        $error = $GLOBALS['dbi']->getError();
         if ($error && $GLOBALS['errno'] != 1045) {
             PMA_fatalError($error);
         } else {

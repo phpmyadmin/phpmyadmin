@@ -64,7 +64,7 @@ if (isset($mode)) {
             . " FROM " . $pmd_table
             . " WHERE db_name = '" . PMA_Util::sqlAddSlashes($db) . "'";
 
-        PMA_queryAsControlUser($sql, true, PMA_DBI_QUERY_STORE);
+        PMA_queryAsControlUser($sql, true, PMA_DatabaseInterface::QUERY_STORE);
     }
 
     if ('import' == $mode) {
@@ -79,7 +79,7 @@ if (isset($mode)) {
             AND
             ' . $pmd_table . '.`db_name`=\''. PMA_Util::sqlAddSlashes($db) . '\'
             AND pdf_page_number = ' . $pdf_page_number_q . ';',
-            true, PMA_DBI_QUERY_STORE
+            true, PMA_DatabaseInterface::QUERY_STORE
         );
     }
 }
@@ -109,11 +109,11 @@ $table_info_result = PMA_queryAsControlUser(
     . ' WHERE db_name = \'' . PMA_Util::sqlAddSlashes($db) . '\''
 );
 
-if (PMA_DBI_numRows($table_info_result) > 0) {
+if ($GLOBALS['dbi']->numRows($table_info_result) > 0) {
     echo '<p>' . __('Page:');
     echo '<select name="pdf_page_number">';
 
-    while ($page = PMA_DBI_fetchAssoc($table_info_result)) {
+    while ($page = $GLOBALS['dbi']->fetchAssoc($table_info_result)) {
         echo '<option value="' . $page['page_nr'] . '">';
         echo htmlspecialchars($page['page_descr']);
         echo '</option>';

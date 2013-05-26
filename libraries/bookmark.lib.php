@@ -65,8 +65,8 @@ function PMA_Bookmark_getList($db)
         . ' WHERE dbase = \'' . PMA_Util::sqlAddSlashes($db) . '\''
         . ' AND user = \'' . PMA_Util::sqlAddSlashes($cfgBookmark['user']) . '\''
         . ' ORDER BY label';
-    $per_user = PMA_DBI_fetchResult(
-        $query, 'id', 'label', $controllink, PMA_DBI_QUERY_STORE
+    $per_user = $GLOBALS['dbi']->fetchResult(
+        $query, 'id', 'label', $controllink, PMA_DatabaseInterface::QUERY_STORE
     );
 
     $query  = 'SELECT label, id FROM '. PMA_Util::backquote($cfgBookmark['db'])
@@ -74,8 +74,8 @@ function PMA_Bookmark_getList($db)
         . ' WHERE dbase = \'' . PMA_Util::sqlAddSlashes($db) . '\''
         . ' AND user = \'\''
         . ' ORDER BY label';
-    $global = PMA_DBI_fetchResult(
-        $query, 'id', 'label', $controllink, PMA_DBI_QUERY_STORE
+    $global = $GLOBALS['dbi']->fetchResult(
+        $query, 'id', 'label', $controllink, PMA_DatabaseInterface::QUERY_STORE
     );
 
     foreach ($global as $key => $val) {
@@ -132,7 +132,7 @@ function PMA_Bookmark_get($db, $id, $id_field = 'id', $action_bookmark_all = fal
 
     $query .= ' AND ' . PMA_Util::backquote($id_field) . ' = ' . $id;
 
-    return PMA_DBI_fetchValue($query, 0, 0, $controllink);
+    return $GLOBALS['dbi']->fetchValue($query, 0, 0, $controllink);
 } // end of the 'PMA_Bookmark_get()' function
 
 /**
@@ -165,7 +165,7 @@ function PMA_Bookmark_save($fields, $all_users = false)
         . '\'' . ($all_users ? '' : PMA_Util::sqlAddSlashes($fields['user'])) . '\', '
         . '\'' . PMA_Util::sqlAddSlashes(urldecode($fields['query'])) . '\', '
         . '\'' . PMA_Util::sqlAddSlashes($fields['label']) . '\')';
-    return PMA_DBI_query($query, $controllink);
+    return $GLOBALS['dbi']->query($query, $controllink);
 } // end of the 'PMA_Bookmark_save()' function
 
 
@@ -196,7 +196,7 @@ function PMA_Bookmark_delete($db, $id)
         . ' WHERE (user = \'' . PMA_Util::sqlAddSlashes($cfgBookmark['user']) . '\''
         . '        OR user = \'\')'
         . ' AND id = ' . $id;
-    return PMA_DBI_tryQuery($query, $controllink);
+    return $GLOBALS['dbi']->tryQuery($query, $controllink);
 } // end of the 'PMA_Bookmark_delete()' function
 
 

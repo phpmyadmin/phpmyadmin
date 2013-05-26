@@ -123,7 +123,7 @@ class PMA_TableSearch
     private function _loadTableInfo()
     {
         // Gets the list and number of columns
-        $columns = PMA_DBI_getColumns($this->_db, $this->_table, null, true);
+        $columns = $GLOBALS['dbi']->getColumns($this->_db, $this->_table, null, true);
         // Get details about the geometry fucntions
         $geom_types = PMA_Util::getGISDatatypes();
 

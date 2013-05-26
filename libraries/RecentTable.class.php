@@ -85,7 +85,7 @@ class PMA_RecentTable
             = " SELECT `tables` FROM " . $this->_pmaTable .
             " WHERE `username` = '" . $GLOBALS['cfg']['Server']['user'] . "'";
 
-        $row = PMA_DBI_fetchArray(PMA_queryAsControlUser($sql_query));
+        $row = $GLOBALS['dbi']->fetchArray(PMA_queryAsControlUser($sql_query));
         if (isset($row[0])) {
             return json_decode($row[0], true);
         } else {
@@ -108,13 +108,13 @@ class PMA_RecentTable
                     json_encode($this->tables)
                 ) . "')";
 
-        $success = PMA_DBI_tryQuery($sql_query, $GLOBALS['controllink']);
+        $success = $GLOBALS['dbi']->tryQuery($sql_query, $GLOBALS['controllink']);
 
         if (! $success) {
             $message = PMA_Message::error(__('Could not save recent table'));
             $message->addMessage('<br /><br />');
             $message->addMessage(
-                PMA_Message::rawError(PMA_DBI_getError($GLOBALS['controllink']))
+                PMA_Message::rawError($GLOBALS['dbi']->getError($GLOBALS['controllink']))
             );
             return $message;
         }

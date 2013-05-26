@@ -13,12 +13,12 @@ if (! defined('PHPMYADMIN')) {
 /**
  * get master replication from server
  */
-$server_master_replication = PMA_DBI_fetchResult('SHOW MASTER STATUS');
+$server_master_replication = $GLOBALS['dbi']->fetchResult('SHOW MASTER STATUS');
 
 /**
  * get slave replication from server
  */
-$server_slave_replication = PMA_DBI_fetchResult('SHOW SLAVE STATUS');
+$server_slave_replication = $GLOBALS['dbi']->fetchResult('SHOW SLAVE STATUS');
 
 /**
  * replication types
@@ -185,7 +185,7 @@ function PMA_extractDbOrTable($string, $what = 'db')
  *                        SQL_THREAD and IO_THREAD
  * @param mixed  $link    mysql link
  *
- * @return mixed output of PMA_DBI_tryQuery
+ * @return mixed output of DatabaseInterface::tryQuery
  */
 function PMA_Replication_Slave_control($action, $control = null, $link = null)
 {
@@ -199,7 +199,7 @@ function PMA_Replication_Slave_control($action, $control = null, $link = null)
         return -1;
     }
 
-    return PMA_DBI_tryQuery($action . " SLAVE " . $control . ";", $link);
+    return $GLOBALS['dbi']->tryQuery($action . " SLAVE " . $control . ";", $link);
 }
 
 /**
@@ -224,7 +224,7 @@ function PMA_Replication_Slave_changeMaster($user, $password, $host, $port,
         PMA_Replication_Slave_control("STOP", null, $link);
     }
 
-    $out = PMA_DBI_tryQuery(
+    $out = $GLOBALS['dbi']->tryQuery(
         'CHANGE MASTER TO ' .
         'MASTER_HOST=\'' . $host . '\',' .
         'MASTER_PORT=' . ($port * 1) . ',' .
@@ -262,7 +262,7 @@ function PMA_Replication_connectToMaster(
 
     // 5th parameter set to true means that it's an auxiliary connection
     // and we must not go back to login page if it fails
-    return PMA_DBI_connect($user, $password, false, $server, true);
+    return $GLOBALS['dbi']->connect($user, $password, false, $server, true);
 }
 /**
  * Fetches position and file of current binary log on master
@@ -274,7 +274,7 @@ function PMA_Replication_connectToMaster(
  */
 function PMA_Replication_Slave_binLogMaster($link = null)
 {
-    $data = PMA_DBI_fetchResult('SHOW MASTER STATUS', null, null, $link);
+    $data = $GLOBALS['dbi']->fetchResult('SHOW MASTER STATUS', null, null, $link);
     $output = array();
 
     if (! empty($data)) {
@@ -295,7 +295,7 @@ function PMA_Replication_Slave_binLogMaster($link = null)
 function PMA_Replication_Master_getReplicatedDbs($link = null)
 {
     // let's find out, which databases are replicated
-    $data = PMA_DBI_fetchResult('SHOW MASTER STATUS', null, null, $link);
+    $data = $GLOBALS['dbi']->fetchResult('SHOW MASTER STATUS', null, null, $link);
 
     $do_db     = array();
     $ignore_db = array();
@@ -307,9 +307,9 @@ function PMA_Replication_Master_getReplicatedDbs($link = null)
         $ignore_db = explode(',', $data[0]['Binlog_Ignore_DB']);
     }
 
-    $tmp_alldbs = PMA_DBI_query('SHOW DATABASES;', $link);
-    while ($tmp_row = PMA_DBI_fetchRow($tmp_alldbs)) {
-        if (PMA_isSystemSchema($tmp_row[0])) {
+    $tmp_alldbs = $GLOBALS['dbi']->query('SHOW DATABASES;', $link);
+    while ($tmp_row = $GLOBALS['dbi']->fetchRow($tmp_alldbs)) {
+        if ($GLOBALS['dbi']->isSystemSchema($tmp_row[0])) {
             continue;
         }
         if (count($do_db) == 0) {

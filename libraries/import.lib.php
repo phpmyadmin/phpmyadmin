@@ -155,7 +155,7 @@ function PMA_importRunQuery($sql = '', $full = '', $controluser = false,
                                 $import_run_buffer['sql']
                             );
                         } else {
-                            $result = PMA_DBI_tryQuery($import_run_buffer['sql']);
+                            $result = $GLOBALS['dbi']->tryQuery($import_run_buffer['sql']);
                         }
 
                         $msg = '# ';
@@ -165,7 +165,7 @@ function PMA_importRunQuery($sql = '', $full = '', $controluser = false,
                             }
                             $my_die[] = array(
                                 'sql' => $import_run_buffer['full'],
-                                'error' => PMA_DBI_getError()
+                                'error' => $GLOBALS['dbi']->getError()
                             );
 
                             $msg .= __('Error');
@@ -175,8 +175,8 @@ function PMA_importRunQuery($sql = '', $full = '', $controluser = false,
                                 return;
                             }
                         } else {
-                            $a_num_rows = (int)@PMA_DBI_numRows($result);
-                            $a_aff_rows = (int)@PMA_DBI_affectedRows();
+                            $a_num_rows = (int)@$GLOBALS['dbi']->numRows($result);
+                            $a_aff_rows = (int)@$GLOBALS['dbi']->affectedRows();
                             if ($a_num_rows > 0) {
                                 $msg .= __('Rows'). ': ' . $a_num_rows;
                                 $last_query_with_results = $import_run_buffer['sql'];

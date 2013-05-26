@@ -158,7 +158,7 @@ if (isset($_REQUEST['change_copy'])) {
         . "'". PMA_Util::sqlAddSlashes($_REQUEST['old_username']) . "'"
         . ' AND `Host` = '
         . "'" . PMA_Util::sqlAddSlashes($_REQUEST['old_hostname']) . "';";
-    $row = PMA_DBI_fetchSingleRow(
+    $row = $GLOBALS['dbi']->fetchSingleRow(
         'SELECT * FROM `mysql`.`user` ' . $user_host_condition
     );
     if (! $row) {
@@ -196,7 +196,7 @@ if (isset($_REQUEST['adduser_submit']) || isset($_REQUEST['change_copy'])) {
         $hostname = '';
         break;
     case 'thishost':
-        $_user_name = PMA_DBI_fetchValue('SELECT USER()');
+        $_user_name = $GLOBALS['dbi']->fetchValue('SELECT USER()');
         $hostname = substr($_user_name, (strrpos($_user_name, '@') + 1));
         unset($_user_name);
         break;
@@ -204,7 +204,7 @@ if (isset($_REQUEST['adduser_submit']) || isset($_REQUEST['change_copy'])) {
     $sql = "SELECT '1' FROM `mysql`.`user`"
         . " WHERE `User` = '" . PMA_Util::sqlAddSlashes($username) . "'"
         . " AND `Host` = '" . PMA_Util::sqlAddSlashes($hostname) . "';";
-    if (PMA_DBI_fetchValue($sql) == 1) {
+    if ($GLOBALS['dbi']->fetchValue($sql) == 1) {
         $message = PMA_Message::error(__('The user %s already exists!'));
         $message->addParam('[em]\'' . $username . '\'@\'' . $hostname . '\'[/em]');
         $_REQUEST['adduser'] = true;
@@ -219,7 +219,7 @@ if (isset($_REQUEST['adduser_submit']) || isset($_REQUEST['change_copy'])) {
             $_error = false;
 
             if (isset($create_user_real)) {
-                if (! PMA_DBI_tryQuery($create_user_real)) {
+                if (! $GLOBALS['dbi']->tryQuery($create_user_real)) {
                     $_error = true;
                 }
                 $sql_query = $create_user_show . $sql_query;
@@ -334,7 +334,7 @@ if (isset($_REQUEST['change_copy'])) {
     $tmp_count = 0;
     foreach ($queries as $sql_query) {
         if ($sql_query{0} != '#') {
-            PMA_DBI_query($sql_query);
+            $GLOBALS['dbi']->query($sql_query);
         }
         // when there is a query containing a hidden password, take it
         // instead of the real query sent
@@ -352,7 +352,7 @@ if (isset($_REQUEST['change_copy'])) {
  */
 if (isset($_REQUEST['flush_privileges'])) {
     $sql_query = 'FLUSH PRIVILEGES;';
-    PMA_DBI_query($sql_query);
+    $GLOBALS['dbi']->query($sql_query);
     $message = PMA_Message::success(__('The privileges were reloaded successfully.'));
 }
 
