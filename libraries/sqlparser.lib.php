@@ -2888,7 +2888,7 @@ function PMA_SQP_formatHtml(
         */
         $str .= $before;
         if ($mode=='color') {
-            $str .= PMA_SQP_formatHTML_colorize($arr[$i]);
+            $str .= PMA_SQP_formatHtml_colorize($arr[$i]);
         } elseif ($mode == 'text') {
             $str .= htmlspecialchars($arr[$i]['data']);
         } else {
