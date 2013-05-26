@@ -2114,7 +2114,7 @@ function PMA_getFirstOccurringRegularExpression($regex_array, $query)
     $minimum_first_occurence_index = null;
     $regex = null;
     
-    for ($i=0; $i<count($regex_array); $i++) {
+    for ($i = 0; $i < count($regex_array); $i++) {
         if (preg_match($regex_array[$i], $query, $matches, PREG_OFFSET_CAPTURE)) {
             
             if (is_null($minimum_first_occurence_index)
