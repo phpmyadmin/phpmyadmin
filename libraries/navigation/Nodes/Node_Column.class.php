@@ -43,10 +43,9 @@ class Node_Column extends Node
     }
 
     /**
-     * Returns the comment associated with node
-     * This method should be overridden by specific type of nodes
+     * Returns column comment.
      *
-     * @return string
+     * @return string column comment
      */
     public function getComment()
     {
