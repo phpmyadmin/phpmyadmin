@@ -4,13 +4,13 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-05-25 07:32-0400\n"
-"PO-Revision-Date: 2013-05-07 15:03+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"PO-Revision-Date: 2013-05-27 19:37+0200\n"
+"Last-Translator: Anachak Udrach <tangmo3289@gmail.com>\n"
 "Language-Team: Thai <http://l10n.cihar.com/projects/phpmyadmin/master/th/>\n"
+"Language: th\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: th\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 1.6-dev\n"
 
@@ -794,14 +794,13 @@ msgid "Official Homepage"
 msgstr "โฮมเพจอย่างเป็นทางการของ phpMyAdmin"
 
 #: index.php:356
-#, fuzzy
 #| msgid "Attributes"
 msgid "Contribute"
-msgstr "แอตทริบิวต์"
+msgstr "ร่วมสร้างสรรค์"
 
 #: index.php:363
 msgid "Get support"
-msgstr ""
+msgstr "ขอรับการสนับสนุน"
 
 #: index.php:370
 #, fuzzy
@@ -876,11 +875,14 @@ msgstr ""
 "ความสามารถเพิ่มเติมสำหรับ linked Tables ได้ถูกระงับเอาไว้ ตามเหตุผลที่แจ้งไว้ใน %shere%s"
 
 #: index.php:518
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "Your PHP MySQL library version %s differs from your MySQL server version %s. "
 "This may cause unpredictable behavior."
 msgstr ""
+"PHP MySQL library รุ่นที่คุณติดตั้งไว้คือ %s "
+"ซึ่งแตกต่างจากของเซิร์ฟเวอร์ซึ่งใช้รุ่น %s "
+"อาจก่อให้เกิดปัญหาไม่พึงประสงค์บางประการ"
 
 #: index.php:541
 #, php-format
@@ -1527,12 +1529,12 @@ msgstr "การประมวลผลผิดพลาด"
 #: js/messages.php:216
 #, php-format
 msgid "Error code: %s"
-msgstr ""
+msgstr "รหัสข้อผิดพลาด : %s"
 
 #: js/messages.php:217
 #, php-format
 msgid "Error text: %s"
-msgstr ""
+msgstr "ข้อความข้อผิดพลาด: %s"
 
 #: js/messages.php:218 libraries/db_common.inc.php:58
 #: libraries/db_table_exists.lib.php:28 server_databases.php:89
@@ -1819,7 +1821,7 @@ msgstr "เพิ่มตัวเลือกสำหรับสดมภ์
 #: js/messages.php:325
 #, php-format
 msgid "%d object(s) created"
-msgstr ""
+msgstr "สร้างวัตถุจำนวน %d เรียบร้อยแล้ว"
 
 #: js/messages.php:328
 msgid "Press escape to cancel editing"
@@ -1845,7 +1847,7 @@ msgstr "กดเพื่อมาร์ก หรือยกเลิกก�
 
 #: js/messages.php:333
 msgid "Double-click to copy column name"
-msgstr ""
+msgstr "คลิกสองครั้งเพื่อคัดลอกชื่อคอลัมน์"
 
 #: js/messages.php:334
 msgid "Click the drop-down arrow<br />to toggle column's visibility"
@@ -1877,20 +1879,19 @@ msgid "Go to link"
 msgstr "ไปที่หน้า"
 
 #: js/messages.php:350
-#, fuzzy
 #| msgid "Column names"
 msgid "Copy column name"
-msgstr "ชื่อคอลัมน์"
+msgstr "คัดลอกชื่อคอลัมน์"
 
 #: js/messages.php:351
+#, fuzzy
 msgid "Right-click the column name to copy it to your clipboard."
-msgstr ""
+msgstr "คลิกขวาที่ชื่อคอลัมน์เพื่อคัดลอกข้อมูล"
 
 #: js/messages.php:352
-#, fuzzy
 #| msgid "Update row(s)"
 msgid "Show data row(s)"
-msgstr "อัพเดทแถว"
+msgstr "แสดงแถวข้อมูล"
 
 #: js/messages.php:355
 msgid "Generate password"
@@ -1921,10 +1922,11 @@ msgid "Hide Panel"
 msgstr "ซ่อนดัชนี"
 
 #: js/messages.php:367
-#, fuzzy
 #| msgid "The selected user was not found in the privilege table."
 msgid "The requested page was not found in the history, it may have expired."
-msgstr "ไม่พบผู้ใช้ที่เลือกในตารางแสดงสิทธิ"
+msgstr ""
+"ไม่พบหน้าดังกล่าวในประวัติการเรียกดู "
+"อาจเป็นเพราะหน้านั้นไม่มีหรือหมดอายุที่จะแสดงได้แล้ว"
 
 #: js/messages.php:370 setup/lib/index.lib.php:188
 #, php-format
@@ -2101,7 +2103,6 @@ msgstr "วันเสาร์"
 
 #. l10n: Short week day name
 #: js/messages.php:467
-#, fuzzy
 #| msgctxt "Short week day name"
 #| msgid "Sun"
 msgid "Sun"
@@ -2203,7 +2204,7 @@ msgstr "วินาที"
 #: libraries/Advisor.class.php:78
 #, php-format
 msgid "PHP threw following error: %s"
-msgstr ""
+msgstr "PHP แสดงข้อผิดพลาด: %s"
 
 #: libraries/Advisor.class.php:107
 #, php-format
