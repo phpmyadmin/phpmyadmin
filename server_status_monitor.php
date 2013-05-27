@@ -491,7 +491,7 @@ function PMA_getMonitorHtml($ServerStatusData)
             'To display queries from the logs, select the relevant time span on any'
             . ' chart by holding down the left mouse button and panning over the'
             . ' chart. Once confirmed, this will load a table of grouped queries,'
-            . ' there you may click on any occuring SELECT statements to further'
+            . ' there you may click on any occurring SELECT statements to further'
             . ' analyze them.'
         );
         $retval .= '</p>';
