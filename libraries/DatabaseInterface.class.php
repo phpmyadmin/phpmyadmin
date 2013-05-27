@@ -311,7 +311,7 @@ class PMA_DatabaseInterface
             null,
             0,
             $link,
-            PMA_DatabaseInterface::QUERY_STORE
+            self::QUERY_STORE
         );
     }
 
@@ -1411,7 +1411,7 @@ class PMA_DatabaseInterface
      * @return mixed   value for mysql server variable
      */
     public function getVariable(
-        $var, $type = PMA_DatabaseInterface::GETVAR_SESSION, $link = null
+        $var, $type = self::GETVAR_SESSION, $link = null
     ) {
         if ($link === null) {
             if (isset($GLOBALS['userlink'])) {
@@ -1525,7 +1525,7 @@ class PMA_DatabaseInterface
                 $this->query(
                     "SET CHARACTER SET 'utf8';",
                     $link,
-                    PMA_DatabaseInterface::QUERY_STORE
+                    self::QUERY_STORE
                 );
                 $set_collation_con_query = "SET collation_connection = '"
                     . PMA_Util::sqlAddSlashes($GLOBALS['collation_connection'])
@@ -1533,13 +1533,13 @@ class PMA_DatabaseInterface
                 $this->query(
                     $set_collation_con_query,
                     $link,
-                    PMA_DatabaseInterface::QUERY_STORE
+                    self::QUERY_STORE
                 );
             } else {
                 $this->query(
                     "SET NAMES 'utf8' COLLATE 'utf8_general_ci';",
                     $link,
-                    PMA_DatabaseInterface::QUERY_STORE
+                    self::QUERY_STORE
                 );
             }
         }
@@ -1587,7 +1587,7 @@ class PMA_DatabaseInterface
             $result = $this->tryQuery(
                 $result,
                 $link,
-                PMA_DatabaseInterface::QUERY_STORE,
+                self::QUERY_STORE,
                 false
             );
         }
@@ -1645,7 +1645,7 @@ class PMA_DatabaseInterface
             $result = $this->tryQuery(
                 $result,
                 $link,
-                PMA_DatabaseInterface::QUERY_STORE,
+                self::QUERY_STORE,
                 false
             );
         }
@@ -2073,7 +2073,7 @@ class PMA_DatabaseInterface
                 $result = (bool) $GLOBALS['dbi']->tryQuery(
                     'SELECT COUNT(*) FROM mysql.user',
                     $GLOBALS['userlink'],
-                    PMA_DatabaseInterface::QUERY_STORE
+                    self::QUERY_STORE
                 );
             }
             PMA_Util::cacheSet('is_superuser', $result, true);
