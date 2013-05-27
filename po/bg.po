@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-05-25 07:32-0400\n"
-"PO-Revision-Date: 2013-05-27 00:51+0200\n"
+"PO-Revision-Date: 2013-05-27 18:09+0200\n"
 "Last-Translator: Pl P <plamen_mbx@yahoo.com>\n"
 "Language-Team: Bulgarian "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/bg/>\n"
@@ -855,6 +855,9 @@ msgid ""
 "multibyte charset. Without the mbstring extension phpMyAdmin is unable to "
 "split strings correctly and it may result in unexpected results."
 msgstr ""
+"Разширението mbstring на PHP не е открито и изглежда използвате многобайтов "
+"символен набор. Без това разширение phpMyAdmin не може да разделя правилно "
+"низове и това може да доведе до неочаквани резултати."
 
 #: index.php:441
 msgid ""
@@ -4491,7 +4494,7 @@ msgstr "Добавяне AUTO_INCREMENT стойност"
 
 #: libraries/config/messages.inc.php:118
 msgid "Enclose table and column names with backquotes"
-msgstr "Ограждане на имената на таблици и полета с обратни кавички"
+msgstr "Ограждане на имената на таблици и полета с обратни апострофи"
 
 #: libraries/config/messages.inc.php:119 libraries/config/messages.inc.php:262
 #: libraries/display_export.lib.php:450
@@ -13531,11 +13534,16 @@ msgid "Enable {concurrent_insert} by setting it to 1"
 msgstr "Включване на concurrent_insert като го настроите на 1"
 
 #: libraries/advisory_rules.txt:463
+#, fuzzy
 msgid ""
 "Setting {concurrent_insert} to 1 reduces contention between readers and "
 "writers for a given table. See also <a href=\"http://dev.mysql.com/doc/"
 "refman/5.5/en/concurrent-inserts.html\">MySQL Documentation</a>"
 msgstr ""
+"Установяването на {concurrent_insert} на 1 намалява contention между readers "
+"and writers за дадена таблица. Вижте също и <a "
+"href=\"http://dev.mysql.com/doc/refman/5.5/en/concurrent-"
+"inserts.html\">Документацията на MySQL</a>"
 
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
