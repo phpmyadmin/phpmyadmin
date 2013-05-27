@@ -532,7 +532,9 @@ function PMA_getTableProcesslistHtml($ServerStatusData)
             if (! $show_full_sql && strlen($process['Info']) > $GLOBALS['cfg']['MaxCharactersInDisplayedSQL']) {
                 $retval .= htmlspecialchars(substr($process['Info'], 0, $GLOBALS['cfg']['MaxCharactersInDisplayedSQL'])) . '[...]';
             } else {
-                $retval .= PMA_SQP_format(PMA_SQP_parse($process['Info']));
+                $retval .= '<code class="sql"><pre>' 
+                    . $process['Info'] 
+                    . '</pre></code>';
             }
         }
         $retval .= '</td>';
