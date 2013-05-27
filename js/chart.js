@@ -298,7 +298,7 @@ JQPlotLineChart.prototype.prepareData = function (dataTable) {
         row = data[i];
         for (var j = 1; j < row.length; j++) {
             retRow = retData[j - 1];
-            if (retRow === null) {
+            if (retRow === undefined) {
                 retRow = [];
                 retData[j - 1] = retRow;
             }
@@ -378,7 +378,7 @@ JQPlotTimelineChart.prototype.prepareData = function (dataTable) {
         d = row[0];
         for (var j = 1; j < row.length; j++) {
             retRow = retData[j - 1];
-            if (retRow === null) {
+            if (retRow === undefined) {
                 retRow = [];
                 retData[j - 1] = retRow;
             }
