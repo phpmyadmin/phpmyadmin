@@ -1381,14 +1381,14 @@ class PMA_DatabaseInterface
     }
 
     /**
-    * Returns indexes of a table
-    *
-    * @param string $database name of database
-    * @param string $table    name of the table whose indexes are to be retrieved
-    * @param mixed  $link     mysql link resource
-    *
-    * @return array   $indexes
-    */
+     * Returns indexes of a table
+     *
+     * @param string $database name of database
+     * @param string $table    name of the table whose indexes are to be retrieved
+     * @param mixed  $link     mysql link resource
+     *
+     * @return array   $indexes
+     */
     public function getTableIndexes($database, $table, $link = null)
     {
         $sql = $this->getTableIndexesSql($database, $table);
