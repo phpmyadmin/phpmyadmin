@@ -14,7 +14,7 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
-require_once './libraries/dbi/DBIExtension.int.php';
+require_once './libraries/dbi/DBIAbstractExtension.class.php';
 
 /**
  * Array of queries this "driver" supports
@@ -280,7 +280,7 @@ if (! defined('PMA_DRIZZLE')) {
  * @package    PhpMyAdmin-DBI
  * @subpackage Dummy
  */
-class PMA_DBI_Dummy implements PMA_DBI_Extension
+class PMA_DBI_Dummy extends PMA_DBI_AbstractExtension
 {
     /**
      * connects to the database server

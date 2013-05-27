@@ -311,7 +311,7 @@ class PMA_DatabaseInterface
             null,
             0,
             $link,
-            PMA_DatabaseInterface::QUERY_STORE
+            self::QUERY_STORE
         );
     }
 
@@ -1204,58 +1204,7 @@ class PMA_DatabaseInterface
      */
     public function getColumnsSql($database, $table, $column = null, $full = false)
     {
-        if (PMA_DRIZZLE) {
-            // `Key` column:
-            // * used in primary key => PRI
-            // * unique one-column => UNI
-            // * indexed, one-column or first in multi-column => MUL
-            // Promotion of UNI to PRI in case no promary index exists
-            // is done after query is executed
-            $sql = "SELECT
-                    column_name        AS `Field`,
-                    (CASE
-                        WHEN character_maximum_length > 0
-                        THEN concat(lower(data_type), '(', character_maximum_length, ')')
-                        WHEN numeric_precision > 0 OR numeric_scale > 0
-                        THEN concat(lower(data_type), '(', numeric_precision,
-                            ',', numeric_scale, ')')
-                        WHEN enum_values IS NOT NULL
-                            THEN concat(lower(data_type), '(', enum_values, ')')
-                        ELSE lower(data_type) END)
-                                       AS `Type`,
-                    " . ($full ? "
-                    collation_name     AS `Collation`," : '') . "
-                    (CASE is_nullable
-                        WHEN 1 THEN 'YES'
-                        ELSE 'NO' END) AS `Null`,
-                    (CASE
-                        WHEN is_used_in_primary THEN 'PRI'
-                        WHEN is_unique AND NOT is_multi THEN 'UNI'
-                        WHEN is_indexed
-                        AND (NOT is_multi OR is_first_in_multi) THEN 'MUL'
-                        ELSE '' END)   AS `Key`,
-                    column_default     AS `Default`,
-                    (CASE
-                        WHEN is_auto_increment THEN 'auto_increment'
-                        WHEN column_default_update <> ''
-                        THEN 'on update ' || column_default_update
-                        ELSE '' END)   AS `Extra`
-                    " . ($full ? " ,
-                    NULL               AS `Privileges`,
-                    column_comment     AS `Comment`" : '') . "
-                FROM data_dictionary.columns
-                WHERE table_schema = '" . PMA_Util::sqlAddSlashes($database) . "'
-                    AND table_name = '" . PMA_Util::sqlAddSlashes($table) . "'
-                    " . (($column != null) ? "
-                    AND column_name = '" . PMA_Util::sqlAddSlashes($column) . "'" : '');
-            // ORDER BY ordinal_position
-        } else {
-            $sql = 'SHOW ' . ($full ? 'FULL' : '') . ' COLUMNS FROM '
-                . PMA_Util::backquote($database) . '.' . PMA_Util::backquote($table)
-                . (($column != null) ? "LIKE '"
-                . PMA_Util::sqlAddSlashes($column, true) . "'" : '');
-        }
-        return $sql;
+        return $this->_extension->getColumnsSql($database, $table, $column, $full);
     }
 
     /**
@@ -1411,7 +1360,7 @@ class PMA_DatabaseInterface
      * @return mixed   value for mysql server variable
      */
     public function getVariable(
-        $var, $type = PMA_DatabaseInterface::GETVAR_SESSION, $link = null
+        $var, $type = self::GETVAR_SESSION, $link = null
     ) {
         if ($link === null) {
             if (isset($GLOBALS['userlink'])) {
@@ -1525,7 +1474,7 @@ class PMA_DatabaseInterface
                 $this->query(
                     "SET CHARACTER SET 'utf8';",
                     $link,
-                    PMA_DatabaseInterface::QUERY_STORE
+                    self::QUERY_STORE
                 );
                 $set_collation_con_query = "SET collation_connection = '"
                     . PMA_Util::sqlAddSlashes($GLOBALS['collation_connection'])
@@ -1533,13 +1482,13 @@ class PMA_DatabaseInterface
                 $this->query(
                     $set_collation_con_query,
                     $link,
-                    PMA_DatabaseInterface::QUERY_STORE
+                    self::QUERY_STORE
                 );
             } else {
                 $this->query(
                     "SET NAMES 'utf8' COLLATE 'utf8_general_ci';",
                     $link,
-                    PMA_DatabaseInterface::QUERY_STORE
+                    self::QUERY_STORE
                 );
             }
         }
@@ -1587,7 +1536,7 @@ class PMA_DatabaseInterface
             $result = $this->tryQuery(
                 $result,
                 $link,
-                PMA_DatabaseInterface::QUERY_STORE,
+                self::QUERY_STORE,
                 false
             );
         }
@@ -1645,7 +1594,7 @@ class PMA_DatabaseInterface
             $result = $this->tryQuery(
                 $result,
                 $link,
-                PMA_DatabaseInterface::QUERY_STORE,
+                self::QUERY_STORE,
                 false
             );
         }
@@ -2073,7 +2022,7 @@ class PMA_DatabaseInterface
                 $result = (bool) $GLOBALS['dbi']->tryQuery(
                     'SELECT COUNT(*) FROM mysql.user',
                     $GLOBALS['userlink'],
-                    PMA_DatabaseInterface::QUERY_STORE
+                    self::QUERY_STORE
                 );
             }
             PMA_Util::cacheSet('is_superuser', $result, true);

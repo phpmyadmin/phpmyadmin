@@ -20,12 +20,12 @@ if (! defined('PHPMYADMIN')) {
 
 require_once './libraries/logging.lib.php';
 require_once './libraries/dbi/drizzle-wrappers.lib.php';
-require_once './libraries/dbi/DBIExtension.int.php';
+require_once './libraries/dbi/DBIAbstractExtension.class.php';
 
 /**
  * MySQL client API
  */
-if (!defined('PMA_MYSQL_CLIENT_API')) {
+if (! defined('PMA_MYSQL_CLIENT_API')) {
     define('PMA_MYSQL_CLIENT_API', (int)drizzle_version());
 }
 
@@ -35,7 +35,7 @@ if (!defined('PMA_MYSQL_CLIENT_API')) {
  * @package    PhpMyAdmin-DBI
  * @subpackage Drizzle
  */
-class PMA_DBI_Drizzle implements PMA_DBI_Extension
+class PMA_DBI_Drizzle extends PMA_DBI_AbstractExtension
 {
     /**
      * Helper function for connecting to the database server
@@ -206,6 +206,19 @@ class PMA_DBI_Drizzle implements PMA_DBI_Extension
     }
 
     /**
+     * Run the multi query and output the results
+     *
+     * @param object $link  connection object
+     * @param string $query multi query statement to execute
+     *
+     * @return result collection | boolean(false)
+     */
+    public function realMultiQuery($link, $query)
+    {
+        return false;
+    }
+
+    /**
      * returns array of rows with associative and numeric keys from $result
      *
      * @param PMA_DrizzleResult $result Drizzle result object
@@ -271,9 +284,11 @@ class PMA_DBI_Drizzle implements PMA_DBI_Extension
     /**
      * Check if there are any more query results from a multi query
      *
+     * @param object $link the connection object
+     *
      * @return bool false
      */
-    public function moreResults()
+    public function moreResults($link = null)
     {
         // N.B.: PHP's 'mysql' extension does not support
         // multi_queries so this function will always
@@ -285,9 +300,11 @@ class PMA_DBI_Drizzle implements PMA_DBI_Extension
     /**
      * Prepare next result from multi_query
      *
+     * @param object $link the connection object
+     *
      * @return bool false
      */
-    public function nextResult()
+    public function nextResult($link = null)
     {
         // N.B.: PHP's 'mysql' extension does not support
         // multi_queries so this function will always
@@ -674,6 +691,68 @@ class PMA_DBI_Drizzle implements PMA_DBI_Extension
     public function storeResult()
     {
         return false;
+    }
+
+    /**
+     * Returns SQL query for fetching columns for a table
+     *
+     * The 'Key' column is not calculated properly, use $GLOBALS['dbi']->getColumns()
+     * to get correct values.
+     *
+     * @param string  $database name of database
+     * @param string  $table    name of table to retrieve columns from
+     * @param string  $column   name of column, null to show all columns
+     * @param boolean $full     whether to return full info or only column names
+     *
+     * @return string
+     */
+    public function getColumnsSql($database, $table, $column = null, $full = false)
+    {
+        // `Key` column:
+        // * used in primary key => PRI
+        // * unique one-column => UNI
+        // * indexed, one-column or first in multi-column => MUL
+        // Promotion of UNI to PRI in case no promary index exists
+        // is done after query is executed
+        $sql = "SELECT
+                column_name        AS `Field`,
+                (CASE
+                    WHEN character_maximum_length > 0
+                    THEN concat(lower(data_type), '(', character_maximum_length, ')')
+                    WHEN numeric_precision > 0 OR numeric_scale > 0
+                    THEN concat(lower(data_type), '(', numeric_precision,
+                        ',', numeric_scale, ')')
+                    WHEN enum_values IS NOT NULL
+                        THEN concat(lower(data_type), '(', enum_values, ')')
+                    ELSE lower(data_type) END)
+                                   AS `Type`,
+                " . ($full ? "
+                collation_name     AS `Collation`," : '') . "
+                (CASE is_nullable
+                    WHEN 1 THEN 'YES'
+                    ELSE 'NO' END) AS `Null`,
+                (CASE
+                    WHEN is_used_in_primary THEN 'PRI'
+                    WHEN is_unique AND NOT is_multi THEN 'UNI'
+                    WHEN is_indexed
+                    AND (NOT is_multi OR is_first_in_multi) THEN 'MUL'
+                    ELSE '' END)   AS `Key`,
+                column_default     AS `Default`,
+                (CASE
+                    WHEN is_auto_increment THEN 'auto_increment'
+                    WHEN column_default_update <> ''
+                    THEN 'on update ' || column_default_update
+                    ELSE '' END)   AS `Extra`
+                " . ($full ? " ,
+                NULL               AS `Privileges`,
+                column_comment     AS `Comment`" : '') . "
+            FROM data_dictionary.columns
+            WHERE table_schema = '" . PMA_Util::sqlAddSlashes($database) . "'
+                AND table_name = '" . PMA_Util::sqlAddSlashes($table) . "'
+                " . (($column != null) ? "
+                AND column_name = '" . PMA_Util::sqlAddSlashes($column) . "'" : '');
+        // ORDER BY ordinal_position
+        return $sql;
     }
 }
 ?>

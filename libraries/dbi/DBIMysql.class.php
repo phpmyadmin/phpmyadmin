@@ -11,7 +11,7 @@ if (! defined('PHPMYADMIN')) {
 }
 
 require_once './libraries/logging.lib.php';
-require_once './libraries/dbi/DBIExtension.int.php';
+require_once './libraries/dbi/DBIAbstractExtension.class.php';
 
 /**
  * MySQL client API
@@ -34,7 +34,7 @@ if (! defined('PMA_MYSQL_CLIENT_API')) {
  * @package    PhpMyAdmin-DBI
  * @subpackage MySQL
  */
-class PMA_DBI_Mysql implements PMA_DBI_Extension
+class PMA_DBI_Mysql extends PMA_DBI_AbstractExtension
 {
     /**
      * Helper function for connecting to the database server
@@ -297,9 +297,11 @@ class PMA_DBI_Mysql implements PMA_DBI_Extension
     /**
      * Check if there are any more query results from a multi query
      *
+     * @param object $link the connection object
+     *
      * @return bool false
      */
-    public function moreResults()
+    public function moreResults($link = null)
     {
         // N.B.: PHP's 'mysql' extension does not support
         // multi_queries so this function will always
@@ -311,9 +313,11 @@ class PMA_DBI_Mysql implements PMA_DBI_Extension
     /**
      * Prepare next result from multi_query
      *
+     * @param object $link the connection object
+     *
      * @return boo false
      */
-    public function nextResult()
+    public function nextResult($link = null)
     {
         // N.B.: PHP's 'mysql' extension does not support
         // multi_queries so this function will always
