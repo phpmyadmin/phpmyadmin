@@ -244,5 +244,20 @@ interface PMA_DBI_Extension
      * @return string field flags
      */
     public function fieldFlags($result, $i);
+
+    /**
+     * Returns SQL query for fetching columns for a table
+     *
+     * The 'Key' column is not calculated properly, use $GLOBALS['dbi']->getColumns()
+     * to get correct values.
+     *
+     * @param string  $database name of database
+     * @param string  $table    name of table to retrieve columns from
+     * @param string  $column   name of column, null to show all columns
+     * @param boolean $full     whether to return full info or only column names
+     *
+     * @return string
+     */
+    public function getColumnsSql($database, $table, $column = null, $full = false);
 }
 ?>

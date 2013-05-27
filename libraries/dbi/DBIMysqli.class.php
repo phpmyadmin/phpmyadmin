@@ -11,7 +11,7 @@ if (! defined('PHPMYADMIN')) {
 }
 
 require_once './libraries/logging.lib.php';
-require_once './libraries/dbi/DBIExtension.int.php';
+require_once './libraries/dbi/DBIAbstractExtension.class.php';
 
 /**
  * MySQL client API
@@ -63,7 +63,7 @@ if (! defined('MYSQLI_TYPE_VARCHAR')) {
  * @package    PhpMyAdmin-DBI
  * @subpackage MySQLi
  */
-class PMA_DBI_Mysqli implements PMA_DBI_Extension
+class PMA_DBI_Mysqli extends PMA_DBI_AbstractExtension
 {
     /**
      * Helper function for connecting to the database server

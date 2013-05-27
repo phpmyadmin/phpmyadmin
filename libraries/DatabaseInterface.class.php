@@ -1204,58 +1204,7 @@ class PMA_DatabaseInterface
      */
     public function getColumnsSql($database, $table, $column = null, $full = false)
     {
-        if (PMA_DRIZZLE) {
-            // `Key` column:
-            // * used in primary key => PRI
-            // * unique one-column => UNI
-            // * indexed, one-column or first in multi-column => MUL
-            // Promotion of UNI to PRI in case no promary index exists
-            // is done after query is executed
-            $sql = "SELECT
-                    column_name        AS `Field`,
-                    (CASE
-                        WHEN character_maximum_length > 0
-                        THEN concat(lower(data_type), '(', character_maximum_length, ')')
-                        WHEN numeric_precision > 0 OR numeric_scale > 0
-                        THEN concat(lower(data_type), '(', numeric_precision,
-                            ',', numeric_scale, ')')
-                        WHEN enum_values IS NOT NULL
-                            THEN concat(lower(data_type), '(', enum_values, ')')
-                        ELSE lower(data_type) END)
-                                       AS `Type`,
-                    " . ($full ? "
-                    collation_name     AS `Collation`," : '') . "
-                    (CASE is_nullable
-                        WHEN 1 THEN 'YES'
-                        ELSE 'NO' END) AS `Null`,
-                    (CASE
-                        WHEN is_used_in_primary THEN 'PRI'
-                        WHEN is_unique AND NOT is_multi THEN 'UNI'
-                        WHEN is_indexed
-                        AND (NOT is_multi OR is_first_in_multi) THEN 'MUL'
-                        ELSE '' END)   AS `Key`,
-                    column_default     AS `Default`,
-                    (CASE
-                        WHEN is_auto_increment THEN 'auto_increment'
-                        WHEN column_default_update <> ''
-                        THEN 'on update ' || column_default_update
-                        ELSE '' END)   AS `Extra`
-                    " . ($full ? " ,
-                    NULL               AS `Privileges`,
-                    column_comment     AS `Comment`" : '') . "
-                FROM data_dictionary.columns
-                WHERE table_schema = '" . PMA_Util::sqlAddSlashes($database) . "'
-                    AND table_name = '" . PMA_Util::sqlAddSlashes($table) . "'
-                    " . (($column != null) ? "
-                    AND column_name = '" . PMA_Util::sqlAddSlashes($column) . "'" : '');
-            // ORDER BY ordinal_position
-        } else {
-            $sql = 'SHOW ' . ($full ? 'FULL' : '') . ' COLUMNS FROM '
-                . PMA_Util::backquote($database) . '.' . PMA_Util::backquote($table)
-                . (($column != null) ? "LIKE '"
-                . PMA_Util::sqlAddSlashes($column, true) . "'" : '');
-        }
-        return $sql;
+        return $this->_extension->getColumnsSql($database, $table, $column, $full);
     }
 
     /**
