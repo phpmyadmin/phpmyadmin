@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * tests for NodeFactory class
+ * Tests for Node class
  *
  * @package PhpMyAdmin-test
  */
@@ -11,7 +11,11 @@ require_once 'libraries/Util.class.php';
 require_once 'libraries/Theme.class.php';
 require_once 'libraries/database_interface.inc.php';
 
-
+/**
+ * Tests for Node class
+ *
+ * @package PhpMyAdmin-test
+ */
 class Node_Test extends PHPUnit_Framework_TestCase
 {
     public function setup()
