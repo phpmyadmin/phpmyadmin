@@ -1373,11 +1373,21 @@ div.sqlvalidate {
     padding:            0.3em;
     margin-top:         0;
     margin-bottom:      0;
+    max-height:         10em;
+    overflow:           auto;
+}
+
+#result_query code.sql,
+div.sqlvalidate  {
     border:             <?php echo $GLOBALS['cfg']['MainColor']; ?> solid 1px;
     border-top:         0;
     border-bottom:      0;
-    max-height:         10em;
-    overflow:           auto;
+    background:         <?php echo $GLOBALS['cfg']['BgOne']; ?>;
+}
+
+#PMA_slidingMessage code.sql {
+    border:             <?php echo $GLOBALS['cfg']['MainColor']; ?> solid 1px;
+    border-top:         0;
     background:         <?php echo $GLOBALS['cfg']['BgOne']; ?>;
 }
 

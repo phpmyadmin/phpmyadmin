@@ -123,7 +123,7 @@ $html .= PMA_Util::getMessage(PMA_Message::success());
 /**
  * Displays the page
  */
-$html .= '<table cellpadding="2" cellspacing="1">'
+$html .= '<table cellpadding="2" cellspacing="1" id="binlogTable">'
     . '<thead>'
     . '<tr>'
     . '<td colspan="6" class="center">';
@@ -212,7 +212,8 @@ while ($value = $GLOBALS['dbi']->fetchAssoc($result)) {
         . (isset($value['Orig_log_pos'])
         ? $value['Orig_log_pos'] : $value['End_log_pos'])
         . '&nbsp;</td>'
-        . '<td>&nbsp;' . htmlspecialchars($value['Info']) . '&nbsp;</td>'
+        . '<td><code class="sql"><pre>&nbsp;' . htmlspecialchars($value['Info'])
+        . '&nbsp;</pre></code></td>'
         . '</tr>';
 
     $odd_row = !$odd_row;
