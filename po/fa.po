@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-05-25 07:32-0400\n"
+"POT-Creation-Date: 2013-05-28 12:36-0400\n"
 "PO-Revision-Date: 2013-05-07 15:03+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Persian <http://l10n.cihar.com/projects/phpmyadmin/master/fa/"
@@ -23,8 +23,8 @@ msgstr "نمايش همه"
 
 #: browse_foreigners.php:77 libraries/PDF.class.php:67
 #: libraries/Util.class.php:2543
-#: libraries/schema/Pdf_Relation_Schema.class.php:1183
-#: libraries/schema/Pdf_Relation_Schema.class.php:1207
+#: libraries/schema/Pdf_Relation_Schema.class.php:1187
+#: libraries/schema/Pdf_Relation_Schema.class.php:1211
 #: libraries/schema/User_Schema.class.php:427
 #: libraries/select_lang.lib.php:516
 msgid "Page number:"
@@ -53,7 +53,7 @@ msgstr "جستجو"
 #: libraries/display_create_table.lib.php:61
 #: libraries/display_export.lib.php:453 libraries/display_import.lib.php:335
 #: libraries/display_indexes.lib.php:202 libraries/index.lib.php:37
-#: libraries/insert_edit.lib.php:1547 libraries/insert_edit.lib.php:1582
+#: libraries/insert_edit.lib.php:1549 libraries/insert_edit.lib.php:1584
 #: libraries/operations.lib.php:39 libraries/operations.lib.php:82
 #: libraries/operations.lib.php:210 libraries/operations.lib.php:254
 #: libraries/operations.lib.php:639 libraries/operations.lib.php:692
@@ -63,7 +63,7 @@ msgstr "جستجو"
 #: libraries/replication_gui.lib.php:79 libraries/replication_gui.lib.php:396
 #: libraries/rte/rte_events.lib.php:542
 #: libraries/rte/rte_routines.lib.php:1081
-#: libraries/rte/rte_routines.lib.php:1664
+#: libraries/rte/rte_routines.lib.php:1667
 #: libraries/rte/rte_triggers.lib.php:420
 #: libraries/schema/User_Schema.class.php:164
 #: libraries/schema/User_Schema.class.php:226
@@ -73,7 +73,7 @@ msgstr "جستجو"
 #: libraries/server_privileges.lib.php:1479
 #: libraries/server_privileges.lib.php:1971
 #: libraries/server_privileges.lib.php:2563
-#: libraries/server_privileges.lib.php:3085
+#: libraries/server_privileges.lib.php:3089
 #: libraries/sql_query_form.lib.php:378 libraries/sql_query_form.lib.php:435
 #: libraries/sql_query_form.lib.php:500 libraries/structure.lib.php:1582
 #: libraries/tbl_columns_definition_form.inc.php:754 pmd_pdf.php:151
@@ -118,7 +118,7 @@ msgstr "پایگاه داده %1$s ایجاد شد."
 msgid "Database comment: "
 msgstr "توضيحات پایگاه داده: "
 
-#: db_datadict.php:157 libraries/schema/Pdf_Relation_Schema.class.php:1332
+#: db_datadict.php:157 libraries/schema/Pdf_Relation_Schema.class.php:1336
 #: libraries/tbl_columns_definition_form.inc.php:836 tbl_printview.php:120
 #, fuzzy
 #| msgid "Table comments"
@@ -127,38 +127,38 @@ msgstr "توضيحات جدول"
 
 #: db_datadict.php:166 libraries/Index.class.php:565
 #: libraries/TableSearch.class.php:183 libraries/TableSearch.class.php:1190
-#: libraries/display_indexes.lib.php:117 libraries/insert_edit.lib.php:1566
-#: libraries/plugins/export/ExportHtmlword.class.php:276
-#: libraries/plugins/export/ExportHtmlword.class.php:391
-#: libraries/plugins/export/ExportLatex.class.php:508
-#: libraries/plugins/export/ExportOdt.class.php:358
-#: libraries/plugins/export/ExportOdt.class.php:456
-#: libraries/plugins/export/ExportTexytext.class.php:269
-#: libraries/plugins/export/ExportTexytext.class.php:369
-#: libraries/plugins/export/ExportTexytext.class.php:432
-#: libraries/schema/Pdf_Relation_Schema.class.php:1358
-#: libraries/schema/Pdf_Relation_Schema.class.php:1381
+#: libraries/display_indexes.lib.php:117 libraries/insert_edit.lib.php:1568
+#: libraries/plugins/export/ExportHtmlword.class.php:278
+#: libraries/plugins/export/ExportHtmlword.class.php:393
+#: libraries/plugins/export/ExportLatex.class.php:510
+#: libraries/plugins/export/ExportOdt.class.php:360
+#: libraries/plugins/export/ExportOdt.class.php:458
+#: libraries/plugins/export/ExportTexytext.class.php:271
+#: libraries/plugins/export/ExportTexytext.class.php:371
+#: libraries/plugins/export/ExportTexytext.class.php:434
+#: libraries/schema/Pdf_Relation_Schema.class.php:1362
+#: libraries/schema/Pdf_Relation_Schema.class.php:1385
 #: libraries/tbl_columns_definition_form.inc.php:353 tbl_printview.php:130
-#: tbl_relation.php:378 tbl_tracking.php:324 tbl_tracking.php:386
+#: tbl_relation.php:380 tbl_tracking.php:324 tbl_tracking.php:386
 msgid "Column"
 msgstr "ستون"
 
 #: db_datadict.php:167 db_printview.php:49 libraries/Index.class.php:562
-#: libraries/TableSearch.class.php:184 libraries/insert_edit.lib.php:241
-#: libraries/insert_edit.lib.php:245
-#: libraries/plugins/export/ExportHtmlword.class.php:279
-#: libraries/plugins/export/ExportHtmlword.class.php:394
-#: libraries/plugins/export/ExportLatex.class.php:509
-#: libraries/plugins/export/ExportOdt.class.php:361
-#: libraries/plugins/export/ExportOdt.class.php:459
-#: libraries/plugins/export/ExportTexytext.class.php:270
-#: libraries/plugins/export/ExportTexytext.class.php:370
+#: libraries/TableSearch.class.php:184 libraries/insert_edit.lib.php:243
+#: libraries/insert_edit.lib.php:247
+#: libraries/plugins/export/ExportHtmlword.class.php:281
+#: libraries/plugins/export/ExportHtmlword.class.php:396
+#: libraries/plugins/export/ExportLatex.class.php:511
+#: libraries/plugins/export/ExportOdt.class.php:363
+#: libraries/plugins/export/ExportOdt.class.php:461
+#: libraries/plugins/export/ExportTexytext.class.php:272
+#: libraries/plugins/export/ExportTexytext.class.php:372
 #: libraries/rte/rte_list.lib.php:54 libraries/rte/rte_list.lib.php:80
 #: libraries/rte/rte_routines.lib.php:939
 #: libraries/rte/rte_routines.lib.php:968
-#: libraries/rte/rte_routines.lib.php:1577
-#: libraries/schema/Pdf_Relation_Schema.class.php:1359
-#: libraries/schema/Pdf_Relation_Schema.class.php:1382
+#: libraries/rte/rte_routines.lib.php:1580
+#: libraries/schema/Pdf_Relation_Schema.class.php:1363
+#: libraries/schema/Pdf_Relation_Schema.class.php:1386
 #: libraries/server_privileges.lib.php:1573 libraries/structure.lib.php:776
 #: libraries/structure.lib.php:1180
 #: libraries/tbl_columns_definition_form.inc.php:96 tbl_printview.php:131
@@ -167,55 +167,55 @@ msgid "Type"
 msgstr "نوع"
 
 #: db_datadict.php:168 libraries/Index.class.php:568
-#: libraries/TableSearch.class.php:1191 libraries/insert_edit.lib.php:1575
-#: libraries/plugins/export/ExportHtmlword.class.php:282
-#: libraries/plugins/export/ExportHtmlword.class.php:397
-#: libraries/plugins/export/ExportLatex.class.php:510
-#: libraries/plugins/export/ExportOdt.class.php:364
-#: libraries/plugins/export/ExportOdt.class.php:462
-#: libraries/plugins/export/ExportTexytext.class.php:271
-#: libraries/plugins/export/ExportTexytext.class.php:371
-#: libraries/schema/Pdf_Relation_Schema.class.php:1361
-#: libraries/schema/Pdf_Relation_Schema.class.php:1384
+#: libraries/TableSearch.class.php:1191 libraries/insert_edit.lib.php:1577
+#: libraries/plugins/export/ExportHtmlword.class.php:284
+#: libraries/plugins/export/ExportHtmlword.class.php:399
+#: libraries/plugins/export/ExportLatex.class.php:512
+#: libraries/plugins/export/ExportOdt.class.php:366
+#: libraries/plugins/export/ExportOdt.class.php:464
+#: libraries/plugins/export/ExportTexytext.class.php:273
+#: libraries/plugins/export/ExportTexytext.class.php:373
+#: libraries/schema/Pdf_Relation_Schema.class.php:1365
+#: libraries/schema/Pdf_Relation_Schema.class.php:1388
 #: libraries/structure.lib.php:1183
 #: libraries/tbl_columns_definition_form.inc.php:116 tbl_printview.php:132
 #: tbl_tracking.php:327 tbl_tracking.php:389
 msgid "Null"
 msgstr "خالي"
 
-#: db_datadict.php:169 libraries/plugins/export/ExportHtmlword.class.php:285
-#: libraries/plugins/export/ExportHtmlword.class.php:400
-#: libraries/plugins/export/ExportLatex.class.php:511
-#: libraries/plugins/export/ExportOdt.class.php:367
-#: libraries/plugins/export/ExportOdt.class.php:465
-#: libraries/plugins/export/ExportTexytext.class.php:272
-#: libraries/plugins/export/ExportTexytext.class.php:372
-#: libraries/schema/Pdf_Relation_Schema.class.php:1362
-#: libraries/schema/Pdf_Relation_Schema.class.php:1385
+#: db_datadict.php:169 libraries/plugins/export/ExportHtmlword.class.php:287
+#: libraries/plugins/export/ExportHtmlword.class.php:402
+#: libraries/plugins/export/ExportLatex.class.php:513
+#: libraries/plugins/export/ExportOdt.class.php:369
+#: libraries/plugins/export/ExportOdt.class.php:467
+#: libraries/plugins/export/ExportTexytext.class.php:274
+#: libraries/plugins/export/ExportTexytext.class.php:374
+#: libraries/schema/Pdf_Relation_Schema.class.php:1366
+#: libraries/schema/Pdf_Relation_Schema.class.php:1389
 #: libraries/structure.lib.php:210 libraries/structure.lib.php:1184
 #: libraries/tbl_columns_definition_form.inc.php:107 tbl_printview.php:133
 #: tbl_tracking.php:328
 msgid "Default"
 msgstr "پيش‌فرض"
 
-#: db_datadict.php:171 libraries/plugins/export/ExportHtmlword.class.php:404
-#: libraries/plugins/export/ExportLatex.class.php:513
-#: libraries/plugins/export/ExportOdt.class.php:469
-#: libraries/plugins/export/ExportTexytext.class.php:374
-#: libraries/schema/Pdf_Relation_Schema.class.php:1364
-#: libraries/schema/Pdf_Relation_Schema.class.php:1387 tbl_printview.php:135
+#: db_datadict.php:171 libraries/plugins/export/ExportHtmlword.class.php:406
+#: libraries/plugins/export/ExportLatex.class.php:515
+#: libraries/plugins/export/ExportOdt.class.php:471
+#: libraries/plugins/export/ExportTexytext.class.php:376
+#: libraries/schema/Pdf_Relation_Schema.class.php:1368
+#: libraries/schema/Pdf_Relation_Schema.class.php:1391 tbl_printview.php:135
 msgid "Links to"
 msgstr "پيوند به"
 
 #: db_datadict.php:173 db_printview.php:53
 #: libraries/config/messages.inc.php:92 libraries/config/messages.inc.php:107
 #: libraries/config/messages.inc.php:129
-#: libraries/plugins/export/ExportHtmlword.class.php:409
-#: libraries/plugins/export/ExportLatex.class.php:516
-#: libraries/plugins/export/ExportOdt.class.php:474
-#: libraries/plugins/export/ExportTexytext.class.php:377
-#: libraries/schema/Pdf_Relation_Schema.class.php:1375
-#: libraries/schema/Pdf_Relation_Schema.class.php:1388
+#: libraries/plugins/export/ExportHtmlword.class.php:411
+#: libraries/plugins/export/ExportLatex.class.php:518
+#: libraries/plugins/export/ExportOdt.class.php:476
+#: libraries/plugins/export/ExportTexytext.class.php:379
+#: libraries/schema/Pdf_Relation_Schema.class.php:1379
+#: libraries/schema/Pdf_Relation_Schema.class.php:1392
 #: libraries/tbl_columns_definition_form.inc.php:136 tbl_printview.php:137
 msgid "Comments"
 msgstr "توضيحات"
@@ -224,11 +224,11 @@ msgstr "توضيحات"
 #: libraries/Index.class.php:470 libraries/Index.class.php:874
 #: libraries/config/FormDisplay.tpl.php:258 libraries/mult_submits.inc.php:370
 #: libraries/mult_submits.inc.php:371
-#: libraries/plugins/export/ExportHtmlword.class.php:631
-#: libraries/plugins/export/ExportLatex.class.php:587
-#: libraries/plugins/export/ExportOdt.class.php:724
-#: libraries/plugins/export/ExportTexytext.class.php:566
-#: libraries/schema/Pdf_Relation_Schema.class.php:1414
+#: libraries/plugins/export/ExportHtmlword.class.php:633
+#: libraries/plugins/export/ExportLatex.class.php:589
+#: libraries/plugins/export/ExportOdt.class.php:726
+#: libraries/plugins/export/ExportTexytext.class.php:568
+#: libraries/schema/Pdf_Relation_Schema.class.php:1418
 #: libraries/server_privileges.lib.php:1715
 #: libraries/server_privileges.lib.php:1850
 #: libraries/server_privileges.lib.php:1863
@@ -250,11 +250,11 @@ msgstr "خير"
 #: libraries/mult_submits.inc.php:133 libraries/mult_submits.inc.php:309
 #: libraries/mult_submits.inc.php:329 libraries/mult_submits.inc.php:364
 #: libraries/mult_submits.inc.php:365 libraries/mult_submits.inc.php:377
-#: libraries/plugins/export/ExportHtmlword.class.php:632
-#: libraries/plugins/export/ExportLatex.class.php:587
-#: libraries/plugins/export/ExportOdt.class.php:725
-#: libraries/plugins/export/ExportTexytext.class.php:566
-#: libraries/schema/Pdf_Relation_Schema.class.php:1415
+#: libraries/plugins/export/ExportHtmlword.class.php:634
+#: libraries/plugins/export/ExportLatex.class.php:589
+#: libraries/plugins/export/ExportOdt.class.php:727
+#: libraries/plugins/export/ExportTexytext.class.php:568
+#: libraries/schema/Pdf_Relation_Schema.class.php:1419
 #: libraries/server_privileges.lib.php:1715
 #: libraries/server_privileges.lib.php:1847
 #: libraries/server_privileges.lib.php:1861
@@ -311,7 +311,7 @@ msgstr ""
 
 #: db_printview.php:47 db_tracking.php:79 db_tracking.php:198
 #: libraries/Menu.class.php:190 libraries/config/messages.inc.php:510
-#: libraries/plugins/export/ExportXml.class.php:457
+#: libraries/plugins/export/ExportXml.class.php:459
 #: libraries/rte/rte_list.lib.php:65 libraries/rte/rte_triggers.lib.php:355
 #: libraries/schema/User_Schema.class.php:298
 #: libraries/server_privileges.lib.php:1999
@@ -333,27 +333,27 @@ msgstr "سطرها"
 msgid "Size"
 msgstr "اندازه"
 
-#: db_printview.php:97 libraries/plugins/export/ExportSql.class.php:1020
+#: db_printview.php:97 libraries/plugins/export/ExportSql.class.php:1021
 #: libraries/structure.lib.php:731
 msgid "in use"
 msgstr "در حال استفاده"
 
-#: db_printview.php:117 libraries/plugins/export/ExportSql.class.php:946
-#: libraries/schema/Pdf_Relation_Schema.class.php:1337
+#: db_printview.php:117 libraries/plugins/export/ExportSql.class.php:947
+#: libraries/schema/Pdf_Relation_Schema.class.php:1341
 #, fuzzy
 #| msgid "Creation"
 msgid "Creation:"
 msgstr "ایجاد"
 
-#: db_printview.php:126 libraries/plugins/export/ExportSql.class.php:959
-#: libraries/schema/Pdf_Relation_Schema.class.php:1342
+#: db_printview.php:126 libraries/plugins/export/ExportSql.class.php:960
+#: libraries/schema/Pdf_Relation_Schema.class.php:1346
 #, fuzzy
 #| msgid "Last update"
 msgid "Last update:"
 msgstr "آخرین به روز رسانی"
 
-#: db_printview.php:135 libraries/plugins/export/ExportSql.class.php:972
-#: libraries/schema/Pdf_Relation_Schema.class.php:1347
+#: db_printview.php:135 libraries/plugins/export/ExportSql.class.php:973
+#: libraries/schema/Pdf_Relation_Schema.class.php:1351
 #, fuzzy
 #| msgid "Last check"
 msgid "Last check:"
@@ -377,7 +377,7 @@ msgstr "به %svisual builder%s بروید"
 
 #: db_search.php:30 libraries/plugins/auth/AuthenticationConfig.class.php:81
 #: libraries/plugins/auth/AuthenticationConfig.class.php:96
-#: libraries/plugins/auth/AuthenticationCookie.class.php:587
+#: libraries/plugins/auth/AuthenticationCookie.class.php:579
 #: libraries/plugins/auth/AuthenticationHttp.class.php:65
 #: libraries/plugins/auth/AuthenticationSignon.class.php:253
 msgid "Access denied"
@@ -439,7 +439,7 @@ msgid "Delete tracking data for this table"
 msgstr "اطلاعات پیگیری شده برای این جدول را پاک کنید"
 
 #: db_tracking.php:103 libraries/Index.class.php:625
-#: libraries/Util.class.php:3443 libraries/Util.class.php:3444
+#: libraries/Util.class.php:3445 libraries/Util.class.php:3446
 #: libraries/structure.lib.php:307 libraries/structure.lib.php:1378
 #: libraries/structure.lib.php:2042 libraries/structure.lib.php:2044
 #: server_databases.php:332
@@ -674,7 +674,7 @@ msgstr "نمی توان کاراکترها را بدون داشتن کتابخا
 msgid "Could not load import plugins, please check your installation!"
 msgstr "خطا در بارگزار پلاگین ها, لطفا مراحل نصب را چک کنید"
 
-#: import.php:519 sql.php:294 sql.php:1108
+#: import.php:519 sql.php:294 sql.php:1110
 #, php-format
 msgid "Bookmark %s created"
 msgstr "بوک مارک  %s ایجاد شده"
@@ -702,14 +702,14 @@ msgstr ""
 "دهید."
 
 #: import.php:590 libraries/DisplayResults.class.php:4531
-#: libraries/Message.class.php:180 libraries/rte/rte_routines.lib.php:1424
+#: libraries/Message.class.php:180 libraries/rte/rte_routines.lib.php:1427
 #: libraries/sql_query_form.lib.php:116 tbl_operations.php:184
 #: tbl_relation.php:250 tbl_row_action.php:122 view_operations.php:56
 msgid "Your SQL query has been executed successfully"
 msgstr "پرس و جوي SQL شما با موفقيت اجرا گرديد"
 
 #: import_status.php:101 libraries/Util.class.php:768
-#: libraries/schema/Export_Relation_Schema.class.php:239 user_password.php:239
+#: libraries/schema/Export_Relation_Schema.class.php:241 user_password.php:239
 msgid "Back"
 msgstr "بازگشت"
 
@@ -1198,7 +1198,7 @@ msgstr "لطفا حداقل یک مقدار به این سری اضافه نما
 #: js/messages.php:117 libraries/DisplayResults.class.php:1288
 #: libraries/TableSearch.class.php:841 libraries/TableSearch.class.php:985
 #: libraries/display_export.lib.php:383
-#: libraries/plugins/export/ExportSql.class.php:1545
+#: libraries/plugins/export/ExportSql.class.php:1546
 #: libraries/server_privileges.lib.php:2132
 #: libraries/tbl_columns_definition_form.inc.php:687 pmd_general.php:559
 #: server_status.php:523 server_status_monitor.php:576
@@ -1381,9 +1381,9 @@ msgid "Explain output"
 msgstr "شرح دادن خروجی"
 
 #: js/messages.php:164 js/messages.php:515
-#: libraries/plugins/export/ExportHtmlword.class.php:484
-#: libraries/plugins/export/ExportOdt.class.php:562
-#: libraries/plugins/export/ExportTexytext.class.php:435
+#: libraries/plugins/export/ExportHtmlword.class.php:486
+#: libraries/plugins/export/ExportOdt.class.php:564
+#: libraries/plugins/export/ExportTexytext.class.php:437
 #: libraries/rte/rte_list.lib.php:68 libraries/sql.lib.php:505
 #: server_status.php:387
 msgid "Time"
@@ -1694,8 +1694,8 @@ msgstr "نمایش جعبه پرس و جو"
 
 #: js/messages.php:264 libraries/DisplayResults.class.php:3314
 #: libraries/Index.class.php:591 libraries/Util.class.php:702
-#: libraries/Util.class.php:1247 libraries/Util.class.php:3447
-#: libraries/Util.class.php:3448 libraries/config/messages.inc.php:486
+#: libraries/Util.class.php:1247 libraries/Util.class.php:3449
+#: libraries/Util.class.php:3450 libraries/config/messages.inc.php:486
 #: libraries/schema/User_Schema.class.php:216 server_variables.php:130
 #: setup/frames/index.inc.php:147
 msgid "Edit"
@@ -1722,11 +1722,11 @@ msgid "%d is not valid row number."
 msgstr "%d شماره ردیف معتبر نمی باشد."
 
 #: js/messages.php:271 libraries/config/FormDisplay.tpl.php:392
-#: libraries/display_indexes.lib.php:195 libraries/insert_edit.lib.php:1460
+#: libraries/display_indexes.lib.php:195 libraries/insert_edit.lib.php:1462
 #: libraries/schema/User_Schema.class.php:383
 #: libraries/tbl_columns_definition_form.inc.php:898 server_variables.php:132
 #: setup/frames/config.inc.php:39 setup/frames/index.inc.php:246
-#: tbl_relation.php:563
+#: tbl_relation.php:565
 msgid "Save"
 msgstr "ذخيره"
 
@@ -2413,6 +2413,24 @@ msgstr "پرس و جوي SQL از پايگاه داده <b>%s</b>:"
 msgid "Submit Query"
 msgstr "ثبت کوئری"
 
+#: libraries/DatabaseInterface.class.php:2021
+msgid ""
+"The server is not responding (or the local server's socket is not correctly "
+"configured)."
+msgstr ""
+
+#: libraries/DatabaseInterface.class.php:2026
+msgid "The server is not responding."
+msgstr ""
+
+#: libraries/DatabaseInterface.class.php:2031
+msgid "Please check privileges of directory containing database."
+msgstr ""
+
+#: libraries/DatabaseInterface.class.php:2041
+msgid "Details…"
+msgstr ""
+
 #: libraries/DbSearch.class.php:98 libraries/DbSearch.class.php:398
 msgid "at least one of the words"
 msgstr "حداقل يكي از كلمات"
@@ -2449,8 +2467,8 @@ msgstr[0] "%1$s همتا در <strong>%2$s</strong>"
 msgstr[1] "%1$s همتا در <strong>%2$s</strong>"
 
 #: libraries/DbSearch.class.php:346 libraries/Menu.class.php:250
-#: libraries/Util.class.php:3223 libraries/Util.class.php:3436
-#: libraries/Util.class.php:3437 libraries/structure.lib.php:1368
+#: libraries/Util.class.php:3225 libraries/Util.class.php:3438
+#: libraries/Util.class.php:3439 libraries/structure.lib.php:1368
 msgid "Browse"
 msgstr "فهرست"
 
@@ -2678,7 +2696,7 @@ msgstr ""
 msgid "total"
 msgstr "جمع كل"
 
-#: libraries/DisplayResults.class.php:4950 sql.php:853
+#: libraries/DisplayResults.class.php:4950 sql.php:855
 #, php-format
 msgid "Query took %01.4f sec"
 msgstr ""
@@ -2708,7 +2726,7 @@ msgstr "انتخاب همه"
 #: libraries/DisplayResults.class.php:5064
 #: libraries/DisplayResults.class.php:5334 libraries/Menu.class.php:279
 #: libraries/Menu.class.php:362 libraries/Menu.class.php:474
-#: libraries/Util.class.php:3449 libraries/Util.class.php:3450
+#: libraries/Util.class.php:3451 libraries/Util.class.php:3452
 #: libraries/config/messages.inc.php:162 libraries/display_export.lib.php:98
 #: libraries/server_privileges.lib.php:1791
 #: libraries/server_privileges.lib.php:2428 libraries/structure.lib.php:297
@@ -2746,7 +2764,7 @@ msgstr "نمايش توضيحات ستون"
 msgid "Visualize GIS data"
 msgstr ""
 
-#: libraries/DisplayResults.class.php:5582
+#: libraries/DisplayResults.class.php:5586
 msgid "Link not found"
 msgstr "پيوند پيدا نشد"
 
@@ -2805,16 +2823,11 @@ msgstr ""
 msgid "Open new phpMyAdmin window"
 msgstr ""
 
-#: libraries/Header.class.php:392
+#: libraries/Header.class.php:393
 msgid "Click on the bar to scroll to top of page"
 msgstr ""
 
-#: libraries/Header.class.php:623
-#: libraries/plugins/auth/AuthenticationCookie.class.php:269
-msgid "Cookies must be enabled past this point."
-msgstr "از اینجا نیاز به فعال سازی کوکی ها دارید."
-
-#: libraries/Header.class.php:628
+#: libraries/Header.class.php:621
 #: libraries/plugins/auth/AuthenticationCookie.class.php:172
 msgid "Javascript must be enabled past this point"
 msgstr ""
@@ -2888,8 +2901,8 @@ msgid "View"
 msgstr "نمایه"
 
 #: libraries/Menu.class.php:256 libraries/Menu.class.php:340
-#: libraries/Util.class.php:3219 libraries/Util.class.php:3226
-#: libraries/Util.class.php:3442 libraries/config/setup.forms.php:296
+#: libraries/Util.class.php:3221 libraries/Util.class.php:3228
+#: libraries/Util.class.php:3444 libraries/config/setup.forms.php:296
 #: libraries/config/setup.forms.php:333 libraries/config/setup.forms.php:359
 #: libraries/config/user_preferences.forms.php:195
 #: libraries/config/user_preferences.forms.php:232
@@ -2901,26 +2914,26 @@ msgid "Structure"
 msgstr "ساختار"
 
 #: libraries/Menu.class.php:260 libraries/Menu.class.php:345
-#: libraries/Menu.class.php:450 libraries/Util.class.php:3220
-#: libraries/Util.class.php:3227 libraries/config/messages.inc.php:212
+#: libraries/Menu.class.php:450 libraries/Util.class.php:3222
+#: libraries/Util.class.php:3229 libraries/config/messages.inc.php:212
 #: querywindow.php:59
 msgid "SQL"
 msgstr "SQL"
 
 #: libraries/Menu.class.php:263 libraries/Menu.class.php:348
-#: libraries/Util.class.php:3221 libraries/Util.class.php:3228
-#: libraries/Util.class.php:3438 libraries/Util.class.php:3439
+#: libraries/Util.class.php:3223 libraries/Util.class.php:3230
+#: libraries/Util.class.php:3440 libraries/Util.class.php:3441
 msgid "Search"
 msgstr "جستجو"
 
-#: libraries/Menu.class.php:273 libraries/Util.class.php:3222
-#: libraries/Util.class.php:3440 libraries/Util.class.php:3441
+#: libraries/Menu.class.php:273 libraries/Util.class.php:3224
+#: libraries/Util.class.php:3442 libraries/Util.class.php:3443
 #: libraries/sql_query_form.lib.php:301 libraries/sql_query_form.lib.php:304
 msgid "Insert"
 msgstr "درج"
 
 #: libraries/Menu.class.php:292 libraries/Menu.class.php:315
-#: libraries/Menu.class.php:375 libraries/Util.class.php:3229
+#: libraries/Menu.class.php:375 libraries/Util.class.php:3231
 #: view_operations.php:86
 msgid "Operations"
 msgstr "عمليات"
@@ -2932,10 +2945,10 @@ msgstr ""
 
 #: libraries/Menu.class.php:305 libraries/Menu.class.php:403
 #: libraries/navigation/Nodes/Node_Trigger_Container.class.php:26
-#: libraries/plugins/export/ExportHtmlword.class.php:563
-#: libraries/plugins/export/ExportOdt.class.php:655
-#: libraries/plugins/export/ExportSql.class.php:1468
-#: libraries/plugins/export/ExportTexytext.class.php:506
+#: libraries/plugins/export/ExportHtmlword.class.php:565
+#: libraries/plugins/export/ExportOdt.class.php:657
+#: libraries/plugins/export/ExportSql.class.php:1469
+#: libraries/plugins/export/ExportTexytext.class.php:508
 #: libraries/plugins/export/ExportXml.class.php:121
 #: libraries/rte/rte_words.lib.php:46
 msgid "Triggers"
@@ -3014,7 +3027,7 @@ msgstr "موتور"
 
 #: libraries/Message.class.php:199 libraries/Util.class.php:664
 #: libraries/core.lib.php:232 libraries/import.lib.php:171
-#: libraries/insert_edit.lib.php:1180 tbl_chart.php:24 tbl_operations.php:186
+#: libraries/insert_edit.lib.php:1182 tbl_chart.php:24 tbl_operations.php:186
 #: view_operations.php:57
 msgid "Error"
 msgstr "خطا"
@@ -3240,8 +3253,8 @@ msgstr ""
 "مقدار UI \"%s\" را نمی توان ذخیره کرد.تغییرات انجام شد اما با رفرش صفحه از "
 "بین می روند.لطفا ساختار جدول خود را برای تغییرات چک کنید."
 
-#: libraries/TableSearch.class.php:179 libraries/insert_edit.lib.php:209
-#: libraries/insert_edit.lib.php:215 libraries/rte/rte_routines.lib.php:1579
+#: libraries/TableSearch.class.php:179 libraries/insert_edit.lib.php:211
+#: libraries/insert_edit.lib.php:217 libraries/rte/rte_routines.lib.php:1582
 msgid "Function"
 msgstr "تابع"
 
@@ -3253,8 +3266,8 @@ msgid "Operator"
 msgstr "عمليات"
 
 #: libraries/TableSearch.class.php:187 libraries/TableSearch.class.php:1192
-#: libraries/insert_edit.lib.php:1576 libraries/replication_gui.lib.php:124
-#: libraries/rte/rte_routines.lib.php:1581 pmd_general.php:525
+#: libraries/insert_edit.lib.php:1578 libraries/replication_gui.lib.php:124
+#: libraries/rte/rte_routines.lib.php:1584 pmd_general.php:525
 #: pmd_general.php:584 pmd_general.php:707 pmd_general.php:824
 #: server_status_variables.php:233
 msgid "Value"
@@ -3266,7 +3279,7 @@ msgstr "مقدار"
 msgid "Table Search"
 msgstr "جستجو"
 
-#: libraries/TableSearch.class.php:232 libraries/insert_edit.lib.php:1350
+#: libraries/TableSearch.class.php:232 libraries/insert_edit.lib.php:1352
 #, fuzzy
 #| msgid "Insert"
 msgid "Edit/Insert"
@@ -3279,7 +3292,7 @@ msgid "Select columns (at least one):"
 msgstr "ستونها را انتخاب نماييد (حداقل يكي)"
 
 #: libraries/TableSearch.class.php:780 libraries/display_indexes.lib.php:197
-#: libraries/insert_edit.lib.php:1184 libraries/server_privileges.lib.php:323
+#: libraries/insert_edit.lib.php:1186 libraries/server_privileges.lib.php:323
 msgid "Or"
 msgstr "يا"
 
@@ -3670,7 +3683,7 @@ msgstr "پرس و جوي SQL"
 #: libraries/rte/rte_routines.lib.php:309
 #: libraries/rte/rte_routines.lib.php:328
 #: libraries/rte/rte_routines.lib.php:350
-#: libraries/rte/rte_routines.lib.php:1456
+#: libraries/rte/rte_routines.lib.php:1459
 #: libraries/rte/rte_triggers.lib.php:86 libraries/rte/rte_triggers.lib.php:95
 #: libraries/rte/rte_triggers.lib.php:112
 #: libraries/rte/rte_triggers.lib.php:133
@@ -3760,49 +3773,49 @@ msgstr ""
 msgid "Click to toggle"
 msgstr "برای انتخاب کلیک کنبد"
 
-#: libraries/Util.class.php:3355 libraries/sql_query_form.lib.php:470
+#: libraries/Util.class.php:3357 libraries/sql_query_form.lib.php:470
 #: prefs_manage.php:248
 msgid "Browse your computer:"
 msgstr "رایانه خود را مشاهده نمایید:"
 
-#: libraries/Util.class.php:3380
+#: libraries/Util.class.php:3382
 #, php-format
 msgid "Select from the web server upload directory <b>%s</b>:"
 msgstr "انتخاب از مسیر آپلود در سرور <b>%s</b>:"
 
-#: libraries/Util.class.php:3409 libraries/insert_edit.lib.php:1181
+#: libraries/Util.class.php:3411 libraries/insert_edit.lib.php:1183
 #: libraries/sql_query_form.lib.php:479
 msgid "The directory you set for upload work cannot be reached"
 msgstr "پوشه‌اي را كه براي انتقال فايل انتخاب كرده‌ايد قابل دسترسي نيست"
 
-#: libraries/Util.class.php:3420
+#: libraries/Util.class.php:3422
 msgid "There are no files to upload"
 msgstr "فایلی برای آپلود موجود نیست"
 
-#: libraries/Util.class.php:3445 libraries/Util.class.php:3446
+#: libraries/Util.class.php:3447 libraries/Util.class.php:3448
 #: libraries/structure.lib.php:305
 msgid "Empty"
 msgstr "خالي"
 
-#: libraries/Util.class.php:3451 libraries/Util.class.php:3452
+#: libraries/Util.class.php:3453 libraries/Util.class.php:3454
 msgid "Execute"
 msgstr "اجرا"
 
-#: libraries/Util.class.php:3983
+#: libraries/Util.class.php:3985
 msgid "Print"
 msgstr "چاپ"
 
-#: libraries/Util.class.php:4084 libraries/structure.lib.php:798
+#: libraries/Util.class.php:4086 libraries/structure.lib.php:798
 #: libraries/structure.lib.php:1747 tbl_printview.php:410
 msgid "Creation"
 msgstr "ایجاد"
 
-#: libraries/Util.class.php:4090 libraries/structure.lib.php:805
+#: libraries/Util.class.php:4092 libraries/structure.lib.php:805
 #: libraries/structure.lib.php:1754 tbl_printview.php:421
 msgid "Last update"
 msgstr "آخرین به روز رسانی"
 
-#: libraries/Util.class.php:4096 libraries/structure.lib.php:812
+#: libraries/Util.class.php:4098 libraries/structure.lib.php:812
 #: libraries/structure.lib.php:1762 tbl_printview.php:432
 msgid "Last check"
 msgstr "آخرین بازدید"
@@ -4114,7 +4127,7 @@ msgstr ""
 msgid "Allow users to customize this value"
 msgstr ""
 
-#: libraries/config/FormDisplay.tpl.php:394 libraries/insert_edit.lib.php:1549
+#: libraries/config/FormDisplay.tpl.php:394 libraries/insert_edit.lib.php:1551
 #: libraries/schema/User_Schema.class.php:555 prefs_manage.php:326
 #: prefs_manage.php:331
 msgid "Reset"
@@ -4466,13 +4479,13 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:96 libraries/config/messages.inc.php:108
 #: libraries/config/messages.inc.php:132
-#: libraries/plugins/export/ExportOdt.class.php:480
+#: libraries/plugins/export/ExportOdt.class.php:482
 #: libraries/tbl_columns_definition_form.inc.php:169
 msgid "MIME type"
 msgstr ""
 
 #: libraries/config/messages.inc.php:98 libraries/config/messages.inc.php:110
-#: libraries/config/messages.inc.php:134 tbl_relation.php:376
+#: libraries/config/messages.inc.php:134 tbl_relation.php:378
 msgid "Relations"
 msgstr "رابطه ها"
 
@@ -6250,22 +6263,9 @@ msgstr ""
 msgid "possible deep recursion attack"
 msgstr ""
 
-#: libraries/database_interface.lib.php:2056
-msgid ""
-"The server is not responding (or the local server's socket is not correctly "
-"configured)."
-msgstr ""
-
-#: libraries/database_interface.lib.php:2061
-msgid "The server is not responding."
-msgstr ""
-
-#: libraries/database_interface.lib.php:2066
-msgid "Please check privileges of directory containing database."
-msgstr ""
-
-#: libraries/database_interface.lib.php:2076
-msgid "Details…"
+#: libraries/dbi/DBIDrizzle.class.php:146 libraries/dbi/DBIMysql.class.php:170
+#: libraries/dbi/DBIMysqli.class.php:217
+msgid "Connection for controluser as defined in your configuration failed."
 msgstr ""
 
 #: libraries/dbi/drizzle-wrappers.lib.php:387
@@ -6274,11 +6274,6 @@ msgstr ""
 
 #: libraries/dbi/drizzle-wrappers.lib.php:408
 msgid "Can't count rows in an unbuffered result set"
-msgstr ""
-
-#: libraries/dbi/drizzle.dbi.lib.php:136 libraries/dbi/mysql.dbi.lib.php:159
-#: libraries/dbi/mysqli.dbi.lib.php:206
-msgid "Connection for controluser as defined in your configuration failed."
 msgstr ""
 
 #: libraries/display_change_password.lib.php:53
@@ -6327,7 +6322,7 @@ msgid "Create database:"
 msgstr "ساخت پايگاه داده جديد"
 
 #: libraries/display_create_database.lib.php:47
-#: libraries/server_privileges.lib.php:2939 server_privileges.php:149
+#: libraries/server_privileges.lib.php:2943 server_privileges.php:149
 #: server_replication.php:34
 msgid "No Privileges"
 msgstr "امتيازات"
@@ -6337,12 +6332,12 @@ msgid "Create table"
 msgstr "ساختن جدول"
 
 #: libraries/display_create_table.lib.php:51
-#: libraries/plugins/export/ExportHtmlword.class.php:483
-#: libraries/plugins/export/ExportOdt.class.php:559
-#: libraries/plugins/export/ExportTexytext.class.php:434
+#: libraries/plugins/export/ExportHtmlword.class.php:485
+#: libraries/plugins/export/ExportOdt.class.php:561
+#: libraries/plugins/export/ExportTexytext.class.php:436
 #: libraries/rte/rte_list.lib.php:52 libraries/rte/rte_list.lib.php:63
 #: libraries/rte/rte_list.lib.php:77 libraries/rte/rte_routines.lib.php:967
-#: libraries/rte/rte_routines.lib.php:1576 libraries/structure.lib.php:1179
+#: libraries/rte/rte_routines.lib.php:1579 libraries/structure.lib.php:1179
 #: libraries/tbl_columns_definition_form.inc.php:95
 #: setup/frames/index.inc.php:135
 msgid "Name"
@@ -6972,8 +6967,8 @@ msgstr ""
 msgid "No data found for GIS visualization."
 msgstr ""
 
-#: libraries/import.lib.php:187 libraries/insert_edit.lib.php:120
-#: libraries/rte/rte_routines.lib.php:1443 sql.php:848 tbl_get_field.php:55
+#: libraries/import.lib.php:187 libraries/insert_edit.lib.php:122
+#: libraries/rte/rte_routines.lib.php:1446 sql.php:850 tbl_get_field.php:55
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL يك نتيجه خالي داد. (مثلا 0 سطر)."
 
@@ -7027,77 +7022,77 @@ msgstr ""
 msgid "Create an index on &nbsp;%s&nbsp;columns"
 msgstr "ساخت يك فهرست در&nbsp;%s&nbsp;ستون"
 
-#: libraries/insert_edit.lib.php:214 libraries/insert_edit.lib.php:245
+#: libraries/insert_edit.lib.php:216 libraries/insert_edit.lib.php:247
 #: pmd_general.php:197
 msgid "Hide"
 msgstr "پنهان کردن"
 
-#: libraries/insert_edit.lib.php:458 libraries/mysql_charsets.lib.php:239
+#: libraries/insert_edit.lib.php:460 libraries/mysql_charsets.lib.php:239
 #: libraries/mysql_charsets.lib.php:440
 msgid "Binary"
 msgstr "دودويي"
 
-#: libraries/insert_edit.lib.php:653
+#: libraries/insert_edit.lib.php:655
 msgid "Because of its length,<br /> this column might not be editable"
 msgstr ""
 
-#: libraries/insert_edit.lib.php:1087
+#: libraries/insert_edit.lib.php:1089
 msgid "Binary - do not edit"
 msgstr ""
 
-#: libraries/insert_edit.lib.php:1185 libraries/sql_query_form.lib.php:482
+#: libraries/insert_edit.lib.php:1187 libraries/sql_query_form.lib.php:482
 #, fuzzy
 #| msgid "Select from the web server upload directory <b>%s</b>:"
 msgid "web server upload directory:"
 msgstr "انتخاب از مسیر آپلود در سرور <b>%s</b>:"
 
-#: libraries/insert_edit.lib.php:1400
+#: libraries/insert_edit.lib.php:1402
 #, php-format
 msgid "Continue insertion with %s rows"
 msgstr ""
 
-#: libraries/insert_edit.lib.php:1430
+#: libraries/insert_edit.lib.php:1432
 msgid "and then"
 msgstr "و سپس"
 
-#: libraries/insert_edit.lib.php:1463
+#: libraries/insert_edit.lib.php:1465
 msgid "Insert as new row"
 msgstr "درج به عنوان يك سطر جديد"
 
-#: libraries/insert_edit.lib.php:1466
+#: libraries/insert_edit.lib.php:1468
 msgid "Insert as new row and ignore errors"
 msgstr ""
 
-#: libraries/insert_edit.lib.php:1469
+#: libraries/insert_edit.lib.php:1471
 msgid "Show insert query"
 msgstr ""
 
-#: libraries/insert_edit.lib.php:1489
+#: libraries/insert_edit.lib.php:1491
 msgid "Go back to previous page"
 msgstr "برو به صفحه قبل"
 
-#: libraries/insert_edit.lib.php:1492
+#: libraries/insert_edit.lib.php:1494
 msgid "Insert another new row"
 msgstr "درج يك سطر جديد ديگر"
 
-#: libraries/insert_edit.lib.php:1497
+#: libraries/insert_edit.lib.php:1499
 msgid "Go back to this page"
 msgstr "برگرد به این صفحه"
 
-#: libraries/insert_edit.lib.php:1519
+#: libraries/insert_edit.lib.php:1521
 msgid "Edit next row"
 msgstr "ویرایش کردن ردیف بعدی"
 
-#: libraries/insert_edit.lib.php:1541
+#: libraries/insert_edit.lib.php:1543
 msgid ""
 "Use TAB key to move from value to value, or CTRL+arrows to move anywhere"
 msgstr ""
 
-#: libraries/insert_edit.lib.php:1912 sql.php:843
+#: libraries/insert_edit.lib.php:1914 sql.php:845
 msgid "Showing SQL query"
 msgstr ""
 
-#: libraries/insert_edit.lib.php:1937 sql.php:823
+#: libraries/insert_edit.lib.php:1939 sql.php:825
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr ""
@@ -7741,21 +7736,21 @@ msgstr "نام كاربر:"
 msgid "Server Choice:"
 msgstr "انتخاب سرور"
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:583
+#: libraries/plugins/auth/AuthenticationCookie.class.php:575
 #: libraries/plugins/auth/AuthenticationSignon.class.php:249
 msgid ""
 "Login without a password is forbidden by configuration (see AllowNoPassword)"
 msgstr ""
 "ورود بدون رمز عبور ممنوع می باشد(به قسمت AllowNoPassword مراجعه نمایید )"
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:590
+#: libraries/plugins/auth/AuthenticationCookie.class.php:582
 #: libraries/plugins/auth/AuthenticationSignon.class.php:256
 #, php-format
 msgid "No activity within %s seconds; please log in again"
 msgstr "در %s گذشته هیچ فعالیتی نداشته اید؛ لطفا دوباره وارد شوید"
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:595
-#: libraries/plugins/auth/AuthenticationCookie.class.php:597
+#: libraries/plugins/auth/AuthenticationCookie.class.php:587
+#: libraries/plugins/auth/AuthenticationCookie.class.php:589
 #: libraries/plugins/auth/AuthenticationSignon.class.php:265
 msgid "Cannot log in to the MySQL server"
 msgstr "ورود به MySQL server ناموفق بود"
@@ -7843,22 +7838,22 @@ msgid "Data dump options"
 msgstr "آمار پايگاههاي داده"
 
 #: libraries/plugins/export/ExportHtmlword.class.php:203
-#: libraries/plugins/export/ExportOdt.class.php:258
-#: libraries/plugins/export/ExportSql.class.php:1705
+#: libraries/plugins/export/ExportOdt.class.php:260
+#: libraries/plugins/export/ExportSql.class.php:1708
 #: libraries/plugins/export/ExportTexytext.class.php:185
 msgid "Dumping data for table"
 msgstr "حذف داده‌هاي جدول"
 
-#: libraries/plugins/export/ExportHtmlword.class.php:485
-#: libraries/plugins/export/ExportOdt.class.php:565
-#: libraries/plugins/export/ExportTexytext.class.php:436
+#: libraries/plugins/export/ExportHtmlword.class.php:487
+#: libraries/plugins/export/ExportOdt.class.php:567
+#: libraries/plugins/export/ExportTexytext.class.php:438
 #: libraries/rte/rte_list.lib.php:69 libraries/rte/rte_triggers.lib.php:387
 msgid "Event"
 msgstr "رویداد"
 
-#: libraries/plugins/export/ExportHtmlword.class.php:486
-#: libraries/plugins/export/ExportOdt.class.php:568
-#: libraries/plugins/export/ExportTexytext.class.php:437
+#: libraries/plugins/export/ExportHtmlword.class.php:488
+#: libraries/plugins/export/ExportOdt.class.php:570
+#: libraries/plugins/export/ExportTexytext.class.php:439
 #: libraries/rte/rte_events.lib.php:513
 #: libraries/rte/rte_routines.lib.php:1031
 #: libraries/rte/rte_triggers.lib.php:401
@@ -7867,25 +7862,25 @@ msgstr "رویداد"
 msgid "Definition"
 msgstr "توضیحات"
 
-#: libraries/plugins/export/ExportHtmlword.class.php:551
-#: libraries/plugins/export/ExportOdt.class.php:641
-#: libraries/plugins/export/ExportSql.class.php:1455
-#: libraries/plugins/export/ExportTexytext.class.php:496
+#: libraries/plugins/export/ExportHtmlword.class.php:553
+#: libraries/plugins/export/ExportOdt.class.php:643
+#: libraries/plugins/export/ExportSql.class.php:1456
+#: libraries/plugins/export/ExportTexytext.class.php:498
 msgid "Table structure for table"
 msgstr ""
 
-#: libraries/plugins/export/ExportHtmlword.class.php:570
-#: libraries/plugins/export/ExportOdt.class.php:665
-#: libraries/plugins/export/ExportSql.class.php:1483
-#: libraries/plugins/export/ExportTexytext.class.php:511
+#: libraries/plugins/export/ExportHtmlword.class.php:572
+#: libraries/plugins/export/ExportOdt.class.php:667
+#: libraries/plugins/export/ExportSql.class.php:1484
+#: libraries/plugins/export/ExportTexytext.class.php:513
 #, fuzzy
 msgid "Structure for view"
 msgstr "فقط ساختار"
 
-#: libraries/plugins/export/ExportHtmlword.class.php:579
-#: libraries/plugins/export/ExportOdt.class.php:677
-#: libraries/plugins/export/ExportSql.class.php:1500
-#: libraries/plugins/export/ExportTexytext.class.php:518
+#: libraries/plugins/export/ExportHtmlword.class.php:581
+#: libraries/plugins/export/ExportOdt.class.php:679
+#: libraries/plugins/export/ExportSql.class.php:1501
+#: libraries/plugins/export/ExportTexytext.class.php:520
 msgid "Stand-in structure for view"
 msgstr ""
 
@@ -7989,14 +7984,14 @@ msgstr "نسخه PHP"
 msgid "Database:"
 msgstr "پايگاه داده"
 
-#: libraries/plugins/export/ExportLatex.class.php:301
-#: libraries/plugins/export/ExportSql.class.php:1545
+#: libraries/plugins/export/ExportLatex.class.php:303
+#: libraries/plugins/export/ExportSql.class.php:1546
 #, fuzzy
 #| msgid "Data"
 msgid "Data:"
 msgstr "داده"
 
-#: libraries/plugins/export/ExportLatex.class.php:485
+#: libraries/plugins/export/ExportLatex.class.php:487
 #, fuzzy
 #| msgid "Structure"
 msgid "Structure:"
@@ -8070,7 +8065,7 @@ msgid "Data creation options"
 msgstr "آمار پايگاههاي داده"
 
 #: libraries/plugins/export/ExportSql.class.php:299
-#: libraries/plugins/export/ExportSql.class.php:1649
+#: libraries/plugins/export/ExportSql.class.php:1652
 msgid "Truncate table before insert"
 msgstr ""
 
@@ -8133,23 +8128,23 @@ msgid ""
 "reloaded between servers in different time zones)</i>"
 msgstr ""
 
-#: libraries/plugins/export/ExportSql.class.php:1197
+#: libraries/plugins/export/ExportSql.class.php:1198
 msgid "Constraints for dumped tables"
 msgstr ""
 
-#: libraries/plugins/export/ExportSql.class.php:1208
+#: libraries/plugins/export/ExportSql.class.php:1209
 msgid "Constraints for table"
 msgstr ""
 
-#: libraries/plugins/export/ExportSql.class.php:1349
+#: libraries/plugins/export/ExportSql.class.php:1350
 msgid "MIME TYPES FOR TABLE"
 msgstr ""
 
-#: libraries/plugins/export/ExportSql.class.php:1374
+#: libraries/plugins/export/ExportSql.class.php:1375
 msgid "RELATIONS FOR TABLE"
 msgstr ""
 
-#: libraries/plugins/export/ExportSql.class.php:1566
+#: libraries/plugins/export/ExportSql.class.php:1569
 msgid "Error reading data:"
 msgstr ""
 
@@ -8464,7 +8459,7 @@ msgstr ""
 msgid "Re-login to phpMyAdmin to load the updated configuration file."
 msgstr ""
 
-#: libraries/relation.lib.php:1418
+#: libraries/relation.lib.php:1424
 msgid "no description"
 msgstr "no Description"
 
@@ -8598,7 +8593,7 @@ msgstr "تغيير اسم رمز"
 #: libraries/rte/rte_events.lib.php:157 libraries/rte/rte_routines.lib.php:296
 #: libraries/rte/rte_routines.lib.php:305
 #: libraries/rte/rte_routines.lib.php:346
-#: libraries/rte/rte_routines.lib.php:1452
+#: libraries/rte/rte_routines.lib.php:1455
 #: libraries/rte/rte_triggers.lib.php:82 libraries/rte/rte_triggers.lib.php:91
 #: libraries/rte/rte_triggers.lib.php:129
 #, php-format
@@ -8637,8 +8632,8 @@ msgstr "افزودن يك كاربر جديد"
 
 #: libraries/rte/rte_events.lib.php:255 libraries/rte/rte_export.lib.php:43
 #: libraries/rte/rte_routines.lib.php:464
-#: libraries/rte/rte_routines.lib.php:1478
-#: libraries/rte/rte_routines.lib.php:1518
+#: libraries/rte/rte_routines.lib.php:1481
+#: libraries/rte/rte_routines.lib.php:1521
 #: libraries/rte/rte_triggers.lib.php:230
 #, fuzzy
 #| msgid "Error in Processing Request"
@@ -8860,24 +8855,24 @@ msgstr ""
 msgid "You must provide a routine definition."
 msgstr ""
 
-#: libraries/rte/rte_routines.lib.php:1367
+#: libraries/rte/rte_routines.lib.php:1370
 #, php-format
 msgid "Execution results of routine %s"
 msgstr ""
 
-#: libraries/rte/rte_routines.lib.php:1432
+#: libraries/rte/rte_routines.lib.php:1435
 #, php-format
 msgid "%d row affected by the last statement inside the procedure"
 msgid_plural "%d rows affected by the last statement inside the procedure"
 msgstr[0] ""
 
-#: libraries/rte/rte_routines.lib.php:1505
-#: libraries/rte/rte_routines.lib.php:1513
+#: libraries/rte/rte_routines.lib.php:1508
+#: libraries/rte/rte_routines.lib.php:1516
 msgid "Execute routine"
 msgstr ""
 
-#: libraries/rte/rte_routines.lib.php:1569
 #: libraries/rte/rte_routines.lib.php:1572
+#: libraries/rte/rte_routines.lib.php:1575
 msgid "Routine parameters"
 msgstr ""
 
@@ -9018,60 +9013,60 @@ msgstr "در پايگاه داده هيچ جدولي یافت نشد."
 msgid "There are no events to display."
 msgstr ""
 
-#: libraries/schema/Dia_Relation_Schema.class.php:236
-#: libraries/schema/Eps_Relation_Schema.class.php:425
-#: libraries/schema/Pdf_Relation_Schema.class.php:410
-#: libraries/schema/Svg_Relation_Schema.class.php:392
-#: libraries/schema/Visio_Relation_Schema.class.php:232
+#: libraries/schema/Dia_Relation_Schema.class.php:238
+#: libraries/schema/Eps_Relation_Schema.class.php:427
+#: libraries/schema/Pdf_Relation_Schema.class.php:412
+#: libraries/schema/Svg_Relation_Schema.class.php:394
+#: libraries/schema/Visio_Relation_Schema.class.php:234
 #, fuzzy, php-format
 #| msgid "The \"%s\" table doesn't exist!"
 msgid "The %s table doesn't exist!"
 msgstr "جدول \"%s\" وجود ندارد!"
 
-#: libraries/schema/Dia_Relation_Schema.class.php:272
-#: libraries/schema/Eps_Relation_Schema.class.php:474
-#: libraries/schema/Pdf_Relation_Schema.class.php:450
-#: libraries/schema/Svg_Relation_Schema.class.php:443
-#: libraries/schema/Visio_Relation_Schema.class.php:283
+#: libraries/schema/Dia_Relation_Schema.class.php:276
+#: libraries/schema/Eps_Relation_Schema.class.php:478
+#: libraries/schema/Pdf_Relation_Schema.class.php:454
+#: libraries/schema/Svg_Relation_Schema.class.php:447
+#: libraries/schema/Visio_Relation_Schema.class.php:287
 #, php-format
 msgid "Please configure the coordinates for table %s"
 msgstr "لطفا مختصات جدول %s را تنظيم كنيد"
 
-#: libraries/schema/Eps_Relation_Schema.class.php:828
-#: libraries/schema/Pdf_Relation_Schema.class.php:865
-#: libraries/schema/Svg_Relation_Schema.class.php:803
-#: libraries/schema/Visio_Relation_Schema.class.php:559
+#: libraries/schema/Eps_Relation_Schema.class.php:832
+#: libraries/schema/Pdf_Relation_Schema.class.php:869
+#: libraries/schema/Svg_Relation_Schema.class.php:807
+#: libraries/schema/Visio_Relation_Schema.class.php:563
 #, php-format
 msgid "Schema of the %s database - Page %s"
 msgstr ""
 
-#: libraries/schema/Export_Relation_Schema.class.php:204
+#: libraries/schema/Export_Relation_Schema.class.php:206
 msgid "This page does not contain any tables!"
 msgstr ""
 
-#: libraries/schema/Export_Relation_Schema.class.php:230
+#: libraries/schema/Export_Relation_Schema.class.php:232
 msgid "SCHEMA ERROR: "
 msgstr ""
 
-#: libraries/schema/Pdf_Relation_Schema.class.php:887
-#: libraries/schema/Pdf_Relation_Schema.class.php:1212
+#: libraries/schema/Pdf_Relation_Schema.class.php:891
+#: libraries/schema/Pdf_Relation_Schema.class.php:1216
 msgid "Relational schema"
 msgstr ""
 
-#: libraries/schema/Pdf_Relation_Schema.class.php:1175
+#: libraries/schema/Pdf_Relation_Schema.class.php:1179
 #, fuzzy
 msgid "Table of contents"
 msgstr "توضيحات جدول"
 
-#: libraries/schema/Pdf_Relation_Schema.class.php:1360
-#: libraries/schema/Pdf_Relation_Schema.class.php:1383
+#: libraries/schema/Pdf_Relation_Schema.class.php:1364
+#: libraries/schema/Pdf_Relation_Schema.class.php:1387
 #: libraries/structure.lib.php:1182
 #: libraries/tbl_columns_definition_form.inc.php:115
 msgid "Attributes"
 msgstr "ويژگيها"
 
-#: libraries/schema/Pdf_Relation_Schema.class.php:1363
-#: libraries/schema/Pdf_Relation_Schema.class.php:1386
+#: libraries/schema/Pdf_Relation_Schema.class.php:1367
+#: libraries/schema/Pdf_Relation_Schema.class.php:1390
 #: libraries/structure.lib.php:1185 tbl_tracking.php:329
 msgid "Extra"
 msgstr "اضافي"
@@ -9624,7 +9619,7 @@ msgstr "ويرايش امتيازات"
 msgid "Users overview"
 msgstr ""
 
-#: libraries/server_privileges.lib.php:2986
+#: libraries/server_privileges.lib.php:2990
 #, php-format
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
@@ -9633,11 +9628,11 @@ msgid ""
 "sreload the privileges%s before you continue."
 msgstr ""
 
-#: libraries/server_privileges.lib.php:3032
+#: libraries/server_privileges.lib.php:3036
 msgid "The selected user was not found in the privilege table."
 msgstr ""
 
-#: libraries/server_privileges.lib.php:3243
+#: libraries/server_privileges.lib.php:3247
 msgid "You have added a new user."
 msgstr "شما يك كاربر جديد اضافه كرديد."
 
@@ -9715,7 +9710,7 @@ msgstr "تقویم"
 msgid "Bookmark this SQL query:"
 msgstr ""
 
-#: libraries/sql_query_form.lib.php:326 sql.php:1196
+#: libraries/sql_query_form.lib.php:326 sql.php:1198
 msgid "Let every user access this bookmark"
 msgstr ""
 
@@ -11990,17 +11985,17 @@ msgstr ""
 msgid "Bookmark not created"
 msgstr "بوک مارک  %s ایجاد شده"
 
-#: sql.php:840
+#: sql.php:842
 msgid "Showing as PHP code"
 msgstr ""
 
-#: sql.php:845
+#: sql.php:847
 #, fuzzy
 #| msgid "Validate SQL"
 msgid "Validated SQL"
 msgstr "معتبرسازي SQL"
 
-#: sql.php:1099
+#: sql.php:1101
 #, fuzzy
 #| msgid ""
 #| "This table does not contain a unique column. Features related to the grid "
@@ -12012,16 +12007,16 @@ msgstr ""
 "این جدول هیچ مقدار کلیدی ندارد. امکانات ویرایش جدولی، چک باکس ها ، ویرایش ، "
 "کپی و حذف ممکن است کار نکنند."
 
-#: sql.php:1151
+#: sql.php:1153
 #, php-format
 msgid "Problems with indexes of table `%s`"
 msgstr ""
 
-#: sql.php:1184 sql.php:1204
+#: sql.php:1186 sql.php:1206
 msgid "Bookmark this SQL query"
 msgstr ""
 
-#: sql.php:1188
+#: sql.php:1190
 #, fuzzy
 #| msgid "Data Label"
 msgid "Label:"
@@ -12229,34 +12224,34 @@ msgstr "آمار سطرها"
 msgid "Error creating foreign key on %1$s (check data types)"
 msgstr ""
 
-#: tbl_relation.php:381
+#: tbl_relation.php:383
 #, fuzzy
 msgid "Internal relation"
 msgstr "اروپای غربی"
 
-#: tbl_relation.php:385
+#: tbl_relation.php:387
 msgid ""
 "An internal relation is not necessary when a corresponding FOREIGN KEY "
 "relation exists."
 msgstr ""
 
-#: tbl_relation.php:395
+#: tbl_relation.php:397
 msgid "Foreign key constraint"
 msgstr ""
 
-#: tbl_relation.php:498
+#: tbl_relation.php:500
 #, fuzzy
 #| msgid "Column names"
 msgid "Constraint name"
 msgstr "نام ستونها"
 
-#: tbl_relation.php:529
+#: tbl_relation.php:531
 #, fuzzy
 #| msgid "No index defined!"
 msgid "No index defined! Create one below"
 msgstr "هيچ فهرستي تعريف‌نشده‌است!"
 
-#: tbl_relation.php:544
+#: tbl_relation.php:546
 #, fuzzy
 #| msgid "Choose column to display"
 msgid "Choose column to display:"
@@ -13579,6 +13574,9 @@ msgstr ""
 #, fuzzy
 msgid "concurrent_insert is set to 0"
 msgstr "مقدار concurrent_insert  صفر میباشد"
+
+#~ msgid "Cookies must be enabled past this point."
+#~ msgstr "از اینجا نیاز به فعال سازی کوکی ها دارید."
 
 #, fuzzy
 #~| msgid "Remove database"
