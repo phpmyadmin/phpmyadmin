@@ -797,12 +797,12 @@ msgstr "วิกิ"
 
 #: index.php:349
 msgid "Official Homepage"
-msgstr "โฮมเพจอย่างเป็นทางการของ phpMyAdmin"
+msgstr "โฮมเพจอย่างเป็นทางการ"
 
 #: index.php:356
 #| msgid "Attributes"
 msgid "Contribute"
-msgstr "ร่วมสร้างสรรค์"
+msgstr "สนับสนุน"
 
 #: index.php:363
 msgid "Get support"
@@ -860,7 +860,7 @@ msgstr ""
 
 #: index.php:465
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
-msgstr ""
+msgstr "ในขณะนี้ไฟล์การกำหนดค่าต้องการรหัสผ่านลับ (blowfish_secret)"
 
 #: index.php:476
 msgid ""
@@ -1167,7 +1167,7 @@ msgstr "การจราจร"
 #: js/messages.php:111 libraries/Menu.class.php:482
 #: server_status_monitor.php:677
 msgid "Settings"
-msgstr "ตั้งค่า"
+msgstr "การตั้งค่า"
 
 #: js/messages.php:112
 msgid "Remove chart"
@@ -1831,7 +1831,7 @@ msgstr ""
 
 #: js/messages.php:324
 msgid "Add an option for column "
-msgstr "เพิ่มตัวเลือกสำหรับคอลัมน์ "
+msgstr "เพิ่มตัวเลือกสำหรับคอลัมน์"
 
 #: js/messages.php:325
 #, php-format
@@ -1913,7 +1913,7 @@ msgstr "แสดงแถวข้อมูล"
 
 #: js/messages.php:355
 msgid "Generate password"
-msgstr "สร้างรหัสอัตโนมัติ"
+msgstr "สร้างรหัสผ่าน"
 
 #: js/messages.php:356 libraries/replication_gui.lib.php:389
 msgid "Generate"
@@ -1959,7 +1959,7 @@ msgstr ", รุ่นเสถียรล่าสุด:"
 
 #: js/messages.php:373
 msgid "up to date"
-msgstr "ปัจจุบัน"
+msgstr "ล่าสุด"
 
 #. l10n: Display text for calendar close link
 #: js/messages.php:392
@@ -2708,9 +2708,8 @@ msgid "Export"
 msgstr "ส่งออก"
 
 #: libraries/DisplayResults.class.php:5166 view_create.php:151
-#, fuzzy
 msgid "Create view"
-msgstr "รุ่นของเซิร์ฟเวอร์"
+msgstr "สร้างมุมมอง"
 
 #: libraries/DisplayResults.class.php:5222
 msgid "Query results operations"
@@ -2793,11 +2792,11 @@ msgstr "ไม่สามารถอ่านไฟล์อัพโหลด
 #: libraries/Footer.class.php:133 libraries/Footer.class.php:137
 #: libraries/Footer.class.php:140
 msgid "Open new phpMyAdmin window"
-msgstr ""
+msgstr "เปิดหน้าต่างนี้ในแท็บใหม่"
 
 #: libraries/Header.class.php:392
 msgid "Click on the bar to scroll to top of page"
-msgstr ""
+msgstr "คลิกที่แถบเพื่อเลื่อนไปยังบนสุดของหน้า"
 
 #: libraries/Header.class.php:623
 #: libraries/plugins/auth/AuthenticationCookie.class.php:269
@@ -2969,7 +2968,6 @@ msgid "Databases"
 msgstr "ฐานข้อมูล"
 
 #: libraries/Menu.class.php:469
-#, fuzzy
 #| msgid "User"
 msgid "Users"
 msgstr "ผู้ใช้"
@@ -2984,7 +2982,7 @@ msgstr "ข้อมูลไบนารี "
 #: libraries/structure.lib.php:182 libraries/structure.lib.php:761
 #: server_replication.php:32 server_replication.php:148
 msgid "Replication"
-msgstr "การทำข้อมูลซ้ำไปไว้อีกที่หนึ่ง"
+msgstr "การจำลองแบบ"
 
 #: libraries/Menu.class.php:502 libraries/ServerStatusData.class.php:239
 #: server_engines.php:137 server_engines.php:141
@@ -2993,7 +2991,7 @@ msgstr "ตัวแปร"
 
 #: libraries/Menu.class.php:506
 msgid "Charsets"
-msgstr "ชุดตัวอักษร"
+msgstr "ชุดอักขระ"
 
 #: libraries/Menu.class.php:511 server_plugins.php:32 server_plugins.php:65
 msgid "Plugins"
@@ -3432,9 +3430,9 @@ msgid "An alias for BIGINT UNSIGNED NOT NULL AUTO_INCREMENT UNIQUE"
 msgstr ""
 
 #: libraries/Types.class.php:320 libraries/Types.class.php:723
-#, fuzzy, php-format
+#, php-format
 msgid "A date, supported range is %1$s to %2$s"
-msgstr "รุ่นของเซิร์ฟเวอร์"
+msgstr "วันเวลา ช่วงที่ได้รับการสนับสนุน %1$s ถึง %2$s"
 
 #: libraries/Types.class.php:322 libraries/Types.class.php:725
 #, php-format
@@ -4073,10 +4071,9 @@ msgstr "ข้อมูลที่หายไปสำหรับ %s"
 
 #: libraries/config/FormDisplay.class.php:765
 #: libraries/config/FormDisplay.class.php:771
-#, fuzzy
 #| msgid "Variable"
 msgid "unavailable"
-msgstr "ตัวแปร"
+msgstr "ไม่พร้อมใช้งาน"
 
 #: libraries/config/FormDisplay.class.php:767
 #: libraries/config/FormDisplay.class.php:773
@@ -4260,7 +4257,7 @@ msgstr ""
 #: libraries/config/messages.inc.php:43 setup/frames/config.inc.php:25
 #: setup/frames/index.inc.php:176
 msgid "Configuration file"
-msgstr "ไฟล์กำหนดค่า"
+msgstr "กำหนดค่าไฟล์"
 
 #: libraries/config/messages.inc.php:44
 msgid ""
@@ -4373,9 +4370,8 @@ msgid "Save as file"
 msgstr "บันทึกเป็นไฟล์"
 
 #: libraries/config/messages.inc.php:69 libraries/config/messages.inc.php:241
-#, fuzzy
 msgid "Character set of the file"
-msgstr "ชุดอักขระของไฟล์ (character set):"
+msgstr "ชุดอักขระของไฟล์"
 
 #: libraries/config/messages.inc.php:70 libraries/config/messages.inc.php:86
 #: libraries/structure.lib.php:1682 tbl_gis_visualization.php:181
@@ -4512,10 +4508,9 @@ msgid "Relations"
 msgstr "รีเลชัน"
 
 #: libraries/config/messages.inc.php:103
-#, fuzzy
 #| msgid "Export"
 msgid "Export method"
-msgstr "ส่งออก"
+msgstr "วิธีการส่งออก"
 
 #: libraries/config/messages.inc.php:112 libraries/config/messages.inc.php:114
 msgid "Save on server"
@@ -4612,7 +4607,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:147
 msgid "Force SSL connection"
-msgstr ""
+msgstr "การเชื่อมต่อ SSL"
 
 #: libraries/config/messages.inc.php:148
 msgid ""
@@ -4684,9 +4679,8 @@ msgid "Features"
 msgstr "คุณสมบัติ"
 
 #: libraries/config/messages.inc.php:166
-#, fuzzy
 msgid "General"
-msgstr "สร้างโดย"
+msgstr "ทั่วไป"
 
 #: libraries/config/messages.inc.php:167
 msgid "Set some commonly used options"
@@ -4728,7 +4722,6 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:179 libraries/select_server.lib.php:42
 #: setup/frames/index.inc.php:117
-#, fuzzy
 msgid "Servers"
 msgstr "เซิร์ฟเวอร์"
 
@@ -4741,10 +4734,9 @@ msgid "Tables display options"
 msgstr "ตัวเลือกการแสดงตาราง"
 
 #: libraries/config/messages.inc.php:183 setup/frames/menu.inc.php:20
-#, fuzzy
 #| msgid "Hide indexes"
 msgid "Main panel"
-msgstr "ซ่อนดัชนี"
+msgstr "แผงหลัก"
 
 #: libraries/config/messages.inc.php:184
 msgid "Microsoft Office"
@@ -4773,7 +4765,7 @@ msgstr ""
 #: libraries/config/messages.inc.php:192
 #: libraries/navigation/NavigationHeader.class.php:204
 msgid "Query window"
-msgstr "หน้าต่างคำค้น"
+msgstr "หน้าต่างแบบสอบถาม"
 
 #: libraries/config/messages.inc.php:193
 msgid "Customize query window options"
@@ -4794,10 +4786,9 @@ msgid "Basic settings"
 msgstr "ตั้งค่าพื้นฐาน"
 
 #: libraries/config/messages.inc.php:197
-#, fuzzy
 #| msgid "Documentation"
 msgid "Authentication"
-msgstr "เอกสารอ้างอิง"
+msgstr "รับรองความถูกต้อง"
 
 #: libraries/config/messages.inc.php:198
 msgid "Authentication settings"
@@ -4815,7 +4806,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:201
 msgid "Enter server connection parameters"
-msgstr ""
+msgstr "ป้อนพารามิเตอร์ของการเชื่อมต่อเซิร์ฟเวอร์"
 
 #: libraries/config/messages.inc.php:202
 msgid "Configuration storage"
@@ -4847,10 +4838,9 @@ msgid "Customize import defaults"
 msgstr "นำเข้าค่าเริ่มต้นที่กำหนดเอง"
 
 #: libraries/config/messages.inc.php:209
-#, fuzzy
 #| msgid "Use text field"
 msgid "Customize navigation panel"
-msgstr "ใช้ช่องใส่ข้อความ (text field)"
+msgstr "ปรับแต่งแผงนำทาง"
 
 #: libraries/config/messages.inc.php:210
 #, fuzzy
@@ -4860,9 +4850,8 @@ msgstr "ใช้ช่องใส่ข้อความ (text field)"
 
 #: libraries/config/messages.inc.php:211 libraries/config/messages.inc.php:216
 #: setup/frames/menu.inc.php:18
-#, fuzzy
 msgid "SQL queries"
-msgstr "คำค้น SQL"
+msgstr "แบบสอบถาม SQL"
 
 #: libraries/config/messages.inc.php:213
 #, fuzzy
@@ -4879,10 +4868,9 @@ msgid "SQL queries settings"
 msgstr "คำค้น SQL"
 
 #: libraries/config/messages.inc.php:218
-#, fuzzy
 #| msgid "SQL history"
 msgid "SQL Validator"
-msgstr "SQL-history"
+msgstr "ตัวตรวจสอบ SQL"
 
 #: libraries/config/messages.inc.php:219
 msgid ""
@@ -4902,20 +4890,18 @@ msgid "Customize startup page"
 msgstr "หน้าเริ่มต้นที่กำหนดเอง"
 
 #: libraries/config/messages.inc.php:222
-#, fuzzy
 #| msgid "Database server"
 msgid "Database structure"
-msgstr "เซิร์ฟเวอร์ฐานข้อมูล"
+msgstr "โครงสร้างฐานข้อมูล"
 
 #: libraries/config/messages.inc.php:223
 msgid "Choose which details to show in the database structure (list of tables)"
 msgstr ""
 
 #: libraries/config/messages.inc.php:224
-#, fuzzy
 #| msgid "Database server"
 msgid "Table structure"
-msgstr "เซิร์ฟเวอร์ฐานข้อมูล"
+msgstr "โครงสร้างของตาราง"
 
 #: libraries/config/messages.inc.php:225
 msgid "Settings for the table structure (list of columns)"
@@ -5412,22 +5398,19 @@ msgid "Query window height (in pixels)"
 msgstr ""
 
 #: libraries/config/messages.inc.php:350
-#, fuzzy
 #| msgid "Query window"
 msgid "Query window height"
-msgstr "หน้าต่างคำค้น"
+msgstr "ความสูงของหน้าต่างแบบสอบถาม"
 
 #: libraries/config/messages.inc.php:351
-#, fuzzy
 #| msgid "Query window"
 msgid "Query window width (in pixels)"
-msgstr "หน้าต่างคำค้น"
+msgstr "ความกว้างของหน้าต่างแบบสอบถาม (พิกเซล)"
 
 #: libraries/config/messages.inc.php:352
-#, fuzzy
 #| msgid "Query window"
 msgid "Query window width"
-msgstr "หน้าต่างคำค้น"
+msgstr "ความกว้างของหน้าต่างแบบสอบถาม"
 
 #: libraries/config/messages.inc.php:353
 msgid "Select which functions will be used for character set conversion"
@@ -5501,7 +5484,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:371
 msgid "HTTP Realm"
-msgstr ""
+msgstr "รหัสประจำตัวของ HTTP"
 
 #: libraries/config/messages.inc.php:372
 msgid ""
@@ -5512,15 +5495,15 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:373
 msgid "SweKey config file"
-msgstr ""
+msgstr "กำหนดค่าไฟล์ SweKey"
 
 #: libraries/config/messages.inc.php:374
 msgid "Authentication method to use"
-msgstr ""
+msgstr "วิธีการรับรองความถูกต้องที่ใช้"
 
 #: libraries/config/messages.inc.php:375 setup/frames/index.inc.php:136
 msgid "Authentication type"
-msgstr ""
+msgstr "ประเภทของการรับรองความถูกต้อง"
 
 #: libraries/config/messages.inc.php:376
 msgid ""
@@ -5544,20 +5527,19 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:380
 msgid "Compress connection to MySQL server"
-msgstr ""
+msgstr "บีบอัดการเชื่อมต่อไปยังเซิร์ฟเวอร์ MySQL"
 
 #: libraries/config/messages.inc.php:381
 msgid "Compress connection"
-msgstr ""
+msgstr "บีบอัดการเชื่อมต่อ"
 
 #: libraries/config/messages.inc.php:382
 msgid "How to connect to server, keep [kbd]tcp[/kbd] if unsure"
-msgstr ""
+msgstr "วิธีการเชื่อมต่อไปยังเซิร์ฟเวอร์ เลือก [kbd]tcp[/kbd] หากไม่แน่ใจ"
 
 #: libraries/config/messages.inc.php:383
-#, fuzzy
 msgid "Connection type"
-msgstr "การเชื่อมต่อ"
+msgstr "ประเภทการเชื่อมต่อ"
 
 #: libraries/config/messages.inc.php:384
 msgid "Control user password"
@@ -5625,7 +5607,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:396
 msgid "PHP extension to use"
-msgstr ""
+msgstr "ส่วนขยายของ PHP ที่ใช้"
 
 #: libraries/config/messages.inc.php:397
 msgid "Hide databases matching regular expression (PCRE)"
@@ -5650,13 +5632,12 @@ msgid "Hostname where MySQL server is running"
 msgstr ""
 
 #: libraries/config/messages.inc.php:402
-#, fuzzy
 msgid "Server hostname"
-msgstr "ตัวเลือกเซิร์ฟเวอร์"
+msgstr "ชื่อโฮสต์ของเซิร์ฟเวอร์"
 
 #: libraries/config/messages.inc.php:403
 msgid "Logout URL"
-msgstr ""
+msgstr "URL ที่ออกจากระบบ"
 
 #: libraries/config/messages.inc.php:404
 msgid ""
@@ -5670,11 +5651,11 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:406
 msgid "Try to connect without password"
-msgstr ""
+msgstr "เชื่อมต่อโดยไม่ต้องใช้รหัสผ่าน"
 
 #: libraries/config/messages.inc.php:407
 msgid "Connect without password"
-msgstr ""
+msgstr "เชื่อมต่อโดยไม่ต้องใช้รหัสผ่าน"
 
 #: libraries/config/messages.inc.php:408
 msgid ""
@@ -5689,11 +5670,11 @@ msgstr "แสดงฐานข้อมูลที่ระบุไว้เ
 
 #: libraries/config/messages.inc.php:410 libraries/config/messages.inc.php:451
 msgid "Leave empty if not using config auth"
-msgstr ""
+msgstr "ปล่อยว่างไว้ ถ้าไม่ใช้การกำหนดค่าการรับรองความถูกต้อง"
 
 #: libraries/config/messages.inc.php:411
 msgid "Password for config auth"
-msgstr ""
+msgstr "รหัสผ่าน"
 
 #: libraries/config/messages.inc.php:412
 msgid ""
@@ -5722,9 +5703,8 @@ msgid "Port on which MySQL server is listening, leave empty for default"
 msgstr ""
 
 #: libraries/config/messages.inc.php:417
-#, fuzzy
 msgid "Server port"
-msgstr "ตัวเลือกเซิร์ฟเวอร์"
+msgstr "พอร์ตของเซิร์ฟเวอร์"
 
 #: libraries/config/messages.inc.php:418
 msgid ""
@@ -5762,31 +5742,32 @@ msgid ""
 "See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication types"
 "[/a] for an example"
 msgstr ""
+"ดูตัวอย่าง [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]ประเภทของการร"
+"ับรองความถูกต้อง[/a]"
 
 #: libraries/config/messages.inc.php:425
 msgid "Signon session name"
-msgstr ""
+msgstr "ชื่อเซสชั่น"
 
 #: libraries/config/messages.inc.php:426
 msgid "Signon URL"
-msgstr ""
+msgstr "URL ที่เข้าสู่ระบบ"
 
 #: libraries/config/messages.inc.php:427
 msgid "Socket on which MySQL server is listening, leave empty for default"
 msgstr ""
 
 #: libraries/config/messages.inc.php:428
-#, fuzzy
 msgid "Server socket"
-msgstr "ตัวเลือกเซิร์ฟเวอร์"
+msgstr "ซ็อกเก็ตของเซิร์ฟเวอร์"
 
 #: libraries/config/messages.inc.php:429
 msgid "Enable SSL for connection to MySQL server"
-msgstr ""
+msgstr "เปิดใช้งาน SSL สำหรับการเชื่อมต่อไปยังเซิร์ฟเวอร์ MySQL"
 
 #: libraries/config/messages.inc.php:430
 msgid "Use SSL"
-msgstr ""
+msgstr "ใช้ SSL"
 
 #: libraries/config/messages.inc.php:431
 msgid ""
@@ -5879,9 +5860,8 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:448
-#, fuzzy
 msgid "Automatically create versions"
-msgstr "รุ่นของเซิร์ฟเวอร์"
+msgstr "สร้างเวอร์ชั่นโดยอัตโนมัติ"
 
 #: libraries/config/messages.inc.php:449
 msgid ""
@@ -5895,7 +5875,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:452
 msgid "User for config auth"
-msgstr ""
+msgstr "ชื่อผู้ใช้"
 
 #: libraries/config/messages.inc.php:453
 msgid ""
@@ -6235,19 +6215,19 @@ msgstr ""
 
 #: libraries/config/setup.forms.php:41
 msgid "Config authentication"
-msgstr ""
+msgstr "กำหนดค่าการรับรองความถูกต้อง"
 
 #: libraries/config/setup.forms.php:45
 msgid "Cookie authentication"
-msgstr ""
+msgstr "การรับรองความถูกต้องของคุกกี้"
 
 #: libraries/config/setup.forms.php:48
 msgid "HTTP authentication"
-msgstr ""
+msgstr "การรับรองความถูกต้องของ HTTP"
 
 #: libraries/config/setup.forms.php:51
 msgid "Signon authentication"
-msgstr ""
+msgstr "การรับรองความถูกต้องของการเข้าสู่ระบบ"
 
 #: libraries/config/setup.forms.php:251
 #: libraries/config/user_preferences.forms.php:152
@@ -6341,7 +6321,7 @@ msgstr ""
 #: libraries/core.lib.php:290
 #, php-format
 msgid "The %s extension is missing. Please check your PHP configuration."
-msgstr ""
+msgstr "ส่วนขยาย %s ขาดหายไป กรุณาตรวจสอบการกำหนดค่าของ PHP"
 
 #: libraries/core.lib.php:449
 msgid "possible deep recursion attack"
@@ -6461,10 +6441,9 @@ msgid "Could not load export plugins, please check your installation!"
 msgstr ""
 
 #: libraries/display_export.lib.php:100
-#, fuzzy
 #| msgid "Allows locking tables for the current thread."
 msgid "Exporting databases from the current server"
-msgstr "อนุญาตให้ล็อกตารางสำหรับเธรดปัจจุบัน"
+msgstr "การส่งออกฐานข้อมูลจากเซิร์ฟเวอร์ปัจจุบัน"
 
 #: libraries/display_export.lib.php:103
 #, fuzzy, php-format
@@ -6479,18 +6458,17 @@ msgid "Exporting rows from \"%s\" table"
 msgstr "สร้างตารางในฐานข้อมูลนี้ %s"
 
 #: libraries/display_export.lib.php:122
-#, fuzzy
 #| msgid "Export"
 msgid "Export Method:"
-msgstr "ส่งออก"
+msgstr "วิธีการส่งออก:"
 
 #: libraries/display_export.lib.php:132
 msgid "Quick - display only the minimal options"
-msgstr ""
+msgstr "รวดเร็ว - แสดงเฉพาะตัวเลือกที่น้อยที่สุด"
 
 #: libraries/display_export.lib.php:144
 msgid "Custom - display all possible options"
-msgstr ""
+msgstr "กำหนดเอง - แสดงตัวเลือกที่เป็นไปได้ทั้งหมด"
 
 #: libraries/display_export.lib.php:153
 #, fuzzy
@@ -6570,7 +6548,7 @@ msgstr ""
 #: libraries/display_export.lib.php:347 libraries/display_import.lib.php:255
 #: libraries/display_import.lib.php:269 libraries/sql_query_form.lib.php:495
 msgid "Character set of the file:"
-msgstr "ชุดอักขระของไฟล์ (character set):"
+msgstr "ชุดอักขระของไฟล์:"
 
 #: libraries/display_export.lib.php:381
 #, fuzzy
@@ -6604,16 +6582,14 @@ msgstr "ส่งมาเป็นไฟล์"
 
 #: libraries/display_export.lib.php:426 libraries/display_import.lib.php:312
 #: libraries/plugins/export/ExportCodegen.class.php:107
-#, fuzzy
 #| msgid "Format"
 msgid "Format:"
-msgstr "รูปแบบ"
+msgstr "รูปแบบ:"
 
 #: libraries/display_export.lib.php:431
-#, fuzzy
 #| msgid "Transformation options"
 msgid "Format-specific options:"
-msgstr "ตัวเลือกการแปลง"
+msgstr "ตัวเลือกรูปแบบเฉพาะ:"
 
 #: libraries/display_export.lib.php:433
 msgid ""
@@ -6639,14 +6615,14 @@ msgid "Git revision:"
 msgstr ""
 
 #: libraries/display_git_revision.lib.php:67
-#, fuzzy, php-format
+#, php-format
 msgid "committed on %1$s by %2$s"
-msgstr "รุ่นของเซิร์ฟเวอร์"
+msgstr "มีข้อผูกพันบน %1$s โดย %2$s"
 
 #: libraries/display_git_revision.lib.php:75
-#, fuzzy, php-format
+#, php-format
 msgid "authored on %1$s by %2$s"
-msgstr "รุ่นของเซิร์ฟเวอร์"
+msgstr "สร้างบน %1$s โดย %2$s"
 
 #: libraries/display_import.lib.php:69
 msgid ""
@@ -6688,10 +6664,9 @@ msgid ""
 msgstr ""
 
 #: libraries/display_import.lib.php:190
-#, fuzzy
 #| msgid "Cannot log in to the MySQL server"
 msgid "Importing into the current server"
-msgstr "ไม่สามารถล็อกอินเข้าเซิร์ฟเวอร์ MySQL ได้"
+msgstr "การนำเข้าฐานข้อมูลสู่เซิร์ฟเวอร์ปัจจุบัน"
 
 #: libraries/display_import.lib.php:192
 #, fuzzy, php-format
@@ -6705,7 +6680,7 @@ msgstr "ไม่มีฐานข้อมูล"
 
 #: libraries/display_import.lib.php:200
 msgid "File to Import:"
-msgstr ""
+msgstr "ไฟล์ที่ต้องการนำเข้า:"
 
 #: libraries/display_import.lib.php:217
 #, php-format
@@ -6723,10 +6698,9 @@ msgid "File uploads are not allowed on this server."
 msgstr ""
 
 #: libraries/display_import.lib.php:276
-#, fuzzy
 #| msgid "Partial Texts"
 msgid "Partial Import:"
-msgstr "ข้อความบางส่วน"
+msgstr "นำเข้าบางส่วน:"
 
 #: libraries/display_import.lib.php:282
 #, php-format
@@ -6747,7 +6721,7 @@ msgstr ""
 
 #: libraries/display_import.lib.php:318
 msgid "Format-Specific Options:"
-msgstr ""
+msgstr "ตัวเลือกรูปแบบเฉพาะ:"
 
 #: libraries/display_indexes.lib.php:50 libraries/structure.lib.php:2004
 #: libraries/structure.lib.php:2007
@@ -6788,7 +6762,7 @@ msgstr "ภาษา"
 
 #: libraries/engines/bdb.lib.php:25
 msgid "Version information"
-msgstr "ข้อมูลเวอร์ชัน"
+msgstr "ข้อมูลเวอร์ชั่น"
 
 #: libraries/engines/innodb.lib.php:28
 msgid "Data home directory"
@@ -7228,7 +7202,6 @@ msgstr ""
 
 #. l10n: This is currently used only in Japanese locales
 #: libraries/kanji-encoding.lib.php:147
-#, fuzzy
 #| msgid "None"
 msgctxt "None encoding conversion"
 msgid "None"
@@ -7482,7 +7455,7 @@ msgstr ""
 
 #: libraries/navigation/NavigationHeader.class.php:178
 msgid "Home"
-msgstr "หน้าบ้าน"
+msgstr "หน้าหลัก"
 
 #: libraries/navigation/NavigationHeader.class.php:191
 msgid "Log out"
@@ -7490,11 +7463,11 @@ msgstr "ออกจากระบบ"
 
 #: libraries/navigation/NavigationHeader.class.php:214
 msgid "phpMyAdmin documentation"
-msgstr "เอกสารการใช้ phpMyAdmin"
+msgstr "เอกสารประกอบของ phpMyAdmin"
 
 #: libraries/navigation/NavigationHeader.class.php:238
 msgid "Reload navigation frame"
-msgstr ""
+msgstr "โหลดกรอบนำทางใหม่"
 
 #: libraries/navigation/NavigationTree.class.php:708
 #, php-format
@@ -7676,7 +7649,7 @@ msgstr "หมายเหตุของตาราง"
 
 #: libraries/operations.lib.php:796 server_engines.php:75
 msgid "Storage Engine"
-msgstr ""
+msgstr "เครื่องมือที่เก็บข้อมูล"
 
 #: libraries/operations.lib.php:998
 msgid "Copy table to (database<b>.</b>table):"
@@ -8384,7 +8357,7 @@ msgstr ""
 
 #: libraries/plugins/import/ImportSql.class.php:71
 msgid "SQL compatibility mode:"
-msgstr ""
+msgstr "โหมดที่เข้ากันได้กับ SQL:"
 
 #: libraries/plugins/import/ImportSql.class.php:83
 msgid "Do not use <code>AUTO_INCREMENT</code> for zero values"
@@ -8551,7 +8524,7 @@ msgstr "คำค้นนี้ถูกจดไว้แล้ว"
 
 #: libraries/relation.lib.php:194 querywindow.php:70
 msgid "SQL history"
-msgstr "SQL-history"
+msgstr "ประวัติ SQL"
 
 #: libraries/relation.lib.php:216
 msgid "Persistent recently used tables"
@@ -9491,7 +9464,6 @@ msgstr ""
 
 #: libraries/server_privileges.lib.php:328
 #: libraries/server_privileges.lib.php:329
-#, fuzzy
 #| msgid "None"
 msgctxt "None privileges"
 msgid "None"
@@ -9846,9 +9818,9 @@ msgid "ø Time"
 msgstr "เวลา"
 
 #: libraries/sql_query_form.lib.php:188
-#, fuzzy, php-format
+#, php-format
 msgid "Run SQL query/queries on server %s"
-msgstr "ประมวลผลคำค้นบนฐานข้อมูล %s"
+msgstr "เรียกใช้แบบสอบถาม SQL/แบบสอบถามบนเซิร์ฟเวอร์ %s"
 
 #: libraries/sql_query_form.lib.php:209 libraries/sql_query_form.lib.php:233
 #, php-format
@@ -9856,9 +9828,8 @@ msgid "Run SQL query/queries on database %s"
 msgstr "ประมวลผลคำค้นบนฐานข้อมูล %s"
 
 #: libraries/sql_query_form.lib.php:275 setup/frames/index.inc.php:260
-#, fuzzy
 msgid "Clear"
-msgstr "ปฏิทิน"
+msgstr "ล้าง"
 
 #: libraries/sql_query_form.lib.php:318
 #, fuzzy
@@ -10012,7 +9983,6 @@ msgid "Sort"
 msgstr "เรียง"
 
 #: libraries/structure.lib.php:1279 tbl_tracking.php:359
-#, fuzzy
 #| msgid "None"
 msgctxt "None for default"
 msgid "None"
@@ -10261,7 +10231,6 @@ msgid "Get more editing space"
 msgstr ""
 
 #: libraries/tbl_columns_definition_form.inc.php:430
-#, fuzzy
 #| msgid "None"
 msgctxt "for default"
 msgid "None"
@@ -10609,6 +10578,8 @@ msgid ""
 "You can set more settings by modifying config.inc.php, eg. by using %sSetup "
 "script%s."
 msgstr ""
+"คุณสามารถกำหนดการตั้งค่าเพิ่มเติมได้โดยแก้ไข config.inc.php เช่น โดยการใช้ %"
+"sSetup script%s"
 
 #: prefs_manage.php:308
 msgid "Save to browser's storage"
@@ -10624,7 +10595,7 @@ msgstr "ถ้ามีการตั้งค่าอยู่แล้วจ
 
 #: prefs_manage.php:329
 msgid "You can reset all your settings and restore them to default values."
-msgstr ""
+msgstr "คุณสามารถรีเซ็ตการตั้งค่าทั้งหมดของคุณและเรียกคืนเป็นค่าเริ่มต้น"
 
 #: querywindow.php:64
 msgid "Import files"
@@ -10677,7 +10648,7 @@ msgstr "ตำแหน่งเริ่มแรก"
 
 #: server_collations.php:25
 msgid "Character Sets and Collations"
-msgstr "ชุดตัวอักษร และการเรียงลำดับ"
+msgstr "ชุดอักขระและการตรวจทาน"
 
 #: server_databases.php:117
 #, fuzzy, php-format
@@ -10693,11 +10664,11 @@ msgstr "สถิติฐานข้อมูล"
 #: server_databases.php:227 server_replication.php:167
 #: server_replication.php:198
 msgid "Master replication"
-msgstr ""
+msgstr "การจำลองแบบมาสเตอร์"
 
 #: server_databases.php:229 server_replication.php:236
 msgid "Slave replication"
-msgstr ""
+msgstr "การจำลองแบบสเลฟ"
 
 #: server_databases.php:339 server_databases.php:340
 msgid "Enable Statistics"
@@ -10718,7 +10689,7 @@ msgstr "ไม่มีฐานข้อมูล"
 
 #: server_engines.php:67
 msgid "Storage Engines"
-msgstr ""
+msgstr "เครื่องมือที่เก็บข้อมูล"
 
 #: server_export.php:20
 #, fuzzy
@@ -10814,6 +10785,8 @@ msgid ""
 "This server is not configured as master in a replication process. Would you "
 "like to <a href=\"%s\">configure</a> it?"
 msgstr ""
+"เซิร์ฟเวอร์นี้ไม่ได้กำหนดค่าให้เป็นมาสเตอร์ในกระบวนการการจำลองแบบ "
+"คุณต้องการที่จะ <a href=\"%s\">กำหนดค่า</a> หรือไม่?"
 
 #: server_replication.php:206
 msgid "Master configuration"
@@ -10932,6 +10905,8 @@ msgid ""
 "This server is not configured as slave in a replication process. Would you "
 "like to <a href=\"%s\">configure</a> it?"
 msgstr ""
+"เซิร์ฟเวอร์นี้ไม่ได้กำหนดค่าให้เป็นสเลฟในกระบวนการการจำลองแบบ "
+"คุณต้องการที่จะ <a href=\"%s\">กำหนดค่า</a> หรือไม่?"
 
 #: server_status.php:31
 #, php-format
@@ -11273,13 +11248,12 @@ msgstr ""
 
 #: server_status_variables.php:78 server_variables.php:156
 msgid "Filters"
-msgstr ""
+msgstr "ตัวกรอง"
 
 #: server_status_variables.php:82 server_variables.php:158
-#, fuzzy
 #| msgid "Do not change the password"
 msgid "Containing the word:"
-msgstr "กรุณาอย่าเปลี่ยนรหัสผ่าน"
+msgstr "ที่มีคำว่า:"
 
 #: server_status_variables.php:89
 #, fuzzy
@@ -11879,7 +11853,7 @@ msgstr ""
 
 #: server_variables.php:119
 msgid "Server variables and settings"
-msgstr "ตัวแปร และค่ากำหนด ของเซิร์ฟเวอร์"
+msgstr "ตัวแปรของเซิร์ฟเวอร์และการตั้งค่า"
 
 #: server_variables.php:168 server_variables.php:208
 msgid "Session value"
@@ -11887,12 +11861,12 @@ msgstr "ค่าเซสชั่น"
 
 #: server_variables.php:168
 msgid "Global value"
-msgstr "ค่าแบบโกลบอล"
+msgstr "ค่าส่วนกลาง"
 
 #: setup/frames/config.inc.php:38 setup/frames/index.inc.php:244
 #: tbl_gis_visualization.php:194
 msgid "Download"
-msgstr ""
+msgstr "ดาวน์โหลด"
 
 #: setup/frames/form.inc.php:25
 msgid "Incorrect formset, check $formsets array in setup/frames/form.inc.php"
@@ -11900,7 +11874,7 @@ msgstr ""
 
 #: setup/frames/index.inc.php:51
 msgid "Cannot load or save configuration"
-msgstr ""
+msgstr "ไม่สามารถโหลดหรือบันทึกการกำหนดค่า"
 
 #: setup/frames/index.inc.php:52
 msgid ""
@@ -11908,6 +11882,10 @@ msgid ""
 "level directory as described in [doc@setup_script]documentation[/doc]. "
 "Otherwise you will be only able to download or display it."
 msgstr ""
+"กรุณาสร้างโฟลเดอร์เว็บเซิร์ฟเวอร์ที่สามารถเขียนได้ [em]กำหนดค่า[/em] "
+"ในไดเรกทอรี phpMyAdmin ระดับสูงที่กล่าวไว้ใน "
+"[doc@setup_script]documentation[/doc] "
+"มิฉะนั้นคุณจะมีเพียงแต่ที่จะดาวน์โหลดหรือแสดงมันเท่านั้น"
 
 #: setup/frames/index.inc.php:60
 msgid ""
@@ -11924,7 +11902,7 @@ msgstr ""
 
 #: setup/frames/index.inc.php:68
 msgid "Insecure connection"
-msgstr ""
+msgstr "การเชื่อมต่อที่ไม่ปลอดภัย"
 
 #: setup/frames/index.inc.php:98
 #, fuzzy
@@ -11940,19 +11918,19 @@ msgstr ""
 
 #: setup/frames/index.inc.php:107 setup/frames/menu.inc.php:16
 msgid "Overview"
-msgstr ""
+msgstr "ภาพรวม"
 
 #: setup/frames/index.inc.php:115
 msgid "Show hidden messages (#MSG_COUNT)"
-msgstr ""
+msgstr "แสดงข้อความที่ซ่อน (#MSG_COUNT)"
 
 #: setup/frames/index.inc.php:158
 msgid "There are no configured servers"
-msgstr ""
+msgstr "ไม่มีการกำหนดค่าเซิร์ฟเวอร์"
 
 #: setup/frames/index.inc.php:166
 msgid "New server"
-msgstr ""
+msgstr "เซิร์ฟเวอร์ใหม่"
 
 #: setup/frames/index.inc.php:199
 msgid "Default language"
@@ -11964,15 +11942,15 @@ msgstr ""
 
 #: setup/frames/index.inc.php:221
 msgid "- none -"
-msgstr ""
+msgstr "- ไม่มี -"
 
 #: setup/frames/index.inc.php:225
 msgid "Default server"
-msgstr ""
+msgstr "เซิร์ฟเวอร์เริ่มต้น"
 
 #: setup/frames/index.inc.php:237
 msgid "End of line"
-msgstr ""
+msgstr "ท้ายบรรทัด"
 
 #: setup/frames/index.inc.php:243
 msgid "Display"
@@ -11996,7 +11974,7 @@ msgstr "แก้ไข เครื่องแม่ข่าย"
 
 #: setup/frames/servers.inc.php:39
 msgid "Add a new server"
-msgstr "เพิ่ม เครื่องแม่ข่าย"
+msgstr "เพิ่มเซิร์ฟเวอร์ใหม่"
 
 #: setup/index.php:22
 msgid "Wrong GET file attribute value"
@@ -12075,6 +12053,8 @@ msgid ""
 "%sBzip2 compression and decompression%s requires functions (%s) which are "
 "unavailable on this system."
 msgstr ""
+"การบีบอัดและการคลาย %sBzip2%s ต้องใช้ฟังก์ชั่น (%s) "
+"ซึ่งเป็นสิ่งที่ไม่สามารถใช้งานได้ในระบบนี้"
 
 #: setup/lib/index.lib.php:303
 msgid ""
@@ -12085,7 +12065,7 @@ msgstr ""
 #: setup/lib/index.lib.php:304
 #, php-format
 msgid "This %soption%s should be enabled if your web server supports it."
-msgstr ""
+msgstr "%soption%s นี้ควรจะเปิดใช้งานถ้าเว็บเซิร์ฟเวอร์ของคุณสนับสนุน"
 
 #: setup/lib/index.lib.php:306
 #, php-format
@@ -12093,6 +12073,8 @@ msgid ""
 "%sGZip compression and decompression%s requires functions (%s) which are "
 "unavailable on this system."
 msgstr ""
+"การบีบอัดและการคลาย %sGZip%s ต้องใช้ฟังก์ชั่น (%s) "
+"ซึ่งเป็นสิ่งที่ไม่สามารถใช้งานได้ในระบบนี้"
 
 #: setup/lib/index.lib.php:308
 #, php-format
@@ -12141,6 +12123,8 @@ msgid ""
 "%sZip compression%s requires functions (%s) which are unavailable on this "
 "system."
 msgstr ""
+"การบีบอัด %sZip%s ต้องใช้ฟังก์ชั่น (%s) "
+"ซึ่งเป็นสิ่งที่ไม่สามารถใช้งานได้ในระบบนี้"
 
 #: setup/lib/index.lib.php:320
 #, php-format
@@ -12148,6 +12132,8 @@ msgid ""
 "%sZip decompression%s requires functions (%s) which are unavailable on this "
 "system."
 msgstr ""
+"การคลาย %sZip%s ต้องใช้ฟังก์ชั่น (%s) "
+"ซึ่งเป็นสิ่งที่ไม่สามารถใช้งานได้ในระบบนี้"
 
 #: setup/lib/index.lib.php:348
 msgid "You should use SSL connections if your database server supports it."
@@ -12347,7 +12333,7 @@ msgstr "เพิ่ม/ลบ คอลัมน์ (ฟิลด์)"
 
 #: tbl_gis_visualization.php:121
 msgid "-- None --"
-msgstr ""
+msgstr "-- ไม่มี --"
 
 #: tbl_gis_visualization.php:135
 #, fuzzy
@@ -12591,9 +12577,9 @@ msgid "Activate now"
 msgstr ""
 
 #: tbl_tracking.php:859
-#, fuzzy, php-format
+#, php-format
 msgid "Create version %1$s of %2$s"
-msgstr "รุ่นของเซิร์ฟเวอร์"
+msgstr "สร้างเวอร์ชั่น %1$s ของ %2$s"
 
 #: tbl_tracking.php:867
 msgid "Track these data definition statements:"
@@ -12604,9 +12590,8 @@ msgid "Track these data manipulation statements:"
 msgstr ""
 
 #: tbl_tracking.php:885
-#, fuzzy
 msgid "Create version"
-msgstr "รุ่นของเซิร์ฟเวอร์"
+msgstr "สร้างเวอร์ชั่น"
 
 #: themes.php:16 themes.php:21
 msgid "Theme"
