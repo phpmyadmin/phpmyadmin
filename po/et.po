@@ -6,13 +6,13 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-05-28 12:35-0400\n"
-"PO-Revision-Date: 2013-05-23 12:38+0200\n"
+"PO-Revision-Date: 2013-05-28 19:27+0200\n"
 "Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
 "Language-Team: Estonian <http://l10n.cihar.com/projects/phpmyadmin/4-0/et/>\n"
+"Language: et\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: et\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 1.6-dev\n"
 
@@ -10626,20 +10626,18 @@ msgid "Instructions/Setup"
 msgstr "Juhendid/Paigaldus"
 
 #: server_status_monitor.php:483
-#, fuzzy
 #| msgid "Done rearranging/editing charts"
 msgid "Done dragging (rearranging) charts"
-msgstr "Diagrammide korrastamine/muutmine on valmis"
+msgstr "Diagrammide korrastamine on lõpetatud"
 
 #: server_status_monitor.php:489 server_status_monitor.php:606
 msgid "Add chart"
 msgstr "Lisa diagramm"
 
 #: server_status_monitor.php:492
-#, fuzzy
 #| msgid "Enable highlighting"
 msgid "Enable charts dragging"
-msgstr "Luba esiletõstmine"
+msgstr "Luba diagrammide korrastamine"
 
 #: server_status_monitor.php:496
 msgid "Refresh rate"
