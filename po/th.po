@@ -1917,7 +1917,7 @@ msgstr "เพิ่มเติม"
 #: js/messages.php:372
 #| msgid "Show all"
 msgid "Show Panel"
-msgstr "แสดงแผงควบคุม"
+msgstr "แสดงแผง"
 
 #: js/messages.php:373
 #| msgid "Hide indexes"
