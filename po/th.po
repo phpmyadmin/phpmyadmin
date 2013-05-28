@@ -809,10 +809,9 @@ msgid "Get support"
 msgstr "รับการสนับสนุน"
 
 #: index.php:370
-#, fuzzy
 #| msgid "No change"
 msgid "List of changes"
-msgstr "รายการเปลี่ยนแปลง"
+msgstr "รายการของการเปลี่ยนแปลง"
 
 #: index.php:394
 msgid ""
@@ -950,10 +949,10 @@ msgstr "แก้ไขดัชนี"
 
 #: js/messages.php:44 libraries/display_indexes.lib.php:199
 #: libraries/display_indexes.lib.php:205
-#, fuzzy, php-format
+#, php-format
 #| msgid "Add %d column(s) to index"
 msgid "Add %s column(s) to index"
-msgstr "ทำดัชนีใน สดมส์นี้ %d"
+msgstr "เพิ่มคอลัมน์ %s ไปยังดัชนี"
 
 #. l10n: Default label for the y-Axis of Charts
 #: js/messages.php:48 tbl_chart.php:236
@@ -1319,7 +1318,7 @@ msgstr "จากประวัติทั่วไป"
 
 #: js/messages.php:150
 msgid "Analysing logs"
-msgstr "กำลังวิเคราะห์ประวัติ"
+msgstr "วิเคราะห์ไฟล์บันทึก"
 
 #: js/messages.php:151
 msgid "Analysing & loading logs. This may take a while."
@@ -1832,7 +1831,7 @@ msgstr ""
 
 #: js/messages.php:324
 msgid "Add an option for column "
-msgstr "เพิ่มตัวเลือกสำหรับสดมภ์ "
+msgstr "เพิ่มตัวเลือกสำหรับคอลัมน์"
 
 #: js/messages.php:325
 #, php-format
@@ -1931,7 +1930,7 @@ msgstr "เพิ่มเติม"
 #: js/messages.php:363
 #| msgid "Show all"
 msgid "Show Panel"
-msgstr "แสดงแผง"
+msgstr "แสดงแผงควบคุม"
 
 #: js/messages.php:364
 #| msgid "Hide indexes"
@@ -2663,7 +2662,7 @@ msgstr ""
 
 #: libraries/DisplayResults.class.php:4923
 msgid "Showing rows"
-msgstr "แสดงระเบียนที่"
+msgstr "แสดงแถว"
 
 #: libraries/DisplayResults.class.php:4939
 msgid "total"
