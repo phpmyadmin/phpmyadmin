@@ -89,7 +89,7 @@ if (! isset($_COOKIE[$session_name])) {
          * Session initialization is done before selecting language, so we
          * can not use translations here.
          */
-        PMA_fatalError('Cannot start session without errors, please check errors given in your PHP and/or webserver log file and configure your PHP installation properly.');
+        PMA_fatalError('Cannot start session without errors, please check errors given in your PHP and/or webserver log file and configure your PHP installation properly. Also ensure that cookies are enabled in your browser.');
     }
     unset($orig_error_count);
 } else {
