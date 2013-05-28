@@ -6,14 +6,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-05-28 12:36-0400\n"
-"PO-Revision-Date: 2013-05-24 16:57+0200\n"
+"PO-Revision-Date: 2013-05-28 19:27+0200\n"
 "Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
-"Language-Team: Estonian <http://l10n.cihar.com/projects/phpmyadmin/master/et/"
-">\n"
+"Language-Team: Estonian "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/et/>\n"
+"Language: et\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: et\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 1.6-dev\n"
 
@@ -2199,17 +2199,17 @@ msgstr "PHP andis järgneva vea: %s"
 #: libraries/Advisor.class.php:107
 #, php-format
 msgid "Failed evaluating precondition for rule '%s'."
-msgstr "Eeltingimuste hindamine reeglile '%s' ebaõnnestus"
+msgstr "Reeglile '%s' vastava eeltingimuse hindamine ei õnnestunud."
 
 #: libraries/Advisor.class.php:124
 #, php-format
 msgid "Failed calculating value for rule '%s'."
-msgstr "Väärtuse arvutamine reeglile '%s' ebaõnnestus"
+msgstr "Reeglile '%s' vastava väärtuse arvutamine ei õnnestunud."
 
 #: libraries/Advisor.class.php:143
 #, php-format
 msgid "Failed running test for rule '%s'."
-msgstr "Testi käivitamine reeglile '%s' ebaõnnestus"
+msgstr "Reeglile '%s' testi käivitamine ei õnnestunud."
 
 #: libraries/Advisor.class.php:225
 #, php-format
@@ -2220,17 +2220,17 @@ msgstr "Sõne vormindamine reeglile '%s' ebaõnnestus."
 #, php-format
 msgid ""
 "Invalid rule declaration on line %1$s, expected line %2$s of previous rule."
-msgstr "Kehtetu avaldus real %1$s, eelmise reegli oodatav rida %2$s"
+msgstr "Kehtetu avaldus real %1$s, eelmise reegli oodatav rida %2$s."
 
 #: libraries/Advisor.class.php:412
 #, php-format
 msgid "Invalid rule declaration on line %s."
-msgstr "Vale reegli avaldus %s. real"
+msgstr "Vale reegli avaldus %s. real."
 
 #: libraries/Advisor.class.php:420
 #, php-format
 msgid "Unexpected characters on line %s."
-msgstr "Ootamatud sümbolid %s. real"
+msgstr "Ootamatud sümbolid real %s."
 
 #: libraries/Advisor.class.php:434
 #, php-format
@@ -4060,7 +4060,7 @@ msgstr "maksimaalselt %s"
 
 #: libraries/config/FormDisplay.tpl.php:221
 msgid "This setting is disabled, it will not be applied to your configuration."
-msgstr "See säte on keelatud, seda ei saa rakendada sinu seadistusele"
+msgstr "See säte on keelatud; seda ei saa rakendada sinu seadistusele."
 
 #: libraries/config/FormDisplay.tpl.php:309
 #, php-format
@@ -10666,8 +10666,8 @@ msgid ""
 "master."
 msgstr ""
 "Kui oled taaskäivitanud MySQL serveri, siis palun vajuta Mine nuppu. "
-"Seejärel peaksid nägema sõnumeid, mis teavitavad sind, et see server <b>on</"
-"b> seadistatud ülemaks"
+"Seejärel peaksid nägema sõnumeid, mis teavitavad sind, et see server "
+"<b>on</b> seadistatud ülemaks."
 
 #: server_replication.php:281
 msgid "Slave SQL Thread not running!"
@@ -10879,9 +10879,9 @@ msgid ""
 msgstr ""
 "phpMyAdmini jälgija saab anda sulle soovitusi serveri seadistuse "
 "optimeerimise kohta ning jälgida ajakulukaid päringuid. Hiljem võib sul vaja "
-"minna muuta log_output väärtuseks 'TABLE' ning lubada kas slow_query_log või "
-"general_log. Pane siiski tähele, et general_log toodab palju andmeid ja "
-"suurendab serveri laadimisaega kuni 15%"
+"minna muuta log_output väärtuseks 'TABLE' ning lubada kas slow_query_log "
+"või general_log. Pane siiski tähele, et general_log toodab palju andmeid ja "
+"suurendab serveri koormust kuni 15%."
 
 #: server_status_monitor.php:467
 msgid ""
@@ -11036,16 +11036,14 @@ msgid "Instructions/Setup"
 msgstr "Juhendid/Paigaldus"
 
 #: server_status_monitor.php:685
-#, fuzzy
 #| msgid "Done rearranging/editing charts"
 msgid "Done dragging (rearranging) charts"
-msgstr "Diagrammide korrastamine/muutmine on valmis"
+msgstr "Diagrammide korrastamine on lõpetatud"
 
 #: server_status_monitor.php:704
-#, fuzzy
 #| msgid "Enable highlighting"
 msgid "Enable charts dragging"
-msgstr "Luba esiletõstmine"
+msgstr "Luba diagrammide korrastamine"
 
 #: server_status_monitor.php:708
 msgid "Refresh rate"
