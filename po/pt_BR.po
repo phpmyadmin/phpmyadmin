@@ -3,15 +3,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-05-25 07:30-0400\n"
+"POT-Creation-Date: 2013-05-28 12:35-0400\n"
 "PO-Revision-Date: 2013-05-25 23:33+0200\n"
 "Last-Translator: Rodrigo Souza <rodrigo.chrome@live.com>\n"
-"Language-Team: Portuguese (Brazil) "
-"<http://l10n.cihar.com/projects/phpmyadmin/4-0/pt_BR/>\n"
-"Language: pt_BR\n"
+"Language-Team: Portuguese (Brazil) <http://l10n.cihar.com/projects/"
+"phpmyadmin/4-0/pt_BR/>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: pt_BR\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 "X-Generator: Weblate 1.6-dev\n"
 
@@ -382,7 +382,7 @@ msgstr "Alterar para %sconstrutor visual%s"
 
 #: db_search.php:30 libraries/plugins/auth/AuthenticationConfig.class.php:81
 #: libraries/plugins/auth/AuthenticationConfig.class.php:96
-#: libraries/plugins/auth/AuthenticationCookie.class.php:587
+#: libraries/plugins/auth/AuthenticationCookie.class.php:579
 #: libraries/plugins/auth/AuthenticationHttp.class.php:65
 #: libraries/plugins/auth/AuthenticationSignon.class.php:253
 msgid "Access denied"
@@ -2776,12 +2776,7 @@ msgstr "Abrir nova janela do phpMyAdmin"
 msgid "Click on the bar to scroll to top of page"
 msgstr "Clique na barra para rolar até o topo da página"
 
-#: libraries/Header.class.php:621
-#: libraries/plugins/auth/AuthenticationCookie.class.php:269
-msgid "Cookies must be enabled past this point."
-msgstr "Os cookies devem estar ativos após este ponto."
-
-#: libraries/Header.class.php:626
+#: libraries/Header.class.php:618
 #: libraries/plugins/auth/AuthenticationCookie.class.php:172
 msgid "Javascript must be enabled past this point"
 msgstr "O JavaScript deve estar ativo após este ponto"
@@ -7785,7 +7780,7 @@ msgstr "Senha:"
 msgid "Server Choice"
 msgstr "Seleção do servidor"
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:583
+#: libraries/plugins/auth/AuthenticationCookie.class.php:575
 #: libraries/plugins/auth/AuthenticationSignon.class.php:249
 msgid ""
 "Login without a password is forbidden by configuration (see AllowNoPassword)"
@@ -7793,14 +7788,14 @@ msgstr ""
 "Autenticação sem uma senha é proibida pela configuração (veja "
 "AllowNoPassword)"
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:590
+#: libraries/plugins/auth/AuthenticationCookie.class.php:582
 #: libraries/plugins/auth/AuthenticationSignon.class.php:256
 #, php-format
 msgid "No activity within %s seconds; please log in again"
 msgstr "Sem atividade por %s segundos ou mais, faça o login novamente"
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:595
-#: libraries/plugins/auth/AuthenticationCookie.class.php:597
+#: libraries/plugins/auth/AuthenticationCookie.class.php:587
+#: libraries/plugins/auth/AuthenticationCookie.class.php:589
 #: libraries/plugins/auth/AuthenticationSignon.class.php:265
 msgid "Cannot log in to the MySQL server"
 msgstr "Não foi possível fazer login no servidor MySQL"
@@ -10782,7 +10777,6 @@ msgid "Add chart"
 msgstr "Adicionar gráfico"
 
 #: server_status_monitor.php:492
-#| msgid "Enable highlighting"
 msgid "Enable charts dragging"
 msgstr "Habilita o arraste de gráficos"
 
@@ -13793,6 +13787,9 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert está com valor 0"
+
+#~ msgid "Cookies must be enabled past this point."
+#~ msgstr "Os cookies devem estar ativos após este ponto."
 
 #~ msgid "Rearrange/edit charts"
 #~ msgstr "Reorganizar/editar gráficos"

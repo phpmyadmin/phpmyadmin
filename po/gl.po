@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-05-25 07:30-0400\n"
+"POT-Creation-Date: 2013-05-28 12:35-0400\n"
 "PO-Revision-Date: 2013-04-13 18:37+0200\n"
 "Last-Translator: Julio Guerra <xullo123@hotmail.com>\n"
 "Language-Team: Galician <http://l10n.cihar.com/projects/phpmyadmin/4-0/gl/>\n"
@@ -381,7 +381,7 @@ msgstr "Cambiar ao %sconstrutor visual%s"
 
 #: db_search.php:30 libraries/plugins/auth/AuthenticationConfig.class.php:81
 #: libraries/plugins/auth/AuthenticationConfig.class.php:96
-#: libraries/plugins/auth/AuthenticationCookie.class.php:587
+#: libraries/plugins/auth/AuthenticationCookie.class.php:579
 #: libraries/plugins/auth/AuthenticationHttp.class.php:65
 #: libraries/plugins/auth/AuthenticationSignon.class.php:253
 msgid "Access denied"
@@ -2766,12 +2766,7 @@ msgstr "Abrir unha xanela nova co phpMyAdmin"
 msgid "Click on the bar to scroll to top of page"
 msgstr "Prema a barra para desprazarse até a parte superior da páxina"
 
-#: libraries/Header.class.php:621
-#: libraries/plugins/auth/AuthenticationCookie.class.php:269
-msgid "Cookies must be enabled past this point."
-msgstr "A partir de aquí debe permitir cookies."
-
-#: libraries/Header.class.php:626
+#: libraries/Header.class.php:618
 #: libraries/plugins/auth/AuthenticationCookie.class.php:172
 msgid "Javascript must be enabled past this point"
 msgstr "Javascript debe estar activo a partir de aquí"
@@ -7820,14 +7815,14 @@ msgstr "Contrasinal:"
 msgid "Server Choice"
 msgstr "Escolla de servidor"
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:583
+#: libraries/plugins/auth/AuthenticationCookie.class.php:575
 #: libraries/plugins/auth/AuthenticationSignon.class.php:249
 msgid ""
 "Login without a password is forbidden by configuration (see AllowNoPassword)"
 msgstr ""
 "A configuración prohibe rexistrarse sen contrasinal (vexa AllowNoPassword)"
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:590
+#: libraries/plugins/auth/AuthenticationCookie.class.php:582
 #: libraries/plugins/auth/AuthenticationSignon.class.php:256
 #, php-format
 msgid "No activity within %s seconds; please log in again"
@@ -7835,8 +7830,8 @@ msgstr ""
 "Non se rexistrou actividade ningunha desde hai %s segundos ou máis. Terá que "
 "entrar de novo"
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:595
-#: libraries/plugins/auth/AuthenticationCookie.class.php:597
+#: libraries/plugins/auth/AuthenticationCookie.class.php:587
+#: libraries/plugins/auth/AuthenticationCookie.class.php:589
 #: libraries/plugins/auth/AuthenticationSignon.class.php:265
 msgid "Cannot log in to the MySQL server"
 msgstr "Non é posíbel rexistrarse no servidor de MySQL"
@@ -13879,6 +13874,9 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert está definido como 0"
+
+#~ msgid "Cookies must be enabled past this point."
+#~ msgstr "A partir de aquí debe permitir cookies."
 
 #~ msgid "Rearrange/edit charts"
 #~ msgstr "Redistribuír/editar as gráficas"

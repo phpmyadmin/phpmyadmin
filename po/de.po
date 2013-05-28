@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-05-25 07:30-0400\n"
+"POT-Creation-Date: 2013-05-28 12:35-0400\n"
 "PO-Revision-Date: 2013-05-24 21:18+0200\n"
 "Last-Translator: Jan Erik Zassenhaus <jan.zassenhaus@jgerman.de>\n"
 "Language-Team: German <http://l10n.cihar.com/projects/phpmyadmin/4-0/de/>\n"
@@ -381,7 +381,7 @@ msgstr "Zum %sDesigner%s wechseln"
 
 #: db_search.php:30 libraries/plugins/auth/AuthenticationConfig.class.php:81
 #: libraries/plugins/auth/AuthenticationConfig.class.php:96
-#: libraries/plugins/auth/AuthenticationCookie.class.php:587
+#: libraries/plugins/auth/AuthenticationCookie.class.php:579
 #: libraries/plugins/auth/AuthenticationHttp.class.php:65
 #: libraries/plugins/auth/AuthenticationSignon.class.php:253
 msgid "Access denied"
@@ -2789,12 +2789,7 @@ msgstr "Neues phpMyAdmin-Fenster"
 msgid "Click on the bar to scroll to top of page"
 msgstr "Klicken Sie auf die Leiste, um zum Anfang der Seite zu scrollen"
 
-#: libraries/Header.class.php:621
-#: libraries/plugins/auth/AuthenticationCookie.class.php:269
-msgid "Cookies must be enabled past this point."
-msgstr "Ab diesem Punkt müssen Cookies aktiviert sein."
-
-#: libraries/Header.class.php:626
+#: libraries/Header.class.php:618
 #: libraries/plugins/auth/AuthenticationCookie.class.php:172
 msgid "Javascript must be enabled past this point"
 msgstr "Javascript muss ab hier aktiviert sein"
@@ -7806,14 +7801,14 @@ msgstr "Passwort:"
 msgid "Server Choice"
 msgstr "Server auswählen"
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:583
+#: libraries/plugins/auth/AuthenticationCookie.class.php:575
 #: libraries/plugins/auth/AuthenticationSignon.class.php:249
 msgid ""
 "Login without a password is forbidden by configuration (see AllowNoPassword)"
 msgstr ""
 "Login ohne Passwort ist verboten (siehe AllowNoPassword) in der Konfiguration"
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:590
+#: libraries/plugins/auth/AuthenticationCookie.class.php:582
 #: libraries/plugins/auth/AuthenticationSignon.class.php:256
 #, php-format
 msgid "No activity within %s seconds; please log in again"
@@ -7821,8 +7816,8 @@ msgstr ""
 "Da Sie seit mindestens %s Sekunden inaktiv waren, wurden Sie automatisch "
 "abgemeldet. Bitte melden Sie sich erneut an"
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:595
-#: libraries/plugins/auth/AuthenticationCookie.class.php:597
+#: libraries/plugins/auth/AuthenticationCookie.class.php:587
+#: libraries/plugins/auth/AuthenticationCookie.class.php:589
 #: libraries/plugins/auth/AuthenticationSignon.class.php:265
 msgid "Cannot log in to the MySQL server"
 msgstr "Die Anmeldung am MySQL-Server ist fehlgeschlagen"
@@ -13911,6 +13906,9 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert ist auf 0 gesetzt"
+
+#~ msgid "Cookies must be enabled past this point."
+#~ msgstr "Ab diesem Punkt müssen Cookies aktiviert sein."
 
 #~ msgid "Rearrange/edit charts"
 #~ msgstr "Schaubilder umordnen/bearbeiten"

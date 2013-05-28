@@ -3,14 +3,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-05-25 07:30-0400\n"
+"POT-Creation-Date: 2013-05-28 12:35-0400\n"
 "PO-Revision-Date: 2013-05-27 18:09+0200\n"
 "Last-Translator: Pl P <plamen_mbx@yahoo.com>\n"
-"Language-Team: Bulgarian <http://l10n.cihar.com/projects/phpmyadmin/4-0/bg/>\n"
-"Language: bg\n"
+"Language-Team: Bulgarian <http://l10n.cihar.com/projects/phpmyadmin/4-0/bg/"
+">\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: bg\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 1.6-dev\n"
 
@@ -381,7 +382,7 @@ msgstr "Превключване към %sвизуален строител%s"
 
 #: db_search.php:30 libraries/plugins/auth/AuthenticationConfig.class.php:81
 #: libraries/plugins/auth/AuthenticationConfig.class.php:96
-#: libraries/plugins/auth/AuthenticationCookie.class.php:587
+#: libraries/plugins/auth/AuthenticationCookie.class.php:579
 #: libraries/plugins/auth/AuthenticationHttp.class.php:65
 #: libraries/plugins/auth/AuthenticationSignon.class.php:253
 msgid "Access denied"
@@ -2753,12 +2754,7 @@ msgstr "Отваряне на нов прозорец с phpMyAdmin"
 msgid "Click on the bar to scroll to top of page"
 msgstr ""
 
-#: libraries/Header.class.php:621
-#: libraries/plugins/auth/AuthenticationCookie.class.php:269
-msgid "Cookies must be enabled past this point."
-msgstr "Оттук нататък са необходими бисквитки."
-
-#: libraries/Header.class.php:626
+#: libraries/Header.class.php:618
 #: libraries/plugins/auth/AuthenticationCookie.class.php:172
 msgid "Javascript must be enabled past this point"
 msgstr "Оттук нататък е необходим javascript"
@@ -7548,20 +7544,20 @@ msgstr "Парола:"
 msgid "Server Choice"
 msgstr "Избор на сървър"
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:583
+#: libraries/plugins/auth/AuthenticationCookie.class.php:575
 #: libraries/plugins/auth/AuthenticationSignon.class.php:249
 msgid ""
 "Login without a password is forbidden by configuration (see AllowNoPassword)"
 msgstr "Входът без парола е забранен от конфигурацията (виж AllowNoPassword)"
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:590
+#: libraries/plugins/auth/AuthenticationCookie.class.php:582
 #: libraries/plugins/auth/AuthenticationSignon.class.php:256
 #, php-format
 msgid "No activity within %s seconds; please log in again"
 msgstr "Няма активност през последните %s секунди; моля влезте отново"
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:595
-#: libraries/plugins/auth/AuthenticationCookie.class.php:597
+#: libraries/plugins/auth/AuthenticationCookie.class.php:587
+#: libraries/plugins/auth/AuthenticationCookie.class.php:589
 #: libraries/plugins/auth/AuthenticationSignon.class.php:265
 msgid "Cannot log in to the MySQL server"
 msgstr "Невъзможен вход в MySQL сървъра"
@@ -13102,13 +13098,15 @@ msgid ""
 "refman/5.5/en/concurrent-inserts.html\">MySQL Documentation</a>"
 msgstr ""
 "Установяването на {concurrent_insert} на 1 намалява contention между readers "
-"and writers за дадена таблица. Вижте също и <a "
-"href=\"http://dev.mysql.com/doc/refman/5.5/en/concurrent-"
-"inserts.html\">Документацията на MySQL</a>"
+"and writers за дадена таблица. Вижте също и <a href=\"http://dev.mysql.com/"
+"doc/refman/5.5/en/concurrent-inserts.html\">Документацията на MySQL</a>"
 
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert e 0"
+
+#~ msgid "Cookies must be enabled past this point."
+#~ msgstr "Оттук нататък са необходими бисквитки."
 
 #~ msgid "Open Document"
 #~ msgstr "Open Document"
