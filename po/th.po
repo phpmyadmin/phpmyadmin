@@ -1930,7 +1930,7 @@ msgstr "เพิ่มเติม"
 #: js/messages.php:363
 #| msgid "Show all"
 msgid "Show Panel"
-msgstr "แสดงแผงควบคุม"
+msgstr "แสดงแผง"
 
 #: js/messages.php:364
 #| msgid "Hide indexes"
