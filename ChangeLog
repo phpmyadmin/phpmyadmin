@@ -7,6 +7,7 @@ phpMyAdmin - ChangeLog
 - bug #3927 List of tables is missing after expanding in the navigation frame
 - bug #3942 Warnings about reserved word for many non reserved words
 - bug #3912 Exporting row selection, resulted by ORDER BY query
+- bug #3957 Cookies must be enabled past this point
 
 4.0.2.0 (2013-05-24)
 - bug #3902 Cannot browse when table name contains keyword "call"

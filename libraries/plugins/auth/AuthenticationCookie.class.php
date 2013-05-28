@@ -262,14 +262,6 @@ class AuthenticationCookie extends AuthenticationPlugin
         Swekey_login('input_username', 'input_go');
         // END Swekey Integration
 
-        // show the "Cookies required" message only if cookies are disabled
-        // (we previously tried to set some cookies)
-        if (empty($_COOKIE)) {
-            trigger_error(
-                __('Cookies must be enabled past this point.'),
-                E_USER_NOTICE
-            );
-        }
         if ($GLOBALS['error_handler']->hasDisplayErrors()) {
             echo '<div>';
             $GLOBALS['error_handler']->dispErrors();
