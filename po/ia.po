@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-05-28 12:36-0400\n"
-"PO-Revision-Date: 2013-05-05 22:29+0200\n"
+"PO-Revision-Date: 2013-05-29 14:48+0200\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
-"Language-Team: Interlingua <http://l10n.cihar.com/projects/phpmyadmin/master/"
-"ia/>\n"
+"Language-Team: Interlingua "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/ia/>\n"
+"Language: ia\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ia\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 1.6-dev\n"
 
@@ -672,12 +672,17 @@ msgid ""
 "Script timeout passed, if you want to finish import, please resubmit same "
 "file and import will resume."
 msgstr ""
+"Tempore limite excedite pro le exutation del script, si tu vole terminal le "
+"importation, tu invia de nove le file e le processo initiara de nove."
 
 #: import.php:559
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
 msgstr ""
+"Il le ultimeexecutation on non tractava alcun dato, usualmente isto "
+"significa que le tempore limite ponite in le configuration es troppo basse "
+"pro permitter a phpMyAdmin terminar le operation."
 
 #: import.php:590 libraries/DisplayResults.class.php:4531
 #: libraries/Message.class.php:180 libraries/rte/rte_routines.lib.php:1427
@@ -797,6 +802,11 @@ msgid ""
 "running with this default, is open to intrusion, and you really should fix "
 "this security hole by setting a password for user 'root'."
 msgstr ""
+"Tu file de configuration contine preferentias (root con nulle contrasigno) "
+"que corresponde al conto privilegiate predefinite de MySQL. Tu servitor "
+"MySQl es executante con iste preferentias, il es aperite a intrusiones, e tu "
+"deberea seriemente corriger iste foramine de securitate per fixar un "
+"contrasigno pro l eusator 'root'."
 
 #: index.php:411
 msgid ""
@@ -804,6 +814,9 @@ msgid ""
 "option is incompatible with phpMyAdmin and might cause some data to be "
 "corrupted!"
 msgstr ""
+"Tu ha habilitate mbstring.func_overload in tu configuration de PHP. Iste "
+"operation es incompatibile con phpMyAdmin e poterea causar alcun corruption "
+"de datos!"
 
 #: index.php:426
 msgid ""
@@ -811,6 +824,9 @@ msgid ""
 "multibyte charset. Without the mbstring extension phpMyAdmin is unable to "
 "split strings correctly and it may result in unexpected results."
 msgstr ""
+"Le extension PHP mbstring non esseva trovate e il sembla que on usa un "
+"insimul de characteres multibyte. Sin le extension mbstring phpMyAdmin non "
+"pote divider catenas correctemente e on poterea obtener exitos inexpectate."
 
 #: index.php:441
 msgid ""
@@ -819,6 +835,11 @@ msgid ""
 "cookie validity configured in phpMyAdmin, because of this, your login will "
 "expire sooner than configured in phpMyAdmin."
 msgstr ""
+"Tu parametro PHP "
+"[a@http://php.net/manual/en/session.configuration.php#ini.session.gc-"
+"maxlifetime@_blank]session.gc_maxlifetime[/a] es inferior del validitate de "
+"cookie configurate in phpMyAdmin, debite a isto, tu authentication expirara "
+"ante que lo que es configurate in phpMyAdmin."
 
 #: index.php:453
 msgid ""
@@ -842,6 +863,11 @@ msgid ""
 "once phpMyAdmin has been configured. Otherwise the security of your server "
 "may be compromised by unauthorized people downloading your configuration."
 msgstr ""
+"Directorio [code]config[/code], que es usate in le script de configuration "
+"initial, ancora existe in tu dossier de phpMyAdmin. Il es fortemente "
+"recommendate remover lo quando on ha ja configurate phpMyAdmin. Alteremente "
+"le securitate de tu servbitor poterea esser compromittite per personas non "
+"authorisate discargante tu configuration."
 
 #: index.php:486
 #, php-format
@@ -889,27 +915,27 @@ msgstr "Tu es per DESTRUER un tabula complete!"
 
 #: js/messages.php:33
 msgid "You are about to TRUNCATE a complete table!"
-msgstr ""
+msgstr "Tu es per TRUNCAR COMPLETEMENTE le contento del tabella!"
 
 #: js/messages.php:35
 msgid "Deleting tracking data"
-msgstr ""
+msgstr "Delente datos de traciar"
 
 #: js/messages.php:36
 msgid "Dropping Primary Key/Index"
-msgstr ""
+msgstr "Depone clave primari/indice"
 
 #: js/messages.php:37
 msgid "This operation could take a long time. Proceed anyway?"
-msgstr ""
+msgstr "Iste operation poterea prender multo tempore. On procede de omne modo?"
 
 #: js/messages.php:40
 msgid "Missing value in the form!"
-msgstr ""
+msgstr "Valore mancante in le formulario!"
 
 #: js/messages.php:41
 msgid "This is not a number!"
-msgstr ""
+msgstr "Isto non es un numero!"
 
 #: js/messages.php:42
 msgid "Add Index"
@@ -928,7 +954,7 @@ msgstr "Adde %s columna(s) al indice"
 #. l10n: Default label for the y-Axis of Charts
 #: js/messages.php:48 tbl_chart.php:236
 msgid "Y Values"
-msgstr ""
+msgstr "Valores pro le axis Y"
 
 #: js/messages.php:51
 msgid "The host name is empty!"
@@ -961,18 +987,18 @@ msgstr "Recargante privilegios"
 
 #: js/messages.php:57
 msgid "Removing Selected Users"
-msgstr ""
+msgstr "Removente usatores selectionate"
 
 #: js/messages.php:58 js/messages.php:115 tbl_tracking.php:293
 #: tbl_tracking.php:490
 msgid "Close"
-msgstr ""
+msgstr "Claude"
 
 #. l10n: Other, small valued, queries
 #: js/messages.php:61 libraries/ServerStatusData.class.php:198
 #: server_status_queries.php:171
 msgid "Other"
-msgstr ""
+msgstr "Altere"
 
 #. l10n: Thousands separator
 #: js/messages.php:63 libraries/Util.class.php:1516
@@ -986,11 +1012,11 @@ msgstr "."
 
 #: js/messages.php:67
 msgid "Connections / Processes"
-msgstr ""
+msgstr "Connexiones/Processos"
 
 #: js/messages.php:70
 msgid "Local monitor configuration incompatible"
-msgstr ""
+msgstr "Configuration local del monitor incompatibile"
 
 #: js/messages.php:71
 msgid ""
@@ -1002,155 +1028,155 @@ msgstr ""
 
 #: js/messages.php:73
 msgid "Query cache efficiency"
-msgstr ""
+msgstr "Efficientia del cache de query"
 
 #: js/messages.php:74
 msgid "Query cache usage"
-msgstr ""
+msgstr "Usage del cache de query"
 
 #: js/messages.php:75
 msgid "Query cache used"
-msgstr ""
+msgstr "Cache de query usate"
 
 #: js/messages.php:77
 msgid "System CPU Usage"
-msgstr ""
+msgstr "Usage de CPU de systema"
 
 #: js/messages.php:78
 msgid "System memory"
-msgstr ""
+msgstr "Memoria de systema"
 
 #: js/messages.php:79
 msgid "System swap"
-msgstr ""
+msgstr "Swap de systema"
 
 #: js/messages.php:81
 msgid "Average load"
-msgstr ""
+msgstr "Cargo medie"
 
 #: js/messages.php:82
 msgid "Total memory"
-msgstr ""
+msgstr "Memoria total"
 
 #: js/messages.php:83
 msgid "Cached memory"
-msgstr ""
+msgstr "Memoria in cache"
 
 #: js/messages.php:84
 msgid "Buffered memory"
-msgstr ""
+msgstr "Memoria de buffer"
 
 #: js/messages.php:85
 msgid "Free memory"
-msgstr ""
+msgstr "Memoria libere"
 
 #: js/messages.php:86
 msgid "Used memory"
-msgstr ""
+msgstr "Memoria usate"
 
 #: js/messages.php:88
 msgid "Total Swap"
-msgstr ""
+msgstr "Swap total"
 
 #: js/messages.php:89
 msgid "Cached Swap"
-msgstr ""
+msgstr "Swap in cache"
 
 #: js/messages.php:90
 msgid "Used Swap"
-msgstr ""
+msgstr "Swap usate"
 
 #: js/messages.php:91
 msgid "Free Swap"
-msgstr ""
+msgstr "Swap libere"
 
 #: js/messages.php:93
 msgid "Bytes sent"
-msgstr ""
+msgstr "Bytes inviate"
 
 #: js/messages.php:94
 msgid "Bytes received"
-msgstr ""
+msgstr "Buytes recipite"
 
 #: js/messages.php:95 server_status.php:254
 msgid "Connections"
-msgstr ""
+msgstr "Connexiones"
 
 #: js/messages.php:96 server_status.php:435
 msgid "Processes"
-msgstr ""
+msgstr "Processos"
 
 #. l10n: shortcuts for Byte
 #: js/messages.php:99 libraries/Util.class.php:1462
 msgid "B"
-msgstr ""
+msgstr "B"
 
 #. l10n: shortcuts for Kilobyte
 #: js/messages.php:100 libraries/Util.class.php:1464
 #: server_status_monitor.php:557
 msgid "KiB"
-msgstr ""
+msgstr "KiB"
 
 #. l10n: shortcuts for Megabyte
 #: js/messages.php:101 libraries/Util.class.php:1466
 #: server_status_monitor.php:558
 msgid "MiB"
-msgstr ""
+msgstr "MiB"
 
 #. l10n: shortcuts for Gigabyte
 #: js/messages.php:102 libraries/Util.class.php:1468
 msgid "GiB"
-msgstr ""
+msgstr "GiB"
 
 #. l10n: shortcuts for Terabyte
 #: js/messages.php:103 libraries/Util.class.php:1470
 msgid "TiB"
-msgstr ""
+msgstr "TiB"
 
 #. l10n: shortcuts for Petabyte
 #: js/messages.php:104 libraries/Util.class.php:1472
 msgid "PiB"
-msgstr ""
+msgstr "PiB"
 
 #. l10n: shortcuts for Exabyte
 #: js/messages.php:105 libraries/Util.class.php:1474
 msgid "EiB"
-msgstr ""
+msgstr "EiB"
 
 #: js/messages.php:106
 #, php-format
 msgid "%d table(s)"
-msgstr ""
+msgstr "%d tabella/s"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:109
 msgid "Questions"
-msgstr ""
+msgstr "Demandas"
 
 #: js/messages.php:110 server_status.php:166
 msgid "Traffic"
-msgstr ""
+msgstr "Traffico"
 
 #: js/messages.php:111 libraries/Menu.class.php:482
 #: server_status_monitor.php:677
 msgid "Settings"
-msgstr ""
+msgstr "Preferentias"
 
 #: js/messages.php:112
 msgid "Remove chart"
-msgstr ""
+msgstr "Remove graphico"
 
 #: js/messages.php:113
 msgid "Edit title and labels"
-msgstr ""
+msgstr "Modifica titulo e etiquettas"
 
 #: js/messages.php:114
 msgid "Add chart to grid"
-msgstr ""
+msgstr "adde graphico a grillia"
 
 #: js/messages.php:116
 msgid "Please add at least one variable to the series"
-msgstr ""
+msgstr "Adde al minus un variabile al serie"
 
 #: js/messages.php:117 libraries/DisplayResults.class.php:1288
 #: libraries/TableSearch.class.php:841 libraries/TableSearch.class.php:985
@@ -1160,39 +1186,39 @@ msgstr ""
 #: libraries/tbl_columns_definition_form.inc.php:687 pmd_general.php:559
 #: server_status.php:523 server_status_monitor.php:576
 msgid "None"
-msgstr ""
+msgstr "Necun"
 
 #: js/messages.php:118
 msgid "Resume monitor"
-msgstr ""
+msgstr "Reprende monitor"
 
 #: js/messages.php:119
 msgid "Pause monitor"
-msgstr ""
+msgstr "Pausa monitor"
 
 #: js/messages.php:121
 msgid "general_log and slow_query_log are enabled."
-msgstr ""
+msgstr "general_log e slow_query es habilitate."
 
 #: js/messages.php:122
 msgid "general_log is enabled."
-msgstr ""
+msgstr "general_log es habilitate."
 
 #: js/messages.php:123
 msgid "slow_query_log is enabled."
-msgstr ""
+msgstr "slow_query es habilitate."
 
 #: js/messages.php:124
 msgid "slow_query_log and general_log are disabled."
-msgstr ""
+msgstr "slow_query e general_log es dishabilitate."
 
 #: js/messages.php:125
 msgid "log_output is not set to TABLE."
-msgstr ""
+msgstr "log_output non es fixate a TABLE."
 
 #: js/messages.php:126
 msgid "log_output is set to TABLE."
-msgstr ""
+msgstr "log_output es fixate a TABLE."
 
 #: js/messages.php:127
 #, php-format
@@ -5543,6 +5569,8 @@ msgid ""
 "Leave blank for no \"persistent\" tables' UI preferences across sessions, "
 "suggested: [kbd]pma__table_uiprefs[/kbd]"
 msgstr ""
+"Lassa vacue pro necun preferentias de UI de tabulas \"persistente\" trans "
+"sessiones, proponite:  [kbd]pma__table_uiprefs[/kbd]"
 
 #: libraries/config/messages.inc.php:436
 msgid "UI preferences table"
@@ -5997,10 +6025,9 @@ msgstr ""
 
 #: libraries/config/setup.forms.php:357
 #: libraries/config/user_preferences.forms.php:256
-#, fuzzy
 #| msgid "Documentation"
 msgid "OpenDocument Text"
-msgstr "Documentation"
+msgstr "Texto OpenDocument"
 
 #: libraries/config/validate.lib.php:214
 msgid "Could not initialize Drizzle connection library"
@@ -6865,10 +6892,9 @@ msgid "Replace table prefix:"
 msgstr ""
 
 #: libraries/mult_submits.inc.php:290
-#, fuzzy
 #| msgid "Copy database to:"
 msgid "Copy table with prefix:"
-msgstr "Copia base de datos in:"
+msgstr "Copia tabula con prefixo:"
 
 #: libraries/mult_submits.inc.php:295
 msgid "From"
@@ -9231,7 +9257,6 @@ msgid "Order"
 msgstr ""
 
 #: libraries/sql.lib.php:500 libraries/sql.lib.php:546
-#, fuzzy
 #| msgid "Status"
 msgid "State"
 msgstr "Stato"
