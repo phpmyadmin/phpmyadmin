@@ -3743,16 +3743,12 @@ class PMA_Util
         // and the column does not have the
         // ON UPDATE DEFAULT TIMESTAMP attribute.
         if (($field['True_Type'] == 'timestamp')
+            && $field['first_timestamp']
             && empty($field['Default'])
             && empty($data)
             && ! isset($analyzed_sql_field_array['on_update_current_timestamp'])
             && ($analyzed_sql_field_array['default_value'] != 'NULL')
         ) {
-            $default_function = $cfg['DefaultFunctions']['first_timestamp'];
-        }
-
-        // Default for first timestamp field
-        if ($field['first_timestamp']) {
             $default_function = $cfg['DefaultFunctions']['first_timestamp'];
         }
 
