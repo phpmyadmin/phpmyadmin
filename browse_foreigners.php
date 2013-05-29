@@ -9,7 +9,22 @@
 require_once 'libraries/common.inc.php';
 require_once 'libraries/transformations.lib.php';
 
-$field = $_REQUEST['field'];
+/**
+ * Sets globals from $_REQUEST
+ */
+$request_params = array(
+    'field',
+    'fieldkey',
+    'foreign_filter',
+    'pos',
+    'rownumber'
+);
+
+foreach ($request_params as $one_request_param) {
+    if (isset($_REQUEST[$one_request_param])) {
+        $GLOBALS[$one_request_param] = $_REQUEST[$one_request_param];
+    }
+}
 
 PMA_Util::checkParameters(array('db', 'table', 'field'));
 
@@ -66,6 +81,7 @@ if (is_array($foreignData['disp_row'])) {
 
     if ($foreignData['the_total'] > $GLOBALS['cfg']['MaxRows']) {
         $gotopage = PMA_Util::pageselector(
+            'pos',
             $session_max_rows,
             $pageNow,
             $nbTotalPage,
