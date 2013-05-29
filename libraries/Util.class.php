@@ -4109,7 +4109,7 @@ class PMA_Util
      *
      * @return String Matching regular expression.
      */
-    public static function getFirstOccuringRegularExpression($regex_array, $query)
+    public static function getFirstOccurringRegularExpression($regex_array, $query)
     {
         $minimum_first_occurance_index = null;
         $regex = null;
