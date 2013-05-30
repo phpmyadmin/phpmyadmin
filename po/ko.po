@@ -4,13 +4,13 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-05-28 12:35-0400\n"
-"PO-Revision-Date: 2013-05-23 17:03+0200\n"
+"PO-Revision-Date: 2013-05-30 15:36+0200\n"
 "Last-Translator: Yungu Kim <crimsonpi@gmail.com>\n"
 "Language-Team: Korean <http://l10n.cihar.com/projects/phpmyadmin/4-0/ko/>\n"
+"Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ko\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 1.6-dev\n"
 
@@ -6420,10 +6420,9 @@ msgid "File uploads are not allowed on this server."
 msgstr "이 서버에서는 파일 업로드가 허용되지 않습니다."
 
 #: libraries/display_import.lib.php:276
-#, fuzzy
 #| msgid "Partial Texts"
 msgid "Partial Import:"
-msgstr "Partial Texts"
+msgstr "일부분만 가져오기:"
 
 #: libraries/display_import.lib.php:282
 #, php-format
@@ -6437,14 +6436,16 @@ msgid ""
 "to the PHP timeout limit. <i>(This might be a good way to import large "
 "files, however it can break transactions.)</i>"
 msgstr ""
+"PHP 실행 시간 제한이 근접하였을 때 가져오기를 일시 중지하기. <i>(대용량의 파일들을 가져올 때 유용합니다. 하지만 트랜잭션이 "
+"유지되지 않을 수 있습니다.)</i>"
 
 #: libraries/display_import.lib.php:296
 msgid "Number of rows to skip, starting from the first row:"
-msgstr ""
+msgstr "스킵할 열의 수(첫 번째 열부터가 기준):"
 
 #: libraries/display_import.lib.php:318
 msgid "Format-Specific Options:"
-msgstr ""
+msgstr "상세 포멧 옵션:"
 
 #: libraries/display_select_lang.lib.php:56
 #: libraries/display_select_lang.lib.php:57 setup/frames/index.inc.php:75
@@ -6453,11 +6454,11 @@ msgstr "언어"
 
 #: libraries/engines/innodb.lib.php:28
 msgid "Data home directory"
-msgstr ""
+msgstr "데이터 홈 디렉토리"
 
 #: libraries/engines/innodb.lib.php:29
 msgid "The common part of the directory path for all InnoDB data files."
-msgstr ""
+msgstr "모든 InnoDB 데이터 파일에 대한, 파일 경로의 공통 부분."
 
 #: libraries/engines/innodb.lib.php:32
 msgid "Data files"
@@ -7060,7 +7061,7 @@ msgstr "스웨덴어"
 
 #: libraries/mysql_charsets.lib.php:336 libraries/mysql_charsets.lib.php:433
 msgid "Thai"
-msgstr ""
+msgstr "타이어"
 
 #: libraries/mysql_charsets.lib.php:339 libraries/mysql_charsets.lib.php:427
 msgid "Turkish"
@@ -7078,11 +7079,11 @@ msgstr "유니코드"
 #: libraries/mysql_charsets.lib.php:363 libraries/mysql_charsets.lib.php:370
 #: libraries/mysql_charsets.lib.php:392 libraries/mysql_charsets.lib.php:403
 msgid "multilingual"
-msgstr ""
+msgstr "다국어"
 
 #: libraries/mysql_charsets.lib.php:370
 msgid "Central European"
-msgstr ""
+msgstr "중부유럽어"
 
 #: libraries/mysql_charsets.lib.php:375
 msgid "Russian"
@@ -7090,15 +7091,15 @@ msgstr "러시아어"
 
 #: libraries/mysql_charsets.lib.php:392
 msgid "Baltic"
-msgstr ""
+msgstr "발트어"
 
 #: libraries/mysql_charsets.lib.php:397
 msgid "Armenian"
-msgstr ""
+msgstr "아르메니아어"
 
 #: libraries/mysql_charsets.lib.php:403
 msgid "Cyrillic"
-msgstr ""
+msgstr "키릴어"
 
 #: libraries/mysql_charsets.lib.php:406
 msgid "Arabic"
@@ -7110,7 +7111,7 @@ msgstr "히브리어"
 
 #: libraries/mysql_charsets.lib.php:415
 msgid "Georgian"
-msgstr ""
+msgstr "조지아어"
 
 #: libraries/mysql_charsets.lib.php:418
 msgid "Greek"
@@ -7118,7 +7119,7 @@ msgstr "그리스어"
 
 #: libraries/mysql_charsets.lib.php:421
 msgid "Czech-Slovak"
-msgstr ""
+msgstr "체코슬로바키아어"
 
 #: libraries/mysql_charsets.lib.php:436 libraries/mysql_charsets.lib.php:443
 #: libraries/structure.lib.php:1068
@@ -7127,7 +7128,7 @@ msgstr "알수없음"
 
 #: libraries/navigation/Navigation.class.php:61
 msgid "An error has occured while loading the navigation tree"
-msgstr ""
+msgstr "네비게이션 트리를 불러오는 도중 에러가 발생함"
 
 #: libraries/navigation/NavigationHeader.class.php:178
 msgid "Home"
@@ -7143,7 +7144,7 @@ msgstr "phpMyAdmin 설명서"
 
 #: libraries/navigation/NavigationHeader.class.php:238
 msgid "Reload navigation frame"
-msgstr ""
+msgstr "네비게이션 프레임 새로고침"
 
 #: libraries/navigation/NavigationTree.class.php:708
 #, php-format
@@ -9089,9 +9090,9 @@ msgid "Grant all privileges on wildcard name (username\\_%)"
 msgstr ""
 
 #: libraries/server_privileges.lib.php:1460
-#, fuzzy, php-format
+#, php-format
 msgid "Grant all privileges on database &quot;%s&quot;"
-msgstr "데이터베이스 &quot;%s&quot; 에 대한 사용권한 검사."
+msgstr "데이터베이스 &quot;%s&quot;에 대한 모든 권한을 부여"
 
 #: libraries/server_privileges.lib.php:1555
 #, php-format
@@ -10886,7 +10887,7 @@ msgstr ""
 
 #: server_status_variables.php:565
 msgid "The maximum time to acquire a row lock, in milliseconds."
-msgstr ""
+msgstr "행에 대한 락을 획득하기 위해 기다릴 최대 시간 (밀리초)."
 
 #: server_status_variables.php:568
 msgid "The number of times a row lock had to be waited for."
@@ -11892,9 +11893,8 @@ msgid "VIEW name"
 msgstr "뷰 이름"
 
 #: view_operations.php:90
-#, fuzzy
 msgid "Rename view to"
-msgstr "테이블 이름 바꾸기"
+msgstr "뷰 이름 변경"
 
 #: libraries/advisory_rules.txt:49
 msgid "Uptime below one day"
@@ -12063,7 +12063,7 @@ msgstr ""
 msgid ""
 "You should upgrade, as recent versions of MySQL 5.1 have improved "
 "performance and MySQL 5.5 even more so."
-msgstr ""
+msgstr "최신 버전의 MySQL(5.1 또는 5.5)로 업그레이드하여 성능을 향상하길 권장합니다."
 
 #: libraries/advisory_rules.txt:117
 msgid "Version less than 5.5.8 (the first GA release of 5.5)."
@@ -12088,6 +12088,8 @@ msgid ""
 "distribution. The MySQL manual only is accurate for official MySQL binaries, "
 "not any package distributions (such as RedHat, Debian/Ubuntu etc)."
 msgstr ""
+"만약 소스파일을 컴파일하지 않았다면, 레드햇이나 데비안, 우분투 등에서 수정된 패키지를 설치한 것일 수 있습니다. MySQL 메뉴얼은 "
+"MySQL 공식 바이너리에 대해서만 정확성을 보장합니다."
 
 #: libraries/advisory_rules.txt:126
 msgid "'source' found in version_comment"
@@ -12095,7 +12097,7 @@ msgstr "버전 코멘트에 'source'라는 문자가 있음"
 
 #: libraries/advisory_rules.txt:131 libraries/advisory_rules.txt:138
 msgid "The MySQL manual only is accurate for official MySQL binaries."
-msgstr ""
+msgstr "MySQL 메뉴얼은 MySQL 공식 바이너리에 대해서만 정확성을 보장합니다."
 
 #: libraries/advisory_rules.txt:132
 msgid "Percona documentation is at http://www.percona.com/docs/wiki/"
