@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-05-28 12:36-0400\n"
-"PO-Revision-Date: 2013-05-29 14:48+0200\n"
+"PO-Revision-Date: 2013-05-30 13:53+0200\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/ia/>\n"
@@ -1025,6 +1025,11 @@ msgid ""
 "likely that your current configuration will not work anymore. Please reset "
 "your configuration to default in the <i>Settings</i> menu."
 msgstr ""
+"Le configuration de disposition de graphicos in le immagazinage local de tu "
+"navigator non es plus compatibile con le nove version del dialogo de "
+"monitor. Il es multo probabile que tu configuration currente non functionara "
+"plus. Pro favor tu fixa le configuration al valores predefinite in le menu "
+"de <i>Preferentias</i>."
 
 #: js/messages.php:73
 msgid "Query cache efficiency"
@@ -1227,93 +1232,102 @@ msgid ""
 "than %d seconds. It is advisable to set this long_query_time 0-2 seconds, "
 "depending on your system."
 msgstr ""
+"slow_query_log es habilitate, ma le servitor registra solmente query que "
+"prende plus que %d secundas. Il es consiliabile fixar long_query_time a 0-2 "
+"secundas, secundo tu systema."
 
 #: js/messages.php:128
 #, php-format
 msgid "long_query_time is set to %d second(s)."
-msgstr ""
+msgstr "long_query_time es fixate a %d secunda(s)."
 
 #: js/messages.php:129
 msgid ""
 "Following settings will be applied globally and reset to default on server "
 "restart:"
 msgstr ""
+"Le sequente preferentias essera applicate globalmente e refixate a valores "
+"predefinite quando on reinitia le servitor:"
 
 #. l10n: %s is FILE or TABLE
 #: js/messages.php:131
 #, php-format
 msgid "Set log_output to %s"
-msgstr ""
+msgstr "Fixa log_output a %s"
 
 #. l10n: Enable in this context means setting a status variable to ON
 #: js/messages.php:133
 #, php-format
 msgid "Enable %s"
-msgstr ""
+msgstr "Habilita %s"
 
 #. l10n: Disable in this context means setting a status variable to OFF
 #: js/messages.php:135
 #, php-format
 msgid "Disable %s"
-msgstr ""
+msgstr "Dishabilita %s"
 
 #. l10n: %d seconds
 #: js/messages.php:137
 #, php-format
 msgid "Set long_query_time to %ds"
-msgstr ""
+msgstr "Imposta long_query_time a %ds"
 
 #: js/messages.php:138
 msgid ""
 "You can't change these variables. Please log in as root or contact your "
 "database administrator."
 msgstr ""
+"Tu non pote modificar iste variabiles. Pro favor accede como root o continge "
+"tu administrator del base de datos."
 
 #: js/messages.php:139
 msgid "Change settings"
-msgstr ""
+msgstr "Modifica preferentias"
 
 #: js/messages.php:140
 msgid "Current settings"
-msgstr ""
+msgstr "Preferentias currente"
 
 #: js/messages.php:142 server_status_monitor.php:517
 msgid "Chart Title"
-msgstr ""
+msgstr "Titulo del graphico"
 
 #. l10n: As in differential values
 #: js/messages.php:144
 msgid "Differential"
-msgstr ""
+msgstr "Differential"
 
 #: js/messages.php:145
 #, php-format
 msgid "Divided by %s"
-msgstr ""
+msgstr "Dividite per %s"
 
 #: js/messages.php:146
 msgid "Unit"
-msgstr ""
+msgstr "Unitate"
 
 #: js/messages.php:148
 msgid "From slow log"
-msgstr ""
+msgstr "Ex slow log"
 
 #: js/messages.php:149
 msgid "From general log"
-msgstr ""
+msgstr "Ex registro general"
 
 #: js/messages.php:150
 msgid "Analysing logs"
-msgstr ""
+msgstr "Analysante registros"
 
 #: js/messages.php:151
 msgid "Analysing & loading logs. This may take a while."
 msgstr ""
+"Analysante e cargante registros. Iste operation poterea prender alcun "
+"tempore."
 
 #: js/messages.php:152
 msgid "Cancel request"
-msgstr ""
+msgstr "Cancella requesta"
 
 #: js/messages.php:153
 msgid ""
@@ -1328,30 +1342,35 @@ msgid ""
 "same table are also being grouped together, disregarding of the inserted "
 "data."
 msgstr ""
+"Proque le option de gruppar le querys de INSERT ha essite seligite, on "
+"gruppara iste querys sur le mesme tabella, per ignorar le datos insertate."
 
 #: js/messages.php:155
 msgid "Log data loaded. Queries executed in this time span:"
 msgstr ""
+"Datos de registro cargate. Query executate in iste intervallo de tempore:"
 
 #: js/messages.php:157
 msgid "Jump to Log table"
-msgstr ""
+msgstr "Vade a tabella de registro"
 
 #: js/messages.php:158
 msgid "No data found"
-msgstr ""
+msgstr "Il non trovava alcun dato"
 
 #: js/messages.php:159
 msgid "Log analysed, but no data found in this time span."
 msgstr ""
+"Le registro (log) ha essite analysate, ma necun dato ha essite trovate pro "
+"iste intervallo de tempore."
 
 #: js/messages.php:161
 msgid "Analyzing…"
-msgstr ""
+msgstr "Analysante…"
 
 #: js/messages.php:162
 msgid "Explain output"
-msgstr ""
+msgstr "Explica le exito"
 
 #: js/messages.php:164 js/messages.php:515
 #: libraries/plugins/export/ExportHtmlword.class.php:486
@@ -1360,66 +1379,66 @@ msgstr ""
 #: libraries/rte/rte_list.lib.php:68 libraries/sql.lib.php:505
 #: server_status.php:387
 msgid "Time"
-msgstr ""
+msgstr "Tempore"
 
 #: js/messages.php:165
 msgid "Total time:"
-msgstr ""
+msgstr "Tempore total:"
 
 #: js/messages.php:166
 msgid "Profiling results"
-msgstr ""
+msgstr "Exitos del profiling"
 
 #: js/messages.php:167
 msgctxt "Display format"
 msgid "Table"
-msgstr ""
+msgstr "Tabella (Tabula)"
 
 #: js/messages.php:168
 msgid "Chart"
-msgstr ""
+msgstr "Graphico"
 
 #: js/messages.php:169
 msgid "Edit chart"
-msgstr ""
+msgstr "Modifica graphico"
 
 #: js/messages.php:170
 msgid "Series"
-msgstr ""
+msgstr "Serie"
 
 #. l10n: A collection of available filters
 #: js/messages.php:173
 msgid "Log table filter options"
-msgstr ""
+msgstr "Optiones de filtro per le registro de tabellas"
 
 #. l10n: Filter as in "Start Filtering"
 #: js/messages.php:175
 msgid "Filter"
-msgstr ""
+msgstr "Filtra"
 
 #: js/messages.php:176
 msgid "Filter queries by word/regexp:"
-msgstr ""
+msgstr "Filtra query per parola/regexp:"
 
 #: js/messages.php:177
 msgid "Group queries, ignoring variable data in WHERE clauses"
-msgstr ""
+msgstr "Gruppa query per ignorar datos variabile in propositiones de WHERE"
 
 #: js/messages.php:178
 msgid "Sum of grouped rows:"
-msgstr ""
+msgstr "Summa del rangos gruppate:"
 
 #: js/messages.php:179
 msgid "Total:"
-msgstr ""
+msgstr "Total:"
 
 #: js/messages.php:181
 msgid "Loading logs"
-msgstr ""
+msgstr "Cargante registros"
 
 #: js/messages.php:182
 msgid "Monitor refresh failed"
-msgstr ""
+msgstr "Il falleva actualisar monitor"
 
 #: js/messages.php:183
 msgid ""
@@ -1430,15 +1449,17 @@ msgstr ""
 
 #: js/messages.php:184
 msgid "Reload page"
-msgstr ""
+msgstr "Recarga pagina"
 
 #: js/messages.php:186
 msgid "Affected rows:"
-msgstr ""
+msgstr "Rangos implicate:"
 
 #: js/messages.php:188
 msgid "Failed parsing config file. It doesn't seem to be valid JSON code."
 msgstr ""
+"Le analysis de syntaxe del file falleva. Il sembla non esser un codice JSON "
+"valide."
 
 #: js/messages.php:189
 msgid ""
@@ -1451,207 +1472,211 @@ msgstr ""
 #: prefs_manage.php:238 server_status_monitor.php:742
 #: setup/frames/menu.inc.php:21
 msgid "Import"
-msgstr ""
+msgstr "Importa"
 
 #: js/messages.php:191
 msgid "Import monitor configuration"
-msgstr ""
+msgstr "Importa configuration de monitor"
 
 #: js/messages.php:192
 msgid "Please select the file you want to import"
-msgstr ""
+msgstr "Pro favor selige le file que tu vole importar"
 
 #: js/messages.php:194
 msgid "Analyse Query"
-msgstr ""
+msgstr "Analysa query"
 
 #: js/messages.php:198
 msgid "Advisor system"
-msgstr ""
+msgstr "Systema de advisor"
 
 #: js/messages.php:199
 msgid "Possible performance issues"
-msgstr ""
+msgstr "Prossibile problemas de prestationes"
 
 #: js/messages.php:200
 msgid "Issue"
-msgstr ""
+msgstr "Problema"
 
 #: js/messages.php:201
 msgid "Recommendation"
-msgstr ""
+msgstr "Recommendation"
 
 #: js/messages.php:202
 msgid "Rule details"
-msgstr ""
+msgstr "Detalios de regula"
 
 #: js/messages.php:203
 msgid "Justification"
-msgstr ""
+msgstr "Justification"
 
 #: js/messages.php:204
 msgid "Used variable / formula"
-msgstr ""
+msgstr "Variabile/formula utilisate"
 
 #: js/messages.php:205
 msgid "Test"
-msgstr ""
+msgstr "Essaya"
 
 #: js/messages.php:210 pmd_general.php:437 pmd_general.php:474
 #: pmd_general.php:594 pmd_general.php:642 pmd_general.php:718
 #: pmd_general.php:772 pmd_general.php:835 pmd_general.php:866
 #: server_variables.php:134
 msgid "Cancel"
-msgstr ""
+msgstr "Cancella"
 
 #: js/messages.php:213 libraries/navigation/NavigationHeader.class.php:54
 #: server_status_monitor.php:477
 msgid "Loading"
-msgstr ""
+msgstr "Cargar"
 
 #: js/messages.php:214
 msgid "Processing Request"
-msgstr ""
+msgstr "Requesta de tractamento"
 
 #: js/messages.php:215
 msgid "Error in Processing Request"
-msgstr ""
+msgstr "Error in le requesta de tractamento"
 
 #: js/messages.php:216
 #, php-format
 msgid "Error code: %s"
-msgstr ""
+msgstr "Codice de error: %s"
 
 #: js/messages.php:217
 #, php-format
 msgid "Error text: %s"
-msgstr ""
+msgstr "Texto de error: %s"
 
 #: js/messages.php:218 libraries/db_common.inc.php:58
 #: libraries/db_table_exists.lib.php:28 server_databases.php:89
 msgid "No databases selected."
-msgstr ""
+msgstr "Necun base de datos seligite."
 
 #: js/messages.php:219
 msgid "Dropping Column"
-msgstr ""
+msgstr "Depone columna"
 
 #: js/messages.php:220
 msgid "Adding Primary Key"
-msgstr ""
+msgstr "Adde clave primari"
 
 #: js/messages.php:221 pmd_general.php:435 pmd_general.php:592
 #: pmd_general.php:640 pmd_general.php:716 pmd_general.php:770
 #: pmd_general.php:833
 msgid "OK"
-msgstr ""
+msgstr "OK"
 
 #: js/messages.php:222
 msgid "Click to dismiss this notification"
-msgstr ""
+msgstr "Pulsa pro dimitter iste notification"
 
 #: js/messages.php:225
 msgid "Renaming Databases"
-msgstr ""
+msgstr "Renominar base de datos"
 
 #: js/messages.php:226
 msgid "Reload Database"
-msgstr ""
+msgstr "Recarga base de datos"
 
 #: js/messages.php:227
 msgid "Copying Database"
-msgstr ""
+msgstr "Copiante base de datos"
 
 #: js/messages.php:228
 msgid "Changing Charset"
-msgstr ""
+msgstr "Modificante insimul de characteres"
 
 #: js/messages.php:229
 msgid "Table must have at least one column"
-msgstr ""
+msgstr "Le tabella debe haber al minus un columna"
 
 #: js/messages.php:234
 msgid "Insert Table"
-msgstr ""
+msgstr "Inserta tabella"
 
 #: js/messages.php:235
 msgid "Hide indexes"
-msgstr ""
+msgstr "Cela indices"
 
 #: js/messages.php:236
 msgid "Show indexes"
-msgstr ""
+msgstr "Monstra indices"
 
 #: js/messages.php:237 libraries/mult_submits.inc.php:350
 msgid "Foreign key check:"
-msgstr ""
+msgstr "Controlo de clave externe:"
 
 #: js/messages.php:238 libraries/mult_submits.inc.php:360
 msgid "(Enabled)"
-msgstr ""
+msgstr "(Habilitate)"
 
 #: js/messages.php:239 libraries/mult_submits.inc.php:360
 msgid "(Disabled)"
-msgstr ""
+msgstr "(Dishabilitate)"
 
 #: js/messages.php:242
 msgid "Searching"
-msgstr ""
+msgstr "Cercante"
 
 #: js/messages.php:243
 msgid "Hide search results"
-msgstr ""
+msgstr "Cela exitos de cerca"
 
 #: js/messages.php:244
 msgid "Show search results"
-msgstr ""
+msgstr "Monstra exitos de cerca"
 
 #: js/messages.php:245
 msgid "Browsing"
-msgstr ""
+msgstr "Navigar"
 
 #: js/messages.php:246
 msgid "Deleting"
-msgstr ""
+msgstr "Delente"
 
 #: js/messages.php:249
 msgid "The definition of a stored function must contain a RETURN statement!"
 msgstr ""
+"Le definition del function immagasinate debe continer un declaration de "
+"RETURN!"
 
 #: js/messages.php:252 libraries/rte/rte_routines.lib.php:790
 msgid "ENUM/SET editor"
-msgstr ""
+msgstr "Editor de ENUM/SET"
 
 #: js/messages.php:253
 #, php-format
 msgid "Values for column %s"
-msgstr ""
+msgstr "Valores pro le columna %s"
 
 #: js/messages.php:254
 msgid "Values for a new column"
-msgstr ""
+msgstr "Valores pro un nove columna"
 
 #: js/messages.php:255
 msgid "Enter each value in a separate field"
-msgstr ""
+msgstr "Inserta cata valor in un campo separate"
 
 #: js/messages.php:256
 #, php-format
 msgid "Add %d value(s)"
-msgstr ""
+msgstr "Adde %d valor(es)"
 
 #: js/messages.php:259
 msgid ""
 "Note: If the file contains multiple tables, they will be combined into one"
 msgstr ""
+"Nota: si le file contine plus que un tabella, le datos essera fusionate in "
+"un tabella unic"
 
 #: js/messages.php:262
 msgid "Hide query box"
-msgstr ""
+msgstr "Cela quadro de query"
 
 #: js/messages.php:263
 msgid "Show query box"
-msgstr ""
+msgstr "Monstra quadro de query"
 
 #: js/messages.php:264 libraries/DisplayResults.class.php:3314
 #: libraries/Index.class.php:591 libraries/Util.class.php:702
@@ -1660,27 +1685,27 @@ msgstr ""
 #: libraries/schema/User_Schema.class.php:216 server_variables.php:130
 #: setup/frames/index.inc.php:147
 msgid "Edit"
-msgstr ""
+msgstr "Modifica"
 
 #: js/messages.php:265 tbl_row_action.php:21
 msgid "No rows selected"
-msgstr ""
+msgstr "Necun rango seligite"
 
 #: js/messages.php:266 libraries/DisplayResults.class.php:5051
 #: libraries/structure.lib.php:1374 libraries/structure.lib.php:2040
 #: querywindow.php:85
 msgid "Change"
-msgstr ""
+msgstr "Modifica"
 
 #: js/messages.php:267
 msgid "Query execution time"
-msgstr ""
+msgstr "Tempore de executation del query"
 
 #: js/messages.php:268 libraries/DisplayResults.class.php:721
 #: libraries/DisplayResults.class.php:729
 #, php-format
 msgid "%d is not valid row number."
-msgstr ""
+msgstr "%d non es un valide numero de rangos."
 
 #: js/messages.php:271 libraries/config/FormDisplay.tpl.php:392
 #: libraries/display_indexes.lib.php:195 libraries/insert_edit.lib.php:1462
@@ -1689,15 +1714,15 @@ msgstr ""
 #: setup/frames/config.inc.php:39 setup/frames/index.inc.php:246
 #: tbl_relation.php:565
 msgid "Save"
-msgstr ""
+msgstr "Salveguarda"
 
 #: js/messages.php:274
 msgid "Hide search criteria"
-msgstr ""
+msgstr "Cela criterios de cerca"
 
 #: js/messages.php:275
 msgid "Show search criteria"
-msgstr ""
+msgstr "Monstra criterios de cerca"
 
 #: js/messages.php:278 libraries/TableSearch.class.php:210
 msgid "Zoom Search"
