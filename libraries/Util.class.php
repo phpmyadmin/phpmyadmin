@@ -404,9 +404,6 @@ class PMA_Util
                 $formatted_sql = PMA_SQP_formatNone($parsed_sql);
             }
             break;
-        case 'html':
-            $formatted_sql = PMA_SQP_format($parsed_sql, 'color');
-            break;
         case 'text':
             $formatted_sql = PMA_SQP_format($parsed_sql, 'text');
             break;
