@@ -2609,14 +2609,14 @@ SQL parser settings
     :type: string
     :default: ``'html'``
 
-    The main use of the new :term:`SQL` Parser
-    is to pretty-print :term:`SQL` queries. By
-    default we use HTML to format the query, but you can disable this by
+    The main use of the :term:`SQL` Parser
+    is to format and analyze :term:`SQL` queries. By
+    default we use text to format the query, but you can disable this by
     setting this variable to ``'none'``.
 
     Available options:
 
-    * ``'html'``
+    * ``'text'``
     * ``'none'``
 
 .. _cfg_SQP:
