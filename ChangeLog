@@ -25,6 +25,8 @@ phpMyAdmin - ChangeLog
 - bug #3957 Cookies must be enabled past this point
 - bug #3956 "Browse foreign values" search filter / page selector not working
 - bug #3579 NOW() function incorrectly selected (partial regression)
+- [security] Javascript execution vulnerability in Create view,
+  reported by Maxim Rupp (see PMASA-2013-6)
 
 4.0.2.0 (2013-05-24)
 - bug #3902 Cannot browse when table name contains keyword "call"
