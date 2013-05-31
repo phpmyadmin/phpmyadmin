@@ -273,6 +273,7 @@ class PMA_Table
             );
             $analyzed_sql = PMA_SQP_analyze(PMA_SQP_parse($show_create_table));
         }
+        return $analyzed_sql;
     }
 
     /**
