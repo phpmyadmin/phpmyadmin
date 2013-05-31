@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-05-28 12:36-0400\n"
-"PO-Revision-Date: 2013-05-31 18:05+0200\n"
+"PO-Revision-Date: 2013-05-31 19:47+0200\n"
 "Last-Translator: Yuri German <yuri198@gmail.com>\n"
 "Language-Team: Hebrew <http://l10n.cihar.com/projects/phpmyadmin/master/he/>\n"
 "Language: he\n"
@@ -922,14 +922,13 @@ msgstr "עריכת האינדקס"
 
 #: js/messages.php:44 libraries/display_indexes.lib.php:199
 #: libraries/display_indexes.lib.php:205
-#, fuzzy, php-format
+#, php-format
 #| msgid "Add %d column(s) to index"
 msgid "Add %s column(s) to index"
 msgstr "הוספת %d עמודות לאינדקס"
 
 #. l10n: Default label for the y-Axis of Charts
 #: js/messages.php:48 tbl_chart.php:236
-#, fuzzy
 #| msgid "Value"
 msgid "Y Values"
 msgstr "ערך"
@@ -1015,15 +1014,15 @@ msgstr "זיכרון מטמון בשימוש"
 
 #: js/messages.php:75
 msgid "Query cache used"
-msgstr "זיכרון מטמון בשימוש"
+msgstr "שאילתות מטמון בשימוש"
 
 #: js/messages.php:77
 msgid "System CPU Usage"
-msgstr ""
+msgstr "שימוש במערכת ה-CPU"
 
 #: js/messages.php:78
 msgid "System memory"
-msgstr ""
+msgstr "זיכרון מערכת"
 
 #: js/messages.php:79
 msgid "System swap"
@@ -1031,13 +1030,12 @@ msgstr ""
 
 #: js/messages.php:81
 msgid "Average load"
-msgstr ""
+msgstr "טעינה בממוצע"
 
 #: js/messages.php:82
-#, fuzzy
 #| msgid "Total"
 msgid "Total memory"
-msgstr "סה\"כ"
+msgstr "סה\"כ זיכרון"
 
 #: js/messages.php:83
 msgid "Cached memory"
@@ -1049,11 +1047,11 @@ msgstr ""
 
 #: js/messages.php:85
 msgid "Free memory"
-msgstr ""
+msgstr "זיכרון פנוי"
 
 #: js/messages.php:86
 msgid "Used memory"
-msgstr ""
+msgstr "זיכרון בשימוש"
 
 #: js/messages.php:88
 #, fuzzy
@@ -1077,7 +1075,7 @@ msgstr "דפים חופשיים"
 
 #: js/messages.php:93
 msgid "Bytes sent"
-msgstr ""
+msgstr "בתים נשלחו"
 
 #: js/messages.php:94
 #, fuzzy
