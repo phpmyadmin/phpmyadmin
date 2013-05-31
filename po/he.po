@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-05-28 12:35-0400\n"
-"PO-Revision-Date: 2013-05-31 18:05+0200\n"
+"PO-Revision-Date: 2013-05-31 19:47+0200\n"
 "Last-Translator: Yuri German <yuri198@gmail.com>\n"
 "Language-Team: Hebrew <http://l10n.cihar.com/projects/phpmyadmin/4-0/he/>\n"
 "Language: he\n"
@@ -728,9 +728,8 @@ msgid "Server"
 msgstr "שרת"
 
 #: index.php:240
-#, fuzzy
 msgid "Server type"
-msgstr "קוד שרת (ID)"
+msgstr "סוג שרת"
 
 #: index.php:244 libraries/plugins/export/ExportLatex.class.php:225
 #: libraries/plugins/export/ExportSql.class.php:612
@@ -750,9 +749,8 @@ msgid "User"
 msgstr "משתמש"
 
 #: index.php:257
-#, fuzzy
 msgid "Server charset"
-msgstr "בחירת שרת"
+msgstr "קידוד שרת"
 
 #: index.php:269
 msgid "Web server"
@@ -943,14 +941,13 @@ msgid "Edit Index"
 msgstr "עריכת האינדקס"
 
 #: js/messages.php:44 tbl_indexes.php:349 tbl_indexes.php:357
-#, fuzzy, php-format
+#, php-format
 #| msgid "Add %d column(s) to index"
 msgid "Add %s column(s) to index"
 msgstr "הוספת %d עמודות לאינדקס"
 
 #. l10n: Default label for the y-Axis of Charts
 #: js/messages.php:48 tbl_chart.php:236
-#, fuzzy
 #| msgid "Value"
 msgid "Y Values"
 msgstr "ערך"
@@ -1070,15 +1067,15 @@ msgstr "זיכרון מטמון בשימוש"
 
 #: js/messages.php:84
 msgid "Query cache used"
-msgstr "זיכרון מטמון בשימוש"
+msgstr "שאילתות מטמון בשימוש"
 
 #: js/messages.php:86
 msgid "System CPU Usage"
-msgstr ""
+msgstr "שימוש במערכת ה-CPU"
 
 #: js/messages.php:87
 msgid "System memory"
-msgstr ""
+msgstr "זיכרון מערכת"
 
 #: js/messages.php:88
 msgid "System swap"
@@ -1086,13 +1083,12 @@ msgstr ""
 
 #: js/messages.php:90
 msgid "Average load"
-msgstr ""
+msgstr "טעינה בממוצע"
 
 #: js/messages.php:91
-#, fuzzy
 #| msgid "Total"
 msgid "Total memory"
-msgstr "סה\"כ"
+msgstr "סה\"כ זיכרון"
 
 #: js/messages.php:92
 msgid "Cached memory"
@@ -1104,11 +1100,11 @@ msgstr ""
 
 #: js/messages.php:94
 msgid "Free memory"
-msgstr ""
+msgstr "זיכרון פנוי"
 
 #: js/messages.php:95
 msgid "Used memory"
-msgstr ""
+msgstr "זיכרון בשימוש"
 
 #: js/messages.php:97
 #, fuzzy
@@ -1132,7 +1128,7 @@ msgstr "דפים חופשיים"
 
 #: js/messages.php:102
 msgid "Bytes sent"
-msgstr ""
+msgstr "בתים נשלחו"
 
 #: js/messages.php:103
 #, fuzzy
