@@ -6,16 +6,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-05-28 12:36-0400\n"
-"PO-Revision-Date: 2013-03-28 12:20+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: English (United Kingdom) <http://l10n.cihar.com/projects/"
-"phpmyadmin/master/en_GB/>\n"
+"PO-Revision-Date: 2013-05-31 14:26+0200\n"
+"Last-Translator: Robert Readman <robert_readman@hotmail.com>\n"
+"Language-Team: English (United Kingdom) "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/en_GB/>\n"
+"Language: en_GB\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: en_GB\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 1.5-dev\n"
+"X-Generator: Weblate 1.6-dev\n"
 
 #: browse_foreigners.php:36 browse_foreigners.php:60 js/messages.php:335
 #: libraries/DisplayResults.class.php:809
@@ -43,10 +43,9 @@ msgstr ""
 "cross-window updates."
 
 #: browse_foreigners.php:166
-#, fuzzy
 #| msgid "Search"
 msgid "Search:"
-msgstr "Search"
+msgstr "Search:"
 
 #: browse_foreigners.php:170 gis_data_editor.php:396 js/messages.php:209
 #: libraries/DbSearch.class.php:455 libraries/DisplayResults.class.php:1657
@@ -122,10 +121,9 @@ msgstr "Database comment: "
 
 #: db_datadict.php:157 libraries/schema/Pdf_Relation_Schema.class.php:1336
 #: libraries/tbl_columns_definition_form.inc.php:836 tbl_printview.php:120
-#, fuzzy
 #| msgid "Table comments"
 msgid "Table comments:"
-msgstr "Table comments"
+msgstr "Table comments:"
 
 #: db_datadict.php:166 libraries/Index.class.php:565
 #: libraries/TableSearch.class.php:183 libraries/TableSearch.class.php:1190
@@ -342,24 +340,21 @@ msgstr "in use"
 
 #: db_printview.php:117 libraries/plugins/export/ExportSql.class.php:947
 #: libraries/schema/Pdf_Relation_Schema.class.php:1341
-#, fuzzy
 #| msgid "Creation"
 msgid "Creation:"
-msgstr "Creation"
+msgstr "Creation:"
 
 #: db_printview.php:126 libraries/plugins/export/ExportSql.class.php:960
 #: libraries/schema/Pdf_Relation_Schema.class.php:1346
-#, fuzzy
 #| msgid "Last update"
 msgid "Last update:"
-msgstr "Last update"
+msgstr "Last update:"
 
 #: db_printview.php:135 libraries/plugins/export/ExportSql.class.php:973
 #: libraries/schema/Pdf_Relation_Schema.class.php:1351
-#, fuzzy
 #| msgid "Last check"
 msgid "Last check:"
-msgstr "Last check"
+msgstr "Last check:"
 
 #: db_printview.php:149 libraries/structure.lib.php:176
 #, php-format
@@ -528,22 +523,20 @@ msgid "Use OpenStreetMaps as Base Layer"
 msgstr "Use OpenStreetMaps as Base Layer"
 
 #: gis_data_editor.php:161
-#, fuzzy
 #| msgid "SRID"
 msgid "SRID:"
-msgstr "SRID"
+msgstr "SRID:"
 
 #: gis_data_editor.php:184
-#, fuzzy, php-format
+#, php-format
 #| msgid "Geometry"
 msgid "Geometry %d:"
-msgstr "Geometry"
+msgstr "Geometry %d:"
 
 #: gis_data_editor.php:206
-#, fuzzy
 #| msgid "Point"
 msgid "Point:"
-msgstr "Point"
+msgstr "Point:"
 
 #: gis_data_editor.php:207 gis_data_editor.php:234 gis_data_editor.php:289
 #: gis_data_editor.php:362 js/messages.php:300
@@ -567,22 +560,21 @@ msgid "Add a point"
 msgstr "Add a point"
 
 #: gis_data_editor.php:262
-#, fuzzy, php-format
+#, php-format
 #| msgid "Linestring"
 msgid "Linestring %d:"
-msgstr "Linestring"
+msgstr "Linestring %d:"
 
 #: gis_data_editor.php:265 gis_data_editor.php:341
-#, fuzzy
 #| msgid "Outer Ring:"
 msgid "Outer ring:"
-msgstr "Outer Ring:"
+msgstr "Outer ring:"
 
 #: gis_data_editor.php:267 gis_data_editor.php:343
-#, fuzzy, php-format
+#, php-format
 #| msgid "Inner Ring"
 msgid "Inner ring %d:"
-msgstr "Inner Ring"
+msgstr "Inner ring %d:"
 
 #: gis_data_editor.php:303
 msgid "Add a linestring"
@@ -593,10 +585,10 @@ msgid "Add an inner ring"
 msgstr "Add an inner ring"
 
 #: gis_data_editor.php:325
-#, fuzzy, php-format
+#, php-format
 #| msgid "Polygon"
 msgid "Polygon %d:"
-msgstr "Polygon"
+msgstr "Polygon %d:"
 
 #: gis_data_editor.php:384 js/messages.php:311
 msgid "Add a polygon"
@@ -738,18 +730,16 @@ msgid "Server:"
 msgstr "Server:"
 
 #: index.php:241
-#, fuzzy
 #| msgid "Server type"
 msgid "Server type:"
-msgstr "Server type"
+msgstr "Server type:"
 
 #: index.php:245 libraries/plugins/export/ExportLatex.class.php:225
 #: libraries/plugins/export/ExportSql.class.php:612
 #: libraries/plugins/export/ExportXml.class.php:198
-#, fuzzy
 #| msgid "Server version"
 msgid "Server version:"
-msgstr "Server version"
+msgstr "Server version:"
 
 #: index.php:249
 #, fuzzy
@@ -6363,10 +6353,9 @@ msgstr "CSV using LOAD DATA"
 #: libraries/config/setup.forms.php:260 libraries/config/setup.forms.php:353
 #: libraries/config/user_preferences.forms.php:160
 #: libraries/config/user_preferences.forms.php:252
-#, fuzzy
 #| msgid "Open Document Spreadsheet"
 msgid "OpenDocument Spreadsheet"
-msgstr "Open Document Spreadsheet"
+msgstr "Open-Document Spreadsheet"
 
 #: libraries/config/setup.forms.php:267
 #: libraries/config/user_preferences.forms.php:167
@@ -6395,10 +6384,9 @@ msgstr "Microsoft Word 2000"
 
 #: libraries/config/setup.forms.php:357
 #: libraries/config/user_preferences.forms.php:256
-#, fuzzy
 #| msgid "Open Document Text"
 msgid "OpenDocument Text"
-msgstr "Open Document Text"
+msgstr "Open-Document Text"
 
 #: libraries/config/validate.lib.php:214
 msgid "Could not initialize Drizzle connection library"
@@ -7893,7 +7881,7 @@ msgstr ""
 
 #: libraries/plugins/auth/AuthenticationConfig.class.php:142
 msgid "Retry to connect"
-msgstr ""
+msgstr "Retry to connect"
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:44
 msgid "Failed to use Blowfish from mcrypt!"
@@ -10557,10 +10545,9 @@ msgid "FOREIGN KEY relation added"
 msgstr "FOREIGN KEY relation added"
 
 #: pmd_relation_new.php:82
-#, fuzzy
 #| msgid "Error: Relation not added."
 msgid "Error: Relational features are disabled!"
-msgstr "Error: Relation not added."
+msgstr "Error: Relational features are disabled!"
 
 #: pmd_relation_new.php:98
 msgid "Internal relation added"
@@ -11248,16 +11235,14 @@ msgid "Instructions/Setup"
 msgstr "Instructions/Setup"
 
 #: server_status_monitor.php:685
-#, fuzzy
 #| msgid "Done rearranging/editing charts"
 msgid "Done dragging (rearranging) charts"
-msgstr "Done rearranging/editing charts"
+msgstr "Done dragging (rearranging) charts"
 
 #: server_status_monitor.php:704
-#, fuzzy
 #| msgid "Enable highlighting"
 msgid "Enable charts dragging"
-msgstr "Enable highlighting"
+msgstr "Enable charts dragging"
 
 #: server_status_monitor.php:708
 msgid "Refresh rate"
@@ -12616,10 +12601,9 @@ msgid "Choose column to display:"
 msgstr "Choose column to display"
 
 #: tbl_structure.php:125
-#, fuzzy
 #| msgid "No rows selected"
 msgid "No column selected."
-msgstr "No rows selected"
+msgstr "No column selected."
 
 #: tbl_tracking.php:135
 #, php-format
