@@ -114,7 +114,8 @@ if (isset($_REQUEST['createview'])) {
             $response->addJSON(
                 'message',
                 PMA_Message::error(
-                    "<i>$sql_query</i><br /><br />" . PMA_DBI_getError()
+                    "<i>" . htmlspecialchars($sql_query) . "</i><br /><br />"
+                    . PMA_DBI_getError()
                 )
             );
             $response->isSuccess(false);
