@@ -16,6 +16,8 @@ phpMyAdmin - ChangeLog
 + [interface] Upgraded CodeMirror to 3.x series
 + rfe #1363 Improved query profiler
 
+4.0.4.0 (not yet released)
+
 4.0.3.0 (not yet released)
 - bug #3941 Recent tables list always empty
 - bug #3933 Do not translate "Open Document" in export settings
