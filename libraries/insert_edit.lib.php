@@ -509,7 +509,7 @@ function PMA_getNullColumn($column, $column_name_appendix, $real_null_value,
     $html_output .= '<input type="checkbox" class="checkbox_null" tabindex="'
         . ($tabindex + $tabindex_for_null) . '"'
         . ' name="fields_null' . $column_name_appendix . '"';
-    if ($real_null_value && !$column['first_timestamp']) {
+    if ($real_null_value) {
         $html_output .= ' checked="checked"';
     }
     $html_output .= ' id="field_' . ($idindex) . '_2" />';
