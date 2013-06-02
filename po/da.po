@@ -4,13 +4,13 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-05-28 12:35-0400\n"
-"PO-Revision-Date: 2013-05-07 15:03+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"PO-Revision-Date: 2013-06-02 09:58+0200\n"
+"Last-Translator: Aputsiaq Niels Janussen <aj@isit.gl>\n"
 "Language-Team: Danish <http://l10n.cihar.com/projects/phpmyadmin/4-0/da/>\n"
+"Language: da\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: da\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 1.6-dev\n"
 
@@ -359,7 +359,7 @@ msgstr "Sidste opdatering"
 #: libraries/structure.lib.php:812 libraries/structure.lib.php:1762
 #: tbl_printview.php:432
 msgid "Last check"
-msgstr "Sidste check"
+msgstr "Seneste tjek"
 
 #: db_printview.php:220 libraries/structure.lib.php:176
 #, php-format
@@ -663,7 +663,7 @@ msgstr ""
 
 #: import.php:485 libraries/display_import.lib.php:29
 msgid "Could not load import plugins, please check your installation!"
-msgstr "Kunne ikke indlæse importplugins, check venligst din installation!"
+msgstr "Kunne ikke indlæse importplugins, tjek venligst din installation!"
 
 #: import.php:519 sql.php:382 sql.php:1255
 #, php-format
@@ -1297,7 +1297,7 @@ msgstr "Sæt log_output til %s"
 #: js/messages.php:142
 #, php-format
 msgid "Enable %s"
-msgstr "Aktiver %s"
+msgstr "Aktivér %s"
 
 #. l10n: Disable in this context means setting a status variable to OFF
 #: js/messages.php:144
@@ -3784,11 +3784,11 @@ msgstr "Replikeret"
 #: libraries/build_html_for_db.lib.php:170
 #, php-format
 msgid "Check privileges for database &quot;%s&quot;."
-msgstr "Check privilegier for database &quot;%s&quot;."
+msgstr "Tjek privilegier for databasen &quot;%s&quot;."
 
 #: libraries/build_html_for_db.lib.php:175
 msgid "Check Privileges"
-msgstr "Check privilegier"
+msgstr "Tjek privilegier"
 
 #: libraries/common.inc.php:578
 msgid "Failed to read configuration file"
@@ -4090,7 +4090,7 @@ msgid ""
 "Enable [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] compression for "
 "import and export operations"
 msgstr ""
-"Aktiver komprimering af [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] ved "
+"Aktivér komprimering af [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] ved "
 "import -og eksport arbejdsgange"
 
 #: libraries/config/messages.inc.php:27
@@ -4456,7 +4456,7 @@ msgstr "Indstillinger til <code>CREATE TABLE</code>:"
 
 #: libraries/config/messages.inc.php:121
 msgid "Creation/Update/Check dates"
-msgstr "Oprettet/Opdateret/Check datoer"
+msgstr "Oprettet/Opdateret/Tjek datoer"
 
 #: libraries/config/messages.inc.php:122
 msgid "Use delayed inserts"
@@ -4849,7 +4849,7 @@ msgid ""
 "Enable [a@http://en.wikipedia.org/wiki/Gzip]gzip[/a] compression for import "
 "and export operations"
 msgstr ""
-"Aktiver [a@http://en.wikipedia.org/wiki/Gzip]gzip[/a] komprimering for "
+"Aktivér [a@http://en.wikipedia.org/wiki/Gzip]gzip[/a] komprimering for "
 "import og eksport-funktionerne"
 
 #: libraries/config/messages.inc.php:235
@@ -5195,7 +5195,7 @@ msgstr "Fremhæv server under musepil"
 
 #: libraries/config/messages.inc.php:317
 msgid "Enable highlighting"
-msgstr "Aktiver fremhævning"
+msgstr "Aktivér fremhævning"
 
 #: libraries/config/messages.inc.php:318
 msgid "Maximum number of recently used tables; set 0 to disable"
@@ -5314,7 +5314,7 @@ msgid ""
 "storage). If disabled, this utilizes JS-routines to display query history "
 "(lost by window close)."
 msgstr ""
-"Aktiver hvis du ønsker DB-baseret forespørgselshistorik (kræver phpMyAdmin "
+"Aktivér hvis du ønsker DB-baseret forespørgselshistorik (kræver phpMyAdmin "
 "configuration storage). Hvis deaktiveret bruges JS-rutiner til at vise "
 "forespørgselshistorik (mistes når vinduet lukkes)."
 
@@ -6030,7 +6030,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:492
 msgid "Enable SQL Validator"
-msgstr "Aktiver SQL Validator"
+msgstr "Aktivér SQL Validator"
 
 #: libraries/config/messages.inc.php:493
 msgid ""
@@ -6141,15 +6141,15 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:516
 msgid "Enable the Developer tab in settings"
-msgstr "Aktiver udviklerfanen i indstillinger"
+msgstr "Aktivér udviklerfanen i indstillinger"
 
 #: libraries/config/messages.inc.php:517 setup/frames/index.inc.php:275
 msgid "Check for latest version"
-msgstr "Check for den seneste version"
+msgstr "Tjek for den seneste version"
 
 #: libraries/config/messages.inc.php:518
 msgid "Enables check for latest version on main phpMyAdmin page"
-msgstr "Aktiverer check for den seneste version på hovedsiden for phpMyAdmin"
+msgstr "Aktiverer tjek for den seneste version på hovedsiden for phpMyAdmin"
 
 #: libraries/config/messages.inc.php:519 setup/lib/index.lib.php:132
 #: setup/lib/index.lib.php:143 setup/lib/index.lib.php:164
@@ -6164,7 +6164,7 @@ msgid ""
 "Enable [a@http://en.wikipedia.org/wiki/ZIP_(file_format)]ZIP[/a] compression "
 "for import and export operations"
 msgstr ""
-"Aktiver [a@http://en.wikipedia.org/wiki/ZIP_(fil_format)]ZIP[/a] "
+"Aktivér [a@http://en.wikipedia.org/wiki/ZIP_(fil_format)]ZIP[/a] "
 "komprimering ved import and eksport operationer"
 
 #: libraries/config/messages.inc.php:521
@@ -6195,10 +6195,9 @@ msgstr "CSV vha. LOAD DATA"
 #: libraries/config/setup.forms.php:255 libraries/config/setup.forms.php:348
 #: libraries/config/user_preferences.forms.php:160
 #: libraries/config/user_preferences.forms.php:252
-#, fuzzy
 #| msgid "Open Document Spreadsheet"
 msgid "OpenDocument Spreadsheet"
-msgstr "Open Document regneark"
+msgstr "OpenDocument regneark"
 
 #: libraries/config/setup.forms.php:262
 #: libraries/config/user_preferences.forms.php:167
@@ -6227,10 +6226,9 @@ msgstr "Microsoft Word 2000"
 
 #: libraries/config/setup.forms.php:352
 #: libraries/config/user_preferences.forms.php:256
-#, fuzzy
 #| msgid "Open Document Text"
 msgid "OpenDocument Text"
-msgstr "Open Document tekst"
+msgstr "OpenDocument tekst"
 
 #: libraries/config/validate.lib.php:214
 msgid "Could not initialize Drizzle connection library"
@@ -6272,7 +6270,7 @@ msgstr "Ukorrekt IP-adresse: %s"
 #: libraries/core.lib.php:290
 #, php-format
 msgid "The %s extension is missing. Please check your PHP configuration."
-msgstr "%s udvidelsen mangler. Check din PHP-konfiguration."
+msgstr "%s-udvidelsen mangler. Tjek din PHP-konfiguration."
 
 #: libraries/core.lib.php:449
 msgid "possible deep recursion attack"
@@ -6370,7 +6368,7 @@ msgstr "Antal kolonner"
 
 #: libraries/display_export.lib.php:49
 msgid "Could not load export plugins, please check your installation!"
-msgstr "Kunne ikke indlæse eksportplugins, check venligst din installation!"
+msgstr "Kunne ikke indlæse eksportplugins, tjek venligst din installation!"
 
 #: libraries/display_export.lib.php:96
 msgid "Exporting databases from the current server"
@@ -7640,7 +7638,7 @@ msgstr "Fjern partitionering"
 
 #: libraries/operations.lib.php:1359
 msgid "Check referential integrity:"
-msgstr "Check reference-integriteten:"
+msgstr "Tjek reference-integriteten:"
 
 #: libraries/plugin_interface.lib.php:503
 msgid "This format has no options"
@@ -8439,8 +8437,9 @@ msgid ""
 "Enable advanced features in configuration file (<code>config.inc.php</"
 "code>), for example by starting from <code>config.sample.inc.php</code>."
 msgstr ""
-"Aktiver avancerede muligheder i konfigurationfilen (<code>config.inc.php</"
-"code>), fx ved at starte med <code>config.sample.inc.php</code>."
+"Aktivér avancerede muligheder i konfigurationfilen "
+"(<code>config.inc.php</code>), fx ved at starte med "
+"<code>config.sample.inc.php</code>."
 
 #: libraries/relation.lib.php:278
 msgid "Re-login to phpMyAdmin to load the updated configuration file."
@@ -9617,7 +9616,7 @@ msgid ""
 "and submit a bug report with the data chunk in the CUT section below:"
 msgstr ""
 "Det er muligt at du har fundet en fejl i SQL-parseren. Undersøg venligst din "
-"forespørgsel nøje, og check at anførselstegn er rigtige og ikke giver "
+"forespørgsel nøje, og tjek at anførselstegn er rigtige og ikke giver "
 "konflikter. Andre fejlårsager kan være at du uploader en fil med binær "
 "udenfor et lukket tekstområde. Du kan også prøve din forespørgsel i MySQL "
 "kommandolinje-interfacet. MySQL-serverens fejlmelding der følger herunder, "
@@ -9665,7 +9664,7 @@ msgid ""
 "The SQL validator could not be initialized. Please check if you have "
 "installed the necessary PHP extensions as described in the %sdocumentation%s."
 msgstr ""
-"SQL-validatoren kunne ikke initialiseres. Check venligst at du har de "
+"SQL-validatoren kunne ikke initialiseres. Tjek venligst at du har de "
 "nødvendige PHP-udvidelser installeret som beskrevet i %sdokumentationen%s."
 
 #: libraries/structure.lib.php:68 tbl_operations.php:311
@@ -9701,7 +9700,7 @@ msgstr "Tilføj præfiks til tabel"
 
 #: libraries/structure.lib.php:344
 msgid "Check tables having overhead"
-msgstr "Check tabeller der har overhead"
+msgstr "Tjek tabeller der har overhead"
 
 #: libraries/structure.lib.php:1279 tbl_tracking.php:358
 msgctxt "None for default"
@@ -10692,20 +10691,18 @@ msgid "Instructions/Setup"
 msgstr "Instruktioner/Opsætning"
 
 #: server_status_monitor.php:483
-#, fuzzy
 #| msgid "Done rearranging/editing charts"
 msgid "Done dragging (rearranging) charts"
-msgstr "Færdig med at omordne/redigere diagrammer"
+msgstr "Færdig med at trække (flytte) rundt på diagrammer"
 
 #: server_status_monitor.php:489 server_status_monitor.php:606
 msgid "Add chart"
 msgstr "Tilføj diagram"
 
 #: server_status_monitor.php:492
-#, fuzzy
 #| msgid "Enable highlighting"
 msgid "Enable charts dragging"
-msgstr "Aktiver fremhævning"
+msgstr "Aktivér mulighed for at trække rundt på diagrammer"
 
 #: server_status_monitor.php:496
 msgid "Refresh rate"
@@ -11646,7 +11643,7 @@ msgstr "Udtræk"
 
 #: setup/frames/form.inc.php:25
 msgid "Incorrect formset, check $formsets array in setup/frames/form.inc.php"
-msgstr "Ukorrekt formsæt, check arrayet $formsets i setup/frames/form.inc.php"
+msgstr "Ukorrekt formsæt, tjek arrayet $formsets i setup/frames/form.inc.php"
 
 #: setup/frames/index.inc.php:51
 msgid "Cannot load or save configuration"
@@ -12196,7 +12193,7 @@ msgstr "Viser tabeller"
 #: tbl_relation.php:213
 #, php-format
 msgid "Error creating foreign key on %1$s (check data types)"
-msgstr "Fejl ved dannelse af fremmednøgle på %1$s (check datatyper)"
+msgstr "Fejl ved dannelse af fremmednøgle på %1$s (tjek datatyper)"
 
 #: tbl_relation.php:381
 msgid "Internal relation"
@@ -12350,11 +12347,11 @@ msgstr "Deaktiver nu"
 #: tbl_tracking.php:839
 #, php-format
 msgid "Activate tracking for %s"
-msgstr "Aktiver sporing af %s"
+msgstr "Aktivér sporing af %s"
 
 #: tbl_tracking.php:845
 msgid "Activate now"
-msgstr "Aktiver nu"
+msgstr "Aktivér nu"
 
 #: tbl_tracking.php:858
 #, php-format
@@ -12538,8 +12535,8 @@ msgid ""
 "Enable slow query logging by setting {log_slow_queries} to 'ON'. This will "
 "help troubleshooting badly performing queries."
 msgstr ""
-"Aktiver logning af langsomme forespørgsler ved at sætte  {log_slow_queries}  "
-"til 'ON'. Dette vil hjælpe til med at fejlsøge langsomme forespørgsler."
+"Aktivér logning af langsomme forespørgsler ved at sætte  {log_slow_queries} "
+" til 'ON'. Dette vil hjælpe til med at fejlsøge langsomme forespørgsler."
 
 #: libraries/advisory_rules.txt:89
 msgid "log_slow_queries is set to 'OFF'"
@@ -12550,7 +12547,7 @@ msgid ""
 "Enable slow query logging by setting {slow_query_log} to 'ON'. This will "
 "help troubleshooting badly performing queries."
 msgstr ""
-"Aktiver logning af langsomme forespørgsler ved at sætte  {slow_query_log}  "
+"Aktivér logning af langsomme forespørgsler ved at sætte  {slow_query_log}  "
 "til 'ON'. Dette vil hjælpe til med at fejlsøge langsomme forespørgsler."
 
 #: libraries/advisory_rules.txt:96
@@ -12688,9 +12685,9 @@ msgid ""
 "memcached, ignore this recommendation."
 msgstr ""
 "Forespørgsel-mellemlager vides at forbedre ydeevnen meget, hvis det er "
-"konfigureret korrekt. Aktiver det ved at sætte {query_cache_size} til en 2-"
-"cifret MiB værdi og sætte {query_cache_type} til 'ON'. <b>OBS:</b> Hvis der "
-"bruges memcached, så ignorer denne anbefaling."
+"konfigureret korrekt. Aktivér det ved at sætte {query_cache_size} til en "
+"2-cifret MiB værdi og sætte {query_cache_type} til 'ON'. <b>OBS:</b> Hvis "
+"der bruges memcached, så ignorer denne anbefaling."
 
 #: libraries/advisory_rules.txt:158
 msgid "query_cache_size is set to 0 or query_cache_type is set to 'OFF'"
@@ -12830,7 +12827,7 @@ msgid ""
 msgstr ""
 "Man bør forøge {query_cache_size}, men husk på, at arbejdet med at "
 "vedligeholde lageret forøges med dets størrelse, så gør det lidt ad gangen "
-"og check resultatet."
+"og tjek resultatet."
 
 #: libraries/advisory_rules.txt:193
 #, php-format
@@ -13276,7 +13273,7 @@ msgid ""
 "Consider increasing {open_files_limit}, and check the error log when "
 "restarting after changing {open_files_limit}."
 msgstr ""
-"Overvej at forøge {open_files_limit} og check fejlloggen, når der genstartes "
+"Overvej at forøge {open_files_limit} og tjek fejlloggen, når der genstartes "
 "efter ændringen af {open_files_limit}."
 
 #: libraries/advisory_rules.txt:339
@@ -13342,7 +13339,7 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:366
 msgid "Enable the thread cache by setting {thread_cache_size} > 0."
-msgstr "Aktiver trådmellemlager ved at sætte {thread_cache_size} > 0."
+msgstr "Aktivér trådmellemlager ved at sætte {thread_cache_size} > 0."
 
 #: libraries/advisory_rules.txt:367
 msgid "The thread cache is set to 0"
@@ -13491,7 +13488,7 @@ msgid ""
 msgstr ""
 "Klienter aborteres normalt, når de ikke lukke forbindelsen til MySQL "
 "ordentligt. Dette kan skyldes netværksproblemer eller programkode, der ikke "
-"lukker database handlers ordentligt. Check netværk og programkode."
+"lukker database handlers ordentligt. Tjek netværk og programkode."
 
 #: libraries/advisory_rules.txt:418
 #, php-format
@@ -13655,7 +13652,7 @@ msgstr "MyISAM samtidige inserts"
 
 #: libraries/advisory_rules.txt:462
 msgid "Enable {concurrent_insert} by setting it to 1"
-msgstr "Aktiver {concurrent_insert} ved at sætte den til 1"
+msgstr "Aktivér {concurrent_insert} ved at sætte den til 1"
 
 #: libraries/advisory_rules.txt:463
 msgid ""
