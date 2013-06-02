@@ -519,6 +519,8 @@ if (function_exists('PMA_DBI_get_client_info') && !PMA_DRIZZLE) {
  */
 if ($cfg['SuhosinDisableWarning'] == false
     && @ini_get('suhosin.request.max_value_length')
+    // warn about Suhosin only if its simulation mode is not enabled
+    && @ini_get('suhosin.simulation') == '0'
 ) {
     trigger_error(
         sprintf(
