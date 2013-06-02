@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-05-28 12:36-0400\n"
-"PO-Revision-Date: 2013-06-02 09:53+0200\n"
+"PO-Revision-Date: 2013-06-02 09:58+0200\n"
 "Last-Translator: Aputsiaq Niels Janussen <aj@isit.gl>\n"
 "Language-Team: Danish <http://l10n.cihar.com/projects/phpmyadmin/master/da/>\n"
 "Language: da\n"
@@ -645,7 +645,7 @@ msgstr ""
 
 #: import.php:485 libraries/display_import.lib.php:29
 msgid "Could not load import plugins, please check your installation!"
-msgstr "Kunne ikke indlæse importplugins, check venligst din installation!"
+msgstr "Kunne ikke indlæse importplugins, tjek venligst din installation!"
 
 #: import.php:519 sql.php:294 sql.php:1110
 #, php-format
@@ -2208,17 +2208,17 @@ msgstr "PHP smed følgende fejl: %s"
 #: libraries/Advisor.class.php:107
 #, php-format
 msgid "Failed evaluating precondition for rule '%s'."
-msgstr "Mislykkedes med at evaluere betingelse for reglen '%s'"
+msgstr "Mislykkedes med at evaluere betingelse for reglen '%s'."
 
 #: libraries/Advisor.class.php:124
 #, php-format
 msgid "Failed calculating value for rule '%s'."
-msgstr "Mislykkedes med at beregne værdi for reglen '%s'"
+msgstr "Mislykkedes med at beregne værdi for reglen '%s'."
 
 #: libraries/Advisor.class.php:143
 #, php-format
 msgid "Failed running test for rule '%s'."
-msgstr "Mislykkedes med at afvikle test for reglen '%s'"
+msgstr "Mislykkedes med at afvikle test for reglen '%s'."
 
 #: libraries/Advisor.class.php:225
 #, php-format
@@ -2231,17 +2231,17 @@ msgid ""
 "Invalid rule declaration on line %1$s, expected line %2$s of previous rule."
 msgstr ""
 "Ugyldig regel-deklaration på linje %1$s, forventede linje %2$s fra forrige "
-"regel"
+"regel."
 
 #: libraries/Advisor.class.php:412
 #, php-format
 msgid "Invalid rule declaration on line %s."
-msgstr "Ugyldig regel-deklaration på linie %s"
+msgstr "Ugyldig regel-deklaration på linie %s."
 
 #: libraries/Advisor.class.php:420
 #, php-format
 msgid "Unexpected characters on line %s."
-msgstr "Uventet tegn på linje %s"
+msgstr "Uventet tegn på linje %s."
 
 #: libraries/Advisor.class.php:434
 #, php-format
@@ -3336,7 +3336,7 @@ msgid ""
 "range is 0 to 4,294,967,295"
 msgstr ""
 "Et heltal på 4 byte, signeret interval er -2.147.483.648 til 2.147.483.647, "
-"usigneret interval er 0 til 4.294.967.295."
+"usigneret interval er 0 til 4.294.967.295"
 
 #: libraries/Types.class.php:304
 msgid ""
@@ -3793,7 +3793,7 @@ msgstr "Sidste opdatering"
 #: libraries/Util.class.php:4098 libraries/structure.lib.php:812
 #: libraries/structure.lib.php:1762 tbl_printview.php:432
 msgid "Last check"
-msgstr "Sidste check"
+msgstr "Seneste tjek"
 
 #: libraries/bookmark.lib.php:82
 msgid "shared"
@@ -3837,11 +3837,11 @@ msgstr "Replikeret"
 #: libraries/build_html_for_db.lib.php:170
 #, php-format
 msgid "Check privileges for database &quot;%s&quot;."
-msgstr "Check privilegier for database &quot;%s&quot;."
+msgstr "Tjek privilegier for databasen &quot;%s&quot;."
 
 #: libraries/build_html_for_db.lib.php:175
 msgid "Check Privileges"
-msgstr "Check privilegier"
+msgstr "Tjek privilegier"
 
 #: libraries/common.inc.php:578
 msgid "Failed to read configuration file"
@@ -4090,7 +4090,7 @@ msgstr "maksimum %s"
 msgid "This setting is disabled, it will not be applied to your configuration."
 msgstr ""
 "Denne indstilling er deaktiveret og vil ikke blive anvendt i din "
-"konfiguration"
+"konfiguration."
 
 #: libraries/config/FormDisplay.tpl.php:309
 #, php-format
@@ -4521,7 +4521,7 @@ msgstr "Indstillinger til <code>CREATE TABLE</code>:"
 
 #: libraries/config/messages.inc.php:121
 msgid "Creation/Update/Check dates"
-msgstr "Oprettet/Opdateret/Check datoer"
+msgstr "Oprettet/Opdateret/Tjek datoer"
 
 #: libraries/config/messages.inc.php:122
 msgid "Use delayed inserts"
@@ -6221,11 +6221,11 @@ msgstr "Aktivér udviklerfanen i indstillinger"
 
 #: libraries/config/messages.inc.php:519 setup/frames/index.inc.php:275
 msgid "Check for latest version"
-msgstr "Check for den seneste version"
+msgstr "Tjek for den seneste version"
 
 #: libraries/config/messages.inc.php:520
 msgid "Enables check for latest version on main phpMyAdmin page"
-msgstr "Aktiverer check for den seneste version på hovedsiden for phpMyAdmin"
+msgstr "Aktiverer tjek for den seneste version på hovedsiden for phpMyAdmin"
 
 #: libraries/config/messages.inc.php:521 setup/lib/index.lib.php:132
 #: setup/lib/index.lib.php:143 setup/lib/index.lib.php:164
@@ -6392,7 +6392,7 @@ msgstr "Ukorrekt IP-adresse: %s"
 #: libraries/core.lib.php:290
 #, php-format
 msgid "The %s extension is missing. Please check your PHP configuration."
-msgstr "%s udvidelsen mangler. Check din PHP-konfiguration."
+msgstr "%s-udvidelsen mangler. Tjek din PHP-konfiguration."
 
 #: libraries/core.lib.php:449
 msgid "possible deep recursion attack"
@@ -6479,7 +6479,7 @@ msgstr "Antal kolonner"
 
 #: libraries/display_export.lib.php:49
 msgid "Could not load export plugins, please check your installation!"
-msgstr "Kunne ikke indlæse eksportplugins, check venligst din installation!"
+msgstr "Kunne ikke indlæse eksportplugins, tjek venligst din installation!"
 
 #: libraries/display_export.lib.php:100
 msgid "Exporting databases from the current server"
@@ -7783,7 +7783,7 @@ msgstr "Fjern partitionering"
 
 #: libraries/operations.lib.php:1362
 msgid "Check referential integrity:"
-msgstr "Check reference-integriteten:"
+msgstr "Tjek reference-integriteten:"
 
 #: libraries/plugin_interface.lib.php:503
 msgid "This format has no options"
@@ -9867,7 +9867,7 @@ msgid ""
 "and submit a bug report with the data chunk in the CUT section below:"
 msgstr ""
 "Det er muligt at du har fundet en fejl i SQL-parseren. Undersøg venligst din "
-"forespørgsel nøje, og check at anførselstegn er rigtige og ikke giver "
+"forespørgsel nøje, og tjek at anførselstegn er rigtige og ikke giver "
 "konflikter. Andre fejlårsager kan være at du uploader en fil med binær "
 "udenfor et lukket tekstområde. Du kan også prøve din forespørgsel i MySQL "
 "kommandolinje-interfacet. MySQL-serverens fejlmelding der følger herunder, "
@@ -9915,7 +9915,7 @@ msgid ""
 "The SQL validator could not be initialized. Please check if you have "
 "installed the necessary PHP extensions as described in the %sdocumentation%s."
 msgstr ""
-"SQL-validatoren kunne ikke initialiseres. Check venligst at du har de "
+"SQL-validatoren kunne ikke initialiseres. Tjek venligst at du har de "
 "nødvendige PHP-udvidelser installeret som beskrevet i %sdokumentationen%s."
 
 #: libraries/structure.lib.php:68 tbl_operations.php:311
@@ -9959,7 +9959,7 @@ msgstr "Kopier tabel med præfiks"
 
 #: libraries/structure.lib.php:344
 msgid "Check tables having overhead"
-msgstr "Check tabeller der har overhead"
+msgstr "Tjek tabeller der har overhead"
 
 #: libraries/structure.lib.php:851
 msgid "Sort"
@@ -10966,10 +10966,10 @@ msgid ""
 "increases server load by up to 15%."
 msgstr ""
 "phpMyAdmin Monitor kan hjælpe dig med at optimere serverkonfigurationen og "
-"afsløre tidskrævende\n"
-"forespørgsler. For sidstnævnte kræver det at log_output sættes til 'TABLE' "
-"og at slow_query_log eller general_log aktiveres. Bemærk dog, at\n"
-"general_log genererer en mængde data og forøger server load med op til 15%"
+"afsløre tidskrævende forespørgsler. For sidstnævnte kræver det at log_output "
+"sættes til 'TABLE' og at slow_query_log eller general_log aktiveres. Bemærk "
+"dog, at general_log genererer en mængde data og forøger server load med op "
+"til 15%."
 
 #: server_status_monitor.php:467
 msgid ""
@@ -11926,7 +11926,7 @@ msgstr "Udtræk"
 
 #: setup/frames/form.inc.php:25
 msgid "Incorrect formset, check $formsets array in setup/frames/form.inc.php"
-msgstr "Ukorrekt formsæt, check arrayet $formsets i setup/frames/form.inc.php"
+msgstr "Ukorrekt formsæt, tjek arrayet $formsets i setup/frames/form.inc.php"
 
 #: setup/frames/index.inc.php:51
 msgid "Cannot load or save configuration"
@@ -12462,7 +12462,7 @@ msgstr "Rækkestatistik:"
 #: tbl_relation.php:213
 #, php-format
 msgid "Error creating foreign key on %1$s (check data types)"
-msgstr "Fejl ved dannelse af fremmednøgle på %1$s (check datatyper)"
+msgstr "Fejl ved dannelse af fremmednøgle på %1$s (tjek datatyper)"
 
 #: tbl_relation.php:383
 msgid "Internal relation"
@@ -13099,7 +13099,7 @@ msgid ""
 msgstr ""
 "Man bør forøge {query_cache_size}, men husk på, at arbejdet med at "
 "vedligeholde lageret forøges med dets størrelse, så gør det lidt ad gangen "
-"og check resultatet."
+"og tjek resultatet."
 
 #: libraries/advisory_rules.txt:193
 #, php-format
@@ -13545,7 +13545,7 @@ msgid ""
 "Consider increasing {open_files_limit}, and check the error log when "
 "restarting after changing {open_files_limit}."
 msgstr ""
-"Overvej at forøge {open_files_limit} og check fejlloggen, når der genstartes "
+"Overvej at forøge {open_files_limit} og tjek fejlloggen, når der genstartes "
 "efter ændringen af {open_files_limit}."
 
 #: libraries/advisory_rules.txt:339
@@ -13760,7 +13760,7 @@ msgid ""
 msgstr ""
 "Klienter aborteres normalt, når de ikke lukke forbindelsen til MySQL "
 "ordentligt. Dette kan skyldes netværksproblemer eller programkode, der ikke "
-"lukker database handlers ordentligt. Check netværk og programkode."
+"lukker database handlers ordentligt. Tjek netværk og programkode."
 
 #: libraries/advisory_rules.txt:418
 #, php-format
