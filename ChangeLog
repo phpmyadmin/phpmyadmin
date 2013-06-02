@@ -17,6 +17,7 @@ phpMyAdmin - ChangeLog
 + rfe #1363 Improved query profiler
 
 4.0.4.0 (not yet released)
+- bug #3959 Using DefaultTabDatabase in NavigationTree for Database Click
 
 4.0.3.0 (not yet released)
 - bug #3941 Recent tables list always empty
