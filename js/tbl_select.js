@@ -173,7 +173,7 @@ AJAX.registerOnload('tbl_select.js', function() {
         ];
         var outputGeomFunctions = binaryFunctions.concat(tempArray);
 
-        // If the chosen function takes two geomerty objects as parameters
+        // If the chosen function takes two geometry objects as parameters
         var $operator = $geomFuncSelector.parents('tr').find('td:nth-child(5)').find('select');
         if ($.inArray($geomFuncSelector.val(), binaryFunctions) >= 0){
             $operator.prop('readonly', true);
