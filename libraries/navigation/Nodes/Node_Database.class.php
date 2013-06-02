@@ -29,7 +29,8 @@ class Node_Database extends Node
         parent::__construct($name, $type, $is_group);
         $this->icon  = PMA_Util::getImage('s_db.png');
         $this->links = array(
-            'text' => 'db_structure.php?server=' . $GLOBALS['server']
+            'text' => $GLOBALS['cfg']['DefaultTabDatabase']
+                    . '?server=' . $GLOBALS['server']
                     . '&amp;db=%1$s&amp;token=' . $GLOBALS['token'],
             'icon' => 'db_operations.php?server=' . $GLOBALS['server']
                     . '&amp;db=%1$s&amp;token=' . $GLOBALS['token']
