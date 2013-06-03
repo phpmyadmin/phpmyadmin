@@ -1,9 +1,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 4.0.3-dev\n"
+"Project-Id-Version: phpMyAdmin 4.0.4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-05-28 12:35-0400\n"
+"POT-Creation-Date: 2013-06-03 09:16-0400\n"
 "PO-Revision-Date: 2013-05-07 17:18+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Latvian <http://l10n.cihar.com/projects/phpmyadmin/4-0/lv/>\n"
@@ -14,13 +14,13 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : 2;\n"
 "X-Generator: Weblate 1.6-dev\n"
 
-#: browse_foreigners.php:36 browse_foreigners.php:60 js/messages.php:344
+#: browse_foreigners.php:51 browse_foreigners.php:75 js/messages.php:344
 #: libraries/DisplayResults.class.php:809
 #: libraries/server_privileges.lib.php:2605
 msgid "Show all"
 msgstr "Rādīt visu"
 
-#: browse_foreigners.php:77 libraries/PDF.class.php:65
+#: browse_foreigners.php:93 libraries/PDF.class.php:65
 #: libraries/Util.class.php:2543
 #: libraries/schema/Pdf_Relation_Schema.class.php:1183
 #: libraries/schema/Pdf_Relation_Schema.class.php:1207
@@ -29,7 +29,7 @@ msgstr "Rādīt visu"
 msgid "Page number:"
 msgstr "Lapas numurs:"
 
-#: browse_foreigners.php:94
+#: browse_foreigners.php:110
 msgid ""
 "The target browser window could not be updated. Maybe you have closed the "
 "parent window, or your browser's security settings are configured to block "
@@ -39,14 +39,14 @@ msgstr ""
 "vai arī Jūsu pārlūkprogramma bloķe starplogu saskarsmi Jūsu drošības "
 "iestādījumu dēļ."
 
-#: browse_foreigners.php:166 libraries/Menu.class.php:263
+#: browse_foreigners.php:182 libraries/Menu.class.php:263
 #: libraries/Menu.class.php:348 libraries/Util.class.php:3221
 #: libraries/Util.class.php:3228 libraries/Util.class.php:3438
 #: libraries/Util.class.php:3439
 msgid "Search"
 msgstr "Meklēt"
 
-#: browse_foreigners.php:170 gis_data_editor.php:396 js/messages.php:218
+#: browse_foreigners.php:186 gis_data_editor.php:396 js/messages.php:218
 #: libraries/DbSearch.class.php:455 libraries/DisplayResults.class.php:1657
 #: libraries/TableSearch.class.php:1142 libraries/core.lib.php:556
 #: libraries/display_change_password.lib.php:94
@@ -79,23 +79,23 @@ msgstr "Meklēt"
 #: prefs_manage.php:266 prefs_manage.php:316 server_binlog.php:115
 #: server_replication.php:224 server_replication.php:327 tbl_chart.php:251
 #: tbl_indexes.php:352 tbl_tracking.php:520 tbl_tracking.php:683
-#: view_create.php:224 view_operations.php:98
+#: view_create.php:225 view_operations.php:98
 msgid "Go"
 msgstr "Aiziet!"
 
-#: browse_foreigners.php:181 browse_foreigners.php:185
+#: browse_foreigners.php:197 browse_foreigners.php:201
 #: libraries/Index.class.php:561 tbl_tracking.php:381
 msgid "Keyname"
 msgstr "Atslēgas nosaukums"
 
-#: browse_foreigners.php:182 browse_foreigners.php:184
+#: browse_foreigners.php:198 browse_foreigners.php:200
 #: server_collations.php:39 server_collations.php:51 server_engines.php:42
 #: server_plugins.php:130 server_status_variables.php:234
 msgid "Description"
 msgstr "Apraksts"
 
-#: browse_foreigners.php:268 browse_foreigners.php:280
-#: browse_foreigners.php:296 browse_foreigners.php:308
+#: browse_foreigners.php:284 browse_foreigners.php:296
+#: browse_foreigners.php:312 browse_foreigners.php:324
 msgid "Use this value"
 msgstr "Lietot šo vērtību"
 
@@ -326,10 +326,10 @@ msgstr ""
 msgid "Table"
 msgstr "Tabula"
 
-#: db_printview.php:100 libraries/Table.class.php:350
+#: db_printview.php:100 libraries/Table.class.php:351
 #: libraries/build_html_for_db.lib.php:31 libraries/import.lib.php:181
 #: libraries/structure.lib.php:768 libraries/structure.lib.php:1708
-#: libraries/structure.lib.php:1893 sql.php:1118 tbl_printview.php:365
+#: libraries/structure.lib.php:1901 sql.php:1118 tbl_printview.php:365
 msgid "Rows"
 msgstr "Rindas"
 
@@ -342,26 +342,26 @@ msgstr "Izmērs"
 msgid "in use"
 msgstr "lietošanā"
 
-#: db_printview.php:185 libraries/Util.class.php:4084
+#: db_printview.php:185 libraries/Util.class.php:4080
 #: libraries/plugins/export/ExportSql.class.php:946
 #: libraries/schema/Pdf_Relation_Schema.class.php:1337
-#: libraries/structure.lib.php:798 libraries/structure.lib.php:1747
+#: libraries/structure.lib.php:798 libraries/structure.lib.php:1754
 #: tbl_printview.php:410
 msgid "Creation"
 msgstr "Izveidošana"
 
-#: db_printview.php:194 libraries/Util.class.php:4090
+#: db_printview.php:194 libraries/Util.class.php:4086
 #: libraries/plugins/export/ExportSql.class.php:959
 #: libraries/schema/Pdf_Relation_Schema.class.php:1342
-#: libraries/structure.lib.php:805 libraries/structure.lib.php:1754
+#: libraries/structure.lib.php:805 libraries/structure.lib.php:1762
 #: tbl_printview.php:421
 msgid "Last update"
 msgstr "Pēdējā atjaunošana"
 
-#: db_printview.php:203 libraries/Util.class.php:4096
+#: db_printview.php:203 libraries/Util.class.php:4092
 #: libraries/plugins/export/ExportSql.class.php:972
 #: libraries/schema/Pdf_Relation_Schema.class.php:1347
-#: libraries/structure.lib.php:812 libraries/structure.lib.php:1762
+#: libraries/structure.lib.php:812 libraries/structure.lib.php:1770
 #: tbl_printview.php:432
 msgid "Last check"
 msgstr "Pēdējā pārbaude"
@@ -457,7 +457,7 @@ msgstr ""
 #: db_tracking.php:103 libraries/Index.class.php:625
 #: libraries/Util.class.php:3443 libraries/Util.class.php:3444
 #: libraries/structure.lib.php:307 libraries/structure.lib.php:1378
-#: libraries/structure.lib.php:2042 libraries/structure.lib.php:2044
+#: libraries/structure.lib.php:2050 libraries/structure.lib.php:2052
 #: server_databases.php:327
 msgid "Drop"
 msgstr "Likvidēt"
@@ -893,7 +893,7 @@ msgid ""
 "This may cause unpredictable behavior."
 msgstr ""
 
-#: index.php:525
+#: index.php:527
 #, php-format
 msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
@@ -1030,7 +1030,7 @@ msgstr "Statiski dati"
 
 #. l10n: Total number of queries
 #: js/messages.php:68 libraries/build_html_for_db.lib.php:46
-#: libraries/engines/innodb.lib.php:171 libraries/structure.lib.php:2182
+#: libraries/engines/innodb.lib.php:171 libraries/structure.lib.php:2190
 #: server_databases.php:271 server_status.php:186 server_status.php:276
 #: tbl_printview.php:331
 msgid "Total"
@@ -1731,7 +1731,7 @@ msgid "No rows selected"
 msgstr "Rindas nav iezīmētas"
 
 #: js/messages.php:275 libraries/DisplayResults.class.php:5051
-#: libraries/structure.lib.php:1374 libraries/structure.lib.php:2040
+#: libraries/structure.lib.php:1374 libraries/structure.lib.php:2048
 #: querywindow.php:85
 msgid "Change"
 msgstr "Labot"
@@ -2791,7 +2791,7 @@ msgstr "Rādīt PDF shēmu"
 msgid "Visualize GIS data"
 msgstr ""
 
-#: libraries/DisplayResults.class.php:5333 view_create.php:151
+#: libraries/DisplayResults.class.php:5333 view_create.php:152
 #, fuzzy
 msgid "Create view"
 msgstr "Servera versija"
@@ -2879,7 +2879,7 @@ msgid "Indexes"
 msgstr "Indeksi"
 
 #: libraries/Index.class.php:563 libraries/structure.lib.php:1387
-#: libraries/structure.lib.php:2050 libraries/structure.lib.php:2060
+#: libraries/structure.lib.php:2058 libraries/structure.lib.php:2068
 #: libraries/tbl_columns_definition_form.inc.php:569 tbl_tracking.php:383
 msgid "Unique"
 msgstr "Unikālais"
@@ -3228,51 +3228,51 @@ msgstr ""
 msgid "This MySQL server does not support the %s storage engine."
 msgstr ""
 
-#: libraries/Table.class.php:394
+#: libraries/Table.class.php:395
 msgid "unknown table status: "
 msgstr ""
 
-#: libraries/Table.class.php:795
+#: libraries/Table.class.php:796
 #, fuzzy, php-format
 msgid "Source database `%s` was not found!"
 msgstr "Meklēt datubāzē"
 
-#: libraries/Table.class.php:803
+#: libraries/Table.class.php:804
 #, fuzzy, php-format
 msgid "Target database `%s` was not found!"
 msgstr "Meklēt datubāzē"
 
-#: libraries/Table.class.php:1231
+#: libraries/Table.class.php:1232
 msgid "Invalid database"
 msgstr ""
 
-#: libraries/Table.class.php:1245 tbl_get_field.php:44
+#: libraries/Table.class.php:1246 tbl_get_field.php:44
 msgid "Invalid table name"
 msgstr ""
 
-#: libraries/Table.class.php:1277
+#: libraries/Table.class.php:1278
 #, php-format
 msgid "Error renaming table %1$s to %2$s"
 msgstr ""
 
-#: libraries/Table.class.php:1296
+#: libraries/Table.class.php:1297
 #, fuzzy, php-format
 #| msgid "Table %s has been renamed to %s"
 msgid "Table %1$s has been renamed to %2$s."
 msgstr "Tabula %s tika pārsaukta par %s"
 
-#: libraries/Table.class.php:1440
+#: libraries/Table.class.php:1441
 msgid "Could not save table UI preferences"
 msgstr ""
 
-#: libraries/Table.class.php:1464
+#: libraries/Table.class.php:1465
 #, php-format
 msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
 "['MaxTableUiprefs'] %s)"
 msgstr ""
 
-#: libraries/Table.class.php:1602
+#: libraries/Table.class.php:1603
 #, php-format
 msgid ""
 "Cannot save UI property \"%s\". The changes made will not be persistent "
@@ -3816,7 +3816,7 @@ msgstr "Iztukšot"
 msgid "Execute"
 msgstr ""
 
-#: libraries/Util.class.php:3983
+#: libraries/Util.class.php:3979
 msgid "Print"
 msgstr "Drukāt"
 
@@ -3833,13 +3833,13 @@ msgstr ""
 #: libraries/config/user_preferences.forms.php:268
 #: libraries/plugins/export/ExportLatex.class.php:301
 #: libraries/plugins/export/ExportSql.class.php:1545
-#: libraries/server_privileges.lib.php:748 libraries/structure.lib.php:2160
+#: libraries/server_privileges.lib.php:748 libraries/structure.lib.php:2168
 #: tbl_printview.php:299
 msgid "Data"
 msgstr "Dati"
 
 #: libraries/build_html_for_db.lib.php:51 libraries/structure.lib.php:791
-#: libraries/structure.lib.php:2173 tbl_printview.php:315
+#: libraries/structure.lib.php:2181 tbl_printview.php:315
 msgid "Overhead"
 msgstr "Pārtēriņš"
 
@@ -9165,7 +9165,7 @@ msgstr "Iezīmēt visu"
 msgid "Select Tables"
 msgstr "Izvēlieties tabulas"
 
-#: libraries/schema/User_Schema.class.php:382 view_create.php:182
+#: libraries/schema/User_Schema.class.php:382 view_create.php:183
 msgid "Column names"
 msgstr "Kolonnu nosaukumi"
 
@@ -9856,26 +9856,26 @@ msgstr "Nav"
 msgid "Column %s has been dropped"
 msgstr "Tabula %s tika izdzēsta"
 
-#: libraries/structure.lib.php:1383 libraries/structure.lib.php:2046
-#: libraries/structure.lib.php:2056
+#: libraries/structure.lib.php:1383 libraries/structure.lib.php:2054
+#: libraries/structure.lib.php:2064
 #: libraries/tbl_columns_definition_form.inc.php:562
 msgid "Primary"
 msgstr "Primārā"
 
-#: libraries/structure.lib.php:1391 libraries/structure.lib.php:2048
-#: libraries/structure.lib.php:2058 libraries/structure.lib.php:2166
+#: libraries/structure.lib.php:1391 libraries/structure.lib.php:2056
+#: libraries/structure.lib.php:2066 libraries/structure.lib.php:2174
 #: libraries/tbl_columns_definition_form.inc.php:123
 #: libraries/tbl_columns_definition_form.inc.php:576 tbl_printview.php:306
 msgid "Index"
 msgstr "Indekss"
 
-#: libraries/structure.lib.php:1398 libraries/structure.lib.php:2052
-#: libraries/structure.lib.php:2062
+#: libraries/structure.lib.php:1398 libraries/structure.lib.php:2060
+#: libraries/structure.lib.php:2070
 msgid "Spatial"
 msgstr ""
 
-#: libraries/structure.lib.php:1408 libraries/structure.lib.php:2054
-#: libraries/structure.lib.php:2064
+#: libraries/structure.lib.php:1408 libraries/structure.lib.php:2062
+#: libraries/structure.lib.php:2072
 #: libraries/tbl_columns_definition_form.inc.php:584
 msgid "Fulltext"
 msgstr "Pilni teksti"
@@ -9937,8 +9937,10 @@ msgstr "Tabulas sākumā"
 msgid "After %s"
 msgstr "Pēc %s"
 
-#: libraries/structure.lib.php:1670 tbl_printview.php:345
-msgid "Row Statistics"
+#: libraries/structure.lib.php:1670
+#, fuzzy
+#| msgid "Row Statistics"
+msgid "Row statistics"
 msgstr "Rindas statistika"
 
 #: libraries/structure.lib.php:1675 tbl_printview.php:353
@@ -9953,83 +9955,83 @@ msgstr "dinamisks"
 msgid "partitioned"
 msgstr ""
 
-#: libraries/structure.lib.php:1719 tbl_printview.php:376
+#: libraries/structure.lib.php:1725 tbl_printview.php:376
 msgid "Row length"
 msgstr "Rindas garums"
 
-#: libraries/structure.lib.php:1731 tbl_printview.php:390
+#: libraries/structure.lib.php:1738 tbl_printview.php:390
 msgid "Row size"
 msgstr "Rindas izmērs"
 
-#: libraries/structure.lib.php:1739 tbl_printview.php:399
+#: libraries/structure.lib.php:1746 tbl_printview.php:399
 msgid "Next autoindex"
 msgstr ""
 
-#: libraries/structure.lib.php:1864 libraries/structure.lib.php:1945
-#: libraries/structure.lib.php:1953 libraries/structure.lib.php:1970
+#: libraries/structure.lib.php:1872 libraries/structure.lib.php:1953
+#: libraries/structure.lib.php:1961 libraries/structure.lib.php:1978
 #, php-format
 msgid "An index has been added on %s"
 msgstr "Indekss tieka pievienots uz %s"
 
-#: libraries/structure.lib.php:1935
+#: libraries/structure.lib.php:1943
 #, php-format
 msgid "A primary key has been added on %s"
 msgstr "Primārā atslēga pievienota uz lauka %s"
 
-#: libraries/structure.lib.php:1995 libraries/structure.lib.php:2066
+#: libraries/structure.lib.php:2003 libraries/structure.lib.php:2074
 #, fuzzy
 msgid "Distinct values"
 msgstr "Pārlūkot ārējās vērtības"
 
-#: libraries/structure.lib.php:1998 libraries/structure.lib.php:2001
+#: libraries/structure.lib.php:2006 libraries/structure.lib.php:2009
 msgid "Add primary key"
 msgstr ""
 
-#: libraries/structure.lib.php:2004 libraries/structure.lib.php:2007
+#: libraries/structure.lib.php:2012 libraries/structure.lib.php:2015
 #: tbl_indexes.php:195
 #, fuzzy
 #| msgid "Add new field"
 msgid "Add index"
 msgstr "Pievienot jaunu lauku"
 
-#: libraries/structure.lib.php:2010 libraries/structure.lib.php:2013
+#: libraries/structure.lib.php:2018 libraries/structure.lib.php:2021
 msgid "Add unique index"
 msgstr ""
 
-#: libraries/structure.lib.php:2016 libraries/structure.lib.php:2019
+#: libraries/structure.lib.php:2024 libraries/structure.lib.php:2027
 #, fuzzy
 #| msgid "Add new field"
 msgid "Add SPATIAL index"
 msgstr "Pievienot jaunu lauku"
 
-#: libraries/structure.lib.php:2022 libraries/structure.lib.php:2025
+#: libraries/structure.lib.php:2030 libraries/structure.lib.php:2033
 msgid "Add FULLTEXT index"
 msgstr ""
 
-#: libraries/structure.lib.php:2151 server_binlog.php:189
+#: libraries/structure.lib.php:2159 server_binlog.php:189
 msgid "Information"
 msgstr "Informācija"
 
-#: libraries/structure.lib.php:2156 tbl_printview.php:296
+#: libraries/structure.lib.php:2164 tbl_printview.php:296
 msgid "Space usage"
 msgstr "Diska vietas lietošana"
 
-#: libraries/structure.lib.php:2176 tbl_printview.php:322
+#: libraries/structure.lib.php:2184 tbl_printview.php:322
 msgid "Effective"
 msgstr "Efektīvs"
 
-#: libraries/structure.lib.php:2357 tbl_addfield.php:197 tbl_indexes.php:112
+#: libraries/structure.lib.php:2365 tbl_addfield.php:197 tbl_indexes.php:112
 #, fuzzy, php-format
 msgid "Table %1$s has been altered successfully"
 msgstr "Izvēlētie lietotāji tika veiksmīgi dzēsti."
 
-#: libraries/structure.lib.php:2404 tbl_tracking.php:456 tbl_tracking.php:480
+#: libraries/structure.lib.php:2412 tbl_tracking.php:456 tbl_tracking.php:480
 #, fuzzy
 #| msgid "Query type"
 msgid "Query error"
 msgstr "Vaicājuma tips"
 
-#: libraries/structure.lib.php:2498
+#: libraries/structure.lib.php:2506
 #, fuzzy
 #| msgid "The selected users have been deleted successfully."
 msgid "The columns have been moved successfully."
@@ -12238,6 +12240,10 @@ msgstr "Tabulas nosaukums nav norādīts!"
 msgid "Showing tables"
 msgstr "Rādīt tabulas"
 
+#: tbl_printview.php:345
+msgid "Row Statistics"
+msgstr "Rindas statistika"
+
 #: tbl_relation.php:213
 #, php-format
 msgid "Error creating foreign key on %1$s (check data types)"
@@ -12455,7 +12461,7 @@ msgstr "Jums nav pietiekoši tiesību, lai atrastos šeit tagad!"
 msgid "The profile has been updated."
 msgstr "Profils tika modificēts."
 
-#: view_create.php:177
+#: view_create.php:178
 msgid "VIEW name"
 msgstr ""
 
