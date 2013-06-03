@@ -46,31 +46,31 @@ if (! empty($_REQUEST['kill'])) {
 $response = PMA_Response::getInstance();
 $response->addHTML('<div>');
 $response->addHTML($ServerStatusData->getMenuHtml());
-$response->addHTML(PMA_getServerTrafficHtml($ServerStatusData));
+$response->addHTML(PMA_getServerStatusHtml($ServerStatusData));
 $response->addHTML('</div>');
 
 exit;
 
 /**
- * Prints server traffic information
+ * Prints server status information: processes, connections and traffic
  *
  * @param Object $ServerStatusData An instance of the PMA_ServerStatusData class
  *
  * @return string
  */
-function PMA_getServerTrafficHtml($ServerStatusData)
+function PMA_getServerStatusHtml($ServerStatusData)
 {
     //display the server state General Information
     $retval  = PMA_getServerStateGeneralInfoHtml($ServerStatusData);
 
-    //display the server state traffic
+    //display the server state traffic information
     $retval .= PMA_getServerStateTrafficHtml($ServerStatusData);
 
     //display the server state connection information
     $retval .= PMA_getServerStateConnectionsHtml($ServerStatusData);
 
-    //display the Table Process List information
-    $retval .= PMA_getTableProcesslistHtml($ServerStatusData);
+    //display the server Process List information
+    $retval .= PMA_getServerProcesslistHtml($ServerStatusData);
 
     return $retval;
 }
@@ -338,13 +338,13 @@ function PMA_getServerStateConnectionsHtml($ServerStatusData)
 }
 
 /**
- * Prints Table Process list
+ * Prints Server Process list
  *
  * @param Object $ServerStatusData An instance of the PMA_ServerStatusData class
  *
  * @return string
  */
-function PMA_getTableProcesslistHtml($ServerStatusData)
+function PMA_getServerProcesslistHtml($ServerStatusData)
 {
     $url_params = array();
 
@@ -407,9 +407,13 @@ function PMA_getTableProcesslistHtml($ServerStatusData)
                 p.command  AS Command,
                 p.time     AS Time,
                 p.state    AS State,
-                " . ($show_full_sql ? 's.query' : 'left(p.info, ' . (int)$GLOBALS['cfg']['MaxCharactersInDisplayedSQL'] . ')') . " AS Info
+                " . ($show_full_sql 
+                ? 's.query' 
+                : 'left(p.info, ' . (int)$GLOBALS['cfg']['MaxCharactersInDisplayedSQL'] . ')') . " AS Info
             FROM data_dictionary.PROCESSLIST p
-                " . ($show_full_sql ? 'LEFT JOIN data_dictionary.SESSIONS s ON s.session_id = p.id' : '');
+                " . ($show_full_sql 
+                ? 'LEFT JOIN data_dictionary.SESSIONS s ON s.session_id = p.id' 
+                : '');
         if (! empty($_REQUEST['order_by_field'])
             && ! empty($_REQUEST['sort_order'])
         ) {
@@ -520,7 +524,9 @@ function PMA_getTableProcesslistHtml($ServerStatusData)
         $retval .= '<td class="value">' . $process['Id'] . '</td>';
         $retval .= '<td>' . $process['User'] . '</td>';
         $retval .= '<td>' . $process['Host'] . '</td>';
-        $retval .= '<td>' . ((! isset($process['db']) || ! strlen($process['db'])) ? '<i>' . __('None') . '</i>' : $process['db']) . '</td>';
+        $retval .= '<td>' . ((! isset($process['db']) || ! strlen($process['db'])) 
+                   ? '<i>' . __('None') . '</i>' 
+                   : $process['db']) . '</td>';
         $retval .= '<td>' . $process['Command'] . '</td>';
         $retval .= '<td class="value">' . $process['Time'] . '</td>';
         $retval .= '<td>' . (empty($process['State']) ? '---' : $process['State']) . '</td>';
@@ -530,7 +536,8 @@ function PMA_getTableProcesslistHtml($ServerStatusData)
             $retval .= '---';
         } else {
             if (! $show_full_sql && strlen($process['Info']) > $GLOBALS['cfg']['MaxCharactersInDisplayedSQL']) {
-                $retval .= htmlspecialchars(substr($process['Info'], 0, $GLOBALS['cfg']['MaxCharactersInDisplayedSQL'])) . '[...]';
+                $retval .= htmlspecialchars(substr($process['Info'], 0, $GLOBALS['cfg']['MaxCharactersInDisplayedSQL'])) 
+                    . '[...]';
             } else {
                 $retval .= '<code class="sql"><pre>' 
                     . $process['Info'] 
