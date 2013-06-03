@@ -1667,7 +1667,7 @@ function getHtmlForRowStatsTable($showtable, $tbl_collation,
     $odd_row = false;
     $html_output = '<table id="tablerowstats" class="data">';
     $html_output .= '<caption class="tblHeaders">'
-        . __('Row Statistics') . '</caption>';
+        . __('Row statistics') . '</caption>';
     $html_output .= '<tbody>';
 
     if (isset($showtable['Row_format'])) {
