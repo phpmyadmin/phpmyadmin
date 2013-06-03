@@ -1747,6 +1747,7 @@ function getHtmlForRowStatsTable($showtable, $tbl_collation,
             __('Creation'),
             PMA_Util::localisedDate(strtotime($showtable['Create_time']))
         );
+        $odd_row = !$odd_row;
     }
     if (isset($showtable['Update_time'])) {
         $html_output .= PMA_getHtmlForRowStatsTableRow(
