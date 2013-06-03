@@ -266,6 +266,13 @@ $cfg['Servers'][$i]['LogoutURL'] = '';
 $cfg['Servers'][$i]['nopassword'] = false;
 
 /**
+ * Whether to enable reCaptcha service on the login screen.
+ *
+ * @global boolean $cfg['Servers'][$i]['recaptcha']
+ */
+$cfg['Servers'][$i]['captchaLogin'] = false;
+
+/**
  * If set to a db-name, only this db is displayed in navigation panel
  * It may also be an array of db-names
  *
@@ -769,6 +776,19 @@ $cfg['IgnoreMultiSubmitErrors'] = false;
  */
 $cfg['AllowArbitraryServer'] = false;
 
+/**
+ * if reCaptcha is enabled it needs public key to connect with the service
+ *
+ * @global string $cfg['captchaLoginPublicKey']
+ */
+$cfg['captchaLoginPublicKey'] = '';
+
+/**
+ * if reCaptcha is enabled it needs private key to connect with the service
+ *
+ * @global string $cfg['captchaLoginPrivateKey']
+ */
+$cfg['captchaLoginPrivateKey'] = '';
 
 /*******************************************************************************
  * Error handler configuration
