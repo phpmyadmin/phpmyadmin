@@ -1714,11 +1714,18 @@ function getHtmlForRowStatsTable($showtable, $tbl_collation,
         && isset($showtable['Avg_row_length'])
         && $showtable['Avg_row_length'] > 0
     ) {
+        list($avg_row_length_value, $avg_row_length_unit) 
+            = PMA_Util::formatByteDown(
+                $showtable['Avg_row_length'],
+                6, 
+                1
+            );
         $html_output .= PMA_getHtmlForRowStatsTableRow(
             $odd_row,
             __('Row length'),
-            PMA_Util::formatNumber($showtable['Avg_row_length'], 0)
+            ($avg_row_length_value . ' ' . $avg_row_length_unit)
         );
+        unset($avg_row_length_value, $avg_row_length_unit);
         $odd_row = !$odd_row;
     }
     if (!$is_innodb
