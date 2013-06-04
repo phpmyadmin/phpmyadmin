@@ -4,13 +4,13 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-06-03 09:17-0400\n"
-"PO-Revision-Date: 2013-05-27 10:17+0200\n"
+"PO-Revision-Date: 2013-06-04 08:11+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: Greek <http://l10n.cihar.com/projects/phpmyadmin/master/el/>\n"
+"Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: el\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 1.6-dev\n"
 
@@ -10139,10 +10139,9 @@ msgid "After %s"
 msgstr "Μετά το %s"
 
 #: libraries/structure.lib.php:1670
-#, fuzzy
 #| msgid "Row Statistics"
 msgid "Row statistics"
-msgstr "Στατιστικά Εγγραφών"
+msgstr "Στατιστικά εγγραφών"
 
 #: libraries/structure.lib.php:1675 tbl_printview.php:353
 msgid "static"
