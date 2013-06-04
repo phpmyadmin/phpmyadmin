@@ -285,6 +285,13 @@ if (! function_exists('preg_replace')) {
 }
 
 /**
+ * JSON is required in several places.
+ */
+if (! function_exists('json_encode')) {
+    PMA_warnMissingExtension('json', true);
+}
+
+/**
  * @global PMA_Config $GLOBALS['PMA_Config']
  * force reading of config file, because we removed sensitive values
  * in the previous iteration
