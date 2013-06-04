@@ -399,6 +399,8 @@ function PMA_getServerProcesslistHtml($ServerStatusData)
     $sortable_columns_count = count($sortable_columns);
 
     if (PMA_DRIZZLE) {
+        $left_str = 'left(p.info, ' 
+            . (int)$GLOBALS['cfg']['MaxCharactersInDisplayedSQL'] . ')';
         $sql_query = "SELECT
                 p.id       AS Id,
                 p.username AS User,
@@ -406,18 +408,17 @@ function PMA_getServerProcesslistHtml($ServerStatusData)
                 p.db       AS db,
                 p.command  AS Command,
                 p.time     AS Time,
-                p.state    AS State,
-                " . ($show_full_sql 
-                ? 's.query' 
-                : 'left(p.info, ' . (int)$GLOBALS['cfg']['MaxCharactersInDisplayedSQL'] . ')') . " AS Info
-            FROM data_dictionary.PROCESSLIST p
-                " . ($show_full_sql 
+                p.state    AS State," 
+                . ($show_full_sql ? 's.query' : $left_str ) 
+                . " AS Info FROM data_dictionary.PROCESSLIST p " 
+                . ($show_full_sql 
                 ? 'LEFT JOIN data_dictionary.SESSIONS s ON s.session_id = p.id' 
                 : '');
         if (! empty($_REQUEST['order_by_field'])
             && ! empty($_REQUEST['sort_order'])
         ) {
-            $sql_query .= ' ORDER BY p.' . $_REQUEST['order_by_field'] . ' ' . $_REQUEST['sort_order'];
+            $sql_query .= ' ORDER BY p.' . $_REQUEST['order_by_field'] . ' ' 
+                 . $_REQUEST['sort_order'];
         }
     } else {
         $sql_query = $show_full_sql
