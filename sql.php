@@ -1098,11 +1098,12 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
         $disp_mode = 'nnnn110111';
         $msg = PMA_message::notice(
             __(
-                'This table does not contain a unique column.'
+                'Table %s does not contain a unique column.'
                 . ' Grid edit, checkbox, Edit, Copy and Delete features'
                 . ' are not available.'
             )
         );
+        $msg->addParam($table);
         $html_output .= $msg->getDisplay();
     }
 
