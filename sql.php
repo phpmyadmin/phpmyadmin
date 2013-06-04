@@ -1094,7 +1094,7 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
         && trim($analyzed_sql[0]['select_expr_clause']) == '*'
         && PMA_Table::isUpdatableView($db, $table);
     $editable = $has_unique || $updatableView;
-    if ($GLOBALS['dbi']->isSystemSchema($db) || ! $editable) {
+    if (!empty($table) && ($GLOBALS['dbi']->isSystemSchema($db) || !$editable)) {
         $disp_mode = 'nnnn110111';
         $msg = PMA_message::notice(
             __(
