@@ -404,9 +404,6 @@ class PMA_Util
                 $formatted_sql = PMA_SQP_formatNone($parsed_sql);
             }
             break;
-        case 'html':
-            $formatted_sql = PMA_SQP_format($parsed_sql, 'color');
-            break;
         case 'text':
             $formatted_sql = PMA_SQP_format($parsed_sql, 'text');
             break;
@@ -3745,16 +3742,12 @@ class PMA_Util
         // and the column does not have the
         // ON UPDATE DEFAULT TIMESTAMP attribute.
         if (($field['True_Type'] == 'timestamp')
+            && $field['first_timestamp']
             && empty($field['Default'])
             && empty($data)
             && ! isset($analyzed_sql_field_array['on_update_current_timestamp'])
             && ($analyzed_sql_field_array['default_value'] != 'NULL')
         ) {
-            $default_function = $cfg['DefaultFunctions']['first_timestamp'];
-        }
-
-        // Default for first timestamp field
-        if ($field['first_timestamp']) {
             $default_function = $cfg['DefaultFunctions']['first_timestamp'];
         }
 
@@ -4109,18 +4102,18 @@ class PMA_Util
      *
      * @return String Matching regular expression.
      */
-    public static function getFirstOccuringRegularExpression($regex_array, $query)
+    public static function getFirstOccurringRegularExpression($regex_array, $query)
     {
-        $minimum_first_occurance_index = null;
+        $minimum_first_occurence_index = null;
         $regex = null;
 
         for ($i = 0; $i < count($regex_array); $i++) {
             if (preg_match($regex_array[$i], $query, $matches, PREG_OFFSET_CAPTURE)) {
-                if (is_null($minimum_first_occurance_index)
-                    || ($matches[0][1] < $minimum_first_occurance_index)
+                if (is_null($minimum_first_occurence_index)
+                    || ($matches[0][1] < $minimum_first_occurence_index)
                 ) {
                     $regex = $regex_array[$i];
-                    $minimum_first_occurance_index = $matches[0][1];
+                    $minimum_first_occurence_index = $matches[0][1];
                 }
             }
         }

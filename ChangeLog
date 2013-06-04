@@ -16,12 +16,22 @@ phpMyAdmin - ChangeLog
 + [interface] Upgraded CodeMirror to 3.x series
 + rfe #1363 Improved query profiler
 
+4.0.4.0 (not yet released)
+- bug #3959 Using DefaultTabDatabase in NavigationTree for Database Click
+- bug #3961 Avoid Suhosin warning when in simulation mode
+- bug #3897 Row Statistics and Space usage bugs
+
 4.0.3.0 (not yet released)
 - bug #3941 Recent tables list always empty
 - bug #3933 Do not translate "Open Document" in export settings
 - bug #3927 List of tables is missing after expanding in the navigation frame
 - bug #3942 Warnings about reserved word for many non reserved words
 - bug #3912 Exporting row selection, resulted by ORDER BY query
+- bug #3957 Cookies must be enabled past this point
+- bug #3956 "Browse foreign values" search filter / page selector not working
+- bug #3579 NOW() function incorrectly selected (partial regression)
+- [security] Javascript execution vulnerability in Create view,
+  reported by Maxim Rupp (see PMASA-2013-6)
 
 4.0.2.0 (2013-05-24)
 - bug #3902 Cannot browse when table name contains keyword "call"

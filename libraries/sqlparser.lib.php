@@ -1233,7 +1233,6 @@ function PMA_SQP_analyze($arr)
                  * present in the list of forbidden words, for example
                  * "storage" which can be used as an identifier
                  *
-                 * @todo avoid the pretty printing in color in this case
                  */
                 $identifier = $arr[$i]['data'];
                 break;
@@ -2147,33 +2146,6 @@ function PMA_SQP_analyze($arr)
 
 
 /**
- * Colorizes SQL queries html formatted
- *
- * @param array $arr The SQL queries html formatted
- *
- * @return array   The colorized SQL queries
- *
- * @todo check why adding a "\n" after the </span> would cause extra blanks
- * to be displayed: SELECT p . person_name
- *
- * @access public
- */
-function PMA_SQP_formatHtml_colorize($arr)
-{
-    $i         = PMA_strpos($arr['type'], '_');
-    $class     = '';
-    if ($i > 0) {
-        $class = 'syntax_' . PMA_substr($arr['type'], 0, $i) . ' ';
-    }
-
-    $class     .= 'syntax_' . $arr['type'];
-
-    return '<span class="' . $class . '">'
-        . htmlspecialchars($arr['data']) . '</span>';
-} // end of the "PMA_SQP_formatHtml_colorize()" function
-
-
-/**
  * Formats SQL queries
  *
  * @param array   $arr              The SQL queries
@@ -2186,7 +2158,7 @@ function PMA_SQP_formatHtml_colorize($arr)
  * @access public
  */
 function PMA_SQP_format(
-    $arr, $mode='color', $start_token=0,
+    $arr, $mode='text', $start_token=0,
     $number_of_tokens=-1
 ) {
     global $PMA_SQPdata_operators_docs, $PMA_SQPdata_functions_docs;
@@ -2202,11 +2174,6 @@ function PMA_SQP_format(
     }
     // else do it properly
     switch ($mode) {
-    case 'color':
-        $str                                = '<span class="syntax">';
-        $html_line_break                    = '<br />';
-        $docu                               = true;
-        break;
     case 'query_only':
         $str                                = '';
         $html_line_break                    = "\n";
@@ -2887,9 +2854,7 @@ function PMA_SQP_format(
         $after                 .= "\n";
         */
         $str .= $before;
-        if ($mode=='color') {
-            $str .= PMA_SQP_formatHtml_colorize($arr[$i]);
-        } elseif ($mode == 'text') {
+        if ($mode == 'text') {
             $str .= htmlspecialchars($arr[$i]['data']);
         } else {
             $str .= $arr[$i]['data'];
@@ -2909,10 +2874,6 @@ function PMA_SQP_format(
     if ($mode!='query_only') {
         // close inner_sql span
             $str .= '</span>';
-    }
-    if ($mode=='color') {
-        // close syntax span
-        $str .= '</span>';
     }
 
     return $str;

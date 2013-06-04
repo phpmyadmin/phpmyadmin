@@ -616,14 +616,6 @@ class PMA_Header
     {
         $retval = '';
         if ($this->_warningsEnabled) {
-            // message of "Cookies required" displayed for auth_type http or config
-            // note: here, the decoration won't work because without cookies,
-            // our standard CSS is not operational
-            if (empty($_COOKIE)) {
-                $retval .= PMA_Message::notice(
-                    __('Cookies must be enabled past this point.')
-                )->getDisplay();
-            }
             $retval .= "<noscript>";
             $retval .= PMA_message::error(
                 __("Javascript must be enabled past this point")
