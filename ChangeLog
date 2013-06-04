@@ -18,6 +18,9 @@ phpMyAdmin - ChangeLog
 
 4.0.4.0 (not yet released)
 - bug #3959 Using DefaultTabDatabase in NavigationTree for Database Click
+- bug #3961 Avoid Suhosin warning when in simulation mode
+- bug #3897 Row Statistics and Space usage bugs
+- bug #3966 Only display "table has no unique column" message when applicable
 
 4.0.3.0 (not yet released)
 - bug #3941 Recent tables list always empty

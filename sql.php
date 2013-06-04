@@ -1094,15 +1094,16 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
         && trim($analyzed_sql[0]['select_expr_clause']) == '*'
         && PMA_Table::isUpdatableView($db, $table);
     $editable = $has_unique || $updatableView;
-    if ($GLOBALS['dbi']->isSystemSchema($db) || ! $editable) {
+    if (!empty($table) && ($GLOBALS['dbi']->isSystemSchema($db) || !$editable)) {
         $disp_mode = 'nnnn110111';
         $msg = PMA_message::notice(
             __(
-                'This table does not contain a unique column.'
+                'Table %s does not contain a unique column.'
                 . ' Grid edit, checkbox, Edit, Copy and Delete features'
                 . ' are not available.'
             )
         );
+        $msg->addParam($table);
         $html_output .= $msg->getDisplay();
     }
 

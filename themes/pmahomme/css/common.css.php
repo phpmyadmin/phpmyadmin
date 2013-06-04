@@ -1751,6 +1751,11 @@ div.sqlvalidate {
     margin-bottom: 0;
     max-height: 10em;
     overflow: auto;
+}
+
+#result_query code.sql,
+#PMA_slidingMessage code.sql,
+div.sqlvalidate {
     background: <?php echo $GLOBALS['cfg']['BgOne']; ?>;
 }
 
