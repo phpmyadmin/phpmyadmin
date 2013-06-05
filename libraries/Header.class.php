@@ -451,7 +451,8 @@ class PMA_Header
         $GLOBALS['now'] = gmdate('D, d M Y H:i:s') . ' GMT';
         if (! defined('TESTSUITE')) {
             header(
-                "X-Content-Security-Policy: default-src 'self';"
+                "X-Content-Security-Policy: default-src 'self' "
+                . $GLOBALS['cfg']['CSPAllow'] . ';'
                 . "options inline-script eval-script;"
                 . "img-src 'self' data:"
                 . ($https ? "" : $mapTilesUrls)
@@ -461,7 +462,8 @@ class PMA_Header
                 && PMA_USR_BROWSER_VER < '6.0.0'
             ) {
                 header(
-                    "X-WebKit-CSP: allow 'self';"
+                    "X-WebKit-CSP: allow 'self' "
+                    . $GLOBALS['cfg']['CSPAllow'] . ';'
                     . "options inline-script eval-script;"
                     . "img-src 'self' data:"
                     . ($https ? "" : $mapTilesUrls)
@@ -469,8 +471,11 @@ class PMA_Header
                 );
             } else {
                 header(
-                    "X-WebKit-CSP: default-src 'self';"
-                    . "script-src 'self' 'unsafe-inline' 'unsafe-eval';"
+                    "X-WebKit-CSP: default-src 'self' "
+                    . $GLOBALS['cfg']['CSPAllow'] . ';'
+                    . "script-src 'self' "
+                    . $GLOBALS['cfg']['CSPAllow']
+                    . " 'unsafe-inline' 'unsafe-eval';"
                     . "style-src 'self' 'unsafe-inline';"
                     . "img-src 'self' data:"
                     . ($https ? "" : $mapTilesUrls)
