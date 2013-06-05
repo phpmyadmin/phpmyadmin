@@ -2710,6 +2710,11 @@ $cfg['CheckConfigurationPermissions'] = true;
 $cfg['LinkLengthLimit'] = 1000;
 
 /**
+ * Additional string to allow in CSP headers.
+ */
+ $cfg['CSPAllow'] = '';
+
+/**
  * Disable the table maintenance mass operations, like optimizing or
  * repairing the selected tables of a database. An accidental execution
  * of such a maintenance task can enormously slow down a bigger database.
