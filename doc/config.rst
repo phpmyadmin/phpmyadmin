@@ -1947,8 +1947,8 @@ Web server settings
     :type: string
     :default: ``''``
 
-    Additional string to include in allowed script sources in Content Security
-    Policy header.
+    Additional string to include in allowed script and image sources in Content
+    Security Policy header.
 
     This can be useful when you want to include some external javascript files
     in :file:`config.footer.inc.php` or :file:`config.header.inc.php`, which
