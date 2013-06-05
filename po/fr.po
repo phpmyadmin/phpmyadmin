@@ -4,10 +4,9 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-06-04 17:18+0200\n"
-"PO-Revision-Date: 2013-05-27 14:16+0200\n"
+"PO-Revision-Date: 2013-06-05 13:51+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
-"Language-Team: French <http://l10n.cihar.com/projects/phpmyadmin/master/fr/"
-">\n"
+"Language-Team: French <http://l10n.cihar.com/projects/phpmyadmin/master/fr/>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -10121,7 +10120,6 @@ msgid "After %s"
 msgstr "Après %s"
 
 #: libraries/structure.lib.php:1670
-#, fuzzy
 #| msgid "Row Statistics"
 msgid "Row statistics"
 msgstr "Statistiques"
@@ -12367,7 +12365,7 @@ msgid "Validated SQL"
 msgstr "SQL validé"
 
 #: sql.php:1101
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "This table does not contain a unique column. Grid edit, checkbox, Edit, "
 #| "Copy and Delete features are not available."
@@ -12375,7 +12373,7 @@ msgid ""
 "Table %s does not contain a unique column. Grid edit, checkbox, Edit, Copy "
 "and Delete features are not available."
 msgstr ""
-"Cette table ne contient pas de colonne unique. Les grilles d'édition, les "
+"La table %s ne contient pas de colonne unique. Les grilles d'édition, les "
 "cases à cocher ainsi que les liens Edition, Copie et Supprimer ne sont pas "
 "disponibles."
 
