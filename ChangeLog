@@ -22,7 +22,7 @@ phpMyAdmin - ChangeLog
 - bug #3897 Row Statistics and Space usage bugs
 - bug #3966 Only display "table has no unique column" message when applicable
 
-4.0.3.0 (not yet released)
+4.0.3.0 (2013-06-05)
 - bug #3941 Recent tables list always empty
 - bug #3933 Do not translate "Open Document" in export settings
 - bug #3927 List of tables is missing after expanding in the navigation frame
