@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-06-04 17:18+0200\n"
-"PO-Revision-Date: 2013-06-05 13:40+0200\n"
+"PO-Revision-Date: 2013-06-05 13:42+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: Dutch <http://l10n.cihar.com/projects/phpmyadmin/master/nl/>\n"
 "Language: nl\n"
@@ -1745,7 +1745,7 @@ msgstr "Selecteer een sectie van de grafiek met de muis om in te zoomen."
 
 #: js/messages.php:286
 msgid "Click reset zoom button to come back to original state."
-msgstr "Klik herstel zoom om terug te keren naar de beginstand."
+msgstr "Klik herstel zoom om terug te keren naar de begintoestand."
 
 #: js/messages.php:288
 msgid "Click a data point to view and possibly edit the data row."
@@ -5035,7 +5035,7 @@ msgstr "Gebruik geen AUTO_INCREMENT voor 0-waarden"
 
 #: libraries/config/messages.inc.php:266
 msgid "Initial state for sliders"
-msgstr "Initiële waarde van schuif-indexen"
+msgstr "Initiële toestand van schuif-indexen"
 
 #: libraries/config/messages.inc.php:267
 msgid "How many rows can be inserted at one time"
@@ -9871,7 +9871,7 @@ msgstr "Volgorde"
 #| msgctxt "Start of recurring event"
 #| msgid "Start"
 msgid "State"
-msgstr "Status"
+msgstr "Toestand"
 
 #: libraries/sql.lib.php:543
 msgid "Summary by state"
