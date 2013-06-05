@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-06-04 17:18+0200\n"
-"PO-Revision-Date: 2013-06-04 08:11+0200\n"
+"PO-Revision-Date: 2013-06-05 08:16+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: Greek <http://l10n.cihar.com/projects/phpmyadmin/master/el/>\n"
 "Language: el\n"
@@ -12424,7 +12424,7 @@ msgid "Validated SQL"
 msgstr "Επικυρωμένη SQL"
 
 #: sql.php:1101
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "This table does not contain a unique column. Grid edit, checkbox, Edit, "
 #| "Copy and Delete features are not available."
@@ -12432,9 +12432,9 @@ msgid ""
 "Table %s does not contain a unique column. Grid edit, checkbox, Edit, Copy "
 "and Delete features are not available."
 msgstr ""
-"Αυτό ο πίνακας δεν περιέχει μια μοναδική στήλη. Τα χαρακτηριστικά "
-"Επεξεργασίας Καννάβου, επικογής, Επεξεργασίας, Αντιγραφής και Διαγραφής δεν "
-"είναι διαθέσιμα."
+"Ο πίνακας %s δεν περιέχει μια μοναδική στήλη. Τα χαρακτηριστικά Επεξεργασίας "
+"Καννάβου, επικογής, Επεξεργασίας, Αντιγραφής και Διαγραφής δεν είναι "
+"διαθέσιμα."
 
 #: sql.php:1154
 #, php-format
