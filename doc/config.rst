@@ -1941,6 +1941,18 @@ Web server settings
     Limit for length of :term:`URL` in links.  When length would be above this
     limit, it is replaced by form with button. This is required as some web
     servers (:term:`IIS`) have problems with long :term:`URL` .
+ 
+.. config:option:: $cfg['CSPAllow']
+
+    :type: string
+    :default: ``''``
+
+    Additional string to include in allowed script sources in Content Security
+    Policy header.
+
+    This can be useful when you want to include some external javascript files
+    in :file:`config.footer.inc.php` or :file:`config.header.inc.php`, which
+    would be normally not allowed by Content Security Policy.
 
 .. config:option:: $cfg['DisableMultiTableMaintenance']
 
