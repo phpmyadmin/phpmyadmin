@@ -453,7 +453,8 @@ class PMA_Header
                 "X-Content-Security-Policy: default-src 'self' "
                 . $GLOBALS['cfg']['CSPAllow'] . ';'
                 . "options inline-script eval-script;"
-                . "img-src 'self' data:"
+                . "img-src 'self' data: "
+                . $GLOBALS['cfg']['CSPAllow']
                 . ($https ? "" : $mapTilesUrls)
                 . ";"
             );
@@ -464,7 +465,8 @@ class PMA_Header
                     "X-WebKit-CSP: allow 'self' "
                     . $GLOBALS['cfg']['CSPAllow'] . ';'
                     . "options inline-script eval-script;"
-                    . "img-src 'self' data:"
+                    . "img-src 'self' data: "
+                    . $GLOBALS['cfg']['CSPAllow']
                     . ($https ? "" : $mapTilesUrls)
                     . ";"
                 );
@@ -476,7 +478,8 @@ class PMA_Header
                     . $GLOBALS['cfg']['CSPAllow']
                     . " 'unsafe-inline' 'unsafe-eval';"
                     . "style-src 'self' 'unsafe-inline';"
-                    . "img-src 'self' data:"
+                    . "img-src 'self' data: "
+                    . $GLOBALS['cfg']['CSPAllow']
                     . ($https ? "" : $mapTilesUrls)
                     . ";"
                 );
