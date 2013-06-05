@@ -1954,6 +1954,12 @@ Web server settings
     in :file:`config.footer.inc.php` or :file:`config.header.inc.php`, which
     would be normally not allowed by Content Security Policy.
 
+    To allow some sites, just list them wihin the string:
+
+    .. code-block:: php
+
+        $cfg['CSPAllow'] = 'example.com example.net';
+
     .. versionadded:: 4.0.4
 
 .. config:option:: $cfg['DisableMultiTableMaintenance']
