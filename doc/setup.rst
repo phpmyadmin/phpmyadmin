@@ -56,7 +56,7 @@ okay for a particular setting, there is no need to include it in
 :file:`config.inc.php`. You'll need a few directives to get going, a
 simple configuration may look like this:
 
-.. code-block:: php
+.. code-block:: xml+php
 
     
     <?php
@@ -69,7 +69,7 @@ simple configuration may look like this:
 
 Or, if you prefer to not be prompted every time you log in:
 
-.. code-block:: php
+.. code-block:: xml+php
 
     
     <?php

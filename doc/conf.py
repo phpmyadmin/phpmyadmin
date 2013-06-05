@@ -284,3 +284,9 @@ epub_copyright = copyright
 
 # Allow duplicate toc entries.
 #epub_tocdup = True
+
+# Highlight PHP without starting <?php tag
+from sphinx.highlighting import lexers
+from pygments.lexers.web import PhpLexer
+
+lexers['php'] = PhpLexer(startinline=True)
