@@ -80,7 +80,12 @@ class PMA_langDetails_test extends PHPUnit_Framework_TestCase
             array('uz[-_]lat|uzbek-latin', 'uz-lat', 'O&lsquo;zbekcha', 'uz@latin'),
             array('uz[-_]cyr|uzbek-cyrillic', 'uz-cyr', '&#1038;&#1079;&#1073;&#1077;&#1082;&#1095;&#1072;', 'uz'),
             array('zh[-_](tw|hk)|chinese traditional', 'zh-TW', '&#20013;&#25991;', 'zh_TW'),
-            array('zh|chinese simplified', 'zh', '&#20013;&#25991;', 'zh_CN'),
+            array(
+                'zh(?![-_](tw|hk))([-_][[:alpha:]]{2,3})?|chinese simplified', 
+                'zh', 
+                '&#20013;&#25991;', 
+                'zh_CN'
+            ),
             array('test_lang|test_lang', 'test_lang', 'test_lang', 'test_lang')
         );
     }
