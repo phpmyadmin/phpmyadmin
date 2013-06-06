@@ -39,7 +39,7 @@ function PMA_getSubPageHeader()
  */
 function PMA_getLogSelector($binary_logs, $url_params)
 {
-    $html = "";
+	$html = "";
 	if (count($binary_logs) > 1) {
 	    $html .= '<form action="server_binlog.php" method="get">';
 	    $html .= PMA_generate_common_hidden_inputs($url_params);
@@ -134,8 +134,8 @@ function PMA_getLogInfo($binary_logs, $url_params)
 	    $url_params['dontlimitchars'] = 1;
 	}
 
-    //html output
-    $html  = PMA_Util::getMessage(PMA_Message::success(), $sql_query);
+	//html output
+	$html  = PMA_Util::getMessage(PMA_Message::success(), $sql_query);
 	$html .= '<table cellpadding="2" cellspacing="1" id="binlogTable">'
 	    . '<thead>'
 	    . '<tr>'
