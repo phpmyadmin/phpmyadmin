@@ -336,7 +336,13 @@ function PMA_langDetails($lang)
     case 'zh_TW':
         return array('zh[-_](tw|hk)|chinese traditional', 'zh-TW', '&#20013;&#25991;');
     case 'zh_CN':
-        return array('zh|chinese simplified', 'zh', '&#20013;&#25991;');
+        // only TW and HK use traditional Chinese while others (CN, SG, MY)
+        // use simplified Chinese
+        return array(
+            'zh(?![-_](tw|hk))([-_][[:alpha:]]{2,3})?|chinese simplified', 
+            'zh', 
+            '&#20013;&#25991;'
+        );
     }
     return array("$lang|$lang", $lang, $lang);
 }
