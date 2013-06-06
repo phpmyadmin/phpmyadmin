@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-06-04 17:18+0200\n"
-"PO-Revision-Date: 2013-05-27 18:09+0200\n"
+"PO-Revision-Date: 2013-06-06 23:30+0200\n"
 "Last-Translator: Pl P <plamen_mbx@yahoo.com>\n"
-"Language-Team: Bulgarian <http://l10n.cihar.com/projects/phpmyadmin/master/"
-"bg/>\n"
+"Language-Team: Bulgarian "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/bg/>\n"
 "Language: bg\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1969,7 +1969,7 @@ msgid ""
 "A newer version of phpMyAdmin is available and you should consider "
 "upgrading. The newest version is %s, released on %s."
 msgstr ""
-"Налична е нова всесия на phpMyAdmin и трябва да обмислите обневление. Новата "
+"Налична е нова версия на phpMyAdmin и трябва да обмислите обновяване. Новата "
 "версия е %s, излязла на %s."
 
 #. l10n: Latest available phpMyAdmin version
@@ -8083,7 +8083,7 @@ msgstr ""
 
 #: libraries/plugins/export/ExportSql.class.php:305
 msgid "Instead of <code>INSERT</code> statements, use:"
-msgstr ""
+msgstr "Вместо <code>INSERT</code> изрази, да се използват:"
 
 #: libraries/plugins/export/ExportSql.class.php:311
 msgid "<code>INSERT DELAYED</code> statements"
@@ -8108,6 +8108,9 @@ msgid ""
 "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name (col_A,col_B,col_C) VALUES "
 "(1,2,3)</code>"
 msgstr ""
+"включване на имената на полетата във всеки <code>INSERT</code> израз <br /> "
+"&nbsp; &nbsp; &nbsp; Пример: <code>INSERT INTO tbl_name (col_A,col_B,col_C) "
+"VALUES (1,2,3)</code>"
 
 #: libraries/plugins/export/ExportSql.class.php:361
 msgid ""
@@ -8115,30 +8118,43 @@ msgid ""
 "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name VALUES (1,2,3), (4,5,6), "
 "(7,8,9)</code>"
 msgstr ""
+"включване на няколко реда във всеки <code>INSERT</code> израз<br /> &nbsp; "
+"&nbsp; &nbsp; Пример: <code>INSERT INTO tbl_name VALUES (1,2,3), (4,5,6), "
+"(7,8,9)</code>"
 
 #: libraries/plugins/export/ExportSql.class.php:366
 msgid ""
 "both of the above<br /> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 "tbl_name (col_A,col_B) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 msgstr ""
+"комбинация от двата горни варианта<br /> &nbsp; &nbsp; &nbsp; Пример: "
+"<code>INSERT INTO tbl_name (col_A,col_B) VALUES (1,2,3), (4,5,6), "
+"(7,8,9)</code>"
 
 #: libraries/plugins/export/ExportSql.class.php:371
 msgid ""
 "neither of the above<br /> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 "tbl_name VALUES (1,2,3)</code>"
 msgstr ""
+"нито един от горните варианти<br /> &nbsp; &nbsp; &nbsp; Пример: "
+"<code>INSERT INTO tbl_name VALUES (1,2,3)</code>"
 
 #: libraries/plugins/export/ExportSql.class.php:390
 msgid ""
 "Dump binary columns in hexadecimal notation <i>(for example, \"abc\" becomes "
 "0x616263)</i>"
 msgstr ""
+"Съхраняване на двоичните полета в шестнадесетичен вид <i>(например, \"abc\" "
+"става 0x616263)</i>"
 
 #: libraries/plugins/export/ExportSql.class.php:403
 msgid ""
 "Dump TIMESTAMP columns in UTC <i>(enables TIMESTAMP columns to be dumped and "
 "reloaded between servers in different time zones)</i>"
 msgstr ""
+"Съхраняване на полета от вида TIMESTAMP в UTC формат<i>(позволява полетата "
+"TIMESTAMP да бъдат експортирани и четени от сървъри в различни часови "
+"пояси)</i>"
 
 #: libraries/plugins/export/ExportSql.class.php:1198
 msgid "Constraints for dumped tables"
@@ -8492,6 +8508,9 @@ msgid ""
 "Enable advanced features in configuration file (<code>config.inc.php</"
 "code>), for example by starting from <code>config.sample.inc.php</code>."
 msgstr ""
+"Включване на допълнителните функции в конфигурационния файл "
+"(<code>config.inc.php</code>), започнете с примера в "
+"<code>config.sample.inc.php</code>."
 
 #: libraries/relation.lib.php:278
 msgid "Re-login to phpMyAdmin to load the updated configuration file."
@@ -11195,6 +11214,10 @@ msgid ""
 "it suggests that the server is doing a lot of full index scans; for example, "
 "SELECT col1 FROM foo, assuming that col1 is indexed."
 msgstr ""
+"Брой на четенията на първият запис от индекса. При голяма стойност се "
+"подразбира, че сървърът извършва прекалено много пълни сканирания на "
+"индекса; например, SELECT col1 FROM foo, при условие, че col1 е индексирано "
+"поле."
 
 #: server_status_variables.php:396
 msgid ""
@@ -11514,6 +11537,8 @@ msgid ""
 "The number of tables that have been opened. If opened tables is big, your "
 "table cache value is probably too small."
 msgstr ""
+"Общ брой на отворените таблици. Ако тази стойност е голяма, вероятно имате "
+"прекалено малък кеш за таблиците (table_cache)."
 
 #: server_status_variables.php:639
 msgid "The number of files that are open."
@@ -13438,7 +13463,7 @@ msgstr "Размер на дневника на InnoDB"
 msgid ""
 "The InnoDB log file size is not an appropriate size, in relation to the "
 "InnoDB buffer pool."
-msgstr ""
+msgstr "Размерът на лог-файла на InnoDB не съответства на буфера на InnoDB."
 
 #: libraries/advisory_rules.txt:440
 #, php-format
@@ -13460,6 +13485,8 @@ msgid ""
 "Your InnoDB log size is at %s%% in relation to the InnoDB buffer pool size, "
 "it should not be below 20%%"
 msgstr ""
+"Размерът на вашият лог-файл на InnoDB е %s%% от размера на буфера на InnoDB, "
+"това съотношение не трябва да е по-малко от 20%%"
 
 #: libraries/advisory_rules.txt:443
 msgid "Max InnoDB log size"
@@ -13467,7 +13494,7 @@ msgstr "Максимален размер на дневника на InnoDB"
 
 #: libraries/advisory_rules.txt:446
 msgid "The InnoDB log file size is inadequately large."
-msgstr "Дневникът на InnoDB е неоправдано голям."
+msgstr "Лог-файла на InnoDB е неоправдано голям."
 
 #: libraries/advisory_rules.txt:447
 #, php-format
