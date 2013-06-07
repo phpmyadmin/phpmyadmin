@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-06-04 17:18+0200\n"
-"PO-Revision-Date: 2013-06-06 23:30+0200\n"
+"PO-Revision-Date: 2013-06-07 23:46+0200\n"
 "Last-Translator: Pl P <plamen_mbx@yahoo.com>\n"
 "Language-Team: Bulgarian "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/bg/>\n"
@@ -9923,7 +9923,7 @@ msgstr "Индекс"
 #: libraries/structure.lib.php:1398 libraries/structure.lib.php:2060
 #: libraries/structure.lib.php:2070
 msgid "Spatial"
-msgstr ""
+msgstr "Пространствен"
 
 #: libraries/structure.lib.php:1408 libraries/structure.lib.php:2062
 #: libraries/structure.lib.php:2072
@@ -10034,7 +10034,7 @@ msgstr "Добавяне на уникален ключ"
 
 #: libraries/structure.lib.php:2024 libraries/structure.lib.php:2027
 msgid "Add SPATIAL index"
-msgstr "Добавяне на SPATIAL индекс"
+msgstr "Добавяне на пространствен индекс"
 
 #: libraries/structure.lib.php:2030 libraries/structure.lib.php:2033
 msgid "Add FULLTEXT index"
@@ -12168,7 +12168,7 @@ msgstr "-- без --"
 
 #: tbl_gis_visualization.php:135
 msgid "Spatial column"
-msgstr "Пространствена колона"
+msgstr "Пространствено поле"
 
 #: tbl_gis_visualization.php:150
 msgid "Redraw"
