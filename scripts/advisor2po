@@ -5,10 +5,6 @@
  * strings for translation.
  */
 
-function format_string($str) {
-    return addcslashes(Advisor::escapePercent($str), '"\\');
-}
-
 $messages = array();
 $locations = array();
 
