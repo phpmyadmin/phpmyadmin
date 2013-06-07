@@ -49,7 +49,7 @@ ksort($plugins);
 /**
  * Displays the page
  */
-$response->addHTML(PMA_getSubPageHeader());
+$response->addHTML(PMA_getSubPageHeader('plugins'));
 $response->addHTML(PMA_getPluginAndModuleInfo($plugins, $modules));
 
 exit;

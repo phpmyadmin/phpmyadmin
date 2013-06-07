@@ -13,22 +13,6 @@ if (! defined('PHPMYADMIN')) {
 }
 
 /**
- * Returns the html for the sub-page heading
- *
- * @param null
- *
- * @return string
- */
-function PMA_getSubPageHeader()
-{
-	$html = '<h2>' . "\n"
-	    . PMA_Util::getImage('s_tbl.png')
-	    . '    ' . __('Binary log') . "\n"
-	    . '</h2>' . "\n";
-	return $html;
-}
-
-/**
  * Returns the html for log selector.
  *
  * @param Array $binary_log_file_names Binary logs file names

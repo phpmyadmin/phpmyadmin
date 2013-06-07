@@ -33,7 +33,7 @@ if (!empty($_REQUEST['dontlimitchars'])) {
 
 $response = PMA_Response::getInstance();
 
-$response->addHTML(PMA_getSubPageHeader());
+$response->addHTML(PMA_getSubPageHeader('binlog'));
 $response->addHTML(PMA_getLogSelector($binary_logs, $url_params));
 $response->addHTML(PMA_getLogInfo($binary_logs, $url_params));
 

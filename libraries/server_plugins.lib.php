@@ -13,22 +13,6 @@ if (! defined('PHPMYADMIN')) {
 }
 
 /**
- * Returns the html for the sub-page heading
- *
- * @param null
- *
- * @return string
- */
-function PMA_getSubPageHeader()
-{
-    $html = '<h2>' . "\n"
-        . PMA_Util::getImage('b_engine.png')
-        . "\n" . __('Plugins') . "\n"
-        . '</h2>' . "\n";
-    return $html;
-}
-
-/**
  * Returns the html for plugin and module Info.
  *
  * @param Array $plugins Plugin list
