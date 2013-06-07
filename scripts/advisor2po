@@ -1,8 +1,8 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4 ft=php: */
 /**
- * Script to parse advisor rules and output them as PHP code which can be used 
- * by gettext for generating po(t) files.
+ * Script to parse advisor rules and output them as Gettext POT formatted
+ * strings for translation.
  */
 
 function format_string($str) {
