@@ -39,44 +39,13 @@ if ($is_superuser && ! PMA_DRIZZLE) {
     $GLOBALS['dbi']->selectDb('mysql', $userlink);
 }
 
-/**
- * @global array binary log files
- */
-$binary_logs = PMA_DRIZZLE
-    ? null
-    : $GLOBALS['dbi']->fetchResult(
-        'SHOW MASTER LOGS',
-        'Log_name',
-        null,
-        null,
-        PMA_DatabaseInterface::QUERY_STORE
-    );
-
 PMA_Util::checkParameters(
     array('is_superuser', 'url_query'), false
 );
 
 /**
- * Returns the html for the sub-page heading
- *
- * @param string $type Sub page type
- *
- * @return string
+ * shared functions for server page
  */
-function PMA_getSubPageHeader($type)
-{
-    $res = array();
+require_once './libraries/server_common.lib.php';
 
-    $res['plugins']['icon'] = 'b_engine.png';
-    $res['plugins']['text'] = __('Plugins');
-    
-    $res['binlog']['icon'] = 's_tbl.png';
-    $res['binlog']['text'] = __('Binary log');
-    
-    $html = '<h2>' . "\n"
-        . PMA_Util::getImage($res[$type]['icon'])
-        . '    ' . $res[$type]['text'] . "\n"
-        . '</h2>' . "\n";
-    return $html;
-}
 ?>
