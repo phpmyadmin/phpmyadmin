@@ -47,10 +47,10 @@ function PMA_getPluginAndModuleInfo($plugins, $modules)
 	$html .= '<li><a href="#plugins_plugins">' . __('Plugins') . '</a></li>';
 	$html .= '<li><a href="#plugins_modules">' . __('Modules') . '</a></li>';
 	$html .= '</ul>';
-    $html .= PMA_getPluginTab($plugins);
-    $html .= PMA_getModuleTab($modules);
+	$html .= PMA_getPluginTab($plugins);
+	$html .= PMA_getModuleTab($modules);
 	$html .= '</div>';
-    return $html;
+	return $html;
 }
 
 /**
@@ -171,7 +171,7 @@ function PMA_getModuleTab($modules)
  */
 function PMA_getModuleList($modules)
 {
-    $html = "";
+	$html = "";
 	$odd_row = false;
 	foreach ($modules as $module_name => $module) {
 		$odd_row = !$odd_row;
