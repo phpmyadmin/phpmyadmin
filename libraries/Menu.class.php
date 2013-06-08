@@ -427,7 +427,7 @@ class PMA_Menu
      */
     private function _getServerTabs()
     {
-        $is_superuser = PMA_isSuperuser();
+        $is_superuser = function_exists('PMA_isSuperuser') && PMA_isSuperuser();
         $binary_logs = null;
         if (!defined('PMA_DRIZZLE') || (defined('PMA_DRIZZLE') && ! PMA_DRIZZLE)) {
             $binary_logs = PMA_DBI_fetch_result(
