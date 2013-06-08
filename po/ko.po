@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-06-03 09:16-0400\n"
-"PO-Revision-Date: 2013-06-08 14:41+0200\n"
+"PO-Revision-Date: 2013-06-08 14:42+0200\n"
 "Last-Translator: Yungu Kim <crimsonpi@gmail.com>\n"
 "Language-Team: Korean <http://l10n.cihar.com/projects/phpmyadmin/4-0/ko/>\n"
 "Language: ko\n"
@@ -4827,7 +4827,7 @@ msgstr "가져오기시 비어있는 행 제외"
 
 #: libraries/config/messages.inc.php:258
 msgid "Import currencies ($5.00 to 5.00)"
-msgstr ""
+msgstr "통화 값 가져오기 ($5.00은 5.00으로 가져옴)"
 
 #: libraries/config/messages.inc.php:259
 msgid "Import percentages as proper decimals (12.00% to .12)"
@@ -9921,7 +9921,7 @@ msgstr "저장된 설정이 없습니다!"
 
 #: prefs_manage.php:259 prefs_manage.php:312
 msgid "This feature is not supported by your web browser"
-msgstr ""
+msgstr "현재 웹 브라우저에서 이 기능을 지원하지 않음"
 
 #: prefs_manage.php:264
 msgid "Merge with current configuration"
