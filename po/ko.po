@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-06-04 17:18+0200\n"
-"PO-Revision-Date: 2013-06-05 14:39+0200\n"
+"PO-Revision-Date: 2013-06-08 14:32+0200\n"
 "Last-Translator: Yungu Kim <crimsonpi@gmail.com>\n"
 "Language-Team: Korean <http://l10n.cihar.com/projects/phpmyadmin/master/ko/>\n"
 "Language: ko\n"
@@ -5106,39 +5106,38 @@ msgstr ""
 msgid ""
 "Defines the minimum number of items (tables, views, routines and events) to "
 "display a filter box."
-msgstr ""
+msgstr "필터 박스에 표시할 아이템(테이블, 뷰, 루틴, 이벤트)의 최소 개수를 정의."
 
 #: libraries/config/messages.inc.php:307
 msgid "Minimum number of items to display the filter box"
-msgstr ""
+msgstr "필터 박스에 표시할 최소 아이템 개수"
 
 #: libraries/config/messages.inc.php:308
 msgid "Minimum number of databases to display the database filter box"
-msgstr ""
+msgstr "데이터베이스 필터 박스에 표시할 최소 데이터베이스 수"
 
 #: libraries/config/messages.inc.php:309
 msgid ""
 "Group items in the navigation tree (determined by the separator defined "
 "below)"
-msgstr ""
+msgstr "네비게이션 트리의 그룹 아이템 (아래 정의된 구분자로 구분)"
 
 #: libraries/config/messages.inc.php:310
 msgid "Group items in the tree"
-msgstr ""
+msgstr "트리의 그룹 아이템"
 
 #: libraries/config/messages.inc.php:311
 msgid "String that separates databases into different tree levels"
-msgstr ""
+msgstr "데이터베이스를 서로 다른 트리 레벨로 구분하기 위한 문자열"
 
 #: libraries/config/messages.inc.php:312
-#, fuzzy
 #| msgid "Database server"
 msgid "Database tree separator"
-msgstr "데이터베이스 서버"
+msgstr "데이터베이스 트리 구분자"
 
 #: libraries/config/messages.inc.php:313
 msgid "String that separates tables into different tree levels"
-msgstr ""
+msgstr "테이블을 서로 다른 트리 레벨로 구분하기 위한 문자열"
 
 #: libraries/config/messages.inc.php:314
 msgid "Table tree separator"
@@ -5150,7 +5149,7 @@ msgstr "테이블 트리의 최대 깊이(depth)"
 
 #: libraries/config/messages.inc.php:316
 msgid "Highlight server under the mouse cursor"
-msgstr ""
+msgstr "마우스 커서 아래의 서버를 강조 표시"
 
 #: libraries/config/messages.inc.php:317
 msgid "Enable highlighting"
@@ -5158,7 +5157,7 @@ msgstr "﻿강조 표시 사용"
 
 #: libraries/config/messages.inc.php:318
 msgid "Maximum number of recently used tables; set 0 to disable"
-msgstr ""
+msgstr "최근 사용한 테이블 최대 개수; 0이면 이 기능 사용 안 함"
 
 #: libraries/config/messages.inc.php:319
 msgid "Recently used tables"
@@ -5166,15 +5165,15 @@ msgstr "최근 사용한 테이블"
 
 #: libraries/config/messages.inc.php:320
 msgid "These are Edit, Copy and Delete links"
-msgstr ""
+msgstr "수정, 복사, 삭제 링크가 있음"
 
 #: libraries/config/messages.inc.php:321
 msgid "Where to show the table row links"
-msgstr ""
+msgstr "테이블 열 링크를 표시할 위치"
 
 #: libraries/config/messages.inc.php:322
 msgid "Use natural order for sorting table and database names"
-msgstr ""
+msgstr "테이블과 데이터베이스를 정렬할 때 자연 순서(natural order) 사용"
 
 #: libraries/config/messages.inc.php:323
 msgid "Natural order"
@@ -10303,25 +10302,24 @@ msgid "This feature is not supported by your web browser"
 msgstr ""
 
 #: prefs_manage.php:270
-#, fuzzy
 #| msgid "Import monitor configuration"
 msgid "Merge with current configuration"
-msgstr "모니터 설정 가져오기"
+msgstr "현재 설정과 합치기"
 
 #: prefs_manage.php:284
 #, php-format
 msgid ""
 "You can set more settings by modifying config.inc.php, eg. by using %sSetup "
 "script%s."
-msgstr ""
+msgstr "%s셋업 스크립트%s를 사용하는 등의 방법으로 config.inc.php를 수정하여 더 많은 설정을 조정할 수 있습니다."
 
 #: prefs_manage.php:308
 msgid "Save to browser's storage"
-msgstr ""
+msgstr "브라우저의 저장 공간에 저장"
 
 #: prefs_manage.php:312
 msgid "Settings will be saved in your browser's local storage."
-msgstr ""
+msgstr "설정 내용이 웹 브라우저의 로컬 스토리지에 저장됩니다."
 
 #: prefs_manage.php:314
 msgid "Existing settings will be overwritten!"
@@ -10329,7 +10327,7 @@ msgstr "기존 설정에 덮여쓰여집니다!"
 
 #: prefs_manage.php:329
 msgid "You can reset all your settings and restore them to default values."
-msgstr ""
+msgstr "모든 설정을 초기화할 수 있습니다."
 
 #: querywindow.php:64
 msgid "Import files"
@@ -10341,24 +10339,24 @@ msgstr "모두"
 
 #: querywindow.php:154
 msgid "SQL history:"
-msgstr ""
+msgstr "SQL 히스토리:"
 
 #: schema_edit.php:36 schema_edit.php:42 schema_edit.php:48 schema_edit.php:53
 #, php-format
 msgid "<b>%s</b> table not found or not set in %s"
-msgstr ""
+msgstr "테이블 <b>%s</b>를 찾을 수 없음 (또는 %s에 정의되어있지 않음)"
 
 #: schema_export.php:62
 msgid "File doesn't exist"
-msgstr "파일이 존재하지 않습니다."
+msgstr "파일이 없음"
 
 #: server_binlog.php:85
 msgid "Select binary log to view"
-msgstr ""
+msgstr "표시할 바이너리 로그를 선택하세요"
 
 #: server_binlog.php:155 server_status.php:483
 msgid "Truncate Shown Queries"
-msgstr ""
+msgstr "보여줄 쿼리 중략하기"
 
 #: server_binlog.php:159 server_status.php:488
 msgid "Show Full Queries"
@@ -10378,7 +10376,7 @@ msgstr "원본 위치"
 
 #: server_collations.php:25
 msgid "Character Sets and Collations"
-msgstr ""
+msgstr "문자셋과 정렬"
 
 #: server_databases.php:117
 #, php-format
@@ -10392,16 +10390,14 @@ msgstr "데이터베이스 사용량 통계"
 
 #: server_databases.php:227 server_replication.php:167
 #: server_replication.php:198
-#, fuzzy
 #| msgid "Replication"
 msgid "Master replication"
-msgstr "복제"
+msgstr "마스터 리플리케이션"
 
 #: server_databases.php:229 server_replication.php:236
-#, fuzzy
 #| msgid "Replication"
 msgid "Slave replication"
-msgstr "복제"
+msgstr "슬레이브 리플리케이션"
 
 #: server_databases.php:339 server_databases.php:340
 msgid "Enable Statistics"
@@ -10419,34 +10415,31 @@ msgid "No databases"
 msgstr "데이터베이스가 없습니다"
 
 #: server_engines.php:67
-#, fuzzy
 #| msgid "Engines"
 msgid "Storage Engines"
-msgstr "엔진"
+msgstr "스토리지 엔진"
 
 #: server_export.php:20
-#, fuzzy
 #| msgid "View dump (schema) of database"
 msgid "View dump (schema) of databases"
 msgstr "데이터베이스의 덤프(스키마) 데이터 보기"
 
 #: server_plugins.php:66
 msgid "Modules"
-msgstr ""
+msgstr "모듈"
 
 #: server_plugins.php:87
 msgid "Begin"
 msgstr "처음"
 
 #: server_plugins.php:94
-#, fuzzy
 #| msgid "Plugins"
 msgid "Plugin"
 msgstr "플러그인"
 
 #: server_plugins.php:95 server_plugins.php:129
 msgid "Module"
-msgstr ""
+msgstr "모듈"
 
 #: server_plugins.php:96 server_plugins.php:131
 msgid "Library"
