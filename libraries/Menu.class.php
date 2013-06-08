@@ -429,7 +429,11 @@ class PMA_Menu
     {
         $is_superuser = function_exists('PMA_isSuperuser') && PMA_isSuperuser();
         $binary_logs = null;
-        if (!defined('PMA_DRIZZLE') || (defined('PMA_DRIZZLE') && ! PMA_DRIZZLE)) {
+        if (function_exists('PMA_DBI_fetch_result')
+            && (! defined('PMA_DRIZZLE') 
+                || (defined('PMA_DRIZZLE') && ! PMA_DRIZZLE)
+            )
+        ) {
             $binary_logs = PMA_DBI_fetch_result(
                 'SHOW MASTER LOGS',
                 'Log_name',
