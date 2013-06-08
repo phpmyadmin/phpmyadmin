@@ -429,7 +429,11 @@ class PMA_Menu
     {
         $is_superuser = isset($GLOBALS['dbi']) && $GLOBALS['dbi']->isSuperuser();
         $binary_logs = null;
-        if (!defined('PMA_DRIZZLE') || (defined('PMA_DRIZZLE') && ! PMA_DRIZZLE)) {
+        if (isset($GLOBALS['dbi'])
+            && (! defined('PMA_DRIZZLE') 
+                || (defined('PMA_DRIZZLE') && ! PMA_DRIZZLE)
+            )
+        ) {
             $binary_logs = $GLOBALS['dbi']->fetchResult(
                 'SHOW MASTER LOGS',
                 'Log_name',
