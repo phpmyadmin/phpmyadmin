@@ -39,20 +39,13 @@ if ($is_superuser && ! PMA_DRIZZLE) {
     $GLOBALS['dbi']->selectDb('mysql', $userlink);
 }
 
-/**
- * @global array binary log files
- */
-$binary_logs = PMA_DRIZZLE
-    ? null
-    : $GLOBALS['dbi']->fetchResult(
-        'SHOW MASTER LOGS',
-        'Log_name',
-        null,
-        null,
-        PMA_DatabaseInterface::QUERY_STORE
-    );
-
 PMA_Util::checkParameters(
     array('is_superuser', 'url_query'), false
 );
+
+/**
+ * shared functions for server page
+ */
+require_once './libraries/server_common.lib.php';
+
 ?>

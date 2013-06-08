@@ -23,14 +23,7 @@ $scripts->addFile('server_plugins.js');
  * Does the common work
  */
 require 'libraries/server_common.inc.php';
-
-/**
- * Displays the sub-page heading
- */
-echo '<h2>' . "\n"
-   . PMA_Util::getImage('b_engine.png')
-   . "\n" . __('Plugins') . "\n"
-   . '</h2>' . "\n";
+require 'libraries/server_plugins.lib.php';
 
 /**
  * Prepare plugin list
@@ -56,129 +49,9 @@ ksort($plugins);
 /**
  * Displays the page
  */
-?>
-<script type="text/javascript">
-pma_theme_image = '<?php echo $GLOBALS['pmaThemeImage']; ?>';
-</script>
-<div id="pluginsTabs">
-    <ul>
-        <li><a href="#plugins_plugins"><?php echo __('Plugins'); ?></a></li>
-        <li><a href="#plugins_modules"><?php echo __('Modules'); ?></a></li>
-    </ul>
+$response->addHTML(PMA_getSubPageHeader('plugins'));
+$response->addHTML(PMA_getPluginAndModuleInfo($plugins, $modules));
 
-    <div id="plugins_plugins">
-        <div id="sectionlinks">
-        <?php
-        foreach ($plugins as $plugin_type => $plugin_list) {
-            $key = 'plugins-' . preg_replace('/[^a-z]/', '', strtolower($plugin_type));
-            echo '<a href="#' . $key . '">' . htmlspecialchars($plugin_type) . '</a>' . "\n";
-        }
-        ?>
-        </div>
-        <br />
-        <?php
-        foreach ($plugins as $plugin_type => $plugin_list) {
-            $key = 'plugins-' . preg_replace('/[^a-z]/', '', strtolower($plugin_type));
-            sort($plugin_list);
-            ?>
-            <table class="data_full_width" id="<?php echo $key; ?>">
-            <caption class="tblHeaders">
-                <a class="top" href="#serverinfo"><?php
-                    echo __('Begin');
-                    echo PMA_Util::getImage('s_asc.png');
-                    ?></a>
-                <?php echo htmlspecialchars($plugin_type); ?>
-            </caption>
-            <thead>
-                <tr>
-                    <th><?php echo __('Plugin'); ?></th>
-                    <th><?php echo __('Module'); ?></th>
-                    <th><?php echo __('Library'); ?></th>
-                    <th><?php echo __('Version'); ?></th>
-                    <th><?php echo __('Author'); ?></th>
-                    <th><?php echo __('License'); ?></th>
-                </tr>
-            </thead>
-            <tbody>
-            <?php
-            $odd_row = false;
-            foreach ($plugin_list as $plugin) {
-                $odd_row = !$odd_row;
-            ?>
-            <tr class="noclick <?php echo $odd_row ? 'odd' : 'even'; ?>">
-                <th><?php echo htmlspecialchars($plugin['plugin_name']); ?></th>
-                <td><?php echo htmlspecialchars($plugin['module_name']); ?></td>
-                <td><?php echo htmlspecialchars($plugin['module_library']); ?></td>
-                <td><?php echo htmlspecialchars($plugin['module_version']); ?></td>
-                <td><?php echo htmlspecialchars($plugin['module_author']); ?></td>
-                <td><?php echo htmlspecialchars($plugin['module_license']); ?></td>
-            </tr>
-            <?php
-            }
-            ?>
-            </tbody>
-            </table>
-            <?php
-        }
-        ?>
-    </div>
-    <div id="plugins_modules">
-        <table class="data_full_width">
-        <thead>
-            <tr>
-                <th><?php echo __('Module'); ?></th>
-                <th><?php echo __('Description'); ?></th>
-                <th><?php echo __('Library'); ?></th>
-                <th><?php echo __('Version'); ?></th>
-                <th><?php echo __('Author'); ?></th>
-                <th><?php echo __('License'); ?></th>
-            </tr>
-        </thead>
-        <tbody>
-        <?php
-        $odd_row = false;
-        foreach ($modules as $module_name => $module) {
-            $odd_row = !$odd_row;
-        ?>
-            <tr class="noclick <?php echo $odd_row ? 'odd' : 'even'; ?>">
-                <th rowspan="2"><?php echo htmlspecialchars($module_name); ?></th>
-                <td><?php echo htmlspecialchars($module['info']['module_description']); ?></td>
-                <td><?php echo htmlspecialchars($module['info']['module_library']); ?></td>
-                <td><?php echo htmlspecialchars($module['info']['module_version']); ?></td>
-                <td><?php echo htmlspecialchars($module['info']['module_author']); ?></td>
-                <td><?php echo htmlspecialchars($module['info']['module_license']); ?></td>
-            </tr>
-            <tr class="noclick <?php echo $odd_row ? 'odd' : 'even'; ?>">
-                <td colspan="5">
-                    <table>
-                        <tbody>
-                        <?php
-                        foreach ($module['plugins'] as $plugin_type => $plugin_list) {
-                        ?>
-                            <tr class="noclick">
-                                <td><b class="plugin-type"><?php echo htmlspecialchars($plugin_type); ?></b></td>
-                                <td>
-                                <?php
-                                for ($i = 0; $i < count($plugin_list); $i++) {
-                                    echo ($i != 0 ? '<br />' : '') . htmlspecialchars($plugin_list[$i]['plugin_name']);
-                                    if (!$plugin_list[$i]['is_active']) {
-                                        echo ' <small class="attention">' . __('disabled') . '</small>';
-                                    }
-                                }
-                                ?>
-                                </td>
-                            </tr>
-                        <?php
-                        }
-                        ?>
-                        </tbody>
-                    </table>
-                </td>
-            </tr>
-        <?php
-        }
-        ?>
-        </tbody>
-        </table>
-    </div>
-</div>
+exit;
+
+?>

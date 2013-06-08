@@ -427,7 +427,7 @@ class PMA_Menu
      */
     private function _getServerTabs()
     {
-        $is_superuser = $GLOBALS['dbi']->isSuperuser();
+        $is_superuser = isset($GLOBALS['dbi']) && $GLOBALS['dbi']->isSuperuser();
         $binary_logs = null;
         if (!defined('PMA_DRIZZLE') || (defined('PMA_DRIZZLE') && ! PMA_DRIZZLE)) {
             $binary_logs = $GLOBALS['dbi']->fetchResult(
