@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-06-04 17:18+0200\n"
-"PO-Revision-Date: 2013-06-08 14:32+0200\n"
+"PO-Revision-Date: 2013-06-08 14:42+0200\n"
 "Last-Translator: Yungu Kim <crimsonpi@gmail.com>\n"
 "Language-Team: Korean <http://l10n.cihar.com/projects/phpmyadmin/master/ko/>\n"
 "Language: ko\n"
@@ -4903,11 +4903,11 @@ msgstr "가져오기시 비어있는 행 제외"
 
 #: libraries/config/messages.inc.php:258
 msgid "Import currencies ($5.00 to 5.00)"
-msgstr ""
+msgstr "통화 값 가져오기 ($5.00은 5.00으로 가져옴)"
 
 #: libraries/config/messages.inc.php:259
 msgid "Import percentages as proper decimals (12.00% to .12)"
-msgstr ""
+msgstr "퍼센티지값을 소수로 가져오기 (12.00%를 .12로)"
 
 #: libraries/config/messages.inc.php:260
 msgid "Number of queries to skip from start"
@@ -5177,11 +5177,11 @@ msgstr "테이블과 데이터베이스를 정렬할 때 자연 순서(natural o
 
 #: libraries/config/messages.inc.php:323
 msgid "Natural order"
-msgstr ""
+msgstr "자연순서"
 
 #: libraries/config/messages.inc.php:324 libraries/config/messages.inc.php:338
 msgid "Use only icons, only text or both"
-msgstr ""
+msgstr "아이콘만 사용, 텍스트만 사용, 둘 다 사용"
 
 #: libraries/config/messages.inc.php:325
 msgid "Iconic navigation bar"
@@ -10269,11 +10269,11 @@ msgstr "설정을 가져올 수 없습니다"
 
 #: prefs_manage.php:114
 msgid "Configuration contains incorrect data for some fields."
-msgstr ""
+msgstr "설정의 일부 항목에 잘못된 데이터가 있습니다."
 
 #: prefs_manage.php:133
 msgid "Do you want to import remaining settings?"
-msgstr ""
+msgstr "나머지 설정을 가져오겠습니까?"
 
 #: prefs_manage.php:232 prefs_manage.php:258
 msgid "Saved on: @DATE@"
@@ -10285,21 +10285,20 @@ msgstr "파일에서 가져오기"
 
 #: prefs_manage.php:252
 msgid "Import from browser's storage"
-msgstr ""
+msgstr "브라우저 스토리지에서 가져오기"
 
 #: prefs_manage.php:255
 msgid "Settings will be imported from your browser's local storage."
-msgstr ""
+msgstr "웹 브라우저의 로컬 스토리지로부터 설정을 불러옵니다."
 
 #: prefs_manage.php:261
-#, fuzzy
 #| msgid "Change settings"
 msgid "You have no saved settings!"
-msgstr "설정 변경"
+msgstr "저장된 설정이 없습니다!"
 
 #: prefs_manage.php:265 prefs_manage.php:318
 msgid "This feature is not supported by your web browser"
-msgstr ""
+msgstr "현재 웹 브라우저에서 이 기능을 지원하지 않음"
 
 #: prefs_manage.php:270
 #| msgid "Import monitor configuration"
@@ -10451,11 +10450,11 @@ msgstr "버전"
 
 #: server_plugins.php:98 server_plugins.php:133
 msgid "Author"
-msgstr ""
+msgstr "저자"
 
 #: server_plugins.php:99 server_plugins.php:134
 msgid "License"
-msgstr ""
+msgstr "라이선스"
 
 #: server_plugins.php:165
 msgid "disabled"
@@ -10482,16 +10481,16 @@ msgstr "알려지지 않은 오류"
 #: server_replication.php:89
 #, php-format
 msgid "Unable to connect to master %s."
-msgstr ""
+msgstr "마스터 %s에 접속할 수 없음."
 
 #: server_replication.php:98
 msgid ""
 "Unable to read master log position. Possible privilege problem on master."
-msgstr ""
+msgstr "마스터의 로그 위치를 읽어올 수 없습니다. 마스터 쪽의 권한 문제일 수 있습니다."
 
 #: server_replication.php:104
 msgid "Unable to change master"
-msgstr ""
+msgstr "마스터를 변경할 수 없음"
 
 #: server_replication.php:108
 #, php-format
