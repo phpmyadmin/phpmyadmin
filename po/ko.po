@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-06-03 09:16-0400\n"
-"PO-Revision-Date: 2013-06-05 14:39+0200\n"
+"PO-Revision-Date: 2013-06-08 14:41+0200\n"
 "Last-Translator: Yungu Kim <crimsonpi@gmail.com>\n"
 "Language-Team: Korean <http://l10n.cihar.com/projects/phpmyadmin/4-0/ko/>\n"
 "Language: ko\n"
@@ -4831,7 +4831,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:259
 msgid "Import percentages as proper decimals (12.00% to .12)"
-msgstr ""
+msgstr "퍼센티지값을 소수로 가져오기 (12.00%를 .12로)"
 
 #: libraries/config/messages.inc.php:260
 msgid "Number of queries to skip from start"
@@ -5028,37 +5028,37 @@ msgstr ""
 msgid ""
 "Defines the minimum number of items (tables, views, routines and events) to "
 "display a filter box."
-msgstr ""
+msgstr "필터 박스에 표시할 아이템(테이블, 뷰, 루틴, 이벤트)의 최소 개수를 정의."
 
 #: libraries/config/messages.inc.php:307
 msgid "Minimum number of items to display the filter box"
-msgstr ""
+msgstr "필터 박스에 표시할 최소 아이템 개수"
 
 #: libraries/config/messages.inc.php:308
 msgid "Minimum number of databases to display the database filter box"
-msgstr ""
+msgstr "데이터베이스 필터 박스에 표시할 최소 데이터베이스 수"
 
 #: libraries/config/messages.inc.php:309
 msgid ""
 "Group items in the navigation tree (determined by the separator defined "
 "below)"
-msgstr ""
+msgstr "네비게이션 트리의 그룹 아이템 (아래 정의된 구분자로 구분)"
 
 #: libraries/config/messages.inc.php:310
 msgid "Group items in the tree"
-msgstr ""
+msgstr "트리의 그룹 아이템"
 
 #: libraries/config/messages.inc.php:311
 msgid "String that separates databases into different tree levels"
-msgstr ""
+msgstr "데이터베이스를 서로 다른 트리 레벨로 구분하기 위한 문자열"
 
 #: libraries/config/messages.inc.php:312
 msgid "Database tree separator"
-msgstr ""
+msgstr "데이터베이스 트리 구분자"
 
 #: libraries/config/messages.inc.php:313
 msgid "String that separates tables into different tree levels"
-msgstr ""
+msgstr "테이블을 서로 다른 트리 레벨로 구분하기 위한 문자열"
 
 #: libraries/config/messages.inc.php:314
 msgid "Table tree separator"
@@ -5070,7 +5070,7 @@ msgstr "테이블 트리의 최대 깊이(depth)"
 
 #: libraries/config/messages.inc.php:316
 msgid "Highlight server under the mouse cursor"
-msgstr ""
+msgstr "마우스 커서 아래의 서버를 강조 표시"
 
 #: libraries/config/messages.inc.php:317
 msgid "Enable highlighting"
@@ -5078,7 +5078,7 @@ msgstr "﻿강조 표시 사용"
 
 #: libraries/config/messages.inc.php:318
 msgid "Maximum number of recently used tables; set 0 to disable"
-msgstr ""
+msgstr "최근 사용한 테이블 최대 개수; 0이면 이 기능 사용 안 함"
 
 #: libraries/config/messages.inc.php:319
 msgid "Recently used tables"
@@ -5086,25 +5086,24 @@ msgstr "최근 사용한 테이블"
 
 #: libraries/config/messages.inc.php:320
 msgid "These are Edit, Copy and Delete links"
-msgstr ""
+msgstr "수정, 복사, 삭제 링크가 있음"
 
 #: libraries/config/messages.inc.php:321
 msgid "Where to show the table row links"
-msgstr ""
+msgstr "테이블 열 링크를 표시할 위치"
 
 #: libraries/config/messages.inc.php:322
 msgid "Use natural order for sorting table and database names"
-msgstr ""
+msgstr "테이블과 데이터베이스를 정렬할 때 자연 순서(natural order) 사용"
 
 #: libraries/config/messages.inc.php:323
-#, fuzzy
 #| msgid "Alter table order by"
 msgid "Natural order"
-msgstr "다음 순서대로 테이블 정렬(변경)"
+msgstr "자연순서"
 
 #: libraries/config/messages.inc.php:324 libraries/config/messages.inc.php:338
 msgid "Use only icons, only text or both"
-msgstr ""
+msgstr "아이콘만 사용, 텍스트만 사용, 둘 다 사용"
 
 #: libraries/config/messages.inc.php:325
 msgid "Iconic navigation bar"
@@ -9894,11 +9893,11 @@ msgstr "설정을 가져올 수 없습니다"
 
 #: prefs_manage.php:113
 msgid "Configuration contains incorrect data for some fields."
-msgstr ""
+msgstr "설정의 일부 항목에 잘못된 데이터가 있습니다."
 
 #: prefs_manage.php:129
 msgid "Do you want to import remaining settings?"
-msgstr ""
+msgstr "나머지 설정을 가져오겠습니까?"
 
 #: prefs_manage.php:226 prefs_manage.php:252
 msgid "Saved on: @DATE@"
@@ -9910,15 +9909,15 @@ msgstr "파일에서 가져오기"
 
 #: prefs_manage.php:246
 msgid "Import from browser's storage"
-msgstr ""
+msgstr "브라우저 스토리지에서 가져오기"
 
 #: prefs_manage.php:249
 msgid "Settings will be imported from your browser's local storage."
-msgstr ""
+msgstr "웹 브라우저의 로컬 스토리지로부터 설정을 불러옵니다."
 
 #: prefs_manage.php:255
 msgid "You have no saved settings!"
-msgstr ""
+msgstr "저장된 설정이 없습니다!"
 
 #: prefs_manage.php:259 prefs_manage.php:312
 msgid "This feature is not supported by your web browser"
@@ -9926,22 +9925,22 @@ msgstr ""
 
 #: prefs_manage.php:264
 msgid "Merge with current configuration"
-msgstr ""
+msgstr "현재 설정과 합치기"
 
 #: prefs_manage.php:278
 #, php-format
 msgid ""
 "You can set more settings by modifying config.inc.php, eg. by using %sSetup "
 "script%s."
-msgstr ""
+msgstr "%s셋업 스크립트%s를 사용하는 등의 방법으로 config.inc.php를 수정하여 더 많은 설정을 조정할 수 있습니다."
 
 #: prefs_manage.php:302
 msgid "Save to browser's storage"
-msgstr ""
+msgstr "브라우저의 저장 공간에 저장"
 
 #: prefs_manage.php:306
 msgid "Settings will be saved in your browser's local storage."
-msgstr ""
+msgstr "설정 내용이 웹 브라우저의 로컬 스토리지에 저장됩니다."
 
 #: prefs_manage.php:308
 msgid "Existing settings will be overwritten!"
@@ -9949,7 +9948,7 @@ msgstr "기존 설정에 덮여쓰여집니다!"
 
 #: prefs_manage.php:323
 msgid "You can reset all your settings and restore them to default values."
-msgstr ""
+msgstr "모든 설정을 초기화할 수 있습니다."
 
 #: querywindow.php:64
 msgid "Import files"
@@ -9962,19 +9961,19 @@ msgstr "모두"
 #: schema_edit.php:36 schema_edit.php:42 schema_edit.php:48 schema_edit.php:53
 #, php-format
 msgid "<b>%s</b> table not found or not set in %s"
-msgstr ""
+msgstr "테이블 <b>%s</b>를 찾을 수 없음 (또는 %s에 정의되어있지 않음)"
 
 #: schema_export.php:62
 msgid "File doesn't exist"
-msgstr "파일이 존재하지 않습니다."
+msgstr "파일이 없음"
 
 #: server_binlog.php:84
 msgid "Select binary log to view"
-msgstr ""
+msgstr "표시할 바이너리 로그를 선택하세요"
 
 #: server_binlog.php:154 server_status.php:431
 msgid "Truncate Shown Queries"
-msgstr ""
+msgstr "보여줄 쿼리 중략하기"
 
 #: server_binlog.php:158 server_status.php:436
 msgid "Show Full Queries"
@@ -9994,7 +9993,7 @@ msgstr "원본 위치"
 
 #: server_collations.php:24
 msgid "Character Sets and Collations"
-msgstr ""
+msgstr "문자셋과 정렬"
 
 #: server_databases.php:117
 #, php-format
@@ -10009,11 +10008,11 @@ msgstr "데이터베이스 사용량 통계"
 #: server_databases.php:226 server_replication.php:167
 #: server_replication.php:198
 msgid "Master replication"
-msgstr ""
+msgstr "마스터 리플리케이션"
 
 #: server_databases.php:228 server_replication.php:236
 msgid "Slave replication"
-msgstr ""
+msgstr "슬레이브 리플리케이션"
 
 #: server_databases.php:334 server_databases.php:335
 msgid "Enable Statistics"
@@ -10032,16 +10031,15 @@ msgstr "데이터베이스가 없습니다"
 
 #: server_engines.php:32
 msgid "Storage Engines"
-msgstr ""
+msgstr "스토리지 엔진"
 
 #: server_export.php:20
-#, fuzzy
 msgid "View dump (schema) of databases"
 msgstr "데이터베이스의 덤프(스키마) 데이터 보기"
 
 #: server_plugins.php:66
 msgid "Modules"
-msgstr ""
+msgstr "모듈"
 
 #: server_plugins.php:87
 msgid "Begin"
@@ -10049,15 +10047,15 @@ msgstr "처음"
 
 #: server_plugins.php:94
 msgid "Plugin"
-msgstr ""
+msgstr "플러그인"
 
 #: server_plugins.php:95 server_plugins.php:129
 msgid "Module"
-msgstr ""
+msgstr "모듈"
 
 #: server_plugins.php:96 server_plugins.php:131
 msgid "Library"
-msgstr ""
+msgstr "라이브러리"
 
 #: server_plugins.php:97 server_plugins.php:132 tbl_tracking.php:763
 msgid "Version"
@@ -10065,11 +10063,11 @@ msgstr "버전"
 
 #: server_plugins.php:98 server_plugins.php:133
 msgid "Author"
-msgstr ""
+msgstr "저자"
 
 #: server_plugins.php:99 server_plugins.php:134
 msgid "License"
-msgstr ""
+msgstr "라이선스"
 
 #: server_plugins.php:165
 msgid "disabled"
@@ -10096,16 +10094,16 @@ msgstr "알려지지 않은 오류"
 #: server_replication.php:89
 #, php-format
 msgid "Unable to connect to master %s."
-msgstr ""
+msgstr "마스터 %s에 접속할 수 없음."
 
 #: server_replication.php:98
 msgid ""
 "Unable to read master log position. Possible privilege problem on master."
-msgstr ""
+msgstr "마스터의 로그 위치를 읽어올 수 없습니다. 마스터 쪽의 권한 문제일 수 있습니다."
 
 #: server_replication.php:104
 msgid "Unable to change master"
-msgstr ""
+msgstr "마스터를 변경할 수 없음"
 
 #: server_replication.php:108
 #, php-format
