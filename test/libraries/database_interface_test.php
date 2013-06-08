@@ -43,18 +43,6 @@ class PMA_DBI_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Simple test for basic query failed
-     *
-     * This relies on dummy driver internals
-     *
-     * @return void
-     */
-    function testQueryFailed()
-    {
-        $this->assertFalse($GLOBALS['dbi']->tryQuery('SELECT 2'));
-    }
-
-    /**
      * Simple test for realMultiQuery
      *
      * This relies on dummy driver internals
