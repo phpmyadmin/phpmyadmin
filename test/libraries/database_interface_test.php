@@ -97,10 +97,10 @@ class PMA_DBI_Test extends PHPUnit_Framework_TestCase
         $this->assertFalse($GLOBALS['dbi']->getError());
         $this->assertEquals('', $GLOBALS['dbi']->getClientInfo());
         $this->assertEquals(-1, $GLOBALS['dbi']->insertId());
-        $this->assertEquals(array(), $GLOBALS['dbi']->getFieldsMeta());
-        $this->assertEquals(-1, $GLOBALS['dbi']->fieldLen());
-        $this->assertEquals('', $GLOBALS['dbi']->fieldName());
-        $this->assertEquals('', $GLOBALS['dbi']->fieldFlags());
+        $this->assertEquals(array(), $GLOBALS['dbi']->getFieldsMeta(1));
+        $this->assertEquals(-1, $GLOBALS['dbi']->fieldLen(1, 0));
+        $this->assertEquals('', $GLOBALS['dbi']->fieldName(1, 0));
+        $this->assertEquals('', $GLOBALS['dbi']->fieldFlags(1, 0));
     }
 
     /**
