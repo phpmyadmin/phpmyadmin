@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-06-04 17:18+0200\n"
-"PO-Revision-Date: 2013-06-09 11:23+0200\n"
-"Last-Translator: Ghanshyam Bagul <ghanshyambagul@gmail.com>\n"
+"PO-Revision-Date: 2013-06-09 11:25+0200\n"
+"Last-Translator: rajnikant sharma <rajtrivedi2001@gmail.com>\n"
 "Language-Team: Hindi <http://l10n.cihar.com/projects/phpmyadmin/master/hi/>\n"
 "Language: hi\n"
 "MIME-Version: 1.0\n"
@@ -481,7 +481,7 @@ msgstr "डेटाबेस का रोजनामचा"
 
 #: export.php:149
 msgid "Bad type!"
-msgstr "बुरा प्रकार"
+msgstr "खोटा प्रकार"
 
 #: export.php:200
 msgid "Selected export type has to be saved in file!"
