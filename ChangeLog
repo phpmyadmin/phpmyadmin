@@ -25,6 +25,7 @@ phpMyAdmin - ChangeLog
 - bug #3965 Default language wrong with zh-TW
 - bug #3921 Call to undefined function PMA_isSuperuser() if default server is
 not set 
+- bug #3971 Ctrl/shift + click opens links in same window
 
 4.0.3.0 (2013-06-05)
 - bug #3941 Recent tables list always empty
