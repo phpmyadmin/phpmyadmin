@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-06-04 17:18+0200\n"
-"PO-Revision-Date: 2013-06-09 11:12+0200\n"
-"Last-Translator: Yogendra Singh Shekhawat <dynamicarea@gmail.com>\n"
+"PO-Revision-Date: 2013-06-09 11:23+0200\n"
+"Last-Translator: Ghanshyam Bagul <ghanshyambagul@gmail.com>\n"
 "Language-Team: Hindi <http://l10n.cihar.com/projects/phpmyadmin/master/hi/>\n"
 "Language: hi\n"
 "MIME-Version: 1.0\n"
@@ -488,10 +488,9 @@ msgid "Selected export type has to be saved in file!"
 msgstr "चयनित निर्यात प्रकार को फाइल में संचित करने की आवश्यकता है!"
 
 #: export.php:229
-#, fuzzy
 #| msgid "Add index"
 msgid "Bad parameters!"
-msgstr "अनुक्रमणिका जोड़"
+msgstr "गलत पैरामीटर्स "
 
 #: export.php:333 export.php:364 export.php:926
 #, php-format
@@ -516,16 +515,15 @@ msgid "Dump has been saved to file %s."
 msgstr "डंप को %s फाइल में सेव किया गया है."
 
 #: file_echo.php:22
-#, fuzzy
 #| msgid "Export type"
 msgid "Invalid export type"
-msgstr "निर्यात प्रकार"
+msgstr "अमान्य निर्यात प्रकार"
 
 #: gis_data_editor.php:112
-#, fuzzy, php-format
+#, php-format
 #| msgid "Values for the column \"%s\""
 msgid "Value for the column \"%s\""
-msgstr "\"%s\" काँलम के लिए मान "
+msgstr "\"%s\" काँलम के लिए मूल्य"
 
 #: gis_data_editor.php:140 tbl_gis_visualization.php:163
 msgid "Use OpenStreetMaps as Base Layer"
@@ -1678,10 +1676,10 @@ msgid "ENUM/SET editor"
 msgstr ""
 
 #: js/messages.php:253
-#, fuzzy, php-format
+#, php-format
 #| msgid "Values for the column \"%s\""
 msgid "Values for column %s"
-msgstr "\"%s\" काँलम के लिए मान "
+msgstr "\"%s\" काँलम के लिए मूल्य "
 
 #: js/messages.php:254
 #, fuzzy
