@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-06-04 17:18+0200\n"
-"PO-Revision-Date: 2013-06-05 18:23+0200\n"
+"PO-Revision-Date: 2013-06-09 18:28+0200\n"
 "Last-Translator: Dadan Setia <da2n_s@yahoo.co.id>\n"
 "Language-Team: Indonesian "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/id/>\n"
@@ -288,7 +288,7 @@ msgid "The database name is empty!"
 msgstr "Nama basis data kosong!"
 
 #: db_operations.php:129
-#, fuzzy, php-format
+#, php-format
 #| msgid "Database %s has been renamed to %s"
 msgid "Database %1$s has been renamed to %2$s"
 msgstr "Nama basis data %s telah diubah menjadi %s"
@@ -346,7 +346,6 @@ msgstr "Pembuatan"
 
 #: db_printview.php:126 libraries/plugins/export/ExportSql.class.php:960
 #: libraries/schema/Pdf_Relation_Schema.class.php:1346
-#, fuzzy
 #| msgid "Last update"
 msgid "Last update:"
 msgstr "Pembaruan terakhir"
@@ -620,7 +619,7 @@ msgstr ""
 "ke dalam isian \"Value\""
 
 #: import.php:107
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "You probably tried to upload too large file. Please refer to "
 #| "%sdocumentation%s for ways to workaround this limit."
@@ -628,8 +627,8 @@ msgid ""
 "You probably tried to upload a file that is too large. Please refer to "
 "%sdocumentation%s for a workaround for this limit."
 msgstr ""
-"Anda mungkin mencoba mengunggah berkas yang terlalu besar. Harap lihat "
-"%sdokumentasi%s untuk mendapatkan solusi tentang batasan ini."
+"Anda mungkin mencoba mengunggah berkas yang terlalu besar. Silahkan lihat %"
+"sdokumentasi%s untuk mendapatkan solusi tentang batasan ini."
 
 #: import.php:250 import.php:516
 msgid "Showing bookmark"
@@ -743,15 +742,13 @@ msgid "Server:"
 msgstr "Server:"
 
 #: index.php:241
-#, fuzzy
 #| msgid "Server port"
 msgid "Server type:"
-msgstr "Porta server"
+msgstr "Jenis server"
 
 #: index.php:245 libraries/plugins/export/ExportLatex.class.php:225
 #: libraries/plugins/export/ExportSql.class.php:612
 #: libraries/plugins/export/ExportXml.class.php:198
-#, fuzzy
 #| msgid "Server version"
 msgid "Server version:"
 msgstr "Versi Server"
@@ -13628,6 +13625,8 @@ msgstr ""
 msgid ""
 "Max_used_connections is at %s%% of max_connections, it should be below 80%%"
 msgstr ""
+"Max_used_connections saat ini mencapai %s%% dari max_connections, itu "
+"seharusnya dibawah 80%%"
 
 #: libraries/advisory_rules.txt:399
 msgid "Percentage of aborted connections"
@@ -13644,16 +13643,18 @@ msgid ""
 "source-of-aborted_connects/\">This article</a> might help you track down the "
 "source."
 msgstr ""
+"Koneksi biasanya dibatalkan apabila tidak mendapatkan otoritas. <a "
+"href=\"http://www.mysqlperformanceblog.com/2008/08/23/how-to-track-down-the-"
+"source-of-aborted_connects/\">Artikel ini</a> mungkin dapat membantu Anda "
+"melacak sumbernya."
 
 #: libraries/advisory_rules.txt:404
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "Aborted connections rate is at %s, this value should be less than 1 per "
 #| "hour"
 msgid "%s%% of all connections are aborted. This value should be below 1%%"
-msgstr ""
-"Tingkat koneksi yang digugurkan adalah pada %s, hasil ini seharusnya kurang "
-"dari 1 per jam"
+msgstr "%s%% dari semua koneksi dibatalkan. Nilai ini seharusnya dibawah 1%%"
 
 #: libraries/advisory_rules.txt:406
 msgid "Rate of aborted connections"
@@ -13687,27 +13688,25 @@ msgstr ""
 "kode Anda."
 
 #: libraries/advisory_rules.txt:418
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "Aborted connections rate is at %s, this value should be less than 1 per "
 #| "hour"
 msgid "%s%% of all clients are aborted. This value should be below 2%%"
-msgstr ""
-"Tingkat koneksi yang digugurkan adalah pada %s, hasil ini seharusnya kurang "
-"dari 1 per jam"
+msgstr "%s%% dari semua klien dibatalkan. Nilai ini seharusnya dibawah 2%%"
 
 #: libraries/advisory_rules.txt:420
 msgid "Rate of aborted clients"
 msgstr "Tingkat pengguguran klien"
 
 #: libraries/advisory_rules.txt:425
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "Aborted connections rate is at %s, this value should be less than 1 per "
 #| "hour"
 msgid "Aborted client rate is at %s, this value should be less than 1 per hour"
 msgstr ""
-"Tingkat koneksi yang digugurkan adalah pada %s, hasil ini seharusnya kurang "
+"Tingkat koneksi yang digugurkan adalah pada %s, nilai ini seharusnya kurang "
 "dari 1 per jam"
 
 #: libraries/advisory_rules.txt:429
@@ -13720,18 +13719,17 @@ msgstr "InnoDB anda tidak ada yang aktif"
 
 #: libraries/advisory_rules.txt:433
 msgid "InnoDB is usually the better choice for table engines."
-msgstr ""
+msgstr "InnoDB biasanya merupakan pilihan yang lebih baik untuk mesin tabel."
 
 #: libraries/advisory_rules.txt:434
 msgid "have_innodb is set to 'value'"
-msgstr ""
+msgstr "have_innodb diatur ke 'value'"
 
 #: libraries/advisory_rules.txt:436
 msgid "InnoDB log size"
 msgstr "Besar log InnoDB"
 
 #: libraries/advisory_rules.txt:439
-#, fuzzy
 #| msgid ""
 #| "Your InnoDB log size is at %s%% in relation to the InnoDB buffer pool "
 #| "size, it should not be below 20%%"
@@ -13739,8 +13737,8 @@ msgid ""
 "The InnoDB log file size is not an appropriate size, in relation to the "
 "InnoDB buffer pool."
 msgstr ""
-"Ukuran log InnoDB anda adalah %s%% terkait dengan ukuran pool InnoDB, ini "
-"harus diatas 20%% "
+"ukuran file log InnoDB tidak pada ukuran yang sesuai, dalam kaitannya dengan "
+"buffer pool InnoDB."
 
 #: libraries/advisory_rules.txt:440
 #, php-format
@@ -13755,6 +13753,16 @@ msgid ""
 "fine. See also <a href=\"http://mysqldatabaseadministration.blogspot."
 "com/2007/01/increase-innodblogfilesize-proper-way.html\">this blog entry</a>"
 msgstr ""
+"Terutama pada sistem yang banyak melakukan penulisan ke tabel InnoDB anda "
+"seharusnya menetapkan nilai {innodb_log_file_size} ke 25%% dari "
+"{innodb_buffer_pool_size}. Namun semakin besar nilai ini, semakin lama waktu "
+"pemulihan ketika terjadi kerusakan pada basis data, sehingga nilai ini "
+"tidak boleh diatur lebih dari 256 MiB. Perlu diingat bahwa anda tidak dapat "
+"dengan mudah mengganti nilai variabel ini. Anda perlu mematikan server, "
+"hapus file log InnoDB, menetapkan nilai baru di my.cnf, hidupkan server, "
+"kemudian cek log error untuk memastikan semuanya berjalan baik. Lihat juga "
+"<a href=\"http://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
+"innodblogfilesize-proper-way.html\">entri blog ini</a>"
 
 #: libraries/advisory_rules.txt:441
 #, php-format
@@ -13839,10 +13847,9 @@ msgstr ""
 "tabel InnoDB atau layanan lain yang berjalan pada mesin yang sama."
 
 #: libraries/advisory_rules.txt:459
-#, fuzzy
 #| msgid "max. concurrent connections"
 msgid "MyISAM concurrent inserts"
-msgstr "Sisipkan konkuren MyISAM"
+msgstr "Sisipan konkuren MyISAM"
 
 #: libraries/advisory_rules.txt:462
 #| msgid "max. concurrent connections"
@@ -13855,12 +13862,15 @@ msgid ""
 "writers for a given table. See also <a href=\"http://dev.mysql.com/doc/"
 "refman/5.5/en/concurrent-inserts.html\">MySQL Documentation</a>"
 msgstr ""
+"Pengaturan {concurrent_insert} ke 1 mengurangi pertentangan antara pembacaan "
+"dan penulisan pada tabel yang ditentukan. Lihat juga <a "
+"href=\"http://dev.mysql.com/doc/refman/5.5/en/concurrent-"
+"inserts.html\">Dokumentasi MySQL</a>"
 
 #: libraries/advisory_rules.txt:464
-#, fuzzy
 #| msgid "max. concurrent connections"
 msgid "concurrent_insert is set to 0"
-msgstr "Koneksi konkuren maks."
+msgstr "concurrent_insert diatur ke 0"
 
 #~ msgid "Cookies must be enabled past this point."
 #~ msgstr "Mulai dari sini cookies harus diaktifkan."
