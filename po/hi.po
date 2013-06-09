@@ -4,13 +4,13 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-06-03 09:16-0400\n"
-"PO-Revision-Date: 2013-04-25 16:02+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"PO-Revision-Date: 2013-06-09 12:34+0200\n"
+"Last-Translator: Ghanshyam Bagul <ghanshyambagul@gmail.com>\n"
 "Language-Team: Hindi <http://l10n.cihar.com/projects/phpmyadmin/4-0/hi/>\n"
+"Language: hi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: hi\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 1.6-dev\n"
 
@@ -104,8 +104,8 @@ msgid ""
 "The %s file is not available on this system, please visit www.phpmyadmin.net "
 "for more information."
 msgstr ""
-"ये %s फ़ाइल तंत्र में उपलब्ध नहीं है, कृपया अधिक जानकारी के लिए www.phpmyadmin.net "
-"वेबसाईट पर जाएँ"
+"ये %s फ़ाइल तंत्र में उपलब्ध नहीं है, कृपया अधिक जानकारी के लिए "
+"www.phpmyadmin.net वेबसाईट पर जाएँ।"
 
 #: db_create.php:74
 #, php-format
@@ -114,7 +114,7 @@ msgstr "%1$s डेटाबेस बनाया गया है."
 
 #: db_datadict.php:51 libraries/operations.lib.php:32
 msgid "Database comment: "
-msgstr "डॅटाबेस टिप्पणीः "
+msgstr "डाटाबेस टिप्पणि: "
 
 #: db_datadict.php:157 libraries/operations.lib.php:784
 #: libraries/schema/Pdf_Relation_Schema.class.php:1332
@@ -288,7 +288,7 @@ msgstr "सभी को रद्द करें"
 
 #: db_operations.php:45 tbl_create.php:22
 msgid "The database name is empty!"
-msgstr "डेटाबेस का नाम खाली है"
+msgstr "डेटाबेस का नाम खाली है!"
 
 #: db_operations.php:129
 #, fuzzy, php-format
@@ -297,10 +297,10 @@ msgid "Database %1$s has been renamed to %2$s"
 msgstr "डेटाबेस  %s का नाम बदल कर %s रखा गया है"
 
 #: db_operations.php:133
-#, fuzzy, php-format
+#, php-format
 #| msgid "Database %s has been copied to %s"
 msgid "Database %1$s has been copied to %2$s"
-msgstr "डेटाबेस %s से %s में  नकल किया गया है"
+msgstr "डेटाबेस %1$s से %2$s में नकल किया गया है"
 
 #: db_operations.php:259
 #, php-format
@@ -376,10 +376,10 @@ msgid "You have to choose at least one column to display"
 msgstr "आपको कम से कम एक स्तंभ प्रदर्शित करने के लिए चयन करना है"
 
 #: db_qbe.php:60
-#, fuzzy, php-format
+#, php-format
 #| msgid "visual builder"
 msgid "Switch to %svisual builder%s"
-msgstr "दृश्य  निर्माता"
+msgstr "%s दृश्य निर्माता %s"
 
 #: db_search.php:30 libraries/plugins/auth/AuthenticationConfig.class.php:81
 #: libraries/plugins/auth/AuthenticationConfig.class.php:96
@@ -492,17 +492,16 @@ msgstr "डेटाबेस का रोजनामचा"
 
 #: export.php:149
 msgid "Bad type!"
-msgstr "बुरा प्रकार"
+msgstr "खोटा प्रकार"
 
 #: export.php:200
 msgid "Selected export type has to be saved in file!"
 msgstr "चयनित निर्यात प्रकार को फाइल में संचित करने की आवश्यकता है!"
 
 #: export.php:229
-#, fuzzy
 #| msgid "Add index"
 msgid "Bad parameters!"
-msgstr "अनुक्रमणिका जोड़"
+msgstr "गलत पैरामीटर्स!"
 
 #: export.php:333 export.php:364 export.php:926
 #, php-format
@@ -527,24 +526,23 @@ msgid "Dump has been saved to file %s."
 msgstr "डंप को %s फाइल में सेव किया गया है."
 
 #: file_echo.php:22
-#, fuzzy
 #| msgid "Export type"
 msgid "Invalid export type"
-msgstr "निर्यात प्रकार"
+msgstr "अमान्य निर्यात प्रकार"
 
 #: gis_data_editor.php:112
-#, fuzzy, php-format
+#, php-format
 #| msgid "Values for the column \"%s\""
 msgid "Value for the column \"%s\""
-msgstr "\"%s\" काँलम के लिए मान "
+msgstr "\"%s\" काँलम के लिए मूल्य"
 
 #: gis_data_editor.php:140 tbl_gis_visualization.php:163
 msgid "Use OpenStreetMaps as Base Layer"
-msgstr ""
+msgstr "बेस परत के रूप में OpenStreetMaps का प्रयोग करें"
 
 #: gis_data_editor.php:161
 msgid "SRID"
-msgstr ""
+msgstr "SRID"
 
 #: gis_data_editor.php:184 js/messages.php:315
 #: libraries/DisplayResults.class.php:1641
@@ -558,12 +556,12 @@ msgstr "बिन्दु"
 #: gis_data_editor.php:207 gis_data_editor.php:234 gis_data_editor.php:289
 #: gis_data_editor.php:362 js/messages.php:309
 msgid "X"
-msgstr ""
+msgstr "क्ष"
 
 #: gis_data_editor.php:210 gis_data_editor.php:238 gis_data_editor.php:293
 #: gis_data_editor.php:366 js/messages.php:310
 msgid "Y"
-msgstr ""
+msgstr "य"
 
 #: gis_data_editor.php:232 gis_data_editor.php:287 gis_data_editor.php:360
 #: js/messages.php:312
@@ -592,7 +590,7 @@ msgstr "आंतरिक वृत्त"
 
 #: gis_data_editor.php:303
 msgid "Add a linestring"
-msgstr ""
+msgstr "एक linestring जोड़ें"
 
 #: gis_data_editor.php:304 gis_data_editor.php:378 js/messages.php:319
 msgid "Add an inner ring"
@@ -619,9 +617,11 @@ msgid ""
 "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
 "below into the \"Value\" field"
 msgstr ""
+"\"Function\" स्तंभ से \"GeomFromText\" चुनें और \"Value\" क्षेत्र में नीचे "
+"स्ट्रिंग पेस्ट करे"
 
 #: import.php:107
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "You probably tried to upload too large file. Please refer to %"
 #| "sdocumentation%s for ways to workaround this limit."
@@ -629,8 +629,8 @@ msgid ""
 "You probably tried to upload a file that is too large. Please refer to %"
 "sdocumentation%s for a workaround for this limit."
 msgstr ""
-"आप शायद बहुत बड़ी फाइल अपलोड करने की कोशिश कर रहे हैं. इस दुविधा के लिए कृपया करके %s "
-"दोकुमेंताशन%s पढ़ें."
+"आप शायद बहुत बड़ी फाइल अपलोड करने की कोशिश कर रहे हैं. इस दुविधा के लिए "
+"कृपया करके %sdocumentation%s पढ़ें."
 
 #: import.php:250 import.php:516
 msgid "Showing bookmark"
@@ -672,7 +672,7 @@ msgstr "अक्षर सेट रूपांतरण पुस्तका
 
 #: import.php:485 libraries/display_import.lib.php:29
 msgid "Could not load import plugins, please check your installation!"
-msgstr "आयात प्लगइन्स नहीं लोड किये जा सके. कृपया अपनी संस्थापना जाँचें."
+msgstr "आयात प्लगइन्स नहीं लोड किये जा सके। कृपया अपनी संस्थापना जाँचें!"
 
 #: import.php:519 sql.php:382 sql.php:1255
 #, php-format
@@ -712,10 +712,9 @@ msgid "Back"
 msgstr "वापस"
 
 #: index.php:114
-#, fuzzy
 #| msgid "General relation features"
 msgid "General Settings"
-msgstr "सामान्य सेटिंग्स"
+msgstr "सामान्य स्थापना"
 
 #: index.php:140 libraries/display_change_password.lib.php:46
 #: user_password.php:233
@@ -723,26 +722,23 @@ msgid "Change password"
 msgstr "पासव्रड बदलिये"
 
 #: index.php:156
-#, fuzzy
 #| msgid "MySQL connection collation"
 msgid "Server connection collation"
-msgstr "MySQL कनेक्शन कलेवा"
+msgstr "MySQL जोडणी मिलान"
 
 #: index.php:182
 msgid "Appearance Settings"
 msgstr "उपस्थिति सेटिंग्स"
 
 #: index.php:212 prefs_manage.php:275
-#, fuzzy
 #| msgid "General relation features"
 msgid "More settings"
-msgstr "अधिक सेटिंग्स"
+msgstr "अधिक स्थापना"
 
 #: index.php:233
-#, fuzzy
 #| msgid "Database for user"
 msgid "Database server"
-msgstr "यूसर के लिए डेटाबेस"
+msgstr "डेटाबेस सर्वर"
 
 #: index.php:236 libraries/Menu.class.php:150
 #: libraries/ServerStatusData.class.php:339 libraries/common.inc.php:654
@@ -751,27 +747,26 @@ msgid "Server"
 msgstr "सर्वर"
 
 #: index.php:240
-#, fuzzy
 #| msgid "Server port"
 msgid "Server type"
-msgstr "सर्वर"
+msgstr "सर्वर प्रकार"
 
 #: index.php:244 libraries/plugins/export/ExportLatex.class.php:225
 #: libraries/plugins/export/ExportSql.class.php:612
 #: libraries/plugins/export/ExportXml.class.php:198
 msgid "Server version"
-msgstr ""
+msgstr "सर्वर संस्करण"
 
 #: index.php:248
 msgid "Protocol version"
-msgstr "अधिक सेटिंग्स"
+msgstr "प्रोटोकॉल संस्करण"
 
 #: index.php:252 libraries/server_privileges.lib.php:1566
 #: libraries/server_privileges.lib.php:2378
 #: libraries/server_privileges.lib.php:2796
 #: libraries/server_privileges.lib.php:2844 server_status.php:316
 msgid "User"
-msgstr "यूसर"
+msgstr "यूजर"
 
 #: index.php:257
 #, fuzzy
@@ -781,21 +776,20 @@ msgstr "सर्वर गर्तिका"
 
 #: index.php:269
 msgid "Web server"
-msgstr "वर्ण सेट"
+msgstr "वेब सर्वर"
 
 #: index.php:282
-#, fuzzy
 #| msgid "Use light version"
 msgid "Database client version"
-msgstr "सरल संस्करण का उपयोग"
+msgstr "डेटाबेस क्लाइंट संस्करण"
 
 #: index.php:286
 msgid "PHP extension"
-msgstr "PHPविस्तार"
+msgstr "PHP विस्तार"
 
 #: index.php:300
 msgid "Show PHP information"
-msgstr "PHP कि जानकारी  दिखाओ"
+msgstr "PHP कि जानकारी दिखाओ"
 
 #: index.php:323 libraries/engines/bdb.lib.php:25
 msgid "Version information"
@@ -807,28 +801,26 @@ msgstr "संस्करण जानकारी"
 #: libraries/navigation/NavigationHeader.class.php:229
 #: libraries/relation.lib.php:90 server_variables.php:137
 msgid "Documentation"
-msgstr "डोक्युमेंटेशन"
+msgstr "प्रलेखन"
 
 #: index.php:339 libraries/config/FormDisplay.tpl.php:146
 msgid "Wiki"
-msgstr "विकी"
+msgstr "Wiki"
 
 #: index.php:348
 msgid "Official Homepage"
 msgstr "phpMyAdmin का आधिकारिक होमपेज"
 
 #: index.php:355
-#, fuzzy
 #| msgid "Attributes"
 msgid "Contribute"
-msgstr "विकी"
+msgstr "योगदान"
 
 #: index.php:362
 msgid "Get support"
 msgstr "समर्थन पाएं"
 
 #: index.php:369
-#, fuzzy
 #| msgid "No change"
 msgid "List of changes"
 msgstr "परिवर्तनों की सूची"
@@ -947,7 +939,7 @@ msgstr "फॉर्म में सूचना गुम हैं!"
 
 #: js/messages.php:41
 msgid "This is not a number!"
-msgstr "यह 'आंकिक' या नम्बर रूप में नहीं है।"
+msgstr "यह 'आंकिक' या नम्बर रूप में नहीं है!"
 
 #: js/messages.php:42
 msgid "Add Index"
@@ -1252,15 +1244,16 @@ msgstr "देखभाल व्यवस्था को एक बार य�
 #: js/messages.php:130
 msgid "general_log and slow_query_log are enabled."
 msgstr ""
-"सामान्य पञ्जिका (general_log) तथा धीमी क्वॅरी पञ्जिका (slow_query_log) समर्थ किये गए"
+"सामान्य पञ्जिका (general_log) तथा धीमी क्वॅरी पञ्जिका (slow_query_log) समर्थ "
+"किये गए।"
 
 #: js/messages.php:131
 msgid "general_log is enabled."
-msgstr "सामान्य पञ्जिका (general_log) को समर्थ किया गया"
+msgstr "सामान्य पञ्जिका (general_log) को समर्थ किया गया।"
 
 #: js/messages.php:132
 msgid "slow_query_log is enabled."
-msgstr "धीमी क्वॅरी पञ्जिका (slow_query_log) को समर्थ किया गया"
+msgstr "धीमी क्वॅरी पञ्जिका (slow_query_log) को समर्थ किया गया है।"
 
 #: js/messages.php:133
 msgid "slow_query_log and general_log are disabled."
@@ -1274,7 +1267,7 @@ msgstr "टेबल पर पंजिका परिणाम (log_output) �
 
 #: js/messages.php:135
 msgid "log_output is set to TABLE."
-msgstr "टेबल पंजिका परिणाम (log_output) के साथ सेट है"
+msgstr "टेबल पंजिका परिणाम (log_output) के साथ सेट है।"
 
 #: js/messages.php:136
 #, php-format
@@ -1297,8 +1290,8 @@ msgid ""
 "Following settings will be applied globally and reset to default on server "
 "restart:"
 msgstr ""
-"सर्वर के दुबारा चालू होने पर अग्रवर्णित व्यवस्थाएं समूचे तंत्र में एक साथ लागू होंगी और पुनः "
-"डिफ़ॉल्ट पर सेट हो जाएँगी"
+"सर्वर के दुबारा चालू होने पर अग्रवर्णित व्यवस्थाएं समूचे तंत्र में एक साथ "
+"लागू होंगी और पुनः डिफ़ॉल्ट पर सेट हो जाएँगी:"
 
 #. l10n: %s is FILE or TABLE
 #: js/messages.php:140
@@ -1538,7 +1531,7 @@ msgstr "देख-रेख (import) विन्यास (configuration) आ�
 
 #: js/messages.php:201
 msgid "Please select the file you want to import"
-msgstr "जिस फाईल को आयात करना चाहते हैं, उसे चुनें:"
+msgstr "जिस फाईल को आयात करना चाहते हैं, उसे चुनें"
 
 #: js/messages.php:203
 msgid "Analyse Query"
@@ -1708,16 +1701,15 @@ msgid "ENUM/SET editor"
 msgstr ""
 
 #: js/messages.php:262
-#, fuzzy, php-format
+#, php-format
 #| msgid "Values for the column \"%s\""
 msgid "Values for column %s"
-msgstr "\"%s\" काँलम के लिए मान "
+msgstr "%s स्तंभ के लिए मूल्य"
 
 #: js/messages.php:263
-#, fuzzy
 #| msgid "Values for the column \"%s\""
 msgid "Values for a new column"
-msgstr "\"%s\" काँलम के लिए मान "
+msgstr "नए स्तंभ के लिए मूल्य"
 
 #: js/messages.php:264
 msgid "Enter each value in a separate field"
@@ -1759,7 +1751,7 @@ msgstr "क्वॅरी क्रियान्वन में लगा �
 #: libraries/DisplayResults.class.php:729
 #, php-format
 msgid "%d is not valid row number."
-msgstr "%d एक वैध पंक्ति संख्या नहीं है"
+msgstr "%d एक वैध पंक्ति संख्या नहीं है।"
 
 #: js/messages.php:280 libraries/config/FormDisplay.tpl.php:392
 #: libraries/insert_edit.lib.php:1460
@@ -2710,7 +2702,7 @@ msgstr ""
 #: libraries/structure.lib.php:299 libraries/structure.lib.php:362
 #: libraries/structure.lib.php:1481
 msgid "Print view"
-msgstr "छपाई द्रश्य."
+msgstr "छपाई द्रश्य"
 
 #: libraries/DisplayResults.class.php:5205
 msgid "Print view (with full texts)"
@@ -2762,7 +2754,7 @@ msgstr "एक अस्थायी फ़ोल्डर गुम है."
 
 #: libraries/File.class.php:291
 msgid "Failed to write file to disk."
-msgstr "डिस्क में फ़ाइल लिखने में असफल"
+msgstr "डिस्क में फ़ाइल लिखने में असफल।"
 
 #: libraries/File.class.php:294
 msgid "File upload stopped by extension."
@@ -2919,7 +2911,7 @@ msgstr "ट्रिगर"
 #: libraries/Menu.class.php:352 libraries/Menu.class.php:359
 #: libraries/Menu.class.php:366
 msgid "Database seems to be empty!"
-msgstr "डाटाबेस खाली लग रहा है"
+msgstr "डाटाबेस खाली लग रहा है!"
 
 #: libraries/Menu.class.php:355
 msgid "Query"
@@ -2996,22 +2988,22 @@ msgstr "त्रुटि"
 #, php-format
 msgid "%1$d row affected."
 msgid_plural "%1$d rows affected."
-msgstr[0] "एकवचन %1$d रोव प्रभावित"
-msgstr[1] "बहुवचन%1$d रोवस प्रभावित"
+msgstr[0] "एकवचन %1$d पंक्ति प्रभावित।"
+msgstr[1] "बहुवचन%1$d पंक्तिया प्रभावित।"
 
 #: libraries/Message.class.php:273
 #, php-format
 msgid "%1$d row deleted."
 msgid_plural "%1$d rows deleted."
-msgstr[0] "एकवचन%1$d रोव नष्ट"
-msgstr[1] "बहुवचन%1$d रोवस नष्ट"
+msgstr[0] "एकवचन %1$d पंक्ति नष्ट"
+msgstr[1] "बहुवचन %1$d पंक्तिया नष्ट"
 
 #: libraries/Message.class.php:292
 #, php-format
 msgid "%1$d row inserted."
 msgid_plural "%1$d rows inserted."
-msgstr[0] "एकवचन%1$d रोव डाला"
-msgstr[1] "बहुवचन%1$d रोवस डाला"
+msgstr[0] "एकवचन %1$d पंक्ति डाली।"
+msgstr[1] "बहुवचन %1$d पंक्तिया डाली।"
 
 #: libraries/PDF.class.php:124
 #, fuzzy
@@ -3189,7 +3181,7 @@ msgstr "अवैध टेबल नाम"
 #: libraries/Table.class.php:1278
 #, php-format
 msgid "Error renaming table %1$s to %2$s"
-msgstr "टेबल का नाम %1$s से %2$s में बदलने में त्रुटि."
+msgstr "टेबल का नाम %1$s से %2$s में बदलने में त्रुटि।"
 
 #: libraries/Table.class.php:1297
 #, fuzzy, php-format
@@ -3249,11 +3241,11 @@ msgstr "इनसर्ट"
 
 #: libraries/TableSearch.class.php:761
 msgid "Select columns (at least one):"
-msgstr "काँलम चुनें (कम से कम एक)"
+msgstr "स्तंभ चुनें (कम से कम एक):"
 
 #: libraries/TableSearch.class.php:781
 msgid "Add search conditions (body of the \"where\" clause):"
-msgstr "खोज शर्तें जोडें (\"where\" खंड के शरीर में)"
+msgstr "खोज शर्तें जोडें (\"where\" खंड के शरीर में):"
 
 #: libraries/TableSearch.class.php:793
 msgid "Number of rows per page"
@@ -3645,7 +3637,7 @@ msgstr "MySQL ने कहा: "
 
 #: libraries/Util.class.php:1171
 msgid "Failed to connect to SQL validator!"
-msgstr "SQL वलिदटर से जुड़ने में विफल"
+msgstr "SQL सत्यापनकर्ता से जुड़ने में विफल!"
 
 #: libraries/Util.class.php:1213 libraries/config/messages.inc.php:485
 msgid "Explain SQL"
@@ -3715,7 +3707,7 @@ msgstr "नियमित कार्य"
 #: libraries/Util.class.php:2662
 #, php-format
 msgid "Jump to database &quot;%s&quot;."
-msgstr "&quot;%s&quot; डेटाबेस पर जायें"
+msgstr "&quot;%s&quot; डेटाबेस पर जायें;"
 
 #: libraries/Util.class.php:2686
 #, php-format
@@ -3731,12 +3723,12 @@ msgstr "चयन करने के लिए क्लिक करें."
 #: libraries/Util.class.php:3355 libraries/sql_query_form.lib.php:457
 #: prefs_manage.php:242
 msgid "Browse your computer:"
-msgstr "अपने कंप्यूटर ब्राउज़ करें"
+msgstr "अपना कंप्यूटर ब्राउज़ करें:"
 
 #: libraries/Util.class.php:3380
 #, php-format
 msgid "Select from the web server upload directory <b>%s</b>:"
-msgstr "अपने वेब सर्वर डिरेक्टरी से अपलोड चुने <b>%s</b>;"
+msgstr "अपने वेब सर्वर की अपलोड डिरेक्टरी से चुने <b>%s</b>:"
 
 #: libraries/Util.class.php:3409 libraries/insert_edit.lib.php:1181
 #: libraries/sql_query_form.lib.php:466
@@ -3840,16 +3832,16 @@ msgstr "अवैध सर्वर सूचकांक: %s"
 #: libraries/common.inc.php:638
 #, php-format
 msgid "Invalid hostname for server %1$s. Please review your configuration."
-msgstr "%1$s सर्वर के लिए होस्टनाम अवैध कृपया अपना विन्यास की समीक्षा करें"
+msgstr "%1$s सर्वर के लिए होस्टनाम अवैध कृपया अपना विन्यास की समीक्षा करें।"
 
 #: libraries/common.inc.php:847
 msgid "Invalid authentication method set in configuration:"
-msgstr "विन्यास में अवैध प्रमाणीकरण विधि स्थापित"
+msgstr "विन्यास में अवैध प्रमाणीकरण विधि स्थापित:"
 
 #: libraries/common.inc.php:969
 #, php-format
 msgid "You should upgrade to %s %s or later."
-msgstr "आपको %s %s या अधिक में नवीनीकृत करना चाहिए"
+msgstr "आपको %s %s या अधिक में नवीनीकृत करना चाहिए।"
 
 #: libraries/common.inc.php:1058
 msgid "Error: Token mismatch"
@@ -6428,7 +6420,7 @@ msgstr "कुछ रो डंप"
 
 #: libraries/display_export.lib.php:165
 msgid "Number of rows:"
-msgstr "रो की संख्या"
+msgstr "पंक्तियोंकी की संख्या:"
 
 #: libraries/display_export.lib.php:177
 msgid "Row to begin at:"
@@ -13515,10 +13507,9 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:464
-#, fuzzy
 #| msgid "max. concurrent connections"
 msgid "concurrent_insert is set to 0"
-msgstr "अधिकतम वर्तमान कनेक्शन"
+msgstr "समवर्ती डालना 0 पर सेट है"
 
 #~ msgid "Cookies must be enabled past this point."
 #~ msgstr "कुकीज़ इस बिंदु अतीत सक्षम होना चाहिए."
