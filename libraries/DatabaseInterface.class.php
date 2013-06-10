@@ -1514,10 +1514,10 @@ class PMA_DatabaseInterface
                     true
                 );
             }
-            // detect Drizzle by version number:
-            // <year>.<month>.<build number>(.<patch rev)
-            define('PMA_DRIZZLE', PMA_MYSQL_MAJOR_VERSION >= 2009);
         }
+        // detect Drizzle by version number:
+        // <year>.<month>.<build number>(.<patch rev)
+        define('PMA_DRIZZLE', PMA_MYSQL_MAJOR_VERSION >= 2009);
 
         // Skip charsets for Drizzle
         if (!PMA_DRIZZLE) {
