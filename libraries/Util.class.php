@@ -746,7 +746,9 @@ class PMA_Util
              * - avoid displaying a Back link
              * - use PMA_Response() to transmit the message and exit
              */
-            if ($GLOBALS['is_ajax_request'] == true) {
+            if (isset($GLOBALS['is_ajax_request'])
+                    && $GLOBALS['is_ajax_request'] == true
+                ) {
                 $response = PMA_Response::getInstance();
                 $response->isSuccess(false);
                 $response->addJSON('message', $error_msg);
