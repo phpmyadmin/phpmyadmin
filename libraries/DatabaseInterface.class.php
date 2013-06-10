@@ -1448,6 +1448,13 @@ class PMA_DatabaseInterface
      */
     public function postConnect($link, $is_controluser = false)
     {
+        if ($is_controluser) {
+            /*
+             * FIXME: Not sure if this is right approach, but we can not
+             * define constants multiple time.
+             */
+            return;
+        }
         if (! defined('PMA_MYSQL_INT_VERSION')) {
             if (PMA_Util::cacheExists('PMA_MYSQL_INT_VERSION', true)) {
                 define(
