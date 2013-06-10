@@ -314,7 +314,8 @@ class PMA_Error extends PMA_Message
         ) {
             $retval .= getType($arg) . ' ********';
         } elseif (is_scalar($arg)) {
-            $retval .= getType($arg) . ' ' . htmlspecialchars($arg);
+            $retval .= getType($arg) . ' '
+                . htmlspecialchars(var_export($arg, true));
         } else {
             $retval .= getType($arg);
         }
