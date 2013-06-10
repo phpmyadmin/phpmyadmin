@@ -796,7 +796,9 @@ has to be enabled in your PHP.
 If using APC, you must set ``apc.rfc1867`` to ``on`` in your :file:`php.ini`.
 
 If using PHP 5.4.0 or higher, you must set
-``session.upload_progress.enabled`` to ``1`` in your :file:`php.ini`.
+``session.upload_progress.enabled`` to ``1`` in your :file:`php.ini`. However,
+starting from phpMyAdmin version 4.0.4, session-based upload progress has
+been temporarily deactivated due to its problematic behavior. 
 
 .. seealso:: :rfc:`1867`
 

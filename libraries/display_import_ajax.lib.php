@@ -31,7 +31,8 @@ $upload_id = uniqid("");
   * and own file with functions in upload_#KEY#.php
   */
 $plugins = array(
-   "session",
+   // PHP 5.4 session-based upload progress is problematic, see bug 3964
+   //"session",
    "progress",
    "apc",
    "noplugin"
