@@ -54,6 +54,7 @@ $post_params = array(
         'codegen_structure_or_data',
         'codegen_format',
         'excel_null',
+        'excel_removeCRLF',
         'excel_columns',
         'excel_edition',
         'excel_structure_or_data',
@@ -101,6 +102,7 @@ $post_params = array(
         'csv_escaped',
         'csv_terminated',
         'csv_null',
+        'csv_removeCRLF',
         'csv_columns',
         'csv_structure_or_data',
         // csv_replace should have been here but we use it directly from $_POST
