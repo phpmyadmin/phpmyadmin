@@ -59,7 +59,9 @@ if (isset($_REQUEST['do_save_data'])) {
     // on this db.
     $GLOBALS['dbi']->selectDb($db)
         or PMA_Util::mysqlDie(
-            $GLOBALS['dbi']->getError(), 'USE ' . PMA_Util::backquote($db), '', $err_url
+            $GLOBALS['dbi']->getError(),
+            'USE ' . PMA_Util::backquote($db), '',
+            $err_url
         );
     $sql_query    = 'ALTER TABLE ' .
         PMA_Util::backquote($table) . ' ' . $sql_statement . ';';
