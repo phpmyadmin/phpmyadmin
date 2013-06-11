@@ -30,7 +30,7 @@ class PMA_GenerateCommonURL_Test extends PHPUnit_Framework_TestCase
         $expected = 'server=x' . htmlentities($separator)
             . 'lang=x' . htmlentities($separator)
             . 'collation_connection=x' . htmlentities($separator)
-            . 'token=x'
+            . 'token=token'
             ;
 
         $expected = 'db=db'
@@ -51,7 +51,7 @@ class PMA_GenerateCommonURL_Test extends PHPUnit_Framework_TestCase
         $expected = 'server=x' . htmlentities($separator)
             . 'lang=x' . htmlentities($separator)
             . 'collation_connection=x' . htmlentities($separator)
-            . 'token=x'
+            . 'token=token'
             ;
 
         $expected = 'db=db'
@@ -71,7 +71,7 @@ class PMA_GenerateCommonURL_Test extends PHPUnit_Framework_TestCase
         $expected = 'server=x' . htmlentities($separator)
             . 'lang=x' . htmlentities($separator)
             . 'collation_connection=x' . htmlentities($separator)
-            . 'token=x'
+            . 'token=token'
             ;
 
         $expected = '?db=db'
@@ -92,7 +92,7 @@ class PMA_GenerateCommonURL_Test extends PHPUnit_Framework_TestCase
         $expected = 'server=x' . $separator
             . 'lang=x' . $separator
             . 'collation_connection=x' . $separator
-            . 'token=x'
+            . 'token=token'
             ;
 
         $expected = 'db=db' . $separator . 'table=table' . $separator . $expected;
@@ -110,7 +110,7 @@ class PMA_GenerateCommonURL_Test extends PHPUnit_Framework_TestCase
         $expected = 'server=x' . $separator
             . 'lang=x' . $separator
             . 'collation_connection=x' . $separator
-            . 'token=x'
+            . 'token=token'
             ;
 
         $expected = 'db=db' . $separator . $expected;
@@ -128,7 +128,7 @@ class PMA_GenerateCommonURL_Test extends PHPUnit_Framework_TestCase
         $expected = 'server=x' . htmlentities($separator)
             . 'lang=x' . htmlentities($separator)
             . 'collation_connection=x' . htmlentities($separator)
-            . 'token=x'
+            . 'token=token'
             ;
         $this->assertEquals($expected, PMA_generate_common_url());
     }
