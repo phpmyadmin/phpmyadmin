@@ -2345,10 +2345,10 @@ function PMA_getCurrentValueForDifferentTypes($possibly_uploaded_val, $key,
  * Check whether inline edited value can be truncated or not,
  * and add additional parameters for extra_data array  if needed
  *
- * @param string $db               Database name
- * @param string $table            Table name
- * @param string $column_name      Column name
- * @param array  &$extra_data      Extra data for ajax response
+ * @param string $db          Database name
+ * @param string $table       Table name
+ * @param string $column_name Column name
+ * @param array  &$extra_data Extra data for ajax response
  *
  * @return void
  */
