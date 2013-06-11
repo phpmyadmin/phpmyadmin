@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-06-04 17:18+0200\n"
-"PO-Revision-Date: 2013-01-20 17:30+0200\n"
+"PO-Revision-Date: 2013-06-11 14:32+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
-"Language-Team: Sinhala <http://l10n.cihar.com/projects/phpmyadmin/master/si/"
-">\n"
+"Language-Team: Sinhala "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/si/>\n"
 "Language: si\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Weblate 1.4-dev\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 1.6-dev\n"
 
 #: browse_foreigners.php:51 browse_foreigners.php:75 js/messages.php:335
 #: libraries/DisplayResults.class.php:809
@@ -40,10 +40,9 @@ msgstr ""
 "ආරක්ෂක සැකසුම් අන්තර් කවුළු යාවත්කාලීන කිරීම් අවහිර කරන ලෙස සකසා තිබීම මීට හේතු විය හැක."
 
 #: browse_foreigners.php:182
-#, fuzzy
 #| msgid "Search"
 msgid "Search:"
-msgstr "සෙවීම"
+msgstr "සෙවීම:"
 
 #: browse_foreigners.php:186 gis_data_editor.php:396 js/messages.php:209
 #: libraries/DbSearch.class.php:455 libraries/DisplayResults.class.php:1657
@@ -117,10 +116,9 @@ msgstr "දත්තගබඩා විස්තර: "
 
 #: db_datadict.php:157 libraries/schema/Pdf_Relation_Schema.class.php:1336
 #: libraries/tbl_columns_definition_form.inc.php:836 tbl_printview.php:120
-#, fuzzy
 #| msgid "Table comments"
 msgid "Table comments:"
-msgstr "වගු විස්තර"
+msgstr "වගු විස්තර:"
 
 #: db_datadict.php:166 libraries/Index.class.php:565
 #: libraries/TableSearch.class.php:183 libraries/TableSearch.class.php:1190
@@ -337,24 +335,21 @@ msgstr "භාවිතා වෙමින් පවතී"
 
 #: db_printview.php:117 libraries/plugins/export/ExportSql.class.php:947
 #: libraries/schema/Pdf_Relation_Schema.class.php:1341
-#, fuzzy
 #| msgid "Creation"
 msgid "Creation:"
-msgstr "සෑදීම"
+msgstr "සෑදීම:"
 
 #: db_printview.php:126 libraries/plugins/export/ExportSql.class.php:960
 #: libraries/schema/Pdf_Relation_Schema.class.php:1346
-#, fuzzy
 #| msgid "Last update"
 msgid "Last update:"
-msgstr "අවසන් යාවත්කාලීන කිරීම"
+msgstr "අවසන් යාවත්කාලීන කිරීම:"
 
 #: db_printview.php:135 libraries/plugins/export/ExportSql.class.php:973
 #: libraries/schema/Pdf_Relation_Schema.class.php:1351
-#, fuzzy
 #| msgid "Last check"
 msgid "Last check:"
-msgstr "අවසන් පරීක්ෂාව"
+msgstr "අවසන් පරීක්ෂාව:"
 
 #: db_printview.php:149 libraries/structure.lib.php:176
 #, php-format
@@ -525,22 +520,20 @@ msgid "Use OpenStreetMaps as Base Layer"
 msgstr "මූලික ස්ථරය ලෙස OpenStreetMaps භාවිතා කරන්න"
 
 #: gis_data_editor.php:161
-#, fuzzy
 #| msgid "SRID"
 msgid "SRID:"
-msgstr "SRID"
+msgstr "SRID:"
 
 #: gis_data_editor.php:184
-#, fuzzy, php-format
+#, php-format
 #| msgid "Geometry"
 msgid "Geometry %d:"
-msgstr "ජ්‍යාමිතිය"
+msgstr "%dවන ජ්‍යාමිතිය:"
 
 #: gis_data_editor.php:206
-#, fuzzy
 #| msgid "Point"
 msgid "Point:"
-msgstr "ලක්ෂ්‍යය"
+msgstr "ලක්ෂ්‍යය:"
 
 #: gis_data_editor.php:207 gis_data_editor.php:234 gis_data_editor.php:289
 #: gis_data_editor.php:362 js/messages.php:300
@@ -564,22 +557,21 @@ msgid "Add a point"
 msgstr "ලක්ෂ්‍යයක් එක් කරන්න"
 
 #: gis_data_editor.php:262
-#, fuzzy, php-format
+#, php-format
 #| msgid "Linestring"
 msgid "Linestring %d:"
-msgstr "රේඛාව"
+msgstr "%dවන රේඛාව:"
 
 #: gis_data_editor.php:265 gis_data_editor.php:341
-#, fuzzy
 #| msgid "Outer Ring"
 msgid "Outer ring:"
-msgstr "පිටත කවය"
+msgstr "පිටත කවය:"
 
 #: gis_data_editor.php:267 gis_data_editor.php:343
-#, fuzzy, php-format
+#, php-format
 #| msgid "Inner Ring"
 msgid "Inner ring %d:"
-msgstr "ඇතුලත කවය"
+msgstr "%dවන ඇතුලත කවය:"
 
 #: gis_data_editor.php:303
 msgid "Add a linestring"
@@ -590,10 +582,10 @@ msgid "Add an inner ring"
 msgstr "ඇතුල් කවයක් එක් කරන්න"
 
 #: gis_data_editor.php:325
-#, fuzzy, php-format
+#, php-format
 #| msgid "Polygon"
 msgid "Polygon %d:"
-msgstr "බහු අස්‍රය"
+msgstr "%dවන බහු අස්‍රය:"
 
 #: gis_data_editor.php:384 js/messages.php:311
 msgid "Add a polygon"
@@ -732,62 +724,54 @@ msgid "Server:"
 msgstr "සේවාදායකය:"
 
 #: index.php:241
-#, fuzzy
 #| msgid "Server port"
 msgid "Server type:"
-msgstr "සර්වරයේ පොර්ට්"
+msgstr "සේවාදායකයේ වර්ගය:"
 
 #: index.php:245 libraries/plugins/export/ExportLatex.class.php:225
 #: libraries/plugins/export/ExportSql.class.php:612
 #: libraries/plugins/export/ExportXml.class.php:198
-#, fuzzy
 #| msgid "Server version"
 msgid "Server version:"
-msgstr "සේවාදායකයේ අනුවාදය"
+msgstr "සේවාදායකයේ අනුවාදය:"
 
 #: index.php:249
-#, fuzzy
 #| msgid "Protocol version"
 msgid "Protocol version:"
-msgstr "ප්‍රෝටකෝල අනුවාදය"
+msgstr "ප්‍රෝටකෝල අනුවාදය:"
 
 #: index.php:253
-#, fuzzy
 #| msgid "User"
 msgid "User:"
-msgstr "භාවිතා කරන්නා"
+msgstr "භාවිතා කරන්නා:"
 
 #: index.php:258
-#, fuzzy
 #| msgid "Server charset"
 msgid "Server charset:"
-msgstr "සේවාදායකයේ අක්ෂර කට්ටලය"
+msgstr "සේවාදායකයේ අක්ෂර කට්ටලය:"
 
 #: index.php:270
 msgid "Web server"
 msgstr "වෙබ් සේවාදායකය"
 
 #: index.php:283
-#, fuzzy
 #| msgid "Database client version"
 msgid "Database client version:"
-msgstr "දත්තගබඩා සේවාලාභියාගේ අනුවාදය"
+msgstr "දත්තගබඩා සේවාලාභියාගේ අනුවාදය:"
 
 #: index.php:287
-#, fuzzy
 #| msgid "PHP extension"
 msgid "PHP extension:"
-msgstr "PHP දිගුව"
+msgstr "PHP දිගුව:"
 
 #: index.php:301
 msgid "Show PHP information"
 msgstr "PHP තොරතුරු පෙන්වන්න"
 
 #: index.php:324
-#, fuzzy
 #| msgid "Version information"
 msgid "Version information:"
-msgstr "අනුවාදය පිළිබඳ තොරතුරු"
+msgstr "අනුවාදය පිළිබඳ තොරතුරු:"
 
 #: index.php:333 libraries/Util.class.php:430 libraries/Util.class.php:516
 #: libraries/config/FormDisplay.tpl.php:145
@@ -2252,10 +2236,11 @@ msgid "Unexpected characters on line %s."
 msgstr "%s වන පේළියේ අනපේක්ෂිත අනුලකුණකි"
 
 #: libraries/Advisor.class.php:434
-#, fuzzy, php-format
+#, php-format
 #| msgid "Unexpected character on line %1$s. Expected tab, but found \"%2$s\""
 msgid "Unexpected character on line %1$s. Expected tab, but found \"%2$s\"."
-msgstr "%1$s වන පේළියේ අනපේක්ෂිත අනුලකුණකි. ටැබයක් අපේක්ෂිත නමුත් \"%2$s\" හමුවිය"
+msgstr ""
+"%1$s වන පේළියේ අනපේක්ෂිත අනුලකුණකි. ටැබයක් අපේක්ෂිත නමුත් \"%2$s\" හමුවිය."
 
 #: libraries/Advisor.class.php:467
 msgid "per second"
@@ -2306,28 +2291,24 @@ msgid "Descending"
 msgstr "අවරෝහන"
 
 #: libraries/DBQbe.class.php:364
-#, fuzzy
 #| msgid "Column"
 msgid "Column:"
-msgstr "තීර"
+msgstr "තීර:"
 
 #: libraries/DBQbe.class.php:406
-#, fuzzy
 #| msgid "Sort"
 msgid "Sort:"
-msgstr "සුබෙදන්න"
+msgstr "සුබෙදන්න:"
 
 #: libraries/DBQbe.class.php:468 libraries/DisplayResults.class.php:903
-#, fuzzy
 #| msgid "Show"
 msgid "Show:"
-msgstr "පෙන්වන්න"
+msgstr "පෙන්වන්න:"
 
 #: libraries/DBQbe.class.php:513
-#, fuzzy
 #| msgid "Criteria"
 msgid "Criteria:"
-msgstr "නිර්ණායක"
+msgstr "නිර්ණායක:"
 
 #: libraries/DBQbe.class.php:576
 msgid "Add/Delete criteria rows"
@@ -2346,10 +2327,9 @@ msgid "Use Tables"
 msgstr "වගු භාවිතා කරන්න"
 
 #: libraries/DBQbe.class.php:653 libraries/DBQbe.class.php:757
-#, fuzzy
 #| msgid "Or"
 msgid "Or:"
-msgstr "හෝ"
+msgstr "හෝ:"
 
 #: libraries/DBQbe.class.php:657 libraries/DBQbe.class.php:742
 msgid "And:"
@@ -2364,10 +2344,9 @@ msgid "Del"
 msgstr "ඉවත්"
 
 #: libraries/DBQbe.class.php:680
-#, fuzzy
 #| msgid "Modify"
 msgid "Modify:"
-msgstr "වෙනස් කිරීම"
+msgstr "වෙනස් කිරීම:"
 
 #: libraries/DBQbe.class.php:737
 msgid "Ins:"
@@ -2518,10 +2497,9 @@ msgid "End"
 msgstr "අවසන"
 
 #: libraries/DisplayResults.class.php:904 tbl_chart.php:241
-#, fuzzy
 #| msgid "Start row"
 msgid "Start row:"
-msgstr "ආරම්භක පේළිය"
+msgstr "ආරම්භක පේළිය:"
 
 #: libraries/DisplayResults.class.php:908 libraries/display_export.lib.php:175
 #: tbl_chart.php:245
@@ -2529,10 +2507,9 @@ msgid "Number of rows:"
 msgstr "පේළි ගණන:"
 
 #: libraries/DisplayResults.class.php:917
-#, fuzzy
 #| msgid "Mode"
 msgid "Mode:"
-msgstr "ප්‍රකාරය"
+msgstr "ප්‍රකාරය:"
 
 #: libraries/DisplayResults.class.php:919
 msgid "horizontal"
