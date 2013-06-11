@@ -40,7 +40,7 @@ $plugins = array(
 
 // select available plugin
 foreach ($plugins as $plugin) {
-    $check = "PMA_import_" . $plugin . "Check";
+    $check = "PMA_Import_" . $plugin . "Check";
 
     if ($check()) {
         $upload_class = "Upload" . ucwords($plugin);
