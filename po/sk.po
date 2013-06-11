@@ -4,10 +4,9 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-06-04 17:18+0200\n"
-"PO-Revision-Date: 2013-05-30 13:30+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Slovak <http://l10n.cihar.com/projects/phpmyadmin/master/sk/"
-">\n"
+"PO-Revision-Date: 2013-06-11 13:38+0200\n"
+"Last-Translator: Peter Rosa <peter.rosa@pro.sk>\n"
+"Language-Team: Slovak <http://l10n.cihar.com/projects/phpmyadmin/master/sk/>\n"
 "Language: sk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -864,12 +863,20 @@ msgid ""
 "cookie validity configured in phpMyAdmin, because of this, your login will "
 "expire sooner than configured in phpMyAdmin."
 msgstr ""
+"Nastavenie v php.ini "
+"[a@http://php.net/manual/en/session.configuration.php#ini.session.gc-"
+"maxlifetime@_blank]session.gc_maxlifetime[/a] má nižšiu hodnotu ako "
+"nastavenie životnosti cookie v phpMyAdmin ($cfg['LoginCookieValidity']). "
+"Kvôli tomu vaše prihlásenie vyprší skôr ako je nastavené v konfigurácii "
+"phpMyAdmin."
 
 #: index.php:453
 msgid ""
 "Login cookie store is lower than cookie validity configured in phpMyAdmin, "
 "because of this, your login will expire sooner than configured in phpMyAdmin."
 msgstr ""
+"Životnosť cookie je nižšia ako je nastavené v phpMyAdmin. Kvôli tomu vaše "
+"prihlásenie vyprší skôr ako je nastavené v konfigurácii phpMyAdmin."
 
 #: index.php:465
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
@@ -917,6 +924,8 @@ msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
 "issues."
 msgstr ""
+"Webový server beží so Suhosin-patchom. Možné dôsledky konzultujte s %"
+"sdokumentáciou%s."
 
 #: js/messages.php:27 libraries/import.lib.php:118 sql.php:254
 msgid "\"DROP DATABASE\" statements are disabled."
@@ -1569,12 +1578,12 @@ msgstr "Chyba pri spracovanie požiadavku"
 #: js/messages.php:216
 #, php-format
 msgid "Error code: %s"
-msgstr ""
+msgstr "Číslo chyby: %s"
 
 #: js/messages.php:217
 #, php-format
 msgid "Error text: %s"
-msgstr ""
+msgstr "Text chyby: %s"
 
 #: js/messages.php:218 libraries/db_common.inc.php:58
 #: libraries/db_table_exists.lib.php:28 server_databases.php:89
@@ -1861,7 +1870,7 @@ msgstr "Pridať voľbu pre stĺpec "
 #: js/messages.php:325
 #, php-format
 msgid "%d object(s) created"
-msgstr ""
+msgstr "Vytvorené objekty: %d"
 
 #: js/messages.php:328
 msgid "Press escape to cancel editing"
@@ -1921,6 +1930,7 @@ msgstr "Kopírovať názov stĺpca"
 #: js/messages.php:351
 msgid "Right-click the column name to copy it to your clipboard."
 msgstr ""
+"Kliknutím pravým tlačidlom myši na názov stĺpca ho skopírujete do schránky."
 
 #: js/messages.php:352
 msgid "Show data row(s)"
@@ -1943,22 +1953,19 @@ msgid "More"
 msgstr "Viac"
 
 #: js/messages.php:363
-#, fuzzy
 #| msgid "Show all"
 msgid "Show Panel"
-msgstr "Zobraziť všetko"
+msgstr "Zobraziť panel"
 
 #: js/messages.php:364
-#, fuzzy
 #| msgid "Hide indexes"
 msgid "Hide Panel"
-msgstr "Skryť indexy"
+msgstr "Skryť panel"
 
 #: js/messages.php:367
-#, fuzzy
 #| msgid "The selected user was not found in the privilege table."
 msgid "The requested page was not found in the history, it may have expired."
-msgstr "Zvolený používateľ nebol nájdený v tabuľke práv."
+msgstr "Zvolená stránka sa nenašla v histórii, pravdepodobne bola zrušená."
 
 #: js/messages.php:370 setup/lib/index.lib.php:188
 #, php-format
@@ -2236,7 +2243,7 @@ msgstr "Sekundy"
 #: libraries/Advisor.class.php:78
 #, php-format
 msgid "PHP threw following error: %s"
-msgstr ""
+msgstr "PHP vrátilo nasledovnú chybu: %s"
 
 #: libraries/Advisor.class.php:107
 #, php-format
@@ -2256,7 +2263,7 @@ msgstr ""
 #: libraries/Advisor.class.php:225
 #, php-format
 msgid "Failed formatting string for rule '%s'."
-msgstr ""
+msgstr "Chyba pri formátovaní textu v pravidle '%s'."
 
 #: libraries/Advisor.class.php:395
 #, php-format
@@ -2363,7 +2370,7 @@ msgstr "Pridať/Odobrať stĺpce"
 
 #: libraries/DBQbe.class.php:603 libraries/DBQbe.class.php:635
 msgid "Update Query"
-msgstr "Aktualizovať dopyt"
+msgstr "Aktualizovať dotaz"
 
 #: libraries/DBQbe.class.php:618
 msgid "Use Tables"
@@ -2754,7 +2761,7 @@ msgstr "Zobraziť GIS data"
 
 #: libraries/DisplayResults.class.php:5586
 msgid "Link not found"
-msgstr "Linka nebola nájdená"
+msgstr "Odkaz nebol nájdený"
 
 #: libraries/Error_Handler.class.php:77
 msgid "Too many error messages, some are not displayed."
@@ -2762,7 +2769,7 @@ msgstr "Príliš veľa chybových správ, niektoré neboli zobrazené."
 
 #: libraries/File.class.php:239
 msgid "File was not an uploaded file."
-msgstr ""
+msgstr "Súbor nebol uploadovaný."
 
 #: libraries/File.class.php:279
 msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
@@ -2817,7 +2824,7 @@ msgstr "Otvoriť nové okno phpMyAdmina"
 
 #: libraries/Header.class.php:393
 msgid "Click on the bar to scroll to top of page"
-msgstr ""
+msgstr "Kliknutím v pruhu prejdete na začiatok stránky"
 
 #: libraries/Header.class.php:621
 #: libraries/plugins/auth/AuthenticationCookie.class.php:172
@@ -3009,7 +3016,7 @@ msgstr "Znakové sady"
 
 #: libraries/Menu.class.php:511 server_plugins.php:32 server_plugins.php:65
 msgid "Plugins"
-msgstr ""
+msgstr "Rozšírenia"
 
 #: libraries/Menu.class.php:515
 msgid "Engines"
@@ -3231,6 +3238,8 @@ msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
 "['MaxTableUiprefs'] %s)"
 msgstr ""
+"Nepodarilo sa vyčistiť nastavenia tabuľky (pozri "
+"$cfg['Servers'][$i]['MaxTableUiprefs'] %s)"
 
 #: libraries/Table.class.php:1603
 #, php-format
@@ -3239,6 +3248,8 @@ msgid ""
 "after you refresh this page. Please check if the table structure has been "
 "changed."
 msgstr ""
+"Nepodarilo sa uložiť nastavenie \"%s\". Po obnovení stránky sa zmeny stratia. "
+"Skontrolujte, či sa zmenila štruktúra tabuľky."
 
 #: libraries/TableSearch.class.php:179 libraries/insert_edit.lib.php:211
 #: libraries/insert_edit.lib.php:217 libraries/rte/rte_routines.lib.php:1582
@@ -3317,7 +3328,7 @@ msgstr "Vykonať \"dopyt podľa príkladu\" (nahradzujúci znak: \"%\")"
 
 #: libraries/TableSearch.class.php:1169
 msgid "Browse/Edit the points"
-msgstr ""
+msgstr "Prezerať/Upraviť body"
 
 #: libraries/TableSearch.class.php:1176
 msgid "How to use"
@@ -3365,18 +3376,24 @@ msgstr "Vzhľad"
 msgid ""
 "A 1-byte integer, signed range is -128 to 127, unsigned range is 0 to 255"
 msgstr ""
+"1-bytové celé číslo, rozsah: so znamienkom -128 až 127, bez znamienka 0 až "
+"255"
 
 #: libraries/Types.class.php:298
 msgid ""
 "A 2-byte integer, signed range is -32,768 to 32,767, unsigned range is 0 to "
 "65,535"
 msgstr ""
+"2-bytové celé číslo, rozsah: so znamienkom -32 768 až 32 767, bez znamienka "
+"0 až 65,535"
 
 #: libraries/Types.class.php:300
 msgid ""
 "A 3-byte integer, signed range is -8,388,608 to 8,388,607, unsigned range is "
 "0 to 16,777,215"
 msgstr ""
+"3-bytové celé číslo, rozsah: so znamienkom -8 388 608 až 8 388 607, bez "
+"znamienka 0 až 16 777 215"
 
 #: libraries/Types.class.php:302
 msgid ""
