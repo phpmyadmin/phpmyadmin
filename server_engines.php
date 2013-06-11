@@ -29,8 +29,6 @@ exit;
 /**
  * setup HTML for server Engines information
  *
- * @param null
- *
  * @return string
  */
 function PMA_getServerEnginesHtml()
@@ -42,18 +40,16 @@ function PMA_getServerEnginesHtml()
     if (empty($_REQUEST['engine'])
         || ! PMA_StorageEngine::isValid($_REQUEST['engine'])
     ) {
-        $html .= PMA_getAllServerEnginesHtml();    
+        $html .= PMA_getAllServerEnginesHtml();
     } else {
         $html .= PMA_getSpecifiedServerEnginesHtml();
     }
-    
+
     return $html;
 }
 
 /**
  * setup HTML for server all Engines information
- *
- * @param null
  *
  * @return string
  */
@@ -101,14 +97,12 @@ function PMA_getAllServerEnginesHtml()
     unset($odd_row, $engine, $details);
     $html .= '</tbody>' . "\n"
         . '</table>' . "\n";
-    
+
     return $html;
 }
 
 /**
  * setup HTML for a given Storage Engine
- *
- * @param null
  *
  * @return string
  */
@@ -117,7 +111,7 @@ function PMA_getSpecifiedServerEnginesHtml()
     /**
      * Displays details about a given Storage Engine
      */
-    $html = ''; 
+    $html = '';
     $engine_plugin = PMA_StorageEngine::getEngine($_REQUEST['engine']);
     $html .= '<h2>' . "\n"
         . PMA_Util::getImage('b_engine.png')
@@ -167,7 +161,7 @@ function PMA_getSpecifiedServerEnginesHtml()
            . '</p>' . "\n"
            . $engine_plugin->getHtmlVariables();
     }
-    
+
     return $html;
 }
 
