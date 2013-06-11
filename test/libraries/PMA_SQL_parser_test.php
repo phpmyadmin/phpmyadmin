@@ -10,6 +10,11 @@
  * Include to test.
  */
 require_once 'libraries/sqlparser.lib.php';
+require_once 'libraries/php-gettext/gettext.inc';
+require_once 'libraries/Message.class.php';
+require_once 'libraries/Util.class.php';
+require_once 'libraries/Theme.class.php';
+require_once 'libraries/sanitizing.lib.php';
 
 class PMA_SQLParser_Test extends PHPUnit_Framework_TestCase
 {
@@ -23,6 +28,8 @@ class PMA_SQLParser_Test extends PHPUnit_Framework_TestCase
         if (function_exists('mb_internal_encoding')) {
             mb_internal_encoding('utf-8');
         }
+        $_SESSION['PMA_Theme'] = new PMA_Theme();
+        $GLOBALS['pmaThemeImage'] = 'theme/';
     }
 
     /**
@@ -40,8 +47,9 @@ class PMA_SQLParser_Test extends PHPUnit_Framework_TestCase
     public function testParser($sql, $expected, $error = '')
     {
         PMA_SQP_resetError();
+        $this->expectOutputString($error);
         $parsed_sql = PMA_SQP_parse($sql);
-        $this->assertEquals($error, PMA_SQP_getErrorString());
+        $this->assertEquals('', PMA_SQP_getErrorString());
         $this->assertEquals($expected, $parsed_sql);
     }
 
@@ -177,7 +185,8 @@ class PMA_SQLParser_Test extends PHPUnit_Framework_TestCase
                         'pos' => 0,
                     ),
                     'len' => 5,
-                )
+                ),
+                '<div class="notice"><img src="theme/s_notice.png" title="" alt="" /> Automatically appended backtick to the end of query!</div>'
             ),
             array(
                 'SELECT * FROM `a_table` tbla INNER JOIN b_table` tblb ON tblb.id = tbla.id WHERE tblb.field1 != tbla.field1`;',
