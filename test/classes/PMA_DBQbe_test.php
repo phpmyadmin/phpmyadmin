@@ -388,6 +388,12 @@ class PMA_DBQbe_Test extends PHPUnit_Framework_TestCase
      */
     public function testGetFromClause()
     {
+        $_POST['criteriaColumn'] = array(
+            'table1.id',
+            'table1.value',
+            'table1.name',
+            'table1.deleted'
+        );
         $this->assertEquals(
             'table1',
             $this->_callProtectedFunction(
@@ -404,6 +410,12 @@ class PMA_DBQbe_Test extends PHPUnit_Framework_TestCase
      */
     public function testGetSQLQuery()
     {
+        $_POST['criteriaColumn'] = array(
+            'table1.id',
+            'table1.value',
+            'table1.name',
+            'table1.deleted'
+        );
         $this->assertEquals(
             'FROM table1
 ',
