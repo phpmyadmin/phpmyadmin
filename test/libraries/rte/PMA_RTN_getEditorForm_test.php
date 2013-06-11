@@ -28,8 +28,6 @@ class PMA_RTN_GetEditorForm_Test extends PHPUnit_Framework_TestCase
         $cfg['ShowFunctionFields'] = false;
         $GLOBALS['server'] = 0;
         $cfg['ServerDefault'] = 1;
-        $GLOBALS['lang'] = 'en';
-        $_SESSION[' PMA_token '] = 'token';
         $cfg['MySQLManualType'] = 'viewable';
         $cfg['MySQLManualBase'] = 'http://dev.mysql.com/doc/refman';
 
@@ -38,7 +36,6 @@ class PMA_RTN_GetEditorForm_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['pmaThemePath'] = $_SESSION['PMA_Theme']->getPath();
         $GLOBALS['pmaThemeImage'] = 'theme/';
 
-        $_SESSION[' PMA_token '] = 'token';
     }
 
     public function testgetParameterRow_empty()

@@ -177,8 +177,6 @@ class PMA_HeaderLocation_Test extends PHPUnit_Framework_TestCase
             }
 
         }
-        $_SESSION[' PMA_token '] = 'token';
-        $GLOBALS['lang'] = 'en';
         $_SESSION['PMA_Theme'] = PMA_Theme::load('./themes/pmahomme');
         $GLOBALS['server'] = 0;
         $GLOBALS['PMA_Config'] = new PMA_Config();
