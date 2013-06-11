@@ -81,12 +81,10 @@ function PMA_getRelationsParamDiagnostic($cfgRelation)
 {
     $retval = '';
 
-    $doc_url = PMA_Util::getDocuLink('config', 'cfg_Servers_%s');
-
     $messages['error'] = '<font color="red"><strong>'
         . __('not OK')
         . '</strong></font>'
-        . ' [ <a href="' . $doc_url .'" target="documentation">'
+        . ' [ <a href="%s" target="documentation">'
         . __('Documentation')
         . '</a> ]';
 
@@ -329,7 +327,10 @@ function PMA_getDiagMessageForParameter($parameter,
     if ($relation_parameter_set) {
         $retval .= $messages['ok'];
     } else {
-        $retval .= sprintf($messages['error'], $doc_anchor);
+        $retval .= sprintf(
+            $messages['error'],
+            PMA_Util::getDocuLink('config', 'cfg_Servers_' . $doc_anchor)
+        );
     }
     $retval .= '</td></tr>' . "\n";
     return $retval;
