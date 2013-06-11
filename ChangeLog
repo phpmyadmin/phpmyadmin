@@ -13,6 +13,7 @@ not set
 - bug #3971 Ctrl/shift + click opens links in same window
 - bug #3964 Import using https does not work
 - bug Missing removeCRLF option in ExportCsv and ExportExcel plugins
+- bug #3631 Drop not working Visio schema export.
 
 4.0.3.0 (2013-06-05)
 - bug #3941 Recent tables list always empty
