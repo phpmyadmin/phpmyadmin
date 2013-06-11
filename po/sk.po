@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-06-04 17:18+0200\n"
-"PO-Revision-Date: 2013-06-11 15:59+0200\n"
+"PO-Revision-Date: 2013-06-11 16:07+0200\n"
 "Last-Translator: Peter Rosa <peter.rosa@pro.sk>\n"
 "Language-Team: Slovak <http://l10n.cihar.com/projects/phpmyadmin/master/sk/>\n"
 "Language: sk\n"
@@ -12600,16 +12600,16 @@ msgid "Version %1$s was created, tracking for %2$s is active."
 msgstr ""
 
 #: tbl_tracking.php:222
-#, fuzzy, php-format
+#, php-format
 #| msgid "Tracking is active."
 msgid "Tracking for %1$s was deactivated at version %2$s."
-msgstr "Sledovanie je aktívne."
+msgstr "Sledovanie %1$s bolo deaktivované vo verzii %2$s."
 
 #: tbl_tracking.php:239
-#, fuzzy, php-format
+#, php-format
 #| msgid "Tracking is active."
 msgid "Tracking for %1$s was activated at version %2$s."
-msgstr "Sledovanie je aktívne."
+msgstr "Sledovanie %1$s bolo aktivované vo verzii %2$s."
 
 #: tbl_tracking.php:253
 msgid "SQL statements executed."
@@ -12697,30 +12697,30 @@ msgid "Show versions"
 msgstr ""
 
 #: tbl_tracking.php:824
-#, fuzzy, php-format
+#, php-format
 #| msgid "Delete tracking data for this table"
 msgid "Deactivate tracking for %s"
-msgstr "Odstrániť všetky informácie o sledovaní tejto tabuľky"
+msgstr "Deaktivovať sledovanie %s"
 
 #: tbl_tracking.php:830
 msgid "Deactivate now"
 msgstr ""
 
 #: tbl_tracking.php:840
-#, fuzzy, php-format
+#, php-format
 #| msgid "Missing data for %s"
 msgid "Activate tracking for %s"
-msgstr "Chýba hodnota pre %s"
+msgstr "Aktivovať sledovanie %s"
 
 #: tbl_tracking.php:846
 msgid "Activate now"
 msgstr ""
 
 #: tbl_tracking.php:859
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create version"
 msgid "Create version %1$s of %2$s"
-msgstr "Vytvoriť verziu"
+msgstr "Vytvoriť verziu %1$s z %2$s"
 
 #: tbl_tracking.php:867
 msgid "Track these data definition statements:"
@@ -12864,7 +12864,7 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:82
-#, fuzzy, php-format
+#, php-format
 #| msgid "long_query_time is set to %d second(s)."
 msgid "long_query_time is currently set to %ds."
 msgstr "long_query_time je nastavený na %d sekúnd."
@@ -12884,10 +12884,9 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:89
-#, fuzzy
 #| msgid "long_query_time is set to %d second(s)."
 msgid "log_slow_queries is set to 'OFF'"
-msgstr "long_query_time je nastavený na %d sekúnd."
+msgstr "log_slow_queries je nastavený na 'OFF'"
 
 #: libraries/advisory_rules.txt:95
 msgid ""
@@ -12896,10 +12895,9 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:96
-#, fuzzy
 #| msgid "long_query_time is set to %d second(s)."
 msgid "slow_query_log is set to 'OFF'"
-msgstr "long_query_time je nastavený na %d sekúnd."
+msgstr "slow_query_log je nastavený na 'OFF'"
 
 #: libraries/advisory_rules.txt:100
 msgid "Release Series"
@@ -13029,10 +13027,9 @@ msgid "Query caching method"
 msgstr "Caching metóda dopytov"
 
 #: libraries/advisory_rules.txt:163
-#, fuzzy
 #| msgid "Query cache"
 msgid "Suboptimal caching method."
-msgstr "Vyrovnávacia pamäť príkazov"
+msgstr "Optimálny spôsob ukladania do vyrovnávacej pamäte."
 
 #: libraries/advisory_rules.txt:164
 msgid ""
@@ -13095,10 +13092,9 @@ msgid "Query cache fragmentation"
 msgstr "Fragmentácia vyrovnávacej pamäte dopytov"
 
 #: libraries/advisory_rules.txt:184
-#, fuzzy
 #| msgid "The server is not responding"
 msgid "The query cache is considerably fragmented."
-msgstr "Server neodpovedá"
+msgstr "Vyrovnávacia pamäť dotazov je značne fragmentovaná."
 
 #: libraries/advisory_rules.txt:185
 msgid ""
