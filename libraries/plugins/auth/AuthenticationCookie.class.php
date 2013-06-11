@@ -247,19 +247,19 @@ class AuthenticationCookie extends AuthenticationPlugin
             $skip = true;
         }
 
-        // Add captcha input field if $cfg['Servers'][$i]['captchaLogin'] is set to TRUE.
-        if (  !empty($GLOBALS['cfg']['captchaLoginPrivateKey'])
-           && !empty($GLOBALS['cfg']['captchaLoginPublicKey'])
-           && isset($GLOBALS['cfg']['Servers'][$GLOBALS['url_params']['server']]['captchaLogin'])
-           && $GLOBALS['cfg']['Servers'][$GLOBALS['url_params']['server']]['captchaLogin']
+        // Add captcha input field if $cfg['Servers'][$i]['CaptchaLogin'] is set to TRUE.
+        if (  !empty($GLOBALS['cfg']['CaptchaLoginPrivateKey'])
+           && !empty($GLOBALS['cfg']['CaptchaLoginPublicKey'])
+           && isset($GLOBALS['cfg']['Servers'][$GLOBALS['url_params']['server']]['CaptchaLogin'])
+           && $GLOBALS['cfg']['Servers'][$GLOBALS['url_params']['server']]['CaptchaLogin']
            && !$skip
         ) {
             // If enabled show captcha to the user on the login screen.
             echo '<script type="text/javascript"
-                    src="https://www.google.com/recaptcha/api/challenge?k=' . $GLOBALS['cfg']['captchaLoginPublicKey'] . '">
+                    src="https://www.google.com/recaptcha/api/challenge?k=' . $GLOBALS['cfg']['CaptchaLoginPublicKey'] . '">
                  </script>
                  <noscript>
-                    <iframe src="https://www.google.com/recaptcha/api/noscript?k=' . $GLOBALS['cfg']['captchaLoginPublicKey'] . '"
+                    <iframe src="https://www.google.com/recaptcha/api/noscript?k=' . $GLOBALS['cfg']['CaptchaLoginPublicKey'] . '"
                         height="300" width="500" frameborder="0"></iframe><br>
                     <textarea name="recaptcha_challenge_field" rows="3" cols="40">
                     </textarea>
@@ -366,10 +366,10 @@ class AuthenticationCookie extends AuthenticationPlugin
         }
 
         // Verify Captcha if it is required.
-        if (  !empty($GLOBALS['cfg']['captchaLoginPrivateKey'])
-           && !empty($GLOBALS['cfg']['captchaLoginPublicKey'])
-           && isset($GLOBALS['cfg']['Servers'][$GLOBALS['url_params']['server']]['captchaLogin'])
-           && $GLOBALS['cfg']['Servers'][$GLOBALS['url_params']['server']]['captchaLogin']
+        if (  !empty($GLOBALS['cfg']['CaptchaLoginPrivateKey'])
+           && !empty($GLOBALS['cfg']['CaptchaLoginPublicKey'])
+           && isset($GLOBALS['cfg']['Servers'][$GLOBALS['url_params']['server']]['CaptchaLogin'])
+           && $GLOBALS['cfg']['Servers'][$GLOBALS['url_params']['server']]['CaptchaLogin']
            && !$skip
         ) {
             if (  !empty($_POST["recaptcha_challenge_field"])
@@ -379,7 +379,7 @@ class AuthenticationCookie extends AuthenticationPlugin
 
                 // Use private key to verify captcha status.
                 $resp = recaptcha_check_answer (
-                    $GLOBALS['cfg']['captchaLoginPrivateKey'],
+                    $GLOBALS['cfg']['CaptchaLoginPrivateKey'],
                     $_SERVER["REMOTE_ADDR"],
                     $_POST["recaptcha_challenge_field"],
                     $_POST["recaptcha_response_field"]

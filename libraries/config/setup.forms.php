@@ -36,7 +36,7 @@ $forms['Servers']['Server'] = array('Servers' => array(1 => array(
     'extension',
     'compress',
     'nopassword',
-    'captchaLogin')));
+    'CaptchaLogin')));
 $forms['Servers']['Server_auth'] = array('Servers' => array(1 => array(
     'auth_type',
     ':group:' . __('Config authentication'),
@@ -109,8 +109,8 @@ $forms['Features']['Security'] = array(
     'LoginCookieValidity',
     'LoginCookieStore',
     'LoginCookieDeleteAll',
-    'captchaLoginPublicKey',
-    'captchaLoginPrivateKey');
+    'CaptchaLoginPublicKey',
+    'CaptchaLoginPrivateKey');
 $forms['Features']['Page_titles'] = array(
     'TitleDefault',
     'TitleTable',
