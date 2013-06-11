@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-06-04 17:18+0200\n"
-"PO-Revision-Date: 2013-06-11 15:35+0200\n"
+"PO-Revision-Date: 2013-06-11 15:45+0200\n"
 "Last-Translator: Peter Rosa <peter.rosa@pro.sk>\n"
 "Language-Team: Slovak <http://l10n.cihar.com/projects/phpmyadmin/master/sk/>\n"
 "Language: sk\n"
@@ -6438,9 +6438,8 @@ msgid "HTTP authentication"
 msgstr "HTTP overovanie"
 
 #: libraries/config/setup.forms.php:51
-#, fuzzy
 msgid "Signon authentication"
-msgstr "Overovanie Signon"
+msgstr "Overovanie signon"
 
 #: libraries/config/setup.forms.php:251
 #: libraries/config/user_preferences.forms.php:152
@@ -6450,7 +6449,6 @@ msgstr "CSV pomocou LOAD DATA"
 #: libraries/config/setup.forms.php:260 libraries/config/setup.forms.php:353
 #: libraries/config/user_preferences.forms.php:160
 #: libraries/config/user_preferences.forms.php:252
-#, fuzzy
 #| msgid "Open Document Spreadsheet"
 msgid "OpenDocument Spreadsheet"
 msgstr "Tabuľkový procesor Open Document"
@@ -6458,7 +6456,7 @@ msgstr "Tabuľkový procesor Open Document"
 #: libraries/config/setup.forms.php:267
 #: libraries/config/user_preferences.forms.php:167
 msgid "Quick"
-msgstr ""
+msgstr "Rýchle"
 
 #: libraries/config/setup.forms.php:271
 #: libraries/config/user_preferences.forms.php:171
@@ -6482,14 +6480,13 @@ msgstr "Microsoft Word 2000"
 
 #: libraries/config/setup.forms.php:357
 #: libraries/config/user_preferences.forms.php:256
-#, fuzzy
 #| msgid "Open Document Text"
 msgid "OpenDocument Text"
 msgstr "Open Document Text"
 
 #: libraries/config/validate.lib.php:214
 msgid "Could not initialize Drizzle connection library"
-msgstr ""
+msgstr "Nepodarilo sa inicializovať knižnicu na pripojenie k serveru Drizzle"
 
 #: libraries/config/validate.lib.php:223 libraries/config/validate.lib.php:231
 msgid "Could not connect to Drizzle server"
@@ -6784,16 +6781,16 @@ msgid "Git revision:"
 msgstr ""
 
 #: libraries/display_git_revision.lib.php:67
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create version"
 msgid "committed on %1$s by %2$s"
-msgstr "Vytvoriť verziu"
+msgstr "uložil %2$s dňa %1$s"
 
 #: libraries/display_git_revision.lib.php:75
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create version"
 msgid "authored on %1$s by %2$s"
-msgstr "Vytvoriť verziu"
+msgstr "autorizoval %2$s dňa %1$s"
 
 #: libraries/display_import.lib.php:69
 msgid ""
@@ -6811,10 +6808,9 @@ msgid "%s of %s"
 msgstr ""
 
 #: libraries/display_import.lib.php:86
-#, fuzzy
 #| msgid "Format of imported file"
 msgid "Uploading your import file…"
-msgstr "Formát importovaného súboru"
+msgstr "Nahrávanie vášho súboru s importom…"
 
 #: libraries/display_import.lib.php:94
 #, php-format
@@ -6889,7 +6885,6 @@ msgstr ""
 "bude pokračovať od pozície %d."
 
 #: libraries/display_import.lib.php:289
-#, fuzzy
 #| msgid ""
 #| "Allow the interruption of an import in case the script detects it is "
 #| "close to the PHP timeout limit. <i>(This might be good way to import "
@@ -7447,10 +7442,9 @@ msgid "Add prefix"
 msgstr "Pridať prefix"
 
 #: libraries/mult_submits.inc.php:339 sql.php:416
-#, fuzzy
 #| msgid "Do you really want to "
 msgid "Do you really want to execute the following query?"
-msgstr "Skutočne chcete vykonať príkaz "
+msgstr "Skutočne chcete vykonať nasledovný príkaz?"
 
 #: libraries/mult_submits.inc.php:616 tbl_replace.php:251
 msgid "No change"
@@ -7672,10 +7666,9 @@ msgstr[1] ""
 msgstr[2] ""
 
 #: libraries/navigation/NavigationTree.class.php:1042
-#, fuzzy
 #| msgid "Filter tables by name"
 msgid "filter databases by name"
-msgstr "Filtrovať tabuľky podľa mena"
+msgstr "filtrovať databázy podľa mena"
 
 #: libraries/navigation/NavigationTree.class.php:1043
 #: libraries/navigation/NavigationTree.class.php:1076
@@ -7683,10 +7676,9 @@ msgid "Clear Fast Filter"
 msgstr ""
 
 #: libraries/navigation/NavigationTree.class.php:1075
-#, fuzzy
 #| msgid "Filter tables by name"
 msgid "filter items by name"
-msgstr "Filtrovať tabuľky podľa mena"
+msgstr "filtrovať položky podľa mena"
 
 #. l10n: The word "Node" must not be translated here
 #: libraries/navigation/NodeFactory.class.php:41
@@ -8252,16 +8244,14 @@ msgid "Structure:"
 msgstr "Štruktúra"
 
 #: libraries/plugins/export/ExportMediawiki.class.php:84
-#, fuzzy
 #| msgid "or type variable name:"
 msgid "Export table names"
-msgstr "alebo zadajte meno premennej:"
+msgstr "Exportovať názvy tabuliek"
 
 #: libraries/plugins/export/ExportMediawiki.class.php:90
-#, fuzzy
 #| msgid "horizontal (rotated headers)"
 msgid "Export table headers"
-msgstr "vodorovnom (otočené hlavičky)"
+msgstr "Exportovať záhlavia tabuliek"
 
 #: libraries/plugins/export/ExportPdf.class.php:97
 msgid "(Generates a report containing the data of a single table)"
@@ -8310,10 +8300,9 @@ msgid ""
 msgstr ""
 
 #: libraries/plugins/export/ExportSql.class.php:295
-#, fuzzy
 #| msgid "Object creation options"
 msgid "Data creation options"
-msgstr "Možnosti vytvárania objektov"
+msgstr "Možnosti vytvárania údajov"
 
 #: libraries/plugins/export/ExportSql.class.php:299
 #: libraries/plugins/export/ExportSql.class.php:1652
@@ -8467,10 +8456,10 @@ msgid "MediaWiki Table"
 msgstr ""
 
 #: libraries/plugins/import/ImportMediawiki.class.php:303
-#, fuzzy, php-format
+#, php-format
 #| msgid "Invalid format of CSV input on line %d."
 msgid "Invalid format of mediawiki input on line: <br />%s."
-msgstr "Chybný formát v CSV vstupe na riadku %d."
+msgstr "Chybný formát vo vstupe z mediawiki na riadku: <br />%s."
 
 #: libraries/plugins/import/ImportOds.class.php:88
 msgid "Import percentages as proper decimals <i>(ex. 12.00% to .12)</i>"
