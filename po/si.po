@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-06-04 17:18+0200\n"
-"PO-Revision-Date: 2013-06-11 14:34+0200\n"
+"PO-Revision-Date: 2013-06-11 14:42+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: Sinhala "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/si/>\n"
@@ -4036,16 +4036,16 @@ msgid "\"%s\" requires %s extension"
 msgstr "\"%s\" සඳහා %s දිගුව අවශ්‍යය"
 
 #: libraries/config/FormDisplay.class.php:792
-#, fuzzy, php-format
+#, php-format
 #| msgid "import will not work, missing function (%s)"
 msgid "Compressed import will not work due to missing function %s."
-msgstr "ආනයන අකර්මන්‍යයි, (%s) ක්‍රියාවලිය නොමැත"
+msgstr "%s ක්‍රියාවලිය නොමැති හෙයින් හකුළුවා ඇති ගොනු ආනයනය අකර්මණ්‍යයි."
 
 #: libraries/config/FormDisplay.class.php:798
-#, fuzzy, php-format
+#, php-format
 #| msgid "export will not work, missing function (%s)"
 msgid "Compressed export will not work due to missing function %s."
-msgstr "අපනයන අකර්මන්‍යයි, (%s) ක්‍රියාවලිය නොමැත"
+msgstr "%s ක්‍රියාවලිය නොමැති හෙයින් හකුළුවූ ගොනු අපනයන අකර්මණ්‍යයි."
 
 #: libraries/config/FormDisplay.class.php:808
 msgid "SQL Validator is disabled"
@@ -4360,28 +4360,25 @@ msgstr "තීර නම් පළමු පේළියේ යොදන්න"
 #: libraries/config/messages.inc.php:73 libraries/config/messages.inc.php:243
 #: libraries/config/messages.inc.php:250
 #: libraries/plugins/import/ImportCsv.class.php:150
-#, fuzzy
 #| msgid "Columns enclosed with:"
 msgid "Columns enclosed with"
-msgstr "තීර ඇවුරුම් සළකුණ:"
+msgstr "තීර ඇවුරුම් සළකුණ"
 
 #: libraries/config/messages.inc.php:74 libraries/config/messages.inc.php:244
 #: libraries/config/messages.inc.php:251
 #: libraries/plugins/import/ImportCsv.class.php:157
-#, fuzzy
 #| msgid "Columns escaped with:"
 msgid "Columns escaped with"
-msgstr "තීර මගහැරීමේ සළකුණ:"
+msgstr "තීර මගහැරීමේ සළකුණ"
 
 #: libraries/config/messages.inc.php:75 libraries/config/messages.inc.php:81
 #: libraries/config/messages.inc.php:88 libraries/config/messages.inc.php:97
 #: libraries/config/messages.inc.php:105 libraries/config/messages.inc.php:109
 #: libraries/config/messages.inc.php:140 libraries/config/messages.inc.php:143
 #: libraries/config/messages.inc.php:145
-#, fuzzy
 #| msgid "Replace NULL with:"
 msgid "Replace NULL with"
-msgstr "NULL වෙනුවට භාවිතා කරන්න:"
+msgstr "NULL වෙනුවට භාවිතා කරන්න"
 
 #: libraries/config/messages.inc.php:76 libraries/config/messages.inc.php:82
 msgid "Remove CRLF characters within columns"
