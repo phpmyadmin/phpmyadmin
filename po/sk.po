@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-06-04 17:18+0200\n"
-"PO-Revision-Date: 2013-06-11 13:32+0200\n"
+"PO-Revision-Date: 2013-06-11 13:38+0200\n"
 "Last-Translator: Peter Rosa <peter.rosa@pro.sk>\n"
 "Language-Team: Slovak <http://l10n.cihar.com/projects/phpmyadmin/master/sk/>\n"
 "Language: sk\n"
@@ -3328,7 +3328,7 @@ msgstr "Vykonať \"dopyt podľa príkladu\" (nahradzujúci znak: \"%\")"
 
 #: libraries/TableSearch.class.php:1169
 msgid "Browse/Edit the points"
-msgstr ""
+msgstr "Prezerať/Upraviť body"
 
 #: libraries/TableSearch.class.php:1176
 msgid "How to use"
@@ -3376,18 +3376,24 @@ msgstr "Vzhľad"
 msgid ""
 "A 1-byte integer, signed range is -128 to 127, unsigned range is 0 to 255"
 msgstr ""
+"1-bytové celé číslo, rozsah: so znamienkom -128 až 127, bez znamienka 0 až "
+"255"
 
 #: libraries/Types.class.php:298
 msgid ""
 "A 2-byte integer, signed range is -32,768 to 32,767, unsigned range is 0 to "
 "65,535"
 msgstr ""
+"2-bytové celé číslo, rozsah: so znamienkom -32 768 až 32 767, bez znamienka "
+"0 až 65,535"
 
 #: libraries/Types.class.php:300
 msgid ""
 "A 3-byte integer, signed range is -8,388,608 to 8,388,607, unsigned range is "
 "0 to 16,777,215"
 msgstr ""
+"3-bytové celé číslo, rozsah: so znamienkom -8 388 608 až 8 388 607, bez "
+"znamienka 0 až 16 777 215"
 
 #: libraries/Types.class.php:302
 msgid ""
