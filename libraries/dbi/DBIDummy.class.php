@@ -255,7 +255,10 @@ $GLOBALS['dummy_queries'] = array(
         'query' => "SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`SCHEMA_PRIVILEGES` WHERE GRANTEE='''pma_test''@''localhost''' AND PRIVILEGE_TYPE='TRIGGER' AND TABLE_SCHEMA='pma'",
         'result' => array(),
     ),
-
+    array(
+        'query' => "SHOW TABLES FROM `phpmyadmin`",
+        'result' => array(),
+    ),
 );
 /**
  * Current database.
