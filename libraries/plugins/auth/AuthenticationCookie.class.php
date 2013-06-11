@@ -251,8 +251,8 @@ class AuthenticationCookie extends AuthenticationPlugin
         // is set to TRUE.
         if (  !empty($GLOBALS['cfg']['CaptchaLoginPrivateKey'])
             && !empty($GLOBALS['cfg']['CaptchaLoginPublicKey'])
-            && isset($GLOBALS['cfg']['Servers'][$GLOBALS['url_params']['server']]['CaptchaLogin'])
-            && $GLOBALS['cfg']['Servers'][$GLOBALS['url_params']['server']]['CaptchaLogin']
+            && isset($GLOBALS['cfg']['Server']['CaptchaLogin'])
+            && $GLOBALS['cfg']['Server']['CaptchaLogin']
             && !$skip
         ) {
             // If enabled show captcha to the user on the login screen.
@@ -369,8 +369,8 @@ class AuthenticationCookie extends AuthenticationPlugin
         // Verify Captcha if it is required.
         if (  !empty($GLOBALS['cfg']['CaptchaLoginPrivateKey'])
             && !empty($GLOBALS['cfg']['CaptchaLoginPublicKey'])
-            && isset($GLOBALS['cfg']['Servers'][$GLOBALS['url_params']['server']]['CaptchaLogin'])
-            && $GLOBALS['cfg']['Servers'][$GLOBALS['url_params']['server']]['CaptchaLogin']
+            && isset($GLOBALS['cfg']['Server']['CaptchaLogin'])
+            && $GLOBALS['cfg']['Server']['CaptchaLogin']
             && !$skip
         ) {
             if (  !empty($_POST["recaptcha_challenge_field"])
