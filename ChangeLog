@@ -18,6 +18,7 @@ phpMyAdmin - ChangeLog
 + [interface] rfe #1429 Better suggestion for database name
 + rfe #1433 Support relations with ndbcluster
 - bug #3962 Proper escaping of JSON export
++ rfe #1328 Optional ReCAPTCHA support
 
 4.0.4.0 (not yet released)
 - bug #3959 Using DefaultTabDatabase in NavigationTree for Database Click
