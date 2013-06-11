@@ -3145,10 +3145,9 @@ msgid "Invalid database:"
 msgstr "වලංගු නොවන දත්තගබඩාව:"
 
 #: libraries/Table.class.php:1246
-#, fuzzy
 #| msgid "Invalid table name"
 msgid "Invalid table name:"
-msgstr "වලංගු නොවන වගු නම"
+msgstr "වලංගු නොවන වගු නම:"
 
 #: libraries/Table.class.php:1278
 #, php-format
