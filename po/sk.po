@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-06-04 17:18+0200\n"
-"PO-Revision-Date: 2013-06-11 16:07+0200\n"
+"PO-Revision-Date: 2013-06-11 16:28+0200\n"
 "Last-Translator: Peter Rosa <peter.rosa@pro.sk>\n"
 "Language-Team: Slovak <http://l10n.cihar.com/projects/phpmyadmin/master/sk/>\n"
 "Language: sk\n"
@@ -13159,10 +13159,10 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:200
-#, fuzzy, php-format
+#, php-format
 #| msgid "Current version: %s"
 msgid "Current query cache size: %s"
-msgstr "Aktuálna verzia: %s"
+msgstr "Aktuálna veľkosť vyrovnávacej pamäte dotazov: %s"
 
 #: libraries/advisory_rules.txt:202
 msgid "Query cache min result size"
@@ -13215,11 +13215,13 @@ msgid "Rate of sorts that cause temporary tables"
 msgstr "Frekvencia triedení, ktoré spôsobujú dočasné tabuľky"
 
 #: libraries/advisory_rules.txt:223
-#, fuzzy, php-format
+#, php-format
 #| msgid "Sort buffer size"
 msgid ""
 "Temporary tables average: %s, this value should be less than 1 per hour."
-msgstr "Veľkosť zoraďovacej pamäte"
+msgstr ""
+"Priemer dočasných tabuliek: %s, táto hodnota by mala byť nižšia ako 1 za "
+"hodinu."
 
 #: libraries/advisory_rules.txt:225
 msgid "Sort rows"
@@ -13244,7 +13246,7 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:233
 msgid "Rate of joins without indexes"
-msgstr "Frekvencia spájaní bez indexov"
+msgstr "Podiel spájaní bez indexov"
 
 #: libraries/advisory_rules.txt:236
 msgid "There are too many joins without indexes."
@@ -13257,22 +13259,22 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:238
-#, fuzzy, php-format
+#, php-format
 #| msgid "Sort buffer size"
 msgid "Table joins average: %s, this value should be less than 1 per hour"
-msgstr "Veľkosť zoraďovacej pamäte"
+msgstr ""
+"Priemer spájania tabuliek: %s, táto hodnota by mala byť nižšia ako 1 za "
+"hodinu"
 
 #: libraries/advisory_rules.txt:240
-#, fuzzy
 #| msgid "Where to show the table row links"
 msgid "Rate of reading first index entry"
-msgstr "Kde zobraziť linky riadkov tabuľky"
+msgstr "Podiel čítania prvej položky indexu"
 
 #: libraries/advisory_rules.txt:243
-#, fuzzy
 #| msgid "Where to show the table row links"
 msgid "The rate of reading the first index entry is high."
-msgstr "Kde zobraziť linky riadkov tabuľky"
+msgstr "Podiel čítania prvej položky indexu je vysoký."
 
 #: libraries/advisory_rules.txt:244
 msgid ""
@@ -13285,22 +13287,21 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:245
-#, fuzzy, php-format
+#, php-format
 #| msgid "Sort buffer size"
 msgid "Index scans average: %s, this value should be less than 1 per hour"
-msgstr "Veľkosť zoraďovacej pamäte"
+msgstr ""
+"Priemer čítania indexov: %s, táto hodnota by mala byť nižšia ako 1 za hodinu"
 
 #: libraries/advisory_rules.txt:247
-#, fuzzy
 #| msgid "Where to show the table row links"
 msgid "Rate of reading fixed position"
-msgstr "Kde zobraziť linky riadkov tabuľky"
+msgstr "Podiel čítania z pevnej pozície"
 
 #: libraries/advisory_rules.txt:250
-#, fuzzy
 #| msgid "Where to show the table row links"
 msgid "The rate of reading data from a fixed position is high."
-msgstr "Kde zobraziť linky riadkov tabuľky"
+msgstr "Podiel čítania z pevnej pozície je vysoký."
 
 #: libraries/advisory_rules.txt:251
 msgid ""
@@ -13331,11 +13332,13 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:259
-#, fuzzy, php-format
+#, php-format
 #| msgid "Sort buffer size"
 msgid ""
 "Rate of reading next table row: %s, this value should be less than 1 per hour"
-msgstr "Veľkosť zoraďovacej pamäte"
+msgstr ""
+"Podiel čítania ďalšieho riadku tabuľky: %s, táto hodnota by mala byť nižšia "
+"ako 1 za hodinu"
 
 #: libraries/advisory_rules.txt:262
 msgid "tmp_table_size vs. max_heap_table_size"
@@ -13423,10 +13426,9 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:301
-#, fuzzy
 #| msgid "Sort buffer size"
 msgid "key_buffer_size is 0"
-msgstr "Veľkosť zoraďovacej pamäte"
+msgstr "key_buffer_size je 0"
 
 #: libraries/advisory_rules.txt:303
 #, php-format
@@ -13458,16 +13460,17 @@ msgid "Percentage of MyISAM key buffer used"
 msgstr "Percento využitia vyrovnávacej pamäte MyISAM kľúčov"
 
 #: libraries/advisory_rules.txt:316
-#, fuzzy, php-format
+#, php-format
 #| msgid "Sort buffer size"
 msgid "%% MyISAM key buffer used: %s%%, this value should be above 95%%"
-msgstr "Veľkosť zoraďovacej pamäte"
+msgstr ""
+"%% Využitie vyrovnávacej pamäti MyISAM kľúčov: %s%%, táto hodnota by mala "
+"byť viac ako 95%%"
 
 #: libraries/advisory_rules.txt:318
-#, fuzzy
 #| msgid "Show SQL queries"
 msgid "Percentage of index reads from memory"
-msgstr "Zobraziť SQL dopyty"
+msgstr "Percento indexov načítaných z pamäte"
 
 #: libraries/advisory_rules.txt:321
 #, php-format
@@ -13479,10 +13482,10 @@ msgid "You may need to increase {key_buffer_size}."
 msgstr ""
 
 #: libraries/advisory_rules.txt:323
-#, fuzzy, php-format
+#, php-format
 #| msgid "Sort buffer size"
 msgid "Index reads from memory: %s%%, this value should be above 95%%"
-msgstr "Veľkosť zoraďovacej pamäte"
+msgstr "Indexy čítané z pamäte: %s%%, táto hodnota by mala byť viac ako 95%%"
 
 #: libraries/advisory_rules.txt:327
 msgid "Rate of table open"
@@ -13499,10 +13502,12 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:332
-#, fuzzy, php-format
+#, php-format
 #| msgid "Sort buffer size"
 msgid "Opened table rate: %s, this value should be less than 10 per hour"
-msgstr "Veľkosť zoraďovacej pamäte"
+msgstr ""
+"Podiel otvárania tabuliek: %s, táto hodnota by mala byť nižšia ako 10 za "
+"hodinu \t"
 
 #: libraries/advisory_rules.txt:334
 msgid "Percentage of used open files limit"
@@ -13535,10 +13540,12 @@ msgid "The rate of opening files is high."
 msgstr "Frekvencia otvárania súborov je vysoká."
 
 #: libraries/advisory_rules.txt:346
-#, fuzzy, php-format
+#, php-format
 #| msgid "Sort buffer size"
 msgid "Opened files rate: %s, this value should be less than 5 per hour"
-msgstr "Veľkosť zoraďovacej pamäte"
+msgstr ""
+"Podiel otváraných súborov: %s, táto hodnota by mala byť nižšia ako 5 za "
+"hodinu \t"
 
 #: libraries/advisory_rules.txt:348
 #, php-format
@@ -13554,20 +13561,22 @@ msgid "Optimize queries and/or use InnoDB to reduce lock wait."
 msgstr ""
 
 #: libraries/advisory_rules.txt:353
-#, fuzzy, php-format
+#, php-format
 #| msgid "Sort buffer size"
 msgid "Immediate table locks: %s%%, this value should be above 95%%"
-msgstr "Veľkosť zoraďovacej pamäte"
+msgstr "Okamžité zámky tabuliek: %s%%, táto hodnota by mala byť vyššia ako 95%%"
 
 #: libraries/advisory_rules.txt:355
 msgid "Table lock wait rate"
 msgstr ""
 
 #: libraries/advisory_rules.txt:360
-#, fuzzy, php-format
+#, php-format
 #| msgid "Sort buffer size"
 msgid "Table lock wait rate: %s, this value should be less than 1 per hour"
-msgstr "Veľkosť zoraďovacej pamäte"
+msgstr ""
+"Podiel zamykania tabuliek: %s, táto hodnota by mala byť nižšia ako 1 za "
+"hodinu"
 
 #: libraries/advisory_rules.txt:362
 msgid "Thread cache"
@@ -13584,10 +13593,9 @@ msgid "Enable the thread cache by setting {thread_cache_size} > 0."
 msgstr ""
 
 #: libraries/advisory_rules.txt:367
-#, fuzzy
 #| msgid "Tracking is not active."
 msgid "The thread cache is set to 0"
-msgstr "Sledovanie nie je aktívne."
+msgstr "Vyrovnávacia pamäť vlákien je 0"
 
 #: libraries/advisory_rules.txt:369
 #, php-format
@@ -13595,32 +13603,31 @@ msgid "Thread cache hit rate %%"
 msgstr "Frekvencia úspešnosti vyrovnávacej pamäte %%"
 
 #: libraries/advisory_rules.txt:372
-#, fuzzy
 #| msgid "Tracking is not active."
 msgid "Thread cache is not efficient."
-msgstr "Sledovanie nie je aktívne."
+msgstr "Vyrovnávacia pamäť vlákien nepracuje efektívne."
 
 #: libraries/advisory_rules.txt:373
 msgid "Increase {thread_cache_size}."
 msgstr ""
 
 #: libraries/advisory_rules.txt:374
-#, fuzzy, php-format
+#, php-format
 #| msgid "Sort buffer size"
 msgid "Thread cache hitrate: %s%%, this value should be above 80%%"
-msgstr "Veľkosť zoraďovacej pamäte"
+msgstr ""
+"Úspešnosť vyrovnávacej pamäte vlákien: %s%%, táto hodnota by mala byť vyššia "
+"ako 80%%"
 
 #: libraries/advisory_rules.txt:376
-#, fuzzy
 #| msgid "The number of threads that are not sleeping."
 msgid "Threads that are slow to launch"
-msgstr "Počet nespiacich vlákien."
+msgstr "Vlákna, ktoré sú pomalé na beh"
 
 #: libraries/advisory_rules.txt:379
-#, fuzzy
 #| msgid "The number of threads that are not sleeping."
 msgid "There are too many threads that are slow to launch."
-msgstr "Počet nespiacich vlákien."
+msgstr "Je priveľa vlákien pomalých na beh."
 
 #: libraries/advisory_rules.txt:380
 msgid ""
@@ -13638,30 +13645,29 @@ msgid "Slow launch time"
 msgstr ""
 
 #: libraries/advisory_rules.txt:386
-#, fuzzy
 #| msgid "long_query_time is set to %d second(s)."
 msgid "Slow_launch_threads is above 2s"
-msgstr "long_query_time je nastavený na %d sekúnd."
+msgstr "Slow_launch_threads je viac ako 2s"
 
 #: libraries/advisory_rules.txt:387
-#, fuzzy
 #| msgid "The number of threads that are not sleeping."
 msgid ""
 "Set {slow_launch_time} to 1s or 2s to correctly count threads that are slow "
 "to launch"
-msgstr "Počet nespiacich vlákien."
+msgstr ""
+"Aby sa správne počítali vlánka, ktoré sú pomalé na beh, nastavte "
+"{slow_launch_time} na 1s alebo 2s"
 
 #: libraries/advisory_rules.txt:388
-#, fuzzy, php-format
+#, php-format
 #| msgid "long_query_time is set to %d second(s)."
 msgid "slow_launch_time is set to %s"
-msgstr "long_query_time je nastavený na %d sekúnd."
+msgstr "slow_launch_time je nastavený na %s"
 
 #: libraries/advisory_rules.txt:392
-#, fuzzy
 #| msgid "Persistent connections"
 msgid "Percentage of used connections"
-msgstr "Trvalé spojenia"
+msgstr "Percento využitých spojení"
 
 #: libraries/advisory_rules.txt:395
 msgid ""
@@ -13683,16 +13689,14 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:399
-#, fuzzy
 #| msgid "Persistent connections"
 msgid "Percentage of aborted connections"
-msgstr "Trvalé spojenia"
+msgstr "Percento prerušených spojení"
 
 #: libraries/advisory_rules.txt:402 libraries/advisory_rules.txt:409
-#, fuzzy
 #| msgid "Allows creating temporary tables."
 msgid "Too many connections are aborted."
-msgstr "Povolí vytváranie dočasných tabuliek."
+msgstr "Priveľa spojení je prerušených."
 
 #: libraries/advisory_rules.txt:403 libraries/advisory_rules.txt:410
 msgid ""
@@ -13708,10 +13712,9 @@ msgid "%s%% of all connections are aborted. This value should be below 1%%"
 msgstr ""
 
 #: libraries/advisory_rules.txt:406
-#, fuzzy
 #| msgid "Persistent connections"
 msgid "Rate of aborted connections"
-msgstr "Trvalé spojenia"
+msgstr "Podiel prerušených spojení"
 
 #: libraries/advisory_rules.txt:411
 #, php-format
