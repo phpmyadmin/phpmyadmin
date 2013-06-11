@@ -242,17 +242,18 @@ class AuthenticationCookie extends AuthenticationPlugin
         // We already have one correct captcha.
         $skip = false;
         if (  isset($_SESSION['last_valid_captcha'])
-           && $_SESSION['last_valid_captcha']
+            && $_SESSION['last_valid_captcha']
         ) {
             $skip = true;
         }
 
-        // Add captcha input field if $cfg['Servers'][$i]['CaptchaLogin'] is set to TRUE.
+        // Add captcha input field if $cfg['Servers'][$i]['CaptchaLogin']
+        // is set to TRUE.
         if (  !empty($GLOBALS['cfg']['CaptchaLoginPrivateKey'])
-           && !empty($GLOBALS['cfg']['CaptchaLoginPublicKey'])
-           && isset($GLOBALS['cfg']['Servers'][$GLOBALS['url_params']['server']]['CaptchaLogin'])
-           && $GLOBALS['cfg']['Servers'][$GLOBALS['url_params']['server']]['CaptchaLogin']
-           && !$skip
+            && !empty($GLOBALS['cfg']['CaptchaLoginPublicKey'])
+            && isset($GLOBALS['cfg']['Server']['CaptchaLogin'])
+            && $GLOBALS['cfg']['Server']['CaptchaLogin']
+            && !$skip
         ) {
             // If enabled show captcha to the user on the login screen.
             echo '<script type="text/javascript"
@@ -360,25 +361,25 @@ class AuthenticationCookie extends AuthenticationPlugin
         // We already have one correct captcha.
         $skip = false;
         if (  isset($_SESSION['last_valid_captcha'])
-           && $_SESSION['last_valid_captcha']
+            && $_SESSION['last_valid_captcha']
         ) {
             $skip = true;
         }
 
         // Verify Captcha if it is required.
         if (  !empty($GLOBALS['cfg']['CaptchaLoginPrivateKey'])
-           && !empty($GLOBALS['cfg']['CaptchaLoginPublicKey'])
-           && isset($GLOBALS['cfg']['Servers'][$GLOBALS['url_params']['server']]['CaptchaLogin'])
-           && $GLOBALS['cfg']['Servers'][$GLOBALS['url_params']['server']]['CaptchaLogin']
-           && !$skip
+            && !empty($GLOBALS['cfg']['CaptchaLoginPublicKey'])
+            && isset($GLOBALS['cfg']['Server']['CaptchaLogin'])
+            && $GLOBALS['cfg']['Server']['CaptchaLogin']
+            && !$skip
         ) {
             if (  !empty($_POST["recaptcha_challenge_field"])
-               && !empty($_POST["recaptcha_response_field"])
+                && !empty($_POST["recaptcha_response_field"])
             ) {
-                require_once('libraries/plugins/auth/recaptchalib.php');
+                include_once 'libraries/plugins/auth/recaptchalib.php';
 
                 // Use private key to verify captcha status.
-                $resp = recaptcha_check_answer (
+                $resp = recaptcha_check_answer(
                     $GLOBALS['cfg']['CaptchaLoginPrivateKey'],
                     $_SERVER["REMOTE_ADDR"],
                     $_POST["recaptcha_challenge_field"],
@@ -393,11 +394,15 @@ class AuthenticationCookie extends AuthenticationPlugin
                 } else {
                     $_SESSION['last_valid_captcha'] = true;
                 }
-            } elseif ( !empty($_POST["recaptcha_challenge_field"]) && empty($_POST["recaptcha_response_field"]) ) {
+            } elseif (! empty($_POST["recaptcha_challenge_field"])
+                && empty($_POST["recaptcha_response_field"])
+            ) {
                 $conn_error = __('Please enter correct captcha!');
                 return false;
             } else {
-                if ( !isset($_SESSION['last_valid_captcha']) || !$_SESSION['last_valid_captcha'] ) {
+                if (! isset($_SESSION['last_valid_captcha'])
+                    || ! $_SESSION['last_valid_captcha']
+                ) {
                     return false;
                 }
             }
