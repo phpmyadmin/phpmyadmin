@@ -26,6 +26,9 @@ function PMA_getSubPageHeader($type)
     $res['binlog']['icon'] = 's_tbl.png';
     $res['binlog']['text'] = __('Binary log');
     
+    $res['collations']['icon'] = 's_asci.png';
+    $res['collations']['text'] = __('Character Sets and Collations');
+    
     $html = '<h2>' . "\n"
         . PMA_Util::getImage($res[$type]['icon'])
         . '    ' . $res[$type]['text'] . "\n"
