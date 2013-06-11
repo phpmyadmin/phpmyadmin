@@ -992,8 +992,10 @@ Server connection settings
     :default: ``false``
 
     Enables reCaptcha service for the specific server login screen. Works only
-    with cookie authentication type. It must have $cfg['CaptchaLoginPublicKey']
-    and $cfg['CaptchaLoginPrivateKey'] specified which are the reCaptcha keys.
+    with cookie authentication type. It must have 
+    :config:option:`$cfg['CaptchaLoginPublicKey']` and 
+    :config:option:`$cfg['CaptchaLoginPrivateKey']` specified which are the 
+    reCaptcha keys.
 
 Generic settings
 ----------------
@@ -1308,6 +1310,9 @@ Cookie authentication options
     The public key for the reCaptcha service that can be obtain from
     http://www.google.com/recaptcha.
 
+    Needs to be enabled in server settings as well using 
+    :config:option:`$cfg['Servers'][$i]['CaptchaLogin']`.
+
 .. config:option:: $cfg['CaptchaLoginPrivateKey']
 
     :type: string
@@ -1315,6 +1320,9 @@ Cookie authentication options
 
     The private key for the reCaptcha service that can be obtain from
     http://www.google.com/recaptcha.
+
+    Needs to be enabled in server settings as well using 
+    :config:option:`$cfg['Servers'][$i]['CaptchaLogin']`.
 
 Navigation panel setup
 ----------------------
