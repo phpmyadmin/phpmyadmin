@@ -105,7 +105,7 @@ function PMA_import_sessionCheck()
   *
   * @return boolean true
   */
-function PMA_import_nopluginCheck()
+function PMA_Import_nopluginCheck()
 {
     return true;
 }
