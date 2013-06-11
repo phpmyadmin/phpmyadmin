@@ -27,7 +27,7 @@ if (! defined('PHPMYADMIN')) {
  *
  * @return string
  */
-function PMA_getCharsetInfo($mysql_charsets, $mysql_collations,
+function PMA_getHtmlForCharsets($mysql_charsets, $mysql_collations,
     $mysql_charsets_descriptions, $mysql_default_collations, 
     $mysql_collations_available)
 {
@@ -63,8 +63,13 @@ function PMA_getCharsetInfo($mysql_charsets, $mysql_collations,
             . '    </th>' . "\n"
             . '</tr>' . "\n";
         
-        $html .= PMA_getCollationsInfo($current_charset, $mysql_collations, $i,
-                     $mysql_default_collations, $mysql_collations_available);
+        $html .= PMA_getHtmlForCollationCurrentCharset(
+                     $current_charset, 
+                     $mysql_collations, 
+                     $i, 
+                     $mysql_default_collations, 
+                     $mysql_collations_available
+                 );
     }
     unset($table_row_count);
     $html .= '</table>' . "\n"
@@ -75,7 +80,7 @@ function PMA_getCharsetInfo($mysql_charsets, $mysql_collations,
 
 
 /**
- * Returns the html for server Collations.
+ * Returns the html for Collations of Current Charset.
  *
  * @param String $current_charset Current Charset
  *
@@ -89,7 +94,7 @@ function PMA_getCharsetInfo($mysql_charsets, $mysql_collations,
  *
  * @return string
  */
-function PMA_getCollationsInfo($current_charset, $mysql_collations, &$i,
+function PMA_getHtmlForCollationCurrentCharset($current_charset, $mysql_collations, &$i,
     $mysql_default_collations, $mysql_collations_available)
 {
     $odd_row = true;
