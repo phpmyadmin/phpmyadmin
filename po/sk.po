@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-06-03 09:16-0400\n"
-"PO-Revision-Date: 2013-06-11 14:58+0200\n"
+"PO-Revision-Date: 2013-06-11 16:36+0200\n"
 "Last-Translator: Peter Rosa <peter.rosa@pro.sk>\n"
 "Language-Team: Slovak <http://l10n.cihar.com/projects/phpmyadmin/4-0/sk/>\n"
 "Language: sk\n"
@@ -4093,7 +4093,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:27
 msgid "Bzip2"
-msgstr "Bzip2"
+msgstr "BZip2"
 
 #: libraries/config/messages.inc.php:28
 msgid ""
@@ -4230,13 +4230,12 @@ msgstr "Východzí panel tabuľky"
 
 #: libraries/config/messages.inc.php:54
 msgid "Whether the table structure actions should be hidden"
-msgstr ""
+msgstr "Určuje, či akcie štruktúry tabuliek majú byť skryté"
 
 #: libraries/config/messages.inc.php:55
-#, fuzzy
 #| msgid "Propose table structure"
 msgid "Hide table structure actions"
-msgstr "Navrhnúť štruktúru tabuľky"
+msgstr "Skryť akcie štruktúry tabuľky"
 
 #: libraries/config/messages.inc.php:56
 msgid "Show binary contents as HEX by default"
@@ -4614,16 +4613,14 @@ msgid "Databases display options"
 msgstr "Nastavenia zobrazenia databáz"
 
 #: libraries/config/messages.inc.php:177 setup/frames/menu.inc.php:19
-#, fuzzy
 #| msgid "Navigation frame"
 msgid "Navigation panel"
-msgstr "Navigačný rám"
+msgstr "Navigačný panel"
 
 #: libraries/config/messages.inc.php:178
-#, fuzzy
 #| msgid "Customize appearance of the navigation frame"
 msgid "Customize appearance of the navigation panel"
-msgstr "Prizpôsobiť vzhľad navigačného rámu"
+msgstr "Prizpôsobiť vzhľad navigačného panela"
 
 #: libraries/config/messages.inc.php:179 libraries/select_server.lib.php:42
 #: setup/frames/index.inc.php:117
@@ -4639,10 +4636,9 @@ msgid "Tables display options"
 msgstr "Nastavenie zobrazenia tabuliek"
 
 #: libraries/config/messages.inc.php:183 setup/frames/menu.inc.php:20
-#, fuzzy
 #| msgid "Main frame"
 msgid "Main panel"
-msgstr "Hlavný rám"
+msgstr "Hlavný panel"
 
 #: libraries/config/messages.inc.php:184
 msgid "Microsoft Office"
@@ -4753,16 +4749,14 @@ msgid "Customize import defaults"
 msgstr "Prispôsobebie východzích nastavení importu"
 
 #: libraries/config/messages.inc.php:209
-#, fuzzy
 #| msgid "Customize navigation frame"
 msgid "Customize navigation panel"
-msgstr "Prispôsobenie navigačného rámu"
+msgstr "Prispôsobiť navigačný panel"
 
 #: libraries/config/messages.inc.php:210
-#, fuzzy
 #| msgid "Customize main frame"
 msgid "Customize main panel"
-msgstr "Prispôsobenie hlavného rámu"
+msgstr "Prispôsobiť hlavný panel"
 
 #: libraries/config/messages.inc.php:211 libraries/config/messages.inc.php:216
 #: setup/frames/menu.inc.php:18
@@ -4812,6 +4806,8 @@ msgstr "Štruktúra databázy"
 #: libraries/config/messages.inc.php:223
 msgid "Choose which details to show in the database structure (list of tables)"
 msgstr ""
+"Vyberte, ktoré detaily sa majú zobrazovať v štruktúre databázy (zoznam "
+"tabuliek)"
 
 #: libraries/config/messages.inc.php:224
 msgid "Table structure"
@@ -4819,7 +4815,7 @@ msgstr "Štruktúra tabuľky"
 
 #: libraries/config/messages.inc.php:225
 msgid "Settings for the table structure (list of columns)"
-msgstr ""
+msgstr "Nastavenia štruktúry tabuliek (zoznam stĺpcov)"
 
 #: libraries/config/messages.inc.php:226
 msgid "Tabs"
@@ -5044,25 +5040,23 @@ msgid "Users cannot set a higher value"
 msgstr "Uživatelia nemôžu nastaviť vyššiu hodnotu"
 
 #: libraries/config/messages.inc.php:284
-#, fuzzy
 #| msgid "Maximum number of tables displayed in table list"
 msgid "Maximum number of databases displayed in database list"
-msgstr "Maximálny počet tabuliek zobrazených v zozname tabuliek"
+msgstr "Maximálny počet databáz zobrazených v zozname databáz"
 
 #: libraries/config/messages.inc.php:285
 msgid "Maximum databases"
 msgstr "Najvyšší počet databáz"
 
 #: libraries/config/messages.inc.php:286
-#, fuzzy
 #| msgid "The number of joins that did a full scan of the first table."
 msgid ""
 "The number of items that can be displayed on each page of the navigation tree"
-msgstr "Počet spojení, ktoré vykonali kompletné prehľadanie prvej tabuľky."
+msgstr "Počet položiek, ktoré sa zobrazia na každej strane navigačného panela"
 
 #: libraries/config/messages.inc.php:287
 msgid "Maximum items in branch"
-msgstr ""
+msgstr "Maximálny počet položiek vo vetve"
 
 #: libraries/config/messages.inc.php:288
 msgid ""
@@ -5111,20 +5105,18 @@ msgid "Memory limit"
 msgstr "Obmedzenie pamäte"
 
 #: libraries/config/messages.inc.php:297
-#, fuzzy
 #| msgid "Show logo in left frame"
 msgid "Show logo in navigation panel"
-msgstr "Zobraziť logo v ľavom ráme"
+msgstr "Zobraziť logo v navigačnom paneli"
 
 #: libraries/config/messages.inc.php:298
 msgid "Display logo"
 msgstr "Zobraziť logo"
 
 #: libraries/config/messages.inc.php:299
-#, fuzzy
 #| msgid "URL where logo in the navigation frame will point to"
 msgid "URL where logo in the navigation panel will point to"
-msgstr "URL, na ktoré bude odkazovať logo v navigačnom ráme"
+msgstr "URL, na ktoré bude odkazovať logo v navigačnom paneli"
 
 #: libraries/config/messages.inc.php:300
 msgid "Logo link URL"
@@ -5143,10 +5135,9 @@ msgid "Logo link target"
 msgstr "Cieľ odkazu loga"
 
 #: libraries/config/messages.inc.php:303
-#, fuzzy
 #| msgid "Display server choice at the top of the left frame"
 msgid "Display server choice at the top of the navigation panel"
-msgstr "Zobraziť voľbu servera v hornej časti ľavého rámu"
+msgstr "Zobraziť voľbu servera v hornej časti navigačného panela"
 
 #: libraries/config/messages.inc.php:304
 msgid "Display servers selection"
@@ -5157,27 +5148,25 @@ msgid "Target for quick access icon"
 msgstr "Cieľ pre ikonu rýchleho prístupu"
 
 #: libraries/config/messages.inc.php:306
-#, fuzzy
 #| msgid "Minimum number of tables to display the table filter box"
 msgid ""
 "Defines the minimum number of items (tables, views, routines and events) to "
 "display a filter box."
-msgstr "Minimálny počet tabuliek pre zobrazenie filtra tabuliek"
+msgstr ""
+"Definuje minimálny počet položiek (tabuliek, zobrazení, rutín, udalostí) pre "
+"zobrazenie filtra."
 
 #: libraries/config/messages.inc.php:307
-#, fuzzy
 #| msgid "Minimum number of tables to display the table filter box"
 msgid "Minimum number of items to display the filter box"
-msgstr "Minimálny počet tabuliek pre zobrazenie filtra tabuliek"
+msgstr "Minimálny počet položiek pre zobrazenie filtra"
 
 #: libraries/config/messages.inc.php:308
-#, fuzzy
 #| msgid "Minimum number of tables to display the table filter box"
 msgid "Minimum number of databases to display the database filter box"
-msgstr "Minimálny počet tabuliek pre zobrazenie filtra tabuliek"
+msgstr "Minimálny počet databáz pre zobrazenie filtra databáz"
 
 #: libraries/config/messages.inc.php:309
-#, fuzzy
 #| msgid ""
 #| "Only light version; display databases in a tree (determined by the "
 #| "separator defined below)"
@@ -5185,12 +5174,12 @@ msgid ""
 "Group items in the navigation tree (determined by the separator defined "
 "below)"
 msgstr ""
-"Len odľahčená verzia; zobrazí databázy v strome (určené oddeľovačom "
-"nastaveným nižšie)"
+"Zoskupovať položky v navigačnom paneli (určené oddeľovačom nastaveným "
+"nižšie)"
 
 #: libraries/config/messages.inc.php:310
 msgid "Group items in the tree"
-msgstr ""
+msgstr "Zoskupovať položky v strome"
 
 #: libraries/config/messages.inc.php:311
 msgid "String that separates databases into different tree levels"
@@ -5297,7 +5286,6 @@ msgid "Missing phpMyAdmin configuration storage tables"
 msgstr "Chýbajú tabuľky pre miesto uloženia phpMyAdmin konfigurácie"
 
 #: libraries/config/messages.inc.php:334
-#, fuzzy
 #| msgid ""
 #| "Disable the default warning that is displayed if mcrypt is missing for "
 #| "cookie authentication"
@@ -5305,15 +5293,14 @@ msgid ""
 "Disable the default warning that is displayed if a difference between the "
 "MySQL library and server is detected"
 msgstr ""
-"Vypnúť štandardné varovanie o chýbajúcom rozšírení mcrypt pri cookie "
-"overovaní"
+"Vypnúť štandardné varovanie o rozdiele medzi verziou knižnice MySQL a "
+"servera"
 
 #: libraries/config/messages.inc.php:335
 msgid "Server/library difference warning"
-msgstr ""
+msgstr "Varovanie o rozdiele medzi verziou knižnice MySQL a servera"
 
 #: libraries/config/messages.inc.php:336
-#, fuzzy
 #| msgid ""
 #| "Disable the default warning that is displayed on the database details "
 #| "Structure page if any of the required tables for the phpMyAdmin "
@@ -5322,13 +5309,12 @@ msgid ""
 "Disable the default warning that is displayed on the Structure page if "
 "column names in a table are reserved MySQL words"
 msgstr ""
-"Vypne štandardné varovanie pri detailoch databázy na Štruktúra stránke, ak "
-"niektorá z vyžadovaných tabuliek pre miesto uloženia phpMyAdmin konfigurácie "
-"nebola nájdená"
+"Vypnúť štandardné varovanie na záložke Štruktúra, ak názvy stĺpcov v tabuľke "
+"patria k rezervovaným kľúčovým slovám MySQL"
 
 #: libraries/config/messages.inc.php:337
 msgid "MySQL reserved word warning"
-msgstr ""
+msgstr "Varovanie o kľúčových slovách MySQL"
 
 #: libraries/config/messages.inc.php:339
 msgid "Iconic table operations"
@@ -5415,11 +5401,11 @@ msgstr "Opakovať záhlavie"
 
 #: libraries/config/messages.inc.php:360
 msgid "Grid editing: trigger action"
-msgstr ""
+msgstr "Úprava mriežky: vyvolať akciu"
 
 #: libraries/config/messages.inc.php:361
 msgid "Grid editing: save all edited cells at once"
-msgstr ""
+msgstr "Úprava mriežky: uložiť všetky upravené bunky naraz"
 
 #: libraries/config/messages.inc.php:362
 msgid "Directory where exports can be saved on server"
@@ -5458,7 +5444,6 @@ msgid "HTTP Basic Auth Realm name to display when doing HTTP Auth"
 msgstr "Názov pre zobrazenie pri použití HTTP autorizácie"
 
 #: libraries/config/messages.inc.php:371
-#, fuzzy
 msgid "HTTP Realm"
 msgstr "HTTP Realm"
 
@@ -5485,7 +5470,6 @@ msgid "Authentication type"
 msgstr "Typ overovania"
 
 #: libraries/config/messages.inc.php:376
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/bookmark]bookmark[/"
 #| "a] support, suggested: [kbd]pma_bookmark[/kbd]"
@@ -5493,15 +5477,15 @@ msgid ""
 "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/bookmark]bookmark[/a] "
 "support, suggested: [kbd]pma__bookmark[/kbd]"
 msgstr ""
-"Nechajte prázdne pre žiadnu podporu [a@http://wiki.phpmyadmin.net/pma/"
-"bookmark]záložiek[/a], navrhované: [kbd]pma_bookmark[/kbd]"
+"Nechajte prázdne pre žiadnu podporu "
+"[a@http://wiki.phpmyadmin.net/pma/bookmark]záložiek[/a], navrhované: "
+"[kbd]pma__bookmark[/kbd]"
 
 #: libraries/config/messages.inc.php:377
 msgid "Bookmark table"
 msgstr "Tabuľka záložiek"
 
 #: libraries/config/messages.inc.php:378
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no column comments/mime types, suggested: [kbd]"
 #| "pma_column_info[/kbd]"
@@ -5509,8 +5493,8 @@ msgid ""
 "Leave blank for no column comments/mime types, suggested: [kbd]"
 "pma__column_info[/kbd]"
 msgstr ""
-"Nechajte prázdne pre žiadne komentáre ci mime typy polí, navrhované: [kbd]"
-"pma_column_info[/kbd]"
+"Nechajte prázdne pre žiadne komentáre ci mime typy polí, navrhované: "
+"[kbd]pma__column_info[/kbd]"
 
 #: libraries/config/messages.inc.php:379
 msgid "Column information table"
@@ -5553,13 +5537,14 @@ msgid ""
 "An alternate host to hold the configuration storage; leave blank to use the "
 "already defined host"
 msgstr ""
+"Alternatívny hostiteľ na ukladanie konfigurácie; ponechajte prázdne aby sa "
+"použil už definovaný hostiteľ"
 
 #: libraries/config/messages.inc.php:388
 msgid "Control host"
-msgstr ""
+msgstr "Kontrolný hostiteľ"
 
 #: libraries/config/messages.inc.php:389
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no Designer support, suggested: [kbd]pma_designer_coords[/"
 #| "kbd]"
@@ -5567,8 +5552,8 @@ msgid ""
 "Leave blank for no Designer support, suggested: [kbd]pma__designer_coords[/"
 "kbd]"
 msgstr ""
-"Nechajte prázdne pre vypnutie návrhára, východzie nastavenie: [kbd]"
-"pma_designer_coords[/kbd]"
+"Nechajte prázdne pre vypnutie návrhára, východzie nastavenie: "
+"[kbd]pma__designer_coords[/kbd]"
 
 #: libraries/config/messages.inc.php:390
 msgid "Designer table"
@@ -5603,7 +5588,6 @@ msgid "Hide databases"
 msgstr "Skryť databázy"
 
 #: libraries/config/messages.inc.php:397
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no SQL query history support, suggested: [kbd]pma_history"
 #| "[/kbd]"
@@ -5611,8 +5595,8 @@ msgid ""
 "Leave blank for no SQL query history support, suggested: [kbd]pma__history[/"
 "kbd]"
 msgstr ""
-"Nechať prázdne pre vypnutie histórie SQL dopytov, navrhované: [kbd]"
-"pma_history[/kbd]"
+"Nechať prázdne pre vypnutie histórie SQL dopytov, navrhované: "
+"[kbd]pma__history[/kbd]"
 
 #: libraries/config/messages.inc.php:398
 msgid "SQL query history table"
@@ -5651,7 +5635,6 @@ msgid "Connect without password"
 msgstr "Pripojiť sa bez hesla"
 
 #: libraries/config/messages.inc.php:406
-#, fuzzy
 #| msgid ""
 #| "You can use MySQL wildcard characters (% and _), escape them if you want "
 #| "to use their literal instances, i.e. use [kbd]'my\\_db'[/kbd] and not "
@@ -5664,10 +5647,8 @@ msgid ""
 "[kbd]'my_db'[/kbd]."
 msgstr ""
 "Môžete použiť nahradzujúce znaky (% a _). Pokiaľ ich potrebujete použiť v "
-"ich pôvodnom význame, vložte spätné lomítko pred, napríklad [kbd]'moja"
-"\\_db'[/kbd] namiesto [kbd]'moja_db'[/kbd]. Použitím tejto voľby môžete "
-"ovplyvniť triedenie databáz v zozname. Stačí na konci zoznamu uviesť [kbd]*[/"
-"kbd] na konci pre zobrazenie ostatných v abecednom poradí."
+"ich pôvodnom význame, vložte spätné lomítko pred, napríklad "
+"[kbd]'moja\\_db'[/kbd] namiesto [kbd]'moja_db'[/kbd]."
 
 #: libraries/config/messages.inc.php:407
 msgid "Show only listed databases"
@@ -5675,21 +5656,20 @@ msgstr "Zobraziť len vybrané databázy"
 
 #: libraries/config/messages.inc.php:408 libraries/config/messages.inc.php:449
 msgid "Leave empty if not using config auth"
-msgstr "Nechajte prázdne, pokiaľ nepoužívate prihlasovací config"
+msgstr "Nechajte prázdne, pokiaľ nepoužívate prihlásenie podľa konfigurácie"
 
 #: libraries/config/messages.inc.php:409
 msgid "Password for config auth"
-msgstr "Heslo pre prihlasovací config"
+msgstr "Heslo pre prihlásenie podľa konfigurácie"
 
 #: libraries/config/messages.inc.php:410
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no PDF schema support, suggested: [kbd]pma_pdf_pages[/kbd]"
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__pdf_pages[/kbd]"
 msgstr ""
-"Nechajte prázdne pre vypnutie podpory pre PDF schémy, navrhované: [kbd]"
-"pma_pdf_pages[/kbd]"
+"Nechajte prázdne pre vypnutie podpory pre PDF schémy, navrhované: "
+"[kbd]pma__pdf_pages[/kbd]"
 
 #: libraries/config/messages.inc.php:411
 msgid "PDF schema: pages table"
@@ -5719,7 +5699,6 @@ msgid "Server port"
 msgstr "Port servera"
 
 #: libraries/config/messages.inc.php:416
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no \"persistent\" recently used tables across sessions, "
 #| "suggested: [kbd]pma_recent[/kbd]"
@@ -5727,15 +5706,14 @@ msgid ""
 "Leave blank for no \"persistent\" recently used tables across sessions, "
 "suggested: [kbd]pma__recent[/kbd]"
 msgstr ""
-"Nechajte prázdne pre vypnutie možnosti \"trvalého\" ukladania nedívnych "
-"tabuliek. Odporúčaná hodnota: [kbd]pma_recent[/kbd]"
+"Nechajte prázdne pre vypnutie možnosti \"trvalého\" ukladania nedávno "
+"použitých tabuliek. Odporúčaná hodnota: [kbd]pma__recent[/kbd]"
 
 #: libraries/config/messages.inc.php:417
 msgid "Recently used table"
 msgstr "Naposledy použitá tabuľka"
 
 #: libraries/config/messages.inc.php:418
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
 #| "links[/a] support, suggested: [kbd]pma_relation[/kbd]"
@@ -5743,8 +5721,9 @@ msgid ""
 "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-links"
 "[/a] support, suggested: [kbd]pma__relation[/kbd]"
 msgstr ""
-"Nechajte prázdne pre vypnutie [a@http://wiki.phpmyadmin.net/pma/relation]"
-"relation-links[/a] podpory, navrhované: [kbd]pma_relation[/kbd]"
+"Nechajte prázdne pre vypnutie podpory "
+"[a@http://wiki.phpmyadmin.net/pma/relation]relation-links[/a]. Odporúčaná "
+"hodnota: [kbd]pma__relation[/kbd]"
 
 #: libraries/config/messages.inc.php:419
 msgid "Relation table"
@@ -5792,7 +5771,6 @@ msgid "Use SSL"
 msgstr "Použiť SSL"
 
 #: libraries/config/messages.inc.php:429
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no PDF schema support, suggested: [kbd]pma_table_coords[/"
 #| "kbd]"
@@ -5800,15 +5778,14 @@ msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__table_coords[/"
 "kbd]"
 msgstr ""
-"Nechajte prázdne pro vypnutie podpory pre PDF schému, navrhované: [kbd]"
-"pma_table_coords[/kbd]"
+"Nechajte prázdne pro vypnutie podpory pre PDF schému. Odporúčaná hodnota: "
+"[kbd]pma__table_coords[/kbd]"
 
 #: libraries/config/messages.inc.php:430
 msgid "PDF schema: table coordinates"
 msgstr "PDF schéma: tabuľka súradníc"
 
 #: libraries/config/messages.inc.php:431
-#, fuzzy
 #| msgid ""
 #| "Table to describe the display columns, leave blank for no support; "
 #| "suggested: [kbd]pma_table_info[/kbd]"
@@ -5817,14 +5794,13 @@ msgid ""
 "suggested: [kbd]pma__table_info[/kbd]"
 msgstr ""
 "Tabuľka obsahujúca popisy polí. Nechajte prázdnu pre vypnutie tejto funkcie. "
-"Odporúčaná hodnota: [kbd]pma_table_info[/kbd]"
+"Odporúčaná hodnota: [kbd]pma__table_info[/kbd]"
 
 #: libraries/config/messages.inc.php:432
 msgid "Display columns table"
 msgstr "Zobrazenie stĺpcov tabuľky"
 
 #: libraries/config/messages.inc.php:433
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no \"persistent\" tables'UI preferences across sessions, "
 #| "suggested: [kbd]pma_table_uiprefs[/kbd]"
@@ -5832,8 +5808,8 @@ msgid ""
 "Leave blank for no \"persistent\" tables'UI preferences across sessions, "
 "suggested: [kbd]pma__table_uiprefs[/kbd]"
 msgstr ""
-"Nechajte prázdne pre vypnutie podpory \"trvalého\" ukladania nastavení, "
-"navrhované: [kbd]pma_table_uiprefs[/kbd]"
+"Nechajte prázdne pre vypnutie podpory \"trvalého\" ukladania nastavení. "
+"Odporúčaná hodnota: [kbd]pma:_table_uiprefs[/kbd]"
 
 #: libraries/config/messages.inc.php:434
 msgid "UI preferences table"
@@ -5886,7 +5862,6 @@ msgid "Statements to track"
 msgstr "Sledované príkazy"
 
 #: libraries/config/messages.inc.php:443
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no SQL query tracking support, suggested: [kbd]"
 #| "pma_tracking[/kbd]"
@@ -5894,8 +5869,8 @@ msgid ""
 "Leave blank for no SQL query tracking support, suggested: [kbd]pma__tracking"
 "[/kbd]"
 msgstr ""
-"Nechajte prázdne pre vypnutie podpory pre sledovanie SQL dopytov, "
-"navrhované: [kbd]pma_tracking[/kbd]"
+"Nechajte prázdne pre vypnutie podpory pre sledovanie SQL dopytov. Odporúčaná "
+"hodnota: [kbd]pma__tracking[/kbd]"
 
 #: libraries/config/messages.inc.php:444
 msgid "SQL query tracking table"
@@ -5913,7 +5888,6 @@ msgid "Automatically create versions"
 msgstr "Automaticky vytvárať verzie"
 
 #: libraries/config/messages.inc.php:447
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no user preferences storage in database, suggested: [kbd]"
 #| "pma_userconfig[/kbd]"
@@ -5922,7 +5896,7 @@ msgid ""
 "pma__userconfig[/kbd]"
 msgstr ""
 "Nechajte prázdne pre vypnutie možnosti ukladania užívateľských nastavení v "
-"databáze. Odporúčaná hodnota: [kbd]pma_userconfig[/kbd]"
+"databáze. Odporúčaná hodnota: [kbd]pma__userconfig[/kbd]"
 
 #: libraries/config/messages.inc.php:448
 msgid "User preferences storage table"
@@ -5930,7 +5904,7 @@ msgstr "Tabuľka pre užívateľské nastavenia"
 
 #: libraries/config/messages.inc.php:450
 msgid "User for config auth"
-msgstr ""
+msgstr "Užívateľ pre prihlásenie podľa konfigurácie"
 
 #: libraries/config/messages.inc.php:451
 msgid ""
@@ -5976,32 +5950,35 @@ msgstr "Zobraziť formulár na vytvorenie databázy"
 #: libraries/config/messages.inc.php:458
 msgid "Show or hide a column displaying the Creation timestamp for all tables"
 msgstr ""
+"Zobraziť/Skryť stĺpec s Časovou značkou vytvorenia vo všetkých tabuľkách"
 
 #: libraries/config/messages.inc.php:459
-#, fuzzy
 #| msgid "Show more actions"
 msgid "Show Creation timestamp"
-msgstr "Zobraziť viac operácii"
+msgstr "Zobraziť viac časových značiek"
 
 #: libraries/config/messages.inc.php:460
 msgid ""
 "Show or hide a column displaying the Last update timestamp for all tables"
 msgstr ""
+"Zobraziť/Skryť stĺpec s Časovou značkou poslednej aktualizácie vo všetkých "
+"tabuľkách"
 
 #: libraries/config/messages.inc.php:461
 msgid "Show Last update timestamp"
-msgstr ""
+msgstr "Zobraziť Časovú značku poslednej aktualizácie"
 
 #: libraries/config/messages.inc.php:462
 msgid ""
 "Show or hide a column displaying the Last check timestamp for all tables"
 msgstr ""
+"Zobraziť/Skryť stĺpec s Časovou značkou poslednej kontroly vo všetkých "
+"tabuľkách"
 
 #: libraries/config/messages.inc.php:463
-#, fuzzy
 #| msgid "Show master status"
 msgid "Show Last check timestamp"
-msgstr "Zobraziť stav master replikácie"
+msgstr "Zobraziť Časovú značku poslednej kontroly"
 
 #: libraries/config/messages.inc.php:464
 msgid ""
@@ -6201,6 +6178,10 @@ msgid ""
 "For) header coming from the proxy 1.2.3.4:[br][kbd]1.2.3.4: "
 "HTTP_X_FORWARDED_FOR[/kbd]"
 msgstr ""
+"Vložte proxy ako [kbd]IP: dôveryhodná hlavička HTTP[/kbd]. Nasledovný "
+"príklad hovorí, že phpMyAdmin má veriť hlavičke HTTP_X_FORWARDED_FOR (X"
+"-Forwarded-For) prichádzajúcej z proxy 1.2.3.4:[br][kbd]1.2.3.4: "
+"HTTP_X_FORWARDED_FOR[/kbd]"
 
 #: libraries/config/messages.inc.php:510
 msgid "List of trusted proxies for IP allow/deny"
@@ -6276,7 +6257,7 @@ msgstr "HTTP overovanie"
 
 #: libraries/config/setup.forms.php:51
 msgid "Signon authentication"
-msgstr ""
+msgstr "Overovanie signon"
 
 #: libraries/config/setup.forms.php:246
 #: libraries/config/user_preferences.forms.php:152
@@ -6286,7 +6267,6 @@ msgstr "CSV pomocou LOAD DATA"
 #: libraries/config/setup.forms.php:255 libraries/config/setup.forms.php:348
 #: libraries/config/user_preferences.forms.php:160
 #: libraries/config/user_preferences.forms.php:252
-#, fuzzy
 #| msgid "Open Document Spreadsheet"
 msgid "OpenDocument Spreadsheet"
 msgstr "Tabuľkový procesor Open Document"
@@ -6294,7 +6274,7 @@ msgstr "Tabuľkový procesor Open Document"
 #: libraries/config/setup.forms.php:262
 #: libraries/config/user_preferences.forms.php:167
 msgid "Quick"
-msgstr ""
+msgstr "Rýchle"
 
 #: libraries/config/setup.forms.php:266
 #: libraries/config/user_preferences.forms.php:171
@@ -6318,14 +6298,13 @@ msgstr "Microsoft Word 2000"
 
 #: libraries/config/setup.forms.php:352
 #: libraries/config/user_preferences.forms.php:256
-#, fuzzy
 #| msgid "Open Document Text"
 msgid "OpenDocument Text"
 msgstr "Open Document Text"
 
 #: libraries/config/validate.lib.php:214
 msgid "Could not initialize Drizzle connection library"
-msgstr ""
+msgstr "Nepodarilo sa inicializovať knižnicu na pripojenie k serveru Drizzle"
 
 #: libraries/config/validate.lib.php:223 libraries/config/validate.lib.php:231
 msgid "Could not connect to Drizzle server"
@@ -6623,16 +6602,16 @@ msgid "Git revision"
 msgstr ""
 
 #: libraries/display_git_revision.lib.php:67
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create version"
 msgid "committed on %1$s by %2$s"
-msgstr "Vytvoriť verziu"
+msgstr "uložil %2$s dňa %1$s"
 
 #: libraries/display_git_revision.lib.php:75
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create version"
 msgid "authored on %1$s by %2$s"
-msgstr "Vytvoriť verziu"
+msgstr "autorizoval %2$s dňa %1$s"
 
 #: libraries/display_import.lib.php:69
 msgid ""
@@ -6650,10 +6629,9 @@ msgid "%s of %s"
 msgstr ""
 
 #: libraries/display_import.lib.php:86
-#, fuzzy
 #| msgid "Format of imported file"
 msgid "Uploading your import file…"
-msgstr "Formát importovaného súboru"
+msgstr "Nahrávanie vášho súboru s importom…"
 
 #: libraries/display_import.lib.php:94
 #, php-format
@@ -6728,7 +6706,6 @@ msgstr ""
 "bude pokračovať od pozície %d."
 
 #: libraries/display_import.lib.php:289
-#, fuzzy
 #| msgid ""
 #| "Allow the interruption of an import in case the script detects it is "
 #| "close to the PHP timeout limit. <i>(This might be good way to import "
@@ -7245,10 +7222,9 @@ msgid "Add prefix"
 msgstr "Pridať prefix"
 
 #: libraries/mult_submits.inc.php:318 sql.php:504
-#, fuzzy
 #| msgid "Do you really want to "
 msgid "Do you really want to execute the following query?"
-msgstr "Skutočne chcete vykonať príkaz "
+msgstr "Skutočne chcete vykonať nasledovný príkaz?"
 
 #: libraries/mult_submits.inc.php:576 tbl_replace.php:247
 msgid "No change"
@@ -7470,10 +7446,9 @@ msgstr[1] ""
 msgstr[2] ""
 
 #: libraries/navigation/NavigationTree.class.php:1035
-#, fuzzy
 #| msgid "Filter tables by name"
 msgid "filter databases by name"
-msgstr "Filtrovať tabuľky podľa mena"
+msgstr "filtrovať databázy podľa mena"
 
 #: libraries/navigation/NavigationTree.class.php:1036
 #: libraries/navigation/NavigationTree.class.php:1062
@@ -7481,10 +7456,9 @@ msgid "Clear Fast Filter"
 msgstr ""
 
 #: libraries/navigation/NavigationTree.class.php:1061
-#, fuzzy
 #| msgid "Filter tables by name"
 msgid "filter items by name"
-msgstr "Filtrovať tabuľky podľa mena"
+msgstr "filtrovať položky podľa mena"
 
 #. l10n: The word "Node" must not be translated here
 #: libraries/navigation/NodeFactory.class.php:41
@@ -8004,16 +7978,14 @@ msgid "PHP Version"
 msgstr "Verzia PHP"
 
 #: libraries/plugins/export/ExportMediawiki.class.php:84
-#, fuzzy
 #| msgid "or type variable name:"
 msgid "Export table names"
-msgstr "alebo zadajte meno premennej:"
+msgstr "Exportovať názvy tabuliek"
 
 #: libraries/plugins/export/ExportMediawiki.class.php:90
-#, fuzzy
 #| msgid "horizontal (rotated headers)"
 msgid "Export table headers"
-msgstr "vodorovnom (otočené hlavičky)"
+msgstr "Exportovať záhlavia tabuliek"
 
 #: libraries/plugins/export/ExportPdf.class.php:97
 msgid "(Generates a report containing the data of a single table)"
@@ -8062,10 +8034,9 @@ msgid ""
 msgstr ""
 
 #: libraries/plugins/export/ExportSql.class.php:295
-#, fuzzy
 #| msgid "Object creation options"
 msgid "Data creation options"
-msgstr "Možnosti vytvárania objektov"
+msgstr "Možnosti vytvárania údajov"
 
 #: libraries/plugins/export/ExportSql.class.php:299
 #: libraries/plugins/export/ExportSql.class.php:1649
@@ -8213,10 +8184,10 @@ msgid "MediaWiki Table"
 msgstr ""
 
 #: libraries/plugins/import/ImportMediawiki.class.php:303
-#, fuzzy, php-format
+#, php-format
 #| msgid "Invalid format of CSV input on line %d."
 msgid "Invalid format of mediawiki input on line: <br />%s."
-msgstr "Chybný formát v CSV vstupe na riadku %d."
+msgstr "Chybný formát vo vstupe z mediawiki na riadku: <br />%s."
 
 #: libraries/plugins/import/ImportOds.class.php:88
 msgid "Import percentages as proper decimals <i>(ex. 12.00% to .12)</i>"
@@ -8307,7 +8278,6 @@ msgstr ""
 "Ak použijete druhú možnosť, prvé pole musí byť prázdne."
 
 #: libraries/plugins/transformations/abstract/ExternalTransformationsPlugin.class.php:31
-#, fuzzy
 #| msgid ""
 #| "LINUX ONLY: Launches an external application and feeds it the column data "
 #| "via standard input. Returns the standard output of the application. The "
@@ -8333,13 +8303,14 @@ msgid ""
 msgstr ""
 "LEN PRE LINUX: Spustí externú aplikáciu a na štandardný vstup pošle pole a "
 "zobrazí výstup programu. Predvolený program je Tidy, ktorý pekne sformátuje "
-"HTML. Z bezpečnostných dôvodov musíte ručne upraviť obsah súboru libraries/"
-"transformations/text_plain__external.inc.php a pridať do neho povolené "
-"aplikácie. Prvý parameter je číslo aplikácie, ktorú chcete použiť a druhý "
-"parametre sú parametre tejto aplikácie. Ak je tretí parameter nastavený na "
-"1, výstup bude skonvertovaný funkciou htmlspecialchars() (predvolený je 1). "
-"Štvrtý parameter v prípade, že je nastavený na 1 pridá k výstupnému textu "
-"parameter NOWRAP, čím zabezpečí zachovanie formátovania (predvolený je 1)."
+"HTML. Z bezpečnostných dôvodov musíte ručne upraviť obsah súboru "
+"libraries/plugins/transformations/Text_Plain_External.class.php a pridať do "
+"neho povolené aplikácie. Prvý parameter je číslo aplikácie, ktorú chcete "
+"použiť a druhý parametre sú parametre tejto aplikácie. Ak je tretí parameter "
+"nastavený na 1, výstup bude skonvertovaný funkciou htmlspecialchars() "
+"(predvolený je 1). Štvrtý parameter v prípade, že je nastavený na 1 pridá k "
+"výstupnému textu parameter NOWRAP, čím zabezpečí zachovanie formátovania "
+"(predvolený je 1)."
 
 #: libraries/plugins/transformations/abstract/FormattedTransformationsPlugin.class.php:31
 msgid ""
@@ -8416,7 +8387,6 @@ msgid "not OK"
 msgstr "chyba"
 
 #: libraries/relation.lib.php:94
-#, fuzzy
 #| msgid "OK"
 msgctxt "Correctly working"
 msgid "OK"
@@ -8745,7 +8715,6 @@ msgid "Returns"
 msgstr ""
 
 #: libraries/rte/rte_routines.lib.php:69
-#, fuzzy
 #| msgid ""
 #| "You are using PHP's deprecated 'mysql' extension, which is not capable of "
 #| "handling multi queries. <b>The execution of some stored routines may fail!"
@@ -8757,8 +8726,9 @@ msgid ""
 "problems."
 msgstr ""
 "Používate zastaralé 'mysql' rozšírenie PHP, ktoré nedokáže pracovať so "
-"zloženými dopytmi. <b>Vykonanie niektorých uložených rutín môže zlyhať!</b> "
-"Aby ste sa vyhli týmto problémom, použite prosím nové rozšírenie 'mysqli'."
+"zloženými dopytmi. [strong]Vykonanie niektorých uložených rutín môže "
+"zlyhať![/strong] Aby ste sa vyhli týmto problémom, použite prosím nové "
+"rozšírenie 'mysqli'."
 
 #: libraries/rte/rte_routines.lib.php:281
 #: libraries/rte/rte_routines.lib.php:1118
@@ -9576,10 +9546,10 @@ msgid "You have updated the privileges for %s."
 msgstr "Boli aktualizované oprávnenia pre %s."
 
 #: libraries/server_privileges.lib.php:2787
-#, fuzzy, php-format
+#, php-format
 #| msgid "Privileges"
 msgid "Privileges for %s"
-msgstr "Oprávnenia"
+msgstr "Oprávnenia pre %s"
 
 #: libraries/server_privileges.lib.php:2897
 msgid "Users overview"
@@ -9790,10 +9760,9 @@ msgid "Fulltext"
 msgstr "Celý text"
 
 #: libraries/structure.lib.php:1423 libraries/structure.lib.php:1519
-#, fuzzy
 #| msgid "Remove column(s)"
 msgid "Move columns"
-msgstr "Odstrániť stĺpce"
+msgstr "Presunúť stĺpce"
 
 #: libraries/structure.lib.php:1426
 msgid "Move the columns by dragging them up and down."
@@ -9840,7 +9809,6 @@ msgid "After %s"
 msgstr "Po %s"
 
 #: libraries/structure.lib.php:1670
-#, fuzzy
 #| msgid "Row Statistics"
 msgid "Row statistics"
 msgstr "Štatistika riadku"
@@ -9881,10 +9849,9 @@ msgid "A primary key has been added on %s"
 msgstr "Bol pridaný primárny kľúč pre %s"
 
 #: libraries/structure.lib.php:2003 libraries/structure.lib.php:2074
-#, fuzzy
 #| msgid "Browse distinct values"
 msgid "Distinct values"
-msgstr "Prechádzať iné hodnoty"
+msgstr "Odlišné hodnoty"
 
 #: libraries/structure.lib.php:2006 libraries/structure.lib.php:2009
 msgid "Add primary key"
@@ -9929,10 +9896,9 @@ msgid "Query error"
 msgstr "Chyba dopytu"
 
 #: libraries/structure.lib.php:2506
-#, fuzzy
 #| msgid "The selected users have been deleted successfully."
 msgid "The columns have been moved successfully."
-msgstr "Vybraní používatelia bol úspešne odstránený."
+msgstr "Stĺpce boli úspešne presunuté."
 
 #: libraries/tbl_columns_definition_form.inc.php:101
 msgid ""
@@ -9955,10 +9921,9 @@ msgstr ""
 "alebo uvádzacích znakov, napr.: a"
 
 #: libraries/tbl_columns_definition_form.inc.php:149
-#, fuzzy
 #| msgid "Remove column(s)"
 msgid "Move column"
-msgstr "Odstrániť stĺpce"
+msgstr "Presunúť stĺpce"
 
 #: libraries/tbl_columns_definition_form.inc.php:159
 #, php-format
@@ -10007,10 +9972,10 @@ msgid "first"
 msgstr ""
 
 #: libraries/tbl_columns_definition_form.inc.php:644
-#, fuzzy, php-format
+#, php-format
 #| msgid "After %s"
 msgid "after %s"
-msgstr "Po %s"
+msgstr "po %s"
 
 #: libraries/tbl_columns_definition_form.inc.php:737
 msgid "Table name"
@@ -10021,10 +9986,10 @@ msgid "PARTITION definition"
 msgstr ""
 
 #: libraries/tbl_common.inc.php:54
-#, fuzzy, php-format
+#, php-format
 #| msgid "Tracking is active."
 msgid "Tracking of %s is activated."
-msgstr "Sledovanie je aktívne."
+msgstr "Sledovanie %s je aktívne."
 
 #: libraries/user_preferences.inc.php:29
 msgid "Manage your settings"
@@ -10356,13 +10321,13 @@ msgid "Character Sets and Collations"
 msgstr "Znakové sady a Zotriedenia"
 
 #: server_databases.php:117
-#, fuzzy, php-format
+#, php-format
 #| msgid "%s databases have been dropped successfully."
 msgid "%1$d database has been dropped successfully."
 msgid_plural "%1$d databases have been dropped successfully."
-msgstr[0] "%s databáz bolo úspešne zrušených."
-msgstr[1] "%s databáz bolo úspešne zrušených."
-msgstr[2] "%s databáz bolo úspešne zrušených."
+msgstr[0] "%1$d databáza bola úspešne zrušená."
+msgstr[1] "%1$d databázy boli úspešne zrušené."
+msgstr[2] "%1$d databáz bolo úspešne zrušených."
 
 #: server_databases.php:138
 msgid "Databases statistics"
@@ -10745,10 +10710,9 @@ msgid "Add chart"
 msgstr "Pridať graf"
 
 #: server_status_monitor.php:492
-#, fuzzy
 #| msgid "Enable highlighting"
 msgid "Enable charts dragging"
-msgstr "Povoliť zvýrazňovanie"
+msgstr "Povoliť presúvanie grafov"
 
 #: server_status_monitor.php:496
 msgid "Refresh rate"
@@ -11364,10 +11328,9 @@ msgstr ""
 "najväčšie množstvo blokov, ktoré kedy naraz použité."
 
 #: server_status_variables.php:597
-#, fuzzy
 #| msgid "Format of imported file"
 msgid "Percentage of used key cache (calculated value)"
-msgstr "Formát importovaného súboru"
+msgstr "Percento využitia vyrovnávacej pamäti kľúčov (vypočítaná hodnota)"
 
 #: server_status_variables.php:600
 msgid "The number of requests to read a key block from the cache."
@@ -11626,10 +11589,9 @@ msgstr ""
 "však nespôsobí žiadnu citeľnú zmenu ak máte vlákna dobre implementované.)"
 
 #: server_status_variables.php:759
-#, fuzzy
 #| msgid "Tracking is not active."
 msgid "Thread cache hit rate (calculated value)"
-msgstr "Sledovanie nie je aktívne."
+msgstr "Úspešnosť vyrovnávacej pamäti vlákien (vypočítaná hodnota)"
 
 #: server_status_variables.php:762
 msgid "The number of threads that are not sleeping."
@@ -11938,10 +11900,9 @@ msgid "Using bookmark \"%s\" as default browse query."
 msgstr ""
 
 #: sql.php:386
-#, fuzzy
 #| msgid "Bookmark %s created"
 msgid "Bookmark not created"
-msgstr "Príkaz %s bol zaradený medzi obľúbené"
+msgstr "Záložka nebola vytvorená"
 
 #: sql.php:928
 msgid "Showing as PHP code"
@@ -11960,7 +11921,6 @@ msgid "Generated by"
 msgstr "Vygenerované"
 
 #: sql.php:1246
-#, fuzzy
 #| msgid ""
 #| "This table does not contain a unique column. Features related to the grid "
 #| "edit, checkbox, Edit, Copy and Delete links may not work after saving."
@@ -11969,8 +11929,7 @@ msgid ""
 "and Delete features are not available."
 msgstr ""
 "Táto tabuľka neobsahuje unikátny stĺpec. Rozšírenia spojené s úpravou gridu, "
-"zaškrtávanie, úprava, kopírovanie a mazanie liniek nemusí fungovať po "
-"uložení."
+"zaškrtávanie, úprava, kopírovanie a mazanie nie sú dostupné."
 
 #: sql.php:1295
 #, php-format
@@ -11982,7 +11941,6 @@ msgid "Label"
 msgstr "Názov"
 
 #: tbl_chart.php:38
-#, fuzzy
 #| msgid "No data found"
 msgid "No data to display"
 msgstr "Žiadne dáta"
@@ -12026,11 +11984,10 @@ msgid "Pie"
 msgstr "Koláčový"
 
 #: tbl_chart.php:170
-#, fuzzy
 #| msgid "Time"
 msgctxt "Chart type"
 msgid "Timeline"
-msgstr "Čas"
+msgstr "Časová os"
 
 #: tbl_chart.php:177
 msgid "Stacked"
@@ -12129,10 +12086,9 @@ msgid ""
 msgstr "(\"PRIMARY\" <b>musí</b> byť <b>iba</b> meno primárneho kľúča!)"
 
 #: tbl_indexes.php:234
-#, fuzzy
 #| msgid "Comment"
 msgid "Comment:"
-msgstr "Komentár"
+msgstr "Komentár:"
 
 #: tbl_indexes.php:249
 msgid "Index type:"
@@ -12188,22 +12144,19 @@ msgid "Foreign key constraint"
 msgstr ""
 
 #: tbl_relation.php:498
-#, fuzzy
 #| msgid "Constraints for table"
 msgid "Constraint name"
-msgstr "Obmedzenie pre tabuľku"
+msgstr "Názov obmedzenia"
 
 #: tbl_relation.php:529
-#, fuzzy
 #| msgid "No index defined!"
 msgid "No index defined! Create one below"
-msgstr "Nebol definovaný žiadny index!"
+msgstr "Nebol definovaný žiadny index! Vytvorte ho nižšie"
 
 #: tbl_structure.php:125
-#, fuzzy
 #| msgid "No rows selected"
 msgid "No column selected."
-msgstr "Nebol vybraný žiadny riadok"
+msgstr "Nebol vybraný žiadny stĺpec."
 
 #: tbl_structure.php:149
 #, php-format
@@ -12221,16 +12174,16 @@ msgid "Version %1$s was created, tracking for %2$s is active."
 msgstr ""
 
 #: tbl_tracking.php:222
-#, fuzzy, php-format
+#, php-format
 #| msgid "Tracking is active."
 msgid "Tracking for %1$s was deactivated at version %2$s."
-msgstr "Sledovanie je aktívne."
+msgstr "Sledovanie %1$s bolo deaktivované vo verzii %2$s."
 
 #: tbl_tracking.php:239
-#, fuzzy, php-format
+#, php-format
 #| msgid "Tracking is active."
 msgid "Tracking for %1$s was activated at version %2$s."
-msgstr "Sledovanie je aktívne."
+msgstr "Sledovanie %1$s bolo aktivované vo verzii %2$s."
 
 #: tbl_tracking.php:253
 msgid "SQL statements executed."
@@ -12318,30 +12271,30 @@ msgid "Show versions"
 msgstr ""
 
 #: tbl_tracking.php:823
-#, fuzzy, php-format
+#, php-format
 #| msgid "Delete tracking data for this table"
 msgid "Deactivate tracking for %s"
-msgstr "Odstrániť všetky informácie o sledovaní tejto tabuľky"
+msgstr "Deaktivovať sledovanie %s"
 
 #: tbl_tracking.php:829
 msgid "Deactivate now"
 msgstr ""
 
 #: tbl_tracking.php:839
-#, fuzzy, php-format
+#, php-format
 #| msgid "Missing data for %s"
 msgid "Activate tracking for %s"
-msgstr "Chýba hodnota pre %s"
+msgstr "Aktivovať sledovanie %s"
 
 #: tbl_tracking.php:845
 msgid "Activate now"
 msgstr ""
 
 #: tbl_tracking.php:858
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create version"
 msgid "Create version %1$s of %2$s"
-msgstr "Vytvoriť verziu"
+msgstr "Vytvoriť verziu %1$s z %2$s"
 
 #: tbl_tracking.php:866
 msgid "Track these data definition statements:"
@@ -12481,7 +12434,7 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:82
-#, fuzzy, php-format
+#, php-format
 #| msgid "long_query_time is set to %d second(s)."
 msgid "long_query_time is currently set to %ds."
 msgstr "long_query_time je nastavený na %d sekúnd."
@@ -12501,10 +12454,9 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:89
-#, fuzzy
 #| msgid "long_query_time is set to %d second(s)."
 msgid "log_slow_queries is set to 'OFF'"
-msgstr "long_query_time je nastavený na %d sekúnd."
+msgstr "log_slow_queries je nastavený na 'OFF'"
 
 #: libraries/advisory_rules.txt:95
 msgid ""
@@ -12513,10 +12465,9 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:96
-#, fuzzy
 #| msgid "long_query_time is set to %d second(s)."
 msgid "slow_query_log is set to 'OFF'"
-msgstr "long_query_time je nastavený na %d sekúnd."
+msgstr "slow_query_log je nastavený na 'OFF'"
 
 #: libraries/advisory_rules.txt:100
 msgid "Release Series"
@@ -12646,10 +12597,9 @@ msgid "Query caching method"
 msgstr "Caching metóda dopytov"
 
 #: libraries/advisory_rules.txt:163
-#, fuzzy
 #| msgid "Query cache"
 msgid "Suboptimal caching method."
-msgstr "Vyrovnávacia pamäť príkazov"
+msgstr "Optimálny spôsob ukladania do vyrovnávacej pamäte."
 
 #: libraries/advisory_rules.txt:164
 msgid ""
@@ -12673,17 +12623,17 @@ msgstr "Úspešnosť vyrovnávacej pamäte príkazov (%%)"
 
 #: libraries/advisory_rules.txt:170
 msgid "Query cache not running efficiently, it has a low hit rate."
-msgstr ""
+msgstr "Vyrovnávacia pamäť dotazov nefunguje efektívne, má nízku úspešnosť."
 
 #: libraries/advisory_rules.txt:171
 msgid "Consider increasing {query_cache_limit}."
 msgstr ""
 
 #: libraries/advisory_rules.txt:172
-#, fuzzy, php-format
+#, php-format
 #| msgid "Sort buffer size"
 msgid "The current query cache hit rate of %s%% is below 20%%"
-msgstr "Veľkosť zoraďovacej pamäte"
+msgstr "Aktuálna úspešnosť vyrovnávacej pamäte dotazov %s%% je nižšia ako 20%%"
 
 #: libraries/advisory_rules.txt:174
 msgid "Query Cache usage"
@@ -12712,10 +12662,9 @@ msgid "Query cache fragmentation"
 msgstr "Fragmentácia vyrovnávacej pamäte dopytov"
 
 #: libraries/advisory_rules.txt:184
-#, fuzzy
 #| msgid "The server is not responding"
 msgid "The query cache is considerably fragmented."
-msgstr "Server neodpovedá"
+msgstr "Vyrovnávacia pamäť dotazov je značne fragmentovaná."
 
 #: libraries/advisory_rules.txt:185
 msgid ""
@@ -12738,10 +12687,9 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:188
-#, fuzzy
 #| msgid "Query cache used"
 msgid "Query cache low memory prunes"
-msgstr "Využitá vyrovnávacia pamäť príkazov"
+msgstr ""
 
 #: libraries/advisory_rules.txt:191
 msgid ""
@@ -12780,10 +12728,10 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:200
-#, fuzzy, php-format
+#, php-format
 #| msgid "Current version: %s"
 msgid "Current query cache size: %s"
-msgstr "Aktuálna verzia: %s"
+msgstr "Aktuálna veľkosť vyrovnávacej pamäte dotazov: %s"
 
 #: libraries/advisory_rules.txt:202
 msgid "Query cache min result size"
@@ -12836,11 +12784,13 @@ msgid "Rate of sorts that cause temporary tables"
 msgstr "Frekvencia triedení, ktoré spôsobujú dočasné tabuľky"
 
 #: libraries/advisory_rules.txt:223
-#, fuzzy, php-format
+#, php-format
 #| msgid "Sort buffer size"
 msgid ""
 "Temporary tables average: %s, this value should be less than 1 per hour."
-msgstr "Veľkosť zoraďovacej pamäte"
+msgstr ""
+"Priemer dočasných tabuliek: %s, táto hodnota by mala byť nižšia ako 1 za "
+"hodinu."
 
 #: libraries/advisory_rules.txt:225
 msgid "Sort rows"
@@ -12865,7 +12815,7 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:233
 msgid "Rate of joins without indexes"
-msgstr "Frekvencia spájaní bez indexov"
+msgstr "Podiel spájaní bez indexov"
 
 #: libraries/advisory_rules.txt:236
 msgid "There are too many joins without indexes."
@@ -12878,22 +12828,22 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:238
-#, fuzzy, php-format
+#, php-format
 #| msgid "Sort buffer size"
 msgid "Table joins average: %s, this value should be less than 1 per hour"
-msgstr "Veľkosť zoraďovacej pamäte"
+msgstr ""
+"Priemer spájania tabuliek: %s, táto hodnota by mala byť nižšia ako 1 za "
+"hodinu"
 
 #: libraries/advisory_rules.txt:240
-#, fuzzy
 #| msgid "Where to show the table row links"
 msgid "Rate of reading first index entry"
-msgstr "Kde zobraziť linky riadkov tabuľky"
+msgstr "Podiel čítania prvej položky indexu"
 
 #: libraries/advisory_rules.txt:243
-#, fuzzy
 #| msgid "Where to show the table row links"
 msgid "The rate of reading the first index entry is high."
-msgstr "Kde zobraziť linky riadkov tabuľky"
+msgstr "Podiel čítania prvej položky indexu je vysoký."
 
 #: libraries/advisory_rules.txt:244
 msgid ""
@@ -12906,22 +12856,21 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:245
-#, fuzzy, php-format
+#, php-format
 #| msgid "Sort buffer size"
 msgid "Index scans average: %s, this value should be less than 1 per hour"
-msgstr "Veľkosť zoraďovacej pamäte"
+msgstr ""
+"Priemer čítania indexov: %s, táto hodnota by mala byť nižšia ako 1 za hodinu"
 
 #: libraries/advisory_rules.txt:247
-#, fuzzy
 #| msgid "Where to show the table row links"
 msgid "Rate of reading fixed position"
-msgstr "Kde zobraziť linky riadkov tabuľky"
+msgstr "Podiel čítania z pevnej pozície"
 
 #: libraries/advisory_rules.txt:250
-#, fuzzy
 #| msgid "Where to show the table row links"
 msgid "The rate of reading data from a fixed position is high."
-msgstr "Kde zobraziť linky riadkov tabuľky"
+msgstr "Podiel čítania z pevnej pozície je vysoký."
 
 #: libraries/advisory_rules.txt:251
 msgid ""
@@ -12952,11 +12901,13 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:259
-#, fuzzy, php-format
+#, php-format
 #| msgid "Sort buffer size"
 msgid ""
 "Rate of reading next table row: %s, this value should be less than 1 per hour"
-msgstr "Veľkosť zoraďovacej pamäte"
+msgstr ""
+"Podiel čítania ďalšieho riadku tabuľky: %s, táto hodnota by mala byť nižšia "
+"ako 1 za hodinu"
 
 #: libraries/advisory_rules.txt:262
 msgid "tmp_table_size vs. max_heap_table_size"
@@ -13044,10 +12995,9 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:301
-#, fuzzy
 #| msgid "Sort buffer size"
 msgid "key_buffer_size is 0"
-msgstr "Veľkosť zoraďovacej pamäte"
+msgstr "key_buffer_size je 0"
 
 #: libraries/advisory_rules.txt:303
 #, php-format
@@ -13079,16 +13029,17 @@ msgid "Percentage of MyISAM key buffer used"
 msgstr "Percento využitia vyrovnávacej pamäte MyISAM kľúčov"
 
 #: libraries/advisory_rules.txt:316
-#, fuzzy, php-format
+#, php-format
 #| msgid "Sort buffer size"
 msgid "%% MyISAM key buffer used: %s%%, this value should be above 95%%"
-msgstr "Veľkosť zoraďovacej pamäte"
+msgstr ""
+"%% Využitie vyrovnávacej pamäti MyISAM kľúčov: %s%%, táto hodnota by mala "
+"byť viac ako 95%%"
 
 #: libraries/advisory_rules.txt:318
-#, fuzzy
 #| msgid "Show SQL queries"
 msgid "Percentage of index reads from memory"
-msgstr "Zobraziť SQL dopyty"
+msgstr "Percento indexov načítaných z pamäte"
 
 #: libraries/advisory_rules.txt:321
 #, php-format
@@ -13100,10 +13051,10 @@ msgid "You may need to increase {key_buffer_size}."
 msgstr ""
 
 #: libraries/advisory_rules.txt:323
-#, fuzzy, php-format
+#, php-format
 #| msgid "Sort buffer size"
 msgid "Index reads from memory: %s%%, this value should be above 95%%"
-msgstr "Veľkosť zoraďovacej pamäte"
+msgstr "Indexy čítané z pamäte: %s%%, táto hodnota by mala byť viac ako 95%%"
 
 #: libraries/advisory_rules.txt:327
 msgid "Rate of table open"
@@ -13120,10 +13071,12 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:332
-#, fuzzy, php-format
+#, php-format
 #| msgid "Sort buffer size"
 msgid "Opened table rate: %s, this value should be less than 10 per hour"
-msgstr "Veľkosť zoraďovacej pamäte"
+msgstr ""
+"Podiel otvárania tabuliek: %s, táto hodnota by mala byť nižšia ako 10 za "
+"hodinu \t"
 
 #: libraries/advisory_rules.txt:334
 msgid "Percentage of used open files limit"
@@ -13156,10 +13109,12 @@ msgid "The rate of opening files is high."
 msgstr "Frekvencia otvárania súborov je vysoká."
 
 #: libraries/advisory_rules.txt:346
-#, fuzzy, php-format
+#, php-format
 #| msgid "Sort buffer size"
 msgid "Opened files rate: %s, this value should be less than 5 per hour"
-msgstr "Veľkosť zoraďovacej pamäte"
+msgstr ""
+"Podiel otváraných súborov: %s, táto hodnota by mala byť nižšia ako 5 za "
+"hodinu \t"
 
 #: libraries/advisory_rules.txt:348
 #, php-format
@@ -13175,20 +13130,22 @@ msgid "Optimize queries and/or use InnoDB to reduce lock wait."
 msgstr ""
 
 #: libraries/advisory_rules.txt:353
-#, fuzzy, php-format
+#, php-format
 #| msgid "Sort buffer size"
 msgid "Immediate table locks: %s%%, this value should be above 95%%"
-msgstr "Veľkosť zoraďovacej pamäte"
+msgstr "Okamžité zámky tabuliek: %s%%, táto hodnota by mala byť vyššia ako 95%%"
 
 #: libraries/advisory_rules.txt:355
 msgid "Table lock wait rate"
 msgstr ""
 
 #: libraries/advisory_rules.txt:360
-#, fuzzy, php-format
+#, php-format
 #| msgid "Sort buffer size"
 msgid "Table lock wait rate: %s, this value should be less than 1 per hour"
-msgstr "Veľkosť zoraďovacej pamäte"
+msgstr ""
+"Podiel zamykania tabuliek: %s, táto hodnota by mala byť nižšia ako 1 za "
+"hodinu"
 
 #: libraries/advisory_rules.txt:362
 msgid "Thread cache"
@@ -13205,10 +13162,9 @@ msgid "Enable the thread cache by setting {thread_cache_size} > 0."
 msgstr ""
 
 #: libraries/advisory_rules.txt:367
-#, fuzzy
 #| msgid "Tracking is not active."
 msgid "The thread cache is set to 0"
-msgstr "Sledovanie nie je aktívne."
+msgstr "Vyrovnávacia pamäť vlákien je 0"
 
 #: libraries/advisory_rules.txt:369
 #, php-format
@@ -13216,32 +13172,31 @@ msgid "Thread cache hit rate %%"
 msgstr "Frekvencia úspešnosti vyrovnávacej pamäte %%"
 
 #: libraries/advisory_rules.txt:372
-#, fuzzy
 #| msgid "Tracking is not active."
 msgid "Thread cache is not efficient."
-msgstr "Sledovanie nie je aktívne."
+msgstr "Vyrovnávacia pamäť vlákien nepracuje efektívne."
 
 #: libraries/advisory_rules.txt:373
 msgid "Increase {thread_cache_size}."
 msgstr ""
 
 #: libraries/advisory_rules.txt:374
-#, fuzzy, php-format
+#, php-format
 #| msgid "Sort buffer size"
 msgid "Thread cache hitrate: %s%%, this value should be above 80%%"
-msgstr "Veľkosť zoraďovacej pamäte"
+msgstr ""
+"Úspešnosť vyrovnávacej pamäte vlákien: %s%%, táto hodnota by mala byť vyššia "
+"ako 80%%"
 
 #: libraries/advisory_rules.txt:376
-#, fuzzy
 #| msgid "The number of threads that are not sleeping."
 msgid "Threads that are slow to launch"
-msgstr "Počet nespiacich vlákien."
+msgstr "Vlákna, ktoré sú pomalé na beh"
 
 #: libraries/advisory_rules.txt:379
-#, fuzzy
 #| msgid "The number of threads that are not sleeping."
 msgid "There are too many threads that are slow to launch."
-msgstr "Počet nespiacich vlákien."
+msgstr "Je priveľa vlákien pomalých na beh."
 
 #: libraries/advisory_rules.txt:380
 msgid ""
@@ -13259,30 +13214,29 @@ msgid "Slow launch time"
 msgstr ""
 
 #: libraries/advisory_rules.txt:386
-#, fuzzy
 #| msgid "long_query_time is set to %d second(s)."
 msgid "Slow_launch_threads is above 2s"
-msgstr "long_query_time je nastavený na %d sekúnd."
+msgstr "Slow_launch_threads je viac ako 2s"
 
 #: libraries/advisory_rules.txt:387
-#, fuzzy
 #| msgid "The number of threads that are not sleeping."
 msgid ""
 "Set {slow_launch_time} to 1s or 2s to correctly count threads that are slow "
 "to launch"
-msgstr "Počet nespiacich vlákien."
+msgstr ""
+"Aby sa správne počítali vlánka, ktoré sú pomalé na beh, nastavte "
+"{slow_launch_time} na 1s alebo 2s"
 
 #: libraries/advisory_rules.txt:388
-#, fuzzy, php-format
+#, php-format
 #| msgid "long_query_time is set to %d second(s)."
 msgid "slow_launch_time is set to %s"
-msgstr "long_query_time je nastavený na %d sekúnd."
+msgstr "slow_launch_time je nastavený na %s"
 
 #: libraries/advisory_rules.txt:392
-#, fuzzy
 #| msgid "Persistent connections"
 msgid "Percentage of used connections"
-msgstr "Trvalé spojenia"
+msgstr "Percento využitých spojení"
 
 #: libraries/advisory_rules.txt:395
 msgid ""
@@ -13304,16 +13258,14 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:399
-#, fuzzy
 #| msgid "Persistent connections"
 msgid "Percentage of aborted connections"
-msgstr "Trvalé spojenia"
+msgstr "Percento prerušených spojení"
 
 #: libraries/advisory_rules.txt:402 libraries/advisory_rules.txt:409
-#, fuzzy
 #| msgid "Allows creating temporary tables."
 msgid "Too many connections are aborted."
-msgstr "Povolí vytváranie dočasných tabuliek."
+msgstr "Priveľa spojení je prerušených."
 
 #: libraries/advisory_rules.txt:403 libraries/advisory_rules.txt:410
 msgid ""
@@ -13329,10 +13281,9 @@ msgid "%s%% of all connections are aborted. This value should be below 1%%"
 msgstr ""
 
 #: libraries/advisory_rules.txt:406
-#, fuzzy
 #| msgid "Persistent connections"
 msgid "Rate of aborted connections"
-msgstr "Trvalé spojenia"
+msgstr "Podiel prerušených spojení"
 
 #: libraries/advisory_rules.txt:411
 #, php-format
@@ -13341,16 +13292,14 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:413
-#, fuzzy
 #| msgid "Format of imported file"
 msgid "Percentage of aborted clients"
-msgstr "Formát importovaného súboru"
+msgstr "Percento odpojených klientov"
 
 #: libraries/advisory_rules.txt:416 libraries/advisory_rules.txt:423
-#, fuzzy
 #| msgid "Allows creating temporary tables."
 msgid "Too many clients are aborted."
-msgstr "Povolí vytváranie dočasných tabuliek."
+msgstr "Priveľa klientov je odpojených."
 
 #: libraries/advisory_rules.txt:417 libraries/advisory_rules.txt:424
 msgid ""
@@ -13365,26 +13314,26 @@ msgid "%s%% of all clients are aborted. This value should be below 2%%"
 msgstr ""
 
 #: libraries/advisory_rules.txt:420
-#, fuzzy
 #| msgid "Format of imported file"
 msgid "Rate of aborted clients"
-msgstr "Formát importovaného súboru"
+msgstr "Podiel odpojených klientov"
 
 #: libraries/advisory_rules.txt:425
-#, fuzzy, php-format
+#, php-format
 #| msgid "Sort buffer size"
 msgid "Aborted client rate is at %s, this value should be less than 1 per hour"
-msgstr "Veľkosť zoraďovacej pamäte"
+msgstr ""
+"Podiel odpojených klientov je %s, táto hodnota by mala byť nižšia ako 1 za "
+"hodinu"
 
 #: libraries/advisory_rules.txt:429
 msgid "Is InnoDB disabled?"
 msgstr ""
 
 #: libraries/advisory_rules.txt:432
-#, fuzzy
 #| msgid "Could not save recent table"
 msgid "You do not have InnoDB enabled."
-msgstr "Nepodarilo sa uložiť najnovšíu tabuľku"
+msgstr "Nemusíte mať povolené InnoDB."
 
 #: libraries/advisory_rules.txt:433
 msgid "InnoDB is usually the better choice for table engines."
@@ -13395,18 +13344,16 @@ msgid "have_innodb is set to 'value'"
 msgstr ""
 
 #: libraries/advisory_rules.txt:436
-#, fuzzy
 #| msgid "Buffer pool size"
 msgid "InnoDB log size"
-msgstr "Veľkosť vyrovnávacej pamäte"
+msgstr "Veľkosť logu InnoDB"
 
 #: libraries/advisory_rules.txt:439
-#, fuzzy
 #| msgid "The number writes done to the InnoDB buffer pool."
 msgid ""
 "The InnoDB log file size is not an appropriate size, in relation to the "
 "InnoDB buffer pool."
-msgstr "Počet zápisov do vyrovnávacej pamäte InnoDB."
+msgstr "Veľkosť logu InnoDB nemá správnu veľkosť v porovnaní s bufferom InnoDB."
 
 #: libraries/advisory_rules.txt:440
 #, php-format
@@ -13423,18 +13370,19 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:441
-#, fuzzy, php-format
+#, php-format
 #| msgid "The number writes done to the InnoDB buffer pool."
 msgid ""
 "Your InnoDB log size is at %s%% in relation to the InnoDB buffer pool size, "
 "it should not be below 20%%"
-msgstr "Počet zápisov do vyrovnávacej pamäte InnoDB."
+msgstr ""
+"Veľkosť logu InnoDB je %s%% v porovnaní s bufferom InnoDB, nemala by byť "
+"menšia ako 20%%"
 
 #: libraries/advisory_rules.txt:443
-#, fuzzy
 #| msgid "Buffer pool size"
 msgid "Max InnoDB log size"
-msgstr "Veľkosť vyrovnávacej pamäte"
+msgstr "Maximálna veľkosť logu InnoDB"
 
 #: libraries/advisory_rules.txt:446
 msgid "The InnoDB log file size is inadequately large."
@@ -13460,16 +13408,14 @@ msgid "Your absolute InnoDB log size is %s MiB"
 msgstr ""
 
 #: libraries/advisory_rules.txt:450
-#, fuzzy
 #| msgid "Buffer pool size"
 msgid "InnoDB buffer pool size"
-msgstr "Veľkosť vyrovnávacej pamäte"
+msgstr "Veľkosť buffera InnoDB"
 
 #: libraries/advisory_rules.txt:453
-#, fuzzy
 #| msgid "Buffer pool size"
 msgid "Your InnoDB buffer pool is fairly small."
-msgstr "Veľkosť vyrovnávacej pamäte"
+msgstr "Váš buffer InnoDB je primalý."
 
 #: libraries/advisory_rules.txt:454
 #, php-format
@@ -13500,10 +13446,9 @@ msgid "MyISAM concurrent inserts"
 msgstr "Súčasných vkladaní do MyISAM"
 
 #: libraries/advisory_rules.txt:462
-#, fuzzy
 #| msgid "concurrent_insert is set to 0"
 msgid "Enable {concurrent_insert} by setting it to 1"
-msgstr "concurrent_insert je nastavené na 0"
+msgstr "Povoľte {concurrent_insert} nastavením na hodnotu 1"
 
 #: libraries/advisory_rules.txt:463
 msgid ""
