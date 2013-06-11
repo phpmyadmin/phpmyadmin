@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-06-04 17:18+0200\n"
-"PO-Revision-Date: 2013-06-11 15:45+0200\n"
+"PO-Revision-Date: 2013-06-11 15:59+0200\n"
 "Last-Translator: Peter Rosa <peter.rosa@pro.sk>\n"
 "Language-Team: Slovak <http://l10n.cihar.com/projects/phpmyadmin/master/sk/>\n"
 "Language: sk\n"
@@ -6925,10 +6925,9 @@ msgid ""
 msgstr "(\"PRIMARY\" <b>musí</b> byť <b>iba</b> meno primárneho kľúča!)"
 
 #: libraries/display_indexes.lib.php:85
-#, fuzzy
 #| msgid "Comment"
 msgid "Comment:"
-msgstr "Komentár"
+msgstr "Komentár:"
 
 #: libraries/display_indexes.lib.php:99
 msgid "Index type:"
@@ -8550,7 +8549,6 @@ msgstr ""
 "Ak použijete druhú možnosť, prvé pole musí byť prázdne."
 
 #: libraries/plugins/transformations/abstract/ExternalTransformationsPlugin.class.php:31
-#, fuzzy
 #| msgid ""
 #| "LINUX ONLY: Launches an external application and feeds it the column data "
 #| "via standard input. Returns the standard output of the application. The "
@@ -8576,13 +8574,14 @@ msgid ""
 msgstr ""
 "LEN PRE LINUX: Spustí externú aplikáciu a na štandardný vstup pošle pole a "
 "zobrazí výstup programu. Predvolený program je Tidy, ktorý pekne sformátuje "
-"HTML. Z bezpečnostných dôvodov musíte ručne upraviť obsah súboru libraries/"
-"transformations/text_plain__external.inc.php a pridať do neho povolené "
-"aplikácie. Prvý parameter je číslo aplikácie, ktorú chcete použiť a druhý "
-"parametre sú parametre tejto aplikácie. Ak je tretí parameter nastavený na "
-"1, výstup bude skonvertovaný funkciou htmlspecialchars() (predvolený je 1). "
-"Štvrtý parameter v prípade, že je nastavený na 1 pridá k výstupnému textu "
-"parameter NOWRAP, čím zabezpečí zachovanie formátovania (predvolený je 1)."
+"HTML. Z bezpečnostných dôvodov musíte ručne upraviť obsah súboru "
+"libraries/plugins/transformations/Text_Plain_External.class.php a pridať do "
+"neho povolené aplikácie. Prvý parameter je číslo aplikácie, ktorú chcete "
+"použiť a druhý parametre sú parametre tejto aplikácie. Ak je tretí parameter "
+"nastavený na 1, výstup bude skonvertovaný funkciou htmlspecialchars() "
+"(predvolený je 1). Štvrtý parameter v prípade, že je nastavený na 1 pridá k "
+"výstupnému textu parameter NOWRAP, čím zabezpečí zachovanie formátovania "
+"(predvolený je 1)."
 
 #: libraries/plugins/transformations/abstract/FormattedTransformationsPlugin.class.php:31
 msgid ""
@@ -8659,7 +8658,6 @@ msgid "not OK"
 msgstr "chyba"
 
 #: libraries/relation.lib.php:94
-#, fuzzy
 #| msgid "OK"
 msgctxt "Correctly working"
 msgid "OK"
@@ -9011,7 +9009,6 @@ msgid "Returns"
 msgstr ""
 
 #: libraries/rte/rte_routines.lib.php:69
-#, fuzzy
 #| msgid ""
 #| "You are using PHP's deprecated 'mysql' extension, which is not capable of "
 #| "handling multi queries. <b>The execution of some stored routines may fail!"
@@ -9023,8 +9020,9 @@ msgid ""
 "problems."
 msgstr ""
 "Používate zastaralé 'mysql' rozšírenie PHP, ktoré nedokáže pracovať so "
-"zloženými dopytmi. <b>Vykonanie niektorých uložených rutín môže zlyhať!</b> "
-"Aby ste sa vyhli týmto problémom, použite prosím nové rozšírenie 'mysqli'."
+"zloženými dopytmi. [strong]Vykonanie niektorých uložených rutín môže "
+"zlyhať![/strong] Aby ste sa vyhli týmto problémom, použite prosím nové "
+"rozšírenie 'mysqli'."
 
 #: libraries/rte/rte_routines.lib.php:281
 #: libraries/rte/rte_routines.lib.php:1118
@@ -9866,10 +9864,10 @@ msgid "You have updated the privileges for %s."
 msgstr "Boli aktualizované oprávnenia pre %s."
 
 #: libraries/server_privileges.lib.php:2805
-#, fuzzy, php-format
+#, php-format
 #| msgid "Privileges"
 msgid "Privileges for %s"
-msgstr "Oprávnenia"
+msgstr "Oprávnenia pre %s"
 
 #: libraries/server_privileges.lib.php:2861
 #, fuzzy
@@ -10157,10 +10155,9 @@ msgid "Fulltext"
 msgstr "Celý text"
 
 #: libraries/structure.lib.php:1423 libraries/structure.lib.php:1519
-#, fuzzy
 #| msgid "Remove column(s)"
 msgid "Move columns"
-msgstr "Odstrániť stĺpce"
+msgstr "Presunúť stĺpce"
 
 #: libraries/structure.lib.php:1426
 msgid "Move the columns by dragging them up and down."
@@ -10207,7 +10204,6 @@ msgid "After %s"
 msgstr "Po %s"
 
 #: libraries/structure.lib.php:1670
-#, fuzzy
 #| msgid "Row Statistics"
 msgid "Row statistics"
 msgstr "Štatistika riadku"
@@ -10248,10 +10244,9 @@ msgid "A primary key has been added on %s"
 msgstr "Bol pridaný primárny kľúč pre %s"
 
 #: libraries/structure.lib.php:2003 libraries/structure.lib.php:2074
-#, fuzzy
 #| msgid "Browse distinct values"
 msgid "Distinct values"
-msgstr "Prechádzať iné hodnoty"
+msgstr "Odlišné hodnoty"
 
 #: libraries/structure.lib.php:2006 libraries/structure.lib.php:2009
 msgid "Add primary key"
@@ -10291,10 +10286,9 @@ msgid "Query error"
 msgstr "Chyba dopytu"
 
 #: libraries/structure.lib.php:2509
-#, fuzzy
 #| msgid "The selected users have been deleted successfully."
 msgid "The columns have been moved successfully."
-msgstr "Vybraní používatelia bol úspešne odstránený."
+msgstr "Stĺpce boli úspešne presunuté."
 
 #: libraries/structure.lib.php:2557
 #, php-format
@@ -10322,10 +10316,9 @@ msgstr ""
 "alebo uvádzacích znakov, napr.: a"
 
 #: libraries/tbl_columns_definition_form.inc.php:149
-#, fuzzy
 #| msgid "Remove column(s)"
 msgid "Move column"
-msgstr "Odstrániť stĺpce"
+msgstr "Presunúť stĺpce"
 
 #: libraries/tbl_columns_definition_form.inc.php:159
 #, php-format
@@ -10374,10 +10367,10 @@ msgid "first"
 msgstr ""
 
 #: libraries/tbl_columns_definition_form.inc.php:644
-#, fuzzy, php-format
+#, php-format
 #| msgid "After %s"
 msgid "after %s"
-msgstr "Po %s"
+msgstr "po %s"
 
 #: libraries/tbl_columns_definition_form.inc.php:737
 msgid "Table name"
@@ -10400,10 +10393,10 @@ msgid "PARTITION definition:"
 msgstr ""
 
 #: libraries/tbl_common.inc.php:54
-#, fuzzy, php-format
+#, php-format
 #| msgid "Tracking is active."
 msgid "Tracking of %s is activated."
-msgstr "Sledovanie je aktívne."
+msgstr "Sledovanie %s je aktívne."
 
 #: libraries/user_preferences.inc.php:29
 msgid "Manage your settings"
@@ -10751,13 +10744,13 @@ msgid "Character Sets and Collations"
 msgstr "Znakové sady a Zotriedenia"
 
 #: server_databases.php:117
-#, fuzzy, php-format
+#, php-format
 #| msgid "%s databases have been dropped successfully."
 msgid "%1$d database has been dropped successfully."
 msgid_plural "%1$d databases have been dropped successfully."
-msgstr[0] "%s databáz bolo úspešne zrušených."
-msgstr[1] "%s databáz bolo úspešne zrušených."
-msgstr[2] "%s databáz bolo úspešne zrušených."
+msgstr[0] "%1$d databáza bola úspešne zrušená."
+msgstr[1] "%1$d databázy boli úspešne zrušené."
+msgstr[2] "%1$d databáz bolo úspešne zrušených."
 
 #: server_databases.php:138
 msgid "Databases statistics"
@@ -11272,10 +11265,9 @@ msgid "Done dragging (rearranging) charts"
 msgstr ""
 
 #: server_status_monitor.php:704
-#, fuzzy
 #| msgid "Enable highlighting"
 msgid "Enable charts dragging"
-msgstr "Povoliť zvýrazňovanie"
+msgstr "Povoliť presúvanie grafov"
 
 #: server_status_monitor.php:708
 msgid "Refresh rate"
@@ -11769,10 +11761,9 @@ msgstr ""
 "najväčšie množstvo blokov, ktoré kedy naraz použité."
 
 #: server_status_variables.php:596
-#, fuzzy
 #| msgid "Format of imported file"
 msgid "Percentage of used key cache (calculated value)"
-msgstr "Formát importovaného súboru"
+msgstr "Percento využitia vyrovnávacej pamäti kľúčov (vypočítaná hodnota)"
 
 #: server_status_variables.php:599
 msgid "The number of requests to read a key block from the cache."
@@ -12031,10 +12022,9 @@ msgstr ""
 "však nespôsobí žiadnu citeľnú zmenu ak máte vlákna dobre implementované.)"
 
 #: server_status_variables.php:758
-#, fuzzy
 #| msgid "Tracking is not active."
 msgid "Thread cache hit rate (calculated value)"
-msgstr "Sledovanie nie je aktívne."
+msgstr "Úspešnosť vyrovnávacej pamäti vlákien (vypočítaná hodnota)"
 
 #: server_status_variables.php:761
 msgid "The number of threads that are not sleeping."
@@ -12343,10 +12333,9 @@ msgid "Using bookmark \"%s\" as default browse query."
 msgstr ""
 
 #: sql.php:298
-#, fuzzy
 #| msgid "Bookmark %s created"
 msgid "Bookmark not created"
-msgstr "Príkaz %s bol zaradený medzi obľúbené"
+msgstr "Záložka nebola vytvorená"
 
 #: sql.php:842
 msgid "Showing as PHP code"
@@ -12385,7 +12374,6 @@ msgid "Label:"
 msgstr "Názov"
 
 #: tbl_chart.php:38
-#, fuzzy
 #| msgid "No data found"
 msgid "No data to display"
 msgstr "Žiadne dáta"
@@ -12429,11 +12417,10 @@ msgid "Pie"
 msgstr "Koláčový"
 
 #: tbl_chart.php:170
-#, fuzzy
 #| msgid "Time"
 msgctxt "Chart type"
 msgid "Timeline"
-msgstr "Čas"
+msgstr "Časová os"
 
 #: tbl_chart.php:177
 msgid "Stacked"
@@ -12582,16 +12569,14 @@ msgid "Foreign key constraint"
 msgstr ""
 
 #: tbl_relation.php:500
-#, fuzzy
 #| msgid "Constraints for table"
 msgid "Constraint name"
-msgstr "Obmedzenie pre tabuľku"
+msgstr "Názov obmedzenia"
 
 #: tbl_relation.php:531
-#, fuzzy
 #| msgid "No index defined!"
 msgid "No index defined! Create one below"
-msgstr "Nebol definovaný žiadny index!"
+msgstr "Nebol definovaný žiadny index! Vytvorte ho nižšie"
 
 #: tbl_relation.php:546
 #, fuzzy
@@ -12600,10 +12585,9 @@ msgid "Choose column to display:"
 msgstr "Zvoľte, ktoré polia zobraziť"
 
 #: tbl_structure.php:125
-#, fuzzy
 #| msgid "No rows selected"
 msgid "No column selected."
-msgstr "Nebol vybraný žiadny riadok"
+msgstr "Nebol vybraný žiadny stĺpec."
 
 #: tbl_tracking.php:135
 #, php-format
@@ -13072,17 +13056,17 @@ msgstr "Úspešnosť vyrovnávacej pamäte príkazov (%%)"
 
 #: libraries/advisory_rules.txt:170
 msgid "Query cache not running efficiently, it has a low hit rate."
-msgstr ""
+msgstr "Vyrovnávacia pamäť dotazov nefunguje efektívne, má nízku úspešnosť."
 
 #: libraries/advisory_rules.txt:171
 msgid "Consider increasing {query_cache_limit}."
 msgstr ""
 
 #: libraries/advisory_rules.txt:172
-#, fuzzy, php-format
+#, php-format
 #| msgid "Sort buffer size"
 msgid "The current query cache hit rate of %s%% is below 20%%"
-msgstr "Veľkosť zoraďovacej pamäte"
+msgstr "Aktuálna úspešnosť vyrovnávacej pamäte dotazov %s%% je nižšia ako 20%%"
 
 #: libraries/advisory_rules.txt:174
 msgid "Query Cache usage"
