@@ -167,7 +167,7 @@ class PMA_Export_Relation_Schema
     /**
      * Set type of export relational schema
      *
-     * @param string $value can be pdf,svg,dia,visio,eps etc
+     * @param string $value can be pdf,svg,dia,eps etc
      *
      * @return void
      *
@@ -191,7 +191,7 @@ class PMA_Export_Relation_Schema
     public function getAllTables($db, $pageNumber)
     {
         global $cfgRelation;
-        
+
         // Get All tables
         $tab_sql = 'SELECT table_name FROM '
             . PMA_Util::backquote($GLOBALS['cfgRelation']['db']) . '.'

@@ -417,7 +417,6 @@ class PMA_User_Schema
                 <option value="pdf" selected="selected">PDF</option>
                 <option value="svg">SVG</option>
                 <option value="dia">DIA</option>
-                <option value="visio">Visio</option>
                 <option value="eps">EPS</option>
             </select>
             <label><?php echo __('Select Export Relational Type');?></label><br />
@@ -569,7 +568,7 @@ class PMA_User_Schema
                 . 'class="pdflayout_table"'
                 . '>'
                 . '<u>'
-                . htmlspecialchars($temp_sh_page['table_name']) 
+                . htmlspecialchars($temp_sh_page['table_name'])
                 . '</u>';
 
             if (isset($with_field_names)) {
