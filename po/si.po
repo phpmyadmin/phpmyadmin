@@ -3296,10 +3296,9 @@ msgid "Theme path not found for theme %s!"
 msgstr "%s තේමාව සඳහා තේමාව ඇති තැන හමු නොවිණි!"
 
 #: libraries/Theme_Manager.class.php:363
-#, fuzzy
 #| msgid "Theme"
 msgid "Theme:"
-msgstr "තේමාව"
+msgstr "තේමාව:"
 
 #: libraries/Types.class.php:296
 msgid ""
