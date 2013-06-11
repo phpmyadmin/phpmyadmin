@@ -56,7 +56,7 @@ foreach ($plugins as $plugin) {
   * @return boolean true if APC extension is available and if rfc1867 is enabled,
   *                      false if it is not
   */
-function PMA_import_apcCheck()
+function PMA_Import_apcCheck()
 {
     if (! extension_loaded('apc')
         || ! function_exists('apc_fetch')
