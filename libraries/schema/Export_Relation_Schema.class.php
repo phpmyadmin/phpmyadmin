@@ -167,7 +167,7 @@ class PMA_Export_Relation_Schema
     /**
      * Set type of export relational schema
      *
-     * @param string $value can be pdf,svg,dia,visio,eps etc
+     * @param string $value can be pdf,svg,dia,eps etc
      *
      * @return void
      *
