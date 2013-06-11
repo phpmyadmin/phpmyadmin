@@ -370,7 +370,6 @@ class PMA_Message_Test extends PHPUnit_Framework_TestCase
 
     public function testDecodeBB($actual, $expected)
     {
-        $GLOBALS['lang'] = 'en';
         unset($GLOBALS['server']);
         unset($GLOBALS['collation_connection']);
         $this->assertEquals($expected, PMA_Message::decodeBB($actual));

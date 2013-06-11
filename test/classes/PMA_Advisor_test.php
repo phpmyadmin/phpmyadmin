@@ -19,7 +19,6 @@ class Advisor_Test extends PHPUnit_Framework_TestCase
 {
     public function setup()
     {
-        $GLOBALS['lang'] = 'en';
         $_SESSION['PMA_Theme'] = PMA_Theme::load('./themes/pmahomme');
         $GLOBALS['server'] = 0;
         $GLOBALS['cfg']['ServerDefault'] = '';

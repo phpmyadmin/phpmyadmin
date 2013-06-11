@@ -28,7 +28,6 @@ class PMA_RTN_GetEditorForm_Test extends PHPUnit_Framework_TestCase
         $cfg['ShowFunctionFields'] = false;
         $GLOBALS['server'] = 0;
         $cfg['ServerDefault'] = 1;
-        $GLOBALS['lang'] = 'en';
         $cfg['MySQLManualType'] = 'viewable';
         $cfg['MySQLManualBase'] = 'http://dev.mysql.com/doc/refman';
 

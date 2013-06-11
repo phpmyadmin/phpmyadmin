@@ -37,7 +37,6 @@ class PMA_ThemeTest extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['SQP']['fmtColor'] = array('fake' => 'red');
         $GLOBALS['text_dir'] = 'ltr';
         include 'themes/pmahomme/layout.inc.php';
-        $GLOBALS['lang'] = 'en';
         $GLOBALS['server'] = '99';
     }
 

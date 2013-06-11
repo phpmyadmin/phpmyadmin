@@ -23,7 +23,6 @@ class PMA_WarnMissingExtension_Test extends PHPUnit_Framework_TestCase
 {
     public function setUp()
     {
-        $GLOBALS['lang'] = 'en';
         $GLOBALS['PMA_Config'] = new PMA_Config();
         $GLOBALS['PMA_Config']->enableBc();
         $GLOBALS['cfg']['Server'] = array(

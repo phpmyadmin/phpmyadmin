@@ -42,7 +42,6 @@ class PMA_Header_Test extends PHPUnit_Framework_TestCase
             define('PMA_IS_WINDOWS', false);
         }
         $GLOBALS['server'] = 0;
-        $GLOBALS['lang'] = 'en';
         $GLOBALS['message'] = 'phpmyadminmessage';
         $GLOBALS['is_ajax_request'] = false;
         $_SESSION['PMA_Theme'] = new PMA_Theme();

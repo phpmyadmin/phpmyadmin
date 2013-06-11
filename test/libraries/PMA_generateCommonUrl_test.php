@@ -22,7 +22,6 @@ class PMA_GenerateCommonURL_Test extends PHPUnit_Framework_TestCase
     public function testOldStyle()
     {
         $GLOBALS['server'] = 'x';
-        $GLOBALS['lang'] = 'x';
         $GLOBALS['collation_connection'] = 'x';
         $GLOBALS['cfg']['ServerDefault'] = 'y';
 
@@ -43,7 +42,6 @@ class PMA_GenerateCommonURL_Test extends PHPUnit_Framework_TestCase
     public function testOldStyleDbOnly()
     {
         $GLOBALS['server'] = 'x';
-        $GLOBALS['lang'] = 'x';
         $GLOBALS['collation_connection'] = 'x';
         $GLOBALS['cfg']['ServerDefault'] = 'y';
 
@@ -63,7 +61,6 @@ class PMA_GenerateCommonURL_Test extends PHPUnit_Framework_TestCase
     public function testNewStyle()
     {
         $GLOBALS['server'] = 'x';
-        $GLOBALS['lang'] = 'x';
         $GLOBALS['collation_connection'] = 'x';
         $GLOBALS['cfg']['ServerDefault'] = 'y';
 
@@ -84,7 +81,6 @@ class PMA_GenerateCommonURL_Test extends PHPUnit_Framework_TestCase
     public function testOldStyleWithAlternateSeparator()
     {
         $GLOBALS['server'] = 'x';
-        $GLOBALS['lang'] = 'x';
         $GLOBALS['collation_connection'] = 'x';
         $GLOBALS['cfg']['ServerDefault'] = 'y';
 
@@ -102,7 +98,6 @@ class PMA_GenerateCommonURL_Test extends PHPUnit_Framework_TestCase
     public function testOldStyleWithAlternateSeparatorDbOnly()
     {
         $GLOBALS['server'] = 'x';
-        $GLOBALS['lang'] = 'x';
         $GLOBALS['collation_connection'] = 'x';
         $GLOBALS['cfg']['ServerDefault'] = 'y';
 
@@ -120,7 +115,6 @@ class PMA_GenerateCommonURL_Test extends PHPUnit_Framework_TestCase
     public function testDefault()
     {
         $GLOBALS['server'] = 'x';
-        $GLOBALS['lang'] = 'x';
         $GLOBALS['collation_connection'] = 'x';
         $GLOBALS['cfg']['ServerDefault'] = 'y';
 

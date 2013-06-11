@@ -24,7 +24,6 @@ class PMA_CheckParameters_Test extends PHPUnit_Framework_TestCase
         $_SESSION['PMA_Theme'] = new PMA_Theme();
         $GLOBALS['cfg'] = array('ServerDefault' => 1);
         $GLOBALS['pmaThemeImage'] = 'theme/';
-        $GLOBALS['lang'] = 'en';
         $GLOBALS['text_dir'] = 'ltr';
     }
 

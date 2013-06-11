@@ -53,7 +53,6 @@ class PMA_Footer_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['PMA_PHP_SELF'] = 'index.php';
         $GLOBALS['db'] = '';
         $GLOBALS['table'] = '';
-        $GLOBALS['lang'] = 'en';
         $GLOBALS['text_dir'] = 'ltr';
         $GLOBALS['PMA_Config'] = new PMA_Config();
         $GLOBALS['PMA_Config']->enableBc();
