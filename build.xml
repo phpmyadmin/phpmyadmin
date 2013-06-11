@@ -47,7 +47,7 @@
    <arg line="${source_comma_sep}
               xml
               codesize,design,naming,unusedcode
-              --exclude test,build,tcpdf,php-gettext,bfShapeFiles,PMAStandard,phpseclib,recaptchalib.php
+              --exclude test,build,tcpdf,php-gettext,bfShapeFiles,PMAStandard,phpseclib,recaptchalib.php,swekey.php
               --reportfile '${basedir}/build/logs/pmd.xml'" />
   </exec>
  </target>
@@ -63,6 +63,7 @@
               --exclude libraries/bfShapeFiles
               --exclude libraries/phpseclib
               --exclude libraries/plugins/auth/recaptchalib.php
+              --exclude libraries/plugins/auth/swekey/swekey.php
               ${source}" />
   </exec>
  </target>
@@ -78,6 +79,7 @@
               --exclude libraries/bfShapeFiles
               --exclude libraries/phpseclib
               --exclude libraries/plugins/auth/recaptchalib.php
+              --exclude libraries/plugins/auth/swekey/swekey.php
               ${source}" />
   </exec>
  </target>
@@ -85,7 +87,7 @@
  <target name="phpcs" description="Generate checkstyle.xml using PHP_CodeSniffer excluding test, tcpdf directories">
   <exec executable="phpcs">
    <arg line="
-	      --ignore=*/php-gettext/*,*/tcpdf/*,*/canvg/*,*/codemirror/*,*/openlayers/*,*/jquery/*,*/jqplot/*,*/build/*,*/bfShapeFiles/*,*/PMAStandard/*,*/phpseclib/*,*/recaptchalib.php
+	      --ignore=*/php-gettext/*,*/tcpdf/*,*/canvg/*,*/codemirror/*,*/openlayers/*,*/jquery/*,*/jqplot/*,*/build/*,*/bfShapeFiles/*,*/PMAStandard/*,*/phpseclib/*,*/recaptchalib.php,*/swekey.php
               --report=checkstyle
               --report-file='${basedir}/build/logs/checkstyle.xml'
               --standard=PMAStandard
