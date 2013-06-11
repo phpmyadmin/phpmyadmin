@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-06-04 17:18+0200\n"
-"PO-Revision-Date: 2013-06-11 14:43+0200\n"
+"PO-Revision-Date: 2013-06-11 15:05+0200\n"
 "Last-Translator: Peter Rosa <peter.rosa@pro.sk>\n"
 "Language-Team: Slovak <http://l10n.cihar.com/projects/phpmyadmin/master/sk/>\n"
 "Language: sk\n"
@@ -3301,7 +3301,7 @@ msgstr "Zobraziť zoradené:"
 
 #: libraries/TableSearch.class.php:839
 msgid "Use this column to label each point"
-msgstr ""
+msgstr "Tento stĺpec sa použije na označenie každého bodu"
 
 #: libraries/TableSearch.class.php:860
 msgid "Maximum rows to plot"
@@ -3701,7 +3701,7 @@ msgstr ""
 
 #: libraries/Types.class.php:739
 msgid "An enumeration, chosen from the list of defined values"
-msgstr ""
+msgstr "Vymenovanie hodnôt vybratých zo zoznamu definovaných hodnôt"
 
 #: libraries/Util.class.php:226
 #, php-format
@@ -3955,11 +3955,11 @@ msgstr "Mali by ste aktualizovať %s na verziu %s alebo vyššiu."
 
 #: libraries/common.inc.php:1086
 msgid "Error: Token mismatch"
-msgstr ""
+msgstr "Chyba: Nesprávny token"
 
 #: libraries/common.inc.php:1130
 msgid "GLOBALS overwrite attempt"
-msgstr ""
+msgstr "Pokus o prepísanie GLOBALS"
 
 #: libraries/common.inc.php:1137
 msgid "possible exploit"
@@ -4000,11 +4000,11 @@ msgstr "Vpravo"
 
 #: libraries/config.values.php:69
 msgid "Click"
-msgstr ""
+msgstr "Klik"
 
 #: libraries/config.values.php:70
 msgid "Double click"
-msgstr ""
+msgstr "Dvojklik"
 
 #: libraries/config.values.php:71 libraries/config.values.php:102
 #: libraries/config/FormDisplay.tpl.php:223 libraries/relation.lib.php:98
@@ -4194,9 +4194,8 @@ msgstr ""
 "cookie[/kbd]"
 
 #: libraries/config/messages.inc.php:21
-#, fuzzy
 msgid "Blowfish secret"
-msgstr "Blowfish secret"
+msgstr "Šifrovacia fráza Blowfish"
 
 #: libraries/config/messages.inc.php:22
 msgid "Highlight selected rows"
@@ -4245,10 +4244,13 @@ msgid ""
 "Use user-friendly editor for editing SQL queries ([a@http://codemirror.net/]"
 "CodeMirror[/a]) with syntax highlighting and line numbers"
 msgstr ""
+"Použiť užívateľsky príjemný editor na úpravu SQL dozatazov "
+"([a@http://codemirror.net/]CodeMirror[/a]) s číslovaním riadkov a "
+"zvýrazňovaním syntaxe"
 
 #: libraries/config/messages.inc.php:31
 msgid "Enable CodeMirror"
-msgstr ""
+msgstr "Povoliť CodeMirror"
 
 #: libraries/config/messages.inc.php:32
 msgid ""
@@ -4358,13 +4360,12 @@ msgstr "Východzí panel tabuľky"
 
 #: libraries/config/messages.inc.php:54
 msgid "Whether the table structure actions should be hidden"
-msgstr ""
+msgstr "Určuje, či akcie štruktúry tabuliek majú byť skryté"
 
 #: libraries/config/messages.inc.php:55
-#, fuzzy
 #| msgid "Propose table structure"
 msgid "Hide table structure actions"
-msgstr "Navrhnúť štruktúru tabuľky"
+msgstr "Skryť akcie štruktúry tabuľky"
 
 #: libraries/config/messages.inc.php:56
 msgid "Show binary contents as HEX by default"
@@ -4747,16 +4748,14 @@ msgid "Databases display options"
 msgstr "Nastavenia zobrazenia databáz"
 
 #: libraries/config/messages.inc.php:177 setup/frames/menu.inc.php:19
-#, fuzzy
 #| msgid "Navigation frame"
 msgid "Navigation panel"
-msgstr "Navigačný rám"
+msgstr "Navigačný panel"
 
 #: libraries/config/messages.inc.php:178
-#, fuzzy
 #| msgid "Customize appearance of the navigation frame"
 msgid "Customize appearance of the navigation panel"
-msgstr "Prizpôsobiť vzhľad navigačného rámu"
+msgstr "Prizpôsobiť vzhľad navigačného panela"
 
 #: libraries/config/messages.inc.php:179 libraries/select_server.lib.php:42
 #: setup/frames/index.inc.php:117
@@ -4772,10 +4771,9 @@ msgid "Tables display options"
 msgstr "Nastavenie zobrazenia tabuliek"
 
 #: libraries/config/messages.inc.php:183 setup/frames/menu.inc.php:20
-#, fuzzy
 #| msgid "Main frame"
 msgid "Main panel"
-msgstr "Hlavný rám"
+msgstr "Hlavný panel"
 
 #: libraries/config/messages.inc.php:184
 msgid "Microsoft Office"
@@ -4886,16 +4884,14 @@ msgid "Customize import defaults"
 msgstr "Prispôsobebie východzích nastavení importu"
 
 #: libraries/config/messages.inc.php:209
-#, fuzzy
 #| msgid "Customize navigation frame"
 msgid "Customize navigation panel"
-msgstr "Prispôsobenie navigačného rámu"
+msgstr "Prispôsobiť navigačný panel"
 
 #: libraries/config/messages.inc.php:210
-#, fuzzy
 #| msgid "Customize main frame"
 msgid "Customize main panel"
-msgstr "Prispôsobenie hlavného rámu"
+msgstr "Prispôsobiť hlavný panel"
 
 #: libraries/config/messages.inc.php:211 libraries/config/messages.inc.php:216
 #: setup/frames/menu.inc.php:18
@@ -4945,6 +4941,8 @@ msgstr "Štruktúra databázy"
 #: libraries/config/messages.inc.php:223
 msgid "Choose which details to show in the database structure (list of tables)"
 msgstr ""
+"Vyberte, ktoré detaily sa majú zobrazovať v štruktúre databázy (zoznam "
+"tabuliek)"
 
 #: libraries/config/messages.inc.php:224
 msgid "Table structure"
@@ -4952,7 +4950,7 @@ msgstr "Štruktúra tabuľky"
 
 #: libraries/config/messages.inc.php:225
 msgid "Settings for the table structure (list of columns)"
-msgstr ""
+msgstr "Nastavenia štruktúry tabuliek (zoznam stĺpcov)"
 
 #: libraries/config/messages.inc.php:226
 msgid "Tabs"
@@ -5177,25 +5175,23 @@ msgid "Users cannot set a higher value"
 msgstr "Uživatelia nemôžu nastaviť vyššiu hodnotu"
 
 #: libraries/config/messages.inc.php:284
-#, fuzzy
 #| msgid "Maximum number of tables displayed in table list"
 msgid "Maximum number of databases displayed in database list"
-msgstr "Maximálny počet tabuliek zobrazených v zozname tabuliek"
+msgstr "Maximálny počet databáz zobrazených v zozname databáz"
 
 #: libraries/config/messages.inc.php:285
 msgid "Maximum databases"
 msgstr "Najvyšší počet databáz"
 
 #: libraries/config/messages.inc.php:286
-#, fuzzy
 #| msgid "The number of joins that did a full scan of the first table."
 msgid ""
 "The number of items that can be displayed on each page of the navigation tree"
-msgstr "Počet spojení, ktoré vykonali kompletné prehľadanie prvej tabuľky."
+msgstr "Počet položiek, ktoré sa zobrazia na každej strane navigačného panela"
 
 #: libraries/config/messages.inc.php:287
 msgid "Maximum items in branch"
-msgstr ""
+msgstr "Maximálny počet položiek vo vetve"
 
 #: libraries/config/messages.inc.php:288
 msgid ""
@@ -5244,10 +5240,9 @@ msgid "Memory limit"
 msgstr "Obmedzenie pamäte"
 
 #: libraries/config/messages.inc.php:297
-#, fuzzy
 #| msgid "Show logo in left frame"
 msgid "Show logo in navigation panel"
-msgstr "Zobraziť logo v ľavom ráme"
+msgstr "Zobraziť logo v navigačnom panely"
 
 #: libraries/config/messages.inc.php:298
 msgid "Display logo"
