@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-06-04 17:18+0200\n"
-"PO-Revision-Date: 2013-06-11 14:33+0200\n"
+"PO-Revision-Date: 2013-06-11 14:34+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: Sinhala "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/si/>\n"
@@ -3855,10 +3855,10 @@ msgstr ""
 "%1$s සේවාදායකය සඳහා වැරදි දායක නාමයක්. ඔබ ඔබගේ වින්‍යාසයන් පරීකෂා කර බැලිය යුතුය."
 
 #: libraries/common.inc.php:661
-#, fuzzy, php-format
+#, php-format
 #| msgid "Server"
 msgid "Server %d"
-msgstr "සේවාදායකය"
+msgstr "%d වන සේවාදායකය"
 
 #: libraries/common.inc.php:854
 msgid "Invalid authentication method set in configuration:"
@@ -3886,16 +3886,14 @@ msgid "numeric key detected"
 msgstr "සංඛ්‍යාත්මක යතුරක් අනාවරණය වුණි"
 
 #: libraries/config.values.php:49 libraries/config.values.php:64
-#, fuzzy
 #| msgid "Ins"
 msgid "Icons"
-msgstr "ඇතුල්"
+msgstr "අයිකන"
 
 #: libraries/config.values.php:50 libraries/config.values.php:65
-#, fuzzy
 #| msgid "Test"
 msgid "Text"
-msgstr "ඇගයීම"
+msgstr "පෙළ"
 
 #: libraries/config.values.php:51 libraries/config.values.php:58
 #: libraries/config.values.php:66
