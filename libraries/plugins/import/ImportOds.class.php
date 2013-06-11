@@ -175,8 +175,16 @@ class ImportOds extends ImportPlugin
             );
             $error = true;
         } else {
-            $sheets = $xml->children('office', true)->{'body'}->{'spreadsheet'}
-                ->children('table', true);
+            $root = $xml->children('office', true)->{'body'}->{'spreadsheet'};
+            if (empty($root)) {
+                $sheets = array();
+                $message = PMA_Message::error(
+                    __('Could not parse OpenDocument Spreasheet!')
+                );
+                $error = true;
+            } else {
+                $sheets = $root->children('table', true);
+            }
         }
 
         $tables = array();
