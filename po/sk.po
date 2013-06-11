@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-06-04 17:18+0200\n"
-"PO-Revision-Date: 2013-06-11 16:28+0200\n"
+"PO-Revision-Date: 2013-06-11 16:36+0200\n"
 "Last-Translator: Peter Rosa <peter.rosa@pro.sk>\n"
 "Language-Team: Slovak <http://l10n.cihar.com/projects/phpmyadmin/master/sk/>\n"
 "Language: sk\n"
@@ -4223,7 +4223,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:27
 msgid "Bzip2"
-msgstr "Bzip2"
+msgstr "BZip2"
 
 #: libraries/config/messages.inc.php:28
 msgid ""
@@ -13117,10 +13117,9 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:188
-#, fuzzy
 #| msgid "Query cache used"
 msgid "Query cache low memory prunes"
-msgstr "Využitá vyrovnávacia pamäť príkazov"
+msgstr ""
 
 #: libraries/advisory_rules.txt:191
 msgid ""
@@ -13723,16 +13722,14 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:413
-#, fuzzy
 #| msgid "Format of imported file"
 msgid "Percentage of aborted clients"
-msgstr "Formát importovaného súboru"
+msgstr "Percento odpojených klientov"
 
 #: libraries/advisory_rules.txt:416 libraries/advisory_rules.txt:423
-#, fuzzy
 #| msgid "Allows creating temporary tables."
 msgid "Too many clients are aborted."
-msgstr "Povolí vytváranie dočasných tabuliek."
+msgstr "Priveľa klientov je odpojených."
 
 #: libraries/advisory_rules.txt:417 libraries/advisory_rules.txt:424
 msgid ""
@@ -13747,26 +13744,26 @@ msgid "%s%% of all clients are aborted. This value should be below 2%%"
 msgstr ""
 
 #: libraries/advisory_rules.txt:420
-#, fuzzy
 #| msgid "Format of imported file"
 msgid "Rate of aborted clients"
-msgstr "Formát importovaného súboru"
+msgstr "Podiel odpojených klientov"
 
 #: libraries/advisory_rules.txt:425
-#, fuzzy, php-format
+#, php-format
 #| msgid "Sort buffer size"
 msgid "Aborted client rate is at %s, this value should be less than 1 per hour"
-msgstr "Veľkosť zoraďovacej pamäte"
+msgstr ""
+"Podiel odpojených klientov je %s, táto hodnota by mala byť nižšia ako 1 za "
+"hodinu"
 
 #: libraries/advisory_rules.txt:429
 msgid "Is InnoDB disabled?"
 msgstr ""
 
 #: libraries/advisory_rules.txt:432
-#, fuzzy
 #| msgid "Could not save recent table"
 msgid "You do not have InnoDB enabled."
-msgstr "Nepodarilo sa uložiť najnovšíu tabuľku"
+msgstr "Nemusíte mať povolené InnoDB."
 
 #: libraries/advisory_rules.txt:433
 msgid "InnoDB is usually the better choice for table engines."
@@ -13777,18 +13774,16 @@ msgid "have_innodb is set to 'value'"
 msgstr ""
 
 #: libraries/advisory_rules.txt:436
-#, fuzzy
 #| msgid "Buffer pool size"
 msgid "InnoDB log size"
-msgstr "Veľkosť vyrovnávacej pamäte"
+msgstr "Veľkosť logu InnoDB"
 
 #: libraries/advisory_rules.txt:439
-#, fuzzy
 #| msgid "The number writes done to the InnoDB buffer pool."
 msgid ""
 "The InnoDB log file size is not an appropriate size, in relation to the "
 "InnoDB buffer pool."
-msgstr "Počet zápisov do vyrovnávacej pamäte InnoDB."
+msgstr "Veľkosť logu InnoDB nemá správnu veľkosť v porovnaní s bufferom InnoDB."
 
 #: libraries/advisory_rules.txt:440
 #, php-format
@@ -13805,18 +13800,19 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:441
-#, fuzzy, php-format
+#, php-format
 #| msgid "The number writes done to the InnoDB buffer pool."
 msgid ""
 "Your InnoDB log size is at %s%% in relation to the InnoDB buffer pool size, "
 "it should not be below 20%%"
-msgstr "Počet zápisov do vyrovnávacej pamäte InnoDB."
+msgstr ""
+"Veľkosť logu InnoDB je %s%% v porovnaní s bufferom InnoDB, nemala by byť "
+"menšia ako 20%%"
 
 #: libraries/advisory_rules.txt:443
-#, fuzzy
 #| msgid "Buffer pool size"
 msgid "Max InnoDB log size"
-msgstr "Veľkosť vyrovnávacej pamäte"
+msgstr "Maximálna veľkosť logu InnoDB"
 
 #: libraries/advisory_rules.txt:446
 msgid "The InnoDB log file size is inadequately large."
@@ -13842,16 +13838,14 @@ msgid "Your absolute InnoDB log size is %s MiB"
 msgstr ""
 
 #: libraries/advisory_rules.txt:450
-#, fuzzy
 #| msgid "Buffer pool size"
 msgid "InnoDB buffer pool size"
-msgstr "Veľkosť vyrovnávacej pamäte"
+msgstr "Veľkosť buffera InnoDB"
 
 #: libraries/advisory_rules.txt:453
-#, fuzzy
 #| msgid "Buffer pool size"
 msgid "Your InnoDB buffer pool is fairly small."
-msgstr "Veľkosť vyrovnávacej pamäte"
+msgstr "Váš buffer InnoDB je primalý."
 
 #: libraries/advisory_rules.txt:454
 #, php-format
@@ -13882,10 +13876,9 @@ msgid "MyISAM concurrent inserts"
 msgstr "Súčasných vkladaní do MyISAM"
 
 #: libraries/advisory_rules.txt:462
-#, fuzzy
 #| msgid "concurrent_insert is set to 0"
 msgid "Enable {concurrent_insert} by setting it to 1"
-msgstr "concurrent_insert je nastavené na 0"
+msgstr "Povoľte {concurrent_insert} nastavením na hodnotu 1"
 
 #: libraries/advisory_rules.txt:463
 msgid ""
