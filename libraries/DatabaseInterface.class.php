@@ -905,7 +905,7 @@ class PMA_DatabaseInterface
                 $databases[$database_name]['SCHEMA_NAME']      = $database_name;
 
                 if ($force_stats) {
-                    include_once './libraries/mysql_charsets.lib.php';
+                    include_once './libraries/mysql_charsets.inc.php';
 
                     $databases[$database_name]['DEFAULT_COLLATION_NAME']
                         = PMA_getDbCollation($database_name);

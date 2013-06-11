@@ -19,7 +19,7 @@ require_once 'libraries/Theme.class.php';
 require_once 'libraries/database_interface.inc.php';
 require_once 'libraries/Tracker.class.php';
 require_once 'libraries/Types.class.php';
-require_once 'libraries/mysql_charsets.lib.php';
+require_once 'libraries/mysql_charsets.inc.php';
 
 class PMA_BuildHtmlForDb_Test extends PHPUnit_Framework_TestCase
 {

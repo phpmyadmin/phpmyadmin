@@ -74,7 +74,7 @@ if (empty($_POST['is_info'])) {
 
 require_once 'libraries/bookmark.lib.php';
 
-require_once 'libraries/mysql_charsets.lib.php';
+require_once 'libraries/mysql_charsets.inc.php';
 $db_collation = PMA_getDbCollation($db);
 
 $titles = PMA_Util::buildActionTitles();

@@ -20,7 +20,7 @@ require_once 'libraries/server_collations.lib.php';
 /**
  * Includes the required charset library
  */
-require_once 'libraries/mysql_charsets.lib.php';
+require_once 'libraries/mysql_charsets.inc.php';
 
 $response = PMA_Response::getInstance();
 
