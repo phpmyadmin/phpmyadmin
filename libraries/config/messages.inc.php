@@ -405,6 +405,8 @@ $strConfigServers_MaxTableUiprefs_desc = __('Limits number of table preferences 
 $strConfigServers_MaxTableUiprefs_name = __('Maximal number of table preferences to store');
 $strConfigServers_nopassword_desc = __('Try to connect without password');
 $strConfigServers_nopassword_name = __('Connect without password');
+$strConfigServers_captchaLogin_desc = __('Check if you want tp use reCaptcha on the login screen');
+$strConfigServers_captchaLogin_name = __('Enable reCaptcha');
 $strConfigServers_only_db_desc = __('You can use MySQL wildcard characters (% and _), escape them if you want to use their literal instances, i.e. use [kbd]\'my\_db\'[/kbd] and not [kbd]\'my_db\'[/kbd].');
 $strConfigServers_only_db_name = __('Show only listed databases');
 $strConfigServers_password_desc = __('Leave empty if not using config auth');
@@ -528,5 +530,9 @@ $strConfigVersionCheckProxyPass_name = __('Version check proxy password');
 
 $strConfigZipDump_desc = __('Enable [a@http://en.wikipedia.org/wiki/ZIP_(file_format)]ZIP[/a] compression for import and export operations');
 $strConfigZipDump_name = __('ZIP');
+$strConfigcaptchaLoginPublicKey_desc  = __('Enter your public key for your domain reCaptcha service');
+$strConfigcaptchaLoginPublicKey_name  = __('Public key for reCaptcha');
+$strConfigcaptchaLoginPrivateKey_desc = __('Enter your private key for your domain reCaptcha service');
+$strConfigcaptchaLoginPrivateKey_name = __('Private key for reCaptcha');
 
 ?>
