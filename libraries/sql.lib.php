@@ -696,4 +696,82 @@ function PMA_getHtmlForOptionsList($values, $selected_values)
     }
     return $options;
 }
+
+/**
+ * Get HTML for the confirm page
+ *
+ * @param string  $db                current database
+ * @param string  $table             current table
+ * @param string  $sql_query         the sql query to be executed
+ * @param boolean $is_drop_database  whether the query is to drop a database
+ * @param string  $goto              the url to return to in case of error in a sql statement
+ *
+ * @return string $output            the html for the confirm page
+ */
+function PMA_getHtmlForConfirmPage($db, $table, $sql_query, $is_drop_database, $goto)
+{
+    $stripped_sql_query = $sql_query;
+    $input = '<input type="hidden" name="%s" value="%s" />';
+    $output = '';
+    if ($is_drop_database) {
+        $output .= '<h1 class="error">';
+        $output .= __('You are about to DESTROY a complete database!');
+        $output .= '</h1>';
+    }
+    $form  = '<form class="disableAjax" action="sql.php" method="post">';
+    $form .= PMA_generate_common_hidden_inputs($db, $table);
+    $form .= sprintf(
+        $input, 'sql_query', htmlspecialchars($sql_query)
+    );
+    $form .= sprintf(
+        $input, 'message_to_show',
+        (isset($message_to_show) ? PMA_sanitize($message_to_show, true) : '')
+    );
+    $form .= sprintf(
+        $input, 'goto', $goto
+    );
+    $form .= sprintf(
+        $input, 'back',
+        (isset($back) ? PMA_sanitize($back, true) : '')
+    );
+    $form .= sprintf(
+        $input, 'reload',
+        (isset($reload) ? PMA_sanitize($reload, true) : '')
+    );
+    $form .= sprintf(
+        $input, 'purge',
+        (isset($purge) ? PMA_sanitize($purge, true) : '')
+    );
+
+    $form .= sprintf(
+        $input, 'dropped_column',
+        (isset($dropped_column) ? PMA_sanitize($dropped_column, true) : '')
+    );
+    $form .= sprintf(
+        $input, 'show_query',
+        (isset($message_to_show) ? PMA_sanitize($show_query, true) : '')
+    );
+    $form = str_replace('%', '%%', $form) . '%s</form>';
+
+    $output .='<fieldset class="confirmation">'
+        .'<legend>'
+        . __('Do you really want to execute the following query?')
+        . '</legend>'
+        .'<code>' . htmlspecialchars($stripped_sql_query) . '</code>'
+        .'</fieldset>'
+        .'<fieldset class="tblFooters">';
+
+    $yes_input  = sprintf($input, 'btnDrop', __('Yes'));
+    $yes_input .= '<input type="submit" value="' . __('Yes') . '" id="buttonYes" />';
+    $no_input   = sprintf($input, 'btnDrop', __('No'));
+    $no_input  .= '<input type="submit" value="' . __('No') . '" id="buttonNo" />';
+
+    $output .= sprintf($form, $yes_input);
+    $output .= sprintf($form, $no_input);
+
+    $output .='</fieldset>';
+    $output .= '';
+
+    return $output;
+}
 ?>
