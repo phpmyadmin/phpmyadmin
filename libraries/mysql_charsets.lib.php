@@ -255,6 +255,7 @@ function PMA_getCollationDescr($collation)
         // Unicode charsets
         case 'ucs2':
         case 'utf8':
+        case 'utf8mb4':
             $descr = __('Unicode') . ' (' . __('multilingual') . ')';
             break;
         // West European charsets
