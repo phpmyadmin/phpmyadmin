@@ -13,10 +13,6 @@ if (! defined('PHPMYADMIN')) {
 if (! defined('TESTSUITE')) {
     header('Content-Type: text/html; charset=utf-8');
 }
-
-require_once 'libraries/Response.class.php';
-PMA_Response::getInstance()->disable();
-
 ?>
 <!DOCTYPE HTML>
 <html lang="<?php echo $lang; ?>" dir="<?php echo $dir; ?>">
