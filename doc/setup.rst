@@ -418,3 +418,5 @@ are always ways to make your installation more secure:
   phpMyAdmin, you can use :config:option:`$cfg['Servers'][$i]['AllowDeny']['rules']` to limit them
 * consider hiding phpMyAdmin behind authentication proxy, so that 
   MySQL credentials are not all users need to login
+* if you are afraid of automated attacks, enabling Captcha by 
+  :config:option:`$cfg['Servers'][$i]['CaptchaLogin']` might be an option
