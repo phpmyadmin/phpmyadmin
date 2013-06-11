@@ -89,7 +89,7 @@ function PMA_Import_progressCheck()
   * @return boolean true if PHP 5.4 session upload-progress is available,
   *                 false if it is not
   */
-function PMA_import_sessionCheck()
+function PMA_Import_sessionCheck()
 {
     if (PMA_PHP_INT_VERSION < 50400
         || ! ini_get('session.upload_progress.enabled')
