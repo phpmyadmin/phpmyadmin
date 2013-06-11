@@ -3140,10 +3140,9 @@ msgid "Target database `%s` was not found!"
 msgstr "`%s` ඉලක්කගත දත්තගබඩාව හමු නොවිණි!"
 
 #: libraries/Table.class.php:1232
-#, fuzzy
 #| msgid "Invalid database"
 msgid "Invalid database:"
-msgstr "වලංගු නොවන දත්තගබඩාව"
+msgstr "වලංගු නොවන දත්තගබඩාව:"
 
 #: libraries/Table.class.php:1246
 #, fuzzy
