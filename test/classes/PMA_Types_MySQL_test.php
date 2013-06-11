@@ -38,7 +38,7 @@ class PMA_Types_MySQL_Test extends PHPUnit_Framework_TestCase
     /**
      * Test for getTypeDescription
      *
-     * @param string $type   The data type to get a description.
+     * @param string $type The data type to get a description.
      *
      * @return void
      *
