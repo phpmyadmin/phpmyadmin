@@ -14,6 +14,7 @@ not set
 - bug #3964 Import using https does not work
 - bug Missing removeCRLF option in ExportCsv and ExportExcel plugins
 - bug #3631 Drop not working Visio schema export.
+- bug #3645 Better handling of invalid ODS documents
 
 4.0.3.0 (2013-06-05)
 - bug #3941 Recent tables list always empty
