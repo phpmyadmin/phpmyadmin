@@ -2156,7 +2156,7 @@ function PMA_getCurrentValueAsAnArrayForMultipleEdit($multi_edit_colummns,
             return $multi_edit_funcs[$key] . '(' . $current_value . ",'"
                    . PMA_Util::sqlAddSlashes($multi_edit_salt[$key]) . "')";
         } else {
-        return $multi_edit_funcs[$key] . '(' . $current_value . ')';
+            return $multi_edit_funcs[$key] . '(' . $current_value . ')';
         }
     } else {
         return $multi_edit_funcs[$key] . '()';
