@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-06-04 17:18+0200\n"
-"PO-Revision-Date: 2013-06-09 18:28+0200\n"
+"PO-Revision-Date: 2013-06-11 05:51+0200\n"
 "Last-Translator: Dadan Setia <da2n_s@yahoo.co.id>\n"
 "Language-Team: Indonesian "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/id/>\n"
@@ -13619,6 +13619,9 @@ msgid ""
 "that do not close database handlers properly get killed sooner. Make sure "
 "the code closes database handlers properly."
 msgstr ""
+"Menaikan{max_connections}, atau mengurangi {wait_timeout} sehingga tidak "
+"menutupi penanganan basis data dengan baik, dapat mematikannya. Pastikan "
+"kode menutupi penanganan basis data dengan benar."
 
 #: libraries/advisory_rules.txt:397
 #, php-format
