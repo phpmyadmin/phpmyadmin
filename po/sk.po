@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-06-04 17:18+0200\n"
-"PO-Revision-Date: 2013-06-11 14:33+0200\n"
+"PO-Revision-Date: 2013-06-11 14:37+0200\n"
 "Last-Translator: Peter Rosa <peter.rosa@pro.sk>\n"
 "Language-Team: Slovak <http://l10n.cihar.com/projects/phpmyadmin/master/sk/>\n"
 "Language: sk\n"
@@ -3593,22 +3593,24 @@ msgid ""
 "An enumeration, chosen from the list of up to 65,535 values or the special "
 "'' error value"
 msgstr ""
+"Vymenovanie hodnôt vybratých zo zoznamu dlhého až 65 535 hodnôt alebo "
+"špeciálna chybová hodnota ''"
 
 #: libraries/Types.class.php:356
 msgid "A single value chosen from a set of up to 64 members"
-msgstr ""
+msgstr "Jediná hodnota vybratá z množiny max. 64 členov"
 
 #: libraries/Types.class.php:358
 msgid "A type that can store a geometry of any type"
-msgstr ""
+msgstr "Tento typ ukladá geometriu akéhokoľvek druhu"
 
 #: libraries/Types.class.php:360
 msgid "A point in 2-dimensional space"
-msgstr ""
+msgstr "Bod vo dvojrozmernom priestore"
 
 #: libraries/Types.class.php:362
 msgid "A curve with linear interpolation between points"
-msgstr ""
+msgstr "Krivka s lineárnou interpoláciou medzi bodmi"
 
 #: libraries/Types.class.php:364
 msgid "A polygon"
@@ -3616,11 +3618,11 @@ msgstr "Polygón"
 
 #: libraries/Types.class.php:366
 msgid "A collection of points"
-msgstr ""
+msgstr "Množina bodov"
 
 #: libraries/Types.class.php:368
 msgid "A collection of curves with linear interpolation between points"
-msgstr ""
+msgstr "Množina kriviek s lineárnou interpoláciou medzi bodmi"
 
 #: libraries/Types.class.php:370
 msgid "A collection of polygons"
