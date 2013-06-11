@@ -3134,6 +3134,11 @@ class PMA_Util
         $engine = strtoupper($engine);
         if (($engine == 'INNODB') || ($engine == 'PBXT')) {
             return true;
+        } elseif ($engine == 'NDBCLUSTER' || $engine == 'NDB') {
+            $ndbver = $GLOBALS['dbi']->fetchValue(
+                "SHOW VARIABLES LIKE 'ndb_version_string'"
+            );
+            return ($ndbver >= 7.3);
         } else {
             return false;
         }

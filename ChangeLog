@@ -15,6 +15,9 @@ phpMyAdmin - ChangeLog
 + rfe #1423 Clarify option text for icon/text settings
 + [interface] Upgraded CodeMirror to 3.x series
 + rfe #1363 Improved query profiler
++ [interface] rfe #1429 Better suggestion for database name
++ rfe #1433 Support relations with ndbcluster
+- bug #3962 Proper escaping of JSON export
 
 4.0.4.0 (not yet released)
 - bug #3959 Using DefaultTabDatabase in NavigationTree for Database Click
@@ -28,6 +31,7 @@ not set
 - bug #3971 Ctrl/shift + click opens links in same window
 - bug #3964 Import using https does not work
 - bug Missing removeCRLF option in ExportCsv and ExportExcel plugins
+- bug #3631 Drop not working Visio schema export.
 
 4.0.3.0 (2013-06-05)
 - bug #3941 Recent tables list always empty

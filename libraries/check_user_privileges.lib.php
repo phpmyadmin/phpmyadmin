@@ -115,7 +115,7 @@ function PMA_analyseShowGrant()
                      * (this case must be rare anyway)
                      */
                     $GLOBALS['db_to_create'] = preg_replace(
-                        '/' . $re0 . '%/',     '\\1...',
+                        '/' . $re0 . '%/',     '\\1',
                         $show_grants_dbname
                     );
                     $GLOBALS['db_to_create'] = preg_replace(
