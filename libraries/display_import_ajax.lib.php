@@ -73,7 +73,7 @@ function PMA_Import_apcCheck()
   * @return boolean true if UploadProgress extension is available,
   *                 false if it is not
   */
-function PMA_import_progressCheck()
+function PMA_Import_progressCheck()
 {
     if (! function_exists("uploadprogress_get_info")
         || ! function_exists('getallheaders')
