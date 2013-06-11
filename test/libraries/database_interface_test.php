@@ -51,7 +51,8 @@ class PMA_DBI_Test extends PHPUnit_Framework_TestCase
      */
     function testFetch()
     {
-        $this->assertEquals(array('1'), $GLOBALS['dbi']->fetchArray(0));
+        $result = $GLOBALS['dbi']->tryQuery('SELECT 1');
+        $this->assertEquals(array('1'), $GLOBALS['dbi']->fetchArray($result));
     }
 
     /**
