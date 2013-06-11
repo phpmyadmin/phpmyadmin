@@ -44,6 +44,8 @@ class PMA_DbSearch_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['ServerDefault'] = 1;
         $GLOBALS['cfg']['MySQLManualType'] = 'viewable';
         $GLOBALS['cfg']['MySQLManualBase'] = 'http://dev.mysql.com/doc/refman';
+        $GLOBALS['cfg']['ShowHint'] = true;
+        $GLOBALS['db'] = 'pma';
     }
 
     /**
@@ -81,8 +83,6 @@ class PMA_DbSearch_Test extends PHPUnit_Framework_TestCase
      */
     public function testGetSearchSqls()
     {
-        $GLOBALS['db'] = 'pma';
-
         $this->assertEquals(
             array (
                 'select_columns' => 'SELECT *  FROM `pma`.`table1` WHERE FALSE',
