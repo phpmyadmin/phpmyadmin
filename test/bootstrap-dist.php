@@ -28,5 +28,6 @@ session_start();
 
 // Standard environment for tests
 $_SESSION[' PMA_token '] = 'token';
+$GLOBALS['lang'] = 'en';
 
 ?>
