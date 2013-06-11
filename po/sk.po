@@ -3626,7 +3626,7 @@ msgstr "Množina kriviek s lineárnou interpoláciou medzi bodmi"
 
 #: libraries/Types.class.php:370
 msgid "A collection of polygons"
-msgstr ""
+msgstr "Množina polygónov"
 
 #: libraries/Types.class.php:372
 msgid "A collection of geometry objects of any type"
