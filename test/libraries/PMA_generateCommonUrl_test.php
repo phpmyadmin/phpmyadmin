@@ -28,7 +28,7 @@ class PMA_GenerateCommonURL_Test extends PHPUnit_Framework_TestCase
 
         $separator = PMA_get_arg_separator();
         $expected = 'server=x' . htmlentities($separator)
-            . 'lang=x' . htmlentities($separator)
+            . 'lang=en' . htmlentities($separator)
             . 'collation_connection=x' . htmlentities($separator)
             . 'token=token'
             ;
@@ -49,7 +49,7 @@ class PMA_GenerateCommonURL_Test extends PHPUnit_Framework_TestCase
 
         $separator = PMA_get_arg_separator();
         $expected = 'server=x' . htmlentities($separator)
-            . 'lang=x' . htmlentities($separator)
+            . 'lang=en' . htmlentities($separator)
             . 'collation_connection=x' . htmlentities($separator)
             . 'token=token'
             ;
@@ -69,7 +69,7 @@ class PMA_GenerateCommonURL_Test extends PHPUnit_Framework_TestCase
 
         $separator = PMA_get_arg_separator();
         $expected = 'server=x' . htmlentities($separator)
-            . 'lang=x' . htmlentities($separator)
+            . 'lang=en' . htmlentities($separator)
             . 'collation_connection=x' . htmlentities($separator)
             . 'token=token'
             ;
@@ -90,7 +90,7 @@ class PMA_GenerateCommonURL_Test extends PHPUnit_Framework_TestCase
 
         $separator = PMA_get_arg_separator();
         $expected = 'server=x' . $separator
-            . 'lang=x' . $separator
+            . 'lang=en' . $separator
             . 'collation_connection=x' . $separator
             . 'token=token'
             ;
@@ -108,7 +108,7 @@ class PMA_GenerateCommonURL_Test extends PHPUnit_Framework_TestCase
 
         $separator = PMA_get_arg_separator();
         $expected = 'server=x' . $separator
-            . 'lang=x' . $separator
+            . 'lang=en' . $separator
             . 'collation_connection=x' . $separator
             . 'token=token'
             ;
@@ -126,7 +126,7 @@ class PMA_GenerateCommonURL_Test extends PHPUnit_Framework_TestCase
 
         $separator = PMA_get_arg_separator();
         $expected = 'server=x' . htmlentities($separator)
-            . 'lang=x' . htmlentities($separator)
+            . 'lang=en' . htmlentities($separator)
             . 'collation_connection=x' . htmlentities($separator)
             . 'token=token'
             ;
