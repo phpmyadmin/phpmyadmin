@@ -31,7 +31,7 @@ class Text_Plain_Append_Test extends PHPUnit_Framework_TestCase
             . ' (enclosed in single quotes, default empty string).';     
         $this->assertEquals(
             $info,
-            Text_Plain_Append_getInfo()
+            Text_Plain_Append::getInfo()
         );  
     
     }
