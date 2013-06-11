@@ -14,6 +14,7 @@ require_once 'libraries/core.lib.php';
 require_once 'libraries/Util.class.php';
 require_once 'libraries/Message.class.php';
 require_once 'libraries/php-gettext/gettext.inc';
+require_once 'libraries/Theme.class.php';
 
 class PMA_Message_Test extends PHPUnit_Framework_TestCase
 {
@@ -33,6 +34,8 @@ class PMA_Message_Test extends PHPUnit_Framework_TestCase
     protected function setUp()
     {
         $this->object = new PMA_Message;
+        $_SESSION['PMA_Theme'] = new PMA_Theme();
+        $GLOBALS['pmaThemeImage'] = 'theme/';
     }
 
     /**
