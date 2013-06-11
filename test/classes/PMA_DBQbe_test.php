@@ -232,6 +232,7 @@ class PMA_DBQbe_Test extends PHPUnit_Framework_TestCase
      */
     public function testGetInsDelAndOrCriteriaRows()
     {
+        $GLOBALS['cell_align_right'] = 'cellAlign';
         $this->assertEquals(
             '<tr class="odd noclick"><td class="cellAlign nowrap"><!-- Row controls --><table class="nospacing nopadding"><tr><td class="cellAlign nowrap"><small>Ins:</small><input type="checkbox" name="criteriaRowInsert[0]" /></td><td class="cellAlign"><strong>And:</strong></td><td><input type="radio" name="criteriaAndOrRow[0]" value="and" /></td></tr><tr><td class="cellAlign nowrap"><small>Del:</small><input type="checkbox" name="criteriaRowDelete[0]" /></td><td class="cellAlign"><strong>Or:</strong></td><td><input type="radio" name="criteriaAndOrRow[0]" value="or" checked="checked" /></td></tr></table></td><td class="center"><input type="text" name="Or0[0]" value="" class="textfield" style="width: 12ex" size="20" /></td><td class="center"><input type="text" name="Or0[1]" value="" class="textfield" style="width: 12ex" size="20" /></td><td class="center"><input type="text" name="Or0[2]" value="" class="textfield" style="width: 12ex" size="20" /></td></tr>',
             $this->_callProtectedFunction(
