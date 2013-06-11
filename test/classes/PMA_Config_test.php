@@ -42,7 +42,6 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
         $GLOBALS['server'] = 0;
         $_SESSION['is_git_revision'] = true;
         $GLOBALS['PMA_Config'] = new PMA_Config(CONFIG_FILE);
-        $_SESSION[' PMA_token '] = 'token';
     }
 
     /**

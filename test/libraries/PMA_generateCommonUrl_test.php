@@ -24,7 +24,6 @@ class PMA_GenerateCommonURL_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['server'] = 'x';
         $GLOBALS['lang'] = 'x';
         $GLOBALS['collation_connection'] = 'x';
-        $_SESSION[' PMA_token '] = 'x';
         $GLOBALS['cfg']['ServerDefault'] = 'y';
 
         $separator = PMA_get_arg_separator();
@@ -46,7 +45,6 @@ class PMA_GenerateCommonURL_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['server'] = 'x';
         $GLOBALS['lang'] = 'x';
         $GLOBALS['collation_connection'] = 'x';
-        $_SESSION[' PMA_token '] = 'x';
         $GLOBALS['cfg']['ServerDefault'] = 'y';
 
         $separator = PMA_get_arg_separator();
@@ -67,7 +65,6 @@ class PMA_GenerateCommonURL_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['server'] = 'x';
         $GLOBALS['lang'] = 'x';
         $GLOBALS['collation_connection'] = 'x';
-        $_SESSION[' PMA_token '] = 'x';
         $GLOBALS['cfg']['ServerDefault'] = 'y';
 
         $separator = PMA_get_arg_separator();
@@ -89,7 +86,6 @@ class PMA_GenerateCommonURL_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['server'] = 'x';
         $GLOBALS['lang'] = 'x';
         $GLOBALS['collation_connection'] = 'x';
-        $_SESSION[' PMA_token '] = 'x';
         $GLOBALS['cfg']['ServerDefault'] = 'y';
 
         $separator = PMA_get_arg_separator();
@@ -108,7 +104,6 @@ class PMA_GenerateCommonURL_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['server'] = 'x';
         $GLOBALS['lang'] = 'x';
         $GLOBALS['collation_connection'] = 'x';
-        $_SESSION[' PMA_token '] = 'x';
         $GLOBALS['cfg']['ServerDefault'] = 'y';
 
         $separator = PMA_get_arg_separator();
@@ -127,7 +122,6 @@ class PMA_GenerateCommonURL_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['server'] = 'x';
         $GLOBALS['lang'] = 'x';
         $GLOBALS['collation_connection'] = 'x';
-        $_SESSION[' PMA_token '] = 'x';
         $GLOBALS['cfg']['ServerDefault'] = 'y';
 
         $separator = PMA_get_arg_separator();

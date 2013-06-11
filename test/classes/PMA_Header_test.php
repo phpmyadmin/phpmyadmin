@@ -43,7 +43,6 @@ class PMA_Header_Test extends PHPUnit_Framework_TestCase
         }
         $GLOBALS['server'] = 0;
         $GLOBALS['lang'] = 'en';
-        $_SESSION[' PMA_token '] = 'token';
         $GLOBALS['message'] = 'phpmyadminmessage';
         $GLOBALS['is_ajax_request'] = false;
         $_SESSION['PMA_Theme'] = new PMA_Theme();

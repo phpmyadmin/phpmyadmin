@@ -27,7 +27,6 @@ class PMA_RTN_GetExecuteForm_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['server'] = 0;
         $cfg['ServerDefault'] = 1;
         $GLOBALS['lang'] = 'en';
-        $_SESSION[' PMA_token '] = 'token';
         $GLOBALS['cfg']['ServerDefault'] = '';
         $cfg['ShowFunctionFields'] = true;
         $cfg['DefaultFunctions']['FUNC_NUMBER'] = '';

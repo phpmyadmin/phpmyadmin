@@ -43,7 +43,6 @@ class PMA_DbSearch_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['server'] = 0;
         $GLOBALS['cfg']['ServerDefault'] = 1;
         $GLOBALS['lang'] = 'en';
-        $_SESSION[' PMA_token '] = 'token';
         $GLOBALS['cfg']['MySQLManualType'] = 'viewable';
         $GLOBALS['cfg']['MySQLManualBase'] = 'http://dev.mysql.com/doc/refman';
     }
@@ -166,7 +165,6 @@ class PMA_DbSearch_Test extends PHPUnit_Framework_TestCase
      */
     public function testGetSelectionForm()
     {
-        $_SESSION[' PMA_token '] = 'token';
         $_SESSION['PMA_Theme'] = new PMA_Theme();
         $GLOBALS['pmaThemeImage'] = 'themes/dot.gif';
         $url_params = array('param1', 'param2');

@@ -37,7 +37,6 @@ class PMA_Table_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $GLOBALS['cfg']['ServerDefault'] = 1;
         $GLOBALS['lang'] = 'en';
-        $_SESSION[' PMA_token '] = 'token';
         $GLOBALS['cfg']['MySQLManualType'] = 'viewable';
         $GLOBALS['cfg']['MySQLManualBase'] = 'http://dev.mysql.com/doc/refman';
         $GLOBALS['cfg']['PropertiesIconic'] = 'both';

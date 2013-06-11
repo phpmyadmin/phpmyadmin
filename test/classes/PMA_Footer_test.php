@@ -63,7 +63,6 @@ class PMA_Footer_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['Server']['verbose'] = 'verbose host';
         $GLOBALS['cfg']['DefaultTabDatabase'] = 'db_structure.php';
         $GLOBALS['server'] = '1';
-        $_SESSION[' PMA_token '] = 'token';
         $_GET['reload_left_frame'] = '1';
         $GLOBALS['focus_querywindow'] = 'main_pane_left';
         $this->object = new PMA_Footer();

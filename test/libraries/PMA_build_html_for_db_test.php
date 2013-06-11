@@ -36,7 +36,6 @@ class PMA_BuildHtmlForDb_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['server'] = 0;
         $cfg['ServerDefault'] = 1;
         $GLOBALS['lang'] = 'en';
-        $_SESSION[' PMA_token '] = 'token';
         $cfg['MySQLManualType'] = 'viewable';
         $cfg['MySQLManualBase'] = 'http://dev.mysql.com/doc/refman';
 
@@ -47,7 +46,6 @@ class PMA_BuildHtmlForDb_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['pmaThemePath'] = $_SESSION['PMA_Theme']->getPath();
         $GLOBALS['pmaThemeImage'] = 'theme/';
 
-        $_SESSION[' PMA_token '] = 'token';
 
         $GLOBALS['cfg']['DefaultTabDatabase'] = 'db_structure.php';
     }

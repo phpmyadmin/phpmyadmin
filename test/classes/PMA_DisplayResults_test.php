@@ -40,7 +40,6 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
         $this->object = new PMA_DisplayResults('as', '', '', '');
         $GLOBALS['PMA_Config'] = new PMA_Config();
         $GLOBALS['PMA_Config']->enableBc();
-        $_SESSION[' PMA_token '] = 'token';
         $GLOBALS['lang'] = 'en';
         $GLOBALS['server'] = 0;
         $GLOBALS['text_dir'] = 'ltr';
@@ -354,7 +353,6 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
         $caption, $title, $pos, $html_sql_query, $output
     ) {
         $GLOBALS['cfg']['NavigationBarIconic'] = true;
-        $_SESSION[' PMA_token '] = 'token';
 
         $this->assertEquals(
             $output,
