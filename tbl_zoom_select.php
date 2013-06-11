@@ -12,7 +12,7 @@
  * Gets some core libraries
  */
 require_once './libraries/common.inc.php';
-require_once './libraries/mysql_charsets.lib.php';
+require_once './libraries/mysql_charsets.inc.php';
 require_once './libraries/TableSearch.class.php';
 require_once './libraries/tbl_info.inc.php';
 

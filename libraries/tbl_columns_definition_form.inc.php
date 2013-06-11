@@ -19,7 +19,7 @@ PMA_Util::checkParameters(array('db', 'table', 'action', 'num_fields'));
 
 
 // Get available character sets and storage engines
-require_once './libraries/mysql_charsets.lib.php';
+require_once './libraries/mysql_charsets.inc.php';
 require_once './libraries/StorageEngine.class.php';
 
 /**
