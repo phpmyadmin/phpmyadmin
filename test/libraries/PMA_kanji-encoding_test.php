@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * tests for Kanji Encoding Library
+ * Tests for Kanji Encoding Library
  *
  * @package PhpMyAdmin-test
  */
@@ -11,108 +11,111 @@
  */
 require_once 'libraries/kanji-encoding.lib.php';
 
+/**
+ * Tests for Kanji Encoding Library
+ *
+ * @package PhpMyAdmin-test
+ */
 class PMA_Kanji_Encoding_Test extends PHPUnit_Framework_TestCase
 {
-    
     /**
      * Test for PMA_Kanji_checkEncoding
-     * 
-     * @param  string $encoding  Encoding to set
-     * @param  strin $expected Expected encoding list
-     * 
-     * @return void             
-     * 
+     *
+     * @param string $encoding Encoding to set
+     * @param string $expected Expected encoding list
+     *
+     * @return void
+     *
      * @dataProvider checkEncodingData
      */
-    public function testPMA_Kanji_checkEncoding($encoding, $expected) {
-        
+    public function testCheckEncoding($encoding, $expected)
+    {
         mb_internal_encoding($encoding);
         $this->assertTrue(PMA_Kanji_checkEncoding());
         $this->assertEquals($expected, $GLOBALS['kanji_encoding_list']);
-    
     }
 
-    
     /**
      * Data provider for testPMA_Kanji_checkEncoding
+     *
      * @return array Test data
      */
-    public function checkEncodingData() {
+    public function checkEncodingData()
+    {
         return array(
             array('UTF-8', 'ASCII,SJIS,EUC-JP,JIS'),
             array('EUC-JP', 'ASCII,EUC-JP,SJIS,JIS')
         );
     }
 
-    
     /**
      * Test for PMA_Kanji_changeOrder
-     * @param  string $kanji_test_list current list
-     * @param  string $expected        expected list
-     * 
+     *
+     * @param string $kanji_test_list current list
+     * @param string $expected        expected list
+     *
      * @return void
-     * 
+     *
      * @dataProvider changeOrderData
      */
-    public function testPMA_Kanji_changeOrder($kanji_test_list, $expected) {
+    public function testChangeOrder($kanji_test_list, $expected)
+    {
         $GLOBALS['kanji_encoding_list'] = $kanji_test_list;
         $this->assertTrue(PMA_Kanji_changeOrder());
         $this->assertEquals($expected, $GLOBALS['kanji_encoding_list']);
     }
 
-    
     /**
      * Data Provider for testPMA_Kanji_changeOrder
-     * 
+     *
      * @return array Test data
      */
-    public function changeOrderData() {
+    public function changeOrderData()
+    {
         return array(
             array('ASCII,SJIS,EUC-JP,JIS', 'ASCII,EUC-JP,SJIS,JIS'),
             array('ASCII,EUC-JP,SJIS,JIS', 'ASCII,SJIS,EUC-JP,JIS')
         );
     }
 
-    
     /**
      * Test for PMA_Kanji_strConv
-     * 
+     *
      * @return void
      */
-    public function testPMA_Kanji_strConv() {
-        
+    public function testStrConv()
+    {
         $this->assertEquals(
-            'test', 
+            'test',
             PMA_Kanji_strConv('test', '', '')
         );
-        
+
         $GLOBALS['kanji_encoding_list'] = 'ASCII,SJIS,EUC-JP,JIS';
-        
+
         $this->assertEquals(
-            'test è', 
+            'test è',
             PMA_Kanji_strConv('test è', '', '')
         );
-        
+
         $this->assertEquals(
-            mb_convert_encoding('test è', 'ASCII', 'SJIS'), 
+            mb_convert_encoding('test è', 'ASCII', 'SJIS'),
             PMA_Kanji_strConv('test è', 'ASCII', '')
         );
 
         $this->assertEquals(
-            mb_convert_kana('全角', 'KV', 'SJIS'), 
+            mb_convert_kana('全角', 'KV', 'SJIS'),
             PMA_Kanji_strConv('全角', '', 'kana')
         );
-
     }
 
 
     /**
      * Test for PMA_Kanji_fileConv
-     * 
+     *
      * @return void
      */
-    public function testPMA_Kanji_fileConv() {
-        
+    public function testFileConv()
+    {
         $file_str = "教育漢字常用漢字";
         $filename = 'test.kanji';
         $file = fopen($filename, 'w');
@@ -128,41 +131,37 @@ class PMA_Kanji_Encoding_Test extends PHPUnit_Framework_TestCase
         PMA_Kanji_changeOrder();
         $this->assertEquals($string, $expected);
         unlink($result);
-
     }
 
 
     /**
      * Test for PMA_Kanji_encodingForm
-     * 
+     *
      * @return void
      */
-    public function testPMA_Kanji_encodingForm() {
-
+    public function testEncodingForm()
+    {
         $actual = PMA_Kanji_encodingForm();
         $this->assertContains(
-            '<input type="radio" name="knjenc"', 
+            '<input type="radio" name="knjenc"',
             $actual
         );
         $this->assertContains(
-            'type="radio" name="knjenc"', 
+            'type="radio" name="knjenc"',
             $actual
         );
         $this->assertContains(
-            '<input type="radio" name="knjenc" value="EUC-JP" id="kj-euc" />', 
+            '<input type="radio" name="knjenc" value="EUC-JP" id="kj-euc" />',
             $actual
         );
         $this->assertContains(
-            '<input type="radio" name="knjenc" value="SJIS" id="kj-sjis" />', 
+            '<input type="radio" name="knjenc" value="SJIS" id="kj-sjis" />',
             $actual
         );
         $this->assertContains(
-            '<input type="checkbox" name="xkana" value="kana" id="kj-kana" />', 
+            '<input type="checkbox" name="xkana" value="kana" id="kj-kana" />',
             $actual
         );
-
     }
-
-
 }
 ?>

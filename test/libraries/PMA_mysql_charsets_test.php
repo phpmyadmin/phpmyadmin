@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * tests for MySQL Charsets
+ * Tests for MySQL Charsets
  *
  * @package PhpMyAdmin-test
  */
@@ -11,33 +11,31 @@
  */
 require_once 'libraries/mysql_charsets.lib.php';
 
+/**
+ * Tests for MySQL Charsets
+ *
+ * @package PhpMyAdmin-test
+ */
 class PMA_MySQL_Charsets_Test extends PHPUnit_Framework_TestCase
 {
-    
-
     /**
      * Test for PMA_generateCharsetQueryPart
-     * 
-     * @dataProvider charsetQueryData
-     * 
-     * @param  bool $drizzle   Value for PMA_DRIZZLE
-     * @param  string $collation Collation
-     * @param  string $expected Expected Charset Query
-     * 
+     *
+     * @param bool   $drizzle   Value for PMA_DRIZZLE
+     * @param string $collation Collation
+     * @param string $expected  Expected Charset Query
+     *
      * @return void
+     * @dataProvider charsetQueryData
      */
-    public function testPMA_generateCharsetQueryPart(
+    public function testGenerateCharsetQueryPart(
         $drizzle, $collation, $expected
     ) {
-
-        if (!function_exists("runkit_constant_redefine")) {
-            
+        if (! function_exists("runkit_constant_redefine")) {
             $this->markTestSkipped(
                 'Cannot redefine constant/function - missing APD or/and runkit extension'
             );
-
         } else {
-            
             if (defined('PMA_DRIZZLE')) {
                 runkit_constant_redefine('PMA_DRIZZLE', $drizzle);
             } else {
@@ -45,17 +43,15 @@ class PMA_MySQL_Charsets_Test extends PHPUnit_Framework_TestCase
             }
 
             $this->assertEquals(
-                $expected, 
+                $expected,
                 PMA_generateCharsetQueryPart($collation)
             );
-
         }
     }
 
-    
     /**
      * Data Provider for testPMA_generateCharsetQueryPart
-     * 
+     *
      * @return array test data
      */
     public function charsetQueryData()
@@ -68,27 +64,23 @@ class PMA_MySQL_Charsets_Test extends PHPUnit_Framework_TestCase
         );
     }
 
-    
+
     /**
      * Test for PMA_getDbCollation
      *
      * @return void
-     * 
+     *
      */
-    public function testPMA_getDbCollation()
+    public function testGetDbCollation()
     {
-        
-         if (!function_exists("runkit_constant_redefine")) {
-            
+        if (! function_exists("runkit_constant_redefine")) {
             $this->markTestSkipped(
                 'Cannot redefine constant/function - missing APD or/and runkit extension'
             );
-            
         } else {
-
             // test case for system schema
             $this->assertEquals(
-                'utf8_general_ci', 
+                'utf8_general_ci',
                 PMA_getDbCollation("information_schema")
             );
 
@@ -111,8 +103,7 @@ class PMA_MySQL_Charsets_Test extends PHPUnit_Framework_TestCase
                 'utf8_general_ci_pma_drizzle',
                 PMA_getDbCollation('pma_test')
             );
-        
-       
+
             $GLOBALS['cfg']['Server']['DisableIS'] = true;
             $GLOBALS['db'] = 'pma_test2';
             $this->assertEquals(
@@ -124,33 +115,32 @@ class PMA_MySQL_Charsets_Test extends PHPUnit_Framework_TestCase
                 $GLOBALS['dummy_db']
             );
         }
-
     }
 
-    
     /**
      * Test case for PMA_getCollationDescr()
-     * 
+     *
      * @param string $collation Collation for which description is reqd
-     * @param string $desc Expected Description
-     * 
+     * @param string $desc      Expected Description
+     *
      * @return void
      * @dataProvider collationDescr
      */
-    public function testPMA_getCollationDescr($collation, $desc) {
+    public function testGetCollationDescr($collation, $desc)
+    {
         $this->assertEquals(
             $desc,
             PMA_getCollationDescr($collation)
         );
     }
 
-    
     /**
      * Data Provider for testPMA_getCollationDescr()
-     * 
+     *
      * @return array Test data for testPMA_getCollationDescr()
      */
-    public function collationDescr() {
+    public function collationDescr()
+    {
         return array(
             array('binary', 'Binary'),
             array('foo_bulgarian_bar', 'Bulgarian'),
@@ -227,37 +217,36 @@ class PMA_MySQL_Charsets_Test extends PHPUnit_Framework_TestCase
         );
     }
 
-    
     /**
      * Test for PMA_generateCharsetDropdownBox
-     * 
+     *
      * @return void
      */
-    public function testPMA_generateCharsetDropdownBox() {
-
+    public function testGenerateCharsetDropdownBox()
+    {
         $GLOBALS['mysql_charsets'] = array('latin1', 'latin2', 'latin3');
         $GLOBALS['mysql_charsets_available'] = array(
-                                                'latin1' => true,
-                                                'latin2' => false,
-                                                'latin3' => true
-                                            );
+            'latin1' => true,
+            'latin2' => false,
+            'latin3' => true
+        );
         $GLOBALS['mysql_charsets_descriptions'] = array(
-                                                'latin1' => 'abc',
-                                                'latin2' => 'def'
-                                            );
+            'latin1' => 'abc',
+            'latin2' => 'def'
+        );
         $GLOBALS['mysql_collations'] = array(
-                                        'latin1' => array(
-                                            'latin1_german1_ci', 
-                                            'latin1_swedish1_ci'
-                                        ),
-                                        'latin2' => array('latin1_general_ci'),
-                                        'latin3' => array()
-                                    );
+            'latin1' => array(
+                'latin1_german1_ci',
+                'latin1_swedish1_ci'
+            ),
+            'latin2' => array('latin1_general_ci'),
+            'latin3' => array()
+        );
         $GLOBALS['mysql_collations_available'] = array(
-                                                 'latin1_german1_ci' => true,
-                                                 'latin1_swedish1_ci' => false,
-                                                 'latin2_general_ci' => true
-                                            );
+             'latin1_german1_ci' => true,
+             'latin1_swedish1_ci' => false,
+             'latin2_general_ci' => true
+        );
         $result = PMA_generateCharsetDropdownBox();
 
         $this->assertContains('name="collation"', $result);
@@ -274,8 +263,8 @@ class PMA_MySQL_Charsets_Test extends PHPUnit_Framework_TestCase
         $this->assertNotContains('value="latin2_general1_ci"', $result);
         $this->assertContains('title="German', $result);
 
-        $result = PMA_generateCharsetDropdownBox(2, null, "test_id", "latin1",
-            false, 0, true, false
+        $result = PMA_generateCharsetDropdownBox(
+            2, null, "test_id", "latin1", false, 0, true, false
         );
         $this->assertContains('name="character_set"', $result);
         $this->assertNotContains('Charset</option>', $result);
@@ -284,17 +273,15 @@ class PMA_MySQL_Charsets_Test extends PHPUnit_Framework_TestCase
         $this->assertContains('selected="selected">latin1', $result);
     }
 
-    
     /**
      * Test for PMA_getServerCollation
-     * 
+     *
      * @return void
      */
-    public function testPMA_getServerCollation() {
-
+    public function testGetServerCollation()
+    {
         $GLOBALS['cfg']['DBG']['sql'] = false;
         $this->assertEquals('utf8_general_ci', PMA_getServerCollation());
-
     }
 }
 ?>
