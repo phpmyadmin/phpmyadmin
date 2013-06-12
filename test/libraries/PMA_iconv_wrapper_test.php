@@ -29,6 +29,7 @@ class PMA_Iconv_Wrapper_Test extends PHPUnit_Framework_TestCase
      * @param string $str                String to test
      *
      * @return void
+     * @test
      * @dataProvider iconvDataProvider
      */
     public function testIconvWrapper($in_charset, $out_charset,

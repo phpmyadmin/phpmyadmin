@@ -23,6 +23,7 @@ class PMA_Charset_Conversion_Test extends PHPUnit_Framework_TestCase
      * Test for PMA_convertString
      *
      * @return void
+     * @test
      */
     public function testCharsetConversion()
     {
@@ -39,7 +40,6 @@ class PMA_Charset_Conversion_Test extends PHPUnit_Framework_TestCase
         );
 
         // TODO: remove function_exists if recode_string exists on server
-
         if (@function_exists('recode_string')) {
             $GLOBALS['PMA_recoding_engine'] = PMA_CHARSET_RECODE;
             $this->assertEquals(

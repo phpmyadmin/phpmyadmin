@@ -25,7 +25,7 @@ class PMA_Kanji_Encoding_Test extends PHPUnit_Framework_TestCase
      * @param string $expected Expected encoding list
      *
      * @return void
-     *
+     * @test
      * @dataProvider checkEncodingData
      */
     public function testCheckEncoding($encoding, $expected)
@@ -55,7 +55,7 @@ class PMA_Kanji_Encoding_Test extends PHPUnit_Framework_TestCase
      * @param string $expected        expected list
      *
      * @return void
-     *
+     * @test
      * @dataProvider changeOrderData
      */
     public function testChangeOrder($kanji_test_list, $expected)
@@ -82,6 +82,7 @@ class PMA_Kanji_Encoding_Test extends PHPUnit_Framework_TestCase
      * Test for PMA_Kanji_strConv
      *
      * @return void
+     * @test
      */
     public function testStrConv()
     {
@@ -113,6 +114,7 @@ class PMA_Kanji_Encoding_Test extends PHPUnit_Framework_TestCase
      * Test for PMA_Kanji_fileConv
      *
      * @return void
+     * @test
      */
     public function testFileConv()
     {
@@ -138,6 +140,7 @@ class PMA_Kanji_Encoding_Test extends PHPUnit_Framework_TestCase
      * Test for PMA_Kanji_encodingForm
      *
      * @return void
+     * @test
      */
     public function testEncodingForm()
     {

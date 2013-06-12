@@ -26,6 +26,7 @@ class PMA_MySQL_Charsets_Test extends PHPUnit_Framework_TestCase
      * @param string $expected  Expected Charset Query
      *
      * @return void
+     * @test
      * @dataProvider charsetQueryData
      */
     public function testGenerateCharsetQueryPart(
@@ -69,7 +70,7 @@ class PMA_MySQL_Charsets_Test extends PHPUnit_Framework_TestCase
      * Test for PMA_getDbCollation
      *
      * @return void
-     *
+     * @test
      */
     public function testGetDbCollation()
     {
@@ -124,6 +125,7 @@ class PMA_MySQL_Charsets_Test extends PHPUnit_Framework_TestCase
      * @param string $desc      Expected Description
      *
      * @return void
+     * @test
      * @dataProvider collationDescr
      */
     public function testGetCollationDescr($collation, $desc)
@@ -221,6 +223,7 @@ class PMA_MySQL_Charsets_Test extends PHPUnit_Framework_TestCase
      * Test for PMA_generateCharsetDropdownBox
      *
      * @return void
+     * @test
      */
     public function testGenerateCharsetDropdownBox()
     {
@@ -277,6 +280,7 @@ class PMA_MySQL_Charsets_Test extends PHPUnit_Framework_TestCase
      * Test for PMA_getServerCollation
      *
      * @return void
+     * @test
      */
     public function testGetServerCollation()
     {
