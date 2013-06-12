@@ -4,9 +4,6 @@
  <property name="source" value="."/>
  <property name="source_comma_sep" value="."/>
 
- <fileset dir="${source}" includes="js/pmd/*.js,js/*.js" id="jsfiles" />
- <pathconvert pathsep=" " property="js-list" refid="jsfiles" />
-
  <target name="clean" description="Clean up and create artifact directories">
   <delete dir="${basedir}/build/api"/>
   <delete dir="${basedir}/build/code-browser"/>
@@ -110,10 +107,25 @@
  </target>
 
  <target name="jshint" description="Javascript checks">
-  <exec executable="jshint" output="${basedir}/build/logs/jslint.xml">
-   <arg line="--config ./.jshintrc --jslint-reporter ${js-list}" />
-  </exec>
+  <apply executable="jshint" output="${basedir}/build/logs/jslint.xml"  parallel="true">
+   <arg line="--config ./.jshintrc --jslint-reporter" />
+   <fileset dir="${basedir}">
+    <include name="js/pmd/*.js" />
+    <include name="js/*.js" />
+   </fileset>
+  </apply>
  </target>
 
- <target name="build" depends="clean,phpunit,pdepend,phpmd,phpcpd,phpcs,phpdoc,phploc,phpcb"/>
+ <target name="lint" description="Perform syntax check of sourcecode files">
+  <apply executable="php" failonerror="true">
+   <arg value="-l" />
+
+   <fileset dir="${basedir}">
+    <include name="**/*.php" />
+    <modified />
+   </fileset>
+  </apply>
+ </target>
+
+ <target name="build" depends="clean,phpunit,pdepend,phpmd,phpcpd,phpcs,phpdoc,phploc,phpcb,lint,jshint"/>
 </project>
