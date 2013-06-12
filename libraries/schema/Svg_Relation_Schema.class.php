@@ -334,10 +334,10 @@ class PMA_SVG extends XMLWriter
  * This class preserves the table co-ordinates,fields
  * and helps in drawing/generating the Tables in SVG XML document.
  *
- * @name Table_Stats
+ * @name Table_Stats_SVG
  * @see PMA_SVG
  */
-class Table_Stats
+class Table_Stats_SVG
 {
     /**
      * Defines properties
@@ -355,7 +355,7 @@ class Table_Stats
     public $primary = array();
 
     /**
-     * The "Table_Stats" constructor
+     * The "Table_Stats_SVG" constructor
      *
      * @param string  $tableName        The table name
      * @param string  $font             Font face
@@ -373,8 +373,8 @@ class Table_Stats
      *
      * @access private
      *
-     * @see PMA_SVG, Table_Stats::Table_Stats_setWidth,
-     *       Table_Stats::Table_Stats_setHeight
+     * @see PMA_SVG, Table_Stats_SVG::Table_Stats_setWidth,
+     *       Table_Stats_SVG::Table_Stats_setHeight
      */
     function __construct(
         $tableName, $font, $fontSize, $pageNumber,
@@ -587,10 +587,10 @@ class Table_Stats
  * master table's master field to foreign table's foreign key
  * in SVG XML document.
  *
- * @name Relation_Stats
+ * @name Relation_Stats_SVG
  * @see PMA_SVG::printElementLine
  */
-class Relation_Stats
+class Relation_Stats_SVG
 {
     /**
      * Defines properties
@@ -602,7 +602,7 @@ class Relation_Stats
     public $wTick = 10;
 
     /**
-     * The "Relation_Stats" constructor
+     * The "Relation_Stats_SVG" constructor
      *
      * @param string $master_table  The master table name
      * @param string $master_field  The relation field in the master table
@@ -611,7 +611,7 @@ class Relation_Stats
      *
      * @return void
      *
-     * @see Relation_Stats::_getXy
+     * @see Relation_Stats_SVG::_getXy
      */
     function __construct($master_table, $master_field, $foreign_table, $foreign_field)
     {
@@ -753,7 +753,7 @@ class Relation_Stats
     }
 }
 /*
-* end of the "Relation_Stats" class
+* end of the "Relation_Stats_SVG" class
 */
 
 /**
@@ -817,7 +817,7 @@ class PMA_Svg_Relation_Schema extends PMA_Export_Relation_Schema
 
         foreach ($alltables as $table) {
             if (! isset($this->_tables[$table])) {
-                $this->_tables[$table] = new Table_Stats(
+                $this->_tables[$table] = new Table_Stats_SVG(
                     $table, $svg->getFont(), $svg->getFontSize(), $this->pageNumber,
                     $this->_tablewidth, $this->showKeys, $this->tableDimension
                 );
@@ -889,27 +889,27 @@ class PMA_Svg_Relation_Schema extends PMA_Export_Relation_Schema
      * @access private
      * @return void
      *
-     * @see _setMinMax,Table_Stats::__construct(),Relation_Stats::__construct()
+     * @see _setMinMax,Table_Stats_SVG::__construct(),Relation_Stats_SVG::__construct()
      */
     private function _addRelation(
         $masterTable,$font,$fontSize, $masterField,
         $foreignTable, $foreignField, $showInfo
     ) {
         if (! isset($this->_tables[$masterTable])) {
-            $this->_tables[$masterTable] = new Table_Stats(
+            $this->_tables[$masterTable] = new Table_Stats_SVG(
                 $masterTable, $font, $fontSize, $this->pageNumber,
                 $this->_tablewidth, false, $showInfo
             );
             $this->_setMinMax($this->_tables[$masterTable]);
         }
         if (! isset($this->_tables[$foreignTable])) {
-            $this->_tables[$foreignTable] = new Table_Stats(
+            $this->_tables[$foreignTable] = new Table_Stats_SVG(
                 $foreignTable, $font, $fontSize, $this->pageNumber,
                 $this->_tablewidth, false, $showInfo
             );
             $this->_setMinMax($this->_tables[$foreignTable]);
         }
-        $this->_relations[] = new Relation_Stats(
+        $this->_relations[] = new Relation_Stats_SVG(
             $this->_tables[$masterTable], $masterField,
             $this->_tables[$foreignTable], $foreignField
         );
@@ -925,7 +925,7 @@ class PMA_Svg_Relation_Schema extends PMA_Export_Relation_Schema
      * @return void
      * @access private
      *
-     * @see Relation_Stats::relationDraw()
+     * @see Relation_Stats_SVG::relationDraw()
      */
     private function _drawRelations($changeColor)
     {
@@ -942,7 +942,7 @@ class PMA_Svg_Relation_Schema extends PMA_Export_Relation_Schema
      * @return void
      * @access private
      *
-     * @see Table_Stats::Table_Stats_tableDraw()
+     * @see Table_Stats_SVG::Table_Stats_tableDraw()
      */
     private function _drawTables($changeColor)
     {

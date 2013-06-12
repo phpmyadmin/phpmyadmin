@@ -369,10 +369,10 @@ class PMA_EPS
  * This class preserves the table co-ordinates,fields
  * and helps in drawing/generating the Tables in EPS.
  *
- * @name Table_Stats
+ * @name Table_Stats_EPS
  * @see PMA_EPS
  */
-class Table_Stats
+class Table_Stats_EPS
 {
     /**
      * Defines properties
@@ -390,7 +390,7 @@ class Table_Stats
     public $primary = array();
 
     /**
-     * The "Table_Stats" constructor
+     * The "Table_Stats_EPS" constructor
      *
      * @param string  $tableName        The table name
      * @param string  $font             The font  name
@@ -407,8 +407,8 @@ class Table_Stats
      * @global string    The current db name
      *
      * @access private
-     * @see PMA_EPS, Table_Stats::Table_Stats_setWidth,
-     *      Table_Stats::Table_Stats_setHeight
+     * @see PMA_EPS, Table_Stats_EPS::Table_Stats_setWidth,
+     *      Table_Stats_EPS::Table_Stats_setHeight
      */
     function __construct(
         $tableName, $font, $fontSize, $pageNumber, &$same_wide_width,
@@ -606,10 +606,10 @@ class Table_Stats
  * master table's master field to foreign table's foreign key
  * in EPS document.
  *
- * @name Relation_Stats
+ * @name Relation_Stats_EPS
  * @see PMA_EPS
  */
-class Relation_Stats
+class Relation_Stats_EPS
 {
     /**
      * Defines properties
@@ -621,14 +621,14 @@ class Relation_Stats
     public $wTick = 10;
 
     /**
-     * The "Relation_Stats" constructor
+     * The "Relation_Stats_EPS" constructor
      *
      * @param string $master_table  The master table name
      * @param string $master_field  The relation field in the master table
      * @param string $foreign_table The foreign table name
      * @param string $foreign_field The relation field in the foreign table
      *
-     * @see Relation_Stats::_getXy
+     * @see Relation_Stats_EPS::_getXy
      */
     function __construct($master_table, $master_field, $foreign_table, $foreign_field)
     {
@@ -784,7 +784,7 @@ class Relation_Stats
     }
 }
 /*
-* end of the "Relation_Stats" class
+* end of the "Relation_Stats_EPS" class
 */
 
 /**
@@ -843,7 +843,7 @@ class PMA_Eps_Relation_Schema extends PMA_Export_Relation_Schema
 
         foreach ($alltables as $table) {
             if (! isset($this->_tables[$table])) {
-                $this->_tables[$table] = new Table_Stats(
+                $this->_tables[$table] = new Table_Stats_EPS(
                     $table, $eps->getFont(), $eps->getFontSize(), $this->pageNumber,
                     $this->_tablewidth, $this->showKeys, $this->tableDimension
                 );
@@ -899,25 +899,25 @@ class PMA_Eps_Relation_Schema extends PMA_Export_Relation_Schema
      * @return void
      *
      * @access private
-     * @see _setMinMax,Table_Stats::__construct(),Relation_Stats::__construct()
+     * @see _setMinMax,Table_Stats_EPS::__construct(),Relation_Stats_EPS::__construct()
      */
     private function _addRelation(
         $masterTable, $font, $fontSize, $masterField,
         $foreignTable, $foreignField, $showInfo
     ) {
         if (! isset($this->_tables[$masterTable])) {
-            $this->_tables[$masterTable] = new Table_Stats(
+            $this->_tables[$masterTable] = new Table_Stats_EPS(
                 $masterTable, $font, $fontSize, $this->pageNumber,
                 $this->_tablewidth, false, $showInfo
             );
         }
         if (! isset($this->_tables[$foreignTable])) {
-            $this->_tables[$foreignTable] = new Table_Stats(
+            $this->_tables[$foreignTable] = new Table_Stats_EPS(
                 $foreignTable, $font, $fontSize, $this->pageNumber,
                 $this->_tablewidth, false, $showInfo
             );
         }
-        $this->_relations[] = new Relation_Stats(
+        $this->_relations[] = new Relation_Stats_EPS(
             $this->_tables[$masterTable], $masterField,
             $this->_tables[$foreignTable], $foreignField
         );
@@ -932,7 +932,7 @@ class PMA_Eps_Relation_Schema extends PMA_Export_Relation_Schema
      * @return void
      *
      * @access private
-     * @see Relation_Stats::relationDraw()
+     * @see Relation_Stats_EPS::relationDraw()
      */
     private function _drawRelations($changeColor)
     {
@@ -949,7 +949,7 @@ class PMA_Eps_Relation_Schema extends PMA_Export_Relation_Schema
      * @return void
      *
      * @access private
-     * @see Table_Stats::Table_Stats_tableDraw()
+     * @see Table_Stats_EPS::Table_Stats_tableDraw()
      */
     private function _drawTables($changeColor)
     {
