@@ -134,7 +134,7 @@ class Text_Plain_Dateformat_Test extends PHPUnit_Framework_TestCase
         $meta = new Text_Plain_Dateformat_Meta();
         $meta->type = 'int';
         $result = '<dfn onclick="alert(\'PMA_BUFFER\');" title="PMA_BUFFER">'
-             . 'Dec 31, 1969 at 11:00 PM</dfn>';
+             . 'Dec 31, 1969 at 10:00 PM</dfn>';
         $this->assertEquals(
             $result,
             $this->object->applyTransformation($buffer, $options, $meta)
@@ -142,7 +142,7 @@ class Text_Plain_Dateformat_Test extends PHPUnit_Framework_TestCase
         
         $meta->type = 'char';
         $result = '<dfn onclick="alert(\'PMA_BUFFER\');" title="PMA_BUFFER">' 
-             . 'Dec 31, 1969 at 11:00 PM</dfn>';
+             . 'Dec 31, 1969 at 10:00 PM</dfn>';
         $this->assertEquals(
             $result,
             $this->object->applyTransformation($buffer, $options, $meta)
