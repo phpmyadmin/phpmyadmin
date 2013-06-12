@@ -247,12 +247,9 @@ class AuthenticationCookie extends AuthenticationPlugin
             $skip = true;
         }
 
-        // Add captcha input field if $cfg['Servers'][$i]['CaptchaLogin']
-        // is set to TRUE.
+        // Add captcha input field if reCaptcha is enabled
         if (  !empty($GLOBALS['cfg']['CaptchaLoginPrivateKey'])
-            && !empty($GLOBALS['cfg']['CaptchaLoginPublicKey'])
-            && isset($GLOBALS['cfg']['Server']['CaptchaLogin'])
-            && $GLOBALS['cfg']['Server']['CaptchaLogin']
+            && !empty($GLOBALS['cfg']['CaptchaLoginPublicKey']))
             && !$skip
         ) {
             // If enabled show captcha to the user on the login screen.
@@ -369,8 +366,6 @@ class AuthenticationCookie extends AuthenticationPlugin
         // Verify Captcha if it is required.
         if (  !empty($GLOBALS['cfg']['CaptchaLoginPrivateKey'])
             && !empty($GLOBALS['cfg']['CaptchaLoginPublicKey'])
-            && isset($GLOBALS['cfg']['Server']['CaptchaLogin'])
-            && $GLOBALS['cfg']['Server']['CaptchaLogin']
             && !$skip
         ) {
             if (  !empty($_POST["recaptcha_challenge_field"])
