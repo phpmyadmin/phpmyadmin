@@ -986,17 +986,6 @@ Server connection settings
     Lifetime in seconds of the ``TABLE STATUS`` cache if
     :config:option:`$cfg['Servers'][$i]['StatusCacheDatabases']` is used.
 
-.. config:option:: $cfg['Servers'][$i]['CaptchaLogin']
-
-    :type: string
-    :default: ``false``
-
-    Enables reCaptcha service for the specific server login screen. Works only
-    with cookie authentication type. It must have 
-    :config:option:`$cfg['CaptchaLoginPublicKey']` and 
-    :config:option:`$cfg['CaptchaLoginPrivateKey']` specified which are the 
-    reCaptcha keys.
-
 Generic settings
 ----------------
 
@@ -1310,8 +1299,7 @@ Cookie authentication options
     The public key for the reCaptcha service that can be obtain from
     http://www.google.com/recaptcha.
 
-    Needs to be enabled in server settings as well using 
-    :config:option:`$cfg['Servers'][$i]['CaptchaLogin']`.
+    reCaptcha will be then used in :ref:`cookie`.
 
 .. config:option:: $cfg['CaptchaLoginPrivateKey']
 
@@ -1321,8 +1309,7 @@ Cookie authentication options
     The private key for the reCaptcha service that can be obtain from
     http://www.google.com/recaptcha.
 
-    Needs to be enabled in server settings as well using 
-    :config:option:`$cfg['Servers'][$i]['CaptchaLogin']`.
+    reCaptcha will be then used in :ref:`cookie`.
 
 Navigation panel setup
 ----------------------

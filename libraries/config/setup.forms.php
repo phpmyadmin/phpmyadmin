@@ -35,8 +35,7 @@ $forms['Servers']['Server'] = array('Servers' => array(1 => array(
     'connect_type',
     'extension',
     'compress',
-    'nopassword',
-    'CaptchaLogin')));
+    'nopassword')));
 $forms['Servers']['Server_auth'] = array('Servers' => array(1 => array(
     'auth_type',
     ':group:' . __('Config authentication'),

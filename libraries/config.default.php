@@ -266,13 +266,6 @@ $cfg['Servers'][$i]['LogoutURL'] = '';
 $cfg['Servers'][$i]['nopassword'] = false;
 
 /**
- * Whether to enable reCaptcha service on the login screen.
- *
- * @global boolean $cfg['Servers'][$i]['recaptcha']
- */
-$cfg['Servers'][$i]['CaptchaLogin'] = false;
-
-/**
  * If set to a db-name, only this db is displayed in navigation panel
  * It may also be an array of db-names
  *
