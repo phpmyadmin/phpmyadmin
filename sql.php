@@ -310,37 +310,6 @@ if (isset($_REQUEST['btnDrop']) && $_REQUEST['btnDrop'] == __('No')) {
     exit();
 } // end if
 
-
-/**
- * Displays the confirm page if required
- *
- * This part of the script is bypassed if $is_js_confirmed = 1 (already checked
- * with js) because possible security issue is not so important here: at most,
- * the confirm message isn't displayed.
- *
- * Also bypassed if only showing php code.or validating a SQL query
- */
-// if we are coming from a "Create PHP code" or a "Without PHP Code"
-// dialog, we won't execute the query anyway, so don't confirm
-if (! $cfg['Confirm']
-    || isset($_REQUEST['is_js_confirmed'])
-    || isset($_REQUEST['btnDrop'])
-    || isset($GLOBALS['show_as_php'])
-    || ! empty($GLOBALS['validatequery'])
-) {
-    $do_confirm = false;
-} else {
-    $do_confirm = isset($analyzed_sql[0]['queryflags']['need_confirm']);
-}
-
-if ($do_confirm) {
-    $html = PMA_getHtmlForConfirmPage($db, $table, $sql_query, $is_drop_database,
-        $goto);
-    PMA_Response::getInstance()->addHTML($html);
-    exit;
-} // end if $do_confirm
-
-
 // Defines some variables
 // A table has to be created, renamed, dropped -> navi frame should be reloaded
 /**
