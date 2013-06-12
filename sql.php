@@ -68,7 +68,7 @@ if (! isset($err_url)) {
 // Coming from a bookmark dialog
 if (isset($_POST['fields']['query'])) {
     $sql_query = $_POST['fields']['query'];
-}elseif (isset($_GET['sql_query'])) {
+} elseif (isset($_GET['sql_query'])) {
     $sql_query = $_GET['sql_query'];
 }
 
