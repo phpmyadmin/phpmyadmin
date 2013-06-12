@@ -6,10 +6,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-06-12 09:39+0200\n"
-"PO-Revision-Date: 2013-06-05 08:34+0200\n"
+"PO-Revision-Date: 2013-06-12 10:03+0200\n"
 "Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
-"Language-Team: Estonian <http://l10n.cihar.com/projects/phpmyadmin/master/et/"
-">\n"
+"Language-Team: Estonian "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/et/>\n"
 "Language: et\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -4083,7 +4083,7 @@ msgstr "Luba kasutajatel seda väärtust muuta"
 
 #: libraries/config/FormDisplay.tpl.php:392
 msgid "Apply"
-msgstr ""
+msgstr "Rakenda"
 
 #: libraries/config/FormDisplay.tpl.php:394 libraries/insert_edit.lib.php:1551
 #: libraries/schema/User_Schema.class.php:554 prefs_manage.php:326
@@ -6255,19 +6255,19 @@ msgstr "ZIP"
 
 #: libraries/config/messages.inc.php:531
 msgid "Enter your public key for your domain reCaptcha service"
-msgstr ""
+msgstr "Sisesta oma domeeni reCaptcha teenusele oma avalik võti"
 
 #: libraries/config/messages.inc.php:532
 msgid "Public key for reCaptcha"
-msgstr ""
+msgstr "reCaptcha avalik võti"
 
 #: libraries/config/messages.inc.php:533
 msgid "Enter your private key for your domain reCaptcha service"
-msgstr ""
+msgstr "Sisesta oma domeeni reCaptcha teenusele oma salajane võti"
 
 #: libraries/config/messages.inc.php:534
 msgid "Private key for reCaptcha"
-msgstr ""
+msgstr "reCaptcha salajane võti"
 
 #: libraries/config/setup.forms.php:41
 msgid "Config authentication"
@@ -7821,11 +7821,11 @@ msgstr "Serveri valik:"
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:386
 msgid "Entered captcha is wrong, try again!"
-msgstr ""
+msgstr "Sisestatud tekst on vale. Proovi uuesti!"
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:395
 msgid "Please enter correct captcha!"
-msgstr ""
+msgstr "Palun sisesta korrektne tekst!"
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:657
 #: libraries/plugins/auth/AuthenticationSignon.class.php:249
@@ -8314,10 +8314,9 @@ msgstr ""
 "see viga ja proovi uuesti."
 
 #: libraries/plugins/import/ImportOds.class.php:182
-#, fuzzy
 #| msgid "OpenDocument Spreadsheet"
 msgid "Could not parse OpenDocument Spreasheet!"
-msgstr "OpenDocument tabel"
+msgstr "OpenDocument tabeli parsimine ebaõnnestus!"
 
 #: libraries/plugins/import/ImportShp.class.php:53
 msgid "ESRI Shape File"
