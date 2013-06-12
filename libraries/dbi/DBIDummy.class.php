@@ -275,7 +275,11 @@ $GLOBALS['dummy_queries'] = array(
         'result' => array(
             array('foo', 'bar'),
         )
-    )
+    ),
+    array(
+        'query' => "SHOW TABLES FROM `phpmyadmin`",
+        'result' => array(),
+    ),
 );
 /**
  * Current database.

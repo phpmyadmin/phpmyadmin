@@ -1,17 +1,16 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4 ft=php: */
 /**
- * Script to parse advisor rules and output them as PHP code which can be used 
- * by gettext for generating po(t) files.
+ * Script to parse advisor rules and output them as Gettext POT formatted
+ * strings for translation.
  */
-
-function format_string($str) {
-    return addcslashes(Advisor::escapePercent($str), '"\\');
-}
 
 $messages = array();
 $locations = array();
 
+/**
+ * Processes single advisor message and stores data in global array.
+ */
 function add_message($rules, $idx, $type) {
     global $messages, $locations;
     // Get message text
@@ -32,6 +31,9 @@ function add_message($rules, $idx, $type) {
     }
 }
 
+/**
+ * Prints message at given location as Gettext string for translation.
+ */
 function print_message($idx) {
     global $messages, $locations;
     echo "\n";

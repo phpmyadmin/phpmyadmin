@@ -250,6 +250,10 @@ phpMyAdmin tried to load the extension but failed. Usually, the
 problem is solved by installing a software package called "PHP-MySQL"
 or something similar.
 
+There are currently two interfaces PHP provides as MySQL extensions - ``mysql``
+and ``mysqli`` you can change which of then is being used by
+:config:option:`$cfg['Servers'][$i]['extension']`.
+
 .. _faq1_21:
 
 1.21 I am running the CGI version of PHP under Unix, and I cannot log in using cookie auth.
@@ -797,7 +801,9 @@ has to be enabled in your PHP.
 If using APC, you must set ``apc.rfc1867`` to ``on`` in your :file:`php.ini`.
 
 If using PHP 5.4.0 or higher, you must set
-``session.upload_progress.enabled`` to ``1`` in your :file:`php.ini`.
+``session.upload_progress.enabled`` to ``1`` in your :file:`php.ini`. However,
+starting from phpMyAdmin version 4.0.4, session-based upload progress has
+been temporarily deactivated due to its problematic behavior. 
 
 .. seealso:: :rfc:`1867`
 

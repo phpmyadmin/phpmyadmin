@@ -128,7 +128,9 @@ var AJAX = {
         // leave the browser deal with it natively (e.g: file download)
         // or leave an existing ajax event handler present elsewhere deal with it
         var href = $(this).attr('href');
-        if ($(this).attr('target')) {
+        if (event.shiftKey || event.ctrlKey) {
+            return true;
+        } else if ($(this).attr('target')) {
             return true;
         } else if ($(this).hasClass('ajax') || $(this).hasClass('disableAjax')) {
             return true;

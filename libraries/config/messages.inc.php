@@ -528,5 +528,9 @@ $strConfigVersionCheckProxyPass_name = __('Version check proxy password');
 
 $strConfigZipDump_desc = __('Enable [a@http://en.wikipedia.org/wiki/ZIP_(file_format)]ZIP[/a] compression for import and export operations');
 $strConfigZipDump_name = __('ZIP');
+$strConfigCaptchaLoginPublicKey_desc  = __('Enter your public key for your domain reCaptcha service');
+$strConfigCaptchaLoginPublicKey_name  = __('Public key for reCaptcha');
+$strConfigCaptchaLoginPrivateKey_desc = __('Enter your private key for your domain reCaptcha service');
+$strConfigCaptchaLoginPrivateKey_name = __('Private key for reCaptcha');
 
 ?>

@@ -33,7 +33,7 @@ $cfgRelation = PMA_getRelationsParam();
 /**
  * Gets available MySQL charsets and storage engines
  */
-require_once 'libraries/mysql_charsets.lib.php';
+require_once 'libraries/mysql_charsets.inc.php';
 require_once 'libraries/StorageEngine.class.php';
 
 /**

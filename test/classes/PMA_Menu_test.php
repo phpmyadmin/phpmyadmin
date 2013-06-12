@@ -42,7 +42,6 @@ class PMA_Menu_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $GLOBALS['server'] = 0;
         $GLOBALS['cfg']['ServerDefault'] = 1;
-        $GLOBALS['lang'] = 'en';
         $GLOBALS['cfg']['Server']['verbose'] = 'verbose host';
         $GLOBALS['cfg']['NavigationBarIconic'] = 'both';
         $_SESSION['PMA_Theme'] = new PMA_Theme();

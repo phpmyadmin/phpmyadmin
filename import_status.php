@@ -7,17 +7,15 @@
 
 /* PHP 5.4 stores upload progress data only in the default session.
  * After calling session_name(), we won't find the progress data anymore.
-
+ *
+ * https://bugs.php.net/bug.php?id=64075
+ *
  * The bug should be somewhere in
  * https://github.com/php/php-src/blob/master/ext/session/session.c#L2342
-
- * Until this is fixed, we need to load the default session to load the data.
- * As we cannot load the phpMyAdmin-session after that, we will try to do
- * an internal POST request to call ourselves in a new instance.
- * That POST request grabs the transmitted upload data and stores them.
  *
- * TODO: The internal HTTP request may fail if the DNS name cannot be resolved
- * or if a firewall blocks outgoing requests on the used port.
+ * Until this is fixed, we need to load the default session to load the data,
+ * export the upload progress information from there,
+ * and re-import after switching to our session.
  */
 
 if (version_compare(PHP_VERSION, '5.4.0', '>=')

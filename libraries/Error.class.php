@@ -305,6 +305,7 @@ class PMA_Error extends PMA_Message
             'mysql_pconnect',
             'mysqli_connect',
             'mysqli_real_connect',
+            'connect',
         );
 
         if (in_array($function, $include_functions)) {
@@ -314,7 +315,8 @@ class PMA_Error extends PMA_Message
         ) {
             $retval .= getType($arg) . ' ********';
         } elseif (is_scalar($arg)) {
-            $retval .= getType($arg) . ' ' . htmlspecialchars($arg);
+            $retval .= getType($arg) . ' '
+                . htmlspecialchars(var_export($arg, true));
         } else {
             $retval .= getType($arg);
         }

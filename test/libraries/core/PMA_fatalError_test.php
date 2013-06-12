@@ -37,7 +37,6 @@ class PMA_FatalError_Test extends PHPUnit_Framework_TestCase
         );
         $GLOBALS['cfg']['OBGzip'] = false;
         $_SESSION['PMA_Theme'] = new PMA_Theme();
-        $_SESSION[' PMA_token '] = 'token';
         $GLOBALS['pmaThemeImage'] = 'theme/';
         $GLOBALS['pmaThemePath'] = $_SESSION['PMA_Theme']->getPath();
         $GLOBALS['server'] = 1;

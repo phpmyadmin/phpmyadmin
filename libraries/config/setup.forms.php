@@ -107,7 +107,9 @@ $forms['Features']['Security'] = array(
     'LoginCookieRecall',
     'LoginCookieValidity',
     'LoginCookieStore',
-    'LoginCookieDeleteAll');
+    'LoginCookieDeleteAll',
+    'CaptchaLoginPublicKey',
+    'CaptchaLoginPrivateKey');
 $forms['Features']['Page_titles'] = array(
     'TitleDefault',
     'TitleTable',

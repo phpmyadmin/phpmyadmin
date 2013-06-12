@@ -905,7 +905,7 @@ class PMA_DatabaseInterface
                 $databases[$database_name]['SCHEMA_NAME']      = $database_name;
 
                 if ($force_stats) {
-                    include_once './libraries/mysql_charsets.lib.php';
+                    include_once './libraries/mysql_charsets.inc.php';
 
                     $databases[$database_name]['DEFAULT_COLLATION_NAME']
                         = PMA_getDbCollation($database_name);
@@ -1448,6 +1448,13 @@ class PMA_DatabaseInterface
      */
     public function postConnect($link, $is_controluser = false)
     {
+        if ($is_controluser) {
+            /*
+             * FIXME: Not sure if this is right approach, but we can not
+             * define constants multiple time.
+             */
+            return;
+        }
         if (! defined('PMA_MYSQL_INT_VERSION')) {
             if (PMA_Util::cacheExists('PMA_MYSQL_INT_VERSION', true)) {
                 define(
@@ -1465,6 +1472,10 @@ class PMA_DatabaseInterface
                 define(
                     'PMA_MYSQL_VERSION_COMMENT',
                     PMA_Util::cacheGet('PMA_MYSQL_VERSION_COMMENT', true)
+                );
+                define(
+                    'PMA_DRIZZLE',
+                    PMA_Util::cacheGet('PMA_DRIZZLE', true)
                 );
             } else {
                 $version = $this->fetchSingleRow(
@@ -1513,10 +1524,25 @@ class PMA_DatabaseInterface
                     PMA_MYSQL_VERSION_COMMENT,
                     true
                 );
+
+                /* Detect Drizzle - it does not support charsets */
+                $charset_result = $this->query(
+                    'SHOW VARIABLES LIKE "character_set_results"',
+                    $link
+                );
+                if ($this->numRows($charset_result) == 0) {
+                    define('PMA_DRIZZLE', true);
+                } else {
+                    define('PMA_DRIZZLE', false);
+                }
+                $this->freeResult($charset_result);
+
+                PMA_Util::cacheSet(
+                    'PMA_DRIZZLE',
+                    PMA_DRIZZLE,
+                    true
+                );
             }
-            // detect Drizzle by version number:
-            // <year>.<month>.<build number>(.<patch rev)
-            define('PMA_DRIZZLE', PMA_MYSQL_MAJOR_VERSION >= 2009);
         }
 
         // Skip charsets for Drizzle
