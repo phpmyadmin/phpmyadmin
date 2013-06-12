@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-06-03 09:16-0400\n"
-"PO-Revision-Date: 2013-06-11 05:51+0200\n"
-"Last-Translator: Dadan Setia <da2n_s@yahoo.co.id>\n"
+"PO-Revision-Date: 2013-06-12 09:48+0200\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Indonesian "
 "<http://l10n.cihar.com/projects/phpmyadmin/4-0/id/>\n"
 "Language: id\n"
@@ -297,7 +297,7 @@ msgstr "Nama basis data kosong!"
 #, php-format
 #| msgid "Database %s has been renamed to %s"
 msgid "Database %1$s has been renamed to %2$s"
-msgstr "Nama basis data %s telah diubah menjadi %s"
+msgstr "Nama basis data %1$s telah diubah menjadi %2$s"
 
 #: db_operations.php:133
 #, fuzzy, php-format
@@ -928,7 +928,7 @@ msgstr "Anda akan MENGHAPUS seluruh tabel!"
 
 #: js/messages.php:33
 msgid "You are about to TRUNCATE a complete table!"
-msgstr "Anda akan MENGOSONGKAN seluruh tabel"
+msgstr "Anda akan MENGOSONGKAN seluruh tabel!"
 
 #: js/messages.php:35
 msgid "Deleting tracking data"
@@ -1478,7 +1478,7 @@ msgstr "Pengelompokan queri, abakan variabel data dalan klausa WHERE"
 
 #: js/messages.php:187
 msgid "Sum of grouped rows:"
-msgstr "Jumlah baris kelompok"
+msgstr "Jumlah baris kelompok:"
 
 #: js/messages.php:188
 msgid "Total:"
@@ -6354,7 +6354,7 @@ msgstr "Mengekspor baris dari tabel \"%s\""
 
 #: libraries/display_export.lib.php:112
 msgid "Export Method:"
-msgstr "Metode Ekspor"
+msgstr "Metode Ekspor:"
 
 #: libraries/display_export.lib.php:122
 msgid "Quick - display only the minimal options"
@@ -7912,7 +7912,7 @@ msgstr ""
 
 #: libraries/plugins/export/ExportSql.class.php:99
 msgid "Additional custom header comment (\\n splits lines):"
-msgstr "Menambahkan komentar judul kustom (\\n memotong baris)"
+msgstr "Menambahkan komentar judul kustom (\\n memotong baris):"
 
 #: libraries/plugins/export/ExportSql.class.php:106
 msgid ""
@@ -9884,7 +9884,7 @@ msgstr "Tidak ada"
 
 #: libraries/tbl_columns_definition_form.inc.php:431
 msgid "As defined:"
-msgstr "Seperti yang didefinisikan"
+msgstr "Seperti yang didefinisikan:"
 
 #: libraries/tbl_columns_definition_form.inc.php:634
 msgid "first"
@@ -10471,7 +10471,7 @@ msgstr "Kelola galat:"
 #: server_replication.php:320
 msgid "Skipping errors might lead into unsynchronized master and slave!"
 msgstr ""
-"Pengabaian galat dapat menyebabkan master dan slave tidak tersinkronisasi"
+"Pengabaian galat dapat menyebabkan master dan slave tidak tersinkronisasi!"
 
 #: server_replication.php:322
 msgid "Skip current error"
@@ -11863,7 +11863,7 @@ msgstr "Judul bagan"
 
 #: tbl_chart.php:184
 msgid "X-Axis:"
-msgstr "Sumbu-X"
+msgstr "Sumbu-X:"
 
 #: tbl_chart.php:200
 msgid "Series:"
@@ -11871,7 +11871,7 @@ msgstr "Seri:"
 
 #: tbl_chart.php:229
 msgid "X-Axis label:"
-msgstr "Label Sumbu-X"
+msgstr "Label Sumbu-X:"
 
 #: tbl_chart.php:232
 msgid "X Values"
@@ -11879,7 +11879,7 @@ msgstr "Nilai X"
 
 #: tbl_chart.php:234
 msgid "Y-Axis label:"
-msgstr "Label Sumbu-Y"
+msgstr "Label Sumbu-Y:"
 
 #: tbl_create.php:32
 #, php-format
@@ -12185,7 +12185,7 @@ msgstr "Buat versi"
 
 #: themes.php:24
 msgid "Get more themes!"
-msgstr "Dapatkan tema lainnya"
+msgstr "Dapatkan tema lainnya!"
 
 #: transformation_overview.php:21
 msgid "Available MIME types"
@@ -13372,7 +13372,7 @@ msgstr ""
 "ukuran {innodb_buffer_pool_size}. {innodb_log_file_size} yang terlalu besar, "
 "dapat memperlambat waktu pemulihan ketika database mengalami kerusakan "
 "parah. Lihat <a href=\"http://www.mysqlperformanceblog.com/2006/07/03"
-"/choosing-proper-innodb_log_file_size/\"> Artikel ini </ a>. Anda perlu "
+"/choosing-proper-innodb_log_file_size/\"> Artikel ini </a>. Anda perlu "
 "shutdown server, menghapus file log InnoDB, menetapkan nilai baru di my.cnf, "
 "mulai server, kemudian periksa log kesalahan jika semuanya berjalan baik-"
 "baik saja. Lihat juga <a "
