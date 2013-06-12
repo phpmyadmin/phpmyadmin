@@ -2279,7 +2279,7 @@ function PMA_getHtmlForDisplaySelectDbInEditPrivs($found_rows)
             // because the list of databases has special characters
             // already escaped in $found_rows,
             // contrary to the output of SHOW DATABASES
-            if (empty($found_rows) || ! in_array($current_db_show, $found_rows)) {
+            if (empty($found_rows) || ! in_array($current_db, $found_rows)) {
                 $html_output .= '<option value="' . htmlspecialchars($current_db) . '">'
                     . htmlspecialchars($current_db_show) . '</option>' . "\n";
             }
@@ -3048,9 +3048,11 @@ function PMA_getHtmlForDisplayUserProperties($dbname_is_wildcard,$url_dbname,
         $html_output .= '<form action="server_privileges.php" '
             . 'id="db_or_table_specific_priv" method="post">' . "\n";
 
+        // unescape wildcards in dbname at table level
+        $unescaped_db = PMA_Util::unescapeMysqlWildcards($dbname);
         list($html_rightsTable, $found_rows)
             = PMA_getTableForDisplayAllTableSpecificRights(
-                $username, $hostname, $link_edit, $link_revoke, $dbname
+                $username, $hostname, $link_edit, $link_revoke, $unescaped_db
             );
         $html_output .= $html_rightsTable;
 
