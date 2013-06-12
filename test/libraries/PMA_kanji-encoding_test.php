@@ -15,7 +15,7 @@ class PMA_Kanji_Encoding_Test extends PHPUnit_Framework_TestCase
 {
     
     /**
-     * Test fp\or PMA_Kanji_checkEncoding
+     * Test for PMA_Kanji_checkEncoding
      * 
      * @param  string $encoding  Encoding to set
      * @param  strin $expected Expected encoding list

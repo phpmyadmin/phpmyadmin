@@ -29,16 +29,27 @@ class PMA_MySQL_Charsets_Test extends PHPUnit_Framework_TestCase
     public function testPMA_generateCharsetQueryPart(
         $drizzle, $collation, $expected
     ) {
-        if (defined('PMA_DRIZZLE')) {
-            runkit_constant_redefine('PMA_DRIZZLE', $drizzle);
-        } else {
-            define('PMA_DRIZZLE', $drizzle);
-        }
 
-        $this->assertEquals(
-            $expected, 
-            PMA_generateCharsetQueryPart($collation)
-        );
+        if (!function_exists("runkit_constant_redefine")) {
+            
+            $this->markTestSkipped(
+                'Cannot redefine constant/function - missing APD or/and runkit extension'
+            );
+
+        } else {
+            
+            if (defined('PMA_DRIZZLE')) {
+                runkit_constant_redefine('PMA_DRIZZLE', $drizzle);
+            } else {
+                define('PMA_DRIZZLE', $drizzle);
+            }
+
+            $this->assertEquals(
+                $expected, 
+                PMA_generateCharsetQueryPart($collation)
+            );
+
+        }
     }
 
     
@@ -67,43 +78,52 @@ class PMA_MySQL_Charsets_Test extends PHPUnit_Framework_TestCase
     public function testPMA_getDbCollation()
     {
         
-        // test case for system schema
-        $this->assertEquals(
-            'utf8_general_ci', 
-            PMA_getDbCollation("information_schema")
-        );
-
-        // test case with no pma drizzle
-        if (defined('PMA_DRIZZLE')) {
-            runkit_constant_redefine('PMA_DRIZZLE', false);
+         if (!function_exists("runkit_constant_redefine")) {
+            
+            $this->markTestSkipped(
+                'Cannot redefine constant/function - missing APD or/and runkit extension'
+            );
+            
         } else {
-            define('PMA_DRIZZLE', false);
-        }
-        $GLOBALS['cfg']['Server']['DisableIS'] = false;
-        $GLOBALS['cfg']['DBG']['sql'] = false;
-        $this->assertEquals(
-            'utf8_general_ci',
-            PMA_getDbCollation('pma_test')
-        );
 
-        // test case with pma drizzle as true
-        runkit_constant_redefine('PMA_DRIZZLE', true);
-        $this->assertEquals(
-            'utf8_general_ci_pma_drizzle',
-            PMA_getDbCollation('pma_test')
-        );
+            // test case for system schema
+            $this->assertEquals(
+                'utf8_general_ci', 
+                PMA_getDbCollation("information_schema")
+            );
+
+            // test case with no pma drizzle
+            if (defined('PMA_DRIZZLE')) {
+                runkit_constant_redefine('PMA_DRIZZLE', false);
+            } else {
+                define('PMA_DRIZZLE', false);
+            }
+            $GLOBALS['cfg']['Server']['DisableIS'] = false;
+            $GLOBALS['cfg']['DBG']['sql'] = false;
+            $this->assertEquals(
+                'utf8_general_ci',
+                PMA_getDbCollation('pma_test')
+            );
+
+            // test case with pma drizzle as true
+            runkit_constant_redefine('PMA_DRIZZLE', true);
+            $this->assertEquals(
+                'utf8_general_ci_pma_drizzle',
+                PMA_getDbCollation('pma_test')
+            );
         
        
-        $GLOBALS['cfg']['Server']['DisableIS'] = true;
-        $GLOBALS['db'] = 'pma_test2';
-        $this->assertEquals(
-            'bar',
-            PMA_getDbCollation('pma_test')
-        );
-        $this->assertNotEquals(
-            'pma_test',
-            $GLOBALS['dummy_db']
-        );
+            $GLOBALS['cfg']['Server']['DisableIS'] = true;
+            $GLOBALS['db'] = 'pma_test2';
+            $this->assertEquals(
+                'bar',
+                PMA_getDbCollation('pma_test')
+            );
+            $this->assertNotEquals(
+                'pma_test',
+                $GLOBALS['dummy_db']
+            );
+        }
 
     }
 
