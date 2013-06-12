@@ -773,7 +773,11 @@ if (isset($GLOBALS['show_as_php']) || ! empty($GLOBALS['validatequery'])) {
         ) {
             // "j u s t   b r o w s i n g"
             $justBrowsing = true;
-            $unlim_num_rows = PMA_Table::countRecords($db, $table);
+            $unlim_num_rows = PMA_Table::countRecords(
+                $db, 
+                $table, 
+                $force_exact = true
+            );
 
         } else { // n o t   " j u s t   b r o w s i n g "
 
