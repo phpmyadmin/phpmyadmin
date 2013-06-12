@@ -26,6 +26,7 @@ class PMA_Charset_Conversion_Test extends PHPUnit_Framework_TestCase
             PMA_convertString('UTF-8', 'UTF-8', 'test')
         );
         
+        // 6 represents an arbitrary value for testing the default case
         $GLOBALS['PMA_recoding_engine'] = 6;
         $this->assertEquals(
             'test', 
