@@ -249,7 +249,7 @@ class AuthenticationCookie extends AuthenticationPlugin
 
         // Add captcha input field if reCaptcha is enabled
         if (  !empty($GLOBALS['cfg']['CaptchaLoginPrivateKey'])
-            && !empty($GLOBALS['cfg']['CaptchaLoginPublicKey']))
+            && !empty($GLOBALS['cfg']['CaptchaLoginPublicKey'])
             && !$skip
         ) {
             // If enabled show captcha to the user on the login screen.
