@@ -34,6 +34,7 @@ not set
 - bug Missing removeCRLF option in ExportCsv and ExportExcel plugins
 - bug #3631 Drop not working Visio schema export.
 - bug #3645 Better handling of invalid ODS documents
+- bug #3976 Number of pages
 
 4.0.3.0 (2013-06-05)
 - bug #3941 Recent tables list always empty
