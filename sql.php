@@ -17,6 +17,7 @@ require_once 'libraries/Header.class.php';
 require_once 'libraries/check_user_privileges.lib.php';
 require_once 'libraries/bookmark.lib.php';
 require_once 'libraries/sql.lib.php';
+require_once 'libraries/sqlparser.lib.php';
 
 $response = PMA_Response::getInstance();
 $header   = $response->getHeader();
@@ -198,12 +199,6 @@ if (empty($sql_query) && strlen($table) && strlen($db)) {
     PMA_Util::checkParameters(array('sql_query'));
 }
 
-// instead of doing the test twice
-$is_drop_database = preg_match(
-    '/DROP[[:space:]]+(DATABASE|SCHEMA)[[:space:]]+/i',
-    $sql_query
-);
-
 /**
  * Check rights in case of DROP DATABASE
  *
@@ -213,7 +208,7 @@ $is_drop_database = preg_match(
  */
 if (! defined('PMA_CHK_DROP')
     && ! $cfg['AllowUserDropDatabase']
-    && $is_drop_database
+    && PMA_isDropDatabase($sql_query)
     && ! $is_superuser
 ) {
     PMA_Util::mysqlDie(
