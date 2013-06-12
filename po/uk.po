@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-06-12 09:07+0200\n"
+"POT-Creation-Date: 2013-06-12 09:39+0200\n"
 "PO-Revision-Date: 2013-02-13 18:54+0200\n"
 "Last-Translator: Andrey Prokopenko <aprk@ukr.net>\n"
 "Language-Team: Ukrainian <http://l10n.cihar.com/projects/phpmyadmin/master/"
@@ -60,7 +60,7 @@ msgstr "Шукати"
 #: libraries/operations.lib.php:639 libraries/operations.lib.php:692
 #: libraries/operations.lib.php:741 libraries/operations.lib.php:1057
 #: libraries/operations.lib.php:1341
-#: libraries/plugins/auth/AuthenticationCookie.class.php:279
+#: libraries/plugins/auth/AuthenticationCookie.class.php:276
 #: libraries/replication_gui.lib.php:79 libraries/replication_gui.lib.php:396
 #: libraries/rte/rte_events.lib.php:542
 #: libraries/rte/rte_routines.lib.php:1081
@@ -74,7 +74,7 @@ msgstr "Шукати"
 #: libraries/server_privileges.lib.php:1479
 #: libraries/server_privileges.lib.php:1971
 #: libraries/server_privileges.lib.php:2563
-#: libraries/server_privileges.lib.php:3089
+#: libraries/server_privileges.lib.php:3091
 #: libraries/sql_query_form.lib.php:378 libraries/sql_query_form.lib.php:435
 #: libraries/sql_query_form.lib.php:500 libraries/structure.lib.php:1582
 #: libraries/tbl_columns_definition_form.inc.php:754 pmd_pdf.php:151
@@ -311,7 +311,7 @@ msgstr ""
 "натисніть %sтут%s."
 
 #: db_printview.php:47 db_tracking.php:79 db_tracking.php:198
-#: libraries/Menu.class.php:190 libraries/config/messages.inc.php:512
+#: libraries/Menu.class.php:190 libraries/config/messages.inc.php:510
 #: libraries/plugins/export/ExportXml.class.php:459
 #: libraries/rte/rte_list.lib.php:65 libraries/rte/rte_triggers.lib.php:355
 #: libraries/schema/User_Schema.class.php:298
@@ -379,7 +379,7 @@ msgstr "Перемкнутись на %sвізуальний конструкт�
 
 #: db_search.php:30 libraries/plugins/auth/AuthenticationConfig.class.php:81
 #: libraries/plugins/auth/AuthenticationConfig.class.php:96
-#: libraries/plugins/auth/AuthenticationCookie.class.php:666
+#: libraries/plugins/auth/AuthenticationCookie.class.php:661
 #: libraries/plugins/auth/AuthenticationHttp.class.php:65
 #: libraries/plugins/auth/AuthenticationSignon.class.php:253
 msgid "Access denied"
@@ -394,7 +394,7 @@ msgid "Tracked tables"
 msgstr "Відслідковувані таблиці"
 
 #: db_tracking.php:78 libraries/Menu.class.php:167
-#: libraries/config/messages.inc.php:506
+#: libraries/config/messages.inc.php:504
 #: libraries/plugins/export/ExportHtmlword.class.php:158
 #: libraries/plugins/export/ExportOdt.class.php:203
 #: libraries/plugins/export/ExportTexytext.class.php:142
@@ -1713,7 +1713,7 @@ msgstr "Показати блок запиту"
 #: js/messages.php:264 libraries/DisplayResults.class.php:3314
 #: libraries/Index.class.php:591 libraries/Util.class.php:699
 #: libraries/Util.class.php:1246 libraries/Util.class.php:3453
-#: libraries/Util.class.php:3454 libraries/config/messages.inc.php:488
+#: libraries/Util.class.php:3454 libraries/config/messages.inc.php:486
 #: libraries/schema/User_Schema.class.php:216 server_variables.php:130
 #: setup/frames/index.inc.php:147
 msgid "Edit"
@@ -2903,7 +2903,7 @@ msgstr ""
 "вилученим."
 
 #: libraries/Menu.class.php:150 libraries/ServerStatusData.class.php:339
-#: libraries/config/messages.inc.php:510
+#: libraries/config/messages.inc.php:508
 msgid "Server"
 msgstr "Сервер"
 
@@ -2915,8 +2915,8 @@ msgstr "Подання"
 
 #: libraries/Menu.class.php:256 libraries/Menu.class.php:340
 #: libraries/Util.class.php:3225 libraries/Util.class.php:3232
-#: libraries/Util.class.php:3448 libraries/config/setup.forms.php:299
-#: libraries/config/setup.forms.php:336 libraries/config/setup.forms.php:362
+#: libraries/Util.class.php:3448 libraries/config/setup.forms.php:298
+#: libraries/config/setup.forms.php:335 libraries/config/setup.forms.php:361
 #: libraries/config/user_preferences.forms.php:195
 #: libraries/config/user_preferences.forms.php:232
 #: libraries/config/user_preferences.forms.php:258
@@ -3699,7 +3699,7 @@ msgstr "Відповідь MySQL: "
 msgid "Failed to connect to SQL validator!"
 msgstr "Не вдалося пид'єднатися до SQL валідатора!"
 
-#: libraries/Util.class.php:1212 libraries/config/messages.inc.php:489
+#: libraries/Util.class.php:1212 libraries/config/messages.inc.php:487
 msgid "Explain SQL"
 msgstr "Тлумачити SQL"
 
@@ -3711,11 +3711,11 @@ msgstr "Не тлумачити SQL"
 msgid "Without PHP Code"
 msgstr "без PHP коду"
 
-#: libraries/Util.class.php:1263 libraries/config/messages.inc.php:491
+#: libraries/Util.class.php:1263 libraries/config/messages.inc.php:489
 msgid "Create PHP Code"
 msgstr "Створити PHP код"
 
-#: libraries/Util.class.php:1289 libraries/config/messages.inc.php:490
+#: libraries/Util.class.php:1289 libraries/config/messages.inc.php:488
 #: server_status_variables.php:80
 msgid "Refresh"
 msgstr "Оновити"
@@ -3724,7 +3724,7 @@ msgstr "Оновити"
 msgid "Skip Validate SQL"
 msgstr "Не перевіряти SQL"
 
-#: libraries/Util.class.php:1302 libraries/config/messages.inc.php:493
+#: libraries/Util.class.php:1302 libraries/config/messages.inc.php:491
 msgid "Validate SQL"
 msgstr "Перевірити SQL"
 
@@ -3827,9 +3827,9 @@ msgstr "Остання перевірка"
 msgid "shared"
 msgstr "загальні"
 
-#: libraries/build_html_for_db.lib.php:36 libraries/config/setup.forms.php:308
-#: libraries/config/setup.forms.php:344 libraries/config/setup.forms.php:367
-#: libraries/config/setup.forms.php:372
+#: libraries/build_html_for_db.lib.php:36 libraries/config/setup.forms.php:307
+#: libraries/config/setup.forms.php:343 libraries/config/setup.forms.php:366
+#: libraries/config/setup.forms.php:371
 #: libraries/config/user_preferences.forms.php:204
 #: libraries/config/user_preferences.forms.php:240
 #: libraries/config/user_preferences.forms.php:263
@@ -4654,8 +4654,8 @@ msgstr "Налаштувати режим перегляду"
 msgid "Customize default options"
 msgstr "Налаштувати опції по замовчуванню"
 
-#: libraries/config/messages.inc.php:156 libraries/config/setup.forms.php:246
-#: libraries/config/setup.forms.php:319
+#: libraries/config/messages.inc.php:156 libraries/config/setup.forms.php:245
+#: libraries/config/setup.forms.php:318
 #: libraries/config/user_preferences.forms.php:144
 #: libraries/config/user_preferences.forms.php:215
 msgid "CSV"
@@ -5770,16 +5770,6 @@ msgid "Connect without password"
 msgstr "З’єднуватись без паролю"
 
 #: libraries/config/messages.inc.php:408
-msgid "Check if you want tp use reCaptcha on the login screen"
-msgstr ""
-
-#: libraries/config/messages.inc.php:409
-#, fuzzy
-#| msgid "Table Search"
-msgid "Enable reCaptcha"
-msgstr "Пошук в таблиці"
-
-#: libraries/config/messages.inc.php:410
 #, fuzzy
 #| msgid ""
 #| "You can use MySQL wildcard characters (% and _), escape them if you want "
@@ -5799,28 +5789,28 @@ msgstr ""
 "їх імена в певному порядку і використовувати [kbd]*[/kbd] в кінці для "
 "виведення залишилися в алфавітному порядку."
 
-#: libraries/config/messages.inc.php:411
+#: libraries/config/messages.inc.php:409
 msgid "Show only listed databases"
 msgstr "Показати лише перелічені бази даних"
 
-#: libraries/config/messages.inc.php:412 libraries/config/messages.inc.php:453
+#: libraries/config/messages.inc.php:410 libraries/config/messages.inc.php:451
 msgid "Leave empty if not using config auth"
 msgstr "Залишити пустим, якщо не використовувати config auth"
 
-#: libraries/config/messages.inc.php:413
+#: libraries/config/messages.inc.php:411
 msgid "Password for config auth"
 msgstr "Пароль для config auth"
 
-#: libraries/config/messages.inc.php:414
+#: libraries/config/messages.inc.php:412
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__pdf_pages[/kbd]"
 msgstr ""
 
-#: libraries/config/messages.inc.php:415
+#: libraries/config/messages.inc.php:413
 msgid "PDF schema: pages table"
 msgstr "PDF схема: сторінки таблиці"
 
-#: libraries/config/messages.inc.php:416
+#: libraries/config/messages.inc.php:414
 msgid ""
 "Database used for relations, bookmarks, and PDF features. See [a@http://wiki."
 "phpmyadmin.net/pma/pmadb]pmadb[/a] for complete information. Leave blank for "
@@ -5831,49 +5821,49 @@ msgstr ""
 "pmadb]pmadb[/a]. Для відключення підтримки, залиште поле порожнім. "
 "Рекомендується: [kbd]phpmyadmin[/kbd]"
 
-#: libraries/config/messages.inc.php:417
+#: libraries/config/messages.inc.php:415
 msgid "Database name"
 msgstr "Ім'я бази даних"
 
-#: libraries/config/messages.inc.php:418
+#: libraries/config/messages.inc.php:416
 msgid "Port on which MySQL server is listening, leave empty for default"
 msgstr ""
 "Порт на якому MySQL сервер прослуховується, залишити пустим для значення за "
 "замовчуванням"
 
-#: libraries/config/messages.inc.php:419
+#: libraries/config/messages.inc.php:417
 msgid "Server port"
 msgstr "Порт сервера"
 
-#: libraries/config/messages.inc.php:420
+#: libraries/config/messages.inc.php:418
 msgid ""
 "Leave blank for no \"persistent\" recently used tables across sessions, "
 "suggested: [kbd]pma__recent[/kbd]"
 msgstr ""
 
-#: libraries/config/messages.inc.php:421
+#: libraries/config/messages.inc.php:419
 msgid "Recently used table"
 msgstr "Нещодавно використані таблиці"
 
-#: libraries/config/messages.inc.php:422
+#: libraries/config/messages.inc.php:420
 msgid ""
 "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
 "links[/a] support, suggested: [kbd]pma__relation[/kbd]"
 msgstr ""
 
-#: libraries/config/messages.inc.php:423
+#: libraries/config/messages.inc.php:421
 msgid "Relation table"
 msgstr "Таблиця зв'язків"
 
-#: libraries/config/messages.inc.php:424
+#: libraries/config/messages.inc.php:422
 msgid "SQL command to fetch available databases"
 msgstr "SQL команда для вибірки доступних баз даних"
 
-#: libraries/config/messages.inc.php:425
+#: libraries/config/messages.inc.php:423
 msgid "SHOW DATABASES command"
 msgstr "Команда SHOW DATABASES"
 
-#: libraries/config/messages.inc.php:426
+#: libraries/config/messages.inc.php:424
 msgid ""
 "See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
 "types[/a] for an example"
@@ -5881,63 +5871,63 @@ msgstr ""
 "Дивись [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
 "types[/a] для прикладу"
 
-#: libraries/config/messages.inc.php:427
+#: libraries/config/messages.inc.php:425
 msgid "Signon session name"
 msgstr "Ім'я сесії для Signon"
 
-#: libraries/config/messages.inc.php:428
+#: libraries/config/messages.inc.php:426
 msgid "Signon URL"
 msgstr "Signon URL-адреса"
 
-#: libraries/config/messages.inc.php:429
+#: libraries/config/messages.inc.php:427
 msgid "Socket on which MySQL server is listening, leave empty for default"
 msgstr ""
 "Сокет на якому працює сервер MySQL, для значення за замовчуванням, залиште "
 "порожнім"
 
-#: libraries/config/messages.inc.php:430
+#: libraries/config/messages.inc.php:428
 msgid "Server socket"
 msgstr "Сокет серверу"
 
-#: libraries/config/messages.inc.php:431
+#: libraries/config/messages.inc.php:429
 msgid "Enable SSL for connection to MySQL server"
 msgstr "Активувати SSL для з’єднання з MySQL сервером"
 
-#: libraries/config/messages.inc.php:432
+#: libraries/config/messages.inc.php:430
 msgid "Use SSL"
 msgstr "Використовувати SSL"
 
-#: libraries/config/messages.inc.php:433
+#: libraries/config/messages.inc.php:431
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__table_coords[/"
 "kbd]"
 msgstr ""
 
-#: libraries/config/messages.inc.php:434
+#: libraries/config/messages.inc.php:432
 msgid "PDF schema: table coordinates"
 msgstr "PDF схема: координати таблиць"
 
-#: libraries/config/messages.inc.php:435
+#: libraries/config/messages.inc.php:433
 msgid ""
 "Table to describe the display columns, leave blank for no support; "
 "suggested: [kbd]pma__table_info[/kbd]"
 msgstr ""
 
-#: libraries/config/messages.inc.php:436
+#: libraries/config/messages.inc.php:434
 msgid "Display columns table"
 msgstr "Таблиця з описами полів"
 
-#: libraries/config/messages.inc.php:437
+#: libraries/config/messages.inc.php:435
 msgid ""
 "Leave blank for no \"persistent\" tables' UI preferences across sessions, "
 "suggested: [kbd]pma__table_uiprefs[/kbd]"
 msgstr ""
 
-#: libraries/config/messages.inc.php:438
+#: libraries/config/messages.inc.php:436
 msgid "UI preferences table"
 msgstr "Таблиця налаштувань користувацького інтерфейсу"
 
-#: libraries/config/messages.inc.php:439
+#: libraries/config/messages.inc.php:437
 msgid ""
 "Whether a DROP DATABASE IF EXISTS statement will be added as first line to "
 "the log when creating a database."
@@ -5945,11 +5935,11 @@ msgstr ""
 "Чи буде при створенні бази даних, в журнал першим рядком додано вираз DROP "
 "DATABASE IF EXISTS."
 
-#: libraries/config/messages.inc.php:440
+#: libraries/config/messages.inc.php:438
 msgid "Add DROP DATABASE"
 msgstr "Додати DROP DATABASE"
 
-#: libraries/config/messages.inc.php:441
+#: libraries/config/messages.inc.php:439
 msgid ""
 "Whether a DROP TABLE IF EXISTS statement will be added as first line to the "
 "log when creating a table."
@@ -5957,11 +5947,11 @@ msgstr ""
 "Чи буде при створенні бази даних, в журнал першим рядком додано вираз DROP "
 "DATABASE IF EXISTS."
 
-#: libraries/config/messages.inc.php:442
+#: libraries/config/messages.inc.php:440
 msgid "Add DROP TABLE"
 msgstr "Додати DROP TABLE"
 
-#: libraries/config/messages.inc.php:443
+#: libraries/config/messages.inc.php:441
 msgid ""
 "Whether a DROP VIEW IF EXISTS statement will be added as first line to the "
 "log when creating a view."
@@ -5969,74 +5959,74 @@ msgstr ""
 "Чи буде при створенні вистави, в журнал першим рядком додано вираз DROP VIEW "
 "IF EXISTS."
 
-#: libraries/config/messages.inc.php:444
+#: libraries/config/messages.inc.php:442
 msgid "Add DROP VIEW"
 msgstr "Додати DROP VIEW"
 
-#: libraries/config/messages.inc.php:445
+#: libraries/config/messages.inc.php:443
 msgid "Defines the list of statements the auto-creation uses for new versions."
 msgstr ""
 "Визначити список виразів, які використовуються для автоматичного створення "
 "нових версій."
 
-#: libraries/config/messages.inc.php:446
+#: libraries/config/messages.inc.php:444
 msgid "Statements to track"
 msgstr "Стеження за виразами"
 
-#: libraries/config/messages.inc.php:447
+#: libraries/config/messages.inc.php:445
 msgid ""
 "Leave blank for no SQL query tracking support, suggested: "
 "[kbd]pma__tracking[/kbd]"
 msgstr ""
 
-#: libraries/config/messages.inc.php:448
+#: libraries/config/messages.inc.php:446
 msgid "SQL query tracking table"
 msgstr "Таблиця відстежування SQL запитів"
 
-#: libraries/config/messages.inc.php:449
+#: libraries/config/messages.inc.php:447
 msgid ""
 "Whether the tracking mechanism creates versions for tables and views "
 "automatically."
 msgstr ""
 "Чи механізм відстеження створює версії для таблиць і подань автоматично."
 
-#: libraries/config/messages.inc.php:450
+#: libraries/config/messages.inc.php:448
 msgid "Automatically create versions"
 msgstr "Автоматично створювати версії"
 
-#: libraries/config/messages.inc.php:451
+#: libraries/config/messages.inc.php:449
 msgid ""
 "Leave blank for no user preferences storage in database, suggested: "
 "[kbd]pma__userconfig[/kbd]"
 msgstr ""
 
-#: libraries/config/messages.inc.php:452
+#: libraries/config/messages.inc.php:450
 msgid "User preferences storage table"
 msgstr "Таблиця збереження налаштувань користувача"
 
-#: libraries/config/messages.inc.php:454
+#: libraries/config/messages.inc.php:452
 msgid "User for config auth"
 msgstr "Прописаний користувач"
 
-#: libraries/config/messages.inc.php:455
+#: libraries/config/messages.inc.php:453
 msgid ""
 "A user-friendly description of this server. Leave blank to display the "
 "hostname instead."
 msgstr "Користувацький опис сервера. Залиште пустим, щоб вивести назву хоста."
 
-#: libraries/config/messages.inc.php:456
+#: libraries/config/messages.inc.php:454
 msgid "Verbose name of this server"
 msgstr "Повна назва цього сервера"
 
-#: libraries/config/messages.inc.php:457
+#: libraries/config/messages.inc.php:455
 msgid "Whether a user should be displayed a &quot;show all (rows)&quot; button"
 msgstr "Чи користувачеві має відображатися кнопка на \"показати всі (рядки)\""
 
-#: libraries/config/messages.inc.php:458
+#: libraries/config/messages.inc.php:456
 msgid "Allow to display all the rows"
 msgstr "Дозволити відображати всі рядки"
 
-#: libraries/config/messages.inc.php:459
+#: libraries/config/messages.inc.php:457
 msgid ""
 "Please note that enabling this has no effect with [kbd]config[/kbd] "
 "authentication mode because the password is hard coded in the configuration "
@@ -6046,43 +6036,43 @@ msgstr ""
 "при ідентифікації методом [kbd]config[/kbd] через жорстко прописаного "
 "пароля. Зміна пароля в конфігураційному файлі безпосередньо ніяк не обмежена"
 
-#: libraries/config/messages.inc.php:460
+#: libraries/config/messages.inc.php:458
 msgid "Show password change form"
 msgstr "Показати форму для зміни паролю"
 
-#: libraries/config/messages.inc.php:461
+#: libraries/config/messages.inc.php:459
 msgid "Show create database form"
 msgstr "Показати форму для створення бази даних"
 
-#: libraries/config/messages.inc.php:462
+#: libraries/config/messages.inc.php:460
 msgid "Show or hide a column displaying the Creation timestamp for all tables"
 msgstr ""
 
-#: libraries/config/messages.inc.php:463
+#: libraries/config/messages.inc.php:461
 #, fuzzy
 #| msgid "Show PHP information"
 msgid "Show Creation timestamp"
 msgstr "Показати інформацію про PHP"
 
-#: libraries/config/messages.inc.php:464
+#: libraries/config/messages.inc.php:462
 msgid ""
 "Show or hide a column displaying the Last update timestamp for all tables"
 msgstr ""
 
-#: libraries/config/messages.inc.php:465
+#: libraries/config/messages.inc.php:463
 msgid "Show Last update timestamp"
 msgstr ""
 
-#: libraries/config/messages.inc.php:466
+#: libraries/config/messages.inc.php:464
 msgid ""
 "Show or hide a column displaying the Last check timestamp for all tables"
 msgstr ""
 
-#: libraries/config/messages.inc.php:467
+#: libraries/config/messages.inc.php:465
 msgid "Show Last check timestamp"
 msgstr ""
 
-#: libraries/config/messages.inc.php:468
+#: libraries/config/messages.inc.php:466
 msgid ""
 "Defines whether or not type display direction option is shown when browsing "
 "a table"
@@ -6090,11 +6080,11 @@ msgstr ""
 "Визначає, чи буде показуватися при перегляді таблиці параметр типу напрямку "
 "відображення"
 
-#: libraries/config/messages.inc.php:469
+#: libraries/config/messages.inc.php:467
 msgid "Show display direction"
 msgstr "Показати напрямком відображення"
 
-#: libraries/config/messages.inc.php:470
+#: libraries/config/messages.inc.php:468
 msgid ""
 "Defines whether or not type fields should be initially displayed in edit/"
 "insert mode"
@@ -6102,27 +6092,27 @@ msgstr ""
 "Визначає, чи в режимі редагування/вставки має на початку відображатися тип "
 "поля"
 
-#: libraries/config/messages.inc.php:471
+#: libraries/config/messages.inc.php:469
 msgid "Show field types"
 msgstr "Показувати типи полів"
 
-#: libraries/config/messages.inc.php:472
+#: libraries/config/messages.inc.php:470
 msgid "Display the function fields in edit/insert mode"
 msgstr "Відображувати поля функції у режим редагування/вставки"
 
-#: libraries/config/messages.inc.php:473
+#: libraries/config/messages.inc.php:471
 msgid "Show function fields"
 msgstr "Показувати поля функції"
 
-#: libraries/config/messages.inc.php:474
+#: libraries/config/messages.inc.php:472
 msgid "Whether to show hint or not"
 msgstr "Чи показувати підказки"
 
-#: libraries/config/messages.inc.php:475
+#: libraries/config/messages.inc.php:473
 msgid "Show hint"
 msgstr "Відображати підказки"
 
-#: libraries/config/messages.inc.php:476
+#: libraries/config/messages.inc.php:474
 msgid ""
 "Shows link to [a@http://php.net/manual/function.phpinfo.php]phpinfo()[/a] "
 "output"
@@ -6130,62 +6120,62 @@ msgstr ""
 "Показує посилання на [a@http://php.net/manual/function.phpinfo.php]phpinfo()"
 "[/a]"
 
-#: libraries/config/messages.inc.php:477
+#: libraries/config/messages.inc.php:475
 msgid "Show phpinfo() link"
 msgstr "Показувати посилання phpinfo()"
 
-#: libraries/config/messages.inc.php:478
+#: libraries/config/messages.inc.php:476
 msgid "Show detailed MySQL server information"
 msgstr "Показувати докладну інформацію про сервер MySQL"
 
-#: libraries/config/messages.inc.php:479
+#: libraries/config/messages.inc.php:477
 msgid "Defines whether SQL queries generated by phpMyAdmin should be displayed"
 msgstr "Визначає, чи мають відображатися SQL запити, що згенеровані PHPMyAdmin"
 
-#: libraries/config/messages.inc.php:480
+#: libraries/config/messages.inc.php:478
 msgid "Show SQL queries"
 msgstr "Показувати SQL-запити"
 
-#: libraries/config/messages.inc.php:481
+#: libraries/config/messages.inc.php:479
 msgid ""
 "Defines whether the query box should stay on-screen after its submission"
 msgstr ""
 "Визначає, чи має залишатися вікно запиту на екрані після надсилання запиту"
 
-#: libraries/config/messages.inc.php:482 libraries/sql_query_form.lib.php:373
+#: libraries/config/messages.inc.php:480 libraries/sql_query_form.lib.php:373
 msgid "Retain query box"
 msgstr "Залишати вікно запиту"
 
-#: libraries/config/messages.inc.php:483
+#: libraries/config/messages.inc.php:481
 msgid "Allow to display database and table statistics (eg. space usage)"
 msgstr ""
 "Дозволити показ статистики бази даних і таблиць (наприклад, використання "
 "простору)"
 
-#: libraries/config/messages.inc.php:484
+#: libraries/config/messages.inc.php:482
 msgid "Show statistics"
 msgstr "Показувати статистику"
 
-#: libraries/config/messages.inc.php:485
+#: libraries/config/messages.inc.php:483
 msgid "Display table comments in tooltips"
 msgstr "Коментарі таблиці в спливаючих підказках"
 
-#: libraries/config/messages.inc.php:486
+#: libraries/config/messages.inc.php:484
 msgid ""
 "Mark used tables and make it possible to show databases with locked tables"
 msgstr ""
 "Відзначати використані таблиці і зробити можливим відображення баз даних із "
 "заблокованими таблицями"
 
-#: libraries/config/messages.inc.php:487
+#: libraries/config/messages.inc.php:485
 msgid "Skip locked tables"
 msgstr "Пропускати заблоковані таблиці"
 
-#: libraries/config/messages.inc.php:492
+#: libraries/config/messages.inc.php:490
 msgid "Requires SQL Validator to be enabled"
 msgstr "Має бути увімкнений SQL валідатор"
 
-#: libraries/config/messages.inc.php:494 libraries/replication_gui.lib.php:65
+#: libraries/config/messages.inc.php:492 libraries/replication_gui.lib.php:65
 #: libraries/replication_gui.lib.php:365 libraries/replication_gui.lib.php:375
 #: libraries/server_privileges.lib.php:1195
 #: libraries/server_privileges.lib.php:1219
@@ -6193,7 +6183,7 @@ msgstr "Має бути увімкнений SQL валідатор"
 msgid "Password"
 msgstr "Пароль"
 
-#: libraries/config/messages.inc.php:495
+#: libraries/config/messages.inc.php:493
 msgid ""
 "[strong]Warning:[/strong] requires PHP SOAP extension or PEAR SOAP to be "
 "installed"
@@ -6201,11 +6191,11 @@ msgstr ""
 "[strong]УВАГА:[/strong] має бути встановлено розширення PHP SOAP або PEAR "
 "SOAP"
 
-#: libraries/config/messages.inc.php:496
+#: libraries/config/messages.inc.php:494
 msgid "Enable SQL Validator"
 msgstr "Увімкнути SQL валідатор"
 
-#: libraries/config/messages.inc.php:497
+#: libraries/config/messages.inc.php:495
 msgid ""
 "If you have a custom username, specify it here (defaults to [kbd]anonymous[/"
 "kbd])"
@@ -6213,20 +6203,20 @@ msgstr ""
 "При наявності виділеного імені користувача, пропишіть його тут (по "
 "замовчуванню використовується [kbd]anonymous[/kbd])"
 
-#: libraries/config/messages.inc.php:498 tbl_tracking.php:556
+#: libraries/config/messages.inc.php:496 tbl_tracking.php:556
 #: tbl_tracking.php:618
 msgid "Username"
 msgstr "Ім'я користувача"
 
-#: libraries/config/messages.inc.php:499
+#: libraries/config/messages.inc.php:497
 msgid "A warning is displayed on the main page if Suhosin is detected"
 msgstr "При визначенні Suhosin, на головній сторінці виводиться попередження"
 
-#: libraries/config/messages.inc.php:500
+#: libraries/config/messages.inc.php:498
 msgid "Suhosin warning"
 msgstr "Попередження про Suhosin"
 
-#: libraries/config/messages.inc.php:501
+#: libraries/config/messages.inc.php:499
 msgid ""
 "Textarea size (columns) in edit mode, this value will be emphasized for SQL "
 "query textareas (*2) and for query window (*1.25)"
@@ -6234,11 +6224,11 @@ msgstr ""
 "Розмір текстового поля в режимі редагування (у стовпцях); дане значення буде "
 "пріоритетним для текстових полів SQL запиту (*2) і для вікна запиту (*1.25)"
 
-#: libraries/config/messages.inc.php:502
+#: libraries/config/messages.inc.php:500
 msgid "Textarea columns"
 msgstr "Стовпців у текстовому полі"
 
-#: libraries/config/messages.inc.php:503
+#: libraries/config/messages.inc.php:501
 msgid ""
 "Textarea size (rows) in edit mode, this value will be emphasized for SQL "
 "query textareas (*2) and for query window (*1.25)"
@@ -6246,31 +6236,31 @@ msgstr ""
 "Розмір текстового поля в режимі редагування (в рядках); дане значення буде "
 "пріоритетним для текстових полів SQL запиту (*2) і для вікна запиту (*1.25)"
 
-#: libraries/config/messages.inc.php:504
+#: libraries/config/messages.inc.php:502
 msgid "Textarea rows"
 msgstr "Рядків у текстовому полі"
 
-#: libraries/config/messages.inc.php:505
+#: libraries/config/messages.inc.php:503
 msgid "Title of browser window when a database is selected"
 msgstr "Заголовок вікна браузера при виборі бази даних"
 
-#: libraries/config/messages.inc.php:507
+#: libraries/config/messages.inc.php:505
 msgid "Title of browser window when nothing is selected"
 msgstr "Заголовок вікна браузера за замовчуванням"
 
-#: libraries/config/messages.inc.php:508
+#: libraries/config/messages.inc.php:506
 msgid "Default title"
 msgstr "Заголовок по замовчуванню"
 
-#: libraries/config/messages.inc.php:509
+#: libraries/config/messages.inc.php:507
 msgid "Title of browser window when a server is selected"
 msgstr "Заголовок вікна браузера при виборі сервера"
 
-#: libraries/config/messages.inc.php:511
+#: libraries/config/messages.inc.php:509
 msgid "Title of browser window when a table is selected"
 msgstr "Заголовок вікна браузера при виборі таблиці"
 
-#: libraries/config/messages.inc.php:513
+#: libraries/config/messages.inc.php:511
 msgid ""
 "Input proxies as [kbd]IP: trusted HTTP header[/kbd]. The following example "
 "specifies that phpMyAdmin should trust a HTTP_X_FORWARDED_FOR (X-Forwarded-"
@@ -6282,29 +6272,29 @@ msgstr ""
 "Forwarded-For) заголовку, що прийшов з проксі 1.2.3.4: [br][kbd]1.2.3.4:"
 "HTTP_X_FORWARDED_FOR[/kbd]"
 
-#: libraries/config/messages.inc.php:514
+#: libraries/config/messages.inc.php:512
 msgid "List of trusted proxies for IP allow/deny"
 msgstr "Список довірених проксі для IP allow/deny"
 
-#: libraries/config/messages.inc.php:515
+#: libraries/config/messages.inc.php:513
 msgid "Directory on server where you can upload files for import"
 msgstr ""
 "Каталог на сервері, в який ви можете відвантажувати файли для подальшого "
 "імпорту"
 
-#: libraries/config/messages.inc.php:516
+#: libraries/config/messages.inc.php:514
 msgid "Upload directory"
 msgstr "Каталог відвантаження"
 
-#: libraries/config/messages.inc.php:517
+#: libraries/config/messages.inc.php:515
 msgid "Allow for searching inside the entire database"
 msgstr "Дозволити пошук по всій базі даних"
 
-#: libraries/config/messages.inc.php:518
+#: libraries/config/messages.inc.php:516
 msgid "Use database search"
 msgstr "Використовувати пошук по базі даних"
 
-#: libraries/config/messages.inc.php:519
+#: libraries/config/messages.inc.php:517
 msgid ""
 "When disabled, users cannot set any of the options below, regardless of the "
 "checkbox on the right"
@@ -6312,20 +6302,20 @@ msgstr ""
 "При відключенні, користувачі не зможуть встановити ніякі із зазначених нижче "
 "параметрів, незалежно від галочки праворуч від них"
 
-#: libraries/config/messages.inc.php:520
+#: libraries/config/messages.inc.php:518
 msgid "Enable the Developer tab in settings"
 msgstr "Включення вкладки розробника в налаштуваннях"
 
-#: libraries/config/messages.inc.php:521 setup/frames/index.inc.php:275
+#: libraries/config/messages.inc.php:519 setup/frames/index.inc.php:275
 msgid "Check for latest version"
 msgstr "Перевірити оновлення"
 
-#: libraries/config/messages.inc.php:522
+#: libraries/config/messages.inc.php:520
 msgid "Enables check for latest version on main phpMyAdmin page"
 msgstr ""
 "Включає можливість перевірки останньої версії phpMyAdmin на головній сторінці"
 
-#: libraries/config/messages.inc.php:523 setup/lib/index.lib.php:132
+#: libraries/config/messages.inc.php:521 setup/lib/index.lib.php:132
 #: setup/lib/index.lib.php:143 setup/lib/index.lib.php:164
 #: setup/lib/index.lib.php:175 setup/lib/index.lib.php:187
 #: setup/lib/index.lib.php:195 setup/lib/index.lib.php:202
@@ -6333,7 +6323,7 @@ msgstr ""
 msgid "Version check"
 msgstr "перевірка версії"
 
-#: libraries/config/messages.inc.php:524
+#: libraries/config/messages.inc.php:522
 msgid ""
 "The url of the proxy to be used when retrieving the information about the "
 "latest version of phpMyAdmin. You need this if the server where phpMyAdmin "
@@ -6341,36 +6331,36 @@ msgid ""
 "\"hostname:portnumber\""
 msgstr ""
 
-#: libraries/config/messages.inc.php:525
+#: libraries/config/messages.inc.php:523
 #, fuzzy
 #| msgid "Version check"
 msgid "Version check proxy url"
 msgstr "перевірка версії"
 
-#: libraries/config/messages.inc.php:526
+#: libraries/config/messages.inc.php:524
 msgid ""
 "The username for authenticating with the proxy. By default, no "
 "authentication is performed. If a username is supplied, Basic Authentication "
 "will be performed. No other types of authentication are currently supported."
 msgstr ""
 
-#: libraries/config/messages.inc.php:527
+#: libraries/config/messages.inc.php:525
 #, fuzzy
 #| msgid "Version check"
 msgid "Version check proxy username"
 msgstr "перевірка версії"
 
-#: libraries/config/messages.inc.php:528
+#: libraries/config/messages.inc.php:526
 msgid "The password for authenticating with the proxy"
 msgstr ""
 
-#: libraries/config/messages.inc.php:529
+#: libraries/config/messages.inc.php:527
 #, fuzzy
 #| msgid "Version check"
 msgid "Version check proxy password"
 msgstr "перевірка версії"
 
-#: libraries/config/messages.inc.php:531
+#: libraries/config/messages.inc.php:529
 msgid ""
 "Enable [a@http://en.wikipedia.org/wiki/ZIP_(file_format)]ZIP[/a] compression "
 "for import and export operations"
@@ -6378,48 +6368,48 @@ msgstr ""
 "Включити [a@http://en.wikipedia.org/wiki/ZIP_(file_format)]ZIP[/a] "
 "архівування для операцій імпорту та експорту"
 
-#: libraries/config/messages.inc.php:532
+#: libraries/config/messages.inc.php:530
 msgid "ZIP"
 msgstr "ZIP"
 
-#: libraries/config/messages.inc.php:533
+#: libraries/config/messages.inc.php:531
 msgid "Enter your public key for your domain reCaptcha service"
 msgstr ""
 
-#: libraries/config/messages.inc.php:534
+#: libraries/config/messages.inc.php:532
 msgid "Public key for reCaptcha"
 msgstr ""
 
-#: libraries/config/messages.inc.php:535
+#: libraries/config/messages.inc.php:533
 msgid "Enter your private key for your domain reCaptcha service"
 msgstr ""
 
-#: libraries/config/messages.inc.php:536
+#: libraries/config/messages.inc.php:534
 msgid "Private key for reCaptcha"
 msgstr ""
 
-#: libraries/config/setup.forms.php:42
+#: libraries/config/setup.forms.php:41
 msgid "Config authentication"
 msgstr "Авторизація через файл конфігурації"
 
-#: libraries/config/setup.forms.php:46
+#: libraries/config/setup.forms.php:45
 msgid "Cookie authentication"
 msgstr "Авторизація за допомогою cookie"
 
-#: libraries/config/setup.forms.php:49
+#: libraries/config/setup.forms.php:48
 msgid "HTTP authentication"
 msgstr "Авторизація за допомогою HTTP"
 
-#: libraries/config/setup.forms.php:52
+#: libraries/config/setup.forms.php:51
 msgid "Signon authentication"
 msgstr "Авторизація за допомогою Signon"
 
-#: libraries/config/setup.forms.php:254
+#: libraries/config/setup.forms.php:253
 #: libraries/config/user_preferences.forms.php:152
 msgid "CSV using LOAD DATA"
 msgstr "CSV, використовуючи LOAD DATA"
 
-#: libraries/config/setup.forms.php:263 libraries/config/setup.forms.php:356
+#: libraries/config/setup.forms.php:262 libraries/config/setup.forms.php:355
 #: libraries/config/user_preferences.forms.php:160
 #: libraries/config/user_preferences.forms.php:252
 #, fuzzy
@@ -6427,32 +6417,32 @@ msgstr "CSV, використовуючи LOAD DATA"
 msgid "OpenDocument Spreadsheet"
 msgstr "Відкрити документ електронної таблиці"
 
-#: libraries/config/setup.forms.php:270
+#: libraries/config/setup.forms.php:269
 #: libraries/config/user_preferences.forms.php:167
 msgid "Quick"
 msgstr "Швидко"
 
-#: libraries/config/setup.forms.php:274
+#: libraries/config/setup.forms.php:273
 #: libraries/config/user_preferences.forms.php:171
 msgid "Custom"
 msgstr "Звичайно"
 
-#: libraries/config/setup.forms.php:295
+#: libraries/config/setup.forms.php:294
 #: libraries/config/user_preferences.forms.php:191
 msgid "Database export options"
 msgstr "Параметри експорту бази даних"
 
-#: libraries/config/setup.forms.php:328
+#: libraries/config/setup.forms.php:327
 #: libraries/config/user_preferences.forms.php:224
 msgid "CSV for MS Excel"
 msgstr "CSV для даних MS Excel"
 
-#: libraries/config/setup.forms.php:351
+#: libraries/config/setup.forms.php:350
 #: libraries/config/user_preferences.forms.php:247
 msgid "Microsoft Word 2000"
 msgstr "Microsoft Word 2000"
 
-#: libraries/config/setup.forms.php:360
+#: libraries/config/setup.forms.php:359
 #: libraries/config/user_preferences.forms.php:256
 #, fuzzy
 #| msgid "Open Document Text"
@@ -8023,28 +8013,28 @@ msgstr "Ім'я користувача:"
 msgid "Server Choice:"
 msgstr "Вибір сервера"
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:391
+#: libraries/plugins/auth/AuthenticationCookie.class.php:386
 msgid "Entered captcha is wrong, try again!"
 msgstr ""
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:400
+#: libraries/plugins/auth/AuthenticationCookie.class.php:395
 msgid "Please enter correct captcha!"
 msgstr ""
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:662
+#: libraries/plugins/auth/AuthenticationCookie.class.php:657
 #: libraries/plugins/auth/AuthenticationSignon.class.php:249
 msgid ""
 "Login without a password is forbidden by configuration (see AllowNoPassword)"
 msgstr "Авторизація без паролю заборонена в настройках (див. AllowNoPassword)"
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:669
+#: libraries/plugins/auth/AuthenticationCookie.class.php:664
 #: libraries/plugins/auth/AuthenticationSignon.class.php:256
 #, php-format
 msgid "No activity within %s seconds; please log in again"
 msgstr "Відсутня діяльність протягом %s секунд; будь ласка, увійдіть знову"
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:674
-#: libraries/plugins/auth/AuthenticationCookie.class.php:676
+#: libraries/plugins/auth/AuthenticationCookie.class.php:669
+#: libraries/plugins/auth/AuthenticationCookie.class.php:671
 #: libraries/plugins/auth/AuthenticationSignon.class.php:265
 msgid "Cannot log in to the MySQL server"
 msgstr "Не можу зареєструватися на MySQL сервері"
@@ -10066,7 +10056,7 @@ msgstr ""
 msgid "The selected user was not found in the privilege table."
 msgstr "Вказаного користувача не знайдено в таблиці прав."
 
-#: libraries/server_privileges.lib.php:3247
+#: libraries/server_privileges.lib.php:3249
 msgid "You have added a new user."
 msgstr "Ви додали нового користувача."
 
@@ -14297,6 +14287,11 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert встановлений у 0"
+
+#, fuzzy
+#~| msgid "Table Search"
+#~ msgid "Enable reCaptcha"
+#~ msgstr "Пошук в таблиці"
 
 #~ msgid "Cookies must be enabled past this point."
 #~ msgstr "З цього моменту Cookies повинні бути дозволені."
