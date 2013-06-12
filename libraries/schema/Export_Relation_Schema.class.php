@@ -12,6 +12,8 @@ if (! defined('PHPMYADMIN')) {
  * This class is inherited by all schema classes
  * It contains those methods which are common in them
  * it works like factory pattern
+ *
+ * @package PhpMyAdmin
  */
 class PMA_Export_Relation_Schema
 {
