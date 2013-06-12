@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-06-12 09:07+0200\n"
-"PO-Revision-Date: 2013-06-05 09:02+0200\n"
+"PO-Revision-Date: 2013-06-12 09:37+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Czech <http://l10n.cihar.com/projects/phpmyadmin/master/cs/>\n"
 "Language: cs\n"
@@ -4083,7 +4083,7 @@ msgstr "Povolit uživatelům změnit tuto hodnotu"
 
 #: libraries/config/FormDisplay.tpl.php:392
 msgid "Apply"
-msgstr ""
+msgstr "Použít"
 
 #: libraries/config/FormDisplay.tpl.php:394 libraries/insert_edit.lib.php:1551
 #: libraries/schema/User_Schema.class.php:554 prefs_manage.php:326
@@ -6263,19 +6263,19 @@ msgstr "ZIP"
 
 #: libraries/config/messages.inc.php:533
 msgid "Enter your public key for your domain reCaptcha service"
-msgstr ""
+msgstr "Zadejte veřejný klíč pro službu reCaptcha"
 
 #: libraries/config/messages.inc.php:534
 msgid "Public key for reCaptcha"
-msgstr ""
+msgstr "Veřejný klíč reCaptcha"
 
 #: libraries/config/messages.inc.php:535
 msgid "Enter your private key for your domain reCaptcha service"
-msgstr ""
+msgstr "Zadejte soukromý klíč pro službu reCaptcha"
 
 #: libraries/config/messages.inc.php:536
 msgid "Private key for reCaptcha"
-msgstr ""
+msgstr "Soukromý klíč reCaptcha"
 
 #: libraries/config/setup.forms.php:42
 msgid "Config authentication"
@@ -7833,11 +7833,11 @@ msgstr "Volba serveru:"
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:391
 msgid "Entered captcha is wrong, try again!"
-msgstr ""
+msgstr "Zadaný kód nebyl správný, zkuste to znovu!"
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:400
 msgid "Please enter correct captcha!"
-msgstr ""
+msgstr "Zadejte, prosím, správný kód!"
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:662
 #: libraries/plugins/auth/AuthenticationSignon.class.php:249
@@ -8326,10 +8326,9 @@ msgstr ""
 "zkuste to znovu."
 
 #: libraries/plugins/import/ImportOds.class.php:182
-#, fuzzy
 #| msgid "OpenDocument Spreadsheet"
 msgid "Could not parse OpenDocument Spreasheet!"
-msgstr "Sešit OpenDocument"
+msgstr "Nepodařilo se otevřít Sešit OpenDocument!"
 
 #: libraries/plugins/import/ImportShp.class.php:53
 msgid "ESRI Shape File"
