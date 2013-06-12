@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-06-12 09:07+0200\n"
-"PO-Revision-Date: 2013-06-05 08:16+0200\n"
+"PO-Revision-Date: 2013-06-12 09:36+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: Greek <http://l10n.cihar.com/projects/phpmyadmin/master/el/>\n"
 "Language: el\n"
@@ -4137,7 +4137,7 @@ msgstr "Επιτρέπεται στους χρήστες να προσαρμόσ
 
 #: libraries/config/FormDisplay.tpl.php:392
 msgid "Apply"
-msgstr ""
+msgstr "Εφαρμογή"
 
 #: libraries/config/FormDisplay.tpl.php:394 libraries/insert_edit.lib.php:1551
 #: libraries/schema/User_Schema.class.php:554 prefs_manage.php:326
@@ -5736,13 +5736,12 @@ msgstr "Σύνδεση χωρίς κωδικό πρόσβασης"
 
 #: libraries/config/messages.inc.php:408
 msgid "Check if you want tp use reCaptcha on the login screen"
-msgstr ""
+msgstr "Επιλέξτε το αν θέλετε να χρησιμοποιήσετε reCaptcha στην οθόνη σύνδεσης"
 
 #: libraries/config/messages.inc.php:409
-#, fuzzy
 #| msgid "Table Search"
 msgid "Enable reCaptcha"
-msgstr "Αναζήτηση Πίνακα"
+msgstr "Ενεργοποίηση reCaptcha"
 
 #: libraries/config/messages.inc.php:410
 msgid ""
@@ -6369,19 +6368,19 @@ msgstr "ZIP"
 
 #: libraries/config/messages.inc.php:533
 msgid "Enter your public key for your domain reCaptcha service"
-msgstr ""
+msgstr "Εισάγετε το δημόσιο κλειδί σας για τη βασική υπηρεσία reCaptcha σας"
 
 #: libraries/config/messages.inc.php:534
 msgid "Public key for reCaptcha"
-msgstr ""
+msgstr "Δημόσιο κλειδί για reCaptcha"
 
 #: libraries/config/messages.inc.php:535
 msgid "Enter your private key for your domain reCaptcha service"
-msgstr ""
+msgstr "Εισάγετε το ιδιωτικό κλειδί σας για τη βασική υπηρεσία reCaptcha σας"
 
 #: libraries/config/messages.inc.php:536
 msgid "Private key for reCaptcha"
-msgstr ""
+msgstr "Ιδιωτικό κλειδί για reCaptcha"
 
 #: libraries/config/setup.forms.php:42
 msgid "Config authentication"
@@ -7964,11 +7963,11 @@ msgstr "Επιλογή Διακομιστή:"
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:391
 msgid "Entered captcha is wrong, try again!"
-msgstr ""
+msgstr "Το captcha που εισάγατε είναι λανθασμένο, δοκιμάστε ξανά!"
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:400
 msgid "Please enter correct captcha!"
-msgstr ""
+msgstr "Εισάγετε το σωστό captcha!"
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:662
 #: libraries/plugins/auth/AuthenticationSignon.class.php:249
@@ -8463,10 +8462,9 @@ msgstr ""
 "το θέμα και δοκιμάστε ξανά."
 
 #: libraries/plugins/import/ImportOds.class.php:182
-#, fuzzy
 #| msgid "OpenDocument Spreadsheet"
 msgid "Could not parse OpenDocument Spreasheet!"
-msgstr "Έγγραφο Λογιστικού Φύλλου Ανοιχτού Κώδικα - ODS"
+msgstr "Αδύνατη η προσπέλαση Εγγράφου Λογιστικού Φύλλου Ανοιχτού Κώδικα - ODS!"
 
 #: libraries/plugins/import/ImportShp.class.php:53
 msgid "ESRI Shape File"
