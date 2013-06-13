@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-06-12 09:39+0200\n"
-"PO-Revision-Date: 2013-06-12 09:48+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"PO-Revision-Date: 2013-06-13 17:32+0200\n"
+"Last-Translator: Dadan Setia <da2n_s@yahoo.co.id>\n"
 "Language-Team: Indonesian "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/id/>\n"
 "Language: id\n"
@@ -39,7 +39,7 @@ msgid ""
 msgstr ""
 "Gagal memperbarui jendela peramban target. Ada kemungkinan Anda telah "
 "menutup jendela induk atau pilihan keamanan pada peramban Anda mencekal "
-"pembaruan lintas-jendela"
+"pembaruan lintas-jendela."
 
 #: browse_foreigners.php:182
 msgid "Search:"
@@ -293,10 +293,10 @@ msgid "Database %1$s has been renamed to %2$s"
 msgstr "Nama basis data %1$s telah diubah menjadi %2$s"
 
 #: db_operations.php:133
-#, fuzzy, php-format
+#, php-format
 #| msgid "Database %s has been copied to %s"
 msgid "Database %1$s has been copied to %2$s"
-msgstr "Basis data %s telah disalin ke %s"
+msgstr "Basis data %1$s telah disalin ke %2$s"
 
 #: db_operations.php:261
 #, php-format
@@ -338,10 +338,9 @@ msgstr "sedang digunakan"
 
 #: db_printview.php:117 libraries/plugins/export/ExportSql.class.php:947
 #: libraries/schema/Pdf_Relation_Schema.class.php:1341
-#, fuzzy
 #| msgid "Creation"
 msgid "Creation:"
-msgstr "Pembuatan"
+msgstr "Pembuatan:"
 
 #: db_printview.php:126 libraries/plugins/export/ExportSql.class.php:960
 #: libraries/schema/Pdf_Relation_Schema.class.php:1346
@@ -350,10 +349,9 @@ msgstr "Pembaruan terakhir:"
 
 #: db_printview.php:135 libraries/plugins/export/ExportSql.class.php:973
 #: libraries/schema/Pdf_Relation_Schema.class.php:1351
-#, fuzzy
 #| msgid "Last check"
 msgid "Last check:"
-msgstr "Pemeriksaan terakhir"
+msgstr "Pemeriksaan terakhir:"
 
 #: db_printview.php:149 libraries/structure.lib.php:176
 #, php-format
@@ -380,7 +378,7 @@ msgstr "Akses ditolak"
 
 #: db_structure.php:86
 msgid "No tables found in database"
-msgstr "Tidak ada tabel dalam basis data."
+msgstr "Tidak ada tabel dalam basis data"
 
 #: db_tracking.php:73
 msgid "Tracked tables"
@@ -522,22 +520,20 @@ msgid "Use OpenStreetMaps as Base Layer"
 msgstr "Gunakan OpenStreetMaps sebagai Lapisan Dasar"
 
 #: gis_data_editor.php:161
-#, fuzzy
 #| msgid "SRID"
 msgid "SRID:"
-msgstr "SRID"
+msgstr "SRID:"
 
 #: gis_data_editor.php:184
-#, fuzzy, php-format
+#, php-format
 #| msgid "Geometry"
 msgid "Geometry %d:"
-msgstr "Geometri"
+msgstr "Geometri %d:"
 
 #: gis_data_editor.php:206
-#, fuzzy
 #| msgid "Point"
 msgid "Point:"
-msgstr "Titik"
+msgstr "Titik:"
 
 #: gis_data_editor.php:207 gis_data_editor.php:234 gis_data_editor.php:289
 #: gis_data_editor.php:362 js/messages.php:300
@@ -561,22 +557,21 @@ msgid "Add a point"
 msgstr "Tambahkan titik"
 
 #: gis_data_editor.php:262
-#, fuzzy, php-format
+#, php-format
 #| msgid "Linestring"
 msgid "Linestring %d:"
-msgstr "Segmen garis"
+msgstr "Deretan baris %d:"
 
 #: gis_data_editor.php:265 gis_data_editor.php:341
-#, fuzzy
 #| msgid "Outer Ring"
 msgid "Outer ring:"
-msgstr "Lingkar Luar"
+msgstr "Lingkar Luar:"
 
 #: gis_data_editor.php:267 gis_data_editor.php:343
-#, fuzzy, php-format
+#, php-format
 #| msgid "Inner Ring"
 msgid "Inner ring %d:"
-msgstr "Lingkar Dalam"
+msgstr "Lingkar Dalam %d:"
 
 #: gis_data_editor.php:303
 msgid "Add a linestring"
@@ -587,10 +582,10 @@ msgid "Add an inner ring"
 msgstr "Tambahkan lingkar dalam"
 
 #: gis_data_editor.php:325
-#, fuzzy, php-format
+#, php-format
 #| msgid "Polygon"
 msgid "Polygon %d:"
-msgstr "Poligon"
+msgstr "Poligon %d:"
 
 #: gis_data_editor.php:384 js/messages.php:311
 msgid "Add a polygon"
@@ -605,7 +600,6 @@ msgid "Output"
 msgstr "Keluaran"
 
 #: gis_data_editor.php:402
-#, fuzzy
 #| msgid ""
 #| "Chose \"GeomFromText\" from the \"Function\" column and paste the below "
 #| "string into the \"Value\" field"
@@ -613,8 +607,8 @@ msgid ""
 "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
 "below into the \"Value\" field"
 msgstr ""
-"Pilih \"GeomFromText\" dari kolom \"Fungsi\" dan rekatkan string di bawahnya "
-"ke dalam isian \"Value\""
+"Pilih \"GeomFromText\" dari kolom \"Fungsi\" dan rekatkan string di bawahnya ke "
+"dalam isian \"Value\""
 
 #: import.php:107
 #, php-format
@@ -747,16 +741,14 @@ msgid "Server version:"
 msgstr "Versi Server:"
 
 #: index.php:252
-#, fuzzy
 #| msgid "Protocol version"
 msgid "Protocol version:"
-msgstr "Versi protokol"
+msgstr "Versi protokol:"
 
 #: index.php:256
-#, fuzzy
 #| msgid "User"
 msgid "User:"
-msgstr "Pengguna"
+msgstr "Pengguna:"
 
 #: index.php:261
 #, fuzzy
@@ -769,26 +761,23 @@ msgid "Web server"
 msgstr "Server web"
 
 #: index.php:286
-#, fuzzy
 #| msgid "Database client version"
 msgid "Database client version:"
-msgstr "Versi klien basis data"
+msgstr "Versi klien basis data:"
 
 #: index.php:290
-#, fuzzy
 #| msgid "PHP extension"
 msgid "PHP extension:"
-msgstr "Ekstensi PHP"
+msgstr "Ekstensi PHP:"
 
 #: index.php:304
 msgid "Show PHP information"
 msgstr "Tampilkan informasi PHP"
 
 #: index.php:327
-#, fuzzy
 #| msgid "Version information"
 msgid "Version information:"
-msgstr "Informasi versi"
+msgstr "Informasi versi:"
 
 #: index.php:336 libraries/Util.class.php:430 libraries/Util.class.php:516
 #: libraries/config/FormDisplay.tpl.php:145
@@ -858,12 +847,20 @@ msgid ""
 "cookie validity configured in phpMyAdmin, because of this, your login will "
 "expire sooner than configured in phpMyAdmin."
 msgstr ""
+"Parameter PHP "
+"[a@http://php.net/manual/en/session.configuration.php#ini.session.gc-"
+"maxlifetime@_blank]session.gc_maxlifetime[/a]anda lebih kecil dari dari "
+"validitas cookie di  phpMyAdmin, karenanya, login anda akan lebih berakhir "
+"cepat daripada konfigurasi phpMyAdmin."
 
 #: index.php:456
 msgid ""
 "Login cookie store is lower than cookie validity configured in phpMyAdmin, "
 "because of this, your login will expire sooner than configured in phpMyAdmin."
 msgstr ""
+"Penyimpanan cookie login lebih kecil daripada validitas cookie di "
+"phpMyAdmin, karenanya, login anda akan lebih cepat berakhir daripada "
+"konfigurasi phpMyAdmin."
 
 #: index.php:468
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
@@ -901,6 +898,8 @@ msgid ""
 "Your PHP MySQL library version %s differs from your MySQL server version %s. "
 "This may cause unpredictable behavior."
 msgstr ""
+"Versi pustaka MySQL pada PHP anda %s sedangkan versi server MySQL %s. Ini "
+"dapat menyebabkan perilaku tak terduga."
 
 #: index.php:546
 #, php-format
@@ -916,10 +915,10 @@ msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "Perintah \"DROP DATABASE\" dinonaktifkan."
 
 #: js/messages.php:30
-#, fuzzy, php-format
+#, php-format
 #| msgid "Do you really want to "
 msgid "Do you really want to execute \"%s\"?"
-msgstr "Benarkah Anda ingin untuk "
+msgstr "Anda yakin akan mengeksekusi \"%s\"?"
 
 #: js/messages.php:31 libraries/mult_submits.inc.php:337 sql.php:376
 msgid "You are about to DESTROY a complete database!"
@@ -1332,10 +1331,9 @@ msgid "From general log"
 msgstr "Dari log umum"
 
 #: js/messages.php:150
-#, fuzzy
 #| msgid "Loading logs"
 msgid "Analysing logs"
-msgstr "Memuat log"
+msgstr "Menganalisis log"
 
 #: js/messages.php:151
 msgid "Analysing & loading logs. This may take a while."
@@ -1373,10 +1371,9 @@ msgid "Jump to Log table"
 msgstr "Langsung ke tabel Log"
 
 #: js/messages.php:158
-#, fuzzy
 #| msgid "No data"
 msgid "No data found"
-msgstr "Tidak ada data"
+msgstr "Data tidak ditemukan"
 
 #: js/messages.php:159
 msgid "Log analysed, but no data found in this time span."
@@ -1418,16 +1415,14 @@ msgid "Chart"
 msgstr "Bagan"
 
 #: js/messages.php:169
-#, fuzzy
 #| msgid "Add chart"
 msgid "Edit chart"
-msgstr "Tambahkan bagan"
+msgstr "Edit bagan"
 
 #: js/messages.php:170
-#, fuzzy
 #| msgid "Series:"
 msgid "Series"
-msgstr "Seri:"
+msgstr "Seri"
 
 #. l10n: A collection of available filters
 #: js/messages.php:173
@@ -1471,7 +1466,7 @@ msgid ""
 msgstr ""
 "Ketika meminta data grafik baru server melaporkan respon tidak sah. Hal ini "
 "kemungkinan besar karena sesi Anda berakhir. Muat ulang halaman dan masukkan "
-"ulang mandat Anda akan membantu"
+"ulang kredensial Anda akan membantu."
 
 #: js/messages.php:184
 msgid "Reload page"
@@ -1501,16 +1496,14 @@ msgid "Import"
 msgstr "Impor"
 
 #: js/messages.php:191
-#, fuzzy
 #| msgid "Could not import configuration"
 msgid "Import monitor configuration"
-msgstr "Tidak dapat mengimpor konfigurasi"
+msgstr "Impor konfigurasi monitor"
 
 #: js/messages.php:192
-#, fuzzy
 #| msgid "Please select the primary key or a unique key"
 msgid "Please select the file you want to import"
-msgstr "Harap pilih kunci primer atau kunci unik"
+msgstr "Silahkan pilih berkas yang ingin anda impor"
 
 #: js/messages.php:194
 msgid "Analyse Query"
@@ -1571,12 +1564,12 @@ msgstr "Galat sewaktu Memproses Permintaan"
 #: js/messages.php:216
 #, php-format
 msgid "Error code: %s"
-msgstr ""
+msgstr "Kode Kesalahan: %s"
 
 #: js/messages.php:217
 #, php-format
 msgid "Error text: %s"
-msgstr ""
+msgstr "Pesan Kesalahan: %s"
 
 #: js/messages.php:218 libraries/db_common.inc.php:58
 #: libraries/db_table_exists.lib.php:28 server_databases.php:89
@@ -1634,22 +1627,19 @@ msgid "Show indexes"
 msgstr "Tampilkan indeks"
 
 #: js/messages.php:237 libraries/mult_submits.inc.php:350
-#, fuzzy
 #| msgid "Disable foreign key checks"
 msgid "Foreign key check:"
-msgstr "Tanpa pemeriksaan kunci asing"
+msgstr "Pemeriksaan kunci asing:"
 
 #: js/messages.php:238 libraries/mult_submits.inc.php:360
-#, fuzzy
 #| msgid "Enabled"
 msgid "(Enabled)"
-msgstr "Aktif"
+msgstr "(Aktif)"
 
 #: js/messages.php:239 libraries/mult_submits.inc.php:360
-#, fuzzy
 #| msgid "Disabled"
 msgid "(Disabled)"
-msgstr "Tidak aktif"
+msgstr "(Tidak aktif)"
 
 #: js/messages.php:242
 msgid "Searching"
@@ -1874,7 +1864,7 @@ msgstr "Tambahkan pilihan untuk kolom "
 #: js/messages.php:325
 #, php-format
 msgid "%d object(s) created"
-msgstr ""
+msgstr "objek %d telah dibuat"
 
 #: js/messages.php:328
 msgid "Press escape to cancel editing"
@@ -1902,7 +1892,7 @@ msgstr "Klik untuk memberi/menghapus tanda"
 
 #: js/messages.php:333
 msgid "Double-click to copy column name"
-msgstr ""
+msgstr "Klik-ganda untuk menyalin nama kolom"
 
 #: js/messages.php:334
 msgid "Click the drop-down arrow<br />to toggle column's visibility"
@@ -2448,7 +2438,7 @@ msgid ""
 "configured)."
 msgstr ""
 "Server tidak merespons (atau soket server lokal tidak dikonfigurasi dengan "
-"benar)"
+"benar)."
 
 #: libraries/DatabaseInterface.class.php:2052
 msgid "The server is not responding."
@@ -2712,8 +2702,8 @@ msgid ""
 "This view has at least this number of rows. Please refer to %sdocumentation"
 "%s."
 msgstr ""
-"Sebuah view setidaknya mempunyai jumlah kolom berikut. Harap lihat "
-"%sdokumentasi%s"
+"Sebuah view setidaknya mempunyai jumlah kolom berikut. Harap lihat %"
+"sdokumentasi%s."
 
 #: libraries/DisplayResults.class.php:4923
 msgid "Showing rows"
@@ -3106,7 +3096,7 @@ msgstr "Pencarian SQL"
 
 #: libraries/ServerStatusData.class.php:184
 msgid "Handler"
-msgstr "Handler"
+msgstr "Penangan"
 
 #: libraries/ServerStatusData.class.php:185
 msgid "Query cache"
@@ -4147,7 +4137,7 @@ msgstr "maksimum %s"
 msgid "This setting is disabled, it will not be applied to your configuration."
 msgstr ""
 "Pengaturan ini tidak diaktifkan, pengaturan tidak akan diterapkan pada "
-"konfigurasi anda"
+"konfigurasi anda."
 
 #: libraries/config/FormDisplay.tpl.php:309
 #, php-format
@@ -4323,7 +4313,7 @@ msgstr "Konfirmasi kueri DROP"
 
 #: libraries/config/messages.inc.php:46
 msgid "Debug SQL"
-msgstr "Debug SQL"
+msgstr "Men-Debug SQL"
 
 #: libraries/config/messages.inc.php:47
 msgid "Default display direction"
@@ -8033,7 +8023,7 @@ msgstr "Dumping data untuk tabel"
 #: libraries/plugins/export/ExportTexytext.class.php:438
 #: libraries/rte/rte_list.lib.php:69 libraries/rte/rte_triggers.lib.php:387
 msgid "Event"
-msgstr "Event"
+msgstr "Kejadian"
 
 #: libraries/plugins/export/ExportHtmlword.class.php:488
 #: libraries/plugins/export/ExportOdt.class.php:570
@@ -8541,7 +8531,7 @@ msgid ""
 "specifies how often space will be added (defaults to 2 nibbles)."
 msgstr ""
 "Tampilkan representasi hexadecimal dari data. Parameter opsional pertama "
-"menentukan seberapa sering space akan ditambahkan (default 2 nibble)"
+"menentukan seberapa sering space akan ditambahkan (bawaan 2 nibble)."
 
 #: libraries/plugins/transformations/abstract/ImageLinkTransformationsPlugin.class.php:33
 msgid "Displays a link to download this image."
@@ -8552,8 +8542,8 @@ msgid ""
 "Displays a clickable thumbnail. The options are the maximum width and height "
 "in pixels. The original aspect ratio is preserved."
 msgstr ""
-"Tampilkan Thumbnail yang bisa diklik; pilihan: lebar, tinggi dalam piksel "
-"(rasio asli dipertahankan)"
+"Tampilkan cuplikan yang bisa diklik. pilihan adalah maksimum lebar dan "
+"tinggi dalam piksel. aspek rasio asli dipertahankan."
 
 #: libraries/plugins/transformations/abstract/LongToIPv4TransformationsPlugin.class.php:31
 msgid ""
@@ -8853,7 +8843,7 @@ msgstr ""
 
 #: libraries/rte/rte_events.lib.php:228
 msgid "Edit event"
-msgstr "Edit event"
+msgstr "Edit kejadian"
 
 #: libraries/rte/rte_events.lib.php:255 libraries/rte/rte_export.lib.php:43
 #: libraries/rte/rte_routines.lib.php:464
@@ -8983,7 +8973,7 @@ msgstr "Routine %1$s telah dibuat."
 
 #: libraries/rte/rte_routines.lib.php:434
 msgid "Edit routine"
-msgstr "Edit routine"
+msgstr "Edit rutinitas"
 
 #: libraries/rte/rte_routines.lib.php:934
 msgid "Routine name"
@@ -13856,7 +13846,7 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:455
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "You are currently using %s%% of your memory for the InnoDB buffer pool. This "
 "rule fires if you are assigning less than 60%%, however this might be "
@@ -13864,8 +13854,8 @@ msgid ""
 "other services running on the same machine."
 msgstr ""
 "Anda sedang menggunakan %s%% dari memori Anda untuk buffer pool InnoDB. "
-"Aturan ini buruk jika Anda menetapkan kurang dari 60%%, namun hal ini "
-"mungkin menjadi memadai untuk sistem Anda jika Anda tidak cukup memiliki "
+"Aturan semacam ini buruk jika Anda menetapkan kurang dari 60%%, namun hal "
+"ini mungkin jadi memadai untuk sistem Anda jika Anda tidak cukup memiliki "
 "tabel InnoDB atau layanan lain yang berjalan pada mesin yang sama."
 
 #: libraries/advisory_rules.txt:459
