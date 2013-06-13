@@ -23,7 +23,7 @@ function PMA_getHtmlForMonitor($ServerStatusData)
 {
     $retval  = PMA_getHtmlForTabLinks();
     
-    $retval .= PMA_getHtmlForPopContent();
+    $retval .= PMA_getHtmlForSettingsDialog();
     
     $retval .= PMA_getHtmlForInstructionsDialog();
 
@@ -302,11 +302,11 @@ function PMA_getHtmlForTabLinks()
 }
 
 /**
- * Returns html with Pop Content
+ * Returns html with Settings dialog 
  *
  * @return string
  */
-function PMA_getHtmlForPopContent()
+function PMA_getHtmlForSettingsDialog()
 {
     $retval  = '<div class="popupContent settingsPopup">';
     $retval .= '<a href="#addNewChart">';
