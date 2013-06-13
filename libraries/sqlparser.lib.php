@@ -975,7 +975,7 @@ function PMA_SQP_analyze($arr)
      *
      * ['queryflags']['select_from'] = 1;  if this is a real SELECT...FROM
      * ['queryflags']['drop_database'] = 1;if this is a DROP DATABASE
-     * ['queryflags']['reload'] = 1;       for the purpose of the reloding the
+     * ['queryflags']['reload'] = 1;       for the purpose of reloading the
      *                                     navigation bar
      * ['queryflags']['distinct'] = 1;     for a DISTINCT
      * ['queryflags']['union'] = 1;        for a UNION
@@ -1594,7 +1594,7 @@ function PMA_SQP_analyze($arr)
                 if ($first_reserved_word == 'DROP' && $upper_data == 'DATABASE') {
                     $subresult['queryflags']['drop_database'] = 1;
                 }
-                // A table has to be created, renamed, dropped -> navi frame
+                // A table has to be created, renamed, dropped -> navi panel
                 // should be reloaded
                 if (in_array($first_reserved_word, array("CREATE", "ALTER", "DROP"))
                     && in_array(
