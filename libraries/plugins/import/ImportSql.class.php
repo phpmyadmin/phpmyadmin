@@ -152,7 +152,9 @@ class ImportSql extends ImportPlugin
             $sql_modes[] = 'NO_AUTO_VALUE_ON_ZERO';
         }
         if (count($sql_modes) > 0) {
-            $GLOBALS['dbi']->tryQuery('SET SQL_MODE="' . implode(',', $sql_modes) . '"');
+            $GLOBALS['dbi']->tryQuery(
+                'SET SQL_MODE="' . implode(',', $sql_modes) . '"'
+            );
         }
         unset($sql_modes);
 

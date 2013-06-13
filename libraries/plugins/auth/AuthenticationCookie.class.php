@@ -239,6 +239,38 @@ class AuthenticationCookie extends AuthenticationPlugin
                 . $GLOBALS['server'] . '" />';
         } // end if (server choice)
 
+        // We already have one correct captcha.
+        $skip = false;
+        if (  isset($_SESSION['last_valid_captcha'])
+            && $_SESSION['last_valid_captcha']
+        ) {
+            $skip = true;
+        }
+
+        // Add captcha input field if reCaptcha is enabled
+        if (  !empty($GLOBALS['cfg']['CaptchaLoginPrivateKey'])
+            && !empty($GLOBALS['cfg']['CaptchaLoginPublicKey'])
+            && !$skip
+        ) {
+            // If enabled show captcha to the user on the login screen.
+            echo '<script type="text/javascript"
+                    src="https://www.google.com/recaptcha/api/challenge?k=' . $GLOBALS['cfg']['CaptchaLoginPublicKey'] . '">
+                 </script>
+                 <noscript>
+                    <iframe src="https://www.google.com/recaptcha/api/noscript?k=' . $GLOBALS['cfg']['CaptchaLoginPublicKey'] . '"
+                        height="300" width="500" frameborder="0"></iframe><br>
+                    <textarea name="recaptcha_challenge_field" rows="3" cols="40">
+                    </textarea>
+                    <input type="hidden" name="recaptcha_response_field"
+                        value="manual_challenge">
+                 </noscript>
+                 <script type="text/javascript">
+                    $("#recaptcha_reload_btn").addClass("disableAjax");
+                    $("#recaptcha_switch_audio_btn").addClass("disableAjax");
+                    $("#recaptcha_switch_img_btn").addClass("disableAjax");
+                 </script>';
+        }
+
         echo '</fieldset>
         <fieldset class="tblFooters">
             <input value="' . __('Go') . '" type="submit" id="input_go" />';
@@ -296,6 +328,8 @@ class AuthenticationCookie extends AuthenticationPlugin
      */
     public function authCheck()
     {
+        global $conn_error;
+
         // Initialization
         /**
          * @global $GLOBALS['pma_auth_server'] the user provided server to
@@ -319,6 +353,54 @@ class AuthenticationCookie extends AuthenticationPlugin
                 $GLOBALS['PMA_Config']->removeCookie('pmaUser-' . $key);
             }
             return false;
+        }
+
+        // We already have one correct captcha.
+        $skip = false;
+        if (  isset($_SESSION['last_valid_captcha'])
+            && $_SESSION['last_valid_captcha']
+        ) {
+            $skip = true;
+        }
+
+        // Verify Captcha if it is required.
+        if (  !empty($GLOBALS['cfg']['CaptchaLoginPrivateKey'])
+            && !empty($GLOBALS['cfg']['CaptchaLoginPublicKey'])
+            && !$skip
+        ) {
+            if (  !empty($_POST["recaptcha_challenge_field"])
+                && !empty($_POST["recaptcha_response_field"])
+            ) {
+                include_once 'libraries/plugins/auth/recaptchalib.php';
+
+                // Use private key to verify captcha status.
+                $resp = recaptcha_check_answer(
+                    $GLOBALS['cfg']['CaptchaLoginPrivateKey'],
+                    $_SERVER["REMOTE_ADDR"],
+                    $_POST["recaptcha_challenge_field"],
+                    $_POST["recaptcha_response_field"]
+                );
+
+                // Check if the captcha entered is valid, if not stop the login.
+                if ( !$resp->is_valid ) {
+                    $conn_error = __('Entered captcha is wrong, try again!');
+                    $_SESSION['last_valid_captcha'] = false;
+                    return false;
+                } else {
+                    $_SESSION['last_valid_captcha'] = true;
+                }
+            } elseif (! empty($_POST["recaptcha_challenge_field"])
+                && empty($_POST["recaptcha_response_field"])
+            ) {
+                $conn_error = __('Please enter correct captcha!');
+                return false;
+            } else {
+                if (! isset($_SESSION['last_valid_captcha'])
+                    || ! $_SESSION['last_valid_captcha']
+                ) {
+                    return false;
+                }
+            }
         }
 
         if (! empty($_REQUEST['old_usr'])) {

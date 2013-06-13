@@ -117,9 +117,9 @@ if ($server > 0 || count($cfg['Servers']) > 1
     /**
      * Displays the MySQL servers choice form
      */
-    if ($cfg['ServerDefault'] == 0 
+    if ($cfg['ServerDefault'] == 0
         || (! $cfg['NavigationDisplayServers']
-            && (count($cfg['Servers']) > 1 
+            && (count($cfg['Servers']) > 1
                 || ($server == 0 && count($cfg['Servers']) == 1)
             )
         )

@@ -37,7 +37,6 @@ class PMA_ShowMessage_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['table'] = 'tbl';
         $GLOBALS['db'] = 'db';
 
-        $_SESSION[' PMA_token '] = md5(uniqid(rand(), true));
 
         $GLOBALS['sql_query'] = "SELECT * FROM tblPatient ";
 

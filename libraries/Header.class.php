@@ -452,6 +452,7 @@ class PMA_Header
         if (! defined('TESTSUITE')) {
             header(
                 "X-Content-Security-Policy: default-src 'self' "
+                . 'https://www.google.com '
                 . $GLOBALS['cfg']['CSPAllow'] . ';'
                 . "options inline-script eval-script;"
                 . "img-src 'self' data: "
@@ -464,6 +465,7 @@ class PMA_Header
             ) {
                 header(
                     "X-WebKit-CSP: allow 'self' "
+                    . 'https://www.google.com '
                     . $GLOBALS['cfg']['CSPAllow'] . ';'
                     . "options inline-script eval-script;"
                     . "img-src 'self' data: "
@@ -474,11 +476,15 @@ class PMA_Header
             } else {
                 header(
                     "X-WebKit-CSP: default-src 'self' "
+                    . 'https://www.google.com '
                     . $GLOBALS['cfg']['CSPAllow'] . ';'
                     . "script-src 'self' "
+                    . 'https://www.google.com '
                     . $GLOBALS['cfg']['CSPAllow']
                     . " 'unsafe-inline' 'unsafe-eval';"
-                    . "style-src 'self' 'unsafe-inline';"
+                    . "style-src 'self' 'unsafe-inline' "
+                    . 'https://www.google.com '
+                    . ';'
                     . "img-src 'self' data: "
                     . $GLOBALS['cfg']['CSPAllow']
                     . ($https ? "" : $mapTilesUrls)

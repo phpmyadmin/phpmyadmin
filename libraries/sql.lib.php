@@ -379,12 +379,12 @@ function PMA_resultSetContainsUniqueKey($db, $table, $fields_meta)
  * During grid edit, if we have a relational field, returns the html for the
  * dropdown
  *
- * @param string  $db                       current database
- * @param string  $table                    current table
- * @param string  $column                   current column
- * @param string  $curr_value               current selected value
+ * @param string $db         current database
+ * @param string $table      current table
+ * @param string $column     current column
+ * @param string $curr_value current selected value
  *
- * @return string $dropdown                 html for the dropdown
+ * @return string $dropdown html for the dropdown
  */
 function PMA_getHtmlForRelationalColumnDropdown($db, $table, $column, $curr_value)
 {
@@ -431,11 +431,11 @@ function PMA_getHtmlForRelationalColumnDropdown($db, $table, $column, $curr_valu
 /**
  * Get the HTML for the header of the page in print view
  *
- * @param string  $db                       current database
- * @param string  $sql_query                current sql query
- * @param int     $num_rows                 the number of rows in result
+ * @param string $db        current database
+ * @param string $sql_query current sql query
+ * @param int    $num_rows  the number of rows in result
  *
- * @return string $header                   html for the header
+ * @return string $header html for the header
  */
 function PMA_getHtmlForPrintViewHeader($db, $sql_query, $num_rows)
 {
@@ -476,11 +476,11 @@ function PMA_getHtmlForPrintViewHeader($db, $sql_query, $num_rows)
 /**
  * Get the HTML for the profiling table and accompanying chart
  *
- * @param string    $url_query            the url query
- * @param string    $pma_token            the pma token
- * @param array     $profiling_results    array containing the profiling info
+ * @param string $url_query         the url query
+ * @param string $pma_token         the pma token
+ * @param array  $profiling_results array containing the profiling info
  *
- * @return string   $profiling_table      html for the profiling table and chart
+ * @return string $profiling_table html for the profiling table and chart
  */
 function PMA_getHtmlForProfilingChart($url_query, $pma_token, $profiling_results)
 {
@@ -606,12 +606,12 @@ EOT;
  * During grid edit, if we have a enum field, returns the html for the
  * dropdown
  *
- * @param string  $db                       current database
- * @param string  $table                    current table
- * @param string  $column                   current column
- * @param string  $curr_value               currently selected value
+ * @param string $db         current database
+ * @param string $table      current table
+ * @param string $column     current column
+ * @param string $curr_value currently selected value
  *
- * @return string $dropdown                 html for the dropdown
+ * @return string $dropdown html for the dropdown
  */
 function PMA_getHtmlForEnumColumnDropdown($db, $table, $column, $curr_value)
 {
@@ -627,12 +627,12 @@ function PMA_getHtmlForEnumColumnDropdown($db, $table, $column, $curr_value)
  * During grid edit, if we have a set field, returns the html for the
  * dropdown
  *
- * @param string  $db                       current database
- * @param string  $table                    current table
- * @param string  $column                   current column
- * @param string  $curr_value               currently selected value
+ * @param string $db         current database
+ * @param string $table      current table
+ * @param string $column     current column
+ * @param string $curr_value currently selected value
  *
- * @return string $dropdown                 html for the set column
+ * @return string $dropdown html for the set column
  */
 function PMA_getHtmlForSetColumn($db, $table, $column, $curr_value)
 {
@@ -657,11 +657,11 @@ function PMA_getHtmlForSetColumn($db, $table, $column, $curr_value)
 /**
  * Get all the values for a enum column or set column in a table
  *
- * @param string  $db             current database
- * @param string  $table          current table
- * @param string  $column         current column
+ * @param string $db     current database
+ * @param string $table  current table
+ * @param string $column current column
  *
- * @return array  $values         array containing the value list for the column
+ * @return array $values array containing the value list for the column
  */
 function PMA_getValuesForColumn($db, $table, $column)
 {
@@ -679,10 +679,10 @@ function PMA_getValuesForColumn($db, $table, $column)
 /**
  * Get HTML for options list
  *
- * @param array   $values           set of values
- * @param array   $selected_values  currently selected values
+ * @param array $values          set of values
+ * @param array $selected_values currently selected values
  *
- * @return string $options          HTML for options list
+ * @return string $options HTML for options list
  */
 function PMA_getHtmlForOptionsList($values, $selected_values)
 {

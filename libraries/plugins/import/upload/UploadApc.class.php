@@ -57,7 +57,7 @@ class UploadApc implements UploadInterface
         }
         $ret = $_SESSION[$SESSION_KEY][$id];
 
-        if (! PMA_import_apcCheck() || $ret['finished']) {
+        if (! PMA_Import_apcCheck() || $ret['finished']) {
             return $ret;
         }
         $status = apc_fetch('upload_' . $id);

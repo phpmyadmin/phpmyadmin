@@ -159,8 +159,8 @@ function PMA_ipv4MaskTest($testRange, $ipToTest)
  * Does not match:
  * xxxx:xxxx:xxxx:xxxx:xxxx:xxxx:xxxx:xx[yyy-zzz]  (range, partial octets not supported)
  *
- * @param string $test_range  string of IP range to match
- * @param string $ip_to_test  string of IP to test against range
+ * @param string $test_range string of IP range to match
+ * @param string $ip_to_test string of IP to test against range
  *
  * @return boolean    whether the IP mask matches
  *

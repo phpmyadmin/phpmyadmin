@@ -769,6 +769,19 @@ $cfg['IgnoreMultiSubmitErrors'] = false;
  */
 $cfg['AllowArbitraryServer'] = false;
 
+/**
+ * if reCaptcha is enabled it needs public key to connect with the service
+ *
+ * @global string $cfg['CaptchaLoginPublicKey']
+ */
+$cfg['CaptchaLoginPublicKey'] = '';
+
+/**
+ * if reCaptcha is enabled it needs private key to connect with the service
+ *
+ * @global string $cfg['CaptchaLoginPrivateKey']
+ */
+$cfg['CaptchaLoginPrivateKey'] = '';
 
 /*******************************************************************************
  * Error handler configuration
