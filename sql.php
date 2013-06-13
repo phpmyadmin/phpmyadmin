@@ -306,17 +306,6 @@ if (isset($_REQUEST['btnDrop']) && $_REQUEST['btnDrop'] == __('No')) {
 } // end if
 
 // Defines some variables
-// A table has to be created, renamed, dropped -> navi frame should be reloaded
-/**
- * @todo use the parser/analyzer
- */
-
-if (empty($reload)
-    && preg_match('/^(CREATE|ALTER|DROP)\s+(VIEW|TABLE|DATABASE|SCHEMA)\s+/i', $sql_query)
-) {
-    $reload = 1;
-}
-
 // $is_group added for use in calculation of total number of rows.
 // $is_count is changed for more correct "LIMIT" clause
 //  appending in queries like

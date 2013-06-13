@@ -1588,6 +1588,18 @@ function PMA_SQP_analyze($arr)
                     $position_of_first_select = $i;
                 }
 
+
+                if ($first_reserved_word == 'DROP' && $upper_data == 'DATABASE') {
+                    $subresult['queryflags']['drop_database'] = 1;
+                }
+                // A table has to be created, renamed, dropped -> navi frame
+                // should be reloaded
+                if (in_array($first_reserved_word, array("CREATE", "ALTER", "DROP"))
+                    && in_array(
+                    $upper_data, array("VIEW", "TABLE", "DATABASE", "SCHEMA"))
+                ) {
+                    $subresult['queryflags']['reload'] = 1;
+                }
             }
 
             if ($upper_data == 'LIMIT' && ! $in_subquery) {
