@@ -433,8 +433,8 @@ $ServerStatusData = new PMA_ServerStatusData();
  */
 $response->addHTML('<div>');
 $response->addHTML($ServerStatusData->getMenuHtml());
-$response->addHTML(PMA_getMonitorHtml($ServerStatusData));
-$response->addHTML(PMA_getClientSideDataAndLinksHtml($ServerStatusData));
+$response->addHTML(PMA_getHtmlForMonitor($ServerStatusData));
+$response->addHTML(PMA_getHtmlForClientSideDataAndLinks($ServerStatusData));
 $response->addHTML('</div>');
 exit;
 

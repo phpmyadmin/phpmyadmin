@@ -19,11 +19,11 @@ if (! defined('PHPMYADMIN')) {
  *
  * @return string
  */
-function PMA_getMonitorHtml($ServerStatusData)
+function PMA_getHtmlForMonitor($ServerStatusData)
 {
-    $retval  = PMA_getTabLinksHtml();
+    $retval  = PMA_getHtmlForTabLinks();
     
-    $retval .= PMA_getPopContentHtml();
+    $retval .= PMA_getHtmlForPopContent();
     
     $retval .= PMA_getHtmlForInstructionsDialog();
 
@@ -64,7 +64,7 @@ function PMA_getMonitorHtml($ServerStatusData)
  *
  * @return string
  */
-function PMA_getRefreshList($name,
+function PMA_getHtmlForRefreshList($name,
     $defaultRate = 5,
     $refreshRates = Array(1, 2, 5, 10, 20, 40, 60, 120, 300, 600)
 ) {
@@ -279,7 +279,7 @@ function PMA_getHtmlForAddChartDialog()
  *
  * @return string
  */
-function PMA_getTabLinksHtml()
+function PMA_getHtmlForTabLinks()
 {
     $retval  = '<div class="tabLinks">';
     $retval .= '<a href="#pauseCharts">';
@@ -306,7 +306,7 @@ function PMA_getTabLinksHtml()
  *
  * @return string
  */
-function PMA_getPopContentHtml()
+function PMA_getHtmlForPopContent()
 {
     $retval  = '<div class="popupContent settingsPopup">';
     $retval .= '<a href="#addNewChart">';
@@ -318,7 +318,7 @@ function PMA_getPopContentHtml()
     $retval .= '<div class="clearfloat paddingtop"></div>';
     $retval .= '<div class="floatleft">';
     $retval .= __('Refresh rate') . '<br />';
-    $retval .= PMA_getRefreshList(
+    $retval .= PMA_getHtmlForRefreshList(
         'gridChartRefresh',
         5,
         Array(2, 3, 4, 5, 10, 20, 40, 60, 120, 300, 600, 1200)
@@ -375,7 +375,7 @@ function PMA_getPopContentHtml()
  *
  * @return string
  */
-function PMA_getClientSideDataAndLinksHtml($ServerStatusData)
+function PMA_getHtmlForClientSideDataAndLinks($ServerStatusData)
 {
     /**
      * Define some data needed on the client side
