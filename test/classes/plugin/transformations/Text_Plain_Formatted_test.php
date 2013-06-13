@@ -123,10 +123,10 @@ class Text_Plain_Formatted_Test extends PHPUnit_Framework_TestCase
      */
     public function testApplyTransformation()
     {
-        $buffer = "PMA_BUFFER";
+        $buffer = "<a ref='http://ci.phpmyadmin.net/'>PMA_BUFFER</a>";
         $options = array("option1", "option2");
         $this->assertEquals(
-            "PMA_BUFFER",
+             $buffer,
             $this->object->applyTransformation($buffer, $options)
         );    
     }
