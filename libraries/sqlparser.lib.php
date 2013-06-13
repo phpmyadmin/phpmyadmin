@@ -1589,9 +1589,8 @@ function PMA_SQP_analyze($arr)
 
                 if ($first_reserved_word=='SELECT') {
                     $position_of_first_select = $i;
-                }
-
-
+                }                
+            } else {
                 if ($first_reserved_word == 'DROP' && $upper_data == 'DATABASE') {
                     $subresult['queryflags']['drop_database'] = 1;
                 }
