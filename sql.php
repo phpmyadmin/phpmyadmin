@@ -67,15 +67,15 @@ if (! isset($err_url)) {
 } // end if
 
 // Coming from a bookmark dialog
-if (isset($_POST['fields']['query'])) {
-    $sql_query = $_POST['fields']['query'];
+if (isset($_POST['bkm_fields']['bkm_sql_query'])) {
+    $sql_query = $_POST['bkm_fields']['bkm_sql_query'];
 } elseif (isset($_GET['sql_query'])) {
     $sql_query = $_GET['sql_query'];
 }
 
 // This one is just to fill $db
-if (isset($_POST['fields']['dbase'])) {
-    $db = $_POST['fields']['dbase'];
+if (isset($_POST['bkm_fields']['bkm_database'])) {
+    $db = $_POST['bkm_fields']['bkm_database'];
 }
 
 
@@ -246,14 +246,14 @@ if (isset($find_real_end) && $find_real_end) {
  */
 if (isset($_POST['store_bkm'])) {
     $result = PMA_Bookmark_save(
-        $_POST['fields'],
+        $_POST['bkm_fields'],
         (isset($_POST['bkm_all_users']) && $_POST['bkm_all_users'] == 'true' ? true : false)
     );
     $response = PMA_Response::getInstance();
     if ($response->isAjax()) {
         if ($result) {
             $msg = PMA_message::success(__('Bookmark %s created'));
-            $msg->addParam($_POST['fields']['label']);
+            $msg->addParam($_POST['bkm_fields']['bkm_label']);
             $response->addJSON('message', $msg);
         } else {
             $msg = PMA_message::error(__('Bookmark not created'));
@@ -264,7 +264,7 @@ if (isset($_POST['store_bkm'])) {
     } else {
         // go back to sql.php to redisplay query; do not use &amp; in this case:
         PMA_sendHeaderLocation(
-            $cfg['PmaAbsoluteUri'] . $goto . '&label=' . $_POST['fields']['label']
+            $cfg['PmaAbsoluteUri'] . $goto . '&label=' . $_POST['bkm_fields']['bkm_label']
         );
     }
 } // end if
@@ -1039,15 +1039,15 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
               . '&amp;id_bookmark=1';
 
         $html_output .= '<form action="sql.php" method="post"'
-            . ' onsubmit="return ! emptyFormElements(this, \'fields[label]\');"'
+            . ' onsubmit="return ! emptyFormElements(this, \'bkm_fields[bkm_label]\');"'
             . ' id="bookmarkQueryForm">';
         $html_output .= PMA_generate_common_hidden_inputs();
         $html_output .= '<input type="hidden" name="goto" value="' . $goto . '" />';
-        $html_output .= '<input type="hidden" name="fields[dbase]"'
+        $html_output .= '<input type="hidden" name="bkm_fields[bkm_database]"'
             . ' value="' . htmlspecialchars($db) . '" />';
-        $html_output .= '<input type="hidden" name="fields[user]"'
+        $html_output .= '<input type="hidden" name="bkm_fields[bkm_user]"'
             . ' value="' . $cfg['Bookmark']['user'] . '" />';
-        $html_output .= '<input type="hidden" name="fields[query]"' . ' value="'
+        $html_output .= '<input type="hidden" name="bkm_fields[bkm_sql_query]"' . ' value="'
             . urlencode(isset($complete_query) ? $complete_query : $sql_query)
             . '" />';
         $html_output .= '<fieldset>';
@@ -1059,7 +1059,7 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
         $html_output .= '<div class="formelement">';
         $html_output .= '<label for="fields_label_">' . __('Label:') . '</label>';
         $html_output .= '<input type="text" id="fields_label_"'
-            . ' name="fields[label]" value="" />';
+            . ' name="bkm_fields[bkm_label]" value="" />';
         $html_output .= '</div>';
         $html_output .= '<div class="formelement">';
         $html_output .= '<input type="checkbox" name="bkm_all_users"'
