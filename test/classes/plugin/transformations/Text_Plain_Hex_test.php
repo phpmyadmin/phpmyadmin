@@ -123,10 +123,17 @@ class Application_Octetstream_Hex_Test extends PHPUnit_Framework_TestCase
      */
     public function testApplyTransformation()
     {
-        $buffer = "PMA_BUFFER";
-        $options = array(3, "option2");
+        $buffer = "11111001";
+        $options = array(3);
         $this->assertEquals(
-            "504 d41 5f4 255 464 645 52 ",
+            "313 131 313 130 303 1 ",
+            $this->object->applyTransformation($buffer, $options)
+        );  
+             
+        $buffer = "11111001";
+        $options = array(0);
+        $this->assertEquals(
+            "3131313131303031",
             $this->object->applyTransformation($buffer, $options)
         );    
     }

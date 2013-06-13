@@ -129,23 +129,15 @@ class Text_Plain_Dateformat_Test extends PHPUnit_Framework_TestCase
      */
     public function testApplyTransformation()
     {
-        $buffer = "PMA_BUFFER";
-        $options = array(2);
+        $timestamp = 12345;
+        $options = array(0);
         $meta = new Text_Plain_Dateformat_Meta();
         $meta->type = 'int';
-        $result = '<dfn onclick="alert(\'PMA_BUFFER\');" title="PMA_BUFFER">'
-             . 'Dec 31, 1969 at 10:00 PM</dfn>';
+        $result = '<dfn onclick="alert(\'12345\');" title="12345">'
+             . 'Jan 01, 1970 at 04:25 AM</dfn>';
         $this->assertEquals(
             $result,
-            $this->object->applyTransformation($buffer, $options, $meta)
-        );
-        
-        $meta->type = 'char';
-        $result = '<dfn onclick="alert(\'PMA_BUFFER\');" title="PMA_BUFFER">' 
-             . 'Dec 31, 1969 at 10:00 PM</dfn>';
-        $this->assertEquals(
-            $result,
-            $this->object->applyTransformation($buffer, $options, $meta)
+            $this->object->applyTransformation($timestamp, $options, $meta)
         );
     }
 }

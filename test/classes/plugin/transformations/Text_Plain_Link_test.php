@@ -123,10 +123,10 @@ class Text_Plain_Link_Test extends PHPUnit_Framework_TestCase
      */
     public function testApplyTransformation()
     {
-        $buffer = "PMA_BUFFER";
-        $options = array("option1", "option2");
-        $result = '<a href="option1PMA_BUFFER"' 
-             . ' title="option2" target="_new">option2</a>';
+        $buffer = "PMA_TXT_LINK";
+        $options = array("./php/", "text_name");
+        $result = '<a href="./php/PMA_TXT_LINK"' 
+             . ' title="text_name" target="_new">text_name</a>';
         $this->assertEquals(
             $result,
             $this->object->applyTransformation($buffer, $options)

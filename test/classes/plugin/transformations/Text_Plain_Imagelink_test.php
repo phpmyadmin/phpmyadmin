@@ -123,11 +123,11 @@ class Text_Plain_Imagelink_test extends PHPUnit_Framework_TestCase
      */
     public function testApplyTransformation()
     {
-        $buffer = "PMA_BUFFER";
-        $options = array("option1", "option2");
-        $result = '<a href="option1PMA_BUFFER" target="_blank">' 
-             . '<img src="option1PMA_BUFFER" border="0" width="option2" ' 
-             . 'height="50" />PMA_BUFFER</a>';
+        $buffer = "PMA_IMAGE";
+        $options = array("./image/", "200");
+        $result = '<a href="./image/PMA_IMAGE" target="_blank">' 
+             . '<img src="./image/PMA_IMAGE" border="0" width="200" ' 
+             . 'height="50" />PMA_IMAGE</a>';
         $this->assertEquals(
             $result,
             $this->object->applyTransformation($buffer, $options)

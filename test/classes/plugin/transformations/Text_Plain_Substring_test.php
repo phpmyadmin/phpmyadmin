@@ -104,9 +104,10 @@ class Text_Plain_Substring_Test extends PHPUnit_Framework_TestCase
     public function testApplyTransformation()
     {
         $buffer = "PMA_BUFFER";
+        $options = array(1, 3, 'suffix');
         $this->assertEquals(
-            "PMA_BUFFER",
-            $this->object->applyTransformation($buffer)
+            "suffixMA_suffix",
+            $this->object->applyTransformation($buffer, $options)
         );    
     }
 }

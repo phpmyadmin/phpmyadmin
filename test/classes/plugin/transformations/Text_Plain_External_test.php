@@ -133,7 +133,7 @@ class Text_Plain_External_Test extends PHPUnit_Framework_TestCase
     public function testApplyTransformation()
     {
         $buffer = "PMA_BUFFER";
-        $options = array("option1", "option2");
+        $options = array("/dev/null -i -wrap -q", "/dev/null -i -wrap -q");
         $this->assertEquals(
             "PMA_BUFFER",
             $this->object->applyTransformation($buffer, $options)
