@@ -974,6 +974,9 @@ function PMA_SQP_analyze($arr)
      * Currently, those are generated:
      *
      * ['queryflags']['select_from'] = 1;  if this is a real SELECT...FROM
+     * ['queryflags']['drop_database'] = 1;if this is a DROP DATABASE
+     * ['queryflags']['reload'] = 1;       for the purpose of the reloding the
+     *                                     navigation bar
      * ['queryflags']['distinct'] = 1;     for a DISTINCT
      * ['queryflags']['union'] = 1;        for a UNION
      * ['queryflags']['join'] = 1;         for a JOIN
