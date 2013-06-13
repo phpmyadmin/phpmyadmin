@@ -256,6 +256,27 @@ $GLOBALS['dummy_queries'] = array(
         'result' => array(),
     ),
     array(
+        'query' => 'SELECT DEFAULT_COLLATION_NAME FROM information_schema.SCHEMATA WHERE SCHEMA_NAME = \'pma_test\' LIMIT 1',
+        'columns' => array('DEFAULT_COLLATION_NAME'),
+        'result' => array(
+            array('utf8_general_ci')
+        )
+    ),
+    array(
+        'query' => 'SELECT DEFAULT_COLLATION_NAME FROM data_dictionary.SCHEMAS WHERE SCHEMA_NAME = \'pma_test\' LIMIT 1',
+        'columns' => array('DEFAULT_COLLATION_NAME'),
+        'result' => array(
+            array('utf8_general_ci_pma_drizzle')
+        )
+    ),
+    array(
+        'query' => 'SHOW VARIABLES LIKE \'collation_database\'',
+        'columns' => array('variable_name', 'variable_value'),
+        'result' => array(
+            array('foo', 'bar'),
+        )
+    ),
+    array(
         'query' => "SHOW TABLES FROM `phpmyadmin`",
         'result' => array(),
     ),
