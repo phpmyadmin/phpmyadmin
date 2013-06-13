@@ -974,6 +974,9 @@ function PMA_SQP_analyze($arr)
      * Currently, those are generated:
      *
      * ['queryflags']['select_from'] = 1;  if this is a real SELECT...FROM
+     * ['queryflags']['drop_database'] = 1;if this is a DROP DATABASE
+     * ['queryflags']['reload'] = 1;       for the purpose of the reloding the
+     *                                     navigation bar
      * ['queryflags']['distinct'] = 1;     for a DISTINCT
      * ['queryflags']['union'] = 1;        for a UNION
      * ['queryflags']['join'] = 1;         for a JOIN
@@ -1586,8 +1589,19 @@ function PMA_SQP_analyze($arr)
 
                 if ($first_reserved_word=='SELECT') {
                     $position_of_first_select = $i;
+                }                
+            } else {
+                if ($first_reserved_word == 'DROP' && $upper_data == 'DATABASE') {
+                    $subresult['queryflags']['drop_database'] = 1;
                 }
-
+                // A table has to be created, renamed, dropped -> navi frame
+                // should be reloaded
+                if (in_array($first_reserved_word, array("CREATE", "ALTER", "DROP"))
+                    && in_array(
+                    $upper_data, array("VIEW", "TABLE", "DATABASE", "SCHEMA"))
+                ) {
+                    $subresult['queryflags']['reload'] = 1;
+                }
             }
 
             if ($upper_data == 'LIMIT' && ! $in_subquery) {
@@ -2887,18 +2901,4 @@ function PMA_SQP_isKeyWord($column)
     return in_array(strtoupper($column), $PMA_SQPdata_forbidden_word);
 }
 
-/**
- * Checks whether a given query is to drop a database
- *
- * @param string $sql_query  The SQL query to be checked for drop database
- *
- * @return boolean whether true or false
- */
-function PMA_isDropDatabase($sql_query)
-{
-    return preg_match(
-        '/DROP[[:space:]]+(DATABASE|SCHEMA)[[:space:]]+/i',
-        $sql_query
-    );
-}
 ?>
