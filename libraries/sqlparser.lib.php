@@ -973,7 +973,6 @@ function PMA_SQP_analyze($arr)
      *
      * Currently, those are generated:
      *
-     * ['queryflags']['need_confirm'] = 1; if the query needs confirmation
      * ['queryflags']['select_from'] = 1;  if this is a real SELECT...FROM
      * ['queryflags']['distinct'] = 1;     for a DISTINCT
      * ['queryflags']['union'] = 1;        for a UNION
@@ -1562,18 +1561,6 @@ function PMA_SQP_analyze($arr)
         //DEBUG echo "Loop2 <strong>"  . $arr[$i]['data']
         //. "</strong> (" . $arr[$i]['type'] . ")<br />";
 
-        // need_confirm
-        //
-        // check for reserved words that will have to generate
-        // a confirmation request later in sql.php
-        // the cases are:
-        //   DROP TABLE
-        //   DROP DATABASE
-        //   ALTER TABLE... DROP
-        //   DELETE FROM...
-        //
-        // this code is not used for confirmations coming from functions.js
-
         if ($arr[$i]['type'] == 'punct_bracket_open_round') {
             $number_of_brackets++;
         }
@@ -1597,23 +1584,10 @@ function PMA_SQP_analyze($arr)
                 $subresult['querytype'] = $upper_data;
                 $seen_reserved_word = true;
 
-                // if the first reserved word is DROP or DELETE,
-                // we know this is a query that needs to be confirmed
-                if ($first_reserved_word=='DROP'
-                    || $first_reserved_word == 'DELETE'
-                    || $first_reserved_word == 'TRUNCATE'
-                ) {
-                    $subresult['queryflags']['need_confirm'] = 1;
-                }
-
                 if ($first_reserved_word=='SELECT') {
                     $position_of_first_select = $i;
                 }
 
-            } else {
-                if ($upper_data == 'DROP' && $first_reserved_word == 'ALTER') {
-                    $subresult['queryflags']['need_confirm'] = 1;
-                }
             }
 
             if ($upper_data == 'LIMIT' && ! $in_subquery) {
