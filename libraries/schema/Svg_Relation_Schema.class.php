@@ -861,7 +861,6 @@ class PMA_Svg_Relation_Schema extends PMA_Export_Relation_Schema
         $this->_drawTables($this->showColor);
         $svg->endSvgDoc();
         $svg->showOutput($db.'-'.$this->pageNumber);
-        exit();
     }
 
     /**

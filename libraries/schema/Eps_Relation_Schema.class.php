@@ -886,7 +886,6 @@ class PMA_Eps_Relation_Schema extends PMA_Export_Relation_Schema
         $this->_drawTables($this->showColor);
         $eps->endEpsDoc();
         $eps->showOutput($db.'-'.$this->pageNumber);
-        exit();
     }
 
     /**
