@@ -2770,6 +2770,11 @@ $cfg['LinkLengthLimit'] = 1000;
  */
 $cfg['DisableMultiTableMaintenance'] = false;
 
+/**
+ * Enable Error reporting by default in phpmyadmin installations
+ */
+$cfg['ErrorReporting'] = true;
+
 /*******************************************************************************
  * SQL Parser Settings
  *
