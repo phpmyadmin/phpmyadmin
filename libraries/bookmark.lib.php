@@ -148,7 +148,7 @@ function PMA_Bookmark_get($db, $id, $id_field = 'id', $action_bookmark_all = fal
  *
  * @global  resource  the controluser db connection handle
  */
-function PMA_Bookmark_save($fields, $all_users = false)
+function PMA_Bookmark_save($bkm_fields, $all_users = false)
 {
     global $controllink;
 
