@@ -4,10 +4,9 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-06-12 09:39+0200\n"
-"PO-Revision-Date: 2013-06-05 13:51+0200\n"
+"PO-Revision-Date: 2013-06-12 16:43+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
-"Language-Team: French <http://l10n.cihar.com/projects/phpmyadmin/master/fr/"
-">\n"
+"Language-Team: French <http://l10n.cihar.com/projects/phpmyadmin/master/fr/>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -4139,7 +4138,7 @@ msgstr "Permettre aux utilisateurs de personnaliser cette valeur"
 
 #: libraries/config/FormDisplay.tpl.php:392
 msgid "Apply"
-msgstr ""
+msgstr "Appliquer"
 
 #: libraries/config/FormDisplay.tpl.php:394 libraries/insert_edit.lib.php:1551
 #: libraries/schema/User_Schema.class.php:554 prefs_manage.php:326
@@ -6345,19 +6344,19 @@ msgstr "ZIP"
 
 #: libraries/config/messages.inc.php:531
 msgid "Enter your public key for your domain reCaptcha service"
-msgstr ""
+msgstr "Saisissez la clé publique du service reCaptcha pour votre domaine"
 
 #: libraries/config/messages.inc.php:532
 msgid "Public key for reCaptcha"
-msgstr ""
+msgstr "Clé publique pour reCaptcha"
 
 #: libraries/config/messages.inc.php:533
 msgid "Enter your private key for your domain reCaptcha service"
-msgstr ""
+msgstr "Saisissez la clé privée du service reCaptcha pour votre domaine"
 
 #: libraries/config/messages.inc.php:534
 msgid "Private key for reCaptcha"
-msgstr ""
+msgstr "Clé privée pour reCaptcha"
 
 #: libraries/config/setup.forms.php:41
 msgid "Config authentication"
@@ -7935,11 +7934,11 @@ msgstr "Choix du serveur : "
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:386
 msgid "Entered captcha is wrong, try again!"
-msgstr ""
+msgstr "Erreur, essayez à nouveau !"
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:395
 msgid "Please enter correct captcha!"
-msgstr ""
+msgstr "Veuillez saisir le captcha correct !"
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:657
 #: libraries/plugins/auth/AuthenticationSignon.class.php:249
@@ -8435,10 +8434,9 @@ msgstr ""
 "et essayer à nouveau."
 
 #: libraries/plugins/import/ImportOds.class.php:182
-#, fuzzy
 #| msgid "OpenDocument Spreadsheet"
 msgid "Could not parse OpenDocument Spreasheet!"
-msgstr "Tableur OpenDocument"
+msgstr "Analyse incorrecte du tableur OpenDocument !"
 
 #: libraries/plugins/import/ImportShp.class.php:53
 msgid "ESRI Shape File"
