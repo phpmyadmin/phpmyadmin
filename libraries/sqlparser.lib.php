@@ -2913,4 +2913,18 @@ function PMA_SQP_isKeyWord($column)
     return in_array(strtoupper($column), $PMA_SQPdata_forbidden_word);
 }
 
+/**
+ * Checks whether a given query is to drop a database
+ *
+ * @param string $sql_query  The SQL query to be checked for drop database
+ *
+ * @return boolean whether true or false
+ */
+function PMA_isDropDatabase($sql_query)
+{
+    return preg_match(
+        '/DROP[[:space:]]+(DATABASE|SCHEMA)[[:space:]]+/i',
+        $sql_query
+    );
+}
 ?>

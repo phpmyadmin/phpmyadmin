@@ -138,8 +138,8 @@ function PMA_Bookmark_get($db, $id, $id_field = 'id', $action_bookmark_all = fal
 /**
  * Adds a bookmark
  *
- * @param array   $fields    the properties of the bookmark to add; here,
- *                           $fields['query'] is urlencoded
+ * @param array   $bkm_fields    the properties of the bookmark to add; here,
+ *                           $bkm_fields['bkm_sql_query'] is urlencoded
  * @param boolean $all_users whether to make the bookmark available for all users
  *
  * @return boolean   whether the INSERT succeeds or not
@@ -148,7 +148,7 @@ function PMA_Bookmark_get($db, $id, $id_field = 'id', $action_bookmark_all = fal
  *
  * @global  resource  the controluser db connection handle
  */
-function PMA_Bookmark_save($fields, $all_users = false)
+function PMA_Bookmark_save($bkm_fields, $all_users = false)
 {
     global $controllink;
 
@@ -161,10 +161,10 @@ function PMA_Bookmark_save($fields, $all_users = false)
     $query = 'INSERT INTO ' . PMA_Util::backquote($cfgBookmark['db'])
         . '.' . PMA_Util::backquote($cfgBookmark['table'])
         . ' (id, dbase, user, query, label)'
-        . ' VALUES (NULL, \'' . PMA_Util::sqlAddSlashes($fields['dbase']) . '\', '
-        . '\'' . ($all_users ? '' : PMA_Util::sqlAddSlashes($fields['user'])) . '\', '
-        . '\'' . PMA_Util::sqlAddSlashes(urldecode($fields['query'])) . '\', '
-        . '\'' . PMA_Util::sqlAddSlashes($fields['label']) . '\')';
+        . ' VALUES (NULL, \'' . PMA_Util::sqlAddSlashes($bkm_fields['bkm_database']) . '\', '
+        . '\'' . ($all_users ? '' : PMA_Util::sqlAddSlashes($bkm_fields['bkm_user'])) . '\', '
+        . '\'' . PMA_Util::sqlAddSlashes(urldecode($bkm_fields['bkm_sql_query'])) . '\', '
+        . '\'' . PMA_Util::sqlAddSlashes($bkm_fields['bkm_label']) . '\')';
     return $GLOBALS['dbi']->query($query, $controllink);
 } // end of the 'PMA_Bookmark_save()' function
 
