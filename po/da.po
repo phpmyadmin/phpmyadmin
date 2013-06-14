@@ -9784,7 +9784,7 @@ msgstr "Efter %s"
 #: libraries/structure.lib.php:1670
 #| msgid "Row Statistics"
 msgid "Row statistics"
-msgstr "Rækkestatistikker"
+msgstr "Rækkestatistik"
 
 #: libraries/structure.lib.php:1675 tbl_printview.php:353
 msgid "static"
