@@ -85,12 +85,15 @@ class PMA_RecentTable
             = " SELECT `tables` FROM " . $this->_pmaTable .
             " WHERE `username` = '" . $GLOBALS['cfg']['Server']['user'] . "'";
 
-        $row = $GLOBALS['dbi']->fetchArray(PMA_queryAsControlUser($sql_query));
-        if (isset($row[0])) {
-            return json_decode($row[0], true);
-        } else {
-            return array();
+        $return = array();
+        $result = PMA_queryAsControlUser($sql_query, false);
+        if ($result) {
+            $row = $GLOBALS['dbi']->fetchArray($result);
+            if (isset($row[0])) {
+                $return = json_decode($row[0], true);
+            }
         }
+        return $return;
     }
 
     /**
