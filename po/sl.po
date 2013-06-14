@@ -6302,7 +6302,7 @@ msgstr "ZIP"
 
 #: libraries/config/messages.inc.php:531
 msgid "Enter your public key for your domain reCaptcha service"
-msgstr "Vnesite javni ključ storitve reCaptcha vaše domene"
+msgstr "Vnesite vaš javni ključ storitve reCaptcha vaše domene"
 
 #: libraries/config/messages.inc.php:532
 msgid "Public key for reCaptcha"
