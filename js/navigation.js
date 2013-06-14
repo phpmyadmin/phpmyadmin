@@ -14,6 +14,11 @@ $(function () {
         return;
     }
 
+    // Do not let the page reload on submitting the fast filter
+    $(document).on('submit', '.fast_filter', function(event) {
+        event.preventDefault();
+    });
+
     // Fire up the resize handlers
     new ResizeHandler();
 
