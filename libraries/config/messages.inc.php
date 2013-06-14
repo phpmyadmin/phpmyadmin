@@ -533,4 +533,7 @@ $strConfigCaptchaLoginPublicKey_name  = __('Public key for reCaptcha');
 $strConfigCaptchaLoginPrivateKey_desc = __('Enter your private key for your domain reCaptcha service');
 $strConfigCaptchaLoginPrivateKey_name = __('Private key for reCaptcha');
 
+$strConfigErrorReporting_desc = __('Uncheck this to prevent the sending of error reports for javascript errors');
+$strConfigErrorReporting_name = __('Enable javascript error reporting');
+
 ?>

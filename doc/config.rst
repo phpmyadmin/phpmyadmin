@@ -119,6 +119,16 @@ Basic settings
 
     Show warning about incomplete translations on certain threshold.
 
+.. config:option:: $cfg['ErrorReporting']
+
+    :type: boolean
+    :default: true
+
+    Whenever an error is detected in the javascript execution. A an error report
+    may be sent to phpmyadmin if user agrees.
+
+    You can set this parameter to ``false`` to never send error reports.
+
 Server connection settings
 --------------------------
 
