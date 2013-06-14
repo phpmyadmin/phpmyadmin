@@ -27,6 +27,12 @@ $analyzed_sql = PMA_SQP_analyze($parsed_sql);
 //  PRIMARY KEY  (`id`)
 // )
 
+// A table has to be created, renamed, dropped -> navi frame should be reloaded
+$reload = isset($analyzed_sql[0]['queryflags']['reload']);
+
+// check for drop database
+$drop_database = isset($analyzed_sql[0]['queryflags']['drop_database']);
+
 // check for a real SELECT ... FROM
 $is_select = isset($analyzed_sql[0]['queryflags']['select_from']);
 

@@ -20,6 +20,8 @@ phpMyAdmin - ChangeLog
 - bug #3962 Proper escaping of JSON export
 + rfe #1328 Optional ReCAPTCHA support
 
+4.0.5.0 (not yet released)
+
 4.0.4.0 (not yet released)
 - bug #3959 Using DefaultTabDatabase in NavigationTree for Database Click
 - bug #3961 Avoid Suhosin warning when in simulation mode
@@ -35,6 +37,7 @@ not set
 - bug #3631 Drop not working Visio schema export.
 - bug #3645 Better handling of invalid ODS documents
 - bug #3976 Number of pages
+- bug #3922 User privileges, database name unescaped
 
 4.0.3.0 (2013-06-05)
 - bug #3941 Recent tables list always empty

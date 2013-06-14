@@ -4,10 +4,9 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-06-12 09:39+0200\n"
-"PO-Revision-Date: 2013-06-02 09:58+0200\n"
+"PO-Revision-Date: 2013-06-13 20:03+0200\n"
 "Last-Translator: Aputsiaq Niels Janussen <aj@isit.gl>\n"
-"Language-Team: Danish <http://l10n.cihar.com/projects/phpmyadmin/master/da/"
-">\n"
+"Language-Team: Danish <http://l10n.cihar.com/projects/phpmyadmin/master/da/>\n"
 "Language: da\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -4109,7 +4108,7 @@ msgstr "Tillad brugerdefinerede indstillinger for værdien"
 
 #: libraries/config/FormDisplay.tpl.php:392
 msgid "Apply"
-msgstr ""
+msgstr "Anvend"
 
 #: libraries/config/FormDisplay.tpl.php:394 libraries/insert_edit.lib.php:1551
 #: libraries/schema/User_Schema.class.php:554 prefs_manage.php:326
@@ -6294,19 +6293,19 @@ msgstr "ZIP"
 
 #: libraries/config/messages.inc.php:531
 msgid "Enter your public key for your domain reCaptcha service"
-msgstr ""
+msgstr "Angiv din offentlige nøgle for dit domænes reCaptcha-tjeneste"
 
 #: libraries/config/messages.inc.php:532
 msgid "Public key for reCaptcha"
-msgstr ""
+msgstr "Offentlig nøgle for reCaptcha"
 
 #: libraries/config/messages.inc.php:533
 msgid "Enter your private key for your domain reCaptcha service"
-msgstr ""
+msgstr "Angiv din private nøgle for dit domænes reCaptcha-tjeneste"
 
 #: libraries/config/messages.inc.php:534
 msgid "Private key for reCaptcha"
-msgstr ""
+msgstr "Privat nøgle for reCaptcha"
 
 #: libraries/config/setup.forms.php:41
 msgid "Config authentication"
@@ -7869,11 +7868,11 @@ msgstr "Servervalg:"
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:386
 msgid "Entered captcha is wrong, try again!"
-msgstr ""
+msgstr "Den angivne captcha er forkert, prøv igen!"
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:395
 msgid "Please enter correct captcha!"
-msgstr ""
+msgstr "Angiv venligst korrekt captcha!"
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:657
 #: libraries/plugins/auth/AuthenticationSignon.class.php:249
@@ -8364,10 +8363,9 @@ msgstr ""
 "prøv igen."
 
 #: libraries/plugins/import/ImportOds.class.php:182
-#, fuzzy
 #| msgid "OpenDocument Spreadsheet"
 msgid "Could not parse OpenDocument Spreasheet!"
-msgstr "OpenDocument regneark"
+msgstr "Kunne ikke fortolke OpenDocument-regnearket!"
 
 #: libraries/plugins/import/ImportShp.class.php:53
 msgid "ESRI Shape File"
@@ -10133,7 +10131,6 @@ msgid "After %s"
 msgstr "Efter %s"
 
 #: libraries/structure.lib.php:1670
-#, fuzzy
 #| msgid "Row Statistics"
 msgid "Row statistics"
 msgstr "Rækkestatistik"
@@ -12288,7 +12285,7 @@ msgid "Validated SQL"
 msgstr "Valideret SQL"
 
 #: sql.php:1101
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "This table does not contain a unique column. Grid edit, checkbox, Edit, "
 #| "Copy and Delete features are not available."
@@ -12296,7 +12293,7 @@ msgid ""
 "Table %s does not contain a unique column. Grid edit, checkbox, Edit, Copy "
 "and Delete features are not available."
 msgstr ""
-"Denne tabel indeholder ikke en unik kolonne. Redigering af gitter, "
+"Tabellen %s indeholder ikke en unik kolonne. Redigering af gitter, "
 "afkrydsningsfelt, redigering og sletning er ikke tilgængelige."
 
 #: sql.php:1154

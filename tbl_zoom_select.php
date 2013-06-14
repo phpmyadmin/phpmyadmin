@@ -36,20 +36,6 @@ $scripts->addFile('canvg/canvg.js');
 $scripts->addFile('jquery/jquery-ui-timepicker-addon.js');
 $scripts->addFile('tbl_zoom_plot_jqplot.js');
 
-/**
- * Sets globals from $_POST
- */
-$post_params = array(
-    'dataLabel',
-    'maxPlotLimit',
-    'zoom_submit'
-);
-foreach ($post_params as $one_post_param) {
-    if (isset($_POST[$one_post_param])) {
-        $GLOBALS[$one_post_param] = $_POST[$one_post_param];
-    }
-}
-
 $table_search = new PMA_TableSearch($db, $table, "zoom");
 
 /**
@@ -121,6 +107,8 @@ $err_url   = $goto . '?' . PMA_generate_common_url($db, $table);
 //Set default datalabel if not selected
 if ( !isset($_POST['zoom_submit']) || $_POST['dataLabel'] == '') {
     $dataLabel = PMA_getDisplayField($db, $table);
+} else {
+    $dataLabel = $_POST['dataLabel'];
 }
 
 // Displays the zoom search form
@@ -130,14 +118,14 @@ $response->addHTML($table_search->getSelectionForm($goto, $dataLabel));
  * Handle the input criteria and generate the query result
  * Form for displaying query results
  */
-if (isset($zoom_submit)
+if (isset($_POST['zoom_submit'])
     && $_POST['criteriaColumnNames'][0] != 'pma_null'
     && $_POST['criteriaColumnNames'][1] != 'pma_null'
     && $_POST['criteriaColumnNames'][0] != $_POST['criteriaColumnNames'][1]
 ) {
     //Query generation part
     $sql_query = $table_search->buildSqlQuery();
-    $sql_query .= ' LIMIT ' . $maxPlotLimit;
+    $sql_query .= ' LIMIT ' . $_POST['maxPlotLimit'];
 
     //Query execution part
     $result = $GLOBALS['dbi']->query(
