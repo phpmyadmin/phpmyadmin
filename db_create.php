@@ -20,7 +20,6 @@ require 'libraries/build_html_for_db.lib.php';
  * Sets globals from $_POST
  */
 $post_params = array(
-    'db_collation',
     'new_db'
 );
 foreach ($post_params as $one_post_param) {
@@ -40,15 +39,16 @@ $err_url = 'index.php?' . PMA_generate_common_url();
  * Builds and executes the db creation sql query
  */
 $sql_query = 'CREATE DATABASE ' . PMA_Util::backquote($new_db);
-if (! empty($db_collation)) {
-    list($db_charset) = explode('_', $db_collation);
+if (! empty($_POST['db_collation'])) {
+    list($db_charset) = explode('_', $_POST['db_collation']);
     if (in_array($db_charset, $mysql_charsets)
-        && in_array($db_collation, $mysql_collations[$db_charset])
+        && in_array($_POST['db_collation'], $mysql_collations[$db_charset])
     ) {
-        $sql_query .= ' DEFAULT' . PMA_generateCharsetQueryPart($db_collation);
+        $sql_query .= ' DEFAULT' 
+            . PMA_generateCharsetQueryPart($_POST['db_collation']);
     }
-    $db_collation_for_ajax = $db_collation;
-    unset($db_charset, $db_collation);
+    $db_collation_for_ajax = $_POST['db_collation'];
+    unset($db_charset);
 }
 $sql_query .= ';';
 
