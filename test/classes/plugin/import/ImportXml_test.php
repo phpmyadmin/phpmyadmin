@@ -44,14 +44,16 @@ class ImportXml_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['read_limit'] = 100000000;
         $GLOBALS['import_file'] = 'test/classes/plugin/import/phpmyadmin_importXML_For_Testing.xml';
         $GLOBALS['import_text'] = 'ImportXml_Test';
-        $compression = 'none'; 
         $GLOBALS['offset'] = 0;
+        $GLOBALS['cfg']['Server']['DisableIS'] = true;
+        
+        //global variable
+        $compression = 'none'; 
         $read_multiply = 10;
         $import_file = 'test/classes/plugin/import/phpmyadmin_importXML_For_Testing.xml';
         $import_type = 'Xml';
         $import_handle = @fopen($import_file, 'r');
         $cfg['AllowUserDropDatabase'] = false;
-        $GLOBALS['cfg']['Server']['DisableIS'] = true;
     }
 
     /**
@@ -108,17 +110,22 @@ class ImportXml_Test extends PHPUnit_Framework_TestCase
      */
     public function testDoImport()
     {
+        //$import_notice will show the import detail result
         global $import_notice;
+        
+        //mock DBI
         $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
         $dbi->expects($this->once())
-             ->method('isSuperuser')
-             ->with('true');
+            ->method('isSuperuser')
+            ->with(true);
         $GLOBALS['dbi'] = $dbi;
+        
+        //Test function called
         $this->object->doImport();
  
-        //If import successfully, PMA will show all database and tables imported as following HTML Page
+        //If import successfully, PMA will show all databases and tables imported as following HTML Page
         /*
            The following structures have either been created or altered. Here you can:
            View a structure's contents by clicking on its name
@@ -126,22 +133,26 @@ class ImportXml_Test extends PHPUnit_Framework_TestCase
            Edit structure by following the "Structure" link
 
            phpmyadmin (Options)
-           p ma_bookmark (Structure) (Options)
+           pma_bookmark (Structure) (Options)
         */      
         $import_succesful_display_message =
                '<br /><br /><strong>The following structures have either '
-             . 'been created or altered. Here you can:</strong><br /><ul><li>View a structure\'s '
-             . 'contents by clicking on its name</li><li>Change any of its settings by clicking '
-             . 'the corresponding "Options" link</li><li>Edit structure by following the "Structure'
-             . '" link</li><br /><li><a href="db_structure.php?db=phpmyadmin&amp;lang=en&amp;'
+             . 'been created or altered. Here you can:</strong><br /><ul>' 
+             . '<li>View a structure\'s contents by clicking on its name</li>'
+             . '<li>Change any of its settings by clicking the corresponding "Options" link</li>'
+             . '<li>Edit structure by following the "Structure" link</li>'
+             . '<br />' 
+             . '<li><a href="db_structure.php?db=phpmyadmin&amp;lang=en&amp;'
              . 'token=token" title="Go to database: `phpmyadmin`">phpmyadmin</a> (<a href="db_op'
              . 'erations.php?db=phpmyadmin&amp;lang=en&amp;token=token" title="Edit settings for'
-             . ' `phpmyadmin`">Options</a>)</li><ul><li><a href="sql.php?db=phpmyadmin&amp;table'
+             . ' `phpmyadmin`">Options</a>)</li>' 
+             . '<ul><li><a href="sql.php?db=phpmyadmin&amp;table'
              . '=pma_bookmark&amp;lang=en&amp;token=token" title="Go to table: `pma_bookmark`">pma_bookmark'
              . '</a> (<a href="tbl_structure.php?db=phpmyadmin&amp;table=pma_bookmark'
              . '&amp;lang=en&amp;token=token" title="Structure of `pma_bookmark`">Structure</a>)'
              . ' (<a href="tbl_operations.php?db=phpmyadmin&amp;table=pma_bookmark&amp;lang=en&amp;'
-             . 'token=token" title="Edit settings for `pma_bookmark`">Options</a>)</li></ul></ul>';
+             . 'token=token" title="Edit settings for `pma_bookmark`">Options</a>)' 
+             . '</li></ul></ul>';
         
         //asset that all databases and tables are imported
         $this->assertEquals(
