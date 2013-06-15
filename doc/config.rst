@@ -129,6 +129,19 @@ Basic settings
 
     You can set this parameter to ``false`` to never send error reports.
 
+.. config:option:: $cfg['SendErrorReports']
+
+    :type: string
+    :default: ``'ask'``
+
+    Whenever an error is detected in the javascript execution. A an error report
+    may be sent to phpmyadmin. This setting sets the default behavior.
+
+    The default setting of ``'ask'`` will ask the user everytime there is a new
+    error report. However you can set this parameter to ``'always'`` to send error
+    reports without asking for confirmation or you can set it to ``'never'`` to
+    never send error reports.
+
 Server connection settings
 --------------------------
 

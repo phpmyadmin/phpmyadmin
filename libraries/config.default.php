@@ -2771,8 +2771,21 @@ $cfg['DisableMultiTableMaintenance'] = false;
 
 /**
  * Enable Error reporting by default in phpmyadmin installations
+ *
+ * @global boolean $cfg['ErrorReporting']
  */
 $cfg['ErrorReporting'] = true;
+
+/**
+ * Whether or not to query the user before sending the error report to
+ * phpmyadmin
+ *
+ * Available options
+ * (ask | always | never)
+ *
+ * @global string $cfg['SendErrorReports']
+ */
+$cfg['SendErrorReports'] = 'ask';
 
 /*******************************************************************************
  * SQL Parser Settings

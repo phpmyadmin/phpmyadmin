@@ -33,7 +33,8 @@ $forms['Features']['General'] = array(
     'MaxDbList',
     'MaxTableList',
     'NumRecentTables',
-    'ShowHint');
+    'ShowHint',
+    'SendErrorReports');
 $forms['Features']['Text_fields'] = array(
     'CharEditing',
     'MinSizeForInputField',
