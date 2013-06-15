@@ -1624,6 +1624,10 @@ function PMA_SQP_analyze($arr)
                     $subresult['queryflags']['is_replace'] = 1;
                 }
 
+                if ($first_reserved_word == 'SHOW') {
+                    $subresult['queryflags']['is_show'] = 1;
+                }
+
             } else {
                 // for the presence of DROP DATABASE
                 if ($first_reserved_word == 'DROP' && $upper_data == 'DATABASE') {
@@ -1722,11 +1726,6 @@ function PMA_SQP_analyze($arr)
             if ($upper_data == 'OFFSET') {
                 $subresult['queryflags']['offset'] = 1;
             }
-
-            if ($upper_data == 'SHOW') {
-                $subresult['queryflags']['is_show'] = 1;
-            }
-
 
             // if this is a real SELECT...FROM
             if ($upper_data == 'FROM'
