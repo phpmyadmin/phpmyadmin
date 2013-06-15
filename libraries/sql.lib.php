@@ -117,25 +117,22 @@ function getTableHtmlForMultipleQueries(
                     $databases_array
                 );
             }
-            $parsed_sql = PMA_SQP_parse($sql_data['valid_sql'][$sql_no]);
+
             $table = PMA_getTableNameBySQL(
                 $sql_data['valid_sql'][$sql_no],
                 $tables_array
             );
 
-            $analyzed_sql = PMA_SQP_analyze($parsed_sql);
-            $is_select = isset($analyzed_sql[0]['queryflags']['select_from']);
+            // for the use of the parse_analyze.lib.php
+            $sql_query = $sql_data['valid_sql'][$sql_no];
+
+            // Parse and analyze the query
+            require_once 'libraries/parse_analyze.lib.php';
+
             $unlim_num_rows = PMA_Table::countRecords($db, $table, true);
             $showtable = PMA_Table::sGetStatusInfo($db, $table, null, true);
             $url_query = PMA_generate_common_url($db, $table);
-
-            list($is_group, $is_func, $is_count, $is_export, $is_analyse,
-                $is_explain, $is_delete, $is_affected, $is_insert, $is_replace,
-                $is_show, $is_maint)
-                    = PMA_getDisplayPropertyParams(
-                        $sql_data['valid_sql'][$sql_no], $is_select
-                    );
-
+            
             // Handle remembered sorting order, only for single table query
             if ($GLOBALS['cfg']['RememberSorting']
                 && ! ($is_count || $is_export || $is_func || $is_analyse)
