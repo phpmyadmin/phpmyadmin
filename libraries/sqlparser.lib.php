@@ -1603,9 +1603,27 @@ function PMA_SQP_analyze($arr)
                 $subresult['querytype'] = $upper_data;
                 $seen_reserved_word = true;
 
-                if ($first_reserved_word=='SELECT') {
+                if ($first_reserved_word == 'SELECT') {
                     $position_of_first_select = $i;
-                }                
+                }
+
+                if ($first_reserved_word == 'EXPLAIN') {
+                    $subresult['queryflags']['is_explain'] = 1;
+                }
+
+                if ($first_reserved_word == 'DELETE') {
+                    $subresult['queryflags']['is_delete'] = 1;
+                    $subresult['queryflags']['is_affected'] = 1;
+                }
+
+                if ($first_reserved_word == 'UPDATE') {
+                    $subresult['queryflags']['is_affected'] = 1;
+                }
+
+                if ($first_reserved_word == 'REPLACE') {
+                    $subresult['queryflags']['is_replace'] = 1;
+                }
+
             } else {
                 // for the presence of DROP DATABASE
                 if ($first_reserved_word == 'DROP' && $upper_data == 'DATABASE') {
@@ -1703,23 +1721,6 @@ function PMA_SQP_analyze($arr)
 
             if ($upper_data == 'OFFSET') {
                 $subresult['queryflags']['offset'] = 1;
-            }
-
-            if ($upper_data == 'EXPLAIN') {
-                $subresult['queryflags']['is_explain'] = 1;
-            }
-
-            if ($upper_data == 'DELETE') {
-                $subresult['queryflags']['is_delete'] = 1;
-                $subresult['queryflags']['is_affected'] = 1;
-            }
-
-            if ($upper_data == 'UPDATE') {
-                $subresult['queryflags']['is_affected'] = 1;
-            }
-            
-            if ($upper_data == 'REPLACE') {
-                $subresult['queryflags']['is_replace'] = 1;
             }
 
             if ($upper_data == 'SHOW') {
