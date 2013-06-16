@@ -27,11 +27,48 @@ $analyzed_sql = PMA_SQP_analyze($parsed_sql);
 //  PRIMARY KEY  (`id`)
 // )
 
+// Fills some variables from the analysed SQL
 // A table has to be created, renamed, dropped -> navi frame should be reloaded
 $reload = isset($analyzed_sql[0]['queryflags']['reload']);
 
 // check for drop database
 $drop_database = isset($analyzed_sql[0]['queryflags']['drop_database']);
+
+// for the presence of EXPLAIN
+$is_explain = isset($analyzed_sql[0]['queryflags']['is_explain']);
+
+// for the presence of DELETE
+$is_delete = isset($analyzed_sql[0]['queryflags']['is_delete']);
+
+// for the presence of UPDATE, DELETE or INSERT|LOAD DATA|REPLACE
+$is_affected = isset($analyzed_sql[0]['queryflags']['is_affected']);
+
+// for the presence of REPLACE
+$is_replace = isset($analyzed_sql[0]['queryflags']['is_replace']);
+
+// for the presence of INSERT
+$is_insert = isset($analyzed_sql[0]['queryflags']['is_insert']);
+
+// for the presence of CHECK|ANALYZE|REPAIR|OPTIMIZE TABLE
+$is_maint = isset($analyzed_sql[0]['queryflags']['is_maint']);
+
+// for the presence of SHOW
+$is_show = isset($analyzed_sql[0]['queryflags']['is_show']);
+
+// for the presence of PRRCEDURE ANALYSE
+$is_analyse = isset($analyzed_sql[0]['queryflags']['is_analyse']);
+
+// for the presence of INTO OUTFILE
+$is_export = isset($analyzed_sql[0]['queryflags']['is_export']);
+
+// for the presence of GROUP BY|HAVING|SELECT DISTINCT
+$is_group = isset($analyzed_sql[0]['queryflags']['is_group']);
+
+// for the presence of SUM|AVG|STD|STDDEV|MIN|MAX|BIT_OR|BIT_AND
+$is_func = isset($analyzed_sql[0]['queryflags']['is_func']);
+
+// for the presence of SELECT COUNT
+$is_count = isset($analyzed_sql[0]['queryflags']['is_count']);
 
 // check for a real SELECT ... FROM
 $is_select = isset($analyzed_sql[0]['queryflags']['select_from']);
@@ -59,7 +96,7 @@ if ($is_select) {
     } else {
         $db = $prev_db;
     }
-    // Nijel: don't change reload, if we already decided to reload in import
+    // Don't change reload, if we already decided to reload in import
     if (empty($reload) && empty($GLOBALS['is_ajax_request'])) {
         $reload  = ($db == $prev_db) ? 0 : 1;
     }

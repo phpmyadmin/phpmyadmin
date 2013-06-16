@@ -4037,7 +4037,7 @@ class PMA_Util
 
         if (! $escapeHtml) {
             foreach ($values as $key => $value) {
-                $values[$key] = html_entity_decode($value, ENT_QUOTES);
+                $values[$key] = html_entity_decode($value, ENT_QUOTES, 'UTF-8');
             }
         }
 
