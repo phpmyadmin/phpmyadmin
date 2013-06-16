@@ -91,7 +91,7 @@ function getTableHtmlForMultipleQueries(
     $querytime_before = array_sum(explode(' ', microtime()));
 
     // Assignment for variable is not needed since the results are
-    // looiping using the connection
+    // looping using the connection
     @$GLOBALS['dbi']->tryMultiQuery($multi_sql);
 
     $querytime_after = array_sum(explode(' ', microtime()));
