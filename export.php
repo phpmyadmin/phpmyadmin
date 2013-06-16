@@ -421,7 +421,7 @@ if ($onfly_compression) {
         $memory_limit = (int)$memory_limit;
     }
 
-    // Some of memory is needed for other thins and as treshold.
+    // Some of memory is needed for other things and as threshold.
     // During export I had allocated (see memory_get_usage function)
     // approx 1.2MB so this comes from that.
     if ($memory_limit > 1500000) {
