@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-06-12 09:39+0200\n"
-"PO-Revision-Date: 2013-06-16 14:07+0200\n"
+"PO-Revision-Date: 2013-06-16 15:29+0200\n"
 "Last-Translator: Ádám Papp-Kuster <pkadam@kuster.hu>\n"
 "Language-Team: Hungarian "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/hu/>\n"
@@ -1473,7 +1473,7 @@ msgid ""
 "This is most likely because your session expired. Reloading the page and "
 "reentering your credentials should help."
 msgstr ""
-"Az új diagram adatainak lekérésekor a szerver érvénytelen választ adott. "
+"Az új grafikon adatainak lekérésekor a szerver érvénytelen választ adott. "
 "Valószínűleg a munkamenet lejárt. Az oldal újratöltése, és a belépési adatok "
 "újbóli megadása segíthet."
 
@@ -1578,7 +1578,7 @@ msgstr "Hibakód: %s"
 #: js/messages.php:217
 #, php-format
 msgid "Error text: %s"
-msgstr ""
+msgstr "Hibaüzenet: %s"
 
 #: js/messages.php:218 libraries/db_common.inc.php:58
 #: libraries/db_table_exists.lib.php:28 server_databases.php:89
@@ -1770,11 +1770,13 @@ msgstr "Egy pont fölé mutatás megjeleníti annak címkéjét."
 
 #: js/messages.php:284
 msgid "To zoom in, select a section of the plot with the mouse."
-msgstr ""
+msgstr "A nagyításhoz jelöljön ki egy területet az egérrel."
 
 #: js/messages.php:286
 msgid "Click reset zoom button to come back to original state."
 msgstr ""
+"Kattints a nagyítás visszaállítása gombra, hogy visszatérj az eredeti "
+"állapotra."
 
 #: js/messages.php:288
 msgid "Click a data point to view and possibly edit the data row."
@@ -1782,7 +1784,7 @@ msgstr ""
 
 #: js/messages.php:290
 msgid "The plot can be resized by dragging it along the bottom right corner."
-msgstr ""
+msgstr "A terület a jobb alsó sarok húzásával átméretezhető."
 
 #: js/messages.php:292
 msgid "Select two columns"
@@ -1797,10 +1799,9 @@ msgid "Query results"
 msgstr "Lekérdezési eredmények"
 
 #: js/messages.php:295
-#, fuzzy
 #| msgid "Data pointer size"
 msgid "Data point content"
-msgstr "Adatmutató mérete"
+msgstr "Adatmutató tartalma"
 
 #: js/messages.php:298 libraries/display_indexes.lib.php:134
 #: libraries/display_indexes.lib.php:170 tbl_change.php:263
@@ -1871,7 +1872,7 @@ msgstr "Adjon meg egy opciót az oszlophoz "
 #: js/messages.php:325
 #, php-format
 msgid "%d object(s) created"
-msgstr ""
+msgstr "%d elem létrehozva"
 
 #: js/messages.php:328
 msgid "Press escape to cancel editing"
