@@ -123,11 +123,11 @@ function getTableHtmlForMultipleQueries(
                 $tables_array
             );
 
-            // for the use of the parse_analyze.lib.php
+            // for the use of the parse_analyze.inc.php
             $sql_query = $sql_data['valid_sql'][$sql_no];
 
             // Parse and analyze the query
-            require 'libraries/parse_analyze.lib.php';
+            require 'libraries/parse_analyze.inc.php';
 
             $unlim_num_rows = PMA_Table::countRecords($db, $table, true);
             $showtable = PMA_Table::sGetStatusInfo($db, $table, null, true);
