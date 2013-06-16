@@ -2,7 +2,7 @@
 /**
  * Tests for ImportXml class
  *
- * @package phpmyadmin-test
+ * @package PhpMyAdmin-test
  */
 
 /*
@@ -17,7 +17,7 @@ require_once 'libraries/database_interface.inc.php';
 /**
  * Tests for ImportXml class
  *
- * @package phpmyadmin-test
+ * @package PhpMyAdmin-test
  */
 class ImportXml_Test extends PHPUnit_Framework_TestCase
 {
