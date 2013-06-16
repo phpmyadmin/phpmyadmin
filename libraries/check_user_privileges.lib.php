@@ -12,7 +12,7 @@ if (! defined('PHPMYADMIN')) {
 /**
  *
  */
-$GLOBALS['is_superuser'] = $GLOBALS['dbi']->isSuperuser();
+$GLOBALS['is_superuser'] = isset($GLOBALS['dbi'])? $GLOBALS['dbi']->isSuperuser() : false;
 
 /**
  * sets privilege information extracted from SHOW GRANTS result

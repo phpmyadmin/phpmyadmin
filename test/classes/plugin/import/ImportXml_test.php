@@ -2,7 +2,7 @@
 /**
  * Tests for ImportXml class
  *
- * @package PhpMyAdmin-test
+ * @package phpmyadmin-test
  */
 
 /*
@@ -17,7 +17,7 @@ require_once 'libraries/database_interface.inc.php';
 /**
  * Tests for ImportXml class
  *
- * @package PhpMyAdmin-test
+ * @package phpmyadmin-test
  */
 class ImportXml_Test extends PHPUnit_Framework_TestCase
 {
@@ -45,7 +45,7 @@ class ImportXml_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['import_file'] = 'test/classes/plugin/import/phpmyadmin_importXML_For_Testing.xml';
         $GLOBALS['import_text'] = 'ImportXml_Test';
         $GLOBALS['offset'] = 0;
-        $GLOBALS['cfg']['Server']['DisableIS'] = true;
+        $GLOBALS['cfg']['Server']['DisableIS'] = false;
         
         //global variable
         $compression = 'none'; 
@@ -111,15 +111,12 @@ class ImportXml_Test extends PHPUnit_Framework_TestCase
     public function testDoImport()
     {
         //$import_notice will show the import detail result
-        global $import_notice;
+        global $import_notice;        
         
-        //mock DBI
+        //Mock DBI
         $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
-        $dbi->expects($this->once())
-            ->method('isSuperuser')
-            ->with(true);
         $GLOBALS['dbi'] = $dbi;
         
         //Test function called
@@ -132,27 +129,37 @@ class ImportXml_Test extends PHPUnit_Framework_TestCase
            Change any of its settings by clicking the corresponding "Options" link
            Edit structure by following the "Structure" link
 
-           phpmyadmin (Options)
-           pma_bookmark (Structure) (Options)
+           phpmyadmintest (Options)
+           pma_bookmarktest (Structure) (Options)
         */      
         $import_succesful_display_message =
                '<br /><br /><strong>The following structures have either '
-             . 'been created or altered. Here you can:</strong><br /><ul>' 
-             . '<li>View a structure\'s contents by clicking on its name</li>'
-             . '<li>Change any of its settings by clicking the corresponding "Options" link</li>'
-             . '<li>Edit structure by following the "Structure" link</li>'
+             . 'been created or altered. Here you can:</strong>' 
              . '<br />' 
-             . '<li><a href="db_structure.php?db=phpmyadmin&amp;lang=en&amp;'
-             . 'token=token" title="Go to database: `phpmyadmin`">phpmyadmin</a> (<a href="db_op'
-             . 'erations.php?db=phpmyadmin&amp;lang=en&amp;token=token" title="Edit settings for'
-             . ' `phpmyadmin`">Options</a>)</li>' 
-             . '<ul><li><a href="sql.php?db=phpmyadmin&amp;table'
-             . '=pma_bookmark&amp;lang=en&amp;token=token" title="Go to table: `pma_bookmark`">pma_bookmark'
-             . '</a> (<a href="tbl_structure.php?db=phpmyadmin&amp;table=pma_bookmark'
-             . '&amp;lang=en&amp;token=token" title="Structure of `pma_bookmark`">Structure</a>)'
-             . ' (<a href="tbl_operations.php?db=phpmyadmin&amp;table=pma_bookmark&amp;lang=en&amp;'
-             . 'token=token" title="Edit settings for `pma_bookmark`">Options</a>)' 
-             . '</li></ul></ul>';
+             
+             . '<ul>' 
+             .    '<li>View a structure\'s contents by clicking on its name</li>'
+             .    '<li>Change any of its settings by clicking the corresponding "Options" link</li>'
+             .    '<li>Edit structure by following the "Structure" link</li>'
+             
+             . '<br />' 
+             .    '<li><a href="db_structure.php?db=phpmyadmintest&amp;lang=en&amp;token=token" '
+             .    'title="Go to database: `phpmyadmintest`">phpmyadmintest</a> (<a href="'
+             .    'db_operations.php?db=phpmyadmintest&amp;lang=en&amp;token=token" '
+             .    'title="Edit settings for `phpmyadmintest`">Options</a>)' 
+             .    '</li>' 
+             
+             . '<ul>' 
+             .     '<li>'
+             .     '<a href="sql.php?db=phpmyadmintest&amp;table=pma_bookmarktest&amp;lang=en&amp;token=token"'
+             .     ' title="Go to table: `pma_bookmarktest`">pma_bookmarktest</a> '
+             .     '(<a href="tbl_structure.php?db=phpmyadmintest&amp;table=pma_bookmarktest&amp;lang=en&amp;token=token"'
+             .     ' title="Structure of `pma_bookmarktest`">Structure</a>) (<a href="tbl_operations.php?'
+             .     'db=phpmyadmintest&amp;table=pma_bookmarktest&amp;lang=en&amp;token=token" title="Edit settings'
+             .     ' for `pma_bookmarktest`">Options</a>)' 
+             .     '</li>' 
+             . '</ul>' 
+             . '</ul>';
         
         //asset that all databases and tables are imported
         $this->assertEquals(

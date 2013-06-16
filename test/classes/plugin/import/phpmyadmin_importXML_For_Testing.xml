@@ -15,9 +15,9 @@
     - Structure schemas
     -->
     <pma:structure_schemas>
-        <pma:database name="phpmyadmin" collation="utf8_bin" charset="utf8">
-            <pma:table name="pma_bookmark">
-                CREATE TABLE `pma_bookmark` (
+        <pma:database name="phpmyadmintest" collation="utf8_bin" charset="utf8">
+            <pma:table name="pma_bookmarktest">
+                CREATE TABLE `pma_bookmarktest` (
                   `id` int(11) NOT NULL AUTO_INCREMENT,
                   `dbase` varchar(255) COLLATE utf8_bin NOT NULL DEFAULT '',
                   `user` varchar(255) COLLATE utf8_bin NOT NULL DEFAULT '',
@@ -30,15 +30,15 @@
     </pma:structure_schemas>
 
     <!--
-    - Database: 'phpmyadmin'
+    - Database: 'phpmyadmintest'
     -->
-    <database name="phpmyadmin">
-        <!-- Table pma_bookmark -->
-        <table name="pma_bookmark">
+    <database name="phpmyadmintest">
+        <!-- Table pma_bookmarktest -->
+        <table name="pma_bookmarktest">
             <column name="id">1</column>
-            <column name="dbase">okjoomla.com</column>
+            <column name="dbase">pma_dbase</column>
             <column name="user"></column>
-            <column name="label">chen</column>
+            <column name="label">pma_label</column>
             <column name="query">SELECT * FROM `db_content` WHERE 1</column>
         </table>
     </database>
