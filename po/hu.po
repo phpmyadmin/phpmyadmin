@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-06-12 09:39+0200\n"
-"PO-Revision-Date: 2013-04-03 09:47+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Hungarian <http://l10n.cihar.com/projects/phpmyadmin/master/"
-"hu/>\n"
+"PO-Revision-Date: 2013-06-16 13:54+0200\n"
+"Last-Translator: Ádám Papp-Kuster <pkadam@kuster.hu>\n"
+"Language-Team: Hungarian "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/hu/>\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 1.5-dev\n"
+"X-Generator: Weblate 1.6-dev\n"
 
 #: browse_foreigners.php:51 browse_foreigners.php:75 js/messages.php:335
 #: libraries/DisplayResults.class.php:809
@@ -902,7 +902,7 @@ msgstr ""
 "phpMyAdmin könyvtárában. Távolítsa el a phpMyAdmin beállítása után."
 
 #: index.php:489
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "ditional features for working with linked tables have been ctivated. To d "
 #| "out why click %shere%s."
@@ -910,8 +910,9 @@ msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
 "extended features have been deactivated. To find out why click %shere%s."
 msgstr ""
-"A hivatkozott táblákkal történő munka kiegészítő funkciói inaktiválásra "
-"kerültek. Ha szeretné megtudni, hogy miért, kattintson %side%s."
+"A phpMyAdmin konfigurációs tárolója nincs megfelelően beállítva, néhány "
+"kibővített funkció inaktiválásra került. Ha szeretné megtudni, hogy miért, "
+"kattintson %side%s."
 
 #: index.php:521
 #, php-format
@@ -982,10 +983,10 @@ msgstr "Index szerkesztése"
 
 #: js/messages.php:44 libraries/display_indexes.lib.php:199
 #: libraries/display_indexes.lib.php:205
-#, fuzzy, php-format
+#, php-format
 #| msgid "Add %d column(s) to index"
 msgid "Add %s column(s) to index"
-msgstr "%d oszlop hozzáadása az indexhez"
+msgstr "%s oszlop hozzáadása az indexhez"
 
 #. l10n: Default label for the y-Axis of Charts
 #: js/messages.php:48 tbl_chart.php:236
@@ -1703,7 +1704,7 @@ msgstr "SQL-lekérdezési panelek elrejtése"
 
 #: js/messages.php:263
 msgid "Show query box"
-msgstr "Lekérdezési dobox megjelenítése"
+msgstr "Lekérdezési doboz megjelenítése"
 
 #: js/messages.php:264 libraries/DisplayResults.class.php:3314
 #: libraries/Index.class.php:591 libraries/Util.class.php:699
@@ -1813,10 +1814,9 @@ msgid "Point"
 msgstr "Pont"
 
 #: js/messages.php:304
-#, fuzzy
 #| msgid "Lines terminated by"
 msgid "Linestring"
-msgstr "Sorok vége"
+msgstr "Sorvég-karakter"
 
 #: js/messages.php:305
 msgid "Polygon"
@@ -6176,7 +6176,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:480 libraries/sql_query_form.lib.php:373
 msgid "Retain query box"
-msgstr "Lekérdezési dobox megőrzése"
+msgstr "Lekérdezési doboz megőrzése"
 
 #: libraries/config/messages.inc.php:481
 msgid "Allow to display database and table statistics (eg. space usage)"
