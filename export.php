@@ -422,8 +422,8 @@ if ($onfly_compression) {
     }
 
     // Some of memory is needed for other thins and as treshold.
-    // Nijel: During export I had allocated (see memory_get_usage function)
-    //        approx 1.2MB so this comes from that.
+    // During export I had allocated (see memory_get_usage function)
+    // approx 1.2MB so this comes from that.
     if ($memory_limit > 1500000) {
         $memory_limit -= 1500000;
     }
