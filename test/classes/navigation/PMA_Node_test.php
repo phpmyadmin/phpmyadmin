@@ -306,6 +306,7 @@ class Node_Test extends PHPUnit_Framework_TestCase
         // It would have been better to mock _getWhereClause method
         // but stangely, mocking private methods is not supported in PHPUnit
         $node = PMA_NodeFactory::getInstance();
+        $origDbi = $GLOBALS['dbi'];
 
         $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
             ->disableOriginalConstructor()
@@ -315,6 +316,8 @@ class Node_Test extends PHPUnit_Framework_TestCase
             ->with($expectedSql);
         $GLOBALS['dbi'] = $dbi;
         $node->getData('', $pos);
+
+        $GLOBALS['dbi'] = $origDbi;
     }
 
     /**
@@ -343,6 +346,7 @@ class Node_Test extends PHPUnit_Framework_TestCase
         // It would have been better to mock _getWhereClause method
         // but stangely, mocking private methods is not supported in PHPUnit
         $node = PMA_NodeFactory::getInstance();
+        $origDbi = $GLOBALS['dbi'];
 
         $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
             ->disableOriginalConstructor()
@@ -352,6 +356,8 @@ class Node_Test extends PHPUnit_Framework_TestCase
             ->with($query);
         $GLOBALS['dbi'] = $dbi;
         $node->getPresence();
+
+        $GLOBALS['dbi'] = $origDbi;
     }
 
     /**
@@ -374,6 +380,7 @@ class Node_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['Servers'][0]['DisableIS'] = true;
 
         $node = PMA_NodeFactory::getInstance();
+        $origDbi = $GLOBALS['dbi'];
 
         // test with no search clause
         $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
@@ -394,6 +401,8 @@ class Node_Test extends PHPUnit_Framework_TestCase
             ->with("SHOW DATABASES LIKE '%dbname%' ");
         $GLOBALS['dbi'] = $dbi;
         $node->getPresence('', 'dbname');
+
+        $GLOBALS['dbi'] = $origDbi;
     }
 
     public function testComment()
