@@ -202,7 +202,7 @@ if (empty($sql_query) && strlen($table) && strlen($db)) {
 /**
  * Parse and analyze the query
  */
-require_once 'libraries/parse_analyze.lib.php';
+require_once 'libraries/parse_analyze.inc.php';
 
 
 /**

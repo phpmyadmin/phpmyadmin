@@ -91,7 +91,7 @@ function getTableHtmlForMultipleQueries(
     $querytime_before = array_sum(explode(' ', microtime()));
 
     // Assignment for variable is not needed since the results are
-    // looiping using the connection
+    // looping using the connection
     @$GLOBALS['dbi']->tryMultiQuery($multi_sql);
 
     $querytime_after = array_sum(explode(' ', microtime()));
@@ -123,11 +123,11 @@ function getTableHtmlForMultipleQueries(
                 $tables_array
             );
 
-            // for the use of the parse_analyze.lib.php
+            // for the use of the parse_analyze.inc.php
             $sql_query = $sql_data['valid_sql'][$sql_no];
 
             // Parse and analyze the query
-            require_once 'libraries/parse_analyze.lib.php';
+            require 'libraries/parse_analyze.inc.php';
 
             $unlim_num_rows = PMA_Table::countRecords($db, $table, true);
             $showtable = PMA_Table::sGetStatusInfo($db, $table, null, true);

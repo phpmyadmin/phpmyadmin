@@ -96,7 +96,7 @@ if ($is_select) {
     } else {
         $db = $prev_db;
     }
-    // Nijel: don't change reload, if we already decided to reload in import
+    // Don't change reload, if we already decided to reload in import
     if (empty($reload) && empty($GLOBALS['is_ajax_request'])) {
         $reload  = ($db == $prev_db) ? 0 : 1;
     }
