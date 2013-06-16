@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-06-12 09:39+0200\n"
-"PO-Revision-Date: 2013-06-16 13:54+0200\n"
+"PO-Revision-Date: 2013-06-16 14:07+0200\n"
 "Last-Translator: Ádám Papp-Kuster <pkadam@kuster.hu>\n"
 "Language-Team: Hungarian "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/hu/>\n"
@@ -1052,10 +1052,9 @@ msgid "Connections / Processes"
 msgstr "Kapcsolatok / Folyamatok"
 
 #: js/messages.php:70
-#, fuzzy
 #| msgid "Cannot load or save configuration"
 msgid "Local monitor configuration incompatible"
-msgstr "A beállítások nem tölthetők be vagy menthetők"
+msgstr "A helyi megfigyelés beállításai nem kompatibilisek"
 
 #: js/messages.php:71
 msgid ""
@@ -1328,7 +1327,7 @@ msgstr "Diagramcím"
 #. l10n: As in differential values
 #: js/messages.php:144
 msgid "Differential"
-msgstr ""
+msgstr "Megkülönböztető"
 
 #: js/messages.php:145
 #, php-format
@@ -1375,7 +1374,7 @@ msgstr ""
 
 #: js/messages.php:155
 msgid "Log data loaded. Queries executed in this time span:"
-msgstr ""
+msgstr "A naplóadatok betöltve. Végrehajtott lekérdezések ebben az időszakban:"
 
 #: js/messages.php:157
 msgid "Jump to Log table"
@@ -1387,7 +1386,7 @@ msgstr "Nincs adat"
 
 #: js/messages.php:159
 msgid "Log analysed, but no data found in this time span."
-msgstr ""
+msgstr "A napló megvizsgálva, de nincs adat az adott időszakban."
 
 #: js/messages.php:161
 msgid "Analyzing…"
@@ -1411,10 +1410,9 @@ msgid "Total time:"
 msgstr "Teljes idő:"
 
 #: js/messages.php:166
-#, fuzzy
 #| msgid "Profiling"
 msgid "Profiling results"
-msgstr "Adatgyűjtés"
+msgstr "Eredmények elemzése"
 
 #: js/messages.php:167
 msgctxt "Display format"
@@ -1467,7 +1465,7 @@ msgstr "Naplók betöltése"
 
 #: js/messages.php:182
 msgid "Monitor refresh failed"
-msgstr ""
+msgstr "A megfigyelés frissítése sikertelen"
 
 #: js/messages.php:183
 msgid ""
@@ -1475,6 +1473,9 @@ msgid ""
 "This is most likely because your session expired. Reloading the page and "
 "reentering your credentials should help."
 msgstr ""
+"Az új diagram adatainak lekérésekor a szerver érvénytelen választ adott. "
+"Valószínűleg a munkamenet lejárt. Az oldal újratöltése, és a belépési adatok "
+"újbóli megadása segíthet."
 
 #: js/messages.php:184
 msgid "Reload page"
@@ -1493,6 +1494,8 @@ msgstr ""
 msgid ""
 "Failed building chart grid with imported config. Resetting to default config…"
 msgstr ""
+"A grafikon felépítése az importált beállításokkal sikertelen. Eredet "
+"beállítások visszaállítása…"
 
 #: js/messages.php:190 libraries/Menu.class.php:288
 #: libraries/Menu.class.php:371 libraries/Menu.class.php:482
@@ -1503,10 +1506,9 @@ msgid "Import"
 msgstr "Importálás"
 
 #: js/messages.php:191
-#, fuzzy
 #| msgid "Could not import configuration"
 msgid "Import monitor configuration"
-msgstr "Nem importálhatók a beállítások"
+msgstr "Megfigyelési beállítások importálása"
 
 #: js/messages.php:192
 msgid "Please select the file you want to import"
@@ -1571,7 +1573,7 @@ msgstr "Hiba a kérés feldolgozásában"
 #: js/messages.php:216
 #, php-format
 msgid "Error code: %s"
-msgstr ""
+msgstr "Hibakód: %s"
 
 #: js/messages.php:217
 #, php-format
