@@ -21,7 +21,6 @@ if (! $cfgRelation['designerwork']) {
  * Sets globals from $_POST
  */
 $post_params = array(
-    'IS_AJAX',
     'die_save_pos',
     'server',
     't_h',
@@ -38,7 +37,7 @@ foreach ($post_params as $one_post_param) {
 
 foreach ($t_x as $key => $value) {
     // table name decode (post PDF exp/imp)
-    $KEY = empty($IS_AJAX) ? urldecode($key) : $key;
+    $KEY = empty($_POST['IS_AJAX']) ? urldecode($key) : $key;
     list($DB,$TAB) = explode(".", $KEY);
     PMA_queryAsControlUser(
         'DELETE FROM ' . PMA_Util::backquote($GLOBALS['cfgRelation']['db'])
