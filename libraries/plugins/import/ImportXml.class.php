@@ -22,13 +22,6 @@ if (!function_exists('libxml_disable_entity_loader')) {
 /* Get the import interface */
 require_once 'libraries/plugins/ImportPlugin.class.php';
 
-if (!function_exists('PMA_importGetNextChunk')) {
-   require_once 'libraries/import.lib.php';
-}
-
-if (!class_exists('PMA_Table')) {
-   require_once 'libraries/Table.class.php';
-}
 
 /**
  * Handles the import for the XML format

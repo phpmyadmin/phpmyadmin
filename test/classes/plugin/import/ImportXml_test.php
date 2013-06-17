@@ -4,15 +4,24 @@
  *
  * @package PhpMyAdmin-test
  */
+ 
+/*
+ * we must set $GLOBALS['server'] here
+ * since 'check_user_privileges.lib.php' will use it globally
+ */
+$GLOBALS['server'] = 0;
 
 /*
  * Include to test.
  */
-
+require_once 'libraries/Util.class.php';
+require_once 'libraries/url_generating.lib.php';
+require_once 'libraries/php-gettext/gettext.inc';
+require_once 'libraries/Table.class.php';
+require_once 'libraries/database_interface.inc.php';
+require_once 'libraries/import.lib.php';
 /* Each PluginObserver instance contains a PluginManager instance */
 require_once 'libraries/plugins/import/ImportXml.class.php';
-require_once 'libraries/Util.class.php';
-require_once 'libraries/database_interface.inc.php';
 
 /**
  * Tests for ImportXml class
@@ -42,15 +51,16 @@ class ImportXml_Test extends PHPUnit_Framework_TestCase
         //setting        
         $GLOBALS['finished'] = false;
         $GLOBALS['read_limit'] = 100000000;
-        $GLOBALS['import_file'] = 'test/classes/plugin/import/phpmyadmin_importXML_For_Testing.xml';
+        $GLOBALS['import_file'] = 'test/test_data/phpmyadmin_importXML_For_Testing.xml';
         $GLOBALS['import_text'] = 'ImportXml_Test';
         $GLOBALS['offset'] = 0;
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
+        $GLOBALS['cfg']['ServerDefault'] = 0;
         
         //global variable
         $compression = 'none'; 
         $read_multiply = 10;
-        $import_file = 'test/classes/plugin/import/phpmyadmin_importXML_For_Testing.xml';
+        $import_file = 'test/test_data/phpmyadmin_importXML_For_Testing.xml';
         $import_type = 'Xml';
         $import_handle = @fopen($import_file, 'r');
         $cfg['AllowUserDropDatabase'] = false;
@@ -173,3 +183,6 @@ class ImportXml_Test extends PHPUnit_Framework_TestCase
     
     }
 }
+
+
+

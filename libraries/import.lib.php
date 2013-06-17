@@ -14,9 +14,6 @@ if (! defined('PHPMYADMIN')) {
  */
 require_once './libraries/check_user_privileges.lib.php';
 
-if (!function_exists('PMA_generate_common_url')) {
-    require_once './libraries/url_generating.lib.php';
-}
 /**
  * We do this check, DROP DATABASE does not need to be confirmed elsewhere
  */
