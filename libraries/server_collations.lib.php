@@ -29,8 +29,8 @@ if (! defined('PHPMYADMIN')) {
  */
 function PMA_getHtmlForCharsets($mysql_charsets, $mysql_collations,
     $mysql_charsets_descriptions, $mysql_default_collations, 
-    $mysql_collations_available)
-{
+    $mysql_collations_available
+) {
     /**
      * Outputs the result
      */
@@ -94,9 +94,10 @@ function PMA_getHtmlForCharsets($mysql_charsets, $mysql_collations,
  *
  * @return string
  */
-function PMA_getHtmlForCollationCurrentCharset($current_charset, $mysql_collations, &$i,
-    $mysql_default_collations, $mysql_collations_available)
-{
+function PMA_getHtmlForCollationCurrentCharset(
+    $current_charset, $mysql_collations, &$i,
+    $mysql_default_collations, $mysql_collations_available
+) {
     $odd_row = true;
     $html = '';
     foreach ($mysql_collations[$current_charset] as $current_collation) {
