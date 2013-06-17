@@ -1007,45 +1007,10 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
               . PMA_generate_common_url($db, $table)
               . '&amp;sql_query=' . urlencode($sql_query)
               . '&amp;id_bookmark=1';
-
-        $html_output .= '<form action="sql.php" method="post"'
-            . ' onsubmit="return ! emptyFormElements(this, \'bkm_fields[bkm_label]\');"'
-            . ' id="bookmarkQueryForm">';
-        $html_output .= PMA_generate_common_hidden_inputs();
-        $html_output .= '<input type="hidden" name="goto" value="' . $goto . '" />';
-        $html_output .= '<input type="hidden" name="bkm_fields[bkm_database]"'
-            . ' value="' . htmlspecialchars($db) . '" />';
-        $html_output .= '<input type="hidden" name="bkm_fields[bkm_user]"'
-            . ' value="' . $cfg['Bookmark']['user'] . '" />';
-        $html_output .= '<input type="hidden" name="bkm_fields[bkm_sql_query]"' . ' value="'
-            . urlencode(isset($complete_query) ? $complete_query : $sql_query)
-            . '" />';
-        $html_output .= '<fieldset>';
-        $html_output .= '<legend>';
-        $html_output .= PMA_Util::getIcon(
-            'b_bookmark.png', __('Bookmark this SQL query'), true
+        $bkm_sql_query = urlencode(
+            isset($complete_query) ? $complete_query : $sql_query
         );
-        $html_output .= '</legend>';
-        $html_output .= '<div class="formelement">';
-        $html_output .= '<label for="fields_label_">' . __('Label:') . '</label>';
-        $html_output .= '<input type="text" id="fields_label_"'
-            . ' name="bkm_fields[bkm_label]" value="" />';
-        $html_output .= '</div>';
-        $html_output .= '<div class="formelement">';
-        $html_output .= '<input type="checkbox" name="bkm_all_users"'
-            . ' id="bkm_all_users" value="true" />';
-        $html_output .= '<label for="bkm_all_users">'
-            . __('Let every user access this bookmark')
-            . '</label>';
-        $html_output .= '</div>';
-        $html_output .= '<div class="clearfloat"></div>';
-        $html_output .= '</fieldset>';
-        $html_output .= '<fieldset class="tblFooters">';
-        $html_output .= '<input type="hidden" name="store_bkm" value="1" />';
-        $html_output .= '<input type="submit"'
-            . ' value="' . __('Bookmark this SQL query') . '" />';
-        $html_output .= '</fieldset>';
-        $html_output .= '</form>';
+        $html_output .= PMA_getHtmlForBookmark($db, $goto, $bkm_sql_query);
     } // end bookmark support
 
     // Do print the page if required
