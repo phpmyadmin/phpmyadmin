@@ -25,7 +25,7 @@ phpMyAdmin - ChangeLog
 - bug #3970 Pressing enter in the filter field reloads page
 - bug #3984 Cannot insert in this table (PHP < 5.4)
 
-4.0.4.0 (not yet released)
+4.0.4.0 (2013-06-17)
 - bug #3959 Using DefaultTabDatabase in NavigationTree for Database Click
 - bug #3961 Avoid Suhosin warning when in simulation mode
 - bug #3897 Row Statistics and Space usage bugs
