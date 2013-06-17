@@ -64,12 +64,12 @@ function PMA_getHtmlForCharsets($mysql_charsets, $mysql_collations,
             . '</tr>' . "\n";
         
         $html .= PMA_getHtmlForCollationCurrentCharset(
-                     $current_charset, 
-                     $mysql_collations, 
-                     $i, 
-                     $mysql_default_collations, 
-                     $mysql_collations_available
-                 );
+            $current_charset,
+            $mysql_collations,
+            $i,
+            $mysql_default_collations,
+            $mysql_collations_available
+        );
     }
     unset($table_row_count);
     $html .= '</table>' . "\n"
