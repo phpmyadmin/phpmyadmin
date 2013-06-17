@@ -313,24 +313,13 @@ if (isset($_REQUEST['btnDrop']) && $_REQUEST['btnDrop'] == __('No')) {
 $full_sql_query = $sql_query;
 
 // Handle remembered sorting order, only for single table query
-if ($GLOBALS['cfg']['RememberSorting']
-    && ! ($is_count || $is_export || $is_func || $is_analyse)
-    && isset($analyzed_sql[0]['select_expr'])
-    && (count($analyzed_sql[0]['select_expr']) == 0)
-    && isset($analyzed_sql[0]['queryflags']['select_from'])
-    && count($analyzed_sql[0]['table_ref']) == 1
-) {
+if ($is_remember_sorting_order) {
     PMA_handleSortOrder($db, $table, $analyzed_sql, $full_sql_query);
 }
 
 $sql_limit_to_append = '';
 // Do append a "LIMIT" clause?
-if (($_SESSION['tmp_user_values']['max_rows'] != 'all')
-    && ! ($is_count || $is_export || $is_func || $is_analyse)
-    && isset($analyzed_sql[0]['queryflags']['select_from'])
-    && ! isset($analyzed_sql[0]['queryflags']['offset'])
-    && empty($analyzed_sql[0]['limit_clause'])
-) {
+if ($is_append_limit_clause) {
     $sql_limit_to_append = ' LIMIT ' . $_SESSION['tmp_user_values']['pos']
         . ', ' . $_SESSION['tmp_user_values']['max_rows'] . " ";
     $full_sql_query = PMA_getSqlWithLimitClause(
