@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-06-03 09:16-0400\n"
-"PO-Revision-Date: 2013-06-16 03:22+0200\n"
-"Last-Translator: Bilal Ćatić <bilal.the.best@hotmail.com>\n"
+"PO-Revision-Date: 2013-06-17 09:33+0200\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Bosnian <http://l10n.cihar.com/projects/phpmyadmin/4-0/bs/>\n"
 "Language: bs\n"
 "MIME-Version: 1.0\n"
@@ -364,7 +364,7 @@ msgid "Last check"
 msgstr "Posljednja provjera"
 
 #: db_printview.php:220 libraries/structure.lib.php:176
-#, php-format
+#, fuzzy, php-format
 #| msgid "%s table(s)"
 msgid "%s table"
 msgid_plural "%s tables"
