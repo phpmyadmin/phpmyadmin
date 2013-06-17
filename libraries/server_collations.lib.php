@@ -15,15 +15,11 @@ if (! defined('PHPMYADMIN')) {
 /**
  * Returns the html for server Character Sets and Collations.
  *
- * @param Array $mysql_charsets Mysql Charsets list
- *
- * @param Array $mysql_collations Mysql Collations list
- *
+ * @param Array $mysql_charsets              Mysql Charsets list
+ * @param Array $mysql_collations            Mysql Collations list
  * @param Array $mysql_charsets_descriptions Charsets descriptions
- *
- * @param Array $mysql_default_collations Default Collations list
- *
- * @param Array $mysql_collations_available Available Collations list
+ * @param Array $mysql_default_collations    Default Collations list
+ * @param Array $mysql_collations_available  Available Collations list
  *
  * @return string
  */
@@ -78,19 +74,14 @@ function PMA_getHtmlForCharsets($mysql_charsets, $mysql_collations,
     return $html;    
 }
 
-
 /**
  * Returns the html for Collations of Current Charset.
  *
- * @param String $current_charset Current Charset
- *
- * @param Array $mysql_collations Collations list
- *
- * @param Array $mysql_default_collations Default Collations list
- *
- * @param Array $mysql_collations_available Available Collations list
- *
- * @param int $i Display Index
+ * @param String $current_charset            Current Charset
+ * @param Array  $mysql_collations           Collations list
+ * @param int    &$i                         Display Index
+ * @param Array  $mysql_default_collations   Default Collations list
+ * @param Array  $mysql_collations_available Available Collations list
  *
  * @return string
  */
@@ -116,5 +107,4 @@ function PMA_getHtmlForCollationCurrentCharset(
     }
     return $html;
 }
-
 ?>
