@@ -20,24 +20,23 @@ class PMA_Iconv_Wrapper_Test extends PHPUnit_Framework_TestCase
 {
 
     /**
-     * Test for PMA_aix_iconv_wrapper
+     * Test for PMA_aix_iconv_mapCharsets
      *
      * @param string $in_charset         Non IBM-AIX-Compliant in-charset
      * @param string $out_charset        Non IBM-AIX-Compliant out-charset
      * @param string $in_charset_mapped  IBM-AIX-Compliant in-charset
      * @param string $out_charset_mapped IBM-AIX-Compliant out-charset
-     * @param string $str                String to test
      *
      * @return void
      * @test
      * @dataProvider iconvDataProvider
      */
-    public function testIconvWrapper($in_charset, $out_charset,
-        $in_charset_mapped, $out_charset_mapped, $str
+    public function testIconvMapCharsets($in_charset, $out_charset,
+        $in_charset_mapped, $out_charset_mapped
     ) {
         $this->assertEquals(
-            iconv($in_charset_mapped, $out_charset_mapped, $str),
-            PMA_aix_iconv_wrapper($in_charset, $out_charset, $str)
+            array($in_charset_mapped, $out_charset_mapped),
+            PMA_aix_iconv_mapCharsets($in_charset, $out_charset)
         );
     }
 
@@ -54,21 +53,18 @@ class PMA_Iconv_Wrapper_Test extends PHPUnit_Framework_TestCase
                 'UTF-8',
                 'ISO-8859-1//IGNORE',
                 'UTF-8',
-                'ISO-8859-1//IGNORE',
-                'Euro Symbol: €'
+                'ISO-8859-1//IGNORE'
             ),
             array(
                 'UTF-8',
-                'ISO-8859-1//IGNORE//TRANSLIT',
+                'ISO-8859-1//TRANSLIT',
                 'UTF-8',
-                'ISO-8859-1//IGNORE',
-                'Euro Symbol: €'
+                'ISO8859-1'
             ),
             array('UTF-8',
                 'ISO-8859-9',
                 'UTF-8',
-                'ISO8859-9',
-                'Testing "string"'
+                'ISO8859-9'
             )
         );
     }
