@@ -4,17 +4,17 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-06-12 09:39+0200\n"
-"PO-Revision-Date: 2013-04-05 12:08+0200\n"
+"PO-Revision-Date: 2013-06-17 09:33+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Bosnian <http://l10n.cihar.com/projects/phpmyadmin/master/bs/"
-">\n"
+"Language-Team: Bosnian "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/bs/>\n"
 "Language: bs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 1.5-dev\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
+"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 1.6-dev\n"
 
 #: browse_foreigners.php:51 browse_foreigners.php:75 js/messages.php:335
 #: libraries/DisplayResults.class.php:809
@@ -286,31 +286,28 @@ msgid "Unselect All"
 msgstr "ništa"
 
 #: db_operations.php:45 tbl_create.php:24
-#, fuzzy
 msgid "The database name is empty!"
-msgstr "Ima tabele je prazno!"
+msgstr "Naziv baze je prazan!"
 
 #: db_operations.php:129
-#, fuzzy, php-format
+#, php-format
 msgid "Database %1$s has been renamed to %2$s"
-msgstr "Tabeli %s promjenjeno ime u %s"
+msgstr "Baza %1$s je preimenovana u %2$s"
 
 #: db_operations.php:133
-#, fuzzy, php-format
+#, php-format
 msgid "Database %1$s has been copied to %2$s"
-msgstr "Tabela %s je kopirana u %s."
+msgstr "Baza %1$s je kopirana u %2$s"
 
 #: db_operations.php:261
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| " additional features for working with linked tables have been ctivated. "
 #| "To find out why click %shere%s."
 msgid ""
 "The phpMyAdmin configuration storage has been deactivated. To find out why "
 "click %shere%s."
-msgstr ""
-"Dodatne mogućnosti za rad sa povezanim tabelama su isključene. Da biste "
-"saznali zašto, kliknite %sovde%s."
+msgstr "phpMyAdmin konfiguracijski spremnik je isključen. %sSaznaj više%s."
 
 #: db_printview.php:47 db_tracking.php:79 db_tracking.php:198
 #: libraries/Menu.class.php:190 libraries/config/messages.inc.php:510
@@ -369,16 +366,17 @@ msgid "%s table"
 msgid_plural "%s tables"
 msgstr[0] "%s tabela"
 msgstr[1] "%s tabela"
+msgstr[2] ""
 
 #: db_qbe.php:40
 msgid "You have to choose at least one column to display"
 msgstr "Morate izabrati bar jednu kolonu za prikaz"
 
 #: db_qbe.php:60
-#, fuzzy, php-format
+#, php-format
 #| msgid "Switch to copied table"
 msgid "Switch to %svisual builder%s"
-msgstr "Pređi na kopiranu tabelu"
+msgstr "Pređi na %svizualni graditelj%s"
 
 #: db_search.php:30 libraries/plugins/auth/AuthenticationConfig.class.php:81
 #: libraries/plugins/auth/AuthenticationConfig.class.php:96
@@ -389,10 +387,9 @@ msgid "Access denied"
 msgstr "Ulaz nije dozvoljen"
 
 #: db_structure.php:86
-#, fuzzy
 #| msgid "No tables found in database."
 msgid "No tables found in database"
-msgstr "Tabele nisu pronađene u bazi."
+msgstr "Nema pronađenih tabela u bazi"
 
 #: db_tracking.php:73
 msgid "Tracked tables"
@@ -415,9 +412,8 @@ msgid "Last version"
 msgstr ""
 
 #: db_tracking.php:81 tbl_tracking.php:765
-#, fuzzy
 msgid "Created"
-msgstr "Napravi"
+msgstr "Kreirano"
 
 #: db_tracking.php:82 tbl_tracking.php:766
 msgid "Updated"
@@ -463,9 +459,8 @@ msgid "not active"
 msgstr ""
 
 #: db_tracking.php:138
-#, fuzzy
 msgid "Versions"
-msgstr "Operacije"
+msgstr "Verzije"
 
 #: db_tracking.php:139 tbl_tracking.php:489 tbl_tracking.php:799
 msgid "Tracking report"
@@ -9528,7 +9523,7 @@ msgstr "Prikaži dimenzije tabele"
 
 #: libraries/schema/User_Schema.class.php:457
 msgid "Display all tables with the same width"
-msgstr "prikaz svih tabela iste širine?"
+msgstr "Prikaži sve tabele u jednakoj širini"
 
 #: libraries/schema/User_Schema.class.php:460 libraries/structure.lib.php:379
 msgid "Data Dictionary"

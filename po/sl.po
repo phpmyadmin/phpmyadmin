@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-06-12 09:39+0200\n"
-"PO-Revision-Date: 2013-06-12 18:46+0200\n"
+"PO-Revision-Date: 2013-06-14 22:10+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: Slovenian "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/sl/>\n"
@@ -6302,7 +6302,7 @@ msgstr "ZIP"
 
 #: libraries/config/messages.inc.php:531
 msgid "Enter your public key for your domain reCaptcha service"
-msgstr ""
+msgstr "Vnesite vaš javni ključ storitve reCaptcha vaše domene"
 
 #: libraries/config/messages.inc.php:532
 msgid "Public key for reCaptcha"
@@ -6310,7 +6310,7 @@ msgstr "Javni ključ za reCaptcha"
 
 #: libraries/config/messages.inc.php:533
 msgid "Enter your private key for your domain reCaptcha service"
-msgstr ""
+msgstr "Vnesite vaš zasebni ključ storitve reCaptcha vaše domene"
 
 #: libraries/config/messages.inc.php:534
 msgid "Private key for reCaptcha"

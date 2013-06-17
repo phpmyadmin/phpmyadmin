@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-06-12 09:39+0200\n"
-"PO-Revision-Date: 2013-04-03 09:47+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Hungarian <http://l10n.cihar.com/projects/phpmyadmin/master/"
-"hu/>\n"
+"PO-Revision-Date: 2013-06-16 15:29+0200\n"
+"Last-Translator: Ádám Papp-Kuster <pkadam@kuster.hu>\n"
+"Language-Team: Hungarian "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/hu/>\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 1.5-dev\n"
+"X-Generator: Weblate 1.6-dev\n"
 
 #: browse_foreigners.php:51 browse_foreigners.php:75 js/messages.php:335
 #: libraries/DisplayResults.class.php:809
@@ -902,7 +902,7 @@ msgstr ""
 "phpMyAdmin könyvtárában. Távolítsa el a phpMyAdmin beállítása után."
 
 #: index.php:489
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "ditional features for working with linked tables have been ctivated. To d "
 #| "out why click %shere%s."
@@ -910,8 +910,9 @@ msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
 "extended features have been deactivated. To find out why click %shere%s."
 msgstr ""
-"A hivatkozott táblákkal történő munka kiegészítő funkciói inaktiválásra "
-"kerültek. Ha szeretné megtudni, hogy miért, kattintson %side%s."
+"A phpMyAdmin konfigurációs tárolója nincs megfelelően beállítva, néhány "
+"kibővített funkció inaktiválásra került. Ha szeretné megtudni, hogy miért, "
+"kattintson %side%s."
 
 #: index.php:521
 #, php-format
@@ -982,10 +983,10 @@ msgstr "Index szerkesztése"
 
 #: js/messages.php:44 libraries/display_indexes.lib.php:199
 #: libraries/display_indexes.lib.php:205
-#, fuzzy, php-format
+#, php-format
 #| msgid "Add %d column(s) to index"
 msgid "Add %s column(s) to index"
-msgstr "%d oszlop hozzáadása az indexhez"
+msgstr "%s oszlop hozzáadása az indexhez"
 
 #. l10n: Default label for the y-Axis of Charts
 #: js/messages.php:48 tbl_chart.php:236
@@ -1051,10 +1052,9 @@ msgid "Connections / Processes"
 msgstr "Kapcsolatok / Folyamatok"
 
 #: js/messages.php:70
-#, fuzzy
 #| msgid "Cannot load or save configuration"
 msgid "Local monitor configuration incompatible"
-msgstr "A beállítások nem tölthetők be vagy menthetők"
+msgstr "A helyi megfigyelés beállításai nem kompatibilisek"
 
 #: js/messages.php:71
 msgid ""
@@ -1327,7 +1327,7 @@ msgstr "Diagramcím"
 #. l10n: As in differential values
 #: js/messages.php:144
 msgid "Differential"
-msgstr ""
+msgstr "Megkülönböztető"
 
 #: js/messages.php:145
 #, php-format
@@ -1374,7 +1374,7 @@ msgstr ""
 
 #: js/messages.php:155
 msgid "Log data loaded. Queries executed in this time span:"
-msgstr ""
+msgstr "A naplóadatok betöltve. Végrehajtott lekérdezések ebben az időszakban:"
 
 #: js/messages.php:157
 msgid "Jump to Log table"
@@ -1386,7 +1386,7 @@ msgstr "Nincs adat"
 
 #: js/messages.php:159
 msgid "Log analysed, but no data found in this time span."
-msgstr ""
+msgstr "A napló megvizsgálva, de nincs adat az adott időszakban."
 
 #: js/messages.php:161
 msgid "Analyzing…"
@@ -1410,10 +1410,9 @@ msgid "Total time:"
 msgstr "Teljes idő:"
 
 #: js/messages.php:166
-#, fuzzy
 #| msgid "Profiling"
 msgid "Profiling results"
-msgstr "Adatgyűjtés"
+msgstr "Eredmények elemzése"
 
 #: js/messages.php:167
 msgctxt "Display format"
@@ -1466,7 +1465,7 @@ msgstr "Naplók betöltése"
 
 #: js/messages.php:182
 msgid "Monitor refresh failed"
-msgstr ""
+msgstr "A megfigyelés frissítése sikertelen"
 
 #: js/messages.php:183
 msgid ""
@@ -1474,6 +1473,9 @@ msgid ""
 "This is most likely because your session expired. Reloading the page and "
 "reentering your credentials should help."
 msgstr ""
+"Az új grafikon adatainak lekérésekor a szerver érvénytelen választ adott. "
+"Valószínűleg a munkamenet lejárt. Az oldal újratöltése, és a belépési adatok "
+"újbóli megadása segíthet."
 
 #: js/messages.php:184
 msgid "Reload page"
@@ -1492,6 +1494,8 @@ msgstr ""
 msgid ""
 "Failed building chart grid with imported config. Resetting to default config…"
 msgstr ""
+"A grafikon felépítése az importált beállításokkal sikertelen. Eredet "
+"beállítások visszaállítása…"
 
 #: js/messages.php:190 libraries/Menu.class.php:288
 #: libraries/Menu.class.php:371 libraries/Menu.class.php:482
@@ -1502,10 +1506,9 @@ msgid "Import"
 msgstr "Importálás"
 
 #: js/messages.php:191
-#, fuzzy
 #| msgid "Could not import configuration"
 msgid "Import monitor configuration"
-msgstr "Nem importálhatók a beállítások"
+msgstr "Megfigyelési beállítások importálása"
 
 #: js/messages.php:192
 msgid "Please select the file you want to import"
@@ -1570,12 +1573,12 @@ msgstr "Hiba a kérés feldolgozásában"
 #: js/messages.php:216
 #, php-format
 msgid "Error code: %s"
-msgstr ""
+msgstr "Hibakód: %s"
 
 #: js/messages.php:217
 #, php-format
 msgid "Error text: %s"
-msgstr ""
+msgstr "Hibaüzenet: %s"
 
 #: js/messages.php:218 libraries/db_common.inc.php:58
 #: libraries/db_table_exists.lib.php:28 server_databases.php:89
@@ -1703,7 +1706,7 @@ msgstr "SQL-lekérdezési panelek elrejtése"
 
 #: js/messages.php:263
 msgid "Show query box"
-msgstr "Lekérdezési dobox megjelenítése"
+msgstr "Lekérdezési doboz megjelenítése"
 
 #: js/messages.php:264 libraries/DisplayResults.class.php:3314
 #: libraries/Index.class.php:591 libraries/Util.class.php:699
@@ -1767,11 +1770,13 @@ msgstr "Egy pont fölé mutatás megjeleníti annak címkéjét."
 
 #: js/messages.php:284
 msgid "To zoom in, select a section of the plot with the mouse."
-msgstr ""
+msgstr "A nagyításhoz jelöljön ki egy területet az egérrel."
 
 #: js/messages.php:286
 msgid "Click reset zoom button to come back to original state."
 msgstr ""
+"Kattints a nagyítás visszaállítása gombra, hogy visszatérj az eredeti "
+"állapotra."
 
 #: js/messages.php:288
 msgid "Click a data point to view and possibly edit the data row."
@@ -1779,7 +1784,7 @@ msgstr ""
 
 #: js/messages.php:290
 msgid "The plot can be resized by dragging it along the bottom right corner."
-msgstr ""
+msgstr "A terület a jobb alsó sarok húzásával átméretezhető."
 
 #: js/messages.php:292
 msgid "Select two columns"
@@ -1794,10 +1799,9 @@ msgid "Query results"
 msgstr "Lekérdezési eredmények"
 
 #: js/messages.php:295
-#, fuzzy
 #| msgid "Data pointer size"
 msgid "Data point content"
-msgstr "Adatmutató mérete"
+msgstr "Adatmutató tartalma"
 
 #: js/messages.php:298 libraries/display_indexes.lib.php:134
 #: libraries/display_indexes.lib.php:170 tbl_change.php:263
@@ -1813,10 +1817,9 @@ msgid "Point"
 msgstr "Pont"
 
 #: js/messages.php:304
-#, fuzzy
 #| msgid "Lines terminated by"
 msgid "Linestring"
-msgstr "Sorok vége"
+msgstr "Sorvég-karakter"
 
 #: js/messages.php:305
 msgid "Polygon"
@@ -1869,7 +1872,7 @@ msgstr "Adjon meg egy opciót az oszlophoz "
 #: js/messages.php:325
 #, php-format
 msgid "%d object(s) created"
-msgstr ""
+msgstr "%d elem létrehozva"
 
 #: js/messages.php:328
 msgid "Press escape to cancel editing"
@@ -6176,7 +6179,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:480 libraries/sql_query_form.lib.php:373
 msgid "Retain query box"
-msgstr "Lekérdezési dobox megőrzése"
+msgstr "Lekérdezési doboz megőrzése"
 
 #: libraries/config/messages.inc.php:481
 msgid "Allow to display database and table statistics (eg. space usage)"
