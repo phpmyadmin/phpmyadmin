@@ -58,15 +58,6 @@ class PMA_Charset_Conversion_Test extends PHPUnit_Framework_TestCase
                 'UTF-8', 'ISO-8859-1', "This is the Euro symbol '€'."
             )
         );
-
-        $GLOBALS['cfg']['IconvExtraParams'] = '//IGNORE';
-        $GLOBALS['PMA_recoding_engine'] = PMA_CHARSET_ICONV_AIX;
-        $this->assertEquals(
-            "This is the Euro symbol ''.",
-            PMA_convertString(
-                'UTF-8', 'ISO-8859-1', "This is the Euro symbol '€'."
-            )
-        );
     }
 }
 ?>
