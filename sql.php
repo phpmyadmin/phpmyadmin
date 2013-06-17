@@ -202,7 +202,7 @@ if (empty($sql_query) && strlen($table) && strlen($db)) {
 /**
  * Parse and analyze the query
  */
-require_once 'libraries/parse_analyze.lib.php';
+require_once 'libraries/parse_analyze.inc.php';
 
 
 /**
@@ -308,21 +308,6 @@ if (isset($_REQUEST['btnDrop']) && $_REQUEST['btnDrop'] == __('No')) {
     exit();
 } // end if
 
-// Defines some variables
-// $is_group added for use in calculation of total number of rows.
-// $is_count is changed for more correct "LIMIT" clause
-//  appending in queries like
-//  "SELECT COUNT(...) FROM ... GROUP BY ..."
-
-/**
- * @todo detect all this with the parser, to avoid problems finding
- * those strings in comments or backquoted identifiers
- */
-list($is_group, $is_func, $is_count, $is_export, $is_analyse, $is_explain,
-    $is_delete, $is_affected, $is_insert, $is_replace, $is_show, $is_maint)
-        = PMA_getDisplayPropertyParams(
-            $sql_query, $is_select
-        );
 
 // assign default full_sql_query
 $full_sql_query = $sql_query;

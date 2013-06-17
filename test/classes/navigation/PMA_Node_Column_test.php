@@ -56,6 +56,7 @@ class Node_Column_Test extends PHPUnit_Framework_TestCase
         $dbNode->addChild($tableNode);
         $colNode = PMA_NodeFactory::getInstance('Node_Column', 'colName', Node::OBJECT);
         $tableNode->addChild($colNode);
+        $origDbi = $GLOBALS['dbi'];
 
         $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
             ->disableOriginalConstructor()
@@ -65,6 +66,8 @@ class Node_Column_Test extends PHPUnit_Framework_TestCase
             ->with($query);
         $GLOBALS['dbi'] = $dbi;
         $colNode->getComment();
+
+        $GLOBALS['dbi'] = $origDbi;
     }
 }
 ?>
