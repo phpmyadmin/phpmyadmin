@@ -210,7 +210,8 @@ function PMA_getHtmlForAddChartDialog()
     $retval .= '<input type="radio" name="chartType" value="preset" id="chartPreset" />';
     $retval .= '<label for="chartPreset">' . __('Preset chart') . '</label>';
     $retval .= '<select name="presetCharts"></select><br/>';
-    $retval .= '<input type="radio" name="chartType" value="variable" id="chartStatusVar" checked="checked" />';
+    $retval .= '<input type="radio" name="chartType" value="variable" ' 
+        . 'id="chartStatusVar" checked="checked" />';
     $retval .= '<label for="chartStatusVar">';
     $retval .= __('Status variable(s)');
     $retval .= '</label><br/>';
@@ -407,7 +408,7 @@ function PMA_getHtmlForClientSideDataAndLinks($ServerStatusData)
  *
  * @return Array
  */
-function PMA_getJSonForChartingData()
+function PMA_getJsonForChartingData()
 {
     $ret = json_decode($_REQUEST['requiredData'], true);
     $statusVars = array();
@@ -535,9 +536,12 @@ function PMA_getJSonForChartingData()
 /**
  * Returns JSon for log data with type: slow
  *
+ * @param int $start Unix Time: Start time for query
+ * @param int $end   Unix Time: End time for query
+ *
  * @return Array
  */
-function PMA_getJSonForLogDataTypeSlow($start, $end)
+function PMA_getJsonForLogDataTypeSlow($start, $end)
 {
     $q  = 'SELECT start_time, user_host, ';
     $q .= 'Sec_to_Time(Sum(Time_to_Sec(query_time))) as query_time, ';
@@ -595,9 +599,12 @@ function PMA_getJSonForLogDataTypeSlow($start, $end)
 /**
  * Returns JSon for log data with type: general
  *
+ * @param int $start Unix Time: Start time for query
+ * @param int $end   Unix Time: End time for query
+ *
  * @return Array
  */
-function PMA_getJSonForLogDataTypeGeneral($start, $end)
+function PMA_getJsonForLogDataTypeGeneral($start, $end)
 {
     $limitTypes = '';
     if (isset($_REQUEST['limitTypes']) && $_REQUEST['limitTypes']) {
@@ -701,7 +708,7 @@ function PMA_getJSonForLogDataTypeGeneral($start, $end)
  *
  * @return Array
  */
-function PMA_getJSonForLoggingVars()
+function PMA_getJsonForLoggingVars()
 {
     if (isset($_REQUEST['varName']) && isset($_REQUEST['varValue'])) {
         $value = PMA_Util::sqlAddSlashes($_REQUEST['varValue']);
@@ -731,7 +738,7 @@ function PMA_getJSonForLoggingVars()
  *
  * @return Array
  */
-function PMA_getJSonForQueryAnalyzer()
+function PMA_getJsonForQueryAnalyzer()
 {
     $return = array();
     

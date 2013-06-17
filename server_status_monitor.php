@@ -29,7 +29,7 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
     if (isset($_REQUEST['chart_data'])) {
         switch($_REQUEST['type']) {
         case 'chartgrid': // Data for the monitor
-            $ret = PMA_getJSonForChartingData();
+            $ret = PMA_getJsonForChartingData();
             PMA_Response::getInstance()->addJSON('message', $ret);
             exit;
         }
@@ -45,26 +45,26 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
         $end = intval($_REQUEST['time_end']);
 
         if ($_REQUEST['type'] == 'slow') {
-            $return = PMA_getJSonForLogDataTypeSlow($start, $end);
+            $return = PMA_getJsonForLogDataTypeSlow($start, $end);
             PMA_Response::getInstance()->addJSON('message', $return);
             exit;
         }
 
         if ($_REQUEST['type'] == 'general') {
-            $return = PMA_getJSonForLogDataTypeGeneral($start, $end);
+            $return = PMA_getJsonForLogDataTypeGeneral($start, $end);
             PMA_Response::getInstance()->addJSON('message', $return);
             exit;
         }
     }
 
     if (isset($_REQUEST['logging_vars'])) {
-        $loggingVars = PMA_getJSonForLoggingVars();
+        $loggingVars = PMA_getJsonForLoggingVars();
         PMA_Response::getInstance()->addJSON('message', $loggingVars);
         exit;
     }
 
     if (isset($_REQUEST['query_analyzer'])) {
-        $return = PMA_getJSonForQueryAnalyzer();
+        $return = PMA_getJsonForQueryAnalyzer();
         PMA_Response::getInstance()->addJSON('message', $return);
         exit;
     }
