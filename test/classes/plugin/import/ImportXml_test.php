@@ -43,9 +43,7 @@ class ImportXml_Test extends PHPUnit_Framework_TestCase
      * @return void
      */
     protected function setUp()
-    {
-        global $compression, $import_handle, $read_multiply, $cfg;
-        
+    {      
         $this->object = new ImportXml();    
 
         //setting        
