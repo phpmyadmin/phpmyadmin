@@ -472,18 +472,12 @@ if (isset($GLOBALS['show_as_php']) || ! empty($GLOBALS['validatequery'])) {
 
     // Checks if the current database has changed
     // This could happen if the user sends a query like "USE `database`;"
-    /**
-     * commented out auto-switching to active database - really required?
-     * bug #2558 win: table list disappears (mixed case db names)
-     * https://sourceforge.net/p/phpmyadmin/bugs/2558/
-     * @todo RELEASE test and comit or rollback before release
-    $current_db = $GLOBALS['dbi']->fetchValue('SELECT DATABASE()');
+    /*$current_db = $GLOBALS['dbi']->fetchValue('SELECT DATABASE()');
     if ($db !== $current_db) {
         $db     = $current_db;
         $reload = 1;
     }
-    unset($current_db);
-     */
+    unset($current_db);*/
 
     // tmpfile remove after convert encoding appended by Y.Kawada
     if (function_exists('PMA_Kanji_fileConv')
