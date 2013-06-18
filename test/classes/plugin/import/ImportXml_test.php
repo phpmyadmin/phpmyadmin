@@ -51,19 +51,17 @@ class ImportXml_Test extends PHPUnit_Framework_TestCase
         //setting        
         $GLOBALS['finished'] = false;
         $GLOBALS['read_limit'] = 100000000;
-        $GLOBALS['import_file'] = 'test/test_data/phpmyadmin_importXML_For_Testing.xml';
-        $GLOBALS['import_text'] = 'ImportXml_Test';
         $GLOBALS['offset'] = 0;
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $GLOBALS['cfg']['ServerDefault'] = 0;
+        $GLOBALS['cfg']['AllowUserDropDatabase'] = false;
         
-        //global variable
-        $compression = 'none'; 
-        $read_multiply = 10;
-        $import_file = 'test/test_data/phpmyadmin_importXML_For_Testing.xml';
-        $import_type = 'Xml';
-        $import_handle = @fopen($import_file, 'r');
-        $cfg['AllowUserDropDatabase'] = false;
+        $GLOBALS['import_file'] = 'test/test_data/phpmyadmin_importXML_For_Testing.xml';
+        $GLOBALS['import_text'] = 'ImportXml_Test';
+        $GLOBALS['compression'] = 'none'; 
+        $GLOBALS['read_multiply'] = 10;
+        $GLOBALS['import_type'] = 'Xml';
+        $GLOBALS['import_handle'] = @fopen($GLOBALS['import_file'], 'r');
     }
 
     /**
