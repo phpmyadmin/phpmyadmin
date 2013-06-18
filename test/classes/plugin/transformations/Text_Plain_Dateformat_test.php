@@ -129,6 +129,8 @@ class Text_Plain_Dateformat_Test extends PHPUnit_Framework_TestCase
      */
     public function testApplyTransformation()
     {
+        //add timezone setting before time transformation
+        date_default_timezone_set('UTC');
         $timestamp = 12345;
         $options = array(0);
         $meta = new Text_Plain_Dateformat_Meta();
