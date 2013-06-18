@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-06-03 09:16-0400\n"
-"PO-Revision-Date: 2013-06-15 08:50+0200\n"
-"Last-Translator: Tae-rok Hwang <hwangti@hwangti.kr>\n"
+"PO-Revision-Date: 2013-06-18 13:51+0200\n"
+"Last-Translator: Yungu Kim <crimsonpi@gmail.com>\n"
 "Language-Team: Korean <http://l10n.cihar.com/projects/phpmyadmin/4-0/ko/>\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
@@ -3229,17 +3229,17 @@ msgstr ""
 #: libraries/Theme_Manager.class.php:137
 #, php-format
 msgid "Default theme %s not found!"
-msgstr "기본테마 %s 를 찾을 수 없습니다."
+msgstr "기본테마 %s를 찾을 수 없음!"
 
 #: libraries/Theme_Manager.class.php:194
 #, php-format
 msgid "Theme %s not found!"
-msgstr "%s 테마를 찾을 수 없습니다."
+msgstr "%s 테마를 찾을 수 없음!"
 
 #: libraries/Theme_Manager.class.php:271
 #, php-format
 msgid "Theme path not found for theme %s!"
-msgstr "%s 테마를 위한 테마 경로를 찾을 수 없습니다."
+msgstr "%s 테마의 경로를 찾을 수 없음!"
 
 #: libraries/Theme_Manager.class.php:363 themes.php:16 themes.php:21
 msgid "Theme"
