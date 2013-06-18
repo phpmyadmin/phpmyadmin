@@ -129,12 +129,14 @@ class Text_Plain_Dateformat_Test extends PHPUnit_Framework_TestCase
      */
     public function testApplyTransformation()
     {
+        //add timezone setting before time transformation
+        date_default_timezone_set('UTC');
         $timestamp = 12345;
         $options = array(0);
         $meta = new Text_Plain_Dateformat_Meta();
         $meta->type = 'int';
         $result = '<dfn onclick="alert(\'12345\');" title="12345">'
-             . 'Jan 01, 1970 at 04:25 AM</dfn>';
+             . 'Jan 01, 1970 at 03:25 AM</dfn>';
         $this->assertEquals(
             $result,
             $this->object->applyTransformation($timestamp, $options, $meta)
