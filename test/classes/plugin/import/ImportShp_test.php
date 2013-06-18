@@ -70,10 +70,6 @@ class ImportShp_Test extends PHPUnit_Framework_TestCase
             $properties->getExtension()
         ); 
         $this->assertEquals(
-            'text/plain',
-            $properties->getMimeType()
-        ); 
-        $this->assertEquals(
             array(),
             $properties->getOptions()
         ); 

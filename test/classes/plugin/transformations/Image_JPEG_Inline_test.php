@@ -124,8 +124,10 @@ class Image_JPEG_Inline_Test extends PHPUnit_Framework_TestCase
     {
         $buffer = "PMA_JPEG_Inline";
         $options = array("./image/", "200", "wrapper_link"=>"PMA_wrapper_link");
-        $result = '<img src="transformation_wrapper.phpPMA_wrapper_link"' 
-             . ' alt="PMA_JPEG_Inline" width="320" height="240" />';
+        $result = '<a href="transformation_wrapper.phpPMA_wrapper_link" ' 
+            . 'target="_blank"><img src="transformation_wrapper.php' 
+            . 'PMA_wrapper_link&amp;resize=jpeg&amp;newWidth=./image/&amp;' 
+            . 'newHeight=200" alt="PMA_JPEG_Inline" border="0" /></a>';
         $this->assertEquals(
             $result,
             $this->object->applyTransformation($buffer, $options)
