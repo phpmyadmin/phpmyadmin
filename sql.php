@@ -349,7 +349,14 @@ if ($is_append_limit_clause) {
     }
 }
 
-if (strlen($db)) {
+if (strlen($db)) {    
+    // Checks if the current database has changed
+    // This could happen if the user sends a query like "USE `database`;"
+    $current_db = $GLOBALS['dbi']->fetchValue('SELECT DATABASE()');
+    if ($db !== $current_db) {
+        $reload = 1;
+    }
+    unset($current_db);
     $GLOBALS['dbi']->selectDb($db);
 }
 
@@ -469,15 +476,6 @@ if (isset($GLOBALS['show_as_php']) || ! empty($GLOBALS['validatequery'])) {
     if (isset($_SESSION['profiling']) && PMA_Util::profilingSupported()) {
         $profiling_results = $GLOBALS['dbi']->fetchResult('SHOW PROFILE;');
     }
-
-    // Checks if the current database has changed
-    // This could happen if the user sends a query like "USE `database`;"
-    /*$current_db = $GLOBALS['dbi']->fetchValue('SELECT DATABASE()');
-    if ($db !== $current_db) {
-        $db     = $current_db;
-        $reload = 1;
-    }
-    unset($current_db);*/
 
     // tmpfile remove after convert encoding appended by Y.Kawada
     if (function_exists('PMA_Kanji_fileConv')
