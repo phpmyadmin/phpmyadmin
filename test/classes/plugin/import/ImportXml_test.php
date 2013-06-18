@@ -141,41 +141,29 @@ class ImportXml_Test extends PHPUnit_Framework_TestCase
 
            phpmyadmintest (Options)
            pma_bookmarktest (Structure) (Options)
-        */      
-        $import_succesful_display_message =
-               '<br /><br /><strong>The following structures have either '
-             . 'been created or altered. Here you can:</strong>' 
-             . '<br />' 
-             
-             . '<ul>' 
-             .    '<li>View a structure\'s contents by clicking on its name</li>'
-             .    '<li>Change any of its settings by clicking the corresponding "Options" link</li>'
-             .    '<li>Edit structure by following the "Structure" link</li>'
-             
-             . '<br />' 
-             .    '<li><a href="db_structure.php?db=phpmyadmintest&amp;lang=en&amp;token=token" '
-             .    'title="Go to database: `phpmyadmintest`">phpmyadmintest</a> (<a href="'
-             .    'db_operations.php?db=phpmyadmintest&amp;lang=en&amp;token=token" '
-             .    'title="Edit settings for `phpmyadmintest`">Options</a>)' 
-             .    '</li>' 
-             
-             . '<ul>' 
-             .     '<li>'
-             .     '<a href="sql.php?db=phpmyadmintest&amp;table=pma_bookmarktest&amp;lang=en&amp;token=token"'
-             .     ' title="Go to table: `pma_bookmarktest`">pma_bookmarktest</a> '
-             .     '(<a href="tbl_structure.php?db=phpmyadmintest&amp;table=pma_bookmarktest&amp;lang=en&amp;token=token"'
-             .     ' title="Structure of `pma_bookmarktest`">Structure</a>) (<a href="tbl_operations.php?'
-             .     'db=phpmyadmintest&amp;table=pma_bookmarktest&amp;lang=en&amp;token=token" title="Edit settings'
-             .     ' for `pma_bookmarktest`">Options</a>)' 
-             .     '</li>' 
-             . '</ul>' 
-             . '</ul>';
-        
+        */  
+         
         //asset that all databases and tables are imported
-        $this->assertEquals(
-            $import_succesful_display_message,
+        $this->assertContains(
+            'The following structures have either been created or altered.',
             $import_notice
-        );         
+        );           
+        $this->assertContains(
+            'Go to database: `phpmyadmintest`',
+            $import_notice
+        );          
+        $this->assertContains(
+            'Edit settings for `phpmyadmintest`',
+            $import_notice
+        );          
+        $this->assertContains(
+            'Go to table: `pma_bookmarktest`',
+            $import_notice
+        );          
+        $this->assertContains(
+            'Edit settings for `pma_bookmarktest`',
+            $import_notice
+        );
         $this->assertEquals(
             true,
             $GLOBALS['finished']
