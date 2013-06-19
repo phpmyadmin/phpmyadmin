@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-06-12 09:39+0200\n"
-"PO-Revision-Date: 2013-06-19 17:45+0200\n"
+"PO-Revision-Date: 2013-06-19 17:50+0200\n"
 "Last-Translator: Tony Chen <tonychen@finenet.com.tw>\n"
 "Language-Team: Traditional Chinese "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/zh_TW/>\n"
@@ -5080,14 +5080,13 @@ msgid "Minimum number of databases to display the database filter box"
 msgstr "顯示過濾框的最少資料庫數量"
 
 #: libraries/config/messages.inc.php:309
-#, fuzzy
 #| msgid ""
 #| "Only light version; display databases in a tree (determined by the "
 #| "separator defined below)"
 msgid ""
 "Group items in the navigation tree (determined by the separator defined "
 "below)"
-msgstr "只使用輕量級版本，以樹形顯示資料庫 (以下面的樹形分隔符號來顯示)"
+msgstr "導覽樹中的群組項目 (以下面的樹形分隔符號來顯示)"
 
 #: libraries/config/messages.inc.php:310
 msgid "Group items in the tree"
