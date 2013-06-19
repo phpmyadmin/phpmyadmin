@@ -73,6 +73,31 @@ $is_count = isset($analyzed_sql[0]['queryflags']['is_count']);
 // check for a real SELECT ... FROM
 $is_select = isset($analyzed_sql[0]['queryflags']['select_from']);
 
+// checks whether the sorting order should be remembered
+if ($GLOBALS['cfg']['RememberSorting']
+    && ! ($is_count || $is_export || $is_func || $is_analyse)
+    && isset($analyzed_sql[0]['select_expr'])
+    && (count($analyzed_sql[0]['select_expr']) == 0)
+    && isset($analyzed_sql[0]['queryflags']['select_from'])
+    && count($analyzed_sql[0]['table_ref']) == 1
+) {
+    $is_remember_sorting_order = true;
+} else {
+    $is_remember_sorting_order = false;
+}
+
+// checks whether a LIMIT clause should be added to the query
+if (($_SESSION['tmp_user_values']['max_rows'] != 'all')
+    && ! ($is_count || $is_export || $is_func || $is_analyse)
+    && isset($analyzed_sql[0]['queryflags']['select_from'])
+    && ! isset($analyzed_sql[0]['queryflags']['offset'])
+    && empty($analyzed_sql[0]['limit_clause'])
+) {
+    $is_append_limit_clause = true;
+} else {
+    $is_append_limit_clause = false;
+}
+
 // If the query is a Select, extract the db and table names and modify
 // $db and $table, to have correct page headers, links and left frame.
 // db and table name may be enclosed with backquotes, db is optionnal,
