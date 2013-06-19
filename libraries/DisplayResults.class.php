@@ -874,8 +874,8 @@ class PMA_DisplayResults
 
 
     /**
-     * Prepare feilds followed by Show button for table navigation
-     * Start row, Number of rows, Headers every
+     * Prepare fields followed by Show button for table navigation
+     * Start row, Number of rows
      *
      * @param string  $html_sql_query            the sql encoded by html special
      *                                           characters
@@ -913,7 +913,7 @@ class PMA_DisplayResults
             . '" class="textfield" onfocus="this.select()" />';
 
         if ($GLOBALS['cfg']['ShowDisplayDirection']) {
-            // Display mode (horizontal/vertical and repeat headers)
+            // Display mode (horizontal/vertical)
             $additional_fields_html .= __('Mode:') . ' ' . "\n";
             $choices = array(
                     'horizontal'        => __('horizontal'),
@@ -928,13 +928,6 @@ class PMA_DisplayResults
             );
             unset($choices);
         }
-
-        $additional_fields_html .= sprintf(
-            __('Headers every %s rows'),
-            '<input type="text" size="3" name="repeat_cells" value="'
-            . $_SESSION['tmp_user_values']['repeat_cells']
-            . '" class="textfield" onfocus="this.select()" /> '
-        );
 
         return $additional_fields_html;
 
@@ -4229,11 +4222,7 @@ class PMA_DisplayResults
                 = $GLOBALS['cfg']['DefaultDisplay'];
         }
 
-        if (PMA_isValid($_REQUEST['repeat_cells'], 'numeric')) {
-            $_SESSION['tmp_user_values']['query'][$sql_md5]['repeat_cells']
-                = $_REQUEST['repeat_cells'];
-            unset($_REQUEST['repeat_cells']);
-        } elseif (
+        if (
             empty($_SESSION['tmp_user_values']['query'][$sql_md5]['repeat_cells'])
         ) {
             $_SESSION['tmp_user_values']['query'][$sql_md5]['repeat_cells']
