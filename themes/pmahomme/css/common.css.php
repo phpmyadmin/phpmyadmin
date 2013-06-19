@@ -2778,6 +2778,11 @@ fieldset .disabled-field td {
     padding-<?php echo $left; ?>: 20px;
 }
 
+#relationalTable select {
+    width: 125px;
+    margin-right: 5px;
+}
+
 /* css for timepicker */
 .ui-timepicker-div .ui-widget-header { margin-bottom: 8px; }
 .ui-timepicker-div dl { text-align: <?php echo $left; ?>; }
