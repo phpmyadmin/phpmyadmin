@@ -78,7 +78,7 @@ $slave_variables  = array(
  * define important variables, which need to be watched for
  * correct running of replication in slave mode
  *
- * @usedby PMA_replication_print_status_table()
+ * @usedby PMA_getHtmlForReplication_status_table()
  */
 // TODO change to regexp or something, to allow for negative match.
 // To e.g. highlight 'Last_Error'
