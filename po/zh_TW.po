@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-06-12 09:39+0200\n"
-"PO-Revision-Date: 2013-06-19 16:34+0200\n"
+"PO-Revision-Date: 2013-06-19 17:39+0200\n"
 "Last-Translator: Tony Chen <tonychen@finenet.com.tw>\n"
 "Language-Team: Traditional Chinese "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/zh_TW/>\n"
@@ -5541,7 +5541,6 @@ msgid "Connect without password"
 msgstr "用空密碼連線"
 
 #: libraries/config/messages.inc.php:408
-#, fuzzy
 #| msgid ""
 #| "You can use MySQL wildcard characters (% and _), escape them if you want "
 #| "to use their literal instances, i.e. use [kbd]'my\\_db'[/kbd] and not "
@@ -6164,7 +6163,6 @@ msgstr "CSV 使用 LOAD DATA"
 #: libraries/config/setup.forms.php:262 libraries/config/setup.forms.php:355
 #: libraries/config/user_preferences.forms.php:160
 #: libraries/config/user_preferences.forms.php:252
-#, fuzzy
 #| msgid "Open Document Spreadsheet"
 msgid "OpenDocument Spreadsheet"
 msgstr "OpenOffice 表格"
@@ -6196,7 +6194,6 @@ msgstr "微軟 Word 2000"
 
 #: libraries/config/setup.forms.php:359
 #: libraries/config/user_preferences.forms.php:256
-#, fuzzy
 #| msgid "Open Document Text"
 msgid "OpenDocument Text"
 msgstr "OpenOffice 檔案"
@@ -6488,13 +6485,13 @@ msgid "Git revision:"
 msgstr ""
 
 #: libraries/display_git_revision.lib.php:67
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create version %s of %s.%s"
 msgid "committed on %1$s by %2$s"
 msgstr "%2$s 提交了 %1$s"
 
 #: libraries/display_git_revision.lib.php:75
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create version %s of %s.%s"
 msgid "authored on %1$s by %2$s"
 msgstr "%2$s 執筆於 %1$s"
@@ -7925,10 +7922,9 @@ msgid "Structure:"
 msgstr "結構："
 
 #: libraries/plugins/export/ExportMediawiki.class.php:84
-#, fuzzy
 #| msgid "Export contents"
 msgid "Export table names"
-msgstr "要匯出資料表的名稱"
+msgstr "匯出的資料表名稱"
 
 #: libraries/plugins/export/ExportMediawiki.class.php:90
 #| msgid "horizontal (rotated headers)"
@@ -8259,7 +8255,6 @@ msgstr ""
 "必須留空。"
 
 #: libraries/plugins/transformations/abstract/ExternalTransformationsPlugin.class.php:31
-#, fuzzy
 #| msgid ""
 #| "LINUX ONLY: Launches an external application and feeds it the column data "
 #| "via standard input. Returns the standard output of the application. The "
@@ -8283,12 +8278,11 @@ msgid ""
 "option, if set to 1, will prevent wrapping and ensure that the output "
 "appears all on one line (Default 1)."
 msgstr ""
-"僅 LINUX：調用外部程序並透過標準輸入傳入欄位資料。返回此套用程序的標準輸出預"
-"設爲 Tidy，可以很好的列印 HTML 程式碼。爲了安全起見，您需要手動編輯 "
-"libraries/transformations/text_plain__external.inc.php 檔案來加入可以運行的工"
-"具。第一個選項是您想要使用的程序編號，第二個選項是程序的參數。第三個參數如果"
-"設爲 1 的話將會用 htmlspecialchars() 處理輸出 (預設爲 1)。第四個參數如果設爲 "
-"1 的話，將禁止換行，確保所有內容顯示在一行中 (預設爲 1)"
+"僅 LINUX：調用外部程序並透過標準輸入傳入欄位資料。返回此套用程序的標準輸出，預設爲 Tidy，可以很好的列印 HTML "
+"程式碼。爲了安全起見，您需要手動編輯 "
+"libraries/plugins/transformations/Text_Plain_External.class.php "
+"檔案來加入可以運行的工具。第一個選項是您想要使用的程序編號，第二個選項是程序的參數。第三個參數如果設爲 1 的話將會用 "
+"htmlspecialchars() 處理輸出 (預設爲 1)。第四個參數如果設爲 1 的話，將禁止換行，確保所有內容顯示在一行中 (預設爲 1)。"
 
 #: libraries/plugins/transformations/abstract/FormattedTransformationsPlugin.class.php:31
 msgid ""
@@ -8658,10 +8652,9 @@ msgid "End"
 msgstr "結束"
 
 #: libraries/rte/rte_events.lib.php:519
-#, fuzzy
 #| msgid "complete inserts"
 msgid "On completion preserve"
-msgstr "完整插入"
+msgstr "完成時保留"
 
 #: libraries/rte/rte_events.lib.php:524
 #: libraries/rte/rte_routines.lib.php:1042
@@ -10850,10 +10843,9 @@ msgid "Preset chart"
 msgstr "預設圖表"
 
 #: server_status_monitor.php:523
-#, fuzzy
 #| msgid "See slave status table"
 msgid "Status variable(s)"
-msgstr "狀態變數值"
+msgstr "變數狀態"
 
 #: server_status_monitor.php:526
 #| msgid "Select Tables"
@@ -10941,10 +10933,9 @@ msgid_plural "%d minutes"
 msgstr[0] "%d 分"
 
 #: server_status_monitor.php:674
-#, fuzzy
 #| msgid "Textarea rows"
 msgid "Start Monitor"
-msgstr "開始觀察(monitor)"
+msgstr "啟動監視"
 
 #: server_status_monitor.php:681
 msgid "Instructions/Setup"
@@ -10969,7 +10960,6 @@ msgid "Chart columns"
 msgstr "圖表欄位"
 
 #: server_status_monitor.php:733
-#, fuzzy
 #| msgid "Error management:"
 msgid "Chart arrangement"
 msgstr "圖表排列"
@@ -11016,7 +11006,6 @@ msgid "#"
 msgstr ""
 
 #: server_status_variables.php:78 server_variables.php:156
-#, fuzzy
 msgid "Filters"
 msgstr "過濾"
 
@@ -12067,11 +12056,10 @@ msgid "Line"
 msgstr "折線圖"
 
 #: tbl_chart.php:161
-#, fuzzy
 #| msgid "Inline"
 msgctxt "Chart type"
 msgid "Spline"
-msgstr "Spline"
+msgstr "曲線圖"
 
 #: tbl_chart.php:163
 msgctxt "Chart type"
@@ -12147,7 +12135,6 @@ msgid "Invalid table name"
 msgstr "無效的資料資料表名稱"
 
 #: tbl_gis_visualization.php:114
-#, fuzzy
 #| msgid "Display servers selection"
 msgid "Display GIS Visualization"
 msgstr "顯示可視化地理訊息"
@@ -12317,32 +12304,29 @@ msgid "Tracking data definition successfully deleted"
 msgstr "追蹤資料定義已刪除"
 
 #: tbl_tracking.php:478
-#, fuzzy
 #| msgid "Track these data manipulation statements:"
 msgid "Tracking data manipulation successfully deleted"
-msgstr "追蹤這些資料模擬的語句:"
+msgstr "追蹤資料操作已刪除"
 
 #: tbl_tracking.php:493
 msgid "Tracking statements"
 msgstr "追蹤指令"
 
 #: tbl_tracking.php:524 tbl_tracking.php:672
-#, fuzzy, php-format
+#, php-format
 #| msgid "Show %s with dates from %s to %s by user %s %s"
 msgid "Show %1$s with dates from %2$s to %3$s by user %4$s %5$s"
 msgstr "顯示自 %2$s 起至 %3$s 使用者 %4$s 執行的 %1$s %5$s"
 
 #: tbl_tracking.php:532
-#, fuzzy
 #| msgid "Delete tracking data for this table"
 msgid "Delete tracking data row from report"
-msgstr "刪除此資料表的追蹤資料"
+msgstr "刪除報表的追蹤資料列"
 
 #: tbl_tracking.php:546
-#, fuzzy
 #| msgid "No databases"
 msgid "No data"
-msgstr "沒有資料庫"
+msgstr "沒有資料"
 
 #: tbl_tracking.php:555 tbl_tracking.php:617
 msgid "Date"
@@ -12382,30 +12366,30 @@ msgid "Show versions"
 msgstr "查看版本"
 
 #: tbl_tracking.php:824
-#, fuzzy, php-format
+#, php-format
 #| msgid "Deactivate tracking for %s.%s"
 msgid "Deactivate tracking for %s"
-msgstr "停用 %s.%s 的追蹤"
+msgstr "停用 %s 的追蹤"
 
 #: tbl_tracking.php:830
 msgid "Deactivate now"
 msgstr "立即停用"
 
 #: tbl_tracking.php:840
-#, fuzzy, php-format
+#, php-format
 #| msgid "Activate tracking for %s.%s"
 msgid "Activate tracking for %s"
-msgstr "啓用 %s.%s 的追蹤"
+msgstr "啓用 %s 的追蹤"
 
 #: tbl_tracking.php:846
 msgid "Activate now"
 msgstr "立即啓用"
 
 #: tbl_tracking.php:859
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create version %s of %s.%s"
 msgid "Create version %1$s of %2$s"
-msgstr "爲 %2$s.%3$s 建立版本 %1$s"
+msgstr "爲 %2$s 建立版本 %1$s"
 
 #: tbl_tracking.php:867
 msgid "Track these data definition statements:"
@@ -12476,10 +12460,9 @@ msgid "The uptime is only %s"
 msgstr ""
 
 #: libraries/advisory_rules.txt:56
-#, fuzzy
 #| msgid "Versions"
 msgid "Questions below 1,000"
-msgstr "版本"
+msgstr "前 1,000 個問題"
 
 #: libraries/advisory_rules.txt:59
 msgid ""
@@ -12494,16 +12477,15 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:61
-#, fuzzy, php-format
+#, php-format
 #| msgid "Current connection"
 msgid "Current amount of Questions: %s"
-msgstr "目前連線"
+msgstr "目前問題總數: %s"
 
 #: libraries/advisory_rules.txt:63
-#, fuzzy
 #| msgid "Show SQL queries"
 msgid "Percentage of slow queries"
-msgstr "顯示 SQL 查詢"
+msgstr "緩慢查詢百分比"
 
 #: libraries/advisory_rules.txt:66
 msgid ""
@@ -12522,10 +12504,9 @@ msgid "The slow query rate should be below 5%%, your value is %s%%."
 msgstr ""
 
 #: libraries/advisory_rules.txt:70
-#, fuzzy
 #| msgid "Flush query cache"
 msgid "Slow query rate"
-msgstr "強制更新查詢快取"
+msgstr "緩慢查詢率"
 
 #: libraries/advisory_rules.txt:73
 msgid ""
@@ -12540,10 +12521,9 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:77
-#, fuzzy
 #| msgid "SQL queries"
 msgid "Long query time"
-msgstr "SQL 查詢"
+msgstr "超長查詢時間"
 
 #: libraries/advisory_rules.txt:80
 msgid ""
@@ -12558,22 +12538,20 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:82
-#, fuzzy, php-format
+#, php-format
 #| msgid "long_query_time is set to %d second(s)."
 msgid "long_query_time is currently set to %ds."
-msgstr "long_query_time已設為%d秒"
+msgstr "long_query_time 已設為 %d 秒。"
 
 #: libraries/advisory_rules.txt:84 libraries/advisory_rules.txt:91
-#, fuzzy
 #| msgid "Show query box"
 msgid "Slow query logging"
-msgstr "顯示查詢框"
+msgstr "緩慢查詢紀錄"
 
 #: libraries/advisory_rules.txt:87 libraries/advisory_rules.txt:94
-#, fuzzy
 #| msgid "slow_query_log is enabled."
 msgid "The slow query log is disabled."
-msgstr "slow_query_log已啟用"
+msgstr "已禁用緩慢查詢。"
 
 #: libraries/advisory_rules.txt:88
 msgid ""
@@ -12582,10 +12560,9 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:89
-#, fuzzy
 #| msgid "long_query_time is set to %d second(s)."
 msgid "log_slow_queries is set to 'OFF'"
-msgstr "long_query_time已設為%d秒"
+msgstr "log_slow_queries 已設為 'OFF'"
 
 #: libraries/advisory_rules.txt:95
 msgid ""
@@ -12594,16 +12571,14 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:96
-#, fuzzy
 #| msgid "long_query_time is set to %d second(s)."
 msgid "slow_query_log is set to 'OFF'"
-msgstr "long_query_time已設為%d秒"
+msgstr "slow_query_log 已設為 'OFF'"
 
 #: libraries/advisory_rules.txt:100
-#, fuzzy
 #| msgid "Select Tables"
 msgid "Release Series"
-msgstr "選擇表"
+msgstr "釋放序列"
 
 #: libraries/advisory_rules.txt:103
 msgid "The MySQL server version less than 5.1."
@@ -12617,16 +12592,15 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:105 libraries/advisory_rules.txt:112
 #: libraries/advisory_rules.txt:119
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create version"
 msgid "Current version: %s"
-msgstr "建立版本"
+msgstr "目前版本: %s"
 
 #: libraries/advisory_rules.txt:107 libraries/advisory_rules.txt:114
-#, fuzzy
 #| msgid "Version"
 msgid "Minor Version"
-msgstr "版本"
+msgstr "次要版本"
 
 #: libraries/advisory_rules.txt:110
 msgid "Version less than 5.1.30 (the first GA release of 5.1)."
@@ -12643,17 +12617,15 @@ msgid "Version less than 5.5.8 (the first GA release of 5.5)."
 msgstr ""
 
 #: libraries/advisory_rules.txt:118
-#, fuzzy
 #| msgid "You should upgrade to %s %s or later."
 msgid "You should upgrade, to a stable version of MySQL 5.5"
-msgstr "您應升級到 %s %s 或更高版本。"
+msgstr "您應升級到 MySQL 5.5 的一個穩定版本"
 
 #: libraries/advisory_rules.txt:121 libraries/advisory_rules.txt:128
 #: libraries/advisory_rules.txt:135
-#, fuzzy
 #| msgid "Description"
 msgid "Distribution"
-msgstr "說明"
+msgstr "分佈"
 
 #: libraries/advisory_rules.txt:124
 msgid "Version is compiled from source, not a MySQL official binary."
@@ -12692,10 +12664,9 @@ msgid "Version string (%s) matches Drizzle versioning scheme"
 msgstr ""
 
 #: libraries/advisory_rules.txt:142
-#, fuzzy
 #| msgid "MySQL charset"
 msgid "MySQL Architecture"
-msgstr "MySQL 字集"
+msgstr "MySQL 架構"
 
 #: libraries/advisory_rules.txt:145
 msgid "MySQL is not compiled as a 64-bit package."
@@ -12714,16 +12685,14 @@ msgid "Available memory on this host: %s"
 msgstr ""
 
 #: libraries/advisory_rules.txt:153
-#, fuzzy
 #| msgid "Query cache"
 msgid "Query cache disabled"
-msgstr "查詢快取"
+msgstr "查詢快取已被禁用"
 
 #: libraries/advisory_rules.txt:156
-#, fuzzy
 #| msgid "The server is not responding"
 msgid "The query cache is not enabled."
-msgstr "伺服器沒有響應"
+msgstr "查詢快取並未啟用。"
 
 #: libraries/advisory_rules.txt:157
 msgid ""
@@ -12738,16 +12707,14 @@ msgid "query_cache_size is set to 0 or query_cache_type is set to 'OFF'"
 msgstr ""
 
 #: libraries/advisory_rules.txt:160
-#, fuzzy
 #| msgid "Query cache"
 msgid "Query caching method"
-msgstr "查詢快取"
+msgstr "查詢快取方法"
 
 #: libraries/advisory_rules.txt:163
-#, fuzzy
 #| msgid "Query cache"
 msgid "Suboptimal caching method."
-msgstr "查詢快取"
+msgstr "次佳的查詢快取方法。"
 
 #: libraries/advisory_rules.txt:164
 msgid ""
@@ -12765,10 +12732,10 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:167
-#, fuzzy, php-format
+#, php-format
 #| msgid "Query cache"
 msgid "Query cache efficiency (%%)"
-msgstr "查詢快取"
+msgstr "查詢快取效能(%%)"
 
 #: libraries/advisory_rules.txt:170
 msgid "Query cache not running efficiently, it has a low hit rate."
@@ -12779,15 +12746,14 @@ msgid "Consider increasing {query_cache_limit}."
 msgstr ""
 
 #: libraries/advisory_rules.txt:172
-#, fuzzy, php-format
+#, php-format
 #| msgid "Sort buffer size"
 msgid "The current query cache hit rate of %s%% is below 20%%"
-msgstr "排序快取大小"
+msgstr "查詢快取命中率 %s%% 低於 20%%"
 
 #: libraries/advisory_rules.txt:174
-#, fuzzy
 msgid "Query Cache usage"
-msgstr "查詢快取"
+msgstr "查詢快取使用狀況"
 
 #: libraries/advisory_rules.txt:177
 #, php-format
@@ -12808,16 +12774,14 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:181
-#, fuzzy
 #| msgid "Query cache"
 msgid "Query cache fragmentation"
-msgstr "查詢快取"
+msgstr "查詢快取片段狀況"
 
 #: libraries/advisory_rules.txt:184
-#, fuzzy
 #| msgid "The server is not responding"
 msgid "The query cache is considerably fragmented."
-msgstr "伺服器沒有響應"
+msgstr "這個查詢快取已支離破碎，不適合再使用。"
 
 #: libraries/advisory_rules.txt:185
 msgid ""
@@ -12846,12 +12810,11 @@ msgid "Query cache low memory prunes"
 msgstr "查詢快取"
 
 #: libraries/advisory_rules.txt:191
-#, fuzzy
 #| msgid "The amount of free memory for query cache."
 msgid ""
 "Cached queries are removed due to low query cache memory from the query "
 "cache."
-msgstr "查詢快取中空閒的記憶體總數"
+msgstr "由於低記憶體關係，這個查詢快取將被移除。"
 
 #: libraries/advisory_rules.txt:192
 msgid ""
@@ -12868,10 +12831,9 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:195
-#, fuzzy
 #| msgid "Query cache"
 msgid "Query cache max size"
-msgstr "查詢快取"
+msgstr "查詢快取最大大小"
 
 #: libraries/advisory_rules.txt:198
 msgid ""
@@ -12886,16 +12848,15 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:200
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create version"
 msgid "Current query cache size: %s"
-msgstr "建立版本"
+msgstr "目前查詢快取大小: %s"
 
 #: libraries/advisory_rules.txt:202
-#, fuzzy
 #| msgid "Query results"
 msgid "Query cache min result size"
-msgstr "查詢結果"
+msgstr "查詢快取最小結果大小"
 
 #: libraries/advisory_rules.txt:205
 msgid ""
@@ -12919,16 +12880,14 @@ msgid "query_cache_limit is set to 1 MiB"
 msgstr ""
 
 #: libraries/advisory_rules.txt:211
-#, fuzzy
 #| msgid "Allows creating temporary tables."
 msgid "Percentage of sorts that cause temporary tables"
-msgstr "允許建立臨時表"
+msgstr "因排序建立的臨時表百分比"
 
 #: libraries/advisory_rules.txt:214 libraries/advisory_rules.txt:221
-#, fuzzy
 #| msgid "Allows creating temporary tables."
 msgid "Too many sorts are causing temporary tables."
-msgstr "允許建立臨時表"
+msgstr "太多排序產生的臨時表。"
 
 #: libraries/advisory_rules.txt:215 libraries/advisory_rules.txt:222
 msgid ""
@@ -12944,23 +12903,21 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:218
-#, fuzzy
 #| msgid "Allows creating temporary tables."
 msgid "Rate of sorts that cause temporary tables"
-msgstr "允許建立臨時表"
+msgstr "排序產生的臨時表比率"
 
 #: libraries/advisory_rules.txt:223
-#, fuzzy, php-format
+#, php-format
 #| msgid "Sort buffer size"
 msgid ""
 "Temporary tables average: %s, this value should be less than 1 per hour."
-msgstr "排序快取大小"
+msgstr "平均臨時表: %s，此值應每小時小於1。"
 
 #: libraries/advisory_rules.txt:225
-#, fuzzy
 #| msgid "Textarea rows"
 msgid "Sort rows"
-msgstr "文字框行"
+msgstr "排序筆數"
 
 #: libraries/advisory_rules.txt:228
 msgid "There are lots of rows being sorted."
@@ -12980,16 +12937,14 @@ msgid "Sorted rows average: %s"
 msgstr ""
 
 #: libraries/advisory_rules.txt:233
-#, fuzzy
 #| msgid "There are no files to upload"
 msgid "Rate of joins without indexes"
-msgstr "沒有可上傳的檔案"
+msgstr "無索引的結合比率"
 
 #: libraries/advisory_rules.txt:236
-#, fuzzy
 #| msgid "There are no files to upload"
 msgid "There are too many joins without indexes."
-msgstr "沒有可上傳的檔案"
+msgstr "有太多的結合未使用索引。"
 
 #: libraries/advisory_rules.txt:237
 msgid ""
@@ -12998,22 +12953,20 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:238
-#, fuzzy, php-format
+#, php-format
 #| msgid "Sort buffer size"
 msgid "Table joins average: %s, this value should be less than 1 per hour"
-msgstr "排序快取大小"
+msgstr "平均資料表結合: %s，此值應每小時小於1"
 
 #: libraries/advisory_rules.txt:240
-#, fuzzy
 #| msgid "There are no files to upload"
 msgid "Rate of reading first index entry"
-msgstr "沒有可上傳的檔案"
+msgstr "讀取第一個索引項目比率"
 
 #: libraries/advisory_rules.txt:243
-#, fuzzy
 #| msgid "The number of pending log file fsyncs."
 msgid "The rate of reading the first index entry is high."
-msgstr "目前掛起的 fsync 日志檔案數"
+msgstr "讀取第一個索引項目比率過髙。"
 
 #: libraries/advisory_rules.txt:244
 msgid ""
@@ -13026,22 +12979,20 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:245
-#, fuzzy, php-format
+#, php-format
 #| msgid "Sort buffer size"
 msgid "Index scans average: %s, this value should be less than 1 per hour"
-msgstr "排序快取大小"
+msgstr "平均索引掃瞄: %s，此值應每小時小於1"
 
 #: libraries/advisory_rules.txt:247
-#, fuzzy
 #| msgid "Format of imported file"
 msgid "Rate of reading fixed position"
-msgstr "匯入檔案的格式"
+msgstr "讀取固定位置比率"
 
 #: libraries/advisory_rules.txt:250
-#, fuzzy
 #| msgid "The number of pending log file fsyncs."
 msgid "The rate of reading data from a fixed position is high."
-msgstr "目前掛起的 fsync 日志檔案數"
+msgstr "讀取資料固定位置比率過高。"
 
 #: libraries/advisory_rules.txt:251
 msgid ""
@@ -13058,16 +13009,14 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:254
-#, fuzzy
 #| msgid "Create table"
 msgid "Rate of reading next table row"
-msgstr "建立資料表"
+msgstr "讀取資料表下一筆比例"
 
 #: libraries/advisory_rules.txt:257
-#, fuzzy
 #| msgid "The current number of pending writes."
 msgid "The rate of reading the next table row is high."
-msgstr "目前掛起的寫操作數"
+msgstr "讀取資料表下一筆比例過高。"
 
 #: libraries/advisory_rules.txt:258
 msgid ""
@@ -13076,11 +13025,11 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:259
-#, fuzzy, php-format
+#, php-format
 #| msgid "Sort buffer size"
 msgid ""
 "Rate of reading next table row: %s, this value should be less than 1 per hour"
-msgstr "排序快取大小"
+msgstr "平均讀取資料表下一筆: %s，此值應每小時小於1"
 
 #: libraries/advisory_rules.txt:262
 msgid "tmp_table_size vs. max_heap_table_size"
