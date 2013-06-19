@@ -1002,7 +1002,8 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
         $bkm_sql_query = urlencode(
             isset($complete_query) ? $complete_query : $sql_query
         );
-        $html_output .= PMA_getHtmlForBookmark($db, $goto, $bkm_sql_query);
+        $bkm_user = $cfg['Bookmark']['user'];
+        $html_output .= PMA_getHtmlForBookmark($db, $goto, $bkm_sql_query, $bkm_user);
     } // end bookmark support
 
     // Do print the page if required

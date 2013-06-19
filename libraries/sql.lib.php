@@ -655,8 +655,9 @@ function PMA_getHtmlForOptionsList($values, $selected_values)
  * @param string   $db             the current database
  * @param string   $goto           goto page url
  * @param string   $bkm_sql_query  the query to be bookmarked
+ * @param string   $bkm_user       the user creating the bookmark
  */
-function PMA_getHtmlForBookmark($db, $goto, $bkm_sql_query)
+function PMA_getHtmlForBookmark($db, $goto, $bkm_sql_query, $bkm_user)
 {
     $html = '<form action="sql.php" method="post"'
         . ' onsubmit="return ! emptyFormElements(this, \'bkm_fields[bkm_label]\');"'
@@ -666,7 +667,7 @@ function PMA_getHtmlForBookmark($db, $goto, $bkm_sql_query)
     $html .= '<input type="hidden" name="bkm_fields[bkm_database]"'
         . ' value="' . htmlspecialchars($db) . '" />';
     $html .= '<input type="hidden" name="bkm_fields[bkm_user]"'
-        . ' value="' . $cfg['Bookmark']['user'] . '" />';
+        . ' value="' . $bkm_user . '" />';
     $html .= '<input type="hidden" name="bkm_fields[bkm_sql_query]"' . ' value="'
         . $bkm_sql_query
         . '" />';
