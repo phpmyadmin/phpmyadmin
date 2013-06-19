@@ -105,6 +105,7 @@ $forms['Main_panel']['DbStructure'] = array(
 $forms['Main_panel']['TableStructure'] = array(
     'HideStructureActions');
 $forms['Main_panel']['Browse'] = array(
+    'MainMenuIconic',
     'NavigationBarIconic',
     'PropertiesIconic',
     'ShowAll',

@@ -5,13 +5,13 @@ phpMyAdmin - ChangeLog
 - bug #3977 Not detected configuration storage
 - bug #3970 Pressing enter in the filter field reloads page
 - bug #3984 Cannot insert in this table (PHP < 5.4)
+- bug #3960 NavigationBarIconic config not honored
 
 4.0.4.0 (2013-06-17)
 - bug #3959 Using DefaultTabDatabase in NavigationTree for Database Click
 - bug #3961 Avoid Suhosin warning when in simulation mode
 - bug #3897 Row Statistics and Space usage bugs
 - bug #3966 Only display "table has no unique column" message when applicable
-- bug #3960 NavigationBarIconic config not honored
 - bug #3965 Default language wrong with zh-TW
 - bug #3921 Call to undefined function PMA_isSuperuser() if default server is
 not set 

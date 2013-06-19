@@ -50,6 +50,11 @@ $cfg_db['NavigationBarIconic'] = array(
     false  => __('No'),
     'both' => __('Both')
 );
+$cfg_db['MainMenuIconic'] = array(
+    true   => __('Yes'),
+    false  => __('No'),
+    'both' => __('Both')
+);
 $cfg_db['Order'] = array('ASC', 'DESC', 'SMART');
 $cfg_db['RowActionLinks'] = array(
     'none'  => __('Nowhere'),

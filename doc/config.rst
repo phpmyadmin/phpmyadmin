@@ -1481,6 +1481,15 @@ Database structure
 Browse mode
 -----------
 
+.. config:option:: $cfg['MainMenuIconic']
+
+    :type: string
+    :default: true
+
+    Defines whether the main menu tabs contain text or symbols only. A 
+    value of true displays icons, false displays text and 'both' displays 
+    both icons and text.
+
 .. config:option:: $cfg['NavigationBarIconic']
 
     :type: string
