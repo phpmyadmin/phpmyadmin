@@ -898,13 +898,9 @@ class PMA_DisplayResults
             . 'value="' . $html_sql_query . '" />'
             . '<input type="hidden" name="goto" value="' . $this->__get('goto')
             . '" />'
-            . '<input type="submit" name="navig"'
-            . ' class="ajax"'
-            . ' value="' . __('Show:') . '" />'
-            . __('Start row:') . ' ' . "\n"
-            . '<input type="text" name="pos" size="3" value="'
+            . '<input type="hidden" name="pos" size="3" value="'
             . (($pos_next >= $this->__get('unlim_num_rows')) ? 0 : $pos_next)
-            . '" class="textfield" onfocus="this.select()" />'
+            . '" />'
             . __('Number of rows:') . ' '
             . '<select name="session_max_rows" class="autosubmit">';
 
