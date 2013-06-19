@@ -4,10 +4,9 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-06-12 09:39+0200\n"
-"PO-Revision-Date: 2013-05-30 13:31+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: German <http://l10n.cihar.com/projects/phpmyadmin/master/de/"
-">\n"
+"PO-Revision-Date: 2013-06-19 12:38+0200\n"
+"Last-Translator: Raimund Meyer <rm@km-it.de>\n"
+"Language-Team: German <http://l10n.cihar.com/projects/phpmyadmin/master/de/>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -41,10 +40,9 @@ msgstr ""
 "Zugriff aufgrund Ihrer Sicherheitseinstellungen."
 
 #: browse_foreigners.php:182
-#, fuzzy
 #| msgid "Search"
 msgid "Search:"
-msgstr "Suche"
+msgstr "Suche:"
 
 #: browse_foreigners.php:186 gis_data_editor.php:396 js/messages.php:209
 #: libraries/DbSearch.class.php:455 libraries/DisplayResults.class.php:1657
@@ -120,10 +118,9 @@ msgstr "Datenbankkommentar: "
 
 #: db_datadict.php:157 libraries/schema/Pdf_Relation_Schema.class.php:1336
 #: libraries/tbl_columns_definition_form.inc.php:836 tbl_printview.php:120
-#, fuzzy
 #| msgid "Table comments"
 msgid "Table comments:"
-msgstr "Tabellen-Kommentar"
+msgstr "Tabellenkommentar:"
 
 #: db_datadict.php:166 libraries/Index.class.php:565
 #: libraries/TableSearch.class.php:183 libraries/TableSearch.class.php:1190
