@@ -1043,7 +1043,7 @@ $cfg['ShowAll'] = false;
  *
  * @global integer $cfg['MaxRows']
  */
-$cfg['MaxRows'] = 30;
+$cfg['MaxRows'] = 25;
 
 /**
  * default for 'ORDER BY' clause (valid values are 'ASC', 'DESC' or 'SMART' -ie

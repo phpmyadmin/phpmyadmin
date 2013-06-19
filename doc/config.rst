@@ -1559,7 +1559,7 @@ Browse mode
 .. config:option:: $cfg['MaxRows']
 
     :type: integer
-    :default: 30
+    :default: 25
 
     Number of rows displayed when browsing a result set and no LIMIT
     clause is used. If the result set contains more rows, "Previous" and
