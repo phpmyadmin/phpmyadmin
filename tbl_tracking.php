@@ -67,18 +67,19 @@ if (isset($_REQUEST['report_export'])) {
     ) {
         $tmp_entries = array();
         $id = 0;
-        foreach ( $data as $entry ) {
+        foreach ($data as $entry) {
             $timestamp = strtotime($entry['date']);
 
             if ($timestamp >= $filter_ts_from
                 && $timestamp <= $filter_ts_to
                 && (in_array('*', $filter_users) || in_array($entry['username'], $filter_users))
             ) {
-                $tmp_entries[] = array( 'id' => $id,
-                                    'timestamp' => $timestamp,
-                                    'username'  => $entry['username'],
-                                    'statement' => $entry['statement']
-                             );
+                $tmp_entries[] = array(
+                    'id'        => $id,
+                    'timestamp' => $timestamp,
+                    'username'  => $entry['username'],
+                    'statement' => $entry['statement']
+                );
             }
             $id++;
         }
