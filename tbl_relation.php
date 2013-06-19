@@ -225,9 +225,9 @@ if (isset($destination_foreign_db)) {
             if (! isset($existrel_foreign[$master_field])) {
                 // no key defined for this field
                 $create = true;
-            } elseif (PMA_Util::backquote($existrel_foreign[$master_field]['foreign_db']) != $foreign_db
-                || PMA_Util::backquote($existrel_foreign[$master_field]['foreign_table']) != $foreign_table
-                || PMA_Util::backquote($existrel_foreign[$master_field]['foreign_field']) != $foreign_field
+            } elseif ($existrel_foreign[$master_field]['foreign_db'] != $foreign_db
+                || $existrel_foreign[$master_field]['foreign_table'] != $foreign_table
+                || $existrel_foreign[$master_field]['foreign_field'] != $foreign_field
                 || $_REQUEST['constraint_name'][$master_field_md5] != $existrel_foreign[$master_field]['constraint']
                 || ($_REQUEST['on_delete'][$master_field_md5] != (! empty($existrel_foreign[$master_field]['on_delete']) ? $existrel_foreign[$master_field]['on_delete'] : 'RESTRICT'))
                 || ($_REQUEST['on_update'][$master_field_md5] != (! empty($existrel_foreign[$master_field]['on_update']) ? $existrel_foreign[$master_field]['on_update'] : 'RESTRICT'))
@@ -297,10 +297,11 @@ if (isset($destination_foreign_db)) {
                 // a rollback may be better here
                 $sql_query_recreate = '# Restoring the dropped constraint...' . "\n";
                 $sql_query_recreate .= PMA_getSQLToCreateForeignKey(
-                    $table, $master_field,
-                    PMA_Util::backquote($existrel_foreign[$master_field]['foreign_db']),
-                    PMA_Util::backquote($existrel_foreign[$master_field]['foreign_table']),
-                    PMA_Util::backquote($existrel_foreign[$master_field]['foreign_field']),
+                    $table,
+                    $master_field,
+                    $existrel_foreign[$master_field]['foreign_db'],
+                    $existrel_foreign[$master_field]['foreign_table'],
+                    $existrel_foreign[$master_field]['foreign_field'],
                     $existrel_foreign[$master_field]['constraint'],
                     $options_array[$existrel_foreign[$master_field]['on_delete']],
                     $options_array[$existrel_foreign[$master_field]['on_update']]
@@ -719,9 +720,9 @@ function PMA_getSQLToDropForeignKey($table, $fk)
  *
  * @param string $table        table name
  * @param string $field        field name
- * @param string $foreignDb    back-quoted foreign database name
- * @param string $foreignTable back-quoted foreign table name
- * @param string $foreignField back-quoted foreign field name
+ * @param string $foreignDb    foreign database name
+ * @param string $foreignTable foreign table name
+ * @param string $foreignField foreign field name
  * @param string $name         name of the constraint
  * @param string $onDelete     on delete action
  * @param string $onUpdate     on update action
@@ -738,8 +739,9 @@ function PMA_getSQLToCreateForeignKey($table, $field, $foreignDb, $foreignTable,
     }
 
     $sql_query .= ' FOREIGN KEY (' . PMA_Util::backquote($field) . ')'
-        . ' REFERENCES ' . $foreignDb . '.' . $foreignTable
-        . '(' . $foreignField . ')';
+        . ' REFERENCES ' . PMA_Util::backquote($foreignDb)
+        . '.' . PMA_Util::backquote($foreignTable)
+        . '(' . PMA_Util::backquote($foreignField) . ')';
 
     if (! empty($onDelete)) {
         $sql_query .= ' ON DELETE ' . $onDelete;
