@@ -23,25 +23,30 @@ function getDropdownValues($dropdown) {
     var foreignDb = null, foreignTable = null;
     var $tableDd, $columnDd;
     var foreign = '';
+    // if the changed dropdown is for foreign key constraints
     if ($dropdown.is('select[name^="destination_foreign"]')) {
         $tableDd  = $dropdown.parent().find('select[name^="destination_foreign_table"]');
         $columnDd = $dropdown.parent().find('select[name^="destination_foreign_column"]');
         foreign = '_foreign';
-    } else {
+    } else { // internal relations
         $tableDd  = $dropdown.parent().find('select[name^="destination_table"]');
         $columnDd = $dropdown.parent().find('select[name^="destination_column"]');
     }
 
+    // if the changed dropdown is a database selector
     if ($dropdown.is('select[name^="destination' + foreign + '_db"]')) {
         foreignDb = $dropdown.val();
+        // if no database is selected empty table and column dropdowns
         if (foreignDb == '') {
             setDropdownValues($tableDd, []);
             setDropdownValues($columnDd, []);
             return;
         }
-    } else {
-        foreignDb = $dropdown.parent().find('select[name^="destination' + foreign + '_db"]').val();
+    } else { // if a table selector
+        foreignDb = $dropdown.parent()
+            .find('select[name^="destination' + foreign + '_db"]').val();
         foreignTable = $dropdown.val();
+         // if no table is selected empty the column dropdown
         if (foreignTable == '') {
             setDropdownValues($columnDd, []);
             return;
@@ -55,17 +60,22 @@ function getDropdownValues($dropdown) {
         + '&table=' + $form.find('input[name="table"]').val()
         + '&foreign=' + (foreign != '')
         + '&foreignDb=' + encodeURIComponent(foreignDb)
-        + (foreignTable !== null ? '&foreignTable=' + encodeURIComponent(foreignTable) : '');
+        + (foreignTable !== null ? 
+            '&foreignTable=' + encodeURIComponent(foreignTable) : ''
+        );
     $.ajax({
         url: url,
         datatype: 'json',
         success: function(data) {
             PMA_ajaxRemoveMessage($msgbox);
             if (data.success) {
+                // if the changed dropdown is a database selector
                 if (foreignTable == null) {
+                    // set values for table and column dropdowns
                     setDropdownValues($tableDd, data.tables);
                     setDropdownValues($columnDd, []);
-                } else {
+                } else { // if a table selector
+                    // set values for the column dropdown
                     setDropdownValues($columnDd, data.columns);
                 }
             } else {
@@ -78,6 +88,7 @@ function getDropdownValues($dropdown) {
 function setDropdownValues($dropdown, values) {
     $dropdown.empty();
     var optionsAsString = '';
+    // add an empty string to the beginning for empty selection
     values.unshift('');
     $.each(values, function() {
         optionsAsString += "<option value='" + this + "'>" + this + "</option>";
