@@ -456,7 +456,7 @@ class PMA_Config
         }
 
         $commit = false;
-        if ( !isset($_SESSION['PMA_VERSION_COMMITDATA_' . $hash])) {
+        if (! isset($_SESSION['PMA_VERSION_COMMITDATA_' . $hash])) {
             $git_file_name = $git_folder . '/objects/' . substr($hash, 0, 2)
                     . '/' . substr($hash, 2);
             if (file_exists($git_file_name) ) {
@@ -469,7 +469,9 @@ class PMA_Config
             } else {
                 $pack_names = array();
                 // work with packed data
-                if ($packs = @file_get_contents($git_folder . '/objects/info/packs')) {
+                if (file_exists($git_folder . '/objects/info/packs')
+                    && $packs = @file_get_contents($git_folder . '/objects/info/packs')
+                ) {
                     // File exists. Read it, parse the file to get the names of the
                     // packs. (to look for them in .git/object/pack directory later)
                     foreach (explode("\n", $packs) as $line) {

@@ -1,6 +1,6 @@
 <?php
 /**
- * Tests for Text_Plain_Dateformat class
+ * Tests for Image_PNG_Inline class
  *
  * @package PhpMyAdmin-test
  */
@@ -11,14 +11,14 @@
 
 /* Each PluginObserver instance contains a PluginManager instance */
 require_once 'libraries/plugins/PluginManager.class.php';
-require_once 'libraries/plugins/transformations/Text_Plain_Dateformat.class.php';
+require_once 'libraries/plugins/transformations/Image_PNG_Inline.class.php';
 
 /**
- * Tests for Text_Plain_Dateformat class
+ * Tests for Image_PNG_Inline class
  *
  * @package PhpMyAdmin-test
  */
-class Text_Plain_Dateformat_Test extends PHPUnit_Framework_TestCase
+class Image_PNG_Inline_Test extends PHPUnit_Framework_TestCase
 {
     /**
      * @access protected
@@ -34,7 +34,7 @@ class Text_Plain_Dateformat_Test extends PHPUnit_Framework_TestCase
      */
     protected function setUp()
     {
-        $this->object = new Text_Plain_Dateformat(new PluginManager()); 
+        $this->object = new Image_PNG_Inline(new PluginManager()); 
     }
 
     /**
@@ -58,19 +58,12 @@ class Text_Plain_Dateformat_Test extends PHPUnit_Framework_TestCase
      */
     public function testGetInfo()
     {
-        $info = 'Displays a TIME, TIMESTAMP, DATETIME or numeric unix timestamp'
-            . ' column as formatted date. The first option is the offset (in'
-            . ' hours) which will be added to the timestamp (Default: 0). Use'
-            . ' second option to specify a different date/time format string.'
-            . ' Third option determines whether you want to see local date or'
-            . ' UTC one (use "local" or "utc" strings) for that. According to'
-            . ' that, date format has different value - for "local" see the'
-            . ' documentation for PHP\'s strftime() function and for "utc" it'
-            . ' is done using gmdate() function.';
-            
+        $info = 
+            'Displays a clickable thumbnail. The options are the maximum width'
+            . ' and height in pixels. The original aspect ratio is preserved.';
          $this->assertEquals(
             $info,
-            Text_Plain_Dateformat::getInfo()
+            Image_PNG_Inline::getInfo()
         );  
     
     }
@@ -85,8 +78,8 @@ class Text_Plain_Dateformat_Test extends PHPUnit_Framework_TestCase
     public function testGetName()
     {       
         $this->assertEquals(
-            "Date Format",
-            Text_Plain_Dateformat::getName()
+            "Inline",
+            Image_PNG_Inline::getName()
         );    
     }
 
@@ -100,8 +93,8 @@ class Text_Plain_Dateformat_Test extends PHPUnit_Framework_TestCase
     public function testGetMIMEType()
     {       
         $this->assertEquals(
-            "Text",
-            Text_Plain_Dateformat::getMIMEType()
+            "Image",
+            Image_PNG_Inline::getMIMEType()
         );    
     }
 
@@ -115,8 +108,8 @@ class Text_Plain_Dateformat_Test extends PHPUnit_Framework_TestCase
     public function testGetMIMESubtype()
     {       
         $this->assertEquals(
-            "Plain",
-            Text_Plain_Dateformat::getMIMESubtype()
+            "PNG",
+            Image_PNG_Inline::getMIMESubtype()
         );    
     }
 
@@ -129,24 +122,15 @@ class Text_Plain_Dateformat_Test extends PHPUnit_Framework_TestCase
      */
     public function testApplyTransformation()
     {
-        //add timezone setting before time transformation
-        date_default_timezone_set('UTC');
-        $timestamp = 12345;
-        $options = array(0);
-        $meta = new Text_Plain_Dateformat_Meta();
-        $meta->type = 'int';
-        $result = '<dfn onclick="alert(\'12345\');" title="12345">'
-             . 'Jan 01, 1970 at 03:25 AM</dfn>';
+        $buffer = "PMA_PNG_Inline";
+        $options = array("./image/", "200", "wrapper_link"=>"PMA_wrapper_link");
+        $result = '<a href="transformation_wrapper.phpPMA_wrapper_link"' 
+            . ' target="_blank"><img src="transformation_wrapper.phpPMA_wrapper_link&amp;' 
+            . 'resize=jpeg&amp;newWidth=./image/&amp;newHeight=200" ' 
+            . 'alt="PMA_PNG_Inline" border="0" /></a>';
         $this->assertEquals(
             $result,
-            $this->object->applyTransformation($timestamp, $options, $meta)
-        );
+            $this->object->applyTransformation($buffer, $options)
+        );     
     }
-}
-
-class Text_Plain_Dateformat_Meta
-{
-    var $blob = null;
-    var $max_length = null;
-    var $type = null; 
 }

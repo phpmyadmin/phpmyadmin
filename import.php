@@ -571,7 +571,7 @@ if (isset($message)) {
 // (but if the query is too large, in case of an imported file, the parser
 //  can choke on it so avoid parsing)
 if (strlen($sql_query) <= $GLOBALS['cfg']['MaxCharactersInDisplayedSQL']) {
-    include_once 'libraries/parse_analyze.lib.php';
+    include_once 'libraries/parse_analyze.inc.php';
 }
 
 // There was an error?

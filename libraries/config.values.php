@@ -50,6 +50,7 @@ $cfg_db['NavigationBarIconic'] = array(
     false  => __('Text'),
     'both' => __('Both')
 );
+$cfg_db['MaxRows'] = array(25,50,100,250,500);
 $cfg_db['Order'] = array('ASC', 'DESC', 'SMART');
 $cfg_db['RowActionLinks'] = array(
     'none'  => __('Nowhere'),

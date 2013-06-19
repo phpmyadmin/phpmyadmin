@@ -10,51 +10,6 @@ if (!defined('PHPMYADMIN')) {
 }
 
 /**
- * Initialize some parameters needed to display results
- *
- * @param string  $sql_query SQL statement
- * @param boolean $is_select select query or not
- *
- * @return  array set of parameters
- *
- * @access  public
- */
-function PMA_getDisplayPropertyParams($sql_query, $is_select)
-{
-    $is_explain = $is_count = $is_export = $is_delete = $is_insert = $is_affected = $is_show = $is_maint = $is_analyse = $is_group = $is_func = $is_replace = false;
-
-    if ($is_select) {
-        $is_group = preg_match('@(GROUP[[:space:]]+BY|HAVING|SELECT[[:space:]]+DISTINCT)[[:space:]]+@i', $sql_query);
-        $is_func =  ! $is_group && (preg_match('@[[:space:]]+(SUM|AVG|STD|STDDEV|MIN|MAX|BIT_OR|BIT_AND)\s*\(@i', $sql_query));
-        $is_count = ! $is_group && (preg_match('@^SELECT[[:space:]]+COUNT\((.*\.+)?.*\)@i', $sql_query));
-        $is_export   = preg_match('@[[:space:]]+INTO[[:space:]]+OUTFILE[[:space:]]+@i', $sql_query);
-        $is_analyse  = preg_match('@[[:space:]]+PROCEDURE[[:space:]]+ANALYSE@i', $sql_query);
-    } elseif (preg_match('@^EXPLAIN[[:space:]]+@i', $sql_query)) {
-        $is_explain  = true;
-    } elseif (preg_match('@^DELETE[[:space:]]+@i', $sql_query)) {
-        $is_delete   = true;
-        $is_affected = true;
-    } elseif (preg_match('@^(INSERT|LOAD[[:space:]]+DATA|REPLACE)[[:space:]]+@i', $sql_query)) {
-        $is_insert   = true;
-        $is_affected = true;
-        if (preg_match('@^(REPLACE)[[:space:]]+@i', $sql_query)) {
-            $is_replace = true;
-        }
-    } elseif (preg_match('@^UPDATE[[:space:]]+@i', $sql_query)) {
-        $is_affected = true;
-    } elseif (preg_match('@^[[:space:]]*SHOW[[:space:]]+@i', $sql_query)) {
-        $is_show     = true;
-    } elseif (preg_match('@^(CHECK|ANALYZE|REPAIR|OPTIMIZE)[[:space:]]+TABLE[[:space:]]+@i', $sql_query)) {
-        $is_maint    = true;
-    }
-
-    return array(
-        $is_group, $is_func, $is_count, $is_export, $is_analyse, $is_explain,
-        $is_delete, $is_affected, $is_insert, $is_replace,$is_show, $is_maint
-    );
-}
-
-/**
  * Get the database name inside a USE query
  *
  * @param string $sql       SQL query
@@ -136,7 +91,7 @@ function getTableHtmlForMultipleQueries(
     $querytime_before = array_sum(explode(' ', microtime()));
 
     // Assignment for variable is not needed since the results are
-    // looiping using the connection
+    // looping using the connection
     @$GLOBALS['dbi']->tryMultiQuery($multi_sql);
 
     $querytime_after = array_sum(explode(' ', microtime()));
@@ -162,25 +117,22 @@ function getTableHtmlForMultipleQueries(
                     $databases_array
                 );
             }
-            $parsed_sql = PMA_SQP_parse($sql_data['valid_sql'][$sql_no]);
+
             $table = PMA_getTableNameBySQL(
                 $sql_data['valid_sql'][$sql_no],
                 $tables_array
             );
 
-            $analyzed_sql = PMA_SQP_analyze($parsed_sql);
-            $is_select = isset($analyzed_sql[0]['queryflags']['select_from']);
+            // for the use of the parse_analyze.inc.php
+            $sql_query = $sql_data['valid_sql'][$sql_no];
+
+            // Parse and analyze the query
+            include 'libraries/parse_analyze.inc.php';
+
             $unlim_num_rows = PMA_Table::countRecords($db, $table, true);
             $showtable = PMA_Table::sGetStatusInfo($db, $table, null, true);
             $url_query = PMA_generate_common_url($db, $table);
-
-            list($is_group, $is_func, $is_count, $is_export, $is_analyse,
-                $is_explain, $is_delete, $is_affected, $is_insert, $is_replace,
-                $is_show, $is_maint)
-                    = PMA_getDisplayPropertyParams(
-                        $sql_data['valid_sql'][$sql_no], $is_select
-                    );
-
+            
             // Handle remembered sorting order, only for single table query
             if ($GLOBALS['cfg']['RememberSorting']
                 && ! ($is_count || $is_export || $is_func || $is_analyse)
@@ -695,5 +647,57 @@ function PMA_getHtmlForOptionsList($values, $selected_values)
         $options .= '>' . $value . '</option>';
     }
     return $options;
+}
+
+/**
+ * Get HTML for the Bookmark form
+ *
+ * @param string   $db             the current database
+ * @param string   $goto           goto page url
+ * @param string   $bkm_sql_query  the query to be bookmarked
+ * @param string   $bkm_user       the user creating the bookmark
+ */
+function PMA_getHtmlForBookmark($db, $goto, $bkm_sql_query, $bkm_user)
+{
+    $html = '<form action="sql.php" method="post"'
+        . ' onsubmit="return ! emptyFormElements(this, \'bkm_fields[bkm_label]\');"'
+        . ' id="bookmarkQueryForm">';
+    $html .= PMA_generate_common_hidden_inputs();
+    $html .= '<input type="hidden" name="goto" value="' . $goto . '" />';
+    $html .= '<input type="hidden" name="bkm_fields[bkm_database]"'
+        . ' value="' . htmlspecialchars($db) . '" />';
+    $html .= '<input type="hidden" name="bkm_fields[bkm_user]"'
+        . ' value="' . $bkm_user . '" />';
+    $html .= '<input type="hidden" name="bkm_fields[bkm_sql_query]"' . ' value="'
+        . $bkm_sql_query
+        . '" />';
+    $html .= '<fieldset>';
+    $html .= '<legend>';
+    $html .= PMA_Util::getIcon(
+        'b_bookmark.png', __('Bookmark this SQL query'), true
+    );
+    $html .= '</legend>';
+    $html .= '<div class="formelement">';
+    $html .= '<label for="fields_label_">' . __('Label:') . '</label>';
+    $html .= '<input type="text" id="fields_label_"'
+        . ' name="bkm_fields[bkm_label]" value="" />';
+    $html .= '</div>';
+    $html .= '<div class="formelement">';
+    $html .= '<input type="checkbox" name="bkm_all_users"'
+        . ' id="bkm_all_users" value="true" />';
+    $html .= '<label for="bkm_all_users">'
+        . __('Let every user access this bookmark')
+        . '</label>';
+    $html .= '</div>';
+    $html .= '<div class="clearfloat"></div>';
+    $html .= '</fieldset>';
+    $html .= '<fieldset class="tblFooters">';
+    $html .= '<input type="hidden" name="store_bkm" value="1" />';
+    $html .= '<input type="submit"'
+        . ' value="' . __('Bookmark this SQL query') . '" />';
+    $html .= '</fieldset>';
+    $html .= '</form>';
+
+    return $html;
 }
 ?>

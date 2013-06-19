@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+- phpMyAdmin XML Dump FOR testing
+- version 4.1-dev
+- http://www.phpmyadmin.net
+-
+- Host: 127.0.0.1
+- Generation Time: Jun 15, 2013 at 02:59 PM
+- Server version: 5.5.27-log
+- PHP Version: 5.4.7
+-->
+
+<pma_xml_export version="1.0" xmlns:pma="http://www.phpmyadmin.net/some_doc_url/">
+    <!--
+    - Structure schemas
+    -->
+    <pma:structure_schemas>
+        <pma:database name="phpmyadmintest" collation="utf8_bin" charset="utf8">
+            <pma:table name="pma_bookmarktest">
+                CREATE TABLE `pma_bookmarktest` (
+                  `id` int(11) NOT NULL AUTO_INCREMENT,
+                  `dbase` varchar(255) COLLATE utf8_bin NOT NULL DEFAULT '',
+                  `user` varchar(255) COLLATE utf8_bin NOT NULL DEFAULT '',
+                  `label` varchar(255) CHARACTER SET utf8 NOT NULL DEFAULT '',
+                  `query` text COLLATE utf8_bin NOT NULL,
+                  PRIMARY KEY (`id`)
+                ) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Bookmarks';
+            </pma:table>
+        </pma:database>
+    </pma:structure_schemas>
+
+    <!--
+    - Database: 'phpmyadmintest'
+    -->
+    <database name="phpmyadmintest">
+        <!-- Table pma_bookmarktest -->
+        <table name="pma_bookmarktest">
+            <column name="id">1</column>
+            <column name="dbase">pma_dbase</column>
+            <column name="user"></column>
+            <column name="label">pma_label</column>
+            <column name="query">SELECT * FROM `db_content` WHERE 1</column>
+        </table>
+    </database>
+</pma_xml_export>

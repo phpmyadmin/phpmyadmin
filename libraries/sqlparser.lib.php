@@ -982,6 +982,22 @@ function PMA_SQP_analyze($arr)
      * ['queryflags']['join'] = 1;         for a JOIN
      * ['queryflags']['offset'] = 1;       for the presence of OFFSET
      * ['queryflags']['procedure'] = 1;    for the presence of PROCEDURE
+     * ['queryflags']['is_explain'] = 1;   for the presence of EXPLAIN
+     * ['queryflags']['is_delete'] = 1;    for the presence of DELETE
+     * ['queryflags']['is_affected'] = 1;  for the presence of UPDATE, DELETE
+     *                                     or INSERT|LOAD DATA|REPLACE
+     * ['queryflags']['is_replace'] = 1;   for the presence of REPLACE
+     * ['queryflags']['is_insert'] = 1;    for the presence of INSERT
+     * ['queryflags']['is_maint'] = 1;     for the presence of CHECK|ANALYZE
+     *                                     |REPAIR|OPTIMIZE TABLE
+     * ['queryflags']['is_show'] = 1;      for the presence of SHOW
+     * ['queryflags']['is_analyse'] = 1;   for the presence of PRRCEDURE ANALYSE
+     * ['queryflags']['is_export'] = 1;    for the presence of INTO OUTFILE
+     * ['queryflags']['is_group'] = 1;     for the presence of GROUP BY|HAVING|
+     *                                     SELECT DISTINCT
+     * ['queryflags']['is_func'] = 1;      for the presence of SUM|AVG|STD|STDDEV
+     *                                     |MIN|MAX|BIT_OR|BIT_AND
+     * ['queryflags']['is_count'] = 1;     for the presence of SELECT COUNT
      *
      * query clauses
      * -------------
@@ -1587,10 +1603,33 @@ function PMA_SQP_analyze($arr)
                 $subresult['querytype'] = $upper_data;
                 $seen_reserved_word = true;
 
-                if ($first_reserved_word=='SELECT') {
+                if ($first_reserved_word == 'SELECT') {
                     $position_of_first_select = $i;
-                }                
+                }
+
+                if ($first_reserved_word == 'EXPLAIN') {
+                    $subresult['queryflags']['is_explain'] = 1;
+                }
+
+                if ($first_reserved_word == 'DELETE') {
+                    $subresult['queryflags']['is_delete'] = 1;
+                    $subresult['queryflags']['is_affected'] = 1;
+                }
+
+                if ($first_reserved_word == 'UPDATE') {
+                    $subresult['queryflags']['is_affected'] = 1;
+                }
+
+                if ($first_reserved_word == 'REPLACE') {
+                    $subresult['queryflags']['is_replace'] = 1;
+                }
+
+                if ($first_reserved_word == 'SHOW') {
+                    $subresult['queryflags']['is_show'] = 1;
+                }
+
             } else {
+                // for the presence of DROP DATABASE
                 if ($first_reserved_word == 'DROP' && $upper_data == 'DATABASE') {
                     $subresult['queryflags']['drop_database'] = 1;
                 }
@@ -1601,6 +1640,21 @@ function PMA_SQP_analyze($arr)
                     $upper_data, array("VIEW", "TABLE", "DATABASE", "SCHEMA"))
                 ) {
                     $subresult['queryflags']['reload'] = 1;
+                }
+
+                // for the presence of INSERT|LOAD DATA
+                if (in_array($first_reserved_word, array("INSERT", "LOAD"))
+                    && $upper_data == 'REPLACE'
+                ) {
+                    $subresult['queryflags']['is_insert'] = 1;
+                    $subresult['queryflags']['is_affected'] = 1;
+                }
+
+                // for the presence of CHECK|ANALYZE|REPAIR|OPTIMIZE TABLE
+                if (in_array($first_reserved_word, array("CHECK","ANALYZE","REPAIR","OPTIMIZE"))
+                    && $upper_data == 'TABLE'
+                ) {
+                    $subresult['queryflags']['is_maint'] = 1;
                 }
             }
 
@@ -1616,6 +1670,27 @@ function PMA_SQP_analyze($arr)
                 $subresult['queryflags']['procedure'] = 1;
                 $in_limit = false;
                 $after_limit = true;
+
+                // for the presnece of PROCEDURE ANALYSE
+                if (isset($subresult['queryflags']['select_from'])
+                    && $subresult['queryflags']['select_from'] == 1
+                    && ($i + 1) < $size
+                    && $arr[$i + 1]['type'] == 'alpha_reservedWord'
+                    && strtoupper($arr[$i + 1]['data']) == 'ANALYSE'
+                ) {
+                    $subresult['queryflags']['is_analyse'] = 1;
+                }
+            }
+
+            // for the presnece of INTO OUTFILE
+            if ($upper_data == 'INTO'
+                && isset($subresult['queryflags']['select_from'])
+                && $subresult['queryflags']['select_from'] == 1
+                && ($i + 1) < $size
+                && $arr[$i + 1]['type'] == 'alpha_reservedWord'
+                && strtoupper($arr[$i + 1]['data']) == 'OUTFILE'
+            ) {
+                $subresult['queryflags']['is_export'] = 1;
             }
             /**
              * @todo set also to false if we find FOR UPDATE or LOCK IN SHARE MODE
@@ -1623,7 +1698,19 @@ function PMA_SQP_analyze($arr)
             if ($upper_data == 'SELECT') {
                 $in_select_expr = true;
                 $select_expr_clause = '';
+
+                // for the presence of SELECT COUNT
+                if (isset($subresult['queryflags']['select_from'])
+                    && $subresult['queryflags']['select_from'] == 1
+                    && !isset($subresult['queryflags']['is_group'])
+                    && ($i + 1) < $size
+                    && $arr[$i + 1]['type'] == 'alpha_functionName'
+                    && strtoupper($arr[$i + 1]['data']) == 'COUNT'
+                ) {
+                    $subresult['queryflags']['is_count'] = 1;
+                }
             }
+
             if ($upper_data == 'DISTINCT' && !$in_group_concat) {
                 $subresult['queryflags']['distinct'] = 1;
             }
@@ -1665,6 +1752,19 @@ function PMA_SQP_analyze($arr)
                 $in_where = false;
                 $in_select_expr = false;
                 $in_from = false;
+
+                // for the presence of GROUP BY|HAVING|SELECT DISTINCT
+                if (isset($subresult['queryflags']['select_from'])
+                    && $subresult['queryflags']['select_from'] == 1
+                    && ($i + 1) < $size
+                    && $arr[$i + 1]['type'] == 'alpha_reservedWord'
+                    && in_array(strtoupper($arr[$i + 1]['data']), array("BY", "HAVING", "SELECT"))
+                    && ($i + 2) < $size
+                    && $arr[$i + 2]['type'] == 'alpha_reservedWord'
+                    && strtoupper($arr[$i + 2]['data']) == 'DISTINCT'
+                ) {
+                    $subresult['queryflags']['is_group'] = 1;
+                }
             }
             if ($upper_data == 'ORDER' && !$in_group_concat) {
                 $seen_order = true;
@@ -1733,7 +1833,6 @@ function PMA_SQP_analyze($arr)
 
         } // endif (reservedWord)
 
-
         // do not add a space after a function name
         /**
          * @todo can we combine loop 2 and loop 1? some code is repeated here...
@@ -1763,6 +1862,7 @@ function PMA_SQP_analyze($arr)
             }
         }
 
+        
         // do not add a space after an identifier if followed by a dot
         if ($arr[$i]['type'] == 'alpha_identifier'
             && $i < $size - 1 && $arr[$i + 1]['data'] == '.'
@@ -1775,6 +1875,28 @@ function PMA_SQP_analyze($arr)
             && $arr[$i + 1]['type'] == 'alpha_identifier'
         ) {
             $sep = '';
+        }
+
+        // for the presence of INSERT|LOAD DATA
+        if ($arr[$i]['type'] == 'alpha_identifier'
+            && strtoupper($arr[$i]['data']) == 'DATA'
+            && ($i - 1) >= 0
+            && $arr[$i - 1]['type'] == 'alpha_reservedWord'
+            && in_array(strtoupper($arr[$i - 1]['data']), array("INSERT", "LOAD"))
+        ) {
+            $subresult['queryflags']['is_insert'] = 1;
+            $subresult['queryflags']['is_affected'] = 1;
+        }
+
+        // for the presence of SUM|AVG|STD|STDDEV|MIN|MAX|BIT_OR|BIT_AND
+        if ($arr[$i]['type'] == 'alpha_functionName'
+            && in_array(strtoupper($arr[$i]['data']), array(
+            "SUM","AVG","STD","STDDEV","MIN","MAX","BIT_OR","BIT_AND"))
+            && isset($subresult['queryflags']['select_from'])
+            && $subresult['queryflags']['select_from'] == 1
+            && !isset($subresult['queryflags']['is_group'])
+        ) {
+            $subresult['queryflags']['is_func'] = 1;
         }
 
         if ($in_select_expr && $upper_data != 'SELECT'

@@ -1040,10 +1040,11 @@ $cfg['ShowAll'] = false;
 /**
  * Number of rows displayed when browsing a result set. If the result
  * set contains more rows, "Previous" and "Next".
+ * Possible values: 25,50,100,250,500
  *
  * @global integer $cfg['MaxRows']
  */
-$cfg['MaxRows'] = 30;
+$cfg['MaxRows'] = 25;
 
 /**
  * default for 'ORDER BY' clause (valid values are 'ASC', 'DESC' or 'SMART' -ie
