@@ -62,7 +62,7 @@ if (isset($_REQUEST['report_export'])) {
      *
      * @return array filtered entries
      */
-    function PMA_filter_tracking(
+    function PMA_filterTracking(
         $data, $filter_ts_from, $filter_ts_to, $filter_users
     ) {
         $tmp_entries = array();
@@ -92,7 +92,7 @@ if (isset($_REQUEST['report_export'])) {
     ) {
         $entries = array_merge(
             $entries,
-            PMA_filter_tracking(
+            PMA_filterTracking(
                 $data['ddlog'], $filter_ts_from, $filter_ts_to, $filter_users
             )
         );
@@ -104,7 +104,7 @@ if (isset($_REQUEST['report_export'])) {
     ) {
         $entries = array_merge(
             $entries,
-            PMA_filter_tracking(
+            PMA_filterTracking(
                 $data['dmlog'], $filter_ts_from, $filter_ts_to, $filter_users
             )
         );
