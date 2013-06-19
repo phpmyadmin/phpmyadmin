@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-06-12 09:39+0200\n"
-"PO-Revision-Date: 2013-06-19 17:39+0200\n"
+"PO-Revision-Date: 2013-06-19 17:45+0200\n"
 "Last-Translator: Tony Chen <tonychen@finenet.com.tw>\n"
 "Language-Team: Traditional Chinese "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/zh_TW/>\n"
@@ -13053,10 +13053,9 @@ msgid "Current values are tmp_table_size: %s, max_heap_table_size: %s"
 msgstr ""
 
 #: libraries/advisory_rules.txt:269
-#, fuzzy
 #| msgid "Format of imported file"
 msgid "Percentage of temp tables on disk"
-msgstr "匯入檔案的格式"
+msgstr "臨時表在磁碟的比率"
 
 #: libraries/advisory_rules.txt:272 libraries/advisory_rules.txt:279
 msgid ""
@@ -13083,11 +13082,10 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:276
-#, fuzzy
 #| msgid "%s table"
 #| msgid_plural "%s tables"
 msgid "Temp disk rate"
-msgstr "%s 張資料表"
+msgstr "暫存磁碟比率"
 
 #: libraries/advisory_rules.txt:280
 msgid ""
@@ -13108,10 +13106,9 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:296
-#, fuzzy
 #| msgid "Sort buffer size"
 msgid "MyISAM key buffer size"
-msgstr "排序快取大小"
+msgstr "MyISAM 鍵值緩衝大小"
 
 #: libraries/advisory_rules.txt:299
 msgid "Key buffer is not initialized. No MyISAM indexes will be cached."
@@ -13124,22 +13121,21 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:301
-#, fuzzy
 #| msgid "Sort buffer size"
 msgid "key_buffer_size is 0"
-msgstr "排序快取大小"
+msgstr "key_buffer_size 為零"
 
 #: libraries/advisory_rules.txt:303
-#, fuzzy, php-format
+#, php-format
 #| msgid "Sort buffer size"
 msgid "Max %% MyISAM key buffer ever used"
-msgstr "排序快取大小"
+msgstr "MyISAM 鍵值緩衝曾用最大 %%"
 
 #: libraries/advisory_rules.txt:306 libraries/advisory_rules.txt:314
-#, fuzzy, php-format
+#, php-format
 #| msgid "Sort buffer size"
 msgid "MyISAM key buffer (index cache) %% used is low."
-msgstr "排序快取大小"
+msgstr "MyISAM 鍵值緩衝(索引快取) %% 使用過低。"
 
 #: libraries/advisory_rules.txt:307 libraries/advisory_rules.txt:315
 msgid ""
