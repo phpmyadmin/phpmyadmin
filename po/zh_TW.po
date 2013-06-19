@@ -10647,9 +10647,7 @@ msgstr "查詢分析"
 #| msgid "Second"
 msgid "%d second"
 msgid_plural "%d seconds"
-msgstr[0] ""
-"%d 秒\n"
-"%d 秒"
+msgstr[0] "%d 秒"
 
 #: server_status_monitor.php:748
 #, php-format
