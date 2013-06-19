@@ -881,8 +881,7 @@ TableSeparator or disabling that feature.
 3.6 What is currently not supported in phpMyAdmin about InnoDB?
 ---------------------------------------------------------------
 
-In Relation view, being able to choose a table in another database, or
-having more than one index column in the foreign key. In Query-by-
+In Relation view, having more than one index column in the foreign key. In Query-by-
 example (Query), automatic generation of the query LEFT JOIN from the
 foreign table.
 
