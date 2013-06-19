@@ -859,6 +859,14 @@ $cfg['NumRecentTables'] = 10;
 $cfg['NavigationTreeDisplayItemFilterMinimum'] = 30;
 
 /**
+ * Use icons instead of text for the navi panel top menu
+ * (true|false|'both')
+ *
+ * @global string $cfg['MainMenuIconic']
+ */
+$cfg['NaviTopIconic'] = true;
+
+/**
  * display server choice at top of navigation panel
  *
  * @global boolean $cfg['NavigationDisplayServers']

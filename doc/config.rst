@@ -1359,6 +1359,15 @@ Navigation panel setup
     To disable the filter completely some high number can be used
     (e.g. 9999)
 
+.. config:option:: $cfg['NaviTopIconic']
+
+    :type: string
+    :default: true
+
+    Defines whether the navi panel top bar contain text or symbols only. A 
+    value of true displays icons, false displays text and 'both' displays 
+    both icons and text.
+
 .. config:option:: $cfg['NavigationDisplayServers']
 
     :type: boolean
@@ -1484,7 +1493,7 @@ Browse mode
 .. config:option:: $cfg['MainMenuIconic']
 
     :type: string
-    :default: true
+    :default: 'both' 
 
     Defines whether the main menu tabs contain text or symbols only. A 
     value of true displays icons, false displays text and 'both' displays 

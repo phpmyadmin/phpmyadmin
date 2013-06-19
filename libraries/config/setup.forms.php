@@ -167,7 +167,8 @@ $forms['Navi_panel']['Navi_panel'] = array(
     'NavigationTreePointerEnable',
     'MaxNavigationItems',
     'NavigationTreeEnableGrouping',
-    'NavigationTreeDisplayItemFilterMinimum');
+    'NavigationTreeDisplayItemFilterMinimum',
+    'MainMenuIconic');
 $forms['Navi_panel']['Navi_servers'] = array(
     'NavigationDisplayServers',
     'DisplayServersList');

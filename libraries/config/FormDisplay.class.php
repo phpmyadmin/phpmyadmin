@@ -578,6 +578,7 @@ class FormDisplay
                     if ($key === 'NavigationBarIconic'
                         || $key === 'PropertiesIconic'
                         || $key === 'MainMenuIconic'
+                        || $key === 'NaviTopIconic'
                     ) {
                         if ($_POST[$key] !== 'both') {
                             settype($_POST[$key], 'boolean');

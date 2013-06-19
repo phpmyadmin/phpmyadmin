@@ -45,6 +45,11 @@ $cfg_db['NavigationTreeDefaultTabTable'] = array(
 );
 $cfg_db['NavigationTreeDbSeparator'] = 'short_string';
 $cfg_db['NavigationTreeTableSeparator'] = 'short_string';
+$cfg_db['NaviTopIconic'] = array(
+    true   => __('Yes'),
+    false  => __('No'),
+    'both' => __('Both')
+);
 $cfg_db['NavigationBarIconic'] = array(
     true   => __('Yes'),
     false  => __('No'),
