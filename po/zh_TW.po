@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-06-03 09:16-0400\n"
-"PO-Revision-Date: 2013-06-19 09:43+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"PO-Revision-Date: 2013-06-19 16:34+0200\n"
+"Last-Translator: Tony Chen <tonychen@finenet.com.tw>\n"
 "Language-Team: Traditional Chinese "
 "<http://l10n.cihar.com/projects/phpmyadmin/4-0/zh_TW/>\n"
 "Language: zh_TW\n"
@@ -5126,21 +5126,19 @@ msgid "Missing phpMyAdmin configuration storage tables"
 msgstr "丟失 phpMyAdmin 進階功能資料表"
 
 #: libraries/config/messages.inc.php:334
-#, fuzzy
 #| msgid ""
 #| "Disable the default warning that is displayed if mcrypt is missing for "
 #| "cookie authentication"
 msgid ""
 "Disable the default warning that is displayed if a difference between the "
 "MySQL library and server is detected"
-msgstr "禁止顯示在使用 cookie 認證時缺少 mcrypt 的預設警告"
+msgstr "如果偵測到 MySQL 函式庫和伺服器有所不同時禁用預設的警告顯示"
 
 #: libraries/config/messages.inc.php:335
 msgid "Server/library difference warning"
 msgstr ""
 
 #: libraries/config/messages.inc.php:336
-#, fuzzy
 #| msgid ""
 #| "Disable the default warning that is displayed on the database details "
 #| "Structure page if any of the required tables for the phpMyAdmin "
@@ -5148,7 +5146,7 @@ msgstr ""
 msgid ""
 "Disable the default warning that is displayed on the Structure page if "
 "column names in a table are reserved MySQL words"
-msgstr "禁止在缺少 phpMyAdmin 進階功能所需資料表時在資料庫結構頁中顯示預設警告"
+msgstr "如果資料表欄位是 MySQL 保留字時，在顯示結構頁面禁用預設警告"
 
 #: libraries/config/messages.inc.php:337
 msgid "MySQL reserved word warning"
@@ -5320,14 +5318,13 @@ msgid "Bookmark table"
 msgstr "書籤表"
 
 #: libraries/config/messages.inc.php:378
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no column comments/mime types, suggested: [kbd]"
 #| "pma_column_info[/kbd]"
 msgid ""
 "Leave blank for no column comments/mime types, suggested: [kbd]"
 "pma__column_info[/kbd]"
-msgstr "不使用欄位註解/MIME類型時留空白。建議值：[kbd]pma__column_info[/kbd]"
+msgstr "無欄位註解/MIME類型時留空白。建議值：[kbd]pma__column_info[/kbd]"
 
 #: libraries/config/messages.inc.php:379
 msgid "Column information table"
@@ -10383,9 +10380,7 @@ msgstr "此 MySQL 伺服器正以<b>從</b>伺服器運行於<b>複製</b>程序
 msgid ""
 "For further information about replication status on the server, please visit "
 "the <a href=\"#replication\">replication section</a>."
-msgstr ""
-"要取得更多關於此伺服器的複製狀態，請查看<a href=\"#replication\">複製狀態資訊"
-"</a>"
+msgstr "要取得更多關於此伺服器的複製狀態，請查看<a href=\"#replication\">複製狀態資訊</a>。"
 
 #: server_status.php:122
 msgid "Replication status"
