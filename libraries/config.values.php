@@ -46,18 +46,18 @@ $cfg_db['NavigationTreeDefaultTabTable'] = array(
 $cfg_db['NavigationTreeDbSeparator'] = 'short_string';
 $cfg_db['NavigationTreeTableSeparator'] = 'short_string';
 $cfg_db['NaviTopIconic'] = array(
-    true   => __('Yes'),
-    false  => __('No'),
+    true   => __('Icons'),
+    false  => __('Text'),
     'both' => __('Both')
 );
 $cfg_db['NavigationBarIconic'] = array(
-    true   => __('Yes'),
-    false  => __('No'),
+    true   => __('Icons'),
+    false  => __('Text'),
     'both' => __('Both')
 );
 $cfg_db['MainMenuIconic'] = array(
-    true   => __('Yes'),
-    false  => __('No'),
+    true   => __('Icons'),
+    false  => __('Text'),
     'both' => __('Both')
 );
 $cfg_db['Order'] = array('ASC', 'DESC', 'SMART');
@@ -71,8 +71,8 @@ $cfg_db['ProtectBinary'] = array(false, 'blob', 'noblob', 'all');
 $cfg_db['DefaultDisplay'] = array('horizontal', 'vertical', 'horizontalflipped');
 $cfg_db['CharEditing'] = array('input', 'textarea');
 $cfg_db['PropertiesIconic'] = array(
-    true   => __('Yes'),
-    false  => __('No'),
+    true   => __('Icons'),
+    false  => __('Text'),
     'both' => __('Both')
 );
 $cfg_db['GridEditing'] = array(
