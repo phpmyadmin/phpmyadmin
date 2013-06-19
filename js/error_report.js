@@ -19,7 +19,7 @@ function error_handler(message, file, line) {
 function showReportDialog (message, file, line) {
     regex = /token=([\da-z]+)/
     token = regex.exec($("#selflink a")[0].href)[1]
-    
+
     var report_data = {
         "ajax_request": true,
         "token": token,
@@ -40,7 +40,7 @@ function showReportDialog (message, file, line) {
         $dialog = $(this);
         post_data = $.extend(report_data, {
             send_error_report: true,
-            extra_info: $("#report_extra_info").val()
+            description: $("#report_description").val()
         })
         $.post("error_report.php", post_data, function (data) {
             $dialog.dialog('close')
@@ -48,7 +48,7 @@ function showReportDialog (message, file, line) {
                 //in the case of an error, show the error message returned.
                 PMA_ajaxShowMessage(data.error, false);
             } else {
-                PMA_ajaxShowMessage("the page will reload shortly", false);
+                PMA_ajaxShowMessage(data.message, false);
                 setTimeout("window.location.reload()", 2000);
             }
         })
@@ -82,7 +82,7 @@ function showReportDialog (message, file, line) {
 function showErrorNotification() {
     removeErrorNotification()
 
-    $div = $('<div style="position:fixed;bottom:0px;left:5px;right:5px;'
+    $div = $('<div style="position:fixed;bottom:0px;left:247px;right:5px;'
             +'z-index:1000" class="error" id="error_notification"></div>')
     html = ""
     html += '<img src="themes/dot.gif" title="" alt="" class="icon ic_s_error">'
