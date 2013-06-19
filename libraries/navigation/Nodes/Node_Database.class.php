@@ -82,7 +82,9 @@ class Node_Database extends Node
                     );
                     $query .= "%'";
                 }
-                $retval = $GLOBALS['dbi']->numRows($GLOBALS['dbi']->tryQuery($query));
+                $retval = $GLOBALS['dbi']->numRows(
+                    $GLOBALS['dbi']->tryQuery($query)
+                );
             }
             break;
         case 'views':
@@ -113,7 +115,9 @@ class Node_Database extends Node
                     );
                     $query .= "%'";
                 }
-                $retval = $GLOBALS['dbi']->numRows($GLOBALS['dbi']->tryQuery($query));
+                $retval = $GLOBALS['dbi']->numRows(
+                    $GLOBALS['dbi']->tryQuery($query)
+                );
             }
             break;
         case 'procedures':
@@ -141,7 +145,9 @@ class Node_Database extends Node
                     );
                     $query .= "%'";
                 }
-                $retval = $GLOBALS['dbi']->numRows($GLOBALS['dbi']->tryQuery($query));
+                $retval = $GLOBALS['dbi']->numRows(
+                    $GLOBALS['dbi']->tryQuery($query)
+                );
             }
             break;
         case 'functions':
@@ -169,7 +175,9 @@ class Node_Database extends Node
                     );
                     $query .= "%'";
                 }
-                $retval = $GLOBALS['dbi']->numRows($GLOBALS['dbi']->tryQuery($query));
+                $retval = $GLOBALS['dbi']->numRows(
+                    $GLOBALS['dbi']->tryQuery($query)
+                );
             }
             break;
         case 'events':
@@ -196,7 +204,9 @@ class Node_Database extends Node
                     );
                     $query .= "%'";
                 }
-                $retval = $GLOBALS['dbi']->numRows($GLOBALS['dbi']->tryQuery($query));
+                $retval = $GLOBALS['dbi']->numRows(
+                    $GLOBALS['dbi']->tryQuery($query)
+                );
             }
             break;
         default:
