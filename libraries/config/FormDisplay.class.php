@@ -571,9 +571,14 @@ class FormDisplay
                     }
                     break;
                 case 'select':
-                    // special treatment for NavigationBarIconic and PropertiesIconic
+                    // special treatment for:
+                    //  NavigationBarIconic 
+                    //  PropertiesIconic
+                    //  MainMenuIconic
                     if ($key === 'NavigationBarIconic'
                         || $key === 'PropertiesIconic'
+                        || $key === 'MainMenuIconic'
+                        || $key === 'NaviTopIconic'
                     ) {
                         if ($_POST[$key] !== 'both') {
                             settype($_POST[$key], 'boolean');

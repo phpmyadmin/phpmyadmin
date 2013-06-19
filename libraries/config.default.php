@@ -859,6 +859,14 @@ $cfg['NumRecentTables'] = 10;
 $cfg['NavigationTreeDisplayItemFilterMinimum'] = 30;
 
 /**
+ * Use icons instead of text for the navi panel top menu
+ * (true|false|'both')
+ *
+ * @global string $cfg['MainMenuIconic']
+ */
+$cfg['NaviTopIconic'] = true;
+
+/**
  * display server choice at top of navigation panel
  *
  * @global boolean $cfg['NavigationDisplayServers']
@@ -974,12 +982,20 @@ $cfg['HideStructureActions'] = true;
  */
 
 /**
- * Use icons instead of text for the navigation bar buttons
- * and on right panel top menu (server db table) (true|false|'both')
+ * Use icons instead of text for the navigation bar buttons (table browse)
+ * (true|false|'both')
  *
  * @global string $cfg['NavigationBarIconic']
  */
 $cfg['NavigationBarIconic'] = true;
+
+/**
+ * Use icons instead of text for the main panel top menu (server db table) 
+ * (true|false|'both')
+ *
+ * @global string $cfg['MainMenuIconic']
+ */
+$cfg['MainMenuIconic'] = 'both';
 
 /**
  * Defines whether a user should be displayed a "show all (records)"

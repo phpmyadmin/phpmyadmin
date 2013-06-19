@@ -167,7 +167,8 @@ $forms['Navi_panel']['Navi_panel'] = array(
     'NavigationTreePointerEnable',
     'MaxNavigationItems',
     'NavigationTreeEnableGrouping',
-    'NavigationTreeDisplayItemFilterMinimum');
+    'NavigationTreeDisplayItemFilterMinimum',
+    'MainMenuIconic');
 $forms['Navi_panel']['Navi_servers'] = array(
     'NavigationDisplayServers',
     'DisplayServersList');
@@ -191,6 +192,7 @@ $forms['Main_panel']['DbStructure'] = array(
 $forms['Main_panel']['TableStructure'] = array(
     'HideStructureActions');
 $forms['Main_panel']['Browse'] = array(
+    'MainMenuIconic',
     'NavigationBarIconic',
     'ShowAll',
     'MaxRows',

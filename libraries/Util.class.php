@@ -92,22 +92,24 @@ class PMA_Util
      * This function takes into account the PropertiesIconic
      * configuration setting and wraps the image tag in a span tag.
      *
-     * @param string  $icon       name of icon file
-     * @param string  $alternate  alternate text
-     * @param boolean $force_text whether to force alternate text to be displayed
-     * @param boolean $menu_icon  whether this icon is for the menu bar or not
+     * @param string  $icon          name of icon file
+     * @param string  $alternate     alternate text
+     * @param boolean $force_text    whether to force alternate text to be displayed
+     * @param boolean $menu_icon     whether this icon is for the menu bar or not
+     * @param string  $control_param which directive controls the display 
      *
      * @return string an html snippet
      */
-    public static function getIcon($icon, $alternate = '', $force_text = false,
-        $menu_icon = false
+    public static function getIcon(
+        $icon, $alternate = '', $force_text = false,
+        $menu_icon = false, $control_param = 'PropertiesIconic'
     ) {
-        // $cfg['PropertiesIconic'] is true or both
-        $include_icon = ($GLOBALS['cfg']['PropertiesIconic'] !== false);
-        // $cfg['PropertiesIconic'] is false or both
+        // the control parameter is true or both
+        $include_icon = ($GLOBALS['cfg'][$control_param] !== false);
+        // the control parameter is false or both
         // OR we have no $include_icon
         $include_text = ($force_text
-            || ($GLOBALS['cfg']['PropertiesIconic'] !== true));
+            || ($GLOBALS['cfg'][$control_param] !== true));
 
         // Sometimes use a span (we rely on this in js/sql.js). But for menu bar
         // we don't need a span
@@ -1800,7 +1802,7 @@ class PMA_Util
             // avoid generating an alt tag, because it only illustrates
             // the text that follows and if browser does not display
             // images, the text is duplicated
-            $tab['text'] = self::getIcon($tab['icon'], $tab['text'], false, true);
+            $tab['text'] = self::getIcon($tab['icon'], $tab['text'], false, true, 'MainMenuIconic');
 
         } elseif (empty($tab['text'])) {
             // check to not display an empty link-text
