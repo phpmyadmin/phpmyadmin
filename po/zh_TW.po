@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-06-12 09:39+0200\n"
-"PO-Revision-Date: 2013-06-18 23:06+0200\n"
-"Last-Translator: Tony Chen <tonychen@finenet.com.tw>\n"
+"PO-Revision-Date: 2013-06-19 09:43+0200\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Traditional Chinese "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/zh_TW/>\n"
 "Language: zh_TW\n"
@@ -10934,18 +10934,14 @@ msgstr "查詢分析"
 #| msgid "Second"
 msgid "%d second"
 msgid_plural "%d seconds"
-msgstr[0] ""
-"%d 秒\n"
-"%d 秒"
+msgstr[0] "%d 秒"
 
 #: server_status_monitor.php:657
 #, php-format
 #| msgid "Minute"
 msgid "%d minute"
 msgid_plural "%d minutes"
-msgstr[0] ""
-"%d 分\n"
-"%d 分"
+msgstr[0] "%d 分"
 
 #: server_status_monitor.php:674
 #, fuzzy
