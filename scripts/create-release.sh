@@ -132,7 +132,6 @@ fi
 if [ -f ./scripts/compress-js ] ; then
     echo "* Compressing javascript files"
     ./scripts/compress-js
-    rm -rf sources
 fi
 
 echo "* Removing unneeded files"
