@@ -10,7 +10,7 @@
  * Include to test.
  */
 require_once 'libraries/string.lib.php';
-
+require_once 'libraries/StringNativeType.class.php';
 /**
  * Tests for Specialized String Functions for phpMyAdmin
  *
@@ -18,6 +18,18 @@ require_once 'libraries/string.lib.php';
  */
 class PMA_String_Test extends PHPUnit_Framework_TestCase
 {
+
+    /**
+     * Setup function for test cases
+     * 
+     * @access protected
+     * @return void
+     */
+    protected function setUp() 
+    {
+        $GLOBALS['PMA_StringType'] = new PMA_StringNativeType();
+    }
+
     /**
      * Test for Str_charIsEscaped
      * 
@@ -125,7 +137,7 @@ class PMA_String_Test extends PHPUnit_Framework_TestCase
             array(false, '.'),
             array(true, chr(192)),
             array(false, chr(215)),
-            array(true, chr(249)),
+            array(false, chr(249)),
             array(true, '_'),
             array(true, '$')
         );
