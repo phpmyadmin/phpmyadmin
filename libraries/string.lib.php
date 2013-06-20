@@ -22,8 +22,10 @@ if (! defined('PHPMYADMIN')) {
 if (@function_exists('mb_strlen')) {
     mb_internal_encoding('utf-8');
     include './libraries/string_mb.lib.php';
+    $PMA_String = new PMA_MBString();
 } else {
     include './libraries/string_native.lib.php';
+    $PMA_String = new PMA_NativeString();
 }
 
 /**
@@ -48,7 +50,7 @@ function PMA_STR_charIsEscaped($string, $pos, $start = 0)
 {
     $pos = max(intval($pos), 0);
     $start = max(intval($start), 0);
-    $len = PMA_strlen($string);
+    $len = $GLOBALS['PMA_String']::strlen($string);
     // Base case:
     // Check for string length or invalid input or special case of input
     // (pos == $start)
@@ -58,7 +60,7 @@ function PMA_STR_charIsEscaped($string, $pos, $start = 0)
 
     $pos--;
     $escaped     = false;
-    while ($pos >= $start && PMA_substr($string, $pos, 1) == '\\') {
+    while ($pos >= $start && $GLOBALS['PMA_String']::substr($string, $pos, 1) == '\\') {
         $escaped = !$escaped;
         $pos--;
     } // end while

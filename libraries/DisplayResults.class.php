@@ -3657,11 +3657,11 @@ class PMA_DisplayResults
 
                 // if a transform function for blob is set, none of these
                 // replacements will be made
-                if ((PMA_strlen($column) > $GLOBALS['cfg']['LimitChars'])
+                if (($GLOBALS['PMA_String']::strlen($column) > $GLOBALS['cfg']['LimitChars'])
                     && ($_SESSION['tmp_user_values']['display_text'] == self::DISPLAY_PARTIAL_TEXT)
                     && ! $this->_isNeedToSyntaxHighlight(strtolower($meta->name))
                 ) {
-                    $column = PMA_substr($column, 0, $GLOBALS['cfg']['LimitChars'])
+                    $column = $GLOBALS['PMA_String']::substr($column, 0, $GLOBALS['cfg']['LimitChars'])
                         . '...';
                     $is_field_truncated = true;
                 }
@@ -3748,10 +3748,10 @@ class PMA_DisplayResults
                 // Convert to WKT format
                 $wktval = PMA_Util::asWKT($column);
 
-                if ((PMA_strlen($wktval) > $GLOBALS['cfg']['LimitChars'])
+                if (($GLOBALS['PMA_String']::strlen($wktval) > $GLOBALS['cfg']['LimitChars'])
                     && ($_SESSION['tmp_user_values']['display_text'] == self::DISPLAY_PARTIAL_TEXT)
                 ) {
-                    $wktval = PMA_substr($wktval, 0, $GLOBALS['cfg']['LimitChars'])
+                    $wktval = $GLOBALS['PMA_String']::substr($wktval, 0, $GLOBALS['cfg']['LimitChars'])
                         . '...';
                     $is_field_truncated = true;
                 }
@@ -3772,11 +3772,11 @@ class PMA_DisplayResults
 
                     $wkbval = $this->_displayBinaryAsPrintable($column, 'binary', 8);
 
-                    if ((PMA_strlen($wkbval) > $GLOBALS['cfg']['LimitChars'])
+                    if (($GLOBALS['PMA_String']::strlen($wkbval) > $GLOBALS['cfg']['LimitChars'])
                         && ($_SESSION['tmp_user_values']['display_text'] == self::DISPLAY_PARTIAL_TEXT)
                     ) {
                         $wkbval
-                            = PMA_substr($wkbval, 0, $GLOBALS['cfg']['LimitChars'])
+                            = $GLOBALS['PMA_String']::substr($wkbval, 0, $GLOBALS['cfg']['LimitChars'])
                             . '...';
                         $is_field_truncated = true;
                     }
@@ -3859,12 +3859,12 @@ class PMA_DisplayResults
 
             // Cut all fields to $GLOBALS['cfg']['LimitChars']
             // (unless it's a link-type transformation)
-            if (PMA_strlen($column) > $GLOBALS['cfg']['LimitChars']
+            if ($GLOBALS['PMA_String']::strlen($column) > $GLOBALS['cfg']['LimitChars']
                 && ($_SESSION['tmp_user_values']['display_text'] == self::DISPLAY_PARTIAL_TEXT)
                 && gettype($transformation_plugin) == "object"
                 && ! strpos($transformation_plugin->getName(), 'Link') === true
             ) {
-                $column = PMA_substr($column, 0, $GLOBALS['cfg']['LimitChars'])
+                $column = $GLOBALS['PMA_String']::substr($column, 0, $GLOBALS['cfg']['LimitChars'])
                     . '...';
                 $is_field_truncated = true;
             }
@@ -6015,7 +6015,7 @@ class PMA_DisplayResults
         ) {
             $content = bin2hex($content);
             if ($hexlength !== null) {
-                $content = PMA_substr($content, $hexlength);
+                $content = $GLOBALS['PMA_String']::substr($content, $hexlength);
             }
         } else {
             $content = htmlspecialchars(
