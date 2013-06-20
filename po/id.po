@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-06-12 09:39+0200\n"
-"PO-Revision-Date: 2013-06-20 07:08+0200\n"
+"PO-Revision-Date: 2013-06-20 07:09+0200\n"
 "Last-Translator: Dadan Setia <da2n_s@yahoo.co.id>\n"
 "Language-Team: Indonesian "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/id/>\n"
@@ -10617,7 +10617,7 @@ msgstr "Relasi FOREIGN KEY ditambahkan"
 #: pmd_relation_new.php:82
 #| msgid "Error: Relation not added."
 msgid "Error: Relational features are disabled!"
-msgstr "Galat: Relasi tidak ditambahkan!"
+msgstr "Galat: Fitur Relasi tidak diaktifkan!"
 
 #: pmd_relation_new.php:98
 msgid "Internal relation added"
