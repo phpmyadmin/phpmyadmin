@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-06-20 08:22+0200\n"
-"PO-Revision-Date: 2013-06-20 18:09+0200\n"
+"PO-Revision-Date: 2013-06-20 20:42+0200\n"
 "Last-Translator: Tony Chen <tonychen@finenet.com.tw>\n"
 "Language-Team: Traditional Chinese "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/zh_TW/>\n"
@@ -317,7 +317,7 @@ msgstr "表"
 #: libraries/structure.lib.php:768 libraries/structure.lib.php:1708
 #: libraries/structure.lib.php:1901 tbl_printview.php:365
 msgid "Rows"
-msgstr "行數"
+msgstr "筆數"
 
 #: db_printview.php:51 libraries/display_indexes.lib.php:118
 #: libraries/structure.lib.php:787
@@ -3614,11 +3614,11 @@ msgstr "在本頁面編輯此查詢"
 #: libraries/Util.class.php:1366
 msgctxt "Inline edit query"
 msgid "Inline"
-msgstr "行間"
+msgstr "本頁編輯"
 
 #: libraries/Util.class.php:1434 libraries/sql.lib.php:445
 msgid "Profiling"
-msgstr "概要"
+msgstr "性能分析"
 
 #. l10n: Short week day name
 #: libraries/Util.class.php:1697
@@ -9980,7 +9980,7 @@ msgstr "於 %s 之後"
 
 #: libraries/structure.lib.php:1670
 msgid "Row statistics"
-msgstr "行統計"
+msgstr "資料統計"
 
 #: libraries/structure.lib.php:1675 tbl_printview.php:353
 msgid "static"
