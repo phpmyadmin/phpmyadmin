@@ -21,11 +21,11 @@ if (! defined('PHPMYADMIN')) {
  */
 if (@function_exists('mb_strlen')) {
     mb_internal_encoding('utf-8');
-    include './libraries/string_mb.lib.php';
-    $PMA_String = new PMA_MBString();
+    include './libraries/StringMB.class.php';
+    $PMA_String = new PMA_StringMB();
 } else {
-    include './libraries/string_native.lib.php';
-    $PMA_String = new PMA_NativeString();
+    include './libraries/StringNative.class.php';
+    $PMA_String = new PMA_StringNative();
 }
 
 /**
