@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-06-12 09:39+0200\n"
-"PO-Revision-Date: 2013-06-19 17:50+0200\n"
+"PO-Revision-Date: 2013-06-20 07:08+0200\n"
 "Last-Translator: Tony Chen <tonychen@finenet.com.tw>\n"
 "Language-Team: Traditional Chinese "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/zh_TW/>\n"
@@ -1442,7 +1442,7 @@ msgstr "分析查詢"
 
 #: js/messages.php:198
 msgid "Advisor system"
-msgstr "顧問系統"
+msgstr "輔導系統"
 
 #: js/messages.php:199
 msgid "Possible performance issues"
@@ -1454,7 +1454,7 @@ msgstr "問題"
 
 #: js/messages.php:201
 msgid "Recommendation"
-msgstr "推薦"
+msgstr "建議"
 
 #: js/messages.php:202
 msgid "Rule details"
@@ -3045,7 +3045,7 @@ msgstr "監測器"
 
 #: libraries/ServerStatusData.class.php:355
 msgid "Advisor"
-msgstr "顧問"
+msgstr "輔導"
 
 #: libraries/StorageEngine.class.php:216
 msgid ""
@@ -10756,7 +10756,7 @@ msgstr "指令"
 msgid ""
 "The Advisor system can provide recommendations on server variables by "
 "analyzing the server status variables."
-msgstr ""
+msgstr "輔導系統可以在分析伺服器狀態值後，提供伺服器變數的設定建議。"
 
 #: server_status_advisor.php:56
 msgid ""
@@ -12149,10 +12149,9 @@ msgid "-- None --"
 msgstr "-- 無 --"
 
 #: tbl_gis_visualization.php:135
-#, fuzzy
 #| msgid "Total count"
 msgid "Spatial column"
-msgstr "Spatial 欄位"
+msgstr "空間欄位"
 
 #: tbl_gis_visualization.php:150
 msgid "Redraw"
@@ -12700,6 +12699,8 @@ msgid ""
 "and setting {query_cache_type} to 'ON'. <b>Note:</b> If you are using "
 "memcached, ignore this recommendation."
 msgstr ""
+"如果查詢快取設定正確的話，可以大幅增進效能。設定 {query_cache_size} 為兩位數的 MB 值，及 {query_cache_type} "
+"為 'ON'，即可啟用之。<b>注意:</b> 如果您已使用 memcached 的話，那麼請忽略這個建議。"
 
 #: libraries/advisory_rules.txt:158
 msgid "query_cache_size is set to 0 or query_cache_type is set to 'OFF'"
@@ -13144,29 +13145,27 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:308
-#, fuzzy, php-format
+#, php-format
 #| msgid "Sort buffer size"
 msgid ""
 "max %% MyISAM key buffer ever used: %s%%, this value should be above 95%%"
-msgstr "排序快取大小"
+msgstr "MyISAM 鍵值緩衝曾使用最大 %%: %s%%, 這個值應該要在 95%% 以上"
 
 #: libraries/advisory_rules.txt:311
-#, fuzzy
 #| msgid "Sort buffer size"
 msgid "Percentage of MyISAM key buffer used"
-msgstr "排序快取大小"
+msgstr "MyISAM 鍵值緩衝使用百分比"
 
 #: libraries/advisory_rules.txt:316
-#, fuzzy, php-format
+#, php-format
 #| msgid "Sort buffer size"
 msgid "%% MyISAM key buffer used: %s%%, this value should be above 95%%"
-msgstr "排序快取大小"
+msgstr "MyISAM 鍵值緩衝使用 %% : %s%%, 這個值應該在 95%% 以上"
 
 #: libraries/advisory_rules.txt:318
-#, fuzzy
 #| msgid "Show SQL queries"
 msgid "Percentage of index reads from memory"
-msgstr "顯示 SQL 查詢"
+msgstr "從記憶體中讀取索引的百分比"
 
 #: libraries/advisory_rules.txt:321
 #, php-format
@@ -13178,22 +13177,20 @@ msgid "You may need to increase {key_buffer_size}."
 msgstr ""
 
 #: libraries/advisory_rules.txt:323
-#, fuzzy, php-format
+#, php-format
 #| msgid "Sort buffer size"
 msgid "Index reads from memory: %s%%, this value should be above 95%%"
-msgstr "排序快取大小"
+msgstr "從記憶體中讀取索引: %s%%, 這個值應該在 95%% 以上"
 
 #: libraries/advisory_rules.txt:327
-#, fuzzy
 #| msgid "Create table"
 msgid "Rate of table open"
-msgstr "建立資料表"
+msgstr "資料表開啟率"
 
 #: libraries/advisory_rules.txt:330
-#, fuzzy
 #| msgid "The current number of pending writes."
 msgid "The rate of opening tables is high."
-msgstr "目前掛起的寫操作數"
+msgstr "資料表開啟率過高。"
 
 #: libraries/advisory_rules.txt:331
 msgid ""
@@ -13202,16 +13199,15 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:332
-#, fuzzy, php-format
+#, php-format
 #| msgid "Sort buffer size"
 msgid "Opened table rate: %s, this value should be less than 10 per hour"
-msgstr "排序快取大小"
+msgstr "資料表開啟率: %s，這個值應該每小時低於 10"
 
 #: libraries/advisory_rules.txt:334
-#, fuzzy
 #| msgid "Format of imported file"
 msgid "Percentage of used open files limit"
-msgstr "匯入檔案的格式"
+msgstr "已使用開啟檔案限制百分比"
 
 #: libraries/advisory_rules.txt:337
 msgid ""
@@ -13232,60 +13228,56 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:341
-#, fuzzy
 #| msgid "Format of imported file"
 msgid "Rate of open files"
-msgstr "匯入檔案的格式"
+msgstr "開啟檔案比率"
 
 #: libraries/advisory_rules.txt:344
-#, fuzzy
 #| msgid "The number of pending log file fsyncs."
 msgid "The rate of opening files is high."
-msgstr "目前掛起的 fsync 日志檔案數"
+msgstr "開啟檔案率過高。"
 
 #: libraries/advisory_rules.txt:346
-#, fuzzy, php-format
+#, php-format
 #| msgid "Sort buffer size"
 msgid "Opened files rate: %s, this value should be less than 5 per hour"
-msgstr "排序快取大小"
+msgstr "開啟檔案率: %s，這個值應該每小時低於 5"
 
 #: libraries/advisory_rules.txt:348
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create table on database %s"
 msgid "Immediate table locks %%"
-msgstr "在資料庫 %s 中建立一張資料表"
+msgstr "立即資料表鎖定 %%"
 
 #: libraries/advisory_rules.txt:351 libraries/advisory_rules.txt:358
-#, fuzzy
 #| msgid "The number of times that a table lock was acquired immediately."
 msgid "Too many table locks were not granted immediately."
-msgstr "立即需要鎖定表的次數"
+msgstr "太多的資料表鎖定並未立即給予。"
 
 #: libraries/advisory_rules.txt:352 libraries/advisory_rules.txt:359
 msgid "Optimize queries and/or use InnoDB to reduce lock wait."
 msgstr ""
 
 #: libraries/advisory_rules.txt:353
-#, fuzzy, php-format
+#, php-format
 #| msgid "Sort buffer size"
 msgid "Immediate table locks: %s%%, this value should be above 95%%"
-msgstr "排序快取大小"
+msgstr "立即資料表鎖定: %s%%，這個值應該在 95%% 以上"
 
 #: libraries/advisory_rules.txt:355
 msgid "Table lock wait rate"
 msgstr ""
 
 #: libraries/advisory_rules.txt:360
-#, fuzzy, php-format
+#, php-format
 #| msgid "Sort buffer size"
 msgid "Table lock wait rate: %s, this value should be less than 1 per hour"
-msgstr "排序快取大小"
+msgstr "資料表鎖定等待率: %s，這個值應該每小時低於 1"
 
 #: libraries/advisory_rules.txt:362
-#, fuzzy
 #| msgid "Key cache"
 msgid "Thread cache"
-msgstr "鍵快取"
+msgstr "執行緒快取"
 
 #: libraries/advisory_rules.txt:365
 msgid ""
@@ -13298,10 +13290,9 @@ msgid "Enable the thread cache by setting {thread_cache_size} > 0."
 msgstr ""
 
 #: libraries/advisory_rules.txt:367
-#, fuzzy
 #| msgid "Tracking is not active."
 msgid "The thread cache is set to 0"
-msgstr "追蹤已停用"
+msgstr "執行緒快取已設為零"
 
 #: libraries/advisory_rules.txt:369
 #, fuzzy, php-format
