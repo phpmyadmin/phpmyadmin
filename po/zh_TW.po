@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-06-12 09:39+0200\n"
-"PO-Revision-Date: 2013-06-20 07:08+0200\n"
+"PO-Revision-Date: 2013-06-20 08:17+0200\n"
 "Last-Translator: Tony Chen <tonychen@finenet.com.tw>\n"
 "Language-Team: Traditional Chinese "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/zh_TW/>\n"
@@ -2625,7 +2625,7 @@ msgstr "匯出"
 
 #: libraries/DisplayResults.class.php:5166 view_create.php:152
 msgid "Create view"
-msgstr "新建視圖"
+msgstr "新建視表"
 
 #: libraries/DisplayResults.class.php:5222
 msgid "Query results operations"
@@ -2784,7 +2784,7 @@ msgstr "伺服器"
 #: libraries/structure.lib.php:707 libraries/structure.lib.php:1188
 #: libraries/tbl_info.inc.php:59
 msgid "View"
-msgstr "view"
+msgstr "視表"
 
 #: libraries/Menu.class.php:256 libraries/Menu.class.php:340
 #: libraries/Util.class.php:3225 libraries/Util.class.php:3232
@@ -3515,7 +3515,7 @@ msgstr "字串"
 #: libraries/Types.class.php:674
 msgctxt "spatial types"
 msgid "Spatial"
-msgstr "空間的"
+msgstr "空間類型"
 
 #: libraries/Types.class.php:709
 msgid "A 4-byte integer, range is -2,147,483,648 to 2,147,483,647"
@@ -5728,7 +5728,7 @@ msgstr "新增 DROP TABLE"
 msgid ""
 "Whether a DROP VIEW IF EXISTS statement will be added as first line to the "
 "log when creating a view."
-msgstr "設定當 view 建立時，是否在紀錄檔前面加上 DROP VIEW IF EXISTS 命令。"
+msgstr "設定當視表建立時，是否在紀錄檔前面加上 DROP 視表 IF EXISTS 命令。"
 
 #: libraries/config/messages.inc.php:442
 msgid "Add DROP VIEW"
@@ -5759,7 +5759,7 @@ msgstr "SQL 查詢追蹤表"
 msgid ""
 "Whether the tracking mechanism creates versions for tables and views "
 "automatically."
-msgstr "設定追蹤系統是否自動爲資料表和 view 建立版本。"
+msgstr "設定追蹤系統是否自動爲資料表和視表建立版本。"
 
 #: libraries/config/messages.inc.php:448
 msgid "Automatically create versions"
@@ -7001,7 +7001,7 @@ msgstr "%s 的結構"
 #: libraries/import.lib.php:1234
 #, php-format
 msgid "Go to view: %s"
-msgstr "前往 VIEW：%s"
+msgstr "前往檢視：%s"
 
 #: libraries/index.lib.php:32
 #, php-format
@@ -7429,7 +7429,7 @@ msgstr ""
 #: libraries/navigation/Nodes/Node_View_Container.class.php:26
 #: libraries/plugins/export/ExportXml.class.php:125
 msgid "Views"
-msgstr "view"
+msgstr "視表"
 
 #: libraries/navigation/Nodes/Node_View_Container.class.php:37
 msgctxt "Create new view"
@@ -7809,14 +7809,14 @@ msgstr "表的結構"
 #: libraries/plugins/export/ExportSql.class.php:1484
 #: libraries/plugins/export/ExportTexytext.class.php:513
 msgid "Structure for view"
-msgstr "view結構"
+msgstr "視表結構"
 
 #: libraries/plugins/export/ExportHtmlword.class.php:581
 #: libraries/plugins/export/ExportOdt.class.php:679
 #: libraries/plugins/export/ExportSql.class.php:1501
 #: libraries/plugins/export/ExportTexytext.class.php:520
 msgid "Stand-in structure for view"
-msgstr "替換 view以便查看"
+msgstr "替換視表以便查看"
 
 #: libraries/plugins/export/ExportLatex.class.php:43
 msgid "Content of table @TABLE@"
@@ -8750,10 +8750,9 @@ msgid "Parameters"
 msgstr ""
 
 #: libraries/rte/rte_routines.lib.php:966
-#, fuzzy
 #| msgid "Direct links"
 msgid "Direction"
-msgstr "方向"
+msgstr "I/O"
 
 #: libraries/rte/rte_routines.lib.php:969
 #: libraries/tbl_columns_definition_form.inc.php:98
@@ -9842,7 +9841,7 @@ msgstr "追蹤已停用。"
 #: libraries/structure.lib.php:129 tbl_operations.php:329
 #, php-format
 msgid "View %s has been dropped"
-msgstr "已刪除 view %s"
+msgstr "已刪除視表 %s"
 
 #: libraries/structure.lib.php:130 tbl_operations.php:330
 #, php-format
@@ -9899,7 +9898,7 @@ msgstr "索引"
 #: libraries/structure.lib.php:1398 libraries/structure.lib.php:2060
 #: libraries/structure.lib.php:2070
 msgid "Spatial"
-msgstr ""
+msgstr "空間"
 
 #: libraries/structure.lib.php:1408 libraries/structure.lib.php:2062
 #: libraries/structure.lib.php:2072
@@ -9923,7 +9922,7 @@ msgstr "編輯視表"
 
 #: libraries/structure.lib.php:1493
 msgid "Relation view"
-msgstr "關聯查看"
+msgstr "關聯檢視"
 
 #: libraries/structure.lib.php:1505
 msgid "Propose table structure"
@@ -10013,7 +10012,7 @@ msgstr "新增唯一鍵"
 #: libraries/structure.lib.php:2024 libraries/structure.lib.php:2027
 #| msgid "Add index"
 msgid "Add SPATIAL index"
-msgstr "新增 SPATIAL 索引"
+msgstr "新增空間索引"
 
 #: libraries/structure.lib.php:2030 libraries/structure.lib.php:2033
 msgid "Add FULLTEXT index"
@@ -10189,7 +10188,7 @@ msgstr "顯示/隱藏左側選單"
 
 #: pmd_general.php:86
 msgid "View in fullscreen"
-msgstr ""
+msgstr "在全螢幕檢視"
 
 #: pmd_general.php:90
 msgid "Exit fullscreen"
@@ -12432,11 +12431,11 @@ msgstr "設定檔案己更新。"
 
 #: view_create.php:178
 msgid "VIEW name"
-msgstr "view名"
+msgstr "視表名稱"
 
 #: view_operations.php:91
 msgid "Rename view to"
-msgstr "將 view改名爲"
+msgstr "將視表更名為"
 
 #: libraries/advisory_rules.txt:49
 msgid "Uptime below one day"
@@ -12804,10 +12803,9 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:188
-#, fuzzy
 #| msgid "Query cache"
 msgid "Query cache low memory prunes"
-msgstr "查詢快取"
+msgstr "查詢快取低記憶體縮減"
 
 #: libraries/advisory_rules.txt:191
 #| msgid "The amount of free memory for query cache."
@@ -13301,32 +13299,29 @@ msgid "Thread cache hit rate %%"
 msgstr "執行緒快取命中率 %%"
 
 #: libraries/advisory_rules.txt:372
-#, fuzzy
 #| msgid "Tracking is not active."
 msgid "Thread cache is not efficient."
-msgstr "追蹤已停用"
+msgstr "執行緒快取並不是很有效率。"
 
 #: libraries/advisory_rules.txt:373
 msgid "Increase {thread_cache_size}."
 msgstr ""
 
 #: libraries/advisory_rules.txt:374
-#, fuzzy, php-format
+#, php-format
 #| msgid "Sort buffer size"
 msgid "Thread cache hitrate: %s%%, this value should be above 80%%"
-msgstr "排序快取大小"
+msgstr "執行緒快取命中率: %s%%，這個值應該在 80%% 以上"
 
 #: libraries/advisory_rules.txt:376
-#, fuzzy
 #| msgid "The number of threads that are not sleeping."
 msgid "Threads that are slow to launch"
-msgstr "非睡眠狀態的程序數量"
+msgstr "執行緒為緩慢的啟動"
 
 #: libraries/advisory_rules.txt:379
-#, fuzzy
 #| msgid "The number of threads that are not sleeping."
 msgid "There are too many threads that are slow to launch."
-msgstr "非睡眠狀態的程序數量"
+msgstr "有太多執行緒為緩慢的啟動。"
 
 #: libraries/advisory_rules.txt:380
 msgid ""
@@ -13344,30 +13339,27 @@ msgid "Slow launch time"
 msgstr ""
 
 #: libraries/advisory_rules.txt:386
-#, fuzzy
 #| msgid "long_query_time is set to %d second(s)."
 msgid "Slow_launch_threads is above 2s"
-msgstr "long_query_time已設為%d秒"
+msgstr "Slow_launch_threads 已超過 2"
 
 #: libraries/advisory_rules.txt:387
-#, fuzzy
 #| msgid "The number of threads that are not sleeping."
 msgid ""
 "Set {slow_launch_time} to 1s or 2s to correctly count threads that are slow "
 "to launch"
-msgstr "非睡眠狀態的程序數量"
+msgstr "設定 {slow_launch_time} 為 1 或 2， 以校正緩慢啟動的執行緒數量"
 
 #: libraries/advisory_rules.txt:388
-#, fuzzy, php-format
+#, php-format
 #| msgid "long_query_time is set to %d second(s)."
 msgid "slow_launch_time is set to %s"
-msgstr "long_query_time已設為%d秒"
+msgstr "slow_launch_time 已設定為 %s"
 
 #: libraries/advisory_rules.txt:392
-#, fuzzy
 #| msgid "Persistent connections"
 msgid "Percentage of used connections"
-msgstr "持續連線"
+msgstr "已使用的連線百分比"
 
 #: libraries/advisory_rules.txt:395
 msgid ""
@@ -13389,16 +13381,14 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:399
-#, fuzzy
 #| msgid "Persistent connections"
 msgid "Percentage of aborted connections"
-msgstr "持續連線"
+msgstr "已中斷的連線百分比"
 
 #: libraries/advisory_rules.txt:402 libraries/advisory_rules.txt:409
-#, fuzzy
 #| msgid "Allows creating temporary tables."
 msgid "Too many connections are aborted."
-msgstr "允許建立臨時表"
+msgstr "有太多的連線被中斷。"
 
 #: libraries/advisory_rules.txt:403 libraries/advisory_rules.txt:410
 msgid ""
@@ -13414,10 +13404,9 @@ msgid "%s%% of all connections are aborted. This value should be below 1%%"
 msgstr ""
 
 #: libraries/advisory_rules.txt:406
-#, fuzzy
 #| msgid "Persistent connections"
 msgid "Rate of aborted connections"
-msgstr "持續連線"
+msgstr "中斷連線率"
 
 #: libraries/advisory_rules.txt:411
 #, php-format
@@ -13426,16 +13415,14 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:413
-#, fuzzy
 #| msgid "Format of imported file"
 msgid "Percentage of aborted clients"
-msgstr "匯入檔案的格式"
+msgstr "客端中斷率"
 
 #: libraries/advisory_rules.txt:416 libraries/advisory_rules.txt:423
-#, fuzzy
 #| msgid "Allows creating temporary tables."
 msgid "Too many clients are aborted."
-msgstr "允許建立臨時表"
+msgstr "有太多的客端被中斷。"
 
 #: libraries/advisory_rules.txt:417 libraries/advisory_rules.txt:424
 msgid ""
@@ -13450,26 +13437,24 @@ msgid "%s%% of all clients are aborted. This value should be below 2%%"
 msgstr ""
 
 #: libraries/advisory_rules.txt:420
-#, fuzzy
 #| msgid "Format of imported file"
 msgid "Rate of aborted clients"
-msgstr "匯入檔案的格式"
+msgstr "客端中斷率"
 
 #: libraries/advisory_rules.txt:425
-#, fuzzy, php-format
+#, php-format
 #| msgid "Sort buffer size"
 msgid "Aborted client rate is at %s, this value should be less than 1 per hour"
-msgstr "排序快取大小"
+msgstr "客端中斷率為 %s，這個值應該每小時低於 1"
 
 #: libraries/advisory_rules.txt:429
 msgid "Is InnoDB disabled?"
 msgstr ""
 
 #: libraries/advisory_rules.txt:432
-#, fuzzy
 #| msgid "Could not save recent table"
 msgid "You do not have InnoDB enabled."
-msgstr "無法儲存最新資料表"
+msgstr "您未啟用 InnoDB。"
 
 #: libraries/advisory_rules.txt:433
 msgid "InnoDB is usually the better choice for table engines."
@@ -13480,18 +13465,16 @@ msgid "have_innodb is set to 'value'"
 msgstr ""
 
 #: libraries/advisory_rules.txt:436
-#, fuzzy
 #| msgid "Buffer pool size"
 msgid "InnoDB log size"
-msgstr "快取池大小"
+msgstr "InnoDB 日誌大小"
 
 #: libraries/advisory_rules.txt:439
-#, fuzzy
 #| msgid "The number writes done to the InnoDB buffer pool."
 msgid ""
 "The InnoDB log file size is not an appropriate size, in relation to the "
 "InnoDB buffer pool."
-msgstr "寫入 InnoDB 快取池的次數"
+msgstr "InnoDB 日誌檔大小與關聯的 InnoDB 緩衝池不相符。"
 
 #: libraries/advisory_rules.txt:440
 #, php-format
@@ -13508,18 +13491,17 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:441
-#, fuzzy, php-format
+#, php-format
 #| msgid "The number writes done to the InnoDB buffer pool."
 msgid ""
 "Your InnoDB log size is at %s%% in relation to the InnoDB buffer pool size, "
 "it should not be below 20%%"
-msgstr "寫入 InnoDB 快取池的次數"
+msgstr "您的 InnoDB 日誌檔大小在 %s%% 關聯到 InnoDB 緩衝池大小, 不應該低於 20%%"
 
 #: libraries/advisory_rules.txt:443
-#, fuzzy
 #| msgid "Buffer pool size"
 msgid "Max InnoDB log size"
-msgstr "快取池大小"
+msgstr "最大 InnoDB 日誌大小"
 
 #: libraries/advisory_rules.txt:446
 msgid "The InnoDB log file size is inadequately large."
@@ -13545,16 +13527,14 @@ msgid "Your absolute InnoDB log size is %s MiB"
 msgstr ""
 
 #: libraries/advisory_rules.txt:450
-#, fuzzy
 #| msgid "Buffer pool size"
 msgid "InnoDB buffer pool size"
-msgstr "快取池大小"
+msgstr "InnoDB 緩衝池大小"
 
 #: libraries/advisory_rules.txt:453
-#, fuzzy
 #| msgid "Buffer pool size"
 msgid "Your InnoDB buffer pool is fairly small."
-msgstr "快取池大小"
+msgstr "您的 InnoDB 緩衝池過小。"
 
 #: libraries/advisory_rules.txt:454
 #, php-format
@@ -13581,16 +13561,14 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:459
-#, fuzzy
 #| msgid "max. concurrent connections"
 msgid "MyISAM concurrent inserts"
-msgstr "最大同時連線數"
+msgstr "MyISAM 同時新增"
 
 #: libraries/advisory_rules.txt:462
-#, fuzzy
 #| msgid "max. concurrent connections"
 msgid "Enable {concurrent_insert} by setting it to 1"
-msgstr "最大同時連線數"
+msgstr "啟用 {concurrent_insert} 設定為 1"
 
 #: libraries/advisory_rules.txt:463
 msgid ""
