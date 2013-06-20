@@ -32,9 +32,11 @@ if (@function_exists('mb_strlen')) {
  * Load ctype handler.
  */
 if (@extension_loaded('ctype')) {
-    include './libraries/string_type_ctype.lib.php';
+    include './libraries/StringCType.class.php';
+    $PMA_StringType = new PMA_StringCType();
 } else {
-    include './libraries/string_type_native.lib.php';
+    include './libraries/String_NativeType.class.php';
+    $PMA_StringType = new PMA_StringNativeType();
 }
 
 /**
@@ -92,8 +94,8 @@ function PMA_STR_numberInRangeInclusive($num, $lower, $upper)
  * @return boolean  whether the character is an SQL identifier or not
  */
 function PMA_STR_isSqlIdentifier($c, $dot_is_valid = false)
-{
-    return (PMA_STR_isAlnum($c)
+{   
+    return ($GLOBALS['PMA_StringType']::isAlnum($c)
         || ($ord_c = ord($c)) && $ord_c >= 192 && $ord_c != 215 && $ord_c != 249
         || $c == '_'
         || $c == '$'
