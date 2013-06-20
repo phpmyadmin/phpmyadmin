@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-06-12 09:39+0200\n"
-"PO-Revision-Date: 2013-06-20 07:09+0200\n"
+"PO-Revision-Date: 2013-06-20 08:16+0200\n"
 "Last-Translator: Dadan Setia <da2n_s@yahoo.co.id>\n"
 "Language-Team: Indonesian "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/id/>\n"
@@ -962,10 +962,10 @@ msgstr "Mengedit Indeks"
 
 #: js/messages.php:44 libraries/display_indexes.lib.php:199
 #: libraries/display_indexes.lib.php:205
-#, fuzzy, php-format
+#, php-format
 #| msgid "Add %d column(s) to index"
 msgid "Add %s column(s) to index"
-msgstr "Tambahkan %d kolom ke index"
+msgstr "Tambahkan %s kolom ke index"
 
 #. l10n: Default label for the y-Axis of Charts
 #: js/messages.php:48 tbl_chart.php:236
@@ -1319,6 +1319,7 @@ msgid "Divided by %s"
 msgstr "Dibagi oleh %s"
 
 #: js/messages.php:146
+#, fuzzy
 msgid "Unit"
 msgstr "Unit"
 
@@ -1708,6 +1709,7 @@ msgstr "Tampilkan kotak kueri"
 #: libraries/Util.class.php:3454 libraries/config/messages.inc.php:486
 #: libraries/schema/User_Schema.class.php:216 server_variables.php:130
 #: setup/frames/index.inc.php:147
+#, fuzzy
 msgid "Edit"
 msgstr "Edit"
 
@@ -1762,13 +1764,12 @@ msgstr "Melayang di atas titik akan menunjukkan labelnya."
 
 #: js/messages.php:284
 msgid "To zoom in, select a section of the plot with the mouse."
-msgstr ""
+msgstr "Untuk memperbesar, pilih bagian dari plot dengan mouse."
 
 #: js/messages.php:286
-#, fuzzy
 #| msgid "Click reset zoom link to come back to original state."
 msgid "Click reset zoom button to come back to original state."
-msgstr "Klik link Zoom reset untuk kembali ke keadaan semula."
+msgstr "Klik link reset Zoom untuk kembali ke keadaan semula."
 
 #: js/messages.php:288
 msgid "Click a data point to view and possibly edit the data row."
@@ -1908,21 +1909,19 @@ msgstr ""
 "setelah disimpan."
 
 #: js/messages.php:341
-#, fuzzy
 #| msgid ""
 #| "You can also edit most columns<br />by clicking directly on their content."
 msgid "You can also edit most values<br />by double-clicking directly on them."
 msgstr ""
-"Anda juga dapat mengedit sebagian besar<br />kolom dengan mengeklik langsung "
+"Anda juga dapat mengedit sebagian nilai<br />dengan mengeklik langsung "
 "konten."
 
 #: js/messages.php:344
-#, fuzzy
 #| msgid ""
 #| "You can also edit most columns<br />by clicking directly on their content."
 msgid "You can also edit most values<br />by clicking directly on them."
 msgstr ""
-"Anda juga dapat mengedit sebagian besar<br />kolom dengan mengeklik langsung "
+"Anda juga dapat mengedit sebagian nilai<br />dengan mengeklik langsung "
 "konten."
 
 #: js/messages.php:349
@@ -1930,20 +1929,18 @@ msgid "Go to link"
 msgstr "Tuju ke tautan"
 
 #: js/messages.php:350
-#, fuzzy
 #| msgid "Column names"
 msgid "Copy column name"
-msgstr "Nama kolom"
+msgstr "Salin Nama kolom"
 
 #: js/messages.php:351
 msgid "Right-click the column name to copy it to your clipboard."
-msgstr ""
+msgstr "Klik-kanan nama kolom untuk menyalinnya ke clipboard."
 
 #: js/messages.php:352
-#, fuzzy
 #| msgid "Update row(s)"
 msgid "Show data row(s)"
-msgstr "Perbarui baris"
+msgstr "Tampilkan baris data"
 
 #: js/messages.php:355
 msgid "Generate password"
@@ -1962,22 +1959,20 @@ msgid "More"
 msgstr "Lainnya"
 
 #: js/messages.php:363
-#, fuzzy
 #| msgid "Show all"
 msgid "Show Panel"
-msgstr "Tampilkan semua"
+msgstr "Tampilkan Panel"
 
 #: js/messages.php:364
-#, fuzzy
 #| msgid "Hide indexes"
 msgid "Hide Panel"
-msgstr "Sembunyikan indeks"
+msgstr "Sembunyikan Panel"
 
 #: js/messages.php:367
-#, fuzzy
 #| msgid "The selected user was not found in the privilege table."
 msgid "The requested page was not found in the history, it may have expired."
-msgstr "Pengguna yang dipilih tidak ditemukan pada tabel hak akses."
+msgstr ""
+"Halaman yang diminta tidak ditemukan di riwayat, mungkin sudah kadaluarsa."
 
 #: js/messages.php:370 setup/lib/index.lib.php:188
 #, php-format
@@ -2255,52 +2250,55 @@ msgstr "Detik"
 #: libraries/Advisor.class.php:78
 #, php-format
 msgid "PHP threw following error: %s"
-msgstr ""
+msgstr "PHP melempar kesalahan berikut: %s"
 
 #: libraries/Advisor.class.php:107
 #, php-format
 msgid "Failed evaluating precondition for rule '%s'."
-msgstr ""
+msgstr "Gagal mengevaluasi prasyarat untuk aturan '%s'."
 
 #: libraries/Advisor.class.php:124
 #, php-format
 msgid "Failed calculating value for rule '%s'."
-msgstr ""
+msgstr "Gagal menghitung nilai aturan '%s'."
 
 #: libraries/Advisor.class.php:143
 #, php-format
 msgid "Failed running test for rule '%s'."
-msgstr ""
+msgstr "Gagal menjalankan tes untuk aturan '%s'."
 
 #: libraries/Advisor.class.php:225
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "Failed formatting string for rule '%s'. PHP threw following error: %s"
 msgid "Failed formatting string for rule '%s'."
-msgstr ""
-"Gagal format string untuk aturan '%s'. PHP melemparkan kesalahan berikut:% s"
+msgstr "Gagal memformat string untuk aturan '%s'."
 
 #: libraries/Advisor.class.php:395
 #, php-format
 msgid ""
 "Invalid rule declaration on line %1$s, expected line %2$s of previous rule."
 msgstr ""
+"Deklarasi aturan tidak sah pada baris %1$s, diharapkan baris %2$s dari "
+"aturan sebelumnya."
 
 #: libraries/Advisor.class.php:412
-#, fuzzy, php-format
+#, php-format
 #| msgid "Invalid server index: %s"
 msgid "Invalid rule declaration on line %s."
-msgstr "Indeks server tidak sah: %s"
+msgstr "Deklarasi aturan tidak valid pada baris %s."
 
 #: libraries/Advisor.class.php:420
 #, php-format
 msgid "Unexpected characters on line %s."
-msgstr ""
+msgstr "Karakter tidak diharapkan pada baris %s."
 
 #: libraries/Advisor.class.php:434
 #, php-format
 msgid "Unexpected character on line %1$s. Expected tab, but found \"%2$s\"."
 msgstr ""
+"Karakter tidak diduga pada baris %1$s. Diharapkan Tab, tapi ditemukan \"%"
+"2$s\"."
 
 #: libraries/Advisor.class.php:467
 msgid "per second"
@@ -2352,28 +2350,24 @@ msgid "Descending"
 msgstr "Menurun"
 
 #: libraries/DBQbe.class.php:364
-#, fuzzy
 #| msgid "Column"
 msgid "Column:"
-msgstr "Kolom"
+msgstr "Kolom:"
 
 #: libraries/DBQbe.class.php:406
-#, fuzzy
 #| msgid "Sort"
 msgid "Sort:"
-msgstr "Urutan"
+msgstr "Urutan:"
 
 #: libraries/DBQbe.class.php:468 libraries/DisplayResults.class.php:903
-#, fuzzy
 #| msgid "Show"
 msgid "Show:"
-msgstr "Tampilkan"
+msgstr "Tampilkan:"
 
 #: libraries/DBQbe.class.php:513
-#, fuzzy
 #| msgid "Criteria"
 msgid "Criteria:"
-msgstr "Kriteria"
+msgstr "Kriteria:"
 
 #: libraries/DBQbe.class.php:576
 msgid "Add/Delete criteria rows"
@@ -2392,14 +2386,13 @@ msgid "Use Tables"
 msgstr "Gunakan Tabel"
 
 #: libraries/DBQbe.class.php:653 libraries/DBQbe.class.php:757
-#, fuzzy
 #| msgid "Or"
 msgid "Or:"
-msgstr "Atau"
+msgstr "Atau:"
 
 #: libraries/DBQbe.class.php:657 libraries/DBQbe.class.php:742
 msgid "And:"
-msgstr ""
+msgstr "Dan:"
 
 #: libraries/DBQbe.class.php:661
 msgid "Ins"
@@ -2410,18 +2403,17 @@ msgid "Del"
 msgstr "Hapus"
 
 #: libraries/DBQbe.class.php:680
-#, fuzzy
 #| msgid "Modify"
 msgid "Modify:"
-msgstr "Ubah"
+msgstr "Ubah:"
 
 #: libraries/DBQbe.class.php:737
 msgid "Ins:"
-msgstr ""
+msgstr "Untuk:"
 
 #: libraries/DBQbe.class.php:752
 msgid "Del:"
-msgstr ""
+msgstr "Hapus:"
 
 #: libraries/DBQbe.class.php:1322
 #, php-format
@@ -2480,12 +2472,12 @@ msgid_plural "<b>Total:</b> <i>%s</i> matches"
 msgstr[0] "<b>Total:</b> <i>%s</i> cocok"
 
 #: libraries/DbSearch.class.php:331
-#, fuzzy, php-format
+#, php-format
 #| msgid "%s match inside table <i>%s</i>"
 #| msgid_plural "%s matches inside table <i>%s</i>"
 msgid "%1$s match in <strong>%2$s</strong>"
 msgid_plural "%1$s matches in <strong>%2$s</strong>"
-msgstr[0] "%s cocok dalam tabel <i>%s</i>"
+msgstr[0] "%1$s cocok dengan <strong>%2$s</strong>"
 
 #: libraries/DbSearch.class.php:346 libraries/Menu.class.php:250
 #: libraries/Util.class.php:3229 libraries/Util.class.php:3442
@@ -2568,10 +2560,9 @@ msgid "End"
 msgstr "Akhir"
 
 #: libraries/DisplayResults.class.php:904 tbl_chart.php:241
-#, fuzzy
 #| msgid "Start row"
 msgid "Start row:"
-msgstr "Baris mulai"
+msgstr "Awal baris:"
 
 #: libraries/DisplayResults.class.php:908 libraries/display_export.lib.php:175
 #: tbl_chart.php:245
@@ -2579,10 +2570,9 @@ msgid "Number of rows:"
 msgstr "Jumlah baris:"
 
 #: libraries/DisplayResults.class.php:917
-#, fuzzy
 #| msgid "Mode"
 msgid "Mode:"
-msgstr "Modus"
+msgstr "Modus:"
 
 #: libraries/DisplayResults.class.php:919
 msgid "horizontal"
@@ -2597,7 +2587,7 @@ msgid "vertical"
 msgstr "vertikal"
 
 #: libraries/DisplayResults.class.php:933
-#, fuzzy, php-format
+#, php-format
 #| msgid "Headers every %s rows"
 msgid "Headers every %s rows"
 msgstr "Judul setiap %s baris"
@@ -2665,18 +2655,17 @@ msgid "Show binary contents as HEX"
 msgstr "Tampilkan konten biner dalam HEX"
 
 #: libraries/DisplayResults.class.php:1633
-#, fuzzy
 #| msgid "Browser transformation"
 msgid "Hide browser transformation"
-msgstr "Transformasi Browser"
+msgstr "Sembunyikan Transformasi Browser"
 
 #: libraries/DisplayResults.class.php:1642
 msgid "Well Known Text"
-msgstr ""
+msgstr "Teks Dikenali"
 
 #: libraries/DisplayResults.class.php:1643
 msgid "Well Known Binary"
-msgstr ""
+msgstr "Biner Diketahui"
 
 #: libraries/DisplayResults.class.php:3359
 #: libraries/DisplayResults.class.php:3375
@@ -2776,7 +2765,7 @@ msgstr "Tampilkan bagan"
 
 #: libraries/DisplayResults.class.php:5372
 msgid "Visualize GIS data"
-msgstr ""
+msgstr "Visualisasi data GIS"
 
 #: libraries/DisplayResults.class.php:5586
 msgid "Link not found"
@@ -2841,14 +2830,13 @@ msgstr "Buka jendela phpMyAdmin baru"
 
 #: libraries/Header.class.php:393
 msgid "Click on the bar to scroll to top of page"
-msgstr ""
+msgstr "Klik pada bar untuk menggulir ke atas halaman"
 
 #: libraries/Header.class.php:635
 #: libraries/plugins/auth/AuthenticationCookie.class.php:172
-#, fuzzy
 #| msgid "Cookies must be enabled past this point."
 msgid "Javascript must be enabled past this point"
-msgstr "Mulai dari sini cookies harus diaktifkan."
+msgstr "Mulai dari sini cookies harus diaktifkan"
 
 #: libraries/Index.class.php:531
 msgid "No index defined!"
@@ -3218,28 +3206,26 @@ msgid "unknown table status: "
 msgstr "status tabel tidak diketahui: "
 
 #: libraries/Table.class.php:796
-#, fuzzy, php-format
+#, php-format
 #| msgid "Source database"
 msgid "Source database `%s` was not found!"
-msgstr "Basis data sumber"
+msgstr "Sumber Basis data `%s` tidak ditemukan!"
 
 #: libraries/Table.class.php:804
-#, fuzzy, php-format
+#, php-format
 #| msgid "Theme %s not found!"
 msgid "Target database `%s` was not found!"
-msgstr "Tema %s tidak ditemukan!"
+msgstr "Target Basis data `%s` tidak ditemukan!"
 
 #: libraries/Table.class.php:1232
-#, fuzzy
 #| msgid "Invalid database"
 msgid "Invalid database:"
-msgstr "Basis data tidak valid"
+msgstr "Basis data tidak valid:"
 
 #: libraries/Table.class.php:1246
-#, fuzzy
 #| msgid "Invalid table name"
 msgid "Invalid table name:"
-msgstr "Nama tabel tidak valid"
+msgstr "Nama tabel tidak valid:"
 
 #: libraries/Table.class.php:1278
 #, php-format
@@ -3247,10 +3233,10 @@ msgid "Error renaming table %1$s to %2$s"
 msgstr "Galat sewaktu mengganti nama table %1$s menjadi %2$s"
 
 #: libraries/Table.class.php:1297
-#, fuzzy, php-format
+#, php-format
 #| msgid "Table %s has been renamed to %s"
 msgid "Table %1$s has been renamed to %2$s."
-msgstr "Nama tabel %s telah diubah menjadi %s"
+msgstr "Tabel %1$s telah berubah nama menjadi %2$s."
 
 #: libraries/Table.class.php:1441
 msgid "Could not save table UI preferences"
@@ -3326,11 +3312,12 @@ msgstr "Urutan tampilan:"
 
 #: libraries/TableSearch.class.php:839
 msgid "Use this column to label each point"
-msgstr ""
+msgstr "Gunakan kolom ini untuk label setiap titik"
 
 #: libraries/TableSearch.class.php:860
+#, fuzzy
 msgid "Maximum rows to plot"
-msgstr ""
+msgstr "Baris maksimum untuk plot"
 
 #: libraries/TableSearch.class.php:888 libraries/TableSearch.class.php:1160
 #: libraries/sql.lib.php:415 tbl_change.php:230
@@ -3352,8 +3339,9 @@ msgid "Do a \"query by example\" (wildcard: \"%\")"
 msgstr "Lakukan \"kueri dengan contoh\" (wildcard: \"%\")"
 
 #: libraries/TableSearch.class.php:1169
+#, fuzzy
 msgid "Browse/Edit the points"
-msgstr ""
+msgstr "Melihat-lihat/Edit titik"
 
 #: libraries/TableSearch.class.php:1176
 msgid "How to use"
@@ -3363,7 +3351,7 @@ msgstr "Cara pakai"
 #, fuzzy
 #| msgid "Reset"
 msgid "Reset zoom"
-msgstr "Reset"
+msgstr "Reset Zoom"
 
 #: libraries/Theme.class.php:170
 #, php-format
@@ -3394,39 +3382,49 @@ msgid "Theme path not found for theme %s!"
 msgstr "\"Path\" untuk tema tidak ditemukan untuk tema %s!"
 
 #: libraries/Theme_Manager.class.php:363
-#, fuzzy
 #| msgid "Theme"
 msgid "Theme:"
-msgstr "Tema"
+msgstr "Tema:"
 
 #: libraries/Types.class.php:296
 msgid ""
 "A 1-byte integer, signed range is -128 to 127, unsigned range is 0 to 255"
 msgstr ""
+"1-byte integer, berkisar antara -128 sampai 127, unsigned berkisar antara 0 "
+"sampai 255"
 
 #: libraries/Types.class.php:298
 msgid ""
 "A 2-byte integer, signed range is -32,768 to 32,767, unsigned range is 0 to "
 "65,535"
 msgstr ""
+"2-byte integer, berkisar antara -32,768 sampai 32,767, unsigned berkisar "
+"antara 0 sampai 65,535"
 
 #: libraries/Types.class.php:300
 msgid ""
 "A 3-byte integer, signed range is -8,388,608 to 8,388,607, unsigned range is "
 "0 to 16,777,215"
 msgstr ""
+"3-byte integer, signed berkisar antara -8,388,608 sampai 8,388,607, unsigned "
+"berkisar antara 0 sampai 16,777,215"
 
 #: libraries/Types.class.php:302
 msgid ""
 "A 4-byte integer, signed range is -2,147,483,648 to 2,147,483,647, unsigned "
 "range is 0 to 4,294,967,295"
 msgstr ""
+"4-byte integer, signed berkisar antara -2,147,483,648 sampai 2,147,483,647, "
+"unsigned berkisar antara 0 sampai 4,294,967,295"
 
 #: libraries/Types.class.php:304
 msgid ""
 "An 8-byte integer, signed range is -9,223,372,036,854,775,808 to "
 "9,223,372,036,854,775,807, unsigned range is 0 to 18,446,744,073,709,551,615"
 msgstr ""
+"8-byte integer, signed berkisar antara -9,223,372,036,854,775,808 sampai "
+"9,223,372,036,854,775,807, unsigned berkisar antara 0 sampai "
+"18,446,744,073,709,551,615"
 
 #: libraries/Types.class.php:306 libraries/Types.class.php:713
 msgid ""
@@ -10661,7 +10659,7 @@ msgstr "Impor dari penyimpanan peramban"
 
 #: prefs_manage.php:255
 msgid "Settings will be imported from your browser's local storage."
-msgstr "Pengaturan akan diimpor dari penyimpanan lokal peramban Anda"
+msgstr "Pengaturan akan diimpor dari penyimpanan lokal peramban Anda."
 
 #: prefs_manage.php:261
 msgid "You have no saved settings!"
@@ -10800,7 +10798,7 @@ msgstr ""
 
 #: server_replication.php:104
 msgid "Unable to change master"
-msgstr "Tidak dapat mengubah master."
+msgstr "Tidak dapat mengubah master"
 
 #: server_replication.php:108
 #, php-format
@@ -10894,6 +10892,7 @@ msgid "Full stop"
 msgstr "Hentikan semua"
 
 #: server_replication.php:304
+#, fuzzy
 msgid "Reset slave"
 msgstr "Reset slave"
 
@@ -10954,7 +10953,7 @@ msgid ""
 "phpMyAdmin was unable to kill thread %s. It probably has already been closed."
 msgstr ""
 "phpMyAdmin gagal menutup Thread %s. Kemungkinan Thread tersebut sudah "
-"ditutup terlebih dahulu"
+"ditutup terlebih dahulu."
 
 #: server_status.php:93
 #, php-format
@@ -11007,7 +11006,7 @@ msgstr "Pengiriman"
 
 #: server_status.php:261
 msgid "max. concurrent connections"
-msgstr "Koneksi konkuren maks."
+msgstr "Koneksi konkuren maksimum"
 
 #: server_status.php:271
 msgid "Failed attempts"
@@ -12019,6 +12018,7 @@ msgid "Donate"
 msgstr "Donasi"
 
 #: setup/frames/servers.inc.php:29
+#, fuzzy
 msgid "Edit server"
 msgstr "Edit server"
 
@@ -12477,10 +12477,9 @@ msgid "Choose column to display:"
 msgstr "Pilih kolom untuk ditampilkan"
 
 #: tbl_structure.php:125
-#, fuzzy
 #| msgid "No rows selected"
 msgid "No column selected."
-msgstr "Tidak ada baris yang dipilih"
+msgstr "Tidak ada kolom yang dipilih."
 
 #: tbl_tracking.php:135
 #, php-format
@@ -12577,7 +12576,7 @@ msgstr "Dump SQL"
 
 #: tbl_tracking.php:680
 msgid "This option will replace your table and contained data."
-msgstr "Pilihan ini akan mengganti table dan data isi table"
+msgstr "Pilihan ini akan mengganti table dan data isi table."
 
 #: tbl_tracking.php:681
 msgid "SQL execution"
@@ -13105,7 +13104,7 @@ msgstr "Persentase pengurutan yang menyebabkan tabel temporer"
 
 #: libraries/advisory_rules.txt:214 libraries/advisory_rules.txt:221
 msgid "Too many sorts are causing temporary tables."
-msgstr "Terlalu banyak pengurutan yang menyebabkan tabel temporer"
+msgstr "Terlalu banyak pengurutan yang menyebabkan tabel temporer."
 
 #: libraries/advisory_rules.txt:215 libraries/advisory_rules.txt:222
 msgid ""
@@ -13479,12 +13478,16 @@ msgid ""
 "Consider increasing {open_files_limit}, and check the error log when "
 "restarting after changing {open_files_limit}."
 msgstr ""
+"Pertimbangkan untuk meningkatkan {open_files_limit}, dan periksa log "
+"kesalahan ketika restart setelah mengubah {open_files_limit}."
 
 #: libraries/advisory_rules.txt:339
 #, php-format
 msgid ""
 "The number of opened files is at %s%% of the limit. It should be below 85%%"
 msgstr ""
+"jumlah file yang dibuka adalah %s%% dari batasan. seharusnya itu dibawah 85%"
+"%"
 
 #: libraries/advisory_rules.txt:341
 msgid "Rate of open files"
@@ -13497,14 +13500,13 @@ msgid "The rate of opening files is high."
 msgstr "Tingkat berkas yang terbuka"
 
 #: libraries/advisory_rules.txt:346
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "Aborted connections rate is at %s, this value should be less than 1 per "
 #| "hour"
 msgid "Opened files rate: %s, this value should be less than 5 per hour"
 msgstr ""
-"Tingkat koneksi yang digugurkan adalah pada %s, hasil ini seharusnya kurang "
-"dari 1 per jam"
+"Tingkat file yang dibuka: %s, seharusnya nilai ini kurang dari 5 per jam"
 
 #: libraries/advisory_rules.txt:348
 #, php-format
@@ -13512,18 +13514,21 @@ msgid "Immediate table locks %%"
 msgstr "Kunci tabel langsung %%"
 
 #: libraries/advisory_rules.txt:351 libraries/advisory_rules.txt:358
+#, fuzzy
 msgid "Too many table locks were not granted immediately."
-msgstr ""
+msgstr "Terlalu banyak kunci tabel yang tidak diberikan segera."
 
 #: libraries/advisory_rules.txt:352 libraries/advisory_rules.txt:359
+#, fuzzy
 msgid "Optimize queries and/or use InnoDB to reduce lock wait."
 msgstr ""
+"Optimalkan Query dan/atau penggunaan InnoDB untuk mengurangi kunci tunggu."
 
 #: libraries/advisory_rules.txt:353
-#, fuzzy, php-format
+#, php-format
 #| msgid "Max %% MyISAM key buffer ever used"
 msgid "Immediate table locks: %s%%, this value should be above 95%%"
-msgstr "Jumlah %% maksimum penyangga kunci MyISAM yang pernah dipakai"
+msgstr "Kunci tabel terpakai: %s%%, seharusnya nilai ini diatas 95%%"
 
 #: libraries/advisory_rules.txt:355
 msgid "Table lock wait rate"
@@ -13667,7 +13672,7 @@ msgstr "Persentasi koneksi yang digugurkan"
 
 #: libraries/advisory_rules.txt:402 libraries/advisory_rules.txt:409
 msgid "Too many connections are aborted."
-msgstr "Terlalu banyak koneksi yang digugurkan"
+msgstr "Terlalu banyak koneksi yang dibatalkan."
 
 #: libraries/advisory_rules.txt:403 libraries/advisory_rules.txt:410
 msgid ""
@@ -13704,7 +13709,7 @@ msgstr "Persentase klien yang digugurkan"
 
 #: libraries/advisory_rules.txt:416 libraries/advisory_rules.txt:423
 msgid "Too many clients are aborted."
-msgstr "Terlalu banyak klien yang digugurkan"
+msgstr "Terlalu banyak klien yang dibatalkan."
 
 #: libraries/advisory_rules.txt:417 libraries/advisory_rules.txt:424
 msgid ""
@@ -13739,7 +13744,7 @@ msgstr "Apakah InnoDB non-aktif?"
 
 #: libraries/advisory_rules.txt:432
 msgid "You do not have InnoDB enabled."
-msgstr "InnoDB anda tidak ada yang aktif"
+msgstr "InnoDB anda tidak ada yang aktif."
 
 #: libraries/advisory_rules.txt:433
 msgid "InnoDB is usually the better choice for table engines."
