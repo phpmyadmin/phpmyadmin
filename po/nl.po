@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-06-20 08:22+0200\n"
-"PO-Revision-Date: 2013-06-12 14:52+0200\n"
+"PO-Revision-Date: 2013-06-20 14:25+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: Dutch <http://l10n.cihar.com/projects/phpmyadmin/master/nl/>\n"
 "Language: nl\n"
@@ -4128,7 +4128,7 @@ msgstr "Gebruikers toestaan deze waarde aan te passen"
 
 #: libraries/config/FormDisplay.tpl.php:392
 msgid "Apply"
-msgstr ""
+msgstr "Toepassen"
 
 #: libraries/config/FormDisplay.tpl.php:394 libraries/insert_edit.lib.php:1551
 #: libraries/schema/User_Schema.class.php:554 prefs_manage.php:326
@@ -6340,19 +6340,19 @@ msgstr "ZIP"
 
 #: libraries/config/messages.inc.php:531
 msgid "Enter your public key for your domain reCaptcha service"
-msgstr ""
+msgstr "Voer uw openbare sleutel in voor uw domein reCaptcha service"
 
 #: libraries/config/messages.inc.php:532
 msgid "Public key for reCaptcha"
-msgstr ""
+msgstr "Openbare sleutel voor reCaptcha"
 
 #: libraries/config/messages.inc.php:533
 msgid "Enter your private key for your domain reCaptcha service"
-msgstr ""
+msgstr "Voer uw private sleutel in voor uw domein reCaptcha service"
 
 #: libraries/config/messages.inc.php:534
 msgid "Private key for reCaptcha"
-msgstr ""
+msgstr "Private sleutel voor reCaptcha"
 
 #: libraries/config/setup.forms.php:41
 msgid "Config authentication"
@@ -7940,11 +7940,11 @@ msgstr "Serverkeuze:"
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:386
 msgid "Entered captcha is wrong, try again!"
-msgstr ""
+msgstr "Invoer is verkeerd, probeer opnieuw!"
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:395
 msgid "Please enter correct captcha!"
-msgstr ""
+msgstr "Gelieve een correcte captcha in te voeren!"
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:657
 #: libraries/plugins/auth/AuthenticationSignon.class.php:249
