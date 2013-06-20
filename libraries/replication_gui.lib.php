@@ -344,25 +344,34 @@ function PMA_getHtmlForReplication_changemaster($submitname)
     $html .= __('Make sure, you have unique server-id in your configuration file (my.cnf). ' 
         . 'If not, please add the following line into [mysqld] section:') . '<br />';
     $html .= '<pre>server-id=' . time() . '</pre>';
-    $html .= '  <div class="item">';
-    $html .= '    <label for="text_username">' . __('User name:') . '</label>';
-    $html .= '    <input type="text" name="username" id="text_username" maxlength="';
-    $html .= $username_length . '" title="' . __('User name') . '" />';
-    $html .= '  </div>';
-    $html .= '  <div class="item">';
-    $html .= '    <label for="text_pma_pw">' . __('Password:') .'</label>';
-    $html .= '    <input type="password" id="text_pma_pw" name="pma_pw" title="';
-    $html .= __('Password') . '" />';
-    $html .= '  </div>';
-    $html .= '  <div class="item">';
-    $html .= '    <label for="text_hostname">' . __('Host:') . '</label>';
-    $html .= '    <input type="text" id="text_hostname" name="hostname" maxlength="';
-    $html .= $hostname_length . '" value="" />';
-    $html .= '  </div>';
-    $html .= '  <div class="item">';
-    $html .= '     <label for="text_port">' . __('Port:') . '</label>';
-    $html .= '     <input type="text" id="text_port" name="port" maxlength="6" value="3306"  />';
-    $html .= '  </div>';
+    
+    $label_array = array('text'=>__('User name:'), 'for'=>"text_username");
+    $input_array = array('type'=>'text', 'name'=>'username', 
+                         'id'=>'text_username', 'maxlength'=>$username_length,
+                         'title'=>__('User name') 
+                        );
+    $html .= PMA_getHtmlForAddUser_input_div($label_array, $input_array); 
+   
+    $label_array = array('text'=>__('Password:'), 'for'=>"text_pma_pw");
+    $input_array = array('type'=>'password', 'name'=>'pma_pw', 
+                         'id'=>'text_pma_pw', 'title'=>__('Password') 
+                        );
+    $html .= PMA_getHtmlForAddUser_input_div($label_array, $input_array);
+    
+    $label_array = array('text'=>__('Host:'), 'for'=>"text_hostname");
+    $input_array = array('type'=>'text', 'name'=>'hostname', 
+                         'id'=>'text_hostname', 'maxlength'=>$hostname_length, 
+                         'value'=>'' 
+                        );
+    $html .= PMA_getHtmlForAddUser_input_div($label_array, $input_array);
+    
+    $label_array = array('text'=>__('Port:'), 'for'=>"text_port");
+    $input_array = array('type'=>'text', 'name'=>'text_port', 
+                         'id'=>'text_port', 'maxlength'=>6, 
+                         'value'=>'3306' 
+                        );
+    $html .= PMA_getHtmlForAddUser_input_div($label_array, $input_array);
+    
     $html .= ' </fieldset>';
     $html .= ' <fieldset id="fieldset_user_privtable_footer" class="tblFooters">';
     $html .= '    <input type="hidden" name="sr_take_action" value="true" />';
@@ -371,6 +380,28 @@ function PMA_getHtmlForReplication_changemaster($submitname)
     $html .= ' </fieldset>';
     $html .= '</form>';
     
+    return $html;
+}   
+
+/**
+ * returns HTML code for Add user input div
+ *
+ * @param Array  $label_array   label tag elements
+ * @param Array  $input_array   input tag elements
+ *
+ * @return String HTML code
+ */
+function PMA_getHtmlForAddUser_input_div($label_array, $input_array)
+{    
+    $html  = '  <div class="item">';
+    $html .= '     <label for="' . $label_array['for'] . '">';
+    $html .=  $label_array['text'] . '</label>';  
+    
+    $html .= '    <input ';
+    foreach($input_array as $key=>$value)
+        $html .= ' ' . $key . '="' . $value. '" '; 
+    $html .= ' />';
+    $html .= '  </div>';
     return $html;
 }
 
@@ -566,7 +597,7 @@ function PMA_getHtmlForReplication_master_addslaveuser()
     $html .= PMA_generate_common_hidden_inputs('', '');
     $html .= '<fieldset id="fieldset_add_user_login">'
         . '<legend>' . __('Add slave replication user') . '</legend>'
-        . PMA_getHtmlForAddUserLoginForm()
+        . PMA_getHtmlForAddUserLoginForm($username_length)
         . '<div class="item">'
         . '<label for="select_pred_hostname">'
         . '    ' . __('Host:')
@@ -637,9 +668,11 @@ function PMA_getHtmlForReplication_master_addslaveuser()
 /**
  *  returns html code to add a replication slave user to the master
  *
+ * @param int $username_length Username length
+ *
  * @return String HTML code
  */
-function PMA_getHtmlForAddUserLoginForm()
+function PMA_getHtmlForAddUserLoginForm($username_length)
 {
     $html = '<input type="hidden" name="grant_count" value="25" />'
         . '<input type="hidden" name="createdb" id="createdb_0" value="0" />'
@@ -678,7 +711,7 @@ function PMA_getHtmlForAddUserLoginForm()
 /**
  * returns HTML for TableInfoForm
  *
- * @param bool  $hostname_length Selected hostname length
+ * @param int $hostname_length Selected hostname length
  *
  * @return String HTML code
  */

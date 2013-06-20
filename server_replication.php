@@ -175,6 +175,6 @@ if (! isset($GLOBALS['repl_clear_scr'])) {
     $response->addHTML(PMA_getHtmlForSlaveConfiguration($server_slave_status, $server_slave_replication));
 }
 if (isset($GLOBALS['sl_configure'])) {
-    $response->addHTML(PMA_GetHtmlForReplication_changemaster("slave_changemaster"));
+    $response->addHTML(PMA_getHtmlForReplication_changemaster("slave_changemaster"));
 }
 ?>
