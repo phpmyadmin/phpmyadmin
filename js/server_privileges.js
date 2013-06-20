@@ -168,7 +168,6 @@ function addUser($form)
 AJAX.registerTeardown('server_privileges.js', function() {
     $("#fieldset_add_user a.ajax").die("click");
     $('form[name=usersForm]').unbind('submit');
-    $("#reload_privileges_anchor.ajax").die("click");
     $("#fieldset_delete_user_footer #buttonGo.ajax").die('click');
     $("a.edit_user_anchor.ajax").die('click');
     $("#edit_user_dialog").find("form.ajax").die('submit');
@@ -222,29 +221,6 @@ AJAX.registerOnload('server_privileges.js', function() {
         }); // end $.get()
 
     });//end of Add New User AJAX event handler
-
-
-    /**
-     * Ajax event handler for 'Reload Privileges' anchor
-     *
-     * @see         PMA_ajaxShowMessage()
-     * @memberOf    jQuery
-     * @name        reload_privileges_click
-     */
-    $("#reload_privileges_anchor.ajax").live("click", function(event) {
-        event.preventDefault();
-
-        var $msgbox = PMA_ajaxShowMessage(PMA_messages['strReloadingPrivileges']);
-
-        $.get($(this).attr("href"), {'ajax_request': true}, function(data) {
-            if (data.success == true) {
-                PMA_ajaxRemoveMessage($msgbox);
-            } else {
-                PMA_ajaxShowMessage(data.error, false);
-            }
-        }); //end $.get()
-
-    }); //end of Reload Privileges Ajax event handler
 
     /**
      * AJAX handler for 'Revoke User'

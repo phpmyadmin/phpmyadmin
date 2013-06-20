@@ -2969,8 +2969,7 @@ function PMA_getHtmlForDisplayUserOverviewPage($link_edit, $pmaThemeImage,
                 PMA_Message::NOTICE
             );
             $flushLink = '<a href="server_privileges.php?' . $GLOBALS['url_query'] . '&amp;'
-                . 'flush_privileges=1" id="reload_privileges_anchor" '
-                . 'class="' . $conditional_class . '">';
+                . 'flush_privileges=1" id="reload_privileges_anchor">';
             $flushnote->addParam(
                 $flushLink,
                 false
