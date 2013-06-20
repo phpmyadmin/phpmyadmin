@@ -970,7 +970,7 @@ function PMA_buildForeignDropdown($foreign, $data, $mode)
     }
 
     foreach ($foreign as $key => $value) {
-        if (PMA_strlen($value) <= $GLOBALS['cfg']['LimitChars']) {
+        if ($GLOBALS['PMA_String']::strlen($value) <= $GLOBALS['cfg']['LimitChars']) {
             $vtitle = '';
             $value  = htmlspecialchars($value);
         } else {
