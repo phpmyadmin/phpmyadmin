@@ -317,7 +317,7 @@ function PMA_SQP_parse($sql)
         }
 
         // Checks for white space
-        if (PMA_STR_isSpace($c)) {
+        if ($GLOBALS['PMA_StringType']::isSpace($c)) {
             $this_was_space = true;
             $count2++;
             continue;
@@ -492,7 +492,7 @@ function PMA_SQP_parse($sql)
         var_dump(PMA_STR_isSqlIdentifier($c, false));
         var_dump($c == '@');
         var_dump($c == '.');
-        var_dump(PMA_STR_isDigit($GLOBALS['PMA_String']::substr($sql, $count2 + 1, 1)));
+        var_dump($GLOBALS['PMA_StringType']::isDigit($GLOBALS['PMA_String']::substr($sql, $count2 + 1, 1)));
         var_dump($previous_was_space);
         var_dump($previous_was_bracket);
         var_dump($previous_was_listsep);
@@ -503,7 +503,7 @@ function PMA_SQP_parse($sql)
         if (PMA_STR_isSqlIdentifier($c, false)
             || $c == '@'
             || ($c == '.'
-            && PMA_STR_isDigit($GLOBALS['PMA_String']::substr($sql, $count2 + 1, 1))
+            && $GLOBALS['PMA_StringType']::isDigit($GLOBALS['PMA_String']::substr($sql, $count2 + 1, 1))
             && ($previous_was_space || $previous_was_bracket || $previous_was_listsep))
         ) {
             /* DEBUG
@@ -524,7 +524,7 @@ function PMA_SQP_parse($sql)
             $is_digit                = (
                 !$is_identifier
                 && !$is_sql_variable
-                && PMA_STR_isDigit($c)
+                && $GLOBALS['PMA_StringType']::isDigit($c)
             );
             $is_hex_digit            = (
                 $is_digit
@@ -592,7 +592,7 @@ function PMA_SQP_parse($sql)
                         $is_float_digit          = false;
                     }
                 }
-                if (($is_hex_digit && PMA_STR_isHexDigit($c2)) || ($is_digit && PMA_STR_isDigit($c2))) {
+                if (($is_hex_digit && $GLOBALS['PMA_StringType']::isHexDigit($c2)) || ($is_digit && $GLOBALS['PMA_StringType']::isDigit($c2))) {
                     $count2++;
                     continue;
                 } else {
