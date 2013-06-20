@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-06-20 08:22+0200\n"
-"PO-Revision-Date: 2013-06-20 16:10+0200\n"
+"PO-Revision-Date: 2013-06-20 18:09+0200\n"
 "Last-Translator: Tony Chen <tonychen@finenet.com.tw>\n"
 "Language-Team: Traditional Chinese "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/zh_TW/>\n"
@@ -585,7 +585,7 @@ msgstr "輸出"
 msgid ""
 "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
 "below into the \"Value\" field"
-msgstr ""
+msgstr "從 \"Function\" 欄位選擇 \"GeomFromText\"，然後將下方的字串貼到 \"Value\" 欄位"
 
 #: import.php:107
 #, php-format
@@ -3277,7 +3277,7 @@ msgstr ""
 msgid ""
 "A fixed-point number (M, D) - the maximum number of digits (M) is 65 "
 "(default 10), the maximum number of decimals (D) is 30 (default 0)"
-msgstr ""
+msgstr "定點數字 (M, D) - (M) 最大為 65 位數 (預設 10)，(D) 小數位數最大為 30 (預設 0)"
 
 #: libraries/Types.class.php:308
 msgid ""
@@ -3449,23 +3449,24 @@ msgstr ""
 msgid ""
 "An enumeration, chosen from the list of up to 65,535 values or the special "
 "'' error value"
-msgstr ""
+msgstr "列舉在清單中最多可有 65,535 個值，或這個特殊的錯誤值 ''"
 
 #: libraries/Types.class.php:356
 msgid "A single value chosen from a set of up to 64 members"
-msgstr ""
+msgstr "從一組最多 64 個成員中選擇一個值"
 
 #: libraries/Types.class.php:358
 msgid "A type that can store a geometry of any type"
-msgstr ""
+msgstr "類型可以存儲幾何的任何型態"
 
 #: libraries/Types.class.php:360
+#, fuzzy
 msgid "A point in 2-dimensional space"
-msgstr ""
+msgstr "2 維空間中的點"
 
 #: libraries/Types.class.php:362
 msgid "A curve with linear interpolation between points"
-msgstr ""
+msgstr "點與點之間的線性插值曲線"
 
 #: libraries/Types.class.php:364
 msgid "A polygon"
@@ -3473,24 +3474,24 @@ msgstr "一個多邊形"
 
 #: libraries/Types.class.php:366
 msgid "A collection of points"
-msgstr ""
+msgstr "一群點的集合"
 
 #: libraries/Types.class.php:368
 msgid "A collection of curves with linear interpolation between points"
-msgstr ""
+msgstr "點與點之間線性插值曲線的集合"
 
 #: libraries/Types.class.php:370
 msgid "A collection of polygons"
-msgstr ""
+msgstr "一個多邊形的集合"
 
 #: libraries/Types.class.php:372
 msgid "A collection of geometry objects of any type"
-msgstr ""
+msgstr "任何類型幾何物件的集合"
 
 #: libraries/Types.class.php:625 libraries/Types.class.php:975
 msgctxt "numeric types"
 msgid "Numeric"
-msgstr ""
+msgstr "數值"
 
 #: libraries/Types.class.php:644 libraries/Types.class.php:978
 msgctxt "date and time types"
@@ -3509,45 +3510,47 @@ msgstr "空間類型"
 
 #: libraries/Types.class.php:709
 msgid "A 4-byte integer, range is -2,147,483,648 to 2,147,483,647"
-msgstr ""
+msgstr "4 個位元組整數，範圍是 -2,147,483,648 到 2,147,483,647 之間"
 
 #: libraries/Types.class.php:711
 msgid ""
 "An 8-byte integer, range is -9,223,372,036,854,775,808 to "
 "9,223,372,036,854,775,807"
-msgstr ""
+msgstr "8 個位元組整數，範圍是 -9,223,372,036,854,775,808 到 9,223,372,036,854,775,807"
 
 #: libraries/Types.class.php:715
 msgid "A system's default double-precision floating-point number"
-msgstr ""
+msgstr "系統預設為雙精度浮點數"
 
 #: libraries/Types.class.php:717
 msgid "True or false"
-msgstr ""
+msgstr "True 或 false"
 
 #: libraries/Types.class.php:719
 msgid "An alias for BIGINT NOT NULL AUTO_INCREMENT UNIQUE"
-msgstr ""
+msgstr "為 BIGINT NOT NULL AUTO_INCREMENT UNIQUE 的別名"
 
 #: libraries/Types.class.php:721
 msgid "Stores a Universally Unique Identifier (UUID)"
-msgstr ""
+msgstr "存儲一個通用唯一識別碼 (UUID)"
 
 #: libraries/Types.class.php:727
 msgid ""
 "A timestamp, range is '0001-01-01 00:00:00' UTC to '9999-12-31 23:59:59' "
 "UTC; TIMESTAMP(6) can store microseconds"
 msgstr ""
+"時間戳記，範圍是 '0001-01-01 00:00:00' UTC 到 '9999-12-31 23:59:59' UTC；TIMESTAMP(6) "
+"可以存儲到微秒"
 
 #: libraries/Types.class.php:735
 msgid ""
 "A variable-length (0-65,535) string, uses binary collation for all "
 "comparisons"
-msgstr ""
+msgstr "可變長度 (0-65,535) 字串，一律使用二進位排序規則的比較"
 
 #: libraries/Types.class.php:739
 msgid "An enumeration, chosen from the list of defined values"
-msgstr ""
+msgstr "列舉，從清單中選擇一個值"
 
 #: libraries/Util.class.php:226
 #, php-format
@@ -3794,7 +3797,7 @@ msgstr "您應升級到 %s %s 或更高版本。"
 
 #: libraries/common.inc.php:1086
 msgid "Error: Token mismatch"
-msgstr ""
+msgstr "錯誤：字符不匹配"
 
 #: libraries/common.inc.php:1130
 msgid "GLOBALS overwrite attempt"
@@ -3835,11 +3838,11 @@ msgstr "右"
 
 #: libraries/config.values.php:70
 msgid "Click"
-msgstr ""
+msgstr "點擊"
 
 #: libraries/config.values.php:71
 msgid "Double click"
-msgstr ""
+msgstr "雙點擊"
 
 #: libraries/config.values.php:72 libraries/config.values.php:103
 #: libraries/config/FormDisplay.tpl.php:223 libraries/relation.lib.php:96
@@ -4076,10 +4079,12 @@ msgid ""
 "Use user-friendly editor for editing SQL queries ([a@http://codemirror."
 "net/]CodeMirror[/a]) with syntax highlighting and line numbers"
 msgstr ""
+"請用友善的編輯器 (具語法高亮顯示和行號功能) 來編輯 SQL 查詢 "
+"([a@http://codemirror.net/]CodeMirror[/a])"
 
 #: libraries/config/messages.inc.php:31
 msgid "Enable CodeMirror"
-msgstr ""
+msgstr "啟用 CodeMirror"
 
 #: libraries/config/messages.inc.php:32
 msgid ""
@@ -4182,7 +4187,7 @@ msgstr "預設資料表標籤"
 
 #: libraries/config/messages.inc.php:54
 msgid "Whether the table structure actions should be hidden"
-msgstr ""
+msgstr "是否應隱藏資料表結構操作"
 
 #: libraries/config/messages.inc.php:55
 msgid "Hide table structure actions"
@@ -4736,7 +4741,7 @@ msgstr "資料庫結構"
 
 #: libraries/config/messages.inc.php:223
 msgid "Choose which details to show in the database structure (list of tables)"
-msgstr ""
+msgstr "選擇那些細節要顯示在資料庫結構中 (資料表清單)"
 
 #: libraries/config/messages.inc.php:224
 msgid "Table structure"
@@ -4744,7 +4749,7 @@ msgstr "資料表結構"
 
 #: libraries/config/messages.inc.php:225
 msgid "Settings for the table structure (list of columns)"
-msgstr ""
+msgstr "設定資料表結構 (欄位清單)"
 
 #: libraries/config/messages.inc.php:226
 msgid "Tabs"
@@ -4973,7 +4978,7 @@ msgstr "在每頁的導覽數上可顯示的物件數"
 
 #: libraries/config/messages.inc.php:287
 msgid "Maximum items in branch"
-msgstr ""
+msgstr "分支的最大項目數"
 
 #: libraries/config/messages.inc.php:288
 msgid ""
@@ -5077,7 +5082,7 @@ msgstr "導覽樹中的群組項目 (以下面的樹形分隔符號來顯示)"
 
 #: libraries/config/messages.inc.php:310
 msgid "Group items in the tree"
-msgstr ""
+msgstr "樹狀的分組項目"
 
 #: libraries/config/messages.inc.php:311
 msgid "String that separates databases into different tree levels"
@@ -5186,7 +5191,7 @@ msgstr "如果偵測到 MySQL 函式庫和伺服器有所不同時禁用預設�
 
 #: libraries/config/messages.inc.php:335
 msgid "Server/library difference warning"
-msgstr ""
+msgstr "伺服器和函式庫不同的警告"
 
 #: libraries/config/messages.inc.php:336
 msgid ""
@@ -5196,7 +5201,7 @@ msgstr "如果資料表欄位是 MySQL 保留字時，在顯示結構頁面禁�
 
 #: libraries/config/messages.inc.php:337
 msgid "MySQL reserved word warning"
-msgstr ""
+msgstr "MYSQL 保留字警告"
 
 #: libraries/config/messages.inc.php:339
 msgid "Iconic table operations"
@@ -5281,11 +5286,11 @@ msgstr "重複表頭"
 
 #: libraries/config/messages.inc.php:360
 msgid "Grid editing: trigger action"
-msgstr ""
+msgstr "資料格編輯: 觸發動作"
 
 #: libraries/config/messages.inc.php:361
 msgid "Grid editing: save all edited cells at once"
-msgstr ""
+msgstr "資料格編輯: 立刻保存所有已編輯資料"
 
 #: libraries/config/messages.inc.php:362
 msgid "Directory where exports can be saved on server"
@@ -5761,7 +5766,7 @@ msgstr "顯示建立資料庫表單"
 
 #: libraries/config/messages.inc.php:460
 msgid "Show or hide a column displaying the Creation timestamp for all tables"
-msgstr ""
+msgstr "顯示或隱藏所有資料表欄位創建的時間戳記"
 
 #: libraries/config/messages.inc.php:461
 msgid "Show Creation timestamp"
@@ -5770,16 +5775,16 @@ msgstr "顯示建立時間戳記"
 #: libraries/config/messages.inc.php:462
 msgid ""
 "Show or hide a column displaying the Last update timestamp for all tables"
-msgstr ""
+msgstr "顯示或隱藏所有資料表欄位更新的時間戳記"
 
 #: libraries/config/messages.inc.php:463
 msgid "Show Last update timestamp"
-msgstr ""
+msgstr "顯示最後更新的時間戳記"
 
 #: libraries/config/messages.inc.php:464
 msgid ""
 "Show or hide a column displaying the Last check timestamp for all tables"
-msgstr ""
+msgstr "顯示或隱藏所有資料表欄位最後檢查的時間戳記"
 
 #: libraries/config/messages.inc.php:465
 msgid "Show Last check timestamp"
@@ -6189,11 +6194,11 @@ msgstr "使用設定檔案中定義的控制使用者連線失敗。"
 
 #: libraries/dbi/drizzle-wrappers.lib.php:387
 msgid "Can't seek in an unbuffered result set"
-msgstr ""
+msgstr "不能在無緩衝的結果集中尋找"
 
 #: libraries/dbi/drizzle-wrappers.lib.php:408
 msgid "Can't count rows in an unbuffered result set"
-msgstr ""
+msgstr "不能在無緩衝的結果集中計算筆數"
 
 #: libraries/display_change_password.lib.php:53
 #: libraries/replication_gui.lib.php:371
@@ -6404,11 +6409,11 @@ msgstr "編碼轉換："
 #: libraries/display_git_revision.lib.php:56
 #, php-format
 msgid "%1$s from %2$s branch"
-msgstr ""
+msgstr "從 %2$s 分支的 %1$s"
 
 #: libraries/display_git_revision.lib.php:58
 msgid "no branch"
-msgstr ""
+msgstr "沒有分支"
 
 #: libraries/display_git_revision.lib.php:64
 msgid "Git revision:"
@@ -6445,15 +6450,15 @@ msgstr "正在上傳您的匯入檔案…"
 #: libraries/display_import.lib.php:94
 #, php-format
 msgid "%s/sec."
-msgstr ""
+msgstr "%s/每秒"
 
 #: libraries/display_import.lib.php:101
 msgid "About %MIN min. %SEC sec. remaining."
-msgstr ""
+msgstr "約剩 %MIN 分 %SEC 秒。"
 
 #: libraries/display_import.lib.php:105
 msgid "About %SEC sec. remaining."
-msgstr ""
+msgstr "約剩 %SEC 秒。"
 
 #: libraries/display_import.lib.php:135
 msgid "The file is being processed, please be patient."
@@ -7241,7 +7246,7 @@ msgstr "未知"
 
 #: libraries/navigation/Navigation.class.php:61
 msgid "An error has occured while loading the navigation tree"
-msgstr ""
+msgstr "載入導航樹時出錯"
 
 #: libraries/navigation/NavigationHeader.class.php:178
 msgid "Home"
@@ -7263,7 +7268,7 @@ msgstr "重新整理導覽框架"
 #, php-format
 msgid "%s other result found"
 msgid_plural "%s other results found"
-msgstr[0] ""
+msgstr[0] "找到 %s 個其他結果"
 
 #: libraries/navigation/NavigationTree.class.php:1039
 msgid "filter databases by name"
@@ -7272,7 +7277,7 @@ msgstr "依資料庫名稱篩選"
 #: libraries/navigation/NavigationTree.class.php:1040
 #: libraries/navigation/NavigationTree.class.php:1073
 msgid "Clear Fast Filter"
-msgstr ""
+msgstr "清除快速篩選器"
 
 #: libraries/navigation/NavigationTree.class.php:1072
 msgid "filter items by name"
@@ -7282,27 +7287,27 @@ msgstr "依項目名稱篩選"
 #: libraries/navigation/NodeFactory.class.php:41
 #, php-format
 msgid "Invalid class name \"%1$s\", using default of \"Node\""
-msgstr ""
+msgstr "不正確的類別名稱 \"%1$s\"，使用預設的 \"Node\""
 
 #: libraries/navigation/NodeFactory.class.php:65
 #, php-format
 msgid "Could not include class \"%1$s\", file \"%2$s\" not found"
-msgstr ""
+msgstr "無法引用類別 \"%1$s\"，檔案 \"%2$s\" 找不到"
 
 #: libraries/navigation/Nodes/Node_Column_Container.class.php:26
 #: libraries/sql_query_form.lib.php:281
 msgid "Columns"
-msgstr "字段"
+msgstr "欄位"
 
 #: libraries/navigation/Nodes/Node_Column_Container.class.php:40
 msgctxt "Create new column"
 msgid "New"
-msgstr ""
+msgstr "新增"
 
 #: libraries/navigation/Nodes/Node_Event_Container.class.php:37
 msgctxt "Create new event"
 msgid "New"
-msgstr ""
+msgstr "新增"
 
 #: libraries/navigation/Nodes/Node_Function_Container.class.php:26
 #: libraries/plugins/export/ExportSql.class.php:475
@@ -7313,12 +7318,12 @@ msgstr "函數"
 #: libraries/navigation/Nodes/Node_Function_Container.class.php:37
 msgctxt "Create new function"
 msgid "New"
-msgstr ""
+msgstr "新增"
 
 #: libraries/navigation/Nodes/Node_Index_Container.class.php:39
 msgctxt "Create new index"
 msgid "New"
-msgstr ""
+msgstr "新增"
 
 #: libraries/navigation/Nodes/Node_Procedure_Container.class.php:26
 #: libraries/plugins/export/ExportSql.class.php:458
@@ -7330,17 +7335,17 @@ msgstr "Procedure"
 #: libraries/rte/rte_footer.lib.php:29
 msgctxt "Create new procedure"
 msgid "New"
-msgstr ""
+msgstr "新增"
 
 #: libraries/navigation/Nodes/Node_Table_Container.class.php:43
 msgctxt "Create new table"
 msgid "New"
-msgstr ""
+msgstr "新增"
 
 #: libraries/navigation/Nodes/Node_Trigger_Container.class.php:37
 msgctxt "Create new trigger"
 msgid "New"
-msgstr ""
+msgstr "新增"
 
 #: libraries/navigation/Nodes/Node_View_Container.class.php:26
 #: libraries/plugins/export/ExportXml.class.php:125
@@ -7350,7 +7355,7 @@ msgstr "視表"
 #: libraries/navigation/Nodes/Node_View_Container.class.php:37
 msgctxt "Create new view"
 msgid "New"
-msgstr ""
+msgstr "新增"
 
 #: libraries/operations.lib.php:75
 msgid "Rename database to:"
@@ -7410,7 +7415,7 @@ msgstr "更改表的排序，根據"
 
 #: libraries/operations.lib.php:628
 msgid "(singly)"
-msgstr "(逐一)"
+msgstr "(單一)"
 
 #: libraries/operations.lib.php:664
 msgid "Move table to (database<b>.</b>table):"
@@ -7557,7 +7562,7 @@ msgstr ""
 
 #: libraries/plugins/auth/AuthenticationConfig.class.php:142
 msgid "Retry to connect"
-msgstr ""
+msgstr "重試連接"
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:44
 msgid "Failed to use Blowfish from mcrypt!"
@@ -7572,7 +7577,7 @@ msgstr "登錄"
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:100
 msgid "Your session has expired. Please log in again."
-msgstr ""
+msgstr "您的連線已過期，請重新登錄。"
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:198
 #: libraries/plugins/auth/AuthenticationCookie.class.php:208
@@ -7885,7 +7890,7 @@ msgstr "資料建立選項"
 #: libraries/plugins/export/ExportSql.class.php:299
 #: libraries/plugins/export/ExportSql.class.php:1652
 msgid "Truncate table before insert"
-msgstr ""
+msgstr "資料表新增前先清除舊資料"
 
 #: libraries/plugins/export/ExportSql.class.php:305
 msgid "Instead of <code>INSERT</code> statements, use:"
@@ -8113,7 +8118,7 @@ msgstr "XML"
 #: libraries/plugins/import/ShapeRecord.class.php:58
 #, php-format
 msgid "Geometry type '%s' is not supported by MySQL."
-msgstr ""
+msgstr "MySQL 不支援幾何類型 '%s'。"
 
 #: libraries/plugins/transformations/abstract/AppendTransformationsPlugin.class.php:32
 msgid ""
@@ -10396,7 +10401,7 @@ msgstr "設定將從瀏覽器的本地儲存中匯入。"
 
 #: prefs_manage.php:261
 msgid "You have no saved settings!"
-msgstr "您沒有已儲存的設定！"
+msgstr "您尚未儲存設定！"
 
 #: prefs_manage.php:265 prefs_manage.php:318
 msgid "This feature is not supported by your web browser"
