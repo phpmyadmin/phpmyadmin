@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-06-20 08:22+0200\n"
-"PO-Revision-Date: 2013-06-20 08:19+0200\n"
+"PO-Revision-Date: 2013-06-20 08:33+0200\n"
 "Last-Translator: Dadan Setia <da2n_s@yahoo.co.id>\n"
-"Language-Team: Indonesian <http://l10n.cihar.com/projects/phpmyadmin/master/"
-"id/>\n"
+"Language-Team: Indonesian "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/id/>\n"
 "Language: id\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -3369,6 +3369,8 @@ msgid ""
 "A small floating-point number, allowable values are -3.402823466E+38 to "
 "-1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
 msgstr ""
+"small floating-point number, mengizinkan nilai dari -3.402823466E+38 sampai "
+"-1.175494351E-38, 0, dan 1.175494351E-38 sampai 3.402823466E+38"
 
 #: libraries/Types.class.php:310
 msgid ""
@@ -3376,39 +3378,48 @@ msgid ""
 "-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
 "2.2250738585072014E-308 to 1.7976931348623157E+308"
 msgstr ""
+"double-precision floating-point number, mengizinkan nilai antara "
+"-1.7976931348623157E+308 sampai -2.2250738585072014E-308, 0, dan "
+"2.2250738585072014E-308 sampai 1.7976931348623157E+308"
 
 #: libraries/Types.class.php:312
 msgid ""
 "Synonym for DOUBLE (exception: in REAL_AS_FLOAT SQL mode it is a synonym for "
 "FLOAT)"
 msgstr ""
+"Sinonim untuk DOUBLE (kecuali: dalam mode REAL_AS_FLOAT SQL adalah sinonim "
+"untuk FLOAT)"
 
 #: libraries/Types.class.php:314
 msgid ""
 "A bit-field type (M), storing M of bits per value (default is 1, maximum is "
 "64)"
 msgstr ""
+"Sebuah tipe bit-field (M), menyimpan M dari bit tiap nilai (standar adalah "
+"1, maksimum adalah  64)"
 
 #: libraries/Types.class.php:316
 msgid ""
 "A synonym for TINYINT(1), a value of zero is considered false, nonzero "
 "values are considered true"
 msgstr ""
+"Sinonim untuk TINYINT(1), nilai nol dianggal false, nilai selain nol "
+"dianggap true"
 
 #: libraries/Types.class.php:318
 msgid "An alias for BIGINT UNSIGNED NOT NULL AUTO_INCREMENT UNIQUE"
-msgstr ""
+msgstr "Sebuah alias untuk BIGINT UNSIGNED NOT NULL AUTO_INCREMENT UNIQUE"
 
 #: libraries/Types.class.php:320 libraries/Types.class.php:723
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create version %s of %s.%s"
 msgid "A date, supported range is %1$s to %2$s"
-msgstr "Buat versi %s dari %s.%s"
+msgstr "Sebuah Tanggal, Didukung pada kisaran %1$s sampai %2$s"
 
 #: libraries/Types.class.php:322 libraries/Types.class.php:725
 #, php-format
 msgid "A date and time combination, supported range is %1$s to %2$s"
-msgstr ""
+msgstr "Kombinasi tanggal dan waktu, didukung pada kisaran %1$s sampai %2$s"
 
 #: libraries/Types.class.php:324
 msgid ""
