@@ -334,7 +334,7 @@ function PMA_getSqlQueryAndCreateDbBeforeCopy()
             'SHOW VARIABLES LIKE "lower_case_table_names"', 0, 1
         );
         if ($lower_case_table_names === '1') {
-            $_REQUEST['newname'] = PMA_strtolower($_REQUEST['newname']);
+            $_REQUEST['newname'] = $GLOBALS['PMA_String']::strtolower($_REQUEST['newname']);
         }
     }
 
