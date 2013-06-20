@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-06-20 08:22+0200\n"
-"PO-Revision-Date: 2013-06-20 08:33+0200\n"
+"PO-Revision-Date: 2013-06-20 14:00+0200\n"
 "Last-Translator: Dadan Setia <da2n_s@yahoo.co.id>\n"
 "Language-Team: Indonesian "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/id/>\n"
@@ -3426,18 +3426,23 @@ msgid ""
 "A timestamp, range is 1970-01-01 00:00:01 UTC to 2038-01-09 03:14:07 UTC, "
 "stored as the number of seconds since the epoch (1970-01-01 00:00:00 UTC)"
 msgstr ""
+"timestamp, berkisar antara 1970-01-01 00:00:01 UTC sampai 2038-01-09 "
+"03:14:07 UTC, disimpan sebagai jumlah detik sejak awal waktu (1970-01-01 "
+"00:00:00 UTC)"
 
 #: libraries/Types.class.php:326 libraries/Types.class.php:729
-#, fuzzy, php-format
+#, php-format
 #| msgid "Error renaming table %1$s to %2$s"
 msgid "A time, range is %1$s to %2$s"
-msgstr "Galat sewaktu mengganti nama table %1$s menjadi %2$s"
+msgstr "Waktu, berkisar %1$s sampai %2$s"
 
 #: libraries/Types.class.php:328
 msgid ""
 "A year in four-digit (4, default) or two-digit (2) format, the allowable "
 "values are 70 (1970) to 69 (2069) or 1901 to 2155 and 0000"
 msgstr ""
+"Format tahun dalam 4-digit (4, standar) atau 2 digit (2), mengizinkan nilai "
+"dari 70 (1970) sampai 69 (2069) atau 1901 sampai 2155 dan 0000"
 
 #: libraries/Types.class.php:330
 msgid ""
@@ -3457,18 +3462,24 @@ msgid ""
 "A TEXT column with a maximum length of 255 (2^8 - 1) characters, stored with "
 "a one-byte prefix indicating the length of the value in bytes"
 msgstr ""
+"kolom TEXT dengan panjang maksimum karakter 255 (2^8 - 1), disimpan dengan "
+"awalan satu-byte menunjukkan panjang nilai dalam byte"
 
 #: libraries/Types.class.php:336 libraries/Types.class.php:733
 msgid ""
 "A TEXT column with a maximum length of 65,535 (2^16 - 1) characters, stored "
 "with a two-byte prefix indicating the length of the value in bytes"
 msgstr ""
+"Kolom TEXT dengan panjang maksimum karakter 65,535 (2^16 - 1), disimpan "
+"dengan awalan dua-byte menunjukan panjang nilai dalam byte"
 
 #: libraries/Types.class.php:338
 msgid ""
 "A TEXT column with a maximum length of 16,777,215 (2^24 - 1) characters, "
 "stored with a three-byte prefix indicating the length of the value in bytes"
 msgstr ""
+"Kolom TEXT dengan panjang maksimum karakter 16,777,215 (2^24 - 1), disimpan "
+"awalan tiga-byte menunjukan pajang nilai dalam byte"
 
 #: libraries/Types.class.php:340
 msgid ""
