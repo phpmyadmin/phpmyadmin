@@ -648,4 +648,56 @@ function PMA_getHtmlForOptionsList($values, $selected_values)
     }
     return $options;
 }
+
+/**
+ * Get HTML for the Bookmark form
+ *
+ * @param string   $db             the current database
+ * @param string   $goto           goto page url
+ * @param string   $bkm_sql_query  the query to be bookmarked
+ * @param string   $bkm_user       the user creating the bookmark
+ */
+function PMA_getHtmlForBookmark($db, $goto, $bkm_sql_query, $bkm_user)
+{
+    $html = '<form action="sql.php" method="post"'
+        . ' onsubmit="return ! emptyFormElements(this, \'bkm_fields[bkm_label]\');"'
+        . ' id="bookmarkQueryForm">';
+    $html .= PMA_generate_common_hidden_inputs();
+    $html .= '<input type="hidden" name="goto" value="' . $goto . '" />';
+    $html .= '<input type="hidden" name="bkm_fields[bkm_database]"'
+        . ' value="' . htmlspecialchars($db) . '" />';
+    $html .= '<input type="hidden" name="bkm_fields[bkm_user]"'
+        . ' value="' . $bkm_user . '" />';
+    $html .= '<input type="hidden" name="bkm_fields[bkm_sql_query]"' . ' value="'
+        . $bkm_sql_query
+        . '" />';
+    $html .= '<fieldset>';
+    $html .= '<legend>';
+    $html .= PMA_Util::getIcon(
+        'b_bookmark.png', __('Bookmark this SQL query'), true
+    );
+    $html .= '</legend>';
+    $html .= '<div class="formelement">';
+    $html .= '<label for="fields_label_">' . __('Label:') . '</label>';
+    $html .= '<input type="text" id="fields_label_"'
+        . ' name="bkm_fields[bkm_label]" value="" />';
+    $html .= '</div>';
+    $html .= '<div class="formelement">';
+    $html .= '<input type="checkbox" name="bkm_all_users"'
+        . ' id="bkm_all_users" value="true" />';
+    $html .= '<label for="bkm_all_users">'
+        . __('Let every user access this bookmark')
+        . '</label>';
+    $html .= '</div>';
+    $html .= '<div class="clearfloat"></div>';
+    $html .= '</fieldset>';
+    $html .= '<fieldset class="tblFooters">';
+    $html .= '<input type="hidden" name="store_bkm" value="1" />';
+    $html .= '<input type="submit"'
+        . ' value="' . __('Bookmark this SQL query') . '" />';
+    $html .= '</fieldset>';
+    $html .= '</form>';
+
+    return $html;
+}
 ?>
