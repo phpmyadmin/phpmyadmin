@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-06-12 09:39+0200\n"
+"POT-Creation-Date: 2013-06-20 08:22+0200\n"
 "PO-Revision-Date: 2013-02-13 18:54+0200\n"
 "Last-Translator: Andrey Prokopenko <aprk@ukr.net>\n"
 "Language-Team: Ukrainian <http://l10n.cihar.com/projects/phpmyadmin/master/"
@@ -48,7 +48,7 @@ msgid "Search:"
 msgstr "Шукати"
 
 #: browse_foreigners.php:186 gis_data_editor.php:396 js/messages.php:209
-#: libraries/DbSearch.class.php:455 libraries/DisplayResults.class.php:1657
+#: libraries/DbSearch.class.php:455 libraries/DisplayResults.class.php:1654
 #: libraries/TableSearch.class.php:1142 libraries/core.lib.php:556
 #: libraries/display_change_password.lib.php:94
 #: libraries/display_create_table.lib.php:61
@@ -74,24 +74,24 @@ msgstr "Шукати"
 #: libraries/server_privileges.lib.php:1479
 #: libraries/server_privileges.lib.php:1971
 #: libraries/server_privileges.lib.php:2563
-#: libraries/server_privileges.lib.php:3091
+#: libraries/server_privileges.lib.php:3090
 #: libraries/sql_query_form.lib.php:378 libraries/sql_query_form.lib.php:435
 #: libraries/sql_query_form.lib.php:500 libraries/structure.lib.php:1582
-#: libraries/tbl_columns_definition_form.inc.php:754 pmd_pdf.php:151
+#: libraries/tbl_columns_definition_form.inc.php:754 pmd_pdf.php:150
 #: prefs_manage.php:272 prefs_manage.php:322 server_replication.php:224
-#: server_replication.php:327 tbl_chart.php:251 tbl_tracking.php:521
-#: tbl_tracking.php:684 view_create.php:225 view_operations.php:99
+#: server_replication.php:327 tbl_chart.php:251 tbl_tracking.php:522
+#: tbl_tracking.php:685 view_create.php:225 view_operations.php:99
 msgid "Go"
 msgstr "Вперед"
 
 #: browse_foreigners.php:197 browse_foreigners.php:201
-#: libraries/Index.class.php:561 tbl_tracking.php:382
+#: libraries/Index.class.php:561 tbl_tracking.php:383
 msgid "Keyname"
 msgstr "Назва ключа"
 
 #: browse_foreigners.php:198 browse_foreigners.php:200
-#: libraries/server_collations.lib.php:40
-#: libraries/server_collations.lib.php:52 libraries/server_plugins.lib.php:133
+#: libraries/server_collations.lib.php:36
+#: libraries/server_collations.lib.php:48 libraries/server_plugins.lib.php:133
 #: server_engines.php:72 server_status_variables.php:234
 msgid "Description"
 msgstr "Опис"
@@ -110,7 +110,7 @@ msgstr ""
 "файл %s недоступний на сервері, будь ласка завітайте на www.phpmyadmin.net "
 "за додатковою інформацією."
 
-#: db_create.php:74
+#: db_create.php:60
 #, php-format
 msgid "Database %1$s has been created."
 msgstr "Базу даних %1$s створено."
@@ -140,7 +140,7 @@ msgstr "Коментарі таблиці"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1362
 #: libraries/schema/Pdf_Relation_Schema.class.php:1385
 #: libraries/tbl_columns_definition_form.inc.php:353 tbl_printview.php:130
-#: tbl_relation.php:380 tbl_tracking.php:324 tbl_tracking.php:386
+#: tbl_relation.php:380 tbl_tracking.php:325 tbl_tracking.php:387
 msgid "Column"
 msgstr "Стовпчик"
 
@@ -163,7 +163,7 @@ msgstr "Стовпчик"
 #: libraries/server_privileges.lib.php:1573 libraries/structure.lib.php:776
 #: libraries/structure.lib.php:1180
 #: libraries/tbl_columns_definition_form.inc.php:96 tbl_printview.php:131
-#: tbl_tracking.php:325 tbl_tracking.php:383
+#: tbl_tracking.php:326 tbl_tracking.php:384
 msgid "Type"
 msgstr "Тип"
 
@@ -180,7 +180,7 @@ msgstr "Тип"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1388
 #: libraries/structure.lib.php:1183
 #: libraries/tbl_columns_definition_form.inc.php:116 tbl_printview.php:132
-#: tbl_tracking.php:327 tbl_tracking.php:389
+#: tbl_tracking.php:328 tbl_tracking.php:390
 msgid "Null"
 msgstr "Нуль"
 
@@ -195,7 +195,7 @@ msgstr "Нуль"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1389
 #: libraries/structure.lib.php:210 libraries/structure.lib.php:1184
 #: libraries/tbl_columns_definition_form.inc.php:107 tbl_printview.php:133
-#: tbl_tracking.php:328
+#: tbl_tracking.php:329
 msgid "Default"
 msgstr "По замовчуванню"
 
@@ -237,9 +237,9 @@ msgstr "Коментарі"
 #: libraries/server_privileges.lib.php:2163
 #: libraries/server_privileges.lib.php:2483
 #: libraries/server_privileges.lib.php:2497 libraries/structure.lib.php:1268
-#: libraries/user_preferences.lib.php:282 prefs_manage.php:138 sql.php:329
-#: sql.php:424 sql.php:425 tbl_printview.php:186 tbl_tracking.php:345
-#: tbl_tracking.php:399 tbl_tracking.php:404
+#: libraries/user_preferences.lib.php:282 prefs_manage.php:138 sql.php:293
+#: tbl_printview.php:186 tbl_tracking.php:346 tbl_tracking.php:400
+#: tbl_tracking.php:405
 msgid "No"
 msgstr "Ні"
 
@@ -264,9 +264,9 @@ msgstr "Ні"
 #: libraries/server_privileges.lib.php:2480
 #: libraries/server_privileges.lib.php:2497 libraries/structure.lib.php:1268
 #: libraries/user_preferences.lib.php:280 prefs_manage.php:136
-#: server_databases.php:103 server_databases.php:110 sql.php:422 sql.php:423
-#: tbl_printview.php:187 tbl_structure.php:84 tbl_tracking.php:345
-#: tbl_tracking.php:397 tbl_tracking.php:402
+#: server_databases.php:103 server_databases.php:110 tbl_printview.php:187
+#: tbl_structure.php:84 tbl_tracking.php:346 tbl_tracking.php:398
+#: tbl_tracking.php:403
 msgid "Yes"
 msgstr "Так"
 
@@ -318,7 +318,7 @@ msgstr ""
 #: libraries/server_privileges.lib.php:1999
 #: libraries/server_privileges.lib.php:2230
 #: libraries/server_privileges.lib.php:2882 libraries/structure.lib.php:757
-#: tbl_tracking.php:763
+#: tbl_tracking.php:764
 msgid "Table"
 msgstr "Таблиця"
 
@@ -401,7 +401,7 @@ msgstr "Відслідковувані таблиці"
 #: libraries/server_privileges.lib.php:1989
 #: libraries/server_privileges.lib.php:2230
 #: libraries/server_privileges.lib.php:2873 server_databases.php:202
-#: server_status.php:379 tbl_tracking.php:762
+#: server_status.php:379 tbl_tracking.php:763
 msgid "Database"
 msgstr "База даних"
 
@@ -409,17 +409,17 @@ msgstr "База даних"
 msgid "Last version"
 msgstr "Остання версія"
 
-#: db_tracking.php:81 tbl_tracking.php:765
+#: db_tracking.php:81 tbl_tracking.php:766
 msgid "Created"
 msgstr "Створено"
 
-#: db_tracking.php:82 tbl_tracking.php:766
+#: db_tracking.php:82 tbl_tracking.php:767
 msgid "Updated"
 msgstr "Оновлено"
 
 #: db_tracking.php:83 js/messages.php:163 libraries/Menu.class.php:458
 #: libraries/rte/rte_events.lib.php:426 libraries/rte/rte_list.lib.php:78
-#: server_status.php:391 tbl_tracking.php:767
+#: server_status.php:391 tbl_tracking.php:768
 msgid "Status"
 msgstr "Стан"
 
@@ -432,7 +432,7 @@ msgstr "Стан"
 msgid "Action"
 msgstr "Дія"
 
-#: db_tracking.php:85 tbl_change.php:235 tbl_tracking.php:768
+#: db_tracking.php:85 tbl_change.php:235 tbl_tracking.php:769
 msgid "Show"
 msgstr "Показати"
 
@@ -441,7 +441,7 @@ msgid "Delete tracking data for this table"
 msgstr "Видалити дані відстеження для цієї таблиці"
 
 #: db_tracking.php:103 libraries/Index.class.php:625
-#: libraries/Util.class.php:3449 libraries/Util.class.php:3450
+#: libraries/Util.class.php:3451 libraries/Util.class.php:3452
 #: libraries/structure.lib.php:307 libraries/structure.lib.php:1378
 #: libraries/structure.lib.php:2050 libraries/structure.lib.php:2052
 #: server_databases.php:332
@@ -449,12 +449,12 @@ msgid "Drop"
 msgstr "Знищити"
 
 # активна
-#: db_tracking.php:120 tbl_tracking.php:723 tbl_tracking.php:777
+#: db_tracking.php:120 tbl_tracking.php:724 tbl_tracking.php:778
 msgid "active"
 msgstr "активний"
 
 # не активна
-#: db_tracking.php:122 tbl_tracking.php:725 tbl_tracking.php:779
+#: db_tracking.php:122 tbl_tracking.php:726 tbl_tracking.php:780
 msgid "not active"
 msgstr "не активний"
 
@@ -462,11 +462,11 @@ msgstr "не активний"
 msgid "Versions"
 msgstr "Версії"
 
-#: db_tracking.php:139 tbl_tracking.php:489 tbl_tracking.php:799
+#: db_tracking.php:139 tbl_tracking.php:490 tbl_tracking.php:800
 msgid "Tracking report"
 msgstr "Звіт трекінгу (відстеження)"
 
-#: db_tracking.php:140 tbl_tracking.php:292 tbl_tracking.php:804
+#: db_tracking.php:140 tbl_tracking.php:293 tbl_tracking.php:805
 msgid "Structure snapshot"
 msgstr "Знімок структури"
 
@@ -676,7 +676,7 @@ msgstr ""
 "Неможливо завантажити імпортовані плагіни, будь ласка перевірте ваше "
 "інсталювання!"
 
-#: import.php:519 sql.php:294 sql.php:1111
+#: import.php:519 sql.php:262 sql.php:942
 #, php-format
 msgid "Bookmark %s created"
 msgstr "Закладка %s створена"
@@ -703,7 +703,7 @@ msgstr ""
 "phpMyAdmin не зможе закінчити цей імпорт якщо Ви на збільшите час виконання "
 "PHP скриптів."
 
-#: import.php:590 libraries/DisplayResults.class.php:4531
+#: import.php:590 libraries/DisplayResults.class.php:4524
 #: libraries/Message.class.php:180 libraries/rte/rte_routines.lib.php:1427
 #: libraries/sql_query_form.lib.php:116 tbl_operations.php:184
 #: tbl_relation.php:250 tbl_row_action.php:122 view_operations.php:57
@@ -930,7 +930,7 @@ msgstr ""
 "Сервер, що працює з Suhosin. Щодо можливих проблем звертайтеся до "
 "%sdocumentation%s."
 
-#: js/messages.php:27 libraries/import.lib.php:118 sql.php:254
+#: js/messages.php:27 libraries/import.lib.php:118 sql.php:222
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "Оператори \"DROP DATABASE\" заборонені."
 
@@ -939,7 +939,7 @@ msgstr "Оператори \"DROP DATABASE\" заборонені."
 msgid "Do you really want to execute \"%s\"?"
 msgstr "Ви дійсно бажаєте виконати \"%s\"?"
 
-#: js/messages.php:31 libraries/mult_submits.inc.php:337 sql.php:376
+#: js/messages.php:31 libraries/mult_submits.inc.php:337
 msgid "You are about to DESTROY a complete database!"
 msgstr "Ви збираєтесь здійснити ЗНИЩЕННЯ БД!"
 
@@ -1023,8 +1023,8 @@ msgstr "Перезавантаження прав"
 msgid "Removing Selected Users"
 msgstr "Видалення відмічених користувачів"
 
-#: js/messages.php:58 js/messages.php:115 tbl_tracking.php:293
-#: tbl_tracking.php:490
+#: js/messages.php:58 js/messages.php:115 tbl_tracking.php:294
+#: tbl_tracking.php:491
 msgid "Close"
 msgstr "Закрити"
 
@@ -1151,13 +1151,13 @@ msgstr "Б"
 
 #. l10n: shortcuts for Kilobyte
 #: js/messages.php:100 libraries/Util.class.php:1463
-#: server_status_monitor.php:557
+#: libraries/server_status_monitor.lib.php:250
 msgid "KiB"
 msgstr "КБ"
 
 #. l10n: shortcuts for Megabyte
 #: js/messages.php:101 libraries/Util.class.php:1465
-#: server_status_monitor.php:558
+#: libraries/server_status_monitor.lib.php:251
 msgid "MiB"
 msgstr "МБ"
 
@@ -1196,7 +1196,7 @@ msgid "Traffic"
 msgstr "Трафік"
 
 #: js/messages.php:111 libraries/Menu.class.php:486
-#: server_status_monitor.php:677
+#: libraries/server_status_monitor.lib.php:290
 msgid "Settings"
 msgstr "Налаштування"
 
@@ -1216,13 +1216,14 @@ msgstr "Додати графік до сітки"
 msgid "Please add at least one variable to the series"
 msgstr "Будь ласка додайте щонайменше одну змінну до ряду"
 
-#: js/messages.php:117 libraries/DisplayResults.class.php:1288
+#: js/messages.php:117 libraries/DisplayResults.class.php:1285
 #: libraries/TableSearch.class.php:841 libraries/TableSearch.class.php:985
 #: libraries/display_export.lib.php:383
 #: libraries/plugins/export/ExportSql.class.php:1546
 #: libraries/server_privileges.lib.php:2132
+#: libraries/server_status_monitor.lib.php:269
 #: libraries/tbl_columns_definition_form.inc.php:687 pmd_general.php:559
-#: server_status.php:529 server_status_monitor.php:576
+#: server_status.php:529
 msgid "None"
 msgstr "Жодного"
 
@@ -1322,7 +1323,7 @@ msgstr "Змінити налаштування"
 msgid "Current settings"
 msgstr "Поточні налаштування"
 
-#: js/messages.php:142 server_status_monitor.php:517
+#: js/messages.php:142 libraries/server_status_monitor.lib.php:209
 msgid "Chart Title"
 msgstr "Заголовок діаграми"
 
@@ -1407,7 +1408,7 @@ msgstr "Тлумачити вихідні дані"
 #: libraries/plugins/export/ExportHtmlword.class.php:486
 #: libraries/plugins/export/ExportOdt.class.php:564
 #: libraries/plugins/export/ExportTexytext.class.php:437
-#: libraries/rte/rte_list.lib.php:68 libraries/sql.lib.php:505
+#: libraries/rte/rte_list.lib.php:68 libraries/sql.lib.php:457
 #: server_status.php:387
 msgid "Time"
 msgstr "Час"
@@ -1504,7 +1505,7 @@ msgstr ""
 #: js/messages.php:190 libraries/Menu.class.php:288
 #: libraries/Menu.class.php:371 libraries/Menu.class.php:482
 #: libraries/config/messages.inc.php:168 libraries/display_import.lib.php:187
-#: prefs_manage.php:238 server_status_monitor.php:742
+#: libraries/server_status_monitor.lib.php:355 prefs_manage.php:238
 #: setup/frames/menu.inc.php:21
 msgid "Import"
 msgstr "Імпорт"
@@ -1561,7 +1562,7 @@ msgid "Cancel"
 msgstr "Скасувати"
 
 #: js/messages.php:213 libraries/navigation/NavigationHeader.class.php:54
-#: server_status_monitor.php:477
+#: libraries/server_status_monitor.lib.php:159
 msgid "Loading"
 msgstr "Завантаження"
 
@@ -1710,10 +1711,10 @@ msgstr "Сховати блок запиту"
 msgid "Show query box"
 msgstr "Показати блок запиту"
 
-#: js/messages.php:264 libraries/DisplayResults.class.php:3314
+#: js/messages.php:264 libraries/DisplayResults.class.php:3311
 #: libraries/Index.class.php:591 libraries/Util.class.php:699
-#: libraries/Util.class.php:1246 libraries/Util.class.php:3453
-#: libraries/Util.class.php:3454 libraries/config/messages.inc.php:486
+#: libraries/Util.class.php:1246 libraries/Util.class.php:3455
+#: libraries/Util.class.php:3456 libraries/config/messages.inc.php:486
 #: libraries/schema/User_Schema.class.php:216 server_variables.php:130
 #: setup/frames/index.inc.php:147
 msgid "Edit"
@@ -1723,7 +1724,7 @@ msgstr "Редагувати"
 msgid "No rows selected"
 msgstr "Рядків не вибрано"
 
-#: js/messages.php:266 libraries/DisplayResults.class.php:5051
+#: js/messages.php:266 libraries/DisplayResults.class.php:5044
 #: libraries/structure.lib.php:1374 libraries/structure.lib.php:2048
 #: querywindow.php:85
 msgid "Change"
@@ -1807,7 +1808,7 @@ msgstr "Вміст точки даних"
 msgid "Ignore"
 msgstr "Ігнорувати"
 
-#: js/messages.php:299 libraries/DisplayResults.class.php:3317
+#: js/messages.php:299 libraries/DisplayResults.class.php:3314
 msgid "Copy"
 msgstr "Копіювати"
 
@@ -1823,7 +1824,7 @@ msgstr "Відрізок"
 msgid "Polygon"
 msgstr "Полігон"
 
-#: js/messages.php:306 libraries/DisplayResults.class.php:1641
+#: js/messages.php:306 libraries/DisplayResults.class.php:1638
 msgid "Geometry"
 msgstr "Геометрія"
 
@@ -2313,33 +2314,33 @@ msgstr "за годину"
 msgid "per day"
 msgstr "за день"
 
-#: libraries/Config.class.php:1115
+#: libraries/Config.class.php:1117
 #, php-format
 msgid "Existing configuration file (%s) is not readable."
 msgstr "Існуючий файл конфігурації (%s) не читабельний."
 
-#: libraries/Config.class.php:1145
+#: libraries/Config.class.php:1147
 msgid "Wrong permissions on configuration file, should not be world writable!"
 msgstr ""
 "Невірні права доступу до конфігураційного файлу, він не повинен бути "
 "доступним для всіх!"
 
-#: libraries/Config.class.php:1711
+#: libraries/Config.class.php:1713
 msgid "Font size"
 msgstr "Розмір шрифту"
 
-#: libraries/DBQbe.class.php:346 libraries/DisplayResults.class.php:1272
-#: libraries/DisplayResults.class.php:2007
-#: libraries/DisplayResults.class.php:2015 libraries/TableSearch.class.php:812
+#: libraries/DBQbe.class.php:346 libraries/DisplayResults.class.php:1269
+#: libraries/DisplayResults.class.php:2004
+#: libraries/DisplayResults.class.php:2012 libraries/TableSearch.class.php:812
 #: libraries/operations.lib.php:632 libraries/structure.lib.php:860
 #: libraries/structure.lib.php:877 server_databases.php:203
 #: server_databases.php:220 server_status.php:477
 msgid "Ascending"
 msgstr "Зростаючий"
 
-#: libraries/DBQbe.class.php:349 libraries/DisplayResults.class.php:1284
-#: libraries/DisplayResults.class.php:2002
-#: libraries/DisplayResults.class.php:2020 libraries/TableSearch.class.php:813
+#: libraries/DBQbe.class.php:349 libraries/DisplayResults.class.php:1281
+#: libraries/DisplayResults.class.php:1999
+#: libraries/DisplayResults.class.php:2017 libraries/TableSearch.class.php:813
 #: libraries/operations.lib.php:635 libraries/structure.lib.php:865
 #: libraries/structure.lib.php:882 server_databases.php:203
 #: server_databases.php:220 server_status.php:474
@@ -2358,7 +2359,7 @@ msgstr "Стовпчик"
 msgid "Sort:"
 msgstr "Посортувати"
 
-#: libraries/DBQbe.class.php:468 libraries/DisplayResults.class.php:903
+#: libraries/DBQbe.class.php:468
 #, fuzzy
 #| msgid "Show"
 msgid "Show:"
@@ -2485,8 +2486,8 @@ msgstr[1] "%1$s співпадіння у <strong>%2$s</strong>"
 msgstr[2] "%1$s співпадінь у <strong>%2$s</strong>"
 
 #: libraries/DbSearch.class.php:346 libraries/Menu.class.php:250
-#: libraries/Util.class.php:3229 libraries/Util.class.php:3442
-#: libraries/Util.class.php:3443 libraries/structure.lib.php:1368
+#: libraries/Util.class.php:3229 libraries/Util.class.php:3444
+#: libraries/Util.class.php:3445 libraries/structure.lib.php:1368
 msgid "Browse"
 msgstr "Переглянути"
 
@@ -2495,14 +2496,14 @@ msgstr "Переглянути"
 msgid "Delete the matches for the %s table?"
 msgstr "Видалити співпадіння для таблиці  %s ?"
 
-#: libraries/DbSearch.class.php:357 libraries/DisplayResults.class.php:3386
-#: libraries/DisplayResults.class.php:5027
+#: libraries/DbSearch.class.php:357 libraries/DisplayResults.class.php:3383
+#: libraries/DisplayResults.class.php:5020
 #: libraries/schema/User_Schema.class.php:217
 #: libraries/schema/User_Schema.class.php:299
 #: libraries/schema/User_Schema.class.php:352
 #: libraries/sql_query_form.lib.php:428 pmd_general.php:472
 #: setup/frames/index.inc.php:148 setup/frames/index.inc.php:254
-#: tbl_tracking.php:538 tbl_tracking.php:558 tbl_tracking.php:620
+#: tbl_tracking.php:539 tbl_tracking.php:559 tbl_tracking.php:621
 msgid "Delete"
 msgstr "Видалити"
 
@@ -2564,45 +2565,34 @@ msgctxt "Last page"
 msgid "End"
 msgstr "Кінець"
 
-#: libraries/DisplayResults.class.php:904 tbl_chart.php:241
-#, fuzzy
-#| msgid "Start row"
-msgid "Start row:"
-msgstr "Початковий рядок"
-
-#: libraries/DisplayResults.class.php:908 libraries/display_export.lib.php:175
+#: libraries/DisplayResults.class.php:904 libraries/display_export.lib.php:175
 #: tbl_chart.php:245
 msgid "Number of rows:"
 msgstr "Число рядків:"
 
-#: libraries/DisplayResults.class.php:917
+#: libraries/DisplayResults.class.php:921
 #, fuzzy
 #| msgid "Mode"
 msgid "Mode:"
 msgstr "Режим"
 
-#: libraries/DisplayResults.class.php:919
+#: libraries/DisplayResults.class.php:923
 msgid "horizontal"
 msgstr "горизонтальному"
 
-#: libraries/DisplayResults.class.php:920
+#: libraries/DisplayResults.class.php:924
 msgid "horizontal (rotated headers)"
 msgstr "горизонтальному (повернуті заголовки)"
 
-#: libraries/DisplayResults.class.php:921
+#: libraries/DisplayResults.class.php:925
 msgid "vertical"
 msgstr "вертикальному"
 
-#: libraries/DisplayResults.class.php:933
-#, php-format
-msgid "Headers every %s rows"
-msgstr "Заголовки кожні %s рядків"
-
-#: libraries/DisplayResults.class.php:1230
+#: libraries/DisplayResults.class.php:1227
 msgid "Sort by key"
 msgstr "Сортувати за ключем"
 
-#: libraries/DisplayResults.class.php:1578 libraries/TableSearch.class.php:754
+#: libraries/DisplayResults.class.php:1575 libraries/TableSearch.class.php:754
 #: libraries/import.lib.php:1195 libraries/import.lib.php:1221
 #: libraries/plugins/export/ExportCodegen.class.php:90
 #: libraries/plugins/export/ExportCsv.class.php:79
@@ -2629,68 +2619,68 @@ msgstr "Сортувати за ключем"
 msgid "Options"
 msgstr "Параметри"
 
-#: libraries/DisplayResults.class.php:1584
-#: libraries/DisplayResults.class.php:1690
+#: libraries/DisplayResults.class.php:1581
+#: libraries/DisplayResults.class.php:1687
 msgid "Partial texts"
 msgstr "Часткові тексти"
 
-#: libraries/DisplayResults.class.php:1585
-#: libraries/DisplayResults.class.php:1694
+#: libraries/DisplayResults.class.php:1582
+#: libraries/DisplayResults.class.php:1691
 msgid "Full texts"
 msgstr "Повні тексти"
 
-#: libraries/DisplayResults.class.php:1599
+#: libraries/DisplayResults.class.php:1596
 msgid "Relational key"
 msgstr "Ключ відношення"
 
-#: libraries/DisplayResults.class.php:1600
+#: libraries/DisplayResults.class.php:1597
 msgid "Relational display column"
 msgstr "Стовпчик відображення зв'язків"
 
-#: libraries/DisplayResults.class.php:1612
+#: libraries/DisplayResults.class.php:1609
 msgid "Show binary contents"
 msgstr "Показати двійковий вміст"
 
-#: libraries/DisplayResults.class.php:1617
+#: libraries/DisplayResults.class.php:1614
 msgid "Show BLOB contents"
 msgstr "Показати вміст BLOB-ОБ'ЄКТІВ"
 
-#: libraries/DisplayResults.class.php:1622
+#: libraries/DisplayResults.class.php:1619
 #: libraries/config/messages.inc.php:57
 msgid "Show binary contents as HEX"
 msgstr "Показувати двійковий вміст як HEX"
 
-#: libraries/DisplayResults.class.php:1633
+#: libraries/DisplayResults.class.php:1630
 msgid "Hide browser transformation"
 msgstr "Сховати перетворення"
 
-#: libraries/DisplayResults.class.php:1642
+#: libraries/DisplayResults.class.php:1639
 msgid "Well Known Text"
 msgstr "Формат WKT (well known text)"
 
-#: libraries/DisplayResults.class.php:1643
+#: libraries/DisplayResults.class.php:1640
 msgid "Well Known Binary"
 msgstr "Формат WKB (well known binary)"
 
-#: libraries/DisplayResults.class.php:3359
-#: libraries/DisplayResults.class.php:3375
+#: libraries/DisplayResults.class.php:3356
+#: libraries/DisplayResults.class.php:3372
 msgid "The row has been deleted"
 msgstr "Рядок видалено"
 
-#: libraries/DisplayResults.class.php:3413
-#: libraries/DisplayResults.class.php:5027 server_status.php:524
+#: libraries/DisplayResults.class.php:3410
+#: libraries/DisplayResults.class.php:5020 server_status.php:524
 msgid "Kill"
 msgstr "Вбити"
 
-#: libraries/DisplayResults.class.php:4477 libraries/structure.lib.php:771
+#: libraries/DisplayResults.class.php:4470 libraries/structure.lib.php:771
 msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]"
 msgstr "Може бути приблизним. Дивіться [doc@faq3-11]FAQ 3.11 [/doc]"
 
-#: libraries/DisplayResults.class.php:4873
+#: libraries/DisplayResults.class.php:4866
 msgid "in query"
 msgstr "по запиту"
 
-#: libraries/DisplayResults.class.php:4910 libraries/structure.lib.php:653
+#: libraries/DisplayResults.class.php:4903 libraries/structure.lib.php:653
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to %sdocumentation"
@@ -2699,21 +2689,21 @@ msgstr ""
 "Подання має щонайменше цю кількість рядків. Будь-ласка звернітся до "
 "%sдокументації%s."
 
-#: libraries/DisplayResults.class.php:4923
+#: libraries/DisplayResults.class.php:4916
 msgid "Showing rows"
 msgstr "Показано записи"
 
-#: libraries/DisplayResults.class.php:4939
+#: libraries/DisplayResults.class.php:4932
 msgid "total"
 msgstr "всього"
 
-#: libraries/DisplayResults.class.php:4950 sql.php:855
+#: libraries/DisplayResults.class.php:4943 sql.php:686
 #, php-format
 msgid "Query took %01.4f sec"
 msgstr "Запит виконувався %01.4f сек"
 
-#: libraries/DisplayResults.class.php:5041
-#: libraries/DisplayResults.class.php:5047 libraries/mult_submits.inc.php:43
+#: libraries/DisplayResults.class.php:5034
+#: libraries/DisplayResults.class.php:5040 libraries/mult_submits.inc.php:43
 #: libraries/server_privileges.lib.php:2420
 #: libraries/server_privileges.lib.php:2424 libraries/structure.lib.php:278
 #: libraries/structure.lib.php:293 libraries/structure.lib.php:295
@@ -2722,8 +2712,8 @@ msgstr "Запит виконувався %01.4f сек"
 msgid "With selected:"
 msgstr "З відміченими:"
 
-#: libraries/DisplayResults.class.php:5045
-#: libraries/DisplayResults.class.php:5046
+#: libraries/DisplayResults.class.php:5038
+#: libraries/DisplayResults.class.php:5039
 #: libraries/server_privileges.lib.php:778
 #: libraries/server_privileges.lib.php:779
 #: libraries/server_privileges.lib.php:2422
@@ -2734,45 +2724,45 @@ msgstr "З відміченими:"
 msgid "Check All"
 msgstr "Відмітити все"
 
-#: libraries/DisplayResults.class.php:5064
-#: libraries/DisplayResults.class.php:5334 libraries/Menu.class.php:279
+#: libraries/DisplayResults.class.php:5057
+#: libraries/DisplayResults.class.php:5327 libraries/Menu.class.php:279
 #: libraries/Menu.class.php:362 libraries/Menu.class.php:478
-#: libraries/Util.class.php:3455 libraries/Util.class.php:3456
+#: libraries/Util.class.php:3457 libraries/Util.class.php:3458
 #: libraries/config/messages.inc.php:162 libraries/display_export.lib.php:98
 #: libraries/server_privileges.lib.php:1791
-#: libraries/server_privileges.lib.php:2428 libraries/structure.lib.php:297
-#: prefs_manage.php:295 server_status_monitor.php:746
-#: setup/frames/menu.inc.php:22
+#: libraries/server_privileges.lib.php:2428
+#: libraries/server_status_monitor.lib.php:359 libraries/structure.lib.php:297
+#: prefs_manage.php:295 setup/frames/menu.inc.php:22
 msgid "Export"
 msgstr "Експорт"
 
-#: libraries/DisplayResults.class.php:5166 view_create.php:152
+#: libraries/DisplayResults.class.php:5159 view_create.php:152
 msgid "Create view"
 msgstr "Створити подання"
 
-#: libraries/DisplayResults.class.php:5222
+#: libraries/DisplayResults.class.php:5215
 msgid "Query results operations"
 msgstr "Операції з результатами запиту"
 
-#: libraries/DisplayResults.class.php:5258 libraries/Header.class.php:334
+#: libraries/DisplayResults.class.php:5251 libraries/Header.class.php:334
 #: libraries/structure.lib.php:299 libraries/structure.lib.php:362
 #: libraries/structure.lib.php:1481
 msgid "Print view"
 msgstr "Версія для друку"
 
-#: libraries/DisplayResults.class.php:5276
+#: libraries/DisplayResults.class.php:5269
 msgid "Print view (with full texts)"
 msgstr "Подання для друку (з повними текстами)"
 
-#: libraries/DisplayResults.class.php:5347 tbl_chart.php:151
+#: libraries/DisplayResults.class.php:5340 tbl_chart.php:151
 msgid "Display chart"
 msgstr "Відобразити діаграму"
 
-#: libraries/DisplayResults.class.php:5372
+#: libraries/DisplayResults.class.php:5365
 msgid "Visualize GIS data"
 msgstr "Візуалізація даних ГІС"
 
-#: libraries/DisplayResults.class.php:5586
+#: libraries/DisplayResults.class.php:5579
 msgid "Link not found"
 msgstr "Посилання не знайдено"
 
@@ -2849,38 +2839,38 @@ msgstr "Індекс не визначено!"
 #: libraries/Index.class.php:536 libraries/Index.class.php:549
 #: libraries/build_html_for_db.lib.php:41 libraries/index.lib.php:23
 #: libraries/navigation/Nodes/Node_Index_Container.class.php:26
-#: tbl_tracking.php:378
+#: tbl_tracking.php:379
 msgid "Indexes"
 msgstr "Індекси"
 
 #: libraries/Index.class.php:563 libraries/structure.lib.php:1387
 #: libraries/structure.lib.php:2058 libraries/structure.lib.php:2068
-#: libraries/tbl_columns_definition_form.inc.php:569 tbl_tracking.php:384
+#: libraries/tbl_columns_definition_form.inc.php:569 tbl_tracking.php:385
 msgid "Unique"
 msgstr "Унікальне"
 
-#: libraries/Index.class.php:564 tbl_tracking.php:385
+#: libraries/Index.class.php:564 tbl_tracking.php:386
 msgid "Packed"
 msgstr "Запакований"
 
-#: libraries/Index.class.php:566 tbl_tracking.php:387
+#: libraries/Index.class.php:566 tbl_tracking.php:388
 msgid "Cardinality"
 msgstr "Кількість елементів"
 
 #: libraries/Index.class.php:567 libraries/TableSearch.class.php:185
 #: libraries/build_html_for_db.lib.php:20 libraries/mysql_charsets.lib.php:34
 #: libraries/operations.lib.php:240 libraries/operations.lib.php:809
-#: libraries/server_collations.lib.php:39
-#: libraries/server_collations.lib.php:51 libraries/structure.lib.php:780
+#: libraries/server_collations.lib.php:35
+#: libraries/server_collations.lib.php:47 libraries/structure.lib.php:780
 #: libraries/structure.lib.php:1181 libraries/structure.lib.php:1701
-#: libraries/tbl_columns_definition_form.inc.php:114 tbl_tracking.php:326
-#: tbl_tracking.php:388
+#: libraries/tbl_columns_definition_form.inc.php:114 tbl_tracking.php:327
+#: tbl_tracking.php:389
 msgid "Collation"
 msgstr "Порівняння"
 
 #: libraries/Index.class.php:570 libraries/rte/rte_events.lib.php:529
-#: libraries/rte/rte_routines.lib.php:1068 tbl_tracking.php:330
-#: tbl_tracking.php:390
+#: libraries/rte/rte_routines.lib.php:1068 tbl_tracking.php:331
+#: tbl_tracking.php:391
 msgid "Comment"
 msgstr "Коментар"
 
@@ -2915,14 +2905,14 @@ msgstr "Подання"
 
 #: libraries/Menu.class.php:256 libraries/Menu.class.php:340
 #: libraries/Util.class.php:3225 libraries/Util.class.php:3232
-#: libraries/Util.class.php:3448 libraries/config/setup.forms.php:298
+#: libraries/Util.class.php:3450 libraries/config/setup.forms.php:298
 #: libraries/config/setup.forms.php:335 libraries/config/setup.forms.php:361
 #: libraries/config/user_preferences.forms.php:195
 #: libraries/config/user_preferences.forms.php:232
 #: libraries/config/user_preferences.forms.php:258
 #: libraries/import.lib.php:1221 libraries/server_privileges.lib.php:749
 #: libraries/tbl_columns_definition_form.inc.php:771 pmd_general.php:188
-#: tbl_tracking.php:320
+#: tbl_tracking.php:321
 msgid "Structure"
 msgstr "Структура"
 
@@ -2935,12 +2925,12 @@ msgstr "SQL"
 
 #: libraries/Menu.class.php:263 libraries/Menu.class.php:348
 #: libraries/Util.class.php:3227 libraries/Util.class.php:3234
-#: libraries/Util.class.php:3444 libraries/Util.class.php:3445
+#: libraries/Util.class.php:3446 libraries/Util.class.php:3447
 msgid "Search"
 msgstr "Шукати"
 
 #: libraries/Menu.class.php:273 libraries/Util.class.php:3228
-#: libraries/Util.class.php:3446 libraries/Util.class.php:3447
+#: libraries/Util.class.php:3448 libraries/Util.class.php:3449
 #: libraries/sql_query_form.lib.php:301 libraries/sql_query_form.lib.php:304
 msgid "Insert"
 msgstr "Вставити"
@@ -3070,15 +3060,15 @@ msgstr[2] "%1$d рядків вставлено."
 msgid "Error while creating PDF:"
 msgstr "Помилка при створенні PDF:"
 
-#: libraries/RecentTable.class.php:114
+#: libraries/RecentTable.class.php:117
 msgid "Could not save recent table"
 msgstr "Неможливо зберегти останню таблицю"
 
-#: libraries/RecentTable.class.php:151
+#: libraries/RecentTable.class.php:154
 msgid "Recent tables"
 msgstr "Нещодавні таблиці"
 
-#: libraries/RecentTable.class.php:163
+#: libraries/RecentTable.class.php:166
 msgid "There are no recent tables"
 msgstr "Нещодавніх таблиць немає"
 
@@ -3322,7 +3312,7 @@ msgid "Maximum rows to plot"
 msgstr "Максимальна кількість рядків для побудови графіку"
 
 #: libraries/TableSearch.class.php:888 libraries/TableSearch.class.php:1160
-#: libraries/sql.lib.php:415 tbl_change.php:230
+#: libraries/sql.lib.php:367 tbl_change.php:230
 msgid "Browse foreign values"
 msgstr "Огляд зовнішніх значень"
 
@@ -3676,7 +3666,7 @@ msgstr ""
 msgid "Max: %s%s"
 msgstr "Максимум: %s%s"
 
-#: libraries/Util.class.php:674 libraries/sql.lib.php:465
+#: libraries/Util.class.php:674 libraries/sql.lib.php:417
 #, fuzzy
 #| msgid "SQL query"
 msgid "SQL query:"
@@ -3737,7 +3727,7 @@ msgctxt "Inline edit query"
 msgid "Inline"
 msgstr "в рядок"
 
-#: libraries/Util.class.php:1434 libraries/sql.lib.php:493
+#: libraries/Util.class.php:1434 libraries/sql.lib.php:445
 msgid "Profiling"
 msgstr "Профілювання"
 
@@ -3776,49 +3766,49 @@ msgstr "На функціональність %s впливає відома п�
 msgid "Click to toggle"
 msgstr "Клікніть, щоб змінити"
 
-#: libraries/Util.class.php:3361 libraries/sql_query_form.lib.php:470
+#: libraries/Util.class.php:3363 libraries/sql_query_form.lib.php:470
 #: prefs_manage.php:248
 msgid "Browse your computer:"
 msgstr "Переглянути Ваш комп'ютер:"
 
-#: libraries/Util.class.php:3386
+#: libraries/Util.class.php:3388
 #, php-format
 msgid "Select from the web server upload directory <b>%s</b>:"
 msgstr "Виберіть з каталога веб-сервера для відвантаження файлів <b>%s</b>:"
 
-#: libraries/Util.class.php:3415 libraries/insert_edit.lib.php:1183
+#: libraries/Util.class.php:3417 libraries/insert_edit.lib.php:1183
 #: libraries/sql_query_form.lib.php:479
 msgid "The directory you set for upload work cannot be reached"
 msgstr "Встановлений Вами каталог для завантаження файлів недоступний"
 
-#: libraries/Util.class.php:3426
+#: libraries/Util.class.php:3428
 msgid "There are no files to upload"
 msgstr "Немає файлів для відвантаження"
 
-#: libraries/Util.class.php:3451 libraries/Util.class.php:3452
+#: libraries/Util.class.php:3453 libraries/Util.class.php:3454
 #: libraries/structure.lib.php:305
 msgid "Empty"
 msgstr "Очистити"
 
-#: libraries/Util.class.php:3457 libraries/Util.class.php:3458
+#: libraries/Util.class.php:3459 libraries/Util.class.php:3460
 msgid "Execute"
 msgstr "Виконати"
 
-#: libraries/Util.class.php:3985
+#: libraries/Util.class.php:3987
 msgid "Print"
 msgstr "Друк"
 
-#: libraries/Util.class.php:4086 libraries/structure.lib.php:798
+#: libraries/Util.class.php:4088 libraries/structure.lib.php:798
 #: libraries/structure.lib.php:1754 tbl_printview.php:410
 msgid "Creation"
 msgstr "Створення"
 
-#: libraries/Util.class.php:4092 libraries/structure.lib.php:805
+#: libraries/Util.class.php:4094 libraries/structure.lib.php:805
 #: libraries/structure.lib.php:1762 tbl_printview.php:421
 msgid "Last update"
 msgstr "Останнє оновлення"
 
-#: libraries/Util.class.php:4098 libraries/structure.lib.php:812
+#: libraries/Util.class.php:4100 libraries/structure.lib.php:812
 #: libraries/structure.lib.php:1770 tbl_printview.php:432
 msgid "Last check"
 msgstr "Остання перевірка"
@@ -3938,58 +3928,58 @@ msgstr "можливе використання"
 msgid "numeric key detected"
 msgstr "виявлено цифровий ключ"
 
-#: libraries/config.values.php:49 libraries/config.values.php:64
+#: libraries/config.values.php:49 libraries/config.values.php:65
 #, fuzzy
 #| msgid "Ins"
 msgid "Icons"
 msgstr "Вставити"
 
-#: libraries/config.values.php:50 libraries/config.values.php:65
+#: libraries/config.values.php:50 libraries/config.values.php:66
 #, fuzzy
 #| msgid "Test"
 msgid "Text"
 msgstr "Тест"
 
-#: libraries/config.values.php:51 libraries/config.values.php:58
-#: libraries/config.values.php:66
+#: libraries/config.values.php:51 libraries/config.values.php:59
+#: libraries/config.values.php:67
 msgid "Both"
 msgstr "Обидва"
 
-#: libraries/config.values.php:55
+#: libraries/config.values.php:56
 msgid "Nowhere"
 msgstr "Ніде"
 
-#: libraries/config.values.php:56
+#: libraries/config.values.php:57
 msgid "Left"
 msgstr "Лівий"
 
-#: libraries/config.values.php:57
+#: libraries/config.values.php:58
 msgid "Right"
 msgstr "Правий"
 
-#: libraries/config.values.php:69
+#: libraries/config.values.php:70
 msgid "Click"
 msgstr ""
 
-#: libraries/config.values.php:70
+#: libraries/config.values.php:71
 msgid "Double click"
 msgstr ""
 
-#: libraries/config.values.php:71 libraries/config.values.php:102
+#: libraries/config.values.php:72 libraries/config.values.php:103
 #: libraries/config/FormDisplay.tpl.php:223 libraries/relation.lib.php:96
 #: libraries/relation.lib.php:103
 msgid "Disabled"
 msgstr "заблоковано"
 
-#: libraries/config.values.php:100
+#: libraries/config.values.php:101
 msgid "Open"
 msgstr "Відкрити"
 
-#: libraries/config.values.php:101
+#: libraries/config.values.php:102
 msgid "Closed"
 msgstr "Закрито"
 
-#: libraries/config.values.php:131
+#: libraries/config.values.php:132
 #: libraries/plugins/export/ExportHtmlword.class.php:69
 #: libraries/plugins/export/ExportLatex.class.php:103
 #: libraries/plugins/export/ExportMediawiki.class.php:73
@@ -3999,7 +3989,7 @@ msgstr "Закрито"
 msgid "structure"
 msgstr "структура"
 
-#: libraries/config.values.php:132
+#: libraries/config.values.php:133
 #: libraries/plugins/export/ExportHtmlword.class.php:70
 #: libraries/plugins/export/ExportLatex.class.php:104
 #: libraries/plugins/export/ExportMediawiki.class.php:74
@@ -4009,7 +3999,7 @@ msgstr "структура"
 msgid "data"
 msgstr "дані"
 
-#: libraries/config.values.php:133
+#: libraries/config.values.php:134
 #: libraries/plugins/export/ExportHtmlword.class.php:71
 #: libraries/plugins/export/ExportLatex.class.php:105
 #: libraries/plugins/export/ExportMediawiki.class.php:75
@@ -4019,31 +4009,31 @@ msgstr "дані"
 msgid "structure and data"
 msgstr "структура і дані"
 
-#: libraries/config.values.php:136
+#: libraries/config.values.php:137
 msgid "Quick - display only the minimal options to configure"
 msgstr "Швидко - відображати лише мінімальну кількість параметрів налаштування"
 
-#: libraries/config.values.php:137
+#: libraries/config.values.php:138
 msgid "Custom - display all possible options to configure"
 msgstr "Особливий - відобразити всі можливі параметри налаштування"
 
-#: libraries/config.values.php:138
+#: libraries/config.values.php:139
 msgid "Custom - like above, but without the quick/custom choice"
 msgstr "Кастомний - як попередній але без варіантів швидко/кастомно"
 
-#: libraries/config.values.php:166
+#: libraries/config.values.php:167
 msgid "complete inserts"
 msgstr "повні вставки"
 
-#: libraries/config.values.php:167
+#: libraries/config.values.php:168
 msgid "extended inserts"
 msgstr "розширені вставки"
 
-#: libraries/config.values.php:168
+#: libraries/config.values.php:169
 msgid "both of the above"
 msgstr "обидва попередні"
 
-#: libraries/config.values.php:169
+#: libraries/config.values.php:170
 msgid "neither of the above"
 msgstr "жоден з попередніх"
 
@@ -6203,8 +6193,8 @@ msgstr ""
 "При наявності виділеного імені користувача, пропишіть його тут (по "
 "замовчуванню використовується [kbd]anonymous[/kbd])"
 
-#: libraries/config/messages.inc.php:496 tbl_tracking.php:556
-#: tbl_tracking.php:618
+#: libraries/config/messages.inc.php:496 tbl_tracking.php:557
+#: tbl_tracking.php:619
 msgid "Username"
 msgstr "Ім'я користувача"
 
@@ -6632,7 +6622,7 @@ msgstr "База(и) даних:"
 msgid "Table(s):"
 msgstr "Таблиця(ь):"
 
-#: libraries/display_export.lib.php:164 libraries/sql.lib.php:469
+#: libraries/display_export.lib.php:164 libraries/sql.lib.php:421
 msgid "Rows:"
 msgstr "Рядки:"
 
@@ -7262,7 +7252,7 @@ msgid "No data found for GIS visualization."
 msgstr "Дані для візуалізації GIS не знайдені."
 
 #: libraries/import.lib.php:187 libraries/insert_edit.lib.php:122
-#: libraries/rte/rte_routines.lib.php:1446 sql.php:850 tbl_get_field.php:55
+#: libraries/rte/rte_routines.lib.php:1446 sql.php:681 tbl_get_field.php:55
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL повернула пустий результат (тобто нуль рядків)."
 
@@ -7383,11 +7373,11 @@ msgstr ""
 "Для переходу від значення до значення використовуйте TAB, або CTRL+стрілки - "
 "для переміщення куди завгодно"
 
-#: libraries/insert_edit.lib.php:1914 sql.php:845
+#: libraries/insert_edit.lib.php:1914 sql.php:676
 msgid "Showing SQL query"
 msgstr "Показ SQL-запиту"
 
-#: libraries/insert_edit.lib.php:1939 sql.php:825
+#: libraries/insert_edit.lib.php:1939 sql.php:656
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "Ідентифікатор доданого рядка: %1$d"
@@ -7438,7 +7428,7 @@ msgstr "Додати префікс таблиці"
 msgid "Add prefix"
 msgstr "Додати префікс"
 
-#: libraries/mult_submits.inc.php:339 sql.php:416
+#: libraries/mult_submits.inc.php:339
 #, fuzzy
 #| msgid "Do you really want to "
 msgid "Do you really want to execute the following query?"
@@ -7663,18 +7653,18 @@ msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: libraries/navigation/NavigationTree.class.php:1042
+#: libraries/navigation/NavigationTree.class.php:1039
 #, fuzzy
 #| msgid "Alter table order by"
 msgid "filter databases by name"
 msgstr "Змінити порядок таблиці"
 
-#: libraries/navigation/NavigationTree.class.php:1043
-#: libraries/navigation/NavigationTree.class.php:1076
+#: libraries/navigation/NavigationTree.class.php:1040
+#: libraries/navigation/NavigationTree.class.php:1073
 msgid "Clear Fast Filter"
 msgstr ""
 
-#: libraries/navigation/NavigationTree.class.php:1075
+#: libraries/navigation/NavigationTree.class.php:1072
 #, fuzzy
 #| msgid "Alter table order by"
 msgid "filter items by name"
@@ -7790,17 +7780,17 @@ msgid "Drop the database (DROP)"
 msgstr "Знищити базу даних (DROP)"
 
 #: libraries/operations.lib.php:145 libraries/operations.lib.php:1015
-#: tbl_tracking.php:506
+#: tbl_tracking.php:507
 msgid "Structure only"
 msgstr "Лише структуру"
 
 #: libraries/operations.lib.php:146 libraries/operations.lib.php:1016
-#: tbl_tracking.php:512
+#: tbl_tracking.php:513
 msgid "Structure and data"
 msgstr "Структуру і дані"
 
 #: libraries/operations.lib.php:147 libraries/operations.lib.php:1017
-#: tbl_tracking.php:509
+#: tbl_tracking.php:510
 msgid "Data only"
 msgstr "Лише дані"
 
@@ -8223,7 +8213,7 @@ msgstr "Помістити імена колонок в перший рядок"
 #: libraries/plugins/export/ExportSql.class.php:601
 #: libraries/plugins/export/ExportXml.class.php:191
 #: libraries/replication_gui.lib.php:68 libraries/replication_gui.lib.php:293
-#: libraries/server_privileges.lib.php:1081 libraries/sql.lib.php:459
+#: libraries/server_privileges.lib.php:1081 libraries/sql.lib.php:411
 #, fuzzy
 #| msgid "Host"
 msgid "Host:"
@@ -8231,7 +8221,7 @@ msgstr "Хост"
 
 #: libraries/plugins/export/ExportLatex.class.php:223
 #: libraries/plugins/export/ExportSql.class.php:608
-#: libraries/plugins/export/ExportXml.class.php:196 libraries/sql.lib.php:462
+#: libraries/plugins/export/ExportXml.class.php:196 libraries/sql.lib.php:414
 #, fuzzy
 #| msgid "Generation Time"
 msgid "Generation Time:"
@@ -8249,7 +8239,7 @@ msgstr "Версія PHP"
 #: libraries/plugins/export/ExportSql.class.php:760
 #: libraries/plugins/export/ExportXml.class.php:390
 #: libraries/plugins/export/PMA_ExportPdf.class.php:115
-#: libraries/sql.lib.php:460
+#: libraries/sql.lib.php:412
 #, fuzzy
 #| msgid "Database"
 msgid "Database:"
@@ -9408,7 +9398,7 @@ msgstr "Атрибути"
 
 #: libraries/schema/Pdf_Relation_Schema.class.php:1367
 #: libraries/schema/Pdf_Relation_Schema.class.php:1390
-#: libraries/structure.lib.php:1185 tbl_tracking.php:329
+#: libraries/structure.lib.php:1185 tbl_tracking.php:330
 msgid "Extra"
 msgstr "Додатково"
 
@@ -9573,7 +9563,7 @@ msgid "Library"
 msgstr "Бібліотека"
 
 #: libraries/server_plugins.lib.php:78 libraries/server_plugins.lib.php:135
-#: tbl_tracking.php:764
+#: tbl_tracking.php:765
 msgid "Version"
 msgstr "Версія"
 
@@ -10052,70 +10042,295 @@ msgstr ""
 "сервером, якщо в цю таблицю вносилися зміни вручну. У цьому випадку Вам "
 "необхідно %sперезавантажити права%s перед продовженням."
 
-#: libraries/server_privileges.lib.php:3036
+#: libraries/server_privileges.lib.php:3035
 msgid "The selected user was not found in the privilege table."
 msgstr "Вказаного користувача не знайдено в таблиці прав."
 
-#: libraries/server_privileges.lib.php:3249
+#: libraries/server_privileges.lib.php:3248
 msgid "You have added a new user."
 msgstr "Ви додали нового користувача."
 
-#: libraries/sql.lib.php:457
+#: libraries/server_status_monitor.lib.php:77
+#, php-format
+msgid "%d second"
+msgid_plural "%d seconds"
+msgstr[0] "%d секунда"
+msgstr[1] "%d секунди"
+msgstr[2] "%d секунд"
+
+#: libraries/server_status_monitor.lib.php:80
+#, php-format
+msgid "%d minute"
+msgid_plural "%d minutes"
+msgstr[0] "%d хвилина"
+msgstr[1] "%d хвилини"
+msgstr[2] "%d хвилин"
+
+#: libraries/server_status_monitor.lib.php:96
+msgid "Log statistics"
+msgstr "Статистика журналу"
+
+#: libraries/server_status_monitor.lib.php:97
+msgid "Selected time range:"
+msgstr "Обраний проміжок часу:"
+
+#: libraries/server_status_monitor.lib.php:103
+msgid "Only retrieve SELECT,INSERT,UPDATE and DELETE Statements"
+msgstr "Виконувати лише вирази SELECT, INSERT, UPDATE і DELETE"
+
+#: libraries/server_status_monitor.lib.php:108
+msgid "Remove variable data in INSERT statements for better grouping"
+msgstr "Для кращого групування, видалити данні змінної у виразах INSERT"
+
+#: libraries/server_status_monitor.lib.php:111
+msgid "Choose from which log you want the statistics to be generated from."
+msgstr "Оберіть, з якого журналу має генеруватися статистика."
+
+#: libraries/server_status_monitor.lib.php:114
+msgid "Results are grouped by query text."
+msgstr "Результати, згруповані за текстом запиту."
+
+#: libraries/server_status_monitor.lib.php:118
+msgid "Query analyzer"
+msgstr "Аналіз запиту"
+
+#: libraries/server_status_monitor.lib.php:135
+msgid "Monitor Instructions"
+msgstr "Інструкції моніторингу"
+
+#: libraries/server_status_monitor.lib.php:137
+msgid ""
+"The phpMyAdmin Monitor can assist you in optimizing the server configuration "
+"and track down time intensive queries. For the latter you will need to set "
+"log_output to 'TABLE' and have either the slow_query_log or general_log "
+"enabled. Note however, that the general_log produces a lot of data and "
+"increases server load by up to 15%."
+msgstr ""
+"phpMyAdmin моніторинг може допомогти вам в оптимізації налаштувань сервера і "
+"відстеженні часово інтенсивних запитів. Для останнього необхідно встановити "
+"log_output у 'TABLE'  і увімкнути або директиву slow_query_log, або "
+"general_log. Зауважимо, однак, що general_log виробляє велику кількість "
+"даних і збільшує навантаження на сервер до 15%"
+
+#: libraries/server_status_monitor.lib.php:149
+msgid ""
+"Unfortunately your Database server does not support logging to table, which "
+"is a requirement for analyzing the database logs with phpMyAdmin. Logging to "
+"table is supported by MySQL 5.1.6 and onwards. You may still use the server "
+"charting features however."
+msgstr ""
+"Нажаль, ваш сервер бази даних не підтримує журналювання в таблицю, яка є "
+"необхідною умовою для аналізу журналів бази даних за допомогою PhpMyAdmin. "
+"Журналювання в таблицю підтримуються MySQL 5.1.6 і вище. Однак, залишається "
+"можливість використовувати функції графіків сервера."
+
+#: libraries/server_status_monitor.lib.php:164
+msgid "Using the monitor:"
+msgstr "Використання моніторингу:"
+
+#: libraries/server_status_monitor.lib.php:167
+msgid ""
+"Your browser will refresh all displayed charts in a regular interval. You "
+"may add charts and change the refresh rate under 'Settings', or remove any "
+"chart using the cog icon on each respective chart."
+msgstr ""
+"Ваш браузер буде оновлювати всі відображувані графіки через певні проміжки "
+"часу. В розділі&quot;Налаштування&quot; можна додавати графіки і змінювати "
+"частоту їх оновлення, або видаляти графіки використовуючи відповідну іконку "
+"на кожному з них."
+
+#: libraries/server_status_monitor.lib.php:173
+msgid ""
+"To display queries from the logs, select the relevant time span on any chart "
+"by holding down the left mouse button and panning over the chart. Once "
+"confirmed, this will load a table of grouped queries, there you may click on "
+"any occurring SELECT statements to further analyze them."
+msgstr ""
+"Для відображення запитів з журналів, виберіть відповідний проміжок часу на "
+"будь-якому графіку, натиснувши ліву кнопку миші і позначивши його. Після "
+"підтвердження, буде завантажена таблиця згрупованих запитів, де можна "
+"клацнути на будь-які вирази SELECT для їх подальшого аналізу."
+
+#: libraries/server_status_monitor.lib.php:183
+msgid "Please note:"
+msgstr "Зверніть увагу:"
+
+#: libraries/server_status_monitor.lib.php:186
+msgid ""
+"Enabling the general_log may increase the server load by 5-15%. Also be "
+"aware that generating statistics from the logs is a load intensive task, so "
+"it is advisable to select only a small time span and to disable the "
+"general_log and empty its table once monitoring is not required any more."
+msgstr ""
+"Увімкнення директиви general_log може збільшити навантаження на сервер на "
+"5-15%. Також пам'ятайте, що генерування статистики з журналів є досить "
+"інтенсивною задачею, тому бажано вибрати лише невеликий проміжок часу і "
+"вимикати директиву general_log і чистити таблицю щойно в моніторингу більше "
+"не має потреби."
+
+#: libraries/server_status_monitor.lib.php:207
+#: libraries/server_status_monitor.lib.php:314
+msgid "Add chart"
+msgstr "Додати діаграму"
+
+#: libraries/server_status_monitor.lib.php:211
+msgid "Preset chart"
+msgstr "Вбудований графік"
+
+#: libraries/server_status_monitor.lib.php:216
+msgid "Status variable(s)"
+msgstr "Статусні змінні"
+
+#: libraries/server_status_monitor.lib.php:219
+msgid "Select series:"
+msgstr "Виберіть серії:"
+
+#: libraries/server_status_monitor.lib.php:221
+msgid "Commonly monitored"
+msgstr "Часто застосовуваний моніторинг"
+
+#: libraries/server_status_monitor.lib.php:237
+msgid "or type variable name:"
+msgstr "або введіть назву змінної:"
+
+#: libraries/server_status_monitor.lib.php:244
+msgid "Display as differential value"
+msgstr "Показати як значення різниці"
+
+#: libraries/server_status_monitor.lib.php:247
+msgid "Apply a divisor"
+msgstr "Застосувати дільник"
+
+#: libraries/server_status_monitor.lib.php:255
+msgid "Append unit to data values"
+msgstr "Додати до значень одиниці виміру"
+
+#: libraries/server_status_monitor.lib.php:261
+msgid "Add this series"
+msgstr "Додати ці серії"
+
+#: libraries/server_status_monitor.lib.php:263
+msgid "Clear series"
+msgstr "Очистити серії"
+
+#: libraries/server_status_monitor.lib.php:266
+msgid "Series in Chart:"
+msgstr "Серії в графіку:"
+
+#: libraries/server_status_monitor.lib.php:287
+msgid "Start Monitor"
+msgstr "Запустити монітор"
+
+#: libraries/server_status_monitor.lib.php:294
+msgid "Instructions/Setup"
+msgstr "Інструкції/Налаштування"
+
+#: libraries/server_status_monitor.lib.php:298
+#, fuzzy
+#| msgid "Done rearranging/editing charts"
+msgid "Done dragging (rearranging) charts"
+msgstr "Впорядкування/редагування діаграм завершено"
+
+#: libraries/server_status_monitor.lib.php:317
+#, fuzzy
+#| msgid "Enable highlighting"
+msgid "Enable charts dragging"
+msgstr "Включити підсвічування"
+
+#: libraries/server_status_monitor.lib.php:321
+msgid "Refresh rate"
+msgstr "Частота оновлення"
+
+#: libraries/server_status_monitor.lib.php:330
+msgid "Chart columns"
+msgstr "Діаграма стовпців"
+
+#: libraries/server_status_monitor.lib.php:346
+msgid "Chart arrangement"
+msgstr "Розташування діаграми"
+
+#: libraries/server_status_monitor.lib.php:349
+msgid ""
+"The arrangement of the charts is stored to the browsers local storage. You "
+"may want to export it if you have a complicated set up."
+msgstr ""
+"Розташування діаграм зберігаються у локальному сховищі браузерів. Його можна "
+"експортувати, якщо при налаштуванні виникають складнощі."
+
+#: libraries/server_status_monitor.lib.php:363
+msgid "Reset to default"
+msgstr "Скинути до початкових значень"
+
+#: libraries/sql.lib.php:409
 msgid "SQL result"
 msgstr "Результат SQL"
 
-#: libraries/sql.lib.php:464
+#: libraries/sql.lib.php:416
 #, fuzzy
 #| msgid "Generated by"
 msgid "Generated by:"
 msgstr "Згенеровано"
 
-#: libraries/sql.lib.php:495
+#: libraries/sql.lib.php:447
 #, fuzzy
 #| msgid "Data file grow size"
 msgid "Detailed profile"
 msgstr "Розмір виростання файлу даних"
 
-#: libraries/sql.lib.php:498
+#: libraries/sql.lib.php:450
 #, fuzzy
 #| msgid "Other"
 msgid "Order"
 msgstr "Інше"
 
-#: libraries/sql.lib.php:500 libraries/sql.lib.php:546
+#: libraries/sql.lib.php:452 libraries/sql.lib.php:498
 #, fuzzy
 #| msgctxt "Start of recurring event"
 #| msgid "Start"
 msgid "State"
 msgstr "Старт"
 
-#: libraries/sql.lib.php:543
+#: libraries/sql.lib.php:495
 msgid "Summary by state"
 msgstr ""
 
-#: libraries/sql.lib.php:551
+#: libraries/sql.lib.php:503
 #, fuzzy
 #| msgid "Total time:"
 msgid "Total Time"
 msgstr "Загальний час:"
 
-#: libraries/sql.lib.php:553
+#: libraries/sql.lib.php:505
 #, fuzzy
 #| msgid "Time"
 msgid "% Time"
 msgstr "Час"
 
-#: libraries/sql.lib.php:555
+#: libraries/sql.lib.php:507
 #, fuzzy
 #| msgid "Close"
 msgid "Calls"
 msgstr "Закрити"
 
-#: libraries/sql.lib.php:557
+#: libraries/sql.lib.php:509
 #, fuzzy
 #| msgid "Time"
 msgid "ø Time"
 msgstr "Час"
+
+#: libraries/sql.lib.php:677 libraries/sql.lib.php:697
+msgid "Bookmark this SQL query"
+msgstr "Закладка на даний SQL запит"
+
+#: libraries/sql.lib.php:681
+#, fuzzy
+#| msgid "Label"
+msgid "Label:"
+msgstr "Мітка"
+
+#: libraries/sql.lib.php:689 libraries/sql_query_form.lib.php:326
+msgid "Let every user access this bookmark"
+msgstr "Надати всім користувачам доступ до цієї закладки"
 
 #: libraries/sql_query_form.lib.php:188
 #, php-format
@@ -10136,10 +10351,6 @@ msgstr "Очистити"
 #| msgid "Bookmark this SQL query"
 msgid "Bookmark this SQL query:"
 msgstr "Закладка на даний SQL запит"
-
-#: libraries/sql_query_form.lib.php:326 sql.php:1199
-msgid "Let every user access this bookmark"
-msgstr "Надати всім користувачам доступ до цієї закладки"
 
 #: libraries/sql_query_form.lib.php:332
 msgid "Replace existing bookmark of same name"
@@ -10280,7 +10491,7 @@ msgstr "Перевірити чи мають таблиці накладні в�
 msgid "Sort"
 msgstr "Посортувати"
 
-#: libraries/structure.lib.php:1279 tbl_tracking.php:359
+#: libraries/structure.lib.php:1279 tbl_tracking.php:360
 msgctxt "None for default"
 msgid "None"
 msgstr "Немає"
@@ -10440,7 +10651,7 @@ msgstr "Ефективність"
 msgid "Table %1$s has been altered successfully"
 msgstr "Таблицю %1$s було успішно змінено"
 
-#: libraries/structure.lib.php:2413 tbl_tracking.php:457 tbl_tracking.php:481
+#: libraries/structure.lib.php:2413 tbl_tracking.php:458 tbl_tracking.php:482
 msgid "Query error"
 msgstr "Помилка запиту"
 
@@ -10603,7 +10814,7 @@ msgstr "Помилка в ZIP-архіві:"
 msgid "Fatal error: The navigation can only be accessed via AJAX"
 msgstr ""
 
-#: pmd_display_field.php:60 pmd_save_pos.php:81
+#: pmd_display_field.php:60 pmd_save_pos.php:75
 msgid "Modifications have been saved"
 msgstr "Модифікації було збережено"
 
@@ -10659,7 +10870,7 @@ msgstr "Переключити маленькі/великі"
 msgid "Toggle relation lines"
 msgstr "Змінити лінії зв'язків"
 
-#: pmd_general.php:147 pmd_pdf.php:102
+#: pmd_general.php:147 pmd_pdf.php:101
 msgid "Import/Export coordinates for PDF schema"
 msgstr "Імпортувати/Експортувати координати для PDF схеми"
 
@@ -10719,43 +10930,43 @@ msgstr "Загальний"
 msgid "Active options"
 msgstr "Активовані опції"
 
-#: pmd_pdf.php:50
+#: pmd_pdf.php:49
 msgid "Page has been created"
 msgstr "Сторінка була створена"
 
-#: pmd_pdf.php:53
+#: pmd_pdf.php:52
 msgid "Page creation failed"
 msgstr "Створення сторінки обламалось"
 
-#: pmd_pdf.php:113
+#: pmd_pdf.php:112
 #, fuzzy
 #| msgid "Page"
 msgid "Page:"
 msgstr "Сторінка"
 
-#: pmd_pdf.php:123
+#: pmd_pdf.php:122
 msgid "Import from selected page"
 msgstr "Імпорт з вибраної сторінки"
 
-#: pmd_pdf.php:124
+#: pmd_pdf.php:123
 msgid "Export to selected page"
 msgstr "Експорт у вибрану сторінку"
 
-#: pmd_pdf.php:126
+#: pmd_pdf.php:125
 msgid "Create a page and export to it"
 msgstr "Створити нову сторінку та експортувати в неї"
 
-#: pmd_pdf.php:138
+#: pmd_pdf.php:137
 msgid "New page name: "
 msgstr "Нова назва сторінки: "
 
-#: pmd_pdf.php:141
+#: pmd_pdf.php:140
 #, fuzzy
 #| msgid "Export/Import to scale"
 msgid "Export/Import to scale:"
 msgstr "Експорт/Імпорт у масштабі"
 
-#: pmd_pdf.php:146
+#: pmd_pdf.php:145
 msgid "recommended"
 msgstr "рекомендовано"
 
@@ -10785,7 +10996,7 @@ msgstr "Внутрішній зв'язок доданий"
 msgid "Relation deleted"
 msgstr "Зв'язок видалений"
 
-#: pmd_save_pos.php:73
+#: pmd_save_pos.php:67
 msgid "Error saving coordinates for Designer."
 msgstr "Помилка збереження координат Дизайнера."
 
@@ -11232,216 +11443,6 @@ msgstr ""
 "опції за раз, наступне тестування продуктивності бази даних і вертання до "
 "початкових налаштувань, якщо не було помічено позитивного покращення в "
 "роботі."
-
-#: server_status_monitor.php:453
-msgid "Monitor Instructions"
-msgstr "Інструкції моніторингу"
-
-#: server_status_monitor.php:455
-msgid ""
-"The phpMyAdmin Monitor can assist you in optimizing the server configuration "
-"and track down time intensive queries. For the latter you will need to set "
-"log_output to 'TABLE' and have either the slow_query_log or general_log "
-"enabled. Note however, that the general_log produces a lot of data and "
-"increases server load by up to 15%."
-msgstr ""
-"phpMyAdmin моніторинг може допомогти вам в оптимізації налаштувань сервера і "
-"відстеженні часово інтенсивних запитів. Для останнього необхідно встановити "
-"log_output у 'TABLE'  і увімкнути або директиву slow_query_log, або "
-"general_log. Зауважимо, однак, що general_log виробляє велику кількість "
-"даних і збільшує навантаження на сервер до 15%"
-
-#: server_status_monitor.php:467
-msgid ""
-"Unfortunately your Database server does not support logging to table, which "
-"is a requirement for analyzing the database logs with phpMyAdmin. Logging to "
-"table is supported by MySQL 5.1.6 and onwards. You may still use the server "
-"charting features however."
-msgstr ""
-"Нажаль, ваш сервер бази даних не підтримує журналювання в таблицю, яка є "
-"необхідною умовою для аналізу журналів бази даних за допомогою PhpMyAdmin. "
-"Журналювання в таблицю підтримуються MySQL 5.1.6 і вище. Однак, залишається "
-"можливість використовувати функції графіків сервера."
-
-#: server_status_monitor.php:482
-msgid "Using the monitor:"
-msgstr "Використання моніторингу:"
-
-#: server_status_monitor.php:485
-msgid ""
-"Your browser will refresh all displayed charts in a regular interval. You "
-"may add charts and change the refresh rate under 'Settings', or remove any "
-"chart using the cog icon on each respective chart."
-msgstr ""
-"Ваш браузер буде оновлювати всі відображувані графіки через певні проміжки "
-"часу. В розділі&quot;Налаштування&quot; можна додавати графіки і змінювати "
-"частоту їх оновлення, або видаляти графіки використовуючи відповідну іконку "
-"на кожному з них."
-
-#: server_status_monitor.php:491
-msgid ""
-"To display queries from the logs, select the relevant time span on any chart "
-"by holding down the left mouse button and panning over the chart. Once "
-"confirmed, this will load a table of grouped queries, there you may click on "
-"any occurring SELECT statements to further analyze them."
-msgstr ""
-"Для відображення запитів з журналів, виберіть відповідний проміжок часу на "
-"будь-якому графіку, натиснувши ліву кнопку миші і позначивши його. Після "
-"підтвердження, буде завантажена таблиця згрупованих запитів, де можна "
-"клацнути на будь-які вирази SELECT для їх подальшого аналізу."
-
-#: server_status_monitor.php:501
-msgid "Please note:"
-msgstr "Зверніть увагу:"
-
-#: server_status_monitor.php:504
-msgid ""
-"Enabling the general_log may increase the server load by 5-15%. Also be "
-"aware that generating statistics from the logs is a load intensive task, so "
-"it is advisable to select only a small time span and to disable the "
-"general_log and empty its table once monitoring is not required any more."
-msgstr ""
-"Увімкнення директиви general_log може збільшити навантаження на сервер на "
-"5-15%. Також пам'ятайте, що генерування статистики з журналів є досить "
-"інтенсивною задачею, тому бажано вибрати лише невеликий проміжок часу і "
-"вимикати директиву general_log і чистити таблицю щойно в моніторингу більше "
-"не має потреби."
-
-#: server_status_monitor.php:515 server_status_monitor.php:701
-msgid "Add chart"
-msgstr "Додати діаграму"
-
-#: server_status_monitor.php:519
-msgid "Preset chart"
-msgstr "Вбудований графік"
-
-#: server_status_monitor.php:523
-msgid "Status variable(s)"
-msgstr "Статусні змінні"
-
-#: server_status_monitor.php:526
-msgid "Select series:"
-msgstr "Виберіть серії:"
-
-#: server_status_monitor.php:528
-msgid "Commonly monitored"
-msgstr "Часто застосовуваний моніторинг"
-
-#: server_status_monitor.php:544
-msgid "or type variable name:"
-msgstr "або введіть назву змінної:"
-
-#: server_status_monitor.php:551
-msgid "Display as differential value"
-msgstr "Показати як значення різниці"
-
-#: server_status_monitor.php:554
-msgid "Apply a divisor"
-msgstr "Застосувати дільник"
-
-#: server_status_monitor.php:562
-msgid "Append unit to data values"
-msgstr "Додати до значень одиниці виміру"
-
-#: server_status_monitor.php:568
-msgid "Add this series"
-msgstr "Додати ці серії"
-
-#: server_status_monitor.php:570
-msgid "Clear series"
-msgstr "Очистити серії"
-
-#: server_status_monitor.php:573
-msgid "Series in Chart:"
-msgstr "Серії в графіку:"
-
-#: server_status_monitor.php:584
-msgid "Log statistics"
-msgstr "Статистика журналу"
-
-#: server_status_monitor.php:585
-msgid "Selected time range:"
-msgstr "Обраний проміжок часу:"
-
-#: server_status_monitor.php:591
-msgid "Only retrieve SELECT,INSERT,UPDATE and DELETE Statements"
-msgstr "Виконувати лише вирази SELECT, INSERT, UPDATE і DELETE"
-
-#: server_status_monitor.php:596
-msgid "Remove variable data in INSERT statements for better grouping"
-msgstr "Для кращого групування, видалити данні змінної у виразах INSERT"
-
-#: server_status_monitor.php:599
-msgid "Choose from which log you want the statistics to be generated from."
-msgstr "Оберіть, з якого журналу має генеруватися статистика."
-
-#: server_status_monitor.php:602
-msgid "Results are grouped by query text."
-msgstr "Результати, згруповані за текстом запиту."
-
-#: server_status_monitor.php:606
-msgid "Query analyzer"
-msgstr "Аналіз запиту"
-
-#: server_status_monitor.php:654
-#, php-format
-msgid "%d second"
-msgid_plural "%d seconds"
-msgstr[0] "%d секунда"
-msgstr[1] "%d секунди"
-msgstr[2] "%d секунд"
-
-#: server_status_monitor.php:657
-#, php-format
-msgid "%d minute"
-msgid_plural "%d minutes"
-msgstr[0] "%d хвилина"
-msgstr[1] "%d хвилини"
-msgstr[2] "%d хвилин"
-
-#: server_status_monitor.php:674
-msgid "Start Monitor"
-msgstr "Запустити монітор"
-
-#: server_status_monitor.php:681
-msgid "Instructions/Setup"
-msgstr "Інструкції/Налаштування"
-
-#: server_status_monitor.php:685
-#, fuzzy
-#| msgid "Done rearranging/editing charts"
-msgid "Done dragging (rearranging) charts"
-msgstr "Впорядкування/редагування діаграм завершено"
-
-#: server_status_monitor.php:704
-#, fuzzy
-#| msgid "Enable highlighting"
-msgid "Enable charts dragging"
-msgstr "Включити підсвічування"
-
-#: server_status_monitor.php:708
-msgid "Refresh rate"
-msgstr "Частота оновлення"
-
-#: server_status_monitor.php:717
-msgid "Chart columns"
-msgstr "Діаграма стовпців"
-
-#: server_status_monitor.php:733
-msgid "Chart arrangement"
-msgstr "Розташування діаграми"
-
-#: server_status_monitor.php:736
-msgid ""
-"The arrangement of the charts is stored to the browsers local storage. You "
-"may want to export it if you have a complicated set up."
-msgstr ""
-"Розташування діаграм зберігаються у локальному сховищі браузерів. Його можна "
-"експортувати, якщо при налаштуванні виникають складнощі."
-
-#: server_status_monitor.php:750
-msgid "Reset to default"
-msgstr "Скинути до початкових значень"
 
 #: server_status_queries.php:67
 #, php-format
@@ -12546,26 +12547,26 @@ msgstr ""
 msgid "Wrong data"
 msgstr "Неправильні дані"
 
-#: sql.php:216
+#: sql.php:183
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr "Як стандартний запит на огляд даних використовується закладка  \"%s\"."
 
-#: sql.php:298
+#: sql.php:266
 #, fuzzy
 #| msgid "Bookmark %s created"
 msgid "Bookmark not created"
 msgstr "Закладка %s створена"
 
-#: sql.php:842
+#: sql.php:673
 msgid "Showing as PHP code"
 msgstr "Показ у вигляді коду PHP"
 
-#: sql.php:847
+#: sql.php:678
 msgid "Validated SQL"
 msgstr "Перевірений SQL"
 
-#: sql.php:1101
+#: sql.php:932
 #, fuzzy, php-format
 #| msgid ""
 #| "This table does not contain a unique column. Features related to the grid "
@@ -12578,20 +12579,10 @@ msgstr ""
 "редагування, прапорцем, посиланнями Редагувати, Копіювати та Видаляти можуть "
 "не працювати після збереження."
 
-#: sql.php:1154
+#: sql.php:985
 #, php-format
 msgid "Problems with indexes of table `%s`"
 msgstr "Проблеми з індексами таблиці `%s`"
-
-#: sql.php:1187 sql.php:1207
-msgid "Bookmark this SQL query"
-msgstr "Закладка на даний SQL запит"
-
-#: sql.php:1191
-#, fuzzy
-#| msgid "Label"
-msgid "Label:"
-msgstr "Мітка"
 
 #: tbl_chart.php:38
 #, fuzzy
@@ -12671,6 +12662,12 @@ msgstr "Значення X"
 #: tbl_chart.php:234
 msgid "Y-Axis label:"
 msgstr "Мітка вісі Y:"
+
+#: tbl_chart.php:241
+#, fuzzy
+#| msgid "Start row"
+msgid "Start row:"
+msgstr "Початковий рядок"
 
 #: tbl_create.php:34
 #, php-format
@@ -12816,33 +12813,33 @@ msgstr "Виберіть колонку для відображення"
 msgid "No column selected."
 msgstr "Рядків не вибрано"
 
-#: tbl_tracking.php:135
+#: tbl_tracking.php:136
 #, php-format
 msgid "Tracking report for table `%s`"
 msgstr "Звіт про відстеження для таблиці `%s`"
 
-#: tbl_tracking.php:205
+#: tbl_tracking.php:206
 #, php-format
 msgid "Version %1$s was created, tracking for %2$s is active."
 msgstr ""
 
-#: tbl_tracking.php:222
+#: tbl_tracking.php:223
 #, fuzzy, php-format
 #| msgid "Tracking is active."
 msgid "Tracking for %1$s was deactivated at version %2$s."
 msgstr "Трекінг є активним."
 
-#: tbl_tracking.php:239
+#: tbl_tracking.php:240
 #, fuzzy, php-format
 #| msgid "Tracking is active."
 msgid "Tracking for %1$s was activated at version %2$s."
 msgstr "Трекінг є активним."
 
-#: tbl_tracking.php:253
+#: tbl_tracking.php:254
 msgid "SQL statements executed."
 msgstr "SQL вирази виконано."
 
-#: tbl_tracking.php:260
+#: tbl_tracking.php:261
 msgid ""
 "You can execute the dump by creating and using a temporary database. Please "
 "ensure that you have the privileges to do so."
@@ -12850,116 +12847,116 @@ msgstr ""
 "Ви можете виконати дамп, створивши і використавши для цього тимчасову базу "
 "даних. Будь ласка, переконайтеся, що у вас є достатні привілеї."
 
-#: tbl_tracking.php:262
+#: tbl_tracking.php:263
 msgid "Comment out these two lines if you do not need them."
 msgstr "Закоментуйте ці два рядка, якщо вони не потрібні."
 
-#: tbl_tracking.php:272
+#: tbl_tracking.php:273
 msgid "SQL statements exported. Please copy the dump or execute it."
 msgstr ""
 "SQL вирази експортовано. Будь ласка, скопіюйте дамп або виконайте його."
 
-#: tbl_tracking.php:310
+#: tbl_tracking.php:311
 #, php-format
 msgid "Version %s snapshot (SQL code)"
 msgstr "Знімок версії %s (SQL код)"
 
-#: tbl_tracking.php:454
+#: tbl_tracking.php:455
 msgid "Tracking data definition successfully deleted"
 msgstr "Дані відстеження визначення успішно видалені"
 
-#: tbl_tracking.php:478
+#: tbl_tracking.php:479
 msgid "Tracking data manipulation successfully deleted"
 msgstr "Дані відстеження маніпуляцій успішно видалено"
 
-#: tbl_tracking.php:493
+#: tbl_tracking.php:494
 msgid "Tracking statements"
 msgstr "Вирази відстеження"
 
-#: tbl_tracking.php:524 tbl_tracking.php:672
+#: tbl_tracking.php:525 tbl_tracking.php:673
 #, php-format
 msgid "Show %1$s with dates from %2$s to %3$s by user %4$s %5$s"
 msgstr ""
 
-#: tbl_tracking.php:532
+#: tbl_tracking.php:533
 msgid "Delete tracking data row from report"
 msgstr "Видалити рядки даних відстеження із звіту"
 
-#: tbl_tracking.php:546
+#: tbl_tracking.php:547
 msgid "No data"
 msgstr "Немає даних"
 
-#: tbl_tracking.php:555 tbl_tracking.php:617
+#: tbl_tracking.php:556 tbl_tracking.php:618
 msgid "Date"
 msgstr "Дата"
 
-#: tbl_tracking.php:557
+#: tbl_tracking.php:558
 msgid "Data definition statement"
 msgstr "Вираз визначення даних"
 
-#: tbl_tracking.php:619
+#: tbl_tracking.php:620
 msgid "Data manipulation statement"
 msgstr "Вираз маніпуляції з даними"
 
-#: tbl_tracking.php:677
+#: tbl_tracking.php:678
 msgid "SQL dump (file download)"
 msgstr "SQL дамп (завантажити файл)"
 
-#: tbl_tracking.php:678
+#: tbl_tracking.php:679
 msgid "SQL dump"
 msgstr "SQL дамп"
 
-#: tbl_tracking.php:680
+#: tbl_tracking.php:681
 msgid "This option will replace your table and contained data."
 msgstr "Ця опція замінить вашу таблицю і дані в ній."
 
-#: tbl_tracking.php:681
+#: tbl_tracking.php:682
 msgid "SQL execution"
 msgstr "Виконання SQL"
 
-#: tbl_tracking.php:699
+#: tbl_tracking.php:700
 #, php-format
 msgid "Export as %s"
 msgstr "Експортувати як %s"
 
-#: tbl_tracking.php:736
+#: tbl_tracking.php:737
 msgid "Show versions"
 msgstr "Показати версії"
 
-#: tbl_tracking.php:824
+#: tbl_tracking.php:825
 #, fuzzy, php-format
 #| msgid "Delete tracking data for this table"
 msgid "Deactivate tracking for %s"
 msgstr "Видалити дані спостереження для цієї таблиці"
 
-#: tbl_tracking.php:830
+#: tbl_tracking.php:831
 msgid "Deactivate now"
 msgstr "Деактивувати зараз"
 
-#: tbl_tracking.php:840
+#: tbl_tracking.php:841
 #, php-format
 msgid "Activate tracking for %s"
 msgstr ""
 
-#: tbl_tracking.php:846
+#: tbl_tracking.php:847
 msgid "Activate now"
 msgstr "Активувати зараз"
 
-#: tbl_tracking.php:859
+#: tbl_tracking.php:860
 #, fuzzy, php-format
 #| msgid "General relation features"
 msgid "Create version %1$s of %2$s"
 msgstr "Загальні можливості"
 
-#: tbl_tracking.php:867
+#: tbl_tracking.php:868
 msgid "Track these data definition statements:"
 msgstr "Відстежити наступні вирази визначення даних:"
 
-#: tbl_tracking.php:875
+#: tbl_tracking.php:876
 msgid "Track these data manipulation statements:"
 msgstr "Відстежити наступні вирази маніпуляцій з даними:"
 
-#: tbl_tracking.php:885
+#: tbl_tracking.php:886
 msgid "Create version"
 msgstr "Створити версію"
 
@@ -14287,6 +14284,9 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert встановлений у 0"
+
+#~ msgid "Headers every %s rows"
+#~ msgstr "Заголовки кожні %s рядків"
 
 #, fuzzy
 #~| msgid "Table Search"

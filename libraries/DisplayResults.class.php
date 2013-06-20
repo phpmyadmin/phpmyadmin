@@ -874,8 +874,8 @@ class PMA_DisplayResults
 
 
     /**
-     * Prepare feilds followed by Show button for table navigation
-     * Start row, Number of rows, Headers every
+     * Prepare fields followed by Show button for table navigation
+     * Start row, Number of rows
      *
      * @param string  $html_sql_query            the sql encoded by html special
      *                                           characters
@@ -898,22 +898,26 @@ class PMA_DisplayResults
             . 'value="' . $html_sql_query . '" />'
             . '<input type="hidden" name="goto" value="' . $this->__get('goto')
             . '" />'
-            . '<input type="submit" name="navig"'
-            . ' class="ajax"'
-            . ' value="' . __('Show:') . '" />'
-            . __('Start row:') . ' ' . "\n"
-            . '<input type="text" name="pos" size="3" value="'
+            . '<input type="hidden" name="pos" size="3" value="'
             . (($pos_next >= $this->__get('unlim_num_rows')) ? 0 : $pos_next)
-            . '" class="textfield" onfocus="this.select()" />'
-            . __('Number of rows:') . ' ' . "\n"
-            . '<input type="text" name="session_max_rows" size="3" value="'
-            . (($_SESSION['tmp_user_values']['max_rows'] != self::ALL_ROWS)
-                ? $_SESSION['tmp_user_values']['max_rows']
-                : $GLOBALS['cfg']['MaxRows'])
-            . '" class="textfield" onfocus="this.select()" />';
+            . '" />'
+            . __('Number of rows:') . ' '
+            . '<select name="session_max_rows" class="autosubmit">';
+
+        $numberOfRowsChoices = array(25,50,100,250,500);
+        foreach($numberOfRowsChoices as $oneNumberOfRowsChoice) {
+            $additional_fields_html .= '<option value="' 
+                . $oneNumberOfRowsChoice . '"';
+
+            if ($oneNumberOfRowsChoice == $_SESSION['tmp_user_values']['max_rows']) {
+                $additional_fields_html .= ' selected="selected"';
+            }
+            $additional_fields_html .= '>' . $oneNumberOfRowsChoice . '</option>';
+        }
+        $additional_fields_html .= '</select>';
 
         if ($GLOBALS['cfg']['ShowDisplayDirection']) {
-            // Display mode (horizontal/vertical and repeat headers)
+            // Display mode (horizontal/vertical)
             $additional_fields_html .= __('Mode:') . ' ' . "\n";
             $choices = array(
                     'horizontal'        => __('horizontal'),
@@ -928,13 +932,6 @@ class PMA_DisplayResults
             );
             unset($choices);
         }
-
-        $additional_fields_html .= sprintf(
-            __('Headers every %s rows'),
-            '<input type="text" size="3" name="repeat_cells" value="'
-            . $_SESSION['tmp_user_values']['repeat_cells']
-            . '" class="textfield" onfocus="this.select()" /> '
-        );
 
         return $additional_fields_html;
 
@@ -3657,11 +3654,11 @@ class PMA_DisplayResults
 
                 // if a transform function for blob is set, none of these
                 // replacements will be made
-                if ((PMA_strlen($column) > $GLOBALS['cfg']['LimitChars'])
+                if (($GLOBALS['PMA_String']::strlen($column) > $GLOBALS['cfg']['LimitChars'])
                     && ($_SESSION['tmp_user_values']['display_text'] == self::DISPLAY_PARTIAL_TEXT)
                     && ! $this->_isNeedToSyntaxHighlight(strtolower($meta->name))
                 ) {
-                    $column = PMA_substr($column, 0, $GLOBALS['cfg']['LimitChars'])
+                    $column = $GLOBALS['PMA_String']::substr($column, 0, $GLOBALS['cfg']['LimitChars'])
                         . '...';
                     $is_field_truncated = true;
                 }
@@ -3748,10 +3745,10 @@ class PMA_DisplayResults
                 // Convert to WKT format
                 $wktval = PMA_Util::asWKT($column);
 
-                if ((PMA_strlen($wktval) > $GLOBALS['cfg']['LimitChars'])
+                if (($GLOBALS['PMA_String']::strlen($wktval) > $GLOBALS['cfg']['LimitChars'])
                     && ($_SESSION['tmp_user_values']['display_text'] == self::DISPLAY_PARTIAL_TEXT)
                 ) {
-                    $wktval = PMA_substr($wktval, 0, $GLOBALS['cfg']['LimitChars'])
+                    $wktval = $GLOBALS['PMA_String']::substr($wktval, 0, $GLOBALS['cfg']['LimitChars'])
                         . '...';
                     $is_field_truncated = true;
                 }
@@ -3772,11 +3769,11 @@ class PMA_DisplayResults
 
                     $wkbval = $this->_displayBinaryAsPrintable($column, 'binary', 8);
 
-                    if ((PMA_strlen($wkbval) > $GLOBALS['cfg']['LimitChars'])
+                    if (($GLOBALS['PMA_String']::strlen($wkbval) > $GLOBALS['cfg']['LimitChars'])
                         && ($_SESSION['tmp_user_values']['display_text'] == self::DISPLAY_PARTIAL_TEXT)
                     ) {
                         $wkbval
-                            = PMA_substr($wkbval, 0, $GLOBALS['cfg']['LimitChars'])
+                            = $GLOBALS['PMA_String']::substr($wkbval, 0, $GLOBALS['cfg']['LimitChars'])
                             . '...';
                         $is_field_truncated = true;
                     }
@@ -3859,12 +3856,12 @@ class PMA_DisplayResults
 
             // Cut all fields to $GLOBALS['cfg']['LimitChars']
             // (unless it's a link-type transformation)
-            if (PMA_strlen($column) > $GLOBALS['cfg']['LimitChars']
+            if ($GLOBALS['PMA_String']::strlen($column) > $GLOBALS['cfg']['LimitChars']
                 && ($_SESSION['tmp_user_values']['display_text'] == self::DISPLAY_PARTIAL_TEXT)
                 && gettype($transformation_plugin) == "object"
                 && ! strpos($transformation_plugin->getName(), 'Link') === true
             ) {
-                $column = PMA_substr($column, 0, $GLOBALS['cfg']['LimitChars'])
+                $column = $GLOBALS['PMA_String']::substr($column, 0, $GLOBALS['cfg']['LimitChars'])
                     . '...';
                 $is_field_truncated = true;
             }
@@ -4229,11 +4226,7 @@ class PMA_DisplayResults
                 = $GLOBALS['cfg']['DefaultDisplay'];
         }
 
-        if (PMA_isValid($_REQUEST['repeat_cells'], 'numeric')) {
-            $_SESSION['tmp_user_values']['query'][$sql_md5]['repeat_cells']
-                = $_REQUEST['repeat_cells'];
-            unset($_REQUEST['repeat_cells']);
-        } elseif (
+        if (
             empty($_SESSION['tmp_user_values']['query'][$sql_md5]['repeat_cells'])
         ) {
             $_SESSION['tmp_user_values']['query'][$sql_md5]['repeat_cells']
@@ -6015,7 +6008,7 @@ class PMA_DisplayResults
         ) {
             $content = bin2hex($content);
             if ($hexlength !== null) {
-                $content = PMA_substr($content, $hexlength);
+                $content = $GLOBALS['PMA_String']::substr($content, $hexlength);
             }
         } else {
             $content = htmlspecialchars(

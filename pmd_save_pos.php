@@ -22,11 +22,6 @@ if (! $cfgRelation['designerwork']) {
  */
 $post_params = array(
     'die_save_pos',
-    'server',
-    't_h',
-    't_v',
-    't_x',
-    't_y'
 );
 
 foreach ($post_params as $one_post_param) {
@@ -35,7 +30,7 @@ foreach ($post_params as $one_post_param) {
     }
 }
 
-foreach ($t_x as $key => $value) {
+foreach ($_POST['t_x'] as $key => $value) {
     // table name decode (post PDF exp/imp)
     $KEY = empty($_POST['IS_AJAX']) ? urldecode($key) : $key;
     list($DB,$TAB) = explode(".", $KEY);
@@ -54,10 +49,10 @@ foreach ($t_x as $key => $value) {
         . ' VALUES ('
         . '\'' . PMA_Util::sqlAddSlashes($DB) . '\', '
         . '\'' . PMA_Util::sqlAddSlashes($TAB) . '\', '
-        . '\'' . PMA_Util::sqlAddSlashes($t_x[$key]) . '\', '
-        . '\'' . PMA_Util::sqlAddSlashes($t_y[$key]) . '\', '
-        . '\'' . PMA_Util::sqlAddSlashes($t_v[$key]) . '\', '
-        . '\'' . PMA_Util::sqlAddSlashes($t_h[$key]) . '\')',
+        . '\'' . PMA_Util::sqlAddSlashes($_POST['t_x'][$key]) . '\', '
+        . '\'' . PMA_Util::sqlAddSlashes($_POST['t_y'][$key]) . '\', '
+        . '\'' . PMA_Util::sqlAddSlashes($_POST['t_v'][$key]) . '\', '
+        . '\'' . PMA_Util::sqlAddSlashes($_POST['t_h'][$key]) . '\')',
         true, PMA_DatabaseInterface::QUERY_STORE
     );
 }

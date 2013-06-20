@@ -18,7 +18,7 @@ class PMA_STR_Sub_Test extends PHPUnit_Framework_TestCase
         }
         $this->assertEquals(
             'čšě',
-            PMA_substr('čšěčščěš', 0, 3)
+            $GLOBALS['PMA_String']::substr('čšěčščěš', 0, 3)
         );
     }
 }

@@ -3,11 +3,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-06-12 09:39+0200\n"
+"POT-Creation-Date: 2013-06-20 08:22+0200\n"
 "PO-Revision-Date: 2013-06-12 11:51+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
-"Language-Team: Turkish "
-"<http://l10n.cihar.com/projects/phpmyadmin/master/tr/>\n"
+"Language-Team: Turkish <http://l10n.cihar.com/projects/phpmyadmin/master/tr/"
+">\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -45,7 +45,7 @@ msgid "Search:"
 msgstr "Arama:"
 
 #: browse_foreigners.php:186 gis_data_editor.php:396 js/messages.php:209
-#: libraries/DbSearch.class.php:455 libraries/DisplayResults.class.php:1657
+#: libraries/DbSearch.class.php:455 libraries/DisplayResults.class.php:1654
 #: libraries/TableSearch.class.php:1142 libraries/core.lib.php:556
 #: libraries/display_change_password.lib.php:94
 #: libraries/display_create_table.lib.php:61
@@ -71,24 +71,24 @@ msgstr "Arama:"
 #: libraries/server_privileges.lib.php:1479
 #: libraries/server_privileges.lib.php:1971
 #: libraries/server_privileges.lib.php:2563
-#: libraries/server_privileges.lib.php:3091
+#: libraries/server_privileges.lib.php:3090
 #: libraries/sql_query_form.lib.php:378 libraries/sql_query_form.lib.php:435
 #: libraries/sql_query_form.lib.php:500 libraries/structure.lib.php:1582
-#: libraries/tbl_columns_definition_form.inc.php:754 pmd_pdf.php:151
+#: libraries/tbl_columns_definition_form.inc.php:754 pmd_pdf.php:150
 #: prefs_manage.php:272 prefs_manage.php:322 server_replication.php:224
-#: server_replication.php:327 tbl_chart.php:251 tbl_tracking.php:521
-#: tbl_tracking.php:684 view_create.php:225 view_operations.php:99
+#: server_replication.php:327 tbl_chart.php:251 tbl_tracking.php:522
+#: tbl_tracking.php:685 view_create.php:225 view_operations.php:99
 msgid "Go"
 msgstr "Git"
 
 #: browse_foreigners.php:197 browse_foreigners.php:201
-#: libraries/Index.class.php:561 tbl_tracking.php:382
+#: libraries/Index.class.php:561 tbl_tracking.php:383
 msgid "Keyname"
 msgstr "Anahtar adı"
 
 #: browse_foreigners.php:198 browse_foreigners.php:200
-#: libraries/server_collations.lib.php:40
-#: libraries/server_collations.lib.php:52 libraries/server_plugins.lib.php:133
+#: libraries/server_collations.lib.php:36
+#: libraries/server_collations.lib.php:48 libraries/server_plugins.lib.php:133
 #: server_engines.php:72 server_status_variables.php:234
 msgid "Description"
 msgstr "Açıklama"
@@ -107,7 +107,7 @@ msgstr ""
 "%s dosyası bu sistemde mevcut değil, lütfen daha fazla bilgi için www."
 "phpmyadmin.net adresini ziyaret edin."
 
-#: db_create.php:74
+#: db_create.php:60
 #, php-format
 msgid "Database %1$s has been created."
 msgstr "Veritabanı %1$s oluşturuldu."
@@ -135,7 +135,7 @@ msgstr "Tablo yorumları:"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1362
 #: libraries/schema/Pdf_Relation_Schema.class.php:1385
 #: libraries/tbl_columns_definition_form.inc.php:353 tbl_printview.php:130
-#: tbl_relation.php:380 tbl_tracking.php:324 tbl_tracking.php:386
+#: tbl_relation.php:380 tbl_tracking.php:325 tbl_tracking.php:387
 msgid "Column"
 msgstr "Sütun"
 
@@ -158,7 +158,7 @@ msgstr "Sütun"
 #: libraries/server_privileges.lib.php:1573 libraries/structure.lib.php:776
 #: libraries/structure.lib.php:1180
 #: libraries/tbl_columns_definition_form.inc.php:96 tbl_printview.php:131
-#: tbl_tracking.php:325 tbl_tracking.php:383
+#: tbl_tracking.php:326 tbl_tracking.php:384
 msgid "Type"
 msgstr "Türü"
 
@@ -175,7 +175,7 @@ msgstr "Türü"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1388
 #: libraries/structure.lib.php:1183
 #: libraries/tbl_columns_definition_form.inc.php:116 tbl_printview.php:132
-#: tbl_tracking.php:327 tbl_tracking.php:389
+#: tbl_tracking.php:328 tbl_tracking.php:390
 msgid "Null"
 msgstr "Boş"
 
@@ -190,7 +190,7 @@ msgstr "Boş"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1389
 #: libraries/structure.lib.php:210 libraries/structure.lib.php:1184
 #: libraries/tbl_columns_definition_form.inc.php:107 tbl_printview.php:133
-#: tbl_tracking.php:328
+#: tbl_tracking.php:329
 msgid "Default"
 msgstr "Varsayılan"
 
@@ -232,9 +232,9 @@ msgstr "Yorumlar"
 #: libraries/server_privileges.lib.php:2163
 #: libraries/server_privileges.lib.php:2483
 #: libraries/server_privileges.lib.php:2497 libraries/structure.lib.php:1268
-#: libraries/user_preferences.lib.php:282 prefs_manage.php:138 sql.php:329
-#: sql.php:424 sql.php:425 tbl_printview.php:186 tbl_tracking.php:345
-#: tbl_tracking.php:399 tbl_tracking.php:404
+#: libraries/user_preferences.lib.php:282 prefs_manage.php:138 sql.php:293
+#: tbl_printview.php:186 tbl_tracking.php:346 tbl_tracking.php:400
+#: tbl_tracking.php:405
 msgid "No"
 msgstr "Hayır"
 
@@ -259,9 +259,9 @@ msgstr "Hayır"
 #: libraries/server_privileges.lib.php:2480
 #: libraries/server_privileges.lib.php:2497 libraries/structure.lib.php:1268
 #: libraries/user_preferences.lib.php:280 prefs_manage.php:136
-#: server_databases.php:103 server_databases.php:110 sql.php:422 sql.php:423
-#: tbl_printview.php:187 tbl_structure.php:84 tbl_tracking.php:345
-#: tbl_tracking.php:397 tbl_tracking.php:402
+#: server_databases.php:103 server_databases.php:110 tbl_printview.php:187
+#: tbl_structure.php:84 tbl_tracking.php:346 tbl_tracking.php:398
+#: tbl_tracking.php:403
 msgid "Yes"
 msgstr "Evet"
 
@@ -313,7 +313,7 @@ msgstr ""
 #: libraries/server_privileges.lib.php:1999
 #: libraries/server_privileges.lib.php:2230
 #: libraries/server_privileges.lib.php:2882 libraries/structure.lib.php:757
-#: tbl_tracking.php:763
+#: tbl_tracking.php:764
 msgid "Table"
 msgstr "Tablo"
 
@@ -388,7 +388,7 @@ msgstr "İzlenen tablolar"
 #: libraries/server_privileges.lib.php:1989
 #: libraries/server_privileges.lib.php:2230
 #: libraries/server_privileges.lib.php:2873 server_databases.php:202
-#: server_status.php:379 tbl_tracking.php:762
+#: server_status.php:379 tbl_tracking.php:763
 msgid "Database"
 msgstr "Veritabanı"
 
@@ -396,17 +396,17 @@ msgstr "Veritabanı"
 msgid "Last version"
 msgstr "Son sürüm"
 
-#: db_tracking.php:81 tbl_tracking.php:765
+#: db_tracking.php:81 tbl_tracking.php:766
 msgid "Created"
 msgstr "Oluşturuldu"
 
-#: db_tracking.php:82 tbl_tracking.php:766
+#: db_tracking.php:82 tbl_tracking.php:767
 msgid "Updated"
 msgstr "Güncellendi"
 
 #: db_tracking.php:83 js/messages.php:163 libraries/Menu.class.php:458
 #: libraries/rte/rte_events.lib.php:426 libraries/rte/rte_list.lib.php:78
-#: server_status.php:391 tbl_tracking.php:767
+#: server_status.php:391 tbl_tracking.php:768
 msgid "Status"
 msgstr "Durum"
 
@@ -419,7 +419,7 @@ msgstr "Durum"
 msgid "Action"
 msgstr "Eylem"
 
-#: db_tracking.php:85 tbl_change.php:235 tbl_tracking.php:768
+#: db_tracking.php:85 tbl_change.php:235 tbl_tracking.php:769
 msgid "Show"
 msgstr "Göster"
 
@@ -428,18 +428,18 @@ msgid "Delete tracking data for this table"
 msgstr "Bu tablo için izleme verisini sil"
 
 #: db_tracking.php:103 libraries/Index.class.php:625
-#: libraries/Util.class.php:3449 libraries/Util.class.php:3450
+#: libraries/Util.class.php:3451 libraries/Util.class.php:3452
 #: libraries/structure.lib.php:307 libraries/structure.lib.php:1378
 #: libraries/structure.lib.php:2050 libraries/structure.lib.php:2052
 #: server_databases.php:332
 msgid "Drop"
 msgstr "Kaldır"
 
-#: db_tracking.php:120 tbl_tracking.php:723 tbl_tracking.php:777
+#: db_tracking.php:120 tbl_tracking.php:724 tbl_tracking.php:778
 msgid "active"
 msgstr "aktif"
 
-#: db_tracking.php:122 tbl_tracking.php:725 tbl_tracking.php:779
+#: db_tracking.php:122 tbl_tracking.php:726 tbl_tracking.php:780
 msgid "not active"
 msgstr "aktif değil"
 
@@ -447,11 +447,11 @@ msgstr "aktif değil"
 msgid "Versions"
 msgstr "Sürümler"
 
-#: db_tracking.php:139 tbl_tracking.php:489 tbl_tracking.php:799
+#: db_tracking.php:139 tbl_tracking.php:490 tbl_tracking.php:800
 msgid "Tracking report"
 msgstr "İzleme raporu"
 
-#: db_tracking.php:140 tbl_tracking.php:292 tbl_tracking.php:804
+#: db_tracking.php:140 tbl_tracking.php:293 tbl_tracking.php:805
 msgid "Structure snapshot"
 msgstr "Yapı görüntüsü yakalama"
 
@@ -649,7 +649,7 @@ msgstr ""
 msgid "Could not load import plugins, please check your installation!"
 msgstr "İçe aktarma eklentileri yüklenemedi, lütfen kurulumunuzu kontrol edin!"
 
-#: import.php:519 sql.php:294 sql.php:1111
+#: import.php:519 sql.php:262 sql.php:942
 #, php-format
 msgid "Bookmark %s created"
 msgstr "Yer imi %s oluşturuldu"
@@ -676,7 +676,7 @@ msgstr ""
 "sınırlarını arttırmadığınız sürece phpMyAdmin'in bu içe aktarmayı "
 "biteremeyeceği anlamına gelir."
 
-#: import.php:590 libraries/DisplayResults.class.php:4531
+#: import.php:590 libraries/DisplayResults.class.php:4524
 #: libraries/Message.class.php:180 libraries/rte/rte_routines.lib.php:1427
 #: libraries/sql_query_form.lib.php:116 tbl_operations.php:184
 #: tbl_relation.php:250 tbl_row_action.php:122 view_operations.php:57
@@ -887,7 +887,7 @@ msgstr ""
 "Sunucu Suhosin ile çalışıyor. Lütfen olası sorunlar için %sbelgeden%s "
 "yararlanın."
 
-#: js/messages.php:27 libraries/import.lib.php:118 sql.php:254
+#: js/messages.php:27 libraries/import.lib.php:118 sql.php:222
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "\"DROP DATABASE\" ifadesi etkisizleştirildi."
 
@@ -896,7 +896,7 @@ msgstr "\"DROP DATABASE\" ifadesi etkisizleştirildi."
 msgid "Do you really want to execute \"%s\"?"
 msgstr "\"%s\" sorgusunu çalıştırmak istediğinize emin misiniz?"
 
-#: js/messages.php:31 libraries/mult_submits.inc.php:337 sql.php:376
+#: js/messages.php:31 libraries/mult_submits.inc.php:337
 msgid "You are about to DESTROY a complete database!"
 msgstr "Bütün bir veritabanını YOK ETMEK üzeresiniz!"
 
@@ -980,8 +980,8 @@ msgstr "Yetkiler Yeniden Yükleniyor"
 msgid "Removing Selected Users"
 msgstr "Seçili Kullanıcılar Kaldırılıyor"
 
-#: js/messages.php:58 js/messages.php:115 tbl_tracking.php:293
-#: tbl_tracking.php:490
+#: js/messages.php:58 js/messages.php:115 tbl_tracking.php:294
+#: tbl_tracking.php:491
 msgid "Close"
 msgstr "Kapat"
 
@@ -1108,13 +1108,13 @@ msgstr "B"
 
 #. l10n: shortcuts for Kilobyte
 #: js/messages.php:100 libraries/Util.class.php:1463
-#: server_status_monitor.php:557
+#: libraries/server_status_monitor.lib.php:250
 msgid "KiB"
 msgstr "KiB"
 
 #. l10n: shortcuts for Megabyte
 #: js/messages.php:101 libraries/Util.class.php:1465
-#: server_status_monitor.php:558
+#: libraries/server_status_monitor.lib.php:251
 msgid "MiB"
 msgstr "MiB"
 
@@ -1153,7 +1153,7 @@ msgid "Traffic"
 msgstr "Trafik"
 
 #: js/messages.php:111 libraries/Menu.class.php:486
-#: server_status_monitor.php:677
+#: libraries/server_status_monitor.lib.php:290
 msgid "Settings"
 msgstr "Ayarlar"
 
@@ -1173,13 +1173,14 @@ msgstr "Çizelgeyi ızgaraya ekle"
 msgid "Please add at least one variable to the series"
 msgstr "Lütfen diziye en az bir değişken ekleyin"
 
-#: js/messages.php:117 libraries/DisplayResults.class.php:1288
+#: js/messages.php:117 libraries/DisplayResults.class.php:1285
 #: libraries/TableSearch.class.php:841 libraries/TableSearch.class.php:985
 #: libraries/display_export.lib.php:383
 #: libraries/plugins/export/ExportSql.class.php:1546
 #: libraries/server_privileges.lib.php:2132
+#: libraries/server_status_monitor.lib.php:269
 #: libraries/tbl_columns_definition_form.inc.php:687 pmd_general.php:559
-#: server_status.php:529 server_status_monitor.php:576
+#: server_status.php:529
 msgid "None"
 msgstr "Yok"
 
@@ -1279,7 +1280,7 @@ msgstr "Değiştirme ayarları"
 msgid "Current settings"
 msgstr "Şu anki ayarlar"
 
-#: js/messages.php:142 server_status_monitor.php:517
+#: js/messages.php:142 libraries/server_status_monitor.lib.php:209
 msgid "Chart Title"
 msgstr "Çizelge Başlığı"
 
@@ -1365,7 +1366,7 @@ msgstr "Çıktıyı açıkla"
 #: libraries/plugins/export/ExportHtmlword.class.php:486
 #: libraries/plugins/export/ExportOdt.class.php:564
 #: libraries/plugins/export/ExportTexytext.class.php:437
-#: libraries/rte/rte_list.lib.php:68 libraries/sql.lib.php:505
+#: libraries/rte/rte_list.lib.php:68 libraries/sql.lib.php:457
 #: server_status.php:387
 msgid "Time"
 msgstr "Süre"
@@ -1463,7 +1464,7 @@ msgstr ""
 #: js/messages.php:190 libraries/Menu.class.php:288
 #: libraries/Menu.class.php:371 libraries/Menu.class.php:482
 #: libraries/config/messages.inc.php:168 libraries/display_import.lib.php:187
-#: prefs_manage.php:238 server_status_monitor.php:742
+#: libraries/server_status_monitor.lib.php:355 prefs_manage.php:238
 #: setup/frames/menu.inc.php:21
 msgid "Import"
 msgstr "İçe Aktar"
@@ -1520,7 +1521,7 @@ msgid "Cancel"
 msgstr "İptal"
 
 #: js/messages.php:213 libraries/navigation/NavigationHeader.class.php:54
-#: server_status_monitor.php:477
+#: libraries/server_status_monitor.lib.php:159
 msgid "Loading"
 msgstr "Yükleniyor"
 
@@ -1670,10 +1671,10 @@ msgstr "Sorgu kutusunu gizle"
 msgid "Show query box"
 msgstr "Sorgu kutusunu göster"
 
-#: js/messages.php:264 libraries/DisplayResults.class.php:3314
+#: js/messages.php:264 libraries/DisplayResults.class.php:3311
 #: libraries/Index.class.php:591 libraries/Util.class.php:699
-#: libraries/Util.class.php:1246 libraries/Util.class.php:3453
-#: libraries/Util.class.php:3454 libraries/config/messages.inc.php:486
+#: libraries/Util.class.php:1246 libraries/Util.class.php:3455
+#: libraries/Util.class.php:3456 libraries/config/messages.inc.php:486
 #: libraries/schema/User_Schema.class.php:216 server_variables.php:130
 #: setup/frames/index.inc.php:147
 msgid "Edit"
@@ -1683,7 +1684,7 @@ msgstr "Düzenle"
 msgid "No rows selected"
 msgstr "Seçilen satırlar yok"
 
-#: js/messages.php:266 libraries/DisplayResults.class.php:5051
+#: js/messages.php:266 libraries/DisplayResults.class.php:5044
 #: libraries/structure.lib.php:1374 libraries/structure.lib.php:2048
 #: querywindow.php:85
 msgid "Change"
@@ -1770,7 +1771,7 @@ msgstr "Veri imleci içeriği"
 msgid "Ignore"
 msgstr "Yoksay"
 
-#: js/messages.php:299 libraries/DisplayResults.class.php:3317
+#: js/messages.php:299 libraries/DisplayResults.class.php:3314
 msgid "Copy"
 msgstr "Kopyala"
 
@@ -1786,7 +1787,7 @@ msgstr "Satır dizgisi"
 msgid "Polygon"
 msgstr "Poligon"
 
-#: js/messages.php:306 libraries/DisplayResults.class.php:1641
+#: js/messages.php:306 libraries/DisplayResults.class.php:1638
 msgid "Geometry"
 msgstr "Geometri"
 
@@ -2271,32 +2272,32 @@ msgstr "saat başına"
 msgid "per day"
 msgstr "gün başına"
 
-#: libraries/Config.class.php:1115
+#: libraries/Config.class.php:1117
 #, php-format
 msgid "Existing configuration file (%s) is not readable."
 msgstr "Mevcut yapılandırma dosyası (%s) okunabilir değil."
 
-#: libraries/Config.class.php:1145
+#: libraries/Config.class.php:1147
 msgid "Wrong permissions on configuration file, should not be world writable!"
 msgstr ""
 "Yapılandırma dosyasında yanlış izinler, herkesçe yazılabilir olmamalıdır!"
 
-#: libraries/Config.class.php:1711
+#: libraries/Config.class.php:1713
 msgid "Font size"
 msgstr "Yazı Tipi boyutu"
 
-#: libraries/DBQbe.class.php:346 libraries/DisplayResults.class.php:1272
-#: libraries/DisplayResults.class.php:2007
-#: libraries/DisplayResults.class.php:2015 libraries/TableSearch.class.php:812
+#: libraries/DBQbe.class.php:346 libraries/DisplayResults.class.php:1269
+#: libraries/DisplayResults.class.php:2004
+#: libraries/DisplayResults.class.php:2012 libraries/TableSearch.class.php:812
 #: libraries/operations.lib.php:632 libraries/structure.lib.php:860
 #: libraries/structure.lib.php:877 server_databases.php:203
 #: server_databases.php:220 server_status.php:477
 msgid "Ascending"
 msgstr "Küçükten Büyüğe"
 
-#: libraries/DBQbe.class.php:349 libraries/DisplayResults.class.php:1284
-#: libraries/DisplayResults.class.php:2002
-#: libraries/DisplayResults.class.php:2020 libraries/TableSearch.class.php:813
+#: libraries/DBQbe.class.php:349 libraries/DisplayResults.class.php:1281
+#: libraries/DisplayResults.class.php:1999
+#: libraries/DisplayResults.class.php:2017 libraries/TableSearch.class.php:813
 #: libraries/operations.lib.php:635 libraries/structure.lib.php:865
 #: libraries/structure.lib.php:882 server_databases.php:203
 #: server_databases.php:220 server_status.php:474
@@ -2311,7 +2312,7 @@ msgstr "Sütun:"
 msgid "Sort:"
 msgstr "Sıralama:"
 
-#: libraries/DBQbe.class.php:468 libraries/DisplayResults.class.php:903
+#: libraries/DBQbe.class.php:468
 msgid "Show:"
 msgstr "Göster:"
 
@@ -2426,8 +2427,8 @@ msgid_plural "%1$s matches in <strong>%2$s</strong>"
 msgstr[0] "<strong>%2$s</strong> tablosu içerisinde %1$s eşleşme"
 
 #: libraries/DbSearch.class.php:346 libraries/Menu.class.php:250
-#: libraries/Util.class.php:3229 libraries/Util.class.php:3442
-#: libraries/Util.class.php:3443 libraries/structure.lib.php:1368
+#: libraries/Util.class.php:3229 libraries/Util.class.php:3444
+#: libraries/Util.class.php:3445 libraries/structure.lib.php:1368
 msgid "Browse"
 msgstr "Gözat"
 
@@ -2436,14 +2437,14 @@ msgstr "Gözat"
 msgid "Delete the matches for the %s table?"
 msgstr "%s tablosu için benzeşenler silinsin mi?"
 
-#: libraries/DbSearch.class.php:357 libraries/DisplayResults.class.php:3386
-#: libraries/DisplayResults.class.php:5027
+#: libraries/DbSearch.class.php:357 libraries/DisplayResults.class.php:3383
+#: libraries/DisplayResults.class.php:5020
 #: libraries/schema/User_Schema.class.php:217
 #: libraries/schema/User_Schema.class.php:299
 #: libraries/schema/User_Schema.class.php:352
 #: libraries/sql_query_form.lib.php:428 pmd_general.php:472
 #: setup/frames/index.inc.php:148 setup/frames/index.inc.php:254
-#: tbl_tracking.php:538 tbl_tracking.php:558 tbl_tracking.php:620
+#: tbl_tracking.php:539 tbl_tracking.php:559 tbl_tracking.php:621
 msgid "Delete"
 msgstr "Sil"
 
@@ -2505,41 +2506,32 @@ msgctxt "Last page"
 msgid "End"
 msgstr "Son"
 
-#: libraries/DisplayResults.class.php:904 tbl_chart.php:241
-msgid "Start row:"
-msgstr "Başlangıç satırı:"
-
-#: libraries/DisplayResults.class.php:908 libraries/display_export.lib.php:175
+#: libraries/DisplayResults.class.php:904 libraries/display_export.lib.php:175
 #: tbl_chart.php:245
 msgid "Number of rows:"
 msgstr "Satır sayısı:"
 
-#: libraries/DisplayResults.class.php:917
+#: libraries/DisplayResults.class.php:921
 msgid "Mode:"
 msgstr "Kip:"
 
-#: libraries/DisplayResults.class.php:919
+#: libraries/DisplayResults.class.php:923
 msgid "horizontal"
 msgstr "yatay"
 
-#: libraries/DisplayResults.class.php:920
+#: libraries/DisplayResults.class.php:924
 msgid "horizontal (rotated headers)"
 msgstr "yatay (döndürülmüş başlıklar)"
 
-#: libraries/DisplayResults.class.php:921
+#: libraries/DisplayResults.class.php:925
 msgid "vertical"
 msgstr "dikey"
 
-#: libraries/DisplayResults.class.php:933
-#, php-format
-msgid "Headers every %s rows"
-msgstr "Her %s satırda bir başlıklar"
-
-#: libraries/DisplayResults.class.php:1230
+#: libraries/DisplayResults.class.php:1227
 msgid "Sort by key"
 msgstr "Anahtara göre sırala"
 
-#: libraries/DisplayResults.class.php:1578 libraries/TableSearch.class.php:754
+#: libraries/DisplayResults.class.php:1575 libraries/TableSearch.class.php:754
 #: libraries/import.lib.php:1195 libraries/import.lib.php:1221
 #: libraries/plugins/export/ExportCodegen.class.php:90
 #: libraries/plugins/export/ExportCsv.class.php:79
@@ -2566,68 +2558,68 @@ msgstr "Anahtara göre sırala"
 msgid "Options"
 msgstr "Seçenekler"
 
-#: libraries/DisplayResults.class.php:1584
-#: libraries/DisplayResults.class.php:1690
+#: libraries/DisplayResults.class.php:1581
+#: libraries/DisplayResults.class.php:1687
 msgid "Partial texts"
 msgstr "Kısmi metinler"
 
-#: libraries/DisplayResults.class.php:1585
-#: libraries/DisplayResults.class.php:1694
+#: libraries/DisplayResults.class.php:1582
+#: libraries/DisplayResults.class.php:1691
 msgid "Full texts"
 msgstr "Tam metinler"
 
-#: libraries/DisplayResults.class.php:1599
+#: libraries/DisplayResults.class.php:1596
 msgid "Relational key"
 msgstr "Bağlantılı anahtar"
 
-#: libraries/DisplayResults.class.php:1600
+#: libraries/DisplayResults.class.php:1597
 msgid "Relational display column"
 msgstr "Bağlantılı görüntü sütunu"
 
-#: libraries/DisplayResults.class.php:1612
+#: libraries/DisplayResults.class.php:1609
 msgid "Show binary contents"
 msgstr "Binari içerikleri göster"
 
-#: libraries/DisplayResults.class.php:1617
+#: libraries/DisplayResults.class.php:1614
 msgid "Show BLOB contents"
 msgstr "BLOB içerikleri göster"
 
-#: libraries/DisplayResults.class.php:1622
+#: libraries/DisplayResults.class.php:1619
 #: libraries/config/messages.inc.php:57
 msgid "Show binary contents as HEX"
 msgstr "Binari içerikleri HEX olarak göster"
 
-#: libraries/DisplayResults.class.php:1633
+#: libraries/DisplayResults.class.php:1630
 msgid "Hide browser transformation"
 msgstr "Tarayıcı dönüşümünü gizle"
 
-#: libraries/DisplayResults.class.php:1642
+#: libraries/DisplayResults.class.php:1639
 msgid "Well Known Text"
 msgstr "Çok İyi Bilinen Metin"
 
-#: libraries/DisplayResults.class.php:1643
+#: libraries/DisplayResults.class.php:1640
 msgid "Well Known Binary"
 msgstr "Çok İyi Bilinen Binari"
 
-#: libraries/DisplayResults.class.php:3359
-#: libraries/DisplayResults.class.php:3375
+#: libraries/DisplayResults.class.php:3356
+#: libraries/DisplayResults.class.php:3372
 msgid "The row has been deleted"
 msgstr "Satır silindi"
 
-#: libraries/DisplayResults.class.php:3413
-#: libraries/DisplayResults.class.php:5027 server_status.php:524
+#: libraries/DisplayResults.class.php:3410
+#: libraries/DisplayResults.class.php:5020 server_status.php:524
 msgid "Kill"
 msgstr "Sonlandır"
 
-#: libraries/DisplayResults.class.php:4477 libraries/structure.lib.php:771
+#: libraries/DisplayResults.class.php:4470 libraries/structure.lib.php:771
 msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]"
 msgstr "Yaklaşık olabilir. [doc@faq3-11]SSS 3.11[/doc]'e bakın"
 
-#: libraries/DisplayResults.class.php:4873
+#: libraries/DisplayResults.class.php:4866
 msgid "in query"
 msgstr "sorgu içerisinde"
 
-#: libraries/DisplayResults.class.php:4910 libraries/structure.lib.php:653
+#: libraries/DisplayResults.class.php:4903 libraries/structure.lib.php:653
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to %sdocumentation"
@@ -2635,21 +2627,21 @@ msgid ""
 msgstr ""
 "Bu görünüm en az bu satır sayısı kadar olur. Lütfen %sbelgeden%s yararlanın."
 
-#: libraries/DisplayResults.class.php:4923
+#: libraries/DisplayResults.class.php:4916
 msgid "Showing rows"
 msgstr "Gösterilen satırlar"
 
-#: libraries/DisplayResults.class.php:4939
+#: libraries/DisplayResults.class.php:4932
 msgid "total"
 msgstr "toplam"
 
-#: libraries/DisplayResults.class.php:4950 sql.php:855
+#: libraries/DisplayResults.class.php:4943 sql.php:686
 #, php-format
 msgid "Query took %01.4f sec"
 msgstr "Sorgu %01.4f san. sürdü"
 
-#: libraries/DisplayResults.class.php:5041
-#: libraries/DisplayResults.class.php:5047 libraries/mult_submits.inc.php:43
+#: libraries/DisplayResults.class.php:5034
+#: libraries/DisplayResults.class.php:5040 libraries/mult_submits.inc.php:43
 #: libraries/server_privileges.lib.php:2420
 #: libraries/server_privileges.lib.php:2424 libraries/structure.lib.php:278
 #: libraries/structure.lib.php:293 libraries/structure.lib.php:295
@@ -2658,8 +2650,8 @@ msgstr "Sorgu %01.4f san. sürdü"
 msgid "With selected:"
 msgstr "Seçilileri:"
 
-#: libraries/DisplayResults.class.php:5045
-#: libraries/DisplayResults.class.php:5046
+#: libraries/DisplayResults.class.php:5038
+#: libraries/DisplayResults.class.php:5039
 #: libraries/server_privileges.lib.php:778
 #: libraries/server_privileges.lib.php:779
 #: libraries/server_privileges.lib.php:2422
@@ -2670,45 +2662,45 @@ msgstr "Seçilileri:"
 msgid "Check All"
 msgstr "Tümünü Seç"
 
-#: libraries/DisplayResults.class.php:5064
-#: libraries/DisplayResults.class.php:5334 libraries/Menu.class.php:279
+#: libraries/DisplayResults.class.php:5057
+#: libraries/DisplayResults.class.php:5327 libraries/Menu.class.php:279
 #: libraries/Menu.class.php:362 libraries/Menu.class.php:478
-#: libraries/Util.class.php:3455 libraries/Util.class.php:3456
+#: libraries/Util.class.php:3457 libraries/Util.class.php:3458
 #: libraries/config/messages.inc.php:162 libraries/display_export.lib.php:98
 #: libraries/server_privileges.lib.php:1791
-#: libraries/server_privileges.lib.php:2428 libraries/structure.lib.php:297
-#: prefs_manage.php:295 server_status_monitor.php:746
-#: setup/frames/menu.inc.php:22
+#: libraries/server_privileges.lib.php:2428
+#: libraries/server_status_monitor.lib.php:359 libraries/structure.lib.php:297
+#: prefs_manage.php:295 setup/frames/menu.inc.php:22
 msgid "Export"
 msgstr "Dışa Aktar"
 
-#: libraries/DisplayResults.class.php:5166 view_create.php:152
+#: libraries/DisplayResults.class.php:5159 view_create.php:152
 msgid "Create view"
 msgstr "Görünüm oluştur"
 
-#: libraries/DisplayResults.class.php:5222
+#: libraries/DisplayResults.class.php:5215
 msgid "Query results operations"
 msgstr "Sorgu sonuçları işlemleri"
 
-#: libraries/DisplayResults.class.php:5258 libraries/Header.class.php:334
+#: libraries/DisplayResults.class.php:5251 libraries/Header.class.php:334
 #: libraries/structure.lib.php:299 libraries/structure.lib.php:362
 #: libraries/structure.lib.php:1481
 msgid "Print view"
 msgstr "Baskı görünümü"
 
-#: libraries/DisplayResults.class.php:5276
+#: libraries/DisplayResults.class.php:5269
 msgid "Print view (with full texts)"
 msgstr "Baskı görünümü (tüm metinler ile)"
 
-#: libraries/DisplayResults.class.php:5347 tbl_chart.php:151
+#: libraries/DisplayResults.class.php:5340 tbl_chart.php:151
 msgid "Display chart"
 msgstr "Çizelge göster"
 
-#: libraries/DisplayResults.class.php:5372
+#: libraries/DisplayResults.class.php:5365
 msgid "Visualize GIS data"
 msgstr "GIS verisini görselleştir"
 
-#: libraries/DisplayResults.class.php:5586
+#: libraries/DisplayResults.class.php:5579
 msgid "Link not found"
 msgstr "Bağlantı bulunamadı"
 
@@ -2786,38 +2778,38 @@ msgstr "Tanımlı indeks yok!"
 #: libraries/Index.class.php:536 libraries/Index.class.php:549
 #: libraries/build_html_for_db.lib.php:41 libraries/index.lib.php:23
 #: libraries/navigation/Nodes/Node_Index_Container.class.php:26
-#: tbl_tracking.php:378
+#: tbl_tracking.php:379
 msgid "Indexes"
 msgstr "İndeksler"
 
 #: libraries/Index.class.php:563 libraries/structure.lib.php:1387
 #: libraries/structure.lib.php:2058 libraries/structure.lib.php:2068
-#: libraries/tbl_columns_definition_form.inc.php:569 tbl_tracking.php:384
+#: libraries/tbl_columns_definition_form.inc.php:569 tbl_tracking.php:385
 msgid "Unique"
 msgstr "Benzersiz"
 
-#: libraries/Index.class.php:564 tbl_tracking.php:385
+#: libraries/Index.class.php:564 tbl_tracking.php:386
 msgid "Packed"
 msgstr "Paketlendi"
 
-#: libraries/Index.class.php:566 tbl_tracking.php:387
+#: libraries/Index.class.php:566 tbl_tracking.php:388
 msgid "Cardinality"
 msgstr "Önemlilik"
 
 #: libraries/Index.class.php:567 libraries/TableSearch.class.php:185
 #: libraries/build_html_for_db.lib.php:20 libraries/mysql_charsets.lib.php:34
 #: libraries/operations.lib.php:240 libraries/operations.lib.php:809
-#: libraries/server_collations.lib.php:39
-#: libraries/server_collations.lib.php:51 libraries/structure.lib.php:780
+#: libraries/server_collations.lib.php:35
+#: libraries/server_collations.lib.php:47 libraries/structure.lib.php:780
 #: libraries/structure.lib.php:1181 libraries/structure.lib.php:1701
-#: libraries/tbl_columns_definition_form.inc.php:114 tbl_tracking.php:326
-#: tbl_tracking.php:388
+#: libraries/tbl_columns_definition_form.inc.php:114 tbl_tracking.php:327
+#: tbl_tracking.php:389
 msgid "Collation"
 msgstr "Karşılaştırma"
 
 #: libraries/Index.class.php:570 libraries/rte/rte_events.lib.php:529
-#: libraries/rte/rte_routines.lib.php:1068 tbl_tracking.php:330
-#: tbl_tracking.php:390
+#: libraries/rte/rte_routines.lib.php:1068 tbl_tracking.php:331
+#: tbl_tracking.php:391
 msgid "Comment"
 msgstr "Yorum"
 
@@ -2852,14 +2844,14 @@ msgstr "Görünüm"
 
 #: libraries/Menu.class.php:256 libraries/Menu.class.php:340
 #: libraries/Util.class.php:3225 libraries/Util.class.php:3232
-#: libraries/Util.class.php:3448 libraries/config/setup.forms.php:298
+#: libraries/Util.class.php:3450 libraries/config/setup.forms.php:298
 #: libraries/config/setup.forms.php:335 libraries/config/setup.forms.php:361
 #: libraries/config/user_preferences.forms.php:195
 #: libraries/config/user_preferences.forms.php:232
 #: libraries/config/user_preferences.forms.php:258
 #: libraries/import.lib.php:1221 libraries/server_privileges.lib.php:749
 #: libraries/tbl_columns_definition_form.inc.php:771 pmd_general.php:188
-#: tbl_tracking.php:320
+#: tbl_tracking.php:321
 msgid "Structure"
 msgstr "Yapı"
 
@@ -2872,12 +2864,12 @@ msgstr "SQL"
 
 #: libraries/Menu.class.php:263 libraries/Menu.class.php:348
 #: libraries/Util.class.php:3227 libraries/Util.class.php:3234
-#: libraries/Util.class.php:3444 libraries/Util.class.php:3445
+#: libraries/Util.class.php:3446 libraries/Util.class.php:3447
 msgid "Search"
 msgstr "Ara"
 
 #: libraries/Menu.class.php:273 libraries/Util.class.php:3228
-#: libraries/Util.class.php:3446 libraries/Util.class.php:3447
+#: libraries/Util.class.php:3448 libraries/Util.class.php:3449
 #: libraries/sql_query_form.lib.php:301 libraries/sql_query_form.lib.php:304
 msgid "Insert"
 msgstr "Ekle"
@@ -3001,15 +2993,15 @@ msgstr[0] "%1$d satır eklendi."
 msgid "Error while creating PDF:"
 msgstr "PDF oluşturulurken hata:"
 
-#: libraries/RecentTable.class.php:114
+#: libraries/RecentTable.class.php:117
 msgid "Could not save recent table"
 msgstr "Son tablo kaydedilemedi"
 
-#: libraries/RecentTable.class.php:151
+#: libraries/RecentTable.class.php:154
 msgid "Recent tables"
 msgstr "Son tablolar"
 
-#: libraries/RecentTable.class.php:163
+#: libraries/RecentTable.class.php:166
 msgid "There are no recent tables"
 msgstr "Son tablolar yok"
 
@@ -3249,7 +3241,7 @@ msgid "Maximum rows to plot"
 msgstr "Çizim için en fazla satır"
 
 #: libraries/TableSearch.class.php:888 libraries/TableSearch.class.php:1160
-#: libraries/sql.lib.php:415 tbl_change.php:230
+#: libraries/sql.lib.php:367 tbl_change.php:230
 msgid "Browse foreign values"
 msgstr "Dış değerlere gözat"
 
@@ -3653,7 +3645,7 @@ msgstr "Bir numaralandırma, tanımlanmış değerlerin listesinden seçilir"
 msgid "Max: %s%s"
 msgstr "En fazla: %s%s"
 
-#: libraries/Util.class.php:674 libraries/sql.lib.php:465
+#: libraries/Util.class.php:674 libraries/sql.lib.php:417
 msgid "SQL query:"
 msgstr "SQL sorgusu:"
 
@@ -3712,7 +3704,7 @@ msgctxt "Inline edit query"
 msgid "Inline"
 msgstr "Sıralı"
 
-#: libraries/Util.class.php:1434 libraries/sql.lib.php:493
+#: libraries/Util.class.php:1434 libraries/sql.lib.php:445
 msgid "Profiling"
 msgstr "Profil çıkart"
 
@@ -3751,49 +3743,49 @@ msgstr "%s işlevselliği bilinen bir hata tarafından zarar görmüş, bakını
 msgid "Click to toggle"
 msgstr "Değiştirmek için tıklayın"
 
-#: libraries/Util.class.php:3361 libraries/sql_query_form.lib.php:470
+#: libraries/Util.class.php:3363 libraries/sql_query_form.lib.php:470
 #: prefs_manage.php:248
 msgid "Browse your computer:"
 msgstr "Bilgisayarınıza gözat:"
 
-#: libraries/Util.class.php:3386
+#: libraries/Util.class.php:3388
 #, php-format
 msgid "Select from the web server upload directory <b>%s</b>:"
 msgstr "Web sunucusu gönderme dizininden <b>%s</b> seçin:"
 
-#: libraries/Util.class.php:3415 libraries/insert_edit.lib.php:1183
+#: libraries/Util.class.php:3417 libraries/insert_edit.lib.php:1183
 #: libraries/sql_query_form.lib.php:479
 msgid "The directory you set for upload work cannot be reached"
 msgstr "Gönderme işi için ayarladığınız dizine ulaşılamıyor"
 
-#: libraries/Util.class.php:3426
+#: libraries/Util.class.php:3428
 msgid "There are no files to upload"
 msgstr "Göndermek için hiç dosya yok"
 
-#: libraries/Util.class.php:3451 libraries/Util.class.php:3452
+#: libraries/Util.class.php:3453 libraries/Util.class.php:3454
 #: libraries/structure.lib.php:305
 msgid "Empty"
 msgstr "Boşalt"
 
-#: libraries/Util.class.php:3457 libraries/Util.class.php:3458
+#: libraries/Util.class.php:3459 libraries/Util.class.php:3460
 msgid "Execute"
 msgstr "Çalıştır"
 
-#: libraries/Util.class.php:3985
+#: libraries/Util.class.php:3987
 msgid "Print"
 msgstr "Yazdır"
 
-#: libraries/Util.class.php:4086 libraries/structure.lib.php:798
+#: libraries/Util.class.php:4088 libraries/structure.lib.php:798
 #: libraries/structure.lib.php:1754 tbl_printview.php:410
 msgid "Creation"
 msgstr "Oluşturma"
 
-#: libraries/Util.class.php:4092 libraries/structure.lib.php:805
+#: libraries/Util.class.php:4094 libraries/structure.lib.php:805
 #: libraries/structure.lib.php:1762 tbl_printview.php:421
 msgid "Last update"
 msgstr "Son güncelleme"
 
-#: libraries/Util.class.php:4098 libraries/structure.lib.php:812
+#: libraries/Util.class.php:4100 libraries/structure.lib.php:812
 #: libraries/structure.lib.php:1770 tbl_printview.php:432
 msgid "Last check"
 msgstr "Son kontrol"
@@ -3913,54 +3905,54 @@ msgstr "olası kötüye kullanma"
 msgid "numeric key detected"
 msgstr "sayısal tuş algılandı"
 
-#: libraries/config.values.php:49 libraries/config.values.php:64
+#: libraries/config.values.php:49 libraries/config.values.php:65
 msgid "Icons"
 msgstr "Simgeler"
 
-#: libraries/config.values.php:50 libraries/config.values.php:65
+#: libraries/config.values.php:50 libraries/config.values.php:66
 msgid "Text"
 msgstr "Metin"
 
-#: libraries/config.values.php:51 libraries/config.values.php:58
-#: libraries/config.values.php:66
+#: libraries/config.values.php:51 libraries/config.values.php:59
+#: libraries/config.values.php:67
 msgid "Both"
 msgstr "Her ikisi"
 
-#: libraries/config.values.php:55
+#: libraries/config.values.php:56
 msgid "Nowhere"
 msgstr "Hiçbir yeri"
 
-#: libraries/config.values.php:56
+#: libraries/config.values.php:57
 msgid "Left"
 msgstr "Sol"
 
-#: libraries/config.values.php:57
+#: libraries/config.values.php:58
 msgid "Right"
 msgstr "Sağ"
 
-#: libraries/config.values.php:69
+#: libraries/config.values.php:70
 msgid "Click"
 msgstr "Tıkla"
 
-#: libraries/config.values.php:70
+#: libraries/config.values.php:71
 msgid "Double click"
 msgstr "Çift tıkla"
 
-#: libraries/config.values.php:71 libraries/config.values.php:102
+#: libraries/config.values.php:72 libraries/config.values.php:103
 #: libraries/config/FormDisplay.tpl.php:223 libraries/relation.lib.php:96
 #: libraries/relation.lib.php:103
 msgid "Disabled"
 msgstr "Etkisiz"
 
-#: libraries/config.values.php:100
+#: libraries/config.values.php:101
 msgid "Open"
 msgstr "Açık"
 
-#: libraries/config.values.php:101
+#: libraries/config.values.php:102
 msgid "Closed"
 msgstr "Kapalı"
 
-#: libraries/config.values.php:131
+#: libraries/config.values.php:132
 #: libraries/plugins/export/ExportHtmlword.class.php:69
 #: libraries/plugins/export/ExportLatex.class.php:103
 #: libraries/plugins/export/ExportMediawiki.class.php:73
@@ -3970,7 +3962,7 @@ msgstr "Kapalı"
 msgid "structure"
 msgstr "yapı"
 
-#: libraries/config.values.php:132
+#: libraries/config.values.php:133
 #: libraries/plugins/export/ExportHtmlword.class.php:70
 #: libraries/plugins/export/ExportLatex.class.php:104
 #: libraries/plugins/export/ExportMediawiki.class.php:74
@@ -3980,7 +3972,7 @@ msgstr "yapı"
 msgid "data"
 msgstr "veri"
 
-#: libraries/config.values.php:133
+#: libraries/config.values.php:134
 #: libraries/plugins/export/ExportHtmlword.class.php:71
 #: libraries/plugins/export/ExportLatex.class.php:105
 #: libraries/plugins/export/ExportMediawiki.class.php:75
@@ -3990,31 +3982,31 @@ msgstr "veri"
 msgid "structure and data"
 msgstr "yapı ve veri"
 
-#: libraries/config.values.php:136
+#: libraries/config.values.php:137
 msgid "Quick - display only the minimal options to configure"
 msgstr "Hızlı - yapılandırmak için sadece en az seçenekleri göster"
 
-#: libraries/config.values.php:137
+#: libraries/config.values.php:138
 msgid "Custom - display all possible options to configure"
 msgstr "Özel - yapılandırmak için tüm olası seçenekleri göster"
 
-#: libraries/config.values.php:138
+#: libraries/config.values.php:139
 msgid "Custom - like above, but without the quick/custom choice"
 msgstr "Özel - yukarıdaki gibi ancak hızlı/özel seçimsiz"
 
-#: libraries/config.values.php:166
+#: libraries/config.values.php:167
 msgid "complete inserts"
 msgstr "tam eklemeler"
 
-#: libraries/config.values.php:167
+#: libraries/config.values.php:168
 msgid "extended inserts"
 msgstr "genişletilmiş eklemeler"
 
-#: libraries/config.values.php:168
+#: libraries/config.values.php:169
 msgid "both of the above"
 msgstr "yukarıdakinin ikisi birden"
 
-#: libraries/config.values.php:169
+#: libraries/config.values.php:170
 msgid "neither of the above"
 msgstr "yukarıdakinin hiçbiri"
 
@@ -6143,8 +6135,8 @@ msgstr ""
 "Eğer özel kullanıcı adınız varsa, onu burada belirleyin (varsayılanı "
 "[kbd]isimsiz'dir[/kbd])"
 
-#: libraries/config/messages.inc.php:496 tbl_tracking.php:556
-#: tbl_tracking.php:618
+#: libraries/config/messages.inc.php:496 tbl_tracking.php:557
+#: tbl_tracking.php:619
 msgid "Username"
 msgstr "Kullanıcı Adı"
 
@@ -6554,7 +6546,7 @@ msgstr "Veritabanı(ları):"
 msgid "Table(s):"
 msgstr "Tablo(lar):"
 
-#: libraries/display_export.lib.php:164 libraries/sql.lib.php:469
+#: libraries/display_export.lib.php:164 libraries/sql.lib.php:421
 msgid "Rows:"
 msgstr "Satırlar:"
 
@@ -7180,7 +7172,7 @@ msgid "No data found for GIS visualization."
 msgstr "GIS görselleştirmesi için bulunan veri yok."
 
 #: libraries/import.lib.php:187 libraries/insert_edit.lib.php:122
-#: libraries/rte/rte_routines.lib.php:1446 sql.php:850 tbl_get_field.php:55
+#: libraries/rte/rte_routines.lib.php:1446 sql.php:681 tbl_get_field.php:55
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL boş bir sonuç kümesi döndürdü (yani sıfır satır)."
 
@@ -7300,11 +7292,11 @@ msgstr ""
 "Değerden değere geçmek için TAB tuşunu veya herhangi bir yere gitmek için "
 "CTRL+OK TUŞLARI'nı kullanın"
 
-#: libraries/insert_edit.lib.php:1914 sql.php:845
+#: libraries/insert_edit.lib.php:1914 sql.php:676
 msgid "Showing SQL query"
 msgstr "SQL sorgusu gösteriliyor"
 
-#: libraries/insert_edit.lib.php:1939 sql.php:825
+#: libraries/insert_edit.lib.php:1939 sql.php:656
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "Eklenen satır id: %1$d"
@@ -7349,7 +7341,7 @@ msgstr "Tablo ön eki ekle:"
 msgid "Add prefix"
 msgstr "Ön ek ekle"
 
-#: libraries/mult_submits.inc.php:339 sql.php:416
+#: libraries/mult_submits.inc.php:339
 msgid "Do you really want to execute the following query?"
 msgstr "Aşağıdaki sorguya çalıştırmak istiyor musunuz?"
 
@@ -7570,16 +7562,16 @@ msgid "%s other result found"
 msgid_plural "%s other results found"
 msgstr[0] "%s diğer sonuç bulundu"
 
-#: libraries/navigation/NavigationTree.class.php:1042
+#: libraries/navigation/NavigationTree.class.php:1039
 msgid "filter databases by name"
 msgstr "veritabanlarını adına göre süz"
 
-#: libraries/navigation/NavigationTree.class.php:1043
-#: libraries/navigation/NavigationTree.class.php:1076
+#: libraries/navigation/NavigationTree.class.php:1040
+#: libraries/navigation/NavigationTree.class.php:1073
 msgid "Clear Fast Filter"
 msgstr "Hızlı Süzgeci Temizle"
 
-#: libraries/navigation/NavigationTree.class.php:1075
+#: libraries/navigation/NavigationTree.class.php:1072
 msgid "filter items by name"
 msgstr "öğeleri adına göre süz"
 
@@ -7675,17 +7667,17 @@ msgid "Drop the database (DROP)"
 msgstr "Veritabanını kaldır (DROP)"
 
 #: libraries/operations.lib.php:145 libraries/operations.lib.php:1015
-#: tbl_tracking.php:506
+#: tbl_tracking.php:507
 msgid "Structure only"
 msgstr "Sadece yapı"
 
 #: libraries/operations.lib.php:146 libraries/operations.lib.php:1016
-#: tbl_tracking.php:512
+#: tbl_tracking.php:513
 msgid "Structure and data"
 msgstr "Yapı ve veri"
 
 #: libraries/operations.lib.php:147 libraries/operations.lib.php:1017
-#: tbl_tracking.php:509
+#: tbl_tracking.php:510
 msgid "Data only"
 msgstr "Sadece veri"
 
@@ -8099,13 +8091,13 @@ msgstr "İlk satır içine sütun adlarını koy:"
 #: libraries/plugins/export/ExportSql.class.php:601
 #: libraries/plugins/export/ExportXml.class.php:191
 #: libraries/replication_gui.lib.php:68 libraries/replication_gui.lib.php:293
-#: libraries/server_privileges.lib.php:1081 libraries/sql.lib.php:459
+#: libraries/server_privileges.lib.php:1081 libraries/sql.lib.php:411
 msgid "Host:"
 msgstr "Anamakine:"
 
 #: libraries/plugins/export/ExportLatex.class.php:223
 #: libraries/plugins/export/ExportSql.class.php:608
-#: libraries/plugins/export/ExportXml.class.php:196 libraries/sql.lib.php:462
+#: libraries/plugins/export/ExportXml.class.php:196 libraries/sql.lib.php:414
 msgid "Generation Time:"
 msgstr "Üretim Zamanı:"
 
@@ -8119,7 +8111,7 @@ msgstr "PHP Sürümü:"
 #: libraries/plugins/export/ExportSql.class.php:760
 #: libraries/plugins/export/ExportXml.class.php:390
 #: libraries/plugins/export/PMA_ExportPdf.class.php:115
-#: libraries/sql.lib.php:460
+#: libraries/sql.lib.php:412
 msgid "Database:"
 msgstr "Veritabanı:"
 
@@ -8393,7 +8385,6 @@ msgstr ""
 "düzeltin ve tekrar deneyin."
 
 #: libraries/plugins/import/ImportOds.class.php:182
-#| msgid "OpenDocument Spreadsheet"
 msgid "Could not parse OpenDocument Spreasheet!"
 msgstr "OpenDocument Hesap Tablosu ayrıştırılamadı!"
 
@@ -9243,7 +9234,7 @@ msgstr "Öznitelikler"
 
 #: libraries/schema/Pdf_Relation_Schema.class.php:1367
 #: libraries/schema/Pdf_Relation_Schema.class.php:1390
-#: libraries/structure.lib.php:1185 tbl_tracking.php:329
+#: libraries/structure.lib.php:1185 tbl_tracking.php:330
 msgid "Extra"
 msgstr "Ekstra"
 
@@ -9406,7 +9397,7 @@ msgid "Library"
 msgstr "Kütüphane"
 
 #: libraries/server_plugins.lib.php:78 libraries/server_plugins.lib.php:135
-#: tbl_tracking.php:764
+#: tbl_tracking.php:765
 msgid "Version"
 msgstr "Sürüm"
 
@@ -9871,53 +9862,269 @@ msgstr ""
 "sunucunun kullandığı yetkilerden farklı olabilir. Bu durumda devam etmeden "
 "önce %syetkileri yeniden yüklemeniz%s gerekir."
 
-#: libraries/server_privileges.lib.php:3036
+#: libraries/server_privileges.lib.php:3035
 msgid "The selected user was not found in the privilege table."
 msgstr "Seçili kullanıcı yetki tablosunda bulunamadı."
 
-#: libraries/server_privileges.lib.php:3249
+#: libraries/server_privileges.lib.php:3248
 msgid "You have added a new user."
 msgstr "Yeni bir kullanıcı eklediniz."
 
-#: libraries/sql.lib.php:457
+#: libraries/server_status_monitor.lib.php:77
+#, php-format
+msgid "%d second"
+msgid_plural "%d seconds"
+msgstr[0] "%d saniye"
+
+#: libraries/server_status_monitor.lib.php:80
+#, php-format
+msgid "%d minute"
+msgid_plural "%d minutes"
+msgstr[0] "%d dakika"
+
+#: libraries/server_status_monitor.lib.php:96
+msgid "Log statistics"
+msgstr "Günlük istatistikleri"
+
+#: libraries/server_status_monitor.lib.php:97
+msgid "Selected time range:"
+msgstr "Seçili zaman aralığı:"
+
+#: libraries/server_status_monitor.lib.php:103
+msgid "Only retrieve SELECT,INSERT,UPDATE and DELETE Statements"
+msgstr "Sadece SELECT,INSERT,UPDATE ve DELETE İfadeleri erişir"
+
+#: libraries/server_status_monitor.lib.php:108
+msgid "Remove variable data in INSERT statements for better grouping"
+msgstr "Daha iyi gruplama için INSERT ifadelerindeki değişken veriyi kaldır"
+
+#: libraries/server_status_monitor.lib.php:111
+msgid "Choose from which log you want the statistics to be generated from."
+msgstr "İstatistiklerin oluşturulmasını istediğiniz yerden günlüğü seçin."
+
+#: libraries/server_status_monitor.lib.php:114
+msgid "Results are grouped by query text."
+msgstr "Sonuçlar sorgu metnine göre gruplandırılır."
+
+#: libraries/server_status_monitor.lib.php:118
+msgid "Query analyzer"
+msgstr "Sorgu çözümleyici"
+
+#: libraries/server_status_monitor.lib.php:135
+msgid "Monitor Instructions"
+msgstr "İzleme Yönergeleri"
+
+#: libraries/server_status_monitor.lib.php:137
+msgid ""
+"The phpMyAdmin Monitor can assist you in optimizing the server configuration "
+"and track down time intensive queries. For the latter you will need to set "
+"log_output to 'TABLE' and have either the slow_query_log or general_log "
+"enabled. Note however, that the general_log produces a lot of data and "
+"increases server load by up to 15%."
+msgstr ""
+"phpMyAdmin İzleyici sunucu yapılandırmasını uyarlamada ve yoğun sorgularda "
+"iz sürme süresinde size yardımcı olabilir. Sonrası için log_output'u "
+"'TABLE'a ayarlamanız gerekecektir ve ya slow_query_log ya da general_log "
+"etkinleştirilir. Ancak unutmayın, general_log çok fazla veri üretir ve "
+"sunucu yükünü %15'e kadar arttırır."
+
+#: libraries/server_status_monitor.lib.php:149
+msgid ""
+"Unfortunately your Database server does not support logging to table, which "
+"is a requirement for analyzing the database logs with phpMyAdmin. Logging to "
+"table is supported by MySQL 5.1.6 and onwards. You may still use the server "
+"charting features however."
+msgstr ""
+"Ne yazık ki Veritabanı sunucunuz phpMyAdmin ile veritabanı günlüklerini "
+"çözümlemek için gereken tabloları günlüklemeyi desteklemiyor. Tabloyu "
+"günlükleme MySQL 5.1.6 ve sonrakiler tarafından desteklenir. Yinede hala "
+"sunucu çizelgeleme özelliklerini kullanabilirsiniz."
+
+#: libraries/server_status_monitor.lib.php:164
+msgid "Using the monitor:"
+msgstr "İzleyici kullanımı:"
+
+#: libraries/server_status_monitor.lib.php:167
+msgid ""
+"Your browser will refresh all displayed charts in a regular interval. You "
+"may add charts and change the refresh rate under 'Settings', or remove any "
+"chart using the cog icon on each respective chart."
+msgstr ""
+"Tarayıcınız tüm görüntülenen çizelgeleri düzenli aralıklarla yenileyecek. "
+"'Ayarlar' altında çizelgeleri ekleyebilir ve yenileme oranını "
+"değiştirebilirsiniz veya her çizelgenin kendi dişli çark simgesini "
+"kullanarak herhangi bir çizelgeyi kaldırabilirsiniz."
+
+#: libraries/server_status_monitor.lib.php:173
+msgid ""
+"To display queries from the logs, select the relevant time span on any chart "
+"by holding down the left mouse button and panning over the chart. Once "
+"confirmed, this will load a table of grouped queries, there you may click on "
+"any occurring SELECT statements to further analyze them."
+msgstr ""
+"Günlüklerden sorguları görüntülemek için herhangi bir çizelgede sol fare "
+"tuşunu basılı tutarak ve çizelge üzerinde kaydırarak ilgili zaman aralığını "
+"seçin. Bir kere onaylandı mı, bu, gruplanmış sorguların tablolarını "
+"yükleyecek. Daha fazla çözümlemesi için herhangi bir meydana gelen SELECT "
+"ifadesine tıklayabilirsiniz."
+
+#: libraries/server_status_monitor.lib.php:183
+msgid "Please note:"
+msgstr "Lütfen unutmayın:"
+
+#: libraries/server_status_monitor.lib.php:186
+msgid ""
+"Enabling the general_log may increase the server load by 5-15%. Also be "
+"aware that generating statistics from the logs is a load intensive task, so "
+"it is advisable to select only a small time span and to disable the "
+"general_log and empty its table once monitoring is not required any more."
+msgstr ""
+"general_log'u etkinleştirmek sunucu yükünü %5-15 arttırabilir. Aynı zamanda "
+"günlükten oluşturulan istatistiklerin yoğun görev yükü olduğundan haberiniz "
+"olsun bu yüzden sadece küçük zaman aralıkları seçmek ve general_log'u "
+"etkisizleştirmek tavsiye edilir ve tablolarını bir defa boşaltmak daha fazla "
+"izlemeyi gerektirmez."
+
+#: libraries/server_status_monitor.lib.php:207
+#: libraries/server_status_monitor.lib.php:314
+msgid "Add chart"
+msgstr "Çizelge ekle"
+
+#: libraries/server_status_monitor.lib.php:211
+msgid "Preset chart"
+msgstr "Hazır çizelge"
+
+#: libraries/server_status_monitor.lib.php:216
+msgid "Status variable(s)"
+msgstr "Durum değişken(leri)i"
+
+#: libraries/server_status_monitor.lib.php:219
+msgid "Select series:"
+msgstr "Dizi seç:"
+
+#: libraries/server_status_monitor.lib.php:221
+msgid "Commonly monitored"
+msgstr "Genellikle izlenen"
+
+#: libraries/server_status_monitor.lib.php:237
+msgid "or type variable name:"
+msgstr "veya değişken adını yazın:"
+
+#: libraries/server_status_monitor.lib.php:244
+msgid "Display as differential value"
+msgstr "Ayırdedici değer olarak görüntüle"
+
+#: libraries/server_status_monitor.lib.php:247
+msgid "Apply a divisor"
+msgstr "Bir bölen uygula"
+
+#: libraries/server_status_monitor.lib.php:255
+msgid "Append unit to data values"
+msgstr "Veri değerlerine birimi ekle"
+
+#: libraries/server_status_monitor.lib.php:261
+msgid "Add this series"
+msgstr "Bu diziyi ekle"
+
+#: libraries/server_status_monitor.lib.php:263
+msgid "Clear series"
+msgstr "Diziyi temizle"
+
+#: libraries/server_status_monitor.lib.php:266
+msgid "Series in Chart:"
+msgstr "Çizelgedeki Dizi:"
+
+#: libraries/server_status_monitor.lib.php:287
+msgid "Start Monitor"
+msgstr "İzlemeyi başlat"
+
+#: libraries/server_status_monitor.lib.php:294
+msgid "Instructions/Setup"
+msgstr "Yönergeler/Ayarlama"
+
+#: libraries/server_status_monitor.lib.php:298
+msgid "Done dragging (rearranging) charts"
+msgstr "Çizelgeleri sürüklemeyi (yeniden düzenlemeyi) bitir"
+
+#: libraries/server_status_monitor.lib.php:317
+msgid "Enable charts dragging"
+msgstr "Çizelgeleri sürüklemeyi etkinleştir"
+
+#: libraries/server_status_monitor.lib.php:321
+msgid "Refresh rate"
+msgstr "Yenileme oranı"
+
+#: libraries/server_status_monitor.lib.php:330
+msgid "Chart columns"
+msgstr "Çizelge sütunu"
+
+#: libraries/server_status_monitor.lib.php:346
+msgid "Chart arrangement"
+msgstr "Çizelge ayarlaması"
+
+#: libraries/server_status_monitor.lib.php:349
+msgid ""
+"The arrangement of the charts is stored to the browsers local storage. You "
+"may want to export it if you have a complicated set up."
+msgstr ""
+"Çizelgelerin ayarlanması tarayıcının yerel deposunda saklanır. Eğer karışık "
+"ayarlamalarınız varsa, bunu dışa aktarmak isteyebilirsiniz."
+
+#: libraries/server_status_monitor.lib.php:363
+msgid "Reset to default"
+msgstr "Varsayılana sıfırla"
+
+#: libraries/sql.lib.php:409
 msgid "SQL result"
 msgstr "SQL sonucu"
 
-#: libraries/sql.lib.php:464
+#: libraries/sql.lib.php:416
 msgid "Generated by:"
 msgstr "Üreten:"
 
-#: libraries/sql.lib.php:495
+#: libraries/sql.lib.php:447
 msgid "Detailed profile"
 msgstr "Ayrıntılı profil"
 
-#: libraries/sql.lib.php:498
+#: libraries/sql.lib.php:450
 msgid "Order"
 msgstr "Sıra"
 
-#: libraries/sql.lib.php:500 libraries/sql.lib.php:546
+#: libraries/sql.lib.php:452 libraries/sql.lib.php:498
 msgid "State"
 msgstr "Durum"
 
-#: libraries/sql.lib.php:543
+#: libraries/sql.lib.php:495
 msgid "Summary by state"
 msgstr "Duruma göre özet"
 
-#: libraries/sql.lib.php:551
+#: libraries/sql.lib.php:503
 msgid "Total Time"
 msgstr "Toplam Süre"
 
-#: libraries/sql.lib.php:553
+#: libraries/sql.lib.php:505
 msgid "% Time"
 msgstr "% Süre"
 
-#: libraries/sql.lib.php:555
+#: libraries/sql.lib.php:507
 msgid "Calls"
 msgstr "Çağrılar"
 
-#: libraries/sql.lib.php:557
+#: libraries/sql.lib.php:509
 msgid "ø Time"
 msgstr "ø Süre"
+
+#: libraries/sql.lib.php:677 libraries/sql.lib.php:697
+msgid "Bookmark this SQL query"
+msgstr "Bu SQL sorgusunu işaretle"
+
+#: libraries/sql.lib.php:681
+msgid "Label:"
+msgstr "Etiket:"
+
+#: libraries/sql.lib.php:689 libraries/sql_query_form.lib.php:326
+msgid "Let every user access this bookmark"
+msgstr "Her kullanıcının bu yer imine erişmesine izin ver"
 
 #: libraries/sql_query_form.lib.php:188
 #, php-format
@@ -9936,10 +10143,6 @@ msgstr "Temizle"
 #: libraries/sql_query_form.lib.php:318
 msgid "Bookmark this SQL query:"
 msgstr "Bu SQL sorgusunu işaretle:"
-
-#: libraries/sql_query_form.lib.php:326 sql.php:1199
-msgid "Let every user access this bookmark"
-msgstr "Her kullanıcının bu yer imine erişmesine izin ver"
 
 #: libraries/sql_query_form.lib.php:332
 msgid "Replace existing bookmark of same name"
@@ -10080,7 +10283,7 @@ msgstr "Ek yükü olan tabloları kontrol et"
 msgid "Sort"
 msgstr "Sırala"
 
-#: libraries/structure.lib.php:1279 tbl_tracking.php:359
+#: libraries/structure.lib.php:1279 tbl_tracking.php:360
 msgctxt "None for default"
 msgid "None"
 msgstr "Yok"
@@ -10234,7 +10437,7 @@ msgstr "Etkili"
 msgid "Table %1$s has been altered successfully"
 msgstr "Tablo %1$s başarılı olarak değiştirldi"
 
-#: libraries/structure.lib.php:2413 tbl_tracking.php:457 tbl_tracking.php:481
+#: libraries/structure.lib.php:2413 tbl_tracking.php:458 tbl_tracking.php:482
 msgid "Query error"
 msgstr "Sorgu hatası"
 
@@ -10385,7 +10588,7 @@ msgstr "ZIP arşivinde hata:"
 msgid "Fatal error: The navigation can only be accessed via AJAX"
 msgstr "Önemli hata: Rehbere sadece AJAX aracılığıyla erişilebilir"
 
-#: pmd_display_field.php:60 pmd_save_pos.php:81
+#: pmd_display_field.php:60 pmd_save_pos.php:75
 msgid "Modifications have been saved"
 msgstr "Değişiklikler kaydedildi"
 
@@ -10441,7 +10644,7 @@ msgstr "Küçüğü/büyüğü değiştir"
 msgid "Toggle relation lines"
 msgstr "İlgili satırları değiştir"
 
-#: pmd_general.php:147 pmd_pdf.php:102
+#: pmd_general.php:147 pmd_pdf.php:101
 msgid "Import/Export coordinates for PDF schema"
 msgstr "PDF şeması için düzenlemeleri içe/dışa aktar"
 
@@ -10499,39 +10702,39 @@ msgstr "Topla"
 msgid "Active options"
 msgstr "Aktif seçenekler"
 
-#: pmd_pdf.php:50
+#: pmd_pdf.php:49
 msgid "Page has been created"
 msgstr "Sayfa oluşturuldu"
 
-#: pmd_pdf.php:53
+#: pmd_pdf.php:52
 msgid "Page creation failed"
 msgstr "Sayfa oluşturma başarısız"
 
-#: pmd_pdf.php:113
+#: pmd_pdf.php:112
 msgid "Page:"
 msgstr "Sayfa:"
 
-#: pmd_pdf.php:123
+#: pmd_pdf.php:122
 msgid "Import from selected page"
 msgstr "Seçili sayfadan içe aktar"
 
-#: pmd_pdf.php:124
+#: pmd_pdf.php:123
 msgid "Export to selected page"
 msgstr "Seçili sayfaya aktar"
 
-#: pmd_pdf.php:126
+#: pmd_pdf.php:125
 msgid "Create a page and export to it"
 msgstr "Yeni bir sayfa oluştur ve ona aktar"
 
-#: pmd_pdf.php:138
+#: pmd_pdf.php:137
 msgid "New page name: "
 msgstr "Yeni sayfa adı: "
 
-#: pmd_pdf.php:141
+#: pmd_pdf.php:140
 msgid "Export/Import to scale:"
 msgstr "Ölçeklemek için içe/dışa aktar:"
 
-#: pmd_pdf.php:146
+#: pmd_pdf.php:145
 msgid "recommended"
 msgstr "önerilir"
 
@@ -10559,7 +10762,7 @@ msgstr "Dahili bağlantı eklendi"
 msgid "Relation deleted"
 msgstr "Bağlantı silindi"
 
-#: pmd_save_pos.php:73
+#: pmd_save_pos.php:67
 msgid "Error saving coordinates for Designer."
 msgstr "Tasarımcı düzenlemelerini kaydetme hatası."
 
@@ -11004,209 +11207,6 @@ msgstr ""
 "Sisteminizi ayarlamanın en iyi yolu bir defada sadece bir değişiklik yapmak, "
 "gözlemlemek, veritabanınızı kıyaslamak ve eğer açıkça ölçülebilir bir "
 "iyileştirilme olmadıysa, değişikliği geri almak olacaktır."
-
-#: server_status_monitor.php:453
-msgid "Monitor Instructions"
-msgstr "İzleme Yönergeleri"
-
-#: server_status_monitor.php:455
-msgid ""
-"The phpMyAdmin Monitor can assist you in optimizing the server configuration "
-"and track down time intensive queries. For the latter you will need to set "
-"log_output to 'TABLE' and have either the slow_query_log or general_log "
-"enabled. Note however, that the general_log produces a lot of data and "
-"increases server load by up to 15%."
-msgstr ""
-"phpMyAdmin İzleyici sunucu yapılandırmasını uyarlamada ve yoğun sorgularda "
-"iz sürme süresinde size yardımcı olabilir. Sonrası için log_output'u "
-"'TABLE'a ayarlamanız gerekecektir ve ya slow_query_log ya da general_log "
-"etkinleştirilir. Ancak unutmayın, general_log çok fazla veri üretir ve "
-"sunucu yükünü %15'e kadar arttırır."
-
-#: server_status_monitor.php:467
-msgid ""
-"Unfortunately your Database server does not support logging to table, which "
-"is a requirement for analyzing the database logs with phpMyAdmin. Logging to "
-"table is supported by MySQL 5.1.6 and onwards. You may still use the server "
-"charting features however."
-msgstr ""
-"Ne yazık ki Veritabanı sunucunuz phpMyAdmin ile veritabanı günlüklerini "
-"çözümlemek için gereken tabloları günlüklemeyi desteklemiyor. Tabloyu "
-"günlükleme MySQL 5.1.6 ve sonrakiler tarafından desteklenir. Yinede hala "
-"sunucu çizelgeleme özelliklerini kullanabilirsiniz."
-
-#: server_status_monitor.php:482
-msgid "Using the monitor:"
-msgstr "İzleyici kullanımı:"
-
-#: server_status_monitor.php:485
-msgid ""
-"Your browser will refresh all displayed charts in a regular interval. You "
-"may add charts and change the refresh rate under 'Settings', or remove any "
-"chart using the cog icon on each respective chart."
-msgstr ""
-"Tarayıcınız tüm görüntülenen çizelgeleri düzenli aralıklarla yenileyecek. "
-"'Ayarlar' altında çizelgeleri ekleyebilir ve yenileme oranını "
-"değiştirebilirsiniz veya her çizelgenin kendi dişli çark simgesini "
-"kullanarak herhangi bir çizelgeyi kaldırabilirsiniz."
-
-#: server_status_monitor.php:491
-msgid ""
-"To display queries from the logs, select the relevant time span on any chart "
-"by holding down the left mouse button and panning over the chart. Once "
-"confirmed, this will load a table of grouped queries, there you may click on "
-"any occurring SELECT statements to further analyze them."
-msgstr ""
-"Günlüklerden sorguları görüntülemek için herhangi bir çizelgede sol fare "
-"tuşunu basılı tutarak ve çizelge üzerinde kaydırarak ilgili zaman aralığını "
-"seçin. Bir kere onaylandı mı, bu, gruplanmış sorguların tablolarını "
-"yükleyecek. Daha fazla çözümlemesi için herhangi bir meydana gelen SELECT "
-"ifadesine tıklayabilirsiniz."
-
-#: server_status_monitor.php:501
-msgid "Please note:"
-msgstr "Lütfen unutmayın:"
-
-#: server_status_monitor.php:504
-msgid ""
-"Enabling the general_log may increase the server load by 5-15%. Also be "
-"aware that generating statistics from the logs is a load intensive task, so "
-"it is advisable to select only a small time span and to disable the "
-"general_log and empty its table once monitoring is not required any more."
-msgstr ""
-"general_log'u etkinleştirmek sunucu yükünü %5-15 arttırabilir. Aynı zamanda "
-"günlükten oluşturulan istatistiklerin yoğun görev yükü olduğundan haberiniz "
-"olsun bu yüzden sadece küçük zaman aralıkları seçmek ve general_log'u "
-"etkisizleştirmek tavsiye edilir ve tablolarını bir defa boşaltmak daha fazla "
-"izlemeyi gerektirmez."
-
-#: server_status_monitor.php:515 server_status_monitor.php:701
-msgid "Add chart"
-msgstr "Çizelge ekle"
-
-#: server_status_monitor.php:519
-msgid "Preset chart"
-msgstr "Hazır çizelge"
-
-#: server_status_monitor.php:523
-msgid "Status variable(s)"
-msgstr "Durum değişken(leri)i"
-
-#: server_status_monitor.php:526
-msgid "Select series:"
-msgstr "Dizi seç:"
-
-#: server_status_monitor.php:528
-msgid "Commonly monitored"
-msgstr "Genellikle izlenen"
-
-#: server_status_monitor.php:544
-msgid "or type variable name:"
-msgstr "veya değişken adını yazın:"
-
-#: server_status_monitor.php:551
-msgid "Display as differential value"
-msgstr "Ayırdedici değer olarak görüntüle"
-
-#: server_status_monitor.php:554
-msgid "Apply a divisor"
-msgstr "Bir bölen uygula"
-
-#: server_status_monitor.php:562
-msgid "Append unit to data values"
-msgstr "Veri değerlerine birimi ekle"
-
-#: server_status_monitor.php:568
-msgid "Add this series"
-msgstr "Bu diziyi ekle"
-
-#: server_status_monitor.php:570
-msgid "Clear series"
-msgstr "Diziyi temizle"
-
-#: server_status_monitor.php:573
-msgid "Series in Chart:"
-msgstr "Çizelgedeki Dizi:"
-
-#: server_status_monitor.php:584
-msgid "Log statistics"
-msgstr "Günlük istatistikleri"
-
-#: server_status_monitor.php:585
-msgid "Selected time range:"
-msgstr "Seçili zaman aralığı:"
-
-#: server_status_monitor.php:591
-msgid "Only retrieve SELECT,INSERT,UPDATE and DELETE Statements"
-msgstr "Sadece SELECT,INSERT,UPDATE ve DELETE İfadeleri erişir"
-
-#: server_status_monitor.php:596
-msgid "Remove variable data in INSERT statements for better grouping"
-msgstr "Daha iyi gruplama için INSERT ifadelerindeki değişken veriyi kaldır"
-
-#: server_status_monitor.php:599
-msgid "Choose from which log you want the statistics to be generated from."
-msgstr "İstatistiklerin oluşturulmasını istediğiniz yerden günlüğü seçin."
-
-#: server_status_monitor.php:602
-msgid "Results are grouped by query text."
-msgstr "Sonuçlar sorgu metnine göre gruplandırılır."
-
-#: server_status_monitor.php:606
-msgid "Query analyzer"
-msgstr "Sorgu çözümleyici"
-
-#: server_status_monitor.php:654
-#, php-format
-msgid "%d second"
-msgid_plural "%d seconds"
-msgstr[0] "%d saniye"
-
-#: server_status_monitor.php:657
-#, php-format
-msgid "%d minute"
-msgid_plural "%d minutes"
-msgstr[0] "%d dakika"
-
-#: server_status_monitor.php:674
-msgid "Start Monitor"
-msgstr "İzlemeyi başlat"
-
-#: server_status_monitor.php:681
-msgid "Instructions/Setup"
-msgstr "Yönergeler/Ayarlama"
-
-#: server_status_monitor.php:685
-msgid "Done dragging (rearranging) charts"
-msgstr "Çizelgeleri sürüklemeyi (yeniden düzenlemeyi) bitir"
-
-#: server_status_monitor.php:704
-msgid "Enable charts dragging"
-msgstr "Çizelgeleri sürüklemeyi etkinleştir"
-
-#: server_status_monitor.php:708
-msgid "Refresh rate"
-msgstr "Yenileme oranı"
-
-#: server_status_monitor.php:717
-msgid "Chart columns"
-msgstr "Çizelge sütunu"
-
-#: server_status_monitor.php:733
-msgid "Chart arrangement"
-msgstr "Çizelge ayarlaması"
-
-#: server_status_monitor.php:736
-msgid ""
-"The arrangement of the charts is stored to the browsers local storage. You "
-"may want to export it if you have a complicated set up."
-msgstr ""
-"Çizelgelerin ayarlanması tarayıcının yerel deposunda saklanır. Eğer karışık "
-"ayarlamalarınız varsa, bunu dışa aktarmak isteyebilirsiniz."
-
-#: server_status_monitor.php:750
-msgid "Reset to default"
-msgstr "Varsayılana sıfırla"
 
 #: server_status_queries.php:67
 #, php-format
@@ -12299,24 +12299,24 @@ msgstr "Anahtar harf, sayı [em]ve[/em] özel karakterler içermelidir."
 msgid "Wrong data"
 msgstr "Yanlış veri"
 
-#: sql.php:216
+#: sql.php:183
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr "Varsayılan gözatma sorgusu olarak \"%s\" yer imi kullanılıyor."
 
-#: sql.php:298
+#: sql.php:266
 msgid "Bookmark not created"
 msgstr "Yer imi oluşturulmadı"
 
-#: sql.php:842
+#: sql.php:673
 msgid "Showing as PHP code"
 msgstr "PHP kodu olarak gösteriliyor"
 
-#: sql.php:847
+#: sql.php:678
 msgid "Validated SQL"
 msgstr "Oanylı SQL"
 
-#: sql.php:1101
+#: sql.php:932
 #, php-format
 msgid ""
 "Table %s does not contain a unique column. Grid edit, checkbox, Edit, Copy "
@@ -12325,18 +12325,10 @@ msgstr ""
 "%s tablosu benzersiz bir sütun içermiyor. Izgara düzenleme, işaretleme "
 "kutusu, Düzenle, Kopyala ve Sil özellikleri kullanılabilir değil."
 
-#: sql.php:1154
+#: sql.php:985
 #, php-format
 msgid "Problems with indexes of table `%s`"
 msgstr "`%s` tablosunun indeksleri ile ilgili sorunlar"
-
-#: sql.php:1187 sql.php:1207
-msgid "Bookmark this SQL query"
-msgstr "Bu SQL sorgusunu işaretle"
-
-#: sql.php:1191
-msgid "Label:"
-msgstr "Etiket:"
 
 #: tbl_chart.php:38
 msgid "No data to display"
@@ -12412,6 +12404,10 @@ msgstr "X Değeri"
 #: tbl_chart.php:234
 msgid "Y-Axis label:"
 msgstr "Y-Ekseni etiketi:"
+
+#: tbl_chart.php:241
+msgid "Start row:"
+msgstr "Başlangıç satırı:"
 
 #: tbl_create.php:34
 #, php-format
@@ -12544,31 +12540,31 @@ msgstr "Görüntülemek için sütun seçin:"
 msgid "No column selected."
 msgstr "Seçilen sütun yok."
 
-#: tbl_tracking.php:135
+#: tbl_tracking.php:136
 #, php-format
 msgid "Tracking report for table `%s`"
 msgstr "`%s` tablosu için izleme raporu"
 
-#: tbl_tracking.php:205
+#: tbl_tracking.php:206
 #, php-format
 msgid "Version %1$s was created, tracking for %2$s is active."
 msgstr "Sürüm %1$s oluşturuldu, %2$s için izleme aktif."
 
-#: tbl_tracking.php:222
+#: tbl_tracking.php:223
 #, php-format
 msgid "Tracking for %1$s was deactivated at version %2$s."
 msgstr "%1$s için izleme %2$s sürümünde devre dışı bırakıldı."
 
-#: tbl_tracking.php:239
+#: tbl_tracking.php:240
 #, php-format
 msgid "Tracking for %1$s was activated at version %2$s."
 msgstr "%1$s için izleme %2$s sürümünde aktif edildi."
 
-#: tbl_tracking.php:253
+#: tbl_tracking.php:254
 msgid "SQL statements executed."
 msgstr "SQL ifadeleri çalıştırıldı."
 
-#: tbl_tracking.php:260
+#: tbl_tracking.php:261
 msgid ""
 "You can execute the dump by creating and using a temporary database. Please "
 "ensure that you have the privileges to do so."
@@ -12577,115 +12573,115 @@ msgstr ""
 "çalıştırabilirsiniz. Lütfen bunu yapmak için izinlerinizin olduğundan emin "
 "olun."
 
-#: tbl_tracking.php:262
+#: tbl_tracking.php:263
 msgid "Comment out these two lines if you do not need them."
 msgstr "Eğer ihtiyacınız yoksa bu iki satırı yorum dışı bırakın."
 
-#: tbl_tracking.php:272
+#: tbl_tracking.php:273
 msgid "SQL statements exported. Please copy the dump or execute it."
 msgstr ""
 "SQL ifadeleri dışa aktarıldı. Lütfen dökümü kopyalayın ya da çalıştırın."
 
-#: tbl_tracking.php:310
+#: tbl_tracking.php:311
 #, php-format
 msgid "Version %s snapshot (SQL code)"
 msgstr "Sürüm %s görüntüsü yakalama (SQL kodu)"
 
-#: tbl_tracking.php:454
+#: tbl_tracking.php:455
 msgid "Tracking data definition successfully deleted"
 msgstr "İzlenen veri tanımlaması başarılı olarak silindi"
 
-#: tbl_tracking.php:478
+#: tbl_tracking.php:479
 msgid "Tracking data manipulation successfully deleted"
 msgstr "İzlenen veri işlemesi başarılı olarak silindi"
 
-#: tbl_tracking.php:493
+#: tbl_tracking.php:494
 msgid "Tracking statements"
 msgstr "İzleme ifadeleri"
 
-#: tbl_tracking.php:524 tbl_tracking.php:672
+#: tbl_tracking.php:525 tbl_tracking.php:673
 #, php-format
 msgid "Show %1$s with dates from %2$s to %3$s by user %4$s %5$s"
 msgstr ""
 "%4$s %5$s kullanıcısına göre %2$s ile %3$s arası tarihler ile %1$s göster"
 
-#: tbl_tracking.php:532
+#: tbl_tracking.php:533
 msgid "Delete tracking data row from report"
 msgstr "Rapordan izlenen veri satırını sil"
 
-#: tbl_tracking.php:546
+#: tbl_tracking.php:547
 msgid "No data"
 msgstr "Veri yok"
 
-#: tbl_tracking.php:555 tbl_tracking.php:617
+#: tbl_tracking.php:556 tbl_tracking.php:618
 msgid "Date"
 msgstr "Tarih"
 
-#: tbl_tracking.php:557
+#: tbl_tracking.php:558
 msgid "Data definition statement"
 msgstr "Veri tanımlama ifadesi"
 
-#: tbl_tracking.php:619
+#: tbl_tracking.php:620
 msgid "Data manipulation statement"
 msgstr "Veri işleme ifadesi"
 
-#: tbl_tracking.php:677
+#: tbl_tracking.php:678
 msgid "SQL dump (file download)"
 msgstr "SQL dökümü (dosya indirme)"
 
-#: tbl_tracking.php:678
+#: tbl_tracking.php:679
 msgid "SQL dump"
 msgstr "SQL dökümü"
 
-#: tbl_tracking.php:680
+#: tbl_tracking.php:681
 msgid "This option will replace your table and contained data."
 msgstr "Bu seçenek tablolarınızı ve içerdiği veriyi değiştirecektir."
 
-#: tbl_tracking.php:681
+#: tbl_tracking.php:682
 msgid "SQL execution"
 msgstr "SQL yürütme"
 
-#: tbl_tracking.php:699
+#: tbl_tracking.php:700
 #, php-format
 msgid "Export as %s"
 msgstr "%s olarak dışa aktar"
 
-#: tbl_tracking.php:736
+#: tbl_tracking.php:737
 msgid "Show versions"
 msgstr "Sürümleri göster"
 
-#: tbl_tracking.php:824
+#: tbl_tracking.php:825
 #, php-format
 msgid "Deactivate tracking for %s"
 msgstr "%s için izlemeyi devre dışı bırak"
 
-#: tbl_tracking.php:830
+#: tbl_tracking.php:831
 msgid "Deactivate now"
 msgstr "Hemen devre dışı bırak"
 
-#: tbl_tracking.php:840
+#: tbl_tracking.php:841
 #, php-format
 msgid "Activate tracking for %s"
 msgstr "%s için izlemeyi aktif et"
 
-#: tbl_tracking.php:846
+#: tbl_tracking.php:847
 msgid "Activate now"
 msgstr "Hemen aktif et"
 
-#: tbl_tracking.php:859
+#: tbl_tracking.php:860
 #, php-format
 msgid "Create version %1$s of %2$s"
 msgstr "%1$s / %2$s sürümünü oluştur"
 
-#: tbl_tracking.php:867
+#: tbl_tracking.php:868
 msgid "Track these data definition statements:"
 msgstr "Bu veri tanımlama ifadelerini izle:"
 
-#: tbl_tracking.php:875
+#: tbl_tracking.php:876
 msgid "Track these data manipulation statements:"
 msgstr "Bu veri işleme ifadelerini izle:"
 
-#: tbl_tracking.php:885
+#: tbl_tracking.php:886
 msgid "Create version"
 msgstr "Sürüm oluştur"
 
@@ -13983,6 +13979,9 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert 0'a ayarlı"
+
+#~ msgid "Headers every %s rows"
+#~ msgstr "Her %s satırda bir başlıklar"
 
 #, fuzzy
 #~| msgid "Table Search"
