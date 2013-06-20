@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-06-20 08:22+0200\n"
-"PO-Revision-Date: 2013-06-20 08:30+0200\n"
+"PO-Revision-Date: 2013-06-20 16:10+0200\n"
 "Last-Translator: Tony Chen <tonychen@finenet.com.tw>\n"
 "Language-Team: Traditional Chinese "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/zh_TW/>\n"
@@ -357,7 +357,7 @@ msgstr "您至少需要選擇一個欄位"
 #: db_qbe.php:60
 #, php-format
 msgid "Switch to %svisual builder%s"
-msgstr "切換至 %svisual builder%s"
+msgstr "切換至 %s視覺生成器%s"
 
 #: db_search.php:30 libraries/plugins/auth/AuthenticationConfig.class.php:81
 #: libraries/plugins/auth/AuthenticationConfig.class.php:96
@@ -1288,9 +1288,7 @@ msgid ""
 "This column shows the amount of identical queries that are grouped together. "
 "However only the SQL query itself has been used as a grouping criteria, so "
 "the other attributes of queries, such as start time, may differ."
-msgstr ""
-"這個欄位顯示一些被群組起來的相似查詢。但是系統只是用這些查詢的文字作為群組的"
-"標準，所以查詢的結果可能會有些許不同。"
+msgstr "這個欄位顯示一些被群組起來的相似查詢。但是系統只是用這些查詢的文字作為群組的準則，所以查詢的結果可能會有些許不同。"
 
 #: js/messages.php:154
 msgid ""
@@ -2639,7 +2637,7 @@ msgstr "顯示圖表"
 
 #: libraries/DisplayResults.class.php:5365
 msgid "Visualize GIS data"
-msgstr "虛擬的 GIS 資料"
+msgstr "視覺化的 GIS 資料"
 
 #: libraries/DisplayResults.class.php:5579
 msgid "Link not found"
@@ -6878,7 +6876,7 @@ msgstr "PrimeBase XT 博客 —— Paul McCullagh 著"
 
 #: libraries/gis_visualization.lib.php:141
 msgid "No data found for GIS visualization."
-msgstr "沒有找到 GIS 虛擬所需資料。"
+msgstr "沒有找到 GIS 視覺化的所需資料。"
 
 #: libraries/import.lib.php:187 libraries/insert_edit.lib.php:122
 #: libraries/rte/rte_routines.lib.php:1446 sql.php:681 tbl_get_field.php:55
