@@ -13295,10 +13295,10 @@ msgid "The thread cache is set to 0"
 msgstr "執行緒快取已設為零"
 
 #: libraries/advisory_rules.txt:369
-#, fuzzy, php-format
+#, php-format
 #| msgid "Tracking is not active."
 msgid "Thread cache hit rate %%"
-msgstr "追蹤已停用"
+msgstr "執行緒快取命中率 %%"
 
 #: libraries/advisory_rules.txt:372
 #, fuzzy
