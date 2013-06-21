@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-06-20 08:22+0200\n"
-"PO-Revision-Date: 2013-06-21 22:15+0200\n"
+"PO-Revision-Date: 2013-06-21 22:17+0200\n"
 "Last-Translator: Tony Chen <tonychen@finenet.com.tw>\n"
 "Language-Team: Traditional Chinese "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/zh_TW/>\n"
@@ -12226,7 +12226,7 @@ msgstr ""
 #: libraries/advisory_rules.txt:61
 #, php-format
 msgid "Current amount of Questions: %s"
-msgstr "目前問題總數: %s"
+msgstr "目前內部查詢數: %s"
 
 #: libraries/advisory_rules.txt:63
 msgid "Percentage of slow queries"
