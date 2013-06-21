@@ -1481,14 +1481,13 @@ Database structure
 Browse mode
 -----------
 
-.. config:option:: $cfg['NavigationBarIconic']
+.. config:option:: $cfg['TableNavigationLinksMode']
 
     :type: string
-    :default: true
+    :default: ``'icons'``
 
-    Defines whether navigation bar buttons contain text or symbols only. A 
-    value of true displays icons, false displays text and 'both' displays 
-    both icons and text.
+    Defines whether the table navigation links contain ``'icons'``, ``'text'`` 
+    or ``'both'``. 
 
 .. config:option:: $cfg['ShowAll']
 
@@ -1672,15 +1671,22 @@ Export and import settings
 Tabs display settings
 ---------------------
 
-.. config:option:: $cfg['PropertiesIconic']
+.. config:option:: $cfg['TabsMode']
 
     :type: string
     :default: ``'both'``
 
-    If set to ``true``, will display icons instead of text for db and table
+    Defines whether the menu tabs contain ``'icons'``, ``'text'`` or ``'both'``. 
+
+.. config:option:: $cfg['ActionLinksMode']
+
+    :type: string
+    :default: ``'both'``
+
+    If set to ``icons``, will display icons instead of text for db and table
     properties links (like :guilabel:`Browse`, :guilabel:`Select`,
-    :guilabel:`Insert`, ...) and for the menu tabs. Can be set to ``'both'`` 
-    if you want icons AND text. When set to ``false``, will only show text.
+    :guilabel:`Insert`, ...). Can be set to ``'both'`` 
+    if you want icons AND text. When set to ``text``, will only show text.
 
 .. config:option:: $cfg['PropertiesNumColumns']
 

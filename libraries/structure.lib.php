@@ -1191,7 +1191,11 @@ function PMA_getHtmlForTableStructureHeader(
         if (PMA_DRIZZLE) {
             $colspan -= 2;
         }
-        if ($GLOBALS['cfg']['PropertiesIconic']) {
+        if (in_array(
+            $GLOBALS['cfg']['ActionLinksMode'],
+            array('icons', 'both')
+            )
+        ) {
             $colspan--;
         }
         $html_output .= '<th colspan="' . $colspan . '" '
@@ -1546,7 +1550,11 @@ function PMA_getHtmlForAddColumn($columns_list)
         $GLOBALS['db'],
         $GLOBALS['table']
     );
-    if ($GLOBALS['cfg']['PropertiesIconic']) {
+    if (in_array(
+        $GLOBALS['cfg']['ActionLinksMode'],
+        array('icons', 'both')
+        )
+    ) {
         $html_output .=PMA_Util::getImage(
             'b_insrow.png',
             __('Add column')
