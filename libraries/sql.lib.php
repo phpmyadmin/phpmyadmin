@@ -462,7 +462,8 @@ function PMA_getHtmlForProfilingChart($url_query, $pma_token, $profiling_results
     $i          = 1;
     foreach ($profiling_results as $one_result) {
         if (isset($profiling_stats['states'][ucwords($one_result['Status'])])) {
-            $profiling_stats['states'][ucwords($one_result['Status'])]['time'] += $one_result['Duration'];
+            $profiling_stats['states'][ucwords($one_result['Status'])]['time'] +=
+                $one_result['Duration'];
             $profiling_stats['states'][ucwords($one_result['Status'])]['calls']++;
         } else {
             $profiling_stats['states'][ucwords($one_result['Status'])] = array(
@@ -474,7 +475,8 @@ function PMA_getHtmlForProfilingChart($url_query, $pma_token, $profiling_results
 
         $profiling_table .= ' <tr>' . "\n";
         $profiling_table .= '<td>' . $i++ . '</td>' . "\n";
-        $profiling_table .= '<td>' . ucwords($one_result['Status']) . '</td>' . "\n";
+        $profiling_table .= '<td>' . ucwords($one_result['Status'])
+            . '</td>' . "\n";
         $profiling_table .= '<td class="right">'
             . (PMA_Util::formatNumber($one_result['Duration'], 3, 1))
             . 's<span style="display:none;" class="rawvalue">'
@@ -517,7 +519,10 @@ function PMA_getHtmlForProfilingChart($url_query, $pma_token, $profiling_results
             . 's<span style="display:none;" class="rawvalue">'
             . $stats['total_time'] . '</span></td>' . "\n";
         $profiling_table .= '<td align="right">'
-            . PMA_Util::formatNumber(100 * ($stats['total_time'] / $profiling_stats['total_time']), 0, 2)
+            . PMA_Util::formatNumber(
+                100 * ($stats['total_time'] / $profiling_stats['total_time']),
+                0, 2
+            )
             . '%</td>' . "\n";
         $profiling_table .= '<td align="right">' . $stats['calls'] . '</td>' . "\n";
         $profiling_table .= '<td align="right">'
