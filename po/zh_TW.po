@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-06-20 08:22+0200\n"
-"PO-Revision-Date: 2013-06-21 11:21+0200\n"
+"PO-Revision-Date: 2013-06-21 22:12+0200\n"
 "Last-Translator: Tony Chen <tonychen@finenet.com.tw>\n"
 "Language-Team: Traditional Chinese "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/zh_TW/>\n"
@@ -1116,7 +1116,7 @@ msgstr "%d 個資料表"
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:109
 msgid "Questions"
-msgstr "Questions"
+msgstr "內部查詢"
 
 #: js/messages.php:110 server_status.php:166
 msgid "Traffic"
@@ -10785,7 +10785,7 @@ msgstr "最好的調校您系統的方法是一次只更改一個設置，觀察
 #: server_status_queries.php:67
 #, php-format
 msgid "Questions since startup: %s"
-msgstr "自啟動後的問題：%s"
+msgstr "自啟動以來的內部查詢：%s"
 
 #: server_status_queries.php:79
 msgid "per hour:"
@@ -12209,7 +12209,7 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:56
 msgid "Questions below 1,000"
-msgstr "前 1,000 個問題"
+msgstr "內部查詢低於 1,000"
 
 #: libraries/advisory_rules.txt:59
 msgid ""
