@@ -329,7 +329,7 @@ if (($_SESSION['tmp_user_values']['max_rows'] != 'all')
         $analyzed_sql,
         $sql_limit_to_append
     );
-
+    
     /**
      * @todo pretty printing of this modified query
      */
