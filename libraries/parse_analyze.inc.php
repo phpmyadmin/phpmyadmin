@@ -111,6 +111,16 @@ if (! $is_group
     $is_just_browsing = false;
 }
 
+// checks whether to delete the related transformation information
+if (!empty($analyzed_sql[0]['querytype'])
+    && (($analyzed_sql[0]['querytype'] == 'ALTER')
+    || ($analyzed_sql[0]['querytype'] == 'DROP'))
+) {
+    $is_delete_tranformation_info = true;
+} else {
+    $is_delete_tranformation_info = false;
+}
+
 // If the query is a Select, extract the db and table names and modify
 // $db and $table, to have correct page headers, links and left frame.
 // db and table name may be enclosed with backquotes, db is optionnal,

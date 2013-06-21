@@ -609,10 +609,7 @@ if (isset($GLOBALS['show_as_php']) || ! empty($GLOBALS['validatequery'])) {
 // No rows returned -> move back to the calling page
 if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
     // Delete related tranformation information
-    if (!empty($analyzed_sql[0]['querytype'])
-        && (($analyzed_sql[0]['querytype'] == 'ALTER')
-        || ($analyzed_sql[0]['querytype'] == 'DROP'))
-    ) {
+    if ($is_delete_tranformation_info) {
         include_once 'libraries/transformations.lib.php';
         if ($analyzed_sql[0]['querytype'] == 'ALTER') {
             if (stripos($analyzed_sql[0]['unsorted_query'], 'DROP') !== false) {
