@@ -97,6 +97,20 @@ if (! ($is_count || $is_export || $is_func || $is_analyse)
     $is_append_limit_clause = false;
 }
 
+// checks whether we are just browsing a table
+if (! $is_group
+    && ! isset($analyzed_sql[0]['queryflags']['union'])
+    && ! isset($analyzed_sql[0]['queryflags']['distinct'])
+    && ! isset($analyzed_sql[0]['table_ref'][1]['table_name'])
+    && (empty($analyzed_sql[0]['where_clause'])
+    || $analyzed_sql[0]['where_clause'] == '1 ')
+    && ! isset($find_real_end)
+) {
+    $is_just_browsing = true;
+} else {
+    $is_just_browsing = false;
+}
+
 // If the query is a Select, extract the db and table names and modify
 // $db and $table, to have correct page headers, links and left frame.
 // db and table name may be enclosed with backquotes, db is optionnal,

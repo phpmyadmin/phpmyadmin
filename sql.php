@@ -506,14 +506,7 @@ if (isset($GLOBALS['show_as_php']) || ! empty($GLOBALS['validatequery'])) {
 
         // However, do not count again if we did it previously
         // due to $find_real_end == true
-        if (! $is_group
-            && ! isset($analyzed_sql[0]['queryflags']['union'])
-            && ! isset($analyzed_sql[0]['queryflags']['distinct'])
-            && ! isset($analyzed_sql[0]['table_ref'][1]['table_name'])
-            && (empty($analyzed_sql[0]['where_clause'])
-            || $analyzed_sql[0]['where_clause'] == '1 ')
-            && ! isset($find_real_end)
-        ) {
+        if ($is_just_browsing) {
             // "j u s t   b r o w s i n g"
             $justBrowsing = true;
             $unlim_num_rows = PMA_Table::countRecords(
