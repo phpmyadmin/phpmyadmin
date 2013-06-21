@@ -33,45 +33,20 @@ if (! $is_superuser) {
     exit;
 }
 
-/**
- * Sets globals from $_REQUEST
- */
-$request_params = array(
-    'hostname',
-    'mr_adduser',
-    'mr_configure',
-    'pma_pw',
-    'port',
-    'repl_clear_scr',
-    'repl_data',
-    'sl_configure',
-    'slave_changemaster',
-    'sr_skip_errors_count',
-    'sr_slave_action',
-    'sr_slave_control_parm',
-    'sr_slave_server_control',
-    'sr_slave_skip_error',
-    'sr_take_action',
-    'url_params',
-    'username'
-);
-
-foreach ($request_params as $one_request_param) {
-    if (isset($_REQUEST[$one_request_param])) {
-        $GLOBALS[$one_request_param] = $_REQUEST[$one_request_param];
-    }
+//change $GLOBALS['url_params'] with $_REQUEST['url_params']
+if (isset($_REQUEST['url_params'])) {
+    $GLOBALS['url_params'] = $_REQUEST['url_params'];
 }
-
 /**
  * Handling control requests
  */
-if (isset($GLOBALS['sr_take_action'])) {
+if (isset($_REQUEST['sr_take_action'])) {
     $refresh = false;
-    if (isset($GLOBALS['slave_changemaster'])) {
-        $_SESSION['replication']['m_username'] = $sr['username'] = PMA_Util::sqlAddSlashes($GLOBALS['username']);
-        $_SESSION['replication']['m_password'] = $sr['pma_pw']   = PMA_Util::sqlAddSlashes($GLOBALS['pma_pw']);
-        $_SESSION['replication']['m_hostname'] = $sr['hostname'] = PMA_Util::sqlAddSlashes($GLOBALS['hostname']);
-        $_SESSION['replication']['m_port']     = $sr['port']     = PMA_Util::sqlAddSlashes($GLOBALS['port']);
+    if (isset($_REQUEST['slave_changemaster'])) {
+        $_SESSION['replication']['m_username'] = $sr['username'] = PMA_Util::sqlAddSlashes($_REQUEST['username']);
+        $_SESSION['replication']['m_password'] = $sr['pma_pw']   = PMA_Util::sqlAddSlashes($_REQUEST['pma_pw']);
+        $_SESSION['replication']['m_hostname'] = $sr['hostname'] = PMA_Util::sqlAddSlashes($_REQUEST['hostname']);
+        $_SESSION['replication']['m_port']     = $sr['port']     = PMA_Util::sqlAddSlashes($_REQUEST['port']);
         $_SESSION['replication']['m_correct']  = '';
         $_SESSION['replication']['sr_action_status'] = 'error';
         $_SESSION['replication']['sr_action_info'] = __('Unknown error');
@@ -117,23 +92,23 @@ if (isset($GLOBALS['sr_take_action'])) {
                 }
             }
         }
-    } elseif (isset($GLOBALS['sr_slave_server_control'])) {
-        if ($GLOBALS['sr_slave_action'] == 'reset') {
+    } elseif (isset($_REQUEST['sr_slave_server_control'])) {
+        if ($_REQUEST['sr_slave_action'] == 'reset') {
             PMA_Replication_Slave_control("STOP");
             $GLOBALS['dbi']->tryQuery("RESET SLAVE;");
             PMA_Replication_Slave_control("START");
         } else {
             PMA_Replication_Slave_control(
-                $GLOBALS['sr_slave_action'],
-                $GLOBALS['sr_slave_control_parm']
+                $_REQUEST['sr_slave_action'],
+                $_REQUEST['sr_slave_control_parm']
             );
         }
         $refresh = true;
 
-    } elseif (isset($GLOBALS['sr_slave_skip_error'])) {
+    } elseif (isset($_REQUEST['sr_slave_skip_error'])) {
         $count = 1;
-        if (isset($GLOBALS['sr_skip_errors_count'])) {
-            $count = $GLOBALS['sr_skip_errors_count'] * 1;
+        if (isset($_REQUEST['sr_skip_errors_count'])) {
+            $count = $_REQUEST['sr_skip_errors_count'] * 1;
         }
         PMA_Replication_Slave_control("STOP");
         $GLOBALS['dbi']->tryQuery("SET GLOBAL SQL_SLAVE_SKIP_COUNTER = ".$count.";");
@@ -158,11 +133,11 @@ $response->addHTML(PMA_getHtmlForErrorMessage());
 
 if ($server_master_status) {
     $response->addHTML(PMA_getHtmlForMasterReplication());
-} elseif (! isset($GLOBALS['mr_configure']) && ! isset($GLOBALS['repl_clear_scr'])) {
+} elseif (! isset($_REQUEST['mr_configure']) && ! isset($_REQUEST['repl_clear_scr'])) {
     $response->addHTML(PMA_getHtmlForNotServerReplication());
 }
 
-if (isset($GLOBALS['mr_configure'])) {
+if (isset($_REQUEST['mr_configure'])) {
     // Render the 'Master configuration' section
     $response->addHTML(PMA_getHtmlForMasterConfiguration());
     exit;
@@ -170,11 +145,11 @@ if (isset($GLOBALS['mr_configure'])) {
 
 $response->addHTML('</div>');
 
-if (! isset($GLOBALS['repl_clear_scr'])) {
+if (! isset($_REQUEST['repl_clear_scr'])) {
     // Render the 'Slave configuration' section
     $response->addHTML(PMA_getHtmlForSlaveConfiguration($server_slave_status, $server_slave_replication));
 }
-if (isset($GLOBALS['sl_configure'])) {
-    $response->addHTML(PMA_getHtmlForReplication_changemaster("slave_changemaster"));
+if (isset($_REQUEST['sl_configure'])) {
+    $response->addHTML(PMA_getHtmlForReplicationChangeMaster("slave_changemaster"));
 }
 ?>

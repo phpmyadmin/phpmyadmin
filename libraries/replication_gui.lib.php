@@ -40,19 +40,19 @@ function PMA_getHtmlForErrorMessage()
 function PMA_getHtmlForMasterReplication()
 {
     $html = '';
-    if (! isset($GLOBALS['repl_clear_scr'])) {
+    if (! isset($_REQUEST['repl_clear_scr'])) {
         $html .= '<fieldset>';
         $html .= '<legend>' . __('Master replication') . '</legend>';
         $html .= __('This server is configured as master in a replication process.');
         $html .= '<ul>';
         $html .= '  <li><a href="#" id="master_status_href">';
         $html .= __('Show master status') . '</a>';
-        $html .= PMA_getHtmlForReplication_status_table('master', true, false);
+        $html .= PMA_getHtmlForReplicationStatusTable('master', true, false);
         $html .= '  </li>';
 
         $html .= '  <li><a href="#" id="master_slaves_href">';
         $html .= __('Show connected slaves') . '</a>';
-        $html .= PMA_getHtmlForReplication_slaves_table(true);
+        $html .= PMA_getHtmlForReplicationSlavesTable(true);
         $html .= '  </li>';
 
         $_url_params = $GLOBALS['url_params'];
@@ -65,9 +65,9 @@ function PMA_getHtmlForMasterReplication()
     }
 
     // Display 'Add replication slave user' form
-    if (isset($GLOBALS['mr_adduser'])) {
-        $html .= PMA_getHtmlForReplication_master_addslaveuser();
-    } elseif (! isset($GLOBALS['repl_clear_scr'])) {
+    if (isset($_REQUEST['mr_adduser'])) {
+        $html .= PMA_getHtmlForReplicationMasterAddSlaveuser();
+    } elseif (! isset($_REQUEST['repl_clear_scr'])) {
         $html .= "</ul>";
         $html .= "</fieldset>";
     }
@@ -98,7 +98,7 @@ function PMA_getHtmlForMasterConfiguration()
     $html .= '</select>';
     $html .= '<br /><br />';
     $html .= __('Please select databases:') . '<br />';
-    $html .= PMA_getHtmlForReplication_db_multibox();
+    $html .= PMA_getHtmlForReplicationDbMultibox();
     $html .= '<br /><br />';
     $html .= __('Now, add the following lines at the end of [mysqld] section in your my.cnf and ' 
         . 'please restart the MySQL server afterwards.') . '<br />';
@@ -193,7 +193,7 @@ function PMA_getHtmlForSlaveConfiguration($server_slave_status, $server_slave_re
         $html .= '<br />';
         $html .= '<ul>';
         $html .= ' <li><a href="#" id="slave_status_href">' . __('See slave status table') . '</a>';
-        $html .= PMA_getHtmlForReplication_status_table('slave', true, false);
+        $html .= PMA_getHtmlForReplicationStatusTable('slave', true, false);
         $html .= ' </li>';
 
         $html .= ' <li><a href="#" id="slave_control_href">' . __('Control slave:') . '</a>';
@@ -231,7 +231,7 @@ function PMA_getHtmlForSlaveConfiguration($server_slave_status, $server_slave_re
         $html .= '</ul>';
         $html .= '</div>';
 
-    } elseif (! isset($GLOBALS['sl_configure'])) {
+    } elseif (! isset($_REQUEST['sl_configure'])) {
         $_url_params = $GLOBALS['url_params'];
         $_url_params['sl_configure'] = true;
         $_url_params['repl_clear_scr'] = true;
@@ -297,7 +297,7 @@ function PMA_getHtmlForNotServerReplication()
  *
  * @return String HTML code
  */
-function PMA_getHtmlForReplication_db_multibox()
+function PMA_getHtmlForReplicationDbMultibox()
 {
     $multi_values = '';
     $multi_values .= '<select name="db_select[]" ' 
@@ -331,7 +331,7 @@ function PMA_getHtmlForReplication_db_multibox()
  * @return String HTML code
  */
 
-function PMA_getHtmlForReplication_changemaster($submitname)
+function PMA_getHtmlForReplicationChangeMaster($submitname)
 {
     $html = '';
     list($username_length, $hostname_length) = PMA_replication_get_username_hostname_length();
@@ -345,32 +345,40 @@ function PMA_getHtmlForReplication_changemaster($submitname)
         . 'If not, please add the following line into [mysqld] section:') . '<br />';
     $html .= '<pre>server-id=' . time() . '</pre>';
     
-    $label_array = array('text'=>__('User name:'), 'for'=>"text_username");
-    $input_array = array('type'=>'text', 'name'=>'username', 
-                         'id'=>'text_username', 'maxlength'=>$username_length,
-                         'title'=>__('User name') 
-                        );
-    $html .= PMA_getHtmlForAddUser_input_div($label_array, $input_array); 
+    $html .= PMA_getHtmlForAddUserInputDiv(array('text'=>__('User name:'), 'for'=>"text_username"), 
+                                           array('type'=>'text', 
+                                                 'name'=>'username', 
+                                                 'id'=>'text_username', 
+                                                 'maxlength'=>$username_length,
+                                                 'title'=>__('User name') 
+                                                )
+                                           ); 
    
-    $label_array = array('text'=>__('Password:'), 'for'=>"text_pma_pw");
-    $input_array = array('type'=>'password', 'name'=>'pma_pw', 
-                         'id'=>'text_pma_pw', 'title'=>__('Password') 
-                        );
-    $html .= PMA_getHtmlForAddUser_input_div($label_array, $input_array);
-    
-    $label_array = array('text'=>__('Host:'), 'for'=>"text_hostname");
-    $input_array = array('type'=>'text', 'name'=>'hostname', 
-                         'id'=>'text_hostname', 'maxlength'=>$hostname_length, 
-                         'value'=>'' 
-                        );
-    $html .= PMA_getHtmlForAddUser_input_div($label_array, $input_array);
-    
-    $label_array = array('text'=>__('Port:'), 'for'=>"text_port");
-    $input_array = array('type'=>'text', 'name'=>'text_port', 
-                         'id'=>'text_port', 'maxlength'=>6, 
-                         'value'=>'3306' 
-                        );
-    $html .= PMA_getHtmlForAddUser_input_div($label_array, $input_array);
+    $html .= PMA_getHtmlForAddUserInputDiv(array('text'=>__('Password:'), 'for'=>"text_pma_pw"), 
+                                           array('type'=>'password', 
+                                                 'name'=>'pma_pw', 
+                                                 'id'=>'text_pma_pw', 
+                                                 'title'=>__('Password') 
+                                                )
+                                            );
+
+    $html .= PMA_getHtmlForAddUserInputDiv(array('text'=>__('Host:'), 'for'=>"text_hostname"), 
+                                           array('type'=>'text', 
+                                                 'name'=>'hostname', 
+                                                 'id'=>'text_hostname', 
+                                                 'maxlength'=>$hostname_length, 
+                                                 'value'=>'' 
+                                                )
+                                           );
+  
+    $html .= PMA_getHtmlForAddUserInputDiv(array('text'=>__('Port:'), 'for'=>"text_port"), 
+                                           array('type'=>'text', 
+                                                 'name'=>'text_port', 
+                                                 'id'=>'text_port', 
+                                                 'maxlength'=>6, 
+                                                 'value'=>'3306' 
+                                                )
+                                            );
     
     $html .= ' </fieldset>';
     $html .= ' <fieldset id="fieldset_user_privtable_footer" class="tblFooters">';
@@ -391,7 +399,7 @@ function PMA_getHtmlForReplication_changemaster($submitname)
  *
  * @return String HTML code
  */
-function PMA_getHtmlForAddUser_input_div($label_array, $input_array)
+function PMA_getHtmlForAddUserInputDiv($label_array, $input_array)
 {    
     $html  = '  <div class="item">';
     $html .= '     <label for="' . $label_array['for'] . '">';
@@ -414,7 +422,7 @@ function PMA_getHtmlForAddUser_input_div($label_array, $input_array)
  *
  * @return String HTML code
  */
-function PMA_getHtmlForReplication_status_table($type, $hidden = false, $title = true)
+function PMA_getHtmlForReplicationStatusTable($type, $hidden = false, $title = true)
 {
     global ${"{$type}_variables"};
     global ${"{$type}_variables_alerts"};
@@ -510,7 +518,7 @@ function PMA_getHtmlForReplication_status_table($type, $hidden = false, $title =
  *
  * @return void
  */
-function PMA_getHtmlForReplication_slaves_table($hidden = false)
+function PMA_getHtmlForReplicationSlavesTable($hidden = false)
 {
     $html = '';
     // Fetch data
@@ -583,12 +591,12 @@ function PMA_replication_get_username_hostname_length()
  *
  * @return String HTML code
  */
-function PMA_getHtmlForReplication_master_addslaveuser()
+function PMA_getHtmlForReplicationMasterAddSlaveuser()
 {
     $html = '';
     list($username_length, $hostname_length) = PMA_replication_get_username_hostname_length();
 
-    if (isset($GLOBALS['username']) && strlen($GLOBALS['username']) === 0) {
+    if (isset($_REQUEST['username']) && strlen($_REQUEST['username']) === 0) {
         $GLOBALS['pred_username'] = 'any';
     }
     $html .= '<div id="master_addslaveuser_gui">';
@@ -628,8 +636,8 @@ function PMA_getHtmlForReplication_master_addslaveuser()
     unset($_current_user);
 
     // when we start editing a user, $GLOBALS['pred_hostname'] is not defined
-    if (! isset($GLOBALS['pred_hostname']) && isset($GLOBALS['hostname'])) {
-        switch (strtolower($GLOBALS['hostname'])) {
+    if (! isset($GLOBALS['pred_hostname']) && isset($_REQUEST['hostname'])) {
+        switch (strtolower($_REQUEST['hostname'])) {
         case 'localhost':
         case '127.0.0.1':
             $GLOBALS['pred_hostname'] = 'localhost';
@@ -700,8 +708,8 @@ function PMA_getHtmlForAddUserLoginForm($username_length)
         . '</span>'
         . '<input type="text" name="username" maxlength="'
         . $username_length . '" title="' . __('User name') . '"'
-        . (empty($GLOBALS['username']) ? '' : ' value="' 
-        . (isset($GLOBALS['new_username']) ? $GLOBALS['new_username'] : $GLOBALS['username']) . '"')
+        . (empty($_REQUEST['username']) ? '' : ' value="' 
+        . (isset($GLOBALS['new_username']) ? $GLOBALS['new_username'] : $_REQUEST['username']) . '"')
         . ' onchange="pred_username.value = \'userdefined\';" />'
         . '</div>';
         
@@ -729,7 +737,7 @@ function PMA_getHtmlForTableInfoForm($hostname_length)
         . '</span>'
         . '<input type="text" name="hostname" maxlength="'
         . $hostname_length . '" value="'
-        . (isset($GLOBALS['hostname']) ? $GLOBALS['hostname'] : '')
+        . (isset($_REQUEST['hostname']) ? $_REQUEST['hostname'] : '')
         . '" title="' . __('Host')
         . '" onchange="pred_hostname.value = \'userdefined\';" />'
         . PMA_Util::showHint(
@@ -746,12 +754,12 @@ function PMA_getHtmlForTableInfoForm($hostname_length)
         . '            onchange="if (this.value == \'none\') { pma_pw.value = \'\'; pma_pw2.value = \'\'; } ' 
         .                       'else if (this.value == \'userdefined\') { pma_pw.focus(); pma_pw.select(); }">'
         . '        <option value="none"';
-    if (isset($GLOBALS['username'])) {
+    if (isset($_REQUEST['username'])) {
         $html .= '  selected="selected"';
     }
     $html .= '>' . __('No Password') . '</option>'
         . '        <option value="userdefined"' 
-        . (isset($GLOBALS['username']) ? '' : ' selected="selected"') 
+        . (isset($_REQUEST['username']) ? '' : ' selected="selected"') 
         . '>' . __('Use text field:') . '</option>'
         . '    </select>'
         . '</span>'

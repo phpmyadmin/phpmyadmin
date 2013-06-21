@@ -141,7 +141,7 @@ function PMA_getServerStateGeneralInfoHtml($ServerStatusData)
         $retval .= '</a></h3>';
         foreach ($GLOBALS['replication_types'] as $type) {
             if (isset(${"server_{$type}_status"}) && ${"server_{$type}_status"}) {
-                $retval .= PMA_getHtmlForReplication_status_table($type);
+                $retval .= PMA_getHtmlForReplicationStatusTable($type);
             }
         }
     }
