@@ -1008,9 +1008,7 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
 
 $_SESSION['is_multi_query'] = false;
 
-/**
- * Displays the footer
- */
+
 if (! isset($_REQUEST['table_maintenance'])) {
     exit;
 }
