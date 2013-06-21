@@ -87,8 +87,7 @@ if ($GLOBALS['cfg']['RememberSorting']
 }
 
 // checks whether a LIMIT clause should be added to the query
-if (($_SESSION['tmp_user_values']['max_rows'] != 'all')
-    && ! ($is_count || $is_export || $is_func || $is_analyse)
+if (! ($is_count || $is_export || $is_func || $is_analyse)
     && isset($analyzed_sql[0]['queryflags']['select_from'])
     && ! isset($analyzed_sql[0]['queryflags']['offset'])
     && empty($analyzed_sql[0]['limit_clause'])

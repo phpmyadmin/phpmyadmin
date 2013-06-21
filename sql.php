@@ -319,7 +319,9 @@ if ($is_remember_sorting_order) {
 
 $sql_limit_to_append = '';
 // Do append a "LIMIT" clause?
-if ($is_append_limit_clause) {
+if (($_SESSION['tmp_user_values']['max_rows'] != 'all') 
+    && $is_append_limit_clause
+) {
     $sql_limit_to_append = ' LIMIT ' . $_SESSION['tmp_user_values']['pos']
         . ', ' . $_SESSION['tmp_user_values']['max_rows'] . " ";
     $full_sql_query = PMA_getSqlWithLimitClause(
@@ -327,7 +329,7 @@ if ($is_append_limit_clause) {
         $analyzed_sql,
         $sql_limit_to_append
     );
-
+    
     /**
      * @todo pretty printing of this modified query
      */
