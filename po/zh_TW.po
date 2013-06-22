@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-06-20 08:22+0200\n"
-"PO-Revision-Date: 2013-06-21 22:17+0200\n"
+"PO-Revision-Date: 2013-06-22 12:06+0200\n"
 "Last-Translator: Tony Chen <tonychen@finenet.com.tw>\n"
 "Language-Team: Traditional Chinese "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/zh_TW/>\n"
@@ -917,7 +917,7 @@ msgstr "增加 %s 個欄位至索引"
 #. l10n: Default label for the y-Axis of Charts
 #: js/messages.php:48 tbl_chart.php:236
 msgid "Y Values"
-msgstr "Y軸數值"
+msgstr "縱軸值"
 
 #: js/messages.php:51
 msgid "The host name is empty!"
@@ -8905,7 +8905,7 @@ msgstr "自動排版，基於"
 
 #: libraries/schema/User_Schema.class.php:145
 msgid "Internal relations"
-msgstr "行內"
+msgstr "內部關聯"
 
 #: libraries/schema/User_Schema.class.php:156
 msgid "FOREIGN KEY"
@@ -10062,7 +10062,7 @@ msgstr "欄位已搬移成功。"
 #: libraries/structure.lib.php:2557
 #, php-format
 msgid "The column name '%s' is a MySQL reserved keyword."
-msgstr ""
+msgstr "欄位名稱 '%s' 是 MySQL 保留字。"
 
 #: libraries/tbl_columns_definition_form.inc.php:101
 msgid ""
@@ -10358,7 +10358,7 @@ msgstr "錯誤：關聯未啟用!"
 
 #: pmd_relation_new.php:98
 msgid "Internal relation added"
-msgstr "已新增行內部關聯"
+msgstr "已新增內部關聯"
 
 #: pmd_relation_upd.php:66
 msgid "Relation deleted"
@@ -11519,7 +11519,7 @@ msgstr "設定已儲存。"
 msgid ""
 "Configuration saved to file config/config.inc.php in phpMyAdmin top level "
 "directory, copy it to top level one and delete directory config to use it."
-msgstr ""
+msgstr "配置保存到 phpMyAdmin 目錄下的 config/config.inc.php 檔，請將它複製到上層後再刪除 config 目錄。"
 
 #: setup/frames/index.inc.php:107 setup/frames/menu.inc.php:16
 msgid "Overview"
@@ -11583,7 +11583,7 @@ msgstr "新增伺服器"
 
 #: setup/index.php:22
 msgid "Wrong GET file attribute value"
-msgstr ""
+msgstr "GET 頁面錯誤"
 
 #: setup/lib/form_processing.lib.php:45
 msgid "Warning"
@@ -11810,11 +11810,11 @@ msgstr "無資料可顯示"
 
 #: tbl_chart.php:62 tbl_gis_visualization.php:24
 msgid "No SQL query was set to fetch data."
-msgstr ""
+msgstr "尚未設定 SQL 查詢來檢索資料。"
 
 #: tbl_chart.php:124
 msgid "No numeric columns present in the table to plot."
-msgstr ""
+msgstr "目前資料表中沒有數值欄位可供繪製。"
 
 #: tbl_chart.php:154
 msgctxt "Chart type"
@@ -11839,7 +11839,7 @@ msgstr "曲線圖"
 #: tbl_chart.php:163
 msgctxt "Chart type"
 msgid "Area"
-msgstr ""
+msgstr "面積圖"
 
 #: tbl_chart.php:166
 msgctxt "Chart type"
@@ -11853,7 +11853,7 @@ msgstr "時間軸"
 
 #: tbl_chart.php:177
 msgid "Stacked"
-msgstr "堆疊"
+msgstr "堆疊圖"
 
 #: tbl_chart.php:180
 msgid "Chart title"
@@ -11861,7 +11861,7 @@ msgstr "圖表標題"
 
 #: tbl_chart.php:184
 msgid "X-Axis:"
-msgstr ""
+msgstr "橫座標："
 
 #: tbl_chart.php:200
 msgid "Series:"
@@ -11869,15 +11869,15 @@ msgstr "序列："
 
 #: tbl_chart.php:229
 msgid "X-Axis label:"
-msgstr "水平軸標籤："
+msgstr "橫軸標籤："
 
 #: tbl_chart.php:232
 msgid "X Values"
-msgstr "水平軸值"
+msgstr "橫軸值"
 
 #: tbl_chart.php:234
 msgid "Y-Axis label:"
-msgstr "垂直軸標籤："
+msgstr "縱軸標籤："
 
 #: tbl_chart.php:241
 msgid "Start row:"
@@ -11983,13 +11983,13 @@ msgstr "在 %1$s 建立外部鍵時發生錯誤 (檢查資料類型)"
 
 #: tbl_relation.php:383
 msgid "Internal relation"
-msgstr "行內"
+msgstr "內部關聯"
 
 #: tbl_relation.php:387
 msgid ""
 "An internal relation is not necessary when a corresponding FOREIGN KEY "
 "relation exists."
-msgstr "不需要一個和外部鍵關聯一致的行內部關聯。"
+msgstr "當對應的 FOREIGN KEY 存在時，則不需要內部的關聯。"
 
 #: tbl_relation.php:397
 msgid "Foreign key constraint"
@@ -12190,22 +12190,22 @@ msgstr "將視表更名為"
 
 #: libraries/advisory_rules.txt:49
 msgid "Uptime below one day"
-msgstr ""
+msgstr "運行時間少於一天"
 
 #: libraries/advisory_rules.txt:52
 msgid "Uptime is less than 1 day, performance tuning may not be accurate."
-msgstr ""
+msgstr "運行時間少於 1 天，性能的調效可能不精確。"
 
 #: libraries/advisory_rules.txt:53
 msgid ""
 "To have more accurate averages it is recommended to let the server run for "
 "longer than a day before running this analyzer"
-msgstr ""
+msgstr "要取得更精確的平均值的話，建議在執行這個分析前讓伺服器運行至少一天"
 
 #: libraries/advisory_rules.txt:54
 #, php-format
 msgid "The uptime is only %s"
-msgstr ""
+msgstr "運行時間只有 %s"
 
 #: libraries/advisory_rules.txt:56
 msgid "Questions below 1,000"
@@ -12221,7 +12221,7 @@ msgstr "內部查詢數少於 1,000。建議可能不夠精確。"
 msgid ""
 "Let the server run for a longer time until it has executed a greater amount "
 "of queries."
-msgstr ""
+msgstr "讓伺服器運行久一點直到它執行更多的查詢。"
 
 #: libraries/advisory_rules.txt:61
 #, php-format
@@ -12235,18 +12235,18 @@ msgstr "緩慢查詢百分比"
 #: libraries/advisory_rules.txt:66
 msgid ""
 "There is a lot of slow queries compared to the overall amount of Queries."
-msgstr ""
+msgstr "緩慢查詢佔全部的查詢數量比例過大。"
 
 #: libraries/advisory_rules.txt:67 libraries/advisory_rules.txt:74
 msgid ""
 "You might want to increase {long_query_time} or optimize the queries listed "
 "in the slow query log"
-msgstr ""
+msgstr "您可能需要增加 {long_query_time} 或最佳化緩慢查詢日誌中出現的查詢"
 
 #: libraries/advisory_rules.txt:68
 #, php-format
 msgid "The slow query rate should be below 5%%, your value is %s%%."
-msgstr ""
+msgstr "緩慢查詢率應低於 5%，您的值是 %s%%。"
 
 #: libraries/advisory_rules.txt:70
 msgid "Slow query rate"
@@ -12255,14 +12255,14 @@ msgstr "緩慢查詢率"
 #: libraries/advisory_rules.txt:73
 msgid ""
 "There is a high percentage of slow queries compared to the server uptime."
-msgstr ""
+msgstr "伺服器運行期間產生的緩慢查詢比率過高。"
 
 #: libraries/advisory_rules.txt:75
 #, php-format
 msgid ""
 "You have a slow query rate of %s per hour, you should have less than 1%% per "
 "hour."
-msgstr ""
+msgstr "你的緩慢查詢率為每小時 %s，這個值應該低於每小時 1%%。"
 
 #: libraries/advisory_rules.txt:77
 msgid "Long query time"
@@ -12592,7 +12592,7 @@ msgstr "查詢快取最小結果大小"
 #: libraries/advisory_rules.txt:205
 msgid ""
 "The max size of the result set in the query cache is the default of 1 MiB."
-msgstr ""
+msgstr "查詢快取結果最大大小為預設值 1 MB。"
 
 #: libraries/advisory_rules.txt:206
 msgid ""
@@ -12605,10 +12605,13 @@ msgid ""
 "(often invalidated due to table updates) increasing {query_cache_limit} "
 "might reduce efficiency."
 msgstr ""
+"通常增加 {query_cache_limit} 可提高效率，這個變數決定可以加入查詢快取的最大結果。如果許多查詢結果在 1MB 以上存入快取狀態良好 "
+"(多次讀取、少量寫入)，那麼增加 {query_cache_limit} 可以提高效率。反之，在存入快取狀態是不良 (往往因資料表更新而失效) "
+"的情況下，增加 {query_cache_limit} 反而會降低效率。"
 
 #: libraries/advisory_rules.txt:207
 msgid "query_cache_limit is set to 1 MiB"
-msgstr ""
+msgstr "query_cache_limit 已設為 1 MB"
 
 #: libraries/advisory_rules.txt:211
 msgid "Percentage of sorts that cause temporary tables"
@@ -12622,7 +12625,7 @@ msgstr "太多排序產生的臨時表。"
 msgid ""
 "Consider increasing {sort_buffer_size} and/or {read_rnd_buffer_size}, "
 "depending on your system memory limits"
-msgstr ""
+msgstr "根據您的系統記憶體多寡，考慮增加 {sort_buffer_size} 和 {read_rnd_buffer_size}"
 
 #: libraries/advisory_rules.txt:216
 #, php-format
@@ -12752,7 +12755,7 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:265
 msgid "{tmp_table_size} and {max_heap_table_size} are not the same."
-msgstr ""
+msgstr "{tmp_table_size} 和 {max_heap_table_size} 並不相同。"
 
 #: libraries/advisory_rules.txt:266
 msgid ""
@@ -12760,12 +12763,12 @@ msgid ""
 "value of either to determine the maximum size of in-memory tables. So if you "
 "wish to increase the in-memory table limit you will have to increase the "
 "other value as well."
-msgstr ""
+msgstr "如果您是有意更改其中之一: 伺服器會使用較低的值來決定記憶體中資料表的最大大小。如果您想要增加的記憶體中資料表大小，您應該同時增加另一個值。"
 
 #: libraries/advisory_rules.txt:267
 #, php-format
 msgid "Current values are tmp_table_size: %s, max_heap_table_size: %s"
-msgstr ""
+msgstr "目前的值是 tmp_table_size: %s，max_heap_table_size: %s"
 
 #: libraries/advisory_rules.txt:269
 msgid "Percentage of temp tables on disk"
@@ -12775,7 +12778,7 @@ msgstr "臨時表在磁碟的比率"
 msgid ""
 "Many temporary tables are being written to disk instead of being kept in "
 "memory."
-msgstr ""
+msgstr "太多的臨時表寫入磁碟而不是被保存在記憶體中。"
 
 #: libraries/advisory_rules.txt:273
 msgid ""
@@ -12787,13 +12790,17 @@ msgid ""
 "mentioned in the beginning of an <a href=\"http://www.facebook.com/note.php?"
 "note_id=10150111255065841&comments\">Article by the Pythian Group</a>"
 msgstr ""
+"增加 {max_heap_table_size} 和 {tmp_table_size} "
+"可能有所幫助。然而有些臨時表總是會寫到磁碟，與這些變數無關。要解決這個問題您必須重寫查詢，以避免 <a href=\"HTTP://www.faceboo"
+"k.com/note.php?note_id=10150111255065841&comments\">Pythian 小組文章</a> "
+"開頭所提的這些狀況: 在臨時表中含有 BLOB 或 TEXT 欄位或欄位長度超過 512 位元組"
 
 #: libraries/advisory_rules.txt:274
 #, php-format
 msgid ""
 "%s%% of all temporary tables are being written to disk, this value should be "
 "below 25%%"
-msgstr ""
+msgstr "%s%% 的臨時表正寫入磁碟中，此值應低於 25%%"
 
 #: libraries/advisory_rules.txt:276
 msgid "Temp disk rate"
@@ -12809,13 +12816,18 @@ msgid ""
 "mentioned in the <a href=\"http://dev.mysql.com/doc/refman/5.5/en/internal-"
 "temporary-tables.html\">MySQL Documentation</a>"
 msgstr ""
+"增加 {max_heap_table_size} 和 {tmp_table_size} "
+"可能有所幫助。然而有些臨時表總是會寫到磁碟，與這些變數無關。要解決這個問題您必須重寫查詢，以避免 <a "
+"href=\"http://dev.mysql.com/doc/refman/5.5/en/internal-temporary-"
+"tables.html\">MySQL Documentation</a> 所提的這些狀況: 在臨時表中含有 BLOB 或 TEXT 欄位或欄位長度超過 "
+"512 位元組"
 
 #: libraries/advisory_rules.txt:281
 #, php-format
 msgid ""
 "Rate of temporary tables being written to disk: %s, this value should be "
 "less than 1 per hour"
-msgstr ""
+msgstr "臨時表寫到磁碟的頻率: %s，此值應每小時小於 1"
 
 #: libraries/advisory_rules.txt:296
 msgid "MyISAM key buffer size"
@@ -12823,13 +12835,13 @@ msgstr "MyISAM 鍵值緩衝大小"
 
 #: libraries/advisory_rules.txt:299
 msgid "Key buffer is not initialized. No MyISAM indexes will be cached."
-msgstr ""
+msgstr "鍵值緩衝尚未初始化。MyISAM 索引將無法快取。"
 
 #: libraries/advisory_rules.txt:300
 msgid ""
 "Set {key_buffer_size} depending on the size of your MyISAM indexes. 64M is a "
 "good start."
-msgstr ""
+msgstr "根據您的 MyISAM 索引的大小來設定 {key_buffer_size}。64M 是一個不錯的開始。"
 
 #: libraries/advisory_rules.txt:301
 msgid "key_buffer_size is 0"
@@ -12850,7 +12862,7 @@ msgid ""
 "You may need to decrease the size of {key_buffer_size}, re-examine your "
 "tables to see if indexes have been removed, or examine queries and "
 "expectations about what indexes are being used."
-msgstr ""
+msgstr "您可能需要減小 {key_buffer_size} 的值，重新檢查資料表是否刪除索引，或檢查查詢是否如預期的使用了索引。"
 
 #: libraries/advisory_rules.txt:308
 #, php-format
@@ -12878,7 +12890,7 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:322
 msgid "You may need to increase {key_buffer_size}."
-msgstr ""
+msgstr "您可能需要增加 {key_buffer_size}。"
 
 #: libraries/advisory_rules.txt:323
 #, php-format
@@ -12897,7 +12909,7 @@ msgstr "資料表開啟率過高。"
 msgid ""
 "Opening tables requires disk I/O which is costly. Increasing "
 "{table_open_cache} might avoid this."
-msgstr ""
+msgstr "開啟資料表需要昂貴的磁碟存取代價，增加 {table_open_cache} 可以減緩這個問題。"
 
 #: libraries/advisory_rules.txt:332
 #, php-format
@@ -12912,13 +12924,13 @@ msgstr "已使用開啟檔案限制百分比"
 msgid ""
 "The number of open files is approaching the max number of open files.  You "
 "may get a \"Too many open files\" error."
-msgstr ""
+msgstr "開啟的檔數已接近允許最大開啟量，您可能會得到 \"太多開啟的檔案\" 錯誤。"
 
 #: libraries/advisory_rules.txt:338 libraries/advisory_rules.txt:345
 msgid ""
 "Consider increasing {open_files_limit}, and check the error log when "
 "restarting after changing {open_files_limit}."
-msgstr ""
+msgstr "考慮增加 {open_files_limit}，請在更改後重新開機，並檢查錯誤日誌。"
 
 #: libraries/advisory_rules.txt:339
 #, php-format
@@ -13078,11 +13090,13 @@ msgid ""
 "source-of-aborted_connects/\">This article</a> might help you track down the "
 "source."
 msgstr ""
+"通常因為授權問題被中止連接，<a href=\"http://www.mysqlperformanceblog.com/2008/08/23/how-"
+"to-track-down-the-source-of-aborted_connects/\">這篇文章</a> 可能對您追查這個原因有所幫助。"
 
 #: libraries/advisory_rules.txt:404
 #, php-format
 msgid "%s%% of all connections are aborted. This value should be below 1%%"
-msgstr ""
+msgstr "所有的連線中有 %s%% 的被中止，這個值應低於 1%%"
 
 #: libraries/advisory_rules.txt:406
 msgid "Rate of aborted connections"
@@ -13092,7 +13106,7 @@ msgstr "中斷連線率"
 #, php-format
 msgid ""
 "Aborted connections rate is at %s, this value should be less than 1 per hour"
-msgstr ""
+msgstr "已中止的連線率是 %s，這個值應每小時小於 1"
 
 #: libraries/advisory_rules.txt:413
 msgid "Percentage of aborted clients"
