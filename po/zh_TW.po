@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-06-20 08:22+0200\n"
-"PO-Revision-Date: 2013-06-22 12:06+0200\n"
+"PO-Revision-Date: 2013-06-22 21:33+0200\n"
 "Last-Translator: Tony Chen <tonychen@finenet.com.tw>\n"
 "Language-Team: Traditional Chinese "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/zh_TW/>\n"
@@ -2176,7 +2176,7 @@ msgstr "在產生格式化字串時，條件 \"%s\" 失敗。"
 #, php-format
 msgid ""
 "Invalid rule declaration on line %1$s, expected line %2$s of previous rule."
-msgstr ""
+msgstr "第 %1$s 行的規則宣告無效，上一修規則應在第 %2$s 行。"
 
 #: libraries/Advisor.class.php:412
 #, php-format
@@ -4001,7 +4001,7 @@ msgstr "允許使用者自訂該值"
 
 #: libraries/config/FormDisplay.tpl.php:392
 msgid "Apply"
-msgstr ""
+msgstr "應用"
 
 #: libraries/config/FormDisplay.tpl.php:394 libraries/insert_edit.lib.php:1551
 #: libraries/schema/User_Schema.class.php:554 prefs_manage.php:326
@@ -6026,6 +6026,8 @@ msgid ""
 "is installed does not have direct access to the internet. The format is: "
 "\"hostname:portnumber\""
 msgstr ""
+"這個 url 是取得 phpMyAdmin 最新版本資訊時所用。如果 phpMyAdmin 伺服器並沒有直接連結網際網路的話，您就需要它。格式為: "
+"\"hostname:portnumber\""
 
 #: libraries/config/messages.inc.php:523
 msgid "Version check proxy url"
@@ -6036,7 +6038,7 @@ msgid ""
 "The username for authenticating with the proxy. By default, no "
 "authentication is performed. If a username is supplied, Basic Authentication "
 "will be performed. No other types of authentication are currently supported."
-msgstr ""
+msgstr "使用代理伺服器進行身份驗證的使用者名稱，預設無身份驗證。如果提供了使用者名稱，則會執行基本驗證。目前不支援其他類型的身份驗證。"
 
 #: libraries/config/messages.inc.php:525
 msgid "Version check proxy username"
@@ -6044,7 +6046,7 @@ msgstr "檢查代理使用者名稱版本"
 
 #: libraries/config/messages.inc.php:526
 msgid "The password for authenticating with the proxy"
-msgstr ""
+msgstr "使用代理伺服器進行身份驗證的密碼"
 
 #: libraries/config/messages.inc.php:527
 msgid "Version check proxy password"
@@ -6064,19 +6066,19 @@ msgstr "ZIP"
 
 #: libraries/config/messages.inc.php:531
 msgid "Enter your public key for your domain reCaptcha service"
-msgstr ""
+msgstr "請為您的網域驗證碼 (reCaptcha) 服務輸入公開金鑰"
 
 #: libraries/config/messages.inc.php:532
 msgid "Public key for reCaptcha"
-msgstr ""
+msgstr "驗證碼的公開金鑰"
 
 #: libraries/config/messages.inc.php:533
 msgid "Enter your private key for your domain reCaptcha service"
-msgstr ""
+msgstr "請為您的網域驗證碼 (reCaptcha) 服務輸入私密金鑰"
 
 #: libraries/config/messages.inc.php:534
 msgid "Private key for reCaptcha"
-msgstr ""
+msgstr "驗證碼的私密金鑰"
 
 #: libraries/config/setup.forms.php:41
 msgid "Config authentication"
@@ -6415,7 +6417,7 @@ msgstr "沒有分支"
 
 #: libraries/display_git_revision.lib.php:64
 msgid "Git revision:"
-msgstr ""
+msgstr "Git 版號："
 
 #: libraries/display_git_revision.lib.php:67
 #, php-format
@@ -7592,11 +7594,11 @@ msgstr "選擇伺服器："
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:386
 msgid "Entered captcha is wrong, try again!"
-msgstr ""
+msgstr "輸入驗證碼錯誤，請再試一次！"
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:395
 msgid "Please enter correct captcha!"
-msgstr ""
+msgstr "請輸入正確的驗證碼！"
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:657
 #: libraries/plugins/auth/AuthenticationSignon.class.php:249
@@ -9309,7 +9311,7 @@ msgstr "使用文字域"
 msgid ""
 "An account already exists with the same username but possibly a different "
 "hostname. Are you sure you wish to proceed?"
-msgstr ""
+msgstr "這個帳號已存在相同的使用者名稱，但可能是不同的主機名稱。請確定您要繼續嗎？"
 
 #: libraries/server_privileges.lib.php:1204
 msgid "Do not change the password"
@@ -9558,6 +9560,8 @@ msgid ""
 "enabled. Note however, that the general_log produces a lot of data and "
 "increases server load by up to 15%."
 msgstr ""
+"phpMyAdmin 監測器可以幫您最佳化伺服器的配置和追蹤有耗時的查询。對後者您需要將 log_output 設為 'TABLE'，並啟用 "
+"slow_query_log 或 general_log。但請注意 general_log 會產生大量的資料，並可能增加伺服器的負載達 15%。"
 
 #: libraries/server_status_monitor.lib.php:149
 msgid ""
@@ -9587,6 +9591,8 @@ msgid ""
 "confirmed, this will load a table of grouped queries, there you may click on "
 "any occurring SELECT statements to further analyze them."
 msgstr ""
+"要從日誌中來顯示查詢，請在任何圖表上按下滑鼠左鍵並拖拽選擇一段時間範圍。確定後將會載入分好组別的查詢，然後您可以點擊任意 SELECT "
+"語句做進一步分析。"
 
 #: libraries/server_status_monitor.lib.php:183
 msgid "Please note:"
@@ -9715,7 +9721,7 @@ msgstr "狀態"
 
 #: libraries/sql.lib.php:495
 msgid "Summary by state"
-msgstr ""
+msgstr "狀態總結"
 
 #: libraries/sql.lib.php:503
 msgid "Total Time"
@@ -12272,13 +12278,13 @@ msgstr "超長查詢時間"
 msgid ""
 "{long_query_time} is set to 10 seconds or more, thus only slow queries that "
 "take above 10 seconds are logged."
-msgstr ""
+msgstr "{long_query_time} 設為 10 秒或更多，因此只會記錄超過 10 秒的緩慢查詢。"
 
 #: libraries/advisory_rules.txt:81
 msgid ""
 "It is suggested to set {long_query_time} to a lower value, depending on your "
 "environment. Usually a value of 1-5 seconds is suggested."
-msgstr ""
+msgstr "根據您的環境將 {long_query_time} 設定調低，通常建議設為 1-5 秒。"
 
 #: libraries/advisory_rules.txt:82
 #, php-format
@@ -12297,7 +12303,7 @@ msgstr "已禁用緩慢查詢。"
 msgid ""
 "Enable slow query logging by setting {log_slow_queries} to 'ON'. This will "
 "help troubleshooting badly performing queries."
-msgstr ""
+msgstr "要啟用緩慢查詢記錄請將 {log_slow_queries} 設為 'ON'，這將有助於不良查詢的故障排除。"
 
 #: libraries/advisory_rules.txt:89
 msgid "log_slow_queries is set to 'OFF'"
@@ -12307,7 +12313,7 @@ msgstr "log_slow_queries 已設為 'OFF'"
 msgid ""
 "Enable slow query logging by setting {slow_query_log} to 'ON'. This will "
 "help troubleshooting badly performing queries."
-msgstr ""
+msgstr "要啟用緩慢查詢記錄請將 {slow_query_log} 設為 'ON'，這將有助於不良查詢的故障排除。"
 
 #: libraries/advisory_rules.txt:96
 msgid "slow_query_log is set to 'OFF'"
@@ -12319,13 +12325,13 @@ msgstr "釋放序列"
 
 #: libraries/advisory_rules.txt:103
 msgid "The MySQL server version less than 5.1."
-msgstr ""
+msgstr "MySQL 伺服器版本低於 5.1。"
 
 #: libraries/advisory_rules.txt:104
 msgid ""
 "You should upgrade, as MySQL 5.1 has improved performance, and MySQL 5.5 "
 "even more so."
-msgstr ""
+msgstr "您應該升級到 MySQL 5.1 或 5.5，以獲得更好的性能。"
 
 #: libraries/advisory_rules.txt:105 libraries/advisory_rules.txt:112
 #: libraries/advisory_rules.txt:119
@@ -12339,13 +12345,13 @@ msgstr "次要版本"
 
 #: libraries/advisory_rules.txt:110
 msgid "Version less than 5.1.30 (the first GA release of 5.1)."
-msgstr ""
+msgstr "版本小於 5.1.30 (5.1 官方第一個推薦版本)。"
 
 #: libraries/advisory_rules.txt:111
 msgid ""
 "You should upgrade, as recent versions of MySQL 5.1 have improved "
 "performance and MySQL 5.5 even more so."
-msgstr ""
+msgstr "您應該升級到 MySQL 5.1 或 5.5 最近的版本，以獲得更好的性能。"
 
 #: libraries/advisory_rules.txt:117
 msgid "Version less than 5.5.8 (the first GA release of 5.5)."
@@ -12572,13 +12578,13 @@ msgstr "查詢快取最大大小"
 msgid ""
 "The query cache size is above 128 MiB. Big query caches may cause "
 "significant overhead that is required to maintain the cache."
-msgstr ""
+msgstr "查詢快取超过 128 MB，過大的查詢快取可能會引起額外的維謢開銷。"
 
 #: libraries/advisory_rules.txt:199
 msgid ""
 "Depending on your environment, it might be performance increasing to reduce "
 "this value."
-msgstr ""
+msgstr "根據您的環境，減少這個值可能可以提高效能。"
 
 #: libraries/advisory_rules.txt:200
 #, php-format
@@ -12632,7 +12638,7 @@ msgstr "根據您的系統記憶體多寡，考慮增加 {sort_buffer_size} 和 
 msgid ""
 "%s%% of all sorts cause temporary tables, this value should be lower than "
 "10%%."
-msgstr ""
+msgstr "有 %s%% 的排序會產生臨時表，這個值應低於 10%%。"
 
 #: libraries/advisory_rules.txt:218
 msgid "Rate of sorts that cause temporary tables"
@@ -12650,7 +12656,7 @@ msgstr "排序筆數"
 
 #: libraries/advisory_rules.txt:228
 msgid "There are lots of rows being sorted."
-msgstr ""
+msgstr "有大量的資料被排序。"
 
 #: libraries/advisory_rules.txt:229
 msgid ""
@@ -12658,12 +12664,12 @@ msgid ""
 "want to make sure that the queries which require a lot of sorting use "
 "indexed columns in the ORDER BY clause, as this will result in much faster "
 "sorting"
-msgstr ""
+msgstr "雖然大量的排序不是什麼問題，但您最好能儘可能在 ORDER BY 子句中使用索引欄位，這樣能導致更快的排序"
 
 #: libraries/advisory_rules.txt:230
 #, php-format
 msgid "Sorted rows average: %s"
-msgstr ""
+msgstr "平均排序筆數: %s"
 
 #: libraries/advisory_rules.txt:233
 msgid "Rate of joins without indexes"
@@ -12677,7 +12683,7 @@ msgstr "有太多的結合未使用索引。"
 msgid ""
 "This means that joins are doing full table scans. Adding indexes for the "
 "columns being used in the join conditions will greatly speed up table joins"
-msgstr ""
+msgstr "這意味著結合將會掃描整個資料表，在結合條件中使用索引欄位將可大幅加快資料表的處理"
 
 #: libraries/advisory_rules.txt:238
 #, php-format
@@ -12701,6 +12707,8 @@ msgid ""
 "scans. Other than that full index scans can only be reduced by rewriting "
 "queries."
 msgstr ""
+"這通常表示頻繁的掃描整個索引。整個索引掃描會比資料表掃描速度快，但在大資料表還是要消耗不少 CPU 時間，如果那些資料表有大量的更新和刪除操作，執行 "
+"'OPTIMIZE TABLE' 可以減少整個索引掃描次數或提升速度。致於其他只能靠重寫查詢來減少掃描整個索引。"
 
 #: libraries/advisory_rules.txt:245
 #, php-format
@@ -12720,14 +12728,14 @@ msgid ""
 "This indicates that many queries need to sort results and/or do a full table "
 "scan, including join queries that do not use indexes. Add indexes where "
 "applicable."
-msgstr ""
+msgstr "這表示許多查詢結果需要排序或做整個資料表掃描，包括未使用索引的結合查詢。請在適當的地方增加索引。"
 
 #: libraries/advisory_rules.txt:252
 #, php-format
 msgid ""
 "Rate of reading fixed position average: %s, this value should be less than 1 "
 "per hour"
-msgstr ""
+msgstr "平均固定位置讀取率平均: %s，這個值應每小時低於 1"
 
 #: libraries/advisory_rules.txt:254
 msgid "Rate of reading next table row"
@@ -12741,7 +12749,7 @@ msgstr "讀取資料表下一筆比例過高。"
 msgid ""
 "This indicates that many queries are doing full table scans. Add indexes "
 "where applicable."
-msgstr ""
+msgstr "這表示有許多查詢做了整個資料表的掃描，請適時地增加索引。"
 
 #: libraries/advisory_rules.txt:259
 #, php-format
@@ -12751,7 +12759,7 @@ msgstr "平均讀取資料表下一筆: %s，此值應每小時小於1"
 
 #: libraries/advisory_rules.txt:262
 msgid "tmp_table_size vs. max_heap_table_size"
-msgstr ""
+msgstr "tmp_table_size 對 max_heap_table_size"
 
 #: libraries/advisory_rules.txt:265
 msgid "{tmp_table_size} and {max_heap_table_size} are not the same."
@@ -12886,7 +12894,7 @@ msgstr "從記憶體中讀取索引的百分比"
 #: libraries/advisory_rules.txt:321
 #, php-format
 msgid "The %% of indexes that use the MyISAM key buffer is low."
-msgstr ""
+msgstr "使用 MyISAM 鍵值緩衝的索引百分比太低。"
 
 #: libraries/advisory_rules.txt:322
 msgid "You may need to increase {key_buffer_size}."
@@ -12936,7 +12944,7 @@ msgstr "考慮增加 {open_files_limit}，請在更改後重新開機，並檢�
 #, php-format
 msgid ""
 "The number of opened files is at %s%% of the limit. It should be below 85%%"
-msgstr ""
+msgstr "開啟的檔數已達允許的 %s%%，這個值應低於 85%%"
 
 #: libraries/advisory_rules.txt:341
 msgid "Rate of open files"
@@ -12962,7 +12970,7 @@ msgstr "太多的資料表鎖定並未立即給予。"
 
 #: libraries/advisory_rules.txt:352 libraries/advisory_rules.txt:359
 msgid "Optimize queries and/or use InnoDB to reduce lock wait."
-msgstr ""
+msgstr "最佳化查詢或使用 InnoDB 來減少鎖定等待。"
 
 #: libraries/advisory_rules.txt:353
 #, php-format
@@ -12971,7 +12979,7 @@ msgstr "立即資料表鎖定: %s%%，這個值應該在 95%% 以上"
 
 #: libraries/advisory_rules.txt:355
 msgid "Table lock wait rate"
-msgstr ""
+msgstr "資料表鎖定等待率"
 
 #: libraries/advisory_rules.txt:360
 #, php-format
@@ -12986,11 +12994,11 @@ msgstr "執行緒快取"
 msgid ""
 "Thread cache is disabled, resulting in more overhead from new connections to "
 "MySQL."
-msgstr ""
+msgstr "執行緒快取已被禁用，因而有更多開銷要重新連接到 MySQL。"
 
 #: libraries/advisory_rules.txt:366
 msgid "Enable the thread cache by setting {thread_cache_size} > 0."
-msgstr ""
+msgstr "設定 {thread_cache_size} > 0 以啟用執行緒快取。"
 
 #: libraries/advisory_rules.txt:367
 msgid "The thread cache is set to 0"
@@ -13007,7 +13015,7 @@ msgstr "執行緒快取並不是很有效率。"
 
 #: libraries/advisory_rules.txt:373
 msgid "Increase {thread_cache_size}."
-msgstr ""
+msgstr "增加 {thread_cache_size}。"
 
 #: libraries/advisory_rules.txt:374
 #, php-format
@@ -13031,11 +13039,11 @@ msgstr "這通常發生在系統超載的情況下，您需要仔細地監視您
 #: libraries/advisory_rules.txt:381
 #, php-format
 msgid "%s thread(s) took longer than %s seconds to start, it should be 0"
-msgstr ""
+msgstr "%s 個執行緒啟動花了超過 %s 秒，這個值應該是 0"
 
 #: libraries/advisory_rules.txt:383
 msgid "Slow launch time"
-msgstr ""
+msgstr "緩慢啟動時間"
 
 #: libraries/advisory_rules.txt:386
 msgid "Slow_launch_threads is above 2s"
@@ -13060,7 +13068,7 @@ msgstr "已使用的連線百分比"
 msgid ""
 "The maximum amount of used connections is getting close to the value of "
 "{max_connections}."
-msgstr ""
+msgstr "最大已用連線數接近 {max_connections}。"
 
 #: libraries/advisory_rules.txt:396
 msgid ""
@@ -13068,12 +13076,14 @@ msgid ""
 "that do not close database handlers properly get killed sooner. Make sure "
 "the code closes database handlers properly."
 msgstr ""
+"增加 {max_connections} 或減少 {wait_timeout} "
+"可以使得未正常結束資料庫連線者更快速的被移除，以確保程式碼能正確的結束資料庫連線。"
 
 #: libraries/advisory_rules.txt:397
 #, php-format
 msgid ""
 "Max_used_connections is at %s%% of max_connections, it should be below 80%%"
-msgstr ""
+msgstr "Max_used_connections 已達 max_connections 的 %s%%，這個值應低於 80%%"
 
 #: libraries/advisory_rules.txt:399
 msgid "Percentage of aborted connections"
@@ -13121,12 +13131,12 @@ msgid ""
 "Clients are usually aborted when they did not close their connection to "
 "MySQL properly. This can be due to network issues or code not closing a "
 "database handler properly. Check your network and code."
-msgstr ""
+msgstr "用戶端沒有正確地結束 MySQL 的連線而被中止，通常是由於網路的問題或程式未正確關閉資料庫的連線。請檢查您的網路和程式碼。"
 
 #: libraries/advisory_rules.txt:418
 #, php-format
 msgid "%s%% of all clients are aborted. This value should be below 2%%"
-msgstr ""
+msgstr "有 %s%% 的用戶端被中止，這個值應低於 2%%"
 
 #: libraries/advisory_rules.txt:420
 msgid "Rate of aborted clients"
@@ -13139,7 +13149,7 @@ msgstr "客端中斷率為 %s，這個值應該每小時低於 1"
 
 #: libraries/advisory_rules.txt:429
 msgid "Is InnoDB disabled?"
-msgstr ""
+msgstr "是不是 InnoDB 被禁用？"
 
 #: libraries/advisory_rules.txt:432
 msgid "You do not have InnoDB enabled."
@@ -13147,11 +13157,11 @@ msgstr "您未啟用 InnoDB。"
 
 #: libraries/advisory_rules.txt:433
 msgid "InnoDB is usually the better choice for table engines."
-msgstr ""
+msgstr "通常 InnoDB 資料表引擎是更好的選擇。"
 
 #: libraries/advisory_rules.txt:434
 msgid "have_innodb is set to 'value'"
-msgstr ""
+msgstr "have_innodb 已設為 'value'"
 
 #: libraries/advisory_rules.txt:436
 msgid "InnoDB log size"
@@ -13176,6 +13186,12 @@ msgid ""
 "fine. See also <a href=\"http://mysqldatabaseadministration.blogspot."
 "com/2007/01/increase-innodblogfilesize-proper-way.html\">this blog entry</a>"
 msgstr ""
+"在 InnoDB 資料表有大量寫入的系統上，您應設定 {innodb_log_file_size} 為 "
+"{innodb_buffer_pool_size} 的 25%%。然而此值越大，在資料庫崩潰恢復的時間將越長，所以這個值就不應該高於 256 "
+"MB。然而請注意不是只更改此變數的值就好，您還需要關閉伺服器的服務，刪除 InnoDB 的日誌檔，在 my.cnf "
+"中設定新的值，啟動伺服器，如果一切都很順利再檢查錯誤日誌。請參見 <a "
+"href=\"http://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
+"innodblogfilesize-proper-way.html\">這篇部落格文章</a>"
 
 #: libraries/advisory_rules.txt:441
 #, php-format
@@ -13191,7 +13207,7 @@ msgstr "最大 InnoDB 日誌大小"
 
 #: libraries/advisory_rules.txt:446
 msgid "The InnoDB log file size is inadequately large."
-msgstr ""
+msgstr "InnoDB 日誌檔的大小是不夠大。"
 
 #: libraries/advisory_rules.txt:447
 #, php-format
@@ -13206,11 +13222,18 @@ msgid ""
 "mysqldatabaseadministration.blogspot.com/2007/01/increase-innodblogfilesize-"
 "proper-way.html\">this blog entry</a>"
 msgstr ""
+"通常將 {innodb_log_file_size} 設為 {innodb_buffer_pool_size} 的 25%% 就已足夠。過大的 "
+"{innodb_log_file_size} 會嚴重減緩資料庫崩潰後恢復的時間，請參見 <a "
+"href=\"http://www.mysqlperformanceblog.com/2006/07/03/choosing-proper-"
+"innodb_log_file_size/\">這篇文章</a>。您需要關閉伺服器的服務，刪除 InnoDB 的日誌檔，在 my.cnf "
+"中設定新的值，啟動伺服器，如果一切都很順利再檢查錯誤日誌。請參見 <a "
+"href=\"http://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
+"innodblogfilesize-proper-way.html\">這篇部落格文章</a>"
 
 #: libraries/advisory_rules.txt:448
 #, php-format
 msgid "Your absolute InnoDB log size is %s MiB"
-msgstr ""
+msgstr "你的 InnoDB 日誌絕對大小是 %s MB"
 
 #: libraries/advisory_rules.txt:450
 msgid "InnoDB buffer pool size"
@@ -13234,6 +13257,11 @@ msgid ""
 "\"http://www.mysqlperformanceblog.com/2007/11/03/choosing-"
 "innodb_buffer_pool_size/\">this article</a>"
 msgstr ""
+"InnoDB 緩衝池對 InnoDB 資料表的性能有重大影響，請將您剩餘的記憶體分配給此緩衝區。如果資料庫伺服器僅有 InnoDB "
+"作為儲存引擎，並沒有運行的其他服務 (如網頁伺服器)，您可以將高達 80%% 的可用記憶體分配給它。如果情況並非如此，您需要仔細評估其他服務和非 "
+"InnoDB 資料表的記憶體消耗狀況，並相對應地設定此變數。如果將它設置得太高，您的系統將會開始記憶體和磁碟的切換，因而大大降低性能。請參見 <a "
+"href=\"http://www.mysqlperformanceblog.com/2007/11/03/choosing-"
+"innodb_buffer_pool_size/\">這篇文章</a>"
 
 #: libraries/advisory_rules.txt:455
 #, php-format
@@ -13243,6 +13271,8 @@ msgid ""
 "perfectly adequate for your system if you don't have much InnoDB tables or "
 "other services running on the same machine."
 msgstr ""
+"您目前的 InnoDB 緩衝池已使用記憶體的 %s%%。如果您指派少於 60%% 將觸發此規則，然而也許因為沒有太多的 InnoDB "
+"資料表或其他服務同時運行於此機器，所以這樣也許十分適用於您的系統。"
 
 #: libraries/advisory_rules.txt:459
 msgid "MyISAM concurrent inserts"
@@ -13258,6 +13288,9 @@ msgid ""
 "writers for a given table. See also <a href=\"http://dev.mysql.com/doc/"
 "refman/5.5/en/concurrent-inserts.html\">MySQL Documentation</a>"
 msgstr ""
+"將 {concurrent_insert} 設為 1 可以減少在相同表上的讀取和寫入衝突，請參見 <a "
+"href=\"http://dev.mysql.com/doc/refman/5.5/en/concurrent-inserts.html\">MySQL "
+"文件</a>"
 
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
