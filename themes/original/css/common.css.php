@@ -1402,7 +1402,7 @@ div.upload_progress_bar_outer
 
 div.upload_progress_bar_inner
 {
-    background-color: <?php echo $GLOBALS['cfg']['NaviBackground']; ?>;
+    background-color: <?php echo $GLOBALS['cfg']['NaviPointerBackground']; ?>;
     width: 0;
     height: 12px;
     margin: 1px;
