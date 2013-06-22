@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-06-20 08:22+0200\n"
-"PO-Revision-Date: 2013-06-22 21:33+0200\n"
+"PO-Revision-Date: 2013-06-22 22:46+0200\n"
 "Last-Translator: Tony Chen <tonychen@finenet.com.tw>\n"
 "Language-Team: Traditional Chinese "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/zh_TW/>\n"
@@ -310,7 +310,7 @@ msgstr "phpMyAdmin 設定儲存功能未能啟動, %s請按此%s 查出問題原
 #: libraries/server_privileges.lib.php:2882 libraries/structure.lib.php:757
 #: tbl_tracking.php:764
 msgid "Table"
-msgstr "表"
+msgstr "資料表"
 
 #: db_printview.php:48 libraries/Table.class.php:351
 #: libraries/build_html_for_db.lib.php:31 libraries/import.lib.php:181
@@ -1461,7 +1461,7 @@ msgstr "詳細的規則"
 
 #: js/messages.php:203
 msgid "Justification"
-msgstr "校正"
+msgstr "調整"
 
 #: js/messages.php:204
 msgid "Used variable / formula"
@@ -2587,7 +2587,7 @@ msgstr "查詢花費 %01.4f 秒"
 #: libraries/structure.lib.php:1357 libraries/structure.lib.php:1364
 #: server_databases.php:323 server_databases.php:327
 msgid "With selected:"
-msgstr "選中項："
+msgstr "選中項目："
 
 #: libraries/DisplayResults.class.php:5038
 #: libraries/DisplayResults.class.php:5039
@@ -8461,7 +8461,7 @@ msgstr "執行以下的查詢時發生錯誤：「%s」"
 
 #: libraries/rte/rte_events.lib.php:134
 msgid "Sorry, we failed to restore the dropped event."
-msgstr "抱歉，系統回復被刪除的 Event 時失敗。"
+msgstr "抱歉，系統回復被刪除的事件時失敗。"
 
 #: libraries/rte/rte_events.lib.php:137 libraries/rte/rte_routines.lib.php:325
 #: libraries/rte/rte_triggers.lib.php:109
@@ -8471,12 +8471,12 @@ msgstr "備份用的查詢是："
 #: libraries/rte/rte_events.lib.php:144
 #, php-format
 msgid "Event %1$s has been modified."
-msgstr "Event %1$s 已被修改。"
+msgstr "事件 %1$s 已被修改。"
 
 #: libraries/rte/rte_events.lib.php:164
 #, php-format
 msgid "Event %1$s has been created."
-msgstr "建立 Event %1$s 成功。"
+msgstr "建立事件 %1$s 成功。"
 
 #: libraries/rte/rte_events.lib.php:175 libraries/rte/rte_routines.lib.php:366
 #: libraries/rte/rte_triggers.lib.php:147
@@ -8485,7 +8485,7 @@ msgstr "<b>處理您的請求時出現一個或多個錯誤:</b>"
 
 #: libraries/rte/rte_events.lib.php:228
 msgid "Edit event"
-msgstr "編輯 Event"
+msgstr "編輯事件"
 
 #: libraries/rte/rte_events.lib.php:255 libraries/rte/rte_export.lib.php:43
 #: libraries/rte/rte_routines.lib.php:464
@@ -8502,11 +8502,11 @@ msgstr "詳細"
 
 #: libraries/rte/rte_events.lib.php:420
 msgid "Event name"
-msgstr "Event 名稱"
+msgstr "事件名稱"
 
 #: libraries/rte/rte_events.lib.php:441 libraries/server_bin_log.lib.php:135
 msgid "Event type"
-msgstr "Event 類型"
+msgstr "事件類型"
 
 #: libraries/rte/rte_events.lib.php:463 libraries/rte/rte_routines.lib.php:954
 #, php-format
@@ -8549,23 +8549,23 @@ msgstr "定義必須是 \"username@hostname\" 格式"
 
 #: libraries/rte/rte_events.lib.php:574
 msgid "You must provide an event name"
-msgstr "您必須為 Event 指定一個名稱"
+msgstr "您必須為事件指定一個名稱"
 
 #: libraries/rte/rte_events.lib.php:588
 msgid "You must provide a valid interval value for the event."
-msgstr "您必須為 Event 指定一個正確的時間間隔。"
+msgstr "您必須為事件指定一個正確的時間間隔。"
 
 #: libraries/rte/rte_events.lib.php:603
 msgid "You must provide a valid execution time for the event."
-msgstr "您必須為 Event 指定一個正確的執行時間。"
+msgstr "您必須為事件指定一個正確的執行時間。"
 
 #: libraries/rte/rte_events.lib.php:607
 msgid "You must provide a valid type for the event."
-msgstr "您必須為 Event 指定一個正確的類型。"
+msgstr "您必須為事件指定一個正確的類型。"
 
 #: libraries/rte/rte_events.lib.php:631
 msgid "You must provide an event definition."
-msgstr "您必須為 Event 給予一個正確的定義。"
+msgstr "您必須為事件給予一個正確的定義。"
 
 #: libraries/rte/rte_footer.lib.php:91
 msgid "OFF"
@@ -8577,7 +8577,7 @@ msgstr "開啟"
 
 #: libraries/rte/rte_footer.lib.php:108
 msgid "Event scheduler status"
-msgstr "Event 排程狀態"
+msgstr "事件排程狀態"
 
 #: libraries/rte/rte_list.lib.php:55
 msgid "Returns"
@@ -8656,7 +8656,7 @@ msgstr "返回選項"
 
 #: libraries/rte/rte_routines.lib.php:1037
 msgid "Is deterministic"
-msgstr "是確定的"
+msgstr "確定性"
 
 #: libraries/rte/rte_routines.lib.php:1047
 msgid "Security type"
@@ -8752,7 +8752,7 @@ msgstr "您必須為觸發器提供一個有效的時機"
 
 #: libraries/rte/rte_triggers.lib.php:466
 msgid "You must provide a valid event for the trigger"
-msgstr "您必須為 Event 指定一個正確觸發條件"
+msgstr "您必須為事件指定一個正確觸發條件"
 
 #: libraries/rte/rte_triggers.lib.php:474
 msgid "You must provide a valid table name"
@@ -8816,12 +8816,12 @@ msgstr "沒有觸發器可供顯示。"
 
 #: libraries/rte/rte_words.lib.php:51
 msgid "Add event"
-msgstr "新增 Event"
+msgstr "新增事件"
 
 #: libraries/rte/rte_words.lib.php:53
 #, php-format
 msgid "Export of event %s"
-msgstr "匯出 Event %s"
+msgstr "匯出事件 %s"
 
 #: libraries/rte/rte_words.lib.php:54
 msgid "event"
@@ -8829,12 +8829,12 @@ msgstr "事件"
 
 #: libraries/rte/rte_words.lib.php:55
 msgid "You do not have the necessary privileges to create an event"
-msgstr "您沒有足夠的權限建立一個 Event"
+msgstr "您沒有足夠的權限建立一個事件"
 
 #: libraries/rte/rte_words.lib.php:56
 #, php-format
 msgid "No event with name %1$s found in database %2$s"
-msgstr "在資料庫「%2$s」中找不到名為「%1$s」的 Event"
+msgstr "在資料庫 %2$s 中找不到名為 %1$s 的事件"
 
 #: libraries/rte/rte_words.lib.php:57
 msgid "There are no events to display."
@@ -9188,7 +9188,7 @@ msgstr "允許建立 views."
 #: libraries/server_privileges.lib.php:247
 #: libraries/server_privileges.lib.php:891 server_privileges.php:71
 msgid "Allows to set up events for the event scheduler"
-msgstr "允許爲 Event 設定排程"
+msgstr "允許為事件設定排程"
 
 #: libraries/server_privileges.lib.php:251
 #: libraries/server_privileges.lib.php:895 server_privileges.php:92
@@ -9560,7 +9560,7 @@ msgid ""
 "enabled. Note however, that the general_log produces a lot of data and "
 "increases server load by up to 15%."
 msgstr ""
-"phpMyAdmin 監測器可以幫您最佳化伺服器的配置和追蹤有耗時的查询。對後者您需要將 log_output 設為 'TABLE'，並啟用 "
+"phpMyAdmin 監測器可以幫您最佳化伺服器的配置和追蹤有耗時的查詢。對後者您需要將 log_output 設為 'TABLE'，並啟用 "
 "slow_query_log 或 general_log。但請注意 general_log 會產生大量的資料，並可能增加伺服器的負載達 15%。"
 
 #: libraries/server_status_monitor.lib.php:149
@@ -12289,7 +12289,7 @@ msgstr "根據您的環境將 {long_query_time} 設定調低，通常建議設�
 #: libraries/advisory_rules.txt:82
 #, php-format
 msgid "long_query_time is currently set to %ds."
-msgstr "long_query_time 已設為 %d 秒。"
+msgstr "long_query_time 目前設為 %d 秒。"
 
 #: libraries/advisory_rules.txt:84 libraries/advisory_rules.txt:91
 msgid "Slow query logging"
@@ -12307,7 +12307,7 @@ msgstr "要啟用緩慢查詢記錄請將 {log_slow_queries} 設為 'ON'，這�
 
 #: libraries/advisory_rules.txt:89
 msgid "log_slow_queries is set to 'OFF'"
-msgstr "log_slow_queries 已設為 'OFF'"
+msgstr "log_slow_queries 設為 'OFF'"
 
 #: libraries/advisory_rules.txt:95
 msgid ""
@@ -12317,7 +12317,7 @@ msgstr "要啟用緩慢查詢記錄請將 {slow_query_log} 設為 'ON'，這將�
 
 #: libraries/advisory_rules.txt:96
 msgid "slow_query_log is set to 'OFF'"
-msgstr "slow_query_log 已設為 'OFF'"
+msgstr "slow_query_log 設為 'OFF'"
 
 #: libraries/advisory_rules.txt:100
 msgid "Release Series"
@@ -12617,7 +12617,7 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:207
 msgid "query_cache_limit is set to 1 MiB"
-msgstr "query_cache_limit 已設為 1 MB"
+msgstr "query_cache_limit 設為 1 MB"
 
 #: libraries/advisory_rules.txt:211
 msgid "Percentage of sorts that cause temporary tables"
@@ -12648,7 +12648,7 @@ msgstr "排序產生的臨時表比率"
 #, php-format
 msgid ""
 "Temporary tables average: %s, this value should be less than 1 per hour."
-msgstr "平均臨時表: %s，此值應每小時小於1。"
+msgstr "平均臨時表: %s，此值應每小時小於 1。"
 
 #: libraries/advisory_rules.txt:225
 msgid "Sort rows"
@@ -12688,7 +12688,7 @@ msgstr "這意味著結合將會掃描整個資料表，在結合條件中使用
 #: libraries/advisory_rules.txt:238
 #, php-format
 msgid "Table joins average: %s, this value should be less than 1 per hour"
-msgstr "平均資料表結合: %s，此值應每小時小於1"
+msgstr "平均資料表結合: %s，此值應每小時小於 1"
 
 #: libraries/advisory_rules.txt:240
 msgid "Rate of reading first index entry"
@@ -12713,7 +12713,7 @@ msgstr ""
 #: libraries/advisory_rules.txt:245
 #, php-format
 msgid "Index scans average: %s, this value should be less than 1 per hour"
-msgstr "平均索引掃瞄: %s，此值應每小時小於1"
+msgstr "平均索引掃瞄: %s，此值應每小時小於 1"
 
 #: libraries/advisory_rules.txt:247
 msgid "Rate of reading fixed position"
@@ -12755,7 +12755,7 @@ msgstr "這表示有許多查詢做了整個資料表的掃描，請適時地增
 #, php-format
 msgid ""
 "Rate of reading next table row: %s, this value should be less than 1 per hour"
-msgstr "平均讀取資料表下一筆: %s，此值應每小時小於1"
+msgstr "平均讀取資料表下一筆: %s，此值應每小時小於 1"
 
 #: libraries/advisory_rules.txt:262
 msgid "tmp_table_size vs. max_heap_table_size"
@@ -13002,7 +13002,7 @@ msgstr "設定 {thread_cache_size} > 0 以啟用執行緒快取。"
 
 #: libraries/advisory_rules.txt:367
 msgid "The thread cache is set to 0"
-msgstr "執行緒快取已設為零"
+msgstr "執行緒快取設為零"
 
 #: libraries/advisory_rules.txt:369
 #, php-format
@@ -13161,7 +13161,7 @@ msgstr "通常 InnoDB 資料表引擎是更好的選擇。"
 
 #: libraries/advisory_rules.txt:434
 msgid "have_innodb is set to 'value'"
-msgstr "have_innodb 已設為 'value'"
+msgstr "have_innodb 設為 'value'"
 
 #: libraries/advisory_rules.txt:436
 msgid "InnoDB log size"
