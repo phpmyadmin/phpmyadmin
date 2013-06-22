@@ -504,7 +504,9 @@ if (isset($GLOBALS['show_as_php']) || ! empty($GLOBALS['validatequery'])) {
 
         // However, do not count again if we did it previously
         // due to $find_real_end == true
-        if (PMA_isJustBrowsing($sql_query,$find_real_end)) {
+        if (PMA_isJustBrowsing(
+            $sql_query,isset($find_real_end) ? $find_real_end : null)
+        ) {
             // "j u s t   b r o w s i n g"
             $justBrowsing = true;
             $unlim_num_rows = PMA_Table::countRecords(
