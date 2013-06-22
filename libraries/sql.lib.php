@@ -705,4 +705,93 @@ function PMA_getHtmlForBookmark($db, $goto, $bkm_sql_query, $bkm_user)
 
     return $html;
 }
+/**
+ * Function to check whether to remeber the sorting order or not
+ * 
+ * @param String $sql_query    the sql query
+ * 
+ * @return boolean
+ */
+function PMA_isRememberSortingOrder($sql_query)
+{
+    include 'libraries/parse_analyze.inc.php';
+    if ($GLOBALS['cfg']['RememberSorting']
+        && ! ($is_count || $is_export || $is_func || $is_analyse)
+        && isset($analyzed_sql[0]['select_expr'])
+        && (count($analyzed_sql[0]['select_expr']) == 0)
+        && isset($analyzed_sql[0]['queryflags']['select_from'])
+        && count($analyzed_sql[0]['table_ref']) == 1
+    ) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+/**
+ * Function to check whether the LIMIT clause should be appended or not
+ * 
+ * @param String $sql_query    the sql query
+ * 
+ * @return boolean
+ */
+function PMA_isAppendLimitClause($sql_query)
+{
+    include 'libraries/parse_analyze.inc.php';
+    if (($_SESSION['tmp_user_values']['max_rows'] != 'all')
+        && ! ($is_count || $is_export || $is_func || $is_analyse)
+        && isset($analyzed_sql[0]['queryflags']['select_from'])
+        && ! isset($analyzed_sql[0]['queryflags']['offset'])
+        && empty($analyzed_sql[0]['limit_clause'])
+    ) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+/**
+ * Function to check whether this query is for just browsing
+ * 
+ * @param String  $sql_query      the sql query
+ * @param boolean $find_real_end  whether the real end should be found
+ * 
+ * @return boolean
+ */
+function PMA_isJustBrowsing($sql_query, $find_real_end)
+{
+    include 'libraries/parse_analyze.inc.php';
+    if (! $is_group
+        && ! isset($analyzed_sql[0]['queryflags']['union'])
+        && ! isset($analyzed_sql[0]['queryflags']['distinct'])
+        && ! isset($analyzed_sql[0]['table_ref'][1]['table_name'])
+        && (empty($analyzed_sql[0]['where_clause'])
+        || $analyzed_sql[0]['where_clause'] == '1 ')
+        && ! isset($find_real_end)
+    ) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+/**
+ * Function to check whether the reated transformation information shoul be deleted
+ * 
+ * @param String $sql_query  the sql query
+ * 
+ * @return boolean
+ */
+function PMA_isDeleteTransformationInfo($sql_query)
+{
+    include 'libraries/parse_analyze.inc.php';
+    if (!empty($analyzed_sql[0]['querytype'])
+        && (($analyzed_sql[0]['querytype'] == 'ALTER')
+        || ($analyzed_sql[0]['querytype'] == 'DROP'))
+    ) {
+        return true;
+    } else {
+        return false;
+    }
+}
 ?>

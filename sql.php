@@ -313,15 +313,13 @@ if (isset($_REQUEST['btnDrop']) && $_REQUEST['btnDrop'] == __('No')) {
 $full_sql_query = $sql_query;
 
 // Handle remembered sorting order, only for single table query
-if ($is_remember_sorting_order) {
+if (PMA_isRememberSortingOrder($sql_query)) {
     PMA_handleSortOrder($db, $table, $analyzed_sql, $full_sql_query);
 }
 
 $sql_limit_to_append = '';
 // Do append a "LIMIT" clause?
-if (($_SESSION['tmp_user_values']['max_rows'] != 'all') 
-    && $is_append_limit_clause
-) {
+if (PMA_isAppendLimitClause($sql_query)) {
     $sql_limit_to_append = ' LIMIT ' . $_SESSION['tmp_user_values']['pos']
         . ', ' . $_SESSION['tmp_user_values']['max_rows'] . " ";
     $full_sql_query = PMA_getSqlWithLimitClause(
@@ -506,7 +504,7 @@ if (isset($GLOBALS['show_as_php']) || ! empty($GLOBALS['validatequery'])) {
 
         // However, do not count again if we did it previously
         // due to $find_real_end == true
-        if ($is_just_browsing) {
+        if (PMA_isJustBrowsing($sql_query,$find_real_end)) {
             // "j u s t   b r o w s i n g"
             $justBrowsing = true;
             $unlim_num_rows = PMA_Table::countRecords(
@@ -609,7 +607,7 @@ if (isset($GLOBALS['show_as_php']) || ! empty($GLOBALS['validatequery'])) {
 // No rows returned -> move back to the calling page
 if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
     // Delete related tranformation information
-    if ($is_delete_tranformation_info) {
+    if (PMA_isDeleteTransformationInfo($sql_query)) {
         include_once 'libraries/transformations.lib.php';
         if ($analyzed_sql[0]['querytype'] == 'ALTER') {
             if (stripos($analyzed_sql[0]['unsorted_query'], 'DROP') !== false) {
