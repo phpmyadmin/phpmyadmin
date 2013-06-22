@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-06-03 09:16-0400\n"
-"PO-Revision-Date: 2013-06-09 12:34+0200\n"
-"Last-Translator: Ghanshyam Bagul <ghanshyambagul@gmail.com>\n"
+"PO-Revision-Date: 2013-06-22 11:37+0200\n"
+"Last-Translator: asdf sasd <ashkgwithu@mailinator.com>\n"
 "Language-Team: Hindi <http://l10n.cihar.com/projects/phpmyadmin/4-0/hi/>\n"
 "Language: hi\n"
 "MIME-Version: 1.0\n"
@@ -120,7 +120,7 @@ msgstr "डाटाबेस टिप्पणि: "
 #: libraries/schema/Pdf_Relation_Schema.class.php:1332
 #: libraries/tbl_columns_definition_form.inc.php:836 tbl_printview.php:120
 msgid "Table comments"
-msgstr "टेबल टिप्पणि:"
+msgstr "टेबल टिप्पणी:"
 
 #: db_datadict.php:166 libraries/DBQbe.class.php:364
 #: libraries/Index.class.php:565 libraries/TableSearch.class.php:183
@@ -391,7 +391,7 @@ msgstr "पहुँच निषेधित"
 
 #: db_structure.php:86
 msgid "No tables found in database"
-msgstr "डाटाबेस में कोई टेबल नहीं।"
+msgstr "डाटाबेस में कोई टेबल नहीं है ।"
 
 #: db_tracking.php:73
 msgid "Tracked tables"
@@ -3707,7 +3707,7 @@ msgstr "नियमित कार्य"
 #: libraries/Util.class.php:2662
 #, php-format
 msgid "Jump to database &quot;%s&quot;."
-msgstr "&quot;%s&quot; डेटाबेस पर जायें;"
+msgstr "&quot;%s&quot; डेटाबेस पर जायें;."
 
 #: libraries/Util.class.php:2686
 #, php-format
@@ -4067,7 +4067,7 @@ msgstr "सामान्य यूसरओं को &quot;ड्रॉप �
 msgid ""
 "Secret passphrase used for encrypting cookies in [kbd]cookie[/kbd] "
 "authentication"
-msgstr "गुप्त कुकी में कुकीज़ प्रमाणीकरण के लिए इस्तेमाल किया कूटशब्द"
+msgstr "कुकीज़ प्रमाणीकरण में गुप्त कुकी के लिए कूट शब्द का इस्तेमाल किया गया।"
 
 #: libraries/config/messages.inc.php:21
 msgid "Blowfish secret"
@@ -4099,7 +4099,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:27
 msgid "Bzip2"
-msgstr "Bzip2"
+msgstr "Bzip2(बीजिप2)"
 
 #: libraries/config/messages.inc.php:28
 msgid ""
@@ -4107,9 +4107,9 @@ msgid ""
 "columns; [kbd]input[/kbd] - allows limiting of input length, [kbd]textarea[/"
 "kbd] - allows newlines in columns"
 msgstr ""
-"परिभाषित करता है जो संपादन नियंत्रणों के प्रकार CHAR और VARCHAR  कोलम के लिए इस्तेमाल "
-"किया जाना चाहिए; इनपुट - इनपुट की लंबाई को सीमित अनुमति देता है, textarea - कोलम में "
-"नयी-लाईन की अनुमति देता है"
+"परिभाषित करता है, कि किस प्रकार के संपादन नियंत्रणों का CHAR और VARCHAR  "
+"कोलम के लिए इस्तेमाल किया जाना चाहिए; इनपुट - इनपुट की लंबाई को सीमित करने "
+"की अनुमति देता है, textarea - कोलम में नयी-लाईन की अनुमति देता है"
 
 #: libraries/config/messages.inc.php:29
 msgid "CHAR columns editing"
@@ -4188,7 +4188,9 @@ msgstr "विन्यास फाइल"
 msgid ""
 "Whether a warning (&quot;Are your really sure…&quot;) should be displayed "
 "when you're about to lose data"
-msgstr "क्या एक चेतावनी प्रदर्शित किया जाना चाहिए जब आप डेटा खो रहे हो."
+msgstr ""
+"जब आप डेटा खो रहे हो तब एक चेतावनी (\"आपको वास्तव में यकीन हैं ...\") "
+"प्रदर्शित किय़ा जाएँ ।"
 
 #: libraries/config/messages.inc.php:45
 msgid "Confirm DROP queries"
@@ -4255,14 +4257,13 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:61
-#, fuzzy
 #| msgid "Table maintenance"
 msgid "Disable multi table maintenance"
-msgstr "टेबल  रख-रखाव"
+msgstr "कई टेबल के रखरखाव को अक्षम करे।"
 
 #: libraries/config/messages.inc.php:62
 msgid "Edit SQL queries in popup window"
-msgstr "पॉपअप विंडो में क्वरीों को संपादित करें"
+msgstr "पॉपअप विंडो में एसक्यूएल प्रश्नों को संपादित करें"
 
 #: libraries/config/messages.inc.php:63
 msgid "Edit in window"
@@ -4270,7 +4271,7 @@ msgstr "विंडो में संपादित करें"
 
 #: libraries/config/messages.inc.php:64
 msgid "Display errors"
-msgstr "त्रुटिय दिखाओ"
+msgstr "त्रुटियों को दिखाओ"
 
 #: libraries/config/messages.inc.php:65
 msgid "Gather errors"
@@ -4280,7 +4281,8 @@ msgstr "त्रुटियों को इकट्ठा करें"
 msgid ""
 "Set the number of seconds a script is allowed to run ([kbd]0[/kbd] for no "
 "limit)"
-msgstr "एक स्क्रिप्ट को चलाने की अवधि दें, (शून्य - कोई सीमा नहीं)"
+msgstr ""
+"एक स्क्रिप्ट को चलने की अवधि सेकंड में दें, (शून्य - कोई सीमा नहीं के लिए)"
 
 #: libraries/config/messages.inc.php:67
 msgid "Maximum execution time"
@@ -4288,7 +4290,7 @@ msgstr "अधिकतम निष्पादन समय"
 
 #: libraries/config/messages.inc.php:68 prefs_manage.php:299
 msgid "Save as file"
-msgstr "फाईल मे सेव करें"
+msgstr "फ़ाइल के रूप में सहेजें"
 
 #: libraries/config/messages.inc.php:69 libraries/config/messages.inc.php:241
 msgid "Character set of the file"
