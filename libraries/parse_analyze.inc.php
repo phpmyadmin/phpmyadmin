@@ -93,16 +93,6 @@ $analyzed_sql_results = array(
     "is_select" => $is_select   
 );
 
-// checks whether a LIMIT clause should be added to the query
-if (! ($is_count || $is_export || $is_func || $is_analyse)
-    && isset($analyzed_sql[0]['queryflags']['select_from'])
-    && ! isset($analyzed_sql[0]['queryflags']['offset'])
-    && empty($analyzed_sql[0]['limit_clause'])
-) {
-    $is_append_limit_clause = true;
-} else {
-    $is_append_limit_clause = false;
-}
 
 // If the query is a Select, extract the db and table names and modify
 // $db and $table, to have correct page headers, links and left frame.
