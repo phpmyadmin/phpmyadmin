@@ -56,7 +56,7 @@ $is_maint = isset($analyzed_sql[0]['queryflags']['is_maint']);
 $is_show = isset($analyzed_sql[0]['queryflags']['is_show']);
 
 // for the presence of PRRCEDURE ANALYSE
-$is_analyse = isset($analyzed_sql[0]['queryflags']['is_analyse']);
+$is_analyze = isset($analyzed_sql[0]['queryflags']['is_analyse']);
 
 // for the presence of INTO OUTFILE
 $is_export = isset($analyzed_sql[0]['queryflags']['is_export']);
@@ -72,6 +72,26 @@ $is_count = isset($analyzed_sql[0]['queryflags']['is_count']);
 
 // check for a real SELECT ... FROM
 $is_select = isset($analyzed_sql[0]['queryflags']['select_from']);
+
+// aggregates all the results in to one array
+$analyzed_sql_results = array(
+    "analyzed_sql" => $analyzed_sql,
+    "reload" => $reload,
+    "drop_database" => $drop_database,
+    "is_explain" => $is_explain,
+    "is_delete" => $is_delete,
+    "is_affected" => $is_affected,
+    "is_replace" => $is_replace,
+    "is_insert" => $is_insert,
+    "is_maint" => $is_maint,
+    "is_show" => $is_show,
+    "is_analyze" => $is_analyze,
+    "is_export" => $is_export,
+    "is_group" => $is_group,
+    "is_func" => $is_func,
+    "is_count" => $is_count,
+    "is_select" => $is_select   
+);
 
 
 // If the query is a Select, extract the db and table names and modify

@@ -135,7 +135,7 @@ function getTableHtmlForMultipleQueries(
             
             // Handle remembered sorting order, only for single table query
             if ($GLOBALS['cfg']['RememberSorting']
-                && ! ($is_count || $is_export || $is_func || $is_analyse)
+                && ! ($is_count || $is_export || $is_func || $is_analyze)
                 && isset($analyzed_sql[0]['select_expr'])
                 && (count($analyzed_sql[0]['select_expr']) == 0)
                 && isset($analyzed_sql[0]['queryflags']['select_from'])
@@ -151,7 +151,7 @@ function getTableHtmlForMultipleQueries(
 
             // Do append a "LIMIT" clause?
             if (($_SESSION['tmp_user_values']['max_rows'] != 'all')
-                && ! ($is_count || $is_export || $is_func || $is_analyse)
+                && ! ($is_count || $is_export || $is_func || $is_analyze)
                 && isset($analyzed_sql[0]['queryflags']['select_from'])
                 && ! isset($analyzed_sql[0]['queryflags']['offset'])
                 && empty($analyzed_sql[0]['limit_clause'])
@@ -186,7 +186,7 @@ function getTableHtmlForMultipleQueries(
             );
             $displayResultsObject->setProperties(
                 $unlim_num_rows, $fields_meta, $is_count, $is_export, $is_func,
-                $is_analyse, $num_rows, $fields_cnt, $querytime, $pmaThemeImage,
+                $is_analyze, $num_rows, $fields_cnt, $querytime, $pmaThemeImage,
                 $text_dir, $is_maint, $is_explain, $is_show, $showtable,
                 $printview, $url_query, $editable
             );
@@ -708,19 +708,24 @@ function PMA_getHtmlForBookmark($db, $goto, $bkm_sql_query, $bkm_user)
 /**
  * Function to check whether to remeber the sorting order or not
  * 
- * @param String $sql_query    the sql query
- * 
+ * @param array $analyzed_sql_results    the analyzed qyery and other varibles set
+ *                                       after analyzing the query
  * @return boolean
  */
-function PMA_isRememberSortingOrder($sql_query)
+function PMA_isRememberSortingOrder($analyzed_sql_results)
 {
-    include 'libraries/parse_analyze.inc.php';
     if ($GLOBALS['cfg']['RememberSorting']
-        && ! ($is_count || $is_export || $is_func || $is_analyse)
-        && isset($analyzed_sql[0]['select_expr'])
-        && (count($analyzed_sql[0]['select_expr']) == 0)
-        && isset($analyzed_sql[0]['queryflags']['select_from'])
-        && count($analyzed_sql[0]['table_ref']) == 1
+        && ! ($analyzed_sql_results['is_count']
+            || $analyzed_sql_results['is_export']
+            || $analyzed_sql_results['is_func']
+            || $analyzed_sql_results['is_analyze']
+        )
+        && isset($analyzed_sql_results['analyzed_sql'][0]['select_expr'])
+        && (count($analyzed_sql_results['analyzed_sql'][0]['select_expr']) == 0)
+        && isset(
+            $analyzed_sql_results['analyzed_sql'][0]['queryflags']['select_from']
+        )
+        && count($analyzed_sql_results['analyzed_sql'][0]['table_ref']) == 1
     ) {
         return true;
     } else {
@@ -731,18 +736,22 @@ function PMA_isRememberSortingOrder($sql_query)
 /**
  * Function to check whether the LIMIT clause should be appended or not
  * 
- * @param String $sql_query    the sql query
+ * @param array $analyzed_sql_results    the analyzed qyery and other varibles set
+ *                                       after analyzing the query
  * 
  * @return boolean
  */
-function PMA_isAppendLimitClause($sql_query)
+function PMA_isAppendLimitClause($analyzed_sql_results)
 {
-    include 'libraries/parse_analyze.inc.php';
     if (($_SESSION['tmp_user_values']['max_rows'] != 'all')
-        && ! ($is_count || $is_export || $is_func || $is_analyse)
-        && isset($analyzed_sql[0]['queryflags']['select_from'])
-        && ! isset($analyzed_sql[0]['queryflags']['offset'])
-        && empty($analyzed_sql[0]['limit_clause'])
+        && ! ($analyzed_sql_results['is_count']
+            || $analyzed_sql_results['is_export']
+            || $analyzed_sql_results['is_func']
+            || $analyzed_sql_results['is_analyze']
+        )
+        && isset($analyzed_sql_results[0]['queryflags']['select_from'])
+        && ! isset($analyzed_sql_results[0]['queryflags']['offset'])
+        && empty($analyzed_sql_results[0]['limit_clause'])
     ) {
         return true;
     } else {
@@ -753,20 +762,24 @@ function PMA_isAppendLimitClause($sql_query)
 /**
  * Function to check whether this query is for just browsing
  * 
- * @param String  $sql_query      the sql query
- * @param boolean $find_real_end  whether the real end should be found
+ * @param array   $analyzed_sql_results   the analyzed qyery and other varibles set
+ *                                        after analyzing the query
+ * @param boolean $find_real_end          whether the real end should be found
  * 
  * @return boolean
  */
-function PMA_isJustBrowsing($sql_query, $find_real_end)
+function PMA_isJustBrowsing($analyzed_sql_results, $find_real_end)
 {
-    include 'libraries/parse_analyze.inc.php';
-    if (! $is_group
-        && ! isset($analyzed_sql[0]['queryflags']['union'])
-        && ! isset($analyzed_sql[0]['queryflags']['distinct'])
-        && ! isset($analyzed_sql[0]['table_ref'][1]['table_name'])
-        && (empty($analyzed_sql[0]['where_clause'])
-        || $analyzed_sql[0]['where_clause'] == '1 ')
+    if (! $analyzed_sql_results['is_group']
+        && ! isset($analyzed_sql_results['analyzed_sql'][0]['queryflags']['union'])
+        && ! isset(
+            $analyzed_sql_results['analyzed_sql'][0]['queryflags']['distinct']
+        )
+        && ! isset(
+            $analyzed_sql_results['analyzed_sql'][0]['table_ref'][1]['table_name']
+        )
+        && (empty($analyzed_sql_results['analyzed_sql'][0]['where_clause'])
+        || $analyzed_sql_results['analyzed_sql'][0]['where_clause'] == '1 ')
         && ! isset($find_real_end)
     ) {
         return true;
@@ -778,16 +791,16 @@ function PMA_isJustBrowsing($sql_query, $find_real_end)
 /**
  * Function to check whether the reated transformation information shoul be deleted
  * 
- * @param String $sql_query  the sql query
+ * @param array $analyzed_sql_results  the analyzed qyery and other varibles set
+ *                                     after analyzing the query 
  * 
  * @return boolean
  */
-function PMA_isDeleteTransformationInfo($sql_query)
+function PMA_isDeleteTransformationInfo($analyzed_sql_results)
 {
-    include 'libraries/parse_analyze.inc.php';
-    if (!empty($analyzed_sql[0]['querytype'])
-        && (($analyzed_sql[0]['querytype'] == 'ALTER')
-        || ($analyzed_sql[0]['querytype'] == 'DROP'))
+    if (!empty($analyzed_sql_results['analyzed_sql'][0]['querytype'])
+        && (($analyzed_sql_results['analyzed_sql'][0]['querytype'] == 'ALTER')
+        || ($analyzed_sql_results['analyzed_sql'][0]['querytype'] == 'DROP'))
     ) {
         return true;
     } else {
