@@ -44,7 +44,7 @@ class PMA_Menu_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['ServerDefault'] = 1;
         $GLOBALS['lang'] = 'en';
         $GLOBALS['cfg']['Server']['verbose'] = 'verbose host';
-        $GLOBALS['cfg']['NavigationBarIconic'] = 'both';
+        $GLOBALS['cfg']['TableNavigationLinksMode'] = 'both';
         $_SESSION['PMA_Theme'] = new PMA_Theme();
         $GLOBALS['pmaThemePath'] = $_SESSION['PMA_Theme']->getPath();
         $GLOBALS['pmaThemeImage'] = 'theme/';

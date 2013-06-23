@@ -134,7 +134,7 @@ class PMA_Footer_Test extends PHPUnit_Framework_TestCase
     public function testGetSelfLink()
     {
 
-        $GLOBALS['cfg']['NavigationBarIconic'] = false;
+        $GLOBALS['cfg']['TabsMode'] = 'text';
         $GLOBALS['cfg']['ServerDefault'] = 1;
 
         $this->assertEquals(
@@ -156,7 +156,7 @@ class PMA_Footer_Test extends PHPUnit_Framework_TestCase
     public function testGetSelfLinkWithImage()
     {
 
-        $GLOBALS['cfg']['NavigationBarIconic'] = true;
+        $GLOBALS['cfg']['TabsMode'] = 'icons';
         $GLOBALS['cfg']['ServerDefault'] = 1;
         $_SESSION['PMA_Theme'] = new PMA_Theme();
         $GLOBALS['pmaThemeImage'] = 'image';
