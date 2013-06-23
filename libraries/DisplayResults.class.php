@@ -742,7 +742,7 @@ class PMA_DisplayResults
         );
 
         $table_navigation_html .= $this->_getAdditionalFieldsForTableNavigation(
-            $html_sql_query, $pos_next, $id_for_direction_dropdown
+            $html_sql_query, $id_for_direction_dropdown
         );
 
         $table_navigation_html .= '</form>'
@@ -874,12 +874,11 @@ class PMA_DisplayResults
 
 
     /**
-     * Prepare fields followed by Show button for table navigation
-     * Start row, Number of rows
+     * Prepare fields for table navigation
+     * Number of rows
      *
      * @param string  $html_sql_query            the sql encoded by html special
      *                                           characters
-     * @param integer $pos_next                  the offset for the "next" page
      * @param string  $id_for_direction_dropdown the id for the direction dropdown
      *
      * @return  string  $additional_fields_html html content
@@ -889,7 +888,7 @@ class PMA_DisplayResults
      * @see     _getTableNavigation()
      */
     private function _getAdditionalFieldsForTableNavigation(
-        $html_sql_query, $pos_next, $id_for_direction_dropdown
+        $html_sql_query, $id_for_direction_dropdown
     ) {
 
         $additional_fields_html = '';
@@ -899,7 +898,8 @@ class PMA_DisplayResults
             . '<input type="hidden" name="goto" value="' . $this->__get('goto')
             . '" />'
             . '<input type="hidden" name="pos" size="3" value="'
-            . (($pos_next >= $this->__get('unlim_num_rows')) ? 0 : $pos_next)
+            // Do not change the position when changing the number of rows
+            . $_SESSION['tmp_user_values']['pos']
             . '" />'
             . __('Number of rows:') . ' '
             . '<select name="session_max_rows" class="autosubmit">';
