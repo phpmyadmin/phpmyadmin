@@ -807,4 +807,25 @@ function PMA_isDeleteTransformationInfo($analyzed_sql_results)
         return false;
     }
 }
+
+/**
+ * Function to check whether the user has rights to drop the database
+ * 
+ * @param  array   $analyzed_sql_results   the analyzed qyery and other varibles set
+ *                                         after analyzing the query
+ * @return boolean
+ */
+function PMA_hasNoRightsToDropDatabase($analyzed_sql_results)
+{
+    if (! defined('PMA_CHK_DROP')
+        && ! $cfg['AllowUserDropDatabase']
+        && isset ($analyzed_sql_results['drop_database'])
+        && $analyzed_sql_results['drop_database'] == 1
+        && ! $analyzed_sql_results['is_superuser']
+    ) {
+        return true;
+    } else {
+        return false;
+    }
+}
 ?>

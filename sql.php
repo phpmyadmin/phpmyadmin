@@ -212,12 +212,7 @@ require_once 'libraries/parse_analyze.inc.php';
  * but since a malicious user may pass this variable by url/form, we don't take
  * into account this case.
  */
-if (! defined('PMA_CHK_DROP')
-    && ! $cfg['AllowUserDropDatabase']
-    && isset ($drop_database)
-    && $drop_database == 1
-    && ! $is_superuser
-) {
+if (PMA_hasNoRightsToDropDatabase($analyzed_sql_results)) {
     PMA_Util::mysqlDie(
         __('"DROP DATABASE" statements are disabled.'),
         '',
