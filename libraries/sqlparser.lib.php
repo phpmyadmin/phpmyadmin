@@ -991,7 +991,7 @@ function PMA_SQP_analyze($arr)
      * ['queryflags']['is_maint'] = 1;     for the presence of CHECK|ANALYZE
      *                                     |REPAIR|OPTIMIZE TABLE
      * ['queryflags']['is_show'] = 1;      for the presence of SHOW
-     * ['queryflags']['is_analyse'] = 1;   for the presence of PRRCEDURE ANALYSE
+     * ['queryflags']['is_analyze'] = 1;   for the presence of PRRCEDURE ANALYSE
      * ['queryflags']['is_export'] = 1;    for the presence of INTO OUTFILE
      * ['queryflags']['is_group'] = 1;     for the presence of GROUP BY|HAVING|
      *                                     SELECT DISTINCT
@@ -1678,7 +1678,7 @@ function PMA_SQP_analyze($arr)
                     && $arr[$i + 1]['type'] == 'alpha_reservedWord'
                     && strtoupper($arr[$i + 1]['data']) == 'ANALYSE'
                 ) {
-                    $subresult['queryflags']['is_analyse'] = 1;
+                    $subresult['queryflags']['is_analyze'] = 1;
                 }
             }
 

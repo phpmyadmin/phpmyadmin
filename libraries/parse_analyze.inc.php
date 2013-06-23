@@ -56,7 +56,7 @@ $is_maint = isset($analyzed_sql[0]['queryflags']['is_maint']);
 $is_show = isset($analyzed_sql[0]['queryflags']['is_show']);
 
 // for the presence of PRRCEDURE ANALYSE
-$is_analyze = isset($analyzed_sql[0]['queryflags']['is_analyse']);
+$is_analyze = isset($analyzed_sql[0]['queryflags']['is_analyze']);
 
 // for the presence of INTO OUTFILE
 $is_export = isset($analyzed_sql[0]['queryflags']['is_export']);
