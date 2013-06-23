@@ -905,7 +905,7 @@ class PMA_DisplayResults
             . '<select name="session_max_rows" class="autosubmit">';
 
         $numberOfRowsChoices = array(25,50,100,250,500);
-        foreach($numberOfRowsChoices as $oneNumberOfRowsChoice) {
+        foreach ($numberOfRowsChoices as $oneNumberOfRowsChoice) {
             $additional_fields_html .= '<option value="' 
                 . $oneNumberOfRowsChoice . '"';
 
@@ -1078,7 +1078,9 @@ class PMA_DisplayResults
             //  See if this column should get highlight because it's used in the
             //  where-query.
             $condition_field = (isset($highlight_columns[$fields_meta[$i]->name])
-                || isset($highlight_columns[PMA_Util::backquote($fields_meta[$i]->name)]))
+                || isset(
+                    $highlight_columns[PMA_Util::backquote($fields_meta[$i]->name)])
+                )
                 ? true
                 : false;
 
@@ -2803,7 +2805,10 @@ class PMA_DisplayResults
                     $parsed_sql, $row[$i]
                 );
                 include_once $this->syntax_highlighting_column_info[strtolower($this->__get('db'))][strtolower($this->__get('table'))][strtolower($meta->name)][0];
-                $transformation_plugin = new $this->syntax_highlighting_column_info[strtolower($this->__get('db'))][strtolower($this->__get('table'))][strtolower($meta->name)][1](null);
+                $transformation_plugin = new $this->syntax_highlighting_column_info
+                    [strtolower($this->__get('db'))]
+                    [strtolower($this->__get('table'))]
+                    [strtolower($meta->name)][1](null);
 
                 $transform_options  = PMA_transformation_getOptions(
                     isset($mime_map[$meta->name]['transformation_options'])
@@ -2828,7 +2833,8 @@ class PMA_DisplayResults
                 $linking_url = $this->_getSpecialLinkUrl(
                     $row[$i], $row_info, strtolower($meta->name)
                 );
-                include_once "libraries/plugins/transformations/Text_Plain_Link.class.php";
+                include_once
+                    "libraries/plugins/transformations/Text_Plain_Link.class.php";
                 $transformation_plugin = new Text_Plain_Link(null);
 
                 $transform_options  = array(
@@ -3658,8 +3664,9 @@ class PMA_DisplayResults
                     && ($_SESSION['tmp_user_values']['display_text'] == self::DISPLAY_PARTIAL_TEXT)
                     && ! $this->_isNeedToSyntaxHighlight(strtolower($meta->name))
                 ) {
-                    $column = $GLOBALS['PMA_String']::substr($column, 0, $GLOBALS['cfg']['LimitChars'])
-                        . '...';
+                    $column = $GLOBALS['PMA_String']::substr(
+                        $column, 0, $GLOBALS['cfg']['LimitChars']
+                    ) . '...';
                     $is_field_truncated = true;
                 }
 
@@ -3748,8 +3755,9 @@ class PMA_DisplayResults
                 if (($GLOBALS['PMA_String']::strlen($wktval) > $GLOBALS['cfg']['LimitChars'])
                     && ($_SESSION['tmp_user_values']['display_text'] == self::DISPLAY_PARTIAL_TEXT)
                 ) {
-                    $wktval = $GLOBALS['PMA_String']::substr($wktval, 0, $GLOBALS['cfg']['LimitChars'])
-                        . '...';
+                    $wktval = $GLOBALS['PMA_String']::substr(
+                        $wktval, 0, $GLOBALS['cfg']['LimitChars']
+                    ) . '...';
                     $is_field_truncated = true;
                 }
 
@@ -3772,9 +3780,9 @@ class PMA_DisplayResults
                     if (($GLOBALS['PMA_String']::strlen($wkbval) > $GLOBALS['cfg']['LimitChars'])
                         && ($_SESSION['tmp_user_values']['display_text'] == self::DISPLAY_PARTIAL_TEXT)
                     ) {
-                        $wkbval
-                            = $GLOBALS['PMA_String']::substr($wkbval, 0, $GLOBALS['cfg']['LimitChars'])
-                            . '...';
+                        $wkbval = $GLOBALS['PMA_String']::substr(
+                            $wkbval, 0, $GLOBALS['cfg']['LimitChars']
+                        ) . '...';
                         $is_field_truncated = true;
                     }
 
@@ -3861,8 +3869,9 @@ class PMA_DisplayResults
                 && gettype($transformation_plugin) == "object"
                 && ! strpos($transformation_plugin->getName(), 'Link') === true
             ) {
-                $column = $GLOBALS['PMA_String']::substr($column, 0, $GLOBALS['cfg']['LimitChars'])
-                    . '...';
+                $column = $GLOBALS['PMA_String']::substr(
+                    $column, 0, $GLOBALS['cfg']['LimitChars']
+                ) . '...';
                 $is_field_truncated = true;
             }
 
@@ -4055,7 +4064,9 @@ class PMA_DisplayResults
 
             $vertical_table_html .= '<tr>' . "\n"
                 . $vertical_display['textbtn']
-                . $this->_getCheckBoxesForMultipleRowOperations('_right', $is_display)
+                . $this->_getCheckBoxesForMultipleRowOperations(
+                    '_right', $is_display
+                )
                 . '</tr>' . "\n";
         } // end if
 
@@ -4242,7 +4253,9 @@ class PMA_DisplayResults
             $_SESSION['tmp_user_values']['query'][$sql_md5]['max_rows']
                 = $_REQUEST['session_max_rows'];
             unset($_REQUEST['session_max_rows']);
-        } elseif (empty($_SESSION['tmp_user_values']['query'][$sql_md5]['max_rows'])) {
+        } elseif (
+            empty($_SESSION['tmp_user_values']['query'][$sql_md5]['max_rows'])
+        ) {
             $_SESSION['tmp_user_values']['query'][$sql_md5]['max_rows']
                 = $GLOBALS['cfg']['MaxRows'];
         }
@@ -5473,7 +5486,8 @@ class PMA_DisplayResults
                 /* Create link to download */
                 if (count($url_params) > 0) {
                     $result = '<a href="tbl_get_field.php'
-                        . PMA_generate_common_url($url_params) . '" class="disableAjax">'
+                        . PMA_generate_common_url($url_params)
+                        . '" class="disableAjax">'
                         . $result . '</a>';
                 }
             }
@@ -5629,8 +5643,9 @@ class PMA_DisplayResults
                         . $where_comparison,
                 );
 
-                $result .= '<a class="ajax" href="sql.php' . PMA_generate_common_url($_url_params)
-                     . '"' . $title . '>';
+                $result .= '<a class="ajax" href="sql.php'
+                    . PMA_generate_common_url($_url_params)
+                    . '"' . $title . '>';
 
                 if ($transformation_plugin != $default_function) {
                     // always apply a transformation on the real data,
@@ -6000,11 +6015,10 @@ class PMA_DisplayResults
     private function _displayBinaryAsPrintable(
         $content, $binary_or_blob, $hexlength = null
     ) {
-        if (PMA_PHP_INT_VERSION < 50400
-            || ($binary_or_blob === 'binary'
-                && $_SESSION['tmp_user_values']['display_binary_as_hex']
-                && PMA_Util::containsNonPrintableAscii($content)
-            )
+        if ((PMA_PHP_INT_VERSION < 50400)
+            || (($binary_or_blob === 'binary')
+            && $_SESSION['tmp_user_values']['display_binary_as_hex']
+            && PMA_Util::containsNonPrintableAscii($content))
         ) {
             $content = bin2hex($content);
             if ($hexlength !== null) {
