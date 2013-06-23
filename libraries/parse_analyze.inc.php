@@ -28,7 +28,8 @@ $analyzed_sql = PMA_SQP_analyze($parsed_sql);
 // )
 
 // Fills some variables from the analysed SQL
-// A table has to be created, renamed, dropped -> navi frame should be reloaded
+// A table has to be created, renamed, dropped:
+// the navigation panel should be reloaded
 $reload = isset($analyzed_sql[0]['queryflags']['reload']);
 
 // check for drop database
