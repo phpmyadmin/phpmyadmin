@@ -73,29 +73,26 @@ $is_count = isset($analyzed_sql[0]['queryflags']['is_count']);
 // check for a real SELECT ... FROM
 $is_select = isset($analyzed_sql[0]['queryflags']['select_from']);
 
-// checks whether the sorting order should be remembered
-if ($GLOBALS['cfg']['RememberSorting']
-    && ! ($is_count || $is_export || $is_func || $is_analyse)
-    && isset($analyzed_sql[0]['select_expr'])
-    && (count($analyzed_sql[0]['select_expr']) == 0)
-    && isset($analyzed_sql[0]['queryflags']['select_from'])
-    && count($analyzed_sql[0]['table_ref']) == 1
-) {
-    $is_remember_sorting_order = true;
-} else {
-    $is_remember_sorting_order = false;
-}
+// aggregates all the results in to one array
+$analyzed_sql_results = array(
+    "analyzed_sql" => $analyzed_sql,
+    "reload" => $reload,
+    "drop_database" => $drop_database,
+    "is_explain" => $is_explain,
+    "is_delete" => $is_delete,
+    "is_affected" => $is_affected,
+    "is_replace" => $is_replace,
+    "is_insert" => $is_insert,
+    "is_maint" => $is_maint,
+    "is_show" => $is_show,
+    "is_analyse" => $is_analyse,
+    "is_export" => $is_export,
+    "is_group" => $is_group,
+    "is_func" => $is_func,
+    "is_count" => $is_count,
+    "is_select" => $is_select   
+);
 
-// checks whether a LIMIT clause should be added to the query
-if (! ($is_count || $is_export || $is_func || $is_analyse)
-    && isset($analyzed_sql[0]['queryflags']['select_from'])
-    && ! isset($analyzed_sql[0]['queryflags']['offset'])
-    && empty($analyzed_sql[0]['limit_clause'])
-) {
-    $is_append_limit_clause = true;
-} else {
-    $is_append_limit_clause = false;
-}
 
 // If the query is a Select, extract the db and table names and modify
 // $db and $table, to have correct page headers, links and left frame.

@@ -700,4 +700,133 @@ function PMA_getHtmlForBookmark($db, $goto, $bkm_sql_query, $bkm_user)
 
     return $html;
 }
+
+/**
+ * Function to check whether to remeber the sorting order or not
+ * 
+ * @param array $analyzed_sql_results    the analyzed qyery and other varibles set
+ *                                       after analyzing the query
+ * @return boolean
+ */
+function PMA_isRememberSortingOrder($analyzed_sql_results)
+{
+    if ($GLOBALS['cfg']['RememberSorting']
+        && ! ($analyzed_sql_results['is_count']
+            || $analyzed_sql_results['is_export']
+            || $analyzed_sql_results['is_func']
+            || $analyzed_sql_results['is_analyse']
+        )
+        && isset($analyzed_sql_results['analyzed_sql'][0]['select_expr'])
+        && (count($analyzed_sql_results['analyzed_sql'][0]['select_expr']) == 0)
+        && isset(
+            $analyzed_sql_results['analyzed_sql'][0]['queryflags']['select_from']
+        )
+        && count($analyzed_sql_results['analyzed_sql'][0]['table_ref']) == 1
+    ) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+/**
+ * Function to check whether the LIMIT clause should be appended or not
+ * 
+ * @param array $analyzed_sql_results    the analyzed qyery and other varibles set
+ *                                       after analyzing the query
+ * 
+ * @return boolean
+ */
+function PMA_isAppendLimitClause($analyzed_sql_results)
+{
+    if (($_SESSION['tmp_user_values']['max_rows'] != 'all')
+        && ! ($analyzed_sql_results['is_count']
+            || $analyzed_sql_results['is_export']
+            || $analyzed_sql_results['is_func']
+            || $analyzed_sql_results['is_analyse']
+        )
+        && isset(
+            $analyzed_sql_results['analyzed_sql'][0]['queryflags']['select_from']
+        )
+        && ! isset($analyzed_sql_results['analyzed_sql'][0]['queryflags']['offset'])
+        && empty($analyzed_sql_results['analyzed_sql'][0]['limit_clause'])
+    ) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+/**
+ * Function to check whether this query is for just browsing
+ * 
+ * @param array   $analyzed_sql_results   the analyzed qyery and other varibles set
+ *                                        after analyzing the query
+ * @param boolean $find_real_end          whether the real end should be found
+ * 
+ * @return boolean
+ */
+function PMA_isJustBrowsing($analyzed_sql_results, $find_real_end)
+{
+    if (! $analyzed_sql_results['is_group']
+        && ! isset($analyzed_sql_results['analyzed_sql'][0]['queryflags']['union'])
+        && ! isset(
+            $analyzed_sql_results['analyzed_sql'][0]['queryflags']['distinct']
+        )
+        && ! isset(
+            $analyzed_sql_results['analyzed_sql'][0]['table_ref'][1]['table_name']
+        )
+        && (empty($analyzed_sql_results['analyzed_sql'][0]['where_clause'])
+        || $analyzed_sql_results['analyzed_sql'][0]['where_clause'] == '1 ')
+        && ! isset($find_real_end)
+    ) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+/**
+ * Function to check whether the reated transformation information shoul be deleted
+ * 
+ * @param array $analyzed_sql_results  the analyzed qyery and other varibles set
+ *                                     after analyzing the query 
+ * 
+ * @return boolean
+ */
+function PMA_isDeleteTransformationInfo($analyzed_sql_results)
+{
+    if (!empty($analyzed_sql_results['analyzed_sql'][0]['querytype'])
+        && (($analyzed_sql_results['analyzed_sql'][0]['querytype'] == 'ALTER')
+        || ($analyzed_sql_results['analyzed_sql'][0]['querytype'] == 'DROP'))
+    ) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+/**
+ * Function to check whether the user has rights to drop the database
+ * 
+ * @param  array   $analyzed_sql_results   the analyzed qyery and other varibles set
+ *                                         after analyzing the query
+ * @param boolean  $allowUserDropDatabase  whether the user is allowed to drop db
+ * 
+ * @return boolean
+ */
+function PMA_hasNoRightsToDropDatabase($analyzed_sql_results,
+    $allowUserDropDatabase
+) {
+    if (! defined('PMA_CHK_DROP')
+        && ! $allowUserDropDatabase
+        && isset ($analyzed_sql_results['drop_database'])
+        && $analyzed_sql_results['drop_database'] == 1
+        && ! $analyzed_sql_results['is_superuser']
+    ) {
+        return true;
+    } else {
+        return false;
+    }
+}
 ?>

@@ -212,11 +212,8 @@ require_once 'libraries/parse_analyze.inc.php';
  * but since a malicious user may pass this variable by url/form, we don't take
  * into account this case.
  */
-if (! defined('PMA_CHK_DROP')
-    && ! $cfg['AllowUserDropDatabase']
-    && isset ($drop_database)
-    && $drop_database == 1
-    && ! $is_superuser
+if (PMA_hasNoRightsToDropDatabase(
+    $analyzed_sql_results, $cfg['AllowUserDropDatabase'])
 ) {
     PMA_Util::mysqlDie(
         __('"DROP DATABASE" statements are disabled.'),
@@ -254,7 +251,9 @@ if (isset($find_real_end) && $find_real_end) {
 if (isset($_POST['store_bkm'])) {
     $result = PMA_Bookmark_save(
         $_POST['bkm_fields'],
-        (isset($_POST['bkm_all_users']) && $_POST['bkm_all_users'] == 'true' ? true : false)
+        (isset($_POST['bkm_all_users'])
+            && $_POST['bkm_all_users'] == 'true' ? true : false
+        )
     );
     $response = PMA_Response::getInstance();
     if ($response->isAjax()) {
@@ -271,7 +270,8 @@ if (isset($_POST['store_bkm'])) {
     } else {
         // go back to sql.php to redisplay query; do not use &amp; in this case:
         PMA_sendHeaderLocation(
-            $cfg['PmaAbsoluteUri'] . $goto . '&label=' . $_POST['bkm_fields']['bkm_label']
+            $cfg['PmaAbsoluteUri'] . $goto
+            . '&label=' . $_POST['bkm_fields']['bkm_label']
         );
     }
 } // end if
@@ -313,15 +313,13 @@ if (isset($_REQUEST['btnDrop']) && $_REQUEST['btnDrop'] == __('No')) {
 $full_sql_query = $sql_query;
 
 // Handle remembered sorting order, only for single table query
-if ($is_remember_sorting_order) {
+if (PMA_isRememberSortingOrder($analyzed_sql_results)) {
     PMA_handleSortOrder($db, $table, $analyzed_sql, $full_sql_query);
 }
 
 $sql_limit_to_append = '';
 // Do append a "LIMIT" clause?
-if (($_SESSION['tmp_user_values']['max_rows'] != 'all') 
-    && $is_append_limit_clause
-) {
+if (PMA_isAppendLimitClause($analyzed_sql_results)) {
     $sql_limit_to_append = ' LIMIT ' . $_SESSION['tmp_user_values']['pos']
         . ', ' . $_SESSION['tmp_user_values']['max_rows'] . " ";
     $full_sql_query = PMA_getSqlWithLimitClause(
@@ -506,13 +504,8 @@ if (isset($GLOBALS['show_as_php']) || ! empty($GLOBALS['validatequery'])) {
 
         // However, do not count again if we did it previously
         // due to $find_real_end == true
-        if (! $is_group
-            && ! isset($analyzed_sql[0]['queryflags']['union'])
-            && ! isset($analyzed_sql[0]['queryflags']['distinct'])
-            && ! isset($analyzed_sql[0]['table_ref'][1]['table_name'])
-            && (empty($analyzed_sql[0]['where_clause'])
-            || $analyzed_sql[0]['where_clause'] == '1 ')
-            && ! isset($find_real_end)
+        if (PMA_isJustBrowsing(
+            $analyzed_sql_results,isset($find_real_end) ? $find_real_end : null)
         ) {
             // "j u s t   b r o w s i n g"
             $justBrowsing = true;
@@ -616,10 +609,7 @@ if (isset($GLOBALS['show_as_php']) || ! empty($GLOBALS['validatequery'])) {
 // No rows returned -> move back to the calling page
 if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
     // Delete related tranformation information
-    if (!empty($analyzed_sql[0]['querytype'])
-        && (($analyzed_sql[0]['querytype'] == 'ALTER')
-        || ($analyzed_sql[0]['querytype'] == 'DROP'))
-    ) {
+    if (PMA_isDeleteTransformationInfo($analyzed_sql_results)) {
         include_once 'libraries/transformations.lib.php';
         if ($analyzed_sql[0]['querytype'] == 'ALTER') {
             if (stripos($analyzed_sql[0]['unsorted_query'], 'DROP') !== false) {
@@ -1004,7 +994,9 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
         $bkm_sql_query = urlencode(
             isset($complete_query) ? $complete_query : $sql_query
         );
-        $html_output .= PMA_getHtmlForBookmark($db, $goto, $bkm_sql_query, $cfg['Bookmark']['user']);
+        $html_output .= PMA_getHtmlForBookmark(
+            $db, $goto, $bkm_sql_query, $cfg['Bookmark']['user']
+        );
     } // end bookmark support
 
     // Do print the page if required
@@ -1018,9 +1010,7 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
 
 $_SESSION['is_multi_query'] = false;
 
-/**
- * Displays the footer
- */
+
 if (! isset($_REQUEST['table_maintenance'])) {
     exit;
 }
