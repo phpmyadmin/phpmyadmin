@@ -32,6 +32,12 @@ function PMA_getSubPageHeader($type)
     $res['replication']['icon'] = 's_replication.png';
     $res['replication']['text'] = __('Replication');
     
+    $res['database_statistics']['icon'] = 's_db.png';
+    $res['database_statistics']['text'] = __('Databases statistics');
+    
+    $res['databases']['icon'] = 's_db.png';
+    $res['databases']['text'] = __('Databases');
+    
     $html = '<h2>' . "\n"
         . PMA_Util::getImage($res[$type]['icon'])
         . '    ' . $res[$type]['text'] . "\n"

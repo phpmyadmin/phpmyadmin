@@ -15,13 +15,12 @@ if (! defined('PHPMYADMIN')) {
  */
 function PMA_getColumnOrder()
 {
-
     $column_order['DEFAULT_COLLATION_NAME'] = array(
-            'disp_name' => __('Collation'),
-            'description_function' => 'PMA_getCollationDescr',
-            'format'    => 'string',
-            'footer'    => PMA_getServerCollation(),
-        );
+        'disp_name' => __('Collation'),
+        'description_function' => 'PMA_getCollationDescr',
+        'format'    => 'string',
+        'footer'    => PMA_getServerCollation(),
+    );
     $column_order['SCHEMA_TABLES'] = array(
         'disp_name' => __('Tables'),
         'format'    => 'number',
