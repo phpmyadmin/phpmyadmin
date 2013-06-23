@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-06-20 08:22+0200\n"
-"PO-Revision-Date: 2013-06-22 22:46+0200\n"
+"PO-Revision-Date: 2013-06-23 07:53+0200\n"
 "Last-Translator: Tony Chen <tonychen@finenet.com.tw>\n"
 "Language-Team: Traditional Chinese "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/zh_TW/>\n"
@@ -1193,8 +1193,8 @@ msgid ""
 "than %d seconds. It is advisable to set this long_query_time 0-2 seconds, "
 "depending on your system."
 msgstr ""
-"slow_query_log 已經被啟用，但是伺服器仍然只為執行時間大於 %d 秒的查詢做紀錄。"
-"建議根據您的系統將 long_query_time 設定為 0-2 秒。"
+"slow_query_log 已經被啟用，但是伺服器仍然只為執行時間大於 %d 秒的查詢做記錄。建議根據您的系統將 long_query_time "
+"設定為 0-2 秒。"
 
 #: js/messages.php:128
 #, php-format
@@ -1265,7 +1265,7 @@ msgstr "單位"
 
 #: js/messages.php:148
 msgid "From slow log"
-msgstr "從較慢的查詢紀錄檔"
+msgstr "從緩慢日誌檔"
 
 #: js/messages.php:149
 msgid "From general log"
@@ -1273,11 +1273,11 @@ msgstr "從普通的查詢記錄檔"
 
 #: js/messages.php:150
 msgid "Analysing logs"
-msgstr "分析用的紀錄檔"
+msgstr "分析用的日誌檔"
 
 #: js/messages.php:151
 msgid "Analysing & loading logs. This may take a while."
-msgstr "讀取且分析紀錄檔中. 這可能會花費一些時間。"
+msgstr "讀取且分析日誌檔中. 這可能會花費一些時間。"
 
 #: js/messages.php:152
 msgid "Cancel request"
@@ -1301,11 +1301,11 @@ msgstr ""
 
 #: js/messages.php:155
 msgid "Log data loaded. Queries executed in this time span:"
-msgstr "紀錄檔已被讀取，時間區間："
+msgstr "日誌檔已載入，查詢執行時間區間："
 
 #: js/messages.php:157
 msgid "Jump to Log table"
-msgstr "跳轉至紀錄檔的資料表"
+msgstr "跳轉至日誌檔的資料表"
 
 #: js/messages.php:158
 msgid "No data found"
@@ -1313,7 +1313,7 @@ msgstr "無資料"
 
 #: js/messages.php:159
 msgid "Log analysed, but no data found in this time span."
-msgstr "紀錄檔已經被分析了，但是在這個時間區段內沒有任何資料。"
+msgstr "已分析日誌檔，但是在這個時間區間內沒有任何資料。"
 
 #: js/messages.php:161
 msgid "Analyzing…"
@@ -1360,12 +1360,12 @@ msgstr "系列"
 #. l10n: A collection of available filters
 #: js/messages.php:173
 msgid "Log table filter options"
-msgstr "紀錄檔篩選"
+msgstr "日誌檔篩選選項"
 
 #. l10n: Filter as in "Start Filtering"
 #: js/messages.php:175
 msgid "Filter"
-msgstr "過濾"
+msgstr "篩選"
 
 #: js/messages.php:176
 msgid "Filter queries by word/regexp:"
@@ -1387,7 +1387,7 @@ msgstr "總計："
 
 #: js/messages.php:181
 msgid "Loading logs"
-msgstr "載入紀錄檔中"
+msgstr "載入日誌檔中"
 
 #: js/messages.php:182
 msgid "Monitor refresh failed"
@@ -1871,7 +1871,7 @@ msgstr "隱藏控制面板"
 
 #: js/messages.php:367
 msgid "The requested page was not found in the history, it may have expired."
-msgstr "無法在紀錄中找到您所要求的頁面，它可能已經過期了。"
+msgstr "無法在歷史記錄中找到您所要求的頁面，它可能已經過期了。"
 
 #: js/messages.php:370 setup/lib/index.lib.php:188
 #, php-format
@@ -5063,11 +5063,11 @@ msgstr "快速訪問圖示的目標"
 msgid ""
 "Defines the minimum number of items (tables, views, routines and events) to "
 "display a filter box."
-msgstr "定義最少的物件數 (資料表、視表、程序和事件)以顯示在過濾框。"
+msgstr "定義最少的項目數 (資料表、視表、程序和事件) 以顯示在篩選框。"
 
 #: libraries/config/messages.inc.php:307
 msgid "Minimum number of items to display the filter box"
-msgstr "顯示過濾框的最少的物件數量"
+msgstr "顯示篩選框的最少的項目數量"
 
 #: libraries/config/messages.inc.php:308
 msgid "Minimum number of databases to display the database filter box"
@@ -5272,7 +5272,7 @@ msgstr "再次瀏覽資料表時，之前的排序偏好會被記錄"
 
 #: libraries/config/messages.inc.php:356
 msgid "Remember table's sorting"
-msgstr "紀錄資料表的排序偏好"
+msgstr "記錄資料表的排序偏好"
 
 #: libraries/config/messages.inc.php:357
 msgid "Repeat the headers every X cells, [kbd]0[/kbd] deactivates this feature"
@@ -5658,8 +5658,7 @@ msgstr "「介面偏好」資料表"
 msgid ""
 "Whether a DROP DATABASE IF EXISTS statement will be added as first line to "
 "the log when creating a database."
-msgstr ""
-"設定當資料庫建立時，是否在紀錄檔第一行加上 DROP DATABASE IF EXISTS 指令。"
+msgstr "設定當資料庫建立時，是否在記錄檔第一行加上 DROP DATABASE IF EXISTS 指令。"
 
 #: libraries/config/messages.inc.php:438
 msgid "Add DROP DATABASE"
@@ -5669,7 +5668,7 @@ msgstr "新增 DROP DATABASE"
 msgid ""
 "Whether a DROP TABLE IF EXISTS statement will be added as first line to the "
 "log when creating a table."
-msgstr "設定當資料表建立時，是否在紀錄檔前面加上 DROP TABLE IF EXISTS 指令。"
+msgstr "設定當資料表建立時，是否在記錄檔前面加上 DROP TABLE IF EXISTS 指令。"
 
 #: libraries/config/messages.inc.php:440
 msgid "Add DROP TABLE"
@@ -5679,7 +5678,7 @@ msgstr "新增 DROP TABLE"
 msgid ""
 "Whether a DROP VIEW IF EXISTS statement will be added as first line to the "
 "log when creating a view."
-msgstr "設定當視表建立時，是否在紀錄檔前面加上 DROP 視表 IF EXISTS 命令。"
+msgstr "設定當視表建立時，是否在記錄檔前面加上 DROP 視表 IF EXISTS 命令。"
 
 #: libraries/config/messages.inc.php:442
 msgid "Add DROP VIEW"
@@ -9522,7 +9521,7 @@ msgstr[0] "%d 分"
 
 #: libraries/server_status_monitor.lib.php:96
 msgid "Log statistics"
-msgstr "紀錄統計"
+msgstr "日誌統計"
 
 #: libraries/server_status_monitor.lib.php:97
 msgid "Selected time range:"
@@ -9809,12 +9808,11 @@ msgid ""
 "please reduce your SQL query input to the single query that causes problems, "
 "and submit a bug report with the data chunk in the CUT section below:"
 msgstr ""
-"您可能發現了 SQL 解析器的缺陷 (bug)。請仔細檢查您的查詢，包括引號是否正確及是"
-"否符合。其它可能的失敗原因可能由於您上傳了超過引用文字區域外的二進制資料。您"
-"還可以在 MySQL 命令行界面試一下您的查詢。如果可能的話，以下會列出 MySQL 服務"
-"器的錯誤輸出，這可能對您解決問題有一定的幫助。如果您仍然有問題，或者命令行界"
-"面執行成功而解析器出錯，請將您的 SQL 查詢縮減到導致問題的某一條指令，然後和下"
-"面剪切區中的資料一起送出一個缺陷 (bug) 報告："
+"您可能發現了 SQL 解析器的缺陷 "
+"(bug)。請仔細檢查您的查詢，包括引號是否正確及是否符合。其它可能的失敗原因也許由於您上傳了超過引號文字外的二進制資料。您還可以在 MySQL "
+"命令行界面試一下您的查詢。如果可能的話，以下會列出 MySQL "
+"服務器的錯誤輸出，這可能對您解決問題有一定的幫助。如果您仍然有問題，或者命令行界面執行成功而解析器出錯，請將您的 SQL "
+"查詢縮減到導致問題的某一條指令，然後和下面剪切區中的資料一起送出一個缺陷 (bug) 報告："
 
 #: libraries/sqlparser.lib.php:191
 msgid "BEGIN CUT"
@@ -10816,7 +10814,7 @@ msgstr "查詢數量"
 
 #: server_status_variables.php:78 server_variables.php:156
 msgid "Filters"
-msgstr "過濾"
+msgstr "篩選"
 
 #: server_status_variables.php:82 server_variables.php:158
 msgid "Containing the word:"
@@ -12252,7 +12250,7 @@ msgstr "您可能需要增加 {long_query_time} 或最佳化緩慢查詢日誌�
 #: libraries/advisory_rules.txt:68
 #, php-format
 msgid "The slow query rate should be below 5%%, your value is %s%%."
-msgstr "緩慢查詢率應低於 5%，您的值是 %s%%。"
+msgstr "緩慢查詢率應低於 5%%，您的值是 %s%%。"
 
 #: libraries/advisory_rules.txt:70
 msgid "Slow query rate"
@@ -12293,7 +12291,7 @@ msgstr "long_query_time 目前設為 %d 秒。"
 
 #: libraries/advisory_rules.txt:84 libraries/advisory_rules.txt:91
 msgid "Slow query logging"
-msgstr "緩慢查詢紀錄"
+msgstr "緩慢查詢記錄"
 
 #: libraries/advisory_rules.txt:87 libraries/advisory_rules.txt:94
 msgid "The slow query log is disabled."
@@ -12533,8 +12531,8 @@ msgid ""
 "using this formula: (query_cache_size - qcache_free_memory) / "
 "qcache_queries_in_cache"
 msgstr ""
-"大量碎片很可能會增加 Qcache_lowmem_prunes。也許是由於 {query_cache_size} "
-"過小而導致大量查詢快取低記憶體縮減。刷新查詢快取 (可能會鎖住查詢快取很長的時間) 可以暫時解決這個問题。仔細調整 "
+"大量碎片很可能會增加 Qcache_lowmem_prunes 的行為，也許是由於 {query_cache_size} "
+"過小而導致大量查詢快取低記憶體的清理。刷新查詢快取 (可能會鎖住查詢快取很長的時間) 可以暫時解決這個問题。仔細調整 "
 "{query_cache_min_res_unit} 到一個更小的值將有所幫助，例如您可以使用下列公式來計算並設置您查詢快取大小的平均值: "
 "(query_cache_size - qcache_free_memory) / qcache_queries_in_cache"
 
@@ -12548,7 +12546,7 @@ msgstr "快取碎片已達到 %s%%，當達到 100%% 時意味著查詢快取幾
 
 #: libraries/advisory_rules.txt:188
 msgid "Query cache low memory prunes"
-msgstr "查詢快取低記憶體縮減"
+msgstr "查詢快取低記憶體清理"
 
 #: libraries/advisory_rules.txt:191
 msgid ""
