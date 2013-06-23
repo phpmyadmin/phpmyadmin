@@ -251,7 +251,9 @@ if (isset($find_real_end) && $find_real_end) {
 if (isset($_POST['store_bkm'])) {
     $result = PMA_Bookmark_save(
         $_POST['bkm_fields'],
-        (isset($_POST['bkm_all_users']) && $_POST['bkm_all_users'] == 'true' ? true : false)
+        (isset($_POST['bkm_all_users'])
+            && $_POST['bkm_all_users'] == 'true' ? true : false
+        )
     );
     $response = PMA_Response::getInstance();
     if ($response->isAjax()) {
@@ -268,7 +270,8 @@ if (isset($_POST['store_bkm'])) {
     } else {
         // go back to sql.php to redisplay query; do not use &amp; in this case:
         PMA_sendHeaderLocation(
-            $cfg['PmaAbsoluteUri'] . $goto . '&label=' . $_POST['bkm_fields']['bkm_label']
+            $cfg['PmaAbsoluteUri'] . $goto
+            . '&label=' . $_POST['bkm_fields']['bkm_label']
         );
     }
 } // end if
@@ -991,7 +994,9 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
         $bkm_sql_query = urlencode(
             isset($complete_query) ? $complete_query : $sql_query
         );
-        $html_output .= PMA_getHtmlForBookmark($db, $goto, $bkm_sql_query, $cfg['Bookmark']['user']);
+        $html_output .= PMA_getHtmlForBookmark(
+            $db, $goto, $bkm_sql_query, $cfg['Bookmark']['user']
+        );
     } // end bookmark support
 
     // Do print the page if required
