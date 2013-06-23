@@ -2026,7 +2026,7 @@ Theme settings
     :type: string [CSS color]
     :default:
 
-    The style used for the pointer in the navi frame. See
+    The style used for the pointer in the navigation panel. See
     :file:`themes/themename/layout.inc.php`.
 
 .. config:option:: $cfg['Border']
