@@ -73,7 +73,7 @@ $is_count = isset($analyzed_sql[0]['queryflags']['is_count']);
 // check for a real SELECT ... FROM
 $is_select = isset($analyzed_sql[0]['queryflags']['select_from']);
 
-// aggregates all the results in to one array
+// aggregates all the results into one array
 $analyzed_sql_results = array(
     "analyzed_sql" => $analyzed_sql,
     "reload" => $reload,

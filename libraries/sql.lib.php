@@ -702,9 +702,9 @@ function PMA_getHtmlForBookmark($db, $goto, $bkm_sql_query, $bkm_user)
 }
 
 /**
- * Function to check whether to remeber the sorting order or not
+ * Function to check whether to remember the sorting order or not
  * 
- * @param array $analyzed_sql_results    the analyzed qyery and other varibles set
+ * @param array $analyzed_sql_results    the analyzed query and other varibles set
  *                                       after analyzing the query
  * @return boolean
  */
@@ -732,7 +732,7 @@ function PMA_isRememberSortingOrder($analyzed_sql_results)
 /**
  * Function to check whether the LIMIT clause should be appended or not
  * 
- * @param array $analyzed_sql_results    the analyzed qyery and other varibles set
+ * @param array $analyzed_sql_results    the analyzed query and other varibles set
  *                                       after analyzing the query
  * 
  * @return boolean
@@ -760,7 +760,7 @@ function PMA_isAppendLimitClause($analyzed_sql_results)
 /**
  * Function to check whether this query is for just browsing
  * 
- * @param array   $analyzed_sql_results   the analyzed qyery and other varibles set
+ * @param array   $analyzed_sql_results   the analyzed query and other varibles set
  *                                        after analyzing the query
  * @param boolean $find_real_end          whether the real end should be found
  * 
@@ -789,7 +789,7 @@ function PMA_isJustBrowsing($analyzed_sql_results, $find_real_end)
 /**
  * Function to check whether the reated transformation information shoul be deleted
  * 
- * @param array $analyzed_sql_results  the analyzed qyery and other varibles set
+ * @param array $analyzed_sql_results  the analyzed query and other varibles set
  *                                     after analyzing the query 
  * 
  * @return boolean
@@ -809,7 +809,7 @@ function PMA_isDeleteTransformationInfo($analyzed_sql_results)
 /**
  * Function to check whether the user has rights to drop the database
  * 
- * @param  array   $analyzed_sql_results   the analyzed qyery and other varibles set
+ * @param  array   $analyzed_sql_results   the analyzed query and other varibles set
  *                                         after analyzing the query
  * @param boolean  $allowUserDropDatabase  whether the user is allowed to drop db
  * 
