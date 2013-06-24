@@ -6,8 +6,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.5-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-06-24 10:43+0200\n"
-"PO-Revision-Date: 2013-06-24 15:41+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"PO-Revision-Date: 2013-06-24 17:21+0200\n"
+"Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
 "Language-Team: Estonian <http://l10n.cihar.com/projects/phpmyadmin/4-0/et/>\n"
 "Language: et\n"
 "MIME-Version: 1.0\n"
@@ -5205,10 +5205,9 @@ msgid "Use only icons, only text or both"
 msgstr "Kasuta ainult ikoone, ainult teksti või mõlemat"
 
 #: libraries/config/messages.inc.php:325
-#, fuzzy
 #| msgid "Iconic navigation bar"
 msgid "Table navigation bar"
-msgstr "Ikooniline navigeerimise riba"
+msgstr "Tabeli navigeerimisriba"
 
 #: libraries/config/messages.inc.php:326
 msgid "use GZip output buffering for increased speed in HTTP transfers"
@@ -5278,14 +5277,13 @@ msgid "MySQL reserved word warning"
 msgstr "MySQL reserveeritud sõna hoiatus"
 
 #: libraries/config/messages.inc.php:339
-#, fuzzy
 #| msgid "Allow to display all the rows"
 msgid "How to display the menu tabs"
-msgstr "Luba näidata kõiki ridu"
+msgstr "Kuidas kuvada menüü sakke"
 
 #: libraries/config/messages.inc.php:341
 msgid "How to display various action links"
-msgstr ""
+msgstr "Kuidas kuvada erinevate tegevuste linke"
 
 #: libraries/config/messages.inc.php:342
 msgid "Disallow BLOB and BINARY columns from editing"
@@ -8147,10 +8145,9 @@ msgstr ""
 "see viga ja proovi uuesti."
 
 #: libraries/plugins/import/ImportOds.class.php:182
-#, fuzzy
 #| msgid "OpenDocument Spreadsheet"
 msgid "Could not parse OpenDocument Spreadsheet!"
-msgstr "OpenDocument tabel"
+msgstr "OpenDocument tabeli parsimine ebaõnnestus!"
 
 #: libraries/plugins/import/ImportShp.class.php:53
 msgid "ESRI Shape File"
