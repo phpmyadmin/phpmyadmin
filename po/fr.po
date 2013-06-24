@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-06-24 10:43+0200\n"
-"PO-Revision-Date: 2013-06-03 15:37+0200\n"
-"Last-Translator: Marc Delisle <marc@infomarc.info>\n"
+"PO-Revision-Date: 2013-06-24 15:22+0200\n"
+"Last-Translator: Mathieu Terroba <mathieu.terroba@gmail.com>\n"
 "Language-Team: French <http://l10n.cihar.com/projects/phpmyadmin/4-0/fr/>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -3884,12 +3884,12 @@ msgstr "Clé numérique détectée"
 #: libraries/config.values.php:49 libraries/config.values.php:64
 #: libraries/config.values.php:69
 msgid "Icons"
-msgstr ""
+msgstr "Icônes"
 
 #: libraries/config.values.php:50 libraries/config.values.php:65
 #: libraries/config.values.php:70
 msgid "Text"
-msgstr ""
+msgstr "Texte"
 
 #: libraries/config.values.php:51 libraries/config.values.php:58
 #: libraries/config.values.php:66 libraries/config.values.php:71
@@ -5269,10 +5269,9 @@ msgid "Use only icons, only text or both"
 msgstr "Afficher seulement des icônes, seulement du texte ou les deux"
 
 #: libraries/config/messages.inc.php:325
-#, fuzzy
 #| msgid "Iconic navigation bar"
 msgid "Table navigation bar"
-msgstr "Apparence de la barre de navigation"
+msgstr "Barre de navigation"
 
 #: libraries/config/messages.inc.php:326
 msgid "use GZip output buffering for increased speed in HTTP transfers"
@@ -5340,14 +5339,13 @@ msgid "MySQL reserved word warning"
 msgstr "Avertissement de mot réservé MySQL"
 
 #: libraries/config/messages.inc.php:339
-#, fuzzy
 #| msgid "Allow to display all the rows"
 msgid "How to display the menu tabs"
-msgstr "Permettre l'affichage de toutes les lignes"
+msgstr "Comment afficher les onglets de menu"
 
 #: libraries/config/messages.inc.php:341
 msgid "How to display various action links"
-msgstr ""
+msgstr "Comment afficher divers liens d'action"
 
 #: libraries/config/messages.inc.php:342
 msgid "Disallow BLOB and BINARY columns from editing"
@@ -8265,10 +8263,9 @@ msgstr ""
 "et essayer à nouveau."
 
 #: libraries/plugins/import/ImportOds.class.php:182
-#, fuzzy
 #| msgid "OpenDocument Spreadsheet"
 msgid "Could not parse OpenDocument Spreadsheet!"
-msgstr "Tableur OpenDocument"
+msgstr "La feuille de calcul OpenDocument n'a pas pu être parcourue !"
 
 #: libraries/plugins/import/ImportShp.class.php:53
 msgid "ESRI Shape File"
