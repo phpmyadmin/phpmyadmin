@@ -666,7 +666,7 @@ class PMA_DisplayResults
         // Display the "Show all" button if allowed
         if (($this->__get('num_rows') < $this->__get('unlim_num_rows'))
             && ($GLOBALS['cfg']['ShowAll']
-            || ($GLOBALS['cfg']['MaxRows'] * 5 >= $this->__get('unlim_num_rows')))
+            || ($this->__get('unlim_num_rows') <= 500))
         ) {
 
             $table_navigation_html .= $this->_getShowAllButtonForTableNavigation(
