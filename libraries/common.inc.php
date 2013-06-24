@@ -95,6 +95,13 @@ require './libraries/core.lib.php';
 require './libraries/sanitizing.lib.php';
 
 /**
+ * Warning about mbstring.
+ */
+if (! function_exists('mb_detect_encoding')) {
+    PMA_warnMissingExtension('mbstring', $fatal = true);
+}
+
+/**
  * the PMA_Theme class
  */
 require './libraries/Theme.class.php';
