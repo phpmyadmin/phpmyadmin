@@ -20,9 +20,9 @@ class PMA_getIcon_test extends PHPUnit_Framework_TestCase
         $_SESSION['PMA_Theme'] = PMA_Theme::load('./themes/pmahomme');
     }
 
-    function testGetIconWithoutPropertiesIconic()
+    function testGetIconWithoutActionLinksMode()
     {
-        $GLOBALS['cfg']['PropertiesIconic'] = false;
+        $GLOBALS['cfg']['ActionLinksMode'] = 'text';
 
         $this->assertEquals(
             '<span class="nowrap"></span>',
@@ -30,9 +30,9 @@ class PMA_getIcon_test extends PHPUnit_Framework_TestCase
         );
     }
 
-    function testGetIconWithPropertiesIconic()
+    function testGetIconWithActionLinksMode()
     {
-        $GLOBALS['cfg']['PropertiesIconic'] = true;
+        $GLOBALS['cfg']['ActionLinksMode'] = 'icons';
 
         $this->assertEquals(
             '<span class="nowrap"><img src="themes/dot.gif" title="" alt="" class="icon ic_b_comment" /></span>',
@@ -42,7 +42,7 @@ class PMA_getIcon_test extends PHPUnit_Framework_TestCase
 
     function testGetIconAlternate()
     {
-        $GLOBALS['cfg']['PropertiesIconic'] = true;
+        $GLOBALS['cfg']['ActionLinksMode'] = 'icons';
         $alternate_text = 'alt_str';
 
         $this->assertEquals(
@@ -54,7 +54,7 @@ class PMA_getIcon_test extends PHPUnit_Framework_TestCase
 
     function testGetIconWithForceText()
     {
-        $GLOBALS['cfg']['PropertiesIconic'] = true;
+        $GLOBALS['cfg']['ActionLinksMode'] = 'icons';
         $alternate_text = 'alt_str';
 
         // Here we are checking for an icon embeded inside a span (i.e not a menu

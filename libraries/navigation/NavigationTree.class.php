@@ -576,7 +576,11 @@ class PMA_NavigationTree
                     $groups[$key]->separator = $node->separator;
                     $groups[$key]->separator_depth = $node->separator_depth - 1;
                     $groups[$key]->icon = '';
-                    if ($GLOBALS['cfg']['NavigationBarIconic']) {
+                    if (in_array(
+                        $GLOBALS['cfg']['TableNavigationLinksMode'],
+                        array('icons', 'both')
+                        )
+                    ) {
                         $groups[$key]->icon = PMA_Util::getImage(
                             'b_group.png'
                         );
@@ -899,7 +903,11 @@ class PMA_NavigationTree
             if ($node->type == Node::CONTAINER) {
                 $retval .= "<i>";
             }
-            if ($GLOBALS['cfg']['NavigationBarIconic']) {
+            if (in_array(
+                $GLOBALS['cfg']['TableNavigationLinksMode'],
+                array('icons', 'both')
+                )
+            ) {
                 $retval .= "<div class='block'>";
                 if (isset($node->links['icon'])) {
                     $args = array();

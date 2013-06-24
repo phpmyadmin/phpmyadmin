@@ -42,7 +42,7 @@ class PMA_Operations_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg'] = array(
             'MySQLManualType' => 'none',
             'ServerDefault' => 1,
-            'PropertiesIconic' => true,
+            'ActionLinksMode' => 'icons',
         );
         $GLOBALS['server'] = 1;
     }

@@ -571,14 +571,6 @@ class FormDisplay
                     }
                     break;
                 case 'select':
-                    // special treatment for NavigationBarIconic and PropertiesIconic
-                    if ($key === 'NavigationBarIconic'
-                        || $key === 'PropertiesIconic'
-                    ) {
-                        if ($_POST[$key] !== 'both') {
-                            settype($_POST[$key], 'boolean');
-                        }
-                    }
                     $successfully_validated = $this->_validateSelect(
                         $_POST[$key],
                         $form->getOptionValueList($system_path)

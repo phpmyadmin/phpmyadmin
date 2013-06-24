@@ -353,7 +353,7 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
     public function testGetTableNavigationButton(
         $caption, $title, $pos, $html_sql_query, $output
     ) {
-        $GLOBALS['cfg']['NavigationBarIconic'] = true;
+        $GLOBALS['cfg']['TableNavigationLinksMode'] = 'icons';
         $_SESSION[' PMA_token '] = 'token';
 
         $this->assertEquals(
@@ -831,7 +831,7 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
     public function testGetEditLink(
         $edit_url, $class, $edit_str, $where_clause, $where_clause_html, $output
     ) {
-        $GLOBALS['cfg']['PropertiesIconic'] = 'both';
+        $GLOBALS['cfg']['ActionLinksMode'] = 'both';
         $GLOBALS['cfg']['LinkLengthLimit'] = 1000;
 
         $this->assertEquals(
@@ -883,7 +883,7 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
     public function testGetCopyLink(
         $copy_url, $copy_str, $where_clause, $where_clause_html, $class, $output
     ) {
-        $GLOBALS['cfg']['PropertiesIconic'] = 'both';
+        $GLOBALS['cfg']['ActionLinksMode'] = 'both';
         $GLOBALS['cfg']['LinkLengthLimit'] = 1000;
 
         $this->assertEquals(
@@ -933,7 +933,7 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
     public function testGetDeleteLink(
         $del_url, $del_str, $js_conf, $class, $output
     ) {
-        $GLOBALS['cfg']['PropertiesIconic'] = 'both';
+        $GLOBALS['cfg']['ActionLinksMode'] = 'both';
         $GLOBALS['cfg']['LinkLengthLimit'] = 1000;
 
         $this->assertEquals(

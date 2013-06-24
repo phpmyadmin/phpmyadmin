@@ -219,7 +219,10 @@ $hidden_titles = PMA_getHiddenTitlesArray();
 
 
 $HideStructureActions = '';
-if ($GLOBALS['cfg']['PropertiesIconic'] !== true
+if (in_array(
+    $GLOBALS['cfg']['ActionLinksMode'],
+    array('text', 'both')
+    )
     && $GLOBALS['cfg']['HideStructureActions'] === true
 ) {
     $HideStructureActions .= ' HideStructureActions';
