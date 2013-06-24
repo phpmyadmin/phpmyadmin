@@ -10,6 +10,8 @@
  */
 
 /* Each PluginObserver instance contains a PluginManager instance */
+require_once 'libraries/Util.class.php';
+require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/plugins/PluginManager.class.php';
 require_once 'libraries/plugins/transformations/Text_Plain_Dateformat.class.php';
 
@@ -141,6 +143,35 @@ class Text_Plain_Dateformat_Test extends PHPUnit_Framework_TestCase
             $result,
             $this->object->applyTransformation($timestamp, $options, $meta)
         );
+        
+        //other format timestamp, Detect TIMESTAMP(6 | 8 | 10 | 12 | 14)  
+        $meta->type = 'string';
+        $timestamp = 12345678;
+        $result = '<dfn onclick="alert(\'12345678\');" title="12345678">' 
+             . 'May 23, 1970 at 09:21 PM</dfn>';
+        $this->assertEquals(
+            $result,
+            $this->object->applyTransformation($timestamp, $options, $meta)
+        );
+
+        //no MYSQL timestamp
+        $timestamp = 123456789;
+        $result = '<dfn onclick="alert(\'123456789\');" title="123456789">' 
+            . 'Nov 29, 1973 at 09:33 PM</dfn>';
+        $this->assertEquals(
+            $result,
+            $this->object->applyTransformation($timestamp, $options, $meta)
+        );
+
+        //string
+        $timestamp = "20100201";
+        $result = '<dfn onclick="alert(\'20100201\');" title="20100201">Feb 01, 2010 at 12:00 AM</dfn>';
+        $this->assertEquals(
+            $result,
+            $this->object->applyTransformation($timestamp, $options, $meta)
+        );
+        
+        
     }
 }
 
