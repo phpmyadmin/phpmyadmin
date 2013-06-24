@@ -1550,10 +1550,9 @@ Browse mode
     :type: boolean
     :default: false
 
-    Defines whether a user should be displayed a "Show all" button in
-    browse mode or not in all cases. By default it is shown only on small
-    tables (less than 5 × :config:option:`$cfg['MaxRows']` rows) to avoid
-    performance issues while getting too many rows.
+    Defines whether a user should be displayed a "Show all" button in browse
+    mode or not in all cases. By default it is shown only on small tables (less
+    than 500 rows) to avoid performance issues while getting too many rows.
 
 .. config:option:: $cfg['MaxRows']
 
