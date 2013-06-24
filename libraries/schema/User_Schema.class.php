@@ -458,7 +458,7 @@ class PMA_User_Schema
             </label><br />
             <input type="checkbox" name="all_tables_same_width" id="all_tables_same_width" />
             <label for="all_tables_same_width">
-            <?php echo __('Display all tables with the same width'); ?>
+            <?php echo __('Same width for all tables'); ?>
             </label><br />
             <input type="checkbox" name="with_doc" id="with_doc" checked="checked" />
             <label for="with_doc"><?php echo __('Data Dictionary'); ?></label><br />
