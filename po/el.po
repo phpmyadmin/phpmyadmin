@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-06-24 10:45+0200\n"
-"PO-Revision-Date: 2013-06-12 09:36+0200\n"
+"PO-Revision-Date: 2013-06-24 15:39+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: Greek <http://l10n.cihar.com/projects/phpmyadmin/master/el/>\n"
 "Language: el\n"
@@ -5331,10 +5331,9 @@ msgid "Use only icons, only text or both"
 msgstr "Χρήση μόνο εικονιδίων, μόνο κειμένου ή και τα δύο"
 
 #: libraries/config/messages.inc.php:325
-#, fuzzy
 #| msgid "Iconic navigation bar"
 msgid "Table navigation bar"
-msgstr "Γραμμή πλοήγησης με εικονίδια"
+msgstr "Γραμμή πλοήγησης πίνακα"
 
 #: libraries/config/messages.inc.php:326
 msgid "use GZip output buffering for increased speed in HTTP transfers"
@@ -5404,14 +5403,13 @@ msgid "MySQL reserved word warning"
 msgstr "Προειδοποίηση δεσμευμένης λέξης MySQL"
 
 #: libraries/config/messages.inc.php:339
-#, fuzzy
 #| msgid "Allow to display all the rows"
 msgid "How to display the menu tabs"
-msgstr "Δικαίωμα προβολή όλων των γραμμών"
+msgstr "Πως θα εμφανίζονται οι καρτέλες μενού"
 
 #: libraries/config/messages.inc.php:341
 msgid "How to display various action links"
-msgstr ""
+msgstr "Πως θα εμφανίζονται διάφοροι σύνδεσμοι ενεργιών"
 
 #: libraries/config/messages.inc.php:342
 msgid "Disallow BLOB and BINARY columns from editing"
