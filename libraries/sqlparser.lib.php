@@ -991,7 +991,7 @@ function PMA_SQP_analyze($arr)
      * ['queryflags']['is_maint'] = 1;     for the presence of CHECK|ANALYZE
      *                                     |REPAIR|OPTIMIZE TABLE
      * ['queryflags']['is_show'] = 1;      for the presence of SHOW
-     * ['queryflags']['is_analyse'] = 1;   for the presence of PRRCEDURE ANALYSE
+     * ['queryflags']['is_analyse'] = 1;   for the presence of PROCEDURE ANALYSE
      * ['queryflags']['is_export'] = 1;    for the presence of INTO OUTFILE
      * ['queryflags']['is_group'] = 1;     for the presence of GROUP BY|HAVING|
      *                                     SELECT DISTINCT

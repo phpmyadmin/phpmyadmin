@@ -535,14 +535,18 @@ class PMA_DisplayResults
     ) {
 
         $caption_output = '';
-        // for true or 'both'
-        if ($GLOBALS['cfg']['NavigationBarIconic']) {
+        if (in_array(
+            $GLOBALS['cfg']['TableNavigationLinksMode'],
+            array('icons', 'both')
+            )
+        ) {
             $caption_output .= $caption;
         }
 
-        // for false or 'both'
-        if (($GLOBALS['cfg']['NavigationBarIconic'] === false)
-            || ($GLOBALS['cfg']['NavigationBarIconic'] === self::POSITION_BOTH)
+        if (in_array(
+            $GLOBALS['cfg']['TableNavigationLinksMode'],
+            array('text', 'both')
+            )
         ) {
             $caption_output .= '&nbsp;' . $title;
         }
@@ -662,7 +666,7 @@ class PMA_DisplayResults
         // Display the "Show all" button if allowed
         if (($this->__get('num_rows') < $this->__get('unlim_num_rows'))
             && ($GLOBALS['cfg']['ShowAll']
-            || ($GLOBALS['cfg']['MaxRows'] * 5 >= $this->__get('unlim_num_rows')))
+            || ($this->__get('unlim_num_rows') <= 500))
         ) {
 
             $table_navigation_html .= $this->_getShowAllButtonForTableNavigation(
@@ -742,7 +746,7 @@ class PMA_DisplayResults
         );
 
         $table_navigation_html .= $this->_getAdditionalFieldsForTableNavigation(
-            $html_sql_query, $pos_next, $id_for_direction_dropdown
+            $html_sql_query, $id_for_direction_dropdown
         );
 
         $table_navigation_html .= '</form>'
@@ -874,12 +878,11 @@ class PMA_DisplayResults
 
 
     /**
-     * Prepare fields followed by Show button for table navigation
-     * Start row, Number of rows
+     * Prepare fields for table navigation
+     * Number of rows
      *
      * @param string  $html_sql_query            the sql encoded by html special
      *                                           characters
-     * @param integer $pos_next                  the offset for the "next" page
      * @param string  $id_for_direction_dropdown the id for the direction dropdown
      *
      * @return  string  $additional_fields_html html content
@@ -889,7 +892,7 @@ class PMA_DisplayResults
      * @see     _getTableNavigation()
      */
     private function _getAdditionalFieldsForTableNavigation(
-        $html_sql_query, $pos_next, $id_for_direction_dropdown
+        $html_sql_query, $id_for_direction_dropdown
     ) {
 
         $additional_fields_html = '';
@@ -899,14 +902,15 @@ class PMA_DisplayResults
             . '<input type="hidden" name="goto" value="' . $this->__get('goto')
             . '" />'
             . '<input type="hidden" name="pos" size="3" value="'
-            . (($pos_next >= $this->__get('unlim_num_rows')) ? 0 : $pos_next)
+            // Do not change the position when changing the number of rows
+            . $_SESSION['tmp_user_values']['pos']
             . '" />'
             . __('Number of rows:') . ' '
             . '<select name="session_max_rows" class="autosubmit">';
 
-        $numberOfRowsChoices = array(25,50,100,250,500);
+        $numberOfRowsChoices = array(25, 50, 100, 250, 500);
         foreach ($numberOfRowsChoices as $oneNumberOfRowsChoice) {
-            $additional_fields_html .= '<option value="' 
+            $additional_fields_html .= '<option value="'
                 . $oneNumberOfRowsChoice . '"';
 
             if ($oneNumberOfRowsChoice == $_SESSION['tmp_user_values']['max_rows']) {
@@ -2552,7 +2556,7 @@ class PMA_DisplayResults
                 // We need to copy the value
                 // or else the == 'both' check will always return true
 
-                if ($GLOBALS['cfg']['PropertiesIconic'] === self::POSITION_BOTH) {
+                if ($GLOBALS['cfg']['ActionLinksMode'] === self::POSITION_BOTH) {
                     $iconic_spacer = '<div class="nowrap">';
                 } else {
                     $iconic_spacer = '';

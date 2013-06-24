@@ -40,7 +40,7 @@ class PMA_BuildHtmlForDb_Test extends PHPUnit_Framework_TestCase
 
         $GLOBALS['PMA_Types'] = new PMA_Types_MySQL();
         $_SESSION['PMA_Theme'] = new PMA_Theme();
-        $GLOBALS['cfg']['PropertiesIconic'] = true;
+        $GLOBALS['cfg']['ActionLinksMode'] = 'icons';
 
         $GLOBALS['pmaThemePath'] = $_SESSION['PMA_Theme']->getPath();
         $GLOBALS['pmaThemeImage'] = 'theme/';
