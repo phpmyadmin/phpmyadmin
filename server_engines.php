@@ -21,16 +21,12 @@ require 'libraries/server_engines.lib.php';
 /**
  * Displays the sub-page heading
  */
-$html = '<h2>' . "\n"
-    . PMA_Util::getImage('b_engine.png')
-    . "\n" . __('Storage Engines') . "\n"
-    . '</h2>' . "\n";
+$response = PMA_Response::getInstance();
+$response->addHTML(PMA_getSubPageHeader('engines'));
         
 /**
  * start output
  */
-$response = PMA_Response::getInstance();
-$response->addHTML($html);
 $response->addHTML(PMA_getHtmlForServerEngines());
 
 exit;

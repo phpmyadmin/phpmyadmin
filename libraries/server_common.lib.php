@@ -20,6 +20,9 @@ function PMA_getSubPageHeader($type)
 {
     $res = array();
 
+    $res['engines']['icon'] = 'b_engine.png';
+    $res['engines']['text'] = __('Storage Engines');
+
     $res['plugins']['icon'] = 'b_engine.png';
     $res['plugins']['text'] = __('Plugins');
     
