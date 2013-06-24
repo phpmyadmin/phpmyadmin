@@ -234,7 +234,8 @@ if ($databases_count > 0) {
     }
 
     if ($is_superuser && ! PMA_DRIZZLE) {
-        $html .= '    <th>' . ($cfg['PropertiesIconic'] ? '' : __('Action')) . "\n"
+        $html .= '    <th>'
+            . ($cfg['ActionLinksMode'] == 'icons' ? '' : __('Action')) . "\n"
             . '    </th>' . "\n";
     }
     $html .= '</tr>' . "\n"
@@ -269,7 +270,7 @@ if ($databases_count > 0) {
     if ($is_superuser || $cfg['AllowUserDropDatabase']) {
         $html .= '    <th></th>' . "\n";
     }
-    $html .= '    <th>' . __('Total') . ': <span id="databases_count">' 
+    $html .= '    <th>' . __('Total') . ': <span id="databases_count">'
         . $databases_count . '</span></th>' . "\n";
     foreach ($column_order as $stat_name => $stat) {
         if (array_key_exists($stat_name, $first_database)) {
@@ -282,7 +283,7 @@ if ($databases_count > 0) {
             }
             $html .= '    <th class="value">';
             if (isset($stat['description_function'])) {
-                $html .= '<dfn title="' 
+                $html .= '<dfn title="'
                     . $stat['description_function']($stat['footer']) . '">';
             }
             $html .= $value;
@@ -318,7 +319,7 @@ if ($databases_count > 0) {
                 'dbstats' => $dbstats
             )
         );
-        $html .= '<img class="selectallarrow" src="' 
+        $html .= '<img class="selectallarrow" src="'
             . $pmaThemeImage . 'arrow_' . $text_dir . '.png"'
             . ' width="38" height="22" alt="' . __('With selected:') . '" />' . "\n"
             . '<input type="checkbox" id="dbStatsForm_checkall" class="checkall_box" '

@@ -1022,12 +1022,12 @@ $cfg['HideStructureActions'] = true;
  */
 
 /**
- * Use icons instead of text for the navigation bar buttons
- * and on right panel top menu (server db table) (true|false|'both')
+ * Use icons instead of text for the navigation bar buttons (table browse)
+ * ('text'|'icons'|'both')
  *
- * @global string $cfg['NavigationBarIconic']
+ * @global string $cfg['TableNavigationLinksMode']
  */
-$cfg['NavigationBarIconic'] = true;
+$cfg['TableNavigationLinksMode'] = 'icons';
 
 /**
  * Defines whether a user should be displayed a "show all (records)"
@@ -1198,11 +1198,18 @@ $cfg['CompressOnFly'] = true;
  */
 
 /**
- * Use icons instead of text for the table display of a database (true|false|'both')
+ * How to display the menu tabs ('icons'|'text'|'both')
  *
- * @global boolean $cfg['PropertiesIconic']
+ * @global boolean $cfg['TabsMode']
  */
-$cfg['PropertiesIconic'] = 'both';
+$cfg['TabsMode'] = 'both';
+
+/**
+ * How to display various action links ('icons'|'text'|'both')
+ *
+ * @global boolean $cfg['ActionLinksMode']
+ */
+$cfg['ActionLinksMode'] = 'both';
 
 /**
  * How many columns should be used for table display of a database?

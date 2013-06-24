@@ -131,7 +131,11 @@ class PMA_Footer
         $retval .= '<div id="selflink" class="print_ignore">';
         $retval .= '<a href="' . $url . '"'
             . ' title="' . __('Open new phpMyAdmin window') . '" target="_blank">';
-        if ($GLOBALS['cfg']['NavigationBarIconic']) {
+        if (in_array(
+            $GLOBALS['cfg']['TabsMode'],
+            array('icons', 'both')
+            )
+        ) {
             $retval .= PMA_Util::getImage(
                 'window-new.png',
                 __('Open new phpMyAdmin window')

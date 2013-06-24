@@ -407,7 +407,11 @@ class PMA_User_Schema
             <legend>
             <?php
             echo PMA_generate_common_hidden_inputs($db);
-            if ($cfg['PropertiesIconic']) {
+            if (in_array(
+                    $GLOBALS['cfg']['ActionLinksMode'],
+                    array('icons', 'both')
+                )
+            ) {
                 echo PMA_Util::getImage('b_views.png');
             }
             echo __('Display relational schema');
