@@ -4,10 +4,9 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.5-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-06-24 10:43+0200\n"
-"PO-Revision-Date: 2013-06-04 11:10+0200\n"
-"Last-Translator: Domen <dbc334@gmail.com>\n"
-"Language-Team: Slovenian <http://l10n.cihar.com/projects/phpmyadmin/4-0/sl/"
-">\n"
+"PO-Revision-Date: 2013-06-24 16:04+0200\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"Language-Team: Slovenian <http://l10n.cihar.com/projects/phpmyadmin/4-0/sl/>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -3863,12 +3862,12 @@ msgstr "zaznana številska tipka"
 #: libraries/config.values.php:49 libraries/config.values.php:64
 #: libraries/config.values.php:69
 msgid "Icons"
-msgstr ""
+msgstr "Ikone"
 
 #: libraries/config.values.php:50 libraries/config.values.php:65
 #: libraries/config.values.php:70
 msgid "Text"
-msgstr ""
+msgstr "Besedilo"
 
 #: libraries/config.values.php:51 libraries/config.values.php:58
 #: libraries/config.values.php:66 libraries/config.values.php:71
@@ -5247,10 +5246,9 @@ msgid "Use only icons, only text or both"
 msgstr "Uporabi samo ikone, samo besedilo ali oboje"
 
 #: libraries/config/messages.inc.php:325
-#, fuzzy
 #| msgid "Iconic navigation bar"
 msgid "Table navigation bar"
-msgstr "Ikonska navigacijska vrstica"
+msgstr "Navigacijska vrstica tabele"
 
 #: libraries/config/messages.inc.php:326
 msgid "use GZip output buffering for increased speed in HTTP transfers"
@@ -5319,14 +5317,13 @@ msgid "MySQL reserved word warning"
 msgstr "Opozorilo rezerviranih besed MySQL"
 
 #: libraries/config/messages.inc.php:339
-#, fuzzy
 #| msgid "Allow to display all the rows"
 msgid "How to display the menu tabs"
-msgstr "Dovoli prikaz vseh vrstic"
+msgstr "Kako prikazati zavihke menija"
 
 #: libraries/config/messages.inc.php:341
 msgid "How to display various action links"
-msgstr ""
+msgstr "Kako prikazati različne povezave dejanj"
 
 #: libraries/config/messages.inc.php:342
 msgid "Disallow BLOB and BINARY columns from editing"
@@ -8211,10 +8208,9 @@ msgstr ""
 "težave in poskusite znova."
 
 #: libraries/plugins/import/ImportOds.class.php:182
-#, fuzzy
 #| msgid "OpenDocument Spreadsheet"
 msgid "Could not parse OpenDocument Spreadsheet!"
-msgstr "Preglednica OpenDocument"
+msgstr "Ne morem razčleniti preglednice OpenDocument!"
 
 #: libraries/plugins/import/ImportShp.class.php:53
 msgid "ESRI Shape File"
