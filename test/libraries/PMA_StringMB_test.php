@@ -29,10 +29,14 @@ class PMA_String_Mb_Test extends PMA_StringNative_Test
      */
     protected function setUp() 
     {
-        $this->internal_encoding = mb_internal_encoding();
-        mb_internal_encoding("UTF-8");
-
-        $this->testClass = new PMA_StringMB;
+        if (@function_exists('mb_strlen')) {
+            $this->internal_encoding = mb_internal_encoding();
+            $this->testClass = new PMA_StringMB;
+        } else {
+            $this->markTestSkipped(
+                "Multibyte functions don't exist, skipping test."
+            );
+        }
     }
 
     /**
@@ -43,7 +47,9 @@ class PMA_String_Mb_Test extends PMA_StringNative_Test
      */
     protected function tearDown() 
     {
-        mb_internal_encoding($this->internal_encoding);
+        if (isset($this->internal_encoding)) {
+            mb_internal_encoding($this->internal_encoding);
+        }
     }
 }
 ?>
