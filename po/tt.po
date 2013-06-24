@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.5-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-06-24 10:43+0200\n"
-"PO-Revision-Date: 2013-05-07 17:13+0200\n"
+"PO-Revision-Date: 2013-06-24 16:06+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Tatar <http://l10n.cihar.com/projects/phpmyadmin/4-0/tt/>\n"
 "Language: tt\n"
@@ -204,7 +204,7 @@ msgstr "Töpcay"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1364
 #: libraries/schema/Pdf_Relation_Schema.class.php:1387 tbl_printview.php:135
 msgid "Links to"
-msgstr "Bonı belän bäyläneş:"
+msgstr "Bonı belän bäyläneş"
 
 #: db_datadict.php:176 db_printview.php:107
 #: libraries/config/messages.inc.php:92 libraries/config/messages.inc.php:107
@@ -2842,7 +2842,7 @@ msgstr ""
 
 #: libraries/DisplayResults.class.php:4927
 msgid "Showing rows"
-msgstr "Yazma sanı:"
+msgstr "Yazma sanı"
 
 #: libraries/DisplayResults.class.php:4943
 msgid "total"
@@ -7937,7 +7937,7 @@ msgstr ""
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:201
 msgid "Server:"
-msgstr "Server"
+msgstr "Server:"
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:213
 msgid "Username:"
@@ -9389,7 +9389,7 @@ msgstr "Tüşämä ülçämen kürsätü"
 
 #: libraries/schema/User_Schema.class.php:461
 msgid "Display all tables with the same width"
-msgstr "display all Tables with same width?"
+msgstr ""
 
 #: libraries/schema/User_Schema.class.php:464 libraries/structure.lib.php:379
 msgid "Data Dictionary"
@@ -9648,7 +9648,7 @@ msgstr "Berär tüşämä öçen xoquqlar"
 #: libraries/server_privileges.lib.php:785
 #: libraries/server_privileges.lib.php:2383
 msgid "Note: MySQL privilege names are expressed in English"
-msgstr "Beläse: MySQL'da xoquq adı İnglizçä kertelä!"
+msgstr "Beläse: MySQL'da xoquq adı İnglizçä kertelä"
 
 #: libraries/server_privileges.lib.php:750
 msgid "Administration"
