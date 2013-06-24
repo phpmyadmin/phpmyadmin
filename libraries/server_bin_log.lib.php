@@ -92,9 +92,7 @@ function PMA_getLogInfo($binary_log_file_names, $url_params)
     if (! empty($_REQUEST['log'])) {
         $sql_query .= ' IN \'' . $_REQUEST['log'] . '\'';
     }
-    if ($GLOBALS['cfg']['MaxRows'] !== 'all') {
-        $sql_query .= ' LIMIT ' . $pos . ', ' . (int) $GLOBALS['cfg']['MaxRows'];
-    }
+    $sql_query .= ' LIMIT ' . $pos . ', ' . (int) $GLOBALS['cfg']['MaxRows'];
 
     /**
      * Sends the query
