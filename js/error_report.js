@@ -4,7 +4,7 @@
  *
  */
 
-var last_erro_info = {}
+var last_error_info = {}
 
 window.onerror = error_handler
 function error_handler(message, file, line) {
@@ -13,20 +13,35 @@ function error_handler(message, file, line) {
         "file": file,
         "line": line,
     }
-    showErrorNotification()
+    
+    $.get("error_report.php",{
+        ajax_request: true,
+        token: get_token(),
+        get_settings: true,
+    }, function(data) {
+        if(data.report_setting == "ask") {
+            showErrorNotification();
+        } else if(data.report_setting == "always") {
+            report_data = get_report_data(message, file, line);
+            post_data = $.extend(report_data, {
+                send_error_report: true,
+                automatic: true,
+            });
+            $.post("error_report.php", post_data, function (data) {
+                if (data.success === false) {
+                    //in the case of an error, show the error message returned.
+                    PMA_ajaxShowMessage(data.error, false);
+                } else {
+                    PMA_ajaxShowMessage(data.message, false);
+                }
+            });
+        }
+    });
 }
 
 function showReportDialog (message, file, line) {
-    regex = /token=([\da-z]+)/
-    token = regex.exec($("#selflink a")[0].href)[1]
 
-    var report_data = {
-        "ajax_request": true,
-        "token": token,
-        "message": message,
-        "file": file,
-        "line": line,
-    }
+    var report_data = get_report_data(message, file, line);
 
     /*Remove the hidden dialogs if there are*/
     if ($('#error_report_dialog').length !== 0) {
@@ -36,20 +51,21 @@ function showReportDialog (message, file, line) {
 
     var button_options = {};
 
-    button_options["Send Error Report"] = function () {
+    button_options[PMA_messages.strSendErrorReport] = function () {
         $dialog = $(this);
         post_data = $.extend(report_data, {
             send_error_report: true,
-            description: $("#report_description").val()
+            description: $("#report_description").val(),
+            always_send: $("#always_send_checkbox")[0].checked,
         })
         $.post("error_report.php", post_data, function (data) {
             $dialog.dialog('close')
             if (data.success === false) {
                 //in the case of an error, show the error message returned.
+                //currently not possible but just in case
                 PMA_ajaxShowMessage(data.error, false);
             } else {
-                PMA_ajaxShowMessage(data.message, false);
-                setTimeout("window.location.reload()", 2000);
+                PMA_ajaxShowMessage(data.message, 3000);
             }
         })
     }
@@ -58,7 +74,7 @@ function showReportDialog (message, file, line) {
         $(this).dialog('close');
     };
 
-    $.get("error_report.php", report_data, function (data) {
+    $.post("error_report.php", report_data, function (data) {
         if (data.success === false) {
             //in the case of an error, show the error message returned.
             PMA_ajaxShowMessage(data.error, false);
@@ -67,7 +83,7 @@ function showReportDialog (message, file, line) {
             $div
             .append(data.message)
             .dialog({
-                title: "Submit error report",
+                title: PMA_messages.strSubmitErrorReport,
                 width: 650,
                 modal: true,
                 buttons: button_options,
@@ -86,13 +102,17 @@ function showErrorNotification() {
             +'z-index:1000" class="error" id="error_notification"></div>')
     html = ""
     html += '<img src="themes/dot.gif" title="" alt="" class="icon ic_s_error">'
-    html += 'An error has occured do you want to send an error report'
+    html += PMA_messages.strErrorOccured
     $div.html(html)
 
     $buttons = $('<div style="float:right"></div>')
     button_html = '';
-    button_html += '<button onclick="createReportDialog()">Send Report</button>'
-    button_html += '<button onclick="removeErrorNotification()">Ignore</button>'
+    button_html += '<button onclick="go_to_settings()">'+
+                    PMA_messages.strChangeReportSettings + '</button>'
+    button_html += '<button onclick="createReportDialog()">'+
+                    PMA_messages.strShowReportDetails + '</button>'
+    button_html += '<button onclick="removeErrorNotification()">'+
+                    PMA_messages.strIgnore + '</button>'
     $buttons.html(button_html)
 
     $div.append($buttons)
@@ -108,6 +128,45 @@ function createReportDialog() {
     showReportDialog(last_error_info.message, last_error_info.file, last_error_info.line)
 }
 
+function get_microhistory() {
+    cached_pages = AJAX.cache.pages.slice(-7);
+    return {
+        pages: cached_pages.map(function(page) {
+            return {
+                hash: page.hash,
+                params: page.params,
+            }
+        }),
+        current_index: AJAX.cache.current -
+            (AJAX.cache.pages.length - cached_pages.length)
+    };
+}
+
+function go_to_settings() {
+   window.location.href = "prefs_forms.php?token=" + get_token();
+}
+
+function get_token() {
+    regex = /token=([\da-z]+)/
+    token = regex.exec($("#selflink a")[0].href)[1]
+    return token;
+}
+
+function get_report_data(message, file, line) {
+    var token = get_token();
+
+    var report_data = {
+        "ajax_request": true,
+        "token": token,
+        "message": message,
+        "file": file,
+        "line": line,
+        "current_url": window.location.href,
+        "microhistory": get_microhistory(),
+    }
+    return report_data;
+}
+
 $(function(){
-    setTimeout("a()", 3000);
+    a();
 })

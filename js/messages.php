@@ -372,6 +372,14 @@ $js_messages['strNewerVersion'] = __('A newer version of phpMyAdmin is available
 $js_messages['strLatestAvailable'] = __(', latest stable version:');
 $js_messages['strUpToDate'] = __('up to date');
 
+/* Error Reporting */
+$js_messages['strSendErrorReport'] = __("Send Error Report");
+$js_messages['strSubmitErrorReport'] = __("Submit Error Report");
+$js_messages['strErrorOccured'] = __("An error has occured do you want to send an error report");
+$js_messages['strChangeReportSettings'] = __("Change Report Settings");
+$js_messages['strShowReportDetails'] = __("Show Report Details");
+$js_messages['strIgnore'] = __("Ignore");
+
 
 echo "var PMA_messages = new Array();\n";
 foreach ($js_messages as $name => $js_message) {

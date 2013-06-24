@@ -11,15 +11,31 @@
 require_once 'libraries/common.inc.php';
 require_once 'libraries/Index.class.php';
 require_once 'libraries/tbl_info.inc.php';
+require_once 'libraries/user_preferences.lib.php';
 
 $submission_url="localhost/phpmyadminserver/reports/new";
 
+$response = PMA_Response::getInstance();
+
 if ($_REQUEST['send_error_report'] == true) {
-    send_error_report(get_report_data());
-    $response = PMA_Response::getInstance();
-    $response->addJSON('message', PMA_Message::success(
-        __('Thank you for submitting this report. Your page will refresh '
-            .'shortly')));
+    send_error_report(get_report_data(false));
+    if ($_REQUEST['automatic'] == true) {
+        $response->addJSON('message', PMA_Message::error(
+            __('An error has been detected and an error report has been '
+                .'automatically submitted based on your settings.')
+            . '<br />'
+            . __('You may want to refresh the page.')));
+    } else {
+        $response->addJSON('message', PMA_Message::success(
+            __('Thank you for submitting this report.')
+            . '<br />'
+            . __('You may want to refresh the page.')));
+        if($_REQUEST['always_send'] == true) {
+            PMA_persistOption("SendErrorReports", "always", "ask");
+        }
+    }
+} elseif ($_REQUEST['get_settings']) {
+    $response->addJSON('report_setting', $GLOBALS['cfg']['SendErrorReports']);
 } else {
     $html = "";
     $html .= '<form action="error_report.php" method="post" name="report_frm"'
@@ -36,15 +52,21 @@ if ($_REQUEST['send_error_report'] == true) {
     $html .= '<div class="label"><label><p>'
             . __('You may examine the data in the error report:')
             .'</p></label></div>'
-            .'<textarea cols="80" style="height:13em; overflow:scroll">'
+            .'<textarea cols="80" style="height:13em; overflow:scroll" disabled>'
             .get_report_data()
             .'</textarea>';
 
     $html .= '<div class="label"><label><p>'
-            . __('Please explain the steps that lead to the error')
+            . __('Please explain the steps that lead to the error:')
             .'</p></label></div>'
             .'<textarea cols="80" style="height:10em" name="description"'
             .'id="report_description"></textarea>';
+
+    $html .= '<input type="checkbox" name="always_send"'
+            .' id="always_send_checkbox"/>'
+            .'<span>'
+            . __('Automatically send report next time')
+            .'</span>';
 
     $html .= '</fieldset>';
 
@@ -58,7 +80,6 @@ if ($_REQUEST['send_error_report'] == true) {
 
     $html .= '</form>';
 
-    $response = PMA_Response::getInstance();
     $response->addHTML($html);
 }
 
@@ -70,7 +91,14 @@ function get_report_data($json_encode = true) {
         "pma_version" => PMA_VERSION,
         "browser_agent" => PMA_USR_BROWSER_AGENT,
         "browser_version" => PMA_USR_BROWSER_VER,
-        "operating_system" => PMA_USR_OS
+        "operating_system" => PMA_USR_OS,
+        "user_agent_string" => $_SERVER['HTTP_USER_AGENT'],
+        "current_locale" => $_COOKIE['pma_lang'],
+        "current_url" => $_REQUEST['current_url'],
+        "configuration_storage_enabled" =>
+            !empty($GLOBALS['cfg']['Servers'][1]['pmadb']),
+        "php_version" => phpversion(),
+        "microhistory" => $_REQUEST['microhistory'],
     );
 
     if(!empty($_REQUEST['description'])) {
