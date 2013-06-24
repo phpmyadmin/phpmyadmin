@@ -179,7 +179,7 @@ class ImportOds extends ImportPlugin
             if (empty($root)) {
                 $sheets = array();
                 $message = PMA_Message::error(
-                    __('Could not parse OpenDocument Spreasheet!')
+                    __('Could not parse OpenDocument Spreadsheet!')
                 );
                 $error = true;
             } else {
