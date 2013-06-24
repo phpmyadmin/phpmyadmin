@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-06-24 10:45+0200\n"
-"PO-Revision-Date: 2013-06-24 15:05+0200\n"
+"PO-Revision-Date: 2013-06-24 15:22+0200\n"
 "Last-Translator: Mathieu Terroba <mathieu.terroba@gmail.com>\n"
 "Language-Team: French <http://l10n.cihar.com/projects/phpmyadmin/master/fr/>\n"
 "Language: fr\n"
@@ -5327,10 +5327,9 @@ msgid "Use only icons, only text or both"
 msgstr "Afficher seulement des icônes, seulement du texte ou les deux"
 
 #: libraries/config/messages.inc.php:325
-#, fuzzy
 #| msgid "Iconic navigation bar"
 msgid "Table navigation bar"
-msgstr "Apparence de la barre de navigation"
+msgstr "Barre de navigation"
 
 #: libraries/config/messages.inc.php:326
 msgid "use GZip output buffering for increased speed in HTTP transfers"
@@ -8439,7 +8438,7 @@ msgstr ""
 
 #: libraries/plugins/import/ImportOds.class.php:182
 msgid "Could not parse OpenDocument Spreadsheet!"
-msgstr "Analyse incorrecte du tableur OpenDocument !"
+msgstr "La feuille de calcul OpenDocument n'a pas pu être parcourue !"
 
 #: libraries/plugins/import/ImportShp.class.php:53
 msgid "ESRI Shape File"
