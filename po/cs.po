@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.5-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-06-24 10:43+0200\n"
-"PO-Revision-Date: 2013-06-03 17:18+0200\n"
+"PO-Revision-Date: 2013-06-24 15:47+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Czech <http://l10n.cihar.com/projects/phpmyadmin/4-0/cs/>\n"
 "Language: cs\n"
@@ -3832,12 +3832,12 @@ msgstr "detekován číselný klíč"
 #: libraries/config.values.php:49 libraries/config.values.php:64
 #: libraries/config.values.php:69
 msgid "Icons"
-msgstr ""
+msgstr "Ikony"
 
 #: libraries/config.values.php:50 libraries/config.values.php:65
 #: libraries/config.values.php:70
 msgid "Text"
-msgstr ""
+msgstr "Text"
 
 #: libraries/config.values.php:51 libraries/config.values.php:58
 #: libraries/config.values.php:66 libraries/config.values.php:71
@@ -5202,10 +5202,9 @@ msgid "Use only icons, only text or both"
 msgstr "Zda se mají zobrazit pouze ikony, nebo pouze text, případně obojí"
 
 #: libraries/config/messages.inc.php:325
-#, fuzzy
 #| msgid "Iconic navigation bar"
 msgid "Table navigation bar"
-msgstr "Ikony v navigační liště"
+msgstr "Lišta při procházení tabulky"
 
 #: libraries/config/messages.inc.php:326
 msgid "use GZip output buffering for increased speed in HTTP transfers"
@@ -5273,14 +5272,13 @@ msgid "MySQL reserved word warning"
 msgstr "Varování o klíčových slovech MySQL"
 
 #: libraries/config/messages.inc.php:339
-#, fuzzy
 #| msgid "Allow to display all the rows"
 msgid "How to display the menu tabs"
-msgstr "Umožní zobrazit všechny řádky"
+msgstr "Jak zobrazit panely nabídky"
 
 #: libraries/config/messages.inc.php:341
 msgid "How to display various action links"
-msgstr ""
+msgstr "Jak zobrazit akční odkazy"
 
 #: libraries/config/messages.inc.php:342
 msgid "Disallow BLOB and BINARY columns from editing"
@@ -8148,10 +8146,9 @@ msgstr ""
 "zkuste to znovu."
 
 #: libraries/plugins/import/ImportOds.class.php:182
-#, fuzzy
 #| msgid "OpenDocument Spreadsheet"
 msgid "Could not parse OpenDocument Spreadsheet!"
-msgstr "Sešit OpenDocument"
+msgstr "Nepodařilo se otevřít Sešit OpenDocument!"
 
 #: libraries/plugins/import/ImportShp.class.php:53
 msgid "ESRI Shape File"
