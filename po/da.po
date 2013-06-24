@@ -8369,7 +8369,7 @@ msgstr ""
 "prøv igen."
 
 #: libraries/plugins/import/ImportOds.class.php:182
-msgid "Could not parse OpenDocument Spreasheet!"
+msgid "Could not parse OpenDocument Spreadsheet!"
 msgstr "Kunne ikke fortolke OpenDocument-regnearket!"
 
 #: libraries/plugins/import/ImportShp.class.php:53

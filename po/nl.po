@@ -8447,7 +8447,7 @@ msgstr ""
 "probeer opnieuw."
 
 #: libraries/plugins/import/ImportOds.class.php:182
-msgid "Could not parse OpenDocument Spreasheet!"
+msgid "Could not parse OpenDocument Spreadsheet!"
 msgstr "Kon OpenDocument-rekenblad niet inlezen!"
 
 #: libraries/plugins/import/ImportShp.class.php:53

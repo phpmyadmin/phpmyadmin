@@ -8504,7 +8504,7 @@ msgstr ""
 "problema e intente nuevamente."
 
 #: libraries/plugins/import/ImportOds.class.php:182
-msgid "Could not parse OpenDocument Spreasheet!"
+msgid "Could not parse OpenDocument Spreadsheet!"
 msgstr "¡No se pudo procesar la hoja de cálculo Open Document!"
 
 #: libraries/plugins/import/ImportShp.class.php:53

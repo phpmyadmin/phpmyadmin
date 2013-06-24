@@ -8559,7 +8559,7 @@ msgstr ""
 #: libraries/plugins/import/ImportOds.class.php:182
 #, fuzzy
 #| msgid "Open Document Spreadsheet"
-msgid "Could not parse OpenDocument Spreasheet!"
+msgid "Could not parse OpenDocument Spreadsheet!"
 msgstr "Full de càlcul Open Document"
 
 #: libraries/plugins/import/ImportShp.class.php:53

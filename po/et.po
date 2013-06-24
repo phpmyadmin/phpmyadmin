@@ -8319,7 +8319,7 @@ msgstr ""
 "see viga ja proovi uuesti."
 
 #: libraries/plugins/import/ImportOds.class.php:182
-msgid "Could not parse OpenDocument Spreasheet!"
+msgid "Could not parse OpenDocument Spreadsheet!"
 msgstr "OpenDocument tabeli parsimine ebaõnnestus!"
 
 #: libraries/plugins/import/ImportShp.class.php:53

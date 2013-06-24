@@ -8396,7 +8396,7 @@ msgstr ""
 "düzeltin ve tekrar deneyin."
 
 #: libraries/plugins/import/ImportOds.class.php:182
-msgid "Could not parse OpenDocument Spreasheet!"
+msgid "Could not parse OpenDocument Spreadsheet!"
 msgstr "OpenDocument Hesap Tablosu ayrıştırılamadı!"
 
 #: libraries/plugins/import/ImportShp.class.php:53
