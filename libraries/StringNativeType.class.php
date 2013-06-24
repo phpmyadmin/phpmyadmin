@@ -39,7 +39,7 @@ class PMA_StringNativeType
      */
     public static function isAlpha($c)
     {
-        return ($GLOBALS['PMA_StringType']::isUpper($c) || $GLOBALS['PMA_StringType']::isLower($c));
+        return (self::isUpper($c) || self::isLower($c));
     } // end of the "isAlpha()" function
 
     /**
