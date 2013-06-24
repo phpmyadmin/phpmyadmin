@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-06-24 16:19+0200\n"
-"PO-Revision-Date: 2013-06-24 15:56+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Swedish <http://l10n.cihar.com/projects/phpmyadmin/master/sv/"
-">\n"
+"PO-Revision-Date: 2013-06-24 16:12+0200\n"
+"Last-Translator: Anders Jonsson <anders.jonsson@norsjovallen.se>\n"
+"Language-Team: Swedish "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/sv/>\n"
 "Language: sv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -5586,10 +5586,9 @@ msgstr ""
 "använda den aktuella värden"
 
 #: libraries/config/messages.inc.php:392
-#, fuzzy
 #| msgid "Control host"
 msgid "Control port"
-msgstr "Kontrollvärd"
+msgstr "Kontrollport"
 
 #: libraries/config/messages.inc.php:393
 msgid ""
@@ -8352,10 +8351,9 @@ msgstr ""
 "problemet och försök igen."
 
 #: libraries/plugins/import/ImportOds.class.php:182
-#, fuzzy
 #| msgid "OpenDocument Spreadsheet"
 msgid "Could not parse OpenDocument Spreadsheet!"
-msgstr "OpenDocument-kalkylblad"
+msgstr "Kunde inte tolka OpenDocument-kalkylblad!"
 
 #: libraries/plugins/import/ImportShp.class.php:53
 msgid "ESRI Shape File"
@@ -10256,10 +10254,9 @@ msgid "Summary by state"
 msgstr ""
 
 #: libraries/sql.lib.php:503
-#, fuzzy
 #| msgid "Total time:"
 msgid "Total Time"
-msgstr "Total tid:"
+msgstr "Total tid"
 
 #: libraries/sql.lib.php:505
 msgid "% Time"
