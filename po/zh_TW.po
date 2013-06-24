@@ -8089,7 +8089,7 @@ msgid ""
 msgstr "該 XML 檔案有錯誤或者不完整。請修復錯誤後重試。"
 
 #: libraries/plugins/import/ImportOds.class.php:182
-msgid "Could not parse OpenDocument Spreasheet!"
+msgid "Could not parse OpenDocument Spreadsheet!"
 msgstr "無法解析 OpenOffice 表格!"
 
 #: libraries/plugins/import/ImportShp.class.php:53

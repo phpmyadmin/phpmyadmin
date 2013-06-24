@@ -8440,7 +8440,7 @@ msgstr ""
 "et essayer à nouveau."
 
 #: libraries/plugins/import/ImportOds.class.php:182
-msgid "Could not parse OpenDocument Spreasheet!"
+msgid "Could not parse OpenDocument Spreadsheet!"
 msgstr "Analyse incorrecte du tableur OpenDocument !"
 
 #: libraries/plugins/import/ImportShp.class.php:53
