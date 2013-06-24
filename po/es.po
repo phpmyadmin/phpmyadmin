@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-06-24 10:45+0200\n"
-"PO-Revision-Date: 2013-06-24 15:47+0200\n"
+"PO-Revision-Date: 2013-06-24 15:48+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone+weblate@gmail.com>\n"
 "Language-Team: Spanish "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/es/>\n"
@@ -5441,7 +5441,7 @@ msgstr "Cómo mostrar las pestañas del menú"
 
 #: libraries/config/messages.inc.php:341
 msgid "How to display various action links"
-msgstr "Cómo mostrar varios enlaces de acción"
+msgstr "Cómo mostrar varios enlaces de acciones"
 
 #: libraries/config/messages.inc.php:342
 msgid "Disallow BLOB and BINARY columns from editing"
