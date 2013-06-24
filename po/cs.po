@@ -5330,7 +5330,7 @@ msgstr "Varování o klíčových slovech MySQL"
 #: libraries/config/messages.inc.php:339
 #| msgid "Allow to display all the rows"
 msgid "How to display the menu tabs"
-msgstr "Jak zobrazit karty nabídky"
+msgstr "Jak zobrazit panely nabídky"
 
 #: libraries/config/messages.inc.php:341
 msgid "How to display various action links"
