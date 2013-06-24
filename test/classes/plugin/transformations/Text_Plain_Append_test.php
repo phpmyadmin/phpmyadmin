@@ -12,7 +12,7 @@
 /* Each PluginObserver instance contains a PluginManager instance */
 require_once 'libraries/plugins/PluginManager.class.php';
 require_once 'libraries/plugins/transformations/Text_Plain_Append.class.php';
-
+require_once 'libraries/php-gettext/gettext.inc';
 /**
  * Tests for Text_Plain_Append class
  *
@@ -127,5 +127,18 @@ class Text_Plain_Append_Test extends PHPUnit_Framework_TestCase
             "PMA_BUFFERoption1",
             $this->object->applyTransformation($buffer, $options)
         );    
+        //no options
+        $result = "PMA_BUFFER";
+        $this->assertEquals(
+            $result,
+            $this->object->applyTransformation($buffer)
+        );
+        //html string     
+        $result = "PMA_BUFFER&lt;a&gt;abc&lt;/a&gt;";
+        $options = array("<a>abc</a>");
+        $this->assertEquals(
+            $result,
+            $this->object->applyTransformation($buffer, $options)
+        ); 
     }
 }

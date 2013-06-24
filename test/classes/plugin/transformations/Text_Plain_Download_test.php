@@ -10,6 +10,8 @@
  */
 
 /* Each PluginObserver instance contains a PluginManager instance */
+require_once 'libraries/Util.class.php';
+require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/plugins/PluginManager.class.php';
 require_once 'libraries/plugins/transformations/Application_Octetstream_Download.class.php';
 
@@ -35,6 +37,9 @@ class Application_Octetstream_Download_Test extends PHPUnit_Framework_TestCase
     protected function setUp()
     {
         $this->object = new Application_Octetstream_Download(new PluginManager()); 
+        global $row, $fields_meta;
+        $fields_meta = array();
+        $row = array("pma"=>"aaa", "pca"=>"bbb");
     }
 
     /**
@@ -133,6 +138,16 @@ class Application_Octetstream_Download_Test extends PHPUnit_Framework_TestCase
         $this->assertEquals(
             $result,
             $this->object->applyTransformation($buffer, $options)
-        );    
+        );  
+        
+        //using default filename: binary_file.dat
+        $options = array("", 'cloumn', 'wrapper_link'=>'PMA_wrapper_link');
+        $result = '<a href="transformation_wrapper.phpPMA_wrapper_link&amp;' 
+            . 'ct=application/octet-stream&amp;cn=binary_file.dat" ' 
+            . 'title="binary_file.dat">binary_file.dat</a>';
+        $this->assertEquals(
+            $result,
+            $this->object->applyTransformation($buffer, $options)
+        );
     }
 }
