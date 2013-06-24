@@ -42,9 +42,9 @@ class PMA_Iconv_Wrapper_Test extends PHPUnit_Framework_TestCase
 
 
     /**
-     * Data provider for testIconvWrapper
+     * Data provider for testIconvMapCharsets
      *
-     * @return array data for testIconvWrapper test case
+     * @return array data for testIconvMapCharsets test case
      */
     public function iconvDataProvider()
     {

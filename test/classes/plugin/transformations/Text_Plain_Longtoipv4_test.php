@@ -10,6 +10,7 @@
  */
 
 /* Each PluginObserver instance contains a PluginManager instance */
+require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/plugins/PluginManager.class.php';
 require_once 'libraries/plugins/transformations/Text_Plain_Longtoipv4.class.php';
 
@@ -126,6 +127,14 @@ class Text_Plain_Longtoipv4_Test extends PHPUnit_Framework_TestCase
         $this->assertEquals(
             "2.143.92.40",
             $this->object->applyTransformation($buffer, $options)
-        );    
+        );   
+        
+        //too big      
+        $buffer = 4294967295;
+        $options = array("option1", "option2");
+        $this->assertEquals(
+            "255.255.255.255",
+            $this->object->applyTransformation($buffer, $options)
+        ); 
     }
 }

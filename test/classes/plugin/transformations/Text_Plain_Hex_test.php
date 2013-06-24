@@ -10,6 +10,7 @@
  */
 
 /* Each PluginObserver instance contains a PluginManager instance */
+require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/plugins/PluginManager.class.php';
 require_once 'libraries/plugins/transformations/Application_Octetstream_Hex.class.php';
 
@@ -135,6 +136,14 @@ class Application_Octetstream_Hex_Test extends PHPUnit_Framework_TestCase
         $this->assertEquals(
             "3131313131303031",
             $this->object->applyTransformation($buffer, $options)
-        );    
+        ); 
+         
+        //no option        
+        $buffer = "11111001";
+        $this->assertEquals(
+            "31 31 31 31 31 30 30 31 ",
+            $this->object->applyTransformation($buffer)
+        ); 
+          
     }
 }

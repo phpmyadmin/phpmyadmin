@@ -12,20 +12,6 @@
 require_once 'libraries/common.inc.php';
 require_once 'libraries/pmd_common.php';
 
-/**
- * Sets globals from $_GET
- */
-$get_params = array(
-    'db',
-    'table',
-    'token'
-);
-foreach ($get_params as $one_get_param) {
-    if (isset($_GET[$one_get_param])) {
-        $GLOBALS[$one_get_param] = $_GET[$one_get_param];
-    }
-}
-
 $script_display_field = get_tables_info();
 $tab_column       = get_columns_info();
 $script_tables    = get_script_tabs();
@@ -35,8 +21,8 @@ $tables_pk_or_unique_keys = get_pk_or_unique_keys();
 $tables_all_keys  = get_all_keys();
 
 $params = array('lang' => $GLOBALS['lang']);
-if (isset($GLOBALS['db'])) {
-    $params['db'] = $GLOBALS['db'];
+if (isset($_GET['db'])) {
+    $params['db'] = $_GET['db'];
 }
 
 $response = PMA_Response::getInstance();
@@ -60,10 +46,10 @@ echo '<div id="script_server" class="hide">';
 echo htmlspecialchars($GLOBALS['server']);
 echo '</div>';
 echo '<div id="script_db" class="hide">';
-echo htmlspecialchars($GLOBALS['db']);
+echo htmlspecialchars($_GET['db']);
 echo '</div>';
 echo '<div id="script_token" class="hide">';
-echo htmlspecialchars($GLOBALS['token']);
+echo htmlspecialchars($_GET['token']);
 echo '</div>';
 echo '<div id="script_tables" class="hide">';
 echo htmlspecialchars(json_encode($script_tables));
@@ -295,7 +281,7 @@ for ($i = 0; $i < count($GLOBALS['PMD']["TABLE_NAME"]); $i++) {
         echo 'style="display: none;"';
     }
     echo '>';
-    $display_field = PMA_getDisplayField($db, $GLOBALS['PMD']["TABLE_NAME_SMALL"][$i]);
+    $display_field = PMA_getDisplayField($_GET['db'], $GLOBALS['PMD']["TABLE_NAME_SMALL"][$i]);
     for ($j = 0, $id_cnt = count($tab_column[$t_n]["COLUMN_ID"]); $j < $id_cnt; $j++) {
         ?>
 <tr id="id_tr_<?php
@@ -864,7 +850,7 @@ if (! empty($_REQUEST['query'])) {
     echo '<textarea cols="80" name="sql_query" id="textSqlquery" rows="15"></textarea><div id="tblfooter">';
     echo '  <input type="submit" name="submit_sql" class="btn" />';
     echo '  <input type="button" name="cancel" value="' . __('Cancel') . '" onclick="closebox()" class="btn" />';
-    echo PMA_generate_common_hidden_inputs($GLOBALS['db']);
+    echo PMA_generate_common_hidden_inputs($_GET['db']);
     echo '</div></p>';
     echo '</form></div>';
 

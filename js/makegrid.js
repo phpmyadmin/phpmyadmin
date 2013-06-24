@@ -1634,7 +1634,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                         e.preventDefault();
                         // get the click count and increase
                         var clicks = $cell.data('clicks');
-                        clicks = (clicks === null) ? 1 : clicks + 1;
+                        clicks = (typeof clicks === 'undefined') ? 1 : clicks + 1;
 
                         if (clicks == 1) {
                             // if there are no previous clicks,

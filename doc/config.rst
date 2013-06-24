@@ -1537,33 +1537,31 @@ Database structure
 Browse mode
 -----------
 
-.. config:option:: $cfg['NavigationBarIconic']
+.. config:option:: $cfg['TableNavigationLinksMode']
 
     :type: string
-    :default: true
+    :default: ``'icons'``
 
-    Defines whether navigation bar buttons contain text or symbols only. A 
-    value of true displays icons, false displays text and 'both' displays 
-    both icons and text.
+    Defines whether the table navigation links contain ``'icons'``, ``'text'`` 
+    or ``'both'``. 
 
 .. config:option:: $cfg['ShowAll']
 
     :type: boolean
     :default: false
 
-    Defines whether a user should be displayed a "Show all" button in
-    browse mode or not in all cases. By default it is shown only on small
-    tables (less than 5 × :config:option:`$cfg['MaxRows']` rows) to avoid
-    performance issues while getting too many rows.
+    Defines whether a user should be displayed a "Show all" button in browse
+    mode or not in all cases. By default it is shown only on small tables (less
+    than 500 rows) to avoid performance issues while getting too many rows.
 
 .. config:option:: $cfg['MaxRows']
 
     :type: integer
-    :default: 30
+    :default: 25
 
     Number of rows displayed when browsing a result set and no LIMIT
     clause is used. If the result set contains more rows, "Previous" and
-    "Next" links will be shown.
+    "Next" links will be shown. Possible values: 25,50,100,250,500.
 
 .. config:option:: $cfg['Order']
 
@@ -1728,15 +1726,22 @@ Export and import settings
 Tabs display settings
 ---------------------
 
-.. config:option:: $cfg['PropertiesIconic']
+.. config:option:: $cfg['TabsMode']
 
     :type: string
     :default: ``'both'``
 
-    If set to ``true``, will display icons instead of text for db and table
+    Defines whether the menu tabs contain ``'icons'``, ``'text'`` or ``'both'``. 
+
+.. config:option:: $cfg['ActionLinksMode']
+
+    :type: string
+    :default: ``'both'``
+
+    If set to ``icons``, will display icons instead of text for db and table
     properties links (like :guilabel:`Browse`, :guilabel:`Select`,
-    :guilabel:`Insert`, ...) and for the menu tabs. Can be set to ``'both'`` 
-    if you want icons AND text. When set to ``false``, will only show text.
+    :guilabel:`Insert`, ...). Can be set to ``'both'`` 
+    if you want icons AND text. When set to ``text``, will only show text.
 
 .. config:option:: $cfg['PropertiesNumColumns']
 
@@ -1974,7 +1979,7 @@ Web server settings
     in :file:`config.footer.inc.php` or :file:`config.header.inc.php`, which
     would be normally not allowed by Content Security Policy.
 
-    To allow some sites, just list them wihin the string:
+    To allow some sites, just list them within the string:
 
     .. code-block:: php
 
@@ -2026,7 +2031,7 @@ Theme settings
     :type: string [CSS color]
     :default:
 
-    The style used for the pointer in the navi frame. See
+    The style used for the pointer in the navigation panel. See
     :file:`themes/themename/layout.inc.php`.
 
 .. config:option:: $cfg['Border']
