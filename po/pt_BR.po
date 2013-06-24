@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.5-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-06-24 10:43+0200\n"
-"PO-Revision-Date: 2013-06-09 06:04+0200\n"
-"Last-Translator: Rodrigo Souza <rodrigo.chrome@outlook.com>\n"
-"Language-Team: Portuguese (Brazil) <http://l10n.cihar.com/projects/"
-"phpmyadmin/4-0/pt_BR/>\n"
+"PO-Revision-Date: 2013-06-24 15:47+0200\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"Language-Team: Portuguese (Brazil) "
+"<http://l10n.cihar.com/projects/phpmyadmin/4-0/pt_BR/>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -3886,12 +3886,12 @@ msgstr "tecla numérica detectada"
 #: libraries/config.values.php:49 libraries/config.values.php:64
 #: libraries/config.values.php:69
 msgid "Icons"
-msgstr ""
+msgstr "Ícones"
 
 #: libraries/config.values.php:50 libraries/config.values.php:65
 #: libraries/config.values.php:70
 msgid "Text"
-msgstr ""
+msgstr "Texto"
 
 #: libraries/config.values.php:51 libraries/config.values.php:58
 #: libraries/config.values.php:66 libraries/config.values.php:71
