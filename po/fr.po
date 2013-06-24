@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-06-24 10:45+0200\n"
-"PO-Revision-Date: 2013-06-24 15:04+0200\n"
+"PO-Revision-Date: 2013-06-24 15:05+0200\n"
 "Last-Translator: Mathieu Terroba <mathieu.terroba@gmail.com>\n"
 "Language-Team: French <http://l10n.cihar.com/projects/phpmyadmin/master/fr/>\n"
 "Language: fr\n"
@@ -5404,7 +5404,7 @@ msgstr "Comment afficher les onglets de menu"
 
 #: libraries/config/messages.inc.php:341
 msgid "How to display various action links"
-msgstr ""
+msgstr "Comment afficher divers liens d'action"
 
 #: libraries/config/messages.inc.php:342
 msgid "Disallow BLOB and BINARY columns from editing"
