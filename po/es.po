@@ -3,11 +3,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-06-24 10:45+0200\n"
+"POT-Creation-Date: 2013-06-24 16:19+0200\n"
 "PO-Revision-Date: 2013-06-24 15:48+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone+weblate@gmail.com>\n"
-"Language-Team: Spanish "
-"<http://l10n.cihar.com/projects/phpmyadmin/master/es/>\n"
+"Language-Team: Spanish <http://l10n.cihar.com/projects/phpmyadmin/master/es/"
+">\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2512,15 +2512,15 @@ msgid "Begin"
 msgstr "Comenzar"
 
 #: libraries/DisplayResults.class.php:782 libraries/Util.class.php:2573
-#: libraries/Util.class.php:2576 libraries/server_bin_log.lib.php:182
-#: libraries/server_bin_log.lib.php:184
+#: libraries/Util.class.php:2576 libraries/server_bin_log.lib.php:180
+#: libraries/server_bin_log.lib.php:182
 msgctxt "Previous page"
 msgid "Previous"
 msgstr "Anterior"
 
 #: libraries/DisplayResults.class.php:839 libraries/Util.class.php:2612
-#: libraries/Util.class.php:2615 libraries/server_bin_log.lib.php:220
-#: libraries/server_bin_log.lib.php:222
+#: libraries/Util.class.php:2615 libraries/server_bin_log.lib.php:218
+#: libraries/server_bin_log.lib.php:220
 msgctxt "Next page"
 msgid "Next"
 msgstr "Siguiente"
@@ -3891,11 +3891,11 @@ msgstr "Comprobar los privilegios para la base de datos &quot;%s&quot;."
 msgid "Check Privileges"
 msgstr "Comprobar los privilegios"
 
-#: libraries/common.inc.php:585
+#: libraries/common.inc.php:592
 msgid "Failed to read configuration file"
 msgstr "No se pudo leer el archivo de configuración"
 
-#: libraries/common.inc.php:587
+#: libraries/common.inc.php:594
 msgid ""
 "This usually means there is a syntax error in it, please check any errors "
 "shown below."
@@ -3903,12 +3903,12 @@ msgstr ""
 "Esto generalmente significa que tiene un error de sintáxis, revisa los "
 "errores que se muestran a continuación."
 
-#: libraries/common.inc.php:594
+#: libraries/common.inc.php:601
 #, php-format
 msgid "Could not load default configuration from: %1$s"
 msgstr "No se pudo cargar la configuración predeterminada desde: %1$s"
 
-#: libraries/common.inc.php:601
+#: libraries/common.inc.php:608
 msgid ""
 "The [code]$cfg['PmaAbsoluteUri'][/code] directive MUST be set in your "
 "configuration file!"
@@ -3916,45 +3916,45 @@ msgstr ""
 "¡DEBE tener definido [code]$cfg['PmaAbsoluteUri'][/code] en su archivo de "
 "configuración!"
 
-#: libraries/common.inc.php:634
+#: libraries/common.inc.php:641
 #, php-format
 msgid "Invalid server index: %s"
 msgstr "Índice de servidor inválido: %s"
 
-#: libraries/common.inc.php:645
+#: libraries/common.inc.php:652
 #, php-format
 msgid "Invalid hostname for server %1$s. Please review your configuration."
 msgstr ""
 "El nombre del host no es válido para el servidor %1$s. Revise su "
 "configuración."
 
-#: libraries/common.inc.php:661
+#: libraries/common.inc.php:668
 #, php-format
 msgid "Server %d"
 msgstr "Servidor %d"
 
-#: libraries/common.inc.php:854
+#: libraries/common.inc.php:861
 msgid "Invalid authentication method set in configuration:"
 msgstr "Método de autenticación no válido definido en la configuración:"
 
-#: libraries/common.inc.php:995
+#: libraries/common.inc.php:1002
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "Usted debería actualizar su %s a la versión %s o más reciente."
 
-#: libraries/common.inc.php:1086
+#: libraries/common.inc.php:1093
 msgid "Error: Token mismatch"
 msgstr "Error: no coincide un «token»"
 
-#: libraries/common.inc.php:1130
+#: libraries/common.inc.php:1137
 msgid "GLOBALS overwrite attempt"
 msgstr "intento de sobre-escritura de la variable GLOBALS"
 
-#: libraries/common.inc.php:1137
+#: libraries/common.inc.php:1144
 msgid "possible exploit"
 msgstr "posible aprovechamiento"
 
-#: libraries/common.inc.php:1146
+#: libraries/common.inc.php:1153
 msgid "numeric key detected"
 msgstr "telado numérico detectado"
 
@@ -5362,7 +5362,6 @@ msgid "Use only icons, only text or both"
 msgstr "Use solamente íconos, solamente texto o ambos"
 
 #: libraries/config/messages.inc.php:325
-#| msgid "Iconic navigation bar"
 msgid "Table navigation bar"
 msgstr "Barra de navegación mediante tablas"
 
@@ -5435,7 +5434,6 @@ msgid "MySQL reserved word warning"
 msgstr "Advertencia de palabra reservada de MySQL"
 
 #: libraries/config/messages.inc.php:339
-#| msgid "Allow to display all the rows"
 msgid "How to display the menu tabs"
 msgstr "Cómo mostrar las pestañas del menú"
 
@@ -8998,7 +8996,7 @@ msgstr "Estado del esclavo"
 msgid "Variable"
 msgstr "Variable"
 
-#: libraries/replication_gui.lib.php:586 libraries/server_bin_log.lib.php:136
+#: libraries/replication_gui.lib.php:586 libraries/server_bin_log.lib.php:134
 msgid "Server ID"
 msgstr "ID del servidor"
 
@@ -9150,7 +9148,7 @@ msgstr "Detalles"
 msgid "Event name"
 msgstr "Nombre del evento"
 
-#: libraries/rte/rte_events.lib.php:441 libraries/server_bin_log.lib.php:135
+#: libraries/rte/rte_events.lib.php:441 libraries/server_bin_log.lib.php:133
 msgid "Event type"
 msgstr "Tipo de evento"
 
@@ -9602,8 +9600,8 @@ msgid "Show dimension of tables"
 msgstr "Mostrar la dimensión de las tablas"
 
 #: libraries/schema/User_Schema.class.php:461
-msgid "Display all tables with the same width"
-msgstr "Mostrar todas las tablas que tienen el mismo ancho"
+msgid "Same width for all tables"
+msgstr ""
 
 #: libraries/schema/User_Schema.class.php:464 libraries/structure.lib.php:379
 msgid "Data Dictionary"
@@ -9656,27 +9654,27 @@ msgid "Select binary log to view"
 msgstr "Seleccionar el registro binario que desea examinar"
 
 # It is about binary logs, not about login names
-#: libraries/server_bin_log.lib.php:133
+#: libraries/server_bin_log.lib.php:131
 msgid "Log name"
 msgstr "Nombre del registro"
 
-#: libraries/server_bin_log.lib.php:134
+#: libraries/server_bin_log.lib.php:132
 msgid "Position"
 msgstr "Posición"
 
-#: libraries/server_bin_log.lib.php:137
+#: libraries/server_bin_log.lib.php:135
 msgid "Original position"
 msgstr "Posición original"
 
-#: libraries/server_bin_log.lib.php:138 libraries/structure.lib.php:2167
+#: libraries/server_bin_log.lib.php:136 libraries/structure.lib.php:2167
 msgid "Information"
 msgstr "Información"
 
-#: libraries/server_bin_log.lib.php:195 server_status.php:488
+#: libraries/server_bin_log.lib.php:193 server_status.php:488
 msgid "Truncate Shown Queries"
 msgstr "Truncar las consultas que ya se han mostrado"
 
-#: libraries/server_bin_log.lib.php:199 server_status.php:493
+#: libraries/server_bin_log.lib.php:197 server_status.php:493
 msgid "Show Full Queries"
 msgstr "Mostrar las consultas enteras"
 
@@ -14224,6 +14222,9 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "«concurrent_insert» está definido como 0"
+
+#~ msgid "Display all tables with the same width"
+#~ msgstr "Mostrar todas las tablas que tienen el mismo ancho"
 
 #~ msgid "Iconic table operations"
 #~ msgstr "Operaciones de las tablas mediante íconos"

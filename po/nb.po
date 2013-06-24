@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-06-24 10:45+0200\n"
+"POT-Creation-Date: 2013-06-24 16:19+0200\n"
 "PO-Revision-Date: 2013-03-26 11:59+0200\n"
 "Last-Translator: Stian Berg <mail.to.stian@gmail.com>\n"
 "Language-Team: Norwegian Bokmål <http://l10n.cihar.com/projects/phpmyadmin/"
@@ -2528,15 +2528,15 @@ msgid "Begin"
 msgstr "Start"
 
 #: libraries/DisplayResults.class.php:782 libraries/Util.class.php:2573
-#: libraries/Util.class.php:2576 libraries/server_bin_log.lib.php:182
-#: libraries/server_bin_log.lib.php:184
+#: libraries/Util.class.php:2576 libraries/server_bin_log.lib.php:180
+#: libraries/server_bin_log.lib.php:182
 msgctxt "Previous page"
 msgid "Previous"
 msgstr "Forrige"
 
 #: libraries/DisplayResults.class.php:839 libraries/Util.class.php:2612
-#: libraries/Util.class.php:2615 libraries/server_bin_log.lib.php:220
-#: libraries/server_bin_log.lib.php:222
+#: libraries/Util.class.php:2615 libraries/server_bin_log.lib.php:218
+#: libraries/server_bin_log.lib.php:220
 msgctxt "Next page"
 msgid "Next"
 msgstr "Neste"
@@ -3846,11 +3846,11 @@ msgstr "Kontroller privilegier for databasen &quot;%s&quot;."
 msgid "Check Privileges"
 msgstr "Kontroller privilegier"
 
-#: libraries/common.inc.php:585
+#: libraries/common.inc.php:592
 msgid "Failed to read configuration file"
 msgstr "Kunne ikke lese konfigurasjonsfilen"
 
-#: libraries/common.inc.php:587
+#: libraries/common.inc.php:594
 msgid ""
 "This usually means there is a syntax error in it, please check any errors "
 "shown below."
@@ -3858,12 +3858,12 @@ msgstr ""
 "Dette mener vanligvis at det er en syntaksfeil i det, sjekk mulige feil som "
 "vises under."
 
-#: libraries/common.inc.php:594
+#: libraries/common.inc.php:601
 #, php-format
 msgid "Could not load default configuration from: %1$s"
 msgstr "Kunne ikke laste standard konfigurasjonsfil fra: %1$s"
 
-#: libraries/common.inc.php:601
+#: libraries/common.inc.php:608
 msgid ""
 "The [code]$cfg['PmaAbsoluteUri'][/code] directive MUST be set in your "
 "configuration file!"
@@ -3871,44 +3871,44 @@ msgstr ""
 "[code]$cfg['PmaAbsoluteUri'][/code] variabelen MÅ være innstilt i din "
 "konfigurasjonsfil!"
 
-#: libraries/common.inc.php:634
+#: libraries/common.inc.php:641
 #, php-format
 msgid "Invalid server index: %s"
 msgstr "Ugyldig tjenerindeks: \"%s\""
 
-#: libraries/common.inc.php:645
+#: libraries/common.inc.php:652
 #, php-format
 msgid "Invalid hostname for server %1$s. Please review your configuration."
 msgstr "Ugyldig tjenernavn for tjener %1$s. Kontroller din konfigurasjon."
 
-#: libraries/common.inc.php:661
+#: libraries/common.inc.php:668
 #, fuzzy, php-format
 #| msgid "Server"
 msgid "Server %d"
 msgstr "Tjener"
 
-#: libraries/common.inc.php:854
+#: libraries/common.inc.php:861
 msgid "Invalid authentication method set in configuration:"
 msgstr "Ugyldig autentiseringsmetode satt opp i konfigureringen:"
 
-#: libraries/common.inc.php:995
+#: libraries/common.inc.php:1002
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "Du burde oppgradere til %s %s eller nyere."
 
-#: libraries/common.inc.php:1086
+#: libraries/common.inc.php:1093
 msgid "Error: Token mismatch"
 msgstr ""
 
-#: libraries/common.inc.php:1130
+#: libraries/common.inc.php:1137
 msgid "GLOBALS overwrite attempt"
 msgstr ""
 
-#: libraries/common.inc.php:1137
+#: libraries/common.inc.php:1144
 msgid "possible exploit"
 msgstr "mulig sikkerhetshull"
 
-#: libraries/common.inc.php:1146
+#: libraries/common.inc.php:1153
 msgid "numeric key detected"
 msgstr "numerisk nøkkel oppdaget"
 
@@ -9075,7 +9075,7 @@ msgstr "Slavestatus"
 msgid "Variable"
 msgstr "Variabler"
 
-#: libraries/replication_gui.lib.php:586 libraries/server_bin_log.lib.php:136
+#: libraries/replication_gui.lib.php:586 libraries/server_bin_log.lib.php:134
 msgid "Server ID"
 msgstr "Tjener ID"
 
@@ -9242,7 +9242,7 @@ msgstr "Detaljer…"
 msgid "Event name"
 msgstr "Hendelsestype"
 
-#: libraries/rte/rte_events.lib.php:441 libraries/server_bin_log.lib.php:135
+#: libraries/rte/rte_events.lib.php:441 libraries/server_bin_log.lib.php:133
 msgid "Event type"
 msgstr "Hendelsestype"
 
@@ -9762,8 +9762,8 @@ msgid "Show dimension of tables"
 msgstr "Vis tabelldimensjoner"
 
 #: libraries/schema/User_Schema.class.php:461
-msgid "Display all tables with the same width"
-msgstr "Vis alle tabeller med samme lengde"
+msgid "Same width for all tables"
+msgstr ""
 
 #: libraries/schema/User_Schema.class.php:464 libraries/structure.lib.php:379
 msgid "Data Dictionary"
@@ -9819,27 +9819,27 @@ msgstr "Gjeldende tjener"
 msgid "Select binary log to view"
 msgstr "Velg binærlogg for visning"
 
-#: libraries/server_bin_log.lib.php:133
+#: libraries/server_bin_log.lib.php:131
 msgid "Log name"
 msgstr "Loggnavn"
 
-#: libraries/server_bin_log.lib.php:134
+#: libraries/server_bin_log.lib.php:132
 msgid "Position"
 msgstr "Posisjon"
 
-#: libraries/server_bin_log.lib.php:137
+#: libraries/server_bin_log.lib.php:135
 msgid "Original position"
 msgstr "Original posisjon"
 
-#: libraries/server_bin_log.lib.php:138 libraries/structure.lib.php:2167
+#: libraries/server_bin_log.lib.php:136 libraries/structure.lib.php:2167
 msgid "Information"
 msgstr "Informasjon"
 
-#: libraries/server_bin_log.lib.php:195 server_status.php:488
+#: libraries/server_bin_log.lib.php:193 server_status.php:488
 msgid "Truncate Shown Queries"
 msgstr "Forkort vist spørring"
 
-#: libraries/server_bin_log.lib.php:199 server_status.php:493
+#: libraries/server_bin_log.lib.php:197 server_status.php:493
 msgid "Show Full Queries"
 msgstr "Vis hele spørringen"
 
@@ -14450,6 +14450,9 @@ msgstr ""
 #| msgid "max. concurrent connections"
 msgid "concurrent_insert is set to 0"
 msgstr "maks. samtidige tilkoblinger"
+
+#~ msgid "Display all tables with the same width"
+#~ msgstr "Vis alle tabeller med samme lengde"
 
 #~ msgid "Iconic table operations"
 #~ msgstr "Ikoniske tabelloperasjoner"

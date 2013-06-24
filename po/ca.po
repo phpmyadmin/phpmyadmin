@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-06-24 10:45+0200\n"
+"POT-Creation-Date: 2013-06-24 16:19+0200\n"
 "PO-Revision-Date: 2013-05-30 13:29+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Catalan <http://l10n.cihar.com/projects/phpmyadmin/master/ca/"
@@ -2548,15 +2548,15 @@ msgid "Begin"
 msgstr "Inici"
 
 #: libraries/DisplayResults.class.php:782 libraries/Util.class.php:2573
-#: libraries/Util.class.php:2576 libraries/server_bin_log.lib.php:182
-#: libraries/server_bin_log.lib.php:184
+#: libraries/Util.class.php:2576 libraries/server_bin_log.lib.php:180
+#: libraries/server_bin_log.lib.php:182
 msgctxt "Previous page"
 msgid "Previous"
 msgstr "Pàgina anterior"
 
 #: libraries/DisplayResults.class.php:839 libraries/Util.class.php:2612
-#: libraries/Util.class.php:2615 libraries/server_bin_log.lib.php:220
-#: libraries/server_bin_log.lib.php:222
+#: libraries/Util.class.php:2615 libraries/server_bin_log.lib.php:218
+#: libraries/server_bin_log.lib.php:220
 msgctxt "Next page"
 msgid "Next"
 msgstr "Pàgina següent"
@@ -3921,11 +3921,11 @@ msgstr "Comprova els permisos per la base de dades &quot;%s&quot;."
 msgid "Check Privileges"
 msgstr "Comprova els permisos"
 
-#: libraries/common.inc.php:585
+#: libraries/common.inc.php:592
 msgid "Failed to read configuration file"
 msgstr "No es pot llegir l'arxiu de configuració"
 
-#: libraries/common.inc.php:587
+#: libraries/common.inc.php:594
 msgid ""
 "This usually means there is a syntax error in it, please check any errors "
 "shown below."
@@ -3933,12 +3933,12 @@ msgstr ""
 "Això generalment significa que té un error de sintaxi, revisa els errors que "
 "es mostren a continuació."
 
-#: libraries/common.inc.php:594
+#: libraries/common.inc.php:601
 #, php-format
 msgid "Could not load default configuration from: %1$s"
 msgstr "No es pot carregar la configuració per defecte des de: %1$s"
 
-#: libraries/common.inc.php:601
+#: libraries/common.inc.php:608
 msgid ""
 "The [code]$cfg['PmaAbsoluteUri'][/code] directive MUST be set in your "
 "configuration file!"
@@ -3946,45 +3946,45 @@ msgstr ""
 "La directiva [code]$cfg['PmaAbsoluteUri'][/code] HA d'estar establerta a "
 "l'arxiu de configuració!"
 
-#: libraries/common.inc.php:634
+#: libraries/common.inc.php:641
 #, php-format
 msgid "Invalid server index: %s"
 msgstr "Index de servidor invàlid: %s"
 
-#: libraries/common.inc.php:645
+#: libraries/common.inc.php:652
 #, php-format
 msgid "Invalid hostname for server %1$s. Please review your configuration."
 msgstr ""
 "Nom de host invàlid pel servidor %1$s. Si us plau, reviseu la configuració."
 
-#: libraries/common.inc.php:661
+#: libraries/common.inc.php:668
 #, fuzzy, php-format
 #| msgid "Server"
 msgid "Server %d"
 msgstr "Servidor"
 
-#: libraries/common.inc.php:854
+#: libraries/common.inc.php:861
 msgid "Invalid authentication method set in configuration:"
 msgstr "Mètode d'identificació incorrecte establert a la configuració:"
 
-#: libraries/common.inc.php:995
+#: libraries/common.inc.php:1002
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "Es necessari actualitzar a %s %s o posterior."
 
-#: libraries/common.inc.php:1086
+#: libraries/common.inc.php:1093
 msgid "Error: Token mismatch"
 msgstr "Error: No coincideix un «token»"
 
-#: libraries/common.inc.php:1130
+#: libraries/common.inc.php:1137
 msgid "GLOBALS overwrite attempt"
 msgstr "intent de sobreescriure la variable GLOBALS"
 
-#: libraries/common.inc.php:1137
+#: libraries/common.inc.php:1144
 msgid "possible exploit"
 msgstr "possible aprofitament"
 
-#: libraries/common.inc.php:1146
+#: libraries/common.inc.php:1153
 msgid "numeric key detected"
 msgstr "detectat teclat numéric"
 
@@ -9047,7 +9047,7 @@ msgstr "Estat de l'esclau"
 msgid "Variable"
 msgstr "Variable"
 
-#: libraries/replication_gui.lib.php:586 libraries/server_bin_log.lib.php:136
+#: libraries/replication_gui.lib.php:586 libraries/server_bin_log.lib.php:134
 msgid "Server ID"
 msgstr "ID de Servidor"
 
@@ -9205,7 +9205,7 @@ msgstr "Detalls"
 msgid "Event name"
 msgstr "Nom d'esdeveniment"
 
-#: libraries/rte/rte_events.lib.php:441 libraries/server_bin_log.lib.php:135
+#: libraries/rte/rte_events.lib.php:441 libraries/server_bin_log.lib.php:133
 msgid "Event type"
 msgstr "Tipus d'event"
 
@@ -9657,8 +9657,8 @@ msgid "Show dimension of tables"
 msgstr "Mostra dimensió de les taules"
 
 #: libraries/schema/User_Schema.class.php:461
-msgid "Display all tables with the same width"
-msgstr "Mostrar totes les taules amb la mateixa amplada"
+msgid "Same width for all tables"
+msgstr ""
 
 #: libraries/schema/User_Schema.class.php:464 libraries/structure.lib.php:379
 msgid "Data Dictionary"
@@ -9712,27 +9712,27 @@ msgstr "Servidor actual"
 msgid "Select binary log to view"
 msgstr "Tria el registre binari per veure"
 
-#: libraries/server_bin_log.lib.php:133
+#: libraries/server_bin_log.lib.php:131
 msgid "Log name"
 msgstr "Nom del registre"
 
-#: libraries/server_bin_log.lib.php:134
+#: libraries/server_bin_log.lib.php:132
 msgid "Position"
 msgstr "Posició"
 
-#: libraries/server_bin_log.lib.php:137
+#: libraries/server_bin_log.lib.php:135
 msgid "Original position"
 msgstr "Posició original"
 
-#: libraries/server_bin_log.lib.php:138 libraries/structure.lib.php:2167
+#: libraries/server_bin_log.lib.php:136 libraries/structure.lib.php:2167
 msgid "Information"
 msgstr "Informació"
 
-#: libraries/server_bin_log.lib.php:195 server_status.php:488
+#: libraries/server_bin_log.lib.php:193 server_status.php:488
 msgid "Truncate Shown Queries"
 msgstr "Talla les consultes mostrades"
 
-#: libraries/server_bin_log.lib.php:199 server_status.php:493
+#: libraries/server_bin_log.lib.php:197 server_status.php:493
 msgid "Show Full Queries"
 msgstr "Mostra Consultes completes"
 
@@ -14301,6 +14301,9 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "{concurrent_insert} està establert a 0"
+
+#~ msgid "Display all tables with the same width"
+#~ msgstr "Mostrar totes les taules amb la mateixa amplada"
 
 #~ msgid "Iconic table operations"
 #~ msgstr "Icones d'operacions de taula"

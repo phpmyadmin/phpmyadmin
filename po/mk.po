@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-06-24 10:45+0200\n"
+"POT-Creation-Date: 2013-06-24 16:19+0200\n"
 "PO-Revision-Date: 2013-04-25 15:32+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Macedonian <http://l10n.cihar.com/projects/phpmyadmin/master/"
@@ -2714,8 +2714,8 @@ msgid "Begin"
 msgstr "Почеток"
 
 #: libraries/DisplayResults.class.php:782 libraries/Util.class.php:2573
-#: libraries/Util.class.php:2576 libraries/server_bin_log.lib.php:182
-#: libraries/server_bin_log.lib.php:184
+#: libraries/Util.class.php:2576 libraries/server_bin_log.lib.php:180
+#: libraries/server_bin_log.lib.php:182
 #, fuzzy
 #| msgid "Previous"
 msgctxt "Previous page"
@@ -2723,8 +2723,8 @@ msgid "Previous"
 msgstr "Претходна"
 
 #: libraries/DisplayResults.class.php:839 libraries/Util.class.php:2612
-#: libraries/Util.class.php:2615 libraries/server_bin_log.lib.php:220
-#: libraries/server_bin_log.lib.php:222
+#: libraries/Util.class.php:2615 libraries/server_bin_log.lib.php:218
+#: libraries/server_bin_log.lib.php:220
 #, fuzzy
 #| msgid "Next"
 msgctxt "Next page"
@@ -4070,22 +4070,22 @@ msgstr "Провери привилегии за базата на подато�
 msgid "Check Privileges"
 msgstr "Провери привилегии"
 
-#: libraries/common.inc.php:585
+#: libraries/common.inc.php:592
 msgid "Failed to read configuration file"
 msgstr ""
 
-#: libraries/common.inc.php:587
+#: libraries/common.inc.php:594
 msgid ""
 "This usually means there is a syntax error in it, please check any errors "
 "shown below."
 msgstr ""
 
-#: libraries/common.inc.php:594
+#: libraries/common.inc.php:601
 #, php-format
 msgid "Could not load default configuration from: %1$s"
 msgstr ""
 
-#: libraries/common.inc.php:601
+#: libraries/common.inc.php:608
 #, fuzzy
 #| msgid ""
 #| "The <code>$cfg['PmaAbsoluteUri']</code> directive MUST be set in your "
@@ -4097,45 +4097,45 @@ msgstr ""
 "<code>$cfg['PmaAbsoluteUri']</code> директивата МОРА да биде подесена во "
 "конфигурациската податотека!"
 
-#: libraries/common.inc.php:634
+#: libraries/common.inc.php:641
 #, php-format
 msgid "Invalid server index: %s"
 msgstr ""
 
-#: libraries/common.inc.php:645
+#: libraries/common.inc.php:652
 #, php-format
 msgid "Invalid hostname for server %1$s. Please review your configuration."
 msgstr ""
 
-#: libraries/common.inc.php:661
+#: libraries/common.inc.php:668
 #, fuzzy, php-format
 #| msgid "Server"
 msgid "Server %d"
 msgstr "Сервер"
 
-#: libraries/common.inc.php:854
+#: libraries/common.inc.php:861
 msgid "Invalid authentication method set in configuration:"
 msgstr ""
 
-#: libraries/common.inc.php:995
+#: libraries/common.inc.php:1002
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr ""
 "Би требало да го надоградите вашиот %s сервер на верзија %s или понова."
 
-#: libraries/common.inc.php:1086
+#: libraries/common.inc.php:1093
 msgid "Error: Token mismatch"
 msgstr ""
 
-#: libraries/common.inc.php:1130
+#: libraries/common.inc.php:1137
 msgid "GLOBALS overwrite attempt"
 msgstr ""
 
-#: libraries/common.inc.php:1137
+#: libraries/common.inc.php:1144
 msgid "possible exploit"
 msgstr ""
 
-#: libraries/common.inc.php:1146
+#: libraries/common.inc.php:1153
 msgid "numeric key detected"
 msgstr ""
 
@@ -9153,7 +9153,7 @@ msgstr ""
 msgid "Variable"
 msgstr "Променлива"
 
-#: libraries/replication_gui.lib.php:586 libraries/server_bin_log.lib.php:136
+#: libraries/replication_gui.lib.php:586 libraries/server_bin_log.lib.php:134
 msgid "Server ID"
 msgstr "ID на серверот"
 
@@ -9309,7 +9309,7 @@ msgstr ""
 msgid "Event name"
 msgstr "Вид на настан"
 
-#: libraries/rte/rte_events.lib.php:441 libraries/server_bin_log.lib.php:135
+#: libraries/rte/rte_events.lib.php:441 libraries/server_bin_log.lib.php:133
 msgid "Event type"
 msgstr "Вид на настан"
 
@@ -9818,8 +9818,8 @@ msgid "Show dimension of tables"
 msgstr "Прикажи ги димензиите на табелите"
 
 #: libraries/schema/User_Schema.class.php:461
-msgid "Display all tables with the same width"
-msgstr "Приказ на сите табели со иста ширина?"
+msgid "Same width for all tables"
+msgstr ""
 
 #: libraries/schema/User_Schema.class.php:464 libraries/structure.lib.php:379
 msgid "Data Dictionary"
@@ -9875,27 +9875,27 @@ msgstr "Сервер"
 msgid "Select binary log to view"
 msgstr "Изберете бинарен дневник за преглед"
 
-#: libraries/server_bin_log.lib.php:133
+#: libraries/server_bin_log.lib.php:131
 msgid "Log name"
 msgstr "Назив на дневникот"
 
-#: libraries/server_bin_log.lib.php:134
+#: libraries/server_bin_log.lib.php:132
 msgid "Position"
 msgstr "Позиција"
 
-#: libraries/server_bin_log.lib.php:137
+#: libraries/server_bin_log.lib.php:135
 msgid "Original position"
 msgstr "Оргинална позиција"
 
-#: libraries/server_bin_log.lib.php:138 libraries/structure.lib.php:2167
+#: libraries/server_bin_log.lib.php:136 libraries/structure.lib.php:2167
 msgid "Information"
 msgstr "Информации"
 
-#: libraries/server_bin_log.lib.php:195 server_status.php:488
+#: libraries/server_bin_log.lib.php:193 server_status.php:488
 msgid "Truncate Shown Queries"
 msgstr "Прикажи скратени упити"
 
-#: libraries/server_bin_log.lib.php:199 server_status.php:493
+#: libraries/server_bin_log.lib.php:197 server_status.php:493
 msgid "Show Full Queries"
 msgstr "Прикажи комплетни упити"
 
@@ -14209,6 +14209,9 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr ""
+
+#~ msgid "Display all tables with the same width"
+#~ msgstr "Приказ на сите табели со иста ширина?"
 
 #, fuzzy
 #~| msgid "Execute bookmarked query"

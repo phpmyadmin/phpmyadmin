@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-06-24 10:45+0200\n"
+"POT-Creation-Date: 2013-06-24 16:19+0200\n"
 "PO-Revision-Date: 2013-05-14 06:43+0200\n"
 "Last-Translator: Randall Fan <fanrandall@gmail.com>\n"
 "Language-Team: Simplified Chinese <http://l10n.cihar.com/projects/phpmyadmin/"
@@ -2427,15 +2427,15 @@ msgid "Begin"
 msgstr "首页"
 
 #: libraries/DisplayResults.class.php:782 libraries/Util.class.php:2573
-#: libraries/Util.class.php:2576 libraries/server_bin_log.lib.php:182
-#: libraries/server_bin_log.lib.php:184
+#: libraries/Util.class.php:2576 libraries/server_bin_log.lib.php:180
+#: libraries/server_bin_log.lib.php:182
 msgctxt "Previous page"
 msgid "Previous"
 msgstr "上一页"
 
 #: libraries/DisplayResults.class.php:839 libraries/Util.class.php:2612
-#: libraries/Util.class.php:2615 libraries/server_bin_log.lib.php:220
-#: libraries/server_bin_log.lib.php:222
+#: libraries/Util.class.php:2615 libraries/server_bin_log.lib.php:218
+#: libraries/server_bin_log.lib.php:220
 msgctxt "Next page"
 msgid "Next"
 msgstr "下一页"
@@ -3732,65 +3732,65 @@ msgstr "检查数据库“%s”的权限。"
 msgid "Check Privileges"
 msgstr "检查权限"
 
-#: libraries/common.inc.php:585
+#: libraries/common.inc.php:592
 msgid "Failed to read configuration file"
 msgstr "读取配置文件失败"
 
-#: libraries/common.inc.php:587
+#: libraries/common.inc.php:594
 msgid ""
 "This usually means there is a syntax error in it, please check any errors "
 "shown below."
 msgstr "这通常意味着文件中有语法错误，请检查下面显示出的错误。"
 
-#: libraries/common.inc.php:594
+#: libraries/common.inc.php:601
 #, php-format
 msgid "Could not load default configuration from: %1$s"
 msgstr "无法加载默认配置: %1$s"
 
-#: libraries/common.inc.php:601
+#: libraries/common.inc.php:608
 msgid ""
 "The [code]$cfg['PmaAbsoluteUri'][/code] directive MUST be set in your "
 "configuration file!"
 msgstr "必须在您的配置文件中设置 [code]$cfg['PmaAbsoluteUri'][/code] ！"
 
-#: libraries/common.inc.php:634
+#: libraries/common.inc.php:641
 #, php-format
 msgid "Invalid server index: %s"
 msgstr "无效的服务器索引: %s"
 
-#: libraries/common.inc.php:645
+#: libraries/common.inc.php:652
 #, php-format
 msgid "Invalid hostname for server %1$s. Please review your configuration."
 msgstr "无效的主机名 %1$s，请检查配置文件。"
 
-#: libraries/common.inc.php:661
+#: libraries/common.inc.php:668
 #, fuzzy, php-format
 #| msgid "Server"
 msgid "Server %d"
 msgstr "服务器"
 
-#: libraries/common.inc.php:854
+#: libraries/common.inc.php:861
 msgid "Invalid authentication method set in configuration:"
 msgstr "配置文件中设置的认证方式无效："
 
-#: libraries/common.inc.php:995
+#: libraries/common.inc.php:1002
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "您应升级到 %s %s 或更高版本。"
 
-#: libraries/common.inc.php:1086
+#: libraries/common.inc.php:1093
 msgid "Error: Token mismatch"
 msgstr "错误：Token不符"
 
-#: libraries/common.inc.php:1130
+#: libraries/common.inc.php:1137
 msgid "GLOBALS overwrite attempt"
 msgstr "企图覆盖 GLOBALS"
 
-#: libraries/common.inc.php:1137
+#: libraries/common.inc.php:1144
 msgid "possible exploit"
 msgstr "可利用"
 
-#: libraries/common.inc.php:1146
+#: libraries/common.inc.php:1153
 msgid "numeric key detected"
 msgstr "监测到数值型键"
 
@@ -8608,7 +8608,7 @@ msgstr "从服务器状态"
 msgid "Variable"
 msgstr "变量"
 
-#: libraries/replication_gui.lib.php:586 libraries/server_bin_log.lib.php:136
+#: libraries/replication_gui.lib.php:586 libraries/server_bin_log.lib.php:134
 msgid "Server ID"
 msgstr "服务器ID"
 
@@ -8760,7 +8760,7 @@ msgstr "详细"
 msgid "Event name"
 msgstr "事件名称"
 
-#: libraries/rte/rte_events.lib.php:441 libraries/server_bin_log.lib.php:135
+#: libraries/rte/rte_events.lib.php:441 libraries/server_bin_log.lib.php:133
 msgid "Event type"
 msgstr "事件类型"
 
@@ -9206,8 +9206,8 @@ msgid "Show dimension of tables"
 msgstr "显示表格大小"
 
 #: libraries/schema/User_Schema.class.php:461
-msgid "Display all tables with the same width"
-msgstr "以相同宽度显示所有的表"
+msgid "Same width for all tables"
+msgstr ""
 
 #: libraries/schema/User_Schema.class.php:464 libraries/structure.lib.php:379
 msgid "Data Dictionary"
@@ -9259,27 +9259,27 @@ msgstr "当前服务器"
 msgid "Select binary log to view"
 msgstr "选择要查看的二进制日志"
 
-#: libraries/server_bin_log.lib.php:133
+#: libraries/server_bin_log.lib.php:131
 msgid "Log name"
 msgstr "日志文件名"
 
-#: libraries/server_bin_log.lib.php:134
+#: libraries/server_bin_log.lib.php:132
 msgid "Position"
 msgstr "位置"
 
-#: libraries/server_bin_log.lib.php:137
+#: libraries/server_bin_log.lib.php:135
 msgid "Original position"
 msgstr "初始位置"
 
-#: libraries/server_bin_log.lib.php:138 libraries/structure.lib.php:2167
+#: libraries/server_bin_log.lib.php:136 libraries/structure.lib.php:2167
 msgid "Information"
 msgstr "信息"
 
-#: libraries/server_bin_log.lib.php:195 server_status.php:488
+#: libraries/server_bin_log.lib.php:193 server_status.php:488
 msgid "Truncate Shown Queries"
 msgstr "截断显示的查询"
 
-#: libraries/server_bin_log.lib.php:199 server_status.php:493
+#: libraries/server_bin_log.lib.php:197 server_status.php:493
 msgid "Show Full Queries"
 msgstr "显示完整查询"
 
@@ -13486,6 +13486,9 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert 被设为 0"
+
+#~ msgid "Display all tables with the same width"
+#~ msgstr "以相同宽度显示所有的表"
 
 #~ msgid "Iconic table operations"
 #~ msgstr "数据表操作显示"

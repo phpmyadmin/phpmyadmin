@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-06-24 10:45+0200\n"
+"POT-Creation-Date: 2013-06-24 16:19+0200\n"
 "PO-Revision-Date: 2013-05-11 21:28+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: Russian <http://l10n.cihar.com/projects/phpmyadmin/master/ru/"
@@ -2502,15 +2502,15 @@ msgid "Begin"
 msgstr "Начало"
 
 #: libraries/DisplayResults.class.php:782 libraries/Util.class.php:2573
-#: libraries/Util.class.php:2576 libraries/server_bin_log.lib.php:182
-#: libraries/server_bin_log.lib.php:184
+#: libraries/Util.class.php:2576 libraries/server_bin_log.lib.php:180
+#: libraries/server_bin_log.lib.php:182
 msgctxt "Previous page"
 msgid "Previous"
 msgstr "Предыдущая"
 
 #: libraries/DisplayResults.class.php:839 libraries/Util.class.php:2612
-#: libraries/Util.class.php:2615 libraries/server_bin_log.lib.php:220
-#: libraries/server_bin_log.lib.php:222
+#: libraries/Util.class.php:2615 libraries/server_bin_log.lib.php:218
+#: libraries/server_bin_log.lib.php:220
 msgctxt "Next page"
 msgid "Next"
 msgstr "Следующая"
@@ -3869,11 +3869,11 @@ msgstr "Проверить привилегии для базы данных &qu
 msgid "Check Privileges"
 msgstr "Проверить привилегии"
 
-#: libraries/common.inc.php:585
+#: libraries/common.inc.php:592
 msgid "Failed to read configuration file"
 msgstr "Ошибка при чтении конфигурационного файла"
 
-#: libraries/common.inc.php:587
+#: libraries/common.inc.php:594
 msgid ""
 "This usually means there is a syntax error in it, please check any errors "
 "shown below."
@@ -3881,12 +3881,12 @@ msgstr ""
 "Обычно это означает наличие синтаксических ошибок, пожалуйста, проверьте "
 "выведенные ниже ошибки."
 
-#: libraries/common.inc.php:594
+#: libraries/common.inc.php:601
 #, php-format
 msgid "Could not load default configuration from: %1$s"
 msgstr "Невозможно загрузить изначальную конфигурацию из: %1$s"
 
-#: libraries/common.inc.php:601
+#: libraries/common.inc.php:608
 msgid ""
 "The [code]$cfg['PmaAbsoluteUri'][/code] directive MUST be set in your "
 "configuration file!"
@@ -3894,46 +3894,46 @@ msgstr ""
 "Директива [code]$cfg['PmaAbsoluteUri'][/code] ДОЛЖНА быть установлена в "
 "конфигурационном файле!"
 
-#: libraries/common.inc.php:634
+#: libraries/common.inc.php:641
 #, php-format
 msgid "Invalid server index: %s"
 msgstr "Неверный индекс сервера: %s"
 
-#: libraries/common.inc.php:645
+#: libraries/common.inc.php:652
 #, php-format
 msgid "Invalid hostname for server %1$s. Please review your configuration."
 msgstr ""
 "Для сервера %1$s указано неверное имя хоста. Исправьте настройки заданные в "
 "конфигурационном файле phpMyAdmin."
 
-#: libraries/common.inc.php:661
+#: libraries/common.inc.php:668
 #, php-format
 msgid "Server %d"
 msgstr "Сервер %d"
 
-#: libraries/common.inc.php:854
+#: libraries/common.inc.php:861
 msgid "Invalid authentication method set in configuration:"
 msgstr ""
 "В конфигурационном файле phpMyAdmin установлен неверный метод аутентификации:"
 
-#: libraries/common.inc.php:995
+#: libraries/common.inc.php:1002
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "Необходимо обновить %s до версии %s или выше."
 
-#: libraries/common.inc.php:1086
+#: libraries/common.inc.php:1093
 msgid "Error: Token mismatch"
 msgstr "Ошибка: Несоответствие Тоукена"
 
-#: libraries/common.inc.php:1130
+#: libraries/common.inc.php:1137
 msgid "GLOBALS overwrite attempt"
 msgstr "попытка перезаписи GLOBALS"
 
-#: libraries/common.inc.php:1137
+#: libraries/common.inc.php:1144
 msgid "possible exploit"
 msgstr "возможная уязвимость"
 
-#: libraries/common.inc.php:1146
+#: libraries/common.inc.php:1153
 msgid "numeric key detected"
 msgstr "определена числовая клавиша"
 
@@ -8939,7 +8939,7 @@ msgstr "Статус Slave"
 msgid "Variable"
 msgstr "Переменная"
 
-#: libraries/replication_gui.lib.php:586 libraries/server_bin_log.lib.php:136
+#: libraries/replication_gui.lib.php:586 libraries/server_bin_log.lib.php:134
 msgid "Server ID"
 msgstr "ID сервера"
 
@@ -9091,7 +9091,7 @@ msgstr "Детали"
 msgid "Event name"
 msgstr "Название события"
 
-#: libraries/rte/rte_events.lib.php:441 libraries/server_bin_log.lib.php:135
+#: libraries/rte/rte_events.lib.php:441 libraries/server_bin_log.lib.php:133
 msgid "Event type"
 msgstr "Тип события"
 
@@ -9543,8 +9543,8 @@ msgid "Show dimension of tables"
 msgstr "Отображать размерность таблиц"
 
 #: libraries/schema/User_Schema.class.php:461
-msgid "Display all tables with the same width"
-msgstr "Показать все таблицы одинаковой ширины"
+msgid "Same width for all tables"
+msgstr ""
 
 #: libraries/schema/User_Schema.class.php:464 libraries/structure.lib.php:379
 msgid "Data Dictionary"
@@ -9596,27 +9596,27 @@ msgstr "Текущий сервер:"
 msgid "Select binary log to view"
 msgstr "Выберите бинарный журнал для просмотра"
 
-#: libraries/server_bin_log.lib.php:133
+#: libraries/server_bin_log.lib.php:131
 msgid "Log name"
 msgstr "Файл журнала"
 
-#: libraries/server_bin_log.lib.php:134
+#: libraries/server_bin_log.lib.php:132
 msgid "Position"
 msgstr "Позиция"
 
-#: libraries/server_bin_log.lib.php:137
+#: libraries/server_bin_log.lib.php:135
 msgid "Original position"
 msgstr "Исходная позиция"
 
-#: libraries/server_bin_log.lib.php:138 libraries/structure.lib.php:2167
+#: libraries/server_bin_log.lib.php:136 libraries/structure.lib.php:2167
 msgid "Information"
 msgstr "Информация"
 
-#: libraries/server_bin_log.lib.php:195 server_status.php:488
+#: libraries/server_bin_log.lib.php:193 server_status.php:488
 msgid "Truncate Shown Queries"
 msgstr "Сокращенное отображение запросов"
 
-#: libraries/server_bin_log.lib.php:199 server_status.php:493
+#: libraries/server_bin_log.lib.php:197 server_status.php:493
 msgid "Show Full Queries"
 msgstr "Развернутое отображение запросов"
 
@@ -14161,6 +14161,9 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert установлен в 0"
+
+#~ msgid "Display all tables with the same width"
+#~ msgstr "Показать все таблицы одинаковой ширины"
 
 #~ msgid "Iconic table operations"
 #~ msgstr "Иконки операций над таблицами"

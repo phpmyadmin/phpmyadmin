@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-06-24 10:45+0200\n"
+"POT-Creation-Date: 2013-06-24 16:19+0200\n"
 "PO-Revision-Date: 2013-05-07 15:08+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Japanese <http://l10n.cihar.com/projects/phpmyadmin/master/ja/"
@@ -2556,15 +2556,15 @@ msgid "Begin"
 msgstr "先頭"
 
 #: libraries/DisplayResults.class.php:782 libraries/Util.class.php:2573
-#: libraries/Util.class.php:2576 libraries/server_bin_log.lib.php:182
-#: libraries/server_bin_log.lib.php:184
+#: libraries/Util.class.php:2576 libraries/server_bin_log.lib.php:180
+#: libraries/server_bin_log.lib.php:182
 msgctxt "Previous page"
 msgid "Previous"
 msgstr "前へ"
 
 #: libraries/DisplayResults.class.php:839 libraries/Util.class.php:2612
-#: libraries/Util.class.php:2615 libraries/server_bin_log.lib.php:220
-#: libraries/server_bin_log.lib.php:222
+#: libraries/Util.class.php:2615 libraries/server_bin_log.lib.php:218
+#: libraries/server_bin_log.lib.php:220
 msgctxt "Next page"
 msgid "Next"
 msgstr "次へ"
@@ -3906,11 +3906,11 @@ msgstr "データベース「%s」の特権を確認します。"
 msgid "Check Privileges"
 msgstr "特権をチェックする"
 
-#: libraries/common.inc.php:585
+#: libraries/common.inc.php:592
 msgid "Failed to read configuration file"
 msgstr "設定ファイルの読み込みに失敗しました"
 
-#: libraries/common.inc.php:587
+#: libraries/common.inc.php:594
 msgid ""
 "This usually means there is a syntax error in it, please check any errors "
 "shown below."
@@ -3918,12 +3918,12 @@ msgstr ""
 "通常、これは構文エラーがあることを意味します。以下に示す全てのエラーを確認し"
 "てください。"
 
-#: libraries/common.inc.php:594
+#: libraries/common.inc.php:601
 #, php-format
 msgid "Could not load default configuration from: %1$s"
 msgstr "デフォルトの設定を読み込めませんでした: %1$s"
 
-#: libraries/common.inc.php:601
+#: libraries/common.inc.php:608
 msgid ""
 "The [code]$cfg['PmaAbsoluteUri'][/code] directive MUST be set in your "
 "configuration file!"
@@ -3931,44 +3931,44 @@ msgstr ""
 "[code]$cfg['PmaAbsoluteUri'][/code] は<b>必ず</b>設定ファイルに設定しなければ"
 "なりません！"
 
-#: libraries/common.inc.php:634
+#: libraries/common.inc.php:641
 #, php-format
 msgid "Invalid server index: %s"
 msgstr "サーバのインデックスが不正です: %s"
 
-#: libraries/common.inc.php:645
+#: libraries/common.inc.php:652
 #, php-format
 msgid "Invalid hostname for server %1$s. Please review your configuration."
 msgstr "サーバ %1$s のホスト名が不正です。設定を確認してください。"
 
-#: libraries/common.inc.php:661
+#: libraries/common.inc.php:668
 #, fuzzy, php-format
 #| msgid "Server"
 msgid "Server %d"
 msgstr "サーバ"
 
-#: libraries/common.inc.php:854
+#: libraries/common.inc.php:861
 msgid "Invalid authentication method set in configuration:"
 msgstr "設定ファイルに無効な認証方法が指定されています:"
 
-#: libraries/common.inc.php:995
+#: libraries/common.inc.php:1002
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "%s を %s 以降にアップグレードしてください。"
 
-#: libraries/common.inc.php:1086
+#: libraries/common.inc.php:1093
 msgid "Error: Token mismatch"
 msgstr ""
 
-#: libraries/common.inc.php:1130
+#: libraries/common.inc.php:1137
 msgid "GLOBALS overwrite attempt"
 msgstr "GLOBALS 変数が書き換えられている可能性があります"
 
-#: libraries/common.inc.php:1137
+#: libraries/common.inc.php:1144
 msgid "possible exploit"
 msgstr "なんらかの攻撃をされている可能性があります"
 
-#: libraries/common.inc.php:1146
+#: libraries/common.inc.php:1153
 msgid "numeric key detected"
 msgstr "グローバル変数から数値キーが検出されました"
 
@@ -9098,7 +9098,7 @@ msgstr "スレーブステータス"
 msgid "Variable"
 msgstr "変数"
 
-#: libraries/replication_gui.lib.php:586 libraries/server_bin_log.lib.php:136
+#: libraries/replication_gui.lib.php:586 libraries/server_bin_log.lib.php:134
 msgid "Server ID"
 msgstr "サーバ ID"
 
@@ -9255,7 +9255,7 @@ msgstr "詳細"
 msgid "Event name"
 msgstr "イベント名"
 
-#: libraries/rte/rte_events.lib.php:441 libraries/server_bin_log.lib.php:135
+#: libraries/rte/rte_events.lib.php:441 libraries/server_bin_log.lib.php:133
 msgid "Event type"
 msgstr "イベント種別"
 
@@ -9705,8 +9705,8 @@ msgid "Show dimension of tables"
 msgstr "テーブルの大きさを表示する"
 
 #: libraries/schema/User_Schema.class.php:461
-msgid "Display all tables with the same width"
-msgstr "すべてのテーブルを同じ幅で表示しますか?"
+msgid "Same width for all tables"
+msgstr ""
 
 #: libraries/schema/User_Schema.class.php:464 libraries/structure.lib.php:379
 msgid "Data Dictionary"
@@ -9760,27 +9760,27 @@ msgstr "カレントサーバ"
 msgid "Select binary log to view"
 msgstr "表示するバイナリログを選択してください"
 
-#: libraries/server_bin_log.lib.php:133
+#: libraries/server_bin_log.lib.php:131
 msgid "Log name"
 msgstr "ログ名"
 
-#: libraries/server_bin_log.lib.php:134
+#: libraries/server_bin_log.lib.php:132
 msgid "Position"
 msgstr "位置"
 
-#: libraries/server_bin_log.lib.php:137
+#: libraries/server_bin_log.lib.php:135
 msgid "Original position"
 msgstr "元の位置"
 
-#: libraries/server_bin_log.lib.php:138 libraries/structure.lib.php:2167
+#: libraries/server_bin_log.lib.php:136 libraries/structure.lib.php:2167
 msgid "Information"
 msgstr "情報"
 
-#: libraries/server_bin_log.lib.php:195 server_status.php:488
+#: libraries/server_bin_log.lib.php:193 server_status.php:488
 msgid "Truncate Shown Queries"
 msgstr "クエリの表示を切り詰める"
 
-#: libraries/server_bin_log.lib.php:199 server_status.php:493
+#: libraries/server_bin_log.lib.php:197 server_status.php:493
 msgid "Show Full Queries"
 msgstr "クエリ全体を表示"
 
@@ -14338,6 +14338,9 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert は 0 に設定されています。"
+
+#~ msgid "Display all tables with the same width"
+#~ msgstr "すべてのテーブルを同じ幅で表示しますか?"
 
 #~ msgid "Iconic table operations"
 #~ msgstr "アイコンによるテーブルの操作"

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-06-24 10:45+0200\n"
+"POT-Creation-Date: 2013-06-24 16:19+0200\n"
 "PO-Revision-Date: 2013-06-09 06:05+0200\n"
 "Last-Translator: Rodrigo Souza <rodrigo.chrome@outlook.com>\n"
 "Language-Team: Portuguese (Brazil) <http://l10n.cihar.com/projects/"
@@ -2509,15 +2509,15 @@ msgid "Begin"
 msgstr "Início"
 
 #: libraries/DisplayResults.class.php:782 libraries/Util.class.php:2573
-#: libraries/Util.class.php:2576 libraries/server_bin_log.lib.php:182
-#: libraries/server_bin_log.lib.php:184
+#: libraries/Util.class.php:2576 libraries/server_bin_log.lib.php:180
+#: libraries/server_bin_log.lib.php:182
 msgctxt "Previous page"
 msgid "Previous"
 msgstr "Anterior"
 
 #: libraries/DisplayResults.class.php:839 libraries/Util.class.php:2612
-#: libraries/Util.class.php:2615 libraries/server_bin_log.lib.php:220
-#: libraries/server_bin_log.lib.php:222
+#: libraries/Util.class.php:2615 libraries/server_bin_log.lib.php:218
+#: libraries/server_bin_log.lib.php:220
 msgctxt "Next page"
 msgid "Next"
 msgstr "Próximo"
@@ -3877,11 +3877,11 @@ msgstr "Verificar privilégios para o banco de dados '%s'."
 msgid "Check Privileges"
 msgstr "Verificar privilégios"
 
-#: libraries/common.inc.php:585
+#: libraries/common.inc.php:592
 msgid "Failed to read configuration file"
 msgstr "Falhou ao ler o arquivo de configuração"
 
-#: libraries/common.inc.php:587
+#: libraries/common.inc.php:594
 msgid ""
 "This usually means there is a syntax error in it, please check any errors "
 "shown below."
@@ -3889,12 +3889,12 @@ msgstr ""
 "Isso geralmente significa que há um erro de sintaxe, por favor cheque "
 "qualquer erro mostrado abaixo."
 
-#: libraries/common.inc.php:594
+#: libraries/common.inc.php:601
 #, php-format
 msgid "Could not load default configuration from: %1$s"
 msgstr "Não foi possível carregar a configuração padrão de: %1$s"
 
-#: libraries/common.inc.php:601
+#: libraries/common.inc.php:608
 msgid ""
 "The [code]$cfg['PmaAbsoluteUri'][/code] directive MUST be set in your "
 "configuration file!"
@@ -3902,44 +3902,44 @@ msgstr ""
 "A diretriz [code]$cfg['PmaAbsoluteUrl'][/code] DEVE ser estabelecida no seu "
 "arquivo de configuração!"
 
-#: libraries/common.inc.php:634
+#: libraries/common.inc.php:641
 #, php-format
 msgid "Invalid server index: %s"
 msgstr "Índice de servidor inválido: \"%s\""
 
-#: libraries/common.inc.php:645
+#: libraries/common.inc.php:652
 #, php-format
 msgid "Invalid hostname for server %1$s. Please review your configuration."
 msgstr ""
 "Nome de servidor inválido para o servidor %1$s. Verifique suas configurações."
 
-#: libraries/common.inc.php:661
+#: libraries/common.inc.php:668
 #, php-format
 msgid "Server %d"
 msgstr "Servidor %d"
 
-#: libraries/common.inc.php:854
+#: libraries/common.inc.php:861
 msgid "Invalid authentication method set in configuration:"
 msgstr "Método de autenticação inválido informado nas configurações:"
 
-#: libraries/common.inc.php:995
+#: libraries/common.inc.php:1002
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "Você deveria atualizar para %s %s ou posterior."
 
-#: libraries/common.inc.php:1086
+#: libraries/common.inc.php:1093
 msgid "Error: Token mismatch"
 msgstr "Erro: Incompatibilidade de token"
 
-#: libraries/common.inc.php:1130
+#: libraries/common.inc.php:1137
 msgid "GLOBALS overwrite attempt"
 msgstr "Tentativa de sobrescrever variáveis GLOBALS"
 
-#: libraries/common.inc.php:1137
+#: libraries/common.inc.php:1144
 msgid "possible exploit"
 msgstr "Possível exploit"
 
-#: libraries/common.inc.php:1146
+#: libraries/common.inc.php:1153
 msgid "numeric key detected"
 msgstr "tecla numérica detectada"
 
@@ -8926,7 +8926,7 @@ msgstr "Status do(s) slave(s)"
 msgid "Variable"
 msgstr "Variável"
 
-#: libraries/replication_gui.lib.php:586 libraries/server_bin_log.lib.php:136
+#: libraries/replication_gui.lib.php:586 libraries/server_bin_log.lib.php:134
 msgid "Server ID"
 msgstr "ID do servidor"
 
@@ -9079,7 +9079,7 @@ msgstr "Detalhes"
 msgid "Event name"
 msgstr "Nome do evento"
 
-#: libraries/rte/rte_events.lib.php:441 libraries/server_bin_log.lib.php:135
+#: libraries/rte/rte_events.lib.php:441 libraries/server_bin_log.lib.php:133
 msgid "Event type"
 msgstr "Tipo de evento"
 
@@ -9530,8 +9530,8 @@ msgid "Show dimension of tables"
 msgstr "Mostrar dimensão das tabelas"
 
 #: libraries/schema/User_Schema.class.php:461
-msgid "Display all tables with the same width"
-msgstr "Mostrar todas as tabelas com a mesma largura"
+msgid "Same width for all tables"
+msgstr ""
 
 #: libraries/schema/User_Schema.class.php:464 libraries/structure.lib.php:379
 msgid "Data Dictionary"
@@ -9583,27 +9583,27 @@ msgstr "Servidor atual:"
 msgid "Select binary log to view"
 msgstr "Selecionar log binário para exibir"
 
-#: libraries/server_bin_log.lib.php:133
+#: libraries/server_bin_log.lib.php:131
 msgid "Log name"
 msgstr "Nome do log"
 
-#: libraries/server_bin_log.lib.php:134
+#: libraries/server_bin_log.lib.php:132
 msgid "Position"
 msgstr "Posição"
 
-#: libraries/server_bin_log.lib.php:137
+#: libraries/server_bin_log.lib.php:135
 msgid "Original position"
 msgstr "Posição original"
 
-#: libraries/server_bin_log.lib.php:138 libraries/structure.lib.php:2167
+#: libraries/server_bin_log.lib.php:136 libraries/structure.lib.php:2167
 msgid "Information"
 msgstr "Informação"
 
-#: libraries/server_bin_log.lib.php:195 server_status.php:488
+#: libraries/server_bin_log.lib.php:193 server_status.php:488
 msgid "Truncate Shown Queries"
 msgstr "Truncar as consultas SQL exibidas"
 
-#: libraries/server_bin_log.lib.php:199 server_status.php:493
+#: libraries/server_bin_log.lib.php:197 server_status.php:493
 msgid "Show Full Queries"
 msgstr "Mostrar consultas completas"
 
@@ -14090,6 +14090,9 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert está com valor 0"
+
+#~ msgid "Display all tables with the same width"
+#~ msgstr "Mostrar todas as tabelas com a mesma largura"
 
 #~ msgid "Iconic table operations"
 #~ msgstr "Operações de tabela icônicas"

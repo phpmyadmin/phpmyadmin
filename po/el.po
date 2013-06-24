@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-06-24 10:45+0200\n"
+"POT-Creation-Date: 2013-06-24 16:19+0200\n"
 "PO-Revision-Date: 2013-06-24 15:39+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: Greek <http://l10n.cihar.com/projects/phpmyadmin/master/el/>\n"
@@ -2501,15 +2501,15 @@ msgid "Begin"
 msgstr "Αρχή"
 
 #: libraries/DisplayResults.class.php:782 libraries/Util.class.php:2573
-#: libraries/Util.class.php:2576 libraries/server_bin_log.lib.php:182
-#: libraries/server_bin_log.lib.php:184
+#: libraries/Util.class.php:2576 libraries/server_bin_log.lib.php:180
+#: libraries/server_bin_log.lib.php:182
 msgctxt "Previous page"
 msgid "Previous"
 msgstr "Προηγούμενη"
 
 #: libraries/DisplayResults.class.php:839 libraries/Util.class.php:2612
-#: libraries/Util.class.php:2615 libraries/server_bin_log.lib.php:220
-#: libraries/server_bin_log.lib.php:222
+#: libraries/Util.class.php:2615 libraries/server_bin_log.lib.php:218
+#: libraries/server_bin_log.lib.php:220
 msgctxt "Next page"
 msgid "Next"
 msgstr "Επόμενη"
@@ -3869,11 +3869,11 @@ msgstr "Έλεγχος δικαιωμάτων για τη βάση «%s»."
 msgid "Check Privileges"
 msgstr "Έλεγχος Δικαιωμάτων"
 
-#: libraries/common.inc.php:585
+#: libraries/common.inc.php:592
 msgid "Failed to read configuration file"
 msgstr "Αδύνατη η ανάγνωση του αρχείου ρυθμίσεων"
 
-#: libraries/common.inc.php:587
+#: libraries/common.inc.php:594
 msgid ""
 "This usually means there is a syntax error in it, please check any errors "
 "shown below."
@@ -3881,12 +3881,12 @@ msgstr ""
 "Αυτό σημαίνει, συνήθως, ότι υπάρχει συντακτικό λάθος, για αυτό ελέγξτε τα "
 "σφάλματα που εμφανίζονται παρακάτω."
 
-#: libraries/common.inc.php:594
+#: libraries/common.inc.php:601
 #, php-format
 msgid "Could not load default configuration from: %1$s"
 msgstr "Αδύνατη η φόρτωση της προεπιλεγμένης ρύθμισης από: «%1$s»"
 
-#: libraries/common.inc.php:601
+#: libraries/common.inc.php:608
 msgid ""
 "The [code]$cfg['PmaAbsoluteUri'][/code] directive MUST be set in your "
 "configuration file!"
@@ -3894,45 +3894,45 @@ msgstr ""
 "Η πδηγία [code]$cfg['PmaAbsoluteUri'][/code] ΠΡΕΠΕΙ να οριστεί στο αρχείο "
 "ρυθμίσεων!"
 
-#: libraries/common.inc.php:634
+#: libraries/common.inc.php:641
 #, php-format
 msgid "Invalid server index: %s"
 msgstr "Μη έγκυρο ευρετήριο διακομιστή: %s"
 
-#: libraries/common.inc.php:645
+#: libraries/common.inc.php:652
 #, php-format
 msgid "Invalid hostname for server %1$s. Please review your configuration."
 msgstr ""
 "Μη έγκυρο όνομα διακομιστή για τον διακομιστή %1$s. Ξαναδείτε τις ρυθμίσεις "
 "σας."
 
-#: libraries/common.inc.php:661
+#: libraries/common.inc.php:668
 #, php-format
 msgid "Server %d"
 msgstr "Διακομιστής %d"
 
-#: libraries/common.inc.php:854
+#: libraries/common.inc.php:861
 msgid "Invalid authentication method set in configuration:"
 msgstr "Ορίστηκε εσφαλμένη μέθοδος πιστοποίησης στη ρύθμιση:"
 
-#: libraries/common.inc.php:995
+#: libraries/common.inc.php:1002
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "Πρέπει να αναβαθμίσετε σε %s %s ή νεότερη."
 
-#: libraries/common.inc.php:1086
+#: libraries/common.inc.php:1093
 msgid "Error: Token mismatch"
 msgstr "Σφάλμα: Το πειστήριο δεν ταιριάζει"
 
-#: libraries/common.inc.php:1130
+#: libraries/common.inc.php:1137
 msgid "GLOBALS overwrite attempt"
 msgstr "προσπάθεια επανεγγραφής GLOBALS"
 
-#: libraries/common.inc.php:1137
+#: libraries/common.inc.php:1144
 msgid "possible exploit"
 msgstr "δυνατή αξιοποίηση"
 
-#: libraries/common.inc.php:1146
+#: libraries/common.inc.php:1153
 msgid "numeric key detected"
 msgstr "ανιχνεύτηκε αριθμητικό κλειδί"
 
@@ -5331,7 +5331,6 @@ msgid "Use only icons, only text or both"
 msgstr "Χρήση μόνο εικονιδίων, μόνο κειμένου ή και τα δύο"
 
 #: libraries/config/messages.inc.php:325
-#| msgid "Iconic navigation bar"
 msgid "Table navigation bar"
 msgstr "Γραμμή πλοήγησης πίνακα"
 
@@ -5403,7 +5402,6 @@ msgid "MySQL reserved word warning"
 msgstr "Προειδοποίηση δεσμευμένης λέξης MySQL"
 
 #: libraries/config/messages.inc.php:339
-#| msgid "Allow to display all the rows"
 msgid "How to display the menu tabs"
 msgstr "Πως θα εμφανίζονται οι καρτέλες μενού"
 
@@ -8953,7 +8951,7 @@ msgstr "Κατάσταση δευτερεύοντος"
 msgid "Variable"
 msgstr "Μεταβλητή"
 
-#: libraries/replication_gui.lib.php:586 libraries/server_bin_log.lib.php:136
+#: libraries/replication_gui.lib.php:586 libraries/server_bin_log.lib.php:134
 msgid "Server ID"
 msgstr "Ταυτότητα Διακομιστή"
 
@@ -9107,7 +9105,7 @@ msgstr "Λεπτομέρειες"
 msgid "Event name"
 msgstr "Όνομα συμβάντος"
 
-#: libraries/rte/rte_events.lib.php:441 libraries/server_bin_log.lib.php:135
+#: libraries/rte/rte_events.lib.php:441 libraries/server_bin_log.lib.php:133
 msgid "Event type"
 msgstr "Τύπος συμβάντος"
 
@@ -9561,8 +9559,8 @@ msgid "Show dimension of tables"
 msgstr "Εμφάνιση διαστάσεων πινάκων"
 
 #: libraries/schema/User_Schema.class.php:461
-msgid "Display all tables with the same width"
-msgstr "Εμφάνιση όλων των πινάκων με το ίδιο πλάτος;"
+msgid "Same width for all tables"
+msgstr ""
 
 #: libraries/schema/User_Schema.class.php:464 libraries/structure.lib.php:379
 msgid "Data Dictionary"
@@ -9614,27 +9612,27 @@ msgstr "Τρέχων διακομιστής:"
 msgid "Select binary log to view"
 msgstr "Επιλέξτε δυαδικό αρχείο καταγραφής για προβολή"
 
-#: libraries/server_bin_log.lib.php:133
+#: libraries/server_bin_log.lib.php:131
 msgid "Log name"
 msgstr "Όνομασία καταγραφής"
 
-#: libraries/server_bin_log.lib.php:134
+#: libraries/server_bin_log.lib.php:132
 msgid "Position"
 msgstr "Θέση"
 
-#: libraries/server_bin_log.lib.php:137
+#: libraries/server_bin_log.lib.php:135
 msgid "Original position"
 msgstr "Αρχική θέση"
 
-#: libraries/server_bin_log.lib.php:138 libraries/structure.lib.php:2167
+#: libraries/server_bin_log.lib.php:136 libraries/structure.lib.php:2167
 msgid "Information"
 msgstr "Πληροφορία"
 
-#: libraries/server_bin_log.lib.php:195 server_status.php:488
+#: libraries/server_bin_log.lib.php:193 server_status.php:488
 msgid "Truncate Shown Queries"
 msgstr "Αποκοπή εμφανιζόμενων ερωτημάτων"
 
-#: libraries/server_bin_log.lib.php:199 server_status.php:493
+#: libraries/server_bin_log.lib.php:197 server_status.php:493
 msgid "Show Full Queries"
 msgstr "Πλήρης εμφάνιση ερωτημάτων"
 
@@ -14199,6 +14197,9 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "Το concurrent_insert έχει οριστεί στο 0"
+
+#~ msgid "Display all tables with the same width"
+#~ msgstr "Εμφάνιση όλων των πινάκων με το ίδιο πλάτος;"
 
 #~ msgid "Iconic table operations"
 #~ msgstr "Λειτουργίες πίνακα με εικονίδια"

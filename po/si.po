@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-06-24 10:45+0200\n"
+"POT-Creation-Date: 2013-06-24 16:19+0200\n"
 "PO-Revision-Date: 2013-06-11 14:58+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: Sinhala <http://l10n.cihar.com/projects/phpmyadmin/master/si/"
@@ -2453,15 +2453,15 @@ msgid "Begin"
 msgstr "ඇරඹුම"
 
 #: libraries/DisplayResults.class.php:782 libraries/Util.class.php:2573
-#: libraries/Util.class.php:2576 libraries/server_bin_log.lib.php:182
-#: libraries/server_bin_log.lib.php:184
+#: libraries/Util.class.php:2576 libraries/server_bin_log.lib.php:180
+#: libraries/server_bin_log.lib.php:182
 msgctxt "Previous page"
 msgid "Previous"
 msgstr "පෙර"
 
 #: libraries/DisplayResults.class.php:839 libraries/Util.class.php:2612
-#: libraries/Util.class.php:2615 libraries/server_bin_log.lib.php:220
-#: libraries/server_bin_log.lib.php:222
+#: libraries/Util.class.php:2615 libraries/server_bin_log.lib.php:218
+#: libraries/server_bin_log.lib.php:220
 msgctxt "Next page"
 msgid "Next"
 msgstr "මීලඟ"
@@ -3786,66 +3786,66 @@ msgstr "&quot;%s&quot; දත්තගබඩාව සඳහා වරප්‍�
 msgid "Check Privileges"
 msgstr "වරප්‍රසාද පරීක්ෂා කරන්න"
 
-#: libraries/common.inc.php:585
+#: libraries/common.inc.php:592
 msgid "Failed to read configuration file"
 msgstr "වින්‍යාස ගොනුව කියවීමට අසමත් විය"
 
-#: libraries/common.inc.php:587
+#: libraries/common.inc.php:594
 msgid ""
 "This usually means there is a syntax error in it, please check any errors "
 "shown below."
 msgstr "මෙහි සාමාන්‍ය අරුත වාක්‍ය වින්‍යාස දෝෂයකි, කරුණාකර පහත දැක්වෙන දෝෂ පරීක්ෂා කර බලන්න."
 
-#: libraries/common.inc.php:594
+#: libraries/common.inc.php:601
 #, php-format
 msgid "Could not load default configuration from: %1$s"
 msgstr "%1$s වෙතින් පෙරනිමි සිටුවම් පූරණය කර ගත නොහැකි විය"
 
-#: libraries/common.inc.php:601
+#: libraries/common.inc.php:608
 msgid ""
 "The [code]$cfg['PmaAbsoluteUri'][/code] directive MUST be set in your "
 "configuration file!"
 msgstr ""
 "[code]$cfg['PmaAbsoluteUri'][/code] සඳහා අගය ඔබගේ වින්‍යාස ගොනුවේ අඩංගු විය යුතුමය!"
 
-#: libraries/common.inc.php:634
+#: libraries/common.inc.php:641
 #, php-format
 msgid "Invalid server index: %s"
 msgstr "අවලංගු සේවාදායක සුචිය: %s"
 
-#: libraries/common.inc.php:645
+#: libraries/common.inc.php:652
 #, php-format
 msgid "Invalid hostname for server %1$s. Please review your configuration."
 msgstr ""
 "%1$s සේවාදායකය සඳහා වැරදි දායක නාමයක්. ඔබ ඔබගේ වින්‍යාසයන් පරීකෂා කර බැලිය යුතුය."
 
-#: libraries/common.inc.php:661
+#: libraries/common.inc.php:668
 #, php-format
 msgid "Server %d"
 msgstr "%d වන සේවාදායකය"
 
-#: libraries/common.inc.php:854
+#: libraries/common.inc.php:861
 msgid "Invalid authentication method set in configuration:"
 msgstr "වින්‍යසයන්හි වලංගු නැති සත්‍යාපන ක්‍රමයක් සිටුවා ඇත:"
 
-#: libraries/common.inc.php:995
+#: libraries/common.inc.php:1002
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "ඔබ %s %s හෝ ඉන්පසු අනුවාදයක් වෙත යාවත්කාලීන කල යුතුය."
 
-#: libraries/common.inc.php:1086
+#: libraries/common.inc.php:1093
 msgid "Error: Token mismatch"
 msgstr "දෝෂය: ටෝකන නොගැලපීම"
 
-#: libraries/common.inc.php:1130
+#: libraries/common.inc.php:1137
 msgid "GLOBALS overwrite attempt"
 msgstr "GLOBALS අගයන් උඩින් ලිවීමේ උත්සාහය"
 
-#: libraries/common.inc.php:1137
+#: libraries/common.inc.php:1144
 msgid "possible exploit"
 msgstr "විය හැකි අයුතු ප්‍රයෝජන ගැනීමක්"
 
-#: libraries/common.inc.php:1146
+#: libraries/common.inc.php:1153
 msgid "numeric key detected"
 msgstr "සංඛ්‍යාත්මක යතුරක් අනාවරණය වුණි"
 
@@ -8633,7 +8633,7 @@ msgstr "අනුගාමි සේවාදායකයේ තත්වය"
 msgid "Variable"
 msgstr "විචල්‍යය"
 
-#: libraries/replication_gui.lib.php:586 libraries/server_bin_log.lib.php:136
+#: libraries/replication_gui.lib.php:586 libraries/server_bin_log.lib.php:134
 msgid "Server ID"
 msgstr "සේවාදායකයේ හැඳුනුම් අංකය"
 
@@ -8781,7 +8781,7 @@ msgstr "තොරතුරු"
 msgid "Event name"
 msgstr "සිද්ධියේ නම"
 
-#: libraries/rte/rte_events.lib.php:441 libraries/server_bin_log.lib.php:135
+#: libraries/rte/rte_events.lib.php:441 libraries/server_bin_log.lib.php:133
 msgid "Event type"
 msgstr "සිද්ධි වර්ගය"
 
@@ -9228,8 +9228,8 @@ msgid "Show dimension of tables"
 msgstr "වගු වල මාන පෙන්වන්න"
 
 #: libraries/schema/User_Schema.class.php:461
-msgid "Display all tables with the same width"
-msgstr "සියලු වගු එකම ප්‍රමාණයෙන් පෙන්වන්න"
+msgid "Same width for all tables"
+msgstr ""
 
 #: libraries/schema/User_Schema.class.php:464 libraries/structure.lib.php:379
 msgid "Data Dictionary"
@@ -9279,27 +9279,27 @@ msgstr "වත්මන් සේවාදායකය:"
 msgid "Select binary log to view"
 msgstr "පෙන්වීම සඳහා ද්වීමය ලොගය තෝරන්න"
 
-#: libraries/server_bin_log.lib.php:133
+#: libraries/server_bin_log.lib.php:131
 msgid "Log name"
 msgstr "ලොග් නම"
 
-#: libraries/server_bin_log.lib.php:134
+#: libraries/server_bin_log.lib.php:132
 msgid "Position"
 msgstr "පිහිටුම"
 
-#: libraries/server_bin_log.lib.php:137
+#: libraries/server_bin_log.lib.php:135
 msgid "Original position"
 msgstr "මුල් පිහිටුම"
 
-#: libraries/server_bin_log.lib.php:138 libraries/structure.lib.php:2167
+#: libraries/server_bin_log.lib.php:136 libraries/structure.lib.php:2167
 msgid "Information"
 msgstr "තොරතුරු"
 
-#: libraries/server_bin_log.lib.php:195 server_status.php:488
+#: libraries/server_bin_log.lib.php:193 server_status.php:488
 msgid "Truncate Shown Queries"
 msgstr ""
 
-#: libraries/server_bin_log.lib.php:199 server_status.php:493
+#: libraries/server_bin_log.lib.php:197 server_status.php:493
 msgid "Show Full Queries"
 msgstr "සම්පූර්ණ විමසුම් පෙන්වන්න"
 
@@ -13440,6 +13440,9 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert ශුන්‍යයට සිටුවා ඇත"
+
+#~ msgid "Display all tables with the same width"
+#~ msgstr "සියලු වගු එකම ප්‍රමාණයෙන් පෙන්වන්න"
 
 #~ msgid "Iconic table operations"
 #~ msgstr "අයිකන සහිත වගු මෙහෙයුම්"

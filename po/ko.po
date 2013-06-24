@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-06-24 10:45+0200\n"
+"POT-Creation-Date: 2013-06-24 16:19+0200\n"
 "PO-Revision-Date: 2013-06-18 13:51+0200\n"
 "Last-Translator: Yungu Kim <crimsonpi@gmail.com>\n"
 "Language-Team: Korean <http://l10n.cihar.com/projects/phpmyadmin/master/ko/"
@@ -2469,15 +2469,15 @@ msgid "Begin"
 msgstr "처음"
 
 #: libraries/DisplayResults.class.php:782 libraries/Util.class.php:2573
-#: libraries/Util.class.php:2576 libraries/server_bin_log.lib.php:182
-#: libraries/server_bin_log.lib.php:184
+#: libraries/Util.class.php:2576 libraries/server_bin_log.lib.php:180
+#: libraries/server_bin_log.lib.php:182
 msgctxt "Previous page"
 msgid "Previous"
 msgstr "이전"
 
 #: libraries/DisplayResults.class.php:839 libraries/Util.class.php:2612
-#: libraries/Util.class.php:2615 libraries/server_bin_log.lib.php:220
-#: libraries/server_bin_log.lib.php:222
+#: libraries/Util.class.php:2615 libraries/server_bin_log.lib.php:218
+#: libraries/server_bin_log.lib.php:220
 msgctxt "Next page"
 msgid "Next"
 msgstr "다음"
@@ -3782,11 +3782,11 @@ msgstr "데이터베이스 &quot;%s&quot; 에 대한 사용권한 검사."
 msgid "Check Privileges"
 msgstr "사용권한 검사"
 
-#: libraries/common.inc.php:585
+#: libraries/common.inc.php:592
 msgid "Failed to read configuration file"
 msgstr "설정 파일을 읽는데 실패했습니다."
 
-#: libraries/common.inc.php:587
+#: libraries/common.inc.php:594
 msgid ""
 "This usually means there is a syntax error in it, please check any errors "
 "shown below."
@@ -3794,55 +3794,55 @@ msgstr ""
 "일반적으로 이것은 문법 오류가 있음을 의미합니다. 다음의 모든 오류를 확인하십"
 "시오."
 
-#: libraries/common.inc.php:594
+#: libraries/common.inc.php:601
 #, php-format
 msgid "Could not load default configuration from: %1$s"
 msgstr "기본 설정을 가져올 수 없습니다: %1$s"
 
-#: libraries/common.inc.php:601
+#: libraries/common.inc.php:608
 msgid ""
 "The [code]$cfg['PmaAbsoluteUri'][/code] directive MUST be set in your "
 "configuration file!"
 msgstr ""
 "환경설정 파일에 [code]$cfg['PmaAbsoluteUri'][/code] 변수가 정의되어야 합니다!"
 
-#: libraries/common.inc.php:634
+#: libraries/common.inc.php:641
 #, php-format
 msgid "Invalid server index: %s"
 msgstr "잘못된 서버 인덱스: %s"
 
-#: libraries/common.inc.php:645
+#: libraries/common.inc.php:652
 #, php-format
 msgid "Invalid hostname for server %1$s. Please review your configuration."
 msgstr "서버 %1$s의 호스트 이름이 잘못되었습니다. 설정을 확인하십시오."
 
-#: libraries/common.inc.php:661
+#: libraries/common.inc.php:668
 #, php-format
 msgid "Server %d"
 msgstr "서버 %d"
 
-#: libraries/common.inc.php:854
+#: libraries/common.inc.php:861
 msgid "Invalid authentication method set in configuration:"
 msgstr "설정 파일에 잘못된 인증 방식 설정되어 있습니다.:"
 
-#: libraries/common.inc.php:995
+#: libraries/common.inc.php:1002
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "%s를 %s 이상으로 업그레이드 하십시오."
 
-#: libraries/common.inc.php:1086
+#: libraries/common.inc.php:1093
 msgid "Error: Token mismatch"
 msgstr ""
 
-#: libraries/common.inc.php:1130
+#: libraries/common.inc.php:1137
 msgid "GLOBALS overwrite attempt"
 msgstr ""
 
-#: libraries/common.inc.php:1137
+#: libraries/common.inc.php:1144
 msgid "possible exploit"
 msgstr "어떤 공격을 받고있을 가능성이 있습니다"
 
-#: libraries/common.inc.php:1146
+#: libraries/common.inc.php:1153
 msgid "numeric key detected"
 msgstr "전역 변수에서 숫자로 된 키가 발견 되었습니다"
 
@@ -8613,7 +8613,7 @@ msgstr "슬레이브 스테이터스"
 msgid "Variable"
 msgstr "변수"
 
-#: libraries/replication_gui.lib.php:586 libraries/server_bin_log.lib.php:136
+#: libraries/replication_gui.lib.php:586 libraries/server_bin_log.lib.php:134
 msgid "Server ID"
 msgstr "서버 아이디"
 
@@ -8766,7 +8766,7 @@ msgstr "자세한 내용"
 msgid "Event name"
 msgstr "이벤트 이름"
 
-#: libraries/rte/rte_events.lib.php:441 libraries/server_bin_log.lib.php:135
+#: libraries/rte/rte_events.lib.php:441 libraries/server_bin_log.lib.php:133
 msgid "Event type"
 msgstr "이벤트 종류"
 
@@ -9239,8 +9239,8 @@ msgid "Show dimension of tables"
 msgstr "열려있는 테이블 보기"
 
 #: libraries/schema/User_Schema.class.php:461
-msgid "Display all tables with the same width"
-msgstr "모든 테이블을 같은 너비로 출력합니다."
+msgid "Same width for all tables"
+msgstr ""
 
 #: libraries/schema/User_Schema.class.php:464 libraries/structure.lib.php:379
 msgid "Data Dictionary"
@@ -9296,29 +9296,29 @@ msgstr "서버:"
 msgid "Select binary log to view"
 msgstr "표시할 바이너리 로그를 선택하세요"
 
-#: libraries/server_bin_log.lib.php:133
+#: libraries/server_bin_log.lib.php:131
 msgid "Log name"
 msgstr "로그 이름"
 
-#: libraries/server_bin_log.lib.php:134
+#: libraries/server_bin_log.lib.php:132
 msgid "Position"
 msgstr "위치"
 
-#: libraries/server_bin_log.lib.php:137
+#: libraries/server_bin_log.lib.php:135
 msgid "Original position"
 msgstr "원본 위치"
 
-#: libraries/server_bin_log.lib.php:138 libraries/structure.lib.php:2167
+#: libraries/server_bin_log.lib.php:136 libraries/structure.lib.php:2167
 #, fuzzy
 #| msgid "Show PHP information"
 msgid "Information"
 msgstr "PHP 정보 보기"
 
-#: libraries/server_bin_log.lib.php:195 server_status.php:488
+#: libraries/server_bin_log.lib.php:193 server_status.php:488
 msgid "Truncate Shown Queries"
 msgstr "보여줄 쿼리 중략하기"
 
-#: libraries/server_bin_log.lib.php:199 server_status.php:493
+#: libraries/server_bin_log.lib.php:197 server_status.php:493
 msgid "Show Full Queries"
 msgstr "전체 쿼리 보기"
 
@@ -13485,6 +13485,9 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert가 0으로 설정되었습니다."
+
+#~ msgid "Display all tables with the same width"
+#~ msgstr "모든 테이블을 같은 너비로 출력합니다."
 
 #, fuzzy
 #~| msgid "Log table filter options"

@@ -3,11 +3,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-06-24 10:45+0200\n"
+"POT-Creation-Date: 2013-06-24 16:19+0200\n"
 "PO-Revision-Date: 2013-06-24 15:56+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Swedish "
-"<http://l10n.cihar.com/projects/phpmyadmin/master/sv/>\n"
+"Language-Team: Swedish <http://l10n.cihar.com/projects/phpmyadmin/master/sv/"
+">\n"
 "Language: sv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2477,15 +2477,15 @@ msgid "Begin"
 msgstr "Starta"
 
 #: libraries/DisplayResults.class.php:782 libraries/Util.class.php:2573
-#: libraries/Util.class.php:2576 libraries/server_bin_log.lib.php:182
-#: libraries/server_bin_log.lib.php:184
+#: libraries/Util.class.php:2576 libraries/server_bin_log.lib.php:180
+#: libraries/server_bin_log.lib.php:182
 msgctxt "Previous page"
 msgid "Previous"
 msgstr "Föregående"
 
 #: libraries/DisplayResults.class.php:839 libraries/Util.class.php:2612
-#: libraries/Util.class.php:2615 libraries/server_bin_log.lib.php:220
-#: libraries/server_bin_log.lib.php:222
+#: libraries/Util.class.php:2615 libraries/server_bin_log.lib.php:218
+#: libraries/server_bin_log.lib.php:220
 msgctxt "Next page"
 msgid "Next"
 msgstr "Nästa"
@@ -3830,11 +3830,11 @@ msgstr "Kontrollera privilegier för databas &quot;%s&quot;."
 msgid "Check Privileges"
 msgstr "Kontrollera privilegier"
 
-#: libraries/common.inc.php:585
+#: libraries/common.inc.php:592
 msgid "Failed to read configuration file"
 msgstr "Kunde inte läsa konfigurationsfilen"
 
-#: libraries/common.inc.php:587
+#: libraries/common.inc.php:594
 msgid ""
 "This usually means there is a syntax error in it, please check any errors "
 "shown below."
@@ -3842,12 +3842,12 @@ msgstr ""
 "Detta betyder oftast att det finns ett syntaxfel i den, kontrollera "
 "eventuella fel som visas nedan."
 
-#: libraries/common.inc.php:594
+#: libraries/common.inc.php:601
 #, php-format
 msgid "Could not load default configuration from: %1$s"
 msgstr "Kunde inte ladda standardkonfiguration från: %1$s"
 
-#: libraries/common.inc.php:601
+#: libraries/common.inc.php:608
 msgid ""
 "The [code]$cfg['PmaAbsoluteUri'][/code] directive MUST be set in your "
 "configuration file!"
@@ -3855,43 +3855,43 @@ msgstr ""
 "Direktivet [code]$cfg['PmaAbsoluteUri'][/code] MÅSTE definieras i "
 "konfigurationsfilen!"
 
-#: libraries/common.inc.php:634
+#: libraries/common.inc.php:641
 #, php-format
 msgid "Invalid server index: %s"
 msgstr "Ogiltigt serverindex: %s"
 
-#: libraries/common.inc.php:645
+#: libraries/common.inc.php:652
 #, php-format
 msgid "Invalid hostname for server %1$s. Please review your configuration."
 msgstr "Ogiltigt värdnamn för server %1$s. Var god granska din konfiguration."
 
-#: libraries/common.inc.php:661
+#: libraries/common.inc.php:668
 #, php-format
 msgid "Server %d"
 msgstr "Server %d"
 
-#: libraries/common.inc.php:854
+#: libraries/common.inc.php:861
 msgid "Invalid authentication method set in configuration:"
 msgstr "Ogiltig metod för verifiering angiven i konfiguration:"
 
-#: libraries/common.inc.php:995
+#: libraries/common.inc.php:1002
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "Du bör uppgradera till %s %s eller senare."
 
-#: libraries/common.inc.php:1086
+#: libraries/common.inc.php:1093
 msgid "Error: Token mismatch"
 msgstr "Fel: Token matchningsfel"
 
-#: libraries/common.inc.php:1130
+#: libraries/common.inc.php:1137
 msgid "GLOBALS overwrite attempt"
 msgstr "Överskrivningsförsök av GLOBALS"
 
-#: libraries/common.inc.php:1137
+#: libraries/common.inc.php:1144
 msgid "possible exploit"
 msgstr "möjlig exploatering"
 
-#: libraries/common.inc.php:1146
+#: libraries/common.inc.php:1153
 msgid "numeric key detected"
 msgstr "numerisk tangent upptäckt"
 
@@ -8837,7 +8837,7 @@ msgstr "Slav-status"
 msgid "Variable"
 msgstr "Variabel"
 
-#: libraries/replication_gui.lib.php:586 libraries/server_bin_log.lib.php:136
+#: libraries/replication_gui.lib.php:586 libraries/server_bin_log.lib.php:134
 msgid "Server ID"
 msgstr "Server ID"
 
@@ -8989,7 +8989,7 @@ msgstr "Detaljer"
 msgid "Event name"
 msgstr "Händelsenamn"
 
-#: libraries/rte/rte_events.lib.php:441 libraries/server_bin_log.lib.php:135
+#: libraries/rte/rte_events.lib.php:441 libraries/server_bin_log.lib.php:133
 msgid "Event type"
 msgstr "Händelsetyp"
 
@@ -9440,8 +9440,8 @@ msgid "Show dimension of tables"
 msgstr "Visa tabellers dimensioner"
 
 #: libraries/schema/User_Schema.class.php:461
-msgid "Display all tables with the same width"
-msgstr "Visa alla tabeller med samma bredd"
+msgid "Same width for all tables"
+msgstr ""
 
 #: libraries/schema/User_Schema.class.php:464 libraries/structure.lib.php:379
 msgid "Data Dictionary"
@@ -9493,27 +9493,27 @@ msgstr "Nuvarande server:"
 msgid "Select binary log to view"
 msgstr "Välj binär logg att visa"
 
-#: libraries/server_bin_log.lib.php:133
+#: libraries/server_bin_log.lib.php:131
 msgid "Log name"
 msgstr "Loggnamn"
 
-#: libraries/server_bin_log.lib.php:134
+#: libraries/server_bin_log.lib.php:132
 msgid "Position"
 msgstr "Position"
 
-#: libraries/server_bin_log.lib.php:137
+#: libraries/server_bin_log.lib.php:135
 msgid "Original position"
 msgstr "Ursprunglig position"
 
-#: libraries/server_bin_log.lib.php:138 libraries/structure.lib.php:2167
+#: libraries/server_bin_log.lib.php:136 libraries/structure.lib.php:2167
 msgid "Information"
 msgstr "Information"
 
-#: libraries/server_bin_log.lib.php:195 server_status.php:488
+#: libraries/server_bin_log.lib.php:193 server_status.php:488
 msgid "Truncate Shown Queries"
 msgstr "Korta av visade frågor"
 
-#: libraries/server_bin_log.lib.php:199 server_status.php:493
+#: libraries/server_bin_log.lib.php:197 server_status.php:493
 msgid "Show Full Queries"
 msgstr "Visa fullständiga frågor"
 
@@ -10071,8 +10071,8 @@ msgid ""
 "increases server load by up to 15%."
 msgstr ""
 "phpMyAdmin Monitor hjälpa dig optimera serverkonfigurationen och spåra "
-"tidsintensiva frågor. För det senare måste du ställa log_output till \"TABLE\" "
-"och ha antingen slow_query_log eller general_log aktiverat. Observera att "
+"tidsintensiva frågor. För det senare måste du ställa log_output till \"TABLE"
+"\" och ha antingen slow_query_log eller general_log aktiverat. Observera att "
 "general_log producerar mycket data och ökar lasten på servern med upp till "
 "15%."
 
@@ -13942,6 +13942,9 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert är satt till 0"
+
+#~ msgid "Display all tables with the same width"
+#~ msgstr "Visa alla tabeller med samma bredd"
 
 #~ msgid "Iconic table operations"
 #~ msgstr "Ikoniska tabelloperationer"
