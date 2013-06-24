@@ -1,31 +1,31 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 4.0.4-dev\n"
+"Project-Id-Version: phpMyAdmin 4.0.5-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-06-03 09:16-0400\n"
+"POT-Creation-Date: 2013-06-24 10:43+0200\n"
 "PO-Revision-Date: 2013-05-07 15:08+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Japanese <http://l10n.cihar.com/projects/phpmyadmin/4-0/ja/>\n"
+"Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ja\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 1.6-dev\n"
 
 #: browse_foreigners.php:51 browse_foreigners.php:75 js/messages.php:344
-#: libraries/DisplayResults.class.php:809
+#: libraries/DisplayResults.class.php:813
 #: libraries/server_privileges.lib.php:2605
 msgid "Show all"
 msgstr "すべて表示"
 
 #: browse_foreigners.php:93 libraries/PDF.class.php:65
-#: libraries/Util.class.php:2543
+#: libraries/Util.class.php:2560
 #: libraries/schema/Pdf_Relation_Schema.class.php:1183
 #: libraries/schema/Pdf_Relation_Schema.class.php:1207
-#: libraries/schema/User_Schema.class.php:427
-#: libraries/select_lang.lib.php:514
+#: libraries/schema/User_Schema.class.php:430
+#: libraries/select_lang.lib.php:520
 msgid "Page number:"
 msgstr "ページ番号:"
 
@@ -39,25 +39,25 @@ msgstr ""
 "たか、ブラウザのセキュリティ設定でクロスウィンドウの更新をブロックしているも"
 "のと思われます。"
 
-#: browse_foreigners.php:182 libraries/Menu.class.php:263
-#: libraries/Menu.class.php:348 libraries/Util.class.php:3221
-#: libraries/Util.class.php:3228 libraries/Util.class.php:3438
-#: libraries/Util.class.php:3439
+#: browse_foreigners.php:182 libraries/Menu.class.php:280
+#: libraries/Menu.class.php:365 libraries/Util.class.php:3245
+#: libraries/Util.class.php:3252 libraries/Util.class.php:3462
+#: libraries/Util.class.php:3463
 msgid "Search"
 msgstr "検索"
 
 #: browse_foreigners.php:186 gis_data_editor.php:396 js/messages.php:218
-#: libraries/DbSearch.class.php:455 libraries/DisplayResults.class.php:1657
+#: libraries/DbSearch.class.php:455 libraries/DisplayResults.class.php:1661
 #: libraries/TableSearch.class.php:1142 libraries/core.lib.php:556
 #: libraries/display_change_password.lib.php:94
-#: libraries/display_create_table.lib.php:61
+#: libraries/display_create_table.lib.php:65
 #: libraries/display_export.lib.php:441 libraries/display_import.lib.php:335
 #: libraries/index.lib.php:35 libraries/insert_edit.lib.php:1547
-#: libraries/insert_edit.lib.php:1582 libraries/operations.lib.php:39
-#: libraries/operations.lib.php:82 libraries/operations.lib.php:210
-#: libraries/operations.lib.php:254 libraries/operations.lib.php:636
-#: libraries/operations.lib.php:689 libraries/operations.lib.php:738
-#: libraries/operations.lib.php:1054 libraries/operations.lib.php:1338
+#: libraries/insert_edit.lib.php:1582 libraries/operations.lib.php:43
+#: libraries/operations.lib.php:90 libraries/operations.lib.php:226
+#: libraries/operations.lib.php:274 libraries/operations.lib.php:660
+#: libraries/operations.lib.php:713 libraries/operations.lib.php:762
+#: libraries/operations.lib.php:1078 libraries/operations.lib.php:1362
 #: libraries/plugins/auth/AuthenticationCookie.class.php:244
 #: libraries/replication_gui.lib.php:79 libraries/replication_gui.lib.php:396
 #: libraries/rte/rte_events.lib.php:542
@@ -66,19 +66,19 @@ msgstr "検索"
 #: libraries/rte/rte_triggers.lib.php:420
 #: libraries/schema/User_Schema.class.php:164
 #: libraries/schema/User_Schema.class.php:226
-#: libraries/schema/User_Schema.class.php:484
-#: libraries/schema/User_Schema.class.php:534
+#: libraries/schema/User_Schema.class.php:487
+#: libraries/schema/User_Schema.class.php:537
 #: libraries/server_privileges.lib.php:476
 #: libraries/server_privileges.lib.php:1474
 #: libraries/server_privileges.lib.php:1953
 #: libraries/server_privileges.lib.php:2545
-#: libraries/server_privileges.lib.php:3067
-#: libraries/sql_query_form.lib.php:365 libraries/sql_query_form.lib.php:422
-#: libraries/sql_query_form.lib.php:487 libraries/structure.lib.php:1582
+#: libraries/server_privileges.lib.php:3068
+#: libraries/sql_query_form.lib.php:369 libraries/sql_query_form.lib.php:426
+#: libraries/sql_query_form.lib.php:491 libraries/structure.lib.php:1590
 #: libraries/tbl_columns_definition_form.inc.php:754 pmd_pdf.php:151
 #: prefs_manage.php:266 prefs_manage.php:316 server_binlog.php:115
 #: server_replication.php:224 server_replication.php:327 tbl_chart.php:251
-#: tbl_indexes.php:352 tbl_tracking.php:520 tbl_tracking.php:683
+#: tbl_indexes.php:352 tbl_tracking.php:520 tbl_tracking.php:685
 #: view_create.php:225 view_operations.php:98
 msgid "Go"
 msgstr "実行"
@@ -113,11 +113,11 @@ msgstr ""
 msgid "Database %1$s has been created."
 msgstr "データベース %1$s を作成しました。"
 
-#: db_datadict.php:51 libraries/operations.lib.php:32
+#: db_datadict.php:51 libraries/operations.lib.php:36
 msgid "Database comment: "
 msgstr "データベースのコメント: "
 
-#: db_datadict.php:157 libraries/operations.lib.php:784
+#: db_datadict.php:157 libraries/operations.lib.php:808
 #: libraries/schema/Pdf_Relation_Schema.class.php:1332
 #: libraries/tbl_columns_definition_form.inc.php:836 tbl_printview.php:120
 msgid "Table comments"
@@ -221,7 +221,6 @@ msgstr "コメント"
 
 #: db_datadict.php:240 js/messages.php:240 libraries/Index.class.php:431
 #: libraries/Index.class.php:470 libraries/Index.class.php:838
-#: libraries/config.values.php:50 libraries/config.values.php:65
 #: libraries/config/FormDisplay.tpl.php:258 libraries/mult_submits.inc.php:342
 #: libraries/mult_submits.inc.php:343
 #: libraries/plugins/export/ExportHtmlword.class.php:631
@@ -235,7 +234,7 @@ msgstr "コメント"
 #: libraries/server_privileges.lib.php:2139
 #: libraries/server_privileges.lib.php:2145
 #: libraries/server_privileges.lib.php:2465
-#: libraries/server_privileges.lib.php:2479 libraries/structure.lib.php:1268
+#: libraries/server_privileges.lib.php:2479 libraries/structure.lib.php:1272
 #: libraries/user_preferences.lib.php:282 prefs_manage.php:131 sql.php:417
 #: sql.php:512 sql.php:513 tbl_printview.php:186 tbl_tracking.php:344
 #: tbl_tracking.php:398 tbl_tracking.php:403
@@ -244,7 +243,6 @@ msgstr "いいえ"
 
 #: db_datadict.php:240 js/messages.php:239 libraries/Index.class.php:432
 #: libraries/Index.class.php:469 libraries/Index.class.php:838
-#: libraries/config.values.php:49 libraries/config.values.php:64
 #: libraries/config/FormDisplay.tpl.php:258 libraries/mult_submits.inc.php:71
 #: libraries/mult_submits.inc.php:103 libraries/mult_submits.inc.php:112
 #: libraries/mult_submits.inc.php:117 libraries/mult_submits.inc.php:122
@@ -262,7 +260,7 @@ msgstr "いいえ"
 #: libraries/server_privileges.lib.php:2138
 #: libraries/server_privileges.lib.php:2143
 #: libraries/server_privileges.lib.php:2462
-#: libraries/server_privileges.lib.php:2479 libraries/structure.lib.php:1268
+#: libraries/server_privileges.lib.php:2479 libraries/structure.lib.php:1272
 #: libraries/user_preferences.lib.php:280 prefs_manage.php:130
 #: server_databases.php:103 server_databases.php:110 sql.php:510 sql.php:511
 #: tbl_printview.php:187 tbl_structure.php:84 tbl_tracking.php:344
@@ -274,7 +272,7 @@ msgstr "はい"
 msgid "View dump (schema) of database"
 msgstr "データベースのダンプ (スキーマ) 表示"
 
-#: db_export.php:33 db_printview.php:92 db_tracking.php:49 export.php:555
+#: db_export.php:33 db_printview.php:92 db_tracking.php:49 export.php:557
 #: libraries/DBQbe.class.php:268
 msgid "No tables found in database."
 msgstr "このデータベースにはテーブルがありません。"
@@ -310,8 +308,8 @@ msgstr ""
 "phpMyAdmin 環境保管領域が無効になっています。理由については%sこちら%sをご覧く"
 "ださい。"
 
-#: db_printview.php:99 db_tracking.php:79 db_tracking.php:198
-#: libraries/Menu.class.php:190 libraries/config/messages.inc.php:508
+#: db_printview.php:99 db_tracking.php:79 db_tracking.php:204
+#: libraries/Menu.class.php:207 libraries/config/messages.inc.php:510
 #: libraries/plugins/export/ExportXml.class.php:457
 #: libraries/plugins/export/PMA_ExportPdf.class.php:116
 #: libraries/rte/rte_list.lib.php:65 libraries/rte/rte_triggers.lib.php:355
@@ -319,14 +317,14 @@ msgstr ""
 #: libraries/server_privileges.lib.php:1981
 #: libraries/server_privileges.lib.php:2212
 #: libraries/server_privileges.lib.php:2864 libraries/structure.lib.php:757
-#: tbl_tracking.php:762
+#: tbl_tracking.php:764
 msgid "Table"
 msgstr "テーブル"
 
 #: db_printview.php:100 libraries/Table.class.php:351
 #: libraries/build_html_for_db.lib.php:31 libraries/import.lib.php:181
-#: libraries/structure.lib.php:768 libraries/structure.lib.php:1708
-#: libraries/structure.lib.php:1901 sql.php:1118 tbl_printview.php:365
+#: libraries/structure.lib.php:768 libraries/structure.lib.php:1716
+#: libraries/structure.lib.php:1909 sql.php:1122 tbl_printview.php:365
 msgid "Rows"
 msgstr "行"
 
@@ -339,26 +337,26 @@ msgstr "サイズ"
 msgid "in use"
 msgstr "使用中"
 
-#: db_printview.php:185 libraries/Util.class.php:4080
+#: db_printview.php:185 libraries/Util.class.php:4104
 #: libraries/plugins/export/ExportSql.class.php:946
 #: libraries/schema/Pdf_Relation_Schema.class.php:1337
-#: libraries/structure.lib.php:798 libraries/structure.lib.php:1754
+#: libraries/structure.lib.php:798 libraries/structure.lib.php:1762
 #: tbl_printview.php:410
 msgid "Creation"
 msgstr "作成日時"
 
-#: db_printview.php:194 libraries/Util.class.php:4086
+#: db_printview.php:194 libraries/Util.class.php:4110
 #: libraries/plugins/export/ExportSql.class.php:959
 #: libraries/schema/Pdf_Relation_Schema.class.php:1342
-#: libraries/structure.lib.php:805 libraries/structure.lib.php:1762
+#: libraries/structure.lib.php:805 libraries/structure.lib.php:1770
 #: tbl_printview.php:421
 msgid "Last update"
 msgstr "最終更新"
 
-#: db_printview.php:203 libraries/Util.class.php:4092
+#: db_printview.php:203 libraries/Util.class.php:4116
 #: libraries/plugins/export/ExportSql.class.php:972
 #: libraries/schema/Pdf_Relation_Schema.class.php:1347
-#: libraries/structure.lib.php:812 libraries/structure.lib.php:1770
+#: libraries/structure.lib.php:812 libraries/structure.lib.php:1778
 #: tbl_printview.php:432
 msgid "Last check"
 msgstr "最終検査"
@@ -394,8 +392,8 @@ msgstr "このデータベースにはテーブルがありません"
 msgid "Tracked tables"
 msgstr "SQL コマンドを追跡しているテーブル"
 
-#: db_tracking.php:78 libraries/Menu.class.php:167
-#: libraries/config/messages.inc.php:502
+#: db_tracking.php:78 libraries/Menu.class.php:180
+#: libraries/config/messages.inc.php:504
 #: libraries/plugins/export/ExportHtmlword.class.php:158
 #: libraries/plugins/export/ExportLatex.class.php:251
 #: libraries/plugins/export/ExportOdt.class.php:203
@@ -406,7 +404,7 @@ msgstr "SQL コマンドを追跡しているテーブル"
 #: libraries/server_privileges.lib.php:1971
 #: libraries/server_privileges.lib.php:2212
 #: libraries/server_privileges.lib.php:2855 server_databases.php:201
-#: server_status.php:324 sql.php:1109 tbl_tracking.php:761
+#: server_status.php:324 sql.php:1113 tbl_tracking.php:763
 msgid "Database"
 msgstr "データベース"
 
@@ -414,17 +412,17 @@ msgstr "データベース"
 msgid "Last version"
 msgstr "最後の世代"
 
-#: db_tracking.php:81 tbl_tracking.php:764
+#: db_tracking.php:81 tbl_tracking.php:766
 msgid "Created"
 msgstr "作成日時"
 
-#: db_tracking.php:82 tbl_tracking.php:765
+#: db_tracking.php:82 tbl_tracking.php:767
 msgid "Updated"
 msgstr "更新日時"
 
-#: db_tracking.php:83 js/messages.php:172 libraries/Menu.class.php:454
+#: db_tracking.php:83 js/messages.php:172 libraries/Menu.class.php:475
 #: libraries/rte/rte_events.lib.php:426 libraries/rte/rte_list.lib.php:78
-#: server_status.php:336 sql.php:1182 tbl_tracking.php:766
+#: server_status.php:336 sql.php:1186 tbl_tracking.php:768
 msgid "Status"
 msgstr "状態"
 
@@ -433,78 +431,78 @@ msgstr "状態"
 #: libraries/rte/rte_list.lib.php:79 libraries/server_privileges.lib.php:1571
 #: libraries/server_privileges.lib.php:2222
 #: libraries/server_privileges.lib.php:2387 libraries/structure.lib.php:765
-#: libraries/structure.lib.php:1198 server_databases.php:236
+#: libraries/structure.lib.php:1202 server_databases.php:237
 msgid "Action"
 msgstr "操作"
 
 #: db_tracking.php:85 libraries/DBQbe.class.php:468
-#: libraries/DisplayResults.class.php:903 tbl_change.php:235
-#: tbl_tracking.php:767
+#: libraries/DisplayResults.class.php:907 tbl_change.php:235
+#: tbl_tracking.php:769
 msgid "Show"
 msgstr "表示"
 
-#: db_tracking.php:97 js/messages.php:34
+#: db_tracking.php:101 js/messages.php:34
 msgid "Delete tracking data for this table"
 msgstr "このテーブルに対しての追跡データを削除する"
 
-#: db_tracking.php:103 libraries/Index.class.php:625
-#: libraries/Util.class.php:3443 libraries/Util.class.php:3444
-#: libraries/structure.lib.php:307 libraries/structure.lib.php:1378
-#: libraries/structure.lib.php:2050 libraries/structure.lib.php:2052
-#: server_databases.php:327
+#: db_tracking.php:109 libraries/Index.class.php:625
+#: libraries/Util.class.php:3467 libraries/Util.class.php:3468
+#: libraries/structure.lib.php:307 libraries/structure.lib.php:1382
+#: libraries/structure.lib.php:2058 libraries/structure.lib.php:2060
+#: server_databases.php:328
 msgid "Drop"
 msgstr "削除"
 
-#: db_tracking.php:120 tbl_tracking.php:722 tbl_tracking.php:776
+#: db_tracking.php:126 tbl_tracking.php:724 tbl_tracking.php:778
 msgid "active"
 msgstr "アクティブ"
 
-#: db_tracking.php:122 tbl_tracking.php:724 tbl_tracking.php:778
+#: db_tracking.php:128 tbl_tracking.php:726 tbl_tracking.php:780
 msgid "not active"
 msgstr "非アクティブ"
 
-#: db_tracking.php:138
+#: db_tracking.php:144
 msgid "Versions"
 msgstr "世代"
 
-#: db_tracking.php:139 tbl_tracking.php:488 tbl_tracking.php:798
+#: db_tracking.php:145 tbl_tracking.php:488 tbl_tracking.php:800
 msgid "Tracking report"
 msgstr "追跡レポート"
 
-#: db_tracking.php:140 tbl_tracking.php:292 tbl_tracking.php:803
+#: db_tracking.php:146 tbl_tracking.php:292 tbl_tracking.php:805
 msgid "Structure snapshot"
 msgstr "構造のスナップショット"
 
-#: db_tracking.php:193
+#: db_tracking.php:199
 msgid "Untracked tables"
 msgstr "SQL コマンドを追跡していないテーブル"
 
-#: db_tracking.php:212 libraries/structure.lib.php:1515
+#: db_tracking.php:218 libraries/structure.lib.php:1519
 msgid "Track table"
 msgstr "テーブルを追跡する"
 
-#: db_tracking.php:240
+#: db_tracking.php:246
 msgid "Database Log"
 msgstr "データベースのログです"
 
-#: export.php:149
+#: export.php:151
 msgid "Bad type!"
 msgstr "エクスポート形式が正しくありません！"
 
-#: export.php:200
+#: export.php:202
 msgid "Selected export type has to be saved in file!"
 msgstr "この形式のエクスポートはファイルに保存する必要があります!"
 
-#: export.php:229
+#: export.php:231
 msgid "Bad parameters!"
 msgstr "パラメータが正しくありません！"
 
-#: export.php:333 export.php:364 export.php:926
+#: export.php:335 export.php:366 export.php:928
 #, php-format
 msgid "Insufficient space to save the file %s."
 msgstr "空き容量不足でファイル %s を保存できません。"
 
-#: export.php:504
+#: export.php:506
 #, php-format
 msgid ""
 "File %s already exists on server, change filename or check overwrite option."
@@ -512,12 +510,12 @@ msgstr ""
 "サーバ上に既存のファイル %s があります。ファイル名を変更するか、上書きオプ"
 "ションを有効にしてください。"
 
-#: export.php:510 export.php:516
+#: export.php:512 export.php:518
 #, php-format
 msgid "The web server does not have permission to save the file %s."
 msgstr "このウェブサーバにはファイル %s を保存する権限がありません。"
 
-#: export.php:932
+#: export.php:934
 #, php-format
 msgid "Dump has been saved to file %s."
 msgstr "ダンプをファイル %s に保存しました。"
@@ -540,7 +538,7 @@ msgid "SRID"
 msgstr "空間参照識別子"
 
 #: gis_data_editor.php:184 js/messages.php:315
-#: libraries/DisplayResults.class.php:1641
+#: libraries/DisplayResults.class.php:1645
 msgid "Geometry"
 msgstr "幾何データ"
 
@@ -620,11 +618,11 @@ msgstr ""
 #: import.php:107
 #, fuzzy, php-format
 #| msgid ""
-#| "You probably tried to upload too large file. Please refer to %"
-#| "sdocumentation%s for ways to workaround this limit."
+#| "You probably tried to upload too large file. Please refer to "
+#| "%sdocumentation%s for ways to workaround this limit."
 msgid ""
-"You probably tried to upload a file that is too large. Please refer to %"
-"sdocumentation%s for a workaround for this limit."
+"You probably tried to upload a file that is too large. Please refer to "
+"%sdocumentation%s for a workaround for this limit."
 msgstr ""
 "アップロードしようとしたファイルが大きすぎるようです。対策については %sドキュ"
 "メント%s をご覧ください。"
@@ -659,8 +657,8 @@ msgid ""
 "[doc@faq1-16]FAQ 1.16[/doc]."
 msgstr ""
 "インポートするデータを受信できませんでした。ファイル名が送信されていないか、"
-"ファイルサイズが PHP の設定で許可された最大値を超えています。[doc@faq1-16]"
-"FAQ 1.16[/doc] をご覧ください。"
+"ファイルサイズが PHP の設定で許可された最大値を超えています。"
+"[doc@faq1-16]FAQ 1.16[/doc] をご覧ください。"
 
 #: import.php:447
 msgid ""
@@ -674,7 +672,7 @@ msgstr ""
 "インポートプラグインが読み込めません。正しくインストールされているか確認して"
 "ください！"
 
-#: import.php:519 sql.php:382 sql.php:1255
+#: import.php:519 sql.php:382 sql.php:1259
 #, php-format
 msgid "Bookmark %s created"
 msgstr "ブックマーク %s を作成しました"
@@ -700,125 +698,125 @@ msgstr ""
 "ただし、最後に実行したときはまったくデータを解析できませんでした。通常、PHP "
 "の時間制限を伸ばさない限りこのデータのインポートはできません。"
 
-#: import.php:590 libraries/DisplayResults.class.php:4531
+#: import.php:590 libraries/DisplayResults.class.php:4535
 #: libraries/Message.class.php:180 libraries/rte/rte_routines.lib.php:1424
 #: libraries/sql_query_form.lib.php:114 tbl_operations.php:184
 #: tbl_relation.php:250 tbl_row_action.php:122 view_operations.php:56
 msgid "Your SQL query has been executed successfully"
 msgstr "SQL は正常に実行されました"
 
-#: import_status.php:101 libraries/Util.class.php:768
+#: import_status.php:99 libraries/Util.class.php:779
 #: libraries/schema/Export_Relation_Schema.class.php:239 user_password.php:239
 msgid "Back"
 msgstr "戻る"
 
-#: index.php:114
+#: index.php:113
 msgid "General Settings"
 msgstr "一般設定"
 
-#: index.php:140 libraries/display_change_password.lib.php:46
+#: index.php:143 libraries/display_change_password.lib.php:46
 #: user_password.php:233
 msgid "Change password"
 msgstr "パスワードを変更する"
 
-#: index.php:156
+#: index.php:159
 msgid "Server connection collation"
 msgstr "サーバ接続の照合順序"
 
-#: index.php:182
+#: index.php:185
 msgid "Appearance Settings"
 msgstr "外観の設定"
 
-#: index.php:212 prefs_manage.php:275
+#: index.php:215 prefs_manage.php:275
 msgid "More settings"
 msgstr "詳細設定"
 
-#: index.php:233
+#: index.php:236
 msgid "Database server"
 msgstr "データベースサーバ"
 
-#: index.php:236 libraries/Menu.class.php:150
-#: libraries/ServerStatusData.class.php:339 libraries/common.inc.php:654
-#: libraries/config/messages.inc.php:506
+#: index.php:239 libraries/Menu.class.php:159
+#: libraries/ServerStatusData.class.php:339 libraries/common.inc.php:661
+#: libraries/config/messages.inc.php:508
 msgid "Server"
 msgstr "サーバ"
 
-#: index.php:240
+#: index.php:243
 #, fuzzy
 #| msgid "Server port"
 msgid "Server type"
 msgstr "サーバのポート"
 
-#: index.php:244 libraries/plugins/export/ExportLatex.class.php:225
+#: index.php:247 libraries/plugins/export/ExportLatex.class.php:225
 #: libraries/plugins/export/ExportSql.class.php:612
 #: libraries/plugins/export/ExportXml.class.php:198
 msgid "Server version"
 msgstr "サーバのバージョン"
 
-#: index.php:248
+#: index.php:251
 msgid "Protocol version"
 msgstr "プロトコルバージョン"
 
-#: index.php:252 libraries/server_privileges.lib.php:1566
+#: index.php:255 libraries/server_privileges.lib.php:1566
 #: libraries/server_privileges.lib.php:2378
 #: libraries/server_privileges.lib.php:2796
 #: libraries/server_privileges.lib.php:2844 server_status.php:316
 msgid "User"
 msgstr "ユーザ"
 
-#: index.php:257
+#: index.php:260
 msgid "Server charset"
 msgstr "サーバの文字セット"
 
-#: index.php:269
+#: index.php:272
 msgid "Web server"
 msgstr "ウェブサーバ"
 
-#: index.php:282
+#: index.php:285
 msgid "Database client version"
 msgstr "データベースクライアントのバージョン"
 
-#: index.php:286
+#: index.php:289
 msgid "PHP extension"
 msgstr "PHP 拡張"
 
-#: index.php:300
+#: index.php:303
 msgid "Show PHP information"
 msgstr "PHP 情報"
 
-#: index.php:323 libraries/engines/bdb.lib.php:25
+#: index.php:326 libraries/engines/bdb.lib.php:25
 msgid "Version information"
 msgstr "バージョン情報"
 
-#: index.php:332 libraries/Util.class.php:433 libraries/Util.class.php:519
+#: index.php:335 libraries/Util.class.php:444 libraries/Util.class.php:530
 #: libraries/config/FormDisplay.tpl.php:145
 #: libraries/display_export.lib.php:281 libraries/engines/pbxt.lib.php:112
 #: libraries/navigation/NavigationHeader.class.php:229
-#: libraries/relation.lib.php:90 server_variables.php:137
+#: libraries/relation.lib.php:88 server_variables.php:137
 msgid "Documentation"
 msgstr "ドキュメント"
 
-#: index.php:339 libraries/config/FormDisplay.tpl.php:146
+#: index.php:342 libraries/config/FormDisplay.tpl.php:146
 msgid "Wiki"
 msgstr "Wiki"
 
-#: index.php:348
+#: index.php:351
 msgid "Official Homepage"
 msgstr "phpMyAdmin オフィシャルサイト"
 
-#: index.php:355
+#: index.php:358
 msgid "Contribute"
 msgstr "phpMyAdmin に協力するには"
 
-#: index.php:362
+#: index.php:365
 msgid "Get support"
 msgstr "サポート"
 
-#: index.php:369
+#: index.php:372
 msgid "List of changes"
 msgstr "更新履歴"
 
-#: index.php:392
+#: index.php:395
 msgid ""
 "Your configuration file contains settings (root with no password) that "
 "correspond to the default MySQL privileged account. Your MySQL server is "
@@ -830,7 +828,7 @@ msgstr ""
 "ト設定で動作しているため不正アクセス可能な状態になっています。このセキュリ"
 "ティホールは必ず閉ざしてください。"
 
-#: index.php:403
+#: index.php:406
 msgid ""
 "You have enabled mbstring.func_overload in your PHP configuration. This "
 "option is incompatible with phpMyAdmin and might cause some data to be "
@@ -839,7 +837,7 @@ msgstr ""
 "PHP の設定で mbstring.func_overload が有効になっています。phpMyAdmin はこのオ"
 "プションに対応していないため、データが破壊されることがあります!"
 
-#: index.php:414
+#: index.php:417
 msgid ""
 "The mbstring PHP extension was not found and you seem to be using a "
 "multibyte charset. Without the mbstring extension phpMyAdmin is unable to "
@@ -849,7 +847,7 @@ msgstr ""
 "いるようですが、mbstring 拡張がないと phpMyAdmin は文字列を正しく分割できない"
 "ため予期しない結果になることがあります。"
 
-#: index.php:425
+#: index.php:428
 msgid ""
 "Your PHP parameter [a@http://php.net/manual/en/session.configuration.php#ini."
 "session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower than "
@@ -861,7 +859,7 @@ msgstr ""
 "phpMyAdmin に設定されているクッキーの有効期間より短くなっています。このため、"
 "phpMyAdmin に設定されているよりも早くログインの期限が切れます。"
 
-#: index.php:437
+#: index.php:440
 msgid ""
 "Login cookie store is lower than cookie validity configured in phpMyAdmin, "
 "because of this, your login will expire sooner than configured in phpMyAdmin."
@@ -870,13 +868,13 @@ msgstr ""
 "りも短くなっています。このため、phpMyAdmin に設定されているよりも早くログイン"
 "の期限が切れます。"
 
-#: index.php:449
+#: index.php:452
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
 msgstr ""
 "設定ファイルに、暗号化 (blowfish_secret) 用の非公開パスフレーズの設定を必要と"
 "するようになりました。"
 
-#: index.php:460
+#: index.php:463
 msgid ""
 "Directory [code]config[/code], which is used by the setup script, still "
 "exists in your phpMyAdmin directory. You should remove it once phpMyAdmin "
@@ -886,7 +884,7 @@ msgstr ""
 "phpMyAdmin ディレクトリに存在しています。phpMyAdmin を設定し終えたら、それは"
 "削除するべきです。"
 
-#: index.php:470
+#: index.php:473
 #, php-format
 msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
@@ -895,7 +893,7 @@ msgstr ""
 "phpMyAdmin 環境保管領域が完全に設定されていないため、いくつかの拡張機能が無効"
 "になっています。理由については%sこちら%sをご覧ください。"
 
-#: index.php:502
+#: index.php:505
 #, php-format
 msgid ""
 "Your PHP MySQL library version %s differs from your MySQL server version %s. "
@@ -904,7 +902,7 @@ msgstr ""
 "お使いになっている PHP の MySQL ライブラリのバージョン %s が MySQL サーバの"
 "バージョン %s と異なります。これは予期しない不具合を起こす可能性があります。"
 
-#: index.php:527
+#: index.php:530
 #, php-format
 msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
@@ -1012,10 +1010,10 @@ msgid "Close"
 msgstr "閉じる"
 
 #: js/messages.php:61 js/messages.php:273
-#: libraries/DisplayResults.class.php:3314 libraries/Index.class.php:591
-#: libraries/Util.class.php:702 libraries/Util.class.php:1247
-#: libraries/Util.class.php:3447 libraries/Util.class.php:3448
-#: libraries/config/messages.inc.php:484
+#: libraries/DisplayResults.class.php:3318 libraries/Index.class.php:591
+#: libraries/Util.class.php:713 libraries/Util.class.php:1258
+#: libraries/Util.class.php:3471 libraries/Util.class.php:3472
+#: libraries/config/messages.inc.php:486
 #: libraries/schema/User_Schema.class.php:216 server_variables.php:130
 #: setup/frames/index.inc.php:147
 msgid "Edit"
@@ -1039,8 +1037,8 @@ msgstr "統計データ"
 
 #. l10n: Total number of queries
 #: js/messages.php:68 libraries/build_html_for_db.lib.php:46
-#: libraries/engines/innodb.lib.php:171 libraries/structure.lib.php:2190
-#: server_databases.php:271 server_status.php:186 server_status.php:276
+#: libraries/engines/innodb.lib.php:171 libraries/structure.lib.php:2198
+#: server_databases.php:272 server_status.php:186 server_status.php:276
 #: tbl_printview.php:331
 msgid "Total"
 msgstr "合計"
@@ -1052,12 +1050,12 @@ msgid "Other"
 msgstr "その他"
 
 #. l10n: Thousands separator
-#: js/messages.php:72 libraries/Util.class.php:1516
+#: js/messages.php:72 libraries/Util.class.php:1527
 msgid ","
 msgstr ","
 
 #. l10n: Decimal separator
-#: js/messages.php:74 libraries/Util.class.php:1518
+#: js/messages.php:74 libraries/Util.class.php:1529
 msgid "."
 msgstr "."
 
@@ -1161,39 +1159,39 @@ msgid "Processes"
 msgstr "プロセス"
 
 #. l10n: shortcuts for Byte
-#: js/messages.php:108 libraries/Util.class.php:1462
+#: js/messages.php:108 libraries/Util.class.php:1473
 msgid "B"
 msgstr "バイト"
 
 #. l10n: shortcuts for Kilobyte
-#: js/messages.php:109 libraries/Util.class.php:1464
+#: js/messages.php:109 libraries/Util.class.php:1475
 #: server_status_monitor.php:648
 msgid "KiB"
 msgstr "KiB"
 
 #. l10n: shortcuts for Megabyte
-#: js/messages.php:110 libraries/Util.class.php:1466
+#: js/messages.php:110 libraries/Util.class.php:1477
 #: server_status_monitor.php:649
 msgid "MiB"
 msgstr "MiB"
 
 #. l10n: shortcuts for Gigabyte
-#: js/messages.php:111 libraries/Util.class.php:1468
+#: js/messages.php:111 libraries/Util.class.php:1479
 msgid "GiB"
 msgstr "GiB"
 
 #. l10n: shortcuts for Terabyte
-#: js/messages.php:112 libraries/Util.class.php:1470
+#: js/messages.php:112 libraries/Util.class.php:1481
 msgid "TiB"
 msgstr "TiB"
 
 #. l10n: shortcuts for Petabyte
-#: js/messages.php:113 libraries/Util.class.php:1472
+#: js/messages.php:113 libraries/Util.class.php:1483
 msgid "PiB"
 msgstr "PiB"
 
 #. l10n: shortcuts for Exabyte
-#: js/messages.php:114 libraries/Util.class.php:1474
+#: js/messages.php:114 libraries/Util.class.php:1485
 msgid "EiB"
 msgstr "EiB"
 
@@ -1211,7 +1209,7 @@ msgstr "問い合わせ"
 msgid "Traffic"
 msgstr "トラフィック"
 
-#: js/messages.php:120 libraries/Menu.class.php:482
+#: js/messages.php:120 libraries/Menu.class.php:503
 #: server_status_monitor.php:475
 msgid "Settings"
 msgstr "設定"
@@ -1232,7 +1230,7 @@ msgstr "モニタリンググラフを追加する"
 msgid "Please add at least one variable to the series"
 msgstr "少なくとも１つの系列を追加してください"
 
-#: js/messages.php:126 libraries/DisplayResults.class.php:1288
+#: js/messages.php:126 libraries/DisplayResults.class.php:1292
 #: libraries/TableSearch.class.php:841 libraries/TableSearch.class.php:985
 #: libraries/display_export.lib.php:371
 #: libraries/plugins/export/ExportSql.class.php:1545
@@ -1425,7 +1423,7 @@ msgstr "EXPLAIN の結果"
 #: libraries/plugins/export/ExportHtmlword.class.php:484
 #: libraries/plugins/export/ExportOdt.class.php:562
 #: libraries/plugins/export/ExportTexytext.class.php:435
-#: libraries/rte/rte_list.lib.php:68 server_status.php:332 sql.php:1187
+#: libraries/rte/rte_list.lib.php:68 server_status.php:332 sql.php:1191
 msgid "Time"
 msgstr "時間"
 
@@ -1518,8 +1516,8 @@ msgid ""
 msgstr ""
 "インポートした設定でのグラフの配置に失敗しました。設定をデフォルトに戻します…"
 
-#: js/messages.php:199 libraries/Menu.class.php:288
-#: libraries/Menu.class.php:371 libraries/Menu.class.php:478
+#: js/messages.php:199 libraries/Menu.class.php:305
+#: libraries/Menu.class.php:388 libraries/Menu.class.php:499
 #: libraries/config/messages.inc.php:168 libraries/display_import.lib.php:187
 #: prefs_manage.php:232 server_status_monitor.php:530
 #: setup/frames/menu.inc.php:21
@@ -1732,8 +1730,8 @@ msgstr "クエリボックスを表示"
 msgid "No rows selected"
 msgstr "行が選択されていません"
 
-#: js/messages.php:275 libraries/DisplayResults.class.php:5051
-#: libraries/structure.lib.php:1374 libraries/structure.lib.php:2048
+#: js/messages.php:275 libraries/DisplayResults.class.php:5055
+#: libraries/structure.lib.php:1378 libraries/structure.lib.php:2056
 #: querywindow.php:85
 msgid "Change"
 msgstr "変更"
@@ -1742,8 +1740,8 @@ msgstr "変更"
 msgid "Query execution time"
 msgstr "クエリの実行時間"
 
-#: js/messages.php:277 libraries/DisplayResults.class.php:721
-#: libraries/DisplayResults.class.php:729
+#: js/messages.php:277 libraries/DisplayResults.class.php:725
+#: libraries/DisplayResults.class.php:733
 #, php-format
 msgid "%d is not valid row number."
 msgstr "%d は不正な行番号です。"
@@ -1816,7 +1814,7 @@ msgstr "プロット点におけるデータ内容"
 msgid "Ignore"
 msgstr "無視"
 
-#: js/messages.php:308 libraries/DisplayResults.class.php:3317
+#: js/messages.php:308 libraries/DisplayResults.class.php:3321
 msgid "Copy"
 msgstr "コピー"
 
@@ -2053,63 +2051,63 @@ msgid "December"
 msgstr "12 月"
 
 #. l10n: Short month name
-#: js/messages.php:435 libraries/Util.class.php:1673
+#: js/messages.php:435 libraries/Util.class.php:1684
 msgid "Jan"
 msgstr "1 月"
 
 #. l10n: Short month name
-#: js/messages.php:437 libraries/Util.class.php:1675
+#: js/messages.php:437 libraries/Util.class.php:1686
 msgid "Feb"
 msgstr "2 月"
 
 #. l10n: Short month name
-#: js/messages.php:439 libraries/Util.class.php:1677
+#: js/messages.php:439 libraries/Util.class.php:1688
 msgid "Mar"
 msgstr "3 月"
 
 #. l10n: Short month name
-#: js/messages.php:441 libraries/Util.class.php:1679
+#: js/messages.php:441 libraries/Util.class.php:1690
 msgid "Apr"
 msgstr "4 月"
 
 #. l10n: Short month name
-#: js/messages.php:443 libraries/Util.class.php:1681
+#: js/messages.php:443 libraries/Util.class.php:1692
 msgctxt "Short month name"
 msgid "May"
 msgstr "5 月"
 
 #. l10n: Short month name
-#: js/messages.php:445 libraries/Util.class.php:1683
+#: js/messages.php:445 libraries/Util.class.php:1694
 msgid "Jun"
 msgstr "6 月"
 
 #. l10n: Short month name
-#: js/messages.php:447 libraries/Util.class.php:1685
+#: js/messages.php:447 libraries/Util.class.php:1696
 msgid "Jul"
 msgstr "7 月"
 
 #. l10n: Short month name
-#: js/messages.php:449 libraries/Util.class.php:1687
+#: js/messages.php:449 libraries/Util.class.php:1698
 msgid "Aug"
 msgstr "8 月"
 
 #. l10n: Short month name
-#: js/messages.php:451 libraries/Util.class.php:1689
+#: js/messages.php:451 libraries/Util.class.php:1700
 msgid "Sep"
 msgstr "9 月"
 
 #. l10n: Short month name
-#: js/messages.php:453 libraries/Util.class.php:1691
+#: js/messages.php:453 libraries/Util.class.php:1702
 msgid "Oct"
 msgstr "10 月"
 
 #. l10n: Short month name
-#: js/messages.php:455 libraries/Util.class.php:1693
+#: js/messages.php:455 libraries/Util.class.php:1704
 msgid "Nov"
 msgstr "11 月"
 
 #. l10n: Short month name
-#: js/messages.php:457 libraries/Util.class.php:1695
+#: js/messages.php:457 libraries/Util.class.php:1706
 msgid "Dec"
 msgstr "12 月"
 
@@ -2147,32 +2145,32 @@ msgid "Sun"
 msgstr "日"
 
 #. l10n: Short week day name
-#: js/messages.php:478 libraries/Util.class.php:1700
+#: js/messages.php:478 libraries/Util.class.php:1711
 msgid "Mon"
 msgstr "月"
 
 #. l10n: Short week day name
-#: js/messages.php:480 libraries/Util.class.php:1702
+#: js/messages.php:480 libraries/Util.class.php:1713
 msgid "Tue"
 msgstr "火"
 
 #. l10n: Short week day name
-#: js/messages.php:482 libraries/Util.class.php:1704
+#: js/messages.php:482 libraries/Util.class.php:1715
 msgid "Wed"
 msgstr "水"
 
 #. l10n: Short week day name
-#: js/messages.php:484 libraries/Util.class.php:1706
+#: js/messages.php:484 libraries/Util.class.php:1717
 msgid "Thu"
 msgstr "木"
 
 #. l10n: Short week day name
-#: js/messages.php:486 libraries/Util.class.php:1708
+#: js/messages.php:486 libraries/Util.class.php:1719
 msgid "Fri"
 msgstr "金"
 
 #. l10n: Short week day name
-#: js/messages.php:488 libraries/Util.class.php:1710
+#: js/messages.php:488 libraries/Util.class.php:1721
 msgid "Sat"
 msgstr "土"
 
@@ -2318,19 +2316,19 @@ msgstr ""
 msgid "Font size"
 msgstr "フォントサイズ"
 
-#: libraries/DBQbe.class.php:346 libraries/DisplayResults.class.php:1272
-#: libraries/DisplayResults.class.php:2007
-#: libraries/DisplayResults.class.php:2015 libraries/TableSearch.class.php:812
-#: libraries/operations.lib.php:630 libraries/structure.lib.php:860
+#: libraries/DBQbe.class.php:346 libraries/DisplayResults.class.php:1276
+#: libraries/DisplayResults.class.php:2011
+#: libraries/DisplayResults.class.php:2019 libraries/TableSearch.class.php:812
+#: libraries/operations.lib.php:654 libraries/structure.lib.php:860
 #: libraries/structure.lib.php:877 server_databases.php:202
 #: server_databases.php:219 server_status.php:420
 msgid "Ascending"
 msgstr "昇順"
 
-#: libraries/DBQbe.class.php:349 libraries/DisplayResults.class.php:1284
-#: libraries/DisplayResults.class.php:2002
-#: libraries/DisplayResults.class.php:2020 libraries/TableSearch.class.php:813
-#: libraries/operations.lib.php:631 libraries/structure.lib.php:865
+#: libraries/DBQbe.class.php:349 libraries/DisplayResults.class.php:1288
+#: libraries/DisplayResults.class.php:2006
+#: libraries/DisplayResults.class.php:2024 libraries/TableSearch.class.php:813
+#: libraries/operations.lib.php:655 libraries/structure.lib.php:865
 #: libraries/structure.lib.php:882 server_databases.php:202
 #: server_databases.php:219 server_status.php:417
 msgid "Descending"
@@ -2387,7 +2385,7 @@ msgstr "修正"
 msgid "SQL query on database <b>%s</b>:"
 msgstr "データベース <b>%s</b> のSQL:"
 
-#: libraries/DBQbe.class.php:1336 libraries/Util.class.php:1276
+#: libraries/DBQbe.class.php:1336 libraries/Util.class.php:1287
 msgid "Submit Query"
 msgstr "クエリを実行する"
 
@@ -2426,9 +2424,9 @@ msgid "%1$s match in <strong>%2$s</strong>"
 msgid_plural "%1$s matches in <strong>%2$s</strong>"
 msgstr[0] "%1$s 件 (テーブル <i>%2$s</i>)"
 
-#: libraries/DbSearch.class.php:346 libraries/Menu.class.php:250
-#: libraries/Util.class.php:3223 libraries/Util.class.php:3436
-#: libraries/Util.class.php:3437 libraries/structure.lib.php:1368
+#: libraries/DbSearch.class.php:346 libraries/Menu.class.php:267
+#: libraries/Util.class.php:3247 libraries/Util.class.php:3460
+#: libraries/Util.class.php:3461 libraries/structure.lib.php:1372
 msgid "Browse"
 msgstr "表示"
 
@@ -2437,14 +2435,14 @@ msgstr "表示"
 msgid "Delete the matches for the %s table?"
 msgstr "テーブル %s に対して条件に一致したものを削除しますか？"
 
-#: libraries/DbSearch.class.php:357 libraries/DisplayResults.class.php:3386
-#: libraries/DisplayResults.class.php:5027
+#: libraries/DbSearch.class.php:357 libraries/DisplayResults.class.php:3390
+#: libraries/DisplayResults.class.php:5031
 #: libraries/schema/User_Schema.class.php:217
 #: libraries/schema/User_Schema.class.php:299
 #: libraries/schema/User_Schema.class.php:352
-#: libraries/sql_query_form.lib.php:415 pmd_general.php:472
+#: libraries/sql_query_form.lib.php:419 pmd_general.php:472
 #: setup/frames/index.inc.php:148 setup/frames/index.inc.php:254
-#: tbl_tracking.php:537 tbl_tracking.php:557 tbl_tracking.php:619
+#: tbl_tracking.php:539 tbl_tracking.php:559 tbl_tracking.php:621
 msgid "Delete"
 msgstr "削除"
 
@@ -2472,73 +2470,73 @@ msgstr "検索するテーブル:"
 msgid "Inside column:"
 msgstr "検索するカラム:"
 
-#: libraries/DisplayResults.class.php:698
+#: libraries/DisplayResults.class.php:702
 msgid "Save edited data"
 msgstr "変更したデータを保存する"
 
-#: libraries/DisplayResults.class.php:704
+#: libraries/DisplayResults.class.php:708
 msgid "Restore column order"
 msgstr "カラムの順番を元に戻す"
 
-#: libraries/DisplayResults.class.php:775 libraries/Util.class.php:2552
-#: libraries/Util.class.php:2556
+#: libraries/DisplayResults.class.php:779 libraries/Util.class.php:2572
+#: libraries/Util.class.php:2576
 msgctxt "First page"
 msgid "Begin"
 msgstr "先頭"
 
-#: libraries/DisplayResults.class.php:778 libraries/Util.class.php:2554
-#: libraries/Util.class.php:2557 server_binlog.php:141 server_binlog.php:143
+#: libraries/DisplayResults.class.php:782 libraries/Util.class.php:2574
+#: libraries/Util.class.php:2577 server_binlog.php:145 server_binlog.php:147
 msgctxt "Previous page"
 msgid "Previous"
 msgstr "前へ"
 
-#: libraries/DisplayResults.class.php:835 libraries/Util.class.php:2589
-#: libraries/Util.class.php:2592 server_binlog.php:174 server_binlog.php:176
+#: libraries/DisplayResults.class.php:839 libraries/Util.class.php:2613
+#: libraries/Util.class.php:2616 server_binlog.php:182 server_binlog.php:184
 msgctxt "Next page"
 msgid "Next"
 msgstr "次へ"
 
-#: libraries/DisplayResults.class.php:863 libraries/Util.class.php:2590
-#: libraries/Util.class.php:2593
+#: libraries/DisplayResults.class.php:867 libraries/Util.class.php:2614
+#: libraries/Util.class.php:2617
 msgctxt "Last page"
 msgid "End"
 msgstr "最後"
 
-#: libraries/DisplayResults.class.php:904 tbl_chart.php:241
+#: libraries/DisplayResults.class.php:908 tbl_chart.php:241
 msgid "Start row"
 msgstr "開始行"
 
-#: libraries/DisplayResults.class.php:908 tbl_chart.php:245
+#: libraries/DisplayResults.class.php:912 tbl_chart.php:245
 msgid "Number of rows"
 msgstr "表示行数"
 
-#: libraries/DisplayResults.class.php:917
+#: libraries/DisplayResults.class.php:921
 msgid "Mode"
 msgstr "モード"
 
-#: libraries/DisplayResults.class.php:919
+#: libraries/DisplayResults.class.php:923
 msgid "horizontal"
 msgstr "水平"
 
-#: libraries/DisplayResults.class.php:920
+#: libraries/DisplayResults.class.php:924
 msgid "horizontal (rotated headers)"
 msgstr "水平 (縦ヘッダ)"
 
-#: libraries/DisplayResults.class.php:921
+#: libraries/DisplayResults.class.php:925
 msgid "vertical"
 msgstr "垂直"
 
-#: libraries/DisplayResults.class.php:933
+#: libraries/DisplayResults.class.php:937
 #, fuzzy, php-format
 #| msgid "Headers every %s rows"
 msgid "Headers every %s rows"
 msgstr "%s 行毎にヘッダを表示"
 
-#: libraries/DisplayResults.class.php:1230
+#: libraries/DisplayResults.class.php:1234
 msgid "Sort by key"
 msgstr "キーでソート"
 
-#: libraries/DisplayResults.class.php:1578 libraries/TableSearch.class.php:754
+#: libraries/DisplayResults.class.php:1582 libraries/TableSearch.class.php:754
 #: libraries/import.lib.php:1195 libraries/import.lib.php:1221
 #: libraries/plugins/export/ExportCodegen.class.php:90
 #: libraries/plugins/export/ExportCsv.class.php:79
@@ -2561,116 +2559,116 @@ msgstr "キーでソート"
 #: libraries/plugins/import/ImportShp.class.php:56
 #: libraries/plugins/import/ImportSql.class.php:50
 #: libraries/plugins/import/ImportXml.class.php:57
-#: libraries/rte/rte_routines.lib.php:970 libraries/structure.lib.php:1693
+#: libraries/rte/rte_routines.lib.php:970 libraries/structure.lib.php:1701
 msgid "Options"
 msgstr "オプション"
 
-#: libraries/DisplayResults.class.php:1584
-#: libraries/DisplayResults.class.php:1690
+#: libraries/DisplayResults.class.php:1588
+#: libraries/DisplayResults.class.php:1694
 msgid "Partial texts"
 msgstr "部分テキスト"
 
-#: libraries/DisplayResults.class.php:1585
-#: libraries/DisplayResults.class.php:1694
+#: libraries/DisplayResults.class.php:1589
+#: libraries/DisplayResults.class.php:1698
 msgid "Full texts"
 msgstr "全文"
 
-#: libraries/DisplayResults.class.php:1599
+#: libraries/DisplayResults.class.php:1603
 msgid "Relational key"
 msgstr "リレーションキー"
 
-#: libraries/DisplayResults.class.php:1600
+#: libraries/DisplayResults.class.php:1604
 msgid "Relational display column"
 msgstr "リレーション表示カラム"
 
-#: libraries/DisplayResults.class.php:1612
+#: libraries/DisplayResults.class.php:1616
 msgid "Show binary contents"
 msgstr "バイナリの内容を表示する"
 
-#: libraries/DisplayResults.class.php:1617
+#: libraries/DisplayResults.class.php:1621
 msgid "Show BLOB contents"
 msgstr "BLOB の内容を表示する"
 
-#: libraries/DisplayResults.class.php:1622
+#: libraries/DisplayResults.class.php:1626
 #: libraries/config/messages.inc.php:57
 msgid "Show binary contents as HEX"
 msgstr "バイナリの内容を 16 進数で表示する"
 
-#: libraries/DisplayResults.class.php:1633
+#: libraries/DisplayResults.class.php:1637
 msgid "Hide browser transformation"
 msgstr "ブラウザ変換機能を隠す"
 
-#: libraries/DisplayResults.class.php:1642
+#: libraries/DisplayResults.class.php:1646
 msgid "Well Known Text"
 msgstr "空間データをテキストで表示"
 
-#: libraries/DisplayResults.class.php:1643
+#: libraries/DisplayResults.class.php:1647
 msgid "Well Known Binary"
 msgstr "空間データをバイナリで表示"
 
-#: libraries/DisplayResults.class.php:3359
-#: libraries/DisplayResults.class.php:3375
+#: libraries/DisplayResults.class.php:3363
+#: libraries/DisplayResults.class.php:3379
 msgid "The row has been deleted"
 msgstr "行を削除しました"
 
-#: libraries/DisplayResults.class.php:3413
-#: libraries/DisplayResults.class.php:5027 server_status.php:467
+#: libraries/DisplayResults.class.php:3417
+#: libraries/DisplayResults.class.php:5031 server_status.php:467
 msgid "Kill"
 msgstr "停止"
 
-#: libraries/DisplayResults.class.php:4477 libraries/structure.lib.php:771
+#: libraries/DisplayResults.class.php:4481 libraries/structure.lib.php:771
 msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]"
 msgstr "正確な数字とは限りません。[doc@faq3-11]FAQ 3.11[/doc] をご覧ください"
 
-#: libraries/DisplayResults.class.php:4873
+#: libraries/DisplayResults.class.php:4877
 msgid "in query"
 msgstr "行/クエリ"
 
-#: libraries/DisplayResults.class.php:4910 libraries/structure.lib.php:653
+#: libraries/DisplayResults.class.php:4914 libraries/structure.lib.php:653
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 msgstr "このビューの最低行数。詳しくは%sドキュメント%sをご覧ください。"
 
-#: libraries/DisplayResults.class.php:4923
+#: libraries/DisplayResults.class.php:4927
 msgid "Showing rows"
 msgstr "行の表示"
 
-#: libraries/DisplayResults.class.php:4939
+#: libraries/DisplayResults.class.php:4943
 msgid "total"
 msgstr "合計"
 
-#: libraries/DisplayResults.class.php:4950 sql.php:941
+#: libraries/DisplayResults.class.php:4954 sql.php:945
 #, php-format
 msgid "Query took %01.4f sec"
 msgstr "クエリの実行時間 %01.4f 秒"
 
-#: libraries/DisplayResults.class.php:5041
-#: libraries/DisplayResults.class.php:5047 libraries/mult_submits.inc.php:42
+#: libraries/DisplayResults.class.php:5045
+#: libraries/DisplayResults.class.php:5051 libraries/mult_submits.inc.php:42
 #: libraries/server_privileges.lib.php:2402
 #: libraries/server_privileges.lib.php:2405 libraries/structure.lib.php:278
 #: libraries/structure.lib.php:293 libraries/structure.lib.php:295
-#: libraries/structure.lib.php:1357 libraries/structure.lib.php:1364
-#: server_databases.php:319 server_databases.php:322
+#: libraries/structure.lib.php:1361 libraries/structure.lib.php:1368
+#: server_databases.php:320 server_databases.php:323
 msgid "With selected:"
 msgstr "チェックしたものを:"
 
-#: libraries/DisplayResults.class.php:5045
-#: libraries/DisplayResults.class.php:5046
+#: libraries/DisplayResults.class.php:5049
+#: libraries/DisplayResults.class.php:5050
 #: libraries/server_privileges.lib.php:779
 #: libraries/server_privileges.lib.php:2403
 #: libraries/server_privileges.lib.php:2404 libraries/structure.lib.php:281
-#: libraries/structure.lib.php:282 libraries/structure.lib.php:1360
-#: libraries/structure.lib.php:1361 server_databases.php:320
-#: server_databases.php:321
+#: libraries/structure.lib.php:282 libraries/structure.lib.php:1364
+#: libraries/structure.lib.php:1365 server_databases.php:321
+#: server_databases.php:322
 msgid "Check All"
 msgstr "すべてチェックする"
 
-#: libraries/DisplayResults.class.php:5064
-#: libraries/DisplayResults.class.php:5263 libraries/Menu.class.php:279
-#: libraries/Menu.class.php:362 libraries/Menu.class.php:474
-#: libraries/Util.class.php:3449 libraries/Util.class.php:3450
+#: libraries/DisplayResults.class.php:5068
+#: libraries/DisplayResults.class.php:5267 libraries/Menu.class.php:296
+#: libraries/Menu.class.php:379 libraries/Menu.class.php:495
+#: libraries/Util.class.php:3473 libraries/Util.class.php:3474
 #: libraries/config/messages.inc.php:162 libraries/display_export.lib.php:94
 #: libraries/server_privileges.lib.php:1786
 #: libraries/server_privileges.lib.php:2409 libraries/structure.lib.php:297
@@ -2679,33 +2677,33 @@ msgstr "すべてチェックする"
 msgid "Export"
 msgstr "エクスポート"
 
-#: libraries/DisplayResults.class.php:5163
+#: libraries/DisplayResults.class.php:5167
 msgid "Query results operations"
 msgstr "クエリ結果操作"
 
-#: libraries/DisplayResults.class.php:5187 libraries/Header.class.php:334
+#: libraries/DisplayResults.class.php:5191 libraries/Header.class.php:334
 #: libraries/structure.lib.php:299 libraries/structure.lib.php:362
-#: libraries/structure.lib.php:1481
+#: libraries/structure.lib.php:1485
 msgid "Print view"
 msgstr "印刷用画面"
 
-#: libraries/DisplayResults.class.php:5205
+#: libraries/DisplayResults.class.php:5209
 msgid "Print view (with full texts)"
 msgstr "印刷用画面 (全テキストを含む)"
 
-#: libraries/DisplayResults.class.php:5276 tbl_chart.php:151
+#: libraries/DisplayResults.class.php:5280 tbl_chart.php:151
 msgid "Display chart"
 msgstr "グラフで表示する"
 
-#: libraries/DisplayResults.class.php:5301
+#: libraries/DisplayResults.class.php:5305
 msgid "Visualize GIS data"
 msgstr "空間情報のデータを視覚化する"
 
-#: libraries/DisplayResults.class.php:5333 view_create.php:152
+#: libraries/DisplayResults.class.php:5337 view_create.php:152
 msgid "Create view"
 msgstr "ビューを作成する"
 
-#: libraries/DisplayResults.class.php:5522
+#: libraries/DisplayResults.class.php:5526
 msgid "Link not found"
 msgstr "リンク先が見つかりません"
 
@@ -2765,8 +2763,8 @@ msgstr "アップロードされたファイルを移動中にエラーが発生
 msgid "Cannot read (moved) upload file."
 msgstr "アップロードされ（移動し）たファイルが読み込めません。"
 
-#: libraries/Footer.class.php:133 libraries/Footer.class.php:137
-#: libraries/Footer.class.php:140
+#: libraries/Footer.class.php:133 libraries/Footer.class.php:141
+#: libraries/Footer.class.php:144
 msgid "Open new phpMyAdmin window"
 msgstr "別ウィンドウで開く"
 
@@ -2774,7 +2772,7 @@ msgstr "別ウィンドウで開く"
 msgid "Click on the bar to scroll to top of page"
 msgstr ""
 
-#: libraries/Header.class.php:618
+#: libraries/Header.class.php:626
 #: libraries/plugins/auth/AuthenticationCookie.class.php:172
 msgid "Javascript must be enabled past this point"
 msgstr "Javascript を有効にしてください"
@@ -2790,8 +2788,8 @@ msgstr "インデックスが定義されていません!"
 msgid "Indexes"
 msgstr "インデックス"
 
-#: libraries/Index.class.php:563 libraries/structure.lib.php:1387
-#: libraries/structure.lib.php:2058 libraries/structure.lib.php:2068
+#: libraries/Index.class.php:563 libraries/structure.lib.php:1391
+#: libraries/structure.lib.php:2066 libraries/structure.lib.php:2076
 #: libraries/tbl_columns_definition_form.inc.php:569 tbl_tracking.php:383
 msgid "Unique"
 msgstr "ユニーク"
@@ -2806,9 +2804,9 @@ msgstr "一意な値の数"
 
 #: libraries/Index.class.php:567 libraries/TableSearch.class.php:185
 #: libraries/build_html_for_db.lib.php:20 libraries/mysql_charsets.lib.php:130
-#: libraries/operations.lib.php:240 libraries/operations.lib.php:806
+#: libraries/operations.lib.php:260 libraries/operations.lib.php:830
 #: libraries/structure.lib.php:780 libraries/structure.lib.php:1181
-#: libraries/structure.lib.php:1701
+#: libraries/structure.lib.php:1709
 #: libraries/tbl_columns_definition_form.inc.php:114
 #: libraries/tbl_columns_definition_form.inc.php:842 server_collations.php:38
 #: server_collations.php:50 tbl_tracking.php:325 tbl_tracking.php:387
@@ -2839,19 +2837,19 @@ msgstr ""
 "インデックス %1$s と %2$s は同一のもののようです。一方は削除してもよいかもし"
 "れません。"
 
-#: libraries/Menu.class.php:190 libraries/structure.lib.php:677
+#: libraries/Menu.class.php:207 libraries/structure.lib.php:677
 #: libraries/structure.lib.php:707 libraries/structure.lib.php:1188
 #: libraries/tbl_info.inc.php:59
 msgid "View"
 msgstr "ビュー"
 
-#: libraries/Menu.class.php:256 libraries/Menu.class.php:340
-#: libraries/Util.class.php:3219 libraries/Util.class.php:3226
-#: libraries/Util.class.php:3442 libraries/config/setup.forms.php:291
-#: libraries/config/setup.forms.php:328 libraries/config/setup.forms.php:354
-#: libraries/config/user_preferences.forms.php:195
-#: libraries/config/user_preferences.forms.php:232
-#: libraries/config/user_preferences.forms.php:258
+#: libraries/Menu.class.php:273 libraries/Menu.class.php:357
+#: libraries/Util.class.php:3243 libraries/Util.class.php:3250
+#: libraries/Util.class.php:3466 libraries/config/setup.forms.php:292
+#: libraries/config/setup.forms.php:329 libraries/config/setup.forms.php:355
+#: libraries/config/user_preferences.forms.php:196
+#: libraries/config/user_preferences.forms.php:233
+#: libraries/config/user_preferences.forms.php:259
 #: libraries/import.lib.php:1221
 #: libraries/plugins/export/ExportLatex.class.php:485
 #: libraries/server_privileges.lib.php:749
@@ -2860,31 +2858,31 @@ msgstr "ビュー"
 msgid "Structure"
 msgstr "構造"
 
-#: libraries/Menu.class.php:260 libraries/Menu.class.php:345
-#: libraries/Menu.class.php:450 libraries/Util.class.php:3220
-#: libraries/Util.class.php:3227 libraries/config/messages.inc.php:212
+#: libraries/Menu.class.php:277 libraries/Menu.class.php:362
+#: libraries/Menu.class.php:471 libraries/Util.class.php:3244
+#: libraries/Util.class.php:3251 libraries/config/messages.inc.php:212
 #: querywindow.php:59
 msgid "SQL"
 msgstr "SQL"
 
-#: libraries/Menu.class.php:273 libraries/Util.class.php:3222
-#: libraries/Util.class.php:3440 libraries/Util.class.php:3441
-#: libraries/sql_query_form.lib.php:291 libraries/sql_query_form.lib.php:294
+#: libraries/Menu.class.php:290 libraries/Util.class.php:3246
+#: libraries/Util.class.php:3464 libraries/Util.class.php:3465
+#: libraries/sql_query_form.lib.php:295 libraries/sql_query_form.lib.php:298
 msgid "Insert"
 msgstr "挿入"
 
-#: libraries/Menu.class.php:292 libraries/Menu.class.php:315
-#: libraries/Menu.class.php:375 libraries/Util.class.php:3229
+#: libraries/Menu.class.php:309 libraries/Menu.class.php:332
+#: libraries/Menu.class.php:392 libraries/Util.class.php:3253
 #: view_operations.php:86
 msgid "Operations"
 msgstr "操作"
 
-#: libraries/Menu.class.php:296 libraries/Menu.class.php:409
-#: libraries/relation.lib.php:238
+#: libraries/Menu.class.php:313 libraries/Menu.class.php:426
+#: libraries/relation.lib.php:236
 msgid "Tracking"
 msgstr "SQL コマンドの追跡"
 
-#: libraries/Menu.class.php:305 libraries/Menu.class.php:403
+#: libraries/Menu.class.php:322 libraries/Menu.class.php:420
 #: libraries/navigation/Nodes/Node_Trigger_Container.class.php:26
 #: libraries/plugins/export/ExportHtmlword.class.php:563
 #: libraries/plugins/export/ExportOdt.class.php:655
@@ -2895,74 +2893,74 @@ msgstr "SQL コマンドの追跡"
 msgid "Triggers"
 msgstr "トリガ"
 
-#: libraries/Menu.class.php:352 libraries/Menu.class.php:359
-#: libraries/Menu.class.php:366
+#: libraries/Menu.class.php:369 libraries/Menu.class.php:376
+#: libraries/Menu.class.php:383
 msgid "Database seems to be empty!"
 msgstr "データベースが空のようです!"
 
-#: libraries/Menu.class.php:355
+#: libraries/Menu.class.php:372
 msgid "Query"
 msgstr "クエリ"
 
-#: libraries/Menu.class.php:383 libraries/server_privileges.lib.php:1569
+#: libraries/Menu.class.php:400 libraries/server_privileges.lib.php:1569
 #: libraries/server_privileges.lib.php:2214
 #: libraries/server_privileges.lib.php:2781 server_privileges.php:146
 msgid "Privileges"
 msgstr "特権"
 
-#: libraries/Menu.class.php:388 libraries/rte/rte_words.lib.php:29
+#: libraries/Menu.class.php:405 libraries/rte/rte_words.lib.php:29
 msgid "Routines"
 msgstr "ルーチン"
 
-#: libraries/Menu.class.php:396
+#: libraries/Menu.class.php:413
 #: libraries/navigation/Nodes/Node_Event_Container.class.php:26
 #: libraries/plugins/export/ExportSql.class.php:810
 #: libraries/rte/rte_words.lib.php:53
 msgid "Events"
 msgstr "イベント"
 
-#: libraries/Menu.class.php:415 libraries/relation.lib.php:205
+#: libraries/Menu.class.php:432 libraries/relation.lib.php:203
 msgid "Designer"
 msgstr "デザイナ"
 
-#: libraries/Menu.class.php:446 libraries/config/messages.inc.php:175
+#: libraries/Menu.class.php:467 libraries/config/messages.inc.php:175
 #: libraries/server_privileges.lib.php:2855 server_databases.php:138
 msgid "Databases"
 msgstr "データベース"
 
-#: libraries/Menu.class.php:469
+#: libraries/Menu.class.php:490
 msgid "Users"
 msgstr "ユーザ"
 
-#: libraries/Menu.class.php:491 libraries/ServerStatusData.class.php:187
+#: libraries/Menu.class.php:512 libraries/ServerStatusData.class.php:187
 #: server_binlog.php:74
 msgid "Binary log"
 msgstr "バイナリログ"
 
-#: libraries/Menu.class.php:497 libraries/ServerStatusData.class.php:192
+#: libraries/Menu.class.php:518 libraries/ServerStatusData.class.php:192
 #: libraries/structure.lib.php:182 libraries/structure.lib.php:761
 #: server_replication.php:32 server_replication.php:148
 msgid "Replication"
 msgstr "レプリケーション"
 
-#: libraries/Menu.class.php:502 libraries/ServerStatusData.class.php:239
+#: libraries/Menu.class.php:523 libraries/ServerStatusData.class.php:239
 #: server_engines.php:94 server_engines.php:98
 msgid "Variables"
 msgstr "変数"
 
-#: libraries/Menu.class.php:506
+#: libraries/Menu.class.php:527
 msgid "Charsets"
 msgstr "文字セット"
 
-#: libraries/Menu.class.php:511 server_plugins.php:32 server_plugins.php:65
+#: libraries/Menu.class.php:532 server_plugins.php:32 server_plugins.php:65
 msgid "Plugins"
 msgstr "プラグイン"
 
-#: libraries/Menu.class.php:515
+#: libraries/Menu.class.php:536
 msgid "Engines"
 msgstr "エンジン"
 
-#: libraries/Message.class.php:199 libraries/Util.class.php:664
+#: libraries/Message.class.php:199 libraries/Util.class.php:675
 #: libraries/core.lib.php:232 libraries/import.lib.php:171
 #: libraries/insert_edit.lib.php:1180 tbl_chart.php:24 tbl_operations.php:186
 #: view_operations.php:57
@@ -2991,20 +2989,20 @@ msgstr[0] "%1$d 行挿入しました。"
 msgid "Error while creating PDF:"
 msgstr "PDF を作成中にエラーが発生しました："
 
-#: libraries/RecentTable.class.php:114
+#: libraries/RecentTable.class.php:117
 msgid "Could not save recent table"
 msgstr "最近使用したテーブルが保存できません"
 
-#: libraries/RecentTable.class.php:151
+#: libraries/RecentTable.class.php:154
 msgid "Recent tables"
 msgstr "最近使用したテーブル"
 
-#: libraries/RecentTable.class.php:163
+#: libraries/RecentTable.class.php:166
 msgid "There are no recent tables"
 msgstr "最近使用したテーブルはありません"
 
-#: libraries/ServerStatusData.class.php:181 libraries/Util.class.php:677
-#: server_status.php:340 sql.php:1114
+#: libraries/ServerStatusData.class.php:181 libraries/Util.class.php:688
+#: server_status.php:340 sql.php:1118
 msgid "SQL query"
 msgstr "実行した SQL"
 
@@ -3338,20 +3336,20 @@ msgstr ""
 
 #: libraries/Types.class.php:308
 msgid ""
-"A small floating-point number, allowable values are -3.402823466E+38 to -"
-"1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
+"A small floating-point number, allowable values are -3.402823466E+38 to "
+"-1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
 msgstr ""
 "単精度浮動小数、有効範囲は -3.402823466E+38 から -1.175494351E-38、0、"
 "1.175494351E-38 から 3.402823466E+38"
 
 #: libraries/Types.class.php:310
 msgid ""
-"A double-precision floating-point number, allowable values are -"
-"1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
+"A double-precision floating-point number, allowable values are "
+"-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
 "2.2250738585072014E-308 to 1.7976931348623157E+308"
 msgstr ""
-"倍精度浮動小数、有効範囲は -1.7976931348623157E+308 から -"
-"2.2250738585072014E-308、0、2.2250738585072014E-308 から 1.7976931348623157E"
+"倍精度浮動小数、有効範囲は -1.7976931348623157E+308 から "
+"-2.2250738585072014E-308、0、2.2250738585072014E-308 から 1.7976931348623157E"
 "+308"
 
 #: libraries/Types.class.php:312
@@ -3619,12 +3617,12 @@ msgstr "可変長文字列 (長さは 0-65,535)、文字列の比較はバイナ
 msgid "An enumeration, chosen from the list of defined values"
 msgstr "列挙型、定義しておいた列挙リストより値を取ることができます"
 
-#: libraries/Util.class.php:226
+#: libraries/Util.class.php:237
 #, php-format
 msgid "Max: %s%s"
 msgstr "最長: %s%s"
 
-#: libraries/Util.class.php:721 libraries/rte/rte_events.lib.php:114
+#: libraries/Util.class.php:732 libraries/rte/rte_events.lib.php:114
 #: libraries/rte/rte_events.lib.php:123 libraries/rte/rte_events.lib.php:140
 #: libraries/rte/rte_events.lib.php:161 libraries/rte/rte_routines.lib.php:300
 #: libraries/rte/rte_routines.lib.php:309
@@ -3637,116 +3635,116 @@ msgstr "最長: %s%s"
 msgid "MySQL said: "
 msgstr "MySQL のメッセージ: "
 
-#: libraries/Util.class.php:1171
+#: libraries/Util.class.php:1182
 msgid "Failed to connect to SQL validator!"
 msgstr "SQL 検証への接続に失敗しました！"
 
-#: libraries/Util.class.php:1213 libraries/config/messages.inc.php:485
+#: libraries/Util.class.php:1224 libraries/config/messages.inc.php:487
 msgid "Explain SQL"
 msgstr "EXPLAIN で確認"
 
-#: libraries/Util.class.php:1221
+#: libraries/Util.class.php:1232
 msgid "Skip Explain SQL"
 msgstr "SQL の EXPLAIN 解析をスキップ"
 
-#: libraries/Util.class.php:1261
+#: libraries/Util.class.php:1272
 msgid "Without PHP Code"
 msgstr "PHP コードを省略"
 
-#: libraries/Util.class.php:1264 libraries/config/messages.inc.php:487
+#: libraries/Util.class.php:1275 libraries/config/messages.inc.php:489
 msgid "Create PHP Code"
 msgstr "PHP コードの作成"
 
-#: libraries/Util.class.php:1290 libraries/config/messages.inc.php:486
+#: libraries/Util.class.php:1301 libraries/config/messages.inc.php:488
 #: server_status_variables.php:80
 msgid "Refresh"
 msgstr "再描画"
 
-#: libraries/Util.class.php:1300
+#: libraries/Util.class.php:1311
 msgid "Skip Validate SQL"
 msgstr "SQL の検証をスキップ"
 
-#: libraries/Util.class.php:1303 libraries/config/messages.inc.php:489
+#: libraries/Util.class.php:1314 libraries/config/messages.inc.php:491
 msgid "Validate SQL"
 msgstr "SQL の検証"
 
-#: libraries/Util.class.php:1365
+#: libraries/Util.class.php:1376
 msgid "Inline edit of this query"
 msgstr "このクエリをインラインで編集します"
 
-#: libraries/Util.class.php:1367
+#: libraries/Util.class.php:1378
 msgctxt "Inline edit query"
 msgid "Inline"
 msgstr "インライン"
 
-#: libraries/Util.class.php:1435 sql.php:1178
+#: libraries/Util.class.php:1446 sql.php:1182
 msgid "Profiling"
 msgstr "プロファイリング"
 
 #. l10n: Short week day name
-#: libraries/Util.class.php:1698
+#: libraries/Util.class.php:1709
 msgctxt "Short week day name"
 msgid "Sun"
 msgstr "日"
 
 #. l10n: See http://www.php.net/manual/en/function.strftime.php
-#: libraries/Util.class.php:1714
+#: libraries/Util.class.php:1725
 #: libraries/plugins/transformations/abstract/DateFormatTransformationsPlugin.class.php:69
 msgid "%B %d, %Y at %I:%M %p"
 msgstr "%Y 年 %B %d 日 %H:%M"
 
-#: libraries/Util.class.php:2053
+#: libraries/Util.class.php:2070
 #, php-format
 msgid "%s days, %s hours, %s minutes and %s seconds"
 msgstr "%s 日 %s 時間 %s 分 %s 秒"
 
-#: libraries/Util.class.php:2142
+#: libraries/Util.class.php:2159
 msgid "Missing parameter:"
 msgstr "パラメータがありません："
 
-#: libraries/Util.class.php:2662
+#: libraries/Util.class.php:2686
 #, php-format
 msgid "Jump to database &quot;%s&quot;."
 msgstr "データベース「%s」に移動します。"
 
-#: libraries/Util.class.php:2686
+#: libraries/Util.class.php:2710
 #, php-format
 msgid "The %s functionality is affected by a known bug, see %s"
 msgstr "%s の機能には既知のバグがあります。%s をご覧ください"
 
-#: libraries/Util.class.php:2862
+#: libraries/Util.class.php:2886
 msgid "Click to toggle"
 msgstr "クリックでオン／オフ切り替え"
 
-#: libraries/Util.class.php:3355 libraries/sql_query_form.lib.php:457
+#: libraries/Util.class.php:3379 libraries/sql_query_form.lib.php:461
 #: prefs_manage.php:242
 msgid "Browse your computer:"
 msgstr "アップロードファイル:"
 
-#: libraries/Util.class.php:3380
+#: libraries/Util.class.php:3404
 #, php-format
 msgid "Select from the web server upload directory <b>%s</b>:"
 msgstr "ウェブサーバ上のアップロードディレクトリ <b>%s</b> から選択する："
 
-#: libraries/Util.class.php:3409 libraries/insert_edit.lib.php:1181
-#: libraries/sql_query_form.lib.php:466
+#: libraries/Util.class.php:3433 libraries/insert_edit.lib.php:1181
+#: libraries/sql_query_form.lib.php:470
 msgid "The directory you set for upload work cannot be reached"
 msgstr "指定したアップロードディレクトリが利用できません"
 
-#: libraries/Util.class.php:3420
+#: libraries/Util.class.php:3444
 msgid "There are no files to upload"
 msgstr "アップロードファイルがありません"
 
-#: libraries/Util.class.php:3445 libraries/Util.class.php:3446
+#: libraries/Util.class.php:3469 libraries/Util.class.php:3470
 #: libraries/structure.lib.php:305
 msgid "Empty"
 msgstr "空にする"
 
-#: libraries/Util.class.php:3451 libraries/Util.class.php:3452
+#: libraries/Util.class.php:3475 libraries/Util.class.php:3476
 msgid "Execute"
 msgstr "実行"
 
-#: libraries/Util.class.php:3979
+#: libraries/Util.class.php:4003
 msgid "Print"
 msgstr "印刷"
 
@@ -3754,22 +3752,22 @@ msgstr "印刷"
 msgid "shared"
 msgstr "共有"
 
-#: libraries/build_html_for_db.lib.php:36 libraries/config/setup.forms.php:300
-#: libraries/config/setup.forms.php:336 libraries/config/setup.forms.php:359
-#: libraries/config/setup.forms.php:364
-#: libraries/config/user_preferences.forms.php:204
-#: libraries/config/user_preferences.forms.php:240
-#: libraries/config/user_preferences.forms.php:263
-#: libraries/config/user_preferences.forms.php:268
+#: libraries/build_html_for_db.lib.php:36 libraries/config/setup.forms.php:301
+#: libraries/config/setup.forms.php:337 libraries/config/setup.forms.php:360
+#: libraries/config/setup.forms.php:365
+#: libraries/config/user_preferences.forms.php:205
+#: libraries/config/user_preferences.forms.php:241
+#: libraries/config/user_preferences.forms.php:264
+#: libraries/config/user_preferences.forms.php:269
 #: libraries/plugins/export/ExportLatex.class.php:301
 #: libraries/plugins/export/ExportSql.class.php:1545
-#: libraries/server_privileges.lib.php:748 libraries/structure.lib.php:2168
+#: libraries/server_privileges.lib.php:748 libraries/structure.lib.php:2176
 #: tbl_printview.php:299
 msgid "Data"
 msgstr "データ"
 
 #: libraries/build_html_for_db.lib.php:51 libraries/structure.lib.php:791
-#: libraries/structure.lib.php:2181 tbl_printview.php:315
+#: libraries/structure.lib.php:2189 tbl_printview.php:315
 msgid "Overhead"
 msgstr "オーバーヘッド"
 
@@ -3794,11 +3792,11 @@ msgstr "データベース「%s」の特権を確認します。"
 msgid "Check Privileges"
 msgstr "特権をチェックする"
 
-#: libraries/common.inc.php:578
+#: libraries/common.inc.php:585
 msgid "Failed to read configuration file"
 msgstr "設定ファイルの読み込みに失敗しました"
 
-#: libraries/common.inc.php:580
+#: libraries/common.inc.php:587
 msgid ""
 "This usually means there is a syntax error in it, please check any errors "
 "shown below."
@@ -3806,12 +3804,12 @@ msgstr ""
 "通常、これは構文エラーがあることを意味します。以下に示す全てのエラーを確認し"
 "てください。"
 
-#: libraries/common.inc.php:587
+#: libraries/common.inc.php:594
 #, php-format
 msgid "Could not load default configuration from: %1$s"
 msgstr "デフォルトの設定を読み込めませんでした: %1$s"
 
-#: libraries/common.inc.php:594
+#: libraries/common.inc.php:601
 msgid ""
 "The [code]$cfg['PmaAbsoluteUri'][/code] directive MUST be set in your "
 "configuration file!"
@@ -3819,43 +3817,53 @@ msgstr ""
 "[code]$cfg['PmaAbsoluteUri'][/code] は<b>必ず</b>設定ファイルに設定しなければ"
 "なりません！"
 
-#: libraries/common.inc.php:627
+#: libraries/common.inc.php:634
 #, php-format
 msgid "Invalid server index: %s"
 msgstr "サーバのインデックスが不正です: %s"
 
-#: libraries/common.inc.php:638
+#: libraries/common.inc.php:645
 #, php-format
 msgid "Invalid hostname for server %1$s. Please review your configuration."
 msgstr "サーバ %1$s のホスト名が不正です。設定を確認してください。"
 
-#: libraries/common.inc.php:847
+#: libraries/common.inc.php:854
 msgid "Invalid authentication method set in configuration:"
 msgstr "設定ファイルに無効な認証方法が指定されています:"
 
-#: libraries/common.inc.php:969
+#: libraries/common.inc.php:976
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "%s を %s 以降にアップグレードしてください。"
 
-#: libraries/common.inc.php:1058
+#: libraries/common.inc.php:1065
 msgid "Error: Token mismatch"
 msgstr ""
 
-#: libraries/common.inc.php:1102
+#: libraries/common.inc.php:1109
 msgid "GLOBALS overwrite attempt"
 msgstr "GLOBALS 変数が書き換えられている可能性があります"
 
-#: libraries/common.inc.php:1109
+#: libraries/common.inc.php:1116
 msgid "possible exploit"
 msgstr "なんらかの攻撃をされている可能性があります"
 
-#: libraries/common.inc.php:1118
+#: libraries/common.inc.php:1125
 msgid "numeric key detected"
 msgstr "グローバル変数から数値キーが検出されました"
 
+#: libraries/config.values.php:49 libraries/config.values.php:64
+#: libraries/config.values.php:69
+msgid "Icons"
+msgstr ""
+
+#: libraries/config.values.php:50 libraries/config.values.php:65
+#: libraries/config.values.php:70
+msgid "Text"
+msgstr ""
+
 #: libraries/config.values.php:51 libraries/config.values.php:58
-#: libraries/config.values.php:66
+#: libraries/config.values.php:66 libraries/config.values.php:71
 msgid "Both"
 msgstr "両方"
 
@@ -3871,29 +3879,29 @@ msgstr "左"
 msgid "Right"
 msgstr "右"
 
-#: libraries/config.values.php:69
+#: libraries/config.values.php:74
 msgid "Click"
 msgstr ""
 
-#: libraries/config.values.php:70
+#: libraries/config.values.php:75
 msgid "Double click"
 msgstr ""
 
-#: libraries/config.values.php:71 libraries/config.values.php:102
-#: libraries/config/FormDisplay.tpl.php:223 libraries/relation.lib.php:98
-#: libraries/relation.lib.php:105 pmd_relation_new.php:82
+#: libraries/config.values.php:76 libraries/config.values.php:107
+#: libraries/config/FormDisplay.tpl.php:223 libraries/relation.lib.php:96
+#: libraries/relation.lib.php:103 pmd_relation_new.php:82
 msgid "Disabled"
 msgstr "無効"
 
-#: libraries/config.values.php:100
+#: libraries/config.values.php:105
 msgid "Open"
 msgstr "開いておく"
 
-#: libraries/config.values.php:101
+#: libraries/config.values.php:106
 msgid "Closed"
 msgstr "閉じておく"
 
-#: libraries/config.values.php:131
+#: libraries/config.values.php:136
 #: libraries/plugins/export/ExportHtmlword.class.php:69
 #: libraries/plugins/export/ExportLatex.class.php:103
 #: libraries/plugins/export/ExportMediawiki.class.php:73
@@ -3903,7 +3911,7 @@ msgstr "閉じておく"
 msgid "structure"
 msgstr "構造"
 
-#: libraries/config.values.php:132
+#: libraries/config.values.php:137
 #: libraries/plugins/export/ExportHtmlword.class.php:70
 #: libraries/plugins/export/ExportLatex.class.php:104
 #: libraries/plugins/export/ExportMediawiki.class.php:74
@@ -3913,7 +3921,7 @@ msgstr "構造"
 msgid "data"
 msgstr "データ"
 
-#: libraries/config.values.php:133
+#: libraries/config.values.php:138
 #: libraries/plugins/export/ExportHtmlword.class.php:71
 #: libraries/plugins/export/ExportLatex.class.php:105
 #: libraries/plugins/export/ExportMediawiki.class.php:75
@@ -3923,31 +3931,31 @@ msgstr "データ"
 msgid "structure and data"
 msgstr "構造とデータ"
 
-#: libraries/config.values.php:136
+#: libraries/config.values.php:141
 msgid "Quick - display only the minimal options to configure"
 msgstr "簡易 - 設定するための最小限のオプションのみ表示"
 
-#: libraries/config.values.php:137
+#: libraries/config.values.php:142
 msgid "Custom - display all possible options to configure"
 msgstr "詳細 - 設定に必要なすべてのオプションを表示"
 
-#: libraries/config.values.php:138
+#: libraries/config.values.php:143
 msgid "Custom - like above, but without the quick/custom choice"
 msgstr "詳細 - 上とほぼ同じ、ただし簡易/詳細の選択はなし"
 
-#: libraries/config.values.php:166
+#: libraries/config.values.php:171
 msgid "complete inserts"
 msgstr "完全な INSERT 文を作成する"
 
-#: libraries/config.values.php:167
+#: libraries/config.values.php:172
 msgid "extended inserts"
 msgstr "長い INSERT 文を作成する"
 
-#: libraries/config.values.php:168
+#: libraries/config.values.php:173
 msgid "both of the above"
 msgstr "上の両方を行う"
 
-#: libraries/config.values.php:169
+#: libraries/config.values.php:174
 msgid "neither of the above"
 msgstr "上のどちらでもない"
 
@@ -3967,7 +3975,7 @@ msgid "Not a valid port number"
 msgstr "有効なポート番号ではありません"
 
 #: libraries/config/FormDisplay.class.php:91
-#: libraries/config/FormDisplay.class.php:587
+#: libraries/config/FormDisplay.class.php:579
 #: libraries/config/validate.lib.php:435 libraries/config/validate.lib.php:566
 msgid "Incorrect value"
 msgstr "不正な値です"
@@ -3983,36 +3991,36 @@ msgstr "値は %s 以下でなければいけません"
 msgid "Missing data for %s"
 msgstr "%s ためのデータがありません"
 
-#: libraries/config/FormDisplay.class.php:765
-#: libraries/config/FormDisplay.class.php:771
+#: libraries/config/FormDisplay.class.php:757
+#: libraries/config/FormDisplay.class.php:763
 msgid "unavailable"
 msgstr "使えません"
 
-#: libraries/config/FormDisplay.class.php:767
-#: libraries/config/FormDisplay.class.php:773
+#: libraries/config/FormDisplay.class.php:759
+#: libraries/config/FormDisplay.class.php:765
 #, php-format
 msgid "\"%s\" requires %s extension"
 msgstr "\"%s\" には %s 拡張が必要です"
 
-#: libraries/config/FormDisplay.class.php:792
+#: libraries/config/FormDisplay.class.php:784
 #, php-format
 msgid "import will not work, missing function (%s)"
 msgstr "インポートが行えません。関数 %s がありません。"
 
-#: libraries/config/FormDisplay.class.php:798
+#: libraries/config/FormDisplay.class.php:790
 #, php-format
 msgid "export will not work, missing function (%s)"
 msgstr "エクスポートが行えません。関数 %s がありません。"
 
-#: libraries/config/FormDisplay.class.php:808
+#: libraries/config/FormDisplay.class.php:800
 msgid "SQL Validator is disabled"
 msgstr "SQL 検証は無効です"
 
-#: libraries/config/FormDisplay.class.php:815
+#: libraries/config/FormDisplay.class.php:807
 msgid "SOAP extension not found"
 msgstr "SOAP 拡張が見つかりません"
 
-#: libraries/config/FormDisplay.class.php:825
+#: libraries/config/FormDisplay.class.php:817
 #, php-format
 msgid "maximum %s"
 msgstr "最大 %s"
@@ -4027,7 +4035,7 @@ msgid "Set value: %s"
 msgstr "値「%s」を設定"
 
 #: libraries/config/FormDisplay.tpl.php:314
-#: libraries/config/messages.inc.php:359
+#: libraries/config/messages.inc.php:361
 msgid "Restore default value"
 msgstr "デフォルト値に戻す"
 
@@ -4036,7 +4044,7 @@ msgid "Allow users to customize this value"
 msgstr "この値の変更をユーザに許可する"
 
 #: libraries/config/FormDisplay.tpl.php:394 libraries/insert_edit.lib.php:1549
-#: libraries/schema/User_Schema.class.php:555 prefs_manage.php:320
+#: libraries/schema/User_Schema.class.php:558 prefs_manage.php:320
 #: prefs_manage.php:325
 msgid "Reset"
 msgstr "リセット"
@@ -4111,8 +4119,8 @@ msgstr "CHAR 系カラムの編集"
 
 #: libraries/config/messages.inc.php:30
 msgid ""
-"Use user-friendly editor for editing SQL queries ([a@http://codemirror.net/]"
-"CodeMirror[/a]) with syntax highlighting and line numbers"
+"Use user-friendly editor for editing SQL queries ([a@http://codemirror."
+"net/]CodeMirror[/a]) with syntax highlighting and line numbers"
 msgstr ""
 "構文の色分けや行番号の付加といった分かりやすいエディタ ([a@http://codemirror."
 "net/]CodeMirror[/a]) を、SQL クエリの編集の際に使用します。"
@@ -4291,7 +4299,7 @@ msgid "Character set of the file"
 msgstr "ファイルの文字セット"
 
 #: libraries/config/messages.inc.php:70 libraries/config/messages.inc.php:86
-#: libraries/structure.lib.php:1682 tbl_gis_visualization.php:181
+#: libraries/structure.lib.php:1690 tbl_gis_visualization.php:181
 #: tbl_printview.php:350
 msgid "Format"
 msgstr "フォーマット"
@@ -4305,8 +4313,8 @@ msgstr "圧縮"
 #: libraries/config/messages.inc.php:104 libraries/config/messages.inc.php:106
 #: libraries/config/messages.inc.php:139 libraries/config/messages.inc.php:142
 #: libraries/config/messages.inc.php:144
-#: libraries/plugins/export/ExportCsv.class.php:118
-#: libraries/plugins/export/ExportExcel.class.php:67
+#: libraries/plugins/export/ExportCsv.class.php:119
+#: libraries/plugins/export/ExportExcel.class.php:68
 #: libraries/plugins/export/ExportHtmlword.class.php:90
 #: libraries/plugins/export/ExportLatex.class.php:162
 #: libraries/plugins/export/ExportOds.class.php:75
@@ -4427,8 +4435,8 @@ msgstr "既存のファイルは上書きする"
 msgid "Remember file name template"
 msgstr "ファイル名のテンプレートを記憶しておく"
 
-#: libraries/config/messages.inc.php:117 libraries/operations.lib.php:195
-#: libraries/operations.lib.php:684 libraries/operations.lib.php:1027
+#: libraries/config/messages.inc.php:117 libraries/operations.lib.php:211
+#: libraries/operations.lib.php:708 libraries/operations.lib.php:1051
 msgid "Add AUTO_INCREMENT value"
 msgstr "AUTO_INCREMENT 値を追加する"
 
@@ -4461,7 +4469,7 @@ msgstr "外部キーのチェックを無効にする"
 
 #: libraries/config/messages.inc.php:124 libraries/config/messages.inc.php:125
 #: libraries/config/messages.inc.php:127 libraries/config/messages.inc.php:133
-#: libraries/operations.lib.php:190 libraries/operations.lib.php:1023
+#: libraries/operations.lib.php:206 libraries/operations.lib.php:1047
 #, php-format
 msgid "Add %s"
 msgstr "%s を追加する"
@@ -4540,10 +4548,10 @@ msgstr "表示モードの詳細設定"
 msgid "Customize default options"
 msgstr "デフォルトオプションの詳細設定"
 
-#: libraries/config/messages.inc.php:156 libraries/config/setup.forms.php:238
-#: libraries/config/setup.forms.php:311
-#: libraries/config/user_preferences.forms.php:144
-#: libraries/config/user_preferences.forms.php:215
+#: libraries/config/messages.inc.php:156 libraries/config/setup.forms.php:239
+#: libraries/config/setup.forms.php:312
+#: libraries/config/user_preferences.forms.php:145
+#: libraries/config/user_preferences.forms.php:216
 msgid "CSV"
 msgstr "CSV"
 
@@ -4658,8 +4666,9 @@ msgstr "ページタイトル"
 
 #: libraries/config/messages.inc.php:191
 msgid ""
-"Specify browser's title bar text. Refer to [doc@cfg_TitleTable]documentation"
-"[/doc] for magic strings that can be used to get special values."
+"Specify browser's title bar text. Refer to "
+"[doc@cfg_TitleTable]documentation[/doc] for magic strings that can be used "
+"to get special values."
 msgstr ""
 "ブラウザのタイトルバーのテキストの指定を行います。使用可能な特別な埋め込み変"
 "数は[doc@cfg_TitleTable]ドキュメント[/doc]を参照してください。"
@@ -5032,7 +5041,7 @@ msgid "Maximum displayed SQL length"
 msgstr "表示できる SQL 文の最大の長さ"
 
 #: libraries/config/messages.inc.php:283 libraries/config/messages.inc.php:290
-#: libraries/config/messages.inc.php:344
+#: libraries/config/messages.inc.php:346
 msgid "Users cannot set a higher value"
 msgstr "ユーザはこれより高い値を設定することはできません"
 
@@ -5234,11 +5243,14 @@ msgid "Natural order"
 msgstr "自然順"
 
 #: libraries/config/messages.inc.php:324 libraries/config/messages.inc.php:338
+#: libraries/config/messages.inc.php:340
 msgid "Use only icons, only text or both"
 msgstr "「アイコンのみ」、「テキストのみ」、「両方」のいずれかが使えます。"
 
 #: libraries/config/messages.inc.php:325
-msgid "Iconic navigation bar"
+#, fuzzy
+#| msgid "Iconic navigation bar"
+msgid "Table navigation bar"
 msgstr "ナビゲーションバーのアイコン"
 
 #: libraries/config/messages.inc.php:326
@@ -5316,18 +5328,24 @@ msgid "MySQL reserved word warning"
 msgstr ""
 
 #: libraries/config/messages.inc.php:339
-msgid "Iconic table operations"
-msgstr "アイコンによるテーブルの操作"
+#, fuzzy
+#| msgid "Allow to display all the rows"
+msgid "How to display the menu tabs"
+msgstr "すべての行の表示を許可する"
 
-#: libraries/config/messages.inc.php:340
+#: libraries/config/messages.inc.php:341
+msgid "How to display various action links"
+msgstr ""
+
+#: libraries/config/messages.inc.php:342
 msgid "Disallow BLOB and BINARY columns from editing"
 msgstr "BLOB および BINARY カラムへの編集を禁止します。"
 
-#: libraries/config/messages.inc.php:341
+#: libraries/config/messages.inc.php:343
 msgid "Protect binary columns"
 msgstr "バイナリカラムの保護"
 
-#: libraries/config/messages.inc.php:342
+#: libraries/config/messages.inc.php:344
 msgid ""
 "Enable if you want DB-based query history (requires phpMyAdmin configuration "
 "storage). If disabled, this utilizes JS-routines to display query history "
@@ -5337,118 +5355,118 @@ msgstr ""
 "環境保管領域の設定が必要です)。無効にした場合、クエリ履歴の表示に JavaScript "
 "を利用します (ウィンドウを閉じると履歴は消えます)。"
 
-#: libraries/config/messages.inc.php:343
+#: libraries/config/messages.inc.php:345
 msgid "Permanent query history"
 msgstr "永続的なクエリの履歴"
 
-#: libraries/config/messages.inc.php:345
+#: libraries/config/messages.inc.php:347
 msgid "How many queries are kept in history"
 msgstr "履歴に残るクエリの件数"
 
-#: libraries/config/messages.inc.php:346
+#: libraries/config/messages.inc.php:348
 msgid "Query history length"
 msgstr "クエリ履歴の長さ"
 
-#: libraries/config/messages.inc.php:347
+#: libraries/config/messages.inc.php:349
 msgid "Tab displayed when opening a new query window"
 msgstr "新しいクエリウィンドウを開いたときに開いておくタブ"
 
-#: libraries/config/messages.inc.php:348
+#: libraries/config/messages.inc.php:350
 msgid "Default query window tab"
 msgstr "クエリウィンドウのデフォルトタブ"
 
-#: libraries/config/messages.inc.php:349
+#: libraries/config/messages.inc.php:351
 msgid "Query window height (in pixels)"
 msgstr "クエリウィンドウの高さ (ピクセル数)"
 
-#: libraries/config/messages.inc.php:350
+#: libraries/config/messages.inc.php:352
 msgid "Query window height"
 msgstr "クエリウィンドウの高さ"
 
-#: libraries/config/messages.inc.php:351
+#: libraries/config/messages.inc.php:353
 msgid "Query window width (in pixels)"
 msgstr "クエリウィンドウの幅 (ピクセル数)"
 
-#: libraries/config/messages.inc.php:352
+#: libraries/config/messages.inc.php:354
 msgid "Query window width"
 msgstr "クエリウィンドウの幅"
 
-#: libraries/config/messages.inc.php:353
+#: libraries/config/messages.inc.php:355
 msgid "Select which functions will be used for character set conversion"
 msgstr "文字セットの変換に使用される関数を選択します。"
 
-#: libraries/config/messages.inc.php:354
+#: libraries/config/messages.inc.php:356
 msgid "Recoding engine"
 msgstr "コード変換エンジン"
 
-#: libraries/config/messages.inc.php:355
+#: libraries/config/messages.inc.php:357
 msgid "When browsing tables, the sorting of each table is remembered"
 msgstr "表示している各テーブルのソートが記憶されます。"
 
-#: libraries/config/messages.inc.php:356
+#: libraries/config/messages.inc.php:358
 msgid "Remember table's sorting"
 msgstr "テーブルのソートを記憶する"
 
-#: libraries/config/messages.inc.php:357
+#: libraries/config/messages.inc.php:359
 msgid "Repeat the headers every X cells, [kbd]0[/kbd] deactivates this feature"
 msgstr ""
 "カラム名を何行おきに挿入するか。[kbd]0[/kbd] でこの機能は無効になります。"
 
-#: libraries/config/messages.inc.php:358
+#: libraries/config/messages.inc.php:360
 msgid "Repeat headers"
 msgstr "カラム名の差し込み間隔"
 
-#: libraries/config/messages.inc.php:360
+#: libraries/config/messages.inc.php:362
 msgid "Grid editing: trigger action"
 msgstr ""
 
-#: libraries/config/messages.inc.php:361
+#: libraries/config/messages.inc.php:363
 #, fuzzy
 #| msgid "Save all edited cells at once"
 msgid "Grid editing: save all edited cells at once"
 msgstr "編集したセルを一度にすべて保存する"
 
-#: libraries/config/messages.inc.php:362
+#: libraries/config/messages.inc.php:364
 msgid "Directory where exports can be saved on server"
 msgstr "エクスポートをサーバ上に保存できるディレクトリ"
 
-#: libraries/config/messages.inc.php:363
+#: libraries/config/messages.inc.php:365
 msgid "Save directory"
 msgstr "保存ディレクトリ"
 
-#: libraries/config/messages.inc.php:364
+#: libraries/config/messages.inc.php:366
 msgid "Leave blank if not used"
 msgstr "使用しない場合は空欄にします。"
 
-#: libraries/config/messages.inc.php:365
+#: libraries/config/messages.inc.php:367
 msgid "Host authorization order"
 msgstr "ホストの認証順番"
 
-#: libraries/config/messages.inc.php:366
+#: libraries/config/messages.inc.php:368
 msgid "Leave blank for defaults"
 msgstr "デフォルトにする場合は空欄にします。"
 
-#: libraries/config/messages.inc.php:367
+#: libraries/config/messages.inc.php:369
 msgid "Host authorization rules"
 msgstr "ホスト認証のルール"
 
-#: libraries/config/messages.inc.php:368
+#: libraries/config/messages.inc.php:370
 msgid "Allow logins without a password"
 msgstr "パスワードなしログインの許可"
 
-#: libraries/config/messages.inc.php:369
+#: libraries/config/messages.inc.php:371
 msgid "Allow root login"
 msgstr "root ログインの許可"
 
-#: libraries/config/messages.inc.php:370
+#: libraries/config/messages.inc.php:372
 msgid "HTTP Basic Auth Realm name to display when doing HTTP Auth"
 msgstr "HTTP 認証を行うときに表示される HTTP Basic 認証領域における名称"
 
-#: libraries/config/messages.inc.php:371
+#: libraries/config/messages.inc.php:373
 msgid "HTTP Realm"
 msgstr "HTTP 領域"
 
-#: libraries/config/messages.inc.php:372
+#: libraries/config/messages.inc.php:374
 msgid ""
 "The path for the config file for [a@http://swekey.com]SweKey hardware "
 "authentication[/a] (not located in your document root; suggested: /etc/"
@@ -5457,19 +5475,19 @@ msgstr ""
 "[a@http://swekey.com]SweKey ハードウェア認証[/a]用の設定ファイルのパス (ド"
 "キュメントルートには配置しないこと。/etc/swekey.conf がいいでしょう。)"
 
-#: libraries/config/messages.inc.php:373
+#: libraries/config/messages.inc.php:375
 msgid "SweKey config file"
 msgstr "SweKey 設定ファイル"
 
-#: libraries/config/messages.inc.php:374
+#: libraries/config/messages.inc.php:376
 msgid "Authentication method to use"
 msgstr "使用する認証方法"
 
-#: libraries/config/messages.inc.php:375 setup/frames/index.inc.php:136
+#: libraries/config/messages.inc.php:377 setup/frames/index.inc.php:136
 msgid "Authentication type"
 msgstr "認証タイプ"
 
-#: libraries/config/messages.inc.php:376
+#: libraries/config/messages.inc.php:378
 #, fuzzy
 #| msgid ""
 #| "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/bookmark]bookmark[/"
@@ -5481,48 +5499,48 @@ msgstr ""
 "[a@http://wiki.phpmyadmin.net/pma/bookmark]ブックマーク[/a]機能を使わない場合"
 "は空欄にします。[kbd]pma_bookmark[/kbd] としておくのがいいでしょう。"
 
-#: libraries/config/messages.inc.php:377
+#: libraries/config/messages.inc.php:379
 msgid "Bookmark table"
 msgstr "ブックマークテーブル"
 
-#: libraries/config/messages.inc.php:378
+#: libraries/config/messages.inc.php:380
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no column comments/mime types, suggested: [kbd]"
-#| "pma_column_info[/kbd]"
+#| "Leave blank for no column comments/mime types, suggested: "
+#| "[kbd]pma_column_info[/kbd]"
 msgid ""
-"Leave blank for no column comments/mime types, suggested: [kbd]"
-"pma__column_info[/kbd]"
+"Leave blank for no column comments/mime types, suggested: "
+"[kbd]pma__column_info[/kbd]"
 msgstr ""
-"カラムのコメントと MIME タイプ機能を使わない場合は空欄にします。[kbd]"
-"pma_column_info[/kbd] としておくのがいいでしょう。"
+"カラムのコメントと MIME タイプ機能を使わない場合は空欄にします。"
+"[kbd]pma_column_info[/kbd] としておくのがいいでしょう。"
 
-#: libraries/config/messages.inc.php:379
+#: libraries/config/messages.inc.php:381
 msgid "Column information table"
 msgstr "カラム情報テーブル"
 
-#: libraries/config/messages.inc.php:380
+#: libraries/config/messages.inc.php:382
 msgid "Compress connection to MySQL server"
 msgstr "MySQL サーバと圧縮プロトコルで接続します。"
 
-#: libraries/config/messages.inc.php:381
+#: libraries/config/messages.inc.php:383
 msgid "Compress connection"
 msgstr "圧縮通信を行う"
 
-#: libraries/config/messages.inc.php:382
+#: libraries/config/messages.inc.php:384
 msgid "How to connect to server, keep [kbd]tcp[/kbd] if unsure"
 msgstr ""
 "サーバへの接続方法。確信がなければ [kbd]tcp[/kbd] のままにしてください。"
 
-#: libraries/config/messages.inc.php:383
+#: libraries/config/messages.inc.php:385
 msgid "Connection type"
 msgstr "接続方法"
 
-#: libraries/config/messages.inc.php:384
+#: libraries/config/messages.inc.php:386
 msgid "Control user password"
 msgstr "phpMyAdmin ユーザのパスワード"
 
-#: libraries/config/messages.inc.php:385
+#: libraries/config/messages.inc.php:387
 msgid ""
 "A special MySQL user configured with limited permissions, more information "
 "available on [a@http://wiki.phpmyadmin.net/pma/controluser]wiki[/a]"
@@ -5530,11 +5548,11 @@ msgstr ""
 "権限を制限して設定しておいた特別な MySQL ユーザを使います。詳細は [a@http://"
 "wiki.phpmyadmin.net/pma/controluser]wiki[/a] を参照してください。"
 
-#: libraries/config/messages.inc.php:386
+#: libraries/config/messages.inc.php:388
 msgid "Control user"
 msgstr "phpMyAdmin ユーザ"
 
-#: libraries/config/messages.inc.php:387
+#: libraries/config/messages.inc.php:389
 msgid ""
 "An alternate host to hold the configuration storage; leave blank to use the "
 "already defined host"
@@ -5542,11 +5560,11 @@ msgstr ""
 "環境保管領域に対しての代替ホスト。空欄で既に定義されているホストを使用しま"
 "す。"
 
-#: libraries/config/messages.inc.php:388
+#: libraries/config/messages.inc.php:390
 msgid "Control host"
 msgstr "環境保管領域ホスト"
 
-#: libraries/config/messages.inc.php:389
+#: libraries/config/messages.inc.php:391
 #, fuzzy
 #| msgid ""
 #| "Leave blank for no Designer support, suggested: [kbd]pma_designer_coords[/"
@@ -5558,11 +5576,11 @@ msgstr ""
 "デザイナを使わない場合は空欄にします。[kbd]pma_designer_coords[/kbd] としてお"
 "くのがいいでしょう。"
 
-#: libraries/config/messages.inc.php:390
+#: libraries/config/messages.inc.php:392
 msgid "Designer table"
 msgstr "デザイナテーブル"
 
-#: libraries/config/messages.inc.php:391
+#: libraries/config/messages.inc.php:393
 msgid ""
 "More information on [a@https://sourceforge.net/p/phpmyadmin/bugs/2606/]PMA "
 "bug tracker[/a] and [a@http://bugs.mysql.com/19588]MySQL Bugs[/a]"
@@ -5570,31 +5588,31 @@ msgstr ""
 "詳細は [a@https://sourceforge.net/p/phpmyadmin/bugs/2606/]PMA bug tracker[/"
 "a] と [a@http://bugs.mysql.com/19588]MySQL Bugs[/a]。"
 
-#: libraries/config/messages.inc.php:392
+#: libraries/config/messages.inc.php:394
 msgid "Disable use of INFORMATION_SCHEMA"
 msgstr "INFORMATION_SCHEMA の使用を無効にする"
 
-#: libraries/config/messages.inc.php:393
+#: libraries/config/messages.inc.php:395
 msgid "What PHP extension to use; you should use mysqli if supported"
 msgstr "mysqli がサポートされているなら、そちらを使うべきでしょう。"
 
-#: libraries/config/messages.inc.php:394
+#: libraries/config/messages.inc.php:396
 msgid "PHP extension to use"
 msgstr "使用する PHP 拡張"
 
-#: libraries/config/messages.inc.php:395
+#: libraries/config/messages.inc.php:397
 msgid "Hide databases matching regular expression (PCRE)"
 msgstr "正規表現 (PCRE) で一致するデータベースを非表示にします。"
 
-#: libraries/config/messages.inc.php:396
+#: libraries/config/messages.inc.php:398
 msgid "Hide databases"
 msgstr "非表示にするデータベース"
 
-#: libraries/config/messages.inc.php:397
+#: libraries/config/messages.inc.php:399
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no SQL query history support, suggested: [kbd]pma_history"
-#| "[/kbd]"
+#| "Leave blank for no SQL query history support, suggested: "
+#| "[kbd]pma_history[/kbd]"
 msgid ""
 "Leave blank for no SQL query history support, suggested: [kbd]pma__history[/"
 "kbd]"
@@ -5602,23 +5620,23 @@ msgstr ""
 "SQL クエリの履歴機能を使わない場合は空欄にします。[kbd]pma_history[/kbd] とし"
 "ておくのがいいでしょう。"
 
-#: libraries/config/messages.inc.php:398
+#: libraries/config/messages.inc.php:400
 msgid "SQL query history table"
 msgstr "SQL クエリ履歴テーブル"
 
-#: libraries/config/messages.inc.php:399
+#: libraries/config/messages.inc.php:401
 msgid "Hostname where MySQL server is running"
 msgstr "稼働している MySQL サーバのホスト名"
 
-#: libraries/config/messages.inc.php:400
+#: libraries/config/messages.inc.php:402
 msgid "Server hostname"
 msgstr "サーバのホスト名"
 
-#: libraries/config/messages.inc.php:401
+#: libraries/config/messages.inc.php:403
 msgid "Logout URL"
 msgstr "ログアウト URL"
 
-#: libraries/config/messages.inc.php:402
+#: libraries/config/messages.inc.php:404
 msgid ""
 "Limits number of table preferences which are stored in database, the oldest "
 "records are automatically removed"
@@ -5626,19 +5644,19 @@ msgstr ""
 "データベースに保管されるテーブル環境設定の上限。古いものから自動的に削除され"
 "ます。"
 
-#: libraries/config/messages.inc.php:403
+#: libraries/config/messages.inc.php:405
 msgid "Maximal number of table preferences to store"
 msgstr "テーブル環境設定の最大保管数"
 
-#: libraries/config/messages.inc.php:404
+#: libraries/config/messages.inc.php:406
 msgid "Try to connect without password"
 msgstr "パスワードなしでの接続を試みます。"
 
-#: libraries/config/messages.inc.php:405
+#: libraries/config/messages.inc.php:407
 msgid "Connect without password"
 msgstr "パスワードなしで接続する"
 
-#: libraries/config/messages.inc.php:406
+#: libraries/config/messages.inc.php:408
 #, fuzzy
 #| msgid ""
 #| "You can use MySQL wildcard characters (% and _), escape them if you want "
@@ -5658,19 +5676,19 @@ msgstr ""
 "力していき、最後に [kbd]'*'[/kbd] とだけ入力しておきます。[kbd]'*'[/kbd] は"
 "残ったものをアルファベット順に並べて表示する働きをします。"
 
-#: libraries/config/messages.inc.php:407
+#: libraries/config/messages.inc.php:409
 msgid "Show only listed databases"
 msgstr "リスト化したデータベースだけを表示する"
 
-#: libraries/config/messages.inc.php:408 libraries/config/messages.inc.php:449
+#: libraries/config/messages.inc.php:410 libraries/config/messages.inc.php:451
 msgid "Leave empty if not using config auth"
 msgstr "config 認証を使用しない場合は空欄のままにします。"
 
-#: libraries/config/messages.inc.php:409
+#: libraries/config/messages.inc.php:411
 msgid "Password for config auth"
 msgstr "config 認証用のパスワード"
 
-#: libraries/config/messages.inc.php:410
+#: libraries/config/messages.inc.php:412
 #, fuzzy
 #| msgid ""
 #| "Leave blank for no PDF schema support, suggested: [kbd]pma_pdf_pages[/kbd]"
@@ -5680,11 +5698,11 @@ msgstr ""
 "PDF スキーマを使用しない場合は空欄のままにします。[kbd]pma_pdf_pages[/kbd] と"
 "しておくのがいいでしょう。"
 
-#: libraries/config/messages.inc.php:411
+#: libraries/config/messages.inc.php:413
 msgid "PDF schema: pages table"
 msgstr "PDF スキーマ：ページテーブル"
 
-#: libraries/config/messages.inc.php:412
+#: libraries/config/messages.inc.php:414
 msgid ""
 "Database used for relations, bookmarks, and PDF features. See [a@http://wiki."
 "phpmyadmin.net/pma/pmadb]pmadb[/a] for complete information. Leave blank for "
@@ -5695,20 +5713,20 @@ msgstr ""
 "れらの機能を使わない場合は空欄にします。[kbd]phpmyadmin[/kbd] としておくのが"
 "いいでしょう。"
 
-#: libraries/config/messages.inc.php:413
+#: libraries/config/messages.inc.php:415
 msgid "Database name"
 msgstr "データベース名"
 
-#: libraries/config/messages.inc.php:414
+#: libraries/config/messages.inc.php:416
 msgid "Port on which MySQL server is listening, leave empty for default"
 msgstr ""
 "MySQL サーバで開いているポート。デフォルトにしたい場合は空欄のままにします。"
 
-#: libraries/config/messages.inc.php:415
+#: libraries/config/messages.inc.php:417
 msgid "Server port"
 msgstr "サーバのポート"
 
-#: libraries/config/messages.inc.php:416
+#: libraries/config/messages.inc.php:418
 #, fuzzy
 #| msgid ""
 #| "Leave blank for no \"persistent\" recently used tables across sessions, "
@@ -5720,69 +5738,69 @@ msgstr ""
 "最近使用したテーブルをセッションを跨いで「永続的に」記憶しない場合は空欄にし"
 "ます。[kbd]pma_recent[/kbd] としておくのがいいでしょう。"
 
-#: libraries/config/messages.inc.php:417
+#: libraries/config/messages.inc.php:419
 msgid "Recently used table"
 msgstr "最近使用したテーブル"
 
-#: libraries/config/messages.inc.php:418
+#: libraries/config/messages.inc.php:420
 #, fuzzy
 #| msgid ""
 #| "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
 #| "links[/a] support, suggested: [kbd]pma_relation[/kbd]"
 msgid ""
-"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-links"
-"[/a] support, suggested: [kbd]pma__relation[/kbd]"
+"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
+"links[/a] support, suggested: [kbd]pma__relation[/kbd]"
 msgstr ""
 "[a@http://wiki.phpmyadmin.net/pma/relation]リレーションリンク[/a]機能を使わな"
 "い場合は空欄にします。[kbd]pma_relation[/kbd] としておくのがいいでしょう。"
 
-#: libraries/config/messages.inc.php:419
+#: libraries/config/messages.inc.php:421
 msgid "Relation table"
 msgstr "リレーションテーブル"
 
-#: libraries/config/messages.inc.php:420
+#: libraries/config/messages.inc.php:422
 msgid "SQL command to fetch available databases"
 msgstr "使用可能なデータベースを取得するための SQL コマンド"
 
-#: libraries/config/messages.inc.php:421
+#: libraries/config/messages.inc.php:423
 msgid "SHOW DATABASES command"
 msgstr "SHOW DATABASES コマンド"
 
-#: libraries/config/messages.inc.php:422
+#: libraries/config/messages.inc.php:424
 msgid ""
-"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication types"
-"[/a] for an example"
+"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
+"types[/a] for an example"
 msgstr ""
 "設定例は[a@http://wiki.phpmyadmin.net/pma/auth_types#signon]認証モード[/a]を"
 "参照してください。"
 
-#: libraries/config/messages.inc.php:423
+#: libraries/config/messages.inc.php:425
 msgid "Signon session name"
 msgstr "サインオンセッション名"
 
-#: libraries/config/messages.inc.php:424
+#: libraries/config/messages.inc.php:426
 msgid "Signon URL"
 msgstr "サインオン URL"
 
-#: libraries/config/messages.inc.php:425
+#: libraries/config/messages.inc.php:427
 msgid "Socket on which MySQL server is listening, leave empty for default"
 msgstr ""
 "MySQL サーバで開いているソケット。デフォルトにしたい場合は空欄のままにしま"
 "す。"
 
-#: libraries/config/messages.inc.php:426
+#: libraries/config/messages.inc.php:428
 msgid "Server socket"
 msgstr "サーバのソケット"
 
-#: libraries/config/messages.inc.php:427
+#: libraries/config/messages.inc.php:429
 msgid "Enable SSL for connection to MySQL server"
 msgstr "MySQL サーバへの接続において SSL を有効にします。"
 
-#: libraries/config/messages.inc.php:428
+#: libraries/config/messages.inc.php:430
 msgid "Use SSL"
 msgstr "SSL を使用する"
 
-#: libraries/config/messages.inc.php:429
+#: libraries/config/messages.inc.php:431
 #, fuzzy
 #| msgid ""
 #| "Leave blank for no PDF schema support, suggested: [kbd]pma_table_coords[/"
@@ -5794,11 +5812,11 @@ msgstr ""
 "PDF スキーマを使用しない場合は空欄にします。[kbd]pma_table_coords[/kbd] とし"
 "ておくのがいいでしょう。"
 
-#: libraries/config/messages.inc.php:430
+#: libraries/config/messages.inc.php:432
 msgid "PDF schema: table coordinates"
 msgstr "PDF スキーマ：テーブルの座標"
 
-#: libraries/config/messages.inc.php:431
+#: libraries/config/messages.inc.php:433
 #, fuzzy
 #| msgid ""
 #| "Table to describe the display columns, leave blank for no support; "
@@ -5807,14 +5825,14 @@ msgid ""
 "Table to describe the display columns, leave blank for no support; "
 "suggested: [kbd]pma__table_info[/kbd]"
 msgstr ""
-"表示するカラムを記述するためのテーブル。使用しない場合は空欄にします。[kbd]"
-"pma_table_info[/kbd] としておくのがいいでしょう。"
+"表示するカラムを記述するためのテーブル。使用しない場合は空欄にします。"
+"[kbd]pma_table_info[/kbd] としておくのがいいでしょう。"
 
-#: libraries/config/messages.inc.php:432
+#: libraries/config/messages.inc.php:434
 msgid "Display columns table"
 msgstr "表示するカラムためのテーブル"
 
-#: libraries/config/messages.inc.php:433
+#: libraries/config/messages.inc.php:435
 #, fuzzy
 #| msgid ""
 #| "Leave blank for no \"persistent\" tables'UI preferences across sessions, "
@@ -5826,11 +5844,11 @@ msgstr ""
 "テーブルに対する環境設定をセッションを跨いで「永続的に」記憶しない場合は空欄"
 "にします。[kbd]pma_table_uiprefs[/kbd] としておくのがいいでしょう。"
 
-#: libraries/config/messages.inc.php:434
+#: libraries/config/messages.inc.php:436
 msgid "UI preferences table"
 msgstr "テーブルに対する環境設定を保管するテーブル"
 
-#: libraries/config/messages.inc.php:435
+#: libraries/config/messages.inc.php:437
 msgid ""
 "Whether a DROP DATABASE IF EXISTS statement will be added as first line to "
 "the log when creating a database."
@@ -5838,11 +5856,11 @@ msgstr ""
 "データベースを作成するときにログの最初の行に DROP DATABASE IF EXISTS 文を追加"
 "するかどうか。"
 
-#: libraries/config/messages.inc.php:436
+#: libraries/config/messages.inc.php:438
 msgid "Add DROP DATABASE"
 msgstr "DROP DATABASE を追加する"
 
-#: libraries/config/messages.inc.php:437
+#: libraries/config/messages.inc.php:439
 msgid ""
 "Whether a DROP TABLE IF EXISTS statement will be added as first line to the "
 "log when creating a table."
@@ -5850,11 +5868,11 @@ msgstr ""
 "テーブルを作成するときにログの最初の行に DROP TABLE IF EXISTS 文を追加するか"
 "どうか。"
 
-#: libraries/config/messages.inc.php:438
+#: libraries/config/messages.inc.php:440
 msgid "Add DROP TABLE"
 msgstr "DROP TABLE を追加する"
 
-#: libraries/config/messages.inc.php:439
+#: libraries/config/messages.inc.php:441
 msgid ""
 "Whether a DROP VIEW IF EXISTS statement will be added as first line to the "
 "log when creating a view."
@@ -5862,35 +5880,35 @@ msgstr ""
 "ビューを作成するときにログの最初の行に DROP VIEW IF EXISTS 文を追加するかどう"
 "か。"
 
-#: libraries/config/messages.inc.php:440
+#: libraries/config/messages.inc.php:442
 msgid "Add DROP VIEW"
 msgstr "DROP VIEW を追加する"
 
-#: libraries/config/messages.inc.php:441
+#: libraries/config/messages.inc.php:443
 msgid "Defines the list of statements the auto-creation uses for new versions."
 msgstr "新しい世代に対して自動生成使用するコマンドのリストを定義します。"
 
-#: libraries/config/messages.inc.php:442
+#: libraries/config/messages.inc.php:444
 msgid "Statements to track"
 msgstr "追跡するコマンド"
 
-#: libraries/config/messages.inc.php:443
+#: libraries/config/messages.inc.php:445
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no SQL query tracking support, suggested: [kbd]"
-#| "pma_tracking[/kbd]"
+#| "Leave blank for no SQL query tracking support, suggested: "
+#| "[kbd]pma_tracking[/kbd]"
 msgid ""
-"Leave blank for no SQL query tracking support, suggested: [kbd]pma__tracking"
-"[/kbd]"
+"Leave blank for no SQL query tracking support, suggested: "
+"[kbd]pma__tracking[/kbd]"
 msgstr ""
 "SQL コマンドの追跡機能を使わない場合は空欄にします。[kbd]pma_tracking[/kbd] "
 "としておくのがいいでしょう。"
 
-#: libraries/config/messages.inc.php:444
+#: libraries/config/messages.inc.php:446
 msgid "SQL query tracking table"
 msgstr "SQL コマンド追跡テーブル"
 
-#: libraries/config/messages.inc.php:445
+#: libraries/config/messages.inc.php:447
 msgid ""
 "Whether the tracking mechanism creates versions for tables and views "
 "automatically."
@@ -5898,31 +5916,31 @@ msgstr ""
 "SQL コマンドの追跡機能が、テーブルやビューに対して自動的に世代を作成するかど"
 "うか。"
 
-#: libraries/config/messages.inc.php:446
+#: libraries/config/messages.inc.php:448
 msgid "Automatically create versions"
 msgstr "世代の自動作成"
 
-#: libraries/config/messages.inc.php:447
+#: libraries/config/messages.inc.php:449
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no user preferences storage in database, suggested: [kbd]"
-#| "pma_userconfig[/kbd]"
+#| "Leave blank for no user preferences storage in database, suggested: "
+#| "[kbd]pma_userconfig[/kbd]"
 msgid ""
-"Leave blank for no user preferences storage in database, suggested: [kbd]"
-"pma__userconfig[/kbd]"
+"Leave blank for no user preferences storage in database, suggested: "
+"[kbd]pma__userconfig[/kbd]"
 msgstr ""
 "データベースにユーザ設定の保存しない場合は空欄にします。[kbd]pma_userconfig[/"
 "kbd] としておくのがいいでしょう。"
 
-#: libraries/config/messages.inc.php:448
+#: libraries/config/messages.inc.php:450
 msgid "User preferences storage table"
 msgstr "ユーザ環境保管テーブル"
 
-#: libraries/config/messages.inc.php:450
+#: libraries/config/messages.inc.php:452
 msgid "User for config auth"
 msgstr "config 認証用のユーザ"
 
-#: libraries/config/messages.inc.php:451
+#: libraries/config/messages.inc.php:453
 msgid ""
 "A user-friendly description of this server. Leave blank to display the "
 "hostname instead."
@@ -5930,19 +5948,19 @@ msgstr ""
 "このサーバのわかりやすい説明。ホスト名をそのまま表示させる場合には、空欄のま"
 "まにします。"
 
-#: libraries/config/messages.inc.php:452
+#: libraries/config/messages.inc.php:454
 msgid "Verbose name of this server"
 msgstr "このサーバの詳細な名前"
 
-#: libraries/config/messages.inc.php:453
+#: libraries/config/messages.inc.php:455
 msgid "Whether a user should be displayed a &quot;show all (rows)&quot; button"
 msgstr "「(行を) すべて表示」ボタンを表示するかどうか。"
 
-#: libraries/config/messages.inc.php:454
+#: libraries/config/messages.inc.php:456
 msgid "Allow to display all the rows"
 msgstr "すべての行の表示を許可する"
 
-#: libraries/config/messages.inc.php:455
+#: libraries/config/messages.inc.php:457
 msgid ""
 "Please note that enabling this has no effect with [kbd]config[/kbd] "
 "authentication mode because the password is hard coded in the configuration "
@@ -5953,41 +5971,41 @@ msgstr ""
 "れはパスワード変更コマンドに対して直接実行する機能を制限するものではありませ"
 "ん。"
 
-#: libraries/config/messages.inc.php:456
+#: libraries/config/messages.inc.php:458
 msgid "Show password change form"
 msgstr "パスワード変更フォームを表示する"
 
-#: libraries/config/messages.inc.php:457
+#: libraries/config/messages.inc.php:459
 msgid "Show create database form"
 msgstr "「データベースを作成する」の部分を表示する"
 
-#: libraries/config/messages.inc.php:458
+#: libraries/config/messages.inc.php:460
 msgid "Show or hide a column displaying the Creation timestamp for all tables"
 msgstr "テーブル一覧において作成日時の列を表示させるかどうか"
 
-#: libraries/config/messages.inc.php:459
+#: libraries/config/messages.inc.php:461
 msgid "Show Creation timestamp"
 msgstr "作成日時を表示する"
 
-#: libraries/config/messages.inc.php:460
+#: libraries/config/messages.inc.php:462
 msgid ""
 "Show or hide a column displaying the Last update timestamp for all tables"
 msgstr "テーブル一覧において最終更新日時の列を表示させるかどうか"
 
-#: libraries/config/messages.inc.php:461
+#: libraries/config/messages.inc.php:463
 msgid "Show Last update timestamp"
 msgstr "最終更新日時を表示する"
 
-#: libraries/config/messages.inc.php:462
+#: libraries/config/messages.inc.php:464
 msgid ""
 "Show or hide a column displaying the Last check timestamp for all tables"
 msgstr "テーブル一覧において最終検査日時の列を表示させるかどうか"
 
-#: libraries/config/messages.inc.php:463
+#: libraries/config/messages.inc.php:465
 msgid "Show Last check timestamp"
 msgstr "最終検査日時を表示する"
 
-#: libraries/config/messages.inc.php:464
+#: libraries/config/messages.inc.php:466
 msgid ""
 "Defines whether or not type display direction option is shown when browsing "
 "a table"
@@ -5995,37 +6013,37 @@ msgstr ""
 "テーブルを閲覧するときに、表示方向のオプションが表示されるかどうかを定義しま"
 "す。"
 
-#: libraries/config/messages.inc.php:465
+#: libraries/config/messages.inc.php:467
 msgid "Show display direction"
 msgstr "表示方向を表示する"
 
-#: libraries/config/messages.inc.php:466
+#: libraries/config/messages.inc.php:468
 msgid ""
 "Defines whether or not type fields should be initially displayed in edit/"
 "insert mode"
 msgstr "編集／挿入モードでデータ型項目を表示するかどうか定義します。"
 
-#: libraries/config/messages.inc.php:467
+#: libraries/config/messages.inc.php:469
 msgid "Show field types"
 msgstr "データ型項目を表示する"
 
-#: libraries/config/messages.inc.php:468
+#: libraries/config/messages.inc.php:470
 msgid "Display the function fields in edit/insert mode"
 msgstr "編集／挿入モードで関数項目を表示します。"
 
-#: libraries/config/messages.inc.php:469
+#: libraries/config/messages.inc.php:471
 msgid "Show function fields"
 msgstr "関数項目を表示する"
 
-#: libraries/config/messages.inc.php:470
+#: libraries/config/messages.inc.php:472
 msgid "Whether to show hint or not"
 msgstr "操作ヒントを表示するかどうか。"
 
-#: libraries/config/messages.inc.php:471
+#: libraries/config/messages.inc.php:473
 msgid "Show hint"
 msgstr "操作ヒントを表示する"
 
-#: libraries/config/messages.inc.php:472
+#: libraries/config/messages.inc.php:474
 msgid ""
 "Shows link to [a@http://php.net/manual/function.phpinfo.php]phpinfo()[/a] "
 "output"
@@ -6033,60 +6051,60 @@ msgstr ""
 "[a@http://php.net/manual/function.phpinfo.php]phpinfo()[/a] の結果へのリンク"
 "を表示します。"
 
-#: libraries/config/messages.inc.php:473
+#: libraries/config/messages.inc.php:475
 msgid "Show phpinfo() link"
 msgstr "phpinfo() リンクを表示する"
 
-#: libraries/config/messages.inc.php:474
+#: libraries/config/messages.inc.php:476
 msgid "Show detailed MySQL server information"
 msgstr "詳細な MySQL サーバ情報を表示する"
 
-#: libraries/config/messages.inc.php:475
+#: libraries/config/messages.inc.php:477
 msgid "Defines whether SQL queries generated by phpMyAdmin should be displayed"
 msgstr ""
 "phpMyAdmin によって生成される SQL クエリを表示するかどうかを定義します。"
 
-#: libraries/config/messages.inc.php:476
+#: libraries/config/messages.inc.php:478
 msgid "Show SQL queries"
 msgstr "SQL クエリを表示する"
 
-#: libraries/config/messages.inc.php:477
+#: libraries/config/messages.inc.php:479
 msgid ""
 "Defines whether the query box should stay on-screen after its submission"
 msgstr "送信後もクエリボックスを画面上に残しておくかどうかを定義します。"
 
-#: libraries/config/messages.inc.php:478 libraries/sql_query_form.lib.php:361
+#: libraries/config/messages.inc.php:480 libraries/sql_query_form.lib.php:365
 msgid "Retain query box"
 msgstr "クエリボックスを保持する"
 
-#: libraries/config/messages.inc.php:479
+#: libraries/config/messages.inc.php:481
 msgid "Allow to display database and table statistics (eg. space usage)"
 msgstr "データベースやテーブルの状態（領域の使用状況など）の表示を許可します。"
 
-#: libraries/config/messages.inc.php:480
+#: libraries/config/messages.inc.php:482
 msgid "Show statistics"
 msgstr "統計を表示する"
 
-#: libraries/config/messages.inc.php:481
+#: libraries/config/messages.inc.php:483
 msgid "Display table comments in tooltips"
 msgstr "ツールチップにテーブルのコメントを表示する"
 
-#: libraries/config/messages.inc.php:482
+#: libraries/config/messages.inc.php:484
 msgid ""
 "Mark used tables and make it possible to show databases with locked tables"
 msgstr ""
 "使われているテーブルには印をして、テーブルがロックされていても可能であれば"
 "データベースを閲覧します。"
 
-#: libraries/config/messages.inc.php:483
+#: libraries/config/messages.inc.php:485
 msgid "Skip locked tables"
 msgstr "ロックされているテーブルをスキップする"
 
-#: libraries/config/messages.inc.php:488
+#: libraries/config/messages.inc.php:490
 msgid "Requires SQL Validator to be enabled"
 msgstr "SQL 検証を有効にするには必要です。"
 
-#: libraries/config/messages.inc.php:490
+#: libraries/config/messages.inc.php:492
 #: libraries/display_change_password.lib.php:61
 #: libraries/replication_gui.lib.php:64 libraries/replication_gui.lib.php:65
 #: libraries/replication_gui.lib.php:361 libraries/replication_gui.lib.php:365
@@ -6098,7 +6116,7 @@ msgstr "SQL 検証を有効にするには必要です。"
 msgid "Password"
 msgstr "パスワード"
 
-#: libraries/config/messages.inc.php:491
+#: libraries/config/messages.inc.php:493
 msgid ""
 "[strong]Warning:[/strong] requires PHP SOAP extension or PEAR SOAP to be "
 "installed"
@@ -6106,11 +6124,11 @@ msgstr ""
 "[strong]注意：[/strong] PHP SOAP 拡張か PEAR SOAP がインストールされている必"
 "要があります。"
 
-#: libraries/config/messages.inc.php:492
+#: libraries/config/messages.inc.php:494
 msgid "Enable SQL Validator"
 msgstr "SQL 検証を有効にする"
 
-#: libraries/config/messages.inc.php:493
+#: libraries/config/messages.inc.php:495
 msgid ""
 "If you have a custom username, specify it here (defaults to [kbd]anonymous[/"
 "kbd])"
@@ -6118,22 +6136,22 @@ msgstr ""
 "ユーザ名を所持している場合は、ここに記述します（デフォルトは [kbd]anonymous[/"
 "kbd]）。"
 
-#: libraries/config/messages.inc.php:494 tbl_tracking.php:555
-#: tbl_tracking.php:617
+#: libraries/config/messages.inc.php:496 tbl_tracking.php:557
+#: tbl_tracking.php:619
 msgid "Username"
 msgstr "ユーザ名"
 
-#: libraries/config/messages.inc.php:495
+#: libraries/config/messages.inc.php:497
 msgid "A warning is displayed on the main page if Suhosin is detected"
 msgstr ""
 "Suhosin が検出された場合、警告をメインページに表示します。チェックを入れると"
 "このメッセージは表示されません。"
 
-#: libraries/config/messages.inc.php:496
+#: libraries/config/messages.inc.php:498
 msgid "Suhosin warning"
 msgstr "Suhosin 警告"
 
-#: libraries/config/messages.inc.php:497
+#: libraries/config/messages.inc.php:499
 msgid ""
 "Textarea size (columns) in edit mode, this value will be emphasized for SQL "
 "query textareas (*2) and for query window (*1.25)"
@@ -6141,11 +6159,11 @@ msgstr ""
 "編集モードでの textarea の 1 行の文字数。SQL クエリ用のでは 2 倍、クエリウィ"
 "ンドウに対しては 1.25 倍になります。"
 
-#: libraries/config/messages.inc.php:498
+#: libraries/config/messages.inc.php:500
 msgid "Textarea columns"
 msgstr "textarea の 1 行の文字数"
 
-#: libraries/config/messages.inc.php:499
+#: libraries/config/messages.inc.php:501
 msgid ""
 "Textarea size (rows) in edit mode, this value will be emphasized for SQL "
 "query textareas (*2) and for query window (*1.25)"
@@ -6153,31 +6171,31 @@ msgstr ""
 "編集モードでの textarea の行数。SQL クエリ用のでは 2 倍、クエリウィンドウに対"
 "しては 1.25 倍になります。"
 
-#: libraries/config/messages.inc.php:500
+#: libraries/config/messages.inc.php:502
 msgid "Textarea rows"
 msgstr "textarea の行数"
 
-#: libraries/config/messages.inc.php:501
+#: libraries/config/messages.inc.php:503
 msgid "Title of browser window when a database is selected"
 msgstr "データベース選択時のブラウザのウィンドウタイトル"
 
-#: libraries/config/messages.inc.php:503
+#: libraries/config/messages.inc.php:505
 msgid "Title of browser window when nothing is selected"
 msgstr "何も選択していないときのブラウザのウィンドウタイトル"
 
-#: libraries/config/messages.inc.php:504
+#: libraries/config/messages.inc.php:506
 msgid "Default title"
 msgstr "デフォルトタイトル"
 
-#: libraries/config/messages.inc.php:505
+#: libraries/config/messages.inc.php:507
 msgid "Title of browser window when a server is selected"
 msgstr "サーバ選択時のブラウザのウィンドウタイトル"
 
-#: libraries/config/messages.inc.php:507
+#: libraries/config/messages.inc.php:509
 msgid "Title of browser window when a table is selected"
 msgstr "テーブル選択時のブラウザのウィンドウタイトル"
 
-#: libraries/config/messages.inc.php:509
+#: libraries/config/messages.inc.php:511
 msgid ""
 "Input proxies as [kbd]IP: trusted HTTP header[/kbd]. The following example "
 "specifies that phpMyAdmin should trust a HTTP_X_FORWARDED_FOR (X-Forwarded-"
@@ -6189,27 +6207,27 @@ msgstr ""
 "HTTP_X_FORWARDED_FOR (X-Forwarded-For) ヘッダを信頼するように指定することにな"
 "ります。[br][kbd]1.2.3.4: HTTP_X_FORWARDED_FOR[/kbd]"
 
-#: libraries/config/messages.inc.php:510
+#: libraries/config/messages.inc.php:512
 msgid "List of trusted proxies for IP allow/deny"
 msgstr "信頼されたプロキシのリスト（IP アドレスの許可/拒否）"
 
-#: libraries/config/messages.inc.php:511
+#: libraries/config/messages.inc.php:513
 msgid "Directory on server where you can upload files for import"
 msgstr "インポート用ファイルをアップロードできるサーバ上のディレクトリ"
 
-#: libraries/config/messages.inc.php:512
+#: libraries/config/messages.inc.php:514
 msgid "Upload directory"
 msgstr "アップロードディレクトリ"
 
-#: libraries/config/messages.inc.php:513
+#: libraries/config/messages.inc.php:515
 msgid "Allow for searching inside the entire database"
 msgstr "全てのデータベース内を検索することを許可します。"
 
-#: libraries/config/messages.inc.php:514
+#: libraries/config/messages.inc.php:516
 msgid "Use database search"
 msgstr "データベース検索を使用する"
 
-#: libraries/config/messages.inc.php:515
+#: libraries/config/messages.inc.php:517
 msgid ""
 "When disabled, users cannot set any of the options below, regardless of the "
 "checkbox on the right"
@@ -6217,19 +6235,19 @@ msgstr ""
 "無効にすると、右端のチェックボックスに関係なく、ユーザが以下のオプションを設"
 "定することはできません。"
 
-#: libraries/config/messages.inc.php:516
+#: libraries/config/messages.inc.php:518
 msgid "Enable the Developer tab in settings"
 msgstr "設定に開発者向けタブを追加する"
 
-#: libraries/config/messages.inc.php:517 setup/frames/index.inc.php:275
+#: libraries/config/messages.inc.php:519 setup/frames/index.inc.php:275
 msgid "Check for latest version"
 msgstr "バージョンアップの確認"
 
-#: libraries/config/messages.inc.php:518
+#: libraries/config/messages.inc.php:520
 msgid "Enables check for latest version on main phpMyAdmin page"
 msgstr "phpMyAdmin のメインページ上で最終バージョンチェックを有効にします。"
 
-#: libraries/config/messages.inc.php:519 setup/lib/index.lib.php:132
+#: libraries/config/messages.inc.php:521 setup/lib/index.lib.php:132
 #: setup/lib/index.lib.php:143 setup/lib/index.lib.php:164
 #: setup/lib/index.lib.php:175 setup/lib/index.lib.php:187
 #: setup/lib/index.lib.php:195 setup/lib/index.lib.php:202
@@ -6237,16 +6255,16 @@ msgstr "phpMyAdmin のメインページ上で最終バージョンチェック�
 msgid "Version check"
 msgstr "バージョンの確認"
 
-#: libraries/config/messages.inc.php:520
+#: libraries/config/messages.inc.php:522
 msgid ""
 "Enable [a@http://en.wikipedia.org/wiki/ZIP_(file_format)]ZIP[/a] compression "
 "for import and export operations"
 msgstr ""
 "インポートおよびエクスポートの操作に対して [a@http://ja.wikipedia.org/wiki/"
-"ZIP_%28%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%83%95%E3%82%A9%E3%83%BC%E3%83%"
-"9E%E3%83%83%E3%83%88%29]ZIP[/a] 圧縮を有効にします。"
+"ZIP_%28%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%83%95%E3%82%A9%E3%83%BC"
+"%E3%83%9E%E3%83%83%E3%83%88%29]ZIP[/a] 圧縮を有効にします。"
 
-#: libraries/config/messages.inc.php:521
+#: libraries/config/messages.inc.php:523
 msgid "ZIP"
 msgstr "ZIP"
 
@@ -6266,46 +6284,46 @@ msgstr "HTTP 認証"
 msgid "Signon authentication"
 msgstr "サインオン認証"
 
-#: libraries/config/setup.forms.php:246
-#: libraries/config/user_preferences.forms.php:152
+#: libraries/config/setup.forms.php:247
+#: libraries/config/user_preferences.forms.php:153
 msgid "CSV using LOAD DATA"
 msgstr "LOAD DATA 文を使用した CSV の読み込み"
 
-#: libraries/config/setup.forms.php:255 libraries/config/setup.forms.php:348
-#: libraries/config/user_preferences.forms.php:160
-#: libraries/config/user_preferences.forms.php:252
+#: libraries/config/setup.forms.php:256 libraries/config/setup.forms.php:349
+#: libraries/config/user_preferences.forms.php:161
+#: libraries/config/user_preferences.forms.php:253
 #, fuzzy
 #| msgid "Open Document Spreadsheet"
 msgid "OpenDocument Spreadsheet"
 msgstr "Open Document スプレッドシート"
 
-#: libraries/config/setup.forms.php:262
-#: libraries/config/user_preferences.forms.php:167
+#: libraries/config/setup.forms.php:263
+#: libraries/config/user_preferences.forms.php:168
 msgid "Quick"
 msgstr "簡易"
 
-#: libraries/config/setup.forms.php:266
-#: libraries/config/user_preferences.forms.php:171
+#: libraries/config/setup.forms.php:267
+#: libraries/config/user_preferences.forms.php:172
 msgid "Custom"
 msgstr "詳細"
 
-#: libraries/config/setup.forms.php:287
-#: libraries/config/user_preferences.forms.php:191
+#: libraries/config/setup.forms.php:288
+#: libraries/config/user_preferences.forms.php:192
 msgid "Database export options"
 msgstr "データベースエクスポートオプション"
 
-#: libraries/config/setup.forms.php:320
-#: libraries/config/user_preferences.forms.php:224
+#: libraries/config/setup.forms.php:321
+#: libraries/config/user_preferences.forms.php:225
 msgid "CSV for MS Excel"
 msgstr "MS Excel 用の CSV"
 
-#: libraries/config/setup.forms.php:343
-#: libraries/config/user_preferences.forms.php:247
+#: libraries/config/setup.forms.php:344
+#: libraries/config/user_preferences.forms.php:248
 msgid "Microsoft Word 2000"
 msgstr "Microsoft Word 2000"
 
-#: libraries/config/setup.forms.php:352
-#: libraries/config/user_preferences.forms.php:256
+#: libraries/config/setup.forms.php:353
+#: libraries/config/user_preferences.forms.php:257
 #, fuzzy
 #| msgid "Open Document Text"
 msgid "OpenDocument Text"
@@ -6428,11 +6446,11 @@ msgstr "作成"
 msgid "No Privileges"
 msgstr "特権なし"
 
-#: libraries/display_create_table.lib.php:46 pmd_general.php:100
+#: libraries/display_create_table.lib.php:50 pmd_general.php:100
 msgid "Create table"
 msgstr "テーブルを作成"
 
-#: libraries/display_create_table.lib.php:51
+#: libraries/display_create_table.lib.php:55
 #: libraries/plugins/export/ExportHtmlword.class.php:483
 #: libraries/plugins/export/ExportOdt.class.php:559
 #: libraries/plugins/export/ExportTexytext.class.php:434
@@ -6444,7 +6462,7 @@ msgstr "テーブルを作成"
 msgid "Name"
 msgstr "名前"
 
-#: libraries/display_create_table.lib.php:55
+#: libraries/display_create_table.lib.php:59
 msgid "Number of columns"
 msgstr "カラム数"
 
@@ -6541,8 +6559,8 @@ msgstr "、@TABLE@ はテーブル名に"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "この値は %1$sstrftime%2$s を使用して解釈されますので、時刻の書式文字列を使用"
 "することができます。また、埋め込み変数変換も行われます（%3$s変換されま"
@@ -6554,7 +6572,7 @@ msgid "use this for future exports"
 msgstr "今後のエクスポートでこれを使用する"
 
 #: libraries/display_export.lib.php:336 libraries/display_import.lib.php:255
-#: libraries/display_import.lib.php:269 libraries/sql_query_form.lib.php:482
+#: libraries/display_import.lib.php:269 libraries/sql_query_form.lib.php:486
 msgid "Character set of the file:"
 msgstr "ファイルの文字セット:"
 
@@ -7066,8 +7084,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:131
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the %"
-"sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the "
+"%sPrimeBase XT Home Page%s."
 msgstr ""
 "PBXT に関するドキュメントおよび詳細な情報は、%sPrimeBase XT オフィシャルサイ"
 "ト%sにあります。"
@@ -7085,7 +7103,7 @@ msgid "No data found for GIS visualization."
 msgstr "視覚化できる空間情報がありません。"
 
 #: libraries/import.lib.php:187 libraries/insert_edit.lib.php:120
-#: libraries/rte/rte_routines.lib.php:1443 sql.php:936 tbl_get_field.php:55
+#: libraries/rte/rte_routines.lib.php:1443 sql.php:940 tbl_get_field.php:55
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "返り値が空でした (行数 0)。"
 
@@ -7157,7 +7175,7 @@ msgstr "長さによってはこのカラムを<br />編集できなくなる場
 msgid "Binary - do not edit"
 msgstr "バイナリ - 編集不可"
 
-#: libraries/insert_edit.lib.php:1185 libraries/sql_query_form.lib.php:469
+#: libraries/insert_edit.lib.php:1185 libraries/sql_query_form.lib.php:473
 msgid "web server upload directory"
 msgstr "ウェブサーバ上のアップロードディレクトリ"
 
@@ -7205,11 +7223,11 @@ msgstr ""
 "次の値に移動するときは TAB キーを使ってください。CTRL＋カーソルキーを使うと自"
 "由に移動できます"
 
-#: libraries/insert_edit.lib.php:1912 sql.php:931
+#: libraries/insert_edit.lib.php:1912 sql.php:935
 msgid "Showing SQL query"
 msgstr "SQL クエリを表示"
 
-#: libraries/insert_edit.lib.php:1937 sql.php:911
+#: libraries/insert_edit.lib.php:1937 sql.php:915
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "id %1$d の行を挿入しました"
@@ -7241,7 +7259,7 @@ msgid "To"
 msgstr "付け替え先"
 
 #: libraries/mult_submits.inc.php:291 libraries/mult_submits.inc.php:308
-#: libraries/sql_query_form.lib.php:407
+#: libraries/sql_query_form.lib.php:411
 msgid "Submit"
 msgstr "実行する"
 
@@ -7468,26 +7486,26 @@ msgstr "phpMyAdmin のドキュメント"
 msgid "Reload navigation frame"
 msgstr "ナビゲーションフレームの再読み込み"
 
-#: libraries/navigation/NavigationTree.class.php:708
+#: libraries/navigation/NavigationTree.class.php:712
 #, php-format
 msgid "%s other result found"
 msgid_plural "%s other results found"
 msgstr[0] ""
 
-#: libraries/navigation/NavigationTree.class.php:1035
+#: libraries/navigation/NavigationTree.class.php:1043
 #, fuzzy
 #| msgid "Filter databases by name"
 msgid "filter databases by name"
 msgstr "データベース名を絞る"
 
-#: libraries/navigation/NavigationTree.class.php:1036
-#: libraries/navigation/NavigationTree.class.php:1062
+#: libraries/navigation/NavigationTree.class.php:1044
+#: libraries/navigation/NavigationTree.class.php:1070
 #, fuzzy
 #| msgid "Clear series"
 msgid "Clear Fast Filter"
 msgstr "系列をクリアする"
 
-#: libraries/navigation/NavigationTree.class.php:1061
+#: libraries/navigation/NavigationTree.class.php:1069
 #, fuzzy
 #| msgid "Filter tables by name"
 msgid "filter items by name"
@@ -7583,171 +7601,171 @@ msgctxt "Create new view"
 msgid "New"
 msgstr "新規作成"
 
-#: libraries/operations.lib.php:75
+#: libraries/operations.lib.php:83
 msgid "Rename database to"
 msgstr "データベース名の変更"
 
-#: libraries/operations.lib.php:107
+#: libraries/operations.lib.php:115
 #, php-format
 msgid "Database %s has been dropped."
 msgstr "データベース %s を削除しました。"
 
-#: libraries/operations.lib.php:119
+#: libraries/operations.lib.php:131
 msgid "Remove database"
 msgstr "データベースの削除"
 
-#: libraries/operations.lib.php:125
+#: libraries/operations.lib.php:137
 msgid "Drop the database (DROP)"
 msgstr "データベースを削除する (DROP)"
 
-#: libraries/operations.lib.php:145 libraries/operations.lib.php:1012
+#: libraries/operations.lib.php:157 libraries/operations.lib.php:1036
 #: tbl_tracking.php:505
 msgid "Structure only"
 msgstr "構造のみ"
 
-#: libraries/operations.lib.php:146 libraries/operations.lib.php:1013
+#: libraries/operations.lib.php:158 libraries/operations.lib.php:1037
 #: tbl_tracking.php:511
 msgid "Structure and data"
 msgstr "構造とデータ"
 
-#: libraries/operations.lib.php:147 libraries/operations.lib.php:1014
+#: libraries/operations.lib.php:159 libraries/operations.lib.php:1038
 #: tbl_tracking.php:508
 msgid "Data only"
 msgstr "データのみ"
 
-#: libraries/operations.lib.php:175
+#: libraries/operations.lib.php:191
 msgid "Copy database to"
 msgstr "データベースのコピー先"
 
-#: libraries/operations.lib.php:186
+#: libraries/operations.lib.php:202
 msgid "CREATE DATABASE before copying"
 msgstr "コピーの前に CREATE DATABASE する"
 
-#: libraries/operations.lib.php:199 libraries/operations.lib.php:1035
+#: libraries/operations.lib.php:215 libraries/operations.lib.php:1059
 msgid "Add constraints"
 msgstr "制約を追加する"
 
-#: libraries/operations.lib.php:207
+#: libraries/operations.lib.php:223
 msgid "Switch to copied database"
 msgstr "コピーしたデータベースに切り替える"
 
-#: libraries/operations.lib.php:277
+#: libraries/operations.lib.php:301
 msgid "Edit or export relational schema"
 msgstr "リレーショナルスキーマを編集またはエクスポートする"
 
-#: libraries/operations.lib.php:620
+#: libraries/operations.lib.php:644
 msgid "Alter table order by"
 msgstr "テーブルの並び順"
 
-#: libraries/operations.lib.php:628
+#: libraries/operations.lib.php:652
 msgid "(singly)"
 msgstr "(1 回)"
 
-#: libraries/operations.lib.php:661
+#: libraries/operations.lib.php:685
 msgid "Move table to (database<b>.</b>table):"
 msgstr "テーブルを (データベース)<b>.</b>(テーブル) へ移動する:"
 
-#: libraries/operations.lib.php:772
+#: libraries/operations.lib.php:796
 msgid "Table options"
 msgstr "テーブルオプション"
 
-#: libraries/operations.lib.php:776
+#: libraries/operations.lib.php:800
 msgid "Rename table to"
 msgstr "変更後のテーブル名称"
 
-#: libraries/operations.lib.php:793
+#: libraries/operations.lib.php:817
 #: libraries/tbl_columns_definition_form.inc.php:838 server_engines.php:41
 msgid "Storage Engine"
 msgstr "ストレージエンジン"
 
-#: libraries/operations.lib.php:995
+#: libraries/operations.lib.php:1019
 msgid "Copy table to (database<b>.</b>table):"
 msgstr "テーブルを (データベース)<b>.</b>(テーブル) にコピーする:"
 
-#: libraries/operations.lib.php:1050
+#: libraries/operations.lib.php:1074
 msgid "Switch to copied table"
 msgstr "コピーしたテーブルに切り替える"
 
-#: libraries/operations.lib.php:1077
+#: libraries/operations.lib.php:1101
 msgid "Table maintenance"
 msgstr "テーブルメンテナンス"
 
-#: libraries/operations.lib.php:1115 libraries/structure.lib.php:309
+#: libraries/operations.lib.php:1139 libraries/structure.lib.php:309
 msgid "Check table"
 msgstr "テーブルをチェックする"
 
-#: libraries/operations.lib.php:1128
+#: libraries/operations.lib.php:1152
 msgid "Defragment table"
 msgstr "テーブルのデフラグ"
 
-#: libraries/operations.lib.php:1142 libraries/structure.lib.php:317
+#: libraries/operations.lib.php:1166 libraries/structure.lib.php:317
 msgid "Analyze table"
 msgstr "テーブルを分析する"
 
-#: libraries/operations.lib.php:1155 libraries/structure.lib.php:314
+#: libraries/operations.lib.php:1179 libraries/structure.lib.php:314
 msgid "Repair table"
 msgstr "テーブルを修復する"
 
-#: libraries/operations.lib.php:1170 libraries/structure.lib.php:312
-#: libraries/structure.lib.php:1625
+#: libraries/operations.lib.php:1194 libraries/structure.lib.php:312
+#: libraries/structure.lib.php:1633
 msgid "Optimize table"
 msgstr "テーブルを最適化する"
 
-#: libraries/operations.lib.php:1182
+#: libraries/operations.lib.php:1206
 #, php-format
 msgid "Table %s has been flushed"
 msgstr "テーブル %s をフラッシュしました"
 
-#: libraries/operations.lib.php:1189
+#: libraries/operations.lib.php:1213
 msgid "Flush the table (FLUSH)"
 msgstr "テーブルをフラッシュする (FLUSH)"
 
-#: libraries/operations.lib.php:1236
+#: libraries/operations.lib.php:1260
 msgid "Delete data or table"
 msgstr "データまたはテーブルの削除"
 
-#: libraries/operations.lib.php:1244
+#: libraries/operations.lib.php:1268
 msgid "Empty the table (TRUNCATE)"
 msgstr "テーブルを空にする (TRUNCATE)"
 
-#: libraries/operations.lib.php:1252
+#: libraries/operations.lib.php:1276
 msgid "Delete the table (DROP)"
 msgstr "テーブルを削除する (DROP)"
 
-#: libraries/operations.lib.php:1294
+#: libraries/operations.lib.php:1318
 msgid "Analyze"
 msgstr "分析"
 
-#: libraries/operations.lib.php:1295
+#: libraries/operations.lib.php:1319
 msgid "Check"
 msgstr "確認"
 
-#: libraries/operations.lib.php:1296
+#: libraries/operations.lib.php:1320
 msgid "Optimize"
 msgstr "最適化"
 
-#: libraries/operations.lib.php:1297
+#: libraries/operations.lib.php:1321
 msgid "Rebuild"
 msgstr "再構築"
 
-#: libraries/operations.lib.php:1298
+#: libraries/operations.lib.php:1322
 msgid "Repair"
 msgstr "修復"
 
-#: libraries/operations.lib.php:1305
+#: libraries/operations.lib.php:1329
 msgid "Partition maintenance"
 msgstr "パーティション管理"
 
-#: libraries/operations.lib.php:1314
+#: libraries/operations.lib.php:1338
 #, php-format
 msgid "Partition %s"
 msgstr "パーティション %s"
 
-#: libraries/operations.lib.php:1333
+#: libraries/operations.lib.php:1357
 msgid "Remove partitioning"
 msgstr "パーティションを削除"
 
-#: libraries/operations.lib.php:1359
+#: libraries/operations.lib.php:1383
 msgid "Check referential integrity:"
 msgstr "参照整合性の確認:"
 
@@ -7769,11 +7787,11 @@ msgstr "%s へようこそ"
 #: libraries/plugins/auth/AuthenticationConfig.class.php:102
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 msgstr ""
-"設定ファイルが作成されていないものと思われます。%1$sセットアップスクリプト%2"
-"$s を利用して設定ファイルを作成してください。"
+"設定ファイルが作成されていないものと思われます。%1$sセットアップスクリプ"
+"ト%2$s を利用して設定ファイルを作成してください。"
 
 #: libraries/plugins/auth/AuthenticationConfig.class.php:122
 msgid ""
@@ -7906,7 +7924,7 @@ msgstr "NULL の代替文字列:"
 msgid "Remove carriage return/line feed characters within columns"
 msgstr "カラム内の改行/復帰文字を削除する"
 
-#: libraries/plugins/export/ExportExcel.class.php:78
+#: libraries/plugins/export/ExportExcel.class.php:79
 msgid "Excel edition:"
 msgstr "Excel のエディション:"
 
@@ -8012,13 +8030,13 @@ msgstr "MIME タイプを表示する"
 #: libraries/server_privileges.lib.php:1081
 #: libraries/server_privileges.lib.php:1177
 #: libraries/server_privileges.lib.php:1567
-#: libraries/server_privileges.lib.php:2379 server_status.php:320 sql.php:1108
+#: libraries/server_privileges.lib.php:2379 server_status.php:320 sql.php:1112
 msgid "Host"
 msgstr "ホスト"
 
 #: libraries/plugins/export/ExportLatex.class.php:223
 #: libraries/plugins/export/ExportSql.class.php:608
-#: libraries/plugins/export/ExportXml.class.php:196 sql.php:1111
+#: libraries/plugins/export/ExportXml.class.php:196 sql.php:1115
 msgid "Generation Time"
 msgstr "生成日時"
 
@@ -8279,6 +8297,12 @@ msgstr ""
 "指定された XML ファイルは、不完全もしくはフォーマットが正しくありません。問題"
 "を修正して再度試してみてください。"
 
+#: libraries/plugins/import/ImportOds.class.php:182
+#, fuzzy
+#| msgid "Open Document Spreadsheet"
+msgid "Could not parse OpenDocument Spreasheet!"
+msgstr "Open Document スプレッドシート"
+
 #: libraries/plugins/import/ImportShp.class.php:53
 msgid "ESRI Shape File"
 msgstr "ESRI シェープファイル"
@@ -8467,81 +8491,81 @@ msgstr ""
 "は \"http://www.example.com/\" のような URL の先頭部分、2 つ目のオプションは"
 "リンクのタイトルです。"
 
-#: libraries/relation.lib.php:87
+#: libraries/relation.lib.php:85
 msgid "not OK"
 msgstr "NG"
 
-#: libraries/relation.lib.php:94
+#: libraries/relation.lib.php:92
 msgctxt "Correctly working"
 msgid "OK"
 msgstr "OK"
 
-#: libraries/relation.lib.php:97
+#: libraries/relation.lib.php:95
 msgid "Enabled"
 msgstr "有効"
 
-#: libraries/relation.lib.php:104 libraries/relation.lib.php:122
+#: libraries/relation.lib.php:102 libraries/relation.lib.php:120
 #: pmd_relation_new.php:82
 msgid "General relation features"
 msgstr "一般的なリレーション機能"
 
-#: libraries/relation.lib.php:133
+#: libraries/relation.lib.php:131
 msgid "Display Features"
 msgstr "表示機能"
 
-#: libraries/relation.lib.php:150
+#: libraries/relation.lib.php:148
 msgid "Creation of PDFs"
 msgstr "PDF の作成"
 
-#: libraries/relation.lib.php:161
+#: libraries/relation.lib.php:159
 msgid "Displaying Column Comments"
 msgstr "カラムコメント表示機能"
 
-#: libraries/relation.lib.php:167
+#: libraries/relation.lib.php:165
 #: libraries/tbl_columns_definition_form.inc.php:170
 #: transformation_overview.php:38
 msgid "Browser transformation"
 msgstr "ブラウザ変換機能"
 
-#: libraries/relation.lib.php:173
+#: libraries/relation.lib.php:171
 msgid ""
 "Please see the documentation on how to update your column_comments table"
 msgstr "column_comments テーブルの更新方法についてはドキュメントをご覧ください"
 
-#: libraries/relation.lib.php:183 libraries/sql_query_form.lib.php:387
+#: libraries/relation.lib.php:181 libraries/sql_query_form.lib.php:391
 msgid "Bookmarked SQL query"
 msgstr "ブックマークされている SQL"
 
-#: libraries/relation.lib.php:194 querywindow.php:70 querywindow.php:154
+#: libraries/relation.lib.php:192 querywindow.php:70 querywindow.php:154
 msgid "SQL history"
 msgstr "SQL 履歴"
 
-#: libraries/relation.lib.php:216
+#: libraries/relation.lib.php:214
 msgid "Persistent recently used tables"
 msgstr "永続的な『最近使用したテーブル』"
 
-#: libraries/relation.lib.php:227
+#: libraries/relation.lib.php:225
 msgid "Persistent tables' UI preferences"
 msgstr "永続的な『テーブルに対する環境設定』"
 
-#: libraries/relation.lib.php:249
+#: libraries/relation.lib.php:247
 msgid "User preferences"
 msgstr "ユーザ環境設定"
 
-#: libraries/relation.lib.php:255
+#: libraries/relation.lib.php:253
 msgid "Quick steps to setup advanced features:"
 msgstr "高度な機能の設定する簡単な方法:"
 
-#: libraries/relation.lib.php:259
+#: libraries/relation.lib.php:257
 msgid ""
 "Create the needed tables with the <code>examples/create_tables.sql</code>."
 msgstr "<code>examples/create_tables.sql</code> で必要なテーブルを作成します。"
 
-#: libraries/relation.lib.php:265
+#: libraries/relation.lib.php:263
 msgid "Create a pma user and give access to these tables."
 msgstr "作ったテーブルにアクセスできる pma ユーザを作成します。"
 
-#: libraries/relation.lib.php:270
+#: libraries/relation.lib.php:268
 msgid ""
 "Enable advanced features in configuration file (<code>config.inc.php</"
 "code>), for example by starting from <code>config.sample.inc.php</code>."
@@ -8549,11 +8573,11 @@ msgstr ""
 "設定ファイル (<code>config.inc.php</code>) で高度な機能を有効にします。"
 "<code>config.sample.inc.php</code> にある設定例をコピーするといいでしょう。"
 
-#: libraries/relation.lib.php:278
+#: libraries/relation.lib.php:276
 msgid "Re-login to phpMyAdmin to load the updated configuration file."
 msgstr "更新した設定ファイルを読み込むために phpMyAdmin にログインし直します。"
 
-#: libraries/relation.lib.php:1380
+#: libraries/relation.lib.php:1381
 msgid "no description"
 msgstr "説明がありません"
 
@@ -8599,12 +8623,12 @@ msgstr "マスタステータス"
 msgid "Slave status"
 msgstr "スレーブステータス"
 
-#: libraries/replication_gui.lib.php:123 libraries/sql_query_form.lib.php:399
+#: libraries/replication_gui.lib.php:123 libraries/sql_query_form.lib.php:403
 #: server_status_variables.php:232 server_variables.php:166
 msgid "Variable"
 msgstr "変数"
 
-#: libraries/replication_gui.lib.php:194 server_binlog.php:187
+#: libraries/replication_gui.lib.php:194 server_binlog.php:195
 msgid "Server ID"
 msgstr "サーバ ID"
 
@@ -8723,7 +8747,7 @@ msgstr "詳細"
 msgid "Event name"
 msgstr "イベント名"
 
-#: libraries/rte/rte_events.lib.php:441 server_binlog.php:186
+#: libraries/rte/rte_events.lib.php:441 server_binlog.php:194
 msgid "Event type"
 msgstr "イベント種別"
 
@@ -9067,7 +9091,6 @@ msgstr "表示できるイベントがありません。"
 #: libraries/schema/Eps_Relation_Schema.class.php:425
 #: libraries/schema/Pdf_Relation_Schema.class.php:410
 #: libraries/schema/Svg_Relation_Schema.class.php:392
-#: libraries/schema/Visio_Relation_Schema.class.php:232
 #, php-format
 msgid "The %s table doesn't exist!"
 msgstr "%s テーブルは存在しません!"
@@ -9076,7 +9099,6 @@ msgstr "%s テーブルは存在しません!"
 #: libraries/schema/Eps_Relation_Schema.class.php:474
 #: libraries/schema/Pdf_Relation_Schema.class.php:450
 #: libraries/schema/Svg_Relation_Schema.class.php:443
-#: libraries/schema/Visio_Relation_Schema.class.php:283
 #, php-format
 msgid "Please configure the coordinates for table %s"
 msgstr "テーブル %s の座標を設定してください"
@@ -9084,7 +9106,6 @@ msgstr "テーブル %s の座標を設定してください"
 #: libraries/schema/Eps_Relation_Schema.class.php:828
 #: libraries/schema/Pdf_Relation_Schema.class.php:865
 #: libraries/schema/Svg_Relation_Schema.class.php:803
-#: libraries/schema/Visio_Relation_Schema.class.php:559
 #, php-format
 msgid "Schema of the %s database - Page %s"
 msgstr "データベース %s のスキーマ - ページ %s"
@@ -9155,55 +9176,55 @@ msgstr "テーブルを選択してください"
 msgid "Column names"
 msgstr "カラム名"
 
-#: libraries/schema/User_Schema.class.php:413
+#: libraries/schema/User_Schema.class.php:417
 msgid "Display relational schema"
 msgstr "リレーショナルスキーマを表示する"
 
-#: libraries/schema/User_Schema.class.php:423
+#: libraries/schema/User_Schema.class.php:426
 msgid "Select Export Relational Type"
 msgstr "エクスポートするリレーショナルタイプを選択してください"
 
-#: libraries/schema/User_Schema.class.php:448
+#: libraries/schema/User_Schema.class.php:451
 msgid "Show grid"
 msgstr "グリッドを表示"
 
-#: libraries/schema/User_Schema.class.php:450
+#: libraries/schema/User_Schema.class.php:453
 msgid "Show color"
 msgstr "色表示"
 
-#: libraries/schema/User_Schema.class.php:454
+#: libraries/schema/User_Schema.class.php:457
 msgid "Show dimension of tables"
 msgstr "テーブルの大きさを表示する"
 
-#: libraries/schema/User_Schema.class.php:458
+#: libraries/schema/User_Schema.class.php:461
 msgid "Display all tables with the same width"
 msgstr "すべてのテーブルを同じ幅で表示しますか?"
 
-#: libraries/schema/User_Schema.class.php:461 libraries/structure.lib.php:379
+#: libraries/schema/User_Schema.class.php:464 libraries/structure.lib.php:379
 msgid "Data Dictionary"
 msgstr "データ辞書"
 
-#: libraries/schema/User_Schema.class.php:463
+#: libraries/schema/User_Schema.class.php:466
 msgid "Only show keys"
 msgstr "キーの表示のみ"
 
-#: libraries/schema/User_Schema.class.php:465
+#: libraries/schema/User_Schema.class.php:468
 msgid "Landscape"
 msgstr "横向き"
 
-#: libraries/schema/User_Schema.class.php:466
+#: libraries/schema/User_Schema.class.php:469
 msgid "Portrait"
 msgstr "縦向き"
 
-#: libraries/schema/User_Schema.class.php:468
+#: libraries/schema/User_Schema.class.php:471
 msgid "Orientation"
 msgstr "向き"
 
-#: libraries/schema/User_Schema.class.php:481
+#: libraries/schema/User_Schema.class.php:484
 msgid "Paper size"
 msgstr "用紙サイズ"
 
-#: libraries/schema/User_Schema.class.php:527
+#: libraries/schema/User_Schema.class.php:530
 msgid ""
 "The current page has references to tables that no longer exist. Would you "
 "like to delete those references?"
@@ -9211,12 +9232,12 @@ msgstr ""
 "このページには存在しないテーブルへの参照があります。これらの参照を削除します"
 "か?"
 
-#: libraries/schema/User_Schema.class.php:553
+#: libraries/schema/User_Schema.class.php:556
 msgid "Toggle scratchboard"
 msgstr "スクラッチボードを切り替える"
 
-#: libraries/select_lang.lib.php:521 libraries/select_lang.lib.php:530
-#: libraries/select_lang.lib.php:539
+#: libraries/select_lang.lib.php:527 libraries/select_lang.lib.php:536
+#: libraries/select_lang.lib.php:545
 #, php-format
 msgid "Unknown language: %1$s."
 msgstr "言語ファイルが登録されていません: %1$s。"
@@ -9636,19 +9657,19 @@ msgstr "ユーザ概略"
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 msgstr ""
 "注意: phpMyAdmin は MySQL の特権テーブルから直接ユーザ特権を取得しますが、手"
 "作業で特権を更新した場合は phpMyAdmin が利用しているテーブルの内容とサーバの"
 "特権の内容が一致しなくなることがありますので、作業を続ける前に %s特権の再読み"
 "込み%s をしてください。"
 
-#: libraries/server_privileges.lib.php:3014
+#: libraries/server_privileges.lib.php:3013
 msgid "The selected user was not found in the privilege table."
 msgstr "特権テーブルには選択したユーザがいません。"
 
-#: libraries/server_privileges.lib.php:3225
+#: libraries/server_privileges.lib.php:3226
 msgid "You have added a new user."
 msgstr "新しいユーザを追加しました。"
 
@@ -9666,31 +9687,31 @@ msgstr "データベース %s 上でクエリを実行する"
 msgid "Clear"
 msgstr "クリア"
 
-#: libraries/sql_query_form.lib.php:309 sql.php:1327 sql.php:1347
+#: libraries/sql_query_form.lib.php:313 sql.php:1331 sql.php:1351
 msgid "Bookmark this SQL query"
 msgstr "この SQL をブックマークする"
 
-#: libraries/sql_query_form.lib.php:315 sql.php:1339
+#: libraries/sql_query_form.lib.php:319 sql.php:1343
 msgid "Let every user access this bookmark"
 msgstr "すべてのユーザがこのブックマークを利用できるようにする"
 
-#: libraries/sql_query_form.lib.php:321
+#: libraries/sql_query_form.lib.php:325
 msgid "Replace existing bookmark of same name"
 msgstr "同名のブックマークは差し替える"
 
-#: libraries/sql_query_form.lib.php:337
+#: libraries/sql_query_form.lib.php:341
 msgid "Do not overwrite this query from outside the window"
 msgstr "別ウインドウからのクエリの上書きを禁止する"
 
-#: libraries/sql_query_form.lib.php:344
+#: libraries/sql_query_form.lib.php:348
 msgid "Delimiter"
 msgstr "デリミタ"
 
-#: libraries/sql_query_form.lib.php:352
+#: libraries/sql_query_form.lib.php:356
 msgid "Show this query here again"
 msgstr "実行したクエリをここに表示する"
 
-#: libraries/sql_query_form.lib.php:411
+#: libraries/sql_query_form.lib.php:415
 msgid "View only"
 msgstr "表示のみ"
 
@@ -9800,176 +9821,176 @@ msgstr "接頭辞をテーブル名に追加する"
 msgid "Check tables having overhead"
 msgstr "オーバーヘッドのあるテーブルを確認する"
 
-#: libraries/structure.lib.php:1279 tbl_tracking.php:358
+#: libraries/structure.lib.php:1283 tbl_tracking.php:358
 msgctxt "None for default"
 msgid "None"
 msgstr "なし"
 
-#: libraries/structure.lib.php:1329
+#: libraries/structure.lib.php:1333
 #, php-format
 msgid "Column %s has been dropped"
 msgstr "カラム %s を削除しました"
 
-#: libraries/structure.lib.php:1383 libraries/structure.lib.php:2054
-#: libraries/structure.lib.php:2064
+#: libraries/structure.lib.php:1387 libraries/structure.lib.php:2062
+#: libraries/structure.lib.php:2072
 #: libraries/tbl_columns_definition_form.inc.php:562
 msgid "Primary"
 msgstr "主"
 
-#: libraries/structure.lib.php:1391 libraries/structure.lib.php:2056
-#: libraries/structure.lib.php:2066 libraries/structure.lib.php:2174
+#: libraries/structure.lib.php:1395 libraries/structure.lib.php:2064
+#: libraries/structure.lib.php:2074 libraries/structure.lib.php:2182
 #: libraries/tbl_columns_definition_form.inc.php:123
 #: libraries/tbl_columns_definition_form.inc.php:576 tbl_printview.php:306
 msgid "Index"
 msgstr "インデックス"
 
-#: libraries/structure.lib.php:1398 libraries/structure.lib.php:2060
-#: libraries/structure.lib.php:2070
+#: libraries/structure.lib.php:1402 libraries/structure.lib.php:2068
+#: libraries/structure.lib.php:2078
 msgid "Spatial"
 msgstr "空間"
 
-#: libraries/structure.lib.php:1408 libraries/structure.lib.php:2062
-#: libraries/structure.lib.php:2072
+#: libraries/structure.lib.php:1412 libraries/structure.lib.php:2070
+#: libraries/structure.lib.php:2080
 #: libraries/tbl_columns_definition_form.inc.php:584
 msgid "Fulltext"
 msgstr "全文"
 
-#: libraries/structure.lib.php:1423 libraries/structure.lib.php:1519
+#: libraries/structure.lib.php:1427 libraries/structure.lib.php:1523
 msgid "Move columns"
 msgstr "カラムを移動させる"
 
-#: libraries/structure.lib.php:1426
+#: libraries/structure.lib.php:1430
 msgid "Move the columns by dragging them up and down."
 msgstr "ドラックして上下させ、カラムを移動させてください。"
 
-#: libraries/structure.lib.php:1460
+#: libraries/structure.lib.php:1464
 msgid "Edit view"
 msgstr "ビューを編集する"
 
-#: libraries/structure.lib.php:1493
+#: libraries/structure.lib.php:1497
 msgid "Relation view"
 msgstr "リレーションビュー"
 
-#: libraries/structure.lib.php:1505
+#: libraries/structure.lib.php:1509
 msgid "Propose table structure"
 msgstr "テーブル構造を確認する"
 
-#: libraries/structure.lib.php:1541
+#: libraries/structure.lib.php:1545
 #: libraries/tbl_columns_definition_form.inc.php:758
 msgid "You have to add at least one column."
 msgstr "最低ひとつはカラムを追加してください。"
 
-#: libraries/structure.lib.php:1552
+#: libraries/structure.lib.php:1560
 msgid "Add column"
 msgstr "カラムを追加する"
 
-#: libraries/structure.lib.php:1557
+#: libraries/structure.lib.php:1565
 #: libraries/tbl_columns_definition_form.inc.php:748
 #, php-format
 msgid "Add %s column(s)"
 msgstr "%s 個のカラムを追加する"
 
-#: libraries/structure.lib.php:1574
+#: libraries/structure.lib.php:1582
 msgid "At End of Table"
 msgstr "テーブルの末尾"
 
-#: libraries/structure.lib.php:1575
+#: libraries/structure.lib.php:1583
 msgid "At Beginning of Table"
 msgstr "テーブルの先頭"
 
-#: libraries/structure.lib.php:1576
+#: libraries/structure.lib.php:1584
 #, php-format
 msgid "After %s"
 msgstr "指定カラムの後に %s"
 
-#: libraries/structure.lib.php:1670
+#: libraries/structure.lib.php:1678
 #, fuzzy
 #| msgid "Row Statistics"
 msgid "Row statistics"
 msgstr "行の統計"
 
-#: libraries/structure.lib.php:1675 tbl_printview.php:353
+#: libraries/structure.lib.php:1683 tbl_printview.php:353
 msgid "static"
 msgstr "静的"
 
-#: libraries/structure.lib.php:1677 tbl_printview.php:355
+#: libraries/structure.lib.php:1685 tbl_printview.php:355
 msgid "dynamic"
 msgstr "動的"
 
-#: libraries/structure.lib.php:1688
+#: libraries/structure.lib.php:1696
 msgid "partitioned"
 msgstr "パーティション有り"
 
-#: libraries/structure.lib.php:1725 tbl_printview.php:376
+#: libraries/structure.lib.php:1733 tbl_printview.php:376
 msgid "Row length"
 msgstr "行の長さ"
 
-#: libraries/structure.lib.php:1738 tbl_printview.php:390
+#: libraries/structure.lib.php:1746 tbl_printview.php:390
 msgid "Row size"
 msgstr "行のサイズ"
 
-#: libraries/structure.lib.php:1746 tbl_printview.php:399
+#: libraries/structure.lib.php:1754 tbl_printview.php:399
 msgid "Next autoindex"
 msgstr "次の自動付番"
 
-#: libraries/structure.lib.php:1872 libraries/structure.lib.php:1953
-#: libraries/structure.lib.php:1961 libraries/structure.lib.php:1978
+#: libraries/structure.lib.php:1880 libraries/structure.lib.php:1961
+#: libraries/structure.lib.php:1969 libraries/structure.lib.php:1986
 #, php-format
 msgid "An index has been added on %s"
 msgstr "%s にインデックスを追加しました"
 
-#: libraries/structure.lib.php:1943
+#: libraries/structure.lib.php:1951
 #, php-format
 msgid "A primary key has been added on %s"
 msgstr "%s に主キーを追加しました"
 
-#: libraries/structure.lib.php:2003 libraries/structure.lib.php:2074
+#: libraries/structure.lib.php:2011 libraries/structure.lib.php:2082
 msgid "Distinct values"
 msgstr "件数集計"
 
-#: libraries/structure.lib.php:2006 libraries/structure.lib.php:2009
+#: libraries/structure.lib.php:2014 libraries/structure.lib.php:2017
 msgid "Add primary key"
 msgstr "主キーを追加する"
 
-#: libraries/structure.lib.php:2012 libraries/structure.lib.php:2015
+#: libraries/structure.lib.php:2020 libraries/structure.lib.php:2023
 #: tbl_indexes.php:195
 msgid "Add index"
 msgstr "インデックスを追加する"
 
-#: libraries/structure.lib.php:2018 libraries/structure.lib.php:2021
+#: libraries/structure.lib.php:2026 libraries/structure.lib.php:2029
 msgid "Add unique index"
 msgstr "ユニークインデックスを追加する"
 
-#: libraries/structure.lib.php:2024 libraries/structure.lib.php:2027
+#: libraries/structure.lib.php:2032 libraries/structure.lib.php:2035
 msgid "Add SPATIAL index"
 msgstr "空間インデックスを追加する"
 
-#: libraries/structure.lib.php:2030 libraries/structure.lib.php:2033
+#: libraries/structure.lib.php:2038 libraries/structure.lib.php:2041
 msgid "Add FULLTEXT index"
 msgstr "全文インデックスを追加する"
 
-#: libraries/structure.lib.php:2159 server_binlog.php:189
+#: libraries/structure.lib.php:2167 server_binlog.php:197
 msgid "Information"
 msgstr "情報"
 
-#: libraries/structure.lib.php:2164 tbl_printview.php:296
+#: libraries/structure.lib.php:2172 tbl_printview.php:296
 msgid "Space usage"
 msgstr "ディスク使用量"
 
-#: libraries/structure.lib.php:2184 tbl_printview.php:322
+#: libraries/structure.lib.php:2192 tbl_printview.php:322
 msgid "Effective"
 msgstr "有効"
 
-#: libraries/structure.lib.php:2365 tbl_addfield.php:197 tbl_indexes.php:112
+#: libraries/structure.lib.php:2373 tbl_addfield.php:197 tbl_indexes.php:112
 #, php-format
 msgid "Table %1$s has been altered successfully"
 msgstr "テーブル %1$s は正常に変更されました"
 
-#: libraries/structure.lib.php:2412 tbl_tracking.php:456 tbl_tracking.php:480
+#: libraries/structure.lib.php:2420 tbl_tracking.php:456 tbl_tracking.php:480
 msgid "Query error"
 msgstr "クエリエラー"
 
-#: libraries/structure.lib.php:2506
+#: libraries/structure.lib.php:2514
 msgid "The columns have been moved successfully."
 msgstr "カラムは正常に移動されました。"
 
@@ -10372,23 +10393,23 @@ msgstr "ファイルが存在しません"
 msgid "Select binary log to view"
 msgstr "表示するバイナリログを選択してください"
 
-#: server_binlog.php:154 server_status.php:431
+#: server_binlog.php:158 server_status.php:431
 msgid "Truncate Shown Queries"
 msgstr "クエリの表示を切り詰める"
 
-#: server_binlog.php:158 server_status.php:436
+#: server_binlog.php:162 server_status.php:436
 msgid "Show Full Queries"
 msgstr "クエリ全体を表示"
 
-#: server_binlog.php:184
+#: server_binlog.php:192
 msgid "Log name"
 msgstr "ログ名"
 
-#: server_binlog.php:185
+#: server_binlog.php:193
 msgid "Position"
 msgstr "位置"
 
-#: server_binlog.php:188
+#: server_binlog.php:196
 msgid "Original position"
 msgstr "元の位置"
 
@@ -10415,11 +10436,11 @@ msgstr "マスタレプリケーション"
 msgid "Slave replication"
 msgstr "スレーブレプリケーション"
 
-#: server_databases.php:334 server_databases.php:335
+#: server_databases.php:335 server_databases.php:336
 msgid "Enable Statistics"
 msgstr "統計を有効にする"
 
-#: server_databases.php:338
+#: server_databases.php:339
 msgid ""
 "Note: Enabling the database statistics here might cause heavy traffic "
 "between the web server and the MySQL server."
@@ -10427,7 +10448,7 @@ msgstr ""
 "注意: データベースの統計を有効にするとウェブサーバと MySQL サーバの間の通信量"
 "が激増することがあります。"
 
-#: server_databases.php:345
+#: server_databases.php:346
 msgid "No databases"
 msgstr "データベースが存在しません"
 
@@ -10459,7 +10480,7 @@ msgstr "モジュール"
 msgid "Library"
 msgstr "ライブラリ"
 
-#: server_plugins.php:97 server_plugins.php:132 tbl_tracking.php:763
+#: server_plugins.php:97 server_plugins.php:132 tbl_tracking.php:765
 msgid "Version"
 msgstr "バージョン"
 
@@ -11990,10 +12011,11 @@ msgid ""
 "protection may not be reliable if your IP belongs to an ISP where thousands "
 "of users, including you, are connected to."
 msgstr ""
-"それでも、[kbd]config[/kbd] 認証が必要であると思われる場合、追加の保護設定（%"
-"sホスト認証%s設定および%s信頼されたプロキシのリスト%s）を使用してください。し"
-"かしながら、ユーザが数千人もいるような ISP に所属している、含まれている、接続"
-"されている場合には、IP アドレスを基にした保護は信頼性が高いとはいえません。"
+"それでも、[kbd]config[/kbd] 認証が必要であると思われる場合、追加の保護設定"
+"（%sホスト認証%s設定および%s信頼されたプロキシのリスト%s）を使用してくださ"
+"い。しかしながら、ユーザが数千人もいるような ISP に所属している、含まれてい"
+"る、接続されている場合には、IP アドレスを基にした保護は信頼性が高いとはいえま"
+"せん。"
 
 #: setup/lib/index.lib.php:316
 #, php-format
@@ -12001,8 +12023,8 @@ msgid ""
 "You set the [kbd]config[/kbd] authentication type and included username and "
 "password for auto-login, which is not a desirable option for live hosts. "
 "Anyone who knows or guesses your phpMyAdmin URL can directly access your "
-"phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or [kbd]"
-"http[/kbd]."
+"phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or "
+"[kbd]http[/kbd]."
 msgstr ""
 "[kbd]config[/kbd] 認証タイプを設定し、自動ログインのためにユーザ名とパスワー"
 "ドを含めています。このことは、実働しているホストにとって望ましい方法とはいえ"
@@ -12060,23 +12082,23 @@ msgstr "デフォルトの表示クエリとしてブックマーク \"%s\" を�
 msgid "Bookmark not created"
 msgstr "ブックマーク %s を作成しました"
 
-#: sql.php:928
+#: sql.php:932
 msgid "Showing as PHP code"
 msgstr "PHP コードとして表示"
 
-#: sql.php:933
+#: sql.php:937
 msgid "Validated SQL"
 msgstr "検証した SQL 文"
 
-#: sql.php:1106
+#: sql.php:1110
 msgid "SQL result"
 msgstr "SQL の結果"
 
-#: sql.php:1113
+#: sql.php:1117
 msgid "Generated by"
 msgstr "生成環境"
 
-#: sql.php:1246
+#: sql.php:1250
 #, fuzzy
 #| msgid ""
 #| "This table does not contain a unique column. Features related to the grid "
@@ -12089,12 +12111,12 @@ msgstr ""
 "ボックス、編集、コピー、削除のリンクに関連する機能は、保存後に動作しない場合"
 "があります。"
 
-#: sql.php:1295
+#: sql.php:1299
 #, php-format
 msgid "Problems with indexes of table `%s`"
 msgstr "テーブル `%s` のインデックスに問題があります"
 
-#: sql.php:1331
+#: sql.php:1335
 msgid "Label"
 msgstr "ラベル"
 
@@ -12393,7 +12415,7 @@ msgstr "追跡データ操作コマンドは正常に削除されました"
 msgid "Tracking statements"
 msgstr "追跡しているコマンド"
 
-#: tbl_tracking.php:523 tbl_tracking.php:671
+#: tbl_tracking.php:523 tbl_tracking.php:673
 #, php-format
 msgid "Show %1$s with dates from %2$s to %3$s by user %4$s %5$s"
 msgstr "種別：%1$s、期間：%2$s－%3$s、ユーザ：%4$sで絞り込む %5$s"
@@ -12402,80 +12424,80 @@ msgstr "種別：%1$s、期間：%2$s－%3$s、ユーザ：%4$sで絞り込む %
 msgid "Delete tracking data row from report"
 msgstr "レポートからこの追跡データを削除する"
 
-#: tbl_tracking.php:545
+#: tbl_tracking.php:547
 msgid "No data"
 msgstr "データが存在しません"
 
-#: tbl_tracking.php:554 tbl_tracking.php:616
+#: tbl_tracking.php:556 tbl_tracking.php:618
 msgid "Date"
 msgstr "日時"
 
-#: tbl_tracking.php:556
+#: tbl_tracking.php:558
 msgid "Data definition statement"
 msgstr "データ定義コマンド"
 
-#: tbl_tracking.php:618
+#: tbl_tracking.php:620
 msgid "Data manipulation statement"
 msgstr "データ操作コマンド"
 
-#: tbl_tracking.php:676
+#: tbl_tracking.php:678
 msgid "SQL dump (file download)"
 msgstr "SQL 文のダンプ (ファイルでダウンロード)"
 
-#: tbl_tracking.php:677
+#: tbl_tracking.php:679
 msgid "SQL dump"
 msgstr "SQL 文のダンプ"
 
-#: tbl_tracking.php:679
+#: tbl_tracking.php:681
 msgid "This option will replace your table and contained data."
 msgstr ""
 "このオプションは、テーブルやそれに含まれるデータを置き換えるかもしれません。"
 
-#: tbl_tracking.php:680
+#: tbl_tracking.php:682
 msgid "SQL execution"
 msgstr "SQL 文を実行"
 
-#: tbl_tracking.php:698
+#: tbl_tracking.php:700
 #, php-format
 msgid "Export as %s"
 msgstr "上の結果をエクスポートする %s"
 
-#: tbl_tracking.php:735
+#: tbl_tracking.php:737
 msgid "Show versions"
 msgstr "世代を表示する"
 
-#: tbl_tracking.php:823
+#: tbl_tracking.php:825
 #, php-format
 msgid "Deactivate tracking for %s"
 msgstr "%s への SQL コマンド追跡を非アクティブにする"
 
-#: tbl_tracking.php:829
+#: tbl_tracking.php:831
 msgid "Deactivate now"
 msgstr "すぐに非アクティブにする"
 
-#: tbl_tracking.php:839
+#: tbl_tracking.php:841
 #, php-format
 msgid "Activate tracking for %s"
 msgstr "%s への SQL コマンド追跡をアクティブにする"
 
-#: tbl_tracking.php:845
+#: tbl_tracking.php:847
 msgid "Activate now"
 msgstr "すぐにアクティブにする"
 
-#: tbl_tracking.php:858
+#: tbl_tracking.php:860
 #, php-format
 msgid "Create version %1$s of %2$s"
 msgstr "%2$s に世代 %1$s を作成"
 
-#: tbl_tracking.php:866
+#: tbl_tracking.php:868
 msgid "Track these data definition statements:"
 msgstr "追跡するデータ定義コマンド:"
 
-#: tbl_tracking.php:874
+#: tbl_tracking.php:876
 msgid "Track these data manipulation statements:"
 msgstr "追跡するデータ操作コマンド:"
 
-#: tbl_tracking.php:884
+#: tbl_tracking.php:886
 msgid "Create version"
 msgstr "世代を作成する"
 
@@ -12885,8 +12907,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:179
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s%"
-"%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s"
+"%%. It should be above 80%%"
 msgstr ""
 "クエリキャッシュの総量に対するクエリキャッシュの空きメモリの割合は、%s%% で"
 "す。この値は、80%% 以上がいいと言われています。"
@@ -13043,8 +13065,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:216
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
-"%."
+"%s%% of all sorts cause temporary tables, this value should be lower than "
+"10%%."
 msgstr ""
 "全ソートの内 %s%% が一時テーブルを使用しています。この値は、10%% 未満がいいと"
 "言われています。"
@@ -13597,8 +13619,8 @@ msgstr ""
 msgid ""
 "Max_used_connections is at %s%% of max_connections, it should be below 80%%"
 msgstr ""
-"Max_used_connections は max_connections の %s%% になっています。この値は、80%"
-"% 未満がいいと言われています。"
+"Max_used_connections は max_connections の %s%% になっています。この値は、"
+"80%% 未満がいいと言われています。"
 
 #: libraries/advisory_rules.txt:399
 msgid "Percentage of aborted connections"
@@ -13818,10 +13840,10 @@ msgid ""
 "perfectly adequate for your system if you don't have much InnoDB tables or "
 "other services running on the same machine."
 msgstr ""
-"現在、メモリの %s%% が InnoDB バッファプールに使われています。割り当てが 60%"
-"% 未満の時にこの事象が表示されるようになりますが、多くの InnoDB テーブルを使"
-"用していない、もしくは同マシン上で他のサービスを稼動させていないのであれば、"
-"ご使用のシステムではこの設定で十分かもしれません。"
+"現在、メモリの %s%% が InnoDB バッファプールに使われています。割り当てが "
+"60%% 未満の時にこの事象が表示されるようになりますが、多くの InnoDB テーブルを"
+"使用していない、もしくは同マシン上で他のサービスを稼動させていないのであれ"
+"ば、ご使用のシステムではこの設定で十分かもしれません。"
 
 #: libraries/advisory_rules.txt:459
 msgid "MyISAM concurrent inserts"
@@ -13846,6 +13868,9 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert は 0 に設定されています。"
+
+#~ msgid "Iconic table operations"
+#~ msgstr "アイコンによるテーブルの操作"
 
 #~ msgid "Cookies must be enabled past this point."
 #~ msgstr "クッキーを有効にしてください。"
@@ -14085,14 +14110,14 @@ msgstr "concurrent_insert は 0 に設定されています。"
 
 #~ msgid ""
 #~ "When setting this to [kbd]nested[/kbd], the alias of the table name is "
-#~ "only used to split/nest the tables according to the $cfg"
-#~ "['LeftFrameTableSeparator'] directive, so only the folder is called like "
-#~ "the alias, the table name itself stays unchanged"
+#~ "only used to split/nest the tables according to the "
+#~ "$cfg['LeftFrameTableSeparator'] directive, so only the folder is called "
+#~ "like the alias, the table name itself stays unchanged"
 #~ msgstr ""
-#~ "[kbd]nested[/kbd] に設定した場合、テーブル名のエイリアスは、$cfg"
-#~ "['LeftFrameTableSeparator'] の指示に応じてテーブルを分割/入れ子するために"
-#~ "使用されます。そのフォルダはエイリアスのように呼び出されるだけで、テーブル"
-#~ "名自体はそのまま変わることありません。"
+#~ "[kbd]nested[/kbd] に設定した場合、テーブル名のエイリアス"
+#~ "は、$cfg['LeftFrameTableSeparator'] の指示に応じてテーブルを分割/入れ子す"
+#~ "るために使用されます。そのフォルダはエイリアスのように呼び出されるだけで、"
+#~ "テーブル名自体はそのまま変わることありません。"
 
 #~ msgid "Display table comment instead of its name"
 #~ msgstr "テーブルの名前の代わりにコメントを表示する"
@@ -14642,8 +14667,8 @@ msgstr "concurrent_insert は 0 に設定されています。"
 #~ "The result of this query can't be used for a chart. See [doc@faq6-29]FAQ "
 #~ "6.29[/doc]"
 #~ msgstr ""
-#~ "このクエリの結果は、グラフに使用することができませんでした。[doc@faq6-29]"
-#~ "FAQ 6.29[/doc] を参照してください。"
+#~ "このクエリの結果は、グラフに使用することができませんでした。"
+#~ "[doc@faq6-29]FAQ 6.29[/doc] を参照してください。"
 
 #~ msgid "Title"
 #~ msgstr "タイトル"

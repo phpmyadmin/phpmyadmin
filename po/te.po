@@ -4,32 +4,32 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 4.0.4-dev\n"
+"Project-Id-Version: phpMyAdmin 4.0.5-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-06-03 09:16-0400\n"
+"POT-Creation-Date: 2013-06-24 10:43+0200\n"
 "PO-Revision-Date: 2012-11-06 12:16+0200\n"
 "Last-Translator: వీవెన్ <veeven@gmail.com>\n"
 "Language-Team: Telugu <http://l10n.cihar.com/projects/phpmyadmin/master/te/"
 ">\n"
+"Language: te\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: te\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Weblate 1.3-dev\n"
 
 #: browse_foreigners.php:51 browse_foreigners.php:75 js/messages.php:344
-#: libraries/DisplayResults.class.php:809
+#: libraries/DisplayResults.class.php:813
 #: libraries/server_privileges.lib.php:2605
 msgid "Show all"
 msgstr "అన్నీ చూపించు"
 
 #: browse_foreigners.php:93 libraries/PDF.class.php:65
-#: libraries/Util.class.php:2543
+#: libraries/Util.class.php:2560
 #: libraries/schema/Pdf_Relation_Schema.class.php:1183
 #: libraries/schema/Pdf_Relation_Schema.class.php:1207
-#: libraries/schema/User_Schema.class.php:427
-#: libraries/select_lang.lib.php:514
+#: libraries/schema/User_Schema.class.php:430
+#: libraries/select_lang.lib.php:520
 msgid "Page number:"
 msgstr "పుట సంఖ్య:"
 
@@ -41,25 +41,25 @@ msgid ""
 msgstr ""
 
 # Research అంటే పరిశోధన, అందువల్లన ఇది శోధనైంది
-#: browse_foreigners.php:182 libraries/Menu.class.php:263
-#: libraries/Menu.class.php:348 libraries/Util.class.php:3221
-#: libraries/Util.class.php:3228 libraries/Util.class.php:3438
-#: libraries/Util.class.php:3439
+#: browse_foreigners.php:182 libraries/Menu.class.php:280
+#: libraries/Menu.class.php:365 libraries/Util.class.php:3245
+#: libraries/Util.class.php:3252 libraries/Util.class.php:3462
+#: libraries/Util.class.php:3463
 msgid "Search"
 msgstr "శోధించు"
 
 #: browse_foreigners.php:186 gis_data_editor.php:396 js/messages.php:218
-#: libraries/DbSearch.class.php:455 libraries/DisplayResults.class.php:1657
+#: libraries/DbSearch.class.php:455 libraries/DisplayResults.class.php:1661
 #: libraries/TableSearch.class.php:1142 libraries/core.lib.php:556
 #: libraries/display_change_password.lib.php:94
-#: libraries/display_create_table.lib.php:61
+#: libraries/display_create_table.lib.php:65
 #: libraries/display_export.lib.php:441 libraries/display_import.lib.php:335
 #: libraries/index.lib.php:35 libraries/insert_edit.lib.php:1547
-#: libraries/insert_edit.lib.php:1582 libraries/operations.lib.php:39
-#: libraries/operations.lib.php:82 libraries/operations.lib.php:210
-#: libraries/operations.lib.php:254 libraries/operations.lib.php:636
-#: libraries/operations.lib.php:689 libraries/operations.lib.php:738
-#: libraries/operations.lib.php:1054 libraries/operations.lib.php:1338
+#: libraries/insert_edit.lib.php:1582 libraries/operations.lib.php:43
+#: libraries/operations.lib.php:90 libraries/operations.lib.php:226
+#: libraries/operations.lib.php:274 libraries/operations.lib.php:660
+#: libraries/operations.lib.php:713 libraries/operations.lib.php:762
+#: libraries/operations.lib.php:1078 libraries/operations.lib.php:1362
 #: libraries/plugins/auth/AuthenticationCookie.class.php:244
 #: libraries/replication_gui.lib.php:79 libraries/replication_gui.lib.php:396
 #: libraries/rte/rte_events.lib.php:542
@@ -68,19 +68,19 @@ msgstr "శోధించు"
 #: libraries/rte/rte_triggers.lib.php:420
 #: libraries/schema/User_Schema.class.php:164
 #: libraries/schema/User_Schema.class.php:226
-#: libraries/schema/User_Schema.class.php:484
-#: libraries/schema/User_Schema.class.php:534
+#: libraries/schema/User_Schema.class.php:487
+#: libraries/schema/User_Schema.class.php:537
 #: libraries/server_privileges.lib.php:476
 #: libraries/server_privileges.lib.php:1474
 #: libraries/server_privileges.lib.php:1953
 #: libraries/server_privileges.lib.php:2545
-#: libraries/server_privileges.lib.php:3067
-#: libraries/sql_query_form.lib.php:365 libraries/sql_query_form.lib.php:422
-#: libraries/sql_query_form.lib.php:487 libraries/structure.lib.php:1582
+#: libraries/server_privileges.lib.php:3068
+#: libraries/sql_query_form.lib.php:369 libraries/sql_query_form.lib.php:426
+#: libraries/sql_query_form.lib.php:491 libraries/structure.lib.php:1590
 #: libraries/tbl_columns_definition_form.inc.php:754 pmd_pdf.php:151
 #: prefs_manage.php:266 prefs_manage.php:316 server_binlog.php:115
 #: server_replication.php:224 server_replication.php:327 tbl_chart.php:251
-#: tbl_indexes.php:352 tbl_tracking.php:520 tbl_tracking.php:683
+#: tbl_indexes.php:352 tbl_tracking.php:520 tbl_tracking.php:685
 #: view_create.php:225 view_operations.php:98
 msgid "Go"
 msgstr "వెళ్ళు"
@@ -113,11 +113,11 @@ msgstr ""
 msgid "Database %1$s has been created."
 msgstr "%1$s డేటాబేసు సృష్టించబడింది"
 
-#: db_datadict.php:51 libraries/operations.lib.php:32
+#: db_datadict.php:51 libraries/operations.lib.php:36
 msgid "Database comment: "
 msgstr "డేటాబేస్ వ్యాఖ్య: "
 
-#: db_datadict.php:157 libraries/operations.lib.php:784
+#: db_datadict.php:157 libraries/operations.lib.php:808
 #: libraries/schema/Pdf_Relation_Schema.class.php:1332
 #: libraries/tbl_columns_definition_form.inc.php:836 tbl_printview.php:120
 msgid "Table comments"
@@ -222,7 +222,6 @@ msgstr "వ్యాఖ్యలు"
 
 #: db_datadict.php:240 js/messages.php:240 libraries/Index.class.php:431
 #: libraries/Index.class.php:470 libraries/Index.class.php:838
-#: libraries/config.values.php:50 libraries/config.values.php:65
 #: libraries/config/FormDisplay.tpl.php:258 libraries/mult_submits.inc.php:342
 #: libraries/mult_submits.inc.php:343
 #: libraries/plugins/export/ExportHtmlword.class.php:631
@@ -236,7 +235,7 @@ msgstr "వ్యాఖ్యలు"
 #: libraries/server_privileges.lib.php:2139
 #: libraries/server_privileges.lib.php:2145
 #: libraries/server_privileges.lib.php:2465
-#: libraries/server_privileges.lib.php:2479 libraries/structure.lib.php:1268
+#: libraries/server_privileges.lib.php:2479 libraries/structure.lib.php:1272
 #: libraries/user_preferences.lib.php:282 prefs_manage.php:131 sql.php:417
 #: sql.php:512 sql.php:513 tbl_printview.php:186 tbl_tracking.php:344
 #: tbl_tracking.php:398 tbl_tracking.php:403
@@ -245,7 +244,6 @@ msgstr "కాదు"
 
 #: db_datadict.php:240 js/messages.php:239 libraries/Index.class.php:432
 #: libraries/Index.class.php:469 libraries/Index.class.php:838
-#: libraries/config.values.php:49 libraries/config.values.php:64
 #: libraries/config/FormDisplay.tpl.php:258 libraries/mult_submits.inc.php:71
 #: libraries/mult_submits.inc.php:103 libraries/mult_submits.inc.php:112
 #: libraries/mult_submits.inc.php:117 libraries/mult_submits.inc.php:122
@@ -263,7 +261,7 @@ msgstr "కాదు"
 #: libraries/server_privileges.lib.php:2138
 #: libraries/server_privileges.lib.php:2143
 #: libraries/server_privileges.lib.php:2462
-#: libraries/server_privileges.lib.php:2479 libraries/structure.lib.php:1268
+#: libraries/server_privileges.lib.php:2479 libraries/structure.lib.php:1272
 #: libraries/user_preferences.lib.php:280 prefs_manage.php:130
 #: server_databases.php:103 server_databases.php:110 sql.php:510 sql.php:511
 #: tbl_printview.php:187 tbl_structure.php:84 tbl_tracking.php:344
@@ -275,7 +273,7 @@ msgstr "అవును"
 msgid "View dump (schema) of database"
 msgstr ""
 
-#: db_export.php:33 db_printview.php:92 db_tracking.php:49 export.php:555
+#: db_export.php:33 db_printview.php:92 db_tracking.php:49 export.php:557
 #: libraries/DBQbe.class.php:268
 msgid "No tables found in database."
 msgstr "డేటాబేస్ లో ఏ పట్టికలు లేవు"
@@ -312,8 +310,8 @@ msgid ""
 "click %shere%s."
 msgstr ""
 
-#: db_printview.php:99 db_tracking.php:79 db_tracking.php:198
-#: libraries/Menu.class.php:190 libraries/config/messages.inc.php:508
+#: db_printview.php:99 db_tracking.php:79 db_tracking.php:204
+#: libraries/Menu.class.php:207 libraries/config/messages.inc.php:510
 #: libraries/plugins/export/ExportXml.class.php:457
 #: libraries/plugins/export/PMA_ExportPdf.class.php:116
 #: libraries/rte/rte_list.lib.php:65 libraries/rte/rte_triggers.lib.php:355
@@ -321,14 +319,14 @@ msgstr ""
 #: libraries/server_privileges.lib.php:1981
 #: libraries/server_privileges.lib.php:2212
 #: libraries/server_privileges.lib.php:2864 libraries/structure.lib.php:757
-#: tbl_tracking.php:762
+#: tbl_tracking.php:764
 msgid "Table"
 msgstr "పట్టిక"
 
 #: db_printview.php:100 libraries/Table.class.php:351
 #: libraries/build_html_for_db.lib.php:31 libraries/import.lib.php:181
-#: libraries/structure.lib.php:768 libraries/structure.lib.php:1708
-#: libraries/structure.lib.php:1901 sql.php:1118 tbl_printview.php:365
+#: libraries/structure.lib.php:768 libraries/structure.lib.php:1716
+#: libraries/structure.lib.php:1909 sql.php:1122 tbl_printview.php:365
 msgid "Rows"
 msgstr "వరుసలు"
 
@@ -342,26 +340,26 @@ msgstr "పరిమాణం"
 msgid "in use"
 msgstr "వాడుకలో ఉన్నది"
 
-#: db_printview.php:185 libraries/Util.class.php:4080
+#: db_printview.php:185 libraries/Util.class.php:4104
 #: libraries/plugins/export/ExportSql.class.php:946
 #: libraries/schema/Pdf_Relation_Schema.class.php:1337
-#: libraries/structure.lib.php:798 libraries/structure.lib.php:1754
+#: libraries/structure.lib.php:798 libraries/structure.lib.php:1762
 #: tbl_printview.php:410
 msgid "Creation"
 msgstr "సృష్టి"
 
-#: db_printview.php:194 libraries/Util.class.php:4086
+#: db_printview.php:194 libraries/Util.class.php:4110
 #: libraries/plugins/export/ExportSql.class.php:959
 #: libraries/schema/Pdf_Relation_Schema.class.php:1342
-#: libraries/structure.lib.php:805 libraries/structure.lib.php:1762
+#: libraries/structure.lib.php:805 libraries/structure.lib.php:1770
 #: tbl_printview.php:421
 msgid "Last update"
 msgstr "చివరి మార్పు"
 
-#: db_printview.php:203 libraries/Util.class.php:4092
+#: db_printview.php:203 libraries/Util.class.php:4116
 #: libraries/plugins/export/ExportSql.class.php:972
 #: libraries/schema/Pdf_Relation_Schema.class.php:1347
-#: libraries/structure.lib.php:812 libraries/structure.lib.php:1770
+#: libraries/structure.lib.php:812 libraries/structure.lib.php:1778
 #: tbl_printview.php:432
 msgid "Last check"
 msgstr "చివరి చూపు"
@@ -400,8 +398,8 @@ msgid "Tracked tables"
 msgstr ""
 
 # మొదటి అనువాదము
-#: db_tracking.php:78 libraries/Menu.class.php:167
-#: libraries/config/messages.inc.php:502
+#: db_tracking.php:78 libraries/Menu.class.php:180
+#: libraries/config/messages.inc.php:504
 #: libraries/plugins/export/ExportHtmlword.class.php:158
 #: libraries/plugins/export/ExportLatex.class.php:251
 #: libraries/plugins/export/ExportOdt.class.php:203
@@ -412,7 +410,7 @@ msgstr ""
 #: libraries/server_privileges.lib.php:1971
 #: libraries/server_privileges.lib.php:2212
 #: libraries/server_privileges.lib.php:2855 server_databases.php:201
-#: server_status.php:324 sql.php:1109 tbl_tracking.php:761
+#: server_status.php:324 sql.php:1113 tbl_tracking.php:763
 msgid "Database"
 msgstr "డేటాబేస్"
 
@@ -420,17 +418,17 @@ msgstr "డేటాబేస్"
 msgid "Last version"
 msgstr "చివరి కూర్పు"
 
-#: db_tracking.php:81 tbl_tracking.php:764
+#: db_tracking.php:81 tbl_tracking.php:766
 msgid "Created"
 msgstr ""
 
-#: db_tracking.php:82 tbl_tracking.php:765
+#: db_tracking.php:82 tbl_tracking.php:767
 msgid "Updated"
 msgstr ""
 
-#: db_tracking.php:83 js/messages.php:172 libraries/Menu.class.php:454
+#: db_tracking.php:83 js/messages.php:172 libraries/Menu.class.php:475
 #: libraries/rte/rte_events.lib.php:426 libraries/rte/rte_list.lib.php:78
-#: server_status.php:336 sql.php:1182 tbl_tracking.php:766
+#: server_status.php:336 sql.php:1186 tbl_tracking.php:768
 msgid "Status"
 msgstr "స్థితి"
 
@@ -439,91 +437,91 @@ msgstr "స్థితి"
 #: libraries/rte/rte_list.lib.php:79 libraries/server_privileges.lib.php:1571
 #: libraries/server_privileges.lib.php:2222
 #: libraries/server_privileges.lib.php:2387 libraries/structure.lib.php:765
-#: libraries/structure.lib.php:1198 server_databases.php:236
+#: libraries/structure.lib.php:1202 server_databases.php:237
 msgid "Action"
 msgstr "చర్య"
 
 # మొదటి అనువాదము
 #: db_tracking.php:85 libraries/DBQbe.class.php:468
-#: libraries/DisplayResults.class.php:903 tbl_change.php:235
-#: tbl_tracking.php:767
+#: libraries/DisplayResults.class.php:907 tbl_change.php:235
+#: tbl_tracking.php:769
 msgid "Show"
 msgstr "చూపించు"
 
-#: db_tracking.php:97 js/messages.php:34
+#: db_tracking.php:101 js/messages.php:34
 msgid "Delete tracking data for this table"
 msgstr ""
 
-#: db_tracking.php:103 libraries/Index.class.php:625
-#: libraries/Util.class.php:3443 libraries/Util.class.php:3444
-#: libraries/structure.lib.php:307 libraries/structure.lib.php:1378
-#: libraries/structure.lib.php:2050 libraries/structure.lib.php:2052
-#: server_databases.php:327
+#: db_tracking.php:109 libraries/Index.class.php:625
+#: libraries/Util.class.php:3467 libraries/Util.class.php:3468
+#: libraries/structure.lib.php:307 libraries/structure.lib.php:1382
+#: libraries/structure.lib.php:2058 libraries/structure.lib.php:2060
+#: server_databases.php:328
 msgid "Drop"
 msgstr ""
 
-#: db_tracking.php:120 tbl_tracking.php:722 tbl_tracking.php:776
+#: db_tracking.php:126 tbl_tracking.php:724 tbl_tracking.php:778
 msgid "active"
 msgstr ""
 
-#: db_tracking.php:122 tbl_tracking.php:724 tbl_tracking.php:778
+#: db_tracking.php:128 tbl_tracking.php:726 tbl_tracking.php:780
 msgid "not active"
 msgstr ""
 
-#: db_tracking.php:138
+#: db_tracking.php:144
 msgid "Versions"
 msgstr ""
 
-#: db_tracking.php:139 tbl_tracking.php:488 tbl_tracking.php:798
+#: db_tracking.php:145 tbl_tracking.php:488 tbl_tracking.php:800
 msgid "Tracking report"
 msgstr ""
 
-#: db_tracking.php:140 tbl_tracking.php:292 tbl_tracking.php:803
+#: db_tracking.php:146 tbl_tracking.php:292 tbl_tracking.php:805
 msgid "Structure snapshot"
 msgstr ""
 
-#: db_tracking.php:193
+#: db_tracking.php:199
 msgid "Untracked tables"
 msgstr ""
 
-#: db_tracking.php:212 libraries/structure.lib.php:1515
+#: db_tracking.php:218 libraries/structure.lib.php:1519
 msgid "Track table"
 msgstr ""
 
-#: db_tracking.php:240
+#: db_tracking.php:246
 msgid "Database Log"
 msgstr ""
 
-#: export.php:149
+#: export.php:151
 msgid "Bad type!"
 msgstr "తప్పు రకం!"
 
-#: export.php:200
+#: export.php:202
 msgid "Selected export type has to be saved in file!"
 msgstr ""
 
 # మొదటి అనువాదము
-#: export.php:229
+#: export.php:231
 msgid "Bad parameters!"
 msgstr "చెల్లని పరామితులు!"
 
-#: export.php:333 export.php:364 export.php:926
+#: export.php:335 export.php:366 export.php:928
 #, php-format
 msgid "Insufficient space to save the file %s."
 msgstr ""
 
-#: export.php:504
+#: export.php:506
 #, php-format
 msgid ""
 "File %s already exists on server, change filename or check overwrite option."
 msgstr ""
 
-#: export.php:510 export.php:516
+#: export.php:512 export.php:518
 #, php-format
 msgid "The web server does not have permission to save the file %s."
 msgstr ""
 
-#: export.php:932
+#: export.php:934
 #, php-format
 msgid "Dump has been saved to file %s."
 msgstr ""
@@ -546,7 +544,7 @@ msgid "SRID"
 msgstr ""
 
 #: gis_data_editor.php:184 js/messages.php:315
-#: libraries/DisplayResults.class.php:1641
+#: libraries/DisplayResults.class.php:1645
 msgid "Geometry"
 msgstr ""
 
@@ -628,8 +626,8 @@ msgstr ""
 #: import.php:107
 #, php-format
 msgid ""
-"You probably tried to upload a file that is too large. Please refer to %"
-"sdocumentation%s for a workaround for this limit."
+"You probably tried to upload a file that is too large. Please refer to "
+"%sdocumentation%s for a workaround for this limit."
 msgstr ""
 
 #: import.php:250 import.php:516
@@ -669,7 +667,7 @@ msgstr ""
 msgid "Could not load import plugins, please check your installation!"
 msgstr ""
 
-#: import.php:519 sql.php:382 sql.php:1255
+#: import.php:519 sql.php:382 sql.php:1259
 #, php-format
 msgid "Bookmark %s created"
 msgstr ""
@@ -691,71 +689,71 @@ msgid ""
 "won't be able to finish this import unless you increase php time limits."
 msgstr ""
 
-#: import.php:590 libraries/DisplayResults.class.php:4531
+#: import.php:590 libraries/DisplayResults.class.php:4535
 #: libraries/Message.class.php:180 libraries/rte/rte_routines.lib.php:1424
 #: libraries/sql_query_form.lib.php:114 tbl_operations.php:184
 #: tbl_relation.php:250 tbl_row_action.php:122 view_operations.php:56
 msgid "Your SQL query has been executed successfully"
 msgstr "మీ SQL క్వెరీ విజయవంతంగా నిర్వహించబడింది"
 
-#: import_status.php:101 libraries/Util.class.php:768
+#: import_status.php:99 libraries/Util.class.php:779
 #: libraries/schema/Export_Relation_Schema.class.php:239 user_password.php:239
 msgid "Back"
 msgstr "వెనుకకి"
 
-#: index.php:114
+#: index.php:113
 msgid "General Settings"
 msgstr "సాధారణ అమరికలు"
 
-#: index.php:140 libraries/display_change_password.lib.php:46
+#: index.php:143 libraries/display_change_password.lib.php:46
 #: user_password.php:233
 msgid "Change password"
 msgstr "సంకేతపదాన్ని మార్చు"
 
-#: index.php:156
+#: index.php:159
 #, fuzzy
 #| msgid "Server configuration"
 msgid "Server connection collation"
 msgstr "సేవకి స్వరూపణం"
 
-#: index.php:182
+#: index.php:185
 msgid "Appearance Settings"
 msgstr "రూపురేఖల అమరికలు"
 
-#: index.php:212 prefs_manage.php:275
+#: index.php:215 prefs_manage.php:275
 msgid "More settings"
 msgstr "మరిన్ని అమరికలు"
 
 # మొదటి అనువాదము
-#: index.php:233
+#: index.php:236
 #, fuzzy
 #| msgid "Database"
 msgid "Database server"
 msgstr "డేటాబేస్"
 
-#: index.php:236 libraries/Menu.class.php:150
-#: libraries/ServerStatusData.class.php:339 libraries/common.inc.php:654
-#: libraries/config/messages.inc.php:506
+#: index.php:239 libraries/Menu.class.php:159
+#: libraries/ServerStatusData.class.php:339 libraries/common.inc.php:661
+#: libraries/config/messages.inc.php:508
 msgid "Server"
 msgstr ""
 
-#: index.php:240
+#: index.php:243
 #, fuzzy
 #| msgid "Security"
 msgid "Server type"
 msgstr "భద్రత"
 
-#: index.php:244 libraries/plugins/export/ExportLatex.class.php:225
+#: index.php:247 libraries/plugins/export/ExportLatex.class.php:225
 #: libraries/plugins/export/ExportSql.class.php:612
 #: libraries/plugins/export/ExportXml.class.php:198
 msgid "Server version"
 msgstr ""
 
-#: index.php:248
+#: index.php:251
 msgid "Protocol version"
 msgstr ""
 
-#: index.php:252 libraries/server_privileges.lib.php:1566
+#: index.php:255 libraries/server_privileges.lib.php:1566
 #: libraries/server_privileges.lib.php:2378
 #: libraries/server_privileges.lib.php:2796
 #: libraries/server_privileges.lib.php:2844 server_status.php:316
@@ -763,63 +761,63 @@ msgid "User"
 msgstr "వాడుకరి"
 
 # మొదటి అనువాదము
-#: index.php:257
+#: index.php:260
 #, fuzzy
 #| msgid "Remove database"
 msgid "Server charset"
 msgstr "డేటాబేస్ తొలగించండి"
 
-#: index.php:269
+#: index.php:272
 msgid "Web server"
 msgstr ""
 
-#: index.php:282
+#: index.php:285
 #, fuzzy
 #| msgid "Database comment: "
 msgid "Database client version"
 msgstr "డేటాబేస్ వ్యాఖ్య:"
 
-#: index.php:286
+#: index.php:289
 msgid "PHP extension"
 msgstr ""
 
-#: index.php:300
+#: index.php:303
 msgid "Show PHP information"
 msgstr ""
 
-#: index.php:323 libraries/engines/bdb.lib.php:25
+#: index.php:326 libraries/engines/bdb.lib.php:25
 msgid "Version information"
 msgstr "సంచిక సమాచారం"
 
-#: index.php:332 libraries/Util.class.php:433 libraries/Util.class.php:519
+#: index.php:335 libraries/Util.class.php:444 libraries/Util.class.php:530
 #: libraries/config/FormDisplay.tpl.php:145
 #: libraries/display_export.lib.php:281 libraries/engines/pbxt.lib.php:112
 #: libraries/navigation/NavigationHeader.class.php:229
-#: libraries/relation.lib.php:90 server_variables.php:137
+#: libraries/relation.lib.php:88 server_variables.php:137
 msgid "Documentation"
 msgstr "పత్రావళి"
 
-#: index.php:339 libraries/config/FormDisplay.tpl.php:146
+#: index.php:342 libraries/config/FormDisplay.tpl.php:146
 msgid "Wiki"
 msgstr "వికీ"
 
-#: index.php:348
+#: index.php:351
 msgid "Official Homepage"
 msgstr ""
 
-#: index.php:355
+#: index.php:358
 msgid "Contribute"
 msgstr ""
 
-#: index.php:362
+#: index.php:365
 msgid "Get support"
 msgstr "సహాయాన్ని పొందండి"
 
-#: index.php:369
+#: index.php:372
 msgid "List of changes"
 msgstr "మార్పుల జాబితా"
 
-#: index.php:392
+#: index.php:395
 msgid ""
 "Your configuration file contains settings (root with no password) that "
 "correspond to the default MySQL privileged account. Your MySQL server is "
@@ -827,21 +825,21 @@ msgid ""
 "this security hole by setting a password for user 'root'."
 msgstr ""
 
-#: index.php:403
+#: index.php:406
 msgid ""
 "You have enabled mbstring.func_overload in your PHP configuration. This "
 "option is incompatible with phpMyAdmin and might cause some data to be "
 "corrupted!"
 msgstr ""
 
-#: index.php:414
+#: index.php:417
 msgid ""
 "The mbstring PHP extension was not found and you seem to be using a "
 "multibyte charset. Without the mbstring extension phpMyAdmin is unable to "
 "split strings correctly and it may result in unexpected results."
 msgstr ""
 
-#: index.php:425
+#: index.php:428
 msgid ""
 "Your PHP parameter [a@http://php.net/manual/en/session.configuration.php#ini."
 "session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower than "
@@ -849,38 +847,38 @@ msgid ""
 "expire sooner than configured in phpMyAdmin."
 msgstr ""
 
-#: index.php:437
+#: index.php:440
 msgid ""
 "Login cookie store is lower than cookie validity configured in phpMyAdmin, "
 "because of this, your login will expire sooner than configured in phpMyAdmin."
 msgstr ""
 
-#: index.php:449
+#: index.php:452
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
 msgstr ""
 
-#: index.php:460
+#: index.php:463
 msgid ""
 "Directory [code]config[/code], which is used by the setup script, still "
 "exists in your phpMyAdmin directory. You should remove it once phpMyAdmin "
 "has been configured."
 msgstr ""
 
-#: index.php:470
+#: index.php:473
 #, php-format
 msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
 "extended features have been deactivated. To find out why click %shere%s."
 msgstr ""
 
-#: index.php:502
+#: index.php:505
 #, php-format
 msgid ""
 "Your PHP MySQL library version %s differs from your MySQL server version %s. "
 "This may cause unpredictable behavior."
 msgstr ""
 
-#: index.php:527
+#: index.php:530
 #, php-format
 msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
@@ -998,10 +996,10 @@ msgid "Close"
 msgstr "మూసివేయి"
 
 #: js/messages.php:61 js/messages.php:273
-#: libraries/DisplayResults.class.php:3314 libraries/Index.class.php:591
-#: libraries/Util.class.php:702 libraries/Util.class.php:1247
-#: libraries/Util.class.php:3447 libraries/Util.class.php:3448
-#: libraries/config/messages.inc.php:484
+#: libraries/DisplayResults.class.php:3318 libraries/Index.class.php:591
+#: libraries/Util.class.php:713 libraries/Util.class.php:1258
+#: libraries/Util.class.php:3471 libraries/Util.class.php:3472
+#: libraries/config/messages.inc.php:486
 #: libraries/schema/User_Schema.class.php:216 server_variables.php:130
 #: setup/frames/index.inc.php:147
 msgid "Edit"
@@ -1025,8 +1023,8 @@ msgstr ""
 
 #. l10n: Total number of queries
 #: js/messages.php:68 libraries/build_html_for_db.lib.php:46
-#: libraries/engines/innodb.lib.php:171 libraries/structure.lib.php:2190
-#: server_databases.php:271 server_status.php:186 server_status.php:276
+#: libraries/engines/innodb.lib.php:171 libraries/structure.lib.php:2198
+#: server_databases.php:272 server_status.php:186 server_status.php:276
 #: tbl_printview.php:331
 msgid "Total"
 msgstr "మొత్తం"
@@ -1038,12 +1036,12 @@ msgid "Other"
 msgstr ""
 
 #. l10n: Thousands separator
-#: js/messages.php:72 libraries/Util.class.php:1516
+#: js/messages.php:72 libraries/Util.class.php:1527
 msgid ","
 msgstr ","
 
 #. l10n: Decimal separator
-#: js/messages.php:74 libraries/Util.class.php:1518
+#: js/messages.php:74 libraries/Util.class.php:1529
 msgid "."
 msgstr "."
 
@@ -1152,39 +1150,39 @@ msgid "Processes"
 msgstr ""
 
 #. l10n: shortcuts for Byte
-#: js/messages.php:108 libraries/Util.class.php:1462
+#: js/messages.php:108 libraries/Util.class.php:1473
 msgid "B"
 msgstr "బై"
 
 #. l10n: shortcuts for Kilobyte
-#: js/messages.php:109 libraries/Util.class.php:1464
+#: js/messages.php:109 libraries/Util.class.php:1475
 #: server_status_monitor.php:648
 msgid "KiB"
 msgstr "కిబై"
 
 #. l10n: shortcuts for Megabyte
-#: js/messages.php:110 libraries/Util.class.php:1466
+#: js/messages.php:110 libraries/Util.class.php:1477
 #: server_status_monitor.php:649
 msgid "MiB"
 msgstr "మెబై"
 
 #. l10n: shortcuts for Gigabyte
-#: js/messages.php:111 libraries/Util.class.php:1468
+#: js/messages.php:111 libraries/Util.class.php:1479
 msgid "GiB"
 msgstr "గిబై"
 
 #. l10n: shortcuts for Terabyte
-#: js/messages.php:112 libraries/Util.class.php:1470
+#: js/messages.php:112 libraries/Util.class.php:1481
 msgid "TiB"
 msgstr "టెబై"
 
 #. l10n: shortcuts for Petabyte
-#: js/messages.php:113 libraries/Util.class.php:1472
+#: js/messages.php:113 libraries/Util.class.php:1483
 msgid "PiB"
 msgstr "పిబై"
 
 #. l10n: shortcuts for Exabyte
-#: js/messages.php:114 libraries/Util.class.php:1474
+#: js/messages.php:114 libraries/Util.class.php:1485
 msgid "EiB"
 msgstr "ఎబై"
 
@@ -1206,7 +1204,7 @@ msgstr "సంబంధాలు"
 msgid "Traffic"
 msgstr ""
 
-#: js/messages.php:120 libraries/Menu.class.php:482
+#: js/messages.php:120 libraries/Menu.class.php:503
 #: server_status_monitor.php:475
 msgid "Settings"
 msgstr "అమరికలు"
@@ -1230,7 +1228,7 @@ msgstr ""
 msgid "Please add at least one variable to the series"
 msgstr ""
 
-#: js/messages.php:126 libraries/DisplayResults.class.php:1288
+#: js/messages.php:126 libraries/DisplayResults.class.php:1292
 #: libraries/TableSearch.class.php:841 libraries/TableSearch.class.php:985
 #: libraries/display_export.lib.php:371
 #: libraries/plugins/export/ExportSql.class.php:1545
@@ -1430,7 +1428,7 @@ msgstr ""
 #: libraries/plugins/export/ExportHtmlword.class.php:484
 #: libraries/plugins/export/ExportOdt.class.php:562
 #: libraries/plugins/export/ExportTexytext.class.php:435
-#: libraries/rte/rte_list.lib.php:68 server_status.php:332 sql.php:1187
+#: libraries/rte/rte_list.lib.php:68 server_status.php:332 sql.php:1191
 msgid "Time"
 msgstr "సమయం"
 
@@ -1536,8 +1534,8 @@ msgid ""
 "Failed building chart grid with imported config. Resetting to default config…"
 msgstr ""
 
-#: js/messages.php:199 libraries/Menu.class.php:288
-#: libraries/Menu.class.php:371 libraries/Menu.class.php:478
+#: js/messages.php:199 libraries/Menu.class.php:305
+#: libraries/Menu.class.php:388 libraries/Menu.class.php:499
 #: libraries/config/messages.inc.php:168 libraries/display_import.lib.php:187
 #: prefs_manage.php:232 server_status_monitor.php:530
 #: setup/frames/menu.inc.php:21
@@ -1787,8 +1785,8 @@ msgid "No rows selected"
 msgstr ""
 
 # మొదటి అనువాదము
-#: js/messages.php:275 libraries/DisplayResults.class.php:5051
-#: libraries/structure.lib.php:1374 libraries/structure.lib.php:2048
+#: js/messages.php:275 libraries/DisplayResults.class.php:5055
+#: libraries/structure.lib.php:1378 libraries/structure.lib.php:2056
 #: querywindow.php:85
 msgid "Change"
 msgstr "మార్చుము"
@@ -1797,8 +1795,8 @@ msgstr "మార్చుము"
 msgid "Query execution time"
 msgstr ""
 
-#: js/messages.php:277 libraries/DisplayResults.class.php:721
-#: libraries/DisplayResults.class.php:729
+#: js/messages.php:277 libraries/DisplayResults.class.php:725
+#: libraries/DisplayResults.class.php:733
 #, php-format
 msgid "%d is not valid row number."
 msgstr ""
@@ -1878,7 +1876,7 @@ msgstr "విషయ సూచిక"
 msgid "Ignore"
 msgstr ""
 
-#: js/messages.php:308 libraries/DisplayResults.class.php:3317
+#: js/messages.php:308 libraries/DisplayResults.class.php:3321
 msgid "Copy"
 msgstr ""
 
@@ -2108,63 +2106,63 @@ msgid "December"
 msgstr "డిసెంబర్"
 
 #. l10n: Short month name
-#: js/messages.php:435 libraries/Util.class.php:1673
+#: js/messages.php:435 libraries/Util.class.php:1684
 msgid "Jan"
 msgstr "జన"
 
 #. l10n: Short month name
-#: js/messages.php:437 libraries/Util.class.php:1675
+#: js/messages.php:437 libraries/Util.class.php:1686
 msgid "Feb"
 msgstr "ఫిబ్ర"
 
 #. l10n: Short month name
-#: js/messages.php:439 libraries/Util.class.php:1677
+#: js/messages.php:439 libraries/Util.class.php:1688
 msgid "Mar"
 msgstr "మార్చి"
 
 #. l10n: Short month name
-#: js/messages.php:441 libraries/Util.class.php:1679
+#: js/messages.php:441 libraries/Util.class.php:1690
 msgid "Apr"
 msgstr "ఏప్రి"
 
 #. l10n: Short month name
-#: js/messages.php:443 libraries/Util.class.php:1681
+#: js/messages.php:443 libraries/Util.class.php:1692
 msgctxt "Short month name"
 msgid "May"
 msgstr "మే"
 
 #. l10n: Short month name
-#: js/messages.php:445 libraries/Util.class.php:1683
+#: js/messages.php:445 libraries/Util.class.php:1694
 msgid "Jun"
 msgstr "జూన్"
 
 #. l10n: Short month name
-#: js/messages.php:447 libraries/Util.class.php:1685
+#: js/messages.php:447 libraries/Util.class.php:1696
 msgid "Jul"
 msgstr "జూలై"
 
 #. l10n: Short month name
-#: js/messages.php:449 libraries/Util.class.php:1687
+#: js/messages.php:449 libraries/Util.class.php:1698
 msgid "Aug"
 msgstr "ఆగ"
 
 #. l10n: Short month name
-#: js/messages.php:451 libraries/Util.class.php:1689
+#: js/messages.php:451 libraries/Util.class.php:1700
 msgid "Sep"
 msgstr "సెప్టె"
 
 #. l10n: Short month name
-#: js/messages.php:453 libraries/Util.class.php:1691
+#: js/messages.php:453 libraries/Util.class.php:1702
 msgid "Oct"
 msgstr "అక్టో"
 
 #. l10n: Short month name
-#: js/messages.php:455 libraries/Util.class.php:1693
+#: js/messages.php:455 libraries/Util.class.php:1704
 msgid "Nov"
 msgstr "నవం"
 
 #. l10n: Short month name
-#: js/messages.php:457 libraries/Util.class.php:1695
+#: js/messages.php:457 libraries/Util.class.php:1706
 msgid "Dec"
 msgstr "డిసెం"
 
@@ -2205,32 +2203,32 @@ msgid "Sun"
 msgstr "ఆది"
 
 #. l10n: Short week day name
-#: js/messages.php:478 libraries/Util.class.php:1700
+#: js/messages.php:478 libraries/Util.class.php:1711
 msgid "Mon"
 msgstr "సోమ"
 
 #. l10n: Short week day name
-#: js/messages.php:480 libraries/Util.class.php:1702
+#: js/messages.php:480 libraries/Util.class.php:1713
 msgid "Tue"
 msgstr "మంగళ"
 
 #. l10n: Short week day name
-#: js/messages.php:482 libraries/Util.class.php:1704
+#: js/messages.php:482 libraries/Util.class.php:1715
 msgid "Wed"
 msgstr "బుధ"
 
 #. l10n: Short week day name
-#: js/messages.php:484 libraries/Util.class.php:1706
+#: js/messages.php:484 libraries/Util.class.php:1717
 msgid "Thu"
 msgstr "గురు"
 
 #. l10n: Short week day name
-#: js/messages.php:486 libraries/Util.class.php:1708
+#: js/messages.php:486 libraries/Util.class.php:1719
 msgid "Fri"
 msgstr "శుక్ర"
 
 #. l10n: Short week day name
-#: js/messages.php:488 libraries/Util.class.php:1710
+#: js/messages.php:488 libraries/Util.class.php:1721
 msgid "Sat"
 msgstr "శని"
 
@@ -2376,19 +2374,19 @@ msgstr ""
 msgid "Font size"
 msgstr ""
 
-#: libraries/DBQbe.class.php:346 libraries/DisplayResults.class.php:1272
-#: libraries/DisplayResults.class.php:2007
-#: libraries/DisplayResults.class.php:2015 libraries/TableSearch.class.php:812
-#: libraries/operations.lib.php:630 libraries/structure.lib.php:860
+#: libraries/DBQbe.class.php:346 libraries/DisplayResults.class.php:1276
+#: libraries/DisplayResults.class.php:2011
+#: libraries/DisplayResults.class.php:2019 libraries/TableSearch.class.php:812
+#: libraries/operations.lib.php:654 libraries/structure.lib.php:860
 #: libraries/structure.lib.php:877 server_databases.php:202
 #: server_databases.php:219 server_status.php:420
 msgid "Ascending"
 msgstr "ఆరోహణ"
 
-#: libraries/DBQbe.class.php:349 libraries/DisplayResults.class.php:1284
-#: libraries/DisplayResults.class.php:2002
-#: libraries/DisplayResults.class.php:2020 libraries/TableSearch.class.php:813
-#: libraries/operations.lib.php:631 libraries/structure.lib.php:865
+#: libraries/DBQbe.class.php:349 libraries/DisplayResults.class.php:1288
+#: libraries/DisplayResults.class.php:2006
+#: libraries/DisplayResults.class.php:2024 libraries/TableSearch.class.php:813
+#: libraries/operations.lib.php:655 libraries/structure.lib.php:865
 #: libraries/structure.lib.php:882 server_databases.php:202
 #: server_databases.php:219 server_status.php:417
 msgid "Descending"
@@ -2447,7 +2445,7 @@ msgstr "మార్చు"
 msgid "SQL query on database <b>%s</b>:"
 msgstr ""
 
-#: libraries/DBQbe.class.php:1336 libraries/Util.class.php:1276
+#: libraries/DBQbe.class.php:1336 libraries/Util.class.php:1287
 msgid "Submit Query"
 msgstr "క్వెరీ ని సమర్పించు"
 
@@ -2486,9 +2484,9 @@ msgid_plural "%1$s matches in <strong>%2$s</strong>"
 msgstr[0] ""
 msgstr[1] ""
 
-#: libraries/DbSearch.class.php:346 libraries/Menu.class.php:250
-#: libraries/Util.class.php:3223 libraries/Util.class.php:3436
-#: libraries/Util.class.php:3437 libraries/structure.lib.php:1368
+#: libraries/DbSearch.class.php:346 libraries/Menu.class.php:267
+#: libraries/Util.class.php:3247 libraries/Util.class.php:3460
+#: libraries/Util.class.php:3461 libraries/structure.lib.php:1372
 msgid "Browse"
 msgstr ""
 
@@ -2497,14 +2495,14 @@ msgstr ""
 msgid "Delete the matches for the %s table?"
 msgstr ""
 
-#: libraries/DbSearch.class.php:357 libraries/DisplayResults.class.php:3386
-#: libraries/DisplayResults.class.php:5027
+#: libraries/DbSearch.class.php:357 libraries/DisplayResults.class.php:3390
+#: libraries/DisplayResults.class.php:5031
 #: libraries/schema/User_Schema.class.php:217
 #: libraries/schema/User_Schema.class.php:299
 #: libraries/schema/User_Schema.class.php:352
-#: libraries/sql_query_form.lib.php:415 pmd_general.php:472
+#: libraries/sql_query_form.lib.php:419 pmd_general.php:472
 #: setup/frames/index.inc.php:148 setup/frames/index.inc.php:254
-#: tbl_tracking.php:537 tbl_tracking.php:557 tbl_tracking.php:619
+#: tbl_tracking.php:539 tbl_tracking.php:559 tbl_tracking.php:621
 msgid "Delete"
 msgstr "తొలగించు"
 
@@ -2535,19 +2533,19 @@ msgstr "పట్టికల్ని వాడు"
 msgid "Inside column:"
 msgstr ""
 
-#: libraries/DisplayResults.class.php:698
+#: libraries/DisplayResults.class.php:702
 msgid "Save edited data"
 msgstr ""
 
-#: libraries/DisplayResults.class.php:704
+#: libraries/DisplayResults.class.php:708
 #, fuzzy
 #| msgid "Table comments"
 msgid "Restore column order"
 msgstr "పట్టిక వ్యాఖ్యలు"
 
 # మొదటి అనువాదము
-#: libraries/DisplayResults.class.php:775 libraries/Util.class.php:2552
-#: libraries/Util.class.php:2556
+#: libraries/DisplayResults.class.php:779 libraries/Util.class.php:2572
+#: libraries/Util.class.php:2576
 #, fuzzy
 #| msgid "Begin"
 msgctxt "First page"
@@ -2555,8 +2553,8 @@ msgid "Begin"
 msgstr "మొదలు"
 
 # మొదటి అనువాదము
-#: libraries/DisplayResults.class.php:778 libraries/Util.class.php:2554
-#: libraries/Util.class.php:2557 server_binlog.php:141 server_binlog.php:143
+#: libraries/DisplayResults.class.php:782 libraries/Util.class.php:2574
+#: libraries/Util.class.php:2577 server_binlog.php:145 server_binlog.php:147
 #, fuzzy
 #| msgid "Previous"
 msgctxt "Previous page"
@@ -2564,60 +2562,60 @@ msgid "Previous"
 msgstr "క్రితము"
 
 # మొదటి అనువాదము
-#: libraries/DisplayResults.class.php:835 libraries/Util.class.php:2589
-#: libraries/Util.class.php:2592 server_binlog.php:174 server_binlog.php:176
+#: libraries/DisplayResults.class.php:839 libraries/Util.class.php:2613
+#: libraries/Util.class.php:2616 server_binlog.php:182 server_binlog.php:184
 #, fuzzy
 #| msgid "Next"
 msgctxt "Next page"
 msgid "Next"
 msgstr "తదుపరి"
 
-#: libraries/DisplayResults.class.php:863 libraries/Util.class.php:2590
-#: libraries/Util.class.php:2593
+#: libraries/DisplayResults.class.php:867 libraries/Util.class.php:2614
+#: libraries/Util.class.php:2617
 #, fuzzy
 #| msgid "End"
 msgctxt "Last page"
 msgid "End"
 msgstr "ముగింపు"
 
-#: libraries/DisplayResults.class.php:904 tbl_chart.php:241
+#: libraries/DisplayResults.class.php:908 tbl_chart.php:241
 #, fuzzy
 #| msgid "Start"
 msgid "Start row"
 msgstr "మొదలుపెట్టు"
 
-#: libraries/DisplayResults.class.php:908 tbl_chart.php:245
+#: libraries/DisplayResults.class.php:912 tbl_chart.php:245
 msgid "Number of rows"
 msgstr ""
 
-#: libraries/DisplayResults.class.php:917
+#: libraries/DisplayResults.class.php:921
 #, fuzzy
 #| msgid "More"
 msgid "Mode"
 msgstr "మరిన్ని"
 
-#: libraries/DisplayResults.class.php:919
+#: libraries/DisplayResults.class.php:923
 msgid "horizontal"
 msgstr ""
 
-#: libraries/DisplayResults.class.php:920
+#: libraries/DisplayResults.class.php:924
 msgid "horizontal (rotated headers)"
 msgstr ""
 
-#: libraries/DisplayResults.class.php:921
+#: libraries/DisplayResults.class.php:925
 msgid "vertical"
 msgstr ""
 
-#: libraries/DisplayResults.class.php:933
+#: libraries/DisplayResults.class.php:937
 #, php-format
 msgid "Headers every %s rows"
 msgstr ""
 
-#: libraries/DisplayResults.class.php:1230
+#: libraries/DisplayResults.class.php:1234
 msgid "Sort by key"
 msgstr ""
 
-#: libraries/DisplayResults.class.php:1578 libraries/TableSearch.class.php:754
+#: libraries/DisplayResults.class.php:1582 libraries/TableSearch.class.php:754
 #: libraries/import.lib.php:1195 libraries/import.lib.php:1221
 #: libraries/plugins/export/ExportCodegen.class.php:90
 #: libraries/plugins/export/ExportCsv.class.php:79
@@ -2640,118 +2638,118 @@ msgstr ""
 #: libraries/plugins/import/ImportShp.class.php:56
 #: libraries/plugins/import/ImportSql.class.php:50
 #: libraries/plugins/import/ImportXml.class.php:57
-#: libraries/rte/rte_routines.lib.php:970 libraries/structure.lib.php:1693
+#: libraries/rte/rte_routines.lib.php:970 libraries/structure.lib.php:1701
 msgid "Options"
 msgstr "ఎంపికలు"
 
-#: libraries/DisplayResults.class.php:1584
-#: libraries/DisplayResults.class.php:1690
+#: libraries/DisplayResults.class.php:1588
+#: libraries/DisplayResults.class.php:1694
 msgid "Partial texts"
 msgstr "పాక్షిక పాఠ్యాలు"
 
-#: libraries/DisplayResults.class.php:1585
-#: libraries/DisplayResults.class.php:1694
+#: libraries/DisplayResults.class.php:1589
+#: libraries/DisplayResults.class.php:1698
 msgid "Full texts"
 msgstr "పూర్తి పాఠ్యాలు"
 
-#: libraries/DisplayResults.class.php:1599
+#: libraries/DisplayResults.class.php:1603
 msgid "Relational key"
 msgstr ""
 
-#: libraries/DisplayResults.class.php:1600
+#: libraries/DisplayResults.class.php:1604
 msgid "Relational display column"
 msgstr ""
 
-#: libraries/DisplayResults.class.php:1612
+#: libraries/DisplayResults.class.php:1616
 msgid "Show binary contents"
 msgstr ""
 
-#: libraries/DisplayResults.class.php:1617
+#: libraries/DisplayResults.class.php:1621
 msgid "Show BLOB contents"
 msgstr ""
 
-#: libraries/DisplayResults.class.php:1622
+#: libraries/DisplayResults.class.php:1626
 #: libraries/config/messages.inc.php:57
 msgid "Show binary contents as HEX"
 msgstr ""
 
-#: libraries/DisplayResults.class.php:1633
+#: libraries/DisplayResults.class.php:1637
 #, fuzzy
 #| msgid "Version information"
 msgid "Hide browser transformation"
 msgstr "సంచిక సమాచారం"
 
-#: libraries/DisplayResults.class.php:1642
+#: libraries/DisplayResults.class.php:1646
 msgid "Well Known Text"
 msgstr ""
 
-#: libraries/DisplayResults.class.php:1643
+#: libraries/DisplayResults.class.php:1647
 msgid "Well Known Binary"
 msgstr ""
 
-#: libraries/DisplayResults.class.php:3359
-#: libraries/DisplayResults.class.php:3375
+#: libraries/DisplayResults.class.php:3363
+#: libraries/DisplayResults.class.php:3379
 msgid "The row has been deleted"
 msgstr ""
 
-#: libraries/DisplayResults.class.php:3413
-#: libraries/DisplayResults.class.php:5027 server_status.php:467
+#: libraries/DisplayResults.class.php:3417
+#: libraries/DisplayResults.class.php:5031 server_status.php:467
 msgid "Kill"
 msgstr ""
 
-#: libraries/DisplayResults.class.php:4477 libraries/structure.lib.php:771
+#: libraries/DisplayResults.class.php:4481 libraries/structure.lib.php:771
 msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]"
 msgstr ""
 
-#: libraries/DisplayResults.class.php:4873
+#: libraries/DisplayResults.class.php:4877
 msgid "in query"
 msgstr ""
 
-#: libraries/DisplayResults.class.php:4910 libraries/structure.lib.php:653
+#: libraries/DisplayResults.class.php:4914 libraries/structure.lib.php:653
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 msgstr ""
 
-#: libraries/DisplayResults.class.php:4923
+#: libraries/DisplayResults.class.php:4927
 msgid "Showing rows"
 msgstr ""
 
-#: libraries/DisplayResults.class.php:4939
+#: libraries/DisplayResults.class.php:4943
 msgid "total"
 msgstr "మొత్తం"
 
-#: libraries/DisplayResults.class.php:4950 sql.php:941
+#: libraries/DisplayResults.class.php:4954 sql.php:945
 #, php-format
 msgid "Query took %01.4f sec"
 msgstr ""
 
-#: libraries/DisplayResults.class.php:5041
-#: libraries/DisplayResults.class.php:5047 libraries/mult_submits.inc.php:42
+#: libraries/DisplayResults.class.php:5045
+#: libraries/DisplayResults.class.php:5051 libraries/mult_submits.inc.php:42
 #: libraries/server_privileges.lib.php:2402
 #: libraries/server_privileges.lib.php:2405 libraries/structure.lib.php:278
 #: libraries/structure.lib.php:293 libraries/structure.lib.php:295
-#: libraries/structure.lib.php:1357 libraries/structure.lib.php:1364
-#: server_databases.php:319 server_databases.php:322
+#: libraries/structure.lib.php:1361 libraries/structure.lib.php:1368
+#: server_databases.php:320 server_databases.php:323
 msgid "With selected:"
 msgstr ""
 
-#: libraries/DisplayResults.class.php:5045
-#: libraries/DisplayResults.class.php:5046
+#: libraries/DisplayResults.class.php:5049
+#: libraries/DisplayResults.class.php:5050
 #: libraries/server_privileges.lib.php:779
 #: libraries/server_privileges.lib.php:2403
 #: libraries/server_privileges.lib.php:2404 libraries/structure.lib.php:281
-#: libraries/structure.lib.php:282 libraries/structure.lib.php:1360
-#: libraries/structure.lib.php:1361 server_databases.php:320
-#: server_databases.php:321
+#: libraries/structure.lib.php:282 libraries/structure.lib.php:1364
+#: libraries/structure.lib.php:1365 server_databases.php:321
+#: server_databases.php:322
 msgid "Check All"
 msgstr ""
 
-#: libraries/DisplayResults.class.php:5064
-#: libraries/DisplayResults.class.php:5263 libraries/Menu.class.php:279
-#: libraries/Menu.class.php:362 libraries/Menu.class.php:474
-#: libraries/Util.class.php:3449 libraries/Util.class.php:3450
+#: libraries/DisplayResults.class.php:5068
+#: libraries/DisplayResults.class.php:5267 libraries/Menu.class.php:296
+#: libraries/Menu.class.php:379 libraries/Menu.class.php:495
+#: libraries/Util.class.php:3473 libraries/Util.class.php:3474
 #: libraries/config/messages.inc.php:162 libraries/display_export.lib.php:94
 #: libraries/server_privileges.lib.php:1786
 #: libraries/server_privileges.lib.php:2409 libraries/structure.lib.php:297
@@ -2760,38 +2758,38 @@ msgstr ""
 msgid "Export"
 msgstr "ఎగుమతి"
 
-#: libraries/DisplayResults.class.php:5163
+#: libraries/DisplayResults.class.php:5167
 msgid "Query results operations"
 msgstr ""
 
-#: libraries/DisplayResults.class.php:5187 libraries/Header.class.php:334
+#: libraries/DisplayResults.class.php:5191 libraries/Header.class.php:334
 #: libraries/structure.lib.php:299 libraries/structure.lib.php:362
-#: libraries/structure.lib.php:1481
+#: libraries/structure.lib.php:1485
 msgid "Print view"
 msgstr ""
 
-#: libraries/DisplayResults.class.php:5205
+#: libraries/DisplayResults.class.php:5209
 msgid "Print view (with full texts)"
 msgstr ""
 
-#: libraries/DisplayResults.class.php:5276 tbl_chart.php:151
+#: libraries/DisplayResults.class.php:5280 tbl_chart.php:151
 #, fuzzy
 #| msgid "Table comments"
 msgid "Display chart"
 msgstr "పట్టిక వ్యాఖ్యలు"
 
-#: libraries/DisplayResults.class.php:5301
+#: libraries/DisplayResults.class.php:5305
 msgid "Visualize GIS data"
 msgstr ""
 
 # మొదటి అనువాదము
-#: libraries/DisplayResults.class.php:5333 view_create.php:152
+#: libraries/DisplayResults.class.php:5337 view_create.php:152
 #, fuzzy
 #| msgid "Create"
 msgid "Create view"
 msgstr "సృష్టించు"
 
-#: libraries/DisplayResults.class.php:5522
+#: libraries/DisplayResults.class.php:5526
 msgid "Link not found"
 msgstr ""
 
@@ -2845,8 +2843,8 @@ msgstr ""
 msgid "Cannot read (moved) upload file."
 msgstr ""
 
-#: libraries/Footer.class.php:133 libraries/Footer.class.php:137
-#: libraries/Footer.class.php:140
+#: libraries/Footer.class.php:133 libraries/Footer.class.php:141
+#: libraries/Footer.class.php:144
 msgid "Open new phpMyAdmin window"
 msgstr ""
 
@@ -2854,7 +2852,7 @@ msgstr ""
 msgid "Click on the bar to scroll to top of page"
 msgstr ""
 
-#: libraries/Header.class.php:618
+#: libraries/Header.class.php:626
 #: libraries/plugins/auth/AuthenticationCookie.class.php:172
 msgid "Javascript must be enabled past this point"
 msgstr ""
@@ -2870,8 +2868,8 @@ msgstr ""
 msgid "Indexes"
 msgstr ""
 
-#: libraries/Index.class.php:563 libraries/structure.lib.php:1387
-#: libraries/structure.lib.php:2058 libraries/structure.lib.php:2068
+#: libraries/Index.class.php:563 libraries/structure.lib.php:1391
+#: libraries/structure.lib.php:2066 libraries/structure.lib.php:2076
 #: libraries/tbl_columns_definition_form.inc.php:569 tbl_tracking.php:383
 msgid "Unique"
 msgstr ""
@@ -2886,9 +2884,9 @@ msgstr ""
 
 #: libraries/Index.class.php:567 libraries/TableSearch.class.php:185
 #: libraries/build_html_for_db.lib.php:20 libraries/mysql_charsets.lib.php:130
-#: libraries/operations.lib.php:240 libraries/operations.lib.php:806
+#: libraries/operations.lib.php:260 libraries/operations.lib.php:830
 #: libraries/structure.lib.php:780 libraries/structure.lib.php:1181
-#: libraries/structure.lib.php:1701
+#: libraries/structure.lib.php:1709
 #: libraries/tbl_columns_definition_form.inc.php:114
 #: libraries/tbl_columns_definition_form.inc.php:842 server_collations.php:38
 #: server_collations.php:50 tbl_tracking.php:325 tbl_tracking.php:387
@@ -2918,19 +2916,19 @@ msgid ""
 msgstr ""
 
 # మొదటి అనువాదము
-#: libraries/Menu.class.php:190 libraries/structure.lib.php:677
+#: libraries/Menu.class.php:207 libraries/structure.lib.php:677
 #: libraries/structure.lib.php:707 libraries/structure.lib.php:1188
 #: libraries/tbl_info.inc.php:59
 msgid "View"
 msgstr "చూపుము"
 
-#: libraries/Menu.class.php:256 libraries/Menu.class.php:340
-#: libraries/Util.class.php:3219 libraries/Util.class.php:3226
-#: libraries/Util.class.php:3442 libraries/config/setup.forms.php:291
-#: libraries/config/setup.forms.php:328 libraries/config/setup.forms.php:354
-#: libraries/config/user_preferences.forms.php:195
-#: libraries/config/user_preferences.forms.php:232
-#: libraries/config/user_preferences.forms.php:258
+#: libraries/Menu.class.php:273 libraries/Menu.class.php:357
+#: libraries/Util.class.php:3243 libraries/Util.class.php:3250
+#: libraries/Util.class.php:3466 libraries/config/setup.forms.php:292
+#: libraries/config/setup.forms.php:329 libraries/config/setup.forms.php:355
+#: libraries/config/user_preferences.forms.php:196
+#: libraries/config/user_preferences.forms.php:233
+#: libraries/config/user_preferences.forms.php:259
 #: libraries/import.lib.php:1221
 #: libraries/plugins/export/ExportLatex.class.php:485
 #: libraries/server_privileges.lib.php:749
@@ -2939,31 +2937,31 @@ msgstr "చూపుము"
 msgid "Structure"
 msgstr "నిర్మాణాకృతి"
 
-#: libraries/Menu.class.php:260 libraries/Menu.class.php:345
-#: libraries/Menu.class.php:450 libraries/Util.class.php:3220
-#: libraries/Util.class.php:3227 libraries/config/messages.inc.php:212
+#: libraries/Menu.class.php:277 libraries/Menu.class.php:362
+#: libraries/Menu.class.php:471 libraries/Util.class.php:3244
+#: libraries/Util.class.php:3251 libraries/config/messages.inc.php:212
 #: querywindow.php:59
 msgid "SQL"
 msgstr ""
 
-#: libraries/Menu.class.php:273 libraries/Util.class.php:3222
-#: libraries/Util.class.php:3440 libraries/Util.class.php:3441
-#: libraries/sql_query_form.lib.php:291 libraries/sql_query_form.lib.php:294
+#: libraries/Menu.class.php:290 libraries/Util.class.php:3246
+#: libraries/Util.class.php:3464 libraries/Util.class.php:3465
+#: libraries/sql_query_form.lib.php:295 libraries/sql_query_form.lib.php:298
 msgid "Insert"
 msgstr ""
 
-#: libraries/Menu.class.php:292 libraries/Menu.class.php:315
-#: libraries/Menu.class.php:375 libraries/Util.class.php:3229
+#: libraries/Menu.class.php:309 libraries/Menu.class.php:332
+#: libraries/Menu.class.php:392 libraries/Util.class.php:3253
 #: view_operations.php:86
 msgid "Operations"
 msgstr ""
 
-#: libraries/Menu.class.php:296 libraries/Menu.class.php:409
-#: libraries/relation.lib.php:238
+#: libraries/Menu.class.php:313 libraries/Menu.class.php:426
+#: libraries/relation.lib.php:236
 msgid "Tracking"
 msgstr ""
 
-#: libraries/Menu.class.php:305 libraries/Menu.class.php:403
+#: libraries/Menu.class.php:322 libraries/Menu.class.php:420
 #: libraries/navigation/Nodes/Node_Trigger_Container.class.php:26
 #: libraries/plugins/export/ExportHtmlword.class.php:563
 #: libraries/plugins/export/ExportOdt.class.php:655
@@ -2974,76 +2972,76 @@ msgstr ""
 msgid "Triggers"
 msgstr ""
 
-#: libraries/Menu.class.php:352 libraries/Menu.class.php:359
-#: libraries/Menu.class.php:366
+#: libraries/Menu.class.php:369 libraries/Menu.class.php:376
+#: libraries/Menu.class.php:383
 msgid "Database seems to be empty!"
 msgstr ""
 
-#: libraries/Menu.class.php:355
+#: libraries/Menu.class.php:372
 msgid "Query"
 msgstr ""
 
-#: libraries/Menu.class.php:383 libraries/server_privileges.lib.php:1569
+#: libraries/Menu.class.php:400 libraries/server_privileges.lib.php:1569
 #: libraries/server_privileges.lib.php:2214
 #: libraries/server_privileges.lib.php:2781 server_privileges.php:146
 msgid "Privileges"
 msgstr ""
 
-#: libraries/Menu.class.php:388 libraries/rte/rte_words.lib.php:29
+#: libraries/Menu.class.php:405 libraries/rte/rte_words.lib.php:29
 msgid "Routines"
 msgstr ""
 
-#: libraries/Menu.class.php:396
+#: libraries/Menu.class.php:413
 #: libraries/navigation/Nodes/Node_Event_Container.class.php:26
 #: libraries/plugins/export/ExportSql.class.php:810
 #: libraries/rte/rte_words.lib.php:53
 msgid "Events"
 msgstr ""
 
-#: libraries/Menu.class.php:415 libraries/relation.lib.php:205
+#: libraries/Menu.class.php:432 libraries/relation.lib.php:203
 msgid "Designer"
 msgstr ""
 
-#: libraries/Menu.class.php:446 libraries/config/messages.inc.php:175
+#: libraries/Menu.class.php:467 libraries/config/messages.inc.php:175
 #: libraries/server_privileges.lib.php:2855 server_databases.php:138
 msgid "Databases"
 msgstr ""
 
-#: libraries/Menu.class.php:469
+#: libraries/Menu.class.php:490
 #, fuzzy
 #| msgid "User"
 msgid "Users"
 msgstr "వాడుకరి"
 
-#: libraries/Menu.class.php:491 libraries/ServerStatusData.class.php:187
+#: libraries/Menu.class.php:512 libraries/ServerStatusData.class.php:187
 #: server_binlog.php:74
 msgid "Binary log"
 msgstr ""
 
-#: libraries/Menu.class.php:497 libraries/ServerStatusData.class.php:192
+#: libraries/Menu.class.php:518 libraries/ServerStatusData.class.php:192
 #: libraries/structure.lib.php:182 libraries/structure.lib.php:761
 #: server_replication.php:32 server_replication.php:148
 msgid "Replication"
 msgstr ""
 
-#: libraries/Menu.class.php:502 libraries/ServerStatusData.class.php:239
+#: libraries/Menu.class.php:523 libraries/ServerStatusData.class.php:239
 #: server_engines.php:94 server_engines.php:98
 msgid "Variables"
 msgstr ""
 
-#: libraries/Menu.class.php:506
+#: libraries/Menu.class.php:527
 msgid "Charsets"
 msgstr ""
 
-#: libraries/Menu.class.php:511 server_plugins.php:32 server_plugins.php:65
+#: libraries/Menu.class.php:532 server_plugins.php:32 server_plugins.php:65
 msgid "Plugins"
 msgstr ""
 
-#: libraries/Menu.class.php:515
+#: libraries/Menu.class.php:536
 msgid "Engines"
 msgstr ""
 
-#: libraries/Message.class.php:199 libraries/Util.class.php:664
+#: libraries/Message.class.php:199 libraries/Util.class.php:675
 #: libraries/core.lib.php:232 libraries/import.lib.php:171
 #: libraries/insert_edit.lib.php:1180 tbl_chart.php:24 tbl_operations.php:186
 #: view_operations.php:57
@@ -3075,26 +3073,26 @@ msgstr[1] ""
 msgid "Error while creating PDF:"
 msgstr ""
 
-#: libraries/RecentTable.class.php:114
+#: libraries/RecentTable.class.php:117
 #, fuzzy
 #| msgid "Server configuration"
 msgid "Could not save recent table"
 msgstr "సేవకి స్వరూపణం"
 
 # మొదటి అనువాదము
-#: libraries/RecentTable.class.php:151
+#: libraries/RecentTable.class.php:154
 #, fuzzy
 #| msgctxt "short form"
 #| msgid "Create table"
 msgid "Recent tables"
 msgstr "పట్టికను సృష్టించు"
 
-#: libraries/RecentTable.class.php:163
+#: libraries/RecentTable.class.php:166
 msgid "There are no recent tables"
 msgstr ""
 
-#: libraries/ServerStatusData.class.php:181 libraries/Util.class.php:677
-#: server_status.php:340 sql.php:1114
+#: libraries/ServerStatusData.class.php:181 libraries/Util.class.php:688
+#: server_status.php:340 sql.php:1118
 msgid "SQL query"
 msgstr ""
 
@@ -3424,14 +3422,14 @@ msgstr ""
 
 #: libraries/Types.class.php:308
 msgid ""
-"A small floating-point number, allowable values are -3.402823466E+38 to -"
-"1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
+"A small floating-point number, allowable values are -3.402823466E+38 to "
+"-1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
 msgstr ""
 
 #: libraries/Types.class.php:310
 msgid ""
-"A double-precision floating-point number, allowable values are -"
-"1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
+"A double-precision floating-point number, allowable values are "
+"-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
 "2.2250738585072014E-308 to 1.7976931348623157E+308"
 msgstr ""
 
@@ -3671,12 +3669,12 @@ msgstr ""
 msgid "An enumeration, chosen from the list of defined values"
 msgstr ""
 
-#: libraries/Util.class.php:226
+#: libraries/Util.class.php:237
 #, php-format
 msgid "Max: %s%s"
 msgstr "గరిష్ఠం: %s%s"
 
-#: libraries/Util.class.php:721 libraries/rte/rte_events.lib.php:114
+#: libraries/Util.class.php:732 libraries/rte/rte_events.lib.php:114
 #: libraries/rte/rte_events.lib.php:123 libraries/rte/rte_events.lib.php:140
 #: libraries/rte/rte_events.lib.php:161 libraries/rte/rte_routines.lib.php:300
 #: libraries/rte/rte_routines.lib.php:309
@@ -3689,117 +3687,117 @@ msgstr "గరిష్ఠం: %s%s"
 msgid "MySQL said: "
 msgstr ""
 
-#: libraries/Util.class.php:1171
+#: libraries/Util.class.php:1182
 msgid "Failed to connect to SQL validator!"
 msgstr ""
 
-#: libraries/Util.class.php:1213 libraries/config/messages.inc.php:485
+#: libraries/Util.class.php:1224 libraries/config/messages.inc.php:487
 msgid "Explain SQL"
 msgstr ""
 
-#: libraries/Util.class.php:1221
+#: libraries/Util.class.php:1232
 msgid "Skip Explain SQL"
 msgstr ""
 
-#: libraries/Util.class.php:1261
+#: libraries/Util.class.php:1272
 msgid "Without PHP Code"
 msgstr ""
 
-#: libraries/Util.class.php:1264 libraries/config/messages.inc.php:487
+#: libraries/Util.class.php:1275 libraries/config/messages.inc.php:489
 msgid "Create PHP Code"
 msgstr ""
 
-#: libraries/Util.class.php:1290 libraries/config/messages.inc.php:486
+#: libraries/Util.class.php:1301 libraries/config/messages.inc.php:488
 #: server_status_variables.php:80
 msgid "Refresh"
 msgstr ""
 
-#: libraries/Util.class.php:1300
+#: libraries/Util.class.php:1311
 msgid "Skip Validate SQL"
 msgstr ""
 
-#: libraries/Util.class.php:1303 libraries/config/messages.inc.php:489
+#: libraries/Util.class.php:1314 libraries/config/messages.inc.php:491
 msgid "Validate SQL"
 msgstr ""
 
-#: libraries/Util.class.php:1365
+#: libraries/Util.class.php:1376
 msgid "Inline edit of this query"
 msgstr ""
 
-#: libraries/Util.class.php:1367
+#: libraries/Util.class.php:1378
 msgctxt "Inline edit query"
 msgid "Inline"
 msgstr ""
 
-#: libraries/Util.class.php:1435 sql.php:1178
+#: libraries/Util.class.php:1446 sql.php:1182
 msgid "Profiling"
 msgstr ""
 
 #. l10n: Short week day name
-#: libraries/Util.class.php:1698
+#: libraries/Util.class.php:1709
 msgctxt "Short week day name"
 msgid "Sun"
 msgstr "ఆది"
 
 #. l10n: See http://www.php.net/manual/en/function.strftime.php
-#: libraries/Util.class.php:1714
+#: libraries/Util.class.php:1725
 #: libraries/plugins/transformations/abstract/DateFormatTransformationsPlugin.class.php:69
 msgid "%B %d, %Y at %I:%M %p"
 msgstr "%B %d, %Y at %I:%M %p"
 
-#: libraries/Util.class.php:2053
+#: libraries/Util.class.php:2070
 #, php-format
 msgid "%s days, %s hours, %s minutes and %s seconds"
 msgstr "%s రోజులు, %s గంటలు, %s నిమిషాలు మరియు %s క్షణాలు"
 
-#: libraries/Util.class.php:2142
+#: libraries/Util.class.php:2159
 msgid "Missing parameter:"
-msgstr ""
-
-#: libraries/Util.class.php:2662
-#, php-format
-msgid "Jump to database &quot;%s&quot;."
 msgstr ""
 
 #: libraries/Util.class.php:2686
 #, php-format
+msgid "Jump to database &quot;%s&quot;."
+msgstr ""
+
+#: libraries/Util.class.php:2710
+#, php-format
 msgid "The %s functionality is affected by a known bug, see %s"
 msgstr ""
 
-#: libraries/Util.class.php:2862
+#: libraries/Util.class.php:2886
 msgid "Click to toggle"
 msgstr ""
 
-#: libraries/Util.class.php:3355 libraries/sql_query_form.lib.php:457
+#: libraries/Util.class.php:3379 libraries/sql_query_form.lib.php:461
 #: prefs_manage.php:242
 msgid "Browse your computer:"
 msgstr ""
 
-#: libraries/Util.class.php:3380
+#: libraries/Util.class.php:3404
 #, php-format
 msgid "Select from the web server upload directory <b>%s</b>:"
 msgstr ""
 
-#: libraries/Util.class.php:3409 libraries/insert_edit.lib.php:1181
-#: libraries/sql_query_form.lib.php:466
+#: libraries/Util.class.php:3433 libraries/insert_edit.lib.php:1181
+#: libraries/sql_query_form.lib.php:470
 msgid "The directory you set for upload work cannot be reached"
 msgstr ""
 
-#: libraries/Util.class.php:3420
+#: libraries/Util.class.php:3444
 msgid "There are no files to upload"
 msgstr ""
 
 # మొదటి అనువాదము
-#: libraries/Util.class.php:3445 libraries/Util.class.php:3446
+#: libraries/Util.class.php:3469 libraries/Util.class.php:3470
 #: libraries/structure.lib.php:305
 msgid "Empty"
 msgstr "ఖాళీ"
 
-#: libraries/Util.class.php:3451 libraries/Util.class.php:3452
+#: libraries/Util.class.php:3475 libraries/Util.class.php:3476
 msgid "Execute"
 msgstr ""
 
-#: libraries/Util.class.php:3979
+#: libraries/Util.class.php:4003
 msgid "Print"
 msgstr "ముద్రించు"
 
@@ -3807,22 +3805,22 @@ msgstr "ముద్రించు"
 msgid "shared"
 msgstr ""
 
-#: libraries/build_html_for_db.lib.php:36 libraries/config/setup.forms.php:300
-#: libraries/config/setup.forms.php:336 libraries/config/setup.forms.php:359
-#: libraries/config/setup.forms.php:364
-#: libraries/config/user_preferences.forms.php:204
-#: libraries/config/user_preferences.forms.php:240
-#: libraries/config/user_preferences.forms.php:263
-#: libraries/config/user_preferences.forms.php:268
+#: libraries/build_html_for_db.lib.php:36 libraries/config/setup.forms.php:301
+#: libraries/config/setup.forms.php:337 libraries/config/setup.forms.php:360
+#: libraries/config/setup.forms.php:365
+#: libraries/config/user_preferences.forms.php:205
+#: libraries/config/user_preferences.forms.php:241
+#: libraries/config/user_preferences.forms.php:264
+#: libraries/config/user_preferences.forms.php:269
 #: libraries/plugins/export/ExportLatex.class.php:301
 #: libraries/plugins/export/ExportSql.class.php:1545
-#: libraries/server_privileges.lib.php:748 libraries/structure.lib.php:2168
+#: libraries/server_privileges.lib.php:748 libraries/structure.lib.php:2176
 #: tbl_printview.php:299
 msgid "Data"
 msgstr ""
 
 #: libraries/build_html_for_db.lib.php:51 libraries/structure.lib.php:791
-#: libraries/structure.lib.php:2181 tbl_printview.php:315
+#: libraries/structure.lib.php:2189 tbl_printview.php:315
 msgid "Overhead"
 msgstr ""
 
@@ -3847,66 +3845,76 @@ msgstr ""
 msgid "Check Privileges"
 msgstr ""
 
-#: libraries/common.inc.php:578
+#: libraries/common.inc.php:585
 #, fuzzy
 #| msgid "Server configuration"
 msgid "Failed to read configuration file"
 msgstr "సేవకి స్వరూపణం"
 
-#: libraries/common.inc.php:580
+#: libraries/common.inc.php:587
 msgid ""
 "This usually means there is a syntax error in it, please check any errors "
 "shown below."
 msgstr ""
 
-#: libraries/common.inc.php:587
+#: libraries/common.inc.php:594
 #, php-format
 msgid "Could not load default configuration from: %1$s"
 msgstr ""
 
-#: libraries/common.inc.php:594
+#: libraries/common.inc.php:601
 msgid ""
 "The [code]$cfg['PmaAbsoluteUri'][/code] directive MUST be set in your "
 "configuration file!"
 msgstr ""
 
-#: libraries/common.inc.php:627
+#: libraries/common.inc.php:634
 #, php-format
 msgid "Invalid server index: %s"
 msgstr ""
 
-#: libraries/common.inc.php:638
+#: libraries/common.inc.php:645
 #, php-format
 msgid "Invalid hostname for server %1$s. Please review your configuration."
 msgstr ""
 
-#: libraries/common.inc.php:847
+#: libraries/common.inc.php:854
 msgid "Invalid authentication method set in configuration:"
 msgstr ""
 
-#: libraries/common.inc.php:969
+#: libraries/common.inc.php:976
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr ""
 
-#: libraries/common.inc.php:1058
+#: libraries/common.inc.php:1065
 msgid "Error: Token mismatch"
 msgstr ""
 
-#: libraries/common.inc.php:1102
+#: libraries/common.inc.php:1109
 msgid "GLOBALS overwrite attempt"
 msgstr ""
 
-#: libraries/common.inc.php:1109
+#: libraries/common.inc.php:1116
 msgid "possible exploit"
 msgstr ""
 
-#: libraries/common.inc.php:1118
+#: libraries/common.inc.php:1125
 msgid "numeric key detected"
 msgstr ""
 
+#: libraries/config.values.php:49 libraries/config.values.php:64
+#: libraries/config.values.php:69
+msgid "Icons"
+msgstr ""
+
+#: libraries/config.values.php:50 libraries/config.values.php:65
+#: libraries/config.values.php:70
+msgid "Text"
+msgstr ""
+
 #: libraries/config.values.php:51 libraries/config.values.php:58
-#: libraries/config.values.php:66
+#: libraries/config.values.php:66 libraries/config.values.php:71
 msgid "Both"
 msgstr ""
 
@@ -3924,31 +3932,31 @@ msgstr ""
 msgid "Right"
 msgstr "ఎత్తు"
 
-#: libraries/config.values.php:69
+#: libraries/config.values.php:74
 msgid "Click"
 msgstr ""
 
-#: libraries/config.values.php:70
+#: libraries/config.values.php:75
 msgid "Double click"
 msgstr ""
 
-#: libraries/config.values.php:71 libraries/config.values.php:102
-#: libraries/config/FormDisplay.tpl.php:223 libraries/relation.lib.php:98
-#: libraries/relation.lib.php:105 pmd_relation_new.php:82
+#: libraries/config.values.php:76 libraries/config.values.php:107
+#: libraries/config/FormDisplay.tpl.php:223 libraries/relation.lib.php:96
+#: libraries/relation.lib.php:103 pmd_relation_new.php:82
 msgid "Disabled"
 msgstr ""
 
-#: libraries/config.values.php:100
+#: libraries/config.values.php:105
 msgid "Open"
 msgstr ""
 
-#: libraries/config.values.php:101
+#: libraries/config.values.php:106
 #, fuzzy
 #| msgid "Close"
 msgid "Closed"
 msgstr "మూసివేయి"
 
-#: libraries/config.values.php:131
+#: libraries/config.values.php:136
 #: libraries/plugins/export/ExportHtmlword.class.php:69
 #: libraries/plugins/export/ExportLatex.class.php:103
 #: libraries/plugins/export/ExportMediawiki.class.php:73
@@ -3958,7 +3966,7 @@ msgstr "మూసివేయి"
 msgid "structure"
 msgstr "నిర్మాణాకృతి"
 
-#: libraries/config.values.php:132
+#: libraries/config.values.php:137
 #: libraries/plugins/export/ExportHtmlword.class.php:70
 #: libraries/plugins/export/ExportLatex.class.php:104
 #: libraries/plugins/export/ExportMediawiki.class.php:74
@@ -3968,7 +3976,7 @@ msgstr "నిర్మాణాకృతి"
 msgid "data"
 msgstr "భోగట్టా"
 
-#: libraries/config.values.php:133
+#: libraries/config.values.php:138
 #: libraries/plugins/export/ExportHtmlword.class.php:71
 #: libraries/plugins/export/ExportLatex.class.php:105
 #: libraries/plugins/export/ExportMediawiki.class.php:75
@@ -3978,31 +3986,31 @@ msgstr "భోగట్టా"
 msgid "structure and data"
 msgstr "నిర్మాణాకృతి మరియు భోగట్టా"
 
-#: libraries/config.values.php:136
+#: libraries/config.values.php:141
 msgid "Quick - display only the minimal options to configure"
 msgstr ""
 
-#: libraries/config.values.php:137
+#: libraries/config.values.php:142
 msgid "Custom - display all possible options to configure"
 msgstr ""
 
-#: libraries/config.values.php:138
+#: libraries/config.values.php:143
 msgid "Custom - like above, but without the quick/custom choice"
 msgstr ""
 
-#: libraries/config.values.php:166
+#: libraries/config.values.php:171
 msgid "complete inserts"
 msgstr ""
 
-#: libraries/config.values.php:167
+#: libraries/config.values.php:172
 msgid "extended inserts"
 msgstr ""
 
-#: libraries/config.values.php:168
+#: libraries/config.values.php:173
 msgid "both of the above"
 msgstr ""
 
-#: libraries/config.values.php:169
+#: libraries/config.values.php:174
 msgid "neither of the above"
 msgstr ""
 
@@ -4022,7 +4030,7 @@ msgid "Not a valid port number"
 msgstr ""
 
 #: libraries/config/FormDisplay.class.php:91
-#: libraries/config/FormDisplay.class.php:587
+#: libraries/config/FormDisplay.class.php:579
 #: libraries/config/validate.lib.php:435 libraries/config/validate.lib.php:566
 msgid "Incorrect value"
 msgstr "తప్పుడు విలువ"
@@ -4038,36 +4046,36 @@ msgstr "విలువ తప్పనిసరిగా %s కి సమాన
 msgid "Missing data for %s"
 msgstr ""
 
-#: libraries/config/FormDisplay.class.php:765
-#: libraries/config/FormDisplay.class.php:771
+#: libraries/config/FormDisplay.class.php:757
+#: libraries/config/FormDisplay.class.php:763
 msgid "unavailable"
 msgstr "అందుబాటులో లేదు"
 
-#: libraries/config/FormDisplay.class.php:767
-#: libraries/config/FormDisplay.class.php:773
+#: libraries/config/FormDisplay.class.php:759
+#: libraries/config/FormDisplay.class.php:765
 #, php-format
 msgid "\"%s\" requires %s extension"
 msgstr ""
 
-#: libraries/config/FormDisplay.class.php:792
+#: libraries/config/FormDisplay.class.php:784
 #, php-format
 msgid "import will not work, missing function (%s)"
 msgstr ""
 
-#: libraries/config/FormDisplay.class.php:798
+#: libraries/config/FormDisplay.class.php:790
 #, php-format
 msgid "export will not work, missing function (%s)"
 msgstr ""
 
-#: libraries/config/FormDisplay.class.php:808
+#: libraries/config/FormDisplay.class.php:800
 msgid "SQL Validator is disabled"
 msgstr ""
 
-#: libraries/config/FormDisplay.class.php:815
+#: libraries/config/FormDisplay.class.php:807
 msgid "SOAP extension not found"
 msgstr ""
 
-#: libraries/config/FormDisplay.class.php:825
+#: libraries/config/FormDisplay.class.php:817
 #, php-format
 msgid "maximum %s"
 msgstr "గరిష్ఠం %s"
@@ -4082,7 +4090,7 @@ msgid "Set value: %s"
 msgstr ""
 
 #: libraries/config/FormDisplay.tpl.php:314
-#: libraries/config/messages.inc.php:359
+#: libraries/config/messages.inc.php:361
 msgid "Restore default value"
 msgstr ""
 
@@ -4091,7 +4099,7 @@ msgid "Allow users to customize this value"
 msgstr ""
 
 #: libraries/config/FormDisplay.tpl.php:394 libraries/insert_edit.lib.php:1549
-#: libraries/schema/User_Schema.class.php:555 prefs_manage.php:320
+#: libraries/schema/User_Schema.class.php:558 prefs_manage.php:320
 #: prefs_manage.php:325
 msgid "Reset"
 msgstr ""
@@ -4158,8 +4166,8 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:30
 msgid ""
-"Use user-friendly editor for editing SQL queries ([a@http://codemirror.net/]"
-"CodeMirror[/a]) with syntax highlighting and line numbers"
+"Use user-friendly editor for editing SQL queries ([a@http://codemirror."
+"net/]CodeMirror[/a]) with syntax highlighting and line numbers"
 msgstr ""
 
 #: libraries/config/messages.inc.php:31
@@ -4333,7 +4341,7 @@ msgid "Character set of the file"
 msgstr ""
 
 #: libraries/config/messages.inc.php:70 libraries/config/messages.inc.php:86
-#: libraries/structure.lib.php:1682 tbl_gis_visualization.php:181
+#: libraries/structure.lib.php:1690 tbl_gis_visualization.php:181
 #: tbl_printview.php:350
 msgid "Format"
 msgstr ""
@@ -4347,8 +4355,8 @@ msgstr ""
 #: libraries/config/messages.inc.php:104 libraries/config/messages.inc.php:106
 #: libraries/config/messages.inc.php:139 libraries/config/messages.inc.php:142
 #: libraries/config/messages.inc.php:144
-#: libraries/plugins/export/ExportCsv.class.php:118
-#: libraries/plugins/export/ExportExcel.class.php:67
+#: libraries/plugins/export/ExportCsv.class.php:119
+#: libraries/plugins/export/ExportExcel.class.php:68
 #: libraries/plugins/export/ExportHtmlword.class.php:90
 #: libraries/plugins/export/ExportLatex.class.php:162
 #: libraries/plugins/export/ExportOds.class.php:75
@@ -4469,8 +4477,8 @@ msgstr ""
 msgid "Remember file name template"
 msgstr ""
 
-#: libraries/config/messages.inc.php:117 libraries/operations.lib.php:195
-#: libraries/operations.lib.php:684 libraries/operations.lib.php:1027
+#: libraries/config/messages.inc.php:117 libraries/operations.lib.php:211
+#: libraries/operations.lib.php:708 libraries/operations.lib.php:1051
 msgid "Add AUTO_INCREMENT value"
 msgstr ""
 
@@ -4503,7 +4511,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:124 libraries/config/messages.inc.php:125
 #: libraries/config/messages.inc.php:127 libraries/config/messages.inc.php:133
-#: libraries/operations.lib.php:190 libraries/operations.lib.php:1023
+#: libraries/operations.lib.php:206 libraries/operations.lib.php:1047
 #, php-format
 msgid "Add %s"
 msgstr "%s జతచేయి"
@@ -4579,10 +4587,10 @@ msgstr ""
 msgid "Customize default options"
 msgstr ""
 
-#: libraries/config/messages.inc.php:156 libraries/config/setup.forms.php:238
-#: libraries/config/setup.forms.php:311
-#: libraries/config/user_preferences.forms.php:144
-#: libraries/config/user_preferences.forms.php:215
+#: libraries/config/messages.inc.php:156 libraries/config/setup.forms.php:239
+#: libraries/config/setup.forms.php:312
+#: libraries/config/user_preferences.forms.php:145
+#: libraries/config/user_preferences.forms.php:216
 msgid "CSV"
 msgstr ""
 
@@ -4693,8 +4701,9 @@ msgstr "పుట శీర్షికలు"
 
 #: libraries/config/messages.inc.php:191
 msgid ""
-"Specify browser's title bar text. Refer to [doc@cfg_TitleTable]documentation"
-"[/doc] for magic strings that can be used to get special values."
+"Specify browser's title bar text. Refer to "
+"[doc@cfg_TitleTable]documentation[/doc] for magic strings that can be used "
+"to get special values."
 msgstr ""
 
 #: libraries/config/messages.inc.php:192
@@ -5045,7 +5054,7 @@ msgid "Maximum displayed SQL length"
 msgstr ""
 
 #: libraries/config/messages.inc.php:283 libraries/config/messages.inc.php:290
-#: libraries/config/messages.inc.php:344
+#: libraries/config/messages.inc.php:346
 msgid "Users cannot set a higher value"
 msgstr ""
 
@@ -5220,12 +5229,15 @@ msgid "Natural order"
 msgstr "సహజ క్రమం"
 
 #: libraries/config/messages.inc.php:324 libraries/config/messages.inc.php:338
+#: libraries/config/messages.inc.php:340
 msgid "Use only icons, only text or both"
 msgstr ""
 
 #: libraries/config/messages.inc.php:325
-msgid "Iconic navigation bar"
-msgstr ""
+#, fuzzy
+#| msgid "Table options"
+msgid "Table navigation bar"
+msgstr "పట్టిక ఎంపికలు"
 
 #: libraries/config/messages.inc.php:326
 msgid "use GZip output buffering for increased speed in HTTP transfers"
@@ -5285,316 +5297,320 @@ msgid "MySQL reserved word warning"
 msgstr ""
 
 #: libraries/config/messages.inc.php:339
-msgid "Iconic table operations"
-msgstr ""
-
-#: libraries/config/messages.inc.php:340
-msgid "Disallow BLOB and BINARY columns from editing"
+msgid "How to display the menu tabs"
 msgstr ""
 
 #: libraries/config/messages.inc.php:341
-msgid "Protect binary columns"
+msgid "How to display various action links"
 msgstr ""
 
 #: libraries/config/messages.inc.php:342
+msgid "Disallow BLOB and BINARY columns from editing"
+msgstr ""
+
+#: libraries/config/messages.inc.php:343
+msgid "Protect binary columns"
+msgstr ""
+
+#: libraries/config/messages.inc.php:344
 msgid ""
 "Enable if you want DB-based query history (requires phpMyAdmin configuration "
 "storage). If disabled, this utilizes JS-routines to display query history "
 "(lost by window close)."
 msgstr ""
 
-#: libraries/config/messages.inc.php:343
+#: libraries/config/messages.inc.php:345
 msgid "Permanent query history"
 msgstr ""
 
-#: libraries/config/messages.inc.php:345
+#: libraries/config/messages.inc.php:347
 msgid "How many queries are kept in history"
 msgstr ""
 
-#: libraries/config/messages.inc.php:346
+#: libraries/config/messages.inc.php:348
 msgid "Query history length"
 msgstr ""
 
-#: libraries/config/messages.inc.php:347
+#: libraries/config/messages.inc.php:349
 msgid "Tab displayed when opening a new query window"
 msgstr ""
 
-#: libraries/config/messages.inc.php:348
+#: libraries/config/messages.inc.php:350
 msgid "Default query window tab"
 msgstr ""
 
-#: libraries/config/messages.inc.php:349
+#: libraries/config/messages.inc.php:351
 msgid "Query window height (in pixels)"
 msgstr ""
 
-#: libraries/config/messages.inc.php:350
+#: libraries/config/messages.inc.php:352
 msgid "Query window height"
 msgstr ""
 
-#: libraries/config/messages.inc.php:351
+#: libraries/config/messages.inc.php:353
 msgid "Query window width (in pixels)"
 msgstr ""
 
-#: libraries/config/messages.inc.php:352
+#: libraries/config/messages.inc.php:354
 msgid "Query window width"
 msgstr ""
 
-#: libraries/config/messages.inc.php:353
+#: libraries/config/messages.inc.php:355
 msgid "Select which functions will be used for character set conversion"
 msgstr ""
 
-#: libraries/config/messages.inc.php:354
+#: libraries/config/messages.inc.php:356
 msgid "Recoding engine"
 msgstr ""
 
-#: libraries/config/messages.inc.php:355
+#: libraries/config/messages.inc.php:357
 msgid "When browsing tables, the sorting of each table is remembered"
 msgstr ""
 
-#: libraries/config/messages.inc.php:356
+#: libraries/config/messages.inc.php:358
 msgid "Remember table's sorting"
 msgstr ""
 
-#: libraries/config/messages.inc.php:357
+#: libraries/config/messages.inc.php:359
 msgid "Repeat the headers every X cells, [kbd]0[/kbd] deactivates this feature"
 msgstr ""
 
-#: libraries/config/messages.inc.php:358
+#: libraries/config/messages.inc.php:360
 msgid "Repeat headers"
 msgstr ""
 
-#: libraries/config/messages.inc.php:360
+#: libraries/config/messages.inc.php:362
 msgid "Grid editing: trigger action"
 msgstr ""
 
-#: libraries/config/messages.inc.php:361
+#: libraries/config/messages.inc.php:363
 msgid "Grid editing: save all edited cells at once"
 msgstr ""
 
-#: libraries/config/messages.inc.php:362
+#: libraries/config/messages.inc.php:364
 msgid "Directory where exports can be saved on server"
 msgstr ""
 
-#: libraries/config/messages.inc.php:363
+#: libraries/config/messages.inc.php:365
 msgid "Save directory"
 msgstr ""
 
-#: libraries/config/messages.inc.php:364
+#: libraries/config/messages.inc.php:366
 msgid "Leave blank if not used"
 msgstr "ఉపయోగించకపోతే ఖాళీగా వదిలేయండి"
 
-#: libraries/config/messages.inc.php:365
+#: libraries/config/messages.inc.php:367
 msgid "Host authorization order"
 msgstr ""
 
-#: libraries/config/messages.inc.php:366
+#: libraries/config/messages.inc.php:368
 msgid "Leave blank for defaults"
 msgstr "అప్రమేయాలకై ఖాళీగా వదిలివేయండి"
 
-#: libraries/config/messages.inc.php:367
+#: libraries/config/messages.inc.php:369
 msgid "Host authorization rules"
 msgstr ""
 
-#: libraries/config/messages.inc.php:368
+#: libraries/config/messages.inc.php:370
 msgid "Allow logins without a password"
 msgstr ""
 
-#: libraries/config/messages.inc.php:369
+#: libraries/config/messages.inc.php:371
 msgid "Allow root login"
 msgstr ""
 
-#: libraries/config/messages.inc.php:370
+#: libraries/config/messages.inc.php:372
 msgid "HTTP Basic Auth Realm name to display when doing HTTP Auth"
 msgstr ""
 
-#: libraries/config/messages.inc.php:371
+#: libraries/config/messages.inc.php:373
 msgid "HTTP Realm"
 msgstr ""
 
-#: libraries/config/messages.inc.php:372
+#: libraries/config/messages.inc.php:374
 msgid ""
 "The path for the config file for [a@http://swekey.com]SweKey hardware "
 "authentication[/a] (not located in your document root; suggested: /etc/"
 "swekey.conf)"
 msgstr ""
 
-#: libraries/config/messages.inc.php:373
+#: libraries/config/messages.inc.php:375
 msgid "SweKey config file"
 msgstr ""
 
-#: libraries/config/messages.inc.php:374
+#: libraries/config/messages.inc.php:376
 msgid "Authentication method to use"
 msgstr ""
 
-#: libraries/config/messages.inc.php:375 setup/frames/index.inc.php:136
+#: libraries/config/messages.inc.php:377 setup/frames/index.inc.php:136
 msgid "Authentication type"
 msgstr ""
 
-#: libraries/config/messages.inc.php:376
+#: libraries/config/messages.inc.php:378
 msgid ""
 "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/bookmark]bookmark[/a] "
 "support, suggested: [kbd]pma__bookmark[/kbd]"
 msgstr ""
 
-#: libraries/config/messages.inc.php:377
+#: libraries/config/messages.inc.php:379
 msgid "Bookmark table"
 msgstr ""
 
-#: libraries/config/messages.inc.php:378
-msgid ""
-"Leave blank for no column comments/mime types, suggested: [kbd]"
-"pma__column_info[/kbd]"
-msgstr ""
-
-#: libraries/config/messages.inc.php:379
-msgid "Column information table"
-msgstr ""
-
 #: libraries/config/messages.inc.php:380
-msgid "Compress connection to MySQL server"
+msgid ""
+"Leave blank for no column comments/mime types, suggested: "
+"[kbd]pma__column_info[/kbd]"
 msgstr ""
 
 #: libraries/config/messages.inc.php:381
-msgid "Compress connection"
+msgid "Column information table"
 msgstr ""
 
 #: libraries/config/messages.inc.php:382
-msgid "How to connect to server, keep [kbd]tcp[/kbd] if unsure"
+msgid "Compress connection to MySQL server"
 msgstr ""
 
 #: libraries/config/messages.inc.php:383
-msgid "Connection type"
-msgstr "అనుసంధాన రకం"
+msgid "Compress connection"
+msgstr ""
 
 #: libraries/config/messages.inc.php:384
-msgid "Control user password"
+msgid "How to connect to server, keep [kbd]tcp[/kbd] if unsure"
 msgstr ""
 
 #: libraries/config/messages.inc.php:385
+msgid "Connection type"
+msgstr "అనుసంధాన రకం"
+
+#: libraries/config/messages.inc.php:386
+msgid "Control user password"
+msgstr ""
+
+#: libraries/config/messages.inc.php:387
 msgid ""
 "A special MySQL user configured with limited permissions, more information "
 "available on [a@http://wiki.phpmyadmin.net/pma/controluser]wiki[/a]"
 msgstr ""
 
-#: libraries/config/messages.inc.php:386
+#: libraries/config/messages.inc.php:388
 msgid "Control user"
 msgstr ""
 
-#: libraries/config/messages.inc.php:387
+#: libraries/config/messages.inc.php:389
 msgid ""
 "An alternate host to hold the configuration storage; leave blank to use the "
 "already defined host"
 msgstr ""
 
-#: libraries/config/messages.inc.php:388
+#: libraries/config/messages.inc.php:390
 msgid "Control host"
 msgstr ""
 
-#: libraries/config/messages.inc.php:389
+#: libraries/config/messages.inc.php:391
 msgid ""
 "Leave blank for no Designer support, suggested: [kbd]pma__designer_coords[/"
 "kbd]"
 msgstr ""
 
-#: libraries/config/messages.inc.php:390
+#: libraries/config/messages.inc.php:392
 msgid "Designer table"
 msgstr ""
 
-#: libraries/config/messages.inc.php:391
+#: libraries/config/messages.inc.php:393
 msgid ""
 "More information on [a@https://sourceforge.net/p/phpmyadmin/bugs/2606/]PMA "
 "bug tracker[/a] and [a@http://bugs.mysql.com/19588]MySQL Bugs[/a]"
 msgstr ""
 
-#: libraries/config/messages.inc.php:392
+#: libraries/config/messages.inc.php:394
 msgid "Disable use of INFORMATION_SCHEMA"
 msgstr ""
 
-#: libraries/config/messages.inc.php:393
+#: libraries/config/messages.inc.php:395
 msgid "What PHP extension to use; you should use mysqli if supported"
 msgstr ""
 
-#: libraries/config/messages.inc.php:394
+#: libraries/config/messages.inc.php:396
 msgid "PHP extension to use"
 msgstr ""
 
-#: libraries/config/messages.inc.php:395
+#: libraries/config/messages.inc.php:397
 msgid "Hide databases matching regular expression (PCRE)"
 msgstr ""
 
-#: libraries/config/messages.inc.php:396
+#: libraries/config/messages.inc.php:398
 msgid "Hide databases"
 msgstr ""
 
-#: libraries/config/messages.inc.php:397
+#: libraries/config/messages.inc.php:399
 msgid ""
 "Leave blank for no SQL query history support, suggested: [kbd]pma__history[/"
 "kbd]"
 msgstr ""
 
-#: libraries/config/messages.inc.php:398
+#: libraries/config/messages.inc.php:400
 msgid "SQL query history table"
 msgstr ""
 
-#: libraries/config/messages.inc.php:399
+#: libraries/config/messages.inc.php:401
 msgid "Hostname where MySQL server is running"
 msgstr ""
 
-#: libraries/config/messages.inc.php:400
+#: libraries/config/messages.inc.php:402
 msgid "Server hostname"
 msgstr ""
 
-#: libraries/config/messages.inc.php:401
+#: libraries/config/messages.inc.php:403
 msgid "Logout URL"
 msgstr ""
 
-#: libraries/config/messages.inc.php:402
+#: libraries/config/messages.inc.php:404
 msgid ""
 "Limits number of table preferences which are stored in database, the oldest "
 "records are automatically removed"
 msgstr ""
 
-#: libraries/config/messages.inc.php:403
+#: libraries/config/messages.inc.php:405
 msgid "Maximal number of table preferences to store"
 msgstr ""
 
-#: libraries/config/messages.inc.php:404
+#: libraries/config/messages.inc.php:406
 msgid "Try to connect without password"
 msgstr ""
 
-#: libraries/config/messages.inc.php:405
+#: libraries/config/messages.inc.php:407
 msgid "Connect without password"
 msgstr ""
 
-#: libraries/config/messages.inc.php:406
+#: libraries/config/messages.inc.php:408
 msgid ""
 "You can use MySQL wildcard characters (% and _), escape them if you want to "
 "use their literal instances, i.e. use [kbd]'my\\_db'[/kbd] and not "
 "[kbd]'my_db'[/kbd]."
 msgstr ""
 
-#: libraries/config/messages.inc.php:407
+#: libraries/config/messages.inc.php:409
 msgid "Show only listed databases"
 msgstr ""
 
-#: libraries/config/messages.inc.php:408 libraries/config/messages.inc.php:449
+#: libraries/config/messages.inc.php:410 libraries/config/messages.inc.php:451
 msgid "Leave empty if not using config auth"
 msgstr ""
 
-#: libraries/config/messages.inc.php:409
+#: libraries/config/messages.inc.php:411
 msgid "Password for config auth"
 msgstr ""
 
-#: libraries/config/messages.inc.php:410
+#: libraries/config/messages.inc.php:412
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__pdf_pages[/kbd]"
 msgstr ""
 
-#: libraries/config/messages.inc.php:411
+#: libraries/config/messages.inc.php:413
 msgid "PDF schema: pages table"
 msgstr ""
 
-#: libraries/config/messages.inc.php:412
+#: libraries/config/messages.inc.php:414
 msgid ""
 "Database used for relations, bookmarks, and PDF features. See [a@http://wiki."
 "phpmyadmin.net/pma/pmadb]pmadb[/a] for complete information. Leave blank for "
@@ -5602,341 +5618,341 @@ msgid ""
 msgstr ""
 
 # మొదటి అనువాదము
-#: libraries/config/messages.inc.php:413
+#: libraries/config/messages.inc.php:415
 #, fuzzy
 #| msgid "Database"
 msgid "Database name"
 msgstr "డేటాబేస్"
 
-#: libraries/config/messages.inc.php:414
+#: libraries/config/messages.inc.php:416
 msgid "Port on which MySQL server is listening, leave empty for default"
 msgstr ""
 
-#: libraries/config/messages.inc.php:415
+#: libraries/config/messages.inc.php:417
 msgid "Server port"
 msgstr ""
 
-#: libraries/config/messages.inc.php:416
+#: libraries/config/messages.inc.php:418
 msgid ""
 "Leave blank for no \"persistent\" recently used tables across sessions, "
 "suggested: [kbd]pma__recent[/kbd]"
 msgstr ""
 
-#: libraries/config/messages.inc.php:417
+#: libraries/config/messages.inc.php:419
 msgid "Recently used table"
 msgstr ""
 
-#: libraries/config/messages.inc.php:418
-msgid ""
-"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-links"
-"[/a] support, suggested: [kbd]pma__relation[/kbd]"
-msgstr ""
-
-#: libraries/config/messages.inc.php:419
-msgid "Relation table"
-msgstr ""
-
 #: libraries/config/messages.inc.php:420
-msgid "SQL command to fetch available databases"
+msgid ""
+"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
+"links[/a] support, suggested: [kbd]pma__relation[/kbd]"
 msgstr ""
 
 #: libraries/config/messages.inc.php:421
-msgid "SHOW DATABASES command"
+msgid "Relation table"
 msgstr ""
 
 #: libraries/config/messages.inc.php:422
-msgid ""
-"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication types"
-"[/a] for an example"
+msgid "SQL command to fetch available databases"
 msgstr ""
 
 #: libraries/config/messages.inc.php:423
-msgid "Signon session name"
+msgid "SHOW DATABASES command"
 msgstr ""
 
 #: libraries/config/messages.inc.php:424
-msgid "Signon URL"
+msgid ""
+"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
+"types[/a] for an example"
 msgstr ""
 
 #: libraries/config/messages.inc.php:425
-msgid "Socket on which MySQL server is listening, leave empty for default"
+msgid "Signon session name"
 msgstr ""
 
 #: libraries/config/messages.inc.php:426
-msgid "Server socket"
+msgid "Signon URL"
 msgstr ""
 
 #: libraries/config/messages.inc.php:427
-msgid "Enable SSL for connection to MySQL server"
+msgid "Socket on which MySQL server is listening, leave empty for default"
 msgstr ""
 
 #: libraries/config/messages.inc.php:428
-msgid "Use SSL"
+msgid "Server socket"
 msgstr ""
 
 #: libraries/config/messages.inc.php:429
+msgid "Enable SSL for connection to MySQL server"
+msgstr ""
+
+#: libraries/config/messages.inc.php:430
+msgid "Use SSL"
+msgstr ""
+
+#: libraries/config/messages.inc.php:431
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__table_coords[/"
 "kbd]"
 msgstr ""
 
-#: libraries/config/messages.inc.php:430
+#: libraries/config/messages.inc.php:432
 msgid "PDF schema: table coordinates"
 msgstr ""
 
-#: libraries/config/messages.inc.php:431
+#: libraries/config/messages.inc.php:433
 msgid ""
 "Table to describe the display columns, leave blank for no support; "
 "suggested: [kbd]pma__table_info[/kbd]"
 msgstr ""
 
-#: libraries/config/messages.inc.php:432
+#: libraries/config/messages.inc.php:434
 msgid "Display columns table"
 msgstr ""
 
-#: libraries/config/messages.inc.php:433
+#: libraries/config/messages.inc.php:435
 msgid ""
 "Leave blank for no \"persistent\" tables'UI preferences across sessions, "
 "suggested: [kbd]pma__table_uiprefs[/kbd]"
 msgstr ""
 
-#: libraries/config/messages.inc.php:434
+#: libraries/config/messages.inc.php:436
 #, fuzzy
 #| msgid "User preferences"
 msgid "UI preferences table"
 msgstr "వాడుకరి అభిరుచులు"
 
-#: libraries/config/messages.inc.php:435
+#: libraries/config/messages.inc.php:437
 msgid ""
 "Whether a DROP DATABASE IF EXISTS statement will be added as first line to "
 "the log when creating a database."
 msgstr ""
 
-#: libraries/config/messages.inc.php:436
+#: libraries/config/messages.inc.php:438
 msgid "Add DROP DATABASE"
 msgstr ""
 
-#: libraries/config/messages.inc.php:437
+#: libraries/config/messages.inc.php:439
 msgid ""
 "Whether a DROP TABLE IF EXISTS statement will be added as first line to the "
 "log when creating a table."
 msgstr ""
 
-#: libraries/config/messages.inc.php:438
+#: libraries/config/messages.inc.php:440
 msgid "Add DROP TABLE"
 msgstr ""
 
-#: libraries/config/messages.inc.php:439
+#: libraries/config/messages.inc.php:441
 msgid ""
 "Whether a DROP VIEW IF EXISTS statement will be added as first line to the "
 "log when creating a view."
 msgstr ""
 
-#: libraries/config/messages.inc.php:440
+#: libraries/config/messages.inc.php:442
 msgid "Add DROP VIEW"
 msgstr ""
 
-#: libraries/config/messages.inc.php:441
+#: libraries/config/messages.inc.php:443
 msgid "Defines the list of statements the auto-creation uses for new versions."
 msgstr ""
 
-#: libraries/config/messages.inc.php:442
+#: libraries/config/messages.inc.php:444
 msgid "Statements to track"
 msgstr ""
 
-#: libraries/config/messages.inc.php:443
+#: libraries/config/messages.inc.php:445
 msgid ""
-"Leave blank for no SQL query tracking support, suggested: [kbd]pma__tracking"
-"[/kbd]"
+"Leave blank for no SQL query tracking support, suggested: "
+"[kbd]pma__tracking[/kbd]"
 msgstr ""
 
-#: libraries/config/messages.inc.php:444
+#: libraries/config/messages.inc.php:446
 msgid "SQL query tracking table"
 msgstr ""
 
-#: libraries/config/messages.inc.php:445
+#: libraries/config/messages.inc.php:447
 msgid ""
 "Whether the tracking mechanism creates versions for tables and views "
 "automatically."
 msgstr ""
 
-#: libraries/config/messages.inc.php:446
+#: libraries/config/messages.inc.php:448
 msgid "Automatically create versions"
 msgstr ""
 
-#: libraries/config/messages.inc.php:447
+#: libraries/config/messages.inc.php:449
 msgid ""
-"Leave blank for no user preferences storage in database, suggested: [kbd]"
-"pma__userconfig[/kbd]"
-msgstr ""
-
-#: libraries/config/messages.inc.php:448
-msgid "User preferences storage table"
+"Leave blank for no user preferences storage in database, suggested: "
+"[kbd]pma__userconfig[/kbd]"
 msgstr ""
 
 #: libraries/config/messages.inc.php:450
+msgid "User preferences storage table"
+msgstr ""
+
+#: libraries/config/messages.inc.php:452
 msgid "User for config auth"
 msgstr ""
 
-#: libraries/config/messages.inc.php:451
+#: libraries/config/messages.inc.php:453
 msgid ""
 "A user-friendly description of this server. Leave blank to display the "
 "hostname instead."
 msgstr ""
 
-#: libraries/config/messages.inc.php:452
+#: libraries/config/messages.inc.php:454
 msgid "Verbose name of this server"
 msgstr ""
 
-#: libraries/config/messages.inc.php:453
+#: libraries/config/messages.inc.php:455
 msgid "Whether a user should be displayed a &quot;show all (rows)&quot; button"
 msgstr ""
 
-#: libraries/config/messages.inc.php:454
+#: libraries/config/messages.inc.php:456
 msgid "Allow to display all the rows"
 msgstr ""
 
-#: libraries/config/messages.inc.php:455
+#: libraries/config/messages.inc.php:457
 msgid ""
 "Please note that enabling this has no effect with [kbd]config[/kbd] "
 "authentication mode because the password is hard coded in the configuration "
 "file; this does not limit the ability to execute the same command directly"
 msgstr ""
 
-#: libraries/config/messages.inc.php:456
+#: libraries/config/messages.inc.php:458
 msgid "Show password change form"
 msgstr ""
 
-#: libraries/config/messages.inc.php:457
+#: libraries/config/messages.inc.php:459
 msgid "Show create database form"
 msgstr ""
 
-#: libraries/config/messages.inc.php:458
+#: libraries/config/messages.inc.php:460
 msgid "Show or hide a column displaying the Creation timestamp for all tables"
 msgstr ""
 
-#: libraries/config/messages.inc.php:459
+#: libraries/config/messages.inc.php:461
 #, fuzzy
 #| msgid "Show more actions"
 msgid "Show Creation timestamp"
 msgstr "మరిన్ని చర్యలను చూపించు"
 
-#: libraries/config/messages.inc.php:460
+#: libraries/config/messages.inc.php:462
 msgid ""
 "Show or hide a column displaying the Last update timestamp for all tables"
 msgstr ""
 
-#: libraries/config/messages.inc.php:461
+#: libraries/config/messages.inc.php:463
 msgid "Show Last update timestamp"
 msgstr ""
 
-#: libraries/config/messages.inc.php:462
+#: libraries/config/messages.inc.php:464
 msgid ""
 "Show or hide a column displaying the Last check timestamp for all tables"
 msgstr ""
 
-#: libraries/config/messages.inc.php:463
+#: libraries/config/messages.inc.php:465
 msgid "Show Last check timestamp"
 msgstr ""
 
-#: libraries/config/messages.inc.php:464
+#: libraries/config/messages.inc.php:466
 msgid ""
 "Defines whether or not type display direction option is shown when browsing "
 "a table"
 msgstr ""
 
-#: libraries/config/messages.inc.php:465
+#: libraries/config/messages.inc.php:467
 #, fuzzy
 #| msgid "Show more actions"
 msgid "Show display direction"
 msgstr "మరిన్ని చర్యలను చూపించు"
 
-#: libraries/config/messages.inc.php:466
+#: libraries/config/messages.inc.php:468
 msgid ""
 "Defines whether or not type fields should be initially displayed in edit/"
 "insert mode"
 msgstr ""
 
-#: libraries/config/messages.inc.php:467
+#: libraries/config/messages.inc.php:469
 msgid "Show field types"
 msgstr ""
 
-#: libraries/config/messages.inc.php:468
+#: libraries/config/messages.inc.php:470
 msgid "Display the function fields in edit/insert mode"
 msgstr ""
 
-#: libraries/config/messages.inc.php:469
+#: libraries/config/messages.inc.php:471
 msgid "Show function fields"
 msgstr ""
 
-#: libraries/config/messages.inc.php:470
+#: libraries/config/messages.inc.php:472
 msgid "Whether to show hint or not"
 msgstr ""
 
 # మొదటి అనువాదము
-#: libraries/config/messages.inc.php:471
+#: libraries/config/messages.inc.php:473
 #, fuzzy
 #| msgid "Show"
 msgid "Show hint"
 msgstr "చూపించు"
 
-#: libraries/config/messages.inc.php:472
+#: libraries/config/messages.inc.php:474
 msgid ""
 "Shows link to [a@http://php.net/manual/function.phpinfo.php]phpinfo()[/a] "
 "output"
 msgstr ""
 
-#: libraries/config/messages.inc.php:473
+#: libraries/config/messages.inc.php:475
 msgid "Show phpinfo() link"
 msgstr ""
 
-#: libraries/config/messages.inc.php:474
+#: libraries/config/messages.inc.php:476
 msgid "Show detailed MySQL server information"
 msgstr ""
 
-#: libraries/config/messages.inc.php:475
+#: libraries/config/messages.inc.php:477
 msgid "Defines whether SQL queries generated by phpMyAdmin should be displayed"
 msgstr ""
 
-#: libraries/config/messages.inc.php:476
+#: libraries/config/messages.inc.php:478
 msgid "Show SQL queries"
 msgstr ""
 
-#: libraries/config/messages.inc.php:477
+#: libraries/config/messages.inc.php:479
 msgid ""
 "Defines whether the query box should stay on-screen after its submission"
 msgstr ""
 
-#: libraries/config/messages.inc.php:478 libraries/sql_query_form.lib.php:361
+#: libraries/config/messages.inc.php:480 libraries/sql_query_form.lib.php:365
 msgid "Retain query box"
 msgstr ""
 
-#: libraries/config/messages.inc.php:479
+#: libraries/config/messages.inc.php:481
 msgid "Allow to display database and table statistics (eg. space usage)"
 msgstr ""
 
-#: libraries/config/messages.inc.php:480
+#: libraries/config/messages.inc.php:482
 msgid "Show statistics"
 msgstr "గణాంకాలను చూపించు"
 
-#: libraries/config/messages.inc.php:481
+#: libraries/config/messages.inc.php:483
 msgid "Display table comments in tooltips"
 msgstr ""
 
-#: libraries/config/messages.inc.php:482
+#: libraries/config/messages.inc.php:484
 msgid ""
 "Mark used tables and make it possible to show databases with locked tables"
 msgstr ""
 
-#: libraries/config/messages.inc.php:483
+#: libraries/config/messages.inc.php:485
 msgid "Skip locked tables"
 msgstr ""
 
-#: libraries/config/messages.inc.php:488
+#: libraries/config/messages.inc.php:490
 msgid "Requires SQL Validator to be enabled"
 msgstr ""
 
-#: libraries/config/messages.inc.php:490
+#: libraries/config/messages.inc.php:492
 #: libraries/display_change_password.lib.php:61
 #: libraries/replication_gui.lib.php:64 libraries/replication_gui.lib.php:65
 #: libraries/replication_gui.lib.php:361 libraries/replication_gui.lib.php:365
@@ -5948,78 +5964,78 @@ msgstr ""
 msgid "Password"
 msgstr "సంకేతపదం"
 
-#: libraries/config/messages.inc.php:491
+#: libraries/config/messages.inc.php:493
 msgid ""
 "[strong]Warning:[/strong] requires PHP SOAP extension or PEAR SOAP to be "
 "installed"
 msgstr ""
 
-#: libraries/config/messages.inc.php:492
+#: libraries/config/messages.inc.php:494
 msgid "Enable SQL Validator"
 msgstr ""
 
-#: libraries/config/messages.inc.php:493
+#: libraries/config/messages.inc.php:495
 msgid ""
 "If you have a custom username, specify it here (defaults to [kbd]anonymous[/"
 "kbd])"
 msgstr ""
 
-#: libraries/config/messages.inc.php:494 tbl_tracking.php:555
-#: tbl_tracking.php:617
+#: libraries/config/messages.inc.php:496 tbl_tracking.php:557
+#: tbl_tracking.php:619
 msgid "Username"
 msgstr "వాడుకరిపేరు"
 
-#: libraries/config/messages.inc.php:495
+#: libraries/config/messages.inc.php:497
 msgid "A warning is displayed on the main page if Suhosin is detected"
 msgstr ""
 
-#: libraries/config/messages.inc.php:496
+#: libraries/config/messages.inc.php:498
 msgid "Suhosin warning"
 msgstr ""
 
-#: libraries/config/messages.inc.php:497
+#: libraries/config/messages.inc.php:499
 msgid ""
 "Textarea size (columns) in edit mode, this value will be emphasized for SQL "
 "query textareas (*2) and for query window (*1.25)"
 msgstr ""
 
-#: libraries/config/messages.inc.php:498
+#: libraries/config/messages.inc.php:500
 #, fuzzy
 #| msgid "Table comments"
 msgid "Textarea columns"
 msgstr "పట్టిక వ్యాఖ్యలు"
 
-#: libraries/config/messages.inc.php:499
+#: libraries/config/messages.inc.php:501
 msgid ""
 "Textarea size (rows) in edit mode, this value will be emphasized for SQL "
 "query textareas (*2) and for query window (*1.25)"
 msgstr ""
 
-#: libraries/config/messages.inc.php:500
+#: libraries/config/messages.inc.php:502
 msgid "Textarea rows"
 msgstr ""
 
-#: libraries/config/messages.inc.php:501
+#: libraries/config/messages.inc.php:503
 msgid "Title of browser window when a database is selected"
 msgstr ""
 
-#: libraries/config/messages.inc.php:503
+#: libraries/config/messages.inc.php:505
 msgid "Title of browser window when nothing is selected"
 msgstr ""
 
-#: libraries/config/messages.inc.php:504
+#: libraries/config/messages.inc.php:506
 msgid "Default title"
 msgstr "అప్రమేయ శీర్షిక"
 
-#: libraries/config/messages.inc.php:505
+#: libraries/config/messages.inc.php:507
 msgid "Title of browser window when a server is selected"
 msgstr ""
 
-#: libraries/config/messages.inc.php:507
+#: libraries/config/messages.inc.php:509
 msgid "Title of browser window when a table is selected"
 msgstr ""
 
-#: libraries/config/messages.inc.php:509
+#: libraries/config/messages.inc.php:511
 msgid ""
 "Input proxies as [kbd]IP: trusted HTTP header[/kbd]. The following example "
 "specifies that phpMyAdmin should trust a HTTP_X_FORWARDED_FOR (X-Forwarded-"
@@ -6027,45 +6043,45 @@ msgid ""
 "HTTP_X_FORWARDED_FOR[/kbd]"
 msgstr ""
 
-#: libraries/config/messages.inc.php:510
+#: libraries/config/messages.inc.php:512
 msgid "List of trusted proxies for IP allow/deny"
 msgstr ""
 
-#: libraries/config/messages.inc.php:511
+#: libraries/config/messages.inc.php:513
 msgid "Directory on server where you can upload files for import"
 msgstr ""
 
-#: libraries/config/messages.inc.php:512
+#: libraries/config/messages.inc.php:514
 msgid "Upload directory"
 msgstr ""
 
-#: libraries/config/messages.inc.php:513
+#: libraries/config/messages.inc.php:515
 msgid "Allow for searching inside the entire database"
 msgstr ""
 
-#: libraries/config/messages.inc.php:514
+#: libraries/config/messages.inc.php:516
 msgid "Use database search"
 msgstr ""
 
-#: libraries/config/messages.inc.php:515
+#: libraries/config/messages.inc.php:517
 msgid ""
 "When disabled, users cannot set any of the options below, regardless of the "
 "checkbox on the right"
 msgstr ""
 
-#: libraries/config/messages.inc.php:516
+#: libraries/config/messages.inc.php:518
 msgid "Enable the Developer tab in settings"
 msgstr ""
 
-#: libraries/config/messages.inc.php:517 setup/frames/index.inc.php:275
+#: libraries/config/messages.inc.php:519 setup/frames/index.inc.php:275
 msgid "Check for latest version"
 msgstr ""
 
-#: libraries/config/messages.inc.php:518
+#: libraries/config/messages.inc.php:520
 msgid "Enables check for latest version on main phpMyAdmin page"
 msgstr ""
 
-#: libraries/config/messages.inc.php:519 setup/lib/index.lib.php:132
+#: libraries/config/messages.inc.php:521 setup/lib/index.lib.php:132
 #: setup/lib/index.lib.php:143 setup/lib/index.lib.php:164
 #: setup/lib/index.lib.php:175 setup/lib/index.lib.php:187
 #: setup/lib/index.lib.php:195 setup/lib/index.lib.php:202
@@ -6073,13 +6089,13 @@ msgstr ""
 msgid "Version check"
 msgstr ""
 
-#: libraries/config/messages.inc.php:520
+#: libraries/config/messages.inc.php:522
 msgid ""
 "Enable [a@http://en.wikipedia.org/wiki/ZIP_(file_format)]ZIP[/a] compression "
 "for import and export operations"
 msgstr ""
 
-#: libraries/config/messages.inc.php:521
+#: libraries/config/messages.inc.php:523
 msgid "ZIP"
 msgstr ""
 
@@ -6101,46 +6117,46 @@ msgstr ""
 msgid "Signon authentication"
 msgstr ""
 
-#: libraries/config/setup.forms.php:246
-#: libraries/config/user_preferences.forms.php:152
+#: libraries/config/setup.forms.php:247
+#: libraries/config/user_preferences.forms.php:153
 msgid "CSV using LOAD DATA"
 msgstr ""
 
-#: libraries/config/setup.forms.php:255 libraries/config/setup.forms.php:348
-#: libraries/config/user_preferences.forms.php:160
-#: libraries/config/user_preferences.forms.php:252
+#: libraries/config/setup.forms.php:256 libraries/config/setup.forms.php:349
+#: libraries/config/user_preferences.forms.php:161
+#: libraries/config/user_preferences.forms.php:253
 #, fuzzy
 #| msgid "Open Document"
 msgid "OpenDocument Spreadsheet"
 msgstr "ఓపెన్ డాక్యుమెంట్"
 
-#: libraries/config/setup.forms.php:262
-#: libraries/config/user_preferences.forms.php:167
+#: libraries/config/setup.forms.php:263
+#: libraries/config/user_preferences.forms.php:168
 msgid "Quick"
 msgstr ""
 
-#: libraries/config/setup.forms.php:266
-#: libraries/config/user_preferences.forms.php:171
+#: libraries/config/setup.forms.php:267
+#: libraries/config/user_preferences.forms.php:172
 msgid "Custom"
 msgstr ""
 
-#: libraries/config/setup.forms.php:287
-#: libraries/config/user_preferences.forms.php:191
+#: libraries/config/setup.forms.php:288
+#: libraries/config/user_preferences.forms.php:192
 msgid "Database export options"
 msgstr ""
 
-#: libraries/config/setup.forms.php:320
-#: libraries/config/user_preferences.forms.php:224
+#: libraries/config/setup.forms.php:321
+#: libraries/config/user_preferences.forms.php:225
 msgid "CSV for MS Excel"
 msgstr ""
 
-#: libraries/config/setup.forms.php:343
-#: libraries/config/user_preferences.forms.php:247
+#: libraries/config/setup.forms.php:344
+#: libraries/config/user_preferences.forms.php:248
 msgid "Microsoft Word 2000"
 msgstr "మైక్రోసాఫ్ట్ వర్డ్ 2000"
 
-#: libraries/config/setup.forms.php:352
-#: libraries/config/user_preferences.forms.php:256
+#: libraries/config/setup.forms.php:353
+#: libraries/config/user_preferences.forms.php:257
 #, fuzzy
 #| msgid "Open Document"
 msgid "OpenDocument Text"
@@ -6264,11 +6280,11 @@ msgstr "సృష్టించు"
 msgid "No Privileges"
 msgstr ""
 
-#: libraries/display_create_table.lib.php:46 pmd_general.php:100
+#: libraries/display_create_table.lib.php:50 pmd_general.php:100
 msgid "Create table"
 msgstr ""
 
-#: libraries/display_create_table.lib.php:51
+#: libraries/display_create_table.lib.php:55
 #: libraries/plugins/export/ExportHtmlword.class.php:483
 #: libraries/plugins/export/ExportOdt.class.php:559
 #: libraries/plugins/export/ExportTexytext.class.php:434
@@ -6280,7 +6296,7 @@ msgstr ""
 msgid "Name"
 msgstr "పేరు"
 
-#: libraries/display_create_table.lib.php:55
+#: libraries/display_create_table.lib.php:59
 msgid "Number of columns"
 msgstr ""
 
@@ -6376,8 +6392,8 @@ msgstr ""
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 
 #: libraries/display_export.lib.php:330
@@ -6385,7 +6401,7 @@ msgid "use this for future exports"
 msgstr ""
 
 #: libraries/display_export.lib.php:336 libraries/display_import.lib.php:255
-#: libraries/display_import.lib.php:269 libraries/sql_query_form.lib.php:482
+#: libraries/display_import.lib.php:269 libraries/sql_query_form.lib.php:486
 msgid "Character set of the file:"
 msgstr ""
 
@@ -6840,8 +6856,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:131
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the %"
-"sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the "
+"%sPrimeBase XT Home Page%s."
 msgstr ""
 
 #: libraries/engines/pbxt.lib.php:133
@@ -6859,7 +6875,7 @@ msgid "No data found for GIS visualization."
 msgstr ""
 
 #: libraries/import.lib.php:187 libraries/insert_edit.lib.php:120
-#: libraries/rte/rte_routines.lib.php:1443 sql.php:936 tbl_get_field.php:55
+#: libraries/rte/rte_routines.lib.php:1443 sql.php:940 tbl_get_field.php:55
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr ""
 
@@ -6932,7 +6948,7 @@ msgstr ""
 msgid "Binary - do not edit"
 msgstr ""
 
-#: libraries/insert_edit.lib.php:1185 libraries/sql_query_form.lib.php:469
+#: libraries/insert_edit.lib.php:1185 libraries/sql_query_form.lib.php:473
 msgid "web server upload directory"
 msgstr ""
 
@@ -6981,11 +6997,11 @@ msgid ""
 "Use TAB key to move from value to value, or CTRL+arrows to move anywhere"
 msgstr ""
 
-#: libraries/insert_edit.lib.php:1912 sql.php:931
+#: libraries/insert_edit.lib.php:1912 sql.php:935
 msgid "Showing SQL query"
 msgstr ""
 
-#: libraries/insert_edit.lib.php:1937 sql.php:911
+#: libraries/insert_edit.lib.php:1937 sql.php:915
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr ""
@@ -7021,7 +7037,7 @@ msgid "To"
 msgstr ""
 
 #: libraries/mult_submits.inc.php:291 libraries/mult_submits.inc.php:308
-#: libraries/sql_query_form.lib.php:407
+#: libraries/sql_query_form.lib.php:411
 msgid "Submit"
 msgstr "దాఖలుచేయి"
 
@@ -7260,25 +7276,25 @@ msgstr ""
 msgid "Reload navigation frame"
 msgstr ""
 
-#: libraries/navigation/NavigationTree.class.php:708
+#: libraries/navigation/NavigationTree.class.php:712
 #, php-format
 msgid "%s other result found"
 msgid_plural "%s other results found"
 msgstr[0] ""
 msgstr[1] ""
 
-#: libraries/navigation/NavigationTree.class.php:1035
+#: libraries/navigation/NavigationTree.class.php:1043
 #, fuzzy
 #| msgid "Table name"
 msgid "filter databases by name"
 msgstr "పట్టిక పేరు"
 
-#: libraries/navigation/NavigationTree.class.php:1036
-#: libraries/navigation/NavigationTree.class.php:1062
+#: libraries/navigation/NavigationTree.class.php:1044
+#: libraries/navigation/NavigationTree.class.php:1070
 msgid "Clear Fast Filter"
 msgstr ""
 
-#: libraries/navigation/NavigationTree.class.php:1061
+#: libraries/navigation/NavigationTree.class.php:1069
 #, fuzzy
 #| msgid "Table name"
 msgid "filter items by name"
@@ -7363,173 +7379,173 @@ msgctxt "Create new view"
 msgid "New"
 msgstr ""
 
-#: libraries/operations.lib.php:75
+#: libraries/operations.lib.php:83
 msgid "Rename database to"
 msgstr "డేటాబేసుకు ఈ పేరు పెట్టండి"
 
-#: libraries/operations.lib.php:107
+#: libraries/operations.lib.php:115
 #, php-format
 msgid "Database %s has been dropped."
 msgstr "%s డేటాబేస్ తుడిచివేయడమైనది"
 
 # మొదటి అనువాదము
-#: libraries/operations.lib.php:119
+#: libraries/operations.lib.php:131
 msgid "Remove database"
 msgstr "డేటాబేస్ తొలగించండి"
 
-#: libraries/operations.lib.php:125
+#: libraries/operations.lib.php:137
 msgid "Drop the database (DROP)"
 msgstr "డేటాబేస్ ను తుడిచివేయి"
 
-#: libraries/operations.lib.php:145 libraries/operations.lib.php:1012
+#: libraries/operations.lib.php:157 libraries/operations.lib.php:1036
 #: tbl_tracking.php:505
 msgid "Structure only"
 msgstr "నిర్మాణం మాత్రమే"
 
-#: libraries/operations.lib.php:146 libraries/operations.lib.php:1013
+#: libraries/operations.lib.php:158 libraries/operations.lib.php:1037
 #: tbl_tracking.php:511
 msgid "Structure and data"
 msgstr "నిర్మాణం, మరియు డేటా"
 
-#: libraries/operations.lib.php:147 libraries/operations.lib.php:1014
+#: libraries/operations.lib.php:159 libraries/operations.lib.php:1038
 #: tbl_tracking.php:508
 msgid "Data only"
 msgstr "డేటా మాత్రమే"
 
-#: libraries/operations.lib.php:175
+#: libraries/operations.lib.php:191
 msgid "Copy database to"
 msgstr "డేటాబేస్ ను ఇక్కడికి కాపీ చేయి"
 
-#: libraries/operations.lib.php:186
+#: libraries/operations.lib.php:202
 msgid "CREATE DATABASE before copying"
 msgstr "కాపీ చేయబోయే ముందు డేటాబేస్ సృష్టించు"
 
-#: libraries/operations.lib.php:199 libraries/operations.lib.php:1035
+#: libraries/operations.lib.php:215 libraries/operations.lib.php:1059
 msgid "Add constraints"
 msgstr ""
 
-#: libraries/operations.lib.php:207
+#: libraries/operations.lib.php:223
 msgid "Switch to copied database"
 msgstr ""
 
-#: libraries/operations.lib.php:277
+#: libraries/operations.lib.php:301
 msgid "Edit or export relational schema"
 msgstr ""
 
-#: libraries/operations.lib.php:620
+#: libraries/operations.lib.php:644
 msgid "Alter table order by"
 msgstr ""
 
-#: libraries/operations.lib.php:628
+#: libraries/operations.lib.php:652
 msgid "(singly)"
 msgstr ""
 
-#: libraries/operations.lib.php:661
+#: libraries/operations.lib.php:685
 msgid "Move table to (database<b>.</b>table):"
 msgstr ""
 
-#: libraries/operations.lib.php:772
+#: libraries/operations.lib.php:796
 msgid "Table options"
 msgstr "పట్టిక ఎంపికలు"
 
-#: libraries/operations.lib.php:776
+#: libraries/operations.lib.php:800
 msgid "Rename table to"
 msgstr ""
 
-#: libraries/operations.lib.php:793
+#: libraries/operations.lib.php:817
 #: libraries/tbl_columns_definition_form.inc.php:838 server_engines.php:41
 msgid "Storage Engine"
 msgstr ""
 
-#: libraries/operations.lib.php:995
+#: libraries/operations.lib.php:1019
 msgid "Copy table to (database<b>.</b>table):"
 msgstr ""
 
-#: libraries/operations.lib.php:1050
+#: libraries/operations.lib.php:1074
 msgid "Switch to copied table"
 msgstr ""
 
-#: libraries/operations.lib.php:1077
+#: libraries/operations.lib.php:1101
 msgid "Table maintenance"
 msgstr ""
 
-#: libraries/operations.lib.php:1115 libraries/structure.lib.php:309
+#: libraries/operations.lib.php:1139 libraries/structure.lib.php:309
 msgid "Check table"
 msgstr ""
 
-#: libraries/operations.lib.php:1128
+#: libraries/operations.lib.php:1152
 msgid "Defragment table"
 msgstr ""
 
-#: libraries/operations.lib.php:1142 libraries/structure.lib.php:317
+#: libraries/operations.lib.php:1166 libraries/structure.lib.php:317
 msgid "Analyze table"
 msgstr ""
 
-#: libraries/operations.lib.php:1155 libraries/structure.lib.php:314
+#: libraries/operations.lib.php:1179 libraries/structure.lib.php:314
 msgid "Repair table"
 msgstr ""
 
-#: libraries/operations.lib.php:1170 libraries/structure.lib.php:312
-#: libraries/structure.lib.php:1625
+#: libraries/operations.lib.php:1194 libraries/structure.lib.php:312
+#: libraries/structure.lib.php:1633
 msgid "Optimize table"
 msgstr ""
 
-#: libraries/operations.lib.php:1182
+#: libraries/operations.lib.php:1206
 #, php-format
 msgid "Table %s has been flushed"
 msgstr ""
 
-#: libraries/operations.lib.php:1189
+#: libraries/operations.lib.php:1213
 msgid "Flush the table (FLUSH)"
 msgstr ""
 
-#: libraries/operations.lib.php:1236
+#: libraries/operations.lib.php:1260
 msgid "Delete data or table"
 msgstr ""
 
-#: libraries/operations.lib.php:1244
+#: libraries/operations.lib.php:1268
 msgid "Empty the table (TRUNCATE)"
 msgstr ""
 
-#: libraries/operations.lib.php:1252
+#: libraries/operations.lib.php:1276
 msgid "Delete the table (DROP)"
 msgstr ""
 
 # మొదటి అనువాదము
-#: libraries/operations.lib.php:1294
+#: libraries/operations.lib.php:1318
 msgid "Analyze"
 msgstr "విశదీకరించు"
 
-#: libraries/operations.lib.php:1295
+#: libraries/operations.lib.php:1319
 msgid "Check"
 msgstr ""
 
-#: libraries/operations.lib.php:1296
+#: libraries/operations.lib.php:1320
 msgid "Optimize"
 msgstr ""
 
-#: libraries/operations.lib.php:1297
+#: libraries/operations.lib.php:1321
 msgid "Rebuild"
 msgstr ""
 
-#: libraries/operations.lib.php:1298
+#: libraries/operations.lib.php:1322
 msgid "Repair"
 msgstr ""
 
-#: libraries/operations.lib.php:1305
+#: libraries/operations.lib.php:1329
 msgid "Partition maintenance"
 msgstr ""
 
-#: libraries/operations.lib.php:1314
+#: libraries/operations.lib.php:1338
 #, php-format
 msgid "Partition %s"
 msgstr ""
 
-#: libraries/operations.lib.php:1333
+#: libraries/operations.lib.php:1357
 msgid "Remove partitioning"
 msgstr ""
 
-#: libraries/operations.lib.php:1359
+#: libraries/operations.lib.php:1383
 msgid "Check referential integrity:"
 msgstr ""
 
@@ -7551,8 +7567,8 @@ msgstr "%sకి స్వాగతం"
 #: libraries/plugins/auth/AuthenticationConfig.class.php:102
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 msgstr ""
 
 #: libraries/plugins/auth/AuthenticationConfig.class.php:122
@@ -7683,7 +7699,7 @@ msgstr ""
 msgid "Remove carriage return/line feed characters within columns"
 msgstr ""
 
-#: libraries/plugins/export/ExportExcel.class.php:78
+#: libraries/plugins/export/ExportExcel.class.php:79
 msgid "Excel edition:"
 msgstr ""
 
@@ -7791,13 +7807,13 @@ msgstr ""
 #: libraries/server_privileges.lib.php:1081
 #: libraries/server_privileges.lib.php:1177
 #: libraries/server_privileges.lib.php:1567
-#: libraries/server_privileges.lib.php:2379 server_status.php:320 sql.php:1108
+#: libraries/server_privileges.lib.php:2379 server_status.php:320 sql.php:1112
 msgid "Host"
 msgstr ""
 
 #: libraries/plugins/export/ExportLatex.class.php:223
 #: libraries/plugins/export/ExportSql.class.php:608
-#: libraries/plugins/export/ExportXml.class.php:196 sql.php:1111
+#: libraries/plugins/export/ExportXml.class.php:196 sql.php:1115
 msgid "Generation Time"
 msgstr ""
 
@@ -8042,6 +8058,12 @@ msgid ""
 "the issue and try again."
 msgstr ""
 
+#: libraries/plugins/import/ImportOds.class.php:182
+#, fuzzy
+#| msgid "Open Document"
+msgid "Could not parse OpenDocument Spreasheet!"
+msgstr "ఓపెన్ డాక్యుమెంట్"
+
 #: libraries/plugins/import/ImportShp.class.php:53
 msgid "ESRI Shape File"
 msgstr ""
@@ -8178,93 +8200,93 @@ msgid ""
 "the link."
 msgstr ""
 
-#: libraries/relation.lib.php:87
+#: libraries/relation.lib.php:85
 msgid "not OK"
 msgstr ""
 
-#: libraries/relation.lib.php:94
+#: libraries/relation.lib.php:92
 #, fuzzy
 #| msgid "OK"
 msgctxt "Correctly working"
 msgid "OK"
 msgstr "సరే"
 
-#: libraries/relation.lib.php:97
+#: libraries/relation.lib.php:95
 msgid "Enabled"
 msgstr ""
 
-#: libraries/relation.lib.php:104 libraries/relation.lib.php:122
+#: libraries/relation.lib.php:102 libraries/relation.lib.php:120
 #: pmd_relation_new.php:82
 msgid "General relation features"
 msgstr ""
 
-#: libraries/relation.lib.php:133
+#: libraries/relation.lib.php:131
 msgid "Display Features"
 msgstr ""
 
-#: libraries/relation.lib.php:150
+#: libraries/relation.lib.php:148
 msgid "Creation of PDFs"
 msgstr ""
 
-#: libraries/relation.lib.php:161
+#: libraries/relation.lib.php:159
 msgid "Displaying Column Comments"
 msgstr ""
 
-#: libraries/relation.lib.php:167
+#: libraries/relation.lib.php:165
 #: libraries/tbl_columns_definition_form.inc.php:170
 #: transformation_overview.php:38
 msgid "Browser transformation"
 msgstr ""
 
-#: libraries/relation.lib.php:173
+#: libraries/relation.lib.php:171
 msgid ""
 "Please see the documentation on how to update your column_comments table"
 msgstr ""
 
-#: libraries/relation.lib.php:183 libraries/sql_query_form.lib.php:387
+#: libraries/relation.lib.php:181 libraries/sql_query_form.lib.php:391
 msgid "Bookmarked SQL query"
 msgstr ""
 
-#: libraries/relation.lib.php:194 querywindow.php:70 querywindow.php:154
+#: libraries/relation.lib.php:192 querywindow.php:70 querywindow.php:154
 msgid "SQL history"
 msgstr "SQL చరిత్ర"
 
-#: libraries/relation.lib.php:216
+#: libraries/relation.lib.php:214
 msgid "Persistent recently used tables"
 msgstr ""
 
-#: libraries/relation.lib.php:227
+#: libraries/relation.lib.php:225
 msgid "Persistent tables' UI preferences"
 msgstr ""
 
-#: libraries/relation.lib.php:249
+#: libraries/relation.lib.php:247
 msgid "User preferences"
 msgstr "వాడుకరి అభిరుచులు"
 
-#: libraries/relation.lib.php:255
+#: libraries/relation.lib.php:253
 msgid "Quick steps to setup advanced features:"
 msgstr ""
 
-#: libraries/relation.lib.php:259
+#: libraries/relation.lib.php:257
 msgid ""
 "Create the needed tables with the <code>examples/create_tables.sql</code>."
 msgstr ""
 
-#: libraries/relation.lib.php:265
+#: libraries/relation.lib.php:263
 msgid "Create a pma user and give access to these tables."
 msgstr ""
 
-#: libraries/relation.lib.php:270
+#: libraries/relation.lib.php:268
 msgid ""
 "Enable advanced features in configuration file (<code>config.inc.php</"
 "code>), for example by starting from <code>config.sample.inc.php</code>."
 msgstr ""
 
-#: libraries/relation.lib.php:278
+#: libraries/relation.lib.php:276
 msgid "Re-login to phpMyAdmin to load the updated configuration file."
 msgstr ""
 
-#: libraries/relation.lib.php:1380
+#: libraries/relation.lib.php:1381
 msgid "no description"
 msgstr "వివరణ లేదు"
 
@@ -8308,12 +8330,12 @@ msgstr ""
 msgid "Slave status"
 msgstr ""
 
-#: libraries/replication_gui.lib.php:123 libraries/sql_query_form.lib.php:399
+#: libraries/replication_gui.lib.php:123 libraries/sql_query_form.lib.php:403
 #: server_status_variables.php:232 server_variables.php:166
 msgid "Variable"
 msgstr ""
 
-#: libraries/replication_gui.lib.php:194 server_binlog.php:187
+#: libraries/replication_gui.lib.php:194 server_binlog.php:195
 msgid "Server ID"
 msgstr ""
 
@@ -8438,7 +8460,7 @@ msgstr "వివరాలు…"
 msgid "Event name"
 msgstr "కొత్త పేరు"
 
-#: libraries/rte/rte_events.lib.php:441 server_binlog.php:186
+#: libraries/rte/rte_events.lib.php:441 server_binlog.php:194
 msgid "Event type"
 msgstr ""
 
@@ -8825,7 +8847,6 @@ msgstr ""
 #: libraries/schema/Eps_Relation_Schema.class.php:425
 #: libraries/schema/Pdf_Relation_Schema.class.php:410
 #: libraries/schema/Svg_Relation_Schema.class.php:392
-#: libraries/schema/Visio_Relation_Schema.class.php:232
 #, php-format
 msgid "The %s table doesn't exist!"
 msgstr ""
@@ -8834,7 +8855,6 @@ msgstr ""
 #: libraries/schema/Eps_Relation_Schema.class.php:474
 #: libraries/schema/Pdf_Relation_Schema.class.php:450
 #: libraries/schema/Svg_Relation_Schema.class.php:443
-#: libraries/schema/Visio_Relation_Schema.class.php:283
 #, php-format
 msgid "Please configure the coordinates for table %s"
 msgstr ""
@@ -8842,7 +8862,6 @@ msgstr ""
 #: libraries/schema/Eps_Relation_Schema.class.php:828
 #: libraries/schema/Pdf_Relation_Schema.class.php:865
 #: libraries/schema/Svg_Relation_Schema.class.php:803
-#: libraries/schema/Visio_Relation_Schema.class.php:559
 #, php-format
 msgid "Schema of the %s database - Page %s"
 msgstr ""
@@ -8914,66 +8933,66 @@ msgstr ""
 msgid "Column names"
 msgstr ""
 
-#: libraries/schema/User_Schema.class.php:413
+#: libraries/schema/User_Schema.class.php:417
 msgid "Display relational schema"
 msgstr ""
 
-#: libraries/schema/User_Schema.class.php:423
+#: libraries/schema/User_Schema.class.php:426
 msgid "Select Export Relational Type"
 msgstr ""
 
-#: libraries/schema/User_Schema.class.php:448
+#: libraries/schema/User_Schema.class.php:451
 msgid "Show grid"
 msgstr ""
 
-#: libraries/schema/User_Schema.class.php:450
+#: libraries/schema/User_Schema.class.php:453
 msgid "Show color"
 msgstr "రంగుని చూపించు"
 
-#: libraries/schema/User_Schema.class.php:454
+#: libraries/schema/User_Schema.class.php:457
 msgid "Show dimension of tables"
 msgstr ""
 
-#: libraries/schema/User_Schema.class.php:458
+#: libraries/schema/User_Schema.class.php:461
 msgid "Display all tables with the same width"
 msgstr ""
 
-#: libraries/schema/User_Schema.class.php:461 libraries/structure.lib.php:379
+#: libraries/schema/User_Schema.class.php:464 libraries/structure.lib.php:379
 msgid "Data Dictionary"
 msgstr ""
 
-#: libraries/schema/User_Schema.class.php:463
+#: libraries/schema/User_Schema.class.php:466
 msgid "Only show keys"
 msgstr ""
 
-#: libraries/schema/User_Schema.class.php:465
+#: libraries/schema/User_Schema.class.php:468
 msgid "Landscape"
 msgstr ""
 
-#: libraries/schema/User_Schema.class.php:466
+#: libraries/schema/User_Schema.class.php:469
 msgid "Portrait"
 msgstr ""
 
-#: libraries/schema/User_Schema.class.php:468
+#: libraries/schema/User_Schema.class.php:471
 msgid "Orientation"
 msgstr "దిశ"
 
-#: libraries/schema/User_Schema.class.php:481
+#: libraries/schema/User_Schema.class.php:484
 msgid "Paper size"
 msgstr "కాగితపు పరిమాణం"
 
-#: libraries/schema/User_Schema.class.php:527
+#: libraries/schema/User_Schema.class.php:530
 msgid ""
 "The current page has references to tables that no longer exist. Would you "
 "like to delete those references?"
 msgstr ""
 
-#: libraries/schema/User_Schema.class.php:553
+#: libraries/schema/User_Schema.class.php:556
 msgid "Toggle scratchboard"
 msgstr ""
 
-#: libraries/select_lang.lib.php:521 libraries/select_lang.lib.php:530
-#: libraries/select_lang.lib.php:539
+#: libraries/select_lang.lib.php:527 libraries/select_lang.lib.php:536
+#: libraries/select_lang.lib.php:545
 #, php-format
 msgid "Unknown language: %1$s."
 msgstr "తెలియని భాష: %1$s."
@@ -9391,16 +9410,16 @@ msgstr "అవలోకనం"
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 msgstr ""
 
-#: libraries/server_privileges.lib.php:3014
+#: libraries/server_privileges.lib.php:3013
 msgid "The selected user was not found in the privilege table."
 msgstr ""
 
 # మొదటి అనువాదము
-#: libraries/server_privileges.lib.php:3225
+#: libraries/server_privileges.lib.php:3226
 msgid "You have added a new user."
 msgstr "మీరు క్రొత్త వాడుకరిని చేర్చారు."
 
@@ -9418,31 +9437,31 @@ msgstr ""
 msgid "Clear"
 msgstr ""
 
-#: libraries/sql_query_form.lib.php:309 sql.php:1327 sql.php:1347
+#: libraries/sql_query_form.lib.php:313 sql.php:1331 sql.php:1351
 msgid "Bookmark this SQL query"
 msgstr ""
 
-#: libraries/sql_query_form.lib.php:315 sql.php:1339
+#: libraries/sql_query_form.lib.php:319 sql.php:1343
 msgid "Let every user access this bookmark"
 msgstr ""
 
-#: libraries/sql_query_form.lib.php:321
+#: libraries/sql_query_form.lib.php:325
 msgid "Replace existing bookmark of same name"
 msgstr ""
 
-#: libraries/sql_query_form.lib.php:337
+#: libraries/sql_query_form.lib.php:341
 msgid "Do not overwrite this query from outside the window"
 msgstr ""
 
-#: libraries/sql_query_form.lib.php:344
+#: libraries/sql_query_form.lib.php:348
 msgid "Delimiter"
 msgstr ""
 
-#: libraries/sql_query_form.lib.php:352
+#: libraries/sql_query_form.lib.php:356
 msgid "Show this query here again"
 msgstr ""
 
-#: libraries/sql_query_form.lib.php:411
+#: libraries/sql_query_form.lib.php:415
 msgid "View only"
 msgstr ""
 
@@ -9540,67 +9559,67 @@ msgstr ""
 msgid "Check tables having overhead"
 msgstr ""
 
-#: libraries/structure.lib.php:1279 tbl_tracking.php:358
+#: libraries/structure.lib.php:1283 tbl_tracking.php:358
 msgctxt "None for default"
 msgid "None"
 msgstr "ఏమీలేదు"
 
-#: libraries/structure.lib.php:1329
+#: libraries/structure.lib.php:1333
 #, php-format
 msgid "Column %s has been dropped"
 msgstr ""
 
-#: libraries/structure.lib.php:1383 libraries/structure.lib.php:2054
-#: libraries/structure.lib.php:2064
+#: libraries/structure.lib.php:1387 libraries/structure.lib.php:2062
+#: libraries/structure.lib.php:2072
 #: libraries/tbl_columns_definition_form.inc.php:562
 msgid "Primary"
 msgstr ""
 
-#: libraries/structure.lib.php:1391 libraries/structure.lib.php:2056
-#: libraries/structure.lib.php:2066 libraries/structure.lib.php:2174
+#: libraries/structure.lib.php:1395 libraries/structure.lib.php:2064
+#: libraries/structure.lib.php:2074 libraries/structure.lib.php:2182
 #: libraries/tbl_columns_definition_form.inc.php:123
 #: libraries/tbl_columns_definition_form.inc.php:576 tbl_printview.php:306
 msgid "Index"
 msgstr ""
 
-#: libraries/structure.lib.php:1398 libraries/structure.lib.php:2060
-#: libraries/structure.lib.php:2070
+#: libraries/structure.lib.php:1402 libraries/structure.lib.php:2068
+#: libraries/structure.lib.php:2078
 msgid "Spatial"
 msgstr ""
 
-#: libraries/structure.lib.php:1408 libraries/structure.lib.php:2062
-#: libraries/structure.lib.php:2072
+#: libraries/structure.lib.php:1412 libraries/structure.lib.php:2070
+#: libraries/structure.lib.php:2080
 #: libraries/tbl_columns_definition_form.inc.php:584
 msgid "Fulltext"
 msgstr "పూర్తిపాఠ్యం"
 
 # మొదటి అనువాదము
-#: libraries/structure.lib.php:1423 libraries/structure.lib.php:1519
+#: libraries/structure.lib.php:1427 libraries/structure.lib.php:1523
 #, fuzzy
 #| msgid "Add into comments"
 msgid "Move columns"
 msgstr "స్పందనలకు చేర్చు"
 
-#: libraries/structure.lib.php:1426
+#: libraries/structure.lib.php:1430
 msgid "Move the columns by dragging them up and down."
 msgstr ""
 
-#: libraries/structure.lib.php:1460
+#: libraries/structure.lib.php:1464
 #, fuzzy
 #| msgid "Add a new User"
 msgid "Edit view"
 msgstr "క్రొత్త వాడుకరిని చేర్చు"
 
-#: libraries/structure.lib.php:1493
+#: libraries/structure.lib.php:1497
 msgid "Relation view"
 msgstr ""
 
-#: libraries/structure.lib.php:1505
+#: libraries/structure.lib.php:1509
 msgid "Propose table structure"
 msgstr ""
 
 # మొదటి అనువాదము
-#: libraries/structure.lib.php:1541
+#: libraries/structure.lib.php:1545
 #: libraries/tbl_columns_definition_form.inc.php:758
 #, fuzzy
 #| msgid "You have added a new user."
@@ -9608,124 +9627,124 @@ msgid "You have to add at least one column."
 msgstr "మీరు క్రొత్త వినియోగదారుని చేర్చారు"
 
 # మొదటి అనువాదము
-#: libraries/structure.lib.php:1552
+#: libraries/structure.lib.php:1560
 #, fuzzy
 #| msgid "Add into comments"
 msgid "Add column"
 msgstr "స్పందనలకు చేర్చు"
 
 # మొదటి అనువాదము
-#: libraries/structure.lib.php:1557
+#: libraries/structure.lib.php:1565
 #: libraries/tbl_columns_definition_form.inc.php:748
 #, fuzzy, php-format
 #| msgid "Add into comments"
 msgid "Add %s column(s)"
 msgstr "స్పందనలకు చేర్చు"
 
-#: libraries/structure.lib.php:1574
+#: libraries/structure.lib.php:1582
 msgid "At End of Table"
 msgstr ""
 
-#: libraries/structure.lib.php:1575
+#: libraries/structure.lib.php:1583
 msgid "At Beginning of Table"
 msgstr ""
 
 # మొదటి అనువాదము
-#: libraries/structure.lib.php:1576
+#: libraries/structure.lib.php:1584
 #, php-format
 msgid "After %s"
 msgstr "%s మార్లు తరువాత"
 
-#: libraries/structure.lib.php:1670
+#: libraries/structure.lib.php:1678
 #, fuzzy
 #| msgid "Row Statistics"
 msgid "Row statistics"
 msgstr "వరుసల గణాంకాలు"
 
-#: libraries/structure.lib.php:1675 tbl_printview.php:353
+#: libraries/structure.lib.php:1683 tbl_printview.php:353
 msgid "static"
 msgstr ""
 
-#: libraries/structure.lib.php:1677 tbl_printview.php:355
+#: libraries/structure.lib.php:1685 tbl_printview.php:355
 msgid "dynamic"
 msgstr ""
 
-#: libraries/structure.lib.php:1688
+#: libraries/structure.lib.php:1696
 msgid "partitioned"
 msgstr ""
 
-#: libraries/structure.lib.php:1725 tbl_printview.php:376
+#: libraries/structure.lib.php:1733 tbl_printview.php:376
 msgid "Row length"
 msgstr ""
 
-#: libraries/structure.lib.php:1738 tbl_printview.php:390
+#: libraries/structure.lib.php:1746 tbl_printview.php:390
 msgid "Row size"
 msgstr ""
 
-#: libraries/structure.lib.php:1746 tbl_printview.php:399
+#: libraries/structure.lib.php:1754 tbl_printview.php:399
 msgid "Next autoindex"
 msgstr ""
 
-#: libraries/structure.lib.php:1872 libraries/structure.lib.php:1953
-#: libraries/structure.lib.php:1961 libraries/structure.lib.php:1978
+#: libraries/structure.lib.php:1880 libraries/structure.lib.php:1961
+#: libraries/structure.lib.php:1969 libraries/structure.lib.php:1986
 #, php-format
 msgid "An index has been added on %s"
 msgstr ""
 
-#: libraries/structure.lib.php:1943
+#: libraries/structure.lib.php:1951
 #, php-format
 msgid "A primary key has been added on %s"
 msgstr ""
 
-#: libraries/structure.lib.php:2003 libraries/structure.lib.php:2074
+#: libraries/structure.lib.php:2011 libraries/structure.lib.php:2082
 #, fuzzy
 #| msgid "Use this value"
 msgid "Distinct values"
 msgstr "ఈ విలువని ఉపయోగించు"
 
-#: libraries/structure.lib.php:2006 libraries/structure.lib.php:2009
+#: libraries/structure.lib.php:2014 libraries/structure.lib.php:2017
 msgid "Add primary key"
 msgstr ""
 
-#: libraries/structure.lib.php:2012 libraries/structure.lib.php:2015
+#: libraries/structure.lib.php:2020 libraries/structure.lib.php:2023
 #: tbl_indexes.php:195
 msgid "Add index"
 msgstr ""
 
-#: libraries/structure.lib.php:2018 libraries/structure.lib.php:2021
+#: libraries/structure.lib.php:2026 libraries/structure.lib.php:2029
 msgid "Add unique index"
 msgstr ""
 
-#: libraries/structure.lib.php:2024 libraries/structure.lib.php:2027
+#: libraries/structure.lib.php:2032 libraries/structure.lib.php:2035
 msgid "Add SPATIAL index"
 msgstr ""
 
-#: libraries/structure.lib.php:2030 libraries/structure.lib.php:2033
+#: libraries/structure.lib.php:2038 libraries/structure.lib.php:2041
 msgid "Add FULLTEXT index"
 msgstr ""
 
-#: libraries/structure.lib.php:2159 server_binlog.php:189
+#: libraries/structure.lib.php:2167 server_binlog.php:197
 msgid "Information"
 msgstr "సమాచారం"
 
-#: libraries/structure.lib.php:2164 tbl_printview.php:296
+#: libraries/structure.lib.php:2172 tbl_printview.php:296
 msgid "Space usage"
 msgstr ""
 
-#: libraries/structure.lib.php:2184 tbl_printview.php:322
+#: libraries/structure.lib.php:2192 tbl_printview.php:322
 msgid "Effective"
 msgstr ""
 
-#: libraries/structure.lib.php:2365 tbl_addfield.php:197 tbl_indexes.php:112
+#: libraries/structure.lib.php:2373 tbl_addfield.php:197 tbl_indexes.php:112
 #, php-format
 msgid "Table %1$s has been altered successfully"
 msgstr ""
 
-#: libraries/structure.lib.php:2412 tbl_tracking.php:456 tbl_tracking.php:480
+#: libraries/structure.lib.php:2420 tbl_tracking.php:456 tbl_tracking.php:480
 msgid "Query error"
 msgstr ""
 
-#: libraries/structure.lib.php:2506
+#: libraries/structure.lib.php:2514
 #, fuzzy
 #| msgid "Database %s has been dropped."
 msgid "The columns have been moved successfully."
@@ -10139,23 +10158,23 @@ msgstr ""
 msgid "Select binary log to view"
 msgstr ""
 
-#: server_binlog.php:154 server_status.php:431
+#: server_binlog.php:158 server_status.php:431
 msgid "Truncate Shown Queries"
 msgstr ""
 
-#: server_binlog.php:158 server_status.php:436
+#: server_binlog.php:162 server_status.php:436
 msgid "Show Full Queries"
 msgstr ""
 
-#: server_binlog.php:184
+#: server_binlog.php:192
 msgid "Log name"
 msgstr ""
 
-#: server_binlog.php:185
+#: server_binlog.php:193
 msgid "Position"
 msgstr ""
 
-#: server_binlog.php:188
+#: server_binlog.php:196
 msgid "Original position"
 msgstr "అసలు స్థానం"
 
@@ -10184,17 +10203,17 @@ msgstr ""
 msgid "Slave replication"
 msgstr ""
 
-#: server_databases.php:334 server_databases.php:335
+#: server_databases.php:335 server_databases.php:336
 msgid "Enable Statistics"
 msgstr "గణాంకాలని చేతనంచేయి"
 
-#: server_databases.php:338
+#: server_databases.php:339
 msgid ""
 "Note: Enabling the database statistics here might cause heavy traffic "
 "between the web server and the MySQL server."
 msgstr ""
 
-#: server_databases.php:345
+#: server_databases.php:346
 msgid "No databases"
 msgstr ""
 
@@ -10227,7 +10246,7 @@ msgstr ""
 msgid "Library"
 msgstr ""
 
-#: server_plugins.php:97 server_plugins.php:132 tbl_tracking.php:763
+#: server_plugins.php:97 server_plugins.php:132 tbl_tracking.php:765
 msgid "Version"
 msgstr ""
 
@@ -11595,8 +11614,8 @@ msgid ""
 "You set the [kbd]config[/kbd] authentication type and included username and "
 "password for auto-login, which is not a desirable option for live hosts. "
 "Anyone who knows or guesses your phpMyAdmin URL can directly access your "
-"phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or [kbd]"
-"http[/kbd]."
+"phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or "
+"[kbd]http[/kbd]."
 msgstr ""
 
 #: setup/lib/index.lib.php:318
@@ -11648,34 +11667,34 @@ msgstr ""
 msgid "Bookmark not created"
 msgstr ""
 
-#: sql.php:928
+#: sql.php:932
 msgid "Showing as PHP code"
 msgstr ""
 
-#: sql.php:933
+#: sql.php:937
 msgid "Validated SQL"
 msgstr ""
 
-#: sql.php:1106
+#: sql.php:1110
 msgid "SQL result"
 msgstr ""
 
-#: sql.php:1113
+#: sql.php:1117
 msgid "Generated by"
 msgstr ""
 
-#: sql.php:1246
+#: sql.php:1250
 msgid ""
 "This table does not contain a unique column. Grid edit, checkbox, Edit, Copy "
 "and Delete features are not available."
 msgstr ""
 
-#: sql.php:1295
+#: sql.php:1299
 #, php-format
 msgid "Problems with indexes of table `%s`"
 msgstr ""
 
-#: sql.php:1331
+#: sql.php:1335
 msgid "Label"
 msgstr ""
 
@@ -11982,7 +12001,7 @@ msgstr ""
 msgid "Tracking statements"
 msgstr ""
 
-#: tbl_tracking.php:523 tbl_tracking.php:671
+#: tbl_tracking.php:523 tbl_tracking.php:673
 #, php-format
 msgid "Show %1$s with dates from %2$s to %3$s by user %4$s %5$s"
 msgstr ""
@@ -11991,82 +12010,82 @@ msgstr ""
 msgid "Delete tracking data row from report"
 msgstr ""
 
-#: tbl_tracking.php:545
+#: tbl_tracking.php:547
 #, fuzzy
 #| msgid "data"
 msgid "No data"
 msgstr "భోగట్టా"
 
-#: tbl_tracking.php:554 tbl_tracking.php:616
+#: tbl_tracking.php:556 tbl_tracking.php:618
 msgid "Date"
 msgstr "తేదీ"
 
-#: tbl_tracking.php:556
+#: tbl_tracking.php:558
 msgid "Data definition statement"
 msgstr ""
 
-#: tbl_tracking.php:618
+#: tbl_tracking.php:620
 msgid "Data manipulation statement"
 msgstr ""
 
-#: tbl_tracking.php:676
+#: tbl_tracking.php:678
 msgid "SQL dump (file download)"
 msgstr ""
 
-#: tbl_tracking.php:677
+#: tbl_tracking.php:679
 msgid "SQL dump"
 msgstr ""
 
-#: tbl_tracking.php:679
+#: tbl_tracking.php:681
 msgid "This option will replace your table and contained data."
 msgstr ""
 
-#: tbl_tracking.php:680
+#: tbl_tracking.php:682
 msgid "SQL execution"
 msgstr ""
 
-#: tbl_tracking.php:698
+#: tbl_tracking.php:700
 #, php-format
 msgid "Export as %s"
 msgstr ""
 
-#: tbl_tracking.php:735
+#: tbl_tracking.php:737
 msgid "Show versions"
 msgstr ""
 
-#: tbl_tracking.php:823
+#: tbl_tracking.php:825
 #, php-format
 msgid "Deactivate tracking for %s"
 msgstr ""
 
-#: tbl_tracking.php:829
+#: tbl_tracking.php:831
 msgid "Deactivate now"
 msgstr ""
 
-#: tbl_tracking.php:839
+#: tbl_tracking.php:841
 #, php-format
 msgid "Activate tracking for %s"
 msgstr ""
 
-#: tbl_tracking.php:845
+#: tbl_tracking.php:847
 msgid "Activate now"
 msgstr ""
 
-#: tbl_tracking.php:858
+#: tbl_tracking.php:860
 #, fuzzy, php-format
 #| msgid "More settings"
 msgid "Create version %1$s of %2$s"
 msgstr "మరిన్ని అమరికలు"
 
-#: tbl_tracking.php:866
+#: tbl_tracking.php:868
 msgid "Track these data definition statements:"
 msgstr ""
 
-#: tbl_tracking.php:874
+#: tbl_tracking.php:876
 msgid "Track these data manipulation statements:"
 msgstr ""
 
-#: tbl_tracking.php:884
+#: tbl_tracking.php:886
 msgid "Create version"
 msgstr ""
 
@@ -12427,8 +12446,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:179
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s%"
-"%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s"
+"%%. It should be above 80%%"
 msgstr ""
 
 #: libraries/advisory_rules.txt:181
@@ -12557,8 +12576,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:216
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
-"%."
+"%s%% of all sorts cause temporary tables, this value should be lower than "
+"10%%."
 msgstr ""
 
 #: libraries/advisory_rules.txt:218
