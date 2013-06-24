@@ -7722,7 +7722,7 @@ msgid ""
 msgstr ""
 
 #: libraries/plugins/import/ImportOds.class.php:182
-msgid "Could not parse OpenDocument Spreasheet!"
+msgid "Could not parse OpenDocument Spreadsheet!"
 msgstr ""
 
 #: libraries/plugins/import/ImportShp.class.php:53

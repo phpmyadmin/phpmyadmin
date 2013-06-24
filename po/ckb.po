@@ -7770,7 +7770,7 @@ msgstr ""
 #: libraries/plugins/import/ImportOds.class.php:182
 #, fuzzy
 #| msgid "Could not save recent table"
-msgid "Could not parse OpenDocument Spreasheet!"
+msgid "Could not parse OpenDocument Spreadsheet!"
 msgstr "نەتوانرا خشتە تازەکە پاشەکەوت بکرێت"
 
 #: libraries/plugins/import/ImportShp.class.php:53

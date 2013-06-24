@@ -7893,7 +7893,7 @@ msgstr "该 XML 文件有错误或者不完整。请修复错误后重试。"
 #: libraries/plugins/import/ImportOds.class.php:182
 #, fuzzy
 #| msgid "Open Document Spreadsheet"
-msgid "Could not parse OpenDocument Spreasheet!"
+msgid "Could not parse OpenDocument Spreadsheet!"
 msgstr "OpenOffice 表格"
 
 #: libraries/plugins/import/ImportShp.class.php:53
