@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.5-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-06-24 10:43+0200\n"
-"PO-Revision-Date: 2013-06-24 16:16+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"PO-Revision-Date: 2013-06-25 01:03+0200\n"
+"Last-Translator: Kyeong Su Shin <ksshin@uwaterloo.ca>\n"
 "Language-Team: Korean <http://l10n.cihar.com/projects/phpmyadmin/4-0/ko/>\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
@@ -2746,7 +2746,7 @@ msgstr "고유값"
 
 #: libraries/Index.class.php:564 tbl_tracking.php:384
 msgid "Packed"
-msgstr ""
+msgstr "압축됨"
 
 #: libraries/Index.class.php:566 tbl_tracking.php:386
 msgid "Cardinality"
@@ -11739,10 +11739,9 @@ msgid "No index defined! Create one below"
 msgstr "인덱스가 설정되지 않았습니다!"
 
 #: tbl_structure.php:125
-#, fuzzy
 #| msgid "No rows selected"
 msgid "No column selected."
-msgstr "선택된 행이 없습니다"
+msgstr "선택된 열이 없습니다."
 
 #: tbl_structure.php:149
 #, php-format
@@ -12447,6 +12446,8 @@ msgid ""
 "This means that joins are doing full table scans. Adding indexes for the "
 "columns being used in the join conditions will greatly speed up table joins"
 msgstr ""
+"이는 조인시 전체 테이블 스캔이 일어난다는 것을 뜻합니다. 질의의 조인 컨디션에 사용되는 열들에 인덱스들을 추가함으로서 속도를 크게 "
+"개선할 수 있습니다."
 
 #: libraries/advisory_rules.txt:238
 #, php-format
@@ -12519,7 +12520,7 @@ msgstr "새 페이지 만들기"
 msgid ""
 "This indicates that many queries are doing full table scans. Add indexes "
 "where applicable."
-msgstr ""
+msgstr "이는 많은 수의 질의문들이 전체 테이블 스캔을 요구했다는 것을 뜻합니다. 적절한 위치에 인덱스를 추가하시기 바랍니다."
 
 #: libraries/advisory_rules.txt:259
 #, php-format
@@ -12556,7 +12557,7 @@ msgstr "디스크상의 임시 테이블 비율"
 msgid ""
 "Many temporary tables are being written to disk instead of being kept in "
 "memory."
-msgstr ""
+msgstr "많은 임시 테이블들이 메모리에만 저장되지 않고 디스크에 기록되고 있습니다."
 
 #: libraries/advisory_rules.txt:273
 msgid ""
@@ -12568,6 +12569,11 @@ msgid ""
 "mentioned in the beginning of an <a href=\"http://www.facebook.com/note.php?"
 "note_id=10150111255065841&comments\">Article by the Pythian Group</a>"
 msgstr ""
+"{max_heap_table_size}값과 {tmp_table_size}값을 올리는 것이 도움이 될 수 있습니다. 하지만 일부 임시 "
+"테이블들은 이 변수값들과는 상관 없이 언제나 반드시 디스크에 기록됩니다. 이러한 문제를 방지하기 위해 질의문을 다시 작성하셔야 할 수 "
+"있습니다. (BLOB이나 TEXT형 열이 존재하거나 512바이트 이상의 크기의 열이 존재하는 경우) 이에 대한 내용은 <a href=\"h"
+"ttp://www.facebook.com/note.php?note_id=10150111255065841&comments\">Pythian "
+"Group가 작성한 문서</a>에 기술되어 있습니다"
 
 #: libraries/advisory_rules.txt:274
 #, php-format
@@ -12590,6 +12596,11 @@ msgid ""
 "mentioned in the <a href=\"http://dev.mysql.com/doc/refman/5.5/en/internal-"
 "temporary-tables.html\">MySQL Documentation</a>"
 msgstr ""
+"{max_heap_table_size}값과 {tmp_table_size}값을 올리는 것이 도움이 될 수 있습니다. 하지만 일부 임시 "
+"테이블들은 이 변수값들과는 상관 없이 언제나 반드시 디스크에 기록됩니다. 이러한 문제를 방지하기 위해 질의문을 다시 작성하셔야 할 수 "
+"있습니다. (BLOB나 TEXT형 열이 존재하거나 512바이트 이상의 크기의 열이 존재하는 경우) 자세한 사항은  <a "
+"href=\"http://dev.mysql.com/doc/refman/5.5/en/internal-temporary-"
+"tables.html\">MySQL문서</a>에 기술되어 있습니다"
 
 #: libraries/advisory_rules.txt:281
 #, php-format
@@ -12681,6 +12692,8 @@ msgid ""
 "Opening tables requires disk I/O which is costly. Increasing "
 "{table_open_cache} might avoid this."
 msgstr ""
+"테이블을 여는 데에는 디스크 입출력이 요구되어 시간이 많이 소모됩니다.{table_open_cache}값을 올리는 것이 해결에 도움이 될 "
+"수 있습니다."
 
 #: libraries/advisory_rules.txt:332
 #, php-format
