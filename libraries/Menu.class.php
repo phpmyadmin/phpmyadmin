@@ -129,13 +129,22 @@ class PMA_Menu
         $separator = "<span class='separator item'>&nbsp;»</span>";
         $item = '<a href="%1$s?%2$s" class="item">';
 
-        if ($GLOBALS['cfg']['NavigationBarIconic'] !== true) {
+
+        if (in_array(
+            $GLOBALS['cfg']['TabsMode'],
+            array('text', 'both')
+            )
+        ) {
             $item .= '%4$s: ';
         }
         $item .= '%3$s</a>';
         $retval .= "<div id='floating_menubar'></div>";
         $retval .= "<div id='serverinfo'>";
-        if ($GLOBALS['cfg']['NavigationBarIconic']) {
+        if (in_array(
+            $GLOBALS['cfg']['TabsMode'],
+            array('icons', 'both')
+            )
+        ) { 
             $retval .= PMA_Util::getImage(
                 's_host.png',
                 '',
@@ -152,7 +161,11 @@ class PMA_Menu
 
         if (strlen($this->_db)) {
             $retval .= $separator;
-            if ($GLOBALS['cfg']['NavigationBarIconic']) {
+            if (in_array(
+                $GLOBALS['cfg']['TabsMode'],
+                array('icons', 'both')
+                )
+            ) { 
                 $retval .= PMA_Util::getImage(
                     's_db.png',
                     '',
@@ -174,7 +187,11 @@ class PMA_Menu
                 include './libraries/tbl_info.inc.php';
 
                 $retval .= $separator;
-                if ($GLOBALS['cfg']['NavigationBarIconic']) {
+                if (in_array(
+                    $GLOBALS['cfg']['TabsMode'],
+                    array('icons', 'both')
+                    )
+                ) { 
                     $icon = $tbl_is_view ? 'b_views.png' : 's_tbl.png';
                     $retval .= PMA_Util::getImage(
                         $icon,

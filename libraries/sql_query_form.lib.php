@@ -285,7 +285,11 @@ function PMA_sqlQueryFormInsert(
         }
         echo '</select>' . "\n"
             .'<div id="tablefieldinsertbuttoncontainer">' . "\n";
-        if ($GLOBALS['cfg']['PropertiesIconic']) {
+        if (in_array(
+            $GLOBALS['cfg']['ActionLinksMode'],
+            array('icons', 'both')
+            )
+        ) {
             echo '<input type="button" class="button" name="insert" value="&lt;&lt;"'
                 .' onclick="insertValueQuery()"'
                 .' title="' . __('Insert') . '" />' . "\n";

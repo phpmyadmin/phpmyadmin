@@ -233,8 +233,9 @@ if ($databases_count > 0) {
     }
 
     if ($is_superuser && ! PMA_DRIZZLE) {
-        echo '    <th>' . ($cfg['PropertiesIconic'] ? '' : __('Action')) . "\n"
-           . '    </th>' . "\n";
+        echo '    <th>' 
+            . ($cfg['ActionLinksMode'] == 'icons' ? '' : __('Action')) . "\n"
+            . '    </th>' . "\n";
     }
     echo '</tr>' . "\n"
        . '</thead>' . "\n"
