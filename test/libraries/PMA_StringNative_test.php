@@ -18,7 +18,19 @@ require_once 'libraries/StringNative.class.php';
  */
 class PMA_StringNative_Test extends PHPUnit_Framework_TestCase
 {
+    protected $testClass;
 
+    /**
+     * Setup function for test cases
+     * 
+     * @access protected
+     * @return void
+     */
+    protected function setUp()
+    {
+        $this->testClass = new PMA_StringNative;
+    }
+    
     /**
      * Test for PMA_StringNative::strlen
      * 
@@ -27,13 +39,13 @@ class PMA_StringNative_Test extends PHPUnit_Framework_TestCase
      * 
      * @return void
      * @test
-     * @dataProvider nativeStrlenData
+     * @dataProvider strlenData
      */
     public function testNativeStrlen($length, $str)
     {   
         $this->assertEquals(
             $length,
-            PMA_StringNative::strlen($str)
+            $this->testClass->strlen($str)
         );
     }
 
@@ -42,7 +54,7 @@ class PMA_StringNative_Test extends PHPUnit_Framework_TestCase
      * 
      * @return array Test data
      */
-    public function nativeStrlenData() 
+    public function strlenData() 
     {
         return array(
             array(2, "ab"),
@@ -61,13 +73,13 @@ class PMA_StringNative_Test extends PHPUnit_Framework_TestCase
      * 
      * @return void
      * @test
-     * @dataProvider nativeSubStrData
+     * @dataProvider subStrData
      */
     public function testNativeSubStr($str, $haystack, $start, $length)
     {   
         $this->assertEquals(
             $str,
-            PMA_StringNative::substr($haystack, $start, $length)
+            $this->testClass->substr($haystack, $start, $length)
         );
     }
 
@@ -76,7 +88,7 @@ class PMA_StringNative_Test extends PHPUnit_Framework_TestCase
      * 
      * @return array Test data
      */
-    public function nativeSubStrData() 
+    public function subStrData() 
     {
         return array(
             array("b", "ab", 1, 1),
@@ -94,13 +106,13 @@ class PMA_StringNative_Test extends PHPUnit_Framework_TestCase
      * 
      * @return void
      * @test
-     * @dataProvider nativeStrposData
+     * @dataProvider strposData
      */
     public function testNativeStrpos($pos, $haystack, $needle, $offset)
     {   
         $this->assertEquals(
             $pos,
-            PMA_StringNative::strpos($haystack, $needle, $offset)
+            $this->testClass->strpos($haystack, $needle, $offset)
         );
     }
 
@@ -125,13 +137,13 @@ class PMA_StringNative_Test extends PHPUnit_Framework_TestCase
      * 
      * @return void
      * @test
-     * @dataProvider nativeStrToLowerData
+     * @dataProvider strToLowerData
      */
     public function testNativeStrToLower($expected, $string)
     {   
         $this->assertEquals(
             $expected,
-            PMA_StringNative::strtolower($string)
+            $this->testClass->strtolower($string)
         );
     }
 
@@ -140,11 +152,11 @@ class PMA_StringNative_Test extends PHPUnit_Framework_TestCase
      * 
      * @return array Test data
      */
-    public function nativeStrToLowerData() 
+    public function strToLowerData() 
     {
         return array(
-            array("mary had a", "Mary Had A", "UTF-8"),
-            array("test string", "TEST STRING", "UTF-8")
+            array("mary had a", "Mary Had A"),
+            array("test string", "TEST STRING")
         );
     }
 }

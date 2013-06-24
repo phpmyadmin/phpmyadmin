@@ -198,7 +198,7 @@ $forms['Main_panel']['DbStructure'] = array(
 $forms['Main_panel']['TableStructure'] = array(
     'HideStructureActions');
 $forms['Main_panel']['Browse'] = array(
-    'NavigationBarIconic',
+    'TableNavigationLinksMode',
     'ShowAll',
     'MaxRows',
     'Order',
@@ -228,7 +228,8 @@ $forms['Main_panel']['Edit'] = array(
     'ForeignKeyDropdownOrder',
     'ForeignKeyMaxLimit');
 $forms['Main_panel']['Tabs'] = array(
-    'PropertiesIconic',
+    'TabsMode',
+    'ActionLinksMode',
     'DefaultTabServer',
     'DefaultTabDatabase',
     'DefaultTabTable',
