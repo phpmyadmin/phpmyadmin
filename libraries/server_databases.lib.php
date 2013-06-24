@@ -23,8 +23,8 @@ if (! defined('PHPMYADMIN')) {
  * @param string $sort_order        sort order string
  * @param bool   $is_superuser      User status
  * @param Array  $cfg               configuration
- * @param string $replication_info  replication info
  * @param string $replication_types replication types 
+ * @param string $replication_info  replication info
  * @param string $url_query         url query
  *
  * @return string
@@ -60,7 +60,8 @@ function PMA_getHtmlForDatabase(
     $html .= PMA_generate_common_hidden_inputs($_url_params);
 
     $_url_params['sort_by'] = 'SCHEMA_NAME';
-    $_url_params['sort_order'] = ($sort_by == 'SCHEMA_NAME' && $sort_order == 'asc') ? 'desc' : 'asc';
+    $_url_params['sort_order'] 
+        = ($sort_by == 'SCHEMA_NAME' && $sort_order == 'asc') ? 'desc' : 'asc';
 
     $html .= '<table id="tabledatabases" class="data">' . "\n"
         . '<thead>' . "\n"
@@ -126,11 +127,11 @@ function PMA_getHtmlForDatabase(
 /**
  * Returns the html for Table footer buttons
  *
- * @param bool   $is_superuser      User status
  * @param bool   $is_allowUserDropDatabase Allow user drop database
- * @param Array  $dbstats           database status
- * @param string $sort_by           sort by string
- * @param string $sort_order        sort order string
+ * @param bool   $is_superuser             User status
+ * @param string $sort_by                  sort by string
+ * @param string $sort_order               sort order string
+ * @param Array  $dbstats                  database status
  *
  * @return string
  */
@@ -167,12 +168,12 @@ function PMA_getHtmlForTableFooterButtons(
 /**
  * Returns the html for Table footer
  *
- * @param bool   $is_superuser      User status
  * @param bool   $is_allowUserDropDatabase Allow user drop database
- * @param Array  $databases_count   Database count
- * @param string $column_order      column order
- * @param string $first_database    First database
- * @param string $replication_types replication types
+ * @param bool   $is_superuser             User status
+ * @param Array  $databases_count          Database count
+ * @param string $column_order             column order
+ * @param string $replication_types        replication types
+ * @param string $first_database           First database
  *
  * @return string
  */
@@ -207,16 +208,18 @@ function PMA_getHtmlForTableFooter(
 /**
  * Returns the html for Database List
  *
- * @param bool   $is_superuser      User status
  * @param bool   $databases         GBI return databases
+ * @param bool   $is_superuser      User status
  * @param Array  $url_query         Url query
  * @param string $column_order      column order
- * @param string $replication_info  replication info
  * @param string $replication_types replication types
+ * @param string $replication_info  replication info
  *
  * @return string
  */
-function PMA_getHtmlForDatabaseList($databases, $is_superuser, $url_query, $column_order, $replication_types, $replication_info)
+function PMA_getHtmlForDatabaseList(
+    $databases, $is_superuser, $url_query, 
+    $column_order, $replication_types, $replication_info)
 {
     $odd_row = true;
     $html = '<tbody>' . "\n";
@@ -250,7 +253,7 @@ function PMA_getHtmlForDatabaseList($databases, $is_superuser, $url_query, $colu
 /**
  * Returns the html for Column Order
  *
- * @param bool $is_superuser   User status
+ * @param bool $column_order   Column order
  * @param bool $first_database The first display database
  *
  * @return string
@@ -326,8 +329,8 @@ function PMA_getHtmlForColumnOrderWithSort(
                 $colspan = '';
             }
             $_url_params['sort_by'] = $stat_name;
-            $_url_params['sort_order'] = 
-                ($sort_by == $stat_name && $sort_order == 'desc') ? 'asc' : 'desc';
+            $_url_params['sort_order'] 
+                = ($sort_by == $stat_name && $sort_order == 'desc') ? 'asc' : 'desc';
             $html .= '    <th' . $colspan . '>'
                 . '<a href="server_databases.php' 
                 . PMA_generate_common_url($_url_params) . '">' . "\n"
@@ -347,8 +350,8 @@ function PMA_getHtmlForColumnOrderWithSort(
 /**
  * Returns the html for Empty DB Status
  *
- * @param bool   $url_query  Url query
- * @param string $html       html for database list
+ * @param bool   $url_query Url query
+ * @param string $html      html for database list
  *
  * @return string
  */
@@ -375,9 +378,9 @@ function PMA_getHtmlForEmptyDBStatus($url_query, $html)
 /**
  * Returns the html for database replication types
  *
- * @param bool   $is_superuser      User status
- * @param bool   $cfg_inconic       cfg about Properties Iconic
- * @param Array  $replication_types replication types
+ * @param bool  $is_superuser      User status
+ * @param Array $replication_types replication types
+ * @param bool  $cfg_inconic       cfg about Properties Iconic
  *
  * @return string
  */
