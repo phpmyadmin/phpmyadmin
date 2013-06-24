@@ -5369,7 +5369,7 @@ msgstr "MySQL'e ayrılmış kelime uyarısı"
 #: libraries/config/messages.inc.php:339
 #| msgid "Allow to display all the rows"
 msgid "How to display the menu tabs"
-msgstr "Menü sekmeleri nasıl görüntülenir"
+msgstr "Menü sekmelerinin nasıl görüntüleneceği"
 
 #: libraries/config/messages.inc.php:341
 msgid "How to display various action links"
