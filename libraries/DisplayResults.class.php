@@ -908,9 +908,9 @@ class PMA_DisplayResults
             . __('Number of rows:') . ' '
             . '<select name="session_max_rows" class="autosubmit">';
 
-        $numberOfRowsChoices = array(25,50,100,250,500);
+        $numberOfRowsChoices = array(25, 50, 100, 250, 500);
         foreach ($numberOfRowsChoices as $oneNumberOfRowsChoice) {
-            $additional_fields_html .= '<option value="' 
+            $additional_fields_html .= '<option value="'
                 . $oneNumberOfRowsChoice . '"';
 
             if ($oneNumberOfRowsChoice == $_SESSION['tmp_user_values']['max_rows']) {
