@@ -712,7 +712,6 @@ $cfg['AllowUserDropDatabase'] = false;
 
 /**
  * confirm some commands that can result in loss of data
- * (see "need_confirm" in the parser)
  *
  * @global boolean $cfg['Confirm']
  */
@@ -769,6 +768,19 @@ $cfg['IgnoreMultiSubmitErrors'] = false;
  */
 $cfg['AllowArbitraryServer'] = false;
 
+/**
+ * if reCaptcha is enabled it needs public key to connect with the service
+ *
+ * @global string $cfg['CaptchaLoginPublicKey']
+ */
+$cfg['CaptchaLoginPublicKey'] = '';
+
+/**
+ * if reCaptcha is enabled it needs private key to connect with the service
+ *
+ * @global string $cfg['CaptchaLoginPrivateKey']
+ */
+$cfg['CaptchaLoginPrivateKey'] = '';
 
 /*******************************************************************************
  * Error handler configuration
@@ -1010,12 +1022,12 @@ $cfg['HideStructureActions'] = true;
  */
 
 /**
- * Use icons instead of text for the navigation bar buttons
- * and on right panel top menu (server db table) (true|false|'both')
+ * Use icons instead of text for the navigation bar buttons (table browse)
+ * ('text'|'icons'|'both')
  *
- * @global string $cfg['NavigationBarIconic']
+ * @global string $cfg['TableNavigationLinksMode']
  */
-$cfg['NavigationBarIconic'] = true;
+$cfg['TableNavigationLinksMode'] = 'icons';
 
 /**
  * Defines whether a user should be displayed a "show all (records)"
@@ -1028,10 +1040,11 @@ $cfg['ShowAll'] = false;
 /**
  * Number of rows displayed when browsing a result set. If the result
  * set contains more rows, "Previous" and "Next".
+ * Possible values: 25,50,100,250,500
  *
  * @global integer $cfg['MaxRows']
  */
-$cfg['MaxRows'] = 30;
+$cfg['MaxRows'] = 25;
 
 /**
  * default for 'ORDER BY' clause (valid values are 'ASC', 'DESC' or 'SMART' -ie
@@ -1185,11 +1198,18 @@ $cfg['CompressOnFly'] = true;
  */
 
 /**
- * Use icons instead of text for the table display of a database (true|false|'both')
+ * How to display the menu tabs ('icons'|'text'|'both')
  *
- * @global boolean $cfg['PropertiesIconic']
+ * @global boolean $cfg['TabsMode']
  */
-$cfg['PropertiesIconic'] = 'both';
+$cfg['TabsMode'] = 'both';
+
+/**
+ * How to display various action links ('icons'|'text'|'both')
+ *
+ * @global boolean $cfg['ActionLinksMode']
+ */
+$cfg['ActionLinksMode'] = 'both';
 
 /**
  * How many columns should be used for table display of a database?

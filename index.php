@@ -117,9 +117,9 @@ if ($server > 0 || count($cfg['Servers']) > 1
     /**
      * Displays the MySQL servers choice form
      */
-    if ($cfg['ServerDefault'] == 0 
+    if ($cfg['ServerDefault'] == 0
         || (! $cfg['NavigationDisplayServers']
-            && (count($cfg['Servers']) > 1 
+            && (count($cfg['Servers']) > 1
                 || ($server == 0 && count($cfg['Servers']) == 1)
             )
         )
@@ -405,7 +405,7 @@ if ($server != 0
 }
 
 /**
- * Nijel: As we try to handle charsets by ourself, mbstring overloads just
+ * As we try to handle charsets by ourself, mbstring overloads just
  * break it, see bug 1063821.
  */
 if (@extension_loaded('mbstring') && @ini_get('mbstring.func_overload') > 1) {
@@ -420,7 +420,7 @@ if (@extension_loaded('mbstring') && @ini_get('mbstring.func_overload') > 1) {
 }
 
 /**
- * Nijel: mbstring is used for handling multibyte inside parser, so it is good
+ * mbstring is used for handling multibyte inside parser, so it is good
  * to tell user something might be broken without it, see bug #1063149.
  */
 if (! @extension_loaded('mbstring')) {

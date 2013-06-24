@@ -15,7 +15,7 @@ define('PMA_CHARSET_RECODE', 2);
 define('PMA_CHARSET_ICONV_AIX', 3);
 
 // Finally detect which function we will use:
-if ($cfg['RecodingEngine'] == 'iconv') {
+if ($GLOBALS['cfg']['RecodingEngine'] == 'iconv') {
     if (@function_exists('iconv')) {
         if ((@stristr(PHP_OS, 'AIX'))
             && (@strcasecmp(ICONV_IMPL, 'unknown') == 0)
@@ -29,14 +29,14 @@ if ($cfg['RecodingEngine'] == 'iconv') {
         $PMA_recoding_engine = PMA_CHARSET_NONE;
         PMA_warnMissingExtension('iconv');
     }
-} elseif ($cfg['RecodingEngine'] == 'recode') {
+} elseif ($GLOBALS['cfg']['RecodingEngine'] == 'recode') {
     if (@function_exists('recode_string')) {
         $PMA_recoding_engine = PMA_CHARSET_RECODE;
     } else {
         $PMA_recoding_engine = PMA_CHARSET_NONE;
         PMA_warnMissingExtension('recode');
     }
-} elseif ($cfg['RecodingEngine'] == 'auto') {
+} elseif ($GLOBALS['cfg']['RecodingEngine'] == 'auto') {
     if (@function_exists('iconv')) {
         if ((@stristr(PHP_OS, 'AIX'))
             && (@strcasecmp(ICONV_IMPL, 'unknown') == 0)

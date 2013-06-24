@@ -17,6 +17,7 @@ require_once 'libraries/Header.class.php';
 require_once 'libraries/check_user_privileges.lib.php';
 require_once 'libraries/bookmark.lib.php';
 require_once 'libraries/sql.lib.php';
+require_once 'libraries/sqlparser.lib.php';
 
 $response = PMA_Response::getInstance();
 $header   = $response->getHeader();
@@ -35,42 +36,6 @@ if (isset($ajax_reload) && $ajax_reload['reload'] === true) {
     $response->addJSON('ajax_reload', $ajax_reload);
 }
 
-/**
- * Sets globals from $_POST
- */
-$post_params = array(
-    'bkm_all_users',
-    'fields',
-    'store_bkm'
-);
-foreach ($post_params as $one_post_param) {
-    if (isset($_POST[$one_post_param])) {
-        $GLOBALS[$one_post_param] = $_POST[$one_post_param];
-    }
-}
-
-/**
- * Sets globals from $_GET
- */
-$get_params = array(
-    'id_bookmark',
-    'label',
-    'sql_query'
-);
-foreach ($get_params as $one_get_param) {
-    if (isset($_GET[$one_get_param])) {
-        $GLOBALS[$one_get_param] = $_GET[$one_get_param];
-    }
-}
-
-
-if (isset($_REQUEST['printview'])) {
-    $GLOBALS['printview'] = $_REQUEST['printview'];
-}
-
-if (!isset($_SESSION['is_multi_query'])) {
-    $_SESSION['is_multi_query'] = false;
-}
 
 /**
  * Defines the url to return to in case of error in a sql statement
@@ -102,13 +67,15 @@ if (! isset($err_url)) {
 } // end if
 
 // Coming from a bookmark dialog
-if (isset($fields['query'])) {
-    $sql_query = $fields['query'];
+if (isset($_POST['bkm_fields']['bkm_sql_query'])) {
+    $sql_query = $_POST['bkm_fields']['bkm_sql_query'];
+} elseif (isset($_GET['sql_query'])) {
+    $sql_query = $_GET['sql_query'];
 }
 
 // This one is just to fill $db
-if (isset($fields['dbase'])) {
-    $db = $fields['dbase'];
+if (isset($_POST['bkm_fields']['bkm_database'])) {
+    $db = $_POST['bkm_fields']['bkm_database'];
 }
 
 
@@ -232,11 +199,11 @@ if (empty($sql_query) && strlen($table) && strlen($db)) {
     PMA_Util::checkParameters(array('sql_query'));
 }
 
-// instead of doing the test twice
-$is_drop_database = preg_match(
-    '/DROP[[:space:]]+(DATABASE|SCHEMA)[[:space:]]+/i',
-    $sql_query
-);
+/**
+ * Parse and analyze the query
+ */
+require_once 'libraries/parse_analyze.inc.php';
+
 
 /**
  * Check rights in case of DROP DATABASE
@@ -245,10 +212,8 @@ $is_drop_database = preg_match(
  * but since a malicious user may pass this variable by url/form, we don't take
  * into account this case.
  */
-if (! defined('PMA_CHK_DROP')
-    && ! $cfg['AllowUserDropDatabase']
-    && $is_drop_database
-    && ! $is_superuser
+if (PMA_hasNoRightsToDropDatabase(
+    $analyzed_sql_results, $cfg['AllowUserDropDatabase'])
 ) {
     PMA_Util::mysqlDie(
         __('"DROP DATABASE" statements are disabled.'),
@@ -283,16 +248,18 @@ if (isset($find_real_end) && $find_real_end) {
 /**
  * Bookmark add
  */
-if (isset($store_bkm)) {
+if (isset($_POST['store_bkm'])) {
     $result = PMA_Bookmark_save(
-        $fields,
-        (isset($bkm_all_users) && $bkm_all_users == 'true' ? true : false)
+        $_POST['bkm_fields'],
+        (isset($_POST['bkm_all_users'])
+            && $_POST['bkm_all_users'] == 'true' ? true : false
+        )
     );
     $response = PMA_Response::getInstance();
     if ($response->isAjax()) {
         if ($result) {
             $msg = PMA_message::success(__('Bookmark %s created'));
-            $msg->addParam($fields['label']);
+            $msg->addParam($_POST['bkm_fields']['bkm_label']);
             $response->addJSON('message', $msg);
         } else {
             $msg = PMA_message::error(__('Bookmark not created'));
@@ -303,15 +270,12 @@ if (isset($store_bkm)) {
     } else {
         // go back to sql.php to redisplay query; do not use &amp; in this case:
         PMA_sendHeaderLocation(
-            $cfg['PmaAbsoluteUri'] . $goto . '&label=' . $fields['label']
+            $cfg['PmaAbsoluteUri'] . $goto
+            . '&label=' . $_POST['bkm_fields']['bkm_label']
         );
     }
 } // end if
 
-/**
- * Parse and analyze the query
- */
-require_once 'libraries/parse_analyze.lib.php';
 
 /**
  * Sets or modifies the $goto variable if required
@@ -345,146 +309,17 @@ if (isset($_REQUEST['btnDrop']) && $_REQUEST['btnDrop'] == __('No')) {
 } // end if
 
 
-/**
- * Displays the confirm page if required
- *
- * This part of the script is bypassed if $is_js_confirmed = 1 (already checked
- * with js) because possible security issue is not so important here: at most,
- * the confirm message isn't displayed.
- *
- * Also bypassed if only showing php code.or validating a SQL query
- */
-// if we are coming from a "Create PHP code" or a "Without PHP Code"
-// dialog, we won't execute the query anyway, so don't confirm
-if (! $cfg['Confirm']
-    || isset($_REQUEST['is_js_confirmed'])
-    || isset($_REQUEST['btnDrop'])
-    || isset($GLOBALS['show_as_php'])
-    || ! empty($GLOBALS['validatequery'])
-) {
-    $do_confirm = false;
-} else {
-    $do_confirm = isset($analyzed_sql[0]['queryflags']['need_confirm']);
-}
-
-if ($do_confirm) {
-    $stripped_sql_query = $sql_query;
-    $input = '<input type="hidden" name="%s" value="%s" />';
-    $output = '';
-    if ($is_drop_database) {
-        $output .= '<h1 class="error">';
-        $output .= __('You are about to DESTROY a complete database!');
-        $output .= '</h1>';
-    }
-    $form  = '<form class="disableAjax" action="sql.php" method="post">';
-    $form .= PMA_generate_common_hidden_inputs($db, $table);
-
-    $form .= sprintf(
-        $input, 'sql_query', htmlspecialchars($sql_query)
-    );
-    $form .= sprintf(
-        $input, 'message_to_show',
-        (isset($message_to_show) ? PMA_sanitize($message_to_show, true) : '')
-    );
-    $form .= sprintf(
-        $input, 'goto', $goto
-    );
-    $form .= sprintf(
-        $input, 'back',
-        (isset($back) ? PMA_sanitize($back, true) : '')
-    );
-    $form .= sprintf(
-        $input, 'reload',
-        (isset($reload) ? PMA_sanitize($reload, true) : '')
-    );
-    $form .= sprintf(
-        $input, 'purge',
-        (isset($purge) ? PMA_sanitize($purge, true) : '')
-    );
-    $form .= sprintf(
-        $input, 'dropped_column',
-        (isset($dropped_column) ? PMA_sanitize($dropped_column, true) : '')
-    );
-    $form .= sprintf(
-        $input, 'show_query',
-        (isset($message_to_show) ? PMA_sanitize($show_query, true) : '')
-    );
-    $form = str_replace('%', '%%', $form) . '%s</form>';
-
-    $output .='<fieldset class="confirmation">'
-        .'<legend>'
-        . __('Do you really want to execute the following query?')
-        . '</legend>'
-        .'<code>' . htmlspecialchars($stripped_sql_query) . '</code>'
-        .'</fieldset>'
-        .'<fieldset class="tblFooters">';
-
-    $yes_input  = sprintf($input, 'btnDrop', __('Yes'));
-    $yes_input .= '<input type="submit" value="' . __('Yes') . '" id="buttonYes" />';
-    $no_input   = sprintf($input, 'btnDrop', __('No'));
-    $no_input  .= '<input type="submit" value="' . __('No') . '" id="buttonNo" />';
-
-    $output .= sprintf($form, $yes_input);
-    $output .= sprintf($form, $no_input);
-
-    $output .='</fieldset>';
-    $output .= '';
-
-    PMA_Response::getInstance()->addHTML($output);
-
-    exit;
-} // end if $do_confirm
-
-
-// Defines some variables
-// A table has to be created, renamed, dropped -> navi frame should be reloaded
-/**
- * @todo use the parser/analyzer
- */
-
-if (empty($reload)
-    && preg_match('/^(CREATE|ALTER|DROP)\s+(VIEW|TABLE|DATABASE|SCHEMA)\s+/i', $sql_query)
-) {
-    $reload = 1;
-}
-
-// $is_group added for use in calculation of total number of rows.
-// $is_count is changed for more correct "LIMIT" clause
-//  appending in queries like
-//  "SELECT COUNT(...) FROM ... GROUP BY ..."
-
-/**
- * @todo detect all this with the parser, to avoid problems finding
- * those strings in comments or backquoted identifiers
- */
-list($is_group, $is_func, $is_count, $is_export, $is_analyse, $is_explain,
-    $is_delete, $is_affected, $is_insert, $is_replace, $is_show, $is_maint)
-        = PMA_getDisplayPropertyParams(
-            $sql_query, $is_select
-        );
-
 // assign default full_sql_query
 $full_sql_query = $sql_query;
 
 // Handle remembered sorting order, only for single table query
-if ($GLOBALS['cfg']['RememberSorting']
-    && ! ($is_count || $is_export || $is_func || $is_analyse)
-    && isset($analyzed_sql[0]['select_expr'])
-    && (count($analyzed_sql[0]['select_expr']) == 0)
-    && isset($analyzed_sql[0]['queryflags']['select_from'])
-    && count($analyzed_sql[0]['table_ref']) == 1
-) {
+if (PMA_isRememberSortingOrder($analyzed_sql_results)) {
     PMA_handleSortOrder($db, $table, $analyzed_sql, $full_sql_query);
 }
 
 $sql_limit_to_append = '';
 // Do append a "LIMIT" clause?
-if (($_SESSION['tmp_user_values']['max_rows'] != 'all')
-    && ! ($is_count || $is_export || $is_func || $is_analyse)
-    && isset($analyzed_sql[0]['queryflags']['select_from'])
-    && ! isset($analyzed_sql[0]['queryflags']['offset'])
-    && empty($analyzed_sql[0]['limit_clause'])
-) {
+if (PMA_isAppendLimitClause($analyzed_sql_results)) {
     $sql_limit_to_append = ' LIMIT ' . $_SESSION['tmp_user_values']['pos']
         . ', ' . $_SESSION['tmp_user_values']['max_rows'] . " ";
     $full_sql_query = PMA_getSqlWithLimitClause(
@@ -514,7 +349,14 @@ if (($_SESSION['tmp_user_values']['max_rows'] != 'all')
     }
 }
 
-if (strlen($db)) {
+if (strlen($db)) {    
+    // Checks if the current database has changed
+    // This could happen if the user sends a query like "USE `database`;"
+    $current_db = $GLOBALS['dbi']->fetchValue('SELECT DATABASE()');
+    if ($db !== $current_db) {
+        $reload = 1;
+    }
+    unset($current_db);
     $GLOBALS['dbi']->selectDb($db);
 }
 
@@ -615,7 +457,7 @@ if (isset($GLOBALS['show_as_php']) || ! empty($GLOBALS['validatequery'])) {
             }
         }
 
-        PMA_Bookmark_save($bfields, isset($bkm_all_users));
+        PMA_Bookmark_save($bfields, isset($_POST['bkm_all_users']));
 
         $bookmark_created = true;
     } // end store bookmarks
@@ -634,21 +476,6 @@ if (isset($GLOBALS['show_as_php']) || ! empty($GLOBALS['validatequery'])) {
     if (isset($_SESSION['profiling']) && PMA_Util::profilingSupported()) {
         $profiling_results = $GLOBALS['dbi']->fetchResult('SHOW PROFILE;');
     }
-
-    // Checks if the current database has changed
-    // This could happen if the user sends a query like "USE `database`;"
-    /**
-     * commented out auto-switching to active database - really required?
-     * bug #2558 win: table list disappears (mixed case db names)
-     * https://sourceforge.net/p/phpmyadmin/bugs/2558/
-     * @todo RELEASE test and comit or rollback before release
-    $current_db = $GLOBALS['dbi']->fetchValue('SELECT DATABASE()');
-    if ($db !== $current_db) {
-        $db     = $current_db;
-        $reload = 1;
-    }
-    unset($current_db);
-     */
 
     // tmpfile remove after convert encoding appended by Y.Kawada
     if (function_exists('PMA_Kanji_fileConv')
@@ -677,17 +504,16 @@ if (isset($GLOBALS['show_as_php']) || ! empty($GLOBALS['validatequery'])) {
 
         // However, do not count again if we did it previously
         // due to $find_real_end == true
-        if (! $is_group
-            && ! isset($analyzed_sql[0]['queryflags']['union'])
-            && ! isset($analyzed_sql[0]['queryflags']['distinct'])
-            && ! isset($analyzed_sql[0]['table_ref'][1]['table_name'])
-            && (empty($analyzed_sql[0]['where_clause'])
-            || $analyzed_sql[0]['where_clause'] == '1 ')
-            && ! isset($find_real_end)
+        if (PMA_isJustBrowsing(
+            $analyzed_sql_results,isset($find_real_end) ? $find_real_end : null)
         ) {
             // "j u s t   b r o w s i n g"
             $justBrowsing = true;
-            $unlim_num_rows = PMA_Table::countRecords($db, $table);
+            $unlim_num_rows = PMA_Table::countRecords(
+                $db, 
+                $table, 
+                $force_exact = true
+            );
 
         } else { // n o t   " j u s t   b r o w s i n g "
 
@@ -783,10 +609,7 @@ if (isset($GLOBALS['show_as_php']) || ! empty($GLOBALS['validatequery'])) {
 // No rows returned -> move back to the calling page
 if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
     // Delete related tranformation information
-    if (!empty($analyzed_sql[0]['querytype'])
-        && (($analyzed_sql[0]['querytype'] == 'ALTER')
-        || ($analyzed_sql[0]['querytype'] == 'DROP'))
-    ) {
+    if (PMA_isDeleteTransformationInfo($analyzed_sql_results)) {
         include_once 'libraries/transformations.lib.php';
         if ($analyzed_sql[0]['querytype'] == 'ALTER') {
             if (stripos($analyzed_sql[0]['unsorted_query'], 'DROP') !== false) {
@@ -974,7 +797,7 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
 
         // Should be initialized these parameters before parsing
         $showtable = isset($showtable) ? $showtable : null;
-        $printview = isset($printview) ? $printview : null;
+        $printview = isset($_REQUEST['printview']) ? $_REQUEST['printview'] : null;
         $url_query = isset($url_query) ? $url_query : null;
 
         if (!empty($sql_data) && ($sql_data['valid_queries'] > 1)) {
@@ -1007,7 +830,7 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
     if (isset($show_query)) {
         unset($show_query);
     }
-    if (isset($printview) && $printview == '1') {
+    if (isset($_REQUEST['printview']) && $_REQUEST['printview'] == '1') {
         PMA_Util::checkParameters(array('db', 'full_sql_query'));
 
         $response = PMA_Response::getInstance();
@@ -1107,15 +930,15 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
         $html_output .= $msg->getDisplay();
     }
 
-    if (isset($label)) {
+    if (isset($_GET['label'])) {
         $msg = PMA_message::success(__('Bookmark %s created'));
-        $msg->addParam($label);
+        $msg->addParam($_GET['label']);
         $html_output .= $msg->getDisplay();
     }
 
     // Should be initialized these parameters before parsing
     $showtable = isset($showtable) ? $showtable : null;
-    $printview = isset($printview) ? $printview : null;
+    $printview = isset($_REQUEST['printview']) ? $_REQUEST['printview'] : null;
     $url_query = isset($url_query) ? $url_query : null;
 
     if (! empty($sql_data) && ($sql_data['valid_queries'] > 1) || $is_procedure) {
@@ -1160,7 +983,7 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
 
     // Bookmark support if required
     if ($disp_mode[7] == '1'
-        && (! empty($cfg['Bookmark']) && empty($id_bookmark))
+        && (! empty($cfg['Bookmark']) && empty($_GET['id_bookmark']))
         && ! empty($sql_query)
     ) {
         $html_output .= "\n";
@@ -1168,49 +991,16 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
               . PMA_generate_common_url($db, $table)
               . '&amp;sql_query=' . urlencode($sql_query)
               . '&amp;id_bookmark=1';
-
-        $html_output .= '<form action="sql.php" method="post"'
-            . ' onsubmit="return ! emptyFormElements(this, \'fields[label]\');"'
-            . ' id="bookmarkQueryForm">';
-        $html_output .= PMA_generate_common_hidden_inputs();
-        $html_output .= '<input type="hidden" name="goto" value="' . $goto . '" />';
-        $html_output .= '<input type="hidden" name="fields[dbase]"'
-            . ' value="' . htmlspecialchars($db) . '" />';
-        $html_output .= '<input type="hidden" name="fields[user]"'
-            . ' value="' . $cfg['Bookmark']['user'] . '" />';
-        $html_output .= '<input type="hidden" name="fields[query]"' . ' value="'
-            . urlencode(isset($complete_query) ? $complete_query : $sql_query)
-            . '" />';
-        $html_output .= '<fieldset>';
-        $html_output .= '<legend>';
-        $html_output .= PMA_Util::getIcon(
-            'b_bookmark.png', __('Bookmark this SQL query'), true
+        $bkm_sql_query = urlencode(
+            isset($complete_query) ? $complete_query : $sql_query
         );
-        $html_output .= '</legend>';
-        $html_output .= '<div class="formelement">';
-        $html_output .= '<label for="fields_label_">' . __('Label:') . '</label>';
-        $html_output .= '<input type="text" id="fields_label_"'
-            . ' name="fields[label]" value="" />';
-        $html_output .= '</div>';
-        $html_output .= '<div class="formelement">';
-        $html_output .= '<input type="checkbox" name="bkm_all_users"'
-            . ' id="bkm_all_users" value="true" />';
-        $html_output .= '<label for="bkm_all_users">'
-            . __('Let every user access this bookmark')
-            . '</label>';
-        $html_output .= '</div>';
-        $html_output .= '<div class="clearfloat"></div>';
-        $html_output .= '</fieldset>';
-        $html_output .= '<fieldset class="tblFooters">';
-        $html_output .= '<input type="hidden" name="store_bkm" value="1" />';
-        $html_output .= '<input type="submit"'
-            . ' value="' . __('Bookmark this SQL query') . '" />';
-        $html_output .= '</fieldset>';
-        $html_output .= '</form>';
+        $html_output .= PMA_getHtmlForBookmark(
+            $db, $goto, $bkm_sql_query, $cfg['Bookmark']['user']
+        );
     } // end bookmark support
 
     // Do print the page if required
-    if (isset($printview) && $printview == '1') {
+    if (isset($_REQUEST['printview']) && $_REQUEST['printview'] == '1') {
         $html_output .= PMA_Util::getButton();
     } // end print case
     $html_output .= '</div>'; // end sqlqueryresults div
@@ -1220,9 +1010,7 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
 
 $_SESSION['is_multi_query'] = false;
 
-/**
- * Displays the footer
- */
+
 if (! isset($_REQUEST['table_maintenance'])) {
     exit;
 }

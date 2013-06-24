@@ -23,7 +23,6 @@ class PMA_Sanitize_Test extends PHPUnit_Framework_TestCase
      */
     function setUp()
     {
-        $_SESSION[' PMA_token '] = 'token';
     }
 
     /**

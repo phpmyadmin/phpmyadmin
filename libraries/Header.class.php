@@ -146,10 +146,10 @@ class PMA_Header
      */
     private function _addDefaultScripts()
     {
-        $this->_scripts->addFile('jquery/jquery-1.8.3.js');
+        $this->_scripts->addFile('jquery/jquery-1.8.3.min.js');
         $this->_scripts->addFile('ajax.js');
         $this->_scripts->addFile('keyhandler.js');
-        $this->_scripts->addFile('jquery/jquery-ui-1.9.2.custom.js');
+        $this->_scripts->addFile('jquery/jquery-ui-1.9.2.custom.min.js');
         $this->_scripts->addFile('jquery/jquery.sprintf.js');
         $this->_scripts->addFile('jquery/jquery.cookie.js');
         $this->_scripts->addFile('jquery/jquery.mousewheel.js');
@@ -452,6 +452,7 @@ class PMA_Header
         if (! defined('TESTSUITE')) {
             header(
                 "X-Content-Security-Policy: default-src 'self' "
+                . 'https://www.google.com '
                 . $GLOBALS['cfg']['CSPAllow'] . ';'
                 . "options inline-script eval-script;"
                 . "img-src 'self' data: "
@@ -464,6 +465,7 @@ class PMA_Header
             ) {
                 header(
                     "X-WebKit-CSP: allow 'self' "
+                    . 'https://www.google.com '
                     . $GLOBALS['cfg']['CSPAllow'] . ';'
                     . "options inline-script eval-script;"
                     . "img-src 'self' data: "
@@ -474,11 +476,15 @@ class PMA_Header
             } else {
                 header(
                     "X-WebKit-CSP: default-src 'self' "
+                    . 'https://www.google.com '
                     . $GLOBALS['cfg']['CSPAllow'] . ';'
                     . "script-src 'self' "
+                    . 'https://www.google.com '
                     . $GLOBALS['cfg']['CSPAllow']
                     . " 'unsafe-inline' 'unsafe-eval';"
-                    . "style-src 'self' 'unsafe-inline';"
+                    . "style-src 'self' 'unsafe-inline' "
+                    . 'https://www.google.com '
+                    . ';'
                     . "img-src 'self' data: "
                     . $GLOBALS['cfg']['CSPAllow']
                     . ($https ? "" : $mapTilesUrls)

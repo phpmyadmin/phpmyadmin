@@ -250,6 +250,10 @@ phpMyAdmin tried to load the extension but failed. Usually, the
 problem is solved by installing a software package called "PHP-MySQL"
 or something similar.
 
+There are currently two interfaces PHP provides as MySQL extensions - ``mysql``
+and ``mysqli`` and you can change which of then is being used by
+:config:option:`$cfg['Servers'][$i]['extension']`.
+
 .. _faq1_21:
 
 1.21 I am running the CGI version of PHP under Unix, and I cannot log in using cookie auth.

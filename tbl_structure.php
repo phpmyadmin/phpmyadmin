@@ -11,7 +11,7 @@
  *
  */
 require_once 'libraries/common.inc.php';
-require_once 'libraries/mysql_charsets.lib.php';
+require_once 'libraries/mysql_charsets.inc.php';
 
 /**
  * Function implementations for this script
@@ -193,5 +193,4 @@ $hidden_titles = PMA_getHiddenTitlesArray();
 
 //display table structure
 require_once 'libraries/display_structure.lib.php';
-
 ?>

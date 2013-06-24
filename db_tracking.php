@@ -68,7 +68,7 @@ $all_tables_result = PMA_queryAsControlUser($all_tables_query);
 
 // If a HEAD version exists
 if ($GLOBALS['dbi']->numRows($all_tables_result) > 0) {
-?>
+    ?>
     <div id="tracked_tables">
     <h3><?php echo __('Tracked tables');?></h3>
 
@@ -91,14 +91,20 @@ if ($GLOBALS['dbi']->numRows($all_tables_result) > 0) {
     // Print out information about versions
 
     $drop_image_or_text = '';
-    if (true == $GLOBALS['cfg']['PropertiesIconic']) {
+    if (in_array(
+        $GLOBALS['cfg']['ActionLinksMode'],
+        array('icons', 'both')
+        )
+    ) {
         $drop_image_or_text .= PMA_Util::getImage(
             'b_drop.png',
             __('Delete tracking data for this table')
         );
     }
-    if ('both' === $GLOBALS['cfg']['PropertiesIconic']
-        || false === $GLOBALS['cfg']['PropertiesIconic']
+    if (in_array(
+        $GLOBALS['cfg']['ActionLinksMode'],
+        array('text', 'both')
+        )
     ) {
         $drop_image_or_text .= __('Drop');
     }
@@ -151,7 +157,7 @@ if ($GLOBALS['dbi']->numRows($all_tables_result) > 0) {
     </tbody>
     </table>
     </div>
-<?php
+    <?php
 }
 
 $sep = $GLOBALS['cfg']['NavigationTreeTableSeparator'];
@@ -189,7 +195,7 @@ foreach ($table_list as $key => $value) {
 
 // If untracked tables exist
 if (isset($my_tables)) {
-?>
+    ?>
     <h3><?php echo __('Untracked tables');?></h3>
 
     <table id="noversions" class="data">
@@ -200,7 +206,7 @@ if (isset($my_tables)) {
     </tr>
     </thead>
     <tbody>
-<?php
+    <?php
     // Print out list of untracked tables
 
     $style = 'odd';
@@ -211,12 +217,12 @@ if (isset($my_tables)) {
                 . '&amp;table=' . htmlspecialchars($tablename) .'">';
             $my_link .= PMA_Util::getIcon('eye.png', __('Track table'));
             $my_link .= '</a>';
-        ?>
+            ?>
             <tr class="noclick <?php echo $style;?>">
             <td><?php echo htmlspecialchars($tablename);?></td>
             <td><?php echo $my_link;?></td>
             </tr>
-        <?php
+            <?php
             if ($style == 'even') {
                 $style = 'odd';
             } else {
@@ -227,8 +233,7 @@ if (isset($my_tables)) {
     ?>
     </tbody>
     </table>
-
-<?php
+    <?php
 }
 // If available print out database log
 if (count($data['ddlog']) > 0) {

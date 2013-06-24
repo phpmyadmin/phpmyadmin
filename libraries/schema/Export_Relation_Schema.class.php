@@ -12,6 +12,8 @@ if (! defined('PHPMYADMIN')) {
  * This class is inherited by all schema classes
  * It contains those methods which are common in them
  * it works like factory pattern
+ *
+ * @package PhpMyAdmin
  */
 class PMA_Export_Relation_Schema
 {
@@ -167,7 +169,7 @@ class PMA_Export_Relation_Schema
     /**
      * Set type of export relational schema
      *
-     * @param string $value can be pdf,svg,dia,visio,eps etc
+     * @param string $value can be pdf,svg,dia,eps etc
      *
      * @return void
      *

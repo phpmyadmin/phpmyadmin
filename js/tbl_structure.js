@@ -54,7 +54,7 @@ AJAX.registerOnload('tbl_structure.js', function () {
     /**
      *Ajax action for submitting the "Column Change" and "Add Column" form
      */
-    $(".append_fields_form.ajax").die().live('submit', function(event) {
+    $(".append_fields_form.ajax").die().live('submit', function (event) {
         event.preventDefault();
         /**
          * @var    the_form    object referring to the export form
@@ -73,7 +73,7 @@ AJAX.registerOnload('tbl_structure.js', function () {
             PMA_prepareForAjaxRequest($form);
             //User wants to submit the form
             $msg = PMA_ajaxShowMessage();
-            $.post($form.attr('action'), $form.serialize() + '&do_save_data=1', function(data) {
+            $.post($form.attr('action'), $form.serialize() + '&do_save_data=1', function (data) {
                 if ($("#sqlqueryresults").length != 0) {
                     $("#sqlqueryresults").remove();
                 } else if ($(".error:not(.tab)").length != 0) {

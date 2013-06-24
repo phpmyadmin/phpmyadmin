@@ -14,8 +14,9 @@ require_once 'Export_Relation_Schema.class.php';
  * This Class inherits the XMLwriter class and
  * helps in developing structure of SVG Schema Export
  *
- * @access public
- * @see http://php.net/manual/en/book.xmlwriter.php
+ * @package PhpMyAdmin
+ * @access  public
+ * @see     http://php.net/manual/en/book.xmlwriter.php
  */
 class PMA_SVG extends XMLWriter
 {
@@ -334,8 +335,9 @@ class PMA_SVG extends XMLWriter
  * This class preserves the table co-ordinates,fields
  * and helps in drawing/generating the Tables in SVG XML document.
  *
- * @name Table_Stats
- * @see PMA_SVG
+ * @package PhpMyAdmin
+ * @name    Table_Stats
+ * @see     PMA_SVG
  */
 class Table_Stats
 {
@@ -473,6 +475,7 @@ class Table_Stats
      * Returns title of the current table,
      * title can have the dimensions/co-ordinates of the table
      *
+     * @return string title of the current table
      * @access private
      */
     private function _getTitle()
@@ -587,8 +590,9 @@ class Table_Stats
  * master table's master field to foreign table's foreign key
  * in SVG XML document.
  *
- * @name Relation_Stats
- * @see PMA_SVG::printElementLine
+ * @package PhpMyAdmin
+ * @name    Relation_Stats
+ * @see     PMA_SVG::printElementLine
  */
 class Relation_Stats
 {
@@ -768,6 +772,7 @@ class Relation_Stats
  * inherits Export_Relation_Schema class has common functionality added
  * to this class
  *
+ * @package PhpMyAdmin
  * @name Svg_Relation_Schema
  */
 class PMA_Svg_Relation_Schema extends PMA_Export_Relation_Schema

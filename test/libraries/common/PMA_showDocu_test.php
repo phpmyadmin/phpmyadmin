@@ -19,8 +19,6 @@ class PMA_ShowDocu_Test extends PHPUnit_Framework_TestCase
     function setup()
     {
         $_SESSION['PMA_Theme'] = PMA_Theme::load('./themes/pmahomme');
-        $_SESSION[' PMA_token '] = 'token';
-        $GLOBALS['lang'] = 'en';
         $GLOBALS['server'] = '99';
         $GLOBALS['cfg']['ServerDefault'] = 1;
     }

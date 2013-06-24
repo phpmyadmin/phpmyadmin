@@ -321,8 +321,8 @@ $strConfigRowActionLinks_desc = __('These are Edit, Copy and Delete links');
 $strConfigRowActionLinks_name = __('Where to show the table row links');
 $strConfigNaturalOrder_desc = __('Use natural order for sorting table and database names');
 $strConfigNaturalOrder_name = __('Natural order');
-$strConfigNavigationBarIconic_desc = __('Use only icons, only text or both');
-$strConfigNavigationBarIconic_name = __('Iconic navigation bar');
+$strConfigTableNavigationLinksMode_desc = __('Use only icons, only text or both');
+$strConfigTableNavigationLinksMode_name = __('Table navigation bar');
 $strConfigOBGzip_desc = __('use GZip output buffering for increased speed in HTTP transfers');
 $strConfigOBGzip_name = __('GZip output buffering');
 $strConfigOrder_desc = __('[kbd]SMART[/kbd] - i.e. descending order for columns of type TIME, DATE, DATETIME and TIMESTAMP, ascending order otherwise');
@@ -335,8 +335,10 @@ $strConfigServerLibraryDifference_DisableWarning_desc = __('Disable the default 
 $strConfigServerLibraryDifference_DisableWarning_name = __('Server/library difference warning');
 $strConfigReservedWordDisableWarning_desc = __('Disable the default warning that is displayed on the Structure page if column names in a table are reserved MySQL words');
 $strConfigReservedWordDisableWarning_name = __('MySQL reserved word warning');
-$strConfigPropertiesIconic_desc = __('Use only icons, only text or both');
-$strConfigPropertiesIconic_name = __('Iconic table operations');
+$strConfigTabsMode_desc = __('Use only icons, only text or both');
+$strConfigTabsMode_name = __('How to display the menu tabs');
+$strConfigActionLinksMode_desc = __('Use only icons, only text or both');
+$strConfigActionLinksMode_name = __('How to display various action links');
 $strConfigProtectBinary_desc = __('Disallow BLOB and BINARY columns from editing');
 $strConfigProtectBinary_name = __('Protect binary columns');
 $strConfigQueryHistoryDB_desc = __('Enable if you want DB-based query history (requires phpMyAdmin configuration storage). If disabled, this utilizes JS-routines to display query history (lost by window close).');
@@ -528,5 +530,9 @@ $strConfigVersionCheckProxyPass_name = __('Version check proxy password');
 
 $strConfigZipDump_desc = __('Enable [a@http://en.wikipedia.org/wiki/ZIP_(file_format)]ZIP[/a] compression for import and export operations');
 $strConfigZipDump_name = __('ZIP');
+$strConfigCaptchaLoginPublicKey_desc  = __('Enter your public key for your domain reCaptcha service');
+$strConfigCaptchaLoginPublicKey_name  = __('Public key for reCaptcha');
+$strConfigCaptchaLoginPrivateKey_desc = __('Enter your private key for your domain reCaptcha service');
+$strConfigCaptchaLoginPrivateKey_name = __('Private key for reCaptcha');
 
 ?>

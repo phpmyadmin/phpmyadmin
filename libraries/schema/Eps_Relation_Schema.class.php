@@ -14,8 +14,9 @@ require_once 'Export_Relation_Schema.class.php';
  * This Class is EPS Library and
  * helps in developing structure of EPS Schema Export
  *
- * @access public
- * @see http://php.net/manual/en/book.xmlwriter.php
+ * @package PhpMyAdmin
+ * @access  public
+ * @see     http://php.net/manual/en/book.xmlwriter.php
  */
 
 class PMA_EPS
@@ -369,8 +370,9 @@ class PMA_EPS
  * This class preserves the table co-ordinates,fields
  * and helps in drawing/generating the Tables in EPS.
  *
- * @name Table_Stats
- * @see PMA_EPS
+ * @package PhpMyAdmin
+ * @name    Table_Stats
+ * @see     PMA_EPS
  */
 class Table_Stats
 {
@@ -606,8 +608,9 @@ class Table_Stats
  * master table's master field to foreign table's foreign key
  * in EPS document.
  *
- * @name Relation_Stats
- * @see PMA_EPS
+ * @package PhpMyAdmin
+ * @name    Relation_Stats
+ * @see     PMA_EPS
  */
 class Relation_Stats
 {
@@ -798,7 +801,8 @@ class Relation_Stats
  * This class inherits Export_Relation_Schema class has common functionality added
  * to this class
  *
- * @name Eps_Relation_Schema
+ * @package PhpMyAdmin
+ * @name    Eps_Relation_Schema
  */
 class PMA_Eps_Relation_Schema extends PMA_Export_Relation_Schema
 {

@@ -397,7 +397,9 @@ class PMA_ExportPdf extends PMA_PDF
 
         // Pass 2
 
-        $this->results = $GLOBALS['dbi']->query($query, null, PMA_DatabaseInterface::QUERY_UNBUFFERED);
+        $this->results = $GLOBALS['dbi']->query(
+            $query, null, PMA_DatabaseInterface::QUERY_UNBUFFERED
+        );
         $this->setY($this->tMargin);
         $this->AddPage();
         $this->SetFont(PMA_PDF_FONT, '', 9);

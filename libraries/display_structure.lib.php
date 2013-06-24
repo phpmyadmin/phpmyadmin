@@ -7,7 +7,7 @@
  */
 
 require_once 'libraries/common.inc.php';
-require_once 'libraries/mysql_charsets.lib.php';
+require_once 'libraries/mysql_charsets.inc.php';
 require_once 'libraries/structure.lib.php';
 require_once 'libraries/index.lib.php';
 require_once 'libraries/tbl_info.inc.php';
@@ -21,7 +21,10 @@ if (! defined('PHPMYADMIN')) {
 
 
 $HideStructureActions = '';
-if ($GLOBALS['cfg']['PropertiesIconic'] !== true
+if (in_array(
+    $GLOBALS['cfg']['ActionLinksMode'],
+    array('text', 'both')
+    )
     && $GLOBALS['cfg']['HideStructureActions'] === true
 ) {
     $HideStructureActions .= ' HideStructureActions';
@@ -115,12 +118,12 @@ foreach ($fields as $row) {
 
     $attribute = $extracted_columnspec['attribute'];
 
-    // prepare a common variable to reuse below; however, 
+    // prepare a common variable to reuse below; however,
     // in case of a VIEW, $analyzed_sql[0]['create_table_fields'] is empty
     if (isset($analyzed_sql[0]['create_table_fields'][$row['Field']])) {
         $tempField = $analyzed_sql[0]['create_table_fields'][$row['Field']];
     } else {
-        $tempField = array(); 
+        $tempField = array();
     }
 
     // MySQL 4.1.2+ TIMESTAMP options
@@ -240,9 +243,9 @@ if (! $tbl_is_view
 ) {
     //return the list of index
     $response->addJSON(
-        'indexes_list', 
+        'indexes_list',
         PMA_Index::getView($GLOBALS['table'], $GLOBALS['db'])
-    ); 
+    );
     $response->addHTML(PMA_getHtmlForDisplayIndexes());
 }
 

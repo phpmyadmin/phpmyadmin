@@ -36,11 +36,9 @@ class PMA_Table_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['server'] = 0;
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $GLOBALS['cfg']['ServerDefault'] = 1;
-        $GLOBALS['lang'] = 'en';
-        $_SESSION[' PMA_token '] = 'token';
         $GLOBALS['cfg']['MySQLManualType'] = 'viewable';
         $GLOBALS['cfg']['MySQLManualBase'] = 'http://dev.mysql.com/doc/refman';
-        $GLOBALS['cfg']['PropertiesIconic'] = 'both';
+        $GLOBALS['cfg']['ActionLinksMode'] = 'both';
         $_SESSION['PMA_Theme'] = new PMA_Theme();
         $GLOBALS['pmaThemeImage'] = 'themes/dot.gif';
         $GLOBALS['is_ajax_request'] = false;

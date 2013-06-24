@@ -10,51 +10,6 @@ if (!defined('PHPMYADMIN')) {
 }
 
 /**
- * Initialize some parameters needed to display results
- *
- * @param string  $sql_query SQL statement
- * @param boolean $is_select select query or not
- *
- * @return  array set of parameters
- *
- * @access  public
- */
-function PMA_getDisplayPropertyParams($sql_query, $is_select)
-{
-    $is_explain = $is_count = $is_export = $is_delete = $is_insert = $is_affected = $is_show = $is_maint = $is_analyse = $is_group = $is_func = $is_replace = false;
-
-    if ($is_select) {
-        $is_group = preg_match('@(GROUP[[:space:]]+BY|HAVING|SELECT[[:space:]]+DISTINCT)[[:space:]]+@i', $sql_query);
-        $is_func =  ! $is_group && (preg_match('@[[:space:]]+(SUM|AVG|STD|STDDEV|MIN|MAX|BIT_OR|BIT_AND)\s*\(@i', $sql_query));
-        $is_count = ! $is_group && (preg_match('@^SELECT[[:space:]]+COUNT\((.*\.+)?.*\)@i', $sql_query));
-        $is_export   = preg_match('@[[:space:]]+INTO[[:space:]]+OUTFILE[[:space:]]+@i', $sql_query);
-        $is_analyse  = preg_match('@[[:space:]]+PROCEDURE[[:space:]]+ANALYSE@i', $sql_query);
-    } elseif (preg_match('@^EXPLAIN[[:space:]]+@i', $sql_query)) {
-        $is_explain  = true;
-    } elseif (preg_match('@^DELETE[[:space:]]+@i', $sql_query)) {
-        $is_delete   = true;
-        $is_affected = true;
-    } elseif (preg_match('@^(INSERT|LOAD[[:space:]]+DATA|REPLACE)[[:space:]]+@i', $sql_query)) {
-        $is_insert   = true;
-        $is_affected = true;
-        if (preg_match('@^(REPLACE)[[:space:]]+@i', $sql_query)) {
-            $is_replace = true;
-        }
-    } elseif (preg_match('@^UPDATE[[:space:]]+@i', $sql_query)) {
-        $is_affected = true;
-    } elseif (preg_match('@^[[:space:]]*SHOW[[:space:]]+@i', $sql_query)) {
-        $is_show     = true;
-    } elseif (preg_match('@^(CHECK|ANALYZE|REPAIR|OPTIMIZE)[[:space:]]+TABLE[[:space:]]+@i', $sql_query)) {
-        $is_maint    = true;
-    }
-
-    return array(
-        $is_group, $is_func, $is_count, $is_export, $is_analyse, $is_explain,
-        $is_delete, $is_affected, $is_insert, $is_replace,$is_show, $is_maint
-    );
-}
-
-/**
  * Get the database name inside a USE query
  *
  * @param string $sql       SQL query
@@ -136,7 +91,7 @@ function getTableHtmlForMultipleQueries(
     $querytime_before = array_sum(explode(' ', microtime()));
 
     // Assignment for variable is not needed since the results are
-    // looiping using the connection
+    // looping using the connection
     @$GLOBALS['dbi']->tryMultiQuery($multi_sql);
 
     $querytime_after = array_sum(explode(' ', microtime()));
@@ -162,25 +117,22 @@ function getTableHtmlForMultipleQueries(
                     $databases_array
                 );
             }
-            $parsed_sql = PMA_SQP_parse($sql_data['valid_sql'][$sql_no]);
+
             $table = PMA_getTableNameBySQL(
                 $sql_data['valid_sql'][$sql_no],
                 $tables_array
             );
 
-            $analyzed_sql = PMA_SQP_analyze($parsed_sql);
-            $is_select = isset($analyzed_sql[0]['queryflags']['select_from']);
+            // for the use of the parse_analyze.inc.php
+            $sql_query = $sql_data['valid_sql'][$sql_no];
+
+            // Parse and analyze the query
+            include 'libraries/parse_analyze.inc.php';
+
             $unlim_num_rows = PMA_Table::countRecords($db, $table, true);
             $showtable = PMA_Table::sGetStatusInfo($db, $table, null, true);
             $url_query = PMA_generate_common_url($db, $table);
-
-            list($is_group, $is_func, $is_count, $is_export, $is_analyse,
-                $is_explain, $is_delete, $is_affected, $is_insert, $is_replace,
-                $is_show, $is_maint)
-                    = PMA_getDisplayPropertyParams(
-                        $sql_data['valid_sql'][$sql_no], $is_select
-                    );
-
+            
             // Handle remembered sorting order, only for single table query
             if ($GLOBALS['cfg']['RememberSorting']
                 && ! ($is_count || $is_export || $is_func || $is_analyse)
@@ -379,12 +331,12 @@ function PMA_resultSetContainsUniqueKey($db, $table, $fields_meta)
  * During grid edit, if we have a relational field, returns the html for the
  * dropdown
  *
- * @param string  $db                       current database
- * @param string  $table                    current table
- * @param string  $column                   current column
- * @param string  $curr_value               current selected value
+ * @param string $db         current database
+ * @param string $table      current table
+ * @param string $column     current column
+ * @param string $curr_value current selected value
  *
- * @return string $dropdown                 html for the dropdown
+ * @return string $dropdown html for the dropdown
  */
 function PMA_getHtmlForRelationalColumnDropdown($db, $table, $column, $curr_value)
 {
@@ -431,11 +383,11 @@ function PMA_getHtmlForRelationalColumnDropdown($db, $table, $column, $curr_valu
 /**
  * Get the HTML for the header of the page in print view
  *
- * @param string  $db                       current database
- * @param string  $sql_query                current sql query
- * @param int     $num_rows                 the number of rows in result
+ * @param string $db        current database
+ * @param string $sql_query current sql query
+ * @param int    $num_rows  the number of rows in result
  *
- * @return string $header                   html for the header
+ * @return string $header html for the header
  */
 function PMA_getHtmlForPrintViewHeader($db, $sql_query, $num_rows)
 {
@@ -476,11 +428,11 @@ function PMA_getHtmlForPrintViewHeader($db, $sql_query, $num_rows)
 /**
  * Get the HTML for the profiling table and accompanying chart
  *
- * @param string    $url_query            the url query
- * @param string    $pma_token            the pma token
- * @param array     $profiling_results    array containing the profiling info
+ * @param string $url_query         the url query
+ * @param string $pma_token         the pma token
+ * @param array  $profiling_results array containing the profiling info
  *
- * @return string   $profiling_table      html for the profiling table and chart
+ * @return string $profiling_table html for the profiling table and chart
  */
 function PMA_getHtmlForProfilingChart($url_query, $pma_token, $profiling_results)
 {
@@ -606,12 +558,12 @@ EOT;
  * During grid edit, if we have a enum field, returns the html for the
  * dropdown
  *
- * @param string  $db                       current database
- * @param string  $table                    current table
- * @param string  $column                   current column
- * @param string  $curr_value               currently selected value
+ * @param string $db         current database
+ * @param string $table      current table
+ * @param string $column     current column
+ * @param string $curr_value currently selected value
  *
- * @return string $dropdown                 html for the dropdown
+ * @return string $dropdown html for the dropdown
  */
 function PMA_getHtmlForEnumColumnDropdown($db, $table, $column, $curr_value)
 {
@@ -627,12 +579,12 @@ function PMA_getHtmlForEnumColumnDropdown($db, $table, $column, $curr_value)
  * During grid edit, if we have a set field, returns the html for the
  * dropdown
  *
- * @param string  $db                       current database
- * @param string  $table                    current table
- * @param string  $column                   current column
- * @param string  $curr_value               currently selected value
+ * @param string $db         current database
+ * @param string $table      current table
+ * @param string $column     current column
+ * @param string $curr_value currently selected value
  *
- * @return string $dropdown                 html for the set column
+ * @return string $dropdown html for the set column
  */
 function PMA_getHtmlForSetColumn($db, $table, $column, $curr_value)
 {
@@ -657,11 +609,11 @@ function PMA_getHtmlForSetColumn($db, $table, $column, $curr_value)
 /**
  * Get all the values for a enum column or set column in a table
  *
- * @param string  $db             current database
- * @param string  $table          current table
- * @param string  $column         current column
+ * @param string $db     current database
+ * @param string $table  current table
+ * @param string $column current column
  *
- * @return array  $values         array containing the value list for the column
+ * @return array $values array containing the value list for the column
  */
 function PMA_getValuesForColumn($db, $table, $column)
 {
@@ -679,10 +631,10 @@ function PMA_getValuesForColumn($db, $table, $column)
 /**
  * Get HTML for options list
  *
- * @param array   $values           set of values
- * @param array   $selected_values  currently selected values
+ * @param array $values          set of values
+ * @param array $selected_values currently selected values
  *
- * @return string $options          HTML for options list
+ * @return string $options HTML for options list
  */
 function PMA_getHtmlForOptionsList($values, $selected_values)
 {
@@ -695,5 +647,186 @@ function PMA_getHtmlForOptionsList($values, $selected_values)
         $options .= '>' . $value . '</option>';
     }
     return $options;
+}
+
+/**
+ * Get HTML for the Bookmark form
+ *
+ * @param string   $db             the current database
+ * @param string   $goto           goto page url
+ * @param string   $bkm_sql_query  the query to be bookmarked
+ * @param string   $bkm_user       the user creating the bookmark
+ */
+function PMA_getHtmlForBookmark($db, $goto, $bkm_sql_query, $bkm_user)
+{
+    $html = '<form action="sql.php" method="post"'
+        . ' onsubmit="return ! emptyFormElements(this, \'bkm_fields[bkm_label]\');"'
+        . ' id="bookmarkQueryForm">';
+    $html .= PMA_generate_common_hidden_inputs();
+    $html .= '<input type="hidden" name="goto" value="' . $goto . '" />';
+    $html .= '<input type="hidden" name="bkm_fields[bkm_database]"'
+        . ' value="' . htmlspecialchars($db) . '" />';
+    $html .= '<input type="hidden" name="bkm_fields[bkm_user]"'
+        . ' value="' . $bkm_user . '" />';
+    $html .= '<input type="hidden" name="bkm_fields[bkm_sql_query]"' . ' value="'
+        . $bkm_sql_query
+        . '" />';
+    $html .= '<fieldset>';
+    $html .= '<legend>';
+    $html .= PMA_Util::getIcon(
+        'b_bookmark.png', __('Bookmark this SQL query'), true
+    );
+    $html .= '</legend>';
+    $html .= '<div class="formelement">';
+    $html .= '<label for="fields_label_">' . __('Label:') . '</label>';
+    $html .= '<input type="text" id="fields_label_"'
+        . ' name="bkm_fields[bkm_label]" value="" />';
+    $html .= '</div>';
+    $html .= '<div class="formelement">';
+    $html .= '<input type="checkbox" name="bkm_all_users"'
+        . ' id="bkm_all_users" value="true" />';
+    $html .= '<label for="bkm_all_users">'
+        . __('Let every user access this bookmark')
+        . '</label>';
+    $html .= '</div>';
+    $html .= '<div class="clearfloat"></div>';
+    $html .= '</fieldset>';
+    $html .= '<fieldset class="tblFooters">';
+    $html .= '<input type="hidden" name="store_bkm" value="1" />';
+    $html .= '<input type="submit"'
+        . ' value="' . __('Bookmark this SQL query') . '" />';
+    $html .= '</fieldset>';
+    $html .= '</form>';
+
+    return $html;
+}
+
+/**
+ * Function to check whether to remember the sorting order or not
+ * 
+ * @param array $analyzed_sql_results    the analyzed query and other varibles set
+ *                                       after analyzing the query
+ * @return boolean
+ */
+function PMA_isRememberSortingOrder($analyzed_sql_results)
+{
+    if ($GLOBALS['cfg']['RememberSorting']
+        && ! ($analyzed_sql_results['is_count']
+            || $analyzed_sql_results['is_export']
+            || $analyzed_sql_results['is_func']
+            || $analyzed_sql_results['is_analyse']
+        )
+        && isset($analyzed_sql_results['analyzed_sql'][0]['select_expr'])
+        && (count($analyzed_sql_results['analyzed_sql'][0]['select_expr']) == 0)
+        && isset(
+            $analyzed_sql_results['analyzed_sql'][0]['queryflags']['select_from']
+        )
+        && count($analyzed_sql_results['analyzed_sql'][0]['table_ref']) == 1
+    ) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+/**
+ * Function to check whether the LIMIT clause should be appended or not
+ * 
+ * @param array $analyzed_sql_results    the analyzed query and other varibles set
+ *                                       after analyzing the query
+ * 
+ * @return boolean
+ */
+function PMA_isAppendLimitClause($analyzed_sql_results)
+{
+    if (($_SESSION['tmp_user_values']['max_rows'] != 'all')
+        && ! ($analyzed_sql_results['is_count']
+            || $analyzed_sql_results['is_export']
+            || $analyzed_sql_results['is_func']
+            || $analyzed_sql_results['is_analyse']
+        )
+        && isset(
+            $analyzed_sql_results['analyzed_sql'][0]['queryflags']['select_from']
+        )
+        && ! isset($analyzed_sql_results['analyzed_sql'][0]['queryflags']['offset'])
+        && empty($analyzed_sql_results['analyzed_sql'][0]['limit_clause'])
+    ) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+/**
+ * Function to check whether this query is for just browsing
+ * 
+ * @param array   $analyzed_sql_results   the analyzed query and other varibles set
+ *                                        after analyzing the query
+ * @param boolean $find_real_end          whether the real end should be found
+ * 
+ * @return boolean
+ */
+function PMA_isJustBrowsing($analyzed_sql_results, $find_real_end)
+{
+    if (! $analyzed_sql_results['is_group']
+        && ! isset($analyzed_sql_results['analyzed_sql'][0]['queryflags']['union'])
+        && ! isset(
+            $analyzed_sql_results['analyzed_sql'][0]['queryflags']['distinct']
+        )
+        && ! isset(
+            $analyzed_sql_results['analyzed_sql'][0]['table_ref'][1]['table_name']
+        )
+        && (empty($analyzed_sql_results['analyzed_sql'][0]['where_clause'])
+        || $analyzed_sql_results['analyzed_sql'][0]['where_clause'] == '1 ')
+        && ! isset($find_real_end)
+    ) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+/**
+ * Function to check whether the reated transformation information shoul be deleted
+ * 
+ * @param array $analyzed_sql_results  the analyzed query and other varibles set
+ *                                     after analyzing the query 
+ * 
+ * @return boolean
+ */
+function PMA_isDeleteTransformationInfo($analyzed_sql_results)
+{
+    if (!empty($analyzed_sql_results['analyzed_sql'][0]['querytype'])
+        && (($analyzed_sql_results['analyzed_sql'][0]['querytype'] == 'ALTER')
+        || ($analyzed_sql_results['analyzed_sql'][0]['querytype'] == 'DROP'))
+    ) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+/**
+ * Function to check whether the user has rights to drop the database
+ * 
+ * @param  array   $analyzed_sql_results   the analyzed query and other varibles set
+ *                                         after analyzing the query
+ * @param boolean  $allowUserDropDatabase  whether the user is allowed to drop db
+ * 
+ * @return boolean
+ */
+function PMA_hasNoRightsToDropDatabase($analyzed_sql_results,
+    $allowUserDropDatabase
+) {
+    if (! defined('PMA_CHK_DROP')
+        && ! $allowUserDropDatabase
+        && isset ($analyzed_sql_results['drop_database'])
+        && $analyzed_sql_results['drop_database'] == 1
+        && ! $analyzed_sql_results['is_superuser']
+    ) {
+        return true;
+    } else {
+        return false;
+    }
 }
 ?>

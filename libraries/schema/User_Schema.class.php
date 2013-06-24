@@ -407,7 +407,11 @@ class PMA_User_Schema
             <legend>
             <?php
             echo PMA_generate_common_hidden_inputs($db);
-            if ($cfg['PropertiesIconic']) {
+            if (in_array(
+                    $GLOBALS['cfg']['ActionLinksMode'],
+                    array('icons', 'both')
+                )
+            ) {
                 echo PMA_Util::getImage('b_views.png');
             }
             echo __('Display relational schema');
@@ -417,7 +421,6 @@ class PMA_User_Schema
                 <option value="pdf" selected="selected">PDF</option>
                 <option value="svg">SVG</option>
                 <option value="dia">DIA</option>
-                <option value="visio">Visio</option>
                 <option value="eps">EPS</option>
             </select>
             <label><?php echo __('Select Export Relational Type');?></label><br />
@@ -455,7 +458,7 @@ class PMA_User_Schema
             </label><br />
             <input type="checkbox" name="all_tables_same_width" id="all_tables_same_width" />
             <label for="all_tables_same_width">
-            <?php echo __('Display all tables with the same width'); ?>
+            <?php echo __('Same width for all tables'); ?>
             </label><br />
             <input type="checkbox" name="with_doc" id="with_doc" checked="checked" />
             <label for="with_doc"><?php echo __('Data Dictionary'); ?></label><br />

@@ -257,7 +257,9 @@ class ExportCsv extends ExportPlugin
             $schema_insert = '';
             for ($i = 0; $i < $fields_cnt; $i++) {
                 if ($csv_enclosed == '') {
-                    $schema_insert .= stripslashes($GLOBALS['dbi']->fieldName($result, $i));
+                    $schema_insert .= stripslashes(
+                        $GLOBALS['dbi']->fieldName($result, $i)
+                    );
                 } else {
                     $schema_insert .= $csv_enclosed
                         . str_replace(

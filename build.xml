@@ -4,9 +4,6 @@
  <property name="source" value="."/>
  <property name="source_comma_sep" value="."/>
 
- <fileset dir="${source}" includes="js/pmd/*.js,js/*.js" id="jsfiles" />
- <pathconvert pathsep=" " property="js-list" refid="jsfiles" />
-
  <target name="clean" description="Clean up and create artifact directories">
   <delete dir="${basedir}/build/api"/>
   <delete dir="${basedir}/build/code-browser"/>
@@ -47,7 +44,7 @@
    <arg line="${source_comma_sep}
               xml
               codesize,design,naming,unusedcode
-              --exclude test,build,tcpdf,php-gettext,bfShapeFiles,PMAStandard,phpseclib
+              --exclude test,build,tcpdf,php-gettext,bfShapeFiles,PMAStandard,phpseclib,recaptchalib.php,swekey.php
               --reportfile '${basedir}/build/logs/pmd.xml'" />
   </exec>
  </target>
@@ -62,6 +59,8 @@
               --exclude libraries/php-gettext
               --exclude libraries/bfShapeFiles
               --exclude libraries/phpseclib
+              --exclude libraries/plugins/auth/recaptchalib.php
+              --exclude libraries/plugins/auth/swekey/swekey.php
               ${source}" />
   </exec>
  </target>
@@ -76,6 +75,8 @@
               --exclude libraries/php-gettext
               --exclude libraries/bfShapeFiles
               --exclude libraries/phpseclib
+              --exclude libraries/plugins/auth/recaptchalib.php
+              --exclude libraries/plugins/auth/swekey/swekey.php
               ${source}" />
   </exec>
  </target>
@@ -83,7 +84,7 @@
  <target name="phpcs" description="Generate checkstyle.xml using PHP_CodeSniffer excluding test, tcpdf directories">
   <exec executable="phpcs">
    <arg line="
-	      --ignore=*/php-gettext/*,*/tcpdf/*,*/canvg/*,*/codemirror/*,*/openlayers/*,*/jquery/*,*/jqplot/*,*/build/*,*/bfShapeFiles/*,*/PMAStandard/*,*/phpseclib/*
+	      --ignore=*/php-gettext/*,*/tcpdf/*,*/canvg/*,*/codemirror/*,*/openlayers/*,*/jquery/*,*/jqplot/*,*/build/*,*/bfShapeFiles/*,*/PMAStandard/*,*/phpseclib/*,*/recaptchalib.php,*/swekey.php
               --report=checkstyle
               --report-file='${basedir}/build/logs/checkstyle.xml'
               --standard=PMAStandard
@@ -106,10 +107,25 @@
  </target>
 
  <target name="jshint" description="Javascript checks">
-  <exec executable="jshint" output="${basedir}/build/logs/jslint.xml">
-   <arg line="--config ./.jshintrc --jslint-reporter ${js-list}" />
-  </exec>
+  <apply executable="jshint" output="${basedir}/build/logs/jslint.xml"  parallel="true">
+   <arg line="--config ./.jshintrc --jslint-reporter" />
+   <fileset dir="${basedir}">
+    <include name="js/pmd/*.js" />
+    <include name="js/*.js" />
+   </fileset>
+  </apply>
  </target>
 
- <target name="build" depends="clean,phpunit,pdepend,phpmd,phpcpd,phpcs,phpdoc,phploc,phpcb"/>
+ <target name="lint" description="Perform syntax check of sourcecode files">
+  <apply executable="php" failonerror="true">
+   <arg value="-l" />
+
+   <fileset dir="${basedir}">
+    <include name="**/*.php" />
+    <modified />
+   </fileset>
+  </apply>
+ </target>
+
+ <target name="build" depends="clean,phpunit,pdepend,phpmd,phpcpd,phpcs,phpdoc,phploc,phpcb,lint,jshint"/>
 </project>

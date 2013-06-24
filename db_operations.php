@@ -16,7 +16,7 @@
  * requirements
  */
 require_once 'libraries/common.inc.php';
-require_once 'libraries/mysql_charsets.lib.php';
+require_once 'libraries/mysql_charsets.inc.php';
 
 /**
  * functions implementation for this script

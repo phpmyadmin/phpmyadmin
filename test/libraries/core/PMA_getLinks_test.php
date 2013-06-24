@@ -17,8 +17,6 @@ class PMA_GetLinks_Test extends PHPUnit_Framework_TestCase
 {
     function setUp()
     {
-        $_SESSION[' PMA_token '] = 'token';
-        $GLOBALS['lang'] = 'en';
         $GLOBALS['server'] = 99;
         $GLOBALS['cfg']['ServerDefault'] = 0;
     }

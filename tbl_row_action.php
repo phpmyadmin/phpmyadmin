@@ -10,7 +10,7 @@
  *
  */
 require_once 'libraries/common.inc.php';
-require_once 'libraries/mysql_charsets.lib.php';
+require_once 'libraries/mysql_charsets.inc.php';
 
 /**
  * No rows were selected => show again the query and tell that user.

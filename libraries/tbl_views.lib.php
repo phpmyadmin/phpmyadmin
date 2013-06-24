@@ -27,7 +27,9 @@ function PMA_getColumnMap($sql_query, $view_columns)
 
     if ($real_source_result !== false) {
 
-        $real_source_fields_meta = $GLOBALS['dbi']->getFieldsMeta($real_source_result);
+        $real_source_fields_meta = $GLOBALS['dbi']->getFieldsMeta(
+            $real_source_result
+        );
 
         if (count($real_source_fields_meta) > 0) {
 

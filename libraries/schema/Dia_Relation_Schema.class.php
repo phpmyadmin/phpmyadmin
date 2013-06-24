@@ -14,8 +14,9 @@ require_once 'Export_Relation_Schema.class.php';
  * This Class inherits the XMLwriter class and
  * helps in developing structure of DIA Schema Export
  *
- * @access public
- * @see http://php.net/manual/en/book.xmlwriter.php
+ * @package PhpMyAdmin
+ * @access  public
+ * @see     http://php.net/manual/en/book.xmlwriter.php
  */
 class PMA_DIA extends XMLWriter
 {
@@ -192,8 +193,9 @@ class PMA_DIA extends XMLWriter
  * This class preserves the table co-ordinates,fields
  * and helps in drawing/generating the Tables in dia XML document.
  *
- * @name Table_Stats
- * @see PMA_DIA
+ * @package PhpMyAdmin
+ * @name    Table_Stats
+ * @see     PMA_DIA
  */
 class Table_Stats
 {
@@ -472,8 +474,9 @@ class Table_Stats
  * master table's master field to foreign table's foreign key
  * in dia XML document.
  *
- * @name Relation_Stats
- * @see PMA_DIA
+ * @package PhpMyAdmin
+ * @name    Relation_Stats
+ * @see     PMA_DIA
  */
 class Relation_Stats
 {
@@ -682,7 +685,8 @@ class Relation_Stats
  * inherits Export_Relation_Schema class has common functionality added
  * to this class
  *
- * @name Dia_Relation_Schema
+ * @package PhpMyAdmin
+ * @name    Dia_Relation_Schema
  */
 class PMA_Dia_Relation_Schema extends PMA_Export_Relation_Schema
 {

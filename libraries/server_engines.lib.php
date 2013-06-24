@@ -15,8 +15,6 @@ if (! defined('PHPMYADMIN')) {
 /**
  * setup HTML for server Engines information
  *
- * @param null
- *
  * @return string
  */
 function PMA_getHtmlForServerEngines()
@@ -28,18 +26,16 @@ function PMA_getHtmlForServerEngines()
     if (empty($_REQUEST['engine'])
         || ! PMA_StorageEngine::isValid($_REQUEST['engine'])
     ) {
-        $html .= PMA_getHtmlForAllServerEngines();    
+        $html .= PMA_getHtmlForAllServerEngines();
     } else {
         $html .= PMA_getHtmlForSpecifiedServerEngines();
     }
-    
+ 
     return $html;
 }
 
 /**
  * setup HTML for server all Engines information
- *
- * @param null
  *
  * @return string
  */
@@ -85,8 +81,6 @@ function PMA_getHtmlForAllServerEngines()
 
 /**
  * setup HTML for a given Storage Engine
- *
- * @param null
  *
  * @return string
  */

@@ -15,6 +15,8 @@ require_once 'libraries/Config.class.php';
 require_once 'libraries/relation.lib.php';
 require_once 'libraries/Theme.class.php';
 require_once 'libraries/vendor_config.php';
+require_once 'libraries/url_generating.lib.php';
+require_once 'libraries/php-gettext/gettext.inc';
 
 class PMA_ConfigTest extends PHPUnit_Framework_TestCase
 {
@@ -96,7 +98,7 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
             '<option value="4pt"',
             PMA_Config::getFontsizeForm()
         );
- 
+
         //test getFontsizeOptions for "px" unit
         $_COOKIE['pma_fontsize'] = "10px";
         $this->assertContains(
@@ -117,7 +119,7 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
         $this->assertContains(
             '<option value="8abc"',
             PMA_Config::getFontsizeForm()
-        );    
+        );
         unset($_COOKIE['pma_fontsize']);
         //rollback the fontsize setting
         $GLOBALS['PMA_Config']->set('fontsize', $fontsize);
@@ -904,6 +906,8 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
 
     /**
      * Test for Check HTTP
+     *
+     * @group medium
      *
      * @return void
      */

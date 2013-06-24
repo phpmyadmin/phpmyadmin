@@ -15,19 +15,35 @@ phpMyAdmin - ChangeLog
 + rfe #1423 Clarify option text for icon/text settings
 + [interface] Upgraded CodeMirror to 3.x series
 + rfe #1363 Improved query profiler
++ [interface] rfe #1429 Better suggestion for database name
++ rfe #1433 Support relations with ndbcluster
+- bug #3962 Proper escaping of JSON export
++ rfe #1328 Optional ReCAPTCHA support
++ rfe #1434 Improvements to the table browsing navigation bar
 
-4.0.4.0 (not yet released)
+4.0.5.0 (not yet released)
+- bug #3977 Not detected configuration storage
+- bug #3970 Pressing enter in the filter field reloads page
+- bug #3984 Cannot insert in this table (PHP < 5.4)
+- bug #3989 Reloading privileges does not update the interface
+- bug #3960 NavigationBarIconic config not honored
+- bug #3985 Call to undefined function mb_detect_encoding
+
+4.0.4.0 (2013-06-17)
 - bug #3959 Using DefaultTabDatabase in NavigationTree for Database Click
 - bug #3961 Avoid Suhosin warning when in simulation mode
 - bug #3897 Row Statistics and Space usage bugs
 - bug #3966 Only display "table has no unique column" message when applicable
-- bug #3960 NavigationBarIconic config not honored
 - bug #3965 Default language wrong with zh-TW
 - bug #3921 Call to undefined function PMA_isSuperuser() if default server is
 not set 
 - bug #3971 Ctrl/shift + click opens links in same window
 - bug #3964 Import using https does not work
 - bug Missing removeCRLF option in ExportCsv and ExportExcel plugins
+- bug #3631 Drop not working Visio schema export.
+- bug #3645 Better handling of invalid ODS documents
+- bug #3976 Number of pages
+- bug #3922 User privileges, database name unescaped
 
 4.0.3.0 (2013-06-05)
 - bug #3941 Recent tables list always empty

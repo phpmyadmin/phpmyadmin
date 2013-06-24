@@ -26,4 +26,9 @@ session_start();
 
 // You can put some additional code that should run before tests here
 
+// Standard environment for tests
+$_SESSION[' PMA_token '] = 'token';
+$GLOBALS['lang'] = 'en';
+$GLOBALS['is_ajax_request'] = false;
+
 ?>

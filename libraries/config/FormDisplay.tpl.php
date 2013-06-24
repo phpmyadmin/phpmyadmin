@@ -389,7 +389,7 @@ function PMA_displayFieldsetBottom()
     echo '<tr>';
     echo '<td colspan="' . $colspan . '" class="lastrow">';
     echo '<input type="submit" name="submit_save" value="'
-        . __('Save') . '" class="green" />';
+        . __('Apply') . '" class="green" />';
     echo '<input type="button" name="submit_reset" value="'
         . __('Reset') . '" />';
     echo '</td>';

@@ -576,7 +576,11 @@ class PMA_NavigationTree
                     $groups[$key]->separator = $node->separator;
                     $groups[$key]->separator_depth = $node->separator_depth - 1;
                     $groups[$key]->icon = '';
-                    if ($GLOBALS['cfg']['NavigationBarIconic']) {
+                    if (in_array(
+                        $GLOBALS['cfg']['TableNavigationLinksMode'],
+                        array('icons', 'both')
+                        )
+                    ) {
                         $groups[$key]->icon = PMA_Util::getImage(
                             'b_group.png'
                         );
@@ -886,12 +890,9 @@ class PMA_NavigationTree
                 'indexes'
             );
             $parent = $node->parents(false, true);
+            $isNewView = $parent[0]->real_name == 'views' && $node->isNew == true;
             if ($parent[0]->type == Node::CONTAINER
-                && (in_array($parent[0]->real_name, $haveAjax)
-                    || ($parent[0]->real_name == 'views'
-                        && $node->isNew == true
-                    )
-                )
+                && (in_array($parent[0]->real_name, $haveAjax) || $isNewView)
             ) {
                 $linkClass = ' class="ajax"';
             }
@@ -899,7 +900,11 @@ class PMA_NavigationTree
             if ($node->type == Node::CONTAINER) {
                 $retval .= "<i>";
             }
-            if ($GLOBALS['cfg']['NavigationBarIconic']) {
+            if (in_array(
+                $GLOBALS['cfg']['TableNavigationLinksMode'],
+                array('icons', 'both')
+                )
+            ) {
                 $retval .= "<div class='block'>";
                 if (isset($node->links['icon'])) {
                     $args = array();
@@ -1031,7 +1036,7 @@ class PMA_NavigationTree
             $retval .= "<li class='fast_filter db_fast_filter'>";
             $retval .= "<form class='ajax fast_filter'>";
             $retval .= PMA_getHiddenFields($url_params);
-            $retval .= "<input class='searchClause' name='searchClause'";
+            $retval .= "<input class='searchClause' name='searchClause' accesskey='q'";
             // allow html5 placeholder attribute
             $placeholder_key = 'value';
             if (PMA_USR_BROWSER_AGENT !== 'IE'

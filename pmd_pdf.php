@@ -29,7 +29,6 @@ foreach ($post_params as $one_post_param) {
  * If called directly from the designer, first save the positions
  */
 if (! isset($scale)) {
-    $no_die_save_pos = 1;
     include_once 'pmd_save_pos.php';
 }
 

@@ -166,9 +166,9 @@ class PMA_NavigationHeader
      */
     private function _links()
     {
-        $iconicNav = $GLOBALS['cfg']['NavigationBarIconic'];
-        $showIcon = $iconicNav === true || $iconicNav === 'both';
-        $showText = $iconicNav === false || $iconicNav === 'both';
+        // always iconic
+        $showIcon = true; 
+        $showText = false; 
 
         $retval  = '<!-- LINKS START -->';
         $retval .= '<div id="leftframelinks">';

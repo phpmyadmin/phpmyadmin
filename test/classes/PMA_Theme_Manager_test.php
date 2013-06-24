@@ -26,8 +26,6 @@ class PMA_Theme_Manager_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['ThemeDefault'] = 'pmahomme';
         $GLOBALS['cfg']['ServerDefault'] = 0;
         $GLOBALS['server'] = 99;
-        $GLOBALS['lang'] = 'en';
-        $_SESSION[' PMA_token '] = 'token';
         $GLOBALS['PMA_Config'] = new PMA_Config();
         $GLOBALS['collation_connection'] = 'utf8_general_ci';
     }

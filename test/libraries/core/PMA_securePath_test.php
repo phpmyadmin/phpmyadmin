@@ -9,8 +9,18 @@
 
 require_once 'libraries/core.lib.php';
 
+/**
+ * Test for securing path.
+ *
+ * @package PhpMyAdmin-test
+ */
 class PMA_SecurePath extends PHPUnit_Framework_TestCase
 {
+    /**
+     * Test for replacing dots.
+     *
+     * @return void
+     */
     public function testReplaceDots()
     {
         $this->assertEquals(

@@ -179,41 +179,31 @@ class ExportJson extends ExportPlugin
 
             // Output table name as comment if this is the first record of the table
             if ($record_cnt == 1) {
-                $buffer .= '// ' . $db . '.' . $table . $crlf . $crlf;
-                $buffer .= '[{';
+                $buffer = '// ' . $db . '.' . $table . $crlf . $crlf;
+                $buffer .= '[';
             } else {
-                $buffer .= ', {';
+                $buffer = ', ';
             }
+
+            if (! PMA_exportOutputHandler($buffer)) {
+                return false;
+            }
+
+            $data = array();
 
             for ($i = 0; $i < $columns_cnt; $i++) {
-                $isLastLine = ($i + 1 >= $columns_cnt);
-                $column = $columns[$i];
-                if (is_null($record[$i])) {
-                    $buffer .= '"' . addslashes($column)
-                        . '": null'
-                        . (! $isLastLine ? ',' : '');
-                } elseif ($fields_meta[$i]->numeric) {
-                    $buffer .= '"' . addslashes($column)
-                        . '": '
-                        . $record[$i]
-                        . (! $isLastLine ? ',' : '');
-                } else {
-                    $buffer .= '"' . addslashes($column)
-                        . '": "'
-                        . addslashes($record[$i])
-                        . '"'
-                        . (! $isLastLine ? ',' : '');
-                }
+                $data[$columns[$i]] = $record[$i];
             }
 
-            $buffer .= '}';
+            if (! PMA_exportOutputHandler(json_encode($data))) {
+                return false;
+            }
         }
 
         if ($record_cnt) {
-            $buffer .=  ']';
-        }
-        if (! PMA_exportOutputHandler($buffer)) {
-            return false;
+            if (! PMA_exportOutputHandler(']')) {
+                return false;
+            }
         }
 
         $GLOBALS['dbi']->freeResult($result);

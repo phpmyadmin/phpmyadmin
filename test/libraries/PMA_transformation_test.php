@@ -34,11 +34,10 @@ class PMA_Transformation_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['table'] = 'table';
         $GLOBALS['db'] = 'db';
         $_SESSION['PMA_Theme'] = PMA_Theme::load('./themes/pmahomme');
-        $_SESSION[' PMA_token '] = 'token';
         $GLOBALS['cfg'] = array(
             'MySQLManualType' => 'none',
             'ServerDefault' => 1,
-            'PropertiesIconic' => true,
+            'ActionLinksMode' => 'icons',
         );
         $GLOBALS['server'] = 1;
         $GLOBALS['cfg']['Server']['pmadb'] = 'pmadb';

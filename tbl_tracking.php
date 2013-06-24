@@ -62,23 +62,24 @@ if (isset($_REQUEST['report_export'])) {
      *
      * @return array filtered entries
      */
-    function PMA_filter_tracking(
+    function PMA_filterTracking(
         $data, $filter_ts_from, $filter_ts_to, $filter_users
     ) {
         $tmp_entries = array();
         $id = 0;
-        foreach ( $data as $entry ) {
+        foreach ($data as $entry) {
             $timestamp = strtotime($entry['date']);
 
             if ($timestamp >= $filter_ts_from
                 && $timestamp <= $filter_ts_to
                 && (in_array('*', $filter_users) || in_array($entry['username'], $filter_users))
             ) {
-                $tmp_entries[] = array( 'id' => $id,
-                                    'timestamp' => $timestamp,
-                                    'username'  => $entry['username'],
-                                    'statement' => $entry['statement']
-                             );
+                $tmp_entries[] = array(
+                    'id'        => $id,
+                    'timestamp' => $timestamp,
+                    'username'  => $entry['username'],
+                    'statement' => $entry['statement']
+                );
             }
             $id++;
         }
@@ -92,7 +93,7 @@ if (isset($_REQUEST['report_export'])) {
     ) {
         $entries = array_merge(
             $entries,
-            PMA_filter_tracking(
+            PMA_filterTracking(
                 $data['ddlog'], $filter_ts_from, $filter_ts_to, $filter_users
             )
         );
@@ -104,7 +105,7 @@ if (isset($_REQUEST['report_export'])) {
     ) {
         $entries = array_merge(
             $entries,
-            PMA_filter_tracking(
+            PMA_filterTracking(
                 $data['dmlog'], $filter_ts_from, $filter_ts_to, $filter_users
             )
         );
@@ -527,13 +528,15 @@ if (isset($_REQUEST['report']) || isset($_REQUEST['report_export'])) {
 
     // Prepare delete link content here
     $drop_image_or_text = '';
-    if (true == $GLOBALS['cfg']['PropertiesIconic']) {
+    if ('icons' == $GLOBALS['cfg']['ActionsLinksMode']) {
         $drop_image_or_text .= PMA_Util::getImage(
             'b_drop.png', __('Delete tracking data row from report')
         );
     }
-    if ('both' === $GLOBALS['cfg']['PropertiesIconic']
-        || false === $GLOBALS['cfg']['PropertiesIconic']
+    if (in_array(
+        $GLOBALS['cfg']['ActionLinksMode'],
+        array('text', 'both')
+        )
     ) {
         $drop_image_or_text .= __('Delete');
     }
