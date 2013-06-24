@@ -13,7 +13,7 @@ if (! defined('PHPMYADMIN')) {
 }
 
 /**
- * Returns the html for Table List
+ * Returns the html for Database List
  *
  * @param Array  $databases         GBI return databases
  * @param int    $databases_count   database count
@@ -82,6 +82,9 @@ function PMA_getHtmlForDatabase(
         $cfg['PropertiesIconic']
     );  
     
+    $html .= '</tr>' . "\n"
+        . '</thead>' . "\n";
+
     $html .= PMA_getHtmlForDatabaseList(
         $databases, 
         $is_superuser, 
@@ -91,30 +94,52 @@ function PMA_getHtmlForDatabase(
         $replication_info
     );
 
-    $html .= '</tbody><tfoot><tr>' . "\n";
-    if ($is_superuser || $cfg['AllowUserDropDatabase']) {
-        $html .= '    <th></th>' . "\n";
-    }
-    $html .= '    <th>' . __('Total') . ': <span id="databases_count">' 
-        . $databases_count . '</span></th>' . "\n";
-        
+    $html .= PMA_getHtmlForTableFooter(
+        $cfg['AllowUserDropDatabase'], 
+        $is_superuser, 
+        $databases_count, 
+        $column_order, 
+        $replication_types, 
+        $first_database
+    );
+   
+    $html .= '</table>' . "\n";
 
-    $html .= PMA_getHtmlForColumnOrder($column_order, $first_database);   
-        
-    foreach ($replication_types as $type) {
-        if ($GLOBALS["server_{$type}_status"]) {
-            $html .= '    <th></th>' . "\n";
-        }
+    $html .= PMA_getHtmlForTableFooterButtons(
+        $cfg['AllowUserDropDatabase'], 
+        $is_superuser, 
+        $sort_by, 
+        $sort_order, 
+        $dbstats
+    );
+    
+    if (empty($dbstats)) {
+        //we should put notice above database list
+        $html = PMA_getHtmlForEmptyDBStatus($url_query, $html);
     }
+    $html .= '</form>';
+    $html .= '</div>';
+    
+    return $html;
+}
 
-    if ($is_superuser) {
-        $html .= '    <th></th>' . "\n";
-    }
-    $html .= '</tr>' . "\n";
-    $html .= '</tfoot>' . "\n"
-        .'</table>' . "\n";
-
-    if ($is_superuser || $cfg['AllowUserDropDatabase']) {
+/**
+ * Returns the html for Table footer buttons
+ *
+ * @param bool   $is_superuser      User status
+ * @param bool   $is_allowUserDropDatabase Allow user drop database
+ * @param Array  $dbstats           database status
+ * @param string $sort_by           sort by string
+ * @param string $sort_order        sort order string
+ *
+ * @return string
+ */
+function PMA_getHtmlForTableFooterButtons(
+    $is_allowUserDropDatabase, $is_superuser, 
+    $sort_by, $sort_order, $dbstats)
+{
+    $html = "";
+    if ($is_superuser || $is_allowUserDropDatabase) {
         $common_url_query = PMA_generate_common_url(
             array(
                 'sort_by' => $sort_by,
@@ -136,19 +161,51 @@ function PMA_getHtmlForDatabase(
             __('Drop'), 'b_deltbl.png'
         );
     }
-
-    if (empty($dbstats)) {
-        //we should put notice above database list
-        $html = PMA_getHtmlForEmptyDBStatus($url_query, $html);
-    }
-    $html .= '</form>';
-    $html .= '</div>';
-    
     return $html;
 }
 
 /**
- * Returns the html for Table List
+ * Returns the html for Table footer
+ *
+ * @param bool   $is_superuser      User status
+ * @param bool   $is_allowUserDropDatabase Allow user drop database
+ * @param Array  $databases_count   Database count
+ * @param string $column_order      column order
+ * @param string $first_database    First database
+ * @param string $replication_types replication types
+ *
+ * @return string
+ */
+function PMA_getHtmlForTableFooter(
+    $is_allowUserDropDatabase, $is_superuser, 
+    $databases_count, $column_order, 
+    $replication_types, $first_database)
+{
+    $html = '<tfoot><tr>' . "\n";
+    if ($is_superuser || $is_allowUserDropDatabase) {
+        $html .= '    <th></th>' . "\n";
+    }
+    $html .= '    <th>' . __('Total') . ': <span id="databases_count">' 
+        . $databases_count . '</span></th>' . "\n";
+        
+    $html .= PMA_getHtmlForColumnOrder($column_order, $first_database);   
+        
+    foreach ($replication_types as $type) {
+        if ($GLOBALS["server_" . $type. "_status"]) {
+            $html .= '    <th></th>' . "\n";
+        }
+    }
+
+    if ($is_superuser) {
+        $html .= '    <th></th>' . "\n";
+    }
+    $html .= '</tr>' . "\n";
+    $html .= '</tfoot>' . "\n";
+    return $html;
+}
+  
+/**
+ * Returns the html for Database List
  *
  * @param bool   $is_superuser      User status
  * @param bool   $databases         GBI return databases
@@ -162,7 +219,8 @@ function PMA_getHtmlForDatabase(
 function PMA_getHtmlForDatabaseList($databases, $is_superuser, $url_query, $column_order, $replication_types, $replication_info)
 {
     $odd_row = true;
-    $html = "";
+    $html = '<tbody>' . "\n";
+
     foreach ($databases as $current) {
         $tr_class = $odd_row ? 'odd' : 'even';
         if ($GLOBALS['dbi']->isSystemSchema($current['SCHEMA_NAME'], true)) {
@@ -185,7 +243,7 @@ function PMA_getHtmlForDatabaseList($databases, $is_superuser, $url_query, $colu
         $html .= '</tr>' . "\n";
     } // end foreach ($databases as $key => $current)
     unset($current, $odd_row);
-    
+    $html .= '</tbody>';
     return $html;
 }
 
@@ -242,8 +300,10 @@ function PMA_getHtmlForColumnOrder($column_order, $first_database)
  *
  * @return string
  */
-function PMA_getHtmlForColumnOrderWithSort($is_superuser, $is_allowUserDropDatabase, 
-    $_url_params, $sort_by, $sort_order, $column_order, $first_database)
+function PMA_getHtmlForColumnOrderWithSort(
+    $is_superuser, $is_allowUserDropDatabase, 
+    $_url_params, $sort_by, $sort_order, 
+    $column_order, $first_database)
 {
     $html = ($is_superuser || $is_allowUserDropDatabase ? '        <th></th>' . "\n" : '')
         . '    <th><a href="server_databases.php' 
@@ -325,7 +385,7 @@ function PMA_getHtmlForReplicationType($is_superuser, $replication_types, $cfg_i
 {
     $html = '';
     foreach ($replication_types as $type) {
-        if ($type=="master") {
+        if ($type == "master") {
             $name = __('Master replication');
         } elseif ($type == "slave") {
             $name = __('Slave replication');
@@ -340,9 +400,6 @@ function PMA_getHtmlForReplicationType($is_superuser, $replication_types, $cfg_i
         $html .= '    <th>' . ($cfg_inconic ? '' : __('Action')) . "\n"
             . '    </th>' . "\n";
     }
-    $html .= '</tr>' . "\n"
-        . '</thead>' . "\n"
-        . '<tbody>' . "\n";
     return $html;
 }
 ?>
