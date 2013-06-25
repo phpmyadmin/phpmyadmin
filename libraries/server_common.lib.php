@@ -18,32 +18,33 @@ if (! defined('PHPMYADMIN')) {
  */
 function PMA_getSubPageHeader($type)
 {
-    $res = array();
+    //array contains Sub page icon and text
+    $header = array();
 
-    $res['engines']['icon'] = 'b_engine.png';
-    $res['engines']['text'] = __('Storage Engines');
+    $header['engines']['icon'] = 'b_engine.png';
+    $header['engines']['text'] = __('Storage Engines');
 
-    $res['plugins']['icon'] = 'b_engine.png';
-    $res['plugins']['text'] = __('Plugins');
+    $header['plugins']['icon'] = 'b_engine.png';
+    $header['plugins']['text'] = __('Plugins');
     
-    $res['binlog']['icon'] = 's_tbl.png';
-    $res['binlog']['text'] = __('Binary log');
+    $header['binlog']['icon'] = 's_tbl.png';
+    $header['binlog']['text'] = __('Binary log');
     
-    $res['collations']['icon'] = 's_asci.png';
-    $res['collations']['text'] = __('Character Sets and Collations');
+    $header['collations']['icon'] = 's_asci.png';
+    $header['collations']['text'] = __('Character Sets and Collations');
     
-    $res['replication']['icon'] = 's_replication.png';
-    $res['replication']['text'] = __('Replication');
+    $header['replication']['icon'] = 's_replication.png';
+    $header['replication']['text'] = __('Replication');
     
-    $res['database_statistics']['icon'] = 's_db.png';
-    $res['database_statistics']['text'] = __('Databases statistics');
+    $header['database_statistics']['icon'] = 's_db.png';
+    $header['database_statistics']['text'] = __('Databases statistics');
     
-    $res['databases']['icon'] = 's_db.png';
-    $res['databases']['text'] = __('Databases');
+    $header['databases']['icon'] = 's_db.png';
+    $header['databases']['text'] = __('Databases');
     
     $html = '<h2>' . "\n"
-        . PMA_Util::getImage($res[$type]['icon'])
-        . '    ' . $res[$type]['text'] . "\n"
+        . PMA_Util::getImage($header[$type]['icon'])
+        . '    ' . $header[$type]['text'] . "\n"
         . '</h2>' . "\n";
     return $html;
 }

@@ -116,7 +116,7 @@ function PMA_getHtmlForDatabase(
     
     if (empty($dbstats)) {
         //we should put notice above database list
-        $html = PMA_getHtmlForEmptyDBStatus($url_query, $html);
+        $html = PMA_getHtmlForNoticeEnableStatistics($url_query, $html);
     }
     $html .= '</form>';
     $html .= '</div>';
@@ -206,7 +206,7 @@ function PMA_getHtmlForTableFooter(
 }
   
 /**
- * Returns the html for Database List
+ * Returns the html for Database List with Column order
  *
  * @param bool   $databases         GBI return databases
  * @param bool   $is_superuser      User status
@@ -348,14 +348,14 @@ function PMA_getHtmlForColumnOrderWithSort(
 
         
 /**
- * Returns the html for Empty DB Status
+ * Returns the html for Enable Statistics
  *
  * @param bool   $url_query Url query
  * @param string $html      html for database list
  *
  * @return string
  */
-function PMA_getHtmlForEmptyDBStatus($url_query, $html)
+function PMA_getHtmlForNoticeEnableStatistics($url_query, $html)
 {
     $notice = PMA_Message::notice(
         __(
