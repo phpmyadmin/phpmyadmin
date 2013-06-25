@@ -213,7 +213,7 @@ require_once 'libraries/parse_analyze.inc.php';
  * into account this case.
  */
 if (PMA_hasNoRightsToDropDatabase(
-    $analyzed_sql_results, $cfg['AllowUserDropDatabase'])
+    $analyzed_sql_results, $cfg['AllowUserDropDatabase'], $is_superuser)
 ) {
     PMA_Util::mysqlDie(
         __('"DROP DATABASE" statements are disabled.'),
