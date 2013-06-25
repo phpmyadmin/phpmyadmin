@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-06-24 16:19+0200\n"
-"PO-Revision-Date: 2013-06-24 15:39+0200\n"
+"PO-Revision-Date: 2013-06-25 09:02+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: Greek <http://l10n.cihar.com/projects/phpmyadmin/master/el/>\n"
 "Language: el\n"
@@ -9560,7 +9560,7 @@ msgstr "Εμφάνιση διαστάσεων πινάκων"
 
 #: libraries/schema/User_Schema.class.php:461
 msgid "Same width for all tables"
-msgstr ""
+msgstr "Ίδιο πλάτος για όλους τους πίνακες"
 
 #: libraries/schema/User_Schema.class.php:464 libraries/structure.lib.php:379
 msgid "Data Dictionary"
