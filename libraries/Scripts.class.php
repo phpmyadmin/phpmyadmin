@@ -71,7 +71,6 @@ class PMA_Scripts
                 $dynamic_scripts .= "<script type='text/javascript' src='js/" . $value['filename'] . "'></script>";
             }
         }
-        $params[] = 
         $static_scripts = sprintf(
             "<script type='text/javascript' src='js/get_scripts.js.php?%s&%s'></script>",
             implode("&", $params), PMA_generate_common_url()

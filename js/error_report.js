@@ -13,7 +13,7 @@ function error_handler(message, file, line) {
         "file": file,
         "line": line,
     }
-    
+
     $.get("error_report.php",{
         ajax_request: true,
         token: get_token(),
@@ -62,7 +62,6 @@ function showReportDialog (message, file, line) {
             $dialog.dialog('close')
             if (data.success === false) {
                 //in the case of an error, show the error message returned.
-                //currently not possible but just in case
                 PMA_ajaxShowMessage(data.error, false);
             } else {
                 PMA_ajaxShowMessage(data.message, 3000);
@@ -98,7 +97,7 @@ function showReportDialog (message, file, line) {
 function showErrorNotification() {
     removeErrorNotification()
 
-    $div = $('<div style="position:fixed;bottom:0px;left:247px;right:5px;'
+    $div = $('<div style="position:fixed;bottom:0px;left:5px;right:5px;'
             +'z-index:1000" class="error" id="error_notification"></div>')
     html = ""
     html += '<img src="themes/dot.gif" title="" alt="" class="icon ic_s_error">'
@@ -107,7 +106,7 @@ function showErrorNotification() {
 
     $buttons = $('<div style="float:right"></div>')
     button_html = '';
-    button_html += '<button onclick="go_to_settings()">'+
+    button_html += '<button id="change_error_settings" onclick="go_to_settings()">'+
                     PMA_messages.strChangeReportSettings + '</button>'
     button_html += '<button onclick="createReportDialog()">'+
                     PMA_messages.strShowReportDetails + '</button>'
@@ -117,6 +116,9 @@ function showErrorNotification() {
 
     $div.append($buttons)
     $div.appendTo(document.body)
+    $("#change_error_settings").on("click", go_to_settings)
+    $("#change_error_settings").on("click", go_to_settings)
+    $("#change_error_settings").on("click", go_to_settings)
 }
 
 function removeErrorNotification() {

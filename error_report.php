@@ -83,6 +83,14 @@ if ($_REQUEST['send_error_report'] == true) {
     $response->addHTML($html);
 }
 
+/**
+ * returns the error report data collected from the current configuration or
+ * from the request parameters sent by the error reporting js code.
+ *
+ * @param boolean $json_encode whether to encode the array as a json string
+ *
+ * @return Array/String $report
+ */
 function get_report_data($json_encode = true) {
     $report = array(
         "error_message" => $_REQUEST['message'],
@@ -112,6 +120,13 @@ function get_report_data($json_encode = true) {
     }
 }
 
+/**
+ * Sends report data to the error reporting server
+ *
+ * @param Array $report the report info to be sent
+ *
+ * @return String $result the reply of the server
+ */
 function send_error_report($report) {
     $data_string = json_encode($report);
     $ch = curl_init($submission_url);
