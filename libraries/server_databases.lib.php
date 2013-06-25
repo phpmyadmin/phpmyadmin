@@ -80,7 +80,7 @@ function PMA_getHtmlForDatabase(
     $html .= PMA_getHtmlForReplicationType(
         $is_superuser, 
         $replication_types, 
-        $cfg['TabsMode']
+        $cfg['ActionLinksMode']
     );  
     
     $html .= '</tr>' . "\n"
