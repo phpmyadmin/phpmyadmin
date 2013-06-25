@@ -229,7 +229,7 @@ function PMA_SQP_parse($sql)
     $sql = str_replace("\r\n", "\n", $sql);
     $sql = str_replace("\r", "\n", $sql);
 
-    $len = PMA_strlen($sql);
+    $len = $GLOBALS['PMA_String']::strlen($sql);
     if ($len == 0) {
         return array();
     }
@@ -295,7 +295,7 @@ function PMA_SQP_parse($sql)
     $this_was_quote       = false;
 
     while ($count2 < $len) {
-        $c      = PMA_substr($sql, $count2, 1);
+        $c      = $GLOBALS['PMA_String']::substr($sql, $count2, 1);
         $count1 = $count2;
 
         $previous_was_space = $this_was_space;
@@ -317,7 +317,7 @@ function PMA_SQP_parse($sql)
         }
 
         // Checks for white space
-        if (PMA_STR_isSpace($c)) {
+        if ($GLOBALS['PMA_StringType']::isSpace($c)) {
             $this_was_space = true;
             $count2++;
             continue;
@@ -327,11 +327,11 @@ function PMA_SQP_parse($sql)
         // MySQL style #
         // C style /* */
         // ANSI style --
-        $next_c = PMA_substr($sql, $count2 + 1, 1);
+        $next_c = $GLOBALS['PMA_String']::substr($sql, $count2 + 1, 1);
         if (($c == '#')
             || (($count2 + 1 < $len) && ($c == '/') && ($next_c == '*'))
             || (($count2 + 2 == $len) && ($c == '-') && ($next_c == '-'))
-            || (($count2 + 2 < $len) && ($c == '-') && ($next_c == '-') && ((PMA_substr($sql, $count2 + 2, 1) <= ' ')))
+            || (($count2 + 2 < $len) && ($c == '-') && ($next_c == '-') && (($GLOBALS['PMA_String']::substr($sql, $count2 + 2, 1) <= ' ')))
         ) {
             $count2++;
             $pos  = 0;
@@ -341,24 +341,24 @@ function PMA_SQP_parse($sql)
                 $type = 'mysql';
             case '-':
                 $type = 'ansi';
-                $pos  = PMA_strpos($sql, "\n", $count2);
+                $pos  = $GLOBALS['PMA_String']::strpos($sql, "\n", $count2);
                 break;
             case '/':
                 $type = 'c';
-                $pos  = PMA_strpos($sql, '*/', $count2);
+                $pos  = $GLOBALS['PMA_String']::strpos($sql, '*/', $count2);
                 $pos  += 2;
                 break;
             default:
                 break;
             } // end switch
             $count2 = ($pos < $count2) ? $len : $pos;
-            $str    = PMA_substr($sql, $count1, $count2 - $count1);
+            $str    = $GLOBALS['PMA_String']::substr($sql, $count1, $count2 - $count1);
             PMA_SQP_arrayAdd($sql_array, 'comment_' . $type, $str, $arraysize);
             continue;
         } // end if
 
         // Checks for something inside quotation marks
-        if (PMA_strpos($quote_list, $c) !== false) {
+        if ($GLOBALS['PMA_String']::strpos($quote_list, $c) !== false) {
             $startquotepos   = $count2;
             $quotetype       = $c;
             $count2++;
@@ -366,7 +366,7 @@ function PMA_SQP_parse($sql)
             $oldpos          = 0;
             do {
                 $oldpos = $pos;
-                $pos    = PMA_strpos(' ' . $sql, $quotetype, $oldpos + 1) - 1;
+                $pos    = $GLOBALS['PMA_String']::strpos(' ' . $sql, $quotetype, $oldpos + 1) - 1;
                 // ($pos === false)
                 if ($pos < 0) {
                     if ($c == '`') {
@@ -381,7 +381,7 @@ function PMA_SQP_parse($sql)
                          *
                          * SELECT * FROM `table`
                          */
-                        $pos_quote_separator = PMA_strpos(
+                        $pos_quote_separator = $GLOBALS['PMA_String']::strpos(
                             ' ' . $sql, $GLOBALS['sql_delimiter'], $oldpos + 1
                         ) - 1;
                         if ($pos_quote_separator < 0) {
@@ -391,8 +391,8 @@ function PMA_SQP_parse($sql)
                             $pos = $len;
                         } else {
                             $len += 1;
-                            $sql = PMA_substr($sql, 0, $pos_quote_separator)
-                                . '`' . PMA_substr($sql, $pos_quote_separator);
+                            $sql = $GLOBALS['PMA_String']::substr($sql, 0, $pos_quote_separator)
+                                . '`' . $GLOBALS['PMA_String']::substr($sql, $pos_quote_separator);
                             $sql_array['raw'] = $sql;
                             $pos = $pos_quote_separator;
                         }
@@ -427,8 +427,8 @@ function PMA_SQP_parse($sql)
                     $pos ++;
                     continue;
                 } elseif (($pos + 1 < $len)
-                    && (PMA_substr($sql, $pos, 1) == $quotetype)
-                    && (PMA_substr($sql, $pos + 1, 1) == $quotetype)
+                    && ($GLOBALS['PMA_String']::substr($sql, $pos, 1) == $quotetype)
+                    && ($GLOBALS['PMA_String']::substr($sql, $pos + 1, 1) == $quotetype)
                 ) {
                     $pos = $pos + 2;
                     continue;
@@ -456,27 +456,27 @@ function PMA_SQP_parse($sql)
             default:
                 break;
             } // end switch
-            $data = PMA_substr($sql, $count1, $count2 - $count1);
+            $data = $GLOBALS['PMA_String']::substr($sql, $count1, $count2 - $count1);
             PMA_SQP_arrayAdd($sql_array, $type, $data, $arraysize);
             continue;
         }
 
         // Checks for brackets
-        if (PMA_strpos($bracket_list, $c) !== false) {
+        if ($GLOBALS['PMA_String']::strpos($bracket_list, $c) !== false) {
             // All bracket tokens are only one item long
             $this_was_bracket = true;
             $count2++;
             $type_type     = '';
-            if (PMA_strpos('([{', $c) !== false) {
+            if ($GLOBALS['PMA_String']::strpos('([{', $c) !== false) {
                 $type_type = 'open';
             } else {
                 $type_type = 'close';
             }
 
             $type_style     = '';
-            if (PMA_strpos('()', $c) !== false) {
+            if ($GLOBALS['PMA_String']::strpos('()', $c) !== false) {
                 $type_style = 'round';
-            } elseif (PMA_strpos('[]', $c) !== false) {
+            } elseif ($GLOBALS['PMA_String']::strpos('[]', $c) !== false) {
                 $type_style = 'square';
             } else {
                 $type_style = 'curly';
@@ -492,7 +492,7 @@ function PMA_SQP_parse($sql)
         var_dump(PMA_STR_isSqlIdentifier($c, false));
         var_dump($c == '@');
         var_dump($c == '.');
-        var_dump(PMA_STR_isDigit(PMA_substr($sql, $count2 + 1, 1)));
+        var_dump($GLOBALS['PMA_StringType']::isDigit($GLOBALS['PMA_String']::substr($sql, $count2 + 1, 1)));
         var_dump($previous_was_space);
         var_dump($previous_was_bracket);
         var_dump($previous_was_listsep);
@@ -503,11 +503,11 @@ function PMA_SQP_parse($sql)
         if (PMA_STR_isSqlIdentifier($c, false)
             || $c == '@'
             || ($c == '.'
-            && PMA_STR_isDigit(PMA_substr($sql, $count2 + 1, 1))
+            && $GLOBALS['PMA_StringType']::isDigit($GLOBALS['PMA_String']::substr($sql, $count2 + 1, 1))
             && ($previous_was_space || $previous_was_bracket || $previous_was_listsep))
         ) {
             /* DEBUG
-            echo PMA_substr($sql, $count2);
+            echo $GLOBALS['PMA_String']::substr($sql, $count2);
             echo '<hr />';
             */
 
@@ -524,13 +524,13 @@ function PMA_SQP_parse($sql)
             $is_digit                = (
                 !$is_identifier
                 && !$is_sql_variable
-                && PMA_STR_isDigit($c)
+                && $GLOBALS['PMA_StringType']::isDigit($c)
             );
             $is_hex_digit            = (
                 $is_digit
                 && $c == '0'
                 && $count2 < $len
-                && PMA_substr($sql, $count2, 1) == 'x'
+                && $GLOBALS['PMA_String']::substr($sql, $count2, 1) == 'x'
             );
             $is_float_digit          = $c == '.';
             $is_float_digit_exponent = false;
@@ -560,8 +560,8 @@ function PMA_SQP_parse($sql)
                 unset($pos);
             }
 
-            while (($count2 < $len) && PMA_STR_isSqlIdentifier(PMA_substr($sql, $count2, 1), ($is_sql_variable || $is_digit))) {
-                $c2 = PMA_substr($sql, $count2, 1);
+            while (($count2 < $len) && PMA_STR_isSqlIdentifier($GLOBALS['PMA_String']::substr($sql, $count2, 1), ($is_sql_variable || $is_digit))) {
+                $c2 = $GLOBALS['PMA_String']::substr($sql, $count2, 1);
                 if ($is_sql_variable && ($c2 == '.')) {
                     $count2++;
                     continue;
@@ -575,7 +575,7 @@ function PMA_SQP_parse($sql)
                         $debugstr = __('Invalid Identifer')
                             . ' @ ' . ($count1+1) . "\n"
                             . 'STR: ' . htmlspecialchars(
-                                PMA_substr($sql, $count1, $count2 - $count1)
+                                $GLOBALS['PMA_String']::substr($sql, $count1, $count2 - $count1)
                             );
                         PMA_SQP_throwError($debugstr, $sql);
                         return $sql_array;
@@ -592,7 +592,7 @@ function PMA_SQP_parse($sql)
                         $is_float_digit          = false;
                     }
                 }
-                if (($is_hex_digit && PMA_STR_isHexDigit($c2)) || ($is_digit && PMA_STR_isDigit($c2))) {
+                if (($is_hex_digit && $GLOBALS['PMA_StringType']::isHexDigit($c2)) || ($is_digit && $GLOBALS['PMA_StringType']::isDigit($c2))) {
                     $count2++;
                     continue;
                 } else {
@@ -604,7 +604,7 @@ function PMA_SQP_parse($sql)
             } // end while
 
             $l    = $count2 - $count1;
-            $str  = PMA_substr($sql, $count1, $l);
+            $str  = $GLOBALS['PMA_String']::substr($sql, $count1, $l);
 
             $type = '';
             if ($is_digit || $is_float_digit || $is_hex_digit) {
@@ -629,15 +629,15 @@ function PMA_SQP_parse($sql)
         }
 
         // Checks for punct
-        if (PMA_strpos($allpunct_list, $c) !== false) {
-            while (($count2 < $len) && PMA_strpos($allpunct_list, PMA_substr($sql, $count2, 1)) !== false) {
+        if ($GLOBALS['PMA_String']::strpos($allpunct_list, $c) !== false) {
+            while (($count2 < $len) && $GLOBALS['PMA_String']::strpos($allpunct_list, $GLOBALS['PMA_String']::substr($sql, $count2, 1)) !== false) {
                 $count2++;
             }
             $l = $count2 - $count1;
             if ($l == 1) {
                 $punct_data = $c;
             } else {
-                $punct_data = PMA_substr($sql, $count1, $l);
+                $punct_data = $GLOBALS['PMA_String']::substr($sql, $count1, $l);
             }
 
             // Special case, sometimes, althought two characters are
@@ -678,12 +678,12 @@ function PMA_SQP_parse($sql)
                 if (($first == ',') || ($first == ';') || ($first == '.') || ($first == '*')) {
                     $count2     = $count1 + 1;
                     $punct_data = $first;
-                } elseif (($last2 == '/*') || (($last2 == '--') && ($count2 == $len || PMA_substr($sql, $count2, 1) <= ' '))) {
+                } elseif (($last2 == '/*') || (($last2 == '--') && ($count2 == $len || $GLOBALS['PMA_String']::substr($sql, $count2, 1) <= ' '))) {
                     $count2     -= 2;
-                    $punct_data = PMA_substr($sql, $count1, $count2 - $count1);
+                    $punct_data = $GLOBALS['PMA_String']::substr($sql, $count1, $count2 - $count1);
                 } elseif (($last == '-') || ($last == '+') || ($last == '!')) {
                     $count2--;
-                    $punct_data = PMA_substr($sql, $count1, $count2 - $count1);
+                    $punct_data = $GLOBALS['PMA_String']::substr($sql, $count1, $count2 - $count1);
                 } elseif ($last != '~') {
                     /**
                      * @todo for negation operator, split in 2 tokens ?
@@ -706,7 +706,7 @@ function PMA_SQP_parse($sql)
         $count2++;
 
         $debugstr = 'C1 C2 LEN: ' . $count1 . ' ' . $count2 . ' ' . $len .  "\n"
-            . 'STR: ' . PMA_substr($sql, $count1, $count2 - $count1) . "\n";
+            . 'STR: ' . $GLOBALS['PMA_String']::substr($sql, $count1, $count2 - $count1) . "\n";
         PMA_SQP_bug($debugstr, $sql);
         return $sql_array;
 
@@ -991,7 +991,7 @@ function PMA_SQP_analyze($arr)
      * ['queryflags']['is_maint'] = 1;     for the presence of CHECK|ANALYZE
      *                                     |REPAIR|OPTIMIZE TABLE
      * ['queryflags']['is_show'] = 1;      for the presence of SHOW
-     * ['queryflags']['is_analyse'] = 1;   for the presence of PRRCEDURE ANALYSE
+     * ['queryflags']['is_analyse'] = 1;   for the presence of PROCEDURE ANALYSE
      * ['queryflags']['is_export'] = 1;    for the presence of INTO OUTFILE
      * ['queryflags']['is_group'] = 1;     for the presence of GROUP BY|HAVING|
      *                                     SELECT DISTINCT
@@ -1809,10 +1809,10 @@ function PMA_SQP_analyze($arr)
                     $seen_order_by = true;
                     // Here we assume that the ORDER BY keywords took
                     // exactly 8 characters.
-                    // We use PMA_substr() to be charset-safe; otherwise
+                    // We use $GLOBALS['PMA_String']::substr() to be charset-safe; otherwise
                     // if the table name contains accents, the unsorted
                     // query would be missing some characters.
-                    $unsorted_query = PMA_substr(
+                    $unsorted_query = $GLOBALS['PMA_String']::substr(
                         $arr['raw'], 0, $arr[$i]['pos'] - 8
                     );
                     $in_order_by = true;

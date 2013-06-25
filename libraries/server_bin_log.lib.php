@@ -5,7 +5,7 @@
  * functions for displaying server binary log
  *
  * @usedby  server_binlog.php
- *  
+ *
  * @package PhpMyAdmin
  */
 if (! defined('PHPMYADMIN')) {
@@ -63,7 +63,7 @@ function PMA_getLogSelector($binary_log_file_names, $url_params)
         $html .= '</fieldset>';
         $html .= '</form>';
     }
-    
+
     return $html;
 }
 
@@ -87,20 +87,18 @@ function PMA_getLogInfo($binary_log_file_names, $url_params)
         /* We need this to be a integer */
         $pos = (int) $_REQUEST['pos'];
     }
-    
+
     $sql_query = 'SHOW BINLOG EVENTS';
     if (! empty($_REQUEST['log'])) {
         $sql_query .= ' IN \'' . $_REQUEST['log'] . '\'';
     }
-    if ($GLOBALS['cfg']['MaxRows'] !== 'all') {
-        $sql_query .= ' LIMIT ' . $pos . ', ' . (int) $GLOBALS['cfg']['MaxRows'];
-    }
-    
+    $sql_query .= ' LIMIT ' . $pos . ', ' . (int) $GLOBALS['cfg']['MaxRows'];
+
     /**
      * Sends the query
      */
     $result = $GLOBALS['dbi']->query($sql_query);
-    
+
     /**
      * prepare some vars for displaying the result table
      */
@@ -110,7 +108,7 @@ function PMA_getLogInfo($binary_log_file_names, $url_params)
     } else {
         $num_rows = 0;
     }
-    
+
     if (empty($_REQUEST['dontlimitchars'])) {
         $dontlimitchars = false;
     } else {
@@ -124,9 +122,9 @@ function PMA_getLogInfo($binary_log_file_names, $url_params)
         . '<thead>'
         . '<tr>'
         . '<td colspan="6" class="center">';
-        
+
     $html .= PMA_getNavigationRow($url_params, $pos, $num_rows, $dontlimitchars);
-    
+
     $html .=  '</td>'
         . '</tr>'
         . '<tr>'
@@ -139,12 +137,12 @@ function PMA_getLogInfo($binary_log_file_names, $url_params)
         . '</tr>'
         . '</thead>'
         . '<tbody>';
-    
+
     $html .= PMA_getAllLogItemInfo($result, $dontlimitchars);
-    
+
     $html .= '</tbody>'
         . '</table>';
-    
+
     return $html;
 }
 
@@ -163,7 +161,7 @@ function PMA_getLogInfo($binary_log_file_names, $url_params)
  */
 function PMA_getNavigationRow($url_params, $pos, $num_rows, $dontlimitchars)
 {
-    $html = "";    
+    $html = "";
     // we do not know how much rows are in the binlog
     // so we can just force 'NEXT' button
     if ($pos > 0) {
@@ -171,17 +169,21 @@ function PMA_getNavigationRow($url_params, $pos, $num_rows, $dontlimitchars)
         if ($pos > $GLOBALS['cfg']['MaxRows']) {
             $this_url_params['pos'] = $pos - $GLOBALS['cfg']['MaxRows'];
         }
-    
+
         $html .= '<a href="server_binlog.php'
             . PMA_generate_common_url($this_url_params) . '"';
-        if ($GLOBALS['cfg']['NavigationBarIconic']) {
+        if (in_array(
+            $GLOBALS['cfg']['TableNavigationLinksMode'],
+            array('icons', 'both')
+            )
+        ) {
             $html .= ' title="' . _pgettext('Previous page', 'Previous') . '">';
         } else {
             $html .= '>' . _pgettext('Previous page', 'Previous');
         } // end if... else...
         $html .= ' &lt; </a> - ';
     }
-    
+
     $this_url_params = $url_params;
     if ($pos > 0) {
         $this_url_params['pos'] = $pos;
@@ -199,7 +201,7 @@ function PMA_getNavigationRow($url_params, $pos, $num_rows, $dontlimitchars)
         . '" title="' . $tempTitle . '">'
         . '<img src="' .$GLOBALS['pmaThemeImage'] . 's_' . $tempImgMode . 'text.png"'
         . 'alt="' . $tempTitle . '" /></a>';
-    
+
     // we do not now how much rows are in the binlog
     // so we can just force 'NEXT' button
     if ($num_rows >= $GLOBALS['cfg']['MaxRows']) {
@@ -208,14 +210,18 @@ function PMA_getNavigationRow($url_params, $pos, $num_rows, $dontlimitchars)
         $html .= ' - <a href="server_binlog.php'
             . PMA_generate_common_url($this_url_params)
             . '"';
-        if ($GLOBALS['cfg']['NavigationBarIconic']) {
+        if (in_array(
+            $GLOBALS['cfg']['TableNavigationLinksMode'],
+            array('icons', 'both')
+            )
+        ) {
             $html .= ' title="' . _pgettext('Next page', 'Next') . '">';
         } else {
             $html .= '>' . _pgettext('Next page', 'Next');
         } // end if... else...
         $html .= ' &gt; </a>';
     }
-    
+
     return $html;
 }
 
@@ -234,13 +240,13 @@ function PMA_getAllLogItemInfo($result, $dontlimitchars)
     $odd_row = true;
     while ($value = $GLOBALS['dbi']->fetchAssoc($result)) {
         if (! $dontlimitchars
-            && PMA_strlen($value['Info']) > $GLOBALS['cfg']['LimitChars']
+            && $GLOBALS['PMA_String']::strlen($value['Info']) > $GLOBALS['cfg']['LimitChars']
         ) {
-            $value['Info'] = PMA_substr(
+            $value['Info'] = $GLOBALS['PMA_String']::substr(
                 $value['Info'], 0, $GLOBALS['cfg']['LimitChars']
             ) . '...';
         }
-    
+
         $html .= '<tr class="noclick ' . ($odd_row ? 'odd' : 'even') . '">'
             . '<td>&nbsp;' . $value['Log_name'] . '&nbsp;</td>'
             . '<td class="right">&nbsp;' . $value['Pos'] . '&nbsp;</td>'
@@ -253,7 +259,7 @@ function PMA_getAllLogItemInfo($result, $dontlimitchars)
             . '<td><code class="sql"><pre>&nbsp;' . htmlspecialchars($value['Info'])
             . '&nbsp;</pre></code></td>'
             . '</tr>';
-    
+
         $odd_row = !$odd_row;
     }
     return $html;

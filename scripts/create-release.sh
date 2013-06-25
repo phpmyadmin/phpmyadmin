@@ -129,6 +129,7 @@ if [ -d po ] ; then
     rm -rf po
 fi
 
+# This can be removed once 4.0 is out of maintenance:
 if [ -f ./scripts/compress-js ] ; then
     echo "* Compressing javascript files"
     ./scripts/compress-js

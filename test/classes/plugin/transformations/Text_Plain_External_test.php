@@ -10,6 +10,7 @@
  */
 
 /* Each PluginObserver instance contains a PluginManager instance */
+require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/plugins/PluginManager.class.php';
 require_once 'libraries/plugins/transformations/Text_Plain_External.class.php';
 
@@ -138,5 +139,36 @@ class Text_Plain_External_Test extends PHPUnit_Framework_TestCase
             "PMA_BUFFER",
             $this->object->applyTransformation($buffer, $options)
         );    
+    }
+
+    /**
+     * Test for applyTransformationNoWrap
+     *
+     * @return void
+     *
+     * @group medium
+     */
+    public function testApplyTransformationNoWrap()
+    {
+        $options = array("/dev/null -i -wrap -q", "/dev/null -i -wrap -q");
+        $this->assertEquals(
+            true,
+            $this->object->applyTransformationNoWrap($options)
+        ); 
+        $options = array("/dev/null -i -wrap -q", "/dev/null -i -wrap -q", "/dev/null -i -wrap -q", 1);
+        $this->assertEquals(
+            true,
+            $this->object->applyTransformationNoWrap($options)
+        ); 
+        $options = array("/dev/null -i -wrap -q", "/dev/null -i -wrap -q", "/dev/null -i -wrap -q", "1");
+        $this->assertEquals(
+            true,
+            $this->object->applyTransformationNoWrap($options)
+        );  
+        $options = array("/dev/null -i -wrap -q", "/dev/null -i -wrap -q", "/dev/null -i -wrap -q", 2);
+        $this->assertEquals(
+            false,
+            $this->object->applyTransformationNoWrap($options)
+        );   
     }
 }

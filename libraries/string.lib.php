@@ -21,18 +21,22 @@ if (! defined('PHPMYADMIN')) {
  */
 if (@function_exists('mb_strlen')) {
     mb_internal_encoding('utf-8');
-    include './libraries/string_mb.lib.php';
+    include './libraries/StringMB.class.php';
+    $PMA_String = new PMA_StringMB();
 } else {
-    include './libraries/string_native.lib.php';
+    include './libraries/StringNative.class.php';
+    $PMA_String = new PMA_StringNative();
 }
 
 /**
  * Load ctype handler.
  */
 if (@extension_loaded('ctype')) {
-    include './libraries/string_type_ctype.lib.php';
+    include './libraries/StringCType.class.php';
+    $PMA_StringType = new PMA_StringCType();
 } else {
-    include './libraries/string_type_native.lib.php';
+    include './libraries/String_NativeType.class.php';
+    $PMA_StringType = new PMA_StringNativeType();
 }
 
 /**
@@ -48,7 +52,7 @@ function PMA_STR_charIsEscaped($string, $pos, $start = 0)
 {
     $pos = max(intval($pos), 0);
     $start = max(intval($start), 0);
-    $len = PMA_strlen($string);
+    $len = $GLOBALS['PMA_String']::strlen($string);
     // Base case:
     // Check for string length or invalid input or special case of input
     // (pos == $start)
@@ -58,7 +62,7 @@ function PMA_STR_charIsEscaped($string, $pos, $start = 0)
 
     $pos--;
     $escaped     = false;
-    while ($pos >= $start && PMA_substr($string, $pos, 1) == '\\') {
+    while ($pos >= $start && $GLOBALS['PMA_String']::substr($string, $pos, 1) == '\\') {
         $escaped = !$escaped;
         $pos--;
     } // end while
@@ -90,8 +94,8 @@ function PMA_STR_numberInRangeInclusive($num, $lower, $upper)
  * @return boolean  whether the character is an SQL identifier or not
  */
 function PMA_STR_isSqlIdentifier($c, $dot_is_valid = false)
-{
-    return (PMA_STR_isAlnum($c)
+{   
+    return ($GLOBALS['PMA_StringType']::isAlnum($c)
         || ($ord_c = ord($c)) && $ord_c >= 192 && $ord_c != 215 && $ord_c != 249
         || $c == '_'
         || $c == '$'

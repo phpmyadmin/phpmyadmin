@@ -89,26 +89,37 @@ class PMA_Util
     /**
      * Returns an HTML IMG tag for a particular icon from a theme,
      * which may be an actual file or an icon from a sprite.
-     * This function takes into account the PropertiesIconic
+     * This function takes into account the ActionLinksMode 
      * configuration setting and wraps the image tag in a span tag.
      *
-     * @param string  $icon       name of icon file
-     * @param string  $alternate  alternate text
-     * @param boolean $force_text whether to force alternate text to be displayed
-     * @param boolean $menu_icon  whether this icon is for the menu bar or not
+     * @param string  $icon          name of icon file
+     * @param string  $alternate     alternate text
+     * @param boolean $force_text    whether to force alternate text to be displayed
+     * @param boolean $menu_icon     whether this icon is for the menu bar or not
+     * @param string  $control_param which directive controls the display
      *
      * @return string an html snippet
      */
-    public static function getIcon($icon, $alternate = '', $force_text = false,
-        $menu_icon = false
+    public static function getIcon(
+        $icon, $alternate = '', $force_text = false,
+        $menu_icon = false, $control_param = 'ActionLinksMode'
     ) {
-        // $cfg['PropertiesIconic'] is true or both
-        $include_icon = ($GLOBALS['cfg']['PropertiesIconic'] !== false);
-        // $cfg['PropertiesIconic'] is false or both
-        // OR we have no $include_icon
-        $include_text = ($force_text
-            || ($GLOBALS['cfg']['PropertiesIconic'] !== true));
-
+        $include_icon = $include_text = false;
+        if (in_array(
+                $GLOBALS['cfg'][$control_param], 
+                array('icons', 'both')
+            )
+        ) { 
+            $include_icon = true;
+        } 
+        if ($force_text
+            || in_array(
+                $GLOBALS['cfg'][$control_param], 
+                array('text', 'both')
+            )
+        ) {
+            $include_text = true; 
+        }
         // Sometimes use a span (we rely on this in js/sql.js). But for menu bar
         // we don't need a span
         $button = $menu_icon ? '' : '<span class="nowrap">';
@@ -1799,7 +1810,13 @@ class PMA_Util
             // avoid generating an alt tag, because it only illustrates
             // the text that follows and if browser does not display
             // images, the text is duplicated
-            $tab['text'] = self::getIcon($tab['icon'], $tab['text'], false, true);
+            $tab['text'] = self::getIcon(
+                $tab['icon'], 
+                $tab['text'], 
+                false, 
+                true, 
+                'TabsMode'
+            );
 
         } elseif (empty($tab['text'])) {
             // check to not display an empty link-text
@@ -1913,7 +1930,7 @@ class PMA_Util
         $displayed_message = '';
         // Add text if not already added
         if (stristr($message, '<img')
-            && (! $strip_img || ($GLOBALS['cfg']['PropertiesIconic'] === true))
+            && (! $strip_img || ($GLOBALS['cfg']['ActionLinksMode'] == 'icons'))
             && (strip_tags($message) == $message)
         ) {
             $displayed_message = '<span>'
@@ -2343,7 +2360,7 @@ class PMA_Util
             $value = $text;
         }
 
-        if ($GLOBALS['cfg']['PropertiesIconic'] === false) {
+        if ($GLOBALS['cfg']['ActionLinksMode'] == 'text') {
             return ' <input type="submit" name="' . $button_name . '"'
                 .' value="' . htmlspecialchars($value) . '"'
                 .' title="' . htmlspecialchars($text) . '" />' . "\n";
@@ -2357,7 +2374,7 @@ class PMA_Util
                 . '" value="' . htmlspecialchars($value)
                 . '" title="' . htmlspecialchars($text)
                 . '" src="' . $GLOBALS['pmaThemeImage']. $image . '" />'
-                . ($GLOBALS['cfg']['PropertiesIconic'] === 'both'
+                . ($GLOBALS['cfg']['ActionLinksMode'] == 'both'
                     ? '&nbsp;' . htmlspecialchars($text)
                     : '') . "\n";
         } else {
@@ -2544,8 +2561,11 @@ class PMA_Util
 
             // Move to the beginning or to the previous page
             if ($pos > 0) {
-                // patch #474210 - part 1
-                if ($GLOBALS['cfg']['NavigationBarIconic']) {
+                if (in_array(
+                    $GLOBALS['cfg']['TableNavigationLinksMode'],
+                    array('icons', 'both')
+                )
+                ) {
                     $caption1 = '&lt;&lt;';
                     $caption2 = ' &lt; ';
                     $title1   = ' title="' . _pgettext('First page', 'Begin') . '"';
@@ -2582,7 +2602,11 @@ class PMA_Util
             $list_navigator_html .= '</form>';
 
             if ($pos + $max_count < $count) {
-                if ($GLOBALS['cfg']['NavigationBarIconic']) {
+                if (in_array(
+                    $GLOBALS['cfg']['TableNavigationLinksMode'],
+                    array('icons', 'both')
+                    )
+                ) {
                     $caption3 = ' &gt; ';
                     $caption4 = '&gt;&gt;';
                     $title3   = ' title="' . _pgettext('Next page', 'Next') . '"';
@@ -3318,7 +3342,9 @@ class PMA_Util
 
         /* Fetch columns list if required */
         if (strpos($string, '@COLUMNS@') !== false) {
-            $columns_list = $GLOBALS['dbi']->getColumns($GLOBALS['db'], $GLOBALS['table']);
+            $columns_list = $GLOBALS['dbi']->getColumns(
+                $GLOBALS['db'], $GLOBALS['table']
+            );
 
             // sometimes the table no longer exists at this point
             if (! is_null($columns_list)) {
