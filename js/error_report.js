@@ -106,19 +106,19 @@ function showErrorNotification() {
 
     $buttons = $('<div style="float:right"></div>')
     button_html = '';
-    button_html += '<button id="change_error_settings" onclick="go_to_settings()">'+
+    button_html += '<button id="change_error_settings">'+
                     PMA_messages.strChangeReportSettings + '</button>'
-    button_html += '<button onclick="createReportDialog()">'+
+    button_html += '<button id="show_error_report">'+
                     PMA_messages.strShowReportDetails + '</button>'
-    button_html += '<button onclick="removeErrorNotification()">'+
+    button_html += '<button id="ignore_error">'+
                     PMA_messages.strIgnore + '</button>'
     $buttons.html(button_html)
 
     $div.append($buttons)
     $div.appendTo(document.body)
     $("#change_error_settings").on("click", go_to_settings)
-    $("#change_error_settings").on("click", go_to_settings)
-    $("#change_error_settings").on("click", go_to_settings)
+    $("#show_error_report").on("click", createReportDialog)
+    $("#ignore_error").on("click", removeErrorNotification)
 }
 
 function removeErrorNotification() {
