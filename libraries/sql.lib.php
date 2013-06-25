@@ -830,4 +830,219 @@ function PMA_hasNoRightsToDropDatabase($analyzed_sql_results,
         return false;
     }
 }
+
+/**
+ * Function to set the column order
+ * 
+ * @param PMA_Table $pmatable  PMA_Table instance
+ */
+function PMA_setColumnOrder($pmatable)
+{
+    $col_order = explode(',', $_REQUEST['col_order']);
+    $retval = $pmatable->setUiProp(
+    PMA_Table::PROP_COLUMN_ORDER,
+        $col_order,
+        $_REQUEST['table_create_time']
+    );
+    if (gettype($retval) != 'boolean') {
+        $response = PMA_Response::getInstance();
+        $response->isSuccess(false);
+        $response->addJSON('message', $retval->getString());
+        exit;
+    }
+}
+
+/**
+ * Function to set the column visibility
+ * 
+ * @param PMA_Table $pmatable  PMA_Table instance
+ */
+function PMA_setColumnVisibility($pmatable)
+{
+    $col_visib = explode(',', $_REQUEST['col_visib']);
+    $retval = $pmatable->setUiProp(
+    PMA_Table::PROP_COLUMN_VISIB, $col_visib,
+        $_REQUEST['table_create_time']
+    );
+    if (gettype($retval) != 'boolean') {
+        $response = PMA_Response::getInstance();
+        $response->isSuccess(false);
+        $response->addJSON('message', $retval->getString());
+        exit;
+    }
+}
+
+/**
+ * Function to check the request for setting the column order or visibility
+ * 
+ * @param String $table   the current table
+ * @param String $db      the current database
+ */
+function PMA_setColumnOrderOrVisibility($table, $db)
+{
+    $pmatable = new PMA_Table($table, $db);
+    $retval = false;
+
+    // set column order
+    if (isset($_REQUEST['col_order'])) {
+        PMA_setColumnOrder($pmatable);
+    }
+
+    // set column visibility
+    if ($retval === true && isset($_REQUEST['col_visib'])) {
+        PMA_setColumnVisibility($pmatable);
+    }
+
+    $response = PMA_Response::getInstance();
+    $response->isSuccess($retval == true);
+    exit;
+}
+
+/**
+ * Function to add a bookmark
+ * 
+ * @param String $pmaAbsoluteUri   absolute URL
+ * @param String $goto             goto page url
+ */
+function PMA_addBookmark($pmaAbsoluteUri, $goto)
+{
+    $result = PMA_Bookmark_save(
+        $_POST['bkm_fields'],
+        (isset($_POST['bkm_all_users'])
+            && $_POST['bkm_all_users'] == 'true' ? true : false
+        )
+    );
+    $response = PMA_Response::getInstance();
+    if ($response->isAjax()) {
+        if ($result) {
+            $msg = PMA_message::success(__('Bookmark %s created'));
+            $msg->addParam($_POST['bkm_fields']['bkm_label']);
+            $response->addJSON('message', $msg);
+        } else {
+            $msg = PMA_message::error(__('Bookmark not created'));
+            $response->isSuccess(false);
+            $response->addJSON('message', $msg);
+        }
+        exit;
+    } else {
+        // go back to sql.php to redisplay query; do not use &amp; in this case:
+        PMA_sendHeaderLocation(
+             $pmaAbsoluteUri . $goto
+            . '&label=' . $_POST['bkm_fields']['bkm_label']
+        );
+    }
+}
+
+/**
+ * Function to find the real end of rows
+ * 
+ * @param String $db     the current database
+ * @param String $table  the current table
+ * @return mixed the number of records if "retain" param is true, otherwise true
+ */
+function PMA_findRealEndOfRows($db, $table)
+{
+    $unlim_num_rows = PMA_Table::countRecords($db, $table, true);
+    $_SESSION['tmp_user_values']['pos'] = @((ceil(
+        $unlim_num_rows / $_SESSION['tmp_user_values']['max_rows']
+    ) - 1) * $_SESSION['tmp_user_values']['max_rows']);
+    
+    return $unlim_num_rows;
+}
+
+/**
+ * Function to get values for the redational columns
+ * 
+ * @param String $db             the current database            
+ * @param String $table          the current table
+ * @param String $display_field
+ */
+function PMA_getRelationalValues($db, $table, $display_field)
+{
+    $column = $_REQUEST['column'];
+    if ($_SESSION['tmp_user_values']['relational_display'] == 'D'
+        && isset($display_field)
+        && strlen($display_field)
+        && isset($_REQUEST['relation_key_or_display_column'])
+        && $_REQUEST['relation_key_or_display_column']
+    ) {
+        $curr_value = $_REQUEST['relation_key_or_display_column'];
+    } else {
+        $curr_value = $_REQUEST['curr_value'];
+    }
+    $dropdown = PMA_getHtmlForRelationalColumnDropdown(
+        $db, $table, $column, $curr_value
+    );
+    $response = PMA_Response::getInstance();
+    $response->addJSON('dropdown', $dropdown);
+    exit;
+}
+
+/**
+ * Function to get values for Enum or Set Columns
+ * 
+ * @param String $db            the current database
+ * @param String $table         the current table
+ * @param String $columnType    whether enum or set
+ */
+function PMA_getEnumOrSetValues($db, $table, $columnType)
+{
+    $column = $_REQUEST['column'];
+    $curr_value = $_REQUEST['curr_value'];
+    $response = PMA_Response::getInstance();
+    if ($columnType == "enum") {
+        $dropdown = PMA_getHtmlForEnumColumnDropdown(
+            $db, $table, $column, $curr_value
+        );
+        $response->addJSON('dropdown', $dropdown);
+    } else {
+        $select = PMA_getHtmlForSetColumn($db, $table, $column, $curr_value);
+        $response->addJSON('select', $select);
+    }
+    exit;
+}
+
+/**
+ * Function to append the limit clause 
+ * 
+ * @param String $full_sql_query
+ * @param array $analyzed_sql
+ * @param String $display_query
+ * @return array
+ */
+function PMA_appendLimitClaues($full_sql_query, $analyzed_sql, $display_query)
+{
+    $sql_limit_to_append = ' LIMIT ' . $_SESSION['tmp_user_values']['pos']
+        . ', ' . $_SESSION['tmp_user_values']['max_rows'] . " ";
+    $full_sql_query = PMA_getSqlWithLimitClause(
+        $full_sql_query,
+        $analyzed_sql,
+        $sql_limit_to_append
+    );
+
+    /**
+     * @todo pretty printing of this modified query
+     */
+    if ($display_query) {
+        // if the analysis of the original query revealed that we found
+        // a section_after_limit, we now have to analyze $display_query
+        // to display it correctly
+
+        if (! empty($analyzed_sql[0]['section_after_limit'])
+            && trim($analyzed_sql[0]['section_after_limit']) != ';'
+        ) {
+            $analyzed_display_query = PMA_SQP_analyze(
+                PMA_SQP_parse($display_query)
+            );
+            $display_query  = $analyzed_display_query[0]['section_before_limit']
+                . "\n" . $sql_limit_to_append
+                . $analyzed_display_query[0]['section_after_limit'];
+        }
+    }
+    
+    return array($sql_limit_to_append, $full_sql_query, isset($analyzed_display_query)
+        ? $analyzed_display_query : null,
+        isset($display_query) ? $display_query : null
+    );
+}
 ?>
