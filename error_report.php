@@ -125,13 +125,16 @@ function get_report_data($json_encode = true) {
  *
  * @param Array $report the report info to be sent
  *
- * @return String $result the reply of the server
+ * @return String $response the reply of the server
  */
 function send_error_report($report) {
     $data_string = json_encode($report);
     if (ini_get('allow_url_fopen')) {
         if (strlen($cfg['VersionCheckProxyUrl'])) {
             $context = array(
+                'method'  => 'POST',
+                'header'  => 'Content-type: application/json',
+                'content' => $data_string,
                 'http' => array(
                     'proxy' => $cfg['VersionCheckProxyUrl'],
                     'request_fulluri' => true
@@ -163,6 +166,12 @@ function send_error_report($report) {
                 );
             }
         }
+        curl_setopt($curl_handle, CURLOPT_CUSTOMREQUEST, "POST");
+        curl_setopt($curl_handle, CURLOPT_HTTPHEADER, array(
+            'Content-Type: application/json',
+            'Content-Length: ' . strlen($data_string))
+        );
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $data_string);
         curl_setopt($curl_handle, CURLOPT_RETURNTRANSFER, 1);
         $response = curl_exec($curl_handle);
     }
