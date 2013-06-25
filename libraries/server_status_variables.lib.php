@@ -122,7 +122,7 @@ function PMA_getHtmlForLinkSuggestions($ServerStatusData)
  *
  * @return string
  */
-function PMA_getHtmlForVariablesTable($ServerStatusData)
+function PMA_getHtmlForVariablesList($ServerStatusData)
 {
     $retval  = '';
     $strShowStatus = PMA_getStatusVariablesDescriptions();
@@ -184,7 +184,23 @@ function PMA_getHtmlForVariablesTable($ServerStatusData)
         //'Handler read key' => '> ',
     );
 
-    $retval .= '<table class="data sortable noclick" id="serverstatusvariables">';
+    $retval .= PMA_getHtmlForRenderVariables($ServerStatusData, $alerts, $strShowStatus);
+
+    return $retval;
+}
+
+/**
+ * Returns HTML for render variables list
+ *
+ * @param Object $ServerStatusData An instance of the PMA_ServerStatusData class
+ * @param Array  $alerts           Alert Array
+ * @param Array  $strShowStatus    Status Array
+ *
+ * @return string
+ */
+function PMA_getHtmlForRenderVariables($ServerStatusData, $alerts, $strShowStatus)
+{
+    $retval  = '<table class="data sortable noclick" id="serverstatusvariables">';
     $retval .= '<col class="namecol" />';
     $retval .= '<col class="valuecol" />';
     $retval .= '<col class="descrcol" />';
@@ -272,7 +288,7 @@ function PMA_getHtmlForVariablesTable($ServerStatusData)
     }
     $retval .= '</tbody>';
     $retval .= '</table>';
-
+    
     return $retval;
 }
 

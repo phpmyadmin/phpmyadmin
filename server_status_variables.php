@@ -48,7 +48,7 @@ $response->addHTML('<div>');
 $response->addHTML($ServerStatusData->getMenuHtml());
 $response->addHTML(PMA_getHtmlForFilter($ServerStatusData));
 $response->addHTML(PMA_getHtmlForLinkSuggestions($ServerStatusData));
-$response->addHTML(PMA_getHtmlForVariablesTable($ServerStatusData));
+$response->addHTML(PMA_getHtmlForVariablesList($ServerStatusData));
 $response->addHTML('</div>');
 
 exit;
