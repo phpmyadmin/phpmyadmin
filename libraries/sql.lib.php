@@ -835,6 +835,8 @@ function PMA_hasNoRightsToDropDatabase($analyzed_sql_results,
  * Function to set the column order
  * 
  * @param PMA_Table $pmatable  PMA_Table instance
+ * 
+ * @retrun boolean $retval
  */
 function PMA_setColumnOrder($pmatable)
 {
@@ -850,12 +852,16 @@ function PMA_setColumnOrder($pmatable)
         $response->addJSON('message', $retval->getString());
         exit;
     }
+    
+    return $retval;
 }
 
 /**
  * Function to set the column visibility
  * 
  * @param PMA_Table $pmatable  PMA_Table instance
+ * 
+ * @return boolean $retval
  */
 function PMA_setColumnVisibility($pmatable)
 {
@@ -870,6 +876,7 @@ function PMA_setColumnVisibility($pmatable)
         $response->addJSON('message', $retval->getString());
         exit;
     }
+    return $retval;
 }
 
 /**
@@ -885,12 +892,12 @@ function PMA_setColumnOrderOrVisibility($table, $db)
 
     // set column order
     if (isset($_REQUEST['col_order'])) {
-        PMA_setColumnOrder($pmatable);
+        $retval = PMA_setColumnOrder($pmatable);
     }
 
     // set column visibility
     if ($retval === true && isset($_REQUEST['col_visib'])) {
-        PMA_setColumnVisibility($pmatable);
+        $retval = PMA_setColumnVisibility($pmatable);
     }
 
     $response = PMA_Response::getInstance();
