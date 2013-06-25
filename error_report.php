@@ -129,16 +129,43 @@ function get_report_data($json_encode = true) {
  */
 function send_error_report($report) {
     $data_string = json_encode($report);
-    $ch = curl_init($submission_url);
-    curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
-    curl_setopt($ch, CURLOPT_POSTFIELDS, $data_string);
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-    curl_setopt($ch, CURLOPT_HTTPHEADER, array(
-        'Content-Type: application/json',
-        'Content-Length: ' . strlen($data_string))
-    );
-
-    $result = curl_exec($ch);
-    return $result;
+    if (ini_get('allow_url_fopen')) {
+        if (strlen($cfg['VersionCheckProxyUrl'])) {
+            $context = array(
+                'http' => array(
+                    'proxy' => $cfg['VersionCheckProxyUrl'],
+                    'request_fulluri' => true
+                )
+            );
+            if (strlen($cfg['VersionCheckProxyUser'])) {
+                $auth = base64_encode(
+                    $cfg['VersionCheckProxyUser'] . ':' . $cfg['VersionCheckProxyPass']
+                );
+                $context['http']['header'] = 'Proxy-Authorization: Basic ' . $auth;
+            }
+            $response = file_get_contents(
+                $submission_url,
+                false,
+                stream_context_create($context)
+            );
+        } else {
+            $response = file_get_contents($file);
+        }
+    } else if (function_exists('curl_init')) {
+        $curl_handle = curl_init($submission_url);
+        if (strlen($cfg['VersionCheckProxyUrl'])) {
+            curl_setopt($curl_handle, CURLOPT_PROXY, $cfg['VersionCheckProxyUrl']);
+            if (strlen($cfg['VersionCheckProxyUser'])) {
+                curl_setopt(
+                    $curl_handle,
+                    CURLOPT_PROXYUSERPWD,
+                    $cfg['VersionCheckProxyUser'] . ':' . $cfg['VersionCheckProxyPass']
+                );
+            }
+        }
+        curl_setopt($curl_handle, CURLOPT_RETURNTRANSFER, 1);
+        $response = curl_exec($curl_handle);
+    }
+    return $response;
 }
 ?>
