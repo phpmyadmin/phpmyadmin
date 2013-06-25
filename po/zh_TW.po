@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.5-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-06-24 10:43+0200\n"
-"PO-Revision-Date: 2013-06-24 16:04+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"PO-Revision-Date: 2013-06-25 11:10+0200\n"
+"Last-Translator: Tony Chen <tonychen@finenet.com.tw>\n"
 "Language-Team: Traditional Chinese "
 "<http://l10n.cihar.com/projects/phpmyadmin/4-0/zh_TW/>\n"
 "Language: zh_TW\n"
@@ -2143,12 +2143,12 @@ msgstr "六"
 #. l10n: Column header for week of the year in calendar
 #: js/messages.php:511
 msgid "Wk"
-msgstr "周"
+msgstr "週"
 
 #. l10n: Month-year order for calendar, use either "calendar-month-year" or "calendar-year-month".
 #: js/messages.php:514
 msgid "calendar-month-year"
-msgstr "日曆-月-年"
+msgstr "calendar-year-month"
 
 #. l10n: Year suffix for calendar, "none" is empty.
 #: js/messages.php:516
@@ -5099,10 +5099,9 @@ msgid "Use only icons, only text or both"
 msgstr "僅使用圖示、文字或都使用"
 
 #: libraries/config/messages.inc.php:325
-#, fuzzy
 #| msgid "Iconic navigation bar"
 msgid "Table navigation bar"
-msgstr "導覽列使用圖示"
+msgstr "資料表導航欄"
 
 #: libraries/config/messages.inc.php:326
 msgid "use GZip output buffering for increased speed in HTTP transfers"
@@ -5164,14 +5163,13 @@ msgid "MySQL reserved word warning"
 msgstr "MYSQL 保留字警告"
 
 #: libraries/config/messages.inc.php:339
-#, fuzzy
 #| msgid "Allow to display all the rows"
 msgid "How to display the menu tabs"
-msgstr "允許顯示所有行"
+msgstr "如何顯示選單標籤頁"
 
 #: libraries/config/messages.inc.php:341
 msgid "How to display various action links"
-msgstr ""
+msgstr "如何顯示各種操作連結"
 
 #: libraries/config/messages.inc.php:342
 msgid "Disallow BLOB and BINARY columns from editing"
@@ -6501,7 +6499,7 @@ msgstr "空閒頁"
 
 #: libraries/engines/innodb.lib.php:198
 msgid "Dirty pages"
-msgstr "髒頁"
+msgstr "異動(未儲存)頁"
 
 #: libraries/engines/innodb.lib.php:206
 msgid "Pages containing data"
@@ -10734,11 +10732,11 @@ msgstr "資料表中插入行的請求數。"
 
 #: server_status_variables.php:434
 msgid "The number of pages containing data (dirty or clean)."
-msgstr "非空頁數 (含髒頁)。"
+msgstr "含資料頁數 (異動未儲存或已儲存)。"
 
 #: server_status_variables.php:437
 msgid "The number of pages currently dirty."
-msgstr "目前髒頁數。"
+msgstr "目前異動未儲存的頁數。"
 
 #: server_status_variables.php:440
 msgid "The number of buffer pool pages that have been requested to be flushed."
