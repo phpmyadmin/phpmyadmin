@@ -812,17 +812,18 @@ function PMA_isDeleteTransformationInfo($analyzed_sql_results)
  * @param  array   $analyzed_sql_results   the analyzed query and other varibles set
  *                                         after analyzing the query
  * @param boolean  $allowUserDropDatabase  whether the user is allowed to drop db
+ * @param boolean  $is_superuser           whether this user is a superuser 
  * 
  * @return boolean
  */
 function PMA_hasNoRightsToDropDatabase($analyzed_sql_results,
-    $allowUserDropDatabase
+    $allowUserDropDatabase, $is_superuser
 ) {
     if (! defined('PMA_CHK_DROP')
         && ! $allowUserDropDatabase
         && isset ($analyzed_sql_results['drop_database'])
         && $analyzed_sql_results['drop_database'] == 1
-        && ! $analyzed_sql_results['is_superuser']
+        && ! $is_superuser
     ) {
         return true;
     } else {
