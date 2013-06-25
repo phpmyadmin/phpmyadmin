@@ -209,6 +209,62 @@ function PMA_getHtmlForOptionsList($options, $select)
 }
 
 /**
+ * Function to get html for the lebel column and spatial column
+ * 
+ * @param  String  $column                 the column type. i.e either "labelColumn"
+ *                                         or "spatialColumn"
+ * @param  array   $columnCandidates       the list of select options
+ * @param  array   $visualizationSettings  visualization settings
+ * @return String  $html
+ */
+function PMA_getHtmlForColumn($column, $columnCandidates, $visualizationSettings)
+{
+    $html = '<tr><td><label for="labelColumn">';
+    $html .= ($column=="labelColumn") ? __("Label column") : __("Spatial column");; 
+    $html .= '</label></td>';
+    
+    $html .= '<td><select name="visualizationSettings[' . $column . ']" id="'
+        . $column . '">';
+    
+    if ($column == "labelColumn") {
+        $html .= '<option value="">' . __("-- None --") . '</option>';
+    }
+    
+    $html .= PMA_getHtmlForOptionsList(
+        $columnCandidates, $visualizationSettings[$column]
+    );
+    
+    $html .= '</select></td>';
+    $html .= '</tr>';
+    
+    return $html;
+}
+
+/**
+ * Function to get html for the option of using oprn street maps
+ * 
+ * @param  boolean $isSelected    the default value
+ * 
+ * @return string  $html
+ */
+function PMA_getHtmlForUseOpenStreetMaps($isSelected)
+{
+    $html = '<tr><td class="choice" colspan="2">';
+    $html .= '<input type="checkbox" name="visualizationSettings[choice]"'
+        . 'id="choice" value="useBaseLayer"';        
+    if ($isSelected) {
+        $html .= ' checked="checked"';
+    }
+    $html .= '/>';
+    $html .= '<label for="choice">';
+    $html .= __("Use OpenStreetMaps as Base Layer");
+    $html .= '</label>';
+    $html .= '</td></tr>';
+    
+    return $html;
+}
+
+/**
  * Function to generate html for the GIS visualization page
  * 
  * @param array   $url_params             url parameters
@@ -234,44 +290,25 @@ function PMA_getHtmlForGisVisualization(
     $html .= '<form method="post" action="tbl_gis_visualization.php">';
     $html .= PMA_generate_common_hidden_inputs($url_params);
     $html .= '<table class="gis_table">';
-    $html .= '<tr><td><label for="labelColumn">' . __("Label column")
-        . '</label></td>';
-    $html .= '<td><select name="visualizationSettings[labelColumn]" id="labelColumn">';
-    $html .= '<option value="">' . __("-- None --") . '</option>';
-    $html .= PMA_getHtmlForOptionsList(
-        $labelCandidates, $visualizationSettings['labelColumn']
-    );
-    $html .= '</select></td>';
-    $html .= '</tr>';
-
-    $html .= '<tr><td><label for="spatial Column">';
-    $html .= __("Spatial column");
-    $html .= '</label></td>';
-    $html .= '<td><select name="visualizationSettings[spatialColumn]" id="spatialColumn">';
-    $html .= PMA_getHtmlForOptionsList(
-        $spatialCandidates, $visualizationSettings['spatialColumn']
-    );
-    $html .= '</select></td>';
-    $html .= '</tr>';
     
+    $html .= PMA_getHtmlForColumn("labelColumn", $labelCandidates,
+        $visualizationSettings
+    );
+
+    $html .= PMA_getHtmlForColumn("spatialColumn", $spatialCandidates,
+        $visualizationSettings
+    );
+
     $html .= '<tr><td></td>';
     $html .= '<td class="button"><input type="submit" name="displayVisualizationBtn" value="';
     $html .= __('Redraw');
     $html .= '" /></td></tr>';
 
     if (! $GLOBALS['PMA_Config']->isHttps()) {
-        $html .= '<tr><td class="choice" colspan="2">';
-        $html .= '<input type="checkbox" name="visualizationSettings[choice]"'
-            . 'id="choice" value="useBaseLayer"';        
-        if (isset($visualizationSettings['choice'])) {
-            $html .= ' checked="checked"';
-        }
-        $html .= '/>';
-        $html .= '<label for="choice">';
-        $html .= __("Use OpenStreetMaps as Base Layer");
-        $html .= '</label>';
-        $html .= '</td></tr>';
+        $isSelected = isset($visualizationSettings['choice']) ? true : false;
+        $html .= PMA_getHtmlForUseOpenStreetMaps($isSelected);
     }
+    
     $html .= '</table>';
     $html .= '<input type="hidden" name="displayVisualization" value="redraw">';
     $html .= '<input type="hidden" name="sql_query" value="';
