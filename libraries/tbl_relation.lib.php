@@ -128,12 +128,14 @@ function PMA_getSQLToCreateForeignKey($table, $field, $foreignDb, $foreignTable,
  * @param string $name    name of the dropdowns
  * @param array  $values  dropdown values
  * @param string $foreign value of the item to be selected
+ * @param string $title   title to show on hovering the dropdown 
  *
  * @return string HTML for the dropdown
  */
-function PMA_generateRelationalDropdown($name, $values = array(), $foreign = false)
-{
-    $html_output = '<select name="' . $name . '">';
+function PMA_generateRelationalDropdown(
+    $name, $values = array(), $foreign = false, $title = ''
+) {
+    $html_output = '<select name="' . $name . '" title="' . $title . '">';
     $html_output .= '<option value=""></option>';
 
     $seen_key = false;

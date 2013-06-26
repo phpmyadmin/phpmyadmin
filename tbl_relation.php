@@ -448,7 +448,8 @@ if (count($columns) > 0) {
             $html_output .= PMA_generateRelationalDropdown(
                 'destination_db[' . $myfield_md5 . ']',
                 $GLOBALS['pma']->databases,
-                $foreign_db
+                $foreign_db,
+                __('Database')
             );
             // end of database dropdown
 
@@ -470,7 +471,8 @@ if (count($columns) > 0) {
             $html_output .= PMA_generateRelationalDropdown(
                 'destination_table[' . $myfield_md5 . ']',
                 $tables,
-                $foreign_table
+                $foreign_table,
+                __('Table')
             );
             // end of table dropdown
 
@@ -486,7 +488,8 @@ if (count($columns) > 0) {
             $html_output .= PMA_generateRelationalDropdown(
                 'destination_column[' . $myfield_md5 . ']',
                 $columns,
-                $foreign_column
+                $foreign_column,
+                __('Column')
             );
             // end of column dropdown
 
@@ -511,7 +514,8 @@ if (count($columns) > 0) {
                 $html_output .= PMA_generateRelationalDropdown(
                     'destination_foreign_db[' . $myfield_md5 . ']',
                     $GLOBALS['pma']->databases,
-                    $foreign_db
+                    $foreign_db,
+                    __('Database')
                 );
                 // end of foreign database dropdown
 
@@ -537,7 +541,8 @@ if (count($columns) > 0) {
                 $html_output .= PMA_generateRelationalDropdown(
                     'destination_foreign_table[' . $myfield_md5 . ']',
                     $tables,
-                    $foreign_table
+                    $foreign_table,
+                    __('Table')
                 );
                 // end of foreign table dropdown
 
@@ -553,7 +558,8 @@ if (count($columns) > 0) {
                 $html_output .= PMA_generateRelationalDropdown(
                     'destination_foreign_column[' . $myfield_md5 . ']',
                     $columns,
-                    $foreign_column
+                    $foreign_column,
+                    __('Column')
                 );
                 $html_output .= '</span>';
                 // end of foreign column dropdown
