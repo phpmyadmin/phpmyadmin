@@ -881,8 +881,7 @@ TableSeparator or disabling that feature.
 3.6 What is currently not supported in phpMyAdmin about InnoDB?
 ---------------------------------------------------------------
 
-In Relation view, being able to choose a table in another database, or
-having more than one index column in the foreign key. In Query-by-
+In Relation view, having more than one index column in the foreign key. In Query-by-
 example (Query), automatic generation of the query LEFT JOIN from the
 foreign table.
 
@@ -1378,7 +1377,7 @@ look for the word "upload" in this document.
 ---------------------------------------------------------
 
 Here is an example with the tables persons, towns and countries, all
-located in the database mydb. If you don't have a ``pma__relation``
+located in the database "mydb". If you don't have a ``pma__relation``
 table, create it as explained in the configuration section. Then
 create the example tables:
 
@@ -1416,8 +1415,10 @@ create the example tables:
 To setup appropriate links and display information:
 
 * on table "REL\_persons" click Structure, then Relation view
-* in Links, for "town\_code" choose "REL\_towns->code"
-* in Links, for "country\_code" choose "REL\_countries->country\_code"
+* for "town\_code", choose from dropdowns, "mydb", "REL\_towns", "code"
+  for foreign database, table and column respectively
+* for "country\_code", choose  from dropdowns, "mydb", "REL\_countries",
+  "country\_code" for foreign database, table and column respectively
 * on table "REL\_towns" click Structure, then Relation view
 * in "Choose column to display", choose "description"
 * repeat the two previous steps for table "REL\_countries"
