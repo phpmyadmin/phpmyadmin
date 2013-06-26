@@ -1017,7 +1017,7 @@ function PMA_getEnumOrSetValues($db, $table, $columnType)
  * @param String $display_query
  * @return array
  */
-function PMA_appendLimitClaues($full_sql_query, $analyzed_sql, $display_query)
+function PMA_appendLimitClause($full_sql_query, $analyzed_sql, $display_query)
 {
     $sql_limit_to_append = ' LIMIT ' . $_SESSION['tmp_user_values']['pos']
         . ', ' . $_SESSION['tmp_user_values']['max_rows'] . " ";

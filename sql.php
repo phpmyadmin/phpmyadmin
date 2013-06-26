@@ -233,7 +233,7 @@ $sql_limit_to_append = '';
 if (PMA_isAppendLimitClause($analyzed_sql_results)) {
     list($sql_limit_to_append,
         $full_sql_query, $analyzed_display_query, $display_query
-    ) = PMA_appendLimitClaues(
+    ) = PMA_appendLimitClause(
         $full_sql_query, $analyzed_sql, isset($display_query)
     );
 }
