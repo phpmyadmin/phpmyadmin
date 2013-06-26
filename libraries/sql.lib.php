@@ -842,7 +842,7 @@ function PMA_setColumnOrder($pmatable)
 {
     $col_order = explode(',', $_REQUEST['col_order']);
     $retval = $pmatable->setUiProp(
-    PMA_Table::PROP_COLUMN_ORDER,
+        PMA_Table::PROP_COLUMN_ORDER,
         $col_order,
         $_REQUEST['table_create_time']
     );

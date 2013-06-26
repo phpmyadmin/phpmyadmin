@@ -98,7 +98,7 @@ if (isset($_REQUEST['get_set_values']) && $_REQUEST['get_set_values'] == true) {
 }
 
 /**
- * Check ajax request to set the column order
+ * Check ajax request to set the column order and visibility
  */
 if (isset($_REQUEST['set_col_prefs']) && $_REQUEST['set_col_prefs'] == true) {
     PMA_setColumnOrderOrVisibility($table, $db);
