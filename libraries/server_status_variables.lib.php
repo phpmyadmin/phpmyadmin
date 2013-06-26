@@ -184,7 +184,11 @@ function PMA_getHtmlForVariablesList($ServerStatusData)
         //'Handler read key' => '> ',
     );
 
-    $retval .= PMA_getHtmlForRenderVariables($ServerStatusData, $alerts, $strShowStatus);
+    $retval .= PMA_getHtmlForRenderVariables(
+        $ServerStatusData, 
+        $alerts, 
+        $strShowStatus
+    );
 
     return $retval;
 }
@@ -217,12 +221,15 @@ function PMA_getHtmlForRenderVariables($ServerStatusData, $alerts, $strShowStatu
     foreach ($ServerStatusData->status as $name => $value) {
         $odd_row = !$odd_row;
         $retval .= '<tr class="' . ($odd_row ? 'odd' : 'even')
-            . (isset($ServerStatusData->allocationMap[$name])?' s_' . $ServerStatusData->allocationMap[$name] : '')
+            . (isset($ServerStatusData->allocationMap[$name])
+                ?' s_' . $ServerStatusData->allocationMap[$name] 
+                : '')
             . '">';
 
         $retval .= '<th class="name">';
         $retval .= htmlspecialchars(str_replace('_', ' ', $name));
-        /* Fields containing % are calculated, they can not be described in MySQL documentation */
+        // Fields containing % are calculated, 
+        // they can not be described in MySQL documentation
         if (strpos($name, '%') === false) {
             $retval .= PMA_Util::showMySQLDocu(
                 'server-status-variables',

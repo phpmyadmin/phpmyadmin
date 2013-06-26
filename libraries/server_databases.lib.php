@@ -312,10 +312,12 @@ function PMA_getHtmlForColumnOrderWithSort(
         . '    <th><a href="server_databases.php' 
         . PMA_generate_common_url($_url_params) . '">' . "\n"
         . '            ' . __('Database') . "\n"
-        . ($sort_by == 'SCHEMA_NAME' ? '                ' 
-        . PMA_Util::getImage(
-              's_' . $sort_order . '.png', 
-              ($sort_order == 'asc' ? __('Ascending') : __('Descending'))) . "\n" : ''
+        . ($sort_by == 'SCHEMA_NAME' 
+            ? '                ' . PMA_Util::getImage(
+                's_' . $sort_order . '.png', 
+                ($sort_order == 'asc' ? __('Ascending') : __('Descending'))
+            ) . "\n" 
+            : ''
           )
         . '        </a></th>' . "\n";
     $table_columns = 3;
@@ -335,10 +337,12 @@ function PMA_getHtmlForColumnOrderWithSort(
                 . '<a href="server_databases.php' 
                 . PMA_generate_common_url($_url_params) . '">' . "\n"
                 . '            ' . $stat['disp_name'] . "\n"
-                . ($sort_by == $stat_name ? '            ' 
-                . PMA_Util::getImage(
-                      's_' . $sort_order . '.png', 
-                      ($sort_order == 'asc' ? __('Ascending') : __('Descending'))) . "\n" : ''
+                . ($sort_by == $stat_name 
+                    ? '            ' . PMA_Util::getImage(
+                        's_' . $sort_order . '.png', 
+                        ($sort_order == 'asc' ? __('Ascending') : __('Descending'))
+                    ) . "\n" 
+                    : ''
                   )
                 . '        </a></th>' . "\n";
         }
