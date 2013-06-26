@@ -210,6 +210,11 @@ class PMA_TableSearch
         $subtabs['zoom']['text'] = __('Zoom Search');
         $subtabs['zoom']['id'] = 'zoom_search_id';
 
+        $subtabs['replace']['icon'] = 'b_find_replace.png';
+        $subtabs['replace']['link'] = 'tbl_find_replace.php';
+        $subtabs['replace']['text'] = __('Find and Replace');
+        $subtabs['replace']['id'] = 'find_replace_id';
+
         return $subtabs;
     }
 
@@ -1070,8 +1075,22 @@ EOT;
     private function _getFormTag($goto)
     {
         $html_output = '';
-        $scriptName = ($this->_searchType == 'zoom' ? 'tbl_zoom_select.php' : 'tbl_select.php');
-        $formId = ($this->_searchType == 'zoom' ? 'zoom_search_form' : 'tbl_search_form');
+        $scriptName = '';
+        $formId = '';
+        switch ($this->_searchType) {
+        case 'normal' :
+            $scriptName = 'tbl_select.php';
+            $formId = 'tbl_search_form';
+            break;
+        case 'zoom' :
+            $scriptName = 'tbl_zoom_select.php';
+            $formId = 'zoom_search_form';
+            break;
+        case 'replace' :
+            $scriptName = 'tbl_find_replace.php';
+            $formId = 'find_replace_form';
+            break;
+        }
 
         $html_output .= '<form method="post" action="' . $scriptName . '" '
             . 'name="insertForm" id="' . $formId . '" '
@@ -1086,14 +1105,11 @@ EOT;
     }
 
     /**
-     * Generates the table search form under table search tab
+     * Returns the HTML for secondary levels tabs of the table search page
      *
-     * @param string $goto      Goto URL
-     * @param string $dataLabel Label for points in zoom plot
-     *
-     * @return string the generated HTML for table search form
+     * @return string HTML for secondary levels tabs
      */
-    public function getSelectionForm($goto, $dataLabel = null)
+    public function getSecondaryTabs()
     {
         $url_params = array();
         $url_params['db'] = $this->_db;
@@ -1105,8 +1121,20 @@ EOT;
         }
         $html_output .= '</ul>';
         $html_output .= '<div class="clearfloat"></div>';
+        return $html_output;
+    }
 
-        $html_output .= $this->_getFormTag($goto);
+    /**
+     * Generates the table search form under table search tab
+     *
+     * @param string $goto      Goto URL
+     * @param string $dataLabel Label for points in zoom plot
+     *
+     * @return string the generated HTML for table search form
+     */
+    public function getSelectionForm($goto, $dataLabel = null)
+    {
+        $html_output = $this->_getFormTag($goto);
 
         if ($this->_searchType == 'zoom') {
             $html_output .= '<fieldset id="fieldset_zoom_search">';
@@ -1118,7 +1146,7 @@ EOT;
             $html_output .= $this->_getOptionsZoom($dataLabel);
             $html_output .= '</fieldset>';
             $html_output .= '</fieldset>';
-        } else {
+        } else if ($this->_searchType == 'normal') {
             $html_output .= '<fieldset id="fieldset_table_search">';
             $html_output .= '<fieldset id="fieldset_table_qbe">';
             $html_output .= '<legend>'
@@ -1129,6 +1157,13 @@ EOT;
             $html_output .= '<div id="popup_background"></div>';
             $html_output .= '</fieldset>';
             $html_output .= $this->_getOptions();
+            $html_output .= '</fieldset>';
+        } else if ($this->_searchType == 'replace') {
+            $html_output .= '<fieldset id="fieldset_find_replace">';
+            $html_output .= '<fieldset id="fieldset_find">';
+            $html_output .= '<legend>' . __('Find and Replace') . '</legend>';
+            $html_output .= $this->_getSearchAndReplaceHTML();
+            $html_output .= '</fieldset>';
             $html_output .= '</fieldset>';
         }
 
@@ -1224,6 +1259,142 @@ EOT;
         $html_output .= '<input type="hidden" id="queryID" name="sql_query" />';
         $html_output .= '</form>';
         return $html_output;
+    }
+
+    /**
+     * Displays the 'Find and Replace' form
+     *
+     * @return HTML for 'Find and Replace' form
+     */
+    function _getSearchAndReplaceHTML()
+    {
+        $htmlOutput  = __('Find')
+            . ': <input type="text" value="" name="find" />';
+        $htmlOutput .= __('Replace with')
+            . ': <input type="text" value="" name="replaceWith" />';
+
+        $htmlOutput .= __('Column') . ': <select name="columnIndex">';
+        for ($i = 0; $i < count($this->_columnNames); $i++) {
+            $type = preg_replace('@\(.*@s', '', $this->_columnTypes[$i]);
+            if ($GLOBALS['PMA_Types']->getTypeClass($type) == 'CHAR') {
+                $column = $this->_columnNames[$i];
+                $htmlOutput .= '<option value="' . $i . '">'
+                    . htmlspecialchars($column) . '</option>';
+            }
+        }
+        $htmlOutput .= '</select>';
+        return $htmlOutput;
+    }
+
+    /**
+     * Returns HTML for prviewing strings found and their replacements
+     *
+     * @param int    $columnIndex index of the column
+     * @param string $find        string to find in the column
+     * @param string $replaceWith string to replace with
+     * @param string $charSet     character set of the connection
+     *
+     * @return HTML for prviewing strings found and their replacements
+     */
+    function getReplacePreview($columnIndex, $find, $replaceWith, $charSet)
+    {
+        $column = $this->_columnNames[$columnIndex];
+        $sql_query = "SELECT "
+            . PMA_Util::backquote($column) . ","
+            . " REPLACE("
+            . PMA_Util::backquote($column) . ", '" . $find . "', '" . $replaceWith
+            . "'),"
+            . " COUNT(*)"
+            . " FROM " . PMA_Util::backquote($this->_db)
+            . "." . PMA_Util::backquote($this->_table)
+            . " WHERE " . PMA_Util::backquote($column)
+            . " LIKE '%" . $find . "%' COLLATE " . $charSet . "_bin"; // here we
+            // change the collation of the 2nd operand to a case sensitive
+            // binary collation to make sure that the comparison is case sensitive
+        $sql_query .= " GROUP BY " . PMA_Util::backquote($column)
+            . " ORDER BY " . PMA_Util::backquote($column) . " ASC";
+
+        $rs = $GLOBALS['dbi']->query(
+            $sql_query, null, PMA_DatabaseInterface::QUERY_STORE
+        );
+
+        $htmlOutput = '<form method="post" action="tbl_find_replace.php"'
+            . ' name="previewForm" id="previewForm" class="ajax">';
+        $htmlOutput .= PMA_generate_common_hidden_inputs($this->_db, $this->_table);
+        $htmlOutput .= '<input type="hidden" name="replace" value="true" />';
+        $htmlOutput .= '<input type="hidden" name="columnIndex" value="'
+            . $columnIndex . '" />';
+        $htmlOutput .= '<input type="hidden" name="findString"'
+            . ' value="' . $find . '" />';
+        $htmlOutput .= '<input type="hidden" name="replaceWith"'
+            . ' value="' . $replaceWith . '" />';
+
+        $htmlOutput .= '<fieldset id="fieldset_find_replace_preview">';
+        $htmlOutput .= '<legend>' . __('Find and Replace - Preview') . '</legend>';
+
+        $htmlOutput .= '<table id="previewTable">'
+            . '<thead><tr>'
+            . '<th>' . __('Count') . '</th>'
+            . '<th>' . __('String') . '</th>'
+            . '<th>' . __('Replaced String') . '</th>'
+            . '</tr></thead>';
+
+        $htmlOutput .= '<tbody>';
+        $odd = true;
+        while ($row = $GLOBALS['dbi']->fetchRow($rs)) {
+            $val = $row[0];
+            $replaced = $row[1];
+            $count = $row[2];
+            $valMd5 = md5($val);
+
+            $htmlOutput .= '<tr class="' . ($odd ? 'odd' : 'even') . '">';
+            $htmlOutput .= '<td class="right">' . htmlspecialchars($count) . '</td>';
+            $htmlOutput .= '<td>' . htmlspecialchars($val) . '</td>';
+            $htmlOutput .= '<td>' . htmlspecialchars($replaced) . '</td>';
+            $htmlOutput .= '</tr>';
+
+            $odd = ! $odd;
+        }
+        $htmlOutput .= '</tbody>';
+        $htmlOutput .= '</table>';
+        $htmlOutput .= '</fieldset>';
+
+        $htmlOutput .= '<fieldset class="tblFooters">';
+        $htmlOutput .= '<input type="submit" name="replace"'
+            . ' value="' . __('Replace') . '" />';
+        $htmlOutput .= '</fieldset>';
+
+        $htmlOutput .= '</form>';
+        return $htmlOutput;
+    }
+
+    /**
+     * Replaces a given string in a column with a give replacement
+     *
+     * @param int    $columnIndex  index of the column
+     * @param string $find         string to find in the column
+     * @param string $replaceWith  string to replace with
+     * @param string $charSet      character set of the connection
+     *
+     * @return void
+     */
+    function replace($columnIndex, $find, $replaceWith, $charSet)
+    {
+        $column = $this->_columnNames[$columnIndex];
+        $sql_query = "UPDATE " . PMA_Util::backquote($this->_db)
+            . "." . PMA_Util::backquote($this->_table)
+            . " SET " . PMA_Util::backquote($column) . " ="
+            . " REPLACE("
+            . PMA_Util::backquote($column) . ", '" . $find . "', '" . $replaceWith
+            . "')"
+            . " WHERE " . PMA_Util::backquote($column)
+            . " LIKE '%" . $find . "%' COLLATE " . $charSet . "_bin"; // here we
+            // change the collation of the 2nd operand to a case sensitive
+            // binary collation to make sure that the comparison is case sensitive
+        $GLOBALS['dbi']->query(
+            $sql_query, null, PMA_DatabaseInterface::QUERY_STORE
+        );
+        $GLOBALS['sql_query'] = $sql_query;
     }
 }
 ?>
