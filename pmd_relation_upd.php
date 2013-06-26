@@ -65,11 +65,4 @@ if ($try_to_delete_internal_relation) {
 }
 PMD_return_upd(1, __('Relation deleted'));
 
-function PMD_return_upd($b, $ret)
-{
-    global $K;
-    header("Content-Type: text/xml; charset=utf-8");
-    header("Cache-Control: no-cache");
-    die('<root act="relation_upd" return="'.$ret.'" b="'.$b.'" K="'.$K.'"></root>');
-}
 ?>
