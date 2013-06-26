@@ -1427,8 +1427,8 @@ function PMA_getHtmlForReferentialIntegrityCheck($foreign, $url_params)
             . '<a href="sql.php'
             . PMA_generate_common_url($this_url_params)
             . '">'
-            . $master . '&nbsp;->&nbsp;' . $arr['foreign_table'] . '.'
-            . $arr['foreign_field']
+            . $master . '&nbsp;->&nbsp;' . $arr['foreign_db'] . '.'
+            . $arr['foreign_table'] . '.' . $arr['foreign_field']
             . '</a></li>' . "\n";
     } //  foreach $foreign
     $html_output .= '</ul></fieldset></div>';
