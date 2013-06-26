@@ -945,7 +945,7 @@ function PMA_addBookmark($pmaAbsoluteUri, $goto)
  * 
  * @param String $db     the current database
  * @param String $table  the current table
- * @return mixed the number of records if "retain" param is true, otherwise true
+ * @return mixed the number of rows if "retain" param is true, otherwise true
  */
 function PMA_findRealEndOfRows($db, $table)
 {
