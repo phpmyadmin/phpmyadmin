@@ -83,87 +83,25 @@ if (isset($_POST['bkm_fields']['bkm_database'])) {
 if (isset($_REQUEST['get_relational_values'])
     && $_REQUEST['get_relational_values'] == true
 ) {
-    $column = $_REQUEST['column'];
-    if ($_SESSION['tmp_user_values']['relational_display'] == 'D'
-        && isset($display_field)
-        && strlen($display_field)
-        && isset($_REQUEST['relation_key_or_display_column'])
-        && $_REQUEST['relation_key_or_display_column']
-    ) {
-        $curr_value = $_REQUEST['relation_key_or_display_column'];
-    } else {
-        $curr_value = $_REQUEST['curr_value'];
-    }
-    $dropdown = PMA_getHtmlForRelationalColumnDropdown(
-        $db, $table, $column, $curr_value
-    );
-    $response = PMA_Response::getInstance();
-    $response->addJSON('dropdown', $dropdown);
-    exit;
+    PMA_getRelationalValues($db, $table, $display_field);
 }
 
 // Just like above, find possible values for enum fields during grid edit.
 if (isset($_REQUEST['get_enum_values']) && $_REQUEST['get_enum_values'] == true) {
-    $column = $_REQUEST['column'];
-    $curr_value = $_REQUEST['curr_value'];
-    $dropdown = PMA_getHtmlForEnumColumnDropdown($db, $table, $column, $curr_value);
-    $response = PMA_Response::getInstance();
-    $response->addJSON('dropdown', $dropdown);
-    exit;
+    PMA_getEnumOrSetValues($db, $table, "enum");
 }
 
 
 // Find possible values for set fields during grid edit.
 if (isset($_REQUEST['get_set_values']) && $_REQUEST['get_set_values'] == true) {
-    $column = $_REQUEST['column'];
-    $curr_value = $_REQUEST['curr_value'];
-    $select = PMA_getHtmlForSetColumn($db, $table, $column, $curr_value);
-    $response = PMA_Response::getInstance();
-    $response->addJSON('select', $select);
-    exit;
+    PMA_getEnumOrSetValues($db, $table, "set");
 }
 
 /**
- * Check ajax request to set the column order
+ * Check ajax request to set the column order and visibility
  */
 if (isset($_REQUEST['set_col_prefs']) && $_REQUEST['set_col_prefs'] == true) {
-    $pmatable = new PMA_Table($table, $db);
-    $retval = false;
-
-    // set column order
-    if (isset($_REQUEST['col_order'])) {
-        $col_order = explode(',', $_REQUEST['col_order']);
-        $retval = $pmatable->setUiProp(
-            PMA_Table::PROP_COLUMN_ORDER,
-            $col_order,
-            $_REQUEST['table_create_time']
-        );
-        if (gettype($retval) != 'boolean') {
-            $response = PMA_Response::getInstance();
-            $response->isSuccess(false);
-            $response->addJSON('message', $retval->getString());
-            exit;
-        }
-    }
-
-    // set column visibility
-    if ($retval === true && isset($_REQUEST['col_visib'])) {
-        $col_visib = explode(',', $_REQUEST['col_visib']);
-        $retval = $pmatable->setUiProp(
-            PMA_Table::PROP_COLUMN_VISIB, $col_visib,
-            $_REQUEST['table_create_time']
-        );
-        if (gettype($retval) != 'boolean') {
-            $response = PMA_Response::getInstance();
-            $response->isSuccess(false);
-            $response->addJSON('message', $retval->getString());
-            exit;
-        }
-    }
-
-    $response = PMA_Response::getInstance();
-    $response->isSuccess($retval == true);
-    exit;
+    PMA_setColumnOrderOrVisibility($table, $db);
 }
 
 // Default to browse if no query set and we have table
@@ -238,10 +176,7 @@ $displayResultsObject->setConfigParamsForDisplayTable();
  * Need to find the real end of rows?
  */
 if (isset($find_real_end) && $find_real_end) {
-    $unlim_num_rows = PMA_Table::countRecords($db, $table, true);
-    $_SESSION['tmp_user_values']['pos'] = @((ceil(
-        $unlim_num_rows / $_SESSION['tmp_user_values']['max_rows']
-    ) - 1) * $_SESSION['tmp_user_values']['max_rows']);
+    $unlim_num_rows = PMA_findRealEndOfRows($db, $table);
 }
 
 
@@ -249,31 +184,7 @@ if (isset($find_real_end) && $find_real_end) {
  * Bookmark add
  */
 if (isset($_POST['store_bkm'])) {
-    $result = PMA_Bookmark_save(
-        $_POST['bkm_fields'],
-        (isset($_POST['bkm_all_users'])
-            && $_POST['bkm_all_users'] == 'true' ? true : false
-        )
-    );
-    $response = PMA_Response::getInstance();
-    if ($response->isAjax()) {
-        if ($result) {
-            $msg = PMA_message::success(__('Bookmark %s created'));
-            $msg->addParam($_POST['bkm_fields']['bkm_label']);
-            $response->addJSON('message', $msg);
-        } else {
-            $msg = PMA_message::error(__('Bookmark not created'));
-            $response->isSuccess(false);
-            $response->addJSON('message', $msg);
-        }
-        exit;
-    } else {
-        // go back to sql.php to redisplay query; do not use &amp; in this case:
-        PMA_sendHeaderLocation(
-            $cfg['PmaAbsoluteUri'] . $goto
-            . '&label=' . $_POST['bkm_fields']['bkm_label']
-        );
-    }
+    PMA_addBookmark($cfg['PmaAbsoluteUri'], $goto);
 } // end if
 
 
@@ -320,33 +231,11 @@ if (PMA_isRememberSortingOrder($analyzed_sql_results)) {
 $sql_limit_to_append = '';
 // Do append a "LIMIT" clause?
 if (PMA_isAppendLimitClause($analyzed_sql_results)) {
-    $sql_limit_to_append = ' LIMIT ' . $_SESSION['tmp_user_values']['pos']
-        . ', ' . $_SESSION['tmp_user_values']['max_rows'] . " ";
-    $full_sql_query = PMA_getSqlWithLimitClause(
-        $full_sql_query,
-        $analyzed_sql,
-        $sql_limit_to_append
+    list($sql_limit_to_append,
+        $full_sql_query, $analyzed_display_query, $display_query
+    ) = PMA_appendLimitClause(
+        $full_sql_query, $analyzed_sql, isset($display_query)
     );
-
-    /**
-     * @todo pretty printing of this modified query
-     */
-    if (isset($display_query)) {
-        // if the analysis of the original query revealed that we found
-        // a section_after_limit, we now have to analyze $display_query
-        // to display it correctly
-
-        if (! empty($analyzed_sql[0]['section_after_limit'])
-            && trim($analyzed_sql[0]['section_after_limit']) != ';'
-        ) {
-            $analyzed_display_query = PMA_SQP_analyze(
-                PMA_SQP_parse($display_query)
-            );
-            $display_query  = $analyzed_display_query[0]['section_before_limit']
-                . "\n" . $sql_limit_to_append
-                . $analyzed_display_query[0]['section_after_limit'];
-        }
-    }
 }
 
 if (strlen($db)) {    
