@@ -1314,10 +1314,11 @@ class PMA_Table
      *  - UNIQUE(x,y) // NONE
      *
      * @param bool $backquoted whether to quote name with backticks ``
+     * @param bool $fullName   whether to include full name of the table as a prefix
      *
      * @return array
      */
-    public function getUniqueColumns($backquoted = true)
+    public function getUniqueColumns($backquoted = true, $fullName = true)
     {
         $sql = $GLOBALS['dbi']->getTableIndexesSql(
             $this->getDbName(),
@@ -1335,7 +1336,7 @@ class PMA_Table
             if (count($index) > 1) {
                 continue;
             }
-            $return[] = $this->getFullName($backquoted) . '.'
+            $return[] = ($fullName ? $this->getFullName($backquoted) . '.' : '')
                 . ($backquoted ? PMA_Util::backquote($index[0]) : $index[0]);
         }
 
