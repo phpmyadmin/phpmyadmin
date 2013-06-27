@@ -388,6 +388,7 @@ var AJAX = {
          * @return void
          */
         done: function () {
+            ErrorReporting.wrap_global_functions();
             for (var i in this._scriptsToBeFired) {
                 AJAX.fireOnload(this._scriptsToBeFired[i]);
             }
