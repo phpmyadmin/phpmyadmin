@@ -1114,6 +1114,18 @@ function PMA_goBackFurtherPage($back, $is_gotofile, $table,
     exit();
 }
 
+/**
+ * Responds an error when an error happens when executing the query 
+ * 
+ * @param boolean $is_gotofile     whether goto file or not
+ * @param String  $goto            goto page url
+ * @param String  $table           current table
+ * @param String  $active_page     active page url
+ * @param String  $error           error after executing the query
+ * @param String  $err_url         the error page url
+ * @param String  $sql_query       sql query
+ * @param String  $full_sql_query  full sql query
+ */
 function PMA_handleQueryExecuteError($is_gotofile, $goto, $table, $active_page,
     $error, $err_url, $sql_query, $full_sql_query
 ) {
