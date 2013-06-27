@@ -1110,26 +1110,10 @@ function PMA_handleQueryExecuteError($is_gotofile, $goto, $table, $active_page,
         $active_page = $goto;
         $message = PMA_Message::rawError($error);
 
-        if ($GLOBALS['is_ajax_request'] == true) {
-            $response = PMA_Response::getInstance();
-            $response->isSuccess(false);
-            $response->addJSON('message', $message);
-            exit;
-        }
-
-        /**
-         * Go to target path.
-         */
-        include '' . PMA_securePath($goto);
-    } else {
-        $full_err_url = $err_url;
-        if (preg_match('@^(db|tbl)_@', $err_url)) {
-            $full_err_url .=  '&amp;show_query=1&amp;sql_query='
-                . urlencode($sql_query);
-        }
-        PMA_Util::mysqlDie($error, $full_sql_query, '', $full_err_url);
-    }
-    exit;
+        $response = PMA_Response::getInstance();
+        $response->isSuccess(false);
+        $response->addJSON('message', $message);
+        exit;            
 }
 
 /**
