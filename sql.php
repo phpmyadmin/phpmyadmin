@@ -177,16 +177,6 @@ if ($goto == 'sql.php') {
           . '&amp;sql_query=' . urlencode($sql_query);
 } // end if
 
-/**
- * Go back to further page if table should not be dropped
- */
-if (isset($_REQUEST['btnDrop']) && $_REQUEST['btnDrop'] == __('No')) {
-    PMA_goBackFurtherPage(
-        isset($back) ? $back : null, $is_gotofile,
-        $table, $cfg['PmaAbsoluteUri']
-    );
-} // end if
-
 
 // assign default full_sql_query
 $full_sql_query = $sql_query;

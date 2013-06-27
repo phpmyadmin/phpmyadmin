@@ -1087,32 +1087,6 @@ function PMA_getDefaultSqlQueryForBrowse($db, $table)
     
     return $sql_query;
 }
-/**
- * Function to go further a page
- * @param String  $back            go back page url
- * @param boolean $is_gotofile     whether to go to a file or not
- * @param String  $table           the current table
- * @param String  $pmaAbsoluteUri  PMA absolute URI
- */
-function PMA_goBackFurtherPage($back, $is_gotofile, $table,
-    $pmaAbsoluteUri
-) {
-    if (! empty($back)) {
-        $goto = $back;
-    }
-    if ($is_gotofile) {
-        if (strpos($goto, 'db_') === 0 && strlen($table)) {
-            $table = '';
-        }
-        $active_page = $goto;
-        include '' . PMA_securePath($goto);
-    } else {
-        PMA_sendHeaderLocation(
-            $pmaAbsoluteUri . str_replace('&amp;', '&', $goto)
-        );
-    }
-    exit();
-}
 
 /**
  * Responds an error when an error happens when executing the query 
