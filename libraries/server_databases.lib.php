@@ -32,8 +32,8 @@ if (! defined('PHPMYADMIN')) {
 function PMA_getHtmlForDatabase(
     $databases, $databases_count, $pos, $dbstats, 
     $sort_by, $sort_order, $is_superuser, $cfg, 
-    $replication_types, $replication_info, $url_query)
-{
+    $replication_types, $replication_info, $url_query
+) {
     $html = '<div id="tableslistcontainer">';
     reset($databases);
     $first_database = current($databases);
@@ -137,8 +137,8 @@ function PMA_getHtmlForDatabase(
  */
 function PMA_getHtmlForTableFooterButtons(
     $is_allowUserDropDatabase, $is_superuser, 
-    $sort_by, $sort_order, $dbstats)
-{
+    $sort_by, $sort_order, $dbstats
+) {
     $html = "";
     if ($is_superuser || $is_allowUserDropDatabase) {
         $common_url_query = PMA_generate_common_url(
@@ -180,8 +180,8 @@ function PMA_getHtmlForTableFooterButtons(
 function PMA_getHtmlForTableFooter(
     $is_allowUserDropDatabase, $is_superuser, 
     $databases_count, $column_order, 
-    $replication_types, $first_database)
-{
+    $replication_types, $first_database
+) {
     $html = '<tfoot><tr>' . "\n";
     if ($is_superuser || $is_allowUserDropDatabase) {
         $html .= '    <th></th>' . "\n";
@@ -219,8 +219,8 @@ function PMA_getHtmlForTableFooter(
  */
 function PMA_getHtmlForDatabaseList(
     $databases, $is_superuser, $url_query, 
-    $column_order, $replication_types, $replication_info)
-{
+    $column_order, $replication_types, $replication_info
+) {
     $odd_row = true;
     $html = '<tbody>' . "\n";
 
@@ -306,8 +306,8 @@ function PMA_getHtmlForColumnOrder($column_order, $first_database)
 function PMA_getHtmlForColumnOrderWithSort(
     $is_superuser, $is_allowUserDropDatabase, 
     $_url_params, $sort_by, $sort_order, 
-    $column_order, $first_database)
-{
+    $column_order, $first_database
+) {
     $html = ($is_superuser || $is_allowUserDropDatabase ? '        <th></th>' . "\n" : '')
         . '    <th><a href="server_databases.php' 
         . PMA_generate_common_url($_url_params) . '">' . "\n"
