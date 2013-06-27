@@ -160,6 +160,7 @@ class PMA_Header
         $this->_scripts->addFile('jquery/jquery.menuResizer-1.0.js');
         $this->_scripts->addFile('rte.js');
         if ($GLOBALS['cfg']['ErrorReporting'] == true) {
+            $this->_scripts->addFile('tracekit.js');
             $this->_scripts->addFile('error_report.js');
         }
 
