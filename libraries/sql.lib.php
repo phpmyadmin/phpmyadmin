@@ -1228,4 +1228,27 @@ function PMA_getNumberOfRowsAffectedOrChanged($is_affected, $result, $num_rows)
     return $num_rows;
 }
 
+/**
+ * Checks if the current database has changed
+ * This could happen if the user sends a query like "USE `database`;"
+ * 
+ * @param String $db        the database in the query
+ * @return int   $reload    whether to reload the navigation(1) or not(0)
+ */
+function PMA_hasCurrentDBChanged($db)
+{
+    // Checks if the current database has changed
+    // This could happen if the user sends a query like "USE `database`;"
+    $reload = 0;
+    if (strlen($db)) {
+        $current_db = $GLOBALS['dbi']->fetchValue('SELECT DATABASE()');
+        if ($db !== $current_db) {
+            $reload = 1;
+        }
+        unset($current_db);
+        $GLOBALS['dbi']->selectDb($db);    
+    }
+    
+    return $reload;
+}
 ?>

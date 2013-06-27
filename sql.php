@@ -206,16 +206,7 @@ if (PMA_isAppendLimitClause($analyzed_sql_results)) {
     );
 }
 
-if (strlen($db)) {    
-    // Checks if the current database has changed
-    // This could happen if the user sends a query like "USE `database`;"
-    $current_db = $GLOBALS['dbi']->fetchValue('SELECT DATABASE()');
-    if ($db !== $current_db) {
-        $reload = 1;
-    }
-    unset($current_db);
-    $GLOBALS['dbi']->selectDb($db);
-}
+$reload = PMA_hasCurrentDBChanged($db);
 
 //  E x e c u t e    t h e    q u e r y
 
