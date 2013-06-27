@@ -151,8 +151,8 @@ function PMA_getHtmlForTableFooterButtons(
         $html .= '<img class="selectallarrow" src="' 
             . $GLOBALS['pmaThemeImage'] . 'arrow_' . $GLOBALS['text_dir'] . '.png"'
             . ' width="38" height="22" alt="' . __('With selected:') . '" />' . "\n"
-            . '<input type="checkbox" id="dbStatsForm_checkall" class="checkall_box" '
-            . 'title="' . __('Check All') . '" /> '
+            . '<input type="checkbox" id="dbStatsForm_checkall" ' 
+            . 'class="checkall_box" title="' . __('Check All') . '" /> '
             . '<label for="dbStatsForm_checkall">' . __('Check All') . '</label> '
             . '<i style="margin-left: 2em">' . __('With selected:') . '</i>' . "\n";
         $html .= PMA_Util::getButtonOrImage(
@@ -264,7 +264,8 @@ function PMA_getHtmlForColumnOrder($column_order, $first_database)
     foreach ($column_order as $stat_name => $stat) {
         if (array_key_exists($stat_name, $first_database)) {
             if ($stat['format'] === 'byte') {
-                list($value, $unit) = PMA_Util::formatByteDown($stat['footer'], 3, 1);
+                list($value, $unit) 
+                    = PMA_Util::formatByteDown($stat['footer'], 3, 1);
             } elseif ($stat['format'] === 'number') {
                 $value = PMA_Util::formatNumber($stat['footer'], 0);
             } else {
@@ -308,7 +309,9 @@ function PMA_getHtmlForColumnOrderWithSort(
     $_url_params, $sort_by, $sort_order, 
     $column_order, $first_database
 ) {
-    $html = ($is_superuser || $is_allowUserDropDatabase ? '        <th></th>' . "\n" : '')
+    $html = ($is_superuser || $is_allowUserDropDatabase 
+        ? '        <th></th>' . "\n" 
+        : '')
         . '    <th><a href="server_databases.php' 
         . PMA_generate_common_url($_url_params) . '">' . "\n"
         . '            ' . __('Database') . "\n"
@@ -388,8 +391,9 @@ function PMA_getHtmlForNoticeEnableStatistics($url_query, $html)
  *
  * @return string
  */
-function PMA_getHtmlForReplicationType($is_superuser, $replication_types, $cfg_inconic)
-{
+function PMA_getHtmlForReplicationType(
+    $is_superuser, $replication_types, $cfg_inconic
+) {
     $html = '';
     foreach ($replication_types as $type) {
         if ($type == "master") {
