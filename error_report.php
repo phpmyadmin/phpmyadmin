@@ -19,7 +19,7 @@ $response = PMA_Response::getInstance();
 
 if ($_REQUEST['send_error_report'] == true) {
     send_error_report(get_report_data(false));
-    if ($_REQUEST['automatic'] == true) {
+    if ($_REQUEST['automatic'] === "true") {
         $response->addJSON('message', PMA_Message::error(
             __('An error has been detected and an error report has been '
                 .'automatically submitted based on your settings.')
@@ -30,7 +30,7 @@ if ($_REQUEST['send_error_report'] == true) {
             __('Thank you for submitting this report.')
             . '<br />'
             . __('You may want to refresh the page.')));
-        if($_REQUEST['always_send'] == true) {
+        if($_REQUEST['always_send'] === "true") {
             PMA_persistOption("SendErrorReports", "always", "ask");
         }
     }
@@ -93,9 +93,7 @@ if ($_REQUEST['send_error_report'] == true) {
  */
 function get_report_data($json_encode = true) {
     $report = array(
-        "error_message" => $_REQUEST['message'],
-        "line_number" => $_REQUEST['line'],
-        "file" => $_REQUEST['file'],
+        "exception" => $_REQUEST['exception'],
         "pma_version" => PMA_VERSION,
         "browser_agent" => PMA_USR_BROWSER_AGENT,
         "browser_version" => PMA_USR_BROWSER_VER,
