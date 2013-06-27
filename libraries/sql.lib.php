@@ -1209,5 +1209,23 @@ function PMA_executeQueryAndStoreResults($full_sql_query){
     return $result;    
 }
 
+/**
+ * Function to get the affected or changed number of rows after executing a query
+ * 
+ * @param boolean $is_affected    whether the query affected a table
+ * @param mixed   $result         results of executing the query
+ * @param int     $num_rows       number of rows affected or changed
+ * @return int    $num_rows       number of rows affected or changed
+ */
+function PMA_getNumberOfRowsAffectedOrChanged($is_affected, $result, $num_rows)
+{
+    if (! $is_affected) {
+        $num_rows = ($result) ? @$GLOBALS['dbi']->numRows($result) : 0;
+    } elseif (! isset($num_rows)) {
+        $num_rows = @$GLOBALS['dbi']->affectedRows();
+    }
+    
+    return $num_rows;
+}
 
 ?>

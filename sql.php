@@ -264,11 +264,9 @@ if (isset($GLOBALS['show_as_php']) || ! empty($GLOBALS['validatequery'])) {
     // (This must be done immediately after the query because
     // mysql_affected_rows() reports about the last query done)
 
-    if (! $is_affected) {
-        $num_rows = ($result) ? @$GLOBALS['dbi']->numRows($result) : 0;
-    } elseif (! isset($num_rows)) {
-        $num_rows = @$GLOBALS['dbi']->affectedRows();
-    }
+    $num_rows = PMA_getNumberOfRowsAffectedOrChanged($is_affected, $result,
+        isset($num_rows) ? $num_rows : null
+    );
 
     // Grabs the profiling results
     if (isset($_SESSION['profiling']) && PMA_Util::profilingSupported()) {
