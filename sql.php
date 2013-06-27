@@ -206,7 +206,7 @@ if (PMA_isAppendLimitClause($analyzed_sql_results)) {
     );
 }
 
-$reload = PMA_hasCurrentDBChanged($db);
+$reload = PMA_hasCurrentDbChanged($db);
 
 //  E x e c u t e    t h e    q u e r y
 

@@ -1235,7 +1235,7 @@ function PMA_getNumberOfRowsAffectedOrChanged($is_affected, $result, $num_rows)
  * @param String $db        the database in the query
  * @return int   $reload    whether to reload the navigation(1) or not(0)
  */
-function PMA_hasCurrentDBChanged($db)
+function PMA_hasCurrentDbChanged($db)
 {
     // Checks if the current database has changed
     // This could happen if the user sends a query like "USE `database`;"
