@@ -264,7 +264,7 @@ var AJAX = {
                     $('#selflink > a').attr('href', data._selflink);
                 }
                 if (data._scripts) {
-                    AJAX.scriptHandler.load(data._scripts);
+                    AJAX.scriptHandler.load(data._scripts, data._params.token);
                 }
                 if (data._selflink && data._scripts && data._menuHash && data._params) {
                     AJAX.cache.add(
@@ -345,7 +345,7 @@ var AJAX = {
          *
          * @return void
          */
-        load: function (files) {
+        load: function (files, token) {
             var self = this;
             self._scriptsToBeLoaded = [];
             self._scriptsToBeFired = [];
@@ -367,6 +367,7 @@ var AJAX = {
                     request.push("scripts[]=" + script);
                 }
             }
+            request.push("token=" + token);
             // Download the composite js file, if necessary
             if (needRequest) {
                 $.ajax({
@@ -535,7 +536,7 @@ AJAX.cache = {
                 $('#selflink').html(record.selflink);
                 AJAX.cache.menus.replace(AJAX.cache.menus.get(record.menu));
                 PMA_commonParams.setAll(record.params);
-                AJAX.scriptHandler.load(record.scripts);
+                AJAX.scriptHandler.load(record.scripts, records.params.token);
                 AJAX.cache.current = ++index;
             });
         }
