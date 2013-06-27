@@ -107,29 +107,8 @@ if (isset($_REQUEST['set_col_prefs']) && $_REQUEST['set_col_prefs'] == true) {
 // Default to browse if no query set and we have table
 // (needed for browsing from DefaultTabTable)
 if (empty($sql_query) && strlen($table) && strlen($db)) {
-    include_once 'libraries/bookmark.lib.php';
-    $book_sql_query = PMA_Bookmark_get(
-        $db,
-        '\'' . PMA_Util::sqlAddSlashes($table) . '\'',
-        'label',
-        false,
-        true
-    );
-
-    if (! empty($book_sql_query)) {
-        $GLOBALS['using_bookmark_message'] = PMA_message::notice(
-            __('Using bookmark "%s" as default browse query.')
-        );
-        $GLOBALS['using_bookmark_message']->addParam($table);
-        $GLOBALS['using_bookmark_message']->addMessage(
-            PMA_Util::showDocu('faq', 'faq6-22')
-        );
-        $sql_query = $book_sql_query;
-    } else {
-        $sql_query = 'SELECT * FROM ' . PMA_Util::backquote($table);
-    }
-    unset($book_sql_query);
-
+    $sql_query = PMA_getDefaultSqlQueryForBrowse($db, $table);
+    
     // set $goto to what will be displayed if query returns 0 rows
     $goto = '';
 } else {
@@ -202,21 +181,10 @@ if ($goto == 'sql.php') {
  * Go back to further page if table should not be dropped
  */
 if (isset($_REQUEST['btnDrop']) && $_REQUEST['btnDrop'] == __('No')) {
-    if (! empty($back)) {
-        $goto = $back;
-    }
-    if ($is_gotofile) {
-        if (strpos($goto, 'db_') === 0 && strlen($table)) {
-            $table = '';
-        }
-        $active_page = $goto;
-        include '' . PMA_securePath($goto);
-    } else {
-        PMA_sendHeaderLocation(
-            $cfg['PmaAbsoluteUri'] . str_replace('&amp;', '&', $goto)
-        );
-    }
-    exit();
+    PMA_goBackFurtherPage(
+        isset($back) ? $back : null, $is_gotofile,
+        $table, $cfg['PmaAbsoluteUri']
+    );
 } // end if
 
 
@@ -261,22 +229,8 @@ if (isset($GLOBALS['show_as_php']) || ! empty($GLOBALS['validatequery'])) {
         $GLOBALS['dbi']->query('SET PROFILING=1;');
     }
 
-    // Measure query time.
-    $querytime_before = array_sum(explode(' ', microtime()));
-
-    $result = @$GLOBALS['dbi']->tryQuery(
-        $full_sql_query, null, PMA_DatabaseInterface::QUERY_STORE
-    );
-
-    // If a stored procedure was called, there may be more results that are
-    // queued up and waiting to be flushed from the buffer. So let's do that.
-    do {
-        $GLOBALS['dbi']->storeResult();
-        if (! $GLOBALS['dbi']->moreResults()) {
-            break;
-        }
-    } while ($GLOBALS['dbi']->nextResult());
-
+    $result = PMA_executeQueryAndStoreResults($full_sql_query);
+    
     $is_procedure = false;
 
     // Since multiple query execution is anyway handled,
@@ -288,66 +242,21 @@ if (isset($GLOBALS['show_as_php']) || ! empty($GLOBALS['validatequery'])) {
         $is_procedure = true;
     }
 
-    $querytime_after = array_sum(explode(' ', microtime()));
-
-    $GLOBALS['querytime'] = $querytime_after - $querytime_before;
-
     // Displays an error message if required and stop parsing the script
     $error = $GLOBALS['dbi']->getError();
     if ($error) {
-        if ($is_gotofile) {
-            if (strpos($goto, 'db_') === 0 && strlen($table)) {
-                $table = '';
-            }
-            $active_page = $goto;
-            $message = PMA_Message::rawError($error);
-
-            if ($GLOBALS['is_ajax_request'] == true) {
-                $response = PMA_Response::getInstance();
-                $response->isSuccess(false);
-                $response->addJSON('message', $message);
-                exit;
-            }
-
-            /**
-             * Go to target path.
-             */
-            include '' . PMA_securePath($goto);
-        } else {
-            $full_err_url = $err_url;
-            if (preg_match('@^(db|tbl)_@', $err_url)) {
-                $full_err_url .=  '&amp;show_query=1&amp;sql_query='
-                    . urlencode($sql_query);
-            }
-            PMA_Util::mysqlDie($error, $full_sql_query, '', $full_err_url);
-        }
-        exit;
+        PMA_handleQueryExecuteError($is_gotofile, $goto, $table, $active_page,
+            $error, $err_url, $sql_query, $full_sql_query
+        );
     }
     unset($error);
 
     // If there are no errors and bookmarklabel was given,
     // store the query as a bookmark
     if (! empty($bkm_label) && ! empty($import_text)) {
-        include_once 'libraries/bookmark.lib.php';
-        $bfields = array(
-                     'dbase' => $db,
-                     'user'  => $cfg['Bookmark']['user'],
-                     'query' => urlencode($import_text),
-                     'label' => $bkm_label
+        PMA_storeTheQueryAsBookmark($db, $cfg['Bookmark']['user'],
+            $import_text, $bkm_label, $bkm_replace
         );
-
-        // Should we replace bookmark?
-        if (isset($bkm_replace)) {
-            $bookmarks = PMA_Bookmark_getList($db);
-            foreach ($bookmarks as $key => $val) {
-                if ($val == $bkm_label) {
-                    PMA_Bookmark_delete($db, $key);
-                }
-            }
-        }
-
-        PMA_Bookmark_save($bfields, isset($_POST['bkm_all_users']));
-
         $bookmark_created = true;
     } // end store bookmarks
 

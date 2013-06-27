@@ -1052,4 +1052,162 @@ function PMA_appendLimitClause($full_sql_query, $analyzed_sql, $display_query)
         isset($display_query) ? $display_query : null
     );
 }
+
+/**
+ * Function to get the default sql query for browsing page
+ * 
+ * @param String    $db         the current database
+ * @param String    $table      the current table
+ * @return String   $sql_query  the default $sql_query for browse page
+ */
+function PMA_getDefaultSqlQueryForBrowse($db, $table)
+{
+    include_once 'libraries/bookmark.lib.php';
+    $book_sql_query = PMA_Bookmark_get(
+        $db,
+        '\'' . PMA_Util::sqlAddSlashes($table) . '\'',
+        'label',
+        false,
+        true
+    );
+
+    if (! empty($book_sql_query)) {
+        $GLOBALS['using_bookmark_message'] = PMA_message::notice(
+            __('Using bookmark "%s" as default browse query.')
+        );
+        $GLOBALS['using_bookmark_message']->addParam($table);
+        $GLOBALS['using_bookmark_message']->addMessage(
+            PMA_Util::showDocu('faq', 'faq6-22')
+        );
+        $sql_query = $book_sql_query;
+    } else {
+        $sql_query = 'SELECT * FROM ' . PMA_Util::backquote($table);
+    }
+    unset($book_sql_query);
+    
+    return $sql_query;
+}
+/**
+ * Function to go further a page
+ * @param String  $back            go back page url
+ * @param boolean $is_gotofile     whether to go to a file or not
+ * @param String  $table           the current table
+ * @param String  $pmaAbsoluteUri  PMA absolute URI
+ */
+function PMA_goBackFurtherPage($back, $is_gotofile, $table,
+    $pmaAbsoluteUri
+) {
+    if (! empty($back)) {
+        $goto = $back;
+    }
+    if ($is_gotofile) {
+        if (strpos($goto, 'db_') === 0 && strlen($table)) {
+            $table = '';
+        }
+        $active_page = $goto;
+        include '' . PMA_securePath($goto);
+    } else {
+        PMA_sendHeaderLocation(
+            $pmaAbsoluteUri . str_replace('&amp;', '&', $goto)
+        );
+    }
+    exit();
+}
+
+function PMA_handleQueryExecuteError($is_gotofile, $goto, $table, $active_page,
+    $error, $err_url, $sql_query, $full_sql_query
+) {
+    if ($is_gotofile) {
+        if (strpos($goto, 'db_') === 0 && strlen($table)) {
+            $table = '';
+        }
+        $active_page = $goto;
+        $message = PMA_Message::rawError($error);
+
+        if ($GLOBALS['is_ajax_request'] == true) {
+            $response = PMA_Response::getInstance();
+            $response->isSuccess(false);
+            $response->addJSON('message', $message);
+            exit;
+        }
+
+        /**
+         * Go to target path.
+         */
+        include '' . PMA_securePath($goto);
+    } else {
+        $full_err_url = $err_url;
+        if (preg_match('@^(db|tbl)_@', $err_url)) {
+            $full_err_url .=  '&amp;show_query=1&amp;sql_query='
+                . urlencode($sql_query);
+        }
+        PMA_Util::mysqlDie($error, $full_sql_query, '', $full_err_url);
+    }
+    exit;
+}
+
+/**
+ * Function to store the query as a bookmark
+ * 
+ * @param String  $db            the current database
+ * @param String  $bkm_user      the bookmarking user
+ * @param String  $import_text   import text
+ * @param String  $bkm_label     bookmark label
+ * @param boolean $bkm_replace   whether to rep;ace existing bookmarks
+ */
+function PMA_storeTheQueryAsBookmark($db, $bkm_user, $import_text,
+    $bkm_label, $bkm_replace
+) {
+    include_once 'libraries/bookmark.lib.php';
+    $bfields = array(
+                 'dbase' => $db,
+                 'user'  => $bkm_user,
+                 'query' => urlencode($import_text),
+                 'label' => $bkm_label
+    );
+
+    // Should we replace bookmark?
+    if (isset($bkm_replace)) {
+        $bookmarks = PMA_Bookmark_getList($db);
+        foreach ($bookmarks as $key => $val) {
+            if ($val == $bkm_label) {
+                PMA_Bookmark_delete($db, $key);
+            }
+        }
+    }
+
+    PMA_Bookmark_save($bfields, isset($_POST['bkm_all_users']));
+
+}
+
+/**
+ * Function to execute the SQL query and set the execution time
+ * 
+ * @param  String $full_sql_query   the full sql query
+ * @return mixed  $result           the results after running the query
+ */
+function PMA_executeQueryAndStoreResults($full_sql_query){
+    // Measure query time.
+    $querytime_before = array_sum(explode(' ', microtime()));
+
+    $result = @$GLOBALS['dbi']->tryQuery(
+        $full_sql_query, null, PMA_DatabaseInterface::QUERY_STORE
+    );
+    $querytime_after = array_sum(explode(' ', microtime()));
+
+    $GLOBALS['querytime'] = $querytime_after - $querytime_before;
+
+    // If a stored procedure was called, there may be more results that are
+    // queued up and waiting to be flushed from the buffer. So let's do that.
+    do {
+        $GLOBALS['dbi']->storeResult();
+        if (! $GLOBALS['dbi']->moreResults()) {
+            break;
+        }
+    } while ($GLOBALS['dbi']->nextResult());
+
+    return $result;    
+}
+
+
 ?>
