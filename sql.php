@@ -343,22 +343,7 @@ if (isset($GLOBALS['show_as_php']) || ! empty($GLOBALS['validatequery'])) {
          $unlim_num_rows         = 0;
     } // end rows total count
 
-    // if a table or database gets dropped, check column comments.
-    if (isset($purge) && $purge == '1') {
-        /**
-         * Cleanup relations.
-         */
-        include_once 'libraries/relation_cleanup.lib.php';
-
-        if (strlen($table) && strlen($db)) {
-            PMA_relationsCleanupTable($db, $table);
-        } elseif (strlen($db)) {
-            PMA_relationsCleanupDatabase($db);
-        } else {
-            // VOID. No DB/Table gets deleted.
-        } // end if relation-stuff
-    } // end if ($purge)
-
+    
     // If a column gets dropped, do relation magic.
     if (isset($dropped_column)
         && strlen($db)
