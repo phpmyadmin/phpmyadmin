@@ -343,33 +343,6 @@ if (isset($GLOBALS['show_as_php']) || ! empty($GLOBALS['validatequery'])) {
          $unlim_num_rows         = 0;
     } // end rows total count
 
-    // if a table or database gets dropped, check column comments.
-    if (isset($purge) && $purge == '1') {
-        /**
-         * Cleanup relations.
-         */
-        include_once 'libraries/relation_cleanup.lib.php';
-
-        if (strlen($table) && strlen($db)) {
-            PMA_relationsCleanupTable($db, $table);
-        } elseif (strlen($db)) {
-            PMA_relationsCleanupDatabase($db);
-        } else {
-            // VOID. No DB/Table gets deleted.
-        } // end if relation-stuff
-    } // end if ($purge)
-
-    // If a column gets dropped, do relation magic.
-    if (isset($dropped_column)
-        && strlen($db)
-        && strlen($table)
-        && ! empty($dropped_column)
-    ) {
-        include_once 'libraries/relation_cleanup.lib.php';
-        PMA_relationsCleanupColumn($db, $table, $dropped_column);
-        // to refresh the list of indexes (Ajax mode)
-        $extra_data['indexes_list'] = PMA_Index::getView($table, $db);
-    } // end if column was dropped
 } // end else "didn't ask to see php code"
 
 // No rows returned -> move back to the calling page
