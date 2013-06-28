@@ -74,7 +74,7 @@ function PMA_getTableNameBySQL($sql, $tables)
  * @param string $url_query            URL query
  * @param array  $disp_mode            the display mode
  * @param string $sql_limit_to_append  limit clause
- * @param bool   $has_unique           result contains a unique key
+ * @param bool   $editable             whether editable or not
  *
  * @return string   $table_html   html content
  */
@@ -462,7 +462,8 @@ function PMA_getHtmlForProfilingChart($url_query, $pma_token, $profiling_results
     $i          = 1;
     foreach ($profiling_results as $one_result) {
         if (isset($profiling_stats['states'][ucwords($one_result['Status'])])) {
-            $profiling_stats['states'][ucwords($one_result['Status'])]['time'] += $one_result['Duration'];
+            $profiling_stats['states'][ucwords($one_result['Status'])]['time']
+                += $one_result['Duration'];
             $profiling_stats['states'][ucwords($one_result['Status'])]['calls']++;
         } else {
             $profiling_stats['states'][ucwords($one_result['Status'])] = array(
@@ -517,7 +518,9 @@ function PMA_getHtmlForProfilingChart($url_query, $pma_token, $profiling_results
             . 's<span style="display:none;" class="rawvalue">'
             . $stats['total_time'] . '</span></td>' . "\n";
         $profiling_table .= '<td align="right">'
-            . PMA_Util::formatNumber(100 * ($stats['total_time'] / $profiling_stats['total_time']), 0, 2)
+            . PMA_Util::formatNumber(
+                100 * ($stats['total_time'] / $profiling_stats['total_time']), 0, 2
+            )
             . '%</td>' . "\n";
         $profiling_table .= '<td align="right">' . $stats['calls'] . '</td>' . "\n";
         $profiling_table .= '<td align="right">'
@@ -652,10 +655,12 @@ function PMA_getHtmlForOptionsList($values, $selected_values)
 /**
  * Get HTML for the Bookmark form
  *
- * @param string   $db             the current database
- * @param string   $goto           goto page url
- * @param string   $bkm_sql_query  the query to be bookmarked
- * @param string   $bkm_user       the user creating the bookmark
+ * @param string $db            the current database
+ * @param string $goto          goto page url
+ * @param string $bkm_sql_query the query to be bookmarked
+ * @param string $bkm_user      the user creating the bookmark
+ * 
+ * @return void
  */
 function PMA_getHtmlForBookmark($db, $goto, $bkm_sql_query, $bkm_user)
 {
@@ -704,23 +709,24 @@ function PMA_getHtmlForBookmark($db, $goto, $bkm_sql_query, $bkm_user)
 /**
  * Function to check whether to remember the sorting order or not
  * 
- * @param array $analyzed_sql_results    the analyzed query and other varibles set
- *                                       after analyzing the query
+ * @param array $analyzed_sql_results the analyzed query and other varibles set
+ *                                    after analyzing the query
+ * 
  * @return boolean
  */
 function PMA_isRememberSortingOrder($analyzed_sql_results)
 {
+    $select_from = isset(
+        $analyzed_sql_results['analyzed_sql'][0]['queryflags']['select_from']
+    ); 
     if ($GLOBALS['cfg']['RememberSorting']
         && ! ($analyzed_sql_results['is_count']
-            || $analyzed_sql_results['is_export']
-            || $analyzed_sql_results['is_func']
-            || $analyzed_sql_results['is_analyse']
-        )
+        || $analyzed_sql_results['is_export']
+        || $analyzed_sql_results['is_func']
+        || $analyzed_sql_results['is_analyse'])
         && isset($analyzed_sql_results['analyzed_sql'][0]['select_expr'])
         && (count($analyzed_sql_results['analyzed_sql'][0]['select_expr']) == 0)
-        && isset(
-            $analyzed_sql_results['analyzed_sql'][0]['queryflags']['select_from']
-        )
+        && $select_from
         && count($analyzed_sql_results['analyzed_sql'][0]['table_ref']) == 1
     ) {
         return true;
@@ -732,22 +738,22 @@ function PMA_isRememberSortingOrder($analyzed_sql_results)
 /**
  * Function to check whether the LIMIT clause should be appended or not
  * 
- * @param array $analyzed_sql_results    the analyzed query and other varibles set
- *                                       after analyzing the query
+ * @param array $analyzed_sql_results the analyzed query and other varibles set
+ *                                    after analyzing the query
  * 
  * @return boolean
  */
 function PMA_isAppendLimitClause($analyzed_sql_results)
 {
+    $select_from = isset(
+        $analyzed_sql_results['analyzed_sql'][0]['queryflags']['select_from']
+    ); 
     if (($_SESSION['tmp_user_values']['max_rows'] != 'all')
         && ! ($analyzed_sql_results['is_count']
-            || $analyzed_sql_results['is_export']
-            || $analyzed_sql_results['is_func']
-            || $analyzed_sql_results['is_analyse']
-        )
-        && isset(
-            $analyzed_sql_results['analyzed_sql'][0]['queryflags']['select_from']
-        )
+        || $analyzed_sql_results['is_export']
+        || $analyzed_sql_results['is_func']
+        || $analyzed_sql_results['is_analyse'])
+        && $select_from
         && ! isset($analyzed_sql_results['analyzed_sql'][0]['queryflags']['offset'])
         && empty($analyzed_sql_results['analyzed_sql'][0]['limit_clause'])
     ) {
@@ -760,22 +766,25 @@ function PMA_isAppendLimitClause($analyzed_sql_results)
 /**
  * Function to check whether this query is for just browsing
  * 
- * @param array   $analyzed_sql_results   the analyzed query and other varibles set
- *                                        after analyzing the query
- * @param boolean $find_real_end          whether the real end should be found
+ * @param array   $analyzed_sql_results the analyzed query and other varibles set
+ *                                      after analyzing the query
+ * @param boolean $find_real_end        whether the real end should be found
  * 
  * @return boolean
  */
 function PMA_isJustBrowsing($analyzed_sql_results, $find_real_end)
 {
+    $distinct = isset(
+        $analyzed_sql_results['analyzed_sql'][0]['queryflags']['distinct']
+    );
+    
+    $table_name = isset(
+        $analyzed_sql_results['analyzed_sql'][0]['table_ref'][1]['table_name']
+    );
     if (! $analyzed_sql_results['is_group']
         && ! isset($analyzed_sql_results['analyzed_sql'][0]['queryflags']['union'])
-        && ! isset(
-            $analyzed_sql_results['analyzed_sql'][0]['queryflags']['distinct']
-        )
-        && ! isset(
-            $analyzed_sql_results['analyzed_sql'][0]['table_ref'][1]['table_name']
-        )
+        && ! $distinct
+        && ! $table_name
         && (empty($analyzed_sql_results['analyzed_sql'][0]['where_clause'])
         || $analyzed_sql_results['analyzed_sql'][0]['where_clause'] == '1 ')
         && ! isset($find_real_end)
@@ -789,8 +798,8 @@ function PMA_isJustBrowsing($analyzed_sql_results, $find_real_end)
 /**
  * Function to check whether the reated transformation information shoul be deleted
  * 
- * @param array $analyzed_sql_results  the analyzed query and other varibles set
- *                                     after analyzing the query 
+ * @param array $analyzed_sql_results the analyzed query and other varibles set
+ *                                    after analyzing the query 
  * 
  * @return boolean
  */
@@ -809,10 +818,10 @@ function PMA_isDeleteTransformationInfo($analyzed_sql_results)
 /**
  * Function to check whether the user has rights to drop the database
  * 
- * @param  array   $analyzed_sql_results   the analyzed query and other varibles set
- *                                         after analyzing the query
- * @param boolean  $allowUserDropDatabase  whether the user is allowed to drop db
- * @param boolean  $is_superuser           whether this user is a superuser 
+ * @param array   $analyzed_sql_results  the analyzed query and other varibles set
+ *                                       after analyzing the query
+ * @param boolean $allowUserDropDatabase whether the user is allowed to drop db
+ * @param boolean $is_superuser          whether this user is a superuser 
  * 
  * @return boolean
  */
@@ -834,9 +843,9 @@ function PMA_hasNoRightsToDropDatabase($analyzed_sql_results,
 /**
  * Function to set the column order
  * 
- * @param PMA_Table $pmatable  PMA_Table instance
+ * @param PMA_Table $pmatable PMA_Table instance
  * 
- * @retrun boolean $retval
+ * @return boolean $retval
  */
 function PMA_setColumnOrder($pmatable)
 {
@@ -859,7 +868,7 @@ function PMA_setColumnOrder($pmatable)
 /**
  * Function to set the column visibility
  * 
- * @param PMA_Table $pmatable  PMA_Table instance
+ * @param PMA_Table $pmatable PMA_Table instance
  * 
  * @return boolean $retval
  */
@@ -867,7 +876,7 @@ function PMA_setColumnVisibility($pmatable)
 {
     $col_visib = explode(',', $_REQUEST['col_visib']);
     $retval = $pmatable->setUiProp(
-    PMA_Table::PROP_COLUMN_VISIB, $col_visib,
+        PMA_Table::PROP_COLUMN_VISIB, $col_visib,
         $_REQUEST['table_create_time']
     );
     if (gettype($retval) != 'boolean') {
@@ -882,8 +891,10 @@ function PMA_setColumnVisibility($pmatable)
 /**
  * Function to check the request for setting the column order or visibility
  * 
- * @param String $table   the current table
- * @param String $db      the current database
+ * @param String $table the current table
+ * @param String $db    the current database
+ * 
+ * @return void
  */
 function PMA_setColumnOrderOrVisibility($table, $db)
 {
@@ -908,8 +919,10 @@ function PMA_setColumnOrderOrVisibility($table, $db)
 /**
  * Function to add a bookmark
  * 
- * @param String $pmaAbsoluteUri   absolute URL
- * @param String $goto             goto page url
+ * @param String $pmaAbsoluteUri absolute URI
+ * @param String $goto           goto page URL
+ * 
+ * @return void
  */
 function PMA_addBookmark($pmaAbsoluteUri, $goto)
 {
@@ -934,7 +947,7 @@ function PMA_addBookmark($pmaAbsoluteUri, $goto)
     } else {
         // go back to sql.php to redisplay query; do not use &amp; in this case:
         PMA_sendHeaderLocation(
-             $pmaAbsoluteUri . $goto
+            $pmaAbsoluteUri . $goto
             . '&label=' . $_POST['bkm_fields']['bkm_label']
         );
     }
@@ -943,8 +956,9 @@ function PMA_addBookmark($pmaAbsoluteUri, $goto)
 /**
  * Function to find the real end of rows
  * 
- * @param String $db     the current database
- * @param String $table  the current table
+ * @param String $db    the current database
+ * @param String $table the current table
+ * 
  * @return mixed the number of rows if "retain" param is true, otherwise true
  */
 function PMA_findRealEndOfRows($db, $table)
@@ -960,9 +974,11 @@ function PMA_findRealEndOfRows($db, $table)
 /**
  * Function to get values for the relational columns
  * 
- * @param String $db             the current database            
- * @param String $table          the current table
- * @param String $display_field
+ * @param String $db            the current database            
+ * @param String $table         the current table
+ * @param String $display_field display field
+ * 
+ * @return void 
  */
 function PMA_getRelationalValues($db, $table, $display_field)
 {
@@ -988,9 +1004,11 @@ function PMA_getRelationalValues($db, $table, $display_field)
 /**
  * Function to get values for Enum or Set Columns
  * 
- * @param String $db            the current database
- * @param String $table         the current table
- * @param String $columnType    whether enum or set
+ * @param String $db         the current database
+ * @param String $table      the current table
+ * @param String $columnType whether enum or set
+ * 
+ * @return void
  */
 function PMA_getEnumOrSetValues($db, $table, $columnType)
 {
@@ -1012,9 +1030,10 @@ function PMA_getEnumOrSetValues($db, $table, $columnType)
 /**
  * Function to append the limit clause 
  * 
- * @param String $full_sql_query
- * @param array $analyzed_sql
- * @param String $display_query
+ * @param String $full_sql_query full sql query
+ * @param array  $analyzed_sql   analyzed sql query
+ * @param String $display_query  display query
+ * 
  * @return array
  */
 function PMA_appendLimitClause($full_sql_query, $analyzed_sql, $display_query)
@@ -1047,7 +1066,8 @@ function PMA_appendLimitClause($full_sql_query, $analyzed_sql, $display_query)
         }
     }
     
-    return array($sql_limit_to_append, $full_sql_query, isset($analyzed_display_query)
+    return array($sql_limit_to_append, $full_sql_query, isset(
+        $analyzed_display_query)
         ? $analyzed_display_query : null,
         isset($display_query) ? $display_query : null
     );
@@ -1056,9 +1076,10 @@ function PMA_appendLimitClause($full_sql_query, $analyzed_sql, $display_query)
 /**
  * Function to get the default sql query for browsing page
  * 
- * @param String    $db         the current database
- * @param String    $table      the current table
- * @return String   $sql_query  the default $sql_query for browse page
+ * @param String $db    the current database
+ * @param String $table the current table
+ * 
+ * @return String $sql_query the default $sql_query for browse page
  */
 function PMA_getDefaultSqlQueryForBrowse($db, $table)
 {
@@ -1091,17 +1112,16 @@ function PMA_getDefaultSqlQueryForBrowse($db, $table)
 /**
  * Responds an error when an error happens when executing the query 
  * 
- * @param boolean $is_gotofile     whether goto file or not
- * @param String  $goto            goto page url
- * @param String  $table           current table
- * @param String  $active_page     active page url
- * @param String  $error           error after executing the query
- * @param String  $err_url         the error page url
- * @param String  $sql_query       sql query
- * @param String  $full_sql_query  full sql query
+ * @param boolean $is_gotofile whether goto file or not
+ * @param String  $goto        goto page url
+ * @param String  $table       current table
+ * @param String  $active_page active page url
+ * @param String  $error       error after executing the query
+ * 
+ * @return void 
  */
 function PMA_handleQueryExecuteError($is_gotofile, $goto, $table, $active_page,
-    $error, $err_url, $sql_query, $full_sql_query
+    $error
 ) {
     if ($is_gotofile) {
         if (strpos($goto, 'db_') === 0 && strlen($table)) {
@@ -1110,46 +1130,33 @@ function PMA_handleQueryExecuteError($is_gotofile, $goto, $table, $active_page,
         $active_page = $goto;
         $message = PMA_Message::rawError($error);
 
-        if ($GLOBALS['is_ajax_request'] == true) {
-            $response = PMA_Response::getInstance();
-            $response->isSuccess(false);
-            $response->addJSON('message', $message);
-            exit;
-        }
-
-        /**
-         * Go to target path.
-         */
-        include '' . PMA_securePath($goto);
-    } else {
-        $full_err_url = $err_url;
-        if (preg_match('@^(db|tbl)_@', $err_url)) {
-            $full_err_url .=  '&amp;show_query=1&amp;sql_query='
-                . urlencode($sql_query);
-        }
-        PMA_Util::mysqlDie($error, $full_sql_query, '', $full_err_url);
-    }
-    exit;
+        $response = PMA_Response::getInstance();
+        $response->isSuccess(false);
+        $response->addJSON('message', $message);
+        exit;  
+    }    
 }
 
 /**
  * Function to store the query as a bookmark
  * 
- * @param String  $db            the current database
- * @param String  $bkm_user      the bookmarking user
- * @param String  $import_text   import text
- * @param String  $bkm_label     bookmark label
- * @param boolean $bkm_replace   whether to rep;ace existing bookmarks
+ * @param String  $db          the current database
+ * @param String  $bkm_user    the bookmarking user
+ * @param String  $import_text import text
+ * @param String  $bkm_label   bookmark label
+ * @param boolean $bkm_replace whether to rep;ace existing bookmarks
+ * 
+ * @return void
  */
 function PMA_storeTheQueryAsBookmark($db, $bkm_user, $import_text,
     $bkm_label, $bkm_replace
 ) {
     include_once 'libraries/bookmark.lib.php';
     $bfields = array(
-                 'dbase' => $db,
-                 'user'  => $bkm_user,
-                 'query' => urlencode($import_text),
-                 'label' => $bkm_label
+                 'bkm_database' => $db,
+                 'bkm_user'  => $bkm_user,
+                 'bkm_sql_query' => urlencode($import_text),
+                 'bkm_label' => $bkm_label
     );
 
     // Should we replace bookmark?
@@ -1169,10 +1176,12 @@ function PMA_storeTheQueryAsBookmark($db, $bkm_user, $import_text,
 /**
  * Function to execute the SQL query and set the execution time
  * 
- * @param  String $full_sql_query   the full sql query
- * @return mixed  $result           the results after running the query
+ * @param String $full_sql_query the full sql query
+ * 
+ * @return mixed  $result the results after running the query
  */
-function PMA_executeQueryAndStoreResults($full_sql_query){
+function PMA_executeQueryAndStoreResults($full_sql_query)
+{
     // Measure query time.
     $querytime_before = array_sum(explode(' ', microtime()));
 
@@ -1198,10 +1207,11 @@ function PMA_executeQueryAndStoreResults($full_sql_query){
 /**
  * Function to get the affected or changed number of rows after executing a query
  * 
- * @param boolean $is_affected    whether the query affected a table
- * @param mixed   $result         results of executing the query
- * @param int     $num_rows       number of rows affected or changed
- * @return int    $num_rows       number of rows affected or changed
+ * @param boolean $is_affected whether the query affected a table
+ * @param mixed   $result      results of executing the query
+ * @param int     $num_rows    number of rows affected or changed
+ * 
+ * @return int    $num_rows    number of rows affected or changed
  */
 function PMA_getNumberOfRowsAffectedOrChanged($is_affected, $result, $num_rows)
 {
@@ -1218,8 +1228,9 @@ function PMA_getNumberOfRowsAffectedOrChanged($is_affected, $result, $num_rows)
  * Checks if the current database has changed
  * This could happen if the user sends a query like "USE `database`;"
  * 
- * @param String $db        the database in the query
- * @return int   $reload    whether to reload the navigation(1) or not(0)
+ * @param String $db the database in the query
+ * 
+ * @return int $reload whether to reload the navigation(1) or not(0)
  */
 function PMA_hasCurrentDbChanged($db)
 {

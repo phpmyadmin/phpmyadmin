@@ -213,7 +213,6 @@ if (isset($GLOBALS['show_as_php']) || ! empty($GLOBALS['validatequery'])) {
     $result = PMA_executeQueryAndStoreResults($full_sql_query);
     
     $is_procedure = false;
-
     // Since multiple query execution is anyway handled,
     // ignore the WHERE clause of the first sql statement
     // which might contain a phrase like 'call '
@@ -227,7 +226,7 @@ if (isset($GLOBALS['show_as_php']) || ! empty($GLOBALS['validatequery'])) {
     $error = $GLOBALS['dbi']->getError();
     if ($error) {
         PMA_handleQueryExecuteError($is_gotofile, $goto, $table, $active_page,
-            $error, $err_url, $sql_query, $full_sql_query
+            $error
         );
     }
     unset($error);
@@ -236,7 +235,7 @@ if (isset($GLOBALS['show_as_php']) || ! empty($GLOBALS['validatequery'])) {
     // store the query as a bookmark
     if (! empty($bkm_label) && ! empty($import_text)) {
         PMA_storeTheQueryAsBookmark($db, $cfg['Bookmark']['user'],
-            $import_text, $bkm_label, $bkm_replace
+            $import_text, $bkm_label, isset($bkm_replace) ? $bkm_replace : null
         );
         $bookmark_created = true;
     } // end store bookmarks
@@ -244,7 +243,6 @@ if (isset($GLOBALS['show_as_php']) || ! empty($GLOBALS['validatequery'])) {
     // Gets the number of rows affected/returned
     // (This must be done immediately after the query because
     // mysql_affected_rows() reports about the last query done)
-
     $num_rows = PMA_getNumberOfRowsAffectedOrChanged($is_affected, $result,
         isset($num_rows) ? $num_rows : null
     );
@@ -254,22 +252,15 @@ if (isset($GLOBALS['show_as_php']) || ! empty($GLOBALS['validatequery'])) {
         $profiling_results = $GLOBALS['dbi']->fetchResult('SHOW PROFILE;');
     }
 
-    // tmpfile remove after convert encoding appended by Y.Kawada
-    if (function_exists('PMA_Kanji_fileConv')
-        && (isset($textfile) && file_exists($textfile))
-    ) {
-        unlink($textfile);
-    }
-
+    
     // Counts the total number of rows for the same 'SELECT' query without the
     // 'LIMIT' clause that may have been programatically added
-
     $justBrowsing = false;
     if (empty($sql_limit_to_append)) {
         $unlim_num_rows         = $num_rows;
         // if we did not append a limit, set this to get a correct
         // "Showing rows..." message
-        //$_SESSION['tmp_user_values']['max_rows'] = 'all';
+        // $_SESSION['tmp_user_values']['max_rows'] = 'all';
     } elseif ($is_select) {
 
         //    c o u n t    q u e r y
@@ -284,7 +275,6 @@ if (isset($GLOBALS['show_as_php']) || ! empty($GLOBALS['validatequery'])) {
         if (PMA_isJustBrowsing(
             $analyzed_sql_results,isset($find_real_end) ? $find_real_end : null)
         ) {
-            // "j u s t   b r o w s i n g"
             $justBrowsing = true;
             $unlim_num_rows = PMA_Table::countRecords(
                 $db, 
@@ -292,8 +282,7 @@ if (isset($GLOBALS['show_as_php']) || ! empty($GLOBALS['validatequery'])) {
                 $force_exact = true
             );
 
-        } else { // n o t   " j u s t   b r o w s i n g "
-
+        } else {
             // add select expression after the SQL_CALC_FOUND_ROWS
 
             // for UNION, just adding SQL_CALC_FOUND_ROWS
