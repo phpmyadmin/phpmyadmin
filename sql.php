@@ -235,7 +235,7 @@ if (isset($GLOBALS['show_as_php']) || ! empty($GLOBALS['validatequery'])) {
     // store the query as a bookmark
     if (! empty($bkm_label) && ! empty($import_text)) {
         PMA_storeTheQueryAsBookmark($db, $cfg['Bookmark']['user'],
-            $import_text, $bkm_label, $bkm_replace
+            $import_text, $bkm_label, isset($bkm_replace) ? $bkm_replace : null
         );
         $bookmark_created = true;
     } // end store bookmarks

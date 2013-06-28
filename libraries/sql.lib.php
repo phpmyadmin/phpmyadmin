@@ -1153,10 +1153,10 @@ function PMA_storeTheQueryAsBookmark($db, $bkm_user, $import_text,
 ) {
     include_once 'libraries/bookmark.lib.php';
     $bfields = array(
-                 'dbase' => $db,
-                 'user'  => $bkm_user,
-                 'query' => urlencode($import_text),
-                 'label' => $bkm_label
+                 'bkm_database' => $db,
+                 'bkm_user'  => $bkm_user,
+                 'bkm_sql_query' => urlencode($import_text),
+                 'bkm_label' => $bkm_label
     );
 
     // Should we replace bookmark?
