@@ -1,6 +1,9 @@
 phpMyAdmin - ChangeLog
 ======================
 
+4.0.4.1 ()
+- [security] Global variables scope injection vulnerability (see PMASA-2013-7)
+
 4.0.4.0 (2013-06-17)
 - bug #3959 Using DefaultTabDatabase in NavigationTree for Database Click
 - bug #3961 Avoid Suhosin warning when in simulation mode
