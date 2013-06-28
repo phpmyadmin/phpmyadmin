@@ -1113,7 +1113,8 @@ function PMA_handleQueryExecuteError($is_gotofile, $goto, $table, $active_page,
         $response = PMA_Response::getInstance();
         $response->isSuccess(false);
         $response->addJSON('message', $message);
-        exit;            
+        exit;  
+    }    
 }
 
 /**
