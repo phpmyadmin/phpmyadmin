@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.5-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-06-24 10:43+0200\n"
-"PO-Revision-Date: 2013-06-13 11:20+0200\n"
-"Last-Translator: Muhammad Kamran <kamran.usman@gmail.com>\n"
+"PO-Revision-Date: 2013-06-28 12:21+0200\n"
+"Last-Translator: Mehbooob Khan <mehboobbugti@gmail.com>\n"
 "Language-Team: Urdu <http://l10n.cihar.com/projects/phpmyadmin/4-0/ur/>\n"
 "Language: ur\n"
 "MIME-Version: 1.0\n"
@@ -581,10 +581,9 @@ msgstr ""
 
 #: gis_data_editor.php:245 gis_data_editor.php:300 gis_data_editor.php:373
 #: js/messages.php:318
-#, fuzzy
 #| msgid "Add/Delete Field Columns"
 msgid "Add a point"
-msgstr "فیلڈ کالمز شامل یا ختم کریں"
+msgstr " فیلڈ کالم شامل یا ختم کریں"
 
 #: gis_data_editor.php:262 js/messages.php:313
 #, fuzzy
@@ -608,23 +607,21 @@ msgstr "پابندیاں لگائیں"
 
 #: gis_data_editor.php:304 gis_data_editor.php:378 js/messages.php:319
 msgid "Add an inner ring"
-msgstr ""
+msgstr "اندرونی حد شامل کریں"
 
 #: gis_data_editor.php:325 js/messages.php:314
 msgid "Polygon"
 msgstr ""
 
 #: gis_data_editor.php:384 js/messages.php:320
-#, fuzzy
 #| msgid "Add/Delete Field Columns"
 msgid "Add a polygon"
-msgstr "فیلڈ کالمز شامل یا ختم کریں"
+msgstr "پولی گان شامل کریں"
 
 #: gis_data_editor.php:390
-#, fuzzy
 #| msgid "Add a New User"
 msgid "Add geometry"
-msgstr "نیا صارف اضافہ کریں"
+msgstr "جیومیٹری شامل کریں"
 
 #: gis_data_editor.php:399
 msgid "Output"
@@ -635,6 +632,8 @@ msgid ""
 "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
 "below into the \"Value\" field"
 msgstr ""
+"\"Function\" کالم سے  \"GeomFromText\" منتخب کرکے متن کو کالم کے \"Value\" میں نقل "
+"کریں"
 
 #: import.php:107
 #, fuzzy, php-format
@@ -684,7 +683,7 @@ msgstr ""
 #: import.php:447
 msgid ""
 "Cannot convert file's character set without character set conversion library"
-msgstr ""
+msgstr "حروف متبادل لائبریری کے بغیر مسل کے حروف کو نہیں بدل سکتا"
 
 #: import.php:485 libraries/display_import.lib.php:29
 msgid "Could not load import plugins, please check your installation!"
@@ -729,37 +728,33 @@ msgid "Back"
 msgstr "واپس"
 
 #: index.php:113
-#, fuzzy
 #| msgid "General relation features"
 msgid "General Settings"
-msgstr "جنرل ریلیشن فیچرز"
+msgstr "عمومی ترتیبات"
 
 #: index.php:143 libraries/display_change_password.lib.php:46
 #: user_password.php:233
 msgid "Change password"
-msgstr ""
+msgstr "پاسورڈ بدلیں"
 
 #: index.php:159
-#, fuzzy
 #| msgid "Server configuration"
 msgid "Server connection collation"
-msgstr "سرور کی تشکیل"
+msgstr "سرور کنکشن مطابقت"
 
 #: index.php:185
 msgid "Appearance Settings"
-msgstr ""
+msgstr "ظاہری ترتیبات"
 
 #: index.php:215 prefs_manage.php:275
-#, fuzzy
 #| msgid "General relation features"
 msgid "More settings"
-msgstr "جنرل ریلیشن فیچرز"
+msgstr "مزید ترتیبات"
 
 #: index.php:236
-#, fuzzy
 #| msgid "Databases"
 msgid "Database server"
-msgstr "کوائفیے"
+msgstr "کوائفیہ سرور"
 
 #: index.php:239 libraries/Menu.class.php:159
 #: libraries/ServerStatusData.class.php:339 libraries/common.inc.php:661
@@ -798,7 +793,7 @@ msgstr "کوائفیہ ہٹائیں"
 
 #: index.php:272
 msgid "Web server"
-msgstr ""
+msgstr "ویب سرور"
 
 #: index.php:285
 #, fuzzy
@@ -812,7 +807,7 @@ msgstr ""
 
 #: index.php:303
 msgid "Show PHP information"
-msgstr ""
+msgstr "پی ایچ پی معلومات دکھائیں"
 
 #: index.php:326 libraries/engines/bdb.lib.php:25
 msgid "Version information"
@@ -828,11 +823,11 @@ msgstr "دستاویزات"
 
 #: index.php:342 libraries/config/FormDisplay.tpl.php:146
 msgid "Wiki"
-msgstr ""
+msgstr "وکی"
 
 #: index.php:351
 msgid "Official Homepage"
-msgstr ""
+msgstr "دفتری ویب گاہ"
 
 #: index.php:358
 msgid "Contribute"
@@ -844,7 +839,7 @@ msgstr ""
 
 #: index.php:372
 msgid "List of changes"
-msgstr ""
+msgstr "تبدیلیوں کی فہرست"
 
 #: index.php:395
 msgid ""
@@ -853,6 +848,10 @@ msgid ""
 "running with this default, is open to intrusion, and you really should fix "
 "this security hole by setting a password for user 'root'."
 msgstr ""
+"آپ کی تشکیلی مسل (منتظم صارف بغیر پاسورڈ) میں مائی ایس کیو ایل ابتدائی کھاتے "
+"سے متعلق معلومات کا حامل ہوتا ہے۔ آپ کا سرور اس صارف کے ساتھ چل رہا ہوتا ہے "
+"جس میں مداخلت کا خطرہ ہوتا ہے اس لیے آپ کو چاہیے کہ منتظم صارف کے لیے لازمی "
+"پاسورڈ داخل کریں۔"
 
 #: index.php:406
 msgid ""
