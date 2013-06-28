@@ -1330,13 +1330,13 @@ EOT;
             . ' value="' . $replaceWith . '" />';
 
         $htmlOutput .= '<fieldset id="fieldset_find_replace_preview">';
-        $htmlOutput .= '<legend>' . __('Find and Replace - Preview') . '</legend>';
+        $htmlOutput .= '<legend>' . __('Find and replace - preview') . '</legend>';
 
         $htmlOutput .= '<table id="previewTable">'
             . '<thead><tr>'
             . '<th>' . __('Count') . '</th>'
-            . '<th>' . __('String') . '</th>'
-            . '<th>' . __('Replaced String') . '</th>'
+            . '<th>' . __('Original string') . '</th>'
+            . '<th>' . __('Replaced string') . '</th>'
             . '</tr></thead>';
 
         $htmlOutput .= '<tbody>';
