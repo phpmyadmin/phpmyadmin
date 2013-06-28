@@ -1101,7 +1101,7 @@ function PMA_getDefaultSqlQueryForBrowse($db, $table)
  * @param String  $full_sql_query  full sql query
  */
 function PMA_handleQueryExecuteError($is_gotofile, $goto, $table, $active_page,
-    $error, $err_url, $sql_query, $full_sql_query
+    $error
 ) {
     if ($is_gotofile) {
         if (strpos($goto, 'db_') === 0 && strlen($table)) {

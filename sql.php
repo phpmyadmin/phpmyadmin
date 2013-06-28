@@ -227,7 +227,7 @@ if (isset($GLOBALS['show_as_php']) || ! empty($GLOBALS['validatequery'])) {
     $error = $GLOBALS['dbi']->getError();
     if ($error) {
         PMA_handleQueryExecuteError($is_gotofile, $goto, $table, $active_page,
-            $error, $err_url, $sql_query, $full_sql_query
+            $error
         );
     }
     unset($error);
