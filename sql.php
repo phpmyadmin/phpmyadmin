@@ -260,7 +260,7 @@ if (isset($GLOBALS['show_as_php']) || ! empty($GLOBALS['validatequery'])) {
         $unlim_num_rows         = $num_rows;
         // if we did not append a limit, set this to get a correct
         // "Showing rows..." message
-        //$_SESSION['tmp_user_values']['max_rows'] = 'all';
+        // $_SESSION['tmp_user_values']['max_rows'] = 'all';
     } elseif ($is_select) {
 
         //    c o u n t    q u e r y
@@ -275,7 +275,6 @@ if (isset($GLOBALS['show_as_php']) || ! empty($GLOBALS['validatequery'])) {
         if (PMA_isJustBrowsing(
             $analyzed_sql_results,isset($find_real_end) ? $find_real_end : null)
         ) {
-            // "j u s t   b r o w s i n g"
             $justBrowsing = true;
             $unlim_num_rows = PMA_Table::countRecords(
                 $db, 
@@ -283,8 +282,7 @@ if (isset($GLOBALS['show_as_php']) || ! empty($GLOBALS['validatequery'])) {
                 $force_exact = true
             );
 
-        } else { // n o t   " j u s t   b r o w s i n g "
-
+        } else {
             // add select expression after the SQL_CALC_FOUND_ROWS
 
             // for UNION, just adding SQL_CALC_FOUND_ROWS
