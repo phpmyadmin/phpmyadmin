@@ -14,6 +14,9 @@ define('PMA_CHARSET_ICONV', 1);
 define('PMA_CHARSET_RECODE', 2);
 define('PMA_CHARSET_ICONV_AIX', 3);
 
+if (! isset($GLOBALS['cfg']['RecodingEngine'])) {
+    $GLOBALS['cfg']['RecodingEngine'] = '';
+}
 // Finally detect which function we will use:
 if ($GLOBALS['cfg']['RecodingEngine'] == 'iconv') {
     if (@function_exists('iconv')) {
