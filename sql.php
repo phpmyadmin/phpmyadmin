@@ -213,7 +213,6 @@ if (isset($GLOBALS['show_as_php']) || ! empty($GLOBALS['validatequery'])) {
     $result = PMA_executeQueryAndStoreResults($full_sql_query);
     
     $is_procedure = false;
-
     // Since multiple query execution is anyway handled,
     // ignore the WHERE clause of the first sql statement
     // which might contain a phrase like 'call '
@@ -244,7 +243,6 @@ if (isset($GLOBALS['show_as_php']) || ! empty($GLOBALS['validatequery'])) {
     // Gets the number of rows affected/returned
     // (This must be done immediately after the query because
     // mysql_affected_rows() reports about the last query done)
-
     $num_rows = PMA_getNumberOfRowsAffectedOrChanged($is_affected, $result,
         isset($num_rows) ? $num_rows : null
     );
@@ -254,16 +252,9 @@ if (isset($GLOBALS['show_as_php']) || ! empty($GLOBALS['validatequery'])) {
         $profiling_results = $GLOBALS['dbi']->fetchResult('SHOW PROFILE;');
     }
 
-    // tmpfile remove after convert encoding appended by Y.Kawada
-    if (function_exists('PMA_Kanji_fileConv')
-        && (isset($textfile) && file_exists($textfile))
-    ) {
-        unlink($textfile);
-    }
-
+    
     // Counts the total number of rows for the same 'SELECT' query without the
     // 'LIMIT' clause that may have been programatically added
-
     $justBrowsing = false;
     if (empty($sql_limit_to_append)) {
         $unlim_num_rows         = $num_rows;
