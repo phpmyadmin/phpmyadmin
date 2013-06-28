@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-06-24 16:19+0200\n"
-"PO-Revision-Date: 2013-05-07 17:13+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Italian <http://l10n.cihar.com/projects/phpmyadmin/master/it/"
-">\n"
+"PO-Revision-Date: 2013-06-28 21:11+0200\n"
+"Last-Translator: Marc Delisle <marc@infomarc.info>\n"
+"Language-Team: Italian "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/it/>\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2306,12 +2306,12 @@ msgstr ""
 #: libraries/Advisor.class.php:412
 #, php-format
 msgid "Invalid rule declaration on line %s."
-msgstr "Formato non valido per l'input CSV alla linea %s"
+msgstr "Formato non valido per l'input CSV alla linea %s."
 
 #: libraries/Advisor.class.php:420
 #, php-format
 msgid "Unexpected characters on line %s."
-msgstr "Carattere inatteso alla riga %s"
+msgstr "Carattere inatteso alla riga %s."
 
 #: libraries/Advisor.class.php:434
 #, fuzzy, php-format
@@ -4133,7 +4133,7 @@ msgstr "massimo %s"
 msgid "This setting is disabled, it will not be applied to your configuration."
 msgstr ""
 "Questa impostazione è disabilitata, non sarà applicata alla tua "
-"configurazione"
+"configurazione."
 
 #: libraries/config/FormDisplay.tpl.php:309
 #, php-format
@@ -8995,7 +8995,7 @@ msgid ""
 msgstr ""
 "Dopo aver riavviato il server MySQL, prego clacca sul pulsante Vai. Dovresti "
 "quindi vedere un messaggio che ti informerá che questo server <b>é</b> "
-"configurato come master"
+"configurato come master."
 
 #: libraries/replication_gui.lib.php:139 server_databases.php:229
 msgid "Slave replication"
@@ -10410,7 +10410,7 @@ msgstr ""
 "configurazione del server e per il tracciamento di query intensive. Per "
 "queste ultime occorrerà settare log_output a 'TABLE' e abilitare "
 "slow_query_log oppure general_log. Notate comunque che general_log produce "
-"molti dati e aumenta il carico del server fino al 15%"
+"molti dati e aumenta il carico del server fino al 15%."
 
 #: libraries/server_status_monitor.lib.php:149
 msgid ""
