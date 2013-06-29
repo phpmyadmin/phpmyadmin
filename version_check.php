@@ -21,16 +21,16 @@ if (isset($_SESSION['cache']['version_check'])
     $save = true;
     $file = 'http://www.phpmyadmin.net/home_page/version.json';
     if (ini_get('allow_url_fopen')) {
-        if (strlen($cfg['VersionCheckProxyUrl'])) {
+        if (strlen($cfg['ProxyUrl'])) {
             $context = array(
                 'http' => array(
-                    'proxy' => $cfg['VersionCheckProxyUrl'],
+                    'proxy' => $cfg['ProxyUrl'],
                     'request_fulluri' => true
                 )
             );
-            if (strlen($cfg['VersionCheckProxyUser'])) {
+            if (strlen($cfg['ProxyUser'])) {
                 $auth = base64_encode(
-                    $cfg['VersionCheckProxyUser'] . ':' . $cfg['VersionCheckProxyPass']
+                    $cfg['ProxyUser'] . ':' . $cfg['ProxyPass']
                 );
                 $context['http']['header'] = 'Proxy-Authorization: Basic ' . $auth;
             }
@@ -44,13 +44,13 @@ if (isset($_SESSION['cache']['version_check'])
         }
     } else if (function_exists('curl_init')) {
         $curl_handle = curl_init($file);
-        if (strlen($cfg['VersionCheckProxyUrl'])) {
-            curl_setopt($curl_handle, CURLOPT_PROXY, $cfg['VersionCheckProxyUrl']);
-            if (strlen($cfg['VersionCheckProxyUser'])) {
+        if (strlen($cfg['ProxyUrl'])) {
+            curl_setopt($curl_handle, CURLOPT_PROXY, $cfg['ProxyUrl']);
+            if (strlen($cfg['ProxyUser'])) {
                 curl_setopt(
                     $curl_handle,
                     CURLOPT_PROXYUSERPWD,
-                    $cfg['VersionCheckProxyUser'] . ':' . $cfg['VersionCheckProxyPass']
+                    $cfg['ProxyUser'] . ':' . $cfg['ProxyPass']
                 );
             }
         }

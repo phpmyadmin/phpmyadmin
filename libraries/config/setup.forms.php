@@ -140,10 +140,10 @@ $forms['Features']['Other_core_settings'] = array(
     'DisableMultiTableMaintenance',
     'UseDbSearch',
     'VersionCheck',
-    'VersionCheckProxyUrl',
-    'VersionCheckProxyUser',
-    'VersionCheckProxyPass',
     'ErrorReporting'
+    'ProxyUrl',
+    'ProxyUser',
+    'ProxyPass',
 );
 $forms['Sql_queries']['Sql_queries'] = array(
     'ShowSQL',

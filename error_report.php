@@ -133,14 +133,14 @@ function send_error_report($report) {
             'header'  => 'Content-type: application/json',
             'content' => $data_string
         );
-        if (strlen($cfg['VersionCheckProxyUrl'])) {
+        if (strlen($cfg['ProxyUrl'])) {
             $context['http'] = array(
-                'proxy' => $cfg['VersionCheckProxyUrl'],
+                'proxy' => $cfg['ProxyUrl'],
                 'request_fulluri' => true
             );
-            if (strlen($cfg['VersionCheckProxyUser'])) {
+            if (strlen($cfg['ProxyUser'])) {
                 $auth = base64_encode(
-                    $cfg['VersionCheckProxyUser'] . ':' . $cfg['VersionCheckProxyPass']
+                    $cfg['ProxyUser'] . ':' . $cfg['ProxyPass']
                 );
                 $context['http']['header'] = 'Proxy-Authorization: Basic ' . $auth;
             }
@@ -152,13 +152,13 @@ function send_error_report($report) {
         );
     } else if (function_exists('curl_init')) {
         $curl_handle = curl_init($submission_url);
-        if (strlen($cfg['VersionCheckProxyUrl'])) {
-            curl_setopt($curl_handle, CURLOPT_PROXY, $cfg['VersionCheckProxyUrl']);
-            if (strlen($cfg['VersionCheckProxyUser'])) {
+        if (strlen($cfg['ProxyUrl'])) {
+            curl_setopt($curl_handle, CURLOPT_PROXY, $cfg['ProxyUrl']);
+            if (strlen($cfg['ProxyUser'])) {
                 curl_setopt(
                     $curl_handle,
                     CURLOPT_PROXYUSERPWD,
-                    $cfg['VersionCheckProxyUser'] . ':' . $cfg['VersionCheckProxyPass']
+                    $cfg['ProxyUser'] . ':' . $cfg['ProxyPass']
                 );
             }
         }
