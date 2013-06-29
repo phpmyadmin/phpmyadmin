@@ -243,7 +243,7 @@ var ErrorReport = {
     },
     /**
      * Automatically wraps the callback in AJAX.registerOnload
-     * 
+     *
      * @return void
      */
     _wrap_ajax_onload_callback: function() {
@@ -251,6 +251,23 @@ var ErrorReport = {
         AJAX.registerOnload = function(file, func) {
             func = ErrorReport.wrap_function(func);
             oldOnload.call(this, file, func);
+        }
+    },
+    /**
+     * Automatically wraps the callback in $.fn.on
+     *
+     * @return void
+     */
+    _wrap_$_on_callback: function() {
+        var oldOn = $.fn.on;
+        $.fn.on = function() {
+            for( var i = 1; i<=3; i++) {
+                if(typeof(arguments[i]) === "function") {
+                    arguments[i] = ErrorReport.wrap_function(arguments[i]);
+                    break;
+                }
+            }
+            return oldOn.apply(this, arguments);
         }
     },
     /**
@@ -262,6 +279,7 @@ var ErrorReport = {
     set_up_error_reporting: function () {
         ErrorReport.wrap_global_functions();
         ErrorReport._wrap_ajax_onload_callback();
+        ErrorReport._wrap_$_on_callback();
     }
 
 }
