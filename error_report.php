@@ -128,15 +128,15 @@ function get_report_data($json_encode = true) {
 function send_error_report($report) {
     $data_string = json_encode($report);
     if (ini_get('allow_url_fopen')) {
+        $context = array(
+            'method'  => 'POST',
+            'header'  => 'Content-type: application/json',
+            'content' => $data_string
+        );
         if (strlen($cfg['VersionCheckProxyUrl'])) {
-            $context = array(
-                'method'  => 'POST',
-                'header'  => 'Content-type: application/json',
-                'content' => $data_string,
-                'http' => array(
-                    'proxy' => $cfg['VersionCheckProxyUrl'],
-                    'request_fulluri' => true
-                )
+            $context['http'] = array(
+                'proxy' => $cfg['VersionCheckProxyUrl'],
+                'request_fulluri' => true
             );
             if (strlen($cfg['VersionCheckProxyUser'])) {
                 $auth = base64_encode(
@@ -144,14 +144,12 @@ function send_error_report($report) {
                 );
                 $context['http']['header'] = 'Proxy-Authorization: Basic ' . $auth;
             }
-            $response = file_get_contents(
-                $submission_url,
-                false,
-                stream_context_create($context)
-            );
-        } else {
-            $response = file_get_contents($file);
         }
+        $response = file_get_contents(
+            $submission_url,
+            false,
+            stream_context_create($context)
+        );
     } else if (function_exists('curl_init')) {
         $curl_handle = curl_init($submission_url);
         if (strlen($cfg['VersionCheckProxyUrl'])) {
