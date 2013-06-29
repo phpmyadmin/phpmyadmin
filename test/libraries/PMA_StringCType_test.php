@@ -61,7 +61,7 @@ class PMA_StringCType_Test extends PHPUnit_Framework_TestCase
     {
         return array(
             array(true, "AbCd1zyZ9"),
-            array(false, "foo!#$bar")
+            array(false, "foo!#bar")
         );
     }
 

@@ -121,7 +121,7 @@ class PMA_StringNative_Test extends PHPUnit_Framework_TestCase
      * 
      * @return array Test data
      */
-    public function nativeStrposData() 
+    public function strposData() 
     {
         return array(
             array(1, "ab", "b", 0),

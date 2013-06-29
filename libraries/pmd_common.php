@@ -263,4 +263,18 @@ function get_tab_pos()
     );
     return count($tab_pos) ? $tab_pos : null;
 }
+
+/**
+ * Prepares XML output for js/pmd/ajax.js to display a message 
+ *
+ */
+function PMD_return_upd($b, $ret)
+{
+    // not sure where this was defined...
+    global $K;
+
+    header("Content-Type: text/xml; charset=utf-8");
+    header("Cache-Control: no-cache");
+    die('<root act="relation_upd" return="'.$ret.'" b="'.$b.'" K="'.$K.'"></root>');
+}
 ?>

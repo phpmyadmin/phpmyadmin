@@ -88,9 +88,9 @@ function PMA_getSQLToDropForeignKey($table, $fk)
  *
  * @param string $table        table name
  * @param string $field        field name
- * @param string $foreignDb    back-quoted foreign database name
- * @param string $foreignTable back-quoted foreign table name
- * @param string $foreignField back-quoted foreign field name
+ * @param string $foreignDb    foreign database name
+ * @param string $foreignTable foreign table name
+ * @param string $foreignField foreign field name
  * @param string $name         name of the constraint
  * @param string $onDelete     on delete action
  * @param string $onUpdate     on update action
@@ -107,8 +107,9 @@ function PMA_getSQLToCreateForeignKey($table, $field, $foreignDb, $foreignTable,
     }
 
     $sql_query .= ' FOREIGN KEY (' . PMA_Util::backquote($field) . ')'
-        . ' REFERENCES ' . $foreignDb . '.' . $foreignTable
-        . '(' . $foreignField . ')';
+        . ' REFERENCES ' . PMA_Util::backquote($foreignDb)
+        . '.' . PMA_Util::backquote($foreignTable)
+        . '(' . PMA_Util::backquote($foreignField) . ')';
 
     if (! empty($onDelete)) {
         $sql_query .= ' ON DELETE ' . $onDelete;
@@ -119,5 +120,39 @@ function PMA_getSQLToCreateForeignKey($table, $field, $foreignDb, $foreignTable,
     $sql_query .= ';';
 
     return $sql_query;
+}
+
+/**
+ * Creates and populates dropdowns to select foreign db/table/column
+ *
+ * @param string $name    name of the dropdowns
+ * @param array  $values  dropdown values
+ * @param string $foreign value of the item to be selected
+ * @param string $title   title to show on hovering the dropdown 
+ *
+ * @return string HTML for the dropdown
+ */
+function PMA_generateRelationalDropdown(
+    $name, $values = array(), $foreign = false, $title = ''
+) {
+    $html_output = '<select name="' . $name . '" title="' . $title . '">';
+    $html_output .= '<option value=""></option>';
+
+    $seen_key = false;
+    foreach ($values as $value) {
+        $html_output .= '<option value="' . htmlspecialchars($value) . '"';
+        if ($foreign && $value == $foreign) {
+            $html_output .= ' selected="selected"';
+            $seen_key = true;
+        }
+        $html_output .= '>' . htmlspecialchars($value) . '</option>';
+    }
+
+    if ($foreign && ! $seen_key) {
+        $html_output .= '<option value="' . htmlspecialchars($foreign) . '"'
+            . ' selected="selected">' . htmlspecialchars($foreign) . '</option>';
+    }
+    $html_output .= '</select>';
+    return $html_output;
 }
 ?>

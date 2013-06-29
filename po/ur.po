@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-06-24 16:19+0200\n"
-"PO-Revision-Date: 2013-06-13 11:20+0200\n"
-"Last-Translator: Muhammad Kamran <kamran.usman@gmail.com>\n"
+"PO-Revision-Date: 2013-06-28 12:21+0200\n"
+"Last-Translator: Mehbooob Khan <mehboobbugti@gmail.com>\n"
 "Language-Team: Urdu <http://l10n.cihar.com/projects/phpmyadmin/master/ur/>\n"
 "Language: ur\n"
 "MIME-Version: 1.0\n"
@@ -571,25 +571,24 @@ msgstr ""
 
 #: gis_data_editor.php:245 gis_data_editor.php:300 gis_data_editor.php:373
 #: js/messages.php:309
-#, fuzzy
 #| msgid "Add/Delete Field Columns"
 msgid "Add a point"
-msgstr "فیلڈ کالمز شامل یا ختم کریں"
+msgstr " فیلڈ کالم شامل یا ختم کریں"
 
 #: gis_data_editor.php:262
-#, fuzzy, php-format
+#, php-format
 #| msgid "Lines terminated by"
 msgid "Linestring %d:"
-msgstr "سطریں کے آخر میں"
+msgstr "سطر %d سے ختم ہوا:"
 
 #: gis_data_editor.php:265 gis_data_editor.php:341
 msgid "Outer ring:"
-msgstr ""
+msgstr "بیرونی حد:"
 
 #: gis_data_editor.php:267 gis_data_editor.php:343
 #, php-format
 msgid "Inner ring %d:"
-msgstr ""
+msgstr "اندرونی حد %d:"
 
 #: gis_data_editor.php:303
 #, fuzzy
@@ -599,25 +598,23 @@ msgstr "پابندیاں لگائیں"
 
 #: gis_data_editor.php:304 gis_data_editor.php:378 js/messages.php:310
 msgid "Add an inner ring"
-msgstr ""
+msgstr "اندرونی حد شامل کریں"
 
 #: gis_data_editor.php:325
-#, fuzzy, php-format
+#, php-format
 #| msgid "Add/Delete Field Columns"
 msgid "Polygon %d:"
-msgstr "فیلڈ کالمز شامل یا ختم کریں"
+msgstr "کالم پولی گان %d شامل یا حذف کریں:"
 
 #: gis_data_editor.php:384 js/messages.php:311
-#, fuzzy
 #| msgid "Add/Delete Field Columns"
 msgid "Add a polygon"
-msgstr "فیلڈ کالمز شامل یا ختم کریں"
+msgstr "پولی گان شامل کریں"
 
 #: gis_data_editor.php:390
-#, fuzzy
 #| msgid "Add a New User"
 msgid "Add geometry"
-msgstr "نیا صارف اضافہ کریں"
+msgstr "جیومیٹری شامل کریں"
 
 #: gis_data_editor.php:399
 msgid "Output"
@@ -628,6 +625,8 @@ msgid ""
 "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
 "below into the \"Value\" field"
 msgstr ""
+"\"Function\" کالم سے  \"GeomFromText\" منتخب کرکے متن کو کالم کے \"Value\" میں نقل "
+"کریں"
 
 #: import.php:107
 #, fuzzy, php-format
@@ -677,7 +676,7 @@ msgstr ""
 #: import.php:447
 msgid ""
 "Cannot convert file's character set without character set conversion library"
-msgstr ""
+msgstr "حروف متبادل لائبریری کے بغیر مسل کے حروف کو نہیں بدل سکتا"
 
 #: import.php:485 libraries/display_import.lib.php:29
 msgid "Could not load import plugins, please check your installation!"
@@ -722,37 +721,33 @@ msgid "Back"
 msgstr "واپس"
 
 #: index.php:114
-#, fuzzy
 #| msgid "General relation features"
 msgid "General Settings"
-msgstr "جنرل ریلیشن فیچرز"
+msgstr "عمومی ترتیبات"
 
 #: index.php:144 libraries/display_change_password.lib.php:46
 #: user_password.php:233
 msgid "Change password"
-msgstr ""
+msgstr "پاسورڈ بدلیں"
 
 #: index.php:160
-#, fuzzy
 #| msgid "Server configuration"
 msgid "Server connection collation"
-msgstr "سرور کی تشکیل"
+msgstr "سرور کنکشن مطابقت"
 
 #: index.php:186
 msgid "Appearance Settings"
-msgstr ""
+msgstr "ظاہری ترتیبات"
 
 #: index.php:216 prefs_manage.php:281
-#, fuzzy
 #| msgid "General relation features"
 msgid "More settings"
-msgstr "جنرل ریلیشن فیچرز"
+msgstr "مزید ترتیبات"
 
 #: index.php:237
-#, fuzzy
 #| msgid "Databases"
 msgid "Database server"
-msgstr "کوائفیے"
+msgstr "کوائفیہ سرور"
 
 #: index.php:240 libraries/plugins/auth/AuthenticationCookie.class.php:201
 msgid "Server:"
@@ -767,54 +762,47 @@ msgstr "سرور"
 #: index.php:248 libraries/plugins/export/ExportLatex.class.php:225
 #: libraries/plugins/export/ExportSql.class.php:612
 #: libraries/plugins/export/ExportXml.class.php:198
-#, fuzzy
 #| msgid "Last version"
 msgid "Server version:"
-msgstr "آخری نسخہ"
+msgstr "سرور نسخہ:"
 
 #: index.php:252
-#, fuzzy
 #| msgid "Last version"
 msgid "Protocol version:"
-msgstr "آخری نسخہ"
+msgstr "پروٹوکول نسخہ"
 
 #: index.php:256
-#, fuzzy
 #| msgid "Username:"
 msgid "User:"
-msgstr "صارف نام:"
+msgstr "صارف:"
 
 #: index.php:261
-#, fuzzy
 #| msgid "Remove database"
 msgid "Server charset:"
-msgstr "کوائفیہ ہٹائیں"
+msgstr "سرور حروف سیٹ"
 
 #: index.php:273
 msgid "Web server"
-msgstr ""
+msgstr "ویب سرور"
 
 #: index.php:286
-#, fuzzy
 #| msgid "Use light version"
 msgid "Database client version:"
-msgstr "ہلکا ورژن استعمال کریں"
+msgstr "کوائفیہ صارف نسخہ:"
 
 #: index.php:290
-#, fuzzy
 #| msgid "PHP extension to use"
 msgid "PHP extension:"
-msgstr "PHP کی قسم جو اسعتمال کی جائے"
+msgstr "پی ایچ پی استعمال:"
 
 #: index.php:304
 msgid "Show PHP information"
-msgstr ""
+msgstr "پی ایچ پی معلومات دکھائیں"
 
 #: index.php:327
-#, fuzzy
 #| msgid "Column information table"
 msgid "Version information:"
-msgstr "کالم معلومات جدول"
+msgstr "نسخہ معلومات:"
 
 #: index.php:336 libraries/Util.class.php:441 libraries/Util.class.php:527
 #: libraries/config/FormDisplay.tpl.php:145
@@ -826,11 +814,11 @@ msgstr "دستاویزات"
 
 #: index.php:343 libraries/config/FormDisplay.tpl.php:146
 msgid "Wiki"
-msgstr ""
+msgstr "وکی"
 
 #: index.php:352
 msgid "Official Homepage"
-msgstr ""
+msgstr "دفتری ویب گاہ"
 
 #: index.php:359
 msgid "Contribute"
@@ -842,7 +830,7 @@ msgstr ""
 
 #: index.php:373
 msgid "List of changes"
-msgstr ""
+msgstr "تبدیلیوں کی فہرست"
 
 #: index.php:397
 msgid ""
@@ -851,6 +839,10 @@ msgid ""
 "running with this default, is open to intrusion, and you really should fix "
 "this security hole by setting a password for user 'root'."
 msgstr ""
+"آپ کی تشکیلی مسل (منتظم صارف بغیر پاسورڈ) میں مائی ایس کیو ایل ابتدائی کھاتے "
+"سے متعلق معلومات کا حامل ہوتا ہے۔ آپ کا سرور اس صارف کے ساتھ چل رہا ہوتا ہے "
+"جس میں مداخلت کا خطرہ ہوتا ہے اس لیے آپ کو چاہیے کہ منتظم صارف کے لیے لازمی "
+"پاسورڈ داخل کریں۔"
 
 #: index.php:414
 msgid ""

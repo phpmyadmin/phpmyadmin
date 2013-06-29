@@ -1,5 +1,6 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
+
 /**
  *
  * @package PhpMyAdmin
@@ -15,13 +16,12 @@ if (! defined('PHPMYADMIN')) {
  */
 function PMA_getColumnOrder()
 {
-
     $column_order['DEFAULT_COLLATION_NAME'] = array(
-            'disp_name' => __('Collation'),
-            'description_function' => 'PMA_getCollationDescr',
-            'format'    => 'string',
-            'footer'    => PMA_getServerCollation(),
-        );
+        'disp_name' => __('Collation'),
+        'description_function' => 'PMA_getCollationDescr',
+        'format'    => 'string',
+        'footer'    => PMA_getServerCollation(),
+    );
     $column_order['SCHEMA_TABLES'] = array(
         'disp_name' => __('Tables'),
         'format'    => 'number',
@@ -56,17 +56,17 @@ function PMA_getColumnOrder()
     return $column_order;
 }
 
-/*
+/**
  * Builds the HTML td elements for one database to display in the list
  * of databases from server_databases.php (which can be modified by
  * db_create.php)
  *
- * @param array   $current
- * @param boolean $is_superuser
- * @param string  $url_query
- * @param array   $column_order
- * @param array   $replication_types
- * @param array   $replication_info
+ * @param array   $current           current database
+ * @param boolean $is_superuser      user status
+ * @param string  $url_query         url query
+ * @param array   $column_order      column order
+ * @param array   $replication_types replication types
+ * @param array   $replication_info  replication info
  *
  * @return array $column_order, $out
  */
