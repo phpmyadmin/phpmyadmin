@@ -161,6 +161,9 @@ class ImportOds extends ImportPlugin
          * result in increased performance without the need to
          * alter the code in any way. It's basically a freebee.
          */
+        
+        //fix import warning:  simplexml_load_string(): namespace error : Namespace prefix number is not defined
+        $buffer = str_replace("number:", "number_", $buffer);
         $xml = simplexml_load_string($buffer, "SimpleXMLElement", LIBXML_COMPACT);
 
         unset($buffer);
