@@ -163,17 +163,13 @@ function PMA_getModuleList($modules)
         $html .= '<th rowspan="2">' . htmlspecialchars($module_name) . '</th>';
         $html .= '<td>' . htmlspecialchars($module['info']['module_description']) 
             .    '</td>';
-        $html .= '<td>' . htmlspecialchars($module['info']['module_library']) 
-        $html .= '<td>' . htmlspecialchars($module['info']['module_description']) 
+        $html .= '<td>' . htmlspecialchars($module['info']['module_library'])
             .    '</td>';
-        $html .= '<td>' . htmlspecialchars($module['info']['module_version']) 
-        $html .= '<td>' . htmlspecialchars($module['info']['module_description']) 
+        $html .= '<td>' . htmlspecialchars($module['info']['module_version'])
             .    '</td>';
-        $html .= '<td>' . htmlspecialchars($module['info']['module_author']) 
-        $html .= '<td>' . htmlspecialchars($module['info']['module_description']) 
+        $html .= '<td>' . htmlspecialchars($module['info']['module_author'])
             .    '</td>';
-        $html .= '<td>' . htmlspecialchars($module['info']['module_license']) 
-        $html .= '<td>' . htmlspecialchars($module['info']['module_description']) 
+        $html .= '<td>' . htmlspecialchars($module['info']['module_license'])
             .    '</td>';
         $html .= '</tr>';
         $html .= '<tr class="noclick ' . ($odd_row ? 'odd' : 'even') . '">';
