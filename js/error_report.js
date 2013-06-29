@@ -138,7 +138,7 @@ var ErrorReport = {
      */
     _removeErrorNotification: function() {
         $("#error_notification").fadeOut( function() {
-            this.remove();
+            $(this).remove();
         });
     },
     /**
