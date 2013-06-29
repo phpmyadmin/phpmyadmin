@@ -52,14 +52,14 @@ if ($_REQUEST['send_error_report'] == true) {
     $html .= '<div class="label"><label><p>'
             . __('You may examine the data in the error report:')
             .'</p></label></div>'
-            .'<textarea cols="80" style="height:13em; overflow:scroll" disabled>'
+            .'<textarea style="height:13em; overflow-y:scroll; width:570px" disabled>'
             .get_report_data()
             .'</textarea>';
 
     $html .= '<div class="label"><label><p>'
             . __('Please explain the steps that lead to the error:')
             .'</p></label></div>'
-            .'<textarea cols="80" style="height:10em" name="description"'
+            .'<textarea style="height:10em; width:570px" name="description"'
             .'id="report_description"></textarea>';
 
     $html .= '<input type="checkbox" name="always_send"'
