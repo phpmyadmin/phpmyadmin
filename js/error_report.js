@@ -137,7 +137,9 @@ var ErrorReport = {
      * @return void
      */
     _removeErrorNotification: function() {
-        $("#error_notification").fadeOut();
+        $("#error_notification").fadeOut( function() {
+            this.remove();
+        });
     },
     /**
      * Shows the modal dialog previewing the report
