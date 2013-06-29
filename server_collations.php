@@ -25,14 +25,15 @@ require_once 'libraries/mysql_charsets.inc.php';
 $response = PMA_Response::getInstance();
 
 $response->addHTML(PMA_getSubPageHeader('collations'));
-$response->addHTML(PMA_getHtmlForCharsets(
-                       $mysql_charsets, 
-                       $mysql_collations,
-                       $mysql_charsets_descriptions, 
-                       $mysql_default_collations, 
-                       $mysql_collations_available
-                   )
-                  );
+$response->addHTML(
+    PMA_getHtmlForCharsets(
+        $mysql_charsets, 
+        $mysql_collations,
+        $mysql_charsets_descriptions, 
+        $mysql_default_collations, 
+        $mysql_collations_available
+    )
+);
 
 exit;
 

@@ -161,18 +161,27 @@ function PMA_getModuleList($modules)
         $odd_row = !$odd_row;
         $html .= '<tr class="noclick ' . ($odd_row ? 'odd' : 'even') . '">';
         $html .= '<th rowspan="2">' . htmlspecialchars($module_name) . '</th>';
-        $html .= '<td>' . htmlspecialchars($module['info']['module_description']) . '</td>';
-        $html .= '<td>' . htmlspecialchars($module['info']['module_library']) . '</td>';
-        $html .= '<td>' . htmlspecialchars($module['info']['module_version']) . '</td>';
-        $html .= '<td>' . htmlspecialchars($module['info']['module_author']) . '</td>';
-        $html .= '<td>' . htmlspecialchars($module['info']['module_license']) . '</td>';
+        $html .= '<td>' . htmlspecialchars($module['info']['module_description']) 
+            .    '</td>';
+        $html .= '<td>' . htmlspecialchars($module['info']['module_library']) 
+        $html .= '<td>' . htmlspecialchars($module['info']['module_description']) 
+            .    '</td>';
+        $html .= '<td>' . htmlspecialchars($module['info']['module_version']) 
+        $html .= '<td>' . htmlspecialchars($module['info']['module_description']) 
+            .    '</td>';
+        $html .= '<td>' . htmlspecialchars($module['info']['module_author']) 
+        $html .= '<td>' . htmlspecialchars($module['info']['module_description']) 
+            .    '</td>';
+        $html .= '<td>' . htmlspecialchars($module['info']['module_license']) 
+        $html .= '<td>' . htmlspecialchars($module['info']['module_description']) 
+            .    '</td>';
         $html .= '</tr>';
         $html .= '<tr class="noclick ' . ($odd_row ? 'odd' : 'even') . '">';
         $html .= '<td colspan="5">';
         $html .= '<table>';
         $html .= '<tbody>';
                             
-        foreach ($module['plugins'] as $plugin_type => $plugin_list) {                            
+        foreach ($module['plugins'] as $plugin_type => $plugin_list) {
             $html .= '<tr class="noclick">';
             $html .= '<td><b class="plugin-type">' 
                 . htmlspecialchars($plugin_type) . '</b></td>';
@@ -181,7 +190,8 @@ function PMA_getModuleList($modules)
                 $html .= ($i != 0 ? '<br />' : '') 
                     . htmlspecialchars($plugin_list[$i]['plugin_name']);
                 if (!$plugin_list[$i]['is_active']) {
-                    $html .= ' <small class="attention">' . __('disabled') . '</small>';
+                    $html .= ' <small class="attention">' . __('disabled') 
+                        .    '</small>';
                 }
             }                                      
             $html .= '</td>';
