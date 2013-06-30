@@ -1115,14 +1115,11 @@ function PMA_getDefaultSqlQueryForBrowse($db, $table)
  * @param boolean $is_gotofile whether goto file or not
  * @param String  $goto        goto page url
  * @param String  $table       current table
- * @param String  $active_page active page url
  * @param String  $error       error after executing the query
  * 
  * @return void 
  */
-function PMA_handleQueryExecuteError($is_gotofile, $goto, $table, $active_page,
-    $error
-) {
+function PMA_handleQueryExecuteError($is_gotofile, $goto, $table, $error) {
     if ($is_gotofile) {
         if (strpos($goto, 'db_') === 0 && strlen($table)) {
             $table = '';
@@ -1144,7 +1141,7 @@ function PMA_handleQueryExecuteError($is_gotofile, $goto, $table, $active_page,
  * @param String  $bkm_user    the bookmarking user
  * @param String  $import_text import text
  * @param String  $bkm_label   bookmark label
- * @param boolean $bkm_replace whether to rep;ace existing bookmarks
+ * @param boolean $bkm_replace whether to replace existing bookmarks
  * 
  * @return void
  */
@@ -1246,5 +1243,232 @@ function PMA_hasCurrentDbChanged($db)
     }
     
     return $reload;
+}
+
+/**
+ * If a table, database or column gets dropped, clean comments.
+ * 
+ * @param String $db             current database
+ * @param String $table          current table
+ * @param String $dropped_column current table
+ * @param bool   $purge
+ * @param array  $extra_data
+ * 
+ * @return array $extra_data
+ */
+function PMA_cleanupRelations($db, $table, $dropped_column, $purge, $extra_data)
+{
+    include_once 'libraries/relation_cleanup.lib.php';
+
+    if (isset($purge) && $purge == 1) {
+        if (strlen($table) && strlen($db)) {
+            PMA_relationsCleanupTable($db, $table);
+        } elseif (strlen($db)) {
+            PMA_relationsCleanupDatabase($db);
+        }
+    }
+    
+    if (isset($dropped_column)
+        && !empty($dropped_column)    
+        && strlen($db)
+        && strlen($table)
+    ) {
+        PMA_relationsCleanupColumn($db, $table, $dropped_column);
+        if(isset($extra_data)) {
+            // to refresh the list of indexes (Ajax mode)
+            $extra_data['indexes_list'] = PMA_Index::getView($table, $db);   
+        }
+    }
+
+    return $extra_data;
+}
+
+/**
+ * Function to count the total number of rows for the same 'SELECT' query without
+ * the 'LIMIT' clause that may have been programatically added
+ * 
+ * @param int    $num_rows             number of rows affected/changed by the query
+ * @param bool   $is_select            whether the query is SELECT or not
+ * @param bool   $justBrowsing         whether just browsing or not
+ * @param string $db                   the current database
+ * @param string $table                the current table
+ * @param array  $parsed_sql           parsed sql
+ * @param array  $analyzed_sql_results the analyzed query and other varibles set
+ *                                     after analyzing the query
+ * 
+ * @return int $unlim_num_rows unlimited number of rows
+ */
+function PMA_countQueryResults($num_rows, $is_select, $justBrowsing,
+    $db, $table, $parsed_sql, $analyzed_sql_results
+) {
+    if (PMA_isAppendLimitClause($analyzed_sql_results))
+    {
+        // if we did not append a limit, set this to get a correct
+        // "Showing rows..." message
+        // $_SESSION['tmp_user_values']['max_rows'] = 'all';
+        $unlim_num_rows         = $num_rows;
+    } elseif ($is_select) {
+        //    c o u n t    q u e r y
+
+        // If we are "just browsing", there is only one table,
+        // and no WHERE clause (or just 'WHERE 1 '),
+        // we do a quick count (which uses MaxExactCount) because
+        // SQL_CALC_FOUND_ROWS is not quick on large InnoDB tables
+
+        // However, do not count again if we did it previously
+        // due to $find_real_end == true
+        if ($justBrowsing) {
+            $unlim_num_rows = PMA_Table::countRecords(
+                $db, 
+                $table, 
+                $force_exact = true
+            );
+
+        } else {
+            // add select expression after the SQL_CALC_FOUND_ROWS
+
+            // for UNION, just adding SQL_CALC_FOUND_ROWS
+            // after the first SELECT works.
+
+            // take the left part, could be:
+            // SELECT
+            // (SELECT
+            
+            $analyzed_sql = $analyzed_sql_results['analyzed_sql'];
+            
+            $count_query = PMA_SQP_format(
+                $parsed_sql,
+                'query_only',
+                0,
+                $analyzed_sql[0]['position_of_first_select'] + 1
+            );
+            $count_query .= ' SQL_CALC_FOUND_ROWS ';
+            // add everything that was after the first SELECT
+            $count_query .= PMA_SQP_format(
+                $parsed_sql,
+                'query_only',
+                $analyzed_sql[0]['position_of_first_select'] + 1
+            );
+            // ensure there is no semicolon at the end of the
+            // count query because we'll probably add
+            // a LIMIT 1 clause after it
+            $count_query = rtrim($count_query);
+            $count_query = rtrim($count_query, ';');
+
+            // if using SQL_CALC_FOUND_ROWS, add a LIMIT to avoid
+            // long delays. Returned count will be complete anyway.
+            // (but a LIMIT would disrupt results in an UNION)
+
+            if (! isset($analyzed_sql[0]['queryflags']['union'])) {
+                $count_query .= ' LIMIT 1';
+            }
+
+            // run the count query
+
+            $GLOBALS['dbi']->tryQuery($count_query);
+            // if (mysql_error()) {
+            // void.
+            // I tried the case
+            // (SELECT `User`, `Host`, `Db`, `Select_priv` FROM `db`)
+            // UNION (SELECT `User`, `Host`, "%" AS "Db",
+            // `Select_priv`
+            // FROM `user`) ORDER BY `User`, `Host`, `Db`;
+            // and although the generated count_query is wrong
+            // the SELECT FOUND_ROWS() work! (maybe it gets the
+            // count from the latest query that worked)
+            //
+            // another case where the count_query is wrong:
+            // SELECT COUNT(*), f1 from t1 group by f1
+            // and you click to sort on count(*)
+            // }
+            $unlim_num_rows = $GLOBALS['dbi']->fetchValue('SELECT FOUND_ROWS()');
+        } // end else "just browsing"
+    } else {// not $is_select
+        $unlim_num_rows = 0;
+    }
+    
+    return $unlim_num_rows;
+}
+
+/**
+ * Function to handle all aspects relating to executing the query
+ * 
+ * @param array $analyzed_sql_results
+ * @param String  $full_sql_query full sql query
+ * @param boolean $is_gotofile    whether to go to a file
+ * @param String  $goto           goto page url
+ * @param String  $db             current database
+ * @param String  $table          current table
+ * @param boolean $find_real_end  whether to find the real end
+ * @param String  $import_text    sql command 
+ * @param String  $bkm_user       bookmarking user
+ * 
+ * @return mixed
+ */
+function PMA_executeTheQuery($analyzed_sql_results, $full_sql_query, $is_gotofile,
+    $goto, $db, $table, $find_real_end, $import_text, $bkm_user, $extra_data
+) {
+    // Only if we ask to see the php code
+    if (isset($GLOBALS['show_as_php']) || ! empty($GLOBALS['validatequery'])) {
+        $result = null;
+        $num_rows = 0;
+        $unlim_num_rows = 0;
+    } else { // If we don't ask to see the php code
+        if (isset($_SESSION['profiling']) && PMA_Util::profilingSupported()) {
+            $GLOBALS['dbi']->query('SET PROFILING=1;');
+        }
+
+        $result = PMA_executeQueryAndStoreResults($full_sql_query);
+
+        // Displays an error message if required and stop parsing the script
+        $error = $GLOBALS['dbi']->getError();
+        if ($error) {
+            PMA_handleQueryExecuteError($is_gotofile, $goto, $table, $error
+            );
+        }
+  
+        // If there are no errors and bookmarklabel was given,
+        // store the query as a bookmark
+        if (! empty($_POST['bkm_label']) && ! empty($import_text)) {
+            PMA_storeTheQueryAsBookmark($db, $bkm_user,
+                $import_text, $_POST['bkm_label'],
+                isset($_POST['bkm_replace']) ? $_POST['bkm_replace'] : null
+            );
+        } // end store bookmarks
+
+        // Gets the number of rows affected/returned
+        // (This must be done immediately after the query because
+        // mysql_affected_rows() reports about the last query done)
+        $num_rows = PMA_getNumberOfRowsAffectedOrChanged(
+            $analyzed_sql_results['is_affected'], $result,
+            isset($num_rows) ? $num_rows : null
+        );
+
+        // Grabs the profiling results
+        if (isset($_SESSION['profiling']) && PMA_Util::profilingSupported()) {
+            $profiling_results = $GLOBALS['dbi']->fetchResult('SHOW PROFILE;');
+        }
+
+        $justBrowsing = PMA_isJustBrowsing(
+            $analyzed_sql_results,isset($find_real_end) ? $find_real_end : null
+        );
+
+        $unlim_num_rows = PMA_countQueryResults($num_rows,
+            $analyzed_sql_results['is_select'], $justBrowsing, $db,
+            $table, $analyzed_sql_results['parsed_sql'], $analyzed_sql_results
+        );
+        
+        $extra_data = PMA_cleanupRelations(
+            isset($db) ? $db : '', isset($table) ? $table : '',
+            isset($_REQUEST['dropped_column']) ? $_REQUEST['dropped_column'] : null,
+            isset($_REQUEST['purge']) ? $_REQUEST['purge'] : null,
+            isset($extra_data) ? $extra_data : null
+        );
+    }
+    
+    return array($result, $num_rows, $unlim_num_rows,
+        isset($profiling_results) ? $profiling_results : null,
+        isset($justBrowsing) ? $justBrowsing : null, $extra_data
+    );
 }
 ?>
