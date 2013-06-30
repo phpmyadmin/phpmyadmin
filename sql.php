@@ -196,76 +196,27 @@ if (PMA_isAppendLimitClause($analyzed_sql_results)) {
     );
 }
 
+$is_procedure = false;
+// Since multiple query execution is anyway handled,
+// ignore the WHERE clause of the first sql statement
+// which might contain a phrase like 'call '        
+if (preg_match("/\bcall\b/i", $full_sql_query)
+    && empty($analyzed_sql[0]['where_clause'])
+) {
+    $is_procedure = true;
+}
+
 $reload = PMA_hasCurrentDbChanged($db);
 
-//  E x e c u t e    t h e    q u e r y
+// Execute the query
+list($result, $num_rows, $unlim_num_rows, $profiling_results,
+    $justBrowsing
+) = PMA_executeTheQuery(
+    $analyzed_sql_results, $full_sql_query, $is_gotofile, $goto, $db, $table,
+    isset($find_real_end) ? $find_real_end : null,
+    isset($import_text) ? $import_text : null, $cfg['Bookmark']['user']
+);
 
-// Only if we didn't ask to see the php code
-if (isset($GLOBALS['show_as_php']) || ! empty($GLOBALS['validatequery'])) {
-    unset($result);
-    $num_rows = 0;
-    $unlim_num_rows = 0;
-} else {
-    if (isset($_SESSION['profiling']) && PMA_Util::profilingSupported()) {
-        $GLOBALS['dbi']->query('SET PROFILING=1;');
-    }
-
-    $result = PMA_executeQueryAndStoreResults($full_sql_query);
-    
-    $is_procedure = false;
-    // Since multiple query execution is anyway handled,
-    // ignore the WHERE clause of the first sql statement
-    // which might contain a phrase like 'call '
-    if (preg_match("/\bcall\b/i", $full_sql_query)
-        && empty($analyzed_sql[0]['where_clause'])
-    ) {
-        $is_procedure = true;
-    }
-
-    // Displays an error message if required and stop parsing the script
-    $error = $GLOBALS['dbi']->getError();
-    if ($error) {
-        PMA_handleQueryExecuteError($is_gotofile, $goto, $table, $active_page,
-            $error
-        );
-    }
-    unset($error);
-
-    // If there are no errors and bookmarklabel was given,
-    // store the query as a bookmark
-    if (! empty($bkm_label) && ! empty($import_text)) {
-        PMA_storeTheQueryAsBookmark($db, $cfg['Bookmark']['user'],
-            $import_text, $bkm_label, isset($bkm_replace) ? $bkm_replace : null
-        );
-        $bookmark_created = true;
-    } // end store bookmarks
-
-    // Gets the number of rows affected/returned
-    // (This must be done immediately after the query because
-    // mysql_affected_rows() reports about the last query done)
-    $num_rows = PMA_getNumberOfRowsAffectedOrChanged($is_affected, $result,
-        isset($num_rows) ? $num_rows : null
-    );
-
-    // Grabs the profiling results
-    if (isset($_SESSION['profiling']) && PMA_Util::profilingSupported()) {
-        $profiling_results = $GLOBALS['dbi']->fetchResult('SHOW PROFILE;');
-    }
-
-    
-    $justBrowsing = PMA_isJustBrowsing(
-        $analyzed_sql_results,isset($find_real_end) ? $find_real_end : null
-    );
-    
-    $unlim_num_rows = PMA_countQuery($num_rows, $is_select, $justBrowsing, $db,
-        $table, $parsed_sql, $analyzed_sql_results
-    );
-
-    if (isset($_REQUEST['purge']) && $_REQUEST['purge'] == '1') {
-        PMA_cleanupRelations(isset($db) ? $db : '', isset($table) ? $table : '');
-    }
-
-} // end else "didn't ask to see php code"
 
 // No rows returned -> move back to the calling page
 if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {

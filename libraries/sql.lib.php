@@ -1115,14 +1115,11 @@ function PMA_getDefaultSqlQueryForBrowse($db, $table)
  * @param boolean $is_gotofile whether goto file or not
  * @param String  $goto        goto page url
  * @param String  $table       current table
- * @param String  $active_page active page url
  * @param String  $error       error after executing the query
  * 
  * @return void 
  */
-function PMA_handleQueryExecuteError($is_gotofile, $goto, $table, $active_page,
-    $error
-) {
+function PMA_handleQueryExecuteError($is_gotofile, $goto, $table, $error) {
     if ($is_gotofile) {
         if (strpos($goto, 'db_') === 0 && strlen($table)) {
             $table = '';
@@ -1144,7 +1141,7 @@ function PMA_handleQueryExecuteError($is_gotofile, $goto, $table, $active_page,
  * @param String  $bkm_user    the bookmarking user
  * @param String  $import_text import text
  * @param String  $bkm_label   bookmark label
- * @param boolean $bkm_replace whether to rep;ace existing bookmarks
+ * @param boolean $bkm_replace whether to replace existing bookmarks
  * 
  * @return void
  */
@@ -1343,7 +1340,7 @@ function PMA_countQuery($num_rows, $is_select, $justBrowsing,
             // long delays. Returned count will be complete anyway.
             // (but a LIMIT would disrupt results in an UNION)
 
-            if (! isset($analyzed_sql_results['analyzed_sql'][0]['queryflags']['union'])) {
+            if (! isset($analyzed_sql[0]['queryflags']['union'])) {
                 $count_query .= ' LIMIT 1';
             }
 
@@ -1372,5 +1369,86 @@ function PMA_countQuery($num_rows, $is_select, $justBrowsing,
     }
     
     return $unlim_num_rows;
+}
+
+/**
+ * Function to handle all aspects relating to executing the query
+ * 
+ * @param array $analyzed_sql_results
+ * @param String  $full_sql_query full sql query
+ * @param boolean $is_gotofile    whether to go to a file
+ * @param String  $goto           goto page url
+ * @param String  $db             current database
+ * @param String  $table          current table
+ * @param boolean $find_real_end  whether to find the real end
+ * @param String  $import_text    sql command 
+ * @param String  $bkm_user       bookmarking user
+ * 
+ * @return mixed
+ */
+function PMA_executeTheQuery($analyzed_sql_results, $full_sql_query, $is_gotofile,
+    $goto, $db, $table, $find_real_end, $import_text, $bkm_user
+) {
+    // Only if we ask to see the php code
+    if (isset($GLOBALS['show_as_php']) || ! empty($GLOBALS['validatequery'])) {
+        $result = null;
+        $num_rows = 0;
+        $unlim_num_rows = 0;
+    } else { // If we don't ask to see the php code
+        if (isset($_SESSION['profiling']) && PMA_Util::profilingSupported()) {
+            $GLOBALS['dbi']->query('SET PROFILING=1;');
+        }
+
+        $result = PMA_executeQueryAndStoreResults($full_sql_query);
+
+        // Displays an error message if required and stop parsing the script
+        $error = $GLOBALS['dbi']->getError();
+        if ($error) {
+            PMA_handleQueryExecuteError($is_gotofile, $goto, $table, $error
+            );
+        }
+  
+        // If there are no errors and bookmarklabel was given,
+        // store the query as a bookmark
+        if (! empty($_POST['bkm_label']) && ! empty($import_text)) {
+            PMA_storeTheQueryAsBookmark($db, $bkm_user,
+                $import_text, $_POST['bkm_label'],
+                isset($_POST['bkm_replace']) ? $_POST['bkm_replace'] : null
+            );
+        } // end store bookmarks
+
+        // Gets the number of rows affected/returned
+        // (This must be done immediately after the query because
+        // mysql_affected_rows() reports about the last query done)
+        $num_rows = PMA_getNumberOfRowsAffectedOrChanged(
+            $analyzed_sql_results['is_affected'], $result,
+            isset($num_rows) ? $num_rows : null
+        );
+
+        // Grabs the profiling results
+        if (isset($_SESSION['profiling']) && PMA_Util::profilingSupported()) {
+            $profiling_results = $GLOBALS['dbi']->fetchResult('SHOW PROFILE;');
+        }
+
+        $justBrowsing = PMA_isJustBrowsing(
+            $analyzed_sql_results,isset($find_real_end) ? $find_real_end : null
+        );
+
+        $unlim_num_rows = PMA_countQuery($num_rows,
+            $analyzed_sql_results['is_select'], $justBrowsing, $db,
+            $table, $analyzed_sql_results['parsed_sql'], $analyzed_sql_results
+        );
+
+        if (isset($_REQUEST['purge']) && $_REQUEST['purge'] == '1') {
+            PMA_cleanupRelations(
+                isset($db) ? $db : '', isset($table) ? $table : ''
+            );
+        }
+    }
+    
+    return array($result, $num_rows, $unlim_num_rows,
+        isset($profiling_results) ? $profiling_results : null,
+        isset($justBrowsing) ? $justBrowsing : null
+    );
 }
 ?>
