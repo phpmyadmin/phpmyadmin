@@ -1249,7 +1249,7 @@ function PMA_hasCurrentDbChanged($db)
 }
 
 /**
- * Function to cleanup relations when dropping a databse or table
+ * If a table or database gets dropped, clean column comments.
  * 
  * @param type $db    current database
  * @param type $table current table
@@ -1265,5 +1265,112 @@ function PMA_cleanupRelations($db, $table)
     } elseif (strlen($db)) {
         PMA_relationsCleanupDatabase($db);
     }
+}
+
+/**
+ * Function to count the total number of rows for the same 'SELECT' query without
+ * the 'LIMIT' clause that may have been programatically added
+ * 
+ * @param int    $num_rows             number of rows affected/changed by the query
+ * @param bool   $is_select            whether the query is SELECT or not
+ * @param bool   $justBrowsing         whether just browsing or not
+ * @param string $db                   the current database
+ * @param string $table                the current table
+ * @param array  $parsed_sql           parsed sql
+ * @param array  $analyzed_sql_results the analyzed query and other varibles set
+ *                                     after analyzing the query
+ * 
+ * @return int $unlim_num_rows unlimited number of rows
+ */
+function PMA_countQuery($num_rows, $is_select, $justBrowsing,
+    $db, $table, $parsed_sql, $analyzed_sql_results
+) {
+    if (PMA_isAppendLimitClause($analyzed_sql_results))
+    {
+        // if we did not append a limit, set this to get a correct
+        // "Showing rows..." message
+        // $_SESSION['tmp_user_values']['max_rows'] = 'all';
+        $unlim_num_rows         = $num_rows;
+    } elseif ($is_select) {
+        //    c o u n t    q u e r y
+
+        // If we are "just browsing", there is only one table,
+        // and no WHERE clause (or just 'WHERE 1 '),
+        // we do a quick count (which uses MaxExactCount) because
+        // SQL_CALC_FOUND_ROWS is not quick on large InnoDB tables
+
+        // However, do not count again if we did it previously
+        // due to $find_real_end == true
+        if ($justBrowsing) {
+            $unlim_num_rows = PMA_Table::countRecords(
+                $db, 
+                $table, 
+                $force_exact = true
+            );
+
+        } else {
+            // add select expression after the SQL_CALC_FOUND_ROWS
+
+            // for UNION, just adding SQL_CALC_FOUND_ROWS
+            // after the first SELECT works.
+
+            // take the left part, could be:
+            // SELECT
+            // (SELECT
+            
+            $analyzed_sql = $analyzed_sql_results['analyzed_sql'];
+            
+            $count_query = PMA_SQP_format(
+                $parsed_sql,
+                'query_only',
+                0,
+                $analyzed_sql[0]['position_of_first_select'] + 1
+            );
+            $count_query .= ' SQL_CALC_FOUND_ROWS ';
+            // add everything that was after the first SELECT
+            $count_query .= PMA_SQP_format(
+                $parsed_sql,
+                'query_only',
+                $analyzed_sql[0]['position_of_first_select'] + 1
+            );
+            // ensure there is no semicolon at the end of the
+            // count query because we'll probably add
+            // a LIMIT 1 clause after it
+            $count_query = rtrim($count_query);
+            $count_query = rtrim($count_query, ';');
+
+            // if using SQL_CALC_FOUND_ROWS, add a LIMIT to avoid
+            // long delays. Returned count will be complete anyway.
+            // (but a LIMIT would disrupt results in an UNION)
+
+            if (! isset($analyzed_sql_results['analyzed_sql'][0]['queryflags']['union'])) {
+                $count_query .= ' LIMIT 1';
+            }
+
+            // run the count query
+
+            $GLOBALS['dbi']->tryQuery($count_query);
+            // if (mysql_error()) {
+            // void.
+            // I tried the case
+            // (SELECT `User`, `Host`, `Db`, `Select_priv` FROM `db`)
+            // UNION (SELECT `User`, `Host`, "%" AS "Db",
+            // `Select_priv`
+            // FROM `user`) ORDER BY `User`, `Host`, `Db`;
+            // and although the generated count_query is wrong
+            // the SELECT FOUND_ROWS() work! (maybe it gets the
+            // count from the latest query that worked)
+            //
+            // another case where the count_query is wrong:
+            // SELECT COUNT(*), f1 from t1 group by f1
+            // and you click to sort on count(*)
+            // }
+            $unlim_num_rows = $GLOBALS['dbi']->fetchValue('SELECT FOUND_ROWS()');
+        } // end else "just browsing"
+    } else {// not $is_select
+        $unlim_num_rows = 0;
+    }
+    
+    return $unlim_num_rows;
 }
 ?>

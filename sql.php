@@ -253,100 +253,17 @@ if (isset($GLOBALS['show_as_php']) || ! empty($GLOBALS['validatequery'])) {
     }
 
     
-    // Counts the total number of rows for the same 'SELECT' query without the
-    // 'LIMIT' clause that may have been programatically added
-    $justBrowsing = false;
-    if (empty($sql_limit_to_append)) {
-        $unlim_num_rows         = $num_rows;
-        // if we did not append a limit, set this to get a correct
-        // "Showing rows..." message
-        // $_SESSION['tmp_user_values']['max_rows'] = 'all';
-    } elseif ($is_select) {
+    $justBrowsing = PMA_isJustBrowsing(
+        $analyzed_sql_results,isset($find_real_end) ? $find_real_end : null
+    );
+    
+    $unlim_num_rows = PMA_countQuery($num_rows, $is_select, $justBrowsing, $db,
+        $table, $parsed_sql, $analyzed_sql_results
+    );
 
-        //    c o u n t    q u e r y
-
-        // If we are "just browsing", there is only one table,
-        // and no WHERE clause (or just 'WHERE 1 '),
-        // we do a quick count (which uses MaxExactCount) because
-        // SQL_CALC_FOUND_ROWS is not quick on large InnoDB tables
-
-        // However, do not count again if we did it previously
-        // due to $find_real_end == true
-        if (PMA_isJustBrowsing(
-            $analyzed_sql_results,isset($find_real_end) ? $find_real_end : null)
-        ) {
-            $justBrowsing = true;
-            $unlim_num_rows = PMA_Table::countRecords(
-                $db, 
-                $table, 
-                $force_exact = true
-            );
-
-        } else {
-            // add select expression after the SQL_CALC_FOUND_ROWS
-
-            // for UNION, just adding SQL_CALC_FOUND_ROWS
-            // after the first SELECT works.
-
-            // take the left part, could be:
-            // SELECT
-            // (SELECT
-            $count_query = PMA_SQP_format(
-                $parsed_sql,
-                'query_only',
-                0,
-                $analyzed_sql[0]['position_of_first_select'] + 1
-            );
-            $count_query .= ' SQL_CALC_FOUND_ROWS ';
-            // add everything that was after the first SELECT
-            $count_query .= PMA_SQP_format(
-                $parsed_sql,
-                'query_only',
-                $analyzed_sql[0]['position_of_first_select'] + 1
-            );
-            // ensure there is no semicolon at the end of the
-            // count query because we'll probably add
-            // a LIMIT 1 clause after it
-            $count_query = rtrim($count_query);
-            $count_query = rtrim($count_query, ';');
-
-            // if using SQL_CALC_FOUND_ROWS, add a LIMIT to avoid
-            // long delays. Returned count will be complete anyway.
-            // (but a LIMIT would disrupt results in an UNION)
-
-            if (! isset($analyzed_sql[0]['queryflags']['union'])) {
-                $count_query .= ' LIMIT 1';
-            }
-
-            // run the count query
-
-            $GLOBALS['dbi']->tryQuery($count_query);
-            // if (mysql_error()) {
-            // void.
-            // I tried the case
-            // (SELECT `User`, `Host`, `Db`, `Select_priv` FROM `db`)
-            // UNION (SELECT `User`, `Host`, "%" AS "Db",
-            // `Select_priv`
-            // FROM `user`) ORDER BY `User`, `Host`, `Db`;
-            // and although the generated count_query is wrong
-            // the SELECT FOUND_ROWS() work! (maybe it gets the
-            // count from the latest query that worked)
-            //
-            // another case where the count_query is wrong:
-            // SELECT COUNT(*), f1 from t1 group by f1
-            // and you click to sort on count(*)
-            // }
-            $unlim_num_rows = $GLOBALS['dbi']->fetchValue('SELECT FOUND_ROWS()');
-        } // end else "just browsing"
-
-    } else { // not $is_select
-         $unlim_num_rows         = 0;
-    } // end rows total count
-
-    // if a table or database gets dropped, check column comments.
     if (isset($_REQUEST['purge']) && $_REQUEST['purge'] == '1') {
         PMA_cleanupRelations(isset($db) ? $db : '', isset($table) ? $table : '');
-    } // end if ($purge)
+    }
 
 } // end else "didn't ask to see php code"
 
