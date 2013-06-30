@@ -43,8 +43,12 @@ class PMA_Tracker_Test extends PHPUnit_Framework_TestCase
 
         if (!defined("PMA_DRIZZLE")) {
             define("PMA_DRIZZLE", false);
-        } else {
-            runkit_constant_redefine("PMA_DRIZZLE", false);
+        } elseif (PMA_DRIZZLE) {
+            if (function_exists("runkit_constant_redefine")) {
+                runkit_constant_redefine("PMA_DRIZZLE", false);
+            } else {
+                $this->markTestSkipped("Cannot redefine constant");
+            }
         }
 
     }
@@ -57,7 +61,9 @@ class PMA_Tracker_Test extends PHPUnit_Framework_TestCase
      */
     protected function tearDown()
     {
-        runkit_constant_redefine("PMA_DRIZZLE", false);
+        if (function_exists("runkit_constant_redefine")) {
+            runkit_constant_redefine("PMA_DRIZZLE", false);
+        }
     }
 
     /**
@@ -675,11 +681,14 @@ class PMA_Tracker_Test extends PHPUnit_Framework_TestCase
      */
     public function testGetVersion()
     {
+        if (!function_exists("runkit_constant_redefine")) {
+            $this->markTestSkipped("Cannot redefine constant");
+        }
 
         $reflection = new \ReflectionProperty('PMA_Tracker', 'pma_table');
         $reflection->setAccessible(true);
         $reflection->setValue(null, 'pma_table_tracking');
-
+        
         runkit_constant_redefine("PMA_DRIZZLE", true);
 
         $sql_query = " SELECT MAX(version) FROM pma_table_tracking" .
@@ -1058,7 +1067,11 @@ class PMA_Tracker_Test extends PHPUnit_Framework_TestCase
      * @test
      */
     public function testTransformTrackingSet()
-    {
+    {   
+        if (!function_exists("runkit_constant_redefine")) {
+            $this->markTestSkipped("Cannot redefine constant");
+        }
+
         runkit_constant_redefine("PMA_DRIZZLE", true);
 
         $method = new \ReflectionMethod("PMA_Tracker", "_transformTrackingSet");
