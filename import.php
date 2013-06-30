@@ -122,6 +122,24 @@ if ($_POST == array() && $_GET == array()) {
  * We only need to load the selected plugin
  */
 
+if (! in_array(
+    $format, 
+    array(
+        'csv',
+        'ldi',
+        'mediawiki',
+        'ods',
+        'shp',
+        'sql',
+        'xml'
+    )
+)
+) {
+    // this should not happen for a normal user
+    // but only during an attack
+    PMA_fatalError('Incorrect format parameter');
+}
+
 $post_patterns = array(
     '/^force_file_/',
     '/^'. $format . '_/'
