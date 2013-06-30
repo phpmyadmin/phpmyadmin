@@ -76,6 +76,7 @@ $is_select = isset($analyzed_sql[0]['queryflags']['select_from']);
 
 // aggregates all the results into one array
 $analyzed_sql_results = array(
+    "parsed_sql" => $parsed_sql,
     "analyzed_sql" => $analyzed_sql,
     "reload" => $reload,
     "drop_database" => $drop_database,
