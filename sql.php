@@ -345,18 +345,7 @@ if (isset($GLOBALS['show_as_php']) || ! empty($GLOBALS['validatequery'])) {
 
     // if a table or database gets dropped, check column comments.
     if (isset($_REQUEST['purge']) && $_REQUEST['purge'] == '1') {
-        /**
-         * Cleanup relations.
-         */
-        include_once 'libraries/relation_cleanup.lib.php';
-
-        if (strlen($table) && strlen($db)) {
-            PMA_relationsCleanupTable($db, $table);
-        } elseif (strlen($db)) {
-            PMA_relationsCleanupDatabase($db);
-        } else {
-            // VOID. No DB/Table gets deleted.
-        } // end if relation-stuff
+        PMA_cleanupRelations(isset($db) ? $db : '', isset($table) ? $table : '');
     } // end if ($purge)
 
 } // end else "didn't ask to see php code"

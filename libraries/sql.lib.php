@@ -1247,4 +1247,23 @@ function PMA_hasCurrentDbChanged($db)
     
     return $reload;
 }
+
+/**
+ * Function to cleanup relations when dropping a databse or table
+ * 
+ * @param type $db    current database
+ * @param type $table current table
+ * 
+ * @return void
+ */
+function PMA_cleanupRelations($db, $table)
+{
+    include_once 'libraries/relation_cleanup.lib.php';
+
+    if (strlen($table) && strlen($db)) {
+        PMA_relationsCleanupTable($db, $table);
+    } elseif (strlen($db)) {
+        PMA_relationsCleanupDatabase($db);
+    }
+}
 ?>
