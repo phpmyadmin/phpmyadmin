@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.5-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-06-24 10:43+0200\n"
-"PO-Revision-Date: 2013-06-24 15:47+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"PO-Revision-Date: 2013-07-01 20:27+0200\n"
+"Last-Translator: Jean Nunes <jeannunes@outlook.com>\n"
 "Language-Team: Portuguese (Brazil) "
 "<http://l10n.cihar.com/projects/phpmyadmin/4-0/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -5274,7 +5274,6 @@ msgid "Use only icons, only text or both"
 msgstr "Usar apenas ícones, apenas texto ou ambos"
 
 #: libraries/config/messages.inc.php:325
-#, fuzzy
 #| msgid "Iconic navigation bar"
 msgid "Table navigation bar"
 msgstr "Barra de navegação com ícones"
@@ -5346,14 +5345,13 @@ msgid "MySQL reserved word warning"
 msgstr "Aviso de palavra reservada do MySQL"
 
 #: libraries/config/messages.inc.php:339
-#, fuzzy
 #| msgid "Allow to display all the rows"
 msgid "How to display the menu tabs"
-msgstr "Permitir mostrar todas as linhas"
+msgstr "Como mostrar o menu com abas"
 
 #: libraries/config/messages.inc.php:341
 msgid "How to display various action links"
-msgstr ""
+msgstr "Como exibir vários links de ação"
 
 #: libraries/config/messages.inc.php:342
 msgid "Disallow BLOB and BINARY columns from editing"
@@ -8259,10 +8257,9 @@ msgstr ""
 "corrija o problema e tente novamente."
 
 #: libraries/plugins/import/ImportOds.class.php:182
-#, fuzzy
 #| msgid "OpenDocument Spreadsheet"
 msgid "Could not parse OpenDocument Spreadsheet!"
-msgstr "Planilha Open-Document"
+msgstr "Não foi possível gerar a planilha do OpenDocument!"
 
 #: libraries/plugins/import/ImportShp.class.php:53
 msgid "ESRI Shape File"
