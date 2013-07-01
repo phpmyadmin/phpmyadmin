@@ -212,7 +212,7 @@ $reload = PMA_hasCurrentDbChanged($db);
 list($result, $num_rows, $unlim_num_rows, $profiling_results,
     $justBrowsing, $extra_data
 ) = PMA_executeTheQuery(
-    $analyzed_sql_results, $full_sql_query, $is_gotofile, $goto, $db, $table,
+    $analyzed_sql_results, $full_sql_query, $is_gotofile, $db, $table,
     isset($find_real_end) ? $find_real_end : null,
     isset($import_text) ? $import_text : null, $cfg['Bookmark']['user'],
     isset($extra_data) ? $extra_data : null

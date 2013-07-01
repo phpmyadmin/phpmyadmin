@@ -1113,20 +1113,13 @@ function PMA_getDefaultSqlQueryForBrowse($db, $table)
  * Responds an error when an error happens when executing the query 
  * 
  * @param boolean $is_gotofile whether goto file or not
- * @param String  $goto        goto page url
- * @param String  $table       current table
  * @param String  $error       error after executing the query
  * 
  * @return void 
  */
-function PMA_handleQueryExecuteError($is_gotofile, $goto, $table, $error) {
+function PMA_handleQueryExecuteError($is_gotofile, $error) {
     if ($is_gotofile) {
-        if (strpos($goto, 'db_') === 0 && strlen($table)) {
-            $table = '';
-        }
-        $active_page = $goto;
         $message = PMA_Message::rawError($error);
-
         $response = PMA_Response::getInstance();
         $response->isSuccess(false);
         $response->addJSON('message', $message);
@@ -1396,7 +1389,6 @@ function PMA_countQueryResults($num_rows, $is_select, $justBrowsing,
  * @param array $analyzed_sql_results
  * @param String  $full_sql_query full sql query
  * @param boolean $is_gotofile    whether to go to a file
- * @param String  $goto           goto page url
  * @param String  $db             current database
  * @param String  $table          current table
  * @param boolean $find_real_end  whether to find the real end
@@ -1406,7 +1398,7 @@ function PMA_countQueryResults($num_rows, $is_select, $justBrowsing,
  * @return mixed
  */
 function PMA_executeTheQuery($analyzed_sql_results, $full_sql_query, $is_gotofile,
-    $goto, $db, $table, $find_real_end, $import_text, $bkm_user, $extra_data
+    $db, $table, $find_real_end, $import_text, $bkm_user, $extra_data
 ) {
     // Only if we ask to see the php code
     if (isset($GLOBALS['show_as_php']) || ! empty($GLOBALS['validatequery'])) {
@@ -1423,8 +1415,7 @@ function PMA_executeTheQuery($analyzed_sql_results, $full_sql_query, $is_gotofil
         // Displays an error message if required and stop parsing the script
         $error = $GLOBALS['dbi']->getError();
         if ($error) {
-            PMA_handleQueryExecuteError($is_gotofile, $goto, $table, $error
-            );
+            PMA_handleQueryExecuteError($is_gotofile, $error);
         }
   
         // If there are no errors and bookmarklabel was given,
