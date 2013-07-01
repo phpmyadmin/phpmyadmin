@@ -145,7 +145,11 @@ class PMA_Transformation_Test extends PHPUnit_Framework_TestCase
      * @return void
      */
     public function testGetMime()
-    {
+    {   
+        $_SESSION['relation'][$GLOBALS['server']]['commwork'] = true;
+        $_SESSION['relation'][$GLOBALS['server']]['db'] = "pmadb";
+        $_SESSION['relation'][$GLOBALS['server']]['column_info'] = "column_info";
+        $_SESSION['relation'][$GLOBALS['server']]['trackingwork'] = false;
         $this->assertEquals(
             array('o' => array(
                 'column_name' => 'o',

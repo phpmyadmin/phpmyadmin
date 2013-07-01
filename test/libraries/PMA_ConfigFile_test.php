@@ -21,8 +21,6 @@ class PMA_ConfigFile_Test extends PHPUnit_Framework_TestCase
 {
     protected $object;
 
-    protected $server;
-
     /**
      * Setup function for test cases
      *
@@ -31,10 +29,9 @@ class PMA_ConfigFile_Test extends PHPUnit_Framework_TestCase
      */
     protected function setUp()
     {
-        $GLOBALS['server'] = 1;
         $GLOBALS['cfg']['AvailableCharsets'] = array();
+        $GLOBALS['server'] = 1;
         $this->object = ConfigFile::getInstance();
-        $this->server = $GLOBALS['server'];
     }
 
     /**
@@ -45,7 +42,6 @@ class PMA_ConfigFile_Test extends PHPUnit_Framework_TestCase
     protected function tearDown()
     {
 
-        $GLOBALS['server'] = $this->server;
         unset($_SESSION[$this->readAttribute($this->object, "_id")]);
         unset($this->object);
     }
@@ -57,7 +53,11 @@ class PMA_ConfigFile_Test extends PHPUnit_Framework_TestCase
      * @test
      */
     public function testConfigFileConstructor()
-    {
+    {   
+        $attr_instance = new ReflectionProperty("ConfigFile", "_instance");
+        $attr_instance->setAccessible(true);
+        $attr_instance->setValue(null, null);
+        $this->object = ConfigFile::getInstance();
         $cfg = $this->readAttribute($this->object, '_cfg');
 
         $this->assertEquals(
@@ -83,11 +83,11 @@ class PMA_ConfigFile_Test extends PHPUnit_Framework_TestCase
 
         $this->assertEquals(
             array(),
-            $_SESSION["ConfigFile" . $GLOBALS['server']]
+            $_SESSION["ConfigFile1"]
         );
 
         $this->assertAttributeEquals(
-            "ConfigFile" . $GLOBALS['server'],
+            "ConfigFile1",
             "_id",
             $this->object
         );
