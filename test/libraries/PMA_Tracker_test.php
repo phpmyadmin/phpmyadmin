@@ -403,13 +403,11 @@ class PMA_Tracker_Test extends PHPUnit_Framework_TestCase
         $dbi->expects($this->any())->method('query')
             ->will($this->returnValueMap($queryResults));
 
-        $origDbi = $GLOBALS['dbi'];
         $GLOBALS['dbi'] = $dbi;
         $this->assertEquals(
             'executed',
             PMA_Tracker::createVersion('pma_test', 'pma_tbl', '1', '11', true)
         );
-        $GLOBALS['dbi'] = $origDbi;
     }
 
     /**
@@ -438,13 +436,11 @@ class PMA_Tracker_Test extends PHPUnit_Framework_TestCase
             ->with($sql_query)
             ->will($this->returnValue('executed'));
 
-        $origDbi = $GLOBALS['dbi'];
         $GLOBALS['dbi'] = $dbi;
         $this->assertEquals(
             PMA_Tracker::deleteTracking("testdb", "testtable"),
             'executed'
         );
-        $GLOBALS['dbi'] = $origDbi;
     }
 
     /**
@@ -492,14 +488,11 @@ class PMA_Tracker_Test extends PHPUnit_Framework_TestCase
             ->with($expectedMainQuery, null, 0, false)
             ->will($this->returnValue("executed"));
 
-
-        $origDbi = $GLOBALS['dbi'];
         $GLOBALS['dbi'] = $dbi;
         $this->assertEquals(
             'executed',
             PMA_Tracker::createDatabaseVersion('pma_test', '1', 'SHOW DATABASES')
         );
-        $GLOBALS['dbi'] = $origDbi;
     }
 
     /**
@@ -541,7 +534,6 @@ class PMA_Tracker_Test extends PHPUnit_Framework_TestCase
             ->with($sql_query, null, 0, false)
             ->will($this->returnValue("executed"));
 
-        $origDbi = $GLOBALS['dbi'];
         $GLOBALS['dbi'] = $dbi;
 
         if ($type == null) {
@@ -564,7 +556,6 @@ class PMA_Tracker_Test extends PHPUnit_Framework_TestCase
             'executed',
             $result
         );
-        $GLOBALS['dbi'] = $origDbi;
     }
 
     /**
@@ -625,7 +616,6 @@ class PMA_Tracker_Test extends PHPUnit_Framework_TestCase
             ->with($sql_query_2, null, 0, false)
             ->will($this->returnValue("executed_2"));
 
-        $origDbi = $GLOBALS['dbi'];
         $GLOBALS['dbi'] = $dbi;
 
         $this->assertEquals(
@@ -649,7 +639,6 @@ class PMA_Tracker_Test extends PHPUnit_Framework_TestCase
                 $new_data
             )
         );
-        $GLOBALS['dbi'] = $origDbi;
     }
 
     /**
@@ -726,7 +715,6 @@ class PMA_Tracker_Test extends PHPUnit_Framework_TestCase
             ->with("executed_2")
             ->will($this->returnValue(array()));
 
-        $origDbi = $GLOBALS['dbi'];
         $GLOBALS['dbi'] = $dbi;
 
         // first assertion
@@ -741,8 +729,6 @@ class PMA_Tracker_Test extends PHPUnit_Framework_TestCase
             -1,
             PMA_Tracker::getVersion("pma'db", "pma'table", "UPDATE")
         );
-
-        $GLOBALS['dbi'] = $origDbi;
     }
 
     /**
@@ -786,7 +772,6 @@ class PMA_Tracker_Test extends PHPUnit_Framework_TestCase
             ->with("executed_1")
             ->will($this->returnValue($fetchArrayReturn));
 
-        $origDbi = $GLOBALS['dbi'];
         $GLOBALS['dbi'] = $dbi;
         $result = PMA_Tracker::getTrackedData("pma'db", "pma'table", "1.0");
 
@@ -794,7 +779,6 @@ class PMA_Tracker_Test extends PHPUnit_Framework_TestCase
             $expectedArray,
             $result
         );
-        $GLOBALS['dbi'] = $origDbi;
     }
 
     /**
