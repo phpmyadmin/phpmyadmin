@@ -1243,7 +1243,7 @@ function PMA_hasCurrentDbChanged($db)
  * 
  * @param String $db             current database
  * @param String $table          current table
- * @param String $dropped_column current table
+ * @param String $dropped_column dropped column if any
  * @param bool   $purge
  * @param array  $extra_data
  * 
