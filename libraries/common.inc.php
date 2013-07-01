@@ -35,8 +35,8 @@
  * Minimum PHP version; can't call PMA_fatalError() which uses a
  * PHP 5 function, so cannot easily localize this message.
  */
-if (version_compare(PHP_VERSION, '5.2.0', 'lt')) {
-    die('PHP 5.2+ is required');
+if (version_compare(PHP_VERSION, '5.3.0', 'lt')) {
+    die('PHP 5.3+ is required');
 }
 
 /**
