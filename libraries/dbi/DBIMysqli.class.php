@@ -86,12 +86,11 @@ class PMA_DBI_Mysqli implements PMA_DBI_Extension
     ) {
         global $cfg;
 
-        // mysqli persistent connections only on PHP 5.3+
-        if (PMA_PHP_INT_VERSION >= 50300) {
-            if ($cfg['PersistentConnections'] || $persistent) {
-                $host = 'p:' . $host;
-            }
+        // mysqli persistent connections
+        if ($cfg['PersistentConnections'] || $persistent) {
+            $host = 'p:' . $host;
         }
+
         if ($client_flags === null) {
             return @mysqli_real_connect(
                 $link,
@@ -691,10 +690,6 @@ class PMA_DBI_Mysqli implements PMA_DBI_Extension
      */
     public function fieldFlags($result, $i)
     {
-        // This is missing from PHP 5.2.5, see http://bugs.php.net/bug.php?id=44846
-        if (! defined('MYSQLI_ENUM_FLAG')) {
-            define('MYSQLI_ENUM_FLAG', 256); // see MySQL source include/mysql_com.h
-        }
         $f = mysqli_fetch_field_direct($result, $i);
         $type = $f->type;
         $charsetnr = $f->charsetnr;

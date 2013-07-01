@@ -42,7 +42,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 Requirements
 ------------
 
-* PHP 5.2 or later
+* PHP 5.3 or later
 * MySQL 5.0 or later
 * a web-browser (doh!)
 
