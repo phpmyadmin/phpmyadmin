@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.5-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-06-24 10:43+0200\n"
-"PO-Revision-Date: 2013-05-07 15:03+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"PO-Revision-Date: 2013-07-01 02:18+0200\n"
+"Last-Translator: Hamid Rohani <tazzeh2004@yahoo.com>\n"
 "Language-Team: Persian <http://l10n.cihar.com/projects/phpmyadmin/4-0/fa/>\n"
 "Language: fa\n"
 "MIME-Version: 1.0\n"
@@ -35,9 +35,9 @@ msgid ""
 "parent window, or your browser's security settings are configured to block "
 "cross-window updates."
 msgstr ""
-"پنجره مرورگر ویندوز توانایی به روز شدن ندارد. شاید شما پنجره مادر را بسته "
-"اید ، یا تنظیمات امنیتی مرورگر شما طوری تنظیم شده که از به روز رسانی جلوگیری "
-"می کند."
+"پنجره مرورگر هدف توانایی به روز شدن ندارد. شاید شما پنجره والد را بسته‌اید، "
+"یا تنظیمات امنیتی مرورگر شما طوری تنظیم شده که از به روز رسانی بین پنجره‌ها "
+"جلوگیری می‌کند."
 
 #: browse_foreigners.php:182 libraries/Menu.class.php:280
 #: libraries/Menu.class.php:365 libraries/Util.class.php:3245
@@ -617,7 +617,7 @@ msgstr ""
 "فیلد \"مقدار(value)\" وارد کنید"
 
 #: import.php:107
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "You probably tried to upload too large file. Please refer to "
 #| "%sdocumentation%s for ways to workaround this limit."
@@ -625,7 +625,7 @@ msgid ""
 "You probably tried to upload a file that is too large. Please refer to "
 "%sdocumentation%s for a workaround for this limit."
 msgstr ""
-"احتمالاً شما سعی کردید یک فایل حجیم را اپلور کنید.لطفاً برای راهکار در مورد "
+"احتمالاً شما سعی کردید یک فایل حجیم را آپلود کنید. لطفاً برای راهکار در مورد "
 "این محدودیت به%sنوشتار%s مراجعه کنید."
 
 #: import.php:250 import.php:516
@@ -710,7 +710,7 @@ msgstr "بازگشت"
 
 #: index.php:113
 msgid "General Settings"
-msgstr ""
+msgstr "تنظیمات عمومی"
 
 #: index.php:143 libraries/display_change_password.lib.php:46
 #: user_password.php:233
@@ -719,21 +719,20 @@ msgstr "تغيير کلمه ی عبور"
 
 #: index.php:159
 msgid "Server connection collation"
-msgstr ""
+msgstr "collation اتصال سرور"
 
 #: index.php:185
 msgid "Appearance Settings"
-msgstr ""
+msgstr "تنظیمات ظاهر"
 
 #: index.php:215 prefs_manage.php:275
 msgid "More settings"
-msgstr ""
+msgstr "تظیمات بیشتر"
 
 #: index.php:236
-#, fuzzy
 #| msgid "Databases"
 msgid "Database server"
-msgstr "پايگاههاي داده"
+msgstr "سرور پایگاه داده"
 
 #: index.php:239 libraries/Menu.class.php:159
 #: libraries/ServerStatusData.class.php:339 libraries/common.inc.php:661
@@ -742,10 +741,9 @@ msgid "Server"
 msgstr "سرور"
 
 #: index.php:243
-#, fuzzy
 #| msgid "Server port"
 msgid "Server type"
-msgstr "پورت سرور"
+msgstr "نوع سرور"
 
 #: index.php:247 libraries/plugins/export/ExportLatex.class.php:225
 #: libraries/plugins/export/ExportSql.class.php:612
@@ -755,7 +753,7 @@ msgstr "نسخه سرور"
 
 #: index.php:251
 msgid "Protocol version"
-msgstr ""
+msgstr "نسخه پروتکل"
 
 #: index.php:255 libraries/server_privileges.lib.php:1566
 #: libraries/server_privileges.lib.php:2378
@@ -765,34 +763,30 @@ msgid "User"
 msgstr "كاربر"
 
 #: index.php:260
-#, fuzzy
 #| msgid "Remove database"
 msgid "Server charset"
-msgstr "حذف پایگاه داده"
+msgstr "charset سرور"
 
 #: index.php:272
 msgid "Web server"
-msgstr ""
+msgstr "وب سرور"
 
 #: index.php:285
-#, fuzzy
 #| msgid "Database comment: "
 msgid "Database client version"
-msgstr "توضيحات پایگاه داده:"
+msgstr "نسخه client پایگاه داده"
 
 #: index.php:289
-#, fuzzy
 msgid "PHP extension"
-msgstr "نسخه PHP"
+msgstr "الحاقیه PHP"
 
 #: index.php:303
 msgid "Show PHP information"
 msgstr "نمايش اطلاعات PHP"
 
 #: index.php:326 libraries/engines/bdb.lib.php:25
-#, fuzzy
 msgid "Version information"
-msgstr "اطلاعات ورود"
+msgstr "اطلاعات نسخه"
 
 #: index.php:335 libraries/Util.class.php:444 libraries/Util.class.php:530
 #: libraries/config/FormDisplay.tpl.php:145
@@ -811,18 +805,17 @@ msgid "Official Homepage"
 msgstr "صفحه خانه رسمي phpMyAdmin"
 
 #: index.php:358
-#, fuzzy
 #| msgid "Attributes"
 msgid "Contribute"
-msgstr "ويژگيها"
+msgstr "همکاری"
 
 #: index.php:365
 msgid "Get support"
-msgstr ""
+msgstr "پشتیبانی گرفتن"
 
 #: index.php:372
 msgid "List of changes"
-msgstr ""
+msgstr "لیست تغییرات"
 
 #: index.php:395
 msgid ""
@@ -831,9 +824,10 @@ msgid ""
 "running with this default, is open to intrusion, and you really should fix "
 "this security hole by setting a password for user 'root'."
 msgstr ""
-"پرونده پيكربندي شما حاوي تنظيماتي است (كاربر root بدون اسم رمز) كه مرتبط با "
-"حساب پيش‌فرض MySQL مي‌باشد. اجراي MySQL با اين پيش‌فرض باعث ورود غيرمجاز "
-"مي‌شود ، و شما بايد اين حفره امنيتي را ذرست كنيد."
+"پرونده پيكربندی شما حاوي تنظيماتی است (كاربر root بدون اسم رمز) كه مرتبط با "
+"حساب پيش‌فرض MySQL می‌باشد. اجراي MySQL با اين پيش‌فرض باعث ورود غيرمجاز "
+"می‌شود، و شما بايد اين حفره امنيتي را با قرار دادن یک اسم رمز برای کاربر "
+"'root' درست كنيد."
 
 #: index.php:406
 msgid ""
@@ -1066,9 +1060,9 @@ msgid ""
 "likely that your current configuration will not work anymore. Please reset "
 "your configuration to default in the <i>Settings</i> menu."
 msgstr ""
-"تنظیمات نمودار در بروزر شما با ورژن جدید دایلوگ مانیتور سازگار نیست. احتمالا "
-"تنظیمات فعلی شما دیگر کار نکند.لطفا از منوی تنظیمات تنظیمات خود را به حالت "
-"اولیه برگردانید."
+"تنظیمات ترتیب نمودار در ذخیره سازی محلی مرورگرهای شما دیگر با ورژن جدید "
+"monitor dialog سازگار نیست. احتمالاً تنظیمات فعلی شما دیگر کار نکند. لطفاً "
+"از منوی <i>تنظیمات</i> تنظیمات خود را به حالت اولیه برگردانید."
 
 #: js/messages.php:82
 msgid "Query cache efficiency"
@@ -11816,7 +11810,7 @@ msgstr "اسم فهرست&nbsp;:"
 #: tbl_indexes.php:214
 msgid ""
 "(\"PRIMARY\" <b>must</b> be the name of and <b>only of</b> a primary key!)"
-msgstr "(فقط و فقط بايد \"PRIMARY\" نام يك كليد اصلي باشد!)"
+msgstr "(\"PRIMARY\" فقط <b>بايد</b> نام <b>يك</b> كليد اصلي باشد!)"
 
 #: tbl_indexes.php:234
 #, fuzzy
@@ -13207,9 +13201,8 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:464
-#, fuzzy
 msgid "concurrent_insert is set to 0"
-msgstr "مقدار concurrent_insert  صفر میباشد"
+msgstr "مقدار concurrent_insert صفر شده است"
 
 #~ msgid "Cookies must be enabled past this point."
 #~ msgstr "از اینجا نیاز به فعال سازی کوکی ها دارید."
