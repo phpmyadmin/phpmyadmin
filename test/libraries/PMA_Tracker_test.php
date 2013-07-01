@@ -10,6 +10,7 @@
  * Include to test.
  */
 require_once 'libraries/Tracker.class.php';
+require_once 'libraries/Util.class.php';
 
 /**
  * Tests for Tracking changes on databases, tables and views
@@ -21,7 +22,7 @@ class PMA_Tracker_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Setup function for test cases
-     * 
+     *
      * @access protected
      * @return void
      */
@@ -55,7 +56,7 @@ class PMA_Tracker_Test extends PHPUnit_Framework_TestCase
 
     /**
      * tearDown function for test cases
-     * 
+     *
      * @access protected
      * @return void
      */
@@ -68,7 +69,7 @@ class PMA_Tracker_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for PMA_Tracker::init()
-     * 
+     *
      * @return void
      * @test
      */
@@ -132,12 +133,12 @@ class PMA_Tracker_Test extends PHPUnit_Framework_TestCase
     }
     /**
      * Test for PMA_Tracker::enable
-     * 
+     *
      * @return void
      * @test
      */
     public function testEnabled()
-    {   
+    {
         PMA_Tracker::enable();
         $this->assertTrue(
             PHPUnit_Framework_Assert::readAttribute("PMA_Tracker", 'enabled')
@@ -146,7 +147,7 @@ class PMA_Tracker_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for PMA_Tracker::isActive()
-     * 
+     *
      * @return void
      * @test
      */
@@ -159,7 +160,7 @@ class PMA_Tracker_Test extends PHPUnit_Framework_TestCase
         $this->assertFalse(
             PMA_Tracker::isActive()
         );
-        
+
         PMA_Tracker::enable();
 
         $_SESSION['relation'][$GLOBALS['server']] = array(
@@ -182,10 +183,10 @@ class PMA_Tracker_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for PMA_Tracker::getTableName()
-     * 
+     *
      * @param string $string   String to test against
      * @param string $expected Expected Table Name
-     * 
+     *
      * @return void
      * @test
      * @dataProvider getTableNameData
@@ -204,9 +205,9 @@ class PMA_Tracker_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Data Provider for testGetTableName
-     * 
+     *
      * @return array Test data
-     * 
+     *
      */
     public function getTableNameData()
     {
@@ -219,7 +220,7 @@ class PMA_Tracker_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for PMA_Tracker::isTracked()
-     * 
+     *
      * @return void
      * @test
      */
@@ -233,20 +234,20 @@ class PMA_Tracker_Test extends PHPUnit_Framework_TestCase
         $reflection = new \ReflectionProperty('PMA_Tracker', 'pma_table');
         $reflection->setAccessible(true);
         $reflection->setValue(null, 'pma_table_tracking');
-        
+
         $this->assertFalse(
             PMA_Tracker::isTracked("", "")
         );
-        
+
         PMA_Tracker::enable();
-        
+
         $trackingwork = $_SESSION['relation'][$GLOBALS['server']]['trackingwork'];
         $_SESSION['relation'][$GLOBALS['server']]['trackingwork'] = false;
-        
+
         $this->assertFalse(
             PMA_Tracker::isTracked("", "")
         );
-        
+
         $_SESSION['relation'][$GLOBALS['server']]['trackingwork'] = true;
 
         $this->assertTrue(
@@ -264,7 +265,7 @@ class PMA_Tracker_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for PMA_Tracker::getLogComment()
-     * 
+     *
      * @return void
      * @test
      */
@@ -272,7 +273,7 @@ class PMA_Tracker_Test extends PHPUnit_Framework_TestCase
     {
         $date = date('Y-m-d H:i:s');
         $GLOBALS['cfg']['Server']['user'] = "pma_test_user";
-        
+
         $this->assertEquals(
             "# log $date pma_test_user\n",
             PMA_Tracker::getLogComment()
@@ -281,7 +282,7 @@ class PMA_Tracker_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for PMA_Tracker::createVersion()
-     * 
+     *
      * @return void
      * @test
      */
@@ -290,7 +291,7 @@ class PMA_Tracker_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['Server']['tracking_add_drop_table'] = true;
         $GLOBALS['cfg']['Server']['tracking_add_drop_view'] = true;
         $GLOBALS['cfg']['Server']['user'] = "pma_test_user";
-        
+
         $reflection = new \ReflectionClass('PMA_Tracker');
         $method = $reflection->getMethod('init');
         $method->setAccessible(true);
@@ -298,14 +299,14 @@ class PMA_Tracker_Test extends PHPUnit_Framework_TestCase
         $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
-        
+
         /**
          * set up mock objects
          * passing null to with() for an argument is equivalent
          * to passing $this->anything()
          */
-        
-        
+
+
         $getColumnsResult = array(
             array(
                 'Field' => 'field1',
@@ -316,7 +317,7 @@ class PMA_Tracker_Test extends PHPUnit_Framework_TestCase
                 'Field' => 'field2',
                 'Type' => 'text',
                 'Key' => ''
-            )            
+            )
         );
         $dbi->expects($this->once())->method('getColumns')
             ->with('pma_test', 'pma_tbl')
@@ -327,7 +328,7 @@ class PMA_Tracker_Test extends PHPUnit_Framework_TestCase
                 'Table' => 'pma_tbl',
                 'Field' => 'field1',
                 'Key' => 'PRIMARY'
-            )            
+            )
         );
         $dbi->expects($this->once())->method('getTableIndexes')
             ->with('pma_test', 'pma_tbl')
@@ -339,7 +340,7 @@ class PMA_Tracker_Test extends PHPUnit_Framework_TestCase
                 'Rows' => '1',
                 'Create_time' => '2013-02-22 02:04:04',
                 'Update_time' => '2013-02-22 21:46:48'
-            )            
+            )
         );
         $dbi->expects($this->any())->method('tryQuery')
             ->with($this->equalTo("SHOW CREATE TABLE `pma_test`.`pma_tbl`"))
@@ -351,11 +352,11 @@ class PMA_Tracker_Test extends PHPUnit_Framework_TestCase
                     )"
                 )
             );
-        
+
 
         $date = date('Y-m-d H:i:s');
-        
-        $expectedMainQuery = "/*NOTRACK*/" .  
+
+        $expectedMainQuery = "/*NOTRACK*/" .
         "\nINSERT INTO. (db_name, table_name, version, date_created, date_updated," .
         " schema_snapshot, schema_sql, data_sql, tracking ) values (
         'pma_test',
@@ -365,21 +366,21 @@ class PMA_Tracker_Test extends PHPUnit_Framework_TestCase
         '". $date ."',
         'a:2:{s:7:\"COLUMNS\";a:2:{".
         "i:0;a:3:{s:5:\"Field\";s:6:\"field1\";s:4:\"Type\";s:7:\"int(11)\";" .
-        "s:3:\"Key\";s:3:\"PRI\";}" . 
+        "s:3:\"Key\";s:3:\"PRI\";}" .
         "i:1;a:3:{s:5:\"Field\";s:6:\"field2\";s:4:\"Type\";s:4:\"text\";" .
-        "s:3:\"Key\";s:0:\"\";}}" . 
+        "s:3:\"Key\";s:0:\"\";}}" .
         "s:7:\"INDEXES\";a:1:{" .
         "i:0;a:3:{s:5:\"Table\";s:7:\"pma_tbl\";s:5:\"Field\";s:6:\"field1\";" .
         "s:3:\"Key\";s:7:\"PRIMARY\";}}}',
         '# log ". $date ." pma_test_user" .
         "\nDROP VIEW IF EXISTS `pma_tbl`;" .
         "\n# log ". $date ." pma_test_user" .
-        "\n\n;" . 
+        "\n\n;" .
         "\n',
-        '" . 
+        '" .
         "\n',
         '11' )";
-        
+
         $GLOBALS['controllink'] = null;
 
         $queryResults = array(
@@ -398,10 +399,10 @@ class PMA_Tracker_Test extends PHPUnit_Framework_TestCase
                 'executed'
             )
         );
-        
+
         $dbi->expects($this->any())->method('query')
             ->will($this->returnValueMap($queryResults));
-        
+
         $origDbi = $GLOBALS['dbi'];
         $GLOBALS['dbi'] = $dbi;
         $this->assertEquals(
@@ -413,7 +414,7 @@ class PMA_Tracker_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for PMA_Tracker::deleteTracking()
-     * 
+     *
      * @return void
      * @test
      */
@@ -436,7 +437,7 @@ class PMA_Tracker_Test extends PHPUnit_Framework_TestCase
             ->method('query')
             ->with($sql_query)
             ->will($this->returnValue('executed'));
-        
+
         $origDbi = $GLOBALS['dbi'];
         $GLOBALS['dbi'] = $dbi;
         $this->assertEquals(
@@ -448,7 +449,7 @@ class PMA_Tracker_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for PMA_Tracker::createDatabaseVersion()
-     * 
+     *
      * @return void
      * @test
      */
@@ -457,7 +458,7 @@ class PMA_Tracker_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['Server']['tracking_add_drop_table'] = true;
         $GLOBALS['cfg']['Server']['tracking_add_drop_view'] = true;
         $GLOBALS['cfg']['Server']['user'] = "pma_test_user";
-        
+
         $reflection = new \ReflectionClass('PMA_Tracker');
         $method = $reflection->getMethod('init');
         $method->setAccessible(true);
@@ -466,10 +467,10 @@ class PMA_Tracker_Test extends PHPUnit_Framework_TestCase
         $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
-        
+
         $date = date('Y-m-d H:i:s');
-        
-        $expectedMainQuery = "/*NOTRACK*/" .  
+
+        $expectedMainQuery = "/*NOTRACK*/" .
         "\nINSERT INTO. (db_name, table_name, version, date_created, date_updated," .
         " schema_snapshot, schema_sql, data_sql, tracking ) values (
         'pma_test',
@@ -480,18 +481,18 @@ class PMA_Tracker_Test extends PHPUnit_Framework_TestCase
         '',
         '# log ". $date ." pma_test_user" .
         "\nSHOW DATABASES',
-        '" . 
+        '" .
         "\n',
         'CREATE DATABASE,ALTER DATABASE,DROP DATABASE' )";
 
         $GLOBALS['controllink'] = null;
-        
+
         $dbi->expects($this->exactly(1))
             ->method('query')
             ->with($expectedMainQuery, null, 0, false)
             ->will($this->returnValue("executed"));
-        
-        
+
+
         $origDbi = $GLOBALS['dbi'];
         $GLOBALS['dbi'] = $dbi;
         $this->assertEquals(
@@ -502,23 +503,23 @@ class PMA_Tracker_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_Tracker::changeTracking(). This test is also invoked by two 
+     * Test for PMA_Tracker::changeTracking(). This test is also invoked by two
      * other tests: testActivateTracking() and testDeactivateTracking()
-     * 
+     *
      * @param string $dbname    Database name
      * @param string $tablename Table name
      * @param string $version   Version
      * @param string $new_state State to change to
      * @param string $type      Type of test
-     * 
+     *
      * @return void
-     * 
+     *
      * @test
-     * 
+     *
      */
     public function testChangeTracking($dbname = 'pma_db', $tablename = 'pma_tbl',
         $version = '0.1', $new_state = '1', $type = null
-    ) {   
+    ) {
         $reflection = new \ReflectionProperty('PMA_Tracker', 'pma_table');
         $reflection->setAccessible(true);
         $reflection->setValue(null, 'pma_table_tracking');
@@ -542,7 +543,7 @@ class PMA_Tracker_Test extends PHPUnit_Framework_TestCase
 
         $origDbi = $GLOBALS['dbi'];
         $GLOBALS['dbi'] = $dbi;
-        
+
         if ($type == null) {
             $method = new \ReflectionMethod('PMA_Tracker', '_changeTracking');
             $method->setAccessible(true);
@@ -561,14 +562,14 @@ class PMA_Tracker_Test extends PHPUnit_Framework_TestCase
 
         $this->assertEquals(
             'executed',
-            $result    
+            $result
         );
         $GLOBALS['dbi'] = $origDbi;
     }
 
     /**
      * Test for PMA_Tracker::testChangeTrackingData()
-     * 
+     *
      * @return void
      * @test
      */
@@ -595,7 +596,7 @@ class PMA_Tracker_Test extends PHPUnit_Framework_TestCase
         " AND `version` = '1.0' ";
 
         $date  = date('Y-m-d H:i:s');
-         
+
         $new_data = array(
             array(
                 'username' => 'user1',
@@ -653,7 +654,7 @@ class PMA_Tracker_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for PMA_Tracker::activateTracking()
-     * 
+     *
      * @return void
      * @test
      */
@@ -664,7 +665,7 @@ class PMA_Tracker_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for PMA_Tracker::deactivateTracking()
-     * 
+     *
      * @return void
      * @test
      */
@@ -675,7 +676,7 @@ class PMA_Tracker_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for PMA_Tracker::getVersion()
-     * 
+     *
      * @return void
      * @test
      */
@@ -688,15 +689,15 @@ class PMA_Tracker_Test extends PHPUnit_Framework_TestCase
         $reflection = new \ReflectionProperty('PMA_Tracker', 'pma_table');
         $reflection->setAccessible(true);
         $reflection->setValue(null, 'pma_table_tracking');
-        
+
         runkit_constant_redefine("PMA_DRIZZLE", true);
 
         $sql_query = " SELECT MAX(version) FROM pma_table_tracking" .
         " WHERE `db_name` = 'pma''db' " .
         " AND `table_name` = 'pma''table' ";
-        
+
         $sql_query_drizzle = ' AND tracking & 1 <> 0';
-        
+
         $sql_query_non_drizzle = " AND FIND_IN_SET('UPDATE',tracking) > 0" ;
 
         $GLOBALS['controllink'] = null;
@@ -724,7 +725,7 @@ class PMA_Tracker_Test extends PHPUnit_Framework_TestCase
             ->method('fetchArray')
             ->with("executed_2")
             ->will($this->returnValue(array()));
-        
+
         $origDbi = $GLOBALS['dbi'];
         $GLOBALS['dbi'] = $dbi;
 
@@ -740,16 +741,16 @@ class PMA_Tracker_Test extends PHPUnit_Framework_TestCase
             -1,
             PMA_Tracker::getVersion("pma'db", "pma'table", "UPDATE")
         );
-    
+
         $GLOBALS['dbi'] = $origDbi;
     }
 
     /**
      * Test for PMA_Tracker::getTrackedData()
-     * 
+     *
      * @param array $fetchArrayReturn Value to be returned by mocked fetchArray
      * @param array $expectedArray    Expected array
-     * 
+     *
      * @return void
      * @test
      * @dataProvider getTrackedDataProvider
@@ -790,7 +791,7 @@ class PMA_Tracker_Test extends PHPUnit_Framework_TestCase
         $result = PMA_Tracker::getTrackedData("pma'db", "pma'table", "1.0");
 
         $this->assertEquals(
-            $expectedArray, 
+            $expectedArray,
             $result
         );
         $GLOBALS['dbi'] = $origDbi;
@@ -798,11 +799,11 @@ class PMA_Tracker_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Data provider for testGetTrackedData
-     * 
+     *
      * @return array Test data
      */
     public function getTrackedDataProvider()
-    {   
+    {
         $fetchArrayReturn[0] = array(
             "schema_sql" => "# log 20-03-2013 23:33:58 user1\nstat1" .
             "# log 20-03-2013 23:39:58 user2\n",
@@ -878,24 +879,24 @@ class PMA_Tracker_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for PMA_Tracker::parseQuery
-     * 
+     *
      * @param string $query                  Query to parse
      * @param string $type                   Expected type
      * @param string $identifier             Expected identifier
      * @param string $tablename              Expected tablename
      * @param string $db                     Expected dbname
      * @param string $tablename_after_rename Expected name after rename
-     * 
+     *
      * @return void
-     * 
+     *
      * @test
      * @dataProvider parseQueryData
      */
     public function testParseQuery($query, $type, $identifier, $tablename,
         $db = null, $tablename_after_rename = null
-    ) {   
+    ) {
         $result = PMA_Tracker::parseQuery($query);
-        
+
         $this->assertEquals(
             $type,
             $result['type']
@@ -925,10 +926,10 @@ class PMA_Tracker_Test extends PHPUnit_Framework_TestCase
             );
         }
     }
-    
+
     /**
      * Data provider for testParseQuery
-     * 
+     *
      * @return array Test data
      */
     public function parseQueryData()
@@ -1062,12 +1063,12 @@ class PMA_Tracker_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for PMA_Tracker::_transformTrackingSet
-     * 
+     *
      * @return void
      * @test
      */
     public function testTransformTrackingSet()
-    {   
+    {
         if (!function_exists("runkit_constant_redefine")) {
             $this->markTestSkipped("Cannot redefine constant");
         }
@@ -1075,7 +1076,7 @@ class PMA_Tracker_Test extends PHPUnit_Framework_TestCase
         runkit_constant_redefine("PMA_DRIZZLE", true);
 
         $method = new \ReflectionMethod("PMA_Tracker", "_transformTrackingSet");
-        $method->setAccessible(true);   
+        $method->setAccessible(true);
 
         $this->assertEquals(
             $method->invoke(null, "CREATE DATABASE,ALTER DATABASE,DROP DATABASE"),
