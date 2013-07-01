@@ -1294,7 +1294,7 @@ function PMA_cleanupRelations($db, $table, $dropped_column, $purge, $extra_data)
 function PMA_countQueryResults($num_rows, $is_select, $justBrowsing,
     $db, $table, $parsed_sql, $analyzed_sql_results
 ) {
-    if (PMA_isAppendLimitClause($analyzed_sql_results))
+    if (!PMA_isAppendLimitClause($analyzed_sql_results))
     {
         // if we did not append a limit, set this to get a correct
         // "Showing rows..." message
