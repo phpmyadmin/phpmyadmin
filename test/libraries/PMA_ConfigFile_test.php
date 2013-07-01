@@ -10,6 +10,7 @@
  * Include to test.
  */
 require_once 'libraries/config/ConfigFile.class.php';
+require_once 'libraries/php-gettext/gettext.inc';
 
 /**
  * Tests for Config File Management
@@ -21,10 +22,10 @@ class PMA_ConfigFile_Test extends PHPUnit_Framework_TestCase
     protected $object;
 
     protected $server;
-    
+
     /**
      * Setup function for test cases
-     * 
+     *
      * @access protected
      * @return void
      */
@@ -37,7 +38,7 @@ class PMA_ConfigFile_Test extends PHPUnit_Framework_TestCase
 
     /**
      * TearDown function for test cases
-     * 
+     *
      * @return void
      */
     protected function tearDown()
@@ -49,13 +50,13 @@ class PMA_ConfigFile_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for new ConfigFile() 
-     * 
+     * Test for new ConfigFile()
+     *
      * @return void
      * @test
      */
     public function testConfigFileConstructor()
-    {   
+    {
         $cfg = $this->readAttribute($this->object, '_cfg');
 
         $this->assertEquals(
@@ -93,8 +94,8 @@ class PMA_ConfigFile_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for ConfigFile::getInstance() 
-     * 
+     * Test for ConfigFile::getInstance()
+     *
      * @return void
      * @test
      */
@@ -107,8 +108,8 @@ class PMA_ConfigFile_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for ConfigFile::getOrgConfigObj() 
-     * 
+     * Test for ConfigFile::getOrgConfigObj()
+     *
      * @return void
      * @test
      */
@@ -121,8 +122,8 @@ class PMA_ConfigFile_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for ConfigFile::setPersistKeys() 
-     * 
+     * Test for ConfigFile::setPersistKeys()
+     *
      * @return void
      * @test
      */
@@ -137,7 +138,7 @@ class PMA_ConfigFile_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for ConfigFile::getPersistKeysMap
-     * 
+     *
      * @return void
      * @test
      */
@@ -151,7 +152,7 @@ class PMA_ConfigFile_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for ConfigFile::setAllowedKeys
-     * 
+     *
      * @return void
      * @test
      */
@@ -172,7 +173,7 @@ class PMA_ConfigFile_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for ConfigFile::setCfgUpdateReadMapping
-     * 
+     *
      * @return void
      * @test
      */
@@ -187,7 +188,7 @@ class PMA_ConfigFile_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for ConfigFile::resetConfigData
-     * 
+     *
      * @return void
      * @test
      */
@@ -206,7 +207,7 @@ class PMA_ConfigFile_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for ConfigFile::setConfigData
-     * 
+     *
      * @return void
      * @test
      */
@@ -224,7 +225,7 @@ class PMA_ConfigFile_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for ConfigFile::set
-     * 
+     *
      * @return void
      * @test
      */
@@ -244,10 +245,10 @@ class PMA_ConfigFile_Test extends PHPUnit_Framework_TestCase
 
         $attrCfgObject = $reflection->getProperty('_orgCfgObject');
         $attrCfgObject->setAccessible(true);
-        
+
         $attrConfigProperty = new \ReflectionProperty("PMA_Config", "settings");
         $attrConfigProperty->setAccessible(true);
-        
+
         /**
          * Case 1
          */
@@ -263,16 +264,16 @@ class PMA_ConfigFile_Test extends PHPUnit_Framework_TestCase
         $this->object->setPersistKeys(array("Servers/1/test" => 1));
         $attrSetFilter->setValue($this->object, array("Servers/1/test" => 1));
         $this->object->set("Servers/42/test", "val");
-        
+
         $expectedArr = array("Servers" => array("42" => array("test" => "val")));
-        
+
         $this->assertEquals(
             $expectedArr,
             $_SESSION[$this->readAttribute($this->object, "_id")]
         );
 
         $expectedArr = array("Servers" => array("42" => "val"));
-        
+
         /**
          * Case 3
          */
@@ -291,7 +292,7 @@ class PMA_ConfigFile_Test extends PHPUnit_Framework_TestCase
             $pma_setup = PMA_SETUP;
             runkit_constant_redefine('PMA_SETUP', true);
         }
-        
+
         $this->object->setPersistKeys(array("Servers/42" => 1));
         $this->object->set("Servers/42", "val");
 
@@ -345,7 +346,7 @@ class PMA_ConfigFile_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for ConfigFile::_flattenArray
-     * 
+     *
      * @return void
      * @test
      */
@@ -379,7 +380,7 @@ class PMA_ConfigFile_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for ConfigFile::getFlatDefaultConfig
-     * 
+     *
      * @return void
      * @test
      */
@@ -410,7 +411,7 @@ class PMA_ConfigFile_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for ConfigFile::updateWithGlobalConfig
-     * 
+     *
      * @return void
      * @test
      */
@@ -420,7 +421,7 @@ class PMA_ConfigFile_Test extends PHPUnit_Framework_TestCase
             ->setMethods(array("set"))
             ->disableOriginalConstructor()
             ->getMock();
-        
+
         $reflection = new \ReflectionClass('ConfigFile');
 
         $attrReadMapping = $reflection->getProperty('_cfgUpdateReadMapping');
@@ -430,7 +431,7 @@ class PMA_ConfigFile_Test extends PHPUnit_Framework_TestCase
             array("one/foo" => "one/foobar")
         );
 
-        
+
         $this->object
             ->expects($this->at(0))
             ->method('set')
@@ -451,7 +452,7 @@ class PMA_ConfigFile_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for ConfigFile::get
-     * 
+     *
      * @return void
      * @test
      */
@@ -460,7 +461,7 @@ class PMA_ConfigFile_Test extends PHPUnit_Framework_TestCase
         $_SESSION[$this->readAttribute($this->object, "_id")] = array(
             "1" => array("2" => "val")
         );
-        
+
         $this->assertEquals(
             "val",
             $this->object->get("1/2")
@@ -469,7 +470,7 @@ class PMA_ConfigFile_Test extends PHPUnit_Framework_TestCase
         $_SESSION[$this->readAttribute($this->object, "_id")] = array(
             "1" => array()
         );
-        
+
         $this->assertEquals(
             "foobar",
             $this->object->get("1/2", "foobar")
@@ -478,7 +479,7 @@ class PMA_ConfigFile_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for ConfigFile::getValue
-     * 
+     *
      * @return void
      * @test
      */
@@ -494,7 +495,7 @@ class PMA_ConfigFile_Test extends PHPUnit_Framework_TestCase
         );
 
         $_SESSION[$this->readAttribute($this->object, "_id")] = array();
-        
+
         $reflection = new \ReflectionClass('ConfigFile');
         $attrCfg = $reflection->getProperty('_cfg');
         $attrCfg->setAccessible(true);
@@ -513,7 +514,7 @@ class PMA_ConfigFile_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for ConfigFile::getDefault
-     * 
+     *
      * @return void
      * @test
      */
@@ -532,7 +533,7 @@ class PMA_ConfigFile_Test extends PHPUnit_Framework_TestCase
         $this->assertEquals(
             "val",
             $this->object->getDefault("Servers/1/test")
-        ); 
+        );
 
         $attrCfg->setValue(
             $this->object,
@@ -543,12 +544,12 @@ class PMA_ConfigFile_Test extends PHPUnit_Framework_TestCase
         $this->assertEquals(
             "val",
             $this->object->getDefault("Servers/1/test", "val")
-        ); 
+        );
     }
 
     /**
      * Test for ConfigFile::getCanonicalPath
-     * 
+     *
      * @return void
      * @test
      */
@@ -567,7 +568,7 @@ class PMA_ConfigFile_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for ConfigFile::getDbEntry
-     * 
+     *
      * @return void
      * @test
      */
@@ -585,7 +586,7 @@ class PMA_ConfigFile_Test extends PHPUnit_Framework_TestCase
         $this->assertEquals(
             "val",
             $this->object->getDbEntry("Servers/1/test")
-        ); 
+        );
 
         $attrCfg->setValue(
             $this->object,
@@ -596,12 +597,12 @@ class PMA_ConfigFile_Test extends PHPUnit_Framework_TestCase
         $this->assertEquals(
             "val",
             $this->object->getDbEntry("Servers/1/test", "val")
-        ); 
+        );
     }
 
     /**
      * Test for ConfigFile::getServerCount
-     * 
+     *
      * @return void
      * @test
      */
@@ -617,16 +618,16 @@ class PMA_ConfigFile_Test extends PHPUnit_Framework_TestCase
         );
 
         unset($_SESSION[$this->readAttribute($this->object, '_id')]['Servers']);
-        
+
         $this->assertEquals(
             0,
             $this->object->getServerCount()
-        );        
+        );
     }
 
     /**
      * Test for ConfigFile::getServers
-     * 
+     *
      * @return void
      * @test
      */
@@ -642,16 +643,16 @@ class PMA_ConfigFile_Test extends PHPUnit_Framework_TestCase
         );
 
         unset($_SESSION[$this->readAttribute($this->object, '_id')]['Servers']);
-        
+
         $this->assertEquals(
             null,
             $this->object->getServerCount()
-        );        
+        );
     }
 
     /**
      * Test for ConfigFile::getServerDSN
-     * 
+     *
      * @return void
      * @test
      */
@@ -696,7 +697,7 @@ class PMA_ConfigFile_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for ConfigFile::getServerName
-     * 
+     *
      * @return void
      * @test
      */
@@ -738,7 +739,7 @@ class PMA_ConfigFile_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for ConfigFile::removeServer
-     * 
+     *
      * @return void
      * @test
      */
@@ -765,7 +766,7 @@ class PMA_ConfigFile_Test extends PHPUnit_Framework_TestCase
             ),
             $_SESSION[$objectID]['Servers']
         );
-        
+
         $_SESSION[$objectID]['Servers'] = array(
             "1" => array()
         );
@@ -781,11 +782,11 @@ class PMA_ConfigFile_Test extends PHPUnit_Framework_TestCase
             "2" => array("test" => "val"),
             "3" => array()
         );
-        
+
         $_SESSION[$objectID]['ServerDefault'] = 5;
 
         $this->object->removeServer(3);
-        
+
         $this->assertEquals(
             array(
                 "1" => array(),
@@ -806,7 +807,7 @@ class PMA_ConfigFile_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for ConfigFile::getFilePath
-     * 
+     *
      * @return void
      * @test
      */
@@ -822,7 +823,7 @@ class PMA_ConfigFile_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for ConfigFile::getConfig
-     * 
+     *
      * @return void
      * @test
      */
@@ -854,14 +855,14 @@ class PMA_ConfigFile_Test extends PHPUnit_Framework_TestCase
         );
 
         $this->assertEquals(
-            $expect, 
+            $expect,
             $this->object->getConfig()
         );
     }
 
     /**
      * Test for ConfigFile::getConfigArray
-     * 
+     *
      * @return void
      * @test
      */
@@ -894,7 +895,7 @@ class PMA_ConfigFile_Test extends PHPUnit_Framework_TestCase
                 "three" => "val2"
             )
         );
-        
+
         $attrReadMapping = $reflection->getProperty("_cfgUpdateReadMapping");
         $attrReadMapping->setAccessible(true);
         $attrReadMapping->setValue(
