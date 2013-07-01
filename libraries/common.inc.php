@@ -40,13 +40,6 @@ if (version_compare(PHP_VERSION, '5.3.0', 'lt')) {
 }
 
 /**
-  * Backward compatibility for PHP 5.2
-  */
-if (!defined('E_DEPRECATED')) {
-    define('E_DEPRECATED', 8192);
-}
-
-/**
  * the error handler
  */
 require './libraries/Error_Handler.class.php';
@@ -56,17 +49,6 @@ require './libraries/Error_Handler.class.php';
  */
 $GLOBALS['error_handler'] = new PMA_Error_Handler();
 $cfg['Error_Handler']['display'] = true;
-
-/*
- * This setting was removed in PHP 5.3. But at this point PMA_PHP_INT_VERSION
- * is not yet defined so we use another way to find out the PHP version.
- */
-if (version_compare(phpversion(), '5.3', 'lt')) {
-    /**
-     * Avoid object cloning errors
-     */
-    @ini_set('zend.ze1_compatibility_mode', false);
-}
 
 /**
  * This setting was removed in PHP 5.4. But at this point PMA_PHP_INT_VERSION
