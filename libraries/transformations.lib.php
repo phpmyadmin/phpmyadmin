@@ -147,10 +147,7 @@ function PMA_getTransformationDescription($file, $html_formatted = true)
 
     // include and instantiate the class
     include_once 'libraries/plugins/transformations/' . $file;
-    /* Temporary workaround for bug #3783 :
-       Calling a method from a variable class is not possible before PHP 5.3. */
-    $functionGetInfo = $class_name . "_getInfo";
-    return $functionGetInfo();
+    return $class_name->getInfo();
 }
 
 /**
@@ -279,7 +276,7 @@ function PMA_setMIME($db, $table, $key, $mimetype, $transformation,
           WHERE `db_name`     = \'' . PMA_Util::sqlAddSlashes($db) . '\'
             AND `table_name`  = \'' . PMA_Util::sqlAddSlashes($table) . '\'
             AND `column_name` = \'' . PMA_Util::sqlAddSlashes($key) . '\'';
-    
+
     $test_rs   = PMA_queryAsControlUser(
         $test_qry, true, PMA_DatabaseInterface::QUERY_STORE
     );
@@ -391,24 +388,24 @@ function PMA_clearTransformations($db, $table = '', $column = '')
         . PMA_Util::backquote($cfgRelation['db']) . '.'
         . PMA_Util::backquote($cfgRelation['column_info'])
         . ' WHERE ';
-    
+
     if (($column != '') && ($table != '')) {
-        
+
         $delete_sql .= '`db_name` = \'' . $db . '\' AND '
             . '`table_name` = \'' . $table . '\' AND '
             . '`column_name` = \'' . $column . '\' ';
-        
+
     } else if ($table != '') {
-        
+
         $delete_sql .= '`db_name` = \'' . $db . '\' AND '
             . '`table_name` = \'' . $table . '\' ';
-        
+
     } else {
         $delete_sql .= '`db_name` = \'' . $db . '\' ';
     }
-    
+
     return $GLOBALS['dbi']->tryQuery($delete_sql);
-    
+
 }
 
 ?>
