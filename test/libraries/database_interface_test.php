@@ -96,6 +96,7 @@ class PMA_DBI_Test extends PHPUnit_Framework_TestCase
      */
     function testFormatError($number, $message, $expected)
     {
+        $GLOBALS['server'] = 1;
         $this->assertEquals(
             $expected,
             $GLOBALS['dbi']->formatError($number, $message)

@@ -242,7 +242,6 @@ class PMA_Tracker_Test extends PHPUnit_Framework_TestCase
 
         PMA_Tracker::enable();
 
-        $trackingwork = $_SESSION['relation'][$GLOBALS['server']]['trackingwork'];
         $_SESSION['relation'][$GLOBALS['server']]['trackingwork'] = false;
 
         $this->assertFalse(
@@ -260,8 +259,6 @@ class PMA_Tracker_Test extends PHPUnit_Framework_TestCase
         $this->assertFalse(
             PMA_Tracker::isTracked("pma_test_db", "pma_test_table2")
         );
-
-        $_SESSION['relation'][$GLOBALS['server']]['trackingwork'] = $trackingwork;
     }
 
     /**
@@ -958,8 +955,7 @@ class PMA_Tracker_Test extends PHPUnit_Framework_TestCase
             "- ALTER DATABASE db1; -",
             "DDL",
             "ALTER DATABASE",
-            "",
-            "db1"
+            ""
         );
         $query[] = array(
             "- DROP DATABASE db1; -",

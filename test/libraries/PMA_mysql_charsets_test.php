@@ -80,6 +80,7 @@ class PMA_MySQL_Charsets_Test extends PHPUnit_Framework_TestCase
                 'Cannot redefine constant/function - missing APD or/and runkit extension'
             );
         } else {
+            $GLOBALS['server'] = 1;
             // test case for system schema
             $this->assertEquals(
                 'utf8_general_ci',
@@ -94,6 +95,7 @@ class PMA_MySQL_Charsets_Test extends PHPUnit_Framework_TestCase
             }
             $GLOBALS['cfg']['Server']['DisableIS'] = false;
             $GLOBALS['cfg']['DBG']['sql'] = false;
+
             $this->assertEquals(
                 'utf8_general_ci',
                 PMA_getDbCollation('pma_test')
@@ -285,6 +287,7 @@ class PMA_MySQL_Charsets_Test extends PHPUnit_Framework_TestCase
      */
     public function testGetServerCollation()
     {
+        $GLOBALS['server'] = 1;
         $GLOBALS['cfg']['DBG']['sql'] = false;
         $this->assertEquals('utf8_general_ci', PMA_getServerCollation());
     }
