@@ -69,7 +69,7 @@ class ImportOds_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['import_text'] = $result["data"];
         $GLOBALS['compression'] = 'application/zip'; 
         $GLOBALS['read_multiply'] = 10;
-        $GLOBALS['import_type'] = 'Xml';
+        $GLOBALS['import_type'] = 'ods';
         $GLOBALS['import_handle'] = @fopen($GLOBALS['import_file'], 'r');
         
         //varible for Ods
@@ -147,7 +147,7 @@ class ImportOds_Test extends PHPUnit_Framework_TestCase
             $sql_query
         );          
         $this->assertContains(
-            "INSERT INTO `ODS_DB`.`pma_bookmark` (`A`, `B`, `C`, `D`, `E`) VALUES (1, 'dbbase', '', 'ddd', '')",
+            "INSERT INTO `ODS_DB`.`pma_bookmark` (`A`, `B`, `C`, `D`) VALUES (1, 'dbbase', NULL, 'ddd');",
             $sql_query
         );       
         
