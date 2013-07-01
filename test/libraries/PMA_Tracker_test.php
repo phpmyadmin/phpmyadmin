@@ -32,7 +32,7 @@ class PMA_Tracker_Test extends PHPUnit_Framework_TestCase
         /**
          * SET these to avoid undefined index error
          */
-
+        $GLOBALS['server'] = 1;
         $GLOBALS['cfg']['Server']['pmadb'] = '';
         $GLOBALS['cfg']['Server']['tracking'] = '';
         $GLOBALS['cfg']['Server']['tracking_add_drop_table'] = '';
