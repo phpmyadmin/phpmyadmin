@@ -31,6 +31,7 @@ class PMA_ConfigFile_Test extends PHPUnit_Framework_TestCase
      */
     protected function setUp()
     {
+        $GLOBALS['server'] = 1;
         $GLOBALS['cfg']['AvailableCharsets'] = array();
         $this->object = ConfigFile::getInstance();
         $this->server = $GLOBALS['server'];
