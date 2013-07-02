@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-06-24 16:19+0200\n"
-"PO-Revision-Date: 2013-05-30 12:59+0200\n"
+"PO-Revision-Date: 2013-07-02 14:39+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Bengali <http://l10n.cihar.com/projects/phpmyadmin/master/bn/"
-">\n"
+"Language-Team: Bengali "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/bn/>\n"
 "Language: bn\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -295,13 +295,13 @@ msgstr "ডাটাবেজ এর নাম দেওয়া হয়নি"
 #, php-format
 #| msgid "Database %s has been renamed to %s"
 msgid "Database %1$s has been renamed to %2$s"
-msgstr "ডাটাবেইজ %s এর  নতুন নামকরণ %s হয়েছে "
+msgstr "ডাটাবেইজ %1$s এর  নতুন নামকরণ %2$s হয়েছে "
 
 #: db_operations.php:133
 #, php-format
 #| msgid "Database %s has been copied to %s"
 msgid "Database %1$s has been copied to %2$s"
-msgstr "ডাটাবেইজ %s টি  %s এ অনুলিপি হয়েছে"
+msgstr "ডাটাবেইজ %1$s টি  %2$s এ অনুলিপি হয়েছে"
 
 #: db_operations.php:261
 #, php-format
@@ -630,7 +630,7 @@ msgid ""
 "%sdocumentation%s for a workaround for this limit."
 msgstr ""
 "সম্ভবত আপনি একটি বিশাল ফাইল আপলোড করতে চাচ্ছেন। অনুগ্র্রহ করে %"
-"sdocumentation%s দেখে এই সমস্যা সমাধানের চেষ্টা করুন "
+"sdocumentation%s দেখে এই সমস্যা সমাধানের চেষ্টা করুন"
 
 #: import.php:250 import.php:516
 msgid "Showing bookmark"
@@ -653,7 +653,7 @@ msgid ""
 "for it is not implemented or disabled by your configuration."
 msgstr ""
 "আপনি অপরিচিত সংকোচন (%s) এর ফাইল ব্যবহার করছেন। সম্ভব এটি নিয়ে কাজ করার "
-"ব্যবস্থা নাই বা এটি অর্কাযকর করা আছে। "
+"ব্যবস্থা নাই বা এটি অর্কাযকর করা আছে।"
 
 #: import.php:427
 msgid ""
@@ -662,8 +662,7 @@ msgid ""
 "[doc@faq1-16]FAQ 1.16[/doc]."
 msgstr ""
 "আমদানির জন্য কোন তথ্য পাওয়া যায়নি। হয় কোন ফাইলের নাম দেওয়া হয়নি বা অনেক বড় "
-"আকারের ফাইল যা পিএইছপি সমর্থন করছে না। "
-"[a@./Documentation.html#faq1_16@Documentation]FAQ 1.16[/a] দেখুন "
+"আকারের ফাইল যা পিএইছপি সমর্থন করছে না। [doc@faq1-16]FAQ 1.16[/doc] দেখুন "
 
 #: import.php:447
 msgid ""
@@ -1396,7 +1395,7 @@ msgstr "লগ বিশ্লেষন করা হয়েছে, কিন্�
 
 #: js/messages.php:161
 msgid "Analyzing…"
-msgstr "বিশ্লেষন করছি..."
+msgstr "বিশ্লেষন করছি…"
 
 #: js/messages.php:162
 #| msgid "Explain SQL"
@@ -2498,7 +2497,7 @@ msgstr "ডাটাবেইজ ডিরেক্টরির অধিকা�
 
 #: libraries/DatabaseInterface.class.php:2067
 msgid "Details…"
-msgstr "বিশদ.."
+msgstr "বিশদ…"
 
 #: libraries/DbSearch.class.php:98 libraries/DbSearch.class.php:398
 msgid "at least one of the words"
@@ -2519,7 +2518,7 @@ msgstr "রেগুলার এক্সপ্রেশনের মত"
 #: libraries/DbSearch.class.php:267
 #, php-format
 msgid "Search results for \"<i>%s</i>\" %s:"
-msgstr " \"<i>%s</i>\"এর অনুসন্ধান ফলাফল  %s:"
+msgstr "\"<i>%s</i>\"এর অনুসন্ধান ফলাফল  %s:"
 
 #: libraries/DbSearch.class.php:294
 #, php-format
@@ -2534,8 +2533,8 @@ msgstr[1] "<b>মোট:</b> <i>%s</i> গুলি মানানসই"
 #| msgid_plural "%s matches inside table <i>%s</i>"
 msgid "%1$s match in <strong>%2$s</strong>"
 msgid_plural "%1$s matches in <strong>%2$s</strong>"
-msgstr[0] "%s মিল <strong>%2$s</strong> তে "
-msgstr[1] "%s গুলি মিল <i>%s</i> তে"
+msgstr[0] "%1$s মিল <strong>%2$s</strong> তে "
+msgstr[1] "%1$s গুলি মিল <strong>%2$s</strong> তে"
 
 #: libraries/DbSearch.class.php:346 libraries/Menu.class.php:267
 #: libraries/Util.class.php:3253 libraries/Util.class.php:3468
@@ -2867,9 +2866,7 @@ msgstr "ফাইল আপলোডের সময় অজ্ঞাত ভু�
 
 #: libraries/File.class.php:475
 msgid "Error moving the uploaded file, see [doc@faq1-11]FAQ 1.11[/doc]"
-msgstr ""
-"আপলোডকৃত ফাইলটি সরাতে সমস্যা হয়েছে, "
-"[a@./Documentation.html#faq1_11@Documentation]FAQ 1.11[/a] দেখুন। "
+msgstr "আপলোডকৃত ফাইলটি সরাতে সমস্যা হয়েছে, [doc@faq1-11]FAQ 1.11[/doc] দেখুন। "
 
 #: libraries/File.class.php:493
 msgid "Error while moving uploaded file."
@@ -3308,7 +3305,7 @@ msgstr ""
 "['MaxTableUiprefs'] %s দেখুন)"
 
 #: libraries/Table.class.php:1603
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "Cannot save UI property \"%s\". The changes made will not be persistent "
 "after you refresh this page. Please check if the table structure has been "
@@ -3991,7 +3988,8 @@ msgid ""
 "The [code]$cfg['PmaAbsoluteUri'][/code] directive MUST be set in your "
 "configuration file!"
 msgstr ""
-"আপনার কনফিগারেশন ফাইলে অবশ্যই <tt>$cfg['PmaAbsoluteUri']</tt> থাকতে হবে! "
+"আপনার কনফিগারেশন ফাইলে অবশ্যই [code]$cfg['PmaAbsoluteUri'][/code] থাকতে হবে! "
+""
 
 #: libraries/common.inc.php:641
 #, php-format
@@ -4880,7 +4878,7 @@ msgid ""
 "to get special values."
 msgstr ""
 "ব্রাউজারের শিরোনামের লেখাটি দিন। বিশেষ মান নেওয়ার জন্য কি ব্যবহার করতে হবে "
-"জানার জন্য [a@Documentation.html#cfg_TitleTable]documentation[/a] দেখুন।"
+"জানার জন্য [doc@cfg_TitleTable]documentation[/doc] দেখুন।"
 
 #: libraries/config/messages.inc.php:192
 #: libraries/navigation/NavigationHeader.class.php:204
@@ -4942,8 +4940,8 @@ msgid ""
 "documentation"
 msgstr ""
 "অন্যান্য অতিরিক্ত সুবিধাদির জন্য phpMyAdmin কনফিগারেশন মজুদ ব্যবস্থা কনফিগার "
-"করন, সহায়িকার [a@Documentation.html#linked-tables]phpMyAdmin configuration "
-"storage[/a] দেখুন"
+"করন, সহায়িকার [doc@linked-tables]phpMyAdmin configuration storage[/doc] "
+"দেখুন"
 
 #: libraries/config/messages.inc.php:204
 msgid "Changes tracking"
@@ -6195,7 +6193,7 @@ msgid ""
 "Shows link to [a@http://php.net/manual/function.phpinfo.php]phpinfo()[/a] "
 "output"
 msgstr ""
-"  http://php.net/manual/function.phpinfo.php]phpinfo()[/a] আউটপুট সংযোগ "
+"[a@http://php.net/manual/function.phpinfo.php]phpinfo()[/a] আউটপুট সংযোগ "
 "দেখাও"
 
 #: libraries/config/messages.inc.php:477
@@ -6736,7 +6734,7 @@ msgstr "সার্ভারের নাম হবে @SERVER@"
 
 #: libraries/display_export.lib.php:281
 msgid ", @DATABASE@ will become the database name"
-msgstr " @DATABASE@ হবে ডাটাবেইজের নাম"
+msgstr ", @DATABASE@ হবে ডাটাবেইজের নাম"
 
 #: libraries/display_export.lib.php:283
 msgid ", @TABLE@ will become the table name"
@@ -6852,7 +6850,7 @@ msgstr ""
 #: libraries/display_import.lib.php:86
 #| msgid "Format of imported file"
 msgid "Uploading your import file…"
-msgstr "আমদানির জন্য ফাইল আপলোড করুন"
+msgstr "আমদানির জন্য ফাইল আপলোড করুন…"
 
 #: libraries/display_import.lib.php:94
 #, php-format
@@ -7351,7 +7349,7 @@ msgstr "ডাটাবেইজ এ যাও: %s"
 #: libraries/import.lib.php:1200 libraries/import.lib.php:1228
 #, php-format
 msgid "Edit settings for %s"
-msgstr " %s এর সেটিংস সম্পাদনা"
+msgstr "%s এর সেটিংস সম্পাদনা"
 
 #: libraries/import.lib.php:1223
 #, php-format
@@ -8111,7 +8109,7 @@ msgstr "কোন কার্যকর প্রমাণীকরণ কী �
 
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:216
 msgid "Authenticating…"
-msgstr "প্রমাণীকরণ"
+msgstr "প্রমাণীকরণ…"
 
 #: libraries/plugins/export/ExportCsv.class.php:93
 #: libraries/plugins/import/AbstractImportCsv.class.php:59
@@ -9344,8 +9342,8 @@ msgid ""
 "problems."
 msgstr ""
 "আপনি পিএইচপির বাতিলকৃত বা অনঅনুমোদিত 'mysql' সংযোজক ব্যবহার করছেন যা "
-"অনেকগুলো অনুসন্ধান ত্বত্তাবধান করতে সক্ষম নয়। <b> কিছু সঞ্চিত রুটিনের কাজ "
-"হয়ত ব্যার্থ হবে! </b>সমস্যা এড়াতে 'mysqli' সংযোজক ব্যবহার করুন।"
+"অনেকগুলো অনুসন্ধান ত্বত্তাবধান করতে সক্ষম নয়। [strong] কিছু সঞ্চিত রুটিনের "
+"কাজ হয়ত ব্যার্থ হবে![/strong]সমস্যা এড়াতে 'mysqli' সংযোজক ব্যবহার করুন।"
 
 #: libraries/rte/rte_routines.lib.php:281
 #: libraries/rte/rte_routines.lib.php:1118
@@ -11374,8 +11372,8 @@ msgstr "ফাইলটি নাই"
 #| msgid "%s databases have been dropped successfully."
 msgid "%1$d database has been dropped successfully."
 msgid_plural "%1$d databases have been dropped successfully."
-msgstr[0] "%s ডাটা বেইজটি সফলভাবে মুছা হয়েছে।"
-msgstr[1] "%s ডাটা বেইজটি সফলভাবে মুছা হয়েছে।"
+msgstr[0] "%1$d ডাটা বেইজটি সফলভাবে মুছা হয়েছে।"
+msgstr[1] "%1$d ডাটা বেইজটি সফলভাবে মুছা হয়েছে।"
 
 #: server_databases.php:138
 msgid "Databases statistics"
@@ -11439,7 +11437,7 @@ msgstr "আরম্ভ করার পর থেকে নেটওর্য়�
 #, php-format
 #| msgid "s MySQL server has been running for %s. It started up on %s."
 msgid "This MySQL server has been running for %1$s. It started up on %2$s."
-msgstr "%1$ মাইএসকিউএল সার্ভার চলছে। %2$ আরম্ভ করা হয়েছে।"
+msgstr "%1$s মাইএসকিউএল সার্ভার চলছে। %2$s আরম্ভ করা হয়েছে।"
 
 #: server_status.php:116
 msgid ""
@@ -11587,7 +11585,7 @@ msgstr "শুধু সর্তককারী মানসমূহ দেখ
 
 #: server_status_variables.php:94
 msgid "Filter by category…"
-msgstr "শ্রেণী অনুযায়ী ফিল্টার"
+msgstr "শ্রেণী অনুযায়ী ফিল্টার…"
 
 #: server_status_variables.php:114
 #| msgid "Show open tables"
@@ -12301,9 +12299,8 @@ msgid ""
 "Otherwise you will be only able to download or display it."
 msgstr ""
 "ওয়েব সার্ভরে লেখার উপযুক্ত [em]config[/em] ফোল্ডার তৈরী করুন phpMyAdmin এর "
-"প্রধান ডিরেক্টরিতে যেমন বলা হয়েছে "
-"[a@Documentation.html#setup_script]documentation[/a]এ। অন্যখায় আপনি কেবল "
-"ডাউনলোড করতে বা প্রদর্শন করতে পারবেন। "
+"প্রধান ডিরেক্টরিতে যেমন বলা হয়েছে [doc@setup_script]documentation[/doc]এ। "
+"অন্যখায় আপনি কেবল ডাউনলোড করতে বা প্রদর্শন করতে পারবেন। "
 
 #: setup/frames/index.inc.php:60
 msgid ""
@@ -13805,7 +13802,7 @@ msgstr "মেমোরী থেকে ইনডেক্স পড়ার শ�
 #: libraries/advisory_rules.txt:321
 #, php-format
 msgid "The %% of indexes that use the MyISAM key buffer is low."
-msgstr " %% ইনডেক্স যা MyISAM কী বাফারের নিন্মতম ব্যবহার"
+msgstr "%% ইনডেক্স যা MyISAM কী বাফারের নিন্মতম ব্যবহার"
 
 #: libraries/advisory_rules.txt:322
 msgid "You may need to increase {key_buffer_size}."
