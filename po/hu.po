@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.5-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-06-24 10:43+0200\n"
-"PO-Revision-Date: 2013-07-02 14:48+0200\n"
-"Last-Translator: Zoltan Balazh <eu_zoltan@eurhythmics.com.ua>\n"
+"PO-Revision-Date: 2013-07-02 14:49+0200\n"
+"Last-Translator: G. S. <somogyig@gmail.com>\n"
 "Language-Team: Hungarian <http://l10n.cihar.com/projects/phpmyadmin/4-0/hu/>\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
@@ -13706,7 +13706,7 @@ msgstr "Az InnoDB napló max. mérete"
 
 #: libraries/advisory_rules.txt:446
 msgid "The InnoDB log file size is inadequately large."
-msgstr ""
+msgstr "Az InnoDB naplófájl mérete túlságosan nagy."
 
 #: libraries/advisory_rules.txt:447
 #, php-format
@@ -13725,7 +13725,7 @@ msgstr ""
 #: libraries/advisory_rules.txt:448
 #, php-format
 msgid "Your absolute InnoDB log size is %s MiB"
-msgstr ""
+msgstr "Az Ön teljes InnoDB naplójának mérete %s MB"
 
 #: libraries/advisory_rules.txt:450
 #, fuzzy
