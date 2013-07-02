@@ -2322,7 +2322,7 @@ msgid "Failed running test for rule '%s'."
 msgstr ""
 
 #: libraries/Advisor.class.php:225
-#, php-format
+#, fuzzy , php-format
 msgid "Failed formatting string for rule '%s'."
 msgstr "'%s' নিয়মের জন্য লেখা গঠন করা গেল না। পিএইছপি '%s' ভুলটি দেখাচ্ছে"
 
@@ -11026,7 +11026,7 @@ msgid "PARTITION definition:"
 msgstr ""
 
 #: libraries/tbl_common.inc.php:54
-#, php-format
+#, fuzzy, php-format
 #| msgid "Tracking is active."
 msgid "Tracking of %s is activated."
 msgstr "%s.%s ট্রেকিং কার্যকর করা হয়েছে। "
@@ -13449,7 +13449,7 @@ msgid ""
 "value is, the better (This rules firing limit: 0.1%%)"
 msgstr ""
 "ইনসার্টেড অনুসন্ধানে অনুসন্ধান সরানোর হার %s%%। এর মান যত কম হবে তত ভাল, ভাল "
-"(০.১%)"
+"(০.১%%)"
 
 #: libraries/advisory_rules.txt:195
 #| msgid "Query cache"
