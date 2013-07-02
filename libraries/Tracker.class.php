@@ -388,8 +388,6 @@ class PMA_Tracker
             $tracking_set = self::$default_tracking_set;
         }
 
-        include_once './libraries/export/sql.php';
-
         $create_sql  = "";
 
         if (self::$add_drop_database == true) {

@@ -26,8 +26,8 @@ class Environment_Test extends PHPUnit_Framework_TestCase
     public function testPhpVersion()
     {
         $this->assertTrue(
-            version_compare('5.2', phpversion(), '<='),
-            'phpMyAdmin requires PHP 5.2 or above'
+            version_compare('5.3', phpversion(), '<='),
+            'phpMyAdmin requires PHP 5.3 or above'
         );
     }
 

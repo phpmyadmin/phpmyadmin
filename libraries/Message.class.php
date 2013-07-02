@@ -723,12 +723,12 @@ class PMA_Message
 
         return $this->isDisplayed;
     }
-    
+
     /**
      * Returns the message with corresponding image icon
-     * 
+     *
      * @param string $message the message(s)
-     * 
+     *
      * @return string message with icon
      */
     public function getMessageWithIcon($message)
@@ -743,7 +743,7 @@ class PMA_Message
         }
         $message = PMA_Message::notice(PMA_Util::getImage($image)) . " " . $message;
         return $message;
-        
+
     }
 }
 ?>

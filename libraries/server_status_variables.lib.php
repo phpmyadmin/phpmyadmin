@@ -37,7 +37,8 @@ function PMA_getHtmlForFilter($ServerStatusData)
     $retval  = '';
     $retval .= '<fieldset id="tableFilter">';
     $retval .= '<legend>' . __('Filters') . '</legend>';
-    $retval .= '<form action="server_status_variables.php?' . PMA_generate_common_url() . '">';
+    $retval .= '<form action="server_status_variables.php?' 
+        . PMA_generate_common_url() . '">';
     $retval .= '<input type="submit" value="' . __('Refresh') . '" />';
     $retval .= '<div class="formelement">';
     $retval .= '<label for="filterText">' . __('Containing the word:') . '</label>';
@@ -45,7 +46,8 @@ function PMA_getHtmlForFilter($ServerStatusData)
         . 'style="vertical-align: baseline;" value="' . $filterText . '" />';
     $retval .= '</div>';
     $retval .= '<div class="formelement">';
-    $retval .= '<input' . $filterAlert . ' type="checkbox" name="filterAlert" id="filterAlert" />';
+    $retval .= '<input' . $filterAlert . ' type="checkbox" ' 
+        . 'name="filterAlert" id="filterAlert" />';
     $retval .= '<label for="filterAlert">';
     $retval .= __('Show only alert values');
     $retval .= '</label>';
@@ -70,7 +72,8 @@ function PMA_getHtmlForFilter($ServerStatusData)
     $retval .= '</select>';
     $retval .= '</div>';
     $retval .= '<div class="formelement">';
-    $retval .= '<input' . $dontFormat . ' type="checkbox" name="dontFormat" id="dontFormat" />';
+    $retval .= '<input' . $dontFormat . ' type="checkbox" ' 
+        . 'name="dontFormat" id="dontFormat" />';
     $retval .= '<label for="dontFormat">';
     $retval .= __('Show unformatted values');
     $retval .= '</label>';
@@ -90,7 +93,8 @@ function PMA_getHtmlForFilter($ServerStatusData)
  */
 function PMA_getHtmlForLinkSuggestions($ServerStatusData)
 {
-    $retval  = '<div id="linkSuggestions" class="defaultLinks" style="display:none">';
+    $retval  = '<div id="linkSuggestions" class="defaultLinks" ' 
+        . 'style="display:none">';
     $retval .= '<p class="notice">' . __('Related links:');
     foreach ($ServerStatusData->links as $section_name => $section_links) {
         $retval .= '<span class="status_' . $section_name . '"> ';
@@ -160,8 +164,10 @@ function PMA_getHtmlForVariablesList($ServerStatusData)
         'Table_locks_waited' => 0,
         'Qcache_lowmem_prunes' => 0,
 
-        'Qcache_free_blocks' => isset($ServerStatusData->server_status['Qcache_total_blocks'])
-            ? $ServerStatusData->server_status['Qcache_total_blocks'] / 5 : 0,
+        'Qcache_free_blocks' => 
+            isset($ServerStatusData->server_status['Qcache_total_blocks'])
+            ? $ServerStatusData->server_status['Qcache_total_blocks'] / 5 
+            : 0,
         'Slow_launch_threads' => 0,
 
         // depends on Key_read_requests
@@ -184,7 +190,11 @@ function PMA_getHtmlForVariablesList($ServerStatusData)
         //'Handler read key' => '> ',
     );
 
-    $retval .= PMA_getHtmlForRenderVariables($ServerStatusData, $alerts, $strShowStatus);
+    $retval .= PMA_getHtmlForRenderVariables(
+        $ServerStatusData, 
+        $alerts, 
+        $strShowStatus
+    );
 
     return $retval;
 }
@@ -217,12 +227,15 @@ function PMA_getHtmlForRenderVariables($ServerStatusData, $alerts, $strShowStatu
     foreach ($ServerStatusData->status as $name => $value) {
         $odd_row = !$odd_row;
         $retval .= '<tr class="' . ($odd_row ? 'odd' : 'even')
-            . (isset($ServerStatusData->allocationMap[$name])?' s_' . $ServerStatusData->allocationMap[$name] : '')
+            . (isset($ServerStatusData->allocationMap[$name])
+                ?' s_' . $ServerStatusData->allocationMap[$name] 
+                : '')
             . '">';
 
         $retval .= '<th class="name">';
         $retval .= htmlspecialchars(str_replace('_', ' ', $name));
-        /* Fields containing % are calculated, they can not be described in MySQL documentation */
+        // Fields containing % are calculated, 
+        // they can not be described in MySQL documentation
         if (strpos($name, '%') === false) {
             $retval .= PMA_Util::showMySQLDocu(
                 'server-status-variables',

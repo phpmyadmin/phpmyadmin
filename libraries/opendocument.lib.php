@@ -19,6 +19,7 @@ $GLOBALS['OpenDocumentNS']
     . 'xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" '
     . 'xmlns:table="urn:oasis:names:tc:opendocument:xmlns:table:1.0" '
     . 'xmlns:style="urn:oasis:names:tc:opendocument:xmlns:style:1.0" '
+    . 'xmlns:number="urn:oasis:names:tc:opendocument:xmlns:datastyle:1.0" '
     . 'xmlns:fo="urn:oasis:names:tc:opendocument:xmlns:xsl-fo-compatible:1.0" ';
 
 /**

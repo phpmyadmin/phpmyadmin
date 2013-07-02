@@ -6,6 +6,9 @@
  * @package PhpMyAdmin-test
  */
 
+// Let PHP complain about all errors
+error_reporting(E_ALL);
+
 // Adding phpMyAdmin sources to include path
 set_include_path(
     get_include_path() . PATH_SEPARATOR . dirname(realpath("../index.php"))

@@ -280,6 +280,23 @@ $GLOBALS['dummy_queries'] = array(
         'query' => "SHOW TABLES FROM `phpmyadmin`",
         'result' => array(),
     ),
+    array(
+        'query' => "SELECT tracking_active FROM pma_table_tracking" .
+            " WHERE db_name = 'pma_test_db'" .
+            " AND table_name = 'pma_test_table'" .
+            " ORDER BY version DESC",
+        'columns' => array('tracking_active'),
+        'result' => array(
+                array(1)
+            )
+    ),
+    array(
+        'query' => "SELECT tracking_active FROM pma_table_tracking" .
+            " WHERE db_name = 'pma_test_db'" .
+            " AND table_name = 'pma_test_table2'" .
+            " ORDER BY version DESC",
+        'result' => array()
+    )
 );
 /**
  * Current database.
