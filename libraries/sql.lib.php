@@ -1490,6 +1490,15 @@ function PMA_deleteTransformationInfo($db, $table, $analyzed_sql)
     }
 }
 
+/**
+ * Function to get the message for the no rows returned case
+ * 
+ * @param string $message_to_show      message to show
+ * @param array  $analyzed_sql_results analyzed sql results
+ * @param int    $num_rows             number of rows
+ * 
+ * @return string $message
+ */
 function PMA_getMessageForNoRowsReturned($message_to_show, $analyzed_sql_results,
 $num_rows
 ) {
@@ -1549,7 +1558,17 @@ $num_rows
     return $message;
 }
 
-
+/**
+ * Function to send the Ajax response when no rows returned
+ * 
+ * @param string $message              message to be send
+ * @param array  $analyzed_sql         analyzed sql
+ * @param object $displayResultsObject DisplayResult instance
+ * @param bool   $showSql              whether to show sql or not
+ * @param array  $extra_data           extra data
+ * 
+ * @return void
+ */
 function PMA_sendAjaxResponseForNoResultsReturned($message, $analyzed_sql,
 $displayResultsObject, $showSql, $extra_data
 ) {
