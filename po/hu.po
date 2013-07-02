@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.5-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-06-24 10:43+0200\n"
-"PO-Revision-Date: 2013-07-02 14:36+0200\n"
+"PO-Revision-Date: 2013-07-02 14:44+0200\n"
 "Last-Translator: G. S. <somogyig@gmail.com>\n"
 "Language-Team: Hungarian <http://l10n.cihar.com/projects/phpmyadmin/4-0/hu/>\n"
 "Language: hu\n"
@@ -570,7 +570,7 @@ msgstr "Pont hozzáadása"
 
 #: gis_data_editor.php:262 js/messages.php:313
 msgid "Linestring"
-msgstr "Sorvég-karakter"
+msgstr "Karakterlánc"
 
 #: gis_data_editor.php:265 gis_data_editor.php:341 js/messages.php:317
 msgid "Outer Ring"
@@ -819,9 +819,10 @@ msgid ""
 "this security hole by setting a password for user 'root'."
 msgstr ""
 "A konfigurációs fájl olyan beállításokat tartalmaz (jelszó nélküli root "
-"hozzáférés), amelyek megegyeznek az alapértelmezett MySQL jogosult fiókéval. "
-"A MySQL szerver most ezzel az alapbeállítással fut, behatolásra nyitott, "
-"ezért javítsa ezt a biztonsági rést a 'root' felhasználónak adott jelszóval."
+"hozzáférés), amelyek megegyeznek az alapértelmezett MySQL jogosultsági "
+"fiókkal. A MySQL szerver most ezzel az alapbeállítással fut, behatolásra "
+"nyitott, ezért javítsa ki ezt a biztonsági rést úgy, hogy a 'root' "
+"felhasználóhoz jelszót rendel."
 
 #: index.php:406
 msgid ""
