@@ -162,7 +162,7 @@ class PMA_ServerBinlog_Test extends PHPUnit_Framework_TestCase
         );
         //validate 4: PMA_getNavigationRow is right
         $this->assertContains(
-            'server_binlog.php?log=log&amp;dontlimitchars=1&amp;pos=3&amp;server=1&amp;lang=en&amp;token=token',
+            'server_binlog.php?log=log&amp;dontlimitchars=1&amp;pos=3&amp;server=1&amp',
             $html
         );
         $this->assertContains(
