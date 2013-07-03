@@ -384,7 +384,7 @@ class PMA_Error extends PMA_Message
 
         $Ahere = explode(
             $path_separator,
-            realpath(dirname(__FILE__) . $path_separator . '..')
+            realpath(__DIR__ . $path_separator . '..')
         );
         $Adest = explode($path_separator, $dest);
 
