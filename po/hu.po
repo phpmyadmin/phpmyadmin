@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-06-24 16:19+0200\n"
-"PO-Revision-Date: 2013-07-03 13:57+0200\n"
+"PO-Revision-Date: 2013-07-03 16:11+0200\n"
 "Last-Translator: G. S. <somogyig@gmail.com>\n"
 "Language-Team: Hungarian "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/hu/>\n"
@@ -8953,14 +8953,20 @@ msgid ""
 "ignore all databases by default and allow only certain databases to be "
 "replicated. Please select the mode:"
 msgstr ""
+"Ez a kiszolgáló a replikációs folyamatban nem a fő kiszolgálóként van "
+"konfigurálva. Választhatja az összes adatbázis replikálását és egyesek "
+"figyelmen kívül hagyását (hasznos, ha szeretné replikálni az adatbázis "
+"javát), vagy figyelmen kívül hagyhatja az adatbázisokat alapértelmezésként, "
+"és ezáltal csak bizonyos adatbázisok replikálását végezheti el. Kérjük, "
+"válassza ki a módot:"
 
 #: libraries/replication_gui.lib.php:98
 msgid "Replicate all databases; Ignore:"
-msgstr ""
+msgstr "Minden adatbázis replikálása, kivéve:"
 
 #: libraries/replication_gui.lib.php:100
 msgid "Ignore all databases; Replicate:"
-msgstr ""
+msgstr "Adatbázisok figyelmen kívül hagyása, kivéve:"
 
 #: libraries/replication_gui.lib.php:104
 msgid "Please select databases:"
@@ -8971,6 +8977,8 @@ msgid ""
 "Now, add the following lines at the end of [mysqld] section in your my.cnf "
 "and please restart the MySQL server afterwards."
 msgstr ""
+"Most szúrja be a következő sorokat a my.cnf fájl [mysqld] szakaszának "
+"végére, és utána indítsa újra a MySQL szervert."
 
 #: libraries/replication_gui.lib.php:113
 msgid ""
@@ -8985,20 +8993,22 @@ msgstr "Szolga replikáció"
 
 #: libraries/replication_gui.lib.php:190
 msgid "Slave SQL Thread not running!"
-msgstr ""
+msgstr "Szolga SQL szál nem fut!"
 
 #: libraries/replication_gui.lib.php:195
 msgid "Slave IO Thread not running!"
-msgstr ""
+msgstr "Szolga IO szál nem fut!"
 
 #: libraries/replication_gui.lib.php:206
 msgid ""
 "Server is configured as slave in a replication process. Would you like to:"
 msgstr ""
+"A replikációs folyamatban a szerver szolgaként van konfigurálva. Mit "
+"szeretne tenni:"
 
 #: libraries/replication_gui.lib.php:210
 msgid "See slave status table"
-msgstr ""
+msgstr "Szolga státusz tábla megtekintése"
 
 #: libraries/replication_gui.lib.php:215
 msgid "Control slave:"
@@ -9023,7 +9033,7 @@ msgstr "Csak SQL menet indítása"
 
 #: libraries/replication_gui.lib.php:230
 msgid "Stop SQL Thread only"
-msgstr ""
+msgstr "Csak az SQL szál megállítása"
 
 #: libraries/replication_gui.lib.php:234
 #| msgid "Structure only"
@@ -9032,7 +9042,7 @@ msgstr "Csak IO menet indítása"
 
 #: libraries/replication_gui.lib.php:237
 msgid "Stop IO Thread only"
-msgstr ""
+msgstr "Csak az IO szál megállítása"
 
 #: libraries/replication_gui.lib.php:246 libraries/replication_gui.lib.php:374
 msgid "Change or reconfigure master server"
@@ -9044,18 +9054,20 @@ msgid ""
 "This server is not configured as slave in a replication process. Would you "
 "like to <a href=\"%s\">configure</a> it?"
 msgstr ""
+"Ez a kiszolgáló nincs beállítva szolgaként a replikációs folyamatban. "
+"Szeretné <a href=\"%s\"> konfigurálni</a>?"
 
 #: libraries/replication_gui.lib.php:278
 msgid "Error management:"
-msgstr ""
+msgstr "Hibakezelés:"
 
 #: libraries/replication_gui.lib.php:281
 msgid "Skipping errors might lead into unsynchronized master and slave!"
-msgstr ""
+msgstr "A hibák átugrása nem szinkronizált mesterhez és szolgához vezethetnek!"
 
 #: libraries/replication_gui.lib.php:285
 msgid "Skip current error"
-msgstr ""
+msgstr "Aktuális hiba átugrása"
 
 #: libraries/replication_gui.lib.php:286
 msgid "Skip next"
@@ -9063,7 +9075,7 @@ msgstr "Következő átugrása"
 
 #: libraries/replication_gui.lib.php:290
 msgid "errors."
-msgstr ""
+msgstr "hiba."
 
 #: libraries/replication_gui.lib.php:314
 #, php-format
@@ -10390,10 +10402,14 @@ msgid ""
 "table is supported by MySQL 5.1.6 and onwards. You may still use the server "
 "charting features however."
 msgstr ""
+"Sajnos az adatbázis-kiszolgáló nem támogatja a táblázatba történő naplózást, "
+"amelyre azért van szükség, hogy a phpMyAdmin elemezze az adatbázisnaplókat. "
+"A táblába való naplózás a MySQL 5.1.6 -tól támogatott. A kiszolgáló "
+"diagramkészítési funkcióit azonban továbbra is használhatja."
 
 #: libraries/server_status_monitor.lib.php:164
 msgid "Using the monitor:"
-msgstr ""
+msgstr "Felügyelet használata:"
 
 #: libraries/server_status_monitor.lib.php:167
 msgid ""
@@ -10401,6 +10417,10 @@ msgid ""
 "may add charts and change the refresh rate under 'Settings', or remove any "
 "chart using the cog icon on each respective chart."
 msgstr ""
+"A böngésző az összes megjelenített diagramot rendszeres időközönként "
+"frissíti. Hozzá lehet adni diagramot és változtatni a frissítési rátán a "
+"\"Beállításokban\", vagy el lehet távolítani a diagramokat a fogaskerék ikon "
+"használatával."
 
 #: libraries/server_status_monitor.lib.php:173
 msgid ""
@@ -10421,6 +10441,11 @@ msgid ""
 "it is advisable to select only a small time span and to disable the "
 "general_log and empty its table once monitoring is not required any more."
 msgstr ""
+"A general_log engedélyezésével 5-15%-kal növekedhet a szerver terhelése. "
+"Vegye figyelembe, hogy a statisztikák generálása a naplókból intenzív "
+"tevékenység, ezért tanácsos csak egy kis időintervallumot kijelölni, és "
+"letiltani a general_log-ot, kiüríteni a tábláját, ha az ellenőrzésére nincs "
+"szükség többé."
 
 #: libraries/server_status_monitor.lib.php:207
 #: libraries/server_status_monitor.lib.php:314
@@ -10443,7 +10468,7 @@ msgstr "Sorozatok kijelölése:"
 
 #: libraries/server_status_monitor.lib.php:221
 msgid "Commonly monitored"
-msgstr ""
+msgstr "Rendszeresen ellenőrzött"
 
 #: libraries/server_status_monitor.lib.php:237
 msgid "or type variable name:"
@@ -10451,7 +10476,7 @@ msgstr "vagy gépelje be a változó nevét:"
 
 #: libraries/server_status_monitor.lib.php:244
 msgid "Display as differential value"
-msgstr ""
+msgstr "Különbözeti értékként való megjelenítés"
 
 #: libraries/server_status_monitor.lib.php:247
 msgid "Apply a divisor"
@@ -10468,7 +10493,7 @@ msgstr "E sorozat hozzáadása"
 
 #: libraries/server_status_monitor.lib.php:263
 msgid "Clear series"
-msgstr ""
+msgstr "Sorozatok törlése"
 
 #: libraries/server_status_monitor.lib.php:266
 #| msgid "SQL queries"
@@ -10486,7 +10511,7 @@ msgstr "Utasítások/Beállítás"
 
 #: libraries/server_status_monitor.lib.php:298
 msgid "Done dragging (rearranging) charts"
-msgstr ""
+msgstr "Diagramok áthúzása (újrarendezése) kész"
 
 #: libraries/server_status_monitor.lib.php:317
 #| msgid "Enable highlighting"
@@ -10510,6 +10535,8 @@ msgid ""
 "The arrangement of the charts is stored to the browsers local storage. You "
 "may want to export it if you have a complicated set up."
 msgstr ""
+"A diagramok elrendezése a böngészők helyi tárolójában találhatók. Érdemes "
+"exportálni, ha összetett elrendezésről van szó."
 
 #: libraries/server_status_monitor.lib.php:363
 msgid "Reset to default"
@@ -11413,7 +11440,7 @@ msgstr ""
 #: server_status.php:93
 #, php-format
 msgid "Network traffic since startup: %s"
-msgstr ""
+msgstr "Hálózati forgalom az indítás óta: %s"
 
 #: server_status.php:106
 #, php-format
@@ -11425,14 +11452,20 @@ msgid ""
 "This MySQL server works as <b>master</b> and <b>slave</b> in <b>replication</"
 "b> process."
 msgstr ""
+"Ezt a MySQL szerver <b>mester</b> és <b>szolga</b> módban működik a "
+"<b>replikációs</b> folyamatokban."
 
 #: server_status.php:121
 msgid "This MySQL server works as <b>master</b> in <b>replication</b> process."
 msgstr ""
+"Ez a MySQL szerver <b>mesterként</b> működik a <b>replikációs</b> "
+"folyamatban."
 
 #: server_status.php:126
 msgid "This MySQL server works as <b>slave</b> in <b>replication</b> process."
 msgstr ""
+"Ez a MySQL szerver <b>szolgaként</b> működik a <b>replikációs</b> "
+"folyamatban."
 
 #: server_status.php:140
 msgid "Replication status"
@@ -11483,6 +11516,8 @@ msgid ""
 "The Advisor system can provide recommendations on server variables by "
 "analyzing the server status variables."
 msgstr ""
+"A tanácsadó rendszer ajánlásokat tehet a kiszolgálói változókra vonatkozóan "
+"a kiszolgálóállapot változóinak vizsgálatával."
 
 #: server_status_advisor.php:56
 msgid ""
@@ -11490,6 +11525,9 @@ msgid ""
 "calculations and by rule of thumb which may not necessarily apply to your "
 "system."
 msgstr ""
+"Ne feledje azonban, hogy ez a rendszer ajánlásai egyszerű számításokon "
+"alapulnak, valamint olyan szabályokon, amelyek nem feltétlenül "
+"alkalmazhatóak a rendszeren."
 
 #: server_status_advisor.php:63
 msgid ""
@@ -11497,6 +11535,9 @@ msgid ""
 "changing (by reading the documentation) and how to undo the change. Wrong "
 "tuning can have a very negative effect on performance."
 msgstr ""
+"Mielőtt bármilyen konfigurációt megváltoztat, győződjön meg róla, hogy "
+"tudja, mit módosít (a dokumentáció elolvasásával), és hogyan vonhatja vissza "
+"a változtatást. A rossz tuning negatív hatással lehet a teljesítményre."
 
 #: server_status_advisor.php:71
 msgid ""
@@ -11504,6 +11545,9 @@ msgid ""
 "time, observe or benchmark your database, and undo the change if there was "
 "no clearly measurable improvement."
 msgstr ""
+"A legjobb módja annak, hogy beállítsa a rendszert, hogy egyszerre csak egy "
+"beállítást változtat meg, megfigyeli adatbázis teljesítményét, és "
+"visszavonja a módosítást, ha nem volt egyértelmű javulás mérhető."
 
 #: server_status_queries.php:67
 #, php-format
@@ -11567,6 +11611,8 @@ msgid ""
 "The number of connections that were aborted because the client died without "
 "closing the connection properly."
 msgstr ""
+"A kapcsolatok száma, amelyek megszakadtak, mert a kliens kilépett anélkül, "
+"hogy megfelelően lezárta volna a kapcsolat."
 
 #: server_status_variables.php:334
 msgid "The number of failed attempts to connect to the MySQL server."
@@ -12005,6 +12051,8 @@ msgid ""
 "Key cache miss calculated as rate of physical reads compared to read "
 "requests (calculated value)"
 msgstr ""
+"Kulcs gyorsítótár-tévesztés számított mértéke a fizikai olvasás olvasási "
+"kérésekhez való viszonyítása alapján (számított érték)"
 
 #: server_status_variables.php:612
 msgid "The number of requests to write a key block to the cache."
@@ -12018,6 +12066,7 @@ msgstr "Egy kulcsblokk lemezre történő fizikai írásainak száma."
 msgid ""
 "Percentage of physical writes compared to write requests (calculated value)"
 msgstr ""
+"Fizikai írás százaléka az írási kérésekhez viszonyítva (számított érték)"
 
 #: server_status_variables.php:622
 msgid ""
@@ -12035,6 +12084,8 @@ msgid ""
 "The maximum number of connections that have been in use simultaneously since "
 "the server started."
 msgstr ""
+"A kapcsolatok maximális száma, amely már egyidejűleg használatban van a "
+"szerver indítása óta."
 
 #: server_status_variables.php:632
 msgid "The number of rows waiting to be written in INSERT DELAYED queues."
@@ -12068,6 +12119,9 @@ msgid ""
 "fragmentation issues, which may be solved by issuing a FLUSH QUERY CACHE "
 "statement."
 msgstr ""
+"A szabad memória blokkok száma a lekérdezési gyorsítótárban. Nagy számoknál "
+"töredezettség állhat fenn, amelyet a FLUSH QUERY CACHE paranccsal lehet "
+"orvosolni."
 
 #: server_status_variables.php:653
 msgid "The amount of free memory for query cache."
@@ -12274,6 +12328,8 @@ msgstr "Letöltés"
 #: setup/frames/form.inc.php:25
 msgid "Incorrect formset, check $formsets array in setup/frames/form.inc.php"
 msgstr ""
+"Helytelen űrlapbeállítás, ellenőrizze a $formsets tömböt a "
+"setup/frames/form.inc.php fájlban"
 
 #: setup/frames/index.inc.php:51
 msgid "Cannot load or save configuration"
@@ -12319,6 +12375,9 @@ msgid ""
 "Configuration saved to file config/config.inc.php in phpMyAdmin top level "
 "directory, copy it to top level one and delete directory config to use it."
 msgstr ""
+"Konfiguráció lementve a config/config.inc.php fájlba a phpMyAdmin felső "
+"szintű könyvtárában, másolja át a gyökérkönyvtárba és törölje a config "
+"könyvtárat."
 
 #: setup/frames/index.inc.php:107 setup/frames/menu.inc.php:16
 msgid "Overview"
