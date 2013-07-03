@@ -14,6 +14,11 @@ require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/url_generating.lib.php';
 require_once 'libraries/server_bin_log.lib.php';
 require_once 'libraries/Theme.class.php';
+require_once 'libraries/database_interface.inc.php';
+require_once 'libraries/Message.class.php';
+require_once 'libraries/sanitizing.lib.php';
+require_once 'libraries/sqlparser.lib.php';
+require_once 'libraries/js_escape.lib.php';
 
 class PMA_ServerBinlog_Test extends PHPUnit_Framework_TestCase
 {
@@ -24,9 +29,27 @@ class PMA_ServerBinlog_Test extends PHPUnit_Framework_TestCase
      */
     public function setUp()
     {
+        //$_REQUEST
         $_REQUEST['log'] = "index1";
+        $_REQUEST['pos'] = 3;
+        
+        //$GLOBALS
         $GLOBALS['cfg']['MaxRows'] = 10;
         $GLOBALS['cfg']['ServerDefault'] = "server";
+        $GLOBALS['cfg']['RememberSorting'] = true;
+        $GLOBALS['cfg']['SQP'] = array();
+        $GLOBALS['cfg']['MaxCharactersInDisplayedSQL'] = 1000;
+        $GLOBALS['cfg']['ShowSQL'] = true;
+        $GLOBALS['cfg']['SQP']['fmtType'] = 'none';
+        $GLOBALS['cfg']['TableNavigationLinksMode'] = 'icons';
+        $GLOBALS['cfg']['LimitChars'] = 100;
+        
+        $GLOBALS['table'] = "table";
+        $GLOBALS['pmaThemeImage'] = 'image';
+        
+        //$_SESSION
+        $_SESSION['PMA_Theme'] = PMA_Theme::load('./themes/pmahomme');
+        $_SESSION['PMA_Theme'] = new PMA_Theme();     
     }
 
     /**
@@ -55,6 +78,115 @@ class PMA_ServerBinlog_Test extends PHPUnit_Framework_TestCase
         );
         $this->assertContains(
             '<option value="index2">index2 (200 B)</option>',
+            $html
+        );
+    }
+
+    /**
+     * Test for PMA_getLogInfo
+     *
+     * @return void
+     */
+    public function testPMA_getLogInfo()
+    {
+        $binary_log_file_names = array();
+        $binary_log_file_names[] = array("Log_name"=>"index1", "File_size"=>100);
+        $binary_log_file_names[] = array("Log_name"=>"index2", "File_size"=>200);
+        
+        $url_params = array();
+        $url_params['log'] = "log";
+        $url_params['dontlimitchars'] = 1;
+        
+        //Mock DBI
+        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+            ->disableOriginalConstructor()
+            ->getMock();
+        
+        //expects return value
+        $result = array(
+            array(
+                "SHOW BINLOG EVENTS IN 'index1' LIMIT 3, 10",
+                null,
+                1,
+                true,
+                array("log1"=>"logd")
+            ),
+            array(
+                array("log2"=>"logb"),
+                null,
+                0,
+                false,
+                'executed'
+            )
+        );
+        $value = array(
+        	'Info' => "index1_Info",
+        	'Log_name' => "index1_Log_name",
+        	'Pos' => "index1_Pos",
+        	'Event_type' => "index1_Event_type",
+        	'End_log_pos' => "index1_End_log_pos",
+        	'Server_id' => "index1_Server_id",
+        );   
+        $count = 3;
+
+        //expects functions
+        $dbi->expects($this->once())->method('query')
+        ->will($this->returnValue($result));
+        
+        $dbi->expects($this->once())->method('numRows')
+        ->will($this->returnValue($count));
+        
+        $dbi->expects($this->at(2))->method('fetchAssoc')
+        ->will($this->returnValue($value));
+
+        $GLOBALS['dbi'] = $dbi;
+
+        //Call the test function
+        $html = PMA_getLogInfo($binary_log_file_names, $url_params);
+    
+        //validate 1: the sql has been executed
+        $this->assertContains(
+            'Your SQL query has been executed successfully',
+            $html
+        );
+        //validate 2: SQL
+        $this->assertContains(
+            "SHOW BINLOG EVENTS IN 'index1' LIMIT 3, 10",
+            $html
+        );
+        //validate 3: BINLOG HTML
+        $this->assertContains(
+            '<table cellpadding="2" cellspacing="1" id="binlogTable">',
+            $html
+        );
+        //validate 4: PMA_getNavigationRow is right
+        $this->assertContains(
+            'server_binlog.php?log=log&amp;dontlimitchars=1&amp;pos=3&amp;lang=en&amp;token=token',
+            $html
+        );
+        $this->assertContains(
+            'title="Previous"',
+            $html
+        ); 	
+        //validate 5: Log Item
+        $this->assertContains(
+            'index1_Log_name',
+            $html
+        );
+        $this->assertContains(
+            'index1_Pos',
+            $html
+        );
+        $this->assertContains(
+            'index1_Event_type',
+            $html
+        );
+        $this->assertContains(
+            'index1_Server_id',
+            $html
+        );
+        $this->assertContains(
+            'index1_End_log_pos',
             $html
         );
     }
