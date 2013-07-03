@@ -253,7 +253,7 @@ function PMA_showColumnTypesInDataEditView($url_params, $showColumnType)
  *
  * @param array $column containing column type, Default and null
  *
- * @return nothing
+ * @return void
  */
 function PMA_getDefaultForDatetime($column)
 {
