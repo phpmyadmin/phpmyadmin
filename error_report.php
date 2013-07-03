@@ -13,12 +13,12 @@ require_once 'libraries/Index.class.php';
 require_once 'libraries/tbl_info.inc.php';
 require_once 'libraries/user_preferences.lib.php';
 
-$submission_url="localhost/phpmyadminserver/reports/new";
+$submission_url = "http://localhost/phpmyadmin-server/reports/submit";
 
 $response = PMA_Response::getInstance();
 
 if ($_REQUEST['send_error_report'] == true) {
-    send_error_report(get_report_data(false));
+    $response->addJSON('test', send_error_report(get_report_data(false)));
     if ($_REQUEST['automatic'] === "true") {
         $response->addJSON('message', PMA_Message::error(
             __('An error has been detected and an error report has been '
@@ -83,6 +83,7 @@ if ($_REQUEST['send_error_report'] == true) {
     $response->addHTML($html);
 }
 
+$t = "t";
 /**
  * returns the error report data collected from the current configuration or
  * from the request parameters sent by the error reporting js code.
@@ -126,12 +127,14 @@ function get_report_data($json_encode = true) {
  * @return String $response the reply of the server
  */
 function send_error_report($report) {
+    global $submission_url;
     $data_string = json_encode($report);
-    if (ini_get('allow_url_fopen')) {
-        $context = array(
-            'method'  => 'POST',
-            'header'  => 'Content-type: application/json',
-            'content' => $data_string
+    if (ini_get('allow_url_fopen') && false) {
+        $context = array("http" =>
+            array(
+                'method'  => 'POST',
+                'content' => $data_string,
+            )
         );
         if (strlen($cfg['ProxyUrl'])) {
             $context['http'] = array(
@@ -163,13 +166,10 @@ function send_error_report($report) {
             }
         }
         curl_setopt($curl_handle, CURLOPT_CUSTOMREQUEST, "POST");
-        curl_setopt($curl_handle, CURLOPT_HTTPHEADER, array(
-            'Content-Type: application/json',
-            'Content-Length: ' . strlen($data_string))
-        );
-        curl_setopt($ch, CURLOPT_POSTFIELDS, $data_string);
+        curl_setopt($curl_handle, CURLOPT_POSTFIELDS, $data_string);
         curl_setopt($curl_handle, CURLOPT_RETURNTRANSFER, 1);
         $response = curl_exec($curl_handle);
+        curl_close($curl_handle);
     }
     return $response;
 }
