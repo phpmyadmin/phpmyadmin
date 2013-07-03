@@ -112,6 +112,7 @@ if ( !isset($_POST['zoom_submit']) || $_POST['dataLabel'] == '') {
 }
 
 // Displays the zoom search form
+$response->addHTML($table_search->getSecondaryTabs());
 $response->addHTML($table_search->getSelectionForm($goto, $dataLabel));
 
 /*
