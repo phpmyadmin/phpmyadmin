@@ -137,8 +137,11 @@ class PMA_ServerBinlog_Test extends PHPUnit_Framework_TestCase
         $dbi->expects($this->once())->method('numRows')
         ->will($this->returnValue($count));
         
-        $dbi->expects($this->at(2))->method('fetchAssoc')
+        $dbi->expects($this->at(0))->method('fetchAssoc')
         ->will($this->returnValue($value));
+        
+        $dbi->expects($this->at(1))->method('fetchAssoc')
+        ->will($this->returnValue(false));
 
         $GLOBALS['dbi'] = $dbi;
 
@@ -170,6 +173,26 @@ class PMA_ServerBinlog_Test extends PHPUnit_Framework_TestCase
             $html
         ); 	
         //validate 5: Log Item
+        $this->assertContains(
+            'Log name',
+            $html
+        );
+        $this->assertContains(
+            'Position',
+            $html
+        );
+        $this->assertContains(
+            'Event type',
+            $html
+        );
+        $this->assertContains(
+            'Server ID',
+            $html
+        );
+        $this->assertContains(
+            'Original position',
+            $html
+        );
         $this->assertContains(
             'index1_Log_name',
             $html
