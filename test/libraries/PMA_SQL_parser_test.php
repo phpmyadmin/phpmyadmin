@@ -10,6 +10,7 @@
  * Include to test.
  */
 require_once 'libraries/sqlparser.lib.php';
+require_once 'libraries/sqlparser.data.php';
 require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/Message.class.php';
 require_once 'libraries/Util.class.php';
@@ -52,7 +53,17 @@ class PMA_SQLParser_Test extends PHPUnit_Framework_TestCase
         $this->assertEquals('', PMA_SQP_getErrorString());
         $this->assertEquals($expected, $parsed_sql);
     }
-
+    
+    public function testPMA_SQP_isKeyWord()
+    {
+        PMA_SQP_resetError();
+        $this->assertEquals(true, PMA_SQP_isKeyWord("ACCESSIBLE"));
+        $this->assertEquals(true, PMA_SQP_isKeyWord("accessible"));
+        $this->assertEquals(true, PMA_SQP_isKeyWord("ASC"));
+        $this->assertEquals(false, PMA_SQP_isKeyWord("hello"));
+    }
+    
+    
     /**
      * Data provider for parser testing
      *
