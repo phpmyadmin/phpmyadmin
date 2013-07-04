@@ -1346,7 +1346,7 @@ msgstr "চিত্রের নাম"
 #. l10n: As in differential values
 #: js/messages.php:153
 msgid "Differential"
-msgstr ""
+msgstr "পৃথকিকরণ"
 
 #: js/messages.php:154
 #, php-format
@@ -1522,6 +1522,8 @@ msgstr "কনফিগ ফাইলটি পড়তে ব্যর্থ। �
 msgid ""
 "Failed building chart grid with imported config. Resetting to default config…"
 msgstr ""
+"আমদানি করা কনফিগারেশন দিয়ে চিত্র তৈরী করতে ব্যর্থ হয়েছি। কনফিগারেশন "
+"স্বাভাবিক অবস্থায় সেট করা হচ্ছে...."
 
 #: js/messages.php:199 libraries/Menu.class.php:305
 #: libraries/Menu.class.php:388 libraries/Menu.class.php:499
@@ -1798,7 +1800,7 @@ msgstr "প্রতিটি পয়েন্ট একটি তথ্য স�
 
 #: js/messages.php:291
 msgid "Hovering over a point will show its label."
-msgstr ""
+msgstr "একটি পয়েন্টের উপর মাউস আনলে তার লেবেল দেখাবে।"
 
 #: js/messages.php:293
 msgid "To zoom in, select a section of the plot with the mouse."
@@ -1836,7 +1838,7 @@ msgstr "অনুসন্ধান ফলাফল"
 #, fuzzy
 #| msgid "Data pointer size"
 msgid "Data point content"
-msgstr "Data pointer size"
+msgstr "প্রতিটি পয়েন্ট তথ্য"
 
 #: js/messages.php:307 tbl_change.php:263 tbl_indexes.php:279
 #: tbl_indexes.php:317
@@ -3659,7 +3661,7 @@ msgstr ""
 
 #: libraries/Types.class.php:714
 msgid "A system's default double-precision floating-point number"
-msgstr ""
+msgstr "সিস্টেমের একটি স্বাভাবিক double-precision দশমিক সংখ্যা"
 
 #: libraries/Types.class.php:716
 msgid "True or false"
@@ -3690,7 +3692,7 @@ msgstr ""
 
 #: libraries/Types.class.php:738
 msgid "An enumeration, chosen from the list of defined values"
-msgstr ""
+msgstr "একটি গণক, নিধারির্ত মানের তালিকা থেকে পছন্দ করা হয়"
 
 #: libraries/Util.class.php:237
 #, php-format
@@ -3917,7 +3919,7 @@ msgstr "আপনি অবশ্যই %s %s বা পরের কোন স�
 
 #: libraries/common.inc.php:1065
 msgid "Error: Token mismatch"
-msgstr ""
+msgstr "ভুল: টোকেন মিলে নাই"
 
 #: libraries/common.inc.php:1109
 msgid "GLOBALS overwrite attempt"
@@ -4028,13 +4030,13 @@ msgstr "কাষ্টম - উপরের মতই, দ্রুত এব�
 #, fuzzy
 #| msgid "Complete inserts"
 msgid "complete inserts"
-msgstr "Complete inserts"
+msgstr "সম্পুর্ন ইনর্সাট"
 
 #: libraries/config.values.php:172
 #, fuzzy
 #| msgid "Extended inserts"
 msgid "extended inserts"
-msgstr "Extended inserts"
+msgstr "অতিরিক্ত ইনসার্ট"
 
 #: libraries/config.values.php:173
 msgid "both of the above"
@@ -4209,10 +4211,13 @@ msgid ""
 "Use user-friendly editor for editing SQL queries ([a@http://codemirror."
 "net/]CodeMirror[/a]) with syntax highlighting and line numbers"
 msgstr ""
+"SQL অনুসন্ধান সম্পাদনার জন্য ব্যবহারকারীর জন্য সহজ সফটওয়ার ব্যবহার করুন "
+"([a@http://codemirror.net/]CodeMirror[/a]), লাইন চিহ্নিতকরন এবং লাইন নাম্বার "
+"সহ "
 
 #: libraries/config/messages.inc.php:31
 msgid "Enable CodeMirror"
-msgstr ""
+msgstr "CodeMirror কার্যকর"
 
 #: libraries/config/messages.inc.php:32
 msgid ""
@@ -4321,7 +4326,7 @@ msgstr "সার্ভারের স্বাভাবিক ট্যাব"
 
 #: libraries/config/messages.inc.php:54
 msgid "Whether the table structure actions should be hidden"
-msgstr ""
+msgstr "টেবল গঠনের কার্যাবলী লুকানো থাকবে"
 
 #: libraries/config/messages.inc.php:55
 #| msgid "Database for user"
@@ -4579,7 +4584,7 @@ msgstr "BLOB এর জন্য hexadecimal ব্যবহার কর"
 
 #: libraries/config/messages.inc.php:128
 msgid "Use ignore inserts"
-msgstr ""
+msgstr "ignore inserts ব্যাবহার কর"
 
 #: libraries/config/messages.inc.php:130
 msgid "Syntax to use when inserting data"
@@ -5157,7 +5162,7 @@ msgstr "সংযোগের সংখ্যা যেগুলো প্রথ
 
 #: libraries/config/messages.inc.php:287
 msgid "Maximum items in branch"
-msgstr ""
+msgstr "শাখায় জিনিসের সর্বোচ্চ সংখ্যা"
 
 #: libraries/config/messages.inc.php:288
 msgid ""
@@ -5242,7 +5247,7 @@ msgstr "সার্ভার নির্বাচন দেখাও"
 
 #: libraries/config/messages.inc.php:305
 msgid "Target for quick access icon"
-msgstr ""
+msgstr "দ্রুত প্রবেশের আইকনের লক্ষ্য"
 
 #: libraries/config/messages.inc.php:306
 #| msgid "The number of tables that are open."
@@ -5536,7 +5541,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:373
 msgid "HTTP Realm"
-msgstr ""
+msgstr "HTTP রাজ্য"
 
 #: libraries/config/messages.inc.php:374
 msgid ""
@@ -6000,7 +6005,7 @@ msgstr "ডাটাবেইজ তৈরীর ফর্ম দেখাও"
 
 #: libraries/config/messages.inc.php:460
 msgid "Show or hide a column displaying the Creation timestamp for all tables"
-msgstr ""
+msgstr "সব টেবলের প্রস্তুত সময় প্রর্দশনের স্তম্ভ দেখাবে বা লুকাবে"
 
 #: libraries/config/messages.inc.php:461
 #| msgid "Show PHP information"
@@ -6010,16 +6015,16 @@ msgstr "প্রস্তুতের সময় দেখাও"
 #: libraries/config/messages.inc.php:462
 msgid ""
 "Show or hide a column displaying the Last update timestamp for all tables"
-msgstr ""
+msgstr "সব টেবলের আপডেট সময় প্রর্দশনের স্তম্ভ দেখাবে বা লুকাবে"
 
 #: libraries/config/messages.inc.php:463
 msgid "Show Last update timestamp"
-msgstr ""
+msgstr "সর্বশেষ আপডেটের সময় দেখাও"
 
 #: libraries/config/messages.inc.php:464
 msgid ""
 "Show or hide a column displaying the Last check timestamp for all tables"
-msgstr ""
+msgstr "সব টেবলের সর্বশেষ পরীক্ষার সময় প্রর্দশনের স্তম্ভ দেখাবে বা লুকাবে"
 
 #: libraries/config/messages.inc.php:465
 msgid "Show Last check timestamp"
@@ -6034,7 +6039,7 @@ msgstr ""
 #: libraries/config/messages.inc.php:467
 #, fuzzy
 msgid "Show display direction"
-msgstr "ডাটাবেজ এক্সপোটঁ করার সুবিধাসমূহ"
+msgstr "প্রদর্শনের দিক দেখাও"
 
 #: libraries/config/messages.inc.php:468
 msgid ""
@@ -6049,7 +6054,7 @@ msgstr "ক্ষেত্রের ধরন দেখাও"
 
 #: libraries/config/messages.inc.php:470
 msgid "Display the function fields in edit/insert mode"
-msgstr ""
+msgstr "ফাংশন ক্ষেত্রটি সম্পাদনা/ইনর্সাট অবস্থায় দেখাবে"
 
 #: libraries/config/messages.inc.php:471
 msgid "Show function fields"
@@ -6293,7 +6298,7 @@ msgstr "কুকি প্রমাণীকরণ"
 
 #: libraries/config/setup.forms.php:48
 msgid "HTTP authentication"
-msgstr ""
+msgstr "HTTP প্রমাণীকরণ"
 
 #: libraries/config/setup.forms.php:51
 msgid "Signon authentication"
@@ -6413,11 +6418,11 @@ msgstr "বিশদ…"
 
 #: libraries/dbi/drizzle-wrappers.lib.php:387
 msgid "Can't seek in an unbuffered result set"
-msgstr ""
+msgstr "বাফার করা হয়নি এমন ফলাফল পাওয়া যাবে না"
 
 #: libraries/dbi/drizzle-wrappers.lib.php:408
 msgid "Can't count rows in an unbuffered result set"
-msgstr ""
+msgstr "বাফার করা হয়নি এমন ফলাফলের রো গণনা করা যাবে না"
 
 #: libraries/dbi/drizzle.dbi.lib.php:136 libraries/dbi/mysql.dbi.lib.php:159
 #: libraries/dbi/mysqli.dbi.lib.php:206
@@ -6646,6 +6651,7 @@ msgid ""
 "Scroll down to fill in the options for the selected format and ignore the "
 "options for other formats."
 msgstr ""
+"এই গঠনের অপশনগুলো পূর্ণ করার জন্য নীচে যান এবং অন্য গঠনের অপশনগুলো বাদ দিন।"
 
 #: libraries/display_export.lib.php:430 libraries/display_import.lib.php:327
 msgid "Encoding Conversion:"
@@ -6654,15 +6660,15 @@ msgstr "এনকোডিং কনভারশন"
 #: libraries/display_git_revision.lib.php:56
 #, php-format
 msgid "%1$s from %2$s branch"
-msgstr ""
+msgstr "%1$s থেকে %2$s শাখা"
 
 #: libraries/display_git_revision.lib.php:58
 msgid "no branch"
-msgstr ""
+msgstr "কোনা শাখা নাই"
 
 #: libraries/display_git_revision.lib.php:64
 msgid "Git revision"
-msgstr ""
+msgstr "Git রিভিশন"
 
 #: libraries/display_git_revision.lib.php:67
 #, php-format
@@ -6686,7 +6692,7 @@ msgstr ""
 #: libraries/display_import.lib.php:77
 #, php-format
 msgid "%s of %s"
-msgstr ""
+msgstr "%s এর %s"
 
 #: libraries/display_import.lib.php:86
 #| msgid "Format of imported file"
@@ -6696,15 +6702,15 @@ msgstr "আমদানির জন্য ফাইল আপলোড কর�
 #: libraries/display_import.lib.php:94
 #, php-format
 msgid "%s/sec."
-msgstr ""
+msgstr "%s/সেঃ"
 
 #: libraries/display_import.lib.php:101
 msgid "About %MIN min. %SEC sec. remaining."
-msgstr ""
+msgstr "%MIN মিঃ. %SEC সেঃ বাকি আছে।"
 
 #: libraries/display_import.lib.php:105
 msgid "About %SEC sec. remaining."
-msgstr ""
+msgstr "%SEC সেঃ বাকি আছে।"
 
 #: libraries/display_import.lib.php:135
 msgid "The file is being processed, please be patient."
@@ -6787,7 +6793,7 @@ msgstr "এড়িয়ে যাওয়ার রো'র সংখ্যা, আর
 
 #: libraries/display_import.lib.php:318
 msgid "Format-Specific Options:"
-msgstr ""
+msgstr "গঠন-নিদিষ্ট অপশন:"
 
 #: libraries/display_select_lang.lib.php:56
 #: libraries/display_select_lang.lib.php:57 setup/frames/index.inc.php:75
@@ -7051,6 +7057,9 @@ msgid ""
 "value of this variable can be increased to increase the total amount of data "
 "that can be stored in the database."
 msgstr ""
+"তথ্য লগ ফাইলের সর্বোচ্চ আকার। স্বাভাবিক মান হলো ৬৪মেবা। PBXT সর্বোচ্চ ৩২০০০ "
+"তথ্যের লগ তৈরী করতে পারে, যা সবগুলো টেবল ব্যবহার করে। তাই এই মানটি বাড়িয়ে "
+"ডাটাবেইজে রক্ষিত তথ্যের পরিমান বাড়ানো যাবে।"
 
 #: libraries/engines/pbxt.lib.php:63
 msgid "Garbage threshold"
@@ -7074,6 +7083,8 @@ msgid ""
 "The engine allocates one buffer per thread, but only if the thread is "
 "required to write a data log."
 msgstr ""
+"ডাটা লগ লেখার বাফারের আকার। স্বাভাবিক ২৫৬মেবা। ইঞ্জিন প্রতিটি থ্রেডের জন্য "
+"একটি করে বাফার দেয় যখন কোন থ্রেডের ডাটা লগ লেখার প্রয়োজন হয়।"
 
 #: libraries/engines/pbxt.lib.php:73
 msgid "Data file grow size"
@@ -7498,7 +7509,7 @@ msgstr "অজানা"
 
 #: libraries/navigation/Navigation.class.php:61
 msgid "An error has occured while loading the navigation tree"
-msgstr ""
+msgstr "চলাচলের ট্রি লোডকরার সময় একটি ভুল হয়েছে"
 
 #: libraries/navigation/NavigationHeader.class.php:178
 msgid "Home"
@@ -7542,12 +7553,12 @@ msgstr "নাম অনুযায়ী টেবল দেখাও"
 #: libraries/navigation/NodeFactory.class.php:41
 #, php-format
 msgid "Invalid class name \"%1$s\", using default of \"Node\""
-msgstr ""
+msgstr "অযোগ্য ক্লাশ নাম \"%1$s\", স্বাভাবিক \"Node\" ব্যবহার করছে"
 
 #: libraries/navigation/NodeFactory.class.php:65
 #, php-format
 msgid "Could not include class \"%1$s\", file \"%2$s\" not found"
-msgstr ""
+msgstr "ক্লাশ \"%1$s\"যুক্ত করা যায়নি, ফাইল \"%2$s\" পাওয়া যায়নি"
 
 #: libraries/navigation/Nodes/Node_Column_Container.class.php:26
 #: libraries/sql_query_form.lib.php:271
@@ -7823,7 +7834,7 @@ msgstr ""
 
 #: libraries/plugins/auth/AuthenticationConfig.class.php:142
 msgid "Retry to connect"
-msgstr ""
+msgstr "পুনরায় সংযোগের চেষ্ট কর"
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:44
 msgid "Failed to use Blowfish from mcrypt!"
@@ -7836,7 +7847,7 @@ msgstr "লগ ইন"
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:100
 msgid "Your session has expired. Please log in again."
-msgstr ""
+msgstr "আপনার সেশন শেষ হয়ে গেছে। আবার লগইন করুন।"
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:198
 #: libraries/plugins/auth/AuthenticationCookie.class.php:208
@@ -8147,7 +8158,7 @@ msgstr "তথ্য তৈরীর অপশন"
 #: libraries/plugins/export/ExportSql.class.php:299
 #: libraries/plugins/export/ExportSql.class.php:1649
 msgid "Truncate table before insert"
-msgstr ""
+msgstr "ইনার্সটের পুর্বে টেবল খালি কর"
 
 #: libraries/plugins/export/ExportSql.class.php:305
 msgid "Instead of <code>INSERT</code> statements, use:"
@@ -8224,11 +8235,11 @@ msgstr ""
 
 #: libraries/plugins/export/ExportSql.class.php:1197
 msgid "Constraints for dumped tables"
-msgstr ""
+msgstr "স্তুপকৃত টেবলের সীমবদ্ধতা"
 
 #: libraries/plugins/export/ExportSql.class.php:1208
 msgid "Constraints for table"
-msgstr ""
+msgstr "টেবলের সীমবদ্ধতা"
 
 #: libraries/plugins/export/ExportSql.class.php:1349
 msgid "MIME TYPES FOR TABLE"
@@ -8257,6 +8268,8 @@ msgid ""
 "The first line of the file contains the table column names <i>(if this is "
 "unchecked, the first line will become part of the data)</i>"
 msgstr ""
+"প্রথম লাইনে টেবলের স্তম্ভের নাম আছে। <i>(এটি যদি চিহ্নিত না হয় তবে প্রথম "
+"লাইনটিও তথ্য পরিনত হবে)</i>"
 
 #: libraries/plugins/import/ImportCsv.class.php:72
 msgid ""
@@ -8277,7 +8290,7 @@ msgstr "স্তম্ভের নাম:"
 #: libraries/plugins/import/ImportCsv.class.php:162
 #, php-format
 msgid "Invalid parameter for CSV import: %s"
-msgstr ""
+msgstr "CSV আমদানীর প্যারামিটার ঠিক নাই:%s "
 
 #: libraries/plugins/import/ImportCsv.class.php:213
 #, php-format
@@ -8329,6 +8342,8 @@ msgid ""
 "The XML file specified was either malformed or incomplete. Please correct "
 "the issue and try again."
 msgstr ""
+"দেয়া XML ফাইলটি হয় গঠনগত সমস্যা আছে বা সম্পুর্ন নয়। সমস্যাটি ঠিক করে আবার "
+"চেষ্টা করুন।"
 
 #: libraries/plugins/import/ImportOds.class.php:182
 #| msgid "Open Document Spreadsheet"
@@ -8337,18 +8352,18 @@ msgstr "ওপেন অফিসের স্প্রেডসীট পড়া
 
 #: libraries/plugins/import/ImportShp.class.php:53
 msgid "ESRI Shape File"
-msgstr ""
+msgstr "ESRI গঠন ফাইল"
 
 #: libraries/plugins/import/ImportShp.class.php:155
 #, php-format
 msgid "There was an error importing the ESRI shape file: \"%s\"."
-msgstr ""
+msgstr "ESRI ফাইল আমদানিতে ভুল:\"%s\"।"
 
 #: libraries/plugins/import/ImportShp.class.php:211
 msgid ""
 "You tried to import an invalid file or the imported file contains invalid "
 "data"
-msgstr ""
+msgstr "আপনি একটি অযোগ্য ফাইল আমদানির চেষ্টা করছেন বা ফাইলটিতে অযোগ্য তথ্য আছে"
 
 #: libraries/plugins/import/ImportShp.class.php:217
 #, php-format
@@ -8375,7 +8390,7 @@ msgstr "XML"
 #: libraries/plugins/import/ShapeRecord.class.php:58
 #, php-format
 msgid "Geometry type '%s' is not supported by MySQL."
-msgstr ""
+msgstr "জ্যামিতিক ধরন '%s' MySQL সমর্থন করে না।"
 
 #: libraries/plugins/transformations/abstract/AppendTransformationsPlugin.class.php:32
 msgid ""
@@ -8403,10 +8418,12 @@ msgid ""
 "documentation for PHP's strftime() function and for \"utc\" it is done using "
 "gmdate() function."
 msgstr ""
-"Displays a TIME, TIMESTAMP or DATETIME field according to your local date/"
-"time format. The first option is the offset (in hours) which will be added "
-"to the timestamp (Default: 0). Use second option to specify a different date/"
-"time format string; see the documentation for PHP's strftime() function."
+"TIME, TIMESTAMP, DATETIME অথবা সংখ্যার  unix সময়কাল স্তম্ভ গঠিত তারিখ হিসাবে "
+"প্রদর্শন কর। প্রথম অপশনটি হল অফসেট যা সময়ের সংগে যুক্ত হবে (স্বাভাবিক:০)। "
+"দ্বিতীয় অপশনটি ভিন্ন তারিখ/সময়ের গঠন। তৃতীয়টি নির্ধারন করে আপনি স্থানীয় সময় "
+"না UTC দেখতে চান (\"local\" or \"utc\" ব্যাবহার করেন)তার জন্য। সেই অনুযায়ী, "
+"সময়ের গঠনের বিভিন্ন মান হয় -\"local\" এর জন্য পিএইচপির strftime() ফাংশনের "
+"সহায়িকা দেখুন এবং \"utc\" হয় gmdate() ফাংশন ব্যাবহার করে। "
 
 #: libraries/plugins/transformations/abstract/DownloadTransformationsPlugin.class.php:31
 #| msgid ""
@@ -8593,7 +8610,7 @@ msgstr ""
 
 #: libraries/relation.lib.php:225
 msgid "Persistent tables' UI preferences"
-msgstr ""
+msgstr "Persistent tables টেবলের UI পছন্দ"
 
 #: libraries/relation.lib.php:247
 msgid "User preferences"
@@ -9024,7 +9041,7 @@ msgstr "রুটিন নির্বাহ কর"
 #: libraries/rte/rte_routines.lib.php:1569
 #: libraries/rte/rte_routines.lib.php:1572
 msgid "Routine parameters"
-msgstr ""
+msgstr "রুটিনের প্যারামিটার"
 
 #: libraries/rte/rte_triggers.lib.php:106
 msgid "Sorry, we failed to restore the dropped trigger."
@@ -9318,7 +9335,7 @@ msgstr ""
 
 #: libraries/schema/User_Schema.class.php:556
 msgid "Toggle scratchboard"
-msgstr ""
+msgstr "টোগল ক্রাচবোর্ড"
 
 #: libraries/select_lang.lib.php:527 libraries/select_lang.lib.php:536
 #: libraries/select_lang.lib.php:545
@@ -9956,7 +9973,7 @@ msgstr "স্বম্ভ সরাও"
 
 #: libraries/structure.lib.php:1430
 msgid "Move the columns by dragging them up and down."
-msgstr ""
+msgstr "উপর নীচে টান দিয়ে স্তম্ভটি সরান"
 
 #: libraries/structure.lib.php:1464
 #| msgid "Print view"
@@ -10231,7 +10248,7 @@ msgstr "ZIP archive: এ ভূল আছে"
 
 #: navigation.php:23
 msgid "Fatal error: The navigation can only be accessed via AJAX"
-msgstr ""
+msgstr "মারাত্মক ভুল: চলাচলের সুবিধা শুধু মাত্র এজাক্সের মাধ্যমে পাওয়া যাবে"
 
 #: pmd_display_field.php:60 pmd_save_pos.php:81
 msgid "Modifications have been saved"
@@ -10243,11 +10260,11 @@ msgstr "বামদিকের মেন্যু দেখা/লুকান
 
 #: pmd_general.php:86
 msgid "View in fullscreen"
-msgstr ""
+msgstr "পুর্ণ পর্দায় দেখা"
 
 #: pmd_general.php:90
 msgid "Exit fullscreen"
-msgstr ""
+msgstr "পূর্ণ পর্দা বন্ধ"
 
 #: pmd_general.php:95
 msgid "Save position"
@@ -11028,6 +11045,10 @@ msgid ""
 "confirmed, this will load a table of grouped queries, there you may click on "
 "any occuring SELECT statements to further analyze them."
 msgstr ""
+"লগ থেকে অনুসন্ধান দেখানোর জন্য, যে কোন চিত্রের সম্পৃক্ত সময় স্থান মাউসের বাম "
+"বাটন চেপে ধরে এবং চিত্রের উপর ঘুরিয়ে নির্বাচন করুন। একবার স্থির হলে, একটি "
+"দলবদ্ধ অনুসন্ধান টেবল দেখাবে, তা থেকে যে কোন SELECT statements এ ক্লীক করে "
+"আরো বিস্তারিত নিরিক্ষা করা যাবে।"
 
 #: server_status_monitor.php:592
 msgid "Please note:"
@@ -11070,7 +11091,7 @@ msgstr "বা চলকের নাম লিখুন:"
 
 #: server_status_monitor.php:642
 msgid "Display as differential value"
-msgstr ""
+msgstr "পৃথক মানের মত দেখাবে"
 
 #: server_status_monitor.php:645
 msgid "Apply a divisor"
@@ -11611,7 +11632,7 @@ msgstr ""
 msgid ""
 "Key cache miss calculated as rate of physical reads compared to read "
 "requests (calculated value)"
-msgstr ""
+msgstr "কী ক্যাশ পড়ার চেষ্টা এবং আসলে পড়ার হার ভুল হিসাব করিয়াছে (হিসাবকৃত মান)"
 
 #: server_status_variables.php:613
 msgid "The number of requests to write a key block to the cache."
@@ -11624,7 +11645,7 @@ msgstr "ডিস্কে কী ব্লক লেখার সংখ্য�
 #: server_status_variables.php:619
 msgid ""
 "Percentage of physical writes compared to write requests (calculated value)"
-msgstr ""
+msgstr " লেখার চেষ্টার তুলনায় সত্যকারের লেখার হর (হিসাবকৃত মান)"
 
 #: server_status_variables.php:623
 msgid ""
@@ -11981,7 +12002,7 @@ msgstr "নতুন একটি সার্ভার যোগ কর"
 
 #: setup/index.php:22
 msgid "Wrong GET file attribute value"
-msgstr ""
+msgstr "ফাইলের অ্যাট্রিবিউট মান নিত ভুল হয়েছে"
 
 #: setup/lib/form_processing.lib.php:45
 msgid "Warning"
@@ -12240,7 +12261,7 @@ msgstr ""
 
 #: tbl_chart.php:124
 msgid "No numeric columns present in the table to plot."
-msgstr ""
+msgstr "প্লটের জন্য টেবলে কোন গাণিতক স্তম্ভ পাওয়া যায়নি।"
 
 #: tbl_chart.php:154
 #| msgid "Mar"
@@ -12440,7 +12461,7 @@ msgstr "যখন ফরেন কী সর্ম্পক থাকে তখ�
 
 #: tbl_relation.php:395
 msgid "Foreign key constraint"
-msgstr ""
+msgstr "ফরেন কীর নিয়ম"
 
 #: tbl_relation.php:498
 #| msgid "Column names"
