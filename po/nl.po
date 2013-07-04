@@ -3250,7 +3250,7 @@ msgstr "In de tabel zoeken"
 
 #: libraries/TableSearch.class.php:215 libraries/TableSearch.class.php:1164
 msgid "Find and Replace"
-msgstr "Zoek en Vervang"
+msgstr "Zoeken en vervangen"
 
 #: libraries/TableSearch.class.php:237 libraries/insert_edit.lib.php:1352
 msgid "Edit/Insert"
