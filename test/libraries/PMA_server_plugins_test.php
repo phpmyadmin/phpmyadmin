@@ -43,6 +43,7 @@ class PMA_ServerPlugins_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['SQP']['fmtType'] = 'none';
         $GLOBALS['cfg']['TableNavigationLinksMode'] = 'icons';
         $GLOBALS['cfg']['LimitChars'] = 100;
+        $GLOBALS['cfg']['DBG']['sql'] = false;
         
         $GLOBALS['table'] = "table";
         $GLOBALS['pmaThemeImage'] = 'image';
@@ -87,8 +88,7 @@ class PMA_ServerPlugins_Test extends PHPUnit_Framework_TestCase
         $plugins[$row['plugin_type']][] = $row;
         $modules[$row['module_name']]['info'] = $row;
         $modules[$row['module_name']]['plugins'][$row['plugin_type']][] = $row;
-        
-        
+               
         $html = PMA_getPluginAndModuleInfo($plugins, $modules);
     
 

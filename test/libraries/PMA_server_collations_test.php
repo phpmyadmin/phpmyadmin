@@ -21,7 +21,7 @@ $GLOBALS['available_languages']= array(
 		"ch" => array("Chinese", "TW-Chinese")
 );
 $GLOBALS['text_dir'] = "text_dir";
-
+$GLOBALS['cfg']['DBG']['sql'] = false;
 //$_SESSION
 require_once 'libraries/Theme.class.php';
 $_SESSION['PMA_Theme'] = PMA_Theme::load('./themes/pmahomme'); 
