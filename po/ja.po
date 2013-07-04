@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.5-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-06-24 10:43+0200\n"
-"PO-Revision-Date: 2013-05-07 15:08+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"PO-Revision-Date: 2013-07-04 22:36+0200\n"
+"Last-Translator: Hao Chen <hao.chen.jobs@gmail.com>\n"
 "Language-Team: Japanese <http://l10n.cihar.com/projects/phpmyadmin/4-0/ja/>\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
@@ -616,16 +616,14 @@ msgstr ""
 "けてください"
 
 #: import.php:107
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "You probably tried to upload too large file. Please refer to "
 #| "%sdocumentation%s for ways to workaround this limit."
 msgid ""
 "You probably tried to upload a file that is too large. Please refer to "
 "%sdocumentation%s for a workaround for this limit."
-msgstr ""
-"アップロードしようとしたファイルが大きすぎるようです。対策については %sドキュ"
-"メント%s をご覧ください。"
+msgstr "アップロードしようとしたファイルが大きすぎるようです。この制限に関する対策については %sドキュメント%s をご覧ください。"
 
 #: import.php:250 import.php:516
 msgid "Showing bookmark"
@@ -782,7 +780,7 @@ msgstr "PHP 拡張"
 
 #: index.php:303
 msgid "Show PHP information"
-msgstr "PHP 情報"
+msgstr "PHP情報を表示する"
 
 #: index.php:326 libraries/engines/bdb.lib.php:25
 msgid "Version information"
@@ -1591,12 +1589,12 @@ msgstr "要求処理中でのエラー"
 #: js/messages.php:225
 #, php-format
 msgid "Error code: %s"
-msgstr ""
+msgstr "エラーコード：%s"
 
 #: js/messages.php:226
 #, php-format
 msgid "Error text: %s"
-msgstr ""
+msgstr "エラーテキスト：%s"
 
 #: js/messages.php:227 libraries/db_common.inc.php:58
 #: libraries/db_table_exists.lib.php:28 server_databases.php:89
@@ -1953,10 +1951,9 @@ msgid "Show Panel"
 msgstr "すべて表示"
 
 #: js/messages.php:373
-#, fuzzy
 #| msgid "Hide indexes"
 msgid "Hide Panel"
-msgstr "インデックスを隠す"
+msgstr "パネルを隠す"
 
 #: js/messages.php:376
 #, fuzzy
