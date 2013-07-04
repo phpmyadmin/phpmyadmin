@@ -4,14 +4,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-07-04 06:07-0400\n"
-"PO-Revision-Date: 2013-05-07 15:08+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Japanese <http://l10n.cihar.com/projects/phpmyadmin/master/ja/"
-">\n"
+"PO-Revision-Date: 2013-07-04 22:36+0200\n"
+"Last-Translator: Hao Chen <hao.chen.jobs@gmail.com>\n"
+"Language-Team: Japanese "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/ja/>\n"
+"Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ja\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 1.6-dev\n"
 
@@ -41,10 +41,9 @@ msgstr ""
 "のと思われます。"
 
 #: browse_foreigners.php:182
-#, fuzzy
 #| msgid "Search"
 msgid "Search:"
-msgstr "検索"
+msgstr "検索："
 
 #: browse_foreigners.php:186 gis_data_editor.php:396 js/messages.php:209
 #: libraries/DbSearch.class.php:455 libraries/DisplayResults.class.php:1660
@@ -122,10 +121,9 @@ msgstr "データベースのコメント: "
 
 #: db_datadict.php:157 libraries/schema/Pdf_Relation_Schema.class.php:1336
 #: libraries/tbl_columns_definition_form.inc.php:836 tbl_printview.php:120
-#, fuzzy
 #| msgid "Table comments"
 msgid "Table comments:"
-msgstr "テーブルのコメント"
+msgstr "テーブルのコメント："
 
 #: db_datadict.php:166 libraries/Index.class.php:565
 #: libraries/TableSearch.class.php:183 libraries/TableSearch.class.php:1225
@@ -597,7 +595,7 @@ msgid "Add an inner ring"
 msgstr "内輪を追加する"
 
 #: gis_data_editor.php:325
-#, fuzzy, php-format
+#, php-format
 #| msgid "Polygon"
 msgid "Polygon %d:"
 msgstr "ポリゴン"
@@ -627,16 +625,14 @@ msgstr ""
 "けてください"
 
 #: import.php:107
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "You probably tried to upload too large file. Please refer to %"
 #| "sdocumentation%s for ways to workaround this limit."
 msgid ""
 "You probably tried to upload a file that is too large. Please refer to %"
 "sdocumentation%s for a workaround for this limit."
-msgstr ""
-"アップロードしようとしたファイルが大きすぎるようです。対策については %sドキュ"
-"メント%s をご覧ください。"
+msgstr "アップロードしようとしたファイルが大きすぎるようです。この制限に関する対策については %sドキュメント%s をご覧ください。"
 
 #: import.php:268 import.php:534
 msgid "Showing bookmark"
@@ -752,15 +748,13 @@ msgid "Server:"
 msgstr "サーバ:"
 
 #: index.php:244
-#, fuzzy
 #| msgid "Server port"
 msgid "Server type:"
-msgstr "サーバのポート"
+msgstr "サーバの種類"
 
 #: index.php:248 libraries/plugins/export/ExportLatex.class.php:225
 #: libraries/plugins/export/ExportSql.class.php:612
 #: libraries/plugins/export/ExportXml.class.php:198
-#, fuzzy
 #| msgid "Server version"
 msgid "Server version:"
 msgstr "サーバのバージョン"
@@ -772,7 +766,6 @@ msgid "Protocol version:"
 msgstr "プロトコルバージョン"
 
 #: index.php:256
-#, fuzzy
 #| msgid "User"
 msgid "User:"
 msgstr "ユーザ"
@@ -788,7 +781,6 @@ msgid "Web server"
 msgstr "ウェブサーバ"
 
 #: index.php:286
-#, fuzzy
 #| msgid "Database client version"
 msgid "Database client version:"
 msgstr "データベースクライアントのバージョン"
@@ -801,10 +793,9 @@ msgstr "PHP 拡張"
 
 #: index.php:304
 msgid "Show PHP information"
-msgstr "PHP 情報"
+msgstr "PHP情報を表示する"
 
 #: index.php:327
-#, fuzzy
 #| msgid "Version information"
 msgid "Version information:"
 msgstr "バージョン情報"
@@ -1587,12 +1578,12 @@ msgstr "要求処理中でのエラー"
 #: js/messages.php:216
 #, php-format
 msgid "Error code: %s"
-msgstr ""
+msgstr "エラーコード：%s"
 
 #: js/messages.php:217
 #, php-format
 msgid "Error text: %s"
-msgstr ""
+msgstr "エラーテキスト：%s"
 
 #: js/messages.php:218 libraries/db_common.inc.php:58
 #: libraries/db_table_exists.lib.php:28 server_databases.php:90
@@ -1994,10 +1985,9 @@ msgid "Show Panel"
 msgstr "すべて表示"
 
 #: js/messages.php:368
-#, fuzzy
 #| msgid "Hide indexes"
 msgid "Hide Panel"
-msgstr "インデックスを隠す"
+msgstr "パネルを隠す"
 
 #: js/messages.php:371
 #, fuzzy
