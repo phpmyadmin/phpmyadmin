@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-06-24 16:19+0200\n"
-"PO-Revision-Date: 2013-07-03 16:11+0200\n"
+"PO-Revision-Date: 2013-07-04 12:01+0200\n"
 "Last-Translator: G. S. <somogyig@gmail.com>\n"
 "Language-Team: Hungarian "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/hu/>\n"
@@ -10943,7 +10943,7 @@ msgstr "Az oszlop mozgatása sikeresen megtörtént."
 #: libraries/structure.lib.php:2565
 #, php-format
 msgid "The column name '%s' is a MySQL reserved keyword."
-msgstr ""
+msgstr "Az oszlop neve '%s' egy MySQL fenntartott kulcsszó."
 
 #: libraries/tbl_columns_definition_form.inc.php:101
 msgid ""
@@ -12564,6 +12564,9 @@ msgid ""
 "invalidation if %ssession.gc_maxlifetime%s is lower than its value "
 "(currently %d)."
 msgstr ""
+"Az 1440 másodpercnél magasabb %sLogin cookie validity% véletlenszerű "
+"munkamenet érvénytelenítést okozhat, ha %ssession.gc_maxlifetime%s "
+"alacsonyabb, mint az érték (jelenleg: %d)."
 
 #: setup/lib/index.lib.php:310
 #, php-format
@@ -12581,6 +12584,8 @@ msgid ""
 "If using cookie authentication and %sLogin cookie store%s is not 0, %sLogin "
 "cookie validity%s must be set to a value less or equal to it."
 msgstr ""
+"Ha a hitelesítési cookie és a %sLogin cookie store%s nem 0, %sLogin "
+"cookievalidity%s értéket kisebbre vagy egyenlőre kell állítani."
 
 #: setup/lib/index.lib.php:314
 #, php-format
@@ -12707,11 +12712,11 @@ msgstr "Nincs megjelenítendő adat"
 
 #: tbl_chart.php:62 tbl_gis_visualization.php:24
 msgid "No SQL query was set to fetch data."
-msgstr ""
+msgstr "Nem lett SQL lekérdezés beállítva az adatok megjelenítéséhez."
 
 #: tbl_chart.php:124
 msgid "No numeric columns present in the table to plot."
-msgstr ""
+msgstr "Nem tartalmaz számoszlopot a táblázat."
 
 #: tbl_chart.php:154
 msgctxt "Chart type"
@@ -12731,12 +12736,12 @@ msgstr "Vonal"
 #: tbl_chart.php:161
 msgctxt "Chart type"
 msgid "Spline"
-msgstr "Spline"
+msgstr "Ék"
 
 #: tbl_chart.php:163
 msgctxt "Chart type"
 msgid "Area"
-msgstr ""
+msgstr "Terület"
 
 #: tbl_chart.php:166
 msgctxt "Chart type"
@@ -12929,12 +12934,12 @@ msgstr "Nem jelölt ki sort."
 #: tbl_tracking.php:136
 #, php-format
 msgid "Tracking report for table `%s`"
-msgstr ""
+msgstr "Követési jelentés '%s' táblához"
 
 #: tbl_tracking.php:206
 #, php-format
 msgid "Version %1$s was created, tracking for %2$s is active."
-msgstr ""
+msgstr "%1$s verzió létrejött, a %2$s nyomonkövetése aktív."
 
 #: tbl_tracking.php:223
 #, php-format
@@ -12957,27 +12962,30 @@ msgid ""
 "You can execute the dump by creating and using a temporary database. Please "
 "ensure that you have the privileges to do so."
 msgstr ""
+"A halmaz futtatható ideiglenes tábla létrehozásával és használatával. "
+"Győződjön meg arról, hogy van erre jogosultsága."
 
 #: tbl_tracking.php:263
 msgid "Comment out these two lines if you do not need them."
-msgstr ""
+msgstr "Kommentelje ki ezt a két sort ha nincs rá szüksége."
 
 #: tbl_tracking.php:273
 msgid "SQL statements exported. Please copy the dump or execute it."
 msgstr ""
+"Az SQL utasítások exportálva lettek. Másolja ki a halmazt vagy futtassa."
 
 #: tbl_tracking.php:311
 #, php-format
 msgid "Version %s snapshot (SQL code)"
-msgstr ""
+msgstr "%s verzió pillanatfelvételre (SQL kód)"
 
 #: tbl_tracking.php:455
 msgid "Tracking data definition successfully deleted"
-msgstr ""
+msgstr "Adatdefiníció nyomonkövetése sikeresen törölve"
 
 #: tbl_tracking.php:479
 msgid "Tracking data manipulation successfully deleted"
-msgstr ""
+msgstr "Adatmanipuláció nyomonkövetése sikeresen törölve"
 
 #: tbl_tracking.php:494
 msgid "Tracking statements"
@@ -12986,7 +12994,7 @@ msgstr "Nyomkövetési utasítások"
 #: tbl_tracking.php:525 tbl_tracking.php:675
 #, php-format
 msgid "Show %1$s with dates from %2$s to %3$s by user %4$s %5$s"
-msgstr ""
+msgstr "%1$s mutatása %2$s és %3$s közti dátummal és %4$s %5$s felhasználóval"
 
 #: tbl_tracking.php:533
 msgid "Delete tracking data row from report"
@@ -13061,11 +13069,11 @@ msgstr "%2$s %1$s verziójának készítése"
 
 #: tbl_tracking.php:870
 msgid "Track these data definition statements:"
-msgstr ""
+msgstr "Kövesse nyomon ezeket az adatmeghatározó utasításokat:"
 
 #: tbl_tracking.php:878
 msgid "Track these data manipulation statements:"
-msgstr ""
+msgstr "Kövesse nyomon ezeket az adatmanipulációs utasításokat:"
 
 #: tbl_tracking.php:888
 msgid "Create version"
@@ -13110,22 +13118,24 @@ msgstr "Nézet átnevezése"
 
 #: libraries/advisory_rules.txt:49
 msgid "Uptime below one day"
-msgstr ""
+msgstr "Üzemidő egy nap alatt"
 
 #: libraries/advisory_rules.txt:52
 msgid "Uptime is less than 1 day, performance tuning may not be accurate."
-msgstr ""
+msgstr "Üzemidő kevesebb, mint 1 nap, teljesítmény tuning nem pontos."
 
 #: libraries/advisory_rules.txt:53
 msgid ""
 "To have more accurate averages it is recommended to let the server run for "
 "longer than a day before running this analyzer"
 msgstr ""
+"Hogy pontosabb átlagot kapjon, ajánlott a kiszolgáló egy napnál hosszabb "
+"idejű futtatása, mielőtt elindítaná ezt az elemzést"
 
 #: libraries/advisory_rules.txt:54
 #, php-format
 msgid "The uptime is only %s"
-msgstr ""
+msgstr "Az üzemidő mindössze %s"
 
 #: libraries/advisory_rules.txt:56
 msgid "Questions below 1,000"
@@ -13136,12 +13146,16 @@ msgid ""
 "Fewer than 1,000 questions have been run against this server. The "
 "recommendations may not be accurate."
 msgstr ""
+"Kevesebb, mint 1000 kérdés futott le ezen a kiszolgálón. Az ajánlások nem "
+"pontosak."
 
 #: libraries/advisory_rules.txt:60
 msgid ""
 "Let the server run for a longer time until it has executed a greater amount "
 "of queries."
 msgstr ""
+"Hagyja, hogy a kiszolgáló hosszabb ideig üzemeljen, ezáltal nagyobb "
+"mennyiségű lekérdezéseket tudjon futtatni."
 
 #: libraries/advisory_rules.txt:61
 #, php-format
@@ -13157,18 +13171,22 @@ msgstr "Lassú lekérdezések százaléka"
 #: libraries/advisory_rules.txt:66
 msgid ""
 "There is a lot of slow queries compared to the overall amount of Queries."
-msgstr ""
+msgstr "Sok lassú lekérdezés van a összes lekérdezéshez viszonyítva."
 
 #: libraries/advisory_rules.txt:67 libraries/advisory_rules.txt:74
 msgid ""
 "You might want to increase {long_query_time} or optimize the queries listed "
 "in the slow query log"
 msgstr ""
+"Érdemes növelni a(z) {long_query_time}-t vagy optimalizálni a lassú "
+"lekérdezés naplóban lévő lekérdezéseket"
 
 #: libraries/advisory_rules.txt:68
 #, php-format
 msgid "The slow query rate should be below 5%%, your value is %s%%."
 msgstr ""
+"A lassú lekérdezések mértékének kisebbnek kellene 5%%nál lennie, az érték %s"
+"%%."
 
 #: libraries/advisory_rules.txt:70
 #| msgid "Flush query cache"
@@ -13179,6 +13197,8 @@ msgstr "Lassú lekérdezési ráta"
 msgid ""
 "There is a high percentage of slow queries compared to the server uptime."
 msgstr ""
+"A kiszolgáló üzemidejéhez képest nagy százalékban fordulnak elő lassú "
+"lekérdezések."
 
 #: libraries/advisory_rules.txt:75
 #, php-format
@@ -13186,6 +13206,8 @@ msgid ""
 "You have a slow query rate of %s per hour, you should have less than 1%% per "
 "hour."
 msgstr ""
+"A lassú lekérdezések mértéke %s óránként, kevesebbnek kellene lennie, mint 1"
+"%% óránként."
 
 #: libraries/advisory_rules.txt:77
 #| msgid "SQL queries"
@@ -13197,12 +13219,16 @@ msgid ""
 "{long_query_time} is set to 10 seconds or more, thus only slow queries that "
 "take above 10 seconds are logged."
 msgstr ""
+"{long_query_time} értéke 10 másodperc vagy több, így csak a 10 másodpercet "
+"meghaladó lassú lekérdezések lesznek naplózva."
 
 #: libraries/advisory_rules.txt:81
 msgid ""
 "It is suggested to set {long_query_time} to a lower value, depending on your "
 "environment. Usually a value of 1-5 seconds is suggested."
 msgstr ""
+"Javasolt a környezettől függően a {long_query_time} kisebb értékre állítása. "
+"Általában 1-5 másodperces érték az ajánlott."
 
 #: libraries/advisory_rules.txt:82
 #, php-format
@@ -13224,6 +13250,9 @@ msgid ""
 "Enable slow query logging by setting {log_slow_queries} to 'ON'. This will "
 "help troubleshooting badly performing queries."
 msgstr ""
+"Engedélyezze a lassú lekérdések naplózását a {log_slow_queries} értékének "
+"'ON'-ra állításával. Ez segít a rosszul teljesített lekérdezések "
+"hibaelhárításában."
 
 #: libraries/advisory_rules.txt:89
 #| msgid "long_query_time is set to %d second(s)."
@@ -13235,6 +13264,9 @@ msgid ""
 "Enable slow query logging by setting {slow_query_log} to 'ON'. This will "
 "help troubleshooting badly performing queries."
 msgstr ""
+"Lassú lekérdezés naplózásának engedélyezése a {slow_query_log} értékének "
+"'ON'-ra állításával. Ez segít a rosszul teljesítő lekérdezések "
+"hibaelhárításában."
 
 #: libraries/advisory_rules.txt:96
 #| msgid "long_query_time is set to %d second(s)."
@@ -13248,13 +13280,15 @@ msgstr "Sorozatok kiadása"
 
 #: libraries/advisory_rules.txt:103
 msgid "The MySQL server version less than 5.1."
-msgstr ""
+msgstr "A MySQL szerver verziója kisebb 5.1-nél."
 
 #: libraries/advisory_rules.txt:104
 msgid ""
 "You should upgrade, as MySQL 5.1 has improved performance, and MySQL 5.5 "
 "even more so."
 msgstr ""
+"Frissítsen MySQL 5.1-re a teljesítményjavulásért, a MySQL 5.5 még inkább "
+"ajánlott."
 
 #: libraries/advisory_rules.txt:105 libraries/advisory_rules.txt:112
 #: libraries/advisory_rules.txt:119
@@ -13269,17 +13303,19 @@ msgstr "Alverzió"
 
 #: libraries/advisory_rules.txt:110
 msgid "Version less than 5.1.30 (the first GA release of 5.1)."
-msgstr ""
+msgstr "A verzió kisebb 5.1.30-nál."
 
 #: libraries/advisory_rules.txt:111
 msgid ""
 "You should upgrade, as recent versions of MySQL 5.1 have improved "
 "performance and MySQL 5.5 even more so."
 msgstr ""
+"Frissítsen MySQL 5.1-re a teljesítményjavulásért, a MySQL 5.5 még inkább "
+"ajánlott."
 
 #: libraries/advisory_rules.txt:117
 msgid "Version less than 5.5.8 (the first GA release of 5.5)."
-msgstr ""
+msgstr "A verzió kisebb 5.5.8-nál."
 
 #: libraries/advisory_rules.txt:118
 msgid "You should upgrade, to a stable version of MySQL 5.5"
@@ -13293,6 +13329,7 @@ msgstr "Disztribúció"
 #: libraries/advisory_rules.txt:124
 msgid "Version is compiled from source, not a MySQL official binary."
 msgstr ""
+"A verzió nem egy hivatalos MySQL bináris kód, hanem forrásból lett fordítva."
 
 #: libraries/advisory_rules.txt:125
 msgid ""
@@ -13300,31 +13337,35 @@ msgid ""
 "distribution. The MySQL manual only is accurate for official MySQL binaries, "
 "not any package distributions (such as RedHat, Debian/Ubuntu etc)."
 msgstr ""
+"Ha Ön nem forrásból fordított, lehetséges, hogy egy terjesztési csomag által "
+"módosított verziót használ. A MySQL kézikönyv csak a hivatalos MySQL "
+"csomaghoz használható, nem pedig disztribúciókhoz (mint például a RedHat, "
+"Debian/Ubuntu stb)."
 
 #: libraries/advisory_rules.txt:126
 msgid "'source' found in version_comment"
-msgstr ""
+msgstr "'forrás' a version_comment-ben találva"
 
 #: libraries/advisory_rules.txt:131 libraries/advisory_rules.txt:138
 msgid "The MySQL manual only is accurate for official MySQL binaries."
-msgstr ""
+msgstr "A MySQL kézikönyv csak a hivatalos MySQL kiadás számára akkurátus."
 
 #: libraries/advisory_rules.txt:132
 msgid "Percona documentation is at http://www.percona.com/docs/wiki/"
-msgstr ""
+msgstr "Percona dokumentáció: http://www.percona.com/docs/wiki/"
 
 #: libraries/advisory_rules.txt:133
 msgid "'percona' found in version_comment"
-msgstr ""
+msgstr "'percona' a version_comment-ben találva"
 
 #: libraries/advisory_rules.txt:139
 msgid "Drizzle documentation is at http://docs.drizzle.org/"
-msgstr ""
+msgstr "Drizzle dokumentáció: http://docs.drizzle.org/"
 
 #: libraries/advisory_rules.txt:140
 #, php-format
 msgid "Version string (%s) matches Drizzle versioning scheme"
-msgstr ""
+msgstr "A verzió (%s) egyezik a Drizzle verziósémával"
 
 #: libraries/advisory_rules.txt:142
 msgid "MySQL Architecture"
@@ -13332,7 +13373,7 @@ msgstr "MySQL architektúra"
 
 #: libraries/advisory_rules.txt:145
 msgid "MySQL is not compiled as a 64-bit package."
-msgstr ""
+msgstr "A MySQL nem 64 bitesként lett fordítva."
 
 #: libraries/advisory_rules.txt:146
 msgid ""
@@ -13340,11 +13381,14 @@ msgid ""
 "so MySQL might not be able to access all of your memory. You might want to "
 "consider installing the 64-bit version of MySQL."
 msgstr ""
+"A memória kapacitása meghaladja a 3 GB-t (feltételezve, hogy a szerver a "
+"localhoston van), így a MySQL nem fogja tudni az egész memóriát elérni. "
+"Fontolja meg a MySQL 64 bites változatának telepítését."
 
 #: libraries/advisory_rules.txt:147
 #, php-format
 msgid "Available memory on this host: %s"
-msgstr ""
+msgstr "Elérhető memória ezen a hoszton: %s"
 
 #: libraries/advisory_rules.txt:153
 msgid "Query cache disabled"
@@ -13361,10 +13405,15 @@ msgid ""
 "and setting {query_cache_type} to 'ON'. <b>Note:</b> If you are using "
 "memcached, ignore this recommendation."
 msgstr ""
+"A lekérdezéshez használt gyorsítótár nagyban javítja a teljesítményt, ha "
+"megfelelően van konfigurálva. Engedélyezze a {query_cache_size} 2 számjegyű "
+"MB értékre való állításával és a {query_cache_type} 'ON'-ra állításával. "
+"<b>Megjegyzés:</b> memcached használatakor hagyja figyelmen kívül ezt az "
+"ajánlást."
 
 #: libraries/advisory_rules.txt:158
 msgid "query_cache_size is set to 0 or query_cache_type is set to 'OFF'"
-msgstr ""
+msgstr "query_cache_size értéke 0 vagy query_cache_type értéke 'OFF'"
 
 #: libraries/advisory_rules.txt:160
 msgid "Query caching method"
@@ -13382,6 +13431,10 @@ msgid ""
 "refman/5.5/en/ha-memcached.html\">memcached</a> instead of the MySQL Query "
 "cache, especially if you have multiple slaves."
 msgstr ""
+"A MySQL lekérdezési gyorsítótárat egy viszonylag nagy forgalmú adatbázissal "
+"használja. Lehet, hogy érdemes a lekérdezési gyorsítótár helyett a <a "
+"href=\"http://dev.mysql.com/doc/refman/5.5/en/ha-memcached.html\">memcache</a> "
+"használata, különösen, ha több szolga van."
 
 #: libraries/advisory_rules.txt:165
 #, php-format
