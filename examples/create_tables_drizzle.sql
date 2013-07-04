@@ -226,3 +226,66 @@ CREATE TABLE IF NOT EXISTS `pma__userconfig` (
 )
   ENGINE=InnoDB COMMENT='User preferences storage for phpMyAdmin'
   COLLATE utf8_bin;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pma__users`
+--
+
+CREATE TABLE IF NOT EXISTS `pma__users` (
+  `username` varchar(64) NOT NULL,
+  `usergroup` varchar(64) NOT NULL,
+  PRIMARY KEY (`username`,`usergroup`)
+) 
+  ENGINE=MyISAM COMMENT='Users and their assignments to user groups'
+  COLLATE utf8_bin;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pma__user_groups`
+--
+
+CREATE TABLE IF NOT EXISTS `pma__user_groups` (
+  `usergroup` varchar(64) NOT NULL,
+  `server_databases` enum('Y','N') NOT NULL DEFAULT 'N',
+  `server_sql` enum('Y','N') NOT NULL DEFAULT 'N',
+  `server_status` enum('Y','N') NOT NULL DEFAULT 'N',
+  `server_rights` enum('Y','N') NOT NULL DEFAULT 'N',
+  `server_export` enum('Y','N') NOT NULL DEFAULT 'N',
+  `server_import` enum('Y','N') NOT NULL DEFAULT 'N',
+  `server_settings` enum('Y','N') NOT NULL DEFAULT 'N',
+  `server_binlog` enum('Y','N') NOT NULL DEFAULT 'N',
+  `server_replication` enum('Y','N') NOT NULL DEFAULT 'N',
+  `server_vars` enum('Y','N') NOT NULL DEFAULT 'N',
+  `server_charset` enum('Y','N') NOT NULL DEFAULT 'N',
+  `server_plugins` enum('Y','N') NOT NULL DEFAULT 'N',
+  `server_engine` enum('Y','N') NOT NULL DEFAULT 'N',
+  `db_structure` enum('Y','N') NOT NULL DEFAULT 'N',
+  `db_sql` enum('Y','N') NOT NULL DEFAULT 'N',
+  `db_search` enum('Y','N') NOT NULL DEFAULT 'N',
+  `db_qbe` enum('Y','N') NOT NULL DEFAULT 'N',
+  `db_export` enum('Y','N') NOT NULL DEFAULT 'N',
+  `db_import` enum('Y','N') NOT NULL DEFAULT 'N',
+  `db_operation` enum('Y','N') NOT NULL DEFAULT 'N',
+  `db_privileges` enum('Y','N') NOT NULL DEFAULT 'N',
+  `db_routines` enum('Y','N') NOT NULL DEFAULT 'N',
+  `db_events` enum('Y','N') NOT NULL DEFAULT 'N',
+  `db_triggers` enum('Y','N') NOT NULL DEFAULT 'N',
+  `db_tracking` enum('Y','N') NOT NULL DEFAULT 'N',
+  `db_designer` enum('Y','N') NOT NULL DEFAULT 'N',
+  `table_browse` enum('Y','N') NOT NULL DEFAULT 'N',
+  `table_structure` enum('Y','N') NOT NULL DEFAULT 'N',
+  `table_sql` enum('Y','N') NOT NULL DEFAULT 'N',
+  `table_search` enum('Y','N') NOT NULL DEFAULT 'N',
+  `table_insert` enum('Y','N') NOT NULL DEFAULT 'N',
+  `table_export` enum('Y','N') NOT NULL DEFAULT 'N',
+  `table_import` enum('Y','N') NOT NULL DEFAULT 'N',
+  `table_operation` enum('Y','N') NOT NULL DEFAULT 'N',
+  `table_tracking` enum('Y','N') NOT NULL DEFAULT 'N',
+  `table_triggers` enum('Y','N') NOT NULL DEFAULT 'N',
+  PRIMARY KEY (`usergroup`)
+) 
+  ENGINE=MyISAM COMMENT='User groups with configured menu items'
+  COLLATE utf8_bin;
