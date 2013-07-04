@@ -75,42 +75,36 @@ class PMA_ServerCollations_Test extends PHPUnit_Framework_TestCase
      */
     public function testPMA_getHtmlForCharsets()
     {
-        global $mysql_charsets, $mysql_collations, $mysql_charsets_descriptions, 
-        $mysql_default_collations, $mysql_collations_available;
+        $mysql_charsets = array("armscii8", "ascii", "big5", "binary");
+        $mysql_collations = array(
+        	"armscii8" => array("armscii8"), 
+            "ascii" => array("ascii"), 
+            "big5" => array("big5"), 
+        	"binary" => array("binary"),         		
+        );
+        $mysql_charsets_descriptions = array(
+        	"armscii8" => "PMA_armscii8_general_ci", 
+            "ascii" => "PMA_ascii_general_ci", 
+            "big5" => "PMA_big5_general_ci", 
+        	"binary" => "PMA_binary_general_ci",         		
+        );
+        $mysql_default_collations = array(
+        	"armscii8" => "armscii8", 
+            "ascii" => "ascii", 
+            "big5" => "big5", 
+        	"binary" => "binary",         		
+        );
+        $mysql_collations_available = array(
+        	"armscii8" => true, 
+            "ascii" => true, 
+            "big5" => true, 
+        	"binary" => true,         		
+        );
         
         //Mock DBI
         $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
-        
-        //expects return value
-        $result = array(
-            array(
-                "SHOW BINLOG EVENTS IN 'index1' LIMIT 3, 10",
-                null,
-                1,
-                true,
-                array("log1"=>"logd")
-            ),
-            array(
-                array("log2"=>"logb"),
-                null,
-                0,
-                false,
-                'executed'
-            )
-        );
-        $value = array(
-        	'Info' => "index1_Info",
-        	'Log_name' => "index1_Log_name",
-        	'Pos' => "index1_Pos",
-        	'Event_type' => "index1_Event_type",
-        	'End_log_pos' => "index1_End_log_pos",
-        	'Server_id' => "index1_Server_id",
-        );   
-        $count = 3;
-
-        //expects functions
 
         $GLOBALS['dbi'] = $dbi;
 
@@ -138,19 +132,27 @@ class PMA_ServerCollations_Test extends PHPUnit_Framework_TestCase
         );
         //validate 2: Charset Item
         $this->assertContains(
-            '<td>utf8_bin</td>',
+            '<i>PMA_armscii8_general_ci</i>',
             $html
         );
         $this->assertContains(
-            '<td>Unicode (multilingual), Binary</td>',
+            '<td>armscii8</td>',
             $html
         );
         $this->assertContains(
-            '<td>utf8_general_ci</td>',
+            '<i>PMA_ascii_general_ci</i>',
             $html
         );
         $this->assertContains(
-            '<td>Unicode (multilingual), case-insensitive</td>',
+            '<td>ascii</td>',
+            $html
+        );
+        $this->assertContains(
+            '<i>PMA_big5_general_ci</i>',
+            $html
+        );
+        $this->assertContains(
+            '<td>big5</td>',
             $html
         );
     }
