@@ -10,7 +10,10 @@
  * Include to test.
  */
 define('PMA_MYSQL_STR_VERSION', "PMA_MYSQL_STR_VERSION");
+//it will be used before setup on libraries/sqlvalidator.lib.php 
 global $cfg;
+$cfg['SQLValidator']['use'] = false;
+
 
 require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/Message.class.php';
@@ -41,7 +44,6 @@ class PMA_SQLValidator_Test extends PHPUnit_Framework_TestCase
     public function testPMA_validateSQL()
     {
     	$sql = "select * from PMA_test";
-        $GLOBALS['cfg']['SQLValidator']['use'] = false;
         $this->assertEquals(
         	'',
         	PMA_validateSQL($sql)
