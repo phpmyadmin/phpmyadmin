@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-06-24 16:19+0200\n"
-"PO-Revision-Date: 2013-07-04 12:01+0200\n"
+"PO-Revision-Date: 2013-07-04 12:07+0200\n"
 "Last-Translator: G. S. <somogyig@gmail.com>\n"
 "Language-Team: Hungarian "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/hu/>\n"
@@ -3116,7 +3116,7 @@ msgstr "Rendezés"
 #: libraries/navigation/Nodes/Node_Table_Container.class.php:26
 #: libraries/plugins/export/ExportXml.class.php:116
 msgid "Tables"
-msgstr "Táblák"
+msgstr "Tábla"
 
 #: libraries/ServerStatusData.class.php:195
 msgid "Transaction coordinator"
@@ -13442,6 +13442,9 @@ msgid ""
 "The query cache is enabled and the server receives %d queries per second. "
 "This rule fires if there is more than 100 queries per second."
 msgstr ""
+"A lekérdezéshez használt gyorsítótár engedélyezve van, és a kiszolgálóhoz %d "
+"lekérdezés érkezik másodpercenként. Ez a szabály akkor lép életbe, ha több "
+"mint 100 lekérdezés / másodperc áll fenn."
 
 #: libraries/advisory_rules.txt:167
 #, php-format
@@ -13452,10 +13455,12 @@ msgstr "Lekérdezési gyorsítótárazás hatásfoka (%%)"
 #: libraries/advisory_rules.txt:170
 msgid "Query cache not running efficiently, it has a low hit rate."
 msgstr ""
+"A lekérdezési gyorsítótár nem működik hatékonyan, alacsony találati aránnyal "
+"rendelkezik."
 
 #: libraries/advisory_rules.txt:171
 msgid "Consider increasing {query_cache_limit}."
-msgstr ""
+msgstr "Fontja meg {query_cache_limit} megnövelését."
 
 #: libraries/advisory_rules.txt:172
 #, php-format
