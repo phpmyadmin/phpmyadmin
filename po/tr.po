@@ -4,14 +4,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-07-04 06:07-0400\n"
-"PO-Revision-Date: 2013-06-24 19:11+0200\n"
+"PO-Revision-Date: 2013-07-04 18:18+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
-"Language-Team: Turkish <http://l10n.cihar.com/projects/phpmyadmin/master/tr/"
-">\n"
+"Language-Team: Turkish "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/tr/>\n"
+"Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: tr\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 1.6-dev\n"
 
@@ -1725,16 +1725,14 @@ msgid "Show search criteria"
 msgstr "Arama kriterini göster"
 
 #: js/messages.php:278
-#, fuzzy
 #| msgid "Hide search criteria"
 msgid "Hide find and replace criteria"
-msgstr "Arama kriterini gizle"
+msgstr "Bul ve değiştir kriterini gizle"
 
 #: js/messages.php:279
-#, fuzzy
 #| msgid "Show search criteria"
 msgid "Show find and replace criteria"
-msgstr "Arama kriterini göster"
+msgstr "Bul ve değiştir kriterini göster"
 
 #: js/messages.php:282 libraries/TableSearch.class.php:210
 msgid "Zoom Search"
@@ -3231,7 +3229,7 @@ msgstr "Tablo Arama"
 
 #: libraries/TableSearch.class.php:215 libraries/TableSearch.class.php:1164
 msgid "Find and Replace"
-msgstr ""
+msgstr "Bul ve Değiştir"
 
 #: libraries/TableSearch.class.php:237 libraries/insert_edit.lib.php:1352
 msgid "Edit/Insert"
@@ -3296,44 +3294,38 @@ msgid "Reset zoom"
 msgstr "Odaklamayı sıfırla"
 
 #: libraries/TableSearch.class.php:1271
-#, fuzzy
 #| msgid "Find:"
 msgid "Find"
-msgstr "Bul:"
+msgstr "Bul"
 
 #: libraries/TableSearch.class.php:1273
-#, fuzzy
 #| msgid "Replace NULL with"
 msgid "Replace with"
-msgstr "NULL'u şununla değiştir"
+msgstr "Şununla değiştir"
 
 #: libraries/TableSearch.class.php:1333
 msgid "Find and replace - preview"
-msgstr ""
+msgstr "Bul ve değiştir - önizleme"
 
 #: libraries/TableSearch.class.php:1337
-#, fuzzy
 #| msgid "Column"
 msgid "Count"
-msgstr "Sütun"
+msgstr "Sayı"
 
 #: libraries/TableSearch.class.php:1338
-#, fuzzy
 #| msgid "Original position"
 msgid "Original string"
-msgstr "Orijinal konum"
+msgstr "Orijinal satır"
 
 #: libraries/TableSearch.class.php:1339
-#, fuzzy
 #| msgid "Related Links"
 msgid "Replaced string"
-msgstr "İlgili Bağlantılar"
+msgstr "Değiştirilmiş satır"
 
 #: libraries/TableSearch.class.php:1364
-#, fuzzy
 #| msgid "Replicated"
 msgid "Replace"
-msgstr "Kopya edildi"
+msgstr "Değiştir"
 
 #: libraries/Theme.class.php:170
 #, php-format
