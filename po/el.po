@@ -4,13 +4,13 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-07-04 06:07-0400\n"
-"PO-Revision-Date: 2013-06-25 09:02+0200\n"
+"PO-Revision-Date: 2013-07-04 19:42+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: Greek <http://l10n.cihar.com/projects/phpmyadmin/master/el/>\n"
+"Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: el\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 1.6-dev\n"
 
@@ -1734,16 +1734,14 @@ msgid "Show search criteria"
 msgstr "Προβολή κριτηρίων αναζήτησης"
 
 #: js/messages.php:278
-#, fuzzy
 #| msgid "Hide search criteria"
 msgid "Hide find and replace criteria"
-msgstr "Απόκρυψη κριτηρίων αναζήτησης"
+msgstr "Απόκρυψη κριτηρίων εύρεσης και αντικατάστασης"
 
 #: js/messages.php:279
-#, fuzzy
 #| msgid "Show search criteria"
 msgid "Show find and replace criteria"
-msgstr "Προβολή κριτηρίων αναζήτησης"
+msgstr "Προβολή κριτηρίων εύρεσης και αντικατάστασης"
 
 #: js/messages.php:282 libraries/TableSearch.class.php:210
 msgid "Zoom Search"
@@ -3254,7 +3252,7 @@ msgstr "Αναζήτηση Πίνακα"
 
 #: libraries/TableSearch.class.php:215 libraries/TableSearch.class.php:1164
 msgid "Find and Replace"
-msgstr ""
+msgstr "Εύρεση και Αντικατάσταση"
 
 #: libraries/TableSearch.class.php:237 libraries/insert_edit.lib.php:1352
 msgid "Edit/Insert"
@@ -3321,44 +3319,38 @@ msgid "Reset zoom"
 msgstr "Επανφορά εστίασης"
 
 #: libraries/TableSearch.class.php:1271
-#, fuzzy
 #| msgid "Find:"
 msgid "Find"
-msgstr "Έυρεση:"
+msgstr "Εύρεση"
 
 #: libraries/TableSearch.class.php:1273
-#, fuzzy
 #| msgid "Replace NULL with"
 msgid "Replace with"
-msgstr "Αντικατάσταση τιμής NULL με"
+msgstr "Αντικατάσταση με"
 
 #: libraries/TableSearch.class.php:1333
 msgid "Find and replace - preview"
-msgstr ""
+msgstr "Εύρεση και αντικατάσταση - προεπισκόπηση"
 
 #: libraries/TableSearch.class.php:1337
-#, fuzzy
 #| msgid "Column"
 msgid "Count"
-msgstr "Στήλη"
+msgstr "Μέτρηση"
 
 #: libraries/TableSearch.class.php:1338
-#, fuzzy
 #| msgid "Original position"
 msgid "Original string"
-msgstr "Αρχική θέση"
+msgstr "Αρχικό κείμενο"
 
 #: libraries/TableSearch.class.php:1339
-#, fuzzy
 #| msgid "Related Links"
 msgid "Replaced string"
-msgstr "Σχετικοί Σύνδεσμοι"
+msgstr "Αντικατεστημένο κείμενο"
 
 #: libraries/TableSearch.class.php:1364
-#, fuzzy
 #| msgid "Replicated"
 msgid "Replace"
-msgstr "Αναπαραγμένο"
+msgstr "Αντικατάσταση"
 
 #: libraries/Theme.class.php:170
 #, php-format
