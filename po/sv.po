@@ -4,14 +4,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-07-04 06:07-0400\n"
-"PO-Revision-Date: 2013-06-24 16:12+0200\n"
+"PO-Revision-Date: 2013-07-04 21:42+0200\n"
 "Last-Translator: Anders Jonsson <anders.jonsson@norsjovallen.se>\n"
-"Language-Team: Swedish <http://l10n.cihar.com/projects/phpmyadmin/master/sv/"
-">\n"
+"Language-Team: Swedish "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/sv/>\n"
+"Language: sv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: sv\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 1.6-dev\n"
 
@@ -3290,16 +3290,14 @@ msgid "Reset zoom"
 msgstr "Återställ zoom"
 
 #: libraries/TableSearch.class.php:1271
-#, fuzzy
 #| msgid "Find:"
 msgid "Find"
-msgstr "Hitta:"
+msgstr "Hitta"
 
 #: libraries/TableSearch.class.php:1273
-#, fuzzy
 #| msgid "Replace NULL with"
 msgid "Replace with"
-msgstr "Ersätt NULL med"
+msgstr "Ersätt med"
 
 #: libraries/TableSearch.class.php:1333
 msgid "Find and replace - preview"
@@ -3312,10 +3310,9 @@ msgid "Count"
 msgstr "Kolumn"
 
 #: libraries/TableSearch.class.php:1338
-#, fuzzy
 #| msgid "Original position"
 msgid "Original string"
-msgstr "Ursprunglig position"
+msgstr "Ursprunglig sträng"
 
 #: libraries/TableSearch.class.php:1339
 #, fuzzy
