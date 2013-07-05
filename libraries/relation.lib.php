@@ -248,6 +248,23 @@ function PMA_getRelationsParamDiagnostic($cfgRelation)
             'userconfigwork',
             $messages
         );
+        $retval .= PMA_getDiagMessageForParameter(
+            'users',
+            isset($cfgRelation['users']),
+            $messages,
+            'users'
+        );
+        $retval .= PMA_getDiagMessageForParameter(
+            'usergroups',
+            isset($cfgRelation['usergroups']),
+            $messages,
+            'usergroups'
+        );
+        $retval .= PMA_getDiagMessageForFeature(
+            __('Configurable menus'),
+            'menuswork',
+            $messages
+        );
         $retval .= '</table>' . "\n";
 
         $retval .= '<p>' . __('Quick steps to setup advanced features:') . '</p>';
@@ -360,6 +377,7 @@ function PMA_checkRelationsParam()
     $cfgRelation['trackingwork'] = false;
     $cfgRelation['designerwork'] = false;
     $cfgRelation['userconfigwork'] = false;
+    $cfgRelation['menuswork']   = false;
     $cfgRelation['allworks']    = false;
     $cfgRelation['user']        = null;
     $cfgRelation['db']          = null;
@@ -423,6 +441,10 @@ function PMA_checkRelationsParam()
             $cfgRelation['tracking'] = $curr_table[0];
         } elseif ($curr_table[0] == $GLOBALS['cfg']['Server']['userconfig']) {
             $cfgRelation['userconfig'] = $curr_table[0];
+        } elseif ($curr_table[0] == $GLOBALS['cfg']['Server']['users']) {
+            $cfgRelation['users'] = $curr_table[0];
+        } elseif ($curr_table[0] == $GLOBALS['cfg']['Server']['usergroups']) {
+            $cfgRelation['usergroups'] = $curr_table[0];
         }
     } // end while
     $GLOBALS['dbi']->freeResult($tab_rs);
@@ -430,7 +452,7 @@ function PMA_checkRelationsParam()
     if (isset($cfgRelation['relation'])) {
         $cfgRelation['relwork']         = true;
         if (isset($cfgRelation['table_info'])) {
-                $cfgRelation['displaywork'] = true;
+            $cfgRelation['displaywork'] = true;
         }
     }
 
@@ -473,12 +495,17 @@ function PMA_checkRelationsParam()
         $cfgRelation['bookmarkwork']     = true;
     }
 
+    if (isset($cfgRelation['users']) && isset($cfgRelation['usergroups'])) {
+        $cfgRelation['menuswork']        = true;
+    }
+
     if ($cfgRelation['relwork'] && $cfgRelation['displaywork']
         && $cfgRelation['pdfwork'] && $cfgRelation['commwork']
         && $cfgRelation['mimework'] && $cfgRelation['historywork']
         && $cfgRelation['recentwork'] && $cfgRelation['uiprefswork']
         && $cfgRelation['trackingwork'] && $cfgRelation['userconfigwork']
         && $cfgRelation['bookmarkwork'] && $cfgRelation['designerwork']
+        && $cfgRelation['menuswork']
     ) {
         $cfgRelation['allworks'] = true;
     }
