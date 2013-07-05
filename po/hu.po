@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-07-04 06:07-0400\n"
-"PO-Revision-Date: 2013-07-04 16:16+0200\n"
+"PO-Revision-Date: 2013-07-05 09:34+0200\n"
 "Last-Translator: G. S. <somogyig@gmail.com>\n"
 "Language-Team: Hungarian "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/hu/>\n"
@@ -4737,7 +4737,7 @@ msgstr "Fejlesztő"
 
 #: libraries/config/messages.inc.php:159
 msgid "Settings for phpMyAdmin developers"
-msgstr "phpMyAdmin fejlesztők beállításai"
+msgstr "phpMyAdmin fejlesztő mód beállításai"
 
 #: libraries/config/messages.inc.php:160
 msgid "Edit mode"
@@ -8885,8 +8885,8 @@ msgid ""
 "should see a message informing you, that this server <b>is</b> configured as "
 "master."
 msgstr ""
-"Miután újraindította a MySQL szervert, kérjük, kattintson a Go gombra. Ezt "
-"követően egy üzenet fogja tájékoztatni arról, hogy a szerver mesterként "
+"Miután újraindította a MySQL szervert, kérjük, kattintson az Indítás gombra. "
+"Ezt követően egy üzenet fogja tájékoztatni arról, hogy a szerver mesterként "
 "<b>van</b> beállítva."
 
 #: libraries/replication_gui.lib.php:139
