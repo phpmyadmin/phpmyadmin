@@ -223,11 +223,10 @@ list($result, $num_rows, $unlim_num_rows, $profiling_results,
 // No rows returned -> move back to the calling page
 if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
     PMA_sendResponseForNoResultsReturned($analyzed_sql_results, $db, $table,
-        isset($message_to_show) ? $message_to_show : null, $num_rows,
-        $displayResultsObject, $extra_data, $is_gotofile,
-        isset($url_params) ? $url_params : null,
-        isset($active_page) ? $active_page : null, $cfg
+        isset($message_to_show) ? $message_to_show : null,
+        $num_rows, $displayResultsObject, $extra_data, $cfg
     );
+   
 } else {
     $html_output='';
     // At least one row is returned -> displays a table with results

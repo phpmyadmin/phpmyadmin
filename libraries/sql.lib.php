@@ -1572,7 +1572,7 @@ $num_rows
 function PMA_sendAjaxResponseForNoResultsReturned($message, $analyzed_sql,
 $displayResultsObject, $showSql, $extra_data
 ) {
-    if ($cfg['ShowSQL']) {
+    if ($showSql) {
         $extra_data['sql_query'] = PMA_Util::getMessage(
             $message, $GLOBALS['sql_query'], 'success'
         );
@@ -1602,6 +1602,14 @@ $displayResultsObject, $showSql, $extra_data
 
 /**
  * Function to respond back when the query returns zero rows
+ * This method is called when
+ * 1-> When browsing an empty table
+ * 2-> When executing a query on a non empty table which returns zero results
+ * 3-> When executing a query on an empty table
+ * 4-> When executing an INSERT, UPDATE, DEDETE query from the SQL  tab
+ * 5-> When deleting a row from BROWSE tab
+ * 6-> When searching using the SEARCH tab which returns zero results
+ * 7-> When changing the structure of the table except change operation
  * 
  * @param array  $analyzed_sql_results analyzed sql results
  * @param string $db                   current database
@@ -1610,16 +1618,12 @@ $displayResultsObject, $showSql, $extra_data
  * @param int    $num_rows             number of rows
  * @param object $displayResultsObject DisplayResult instance
  * @param array  $extra_data           extra data
- * @param bool   $is_gotofile          whether to go to file
- * @param array  $url_params           url parameters
- * @param string $active_page          active page
  * @param array  $cfg                  configuration
  * 
  * @return void
  */
 function PMA_sendResponseForNoResultsReturned($analyzed_sql_results, $db, $table,
-    $message_to_show, $num_rows, $displayResultsObject, $extra_data, $is_gotofile,
-    $url_params, $active_page, $cfg
+    $message_to_show, $num_rows, $displayResultsObject, $extra_data, $cfg
 ) {
     if (PMA_isDeleteTransformationInfo($analyzed_sql_results)) {
         PMA_deleteTransformationInfo(
@@ -1631,7 +1635,6 @@ function PMA_sendResponseForNoResultsReturned($analyzed_sql_results, $db, $table
         isset($message_to_show) ? $message_to_show : null, $analyzed_sql_results,
         $num_rows
     );
-
     if ($GLOBALS['is_ajax_request'] == true) {
         PMA_sendAjaxResponseForNoResultsReturned($message,
             $analyzed_sql_results['analyzed_sql'],
@@ -1639,48 +1642,6 @@ function PMA_sendResponseForNoResultsReturned($analyzed_sql_results, $db, $table
             isset($extra_data) ? $extra_data : null
         );
     }
-
-    if ($is_gotofile) {
-        $goto = PMA_securePath($goto);
-        // Checks for a valid target script
-        $is_db = $is_table = false;
-        if (isset($_REQUEST['purge']) && $_REQUEST['purge'] == '1') {
-            $table = '';
-            unset($url_params['table']);
-        }
-        include 'libraries/db_table_exists.lib.php';
-
-        if (strpos($goto, 'tbl_') === 0 && ! $is_table) {
-            if (strlen($table)) {
-                $table = '';
-            }
-            $goto = 'db_sql.php';
-        }
-        if (strpos($goto, 'db_') === 0 && ! $is_db) {
-            if (strlen($db)) {
-                $db = '';
-            }
-            $goto = 'index.php';
-        }
-        // Loads to target script
-        if (strlen($goto) > 0) {
-            $active_page = $goto;
-            include '' . $goto;
-        } else {
-            // Echo at least one character to prevent showing last page from history
-            echo " ";
-        }
-
-    } else {
-        // avoid a redirect loop when last record was deleted
-        if (0 == $num_rows && 'sql.php' == $cfg['DefaultTabTable']) {
-            $goto = str_replace('sql.php', 'tbl_structure.php', $goto);
-        }
-        PMA_sendHeaderLocation(
-            $cfg['PmaAbsoluteUri'] . str_replace('&amp;', '&', $goto)
-            . '&message=' . urlencode($message)
-        );
-    } // end else
     exit();
 }
 ?>
