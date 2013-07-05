@@ -244,10 +244,10 @@ CREATE TABLE IF NOT EXISTS `pma__users` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pma__user_groups`
+-- Table structure for table `pma__usergroups`
 --
 
-CREATE TABLE IF NOT EXISTS `pma__user_groups` (
+CREATE TABLE IF NOT EXISTS `pma__usergroups` (
   `usergroup` varchar(64) NOT NULL,
   `server_databases` enum('Y','N') NOT NULL DEFAULT 'N',
   `server_sql` enum('Y','N') NOT NULL DEFAULT 'N',
