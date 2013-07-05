@@ -4,14 +4,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-07-04 06:07-0400\n"
-"PO-Revision-Date: 2013-07-02 20:34+0200\n"
+"PO-Revision-Date: 2013-07-05 16:32+0200\n"
 "Last-Translator: Tony Chen <tonychen@finenet.com.tw>\n"
-"Language-Team: Traditional Chinese <http://l10n.cihar.com/projects/"
-"phpmyadmin/master/zh_TW/>\n"
+"Language-Team: Traditional Chinese "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/zh_TW/>\n"
+"Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: zh_TW\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 1.6-dev\n"
 
@@ -1691,10 +1691,9 @@ msgid "Hide find and replace criteria"
 msgstr "隱藏搜尋條件"
 
 #: js/messages.php:279
-#, fuzzy
 #| msgid "Show search criteria"
 msgid "Show find and replace criteria"
-msgstr "顯示搜尋條件"
+msgstr "顯示尋找並取代條件"
 
 #: js/messages.php:282 libraries/TableSearch.class.php:210
 msgid "Zoom Search"
@@ -3239,14 +3238,13 @@ msgid "Find"
 msgstr "搜尋："
 
 #: libraries/TableSearch.class.php:1273
-#, fuzzy
 #| msgid "Replace NULL with"
 msgid "Replace with"
-msgstr "將 NULL 替換爲"
+msgstr "替換爲"
 
 #: libraries/TableSearch.class.php:1333
 msgid "Find and replace - preview"
-msgstr ""
+msgstr "預覽 - 尋找和替換"
 
 #: libraries/TableSearch.class.php:1337
 #, fuzzy
@@ -3255,22 +3253,19 @@ msgid "Count"
 msgstr "欄位"
 
 #: libraries/TableSearch.class.php:1338
-#, fuzzy
 #| msgid "Original position"
 msgid "Original string"
-msgstr "原始位置"
+msgstr "原有字串"
 
 #: libraries/TableSearch.class.php:1339
-#, fuzzy
 #| msgid "Related Links"
 msgid "Replaced string"
-msgstr "相關連結"
+msgstr "取代字串"
 
 #: libraries/TableSearch.class.php:1364
-#, fuzzy
 #| msgid "Replicated"
 msgid "Replace"
-msgstr "已複製"
+msgstr "取代"
 
 #: libraries/Theme.class.php:170
 #, php-format
