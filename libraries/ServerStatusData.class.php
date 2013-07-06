@@ -6,8 +6,10 @@
  *
  * @package PhpMyAdmin
  */
-
-require_once 'libraries/common.inc.php';
+if (!defined('TESTSUITE')) {
+    //the TESTSUITE has already included common.inc.php
+    require_once 'libraries/common.inc.php';
+}
 
 /**
  * This class provides data about the server status
