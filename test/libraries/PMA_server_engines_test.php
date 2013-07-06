@@ -9,17 +9,13 @@
 /*
  * Include to test.
  */
-
-if (! defined('PMA_DRIZZLE')) {
-	define('PMA_DRIZZLE', 0);
-}
-
 require_once 'libraries/Util.class.php';
 require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/url_generating.lib.php';
 require_once 'libraries/server_engines.lib.php';
 require_once 'libraries/Theme.class.php';
-require_once 'libraries/DatabaseInterface.class.php';
+require_once 'libraries/Tracker.class.php';
+require_once 'libraries/database_interface.inc.php';
 require_once 'libraries/Message.class.php';
 require_once 'libraries/sanitizing.lib.php';
 require_once 'libraries/sqlparser.lib.php';
@@ -66,36 +62,7 @@ class PMA_ServerEngines_Test extends PHPUnit_Framework_TestCase
      * @return void
      */
     public function testPMA_getPluginAndModuleInfo()
-    {   
-        //Mock DBI
-        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
-            ->disableOriginalConstructor()
-            ->getMock();
-
-        $GLOBALS['dbi'] = $dbi;
-        
-        //expects return value
-        $engines = array(
-        	"FEDERATED" => array(
-        	     "Engine" => "FEDERATED",
-        	     "Support" => "NO",
-        	     "Comment" => "Federated MySQL storage engine",
-        	     "Transactions" => NULL,
-        	     "Savepoints" => NULL,
-             ),
-        	"MRG_MYISAM" => array(
-        	     "Engine" => "MRG_MYISAM",
-        	     "Support" => "YES",
-        	     "Comment" => "Collection of identical MyISAM tables",
-        	     "Transactions" => "NO",
-        	     "Savepoints" => "NO",
-             )
-        );
-        
-        //expects functions
-        $dbi->expects($this->once())->method('fetchResult')
-        ->will($this->returnValue($engines));
-		
+    {	
         //test PMA_getHtmlForAllServerEngines
         $html = PMA_getHtmlForServerEngines();
 
@@ -108,6 +75,7 @@ class PMA_ServerEngines_Test extends PHPUnit_Framework_TestCase
             '<th>Description</th>',
             $html
         );
+        
         //validate 2: FEDERATED
         $this->assertContains(
             '<td>Federated MySQL storage engine</td>',
@@ -118,21 +86,21 @@ class PMA_ServerEngines_Test extends PHPUnit_Framework_TestCase
             $html
         );
         $this->assertContains(
-            'href="server_engines.php?engine=FEDERATED',
+            'server_engines.php?engine=FEDERATED',
             $html
         );
         
-        //validate 3: MRG_MYISAM
+        //validate 3: dummy
         $this->assertContains(
-            '<td>Collection of identical MyISAM tables</td>',
+            '<td>dummy comment</td>',
             $html
         );
         $this->assertContains(
-            'MRG_MYISAM',
+            'dummy',
             $html
         );
         $this->assertContains(
-            'href="server_engines.php?engine=MRG_MYISAM',
+            'server_engines.php?engine=dummy',
             $html
         );
     }
