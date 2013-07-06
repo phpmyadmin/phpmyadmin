@@ -86,14 +86,14 @@ $(document).ready(function() {
     });
 
     $('input[name="chartTitle"]').focus(function() {
-        temp_chart_title = $(this).val();
+        temp_chart_title = escapeHtml($(this).val());
     });
     $('input[name="chartTitle"]').keyup(function() {
-        var title = $(this).attr('value');
+        var title = escapeHtml($(this).attr('value'));
         if (title.length == 0) {
             title = ' ';
         }
-        currentSettings.title = $('input[name="chartTitle"]').val();
+        currentSettings.title = escapeHtml($('input[name="chartTitle"]').val());
         drawChart();
     });
     $('input[name="chartTitle"]').blur(function() {

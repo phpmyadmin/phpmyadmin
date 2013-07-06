@@ -2,7 +2,8 @@ phpMyAdmin - ChangeLog
 ======================
 
 3.5.8.2 (not released yet)
-- [security] Fix self-XSS, see PMASA-2013-8
+- [security] Fix self-XSS in "Showing rows", see PMASA-2013-8
+- [security] Fix self-XSS in Display chart, see PMASA-2013-9
 
 3.5.8.1 (2013-04-24)
 - [security] Remote code execution (preg_replace), reported by Janek Vind
