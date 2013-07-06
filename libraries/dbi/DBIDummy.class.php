@@ -46,6 +46,11 @@ $GLOBALS['dummy_queries'] = array(
                 'Support' => 'NO',
                 'Comment' => 'dummy2 comment'
             ),
+            array(
+                'Engine' => 'FEDERATED',
+                'Support' => 'NO',
+                'Comment' => 'Federated MySQL storage engine'
+            ),
         )
     ),
     array(
