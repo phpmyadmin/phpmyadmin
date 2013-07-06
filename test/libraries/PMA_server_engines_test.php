@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * tests for server_plugins.lib.php
+ * tests for server_engines.lib.php
  *
  * @package PhpMyAdmin-test
  */
@@ -12,15 +12,17 @@
 require_once 'libraries/Util.class.php';
 require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/url_generating.lib.php';
-require_once 'libraries/server_plugins.lib.php';
+require_once 'libraries/server_engines.lib.php';
 require_once 'libraries/Theme.class.php';
+require_once 'libraries/Tracker.class.php';
 require_once 'libraries/database_interface.inc.php';
 require_once 'libraries/Message.class.php';
 require_once 'libraries/sanitizing.lib.php';
 require_once 'libraries/sqlparser.lib.php';
 require_once 'libraries/js_escape.lib.php';
+require_once 'libraries/StorageEngine.class.php';
 
-class PMA_ServerPlugins_Test extends PHPUnit_Framework_TestCase
+class PMA_ServerEngines_Test extends PHPUnit_Framework_TestCase
 {
     /**
      * Prepares environment for the test.
@@ -44,6 +46,7 @@ class PMA_ServerPlugins_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['TableNavigationLinksMode'] = 'icons';
         $GLOBALS['cfg']['LimitChars'] = 100;
         $GLOBALS['cfg']['DBG']['sql'] = false;
+        $GLOBALS['cfg']['MySQLManualType'] = 'viewable';
         
         $GLOBALS['table'] = "table";
         $GLOBALS['pmaThemeImage'] = 'image';
@@ -54,12 +57,62 @@ class PMA_ServerPlugins_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_getPluginAndModuleInfo
+     * Test for PMA_getHtmlForServerEngines for all engines
      *
      * @return void
      */
     public function testPMAGetPluginAndModuleInfo()
+    {	
+        //test PMA_getHtmlForAllServerEngines
+        $html = PMA_getHtmlForServerEngines();
+
+        //validate 1: Item header
+        $this->assertContains(
+            '<th>Storage Engine</th>',
+            $html
+        );
+        $this->assertContains(
+            '<th>Description</th>',
+            $html
+        );
+        
+        //validate 2: FEDERATED
+        $this->assertContains(
+            '<td>Federated MySQL storage engine</td>',
+            $html
+        );
+        $this->assertContains(
+            'FEDERATED',
+            $html
+        );
+        $this->assertContains(
+            'server_engines.php?engine=FEDERATED',
+            $html
+        );
+        
+        //validate 3: dummy
+        $this->assertContains(
+            '<td>dummy comment</td>',
+            $html
+        );
+        $this->assertContains(
+            'dummy',
+            $html
+        );
+        $this->assertContains(
+            'server_engines.php?engine=dummy',
+            $html
+        );
+    }
+
+    /**
+     * Test for PMA_getHtmlForServerEngines for specific engines "FEDERATED"
+     *
+     * @return void
+     */
+    public function testPMAGetPluginAndModuleInfoSpecific()
     {   
+        $_REQUEST['engine'] = "FEDERATED";
         //Mock DBI
         $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
             ->disableOriginalConstructor()
@@ -67,95 +120,26 @@ class PMA_ServerPlugins_Test extends PHPUnit_Framework_TestCase
 
         $GLOBALS['dbi'] = $dbi;
 
-        //Call the test function
-        /**
-         * Prepare plugin list
-         */
+        //test PMA_getHtmlForAllServerEngines for specific engines "FEDERATED"
+        $html = PMA_getHtmlForServerEngines();
 
-        $plugins = array();
-        $modules = array();
-
-        $row = array();
-        $row["plugin_name"] = "plugin_name1";
-        $row["plugin_type"] = "plugin_type1";
-        $row["module_name"] = "module_name1";
-        $row["module_library"] = "module_library1";
-        $row["module_version"] = "module_version1";
-        $row["module_author"] = "module_author1";
-        $row["module_license"] = "module_license1";
-        $row["module_description"] = "module_description1";
-        $row["is_active"] = true;
-        $plugins[$row['plugin_type']][] = $row;
-        $modules[$row['module_name']]['info'] = $row;
-        $modules[$row['module_name']]['plugins'][$row['plugin_type']][] = $row;
-               
-        $html = PMA_getPluginAndModuleInfo($plugins, $modules);
-    
-
-
-        //validate 1: PMA_getPluginTab
+        //validate 1: Engine header
         $this->assertContains(
-            '<a href="#plugins_plugins">Plugins</a>',
-            $html
-        );
-        //validate 2: PMA_getModuleTab
-        $this->assertContains(
-            '<a href="#plugins_modules">Modules</a>',
-            $html
-        );
-        //validate 3:Items
-        $this->assertContains(
-            '<th>Plugin</th>',
+            'FEDERATED',
             $html
         );
         $this->assertContains(
-            '<th>Module</th>',
+            'Federated MySQL storage engine',
             $html
         );
         $this->assertContains(
-            '<th>Plugin</th>',
+            'This MySQL server does not support the FEDERATED storage engine.',
             $html
         );
+        $enginer_info = 'There is no detailed status information ' 
+            . 'available for this storage engine';
         $this->assertContains(
-            '<th>Library</th>',
-            $html
-        );
-        $this->assertContains(
-            '<th>Plugin</th>',
-            $html
-        );
-        $this->assertContains(
-            '<th>Version</th>',
-            $html
-        );
-        $this->assertContains(
-            '<th>Author</th>',
-            $html
-        );
-        $this->assertContains(
-            '<th>License</th>',
-            $html
-        );
-        
-        //validate 4: one Item HTML
-        $this->assertContains(
-            '<th>plugin_name1</th>',
-            $html
-        );
-        $this->assertContains(
-            '<td>module_library1</td>',
-            $html
-        );
-        $this->assertContains(
-            '<td>module_version1</td>',
-            $html
-        );
-        $this->assertContains(
-            '<td>module_description1</td>',
-            $html
-        );
-        $this->assertContains(
-            '<td>module_author1</td>',
+            $enginer_info,
             $html
         );
     }
