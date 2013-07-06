@@ -58,7 +58,7 @@ class PMA_ServerPlugins_Test extends PHPUnit_Framework_TestCase
      *
      * @return void
      */
-    public function testPMA_getPluginAndModuleInfo()
+    public function testPMAGetPluginAndModuleInfo()
     {   
         //Mock DBI
         $dbi = $this->getMockBuilder('PMA_DatabaseInterface')

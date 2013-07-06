@@ -61,7 +61,7 @@ class PMA_ServerEngines_Test extends PHPUnit_Framework_TestCase
      *
      * @return void
      */
-    public function testPMA_getPluginAndModuleInfo()
+    public function testPMAGetPluginAndModuleInfo()
     {	
         //test PMA_getHtmlForAllServerEngines
         $html = PMA_getHtmlForServerEngines();
@@ -110,16 +110,16 @@ class PMA_ServerEngines_Test extends PHPUnit_Framework_TestCase
      *
      * @return void
      */
-    public function testPMA_getPluginAndModuleInfo_Specific()
+    public function testPMAGetPluginAndModuleInfoSpecific()
     {   
-    	$_REQUEST['engine'] = "FEDERATED";
+        $_REQUEST['engine'] = "FEDERATED";
         //Mock DBI
         $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
         $GLOBALS['dbi'] = $dbi;
-        		
+
         //test PMA_getHtmlForAllServerEngines for specific engines "FEDERATED"
         $html = PMA_getHtmlForServerEngines();
 
@@ -136,8 +136,10 @@ class PMA_ServerEngines_Test extends PHPUnit_Framework_TestCase
             'This MySQL server does not support the FEDERATED storage engine.',
             $html
         );
+        $enginer_info = 'There is no detailed status information ' 
+            . 'available for this storage engine';
         $this->assertContains(
-            'There is no detailed status information available for this storage engine',
+            $enginer_info,
             $html
         );
     }
