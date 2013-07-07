@@ -1274,10 +1274,10 @@ function printServerTraffic()
     <tr class="<?php echo $odd_row ? 'odd' : 'even'; ?>">
         <td><a href="<?php echo $kill_process ; ?>"><?php echo __('Kill'); ?></a></td>
         <td class="value"><?php echo $process['Id']; ?></td>
-        <td><?php echo $process['User']; ?></td>
-        <td><?php echo $process['Host']; ?></td>
-        <td><?php echo ((! isset($process['db']) || ! strlen($process['db'])) ? '<i>' . __('None') . '</i>' : $process['db']); ?></td>
-        <td><?php echo $process['Command']; ?></td>
+        <td><?php echo htmlspecialchars($process['User']); ?></td>
+        <td><?php echo htmlspecialchars($process['Host']); ?></td>
+        <td><?php echo ((! isset($process['db']) || ! strlen($process['db'])) ? '<i>' . __('None') . '</i>' : htmlspecialchars($process['db'])); ?></td>
+        <td><?php echo htmlspecialchars($process['Command']); ?></td>
         <td class="value"><?php echo $process['Time']; ?></td>
         <td><?php echo (empty($process['State']) ? '---' : $process['State']); ?></td>
         <td>
