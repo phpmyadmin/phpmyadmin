@@ -4920,19 +4920,18 @@ class PMA_DisplayResults
             $message_view_warning = false;
         }
 
-        $message = PMA_Message::success(__('Showing rows'));
-        $message->addMessage($first_shown_rec);
+        $message = PMA_Message::success(__('Showing rows %1s - %2s'));
+        $message->addParam($first_shown_rec);
 
         if ($message_view_warning) {
-
-            $message->addMessage('...', ' - ');
-            $message->addMessage($message_view_warning);
-            $message->addMessage('(');
-
+            $message->addParam('... ' . $message_view_warning, false);
         } else {
+            $message->addParam($last_shown_rec);
+        }
 
-            $message->addMessage($last_shown_rec, ' - ');
-            $message->addMessage(' (');
+        $message->addMessage('(');
+
+        if (!$message_view_warning) {
             $message->addMessage(
                 $pre_count . PMA_Util::formatNumber($total, 0)
             );
@@ -4944,7 +4943,6 @@ class PMA_DisplayResults
 
             $message->addMessage($selectstring, '');
             $message->addMessage(', ', '');
-
         }
 
         $messagge_qt = PMA_Message::notice(__('Query took %01.4f sec') . ')');
