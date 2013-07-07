@@ -31,7 +31,14 @@ if ($GLOBALS['cfg']['LeftDisplayLogo']) {
 
     echo '<div id="pmalogo">' . "\n";
     if ($GLOBALS['cfg']['LeftLogoLink']) {
-        echo '<a href="' . htmlspecialchars($GLOBALS['cfg']['LeftLogoLink']);
+        $logo_link = trim(htmlspecialchars($GLOBALS['cfg']['LeftLogoLink']));
+        // prevent XSS, see PMASA-2013-9
+        // if link has protocol, allow only http and https
+        if (preg_match('/^[a-z]+:/i', $logo_link)
+            && ! preg_match('/^https?:/i', $logo_link)) {
+            $logo_link = 'main.php';
+        }
+        echo '<a href="' . $logo_link;
         switch ($GLOBALS['cfg']['LeftLogoLinkWindow']) {
             case 'new':
                 echo '" target="_blank"';
