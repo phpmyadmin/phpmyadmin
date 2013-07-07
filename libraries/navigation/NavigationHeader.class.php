@@ -79,9 +79,14 @@ class PMA_NavigationHeader
             }
             $retval .= '<div id="pmalogo">';
             if ($GLOBALS['cfg']['NavigationLogoLink']) {
-                $retval .= '    <a href="' . htmlspecialchars(
-                    $GLOBALS['cfg']['NavigationLogoLink']
-                );
+                $logo_link = trim(htmlspecialchars($GLOBALS['cfg']['NavigationLogoLink']));
+                // prevent XSS, see PMASA-2013-9
+                // if link has protocol, allow only http and https
+                if (preg_match('/^[a-z]+:/i', $logo_link)
+                    && ! preg_match('/^https?:/i', $logo_link)) {
+                    $logo_link = 'index.php';
+                }
+                $retval .= '    <a href="' . $logo_link;
                 switch ($GLOBALS['cfg']['NavigationLogoLinkWindow']) {
                 case 'new':
                     $retval .= '" target="_blank"';
