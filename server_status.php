@@ -466,10 +466,10 @@ function getServerTrafficHtml($ServerStatusData)
         $retval .= '<tr class="' . ($odd_row ? 'odd' : 'even') . '">';
         $retval .= '<td><a href="' . $kill_process . '">' . __('Kill') . '</a></td>';
         $retval .= '<td class="value">' . $process['Id'] . '</td>';
-        $retval .= '<td>' . $process['User'] . '</td>';
-        $retval .= '<td>' . $process['Host'] . '</td>';
-        $retval .= '<td>' . ((! isset($process['db']) || ! strlen($process['db'])) ? '<i>' . __('None') . '</i>' : $process['db']) . '</td>';
-        $retval .= '<td>' . $process['Command'] . '</td>';
+        $retval .= '<td>' . htmlspecialchars($process['User']) . '</td>';
+        $retval .= '<td>' . htmlspecialchars($process['Host']) . '</td>';
+        $retval .= '<td>' . ((! isset($process['db']) || ! strlen($process['db'])) ? '<i>' . __('None') . '</i>' : htmlspecialchars($process['db'])) . '</td>';
+        $retval .= '<td>' . htmlspecialchars($process['Command']) . '</td>';
         $retval .= '<td class="value">' . $process['Time'] . '</td>';
         $retval .= '<td>' . (empty($process['State']) ? '---' : $process['State']) . '</td>';
         $retval .= '<td>';
