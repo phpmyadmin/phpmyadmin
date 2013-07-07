@@ -1572,6 +1572,12 @@ $num_rows
 function PMA_sendAjaxResponseForNoResultsReturned($message, $analyzed_sql,
 $displayResultsObject, $showSql, $extra_data
 ) {
+    /**
+     * @todo find a better way to make getMessage() in Header.class.php
+     *       output the intended message 
+     */
+    $GLOBALS['message'] = $message;
+
     if ($showSql) {
         $extra_data['sql_query'] = PMA_Util::getMessage(
             $message, $GLOBALS['sql_query'], 'success'
