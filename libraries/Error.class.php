@@ -248,7 +248,7 @@ class PMA_Error extends PMA_Message
     /**
      * Get HTML backtrace
      *
-     * @return void
+     * @return string
      */
     public function getBacktraceDisplay()
     {
@@ -364,8 +364,8 @@ class PMA_Error extends PMA_Message
     /**
      * return short relative path to phpMyAdmin basedir
      *
-     * prevent path disclusore in error message,
-     * and make users feel save to submit error reports
+     * prevent path disclosure in error message,
+     * and make users feel safe to submit error reports
      *
      * @param string $dest path to be shorten
      *
@@ -384,7 +384,7 @@ class PMA_Error extends PMA_Message
 
         $Ahere = explode(
             $path_separator,
-            realpath(dirname(__FILE__) . $path_separator . '..')
+            realpath(__DIR__ . $path_separator . '..')
         );
         $Adest = explode($path_separator, $dest);
 
