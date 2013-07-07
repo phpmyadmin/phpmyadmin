@@ -361,6 +361,97 @@ function PMA_getSqlQueryForDisplayPrivTable($db, $table, $username, $hostname)
         ." AND `Db` = '" . PMA_Util::unescapeMysqlWildcards($db) . "'"
         ." AND `Table_name` = '" . PMA_Util::sqlAddSlashes($table) . "';";
 }
+
+/**
+ * Displays a dropdown to select the user group
+ * with menu items configured to each of them.
+ *
+ * @param boolean $submit wheather to display the submit button or not
+ *
+ * @return string html to select the user group
+ */
+function PMA_getHtmlToChoseUserGroup($submit = false)
+{
+    $html_output  = '<fieldset id="fieldset_user_group_selection">';
+    $html_output .= '<legend>' . __('User group') . '</legend>';
+
+    $groupTable = PMA_Util::backquote($GLOBALS['cfg']['Server']['pmadb'])
+        . "." . PMA_Util::backquote($GLOBALS['cfg']['Server']['usergroups']);
+    $userTable = PMA_Util::backquote($GLOBALS['cfg']['Server']['pmadb'])
+        . "." . PMA_Util::backquote($GLOBALS['cfg']['Server']['users']);
+
+    $userGroups = array();
+    $sql_query = "SELECT `usergroup` FROM " . $groupTable;
+    $result = PMA_queryAsControlUser($sql_query, false);
+    if ($result) {
+        while ($row = $GLOBALS['dbi']->fetchRow($result)) {
+            $userGroups[] = $row[0];
+        }
+    }
+    $GLOBALS['dbi']->freeResult($result);
+
+    $userGroup = '';
+    if (isset($GLOBALS['username'])) {
+        $sql_query = "SELECT `usergroup` FROM " . $userTable
+            . " WHERE `username` = '" . $GLOBALS['username'] . "'";
+        $userGroup = $GLOBALS['dbi']->fetchValue(
+            $sql_query, 0, 0, $GLOBALS['controllink']
+        );
+    }
+
+    $html_output .= __('User group') . ': ';
+    $html_output .= '<select name="userGroup">';
+    $html_output .= '<option value=""></option>';
+    foreach ($userGroups as $oneUserGroup) {
+        $html_output .= '<option value="' . htmlspecialchars($oneUserGroup) . '"'
+            . ($oneUserGroup == $userGroup ? ' selected="selected"' : '')
+            . '>'
+            . htmlspecialchars($oneUserGroup)
+            . '</option>';
+    }
+    $html_output .= '</select>';
+    $html_output .= '</fieldset>';
+
+    if ($submit) {
+        $html_output .= '<fieldset id="fieldset_user_group_selection_footer"'
+            . ' class="tblFooters">';
+        $html_output .= '<input type="submit" name="changeUserGroup" value="Go">';
+        $html_output .= '</fieldset>';
+    }
+    return $html_output;
+}
+
+/**
+ * Sets the user group from request values
+ *
+ * @param string $username  username
+ * @param string $userGroup user group to set
+ *
+ * @return void
+ */
+function PMA_setUserGroup($username, $userGroup)
+{
+    $userTable = PMA_Util::backquote($GLOBALS['cfg']['Server']['pmadb'])
+        . "." . PMA_Util::backquote($GLOBALS['cfg']['Server']['users']);
+
+    $sql_query = "SELECT `usergroup` FROM " . $userTable
+        . " WHERE `username` = '" . $username . "'";
+    $oldUserGroup = $GLOBALS['dbi']->fetchValue(
+        $sql_query, 0, 0, $GLOBALS['controllink']
+    );
+
+    if ($oldUserGroup === false) {
+        $upd_query = "INSERT INTO " . $userTable . "(`username`, `usergroup`)"
+            . " VALUES ('" . $username . "', '" . $userGroup. "')";
+    } else if ($oldUserGroup != $userGroup) {
+        $upd_query = "UPDATE " . $userTable . " SET `usergroup`='" . $userGroup
+            .  "' WHERE `username`='" . $username . "'";
+    }
+    if (isset($upd_query)) {
+        PMA_queryAsControlUser($upd_query);
+    }
+}
+
 /**
  * Displays the privileges form table
  *
@@ -1472,6 +1563,9 @@ function PMA_getHtmlForAddUser($dbname)
     }
 
     $html_output .= '</fieldset>' . "\n";
+    if ($GLOBALS['cfgRelation']['menuswork']) {
+        $html_output .= PMA_getHtmlToChoseUserGroup();
+    }
     $html_output .= PMA_getHtmlToDisplayPrivilegesTable('*', '*', false);
     $html_output .= '<fieldset id="fieldset_add_user_footer" class="tblFooters">'
         . "\n"
@@ -3039,9 +3133,6 @@ function PMA_getHtmlForDisplayUserProperties($dbname_is_wildcard,$url_dbname,
     }
 
     $class = ' class="ajax"';
-    $html_output .= '<form' . $class . ' name="usersForm" id="addUsersForm"'
-        . ' action="server_privileges.php" method="post">' . "\n";
-
     $_params = array(
         'username' => $username,
         'hostname' => $hostname,
@@ -3052,8 +3143,18 @@ function PMA_getHtmlForDisplayUserProperties($dbname_is_wildcard,$url_dbname,
             $_params['tablename'] = $tablename;
         }
     }
-    $html_output .= PMA_generate_common_hidden_inputs($_params);
 
+    if ($GLOBALS['cfgRelation']['menuswork']) {
+        $html_output .= '<form' . $class . ' id="changeUserGroupForm"'
+            . ' action="server_privileges.php" method="post">';
+        $html_output .= PMA_generate_common_hidden_inputs($_params);
+        $html_output .= PMA_getHtmlToChoseUserGroup(true);
+        $html_output .= '</form>';
+    }
+
+    $html_output .= '<form' . $class . ' name="usersForm" id="addUsersForm"'
+        . ' action="server_privileges.php" method="post">' . "\n";
+    $html_output .= PMA_generate_common_hidden_inputs($_params);
     $html_output .= PMA_getHtmlToDisplayPrivilegesTable(
         PMA_ifSetOr($dbname, '*', 'length'),
         PMA_ifSetOr($tablename, '*', 'length')

@@ -178,10 +178,7 @@ class PMA_Menu
 
         $allowedTabs = $tabList[$level];
 
-        if (! empty($GLOBALS['cfg']['Server']['pmadb'])
-            && ! empty($GLOBALS['cfg']['Server']['users'])
-            && ! empty($GLOBALS['cfg']['Server']['usergroups'])
-        ) {
+        if ($GLOBALS['cfgRelation']['menuswork']) {
             $groupTable = PMA_Util::backquote($GLOBALS['cfg']['Server']['pmadb'])
                 . "." . PMA_Util::backquote($GLOBALS['cfg']['Server']['usergroups']);
             $userTable = PMA_Util::backquote($GLOBALS['cfg']['Server']['pmadb'])

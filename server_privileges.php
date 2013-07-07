@@ -16,6 +16,8 @@ require_once 'libraries/common.inc.php';
 require_once 'libraries/display_change_password.lib.php';
 require_once 'libraries/server_privileges.lib.php';
 
+$cfgRelation = PMA_getRelationsParam();
+
 /**
  * Does the common work
  */
@@ -228,6 +230,9 @@ if (isset($_REQUEST['adduser_submit']) || isset($_REQUEST['change_copy'])) {
                 $_error, $real_sql_query, $sql_query, $username, $hostname,
                 isset($dbname) ? $dbname : null
             );
+            if (! empty($_REQUEST['userGroup']) && $cfgRelation['menuswork']) {
+                PMA_setUserGroup($GLOBALS['username'], $_REQUEST['userGroup']);
+            }
 
         } else {
             if (isset($create_user_real)) {
@@ -266,6 +271,14 @@ if (! empty($_POST['update_privs'])) {
         (isset($tablename) ? $tablename : ''),
         (isset($dbname) ? $dbname : '')
     );
+}
+
+/**
+ * Update or set user group
+ */
+if (! empty($_REQUEST['changeUserGroup']) && $cfgRelation['menuswork']) {
+    PMA_setUserGroup($username, $_REQUEST['userGroup']);
+    $message = PMA_Message::success();
 }
 
 /**
