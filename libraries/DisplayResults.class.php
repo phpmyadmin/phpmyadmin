@@ -4957,10 +4957,10 @@ class PMA_DisplayResults
 
         }
 
-        $messagge_qt = PMA_Message::notice(__('Query took %01.4f sec') . ')');
-        $messagge_qt->addParam($this->__get('querytime'));
+        $message_qt = PMA_Message::notice(__('Query took %01.4f sec') . ')');
+        $message_qt->addParam($this->__get('querytime'));
 
-        $message->addMessage($messagge_qt, '');
+        $message->addMessage($message_qt, '');
         if (! is_null($sorted_column_message)) {
             $message->addMessage($sorted_column_message, '');
         }
