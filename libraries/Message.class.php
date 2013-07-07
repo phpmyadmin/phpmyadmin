@@ -17,8 +17,8 @@
  * // get simple success message 'Success'
  * $message = PMA_Message::success();
  *
- * // get special notice 'Some locale notice'
- * $message = PMA_Message::notice('strSomeLocaleNotice');
+ * // get special notice
+ * $message = PMA_Message::notice(__('This is a localized notice'));
  * </code>
  *
  * more advanced usage example:
@@ -29,7 +29,7 @@
  * // create another message, a hint, with a localized string which expects
  * // two parameters: $strSomeTooltip = 'Read the %smanual%s'
  * $hint = PMA_Message::notice('strSomeTooltip');
- * // replace %d with the following params
+ * // replace placeholders with the following params
  * $hint->addParam('[doc@cfg_Example]');
  * $hint->addParam('[/doc]');
  * // add this hint as a tooltip
@@ -723,12 +723,12 @@ class PMA_Message
 
         return $this->isDisplayed;
     }
-    
+
     /**
      * Returns the message with corresponding image icon
-     * 
+     *
      * @param string $message the message(s)
-     * 
+     *
      * @return string message with icon
      */
     public function getMessageWithIcon($message)
@@ -743,7 +743,7 @@ class PMA_Message
         }
         $message = PMA_Message::notice(PMA_Util::getImage($image)) . " " . $message;
         return $message;
-        
+
     }
 }
 ?>

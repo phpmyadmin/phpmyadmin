@@ -358,7 +358,7 @@ class PMA_Index
     /**
      * Returns index choice (PRIMARY, UNIQUE, INDEX, SPATIAL, FULLTEXT)
      *
-     * @return index choice
+     * @return string index choice
      */
     public function getChoice()
     {

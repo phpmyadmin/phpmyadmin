@@ -123,10 +123,7 @@ function PMA_importAjaxStatus($id)
 {
     header('Content-type: application/json');
     echo json_encode(
-        call_user_func(
-            $_SESSION[$GLOBALS['SESSION_KEY']]['handler'] . '::getUploadStatus',
-            $id
-        )
+        $_SESSION[$GLOBALS['SESSION_KEY']]['handler']::getUploadStatus($id)
     );
 }
 ?>

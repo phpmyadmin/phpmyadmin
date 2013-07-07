@@ -168,7 +168,7 @@ if ($_SESSION[$SESSION_KEY]["handler"] != "UploadNoplugin") {
 echo ' class="ajax"';
 ?>>
     <input type="hidden" name="<?php
-        echo call_user_func($_SESSION[$SESSION_KEY]['handler'] . '::getIdKey');
+        echo $_SESSION[$SESSION_KEY]['handler']::getIdKey();
     ?>" value="<?php echo $upload_id ; ?>" />
 
     <?php
