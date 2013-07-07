@@ -35,20 +35,20 @@ class PMA_Relation_Test extends PHPUnit_Framework_TestCase
      */
     public function testPMA_queryAsControlUser()
     {
-    	$dbi = $this->getMockBuilder('PMA_DatabaseInterface')
-    	->disableOriginalConstructor()
-    	->getMock();
-    	
-    	$dbi->expects($this->once())
-    	->method('query')
-    	->will($this->returnValue('executed'));
-    	
-    	$dbi->expects($this->once())
-    	->method('tryQuery')
-    	->will($this->returnValue('executed'));
-    	
-    	$GLOBALS['dbi'] = $dbi;
-    	
+        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+            ->disableOriginalConstructor()
+            ->getMock();
+            
+        $dbi->expects($this->once())
+            ->method('query')
+            ->will($this->returnValue('executed'));
+            
+        $dbi->expects($this->once())
+            ->method('tryQuery')
+            ->will($this->returnValue('executed'));
+
+        $GLOBALS['dbi'] = $dbi;
+
         $sql = "insert into PMA_bookmark A,B values(1, 2)";
         $this->assertEquals(
             'executed',
@@ -70,14 +70,14 @@ class PMA_Relation_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['ServerDefault'] = 0;
         $_SESSION['relation'] = array();
         $_SESSION['relation'][$GLOBALS['server']]['relwork'] = "relwork";
-    	$GLOBALS['server'] = "table";
-    	
-    	$relationsPara = PMA_getRelationsParam();
+        $GLOBALS['server'] = "table";
+
+        $relationsPara = PMA_getRelationsParam();
         $this->assertEquals(
             false,
-        	$relationsPara['relwork']
+            $relationsPara['relwork']
         );
-        		
+
         $retval = PMA_getRelationsParamDiagnostic($GLOBALS['cfgRelation']);
         $this->assertContains(
             '<font color="green">Disabled</font>',
