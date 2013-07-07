@@ -4932,14 +4932,13 @@ class PMA_DisplayResults
         $message->addMessage('(');
 
         if (!$message_view_warning) {
-            $message->addMessage(
-                $pre_count . PMA_Util::formatNumber($total, 0)
-            );
-            $message->addString(__('total'));
+            $message_total = PMA_Message::notice($precount . __('%d total'));
+            $message_total->addParam($total);
 
             if (!empty($after_count)) {
-                $message->addMessage($after_count);
+                $message_total->addMessage($after_count);
             }
+            $message->addMessage($message_total, '');
 
             $message->addMessage($selectstring, '');
             $message->addMessage(', ', '');
