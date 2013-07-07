@@ -58,7 +58,7 @@ class PMA_ServerBinlog_Test extends PHPUnit_Framework_TestCase
      *
      * @return void
      */
-    public function testPMA_getLogSelector()
+    public function testPMAGetLogSelector()
     {
         $binary_log_file_names = array();
         $binary_log_file_names[] = array("Log_name"=>"index1", "File_size"=>100);
@@ -88,7 +88,7 @@ class PMA_ServerBinlog_Test extends PHPUnit_Framework_TestCase
      *
      * @return void
      */
-    public function testPMA_getLogInfo()
+    public function testPMAGetLogInfo()
     {
         $binary_log_file_names = array();
         $binary_log_file_names[] = array("Log_name"=>"index1", "File_size"=>100);
@@ -121,27 +121,27 @@ class PMA_ServerBinlog_Test extends PHPUnit_Framework_TestCase
             )
         );
         $value = array(
-        	'Info' => "index1_Info",
-        	'Log_name' => "index1_Log_name",
-        	'Pos' => "index1_Pos",
-        	'Event_type' => "index1_Event_type",
-        	'End_log_pos' => "index1_End_log_pos",
-        	'Server_id' => "index1_Server_id",
+                'Info' => "index1_Info",
+                'Log_name' => "index1_Log_name",
+                'Pos' => "index1_Pos",
+                'Event_type' => "index1_Event_type",
+                'End_log_pos' => "index1_End_log_pos",
+                'Server_id' => "index1_Server_id",
         );   
         $count = 3;
 
         //expects functions
         $dbi->expects($this->once())->method('query')
-        ->will($this->returnValue($result));
+            ->will($this->returnValue($result));
         
         $dbi->expects($this->once())->method('numRows')
-        ->will($this->returnValue($count));
+            ->will($this->returnValue($count));
         
         $dbi->expects($this->at(0))->method('fetchAssoc')
-        ->will($this->returnValue($value));
+            ->will($this->returnValue($value));
         
         $dbi->expects($this->at(1))->method('fetchAssoc')
-        ->will($this->returnValue(false));
+            ->will($this->returnValue(false));
 
         $GLOBALS['dbi'] = $dbi;
 
@@ -164,8 +164,10 @@ class PMA_ServerBinlog_Test extends PHPUnit_Framework_TestCase
             $html
         );
         //validate 4: PMA_getNavigationRow is right
+        $urlNavigation = 'server_binlog.php?log=log&amp;dontlimitchars=1&amp;'
+            . 'pos=3&amp;server=1&amp';
         $this->assertContains(
-            'server_binlog.php?log=log&amp;dontlimitchars=1&amp;pos=3&amp;server=1&amp',
+            $urlNavigation,
             $html
         );
         $this->assertContains(

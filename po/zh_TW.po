@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-07-04 06:07-0400\n"
-"PO-Revision-Date: 2013-07-05 16:32+0200\n"
+"PO-Revision-Date: 2013-07-05 16:35+0200\n"
 "Last-Translator: Tony Chen <tonychen@finenet.com.tw>\n"
 "Language-Team: Traditional Chinese "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/zh_TW/>\n"
@@ -1693,7 +1693,7 @@ msgstr "隱藏搜尋條件"
 #: js/messages.php:279
 #| msgid "Show search criteria"
 msgid "Show find and replace criteria"
-msgstr "顯示尋找並取代條件"
+msgstr "顯示尋找並替換條件"
 
 #: js/messages.php:282 libraries/TableSearch.class.php:210
 msgid "Zoom Search"
@@ -3244,7 +3244,7 @@ msgstr "替換爲"
 
 #: libraries/TableSearch.class.php:1333
 msgid "Find and replace - preview"
-msgstr "預覽 - 尋找和替換"
+msgstr "尋找和替換-預覽"
 
 #: libraries/TableSearch.class.php:1337
 #, fuzzy
@@ -3260,12 +3260,12 @@ msgstr "原有字串"
 #: libraries/TableSearch.class.php:1339
 #| msgid "Related Links"
 msgid "Replaced string"
-msgstr "取代字串"
+msgstr "替換字串"
 
 #: libraries/TableSearch.class.php:1364
 #| msgid "Replicated"
 msgid "Replace"
-msgstr "取代"
+msgstr "替換"
 
 #: libraries/Theme.class.php:170
 #, php-format
