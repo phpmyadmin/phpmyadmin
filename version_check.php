@@ -6,6 +6,8 @@
  * @package PhpMyAdmin
  */
 
+header('Content-Type: application/json');
+
 $file = 'http://www.phpmyadmin.net/home_page/version.json';
 if (ini_get('allow_url_fopen')) {
     echo file_get_contents($file);
