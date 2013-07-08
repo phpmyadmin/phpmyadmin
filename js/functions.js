@@ -1894,8 +1894,8 @@ function PMA_SQLPrettyPrint(string)
 
 jQuery.fn.PMA_confirm = function(question, url, callbackFn) {
     var confirmState = PMA_commonParams.get('confirm');
-    // when the Confirm directive is set to false in config.inc.php 
-    // and not changed in user prefs, confirmState is "" 
+    // when the Confirm directive is set to false in config.inc.php
+    // and not changed in user prefs, confirmState is ""
     // when it's unticked in user prefs, confirmState is 1
     if (confirmState === "" || confirmState === "1") {
         // user does not want to confirm
@@ -3526,7 +3526,7 @@ function PMA_tooltip($elements, item, myContent, additionalOptions)
         tooltipClass: "tooltip",
         track: true,
         show: false,
-        hide: false 
+        hide: false
     };
 
     $elements.tooltip($.extend(true, defaultOptions, additionalOptions));
@@ -3845,3 +3845,21 @@ $('a.login-link').live('click', function(e) {
     e.preventDefault();
     window.location.reload(true);
 });
+
+/**
+ * Formats timestamp for display
+ */
+function PMA_formatDateTime(date, seconds) {
+    var result = $.datepicker.formatDate('yy-mm-dd', date);
+    var timefmt = 'HH:mm';
+    if (seconds) {
+        timefmt = 'HH:mm:ss';
+    }
+    return result + ' ' + $.datepicker.formatTime(
+        timefmt, {
+            hour: date.getHours(),
+            minute: date.getMinutes(),
+            second: date.getSeconds()
+        }
+    );
+}
