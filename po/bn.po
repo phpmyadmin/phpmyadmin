@@ -10208,7 +10208,7 @@ msgstr "অংশের সংজ্ঞা"
 #, php-format
 #| msgid "Tracking is active."
 msgid "Tracking of %s is activated."
-msgstr "%s.%s ট্রেকিং কার্যকর করা হয়েছে। "
+msgstr "%s ট্রেকিং কার্যকর করা হয়েছে। "
 
 #: libraries/user_preferences.inc.php:29
 #| msgid "General relation features"
@@ -13091,7 +13091,7 @@ msgid ""
 "value is, the better (This rules firing limit: 0.1%%)"
 msgstr ""
 "ইনসার্টেড অনুসন্ধানে অনুসন্ধান সরানোর হার %s%%। এর মান যত কম হবে তত ভাল, ভাল "
-"(০.১%)"
+"(০.১%%)"
 
 #: libraries/advisory_rules.txt:195
 #| msgid "Query cache"
