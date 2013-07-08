@@ -89,7 +89,7 @@ class PMA_Util
     /**
      * Returns an HTML IMG tag for a particular icon from a theme,
      * which may be an actual file or an icon from a sprite.
-     * This function takes into account the ActionLinksMode 
+     * This function takes into account the ActionLinksMode
      * configuration setting and wraps the image tag in a span tag.
      *
      * @param string  $icon          name of icon file
@@ -106,19 +106,19 @@ class PMA_Util
     ) {
         $include_icon = $include_text = false;
         if (in_array(
-                $GLOBALS['cfg'][$control_param], 
+                $GLOBALS['cfg'][$control_param],
                 array('icons', 'both')
             )
-        ) { 
+        ) {
             $include_icon = true;
-        } 
+        }
         if ($force_text
             || in_array(
-                $GLOBALS['cfg'][$control_param], 
+                $GLOBALS['cfg'][$control_param],
                 array('text', 'both')
             )
         ) {
-            $include_text = true; 
+            $include_text = true;
         }
         // Sometimes use a span (we rely on this in js/sql.js). But for menu bar
         // we don't need a span
@@ -1811,10 +1811,10 @@ class PMA_Util
             // the text that follows and if browser does not display
             // images, the text is duplicated
             $tab['text'] = self::getIcon(
-                $tab['icon'], 
-                $tab['text'], 
-                false, 
-                true, 
+                $tab['icon'],
+                $tab['text'],
+                false,
+                true,
                 'TabsMode'
             );
 
@@ -4151,6 +4151,69 @@ class PMA_Util
             }
         }
         return $regex;
+    }
+
+    /**
+     * Return the list of tabs for the menu with corresponding names
+     *
+     * @param string $level 'server', 'db' or 'table' level
+     *
+     * @return array list of tabs for the menu
+     */
+    public static function getMenuTabList($level = null)
+    {
+        $tabList = array(
+            'server' => array(
+                'databases'   => __('Databases'),
+                'sql'         => __('SQL'),
+                'status'      => __('Status'),
+                'rights'      => __('Users'),
+                'export'      => __('Export'),
+                'import'      => __('Import'),
+                'settings'    => __('Settings'),
+                'binlog'      => __('Binary log'),
+                'replication' => __('Replication'),
+                'vars'        => __('Variables'),
+                'charset'     => __('Charsets'),
+                'plugins'     => __('Plugins'),
+                'engine'      => __('Engines')
+            ),
+            'db'     => array(
+                'structure'   => __('Structure'),
+                'sql'         => __('SQL'),
+                'search'      => __('Search'),
+                'qbe'         => __('Query'),
+                'export'      => __('Export'),
+                'import'      => __('Import'),
+                'operation'   => __('Operations'),
+                'privileges'  => __('Privileges'),
+                'routines'    => __('Routines'),
+                'events'      => __('Events'),
+                'triggers'    => __('Triggers'),
+                'tracking'    => __('Tracking'),
+                'designer'    => __('Designer')
+            ),
+            'table'  => array(
+                'browse'      => __('Browse'),
+                'structure'   => __('Structure'),
+                'sql'         => __('SQL'),
+                'search'      => __('Search'),
+                'insert'      => __('Insert'),
+                'export'      => __('Export'),
+                'import'      => __('Import'),
+                'operation'   => __('Operations'),
+                'tracking'    => __('Tracking'),
+                'triggers'    => __('Triggers'),
+            )
+        );
+
+        if ($level == null) {
+            return $tabList;
+        } else if (array_key_exists($level, $tabList)) {
+            return $tabList[$level];
+        } else {
+            return null;
+        }
     }
 }
 ?>

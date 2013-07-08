@@ -115,7 +115,7 @@ class PMA_Menu
 
         $allowedTabs = $this->_getAllowedTabs($level);
         foreach ($tabs as $key => $value) {
-            if (! in_array($key, $allowedTabs)) {
+            if (! array_key_exists($key, $allowedTabs)) {
                 unset($tabs[$key]);
             }
         }
@@ -131,53 +131,7 @@ class PMA_Menu
      */
     private function _getAllowedTabs($level)
     {
-        $tabList = array(
-            'server' => array(
-                'databases',
-                'sql',
-                'status',
-                'rights',
-                'export',
-                'import',
-                'settings',
-                'binlog',
-                'replication',
-                'vars',
-                'charset',
-                'plugins',
-                'engine'
-            ),
-            'db'     => array(
-                'structure',
-                'sql',
-                'search',
-                'qbe',
-                'export',
-                'import',
-                'operation',
-                'privileges',
-                'routines',
-                'events',
-                'triggers',
-                'tracking',
-                'designer'
-            ),
-            'table'  => array(
-                'browse',
-                'structure',
-                'sql',
-                'search',
-                'insert',
-                'export',
-                'import',
-                'operation',
-                'tracking',
-                'triggers'
-            )
-        );
-
-        $allowedTabs = $tabList[$level];
-
+        $allowedTabs = PMA_Util::getMenuTabList($level);
         if ($GLOBALS['cfgRelation']['menuswork']) {
             $groupTable = PMA_Util::backquote($GLOBALS['cfg']['Server']['pmadb'])
                 . "." . PMA_Util::backquote($GLOBALS['cfg']['Server']['usergroups']);
@@ -193,7 +147,7 @@ class PMA_Menu
             if ($result) {
                 $row = $GLOBALS['dbi']->fetchAssoc($result);
                 foreach ($allowedTabs as $key => $tab) {
-                    $colName = $level . '_' . $tab;
+                    $colName = $level . '_' . $key;
                     if (isset($row[$colName]) && $row[$colName] == 'N') {
                         unset($allowedTabs[$key]);
                     }

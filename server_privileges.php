@@ -274,10 +274,34 @@ if (! empty($_POST['update_privs'])) {
 }
 
 /**
- * Update or set user group
+ * Assign users to user groups
  */
 if (! empty($_REQUEST['changeUserGroup']) && $cfgRelation['menuswork']) {
     PMA_setUserGroup($username, $_REQUEST['userGroup']);
+    $message = PMA_Message::success();
+}
+
+/**
+ * Delete user group
+ */
+if (! empty($_REQUEST['deleteUserGroup']) && $cfgRelation['menuswork']) {
+    PMA_deleteUserGroup($_REQUEST['userGroup']);
+    $message = PMA_Message::success();
+}
+
+/**
+ * Add a new user group
+ */
+if (! empty($_REQUEST['addUserGroupSubmit']) && $cfgRelation['menuswork']) {
+    PMA_editUserGroup($_REQUEST['userGroup'], true);
+    $message = PMA_Message::success();
+}
+
+/**
+ * Update a user group
+ */
+if (! empty($_REQUEST['editUserGroupSubmit']) && $cfgRelation['menuswork']) {
+    PMA_editUserGroup($_REQUEST['userGroup']);
     $message = PMA_Message::success();
 }
 
@@ -459,6 +483,8 @@ if (isset($_REQUEST['export'])
 }
 
 if (empty($_REQUEST['adduser'])
+    && empty($_REQUEST['addUserGroup'])
+    && empty($_REQUEST['editUserGroup'])
     && (! isset($_REQUEST['checkprivs'])
     || ! strlen($_REQUEST['checkprivs']))
 ) {
@@ -496,6 +522,16 @@ if (empty($_REQUEST['adduser'])
     // Add user
     $response->addHTML(
         PMA_getHtmlForAddUser((isset($dbname) ? $dbname : ''))
+    );
+} elseif (isset($_REQUEST['addUserGroup'])) {
+    // Add user group
+    $response->addHTML(
+        PMA_getHtmlToEditUserGroup()
+    );
+} elseif (isset($_REQUEST['editUserGroup'])) {
+    // Add user group
+    $response->addHTML(
+        PMA_getHtmlToEditUserGroup($_REQUEST['userGroup'])
     );
 } else {
     // check the privileges for a particular database.
