@@ -4,14 +4,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-07-04 06:07-0400\n"
-"PO-Revision-Date: 2013-05-12 22:13+0200\n"
-"Last-Translator: Lassi Ruonavaara <lassi@ruonavaara.fi>\n"
-"Language-Team: Finnish <http://l10n.cihar.com/projects/phpmyadmin/master/fi/"
-">\n"
+"PO-Revision-Date: 2013-07-09 00:51+0200\n"
+"Last-Translator: Jouni Kähkönen <asdfsdf@asdfasdfasdf.com>\n"
+"Language-Team: Finnish "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/fi/>\n"
+"Language: fi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: fi\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 1.6-dev\n"
 
@@ -4702,7 +4702,7 @@ msgid ""
 "the referenced data, [kbd]id[/kbd] is the key value"
 msgstr ""
 "Lajittelujärjestys viiteavaimen pudotusvalikon kohteille; [kbd]content[/kbd] "
-"on viitatut tiedot, [kbd]id[/kbd] on avainarvo"
+"on viitattu tieto, [kbd]id[/kbd] on avainarvo"
 
 #: libraries/config/messages.inc.php:149
 msgid "Foreign key dropdown order"
@@ -4710,7 +4710,7 @@ msgstr "Viiteavaimen pudotusvalikon järjestys"
 
 #: libraries/config/messages.inc.php:150
 msgid "A dropdown will be used if fewer items are present"
-msgstr "Pudotusvalikkoa käytetään, jos kohteita on enemmän"
+msgstr "Pudotusvalikkoa käytetään, jos kohteita on vähemmän"
 
 #: libraries/config/messages.inc.php:151
 msgid "Foreign key limit"
@@ -5576,7 +5576,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:360
 msgid "Repeat headers"
-msgstr "Korjaa otsikot"
+msgstr "Toista otsikoita"
 
 #: libraries/config/messages.inc.php:362
 msgid "Grid editing: trigger action"
