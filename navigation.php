@@ -103,7 +103,7 @@ require_once './libraries/header_http.inc.php';
     <link rel="stylesheet" type="text/css"
         href="phpmyadmin.css.php?<?php echo PMA_generate_common_url('', ''); ?>&amp;js_frame=left&amp;nocache=<?php echo $GLOBALS['PMA_Config']->getThemeUniqueValue(); ?>" />
     <?php
-    echo PMA_includeJS('jquery/jquery-1.6.2.js');
+    echo PMA_includeJS('jquery/jquery-1.6.2+fix-9521.js');
     echo PMA_includeJS('jquery/jquery-ui-1.8.16.custom.js');
     echo PMA_includeJS('jquery/jquery.qtip-1.0.0-rc3.js');
     echo PMA_includeJS('navigation.js');
