@@ -146,10 +146,10 @@ class PMA_Header
      */
     private function _addDefaultScripts()
     {
-        $this->_scripts->addFile('jquery/jquery-1.8.3.js');
+        $this->_scripts->addFile('jquery/jquery-1.8.3.min.js');
         $this->_scripts->addFile('ajax.js');
         $this->_scripts->addFile('keyhandler.js');
-        $this->_scripts->addFile('jquery/jquery-ui-1.9.2.custom.js');
+        $this->_scripts->addFile('jquery/jquery-ui-1.9.2.custom.min.js');
         $this->_scripts->addFile('jquery/jquery.sprintf.js');
         $this->_scripts->addFile('jquery/jquery.cookie.js');
         $this->_scripts->addFile('jquery/jquery.mousewheel.js');

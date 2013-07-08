@@ -738,22 +738,11 @@ function savePrefsToLocalStorage(form)
 function updatePrefsDate()
 {
     var d = new Date(window.localStorage['config_mtime_local']);
-    var msg = PMA_messages['strSavedOn'].replace('@DATE@', formatDate(d));
+    var msg = PMA_messages.strSavedOn.replace(
+        '@DATE@',
+        PMA_formatDateTime(d)
+    );
     $('#opts_import_local_storage div.localStorage-exists').html(msg);
-}
-
-/**
- * Returns date formatted as YYYY-MM-DD HH:II
- *
- * @param {Date} d
- */
-function formatDate(d)
-{
-    return d.getFullYear() + '-'
-        + (d.getMonth() < 10 ? '0'+d.getMonth() : d.getMonth())
-        + '-' + (d.getDate() < 10 ? '0'+d.getDate() : d.getDate())
-        + ' ' + (d.getHours() < 10 ? '0'+d.getHours() : d.getHours())
-        + ':' + (d.getMinutes() < 10 ? '0'+d.getMinutes() : d.getMinutes());
 }
 
 /**
