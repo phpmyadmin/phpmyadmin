@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.5-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-06-24 10:43+0200\n"
-"PO-Revision-Date: 2013-07-02 19:43+0200\n"
+"PO-Revision-Date: 2013-07-08 21:26+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Bengali <http://l10n.cihar.com/projects/phpmyadmin/4-0/bn/>\n"
 "Language: bn\n"
@@ -6073,6 +6073,7 @@ msgid "Show hint"
 msgstr "আভাস দেখাও"
 
 #: libraries/config/messages.inc.php:474
+#, fuzzy
 msgid ""
 "Shows link to [a@http://php.net/manual/function.phpinfo.php]phpinfo()[/a] "
 "output"
