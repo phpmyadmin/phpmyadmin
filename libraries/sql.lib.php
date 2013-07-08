@@ -1608,7 +1608,7 @@ $displayResultsObject, $showSql, $extra_data
 
 /**
  * Function to respond back when the query returns zero rows
- * This method is called when
+ * This method is called
  * 1-> When browsing an empty table
  * 2-> When executing a query on a non empty table which returns zero results
  * 3-> When executing a query on an empty table
