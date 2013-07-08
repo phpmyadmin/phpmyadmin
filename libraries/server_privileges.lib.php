@@ -3144,7 +3144,7 @@ function PMA_getHtmlForDisplayUserProperties($dbname_is_wildcard,$url_dbname,
         }
     }
 
-    if ($GLOBALS['cfgRelation']['menuswork']) {
+    if ($GLOBALS['cfgRelation']['menuswork'] && empty($dbname)) {
         $html_output .= '<form' . $class . ' id="changeUserGroupForm"'
             . ' action="server_privileges.php" method="post">';
         $html_output .= PMA_generate_common_hidden_inputs($_params);
