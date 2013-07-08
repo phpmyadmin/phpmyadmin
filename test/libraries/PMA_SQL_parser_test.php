@@ -57,10 +57,10 @@ class PMA_SQLParser_Test extends PHPUnit_Framework_TestCase
     public function testPMA_SQP_isKeyWord()
     {
         PMA_SQP_resetError();
-        $this->assertEquals(true, PMA_SQP_isKeyWord("ACCESSIBLE"));
-        $this->assertEquals(true, PMA_SQP_isKeyWord("accessible"));
-        $this->assertEquals(true, PMA_SQP_isKeyWord("ASC"));
-        $this->assertEquals(false, PMA_SQP_isKeyWord("hello"));
+        $this->assertTrue(PMA_SQP_isKeyWord("ACCESSIBLE"));
+        $this->assertTrue(PMA_SQP_isKeyWord("accessible"));
+        $this->assertTrue(PMA_SQP_isKeyWord("ASC"));
+        $this->assertFalse(PMA_SQP_isKeyWord("hello"));
     }
     
     
