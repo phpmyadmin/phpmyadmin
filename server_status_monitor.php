@@ -416,7 +416,6 @@ $scripts->addFile('jqplot/plugins/jqplot.dateAxisRenderer.js');
 $scripts->addFile('jqplot/plugins/jqplot.highlighter.js');
 $scripts->addFile('jqplot/plugins/jqplot.cursor.js');
 $scripts->addFile('jqplot/plugins/jqplot.byteFormatter.js');
-$scripts->addFile('date.js');
 
 $scripts->addFile('server_status_monitor.js');
 $scripts->addFile('server_status_sorter.js');
