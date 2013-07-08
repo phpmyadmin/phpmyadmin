@@ -28,8 +28,13 @@ class PMA_ServerStatusMonitor_Test extends PHPUnit_Framework_TestCase
      *
      * @return void
      */
-	public $ServerStatusData;
-	
+    public $ServerStatusData;
+
+    /**
+     * Test for setUp
+     *
+     * @return void
+     */
     public function setUp()
     {
         //$_REQUEST
@@ -63,35 +68,37 @@ class PMA_ServerStatusMonitor_Test extends PHPUnit_Framework_TestCase
 
         //Mock DBI
         $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
-        ->disableOriginalConstructor()
-        ->getMock();
+            ->disableOriginalConstructor()
+            ->getMock();
         
+        //this data is needed when PMA_ServerStatusData constructs
         $server_status = array(
-        		"Aborted_clients" => "0",
-        		"Aborted_connects" => "0",
-        		"Com_delete_multi" => "0",
-        		"Com_create_function" => "0",
-        		"Com_empty_query" => "0",
+            "Aborted_clients" => "0",
+            "Aborted_connects" => "0",
+            "Com_delete_multi" => "0",
+            "Com_create_function" => "0",
+            "Com_empty_query" => "0",
         );
         
         $server_variables= array(
-        		"auto_increment_increment" => "1",
-        		"auto_increment_offset" => "1",
-        		"automatic_sp_privileges" => "ON",
-        		"back_log" => "50",
-        		"big_tables" => "OFF",
+            "auto_increment_increment" => "1",
+            "auto_increment_offset" => "1",
+            "automatic_sp_privileges" => "ON",
+            "back_log" => "50",
+            "big_tables" => "OFF",
         );
         
         $dbi->expects($this->at(0))->method('fetchResult')
-        ->with('SHOW GLOBAL STATUS', 0, 1)
-        ->will($this->returnValue($server_status));
+            ->with('SHOW GLOBAL STATUS', 0, 1)
+            ->will($this->returnValue($server_status));
         
         $server_variables = array();
         $dbi->expects($this->at(1))->method('fetchResult')
-        ->with('SHOW GLOBAL VARIABLES', 0, 1)
-        ->will($this->returnValue($server_variables));
+            ->with('SHOW GLOBAL VARIABLES', 0, 1)
+            ->will($this->returnValue($server_variables));
          
         $GLOBALS['dbi'] = $dbi;
+        
         $this->ServerStatusData = new PMA_ServerStatusData();
     }
 
@@ -100,26 +107,50 @@ class PMA_ServerStatusMonitor_Test extends PHPUnit_Framework_TestCase
      *
      * @return void
      */
-    public function testPMA_getHtmlForMonitor()
+    public function testPMAGetHtmlForMonitor()
     {
         //Call the test function          
         $html = PMA_getHtmlForMonitor($this->ServerStatusData);
-        		
+
         //validate 1: PMA_getHtmlForTabLinks
         $this->assertContains(
             '<div class="tabLinks">',
             $html
         );
         $this->assertContains(
-            'Start Monitor',
+            __('Start Monitor'),
+            $html
+        );	
+        $this->assertContains(
+            __('Settings'),
+            $html
+        );		
+        $this->assertContains(
+            __('Done dragging (rearranging) charts'),
             $html
         );	
         //validate 2: PMA_getHtmlForSettingsDialog
         $this->assertContains(
+            '<div class="popupContent settingsPopup">',
+            $html
+        );  
+        $this->assertContains(
             '<a href="#settingsPopup" class="popupLink">',
             $html
-        );        		
+        );   
+        $this->assertContains(
+            __('Enable charts dragging'),
+            $html
+        );   
+        $this->assertContains(
+            '<option>3</option>',
+            $html
+        );      		
         //validate 3: PMA_getHtmlForInstructionsDialog
+        $this->assertContains(
+            __('Monitor Instructions'),
+            $html
+        ); 
         $this->assertContains(
             'Instructions/Setup',
             $html
@@ -130,19 +161,19 @@ class PMA_ServerStatusMonitor_Test extends PHPUnit_Framework_TestCase
         );        	
         //validate 4: PMA_getHtmlForAddChartDialog
         $this->assertContains(
-            'a href="#addNewChart">',
+            '<div id="addChartDialog"',
             $html
         );
         $this->assertContains(
-            'Done dragging (rearranging) charts',
+            '<div id="chartVariableSettings">',
             $html
         );
         $this->assertContains(
-            'Enable charts dragging',
+            '<option>Processes</option>',
             $html
         );
         $this->assertContains(
-            '<option>3</option>',
+            '<option>Connections</option>',
             $html
         );
     }
@@ -152,14 +183,16 @@ class PMA_ServerStatusMonitor_Test extends PHPUnit_Framework_TestCase
      *
      * @return void
      */
-    public function testPMA_getHtmlForClientSideDataAndLinks()
+    public function testPMAGetHtmlForClientSideDataAndLinks()
     {
         //Call the test function          
         $html = PMA_getHtmlForClientSideDataAndLinks($this->ServerStatusData);
-        		
+
         //validate 1: PMA_getHtmlForClientSideDataAndLinks
+        $from = '<form id="js_data" class="hide">' 
+            . '<input type="hidden" name="server_time"';
         $this->assertContains(
-            '<form id="js_data" class="hide"><input type="hidden" name="server_time"',
+            $from,
             $html
         );
         //validate 2: inputs

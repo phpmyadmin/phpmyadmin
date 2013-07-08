@@ -28,8 +28,13 @@ class PMA_ServerStatusVariables_Test extends PHPUnit_Framework_TestCase
      *
      * @return void
      */
-	public $ServerStatusData;
-	
+    public $ServerStatusData;
+
+    /**
+     * Test for setUp
+     *
+     * @return void
+     */
     public function setUp()
     {
         //$_REQUEST
@@ -62,33 +67,34 @@ class PMA_ServerStatusVariables_Test extends PHPUnit_Framework_TestCase
 
         //Mock DBI
         $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
-        ->disableOriginalConstructor()
-        ->getMock();
-        
+            ->disableOriginalConstructor()
+            ->getMock();
+
+        //this data is needed when PMA_ServerStatusData constructs
         $server_status = array(
-        		"Aborted_clients" => "0",
-        		"Aborted_connects" => "0",
-        		"Com_delete_multi" => "0",
-        		"Com_create_function" => "0",
-        		"Com_empty_query" => "0",
+            "Aborted_clients" => "0",
+            "Aborted_connects" => "0",
+            "Com_delete_multi" => "0",
+            "Com_create_function" => "0",
+            "Com_empty_query" => "0",
         );
         
         $server_variables= array(
-        		"auto_increment_increment" => "1",
-        		"auto_increment_offset" => "1",
-        		"automatic_sp_privileges" => "ON",
-        		"back_log" => "50",
-        		"big_tables" => "OFF",
+            "auto_increment_increment" => "1",
+            "auto_increment_offset" => "1",
+            "automatic_sp_privileges" => "ON",
+            "back_log" => "50",
+            "big_tables" => "OFF",
         );
         
         $dbi->expects($this->at(0))->method('fetchResult')
-        ->with('SHOW GLOBAL STATUS', 0, 1)
-        ->will($this->returnValue($server_status));
+            ->with('SHOW GLOBAL STATUS', 0, 1)
+            ->will($this->returnValue($server_status));
         
         $server_variables = array();
         $dbi->expects($this->at(1))->method('fetchResult')
-        ->with('SHOW GLOBAL VARIABLES', 0, 1)
-        ->will($this->returnValue($server_variables));
+            ->with('SHOW GLOBAL VARIABLES', 0, 1)
+            ->will($this->returnValue($server_variables));
          
         $GLOBALS['dbi'] = $dbi;
         $this->ServerStatusData = new PMA_ServerStatusData();
@@ -99,12 +105,16 @@ class PMA_ServerStatusVariables_Test extends PHPUnit_Framework_TestCase
      *
      * @return void
      */
-    public function testPMA_getHtmlForFilter()
+    public function testPMAGetHtmlForFilter()
     {
         //Call the test function          
         $html = PMA_getHtmlForFilter($this->ServerStatusData);
-        		
+
         //validate 1: PMA_getHtmlForFilter
+        $this->assertContains(
+            '<fieldset id="tableFilter">',
+            $html
+        );
         $this->assertContains(
             'server_status_variables.php',
             $html
@@ -134,11 +144,11 @@ class PMA_ServerStatusVariables_Test extends PHPUnit_Framework_TestCase
      *
      * @return void
      */
-    public function testPMA_getHtmlForLinkSuggestions()
+    public function testPMAGetHtmlForLinkSuggestions()
     {
         //Call the test function          
         $html = PMA_getHtmlForLinkSuggestions($this->ServerStatusData);
-        		
+
         //validate 1: PMA_getHtmlForLinkSuggestions
         $this->assertContains(
             '<div id="linkSuggestions" class="defaultLinks"',
@@ -164,14 +174,16 @@ class PMA_ServerStatusVariables_Test extends PHPUnit_Framework_TestCase
      *
      * @return void
      */
-    public function testPMA_getHtmlForVariablesList()
+    public function testPMAGetHtmlForVariablesList()
     {
         //Call the test function          
         $html = PMA_getHtmlForVariablesList($this->ServerStatusData);
-        		
+
         //validate 1: PMA_getHtmlForVariablesList
+        $table = '<table class="data sortable noclick" ' 
+            . 'id="serverstatusvariables">';
         $this->assertContains(
-            '<table class="data sortable noclick" id="serverstatusvariables">',
+            $table,
             $html
         );
         $this->assertContains(
