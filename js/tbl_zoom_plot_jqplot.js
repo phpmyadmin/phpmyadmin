@@ -58,13 +58,13 @@ function isEmpty(obj) {
  **/
 function getTimeStamp(val, type) {
     if (type.toString().search(/datetime/i) != -1 || type.toString().search(/timestamp/i) != -1) {
-        return getDateFromFormat(val, 'yyyy-MM-dd HH:mm:ss');
+        return $.datepicker.parseDateTime('yy-mm-dd', 'HH:mm:ss', val);
     }
     else if (type.toString().search(/time/i) != -1) {
-        return getDateFromFormat('1970-01-01 ' + val, 'yyyy-MM-dd HH:mm:ss');
+        return $.datepicker.parseDateTime('yy-mm-dd', 'HH:mm:ss', '1970-01-01 ' + val);
     }
     else if (type.toString().search(/date/i) != -1) {
-        return getDateFromFormat(val, 'yyyy-MM-dd');
+        return $.datepicker.parseDate('yy-mm-dd', val);
     }
 }
 
