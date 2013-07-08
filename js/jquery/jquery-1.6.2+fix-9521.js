@@ -12,6 +12,9 @@
  * Released under the MIT, BSD, and GPL Licenses.
  *
  * Date: Thu Jun 30 14:16:56 2011 -0400
+ *
+ * Includes jQuery GitHub pull request 474 for ticket #9521,
+ * backported from jQuery 1.6.3.
  */
 (function( window, undefined ) {
 
@@ -37,8 +40,8 @@ var jQuery = function( selector, context ) {
 	rootjQuery,
 
 	// A simple way to check for HTML strings or ID strings
-	// (both of which we optimize for)
-	quickExpr = /^(?:[^<]*(<[\w\W]+>)[^>]*$|#([\w\-]*)$)/,
+	// Prioritize #id over <tag> to avoid XSS via location.hash (#9521)
+	quickExpr = /^(?:[^#<]*(<[\w\W]+>)[^>]*$|#([\w\-]*)$)/,
 
 	// Check if a string has a non-whitespace character in it
 	rnotwhite = /\S/,
