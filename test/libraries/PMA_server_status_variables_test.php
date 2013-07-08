@@ -200,7 +200,7 @@ class PMA_ServerStatusVariables_Test extends PHPUnit_Framework_TestCase
         );
         //validate 3:Items
         $this->assertContains(
-            '<th class="name">Aborted clients</th>',
+            '<th class="name">Aborted clients',
             $html
         );
         $this->assertContains(
@@ -208,19 +208,19 @@ class PMA_ServerStatusVariables_Test extends PHPUnit_Framework_TestCase
             $html
         );
         $this->assertContains(
-            '<th class="name">Aborted connects</th>',
+            '<th class="name">Aborted connects',
             $html
         );
         $this->assertContains(
-            '<th class="name">Com delete multi</th>',
+            '<th class="name">Com delete multi',
             $html
         );
         $this->assertContains(
-            '<th class="name">Com create function</th>',
+            '<th class="name">Com create function',
             $html
         );
         $this->assertContains(
-            '<th class="name">Com empty query</th>',
+            '<th class="name">Com empty query',
             $html
         );
     }
