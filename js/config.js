@@ -753,7 +753,7 @@ function updatePrefsDate()
     var d = new Date(window.localStorage['config_mtime_local']);
     var msg = PMA_messages.strSavedOn.replace(
         '@DATE@',
-        $.datepicker.formatDate('yy-mm-dd', d) + ' ' + $.datepicker.formatTime('HH:mm', d)
+        PMA_formatDateTime(d)
     );
     $('#opts_import_local_storage div.localStorage-exists').html(msg);
 }
