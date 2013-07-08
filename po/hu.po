@@ -12460,7 +12460,7 @@ msgid ""
 "invalidation if %ssession.gc_maxlifetime%s is lower than its value "
 "(currently %d)."
 msgstr ""
-"Az 1440 másodpercnél magasabb %sLogin cookie validity% véletlenszerű "
+"Az 1440 másodpercnél magasabb %sLogin cookie validity%s véletlenszerű "
 "munkamenet érvénytelenítést okozhat, ha %ssession.gc_maxlifetime%s "
 "alacsonyabb, mint az érték (jelenleg: %d)."
 
