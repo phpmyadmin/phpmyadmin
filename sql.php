@@ -248,7 +248,7 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
     $response = PMA_Response::getInstance();
     $header   = $response->getHeader();
     $scripts  = $header->getScripts();
-        
+    
     if (isset($_REQUEST['table_maintenance'])) {
         $html_output .= PMA_sendResponseOrGetHtmlForTableMaintenance(
             isset($disp_mode) ? $disp_mode : null, $db,
@@ -259,7 +259,7 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
             $querytime, $analyzed_sql_results
         );                
     }
-    
+
     if (!isset($_REQUEST['printview']) || $_REQUEST['printview'] != '1') {
         $scripts->addFile('makegrid.js');
         $scripts->addFile('sql.js');
@@ -268,7 +268,7 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
         //set a global variable and check against it in the function
         $GLOBALS['buffer_message'] = false;
     }
-    
+        
     // hide edit and delete links:
     // - for information_schema
     // - if the result set does not contain all the columns of a unique key
@@ -289,8 +289,7 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
         // see the "PMA_setDisplayMode()" function in
         // libraries/DisplayResults.class.php
         $disp_mode = 'urdr111101';
-    }
-    
+    }    
     if (!empty($table) && ($GLOBALS['dbi']->isSystemSchema($db) || !$editable)) {
         $disp_mode = 'nnnn110111';
     }
@@ -298,7 +297,6 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
     $print_view_header_html = PMA_getHtmlForPrintViewHeader($db, $full_sql_query,
         $num_rows
     );
-    $html_output .= isset($print_view_header_html) ? $print_view_header_html : '';
     
     $previous_update_query_html = PMA_getHtmlForPreviousUpdateQuery(
         isset($disp_query) ? $disp_query : null,
@@ -306,7 +304,7 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
         isset($disp_message) ? $disp_message : null
     );
 
-    $profiling_chart_html = PMA_getHtmlForProfilingChart($disp_mode, $html_output,
+    $profiling_chart_html = PMA_getHtmlForProfilingChart($disp_mode, $db,
         isset($profiling_results) ? $profiling_results : null
     );
     
@@ -330,11 +328,13 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
     );
     
     $bookmark_support_html = PMA_getHtmlForBookmark($disp_mode,
-        isset($cfg['Bookmark']) ? $cfg['Bookmark'] : '', $html_output,
+        isset($cfg['Bookmark']) ? $cfg['Bookmark'] : '', $sql_query,
         $sql_limit_to_append, $err_url, $goto, $cfg['Bookmark']['user']
     );
 
     $print_button_html = PMA_getHtmlForPrintButton();
+    
+    $html_output .= isset($print_view_header_html) ? $print_view_header_html : '';
     
     $html_output .= PMA_getHtmlForSqlQueryResults($previous_update_query_html,
         $profiling_chart_html, $missing_unique_column_msg, $bookmark_created_msg,
