@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-07-09 11:34+0200\n"
-"PO-Revision-Date: 2013-06-24 16:46+0200\n"
+"PO-Revision-Date: 2013-07-09 12:14+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Czech <http://l10n.cihar.com/projects/phpmyadmin/master/cs/>\n"
 "Language: cs\n"
@@ -1719,16 +1719,14 @@ msgid "Show search criteria"
 msgstr "Zobrazit parametry vyhledávání"
 
 #: js/messages.php:278
-#, fuzzy
 #| msgid "Hide search criteria"
 msgid "Hide find and replace criteria"
-msgstr "Skrýt parametry vyhledávání"
+msgstr "Skrýt parametry vyhledávání a nahrazování"
 
 #: js/messages.php:279
-#, fuzzy
 #| msgid "Show search criteria"
 msgid "Show find and replace criteria"
-msgstr "Zobrazit parametry vyhledávání"
+msgstr "Zobrazit parametry vyhledávání a nahrazování"
 
 #: js/messages.php:282 libraries/TableSearch.class.php:210
 msgid "Zoom Search"
@@ -3227,7 +3225,7 @@ msgstr "Vyhledávání v tabulce"
 
 #: libraries/TableSearch.class.php:215 libraries/TableSearch.class.php:1164
 msgid "Find and Replace"
-msgstr ""
+msgstr "Vyhledat a nahradit"
 
 #: libraries/TableSearch.class.php:237 libraries/insert_edit.lib.php:1352
 msgid "Edit/Insert"
@@ -3306,31 +3304,27 @@ msgstr "Nahradit NULL hodnoty"
 
 #: libraries/TableSearch.class.php:1333
 msgid "Find and replace - preview"
-msgstr ""
+msgstr "Náhled nahrazování"
 
 #: libraries/TableSearch.class.php:1337
-#, fuzzy
 #| msgid "Column"
 msgid "Count"
-msgstr "Pole"
+msgstr "Počet"
 
 #: libraries/TableSearch.class.php:1338
-#, fuzzy
 #| msgid "Original position"
 msgid "Original string"
-msgstr "Původní pozice"
+msgstr "Původní řetězec"
 
 #: libraries/TableSearch.class.php:1339
-#, fuzzy
 #| msgid "Related Links"
 msgid "Replaced string"
-msgstr "Související odkazy"
+msgstr "Nahrazený řetězec"
 
 #: libraries/TableSearch.class.php:1364
-#, fuzzy
 #| msgid "Replicated"
 msgid "Replace"
-msgstr "Replikováno"
+msgstr "Nahradit"
 
 #: libraries/Theme.class.php:170
 #, php-format
