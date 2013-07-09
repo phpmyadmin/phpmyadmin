@@ -304,17 +304,9 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
         isset($disp_message) ? $disp_message : null
     );
 
-    if (isset($profiling_results)) {
-        // pma_token/url_query needed for chart export
-        $token = $_SESSION[' PMA_token '];
-        $url = (isset($url_query) ? $url_query : PMA_generate_common_url($db));
-
-        $profiling_chart_html = PMA_getHtmlForProfilingChart(
-            $url, $token, $profiling_results
-        );
-    } else {
-        $profiling_chart_html = null;
-    }
+    $profiling_chart_html = PMA_getHtmlForProfilingChart($disp_mode, $html_output,
+        isset($profiling_results) ? $profiling_results : null
+    );
     
     $missing_unique_column_msg = PMA_getMessageIfMissingColumnIndex($table, $db,
        $editable, $disp_mode

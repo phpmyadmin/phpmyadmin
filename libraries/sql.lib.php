@@ -426,133 +426,140 @@ function PMA_getHtmlForPrintViewHeader($db, $sql_query, $num_rows)
 }
 
 /**
- * Get the HTML for the profiling table and accompanying chart
+ * Get the HTML for the profiling table and accompanying chart if profiling is set.
+ * Ptherwise returns null
  *
- * @param string $url_query         the url query
- * @param string $pma_token         the pma token
+ * @param string $url_query         url query
+ * @param string $db                current database
  * @param array  $profiling_results array containing the profiling info
  *
  * @return string $profiling_table html for the profiling table and chart
  */
-function PMA_getHtmlForProfilingChart($url_query, $pma_token, $profiling_results)
+function PMA_getHtmlForProfilingChart($url_query, $db, $profiling_results)
 {
-    $profiling_stats = array(
-        'total_time' => 0,
-        'states' => array(),
-    );
-    $profiling_table = '';
+    if (isset($profiling_results)) {
+        $pma_token = $_SESSION[' PMA_token '];
+        $url_query = (isset($url_query) ? $url_query : PMA_generate_common_url($db));
+    
+        $profiling_stats = array(
+            'total_time' => 0,
+            'states' => array(),
+        );
+        $profiling_table = '';
 
-    $profiling_table .= '<fieldset><legend>' . __('Profiling') . '</legend>' . "\n";
-    $profiling_table .= '<div style="float: left;">';
-    $profiling_table .= '<h3>' . __('Detailed profile') . '</h3>';
-    $profiling_table .= '<table id="profiletable"><thead>' . "\n";
-    $profiling_table .= ' <tr>' . "\n";
-    $profiling_table .= '  <th>' . __('Order')
-        . '<div class="sorticon"></div></th>' . "\n";
-    $profiling_table .= '  <th>' . __('State')
-        . PMA_Util::showMySQLDocu(
-            'general-thread-states', 'general-thread-states'
-        )
-        . '<div class="sorticon"></div></th>' . "\n";
-    $profiling_table .= '  <th>' . __('Time')
-        . '<div class="sorticon"></div></th>' . "\n";
-    $profiling_table .= ' </tr></thead><tbody>' . "\n";
-
-    $chart_json = Array();
-    $i          = 1;
-    foreach ($profiling_results as $one_result) {
-        if (isset($profiling_stats['states'][ucwords($one_result['Status'])])) {
-            $profiling_stats['states'][ucwords($one_result['Status'])]['time']
-                += $one_result['Duration'];
-            $profiling_stats['states'][ucwords($one_result['Status'])]['calls']++;
-        } else {
-            $profiling_stats['states'][ucwords($one_result['Status'])] = array(
-                'total_time' => $one_result['Duration'],
-                'calls' => 1,
-            );
-        }
-        $profiling_stats['total_time'] += $one_result['Duration'];
-
+        $profiling_table .= '<fieldset><legend>' . __('Profiling') . '</legend>' . "\n";
+        $profiling_table .= '<div style="float: left;">';
+        $profiling_table .= '<h3>' . __('Detailed profile') . '</h3>';
+        $profiling_table .= '<table id="profiletable"><thead>' . "\n";
         $profiling_table .= ' <tr>' . "\n";
-        $profiling_table .= '<td>' . $i++ . '</td>' . "\n";
-        $profiling_table .= '<td>' . ucwords($one_result['Status']) . '</td>' . "\n";
-        $profiling_table .= '<td class="right">'
-            . (PMA_Util::formatNumber($one_result['Duration'], 3, 1))
-            . 's<span style="display:none;" class="rawvalue">'
-            . $one_result['Duration'] . '</span></td>' . "\n";
-        if (isset($chart_json[ucwords($one_result['Status'])])) {
-            $chart_json[ucwords($one_result['Status'])]
-                += $one_result['Duration'];
-        } else {
-            $chart_json[ucwords($one_result['Status'])]
-                = $one_result['Duration'];
-        }
-    }
-
-    $profiling_table .= '</tbody></table>' . "\n";
-    $profiling_table .= '</div>';
-
-    $profiling_table .= '<div style="float: left; margin-left:10px;">';
-    $profiling_table .= '<h3>' . __('Summary by state') . '</h3>';
-    $profiling_table .= '<table id="profilesummarytable"><thead>' . "\n";
-    $profiling_table .= ' <tr>' . "\n";
-    $profiling_table .= '  <th>' . __('State')
-        . PMA_Util::showMySQLDocu(
-            'general-thread-states', 'general-thread-states'
-        )
-        . '<div class="sorticon"></div></th>' . "\n";
-    $profiling_table .= '  <th>' . __('Total Time')
-        . '<div class="sorticon"></div></th>' . "\n";
-    $profiling_table .= '  <th>' . __('% Time')
-        . '<div class="sorticon"></div></th>' . "\n";
-    $profiling_table .= '  <th>' . __('Calls')
-        . '<div class="sorticon"></div></th>' . "\n";
-    $profiling_table .= '  <th>' . __('ø Time')
-        . '<div class="sorticon"></div></th>' . "\n";
-    $profiling_table .= ' </tr></thead><tbody>' . "\n";
-    foreach ($profiling_stats['states'] as $name => $stats) {
-        $profiling_table .= ' <tr>' . "\n";
-        $profiling_table .= '<td>' . $name . '</td>' . "\n";
-        $profiling_table .= '<td align="right">'
-            . PMA_Util::formatNumber($stats['total_time'], 3, 1)
-            . 's<span style="display:none;" class="rawvalue">'
-            . $stats['total_time'] . '</span></td>' . "\n";
-        $profiling_table .= '<td align="right">'
-            . PMA_Util::formatNumber(
-                100 * ($stats['total_time'] / $profiling_stats['total_time']), 0, 2
+        $profiling_table .= '  <th>' . __('Order')
+            . '<div class="sorticon"></div></th>' . "\n";
+        $profiling_table .= '  <th>' . __('State')
+            . PMA_Util::showMySQLDocu(
+                'general-thread-states', 'general-thread-states'
             )
+            . '<div class="sorticon"></div></th>' . "\n";
+        $profiling_table .= '  <th>' . __('Time')
+            . '<div class="sorticon"></div></th>' . "\n";
+        $profiling_table .= ' </tr></thead><tbody>' . "\n";
+
+        $chart_json = Array();
+        $i = 1;
+        foreach ($profiling_results as $one_result) {
+            if (isset($profiling_stats['states'][ucwords($one_result['Status'])])) {
+                $profiling_stats['states'][ucwords($one_result['Status'])]['time']
+                    += $one_result['Duration'];
+                $profiling_stats['states'][ucwords($one_result['Status'])]['calls']++;
+            } else {
+                $profiling_stats['states'][ucwords($one_result['Status'])] = array(
+                    'total_time' => $one_result['Duration'],
+                    'calls' => 1,
+                );
+            }
+            $profiling_stats['total_time'] += $one_result['Duration'];
+
+            $profiling_table .= ' <tr>' . "\n";
+            $profiling_table .= '<td>' . $i++ . '</td>' . "\n";
+            $profiling_table .= '<td>' . ucwords($one_result['Status']) . '</td>' . "\n";
+            $profiling_table .= '<td class="right">'
+                . (PMA_Util::formatNumber($one_result['Duration'], 3, 1))
+                . 's<span style="display:none;" class="rawvalue">'
+                . $one_result['Duration'] . '</span></td>' . "\n";
+            if (isset($chart_json[ucwords($one_result['Status'])])) {
+                $chart_json[ucwords($one_result['Status'])]
+                    += $one_result['Duration'];
+            } else {
+                $chart_json[ucwords($one_result['Status'])]
+                    = $one_result['Duration'];
+            }
+        }    
+
+        $profiling_table .= '</tbody></table>' . "\n";
+        $profiling_table .= '</div>';
+
+        $profiling_table .= '<div style="float: left; margin-left:10px;">';
+        $profiling_table .= '<h3>' . __('Summary by state') . '</h3>';
+        $profiling_table .= '<table id="profilesummarytable"><thead>' . "\n";
+        $profiling_table .= ' <tr>' . "\n";
+        $profiling_table .= '  <th>' . __('State')
+            . PMA_Util::showMySQLDocu(
+                'general-thread-states', 'general-thread-states'
+            )
+            . '<div class="sorticon"></div></th>' . "\n";
+        $profiling_table .= '  <th>' . __('Total Time')
+            . '<div class="sorticon"></div></th>' . "\n";
+        $profiling_table .= '  <th>' . __('% Time')
+            . '<div class="sorticon"></div></th>' . "\n";
+        $profiling_table .= '  <th>' . __('Calls')
+            . '<div class="sorticon"></div></th>' . "\n";
+        $profiling_table .= '  <th>' . __('ø Time')
+            . '<div class="sorticon"></div></th>' . "\n";
+        $profiling_table .= ' </tr></thead><tbody>' . "\n";
+        foreach ($profiling_stats['states'] as $name => $stats) {
+            $profiling_table .= ' <tr>' . "\n";
+            $profiling_table .= '<td>' . $name . '</td>' . "\n";
+            $profiling_table .= '<td align="right">'
+                . PMA_Util::formatNumber($stats['total_time'], 3, 1)
+                . 's<span style="display:none;" class="rawvalue">'
+                . $stats['total_time'] . '</span></td>' . "\n";
+            $profiling_table .= '<td align="right">'
+                . PMA_Util::formatNumber(
+                    100 * ($stats['total_time'] / $profiling_stats['total_time']), 0, 2
+                )
             . '%</td>' . "\n";
-        $profiling_table .= '<td align="right">' . $stats['calls'] . '</td>' . "\n";
-        $profiling_table .= '<td align="right">'
-            . PMA_Util::formatNumber($stats['total_time'] / $stats['calls'], 3, 1)
-            . 's<span style="display:none;" class="rawvalue">'
-            . number_format($stats['total_time'] / $stats['calls'], 8, '.', '')
-            . '</span></td>' . "\n";
-        $profiling_table .= ' </tr>' . "\n";
-    }
+            $profiling_table .= '<td align="right">' . $stats['calls'] . '</td>' . "\n";
+            $profiling_table .= '<td align="right">'
+                . PMA_Util::formatNumber($stats['total_time'] / $stats['calls'], 3, 1)
+                . 's<span style="display:none;" class="rawvalue">'
+                . number_format($stats['total_time'] / $stats['calls'], 8, '.', '')
+                . '</span></td>' . "\n";
+            $profiling_table .= ' </tr>' . "\n";
+        }    
 
-    $profiling_table .= '</tbody></table>' . "\n";
+        $profiling_table .= '</tbody></table>' . "\n";
 
-    $profiling_table .= <<<EOT
+        $profiling_table .= <<<EOT
 <script type="text/javascript">
     pma_token = '$pma_token';
     url_query = '$url_query';
 </script>
 EOT;
-    $profiling_table .= "</div>";
+        $profiling_table .= "</div>";
 
-    //require_once 'libraries/chart.lib.php';
-    $profiling_table .= '<div id="profilingChartData" style="display:none;">';
-    $profiling_table .= json_encode($chart_json);
-    $profiling_table .= '</div>';
-    $profiling_table .= '<div id="profilingchart" style="display:none;">';
-    $profiling_table .= '</div>';
-    $profiling_table .= '<script type="text/javascript">';
-    $profiling_table .= 'makeProfilingChart();';
-    $profiling_table .= 'initProfilingTables();';
-    $profiling_table .= '</script>';
-    $profiling_table .= '</fieldset>' . "\n";
-
+        //require_once 'libraries/chart.lib.php';
+        $profiling_table .= '<div id="profilingChartData" style="display:none;">';
+        $profiling_table .= json_encode($chart_json);
+        $profiling_table .= '</div>';
+        $profiling_table .= '<div id="profilingchart" style="display:none;">';
+        $profiling_table .= '</div>';
+        $profiling_table .= '<script type="text/javascript">';
+        $profiling_table .= 'makeProfilingChart();';
+        $profiling_table .= 'initProfilingTables();';
+        $profiling_table .= '</script>';
+        $profiling_table .= '</fieldset>' . "\n";
+    } else {
+        $profiling_table = null;    
+    }
     return $profiling_table;
 }
 
