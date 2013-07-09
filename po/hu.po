@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.5-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-06-24 10:43+0200\n"
-"PO-Revision-Date: 2013-07-05 09:35+0200\n"
-"Last-Translator: G. S. <somogyig@gmail.com>\n"
+"PO-Revision-Date: 2013-07-09 11:53+0200\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Hungarian <http://l10n.cihar.com/projects/phpmyadmin/4-0/hu/>\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
@@ -1072,7 +1072,8 @@ msgid ""
 msgstr ""
 "A diagramelrendezés konfigurációja a webböngésző helyi gyorsítótárában már "
 "nem kompatibilis a felügyeleti panellel. Úgy tűnik, a jelenlegi konfiguráció "
-"nem működik többé. Állítsa vissza az alapértelmezést a Beállítások menüben."
+"nem működik többé. Állítsa vissza az alapértelmezést a <i>Beállítások</i> "
+"menüben."
 
 #: js/messages.php:82
 msgid "Query cache efficiency"
@@ -1900,11 +1901,11 @@ msgstr ""
 
 #: js/messages.php:350
 msgid "You can also edit most values<br />by double-clicking directly on them."
-msgstr "Az elemek nagy része szerkeszthetővé válik dupla kattintással."
+msgstr "Az elemek nagy része szerkeszthetővé válik<br />dupla kattintással."
 
 #: js/messages.php:353
 msgid "You can also edit most values<br />by clicking directly on them."
-msgstr "Az elem szerkeszthetővé válik kattintással."
+msgstr "Az elem szerkeszthetővé <br />válik kattintással."
 
 #: js/messages.php:358
 msgid "Go to link"
@@ -2245,20 +2246,20 @@ msgstr "'%s' szabály értékének számolása sikertelen"
 #: libraries/Advisor.class.php:140
 #, php-format
 msgid "Failed running test for rule '%s'"
-msgstr "'s%' szabály tesztjének futtatása sikertelen"
+msgstr "'%s' szabály tesztjének futtatása sikertelen"
 
 #: libraries/Advisor.class.php:222
 #, php-format
 msgid "Failed formatting string for rule '%s'."
-msgstr "'%s' szabály karakterformázása sikertelen"
+msgstr "'%s' szabály karakterformázása sikertelen."
 
 #: libraries/Advisor.class.php:390
 #, php-format
 msgid ""
 "Invalid rule declaration on line %1$s, expected line %2$s of previous rule"
 msgstr ""
-"Érvénytelen szabálydeklaráció a(z) %1$s sorban, előző szabály által várt %2$ "
-"sor(ok)"
+"Érvénytelen szabálydeklaráció a(z) %1$s sorban, előző szabály által várt %"
+"2$s sor(ok)"
 
 #: libraries/Advisor.class.php:407
 #, php-format
@@ -4276,10 +4277,9 @@ msgstr ""
 "táblák kijavításának, a letiltása."
 
 #: libraries/config/messages.inc.php:61
-#, fuzzy
 #| msgid "Table maintenance"
 msgid "Disable multi table maintenance"
-msgstr "Tábla karbantartása"
+msgstr "Többtáblás karbantartás letiltása"
 
 #: libraries/config/messages.inc.php:62
 msgid "Edit SQL queries in popup window"
@@ -4660,10 +4660,9 @@ msgid "Tables display options"
 msgstr "A táblák megjelenítésének beállításai"
 
 #: libraries/config/messages.inc.php:183 setup/frames/menu.inc.php:20
-#, fuzzy
 #| msgid "Main frame"
 msgid "Main panel"
-msgstr "Főkeret"
+msgstr "Fő keret"
 
 #: libraries/config/messages.inc.php:184
 msgid "Microsoft Office"
@@ -4781,10 +4780,9 @@ msgid "Customize navigation panel"
 msgstr "A navigációs keret testreszabása"
 
 #: libraries/config/messages.inc.php:210
-#, fuzzy
 #| msgid "Customize main frame"
 msgid "Customize main panel"
-msgstr "A főkeret testreszabása"
+msgstr "A fő keret testreszabása"
 
 #: libraries/config/messages.inc.php:211 libraries/config/messages.inc.php:216
 #: setup/frames/menu.inc.php:18
@@ -12483,10 +12481,9 @@ msgid "No index defined! Create one below"
 msgstr "Nincs index meghatározva! Hozzon létre egyet lent"
 
 #: tbl_structure.php:125
-#, fuzzy
 #| msgid "No rows selected"
 msgid "No column selected."
-msgstr "Nem jelölte ki a sort"
+msgstr "Nem jelölt ki sort."
 
 #: tbl_structure.php:149
 #, php-format
@@ -13941,7 +13938,7 @@ msgstr "Az InnoDB napló max. mérete"
 
 #: libraries/advisory_rules.txt:446
 msgid "The InnoDB log file size is inadequately large."
-msgstr ""
+msgstr "Az InnoDB naplófájl mérete túlságosan nagy."
 
 #: libraries/advisory_rules.txt:447
 #, php-format
@@ -13971,19 +13968,17 @@ msgstr ""
 #: libraries/advisory_rules.txt:448
 #, php-format
 msgid "Your absolute InnoDB log size is %s MiB"
-msgstr ""
+msgstr "Az Ön teljes InnoDB naplójának mérete %s MB"
 
 #: libraries/advisory_rules.txt:450
-#, fuzzy
 #| msgid "Buffer pool size"
 msgid "InnoDB buffer pool size"
-msgstr "Pufferkészlet mérete"
+msgstr "InnoDB puffertárméret"
 
 #: libraries/advisory_rules.txt:453
-#, fuzzy
 #| msgid "Buffer pool size"
 msgid "Your InnoDB buffer pool is fairly small."
-msgstr "Pufferkészlet mérete"
+msgstr "Az InnoDB pufferterülete túlságosan kicsi."
 
 #: libraries/advisory_rules.txt:454
 #, php-format
