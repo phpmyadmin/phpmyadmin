@@ -268,35 +268,18 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
     }
     
     if (isset($_REQUEST['printview']) && $_REQUEST['printview'] == '1') {
-        PMA_Util::checkParameters(array('db', 'full_sql_query'));
-        
+        PMA_Util::checkParameters(array('db', 'full_sql_query'));        
         $header->enablePrintView();
-
         $html_output .= PMA_getHtmlForPrintViewHeader(
             $db, $full_sql_query, $num_rows
         );
     } else {
         $scripts->addFile('makegrid.js');
         $scripts->addFile('sql.js');
-
-        unset($message);
-
-        if (! $GLOBALS['is_ajax_request']) {
-            if (strlen($table)) {
-                include 'libraries/tbl_common.inc.php';
-                $url_query .= '&amp;goto=tbl_sql.php&amp;back=tbl_sql.php';
-                include 'libraries/tbl_info.inc.php';
-            } elseif (strlen($db)) {
-                include 'libraries/db_common.inc.php';
-                include 'libraries/db_info.inc.php';
-            } else {
-                include 'libraries/server_common.inc.php';
-            }
-        } else {
-            //we don't need to buffer the output in getMessage here.
-            //set a global variable and check against it in the function
-            $GLOBALS['buffer_message'] = false;
-        }
+        unset($message);         
+        //we don't need to buffer the output in getMessage here.
+        //set a global variable and check against it in the function
+        $GLOBALS['buffer_message'] = false;
     }
 
     if (strlen($db)) {
