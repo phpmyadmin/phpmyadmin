@@ -41,11 +41,11 @@ class PMA_SQLValidator_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Tests for PMA_validateSQL
+     * Tests for PMA_validateSQL failed due to No Configure
      *
      * @return void
      */
-    public function testPMA_validateSQL()
+    public function testPMA_validateSQL_NoConfigure()
     {
         $sql = "select * from PMA_test";
 
@@ -64,10 +64,78 @@ class PMA_SQLValidator_Test extends PHPUnit_Framework_TestCase
             'The SQL validator could not be initialized.',
             PMA_validateSQL($sql)
         );
+    }
+
+    /**
+     * Tests for PMA_validateSQL SOAP
+     *
+     * @return void
+     */
+    public function testPMA_validateSQL_SOAP()
+    {
+        $sql_pass = "select * from PMA_test";
+        $sql_fail = "select * PMA_test";
 
         //the sql validatior is loaded correctly
-        //TODO: follow need SOAP  
-        $GLOBALS['sqlvalidator_soap'] = 'PHP';
+        //follow need SOAP
+        $GLOBALS['cfg']['SQLValidator']['use'] = true;
+        $GLOBALS['sqlvalidator_soap'] = 'PEAR';
+        $GLOBALS['sqlvalidator_error'] = false;
+        
+        //validate that the result is the same as SOAP_Client return
+        //SOAP_Client is mocked with simple logic
+        $this->assertTrue(
+            PMA_validateSQL($sql_pass)
+        );
+        $this->assertFalse(
+            PMA_validateSQL($sql_fail)
+        );
     }
 }
+
+//Mock the SOAP_Client
+class SOAP_Client
+{
+    public function call($name, $arguments)
+    {
+        return $this->{$name}($arguments);
+    }
+    public function openSession($args)
+    {
+        $session = new Session;
+        $session->target = "http://sqlvalidator.mimer.com/v1/services";
+        $session->username = $args["a_userName"];
+        $session->password = $args["a_password"];
+        $session->calling_program = $args["a_callingProgram"];
+        $session->sessionId = "sessionId";
+        $session->sessionKey = "sessionKey";
+        return $session;
+    }
+    public function validateSQL($args)
+    {
+        $session = new Session;
+        $sql = $args["a_SQL"];
+        //simple logic of sql validate
+        $pos = strstr($sql, "from");
+        if (!$pos) {
+            $session->data = false;
+        } else {
+            $session->data = true;
+        }
+        return $session;
+    }
+}
+
+//Mock return Session class
+class Session
+{
+    var $target          = null;
+    var $username        = null;
+    var $password        = null;
+    var $calling_program = null;    
+    var $sessionId       = null;
+    var $sessionKey      = null;
+    var $data            = null;
+}
+
 ?>
