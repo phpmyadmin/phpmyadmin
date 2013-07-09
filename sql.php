@@ -236,18 +236,23 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
         PMA_sendResponseForGridEdit($result);
     }
 
-    if (isset($_REQUEST['ajax_request']) && isset($_REQUEST['table_maintenance'])) {
+    // Gets the list of fields properties
+    if (isset($result) && $result) {
+        $fields_meta = $GLOBALS['dbi']->getFieldsMeta($result);
+        $fields_cnt  = count($fields_meta);
+    }
+    
+    // Should be initialized these parameters before parsing
+    $showtable = isset($showtable) ? $showtable : null;
+    $printview = isset($_REQUEST['printview']) ? $_REQUEST['printview'] : null;
+    $url_query = isset($url_query) ? $url_query : null;
+        
+    if (isset($_REQUEST['table_maintenance'])) {
         $response = PMA_Response::getInstance();
         $header   = $response->getHeader();
         $scripts  = $header->getScripts();
         $scripts->addFile('makegrid.js');
         $scripts->addFile('sql.js');
-
-        // Gets the list of fields properties
-        if (isset($result) && $result) {
-            $fields_meta = $GLOBALS['dbi']->getFieldsMeta($result);
-            $fields_cnt  = count($fields_meta);
-        }
 
         if (empty($disp_mode)) {
             // see the "PMA_setDisplayMode()" function in
@@ -266,11 +271,6 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
                 $message, $GLOBALS['sql_query'], 'success'
             );
         }
-
-        // Should be initialized these parameters before parsing
-        $showtable = isset($showtable) ? $showtable : null;
-        $printview = isset($_REQUEST['printview']) ? $_REQUEST['printview'] : null;
-        $url_query = isset($url_query) ? $url_query : null;
 
         if (!empty($sql_data) && ($sql_data['valid_queries'] > 1)) {
 
@@ -343,12 +343,6 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
         $cfgRelation = PMA_getRelationsParam();
     }
 
-    // Gets the list of fields properties
-    if (isset($result) && $result) {
-        $fields_meta = $GLOBALS['dbi']->getFieldsMeta($result);
-        $fields_cnt  = count($fields_meta);
-    }
-
     //begin the sqlqueryresults div here. container div
     $html_output .= '<div id="sqlqueryresults"';
     $html_output .= ' class="ajax"';
@@ -407,11 +401,6 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
         $msg->addParam($_GET['label']);
         $html_output .= $msg->getDisplay();
     }
-
-    // Should be initialized these parameters before parsing
-    $showtable = isset($showtable) ? $showtable : null;
-    $printview = isset($_REQUEST['printview']) ? $_REQUEST['printview'] : null;
-    $url_query = isset($url_query) ? $url_query : null;
 
     if (! empty($sql_data) && ($sql_data['valid_queries'] > 1) || $is_procedure) {
 
