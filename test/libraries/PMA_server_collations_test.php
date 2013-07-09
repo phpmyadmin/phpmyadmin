@@ -39,6 +39,13 @@ require_once 'libraries/server_common.inc.php';
 require_once 'libraries/mysql_charsets.inc.php';
 require_once 'libraries/server_collations.lib.php';
 
+/**
+ * PMA_ServerBinlog_Test class
+ *
+ * this class is for testing server_collations.lib.php functions
+ *
+ * @package PhpMyAdmin-test
+ */
 class PMA_ServerCollations_Test extends PHPUnit_Framework_TestCase
 {
     /**

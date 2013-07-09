@@ -21,6 +21,13 @@ require_once 'libraries/sanitizing.lib.php';
 require_once 'libraries/sqlparser.lib.php';
 require_once 'libraries/js_escape.lib.php';
 
+/**
+ * class PMA_ServerStatusVariables_Test
+ *
+ * this class is for testing server_status_variables.lib.php functions
+ *
+ * @package PhpMyAdmin-test
+ */
 class PMA_ServerStatusVariables_Test extends PHPUnit_Framework_TestCase
 {
     /**
