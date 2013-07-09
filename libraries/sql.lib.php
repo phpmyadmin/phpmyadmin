@@ -653,56 +653,77 @@ function PMA_getHtmlForOptionsList($values, $selected_values)
 }
 
 /**
- * Get HTML for the Bookmark form
- *
- * @param string $db            the current database
- * @param string $goto          goto page url
- * @param string $bkm_sql_query the query to be bookmarked
- * @param string $bkm_user      the user creating the bookmark
+ * Function to get html for bookmark support if bookmarks are enabled. Else will
+ * return null
  * 
- * @return void
+ * @param string $disp_mode      display mode
+ * @param bool   $cfgBookmark    
+ * @param string $sql_query      sql query
+ * @param string $db             current database
+ * @param string $table          current table
+ * @param string $complete_query complete query
+ * @param string $bkm_user       bookmarking user
+ * 
+ * @return string $html
  */
-function PMA_getHtmlForBookmark($db, $goto, $bkm_sql_query, $bkm_user)
-{
-    $html = '<form action="sql.php" method="post"'
-        . ' onsubmit="return ! emptyFormElements(this, \'bkm_fields[bkm_label]\');"'
-        . ' id="bookmarkQueryForm">';
-    $html .= PMA_generate_common_hidden_inputs();
-    $html .= '<input type="hidden" name="goto" value="' . $goto . '" />';
-    $html .= '<input type="hidden" name="bkm_fields[bkm_database]"'
-        . ' value="' . htmlspecialchars($db) . '" />';
-    $html .= '<input type="hidden" name="bkm_fields[bkm_user]"'
-        . ' value="' . $bkm_user . '" />';
-    $html .= '<input type="hidden" name="bkm_fields[bkm_sql_query]"' . ' value="'
-        . $bkm_sql_query
-        . '" />';
-    $html .= '<fieldset>';
-    $html .= '<legend>';
-    $html .= PMA_Util::getIcon(
-        'b_bookmark.png', __('Bookmark this SQL query'), true
-    );
-    $html .= '</legend>';
-    $html .= '<div class="formelement">';
-    $html .= '<label for="fields_label_">' . __('Label:') . '</label>';
-    $html .= '<input type="text" id="fields_label_"'
-        . ' name="bkm_fields[bkm_label]" value="" />';
-    $html .= '</div>';
-    $html .= '<div class="formelement">';
-    $html .= '<input type="checkbox" name="bkm_all_users"'
-        . ' id="bkm_all_users" value="true" />';
-    $html .= '<label for="bkm_all_users">'
-        . __('Let every user access this bookmark')
-        . '</label>';
-    $html .= '</div>';
-    $html .= '<div class="clearfloat"></div>';
-    $html .= '</fieldset>';
-    $html .= '<fieldset class="tblFooters">';
-    $html .= '<input type="hidden" name="store_bkm" value="1" />';
-    $html .= '<input type="submit"'
-        . ' value="' . __('Bookmark this SQL query') . '" />';
-    $html .= '</fieldset>';
-    $html .= '</form>';
-
+function PMA_getHtmlForBookmark($disp_mode, $cfgBookmark, $sql_query, $db, $table,
+    $complete_query, $bkm_user
+) {
+    if ($disp_mode[7] == '1'
+        && (! empty($cfgBookmark) && empty($_GET['id_bookmark']))
+        && ! empty($sql_query)
+    ) {
+        $html = "\n";
+        $goto = 'sql.php?'
+            . PMA_generate_common_url($db, $table)
+            . '&amp;sql_query=' . urlencode($sql_query)
+            . '&amp;id_bookmark=1';
+        $bkm_sql_query = urlencode(
+                isset($complete_query) ? $complete_query : $sql_query
+        );
+        $html = '<form action="sql.php" method="post"'
+            . ' onsubmit="return ! emptyFormElements(this, \'bkm_fields[bkm_label]\');"'
+            . ' id="bookmarkQueryForm">';
+        $html .= PMA_generate_common_hidden_inputs();
+        $html .= '<input type="hidden" name="goto" value="' . $goto . '" />';
+        $html .= '<input type="hidden" name="bkm_fields[bkm_database]"'
+            . ' value="' . htmlspecialchars($db) . '" />';
+        $html .= '<input type="hidden" name="bkm_fields[bkm_user]"'
+            . ' value="' . $bkm_user . '" />';
+        $html .= '<input type="hidden" name="bkm_fields[bkm_sql_query]"' . ' value="'
+            . $bkm_sql_query
+            . '" />';
+        $html .= '<fieldset>';
+        $html .= '<legend>';
+        $html .= PMA_Util::getIcon(
+            'b_bookmark.png', __('Bookmark this SQL query'), true
+        );
+        $html .= '</legend>';
+        $html .= '<div class="formelement">';
+        $html .= '<label for="fields_label_">' . __('Label:') . '</label>';
+        $html .= '<input type="text" id="fields_label_"'
+            . ' name="bkm_fields[bkm_label]" value="" />';
+        $html .= '</div>';
+        $html .= '<div class="formelement">';
+        $html .= '<input type="checkbox" name="bkm_all_users"'
+            . ' id="bkm_all_users" value="true" />';
+        $html .= '<label for="bkm_all_users">'
+            . __('Let every user access this bookmark')
+            . '</label>';
+        $html .= '</div>';
+        $html .= '<div class="clearfloat"></div>';
+        $html .= '</fieldset>';
+        $html .= '<fieldset class="tblFooters">';
+        $html .= '<input type="hidden" name="store_bkm" value="1" />';
+        $html .= '<input type="submit"'
+            . ' value="' . __('Bookmark this SQL query') . '" />';
+        $html .= '</fieldset>';
+        $html .= '</form>';    
+        
+    } else {
+        $html = null;
+    }
+ 
     return $html;
 }
 
@@ -1807,13 +1828,14 @@ function PMA_sendResponseOrGetHtmlForTableMaintenance($disp_mode, $db, $message,
  * @param string $table_html                 html for the table for displaying sql
  *                                           results
  * @param string $indexes_problems_html      html for displaying errors in indexes
+ * @param string $bookmark_support_html      html for displaying bookmark form
  * @param string $print_button_html          html for the print button in printview
  * 
  * @return string $html_output
  */
 function PMA_getHtmlForSqlQueryResults($previous_update_query_html,
     $profiling_chart_html, $missing_unique_column_msg, $bookmark_created_msg,
-    $table_html, $indexes_problems_html, $print_button_html
+    $table_html, $indexes_problems_html, $bookmark_support_html, $print_button_html
 ) {
     //begin the sqlqueryresults div here. container div
     $html_output = '<div id="sqlqueryresults" class="ajax">';
@@ -1825,7 +1847,8 @@ function PMA_getHtmlForSqlQueryResults($previous_update_query_html,
     $html_output .= isset($bookmark_created_msg)
         ? $bookmark_created_msg->getDisplay() : '';
     $html_output .= $table_html;
-    $html_output .= isset($indexes_problems_html) ? $index_problems_html : '';
+    $html_output .= isset($indexes_problems_html) ? $indexes_problems_html : '';
+    $html_output .= isset($bookmark_support_html) ? $bookmark_support_html : '';
     $html_output .= isset($print_button_html) ? $print_button_html : '';
     $html_output .= '</div>'; // end sqlqueryresults div
     

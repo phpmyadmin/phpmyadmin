@@ -335,31 +335,17 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
         isset($selected) ? $selected : null
     );
     
-    // Bookmark support if required
-    if ($disp_mode[7] == '1'
-        && (! empty($cfg['Bookmark']) && empty($_GET['id_bookmark']))
-        && ! empty($sql_query)
-    ) {
-        $bookmark_support_html = "\n";
-        $goto = 'sql.php?'
-              . PMA_generate_common_url($db, $table)
-              . '&amp;sql_query=' . urlencode($sql_query)
-              . '&amp;id_bookmark=1';
-        $bkm_sql_query = urlencode(
-            isset($complete_query) ? $complete_query : $sql_query
-        );
-        $bookmark_support_html .= PMA_getHtmlForBookmark(
-            $db, $goto, $bkm_sql_query, $cfg['Bookmark']['user']
-        );
-    } else {
-        $bookmark_support_html = null;
-    }
+    $bookmark_support_html = PMA_getHtmlForBookmark($disp_mode,
+        isset($cfg['Bookmark']) ? $cfg['Bookmark'] : '', $html_output,
+        $sql_limit_to_append, $err_url, $goto, $cfg['Bookmark']['user']
+    );
 
     $print_button_html = PMA_getHtmlForPrintButton();
     
     $html_output .= PMA_getHtmlForSqlQueryResults($previous_update_query_html,
         $profiling_chart_html, $missing_unique_column_msg, $bookmark_created_msg,
-        $table_html, $indexes_problems_html, $print_button_html
+        $table_html, $indexes_problems_html, $bookmark_support_html,
+        $print_button_html
     );
     
     $response->addHTML($html_output);
