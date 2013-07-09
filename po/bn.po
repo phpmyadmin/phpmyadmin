@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-07-09 11:34+0200\n"
-"PO-Revision-Date: 2013-07-08 21:26+0200\n"
+"PO-Revision-Date: 2013-07-09 12:11+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Bengali <http://l10n.cihar.com/projects/phpmyadmin/master/bn/"
-">\n"
+"Language-Team: Bengali "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/bn/>\n"
 "Language: bn\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -6788,7 +6788,7 @@ msgstr "ইনডেক্সের নাম:"
 #: libraries/display_indexes.lib.php:67
 msgid ""
 "(\"PRIMARY\" <b>must</b> be the name of and <b>only of</b> a primary key!)"
-msgstr "(\"PRIMARY\" <b>অবশ্যই</b> একটি একক প্রাথমিক কী'র নাম হতে হবে!) "
+msgstr "(\"PRIMARY\" <b>অবশ্যই</b> একটি একক প্রাথমিক কী'র নাম হতে হবে!)"
 
 #: libraries/display_indexes.lib.php:85
 msgid "Comment:"
@@ -9093,9 +9093,9 @@ msgid ""
 "fail![/strong] Please use the improved 'mysqli' extension to avoid any "
 "problems."
 msgstr ""
-"আপনি পিএইচপির বাতিলকৃত বা অনঅনুমোদিত 'mysql' সংযোজক ব্যবহার করছেন যা অনেকগুলো "
-"অনুসন্ধান ত্বত্তাবধান করতে সক্ষম নয়। <b> কিছু সঞ্চিত রুটিনের কাজ হয়ত ব্যার্থ হবে! </"
-"b>সমস্যা এড়াতে 'mysqli' সংযোজক ব্যবহার করুন।"
+"আপনি পিএইচপির বাতিলকৃত বা অনঅনুমোদিত 'mysql' সংযোজক ব্যবহার করছেন যা "
+"অনেকগুলো অনুসন্ধান ত্বত্তাবধান করতে সক্ষম নয়। [strong]কিছু সঞ্চিত রুটিনের "
+"কাজ হয়ত ব্যার্থ হবে![/strong] সমস্যা এড়াতে 'mysqli' সংযোজক ব্যবহার করুন।"
 
 #: libraries/rte/rte_routines.lib.php:281
 #: libraries/rte/rte_routines.lib.php:1118
@@ -11420,10 +11420,10 @@ msgid "PARTITION definition:"
 msgstr ""
 
 #: libraries/tbl_common.inc.php:54
-#, fuzzy, php-format
+#, php-format
 #| msgid "Tracking is active."
 msgid "Tracking of %s is activated."
-msgstr "%s.%s ট্রেকিং কার্যকর করা হয়েছে। "
+msgstr "%s ট্রেকিং কার্যকর করা হয়েছে। "
 
 #: libraries/tbl_gis_visualization.lib.php:141
 msgid "No data found for GIS visualization."
@@ -11833,8 +11833,8 @@ msgid ""
 "This MySQL server works as <b>master</b> and <b>slave</b> in <b>replication</"
 "b> process."
 msgstr ""
-"প্রতিলিপির জন্য এই মাইএসকিউএল সার্ভারটি <b>master</b> এবং <b>slave</b>'হিসাবে "
-"কাজ করছে। "
+"প্রতিলিপির জন্য এই মাইএসকিউএল সার্ভারটি <b>master</b> এবং "
+"<b>slave</b>'হিসাবে কাজ করছে।"
 
 #: server_status.php:121
 msgid "This MySQL server works as <b>master</b> in <b>replication</b> process."
@@ -11980,12 +11980,14 @@ msgid "Cannot load or save configuration"
 msgstr "কনফিগারেশন লোড বা সংরক্ষন করতে পারছি না"
 
 #: setup/frames/index.inc.php:52
+#, fuzzy
 msgid ""
 "Please create web server writable folder [em]config[/em] in phpMyAdmin top "
 "level directory as described in [doc@setup_script]documentation[/doc]. "
 "Otherwise you will be only able to download or display it."
 msgstr ""
-"ওয়েব সার্ভরে লেখার উপযুক্ত [em]config[/em] ফোল্ডার তৈরী করুন phpMyAdmin এর প্রধান "
+"ওয়েব সার্ভরে লেখার উপযুক্ত [em]config[/em] ফোল্ডার তৈরী করুন phpMyAdmin এর "
+"প্রধান "
 
 #: setup/frames/index.inc.php:60
 msgid ""
@@ -13426,7 +13428,7 @@ msgstr "মেমোরী থেকে ইনডেক্স পড়ার শ�
 #: libraries/advisory_rules.txt:321
 #, php-format
 msgid "The %% of indexes that use the MyISAM key buffer is low."
-msgstr " %% ইনডেক্সসমূহ যেগুলো MyISAM কী বাফার ব্যবহার করে।"
+msgstr "%% ইনডেক্সসমূহ যেগুলো MyISAM কী বাফার ব্যবহার করে।"
 
 #: libraries/advisory_rules.txt:322
 msgid "You may need to increase {key_buffer_size}."
@@ -13775,10 +13777,11 @@ msgid ""
 msgstr ""
 "সাধারনত {innodb_log_file_size} {innodb_buffer_pool_size} এর 25%% এ নির্ধারন "
 "করাই যথেষ্ট। একটি অনেক বড় {innodb_log_file_size}কোন ধ্বংস হয়ে যাওয়া ডাটাবেইজ "
-"উদ্ধারের কাজকে লক্ষনীয়ভাবে ধীর করে দেয়, নতুন মানটি my.cnf এ সেট করুন, সার্ভারটি "
-"আরম্ভ করুন, তারপর error logs পরীক্ষাকরে দেখুন সব কিছু ঠিক আছে কিনা। এটিও <a href="
-"\"http://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
-"innodblogfilesize-proper-way.html\">this blog entry</a> দেখতে পারেন। "
+"উদ্ধারের কাজকে লক্ষনীয়ভাবে ধীর করে দেয়, নতুন মানটি my.cnf এ সেট করুন, "
+"সার্ভারটি আরম্ভ করুন, তারপর error logs পরীক্ষাকরে দেখুন সব কিছু ঠিক আছে "
+"কিনা। এটিও <a href=\"http://mysqldatabaseadministration.blogspot.com/2007/01"
+"/increase-innodblogfilesize-proper-way.html\">this blog entry</a> দেখতে "
+"পারেন।"
 
 #: libraries/advisory_rules.txt:448
 #, php-format
