@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-07-09 12:15+0200\n"
-"PO-Revision-Date: 2013-05-30 13:53+0200\n"
+"PO-Revision-Date: 2013-07-09 14:08+0200\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
-"Language-Team: Interlingua <http://l10n.cihar.com/projects/phpmyadmin/master/"
-"ia/>\n"
+"Language-Team: Interlingua "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/ia/>\n"
 "Language: ia\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1341,6 +1341,10 @@ msgid ""
 "However only the SQL query itself has been used as a grouping criteria, so "
 "the other attributes of queries, such as start time, may differ."
 msgstr ""
+"Iste columna monstra le amonta de demandas (query) identic que es gruppate "
+"insimul. Totevia solmente le query SQL mesme ha essite usate comop criterio "
+"de gruppar, assi que le altere attributos de query, tal como le tempore de "
+"initio, pote differer."
 
 #: js/messages.php:154
 msgid ""
@@ -1452,6 +1456,9 @@ msgid ""
 "This is most likely because your session expired. Reloading the page and "
 "reentering your credentials should help."
 msgstr ""
+"Quando on require nove datos per graphicos le servitor retornava un responsa "
+"invalide. Isto poterea esser perque tu session expirava. Si on recarga le "
+"pagina e reinserta  tu datos de accesso, il poterea esser te utile."
 
 #: js/messages.php:184
 msgid "Reload page"
@@ -1471,6 +1478,8 @@ msgstr ""
 msgid ""
 "Failed building chart grid with imported config. Resetting to default config…"
 msgstr ""
+"Il falleva construer grillia de graphico con le configuration importate. On "
+"refixa al configuration predefinite…"
 
 #: js/messages.php:190 libraries/Menu.class.php:305
 #: libraries/Menu.class.php:388 libraries/Menu.class.php:499
@@ -1731,69 +1740,72 @@ msgid "Show search criteria"
 msgstr "Monstra criterios de cerca"
 
 #: js/messages.php:278
-#, fuzzy
 #| msgid "Hide search criteria"
 msgid "Hide find and replace criteria"
-msgstr "Cela criterios de cerca"
+msgstr "Cela criterios de cercar e de reimplaciar"
 
 #: js/messages.php:279
-#, fuzzy
 #| msgid "Show search criteria"
 msgid "Show find and replace criteria"
-msgstr "Monstra criterios de cerca"
+msgstr "Monstra criterios de cercar e de reimplaciar"
 
 #: js/messages.php:282 libraries/TableSearch.class.php:210
 msgid "Zoom Search"
-msgstr ""
+msgstr "Cerca de zoom"
 
 #: js/messages.php:284
 msgid "Each point represents a data row."
-msgstr ""
+msgstr "Cata puncto representa un rango de datos."
 
 #: js/messages.php:286
 msgid "Hovering over a point will show its label."
-msgstr ""
+msgstr "Si on flotta sur un puncto, il monstrara su etiquetta."
 
 #: js/messages.php:288
 msgid "To zoom in, select a section of the plot with the mouse."
 msgstr ""
+"Pro aggrandir per le zoom, selige un section del area del graphico con le "
+"mus."
 
 #: js/messages.php:290
 msgid "Click reset zoom button to come back to original state."
-msgstr ""
+msgstr "Pulsa le button de refixar le zoom pro reverter al stato original."
 
 #: js/messages.php:292
 msgid "Click a data point to view and possibly edit the data row."
 msgstr ""
+"Pulsa sur un puncto de datos pro vider e forsan modificar le rango de datos."
 
 #: js/messages.php:294
 msgid "The plot can be resized by dragging it along the bottom right corner."
 msgstr ""
+"Le area de graphico pote esser redimensionate per traher lo verso le angulo "
+"in basso a dextera."
 
 #: js/messages.php:296
 msgid "Select two columns"
-msgstr ""
+msgstr "Selige duo columnas"
 
 #: js/messages.php:297
 msgid "Select two different columns"
-msgstr ""
+msgstr "Selige duo columnas differente"
 
 #: js/messages.php:298
 msgid "Query results"
-msgstr ""
+msgstr "Exitos del query"
 
 #: js/messages.php:299
 msgid "Data point content"
-msgstr ""
+msgstr "Contento del puncto de datos"
 
 #: js/messages.php:302 libraries/display_indexes.lib.php:134
 #: libraries/display_indexes.lib.php:170 tbl_change.php:263
 msgid "Ignore"
-msgstr ""
+msgstr "Ignora"
 
 #: js/messages.php:303 libraries/DisplayResults.class.php:3324
 msgid "Copy"
-msgstr ""
+msgstr "Copia"
 
 #: js/messages.php:306
 msgid "Point"
@@ -1821,126 +1833,143 @@ msgstr "Circulo externe"
 
 #: js/messages.php:318
 msgid "Add columns"
-msgstr ""
+msgstr "Adde columnas"
 
 #: js/messages.php:321
 msgid "Select referenced key"
-msgstr ""
+msgstr "Selige clave de referentia"
 
 #: js/messages.php:322
 msgid "Select Foreign Key"
-msgstr ""
+msgstr "Selige clave estranie"
 
 #: js/messages.php:323
 msgid "Please select the primary key or a unique key"
-msgstr ""
+msgstr "Pro favor selige le clave primari o un clave unic"
 
 #: js/messages.php:324 pmd_general.php:95
 msgid "Choose column to display"
-msgstr ""
+msgstr "Selige columna de monstrar"
 
 #: js/messages.php:325
 msgid ""
 "You haven't saved the changes in the layout. They will be lost if you don't "
 "save them. Do you want to continue?"
 msgstr ""
+"Tu non ha salveguardate le modificationes in le disposition (layout). Istos "
+"essera perdite si tu non salveguarda los. Tu vole continuar?"
 
 #: js/messages.php:328
 msgid "Add an option for column "
-msgstr ""
+msgstr "Adde un option pro le columna "
 
 #: js/messages.php:329
 #, php-format
 msgid "%d object(s) created"
-msgstr ""
+msgstr "%d objecto(s) create"
 
 #: js/messages.php:332
 msgid "Press escape to cancel editing"
-msgstr ""
+msgstr "Pressa le clave de escape pro cancellar le modification"
 
 #: js/messages.php:333
 msgid ""
 "You have edited some data and they have not been saved. Are you sure you "
 "want to leave this page before saving the data?"
 msgstr ""
+"Tu ha modificate alcun datos e illos non ha essite salveguardate. Tu es "
+"secur que tu vole abandonar iste pagina ante salveguardar le datos?"
 
 #: js/messages.php:334
 msgid "Drag to reorder"
-msgstr ""
+msgstr "Trahe pro reordinar"
 
 #: js/messages.php:335
 msgid "Click to sort"
-msgstr ""
+msgstr "Pulsa pro ordinar"
 
 #: js/messages.php:336
 msgid "Click to mark/unmark"
-msgstr ""
+msgstr "Pulsa pro seliger/deseliger"
 
 #: js/messages.php:337
 msgid "Double-click to copy column name"
-msgstr ""
+msgstr "Duple pulsa pro copiar le nomine de columna"
 
 #: js/messages.php:338
 msgid "Click the drop-down arrow<br />to toggle column's visibility"
 msgstr ""
+"Pulsa sur le flecha de disrolar<br /> pro commutar le visibilitate del "
+"columna"
 
 #: js/messages.php:340
 msgid ""
 "This table does not contain a unique column. Features related to the grid "
 "edit, checkbox, Edit, Copy and Delete links may not work after saving."
 msgstr ""
+"Iste tabula non contine un unic columna. Functionalitates ligate al "
+"modificar, copiar, marcar, deler le grillia poterea non functionar post "
+"salveguardar."
 
 #: js/messages.php:345
 msgid "You can also edit most values<br />by double-clicking directly on them."
 msgstr ""
+"Tu pote anque modificar plure de valores<br /> per duple pulsar directemente "
+"super illos."
 
 #: js/messages.php:348
 msgid "You can also edit most values<br />by clicking directly on them."
 msgstr ""
+"Tu anque pote modificar plure de valores<br /> per pulsar directemente super "
+"illos."
 
 #: js/messages.php:353
 msgid "Go to link"
-msgstr ""
+msgstr "Vade al ligamine"
 
 #: js/messages.php:354
 msgid "Copy column name"
-msgstr ""
+msgstr "Copia nomine de columna"
 
 #: js/messages.php:355
 msgid "Right-click the column name to copy it to your clipboard."
 msgstr ""
+"Pulsa a dextere le nomine de columna pro copiar lo in tu tabuliero de "
+"systema."
 
 #: js/messages.php:356
 msgid "Show data row(s)"
-msgstr ""
+msgstr "Monstra rangos(s) de datos"
 
 #: js/messages.php:359
 msgid "Generate password"
-msgstr ""
+msgstr "Genera contrasigno"
 
 #: js/messages.php:360 libraries/replication_gui.lib.php:862
 msgid "Generate"
-msgstr ""
+msgstr "Genera"
 
 #: js/messages.php:361
 msgid "Change Password"
-msgstr ""
+msgstr "Cambia contrasigno"
 
 #: js/messages.php:364
 msgid "More"
-msgstr ""
+msgstr "Altere"
 
 #: js/messages.php:367
 msgid "Show Panel"
-msgstr ""
+msgstr "Monstra pannello"
 
 #: js/messages.php:368
 msgid "Hide Panel"
-msgstr ""
+msgstr "Cela pannello"
 
 #: js/messages.php:371
 msgid "The requested page was not found in the history, it may have expired."
 msgstr ""
+"Il non trovava le pagina requirite in le chronologia, il poterea esser "
+"expirate."
 
 #: js/messages.php:374 setup/lib/index.lib.php:188
 #, php-format
@@ -1948,270 +1977,272 @@ msgid ""
 "A newer version of phpMyAdmin is available and you should consider "
 "upgrading. The newest version is %s, released on %s."
 msgstr ""
+"Un version plus nove de phpMyAdmin es disponibile e tu deberea considerar su "
+"actualisation. Le version plus nove e %s, liverate le %s."
 
 #. l10n: Latest available phpMyAdmin version
 #: js/messages.php:376
 msgid ", latest stable version:"
-msgstr ""
+msgstr ", ultime version stabile:"
 
 #: js/messages.php:377
 msgid "up to date"
-msgstr ""
+msgstr "actualisate"
 
 #. l10n: Display text for calendar close link
 #: js/messages.php:396
 msgid "Done"
-msgstr ""
+msgstr "Facite"
 
 #: js/messages.php:400
 msgctxt "Previous month"
 msgid "Prev"
-msgstr ""
+msgstr "Mense previe"
 
 #: js/messages.php:405
 msgctxt "Next month"
 msgid "Next"
-msgstr ""
+msgstr "Mense proxime"
 
 #. l10n: Display text for current month link in calendar
 #: js/messages.php:408
 msgid "Today"
-msgstr ""
+msgstr "Hodie"
 
 #: js/messages.php:412
 msgid "January"
-msgstr ""
+msgstr "Januario"
 
 #: js/messages.php:413
 msgid "February"
-msgstr ""
+msgstr "Februario"
 
 #: js/messages.php:414
 msgid "March"
-msgstr ""
+msgstr "Martio"
 
 #: js/messages.php:415
 msgid "April"
-msgstr ""
+msgstr "April"
 
 #: js/messages.php:416
 msgid "May"
-msgstr ""
+msgstr "Maio"
 
 #: js/messages.php:417
 msgid "June"
-msgstr ""
+msgstr "Junio"
 
 #: js/messages.php:418
 msgid "July"
-msgstr ""
+msgstr "Julio"
 
 #: js/messages.php:419
 msgid "August"
-msgstr ""
+msgstr "Augusto"
 
 #: js/messages.php:420
 msgid "September"
-msgstr ""
+msgstr "Septembre"
 
 #: js/messages.php:421
 msgid "October"
-msgstr ""
+msgstr "Octobre"
 
 #: js/messages.php:422
 msgid "November"
-msgstr ""
+msgstr "Novembre"
 
 #: js/messages.php:423
 msgid "December"
-msgstr ""
+msgstr "Decembre"
 
 #. l10n: Short month name
 #: js/messages.php:430 libraries/Util.class.php:1683
 msgid "Jan"
-msgstr ""
+msgstr "Jan"
 
 #. l10n: Short month name
 #: js/messages.php:432 libraries/Util.class.php:1685
 msgid "Feb"
-msgstr ""
+msgstr "Feb"
 
 #. l10n: Short month name
 #: js/messages.php:434 libraries/Util.class.php:1687
 msgid "Mar"
-msgstr ""
+msgstr "Mar"
 
 #. l10n: Short month name
 #: js/messages.php:436 libraries/Util.class.php:1689
 msgid "Apr"
-msgstr ""
+msgstr "Apr"
 
 #. l10n: Short month name
 #: js/messages.php:438 libraries/Util.class.php:1691
 msgctxt "Short month name"
 msgid "May"
-msgstr ""
+msgstr "Mai"
 
 #. l10n: Short month name
 #: js/messages.php:440 libraries/Util.class.php:1693
 msgid "Jun"
-msgstr ""
+msgstr "Jun"
 
 #. l10n: Short month name
 #: js/messages.php:442 libraries/Util.class.php:1695
 msgid "Jul"
-msgstr ""
+msgstr "Jul"
 
 #. l10n: Short month name
 #: js/messages.php:444 libraries/Util.class.php:1697
 msgid "Aug"
-msgstr ""
+msgstr "Aug"
 
 #. l10n: Short month name
 #: js/messages.php:446 libraries/Util.class.php:1699
 msgid "Sep"
-msgstr ""
+msgstr "Sep"
 
 #. l10n: Short month name
 #: js/messages.php:448 libraries/Util.class.php:1701
 msgid "Oct"
-msgstr ""
+msgstr "Oct"
 
 #. l10n: Short month name
 #: js/messages.php:450 libraries/Util.class.php:1703
 msgid "Nov"
-msgstr ""
+msgstr "Nov"
 
 #. l10n: Short month name
 #: js/messages.php:452 libraries/Util.class.php:1705
 msgid "Dec"
-msgstr ""
+msgstr "Dec"
 
 #: js/messages.php:458
 msgid "Sunday"
-msgstr ""
+msgstr "Dominica"
 
 #: js/messages.php:459
 msgid "Monday"
-msgstr ""
+msgstr "Lunedi"
 
 #: js/messages.php:460
 msgid "Tuesday"
-msgstr ""
+msgstr "Martedi"
 
 #: js/messages.php:461
 msgid "Wednesday"
-msgstr ""
+msgstr "Mercuridi"
 
 #: js/messages.php:462
 msgid "Thursday"
-msgstr ""
+msgstr "Jovedi"
 
 #: js/messages.php:463
 msgid "Friday"
-msgstr ""
+msgstr "Venerdi"
 
 #: js/messages.php:464
 msgid "Saturday"
-msgstr ""
+msgstr "Sabbato"
 
 #. l10n: Short week day name
 #: js/messages.php:471
 msgid "Sun"
-msgstr ""
+msgstr "Dom"
 
 #. l10n: Short week day name
 #: js/messages.php:473 libraries/Util.class.php:1710
 msgid "Mon"
-msgstr ""
+msgstr "Lun"
 
 #. l10n: Short week day name
 #: js/messages.php:475 libraries/Util.class.php:1712
 msgid "Tue"
-msgstr ""
+msgstr "Mar"
 
 #. l10n: Short week day name
 #: js/messages.php:477 libraries/Util.class.php:1714
 msgid "Wed"
-msgstr ""
+msgstr "Mer"
 
 #. l10n: Short week day name
 #: js/messages.php:479 libraries/Util.class.php:1716
 msgid "Thu"
-msgstr ""
+msgstr "Jov"
 
 #. l10n: Short week day name
 #: js/messages.php:481 libraries/Util.class.php:1718
 msgid "Fri"
-msgstr ""
+msgstr "Ven"
 
 #. l10n: Short week day name
 #: js/messages.php:483 libraries/Util.class.php:1720
 msgid "Sat"
-msgstr ""
+msgstr "Sab"
 
 #. l10n: Minimal week day name
 #: js/messages.php:490
 msgid "Su"
-msgstr ""
+msgstr "Do"
 
 #. l10n: Minimal week day name
 #: js/messages.php:492
 msgid "Mo"
-msgstr ""
+msgstr "Lu"
 
 #. l10n: Minimal week day name
 #: js/messages.php:494
 msgid "Tu"
-msgstr ""
+msgstr "Ma"
 
 #. l10n: Minimal week day name
 #: js/messages.php:496
 msgid "We"
-msgstr ""
+msgstr "Me"
 
 #. l10n: Minimal week day name
 #: js/messages.php:498
 msgid "Th"
-msgstr ""
+msgstr "Jo"
 
 #. l10n: Minimal week day name
 #: js/messages.php:500
 msgid "Fr"
-msgstr ""
+msgstr "Ve"
 
 #. l10n: Minimal week day name
 #: js/messages.php:502
 msgid "Sa"
-msgstr ""
+msgstr "Sa"
 
 #. l10n: Column header for week of the year in calendar
 #: js/messages.php:506
 msgid "Wk"
-msgstr ""
+msgstr "Sept"
 
 #. l10n: Month-year order for calendar, use either "calendar-month-year" or "calendar-year-month".
 #: js/messages.php:509
 msgid "calendar-month-year"
-msgstr ""
+msgstr "calendario-mense-anno"
 
 #. l10n: Year suffix for calendar, "none" is empty.
 #: js/messages.php:511
 msgctxt "Year suffix"
 msgid "none"
-msgstr ""
+msgstr "necun"
 
 #: js/messages.php:520
 msgid "Hour"
-msgstr ""
+msgstr "Hora"
 
 #: js/messages.php:521
 msgid "Minute"
-msgstr ""
+msgstr "Minuta"
 
 #: js/messages.php:522
 msgid "Second"
-msgstr ""
+msgstr "Secunda"
 
 #: libraries/Advisor.class.php:78
 #, php-format
@@ -3272,32 +3303,28 @@ msgid "Reset zoom"
 msgstr ""
 
 #: libraries/TableSearch.class.php:1273
-#, fuzzy
 #| msgid "Deleting"
 msgid "Replace with:"
-msgstr "Delente"
+msgstr "Raimplacia con:"
 
 #: libraries/TableSearch.class.php:1333
 msgid "Find and replace - preview"
 msgstr ""
 
 #: libraries/TableSearch.class.php:1337
-#, fuzzy
 #| msgid "Column"
 msgid "Count"
-msgstr "Columna"
+msgstr "Computo"
 
 #: libraries/TableSearch.class.php:1338
-#, fuzzy
 #| msgid "Linestring"
 msgid "Original string"
-msgstr "Linestring (catena de linea)"
+msgstr "Catena original"
 
 #: libraries/TableSearch.class.php:1339
-#, fuzzy
 #| msgid "Deleting"
 msgid "Replaced string"
-msgstr "Delente"
+msgstr "Catena reimplaciate"
 
 #: libraries/TableSearch.class.php:1364
 msgid "Replace"
@@ -5172,10 +5199,9 @@ msgid "Use only icons, only text or both"
 msgstr ""
 
 #: libraries/config/messages.inc.php:325
-#, fuzzy
 #| msgid "Table caption:"
 msgid "Table navigation bar"
-msgstr "Legenda de tabella:"
+msgstr "Barra de navigation de tabella"
 
 #: libraries/config/messages.inc.php:326
 msgid "use GZip output buffering for increased speed in HTTP transfers"
