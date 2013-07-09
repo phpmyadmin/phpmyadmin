@@ -967,8 +967,12 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
             $this->_drawRelations($this->showColor);
         }
         $this->_drawTables($this->showColor);
-        $this->_showOutput($this->pageNumber);
-        exit();
+
+        //IF in UT, we can't output and exit
+        if (!defined('TESTSUITE')) {
+            $this->_showOutput($this->pageNumber);
+            exit();
+        }
     }
 
     /**

@@ -762,8 +762,12 @@ class PMA_Dia_Relation_Schema extends PMA_Export_Relation_Schema
             $this->_drawRelations($this->showColor);
         }
         $dia->endDiaDoc();
-        $dia->showOutput($db . '-' . $this->pageNumber);
-        exit();
+        
+        //IF in UT, we can't output and exit 
+        if (!defined('TESTSUITE')) {
+        	$dia->showOutput($db . '-' . $this->pageNumber);
+            exit();
+        }
     }
 
     /**
