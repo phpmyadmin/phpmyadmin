@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-07-09 11:34+0200\n"
+"POT-Creation-Date: 2013-07-09 12:15+0200\n"
 "PO-Revision-Date: 2012-12-24 08:51+0200\n"
 "Last-Translator: karwan hidayat <karwanhidayat@gmail.com>\n"
 "Language-Team: Kurdish Sorani <http://l10n.cihar.com/projects/phpmyadmin/"
@@ -133,8 +133,7 @@ msgstr "تێبینیەکانی خشتە"
 
 #: db_datadict.php:166 libraries/Index.class.php:565
 #: libraries/TableSearch.class.php:183 libraries/TableSearch.class.php:1225
-#: libraries/TableSearch.class.php:1276 libraries/display_indexes.lib.php:117
-#: libraries/insert_edit.lib.php:1568
+#: libraries/display_indexes.lib.php:117 libraries/insert_edit.lib.php:1568
 #: libraries/plugins/export/ExportHtmlword.class.php:278
 #: libraries/plugins/export/ExportHtmlword.class.php:393
 #: libraries/plugins/export/ExportLatex.class.php:510
@@ -2294,7 +2293,7 @@ msgstr "لە سەرەتاوە بۆ کۆتایی"
 msgid "Descending"
 msgstr "لە کۆتایی بۆ سەرەتا"
 
-#: libraries/DBQbe.class.php:364
+#: libraries/DBQbe.class.php:364 libraries/TableSearch.class.php:1276
 #, fuzzy
 #| msgid "Column"
 msgid "Column:"
@@ -2458,7 +2457,7 @@ msgstr "گەڕان لە بنکەی دراو"
 msgid "Words or values to search for (wildcard: \"%\"):"
 msgstr ""
 
-#: libraries/DbSearch.class.php:395
+#: libraries/DbSearch.class.php:395 libraries/TableSearch.class.php:1271
 msgid "Find:"
 msgstr "دۆزینەوە:"
 
@@ -3279,15 +3278,11 @@ msgstr "چۆنیەتی بەکارهێنان"
 msgid "Reset zoom"
 msgstr "ڕێکخستنەوەی زووم"
 
-#: libraries/TableSearch.class.php:1271
-#, fuzzy
-#| msgid "Find:"
-msgid "Find"
-msgstr "دۆزینەوە:"
-
 #: libraries/TableSearch.class.php:1273
-msgid "Replace with"
-msgstr ""
+#, fuzzy
+#| msgid "Replace table prefix"
+msgid "Replace with:"
+msgstr "گۆڕینی پێشگری خشتە"
 
 #: libraries/TableSearch.class.php:1333
 msgid "Find and replace - preview"
@@ -13183,6 +13178,11 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr ""
+
+#, fuzzy
+#~| msgid "Find:"
+#~ msgid "Find"
+#~ msgstr "دۆزینەوە:"
 
 #~ msgid "Headers every %s rows"
 #~ msgstr "ناونیشانەکانی هەموو %s ڕیزەکان"

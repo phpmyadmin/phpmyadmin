@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-07-09 11:34+0200\n"
+"POT-Creation-Date: 2013-07-09 12:15+0200\n"
 "PO-Revision-Date: 2012-11-06 12:16+0200\n"
 "Last-Translator: వీవెన్ <veeven@gmail.com>\n"
 "Language-Team: Telugu <http://l10n.cihar.com/projects/phpmyadmin/master/te/"
@@ -129,8 +129,7 @@ msgstr "పట్టిక వ్యాఖ్యలు"
 # మొదటి అనువాదము
 #: db_datadict.php:166 libraries/Index.class.php:565
 #: libraries/TableSearch.class.php:183 libraries/TableSearch.class.php:1225
-#: libraries/TableSearch.class.php:1276 libraries/display_indexes.lib.php:117
-#: libraries/insert_edit.lib.php:1568
+#: libraries/display_indexes.lib.php:117 libraries/insert_edit.lib.php:1568
 #: libraries/plugins/export/ExportHtmlword.class.php:278
 #: libraries/plugins/export/ExportHtmlword.class.php:393
 #: libraries/plugins/export/ExportLatex.class.php:510
@@ -2411,7 +2410,7 @@ msgid "Descending"
 msgstr "అవరోహణ"
 
 # మొదటి అనువాదము
-#: libraries/DBQbe.class.php:364
+#: libraries/DBQbe.class.php:364 libraries/TableSearch.class.php:1276
 #, fuzzy
 #| msgid "Column"
 msgid "Column:"
@@ -2579,7 +2578,7 @@ msgid "Words or values to search for (wildcard: \"%\"):"
 msgstr ""
 
 # మొదటి అనువాదము
-#: libraries/DbSearch.class.php:395
+#: libraries/DbSearch.class.php:395 libraries/TableSearch.class.php:1271
 msgid "Find:"
 msgstr "వెతుకు"
 
@@ -3437,16 +3436,11 @@ msgstr ""
 msgid "Reset zoom"
 msgstr ""
 
-# మొదటి అనువాదము
-#: libraries/TableSearch.class.php:1271
-#, fuzzy
-#| msgid "Find:"
-msgid "Find"
-msgstr "వెతుకు"
-
 #: libraries/TableSearch.class.php:1273
-msgid "Replace with"
-msgstr ""
+#, fuzzy
+#| msgid "Relations"
+msgid "Replace with:"
+msgstr "సంబంధాలు"
 
 #: libraries/TableSearch.class.php:1333
 msgid "Find and replace - preview"
@@ -13703,6 +13697,12 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr ""
+
+# మొదటి అనువాదము
+#, fuzzy
+#~| msgid "Find:"
+#~ msgid "Find"
+#~ msgstr "వెతుకు"
 
 # Research అంటే పరిశోధన, అందువల్లన ఇది శోధనైంది
 #, fuzzy

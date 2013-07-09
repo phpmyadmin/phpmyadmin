@@ -3,11 +3,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-07-09 11:34+0200\n"
+"POT-Creation-Date: 2013-07-09 12:15+0200\n"
 "PO-Revision-Date: 2013-07-09 12:11+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Bengali "
-"<http://l10n.cihar.com/projects/phpmyadmin/master/bn/>\n"
+"Language-Team: Bengali <http://l10n.cihar.com/projects/phpmyadmin/master/bn/"
+">\n"
 "Language: bn\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -126,8 +126,7 @@ msgstr "টেবিলের মন্তব্য সমূহ"
 
 #: db_datadict.php:166 libraries/Index.class.php:565
 #: libraries/TableSearch.class.php:183 libraries/TableSearch.class.php:1225
-#: libraries/TableSearch.class.php:1276 libraries/display_indexes.lib.php:117
-#: libraries/insert_edit.lib.php:1568
+#: libraries/display_indexes.lib.php:117 libraries/insert_edit.lib.php:1568
 #: libraries/plugins/export/ExportHtmlword.class.php:278
 #: libraries/plugins/export/ExportHtmlword.class.php:393
 #: libraries/plugins/export/ExportLatex.class.php:510
@@ -2316,7 +2315,7 @@ msgstr "উর্ধ্ব মূখী"
 msgid "Descending"
 msgstr "অধ মুখী"
 
-#: libraries/DBQbe.class.php:364
+#: libraries/DBQbe.class.php:364 libraries/TableSearch.class.php:1276
 #, fuzzy
 #| msgid "Column"
 msgid "Column:"
@@ -2481,7 +2480,7 @@ msgstr "ডাটাবেইজে খোঁজ"
 msgid "Words or values to search for (wildcard: \"%\"):"
 msgstr "খোঁজার জন্য শব্দ বা সংখ্যা (wildcard: \"%\"):"
 
-#: libraries/DbSearch.class.php:395
+#: libraries/DbSearch.class.php:395 libraries/TableSearch.class.php:1271
 msgid "Find:"
 msgstr "খোঁজা:"
 
@@ -3304,16 +3303,10 @@ msgstr "কিভাবে ব্যবহার করবেন"
 msgid "Reset zoom"
 msgstr "জুম রিসেট"
 
-#: libraries/TableSearch.class.php:1271
-#, fuzzy
-#| msgid "Find:"
-msgid "Find"
-msgstr "Find:"
-
 #: libraries/TableSearch.class.php:1273
 #, fuzzy
 #| msgid "Replace NULL by"
-msgid "Replace with"
+msgid "Replace with:"
 msgstr "Replace NULL by"
 
 #: libraries/TableSearch.class.php:1333
@@ -9093,9 +9086,9 @@ msgid ""
 "fail![/strong] Please use the improved 'mysqli' extension to avoid any "
 "problems."
 msgstr ""
-"আপনি পিএইচপির বাতিলকৃত বা অনঅনুমোদিত 'mysql' সংযোজক ব্যবহার করছেন যা "
-"অনেকগুলো অনুসন্ধান ত্বত্তাবধান করতে সক্ষম নয়। [strong]কিছু সঞ্চিত রুটিনের "
-"কাজ হয়ত ব্যার্থ হবে![/strong] সমস্যা এড়াতে 'mysqli' সংযোজক ব্যবহার করুন।"
+"আপনি পিএইচপির বাতিলকৃত বা অনঅনুমোদিত 'mysql' সংযোজক ব্যবহার করছেন যা অনেকগুলো "
+"অনুসন্ধান ত্বত্তাবধান করতে সক্ষম নয়। [strong]কিছু সঞ্চিত রুটিনের কাজ হয়ত ব্যার্থ হবে![/"
+"strong] সমস্যা এড়াতে 'mysqli' সংযোজক ব্যবহার করুন।"
 
 #: libraries/rte/rte_routines.lib.php:281
 #: libraries/rte/rte_routines.lib.php:1118
@@ -11421,7 +11414,6 @@ msgstr ""
 
 #: libraries/tbl_common.inc.php:54
 #, php-format
-#| msgid "Tracking is active."
 msgid "Tracking of %s is activated."
 msgstr "%s ট্রেকিং কার্যকর করা হয়েছে। "
 
@@ -11833,8 +11825,8 @@ msgid ""
 "This MySQL server works as <b>master</b> and <b>slave</b> in <b>replication</"
 "b> process."
 msgstr ""
-"প্রতিলিপির জন্য এই মাইএসকিউএল সার্ভারটি <b>master</b> এবং "
-"<b>slave</b>'হিসাবে কাজ করছে।"
+"প্রতিলিপির জন্য এই মাইএসকিউএল সার্ভারটি <b>master</b> এবং <b>slave</b>'হিসাবে "
+"কাজ করছে।"
 
 #: server_status.php:121
 msgid "This MySQL server works as <b>master</b> in <b>replication</b> process."
@@ -11986,8 +11978,7 @@ msgid ""
 "level directory as described in [doc@setup_script]documentation[/doc]. "
 "Otherwise you will be only able to download or display it."
 msgstr ""
-"ওয়েব সার্ভরে লেখার উপযুক্ত [em]config[/em] ফোল্ডার তৈরী করুন phpMyAdmin এর "
-"প্রধান "
+"ওয়েব সার্ভরে লেখার উপযুক্ত [em]config[/em] ফোল্ডার তৈরী করুন phpMyAdmin এর প্রধান "
 
 #: setup/frames/index.inc.php:60
 msgid ""
@@ -13777,11 +13768,10 @@ msgid ""
 msgstr ""
 "সাধারনত {innodb_log_file_size} {innodb_buffer_pool_size} এর 25%% এ নির্ধারন "
 "করাই যথেষ্ট। একটি অনেক বড় {innodb_log_file_size}কোন ধ্বংস হয়ে যাওয়া ডাটাবেইজ "
-"উদ্ধারের কাজকে লক্ষনীয়ভাবে ধীর করে দেয়, নতুন মানটি my.cnf এ সেট করুন, "
-"সার্ভারটি আরম্ভ করুন, তারপর error logs পরীক্ষাকরে দেখুন সব কিছু ঠিক আছে "
-"কিনা। এটিও <a href=\"http://mysqldatabaseadministration.blogspot.com/2007/01"
-"/increase-innodblogfilesize-proper-way.html\">this blog entry</a> দেখতে "
-"পারেন।"
+"উদ্ধারের কাজকে লক্ষনীয়ভাবে ধীর করে দেয়, নতুন মানটি my.cnf এ সেট করুন, সার্ভারটি "
+"আরম্ভ করুন, তারপর error logs পরীক্ষাকরে দেখুন সব কিছু ঠিক আছে কিনা। এটিও <a href="
+"\"http://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
+"innodblogfilesize-proper-way.html\">this blog entry</a> দেখতে পারেন।"
 
 #: libraries/advisory_rules.txt:448
 #, php-format
@@ -13854,6 +13844,11 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert এর জন্য ০ নির্ধারন করা হয়েছে"
+
+#, fuzzy
+#~| msgid "Find:"
+#~ msgid "Find"
+#~ msgstr "Find:"
 
 #~ msgid "Display all tables with the same width"
 #~ msgstr "সবগুলো টেবল একই প্রশস্ততায় দেখাও"

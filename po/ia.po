@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-07-09 11:34+0200\n"
+"POT-Creation-Date: 2013-07-09 12:15+0200\n"
 "PO-Revision-Date: 2013-05-30 13:53+0200\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <http://l10n.cihar.com/projects/phpmyadmin/master/"
@@ -129,8 +129,7 @@ msgstr "Commentos de tabella:"
 
 #: db_datadict.php:166 libraries/Index.class.php:565
 #: libraries/TableSearch.class.php:183 libraries/TableSearch.class.php:1225
-#: libraries/TableSearch.class.php:1276 libraries/display_indexes.lib.php:117
-#: libraries/insert_edit.lib.php:1568
+#: libraries/display_indexes.lib.php:117 libraries/insert_edit.lib.php:1568
 #: libraries/plugins/export/ExportHtmlword.class.php:278
 #: libraries/plugins/export/ExportHtmlword.class.php:393
 #: libraries/plugins/export/ExportLatex.class.php:510
@@ -2308,7 +2307,7 @@ msgstr ""
 msgid "Descending"
 msgstr ""
 
-#: libraries/DBQbe.class.php:364
+#: libraries/DBQbe.class.php:364 libraries/TableSearch.class.php:1276
 msgid "Column:"
 msgstr "Columna:"
 
@@ -2460,7 +2459,7 @@ msgstr ""
 msgid "Words or values to search for (wildcard: \"%\"):"
 msgstr ""
 
-#: libraries/DbSearch.class.php:395
+#: libraries/DbSearch.class.php:395 libraries/TableSearch.class.php:1271
 msgid "Find:"
 msgstr ""
 
@@ -3272,13 +3271,11 @@ msgstr ""
 msgid "Reset zoom"
 msgstr ""
 
-#: libraries/TableSearch.class.php:1271
-msgid "Find"
-msgstr ""
-
 #: libraries/TableSearch.class.php:1273
-msgid "Replace with"
-msgstr ""
+#, fuzzy
+#| msgid "Deleting"
+msgid "Replace with:"
+msgstr "Delente"
 
 #: libraries/TableSearch.class.php:1333
 msgid "Find and replace - preview"

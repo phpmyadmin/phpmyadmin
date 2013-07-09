@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-07-09 11:34+0200\n"
+"POT-Creation-Date: 2013-07-09 12:15+0200\n"
 "PO-Revision-Date: 2013-02-13 18:58+0200\n"
 "Last-Translator: Andrey Prokopenko <aprk@ukr.net>\n"
 "Language-Team: Afrikaans <http://l10n.cihar.com/projects/phpmyadmin/master/"
@@ -126,8 +126,7 @@ msgstr "Tabel kommentaar"
 
 #: db_datadict.php:166 libraries/Index.class.php:565
 #: libraries/TableSearch.class.php:183 libraries/TableSearch.class.php:1225
-#: libraries/TableSearch.class.php:1276 libraries/display_indexes.lib.php:117
-#: libraries/insert_edit.lib.php:1568
+#: libraries/display_indexes.lib.php:117 libraries/insert_edit.lib.php:1568
 #: libraries/plugins/export/ExportHtmlword.class.php:278
 #: libraries/plugins/export/ExportHtmlword.class.php:393
 #: libraries/plugins/export/ExportLatex.class.php:510
@@ -2447,7 +2446,7 @@ msgstr "Dalend"
 msgid "Descending"
 msgstr "Dalend"
 
-#: libraries/DBQbe.class.php:364
+#: libraries/DBQbe.class.php:364 libraries/TableSearch.class.php:1276
 #, fuzzy
 #| msgid "Column names"
 msgid "Column:"
@@ -2620,7 +2619,7 @@ msgstr "Soek in databasis"
 msgid "Words or values to search for (wildcard: \"%\"):"
 msgstr "Woord(e) of waarde(s) om voor te soek (wildcard: \"%\"):"
 
-#: libraries/DbSearch.class.php:395
+#: libraries/DbSearch.class.php:395 libraries/TableSearch.class.php:1271
 msgid "Find:"
 msgstr "Vind:"
 
@@ -3489,16 +3488,10 @@ msgstr ""
 msgid "Reset zoom"
 msgstr "Herstel"
 
-#: libraries/TableSearch.class.php:1271
-#, fuzzy
-#| msgid "Find:"
-msgid "Find"
-msgstr "Vind:"
-
 #: libraries/TableSearch.class.php:1273
 #, fuzzy
 #| msgid "Replace table data with file"
-msgid "Replace with"
+msgid "Replace with:"
 msgstr "Vervang tabel data met leer (file)"
 
 #: libraries/TableSearch.class.php:1333
@@ -13848,6 +13841,11 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr ""
+
+#, fuzzy
+#~| msgid "Find:"
+#~ msgid "Find"
+#~ msgstr "Vind:"
 
 #~ msgid "Display all tables with the same width"
 #~ msgstr "vertoon alle tabelle met dieselfde wydte?"

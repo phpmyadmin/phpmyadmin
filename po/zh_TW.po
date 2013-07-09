@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-07-09 11:34+0200\n"
+"POT-Creation-Date: 2013-07-09 12:15+0200\n"
 "PO-Revision-Date: 2013-07-05 16:35+0200\n"
 "Last-Translator: Tony Chen <tonychen@finenet.com.tw>\n"
 "Language-Team: Traditional Chinese <http://l10n.cihar.com/projects/"
@@ -122,8 +122,7 @@ msgstr "表註釋："
 
 #: db_datadict.php:166 libraries/Index.class.php:565
 #: libraries/TableSearch.class.php:183 libraries/TableSearch.class.php:1225
-#: libraries/TableSearch.class.php:1276 libraries/display_indexes.lib.php:117
-#: libraries/insert_edit.lib.php:1568
+#: libraries/display_indexes.lib.php:117 libraries/insert_edit.lib.php:1568
 #: libraries/plugins/export/ExportHtmlword.class.php:278
 #: libraries/plugins/export/ExportHtmlword.class.php:393
 #: libraries/plugins/export/ExportLatex.class.php:510
@@ -2266,7 +2265,7 @@ msgstr "遞增"
 msgid "Descending"
 msgstr "遞減"
 
-#: libraries/DBQbe.class.php:364
+#: libraries/DBQbe.class.php:364 libraries/TableSearch.class.php:1276
 msgid "Column:"
 msgstr "欄位："
 
@@ -2416,7 +2415,7 @@ msgstr "在資料庫中搜尋"
 msgid "Words or values to search for (wildcard: \"%\"):"
 msgstr "要搜尋的文字或數值 (萬用字元：“%”)："
 
-#: libraries/DbSearch.class.php:395
+#: libraries/DbSearch.class.php:395 libraries/TableSearch.class.php:1271
 msgid "Find:"
 msgstr "搜尋："
 
@@ -3230,14 +3229,10 @@ msgstr "如何使用"
 msgid "Reset zoom"
 msgstr "重設縮放大小"
 
-#: libraries/TableSearch.class.php:1271
-#, fuzzy
-#| msgid "Find:"
-msgid "Find"
-msgstr "搜尋："
-
 #: libraries/TableSearch.class.php:1273
-msgid "Replace with"
+#, fuzzy
+#| msgid "Replace with"
+msgid "Replace with:"
 msgstr "替換爲"
 
 #: libraries/TableSearch.class.php:1333
@@ -13414,6 +13409,11 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert 已被設置為 0"
+
+#, fuzzy
+#~| msgid "Find:"
+#~ msgid "Find"
+#~ msgstr "搜尋："
 
 #~ msgid "Display all tables with the same width"
 #~ msgstr "以相同寬度顯示所有的表"

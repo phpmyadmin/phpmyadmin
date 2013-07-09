@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-07-09 11:34+0200\n"
+"POT-Creation-Date: 2013-07-09 12:15+0200\n"
 "PO-Revision-Date: 2013-06-22 11:37+0200\n"
 "Last-Translator: asdf sasd <ashkgwithu@mailinator.com>\n"
 "Language-Team: Hindi <http://l10n.cihar.com/projects/phpmyadmin/master/hi/>\n"
@@ -127,8 +127,7 @@ msgstr "टेबल टिप्पणि:"
 
 #: db_datadict.php:166 libraries/Index.class.php:565
 #: libraries/TableSearch.class.php:183 libraries/TableSearch.class.php:1225
-#: libraries/TableSearch.class.php:1276 libraries/display_indexes.lib.php:117
-#: libraries/insert_edit.lib.php:1568
+#: libraries/display_indexes.lib.php:117 libraries/insert_edit.lib.php:1568
 #: libraries/plugins/export/ExportHtmlword.class.php:278
 #: libraries/plugins/export/ExportHtmlword.class.php:393
 #: libraries/plugins/export/ExportLatex.class.php:510
@@ -2344,7 +2343,7 @@ msgstr "आरोही"
 msgid "Descending"
 msgstr "अवरोही"
 
-#: libraries/DBQbe.class.php:364
+#: libraries/DBQbe.class.php:364 libraries/TableSearch.class.php:1276
 #, fuzzy
 #| msgid "Column"
 msgid "Column:"
@@ -2512,7 +2511,7 @@ msgstr "डाटाबेस में खोजें"
 msgid "Words or values to search for (wildcard: \"%\"):"
 msgstr "शब्द अथवा वेल्यु जिसे सर्च करना है (wildcard: \"%\"):"
 
-#: libraries/DbSearch.class.php:395
+#: libraries/DbSearch.class.php:395 libraries/TableSearch.class.php:1271
 msgid "Find:"
 msgstr "खोजो:"
 
@@ -3377,16 +3376,10 @@ msgstr "नियंत्रण यूसर"
 msgid "Reset zoom"
 msgstr "रीसेट"
 
-#: libraries/TableSearch.class.php:1271
-#, fuzzy
-#| msgid "Find:"
-msgid "Find"
-msgstr "खोजो:"
-
 #: libraries/TableSearch.class.php:1273
 #, fuzzy
 #| msgid "Replace NULL by"
-msgid "Replace with"
+msgid "Replace with:"
 msgstr "शून्य की जगह पर"
 
 #: libraries/TableSearch.class.php:1333
@@ -14020,6 +14013,11 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "समवर्ती डालना 0 पर सेट है"
+
+#, fuzzy
+#~| msgid "Find:"
+#~ msgid "Find"
+#~ msgstr "खोजो:"
 
 #~ msgid "Display all tables with the same width"
 #~ msgstr "समान चौड़ाई के सभी टेबल को प्रदर्शित करें."

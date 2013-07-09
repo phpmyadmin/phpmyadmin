@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-07-09 11:34+0200\n"
+"POT-Creation-Date: 2013-07-09 12:15+0200\n"
 "PO-Revision-Date: 2013-07-05 01:35+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone+weblate@gmail.com>\n"
 "Language-Team: Spanish <http://l10n.cihar.com/projects/phpmyadmin/master/es/"
@@ -125,8 +125,7 @@ msgstr "Comentarios de la tabla:"
 
 #: db_datadict.php:166 libraries/Index.class.php:565
 #: libraries/TableSearch.class.php:183 libraries/TableSearch.class.php:1225
-#: libraries/TableSearch.class.php:1276 libraries/display_indexes.lib.php:117
-#: libraries/insert_edit.lib.php:1568
+#: libraries/display_indexes.lib.php:117 libraries/insert_edit.lib.php:1568
 #: libraries/plugins/export/ExportHtmlword.class.php:278
 #: libraries/plugins/export/ExportHtmlword.class.php:393
 #: libraries/plugins/export/ExportLatex.class.php:510
@@ -2341,7 +2340,7 @@ msgstr "Ascendente"
 msgid "Descending"
 msgstr "Descendente"
 
-#: libraries/DBQbe.class.php:364
+#: libraries/DBQbe.class.php:364 libraries/TableSearch.class.php:1276
 msgid "Column:"
 msgstr "Columna:"
 
@@ -2497,7 +2496,7 @@ msgstr "Buscar en la base de datos"
 msgid "Words or values to search for (wildcard: \"%\"):"
 msgstr "Palabras o valores a buscar (comodín: \"%\"):"
 
-#: libraries/DbSearch.class.php:395
+#: libraries/DbSearch.class.php:395 libraries/TableSearch.class.php:1271
 msgid "Find:"
 msgstr "Encontrado:"
 
@@ -3333,12 +3332,10 @@ msgstr "Forma de utilización"
 msgid "Reset zoom"
 msgstr "Reiniciar ampliación"
 
-#: libraries/TableSearch.class.php:1271
-msgid "Find"
-msgstr "Buscar"
-
 #: libraries/TableSearch.class.php:1273
-msgid "Replace with"
+#, fuzzy
+#| msgid "Replace with"
+msgid "Replace with:"
 msgstr "Reemplazar con"
 
 #: libraries/TableSearch.class.php:1333
@@ -14276,6 +14273,9 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "«concurrent_insert» está definido como 0"
+
+#~ msgid "Find"
+#~ msgstr "Buscar"
 
 #~ msgid "Display all tables with the same width"
 #~ msgstr "Mostrar todas las tablas que tienen el mismo ancho"

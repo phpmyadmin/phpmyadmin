@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-07-09 11:34+0200\n"
+"POT-Creation-Date: 2013-07-09 12:15+0200\n"
 "PO-Revision-Date: 2013-07-09 12:14+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Czech <http://l10n.cihar.com/projects/phpmyadmin/master/cs/>\n"
@@ -126,8 +126,7 @@ msgstr "Komentář k tabulce:"
 
 #: db_datadict.php:166 libraries/Index.class.php:565
 #: libraries/TableSearch.class.php:183 libraries/TableSearch.class.php:1225
-#: libraries/TableSearch.class.php:1276 libraries/display_indexes.lib.php:117
-#: libraries/insert_edit.lib.php:1568
+#: libraries/display_indexes.lib.php:117 libraries/insert_edit.lib.php:1568
 #: libraries/plugins/export/ExportHtmlword.class.php:278
 #: libraries/plugins/export/ExportHtmlword.class.php:393
 #: libraries/plugins/export/ExportLatex.class.php:510
@@ -1719,12 +1718,10 @@ msgid "Show search criteria"
 msgstr "Zobrazit parametry vyhledávání"
 
 #: js/messages.php:278
-#| msgid "Hide search criteria"
 msgid "Hide find and replace criteria"
 msgstr "Skrýt parametry vyhledávání a nahrazování"
 
 #: js/messages.php:279
-#| msgid "Show search criteria"
 msgid "Show find and replace criteria"
 msgstr "Zobrazit parametry vyhledávání a nahrazování"
 
@@ -2307,7 +2304,7 @@ msgstr "Vzestupně"
 msgid "Descending"
 msgstr "Sestupně"
 
-#: libraries/DBQbe.class.php:364
+#: libraries/DBQbe.class.php:364 libraries/TableSearch.class.php:1276
 msgid "Column:"
 msgstr "Pole:"
 
@@ -2463,7 +2460,7 @@ msgstr "Vyhledávání v databázi"
 msgid "Words or values to search for (wildcard: \"%\"):"
 msgstr "Slova nebo hodnoty, které si přejete vyhledat (zástupný znak: „%“):"
 
-#: libraries/DbSearch.class.php:395
+#: libraries/DbSearch.class.php:395 libraries/TableSearch.class.php:1271
 msgid "Find:"
 msgstr "Najít:"
 
@@ -3290,16 +3287,10 @@ msgstr "Návod k použití"
 msgid "Reset zoom"
 msgstr "Obnovit zvětšení"
 
-#: libraries/TableSearch.class.php:1271
-#, fuzzy
-#| msgid "Find:"
-msgid "Find"
-msgstr "Najít:"
-
 #: libraries/TableSearch.class.php:1273
 #, fuzzy
 #| msgid "Replace NULL with"
-msgid "Replace with"
+msgid "Replace with:"
 msgstr "Nahradit NULL hodnoty"
 
 #: libraries/TableSearch.class.php:1333
@@ -3307,22 +3298,18 @@ msgid "Find and replace - preview"
 msgstr "Náhled nahrazování"
 
 #: libraries/TableSearch.class.php:1337
-#| msgid "Column"
 msgid "Count"
 msgstr "Počet"
 
 #: libraries/TableSearch.class.php:1338
-#| msgid "Original position"
 msgid "Original string"
 msgstr "Původní řetězec"
 
 #: libraries/TableSearch.class.php:1339
-#| msgid "Related Links"
 msgid "Replaced string"
 msgstr "Nahrazený řetězec"
 
 #: libraries/TableSearch.class.php:1364
-#| msgid "Replicated"
 msgid "Replace"
 msgstr "Nahradit"
 
@@ -13928,6 +13915,11 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert je nastaveno na 0"
+
+#, fuzzy
+#~| msgid "Find:"
+#~ msgid "Find"
+#~ msgstr "Najít:"
 
 #~ msgid "Display all tables with the same width"
 #~ msgstr "Použít pro všechny tabulky stejnou šířku"
