@@ -398,11 +398,13 @@ function PMA_getSqlQueryAndCreateDbBeforeCopy()
 function PMA_getSqlConstraintsQueryForFullDb(
     $tables_full, $export_sql_plugin, $move, $db
 ) {
+    global $sql_constraints, $sql_drop_foreign_keys;
     $sql_constraints_query_full_db = array();
     foreach ($tables_full as $each_table => $tmp) {
+        /* Following globals are set in getTableDef */
         $sql_constraints = '';
         $sql_drop_foreign_keys = '';
-        $sql_structure = $export_sql_plugin->getTableDef(
+        $export_sql_plugin->getTableDef(
             $db, $each_table, "\n", '', false, false
         );
         if ($move && ! empty($sql_drop_foreign_keys)) {
@@ -1159,7 +1161,7 @@ function PMA_getListofMaintainActionLink($is_myisam_or_aria,
                 'Table_types'
             );
         }
-        if ($is_myisam_or_aria || $is_berkeleydb) {
+        if ($is_innodb || $is_myisam_or_aria || $is_berkeleydb) {
             $params = array(
                 'sql_query' => 'ANALYZE TABLE '
                     . PMA_Util::backquote($GLOBALS['table']),

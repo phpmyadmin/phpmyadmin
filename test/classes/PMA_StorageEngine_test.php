@@ -73,6 +73,11 @@ class PMA_StorageEngineTest extends PHPUnit_Framework_TestCase
                     'Support' => 'NO',
                     'Comment' => 'dummy2 comment',
                 ),
+                'FEDERATED' => array(
+                    'Engine' => 'FEDERATED',
+                    'Support' => 'NO',
+                    'Comment' => 'Federated MySQL storage engine'
+                ),
             ),
             $this->object->getStorageEngines()
         );
@@ -87,15 +92,11 @@ class PMA_StorageEngineTest extends PHPUnit_Framework_TestCase
      */
     public function testGetHtmlSelect()
     {
+        $html = $this->object->getHtmlSelect();
 
-        $this->assertEquals(
-            '<select name="engine">
-    <option value="dummy" title="dummy comment">
-        dummy
-    </option>
-</select>
-',
-            $this->object->getHtmlSelect()
+        $this->assertContains(
+            '<option value="dummy" title="dummy comment">',
+            $html
         );
     }
 

@@ -3917,3 +3917,21 @@ $('a.login-link').live('click', function (e) {
         $(window).resize(DynamicBoxes);
     });
 })();
+
+/**
+ * Formats timestamp for display
+ */
+function PMA_formatDateTime(date, seconds) {
+    var result = $.datepicker.formatDate('yy-mm-dd', date);
+    var timefmt = 'HH:mm';
+    if (seconds) {
+        timefmt = 'HH:mm:ss';
+    }
+    return result + ' ' + $.datepicker.formatTime(
+        timefmt, {
+            hour: date.getHours(),
+            minute: date.getMinutes(),
+            second: date.getSeconds()
+        }
+    );
+}

@@ -327,8 +327,9 @@ class PMA_File
      * @access  public
      * @static
      */
-    public function fetchUploadedFromTblChangeRequestMultiple($file, $rownumber, $key)
-    {
+    public function fetchUploadedFromTblChangeRequestMultiple(
+        $file, $rownumber, $key
+    ) {
         $new_file = array(
             'name' => $file['name']['multi_edit'][$rownumber][$key],
             'type' => $file['type']['multi_edit'][$rownumber][$key],

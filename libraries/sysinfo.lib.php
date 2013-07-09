@@ -48,8 +48,6 @@ function PMA_getSysInfo()
     $php_os = PMA_getSysInfoOs();
     $supported = array('Linux', 'WINNT', 'SunOS');
 
-    $sysinfo = array();
-
     if (in_array($php_os, $supported)) {
         $ret = eval("return new PMA_SysInfo" . $php_os . "();");
         if ($ret->supported()) {
@@ -341,12 +339,6 @@ class PMA_SysInfoSunos extends PMA_SysInfo
      */
     public function memory()
     {
-        preg_match_all(
-            MEMORY_REGEXP,
-            file_get_contents('/proc/meminfo'),
-            $matches
-        );
-
         $pagesize = $this->_kstat('unix:0:seg_cache:slab_size');
         $mem['MemTotal']
             = $this->_kstat('unix:0:system_pages:pagestotal') * $pagesize;

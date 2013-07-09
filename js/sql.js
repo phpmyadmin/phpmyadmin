@@ -66,7 +66,7 @@ function getFieldName($this_field)
  * Unbind all event handlers before tearing down a page
  */
 AJAX.registerTeardown('sql.js', function () {
-    $('a.delete_row.ajax').unbind('click');
+    $('a.delete_row.ajax').die('click');
     $('#bookmarkQueryForm').die('submit');
     $('input#bkm_label').unbind('keyup');
     $("#sqlqueryresults").die('makegrid');
@@ -104,7 +104,7 @@ AJAX.registerTeardown('sql.js', function () {
  */
 AJAX.registerOnload('sql.js', function () {
     // Delete row from SQL results
-    $('a.delete_row.ajax').click(function (e) {
+    $('a.delete_row.ajax').live('click',function (e) {
         e.preventDefault();
         var question = $.sprintf(PMA_messages.strDoYouReally, $(this).closest('td').find('div').text());
         var $link = $(this);

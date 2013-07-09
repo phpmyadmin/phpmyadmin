@@ -3,15 +3,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-07-04 06:07-0400\n"
+"POT-Creation-Date: 2013-07-09 12:15+0200\n"
 "PO-Revision-Date: 2013-06-03 10:24+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Hebrew <http://l10n.cihar.com/projects/phpmyadmin/master/he/"
 ">\n"
+"Language: he\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: he\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 1.6-dev\n"
 
@@ -123,8 +123,7 @@ msgstr "הערות לטבלה:"
 
 #: db_datadict.php:166 libraries/Index.class.php:565
 #: libraries/TableSearch.class.php:183 libraries/TableSearch.class.php:1225
-#: libraries/TableSearch.class.php:1276 libraries/display_indexes.lib.php:117
-#: libraries/insert_edit.lib.php:1568
+#: libraries/display_indexes.lib.php:117 libraries/insert_edit.lib.php:1568
 #: libraries/plugins/export/ExportHtmlword.class.php:278
 #: libraries/plugins/export/ExportHtmlword.class.php:393
 #: libraries/plugins/export/ExportLatex.class.php:510
@@ -600,8 +599,8 @@ msgstr ""
 #: import.php:107
 #, php-format
 msgid ""
-"You probably tried to upload a file that is too large. Please refer to %"
-"sdocumentation%s for a workaround for this limit."
+"You probably tried to upload a file that is too large. Please refer to "
+"%sdocumentation%s for a workaround for this limit."
 msgstr ""
 "כפי הנראה ניסית להעלות קובץ גדול מדי. נא לפנות ל%s תיעוד %s למצוא דרך לעקיפת "
 "מגבלה זו."
@@ -647,7 +646,7 @@ msgstr "לא ניתן להמיר את קידוד התווים של הקובץ ל
 msgid "Could not load import plugins, please check your installation!"
 msgstr "לא ניתן לטעון את תוספי הייבוא, נא לבדוק האם ההתקנה שלך תקינה!"
 
-#: import.php:537 libraries/sql.lib.php:938 sql.php:548
+#: import.php:537 libraries/sql.lib.php:938 sql.php:409
 #, php-format
 msgid "Bookmark %s created"
 msgstr "הסימנייה %s נוצרה"
@@ -2434,7 +2433,7 @@ msgstr "עולה"
 msgid "Descending"
 msgstr "יורד"
 
-#: libraries/DBQbe.class.php:364
+#: libraries/DBQbe.class.php:364 libraries/TableSearch.class.php:1276
 #, fuzzy
 #| msgid "Column"
 msgid "Column:"
@@ -2602,7 +2601,7 @@ msgstr "חיפוש במסד הנתונים"
 msgid "Words or values to search for (wildcard: \"%\"):"
 msgstr "מילים או ערכים לחיפוש אחריהם (תו כללי: „%“):"
 
-#: libraries/DbSearch.class.php:395
+#: libraries/DbSearch.class.php:395 libraries/TableSearch.class.php:1271
 msgid "Find:"
 msgstr "חיפוש:"
 
@@ -2791,8 +2790,8 @@ msgstr "בשאילתה"
 #: libraries/DisplayResults.class.php:4920 libraries/structure.lib.php:653
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 msgstr "לתצוגה זו יש לפחות מספר כזה של שורות. נא לפנות ל%sתיעוד%s."
 
 #: libraries/DisplayResults.class.php:4933
@@ -2803,7 +2802,7 @@ msgstr "מראה שורות"
 msgid "total"
 msgstr "סה\"כ"
 
-#: libraries/DisplayResults.class.php:4960 sql.php:292
+#: libraries/DisplayResults.class.php:4960 libraries/sql.lib.php:1553
 #, php-format
 msgid "Query took %01.4f sec"
 msgstr "שאילתה לקחה %01.4f שניות"
@@ -3470,16 +3469,10 @@ msgstr ""
 msgid "Reset zoom"
 msgstr "איפוס"
 
-#: libraries/TableSearch.class.php:1271
-#, fuzzy
-#| msgid "Find:"
-msgid "Find"
-msgstr "חיפוש:"
-
 #: libraries/TableSearch.class.php:1273
 #, fuzzy
 #| msgid "Replace NULL by"
-msgid "Replace with"
+msgid "Replace with:"
 msgstr "החלפת NULL ע\"י"
 
 #: libraries/TableSearch.class.php:1333
@@ -3578,14 +3571,14 @@ msgstr ""
 
 #: libraries/Types.class.php:308
 msgid ""
-"A small floating-point number, allowable values are -3.402823466E+38 to -"
-"1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
+"A small floating-point number, allowable values are -3.402823466E+38 to "
+"-1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
 msgstr ""
 
 #: libraries/Types.class.php:310
 msgid ""
-"A double-precision floating-point number, allowable values are -"
-"1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
+"A double-precision floating-point number, allowable values are "
+"-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
 "2.2250738585072014E-308 to 1.7976931348623157E+308"
 msgstr ""
 
@@ -4372,8 +4365,8 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:30
 msgid ""
-"Use user-friendly editor for editing SQL queries ([a@http://codemirror.net/]"
-"CodeMirror[/a]) with syntax highlighting and line numbers"
+"Use user-friendly editor for editing SQL queries ([a@http://codemirror."
+"net/]CodeMirror[/a]) with syntax highlighting and line numbers"
 msgstr ""
 
 #: libraries/config/messages.inc.php:31
@@ -4943,8 +4936,9 @@ msgstr "מספר דף:"
 
 #: libraries/config/messages.inc.php:191
 msgid ""
-"Specify browser's title bar text. Refer to [doc@cfg_TitleTable]documentation"
-"[/doc] for magic strings that can be used to get special values."
+"Specify browser's title bar text. Refer to "
+"[doc@cfg_TitleTable]documentation[/doc] for magic strings that can be used "
+"to get special values."
 msgstr ""
 
 #: libraries/config/messages.inc.php:192
@@ -5721,8 +5715,8 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:380
 msgid ""
-"Leave blank for no column comments/mime types, suggested: [kbd]"
-"pma__column_info[/kbd]"
+"Leave blank for no column comments/mime types, suggested: "
+"[kbd]pma__column_info[/kbd]"
 msgstr ""
 
 #: libraries/config/messages.inc.php:381
@@ -5928,8 +5922,8 @@ msgstr "ניתוח טבלה"
 
 #: libraries/config/messages.inc.php:422
 msgid ""
-"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-links"
-"[/a] support, suggested: [kbd]pma__relation[/kbd]"
+"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
+"links[/a] support, suggested: [kbd]pma__relation[/kbd]"
 msgstr ""
 
 #: libraries/config/messages.inc.php:423
@@ -5947,8 +5941,8 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:426
 msgid ""
-"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication types"
-"[/a] for an example"
+"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
+"types[/a] for an example"
 msgstr ""
 
 #: libraries/config/messages.inc.php:427
@@ -6052,8 +6046,8 @@ msgstr "משפטים"
 
 #: libraries/config/messages.inc.php:447
 msgid ""
-"Leave blank for no SQL query tracking support, suggested: [kbd]pma__tracking"
-"[/kbd]"
+"Leave blank for no SQL query tracking support, suggested: "
+"[kbd]pma__tracking[/kbd]"
 msgstr ""
 
 #: libraries/config/messages.inc.php:448
@@ -6073,8 +6067,8 @@ msgstr "גרסת שרת"
 
 #: libraries/config/messages.inc.php:451
 msgid ""
-"Leave blank for no user preferences storage in database, suggested: [kbd]"
-"pma__userconfig[/kbd]"
+"Leave blank for no user preferences storage in database, suggested: "
+"[kbd]pma__userconfig[/kbd]"
 msgstr ""
 
 #: libraries/config/messages.inc.php:452
@@ -6744,8 +6738,8 @@ msgstr ""
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 
 #: libraries/display_export.lib.php:341
@@ -7257,8 +7251,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:131
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the %"
-"sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the "
+"%sPrimeBase XT Home Page%s."
 msgstr ""
 
 #: libraries/engines/pbxt.lib.php:133
@@ -7272,7 +7266,8 @@ msgid "The PrimeBase XT Blog by Paul McCullagh"
 msgstr ""
 
 #: libraries/import.lib.php:187 libraries/insert_edit.lib.php:122
-#: libraries/rte/rte_routines.lib.php:1446 sql.php:287 tbl_get_field.php:55
+#: libraries/rte/rte_routines.lib.php:1446 libraries/sql.lib.php:1548
+#: tbl_get_field.php:41
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL החזיר חבילת תוצאות ריקה (לדוגמא, אפס שורות)."
 
@@ -7393,11 +7388,11 @@ msgid ""
 "Use TAB key to move from value to value, or CTRL+arrows to move anywhere"
 msgstr ""
 
-#: libraries/insert_edit.lib.php:1914 sql.php:282
+#: libraries/insert_edit.lib.php:1914 libraries/sql.lib.php:1543
 msgid "Showing SQL query"
 msgstr ""
 
-#: libraries/insert_edit.lib.php:1939 sql.php:262
+#: libraries/insert_edit.lib.php:1939 libraries/sql.lib.php:1523
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr ""
@@ -7976,8 +7971,8 @@ msgstr "ברוך הבא אל %s"
 #: libraries/plugins/auth/AuthenticationConfig.class.php:102
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 msgstr ""
 
 #: libraries/plugins/auth/AuthenticationConfig.class.php:122
@@ -10234,8 +10229,8 @@ msgstr "סקירת משתמשים"
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 msgstr ""
 "הערה: phpMyAdmin מקבל הרשאות משתמש ישירות מטבלאות הרשאות של MySQL. התוכן של "
 "הטבלאות האלו יכול להיות שונה מההרשאות שהשרת משתמש בהן, אם הן שונו באופן "
@@ -11130,6 +11125,16 @@ msgstr "הסימנייה %s נוצרה"
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr ""
+
+#: libraries/sql.lib.php:1540
+msgid "Showing as PHP code"
+msgstr ""
+
+#: libraries/sql.lib.php:1545
+#, fuzzy
+#| msgid "Validate SQL"
+msgid "Validated SQL"
+msgstr "בדיקת תקינות SQL"
 
 #: libraries/sql_query_form.lib.php:188
 #, fuzzy, php-format
@@ -12386,8 +12391,8 @@ msgid ""
 "You set the [kbd]config[/kbd] authentication type and included username and "
 "password for auto-login, which is not a desirable option for live hosts. "
 "Anyone who knows or guesses your phpMyAdmin URL can directly access your "
-"phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or [kbd]"
-"http[/kbd]."
+"phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or "
+"[kbd]http[/kbd]."
 msgstr ""
 
 #: setup/lib/index.lib.php:318
@@ -12430,24 +12435,14 @@ msgstr ""
 msgid "Wrong data"
 msgstr "אין מאגרי נתונים"
 
-#: sql.php:279
-msgid "Showing as PHP code"
-msgstr ""
-
-#: sql.php:284
-#, fuzzy
-#| msgid "Validate SQL"
-msgid "Validated SQL"
-msgstr "בדיקת תקינות SQL"
-
-#: sql.php:538
+#: sql.php:399
 #, php-format
 msgid ""
 "Table %s does not contain a unique column. Grid edit, checkbox, Edit, Copy "
 "and Delete features are not available."
 msgstr ""
 
-#: sql.php:591
+#: sql.php:452
 #, php-format
 msgid "Problems with indexes of table `%s`"
 msgstr "בעיות עם אינדקסים של טבלה `%s`"
@@ -12555,7 +12550,7 @@ msgstr "שבת"
 msgid "Table %s already exists!"
 msgstr "שם המשתמש %s כבר קיים!"
 
-#: tbl_create.php:58 tbl_get_field.php:37
+#: tbl_create.php:58 tbl_get_field.php:23
 #, php-format
 msgid "'%s' database does not exist."
 msgstr ""
@@ -12569,7 +12564,7 @@ msgstr "טבלה %s נמחקה"
 msgid "View dump (schema) of table"
 msgstr "ראיית הוצאה (תבנית) של טבלה"
 
-#: tbl_get_field.php:44
+#: tbl_get_field.php:30
 msgid "Invalid table name"
 msgstr ""
 
@@ -13185,8 +13180,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:179
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s%"
-"%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s"
+"%%. It should be above 80%%"
 msgstr ""
 
 #: libraries/advisory_rules.txt:181
@@ -13315,8 +13310,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:216
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
-"%."
+"%s%% of all sorts cause temporary tables, this value should be lower than "
+"10%%."
 msgstr ""
 
 #: libraries/advisory_rules.txt:218
@@ -13976,6 +13971,11 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr ""
+
+#, fuzzy
+#~| msgid "Find:"
+#~ msgid "Find"
+#~ msgstr "חיפוש:"
 
 #~ msgid "Display all tables with the same width"
 #~ msgstr "הצגת כל הטבלאות ברוחב זהה"

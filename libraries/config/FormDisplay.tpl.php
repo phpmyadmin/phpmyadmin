@@ -133,6 +133,10 @@ function PMA_displayInput($path, $name, $type, $value, $description = '',
     global $_FormDisplayGroup;
     static $icons;    // An array of IMG tags used further below in the function
 
+    if (defined('TESTSUITE')) {
+        $icons = null;
+    }
+
     $is_setup_script = defined('PMA_SETUP');
     if ($icons === null) { // if the static variables have not been initialised
         $icons = array();

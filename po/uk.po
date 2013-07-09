@@ -3,17 +3,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-07-04 06:07-0400\n"
+"POT-Creation-Date: 2013-07-09 12:15+0200\n"
 "PO-Revision-Date: 2013-02-13 18:54+0200\n"
 "Last-Translator: Andrey Prokopenko <aprk@ukr.net>\n"
 "Language-Team: Ukrainian <http://l10n.cihar.com/projects/phpmyadmin/master/"
 "uk/>\n"
+"Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: uk\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
-"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 1.5-dev\n"
 
 #: browse_foreigners.php:51 browse_foreigners.php:75 js/messages.php:339
@@ -130,8 +130,7 @@ msgstr "Коментарі таблиці"
 
 #: db_datadict.php:166 libraries/Index.class.php:565
 #: libraries/TableSearch.class.php:183 libraries/TableSearch.class.php:1225
-#: libraries/TableSearch.class.php:1276 libraries/display_indexes.lib.php:117
-#: libraries/insert_edit.lib.php:1568
+#: libraries/display_indexes.lib.php:117 libraries/insert_edit.lib.php:1568
 #: libraries/plugins/export/ExportHtmlword.class.php:278
 #: libraries/plugins/export/ExportHtmlword.class.php:393
 #: libraries/plugins/export/ExportLatex.class.php:510
@@ -631,8 +630,8 @@ msgstr ""
 #: import.php:107
 #, php-format
 msgid ""
-"You probably tried to upload a file that is too large. Please refer to %"
-"sdocumentation%s for a workaround for this limit."
+"You probably tried to upload a file that is too large. Please refer to "
+"%sdocumentation%s for a workaround for this limit."
 msgstr ""
 "Імовірно ви намагаєтесь завантажити занадто великий файл. Будь ласка "
 "зверніться до %sдокументації%s для знаходження шляхів вирішення цієї "
@@ -682,7 +681,7 @@ msgstr ""
 "Неможливо завантажити імпортовані плагіни, будь ласка перевірте ваше "
 "інсталювання!"
 
-#: import.php:537 libraries/sql.lib.php:938 sql.php:548
+#: import.php:537 libraries/sql.lib.php:938 sql.php:409
 #, php-format
 msgid "Bookmark %s created"
 msgstr "Закладка %s створена"
@@ -934,8 +933,8 @@ msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
 "issues."
 msgstr ""
-"Сервер, що працює з Suhosin. Щодо можливих проблем звертайтеся до %"
-"sdocumentation%s."
+"Сервер, що працює з Suhosin. Щодо можливих проблем звертайтеся до "
+"%sdocumentation%s."
 
 #: js/messages.php:27 libraries/import.lib.php:118 sql.php:136
 msgid "\"DROP DATABASE\" statements are disabled."
@@ -1273,8 +1272,8 @@ msgid ""
 "than %d seconds. It is advisable to set this long_query_time 0-2 seconds, "
 "depending on your system."
 msgstr ""
-"slow_query_log ввімкнений, але сервер журналює тільки запити що є довші за %"
-"d секунди. Рекомендовано встановити long_query_time 0-2 секунди, в "
+"slow_query_log ввімкнений, але сервер журналює тільки запити що є довші за "
+"%d секунди. Рекомендовано встановити long_query_time 0-2 секунди, в "
 "залежності від вашої системи."
 
 #: js/messages.php:128
@@ -2366,7 +2365,7 @@ msgstr "Зростаючий"
 msgid "Descending"
 msgstr "Спадаючий"
 
-#: libraries/DBQbe.class.php:364
+#: libraries/DBQbe.class.php:364 libraries/TableSearch.class.php:1276
 #, fuzzy
 #| msgid "Column"
 msgid "Column:"
@@ -2534,7 +2533,7 @@ msgstr "Шукати в базі даних"
 msgid "Words or values to search for (wildcard: \"%\"):"
 msgstr "Слова чи значення, які потрібно знайти (шаблон: \"%\"):"
 
-#: libraries/DbSearch.class.php:395
+#: libraries/DbSearch.class.php:395 libraries/TableSearch.class.php:1271
 msgid "Find:"
 msgstr "Знайти:"
 
@@ -2702,11 +2701,11 @@ msgstr "по запиту"
 #: libraries/DisplayResults.class.php:4920 libraries/structure.lib.php:653
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 msgstr ""
-"Подання має щонайменше цю кількість рядків. Будь-ласка звернітся до %"
-"sдокументації%s."
+"Подання має щонайменше цю кількість рядків. Будь-ласка звернітся до "
+"%sдокументації%s."
 
 #: libraries/DisplayResults.class.php:4933
 msgid "Showing rows"
@@ -2716,7 +2715,7 @@ msgstr "Показано записи"
 msgid "total"
 msgstr "всього"
 
-#: libraries/DisplayResults.class.php:4960 sql.php:292
+#: libraries/DisplayResults.class.php:4960 libraries/sql.lib.php:1553
 #, php-format
 msgid "Query took %01.4f sec"
 msgstr "Запит виконувався %01.4f сек"
@@ -3368,16 +3367,10 @@ msgstr "Як використовувати"
 msgid "Reset zoom"
 msgstr "Скидання масштабу"
 
-#: libraries/TableSearch.class.php:1271
-#, fuzzy
-#| msgid "Find:"
-msgid "Find"
-msgstr "Знайти:"
-
 #: libraries/TableSearch.class.php:1273
 #, fuzzy
 #| msgid "Replace NULL with:"
-msgid "Replace with"
+msgid "Replace with:"
 msgstr "Замінити значення NULL на:"
 
 #: libraries/TableSearch.class.php:1333
@@ -3485,14 +3478,14 @@ msgstr ""
 
 #: libraries/Types.class.php:308
 msgid ""
-"A small floating-point number, allowable values are -3.402823466E+38 to -"
-"1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
+"A small floating-point number, allowable values are -3.402823466E+38 to "
+"-1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
 msgstr ""
 
 #: libraries/Types.class.php:310
 msgid ""
-"A double-precision floating-point number, allowable values are -"
-"1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
+"A double-precision floating-point number, allowable values are "
+"-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
 "2.2250738585072014E-308 to 1.7976931348623157E+308"
 msgstr ""
 
@@ -4273,8 +4266,8 @@ msgstr "CHAR редагування стовпців"
 
 #: libraries/config/messages.inc.php:30
 msgid ""
-"Use user-friendly editor for editing SQL queries ([a@http://codemirror.net/]"
-"CodeMirror[/a]) with syntax highlighting and line numbers"
+"Use user-friendly editor for editing SQL queries ([a@http://codemirror."
+"net/]CodeMirror[/a]) with syntax highlighting and line numbers"
 msgstr ""
 
 #: libraries/config/messages.inc.php:31
@@ -4680,8 +4673,8 @@ msgid ""
 "Sort order for items in a foreign-key dropdown box; [kbd]content[/kbd] is "
 "the referenced data, [kbd]id[/kbd] is the key value"
 msgstr ""
-"Порядок сортування елементів у випадаючому списку зовнішніх ключів; [kbd]"
-"вміст[/kbd] - пов'язані дані, [kbd]id[/kbd] - ключі"
+"Порядок сортування елементів у випадаючому списку зовнішніх ключів; "
+"[kbd]вміст[/kbd] - пов'язані дані, [kbd]id[/kbd] - ключі"
 
 #: libraries/config/messages.inc.php:149
 msgid "Foreign key dropdown order"
@@ -4829,12 +4822,13 @@ msgstr "Заголовки сторінки"
 
 #: libraries/config/messages.inc.php:191
 msgid ""
-"Specify browser's title bar text. Refer to [doc@cfg_TitleTable]documentation"
-"[/doc] for magic strings that can be used to get special values."
+"Specify browser's title bar text. Refer to "
+"[doc@cfg_TitleTable]documentation[/doc] for magic strings that can be used "
+"to get special values."
 msgstr ""
-"Вкажіть рядку заголовка браузера текст. Відповідно до [doc@cfg_TitleTable]"
-"documentation[/doc] для магічних рядків, які можуть використовуватися для "
-"отримання спеціальних значень."
+"Вкажіть рядку заголовка браузера текст. Відповідно до "
+"[doc@cfg_TitleTable]documentation[/doc] для магічних рядків, які можуть "
+"використовуватися для отримання спеціальних значень."
 
 #: libraries/config/messages.inc.php:192
 #: libraries/navigation/NavigationHeader.class.php:204
@@ -5274,8 +5268,8 @@ msgid ""
 "The number of bytes a script is allowed to allocate, eg. [kbd]32M[/kbd] "
 "([kbd]0[/kbd] for no limit)"
 msgstr ""
-"Кількість байтів, що дозволяється виділяти під сценарій, наприклад. [kbd]32M"
-"[/kbd] ([kbd]0[/kbd] без обмежень)"
+"Кількість байтів, що дозволяється виділяти під сценарій, наприклад. "
+"[kbd]32M[/kbd] ([kbd]0[/kbd] без обмежень)"
 
 #: libraries/config/messages.inc.php:296
 msgid "Memory limit"
@@ -5679,8 +5673,8 @@ msgstr "Таблиця закладок"
 
 #: libraries/config/messages.inc.php:380
 msgid ""
-"Leave blank for no column comments/mime types, suggested: [kbd]"
-"pma__column_info[/kbd]"
+"Leave blank for no column comments/mime types, suggested: "
+"[kbd]pma__column_info[/kbd]"
 msgstr ""
 
 #: libraries/config/messages.inc.php:381
@@ -5765,8 +5759,9 @@ msgid ""
 "More information on [a@https://sourceforge.net/p/phpmyadmin/bugs/2606/]PMA "
 "bug tracker[/a] and [a@http://bugs.mysql.com/19588]MySQL Bugs[/a]"
 msgstr ""
-"Детальніше дивіться на [a@https://sourceforge.net/p/phpmyadmin/bugs/2606/]"
-"PMA bug tracker[/a] та [a@http://bugs.mysql.com/19588]MySQL Bugs[/a]"
+"Детальніше дивіться на [a@https://sourceforge.net/p/phpmyadmin/"
+"bugs/2606/]PMA bug tracker[/a] та [a@http://bugs.mysql.com/19588]MySQL Bugs[/"
+"a]"
 
 #: libraries/config/messages.inc.php:396
 msgid "Disable use of INFORMATION_SCHEMA"
@@ -5912,8 +5907,8 @@ msgstr "Нещодавно використані таблиці"
 
 #: libraries/config/messages.inc.php:422
 msgid ""
-"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-links"
-"[/a] support, suggested: [kbd]pma__relation[/kbd]"
+"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
+"links[/a] support, suggested: [kbd]pma__relation[/kbd]"
 msgstr ""
 
 #: libraries/config/messages.inc.php:423
@@ -5930,8 +5925,8 @@ msgstr "Команда SHOW DATABASES"
 
 #: libraries/config/messages.inc.php:426
 msgid ""
-"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication types"
-"[/a] for an example"
+"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
+"types[/a] for an example"
 msgstr ""
 "Дивись [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
 "types[/a] для прикладу"
@@ -6040,8 +6035,8 @@ msgstr "Стеження за виразами"
 
 #: libraries/config/messages.inc.php:447
 msgid ""
-"Leave blank for no SQL query tracking support, suggested: [kbd]pma__tracking"
-"[/kbd]"
+"Leave blank for no SQL query tracking support, suggested: "
+"[kbd]pma__tracking[/kbd]"
 msgstr ""
 
 #: libraries/config/messages.inc.php:448
@@ -6061,8 +6056,8 @@ msgstr "Автоматично створювати версії"
 
 #: libraries/config/messages.inc.php:451
 msgid ""
-"Leave blank for no user preferences storage in database, suggested: [kbd]"
-"pma__userconfig[/kbd]"
+"Leave blank for no user preferences storage in database, suggested: "
+"[kbd]pma__userconfig[/kbd]"
 msgstr ""
 
 #: libraries/config/messages.inc.php:452
@@ -6746,13 +6741,13 @@ msgstr ", @TABLE@ буде заміщено ім'ям таблиці"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Значення обробляється функцією %1$sstrftime%2$s, завдяки чому можлива "
 "вставка поточної дати і часу. Додатково можуть бути використані наступні "
-"підстановки: %3$s. Решта тексту залишиться без змін. Подробиці дивіться у %4"
-"$sFAQ%5$s."
+"підстановки: %3$s. Решта тексту залишиться без змін. Подробиці дивіться у "
+"%4$sFAQ%5$s."
 
 #: libraries/display_export.lib.php:341
 msgid "use this for future exports"
@@ -7308,8 +7303,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:131
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the %"
-"sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the "
+"%sPrimeBase XT Home Page%s."
 msgstr ""
 "Документацію і додаткову інформацію про PBXT можна знайти на %sДомашній "
 "сторінці PrimeBase XT%s."
@@ -7323,7 +7318,8 @@ msgid "The PrimeBase XT Blog by Paul McCullagh"
 msgstr "Блоґ Пола МакКулага про PrimeBase XT"
 
 #: libraries/import.lib.php:187 libraries/insert_edit.lib.php:122
-#: libraries/rte/rte_routines.lib.php:1446 sql.php:287 tbl_get_field.php:55
+#: libraries/rte/rte_routines.lib.php:1446 libraries/sql.lib.php:1548
+#: tbl_get_field.php:41
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL повернула пустий результат (тобто нуль рядків)."
 
@@ -7444,11 +7440,11 @@ msgstr ""
 "Для переходу від значення до значення використовуйте TAB, або CTRL+стрілки - "
 "для переміщення куди завгодно"
 
-#: libraries/insert_edit.lib.php:1914 sql.php:282
+#: libraries/insert_edit.lib.php:1914 libraries/sql.lib.php:1543
 msgid "Showing SQL query"
 msgstr "Показ SQL-запиту"
 
-#: libraries/insert_edit.lib.php:1939 sql.php:262
+#: libraries/insert_edit.lib.php:1939 libraries/sql.lib.php:1523
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "Ідентифікатор доданого рядка: %1$d"
@@ -8024,8 +8020,8 @@ msgstr "Ласкаво просимо до %s"
 #: libraries/plugins/auth/AuthenticationConfig.class.php:102
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 msgstr ""
 "Ви, напевно, не створили файл конфігурації. Для його створення Ви можете "
 "використати %1$ssetup script%2$s."
@@ -8477,8 +8473,8 @@ msgid ""
 "reloaded between servers in different time zones)</i>"
 msgstr ""
 "Зберігати поля з типом TIMESTAMP в UTC <i>(дозволяє зберегти і перенести "
-"поля з типом TIMESTAMP між серверами, що знаходяться в різних часових зонах)"
-"</i>"
+"поля з типом TIMESTAMP між серверами, що знаходяться в різних часових "
+"зонах)</i>"
 
 #: libraries/plugins/export/ExportSql.class.php:1198
 msgid "Constraints for dumped tables"
@@ -10308,8 +10304,8 @@ msgstr "Огляд користувачів"
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 msgstr ""
 "Примітка: phpMyAdmin отримує права користувачів безпосередньо з таблиці прав "
 "MySQL. Зміст цієї таблиці може відрізнятися від прав, які використовуються "
@@ -10436,8 +10432,8 @@ msgid ""
 "it is advisable to select only a small time span and to disable the "
 "general_log and empty its table once monitoring is not required any more."
 msgstr ""
-"Увімкнення директиви general_log може збільшити навантаження на сервер на 5-"
-"15%. Також пам'ятайте, що генерування статистики з журналів є досить "
+"Увімкнення директиви general_log може збільшити навантаження на сервер на "
+"5-15%. Також пам'ятайте, що генерування статистики з журналів є досить "
 "інтенсивною задачею, тому бажано вибрати лише невеликий проміжок часу і "
 "вимикати директиву general_log і чистити таблицю щойно в моніторингу більше "
 "не має потреби."
@@ -11334,6 +11330,14 @@ msgstr "Закладка %s створена"
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr "Як стандартний запит на огляд даних використовується закладка  \"%s\"."
 
+#: libraries/sql.lib.php:1540
+msgid "Showing as PHP code"
+msgstr "Показ у вигляді коду PHP"
+
+#: libraries/sql.lib.php:1545
+msgid "Validated SQL"
+msgstr "Перевірений SQL"
+
 #: libraries/sql_query_form.lib.php:188
 #, php-format
 msgid "Run SQL query/queries on server %s"
@@ -11700,8 +11704,8 @@ msgid ""
 "For a list of available transformation options and their MIME type "
 "transformations, click on %stransformation descriptions%s"
 msgstr ""
-"Щоб отримати список можливих опцій і їх MIME-type перетворень, натисніть %"
-"sописи перетворень%s"
+"Щоб отримати список можливих опцій і їх MIME-type перетворень, натисніть "
+"%sописи перетворень%s"
 
 #: libraries/tbl_columns_definition_form.inc.php:171
 msgid "Transformation options"
@@ -12490,8 +12494,8 @@ msgid ""
 "You are using Git version, run [kbd]git pull[/kbd] :-)[br]The latest stable "
 "version is %s, released on %s."
 msgstr ""
-"Якщо використовується Git версія, запустіть [kbd]git pull[/kbd] :-)[br]"
-"Остання стабільна версія %s, випущена %s."
+"Якщо використовується Git версія, запустіть [kbd]git pull[/kbd] :-)"
+"[br]Остання стабільна версія %s, випущена %s."
 
 #: setup/lib/index.lib.php:203
 msgid "No newer stable version is available"
@@ -12605,8 +12609,8 @@ msgid ""
 "You set the [kbd]config[/kbd] authentication type and included username and "
 "password for auto-login, which is not a desirable option for live hosts. "
 "Anyone who knows or guesses your phpMyAdmin URL can directly access your "
-"phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or [kbd]"
-"http[/kbd]."
+"phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or "
+"[kbd]http[/kbd]."
 msgstr ""
 "Ви встановили [kbd]конфігураційний[/kbd] тип аутентифікації і ввели ім'я "
 "користувача і пароль для автоматичного входу в систему, що не є бажаним "
@@ -12660,15 +12664,7 @@ msgstr ""
 msgid "Wrong data"
 msgstr "Неправильні дані"
 
-#: sql.php:279
-msgid "Showing as PHP code"
-msgstr "Показ у вигляді коду PHP"
-
-#: sql.php:284
-msgid "Validated SQL"
-msgstr "Перевірений SQL"
-
-#: sql.php:538
+#: sql.php:399
 #, fuzzy, php-format
 #| msgid ""
 #| "This table does not contain a unique column. Features related to the grid "
@@ -12681,7 +12677,7 @@ msgstr ""
 "редагування, прапорцем, посиланнями Редагувати, Копіювати та Видаляти можуть "
 "не працювати після збереження."
 
-#: sql.php:591
+#: sql.php:452
 #, php-format
 msgid "Problems with indexes of table `%s`"
 msgstr "Проблеми з індексами таблиці `%s`"
@@ -12776,7 +12772,7 @@ msgstr "Початковий рядок"
 msgid "Table %s already exists!"
 msgstr "Таблиця %s вже існує!"
 
-#: tbl_create.php:58 tbl_get_field.php:37
+#: tbl_create.php:58 tbl_get_field.php:23
 #, php-format
 msgid "'%s' database does not exist."
 msgstr "Бази даних \"%s\" не існує."
@@ -12790,7 +12786,7 @@ msgstr "Таблицю %1$s було створено."
 msgid "View dump (schema) of table"
 msgstr "Переглянути дамп (схему) таблиці"
 
-#: tbl_get_field.php:44
+#: tbl_get_field.php:30
 msgid "Invalid table name"
 msgstr "Неправильна назва таблиці"
 
@@ -13437,8 +13433,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:179
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s%"
-"%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s"
+"%%. It should be above 80%%"
 msgstr ""
 "Поточне співвідношення вільної пам'яті кешу запитів до загального розміру "
 "кешу запитів складає %s%%. Воно має перевищувати 80%%"
@@ -13599,8 +13595,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:216
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
-"%."
+"%s%% of all sorts cause temporary tables, this value should be lower than "
+"10%%."
 msgstr ""
 "%s%% всіх сортувань викликає створення тимчасових таблиць, це значення має "
 "бути нижчим 10%%."
@@ -14053,8 +14049,8 @@ msgstr "Збільшити {thread_cache_size}."
 #, php-format
 msgid "Thread cache hitrate: %s%%, this value should be above 80%%"
 msgstr ""
-"Рівень успішних звернень в кеш потоку: %s%%, це значення має перевищувати 80%"
-"%"
+"Рівень успішних звернень в кеш потоку: %s%%, це значення має перевищувати "
+"80%%"
 
 #: libraries/advisory_rules.txt:376
 msgid "Threads that are slow to launch"
@@ -14362,6 +14358,11 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert встановлений у 0"
+
+#, fuzzy
+#~| msgid "Find:"
+#~ msgid "Find"
+#~ msgstr "Знайти:"
 
 #~ msgid "Display all tables with the same width"
 #~ msgstr "Показувати всі таблиці однакової ширини"
@@ -14857,8 +14858,8 @@ msgstr "concurrent_insert встановлений у 0"
 #~ "<b>Query statistics</b>: Since its startup, %s queries have been sent to "
 #~ "the server."
 #~ msgstr ""
-#~ "<b>Статистика запитів</b>: З моменту запуску, до сервера було надіслано %"
-#~ "s запитів."
+#~ "<b>Статистика запитів</b>: З моменту запуску, до сервера було надіслано "
+#~ "%s запитів."
 
 #~ msgid "Chart generated successfully."
 #~ msgstr "Права успішно перезавантажено."

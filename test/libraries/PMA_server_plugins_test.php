@@ -20,6 +20,13 @@ require_once 'libraries/sanitizing.lib.php';
 require_once 'libraries/sqlparser.lib.php';
 require_once 'libraries/js_escape.lib.php';
 
+/**
+ * PMA_ServerPlugins_Test class
+ *
+ * this class is for testing server_plugins.lib.php functions
+ *
+ * @package PhpMyAdmin-test
+ */
 class PMA_ServerPlugins_Test extends PHPUnit_Framework_TestCase
 {
     /**
@@ -58,7 +65,7 @@ class PMA_ServerPlugins_Test extends PHPUnit_Framework_TestCase
      *
      * @return void
      */
-    public function testPMA_getPluginAndModuleInfo()
+    public function testPMAGetPluginAndModuleInfo()
     {   
         //Mock DBI
         $dbi = $this->getMockBuilder('PMA_DatabaseInterface')

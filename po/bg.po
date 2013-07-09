@@ -3,15 +3,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-07-04 06:07-0400\n"
+"POT-Creation-Date: 2013-07-09 12:15+0200\n"
 "PO-Revision-Date: 2013-06-07 23:46+0200\n"
 "Last-Translator: Pl P <plamen_mbx@yahoo.com>\n"
 "Language-Team: Bulgarian <http://l10n.cihar.com/projects/phpmyadmin/master/"
 "bg/>\n"
+"Language: bg\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: bg\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 1.6-dev\n"
 
@@ -129,8 +129,7 @@ msgstr "Коментари към таблицата"
 
 #: db_datadict.php:166 libraries/Index.class.php:565
 #: libraries/TableSearch.class.php:183 libraries/TableSearch.class.php:1225
-#: libraries/TableSearch.class.php:1276 libraries/display_indexes.lib.php:117
-#: libraries/insert_edit.lib.php:1568
+#: libraries/display_indexes.lib.php:117 libraries/insert_edit.lib.php:1568
 #: libraries/plugins/export/ExportHtmlword.class.php:278
 #: libraries/plugins/export/ExportHtmlword.class.php:393
 #: libraries/plugins/export/ExportLatex.class.php:510
@@ -624,11 +623,11 @@ msgstr ""
 #: import.php:107
 #, fuzzy, php-format
 #| msgid ""
-#| "You probably tried to upload too large file. Please refer to %"
-#| "sdocumentation%s for ways to workaround this limit."
+#| "You probably tried to upload too large file. Please refer to "
+#| "%sdocumentation%s for ways to workaround this limit."
 msgid ""
-"You probably tried to upload a file that is too large. Please refer to %"
-"sdocumentation%s for a workaround for this limit."
+"You probably tried to upload a file that is too large. Please refer to "
+"%sdocumentation%s for a workaround for this limit."
 msgstr ""
 "Вероятно сте направили опит да качите твърде голям файл. Моля, обърнете се "
 "към %sдокументацията%s за да намерите начин да избегнете това ограничение."
@@ -663,8 +662,8 @@ msgid ""
 "[doc@faq1-16]FAQ 1.16[/doc]."
 msgstr ""
 "Не бяха получени данни за импорт. Или не е изпратен файл, или файлът е бил "
-"по-голям от разрешеното в конфигурацията на PHP. Вижте [doc@faq1-16]ЧЗВ 1.16"
-"[/doc]."
+"по-голям от разрешеното в конфигурацията на PHP. Вижте [doc@faq1-16]ЧЗВ "
+"1.16[/doc]."
 
 #: import.php:465
 msgid ""
@@ -679,7 +678,7 @@ msgstr ""
 "Не могат да бъдат заредени разширенията за импорт, моля проверете "
 "инсталацията!"
 
-#: import.php:537 libraries/sql.lib.php:938 sql.php:548
+#: import.php:537 libraries/sql.lib.php:938 sql.php:409
 #, php-format
 msgid "Bookmark %s created"
 msgstr "Белязка %s беше създадена"
@@ -2355,7 +2354,7 @@ msgstr "Възходящо"
 msgid "Descending"
 msgstr "Низходящо"
 
-#: libraries/DBQbe.class.php:364
+#: libraries/DBQbe.class.php:364 libraries/TableSearch.class.php:1276
 #, fuzzy
 #| msgid "Column"
 msgid "Column:"
@@ -2521,7 +2520,7 @@ msgstr "Търсене в БД"
 msgid "Words or values to search for (wildcard: \"%\"):"
 msgstr "Думи или стойности за търсене (знак за заместване: \"%\"):"
 
-#: libraries/DbSearch.class.php:395
+#: libraries/DbSearch.class.php:395 libraries/TableSearch.class.php:1271
 msgid "Find:"
 msgstr "Намери:"
 
@@ -2689,8 +2688,8 @@ msgstr "в зявката"
 #: libraries/DisplayResults.class.php:4920 libraries/structure.lib.php:653
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 msgstr "Този изглед има поне толкова реда. Погледнете %sдокументацията%s."
 
 #: libraries/DisplayResults.class.php:4933
@@ -2701,7 +2700,7 @@ msgstr "Показване на записи"
 msgid "total"
 msgstr "общо"
 
-#: libraries/DisplayResults.class.php:4960 sql.php:292
+#: libraries/DisplayResults.class.php:4960 libraries/sql.lib.php:1553
 #, php-format
 msgid "Query took %01.4f sec"
 msgstr "Заявката отне %01.4f секунди"
@@ -3345,16 +3344,10 @@ msgstr "Как да бъде използвано"
 msgid "Reset zoom"
 msgstr "Възстановяване на мащабирането"
 
-#: libraries/TableSearch.class.php:1271
-#, fuzzy
-#| msgid "Find:"
-msgid "Find"
-msgstr "Намери:"
-
 #: libraries/TableSearch.class.php:1273
 #, fuzzy
 #| msgid "Replace NULL with:"
-msgid "Replace with"
+msgid "Replace with:"
 msgstr "Замяна NULL с:"
 
 #: libraries/TableSearch.class.php:1333
@@ -3456,14 +3449,14 @@ msgstr ""
 
 #: libraries/Types.class.php:308
 msgid ""
-"A small floating-point number, allowable values are -3.402823466E+38 to -"
-"1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
+"A small floating-point number, allowable values are -3.402823466E+38 to "
+"-1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
 msgstr ""
 
 #: libraries/Types.class.php:310
 msgid ""
-"A double-precision floating-point number, allowable values are -"
-"1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
+"A double-precision floating-point number, allowable values are "
+"-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
 "2.2250738585072014E-308 to 1.7976931348623157E+308"
 msgstr ""
 
@@ -4233,8 +4226,8 @@ msgid ""
 "kbd] - allows newlines in columns"
 msgstr ""
 "Определя какъв вид полета за редакция да бъдат използвани за колони тип CHAR "
-"и VARCHAR:[kbd]input[/kbd] - позволява ограничаване по дължина, [kbd]textarea"
-"[/kbd] - позволява вмъкването на нови редове"
+"и VARCHAR:[kbd]input[/kbd] - позволява ограничаване по дължина, "
+"[kbd]textarea[/kbd] - позволява вмъкването на нови редове"
 
 #: libraries/config/messages.inc.php:29
 msgid "CHAR columns editing"
@@ -4242,8 +4235,8 @@ msgstr "Редакция на CHAR колони"
 
 #: libraries/config/messages.inc.php:30
 msgid ""
-"Use user-friendly editor for editing SQL queries ([a@http://codemirror.net/]"
-"CodeMirror[/a]) with syntax highlighting and line numbers"
+"Use user-friendly editor for editing SQL queries ([a@http://codemirror."
+"net/]CodeMirror[/a]) with syntax highlighting and line numbers"
 msgstr ""
 "Използване на удобен за потребителя редактор за писане на SQL заявките "
 "([a@http://codemirror.net/]CodeMirror[/a]) със синтактично оцветяване и "
@@ -4798,11 +4791,13 @@ msgstr "Заглавие в браузъра"
 
 #: libraries/config/messages.inc.php:191
 msgid ""
-"Specify browser's title bar text. Refer to [doc@cfg_TitleTable]documentation"
-"[/doc] for magic strings that can be used to get special values."
+"Specify browser's title bar text. Refer to "
+"[doc@cfg_TitleTable]documentation[/doc] for magic strings that can be used "
+"to get special values."
 msgstr ""
-"Настройте заглавието в браузъра. Прочетете [doc@cfg_TitleTable]документацията"
-"[/doc] за магическите низове и техните стойности."
+"Настройте заглавието в браузъра. Прочетете "
+"[doc@cfg_TitleTable]документацията[/doc] за магическите низове и техните "
+"стойности."
 
 #: libraries/config/messages.inc.php:192
 #: libraries/navigation/NavigationHeader.class.php:204
@@ -5580,8 +5575,8 @@ msgstr "Таблица за белязки"
 
 #: libraries/config/messages.inc.php:380
 msgid ""
-"Leave blank for no column comments/mime types, suggested: [kbd]"
-"pma__column_info[/kbd]"
+"Leave blank for no column comments/mime types, suggested: "
+"[kbd]pma__column_info[/kbd]"
 msgstr ""
 
 #: libraries/config/messages.inc.php:381
@@ -5666,9 +5661,9 @@ msgid ""
 "More information on [a@https://sourceforge.net/p/phpmyadmin/bugs/2606/]PMA "
 "bug tracker[/a] and [a@http://bugs.mysql.com/19588]MySQL Bugs[/a]"
 msgstr ""
-"Допълнителна информация в [a@https://sourceforge.net/p/phpmyadmin/bugs/2606/]"
-"системата за проследяване на дефекти на PMA[/a] и [a@http://bugs.mysql."
-"com/19588]дефекти на MySQL[/a]"
+"Допълнителна информация в [a@https://sourceforge.net/p/phpmyadmin/"
+"bugs/2606/]системата за проследяване на дефекти на PMA[/a] и [a@http://bugs."
+"mysql.com/19588]дефекти на MySQL[/a]"
 
 #: libraries/config/messages.inc.php:396
 msgid "Disable use of INFORMATION_SCHEMA"
@@ -5790,8 +5785,8 @@ msgstr "Последно отваряна таблица"
 
 #: libraries/config/messages.inc.php:422
 msgid ""
-"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-links"
-"[/a] support, suggested: [kbd]pma__relation[/kbd]"
+"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
+"links[/a] support, suggested: [kbd]pma__relation[/kbd]"
 msgstr ""
 
 #: libraries/config/messages.inc.php:423
@@ -5808,11 +5803,11 @@ msgstr "Команда SHOW DATABASES"
 
 #: libraries/config/messages.inc.php:426
 msgid ""
-"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication types"
-"[/a] for an example"
+"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
+"types[/a] for an example"
 msgstr ""
-"За примери посетете [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]"
-"видове удостоверяване[/a]"
+"За примери посетете [a@http://wiki.phpmyadmin.net/pma/"
+"auth_types#signon]видове удостоверяване[/a]"
 
 #: libraries/config/messages.inc.php:427
 msgid "Signon session name"
@@ -5915,8 +5910,8 @@ msgstr "Изрази, които да бъдат проследявани"
 
 #: libraries/config/messages.inc.php:447
 msgid ""
-"Leave blank for no SQL query tracking support, suggested: [kbd]pma__tracking"
-"[/kbd]"
+"Leave blank for no SQL query tracking support, suggested: "
+"[kbd]pma__tracking[/kbd]"
 msgstr ""
 
 #: libraries/config/messages.inc.php:448
@@ -5935,8 +5930,8 @@ msgstr "Автоматично създаване на версии"
 
 #: libraries/config/messages.inc.php:451
 msgid ""
-"Leave blank for no user preferences storage in database, suggested: [kbd]"
-"pma__userconfig[/kbd]"
+"Leave blank for no user preferences storage in database, suggested: "
+"[kbd]pma__userconfig[/kbd]"
 msgstr ""
 
 #: libraries/config/messages.inc.php:452
@@ -6058,8 +6053,8 @@ msgid ""
 "Shows link to [a@http://php.net/manual/function.phpinfo.php]phpinfo()[/a] "
 "output"
 msgstr ""
-"Показва връзка към изхода на [a@http://php.net/manual/function.phpinfo.php]"
-"phpinfo()[/a]"
+"Показва връзка към изхода на [a@http://php.net/manual/function.phpinfo."
+"php]phpinfo()[/a]"
 
 #: libraries/config/messages.inc.php:477
 msgid "Show phpinfo() link"
@@ -6139,8 +6134,8 @@ msgid ""
 "If you have a custom username, specify it here (defaults to [kbd]anonymous[/"
 "kbd])"
 msgstr ""
-"Ако имате отделно потребителско име, въведете го тук (по подразбиране е [kbd]"
-"anonymous[/kbd])"
+"Ако имате отделно потребителско име, въведете го тук (по подразбиране е "
+"[kbd]anonymous[/kbd])"
 
 #: libraries/config/messages.inc.php:498 tbl_tracking.php:559
 #: tbl_tracking.php:621
@@ -6603,8 +6598,8 @@ msgstr ", @TABLE@ ще стане името на таблицата"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 
 #: libraries/display_export.lib.php:341
@@ -7098,8 +7093,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:131
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the %"
-"sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the "
+"%sPrimeBase XT Home Page%s."
 msgstr ""
 
 #: libraries/engines/pbxt.lib.php:133
@@ -7111,7 +7106,8 @@ msgid "The PrimeBase XT Blog by Paul McCullagh"
 msgstr ""
 
 #: libraries/import.lib.php:187 libraries/insert_edit.lib.php:122
-#: libraries/rte/rte_routines.lib.php:1446 sql.php:287 tbl_get_field.php:55
+#: libraries/rte/rte_routines.lib.php:1446 libraries/sql.lib.php:1548
+#: tbl_get_field.php:41
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL върна празен резултат (т.е. нула редове)."
 
@@ -7231,11 +7227,11 @@ msgstr ""
 "Използвайте клавиша TAB, за да премествате крурсора от стойност на стойност "
 "или CTRL+стрелка, за да премествате курсора в съответната посока"
 
-#: libraries/insert_edit.lib.php:1914 sql.php:282
+#: libraries/insert_edit.lib.php:1914 libraries/sql.lib.php:1543
 msgid "Showing SQL query"
 msgstr ""
 
-#: libraries/insert_edit.lib.php:1939 sql.php:262
+#: libraries/insert_edit.lib.php:1939 libraries/sql.lib.php:1523
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr ""
@@ -7808,8 +7804,8 @@ msgstr "Добре дошли в %s"
 #: libraries/plugins/auth/AuthenticationConfig.class.php:102
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 msgstr ""
 "Изглежда не се създали конфигурационен файл. Вероятно ще искате да "
 "използвате %1$sскрипта за настройки%2$s, за да го създадете."
@@ -8249,8 +8245,8 @@ msgid ""
 "reloaded between servers in different time zones)</i>"
 msgstr ""
 "Съхраняване на полета от вида TIMESTAMP в UTC формат<i>(позволява полетата "
-"TIMESTAMP да бъдат експортирани и четени от сървъри в различни часови пояси)"
-"</i>"
+"TIMESTAMP да бъдат експортирани и четени от сървъри в различни часови "
+"пояси)</i>"
 
 #: libraries/plugins/export/ExportSql.class.php:1198
 msgid "Constraints for dumped tables"
@@ -8457,10 +8453,10 @@ msgstr ""
 "Text_Plain_External.class.php и да изредите програмите, на които позволявате "
 "да бъдат стартирани. Първата опция тогава е номера на програмата, която "
 "бихте искали да използвате, а втората са параметрите ѝ. Ако третият "
-"параметър е установен на 1, ще конвертира изхода използвайки htmlspecialchars"
-"() (По подразбиране е 1). Ако четвъртият параметър е установен на 1 това ще "
-"предотврати спренос на нов ред и целият изход ще бъде показан на един ред "
-"(По подразбиране е 1)."
+"параметър е установен на 1, ще конвертира изхода използвайки "
+"htmlspecialchars() (По подразбиране е 1). Ако четвъртият параметър е "
+"установен на 1 това ще предотврати спренос на нов ред и целият изход ще бъде "
+"показан на един ред (По подразбиране е 1)."
 
 #: libraries/plugins/transformations/abstract/FormattedTransformationsPlugin.class.php:31
 msgid ""
@@ -10022,8 +10018,8 @@ msgstr "Преглед потребители"
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 msgstr ""
 "Забележка: phpMyAdmin взема потребителските права директно от таблицата с "
 "правата на MySQL. Съдържанието на тази таблица може да се различава от "
@@ -10911,6 +10907,14 @@ msgstr "Белязка %s беше създадена"
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr ""
 
+#: libraries/sql.lib.php:1540
+msgid "Showing as PHP code"
+msgstr "Показване като PHP-код"
+
+#: libraries/sql.lib.php:1545
+msgid "Validated SQL"
+msgstr "Валидиран SQL"
+
 #: libraries/sql_query_form.lib.php:188
 #, php-format
 msgid "Run SQL query/queries on server %s"
@@ -11021,8 +11025,8 @@ msgid ""
 "installed the necessary PHP extensions as described in the %sdocumentation%s."
 msgstr ""
 "SQL валидаторът не може да бъде инициализиран. Моля проверете дали са "
-"инсталирани необходимите PHP разширения, както е описано в %sдокументацията%"
-"s."
+"инсталирани необходимите PHP разширения, както е описано в %sдокументацията"
+"%s."
 
 #: libraries/structure.lib.php:68 tbl_operations.php:311
 #, php-format
@@ -11652,8 +11656,8 @@ msgid ""
 "You can set more settings by modifying config.inc.php, eg. by using %sSetup "
 "script%s."
 msgstr ""
-"Имате достъп до още настройки, модифицирайки config.inc.php, примерно чрез %"
-"sскрипта за настройки%s."
+"Имате достъп до още настройки, модифицирайки config.inc.php, примерно чрез "
+"%sскрипта за настройки%s."
 
 #: prefs_manage.php:308
 msgid "Save to browser's storage"
@@ -12115,8 +12119,8 @@ msgid ""
 "You set the [kbd]config[/kbd] authentication type and included username and "
 "password for auto-login, which is not a desirable option for live hosts. "
 "Anyone who knows or guesses your phpMyAdmin URL can directly access your "
-"phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or [kbd]"
-"http[/kbd]."
+"phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or "
+"[kbd]http[/kbd]."
 msgstr ""
 
 #: setup/lib/index.lib.php:318
@@ -12157,15 +12161,7 @@ msgstr "Ключът трябва да съдържа букви, цифри [em
 msgid "Wrong data"
 msgstr "Грешни данни"
 
-#: sql.php:279
-msgid "Showing as PHP code"
-msgstr "Показване като PHP-код"
-
-#: sql.php:284
-msgid "Validated SQL"
-msgstr "Валидиран SQL"
-
-#: sql.php:538
+#: sql.php:399
 #, fuzzy, php-format
 #| msgid ""
 #| "This table does not contain a unique column. Features related to the grid "
@@ -12178,7 +12174,7 @@ msgstr ""
 "редакция, отметката, връзките редактиране, копиране и изтриване може да не "
 "работят след запазване."
 
-#: sql.php:591
+#: sql.php:452
 #, php-format
 msgid "Problems with indexes of table `%s`"
 msgstr "Проблем с индексите на таблица `%s`"
@@ -12273,7 +12269,7 @@ msgstr "Начален ред"
 msgid "Table %s already exists!"
 msgstr "Таблица %s вече съществува!"
 
-#: tbl_create.php:58 tbl_get_field.php:37
+#: tbl_create.php:58 tbl_get_field.php:23
 #, php-format
 msgid "'%s' database does not exist."
 msgstr ""
@@ -12287,7 +12283,7 @@ msgstr "Таблицата %1$s беше създадена."
 msgid "View dump (schema) of table"
 msgstr "Схема (дъмп) на таблицата"
 
-#: tbl_get_field.php:44
+#: tbl_get_field.php:30
 msgid "Invalid table name"
 msgstr "Невалидно име на таблица"
 
@@ -12878,8 +12874,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:179
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s%"
-"%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s"
+"%%. It should be above 80%%"
 msgstr ""
 
 #: libraries/advisory_rules.txt:181
@@ -12998,8 +12994,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:216
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
-"%."
+"%s%% of all sorts cause temporary tables, this value should be lower than "
+"10%%."
 msgstr ""
 "%s%% от всички сортировки се изпълняват с временни таблици, тази стойност "
 "трябва да бъде под 10%%."
@@ -13684,6 +13680,11 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert e 0"
+
+#, fuzzy
+#~| msgid "Find:"
+#~ msgid "Find"
+#~ msgstr "Намери:"
 
 #~ msgid "Display all tables with the same width"
 #~ msgstr "Всички таблици да бъдат показвани с еднаква ширина"

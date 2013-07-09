@@ -12,23 +12,9 @@
 require_once 'libraries/common.inc.php';
 require_once 'libraries/mime.lib.php';
 
-/**
- * Sets globals from $_GET
- */
-$get_params = array(
-    'where_clause',
-    'transform_key'
-);
-
-foreach ($get_params as $one_get_param) {
-    if (isset($_GET[$one_get_param])) {
-        $GLOBALS[$one_get_param] = $_GET[$one_get_param];
-    }
-}
-
 /* Check parameters */
 PMA_Util::checkParameters(
-    array('db', 'table', 'where_clause', 'transform_key')
+    array('db', 'table')
 );
 
 /* Select database */
@@ -45,9 +31,9 @@ if (!$GLOBALS['dbi']->getColumns($db, $table)) {
 }
 
 /* Grab data */
-$sql = 'SELECT ' . PMA_Util::backquote($transform_key)
+$sql = 'SELECT ' . PMA_Util::backquote($_GET['transform_key'])
     . ' FROM ' . PMA_Util::backquote($table)
-    . ' WHERE ' . $where_clause . ';';
+    . ' WHERE ' . $_GET['where_clause'] . ';';
 $result = $GLOBALS['dbi']->fetchValue($sql);
 
 /* Check return code */
@@ -59,7 +45,7 @@ if ($result === false) {
 @ini_set('url_rewriter.tags', '');
 
 PMA_downloadHeader(
-    $table . '-' .  $transform_key . '.bin',
+    $table . '-' .  $_GET['transform_key'] . '.bin',
     PMA_detectMIME($result),
     strlen($result)
 );

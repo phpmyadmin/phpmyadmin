@@ -17,8 +17,8 @@ $GLOBALS['url_query'] = "url_query";
 $GLOBALS['PMA_PHP_SELF'] = PMA_getenv('PHP_SELF');
 $GLOBALS['lang'] = "en";
 $GLOBALS['available_languages']= array(
-		"en" => array("English", "US-ENGLISH"), 
-		"ch" => array("Chinese", "TW-Chinese")
+    "en" => array("English", "US-ENGLISH"), 
+    "ch" => array("Chinese", "TW-Chinese")
 );
 $GLOBALS['text_dir'] = "text_dir";
 $GLOBALS['cfg']['DBG']['sql'] = false;
@@ -39,6 +39,13 @@ require_once 'libraries/server_common.inc.php';
 require_once 'libraries/mysql_charsets.inc.php';
 require_once 'libraries/server_collations.lib.php';
 
+/**
+ * PMA_ServerBinlog_Test class
+ *
+ * this class is for testing server_collations.lib.php functions
+ *
+ * @package PhpMyAdmin-test
+ */
 class PMA_ServerCollations_Test extends PHPUnit_Framework_TestCase
 {
     /**
@@ -73,32 +80,32 @@ class PMA_ServerCollations_Test extends PHPUnit_Framework_TestCase
      *
      * @return void
      */
-    public function testPMA_getHtmlForCharsets()
+    public function testPMAGetHtmlForCharsets()
     {
         $mysql_charsets = array("armscii8", "ascii", "big5", "binary");
         $mysql_collations = array(
-        	"armscii8" => array("armscii8"), 
+            "armscii8" => array("armscii8"), 
             "ascii" => array("ascii"), 
             "big5" => array("big5"), 
-        	"binary" => array("binary"),         		
+            "binary" => array("binary"),         		
         );
         $mysql_charsets_descriptions = array(
-        	"armscii8" => "PMA_armscii8_general_ci", 
+            "armscii8" => "PMA_armscii8_general_ci", 
             "ascii" => "PMA_ascii_general_ci", 
             "big5" => "PMA_big5_general_ci", 
-        	"binary" => "PMA_binary_general_ci",         		
+            "binary" => "PMA_binary_general_ci",         		
         );
         $mysql_default_collations = array(
-        	"armscii8" => "armscii8", 
+            "armscii8" => "armscii8", 
             "ascii" => "ascii", 
             "big5" => "big5", 
-        	"binary" => "binary",         		
+            "binary" => "binary",         		
         );
         $mysql_collations_available = array(
-        	"armscii8" => true, 
+            "armscii8" => true, 
             "ascii" => true, 
             "big5" => true, 
-        	"binary" => true,         		
+            "binary" => true,         		
         );
         
         //Mock DBI

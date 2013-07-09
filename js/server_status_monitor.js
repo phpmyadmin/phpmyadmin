@@ -1424,9 +1424,9 @@ AJAX.registerOnload('server_status_monitor.js', function () {
 
     function PMA_getLogAnalyseDialog(min, max) {
         $('#logAnalyseDialog input[name="dateStart"]')
-            .val(formatDate(min, 'yyyy-MM-dd HH:mm:ss'));
+            .val(PMA_formatDateTime(min, true));
         $('#logAnalyseDialog input[name="dateEnd"]')
-            .val(formatDate(max, 'yyyy-MM-dd HH:mm:ss'));
+            .val(PMA_formatDateTime(max, true));
 
         var dlgBtns = { };
 
