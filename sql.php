@@ -295,8 +295,10 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
         $disp_mode = 'nnnn110111';
     }
         
-    $print_view_html = PMA_getHtmlForPrintView($db, $full_sql_query, $num_rows);
-    $html_output .= isset($print_view_html) ? $print_view_html : '';
+    $print_view_header_html = PMA_getHtmlForPrintViewHeader($db, $full_sql_query,
+        $num_rows
+    );
+    $html_output .= isset($print_view_header_html) ? $print_view_header_html : '';
     
     $previous_update_query_html = PMA_getHtmlForPreviousUpdateQuery(
         isset($disp_query) ? $disp_query : null,
