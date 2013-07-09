@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-07-09 12:15+0200\n"
-"PO-Revision-Date: 2013-07-05 01:35+0200\n"
+"PO-Revision-Date: 2013-07-09 15:28+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone+weblate@gmail.com>\n"
-"Language-Team: Spanish <http://l10n.cihar.com/projects/phpmyadmin/master/es/"
-">\n"
+"Language-Team: Spanish "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/es/>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1740,10 +1740,9 @@ msgid "Show search criteria"
 msgstr "Mostrar criterio de búsqueda"
 
 #: js/messages.php:278
-#, fuzzy
 #| msgid "Hide search criteria"
 msgid "Hide find and replace criteria"
-msgstr "Ocultar criterio de búsqueda"
+msgstr "Ocultar criterio de búsqueda y reemplazo"
 
 #: js/messages.php:279
 msgid "Show find and replace criteria"
@@ -3265,7 +3264,7 @@ msgstr "Búsqueda de tablas"
 
 #: libraries/TableSearch.class.php:215 libraries/TableSearch.class.php:1164
 msgid "Find and Replace"
-msgstr ""
+msgstr "Buscar y reemplazar"
 
 #: libraries/TableSearch.class.php:237 libraries/insert_edit.lib.php:1352
 msgid "Edit/Insert"
@@ -3333,10 +3332,9 @@ msgid "Reset zoom"
 msgstr "Reiniciar ampliación"
 
 #: libraries/TableSearch.class.php:1273
-#, fuzzy
 #| msgid "Replace with"
 msgid "Replace with:"
-msgstr "Reemplazar con"
+msgstr "Reemplazar con:"
 
 #: libraries/TableSearch.class.php:1333
 msgid "Find and replace - preview"
