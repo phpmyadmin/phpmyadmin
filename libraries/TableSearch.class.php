@@ -1268,12 +1268,12 @@ EOT;
      */
     function _getSearchAndReplaceHTML()
     {
-        $htmlOutput  = __('Find')
-            . ': <input type="text" value="" name="find" />';
-        $htmlOutput .= __('Replace with')
-            . ': <input type="text" value="" name="replaceWith" />';
+        $htmlOutput  = __('Find:')
+            . '<input type="text" value="" name="find" />';
+        $htmlOutput .= __('Replace with:')
+            . '<input type="text" value="" name="replaceWith" />';
 
-        $htmlOutput .= __('Column') . ': <select name="columnIndex">';
+        $htmlOutput .= __('Column:') . '<select name="columnIndex">';
         for ($i = 0; $i < count($this->_columnNames); $i++) {
             $type = preg_replace('@\(.*@s', '', $this->_columnTypes[$i]);
             if ($GLOBALS['PMA_Types']->getTypeClass($type) == 'CHAR') {
