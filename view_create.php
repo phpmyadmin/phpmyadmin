@@ -56,41 +56,40 @@ if (isset($_REQUEST['createview'])) {
     $sql_query .= $sep . ' AS ' . $_REQUEST['view']['as'];
 
     if (isset($_REQUEST['view']['with'])) {
-        $options = array_intersect($_REQUEST['view']['with'], $view_with_options);
-        if (count($options)) {
-            $sql_query .= $sep . ' WITH ' . implode(' ', $options);
+        if (in_array($_REQUEST['view']['with'], $view_with_options)) {
+            $sql_query .= $sep . ' WITH ' . $_REQUEST['view']['with'];
         }
     }
 
     if ($GLOBALS['dbi']->tryQuery($sql_query)) {
-        
+
         include_once './libraries/tbl_views.lib.php';
-        
+
         // If different column names defined for VIEW
         $view_columns = array();
         if (isset($_REQUEST['view']['column_names'])) {
             $view_columns = explode(',', $_REQUEST['view']['column_names']);
         }
-        
+
         $column_map = PMA_getColumnMap($_REQUEST['view']['as'], $view_columns);
         $pma_tranformation_data = PMA_getExistingTranformationData($GLOBALS['db']);
-        
+
         if ($pma_tranformation_data !== false) {
-            
+
             // SQL for store new transformation details of VIEW
             $new_transformations_sql = PMA_getNewTransformationDataSql(
                 $pma_tranformation_data, $column_map, $_REQUEST['view']['name'],
                 $GLOBALS['db']
-            );            
-            
+            );
+
             // Store new transformations
             if ($new_transformations_sql != '') {
                 $GLOBALS['dbi']->tryQuery($new_transformations_sql);
             }
-            
+
         }
         unset($pma_tranformation_data);
-        
+
         if ($GLOBALS['is_ajax_request'] != true) {
             $message = PMA_Message::success();
             include './' . $cfg['DefaultTabDatabase'];
@@ -103,9 +102,9 @@ if (isset($_REQUEST['createview'])) {
                 )
             );
         }
-        
+
         exit;
-        
+
     } else {
         if ($GLOBALS['is_ajax_request'] != true) {
             $message = PMA_Message::rawError($GLOBALS['dbi']->getError());
@@ -202,18 +201,16 @@ $htmlString .= '>' . htmlspecialchars($view['as']) . '</textarea>'
     . '<tr><td>WITH</td>'
     . '<td>';
 
+$htmlString .= '<select name="view[with]">'
+    . '<option value=""></option>';
 foreach ($view_with_options as $option) {
-    $htmlString .= '<input type="checkbox" name="view[with][]"';
+    $htmlString .= '<option value="' . htmlspecialchars($option) . '"';
     if (in_array($option, $view['with'])) {
-        $htmlString .= ' checked="checked"';
+        $htmlString .= ' selected="selected"';
     }
-    $htmlString .= ' id="view_with_'
-        . str_replace(' ', '_', htmlspecialchars($option)) . '"'
-        . ' value="' . htmlspecialchars($option) . '" />'
-        . '<label for="view_with_' . str_replace(' ', '_', htmlspecialchars($option))
-        . '">&nbsp;'
-        . htmlspecialchars($option) . '</label><br />';
+    $htmlString .= '>' . htmlspecialchars($option) . '</option>';
 }
+$htmlString .= '<select>';
 
 $htmlString .= '</td>'
     . '</tr>'
