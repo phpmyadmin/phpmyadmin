@@ -3,11 +3,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-07-04 06:07-0400\n"
+"POT-Creation-Date: 2013-07-09 11:34+0200\n"
 "PO-Revision-Date: 2013-07-09 00:51+0200\n"
 "Last-Translator: Jouni Kähkönen <asdfsdf@asdfasdfasdf.com>\n"
-"Language-Team: Finnish "
-"<http://l10n.cihar.com/projects/phpmyadmin/master/fi/>\n"
+"Language-Team: Finnish <http://l10n.cihar.com/projects/phpmyadmin/master/fi/"
+">\n"
 "Language: fi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -626,11 +626,11 @@ msgstr ""
 #: import.php:107
 #, php-format
 msgid ""
-"You probably tried to upload a file that is too large. Please refer to %"
-"sdocumentation%s for a workaround for this limit."
+"You probably tried to upload a file that is too large. Please refer to "
+"%sdocumentation%s for a workaround for this limit."
 msgstr ""
-"Yritit ehkä lähettää palvelimelle liian suurta tiedostoa. Katso %sohjeista%"
-"s, kuinka tämän rajoituksen voi poistaa."
+"Yritit ehkä lähettää palvelimelle liian suurta tiedostoa. Katso %sohjeista"
+"%s, kuinka tämän rajoituksen voi poistaa."
 
 #: import.php:268 import.php:534
 msgid "Showing bookmark"
@@ -675,7 +675,7 @@ msgstr "Tiedoston merkistöä ei voida muuttaa ilman merkistökirjastoa"
 msgid "Could not load import plugins, please check your installation!"
 msgstr "Tuontiin tarvittavaa lisäosaa ei voida tuoda, tarkista asetukset!"
 
-#: import.php:537 libraries/sql.lib.php:938 sql.php:548
+#: import.php:537 libraries/sql.lib.php:938 sql.php:409
 #, php-format
 msgid "Bookmark %s created"
 msgstr "Kirjanmerkki %s luotu"
@@ -2717,11 +2717,11 @@ msgstr "lauseessa"
 #: libraries/DisplayResults.class.php:4920 libraries/structure.lib.php:653
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 msgstr ""
-"Tässä näkymässä on vähintään tämän luvun verran rivejä. Katso lisätietoja %"
-"sohjeista%s."
+"Tässä näkymässä on vähintään tämän luvun verran rivejä. Katso lisätietoja "
+"%sohjeista%s."
 
 #: libraries/DisplayResults.class.php:4933
 msgid "Showing rows"
@@ -2731,7 +2731,7 @@ msgstr "Näkyvillä rivit"
 msgid "total"
 msgstr "yhteensä"
 
-#: libraries/DisplayResults.class.php:4960 sql.php:292
+#: libraries/DisplayResults.class.php:4960 libraries/sql.lib.php:1553
 #, php-format
 msgid "Query took %01.4f sec"
 msgstr "Kysely kesti %01.4f s."
@@ -3507,20 +3507,20 @@ msgstr ""
 
 #: libraries/Types.class.php:308
 msgid ""
-"A small floating-point number, allowable values are -3.402823466E+38 to -"
-"1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
+"A small floating-point number, allowable values are -3.402823466E+38 to "
+"-1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
 msgstr ""
-"Pieni liukuluku, mahdolliset arvot ovat välillä -3.402823466E+38 - -"
-"1.175494351E-38, 0 ja 1.175494351E-38 - 3.402823466E+38"
+"Pieni liukuluku, mahdolliset arvot ovat välillä -3.402823466E+38 - "
+"-1.175494351E-38, 0 ja 1.175494351E-38 - 3.402823466E+38"
 
 #: libraries/Types.class.php:310
 msgid ""
-"A double-precision floating-point number, allowable values are -"
-"1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
+"A double-precision floating-point number, allowable values are "
+"-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
 "2.2250738585072014E-308 to 1.7976931348623157E+308"
 msgstr ""
-"Kaksoistarkkuuksinen liukuluku, mahdolliset arvot ovat välillä -"
-"1.7976931348623157E+308 - -2.2250738585072014E-308, 0, ja "
+"Kaksoistarkkuuksinen liukuluku, mahdolliset arvot ovat välillä "
+"-1.7976931348623157E+308 - -2.2250738585072014E-308, 0, ja "
 "2.2250738585072014E-308 - 1.7976931348623157E+308"
 
 #: libraries/Types.class.php:312
@@ -4272,8 +4272,8 @@ msgid ""
 "Enable [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] compression for "
 "import and export operations"
 msgstr ""
-"Käytä tuonti- ja vientitoiminnoissa [a@http://en.wikipedia.org/wiki/Bzip2]"
-"bzip2[/a]-pakkausta"
+"Käytä tuonti- ja vientitoiminnoissa [a@http://en.wikipedia.org/wiki/"
+"Bzip2]bzip2[/a]-pakkausta"
 
 #: libraries/config/messages.inc.php:27
 msgid "Bzip2"
@@ -4286,8 +4286,8 @@ msgid ""
 "kbd] - allows newlines in columns"
 msgstr ""
 "Määrittää minkä tyyppistä muokkaustoimintoa tulisi käyttää CHAR- ja VARCHAR-"
-"kentissä; [kbd]input[/kbd] - sallii syötön pituuden rajoittamisen, [kbd]"
-"textarea[/kbd] - sallii kentissä uudet rivit"
+"kentissä; [kbd]input[/kbd] - sallii syötön pituuden rajoittamisen, "
+"[kbd]textarea[/kbd] - sallii kentissä uudet rivit"
 
 #: libraries/config/messages.inc.php:29
 msgid "CHAR columns editing"
@@ -4295,8 +4295,8 @@ msgstr "CHAR-sarakkeiden muokkaus"
 
 #: libraries/config/messages.inc.php:30
 msgid ""
-"Use user-friendly editor for editing SQL queries ([a@http://codemirror.net/]"
-"CodeMirror[/a]) with syntax highlighting and line numbers"
+"Use user-friendly editor for editing SQL queries ([a@http://codemirror."
+"net/]CodeMirror[/a]) with syntax highlighting and line numbers"
 msgstr ""
 
 #: libraries/config/messages.inc.php:31
@@ -4848,8 +4848,9 @@ msgstr "Sivun otsikot"
 
 #: libraries/config/messages.inc.php:191
 msgid ""
-"Specify browser's title bar text. Refer to [doc@cfg_TitleTable]documentation"
-"[/doc] for magic strings that can be used to get special values."
+"Specify browser's title bar text. Refer to "
+"[doc@cfg_TitleTable]documentation[/doc] for magic strings that can be used "
+"to get special values."
 msgstr ""
 
 #: libraries/config/messages.inc.php:192
@@ -5034,8 +5035,8 @@ msgid ""
 "Enable [a@http://en.wikipedia.org/wiki/Gzip]gzip[/a] compression for import "
 "and export operations"
 msgstr ""
-"Käytä tuonti- ja vientitoiminnoissa [a@http://en.wikipedia.org/wiki/Gzip]gzip"
-"[/a]-pakkausta"
+"Käytä tuonti- ja vientitoiminnoissa [a@http://en.wikipedia.org/wiki/"
+"Gzip]gzip[/a]-pakkausta"
 
 #: libraries/config/messages.inc.php:235
 msgid "GZip"
@@ -5656,8 +5657,8 @@ msgid ""
 "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/bookmark]bookmark[/a] "
 "support, suggested: [kbd]pma__bookmark[/kbd]"
 msgstr ""
-"Jätä tyhjäksi, jos et halua [a@http://wiki.phpmyadmin.net/pma/bookmark]"
-"kirjanmerkki[/a]tukea; oletusarvo: [kbd]pma_bookmark[/kbd]"
+"Jätä tyhjäksi, jos et halua [a@http://wiki.phpmyadmin.net/pma/"
+"bookmark]kirjanmerkki[/a]tukea; oletusarvo: [kbd]pma_bookmark[/kbd]"
 
 #: libraries/config/messages.inc.php:379
 msgid "Bookmark table"
@@ -5666,11 +5667,11 @@ msgstr "Kirjanmerkkitaulu"
 #: libraries/config/messages.inc.php:380
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no column comments/mime types, suggested: [kbd]"
-#| "pma_column_info[/kbd]"
+#| "Leave blank for no column comments/mime types, suggested: "
+#| "[kbd]pma_column_info[/kbd]"
 msgid ""
-"Leave blank for no column comments/mime types, suggested: [kbd]"
-"pma__column_info[/kbd]"
+"Leave blank for no column comments/mime types, suggested: "
+"[kbd]pma__column_info[/kbd]"
 msgstr ""
 "Jätä tyhjäksi, jos et halua sarakkeiden kommentteja ja mime-tyyppejä; "
 "oletusarvo: [kbd]pma_column_info[/kbd]"
@@ -5706,8 +5707,8 @@ msgid ""
 "available on [a@http://wiki.phpmyadmin.net/pma/controluser]wiki[/a]"
 msgstr ""
 "Erityinen MySQL-käyttäjä, jolle on määritetty rajatut käyttöoikeudet; "
-"lisätietoja saatavilla [a@http://wiki.phpmyadmin.net/pma/controluser]wikissä"
-"[/a]"
+"lisätietoja saatavilla [a@http://wiki.phpmyadmin.net/pma/"
+"controluser]wikissä[/a]"
 
 #: libraries/config/messages.inc.php:388
 msgid "Control user"
@@ -5745,8 +5746,8 @@ msgid ""
 "Leave blank for no Designer support, suggested: [kbd]pma__designer_coords[/"
 "kbd]"
 msgstr ""
-"Jätä tyhjäksi, jos et halua Suunnittelija-taulua; oletusarvo: [kbd]"
-"pma_designer_coords[/kbd]"
+"Jätä tyhjäksi, jos et halua Suunnittelija-taulua; oletusarvo: "
+"[kbd]pma_designer_coords[/kbd]"
 
 #: libraries/config/messages.inc.php:394
 msgid "Designer table"
@@ -5785,14 +5786,14 @@ msgstr "Piilota tietokannat"
 #: libraries/config/messages.inc.php:401
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no SQL query history support, suggested: [kbd]pma_history"
-#| "[/kbd]"
+#| "Leave blank for no SQL query history support, suggested: "
+#| "[kbd]pma_history[/kbd]"
 msgid ""
 "Leave blank for no SQL query history support, suggested: [kbd]pma__history[/"
 "kbd]"
 msgstr ""
-"Jätä tyhjäksi, jos et halua SQL-kyselyhistorian tukea; oletusarvo: [kbd]"
-"pma_history[/kbd]"
+"Jätä tyhjäksi, jos et halua SQL-kyselyhistorian tukea; oletusarvo: "
+"[kbd]pma_history[/kbd]"
 
 #: libraries/config/messages.inc.php:402
 msgid "SQL query history table"
@@ -5861,8 +5862,8 @@ msgstr "Config-todennuksen salasana"
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__pdf_pages[/kbd]"
 msgstr ""
-"Jätä tyhjäksi, jos et halua PDF-kaavioiden tukea, oletusarvo: [kbd]"
-"pma_pdf_pages[/kbd]"
+"Jätä tyhjäksi, jos et halua PDF-kaavioiden tukea, oletusarvo: "
+"[kbd]pma_pdf_pages[/kbd]"
 
 #: libraries/config/messages.inc.php:415
 msgid "PDF schema: pages table"
@@ -5900,8 +5901,8 @@ msgid ""
 "Leave blank for no \"persistent\" recently used tables across sessions, "
 "suggested: [kbd]pma__recent[/kbd]"
 msgstr ""
-"Jätä tyhjäksi, jos et halua SQL-kyselyhistorian tukea; oletusarvo: [kbd]"
-"pma_recent[/kbd]"
+"Jätä tyhjäksi, jos et halua SQL-kyselyhistorian tukea; oletusarvo: "
+"[kbd]pma_recent[/kbd]"
 
 #: libraries/config/messages.inc.php:421
 msgid "Recently used table"
@@ -5913,11 +5914,11 @@ msgstr "Viimeisimmäksi käytetty taulu"
 #| "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
 #| "links[/a] support, suggested: [kbd]pma_relation[/kbd]"
 msgid ""
-"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-links"
-"[/a] support, suggested: [kbd]pma__relation[/kbd]"
+"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
+"links[/a] support, suggested: [kbd]pma__relation[/kbd]"
 msgstr ""
-"Jätä tyhjäksi, jos et halua [a@http://wiki.phpmyadmin.net/pma/relation]"
-"relaatiolinkki[/a]tukea; oletusarvo: [kbd]pma_relation[/kbd]"
+"Jätä tyhjäksi, jos et halua [a@http://wiki.phpmyadmin.net/pma/"
+"relation]relaatiolinkki[/a]tukea; oletusarvo: [kbd]pma_relation[/kbd]"
 
 #: libraries/config/messages.inc.php:423
 msgid "Relation table"
@@ -5933,8 +5934,8 @@ msgstr "SHOW DATABASES -käsky"
 
 #: libraries/config/messages.inc.php:426
 msgid ""
-"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication types"
-"[/a] for an example"
+"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
+"types[/a] for an example"
 msgstr ""
 "Katso [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]todennustyyppien[/"
 "a] esimerkit"
@@ -5974,8 +5975,8 @@ msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__table_coords[/"
 "kbd]"
 msgstr ""
-"Jätä tyhjäksi, jos et halua PDF-kaavioiden tukea; oletusarvo: [kbd]"
-"pma_table_coords[/kbd]"
+"Jätä tyhjäksi, jos et halua PDF-kaavioiden tukea; oletusarvo: "
+"[kbd]pma_table_coords[/kbd]"
 
 #: libraries/config/messages.inc.php:434
 msgid "PDF schema: table coordinates"
@@ -5984,8 +5985,8 @@ msgstr "PDF-kaavio: taulun koordinaatit"
 #: libraries/config/messages.inc.php:435
 #, fuzzy
 #| msgid ""
-#| "to describe the display fields, leave blank for no support; gested: d]"
-#| "pma_table_info[/kbd]"
+#| "to describe the display fields, leave blank for no support; gested: "
+#| "d]pma_table_info[/kbd]"
 msgid ""
 "Table to describe the display columns, leave blank for no support; "
 "suggested: [kbd]pma__table_info[/kbd]"
@@ -6005,8 +6006,8 @@ msgid ""
 "Leave blank for no \"persistent\" tables' UI preferences across sessions, "
 "suggested: [kbd]pma__table_uiprefs[/kbd]"
 msgstr ""
-"Jätä tyhjäksi, jos et halua SQL-kyselyhistorian tukea; oletusarvo: [kbd]"
-"pma_table_uiprefs[/kbd]"
+"Jätä tyhjäksi, jos et halua SQL-kyselyhistorian tukea; oletusarvo: "
+"[kbd]pma_table_uiprefs[/kbd]"
 
 #: libraries/config/messages.inc.php:438
 msgid "UI preferences table"
@@ -6053,14 +6054,14 @@ msgstr "Jäljitettävä lauseke"
 #: libraries/config/messages.inc.php:447
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no SQL query tracking support, suggested: [kbd]"
-#| "pma_tracking[/kbd]"
+#| "Leave blank for no SQL query tracking support, suggested: "
+#| "[kbd]pma_tracking[/kbd]"
 msgid ""
-"Leave blank for no SQL query tracking support, suggested: [kbd]pma__tracking"
-"[/kbd]"
+"Leave blank for no SQL query tracking support, suggested: "
+"[kbd]pma__tracking[/kbd]"
 msgstr ""
-"Jätä tyhjäksi, jos et halua SQL-kyselyhistorian tukea; oletusarvo: [kbd]"
-"pma_history[/kbd]"
+"Jätä tyhjäksi, jos et halua SQL-kyselyhistorian tukea; oletusarvo: "
+"[kbd]pma_history[/kbd]"
 
 #: libraries/config/messages.inc.php:448
 msgid "SQL query tracking table"
@@ -6081,11 +6082,11 @@ msgstr "Automaattisesti luodut versiot"
 #| msgid ""
 #| "blank for no SQL query history support, suggested: [kbd]pma_historybd]"
 msgid ""
-"Leave blank for no user preferences storage in database, suggested: [kbd]"
-"pma__userconfig[/kbd]"
+"Leave blank for no user preferences storage in database, suggested: "
+"[kbd]pma__userconfig[/kbd]"
 msgstr ""
-"Jätä tyhjäksi, jos et halua SQL-kyselyhistorian tukea; oletusarvo: [kbd]"
-"pma_history[/kbd]"
+"Jätä tyhjäksi, jos et halua SQL-kyselyhistorian tukea; oletusarvo: "
+"[kbd]pma_history[/kbd]"
 
 #: libraries/config/messages.inc.php:452
 msgid "User preferences storage table"
@@ -6436,8 +6437,8 @@ msgid ""
 "Enable [a@http://en.wikipedia.org/wiki/ZIP_(file_format)]ZIP[/a] compression "
 "for import and export operations"
 msgstr ""
-"Käytä tuonti- ja vientitoiminnoissa [a@http://en.wikipedia.org/wiki/ZIP_"
-"(file_format)]ZIP[/a]-pakkausta"
+"Käytä tuonti- ja vientitoiminnoissa [a@http://en.wikipedia.org/wiki/"
+"ZIP_(file_format)]ZIP[/a]-pakkausta"
 
 #: libraries/config/messages.inc.php:532
 msgid "ZIP"
@@ -6745,8 +6746,8 @@ msgstr ""
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Tämä arvo on tukittu %1$sstrftime%2$s mukaan, joten voi käyttää "
 "ajanmuodostostusmerkkijonoja. Lisäksi tapahtuu seuraavat muutokset: %3$s. "
@@ -7303,8 +7304,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:131
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the %"
-"sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the "
+"%sPrimeBase XT Home Page%s."
 msgstr ""
 
 #: libraries/engines/pbxt.lib.php:133
@@ -7316,7 +7317,8 @@ msgid "The PrimeBase XT Blog by Paul McCullagh"
 msgstr ""
 
 #: libraries/import.lib.php:187 libraries/insert_edit.lib.php:122
-#: libraries/rte/rte_routines.lib.php:1446 sql.php:287 tbl_get_field.php:55
+#: libraries/rte/rte_routines.lib.php:1446 libraries/sql.lib.php:1548
+#: tbl_get_field.php:41
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL palautti tyhjän tulosjoukon (siis nolla riviä)."
 
@@ -7451,11 +7453,11 @@ msgstr ""
 "Sarkaimella voi siirtyä arvosta seuraavaan, Ctrl- ja nuolinäppäimillä pystyy "
 "siirtymään minne suuntaan tahansa."
 
-#: libraries/insert_edit.lib.php:1914 sql.php:282
+#: libraries/insert_edit.lib.php:1914 libraries/sql.lib.php:1543
 msgid "Showing SQL query"
 msgstr "Näytetään SQL-kysely"
 
-#: libraries/insert_edit.lib.php:1939 sql.php:262
+#: libraries/insert_edit.lib.php:1939 libraries/sql.lib.php:1523
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "Lisätyn rivin tunnus: %1$d"
@@ -8028,11 +8030,11 @@ msgstr "Tervetuloa, toivottaa %s"
 #: libraries/plugins/auth/AuthenticationConfig.class.php:102
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 msgstr ""
-"Et liene luonut asetustiedostoa. Voit luoda asetustiedoston %1"
-"$sasetusskriptillä%2$s."
+"Et liene luonut asetustiedostoa. Voit luoda asetustiedoston "
+"%1$sasetusskriptillä%2$s."
 
 #: libraries/plugins/auth/AuthenticationConfig.class.php:122
 msgid ""
@@ -8730,8 +8732,8 @@ msgstr ""
 #: libraries/plugins/transformations/abstract/FormattedTransformationsPlugin.class.php:31
 #, fuzzy
 #| msgid ""
-#| "ys the contents of the field as-is, without running it through ecialchars"
-#| "(). That is, the field is assumed to contain valid HTML."
+#| "ys the contents of the field as-is, without running it through "
+#| "ecialchars(). That is, the field is assumed to contain valid HTML."
 msgid ""
 "Displays the contents of the column as-is, without running it through "
 "htmlspecialchars(). That is, the column is assumed to contain valid HTML."
@@ -10425,8 +10427,8 @@ msgstr "Käyttäjien yleiskatsaus"
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 msgstr ""
 "Huom: PhpMyAdmin hakee käyttäjien käyttöoikeudet suoraan MySQL-palvelimen "
 "käyttöoikeustauluista. Näiden taulujen sisältö saattaa poiketa palvelimen "
@@ -11469,6 +11471,16 @@ msgstr "Kirjanmerkki %s luotu"
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr ""
+
+#: libraries/sql.lib.php:1540
+msgid "Showing as PHP code"
+msgstr "Näytetään PHP-koodina"
+
+#: libraries/sql.lib.php:1545
+#, fuzzy
+#| msgid "Validate SQL"
+msgid "Validated SQL"
+msgstr "Tarkista SQL-lause"
 
 #: libraries/sql_query_form.lib.php:188
 #, php-format
@@ -12810,11 +12822,11 @@ msgid ""
 msgstr ""
 "Jos näet tarpeelliseksi, käytä suojauksen lisäasetuksia eli [a@?"
 "page=servers&amp;mode=edit&amp;id=%1$d#tab_Server_config]palvelimen "
-"todennusasetuksia[/a] ja [a@?page=form&amp;formset=features#tab_Security]"
-"luotettujen välipalvelimien luetteloa[/a]. IP-osoitteeseen perustuva suojaus "
-"ei kuitenkaan ole täysin luotettava, mikäli IP-osoite kuuluu Internet-"
-"palveluntarjoajalle, johon sinun lisäksesi tuhannet käyttäjät ovat "
-"yhteydessä."
+"todennusasetuksia[/a] ja [a@?page=form&amp;"
+"formset=features#tab_Security]luotettujen välipalvelimien luetteloa[/a]. IP-"
+"osoitteeseen perustuva suojaus ei kuitenkaan ole täysin luotettava, mikäli "
+"IP-osoite kuuluu Internet-palveluntarjoajalle, johon sinun lisäksesi "
+"tuhannet käyttäjät ovat yhteydessä."
 
 #: setup/lib/index.lib.php:316
 #, fuzzy, php-format
@@ -12828,15 +12840,15 @@ msgid ""
 "You set the [kbd]config[/kbd] authentication type and included username and "
 "password for auto-login, which is not a desirable option for live hosts. "
 "Anyone who knows or guesses your phpMyAdmin URL can directly access your "
-"phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or [kbd]"
-"http[/kbd]."
+"phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or "
+"[kbd]http[/kbd]."
 msgstr ""
 "Asetit [kbd]config[/kbd]-todennustyypin ja sisällytit käyttäjänimen ja "
 "salasanan automaattista kirjautumista varten. Tämä ei ole suotava vaihtoehto "
 "oikeille palvelimille. Joka tietää tai arvaa phpMyAdmin-osoitteesi pystyy "
 "suoraan käyttämään phpMyAdmin-paneeliasi.  [a@?page=servers&amp;"
-"mode=edit&amp;id=%1$d#tab_Server]Todennustyypiksi[/a] kannattaa asettaa [kbd]"
-"cookie[/kbd] tai [kbd]http[/kbd]."
+"mode=edit&amp;id=%1$d#tab_Server]Todennustyypiksi[/a] kannattaa asettaa "
+"[kbd]cookie[/kbd] tai [kbd]http[/kbd]."
 
 #: setup/lib/index.lib.php:318
 #, fuzzy, php-format
@@ -12899,17 +12911,7 @@ msgstr ""
 msgid "Wrong data"
 msgstr "Ei tietokantoja"
 
-#: sql.php:279
-msgid "Showing as PHP code"
-msgstr "Näytetään PHP-koodina"
-
-#: sql.php:284
-#, fuzzy
-#| msgid "Validate SQL"
-msgid "Validated SQL"
-msgstr "Tarkista SQL-lause"
-
-#: sql.php:538
+#: sql.php:399
 #, fuzzy, php-format
 #| msgid ""
 #| "This table does not contain a unique column. Features related to the grid "
@@ -12922,7 +12924,7 @@ msgstr ""
 "valintaneliöihin, Muokkaa-, Kopioi- ja Poista-linkkeihin liittyvät "
 "ominaisuudet eivät ehkä ole toiminnassa tallennuksen jälkeen."
 
-#: sql.php:591
+#: sql.php:452
 #, php-format
 msgid "Problems with indexes of table `%s`"
 msgstr "Taulun \"%s\" indeksien kanssa on ongelmia"
@@ -13033,7 +13035,7 @@ msgstr "Aloitusrivi"
 msgid "Table %s already exists!"
 msgstr "Taulu %s on jo olemassa!"
 
-#: tbl_create.php:58 tbl_get_field.php:37
+#: tbl_create.php:58 tbl_get_field.php:23
 #, php-format
 msgid "'%s' database does not exist."
 msgstr "Tietokantaa '%s' ei ole olemassa."
@@ -13047,7 +13049,7 @@ msgstr "Taulu %1$s on luotu."
 msgid "View dump (schema) of table"
 msgstr "Tee vedos taulusta"
 
-#: tbl_get_field.php:44
+#: tbl_get_field.php:30
 msgid "Invalid table name"
 msgstr "Virheellinen taulun nimi"
 
@@ -13696,8 +13698,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:179
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s%"
-"%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s"
+"%%. It should be above 80%%"
 msgstr ""
 
 #: libraries/advisory_rules.txt:181
@@ -13832,8 +13834,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:216
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
-"%."
+"%s%% of all sorts cause temporary tables, this value should be lower than "
+"10%%."
 msgstr ""
 
 #: libraries/advisory_rules.txt:218
@@ -14865,14 +14867,14 @@ msgstr "Enim. yhtäaikaisia yhteyksiä"
 
 #~ msgid ""
 #~ "When setting this to [kbd]nested[/kbd], the alias of the table name is "
-#~ "only used to split/nest the tables according to the $cfg"
-#~ "['LeftFrameTableSeparator'] directive, so only the folder is called like "
-#~ "the alias, the table name itself stays unchanged"
+#~ "only used to split/nest the tables according to the "
+#~ "$cfg['LeftFrameTableSeparator'] directive, so only the folder is called "
+#~ "like the alias, the table name itself stays unchanged"
 #~ msgstr ""
 #~ "Kun tälle asetetaan arvo [kbd]nested[/kbd], taulun nimen aliasta "
-#~ "käytetään taulujen jakamiseen ja sisäkkäin asettamiseen $cfg"
-#~ "['LeftFrameTableSeparator']-asetuksen mukaisesti, jolloin vain kansiota "
-#~ "kutsutaan aliaksena, itse taulun nimi pysyy muuttumattomana"
+#~ "käytetään taulujen jakamiseen ja sisäkkäin asettamiseen "
+#~ "$cfg['LeftFrameTableSeparator']-asetuksen mukaisesti, jolloin vain "
+#~ "kansiota kutsutaan aliaksena, itse taulun nimi pysyy muuttumattomana"
 
 #~ msgid "Display table comment instead of its name"
 #~ msgstr "Näytä taulun kommentti, ei nimi"
@@ -14930,8 +14932,8 @@ msgstr "Enim. yhtäaikaisia yhteyksiä"
 #~ "No description is available for this transformation.<br />Please ask the "
 #~ "author what %s does."
 #~ msgstr ""
-#~ "Tälle muunnokselle ei ole saatavilla kuvausta.<br />Kysy tekijältä, mitä %"
-#~ "s tekee."
+#~ "Tälle muunnokselle ei ole saatavilla kuvausta.<br />Kysy tekijältä, mitä "
+#~ "%s tekee."
 
 #~ msgid ""
 #~ "MIME types printed in italics do not have a separate transformation "
@@ -15057,8 +15059,8 @@ msgstr "Enim. yhtäaikaisia yhteyksiä"
 #~ msgid ""
 #~ "Are you sure you want to disable all BLOB references for database %s?"
 #~ msgstr ""
-#~ "Haluatko varmasti poistaa käytöstä kaikki BLOB-viittaukset tietokannasta %"
-#~ "s?"
+#~ "Haluatko varmasti poistaa käytöstä kaikki BLOB-viittaukset tietokannasta "
+#~ "%s?"
 
 #, fuzzy
 #~ msgid "Unknown error while uploading."
