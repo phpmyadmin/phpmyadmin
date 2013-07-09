@@ -228,7 +228,6 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
     );
    
 } else {
-    $html_output='';
     // At least one row is returned -> displays a table with results
     // If we are retrieving the full value of a truncated field or the original
     // value of a transformed field, show it here and exit
@@ -248,27 +247,7 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
     $response = PMA_Response::getInstance();
     $header   = $response->getHeader();
     $scripts  = $header->getScripts();
-    
-    if (isset($_REQUEST['table_maintenance'])) {
-        $html_output .= PMA_sendResponseOrGetHtmlForTableMaintenance(
-            isset($disp_mode) ? $disp_mode : null, $db,
-            isset($message) ? $message : null,
-            isset($sql_data) ? $sql_data : null,
-            $displayResultsObject, $goto, $pmaThemeImage, $text_dir, $showtable,
-            $url_query, $sql_limit_to_append, $result, $unlim_num_rows, $num_rows,
-            $querytime, $analyzed_sql_results
-        );                
-    }
-
-    if (!isset($_REQUEST['printview']) || $_REQUEST['printview'] != '1') {
-        $scripts->addFile('makegrid.js');
-        $scripts->addFile('sql.js');
-        unset($message);         
-        //we don't need to buffer the output in getMessage here.
-        //set a global variable and check against it in the function
-        $GLOBALS['buffer_message'] = false;
-    }
-        
+                
     // hide edit and delete links:
     // - for information_schema
     // - if the result set does not contain all the columns of a unique key
@@ -293,7 +272,38 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
     if (!empty($table) && ($GLOBALS['dbi']->isSystemSchema($db) || !$editable)) {
         $disp_mode = 'nnnn110111';
     }
+    
         
+    if (isset($_REQUEST['table_maintenance'])) {
+        $scripts->addFile('makegrid.js');
+        $scripts->addFile('sql.js');
+        if (isset($message)) {
+            $message = PMA_Message::success($message);
+            $table_maintenance_html = PMA_Util::getMessage(
+                $message, $GLOBALS['sql_query'], 'success'
+            );
+        }
+        $table_maintenance_html .= PMA_getHtmlForSqlQueryResultsTable(
+            isset($sql_data) ? $sql_data : null, $displayResultsObject, $db, $goto,
+            $pmaThemeImage, $text_dir, $url_query, $disp_mode, $sql_limit_to_append,
+            false, $unlim_num_rows, $num_rows, $showtable, $result, $querytime,
+            $analyzed_sql_result, false
+        );
+        if (empty($sql_data) || ($sql_data['valid_queries'] = 1)) {
+           $response->addHTML($html_output);
+           exit();    
+        }
+    }
+
+    if (!isset($_REQUEST['printview']) || $_REQUEST['printview'] != '1') {
+        $scripts->addFile('makegrid.js');
+        $scripts->addFile('sql.js');
+        unset($message);         
+        //we don't need to buffer the output in getMessage here.
+        //set a global variable and check against it in the function
+        $GLOBALS['buffer_message'] = false;
+    }
+    
     $print_view_header_html = PMA_getHtmlForPrintViewHeader($db, $full_sql_query,
         $num_rows
     );
@@ -333,6 +343,8 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
     );
 
     $print_button_html = PMA_getHtmlForPrintButton();
+    
+    $html_output = $table_maintenance_html;
     
     $html_output .= isset($print_view_header_html) ? $print_view_header_html : '';
     
