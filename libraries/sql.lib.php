@@ -1795,4 +1795,40 @@ function PMA_sendResponseOrGetHtmlForTableMaintenance($disp_mode, $db, $message,
         exit();
     }
 }
+
+
+/**
+ * Function to get html for the sql query results div
+ * 
+ * @param string $previous_update_query_html html for the previously executed query
+ * @param string $profiling_chart_html       html for profiling
+ * @param object $missing_unique_column_msg  message for the missing unique column
+ * @param object $bookmark_created_msg       message for bookmark creation
+ * @param string $table_html                 html for the table for displaying sql
+ *                                           results
+ * @param string $index_problems_html        html for displaying errors in indexes
+ * @param string $print_button_html          html for the print button in printview
+ * 
+ * @return string $html_output
+ */
+function PMA_getHtmlForSqlQueryResults($previous_update_query_html,
+    $profiling_chart_html, $missing_unique_column_msg, $bookmark_created_msg,
+    $table_html, $index_problems_html, $print_button_html
+) {
+    //begin the sqlqueryresults div here. container div
+    $html_output = '<div id="sqlqueryresults" class="ajax">';
+    $html_output .= isset($previous_update_query_html)
+        ? $previous_update_query_html : '';
+    $html_output .= isset($profiling_chart_html) ? $profiling_chart_html : '';
+    $html_output .= isset($missing_unique_column_msg)
+        ? $missing_unique_column_msg->getDisplay() : '';
+    $html_output .= isset($bookmark_created_msg)
+        ? $bookmark_created_msg->getDisplay() : '';
+    $html_output .= $table_html;
+    $html_output .= isset($index_problems_html) ? $index_problems_html : '';
+    $html_output .= isset($print_button_html) ? $print_button_html : '';
+    $html_output .= '</div>'; // end sqlqueryresults div
+    
+    return $html_output;
+}
 ?>

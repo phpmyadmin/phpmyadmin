@@ -281,19 +281,29 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
         //set a global variable and check against it in the function
         $GLOBALS['buffer_message'] = false;
     }
-
+    
+    // Displays the results in a table
+    if (empty($disp_mode)) {
+        // see the "PMA_setDisplayMode()" function in
+        // libraries/DisplayResults.class.php
+        $disp_mode = 'urdr111101';
+    }
+    
     if (strlen($db)) {
         $cfgRelation = PMA_getRelationsParam();
     }
 
-    //begin the sqlqueryresults div here. container div
-    $html_output .= '<div id="sqlqueryresults"';
-    $html_output .= ' class="ajax"';
-    $html_output .= '>';
-
-    // Display previous update query (from tbl_replace)
+    $has_unique = PMA_resultSetContainsUniqueKey(
+        $db, $table, $fields_meta
+    );
+    
+    // previous update query (from tbl_replace)
     if (isset($disp_query) && ($cfg['ShowSQL'] == true) && empty($sql_data)) {
-        $html_output .= PMA_Util::getMessage($disp_message, $disp_query, 'success');
+        $previous_update_query_html = PMA_Util::getMessage(
+            $disp_message, $disp_query, 'success'
+        );
+    } else {
+        $previous_update_query_html = null;
     }
 
     if (isset($profiling_results)) {
@@ -301,22 +311,13 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
         $token = $_SESSION[' PMA_token '];
         $url = (isset($url_query) ? $url_query : PMA_generate_common_url($db));
 
-        $html_output .= PMA_getHtmlForProfilingChart(
+        $profiling_chart_html = PMA_getHtmlForProfilingChart(
             $url, $token, $profiling_results
         );
+    } else {
+        $profiling_chart_html = null;
     }
-
-    // Displays the results in a table
-    if (empty($disp_mode)) {
-        // see the "PMA_setDisplayMode()" function in
-        // libraries/DisplayResults.class.php
-        $disp_mode = 'urdr111101';
-    }
-
-    $has_unique = PMA_resultSetContainsUniqueKey(
-        $db, $table, $fields_meta
-    );
-
+    
     // hide edit and delete links:
     // - for information_schema
     // - if the result set does not contain all the columns of a unique key
@@ -325,31 +326,33 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
         = $justBrowsing
         && trim($analyzed_sql[0]['select_expr_clause']) == '*'
         && PMA_Table::isUpdatableView($db, $table);
-    $editable = $has_unique || $updatableView;
     
+    $editable = $has_unique || $updatableView;
+
     if (!empty($table) && ($GLOBALS['dbi']->isSystemSchema($db) || !$editable)) {
         $disp_mode = 'nnnn110111';
-        $msg = PMA_message::notice(
+        $missing_unique_column_msg = PMA_message::notice(
             __(
                 'Table %s does not contain a unique column.'
                 . ' Grid edit, checkbox, Edit, Copy and Delete features'
                 . ' are not available.'
             )
         );
-        $msg->addParam($table);
-        $html_output .= $msg->getDisplay();
+        $missing_unique_column_msg->addParam($table);
+    } else {
+        $missing_unique_column_msg = null;
     }
-
+    
     if (isset($_GET['label'])) {
-        $msg = PMA_message::success(__('Bookmark %s created'));
-        $msg->addParam($_GET['label']);
-        $html_output .= $msg->getDisplay();
+        $bookmark_created_msg = PMA_message::success(__('Bookmark %s created'));
+        $bookmark_created_msg->addParam($_GET['label']);
+    } else {
+        $bookmark_created_msg = null;
     }
 
     if (! empty($sql_data) && ($sql_data['valid_queries'] > 1) || $is_procedure) {
-
         $_SESSION['is_multi_query'] = true;
-        $html_output .= getTableHtmlForMultipleQueries(
+        $table_html = getTableHtmlForMultipleQueries(
             $displayResultsObject, $db, $sql_data, $goto,
             $pmaThemeImage, $text_dir, $printview, $url_query,
             $disp_mode, $sql_limit_to_append, $editable
@@ -363,35 +366,38 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
             $printview, $url_query, $editable
         );
 
-        $html_output .= $displayResultsObject->getTable(
+        $table_html = $displayResultsObject->getTable(
             $result, $disp_mode, $analyzed_sql
         );
         $GLOBALS['dbi']->freeResult($result);
     }
-
+    
     // BEGIN INDEX CHECK See if indexes should be checked.
     if (isset($query_type)
         && $query_type == 'check_tbl'
         && isset($selected)
         && is_array($selected)
     ) {
+        $index_problems_html = '';
         foreach ($selected as $idx => $tbl_name) {
             $check = PMA_Index::findDuplicates($tbl_name, $db);
             if (! empty($check)) {
-                $html_output .= sprintf(
+                $index_problems_html .= sprintf(
                     __('Problems with indexes of table `%s`'), $tbl_name
                 );
-                $html_output .= $check;
+                $index_problems_html .= $check;
             }
         }
-    } // End INDEX CHECK
-
+    } else {
+        $index_problems_html = null;
+    }
+    
     // Bookmark support if required
     if ($disp_mode[7] == '1'
         && (! empty($cfg['Bookmark']) && empty($_GET['id_bookmark']))
         && ! empty($sql_query)
     ) {
-        $html_output .= "\n";
+        $bookmark_support_html = "\n";
         $goto = 'sql.php?'
               . PMA_generate_common_url($db, $table)
               . '&amp;sql_query=' . urlencode($sql_query)
@@ -399,17 +405,26 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
         $bkm_sql_query = urlencode(
             isset($complete_query) ? $complete_query : $sql_query
         );
-        $html_output .= PMA_getHtmlForBookmark(
+        $bookmark_support_html .= PMA_getHtmlForBookmark(
             $db, $goto, $bkm_sql_query, $cfg['Bookmark']['user']
         );
-    } // end bookmark support
+    } else {
+        $bookmark_support_html = null;
+    }
 
     // Do print the page if required
     if (isset($_REQUEST['printview']) && $_REQUEST['printview'] == '1') {
-        $html_output .= PMA_Util::getButton();
-    } // end print case
-    $html_output .= '</div>'; // end sqlqueryresults div
+        $print_button_html = PMA_Util::getButton();
+    } else {
+        $print_button_html = null;
+    }
+    
+    $html_output .= PMA_getHtmlForSqlQueryResults($previous_update_query_html,
+        $profiling_chart_html, $missing_unique_column_msg, $bookmark_created_msg,
+        $table_html, $index_problems_html, $print_button_html
+    );
+    
     $response->addHTML($html_output);
+    
 } // end rows returned
-
 ?>
