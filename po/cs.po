@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-07-09 12:15+0200\n"
-"PO-Revision-Date: 2013-07-09 12:14+0200\n"
+"PO-Revision-Date: 2013-07-09 13:12+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Czech <http://l10n.cihar.com/projects/phpmyadmin/master/cs/>\n"
 "Language: cs\n"
@@ -3288,10 +3288,9 @@ msgid "Reset zoom"
 msgstr "Obnovit zvětšení"
 
 #: libraries/TableSearch.class.php:1273
-#, fuzzy
 #| msgid "Replace NULL with"
 msgid "Replace with:"
-msgstr "Nahradit NULL hodnoty"
+msgstr "Nahradit hodnotou:"
 
 #: libraries/TableSearch.class.php:1333
 msgid "Find and replace - preview"
