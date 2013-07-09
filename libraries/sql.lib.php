@@ -2013,4 +2013,21 @@ function PMA_getHtmlForPrintButton()
     
     return $print_button_html;
 }
+
+function PMA_getHtmlForPrintView($db, $full_sql_query, $num_rows)
+{
+    $response = PMA_Response::getInstance();
+    $header = $response->getHeader();
+    if (isset($_REQUEST['printview']) && $_REQUEST['printview'] == '1') {
+        PMA_Util::checkParameters(array('db', 'full_sql_query'));        
+        $header->enablePrintView();
+        $print_view_html = PMA_getHtmlForPrintViewHeader(
+           $db, $full_sql_query, $num_rows
+        );
+    }else{
+        $print_view_html = null;
+    }
+    
+    return $print_view_html;
+}
 ?>

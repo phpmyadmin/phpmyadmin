@@ -239,7 +239,6 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
     // Gets the list of fields properties
     if (isset($result) && $result) {
         $fields_meta = $GLOBALS['dbi']->getFieldsMeta($result);
-        $fields_cnt  = count($fields_meta);
     }
     
     // Should be initialized these parameters before parsing
@@ -260,19 +259,8 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
             $querytime, $analyzed_sql_results
         );                
     }
-
-    //Displays the headers
-    if (isset($show_query)) {
-        unset($show_query);
-    }
     
-    if (isset($_REQUEST['printview']) && $_REQUEST['printview'] == '1') {
-        PMA_Util::checkParameters(array('db', 'full_sql_query'));        
-        $header->enablePrintView();
-        $html_output .= PMA_getHtmlForPrintViewHeader(
-            $db, $full_sql_query, $num_rows
-        );
-    } else {
+    if (!isset($_REQUEST['printview']) || $_REQUEST['printview'] != '1') {
         $scripts->addFile('makegrid.js');
         $scripts->addFile('sql.js');
         unset($message);         
@@ -306,10 +294,9 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
     if (!empty($table) && ($GLOBALS['dbi']->isSystemSchema($db) || !$editable)) {
         $disp_mode = 'nnnn110111';
     }
-    
-    if (strlen($db)) {
-        $cfgRelation = PMA_getRelationsParam();
-    }
+        
+    $print_view_html = PMA_getHtmlForPrintView($db, $full_sql_query, $num_rows);
+    $html_output .= isset($print_view_html) ? $print_view_html : '';
     
     $previous_update_query_html = PMA_getHtmlForPreviousUpdateQuery(
         isset($disp_query) ? $disp_query : null,
