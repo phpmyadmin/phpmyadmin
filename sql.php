@@ -246,76 +246,36 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
     $showtable = isset($showtable) ? $showtable : null;
     $printview = isset($_REQUEST['printview']) ? $_REQUEST['printview'] : null;
     $url_query = isset($url_query) ? $url_query : null;
+    
+    $response = PMA_Response::getInstance();
+    $header   = $response->getHeader();
+    $scripts  = $header->getScripts();
         
     if (isset($_REQUEST['table_maintenance'])) {
-        $response = PMA_Response::getInstance();
-        $header   = $response->getHeader();
-        $scripts  = $header->getScripts();
-        $scripts->addFile('makegrid.js');
-        $scripts->addFile('sql.js');
-
-        if (empty($disp_mode)) {
-            // see the "PMA_setDisplayMode()" function in
-            // libraries/DisplayResults.class.php
-            $disp_mode = 'urdr111101';
-        }
-
-        // hide edit and delete links for information_schema
-        if ($GLOBALS['dbi']->isSystemSchema($db)) {
-            $disp_mode = 'nnnn110111';
-        }
-
-        if (isset($message)) {
-            $message = PMA_Message::success($message);
-            $html_output .= PMA_Util::getMessage(
-                $message, $GLOBALS['sql_query'], 'success'
-            );
-        }
-
-        if (!empty($sql_data) && ($sql_data['valid_queries'] > 1)) {
-
-            $_SESSION['is_multi_query'] = true;
-            $html_output .= getTableHtmlForMultipleQueries(
-                $displayResultsObject, $db, $sql_data, $goto,
-                $pmaThemeImage, $text_dir, $printview, $url_query,
-                $disp_mode, $sql_limit_to_append, false
-            );
-        } else {
-            $_SESSION['is_multi_query'] = false;
-            $displayResultsObject->setProperties(
-                $unlim_num_rows, $fields_meta, $is_count, $is_export, $is_func,
-                $is_analyse, $num_rows, $fields_cnt, $querytime, $pmaThemeImage,
-                $text_dir, $is_maint, $is_explain, $is_show, $showtable,
-                $printview, $url_query, false
-            );
-
-            $html_output .= $displayResultsObject->getTable(
-                $result, $disp_mode, $analyzed_sql
-            );
-            $response = PMA_Response::getInstance();
-            $response->addHTML($html_output);
-            exit();
-        }
+        $html_output .= PMA_sendResponseOrGetHtmlForTableMaintenance(
+            isset($disp_mode) ? $disp_mode : null, $db,
+            isset($message) ? $message : null,
+            isset($sql_data) ? $sql_data : null,
+            $displayResultsObject, $goto, $pmaThemeImage, $text_dir, $showtable,
+            $url_query, $sql_limit_to_append, $result, $unlim_num_rows, $num_rows,
+            $querytime, $analyzed_sql_results
+        );                
     }
 
     // Displays the headers
     if (isset($show_query)) {
         unset($show_query);
     }
+    
     if (isset($_REQUEST['printview']) && $_REQUEST['printview'] == '1') {
         PMA_Util::checkParameters(array('db', 'full_sql_query'));
-
-        $response = PMA_Response::getInstance();
-        $header = $response->getHeader();
+        
         $header->enablePrintView();
 
         $html_output .= PMA_getHtmlForPrintViewHeader(
             $db, $full_sql_query, $num_rows
         );
     } else {
-        $response = PMA_Response::getInstance();
-        $header = $response->getHeader();
-        $scripts = $header->getScripts();
         $scripts->addFile('makegrid.js');
         $scripts->addFile('sql.js');
 
@@ -383,6 +343,7 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
         && trim($analyzed_sql[0]['select_expr_clause']) == '*'
         && PMA_Table::isUpdatableView($db, $table);
     $editable = $has_unique || $updatableView;
+    
     if (!empty($table) && ($GLOBALS['dbi']->isSystemSchema($db) || !$editable)) {
         $disp_mode = 'nnnn110111';
         $msg = PMA_message::notice(
@@ -465,7 +426,6 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
         $html_output .= PMA_Util::getButton();
     } // end print case
     $html_output .= '</div>'; // end sqlqueryresults div
-    $response = PMA_Response::getInstance();
     $response->addHTML($html_output);
 } // end rows returned
 
