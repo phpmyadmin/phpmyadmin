@@ -230,13 +230,10 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
 } else {
     $html_output='';
     // At least one row is returned -> displays a table with results
-    //If we are retrieving the full value of a truncated field or the original
+    // If we are retrieving the full value of a truncated field or the original
     // value of a transformed field, show it here and exit
     if ($GLOBALS['grid_edit'] == true) {
-        $row = $GLOBALS['dbi']->fetchRow($result);
-        $response = PMA_Response::getInstance();
-        $response->addJSON('value', $row[0]);
-        exit;
+        PMA_sendResponseForGridEdit($result);
     }
 
     if (isset($_REQUEST['ajax_request']) && isset($_REQUEST['table_maintenance'])) {
@@ -482,12 +479,5 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
     $response = PMA_Response::getInstance();
     $response->addHTML($html_output);
 } // end rows returned
-
-$_SESSION['is_multi_query'] = false;
-
-
-if (! isset($_REQUEST['table_maintenance'])) {
-    exit;
-}
 
 ?>

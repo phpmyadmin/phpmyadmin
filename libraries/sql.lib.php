@@ -1650,4 +1650,19 @@ function PMA_sendResponseForNoResultsReturned($analyzed_sql_results, $db, $table
     }
     exit();
 }
+
+/**
+ * Function to send response for ajax grid edit
+ * 
+ * @param object $result result of the executed query
+ * 
+ * @return void
+ */
+function PMA_sendResponseForGridEdit($result)
+{
+    $row = $GLOBALS['dbi']->fetchRow($result);
+    $response = PMA_Response::getInstance();
+    $response->addJSON('value', $row[0]);
+    exit;
+}
 ?>
