@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.5-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-06-24 10:43+0200\n"
-"PO-Revision-Date: 2013-07-08 21:26+0200\n"
+"PO-Revision-Date: 2013-07-09 12:11+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Bengali <http://l10n.cihar.com/projects/phpmyadmin/4-0/bn/>\n"
 "Language: bn\n"
@@ -8918,8 +8918,8 @@ msgid ""
 "problems."
 msgstr ""
 "আপনি পিএইচপির বাতিলকৃত বা অনঅনুমোদিত 'mysql' সংযোজক ব্যবহার করছেন যা "
-"অনেকগুলো অনুসন্ধান ত্বত্তাবধান করতে সক্ষম নয়। <b> কিছু সঞ্চিত রুটিনের কাজ "
-"হয়ত ব্যার্থ হবে! </b>সমস্যা এড়াতে 'mysqli' সংযোজক ব্যবহার করুন।"
+"অনেকগুলো অনুসন্ধান ত্বত্তাবধান করতে সক্ষম নয়। [strong]কিছু সঞ্চিত রুটিনের "
+"কাজ হয়ত ব্যার্থ হবে![/strong] সমস্যা এড়াতে 'mysqli' সংযোজক ব্যবহার করুন।"
 
 #: libraries/rte/rte_routines.lib.php:281
 #: libraries/rte/rte_routines.lib.php:1118
@@ -10854,7 +10854,7 @@ msgid ""
 "b> process."
 msgstr ""
 "প্রতিলিপির জন্য এই মাইএসকিউএল সার্ভারটি <b>master</b> এবং "
-"<b>slave</b>'হিসাবে কাজ করছে। "
+"<b>slave</b>'হিসাবে কাজ করছে।"
 
 #: server_status.php:98
 msgid "This MySQL server works as <b>master</b> in <b>replication</b> process."
@@ -11900,6 +11900,7 @@ msgid "Cannot load or save configuration"
 msgstr "কনফিগারেশন লোড বা সংরক্ষন করতে পারছি না"
 
 #: setup/frames/index.inc.php:52
+#, fuzzy
 msgid ""
 "Please create web server writable folder [em]config[/em] in phpMyAdmin top "
 "level directory as described in [doc@setup_script]documentation[/doc]. "
@@ -12404,7 +12405,7 @@ msgstr "ইনডেক্সের নাম:"
 #: tbl_indexes.php:214
 msgid ""
 "(\"PRIMARY\" <b>must</b> be the name of and <b>only of</b> a primary key!)"
-msgstr "(\"PRIMARY\" <b>অবশ্যই</b> একটি একক প্রাথমিক কী'র নাম হতে হবে!) "
+msgstr "(\"PRIMARY\" <b>অবশ্যই</b> একটি একক প্রাথমিক কী'র নাম হতে হবে!)"
 
 #: tbl_indexes.php:234
 msgid "Comment:"
@@ -13470,7 +13471,7 @@ msgstr "মেমোরী থেকে ইনডেক্স পড়ার শ�
 #: libraries/advisory_rules.txt:321
 #, php-format
 msgid "The %% of indexes that use the MyISAM key buffer is low."
-msgstr " %% ইনডেক্সসমূহ যেগুলো MyISAM কী বাফার ব্যবহার করে।"
+msgstr "%% ইনডেক্সসমূহ যেগুলো MyISAM কী বাফার ব্যবহার করে।"
 
 #: libraries/advisory_rules.txt:322
 msgid "You may need to increase {key_buffer_size}."
@@ -13857,7 +13858,7 @@ msgstr ""
 "সার্ভারটি আরম্ভ করুন, তারপর error logs পরীক্ষাকরে দেখুন সব কিছু ঠিক আছে "
 "কিনা। এটিও <a href=\"http://mysqldatabaseadministration.blogspot.com/2007/01"
 "/increase-innodblogfilesize-proper-way.html\">this blog entry</a> দেখতে "
-"পারেন। "
+"পারেন।"
 
 #: libraries/advisory_rules.txt:448
 #, php-format
