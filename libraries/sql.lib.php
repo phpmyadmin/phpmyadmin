@@ -1806,14 +1806,14 @@ function PMA_sendResponseOrGetHtmlForTableMaintenance($disp_mode, $db, $message,
  * @param object $bookmark_created_msg       message for bookmark creation
  * @param string $table_html                 html for the table for displaying sql
  *                                           results
- * @param string $index_problems_html        html for displaying errors in indexes
+ * @param string $indexes_problems_html      html for displaying errors in indexes
  * @param string $print_button_html          html for the print button in printview
  * 
  * @return string $html_output
  */
 function PMA_getHtmlForSqlQueryResults($previous_update_query_html,
     $profiling_chart_html, $missing_unique_column_msg, $bookmark_created_msg,
-    $table_html, $index_problems_html, $print_button_html
+    $table_html, $indexes_problems_html, $print_button_html
 ) {
     //begin the sqlqueryresults div here. container div
     $html_output = '<div id="sqlqueryresults" class="ajax">';
@@ -1825,10 +1825,192 @@ function PMA_getHtmlForSqlQueryResults($previous_update_query_html,
     $html_output .= isset($bookmark_created_msg)
         ? $bookmark_created_msg->getDisplay() : '';
     $html_output .= $table_html;
-    $html_output .= isset($index_problems_html) ? $index_problems_html : '';
+    $html_output .= isset($indexes_problems_html) ? $index_problems_html : '';
     $html_output .= isset($print_button_html) ? $print_button_html : '';
     $html_output .= '</div>'; // end sqlqueryresults div
     
     return $html_output;
+}
+
+/**
+ * Returns a message for successful creation of a bookmark or null if a bookmark
+ * was not created
+ * 
+ * @return object $bookmark_created_msg
+ */
+function PMA_getBookmarkCreatedMessage()
+{
+    if (isset($_GET['label'])) {
+        $bookmark_created_msg = PMA_message::success(__('Bookmark %s created'));
+        $bookmark_created_msg->addParam($_GET['label']);
+    } else {
+        $bookmark_created_msg = null;
+    }
+    
+    return $bookmark_created_msg;
+}
+
+/**
+ * Function to get html for the sql query results table
+ * 
+ * @param array  $sql_data             sql data
+ * @param object $displayResultsObject instance of DisplayResult.class
+ * @param string $db                   current database
+ * @param string $goto                 goto page url
+ * @param string $pmaThemeImage        theme image uri
+ * @param string $text_dir             
+ * @param string $url_query            url query
+ * @param string $disp_mode            display mode
+ * @param string $sql_limit_to_append  sql limit to append
+ * @param bool   $editable             whether the result table is editable or not
+ * @param int    $unlim_num_rows       unlimited number of rows
+ * @param bool   $showtable           
+ * @param object $result               result of the executed query
+ * @param int    $querytime            query execution time
+ * @param array  $analyzed_sql_results analyzed sql results
+ * @param bool   $is_procedure
+ * 
+ * @return type
+ */
+function PMA_getHtmlForSqlQueryResultsTable($sql_data, $displayResultsObject, $db,
+    $goto, $pmaThemeImage, $text_dir, $url_query, $disp_mode, $sql_limit_to_append,
+    $editable, $unlim_num_rows, $num_rows, $showtable, $result, $querytime,
+    $analyzed_sql_results, $is_procedure
+) {
+    $printview = isset($_REQUEST['printview']) ? $_REQUEST['printview'] : null;
+    if (! empty($sql_data) && ($sql_data['valid_queries'] > 1) || $is_procedure) {
+        $_SESSION['is_multi_query'] = true;
+        $table_html = getTableHtmlForMultipleQueries(
+            $displayResultsObject, $db, $sql_data, $goto,
+            $pmaThemeImage, $text_dir, $printview, $url_query,
+            $disp_mode, $sql_limit_to_append, $editable
+        );
+    } else {
+        if (isset($result) && $result) {
+            $fields_meta = $GLOBALS['dbi']->getFieldsMeta($result);
+            $fields_cnt  = count($fields_meta);
+        }
+        $_SESSION['is_multi_query'] = false;
+        $displayResultsObject->setProperties(
+            $unlim_num_rows, $fields_meta, $analyzed_sql_results['is_count'],
+            $analyzed_sql_results['is_export'], $analyzed_sql_results['is_func'],
+            $analyzed_sql_results['is_analyse'], $num_rows,
+            $fields_cnt, $querytime, $pmaThemeImage, $text_dir,
+            $analyzed_sql_results['is_maint'], $analyzed_sql_results['is_explain'],
+            $analyzed_sql_results['is_show'], $showtable,$printview, $url_query,
+            $editable
+        );
+
+        $table_html = $displayResultsObject->getTable(
+            $result, $disp_mode, $analyzed_sql_results['analyzed_sql']
+        );
+        $GLOBALS['dbi']->freeResult($result);
+    }
+    
+    return $table_html;
+}
+
+/**
+ * Function to get html for the previous query if there is such. If not will return
+ * null
+ * 
+ * @param type $disp_query
+ * @param type $showSql
+ * @param type $sql_data
+ * @param type $disp_message
+ * 
+ * @return string $previous_update_query_html
+ */
+function PMA_getHtmlForPreviousUpdateQuery($disp_query, $showSql, $sql_data,
+    $disp_message
+) {
+    // previous update query (from tbl_replace)
+    if (isset($disp_query) && ($showSql == true) && empty($sql_data)) {
+        $previous_update_query_html = PMA_Util::getMessage(
+            $disp_message, $disp_query, 'success'
+        );
+    } else {
+        $previous_update_query_html = null;
+    }
+    
+    return $previous_update_query_html;
+}
+
+/**
+ * To get the message if a column index is missing. If not will return null
+ * 
+ * @param string  $table     current table
+ * @param string  $db        current database
+ * @param boolean $editable  whether the results table can be editable or not
+ * @param string  $disp_mode display mode
+ * 
+ * @return object $message
+ */
+function PMA_getMessageIfMissingColumnIndex($table, $db, $editable, $disp_mode)
+{
+    if (!empty($table) && ($GLOBALS['dbi']->isSystemSchema($db) || !$editable)) {
+        $missing_unique_column_msg = PMA_message::notice(
+            __(
+                'Table %s does not contain a unique column.'
+                . ' Grid edit, checkbox, Edit, Copy and Delete features'
+                . ' are not available.'
+            )
+        );
+        $missing_unique_column_msg->addParam($table);
+    } else {
+        $missing_unique_column_msg = null;
+    }
+    
+    return $missing_unique_column_msg;
+}
+
+/**
+ * Function to get html to display problems in indexes
+ * 
+ * @param string  $query_type query type
+ * @param boolean $selected   
+ * 
+ * @return void
+ */
+function PMA_getHtmlForIndexesProblems($query_type, $selected)
+{
+    // BEGIN INDEX CHECK See if indexes should be checked.
+    if (isset($query_type)
+        && $query_type == 'check_tbl'
+        && isset($selected)
+        && is_array($selected)
+    ) {
+        $indexes_problems_html = '';
+        foreach ($selected as $idx => $tbl_name) {
+            $check = PMA_Index::findDuplicates($tbl_name, $db);
+            if (! empty($check)) {
+                $indexes_problems_html .= sprintf(
+                    __('Problems with indexes of table `%s`'), $tbl_name
+                );
+                $indexes_problems_html .= $check;
+            }
+        }
+    } else {
+        $indexes_problems_html = null;
+    }
+    
+    return $indexes_problems_html;
+}
+
+/**
+ * Function to get the html for the print button in printview
+ * 
+ * @return string $print_button_html html for the print button
+ */
+function PMA_getHtmlForPrintButton()
+{
+    // Do print the page if required
+    if (isset($_REQUEST['printview']) && $_REQUEST['printview'] == '1') {
+        $print_button_html = PMA_Util::getButton();
+    } else {
+        $print_button_html = null;
+    }
+    
+    return $print_button_html;
 }
 ?>

@@ -244,7 +244,6 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
     
     // Should be initialized these parameters before parsing
     $showtable = isset($showtable) ? $showtable : null;
-    $printview = isset($_REQUEST['printview']) ? $_REQUEST['printview'] : null;
     $url_query = isset($url_query) ? $url_query : null;
     
     $response = PMA_Response::getInstance();
@@ -262,7 +261,7 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
         );                
     }
 
-    // Displays the headers
+    //Displays the headers
     if (isset($show_query)) {
         unset($show_query);
     }
@@ -282,6 +281,21 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
         $GLOBALS['buffer_message'] = false;
     }
     
+    // hide edit and delete links:
+    // - for information_schema
+    // - if the result set does not contain all the columns of a unique key
+    //   and we are not just browing all the columns of an updatable view
+    $updatableView
+        = $justBrowsing
+        && trim($analyzed_sql[0]['select_expr_clause']) == '*'
+        && PMA_Table::isUpdatableView($db, $table);
+        
+    $has_unique = PMA_resultSetContainsUniqueKey(
+        $db, $table, $fields_meta
+    );
+    
+    $editable = $has_unique || $updatableView;
+    
     // Displays the results in a table
     if (empty($disp_mode)) {
         // see the "PMA_setDisplayMode()" function in
@@ -289,22 +303,19 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
         $disp_mode = 'urdr111101';
     }
     
+    if (!empty($table) && ($GLOBALS['dbi']->isSystemSchema($db) || !$editable)) {
+        $disp_mode = 'nnnn110111';
+    }
+    
     if (strlen($db)) {
         $cfgRelation = PMA_getRelationsParam();
     }
-
-    $has_unique = PMA_resultSetContainsUniqueKey(
-        $db, $table, $fields_meta
-    );
     
-    // previous update query (from tbl_replace)
-    if (isset($disp_query) && ($cfg['ShowSQL'] == true) && empty($sql_data)) {
-        $previous_update_query_html = PMA_Util::getMessage(
-            $disp_message, $disp_query, 'success'
-        );
-    } else {
-        $previous_update_query_html = null;
-    }
+    $previous_update_query_html = PMA_getHtmlForPreviousUpdateQuery(
+        isset($disp_query) ? $disp_query : null,
+        $cfg['ShowSQL'], isset($sql_data) ? $sql_data : null,
+        isset($disp_message) ? $disp_message : null
+    );
 
     if (isset($profiling_results)) {
         // pma_token/url_query needed for chart export
@@ -318,79 +329,24 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
         $profiling_chart_html = null;
     }
     
-    // hide edit and delete links:
-    // - for information_schema
-    // - if the result set does not contain all the columns of a unique key
-    //   and we are not just browing all the columns of an updatable view
-    $updatableView
-        = $justBrowsing
-        && trim($analyzed_sql[0]['select_expr_clause']) == '*'
-        && PMA_Table::isUpdatableView($db, $table);
+    $missing_unique_column_msg = PMA_getMessageIfMissingColumnIndex($table, $db,
+       $editable, $disp_mode
+    );
     
-    $editable = $has_unique || $updatableView;
+    $bookmark_created_msg = PMA_getBookmarkCreatedMessage();
 
-    if (!empty($table) && ($GLOBALS['dbi']->isSystemSchema($db) || !$editable)) {
-        $disp_mode = 'nnnn110111';
-        $missing_unique_column_msg = PMA_message::notice(
-            __(
-                'Table %s does not contain a unique column.'
-                . ' Grid edit, checkbox, Edit, Copy and Delete features'
-                . ' are not available.'
-            )
-        );
-        $missing_unique_column_msg->addParam($table);
-    } else {
-        $missing_unique_column_msg = null;
-    }
+    $table_html = PMA_getHtmlForSqlQueryResultsTable(
+        isset($sql_data) ? $sql_data : null, $displayResultsObject, $db, $goto,
+        $pmaThemeImage, $text_dir, $url_query, $disp_mode, $sql_limit_to_append,
+        $editable, $unlim_num_rows, $num_rows, $showtable, $result, $querytime,
+        $analyzed_sql_results, $is_procedure
+    );
     
-    if (isset($_GET['label'])) {
-        $bookmark_created_msg = PMA_message::success(__('Bookmark %s created'));
-        $bookmark_created_msg->addParam($_GET['label']);
-    } else {
-        $bookmark_created_msg = null;
-    }
-
-    if (! empty($sql_data) && ($sql_data['valid_queries'] > 1) || $is_procedure) {
-        $_SESSION['is_multi_query'] = true;
-        $table_html = getTableHtmlForMultipleQueries(
-            $displayResultsObject, $db, $sql_data, $goto,
-            $pmaThemeImage, $text_dir, $printview, $url_query,
-            $disp_mode, $sql_limit_to_append, $editable
-        );
-    } else {
-        $_SESSION['is_multi_query'] = false;
-        $displayResultsObject->setProperties(
-            $unlim_num_rows, $fields_meta, $is_count, $is_export, $is_func,
-            $is_analyse, $num_rows, $fields_cnt, $querytime, $pmaThemeImage,
-            $text_dir, $is_maint, $is_explain, $is_show, $showtable,
-            $printview, $url_query, $editable
-        );
-
-        $table_html = $displayResultsObject->getTable(
-            $result, $disp_mode, $analyzed_sql
-        );
-        $GLOBALS['dbi']->freeResult($result);
-    }
     
-    // BEGIN INDEX CHECK See if indexes should be checked.
-    if (isset($query_type)
-        && $query_type == 'check_tbl'
-        && isset($selected)
-        && is_array($selected)
-    ) {
-        $index_problems_html = '';
-        foreach ($selected as $idx => $tbl_name) {
-            $check = PMA_Index::findDuplicates($tbl_name, $db);
-            if (! empty($check)) {
-                $index_problems_html .= sprintf(
-                    __('Problems with indexes of table `%s`'), $tbl_name
-                );
-                $index_problems_html .= $check;
-            }
-        }
-    } else {
-        $index_problems_html = null;
-    }
+    $indexes_problems_html = PMA_getHtmlForIndexesProblems(
+        isset($query_type) ? $query_type : null,
+        isset($selected) ? $selected : null
+    );
     
     // Bookmark support if required
     if ($disp_mode[7] == '1'
@@ -412,16 +368,11 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
         $bookmark_support_html = null;
     }
 
-    // Do print the page if required
-    if (isset($_REQUEST['printview']) && $_REQUEST['printview'] == '1') {
-        $print_button_html = PMA_Util::getButton();
-    } else {
-        $print_button_html = null;
-    }
+    $print_button_html = PMA_getHtmlForPrintButton();
     
     $html_output .= PMA_getHtmlForSqlQueryResults($previous_update_query_html,
         $profiling_chart_html, $missing_unique_column_msg, $bookmark_created_msg,
-        $table_html, $index_problems_html, $print_button_html
+        $table_html, $indexes_problems_html, $print_button_html
     );
     
     $response->addHTML($html_output);
