@@ -290,7 +290,7 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
             $analyzed_sql_result, false
         );
         if (empty($sql_data) || ($sql_data['valid_queries'] = 1)) {
-           $response->addHTML($html_output);
+           $response->addHTML($table_maintenance_html);
            exit();    
         }
     }
@@ -330,8 +330,7 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
         $editable, $unlim_num_rows, $num_rows, $showtable, $result, $querytime,
         $analyzed_sql_results, $is_procedure
     );
-    
-    
+        
     $indexes_problems_html = PMA_getHtmlForIndexesProblems(
         isset($query_type) ? $query_type : null,
         isset($selected) ? $selected : null
@@ -354,7 +353,6 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
         $print_button_html
     );
     
-    $response->addHTML($html_output);
-    
+    $response->addHTML($html_output);    
 } // end rows returned
 ?>
