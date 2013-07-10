@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.5-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-06-24 10:43+0200\n"
-"PO-Revision-Date: 2013-07-09 12:11+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"PO-Revision-Date: 2013-07-10 15:19+0200\n"
+"Last-Translator: Syed Mahbub ul Alam <syedmahbubulalam@gmail.com>\n"
 "Language-Team: Bengali <http://l10n.cihar.com/projects/phpmyadmin/4-0/bn/>\n"
 "Language: bn\n"
 "MIME-Version: 1.0\n"
@@ -3239,13 +3239,13 @@ msgstr ""
 "['MaxTableUiprefs'] %s দেখুন)"
 
 #: libraries/Table.class.php:1603
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "Cannot save UI property \"%s\". The changes made will not be persistent "
 "after you refresh this page. Please check if the table structure has been "
 "changed."
 msgstr ""
-"UI পছন্দের তথ্য সংরক্ষন করা যায়নি। পরিবর্তন গুলো এই পাতাটি রিফ্রেশ করলে "
+"UI পছন্দের তথ্য \"%s\" সংরক্ষন করা যায়নি। পরিবর্তন গুলো এই পাতাটি রিফ্রেশ করলে "
 "থাকবে না। টেবলের গঠন পরিবর্তীত হয়েছে কিনা পরীক্ষা করে দেখুন।"
 
 #: libraries/TableSearch.class.php:179 libraries/insert_edit.lib.php:209
@@ -3937,12 +3937,12 @@ msgstr "সংখ্যা কী সনাক্ত করা গেছে"
 #: libraries/config.values.php:49 libraries/config.values.php:64
 #: libraries/config.values.php:69
 msgid "Icons"
-msgstr ""
+msgstr "্আইকন"
 
 #: libraries/config.values.php:50 libraries/config.values.php:65
 #: libraries/config.values.php:70
 msgid "Text"
-msgstr ""
+msgstr "টেক্সট"
 
 #: libraries/config.values.php:51 libraries/config.values.php:58
 #: libraries/config.values.php:66 libraries/config.values.php:71
