@@ -207,6 +207,8 @@ class PMA_Export_Relation_Schema
         if (! $tab_rs || ! $GLOBALS['dbi']->numRows($tab_rs) > 0) {
             $this->dieSchema('', __('This page does not contain any tables!'));
         }
+        //Fix undefined error
+        $alltables = array();
         while ($curr_table = @$GLOBALS['dbi']->fetchAssoc($tab_rs)) {
             $alltables[] = PMA_Util::sqlAddSlashes($curr_table['table_name']);
         }

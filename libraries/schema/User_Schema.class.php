@@ -645,7 +645,8 @@ class PMA_User_Schema
 
         include "libraries/schema/" . ucfirst($export_type)
             . "_Relation_Schema.class.php";
-        eval("new PMA_" . ucfirst($export_type) . "_Relation_Schema();");
+        $obj_schema = eval("new PMA_" . ucfirst($export_type) . "_Relation_Schema();");
+        $obj_schema->showOutput();
     }
 
     /**
