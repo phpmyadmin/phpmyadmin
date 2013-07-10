@@ -265,7 +265,7 @@ class PMA_Tracker
             'libraries/plugins/export/',
             array(
                 'export_type' => $export_type,
-                'single_table' => isset($single_table)
+                'single_table' => false,
             )
         );
 
