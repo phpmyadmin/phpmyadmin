@@ -1292,7 +1292,8 @@ function PMA_cleanupRelations($db, $table, $dropped_column, $purge, $extra_data)
  *
  * @return int $unlim_num_rows unlimited number of rows
  */
-function PMA_countQueryResults($num_rows, $is_select, $justBrowsing,
+function PMA_countQueryResults(
+    $num_rows, $is_select, $justBrowsing,
     $db, $table, $parsed_sql, $analyzed_sql_results
 ) {
     if (!PMA_isAppendLimitClause($analyzed_sql_results)) {
