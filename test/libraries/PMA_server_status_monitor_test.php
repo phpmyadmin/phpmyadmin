@@ -95,14 +95,36 @@ class PMA_ServerStatusMonitor_Test extends PHPUnit_Framework_TestCase
             "big_tables" => "OFF",
         );
         
-        $dbi->expects($this->at(0))->method('fetchResult')
-            ->with('SHOW GLOBAL STATUS', 0, 1)
-            ->will($this->returnValue($server_status));
+        $fetchResult = array(
+            array(
+                "SHOW GLOBAL STATUS",
+                0,
+                1,
+                null,
+                0,
+                $server_status
+            ),
+            array(
+                "SHOW GLOBAL VARIABLES",
+                0,
+                1,
+                null,
+                0,
+                $server_variables
+            ),
+            array(
+                "SELECT concat('Com_', variable_name), variable_value " 
+                    . "FROM data_dictionary.GLOBAL_STATEMENTS",
+                0,
+                1,
+                null,
+                0,
+                $server_status
+            ),
+        );
         
-        $server_variables = array();
-        $dbi->expects($this->at(1))->method('fetchResult')
-            ->with('SHOW GLOBAL VARIABLES', 0, 1)
-            ->will($this->returnValue($server_variables));
+        $dbi->expects($this->any())->method('fetchResult')
+            ->will($this->returnValueMap($fetchResult));
          
         $GLOBALS['dbi'] = $dbi;
         
@@ -157,13 +179,9 @@ class PMA_ServerStatusMonitor_Test extends PHPUnit_Framework_TestCase
         $this->assertContains(
             __('Monitor Instructions'),
             $html
-        ); 
+        );
         $this->assertContains(
-            'Instructions/Setup',
-            $html
-        ); 
-        $this->assertContains(
-            'Settings</a><a href="#monitorInstructionsDialog">',
+            'monitorInstructionsDialog',
             $html
         );        	
         //validate 4: PMA_getHtmlForAddChartDialog
