@@ -860,13 +860,20 @@ class PMA_Svg_Relation_Schema extends PMA_Export_Relation_Schema
 
         $this->_drawTables($this->showColor);
         $svg->endSvgDoc();
-
-        //IF in UT, we can't output and exit
-        if (!defined('TESTSUITE')) {
-            $svg->showOutput($db.'-'.$this->pageNumber);
-            exit();
-        }
     }
+
+    /**
+     * Output Svg Document for download
+     *
+     * @return void
+     * @access public
+     */
+    function showOutput()
+    {
+        global $svg,$db;
+        $svg->showOutput($db.'-'.$this->pageNumber);
+    }
+    
 
     /**
      * Sets X and Y minimum and maximum for a table cell

@@ -967,14 +967,19 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
             $this->_drawRelations($this->showColor);
         }
         $this->_drawTables($this->showColor);
-
-        //IF in UT, we can't output and exit
-        if (!defined('TESTSUITE')) {
-            $this->_showOutput($this->pageNumber);
-            exit();
-        }
     }
 
+    /**
+     * Output Pdf Document for download
+     *
+     * @return void
+     * @access public
+     */
+    function showOutput()
+    {
+        $this->_showOutput($this->pageNumber);
+    }
+    
     /**
      * Sets X and Y minimum and maximum for a table cell
      *
