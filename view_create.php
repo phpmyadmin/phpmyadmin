@@ -27,20 +27,23 @@ $view_algorithm_options = array(
 );
 
 $view_with_options = array(
-    'CASCADED CHECK OPTION',
-    'LOCAL CHECK OPTION'
+    'CASCADED',
+    'LOCAL'
 );
 
-if (isset($_REQUEST['createview'])) {
+if (isset($_REQUEST['createview']) || isset($_REQUEST['alterview'])) {
     /**
      * Creates the view
      */
     $sep = "\r\n";
 
-    $sql_query = 'CREATE';
-
-    if (isset($_REQUEST['view']['or_replace'])) {
-        $sql_query .= ' OR REPLACE';
+    if (isset($_REQUEST['createview'])) {
+        $sql_query = 'CREATE';
+        if (isset($_REQUEST['view']['or_replace'])) {
+            $sql_query .= ' OR REPLACE';
+        }
+    } else {
+        $sql_query = 'ALTER';
     }
 
     if (PMA_isValid($_REQUEST['view']['algorithm'], $view_algorithm_options)) {
@@ -90,7 +93,7 @@ if (isset($_REQUEST['createview'])) {
         }
         unset($pma_tranformation_data);
 
-        if ($GLOBALS['is_ajax_request'] != true) {
+        if (! isset($_REQUEST['ajax_dialog'])) {
             $message = PMA_Message::success();
             include './' . $cfg['DefaultTabDatabase'];
         } else {
@@ -106,7 +109,7 @@ if (isset($_REQUEST['createview'])) {
         exit;
 
     } else {
-        if ($GLOBALS['is_ajax_request'] != true) {
+        if (! isset($_REQUEST['ajax_dialog'])) {
             $message = PMA_Message::rawError($GLOBALS['dbi']->getError());
         } else {
             $response = PMA_Response::getInstance();
@@ -125,12 +128,13 @@ if (isset($_REQUEST['createview'])) {
 
 // prefill values if not already filled from former submission
 $view = array(
+    'operation' => 'create',
     'or_replace' => '',
     'algorithm' => '',
     'name' => '',
     'column_names' => '',
     'as' => $sql_query,
-    'with' => array(),
+    'with' => '',
 );
 
 if (PMA_isValid($_REQUEST['view'], 'array')) {
@@ -148,17 +152,23 @@ $htmlString = '<!-- CREATE VIEW options -->'
     . '<form method="post" action="view_create.php">'
     . PMA_generate_common_hidden_inputs($url_params)
     . '<fieldset>'
-    . '<legend>' . __('Details') . '</legend>'
-    . '<table class="rte_table">'
-    . '<tr><td><label for="or_replace">OR REPLACE</label></td>'
-    . '<td><input type="checkbox" name="view[or_replace]" id="or_replace"';
-if ($view['or_replace']) {
-    $htmlString .= ' checked="checked"';
+    . '<legend>'
+    . (isset($_REQUEST['ajax_dialog']) ? __('Details') : ($view['operation'] == 'create' ? __('Create view') : __('Edit view')))
+    . '</legend>'
+    . '<table class="rte_table">';
+
+if ($view['operation'] == 'create') {
+    $htmlString .= '<tr>'
+        . '<td><label for="or_replace">OR REPLACE</label></td>'
+        . '<td><input type="checkbox" name="view[or_replace]" id="or_replace"';
+    if ($view['or_replace']) {
+        $htmlString .= ' checked="checked"';
+    }
+    $htmlString .= ' value="1" /></td>'
+        . '</tr>';
 }
-$htmlString .= ' value="1" />'
-    . '</td>'
-    . '</tr>'
-    . '<tr>'
+
+$htmlString .= '<tr>'
     . '<td><label for="algorithm">ALGORITHM</label></td>'
     . '<td><select name="view[algorithm]" id="algorithm">';
 
@@ -197,14 +207,14 @@ if ($GLOBALS['cfg']['TextareaAutoSelect'] || true) {
 $htmlString .= '>' . htmlspecialchars($view['as']) . '</textarea>'
     . '</td>'
     . '</tr>'
-    . '<tr><td>WITH</td>'
+    . '<tr><td>WITH CHECK OPTION</td>'
     . '<td>';
 
 $htmlString .= '<select name="view[with]">'
     . '<option value=""></option>';
 foreach ($view_with_options as $option) {
     $htmlString .= '<option value="' . htmlspecialchars($option) . '"';
-    if (in_array($option, $view['with'])) {
+    if ($option == $view['with']) {
         $htmlString .= ' selected="selected"';
     }
     $htmlString .= '>' . htmlspecialchars($option) . '</option>';
@@ -216,13 +226,17 @@ $htmlString .= '</td>'
     . '</table>'
     . '</fieldset>';
 
-if ($GLOBALS['is_ajax_request'] != true) {
+if (! isset($_REQUEST['ajax_dialog'])) {
     $htmlString .= '<fieldset class="tblFooters">'
-        . '<input type="submit" name="createview" value="' . __('Go') . '" />'
+        . '<input type="submit" name="'
+        . ($view['operation'] == 'create' ? 'createview' : 'alterview' )
+        . '" value="' . __('Go') . '" />'
         . '</fieldset>';
 } else {
-    $htmlString .= '<input type="hidden" name="createview" value="1" />'
-        . '<input type="hidden" name="ajax_request" value="1" />';
+    $htmlString .= '<input type="hidden" name="'
+        . ($view['operation'] == 'create' ? 'createview' : 'alterview' )
+        . '" value="1" />'
+        . '<input type="hidden" name="ajax_dialog" value="1" />';
 }
 
 $htmlString .= '</form>'
