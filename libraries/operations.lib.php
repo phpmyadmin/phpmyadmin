@@ -1156,7 +1156,7 @@ function PMA_getListofMaintainActionLink($is_myisam_or_aria,
                 'Table_types'
             );
         }
-        if ($is_myisam_or_aria || $is_berkeleydb) {
+        if ($is_innodb || $is_myisam_or_aria || $is_berkeleydb) {
             $params = array(
                 'sql_query' => 'ANALYZE TABLE '
                     . PMA_Util::backquote($GLOBALS['table']),
