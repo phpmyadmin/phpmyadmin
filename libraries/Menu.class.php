@@ -144,7 +144,7 @@ class PMA_Menu
             $GLOBALS['cfg']['TabsMode'],
             array('icons', 'both')
             )
-        ) { 
+        ) {
             $retval .= PMA_Util::getImage(
                 's_host.png',
                 '',
@@ -165,7 +165,7 @@ class PMA_Menu
                 $GLOBALS['cfg']['TabsMode'],
                 array('icons', 'both')
                 )
-            ) { 
+            ) {
                 $retval .= PMA_Util::getImage(
                     's_db.png',
                     '',
@@ -191,7 +191,7 @@ class PMA_Menu
                     $GLOBALS['cfg']['TabsMode'],
                     array('icons', 'both')
                     )
-                ) { 
+                ) {
                     $icon = $tbl_is_view ? 'b_views.png' : 's_tbl.png';
                     $retval .= PMA_Util::getImage(
                         $icon,
@@ -259,7 +259,6 @@ class PMA_Menu
     {
         $db_is_information_schema = $GLOBALS['dbi']->isSystemSchema($this->_db);
         $tbl_is_view = PMA_Table::isView($this->_db, $this->_table);
-        $table_info_num_rows = PMA_Table::countRecords($this->_db, $this->_table);
 
         $tabs = array();
 
@@ -358,7 +357,6 @@ class PMA_Menu
         $tabs['structure']['icon'] = 'b_props.png';
 
         $tabs['sql']['link'] = 'db_sql.php';
-        $tabs['sql']['args']['db_query_force'] = 1;
         $tabs['sql']['text'] = __('SQL');
         $tabs['sql']['icon'] = 'b_sql.png';
 
@@ -447,7 +445,7 @@ class PMA_Menu
         $is_superuser = isset($GLOBALS['dbi']) && $GLOBALS['dbi']->isSuperuser();
         $binary_logs = null;
         if (isset($GLOBALS['dbi'])
-            && (! defined('PMA_DRIZZLE') 
+            && (! defined('PMA_DRIZZLE')
                 || (defined('PMA_DRIZZLE') && ! PMA_DRIZZLE)
             )
         ) {

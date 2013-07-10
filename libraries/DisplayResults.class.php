@@ -379,7 +379,7 @@ class PMA_DisplayResults
                  * 2.2.1
                  * @todo defines edit/delete links depending on show statement
                  */
-                $tmp = preg_match(
+                preg_match(
                     '@^SHOW[[:space:]]+(VARIABLES|(FULL[[:space:]]+)?'
                     . 'PROCESSLIST|STATUS|TABLE|GRANTS|CREATE|LOGS|DATABASES|FIELDS'
                     . ')@i',
@@ -1484,17 +1484,10 @@ class PMA_DisplayResults
         $highlight_columns = array();
         if (isset($analyzed_sql) && isset($analyzed_sql[0])
             && isset($analyzed_sql[0]['where_clause_identifiers'])
+            && is_array($analyzed_sql[0]['where_clause_identifiers'])
         ) {
-
-            $wi = 0;
-            if (isset($analyzed_sql[0]['where_clause_identifiers'])
-                && is_array($analyzed_sql[0]['where_clause_identifiers'])
-            ) {
-                foreach ($analyzed_sql[0]['where_clause_identifiers']
-                    as $wci_nr => $wci
-                ) {
-                    $highlight_columns[$wci] = 'true';
-                }
+            foreach ($analyzed_sql[0]['where_clause_identifiers'] as $wci) {
+                $highlight_columns[$wci] = 'true';
             }
         }
 
@@ -4592,11 +4585,7 @@ class PMA_DisplayResults
 
         }
 
-        $tabs = '(\'' . join('\',\'', $target) . '\')';
-
-        if (! strlen($this->__get('table'))) {
-            $exist_rel = false;
-        } else {
+        if (strlen($this->__get('table'))) {
             // This method set the values for $map array
             $this->_setParamForLinkForeignKeyRelatedTables($map);
         } // end if
@@ -4609,7 +4598,6 @@ class PMA_DisplayResults
         )
         . '<tbody>' . "\n";
 
-        $url_query = '';
         $table_html .= $this->_getTableBody(
             $dt_result, $is_display, $map, $analyzed_sql, $is_limited_display
         );
@@ -5035,13 +5023,6 @@ class PMA_DisplayResults
         $links_html = '';
         $url_query = $this->__get('url_query');
         $delete_text = ($del_link == self::DELETE_ROW) ? __('Delete') : __('Kill');
-
-        $_url_params = array(
-            'db'        => $this->__get('db'),
-            'table'     => $this->__get('table'),
-            'sql_query' => $this->__get('sql_query'),
-            'goto'      => $this->__get('goto'),
-        );
 
         if ($_SESSION['tmp_user_values']['disp_direction'] != self::DISP_DIR_VERTICAL) {
 

@@ -463,7 +463,6 @@ function PMA_pluginGetOneOption(
 function PMA_pluginGetOptions($section, &$list)
 {
     $ret = '';
-    $default = PMA_pluginGetDefault('Export', 'format');
     // Options for plugins that support them
     foreach ($list as $plugin) {
         $properties = $plugin->getProperties();

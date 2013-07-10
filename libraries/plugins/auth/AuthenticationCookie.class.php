@@ -128,8 +128,6 @@ class AuthenticationCookie extends AuthenticationPlugin
             $autocomplete   = ' autocomplete="off"';
         }
 
-        $cell_align = ($GLOBALS['text_dir'] == 'ltr') ? 'left' : 'right';
-
         $response->getFooter()->setMinimal();
         $header = $response->getHeader();
         $header->setBodyId('loginform');

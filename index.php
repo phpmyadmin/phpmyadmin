@@ -534,11 +534,10 @@ if (isset($GLOBALS['dbi']) && !PMA_DRIZZLE) {
 }
 
 /**
- * Warning about Suhosin
+ * Warning about Suhosin only if its simulation mode is not enabled
  */
 if ($cfg['SuhosinDisableWarning'] == false
     && @ini_get('suhosin.request.max_value_length')
-    // warn about Suhosin only if its simulation mode is not enabled
     && @ini_get('suhosin.simulation') == '0'
 ) {
     trigger_error(

@@ -12,7 +12,7 @@ if (! defined('PHPMYADMIN')) {
 /**
  * Returns language name
  *
- * @param string $tmplang
+ * @param string $tmplang Language code
  *
  * @return string
  */
@@ -119,7 +119,10 @@ function PMA_langSet(&$lang)
     /* Partial backward compatibility with 3.3 and older branches */
     $lang = str_replace('-utf-8', '', $lang);
 
-    if (!is_string($lang) || empty($lang) || empty($GLOBALS['available_languages'][$lang])) {
+    if (!is_string($lang)
+        || empty($lang)
+        || empty($GLOBALS['available_languages'][$lang])
+    ) {
         return false;
     }
     $GLOBALS['lang'] = $lang;
@@ -343,8 +346,8 @@ function PMA_langDetails($lang)
         // only TW and HK use traditional Chinese while others (CN, SG, MY)
         // use simplified Chinese
         return array(
-            'zh(?![-_](tw|hk))([-_][[:alpha:]]{2,3})?|chinese simplified', 
-            'zh', 
+            'zh(?![-_](tw|hk))([-_][[:alpha:]]{2,3})?|chinese simplified',
+            'zh',
             '&#20013;&#25991;'
         );
     }
@@ -389,7 +392,8 @@ function PMA_langList()
 }
 
 /**
- * @global string  path to the translations directory; may be absent if the kit is English-only
+ * @global string  path to the translations directory;
+ *                 may be absent if the kit is English-only
  */
 $GLOBALS['lang_path'] = './locale/';
 
@@ -483,7 +487,10 @@ if (! PMA_langCheck()) {
         );
         // stop execution
         // and tell the user that his chosen language is invalid
-        PMA_fatalError('Could not load any language, please check your language settings and folder.');
+        PMA_fatalError(
+            'Could not load any language, '
+            . 'please check your language settings and folder.'
+        );
     }
 }
 
