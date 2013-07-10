@@ -1440,7 +1440,7 @@ function PMA_executeTheQuery($analyzed_sql_results, $full_sql_query, $is_gotofil
         }
 
         $justBrowsing = PMA_isJustBrowsing(
-            $analyzed_sql_results,isset($find_real_end) ? $find_real_end : null
+            $analyzed_sql_results, isset($find_real_end) ? $find_real_end : null
         );
 
         $unlim_num_rows = PMA_countQueryResults($num_rows,
