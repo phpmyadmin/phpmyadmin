@@ -26,6 +26,18 @@ class PMA_SQLParser_Data_Test extends PHPUnit_Framework_TestCase
         $this->_assertSorted($GLOBALS[$name]);
     }
 
+    public function testPMA_SQPdata()
+    {
+        //so that sqlparser.data.php can be covered by PHPUnit
+        include 'libraries/sqlparser.data.php';
+        
+        $this->_assertSorted($PMA_SQPdata_function_name);
+        $this->_assertSorted($PMA_SQPdata_column_attrib);
+        $this->_assertSorted($PMA_SQPdata_reserved_word);
+        $this->_assertSorted($PMA_SQPdata_forbidden_word);
+        $this->_assertSorted($PMA_SQPdata_column_type);
+    }
+
     public function testPMA_SQPdata_function_name()
     {
         $this->_assertParserData('PMA_SQPdata_function_name');
