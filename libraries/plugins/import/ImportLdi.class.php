@@ -97,7 +97,7 @@ class ImportLdi extends AbstractImportCsv
      */
     public function doImport()
     {
-        global $finished, $error, $import_file, $compression, $charset_conversion, $table;
+        global $finished, $import_file, $compression, $charset_conversion, $table;
         global $ldi_local_option, $ldi_replace, $ldi_ignore, $ldi_terminated, $ldi_enclosed,
             $ldi_escaped, $ldi_new_line, $skip_queries, $ldi_columns;
 
@@ -106,10 +106,10 @@ class ImportLdi extends AbstractImportCsv
             || $charset_conversion
         ) {
             // We handle only some kind of data!
-            $message = PMA_Message::error(
+            $GLOBALS['message'] = PMA_Message::error(
                 __('This plugin does not support compressed imports!')
             );
-            $error = true;
+            $GLOBALS['error'] = true;
             return;
         }
 

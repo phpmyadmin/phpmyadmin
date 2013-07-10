@@ -167,21 +167,21 @@ class ImportOds extends ImportPlugin
 
         if ($xml === false) {
             $sheets = array();
-            $message = PMA_Message::error(
+            $GLOBALS['message'] = PMA_Message::error(
                 __(
                     'The XML file specified was either malformed or incomplete.'
                     . ' Please correct the issue and try again.'
                 )
             );
-            $error = true;
+            $GLOBALS['error'] = true;
         } else {
             $root = $xml->children('office', true)->{'body'}->{'spreadsheet'};
             if (empty($root)) {
                 $sheets = array();
-                $message = PMA_Message::error(
+                $GLOBALS['message'] = PMA_Message::error(
                     __('Could not parse OpenDocument Spreadsheet!')
                 );
-                $error = true;
+                $GLOBALS['error'] = true;
             } else {
                 $sheets = $root->children('table', true);
             }
