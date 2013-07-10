@@ -1117,7 +1117,8 @@ function PMA_getDefaultSqlQueryForBrowse($db, $table)
  *
  * @return void
  */
-function PMA_handleQueryExecuteError($is_gotofile, $error) {
+function PMA_handleQueryExecuteError($is_gotofile, $error)
+{
     if ($is_gotofile) {
         $message = PMA_Message::rawError($error);
         $response = PMA_Response::getInstance();
@@ -1498,8 +1499,8 @@ function PMA_deleteTransformationInfo($db, $table, $analyzed_sql)
  *
  * @return string $message
  */
-function PMA_getMessageForNoRowsReturned($message_to_show, $analyzed_sql_results,
-$num_rows
+function PMA_getMessageForNoRowsReturned(
+    $message_to_show, $analyzed_sql_results, $num_rows
 ) {
     if ($analyzed_sql_results['is_delete']) {
         $message = PMA_Message::getMessageForDeletedRows($num_rows);
@@ -1568,8 +1569,8 @@ $num_rows
  *
  * @return void
  */
-function PMA_sendAjaxResponseForNoResultsReturned($message, $analyzed_sql,
-$displayResultsObject, $showSql, $extra_data
+function PMA_sendAjaxResponseForNoResultsReturned(
+    $message, $analyzed_sql, $displayResultsObject, $showSql, $extra_data
 ) {
     /**
      * @todo find a better way to make getMessage() in Header.class.php
