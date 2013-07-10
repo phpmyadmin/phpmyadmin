@@ -830,7 +830,7 @@ class PMA_Table
                 'libraries/plugins/export/',
                 array(
                     'export_type' => 'table',
-                    'single_table' => isset($single_table)
+                    'single_table' => false,
                 )
             );
 
