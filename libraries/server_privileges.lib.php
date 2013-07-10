@@ -164,121 +164,150 @@ function PMA_getGrantsArray()
         array(
             'Select_priv',
             'SELECT',
-            __('Allows reading data.')),
+            __('Allows reading data.')
+        ),
         array(
             'Insert_priv',
             'INSERT',
-            __('Allows inserting and replacing data.')),
+            __('Allows inserting and replacing data.')
+        ),
         array(
             'Update_priv',
             'UPDATE',
-            __('Allows changing data.')),
+            __('Allows changing data.')
+        ),
         array(
             'Delete_priv',
             'DELETE',
-            __('Allows deleting data.')),
+            __('Allows deleting data.')
+        ),
         array(
             'Create_priv',
             'CREATE',
-            __('Allows creating new databases and tables.')),
+            __('Allows creating new databases and tables.')
+        ),
         array(
             'Drop_priv',
             'DROP',
-            __('Allows dropping databases and tables.')),
+            __('Allows dropping databases and tables.')
+        ),
         array(
             'Reload_priv',
             'RELOAD',
-            __('Allows reloading server settings and flushing the server\'s caches.')),
+            __('Allows reloading server settings and flushing the server\'s caches.')
+        ),
         array(
             'Shutdown_priv',
             'SHUTDOWN',
-            __('Allows shutting down the server.')),
+            __('Allows shutting down the server.')
+        ),
         array(
             'Process_priv',
             'PROCESS',
-            __('Allows viewing processes of all users')),
+            __('Allows viewing processes of all users')
+        ),
         array(
             'File_priv',
             'FILE',
-            __('Allows importing data from and exporting data into files.')),
+            __('Allows importing data from and exporting data into files.')
+        ),
         array(
             'References_priv',
             'REFERENCES',
-            __('Has no effect in this MySQL version.')),
+            __('Has no effect in this MySQL version.')
+        ),
         array(
             'Index_priv',
             'INDEX',
-            __('Allows creating and dropping indexes.')),
+            __('Allows creating and dropping indexes.')
+        ),
         array(
             'Alter_priv',
             'ALTER',
-            __('Allows altering the structure of existing tables.')),
+            __('Allows altering the structure of existing tables.')
+        ),
         array(
             'Show_db_priv',
             'SHOW DATABASES',
-            __('Gives access to the complete list of databases.')),
+            __('Gives access to the complete list of databases.')
+        ),
         array(
             'Super_priv',
             'SUPER',
-            __('Allows connecting, even if maximum number of connections is reached; required for most administrative operations like setting global variables or killing threads of other users.')),
+            __('Allows connecting, even if maximum number of connections is reached; required for most administrative operations like setting global variables or killing threads of other users.')
+        ),
         array(
             'Create_tmp_table_priv',
             'CREATE TEMPORARY TABLES',
-            __('Allows creating temporary tables.')),
+            __('Allows creating temporary tables.')
+        ),
         array(
             'Lock_tables_priv',
             'LOCK TABLES',
-            __('Allows locking tables for the current thread.')),
+            __('Allows locking tables for the current thread.')
+        ),
         array(
             'Repl_slave_priv',
             'REPLICATION SLAVE',
-            __('Needed for the replication slaves.')),
+            __('Needed for the replication slaves.')
+        ),
         array(
             'Repl_client_priv',
             'REPLICATION CLIENT',
-            __('Allows the user to ask where the slaves / masters are.')),
+            __('Allows the user to ask where the slaves / masters are.')
+        ),
         array(
             'Create_view_priv',
             'CREATE VIEW',
-            __('Allows creating new views.')),
+            __('Allows creating new views.')
+        ),
         array(
             'Event_priv',
             'EVENT',
-            __('Allows to set up events for the event scheduler')),
+            __('Allows to set up events for the event scheduler')
+        ),
         array(
             'Trigger_priv',
             'TRIGGER',
-            __('Allows creating and dropping triggers')),
+            __('Allows creating and dropping triggers')
+        ),
         // for table privs:
         array(
             'Create View_priv',
             'CREATE VIEW',
-            __('Allows creating new views.')),
+            __('Allows creating new views.')
+        ),
         array(
             'Show_view_priv',
             'SHOW VIEW',
-            __('Allows performing SHOW CREATE VIEW queries.')),
+            __('Allows performing SHOW CREATE VIEW queries.')
+        ),
         // for table privs:
         array(
             'Show view_priv',
             'SHOW VIEW',
-            __('Allows performing SHOW CREATE VIEW queries.')),
+            __('Allows performing SHOW CREATE VIEW queries.')
+        ),
         array(
             'Create_routine_priv',
             'CREATE ROUTINE',
-            __('Allows creating stored routines.')),
+            __('Allows creating stored routines.')
+        ),
         array(
             'Alter_routine_priv',
             'ALTER ROUTINE',
-            __('Allows altering and dropping stored routines.')),
+            __('Allows altering and dropping stored routines.')
+        ),
         array(
             'Create_user_priv',
             'CREATE USER',
-            __('Allows creating, dropping and renaming user accounts.')),
+            __('Allows creating, dropping and renaming user accounts.')
+        ),
         array(
             'Execute_priv',
             'EXECUTE',
-            __('Allows executing stored routines.')),
+            __('Allows executing stored routines.')
+        ),
     );
 }
 
