@@ -1484,17 +1484,10 @@ class PMA_DisplayResults
         $highlight_columns = array();
         if (isset($analyzed_sql) && isset($analyzed_sql[0])
             && isset($analyzed_sql[0]['where_clause_identifiers'])
+            && is_array($analyzed_sql[0]['where_clause_identifiers'])
         ) {
-
-            $wi = 0;
-            if (isset($analyzed_sql[0]['where_clause_identifiers'])
-                && is_array($analyzed_sql[0]['where_clause_identifiers'])
-            ) {
-                foreach ($analyzed_sql[0]['where_clause_identifiers']
-                    as $wci_nr => $wci
-                ) {
-                    $highlight_columns[$wci] = 'true';
-                }
+            foreach ($analyzed_sql[0]['where_clause_identifiers'] as $wci) {
+                $highlight_columns[$wci] = 'true';
             }
         }
 
