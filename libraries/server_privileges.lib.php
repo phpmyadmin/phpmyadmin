@@ -591,12 +591,12 @@ function PMA_getHtmlForDisplayResourceLimits($row)
  * @param string  $db       the database
  * @param string  $table    the table
  * @param boolean $columns  columns array
- * @param         $row
+ * @param         $row      current privileges row
  *
  * @return string $html_output
  */
-function PMA_getHtmlForTableSpecificPrivileges($username, $hostname, $db,
-    $table, $columns, $row
+function PMA_getHtmlForTableSpecificPrivileges(
+    $username, $hostname, $db, $table, $columns, $row
 ) {
     $res = $GLOBALS['dbi']->query(
         'SELECT `Column_name`, `Column_priv`'
