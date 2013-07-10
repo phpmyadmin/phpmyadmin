@@ -78,7 +78,7 @@ function PMA_getTableNameBySQL($sql, $tables)
  *
  * @return string   $table_html   html content
  */
-function getTableHtmlForMultipleQueries(
+function PMA_getTableHtmlForMultipleQueries(
     $displayResultsObject, $db, $sql_data, $goto, $pmaThemeImage,
     $text_dir, $printview, $url_query, $disp_mode, $sql_limit_to_append,
     $editable
@@ -1801,7 +1801,7 @@ function PMA_getHtmlForSqlQueryResultsTable($sql_data, $displayResultsObject, $d
     $printview = isset($_REQUEST['printview']) ? $_REQUEST['printview'] : null;
     if (! empty($sql_data) && ($sql_data['valid_queries'] > 1) || $is_procedure) {
         $_SESSION['is_multi_query'] = true;
-        $table_html = getTableHtmlForMultipleQueries(
+        $table_html = PMA_getTableHtmlForMultipleQueries(
             $displayResultsObject, $db, $sql_data, $goto,
             $pmaThemeImage, $text_dir, $printview, $url_query,
             $disp_mode, $sql_limit_to_append, $editable
