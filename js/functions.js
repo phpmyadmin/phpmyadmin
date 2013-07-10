@@ -3733,12 +3733,11 @@ function PMA_createViewDialog($this)
                 maxWidth: 620,
                 modal: true,
                 buttons: buttonOptions,
-                title: $('legend', $(data.message)).html(),
+                title: PMA_messages.strCreateView,
                 close: function () {
                     $(this).remove();
                 }
             });
-            $dialog.find('legend').remove();
             // Attach syntax highlited editor
             if (typeof CodeMirror !== 'undefined') {
                 var $elm = $dialog.find('textarea');

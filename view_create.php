@@ -148,8 +148,7 @@ $htmlString = '<!-- CREATE VIEW options -->'
     . '<form method="post" action="view_create.php">'
     . PMA_generate_common_hidden_inputs($url_params)
     . '<fieldset>'
-    . '<legend>' . __('Create view')
-    . PMA_Util::showMySQLDocu('SQL-Syntax', 'CREATE_VIEW') . '</legend>'
+    . '<legend>' . __('Details') . '</legend>'
     . '<table class="rte_table">'
     . '<tr><td><label for="or_replace">OR REPLACE</label></td>'
     . '<td><input type="checkbox" name="view[or_replace]" id="or_replace"';
