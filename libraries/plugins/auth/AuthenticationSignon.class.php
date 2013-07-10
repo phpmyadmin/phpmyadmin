@@ -234,8 +234,6 @@ class AuthenticationSignon extends AuthenticationPlugin
         /* Does session exist? */
         if (isset($_COOKIE[$session_name])) {
             /* End current session */
-            $old_session = session_name();
-            $old_id = session_id();
             session_write_close();
 
             /* Load single signon session */

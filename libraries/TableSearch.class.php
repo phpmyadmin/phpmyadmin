@@ -1345,7 +1345,6 @@ EOT;
             $val = $row[0];
             $replaced = $row[1];
             $count = $row[2];
-            $valMd5 = md5($val);
 
             $htmlOutput .= '<tr class="' . ($odd ? 'odd' : 'even') . '">';
             $htmlOutput .= '<td class="right">' . htmlspecialchars($count) . '</td>';

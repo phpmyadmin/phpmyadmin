@@ -191,7 +191,6 @@ class ImportOds extends ImportPlugin
 
         $max_cols = 0;
 
-        $row_count = 0;
         $col_count = 0;
         $col_names = array();
 
