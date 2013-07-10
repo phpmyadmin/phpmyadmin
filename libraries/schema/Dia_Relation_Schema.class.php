@@ -194,10 +194,10 @@ class PMA_DIA extends XMLWriter
  * and helps in drawing/generating the Tables in dia XML document.
  *
  * @package PhpMyAdmin
- * @name    Table_Stats
+ * @name    Table_Stats_Dia
  * @see     PMA_DIA
  */
-class Table_Stats
+class Table_Stats_Dia
 {
     /**
      * Defines properties
@@ -210,7 +210,7 @@ class Table_Stats
     public $tableColor;
 
     /**
-     * The "Table_Stats" constructor
+     * The "Table_Stats_Dia" constructor
      *
      * @param string  $tableName  The table name
      * @param integer $pageNumber The current page number (from the
@@ -475,10 +475,10 @@ class Table_Stats
  * in dia XML document.
  *
  * @package PhpMyAdmin
- * @name    Relation_Stats
+ * @name    Relation_Stats_Dia
  * @see     PMA_DIA
  */
-class Relation_Stats
+class Relation_Stats_Dia
 {
     /**
      * Defines properties
@@ -494,7 +494,7 @@ class Relation_Stats
     public $referenceColor;
 
     /**
-     * The "Relation_Stats" constructor
+     * The "Relation_Stats_Dia" constructor
      *
      * @param string $master_table  The master table name
      * @param string $master_field  The relation field in the master table
@@ -503,7 +503,7 @@ class Relation_Stats
      *
      * @return void
      *
-     * @see Relation_Stats::_getXy
+     * @see Relation_Stats_Dia::_getXy
      */
     function __construct($master_table, $master_field, $foreign_table,
         $foreign_field
@@ -708,7 +708,7 @@ class PMA_Dia_Relation_Schema extends PMA_Export_Relation_Schema
      * that user can download
      *
      * @return void
-     * @see PMA_DIA,Table_Stats,Relation_Stats
+     * @see PMA_DIA,Table_Stats_Dia,Relation_Stats_Dia
      */
     function __construct()
     {
@@ -730,7 +730,7 @@ class PMA_Dia_Relation_Schema extends PMA_Export_Relation_Schema
         $alltables = $this->getAllTables($db, $this->pageNumber);
         foreach ($alltables as $table) {
             if (! isset($this->tables[$table])) {
-                $this->_tables[$table] = new Table_Stats(
+                $this->_tables[$table] = new Table_Stats_Dia(
                     $table, $this->pageNumber, $this->showKeys
                 );
             }
@@ -762,8 +762,18 @@ class PMA_Dia_Relation_Schema extends PMA_Export_Relation_Schema
             $this->_drawRelations($this->showColor);
         }
         $dia->endDiaDoc();
+    }
+    
+    /**
+     * Output Dia Document for download
+     *
+     * @return void
+     * @access public
+     */
+    function showOutput()
+    {
+        global $dia, $db;
         $dia->showOutput($db . '-' . $this->pageNumber);
-        exit();
     }
 
     /**
@@ -778,22 +788,22 @@ class PMA_Dia_Relation_Schema extends PMA_Export_Relation_Schema
      * @return void
      *
      * @access private
-     * @see Table_Stats::__construct(),Relation_Stats::__construct()
+     * @see Table_Stats_Dia::__construct(),Relation_Stats_Dia::__construct()
      */
     private function _addRelation($masterTable, $masterField, $foreignTable,
         $foreignField, $showKeys
     ) {
         if (! isset($this->_tables[$masterTable])) {
-            $this->_tables[$masterTable] = new Table_Stats(
+            $this->_tables[$masterTable] = new Table_Stats_Dia(
                 $masterTable, $this->pageNumber, $showKeys
             );
         }
         if (! isset($this->_tables[$foreignTable])) {
-            $this->_tables[$foreignTable] = new Table_Stats(
+            $this->_tables[$foreignTable] = new Table_Stats_Dia(
                 $foreignTable, $this->pageNumber, $showKeys
             );
         }
-        $this->_relations[] = new Relation_Stats(
+        $this->_relations[] = new Relation_Stats_Dia(
             $this->_tables[$masterTable], $masterField,
             $this->_tables[$foreignTable], $foreignField
         );
@@ -811,7 +821,7 @@ class PMA_Dia_Relation_Schema extends PMA_Export_Relation_Schema
      * @return void
      *
      * @access private
-     * @see Relation_Stats::relationDraw()
+     * @see Relation_Stats_Dia::relationDraw()
      */
     private function _drawRelations($changeColor)
     {
@@ -831,7 +841,7 @@ class PMA_Dia_Relation_Schema extends PMA_Export_Relation_Schema
      * @return void
      *
      * @access private
-     * @see Table_Stats::tableDraw()
+     * @see Table_Stats_Dia::tableDraw()
      */
     private function _drawTables($changeColor)
     {
