@@ -152,12 +152,16 @@ function PMA_ipv4MaskTest($testRange, $ipToTest)
  * Modified for phpMyAdmin
  *
  * Matches:
- * xxxx:xxxx:xxxx:xxxx:xxxx:xxxx:xxxx:xxxx         (exact)
- * xxxx:xxxx:xxxx:xxxx:xxxx:xxxx:xxxx:[yyyy-zzzz]  (range, only at end of IP - no subnets)
- * xxxx:xxxx:xxxx:xxxx/nn                          (CIDR)
+ * xxxx:xxxx:xxxx:xxxx:xxxx:xxxx:xxxx:xxxx
+ * (exact)
+ * xxxx:xxxx:xxxx:xxxx:xxxx:xxxx:xxxx:[yyyy-zzzz]
+ * (range, only at end of IP - no subnets)
+ * xxxx:xxxx:xxxx:xxxx/nn
+ * (CIDR)
  *
  * Does not match:
- * xxxx:xxxx:xxxx:xxxx:xxxx:xxxx:xxxx:xx[yyy-zzz]  (range, partial octets not supported)
+ * xxxx:xxxx:xxxx:xxxx:xxxx:xxxx:xxxx:xx[yyy-zzz]
+ * (range, partial octets not supported)
  *
  * @param string $test_range string of IP range to match
  * @param string $ip_to_test string of IP to test against range
@@ -186,7 +190,10 @@ function PMA_ipv6MaskTest($test_range, $ip_to_test)
     } elseif ($is_range) {
         // what range do we operate on?
         $range_match = array();
-        if (preg_match('/\[([0-9a-f]+)\-([0-9a-f]+)\]/', $test_range, $range_match)) {
+        $match = preg_match(
+            '/\[([0-9a-f]+)\-([0-9a-f]+)\]/', $test_range, $range_match
+        );
+        if ($match) {
             $range_start = $range_match[1];
             $range_end   = $range_match[2];
 

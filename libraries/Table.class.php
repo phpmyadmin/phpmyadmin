@@ -721,8 +721,8 @@ class PMA_Table
                   . PMA_Util::backquote($GLOBALS['cfgRelation'][$pma_table]) . '
                  WHERE ' . implode(' AND ', $where_parts);
 
-            // must use PMA_DatabaseInterface::QUERY_STORE here, since we execute another
-            // query inside the loop
+            // must use PMA_DatabaseInterface::QUERY_STORE here, since we execute
+            // another query inside the loop
             $table_copy_rs = PMA_queryAsControlUser(
                 $table_copy_query, true, PMA_DatabaseInterface::QUERY_STORE
             );
@@ -809,7 +809,8 @@ class PMA_Table
             return false;
         }
 
-        $source = PMA_Util::backquote($source_db) . '.' . PMA_Util::backquote($source_table);
+        $source = PMA_Util::backquote($source_db)
+            . '.' . PMA_Util::backquote($source_table);
         if (! isset($target_db) || ! strlen($target_db)) {
             $target_db = $source_db;
         }
@@ -818,7 +819,8 @@ class PMA_Table
         // when moving table from replicated one to not replicated one
         $GLOBALS['dbi']->selectDb($target_db);
 
-        $target = PMA_Util::backquote($target_db) . '.' . PMA_Util::backquote($target_table);
+        $target = PMA_Util::backquote($target_db)
+            . '.' . PMA_Util::backquote($target_table);
 
         // do not create the table if dataonly
         if ($what != 'dataonly') {
@@ -1028,13 +1030,16 @@ class PMA_Table
             if ($what != 'dataonly' && ! isset($maintain_relations)) {
                 if ($GLOBALS['cfgRelation']['commwork']) {
                     // Get all comments and MIME-Types for current table
-                    $comments_copy_query = 'SELECT
-                                                column_name, comment' . ($GLOBALS['cfgRelation']['mimework'] ? ', mimetype, transformation, transformation_options' : '') . '
-                                            FROM ' . PMA_Util::backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_Util::backquote($GLOBALS['cfgRelation']['column_info']) . '
-                                            WHERE
-                                                db_name = \'' . PMA_Util::sqlAddSlashes($source_db) . '\' AND
-                                                table_name = \'' . PMA_Util::sqlAddSlashes($source_table) . '\'';
-                    $comments_copy_rs    = PMA_queryAsControlUser($comments_copy_query);
+                    $comments_copy_rs = PMA_queryAsControlUser(
+                        'SELECT column_name, comment'
+                        . ($GLOBALS['cfgRelation']['mimework'] ? ', mimetype, transformation, transformation_options' : '')
+                        . ' FROM ' . PMA_Util::backquote($GLOBALS['cfgRelation']['db'])
+                        . '.' . PMA_Util::backquote($GLOBALS['cfgRelation']['column_info'])
+                        . ' WHERE '
+                        . ' db_name = \'' . PMA_Util::sqlAddSlashes($source_db) . '\''
+                        . ' AND '
+                        . ' table_name = \'' . PMA_Util::sqlAddSlashes($source_table) . '\''
+                    );
 
                     // Write every comment as new copied entry. [MIME]
                     while ($comments_copy_row = $GLOBALS['dbi']->fetchAssoc($comments_copy_rs)) {
@@ -1249,11 +1254,14 @@ class PMA_Table
         }
 
         // If the table is moved to a different database drop its triggers first
-        $triggers = $GLOBALS['dbi']->getTriggers($this->getDbName(), $this->getName(), '');
+        $triggers = $GLOBALS['dbi']->getTriggers(
+            $this->getDbName(), $this->getName(), ''
+        );
         $handle_triggers = $this->getDbName() != $new_db && $triggers;
         if ($handle_triggers) {
             foreach ($triggers as $trigger) {
-                $sql = 'DROP TRIGGER IF EXISTS ' . PMA_Util::backquote($this->getDbName())
+                $sql = 'DROP TRIGGER IF EXISTS '
+                    . PMA_Util::backquote($this->getDbName())
                     . '.' . PMA_Util::backquote($trigger['name']) . ';';
                 $GLOBALS['dbi']->query($sql);
             }
@@ -1439,10 +1447,14 @@ class PMA_Table
         $success = $GLOBALS['dbi']->tryQuery($sql_query, $GLOBALS['controllink']);
 
         if (!$success) {
-            $message = PMA_Message::error(__('Could not save table UI preferences'));
+            $message = PMA_Message::error(
+                __('Could not save table UI preferences')
+            );
             $message->addMessage('<br /><br />');
             $message->addMessage(
-                PMA_Message::rawError($GLOBALS['dbi']->getError($GLOBALS['controllink']))
+                PMA_Message::rawError(
+                    $GLOBALS['dbi']->getError($GLOBALS['controllink'])
+                )
             );
             return $message;
         }
@@ -1458,7 +1470,9 @@ class PMA_Table
                 = ' DELETE FROM ' . $pma_table .
                 ' ORDER BY last_update ASC' .
                 ' LIMIT ' . $num_rows_to_delete;
-            $success = $GLOBALS['dbi']->tryQuery($sql_query, $GLOBALS['controllink']);
+            $success = $GLOBALS['dbi']->tryQuery(
+                $sql_query, $GLOBALS['controllink']
+            );
 
             if (!$success) {
                 $message = PMA_Message::error(
@@ -1469,7 +1483,9 @@ class PMA_Table
                 );
                 $message->addMessage('<br /><br />');
                 $message->addMessage(
-                    PMA_Message::rawError($GLOBALS['dbi']->getError($GLOBALS['controllink']))
+                    PMA_Message::rawError(
+                        $GLOBALS['dbi']->getError($GLOBALS['controllink'])
+                    )
                 );
                 print_r($message);
                 return $message;
