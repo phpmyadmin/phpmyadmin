@@ -1191,11 +1191,7 @@ function PMA_getHtmlForTableStructureHeader(
         if (PMA_DRIZZLE) {
             $colspan -= 2;
         }
-        if (in_array(
-            $GLOBALS['cfg']['ActionLinksMode'],
-            array('icons', 'both')
-            )
-        ) {
+        if (in_array($GLOBALS['cfg']['ActionLinksMode'], array('icons', 'both'))) {
             $colspan--;
         }
         $html_output .= '<th colspan="' . $colspan . '" '
