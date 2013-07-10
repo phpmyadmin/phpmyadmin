@@ -1596,6 +1596,8 @@ function PMA_getHtmlForSpecificDbPrivileges($link_edit, $conditional_class)
         .'  `Db` ASC;';
     $res = $GLOBALS['dbi']->query($sql_query);
     $row = $GLOBALS['dbi']->fetchAssoc($res);
+    
+    $found = false;
     if ($row) {
         $found = true;
     }
