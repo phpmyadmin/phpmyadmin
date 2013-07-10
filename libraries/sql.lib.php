@@ -1267,7 +1267,7 @@ function PMA_cleanupRelations($db, $table, $dropped_column, $purge, $extra_data)
         && strlen($table)
     ) {
         PMA_relationsCleanupColumn($db, $table, $dropped_column);
-        if(isset($extra_data)) {
+        if (isset($extra_data)) {
             // to refresh the list of indexes (Ajax mode)
             $extra_data['indexes_list'] = PMA_Index::getView($table, $db);
         }
@@ -1294,8 +1294,7 @@ function PMA_cleanupRelations($db, $table, $dropped_column, $purge, $extra_data)
 function PMA_countQueryResults($num_rows, $is_select, $justBrowsing,
     $db, $table, $parsed_sql, $analyzed_sql_results
 ) {
-    if (!PMA_isAppendLimitClause($analyzed_sql_results))
-    {
+    if (!PMA_isAppendLimitClause($analyzed_sql_results)) {
         // if we did not append a limit, set this to get a correct
         // "Showing rows..." message
         // $_SESSION['tmp_user_values']['max_rows'] = 'all';
