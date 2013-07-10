@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.5-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-06-24 10:43+0200\n"
-"PO-Revision-Date: 2013-07-10 15:19+0200\n"
-"Last-Translator: Syed Mahbub ul Alam <syedmahbubulalam@gmail.com>\n"
+"PO-Revision-Date: 2013-07-10 16:11+0200\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Bengali <http://l10n.cihar.com/projects/phpmyadmin/4-0/bn/>\n"
 "Language: bn\n"
 "MIME-Version: 1.0\n"
@@ -10208,7 +10208,7 @@ msgstr "অংশের সংজ্ঞা"
 #, php-format
 #| msgid "Tracking is active."
 msgid "Tracking of %s is activated."
-msgstr "%s.%s ট্রেকিং কার্যকর করা হয়েছে। "
+msgstr "%s ট্রেকিং কার্যকর করা হয়েছে।"
 
 #: libraries/user_preferences.inc.php:29
 #| msgid "General relation features"
@@ -12504,7 +12504,7 @@ msgstr "%1$s ট্রেকিং অকার্যকর করা হয়ে�
 #, php-format
 #| msgid "Tracking is active."
 msgid "Tracking for %1$s was activated at version %2$s."
-msgstr "%1$s ট্রেকিং কার্যকর করা হয়েছে সংস্করন %2$s এ। "
+msgstr "%1$s ট্রেকিং কার্যকর করা হয়েছে সংস্করন %2$s এ।"
 
 #: tbl_tracking.php:253
 msgid "SQL statements executed."
@@ -13092,7 +13092,7 @@ msgid ""
 "value is, the better (This rules firing limit: 0.1%%)"
 msgstr ""
 "ইনসার্টেড অনুসন্ধানে অনুসন্ধান সরানোর হার %s%%। এর মান যত কম হবে তত ভাল, ভাল "
-"(০.১%)"
+"(০.১%%)"
 
 #: libraries/advisory_rules.txt:195
 #| msgid "Query cache"
@@ -13471,7 +13471,7 @@ msgstr "মেমোরী থেকে ইনডেক্স পড়ার শ�
 #: libraries/advisory_rules.txt:321
 #, php-format
 msgid "The %% of indexes that use the MyISAM key buffer is low."
-msgstr " %% ইনডেক্সসমূহ যেগুলো MyISAM কী বাফার ব্যবহার করে।"
+msgstr "%% ইনডেক্সসমূহ যেগুলো MyISAM কী বাফার ব্যবহার করে।"
 
 #: libraries/advisory_rules.txt:322
 msgid "You may need to increase {key_buffer_size}."
