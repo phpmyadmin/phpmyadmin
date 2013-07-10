@@ -106,7 +106,7 @@ class AuthenticationSignon extends AuthenticationPlugin
             include $script_name;
 
             list ($PHP_AUTH_USER, $PHP_AUTH_PW)
-                = get_login_credentials($cfg['Server']['user']);
+                = get_login_credentials($GLOBALS['cfg']['Server']['user']);
 
         } elseif (isset($_COOKIE[$session_name])) { /* Does session exist? */
             /* End current session */
