@@ -395,7 +395,7 @@ if (!$GLOBALS['sqlvalidator_error']) {
                 && ($this->session_data->target != $this->url)
             ) {
                 // Reopens the service on the new URL that was provided
-                $url = $this->session_data->target;
+                $this->url = $this->session_data->target;
                 $this->startService();
             }
         } // end of the "startSession()" function
