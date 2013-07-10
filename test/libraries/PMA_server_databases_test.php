@@ -23,7 +23,7 @@ require_once 'libraries/sqlparser.lib.php';
 require_once 'libraries/js_escape.lib.php';
 
 /**
- * PMA_Serverdatabases_Test class
+ * PMA_ServerDatabases_Test class
  *
  * this class is for testing server_databases.lib.php functions
  *
@@ -58,14 +58,13 @@ class PMA_ServerDatabases_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['LimitChars'] = 100;
         $GLOBALS['cfg']['DBG']['sql'] = false;
         $GLOBALS['cfg']['ActionLinksMode'] = "both";
+        $GLOBALS['cfg']['DefaultTabDatabase'] = 'db_structure.php';
         
         $GLOBALS['table'] = "table";
         $GLOBALS['server_master_status'] = false;
         $GLOBALS['server_slave_status'] = false;
         $GLOBALS['pmaThemeImage'] = 'image';
         $GLOBALS['text_dir'] = "text_dir";
-
-        $GLOBALS['cfg']['DefaultTabDatabase'] = 'db_structure.php';
         
         //$_SESSION
         $_SESSION['PMA_Theme'] = PMA_Theme::load('./themes/pmahomme');
@@ -95,6 +94,7 @@ class PMA_ServerDatabases_Test extends PHPUnit_Framework_TestCase
             array("SCHEMA_NAME" => "performance_schema"),
             array("SCHEMA_NAME" => "phpmyadmin")                
         );
+        
         $databases_count = 5;
         $pos = 0;
         $dbstats = 0;
@@ -133,8 +133,6 @@ class PMA_ServerDatabases_Test extends PHPUnit_Framework_TestCase
             $replication_info, 
             $url_query
         );
-    
-
 
         //validate 1: General info
         $this->assertContains(
