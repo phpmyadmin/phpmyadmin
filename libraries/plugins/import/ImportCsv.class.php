@@ -250,7 +250,7 @@ class ImportCsv extends AbstractImportCsv
             $data = PMA_importGetNextChunk();
             if ($data === false) {
                 // subtract data we didn't handle yet and stop processing
-                $offset -= strlen($buffer);
+                $GLOBALS['offset'] -= strlen($buffer);
                 break;
             } elseif ($data === true) {
                 // Handle rest of buffer
