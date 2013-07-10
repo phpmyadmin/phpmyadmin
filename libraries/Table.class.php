@@ -1650,7 +1650,7 @@ class PMA_Table
      */
     public function getReservedColumnNames()
     {
-        $columns = $this->getColumns($backquoted = false);
+        $columns = $this->getColumns(false);
         $return = array();
         foreach ($columns as $column) {
             $temp = explode('.', $column);
