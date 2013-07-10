@@ -62,8 +62,8 @@ class PMA_ServerStatusData
         $server_status = $GLOBALS['dbi']->fetchResult('SHOW GLOBAL STATUS', 0, 1);
         if (PMA_DRIZZLE) {
             // Drizzle doesn't put query statistics into variables, add it
-            $sql = "SELECT concat('Com_', variable_name), variable_value
-                FROM data_dictionary.GLOBAL_STATEMENTS";
+            $sql = "SELECT concat('Com_', variable_name), variable_value " 
+                . "FROM data_dictionary.GLOBAL_STATEMENTS";
             $statements = $GLOBALS['dbi']->fetchResult($sql, 0, 1);
             $server_status = array_merge($server_status, $statements);
         }
