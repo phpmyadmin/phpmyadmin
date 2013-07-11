@@ -748,7 +748,7 @@ class PMA_ConfigFile_Test extends PHPUnit_Framework_TestCase
     {
         $this->assertEquals(
             null,
-            $this->object->getServerName('foobar123')
+            $this->object->removeServer(1)
         );
 
         $objectID = $this->readAttribute($this->object, "_id");
@@ -902,7 +902,8 @@ class PMA_ConfigFile_Test extends PHPUnit_Framework_TestCase
         $attrReadMapping->setValue(
             $this->object,
             array(
-                "2" => "two"
+                "2" => "two",
+                "3" => "foobar"
             )
         );
 
