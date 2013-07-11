@@ -87,6 +87,11 @@ class PMA_ConfigGenerator_Test extends PHPUnit_Framework_TestCase
         $method->setAccessible(true);
         
         $this->assertEquals(
+            '$cfg[\'var_name\'] = 1;' ."\n",
+            $method->invoke(null, 'var_name', 1, "\n")
+        );
+
+        $this->assertEquals(
             '$cfg[\'var_name\'] = array (' .
             "\n);\n",
             $method->invoke(null, 'var_name', array(), "\n")
