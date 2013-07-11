@@ -1450,7 +1450,7 @@ function PMA_getHtmlDivForMoveColumnsDialog()
 function PMA_getHtmlForEditView($url_params)
 {
     $retval = array();
-    $query = "SELECT `VIEW_DEFINITION`, `CHECK_OPTION`"
+    $query = "SELECT `VIEW_DEFINITION`, `CHECK_OPTION`, `DEFINER`"
         . " FROM `INFORMATION_SCHEMA`.`VIEWS`"
         . " WHERE TABLE_SCHEMA='" . PMA_Util::sqlAddSlashes($GLOBALS['db']) . "'"
         . " AND TABLE_NAME='" . PMA_Util::sqlAddSlashes($GLOBALS['table']) . "';";
@@ -1458,6 +1458,7 @@ function PMA_getHtmlForEditView($url_params)
 
     $view = array(
         'operation' => 'alter',
+        'definer' => $item['DEFINER'],
         'name' => $GLOBALS['table'],
         'as' => $item['VIEW_DEFINITION'],
         'with' => $item['CHECK_OPTION'],

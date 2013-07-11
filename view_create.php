@@ -50,6 +50,10 @@ if (isset($_REQUEST['createview']) || isset($_REQUEST['alterview'])) {
         $sql_query .= $sep . ' ALGORITHM = ' . $_REQUEST['view']['algorithm'];
     }
 
+    if (! empty($_REQUEST['view']['definer'])) {
+        $sql_query .= $sep . ' DEFINER ' . $_REQUEST['view']['definer'];
+    }
+
     $sql_query .= $sep . ' VIEW ' . PMA_Util::backquote($_REQUEST['view']['name']);
 
     if (! empty($_REQUEST['view']['column_names'])) {
@@ -131,6 +135,7 @@ $view = array(
     'operation' => 'create',
     'or_replace' => '',
     'algorithm' => '',
+    'definer' => '',
     'name' => '',
     'column_names' => '',
     'as' => $sql_query,
@@ -164,14 +169,12 @@ if ($view['operation'] == 'create') {
     if ($view['or_replace']) {
         $htmlString .= ' checked="checked"';
     }
-    $htmlString .= ' value="1" /></td>'
-        . '</tr>';
+    $htmlString .= ' value="1" /></td></tr>';
 }
 
 $htmlString .= '<tr>'
     . '<td><label for="algorithm">ALGORITHM</label></td>'
     . '<td><select name="view[algorithm]" id="algorithm">';
-
 foreach ($view_algorithm_options as $option) {
     $htmlString .= '<option value="' . htmlspecialchars($option) . '"';
     if ($view['algorithm'] === $option) {
@@ -179,22 +182,32 @@ foreach ($view_algorithm_options as $option) {
     }
     $htmlString .= '>' . htmlspecialchars($option) . '</option>';
 }
-
 $htmlString .= '</select>'
-    . '</td>'
-    . '</tr>'
-    . '<tr><td>' . __('VIEW name') . '</td>'
-    . '<td><input type="text" size="20" name="view[name]" onfocus="this.select()"'
-    . ' value="' . htmlspecialchars($view['name']) . '" />'
-    . '</td>'
-    . '</tr>'
-    . '<tr><td>' . __('Column names') . '</td>'
+    . '</td></tr>';
+
+$htmlString .= '<tr><td>' . __('Definer') . '</td>'
+    . '<td><input type="text" maxlength="100" size="50" name="view[definer]"'
+    . ' value="' . htmlspecialchars($view['definer']) . '" />'
+    . '</td></tr>';
+
+$htmlString .= '<tr><td>' . __('Column names') . '</td>'
     . '<td><input type="text" maxlength="100" size="50" name="view[column_names]"'
     . ' onfocus="this.select()"'
     . ' value="' . htmlspecialchars($view['column_names']) . '" />'
-    . '</td>'
-    . '</tr>'
-    . '<tr><td>AS</td>'
+    . '</td></tr>';
+
+$htmlString .= '<tr><td>' . __('VIEW name') . '</td>'
+    . '<td><input type="text" size="20" name="view[name]" onfocus="this.select()"'
+    . ' value="' . htmlspecialchars($view['name']) . '" />'
+    . '</td></tr>';
+
+$htmlString .= '<tr><td>' . __('Column names') . '</td>'
+    . '<td><input type="text" maxlength="100" size="50" name="view[column_names]"'
+    . ' onfocus="this.select()"'
+    . ' value="' . htmlspecialchars($view['column_names']) . '" />'
+    . '</td></tr>';
+
+$htmlString .= '<tr><td>AS</td>'
     . '<td>'
     . '<textarea name="view[as]" rows="' . $cfg['TextareaRows'] . '"'
     . ' cols="' . $cfg['TextareaCols'] . '"'
