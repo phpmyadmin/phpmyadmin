@@ -21,7 +21,7 @@ function process_formset(FormDisplay $form_display)
         // drop post data
         header('HTTP/1.1 303 See Other');
         header('Location: index.php');
-        echo 'here';
+
         if (!defined('TESTSUITE')) {
             exit;
         }
