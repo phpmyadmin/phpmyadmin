@@ -44,6 +44,11 @@ class PMA_ConfigFile_Test extends PHPUnit_Framework_TestCase
 
         unset($_SESSION[$this->readAttribute($this->object, "_id")]);
         unset($this->object);
+        
+        // reset the instance
+        $attr_instance = new ReflectionProperty("ConfigFile", "_instance");
+        $attr_instance->setAccessible(true);
+        $attr_instance->setValue(null, null);
     }
 
     /**
