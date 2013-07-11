@@ -31,6 +31,11 @@ $view_with_options = array(
     'LOCAL'
 );
 
+$view_sql_security_options = array(
+    'DEFINER',
+    'INVOKER'
+);
+
 if (isset($_REQUEST['createview']) || isset($_REQUEST['alterview'])) {
     /**
      * Creates the view
@@ -52,6 +57,12 @@ if (isset($_REQUEST['createview']) || isset($_REQUEST['alterview'])) {
 
     if (! empty($_REQUEST['view']['definer'])) {
         $sql_query .= $sep . ' DEFINER ' . $_REQUEST['view']['definer'];
+    }
+
+    if (isset($_REQUEST['view']['sql_security'])) {
+        if (in_array($_REQUEST['view']['sql_security'], $view_sql_security_options)) {
+            $sql_query .= $sep . ' SQL SECURITY ' . $_REQUEST['view']['sql_security'];
+        }
     }
 
     $sql_query .= $sep . ' VIEW ' . PMA_Util::backquote($_REQUEST['view']['name']);
@@ -136,6 +147,7 @@ $view = array(
     'or_replace' => '',
     'algorithm' => '',
     'definer' => '',
+    'sql_security' => '',
     'name' => '',
     'column_names' => '',
     'as' => $sql_query,
@@ -190,10 +202,17 @@ $htmlString .= '<tr><td>' . __('Definer') . '</td>'
     . ' value="' . htmlspecialchars($view['definer']) . '" />'
     . '</td></tr>';
 
-$htmlString .= '<tr><td>' . __('Column names') . '</td>'
-    . '<td><input type="text" maxlength="100" size="50" name="view[column_names]"'
-    . ' onfocus="this.select()"'
-    . ' value="' . htmlspecialchars($view['column_names']) . '" />'
+$htmlString .= '<tr><td>SQL SECURITY</td>'
+    . '<td><select name="view[with]">'
+    . '<option value=""></option>';
+foreach ($view_sql_security_options as $option) {
+    $htmlString .= '<option value="' . htmlspecialchars($option) . '"';
+    if ($option == $view['sql_security']) {
+        $htmlString .= ' selected="selected"';
+    }
+    $htmlString .= '>' . htmlspecialchars($option) . '</option>';
+}
+$htmlString .= '<select>'
     . '</td></tr>';
 
 $htmlString .= '<tr><td>' . __('VIEW name') . '</td>'
@@ -212,18 +231,14 @@ $htmlString .= '<tr><td>AS</td>'
     . '<textarea name="view[as]" rows="' . $cfg['TextareaRows'] . '"'
     . ' cols="' . $cfg['TextareaCols'] . '"'
     . ' dir="' . $text_dir . '"';
-
 if ($GLOBALS['cfg']['TextareaAutoSelect'] || true) {
     $htmlString .= ' onclick="selectContent(this, sql_box_locked, true)"';
 }
-
 $htmlString .= '>' . htmlspecialchars($view['as']) . '</textarea>'
-    . '</td>'
-    . '</tr>'
-    . '<tr><td>WITH CHECK OPTION</td>'
-    . '<td>';
+    . '</td></tr>';
 
-$htmlString .= '<select name="view[with]">'
+$htmlString .= '<tr><td>WITH CHECK OPTION</td>'
+    . '<td><select name="view[with]">'
     . '<option value=""></option>';
 foreach ($view_with_options as $option) {
     $htmlString .= '<option value="' . htmlspecialchars($option) . '"';
@@ -232,11 +247,10 @@ foreach ($view_with_options as $option) {
     }
     $htmlString .= '>' . htmlspecialchars($option) . '</option>';
 }
-$htmlString .= '<select>';
+$htmlString .= '<select>'
+    . '</td></tr>';
 
-$htmlString .= '</td>'
-    . '</tr>'
-    . '</table>'
+$htmlString .= '</table>'
     . '</fieldset>';
 
 if (! isset($_REQUEST['ajax_dialog'])) {

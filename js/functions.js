@@ -3728,7 +3728,7 @@ function PMA_createViewDialog($this)
                 $(this).dialog("close");
             };
             var $dialog = $('<div/>').attr('id', 'createViewDialog').append(data.message).dialog({
-                width: 500,
+                width: 600,
                 minWidth: 400,
                 modal: true,
                 buttons: buttonOptions,
