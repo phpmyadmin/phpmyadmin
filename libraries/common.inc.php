@@ -47,6 +47,11 @@ if (!defined('E_DEPRECATED')) {
 }
 
 /**
+ * for verification in all procedural scripts under libraries
+ */
+define('PHPMYADMIN', true);
+
+/**
  * the error handler
  */
 require './libraries/Error_Handler.class.php';
@@ -78,11 +83,6 @@ if (version_compare(phpversion(), '5.4', 'lt')) {
      */
     @ini_set('magic_quotes_runtime', false);
 }
-
-/**
- * for verification in all procedural scripts under libraries
- */
-define('PHPMYADMIN', true);
 
 /**
  * core functions
