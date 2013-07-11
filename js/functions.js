@@ -3740,7 +3740,7 @@ function PMA_createViewDialog($this)
             // Attach syntax highlited editor
             if (typeof CodeMirror !== 'undefined') {
                 var $elm = $dialog.find('textarea');
-                var opts = {lineNumbers: true, matchBrackets: true, indentUnit: 4, mode: "text/x-mysql"};
+                var opts = {lineNumbers: true, matchBrackets: true, indentUnit: 4, mode: "text/x-mysql", lineWrapping: true};
                 syntaxHighlighter = CodeMirror.fromTextArea($elm[0], opts);
             }
             $('input:visible[type=text]', $dialog).first().focus();
