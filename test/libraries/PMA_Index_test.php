@@ -404,7 +404,7 @@ class PMA_SetupIndex_Test extends PHPUnit_Framework_TestCase
             $is_writable
         );
 
-        $this->assertFalse(
+        $this->assertTrue(
             $file_exists
         );
 
