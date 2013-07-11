@@ -15,6 +15,13 @@ require_once 'libraries/url_generating.lib.php';
 require_once 'libraries/server_common.lib.php';
 require_once 'libraries/Theme.class.php';
 
+/**
+ * PMA_ServerCommon_Test class
+ *
+ * this class is for testing server_common.lib.php functions
+ *
+ * @package PhpMyAdmin-test
+ */
 class PMA_ServerCommon_Test extends PHPUnit_Framework_TestCase
 {
     /**

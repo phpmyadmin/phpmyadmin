@@ -3,15 +3,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-07-04 06:07-0400\n"
-"PO-Revision-Date: 2013-07-02 14:39+0200\n"
+"POT-Creation-Date: 2013-07-09 12:15+0200\n"
+"PO-Revision-Date: 2013-07-10 16:11+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Bengali <http://l10n.cihar.com/projects/phpmyadmin/master/bn/"
-">\n"
+"Language-Team: Bengali "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/bn/>\n"
+"Language: bn\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: bn\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 1.6-dev\n"
 
@@ -126,8 +126,7 @@ msgstr "টেবিলের মন্তব্য সমূহ"
 
 #: db_datadict.php:166 libraries/Index.class.php:565
 #: libraries/TableSearch.class.php:183 libraries/TableSearch.class.php:1225
-#: libraries/TableSearch.class.php:1276 libraries/display_indexes.lib.php:117
-#: libraries/insert_edit.lib.php:1568
+#: libraries/display_indexes.lib.php:117 libraries/insert_edit.lib.php:1568
 #: libraries/plugins/export/ExportHtmlword.class.php:278
 #: libraries/plugins/export/ExportHtmlword.class.php:393
 #: libraries/plugins/export/ExportLatex.class.php:510
@@ -623,8 +622,8 @@ msgstr ""
 #: import.php:107
 #, php-format
 msgid ""
-"You probably tried to upload a file that is too large. Please refer to %"
-"sdocumentation%s for a workaround for this limit."
+"You probably tried to upload a file that is too large. Please refer to "
+"%sdocumentation%s for a workaround for this limit."
 msgstr ""
 "সম্ভবত আপনি একটি বিশাল ফাইল আপলোড করতে চাচ্ছেন। অনুগ্র্রহ করে %"
 "sdocumentation%s দেখে এই সমস্যা সমাধানের চেষ্টা করুন "
@@ -674,7 +673,7 @@ msgstr ""
 "আমদানি সহায়ক (plugin) পাওয়া যাচ্ছে না, অনুগ্রহ করে আপনার ইন্সষ্টলেশন পরীক্ষা "
 "করুন"
 
-#: import.php:537 libraries/sql.lib.php:938 sql.php:548
+#: import.php:537 libraries/sql.lib.php:938 sql.php:409
 #, php-format
 msgid "Bookmark %s created"
 msgstr "বুকমার্ক  %s তৈরী করা হয়েছে"
@@ -2323,7 +2322,7 @@ msgstr "উর্ধ্ব মূখী"
 msgid "Descending"
 msgstr "অধ মুখী"
 
-#: libraries/DBQbe.class.php:364
+#: libraries/DBQbe.class.php:364 libraries/TableSearch.class.php:1276
 #, fuzzy
 #| msgid "Column"
 msgid "Column:"
@@ -2489,7 +2488,7 @@ msgstr "ডাটাবেইজে খোঁজ"
 msgid "Words or values to search for (wildcard: \"%\"):"
 msgstr "খোঁজার জন্য শব্দ বা সংখ্যা (wildcard: \"%\"):"
 
-#: libraries/DbSearch.class.php:395
+#: libraries/DbSearch.class.php:395 libraries/TableSearch.class.php:1271
 msgid "Find:"
 msgstr "খোঁজা:"
 
@@ -2657,8 +2656,8 @@ msgstr "অনুসন্ধানের মধ্য"
 #: libraries/DisplayResults.class.php:4920 libraries/structure.lib.php:653
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 msgstr ""
 "এই ভিউটির অন্তত পক্ষে এক সারি তথ্য রয়েছে। অনুগ্রহ করে %sdocumentation%s "
 "দেখুন"
@@ -2671,7 +2670,7 @@ msgstr "রো দেখাচ্ছে"
 msgid "total"
 msgstr "মোট"
 
-#: libraries/DisplayResults.class.php:4960 sql.php:292
+#: libraries/DisplayResults.class.php:4960 libraries/sql.lib.php:1553
 #, php-format
 msgid "Query took %01.4f sec"
 msgstr "অনুসন্ধানে %01.4f সেঃ লেগেছ "
@@ -3214,13 +3213,13 @@ msgstr ""
 "['MaxTableUiprefs'] %s দেখুন)"
 
 #: libraries/Table.class.php:1604
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "Cannot save UI property \"%s\". The changes made will not be persistent "
 "after you refresh this page. Please check if the table structure has been "
 "changed."
 msgstr ""
-"UI পছন্দের তথ্য সংরক্ষন করা যায়নি। পরিবর্তন গুলো এই পাতাটি রিফ্রেশ করলে "
+"UI পছন্দের তথ্য \"%s\" সংরক্ষন করা যায়নি। পরিবর্তন গুলো এই পাতাটি রিফ্রেশ করলে "
 "থাকবে না। টেবলের গঠন পরিবর্তীত হয়েছে কিনা পরীক্ষা করে দেখুন।"
 
 #: libraries/TableSearch.class.php:179 libraries/insert_edit.lib.php:211
@@ -3314,16 +3313,10 @@ msgstr "কিভাবে ব্যবহার করবেন"
 msgid "Reset zoom"
 msgstr "জুম রিসেট"
 
-#: libraries/TableSearch.class.php:1271
-#, fuzzy
-#| msgid "Find:"
-msgid "Find"
-msgstr "Find:"
-
 #: libraries/TableSearch.class.php:1273
 #, fuzzy
 #| msgid "Replace NULL by"
-msgid "Replace with"
+msgid "Replace with:"
 msgstr "Replace NULL by"
 
 #: libraries/TableSearch.class.php:1333
@@ -3432,16 +3425,16 @@ msgstr ""
 
 #: libraries/Types.class.php:308
 msgid ""
-"A small floating-point number, allowable values are -3.402823466E+38 to -"
-"1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
+"A small floating-point number, allowable values are -3.402823466E+38 to "
+"-1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
 msgstr ""
 "একটি ছোট দশমিক-পয়েন্টের অনুমোদিত মান হল -৩.৪০২৮২৬৪৬৬E+৩৮ থেকে "
 "-১.১৭৫৪৯৪৩৫১E-৩৮, ০ এবং ১.১৭৫৪৯৪৩৫১E-৩৮ থেকে ৩.৪০২৮২৬৪৬৬E+৩৮"
 
 #: libraries/Types.class.php:310
 msgid ""
-"A double-precision floating-point number, allowable values are -"
-"1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
+"A double-precision floating-point number, allowable values are "
+"-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
 "2.2250738585072014E-308 to 1.7976931348623157E+308"
 msgstr ""
 "একটি double-precision দশমিক পয়েন্ট হল -১.৭৯৭৬৯৩১৩৪৮৬২৩১৫৭E+৩০৮ থেকে - "
@@ -3974,17 +3967,15 @@ msgstr "সংখ্যা কী সনাক্ত করা গেছে"
 
 #: libraries/config.values.php:49 libraries/config.values.php:65
 #: libraries/config.values.php:70
-#, fuzzy
 #| msgid "Ins"
 msgid "Icons"
-msgstr "Ins"
+msgstr "্আইকন"
 
 #: libraries/config.values.php:50 libraries/config.values.php:66
 #: libraries/config.values.php:71
-#, fuzzy
 #| msgid "Next"
 msgid "Text"
-msgstr "পরবর্তী"
+msgstr "টেক্সট"
 
 #: libraries/config.values.php:51 libraries/config.values.php:59
 #: libraries/config.values.php:67 libraries/config.values.php:72
@@ -4252,8 +4243,8 @@ msgstr "CHAR স্তম্ভ সম্পাদনা"
 
 #: libraries/config/messages.inc.php:30
 msgid ""
-"Use user-friendly editor for editing SQL queries ([a@http://codemirror.net/]"
-"CodeMirror[/a]) with syntax highlighting and line numbers"
+"Use user-friendly editor for editing SQL queries ([a@http://codemirror."
+"net/]CodeMirror[/a]) with syntax highlighting and line numbers"
 msgstr ""
 "SQL অনুসন্ধান সম্পাদনার জন্য ব্যবহারকারীর জন্য সহজ সফটওয়ার ব্যবহার করুন "
 "([a@http://codemirror.net/]CodeMirror[/a]), লাইন চিহ্নিতকরন এবং লাইন নাম্বার "
@@ -4798,8 +4789,9 @@ msgstr "পাতার শিরোনাম"
 
 #: libraries/config/messages.inc.php:191
 msgid ""
-"Specify browser's title bar text. Refer to [doc@cfg_TitleTable]documentation"
-"[/doc] for magic strings that can be used to get special values."
+"Specify browser's title bar text. Refer to "
+"[doc@cfg_TitleTable]documentation[/doc] for magic strings that can be used "
+"to get special values."
 msgstr ""
 "ব্রাউজারের শিরোনামের লেখাটি দিন। বিশেষ মান নেওয়ার জন্য কি ব্যবহার করতে হবে "
 "জানার জন্য [doc@cfg_TitleTable]documentation[/doc] দেখুন।"
@@ -5595,8 +5587,8 @@ msgstr "বুকর্মাক টেবল"
 
 #: libraries/config/messages.inc.php:380
 msgid ""
-"Leave blank for no column comments/mime types, suggested: [kbd]"
-"pma__column_info[/kbd]"
+"Leave blank for no column comments/mime types, suggested: "
+"[kbd]pma__column_info[/kbd]"
 msgstr ""
 "স্তম্ভের মন্তব্য/মাইমের ধরন না দেখানোর জন্য খালি রাখুন, "
 "দেখুন:[kbd]pma_column_info[/kbd]"
@@ -5817,8 +5809,8 @@ msgstr "সাময়িককালে ব্যবহৃত টেবল"
 
 #: libraries/config/messages.inc.php:422
 msgid ""
-"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-links"
-"[/a] support, suggested: [kbd]pma__relation[/kbd]"
+"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
+"links[/a] support, suggested: [kbd]pma__relation[/kbd]"
 msgstr ""
 "না করার জন্য খালি রাখুন [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
 "links[/a]সাহায্যের জন্য, দেখুন:[kbd]pma__relation[/kbd] "
@@ -5837,8 +5829,8 @@ msgstr "SHOW DATABASES কমান্ড"
 
 #: libraries/config/messages.inc.php:426
 msgid ""
-"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication types"
-"[/a] for an example"
+"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
+"types[/a] for an example"
 msgstr ""
 "উদাহরণের জন্য "
 "[a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication types "
@@ -5948,8 +5940,8 @@ msgstr "ট্রেকের জন্য Statements"
 
 #: libraries/config/messages.inc.php:447
 msgid ""
-"Leave blank for no SQL query tracking support, suggested: [kbd]pma__tracking"
-"[/kbd]"
+"Leave blank for no SQL query tracking support, suggested: "
+"[kbd]pma__tracking[/kbd]"
 msgstr ""
 "SQL অনুসন্ধান ট্রেকিং সমর্থন না দেওয়ার জন্য খালি রাখুন, দেখুন: "
 "[kbd]pma_tracking[/kbd]"
@@ -5970,8 +5962,8 @@ msgstr "স্বয়ংক্রীয়ভাবে সংস্করন তৈ�
 
 #: libraries/config/messages.inc.php:451
 msgid ""
-"Leave blank for no user preferences storage in database, suggested: [kbd]"
-"pma__userconfig[/kbd]"
+"Leave blank for no user preferences storage in database, suggested: "
+"[kbd]pma__userconfig[/kbd]"
 msgstr ""
 "ব্যবহারকারীর নির্ধারন (preferences) ডাটাবেইজে মজুদ করতে না চাইলে খালি রাখুন, "
 "দেখুন:[kbd]pma_userconfig[/kbd] "
@@ -6086,6 +6078,7 @@ msgid "Show hint"
 msgstr "আভাস দেখাও"
 
 #: libraries/config/messages.inc.php:476
+#, fuzzy
 msgid ""
 "Shows link to [a@http://php.net/manual/function.phpinfo.php]phpinfo()[/a] "
 "output"
@@ -6625,8 +6618,8 @@ msgstr "@TABLE@ হবে টেবলের নাম"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "এই মানটি %1$sstrftime%2$s ভাবে অনুবাদিত হবে, আপনি সময় গঠনের স্ট্রিং ব্যবহার "
 "করতে পারেন। এখন এই রুপান্তরটি হবে:%3$s। অন্যান্য লেখা ঠিকই থাকবে।  %4$sFAQ%"
@@ -7165,8 +7158,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:131
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the %"
-"sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the "
+"%sPrimeBase XT Home Page%s."
 msgstr ""
 "নথিপত্রাদি এবং PBXT'র  অন্যান্য তথ্য %sPrimeBase XT Home Page%s এ পাওয়া "
 "যাবে। "
@@ -7180,7 +7173,8 @@ msgid "The PrimeBase XT Blog by Paul McCullagh"
 msgstr "Paul McCullagh এর The PrimeBase XT Blog "
 
 #: libraries/import.lib.php:187 libraries/insert_edit.lib.php:122
-#: libraries/rte/rte_routines.lib.php:1446 sql.php:287 tbl_get_field.php:55
+#: libraries/rte/rte_routines.lib.php:1446 libraries/sql.lib.php:1548
+#: tbl_get_field.php:41
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "মাইএসকিউএল কিছু পায়নি। (শুন্য তথ্য)"
 
@@ -7300,11 +7294,11 @@ msgstr ""
 "ট্যাব কি দিয়ে মান থেকে মানে যাওয়া যাবে বা CTRL+arrows দিয়ে যে কোন জায়গায় "
 "যাওয়া যাবে।"
 
-#: libraries/insert_edit.lib.php:1914 sql.php:282
+#: libraries/insert_edit.lib.php:1914 libraries/sql.lib.php:1543
 msgid "Showing SQL query"
 msgstr "এসকিউএল অনুসন্ধান দেখাচ্ছে"
 
-#: libraries/insert_edit.lib.php:1939 sql.php:262
+#: libraries/insert_edit.lib.php:1939 libraries/sql.lib.php:1523
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "প্রবেশকৃত রো আইডি: %1$d "
@@ -7857,8 +7851,8 @@ msgstr "%s এ স্বাগতম"
 #: libraries/plugins/auth/AuthenticationConfig.class.php:102
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 msgstr ""
 "সম্ভবত আপনি কোন কনফিগারেশন ফাইল তৈরী করেন নাই। আপনি %1$ssetup script%2$s "
 "ব্যবহার করে একটি তৈরী করতে পারেন।"
@@ -10086,8 +10080,8 @@ msgstr "একনজরে ব্যবহারকারীগণ"
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 msgstr ""
 "টিকা: phpMyAdmin সরাসরি মাইএসকিউএল অধিকার টেবিল থেকে ব্যবহারকারীর অধিকার "
 "সংক্রান্ত তথ্য সমূহ নেয়। টেবিলে থাকা অধিকার সম্পর্কিত তথ্য এবং সার্ভারের "
@@ -11057,6 +11051,14 @@ msgstr "বুকমার্ক  %s তৈরী করা হয়েছে"
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr "বুকমার্ক \"%s\" দেখার জন্য স্বাভাবিক অনুসন্ধান হিসাবে ব্যবহৃত হচ্ছে।"
 
+#: libraries/sql.lib.php:1540
+msgid "Showing as PHP code"
+msgstr "পিএইছপি কোড দেখাচ্ছে"
+
+#: libraries/sql.lib.php:1545
+msgid "Validated SQL"
+msgstr "এসকিউএল যাচাই"
+
 #: libraries/sql_query_form.lib.php:188
 #, php-format
 msgid "Run SQL query/queries on server %s"
@@ -11474,10 +11476,9 @@ msgid "PARTITION definition:"
 msgstr ""
 
 #: libraries/tbl_common.inc.php:54
-#, fuzzy, php-format
-#| msgid "Tracking is active."
+#, php-format
 msgid "Tracking of %s is activated."
-msgstr "%s.%s ট্রেকিং কার্যকর করা হয়েছে। "
+msgstr "%s ট্রেকিং কার্যকর করা হয়েছে।"
 
 #: libraries/tbl_gis_visualization.lib.php:141
 msgid "No data found for GIS visualization."
@@ -12037,6 +12038,7 @@ msgid "Cannot load or save configuration"
 msgstr "কনফিগারেশন লোড বা সংরক্ষন করতে পারছি না"
 
 #: setup/frames/index.inc.php:52
+#, fuzzy
 msgid ""
 "Please create web server writable folder [em]config[/em] in phpMyAdmin top "
 "level directory as described in [doc@setup_script]documentation[/doc]. "
@@ -12296,8 +12298,8 @@ msgid ""
 "You set the [kbd]config[/kbd] authentication type and included username and "
 "password for auto-login, which is not a desirable option for live hosts. "
 "Anyone who knows or guesses your phpMyAdmin URL can directly access your "
-"phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or [kbd]"
-"http[/kbd]."
+"phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or "
+"[kbd]http[/kbd]."
 msgstr ""
 "আপনি প্রমাণী করনের ধরন [kbd]config[/kbd] নির্ধারণ করেছেন এবং ব্যহবারকারীর "
 "নাম ও পাসওর্য়াড দিয়েছেন স্বয়ংক্রীয় লগইনের জন্য, যা একটি কার্যকর হোস্টের জন্য "
@@ -12343,22 +12345,14 @@ msgstr "কী তে অক্ষর, সংখ্যা [em]and[/em] বিশ
 msgid "Wrong data"
 msgstr "ভুল তথ্য"
 
-#: sql.php:279
-msgid "Showing as PHP code"
-msgstr "পিএইছপি কোড দেখাচ্ছে"
-
-#: sql.php:284
-msgid "Validated SQL"
-msgstr "এসকিউএল যাচাই"
-
-#: sql.php:538
+#: sql.php:399
 #, php-format
 msgid ""
 "Table %s does not contain a unique column. Grid edit, checkbox, Edit, Copy "
 "and Delete features are not available."
 msgstr ""
 
-#: sql.php:591
+#: sql.php:452
 #, php-format
 msgid "Problems with indexes of table `%s`"
 msgstr "টেবল `%s` এর ইনডেক্সে সমস্যা আছে"
@@ -12449,7 +12443,7 @@ msgstr "শনিবার"
 msgid "Table %s already exists!"
 msgstr "টেবিল %s পুর্ব থেকেই আছে!"
 
-#: tbl_create.php:58 tbl_get_field.php:37
+#: tbl_create.php:58 tbl_get_field.php:23
 #, php-format
 msgid "'%s' database does not exist."
 msgstr "'%s' ডাটাবেইজটি নাই।"
@@ -12463,7 +12457,7 @@ msgstr "টেবিল %1$s তৈরী করা হয়েছে।"
 msgid "View dump (schema) of table"
 msgstr "টেবিলের স্তুপ (গঠন) দেখাও"
 
-#: tbl_get_field.php:44
+#: tbl_get_field.php:30
 msgid "Invalid table name"
 msgstr "টেবিলের নামটি অকার্যকর"
 
@@ -12573,7 +12567,7 @@ msgstr "%1$s ট্রেকিং অকার্যকর করা হয়ে�
 #: tbl_tracking.php:240
 #, php-format
 msgid "Tracking for %1$s was activated at version %2$s."
-msgstr "%1$s ট্রেকিং কার্যকর করা হয়েছে সংস্করন %2$s এ। "
+msgstr "%1$s ট্রেকিং কার্যকর করা হয়েছে সংস্করন %2$s এ।"
 
 #: tbl_tracking.php:254
 msgid "SQL statements executed."
@@ -13081,8 +13075,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:179
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s%"
-"%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s"
+"%%. It should be above 80%%"
 msgstr ""
 "বর্তমান মুক্ত ক্যাশ মেমোরীর হার হল মোট অনুসন্ধান ক্যাশের আকারের %s%%। ইহা "
 "অবশ্যই 80%% বেশী থাকবে"
@@ -13146,7 +13140,7 @@ msgid ""
 "value is, the better (This rules firing limit: 0.1%%)"
 msgstr ""
 "ইনসার্টেড অনুসন্ধানে অনুসন্ধান সরানোর হার %s%%। এর মান যত কম হবে তত ভাল, ভাল "
-"(০.১%)"
+"(০.১%%)"
 
 #: libraries/advisory_rules.txt:195
 msgid "Query cache max size"
@@ -13217,8 +13211,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:216
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
-"%."
+"%s%% of all sorts cause temporary tables, this value should be lower than "
+"10%%."
 msgstr "সমস্ত সর্টের %s%% সাময়িক টেবল তৈরী করছে, এই মানটি 10%% এর কম হবে।"
 
 #: libraries/advisory_rules.txt:218
@@ -13505,7 +13499,7 @@ msgstr "মেমোরী থেকে ইনডেক্স পড়ার শ�
 #: libraries/advisory_rules.txt:321
 #, php-format
 msgid "The %% of indexes that use the MyISAM key buffer is low."
-msgstr " %% ইনডেক্সসমূহ যেগুলো MyISAM কী বাফার ব্যবহার করে।"
+msgstr "%% ইনডেক্সসমূহ যেগুলো MyISAM কী বাফার ব্যবহার করে।"
 
 #: libraries/advisory_rules.txt:322
 msgid "You may need to increase {key_buffer_size}."
@@ -13935,6 +13929,11 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert এর জন্য ০ নির্ধারন করা হয়েছে"
+
+#, fuzzy
+#~| msgid "Find:"
+#~ msgid "Find"
+#~ msgstr "Find:"
 
 #~ msgid "Display all tables with the same width"
 #~ msgstr "সবগুলো টেবল একই প্রশস্ততায় দেখাও"

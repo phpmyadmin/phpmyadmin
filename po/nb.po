@@ -3,15 +3,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-07-04 06:07-0400\n"
+"POT-Creation-Date: 2013-07-09 12:15+0200\n"
 "PO-Revision-Date: 2013-03-26 11:59+0200\n"
 "Last-Translator: Stian Berg <mail.to.stian@gmail.com>\n"
 "Language-Team: Norwegian Bokmål <http://l10n.cihar.com/projects/phpmyadmin/"
 "master/nb/>\n"
+"Language: nb\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: nb\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 1.5-dev\n"
 
@@ -128,8 +128,7 @@ msgstr "Tabellkommentarer"
 
 #: db_datadict.php:166 libraries/Index.class.php:565
 #: libraries/TableSearch.class.php:183 libraries/TableSearch.class.php:1225
-#: libraries/TableSearch.class.php:1276 libraries/display_indexes.lib.php:117
-#: libraries/insert_edit.lib.php:1568
+#: libraries/display_indexes.lib.php:117 libraries/insert_edit.lib.php:1568
 #: libraries/plugins/export/ExportHtmlword.class.php:278
 #: libraries/plugins/export/ExportHtmlword.class.php:393
 #: libraries/plugins/export/ExportLatex.class.php:510
@@ -624,11 +623,11 @@ msgstr ""
 #: import.php:107
 #, php-format
 msgid ""
-"You probably tried to upload a file that is too large. Please refer to %"
-"sdocumentation%s for a workaround for this limit."
+"You probably tried to upload a file that is too large. Please refer to "
+"%sdocumentation%s for a workaround for this limit."
 msgstr ""
-"Du forsøkte sannsynligvis å laste opp en fil som var for stor. Sjekk %"
-"sdokumentasjonen%s for måter å omgå denne begrensningen på."
+"Du forsøkte sannsynligvis å laste opp en fil som var for stor. Sjekk "
+"%sdokumentasjonen%s for måter å omgå denne begrensningen på."
 
 #: import.php:268 import.php:534
 msgid "Showing bookmark"
@@ -674,7 +673,7 @@ msgid "Could not load import plugins, please check your installation!"
 msgstr ""
 "Kan ikke starte importeringsprogramtilleggene, kontroller din installasjon!"
 
-#: import.php:537 libraries/sql.lib.php:938 sql.php:548
+#: import.php:537 libraries/sql.lib.php:938 sql.php:409
 #, php-format
 msgid "Bookmark %s created"
 msgstr "Bokmerke %s opprettet"
@@ -2349,7 +2348,7 @@ msgstr "Stigende"
 msgid "Descending"
 msgstr "Synkende"
 
-#: libraries/DBQbe.class.php:364
+#: libraries/DBQbe.class.php:364 libraries/TableSearch.class.php:1276
 #, fuzzy
 #| msgid "Column"
 msgid "Column:"
@@ -2515,7 +2514,7 @@ msgstr "Søk i database"
 msgid "Words or values to search for (wildcard: \"%\"):"
 msgstr "Ord eller verdier å søke med (jokertegn: \"%\"):"
 
-#: libraries/DbSearch.class.php:395
+#: libraries/DbSearch.class.php:395 libraries/TableSearch.class.php:1271
 msgid "Find:"
 msgstr "Finn:"
 
@@ -2687,8 +2686,8 @@ msgstr "i spørring"
 #: libraries/DisplayResults.class.php:4920 libraries/structure.lib.php:653
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 msgstr "Denne visningen har minst dette antall rader. Sjekk %sdocumentation%s."
 
 #: libraries/DisplayResults.class.php:4933
@@ -2699,7 +2698,7 @@ msgstr "Viser rader"
 msgid "total"
 msgstr "totalt"
 
-#: libraries/DisplayResults.class.php:4960 sql.php:292
+#: libraries/DisplayResults.class.php:4960 libraries/sql.lib.php:1553
 #, php-format
 msgid "Query took %01.4f sec"
 msgstr "Spørring tok %01.4f sek"
@@ -2815,8 +2814,8 @@ msgstr "Ukjent feil oppstod under filopplastingen."
 #: libraries/File.class.php:475
 msgid "Error moving the uploaded file, see [doc@faq1-11]FAQ 1.11[/doc]"
 msgstr ""
-"Feil oppstod under forsøk på flytting av den opplastede fila, se [doc@faq1-"
-"11]FAQ 1.11[/doc]"
+"Feil oppstod under forsøk på flytting av den opplastede fila, se "
+"[doc@faq1-11]FAQ 1.11[/doc]"
 
 #: libraries/File.class.php:493
 msgid "Error while moving uploaded file."
@@ -3356,16 +3355,10 @@ msgstr "Bruksforklaring"
 msgid "Reset zoom"
 msgstr "Tilbakestill zoom"
 
-#: libraries/TableSearch.class.php:1271
-#, fuzzy
-#| msgid "Find:"
-msgid "Find"
-msgstr "Finn:"
-
 #: libraries/TableSearch.class.php:1273
 #, fuzzy
 #| msgid "Replace NULL with:"
-msgid "Replace with"
+msgid "Replace with:"
 msgstr "Erstatt NULL med:"
 
 #: libraries/TableSearch.class.php:1333
@@ -3467,14 +3460,14 @@ msgstr ""
 
 #: libraries/Types.class.php:308
 msgid ""
-"A small floating-point number, allowable values are -3.402823466E+38 to -"
-"1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
+"A small floating-point number, allowable values are -3.402823466E+38 to "
+"-1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
 msgstr ""
 
 #: libraries/Types.class.php:310
 msgid ""
-"A double-precision floating-point number, allowable values are -"
-"1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
+"A double-precision floating-point number, allowable values are "
+"-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
 "2.2250738585072014E-308 to 1.7976931348623157E+308"
 msgstr ""
 
@@ -4246,8 +4239,8 @@ msgid ""
 "kbd] - allows newlines in columns"
 msgstr ""
 "Definerer hvilken type redigeringskontroll som skal brukes for CHAR og "
-"VARCHAR kolonner; [kbd]input[/kbd] - tillater begrensning av lengde, [kbd]"
-"textarea[/kbd] - tillater linjeskift i kolonner"
+"VARCHAR kolonner; [kbd]input[/kbd] - tillater begrensning av lengde, "
+"[kbd]textarea[/kbd] - tillater linjeskift i kolonner"
 
 #: libraries/config/messages.inc.php:29
 msgid "CHAR columns editing"
@@ -4255,8 +4248,8 @@ msgstr "CHAR kolonneredigering"
 
 #: libraries/config/messages.inc.php:30
 msgid ""
-"Use user-friendly editor for editing SQL queries ([a@http://codemirror.net/]"
-"CodeMirror[/a]) with syntax highlighting and line numbers"
+"Use user-friendly editor for editing SQL queries ([a@http://codemirror."
+"net/]CodeMirror[/a]) with syntax highlighting and line numbers"
 msgstr ""
 
 #: libraries/config/messages.inc.php:31
@@ -4662,8 +4655,8 @@ msgid ""
 "Sort order for items in a foreign-key dropdown box; [kbd]content[/kbd] is "
 "the referenced data, [kbd]id[/kbd] is the key value"
 msgstr ""
-"Sorteringsrekkefølge for elementer i en fremmednøkkel nedfallsboks; [kbd]"
-"content[/kbd] for refererte data, [kbd]id[/kbd] for nøkkelverdien"
+"Sorteringsrekkefølge for elementer i en fremmednøkkel nedfallsboks; "
+"[kbd]content[/kbd] for refererte data, [kbd]id[/kbd] for nøkkelverdien"
 
 #: libraries/config/messages.inc.php:149
 msgid "Foreign key dropdown order"
@@ -4809,12 +4802,13 @@ msgstr "Sidetitler"
 
 #: libraries/config/messages.inc.php:191
 msgid ""
-"Specify browser's title bar text. Refer to [doc@cfg_TitleTable]documentation"
-"[/doc] for magic strings that can be used to get special values."
+"Specify browser's title bar text. Refer to "
+"[doc@cfg_TitleTable]documentation[/doc] for magic strings that can be used "
+"to get special values."
 msgstr ""
-"Spesifiser vindustittelen til nettleseren. Se forøvrig [doc@cfg_TitleTable]"
-"dokumentasjon[/doc] for spesielle strenger som kan tas i bruk for å tilgang "
-"til spesialverdier."
+"Spesifiser vindustittelen til nettleseren. Se forøvrig "
+"[doc@cfg_TitleTable]dokumentasjon[/doc] for spesielle strenger som kan tas i "
+"bruk for å tilgang til spesialverdier."
 
 #: libraries/config/messages.inc.php:192
 #: libraries/navigation/NavigationHeader.class.php:204
@@ -5250,8 +5244,8 @@ msgid ""
 "The number of bytes a script is allowed to allocate, eg. [kbd]32M[/kbd] "
 "([kbd]0[/kbd] for no limit)"
 msgstr ""
-"Maks antal byte et skript har lov til å bruke, f.eks. [kbd]32M[/kbd] ([kbd]0"
-"[/kbd] for ingen begrensning)"
+"Maks antal byte et skript har lov til å bruke, f.eks. [kbd]32M[/kbd] "
+"([kbd]0[/kbd] for ingen begrensning)"
 
 #: libraries/config/messages.inc.php:296
 msgid "Memory limit"
@@ -5621,8 +5615,9 @@ msgid ""
 "authentication[/a] (not located in your document root; suggested: /etc/"
 "swekey.conf)"
 msgstr ""
-"Stien til konfigfila for [a@http://swekey.com]SweKey hardware authentication"
-"[/a] (ikke lokalisert i din dokumentrot; foreslått: /etc/swekey.conf)"
+"Stien til konfigfila for [a@http://swekey.com]SweKey hardware "
+"authentication[/a] (ikke lokalisert i din dokumentrot; foreslått: /etc/"
+"swekey.conf)"
 
 #: libraries/config/messages.inc.php:375
 msgid "SweKey config file"
@@ -5645,8 +5640,8 @@ msgid ""
 "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/bookmark]bookmark[/a] "
 "support, suggested: [kbd]pma__bookmark[/kbd]"
 msgstr ""
-"La stå tom for ingen [a@http://wiki.phpmyadmin.net/pma/bookmark]bokmerke[/a]"
-"støtte, anbefalt: [kbd]pma_bookmark[/kbd]"
+"La stå tom for ingen [a@http://wiki.phpmyadmin.net/pma/bookmark]bokmerke[/"
+"a]støtte, anbefalt: [kbd]pma_bookmark[/kbd]"
 
 #: libraries/config/messages.inc.php:379
 msgid "Bookmark table"
@@ -5655,14 +5650,14 @@ msgstr "Bokmerketabell"
 #: libraries/config/messages.inc.php:380
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no column comments/mime types, suggested: [kbd]"
-#| "pma_column_info[/kbd]"
+#| "Leave blank for no column comments/mime types, suggested: "
+#| "[kbd]pma_column_info[/kbd]"
 msgid ""
-"Leave blank for no column comments/mime types, suggested: [kbd]"
-"pma__column_info[/kbd]"
+"Leave blank for no column comments/mime types, suggested: "
+"[kbd]pma__column_info[/kbd]"
 msgstr ""
-"La stå tom for ingen kolonnekommentarer/mime typer, anbefalt: [kbd]"
-"pma_column_info[/kbd]"
+"La stå tom for ingen kolonnekommentarer/mime typer, anbefalt: "
+"[kbd]pma_column_info[/kbd]"
 
 #: libraries/config/messages.inc.php:381
 msgid "Column information table"
@@ -5694,8 +5689,8 @@ msgid ""
 "available on [a@http://wiki.phpmyadmin.net/pma/controluser]wiki[/a]"
 msgstr ""
 "En spesiell MySQL bruker konfigurert med begrensede rettigheter, mer "
-"informasjon tilgjengelig på [a@http://wiki.phpmyadmin.net/pma/controluser]"
-"wiki[/a]"
+"informasjon tilgjengelig på [a@http://wiki.phpmyadmin.net/pma/"
+"controluser]wiki[/a]"
 
 #: libraries/config/messages.inc.php:388
 msgid "Control user"
@@ -5778,8 +5773,8 @@ msgstr "Skul databaser"
 #: libraries/config/messages.inc.php:401
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no SQL query history support, suggested: [kbd]pma_history"
-#| "[/kbd]"
+#| "Leave blank for no SQL query history support, suggested: "
+#| "[kbd]pma_history[/kbd]"
 msgid ""
 "Leave blank for no SQL query history support, suggested: [kbd]pma__history[/"
 "kbd]"
@@ -5908,11 +5903,11 @@ msgstr "Nylig brukt tabell"
 #| "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
 #| "links[/a] support, suggested: [kbd]pma_relation[/kbd]"
 msgid ""
-"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-links"
-"[/a] support, suggested: [kbd]pma__relation[/kbd]"
+"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
+"links[/a] support, suggested: [kbd]pma__relation[/kbd]"
 msgstr ""
-"La stå tom for ingen [a@http://wiki.phpmyadmin.net/pma/relation]relasjonslink"
-"[/a]støtte, anbefalt: [kbd]pma_relation[/kbd]"
+"La stå tom for ingen [a@http://wiki.phpmyadmin.net/pma/"
+"relation]relasjonslink[/a]støtte, anbefalt: [kbd]pma_relation[/kbd]"
 
 #: libraries/config/messages.inc.php:423
 msgid "Relation table"
@@ -5928,8 +5923,8 @@ msgstr "SHOW DATABASES kommando"
 
 #: libraries/config/messages.inc.php:426
 msgid ""
-"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication types"
-"[/a] for an example"
+"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
+"types[/a] for an example"
 msgstr ""
 "Se [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]autentiseringstyper[/"
 "a] for et eksempel"
@@ -6051,11 +6046,11 @@ msgstr "Spørringer som skal spores"
 #: libraries/config/messages.inc.php:447
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no SQL query tracking support, suggested: [kbd]"
-#| "pma_tracking[/kbd]"
+#| "Leave blank for no SQL query tracking support, suggested: "
+#| "[kbd]pma_tracking[/kbd]"
 msgid ""
-"Leave blank for no SQL query tracking support, suggested: [kbd]pma__tracking"
-"[/kbd]"
+"Leave blank for no SQL query tracking support, suggested: "
+"[kbd]pma__tracking[/kbd]"
 msgstr ""
 "La stå tom for ingen SQL spørringshistorie, anbefalt: [kbd]pma_tracking[/kbd]"
 
@@ -6080,8 +6075,8 @@ msgstr "Automatisk opprette versjoner"
 #| msgid ""
 #| "blank for no SQL query tracking support, suggested: [kbd]_tracking[/kbd]"
 msgid ""
-"Leave blank for no user preferences storage in database, suggested: [kbd]"
-"pma__userconfig[/kbd]"
+"Leave blank for no user preferences storage in database, suggested: "
+"[kbd]pma__userconfig[/kbd]"
 msgstr ""
 "La stå tom for ingen SQL spørringshistorie, anbefalt: [kbd]pma_tracking[/kbd]"
 
@@ -6283,8 +6278,8 @@ msgid ""
 "If you have a custom username, specify it here (defaults to [kbd]anonymous[/"
 "kbd])"
 msgstr ""
-"Hvis du har et egendefinert brukernavn, angi det her (standard: [kbd]"
-"anonymous[/kbd])"
+"Hvis du har et egendefinert brukernavn, angi det her (standard: "
+"[kbd]anonymous[/kbd])"
 
 #: libraries/config/messages.inc.php:498 tbl_tracking.php:559
 #: tbl_tracking.php:621
@@ -6757,8 +6752,8 @@ msgstr ", @TABLE@ vil bli tabellnavnet"
 #| "will be kept as is."
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Denne verdien blir tolket slik som %1$sstrftime%2$s, så du kan bruke "
 "tidformateringsstrenger. I tillegg vil følgende transformasjoner skje: %3$s. "
@@ -7323,8 +7318,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:131
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the %"
-"sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the "
+"%sPrimeBase XT Home Page%s."
 msgstr ""
 
 #: libraries/engines/pbxt.lib.php:133
@@ -7338,7 +7333,8 @@ msgid "The PrimeBase XT Blog by Paul McCullagh"
 msgstr ""
 
 #: libraries/import.lib.php:187 libraries/insert_edit.lib.php:122
-#: libraries/rte/rte_routines.lib.php:1446 sql.php:287 tbl_get_field.php:55
+#: libraries/rte/rte_routines.lib.php:1446 libraries/sql.lib.php:1548
+#: tbl_get_field.php:41
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL returnerte ett tomt resultat (m.a.o. ingen rader)."
 
@@ -7473,11 +7469,11 @@ msgstr ""
 "Bruk TAB tasten for å flytte fra verdi til verdi, eller CTRL+piltastene for "
 "å bevege deg hvor som helst"
 
-#: libraries/insert_edit.lib.php:1914 sql.php:282
+#: libraries/insert_edit.lib.php:1914 libraries/sql.lib.php:1543
 msgid "Showing SQL query"
 msgstr "Viser SQL spørring"
 
-#: libraries/insert_edit.lib.php:1939 sql.php:262
+#: libraries/insert_edit.lib.php:1939 libraries/sql.lib.php:1523
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "Insatt rad id: %1$d"
@@ -8046,8 +8042,8 @@ msgstr "Velkommen til %s"
 #: libraries/plugins/auth/AuthenticationConfig.class.php:102
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 msgstr ""
 "En mulig årsak for dette er at du ikke opprettet konfigurasjonsfila. Du bør "
 "kanskje bruke %1$ssetup script%2$s for å opprette en."
@@ -10413,8 +10409,8 @@ msgstr "Brukeroversikt"
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 msgstr ""
 "Merk: phpMyAdmin får brukerprivilegiene direkte fra MySQL "
 "privilegietabeller. Innholdet i disse tabellene kan være forskjellig fra de "
@@ -11445,6 +11441,14 @@ msgstr "Bokmerke %s opprettet"
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr ""
 
+#: libraries/sql.lib.php:1540
+msgid "Showing as PHP code"
+msgstr "Viser som PHP kode"
+
+#: libraries/sql.lib.php:1545
+msgid "Validated SQL"
+msgstr "Validert SQL"
+
 #: libraries/sql_query_form.lib.php:188
 #, php-format
 msgid "Run SQL query/queries on server %s"
@@ -11818,8 +11822,8 @@ msgid ""
 "For a list of available transformation options and their MIME type "
 "transformations, click on %stransformation descriptions%s"
 msgstr ""
-"For en liste over tilgjengelige transformasjonsvalg, klikk på %"
-"stransformasjonsbeskrivelser%s"
+"For en liste over tilgjengelige transformasjonsvalg, klikk på "
+"%stransformasjonsbeskrivelser%s"
 
 #: libraries/tbl_columns_definition_form.inc.php:171
 msgid "Transformation options"
@@ -12505,9 +12509,9 @@ msgid ""
 "Otherwise you will be only able to download or display it."
 msgstr ""
 "Opprett en mappe [em]config[/em] som er skrivbar for webtjener i phpMyAdmin "
-"øverste mappe som beskrevet i [a@../Documentation.html#setup_script]"
-"documentation[/a]. Hvis ikke så vil du kun være i stand til å laste ned "
-"eller fremvise den."
+"øverste mappe som beskrevet i [a@../Documentation."
+"html#setup_script]documentation[/a]. Hvis ikke så vil du kun være i stand "
+"til å laste ned eller fremvise den."
 
 #: setup/frames/index.inc.php:60
 msgid ""
@@ -12779,8 +12783,8 @@ msgid ""
 "of users, including you, are connected to."
 msgstr ""
 "Hvis du føler at dette er nødvending, så bruk ekstra "
-"beskyttelsesinnstillinger - [a@?page=servers&amp;mode=edit&amp;id=%1"
-"$d#tab_Server_config]vertsautentisering[/a] innstillinger og [a@?"
+"beskyttelsesinnstillinger - [a@?page=servers&amp;mode=edit&amp;id="
+"%1$d#tab_Server_config]vertsautentisering[/a] innstillinger og [a@?"
 "page=form&amp;formset=features#tab_Security]godkjente mellomlagerliste[/a]. "
 "Merk at IP-basert beskyttelse ikke er så god hvis din IP tilhører en "
 "Internettilbyder som har tusenvis av brukere, inkludert deg, tilknyttet."
@@ -12797,14 +12801,15 @@ msgid ""
 "You set the [kbd]config[/kbd] authentication type and included username and "
 "password for auto-login, which is not a desirable option for live hosts. "
 "Anyone who knows or guesses your phpMyAdmin URL can directly access your "
-"phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or [kbd]"
-"http[/kbd]."
+"phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or "
+"[kbd]http[/kbd]."
 msgstr ""
 "Du valgte [kbd]config[/kbd] autentisering og inkluderte brukernavn og "
 "passord for autmatisk innlogging, noe som ikke anbefales for aktive tjenere. "
 "Hvem som helst som kjenner phpMyAdmin URL kan direkte få adgang til ditt "
-"phpMyAdmin panel. Velg [a@?page=servers&amp;mode=edit&amp;id=%1$d#tab_Server]"
-"autentiseringstype[/a] [kbd]cookie[/kbd] eller [kbd]http[/kbd]."
+"phpMyAdmin panel. Velg [a@?page=servers&amp;mode=edit&amp;id="
+"%1$d#tab_Server]autentiseringstype[/a] [kbd]cookie[/kbd] eller [kbd]http[/"
+"kbd]."
 
 #: setup/lib/index.lib.php:318
 #, fuzzy, php-format
@@ -12827,8 +12832,8 @@ msgid ""
 "%sZip decompression%s requires functions (%s) which are unavailable on this "
 "system."
 msgstr ""
-"[a@?page=form&amp;formset=features#tab_Import_export]Zip dekomprimering[/a]"
-"trenger funksjoner (%s) som ikke er tilgjengelig på dette systemet."
+"[a@?page=form&amp;formset=features#tab_Import_export]Zip dekomprimering[/"
+"a]trenger funksjoner (%s) som ikke er tilgjengelig på dette systemet."
 
 #: setup/lib/index.lib.php:348
 #, fuzzy
@@ -12864,22 +12869,14 @@ msgstr "Nøkkelen bør inneholde tall, bokstaver [em]og[/em] spesielle tegn"
 msgid "Wrong data"
 msgstr "Ingen databaser"
 
-#: sql.php:279
-msgid "Showing as PHP code"
-msgstr "Viser som PHP kode"
-
-#: sql.php:284
-msgid "Validated SQL"
-msgstr "Validert SQL"
-
-#: sql.php:538
+#: sql.php:399
 #, php-format
 msgid ""
 "Table %s does not contain a unique column. Grid edit, checkbox, Edit, Copy "
 "and Delete features are not available."
 msgstr ""
 
-#: sql.php:591
+#: sql.php:452
 #, php-format
 msgid "Problems with indexes of table `%s`"
 msgstr "Problemer med indeksene i tabellen `%s`"
@@ -12990,7 +12987,7 @@ msgstr "Startrad"
 msgid "Table %s already exists!"
 msgstr "Tabel %s eksisterer allerede!"
 
-#: tbl_create.php:58 tbl_get_field.php:37
+#: tbl_create.php:58 tbl_get_field.php:23
 #, php-format
 msgid "'%s' database does not exist."
 msgstr "'%s' database eksisterer ikke."
@@ -13004,7 +13001,7 @@ msgstr "Tabellen %1$s har blitt opprettet."
 msgid "View dump (schema) of table"
 msgstr "Vis dump (skjema) av tabell"
 
-#: tbl_get_field.php:44
+#: tbl_get_field.php:30
 msgid "Invalid table name"
 msgstr "Ugylding tabellnavn"
 
@@ -13648,8 +13645,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:179
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s%"
-"%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s"
+"%%. It should be above 80%%"
 msgstr ""
 
 #: libraries/advisory_rules.txt:181
@@ -13784,8 +13781,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:216
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
-"%."
+"%s%% of all sorts cause temporary tables, this value should be lower than "
+"10%%."
 msgstr ""
 
 #: libraries/advisory_rules.txt:218
@@ -14515,6 +14512,11 @@ msgstr ""
 msgid "concurrent_insert is set to 0"
 msgstr "maks. samtidige tilkoblinger"
 
+#, fuzzy
+#~| msgid "Find:"
+#~ msgid "Find"
+#~ msgstr "Finn:"
+
 #~ msgid "Display all tables with the same width"
 #~ msgstr "Vis alle tabeller med samme lengde"
 
@@ -14809,9 +14811,9 @@ msgstr "maks. samtidige tilkoblinger"
 
 #~ msgid ""
 #~ "When setting this to [kbd]nested[/kbd], the alias of the table name is "
-#~ "only used to split/nest the tables according to the $cfg"
-#~ "['LeftFrameTableSeparator'] directive, so only the folder is called like "
-#~ "the alias, the table name itself stays unchanged"
+#~ "only used to split/nest the tables according to the "
+#~ "$cfg['LeftFrameTableSeparator'] directive, so only the folder is called "
+#~ "like the alias, the table name itself stays unchanged"
 #~ msgstr ""
 #~ "Når du setter denne til [kbd]nested[/kbd] så blir tabellnavnaliaset kun "
 #~ "brukt til å splitte/neste tabellene etter $cfg['LeftFrameTableSeparator'] "
@@ -15002,8 +15004,8 @@ msgstr "maks. samtidige tilkoblinger"
 #~ msgid ""
 #~ "Are you sure you want to disable all BLOB references for database %s?"
 #~ msgstr ""
-#~ "Er du sikker på at du ønsker å slå av alle BLOB referanser for databasen %"
-#~ "s?"
+#~ "Er du sikker på at du ønsker å slå av alle BLOB referanser for databasen "
+#~ "%s?"
 
 #, fuzzy
 #~ msgid "Unknown error while uploading."

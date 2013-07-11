@@ -22,34 +22,6 @@ require_once 'libraries/plugins/ExportPlugin.class.php';
 class ExportCsv extends ExportPlugin
 {
     /**
-     * The string used to end lines
-     *
-     * @var string
-     */
-    private $_csvTerminated;
-
-    /**
-     * The string used to separate columns
-     *
-     * @var string
-     */
-    private $_csvSeparator;
-
-    /**
-     * The string used to enclose columns
-     *
-     * @var string
-     */
-    private $_csvEnclosed;
-
-    /**
-     * The string used to escape columns
-     *
-     * @var string
-     */
-    private $_csvEscaped;
-
-    /**
      * Constructor
      */
     public function __construct()

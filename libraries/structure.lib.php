@@ -1057,7 +1057,7 @@ function PMA_getStuffForEngineTypeTable($current_table, $db_is_information_schem
             // countRecords() takes care of $cfg['MaxExactCountViews']
             $current_table['TABLE_ROWS'] = PMA_Table::countRecords(
                 $GLOBALS['db'], $current_table['TABLE_NAME'],
-                $force_exact = true, $is_view = true
+                true, true
             );
             $table_is_view = true;
         }
@@ -1138,7 +1138,7 @@ function PMA_getValuesForPbmsTable($current_table, $is_show_stats, $sum_size)
         $current_table['COUNTED'] = true;
         $current_table['TABLE_ROWS'] = PMA_Table::countRecords(
             $GLOBALS['db'], $current_table['TABLE_NAME'],
-            $force_exact = true, $is_view = false
+            true, false
         );
     } else {
         $current_table['COUNTED'] = false;
@@ -1191,11 +1191,7 @@ function PMA_getHtmlForTableStructureHeader(
         if (PMA_DRIZZLE) {
             $colspan -= 2;
         }
-        if (in_array(
-            $GLOBALS['cfg']['ActionLinksMode'],
-            array('icons', 'both')
-            )
-        ) {
+        if (in_array($GLOBALS['cfg']['ActionLinksMode'], array('icons', 'both'))) {
             $colspan--;
         }
         $html_output .= '<th colspan="' . $colspan . '" '
@@ -1722,10 +1718,10 @@ function getHtmlForRowStatsTable($showtable, $tbl_collation,
         && isset($showtable['Avg_row_length'])
         && $showtable['Avg_row_length'] > 0
     ) {
-        list($avg_row_length_value, $avg_row_length_unit) 
+        list($avg_row_length_value, $avg_row_length_unit)
             = PMA_Util::formatByteDown(
                 $showtable['Avg_row_length'],
-                6, 
+                6,
                 1
             );
         $html_output .= PMA_getHtmlForRowStatsTableRow(
@@ -2507,7 +2503,7 @@ function PMA_moveColumns($db, $table)
     $move_query = 'ALTER TABLE ' . PMA_Util::backquote($table) . ' ';
     $move_query .= implode(', ', $changes);
     // move columns
-    $result = $GLOBALS['dbi']->tryQuery($move_query);
+    $GLOBALS['dbi']->tryQuery($move_query);
     $tmp_error = $GLOBALS['dbi']->getError();
     if ($tmp_error) {
         $response->isSuccess(false);

@@ -41,9 +41,12 @@ class PMA_PDF extends TCPDF
      * @access public
      */
     public function __construct($orientation = 'P', $unit = 'mm', $format = 'A4',
-        $unicode = true, $encoding = 'UTF-8', $diskcache = false
+        $unicode = true, $encoding = 'UTF-8', $diskcache = false, $pdfa=false
     ) {
-        parent::__construct();
+        parent::__construct(
+            $orientation, $unit, $format, $unicode,
+            $encoding, $diskcache, $pdfa
+        );
         $this->SetAuthor('phpMyAdmin ' . PMA_VERSION);
         $this->AddFont('DejaVuSans', '', 'dejavusans.php');
         $this->AddFont('DejaVuSans', 'B', 'dejavusansb.php');

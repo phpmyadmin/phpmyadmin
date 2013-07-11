@@ -271,7 +271,7 @@ function PMA_gzencodeNeeded()
     if (@function_exists('gzencode')
         && ! @ini_get('zlib.output_compression')
         && ! (function_exists('apache_get_modules')
-            && in_array('mod_deflate', apache_get_modules()))
+        && in_array('mod_deflate', apache_get_modules()))
         && ! PMA_isGzHandlerEnabled()
     ) {
         return true;

@@ -3,15 +3,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-07-04 06:07-0400\n"
+"POT-Creation-Date: 2013-07-09 12:15+0200\n"
 "PO-Revision-Date: 2013-06-20 14:00+0200\n"
 "Last-Translator: Dadan Setia <da2n_s@yahoo.co.id>\n"
 "Language-Team: Indonesian <http://l10n.cihar.com/projects/phpmyadmin/master/"
 "id/>\n"
+"Language: id\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: id\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 1.6-dev\n"
 "X-Poedit-Basepath: ../../..\n"
@@ -126,8 +126,7 @@ msgstr "Komentar tabel:"
 
 #: db_datadict.php:166 libraries/Index.class.php:565
 #: libraries/TableSearch.class.php:183 libraries/TableSearch.class.php:1225
-#: libraries/TableSearch.class.php:1276 libraries/display_indexes.lib.php:117
-#: libraries/insert_edit.lib.php:1568
+#: libraries/display_indexes.lib.php:117 libraries/insert_edit.lib.php:1568
 #: libraries/plugins/export/ExportHtmlword.class.php:278
 #: libraries/plugins/export/ExportHtmlword.class.php:393
 #: libraries/plugins/export/ExportLatex.class.php:510
@@ -606,11 +605,11 @@ msgstr ""
 #: import.php:107
 #, php-format
 msgid ""
-"You probably tried to upload a file that is too large. Please refer to %"
-"sdocumentation%s for a workaround for this limit."
+"You probably tried to upload a file that is too large. Please refer to "
+"%sdocumentation%s for a workaround for this limit."
 msgstr ""
-"Anda mungkin mencoba mengunggah berkas yang terlalu besar. Silahkan lihat %"
-"sdokumentasi%s untuk mendapatkan solusi tentang batasan ini."
+"Anda mungkin mencoba mengunggah berkas yang terlalu besar. Silahkan lihat "
+"%sdokumentasi%s untuk mendapatkan solusi tentang batasan ini."
 
 #: import.php:268 import.php:534
 msgid "Showing bookmark"
@@ -655,7 +654,7 @@ msgstr ""
 msgid "Could not load import plugins, please check your installation!"
 msgstr "Tidak dapat memuat plugin import, harap periksa instalasi Anda!"
 
-#: import.php:537 libraries/sql.lib.php:938 sql.php:548
+#: import.php:537 libraries/sql.lib.php:938 sql.php:409
 #, php-format
 msgid "Bookmark %s created"
 msgstr "Markah %s dibuat"
@@ -2326,7 +2325,7 @@ msgstr "Menaik"
 msgid "Descending"
 msgstr "Menurun"
 
-#: libraries/DBQbe.class.php:364
+#: libraries/DBQbe.class.php:364 libraries/TableSearch.class.php:1276
 msgid "Column:"
 msgstr "Kolom:"
 
@@ -2478,7 +2477,7 @@ msgstr "Cari dalam basis data"
 msgid "Words or values to search for (wildcard: \"%\"):"
 msgstr "Kata atau hasil untuk dicari (wildcard: \"%\"):"
 
-#: libraries/DbSearch.class.php:395
+#: libraries/DbSearch.class.php:395 libraries/TableSearch.class.php:1271
 msgid "Find:"
 msgstr "Cari:"
 
@@ -2644,11 +2643,11 @@ msgstr "dalam susunan pemeriksaan"
 #: libraries/DisplayResults.class.php:4920 libraries/structure.lib.php:653
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 msgstr ""
-"Sebuah view setidaknya mempunyai jumlah kolom berikut. Harap lihat %"
-"sdokumentasi%s."
+"Sebuah view setidaknya mempunyai jumlah kolom berikut. Harap lihat "
+"%sdokumentasi%s."
 
 #: libraries/DisplayResults.class.php:4933
 msgid "Showing rows"
@@ -2658,7 +2657,7 @@ msgstr "Tampilan baris"
 msgid "total"
 msgstr "total"
 
-#: libraries/DisplayResults.class.php:4960 sql.php:292
+#: libraries/DisplayResults.class.php:4960 libraries/sql.lib.php:1553
 #, php-format
 msgid "Query took %01.4f sec"
 msgstr "Pencarian dilakukan dalam %01.4f detik"
@@ -3310,16 +3309,10 @@ msgstr "Cara pakai"
 msgid "Reset zoom"
 msgstr "Reset Zoom"
 
-#: libraries/TableSearch.class.php:1271
-#, fuzzy
-#| msgid "Find:"
-msgid "Find"
-msgstr "Cari:"
-
 #: libraries/TableSearch.class.php:1273
 #, fuzzy
 #| msgid "Replace NULL with:"
-msgid "Replace with"
+msgid "Replace with:"
 msgstr "Ganti NULL dengan:"
 
 #: libraries/TableSearch.class.php:1333
@@ -3432,20 +3425,20 @@ msgstr ""
 
 #: libraries/Types.class.php:308
 msgid ""
-"A small floating-point number, allowable values are -3.402823466E+38 to -"
-"1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
+"A small floating-point number, allowable values are -3.402823466E+38 to "
+"-1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
 msgstr ""
-"small floating-point number, mengizinkan nilai dari -3.402823466E+38 sampai -"
-"1.175494351E-38, 0, dan 1.175494351E-38 sampai 3.402823466E+38"
+"small floating-point number, mengizinkan nilai dari -3.402823466E+38 sampai "
+"-1.175494351E-38, 0, dan 1.175494351E-38 sampai 3.402823466E+38"
 
 #: libraries/Types.class.php:310
 msgid ""
-"A double-precision floating-point number, allowable values are -"
-"1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
+"A double-precision floating-point number, allowable values are "
+"-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
 "2.2250738585072014E-308 to 1.7976931348623157E+308"
 msgstr ""
-"double-precision floating-point number, mengizinkan nilai antara -"
-"1.7976931348623157E+308 sampai -2.2250738585072014E-308, 0, dan "
+"double-precision floating-point number, mengizinkan nilai antara "
+"-1.7976931348623157E+308 sampai -2.2250738585072014E-308, 0, dan "
 "2.2250738585072014E-308 sampai 1.7976931348623157E+308"
 
 #: libraries/Types.class.php:312
@@ -4201,8 +4194,8 @@ msgid ""
 "Secret passphrase used for encrypting cookies in [kbd]cookie[/kbd] "
 "authentication"
 msgstr ""
-"Rahasia passphrase digunakan untuk enkripsi cookie dalam otentifikasi [kbd]"
-"cookie[/kbd]"
+"Rahasia passphrase digunakan untuk enkripsi cookie dalam otentifikasi "
+"[kbd]cookie[/kbd]"
 
 #: libraries/config/messages.inc.php:21
 msgid "Blowfish secret"
@@ -4242,9 +4235,9 @@ msgid ""
 "columns; [kbd]input[/kbd] - allows limiting of input length, [kbd]textarea[/"
 "kbd] - allows newlines in columns"
 msgstr ""
-"Menentukan jenis masukan yang dipakai untuk kolom CHAR dan VARCHAR; [kbd]"
-"input[/kbd] - mengizinkan pembatasan panjang masukan, [kbd]textarea[/kbd] - "
-"mengizinkan baris baru dalam kolom"
+"Menentukan jenis masukan yang dipakai untuk kolom CHAR dan VARCHAR; "
+"[kbd]input[/kbd] - mengizinkan pembatasan panjang masukan, [kbd]textarea[/"
+"kbd] - mengizinkan baris baru dalam kolom"
 
 #: libraries/config/messages.inc.php:29
 msgid "CHAR columns editing"
@@ -4252,8 +4245,8 @@ msgstr "Pengeditan kolom CHAR"
 
 #: libraries/config/messages.inc.php:30
 msgid ""
-"Use user-friendly editor for editing SQL queries ([a@http://codemirror.net/]"
-"CodeMirror[/a]) with syntax highlighting and line numbers"
+"Use user-friendly editor for editing SQL queries ([a@http://codemirror."
+"net/]CodeMirror[/a]) with syntax highlighting and line numbers"
 msgstr ""
 
 #: libraries/config/messages.inc.php:31
@@ -4799,8 +4792,9 @@ msgstr "Judul halaman"
 
 #: libraries/config/messages.inc.php:191
 msgid ""
-"Specify browser's title bar text. Refer to [doc@cfg_TitleTable]documentation"
-"[/doc] for magic strings that can be used to get special values."
+"Specify browser's title bar text. Refer to "
+"[doc@cfg_TitleTable]documentation[/doc] for magic strings that can be used "
+"to get special values."
 msgstr ""
 
 #: libraries/config/messages.inc.php:192
@@ -5593,11 +5587,11 @@ msgstr "Tabel markah"
 #: libraries/config/messages.inc.php:380
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no user preferences storage in database, suggested: [kbd]"
-#| "pma_userconfig[/kbd]"
+#| "Leave blank for no user preferences storage in database, suggested: "
+#| "[kbd]pma_userconfig[/kbd]"
 msgid ""
-"Leave blank for no column comments/mime types, suggested: [kbd]"
-"pma__column_info[/kbd]"
+"Leave blank for no column comments/mime types, suggested: "
+"[kbd]pma__column_info[/kbd]"
 msgstr ""
 "Biarkan kosong untuk tidak menyimpan preferensi pengguna dalam basis data, "
 "saran: [kbd]pma_userconfig[/kbd]"
@@ -5662,8 +5656,8 @@ msgstr "Inang pengendali"
 #: libraries/config/messages.inc.php:393
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no user preferences storage in database, suggested: [kbd]"
-#| "pma_userconfig[/kbd]"
+#| "Leave blank for no user preferences storage in database, suggested: "
+#| "[kbd]pma_userconfig[/kbd]"
 msgid ""
 "Leave blank for no Designer support, suggested: [kbd]pma__designer_coords[/"
 "kbd]"
@@ -5704,8 +5698,8 @@ msgstr "Sembunyikan basis data"
 #: libraries/config/messages.inc.php:401
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no user preferences storage in database, suggested: [kbd]"
-#| "pma_userconfig[/kbd]"
+#| "Leave blank for no user preferences storage in database, suggested: "
+#| "[kbd]pma_userconfig[/kbd]"
 msgid ""
 "Leave blank for no SQL query history support, suggested: [kbd]pma__history[/"
 "kbd]"
@@ -5771,8 +5765,8 @@ msgstr "Sandi untuk autentikasi config"
 #: libraries/config/messages.inc.php:414
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no user preferences storage in database, suggested: [kbd]"
-#| "pma_userconfig[/kbd]"
+#| "Leave blank for no user preferences storage in database, suggested: "
+#| "[kbd]pma_userconfig[/kbd]"
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__pdf_pages[/kbd]"
 msgstr ""
@@ -5805,8 +5799,8 @@ msgstr "Porta server"
 #: libraries/config/messages.inc.php:420
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no user preferences storage in database, suggested: [kbd]"
-#| "pma_userconfig[/kbd]"
+#| "Leave blank for no user preferences storage in database, suggested: "
+#| "[kbd]pma_userconfig[/kbd]"
 msgid ""
 "Leave blank for no \"persistent\" recently used tables across sessions, "
 "suggested: [kbd]pma__recent[/kbd]"
@@ -5820,8 +5814,8 @@ msgstr "Tabel yang baru digunakan"
 
 #: libraries/config/messages.inc.php:422
 msgid ""
-"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-links"
-"[/a] support, suggested: [kbd]pma__relation[/kbd]"
+"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
+"links[/a] support, suggested: [kbd]pma__relation[/kbd]"
 msgstr ""
 
 #: libraries/config/messages.inc.php:423
@@ -5838,8 +5832,8 @@ msgstr "Perintah SHOW DATABASES"
 
 #: libraries/config/messages.inc.php:426
 msgid ""
-"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication types"
-"[/a] for an example"
+"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
+"types[/a] for an example"
 msgstr ""
 
 #: libraries/config/messages.inc.php:427
@@ -5869,8 +5863,8 @@ msgstr "Gunakan SSL"
 #: libraries/config/messages.inc.php:433
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no user preferences storage in database, suggested: [kbd]"
-#| "pma_userconfig[/kbd]"
+#| "Leave blank for no user preferences storage in database, suggested: "
+#| "[kbd]pma_userconfig[/kbd]"
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__table_coords[/"
 "kbd]"
@@ -5895,8 +5889,8 @@ msgstr "Tabel kolom tampilan"
 #: libraries/config/messages.inc.php:437
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no user preferences storage in database, suggested: [kbd]"
-#| "pma_userconfig[/kbd]"
+#| "Leave blank for no user preferences storage in database, suggested: "
+#| "[kbd]pma_userconfig[/kbd]"
 msgid ""
 "Leave blank for no \"persistent\" tables' UI preferences across sessions, "
 "suggested: [kbd]pma__table_uiprefs[/kbd]"
@@ -5949,11 +5943,11 @@ msgstr "Statement untuk dilacak"
 #: libraries/config/messages.inc.php:447
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no user preferences storage in database, suggested: [kbd]"
-#| "pma_userconfig[/kbd]"
+#| "Leave blank for no user preferences storage in database, suggested: "
+#| "[kbd]pma_userconfig[/kbd]"
 msgid ""
-"Leave blank for no SQL query tracking support, suggested: [kbd]pma__tracking"
-"[/kbd]"
+"Leave blank for no SQL query tracking support, suggested: "
+"[kbd]pma__tracking[/kbd]"
 msgstr ""
 "Biarkan kosong untuk tidak menyimpan preferensi pengguna dalam basis data, "
 "saran: [kbd]pma_userconfig[/kbd]"
@@ -5975,11 +5969,11 @@ msgstr "Buat versi secara otomatis"
 #: libraries/config/messages.inc.php:451
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no user preferences storage in database, suggested: [kbd]"
-#| "pma_userconfig[/kbd]"
+#| "Leave blank for no user preferences storage in database, suggested: "
+#| "[kbd]pma_userconfig[/kbd]"
 msgid ""
-"Leave blank for no user preferences storage in database, suggested: [kbd]"
-"pma__userconfig[/kbd]"
+"Leave blank for no user preferences storage in database, suggested: "
+"[kbd]pma__userconfig[/kbd]"
 msgstr ""
 "Biarkan kosong untuk tidak menyimpan preferensi pengguna dalam basis data, "
 "saran: [kbd]pma_userconfig[/kbd]"
@@ -6634,8 +6628,8 @@ msgstr ", @TABLE@ akan menjadi nama tabel"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 
 #: libraries/display_export.lib.php:341
@@ -7165,8 +7159,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:131
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the %"
-"sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the "
+"%sPrimeBase XT Home Page%s."
 msgstr ""
 
 #: libraries/engines/pbxt.lib.php:133
@@ -7178,7 +7172,8 @@ msgid "The PrimeBase XT Blog by Paul McCullagh"
 msgstr ""
 
 #: libraries/import.lib.php:187 libraries/insert_edit.lib.php:122
-#: libraries/rte/rte_routines.lib.php:1446 sql.php:287 tbl_get_field.php:55
+#: libraries/rte/rte_routines.lib.php:1446 libraries/sql.lib.php:1548
+#: tbl_get_field.php:41
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL memberikan hasil kosong (atau nol baris)."
 
@@ -7301,11 +7296,11 @@ msgstr ""
 "Gunakan tombol TAB untuk maju dari angka ke angka atau gunakan CTRL+panah "
 "untuk maju kemana saja"
 
-#: libraries/insert_edit.lib.php:1914 sql.php:282
+#: libraries/insert_edit.lib.php:1914 libraries/sql.lib.php:1543
 msgid "Showing SQL query"
 msgstr "Menampilkan kueri SQL"
 
-#: libraries/insert_edit.lib.php:1939 sql.php:262
+#: libraries/insert_edit.lib.php:1939 libraries/sql.lib.php:1523
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "Nomor baris baru: %1$d"
@@ -7881,11 +7876,11 @@ msgstr "Selamat Datang di %s"
 #: libraries/plugins/auth/AuthenticationConfig.class.php:102
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 msgstr ""
-"Anda mungkin belum membuat berkas konfigurasi. Anda bisa menggunakan %1"
-"$ssetup script%2$s untuk membuatnya."
+"Anda mungkin belum membuat berkas konfigurasi. Anda bisa menggunakan "
+"%1$ssetup script%2$s untuk membuatnya."
 
 #: libraries/plugins/auth/AuthenticationConfig.class.php:122
 msgid ""
@@ -10105,8 +10100,8 @@ msgstr "Ikhtisar pengguna"
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 msgstr ""
 "Perhatian: phpMyAdmin membaca data tentang pengguna secara langsung dari "
 "tabel profil pengguna MySQL. Isi dari tabel bisa saja berbeda dengan profil "
@@ -11019,6 +11014,14 @@ msgstr "Markah %s dibuat"
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr "Menggunakan markah \"%s\" sebagai kueri penjelajahan bawaan."
+
+#: libraries/sql.lib.php:1540
+msgid "Showing as PHP code"
+msgstr "Tampilkan sebagai kode PHP"
+
+#: libraries/sql.lib.php:1545
+msgid "Validated SQL"
+msgstr "SQL tervalidasi"
 
 #: libraries/sql_query_form.lib.php:188
 #, php-format
@@ -12234,8 +12237,8 @@ msgid ""
 "You set the [kbd]config[/kbd] authentication type and included username and "
 "password for auto-login, which is not a desirable option for live hosts. "
 "Anyone who knows or guesses your phpMyAdmin URL can directly access your "
-"phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or [kbd]"
-"http[/kbd]."
+"phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or "
+"[kbd]http[/kbd]."
 msgstr ""
 
 #: setup/lib/index.lib.php:318
@@ -12280,15 +12283,7 @@ msgstr "Kunci harus terdiri dari huruf, angka, [em]dan[/em] karakter khusus."
 msgid "Wrong data"
 msgstr "Data salah"
 
-#: sql.php:279
-msgid "Showing as PHP code"
-msgstr "Tampilkan sebagai kode PHP"
-
-#: sql.php:284
-msgid "Validated SQL"
-msgstr "SQL tervalidasi"
-
-#: sql.php:538
+#: sql.php:399
 #, fuzzy, php-format
 #| msgid ""
 #| "This table does not contain a unique column. Features related to the grid "
@@ -12301,7 +12296,7 @@ msgstr ""
 "grid, kotak centang, Edit, Copy dan Delete link mungkin tidak bekerja "
 "setelah disimpan."
 
-#: sql.php:591
+#: sql.php:452
 #, php-format
 msgid "Problems with indexes of table `%s`"
 msgstr "Ditemukan masalah dengan indeks dalam tabel `%s`"
@@ -12404,7 +12399,7 @@ msgstr "Awal baris:"
 msgid "Table %s already exists!"
 msgstr "Tabel %s sudah ada!"
 
-#: tbl_create.php:58 tbl_get_field.php:37
+#: tbl_create.php:58 tbl_get_field.php:23
 #, php-format
 msgid "'%s' database does not exist."
 msgstr "Basis data '%s' tidak ditemukan."
@@ -12418,7 +12413,7 @@ msgstr "Tabel %1$s telah dibuat."
 msgid "View dump (schema) of table"
 msgstr "Tampilkan Dump (Skema) dari tabel"
 
-#: tbl_get_field.php:44
+#: tbl_get_field.php:30
 msgid "Invalid table name"
 msgstr "Nama tabel tidak valid"
 
@@ -13025,8 +13020,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:179
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s%"
-"%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s"
+"%%. It should be above 80%%"
 msgstr ""
 
 #: libraries/advisory_rules.txt:181
@@ -13152,8 +13147,8 @@ msgstr ""
 #| "Rate of temporary tables being written to disk: %s, this value should be "
 #| "less than 1 per hour"
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
-"%."
+"%s%% of all sorts cause temporary tables, this value should be lower than "
+"10%%."
 msgstr ""
 "Tingkat pembuatan tabel temporer ke diska: %s, nilai ini hasul kurang dari 1 "
 "per jam"
@@ -13926,6 +13921,11 @@ msgstr ""
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert diatur ke 0"
 
+#, fuzzy
+#~| msgid "Find:"
+#~ msgid "Find"
+#~ msgstr "Cari:"
+
 #~ msgid "Display all tables with the same width"
 #~ msgstr "Tampilkan seluruh tabel dengan lebar yang sama"
 
@@ -14174,9 +14174,9 @@ msgstr "concurrent_insert diatur ke 0"
 #~ "strong] allowing cross-frame scripting attacks"
 #~ msgstr ""
 #~ "Mengaktifkan ini memungkinkan halaman yang terletak pada domain yang "
-#~ "berbeda untuk memanggil phpMyAdmin di dalam frame, dan merupakan [strong]"
-#~ "lubang keamanan[/strong] potensial yang memungkinkan serangan scripting "
-#~ "lintas-frame"
+#~ "berbeda untuk memanggil phpMyAdmin di dalam frame, dan merupakan "
+#~ "[strong]lubang keamanan[/strong] potensial yang memungkinkan serangan "
+#~ "scripting lintas-frame"
 
 #~ msgid "Allow third party framing"
 #~ msgstr "Izinkan pembingkaian pihak ketiga"

@@ -92,10 +92,10 @@ class PMA_StorageEngineTest extends PHPUnit_Framework_TestCase
      */
     public function testGetHtmlSelect()
     {
-    	$html = $this->object->getHtmlSelect();
+        $html = $this->object->getHtmlSelect();
 
         $this->assertContains(
-        	'<option value="dummy" title="dummy comment">',
+            '<option value="dummy" title="dummy comment">',
             $html
         );
     }
