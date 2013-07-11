@@ -5,6 +5,10 @@
  * @package PhpMyAdmin
  */
 
+if (! defined('PHPMYADMIN')) {
+    exit;
+}
+
 require_once './libraries/Message.class.php';
 
 /**

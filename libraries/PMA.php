@@ -5,6 +5,10 @@
  *
  */
 
+if (! defined('PHPMYADMIN')) {
+    exit;
+}
+
 /**
  * Database listing.
  */
