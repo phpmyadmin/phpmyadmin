@@ -502,24 +502,51 @@ class PMA_SetupIndex_Test extends PHPUnit_Framework_TestCase
             );
         }
         
+        // Case 2
 
-        // case 2
-
+        unset($_SESSION['messages']);
         unset($_SESSION[$sessionID]);
 
+        
         $_SESSION[$sessionID]['Servers'] = array(
             '1' => array(
                 'host' => 'localhost',
-                'auth_type' => 'cookie'
+                'ssl' => true,
+                'extension' => 'mysqli',
+                'auth_type' => 'cookie',
+                'AllowRoot' => false
             )
         );
+
+        $_SESSION[$sessionID]['ForceSSL'] = true;
+        $_SESSION[$sessionID]['AllowArbitraryServer'] = false;
+        $_SESSION[$sessionID]['LoginCookieValidity'] = -1;
+        $_SESSION[$sessionID]['LoginCookieStore'] = 0;
+        $_SESSION[$sessionID]['SaveDir'] = '';
+        $_SESSION[$sessionID]['TempDir'] = '';
+        $_SESSION[$sessionID]['GZipDump'] = false;
+        $_SESSION[$sessionID]['BZipDump'] = false;
+        $_SESSION[$sessionID]['ZipDump'] = false;
+
         perform_config_checks();
         $this->assertArrayHasKey(
             'blowfish_secret_created',
             $_SESSION['messages']['notice']
         );
 
-        // case 3
+        foreach ($noticeArrayKeys as $noticeKey) {
+            $this->assertArrayNotHasKey(
+                $noticeKey,
+                $_SESSION['messages']['notice']
+            );
+        }
+
+        $this->assertArrayNotHasKey(
+            'error',
+            $_SESSION['messages']
+        );
+
+        // Case 3
 
         $_SESSION[$sessionID]['blowfish_secret'] = 'sec';
         
