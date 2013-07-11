@@ -29,8 +29,6 @@ require_once 'libraries/js_escape.lib.php';
  *
  * @package PhpMyAdmin-test
  */
-define("PMA_USR_BROWSER_AGENT", "IE");
-define("PMA_USR_BROWSER_VER", "8.0");
 
 class PMA_ServerDatabases_Test extends PHPUnit_Framework_TestCase
 {
