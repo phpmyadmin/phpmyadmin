@@ -22,7 +22,6 @@ $response->addHTML(PMA_getHtmlForSubMenusOnUsersPage('server_user_groups.php'));
  */
 if (! empty($_REQUEST['deleteUserGroup'])) {
     PMA_deleteUserGroup($_REQUEST['userGroup']);
-    $message = PMA_Message::success();
 }
 
 /**
@@ -30,7 +29,6 @@ if (! empty($_REQUEST['deleteUserGroup'])) {
  */
 if (! empty($_REQUEST['addUserGroupSubmit'])) {
     PMA_editUserGroup($_REQUEST['userGroup'], true);
-    $message = PMA_Message::success();
 }
 
 /**
@@ -38,7 +36,6 @@ if (! empty($_REQUEST['addUserGroupSubmit'])) {
  */
 if (! empty($_REQUEST['editUserGroupSubmit'])) {
     PMA_editUserGroup($_REQUEST['userGroup']);
-    $message = PMA_Message::success();
 }
 
 if (isset($_REQUEST['addUserGroup'])) {
