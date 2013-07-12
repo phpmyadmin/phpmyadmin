@@ -106,37 +106,11 @@ function PMA_version_check()
     // version check messages should always be visible so let's make
     // a unique message id each time we run it
     $message_id = uniqid('version_check');
-    // wait 3s at most for server response, it's enough to get information
-    // from a working server
-    $connection_timeout = 3;
 
-    $url = 'http://phpmyadmin.net/home_page/version.php';
-    $context = stream_context_create(
-        array(
-            'http' => array('timeout' => $connection_timeout)
-        )
-    );
-    $data = @file_get_contents($url, null, $context);
-    if ($data === false) {
-        if (function_exists('curl_init')) {
-            $ch = curl_init($url);
-            curl_setopt($ch, CURLOPT_HEADER, false);
-            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-            curl_setopt($ch, CURLOPT_TIMEOUT, $connection_timeout);
-            $data = curl_exec($ch);
-            curl_close($ch);
-        } else {
-            messages_set(
-                'error',
-                $message_id,
-                __('Version check'),
-                __('Neither URL wrapper nor CURL is available. Version check is not possible.')
-            );
-            return;
-        }
-    }
+    // Fetch data
+    $version_data = PMA_Util::getLatestVersion();
 
-    if (empty($data)) {
+    if (empty($version_data)) {
         messages_set(
             'error',
             $message_id,
@@ -146,15 +120,8 @@ function PMA_version_check()
         return;
     }
 
-    /* Format: version\ndate\n(download\n)* */
-    $data_list = explode("\n", $data);
-
-    if (count($data_list) > 1) {
-        $version = $data_list[0];
-        $date = $data_list[1];
-    } else {
-        $version = $date = '';
-    }
+    $version = $version_data->version;
+    $date = $version_data->date;
 
     $version_upstream = version_to_int($version);
     if ($version_upstream === false) {
