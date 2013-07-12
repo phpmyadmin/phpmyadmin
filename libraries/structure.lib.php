@@ -1473,10 +1473,7 @@ function PMA_getHtmlForEditView($url_params)
     );
     $html_output = PMA_Util::linkOrButton(
         $url,
-        PMA_Util::getIcon('b_edit.png', __('Edit view'), true),
-        array(
-            'class' => 'alter_view ajax'
-        )
+        PMA_Util::getIcon('b_edit.png', __('Edit view'), true)
     );
     return $html_output;
 }

@@ -377,7 +377,6 @@ $js_messages['strLatestAvailable'] = __(', latest stable version:');
 $js_messages['strUpToDate'] = __('up to date');
 
 $js_messages['strCreateView'] = __('Create view');
-$js_messages['strEditView'] = __('Edit view');
 
 echo "var PMA_messages = new Array();\n";
 foreach ($js_messages as $name => $js_message) {

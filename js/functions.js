@@ -3675,7 +3675,7 @@ function printPage()
  */
 AJAX.registerTeardown('functions.js', function () {
     $('input#print').unbind('click');
-    $('a.create_view.ajax, a.alter_view.ajax').die('click');
+    $('a.create_view.ajax').die('click');
     $('#createViewDialog').find('input, select').die('keydown');
 });
 
@@ -3684,7 +3684,7 @@ AJAX.registerOnload('functions.js', function () {
     /**
      * Ajaxification for the "Create View" action
      */
-    $('a.create_view.ajax, a.alter_view.ajax').live('click', function (e) {
+    $('a.create_view.ajax').live('click', function (e) {
         e.preventDefault();
         PMA_createViewDialog($(this));
     });
@@ -3732,7 +3732,7 @@ function PMA_createViewDialog($this)
                 minWidth: 400,
                 modal: true,
                 buttons: buttonOptions,
-                title: $this.is('.create_view') ? PMA_messages.strCreateView : PMA_messages.strEditView,
+                title: PMA_messages.strCreateView,
                 close: function () {
                     $(this).remove();
                 }
