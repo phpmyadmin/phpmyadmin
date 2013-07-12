@@ -110,7 +110,7 @@ if (isset($_REQUEST['createview']) || isset($_REQUEST['alterview'])) {
 
         if (! isset($_REQUEST['ajax_dialog'])) {
             $message = PMA_Message::success();
-            include 'tbl_structure';
+            include 'tbl_structure.php';
         } else {
             $response = PMA_Response::getInstance();
             $response->addJSON(
