@@ -97,4 +97,19 @@ class PMA_Util_Test extends PHPUnit_Framework_TestCase
             PMA_Util::pageselector("pma", 3)
         );
     }
+
+    /**
+     * Test version checking
+     *
+     * @return void
+     *
+     * @group large
+     */
+    public function testGetLatestVersion()
+    {
+        $GLOBALS['cfg']['VersionCheckProxyUrl'] = '';
+        $version = PMA_Util::getLatestVersion();
+        $this->assertNotEmpty($version->version);
+        $this->assertNotEmpty($version->date);
+    }
 }

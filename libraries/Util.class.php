@@ -89,7 +89,7 @@ class PMA_Util
     /**
      * Returns an HTML IMG tag for a particular icon from a theme,
      * which may be an actual file or an icon from a sprite.
-     * This function takes into account the ActionLinksMode 
+     * This function takes into account the ActionLinksMode
      * configuration setting and wraps the image tag in a span tag.
      *
      * @param string  $icon          name of icon file
@@ -106,19 +106,19 @@ class PMA_Util
     ) {
         $include_icon = $include_text = false;
         if (in_array(
-                $GLOBALS['cfg'][$control_param], 
+                $GLOBALS['cfg'][$control_param],
                 array('icons', 'both')
             )
-        ) { 
+        ) {
             $include_icon = true;
-        } 
+        }
         if ($force_text
             || in_array(
-                $GLOBALS['cfg'][$control_param], 
+                $GLOBALS['cfg'][$control_param],
                 array('text', 'both')
             )
         ) {
-            $include_text = true; 
+            $include_text = true;
         }
         // Sometimes use a span (we rely on this in js/sql.js). But for menu bar
         // we don't need a span
@@ -1811,10 +1811,10 @@ class PMA_Util
             // the text that follows and if browser does not display
             // images, the text is duplicated
             $tab['text'] = self::getIcon(
-                $tab['icon'], 
-                $tab['text'], 
-                false, 
-                true, 
+                $tab['icon'],
+                $tab['text'],
+                false,
+                true,
                 'TabsMode'
             );
 
@@ -4151,6 +4151,85 @@ class PMA_Util
             }
         }
         return $regex;
+    }
+
+    /**
+     * Returns information with latest version from phpmyadmin.net
+     *
+     * @return JSON decoded object with the data
+     */
+    public static function getLatestVersion()
+    {
+        global $cfg;
+
+        $response = '{}';
+        // Get response text from phpmyadmin.net or from the session
+        // Update cache every 6 hours
+        if (isset($_SESSION['cache']['version_check'])
+            && time() < $_SESSION['cache']['version_check']['timestamp'] + 3600 * 6
+        ) {
+            $save = false;
+            $response = $_SESSION['cache']['version_check']['response'];
+        } else {
+            $save = true;
+            $file = 'http://www.phpmyadmin.net/home_page/version.json';
+            if (ini_get('allow_url_fopen')) {
+                if (strlen($cfg['VersionCheckProxyUrl'])) {
+                    $context = array(
+                        'http' => array(
+                            'proxy' => $cfg['VersionCheckProxyUrl'],
+                            'request_fulluri' => true
+                        )
+                    );
+                    if (strlen($cfg['VersionCheckProxyUser'])) {
+                        $auth = base64_encode(
+                            $cfg['VersionCheckProxyUser'] . ':' . $cfg['VersionCheckProxyPass']
+                        );
+                        $context['http']['header'] = 'Proxy-Authorization: Basic ' . $auth;
+                    }
+                    $response = file_get_contents(
+                        $file,
+                        false,
+                        stream_context_create($context)
+                    );
+                } else {
+                    $response = file_get_contents($file);
+                }
+            } else if (function_exists('curl_init')) {
+                $curl_handle = curl_init($file);
+                if (strlen($cfg['VersionCheckProxyUrl'])) {
+                    curl_setopt($curl_handle, CURLOPT_PROXY, $cfg['VersionCheckProxyUrl']);
+                    if (strlen($cfg['VersionCheckProxyUser'])) {
+                        curl_setopt(
+                            $curl_handle,
+                            CURLOPT_PROXYUSERPWD,
+                            $cfg['VersionCheckProxyUser'] . ':' . $cfg['VersionCheckProxyPass']
+                        );
+                    }
+                }
+                curl_setopt($curl_handle, CURLOPT_RETURNTRANSFER, 1);
+                $response = curl_exec($curl_handle);
+            }
+        }
+
+        if ($save) {
+            $_SESSION['cache']['version_check'] = array(
+                'response' => $response,
+                'timestamp' => time()
+            );
+        }
+
+        $data = json_decode($response);
+        if (is_object($data) && strlen($data->version) && strlen($data->date)) {
+            if ($save) {
+                $_SESSION['cache']['version_check'] = array(
+                    'response' => $response,
+                    'timestamp' => time()
+                );
+            }
+        }
+
+        return $data;
     }
 }
 ?>
