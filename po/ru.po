@@ -379,10 +379,6 @@ msgstr "Переключиться на %sвизуальный составит�
 msgid "Access denied"
 msgstr "В доступе отказано"
 
-#: db_structure.php:86
-msgid "No tables found in database."
-msgstr "Таблиц в базе данных не найдено"
-
 #: db_tracking.php:73
 msgid "Tracked tables"
 msgstr "Отслеживаемые таблицы"

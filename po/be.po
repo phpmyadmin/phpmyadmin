@@ -394,12 +394,6 @@ msgstr "Перайсьці да скапіяванай табліцы"
 msgid "Access denied"
 msgstr "У доступе адмоўлена"
 
-#: db_structure.php:86
-#, fuzzy
-#| msgid "No tables found in database."
-msgid "No tables found in database."
-msgstr "У базе дадзеных табліц ня выяўлена."
-
 #: db_tracking.php:73
 #, fuzzy
 msgid "Tracked tables"

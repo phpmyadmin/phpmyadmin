@@ -395,12 +395,6 @@ msgstr "Pierajści da skapijavanaj tablicy"
 msgid "Access denied"
 msgstr "U dostupie admoŭlena"
 
-#: db_structure.php:86
-#, fuzzy
-#| msgid "No tables found in database."
-msgid "No tables found in database."
-msgstr "U bazie dadzienych tablic nia vyjaŭlena."
-
 #: db_tracking.php:73
 msgid "Tracked tables"
 msgstr ""

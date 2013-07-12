@@ -385,10 +385,6 @@ msgstr "Pređi na %svizualni graditelj%s"
 msgid "Access denied"
 msgstr "Ulaz nije dozvoljen"
 
-#: db_structure.php:86
-msgid "No tables found in database."
-msgstr "Nema pronađenih tabela u bazi"
-
 #: db_tracking.php:73
 msgid "Tracked tables"
 msgstr ""

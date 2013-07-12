@@ -372,10 +372,6 @@ msgstr "מעבר ל%sבונה החזותי%s"
 msgid "Access denied"
 msgstr "הגישה נדחתה"
 
-#: db_structure.php:86
-msgid "No tables found in database."
-msgstr "לא נמצאו טבלאות במסד הנתונים"
-
 #: db_tracking.php:73
 msgid "Tracked tables"
 msgstr "טבלאות במעקב"

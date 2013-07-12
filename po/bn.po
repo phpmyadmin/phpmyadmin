@@ -383,10 +383,6 @@ msgstr "দেখে তৈরীর %svisual builder%s যাও"
 msgid "Access denied"
 msgstr "প্রবেশ করা যাচ্ছে না"
 
-#: db_structure.php:86
-msgid "No tables found in database."
-msgstr "ডাটাবেইজে কোন টেবিল পাওয়া যায়নি"
-
 #: db_tracking.php:73
 msgid "Tracked tables"
 msgstr "ট্রেক কৃত টেবিলসমূহ"

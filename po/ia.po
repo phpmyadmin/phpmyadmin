@@ -380,10 +380,6 @@ msgstr "Commuta a %svisual builder%s (constructor visual)"
 msgid "Access denied"
 msgstr "Accesso negate"
 
-#: db_structure.php:86
-msgid "No tables found in database."
-msgstr "Il non ha tabula in le base de datos"
-
 #: db_tracking.php:73
 msgid "Tracked tables"
 msgstr "Tabulas traciate"

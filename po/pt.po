@@ -378,10 +378,6 @@ msgstr "Mudar para %sConstrutor Gráfico%s"
 msgid "Access denied"
 msgstr "Acesso Negado"
 
-#: db_structure.php:86
-msgid "No tables found in database."
-msgstr "Não foram encontradas tabelas na base de dados"
-
 #: db_tracking.php:73
 msgid "Tracked tables"
 msgstr "Tabelas em tracking"

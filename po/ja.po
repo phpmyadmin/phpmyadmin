@@ -381,10 +381,6 @@ msgstr "%sビジュアル・クエリ・ビルダ%sに切り替える"
 msgid "Access denied"
 msgstr "アクセスは拒否されました"
 
-#: db_structure.php:86
-msgid "No tables found in database."
-msgstr "このデータベースにはテーブルがありません"
-
 #: db_tracking.php:73
 msgid "Tracked tables"
 msgstr "SQL コマンドを追跡しているテーブル"

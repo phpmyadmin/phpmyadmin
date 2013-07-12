@@ -376,10 +376,6 @@ msgstr "Alihkan ke %spembangun visual%s"
 msgid "Access denied"
 msgstr "Akses ditolak"
 
-#: db_structure.php:86
-msgid "No tables found in database."
-msgstr "Tidak ada tabel dalam basis data"
-
 #: db_tracking.php:73
 msgid "Tracked tables"
 msgstr "Tabel yang dilacak"

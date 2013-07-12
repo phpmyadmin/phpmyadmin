@@ -390,10 +390,6 @@ msgstr "%sСұраныстарды көз мөлшерiмен құрастыру
 msgid "Access denied"
 msgstr "Рұқсат жоқ"
 
-#: db_structure.php:86
-msgid "No tables found in database."
-msgstr "Дерекқорында, ешбір кесте табылмады"
-
 #: db_tracking.php:73
 msgid "Tracked tables"
 msgstr "Қадағаланатын кестелер"

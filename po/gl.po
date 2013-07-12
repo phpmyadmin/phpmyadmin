@@ -386,10 +386,6 @@ msgstr "Cambiar ao %sconstrutor visual%s"
 msgid "Access denied"
 msgstr "Denegouse o acceso"
 
-#: db_structure.php:86
-msgid "No tables found in database."
-msgstr "No se atoparon táboas na base de datos"
-
 #: db_tracking.php:73
 msgid "Tracked tables"
 msgstr "Táboas seguidas"

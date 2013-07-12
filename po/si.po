@@ -373,10 +373,6 @@ msgstr "%sදෘශ්‍ය ගොඩනංවනය%s වෙත යන්න"
 msgid "Access denied"
 msgstr "පිවිසුම වලක්වා ඇත"
 
-#: db_structure.php:86
-msgid "No tables found in database."
-msgstr "දත්තගබඩාවේ වගු කිසිවක් සොයා ගැනීමට නොමැත"
-
 #: db_tracking.php:73
 msgid "Tracked tables"
 msgstr "අවධානය සක්‍රීය වගු"

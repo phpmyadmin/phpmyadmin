@@ -388,10 +388,6 @@ msgstr "Перемкнутись на %sвізуальний конструкт�
 msgid "Access denied"
 msgstr "Доступ заборонено"
 
-#: db_structure.php:86
-msgid "No tables found in database."
-msgstr "Немає таблиць у базі даних"
-
 #: db_tracking.php:73
 msgid "Tracked tables"
 msgstr "Відслідковувані таблиці"

@@ -386,10 +386,6 @@ msgstr "Vaihda %svisuaaliseen muokkaimeen%s"
 msgid "Access denied"
 msgstr "Käyttö estetty"
 
-#: db_structure.php:86
-msgid "No tables found in database."
-msgstr "Tietokannassa ei ole tauluja"
-
 #: db_tracking.php:73
 msgid "Tracked tables"
 msgstr "Seurattavat taulut"

@@ -377,10 +377,6 @@ msgstr "Passer au %smode visuel%s"
 msgid "Access denied"
 msgstr "Accès refusé"
 
-#: db_structure.php:86
-msgid "No tables found in database."
-msgstr "Aucune table n'a été trouvée dans cette base"
-
 #: db_tracking.php:73
 msgid "Tracked tables"
 msgstr "Tables faisant l'objet d'un suivi"

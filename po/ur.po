@@ -392,10 +392,6 @@ msgstr "بصری تعمیر کنندہ"
 msgid "Access denied"
 msgstr "‏‏رسائی نہیں دی گئی"
 
-#: db_structure.php:86
-msgid "No tables found in database."
-msgstr "کوائیفیہ میں کوئی جدول نہیں ملا"
-
 #: db_tracking.php:73
 msgid "Tracked tables"
 msgstr "کھوج شدہ جداول"

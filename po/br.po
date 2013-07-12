@@ -392,10 +392,6 @@ msgstr "Cheñch evit ar %ssavour gwelet%s"
 msgid "Access denied"
 msgstr "Moned nac'het"
 
-#: db_structure.php:86
-msgid "No tables found in database."
-msgstr "N'eus bet kavet taolenn ebet en diaz roadennoù."
-
 #: db_tracking.php:73
 msgid "Tracked tables"
 msgstr "Taolennoù heuliet-pizh"

@@ -374,10 +374,6 @@ msgstr "Skift til %svisuel konstruktør%s"
 msgid "Access denied"
 msgstr "Adgang nægtet"
 
-#: db_structure.php:86
-msgid "No tables found in database."
-msgstr "Ingen tabeller fundet i databasen"
-
 #: db_tracking.php:73
 msgid "Tracked tables"
 msgstr "Sporede tabeller"

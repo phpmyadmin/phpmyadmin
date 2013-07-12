@@ -389,10 +389,6 @@ msgstr "దృశ్య కల్పకం"
 msgid "Access denied"
 msgstr "యాక్సెస్  నిరోధించడమైనది"
 
-#: db_structure.php:86
-msgid "No tables found in database."
-msgstr "డేటాబేసులో పట్టికలు ఏమీ లేవు"
-
 #: db_tracking.php:73
 msgid "Tracked tables"
 msgstr ""

@@ -391,12 +391,6 @@ msgstr "Kübäytelgän tüşämägä küçäse"
 msgid "Access denied"
 msgstr "İreşep Bulmadı"
 
-#: db_structure.php:86
-#, fuzzy
-#| msgid "No tables found in database."
-msgid "No tables found in database."
-msgstr "Bu biremlektä ber genä dä tüşämä yuq."
-
 #: db_tracking.php:73
 #, fuzzy
 msgid "Tracked tables"

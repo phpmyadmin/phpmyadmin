@@ -388,10 +388,6 @@ msgstr "%s காட்சி கட்டுனர் இற்கு %s மா
 msgid "Access denied"
 msgstr "அனுமதி நிராகரிக்கப்பட்டுள்ளது"
 
-#: db_structure.php:86
-msgid "No tables found in database."
-msgstr "தரவுத்தளத்தில் அட்டவணைகள் எதுவுமில்லை"
-
 #: db_tracking.php:73
 msgid "Tracked tables"
 msgstr ""

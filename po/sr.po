@@ -393,12 +393,6 @@ msgstr "Пређи на копирану табелу"
 msgid "Access denied"
 msgstr "Приступ одбијен"
 
-#: db_structure.php:86
-#, fuzzy
-#| msgid "No tables found in database."
-msgid "No tables found in database."
-msgstr "Табеле нису пронађене у бази."
-
 #: db_tracking.php:73
 #, fuzzy
 msgid "Tracked tables"

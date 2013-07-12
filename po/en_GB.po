@@ -378,10 +378,6 @@ msgstr "Switch to %svisual builder%s"
 msgid "Access denied"
 msgstr "Access denied"
 
-#: db_structure.php:86
-msgid "No tables found in database."
-msgstr "No tables found in database."
-
 #: db_tracking.php:73
 msgid "Tracked tables"
 msgstr "Tracked tables"

@@ -389,10 +389,6 @@ msgstr "Prebaci se na %svizualnu izradu%s"
 msgid "Access denied"
 msgstr "Pristup odbijen"
 
-#: db_structure.php:86
-msgid "No tables found in database."
-msgstr "U bazi podataka nisu pronađene tablice"
-
 #: db_tracking.php:73
 msgid "Tracked tables"
 msgstr "Praćene tablice"

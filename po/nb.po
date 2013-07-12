@@ -384,10 +384,6 @@ msgstr "Bytt til %svisuell bygger%s"
 msgid "Access denied"
 msgstr "Ingen tilgang"
 
-#: db_structure.php:86
-msgid "No tables found in database."
-msgstr "Ingen tabeller funnet i databasen"
-
 #: db_tracking.php:73
 msgid "Tracked tables"
 msgstr "Overvåkede tabeller"

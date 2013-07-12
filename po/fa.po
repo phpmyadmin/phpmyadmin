@@ -386,10 +386,6 @@ msgstr "به %svisual builder%s بروید"
 msgid "Access denied"
 msgstr "دسترسي مجاز نيست"
 
-#: db_structure.php:86
-msgid "No tables found in database."
-msgstr "در پايگاه داده هيچ جدولي یافت نشد"
-
 #: db_tracking.php:73
 msgid "Tracked tables"
 msgstr "جدول های پیگیری شده"

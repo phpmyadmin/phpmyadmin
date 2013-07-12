@@ -393,12 +393,6 @@ msgstr "Nusxa olingan jadvalga o‘tish"
 msgid "Access denied"
 msgstr "Ruxsat berilmadi"
 
-#: db_structure.php:86
-#, fuzzy
-#| msgid "No tables found in database."
-msgid "No tables found in database."
-msgstr "Ma`lumotlar bazasida bironta ham jadval mavjud emas."
-
 #: db_tracking.php:73
 msgid "Tracked tables"
 msgstr "Kuzatilgan jadvallar"

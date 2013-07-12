@@ -379,10 +379,6 @@ msgstr "สลับไปยัง %svisual builder%s"
 msgid "Access denied"
 msgstr "ไม่อนุญาตให้ใช้งาน"
 
-#: db_structure.php:86
-msgid "No tables found in database."
-msgstr "ไม่พบตารางใดๆ ในฐานข้อมูล"
-
 #: db_tracking.php:73
 msgid "Tracked tables"
 msgstr "ตารางที่ถูกติดตาม"

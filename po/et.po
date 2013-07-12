@@ -377,10 +377,6 @@ msgstr "Mine %sgraafilisele loojale%s"
 msgid "Access denied"
 msgstr "Ligipääs keelatud"
 
-#: db_structure.php:86
-msgid "No tables found in database."
-msgstr "Andmebaasist tabeleid ei leitud"
-
 #: db_tracking.php:73
 msgid "Tracked tables"
 msgstr "Jälgitud tabelid"

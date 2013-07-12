@@ -385,12 +385,6 @@ msgstr ""
 msgid "Access denied"
 msgstr "Toegang Geweier"
 
-#: db_structure.php:86
-#, fuzzy
-#| msgid "No tables found in database."
-msgid "No tables found in database."
-msgstr "Geen tabelle in databasis gevind nie."
-
 #: db_tracking.php:73
 msgid "Tracked tables"
 msgstr ""

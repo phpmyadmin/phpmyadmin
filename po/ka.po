@@ -382,12 +382,6 @@ msgstr ""
 msgid "Access denied"
 msgstr "მიუწვდომელია"
 
-#: db_structure.php:86
-#, fuzzy
-#| msgid "No tables found in database."
-msgid "No tables found in database."
-msgstr "No tables found in database."
-
 #: db_tracking.php:73
 msgid "Tracked tables"
 msgstr "ნანახი ცხრილები"

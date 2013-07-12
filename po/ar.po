@@ -390,10 +390,6 @@ msgstr "التحويل إلى %sالباني المرئي%s"
 msgid "Access denied"
 msgstr "ممنوع الوصول"
 
-#: db_structure.php:86
-msgid "No tables found in database."
-msgstr "لم يعثر على جداول في قاعدة البيانات"
-
 #: db_tracking.php:73
 msgid "Tracked tables"
 msgstr "الجداول المتعقبة"

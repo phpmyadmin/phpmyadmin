@@ -370,10 +370,6 @@ msgstr "切换到 %s可视化查询生成器%s"
 msgid "Access denied"
 msgstr "拒绝访问"
 
-#: db_structure.php:86
-msgid "No tables found in database."
-msgstr "没有在数据库中找到表"
-
 #: db_tracking.php:73
 msgid "Tracked tables"
 msgstr "已追踪的表"

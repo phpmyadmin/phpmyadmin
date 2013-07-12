@@ -375,10 +375,6 @@ msgstr ""
 msgid "Access denied"
 msgstr ""
 
-#: db_structure.php:86
-msgid "No tables found in database."
-msgstr ""
-
 #: db_tracking.php:73
 msgid "Tracked tables"
 msgstr ""

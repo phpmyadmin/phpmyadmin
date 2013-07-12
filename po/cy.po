@@ -391,10 +391,6 @@ msgstr "adeiladwr gweledol"
 msgid "Access denied"
 msgstr "Mynediad wedi'i wrthod"
 
-#: db_structure.php:86
-msgid "No tables found in database."
-msgstr "Dim tablau wedi'u darganfod yn y gronfa ddata"
-
 #: db_tracking.php:73
 msgid "Tracked tables"
 msgstr "Tablau a draciwyd"

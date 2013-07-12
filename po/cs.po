@@ -276,7 +276,7 @@ msgstr "Zobrazit výpis (schéma) databáze"
 #: db_export.php:33 db_printview.php:41 db_tracking.php:49 export.php:557
 #: libraries/DBQbe.class.php:268
 msgid "No tables found in database."
-msgstr "V databázi nebyla nalezena žádná tabulka."
+msgstr "V databázi nebyly nalezeny žádné tabulky."
 
 #: db_export.php:40 libraries/DbSearch.class.php:438 server_export.php:25
 msgid "Select All"
@@ -377,10 +377,6 @@ msgstr "Přepnout na %svizuálního návrháře%s"
 #: libraries/plugins/auth/AuthenticationSignon.class.php:251
 msgid "Access denied"
 msgstr "Přístup odepřen"
-
-#: db_structure.php:86
-msgid "No tables found in database."
-msgstr "V databázi nebyly nalezeny žádné tabulky"
 
 #: db_tracking.php:73
 msgid "Tracked tables"

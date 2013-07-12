@@ -376,10 +376,6 @@ msgstr "Alterar para %sconstrutor visual%s"
 msgid "Access denied"
 msgstr "Acesso negado"
 
-#: db_structure.php:86
-msgid "No tables found in database."
-msgstr "Nenhuma tabela encontrada no banco de dados"
-
 #: db_tracking.php:73
 msgid "Tracked tables"
 msgstr "Tabelas rastreadas"

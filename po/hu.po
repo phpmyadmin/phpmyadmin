@@ -376,10 +376,6 @@ msgstr "Átváltás a %svizuális tervezőre%s"
 msgid "Access denied"
 msgstr "A hozzáférés megtagadva"
 
-#: db_structure.php:86
-msgid "No tables found in database."
-msgstr "Nem található tábla az adatbázisban"
-
 #: db_tracking.php:73
 msgid "Tracked tables"
 msgstr "Nyomon követett táblák"

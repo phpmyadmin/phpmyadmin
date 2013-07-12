@@ -370,10 +370,6 @@ msgstr "切換至 %s視覺生成器%s"
 msgid "Access denied"
 msgstr "拒絕訪問"
 
-#: db_structure.php:86
-msgid "No tables found in database."
-msgstr "沒有在資料庫中找到表"
-
 #: db_tracking.php:73
 msgid "Tracked tables"
 msgstr "已追蹤的表"

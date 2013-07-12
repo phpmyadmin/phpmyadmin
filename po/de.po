@@ -382,10 +382,6 @@ msgstr "Zum %sDesigner%s wechseln"
 msgid "Access denied"
 msgstr "Zugriff verweigert"
 
-#: db_structure.php:86
-msgid "No tables found in database."
-msgstr "Diese Datenbank enthält keine Tabellen"
-
 #: db_tracking.php:73
 msgid "Tracked tables"
 msgstr "Verfolgte Tabellen"

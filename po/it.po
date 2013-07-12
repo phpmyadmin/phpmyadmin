@@ -387,10 +387,6 @@ msgstr "Passa a %svisual builder%s"
 msgid "Access denied"
 msgstr "Accesso negato"
 
-#: db_structure.php:86
-msgid "No tables found in database."
-msgstr "Non ci sono tabelle nel database"
-
 #: db_tracking.php:73
 msgid "Tracked tables"
 msgstr "Tabelle monitorate"

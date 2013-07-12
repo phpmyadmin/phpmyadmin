@@ -386,10 +386,6 @@ msgstr "Canviar al %sconstructor visual%s"
 msgid "Access denied"
 msgstr "Accés denegat"
 
-#: db_structure.php:86
-msgid "No tables found in database."
-msgstr "Base de dades sense taules"
-
 #: db_tracking.php:73
 msgid "Tracked tables"
 msgstr "Taules seguides"

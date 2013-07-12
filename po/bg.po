@@ -386,10 +386,6 @@ msgstr "Превключване към %sвизуален строител%s"
 msgid "Access denied"
 msgstr "Отказан достъп"
 
-#: db_structure.php:86
-msgid "No tables found in database."
-msgstr "В БД няма таблици"
-
 #: db_tracking.php:73
 msgid "Tracked tables"
 msgstr "Следени таблици"

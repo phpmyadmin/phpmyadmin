@@ -376,10 +376,6 @@ msgstr "Kalo tek %svisual builder%s"
 msgid "Access denied"
 msgstr "Ndalohet hyrja"
 
-#: db_structure.php:86
-msgid "No tables found in database."
-msgstr "Nuk gjenden tabela në bazën e të dhënave"
-
 #: db_tracking.php:73
 msgid "Tracked tables"
 msgstr "Tabela të monitoruara"

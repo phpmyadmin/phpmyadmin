@@ -375,10 +375,6 @@ msgstr "Αλλαγή στον %sεικονικός μάστορας%s"
 msgid "Access denied"
 msgstr "Άρνηση πρόσβασης"
 
-#: db_structure.php:86
-msgid "No tables found in database."
-msgstr "Δεν βρέθηκαν πίνακες στη βάση δεδομένων"
-
 #: db_tracking.php:73
 msgid "Tracked tables"
 msgstr "Παρακολουθούμενοι πίνακες"

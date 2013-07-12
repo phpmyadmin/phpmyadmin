@@ -389,10 +389,6 @@ msgstr "گۆڕین بۆ %svisual builder%s"
 msgid "Access denied"
 msgstr "ڕێگەنەدرا بە بینین"
 
-#: db_structure.php:86
-msgid "No tables found in database."
-msgstr "هیچ خشتەیەک نەدۆزرایەوە لە بنکەی دراو"
-
 #: db_tracking.php:73
 msgid "Tracked tables"
 msgstr "شوێنکەوتەی خشتە"

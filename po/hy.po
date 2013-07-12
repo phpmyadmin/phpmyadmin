@@ -386,10 +386,6 @@ msgstr "Միացնել հարցումների %sտեսական կառուցող�
 msgid "Access denied"
 msgstr "Մուտքն արգելված է"
 
-#: db_structure.php:86
-msgid "No tables found in database."
-msgstr "Տվյալների բազայում աղյուսակներ չկան"
-
 #: db_tracking.php:73
 msgid "Tracked tables"
 msgstr ""

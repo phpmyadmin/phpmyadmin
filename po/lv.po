@@ -390,11 +390,6 @@ msgstr "Pārslēgties uz %svisual builder%s"
 msgid "Access denied"
 msgstr "Pieeja aizliegta"
 
-#: db_structure.php:86
-#, fuzzy
-#| msgid "No tables found in database."
-msgid "No tables found in database."
-msgstr "Tabulas nav atrastas šajā datubāzē."
 
 #: db_tracking.php:73
 msgid "Tracked tables"
