@@ -109,7 +109,7 @@ class PMA_Validator
             foreach ((array)$validators[$vid] as $validator) {
                 $vdef = (array) $validator;
                 $vname = array_shift($vdef);
-                $vname = "Validator::" . $vname;
+                $vname = "PMA_Validator::" . $vname;
                 $args = array_merge(array($vid, &$arguments), $vdef);
                 $r = call_user_func_array($vname, $args);
 
