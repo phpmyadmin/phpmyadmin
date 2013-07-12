@@ -3675,7 +3675,7 @@ function printPage()
  */
 AJAX.registerTeardown('functions.js', function () {
     $('input#print').unbind('click');
-    $('span a.create_view.ajax').die('click');
+    $('a.create_view.ajax').die('click');
     $('#createViewDialog').find('input, select').die('keydown');
 });
 
@@ -3684,7 +3684,7 @@ AJAX.registerOnload('functions.js', function () {
     /**
      * Ajaxification for the "Create View" action
      */
-    $('span a.create_view.ajax').live('click', function (e) {
+    $('a.create_view.ajax').live('click', function (e) {
         e.preventDefault();
         PMA_createViewDialog($(this));
     });
@@ -3698,13 +3698,29 @@ AJAX.registerOnload('functions.js', function () {
             $(this).closest('.ui-dialog').find('.ui-button:first').click();
         }
     }); // end $.live()
+    
+    var $elm = $('textarea[name="view[as]"]');
+    if ($elm.length > 0) {
+        if (typeof CodeMirror != 'undefined') {
+            syntaxHighlighter = CodeMirror.fromTextArea(
+                $elm[0], 
+                {
+                    lineNumbers: true, 
+                    matchBrackets: true, 
+                    indentUnit: 4, 
+                    mode: "text/x-mysql", 
+                    lineWrapping: true
+                }
+            );
+        }
+    }
 });
 
 function PMA_createViewDialog($this)
 {
     var $msg = PMA_ajaxShowMessage();
     var syntaxHighlighter = null;
-    $.get($this.attr('href') + '&ajax_request=1', function (data) {
+    $.get($this.attr('href') + '&ajax_request=1&ajax_dialog=1', function (data) {
         if (data.success === true) {
             PMA_ajaxRemoveMessage($msg);
             var buttonOptions = {};
@@ -3728,21 +3744,19 @@ function PMA_createViewDialog($this)
                 $(this).dialog("close");
             };
             var $dialog = $('<div/>').attr('id', 'createViewDialog').append(data.message).dialog({
-                width: 500,
-                minWidth: 300,
-                maxWidth: 620,
+                width: 600,
+                minWidth: 400,
                 modal: true,
                 buttons: buttonOptions,
-                title: $('legend', $(data.message)).html(),
+                title: PMA_messages.strCreateView,
                 close: function () {
                     $(this).remove();
                 }
             });
-            $dialog.find('legend').remove();
             // Attach syntax highlited editor
             if (typeof CodeMirror !== 'undefined') {
                 var $elm = $dialog.find('textarea');
-                var opts = {lineNumbers: true, matchBrackets: true, indentUnit: 4, mode: "text/x-mysql"};
+                var opts = {lineNumbers: true, matchBrackets: true, indentUnit: 4, mode: "text/x-mysql", lineWrapping: true};
                 syntaxHighlighter = CodeMirror.fromTextArea($elm[0], opts);
             }
             $('input:visible[type=text]', $dialog).first().focus();
