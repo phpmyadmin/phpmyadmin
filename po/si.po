@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-07-12 10:58+0200\n"
-"PO-Revision-Date: 2013-06-11 14:58+0200\n"
-"Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
-"Language-Team: Sinhala <http://l10n.cihar.com/projects/phpmyadmin/master/si/"
-">\n"
+"PO-Revision-Date: 2013-07-12 14:54+0200\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"Language-Team: Sinhala "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/si/>\n"
 "Language: si\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2201,17 +2201,17 @@ msgstr "PHP විසින් පහත දෝෂය දක්වන ලදී:
 #: libraries/Advisor.class.php:107
 #, php-format
 msgid "Failed evaluating precondition for rule '%s'."
-msgstr "'%s' රීතිය සඳහා පූර්ව කොන්දේසි විනිශ්චය කිරීම අසමත් විය"
+msgstr "'%s' රීතිය සඳහා පූර්ව කොන්දේසි විනිශ්චය කිරීම අසමත් විය."
 
 #: libraries/Advisor.class.php:124
 #, php-format
 msgid "Failed calculating value for rule '%s'."
-msgstr "'%s' රීතිය සඳහා අගය ගණනය කිරීම අසමත් විය"
+msgstr "'%s' රීතිය සඳහා අගය ගණනය කිරීම අසමත් විය."
 
 #: libraries/Advisor.class.php:143
 #, php-format
 msgid "Failed running test for rule '%s'."
-msgstr "'%s' රීතිය සඳහා පරීක්ෂණය සිදු කිරීම අසමත් විය"
+msgstr "'%s' රීතිය සඳහා පරීක්ෂණය සිදු කිරීම අසමත් විය."
 
 #: libraries/Advisor.class.php:225
 #, php-format
@@ -2222,17 +2222,19 @@ msgstr "'%s' රීතිය සඳහා පෙළ සැකසීම අසම
 #, php-format
 msgid ""
 "Invalid rule declaration on line %1$s, expected line %2$s of previous rule."
-msgstr "%1$s පේළියේ වැරදි රීති අර්ථ දැක්වීමකි, පෙර රීතියේ %2$s වන පේළිය බලාපොරොත්තු විය"
+msgstr ""
+"%1$s පේළියේ වැරදි රීති අර්ථ දැක්වීමකි, පෙර රීතියේ %2$s වන පේළිය බලාපොරොත්තු "
+"විය."
 
 #: libraries/Advisor.class.php:412
 #, php-format
 msgid "Invalid rule declaration on line %s."
-msgstr "%s වන පේළියේ වැරදි රීති අර්ථදැක්වීමකි"
+msgstr "%s වන පේළියේ වැරදි රීති අර්ථදැක්වීමකි."
 
 #: libraries/Advisor.class.php:420
 #, php-format
 msgid "Unexpected characters on line %s."
-msgstr "%s වන පේළියේ අනපේක්ෂිත අනුලකුණකි"
+msgstr "%s වන පේළියේ අනපේක්ෂිත අනුලකුණකි."
 
 #: libraries/Advisor.class.php:434
 #, php-format
@@ -4081,7 +4083,7 @@ msgstr "උපරිම %s"
 
 #: libraries/config/FormDisplay.tpl.php:225
 msgid "This setting is disabled, it will not be applied to your configuration."
-msgstr "මෙම සිටුවම අක්‍රීය කර ඇත, ඔබගේ වින්‍යාස සඳහා එය නොයෙදෙනු ඇත"
+msgstr "මෙම සිටුවම අක්‍රීය කර ඇත, ඔබගේ වින්‍යාස සඳහා එය නොයෙදෙනු ඇත."
 
 #: libraries/config/FormDisplay.tpl.php:313
 #, php-format
@@ -8545,8 +8547,8 @@ msgid ""
 "should see a message informing you, that this server <b>is</b> configured as "
 "master."
 msgstr ""
-"සේවාදායකය නැවත පණගැන්වීමෙන් අනතුරුව 'යන්න' බොත්තම ඔබන්න. ඉන් අනතුරුව මෙම සේවාදායකය "
-"ප්‍රධාන සේවාදායකය ලෙස සකසා <b>ඇති</b> බවට පණිවිඩයක් දර්ශනය වනු ඇත"
+"සේවාදායකය නැවත පණගැන්වීමෙන් අනතුරුව 'යන්න' බොත්තම ඔබන්න. ඉන් අනතුරුව මෙම "
+"සේවාදායකය ප්‍රධාන සේවාදායකය ලෙස සකසා <b>ඇති</b> බවට පණිවිඩයක් දර්ශනය වනු ඇත."
 
 #: libraries/replication_gui.lib.php:139
 #: libraries/server_databases.lib.php:395
@@ -9916,11 +9918,11 @@ msgid ""
 "enabled. Note however, that the general_log produces a lot of data and "
 "increases server load by up to 15%."
 msgstr ""
-"ඔබගේ සේවාදායකයේ වින්‍යාසයන් ප්‍රශස්ත කිරීමටත් වැඩි කාලයක් ගතවන විමසුම් හඳුනා ගැනීමටත් ඔබට "
-"phpMyAdmin අධීක්ෂකය යොදාගත හැක. දෙවැන්න සඳහා log_output හි අගය TABLE ලෙස සිටුවීමත් "
-"slow_query_log, general_log යන දෙකෙන් එකක් සක්‍රීය කිරීමත් අවශ්‍ය වේ. කෙසේ වෙතත් "
-"general_log ය ඉතා විශාල දත්ත ප්‍රමාණයක් උත්පාදනය කරන බව සහ එමගින් සේවාදායකය මත භාරය "
-"15% දක්වා ඉහල යා හැකි බව සලකන්න"
+"ඔබගේ සේවාදායකයේ වින්‍යාසයන් ප්‍රශස්ත කිරීමටත් වැඩි කාලයක් ගතවන විමසුම් හඳුනා "
+"ගැනීමටත් ඔබට phpMyAdmin අධීක්ෂකය යොදාගත හැක. දෙවැන්න සඳහා log_output හි අගය "
+"TABLE ලෙස සිටුවීමත් slow_query_log, general_log යන දෙකෙන් එකක් සක්‍රීය "
+"කිරීමත් අවශ්‍ය වේ. කෙසේ වෙතත් general_log ය ඉතා විශාල දත්ත ප්‍රමාණයක් "
+"උත්පාදනය කරන බව සහ එමගින් සේවාදායකය මත භාරය 15% දක්වා ඉහල යා හැකි බව සලකන්න."
 
 #: libraries/server_status_monitor.lib.php:149
 msgid ""
