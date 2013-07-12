@@ -17,7 +17,7 @@ require_once './libraries/common.inc.php';
  * Runs common work
  */
 require './libraries/db_common.inc.php';
-$url_params['goto'] = 'tbl_structure';
+$url_params['goto'] = 'tbl_structure.php';
 $url_params['back'] = 'view_create.php';
 
 $view_algorithm_options = array(
