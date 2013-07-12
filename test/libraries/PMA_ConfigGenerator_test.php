@@ -39,6 +39,7 @@ class PMA_ConfigGenerator_Test extends PHPUnit_Framework_TestCase
 
         $GLOBALS['server'] = 0;
         $cf = ConfigFile::getInstance();
+        $_SESSION['ConfigFile0'] = array('a', 'b', 'c');
         $_SESSION['ConfigFile0']['Servers'] = array(
             array(1, 2, 3)
         );

@@ -293,16 +293,26 @@ class PMA_User_Preferences_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for PMA_readUserprefsFieldNames
-     * This test would only work when executed with other tests.
-     * This is to test "static" nature of this function
      * 
      * @return void
      */
     public function testReadUserprefsFieldNames()
     {
+        $this->assertCount(
+            216,
+            PMA_readUserprefsFieldNames()
+        );
+
+        $forms = array(
+            'form1' => array(
+                array('Servers/1/hide_db', 'bar'),
+                array('test' => 'val')
+            )
+        );
+
         $this->assertEquals(
             array('Servers/1/hide_db', 'bar', 'test'),
-            PMA_readUserprefsFieldNames(array())
+            PMA_readUserprefsFieldNames($forms)
         );
     }
 
