@@ -182,7 +182,7 @@ $htmlString = '<!-- CREATE VIEW options -->'
 
 if ($view['operation'] == 'create') {
     $htmlString .= '<tr>'
-        . '<td><label for="or_replace">OR REPLACE</label></td>'
+        . '<td class="nowrap"><label for="or_replace">OR REPLACE</label></td>'
         . '<td><input type="checkbox" name="view[or_replace]" id="or_replace"';
     if ($view['or_replace']) {
         $htmlString .= ' checked="checked"';
@@ -191,7 +191,7 @@ if ($view['operation'] == 'create') {
 }
 
 $htmlString .= '<tr>'
-    . '<td><label for="algorithm">ALGORITHM</label></td>'
+    . '<td class="nowrap"><label for="algorithm">ALGORITHM</label></td>'
     . '<td><select name="view[algorithm]" id="algorithm">';
 foreach ($view_algorithm_options as $option) {
     $htmlString .= '<option value="' . htmlspecialchars($option) . '"';
@@ -203,12 +203,12 @@ foreach ($view_algorithm_options as $option) {
 $htmlString .= '</select>'
     . '</td></tr>';
 
-$htmlString .= '<tr><td>' . __('Definer') . '</td>'
+$htmlString .= '<tr><td class="nowrap">' . __('Definer') . '</td>'
     . '<td><input type="text" maxlength="100" size="50" name="view[definer]"'
     . ' value="' . htmlspecialchars($view['definer']) . '" />'
     . '</td></tr>';
 
-$htmlString .= '<tr><td>SQL SECURITY</td>'
+$htmlString .= '<tr><td class="nowrap">SQL SECURITY</td>'
     . '<td><select name="view[sql_security]">'
     . '<option value=""></option>';
 foreach ($view_sql_security_options as $option) {
@@ -222,7 +222,7 @@ $htmlString .= '<select>'
     . '</td></tr>';
 
 if ($view['operation'] == 'create') {
-    $htmlString .= '<tr><td>' . __('VIEW name') . '</td>'
+    $htmlString .= '<tr><td class="nowrap">' . __('VIEW name') . '</td>'
         . '<td><input type="text" size="20" name="view[name]"'
         . ' onfocus="this.select()"'
         . ' value="' . htmlspecialchars($view['name']) . '" />'
@@ -233,13 +233,13 @@ if ($view['operation'] == 'create') {
         . '</td></tr>';
 }
 
-$htmlString .= '<tr><td>' . __('Column names') . '</td>'
+$htmlString .= '<tr><td class="nowrap">' . __('Column names') . '</td>'
     . '<td><input type="text" maxlength="100" size="50" name="view[column_names]"'
     . ' onfocus="this.select()"'
     . ' value="' . htmlspecialchars($view['column_names']) . '" />'
     . '</td></tr>';
 
-$htmlString .= '<tr><td>AS</td>'
+$htmlString .= '<tr><td class="nowrap">AS</td>'
     . '<td>'
     . '<textarea name="view[as]" rows="' . $cfg['TextareaRows'] . '"'
     . ' cols="' . $cfg['TextareaCols'] . '" dir="' . $text_dir . '"';
@@ -249,7 +249,7 @@ if ($GLOBALS['cfg']['TextareaAutoSelect'] || true) {
 $htmlString .= '>' . htmlspecialchars($view['as']) . '</textarea>'
     . '</td></tr>';
 
-$htmlString .= '<tr><td>WITH CHECK OPTION</td>'
+$htmlString .= '<tr><td class="nowrap">WITH CHECK OPTION</td>'
     . '<td><select name="view[with]">'
     . '<option value=""></option>';
 foreach ($view_with_options as $option) {
