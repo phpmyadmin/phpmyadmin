@@ -56,9 +56,9 @@ function process_formset(FormDisplay $form_display)
             <?php
         } else {
             // drop post data
-            header('HTTP/1.1 303 See Other');
-            header('Location: index.php');
             if (!defined('TESTSUITE')) {
+                header('HTTP/1.1 303 See Other');
+                header('Location: index.php');
                 exit;
             }
         }
