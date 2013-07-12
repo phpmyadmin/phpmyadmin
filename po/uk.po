@@ -4,17 +4,17 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-07-12 10:58+0200\n"
-"PO-Revision-Date: 2013-02-13 18:54+0200\n"
-"Last-Translator: Andrey Prokopenko <aprk@ukr.net>\n"
-"Language-Team: Ukrainian <http://l10n.cihar.com/projects/phpmyadmin/master/"
-"uk/>\n"
+"PO-Revision-Date: 2013-07-12 14:49+0200\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"Language-Team: Ukrainian "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/uk/>\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 1.5-dev\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
+"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 1.6-dev\n"
 
 #: browse_foreigners.php:51 browse_foreigners.php:75 js/messages.php:339
 #: libraries/DisplayResults.class.php:813
@@ -2273,17 +2273,17 @@ msgstr "PHP вивів наступне повідомлення про поми
 #: libraries/Advisor.class.php:107
 #, php-format
 msgid "Failed evaluating precondition for rule '%s'."
-msgstr "Не вдалося виконати визначення передумови для правила '%s'"
+msgstr "Не вдалося виконати визначення передумови для правила '%s'."
 
 #: libraries/Advisor.class.php:124
 #, php-format
 msgid "Failed calculating value for rule '%s'."
-msgstr "Не вдалося виконати обчислення значення для правила '%s'"
+msgstr "Не вдалося виконати обчислення значення для правила '%s'."
 
 #: libraries/Advisor.class.php:143
 #, php-format
 msgid "Failed running test for rule '%s'."
-msgstr "Не вдалося виконати тест для правила \"%s\""
+msgstr "Не вдалося виконати тест для правила \"%s\"."
 
 #: libraries/Advisor.class.php:225
 #, php-format
@@ -2296,17 +2296,17 @@ msgid ""
 "Invalid rule declaration on line %1$s, expected line %2$s of previous rule."
 msgstr ""
 "Неприпустиме правило декларації на рядку %1$s, очікувався рядок %2$s "
-"попереднього правила"
+"попереднього правила."
 
 #: libraries/Advisor.class.php:412
 #, php-format
 msgid "Invalid rule declaration on line %s."
-msgstr "Неприпустиме правило декларації в рядку %s"
+msgstr "Неприпустиме правило декларації в рядку %s."
 
 #: libraries/Advisor.class.php:420
 #, php-format
 msgid "Unexpected characters on line %s."
-msgstr "Неочікувані символи в рядку %s"
+msgstr "Неочікувані символи в рядку %s."
 
 #: libraries/Advisor.class.php:434
 #, fuzzy, php-format
@@ -4169,7 +4169,7 @@ msgstr "максимум %s"
 #: libraries/config/FormDisplay.tpl.php:225
 msgid "This setting is disabled, it will not be applied to your configuration."
 msgstr ""
-"Цей параметр відключений, він не буде застосовуватися до вашої конфігурації"
+"Цей параметр відключений, він не буде застосовуватися до вашої конфігурації."
 
 #: libraries/config/FormDisplay.tpl.php:313
 #, php-format
@@ -8951,7 +8951,7 @@ msgid ""
 msgstr ""
 "Відразу після перезапуску MySQL сервера, будь ласка, натисніть кнопку OK, "
 "після чого ви повинні побачити повідомлення, яке вказує, що даний сервер "
-"<b>налаштований</b> як головний"
+"<b>налаштований</b> як головний."
 
 #: libraries/replication_gui.lib.php:139
 #: libraries/server_databases.lib.php:395
@@ -10381,7 +10381,7 @@ msgstr ""
 "відстеженні часово інтенсивних запитів. Для останнього необхідно встановити "
 "log_output у 'TABLE'  і увімкнути або директиву slow_query_log, або "
 "general_log. Зауважимо, однак, що general_log виробляє велику кількість "
-"даних і збільшує навантаження на сервер до 15%"
+"даних і збільшує навантаження на сервер до 15%."
 
 #: libraries/server_status_monitor.lib.php:149
 msgid ""
