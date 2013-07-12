@@ -44,7 +44,7 @@ CREATE TABLE IF NOT EXISTS `pma__bookmark` (
   `query` text NOT NULL,
   PRIMARY KEY  (`id`)
 )
-  ENGINE=MyISAM COMMENT='Bookmarks'
+  COMMENT='Bookmarks'
   DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;
 
 -- --------------------------------------------------------
@@ -65,7 +65,7 @@ CREATE TABLE IF NOT EXISTS `pma__column_info` (
   PRIMARY KEY  (`id`),
   UNIQUE KEY `db_name` (`db_name`,`table_name`,`column_name`)
 )
-  ENGINE=MyISAM COMMENT='Column information for phpMyAdmin'
+  COMMENT='Column information for phpMyAdmin'
   DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;
 
 -- --------------------------------------------------------
@@ -84,7 +84,7 @@ CREATE TABLE IF NOT EXISTS `pma__history` (
   PRIMARY KEY  (`id`),
   KEY `username` (`username`,`db`,`table`,`timevalue`)
 )
-  ENGINE=MyISAM COMMENT='SQL history for phpMyAdmin'
+  COMMENT='SQL history for phpMyAdmin'
   DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;
 
 -- --------------------------------------------------------
@@ -100,7 +100,7 @@ CREATE TABLE IF NOT EXISTS `pma__pdf_pages` (
   PRIMARY KEY  (`page_nr`),
   KEY `db_name` (`db_name`)
 )
-  ENGINE=MyISAM COMMENT='PDF relation pages for phpMyAdmin'
+  COMMENT='PDF relation pages for phpMyAdmin'
   DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;
 
 -- --------------------------------------------------------
@@ -114,7 +114,7 @@ CREATE TABLE IF NOT EXISTS `pma__recent` (
   `tables` text NOT NULL,
   PRIMARY KEY (`username`)
 )
-  ENGINE=MyISAM COMMENT='Recently accessed tables'
+  COMMENT='Recently accessed tables'
   DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;
 
 -- --------------------------------------------------------
@@ -131,7 +131,7 @@ CREATE TABLE IF NOT EXISTS `pma__table_uiprefs` (
   `last_update` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`username`,`db_name`,`table_name`)
 )
-  ENGINE=MyISAM COMMENT='Tables'' UI preferences'
+  COMMENT='Tables'' UI preferences'
   DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;
 
 -- --------------------------------------------------------
@@ -150,7 +150,7 @@ CREATE TABLE IF NOT EXISTS `pma__relation` (
   PRIMARY KEY  (`master_db`,`master_table`,`master_field`),
   KEY `foreign_field` (`foreign_db`,`foreign_table`)
 )
-  ENGINE=MyISAM COMMENT='Relation table'
+  COMMENT='Relation table'
   DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;
 
 -- --------------------------------------------------------
@@ -167,7 +167,7 @@ CREATE TABLE IF NOT EXISTS `pma__table_coords` (
   `y` float unsigned NOT NULL default '0',
   PRIMARY KEY  (`db_name`,`table_name`,`pdf_page_number`)
 )
-  ENGINE=MyISAM COMMENT='Table coordinates for phpMyAdmin PDF output'
+  COMMENT='Table coordinates for phpMyAdmin PDF output'
   DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;
 
 -- --------------------------------------------------------
@@ -182,7 +182,7 @@ CREATE TABLE IF NOT EXISTS `pma__table_info` (
   `display_field` varchar(64) NOT NULL default '',
   PRIMARY KEY  (`db_name`,`table_name`)
 )
-  ENGINE=MyISAM COMMENT='Table information for phpMyAdmin'
+  COMMENT='Table information for phpMyAdmin'
   DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;
 
 -- --------------------------------------------------------
@@ -200,7 +200,7 @@ CREATE TABLE IF NOT EXISTS `pma__designer_coords` (
   `h` TINYINT,
   PRIMARY KEY (`db_name`,`table_name`)
 )
-  ENGINE=MyISAM COMMENT='Table coordinates for Designer'
+  COMMENT='Table coordinates for Designer'
   DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;
 
 -- --------------------------------------------------------
@@ -222,7 +222,7 @@ CREATE TABLE IF NOT EXISTS `pma__tracking` (
   `tracking_active` int(1) unsigned NOT NULL default '1',
   PRIMARY KEY  (`db_name`,`table_name`,`version`)
 )
-  ENGINE=MyISAM ROW_FORMAT=COMPACT COMMENT='Database changes tracking for phpMyAdmin'
+  COMMENT='Database changes tracking for phpMyAdmin'
   DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;
 
 -- --------------------------------------------------------
@@ -237,5 +237,5 @@ CREATE TABLE IF NOT EXISTS `pma__userconfig` (
   `config_data` text NOT NULL,
   PRIMARY KEY  (`username`)
 )
-  ENGINE=MyISAM COMMENT='User preferences storage for phpMyAdmin'
+  COMMENT='User preferences storage for phpMyAdmin'
   DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;
