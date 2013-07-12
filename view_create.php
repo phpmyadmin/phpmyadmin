@@ -17,7 +17,7 @@ require_once './libraries/common.inc.php';
  * Runs common work
  */
 require './libraries/db_common.inc.php';
-$url_params['goto'] = $cfg['DefaultTabDatabase'];
+$url_params['goto'] = 'tbl_structure';
 $url_params['back'] = 'view_create.php';
 
 $view_algorithm_options = array(
@@ -110,7 +110,7 @@ if (isset($_REQUEST['createview']) || isset($_REQUEST['alterview'])) {
 
         if (! isset($_REQUEST['ajax_dialog'])) {
             $message = PMA_Message::success();
-            include './' . $cfg['DefaultTabDatabase'];
+            include 'tbl_structure';
         } else {
             $response = PMA_Response::getInstance();
             $response->addJSON(
