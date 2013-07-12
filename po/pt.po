@@ -379,7 +379,7 @@ msgid "Access denied"
 msgstr "Acesso Negado"
 
 #: db_structure.php:86
-msgid "No tables found in database"
+msgid "No tables found in database."
 msgstr "Não foram encontradas tabelas na base de dados"
 
 #: db_tracking.php:73
@@ -1694,7 +1694,7 @@ msgstr "Add %d valor(es)"
 
 #: js/messages.php:259
 msgid ""
-"Note: If the file contains multiple tables, they will be combined into one"
+"Note: If the file contains multiple tables, they will be combined into one."
 msgstr "Nota: Se o arquivo contém várias tabelas, estas serão combinadas numa"
 
 #: js/messages.php:262
@@ -2887,7 +2887,7 @@ msgstr "A chave primária foi eliminada"
 
 #: libraries/Index.class.php:608
 #, php-format
-msgid "Index %s has been dropped"
+msgid "Index %s has been dropped."
 msgstr "O Índice %s foi eliminado"
 
 #: libraries/Index.class.php:731
@@ -3846,7 +3846,7 @@ msgstr "Selecionar a partir da directoria de upload do servidor <b>%s</b>:"
 
 #: libraries/Util.class.php:3441 libraries/insert_edit.lib.php:1183
 #: libraries/sql_query_form.lib.php:483
-msgid "The directory you set for upload work cannot be reached"
+msgid "The directory you set for upload work cannot be reached."
 msgstr "Não é possivel alcançar a directoria que configurou para fazer upload"
 
 #: libraries/Util.class.php:3452
@@ -8134,7 +8134,7 @@ msgstr "Arquivo %s não contém qualquer identificação de chave"
 
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:176
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:196
-msgid "Hardware authentication failed"
+msgid "Hardware authentication failed!"
 msgstr "Falha na autenticação de hardware"
 
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:183
@@ -9520,7 +9520,7 @@ msgstr "Não tem permissões suficientes para aceder aqui, neste momento!"
 
 #: libraries/rte/rte_words.lib.php:32
 #, fuzzy, php-format
-#| msgid "No tables found in database"
+#| msgid "No tables found in database."
 msgid "No routine with name %1$s found in database %2$s"
 msgstr "Não foram encontradas tabelas na base de dados"
 
@@ -9553,7 +9553,7 @@ msgstr "Não tem permissões suficientes para aceder aqui, neste momento!"
 
 #: libraries/rte/rte_words.lib.php:44
 #, fuzzy, php-format
-#| msgid "No tables found in database"
+#| msgid "No tables found in database."
 msgid "No trigger with name %1$s found in database %2$s"
 msgstr "Não foram encontradas tabelas na base de dados"
 
@@ -9586,7 +9586,7 @@ msgstr "Não tem permissões suficientes para aceder aqui, neste momento!"
 
 #: libraries/rte/rte_words.lib.php:56
 #, fuzzy, php-format
-#| msgid "No tables found in database"
+#| msgid "No tables found in database."
 msgid "No event with name %1$s found in database %2$s"
 msgstr "Não foram encontradas tabelas na base de dados"
 

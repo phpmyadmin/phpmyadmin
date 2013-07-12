@@ -377,7 +377,7 @@ msgid "Access denied"
 msgstr "Ndalohet hyrja"
 
 #: db_structure.php:86
-msgid "No tables found in database"
+msgid "No tables found in database."
 msgstr "Nuk gjenden tabela në bazën e të dhënave"
 
 #: db_tracking.php:73
@@ -1652,7 +1652,7 @@ msgstr "Shto %d vlerë(a)"
 
 #: js/messages.php:259
 msgid ""
-"Note: If the file contains multiple tables, they will be combined into one"
+"Note: If the file contains multiple tables, they will be combined into one."
 msgstr ""
 
 #: js/messages.php:262
@@ -2826,7 +2826,7 @@ msgstr "Kyçi primar u eleminua"
 
 #: libraries/Index.class.php:608
 #, php-format
-msgid "Index %s has been dropped"
+msgid "Index %s has been dropped."
 msgstr "Treguesi %s u eleminua"
 
 #: libraries/Index.class.php:731
@@ -3766,7 +3766,7 @@ msgstr "directory e upload të server-it web"
 
 #: libraries/Util.class.php:3441 libraries/insert_edit.lib.php:1183
 #: libraries/sql_query_form.lib.php:483
-msgid "The directory you set for upload work cannot be reached"
+msgid "The directory you set for upload work cannot be reached."
 msgstr "Directory që keni zgjedhur për upload nuk arrin të gjehet"
 
 #: libraries/Util.class.php:3452
@@ -7896,7 +7896,7 @@ msgstr ""
 
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:176
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:196
-msgid "Hardware authentication failed"
+msgid "Hardware authentication failed!"
 msgstr ""
 
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:183

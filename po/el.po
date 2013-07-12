@@ -376,7 +376,7 @@ msgid "Access denied"
 msgstr "Άρνηση πρόσβασης"
 
 #: db_structure.php:86
-msgid "No tables found in database"
+msgid "No tables found in database."
 msgstr "Δεν βρέθηκαν πίνακες στη βάση δεδομένων"
 
 #: db_tracking.php:73
@@ -1675,7 +1675,7 @@ msgstr "Προσθήκη %d τιμής(ών)"
 
 #: js/messages.php:259
 msgid ""
-"Note: If the file contains multiple tables, they will be combined into one"
+"Note: If the file contains multiple tables, they will be combined into one."
 msgstr "Σημείωση: Αν το αρχείο περιέχει πολλούς πίνακες, θα ενωθουν σε έναν"
 
 #: js/messages.php:262
@@ -2852,7 +2852,7 @@ msgstr "Το πρωτεύον κλειδί διεγράφη"
 
 #: libraries/Index.class.php:608
 #, php-format
-msgid "Index %s has been dropped"
+msgid "Index %s has been dropped."
 msgstr "Το ευρετήριο %s διεγράφη"
 
 #: libraries/Index.class.php:731
@@ -3830,7 +3830,7 @@ msgstr "Επιλογή από το φάκελο αποστολής του δια
 
 #: libraries/Util.class.php:3441 libraries/insert_edit.lib.php:1183
 #: libraries/sql_query_form.lib.php:483
-msgid "The directory you set for upload work cannot be reached"
+msgid "The directory you set for upload work cannot be reached."
 msgstr ""
 "Ο υποκατάλογος που ορίσατε για την αποθήκευση αρχείων δεν μπόρεσε να βρεθεί"
 
@@ -8041,7 +8041,7 @@ msgstr "Το αρχείο %s δεν περιέχει καμιά ταυτότητ
 
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:176
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:196
-msgid "Hardware authentication failed"
+msgid "Hardware authentication failed!"
 msgstr "Η επικύρωση του υλικού απέτυχε"
 
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:183

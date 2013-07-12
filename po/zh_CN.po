@@ -371,7 +371,7 @@ msgid "Access denied"
 msgstr "拒绝访问"
 
 #: db_structure.php:86
-msgid "No tables found in database"
+msgid "No tables found in database."
 msgstr "没有在数据库中找到表"
 
 #: db_tracking.php:73
@@ -1624,7 +1624,7 @@ msgstr "添加 %d 个值"
 
 #: js/messages.php:259
 msgid ""
-"Note: If the file contains multiple tables, they will be combined into one"
+"Note: If the file contains multiple tables, they will be combined into one."
 msgstr "注意：如果文件包含多个表，它们会被合并成一个"
 
 #: js/messages.php:262
@@ -2774,7 +2774,7 @@ msgstr "已删除主键"
 
 #: libraries/Index.class.php:608
 #, php-format
-msgid "Index %s has been dropped"
+msgid "Index %s has been dropped."
 msgstr "已删除索引 %s"
 
 #: libraries/Index.class.php:731
@@ -3706,7 +3706,7 @@ msgstr "从网站服务器上传文件夹 <b>%s</b> 中选择："
 
 #: libraries/Util.class.php:3441 libraries/insert_edit.lib.php:1183
 #: libraries/sql_query_form.lib.php:483
-msgid "The directory you set for upload work cannot be reached"
+msgid "The directory you set for upload work cannot be reached."
 msgstr "用于上传的文件夹出错，无法使用"
 
 #: libraries/Util.class.php:3452
@@ -7736,7 +7736,7 @@ msgstr "文件 %s 未包含任何密钥"
 
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:176
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:196
-msgid "Hardware authentication failed"
+msgid "Hardware authentication failed!"
 msgstr "硬件认证失败"
 
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:183

@@ -256,7 +256,7 @@ $js_messages['enum_hint'] =__('Enter each value in a separate field');
 $js_messages['enum_addValue'] =__('Add %d value(s)');
 
 /* For import.js */
-$js_messages['strImportCSV'] = __('Note: If the file contains multiple tables, they will be combined into one');
+$js_messages['strImportCSV'] = __('Note: If the file contains multiple tables, they will be combined into one.');
 
 /* For sql.js */
 $js_messages['strHideQueryBox'] = __('Hide query box');

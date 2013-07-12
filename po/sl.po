@@ -379,7 +379,7 @@ msgid "Access denied"
 msgstr "Dostop zavrnjen"
 
 #: db_structure.php:86
-msgid "No tables found in database"
+msgid "No tables found in database."
 msgstr "V zbirki podatkov ni mogoče najti tabel"
 
 #: db_tracking.php:73
@@ -1668,7 +1668,7 @@ msgstr "Dodaj %d vrednost(i)"
 
 #: js/messages.php:259
 msgid ""
-"Note: If the file contains multiple tables, they will be combined into one"
+"Note: If the file contains multiple tables, they will be combined into one."
 msgstr "Opomba: Če datoteka vsebuje več tabel, bodo združene v eno"
 
 #: js/messages.php:262
@@ -2838,7 +2838,7 @@ msgstr "Primarni ključ je zavržen"
 
 #: libraries/Index.class.php:608
 #, php-format
-msgid "Index %s has been dropped"
+msgid "Index %s has been dropped."
 msgstr "Indeks %s je zavržen"
 
 #: libraries/Index.class.php:731
@@ -3812,7 +3812,7 @@ msgstr "Izberite iz mape za nalaganje na spletnem strežniku <b>%s</b>:"
 
 #: libraries/Util.class.php:3441 libraries/insert_edit.lib.php:1183
 #: libraries/sql_query_form.lib.php:483
-msgid "The directory you set for upload work cannot be reached"
+msgid "The directory you set for upload work cannot be reached."
 msgstr "Imenik, ki ste ga določili za nalaganje, je nedosegljiv"
 
 #: libraries/Util.class.php:3452
@@ -7965,7 +7965,7 @@ msgstr "Datoteka %s ne vsebuje nobenega identifikacijskega ključa"
 
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:176
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:196
-msgid "Hardware authentication failed"
+msgid "Hardware authentication failed!"
 msgstr "Overitev strojne opreme je spodletelo"
 
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:183

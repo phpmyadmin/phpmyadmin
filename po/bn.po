@@ -384,7 +384,7 @@ msgid "Access denied"
 msgstr "প্রবেশ করা যাচ্ছে না"
 
 #: db_structure.php:86
-msgid "No tables found in database"
+msgid "No tables found in database."
 msgstr "ডাটাবেইজে কোন টেবিল পাওয়া যায়নি"
 
 #: db_tracking.php:73
@@ -1669,7 +1669,7 @@ msgstr "%d মান যোগ কর"
 
 #: js/messages.php:259
 msgid ""
-"Note: If the file contains multiple tables, they will be combined into one"
+"Note: If the file contains multiple tables, they will be combined into one."
 msgstr "টিকা: যদি ফাইলটিতে একাধিক টেবিল থাকে, ওই গুলো একটিতে পরিনত হবে"
 
 #: js/messages.php:262
@@ -2844,7 +2844,7 @@ msgstr "প্রাথমিক কী মুছা হয়েছে"
 
 #: libraries/Index.class.php:608
 #, php-format
-msgid "Index %s has been dropped"
+msgid "Index %s has been dropped."
 msgstr "ইনডেক্স %s মুছা হয়েছে"
 
 #: libraries/Index.class.php:731
@@ -3802,7 +3802,7 @@ msgstr "ওয়েভ সার্ভারের আপলোড ডিরেক
 
 #: libraries/Util.class.php:3441 libraries/insert_edit.lib.php:1183
 #: libraries/sql_query_form.lib.php:483
-msgid "The directory you set for upload work cannot be reached"
+msgid "The directory you set for upload work cannot be reached."
 msgstr "আপলোড করার জন্য নির্ধারিত ডিরেক্টরীটি পাওয়া যাচ্ছে না"
 
 #: libraries/Util.class.php:3452
@@ -7896,7 +7896,7 @@ msgstr "ফাইল %s এ কোন কী আইডি নাই"
 
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:176
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:196
-msgid "Hardware authentication failed"
+msgid "Hardware authentication failed!"
 msgstr "যান্ত্রীক প্রমানীকরণ ব্যার্থ"
 
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:183

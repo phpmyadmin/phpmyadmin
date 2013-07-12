@@ -371,7 +371,7 @@ msgid "Access denied"
 msgstr "拒絕訪問"
 
 #: db_structure.php:86
-msgid "No tables found in database"
+msgid "No tables found in database."
 msgstr "沒有在資料庫中找到表"
 
 #: db_tracking.php:73
@@ -1626,7 +1626,7 @@ msgstr "增加 %d 個值"
 
 #: js/messages.php:259
 msgid ""
-"Note: If the file contains multiple tables, they will be combined into one"
+"Note: If the file contains multiple tables, they will be combined into one."
 msgstr "備註：若檔案中包含多個資料表，它們會被結合成同一個資料表。"
 
 #: js/messages.php:262
@@ -2777,7 +2777,7 @@ msgstr "已刪除主鍵"
 
 #: libraries/Index.class.php:608
 #, php-format
-msgid "Index %s has been dropped"
+msgid "Index %s has been dropped."
 msgstr "已刪除索引 %s"
 
 #: libraries/Index.class.php:731
@@ -3725,7 +3725,7 @@ msgstr "選擇 Web 伺服器上傳目錄 <b>%s</b>："
 
 #: libraries/Util.class.php:3441 libraries/insert_edit.lib.php:1183
 #: libraries/sql_query_form.lib.php:483
-msgid "The directory you set for upload work cannot be reached"
+msgid "The directory you set for upload work cannot be reached."
 msgstr "設定之上傳目錄錯誤，無法使用"
 
 #: libraries/Util.class.php:3452
@@ -7693,7 +7693,7 @@ msgstr "檔案 %s 未包含任何密鑰"
 
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:176
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:196
-msgid "Hardware authentication failed"
+msgid "Hardware authentication failed!"
 msgstr "硬件認證失敗"
 
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:183

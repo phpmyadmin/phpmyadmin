@@ -377,7 +377,7 @@ msgid "Access denied"
 msgstr "Akses ditolak"
 
 #: db_structure.php:86
-msgid "No tables found in database"
+msgid "No tables found in database."
 msgstr "Tidak ada tabel dalam basis data"
 
 #: db_tracking.php:73
@@ -1667,7 +1667,7 @@ msgstr "Tambahkan nilai %d"
 
 #: js/messages.php:259
 msgid ""
-"Note: If the file contains multiple tables, they will be combined into one"
+"Note: If the file contains multiple tables, they will be combined into one."
 msgstr ""
 "Catatan: Jika berkas mengandung banyak tabel, mereka akan di gabung menjadi "
 "satu"
@@ -2842,7 +2842,7 @@ msgstr "Kunci primer telah dihapus"
 
 #: libraries/Index.class.php:608
 #, php-format
-msgid "Index %s has been dropped"
+msgid "Index %s has been dropped."
 msgstr "Indeks %s telah dihapus"
 
 #: libraries/Index.class.php:731
@@ -3810,7 +3810,7 @@ msgstr "Pilih dari direktori unggah <b>%s</b> pada web server:"
 
 #: libraries/Util.class.php:3441 libraries/insert_edit.lib.php:1183
 #: libraries/sql_query_form.lib.php:483
-msgid "The directory you set for upload work cannot be reached"
+msgid "The directory you set for upload work cannot be reached."
 msgstr "Direktori yang telah ditetapkan untuk mengunggah tidak dapat dihubungi"
 
 #: libraries/Util.class.php:3452
@@ -7971,7 +7971,7 @@ msgstr "Arsip %s tidak mengandung key id"
 
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:176
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:196
-msgid "Hardware authentication failed"
+msgid "Hardware authentication failed!"
 msgstr "Autentikasi perangkat keras gagal"
 
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:183

@@ -388,7 +388,7 @@ msgid "Access denied"
 msgstr "Prístup odmietnutý"
 
 #: db_structure.php:86
-msgid "No tables found in database"
+msgid "No tables found in database."
 msgstr "V tejto databáze neboli nájdené žiadne tabuľky"
 
 #: db_tracking.php:73
@@ -1707,7 +1707,7 @@ msgstr "Pridať %d hodnôt"
 
 #: js/messages.php:259
 msgid ""
-"Note: If the file contains multiple tables, they will be combined into one"
+"Note: If the file contains multiple tables, they will be combined into one."
 msgstr ""
 "Poznámka: Ak súbor obsahuje viac tabuliek, tieto budú spojené do jednej"
 
@@ -2888,7 +2888,7 @@ msgstr "Primárny kľúč bol zrušený"
 
 #: libraries/Index.class.php:608
 #, php-format
-msgid "Index %s has been dropped"
+msgid "Index %s has been dropped."
 msgstr "Index pre %s bol odstránený"
 
 #: libraries/Index.class.php:731
@@ -3871,7 +3871,7 @@ msgstr "Zvoľte súbor z upload adresára <b>%s</b> web servera:"
 
 #: libraries/Util.class.php:3441 libraries/insert_edit.lib.php:1183
 #: libraries/sql_query_form.lib.php:483
-msgid "The directory you set for upload work cannot be reached"
+msgid "The directory you set for upload work cannot be reached."
 msgstr "Adresár určený pre upload súborov sa nedá otvoriť"
 
 #: libraries/Util.class.php:3452
@@ -8036,7 +8036,7 @@ msgstr "Súbor %s neobsahuje ID kľúč"
 
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:176
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:196
-msgid "Hardware authentication failed"
+msgid "Hardware authentication failed!"
 msgstr "Hardwarové prihlasovanie zlyhalo"
 
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:183
