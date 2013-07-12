@@ -17,7 +17,7 @@
  * Core libraries.
  */
 require_once './libraries/config/FormDisplay.tpl.php';
-require_once './libraries/config/validate.lib.php';
+require_once './libraries/config/Validator.class.php';
 require_once './libraries/js_escape.lib.php';
 
 /**
@@ -91,7 +91,7 @@ class FormDisplay
             'error_invalid_value' => __('Incorrect value'),
             'error_value_lte' => __('Value must be equal or lower than %s'));
         // initialize validators
-        PMA_config_get_validators();
+        PMA_Validator::config_get_validators();
     }
 
     /**
@@ -164,7 +164,7 @@ class FormDisplay
         }
 
         // run validation
-        $errors = PMA_config_validate($paths, $values, false);
+        $errors = PMA_Validator::config_validate($paths, $values, false);
 
         // change error keys from canonical paths to work paths
         if (is_array($errors) && count($errors) > 0) {
@@ -198,7 +198,7 @@ class FormDisplay
         $js = array();
         $js_default = array();
         $tabbed_form = $tabbed_form && (count($this->_forms) > 1);
-        $validators = PMA_config_get_validators();
+        $validators = PMA_Validator::config_get_validators();
 
         PMA_displayFormTop();
 

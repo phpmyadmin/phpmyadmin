@@ -357,11 +357,11 @@ class PMA_Schema_PDF extends PMA_PDF
  * This class preserves the table co-ordinates,fields
  * and helps in drawing/generating the Tables in PDF document.
  *
- * @name    Table_Stats
+ * @name    Table_Stats_Pdf
  * @package PhpMyAdmin
  * @see     PMA_Schema_PDF
  */
-class Table_Stats
+class Table_Stats_Pdf
 {
     /**
      * Defines properties
@@ -379,7 +379,7 @@ class Table_Stats
     private $_ff = PMA_PDF_FONT;
 
     /**
-     * The "Table_Stats" constructor
+     * The "Table_Stats_Pdf" constructor
      *
      * @param string  $tableName      The table name
      * @param integer $fontSize       The font size
@@ -395,8 +395,8 @@ class Table_Stats
      *
      * @return void
      *
-     * @see PMA_Schema_PDF, Table_Stats::Table_Stats_setWidth,
-     *     Table_Stats::Table_Stats_setHeight
+     * @see PMA_Schema_PDF, Table_Stats_Pdf::Table_Stats_setWidth,
+     *     Table_Stats_Pdf::Table_Stats_setHeight
      */
     function __construct($tableName, $fontSize, $pageNumber, &$sameWideWidth,
         $showKeys = false, $showInfo = false
@@ -623,12 +623,12 @@ class Table_Stats
  * master table's master field to foreign table's foreign key
  * in PDF document.
  *
- * @name    Relation_Stats
+ * @name    Relation_Stats_Pdf
  * @package PhpMyAdmin
  * @see     PMA_Schema_PDF::SetDrawColor, PMA_Schema_PDF::setLineWidthScale,
  *          PMA_Schema_PDF::lineScale
  */
-class Relation_Stats
+class Relation_Stats_Pdf
 {
     /**
      * Defines properties
@@ -640,7 +640,7 @@ class Relation_Stats
     public $wTick = 5;
 
     /**
-     * The "Relation_Stats" constructor
+     * The "Relation_Stats_Pdf" constructor
      *
      * @param string $master_table  The master table name
      * @param string $master_field  The relation field in the master table
@@ -649,7 +649,7 @@ class Relation_Stats
      *
      * @return void
      *
-     * @see Relation_Stats::_getXy
+     * @see Relation_Stats_Pdf::_getXy
      */
     function __construct($master_table, $master_field, $foreign_table,
         $foreign_field
@@ -897,7 +897,7 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
         /* snip */
         foreach ($alltables as $table) {
             if (! isset($this->_tables[$table])) {
-                $this->_tables[$table] = new Table_Stats(
+                $this->_tables[$table] = new Table_Stats_Pdf(
                     $table,
                     null,
                     $this->pageNumber,
@@ -967,10 +967,19 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
             $this->_drawRelations($this->showColor);
         }
         $this->_drawTables($this->showColor);
-        $this->_showOutput($this->pageNumber);
-        exit();
     }
 
+    /**
+     * Output Pdf Document for download
+     *
+     * @return void
+     * @access public
+     */
+    function showOutput()
+    {
+        $this->_showOutput($this->pageNumber);
+    }
+    
     /**
      * Sets X and Y minimum and maximum for a table cell
      *
@@ -1007,20 +1016,20 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
         $foreignField, $showInfo
     ) {
         if (! isset($this->_tables[$masterTable])) {
-            $this->_tables[$masterTable] = new Table_Stats(
+            $this->_tables[$masterTable] = new Table_Stats_Pdf(
                 $masterTable, null, $this->pageNumber,
                 $this->_tablewidth, false, $showInfo
             );
             $this->_setMinMax($this->_tables[$masterTable]);
         }
         if (! isset($this->_tables[$foreignTable])) {
-            $this->_tables[$foreignTable] = new Table_Stats(
+            $this->_tables[$foreignTable] = new Table_Stats_Pdf(
                 $foreignTable, null, $this->pageNumber,
                 $this->_tablewidth, false, $showInfo
             );
             $this->_setMinMax($this->_tables[$foreignTable]);
         }
-        $this->relations[] = new Relation_Stats(
+        $this->relations[] = new Relation_Stats_Pdf(
             $this->_tables[$masterTable], $masterField,
             $this->_tables[$foreignTable], $foreignField
         );
@@ -1099,7 +1108,7 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
      *
      * @return void
      *
-     * @see Relation_Stats::relationdraw()
+     * @see Relation_Stats_Pdf::relationdraw()
      */
     private function _drawRelations($changeColor)
     {
@@ -1119,7 +1128,7 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
      *
      * @return void
      *
-     * @see Table_Stats::tableDraw()
+     * @see Table_Stats_Pdf::tableDraw()
      */
     private function _drawTables($changeColor = 0)
     {

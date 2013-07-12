@@ -1219,8 +1219,7 @@ class PMA_DbQbe
         $from_clause = '';
         if (isset($_POST['criteriaColumn']) && count($_POST['criteriaColumn']) > 0) {
             // Initialize some variables
-            $all_tables = $all_columns = $known_tables = $remaining_tables = array();
-            $left_join = '';
+            $all_tables = $all_columns = array();
 
             // We only start this if we have fields, otherwise it would be dumb
             foreach ($_POST['criteriaColumn'] as $value) {

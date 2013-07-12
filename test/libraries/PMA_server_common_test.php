@@ -15,6 +15,13 @@ require_once 'libraries/url_generating.lib.php';
 require_once 'libraries/server_common.lib.php';
 require_once 'libraries/Theme.class.php';
 
+/**
+ * PMA_ServerCommon_Test class
+ *
+ * this class is for testing server_common.lib.php functions
+ *
+ * @package PhpMyAdmin-test
+ */
 class PMA_ServerCommon_Test extends PHPUnit_Framework_TestCase
 {
     /**
@@ -32,39 +39,41 @@ class PMA_ServerCommon_Test extends PHPUnit_Framework_TestCase
      *
      * @return void
      */
-    public function testPMA_getSubPageHeader()
+    public function testPMAGetSubPageHeader()
     {
-    	//server_engines
-    	$html = PMA_getSubPageHeader("engines");
+        //server_engines
+        $html = PMA_getSubPageHeader("engines");
         $this->assertContains(
             '<img src="themes/dot.gif" title="" alt="" class="icon ic_b_engine" />',
-        	$html
+            $html
         ); 
         $this->assertContains(
             'Storage Engines',
-        	$html
+            $html
         );
         
-    	//server_databases
-    	$html = PMA_getSubPageHeader("databases");
+        //server_databases
+        $html = PMA_getSubPageHeader("databases");
         $this->assertContains(
             '<img src="themes/dot.gif" title="" alt="" class="icon ic_s_db" />',
-        	$html
+            $html
         ); 
         $this->assertContains(
             'Databases',
-        	$html
+            $html
         );
         
-    	//server_replication
-    	$html = PMA_getSubPageHeader("replication");
+        //server_replication
+        $html = PMA_getSubPageHeader("replication");
+        $replication_img = '<img src="themes/dot.gif" title="" ' 
+            . 'alt="" class="icon ic_s_replication" />';
         $this->assertContains(
-            '<img src="themes/dot.gif" title="" alt="" class="icon ic_s_replication" />',
-        	$html
+            $replication_img,
+            $html
         ); 
         $this->assertContains(
             'Replication',
-        	$html
+            $html
         );
     }
 

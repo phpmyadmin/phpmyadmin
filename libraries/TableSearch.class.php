@@ -123,7 +123,9 @@ class PMA_TableSearch
     private function _loadTableInfo()
     {
         // Gets the list and number of columns
-        $columns = $GLOBALS['dbi']->getColumns($this->_db, $this->_table, null, true);
+        $columns = $GLOBALS['dbi']->getColumns(
+            $this->_db, $this->_table, null, true
+        );
         // Get details about the geometry fucntions
         $geom_types = PMA_Util::getGISDatatypes();
 
@@ -664,7 +666,8 @@ EOT;
             return ' WHERE ' . $_POST['customWhereClause'];
         }
 
-        // If there are no search criteria set or no unary criteria operators, return
+        // If there are no search criteria set or no unary criteria operators,
+        // return
         if (! isset($_POST['criteriaValues'])
             && ! isset($_POST['criteriaColumnOperators'])
         ) {
@@ -729,7 +732,9 @@ EOT;
             $html_output .= '<select class="geom_func" name="geom_func['
                 . $column_index . ']">';
             // get the relevant list of GIS functions
-            $funcs = PMA_Util::getGISFunctions($this->_columnTypes[$column_index], true, true);
+            $funcs = PMA_Util::getGISFunctions(
+                $this->_columnTypes[$column_index], true, true
+            );
             /**
              * For each function in the list of functions,
              * add an option to select list
@@ -890,7 +895,9 @@ EOT;
             ? $_POST['criteriaColumnOperators'][$search_index] : '');
         $entered_value = (isset($_POST['criteriaValues'])
             ? $_POST['criteriaValues'] : '');
-        $titles['Browse'] = PMA_Util::getIcon('b_browse.png', __('Browse foreign values'));
+        $titles['Browse'] = PMA_Util::getIcon(
+            'b_browse.png', __('Browse foreign values')
+        );
         //Gets column's type and collation
         $type = $this->_columnTypes[$column_index];
         $collation = $this->_columnCollations[$column_index];
@@ -976,7 +983,8 @@ EOT;
 
         //Displays column rows for search criteria input
         for ($i = 0; $i < 4; $i++) {
-            //After X-Axis and Y-Axis column rows, display additional criteria option
+            //After X-Axis and Y-Axis column rows, display additional criteria
+            // option
             if ($i == 2) {
                 $html_output .= '<tr><td>';
                 $html_output .= __("Additional search criteria");
@@ -1268,12 +1276,12 @@ EOT;
      */
     function _getSearchAndReplaceHTML()
     {
-        $htmlOutput  = __('Find')
-            . ': <input type="text" value="" name="find" />';
-        $htmlOutput .= __('Replace with')
-            . ': <input type="text" value="" name="replaceWith" />';
+        $htmlOutput  = __('Find:')
+            . '<input type="text" value="" name="find" />';
+        $htmlOutput .= __('Replace with:')
+            . '<input type="text" value="" name="replaceWith" />';
 
-        $htmlOutput .= __('Column') . ': <select name="columnIndex">';
+        $htmlOutput .= __('Column:') . '<select name="columnIndex">';
         for ($i = 0; $i < count($this->_columnNames); $i++) {
             $type = preg_replace('@\(.*@s', '', $this->_columnTypes[$i]);
             if ($GLOBALS['PMA_Types']->getTypeClass($type) == 'CHAR') {
@@ -1345,7 +1353,6 @@ EOT;
             $val = $row[0];
             $replaced = $row[1];
             $count = $row[2];
-            $valMd5 = md5($val);
 
             $htmlOutput .= '<tr class="' . ($odd ? 'odd' : 'even') . '">';
             $htmlOutput .= '<td class="right">' . htmlspecialchars($count) . '</td>';

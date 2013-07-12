@@ -265,7 +265,7 @@ class PMA_Tracker
             'libraries/plugins/export/',
             array(
                 'export_type' => $export_type,
-                'single_table' => isset($single_table)
+                'single_table' => false,
             )
         );
 
@@ -620,7 +620,7 @@ class PMA_Tracker
         }
 
         $date_from = $ddl_date_from;
-        $date_to   = $ddl_date_to = $date;
+        $ddl_date_to = $date;
 
         $dml_date_from = $date_from;
 

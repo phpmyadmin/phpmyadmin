@@ -260,11 +260,6 @@ function PMA_SQP_parse($sql)
     $punct_queryend          = ';';
     $punct_qualifier         = '.';
     $punct_listsep           = ',';
-    $punct_level_plus        = '(';
-    $punct_level_minus       = ')';
-    $punct_user              = '@';
-    $digit_floatdecimal      = '.';
-    $digit_hexset            = 'x';
     $bracket_list            = '()[]{}';
     $allpunct_list           =  '-,;:!?/.^~\*&%+<=>|';
     $allpunct_list_pair      = array(
@@ -1862,7 +1857,7 @@ function PMA_SQP_analyze($arr)
             }
         }
 
-        
+
         // do not add a space after an identifier if followed by a dot
         if ($arr[$i]['type'] == 'alpha_identifier'
             && $i < $size - 1 && $arr[$i + 1]['data'] == '.'

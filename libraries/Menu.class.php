@@ -290,7 +290,6 @@ class PMA_Menu
     {
         $db_is_information_schema = $GLOBALS['dbi']->isSystemSchema($this->_db);
         $tbl_is_view = PMA_Table::isView($this->_db, $this->_table);
-        $table_info_num_rows = PMA_Table::countRecords($this->_db, $this->_table);
 
         $tabs = array();
 
