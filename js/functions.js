@@ -3698,6 +3698,22 @@ AJAX.registerOnload('functions.js', function () {
             $(this).closest('.ui-dialog').find('.ui-button:first').click();
         }
     }); // end $.live()
+    
+    var $elm = $('textarea[name="view[as]"]');
+    if ($elm.length > 0) {
+        if (typeof CodeMirror != 'undefined') {
+            syntaxHighlighter = CodeMirror.fromTextArea(
+                $elm[0], 
+                {
+                    lineNumbers: true, 
+                    matchBrackets: true, 
+                    indentUnit: 4, 
+                    mode: "text/x-mysql", 
+                    lineWrapping: true
+                }
+            );
+        }
+    }
 });
 
 function PMA_createViewDialog($this)
