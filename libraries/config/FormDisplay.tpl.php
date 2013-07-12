@@ -447,6 +447,7 @@ function PMA_addJsValidate($field_id, $validators, &$js_array)
     foreach ((array)$validators as $validator) {
         $validator = (array)$validator;
         $v_name = array_shift($validator);
+        $v_name = "PMA_" . $v_name;
         $v_args = array();
         foreach ($validator as $arg) {
             $v_args[] = PMA_escapeJsString($arg);
