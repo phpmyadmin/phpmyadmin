@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-07-12 16:06+0200\n"
-"PO-Revision-Date: 2013-07-09 15:28+0200\n"
+"PO-Revision-Date: 2013-07-12 21:25+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone+weblate@gmail.com>\n"
-"Language-Team: Spanish <http://l10n.cihar.com/projects/phpmyadmin/master/es/"
-">\n"
+"Language-Team: Spanish "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/es/>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1679,7 +1679,7 @@ msgstr "Agregar %d valor(es)"
 msgid ""
 "Note: If the file contains multiple tables, they will be combined into one."
 msgstr ""
-"Nota: si la fila contiene múltiples tablas, van a ser combinadas en una"
+"Nota: si la fila contiene múltiples tablas, van a ser combinadas en una."
 
 #: js/messages.php:262
 msgid "Hide query box"
@@ -2862,7 +2862,7 @@ msgstr "La clave primaria ha sido eliminada"
 #: libraries/Index.class.php:608
 #, php-format
 msgid "Index %s has been dropped."
-msgstr "El índice %s ha sido eliminado"
+msgstr "El índice %s ha sido eliminado."
 
 #: libraries/Index.class.php:731
 #, php-format
@@ -3848,7 +3848,7 @@ msgstr ""
 #: libraries/sql_query_form.lib.php:483
 msgid "The directory you set for upload work cannot be reached."
 msgstr ""
-"No se puede acceder al directorio que seleccionó para subir los archivos"
+"No se puede acceder al directorio que seleccionó para subir los archivos."
 
 #: libraries/Util.class.php:3452
 msgid "There are no files to upload"
@@ -8054,7 +8054,8 @@ msgstr ""
 #, php-format
 msgid "No activity within %s seconds; please log in again."
 msgstr ""
-"No ha habido actividad desde hace %s o más segundos; inicie sesión nuevamente"
+"No ha habido actividad desde hace %s o más segundos; inicie sesión "
+"nuevamente."
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:667
 #: libraries/plugins/auth/AuthenticationCookie.class.php:669
@@ -8079,7 +8080,7 @@ msgstr "El archivo %s no contiene ningún id de clave"
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:176
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:196
 msgid "Hardware authentication failed!"
-msgstr "La autenticación de hardware fracasó"
+msgstr "¡Fracasó la autenticación de hardware!"
 
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:183
 msgid "No valid authentication key plugged"
@@ -11316,7 +11317,7 @@ msgid ""
 msgstr ""
 "Parece haber un error en su consulta de SQL. La salida generada por el "
 "servidor de MySQL, de existir, aparece abajo, en cuyo caso puede ayudar a "
-"diagnosticar el problema"
+"diagnosticar el problema."
 
 #: libraries/sqlparser.lib.php:178
 msgid ""
