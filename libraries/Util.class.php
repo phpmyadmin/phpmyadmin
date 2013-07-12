@@ -4162,6 +4162,10 @@ class PMA_Util
     {
         global $cfg;
 
+        // wait 3s at most for server response, it's enough to get information
+        // from a working server
+        $connection_timeout = 3;
+
         $response = '{}';
         // Get response text from phpmyadmin.net or from the session
         // Update cache every 6 hours
@@ -4174,27 +4178,26 @@ class PMA_Util
             $save = true;
             $file = 'http://www.phpmyadmin.net/home_page/version.json';
             if (ini_get('allow_url_fopen')) {
+                $context = array(
+                    'http' => array(
+                        'request_fulluri' => true,
+                        'timeout' => $connection_timeout,
+                    )
+                );
                 if (strlen($cfg['VersionCheckProxyUrl'])) {
-                    $context = array(
-                        'http' => array(
-                            'proxy' => $cfg['VersionCheckProxyUrl'],
-                            'request_fulluri' => true
-                        )
-                    );
+                    $context['http']['proxy'] = $cfg['VersionCheckProxyUrl'];
                     if (strlen($cfg['VersionCheckProxyUser'])) {
                         $auth = base64_encode(
                             $cfg['VersionCheckProxyUser'] . ':' . $cfg['VersionCheckProxyPass']
                         );
                         $context['http']['header'] = 'Proxy-Authorization: Basic ' . $auth;
                     }
-                    $response = file_get_contents(
-                        $file,
-                        false,
-                        stream_context_create($context)
-                    );
-                } else {
-                    $response = file_get_contents($file);
                 }
+                $response = file_get_contents(
+                    $file,
+                    false,
+                    stream_context_create($context)
+                );
             } else if (function_exists('curl_init')) {
                 $curl_handle = curl_init($file);
                 if (strlen($cfg['VersionCheckProxyUrl'])) {
@@ -4208,6 +4211,9 @@ class PMA_Util
                     }
                 }
                 curl_setopt($curl_handle, CURLOPT_RETURNTRANSFER, 1);
+                curl_setopt($curl_handle, CURLOPT_HEADER, false);
+                curl_setopt($curl_handle, CURLOPT_RETURNTRANSFER, true);
+                curl_setopt($curl_handle, CURLOPT_TIMEOUT, $connection_timeout);
                 $response = curl_exec($curl_handle);
             }
         }
