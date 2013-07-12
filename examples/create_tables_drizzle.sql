@@ -237,7 +237,7 @@ CREATE TABLE IF NOT EXISTS `pma__users` (
   `usergroup` varchar(64) NOT NULL,
   PRIMARY KEY (`username`,`usergroup`)
 ) 
-  ENGINE=MyISAM COMMENT='Users and their assignments to user groups'
+  COMMENT='Users and their assignments to user groups'
   COLLATE utf8_bin;
 
 -- --------------------------------------------------------
@@ -286,5 +286,5 @@ CREATE TABLE IF NOT EXISTS `pma__usergroups` (
   `table_triggers` enum('Y','N') NOT NULL DEFAULT 'N',
   PRIMARY KEY (`usergroup`)
 ) 
-  ENGINE=MyISAM COMMENT='User groups with configured menu items'
+  COMMENT='User groups with configured menu items'
   COLLATE utf8_bin;
