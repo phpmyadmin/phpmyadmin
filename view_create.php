@@ -61,7 +61,8 @@ if (isset($_REQUEST['createview']) || isset($_REQUEST['alterview'])) {
 
     if (isset($_REQUEST['view']['sql_security'])) {
         if (in_array($_REQUEST['view']['sql_security'], $view_sql_security_options)) {
-            $sql_query .= $sep . ' SQL SECURITY ' . $_REQUEST['view']['sql_security'];
+            $sql_query .= $sep . ' SQL SECURITY '
+                . $_REQUEST['view']['sql_security'];
         }
     }
 
@@ -75,7 +76,8 @@ if (isset($_REQUEST['createview']) || isset($_REQUEST['alterview'])) {
 
     if (isset($_REQUEST['view']['with'])) {
         if (in_array($_REQUEST['view']['with'], $view_with_options)) {
-            $sql_query .= $sep . ' WITH ' . $_REQUEST['view']['with'] . '  CHECK OPTION';
+            $sql_query .= $sep . ' WITH ' . $_REQUEST['view']['with']
+                . '  CHECK OPTION';
         }
     }
 
@@ -171,7 +173,10 @@ $htmlString = '<!-- CREATE VIEW options -->'
     . PMA_generate_common_hidden_inputs($url_params)
     . '<fieldset>'
     . '<legend>'
-    . (isset($_REQUEST['ajax_dialog']) ? __('Details') : ($view['operation'] == 'create' ? __('Create view') : __('Edit view')))
+    . (isset($_REQUEST['ajax_dialog']) ?
+        __('Details') :
+        ($view['operation'] == 'create' ? __('Create view') : __('Edit view'))
+    )
     . '</legend>'
     . '<table class="rte_table">';
 
@@ -218,7 +223,8 @@ $htmlString .= '<select>'
 
 if ($view['operation'] == 'create') {
     $htmlString .= '<tr><td>' . __('VIEW name') . '</td>'
-        . '<td><input type="text" size="20" name="view[name]" onfocus="this.select()"'
+        . '<td><input type="text" size="20" name="view[name]"'
+        . ' onfocus="this.select()"'
         . ' value="' . htmlspecialchars($view['name']) . '" />'
         . '</td></tr>';
 } else {
