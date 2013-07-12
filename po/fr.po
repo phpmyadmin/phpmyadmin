@@ -4,10 +4,9 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-07-12 10:58+0200\n"
-"PO-Revision-Date: 2013-07-09 14:47+0200\n"
+"PO-Revision-Date: 2013-07-12 15:29+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
-"Language-Team: French <http://l10n.cihar.com/projects/phpmyadmin/master/fr/"
-">\n"
+"Language-Team: French <http://l10n.cihar.com/projects/phpmyadmin/master/fr/>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -7995,7 +7994,7 @@ msgstr ""
 #: libraries/plugins/auth/AuthenticationSignon.class.php:254
 #, php-format
 msgid "No activity within %s seconds; please log in again."
-msgstr "Aucune activité depuis %s secondes ou plus, veuillez vous reconnecter"
+msgstr "Aucune activité depuis %s secondes ou plus; veuillez vous reconnecter."
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:667
 #: libraries/plugins/auth/AuthenticationCookie.class.php:669
@@ -11230,7 +11229,7 @@ msgid ""
 "below, if there is any, may also help you in diagnosing the problem."
 msgstr ""
 "Il semble qu'il y ait une erreur dans votre requête SQL. Le message ci-bas "
-"peut vous aider à en trouver la cause"
+"peut vous aider à en trouver la cause."
 
 #: libraries/sqlparser.lib.php:178
 msgid ""
