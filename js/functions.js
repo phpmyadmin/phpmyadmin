@@ -136,12 +136,12 @@ function PMA_current_version(data)
                 escapeHtml(data['version']),
                 escapeHtml(data['date'])
             );
-            var klass = 'notice';
+            var htmlClass = 'notice';
             if (Math.floor(latest / 10000) === Math.floor(current / 10000)) {
                 /* Security update */
-                klass = 'error';
+                htmlClass = 'error';
             }
-            $('#maincontainer').after('<div class="' + klass + '">' + message + '</div>');
+            $('#maincontainer').after('<div class="' + htmlClass + '">' + message + '</div>');
         }
         if (latest === current) {
             version_information_message = ' (' + PMA_messages.strUpToDate + ')';
