@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.5-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-06-24 10:43+0200\n"
-"PO-Revision-Date: 2013-04-25 15:47+0200\n"
+"PO-Revision-Date: 2013-07-12 15:38+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Basque <http://l10n.cihar.com/projects/phpmyadmin/4-0/eu/>\n"
 "Language: eu\n"
@@ -7798,7 +7798,7 @@ msgstr ""
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:201
 msgid "Server:"
-msgstr "Zerbitzaria"
+msgstr "Zerbitzaria:"
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:213
 msgid "Username:"
