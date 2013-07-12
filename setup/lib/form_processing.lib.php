@@ -21,7 +21,10 @@ function process_formset(FormDisplay $form_display)
         // drop post data
         header('HTTP/1.1 303 See Other');
         header('Location: index.php');
-        exit;
+
+        if (!defined('TESTSUITE')) {
+            exit;
+        }
     }
     if (!$form_display->process(false)) {
         // handle form view and failed POST
@@ -55,7 +58,9 @@ function process_formset(FormDisplay $form_display)
             // drop post data
             header('HTTP/1.1 303 See Other');
             header('Location: index.php');
-            exit;
+            if (!defined('TESTSUITE')) {
+                exit;
+            }
         }
     }
 }

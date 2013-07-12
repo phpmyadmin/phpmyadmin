@@ -106,37 +106,11 @@ function PMA_version_check()
     // version check messages should always be visible so let's make
     // a unique message id each time we run it
     $message_id = uniqid('version_check');
-    // wait 3s at most for server response, it's enough to get information
-    // from a working server
-    $connection_timeout = 3;
 
-    $url = 'http://phpmyadmin.net/home_page/version.php';
-    $context = stream_context_create(
-        array(
-            'http' => array('timeout' => $connection_timeout)
-        )
-    );
-    $data = @file_get_contents($url, null, $context);
-    if ($data === false) {
-        if (function_exists('curl_init')) {
-            $ch = curl_init($url);
-            curl_setopt($ch, CURLOPT_HEADER, false);
-            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-            curl_setopt($ch, CURLOPT_TIMEOUT, $connection_timeout);
-            $data = curl_exec($ch);
-            curl_close($ch);
-        } else {
-            messages_set(
-                'error',
-                $message_id,
-                __('Version check'),
-                __('Neither URL wrapper nor CURL is available. Version check is not possible.')
-            );
-            return;
-        }
-    }
+    // Fetch data
+    $version_data = PMA_Util::getLatestVersion();
 
-    if (empty($data)) {
+    if (empty($version_data)) {
         messages_set(
             'error',
             $message_id,
@@ -146,17 +120,10 @@ function PMA_version_check()
         return;
     }
 
-    /* Format: version\ndate\n(download\n)* */
-    $data_list = explode("\n", $data);
+    $version = $version_data->version;
+    $date = $version_data->date;
 
-    if (count($data_list) > 1) {
-        $version = $data_list[0];
-        $date = $data_list[1];
-    } else {
-        $version = $date = '';
-    }
-
-    $version_upstream = version_to_int($version);
+    $version_upstream = PMA_Util::versionToInt($version);
     if ($version_upstream === false) {
         messages_set(
             'error',
@@ -167,7 +134,7 @@ function PMA_version_check()
         return;
     }
 
-    $version_local = version_to_int($GLOBALS['PMA_Config']->get('PMA_VERSION'));
+    $version_local = PMA_Util::versionToInt($GLOBALS['PMA_Config']->get('PMA_VERSION'));
     if ($version_local === false) {
         messages_set(
             'error',
@@ -204,55 +171,6 @@ function PMA_version_check()
             );
         }
     }
-}
-
-/**
- * Calculates numerical equivalent of phpMyAdmin version string
- *
- * @param string $version version
- *
- * @return mixed false on failure, integer on success
- */
-function version_to_int($version)
-{
-    $matches = array();
-    if (!preg_match('/^(\d+)\.(\d+)\.(\d+)((\.|-(pl|rc|dev|beta|alpha))(\d+)?(-dev)?)?$/', $version, $matches)) {
-        return false;
-    }
-    if (!empty($matches[6])) {
-        switch ($matches[6]) {
-        case 'pl':
-            $added = 60;
-            break;
-        case 'rc':
-            $added = 30;
-            break;
-        case 'beta':
-            $added = 20;
-            break;
-        case 'alpha':
-            $added = 10;
-            break;
-        case 'dev':
-            $added = 0;
-            break;
-        default:
-            messages_set(
-                'notice',
-                'version_match',
-                __('Version check'),
-                'Unknown version part: ' . htmlspecialchars($matches[6])
-            );
-            $added = 0;
-            break;
-        }
-    } else {
-        $added = 50; // for final
-    }
-    if (!empty($matches[7])) {
-        $added = $added + $matches[7];
-    }
-    return $matches[1] * 1000000 + $matches[2] * 10000 + $matches[3] * 100 + $added;
 }
 
 /**

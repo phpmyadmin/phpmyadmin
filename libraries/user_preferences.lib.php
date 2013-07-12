@@ -175,6 +175,10 @@ function PMA_readUserprefsFieldNames(array $forms = null)
 {
     static $names;
 
+    if (defined('TESTSUITE')) {
+        $names = null;
+    }
+
     // return cached results
     if ($names !== null) {
         return $names;

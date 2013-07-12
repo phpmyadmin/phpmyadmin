@@ -83,7 +83,7 @@ $titles = PMA_Util::buildActionTitles();
 
 if ($num_tables == 0) {
     $response->addHTML(
-        '<p>' . __('No tables found in database') . '</p>' . "\n"
+        '<p>' . __('No tables found in database.') . '</p>' . "\n"
     );
     if (empty($db_is_information_schema)) {
         ob_start();

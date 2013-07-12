@@ -130,7 +130,7 @@ function PMA_SQP_throwError($message, $sql)
         . __(
             'There seems to be an error in your SQL query. The MySQL server '
             . 'error output below, if there is any, may also help you in '
-            . 'diagnosing the problem'
+            . 'diagnosing the problem.'
         )
         . '</p>' . "\n"
         . '<pre>' . "\n"

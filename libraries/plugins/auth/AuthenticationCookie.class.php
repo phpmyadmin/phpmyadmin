@@ -659,7 +659,7 @@ class AuthenticationCookie extends AuthenticationPlugin
             $conn_error = __('Access denied');
         } elseif (! empty($GLOBALS['no_activity'])) {
             $conn_error = sprintf(
-                __('No activity within %s seconds; please log in again'),
+                __('No activity within %s seconds; please log in again.'),
                 $GLOBALS['cfg']['LoginCookieValidity']
             );
         } elseif ($GLOBALS['dbi']->getError()) {
