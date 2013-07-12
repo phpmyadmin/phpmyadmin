@@ -3,11 +3,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-07-12 10:58+0200\n"
+"POT-Creation-Date: 2013-07-12 16:06+0200\n"
 "PO-Revision-Date: 2013-07-12 14:54+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Galician "
-"<http://l10n.cihar.com/projects/phpmyadmin/master/gl/>\n"
+"Language-Team: Galician <http://l10n.cihar.com/projects/phpmyadmin/master/gl/"
+">\n"
 "Language: gl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -276,8 +276,8 @@ msgstr "Si"
 msgid "View dump (schema) of database"
 msgstr "Ver o envorcado (esquema) da base de datos"
 
-#: db_export.php:33 db_printview.php:41 db_tracking.php:49 export.php:557
-#: libraries/DBQbe.class.php:268
+#: db_export.php:33 db_printview.php:41 db_structure.php:86 db_tracking.php:49
+#: export.php:557 libraries/DBQbe.class.php:268
 msgid "No tables found in database."
 msgstr "Non foi posíbel atopar ningunha táboa na base de datos."
 
@@ -4160,28 +4160,28 @@ msgid "neither of the above"
 msgstr "nada do anterior"
 
 #: libraries/config/FormDisplay.class.php:88
-#: libraries/config/Validator.class.php:528
+#: libraries/config/Validator.class.php:529
 msgid "Not a positive number"
 msgstr "Non é un número positivo"
 
 #: libraries/config/FormDisplay.class.php:89
-#: libraries/config/Validator.class.php:550
+#: libraries/config/Validator.class.php:551
 msgid "Not a non-negative number"
 msgstr "Non é un número negativo"
 
 #: libraries/config/FormDisplay.class.php:90
-#: libraries/config/Validator.class.php:506
+#: libraries/config/Validator.class.php:507
 msgid "Not a valid port number"
 msgstr "Non é un número de porto válido"
 
 #: libraries/config/FormDisplay.class.php:91
 #: libraries/config/FormDisplay.class.php:579
-#: libraries/config/Validator.class.php:568
+#: libraries/config/Validator.class.php:569
 msgid "Incorrect value"
 msgstr "O valor é incorrecto"
 
 #: libraries/config/FormDisplay.class.php:92
-#: libraries/config/Validator.class.php:584
+#: libraries/config/Validator.class.php:585
 #, php-format
 msgid "Value must be equal or lower than %s"
 msgstr "O valor debe ser igual ou menor a %s"
@@ -4229,7 +4229,8 @@ msgstr "máximo %s"
 
 #: libraries/config/FormDisplay.tpl.php:225
 msgid "This setting is disabled, it will not be applied to your configuration."
-msgstr "Esta preferencia está desactivada; non se aplicará á súa configuración."
+msgstr ""
+"Esta preferencia está desactivada; non se aplicará á súa configuración."
 
 #: libraries/config/FormDisplay.tpl.php:313
 #, php-format
@@ -4255,54 +4256,54 @@ msgstr ""
 msgid "Reset"
 msgstr "Reiniciar"
 
-#: libraries/config/Validator.class.php:216
+#: libraries/config/Validator.class.php:217
 msgid "Could not initialize Drizzle connection library"
 msgstr "Non foi posíbel iniciar a biblioteca de conexión Drizzle"
 
-#: libraries/config/Validator.class.php:225
-#: libraries/config/Validator.class.php:233
+#: libraries/config/Validator.class.php:226
+#: libraries/config/Validator.class.php:234
 msgid "Could not connect to Drizzle server"
 msgstr "Non foi posíbel conectar co servidor de Drizzle"
 
-#: libraries/config/Validator.class.php:244
-#: libraries/config/Validator.class.php:251
+#: libraries/config/Validator.class.php:245
+#: libraries/config/Validator.class.php:252
 msgid "Could not connect to MySQL server"
 msgstr "Non foi posíbel conectar co servidor de MySQL"
 
-#: libraries/config/Validator.class.php:284
+#: libraries/config/Validator.class.php:285
 msgid "Empty username while using config authentication method"
 msgstr ""
 "Atopouse un nome de usuario baleiro ao empregar o método de autenticación da "
 "configuración"
 
-#: libraries/config/Validator.class.php:291
+#: libraries/config/Validator.class.php:292
 msgid "Empty signon session name while using signon authentication method"
 msgstr ""
 "Atopouse un nome de rexistro da sesión baleiro ao empregar o método de "
 "autenticación mediante rexistro de entrada"
 
-#: libraries/config/Validator.class.php:300
+#: libraries/config/Validator.class.php:301
 msgid "Empty signon URL while using signon authentication method"
 msgstr ""
 "Atopouse un URL de rexistro baleiro ao empregar o método de autenticación "
 "mediante rexistro de entrada"
 
-#: libraries/config/Validator.class.php:348
+#: libraries/config/Validator.class.php:349
 msgid "Empty phpMyAdmin control user while using pmadb"
 msgstr "Atopouse un usuario de control de phpMyAdmin baleiro ao empregar pmadb"
 
-#: libraries/config/Validator.class.php:353
+#: libraries/config/Validator.class.php:354
 msgid "Empty phpMyAdmin control user password while using pmadb"
 msgstr ""
 "Atopouse un contrasinal de control de phpMyAdmin baleiro ao empregar pmadb"
 
-#: libraries/config/Validator.class.php:437
+#: libraries/config/Validator.class.php:438
 #, fuzzy
 #| msgid "Incorrect value"
 msgid "Incorrect value:"
 msgstr "O valor é incorrecto"
 
-#: libraries/config/Validator.class.php:445
+#: libraries/config/Validator.class.php:446
 #, php-format
 msgid "Incorrect IP address: %s"
 msgstr "O enderezo de IP é incorrecto: %s"

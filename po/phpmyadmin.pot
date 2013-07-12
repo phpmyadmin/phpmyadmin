@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-07-12 10:58+0200\n"
+"POT-Creation-Date: 2013-07-12 16:06+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -270,8 +270,8 @@ msgstr ""
 msgid "View dump (schema) of database"
 msgstr ""
 
-#: db_export.php:33 db_printview.php:41 db_tracking.php:49 export.php:557
-#: libraries/DBQbe.class.php:268
+#: db_export.php:33 db_printview.php:41 db_structure.php:86 db_tracking.php:49
+#: export.php:557 libraries/DBQbe.class.php:268
 msgid "No tables found in database."
 msgstr ""
 
@@ -370,10 +370,6 @@ msgstr ""
 #: libraries/plugins/auth/AuthenticationHttp.class.php:65
 #: libraries/plugins/auth/AuthenticationSignon.class.php:251
 msgid "Access denied"
-msgstr ""
-
-#: db_structure.php:86
-msgid "No tables found in database"
 msgstr ""
 
 #: db_tracking.php:73
@@ -1588,7 +1584,7 @@ msgstr ""
 
 #: js/messages.php:259
 msgid ""
-"Note: If the file contains multiple tables, they will be combined into one"
+"Note: If the file contains multiple tables, they will be combined into one."
 msgstr ""
 
 #: js/messages.php:262
@@ -2731,7 +2727,7 @@ msgstr ""
 
 #: libraries/Index.class.php:608
 #, possible-php-format
-msgid "Index %s has been dropped"
+msgid "Index %s has been dropped."
 msgstr ""
 
 #: libraries/Index.class.php:731
@@ -3628,7 +3624,7 @@ msgstr ""
 
 #: libraries/Util.class.php:3441 libraries/insert_edit.lib.php:1183
 #: libraries/sql_query_form.lib.php:483
-msgid "The directory you set for upload work cannot be reached"
+msgid "The directory you set for upload work cannot be reached."
 msgstr ""
 
 #: libraries/Util.class.php:3452
@@ -3880,28 +3876,28 @@ msgid "neither of the above"
 msgstr ""
 
 #: libraries/config/FormDisplay.class.php:88
-#: libraries/config/Validator.class.php:528
+#: libraries/config/Validator.class.php:529
 msgid "Not a positive number"
 msgstr ""
 
 #: libraries/config/FormDisplay.class.php:89
-#: libraries/config/Validator.class.php:550
+#: libraries/config/Validator.class.php:551
 msgid "Not a non-negative number"
 msgstr ""
 
 #: libraries/config/FormDisplay.class.php:90
-#: libraries/config/Validator.class.php:506
+#: libraries/config/Validator.class.php:507
 msgid "Not a valid port number"
 msgstr ""
 
 #: libraries/config/FormDisplay.class.php:91
 #: libraries/config/FormDisplay.class.php:579
-#: libraries/config/Validator.class.php:568
+#: libraries/config/Validator.class.php:569
 msgid "Incorrect value"
 msgstr ""
 
 #: libraries/config/FormDisplay.class.php:92
-#: libraries/config/Validator.class.php:584
+#: libraries/config/Validator.class.php:585
 #, possible-php-format
 msgid "Value must be equal or lower than %s"
 msgstr ""
@@ -3973,45 +3969,45 @@ msgstr ""
 msgid "Reset"
 msgstr ""
 
-#: libraries/config/Validator.class.php:216
+#: libraries/config/Validator.class.php:217
 msgid "Could not initialize Drizzle connection library"
 msgstr ""
 
-#: libraries/config/Validator.class.php:225
-#: libraries/config/Validator.class.php:233
+#: libraries/config/Validator.class.php:226
+#: libraries/config/Validator.class.php:234
 msgid "Could not connect to Drizzle server"
 msgstr ""
 
-#: libraries/config/Validator.class.php:244
-#: libraries/config/Validator.class.php:251
+#: libraries/config/Validator.class.php:245
+#: libraries/config/Validator.class.php:252
 msgid "Could not connect to MySQL server"
 msgstr ""
 
-#: libraries/config/Validator.class.php:284
+#: libraries/config/Validator.class.php:285
 msgid "Empty username while using config authentication method"
 msgstr ""
 
-#: libraries/config/Validator.class.php:291
+#: libraries/config/Validator.class.php:292
 msgid "Empty signon session name while using signon authentication method"
 msgstr ""
 
-#: libraries/config/Validator.class.php:300
+#: libraries/config/Validator.class.php:301
 msgid "Empty signon URL while using signon authentication method"
 msgstr ""
 
-#: libraries/config/Validator.class.php:348
+#: libraries/config/Validator.class.php:349
 msgid "Empty phpMyAdmin control user while using pmadb"
 msgstr ""
 
-#: libraries/config/Validator.class.php:353
+#: libraries/config/Validator.class.php:354
 msgid "Empty phpMyAdmin control user password while using pmadb"
 msgstr ""
 
-#: libraries/config/Validator.class.php:437
+#: libraries/config/Validator.class.php:438
 msgid "Incorrect value:"
 msgstr ""
 
-#: libraries/config/Validator.class.php:445
+#: libraries/config/Validator.class.php:446
 #, possible-php-format
 msgid "Incorrect IP address: %s"
 msgstr ""
@@ -7477,7 +7473,7 @@ msgstr ""
 #: libraries/plugins/auth/AuthenticationCookie.class.php:662
 #: libraries/plugins/auth/AuthenticationSignon.class.php:254
 #, possible-php-format
-msgid "No activity within %s seconds; please log in again"
+msgid "No activity within %s seconds; please log in again."
 msgstr ""
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:667
@@ -7501,7 +7497,7 @@ msgstr ""
 
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:176
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:196
-msgid "Hardware authentication failed"
+msgid "Hardware authentication failed!"
 msgstr ""
 
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:183
@@ -10387,7 +10383,7 @@ msgstr ""
 #: libraries/sqlparser.lib.php:131
 msgid ""
 "There seems to be an error in your SQL query. The MySQL server error output "
-"below, if there is any, may also help you in diagnosing the problem"
+"below, if there is any, may also help you in diagnosing the problem."
 msgstr ""
 
 #: libraries/sqlparser.lib.php:178

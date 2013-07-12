@@ -3,11 +3,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-07-12 10:58+0200\n"
+"POT-Creation-Date: 2013-07-12 16:06+0200\n"
 "PO-Revision-Date: 2013-07-12 14:54+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Sinhala "
-"<http://l10n.cihar.com/projects/phpmyadmin/master/si/>\n"
+"Language-Team: Sinhala <http://l10n.cihar.com/projects/phpmyadmin/master/si/"
+">\n"
 "Language: si\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -269,8 +269,8 @@ msgstr "ඔව්"
 msgid "View dump (schema) of database"
 msgstr "දත්තගබඩාවේ නික්ෂේපනය (ක්‍රමානුරූපය) දර්ශනය කරන්න"
 
-#: db_export.php:33 db_printview.php:41 db_tracking.php:49 export.php:557
-#: libraries/DBQbe.class.php:268
+#: db_export.php:33 db_printview.php:41 db_structure.php:86 db_tracking.php:49
+#: export.php:557 libraries/DBQbe.class.php:268
 msgid "No tables found in database."
 msgstr "දත්තගබඩාවේ වගු කිසිවක් සොයා ගැනීමට නොමැත."
 
@@ -2218,9 +2218,7 @@ msgstr "'%s' රීතිය සඳහා පෙළ සැකසීම අසම
 #, php-format
 msgid ""
 "Invalid rule declaration on line %1$s, expected line %2$s of previous rule."
-msgstr ""
-"%1$s පේළියේ වැරදි රීති අර්ථ දැක්වීමකි, පෙර රීතියේ %2$s වන පේළිය බලාපොරොත්තු "
-"විය."
+msgstr "%1$s පේළියේ වැරදි රීති අර්ථ දැක්වීමකි, පෙර රීතියේ %2$s වන පේළිය බලාපොරොත්තු විය."
 
 #: libraries/Advisor.class.php:412
 #, php-format
@@ -4012,28 +4010,28 @@ msgid "neither of the above"
 msgstr "ඉහත එක් වර්ගයක්වත් නොව"
 
 #: libraries/config/FormDisplay.class.php:88
-#: libraries/config/Validator.class.php:528
+#: libraries/config/Validator.class.php:529
 msgid "Not a positive number"
 msgstr "ධන සංඛ්‍යාවක් නොවේ"
 
 #: libraries/config/FormDisplay.class.php:89
-#: libraries/config/Validator.class.php:550
+#: libraries/config/Validator.class.php:551
 msgid "Not a non-negative number"
 msgstr "ඍණ නොවන සංඛ්‍යාවක් නොවේ"
 
 #: libraries/config/FormDisplay.class.php:90
-#: libraries/config/Validator.class.php:506
+#: libraries/config/Validator.class.php:507
 msgid "Not a valid port number"
 msgstr "වලංගු පොර්ට් අංකයක් නොවේ"
 
 #: libraries/config/FormDisplay.class.php:91
 #: libraries/config/FormDisplay.class.php:579
-#: libraries/config/Validator.class.php:568
+#: libraries/config/Validator.class.php:569
 msgid "Incorrect value"
 msgstr "වැරදි අගයකි"
 
 #: libraries/config/FormDisplay.class.php:92
-#: libraries/config/Validator.class.php:584
+#: libraries/config/Validator.class.php:585
 #, php-format
 msgid "Value must be equal or lower than %s"
 msgstr "අගය %s ට සමාන හෝ අඩු විය යුතුය"
@@ -4105,45 +4103,45 @@ msgstr ""
 msgid "Reset"
 msgstr "ප්‍රතිසකසන්න"
 
-#: libraries/config/Validator.class.php:216
+#: libraries/config/Validator.class.php:217
 msgid "Could not initialize Drizzle connection library"
 msgstr "Drizzle සබඳතා පුස්තකාලය ඇරඹිය නොහැකි විය"
 
-#: libraries/config/Validator.class.php:225
-#: libraries/config/Validator.class.php:233
+#: libraries/config/Validator.class.php:226
+#: libraries/config/Validator.class.php:234
 msgid "Could not connect to Drizzle server"
 msgstr "Drizzle සේවාදායකය වෙත සම්බන්ධ විය නොහැකි විය"
 
-#: libraries/config/Validator.class.php:244
-#: libraries/config/Validator.class.php:251
+#: libraries/config/Validator.class.php:245
+#: libraries/config/Validator.class.php:252
 msgid "Could not connect to MySQL server"
 msgstr "MySQL සේවාදායකය වෙත සම්බන්ධ විය නොහැකි විය"
 
-#: libraries/config/Validator.class.php:284
+#: libraries/config/Validator.class.php:285
 msgid "Empty username while using config authentication method"
 msgstr "config සත්‍යාපන ක්‍රමය භාවිතා කිරීමේදී හිස් භාවිත නාමයක්"
 
-#: libraries/config/Validator.class.php:291
+#: libraries/config/Validator.class.php:292
 msgid "Empty signon session name while using signon authentication method"
 msgstr "signon සත්‍යාපන ක්‍රමය භාවිතා කිරීමේදී හිස් signon සැසි නාමයක්"
 
-#: libraries/config/Validator.class.php:300
+#: libraries/config/Validator.class.php:301
 msgid "Empty signon URL while using signon authentication method"
 msgstr "singon සත්‍යාපන ක්‍රමය භාවිතා කිරීමේදී signon URL සඳහා හිස් අගයක්"
 
-#: libraries/config/Validator.class.php:348
+#: libraries/config/Validator.class.php:349
 msgid "Empty phpMyAdmin control user while using pmadb"
 msgstr "pmadb භාවිතා කිරීමේදී phpMyAdmin පරිපාලක භාවිතා කරන්නා සඳහා හිස් අගයක්"
 
-#: libraries/config/Validator.class.php:353
+#: libraries/config/Validator.class.php:354
 msgid "Empty phpMyAdmin control user password while using pmadb"
 msgstr "pmadb භාවිතා කිරීමේදී phpMyAdmin පරිපාලක භාවිතා කරන්නාගේ මුරපදය සඳහා හිස් අගයක්"
 
-#: libraries/config/Validator.class.php:437
+#: libraries/config/Validator.class.php:438
 msgid "Incorrect value:"
 msgstr "වැරදි අගයකි:"
 
-#: libraries/config/Validator.class.php:445
+#: libraries/config/Validator.class.php:446
 #, php-format
 msgid "Incorrect IP address: %s"
 msgstr "වැරදි IP යොමුව: %s"
@@ -8543,8 +8541,8 @@ msgid ""
 "should see a message informing you, that this server <b>is</b> configured as "
 "master."
 msgstr ""
-"සේවාදායකය නැවත පණගැන්වීමෙන් අනතුරුව 'යන්න' බොත්තම ඔබන්න. ඉන් අනතුරුව මෙම "
-"සේවාදායකය ප්‍රධාන සේවාදායකය ලෙස සකසා <b>ඇති</b> බවට පණිවිඩයක් දර්ශනය වනු ඇත."
+"සේවාදායකය නැවත පණගැන්වීමෙන් අනතුරුව 'යන්න' බොත්තම ඔබන්න. ඉන් අනතුරුව මෙම සේවාදායකය "
+"ප්‍රධාන සේවාදායකය ලෙස සකසා <b>ඇති</b> බවට පණිවිඩයක් දර්ශනය වනු ඇත."
 
 #: libraries/replication_gui.lib.php:139
 #: libraries/server_databases.lib.php:395
@@ -9914,11 +9912,11 @@ msgid ""
 "enabled. Note however, that the general_log produces a lot of data and "
 "increases server load by up to 15%."
 msgstr ""
-"ඔබගේ සේවාදායකයේ වින්‍යාසයන් ප්‍රශස්ත කිරීමටත් වැඩි කාලයක් ගතවන විමසුම් හඳුනා "
-"ගැනීමටත් ඔබට phpMyAdmin අධීක්ෂකය යොදාගත හැක. දෙවැන්න සඳහා log_output හි අගය "
-"TABLE ලෙස සිටුවීමත් slow_query_log, general_log යන දෙකෙන් එකක් සක්‍රීය "
-"කිරීමත් අවශ්‍ය වේ. කෙසේ වෙතත් general_log ය ඉතා විශාල දත්ත ප්‍රමාණයක් "
-"උත්පාදනය කරන බව සහ එමගින් සේවාදායකය මත භාරය 15% දක්වා ඉහල යා හැකි බව සලකන්න."
+"ඔබගේ සේවාදායකයේ වින්‍යාසයන් ප්‍රශස්ත කිරීමටත් වැඩි කාලයක් ගතවන විමසුම් හඳුනා ගැනීමටත් ඔබට "
+"phpMyAdmin අධීක්ෂකය යොදාගත හැක. දෙවැන්න සඳහා log_output හි අගය TABLE ලෙස සිටුවීමත් "
+"slow_query_log, general_log යන දෙකෙන් එකක් සක්‍රීය කිරීමත් අවශ්‍ය වේ. කෙසේ වෙතත් "
+"general_log ය ඉතා විශාල දත්ත ප්‍රමාණයක් උත්පාදනය කරන බව සහ එමගින් සේවාදායකය මත භාරය "
+"15% දක්වා ඉහල යා හැකි බව සලකන්න."
 
 #: libraries/server_status_monitor.lib.php:149
 msgid ""

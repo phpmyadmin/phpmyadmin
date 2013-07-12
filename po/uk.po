@@ -3,17 +3,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-07-12 10:58+0200\n"
+"POT-Creation-Date: 2013-07-12 16:06+0200\n"
 "PO-Revision-Date: 2013-07-12 14:49+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Ukrainian "
-"<http://l10n.cihar.com/projects/phpmyadmin/master/uk/>\n"
+"Language-Team: Ukrainian <http://l10n.cihar.com/projects/phpmyadmin/master/"
+"uk/>\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
-"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 1.6-dev\n"
 
 #: browse_foreigners.php:51 browse_foreigners.php:75 js/messages.php:339
@@ -277,8 +277,8 @@ msgstr "Так"
 msgid "View dump (schema) of database"
 msgstr "Переглянути дамп (схему) БД"
 
-#: db_export.php:33 db_printview.php:41 db_tracking.php:49 export.php:557
-#: libraries/DBQbe.class.php:268
+#: db_export.php:33 db_printview.php:41 db_structure.php:86 db_tracking.php:49
+#: export.php:557 libraries/DBQbe.class.php:268
 msgid "No tables found in database."
 msgstr "В БД не виявлено таблиць."
 
@@ -4095,28 +4095,28 @@ msgid "neither of the above"
 msgstr "жоден з попередніх"
 
 #: libraries/config/FormDisplay.class.php:88
-#: libraries/config/Validator.class.php:528
+#: libraries/config/Validator.class.php:529
 msgid "Not a positive number"
 msgstr "Не додатнє число"
 
 #: libraries/config/FormDisplay.class.php:89
-#: libraries/config/Validator.class.php:550
+#: libraries/config/Validator.class.php:551
 msgid "Not a non-negative number"
 msgstr "Не від'ємне число"
 
 #: libraries/config/FormDisplay.class.php:90
-#: libraries/config/Validator.class.php:506
+#: libraries/config/Validator.class.php:507
 msgid "Not a valid port number"
 msgstr "Невірний номер порту"
 
 #: libraries/config/FormDisplay.class.php:91
 #: libraries/config/FormDisplay.class.php:579
-#: libraries/config/Validator.class.php:568
+#: libraries/config/Validator.class.php:569
 msgid "Incorrect value"
 msgstr "Некоректне значення"
 
 #: libraries/config/FormDisplay.class.php:92
-#: libraries/config/Validator.class.php:584
+#: libraries/config/Validator.class.php:585
 #, php-format
 msgid "Value must be equal or lower than %s"
 msgstr "Значення має дорівнювати або бути меншим аніж %s"
@@ -4191,54 +4191,54 @@ msgstr ""
 msgid "Reset"
 msgstr "Перевстановити"
 
-#: libraries/config/Validator.class.php:216
+#: libraries/config/Validator.class.php:217
 msgid "Could not initialize Drizzle connection library"
 msgstr "Неможливо ініціалізувати бібліотеку з'єднання Drizzle"
 
-#: libraries/config/Validator.class.php:225
-#: libraries/config/Validator.class.php:233
+#: libraries/config/Validator.class.php:226
+#: libraries/config/Validator.class.php:234
 msgid "Could not connect to Drizzle server"
 msgstr "Не вдалося з'єднатися з сервером Drizzle"
 
-#: libraries/config/Validator.class.php:244
-#: libraries/config/Validator.class.php:251
+#: libraries/config/Validator.class.php:245
+#: libraries/config/Validator.class.php:252
 msgid "Could not connect to MySQL server"
 msgstr "Неможливо з'єднатися з сервером MySQL"
 
-#: libraries/config/Validator.class.php:284
+#: libraries/config/Validator.class.php:285
 msgid "Empty username while using config authentication method"
 msgstr ""
 "При використанні ідентифікації по конфігураційному файлу не встановлено ім'я "
 "користувача"
 
-#: libraries/config/Validator.class.php:291
+#: libraries/config/Validator.class.php:292
 msgid "Empty signon session name while using signon authentication method"
 msgstr ""
 "При використанні єдиного методу ідентифікації signon не встановлено ім’я "
 "сесії"
 
-#: libraries/config/Validator.class.php:300
+#: libraries/config/Validator.class.php:301
 msgid "Empty signon URL while using signon authentication method"
 msgstr ""
 "При використанні єдиного методу ідентифікації signon не встановлений URL"
 
-#: libraries/config/Validator.class.php:348
+#: libraries/config/Validator.class.php:349
 msgid "Empty phpMyAdmin control user while using pmadb"
 msgstr "При використанні pmadb не встановлений керуючий користувач phpMyAdmin"
 
-#: libraries/config/Validator.class.php:353
+#: libraries/config/Validator.class.php:354
 msgid "Empty phpMyAdmin control user password while using pmadb"
 msgstr ""
 "При використанні pmadb не встановлений пароль керуючого користувача "
 "phpMyAdmin"
 
-#: libraries/config/Validator.class.php:437
+#: libraries/config/Validator.class.php:438
 #, fuzzy
 #| msgid "Incorrect value"
 msgid "Incorrect value:"
 msgstr "Некоректне значення"
 
-#: libraries/config/Validator.class.php:445
+#: libraries/config/Validator.class.php:446
 #, php-format
 msgid "Incorrect IP address: %s"
 msgstr "Некоректно введена IP адреса: %s"

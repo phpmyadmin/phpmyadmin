@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-07-12 10:58+0200\n"
+"POT-Creation-Date: 2013-07-12 16:06+0200\n"
 "PO-Revision-Date: 2013-07-01 20:58+0200\n"
 "Last-Translator: Jean Nunes <jeannunes@outlook.com>\n"
 "Language-Team: Portuguese (Brazil) <http://l10n.cihar.com/projects/"
@@ -272,8 +272,8 @@ msgstr "Sim"
 msgid "View dump (schema) of database"
 msgstr "Ver despejo (estrutura) do banco de dados"
 
-#: db_export.php:33 db_printview.php:41 db_tracking.php:49 export.php:557
-#: libraries/DBQbe.class.php:268
+#: db_export.php:33 db_printview.php:41 db_structure.php:86 db_tracking.php:49
+#: export.php:557 libraries/DBQbe.class.php:268
 msgid "No tables found in database."
 msgstr "Nenhuma tabela encontrada no banco de dados."
 
@@ -4104,28 +4104,28 @@ msgid "neither of the above"
 msgstr "nenhuma das acima"
 
 #: libraries/config/FormDisplay.class.php:88
-#: libraries/config/Validator.class.php:528
+#: libraries/config/Validator.class.php:529
 msgid "Not a positive number"
 msgstr "Não é um número positivo"
 
 #: libraries/config/FormDisplay.class.php:89
-#: libraries/config/Validator.class.php:550
+#: libraries/config/Validator.class.php:551
 msgid "Not a non-negative number"
 msgstr "Não é um número negativo"
 
 #: libraries/config/FormDisplay.class.php:90
-#: libraries/config/Validator.class.php:506
+#: libraries/config/Validator.class.php:507
 msgid "Not a valid port number"
 msgstr "Número de porta inválido"
 
 #: libraries/config/FormDisplay.class.php:91
 #: libraries/config/FormDisplay.class.php:579
-#: libraries/config/Validator.class.php:568
+#: libraries/config/Validator.class.php:569
 msgid "Incorrect value"
 msgstr "Valor incorreto"
 
 #: libraries/config/FormDisplay.class.php:92
-#: libraries/config/Validator.class.php:584
+#: libraries/config/Validator.class.php:585
 #, php-format
 msgid "Value must be equal or lower than %s"
 msgstr "O valor precisa ser igual ou menor que %s"
@@ -4200,47 +4200,47 @@ msgstr "Aplicar"
 msgid "Reset"
 msgstr "Resetar"
 
-#: libraries/config/Validator.class.php:216
+#: libraries/config/Validator.class.php:217
 msgid "Could not initialize Drizzle connection library"
 msgstr "Não pôde iniciar a conexão com a biblioteca Drizzle"
 
-#: libraries/config/Validator.class.php:225
-#: libraries/config/Validator.class.php:233
+#: libraries/config/Validator.class.php:226
+#: libraries/config/Validator.class.php:234
 msgid "Could not connect to Drizzle server"
 msgstr "Não pôde se conectar ao servidor Drizzle"
 
-#: libraries/config/Validator.class.php:244
-#: libraries/config/Validator.class.php:251
+#: libraries/config/Validator.class.php:245
+#: libraries/config/Validator.class.php:252
 msgid "Could not connect to MySQL server"
 msgstr "Não pôde se conectar ao servidor MySQL"
 
-#: libraries/config/Validator.class.php:284
+#: libraries/config/Validator.class.php:285
 msgid "Empty username while using config authentication method"
 msgstr ""
 "Nome de usuário vazio quando usa o método de autenticação por configuração"
 
-#: libraries/config/Validator.class.php:291
+#: libraries/config/Validator.class.php:292
 msgid "Empty signon session name while using signon authentication method"
 msgstr ""
 "Nome da sessão de signon vazio quando usado o método de autenticação signon"
 
-#: libraries/config/Validator.class.php:300
+#: libraries/config/Validator.class.php:301
 msgid "Empty signon URL while using signon authentication method"
 msgstr "URL de signon vazia ao usar o método de autenticação signon"
 
-#: libraries/config/Validator.class.php:348
+#: libraries/config/Validator.class.php:349
 msgid "Empty phpMyAdmin control user while using pmadb"
 msgstr "Controle de usuário phpMyAdmin vazio ao usar o pmadb"
 
-#: libraries/config/Validator.class.php:353
+#: libraries/config/Validator.class.php:354
 msgid "Empty phpMyAdmin control user password while using pmadb"
 msgstr "Controle de senha do usuário phpMyAdmin vazio ao usar o pmadb"
 
-#: libraries/config/Validator.class.php:437
+#: libraries/config/Validator.class.php:438
 msgid "Incorrect value:"
 msgstr "Valor incorreto:"
 
-#: libraries/config/Validator.class.php:445
+#: libraries/config/Validator.class.php:446
 #, php-format
 msgid "Incorrect IP address: %s"
 msgstr "Endereço de IP incorreto: %s"
