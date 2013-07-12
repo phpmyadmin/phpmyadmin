@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-07-12 10:58+0200\n"
-"PO-Revision-Date: 2013-04-25 15:48+0200\n"
+"PO-Revision-Date: 2013-07-12 15:04+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Uzbek <http://l10n.cihar.com/projects/phpmyadmin/master/uz/>\n"
 "Language: uz\n"
@@ -107,7 +107,7 @@ msgid ""
 "for more information."
 msgstr ""
 "Ушбу тизимда %s файли мавжуд эмас, мархамат, қўшимча маълумотларни олиш учун "
-"www.phpmyadmin.net сайтига ташриф буюринг"
+"www.phpmyadmin.net сайтига ташриф буюринг."
 
 #: db_create.php:60
 #, php-format

@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-07-12 10:58+0200\n"
-"PO-Revision-Date: 2013-04-13 18:37+0200\n"
-"Last-Translator: Julio Guerra <xullo123@hotmail.com>\n"
-"Language-Team: Galician <http://l10n.cihar.com/projects/phpmyadmin/master/gl/"
-">\n"
+"PO-Revision-Date: 2013-07-12 14:54+0200\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"Language-Team: Galician "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/gl/>\n"
 "Language: gl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 1.5-dev\n"
+"X-Generator: Weblate 1.6-dev\n"
 
 #: browse_foreigners.php:51 browse_foreigners.php:75 js/messages.php:339
 #: libraries/DisplayResults.class.php:813
@@ -2270,17 +2270,17 @@ msgstr "PHP mostrou o seguinte erro:%s"
 #: libraries/Advisor.class.php:107
 #, php-format
 msgid "Failed evaluating precondition for rule '%s'."
-msgstr "Non foi posíbel avaliar a pre-condición da regra «%s»"
+msgstr "Non foi posíbel avaliar a pre-condición da regra «%s»."
 
 #: libraries/Advisor.class.php:124
 #, php-format
 msgid "Failed calculating value for rule '%s'."
-msgstr "Non foi posíbel calcular o valor da regra «%s»"
+msgstr "Non foi posíbel calcular o valor da regra «%s»."
 
 #: libraries/Advisor.class.php:143
 #, php-format
 msgid "Failed running test for rule '%s'."
-msgstr "Non foi posíbel executar a proba da regra «%s»"
+msgstr "Non foi posíbel executar a proba da regra «%s»."
 
 #: libraries/Advisor.class.php:225
 #, php-format
@@ -2293,17 +2293,17 @@ msgid ""
 "Invalid rule declaration on line %1$s, expected line %2$s of previous rule."
 msgstr ""
 "A declaración da regra na liña %1$s é incorrecta; esperábase a liña %2$s da "
-"regra anterior"
+"regra anterior."
 
 #: libraries/Advisor.class.php:412
 #, php-format
 msgid "Invalid rule declaration on line %s."
-msgstr "Hai unha declaración de regra incorrecta na liña %s"
+msgstr "Hai unha declaración de regra incorrecta na liña %s."
 
 #: libraries/Advisor.class.php:420
 #, php-format
 msgid "Unexpected characters on line %s."
-msgstr "Hai caracteres inesperados na liña %s"
+msgstr "Hai caracteres inesperados na liña %s."
 
 #: libraries/Advisor.class.php:434
 #, fuzzy, php-format
@@ -3464,7 +3464,7 @@ msgid ""
 "range is 0 to 4,294,967,295"
 msgstr ""
 "Un enteiro de catro bytes; o intervalo asinado é desde -2.147.483.648 até "
-"2.147.483.647; o intervalo sen asinar é desde 0 até 4.294.967.295."
+"2.147.483.647; o intervalo sen asinar é desde 0 até 4.294.967.295"
 
 #: libraries/Types.class.php:304
 msgid ""
@@ -4229,7 +4229,7 @@ msgstr "máximo %s"
 
 #: libraries/config/FormDisplay.tpl.php:225
 msgid "This setting is disabled, it will not be applied to your configuration."
-msgstr "Esta preferencia está desactivada; non se aplicará á súa configuración"
+msgstr "Esta preferencia está desactivada; non se aplicará á súa configuración."
 
 #: libraries/config/FormDisplay.tpl.php:313
 #, php-format
@@ -9002,7 +9002,7 @@ msgid ""
 msgstr ""
 "Unha vez reiniciado o servidor de MySQL, prema o botón Ir. Despois diso, "
 "debería ver unha mensaxe que informa de que este servidor <b>está</b> "
-"configurado como principal"
+"configurado como principal."
 
 #: libraries/replication_gui.lib.php:139
 #: libraries/server_databases.lib.php:395
@@ -10426,7 +10426,7 @@ msgstr ""
 "e vixiar as consultas que leven moito tempo. Para isto último hai que "
 "configurar log_output en «TABLE» e ter activado slow_query_log ou "
 "general_log. Lembre, porén, que general_log produce moitos datos e "
-"incrementa a carga do servidor nun 15%"
+"incrementa a carga do servidor nun 15%."
 
 #: libraries/server_status_monitor.lib.php:149
 msgid ""

@@ -8,16 +8,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-07-12 10:58+0200\n"
-"PO-Revision-Date: 2012-11-05 10:16+0200\n"
+"PO-Revision-Date: 2013-07-12 15:45+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Breton <http://l10n.cihar.com/projects/phpmyadmin/master/br/"
-">\n"
+"Language-Team: Breton <http://l10n.cihar.com/projects/phpmyadmin/master/br/>\n"
 "Language: br\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 1.3-dev\n"
+"X-Generator: Weblate 1.6-dev\n"
 
 #: browse_foreigners.php:51 browse_foreigners.php:75 js/messages.php:339
 #: libraries/DisplayResults.class.php:813
@@ -909,7 +908,7 @@ msgstr ""
 
 #: js/messages.php:27 libraries/import.lib.php:118 sql.php:136
 msgid "\"DROP DATABASE\" statements are disabled."
-msgstr "Diweredekaet eo an urzhad ''DROP DATABASE'"
+msgstr "Diweredekaet eo an urzhad ''DROP DATABASE'."
 
 #: js/messages.php:30
 #, fuzzy, php-format
@@ -2014,7 +2013,7 @@ msgstr ""
 #. l10n: Latest available phpMyAdmin version
 #: js/messages.php:376
 msgid ", latest stable version:"
-msgstr ", stumm stabil diwezhañ"
+msgstr ", stumm stabil diwezhañ :"
 
 #: js/messages.php:377
 msgid "up to date"
@@ -2454,7 +2453,7 @@ msgstr ""
 #: libraries/DBQbe.class.php:1321
 #, php-format
 msgid "SQL query on database <b>%s</b>:"
-msgstr "Reked SQL ouzh an diaz roadennoù <b>%s</b>: "
+msgstr "Reked SQL ouzh an diaz roadennoù <b>%s</b> :"
 
 #: libraries/DBQbe.class.php:1335 libraries/Util.class.php:1286
 msgid "Submit Query"
@@ -2543,7 +2542,7 @@ msgstr "Klask en diaz roadennoù"
 
 #: libraries/DbSearch.class.php:386
 msgid "Words or values to search for (wildcard: \"%\"):"
-msgstr "Gerioù pe dalvoudoù da glask (Joker: \"%\"):"
+msgstr "Gerioù pe dalvoudoù da glask (Joker: \"%\") :"
 
 #: libraries/DbSearch.class.php:395 libraries/TableSearch.class.php:1279
 msgid "Find:"
@@ -2555,7 +2554,7 @@ msgstr "Dispartiet e vez ar gerioù gant un esaouenn (\" \")."
 
 #: libraries/DbSearch.class.php:419
 msgid "Inside tables:"
-msgstr "E diabarzh an taolennoù"
+msgstr "E diabarzh an taolennoù :"
 
 #: libraries/DbSearch.class.php:445
 msgid "Inside column:"
@@ -3851,7 +3850,7 @@ msgstr "Klikañ evit gwintañ"
 #: libraries/Util.class.php:3387 libraries/sql_query_form.lib.php:474
 #: prefs_manage.php:248
 msgid "Browse your computer:"
-msgstr "Furchal en hoc'h urzhiataer"
+msgstr "Furchal en hoc'h urzhiataer :"
 
 #: libraries/Util.class.php:3412
 #, php-format
@@ -3990,7 +3989,7 @@ msgstr "Servijer"
 
 #: libraries/common.inc.php:843
 msgid "Invalid authentication method set in configuration:"
-msgstr "Termenet ez eus bet c'hefluniadur un hentenn dilesa direizh."
+msgstr "Termenet ez eus bet c'hefluniadur un hentenn dilesa direizh :"
 
 #: libraries/common.inc.php:984
 #, php-format
@@ -4195,7 +4194,8 @@ msgstr "%s d'ar muiañ"
 #: libraries/config/FormDisplay.tpl.php:225
 msgid "This setting is disabled, it will not be applied to your configuration."
 msgstr ""
-"Diweredekaet eo an arventenn; ne vo ket lakaet e pleustr gant ho kefluniadur"
+"Diweredekaet eo an arventenn; ne vo ket lakaet e pleustr gant ho "
+"kefluniadur."
 
 #: libraries/config/FormDisplay.tpl.php:313
 #, php-format
