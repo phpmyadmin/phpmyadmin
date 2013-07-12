@@ -388,7 +388,6 @@ class PMA_Menu
         $tabs['structure']['icon'] = 'b_props.png';
 
         $tabs['sql']['link'] = 'db_sql.php';
-        $tabs['sql']['args']['db_query_force'] = 1;
         $tabs['sql']['text'] = __('SQL');
         $tabs['sql']['icon'] = 'b_sql.png';
 
