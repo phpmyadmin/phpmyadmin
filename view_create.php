@@ -230,8 +230,7 @@ $htmlString .= '<tr><td>' . __('Column names') . '</td>'
 $htmlString .= '<tr><td>AS</td>'
     . '<td>'
     . '<textarea name="view[as]" rows="' . $cfg['TextareaRows'] . '"'
-    . ' cols="' . $cfg['TextareaCols'] . '"'
-    . ' dir="' . $text_dir . '"';
+    . ' cols="80" dir="' . $text_dir . '"';
 if ($GLOBALS['cfg']['TextareaAutoSelect'] || true) {
     $htmlString .= ' onclick="selectContent(this, sql_box_locked, true)"';
 }
