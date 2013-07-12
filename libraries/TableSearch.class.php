@@ -192,11 +192,11 @@ class PMA_TableSearch
     }
 
     /**
-     * Returns an array with necessary configrations to create
-     * sub-tabs(Table Search and Zoom Search) in the table_select page.
+     * Returns an array with necessary configurations to create
+     * sub-tabs in the table_select page.
      *
      * @return array Array containing configuration (icon, text, link, id, args)
-     * of sub-tabs for Table Search and Zoom search
+     * of sub-tabs
      */
     private function _getSubTabs()
     {
