@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-07-12 10:58+0200\n"
-"PO-Revision-Date: 2013-05-11 00:09+0200\n"
-"Last-Translator: JP KAN <jpkk69@gmail.com>\n"
-"Language-Team: Portuguese <http://l10n.cihar.com/projects/phpmyadmin/master/"
-"pt/>\n"
+"PO-Revision-Date: 2013-07-12 14:48+0200\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"Language-Team: Portuguese "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/pt/>\n"
 "Language: pt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2259,17 +2259,17 @@ msgstr "PHP apresentou o seguinte erro: %s"
 #: libraries/Advisor.class.php:107
 #, php-format
 msgid "Failed evaluating precondition for rule '%s'."
-msgstr "Falha ao avaliar condição prévia para a regra '%s'"
+msgstr "Falha ao avaliar condição prévia para a regra '%s'."
 
 #: libraries/Advisor.class.php:124
 #, php-format
 msgid "Failed calculating value for rule '%s'."
-msgstr "O Cálculo para a regra '%s' falhou"
+msgstr "O Cálculo para a regra '%s' falhou."
 
 #: libraries/Advisor.class.php:143
 #, php-format
 msgid "Failed running test for rule '%s'."
-msgstr "Falha de teste de execução de regra '%s'"
+msgstr "Falha de teste de execução de regra '%s'."
 
 #: libraries/Advisor.class.php:225
 #, php-format
@@ -2282,17 +2282,17 @@ msgid ""
 "Invalid rule declaration on line %1$s, expected line %2$s of previous rule."
 msgstr ""
 "Declaração de regra inválida na linha %1$s, esperada linha %2$s da regra "
-"anterior"
+"anterior."
 
 #: libraries/Advisor.class.php:412
 #, php-format
 msgid "Invalid rule declaration on line %s."
-msgstr "Regra de declaração inválida na linha %s"
+msgstr "Regra de declaração inválida na linha %s."
 
 #: libraries/Advisor.class.php:420
 #, php-format
 msgid "Unexpected characters on line %s."
-msgstr "Caracteres inesperados na linha %s"
+msgstr "Caracteres inesperados na linha %s."
 
 #: libraries/Advisor.class.php:434
 #, fuzzy, php-format
@@ -4183,7 +4183,7 @@ msgstr "máximo %s"
 #: libraries/config/FormDisplay.tpl.php:225
 msgid "This setting is disabled, it will not be applied to your configuration."
 msgstr ""
-"Esta configuração está desactivada, não será aplicada à sua configuração"
+"Esta configuração está desactivada, não será aplicada à sua configuração."
 
 #: libraries/config/FormDisplay.tpl.php:313
 #, php-format
