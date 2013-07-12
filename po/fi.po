@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-07-12 10:58+0200\n"
-"PO-Revision-Date: 2013-07-09 00:51+0200\n"
-"Last-Translator: Jouni Kähkönen <asdfsdf@asdfasdfasdf.com>\n"
-"Language-Team: Finnish <http://l10n.cihar.com/projects/phpmyadmin/master/fi/"
-">\n"
+"PO-Revision-Date: 2013-07-12 14:44+0200\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"Language-Team: Finnish "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/fi/>\n"
 "Language: fi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2286,17 +2286,17 @@ msgstr "PHP:ssä tapahtui seuraava virhe: %s"
 #: libraries/Advisor.class.php:107
 #, php-format
 msgid "Failed evaluating precondition for rule '%s'."
-msgstr "Säännön '%s' esiehdon arviointi epäonnistui"
+msgstr "Säännön '%s' esiehdon arviointi epäonnistui."
 
 #: libraries/Advisor.class.php:124
 #, php-format
 msgid "Failed calculating value for rule '%s'."
-msgstr "Arvon laskenta säännölle '%s' epäonnistui"
+msgstr "Arvon laskenta säännölle '%s' epäonnistui."
 
 #: libraries/Advisor.class.php:143
 #, php-format
 msgid "Failed running test for rule '%s'."
-msgstr "Säännön '%s' testin suorittaminen epäonnistui"
+msgstr "Säännön '%s' testin suorittaminen epäonnistui."
 
 #: libraries/Advisor.class.php:225
 #, php-format
@@ -2308,17 +2308,18 @@ msgstr "Merkkijonon muotoilu epäonnistui '%s' säännöllä."
 msgid ""
 "Invalid rule declaration on line %1$s, expected line %2$s of previous rule."
 msgstr ""
-"Epäkelpo säännön määrittely rivillä %1$s, odotti edellisen säännön riviä %2$s"
+"Epäkelpo säännön määrittely rivillä %1$s, odotti edellisen säännön riviä %"
+"2$s."
 
 #: libraries/Advisor.class.php:412
 #, php-format
 msgid "Invalid rule declaration on line %s."
-msgstr "Virheellinen säännön määrittely rivillä %s"
+msgstr "Virheellinen säännön määrittely rivillä %s."
 
 #: libraries/Advisor.class.php:420
 #, php-format
 msgid "Unexpected characters on line %s."
-msgstr "Odottamattomia merkkejä rivillä %s"
+msgstr "Odottamattomia merkkejä rivillä %s."
 
 #: libraries/Advisor.class.php:434
 #, fuzzy, php-format
@@ -3480,7 +3481,7 @@ msgid ""
 "range is 0 to 4,294,967,295"
 msgstr ""
 "4-tavuinen kokonaisluku, etumerkillisenä arvot ovat -2147483648 - "
-"2147483647, etumerkittämänä arvot ovat 0 - 4294967295."
+"2147483647, etumerkittämänä arvot ovat 0 - 4294967295"
 
 #: libraries/Types.class.php:304
 msgid ""
@@ -4193,7 +4194,7 @@ msgstr "Enintään %s"
 
 #: libraries/config/FormDisplay.tpl.php:225
 msgid "This setting is disabled, it will not be applied to your configuration."
-msgstr "Tämä asetus on poissa käytöstä; sitä ei käytetä asetusmäärittelyssäsi"
+msgstr "Tämä asetus on poissa käytöstä; sitä ei käytetä asetusmäärittelyssäsi."
 
 #: libraries/config/FormDisplay.tpl.php:313
 #, php-format
@@ -8964,7 +8965,7 @@ msgid ""
 msgstr ""
 "Kun olet käynnistänyt MySQL-palvelimen alusta, paina Siirry-painiketta. Sen "
 "jälkeen esiin pitäisi tulla sanoman, joka kertoo, että palvelin <b>on</b> "
-"asetettu isäntäpalvelimeksi"
+"asetettu isäntäpalvelimeksi."
 
 #: libraries/replication_gui.lib.php:139
 #: libraries/server_databases.lib.php:395
