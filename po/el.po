@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-07-09 12:15+0200\n"
+"POT-Creation-Date: 2013-07-12 10:58+0200\n"
 "PO-Revision-Date: 2013-07-04 19:42+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: Greek <http://l10n.cihar.com/projects/phpmyadmin/master/el/>\n"
@@ -16,16 +16,16 @@ msgstr ""
 
 #: browse_foreigners.php:51 browse_foreigners.php:75 js/messages.php:339
 #: libraries/DisplayResults.class.php:813
-#: libraries/server_privileges.lib.php:2623
+#: libraries/server_privileges.lib.php:2652
 msgid "Show all"
 msgstr "Εμφάνιση όλων"
 
-#: browse_foreigners.php:93 libraries/PDF.class.php:67
+#: browse_foreigners.php:93 libraries/PDF.class.php:70
 #: libraries/Util.class.php:2559
-#: libraries/schema/Pdf_Relation_Schema.class.php:1187
-#: libraries/schema/Pdf_Relation_Schema.class.php:1211
+#: libraries/schema/Pdf_Relation_Schema.class.php:1196
+#: libraries/schema/Pdf_Relation_Schema.class.php:1220
 #: libraries/schema/User_Schema.class.php:430
-#: libraries/select_lang.lib.php:524
+#: libraries/select_lang.lib.php:531
 msgid "Page number:"
 msgstr "Σελίδα:"
 
@@ -44,8 +44,8 @@ msgid "Search:"
 msgstr "Αναζήτηση:"
 
 #: browse_foreigners.php:186 gis_data_editor.php:396 js/messages.php:209
-#: libraries/DbSearch.class.php:455 libraries/DisplayResults.class.php:1660
-#: libraries/TableSearch.class.php:1177 libraries/core.lib.php:556
+#: libraries/DbSearch.class.php:455 libraries/DisplayResults.class.php:1653
+#: libraries/TableSearch.class.php:1185 libraries/core.lib.php:556
 #: libraries/display_change_password.lib.php:94
 #: libraries/display_create_table.lib.php:65
 #: libraries/display_export.lib.php:453 libraries/display_import.lib.php:335
@@ -53,12 +53,12 @@ msgstr "Αναζήτηση:"
 #: libraries/insert_edit.lib.php:1549 libraries/insert_edit.lib.php:1584
 #: libraries/operations.lib.php:43 libraries/operations.lib.php:90
 #: libraries/operations.lib.php:226 libraries/operations.lib.php:274
-#: libraries/operations.lib.php:663 libraries/operations.lib.php:716
-#: libraries/operations.lib.php:765 libraries/operations.lib.php:1081
-#: libraries/operations.lib.php:1365
-#: libraries/plugins/auth/AuthenticationCookie.class.php:276
+#: libraries/operations.lib.php:665 libraries/operations.lib.php:718
+#: libraries/operations.lib.php:767 libraries/operations.lib.php:1083
+#: libraries/operations.lib.php:1367
+#: libraries/plugins/auth/AuthenticationCookie.class.php:274
 #: libraries/replication_gui.lib.php:121 libraries/replication_gui.lib.php:292
-#: libraries/replication_gui.lib.php:430 libraries/replication_gui.lib.php:870
+#: libraries/replication_gui.lib.php:431 libraries/replication_gui.lib.php:871
 #: libraries/rte/rte_events.lib.php:542
 #: libraries/rte/rte_routines.lib.php:1081
 #: libraries/rte/rte_routines.lib.php:1667
@@ -67,13 +67,13 @@ msgstr "Αναζήτηση:"
 #: libraries/schema/User_Schema.class.php:226
 #: libraries/schema/User_Schema.class.php:487
 #: libraries/schema/User_Schema.class.php:537
-#: libraries/server_bin_log.lib.php:61 libraries/server_privileges.lib.php:476
-#: libraries/server_privileges.lib.php:1479
-#: libraries/server_privileges.lib.php:1971
-#: libraries/server_privileges.lib.php:2563
-#: libraries/server_privileges.lib.php:3090
+#: libraries/server_bin_log.lib.php:61 libraries/server_privileges.lib.php:505
+#: libraries/server_privileges.lib.php:1508
+#: libraries/server_privileges.lib.php:2000
+#: libraries/server_privileges.lib.php:2592
+#: libraries/server_privileges.lib.php:3119
 #: libraries/sql_query_form.lib.php:382 libraries/sql_query_form.lib.php:439
-#: libraries/sql_query_form.lib.php:504 libraries/structure.lib.php:1590
+#: libraries/sql_query_form.lib.php:504 libraries/structure.lib.php:1586
 #: libraries/tbl_columns_definition_form.inc.php:754 pmd_pdf.php:150
 #: prefs_manage.php:272 prefs_manage.php:322 tbl_chart.php:251
 #: tbl_tracking.php:522 tbl_tracking.php:687 view_create.php:225
@@ -117,13 +117,13 @@ msgstr "Δημιουργήθηκε η βάση δεδομένων %1$s."
 msgid "Database comment: "
 msgstr "Σχόλιο βάσης: "
 
-#: db_datadict.php:157 libraries/schema/Pdf_Relation_Schema.class.php:1336
+#: db_datadict.php:157 libraries/schema/Pdf_Relation_Schema.class.php:1345
 #: libraries/tbl_columns_definition_form.inc.php:836 tbl_printview.php:120
 msgid "Table comments:"
 msgstr "Σχόλια πίνακα:"
 
 #: db_datadict.php:166 libraries/Index.class.php:565
-#: libraries/TableSearch.class.php:183 libraries/TableSearch.class.php:1225
+#: libraries/TableSearch.class.php:185 libraries/TableSearch.class.php:1233
 #: libraries/display_indexes.lib.php:117 libraries/insert_edit.lib.php:1568
 #: libraries/plugins/export/ExportHtmlword.class.php:278
 #: libraries/plugins/export/ExportHtmlword.class.php:393
@@ -133,8 +133,8 @@ msgstr "Σχόλια πίνακα:"
 #: libraries/plugins/export/ExportTexytext.class.php:271
 #: libraries/plugins/export/ExportTexytext.class.php:371
 #: libraries/plugins/export/ExportTexytext.class.php:434
-#: libraries/schema/Pdf_Relation_Schema.class.php:1362
-#: libraries/schema/Pdf_Relation_Schema.class.php:1385
+#: libraries/schema/Pdf_Relation_Schema.class.php:1371
+#: libraries/schema/Pdf_Relation_Schema.class.php:1394
 #: libraries/tbl_columns_definition_form.inc.php:353 tbl_printview.php:130
 #: tbl_relation.php:396 tbl_relation.php:492 tbl_relation.php:562
 #: tbl_tracking.php:325 tbl_tracking.php:387
@@ -142,7 +142,7 @@ msgid "Column"
 msgstr "Στήλη"
 
 #: db_datadict.php:167 db_printview.php:49 libraries/Index.class.php:562
-#: libraries/TableSearch.class.php:184 libraries/insert_edit.lib.php:243
+#: libraries/TableSearch.class.php:186 libraries/insert_edit.lib.php:243
 #: libraries/insert_edit.lib.php:247
 #: libraries/plugins/export/ExportHtmlword.class.php:281
 #: libraries/plugins/export/ExportHtmlword.class.php:396
@@ -155,9 +155,9 @@ msgstr "Στήλη"
 #: libraries/rte/rte_routines.lib.php:939
 #: libraries/rte/rte_routines.lib.php:968
 #: libraries/rte/rte_routines.lib.php:1580
-#: libraries/schema/Pdf_Relation_Schema.class.php:1363
-#: libraries/schema/Pdf_Relation_Schema.class.php:1386
-#: libraries/server_privileges.lib.php:1573 libraries/structure.lib.php:776
+#: libraries/schema/Pdf_Relation_Schema.class.php:1372
+#: libraries/schema/Pdf_Relation_Schema.class.php:1395
+#: libraries/server_privileges.lib.php:1602 libraries/structure.lib.php:776
 #: libraries/structure.lib.php:1180
 #: libraries/tbl_columns_definition_form.inc.php:96 tbl_printview.php:131
 #: tbl_tracking.php:326 tbl_tracking.php:384
@@ -165,7 +165,7 @@ msgid "Type"
 msgstr "Τύπος"
 
 #: db_datadict.php:168 libraries/Index.class.php:568
-#: libraries/TableSearch.class.php:1226 libraries/insert_edit.lib.php:1577
+#: libraries/TableSearch.class.php:1234 libraries/insert_edit.lib.php:1577
 #: libraries/plugins/export/ExportHtmlword.class.php:284
 #: libraries/plugins/export/ExportHtmlword.class.php:399
 #: libraries/plugins/export/ExportLatex.class.php:512
@@ -173,8 +173,8 @@ msgstr "Τύπος"
 #: libraries/plugins/export/ExportOdt.class.php:464
 #: libraries/plugins/export/ExportTexytext.class.php:273
 #: libraries/plugins/export/ExportTexytext.class.php:373
-#: libraries/schema/Pdf_Relation_Schema.class.php:1365
-#: libraries/schema/Pdf_Relation_Schema.class.php:1388
+#: libraries/schema/Pdf_Relation_Schema.class.php:1374
+#: libraries/schema/Pdf_Relation_Schema.class.php:1397
 #: libraries/structure.lib.php:1183
 #: libraries/tbl_columns_definition_form.inc.php:116 tbl_printview.php:132
 #: tbl_tracking.php:328 tbl_tracking.php:390
@@ -188,8 +188,8 @@ msgstr "Κενό"
 #: libraries/plugins/export/ExportOdt.class.php:467
 #: libraries/plugins/export/ExportTexytext.class.php:274
 #: libraries/plugins/export/ExportTexytext.class.php:374
-#: libraries/schema/Pdf_Relation_Schema.class.php:1366
-#: libraries/schema/Pdf_Relation_Schema.class.php:1389
+#: libraries/schema/Pdf_Relation_Schema.class.php:1375
+#: libraries/schema/Pdf_Relation_Schema.class.php:1398
 #: libraries/structure.lib.php:210 libraries/structure.lib.php:1184
 #: libraries/tbl_columns_definition_form.inc.php:107 tbl_printview.php:133
 #: tbl_tracking.php:329
@@ -200,8 +200,8 @@ msgstr "Προεπιλογή"
 #: libraries/plugins/export/ExportLatex.class.php:515
 #: libraries/plugins/export/ExportOdt.class.php:471
 #: libraries/plugins/export/ExportTexytext.class.php:376
-#: libraries/schema/Pdf_Relation_Schema.class.php:1368
-#: libraries/schema/Pdf_Relation_Schema.class.php:1391 tbl_printview.php:135
+#: libraries/schema/Pdf_Relation_Schema.class.php:1377
+#: libraries/schema/Pdf_Relation_Schema.class.php:1400 tbl_printview.php:135
 msgid "Links to"
 msgstr "Σύνδεση με"
 
@@ -212,29 +212,29 @@ msgstr "Σύνδεση με"
 #: libraries/plugins/export/ExportLatex.class.php:518
 #: libraries/plugins/export/ExportOdt.class.php:476
 #: libraries/plugins/export/ExportTexytext.class.php:379
-#: libraries/schema/Pdf_Relation_Schema.class.php:1379
-#: libraries/schema/Pdf_Relation_Schema.class.php:1392
+#: libraries/schema/Pdf_Relation_Schema.class.php:1388
+#: libraries/schema/Pdf_Relation_Schema.class.php:1401
 #: libraries/tbl_columns_definition_form.inc.php:136 tbl_printview.php:137
 msgid "Comments"
 msgstr "Σχόλια"
 
 #: db_datadict.php:237 js/messages.php:231 libraries/Index.class.php:431
 #: libraries/Index.class.php:470 libraries/Index.class.php:874
-#: libraries/config/FormDisplay.tpl.php:258 libraries/mult_submits.inc.php:370
+#: libraries/config/FormDisplay.tpl.php:262 libraries/mult_submits.inc.php:370
 #: libraries/mult_submits.inc.php:371
 #: libraries/plugins/export/ExportHtmlword.class.php:633
 #: libraries/plugins/export/ExportLatex.class.php:589
 #: libraries/plugins/export/ExportOdt.class.php:726
 #: libraries/plugins/export/ExportTexytext.class.php:568
-#: libraries/schema/Pdf_Relation_Schema.class.php:1418
-#: libraries/server_privileges.lib.php:1715
-#: libraries/server_privileges.lib.php:1850
-#: libraries/server_privileges.lib.php:1863
-#: libraries/server_privileges.lib.php:2157
-#: libraries/server_privileges.lib.php:2163
-#: libraries/server_privileges.lib.php:2483
-#: libraries/server_privileges.lib.php:2497 libraries/structure.lib.php:1272
-#: libraries/user_preferences.lib.php:282 prefs_manage.php:138
+#: libraries/schema/Pdf_Relation_Schema.class.php:1427
+#: libraries/server_privileges.lib.php:1744
+#: libraries/server_privileges.lib.php:1879
+#: libraries/server_privileges.lib.php:1892
+#: libraries/server_privileges.lib.php:2186
+#: libraries/server_privileges.lib.php:2192
+#: libraries/server_privileges.lib.php:2512
+#: libraries/server_privileges.lib.php:2526 libraries/structure.lib.php:1268
+#: libraries/user_preferences.lib.php:286 prefs_manage.php:138
 #: tbl_printview.php:186 tbl_tracking.php:346 tbl_tracking.php:400
 #: tbl_tracking.php:405
 msgid "No"
@@ -242,7 +242,7 @@ msgstr "Όχι"
 
 #: db_datadict.php:237 js/messages.php:230 libraries/Index.class.php:432
 #: libraries/Index.class.php:469 libraries/Index.class.php:874
-#: libraries/config/FormDisplay.tpl.php:258 libraries/mult_submits.inc.php:74
+#: libraries/config/FormDisplay.tpl.php:262 libraries/mult_submits.inc.php:74
 #: libraries/mult_submits.inc.php:109 libraries/mult_submits.inc.php:118
 #: libraries/mult_submits.inc.php:123 libraries/mult_submits.inc.php:128
 #: libraries/mult_submits.inc.php:133 libraries/mult_submits.inc.php:309
@@ -252,15 +252,15 @@ msgstr "Όχι"
 #: libraries/plugins/export/ExportLatex.class.php:589
 #: libraries/plugins/export/ExportOdt.class.php:727
 #: libraries/plugins/export/ExportTexytext.class.php:568
-#: libraries/schema/Pdf_Relation_Schema.class.php:1419
-#: libraries/server_privileges.lib.php:1715
-#: libraries/server_privileges.lib.php:1847
-#: libraries/server_privileges.lib.php:1861
-#: libraries/server_privileges.lib.php:2156
-#: libraries/server_privileges.lib.php:2161
-#: libraries/server_privileges.lib.php:2480
-#: libraries/server_privileges.lib.php:2497 libraries/structure.lib.php:1272
-#: libraries/user_preferences.lib.php:280 prefs_manage.php:136
+#: libraries/schema/Pdf_Relation_Schema.class.php:1428
+#: libraries/server_privileges.lib.php:1744
+#: libraries/server_privileges.lib.php:1876
+#: libraries/server_privileges.lib.php:1890
+#: libraries/server_privileges.lib.php:2185
+#: libraries/server_privileges.lib.php:2190
+#: libraries/server_privileges.lib.php:2509
+#: libraries/server_privileges.lib.php:2526 libraries/structure.lib.php:1268
+#: libraries/user_preferences.lib.php:284 prefs_manage.php:136
 #: server_databases.php:104 server_databases.php:111 tbl_printview.php:187
 #: tbl_structure.php:84 tbl_tracking.php:346 tbl_tracking.php:398
 #: tbl_tracking.php:403
@@ -312,17 +312,17 @@ msgstr ""
 #: libraries/plugins/export/ExportXml.class.php:459
 #: libraries/rte/rte_list.lib.php:65 libraries/rte/rte_triggers.lib.php:355
 #: libraries/schema/User_Schema.class.php:298
-#: libraries/server_privileges.lib.php:1999
-#: libraries/server_privileges.lib.php:2230
-#: libraries/server_privileges.lib.php:2882 libraries/structure.lib.php:757
+#: libraries/server_privileges.lib.php:2028
+#: libraries/server_privileges.lib.php:2259
+#: libraries/server_privileges.lib.php:2911 libraries/structure.lib.php:757
 #: tbl_relation.php:475 tbl_relation.php:545 tbl_tracking.php:766
 msgid "Table"
 msgstr "Πίνακας"
 
 #: db_printview.php:48 libraries/Table.class.php:351
 #: libraries/build_html_for_db.lib.php:31 libraries/import.lib.php:181
-#: libraries/structure.lib.php:768 libraries/structure.lib.php:1716
-#: libraries/structure.lib.php:1909 tbl_printview.php:365
+#: libraries/structure.lib.php:768 libraries/structure.lib.php:1712
+#: libraries/structure.lib.php:1905 tbl_printview.php:365
 msgid "Rows"
 msgstr "Εγγραφές"
 
@@ -337,17 +337,17 @@ msgid "in use"
 msgstr "σε χρήση"
 
 #: db_printview.php:117 libraries/plugins/export/ExportSql.class.php:947
-#: libraries/schema/Pdf_Relation_Schema.class.php:1341
+#: libraries/schema/Pdf_Relation_Schema.class.php:1350
 msgid "Creation:"
 msgstr "Δημιουργία:"
 
 #: db_printview.php:126 libraries/plugins/export/ExportSql.class.php:960
-#: libraries/schema/Pdf_Relation_Schema.class.php:1346
+#: libraries/schema/Pdf_Relation_Schema.class.php:1355
 msgid "Last update:"
 msgstr "Τελευταία ενημέρωση:"
 
 #: db_printview.php:135 libraries/plugins/export/ExportSql.class.php:973
-#: libraries/schema/Pdf_Relation_Schema.class.php:1351
+#: libraries/schema/Pdf_Relation_Schema.class.php:1360
 msgid "Last check:"
 msgstr "Tελευταίος έλεγχος:"
 
@@ -369,9 +369,9 @@ msgstr "Αλλαγή στον %sεικονικός μάστορας%s"
 
 #: db_search.php:30 libraries/plugins/auth/AuthenticationConfig.class.php:81
 #: libraries/plugins/auth/AuthenticationConfig.class.php:96
-#: libraries/plugins/auth/AuthenticationCookie.class.php:661
+#: libraries/plugins/auth/AuthenticationCookie.class.php:659
 #: libraries/plugins/auth/AuthenticationHttp.class.php:65
-#: libraries/plugins/auth/AuthenticationSignon.class.php:253
+#: libraries/plugins/auth/AuthenticationSignon.class.php:251
 msgid "Access denied"
 msgstr "Άρνηση πρόσβασης"
 
@@ -388,10 +388,10 @@ msgstr "Παρακολουθούμενοι πίνακες"
 #: libraries/plugins/export/ExportHtmlword.class.php:158
 #: libraries/plugins/export/ExportOdt.class.php:203
 #: libraries/plugins/export/ExportTexytext.class.php:142
-#: libraries/server_databases.lib.php:317
-#: libraries/server_privileges.lib.php:1989
-#: libraries/server_privileges.lib.php:2230
-#: libraries/server_privileges.lib.php:2873 server_status.php:379
+#: libraries/server_databases.lib.php:310
+#: libraries/server_privileges.lib.php:2018
+#: libraries/server_privileges.lib.php:2259
+#: libraries/server_privileges.lib.php:2902 server_status.php:379
 #: tbl_relation.php:452 tbl_relation.php:518 tbl_tracking.php:765
 msgid "Database"
 msgstr "Βάση"
@@ -408,7 +408,7 @@ msgstr "Δημιουργήθηκε"
 msgid "Updated"
 msgstr "Ενημερώθηκε"
 
-#: db_tracking.php:83 js/messages.php:163 libraries/Menu.class.php:475
+#: db_tracking.php:83 js/messages.php:163 libraries/Menu.class.php:473
 #: libraries/rte/rte_events.lib.php:426 libraries/rte/rte_list.lib.php:78
 #: server_status.php:391 tbl_tracking.php:770
 msgid "Status"
@@ -416,11 +416,11 @@ msgstr "Κατάσταση"
 
 #: db_tracking.php:84 libraries/Index.class.php:559
 #: libraries/rte/rte_list.lib.php:53 libraries/rte/rte_list.lib.php:67
-#: libraries/rte/rte_list.lib.php:79 libraries/server_databases.lib.php:411
-#: libraries/server_privileges.lib.php:1576
-#: libraries/server_privileges.lib.php:2240
-#: libraries/server_privileges.lib.php:2405 libraries/structure.lib.php:765
-#: libraries/structure.lib.php:1202
+#: libraries/rte/rte_list.lib.php:79 libraries/server_databases.lib.php:404
+#: libraries/server_privileges.lib.php:1605
+#: libraries/server_privileges.lib.php:2269
+#: libraries/server_privileges.lib.php:2434 libraries/structure.lib.php:765
+#: libraries/structure.lib.php:1198
 msgid "Action"
 msgstr "Ενέργεια"
 
@@ -434,9 +434,9 @@ msgstr "Διαγραφή δεδομένων παρακολούθησης για 
 
 #: db_tracking.php:109 libraries/Index.class.php:625
 #: libraries/Util.class.php:3475 libraries/Util.class.php:3476
-#: libraries/server_databases.lib.php:162 libraries/structure.lib.php:307
-#: libraries/structure.lib.php:1382 libraries/structure.lib.php:2058
-#: libraries/structure.lib.php:2060
+#: libraries/server_databases.lib.php:155 libraries/structure.lib.php:307
+#: libraries/structure.lib.php:1378 libraries/structure.lib.php:2054
+#: libraries/structure.lib.php:2056
 msgid "Drop"
 msgstr "Διαγραφή"
 
@@ -464,7 +464,7 @@ msgstr "Στιγμιότυπο δομής"
 msgid "Untracked tables"
 msgstr "Μη παρακολουθούμενοι πίνακες"
 
-#: db_tracking.php:218 libraries/structure.lib.php:1519
+#: db_tracking.php:218 libraries/structure.lib.php:1515
 msgid "Track table"
 msgstr "Παρακολούθηση πίνακα"
 
@@ -618,13 +618,13 @@ msgstr "Εμφάνιση σελιδοδείκτη"
 msgid "The bookmark has been deleted."
 msgstr "Η ετικέτα διεγράφη."
 
-#: import.php:378 import.php:439 libraries/File.class.php:432
-#: libraries/File.class.php:525
+#: import.php:378 import.php:439 libraries/File.class.php:433
+#: libraries/File.class.php:526
 msgid "File could not be read"
 msgstr "Δεν ήταν δυνατή η ανάγνωση του αρχείου"
 
 #: import.php:387 import.php:398 import.php:419 import.php:430
-#: libraries/File.class.php:604
+#: libraries/File.class.php:605
 #, php-format
 msgid ""
 "You attempted to load file with unsupported compression (%s). Either support "
@@ -683,7 +683,7 @@ msgstr ""
 "σημαίνει ότι το phpMyAdmin δεν θα μπορέσει να τελειώσει την εισαγωγή εκτός "
 "και αν αυξήσετε τα χρονικά όρια της php."
 
-#: import.php:608 libraries/DisplayResults.class.php:4541
+#: import.php:608 libraries/DisplayResults.class.php:4534
 #: libraries/Message.class.php:180 libraries/rte/rte_routines.lib.php:1427
 #: libraries/sql_query_form.lib.php:116 tbl_find_replace.php:49
 #: tbl_operations.php:184 tbl_relation.php:317 tbl_row_action.php:122
@@ -692,7 +692,7 @@ msgid "Your SQL query has been executed successfully"
 msgstr "Η εντολή SQL εκτελέσθηκε επιτυχώς"
 
 #: import_status.php:99 libraries/Util.class.php:778
-#: libraries/schema/Export_Relation_Schema.class.php:243 user_password.php:239
+#: libraries/schema/Export_Relation_Schema.class.php:245 user_password.php:239
 msgid "Back"
 msgstr "Επιστροφή"
 
@@ -721,7 +721,7 @@ msgstr "Περισσότερες ρυθμίσεις"
 msgid "Database server"
 msgstr "Διακομιστής βάσης δεδομένων"
 
-#: index.php:240 libraries/plugins/auth/AuthenticationCookie.class.php:201
+#: index.php:240 libraries/plugins/auth/AuthenticationCookie.class.php:199
 msgid "Server:"
 msgstr "Διακομιστής:"
 
@@ -768,14 +768,14 @@ msgid "Version information:"
 msgstr "Πληροφορίες έκδοσης:"
 
 #: index.php:336 libraries/Util.class.php:441 libraries/Util.class.php:527
-#: libraries/config/FormDisplay.tpl.php:145
+#: libraries/config/FormDisplay.tpl.php:149
 #: libraries/display_export.lib.php:292 libraries/engines/pbxt.lib.php:112
 #: libraries/navigation/NavigationHeader.class.php:229
 #: libraries/relation.lib.php:88 server_variables.php:137
 msgid "Documentation"
 msgstr "Τεκμηρίωση"
 
-#: index.php:343 libraries/config/FormDisplay.tpl.php:146
+#: index.php:343 libraries/config/FormDisplay.tpl.php:150
 msgid "Wiki"
 msgstr "Wiki"
 
@@ -888,7 +888,7 @@ msgstr ""
 "Η έκδοση της βιβλιοθήκης PHP MySQL %s διαφέρει από την έκδοση του διακομιστή "
 "MySQL %s. Αυτό ίσως έχει μη προβλέψιμα αποτελέσματα."
 
-#: index.php:546
+#: index.php:545
 #, php-format
 msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
@@ -965,20 +965,20 @@ msgstr "Το όνομα του συστήματος είναι κενό!"
 msgid "The user name is empty!"
 msgstr "Το όνομα του χρήστη είναι κενό!"
 
-#: js/messages.php:53 libraries/server_privileges.lib.php:1311
+#: js/messages.php:53 libraries/server_privileges.lib.php:1340
 #: user_password.php:110
 msgid "The password is empty!"
 msgstr "Ο κωδικός πρόσβασης είναι κενός!"
 
-#: js/messages.php:54 libraries/server_privileges.lib.php:1309
+#: js/messages.php:54 libraries/server_privileges.lib.php:1338
 #: user_password.php:113
 msgid "The passwords aren't the same!"
 msgstr "Οι κωδικοί πρόσβασης δεν είναι ίδιοι!"
 
-#: js/messages.php:55 libraries/server_privileges.lib.php:1439
-#: libraries/server_privileges.lib.php:1629
-#: libraries/server_privileges.lib.php:2538
-#: libraries/server_privileges.lib.php:2840
+#: js/messages.php:55 libraries/server_privileges.lib.php:1468
+#: libraries/server_privileges.lib.php:1658
+#: libraries/server_privileges.lib.php:2567
+#: libraries/server_privileges.lib.php:2869
 msgid "Add user"
 msgstr "Προσθήκη χρήστη"
 
@@ -996,7 +996,7 @@ msgid "Close"
 msgstr "Κλείσιμο"
 
 #. l10n: Other, small valued, queries
-#: js/messages.php:61 libraries/ServerStatusData.class.php:198
+#: js/messages.php:61 libraries/ServerStatusData.class.php:200
 #: server_status_queries.php:171
 msgid "Other"
 msgstr "Άλλα"
@@ -1162,7 +1162,7 @@ msgstr "Ερωτήσεις"
 msgid "Traffic"
 msgstr "Κίνηση"
 
-#: js/messages.php:111 libraries/Menu.class.php:503
+#: js/messages.php:111 libraries/Menu.class.php:501
 #: libraries/server_status_monitor.lib.php:290
 msgid "Settings"
 msgstr "Ρυθμίσεις"
@@ -1184,10 +1184,10 @@ msgid "Please add at least one variable to the series"
 msgstr "Εισάγετε τουλάχιστον μια μεταβλητή στις σειρές"
 
 #: js/messages.php:117 libraries/DisplayResults.class.php:1291
-#: libraries/TableSearch.class.php:846 libraries/TableSearch.class.php:990
+#: libraries/TableSearch.class.php:851 libraries/TableSearch.class.php:998
 #: libraries/display_export.lib.php:383
 #: libraries/plugins/export/ExportSql.class.php:1546
-#: libraries/server_privileges.lib.php:2132
+#: libraries/server_privileges.lib.php:2161
 #: libraries/server_status_monitor.lib.php:269
 #: libraries/tbl_columns_definition_form.inc.php:687 pmd_general.php:545
 #: server_status.php:529
@@ -1477,8 +1477,8 @@ msgstr ""
 "Απέτυχε η δημιουργία καννάβου διαγράμματος με την εισαγωγή ρυθμίσεων. "
 "Επαναφορά στην προεπιλεγμένη ρύθμιση…"
 
-#: js/messages.php:190 libraries/Menu.class.php:305
-#: libraries/Menu.class.php:388 libraries/Menu.class.php:499
+#: js/messages.php:190 libraries/Menu.class.php:304
+#: libraries/Menu.class.php:386 libraries/Menu.class.php:497
 #: libraries/config/messages.inc.php:168 libraries/display_import.lib.php:187
 #: libraries/server_status_monitor.lib.php:355 prefs_manage.php:238
 #: setup/frames/menu.inc.php:21
@@ -1686,7 +1686,7 @@ msgstr "Απόκρυψη παραθύρου ερωτήματος"
 msgid "Show query box"
 msgstr "Προβολή παραθύρου ερωτήματος"
 
-#: js/messages.php:264 libraries/DisplayResults.class.php:3321
+#: js/messages.php:264 libraries/DisplayResults.class.php:3314
 #: libraries/Index.class.php:591 libraries/Util.class.php:710
 #: libraries/Util.class.php:1257 libraries/Util.class.php:3479
 #: libraries/Util.class.php:3480 libraries/config/messages.inc.php:488
@@ -1699,8 +1699,8 @@ msgstr "Επεξεργασία"
 msgid "No rows selected"
 msgstr "Δεν επιλέχθηκαν γραμμές"
 
-#: js/messages.php:266 libraries/DisplayResults.class.php:5061
-#: libraries/structure.lib.php:1378 libraries/structure.lib.php:2056
+#: js/messages.php:266 libraries/DisplayResults.class.php:5042
+#: libraries/structure.lib.php:1374 libraries/structure.lib.php:2052
 #: querywindow.php:85
 msgid "Change"
 msgstr "Αλλαγή"
@@ -1740,7 +1740,7 @@ msgstr "Απόκρυψη κριτηρίων εύρεσης και αντικατ
 msgid "Show find and replace criteria"
 msgstr "Προβολή κριτηρίων εύρεσης και αντικατάστασης"
 
-#: js/messages.php:282 libraries/TableSearch.class.php:210
+#: js/messages.php:282 libraries/TableSearch.class.php:212
 msgid "Zoom Search"
 msgstr "Εστιασμένη Αναζήτηση"
 
@@ -1794,7 +1794,7 @@ msgstr "Περιεχόμενο δείκτη δεδομένων"
 msgid "Ignore"
 msgstr "Παράληψη"
 
-#: js/messages.php:303 libraries/DisplayResults.class.php:3324
+#: js/messages.php:303 libraries/DisplayResults.class.php:3317
 msgid "Copy"
 msgstr "Αντιγραφή"
 
@@ -1810,7 +1810,7 @@ msgstr "Κείμενο γραμμής"
 msgid "Polygon"
 msgstr "Πολύγωνο"
 
-#: js/messages.php:310 libraries/DisplayResults.class.php:1644
+#: js/messages.php:310 libraries/DisplayResults.class.php:1637
 msgid "Geometry"
 msgstr "Γεωμετρία"
 
@@ -1932,7 +1932,7 @@ msgstr "Προβολή γραμμής(ών) δεδομένων"
 msgid "Generate password"
 msgstr "Δημιουργία κωδικού πρόσβασης"
 
-#: js/messages.php:360 libraries/replication_gui.lib.php:862
+#: js/messages.php:360 libraries/replication_gui.lib.php:863
 msgid "Generate"
 msgstr "Παραγωγή"
 
@@ -1956,7 +1956,7 @@ msgstr "Απόκρυψη Πίνακα"
 msgid "The requested page was not found in the history, it may have expired."
 msgstr "Η αιτούμενη σελίδα δεν βρέθηκε στο ιστορικό, ίσως έληξε."
 
-#: js/messages.php:374 setup/lib/index.lib.php:188
+#: js/messages.php:374 setup/lib/index.lib.php:155
 #, php-format
 msgid ""
 "A newer version of phpMyAdmin is available and you should consider "
@@ -2312,24 +2312,24 @@ msgid "Font size"
 msgstr "Μέγεθος γραμματοσειράς"
 
 #: libraries/DBQbe.class.php:346 libraries/DisplayResults.class.php:1275
-#: libraries/DisplayResults.class.php:2010
-#: libraries/DisplayResults.class.php:2018 libraries/TableSearch.class.php:817
-#: libraries/operations.lib.php:656 libraries/server_databases.lib.php:321
-#: libraries/server_databases.lib.php:346 libraries/structure.lib.php:860
+#: libraries/DisplayResults.class.php:2003
+#: libraries/DisplayResults.class.php:2011 libraries/TableSearch.class.php:822
+#: libraries/operations.lib.php:658 libraries/server_databases.lib.php:314
+#: libraries/server_databases.lib.php:339 libraries/structure.lib.php:860
 #: libraries/structure.lib.php:877 server_status.php:477
 msgid "Ascending"
 msgstr "Αύξουσα"
 
 #: libraries/DBQbe.class.php:349 libraries/DisplayResults.class.php:1287
-#: libraries/DisplayResults.class.php:2005
-#: libraries/DisplayResults.class.php:2023 libraries/TableSearch.class.php:818
-#: libraries/operations.lib.php:659 libraries/server_databases.lib.php:321
-#: libraries/server_databases.lib.php:346 libraries/structure.lib.php:865
+#: libraries/DisplayResults.class.php:1998
+#: libraries/DisplayResults.class.php:2016 libraries/TableSearch.class.php:823
+#: libraries/operations.lib.php:661 libraries/server_databases.lib.php:314
+#: libraries/server_databases.lib.php:339 libraries/structure.lib.php:865
 #: libraries/structure.lib.php:882 server_status.php:474
 msgid "Descending"
 msgstr "Φθίνουσα"
 
-#: libraries/DBQbe.class.php:364 libraries/TableSearch.class.php:1276
+#: libraries/DBQbe.class.php:364 libraries/TableSearch.class.php:1284
 msgid "Column:"
 msgstr "Στήλη:"
 
@@ -2389,12 +2389,12 @@ msgstr "Προσθήκη:"
 msgid "Del:"
 msgstr "Διαγραφή:"
 
-#: libraries/DBQbe.class.php:1322
+#: libraries/DBQbe.class.php:1321
 #, php-format
 msgid "SQL query on database <b>%s</b>:"
 msgstr "Εντολή SQL στη βάση δεδομένων <b>%s</b>:"
 
-#: libraries/DBQbe.class.php:1336 libraries/Util.class.php:1286
+#: libraries/DBQbe.class.php:1335 libraries/Util.class.php:1286
 msgid "Submit Query"
 msgstr "Υποβολή ερωτήματος"
 
@@ -2453,9 +2453,9 @@ msgid_plural "%1$s matches in <strong>%2$s</strong>"
 msgstr[0] "%1$s απατέλεσμα στο <strong>%2$s</strong>"
 msgstr[1] "%1$s αποτελέσματα στο <strong>%2$s</strong>"
 
-#: libraries/DbSearch.class.php:346 libraries/Menu.class.php:267
+#: libraries/DbSearch.class.php:346 libraries/Menu.class.php:266
 #: libraries/Util.class.php:3253 libraries/Util.class.php:3468
-#: libraries/Util.class.php:3469 libraries/structure.lib.php:1372
+#: libraries/Util.class.php:3469 libraries/structure.lib.php:1368
 msgid "Browse"
 msgstr "Περιήγηση"
 
@@ -2464,8 +2464,8 @@ msgstr "Περιήγηση"
 msgid "Delete the matches for the %s table?"
 msgstr "Διαγραφή παρόμοιων αποτελεσμάτων για τον πίνακα %s;"
 
-#: libraries/DbSearch.class.php:357 libraries/DisplayResults.class.php:3393
-#: libraries/DisplayResults.class.php:5037
+#: libraries/DbSearch.class.php:357 libraries/DisplayResults.class.php:3386
+#: libraries/DisplayResults.class.php:5025
 #: libraries/schema/User_Schema.class.php:217
 #: libraries/schema/User_Schema.class.php:299
 #: libraries/schema/User_Schema.class.php:352
@@ -2483,7 +2483,7 @@ msgstr "Αναζήτηση στη βάση δεδπμένων"
 msgid "Words or values to search for (wildcard: \"%\"):"
 msgstr "Λέξεις ή τιμές για αναζήτηση (μπαλαντέρ: «%»):"
 
-#: libraries/DbSearch.class.php:395 libraries/TableSearch.class.php:1271
+#: libraries/DbSearch.class.php:395 libraries/TableSearch.class.php:1279
 msgid "Find:"
 msgstr "Έυρεση:"
 
@@ -2558,10 +2558,10 @@ msgstr "κάθετη"
 msgid "Sort by key"
 msgstr "Ταξινόμηση ανά κλειδί"
 
-#: libraries/DisplayResults.class.php:1581 libraries/TableSearch.class.php:759
+#: libraries/DisplayResults.class.php:1574 libraries/TableSearch.class.php:764
 #: libraries/import.lib.php:1195 libraries/import.lib.php:1221
 #: libraries/plugins/export/ExportCodegen.class.php:90
-#: libraries/plugins/export/ExportCsv.class.php:79
+#: libraries/plugins/export/ExportCsv.class.php:51
 #: libraries/plugins/export/ExportExcel.class.php:44
 #: libraries/plugins/export/ExportHtmlword.class.php:52
 #: libraries/plugins/export/ExportJson.class.php:49
@@ -2581,72 +2581,72 @@ msgstr "Ταξινόμηση ανά κλειδί"
 #: libraries/plugins/import/ImportShp.class.php:56
 #: libraries/plugins/import/ImportSql.class.php:50
 #: libraries/plugins/import/ImportXml.class.php:57
-#: libraries/rte/rte_routines.lib.php:970 libraries/structure.lib.php:1701
+#: libraries/rte/rte_routines.lib.php:970 libraries/structure.lib.php:1697
 msgid "Options"
 msgstr "Επιλογές"
 
-#: libraries/DisplayResults.class.php:1587
-#: libraries/DisplayResults.class.php:1693
+#: libraries/DisplayResults.class.php:1580
+#: libraries/DisplayResults.class.php:1686
 msgid "Partial texts"
 msgstr "Περιληπτικά κείμενα"
 
-#: libraries/DisplayResults.class.php:1588
-#: libraries/DisplayResults.class.php:1697
+#: libraries/DisplayResults.class.php:1581
+#: libraries/DisplayResults.class.php:1690
 msgid "Full texts"
 msgstr "Πλήρη κείμενα"
 
-#: libraries/DisplayResults.class.php:1602
+#: libraries/DisplayResults.class.php:1595
 msgid "Relational key"
 msgstr "Κλειδί συσχέτισης"
 
-#: libraries/DisplayResults.class.php:1603
+#: libraries/DisplayResults.class.php:1596
 msgid "Relational display column"
 msgstr "Στήλη προβολής συσχέτισης"
 
-#: libraries/DisplayResults.class.php:1615
+#: libraries/DisplayResults.class.php:1608
 msgid "Show binary contents"
 msgstr "Εμφάνιση δυαδικών περιεχομένων"
 
-#: libraries/DisplayResults.class.php:1620
+#: libraries/DisplayResults.class.php:1613
 msgid "Show BLOB contents"
 msgstr "Εμφάνιση περιεχομένων BLOB"
 
-#: libraries/DisplayResults.class.php:1625
+#: libraries/DisplayResults.class.php:1618
 #: libraries/config/messages.inc.php:57
 msgid "Show binary contents as HEX"
 msgstr "Εμφάνιση δυαδικών περιεχομένων ως Δεκαεξαδικά HEX"
 
-#: libraries/DisplayResults.class.php:1636
+#: libraries/DisplayResults.class.php:1629
 msgid "Hide browser transformation"
 msgstr "Απόκρυψη μετατροπής περιηγητή"
 
-#: libraries/DisplayResults.class.php:1645
+#: libraries/DisplayResults.class.php:1638
 msgid "Well Known Text"
 msgstr "Καλά Γνωστό Κείμενο"
 
-#: libraries/DisplayResults.class.php:1646
+#: libraries/DisplayResults.class.php:1639
 msgid "Well Known Binary"
 msgstr "Καλά Γνωστό Δυαδικό"
 
-#: libraries/DisplayResults.class.php:3366
-#: libraries/DisplayResults.class.php:3382
+#: libraries/DisplayResults.class.php:3359
+#: libraries/DisplayResults.class.php:3375
 msgid "The row has been deleted"
 msgstr "Η εγγραφή έχει διαγραφεί"
 
-#: libraries/DisplayResults.class.php:3420
-#: libraries/DisplayResults.class.php:5037 server_status.php:524
+#: libraries/DisplayResults.class.php:3413
+#: libraries/DisplayResults.class.php:5025 server_status.php:524
 msgid "Kill"
 msgstr "Τερματισμός"
 
-#: libraries/DisplayResults.class.php:4487 libraries/structure.lib.php:771
+#: libraries/DisplayResults.class.php:4480 libraries/structure.lib.php:771
 msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]"
 msgstr "Ίσως είναι κατά προσέγγιση. Δείτε τις [doc@faq3-11]ΣΑΕ 3.11[/doc]"
 
-#: libraries/DisplayResults.class.php:4883
+#: libraries/DisplayResults.class.php:4871
 msgid "in query"
 msgstr "στην εντολή"
 
-#: libraries/DisplayResults.class.php:4920 libraries/structure.lib.php:653
+#: libraries/DisplayResults.class.php:4908 libraries/structure.lib.php:653
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to %sdocumentation"
@@ -2655,82 +2655,82 @@ msgstr ""
 "Αυτή η προβολή έχει τουλάχιστον αυτό τον αριθμό γραμμών. Λεπτομέρειες στην "
 "%sτεκμηρίωση%s."
 
-#: libraries/DisplayResults.class.php:4933
+#: libraries/DisplayResults.class.php:4921
 msgid "Showing rows"
 msgstr "Εμφάνιση εγγραφών"
 
-#: libraries/DisplayResults.class.php:4949
+#: libraries/DisplayResults.class.php:4937
 msgid "total"
 msgstr "συνολικά"
 
-#: libraries/DisplayResults.class.php:4960 libraries/sql.lib.php:1553
+#: libraries/DisplayResults.class.php:4948 libraries/sql.lib.php:1554
 #, php-format
 msgid "Query took %01.4f sec"
 msgstr "Το ερώτημα χρειάστηκε %01.4f δευτερόλεπτα"
 
-#: libraries/DisplayResults.class.php:5051
-#: libraries/DisplayResults.class.php:5057 libraries/mult_submits.inc.php:43
-#: libraries/server_databases.lib.php:153
-#: libraries/server_databases.lib.php:157
-#: libraries/server_privileges.lib.php:2420
-#: libraries/server_privileges.lib.php:2424 libraries/structure.lib.php:278
+#: libraries/DisplayResults.class.php:5032
+#: libraries/DisplayResults.class.php:5038 libraries/mult_submits.inc.php:43
+#: libraries/server_databases.lib.php:146
+#: libraries/server_databases.lib.php:150
+#: libraries/server_privileges.lib.php:2449
+#: libraries/server_privileges.lib.php:2453 libraries/structure.lib.php:278
 #: libraries/structure.lib.php:293 libraries/structure.lib.php:295
-#: libraries/structure.lib.php:1361 libraries/structure.lib.php:1368
+#: libraries/structure.lib.php:1357 libraries/structure.lib.php:1364
 msgid "With selected:"
 msgstr "Με τους επιλεγμένους:"
 
-#: libraries/DisplayResults.class.php:5055
-#: libraries/DisplayResults.class.php:5056
-#: libraries/server_databases.lib.php:155
-#: libraries/server_databases.lib.php:156
-#: libraries/server_privileges.lib.php:778
-#: libraries/server_privileges.lib.php:779
-#: libraries/server_privileges.lib.php:2422
-#: libraries/server_privileges.lib.php:2423 libraries/structure.lib.php:281
-#: libraries/structure.lib.php:282 libraries/structure.lib.php:1364
-#: libraries/structure.lib.php:1365
+#: libraries/DisplayResults.class.php:5036
+#: libraries/DisplayResults.class.php:5037
+#: libraries/server_databases.lib.php:148
+#: libraries/server_databases.lib.php:149
+#: libraries/server_privileges.lib.php:807
+#: libraries/server_privileges.lib.php:808
+#: libraries/server_privileges.lib.php:2451
+#: libraries/server_privileges.lib.php:2452 libraries/structure.lib.php:281
+#: libraries/structure.lib.php:282 libraries/structure.lib.php:1360
+#: libraries/structure.lib.php:1361
 msgid "Check All"
 msgstr "Επιλογή όλων"
 
-#: libraries/DisplayResults.class.php:5074
-#: libraries/DisplayResults.class.php:5344 libraries/Menu.class.php:296
-#: libraries/Menu.class.php:379 libraries/Menu.class.php:495
+#: libraries/DisplayResults.class.php:5055
+#: libraries/DisplayResults.class.php:5325 libraries/Menu.class.php:295
+#: libraries/Menu.class.php:377 libraries/Menu.class.php:493
 #: libraries/Util.class.php:3481 libraries/Util.class.php:3482
 #: libraries/config/messages.inc.php:162 libraries/display_export.lib.php:98
-#: libraries/server_privileges.lib.php:1791
-#: libraries/server_privileges.lib.php:2428
+#: libraries/server_privileges.lib.php:1820
+#: libraries/server_privileges.lib.php:2457
 #: libraries/server_status_monitor.lib.php:359 libraries/structure.lib.php:297
 #: prefs_manage.php:295 setup/frames/menu.inc.php:22
 msgid "Export"
 msgstr "Εξαγωγή"
 
-#: libraries/DisplayResults.class.php:5176 view_create.php:152
+#: libraries/DisplayResults.class.php:5157 view_create.php:152
 msgid "Create view"
 msgstr "Δημιουργία προβολής"
 
-#: libraries/DisplayResults.class.php:5232
+#: libraries/DisplayResults.class.php:5213
 msgid "Query results operations"
 msgstr "Λειτουργίες αποτελεσμάτων ερωτήματος"
 
-#: libraries/DisplayResults.class.php:5268 libraries/Header.class.php:334
+#: libraries/DisplayResults.class.php:5249 libraries/Header.class.php:334
 #: libraries/structure.lib.php:299 libraries/structure.lib.php:362
-#: libraries/structure.lib.php:1485
+#: libraries/structure.lib.php:1481
 msgid "Print view"
 msgstr "Εμφάνιση για εκτύπωση"
 
-#: libraries/DisplayResults.class.php:5286
+#: libraries/DisplayResults.class.php:5267
 msgid "Print view (with full texts)"
 msgstr "Προβολή εκτύπωσης (με πλήρη κείμενα)"
 
-#: libraries/DisplayResults.class.php:5357 tbl_chart.php:151
+#: libraries/DisplayResults.class.php:5338 tbl_chart.php:151
 msgid "Display chart"
 msgstr "Εμφάνιση διαγράμματος"
 
-#: libraries/DisplayResults.class.php:5382
+#: libraries/DisplayResults.class.php:5363
 msgid "Visualize GIS data"
 msgstr "Οπτικοποίηση δεδομένων GIS"
 
-#: libraries/DisplayResults.class.php:5597
+#: libraries/DisplayResults.class.php:5578
 msgid "Link not found"
 msgstr "Δεν βρέθηκε η σύνδεση"
 
@@ -2776,17 +2776,17 @@ msgstr "Η αποστολή του αρχείου σταμάτησε λόγω ε
 msgid "Unknown error in file upload."
 msgstr "Άγνωστο σφάλμα στην αποστολή αρχείου."
 
-#: libraries/File.class.php:475
+#: libraries/File.class.php:476
 msgid "Error moving the uploaded file, see [doc@faq1-11]FAQ 1.11[/doc]"
 msgstr ""
 "Σφάλμα μετακίνησης του αρχείου αποστολής. Δείτε τις [doc@faq1-11]ΣΑΕ 1.11[/"
 "doc]"
 
-#: libraries/File.class.php:493
+#: libraries/File.class.php:494
 msgid "Error while moving uploaded file."
 msgstr "Σφάλμα κατά τη μετακίνηση αρχείου αποστολής."
 
-#: libraries/File.class.php:501
+#: libraries/File.class.php:502
 msgid "Cannot read (moved) upload file."
 msgstr "Αδύνατη η ανάγνωση (μετακίνηση) του αρχείου αποστολής."
 
@@ -2800,7 +2800,7 @@ msgid "Click on the bar to scroll to top of page"
 msgstr "Πατήστε στη γραμμή για να μεταβείτε στην κορυφή της σελίδας"
 
 #: libraries/Header.class.php:635
-#: libraries/plugins/auth/AuthenticationCookie.class.php:172
+#: libraries/plugins/auth/AuthenticationCookie.class.php:170
 msgid "Javascript must be enabled past this point"
 msgstr "Από αυτό το σημείο πρέπει να έχετε ενεργοποιημένη την Javascript"
 
@@ -2815,8 +2815,8 @@ msgstr "Δεν ορίστηκε ευρετήριο!"
 msgid "Indexes"
 msgstr "Ευρετήρια"
 
-#: libraries/Index.class.php:563 libraries/structure.lib.php:1391
-#: libraries/structure.lib.php:2066 libraries/structure.lib.php:2076
+#: libraries/Index.class.php:563 libraries/structure.lib.php:1387
+#: libraries/structure.lib.php:2062 libraries/structure.lib.php:2072
 #: libraries/tbl_columns_definition_form.inc.php:569 tbl_tracking.php:385
 msgid "Unique"
 msgstr "Μοναδικό"
@@ -2829,12 +2829,12 @@ msgstr "Συμπιεσμένο"
 msgid "Cardinality"
 msgstr "Μοναδικότητα"
 
-#: libraries/Index.class.php:567 libraries/TableSearch.class.php:185
+#: libraries/Index.class.php:567 libraries/TableSearch.class.php:187
 #: libraries/build_html_for_db.lib.php:20 libraries/mysql_charsets.lib.php:34
-#: libraries/operations.lib.php:260 libraries/operations.lib.php:833
+#: libraries/operations.lib.php:260 libraries/operations.lib.php:835
 #: libraries/server_collations.lib.php:35
 #: libraries/server_collations.lib.php:47 libraries/structure.lib.php:780
-#: libraries/structure.lib.php:1181 libraries/structure.lib.php:1709
+#: libraries/structure.lib.php:1181 libraries/structure.lib.php:1705
 #: libraries/tbl_columns_definition_form.inc.php:114 tbl_tracking.php:327
 #: tbl_tracking.php:389
 msgid "Collation"
@@ -2864,7 +2864,7 @@ msgstr ""
 "Τα ευρετήρια %1$s και %2$s φαίνεται να είναι ίσα και ένα από αυτά μπορεί να "
 "απομακρυνθεί."
 
-#: libraries/Menu.class.php:159 libraries/ServerStatusData.class.php:339
+#: libraries/Menu.class.php:159 libraries/ServerStatusData.class.php:341
 #: libraries/config/messages.inc.php:510
 msgid "Server"
 msgstr "Διακομιστής"
@@ -2875,50 +2875,50 @@ msgstr "Διακομιστής"
 msgid "View"
 msgstr "Προβολή"
 
-#: libraries/Menu.class.php:273 libraries/Menu.class.php:357
+#: libraries/Menu.class.php:272 libraries/Menu.class.php:356
 #: libraries/Util.class.php:3249 libraries/Util.class.php:3256
 #: libraries/Util.class.php:3474 libraries/config/setup.forms.php:299
 #: libraries/config/setup.forms.php:336 libraries/config/setup.forms.php:362
 #: libraries/config/user_preferences.forms.php:196
 #: libraries/config/user_preferences.forms.php:233
 #: libraries/config/user_preferences.forms.php:259
-#: libraries/import.lib.php:1221 libraries/server_privileges.lib.php:749
+#: libraries/import.lib.php:1221 libraries/server_privileges.lib.php:778
 #: libraries/tbl_columns_definition_form.inc.php:771 pmd_general.php:174
 #: tbl_tracking.php:321
 msgid "Structure"
 msgstr "Δομή"
 
-#: libraries/Menu.class.php:277 libraries/Menu.class.php:362
-#: libraries/Menu.class.php:471 libraries/Util.class.php:3250
+#: libraries/Menu.class.php:276 libraries/Menu.class.php:360
+#: libraries/Menu.class.php:469 libraries/Util.class.php:3250
 #: libraries/Util.class.php:3257 libraries/config/messages.inc.php:212
 #: querywindow.php:59
 msgid "SQL"
 msgstr "Κώδικας SQL"
 
-#: libraries/Menu.class.php:280 libraries/Menu.class.php:365
+#: libraries/Menu.class.php:279 libraries/Menu.class.php:363
 #: libraries/Util.class.php:3251 libraries/Util.class.php:3258
 #: libraries/Util.class.php:3470 libraries/Util.class.php:3471
 msgid "Search"
 msgstr "Αναζήτηση"
 
-#: libraries/Menu.class.php:290 libraries/Util.class.php:3252
+#: libraries/Menu.class.php:289 libraries/Util.class.php:3252
 #: libraries/Util.class.php:3472 libraries/Util.class.php:3473
 #: libraries/sql_query_form.lib.php:305 libraries/sql_query_form.lib.php:308
 msgid "Insert"
 msgstr "Προσθήκη"
 
-#: libraries/Menu.class.php:309 libraries/Menu.class.php:332
-#: libraries/Menu.class.php:392 libraries/Util.class.php:3259
+#: libraries/Menu.class.php:308 libraries/Menu.class.php:331
+#: libraries/Menu.class.php:390 libraries/Util.class.php:3259
 #: view_operations.php:87
 msgid "Operations"
 msgstr "Λειτουργίες"
 
-#: libraries/Menu.class.php:313 libraries/Menu.class.php:426
+#: libraries/Menu.class.php:312 libraries/Menu.class.php:424
 #: libraries/relation.lib.php:236
 msgid "Tracking"
 msgstr "Παρακολούθηση"
 
-#: libraries/Menu.class.php:322 libraries/Menu.class.php:420
+#: libraries/Menu.class.php:321 libraries/Menu.class.php:418
 #: libraries/navigation/Nodes/Node_Trigger_Container.class.php:26
 #: libraries/plugins/export/ExportHtmlword.class.php:565
 #: libraries/plugins/export/ExportOdt.class.php:657
@@ -2929,71 +2929,71 @@ msgstr "Παρακολούθηση"
 msgid "Triggers"
 msgstr "Δείκτες"
 
-#: libraries/Menu.class.php:369 libraries/Menu.class.php:376
-#: libraries/Menu.class.php:383
+#: libraries/Menu.class.php:367 libraries/Menu.class.php:374
+#: libraries/Menu.class.php:381
 msgid "Database seems to be empty!"
 msgstr "Η βάση δεδομένων φαίνεται να είναι άδεια!"
 
-#: libraries/Menu.class.php:372
+#: libraries/Menu.class.php:370
 msgid "Query"
 msgstr "Επερώτημα κατά παράδειγμα"
 
-#: libraries/Menu.class.php:400 libraries/server_privileges.lib.php:1574
-#: libraries/server_privileges.lib.php:2232
-#: libraries/server_privileges.lib.php:2799 server_privileges.php:146
+#: libraries/Menu.class.php:398 libraries/server_privileges.lib.php:1603
+#: libraries/server_privileges.lib.php:2261
+#: libraries/server_privileges.lib.php:2828 server_privileges.php:146
 msgid "Privileges"
 msgstr "Δικαιώματα"
 
-#: libraries/Menu.class.php:405 libraries/rte/rte_words.lib.php:34
+#: libraries/Menu.class.php:403 libraries/rte/rte_words.lib.php:34
 msgid "Routines"
 msgstr "Εργασίες"
 
-#: libraries/Menu.class.php:413
+#: libraries/Menu.class.php:411
 #: libraries/navigation/Nodes/Node_Event_Container.class.php:26
 #: libraries/plugins/export/ExportSql.class.php:810
 #: libraries/rte/rte_words.lib.php:58
 msgid "Events"
 msgstr "Συμβάντα"
 
-#: libraries/Menu.class.php:432 libraries/relation.lib.php:203
+#: libraries/Menu.class.php:430 libraries/relation.lib.php:203
 msgid "Designer"
 msgstr "Σχεδιαστής"
 
-#: libraries/Menu.class.php:467 libraries/config/messages.inc.php:175
-#: libraries/server_common.lib.php:43 libraries/server_privileges.lib.php:2873
+#: libraries/Menu.class.php:465 libraries/config/messages.inc.php:175
+#: libraries/server_common.lib.php:43 libraries/server_privileges.lib.php:2902
 msgid "Databases"
 msgstr "Βάσεις δεδομένων"
 
-#: libraries/Menu.class.php:490
+#: libraries/Menu.class.php:488
 msgid "Users"
 msgstr "Χρήστες"
 
-#: libraries/Menu.class.php:512 libraries/ServerStatusData.class.php:187
+#: libraries/Menu.class.php:510 libraries/ServerStatusData.class.php:189
 #: libraries/server_common.lib.php:31
 msgid "Binary log"
 msgstr "Δυαδικό αρχείο καταγραφής"
 
-#: libraries/Menu.class.php:518 libraries/ServerStatusData.class.php:192
+#: libraries/Menu.class.php:516 libraries/ServerStatusData.class.php:194
 #: libraries/server_common.lib.php:37 libraries/structure.lib.php:182
 #: libraries/structure.lib.php:761
 msgid "Replication"
 msgstr "Αναπαραγωγή"
 
-#: libraries/Menu.class.php:523 libraries/ServerStatusData.class.php:239
+#: libraries/Menu.class.php:521 libraries/ServerStatusData.class.php:241
 #: libraries/server_engines.lib.php:109 libraries/server_engines.lib.php:113
 msgid "Variables"
 msgstr "Μεταβλητές"
 
-#: libraries/Menu.class.php:527
+#: libraries/Menu.class.php:525
 msgid "Charsets"
 msgstr "Σύνολο χαρακτήρων"
 
-#: libraries/Menu.class.php:532 libraries/server_common.lib.php:28
+#: libraries/Menu.class.php:530 libraries/server_common.lib.php:28
 #: libraries/server_plugins.lib.php:31
 msgid "Plugins"
 msgstr "Πρόσθετα"
 
-#: libraries/Menu.class.php:536
+#: libraries/Menu.class.php:534
 msgid "Engines"
 msgstr "Μηχανές"
 
@@ -3025,7 +3025,7 @@ msgid_plural "%1$d rows inserted."
 msgstr[0] "Εισήχθηκε %1$d γραμμή."
 msgstr[1] "Εισήχθηκαν %1$d γραμμές."
 
-#: libraries/PDF.class.php:123
+#: libraries/PDF.class.php:126
 msgid "Error while creating PDF:"
 msgstr "Σφάλμα κατά τη δημιουργία του PDF:"
 
@@ -3041,43 +3041,43 @@ msgstr "Πρόσφατοι πίνακες"
 msgid "There are no recent tables"
 msgstr "Δεν υπάρχουν πρόσφατοι πίνακες"
 
-#: libraries/ServerStatusData.class.php:181 server_status.php:395
+#: libraries/ServerStatusData.class.php:183 server_status.php:395
 msgid "SQL query"
 msgstr "Εντολή SQL"
 
-#: libraries/ServerStatusData.class.php:184
+#: libraries/ServerStatusData.class.php:186
 msgid "Handler"
 msgstr "Χειριστής"
 
-#: libraries/ServerStatusData.class.php:185
+#: libraries/ServerStatusData.class.php:187
 msgid "Query cache"
 msgstr "Λανθάνουσα μνήμη ερωτήματος"
 
-#: libraries/ServerStatusData.class.php:186
+#: libraries/ServerStatusData.class.php:188
 msgid "Threads"
 msgstr "Διεργασίες"
 
-#: libraries/ServerStatusData.class.php:188
+#: libraries/ServerStatusData.class.php:190
 msgid "Temporary data"
 msgstr "Προσωρινά δεδομένα"
 
-#: libraries/ServerStatusData.class.php:189
+#: libraries/ServerStatusData.class.php:191
 msgid "Delayed inserts"
 msgstr "Καθυστερημένες εισαγωγές"
 
-#: libraries/ServerStatusData.class.php:190
+#: libraries/ServerStatusData.class.php:192
 msgid "Key cache"
 msgstr "Λανθάνουσα μνήμη κλειδιού"
 
-#: libraries/ServerStatusData.class.php:191
+#: libraries/ServerStatusData.class.php:193
 msgid "Joins"
 msgstr "Ενώσεις"
 
-#: libraries/ServerStatusData.class.php:193
+#: libraries/ServerStatusData.class.php:195
 msgid "Sorting"
 msgstr "Ταξινόμηση"
 
-#: libraries/ServerStatusData.class.php:194
+#: libraries/ServerStatusData.class.php:196
 #: libraries/build_html_for_db.lib.php:26
 #: libraries/config/messages.inc.php:181
 #: libraries/navigation/Nodes/Node_Table_Container.class.php:26
@@ -3085,58 +3085,58 @@ msgstr "Ταξινόμηση"
 msgid "Tables"
 msgstr "Πίνακες"
 
-#: libraries/ServerStatusData.class.php:195
+#: libraries/ServerStatusData.class.php:197
 msgid "Transaction coordinator"
 msgstr "Συντονιστής κινήσεων"
 
-#: libraries/ServerStatusData.class.php:196
+#: libraries/ServerStatusData.class.php:198
 #: libraries/server_bin_log.lib.php:53
 msgid "Files"
 msgstr "Αρχεία"
 
-#: libraries/ServerStatusData.class.php:207
+#: libraries/ServerStatusData.class.php:209
 msgid "Flush (close) all tables"
 msgstr "Εκκαθάριση (κλείσιμο) όλων των πινάκων"
 
-#: libraries/ServerStatusData.class.php:209
+#: libraries/ServerStatusData.class.php:211
 msgid "Show open tables"
 msgstr "Εμφάνιση ανοιχτών πινάκων"
 
-#: libraries/ServerStatusData.class.php:214
+#: libraries/ServerStatusData.class.php:216
 msgid "Show slave hosts"
 msgstr "Εμφάνιση δευτερευόντων διακομιστών"
 
-#: libraries/ServerStatusData.class.php:218
+#: libraries/ServerStatusData.class.php:220
 #: libraries/replication_gui.lib.php:49
 msgid "Show master status"
 msgstr "Προβολή κατάστασης πρωτεύοντος"
 
-#: libraries/ServerStatusData.class.php:221
+#: libraries/ServerStatusData.class.php:223
 msgid "Show slave status"
 msgstr "Εμφάνιση κατάστασης δευτερεύοντος"
 
-#: libraries/ServerStatusData.class.php:226
+#: libraries/ServerStatusData.class.php:228
 msgid "Flush query cache"
 msgstr "Εκκαθάριση λανθάνουσας μνήμης ερωτημάτων"
 
-#: libraries/ServerStatusData.class.php:241
+#: libraries/ServerStatusData.class.php:243
 #: libraries/engines/innodb.lib.php:144
 msgid "InnoDB Status"
 msgstr "Κατάσταση InnoDB"
 
-#: libraries/ServerStatusData.class.php:343
+#: libraries/ServerStatusData.class.php:345
 msgid "Query statistics"
 msgstr "Στατιστικά ερωτήματος"
 
-#: libraries/ServerStatusData.class.php:347
+#: libraries/ServerStatusData.class.php:349
 msgid "All status variables"
 msgstr "Όλες οι μεταβλητές κατάστασης"
 
-#: libraries/ServerStatusData.class.php:351
+#: libraries/ServerStatusData.class.php:353
 msgid "Monitor"
 msgstr "Εποπτεία"
 
-#: libraries/ServerStatusData.class.php:355
+#: libraries/ServerStatusData.class.php:357
 msgid "Advisor"
 msgstr "Σύμβουλος"
 
@@ -3182,29 +3182,29 @@ msgstr "Η Βάση δεδομένων προέλευσης «%s» δεν βρέ
 msgid "Target database `%s` was not found!"
 msgstr "Η βάση δεδομένων προορισμού «%s» δεν βρέθηκε!"
 
-#: libraries/Table.class.php:1232
+#: libraries/Table.class.php:1237
 msgid "Invalid database:"
 msgstr "Μη έγκυρη βάση δεδομένων:"
 
-#: libraries/Table.class.php:1246
+#: libraries/Table.class.php:1251
 msgid "Invalid table name:"
 msgstr "Μη έγκυρο όνομα πίνακα:"
 
-#: libraries/Table.class.php:1278
+#: libraries/Table.class.php:1286
 #, php-format
 msgid "Error renaming table %1$s to %2$s"
 msgstr "Σφάλμα μετονομασίας του πίνακα %1$s σε %2$s"
 
-#: libraries/Table.class.php:1297
+#: libraries/Table.class.php:1305
 #, php-format
 msgid "Table %1$s has been renamed to %2$s."
 msgstr "Ο πίνακας %1$s μετονομάσθηκε σε %2$s."
 
-#: libraries/Table.class.php:1442
+#: libraries/Table.class.php:1451
 msgid "Could not save table UI preferences"
 msgstr "Αδύνατη η αποθήκευση του πίανακα ρυθμίσεων UI"
 
-#: libraries/Table.class.php:1466
+#: libraries/Table.class.php:1480
 #, php-format
 msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
@@ -3213,7 +3213,7 @@ msgstr ""
 "Αδύνατη η εκκαθάριση του πίνακα προτιμήσεων του περιβάλλοντος εργασίας "
 "(δείτε το $cfg['Servers'][$i]['MaxTableUiprefs'] %s)"
 
-#: libraries/Table.class.php:1604
+#: libraries/Table.class.php:1620
 #, php-format
 msgid ""
 "Cannot save UI property \"%s\". The changes made will not be persistent "
@@ -3224,120 +3224,120 @@ msgstr ""
 "παραμείνουν μετά την ανανέωση της σελίδας. Ελέξτε αν η δομή πίνακα έχει "
 "αλλαχτεί."
 
-#: libraries/TableSearch.class.php:179 libraries/insert_edit.lib.php:211
+#: libraries/TableSearch.class.php:181 libraries/insert_edit.lib.php:211
 #: libraries/insert_edit.lib.php:217 libraries/rte/rte_routines.lib.php:1582
 msgid "Function"
 msgstr "Συνάρτηση"
 
-#: libraries/TableSearch.class.php:186 pmd_general.php:522 pmd_general.php:542
+#: libraries/TableSearch.class.php:188 pmd_general.php:522 pmd_general.php:542
 #: pmd_general.php:664 pmd_general.php:677 pmd_general.php:740
 #: pmd_general.php:794
 msgid "Operator"
 msgstr "Τελεστής"
 
-#: libraries/TableSearch.class.php:187 libraries/TableSearch.class.php:1227
-#: libraries/insert_edit.lib.php:1578 libraries/replication_gui.lib.php:508
+#: libraries/TableSearch.class.php:189 libraries/TableSearch.class.php:1235
+#: libraries/insert_edit.lib.php:1578 libraries/replication_gui.lib.php:509
 #: libraries/rte/rte_routines.lib.php:1584
 #: libraries/server_status_variables.lib.php:220 pmd_general.php:511
 #: pmd_general.php:570 pmd_general.php:693 pmd_general.php:810
 msgid "Value"
 msgstr "Τιμή"
 
-#: libraries/TableSearch.class.php:203
+#: libraries/TableSearch.class.php:205
 msgid "Table Search"
 msgstr "Αναζήτηση Πίνακα"
 
-#: libraries/TableSearch.class.php:215 libraries/TableSearch.class.php:1164
+#: libraries/TableSearch.class.php:217 libraries/TableSearch.class.php:1172
 msgid "Find and Replace"
 msgstr "Εύρεση και Αντικατάσταση"
 
-#: libraries/TableSearch.class.php:237 libraries/insert_edit.lib.php:1352
+#: libraries/TableSearch.class.php:239 libraries/insert_edit.lib.php:1352
 msgid "Edit/Insert"
 msgstr "Επεξεργασία/Προσθήκη"
 
-#: libraries/TableSearch.class.php:766
+#: libraries/TableSearch.class.php:771
 msgid "Select columns (at least one):"
 msgstr "Επιλογή πεδίων (τουλάχιστον ένα):"
 
-#: libraries/TableSearch.class.php:785 libraries/display_indexes.lib.php:197
-#: libraries/insert_edit.lib.php:1186 libraries/server_privileges.lib.php:323
+#: libraries/TableSearch.class.php:790 libraries/display_indexes.lib.php:197
+#: libraries/insert_edit.lib.php:1186 libraries/server_privileges.lib.php:352
 msgid "Or"
 msgstr "Ενωση"
 
-#: libraries/TableSearch.class.php:786
+#: libraries/TableSearch.class.php:791
 msgid "Add search conditions (body of the \"where\" clause):"
 msgstr "Προσθήκη νέου όρου (σώμα της πρότασης «where» πρότασης):"
 
-#: libraries/TableSearch.class.php:798
+#: libraries/TableSearch.class.php:803
 msgid "Number of rows per page"
 msgstr "Εγγραφές ανά σελίδα"
 
-#: libraries/TableSearch.class.php:808
+#: libraries/TableSearch.class.php:813
 msgid "Display order:"
 msgstr "Σειρά εμφάνισης:"
 
-#: libraries/TableSearch.class.php:844
+#: libraries/TableSearch.class.php:849
 msgid "Use this column to label each point"
 msgstr "Χρησιμοποιήστε αυτή τη στήλη για την ετικέτα κάθε σημείου"
 
-#: libraries/TableSearch.class.php:865
+#: libraries/TableSearch.class.php:870
 msgid "Maximum rows to plot"
 msgstr "Μέγιστος αριθμός γραμμών για εκτύπωση"
 
-#: libraries/TableSearch.class.php:893 libraries/TableSearch.class.php:1195
+#: libraries/TableSearch.class.php:899 libraries/TableSearch.class.php:1203
 #: libraries/sql.lib.php:367 tbl_change.php:230
 msgid "Browse foreign values"
 msgstr "Αναζήτηση μη διακριτών τιμών"
 
-#: libraries/TableSearch.class.php:982
+#: libraries/TableSearch.class.php:990
 msgid "Additional search criteria"
 msgstr "Πρόσθετα κριτήρια αναζήτησης"
 
-#: libraries/TableSearch.class.php:1143
+#: libraries/TableSearch.class.php:1151
 msgid "Do a \"query by example\" (wildcard: \"%\") for two different columns"
 msgstr ""
 "Εκτέλεσε ένα «επερώτημα ανά παράδειγμα» (χαρακτήρας μπαλαντέρ «%») για δύο "
 "διαφρετικές στήλες"
 
-#: libraries/TableSearch.class.php:1153
+#: libraries/TableSearch.class.php:1161
 msgid "Do a \"query by example\" (wildcard: \"%\")"
 msgstr "Εκτέλεσε ένα «επερώτημα κατά παράδειγμα» (χαρακτήρας μπαλαντέρ «%»)"
 
-#: libraries/TableSearch.class.php:1204
+#: libraries/TableSearch.class.php:1212
 msgid "Browse/Edit the points"
 msgstr "Αναζήτηση/Επεξεργασία των σημείων"
 
-#: libraries/TableSearch.class.php:1211
+#: libraries/TableSearch.class.php:1219
 msgid "How to use"
 msgstr "Πως να το χρησιμοποιήσετε"
 
-#: libraries/TableSearch.class.php:1216
+#: libraries/TableSearch.class.php:1224
 msgid "Reset zoom"
 msgstr "Επανφορά εστίασης"
 
-#: libraries/TableSearch.class.php:1273
+#: libraries/TableSearch.class.php:1281
 #, fuzzy
 #| msgid "Replace with"
 msgid "Replace with:"
 msgstr "Αντικατάσταση με"
 
-#: libraries/TableSearch.class.php:1333
+#: libraries/TableSearch.class.php:1341
 msgid "Find and replace - preview"
 msgstr "Εύρεση και αντικατάσταση - προεπισκόπηση"
 
-#: libraries/TableSearch.class.php:1337
+#: libraries/TableSearch.class.php:1345
 msgid "Count"
 msgstr "Μέτρηση"
 
-#: libraries/TableSearch.class.php:1338
+#: libraries/TableSearch.class.php:1346
 msgid "Original string"
 msgstr "Αρχικό κείμενο"
 
-#: libraries/TableSearch.class.php:1339
+#: libraries/TableSearch.class.php:1347
 msgid "Replaced string"
 msgstr "Αντικατεστημένο κείμενο"
 
-#: libraries/TableSearch.class.php:1364
+#: libraries/TableSearch.class.php:1371
 msgid "Replace"
 msgstr "Αντικατάσταση"
 
@@ -3852,17 +3852,17 @@ msgid "Print"
 msgstr "Εκτύπωση"
 
 #: libraries/Util.class.php:4112 libraries/structure.lib.php:798
-#: libraries/structure.lib.php:1762 tbl_printview.php:410
+#: libraries/structure.lib.php:1758 tbl_printview.php:410
 msgid "Creation"
 msgstr "Δημιουργία"
 
 #: libraries/Util.class.php:4118 libraries/structure.lib.php:805
-#: libraries/structure.lib.php:1770 tbl_printview.php:421
+#: libraries/structure.lib.php:1766 tbl_printview.php:421
 msgid "Last update"
 msgstr "Τελευταία ενημέρωση"
 
 #: libraries/Util.class.php:4124 libraries/structure.lib.php:812
-#: libraries/structure.lib.php:1778 tbl_printview.php:432
+#: libraries/structure.lib.php:1774 tbl_printview.php:432
 msgid "Last check"
 msgstr "Tελευταίος έλεγχος"
 
@@ -3877,19 +3877,19 @@ msgstr "κοινόχρηστο"
 #: libraries/config/user_preferences.forms.php:241
 #: libraries/config/user_preferences.forms.php:264
 #: libraries/config/user_preferences.forms.php:269
-#: libraries/server_privileges.lib.php:748 libraries/structure.lib.php:2176
+#: libraries/server_privileges.lib.php:777 libraries/structure.lib.php:2172
 #: tbl_printview.php:299
 msgid "Data"
 msgstr "Δεδομένα"
 
 #: libraries/build_html_for_db.lib.php:46 libraries/engines/innodb.lib.php:171
-#: libraries/server_databases.lib.php:189 libraries/structure.lib.php:2198
+#: libraries/server_databases.lib.php:182 libraries/structure.lib.php:2194
 #: server_status.php:217 server_status.php:319 tbl_printview.php:331
 msgid "Total"
 msgstr "Σύνολο"
 
 #: libraries/build_html_for_db.lib.php:51 libraries/structure.lib.php:791
-#: libraries/structure.lib.php:2189 tbl_printview.php:315
+#: libraries/structure.lib.php:2185 tbl_printview.php:315
 msgid "Overhead"
 msgstr "Περίσσεια"
 
@@ -4017,7 +4017,7 @@ msgid "Double click"
 msgstr "Διπλό πάτημα"
 
 #: libraries/config.values.php:77 libraries/config.values.php:108
-#: libraries/config/FormDisplay.tpl.php:223 libraries/relation.lib.php:96
+#: libraries/config/FormDisplay.tpl.php:227 libraries/relation.lib.php:96
 #: libraries/relation.lib.php:103
 msgid "Disabled"
 msgstr "Απενεργοποιημένη"
@@ -4090,28 +4090,28 @@ msgid "neither of the above"
 msgstr "κανένα από τα παραπάνω"
 
 #: libraries/config/FormDisplay.class.php:88
-#: libraries/config/validate.lib.php:526
+#: libraries/config/Validator.class.php:528
 msgid "Not a positive number"
 msgstr "Δεν είναι θετικός αριθμός"
 
 #: libraries/config/FormDisplay.class.php:89
-#: libraries/config/validate.lib.php:548
+#: libraries/config/Validator.class.php:550
 msgid "Not a non-negative number"
 msgstr "Δεν είναι μη αρνητικός αριθμός"
 
 #: libraries/config/FormDisplay.class.php:90
-#: libraries/config/validate.lib.php:504
+#: libraries/config/Validator.class.php:506
 msgid "Not a valid port number"
 msgstr "Μη έγκυρος αριθμός θύρας"
 
 #: libraries/config/FormDisplay.class.php:91
 #: libraries/config/FormDisplay.class.php:579
-#: libraries/config/validate.lib.php:566
+#: libraries/config/Validator.class.php:568
 msgid "Incorrect value"
 msgstr "Εσφαλμένη τιμή"
 
 #: libraries/config/FormDisplay.class.php:92
-#: libraries/config/validate.lib.php:582
+#: libraries/config/Validator.class.php:584
 #, php-format
 msgid "Value must be equal or lower than %s"
 msgstr "Η τιμή πρέπει να είναι ίση ή μικρότερη από %s"
@@ -4156,35 +4156,83 @@ msgstr "Η επέκταση SOAP δεν βρέθηκε"
 msgid "maximum %s"
 msgstr "μέγιστος αριθμός %s"
 
-#: libraries/config/FormDisplay.tpl.php:221
+#: libraries/config/FormDisplay.tpl.php:225
 msgid "This setting is disabled, it will not be applied to your configuration."
 msgstr ""
 "Αυτή η ρύθμιση είναι απενεργοποιημένη και δεν θα εφαρμοστεί στις ρυθμίσεις "
 "σας."
 
-#: libraries/config/FormDisplay.tpl.php:309
+#: libraries/config/FormDisplay.tpl.php:313
 #, php-format
 msgid "Set value: %s"
 msgstr "Ορισμός τιμής: %s"
 
-#: libraries/config/FormDisplay.tpl.php:314
+#: libraries/config/FormDisplay.tpl.php:318
 #: libraries/config/messages.inc.php:361
 msgid "Restore default value"
 msgstr "Επαναφορά προεπιλεγμένης τιμής"
 
-#: libraries/config/FormDisplay.tpl.php:328
+#: libraries/config/FormDisplay.tpl.php:332
 msgid "Allow users to customize this value"
 msgstr "Επιτρέπεται στους χρήστες να προσαρμόσουν αυτή την τιμή"
 
-#: libraries/config/FormDisplay.tpl.php:392
+#: libraries/config/FormDisplay.tpl.php:396
 msgid "Apply"
 msgstr "Εφαρμογή"
 
-#: libraries/config/FormDisplay.tpl.php:394 libraries/insert_edit.lib.php:1551
+#: libraries/config/FormDisplay.tpl.php:398 libraries/insert_edit.lib.php:1551
 #: libraries/schema/User_Schema.class.php:558 prefs_manage.php:326
 #: prefs_manage.php:331
 msgid "Reset"
 msgstr "Επαναφορά"
+
+#: libraries/config/Validator.class.php:216
+msgid "Could not initialize Drizzle connection library"
+msgstr "Δεν ήταν δυνατή η εκκίνηση βιβλιοθήκης σύνδεσης Drizzle"
+
+#: libraries/config/Validator.class.php:225
+#: libraries/config/Validator.class.php:233
+msgid "Could not connect to Drizzle server"
+msgstr "Αδύνατη η σύνδεση στο διακομιστή Drizzle"
+
+#: libraries/config/Validator.class.php:244
+#: libraries/config/Validator.class.php:251
+msgid "Could not connect to MySQL server"
+msgstr "Αδύνατη η σύνδεση στο διακομιστή MySQL"
+
+#: libraries/config/Validator.class.php:284
+msgid "Empty username while using config authentication method"
+msgstr ""
+"Άδειασμα ονόματος χρήστη ενώ χρησιμοποιείτε ρυθμισμένη μέθοδο επικύρωσης"
+
+#: libraries/config/Validator.class.php:291
+msgid "Empty signon session name while using signon authentication method"
+msgstr ""
+"Άδειασμα ονομασίας συνεδρίας σύνδεσης ενώ χρησιμοποιείτε μέθοδο επικύρωσης "
+"σύνδεσης"
+
+#: libraries/config/Validator.class.php:300
+msgid "Empty signon URL while using signon authentication method"
+msgstr ""
+"Άδειασμα διεύθυνση URL σύνδεσης ενώ χρησιμοποιείτε μέθοδο επικύρωσης σύνδεσης"
+
+#: libraries/config/Validator.class.php:348
+msgid "Empty phpMyAdmin control user while using pmadb"
+msgstr "Άδειασμα ελέγχου χρήστη του phpMyAdmin ενώ χρησιμοποιείτε pmadb"
+
+#: libraries/config/Validator.class.php:353
+msgid "Empty phpMyAdmin control user password while using pmadb"
+msgstr ""
+"Άδειασμα ελέγχου κωδικού πρόσβασης του phpMyAdmin ενώ χρησιμοποιείτε pmadb"
+
+#: libraries/config/Validator.class.php:437
+msgid "Incorrect value:"
+msgstr "Εσφαλμένη τιμή:"
+
+#: libraries/config/Validator.class.php:445
+#, php-format
+msgid "Incorrect IP address: %s"
+msgstr "Εσφαλμένη διεύθυνση IP: %s"
 
 #: libraries/config/messages.inc.php:17
 msgid ""
@@ -4441,7 +4489,7 @@ msgid "Character set of the file"
 msgstr "Σύνολο χαρακτήρων αρχείου"
 
 #: libraries/config/messages.inc.php:70 libraries/config/messages.inc.php:86
-#: libraries/structure.lib.php:1690
+#: libraries/structure.lib.php:1686
 #: libraries/tbl_gis_visualization.lib.php:328 tbl_printview.php:350
 msgid "Format"
 msgstr "Μορφοποίηση"
@@ -4455,7 +4503,7 @@ msgstr "Συμπίεση"
 #: libraries/config/messages.inc.php:104 libraries/config/messages.inc.php:106
 #: libraries/config/messages.inc.php:139 libraries/config/messages.inc.php:142
 #: libraries/config/messages.inc.php:144
-#: libraries/plugins/export/ExportCsv.class.php:119
+#: libraries/plugins/export/ExportCsv.class.php:91
 #: libraries/plugins/export/ExportExcel.class.php:68
 #: libraries/plugins/export/ExportHtmlword.class.php:90
 #: libraries/plugins/export/ExportOds.class.php:75
@@ -4573,7 +4621,7 @@ msgid "Remember file name template"
 msgstr "Πρότυπο απομνημόνευσης ονοματος αρχείου"
 
 #: libraries/config/messages.inc.php:117 libraries/operations.lib.php:211
-#: libraries/operations.lib.php:711 libraries/operations.lib.php:1054
+#: libraries/operations.lib.php:713 libraries/operations.lib.php:1056
 msgid "Add AUTO_INCREMENT value"
 msgstr "Προσθήκη τιμής AUTO_INCREMENT"
 
@@ -4606,7 +4654,7 @@ msgstr "Απενεργοποίηση ελέγχων μη διακριτών κλ
 
 #: libraries/config/messages.inc.php:124 libraries/config/messages.inc.php:125
 #: libraries/config/messages.inc.php:127 libraries/config/messages.inc.php:133
-#: libraries/operations.lib.php:206 libraries/operations.lib.php:1050
+#: libraries/operations.lib.php:206 libraries/operations.lib.php:1052
 #, php-format
 msgid "Add %s"
 msgstr "Προσθήκη %s"
@@ -6201,11 +6249,11 @@ msgstr "Παράβλεψη κλειδωμένων πινάκων"
 msgid "Requires SQL Validator to be enabled"
 msgstr "Απαιτεί την ενεργοποίηση του Εγκυροποιητή SQL"
 
-#: libraries/config/messages.inc.php:494 libraries/replication_gui.lib.php:399
-#: libraries/replication_gui.lib.php:830 libraries/replication_gui.lib.php:846
-#: libraries/server_privileges.lib.php:1195
-#: libraries/server_privileges.lib.php:1219
-#: libraries/server_privileges.lib.php:2398
+#: libraries/config/messages.inc.php:494 libraries/replication_gui.lib.php:400
+#: libraries/replication_gui.lib.php:831 libraries/replication_gui.lib.php:847
+#: libraries/server_privileges.lib.php:1224
+#: libraries/server_privileges.lib.php:1248
+#: libraries/server_privileges.lib.php:2427
 msgid "Password"
 msgstr "Κωδικός πρόσβασης"
 
@@ -6344,11 +6392,10 @@ msgstr ""
 "Ενεργοποιεί τον έλεγχο για τη τελευταία έκδοση στη κεντρική σελίδα του "
 "phpMyAdmin"
 
-#: libraries/config/messages.inc.php:523 setup/lib/index.lib.php:132
-#: setup/lib/index.lib.php:143 setup/lib/index.lib.php:164
-#: setup/lib/index.lib.php:175 setup/lib/index.lib.php:187
-#: setup/lib/index.lib.php:195 setup/lib/index.lib.php:202
-#: setup/lib/index.lib.php:243
+#: libraries/config/messages.inc.php:523 setup/lib/index.lib.php:117
+#: setup/lib/index.lib.php:131 setup/lib/index.lib.php:142
+#: setup/lib/index.lib.php:154 setup/lib/index.lib.php:162
+#: setup/lib/index.lib.php:169
 msgid "Version check"
 msgstr "Έλεγχος έκδοσης"
 
@@ -6476,52 +6523,6 @@ msgstr "Έγγραφο Microsoft Word 2000"
 msgid "OpenDocument Text"
 msgstr "Έγγραφο Κειμένου Ανοιχτού Κώδικα - ODΤ"
 
-#: libraries/config/validate.lib.php:214
-msgid "Could not initialize Drizzle connection library"
-msgstr "Δεν ήταν δυνατή η εκκίνηση βιβλιοθήκης σύνδεσης Drizzle"
-
-#: libraries/config/validate.lib.php:223 libraries/config/validate.lib.php:231
-msgid "Could not connect to Drizzle server"
-msgstr "Αδύνατη η σύνδεση στο διακομιστή Drizzle"
-
-#: libraries/config/validate.lib.php:242 libraries/config/validate.lib.php:249
-msgid "Could not connect to MySQL server"
-msgstr "Αδύνατη η σύνδεση στο διακομιστή MySQL"
-
-#: libraries/config/validate.lib.php:282
-msgid "Empty username while using config authentication method"
-msgstr ""
-"Άδειασμα ονόματος χρήστη ενώ χρησιμοποιείτε ρυθμισμένη μέθοδο επικύρωσης"
-
-#: libraries/config/validate.lib.php:289
-msgid "Empty signon session name while using signon authentication method"
-msgstr ""
-"Άδειασμα ονομασίας συνεδρίας σύνδεσης ενώ χρησιμοποιείτε μέθοδο επικύρωσης "
-"σύνδεσης"
-
-#: libraries/config/validate.lib.php:298
-msgid "Empty signon URL while using signon authentication method"
-msgstr ""
-"Άδειασμα διεύθυνση URL σύνδεσης ενώ χρησιμοποιείτε μέθοδο επικύρωσης σύνδεσης"
-
-#: libraries/config/validate.lib.php:346
-msgid "Empty phpMyAdmin control user while using pmadb"
-msgstr "Άδειασμα ελέγχου χρήστη του phpMyAdmin ενώ χρησιμοποιείτε pmadb"
-
-#: libraries/config/validate.lib.php:351
-msgid "Empty phpMyAdmin control user password while using pmadb"
-msgstr ""
-"Άδειασμα ελέγχου κωδικού πρόσβασης του phpMyAdmin ενώ χρησιμοποιείτε pmadb"
-
-#: libraries/config/validate.lib.php:435
-msgid "Incorrect value:"
-msgstr "Εσφαλμένη τιμή:"
-
-#: libraries/config/validate.lib.php:443
-#, php-format
-msgid "Incorrect IP address: %s"
-msgstr "Εσφαλμένη διεύθυνση IP: %s"
-
 #: libraries/core.lib.php:290
 #, php-format
 msgid "The %s extension is missing. Please check your PHP configuration."
@@ -6546,21 +6547,21 @@ msgstr ""
 "Αδύνατος ο υπολογισμός εγγραφών σε ένα σύνολο αποτελεσμάτων εκτός μνήμης"
 
 #: libraries/display_change_password.lib.php:53
-#: libraries/replication_gui.lib.php:839
-#: libraries/server_privileges.lib.php:1211
+#: libraries/replication_gui.lib.php:840
+#: libraries/server_privileges.lib.php:1240
 msgid "No Password"
 msgstr "Χωρίς Κωδικό Πρόσβασης"
 
 #: libraries/display_change_password.lib.php:61
-#: libraries/plugins/auth/AuthenticationCookie.class.php:219
-#: libraries/replication_gui.lib.php:394 libraries/replication_gui.lib.php:826
-#: libraries/server_privileges.lib.php:1191
+#: libraries/plugins/auth/AuthenticationCookie.class.php:217
+#: libraries/replication_gui.lib.php:395 libraries/replication_gui.lib.php:827
+#: libraries/server_privileges.lib.php:1220
 msgid "Password:"
 msgstr "Κωδικός πρόσβασης:"
 
 #: libraries/display_change_password.lib.php:67
-#: libraries/replication_gui.lib.php:850
-#: libraries/server_privileges.lib.php:1226
+#: libraries/replication_gui.lib.php:851
+#: libraries/server_privileges.lib.php:1255
 msgid "Re-type:"
 msgstr "Επαναεισαγωγή:"
 
@@ -6585,7 +6586,7 @@ msgid "Create database:"
 msgstr "Δημιουργία βάσης δεδομένων:"
 
 #: libraries/display_create_database.lib.php:60
-#: libraries/server_privileges.lib.php:2943 server_privileges.php:149
+#: libraries/server_privileges.lib.php:2972 server_privileges.php:149
 #: server_replication.php:31
 msgid "No Privileges"
 msgstr "Χωρίς Δικαιώματα"
@@ -6889,8 +6890,8 @@ msgstr "Αριθμός εγγραφών που θα παραβλεφθούν α�
 msgid "Format-Specific Options:"
 msgstr "Επιλογές Ορισμένης Μορφής:"
 
-#: libraries/display_indexes.lib.php:50 libraries/structure.lib.php:2020
-#: libraries/structure.lib.php:2023
+#: libraries/display_indexes.lib.php:50 libraries/structure.lib.php:2016
+#: libraries/structure.lib.php:2019
 msgid "Add index"
 msgstr "Προσθήκη ευρετηρίου"
 
@@ -7276,7 +7277,7 @@ msgid "The PrimeBase XT Blog by Paul McCullagh"
 msgstr "Το Ιστολόγιο του PrimeBase XT από τον Paul McCullagh"
 
 #: libraries/import.lib.php:187 libraries/insert_edit.lib.php:122
-#: libraries/rte/rte_routines.lib.php:1446 libraries/sql.lib.php:1548
+#: libraries/rte/rte_routines.lib.php:1446 libraries/sql.lib.php:1549
 #: tbl_get_field.php:41
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr ""
@@ -7397,11 +7398,11 @@ msgstr ""
 "Χρήση του πλήκτρου TAB για μετακίνηση από τιμή σε τιμή ή CTRL+βέλη για "
 "μετακίνηση παντού"
 
-#: libraries/insert_edit.lib.php:1914 libraries/sql.lib.php:1543
+#: libraries/insert_edit.lib.php:1914 libraries/sql.lib.php:1544
 msgid "Showing SQL query"
 msgstr "Εμφάνιση ερωτήματος SQL"
 
-#: libraries/insert_edit.lib.php:1939 libraries/sql.lib.php:1523
+#: libraries/insert_edit.lib.php:1939 libraries/sql.lib.php:1524
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "Ταυτότητα εισερχόμενης εγγραφής: %1$d"
@@ -7772,17 +7773,17 @@ msgstr "Μετακίνηση βάσης δεδομένων σε"
 msgid "Drop the database (DROP)"
 msgstr "Διαγραφή της βάση δεδομένων (DROP)"
 
-#: libraries/operations.lib.php:157 libraries/operations.lib.php:1039
+#: libraries/operations.lib.php:157 libraries/operations.lib.php:1041
 #: tbl_tracking.php:507
 msgid "Structure only"
 msgstr "Μόνο η δομή"
 
-#: libraries/operations.lib.php:158 libraries/operations.lib.php:1040
+#: libraries/operations.lib.php:158 libraries/operations.lib.php:1042
 #: tbl_tracking.php:513
 msgid "Structure and data"
 msgstr "Δομή και δεδομένα"
 
-#: libraries/operations.lib.php:159 libraries/operations.lib.php:1041
+#: libraries/operations.lib.php:159 libraries/operations.lib.php:1043
 #: tbl_tracking.php:510
 msgid "Data only"
 msgstr "Μόνο τα δεδομένα"
@@ -7795,7 +7796,7 @@ msgstr "Αντιγραφή βάσης δεδομένων σε:"
 msgid "CREATE DATABASE before copying"
 msgstr "CREATE DATABASE πριν την αντιγραφή"
 
-#: libraries/operations.lib.php:215 libraries/operations.lib.php:1062
+#: libraries/operations.lib.php:215 libraries/operations.lib.php:1064
 msgid "Add constraints"
 msgstr "Προσθήκη περιορισμών"
 
@@ -7807,126 +7808,126 @@ msgstr "Αλλαγή στο αντίγραφο της βάσης δεδομέν�
 msgid "Edit or export relational schema"
 msgstr "Επεξεργασία ή εξαγωγή σχεσιακού σχήματος"
 
-#: libraries/operations.lib.php:644
+#: libraries/operations.lib.php:646
 msgid "Alter table order by"
 msgstr "Αλλαγή ταξινόμησης πίνακα κατά"
 
-#: libraries/operations.lib.php:652
+#: libraries/operations.lib.php:654
 msgid "(singly)"
 msgstr "(μοναδικά)"
 
-#: libraries/operations.lib.php:688
+#: libraries/operations.lib.php:690
 msgid "Move table to (database<b>.</b>table):"
 msgstr "Μεταφορά πίνακα σε (βάση<b>.</b>πίνακας):"
 
-#: libraries/operations.lib.php:799
+#: libraries/operations.lib.php:801
 msgid "Table options"
 msgstr "Επιλογές πίνακα"
 
-#: libraries/operations.lib.php:803
+#: libraries/operations.lib.php:805
 msgid "Rename table to"
 msgstr "Μετονομασία πίνακα σε"
 
-#: libraries/operations.lib.php:811
+#: libraries/operations.lib.php:813
 msgid "Table comments"
 msgstr "Σχόλια πίνακα"
 
-#: libraries/operations.lib.php:820 libraries/server_engines.lib.php:49
+#: libraries/operations.lib.php:822 libraries/server_engines.lib.php:49
 msgid "Storage Engine"
 msgstr "Μηχανή αποθήκευσης"
 
-#: libraries/operations.lib.php:1022
+#: libraries/operations.lib.php:1024
 msgid "Copy table to (database<b>.</b>table):"
 msgstr "Αντιγραφή πίνακα σε (βάση<b>.</b>πίνακας):"
 
-#: libraries/operations.lib.php:1077
+#: libraries/operations.lib.php:1079
 msgid "Switch to copied table"
 msgstr "Μεταφορά στον αντεγραμμένο πίνακα"
 
-#: libraries/operations.lib.php:1104
+#: libraries/operations.lib.php:1106
 msgid "Table maintenance"
 msgstr "Συντήρηση πίνακα"
 
-#: libraries/operations.lib.php:1142 libraries/structure.lib.php:309
+#: libraries/operations.lib.php:1144 libraries/structure.lib.php:309
 msgid "Check table"
 msgstr "Έλεγχος πίνακα"
 
-#: libraries/operations.lib.php:1155
+#: libraries/operations.lib.php:1157
 msgid "Defragment table"
 msgstr "Ανασυγκρότηση πίνακα"
 
-#: libraries/operations.lib.php:1169 libraries/structure.lib.php:317
+#: libraries/operations.lib.php:1171 libraries/structure.lib.php:317
 msgid "Analyze table"
 msgstr "Ανάλυση πίνακα"
 
-#: libraries/operations.lib.php:1182 libraries/structure.lib.php:314
+#: libraries/operations.lib.php:1184 libraries/structure.lib.php:314
 msgid "Repair table"
 msgstr "Επιδιόρθωση πίνακα"
 
-#: libraries/operations.lib.php:1197 libraries/structure.lib.php:312
-#: libraries/structure.lib.php:1633
+#: libraries/operations.lib.php:1199 libraries/structure.lib.php:312
+#: libraries/structure.lib.php:1629
 msgid "Optimize table"
 msgstr "Βελτιστοποίηση πίνακα"
 
-#: libraries/operations.lib.php:1209
+#: libraries/operations.lib.php:1211
 #, php-format
 msgid "Table %s has been flushed"
 msgstr "Ο πίνακας %s εκκαθαρίστηκε"
 
-#: libraries/operations.lib.php:1216
+#: libraries/operations.lib.php:1218
 msgid "Flush the table (FLUSH)"
 msgstr "Εκκαθάριση («FLUSH») πίνακα"
 
-#: libraries/operations.lib.php:1263
+#: libraries/operations.lib.php:1265
 msgid "Delete data or table"
 msgstr "Διαγραφή δεδομένων ή πίνακα"
 
-#: libraries/operations.lib.php:1271
+#: libraries/operations.lib.php:1273
 msgid "Empty the table (TRUNCATE)"
 msgstr "Άδειασμα του πίνακα (TRUNCATE)"
 
-#: libraries/operations.lib.php:1279
+#: libraries/operations.lib.php:1281
 msgid "Delete the table (DROP)"
 msgstr "Διαγραφή της βάσης δεδομένων (DROP)"
 
-#: libraries/operations.lib.php:1321
+#: libraries/operations.lib.php:1323
 msgid "Analyze"
 msgstr "Ανάλυση"
 
-#: libraries/operations.lib.php:1322
+#: libraries/operations.lib.php:1324
 msgid "Check"
 msgstr "Έλεγχος"
 
-#: libraries/operations.lib.php:1323
+#: libraries/operations.lib.php:1325
 msgid "Optimize"
 msgstr "Βελτιστοποίηση"
 
-#: libraries/operations.lib.php:1324
+#: libraries/operations.lib.php:1326
 msgid "Rebuild"
 msgstr "Επανακατασκευή"
 
-#: libraries/operations.lib.php:1325
+#: libraries/operations.lib.php:1327
 msgid "Repair"
 msgstr "Επισκευή"
 
-#: libraries/operations.lib.php:1332
+#: libraries/operations.lib.php:1334
 msgid "Partition maintenance"
 msgstr "Συντήρηση κατάτμησης"
 
-#: libraries/operations.lib.php:1341
+#: libraries/operations.lib.php:1343
 #, php-format
 msgid "Partition %s"
 msgstr "Κατάτμηση %s"
 
-#: libraries/operations.lib.php:1360
+#: libraries/operations.lib.php:1362
 msgid "Remove partitioning"
 msgstr "Απομάκρυνση κατάτμησης"
 
-#: libraries/operations.lib.php:1386
+#: libraries/operations.lib.php:1388
 msgid "Check referential integrity:"
 msgstr "Έλεγχος ακεραιότητας συσχετίσεων:"
 
-#: libraries/plugin_interface.lib.php:503
+#: libraries/plugin_interface.lib.php:502
 msgid "This format has no options"
 msgstr "Αυτή η μορφή δεν έχει επιλογές"
 
@@ -7935,7 +7936,7 @@ msgid "Cannot connect: invalid settings."
 msgstr "Αδύνατη η σύνδεση: άκυρες ρυθμίσεις."
 
 #: libraries/plugins/auth/AuthenticationConfig.class.php:86
-#: libraries/plugins/auth/AuthenticationCookie.class.php:160
+#: libraries/plugins/auth/AuthenticationCookie.class.php:158
 #: libraries/plugins/auth/AuthenticationHttp.class.php:70
 #, php-format
 msgid "Welcome to %s"
@@ -7972,7 +7973,7 @@ msgid "Failed to use Blowfish from mcrypt!"
 msgstr "Αδύνατη η χρήση του Blowfish από το mcrypt!"
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:82
-#: libraries/plugins/auth/AuthenticationCookie.class.php:190
+#: libraries/plugins/auth/AuthenticationCookie.class.php:188
 msgid "Log in"
 msgstr "Σύνδεση"
 
@@ -7980,48 +7981,48 @@ msgstr "Σύνδεση"
 msgid "Your session has expired. Please log in again."
 msgstr "Η συνεδρία σας έληξε. Συνδεθείτε ξανά."
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:198
-#: libraries/plugins/auth/AuthenticationCookie.class.php:208
+#: libraries/plugins/auth/AuthenticationCookie.class.php:196
+#: libraries/plugins/auth/AuthenticationCookie.class.php:206
 msgid "You can enter hostname/IP address and port separated by space."
 msgstr ""
 "Μπορείτε να εισάγετε όνομα διακομιστή/διεύθυνση ΙΡ και θύρα χωρισμένα με "
 "κενό."
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:213
+#: libraries/plugins/auth/AuthenticationCookie.class.php:211
 msgid "Username:"
 msgstr "Όνομα χρήστη:"
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:225
+#: libraries/plugins/auth/AuthenticationCookie.class.php:223
 msgid "Server Choice:"
 msgstr "Επιλογή Διακομιστή:"
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:386
+#: libraries/plugins/auth/AuthenticationCookie.class.php:384
 msgid "Entered captcha is wrong, try again!"
 msgstr "Το captcha που εισάγατε είναι λανθασμένο, δοκιμάστε ξανά!"
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:395
+#: libraries/plugins/auth/AuthenticationCookie.class.php:393
 msgid "Please enter correct captcha!"
 msgstr "Εισάγετε το σωστό captcha!"
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:657
-#: libraries/plugins/auth/AuthenticationSignon.class.php:249
+#: libraries/plugins/auth/AuthenticationCookie.class.php:655
+#: libraries/plugins/auth/AuthenticationSignon.class.php:247
 msgid ""
 "Login without a password is forbidden by configuration (see AllowNoPassword)"
 msgstr ""
 "Η σύνδεση χωρίς κωδικό πρόσβασης απαγορεύεται από τις ρυθμίσεις (δείτε τη "
 "μεταβλητή AllowNoPassword)"
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:664
-#: libraries/plugins/auth/AuthenticationSignon.class.php:256
+#: libraries/plugins/auth/AuthenticationCookie.class.php:662
+#: libraries/plugins/auth/AuthenticationSignon.class.php:254
 #, php-format
 msgid "No activity within %s seconds; please log in again"
 msgstr ""
 "Καμιά δραστηριότητα εδώ και %s δευτερόλεπτα τουλάχιστον, για αυτό "
 "ξανασυνδεθείτε"
 
+#: libraries/plugins/auth/AuthenticationCookie.class.php:667
 #: libraries/plugins/auth/AuthenticationCookie.class.php:669
-#: libraries/plugins/auth/AuthenticationCookie.class.php:671
-#: libraries/plugins/auth/AuthenticationSignon.class.php:265
+#: libraries/plugins/auth/AuthenticationSignon.class.php:263
 msgid "Cannot log in to the MySQL server"
 msgstr "Δεν ήταν δυνατή η σύνδεση με τον διακομιστή MySQL"
 
@@ -8051,27 +8052,27 @@ msgstr "Δεν τοποθετήθηκε κανένα έγκυρο κλειδί �
 msgid "Authenticating…"
 msgstr "Επικύρωση…"
 
-#: libraries/plugins/export/ExportCsv.class.php:93
+#: libraries/plugins/export/ExportCsv.class.php:65
 #: libraries/plugins/import/AbstractImportCsv.class.php:59
 msgid "Columns separated with:"
 msgstr "Στήλες που χωρίζονται με:"
 
-#: libraries/plugins/export/ExportCsv.class.php:97
+#: libraries/plugins/export/ExportCsv.class.php:69
 #: libraries/plugins/import/AbstractImportCsv.class.php:65
 msgid "Columns enclosed with:"
 msgstr "Στήλες που περικλείονται με:"
 
-#: libraries/plugins/export/ExportCsv.class.php:101
+#: libraries/plugins/export/ExportCsv.class.php:73
 #: libraries/plugins/import/AbstractImportCsv.class.php:71
 msgid "Columns escaped with:"
 msgstr "Τα πεδία χρησιμοποιούν το χαρακτήρα διαφυγής:"
 
-#: libraries/plugins/export/ExportCsv.class.php:105
+#: libraries/plugins/export/ExportCsv.class.php:77
 #: libraries/plugins/import/AbstractImportCsv.class.php:77
 msgid "Lines terminated with:"
 msgstr "Γραμμές που τελειώνουν με:"
 
-#: libraries/plugins/export/ExportCsv.class.php:109
+#: libraries/plugins/export/ExportCsv.class.php:81
 #: libraries/plugins/export/ExportExcel.class.php:58
 #: libraries/plugins/export/ExportHtmlword.class.php:86
 #: libraries/plugins/export/ExportLatex.class.php:181
@@ -8081,7 +8082,7 @@ msgstr "Γραμμές που τελειώνουν με:"
 msgid "Replace NULL with:"
 msgstr "Αντικατάσταση τιμής NULL με:"
 
-#: libraries/plugins/export/ExportCsv.class.php:114
+#: libraries/plugins/export/ExportCsv.class.php:86
 #: libraries/plugins/export/ExportExcel.class.php:63
 msgid "Remove carriage return/line feed characters within columns"
 msgstr "Απομάκρυνση χαρακτήρων αλλαγής γραμμής μέσα στις στήλες"
@@ -8199,8 +8200,8 @@ msgstr "Εμφάνιση ονομάτων στηλών στην πρώτη γρ�
 #: libraries/plugins/export/ExportLatex.class.php:218
 #: libraries/plugins/export/ExportSql.class.php:601
 #: libraries/plugins/export/ExportXml.class.php:191
-#: libraries/replication_gui.lib.php:404 libraries/replication_gui.lib.php:670
-#: libraries/server_privileges.lib.php:1081 libraries/sql.lib.php:411
+#: libraries/replication_gui.lib.php:405 libraries/replication_gui.lib.php:671
+#: libraries/server_privileges.lib.php:1110 libraries/sql.lib.php:411
 msgid "Host:"
 msgstr "Φιλοξενητής:"
 
@@ -8503,12 +8504,12 @@ msgstr "Αδύνατη η προσπέλαση Εγγράφου Λογιστικ
 msgid "ESRI Shape File"
 msgstr "Shape File της ESRI"
 
-#: libraries/plugins/import/ImportShp.class.php:155
+#: libraries/plugins/import/ImportShp.class.php:152
 #, php-format
 msgid "There was an error importing the ESRI shape file: \"%s\"."
 msgstr "Σφάλμα εισαγωγής shape file της ESRI: «%s»."
 
-#: libraries/plugins/import/ImportShp.class.php:211
+#: libraries/plugins/import/ImportShp.class.php:208
 msgid ""
 "You tried to import an invalid file or the imported file contains invalid "
 "data"
@@ -8516,12 +8517,12 @@ msgstr ""
 "Προσπαθήσατε να εισάγετε μη έγκυρο αρχείο ή το εισαγμένο αρχείο περιέχει μη "
 "έγκυρα δεδομένα"
 
-#: libraries/plugins/import/ImportShp.class.php:217
+#: libraries/plugins/import/ImportShp.class.php:214
 #, php-format
 msgid "MySQL Spatial Extension does not support ESRI type \"%s\"."
 msgstr "Η Χωρική Επέκταση της MySQL δεν υποστηρίζει τύπο της ESRI «%s»."
 
-#: libraries/plugins/import/ImportShp.class.php:265
+#: libraries/plugins/import/ImportShp.class.php:262
 msgid "The imported file does not contain any data"
 msgstr "Το εισαγόμενο αρχείο δεν περιέχει δεδομένα"
 
@@ -8782,7 +8783,7 @@ msgid "no description"
 msgstr "χωρίς περιγραφή"
 
 #: libraries/replication_gui.lib.php:45 libraries/replication_gui.lib.php:311
-#: libraries/server_databases.lib.php:400
+#: libraries/server_databases.lib.php:393
 msgid "Master replication"
 msgstr "Πρωτεύουσα αναπαραγωγή"
 
@@ -8796,7 +8797,7 @@ msgstr ""
 msgid "Show connected slaves"
 msgstr "Προβολή συνδεδεμένων δευτερευόντων"
 
-#: libraries/replication_gui.lib.php:65 libraries/replication_gui.lib.php:666
+#: libraries/replication_gui.lib.php:65 libraries/replication_gui.lib.php:667
 msgid "Add slave replication user"
 msgstr "Προσθήκη δευτερέοντα χρήστη αναπαραγωγής"
 
@@ -8850,7 +8851,7 @@ msgstr ""
 "<b>έχει</b> ρυθμιστεί ως πρωτεύων."
 
 #: libraries/replication_gui.lib.php:139
-#: libraries/server_databases.lib.php:402
+#: libraries/server_databases.lib.php:395
 msgid "Slave replication"
 msgstr "Δευτερεύουσα αναπαραγωγή"
 
@@ -8905,7 +8906,7 @@ msgstr "Εκκίνηση μόνο Νήματος IO"
 msgid "Stop IO Thread only"
 msgstr "Σταμάτημα μόνο Νήματος IO"
 
-#: libraries/replication_gui.lib.php:246 libraries/replication_gui.lib.php:374
+#: libraries/replication_gui.lib.php:246 libraries/replication_gui.lib.php:375
 msgid "Change or reconfigure master server"
 msgstr "Αλλαγή ή επαναρύθμιση του πρωτεύοντος διακομιστή"
 
@@ -8949,15 +8950,15 @@ msgstr ""
 "Αυτός ο διακομιστής δεν έχει ρυθμιστεί ως πρωτεύων σε μια διαδικασία "
 "αναπαραγωγής. Θέλετε να τον <a href=\"%s\">ρυθμίσετε</a>;"
 
-#: libraries/replication_gui.lib.php:351
+#: libraries/replication_gui.lib.php:352
 msgid "Uncheck All"
 msgstr "Απεπιλογή όλων"
 
-#: libraries/replication_gui.lib.php:373
+#: libraries/replication_gui.lib.php:374
 msgid "Slave configuration"
 msgstr "Ρύθμιση δευτερεύοντος"
 
-#: libraries/replication_gui.lib.php:376
+#: libraries/replication_gui.lib.php:377
 msgid ""
 "Make sure, you have unique server-id in your configuration file (my.cnf). If "
 "not, please add the following line into [mysqld] section:"
@@ -8965,50 +8966,50 @@ msgstr ""
 "Σιγουρευτείτε ότι έχετε μοναδική ταυτότητα διακομιστή στο αρχείο ρυθμίσεων "
 "(my.cnf). Αν όχι, προσθέστε την παρακάτω γραμμή στον τομέα [mysqld]:"
 
-#: libraries/replication_gui.lib.php:383 libraries/replication_gui.lib.php:760
-#: libraries/server_privileges.lib.php:1024
+#: libraries/replication_gui.lib.php:384 libraries/replication_gui.lib.php:761
+#: libraries/server_privileges.lib.php:1053
 msgid "User name:"
 msgstr "Όνομα χρήστη:"
 
-#: libraries/replication_gui.lib.php:389 libraries/replication_gui.lib.php:764
-#: libraries/replication_gui.lib.php:780
-#: libraries/server_privileges.lib.php:1029
-#: libraries/server_privileges.lib.php:1060
+#: libraries/replication_gui.lib.php:390 libraries/replication_gui.lib.php:765
+#: libraries/replication_gui.lib.php:781
+#: libraries/server_privileges.lib.php:1058
+#: libraries/server_privileges.lib.php:1089
 msgid "User name"
 msgstr "Όνομα χρήστη"
 
-#: libraries/replication_gui.lib.php:415
+#: libraries/replication_gui.lib.php:416
 msgid "Port:"
 msgstr "Θύρα:"
 
-#: libraries/replication_gui.lib.php:495
+#: libraries/replication_gui.lib.php:496
 msgid "Master status"
 msgstr "Κατάσταση πρωτεύοντος"
 
-#: libraries/replication_gui.lib.php:498
+#: libraries/replication_gui.lib.php:499
 msgid "Slave status"
 msgstr "Κατάσταση δευτερεύοντος"
 
-#: libraries/replication_gui.lib.php:507
+#: libraries/replication_gui.lib.php:508
 #: libraries/server_status_variables.lib.php:219
 #: libraries/sql_query_form.lib.php:416 server_variables.php:166
 msgid "Variable"
 msgstr "Μεταβλητή"
 
-#: libraries/replication_gui.lib.php:586 libraries/server_bin_log.lib.php:132
+#: libraries/replication_gui.lib.php:587 libraries/server_bin_log.lib.php:132
 msgid "Server ID"
 msgstr "Ταυτότητα Διακομιστή"
 
-#: libraries/replication_gui.lib.php:587 libraries/replication_gui.lib.php:674
-#: libraries/replication_gui.lib.php:815
-#: libraries/server_privileges.lib.php:1086
-#: libraries/server_privileges.lib.php:1182
-#: libraries/server_privileges.lib.php:1572
-#: libraries/server_privileges.lib.php:2397 server_status.php:375
+#: libraries/replication_gui.lib.php:588 libraries/replication_gui.lib.php:675
+#: libraries/replication_gui.lib.php:816
+#: libraries/server_privileges.lib.php:1115
+#: libraries/server_privileges.lib.php:1211
+#: libraries/server_privileges.lib.php:1601
+#: libraries/server_privileges.lib.php:2426 server_status.php:375
 msgid "Host"
 msgstr "Φιλοξενητής"
 
-#: libraries/replication_gui.lib.php:607
+#: libraries/replication_gui.lib.php:608
 msgid ""
 "Only slaves started with the --report-host=host_name option are visible in "
 "this list."
@@ -9016,40 +9017,40 @@ msgstr ""
 "Μόνο οι δευτερεύοντες που εκκινούν με την ρύθμιση --report-host=host_name "
 "είναι ορατές σε αυτή τη λίστα."
 
-#: libraries/replication_gui.lib.php:717
-#: libraries/server_privileges.lib.php:1139
+#: libraries/replication_gui.lib.php:718
+#: libraries/server_privileges.lib.php:1168
 msgid "Any host"
 msgstr "Οποιοδήποτε σύστημα"
 
-#: libraries/replication_gui.lib.php:722
-#: libraries/server_privileges.lib.php:1147
+#: libraries/replication_gui.lib.php:723
+#: libraries/server_privileges.lib.php:1176
 msgid "Local"
 msgstr "Τοπικό"
 
-#: libraries/replication_gui.lib.php:729
-#: libraries/server_privileges.lib.php:1156
+#: libraries/replication_gui.lib.php:730
+#: libraries/server_privileges.lib.php:1185
 msgid "This Host"
 msgstr "Αυτός ο διακομιστής"
 
-#: libraries/replication_gui.lib.php:771
-#: libraries/server_privileges.lib.php:1044
+#: libraries/replication_gui.lib.php:772
+#: libraries/server_privileges.lib.php:1073
 msgid "Any user"
 msgstr "Οποιοσδήποτε χρήστης"
 
-#: libraries/replication_gui.lib.php:776 libraries/replication_gui.lib.php:809
-#: libraries/replication_gui.lib.php:842
-#: libraries/server_privileges.lib.php:1175
-#: libraries/server_privileges.lib.php:2292
+#: libraries/replication_gui.lib.php:777 libraries/replication_gui.lib.php:810
+#: libraries/replication_gui.lib.php:843
+#: libraries/server_privileges.lib.php:1204
+#: libraries/server_privileges.lib.php:2321
 msgid "Use text field:"
 msgstr "Χρήση πεδίου κειμένου:"
 
-#: libraries/replication_gui.lib.php:803
-#: libraries/server_privileges.lib.php:1166
+#: libraries/replication_gui.lib.php:804
+#: libraries/server_privileges.lib.php:1195
 msgid "Use Host Table"
 msgstr "Χρήση Οικείου Πίνακα"
 
-#: libraries/replication_gui.lib.php:819
-#: libraries/server_privileges.lib.php:1185
+#: libraries/replication_gui.lib.php:820
+#: libraries/server_privileges.lib.php:1214
 msgid ""
 "When Host table is used, this field is ignored and values stored in Host "
 "table are used instead."
@@ -9057,36 +9058,36 @@ msgstr ""
 "Όταν χρησιμοποιείται ο Οικείος πίνακας, παραβλέπεται αυτό το πεδίο και "
 "χρησιμοποιούνται τιμές που είναι αποθηκευμένες στον Οικείο πίνακα."
 
-#: libraries/replication_gui.lib.php:854
-#: libraries/server_privileges.lib.php:1230
+#: libraries/replication_gui.lib.php:855
+#: libraries/server_privileges.lib.php:1259
 msgid "Re-type"
 msgstr "Επαναεισαγωγή"
 
-#: libraries/replication_gui.lib.php:858
+#: libraries/replication_gui.lib.php:859
 msgid "Generate Password:"
 msgstr "Παραγωγή Κωδικού Πρόσβασης:"
 
-#: libraries/replication_gui.lib.php:918
+#: libraries/replication_gui.lib.php:920
 msgid "Unknown error"
 msgstr "Άγνωστο σφάλμα"
 
-#: libraries/replication_gui.lib.php:928
+#: libraries/replication_gui.lib.php:930
 #, php-format
 msgid "Unable to connect to master %s."
 msgstr "Αδύνατη η σύνδεση στον πρωτεύοντα %s."
 
-#: libraries/replication_gui.lib.php:939
+#: libraries/replication_gui.lib.php:941
 msgid ""
 "Unable to read master log position. Possible privilege problem on master."
 msgstr ""
 "Αδύνατη η ανάγνωση της θέσης πρωτεύουσας καταγραφής. Πιθανό πρόβλημα "
 "δικαιωμάτων."
 
-#: libraries/replication_gui.lib.php:957
+#: libraries/replication_gui.lib.php:959
 msgid "Unable to change master"
 msgstr "Αδύνατη η αλλαγή της πρωτεύουσας"
 
-#: libraries/replication_gui.lib.php:961
+#: libraries/replication_gui.lib.php:963
 #, php-format
 msgid "Master server changed successfully to %s"
 msgstr "Ο πρωτεύων διακομιστής άλλαξε επιτυχώς σε %s"
@@ -9520,28 +9521,28 @@ msgstr "Σχήμα της βάσης δεδομένων %s - Σελίδα %s"
 msgid "This page does not contain any tables!"
 msgstr "Αυτή η σελίδα δεν περιέχει κανένα πίνακα!"
 
-#: libraries/schema/Export_Relation_Schema.class.php:234
+#: libraries/schema/Export_Relation_Schema.class.php:236
 msgid "SCHEMA ERROR: "
 msgstr "ΣΦΑΛΜΑ ΣΧΗΜΑΤΟΣ: "
 
 #: libraries/schema/Pdf_Relation_Schema.class.php:891
-#: libraries/schema/Pdf_Relation_Schema.class.php:1216
+#: libraries/schema/Pdf_Relation_Schema.class.php:1225
 msgid "Relational schema"
 msgstr "Σχεσιακό σχήμα"
 
-#: libraries/schema/Pdf_Relation_Schema.class.php:1179
+#: libraries/schema/Pdf_Relation_Schema.class.php:1188
 msgid "Table of contents"
 msgstr "Πίνακας περιεχομένων"
 
-#: libraries/schema/Pdf_Relation_Schema.class.php:1364
-#: libraries/schema/Pdf_Relation_Schema.class.php:1387
+#: libraries/schema/Pdf_Relation_Schema.class.php:1373
+#: libraries/schema/Pdf_Relation_Schema.class.php:1396
 #: libraries/structure.lib.php:1182
 #: libraries/tbl_columns_definition_form.inc.php:115
 msgid "Attributes"
 msgstr "Χαρακτηριστικά"
 
-#: libraries/schema/Pdf_Relation_Schema.class.php:1367
-#: libraries/schema/Pdf_Relation_Schema.class.php:1390
+#: libraries/schema/Pdf_Relation_Schema.class.php:1376
+#: libraries/schema/Pdf_Relation_Schema.class.php:1399
 #: libraries/structure.lib.php:1185 tbl_tracking.php:330
 msgid "Extra"
 msgstr "Πρόσθετα"
@@ -9642,8 +9643,8 @@ msgstr ""
 msgid "Toggle scratchboard"
 msgstr "Εναλλαγή πίνακα σχεδιασμού"
 
-#: libraries/select_lang.lib.php:531 libraries/select_lang.lib.php:540
-#: libraries/select_lang.lib.php:549
+#: libraries/select_lang.lib.php:538 libraries/select_lang.lib.php:547
+#: libraries/select_lang.lib.php:556
 #, php-format
 msgid "Unknown language: %1$s."
 msgstr "Άγνωστη γλώσσα: %1$s."
@@ -9668,7 +9669,7 @@ msgstr "Θέση"
 msgid "Original position"
 msgstr "Αρχική θέση"
 
-#: libraries/server_bin_log.lib.php:134 libraries/structure.lib.php:2167
+#: libraries/server_bin_log.lib.php:134 libraries/structure.lib.php:2163
 msgid "Information"
 msgstr "Πληροφορία"
 
@@ -9692,7 +9693,7 @@ msgstr "Σύνολα και Συνθέσεις Χαρακτήρων"
 msgid "Databases statistics"
 msgstr "Στατιστικά βάσης"
 
-#: libraries/server_databases.lib.php:369
+#: libraries/server_databases.lib.php:362
 msgid ""
 "Note: Enabling the database statistics here might cause heavy traffic "
 "between the web server and the MySQL server."
@@ -9700,8 +9701,8 @@ msgstr ""
 "Σημείωση: Η ενεργοποίηση στατιστικών μπορεί να προκαλέσει μεγάλη μεταφορά "
 "δεδομένων μεταξύ του διακομιστή ιστού και του διακομιστή MySQL."
 
-#: libraries/server_databases.lib.php:377
-#: libraries/server_databases.lib.php:378
+#: libraries/server_databases.lib.php:370
+#: libraries/server_databases.lib.php:371
 msgid "Enable Statistics"
 msgstr "Ενεργοποίηση Στατιστικών"
 
@@ -9751,83 +9752,83 @@ msgid "Includes all privileges except GRANT."
 msgstr "Περιλαμβάνει όλα τα δικαιώματα εκτός από το GRANT."
 
 #: libraries/server_privileges.lib.php:167
-#: libraries/server_privileges.lib.php:635
-#: libraries/server_privileges.lib.php:810 server_privileges.php:87
+#: libraries/server_privileges.lib.php:664
+#: libraries/server_privileges.lib.php:839 server_privileges.php:87
 msgid "Allows reading data."
 msgstr "Επιτρέπει την ανάγνωση δεδομένων."
 
-#: libraries/server_privileges.lib.php:171
-#: libraries/server_privileges.lib.php:640
-#: libraries/server_privileges.lib.php:811 server_privileges.php:76
+#: libraries/server_privileges.lib.php:172
+#: libraries/server_privileges.lib.php:669
+#: libraries/server_privileges.lib.php:840 server_privileges.php:76
 msgid "Allows inserting and replacing data."
 msgstr "Επιτρέπει την εισαγωγή και την αντικατάσταση δεδομένων."
 
-#: libraries/server_privileges.lib.php:175
-#: libraries/server_privileges.lib.php:645
-#: libraries/server_privileges.lib.php:812 server_privileges.php:93
+#: libraries/server_privileges.lib.php:177
+#: libraries/server_privileges.lib.php:674
+#: libraries/server_privileges.lib.php:841 server_privileges.php:93
 msgid "Allows changing data."
 msgstr "Επιτρέπει την αλλαγή δεδομένων."
 
-#: libraries/server_privileges.lib.php:179
-#: libraries/server_privileges.lib.php:813 server_privileges.php:68
+#: libraries/server_privileges.lib.php:182
+#: libraries/server_privileges.lib.php:842 server_privileges.php:68
 msgid "Allows deleting data."
 msgstr "Επιτρέπει τη διαγραφή δεδομένων."
 
-#: libraries/server_privileges.lib.php:183
-#: libraries/server_privileges.lib.php:839 server_privileges.php:62
+#: libraries/server_privileges.lib.php:187
+#: libraries/server_privileges.lib.php:868 server_privileges.php:62
 msgid "Allows creating new databases and tables."
 msgstr "Επιτρέπει τη δημιουργία νέων βάσεων και πινάκων."
 
-#: libraries/server_privileges.lib.php:187
-#: libraries/server_privileges.lib.php:851 server_privileges.php:69
+#: libraries/server_privileges.lib.php:192
+#: libraries/server_privileges.lib.php:880 server_privileges.php:69
 msgid "Allows dropping databases and tables."
 msgstr "Επιτρέπει τη διαγραφή βάσεων και πινάκων."
 
-#: libraries/server_privileges.lib.php:191
-#: libraries/server_privileges.lib.php:927 server_privileges.php:84
+#: libraries/server_privileges.lib.php:197
+#: libraries/server_privileges.lib.php:956 server_privileges.php:84
 msgid "Allows reloading server settings and flushing the server's caches."
 msgstr ""
 "Επιτρέπει την επανεκκίνηση του διακομιστή και τον καθαρισμό των προσωρινών "
 "αρχείων του."
 
-#: libraries/server_privileges.lib.php:195
-#: libraries/server_privileges.lib.php:931 server_privileges.php:90
+#: libraries/server_privileges.lib.php:202
+#: libraries/server_privileges.lib.php:960 server_privileges.php:90
 msgid "Allows shutting down the server."
 msgstr "Επιτρέπει την διακοπή λειτουργίας του διακομιστή."
 
-#: libraries/server_privileges.lib.php:199
-#: libraries/server_privileges.lib.php:923 server_privileges.php:82
+#: libraries/server_privileges.lib.php:207
+#: libraries/server_privileges.lib.php:952 server_privileges.php:82
 msgid "Allows viewing processes of all users"
 msgstr "Επιτρέπει την προβολή διεργασιών όλων των χρηστών"
 
-#: libraries/server_privileges.lib.php:203
-#: libraries/server_privileges.lib.php:819 server_privileges.php:73
+#: libraries/server_privileges.lib.php:212
+#: libraries/server_privileges.lib.php:848 server_privileges.php:73
 msgid "Allows importing data from and exporting data into files."
 msgstr "Επιτρέπει την εισαγωγή και εξαγωγή δεδομένων από και σε αρχεία."
 
-#: libraries/server_privileges.lib.php:207
-#: libraries/server_privileges.lib.php:650
-#: libraries/server_privileges.lib.php:944 server_privileges.php:83
+#: libraries/server_privileges.lib.php:217
+#: libraries/server_privileges.lib.php:679
+#: libraries/server_privileges.lib.php:973 server_privileges.php:83
 msgid "Has no effect in this MySQL version."
 msgstr "Δεν έχει χρήση σε αυτήν την έκδοση MySQL."
 
-#: libraries/server_privileges.lib.php:211
-#: libraries/server_privileges.lib.php:847 server_privileges.php:75
+#: libraries/server_privileges.lib.php:222
+#: libraries/server_privileges.lib.php:876 server_privileges.php:75
 msgid "Allows creating and dropping indexes."
 msgstr "Επιτρέπει την δημιουργία και την διαγραφή ευρετηρίων."
 
-#: libraries/server_privileges.lib.php:215
-#: libraries/server_privileges.lib.php:845 server_privileges.php:60
+#: libraries/server_privileges.lib.php:227
+#: libraries/server_privileges.lib.php:874 server_privileges.php:60
 msgid "Allows altering the structure of existing tables."
 msgstr "Επιτρέπει την αλλαγή δομής των υπαρχόντων πινάκων."
 
-#: libraries/server_privileges.lib.php:219
-#: libraries/server_privileges.lib.php:935 server_privileges.php:88
+#: libraries/server_privileges.lib.php:232
+#: libraries/server_privileges.lib.php:964 server_privileges.php:88
 msgid "Gives access to the complete list of databases."
 msgstr "Δίνει πρόσβαση στην πλήρη λίστα των βάσεων δεδομένων."
 
-#: libraries/server_privileges.lib.php:223
-#: libraries/server_privileges.lib.php:919 server_privileges.php:91
+#: libraries/server_privileges.lib.php:237
+#: libraries/server_privileges.lib.php:948 server_privileges.php:91
 msgid ""
 "Allows connecting, even if maximum number of connections is reached; "
 "required for most administrative operations like setting global variables or "
@@ -9837,95 +9838,95 @@ msgstr ""
 "καλυθφεί, το οποίο απαιτείται για τις περισσότερες λειτουργίες διαχείρισης "
 "όπως ο ορισμός γενικών μεταβλητών ή τη διακοπή λειτουργιών άλλων χρηστών."
 
-#: libraries/server_privileges.lib.php:227
-#: libraries/server_privileges.lib.php:857 server_privileges.php:65
+#: libraries/server_privileges.lib.php:242
+#: libraries/server_privileges.lib.php:886 server_privileges.php:65
 msgid "Allows creating temporary tables."
 msgstr "Επιτρέπει τη δημιουργία προσωρινών πινάκων."
 
-#: libraries/server_privileges.lib.php:231
-#: libraries/server_privileges.lib.php:940 server_privileges.php:77
+#: libraries/server_privileges.lib.php:247
+#: libraries/server_privileges.lib.php:969 server_privileges.php:77
 msgid "Allows locking tables for the current thread."
 msgstr "Επιτρέπει το κλείδωμα πινάκων για την τρέχουσα λειτουργία."
 
-#: libraries/server_privileges.lib.php:235
-#: libraries/server_privileges.lib.php:953 server_privileges.php:86
+#: libraries/server_privileges.lib.php:252
+#: libraries/server_privileges.lib.php:982 server_privileges.php:86
 msgid "Needed for the replication slaves."
 msgstr "Απαιτείται για τους δευτερευόντες διακομιστές αναπαραγωγής."
 
-#: libraries/server_privileges.lib.php:239
-#: libraries/server_privileges.lib.php:949 server_privileges.php:85
+#: libraries/server_privileges.lib.php:257
+#: libraries/server_privileges.lib.php:978 server_privileges.php:85
 msgid "Allows the user to ask where the slaves / masters are."
 msgstr ""
 "Δίνει το δικαίωμα στον χρήστη να βρει που είναι οι κύριοι / δευτερεύοντες "
 "διακομιστές."
 
-#: libraries/server_privileges.lib.php:243
-#: libraries/server_privileges.lib.php:256
-#: libraries/server_privileges.lib.php:877
-#: libraries/server_privileges.lib.php:884 server_privileges.php:67
+#: libraries/server_privileges.lib.php:262
+#: libraries/server_privileges.lib.php:278
+#: libraries/server_privileges.lib.php:906
+#: libraries/server_privileges.lib.php:913 server_privileges.php:67
 msgid "Allows creating new views."
 msgstr "Επιτρέπει τη δημιουργία νέων προβολών."
 
-#: libraries/server_privileges.lib.php:247
-#: libraries/server_privileges.lib.php:891 server_privileges.php:71
+#: libraries/server_privileges.lib.php:267
+#: libraries/server_privileges.lib.php:920 server_privileges.php:71
 msgid "Allows to set up events for the event scheduler"
 msgstr "Επιτρέπει τον ορισμό συμβάντων για τον προγραμματιστή συμβάντων"
 
-#: libraries/server_privileges.lib.php:251
-#: libraries/server_privileges.lib.php:895 server_privileges.php:92
+#: libraries/server_privileges.lib.php:272
+#: libraries/server_privileges.lib.php:924 server_privileges.php:92
 msgid "Allows creating and dropping triggers"
 msgstr "Επιτρέπει τη δημιουργία και διαγραφή υποδείξεων"
 
-#: libraries/server_privileges.lib.php:260
-#: libraries/server_privileges.lib.php:265
-#: libraries/server_privileges.lib.php:861 server_privileges.php:89
+#: libraries/server_privileges.lib.php:283
+#: libraries/server_privileges.lib.php:289
+#: libraries/server_privileges.lib.php:890 server_privileges.php:89
 msgid "Allows performing SHOW CREATE VIEW queries."
 msgstr "Επιτρέπει την εκτέλεση ερωτημάτων της μορφής SHOW CREATE VIEW."
 
-#: libraries/server_privileges.lib.php:269
-#: libraries/server_privileges.lib.php:865 server_privileges.php:63
+#: libraries/server_privileges.lib.php:294
+#: libraries/server_privileges.lib.php:894 server_privileges.php:63
 msgid "Allows creating stored routines."
 msgstr "Επιτρέπει τη δημιουργία αποθηκευμένων εργασιών."
 
-#: libraries/server_privileges.lib.php:273
-#: libraries/server_privileges.lib.php:869 server_privileges.php:61
+#: libraries/server_privileges.lib.php:299
+#: libraries/server_privileges.lib.php:898 server_privileges.php:61
 msgid "Allows altering and dropping stored routines."
 msgstr "Επιτρέπει την αλλαγή και διαγραφή αποθηκευμένων εργασιών."
 
-#: libraries/server_privileges.lib.php:277
-#: libraries/server_privileges.lib.php:957 server_privileges.php:66
+#: libraries/server_privileges.lib.php:304
+#: libraries/server_privileges.lib.php:986 server_privileges.php:66
 msgid "Allows creating, dropping and renaming user accounts."
 msgstr "Επιτρέπει τη δημιουργία, διαγραφή και μετονομασία λογαριασμών χρηστών."
 
-#: libraries/server_privileges.lib.php:281
-#: libraries/server_privileges.lib.php:871 server_privileges.php:72
+#: libraries/server_privileges.lib.php:309
+#: libraries/server_privileges.lib.php:900 server_privileges.php:72
 msgid "Allows executing stored routines."
 msgstr "Επιτρέπει την εκτέλεση αποθηκευμένων εργασιών."
 
-#: libraries/server_privileges.lib.php:328
-#: libraries/server_privileges.lib.php:329
+#: libraries/server_privileges.lib.php:357
+#: libraries/server_privileges.lib.php:358
 msgctxt "None privileges"
 msgid "None"
 msgstr "Κανένα"
 
-#: libraries/server_privileges.lib.php:492
+#: libraries/server_privileges.lib.php:521
 msgid "Resource limits"
 msgstr "Όρια πόρων"
 
-#: libraries/server_privileges.lib.php:494
+#: libraries/server_privileges.lib.php:523
 msgid "Note: Setting these options to 0 (zero) removes the limit."
 msgstr ""
 "Σημείωση: Αν ορίσετε αυτές τις επιλογές σε 0 (μηδέν) αφαιρείτε ο περιορισμός."
 
-#: libraries/server_privileges.lib.php:500
-#: libraries/server_privileges.lib.php:508 server_privileges.php:79
+#: libraries/server_privileges.lib.php:529
+#: libraries/server_privileges.lib.php:537 server_privileges.php:79
 msgid "Limits the number of queries the user may send to the server per hour."
 msgstr ""
 "Περιορίζει τον αριθμό των ερωτημάτων που ο χρήστης μπορεί να στείλει στον "
 "διακομιστή ανά ώρα."
 
-#: libraries/server_privileges.lib.php:515
-#: libraries/server_privileges.lib.php:521 server_privileges.php:80
+#: libraries/server_privileges.lib.php:544
+#: libraries/server_privileges.lib.php:550 server_privileges.php:80
 msgid ""
 "Limits the number of commands that change any table or database the user may "
 "execute per hour."
@@ -9933,72 +9934,72 @@ msgstr ""
 "Περιορίζει τον αριθμό των αλλαγής πινάκων ή βάσεων που ο χρήστης μπορεί να "
 "εκετελέσει ανά ώρα."
 
-#: libraries/server_privileges.lib.php:528
-#: libraries/server_privileges.lib.php:533 server_privileges.php:78
+#: libraries/server_privileges.lib.php:557
+#: libraries/server_privileges.lib.php:562 server_privileges.php:78
 msgid "Limits the number of new connections the user may open per hour."
 msgstr ""
 "Περιορίζει τον αριθμό των νέων συνδέσεων που ο χρήστης μπορεί να ξεκινήσει "
 "ανά ώρα."
 
-#: libraries/server_privileges.lib.php:540
-#: libraries/server_privileges.lib.php:548 server_privileges.php:81
+#: libraries/server_privileges.lib.php:569
+#: libraries/server_privileges.lib.php:577 server_privileges.php:81
 msgid "Limits the number of simultaneous connections the user may have."
 msgstr ""
 "Περιορίζει τον αριθμό των ταυτόχρονων συνδέσεων που μπορεί να έχει ο χρήστης."
 
-#: libraries/server_privileges.lib.php:601
-#: libraries/server_privileges.lib.php:775
-#: libraries/server_privileges.lib.php:2224
-#: libraries/server_privileges.lib.php:2236
+#: libraries/server_privileges.lib.php:630
+#: libraries/server_privileges.lib.php:804
+#: libraries/server_privileges.lib.php:2253
+#: libraries/server_privileges.lib.php:2265
 msgid "Table-specific privileges"
 msgstr "Δικαιώματα πινάκων"
 
-#: libraries/server_privileges.lib.php:603
-#: libraries/server_privileges.lib.php:782
-#: libraries/server_privileges.lib.php:2401
+#: libraries/server_privileges.lib.php:632
+#: libraries/server_privileges.lib.php:811
+#: libraries/server_privileges.lib.php:2430
 msgid "Note: MySQL privilege names are expressed in English"
 msgstr "Σημείωση: Τα ονόματα δικαιωμάτων της MySQL εκφράζονται στα Αγγλικά"
 
-#: libraries/server_privileges.lib.php:750
+#: libraries/server_privileges.lib.php:779
 msgid "Administration"
 msgstr "Διαχείριση"
 
-#: libraries/server_privileges.lib.php:771
-#: libraries/server_privileges.lib.php:2399
+#: libraries/server_privileges.lib.php:800
+#: libraries/server_privileges.lib.php:2428
 msgid "Global privileges"
 msgstr "Γενικά δικαιώματα"
 
-#: libraries/server_privileges.lib.php:773
-#: libraries/server_privileges.lib.php:2223
+#: libraries/server_privileges.lib.php:802
+#: libraries/server_privileges.lib.php:2252
 msgid "Database-specific privileges"
 msgstr "Δικαιώματα βάσης δεδομένων"
 
-#: libraries/server_privileges.lib.php:840 server_privileges.php:64
+#: libraries/server_privileges.lib.php:869 server_privileges.php:64
 msgid "Allows creating new tables."
 msgstr "Επιτρέπει τη δημιουργία νέων πινάκων."
 
-#: libraries/server_privileges.lib.php:852 server_privileges.php:70
+#: libraries/server_privileges.lib.php:881 server_privileges.php:70
 msgid "Allows dropping tables."
 msgstr "Επιτρέπει τη διαγραφή πινάκων."
 
-#: libraries/server_privileges.lib.php:913 server_privileges.php:74
+#: libraries/server_privileges.lib.php:942 server_privileges.php:74
 msgid ""
 "Allows adding users and privileges without reloading the privilege tables."
 msgstr ""
 "Επιτρέπει την προσθήκη χρηστών και δικαιωμάτων χωρίς να επαναφορτώσετε τους "
 "πίνακες δικαιωμάτων."
 
-#: libraries/server_privileges.lib.php:1021
+#: libraries/server_privileges.lib.php:1050
 msgid "Login Information"
 msgstr "Πληροφορίες Σύνδεσης"
 
-#: libraries/server_privileges.lib.php:1053
-#: libraries/server_privileges.lib.php:1214
-#: libraries/server_privileges.lib.php:2349
+#: libraries/server_privileges.lib.php:1082
+#: libraries/server_privileges.lib.php:1243
+#: libraries/server_privileges.lib.php:2378
 msgid "Use text field"
 msgstr "Χρησιμοποιήστε το πεδίο κειμένου"
 
-#: libraries/server_privileges.lib.php:1074
+#: libraries/server_privileges.lib.php:1103
 msgid ""
 "An account already exists with the same username but possibly a different "
 "hostname. Are you sure you wish to proceed?"
@@ -10006,109 +10007,109 @@ msgstr ""
 "Ένας λογαριασμός με το ίδιο όνομα χρήστη υπάρχει ήδη αλλά πιθανά διαφορετικό "
 "φιλοξενητή. Θέλετε να συνεχίσετε;"
 
-#: libraries/server_privileges.lib.php:1204
+#: libraries/server_privileges.lib.php:1233
 msgid "Do not change the password"
 msgstr "Διατήρηση κωδικού πρόσβασης"
 
-#: libraries/server_privileges.lib.php:1345
+#: libraries/server_privileges.lib.php:1374
 #, php-format
 msgid "The password for %s was changed successfully."
 msgstr "Ο κωδικός πρόσβασης για τον χρήστη %s άλλαξε επιτυχώς."
 
-#: libraries/server_privileges.lib.php:1387
+#: libraries/server_privileges.lib.php:1416
 #, php-format
 msgid "You have revoked the privileges for %s"
 msgstr "Ανακαλέσατε τα δικαιώματα για %s"
 
-#: libraries/server_privileges.lib.php:1447
+#: libraries/server_privileges.lib.php:1476
 msgid "Database for user"
 msgstr "Βάση δεδομένων για χρήστη"
 
-#: libraries/server_privileges.lib.php:1451
+#: libraries/server_privileges.lib.php:1480
 msgid "Create database with same name and grant all privileges"
 msgstr ""
 "Δημιουργία βάσης δεδομένων με το ίδιο όνομα και με πλήρη δικαιώματα χρήσης"
 
-#: libraries/server_privileges.lib.php:1457
+#: libraries/server_privileges.lib.php:1486
 msgid "Grant all privileges on wildcard name (username\\_%)"
 msgstr "Πλήρη δικαιώματα σε όνομα μπαλαντέρ (username\\_%)"
 
-#: libraries/server_privileges.lib.php:1465
+#: libraries/server_privileges.lib.php:1494
 #, php-format
 msgid "Grant all privileges on database &quot;%s&quot;"
 msgstr "Πλήρη δικαιώματα στη βάση δεδομένων «%s»"
 
-#: libraries/server_privileges.lib.php:1560
+#: libraries/server_privileges.lib.php:1589
 #, php-format
 msgid "Users having access to &quot;%s&quot;"
 msgstr "Χρήστες με πρόσβαση στη βάση «%s»"
 
-#: libraries/server_privileges.lib.php:1571
-#: libraries/server_privileges.lib.php:2396
-#: libraries/server_privileges.lib.php:2814
-#: libraries/server_privileges.lib.php:2862 server_status.php:371
+#: libraries/server_privileges.lib.php:1600
+#: libraries/server_privileges.lib.php:2425
+#: libraries/server_privileges.lib.php:2843
+#: libraries/server_privileges.lib.php:2891 server_status.php:371
 msgid "User"
 msgstr "Χρήστης"
 
-#: libraries/server_privileges.lib.php:1575
-#: libraries/server_privileges.lib.php:2233
-#: libraries/server_privileges.lib.php:2404
+#: libraries/server_privileges.lib.php:1604
+#: libraries/server_privileges.lib.php:2262
+#: libraries/server_privileges.lib.php:2433
 msgid "Grant"
 msgstr "Χορήγηση"
 
-#: libraries/server_privileges.lib.php:1610
+#: libraries/server_privileges.lib.php:1639
 msgid "User has been added."
 msgstr "Ο χρήστης προστέθηκε."
 
-#: libraries/server_privileges.lib.php:1618
+#: libraries/server_privileges.lib.php:1647
 msgctxt "Create new user"
 msgid "New"
 msgstr "Νέος"
 
-#: libraries/server_privileges.lib.php:1674
-#: libraries/server_privileges.lib.php:1840
-#: libraries/server_privileges.lib.php:2473
+#: libraries/server_privileges.lib.php:1703
+#: libraries/server_privileges.lib.php:1869
+#: libraries/server_privileges.lib.php:2502
 msgid "Any"
 msgstr "Οποιοδήποτε"
 
-#: libraries/server_privileges.lib.php:1689
+#: libraries/server_privileges.lib.php:1718
 msgid "global"
 msgstr "γενικός"
 
-#: libraries/server_privileges.lib.php:1695
+#: libraries/server_privileges.lib.php:1724
 msgid "database-specific"
 msgstr "σχετιζόμενος με βάση δεδομένων"
 
-#: libraries/server_privileges.lib.php:1697
+#: libraries/server_privileges.lib.php:1726
 msgid "wildcard"
 msgstr "μπαλαντέρ"
 
-#: libraries/server_privileges.lib.php:1744 server_privileges.php:165
+#: libraries/server_privileges.lib.php:1773 server_privileges.php:165
 msgid "No user found."
 msgstr "Δεν βρέθηκαν χρήστες."
 
-#: libraries/server_privileges.lib.php:1770
+#: libraries/server_privileges.lib.php:1799
 msgid "Edit Privileges"
 msgstr "Επεξεργασία Δικαιωμάτων"
 
-#: libraries/server_privileges.lib.php:1781
+#: libraries/server_privileges.lib.php:1810
 msgid "Revoke"
 msgstr "Ανάκληση"
 
-#: libraries/server_privileges.lib.php:1940
+#: libraries/server_privileges.lib.php:1969
 msgid "… keep the old one."
 msgstr "… διατήρηση του παλιού χρήστη."
 
-#: libraries/server_privileges.lib.php:1941
+#: libraries/server_privileges.lib.php:1970
 msgid "… delete the old one from the user tables."
 msgstr "… διαγραφή του παλιού χρήστη από τους πίνακες χρηστών."
 
-#: libraries/server_privileges.lib.php:1942
+#: libraries/server_privileges.lib.php:1971
 msgid ""
 "… revoke all active privileges from the old one and delete it afterwards."
 msgstr "… ανάκληση των δικαιωμάτων του παλιού χρήστη και διαγραφή του."
 
-#: libraries/server_privileges.lib.php:1943
+#: libraries/server_privileges.lib.php:1972
 msgid ""
 "… delete the old one from the user tables and reload the privileges "
 "afterwards."
@@ -10116,78 +10117,78 @@ msgstr ""
 "… διαγραφή του παλιού χρήστη από τους πίνακες χρηστών και επαναφόρτωση των "
 "δικαιωμάτων."
 
-#: libraries/server_privileges.lib.php:1954
+#: libraries/server_privileges.lib.php:1983
 msgid "Change Login Information / Copy User"
 msgstr "Αλλαγή Στοιχείων Πρόσβασης / Αντιγραφή Χρήστη"
 
-#: libraries/server_privileges.lib.php:1960
+#: libraries/server_privileges.lib.php:1989
 msgid "Create a new user with the same privileges and …"
 msgstr "Δημιουργία νέου χρήστη με τα ίδια δικαιώματα και …"
 
-#: libraries/server_privileges.lib.php:2237
+#: libraries/server_privileges.lib.php:2266
 msgid "Column-specific privileges"
 msgstr "Δικαιώματα πεδίων"
 
-#: libraries/server_privileges.lib.php:2288
+#: libraries/server_privileges.lib.php:2317
 msgid "Add privileges on the following database:"
 msgstr "Προσθήκη δικαιωμάτων στην ακόλουθη βάση δεδομένων:"
 
-#: libraries/server_privileges.lib.php:2309
+#: libraries/server_privileges.lib.php:2338
 msgid "Wildcards % and _ should be escaped with a \\ to use them literally"
 msgstr ""
 "Οι χαρακτήρες μπαλαντέρ _ και % πρέπει να γραφούν μπροστά με \\ για να "
 "χρησιμοποιηθούν"
 
-#: libraries/server_privileges.lib.php:2327
+#: libraries/server_privileges.lib.php:2356
 msgid "Add privileges on the following table:"
 msgstr "Προσθήκη δεδομένων στον ακόλουθο πίνακα:"
 
-#: libraries/server_privileges.lib.php:2544
+#: libraries/server_privileges.lib.php:2573
 msgid "Remove selected users"
 msgstr "Διαγραφή των επιλεγμένων χρηστών"
 
-#: libraries/server_privileges.lib.php:2548
+#: libraries/server_privileges.lib.php:2577
 msgid "Revoke all active privileges from the users and delete them afterwards."
 msgstr ""
 "Ανάκληση όλων των ενεργών δικαιώματα από τους χρήστες και διαγραφή τους."
 
-#: libraries/server_privileges.lib.php:2552
-#: libraries/server_privileges.lib.php:2556
-#: libraries/server_privileges.lib.php:2557
+#: libraries/server_privileges.lib.php:2581
+#: libraries/server_privileges.lib.php:2585
+#: libraries/server_privileges.lib.php:2586
 msgid "Drop the databases that have the same names as the users."
 msgstr "Διαγραφή βάσεων δεδομένων που έχουν ίδια ονόματα με χρήστες."
 
-#: libraries/server_privileges.lib.php:2688
+#: libraries/server_privileges.lib.php:2717
 msgid "No users selected for deleting!"
 msgstr "Δεν επιλέχθηκαν χρήστες για διαγραφή!"
 
-#: libraries/server_privileges.lib.php:2691
+#: libraries/server_privileges.lib.php:2720
 msgid "Reloading the privileges"
 msgstr "Επαναφόρτωση δικαιωμάτων"
 
-#: libraries/server_privileges.lib.php:2710
+#: libraries/server_privileges.lib.php:2739
 msgid "The selected users have been deleted successfully."
 msgstr "Οι επιλεγμένοι χρήστες διεγράφησαν επιτυχώς."
 
-#: libraries/server_privileges.lib.php:2776
+#: libraries/server_privileges.lib.php:2805
 #, php-format
 msgid "You have updated the privileges for %s."
 msgstr "Τα δικαιώματα του χρήστη %s ενημερώθηκαν."
 
-#: libraries/server_privileges.lib.php:2805
+#: libraries/server_privileges.lib.php:2834
 #, php-format
 msgid "Privileges for %s"
 msgstr "Δικαιώματα για %s"
 
-#: libraries/server_privileges.lib.php:2861
+#: libraries/server_privileges.lib.php:2890
 msgid "Edit Privileges:"
 msgstr "Επεξεργασία Δικαιωμάτων:"
 
-#: libraries/server_privileges.lib.php:2915
+#: libraries/server_privileges.lib.php:2944
 msgid "Users overview"
 msgstr "Επισκόπηση χρηστών"
 
-#: libraries/server_privileges.lib.php:2990
+#: libraries/server_privileges.lib.php:3019
 #, php-format
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
@@ -10201,11 +10202,11 @@ msgstr ""
 "αλλαγές χειροκίνητα. Σε αυτήν την περίπτωση, θα πρέπει να %sεπαναφορτώσετε "
 "τα δικαιώματα%s πριν συνεχίσετε."
 
-#: libraries/server_privileges.lib.php:3035
+#: libraries/server_privileges.lib.php:3064
 msgid "The selected user was not found in the privilege table."
 msgstr "Ο επιλεγμένος χρήστης δεν βρέθηκε στον πίνακα δικαιωμάτων."
 
-#: libraries/server_privileges.lib.php:3248
+#: libraries/server_privileges.lib.php:3277
 msgid "You have added a new user."
 msgstr "Προσθέσατε ένα νέο χρήστη."
 
@@ -11231,11 +11232,11 @@ msgstr "Ο σελιδοδείκτης δεν δημιουργήθηκε"
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr "Χρήση του σελιδοδείκτη «%s» ως προεπιλεγμένο ερώτημα φυλλομετρητή."
 
-#: libraries/sql.lib.php:1540
+#: libraries/sql.lib.php:1541
 msgid "Showing as PHP code"
 msgstr "Εμφάνιση ως κώδικά PHP"
 
-#: libraries/sql.lib.php:1545
+#: libraries/sql.lib.php:1546
 msgid "Validated SQL"
 msgstr "Επικυρωμένη SQL"
 
@@ -11324,19 +11325,19 @@ msgstr "BEGIN RAW"
 msgid "END RAW"
 msgstr "END RAW"
 
-#: libraries/sqlparser.lib.php:403
+#: libraries/sqlparser.lib.php:398
 msgid "Automatically appended backtick to the end of query!"
 msgstr "Αυτόματη επισύναψη οπισθοστίγματος στο τέλος του ερωτήματος!"
 
-#: libraries/sqlparser.lib.php:407
+#: libraries/sqlparser.lib.php:402
 msgid "Unclosed quote"
 msgstr "Ανοιχτά εισαγωγικά"
 
-#: libraries/sqlparser.lib.php:575
+#: libraries/sqlparser.lib.php:570
 msgid "Invalid Identifer"
 msgstr "Άγνωστο Αναγνωριστικό"
 
-#: libraries/sqlparser.lib.php:693
+#: libraries/sqlparser.lib.php:688
 msgid "Unknown Punctuation String"
 msgstr "Άγνωστο σημείο στίξης"
 
@@ -11396,169 +11397,169 @@ msgstr "Επιλογή πινάκων με περίσσεια"
 msgid "Sort"
 msgstr "Ταξινόμηση"
 
-#: libraries/structure.lib.php:1283 tbl_tracking.php:360
+#: libraries/structure.lib.php:1279 tbl_tracking.php:360
 msgctxt "None for default"
 msgid "None"
 msgstr "Καμία"
 
-#: libraries/structure.lib.php:1333
+#: libraries/structure.lib.php:1329
 #, php-format
 msgid "Column %s has been dropped"
 msgstr "Η στήλη %s διεγράφη"
 
-#: libraries/structure.lib.php:1387 libraries/structure.lib.php:2062
-#: libraries/structure.lib.php:2072
+#: libraries/structure.lib.php:1383 libraries/structure.lib.php:2058
+#: libraries/structure.lib.php:2068
 #: libraries/tbl_columns_definition_form.inc.php:562
 msgid "Primary"
 msgstr "Πρωτεύον"
 
-#: libraries/structure.lib.php:1395 libraries/structure.lib.php:2064
-#: libraries/structure.lib.php:2074 libraries/structure.lib.php:2182
+#: libraries/structure.lib.php:1391 libraries/structure.lib.php:2060
+#: libraries/structure.lib.php:2070 libraries/structure.lib.php:2178
 #: libraries/tbl_columns_definition_form.inc.php:123
 #: libraries/tbl_columns_definition_form.inc.php:576 tbl_printview.php:306
 msgid "Index"
 msgstr "Ευρετήριο"
 
-#: libraries/structure.lib.php:1402 libraries/structure.lib.php:2068
-#: libraries/structure.lib.php:2078
+#: libraries/structure.lib.php:1398 libraries/structure.lib.php:2064
+#: libraries/structure.lib.php:2074
 msgid "Spatial"
 msgstr "Χωρική"
 
-#: libraries/structure.lib.php:1412 libraries/structure.lib.php:2070
-#: libraries/structure.lib.php:2080
+#: libraries/structure.lib.php:1408 libraries/structure.lib.php:2066
+#: libraries/structure.lib.php:2076
 #: libraries/tbl_columns_definition_form.inc.php:584
 msgid "Fulltext"
 msgstr "Πλήρες κείμενο"
 
-#: libraries/structure.lib.php:1427 libraries/structure.lib.php:1523
+#: libraries/structure.lib.php:1423 libraries/structure.lib.php:1519
 msgid "Move columns"
 msgstr "Απομάκρυνση στήλης"
 
-#: libraries/structure.lib.php:1430
+#: libraries/structure.lib.php:1426
 msgid "Move the columns by dragging them up and down."
 msgstr "Μετακινήστε τις στήλες, σύροντας τες επάνω και κάτω."
 
-#: libraries/structure.lib.php:1464
+#: libraries/structure.lib.php:1460
 msgid "Edit view"
 msgstr "Επεξεργασία εμφάνισης"
 
-#: libraries/structure.lib.php:1497
+#: libraries/structure.lib.php:1493
 msgid "Relation view"
 msgstr "Εμφάνιση συσχετίσεων"
 
-#: libraries/structure.lib.php:1509
+#: libraries/structure.lib.php:1505
 msgid "Propose table structure"
 msgstr "Προτεινόμενη δομή πίνακα"
 
-#: libraries/structure.lib.php:1545
+#: libraries/structure.lib.php:1541
 #: libraries/tbl_columns_definition_form.inc.php:758
 msgid "You have to add at least one column."
 msgstr "Πρέπει να προσθέσετε τουλάχιστον ένα πεδίο."
 
-#: libraries/structure.lib.php:1560
+#: libraries/structure.lib.php:1556
 msgid "Add column"
 msgstr "Προσθήκη στήλης"
 
-#: libraries/structure.lib.php:1565
+#: libraries/structure.lib.php:1561
 #: libraries/tbl_columns_definition_form.inc.php:748
 #, php-format
 msgid "Add %s column(s)"
 msgstr "Προσθήκη %s στήλης(ών)"
 
-#: libraries/structure.lib.php:1582
+#: libraries/structure.lib.php:1578
 msgid "At End of Table"
 msgstr "Στο τέλος του Πίνακα"
 
-#: libraries/structure.lib.php:1583
+#: libraries/structure.lib.php:1579
 msgid "At Beginning of Table"
 msgstr "Στην αρχή του Πίνακα"
 
-#: libraries/structure.lib.php:1584
+#: libraries/structure.lib.php:1580
 #, php-format
 msgid "After %s"
 msgstr "Μετά το %s"
 
-#: libraries/structure.lib.php:1678
+#: libraries/structure.lib.php:1674
 msgid "Row statistics"
 msgstr "Στατιστικά εγγραφών"
 
-#: libraries/structure.lib.php:1683 tbl_printview.php:353
+#: libraries/structure.lib.php:1679 tbl_printview.php:353
 msgid "static"
 msgstr "στατικό"
 
-#: libraries/structure.lib.php:1685 tbl_printview.php:355
+#: libraries/structure.lib.php:1681 tbl_printview.php:355
 msgid "dynamic"
 msgstr "δυναμικά"
 
-#: libraries/structure.lib.php:1696
+#: libraries/structure.lib.php:1692
 msgid "partitioned"
 msgstr "κατατμήθηκε"
 
-#: libraries/structure.lib.php:1733 tbl_printview.php:376
+#: libraries/structure.lib.php:1729 tbl_printview.php:376
 msgid "Row length"
 msgstr "Μέγεθος γραμμής"
 
-#: libraries/structure.lib.php:1746 tbl_printview.php:390
+#: libraries/structure.lib.php:1742 tbl_printview.php:390
 msgid "Row size"
 msgstr "Μέγεθος εγγραφής"
 
-#: libraries/structure.lib.php:1754 tbl_printview.php:399
+#: libraries/structure.lib.php:1750 tbl_printview.php:399
 msgid "Next autoindex"
 msgstr "Επόμενη αυτόματη αρίθμηση"
 
-#: libraries/structure.lib.php:1880 libraries/structure.lib.php:1961
-#: libraries/structure.lib.php:1969 libraries/structure.lib.php:1986
+#: libraries/structure.lib.php:1876 libraries/structure.lib.php:1957
+#: libraries/structure.lib.php:1965 libraries/structure.lib.php:1982
 #, php-format
 msgid "An index has been added on %s"
 msgstr "Ένα ευρετήριο προστέθηκε στο %s"
 
-#: libraries/structure.lib.php:1951
+#: libraries/structure.lib.php:1947
 #, php-format
 msgid "A primary key has been added on %s"
 msgstr "Ένα πρωτεύον κλειδί προστέθηκε στο %s"
 
-#: libraries/structure.lib.php:2011 libraries/structure.lib.php:2082
+#: libraries/structure.lib.php:2007 libraries/structure.lib.php:2078
 msgid "Distinct values"
 msgstr "Διακριτές τιμές"
 
-#: libraries/structure.lib.php:2014 libraries/structure.lib.php:2017
+#: libraries/structure.lib.php:2010 libraries/structure.lib.php:2013
 msgid "Add primary key"
 msgstr "Προσθήκη πρωτεύοντος κλειδιού"
 
-#: libraries/structure.lib.php:2026 libraries/structure.lib.php:2029
+#: libraries/structure.lib.php:2022 libraries/structure.lib.php:2025
 msgid "Add unique index"
 msgstr "Προσθήκη μοναδικού ευρετηρίου"
 
-#: libraries/structure.lib.php:2032 libraries/structure.lib.php:2035
+#: libraries/structure.lib.php:2028 libraries/structure.lib.php:2031
 msgid "Add SPATIAL index"
 msgstr "Προσθήκη ευρετηρίου SPATIAL"
 
-#: libraries/structure.lib.php:2038 libraries/structure.lib.php:2041
+#: libraries/structure.lib.php:2034 libraries/structure.lib.php:2037
 msgid "Add FULLTEXT index"
 msgstr "Προσθήκη ευρετηρίου FULLTEXT"
 
-#: libraries/structure.lib.php:2172
+#: libraries/structure.lib.php:2168
 msgid "Space usage"
 msgstr "Χρήση χώρου"
 
-#: libraries/structure.lib.php:2192 tbl_printview.php:322
+#: libraries/structure.lib.php:2188 tbl_printview.php:322
 msgid "Effective"
 msgstr "Αποτελεσματικός"
 
-#: libraries/structure.lib.php:2373 tbl_addfield.php:96 tbl_indexes.php:112
+#: libraries/structure.lib.php:2369 tbl_addfield.php:96 tbl_indexes.php:112
 #, php-format
 msgid "Table %1$s has been altered successfully"
 msgstr "Ο πίνακας %1$s αλλάχτηκε επιτυχώς"
 
-#: libraries/structure.lib.php:2421 tbl_tracking.php:458 tbl_tracking.php:482
+#: libraries/structure.lib.php:2417 tbl_tracking.php:458 tbl_tracking.php:482
 msgid "Query error"
 msgstr "Σφάλμα ερωτήματος"
 
-#: libraries/structure.lib.php:2517
+#: libraries/structure.lib.php:2513
 msgid "The columns have been moved successfully."
 msgstr "Οι στήλες μετακινήθηκαν επιτυχώς."
 
-#: libraries/structure.lib.php:2565
+#: libraries/structure.lib.php:2561
 #, php-format
 msgid "The column name '%s' is a MySQL reserved keyword."
 msgstr "Το όνομα στήλης «%s» είναι μια δεσμευμένη λέξη-κλειδί MySQL."
@@ -11713,7 +11714,7 @@ msgstr ""
 msgid "Could not save configuration"
 msgstr "Αδύνατη η αποθήκευση ρυθμίσεων"
 
-#: libraries/user_preferences.lib.php:276
+#: libraries/user_preferences.lib.php:280
 msgid ""
 "Your browser has phpMyAdmin configuration for this domain. Would you like to "
 "import it for current session?"
@@ -12322,34 +12323,27 @@ msgstr "Προσθήκη ενός νέου διακομιστή"
 msgid "Wrong GET file attribute value"
 msgstr "Εσφαλμένη τιμή ιδιότητας αρχείου GET"
 
-#: setup/lib/form_processing.lib.php:45
+#: setup/lib/form_processing.lib.php:48
 msgid "Warning"
 msgstr "Προειδοποίηση"
 
-#: setup/lib/form_processing.lib.php:46
+#: setup/lib/form_processing.lib.php:49
 msgid "Submitted form contains errors"
 msgstr "Η υποβλειθείσα φόρμα περιέχει σφάλματα"
 
-#: setup/lib/form_processing.lib.php:47
+#: setup/lib/form_processing.lib.php:50
 msgid "Try to revert erroneous fields to their default values"
 msgstr "Δοκιμή μετατροπής εσφαλμένων πεδίων στις προεπιλεγμένες τιμές τους"
 
-#: setup/lib/form_processing.lib.php:50
+#: setup/lib/form_processing.lib.php:53
 msgid "Ignore errors"
 msgstr "Παράβλεψη σφαλμάτων"
 
-#: setup/lib/form_processing.lib.php:52
+#: setup/lib/form_processing.lib.php:55
 msgid "Show form"
 msgstr "Εμφάνιση φόρμας"
 
-#: setup/lib/index.lib.php:133
-msgid ""
-"Neither URL wrapper nor CURL is available. Version check is not possible."
-msgstr ""
-"Ούτε διεύθυνση URL ούτε CURL είναι διαθέσιμα. Ο έλεγχος της έκδοσης δεν "
-"είναι δυνατό να γίνει."
-
-#: setup/lib/index.lib.php:144
+#: setup/lib/index.lib.php:118
 msgid ""
 "Reading of version failed. Maybe you're offline or the upgrade server does "
 "not respond."
@@ -12357,15 +12351,15 @@ msgstr ""
 "Η ανάγνωση της έκδοσης απέτυχε. Ίσως είστε εκτός δικτύου ή ο αναβαθμισμένος "
 "διακομιστής δεν αποκρίνεται."
 
-#: setup/lib/index.lib.php:165
+#: setup/lib/index.lib.php:132
 msgid "Got invalid version string from server"
 msgstr "Ελήφθει μη έγκυρη έκδοση από τον διακομιστή"
 
-#: setup/lib/index.lib.php:176
+#: setup/lib/index.lib.php:143
 msgid "Unparsable version string"
 msgstr "Μη αναγνώσιμος αριθμός έκδοσης"
 
-#: setup/lib/index.lib.php:196
+#: setup/lib/index.lib.php:163
 #, php-format
 msgid ""
 "You are using Git version, run [kbd]git pull[/kbd] :-)[br]The latest stable "
@@ -12374,11 +12368,11 @@ msgstr ""
 "Χρησιμοποιείτε έκδοση Git, τρέξτε το [kbd]git pull[/kbd] :-)[br]Η τελευταία "
 "σταθερή έκδοση είναι %s, δημοσιεύτηκε την %s."
 
-#: setup/lib/index.lib.php:203
+#: setup/lib/index.lib.php:170
 msgid "No newer stable version is available"
 msgstr "Δεν υπάρχει νεότερη σταθερή έκδοση διαθέσιμη"
 
-#: setup/lib/index.lib.php:298
+#: setup/lib/index.lib.php:216
 #, php-format
 msgid ""
 "This %soption%s should be disabled as it allows attackers to bruteforce "
@@ -12392,7 +12386,7 @@ msgstr ""
 "προστασία με βάση την IP ίσως να μην είναι αξιόπιστη γιατί μπορεί η IP σας "
 "να ανήκει σε πάροχο με χιλιάδες χρήστες."
 
-#: setup/lib/index.lib.php:300
+#: setup/lib/index.lib.php:218
 msgid ""
 "You didn't have blowfish secret set and have enabled cookie authentication, "
 "so a key was automatically generated for you. It is used to encrypt cookies; "
@@ -12402,7 +12396,7 @@ msgstr ""
 "Έτσι δημιουργήθηκε αυτόματα ένα κλειδί για σας. Χρησιμοποιήθηκε για την "
 "κρυπτογράφηση cookies. Δεν χρειάζεται να το θυμάστε."
 
-#: setup/lib/index.lib.php:301
+#: setup/lib/index.lib.php:219
 #, php-format
 msgid ""
 "%sBzip2 compression and decompression%s requires functions (%s) which are "
@@ -12411,7 +12405,7 @@ msgstr ""
 "Η %sσυμπίεση και αποσυμπίεση Bzip2%s απαιτεί συναρτήσεις (%s) που δεν είναι "
 "διαθέσιμες σε αυτό το σύστημα."
 
-#: setup/lib/index.lib.php:303
+#: setup/lib/index.lib.php:221
 msgid ""
 "This value should be double checked to ensure that this directory is neither "
 "world accessible nor readable or writable by other users on your server."
@@ -12420,14 +12414,14 @@ msgstr ""
 "είναι καθολικά προσβάσιμος ούτε αναγνώσιμος ούτε εγγράψιμος από άλλους "
 "χρήστες στο διακομιστή σας."
 
-#: setup/lib/index.lib.php:304
+#: setup/lib/index.lib.php:222
 #, php-format
 msgid "This %soption%s should be enabled if your web server supports it."
 msgstr ""
 "Αυτή η %sεπιλογή%s πρέπει να ενεργοποιηθεί αν ο διακομιστής σας το "
 "υποστηρίζει."
 
-#: setup/lib/index.lib.php:306
+#: setup/lib/index.lib.php:224
 #, php-format
 msgid ""
 "%sGZip compression and decompression%s requires functions (%s) which are "
@@ -12436,7 +12430,7 @@ msgstr ""
 "Η %sσυμπίεση και αποσυμπίεση GZip%s απαιτεί συναρτήσεις (%s) που δεν είναι "
 "διαθέσιμες σε αυτό το σύστημα."
 
-#: setup/lib/index.lib.php:308
+#: setup/lib/index.lib.php:226
 #, php-format
 msgid ""
 "%sLogin cookie validity%s greater than 1440 seconds may cause random session "
@@ -12447,7 +12441,7 @@ msgstr ""
 "μπορεί να προκαλέσει τυχαία ακύρωση συνεδρίας αν το %ssession.gc_maxlifetime"
 "%s είναι μικρότερο από την τιμή της (τρέχουσα: %d)."
 
-#: setup/lib/index.lib.php:310
+#: setup/lib/index.lib.php:228
 #, php-format
 msgid ""
 "%sLogin cookie validity%s should be set to 1800 seconds (30 minutes) at "
@@ -12457,7 +12451,7 @@ msgstr ""
 "λεπτά) το περισσότερο. Τιμές μεγαλύτερες από 1800 μπορεί να ελοχεύει "
 "κινδύνους απροσωποληψίας."
 
-#: setup/lib/index.lib.php:312
+#: setup/lib/index.lib.php:230
 #, php-format
 msgid ""
 "If using cookie authentication and %sLogin cookie store%s is not 0, %sLogin "
@@ -12467,7 +12461,7 @@ msgstr ""
 "δεν είναι 0, η %sεγκυρότητα Σύνδεσης cookie%s πρέπει να οριστεί σε μια τιμή "
 "μικρότερη ή ίση με αυτή."
 
-#: setup/lib/index.lib.php:314
+#: setup/lib/index.lib.php:232
 #, php-format
 msgid ""
 "If you feel this is necessary, use additional protection settings - %shost "
@@ -12480,7 +12474,7 @@ msgstr ""
 "διακομιστών%s. Ωστόσο, η βασισμένη στις ΙΡ προστασία δεν είναι αξιόπιστη αν "
 "ο πάροχός έχει χιλιάδες χρήστες που συνδέονται."
 
-#: setup/lib/index.lib.php:316
+#: setup/lib/index.lib.php:234
 #, php-format
 msgid ""
 "You set the [kbd]config[/kbd] authentication type and included username and "
@@ -12495,7 +12489,7 @@ msgstr ""
 "άμεση πρόσβαση. Ορίστε τον %sτύπο πιστοποίησης%s σε [kbd]cookie[/kbd] ή "
 "[kbd]http[/kbd]."
 
-#: setup/lib/index.lib.php:318
+#: setup/lib/index.lib.php:236
 #, php-format
 msgid ""
 "%sZip compression%s requires functions (%s) which are unavailable on this "
@@ -12504,7 +12498,7 @@ msgstr ""
 "Η %sσυμπίεση Zip%s απαιτεί συναρτήσεις (%s) που δεν είναι διαθέσιμες σε αυτό "
 "το σύστημα."
 
-#: setup/lib/index.lib.php:320
+#: setup/lib/index.lib.php:238
 #, php-format
 msgid ""
 "%sZip decompression%s requires functions (%s) which are unavailable on this "
@@ -12513,26 +12507,26 @@ msgstr ""
 "Η %sαποσυμπίεση Zip%s απαιτεί συναρτήσεις (%s) που δεν είναι διαθέσιμες σε "
 "αυτό το σύστημα."
 
-#: setup/lib/index.lib.php:348
+#: setup/lib/index.lib.php:266
 msgid "You should use SSL connections if your database server supports it."
 msgstr ""
 "Πρέπει να χρησιμοποιήσετε συνδέσεις SSL αν ο διακομιστής ιστού σας τις "
 "υποστηρίζει."
 
-#: setup/lib/index.lib.php:363
+#: setup/lib/index.lib.php:281
 msgid "You should use mysqli for performance reasons."
 msgstr "Πρέπει να χρησιμοποιείτε την mysqli για λόγους απόδοσης."
 
-#: setup/lib/index.lib.php:400
+#: setup/lib/index.lib.php:318
 msgid "You allow for connecting to the server without a password."
 msgstr "Επιτρέπετε την σύνδεση στο διακομιστή χωρίς κωδικό πρόσβασης."
 
-#: setup/lib/index.lib.php:424
+#: setup/lib/index.lib.php:342
 msgid "Key is too short, it should have at least 8 characters."
 msgstr ""
 "Το κλειδί είναι πολύ μικρό γιατί πρέπει να έχει τουλάχιστον 8 χαρακτήρες."
 
-#: setup/lib/index.lib.php:431
+#: setup/lib/index.lib.php:349
 msgid "Key should contain letters, numbers [em]and[/em] special characters."
 msgstr ""
 "Το κλειδί πρέπει να περιέχει γράμματα, αριθμούς [em]και[/em] ειδικούς "
@@ -14246,6 +14240,12 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "Το concurrent_insert έχει οριστεί στο 0"
+
+#~ msgid ""
+#~ "Neither URL wrapper nor CURL is available. Version check is not possible."
+#~ msgstr ""
+#~ "Ούτε διεύθυνση URL ούτε CURL είναι διαθέσιμα. Ο έλεγχος της έκδοσης δεν "
+#~ "είναι δυνατό να γίνει."
 
 #~ msgid "Find"
 #~ msgstr "Εύρεση"
