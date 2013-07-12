@@ -216,10 +216,16 @@ foreach ($view_sql_security_options as $option) {
 $htmlString .= '<select>'
     . '</td></tr>';
 
-$htmlString .= '<tr><td>' . __('VIEW name') . '</td>'
-    . '<td><input type="text" size="20" name="view[name]" onfocus="this.select()"'
-    . ' value="' . htmlspecialchars($view['name']) . '" />'
-    . '</td></tr>';
+if ($view['operation'] == 'create') {
+    $htmlString .= '<tr><td>' . __('VIEW name') . '</td>'
+        . '<td><input type="text" size="20" name="view[name]" onfocus="this.select()"'
+        . ' value="' . htmlspecialchars($view['name']) . '" />'
+        . '</td></tr>';
+} else {
+    $htmlString .= '<tr><td><input type="hidden" name="view[name]"'
+        . ' value="' . htmlspecialchars($view['name']) . '" />'
+        . '</td></tr>';
+}
 
 $htmlString .= '<tr><td>' . __('Column names') . '</td>'
     . '<td><input type="text" maxlength="100" size="50" name="view[column_names]"'
