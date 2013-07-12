@@ -26,6 +26,11 @@ $header   = $response->getHeader();
 $scripts  = $header->getScripts();
 $scripts->addFile('server_privileges.js');
 
+if ($GLOBALS['cfgRelation']['menuswork']) {
+    $response->addHTML('<div>');
+    $response->addHTML(PMA_getHtmlForSubMenusOnUsersPage('server_privileges.php'));
+}
+
 $_add_user_error = false;
 
 if (isset ($_REQUEST['username'])) {
@@ -282,30 +287,6 @@ if (! empty($_REQUEST['changeUserGroup']) && $cfgRelation['menuswork']) {
 }
 
 /**
- * Delete user group
- */
-if (! empty($_REQUEST['deleteUserGroup']) && $cfgRelation['menuswork']) {
-    PMA_deleteUserGroup($_REQUEST['userGroup']);
-    $message = PMA_Message::success();
-}
-
-/**
- * Add a new user group
- */
-if (! empty($_REQUEST['addUserGroupSubmit']) && $cfgRelation['menuswork']) {
-    PMA_editUserGroup($_REQUEST['userGroup'], true);
-    $message = PMA_Message::success();
-}
-
-/**
- * Update a user group
- */
-if (! empty($_REQUEST['editUserGroupSubmit']) && $cfgRelation['menuswork']) {
-    PMA_editUserGroup($_REQUEST['userGroup']);
-    $message = PMA_Message::success();
-}
-
-/**
  * Revokes Privileges
  */
 if (isset($_REQUEST['revokeall'])) {
@@ -483,8 +464,6 @@ if (isset($_REQUEST['export'])
 }
 
 if (empty($_REQUEST['adduser'])
-    && empty($_REQUEST['addUserGroup'])
-    && empty($_REQUEST['editUserGroup'])
     && (! isset($_REQUEST['checkprivs'])
     || ! strlen($_REQUEST['checkprivs']))
 ) {
@@ -523,21 +502,15 @@ if (empty($_REQUEST['adduser'])
     $response->addHTML(
         PMA_getHtmlForAddUser((isset($dbname) ? $dbname : ''))
     );
-} elseif (isset($_REQUEST['addUserGroup'])) {
-    // Add user group
-    $response->addHTML(
-        PMA_getHtmlToEditUserGroup()
-    );
-} elseif (isset($_REQUEST['editUserGroup'])) {
-    // Add user group
-    $response->addHTML(
-        PMA_getHtmlToEditUserGroup($_REQUEST['userGroup'])
-    );
 } else {
     // check the privileges for a particular database.
     $response->addHTML(
         PMA_getHtmlForSpecificDbPrivileges($link_edit, $conditional_class)
     );
 } // end if (empty($_REQUEST['adduser']) && empty($checkprivs))... elseif... else...
+
+if ($GLOBALS['cfgRelation']['menuswork']) {
+    $response->addHTML('</div>');
+}
 
 ?>

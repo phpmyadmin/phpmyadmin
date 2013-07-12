@@ -3129,10 +3129,6 @@ function PMA_getHtmlForDisplayUserOverviewPage($link_edit, $pmaThemeImage,
         }
     }
 
-    if ($GLOBALS['cfgRelation']['menuswork']) {
-        $html_output .= PMA_getHtmlForUserGroupsTable();
-    }
-
     return $html_output;
 }
 
@@ -3172,13 +3168,13 @@ function PMA_getHtmlForUserGroupsTable()
             $html_output .= '<td>' . _getAllowedTabNames($row, 'table') . '</td>';
 
             $html_output .= '<td>';
-            $html_output .= '<a class="" href="server_privileges.php?'
-                . $GLOBALS['url_query'] . '&editUserGroup=1&userGroup='
+            $html_output .= '<a class="" href="server_user_groups.php?'
+                . PMA_generate_common_url() . '&editUserGroup=1&userGroup='
                 . urlencode($row['usergroup']) . '">'
                 . PMA_Util::getIcon('b_edit.png', __('Edit')) . '</a>';
             $html_output .= '&nbsp;&nbsp;';
-            $html_output .= '<a class="" href="server_privileges.php?'
-                . $GLOBALS['url_query'] . '&deleteUserGroup=1&userGroup='
+            $html_output .= '<a class="" href="server_user_groups.php?'
+                . PMA_generate_common_url() . '&deleteUserGroup=1&userGroup='
                 . urlencode($row['usergroup']) . '">'
                 . PMA_Util::getIcon('b_drop.png', __('Delete')) . '</a>';
             $html_output .= '</td>';
@@ -3193,8 +3189,8 @@ function PMA_getHtmlForUserGroupsTable()
     $html_output .= '</form>';
 
     $html_output .= '<fieldset id="fieldset_add_user_group">';
-    $html_output .= '<a href="server_privileges.php?'
-        . $GLOBALS['url_query'] . '&addUserGroup=1">'
+    $html_output .= '<a href="server_user_groups.php?'
+        . PMA_generate_common_url() . '&addUserGroup=1">'
         . PMA_Util::getIcon('b_usradd.png')
         . __('Add user group') . '</a>';
     $html_output .= '</fieldset>';
@@ -3260,7 +3256,7 @@ function PMA_getHtmlToEditUserGroup($userGroup = null)
     }
 
     $html_output .= '<form name="userGroupForm" id="userGroupForm"'
-        . ' action="server_privileges.php" method="post">';
+        . ' action="server_user_groups.php" method="post">';
     $urlParams = array();
     if ($userGroup != null) {
         $urlParams['userGroup'] = $userGroup;
@@ -3775,5 +3771,45 @@ function PMA_getSqlQueriesForDisplayAndAddUser($username, $hostname, $password)
         $real_sql_query,
         $sql_query
     );
+}
+
+/**
+ * Get HTML for secondary level menu tabs on 'Users' page
+ *
+ * @param string $selfUrl Url of the file
+ *
+ * @return string HTML for secondary level menu tabs on 'Users' page
+ */
+function PMA_getHtmlForSubMenusOnUsersPage($selfUrl)
+{
+    $url_params = PMA_generate_common_url();
+    $items = array(
+        array(
+            'name' => __('Users overview'),
+            'url' => 'server_privileges.php'
+        ),
+        array(
+            'name' => __('User groups'),
+            'url' => 'server_user_groups.php'
+        )
+    );
+
+    $retval  = '<ul id="topmenu2">';
+    foreach ($items as $item) {
+        $class = '';
+        if ($item['url'] === $selfUrl) {
+            $class = ' class="tabactive"';
+        }
+        $retval .= '<li>';
+        $retval .= '<a' . $class;
+        $retval .= ' href="' . $item['url'] . '?' . $url_params . '">';
+        $retval .= $item['name'];
+        $retval .= '</a>';
+        $retval .= '</li>';
+    }
+    $retval .= '</ul>';
+    $retval .= '<div class="clearfloat"></div>';
+
+    return $retval;
 }
 ?>
