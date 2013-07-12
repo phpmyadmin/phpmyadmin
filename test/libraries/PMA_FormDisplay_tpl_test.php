@@ -772,9 +772,9 @@ class PMA_FormDisplay_Tpl_Test extends PHPUnit_Framework_TestCase
 
         $this->assertEquals(
             array(
-                'validateField(\'testID\', \'\\\';\', true, [\'\\\\r\\\\n\\\\\\\'' .
+                'validateField(\'testID\', \'PMA_\\\';\', true, [\'\\\\r\\\\n\\\\\\\'' .
                 '<scrIpt></\\\' + \\\'script>\'])',
-                'validateField(\'testID\', \'\', true)'
+                'validateField(\'testID\', \'PMA_\', true)'
             ),
             $js
         );
