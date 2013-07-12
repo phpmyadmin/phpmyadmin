@@ -233,6 +233,7 @@ class PMA_FormDisplay_Tpl_Test extends PHPUnit_Framework_TestCase
         $opts['doc'] = "http://doclink";
         $opts['wiki'] = "http://wikilink";
         $opts['comment'] = "testComment";
+        $opts['comment_warning'] = true;
         $opts['show_restore_default'] = true;
         ob_start();
         PMA_displayInput(
@@ -319,7 +320,7 @@ class PMA_FormDisplay_Tpl_Test extends PHPUnit_Framework_TestCase
 
         $this->assertTag(
             $this->_getTagArray(
-                '<span class="field-comment-mark" title="testComment">',
+                '<span class="field-comment-mark field-comment-warning" title="testComment">',
                 array('content' => 'i')
             ),
             $result
