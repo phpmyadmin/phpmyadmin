@@ -52,6 +52,13 @@ if (!defined('E_DEPRECATED')) {
 define('PHPMYADMIN', true);
 
 /**
+ * block attempts to directly run this script 
+ */
+if (getcwd() == dirname(__FILE__)) {
+    die('Attack stopped');
+}
+
+/**
  * the error handler
  */
 require './libraries/Error_Handler.class.php';
