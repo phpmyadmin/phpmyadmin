@@ -123,7 +123,7 @@ function PMA_version_check()
     $version = $version_data->version;
     $date = $version_data->date;
 
-    $version_upstream = version_to_int($version);
+    $version_upstream = PMA_Util::versionToInt($version);
     if ($version_upstream === false) {
         messages_set(
             'error',
@@ -134,7 +134,7 @@ function PMA_version_check()
         return;
     }
 
-    $version_local = version_to_int($GLOBALS['PMA_Config']->get('PMA_VERSION'));
+    $version_local = PMA_Util::versionToInt($GLOBALS['PMA_Config']->get('PMA_VERSION'));
     if ($version_local === false) {
         messages_set(
             'error',
@@ -171,55 +171,6 @@ function PMA_version_check()
             );
         }
     }
-}
-
-/**
- * Calculates numerical equivalent of phpMyAdmin version string
- *
- * @param string $version version
- *
- * @return mixed false on failure, integer on success
- */
-function version_to_int($version)
-{
-    $matches = array();
-    if (!preg_match('/^(\d+)\.(\d+)\.(\d+)((\.|-(pl|rc|dev|beta|alpha))(\d+)?(-dev)?)?$/', $version, $matches)) {
-        return false;
-    }
-    if (!empty($matches[6])) {
-        switch ($matches[6]) {
-        case 'pl':
-            $added = 60;
-            break;
-        case 'rc':
-            $added = 30;
-            break;
-        case 'beta':
-            $added = 20;
-            break;
-        case 'alpha':
-            $added = 10;
-            break;
-        case 'dev':
-            $added = 0;
-            break;
-        default:
-            messages_set(
-                'notice',
-                'version_match',
-                __('Version check'),
-                'Unknown version part: ' . htmlspecialchars($matches[6])
-            );
-            $added = 0;
-            break;
-        }
-    } else {
-        $added = 50; // for final
-    }
-    if (!empty($matches[7])) {
-        $added = $added + $matches[7];
-    }
-    return $matches[1] * 1000000 + $matches[2] * 10000 + $matches[3] * 100 + $added;
 }
 
 /**

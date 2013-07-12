@@ -112,4 +112,51 @@ class PMA_Util_Test extends PHPUnit_Framework_TestCase
         $this->assertNotEmpty($version->version);
         $this->assertNotEmpty($version->date);
     }
+
+    /**
+     * Test version to int conversion.
+     *
+     * @param string $version  Version string
+     * @param int    $numberic Integer matching version
+     *
+     * @return void
+     *
+     * @dataProvider dataVersions
+     */
+    public function testVersionToInt($version, $numeric)
+    {
+        $this->assertEquals(
+            $numeric,
+            PMA_Util::versionToInt($version)
+        );
+    }
+
+    /**
+     * Data provider for version parsing
+     *
+     * @return array with test data
+     */
+    public function dataVersions()
+    {
+        return array(
+            array('1.0.0', 1000050),
+            array('2.0.0.2-dev', 2000052),
+            array('3.4.2.1', 3040251),
+            array('3.4.2-dev3', 3040203),
+            array('3.4.2-dev', 3040200),
+            array('3.4.2-pl', 3040260),
+            array('3.4.2-pl3', 3040263),
+            array('4.4.2-rc22', 4040252),
+            array('4.4.2-rc', 4040230),
+            array('4.4.22-beta22', 4042242),
+            array('4.4.22-beta', 4042220),
+            array('4.4.21-alpha22', 4042132),
+            array('4.4.20-alpha', 4042010),
+            array('4.40.20-alpha-dev', 4402010),
+            array('4.4a', false),
+            array('4.4.4-test', false),
+            array('4.1.0', 4010050),
+        );
+    }
+
 }

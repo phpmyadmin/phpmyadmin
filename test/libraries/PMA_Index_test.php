@@ -23,7 +23,7 @@ class PMA_SetupIndex_Test extends PHPUnit_Framework_TestCase
 {
     /**
      * Test for messages_begin()
-     * 
+     *
      * @return void
      */
     public function testMessagesBegin()
@@ -70,7 +70,7 @@ class PMA_SetupIndex_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for messages_set
-     * 
+     *
      * @return void
      */
     public function testMessagesSet()
@@ -90,7 +90,7 @@ class PMA_SetupIndex_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for messages_end
-     * 
+     *
      * @return void
      */
     public function testMessagesEnd()
@@ -119,7 +119,7 @@ class PMA_SetupIndex_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for messages_show_html
-     * 
+     *
      * @return void
      */
     public function testMessagesShowHTML()
@@ -149,7 +149,7 @@ class PMA_SetupIndex_Test extends PHPUnit_Framework_TestCase
             '<script type="text/javascript">',
             $result
         );
-        
+
         $this->assertContains(
             "hiddenMessages.push('0');",
             $result
@@ -163,7 +163,7 @@ class PMA_SetupIndex_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for PMA_version_check
-     * 
+     *
      * @return void
      */
     public function testPMAVersionCheckCase1()
@@ -211,11 +211,11 @@ class PMA_SetupIndex_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for PMA_version_check
-     * 
+     *
      * @return void
      */
     public function testPMAVersionCheckCase2()
-    {   
+    {
         $pmaconfig = $this->getMockBuilder('PMA_Config')
             ->disableOriginalConstructor()
             ->getMock();
@@ -228,7 +228,7 @@ class PMA_SetupIndex_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['PMA_Config'] = $pmaconfig;
 
         PMA_version_check();
-        
+
         $this->assertArrayHasKey(
             'notice',
             $_SESSION['messages']
@@ -259,11 +259,11 @@ class PMA_SetupIndex_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for PMA_version_check
-     * 
+     *
      * @return void
      */
     public function testPMAVersionCheckCase3()
-    {   
+    {
         $pmaconfig = $this->getMockBuilder('PMA_Config')
             ->disableOriginalConstructor()
             ->getMock();
@@ -276,7 +276,7 @@ class PMA_SetupIndex_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['PMA_Config'] = $pmaconfig;
 
         PMA_version_check();
-        
+
         $this->assertArrayHasKey(
             'notice',
             $_SESSION['messages']
@@ -306,56 +306,12 @@ class PMA_SetupIndex_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for version_to_int
-     * 
-     * @param string $version  Version String
-     * @param int    $expected Expected int
-     * 
-     * @return void
-     * @dataProvider versionToIntProvider
-     */
-    public function testVersionToInt($version, $expected)
-    {   
-        $this->assertEquals(
-            version_to_int($version),
-            $expected
-        );
-    }
-
-    /**
-     * Data Provider for testVersionToInt
-     * 
-     * @return array Test data
-     */
-    public function versionToIntProvider()
-    {   
-        return array(
-            array('1.0.0', 1000050),
-            array('2.0.0.2-dev', 2000052),
-            array('3.4.2.1', 3040251),
-            array('3.4.2-dev3', 3040203),
-            array('3.4.2-dev', 3040200),
-            array('3.4.2-pl', 3040260),
-            array('3.4.2-pl3', 3040263),
-            array('4.4.2-rc22', 4040252),
-            array('4.4.2-rc', 4040230),
-            array('4.4.22-beta22', 4042242),
-            array('4.4.22-beta', 4042220),
-            array('4.4.21-alpha22', 4042132),
-            array('4.4.20-alpha', 4042010),
-            array('4.40.20-alpha-dev', 4402010),
-            array('4.4a', false),
-            array('4.4.4-test', false)
-        );
-    }
-
-    /**
      * Test for check_config_rw
-     * 
+     *
      * @return void
      */
     public function testCheckConfigRW()
-    {   
+    {
         if (!function_exists('runkit_constant_redefine')) {
             $this->markTestSkipped('Cannot redefine constant');
         }
@@ -374,9 +330,9 @@ class PMA_SetupIndex_Test extends PHPUnit_Framework_TestCase
         $is_readable = false;
         $is_writable = false;
         $file_exists = false;
-        
+
         check_config_rw($is_readable, $is_writable, $file_exists);
-        
+
         $this->assertTrue(
             $is_readable
         );
@@ -395,7 +351,7 @@ class PMA_SetupIndex_Test extends PHPUnit_Framework_TestCase
         );
 
         check_config_rw($is_readable, $is_writable, $file_exists);
-        
+
         $this->assertTrue(
             $is_readable
         );
@@ -417,11 +373,11 @@ class PMA_SetupIndex_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for perform_config_checks
-     * 
+     *
      * @return void
      */
     public function testPerformConfigChecks()
-    {   
+    {
 
         $GLOBALS['cfg']['AvailableCharsets'] = array();
         $GLOBALS['cfg']['ServerDefault'] = 0;
@@ -453,7 +409,7 @@ class PMA_SetupIndex_Test extends PHPUnit_Framework_TestCase
         $_SESSION[$sessionID]['GZipDump'] = true;
         $_SESSION[$sessionID]['BZipDump'] = true;
         $_SESSION[$sessionID]['ZipDump'] = true;
-        
+
         $noticeArrayKeys = array(
             'TempDir',
             'SaveDir',
@@ -501,13 +457,13 @@ class PMA_SetupIndex_Test extends PHPUnit_Framework_TestCase
                 $_SESSION['messages']['error']
             );
         }
-        
+
         // Case 2
 
         unset($_SESSION['messages']);
         unset($_SESSION[$sessionID]);
 
-        
+
         $_SESSION[$sessionID]['Servers'] = array(
             '1' => array(
                 'host' => 'localhost',
@@ -549,7 +505,7 @@ class PMA_SetupIndex_Test extends PHPUnit_Framework_TestCase
         // Case 3
 
         $_SESSION[$sessionID]['blowfish_secret'] = 'sec';
-        
+
         $_SESSION[$sessionID]['Servers'] = array(
             '1' => array(
                 'host' => 'localhost',
