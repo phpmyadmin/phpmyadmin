@@ -7846,7 +7846,7 @@ msgstr "﻿ห้ามกำหนดค่า สำหรับการเ�
 #: libraries/plugins/auth/AuthenticationCookie.class.php:662
 #: libraries/plugins/auth/AuthenticationSignon.class.php:254
 #, php-format
-msgid "No activity within %s seconds; please log in again"
+msgid "No activity within %s seconds; please log in again."
 msgstr "﻿ไม่มีกิจกรรมภายใน %s วินาที กรุณาล็อกอินอีกครั้ง"
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:667
@@ -10978,7 +10978,7 @@ msgstr "ดูอย่างเดียว"
 #: libraries/sqlparser.lib.php:131
 msgid ""
 "There seems to be an error in your SQL query. The MySQL server error output "
-"below, if there is any, may also help you in diagnosing the problem"
+"below, if there is any, may also help you in diagnosing the problem."
 msgstr ""
 "อาจจะมีข้อผิดพลาดบางอย่างในคำค้น SQL ของคุณ. หาก MySQL server "
 "ได้แจ้งข้อผิดพลาดมาด้านล่างนี้ ให้ลองอ่านดู มันอาจจะช่วยให้คุณวินิจฉัยปัญหาได้ดีขึ้น"

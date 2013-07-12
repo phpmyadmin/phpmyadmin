@@ -8157,7 +8157,7 @@ msgstr ""
 #: libraries/plugins/auth/AuthenticationCookie.class.php:662
 #: libraries/plugins/auth/AuthenticationSignon.class.php:254
 #, php-format
-msgid "No activity within %s seconds; please log in again"
+msgid "No activity within %s seconds; please log in again."
 msgstr ""
 "Non se rexistrou actividade ningunha desde hai %s segundos ou máis. Terá que "
 "entrar de novo"
@@ -11440,7 +11440,7 @@ msgstr "Só visualizar"
 #: libraries/sqlparser.lib.php:131
 msgid ""
 "There seems to be an error in your SQL query. The MySQL server error output "
-"below, if there is any, may also help you in diagnosing the problem"
+"below, if there is any, may also help you in diagnosing the problem."
 msgstr ""
 "Parece que se produciu un erro na súa consulta de SQL. Se máis abaixo "
 "aparece unha mensaxe de erro do servidor de MySQL, isto pode axudar a "

@@ -8042,7 +8042,7 @@ msgstr ""
 #: libraries/plugins/auth/AuthenticationCookie.class.php:662
 #: libraries/plugins/auth/AuthenticationSignon.class.php:254
 #, php-format
-msgid "No activity within %s seconds; please log in again"
+msgid "No activity within %s seconds; please log in again."
 msgstr ""
 "Nebija aktivitātes vairāk kā %s sekunžu laikā, lūdzu autorizējieties vēlreiz"
 
@@ -11267,7 +11267,7 @@ msgstr "Tikai apskatīt"
 #: libraries/sqlparser.lib.php:131
 msgid ""
 "There seems to be an error in your SQL query. The MySQL server error output "
-"below, if there is any, may also help you in diagnosing the problem"
+"below, if there is any, may also help you in diagnosing the problem."
 msgstr ""
 "Izkatās, ka Jūsu SQL vaicajumā ir kļūda. MySQL servera kļūdas pazinojums "
 "zemāk, ja tāds ir, var arī palīdzet Jums diagnosticēt problēmu"
