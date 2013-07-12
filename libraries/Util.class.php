@@ -4247,44 +4247,60 @@ class PMA_Util
      */
     public static function versionToInt($version)
     {
-        $matches = array();
-        if (!preg_match('/^(\d+)\.(\d+)\.(\d+)((\.|-(pl|rc|dev|beta|alpha))(\d+)?(-dev)?)?$/', $version, $matches)) {
-            return false;
+        $parts = explode('-', $version);
+        if (count($parts) > 1) {
+            $suffix = $parts[1];
+        } else {
+            $suffix = '';
         }
-        if (!empty($matches[6])) {
-            switch ($matches[6]) {
+        $parts = explode('.', $parts[0]);
+
+        $result = 0;
+
+        if (count($parts) >= 1 && is_numeric($parts[0])) {
+            $result += 1000000 * $parts[0];
+        }
+
+        if (count($parts) >= 2 && is_numeric($parts[1])) {
+            $result += 10000 * $parts[1];
+        }
+
+        if (count($parts) >= 3 && is_numeric($parts[2])) {
+            $result += 100 * $parts[2];
+        }
+
+        if (count($parts) >= 4 && is_numeric($parts[3])) {
+            $result += 1 * $parts[3];
+        }
+
+        if (!empty($suffix)) {
+            $matches = array();
+            if (preg_match('/^(\D+)(\d+)$/', $suffix, $matches)) {
+                $suffix = $matches[1];
+                $result += intval($matches[2]);
+            }
+            switch ($suffix) {
             case 'pl':
-                $added = 60;
+                $result += 60;
                 break;
             case 'rc':
-                $added = 30;
+                $result += 30;
                 break;
             case 'beta':
-                $added = 20;
+                $result += 20;
                 break;
             case 'alpha':
-                $added = 10;
+                $result += 10;
                 break;
             case 'dev':
-                $added = 0;
-                break;
-            default:
-                messages_set(
-                    'notice',
-                    'version_match',
-                    __('Version check'),
-                    'Unknown version part: ' . htmlspecialchars($matches[6])
-                );
-                $added = 0;
+                $result += 0;
                 break;
             }
         } else {
-            $added = 50; // for final
+            $result += 50; // for final
         }
-        if (!empty($matches[7])) {
-            $added = $added + $matches[7];
-        }
-        return $matches[1] * 1000000 + $matches[2] * 10000 + $matches[3] * 100 + $added;
+
+        return $result;
     }
 }
 ?>

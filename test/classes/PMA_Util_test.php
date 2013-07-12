@@ -140,7 +140,7 @@ class PMA_Util_Test extends PHPUnit_Framework_TestCase
     {
         return array(
             array('1.0.0', 1000050),
-            array('2.0.0.2-dev', 2000052),
+            array('2.0.0.2-dev', 2000002),
             array('3.4.2.1', 3040251),
             array('3.4.2-dev3', 3040203),
             array('3.4.2-dev', 3040200),
@@ -153,9 +153,11 @@ class PMA_Util_Test extends PHPUnit_Framework_TestCase
             array('4.4.21-alpha22', 4042132),
             array('4.4.20-alpha', 4042010),
             array('4.40.20-alpha-dev', 4402010),
-            array('4.4a', false),
-            array('4.4.4-test', false),
+            array('4.4a', 4000050),
+            array('4.4.4-test', 4040400),
             array('4.1.0', 4010050),
+            array('4.0.1.3', 4000153),
+            array('4.1-dev', 4010000),
         );
     }
 
