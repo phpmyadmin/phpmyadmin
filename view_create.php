@@ -75,7 +75,7 @@ if (isset($_REQUEST['createview']) || isset($_REQUEST['alterview'])) {
 
     if (isset($_REQUEST['view']['with'])) {
         if (in_array($_REQUEST['view']['with'], $view_with_options)) {
-            $sql_query .= $sep . ' WITH ' . $_REQUEST['view']['with'];
+            $sql_query .= $sep . ' WITH ' . $_REQUEST['view']['with'] . '  CHECK OPTION';
         }
     }
 
@@ -256,15 +256,17 @@ $htmlString .= '</table>'
 
 if (! isset($_REQUEST['ajax_dialog'])) {
     $htmlString .= '<fieldset class="tblFooters">'
-        . '<input type="submit" name="'
+        . '<input type="hidden" name="'
         . ($view['operation'] == 'create' ? 'createview' : 'alterview' )
-        . '" value="' . __('Go') . '" />'
+        . '" value="1" />'
+        . '<input type="submit" name="" value="' . __('Go') . '" />'
         . '</fieldset>';
 } else {
     $htmlString .= '<input type="hidden" name="'
         . ($view['operation'] == 'create' ? 'createview' : 'alterview' )
         . '" value="1" />'
-        . '<input type="hidden" name="ajax_dialog" value="1" />';
+        . '<input type="hidden" name="ajax_dialog" value="1" />'
+        . '<input type="hidden" name="ajax_request" value="1" />';
 }
 
 $htmlString .= '</form>'
