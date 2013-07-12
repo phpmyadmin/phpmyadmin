@@ -4188,9 +4188,12 @@ class PMA_Util
                     $context['http']['proxy'] = $cfg['VersionCheckProxyUrl'];
                     if (strlen($cfg['VersionCheckProxyUser'])) {
                         $auth = base64_encode(
-                            $cfg['VersionCheckProxyUser'] . ':' . $cfg['VersionCheckProxyPass']
+                            $cfg['VersionCheckProxyUser'] . ':'
+                            . $cfg['VersionCheckProxyPass']
                         );
-                        $context['http']['header'] = 'Proxy-Authorization: Basic ' . $auth;
+                        $context['http']['header'] =
+                            'Proxy-Authorization: Basic '
+                            . $auth;
                     }
                 }
                 $response = file_get_contents(
@@ -4201,19 +4204,40 @@ class PMA_Util
             } else if (function_exists('curl_init')) {
                 $curl_handle = curl_init($file);
                 if (strlen($cfg['VersionCheckProxyUrl'])) {
-                    curl_setopt($curl_handle, CURLOPT_PROXY, $cfg['VersionCheckProxyUrl']);
+                    curl_setopt(
+                        $curl_handle,
+                        CURLOPT_PROXY,
+                        $cfg['VersionCheckProxyUrl']
+                    );
                     if (strlen($cfg['VersionCheckProxyUser'])) {
                         curl_setopt(
                             $curl_handle,
                             CURLOPT_PROXYUSERPWD,
-                            $cfg['VersionCheckProxyUser'] . ':' . $cfg['VersionCheckProxyPass']
+                            $cfg['VersionCheckProxyUser']
+                            . ':' . $cfg['VersionCheckProxyPass']
                         );
                     }
                 }
-                curl_setopt($curl_handle, CURLOPT_RETURNTRANSFER, 1);
-                curl_setopt($curl_handle, CURLOPT_HEADER, false);
-                curl_setopt($curl_handle, CURLOPT_RETURNTRANSFER, true);
-                curl_setopt($curl_handle, CURLOPT_TIMEOUT, $connection_timeout);
+                curl_setopt(
+                    $curl_handle,
+                    CURLOPT_RETURNTRANSFER,
+                    1
+                );
+                curl_setopt(
+                    $curl_handle,
+                    CURLOPT_HEADER,
+                    false
+                );
+                curl_setopt(
+                    $curl_handle,
+                    CURLOPT_RETURNTRANSFER,
+                    true
+                );
+                curl_setopt(
+                    $curl_handle,
+                    CURLOPT_TIMEOUT,
+                    $connection_timeout
+                );
                 $response = curl_exec($curl_handle);
             }
         }
@@ -4226,7 +4250,10 @@ class PMA_Util
         }
 
         $data = json_decode($response);
-        if (is_object($data) && strlen($data->version) && strlen($data->date)) {
+        if (is_object($data)
+            && strlen($data->version)
+            && strlen($data->date)
+        ) {
             if ($save) {
                 $_SESSION['cache']['version_check'] = array(
                     'response' => $response,
