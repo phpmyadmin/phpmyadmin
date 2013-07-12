@@ -8119,7 +8119,7 @@ msgstr "Konfiguracja zabrania logowania bez hasła (zobacz AllowNoPassword)"
 #: libraries/plugins/auth/AuthenticationCookie.class.php:662
 #: libraries/plugins/auth/AuthenticationSignon.class.php:254
 #, php-format
-msgid "No activity within %s seconds; please log in again"
+msgid "No activity within %s seconds; please log in again."
 msgstr ""
 "Brak aktywności przez co najmniej %s sekund, proszę zalogować się jeszcze raz"
 
@@ -11387,7 +11387,7 @@ msgstr "Pokaż tylko"
 #: libraries/sqlparser.lib.php:131
 msgid ""
 "There seems to be an error in your SQL query. The MySQL server error output "
-"below, if there is any, may also help you in diagnosing the problem"
+"below, if there is any, may also help you in diagnosing the problem."
 msgstr ""
 "Wygląda na to, że w twoim zapytaniu SQL jest błąd. W znalezieniu przyczyny "
 "problemu może pomóc także - jeśli się pojawi - poniższy opis błędu serwera "

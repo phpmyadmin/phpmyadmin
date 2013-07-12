@@ -8695,7 +8695,7 @@ msgstr ""
 #: libraries/plugins/auth/AuthenticationCookie.class.php:662
 #: libraries/plugins/auth/AuthenticationSignon.class.php:254
 #, php-format
-msgid "No activity within %s seconds; please log in again"
+msgid "No activity within %s seconds; please log in again."
 msgstr ""
 "\"%s\" soniya davomida faollik kuzatilmadi, iltimos, qayta avtorizatsiyadan "
 "o‘ting."
@@ -12200,7 +12200,7 @@ msgstr "Faqat ko‘rish"
 #: libraries/sqlparser.lib.php:131
 msgid ""
 "There seems to be an error in your SQL query. The MySQL server error output "
-"below, if there is any, may also help you in diagnosing the problem"
+"below, if there is any, may also help you in diagnosing the problem."
 msgstr ""
 "Ehtimol, SQL so‘rovida xatolik mavjud. Agar xato mavjud bo‘lsa, pastda MySQL "
 "server xatolikni ko‘rsatadi va o‘sha xabar muammo yechimini topishga yordam "

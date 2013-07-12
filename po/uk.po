@@ -8088,7 +8088,7 @@ msgstr "Авторизація без паролю заборонена в на�
 #: libraries/plugins/auth/AuthenticationCookie.class.php:662
 #: libraries/plugins/auth/AuthenticationSignon.class.php:254
 #, php-format
-msgid "No activity within %s seconds; please log in again"
+msgid "No activity within %s seconds; please log in again."
 msgstr "Відсутня діяльність протягом %s секунд; будь ласка, увійдіть знову"
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:667
@@ -11382,7 +11382,7 @@ msgstr "Лише перегляд"
 #: libraries/sqlparser.lib.php:131
 msgid ""
 "There seems to be an error in your SQL query. The MySQL server error output "
-"below, if there is any, may also help you in diagnosing the problem"
+"below, if there is any, may also help you in diagnosing the problem."
 msgstr ""
 "Схоже на помилку у SQL запиті. У визначенні проблеми може допомогти "
 "повідомлення про помилку сервера MySQL, що наведено нижче (якщо таке є)"

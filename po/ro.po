@@ -8469,7 +8469,7 @@ msgstr ""
 #: libraries/plugins/auth/AuthenticationCookie.class.php:662
 #: libraries/plugins/auth/AuthenticationSignon.class.php:254
 #, php-format
-msgid "No activity within %s seconds; please log in again"
+msgid "No activity within %s seconds; please log in again."
 msgstr ""
 "Nu ați avut activitate de mai mult de %s secunde, vă rugăm să vă "
 "autentificați din nou"
@@ -11763,7 +11763,7 @@ msgstr "Numai vizualizare"
 #: libraries/sqlparser.lib.php:131
 msgid ""
 "There seems to be an error in your SQL query. The MySQL server error output "
-"below, if there is any, may also help you in diagnosing the problem"
+"below, if there is any, may also help you in diagnosing the problem."
 msgstr ""
 "Pare sa fie o eroare in comanda SQL. Eroarea MySQL de mai jos, daca e "
 "vreuna, poate sa te ajute la diagnosticarea problemei"

@@ -8015,7 +8015,7 @@ msgstr ""
 #: libraries/plugins/auth/AuthenticationCookie.class.php:662
 #: libraries/plugins/auth/AuthenticationSignon.class.php:254
 #, php-format
-msgid "No activity within %s seconds; please log in again"
+msgid "No activity within %s seconds; please log in again."
 msgstr ""
 "Καμιά δραστηριότητα εδώ και %s δευτερόλεπτα τουλάχιστον, για αυτό "
 "ξανασυνδεθείτε"
@@ -11281,7 +11281,7 @@ msgstr "Μόνο ανάγνωση"
 #: libraries/sqlparser.lib.php:131
 msgid ""
 "There seems to be an error in your SQL query. The MySQL server error output "
-"below, if there is any, may also help you in diagnosing the problem"
+"below, if there is any, may also help you in diagnosing the problem."
 msgstr ""
 "Φαίνεται να υπάρχει ένα λάθος στο ερώτημά σας. Το παρακάτω λάθος διακομιστή "
 "MySQL, εάν υπάρχει κάποιο, μπορεί επίσης να σας βοηθήσει να διαγνώσετε το "

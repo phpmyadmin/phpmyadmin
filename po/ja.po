@@ -8142,7 +8142,7 @@ msgstr ""
 #: libraries/plugins/auth/AuthenticationCookie.class.php:662
 #: libraries/plugins/auth/AuthenticationSignon.class.php:254
 #, php-format
-msgid "No activity within %s seconds; please log in again"
+msgid "No activity within %s seconds; please log in again."
 msgstr "%s 秒以上操作をしませんでした。ログインし直してください。"
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:667
@@ -11368,7 +11368,7 @@ msgstr "表示のみ"
 #: libraries/sqlparser.lib.php:131
 msgid ""
 "There seems to be an error in your SQL query. The MySQL server error output "
-"below, if there is any, may also help you in diagnosing the problem"
+"below, if there is any, may also help you in diagnosing the problem."
 msgstr ""
 "SQL にエラーがあるようです。下に MySQL サーバのエラー出力が出ているようなら問"
 "題の解析に役立つかもしれません"

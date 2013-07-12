@@ -7872,7 +7872,7 @@ msgstr "পাসওয়ার্ড বিহীন লগইন কনফিগ
 #: libraries/plugins/auth/AuthenticationCookie.class.php:662
 #: libraries/plugins/auth/AuthenticationSignon.class.php:254
 #, php-format
-msgid "No activity within %s seconds; please log in again"
+msgid "No activity within %s seconds; please log in again."
 msgstr "%s সেকেন্ডের মধ্য কার্যক্রম নাই; অনুগ্রহ করে আবার লগইন করুন।"
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:667
@@ -11038,7 +11038,7 @@ msgstr "শুধু দেখার জন্য"
 #: libraries/sqlparser.lib.php:131
 msgid ""
 "There seems to be an error in your SQL query. The MySQL server error output "
-"below, if there is any, may also help you in diagnosing the problem"
+"below, if there is any, may also help you in diagnosing the problem."
 msgstr ""
 "আপনার SQL অনুসন্ধানে কোন ভুল আছে মনে হয়। নীচে সার্ভারের ভুল প্রতিবেদনটি দেওয়া হল, "
 "যদি কিছু থাকে তা আপনাকে সমস্যাটি নির্ণয়ে সাহায্য করবে "
