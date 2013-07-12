@@ -386,7 +386,7 @@ msgid "Access denied"
 msgstr "पहुँच निषेधित"
 
 #: db_structure.php:86
-msgid "No tables found in database"
+msgid "No tables found in database."
 msgstr "डाटाबेस में कोई टेबल नहीं है ।"
 
 #: db_tracking.php:73
@@ -1688,7 +1688,7 @@ msgstr "%d मान जोड़ें"
 
 #: js/messages.php:259
 msgid ""
-"Note: If the file contains multiple tables, they will be combined into one"
+"Note: If the file contains multiple tables, they will be combined into one."
 msgstr "सूचना: यदि फ़ाईल में एक से अधिक टेबलें हैं तो वे एक में ही संगठित की जाएँगी"
 
 #: js/messages.php:262
@@ -2894,7 +2894,7 @@ msgstr "प्राथमिक कुंजी गिरा दी गयी �
 
 #: libraries/Index.class.php:608
 #, php-format
-msgid "Index %s has been dropped"
+msgid "Index %s has been dropped."
 msgstr "सूचकांक %s गिरा दिया गया है"
 
 #: libraries/Index.class.php:731
@@ -3848,7 +3848,7 @@ msgstr "अपने वेब सर्वर की अपलोड डिर�
 
 #: libraries/Util.class.php:3441 libraries/insert_edit.lib.php:1183
 #: libraries/sql_query_form.lib.php:483
-msgid "The directory you set for upload work cannot be reached"
+msgid "The directory you set for upload work cannot be reached."
 msgstr "आपकी अपलोड दिरेक्टोरी तक पहुंचा नहीं जा सकता"
 
 #: libraries/Util.class.php:3452
@@ -8007,7 +8007,7 @@ msgstr "%s फाइल में कोई भी प्रमुख आईड�
 
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:176
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:196
-msgid "Hardware authentication failed"
+msgid "Hardware authentication failed!"
 msgstr "हार्डवेयर प्रमाणीकरण असफल"
 
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:183
@@ -9403,7 +9403,7 @@ msgstr "आपके पास यहाँ उपस्थित होने �
 
 #: libraries/rte/rte_words.lib.php:32
 #, fuzzy, php-format
-#| msgid "No tables found in database"
+#| msgid "No tables found in database."
 msgid "No routine with name %1$s found in database %2$s"
 msgstr "डाटाबेस में कोई टेबल नहीं।"
 
@@ -9439,7 +9439,7 @@ msgstr "आपके पास यहाँ उपस्थित होने �
 
 #: libraries/rte/rte_words.lib.php:44
 #, fuzzy, php-format
-#| msgid "No tables found in database"
+#| msgid "No tables found in database."
 msgid "No trigger with name %1$s found in database %2$s"
 msgstr "डाटाबेस में कोई टेबल नहीं।"
 
@@ -9475,7 +9475,7 @@ msgstr "आपके पास यहाँ उपस्थित होने �
 
 #: libraries/rte/rte_words.lib.php:56
 #, fuzzy, php-format
-#| msgid "No tables found in database"
+#| msgid "No tables found in database."
 msgid "No event with name %1$s found in database %2$s"
 msgstr "डाटाबेस में कोई टेबल नहीं।"
 

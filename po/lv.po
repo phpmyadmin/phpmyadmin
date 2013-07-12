@@ -393,7 +393,7 @@ msgstr "Pieeja aizliegta"
 #: db_structure.php:86
 #, fuzzy
 #| msgid "No tables found in database."
-msgid "No tables found in database"
+msgid "No tables found in database."
 msgstr "Tabulas nav atrastas šajā datubāzē."
 
 #: db_tracking.php:73
@@ -1694,7 +1694,7 @@ msgstr "Pievienot jaunu lietotāju"
 
 #: js/messages.php:259
 msgid ""
-"Note: If the file contains multiple tables, they will be combined into one"
+"Note: If the file contains multiple tables, they will be combined into one."
 msgstr ""
 
 #: js/messages.php:262
@@ -2980,7 +2980,7 @@ msgstr "Primārā atslēga tika izdzēsta"
 
 #: libraries/Index.class.php:608
 #, php-format
-msgid "Index %s has been dropped"
+msgid "Index %s has been dropped."
 msgstr "Indekss %s tika izdzēsts"
 
 #: libraries/Index.class.php:731
@@ -3926,7 +3926,7 @@ msgstr "web servera augšupielādes direktorija"
 
 #: libraries/Util.class.php:3441 libraries/insert_edit.lib.php:1183
 #: libraries/sql_query_form.lib.php:483
-msgid "The directory you set for upload work cannot be reached"
+msgid "The directory you set for upload work cannot be reached."
 msgstr "Direktoija, kuru norādijāt augšupielādei, nav pieejama"
 
 #: libraries/Util.class.php:3452
@@ -8067,7 +8067,7 @@ msgstr ""
 
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:176
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:196
-msgid "Hardware authentication failed"
+msgid "Hardware authentication failed!"
 msgstr ""
 
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:183

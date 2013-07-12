@@ -387,7 +387,7 @@ msgid "Access denied"
 msgstr "Accés denegat"
 
 #: db_structure.php:86
-msgid "No tables found in database"
+msgid "No tables found in database."
 msgstr "Base de dades sense taules"
 
 #: db_tracking.php:73
@@ -1711,7 +1711,7 @@ msgstr "Afegir %d valors"
 
 #: js/messages.php:259
 msgid ""
-"Note: If the file contains multiple tables, they will be combined into one"
+"Note: If the file contains multiple tables, they will be combined into one."
 msgstr "Nota: Si l'arxiu conté múltiples taules, es combinaran en una"
 
 #: js/messages.php:262
@@ -2902,7 +2902,7 @@ msgstr "S'ha esborrat la clau principal"
 
 #: libraries/Index.class.php:608
 #, php-format
-msgid "Index %s has been dropped"
+msgid "Index %s has been dropped."
 msgstr "S'ha esborrat l'índex %s"
 
 #: libraries/Index.class.php:731
@@ -3895,7 +3895,7 @@ msgstr ""
 
 #: libraries/Util.class.php:3441 libraries/insert_edit.lib.php:1183
 #: libraries/sql_query_form.lib.php:483
-msgid "The directory you set for upload work cannot be reached"
+msgid "The directory you set for upload work cannot be reached."
 msgstr "No està disponible el directori indicat per pujar arxius"
 
 #: libraries/Util.class.php:3452
@@ -8135,7 +8135,7 @@ msgstr "L 'arxiu %s no conté cap identificació de clau"
 
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:176
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:196
-msgid "Hardware authentication failed"
+msgid "Hardware authentication failed!"
 msgstr "Error a l'autenticació de maquinari"
 
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:183

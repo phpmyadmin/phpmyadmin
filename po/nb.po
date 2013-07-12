@@ -385,7 +385,7 @@ msgid "Access denied"
 msgstr "Ingen tilgang"
 
 #: db_structure.php:86
-msgid "No tables found in database"
+msgid "No tables found in database."
 msgstr "Ingen tabeller funnet i databasen"
 
 #: db_tracking.php:73
@@ -1702,7 +1702,7 @@ msgstr "Legg til %d verdi(er)"
 
 #: js/messages.php:259
 msgid ""
-"Note: If the file contains multiple tables, they will be combined into one"
+"Note: If the file contains multiple tables, they will be combined into one."
 msgstr ""
 "Legg merke til: Om filen inneholder flere tabeller, så vil de kombineres til "
 "en tabell"
@@ -2887,7 +2887,7 @@ msgstr "Primærnøkkelen har blitt slettet"
 
 #: libraries/Index.class.php:608
 #, php-format
-msgid "Index %s has been dropped"
+msgid "Index %s has been dropped."
 msgstr "Indeksen %s har blitt slettet"
 
 #: libraries/Index.class.php:731
@@ -3820,7 +3820,7 @@ msgstr "Merk fra opplastingskatalogen på vevtjeneren <b>%s</b>:"
 
 #: libraries/Util.class.php:3441 libraries/insert_edit.lib.php:1183
 #: libraries/sql_query_form.lib.php:483
-msgid "The directory you set for upload work cannot be reached"
+msgid "The directory you set for upload work cannot be reached."
 msgstr "Katalogen du anga for opplasting kan ikke nåes"
 
 #: libraries/Util.class.php:3452
@@ -8135,7 +8135,7 @@ msgstr "Fila %s inneholder ingen nøkkel id"
 
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:176
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:196
-msgid "Hardware authentication failed"
+msgid "Hardware authentication failed!"
 msgstr "Maskinvaregodkjenning mislyktes"
 
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:183
@@ -9621,7 +9621,7 @@ msgstr "Du har ikke nok rettigheter til å være her nå!"
 
 #: libraries/rte/rte_words.lib.php:32
 #, fuzzy, php-format
-#| msgid "No tables found in database"
+#| msgid "No tables found in database."
 msgid "No routine with name %1$s found in database %2$s"
 msgstr "Ingen tabeller funnet i databasen"
 
@@ -9657,7 +9657,7 @@ msgstr "Du har ikke nok rettigheter til å være her nå!"
 
 #: libraries/rte/rte_words.lib.php:44
 #, fuzzy, php-format
-#| msgid "No tables found in database"
+#| msgid "No tables found in database."
 msgid "No trigger with name %1$s found in database %2$s"
 msgstr "Ingen tabeller funnet i databasen"
 
@@ -9693,7 +9693,7 @@ msgstr "Du har ikke nok rettigheter til å være her nå!"
 
 #: libraries/rte/rte_words.lib.php:56
 #, fuzzy, php-format
-#| msgid "No tables found in database"
+#| msgid "No tables found in database."
 msgid "No event with name %1$s found in database %2$s"
 msgstr "Ingen tabeller funnet i databasen"
 

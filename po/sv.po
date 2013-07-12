@@ -376,7 +376,7 @@ msgid "Access denied"
 msgstr "Åtkomst nekad"
 
 #: db_structure.php:86
-msgid "No tables found in database"
+msgid "No tables found in database."
 msgstr "Det finns inga tabeller i databasen"
 
 #: db_tracking.php:73
@@ -1657,7 +1657,7 @@ msgstr "Lägg till %d värde(n)"
 
 #: js/messages.php:259
 msgid ""
-"Note: If the file contains multiple tables, they will be combined into one"
+"Note: If the file contains multiple tables, they will be combined into one."
 msgstr ""
 "Obs: Om filen innehåller multipla tabeller, kommer de att kombineras till en"
 
@@ -2827,7 +2827,7 @@ msgstr "Den primära nyckeln har tagits bort"
 
 #: libraries/Index.class.php:608
 #, php-format
-msgid "Index %s has been dropped"
+msgid "Index %s has been dropped."
 msgstr "Index %s har tagits bort"
 
 #: libraries/Index.class.php:731
@@ -3802,7 +3802,7 @@ msgstr "Välj katalog att ladda upp till från web-server listningen <b>%s</b>:"
 
 #: libraries/Util.class.php:3441 libraries/insert_edit.lib.php:1183
 #: libraries/sql_query_form.lib.php:483
-msgid "The directory you set for upload work cannot be reached"
+msgid "The directory you set for upload work cannot be reached."
 msgstr "Katalogen som du konfigurerat för uppladdning kan inte nås"
 
 #: libraries/Util.class.php:3452
@@ -7949,7 +7949,7 @@ msgstr "Filen %s innehåller inget nyckelid"
 
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:176
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:196
-msgid "Hardware authentication failed"
+msgid "Hardware authentication failed!"
 msgstr "Hårdvaruautentisering misslyckades"
 
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:183

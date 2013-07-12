@@ -375,7 +375,7 @@ msgid "Access denied"
 msgstr "Toegang geweigerd"
 
 #: db_structure.php:86
-msgid "No tables found in database"
+msgid "No tables found in database."
 msgstr "Geen tabellen gevonden in de databank"
 
 #: db_tracking.php:73
@@ -1675,7 +1675,7 @@ msgstr "%d nieuwe waarde(n) toevoegen"
 
 #: js/messages.php:259
 msgid ""
-"Note: If the file contains multiple tables, they will be combined into one"
+"Note: If the file contains multiple tables, they will be combined into one."
 msgstr ""
 "Opmerking: Als het bestand meerdere tabellen bevat, zullen deze samengevoegd "
 "worden tot één tabel"
@@ -2851,7 +2851,7 @@ msgstr "De primaire sleutel is vervallen"
 
 #: libraries/Index.class.php:608
 #, php-format
-msgid "Index %s has been dropped"
+msgid "Index %s has been dropped."
 msgstr "Index %s is vervallen"
 
 #: libraries/Index.class.php:731
@@ -3831,7 +3831,7 @@ msgstr "Selecteer uit de web-server upload directory <b>%s</b>:"
 
 #: libraries/Util.class.php:3441 libraries/insert_edit.lib.php:1183
 #: libraries/sql_query_form.lib.php:483
-msgid "The directory you set for upload work cannot be reached"
+msgid "The directory you set for upload work cannot be reached."
 msgstr "De folder die u heeft ingesteld om te uploaden kan niet worden bereikt"
 
 #: libraries/Util.class.php:3452
@@ -8031,7 +8031,7 @@ msgstr "Bestand %s bevat geen sleutel-ID"
 
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:176
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:196
-msgid "Hardware authentication failed"
+msgid "Hardware authentication failed!"
 msgstr "Hardware-authenticatie mislukt"
 
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:183

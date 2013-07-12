@@ -375,7 +375,7 @@ msgid "Access denied"
 msgstr "접근이 거부되었습니다."
 
 #: db_structure.php:86
-msgid "No tables found in database"
+msgid "No tables found in database."
 msgstr "데이터베이스에 테이블이 없습니다."
 
 #: db_tracking.php:73
@@ -1654,7 +1654,7 @@ msgstr "%d 값 추가"
 
 #: js/messages.php:259
 msgid ""
-"Note: If the file contains multiple tables, they will be combined into one"
+"Note: If the file contains multiple tables, they will be combined into one."
 msgstr "참고: 파일에 여러 테이블이 포함되어 있다면, 하나로 결합됩니다"
 
 #: js/messages.php:262
@@ -2820,7 +2820,7 @@ msgstr "기본 키를 제거했습니다"
 
 #: libraries/Index.class.php:608
 #, php-format
-msgid "Index %s has been dropped"
+msgid "Index %s has been dropped."
 msgstr "인덱스 %s 를 제거했습니다"
 
 #: libraries/Index.class.php:731
@@ -3756,7 +3756,7 @@ msgstr "웹 서버 업로드 디렉토리중 <b>%s</b>에서 선택:"
 
 #: libraries/Util.class.php:3441 libraries/insert_edit.lib.php:1183
 #: libraries/sql_query_form.lib.php:483
-msgid "The directory you set for upload work cannot be reached"
+msgid "The directory you set for upload work cannot be reached."
 msgstr "업로드 디렉토리에 접근할 수 없습니다"
 
 #: libraries/Util.class.php:3452
@@ -7777,7 +7777,7 @@ msgstr "%s 파일은 어떤 key id도 포함하지 않습니다."
 
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:176
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:196
-msgid "Hardware authentication failed"
+msgid "Hardware authentication failed!"
 msgstr "하드웨어 인증 실패"
 
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:183
@@ -9142,7 +9142,7 @@ msgstr "트리거를 생성하는데 필요한 권한을 가지고 있지 않습
 
 #: libraries/rte/rte_words.lib.php:44
 #, fuzzy, php-format
-#| msgid "No tables found in database"
+#| msgid "No tables found in database."
 msgid "No trigger with name %1$s found in database %2$s"
 msgstr "데이터베이스에 테이블이 없습니다."
 
@@ -13591,7 +13591,7 @@ msgstr "concurrent_insert가 0으로 설정되었습니다."
 #~ msgstr "차트 삭제"
 
 #, fuzzy
-#~| msgid "No tables found in database"
+#~| msgid "No tables found in database."
 #~ msgid "Count tables when showing database list"
 #~ msgstr "데이터베이스에 테이블이 없습니다."
 

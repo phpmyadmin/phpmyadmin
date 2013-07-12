@@ -392,7 +392,7 @@ msgid "Access denied"
 msgstr "Mynediad wedi'i wrthod"
 
 #: db_structure.php:86
-msgid "No tables found in database"
+msgid "No tables found in database."
 msgstr "Dim tablau wedi'u darganfod yn y gronfa ddata"
 
 #: db_tracking.php:73
@@ -1803,7 +1803,7 @@ msgstr "Ychwanegwch weinydd newydd"
 
 #: js/messages.php:259
 msgid ""
-"Note: If the file contains multiple tables, they will be combined into one"
+"Note: If the file contains multiple tables, they will be combined into one."
 msgstr ""
 
 #: js/messages.php:262
@@ -3048,7 +3048,7 @@ msgstr "Cafodd yr allwedd gynradd ei gollwng"
 
 #: libraries/Index.class.php:608
 #, php-format
-msgid "Index %s has been dropped"
+msgid "Index %s has been dropped."
 msgstr "Cafodd indecs %s ei ollwng"
 
 #: libraries/Index.class.php:731
@@ -4000,7 +4000,7 @@ msgstr "cyfeiriadur lanlwytho y gweinydd gwe"
 
 #: libraries/Util.class.php:3441 libraries/insert_edit.lib.php:1183
 #: libraries/sql_query_form.lib.php:483
-msgid "The directory you set for upload work cannot be reached"
+msgid "The directory you set for upload work cannot be reached."
 msgstr ""
 "Does dim modd cyrraedd y cyfeiriadur a osodoch chi ar gyfer gwaith a "
 "lanwlythwyd"
@@ -8142,7 +8142,7 @@ msgstr "Nid yw ffeil %s yn cynnwys unrhyw id allwedd"
 
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:176
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:196
-msgid "Hardware authentication failed"
+msgid "Hardware authentication failed!"
 msgstr "Dilysu caledwedd wedi methu"
 
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:183
@@ -9526,7 +9526,7 @@ msgstr ""
 
 #: libraries/rte/rte_words.lib.php:32
 #, fuzzy, php-format
-#| msgid "No tables found in database"
+#| msgid "No tables found in database."
 msgid "No routine with name %1$s found in database %2$s"
 msgstr "Dim tablau wedi'u darganfod yn y gronfa ddata."
 
@@ -9560,7 +9560,7 @@ msgstr ""
 
 #: libraries/rte/rte_words.lib.php:44
 #, fuzzy, php-format
-#| msgid "No tables found in database"
+#| msgid "No tables found in database."
 msgid "No trigger with name %1$s found in database %2$s"
 msgstr "Dim tablau wedi'u darganfod yn y gronfa ddata."
 
@@ -9594,7 +9594,7 @@ msgstr ""
 
 #: libraries/rte/rte_words.lib.php:56
 #, fuzzy, php-format
-#| msgid "No tables found in database"
+#| msgid "No tables found in database."
 msgid "No event with name %1$s found in database %2$s"
 msgstr "Dim tablau wedi'u darganfod yn y gronfa ddata."
 

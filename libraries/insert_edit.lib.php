@@ -1180,7 +1180,7 @@ function PMA_getSelectOptionForUpload($vkey, $column)
 
     if ($files === false) {
         return '<font color="red">' . __('Error') . '</font><br />' . "\n"
-            .  __('The directory you set for upload work cannot be reached') . "\n";
+            .  __('The directory you set for upload work cannot be reached.') . "\n";
     } elseif (!empty($files)) {
         return "<br />\n"
             . '<i>' . __('Or') . '</i>' . ' '

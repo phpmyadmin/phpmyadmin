@@ -379,7 +379,7 @@ msgid "Access denied"
 msgstr "Acceso denegado"
 
 #: db_structure.php:86
-msgid "No tables found in database"
+msgid "No tables found in database."
 msgstr "No se han encontrado tablas en la base de datos"
 
 #: db_tracking.php:73
@@ -1681,7 +1681,7 @@ msgstr "Agregar %d valor(es)"
 
 #: js/messages.php:259
 msgid ""
-"Note: If the file contains multiple tables, they will be combined into one"
+"Note: If the file contains multiple tables, they will be combined into one."
 msgstr ""
 "Nota: si la fila contiene múltiples tablas, van a ser combinadas en una"
 
@@ -2865,7 +2865,7 @@ msgstr "La clave primaria ha sido eliminada"
 
 #: libraries/Index.class.php:608
 #, php-format
-msgid "Index %s has been dropped"
+msgid "Index %s has been dropped."
 msgstr "El índice %s ha sido eliminado"
 
 #: libraries/Index.class.php:731
@@ -3850,7 +3850,7 @@ msgstr ""
 
 #: libraries/Util.class.php:3441 libraries/insert_edit.lib.php:1183
 #: libraries/sql_query_form.lib.php:483
-msgid "The directory you set for upload work cannot be reached"
+msgid "The directory you set for upload work cannot be reached."
 msgstr ""
 "No se puede acceder al directorio que seleccionó para subir los archivos"
 
@@ -8082,7 +8082,7 @@ msgstr "El archivo %s no contiene ningún id de clave"
 
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:176
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:196
-msgid "Hardware authentication failed"
+msgid "Hardware authentication failed!"
 msgstr "La autenticación de hardware fracasó"
 
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:183

@@ -387,7 +387,7 @@ msgid "Access denied"
 msgstr "دسترسي مجاز نيست"
 
 #: db_structure.php:86
-msgid "No tables found in database"
+msgid "No tables found in database."
 msgstr "در پايگاه داده هيچ جدولي یافت نشد"
 
 #: db_tracking.php:73
@@ -1680,7 +1680,7 @@ msgstr "اضافه کردن مقدار %d"
 
 #: js/messages.php:259
 msgid ""
-"Note: If the file contains multiple tables, they will be combined into one"
+"Note: If the file contains multiple tables, they will be combined into one."
 msgstr ""
 "توجه داشته باشید:اگر این فایل شامل جداول چند گانه میباشد,انها به یکی تبدیل "
 "خواهند شد"
@@ -2886,7 +2886,7 @@ msgstr "كليد اصلي حذف گرديد"
 
 #: libraries/Index.class.php:608
 #, php-format
-msgid "Index %s has been dropped"
+msgid "Index %s has been dropped."
 msgstr "فهرست %s حذف گرديد"
 
 #: libraries/Index.class.php:731
@@ -3832,7 +3832,7 @@ msgstr "انتخاب از مسیر آپلود در سرور <b>%s</b>:"
 
 #: libraries/Util.class.php:3441 libraries/insert_edit.lib.php:1183
 #: libraries/sql_query_form.lib.php:483
-msgid "The directory you set for upload work cannot be reached"
+msgid "The directory you set for upload work cannot be reached."
 msgstr "پوشه‌اي را كه براي انتقال فايل انتخاب كرده‌ايد قابل دسترسي نيست"
 
 #: libraries/Util.class.php:3452
@@ -7853,7 +7853,7 @@ msgstr "فایل %s دارای کلید id نمی باشد"
 
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:176
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:196
-msgid "Hardware authentication failed"
+msgid "Hardware authentication failed!"
 msgstr "ورود سخنت افزاری نا موفق بود"
 
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:183
@@ -9206,7 +9206,7 @@ msgstr ""
 
 #: libraries/rte/rte_words.lib.php:32
 #, fuzzy, php-format
-#| msgid "No tables found in database"
+#| msgid "No tables found in database."
 msgid "No routine with name %1$s found in database %2$s"
 msgstr "در پايگاه داده هيچ جدولي یافت نشد."
 
@@ -9235,7 +9235,7 @@ msgstr ""
 
 #: libraries/rte/rte_words.lib.php:44
 #, fuzzy, php-format
-#| msgid "No tables found in database"
+#| msgid "No tables found in database."
 msgid "No trigger with name %1$s found in database %2$s"
 msgstr "در پايگاه داده هيچ جدولي یافت نشد."
 
@@ -9263,7 +9263,7 @@ msgstr ""
 
 #: libraries/rte/rte_words.lib.php:56
 #, fuzzy, php-format
-#| msgid "No tables found in database"
+#| msgid "No tables found in database."
 msgid "No event with name %1$s found in database %2$s"
 msgstr "در پايگاه داده هيچ جدولي یافت نشد."
 

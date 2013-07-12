@@ -374,7 +374,7 @@ msgid "Access denied"
 msgstr "පිවිසුම වලක්වා ඇත"
 
 #: db_structure.php:86
-msgid "No tables found in database"
+msgid "No tables found in database."
 msgstr "දත්තගබඩාවේ වගු කිසිවක් සොයා ගැනීමට නොමැත"
 
 #: db_tracking.php:73
@@ -1644,7 +1644,7 @@ msgstr "අගයන් %dක් එක් කරන්න"
 
 #: js/messages.php:259
 msgid ""
-"Note: If the file contains multiple tables, they will be combined into one"
+"Note: If the file contains multiple tables, they will be combined into one."
 msgstr "සටහන: ගොනුවේ වගු එකකට වැඩි ගණනක් ඇත්නම්, ඒවා එකකට සංයුක්ත කෙරෙනු ඇත"
 
 #: js/messages.php:262
@@ -2801,7 +2801,7 @@ msgstr "ප්‍රාථමික මූලය හලන ලදි"
 
 #: libraries/Index.class.php:608
 #, php-format
-msgid "Index %s has been dropped"
+msgid "Index %s has been dropped."
 msgstr "%s සූචිය හලන ලදි"
 
 #: libraries/Index.class.php:731
@@ -3760,7 +3760,7 @@ msgstr "වෙබ් සේවාදායකයේ <b>%s</b> උඩුගත �
 
 #: libraries/Util.class.php:3441 libraries/insert_edit.lib.php:1183
 #: libraries/sql_query_form.lib.php:483
-msgid "The directory you set for upload work cannot be reached"
+msgid "The directory you set for upload work cannot be reached."
 msgstr "අප්ලෝඩ් කිරීම් සඳහා සැකසූ ඩිරෙක්ටරිය වෙත පිවිසිය නොහැක"
 
 #: libraries/Util.class.php:3452
@@ -7780,7 +7780,7 @@ msgstr "%s ගොනුවෙහි යතුරු කිසිවක් අඩ
 
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:176
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:196
-msgid "Hardware authentication failed"
+msgid "Hardware authentication failed!"
 msgstr "දෘඪාංග සත්‍යාපනය අසමත් විය"
 
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:183

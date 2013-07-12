@@ -391,7 +391,7 @@ msgid "Access denied"
 msgstr "ممنوع الوصول"
 
 #: db_structure.php:86
-msgid "No tables found in database"
+msgid "No tables found in database."
 msgstr "لم يعثر على جداول في قاعدة البيانات"
 
 #: db_tracking.php:73
@@ -1659,7 +1659,7 @@ msgstr "﻿إضافة قيمة/قيم %d"
 
 #: js/messages.php:259
 msgid ""
-"Note: If the file contains multiple tables, they will be combined into one"
+"Note: If the file contains multiple tables, they will be combined into one."
 msgstr "ملاحظة: إذا كان الملف يحتوي على جداول متعددة , فإنها سوف تتجمع في واحد"
 
 #: js/messages.php:262
@@ -2853,7 +2853,7 @@ msgstr "لقد تم حذف المفتاح الأساسي"
 
 #: libraries/Index.class.php:608
 #, php-format
-msgid "Index %s has been dropped"
+msgid "Index %s has been dropped."
 msgstr "تم حذف الفهرس %s"
 
 #: libraries/Index.class.php:731
@@ -3782,7 +3782,7 @@ msgstr "إختر مجلد الرفع من الخادم <b>%s</b>:"
 
 #: libraries/Util.class.php:3441 libraries/insert_edit.lib.php:1183
 #: libraries/sql_query_form.lib.php:483
-msgid "The directory you set for upload work cannot be reached"
+msgid "The directory you set for upload work cannot be reached."
 msgstr "لا يمكن الوصول إلى الدليل اللذي عينته لعمل التحميل"
 
 #: libraries/Util.class.php:3452
@@ -7788,7 +7788,7 @@ msgstr "الملف %s لايحتوي على أي مفتاح تعريف"
 
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:176
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:196
-msgid "Hardware authentication failed"
+msgid "Hardware authentication failed!"
 msgstr "فشلت المصادقة المحسوسة"
 
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:183

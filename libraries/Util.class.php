@@ -3438,7 +3438,7 @@ class PMA_Util
 
         if ($files === false) {
             PMA_Message::error(
-                __('The directory you set for upload work cannot be reached')
+                __('The directory you set for upload work cannot be reached.')
             )->display();
         } elseif (! empty($files)) {
             $block_html .= "\n"

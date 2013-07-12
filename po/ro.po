@@ -389,7 +389,7 @@ msgid "Access denied"
 msgstr "Acces interzis"
 
 #: db_structure.php:86
-msgid "No tables found in database"
+msgid "No tables found in database."
 msgstr "Nu s-a găsit niciun tabel în baza de date"
 
 #: db_tracking.php:73
@@ -1775,7 +1775,7 @@ msgstr "Adaugă %d valori"
 
 #: js/messages.php:259
 msgid ""
-"Note: If the file contains multiple tables, they will be combined into one"
+"Note: If the file contains multiple tables, they will be combined into one."
 msgstr ""
 "Notă: Dacă fișierul conține mai multe tabele, acestea vor fi combinate într-"
 "unul singur"
@@ -3041,7 +3041,7 @@ msgstr "Cheia primară a fost aruncată"
 
 #: libraries/Index.class.php:608
 #, php-format
-msgid "Index %s has been dropped"
+msgid "Index %s has been dropped."
 msgstr "Indexul %s a fost aruncat"
 
 #: libraries/Index.class.php:731
@@ -3997,7 +3997,7 @@ msgstr "director de încărcare al serverului Web"
 
 #: libraries/Util.class.php:3441 libraries/insert_edit.lib.php:1183
 #: libraries/sql_query_form.lib.php:483
-msgid "The directory you set for upload work cannot be reached"
+msgid "The directory you set for upload work cannot be reached."
 msgstr "Directorul stabilit pentru încărcare nu poate fi găsit"
 
 #: libraries/Util.class.php:3452
@@ -8496,7 +8496,7 @@ msgstr ""
 
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:176
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:196
-msgid "Hardware authentication failed"
+msgid "Hardware authentication failed!"
 msgstr "Autentificarea hardware a eșuat"
 
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:183

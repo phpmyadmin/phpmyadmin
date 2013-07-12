@@ -389,7 +389,7 @@ msgid "Access denied"
 msgstr "Доступ заборонено"
 
 #: db_structure.php:86
-msgid "No tables found in database"
+msgid "No tables found in database."
 msgstr "Немає таблиць у базі даних"
 
 #: db_tracking.php:73
@@ -1705,7 +1705,7 @@ msgstr "Додати %d значення(ь)"
 
 #: js/messages.php:259
 msgid ""
-"Note: If the file contains multiple tables, they will be combined into one"
+"Note: If the file contains multiple tables, they will be combined into one."
 msgstr ""
 "Примітка: Якщо файл містить кілька таблиць, то вони будуть об'єднані в одну"
 
@@ -2900,7 +2900,7 @@ msgstr "Первинний ключ було знищено"
 
 #: libraries/Index.class.php:608
 #, php-format
-msgid "Index %s has been dropped"
+msgid "Index %s has been dropped."
 msgstr "Індекс %s було знищено"
 
 #: libraries/Index.class.php:731
@@ -3837,7 +3837,7 @@ msgstr "Виберіть з каталога веб-сервера для від
 
 #: libraries/Util.class.php:3441 libraries/insert_edit.lib.php:1183
 #: libraries/sql_query_form.lib.php:483
-msgid "The directory you set for upload work cannot be reached"
+msgid "The directory you set for upload work cannot be reached."
 msgstr "Встановлений Вами каталог для завантаження файлів недоступний"
 
 #: libraries/Util.class.php:3452
@@ -8113,7 +8113,7 @@ msgstr "Файл %s не містить ідентифікатора (id) клю
 
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:176
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:196
-msgid "Hardware authentication failed"
+msgid "Hardware authentication failed!"
 msgstr "Апаратна аутентифікація не вдалася"
 
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:183

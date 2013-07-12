@@ -383,7 +383,7 @@ msgid "Access denied"
 msgstr "Zugriff verweigert"
 
 #: db_structure.php:86
-msgid "No tables found in database"
+msgid "No tables found in database."
 msgstr "Diese Datenbank enthält keine Tabellen"
 
 #: db_tracking.php:73
@@ -1717,7 +1717,7 @@ msgstr "%d Wert(e) hinzufügen"
 
 #: js/messages.php:259
 msgid ""
-"Note: If the file contains multiple tables, they will be combined into one"
+"Note: If the file contains multiple tables, they will be combined into one."
 msgstr ""
 "Hinweis: Wenn die Datei mehrere Tabellen enthält, werden diese in einer "
 "einzigen Tabelle zusammengefasst"
@@ -2929,7 +2929,7 @@ msgstr "Der Primärschlüssel wurde gelöscht"
 
 #: libraries/Index.class.php:608
 #, php-format
-msgid "Index %s has been dropped"
+msgid "Index %s has been dropped."
 msgstr "Index %s wurde entfernt"
 
 #: libraries/Index.class.php:731
@@ -3923,7 +3923,7 @@ msgstr "Wählen Sie vom Webserver-Uploadverzeichnis <b>%s</b>:"
 
 #: libraries/Util.class.php:3441 libraries/insert_edit.lib.php:1183
 #: libraries/sql_query_form.lib.php:483
-msgid "The directory you set for upload work cannot be reached"
+msgid "The directory you set for upload work cannot be reached."
 msgstr "Auf das festgelegte Upload-Verzeichnis kann nicht zugegriffen werden"
 
 #: libraries/Util.class.php:3452
@@ -8168,7 +8168,7 @@ msgstr "Die Datei %s enthält keine Schlüsselnummer"
 
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:176
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:196
-msgid "Hardware authentication failed"
+msgid "Hardware authentication failed!"
 msgstr "Hardware Authentisierung fehlgeschlagen"
 
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:183

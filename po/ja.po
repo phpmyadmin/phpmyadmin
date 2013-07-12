@@ -382,7 +382,7 @@ msgid "Access denied"
 msgstr "アクセスは拒否されました"
 
 #: db_structure.php:86
-msgid "No tables found in database"
+msgid "No tables found in database."
 msgstr "このデータベースにはテーブルがありません"
 
 #: db_tracking.php:73
@@ -1691,7 +1691,7 @@ msgstr "値 %d を追加する"
 
 #: js/messages.php:259
 msgid ""
-"Note: If the file contains multiple tables, they will be combined into one"
+"Note: If the file contains multiple tables, they will be combined into one."
 msgstr ""
 "注意：ファイルに複数のテーブルが含まれている場合、それらは１つに統合されま"
 "す。"
@@ -2892,7 +2892,7 @@ msgstr "主キーを削除しました"
 
 #: libraries/Index.class.php:608
 #, php-format
-msgid "Index %s has been dropped"
+msgid "Index %s has been dropped."
 msgstr "インデックス %s を削除しました"
 
 #: libraries/Index.class.php:731
@@ -3861,7 +3861,7 @@ msgstr "ウェブサーバ上のアップロードディレクトリ <b>%s</b> �
 
 #: libraries/Util.class.php:3441 libraries/insert_edit.lib.php:1183
 #: libraries/sql_query_form.lib.php:483
-msgid "The directory you set for upload work cannot be reached"
+msgid "The directory you set for upload work cannot be reached."
 msgstr "指定したアップロードディレクトリが利用できません"
 
 #: libraries/Util.class.php:3452
@@ -8167,7 +8167,7 @@ msgstr "ファイル %s にキー ID が含まれていません"
 
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:176
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:196
-msgid "Hardware authentication failed"
+msgid "Hardware authentication failed!"
 msgstr "ハードウェア認証に失敗しました"
 
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:183
