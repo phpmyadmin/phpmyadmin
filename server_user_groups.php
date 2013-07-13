@@ -38,17 +38,19 @@ if (! empty($_REQUEST['editUserGroupSubmit'])) {
     PMA_editUserGroup($_REQUEST['userGroup']);
 }
 
+if (isset($_REQUEST['viewUsers'])) {
+    // Display users belonging to a user group
+    $response->addHTML(PMA_getHtmlForListingUsersofAGroup($_REQUEST['userGroup']));
+}
+
 if (isset($_REQUEST['addUserGroup'])) {
-    // Add user group
-    $response->addHTML(
-        PMA_getHtmlToEditUserGroup()
-    );
+    // Display add user group dialog
+    $response->addHTML(PMA_getHtmlToEditUserGroup());
 } elseif (isset($_REQUEST['editUserGroup'])) {
-    // Add user group
-    $response->addHTML(
-        PMA_getHtmlToEditUserGroup($_REQUEST['userGroup'])
-    );
+    // Display edit user group dialog
+    $response->addHTML(PMA_getHtmlToEditUserGroup($_REQUEST['userGroup']));
 } else {
+    // Display user groups table
     $response->addHTML(PMA_getHtmlForUserGroupsTable());
 }
 

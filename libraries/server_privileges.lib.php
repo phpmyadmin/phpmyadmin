@@ -3133,6 +3133,45 @@ function PMA_getHtmlForDisplayUserOverviewPage($link_edit, $pmaThemeImage,
 }
 
 /**
+ * Return HTML to list the users belonging to a given user group
+ *
+ * @param string $userGroup user group name
+ *
+ * @return HTML to list the users belonging to a given user group
+ */
+function PMA_getHtmlForListingUsersofAGroup($userGroup)
+{
+    $html_output  = '<h2>' . sprintf(__('Users of \'%s\' user group'), $userGroup)
+        . '</h2>';
+
+    $usersTable = PMA_Util::backquote($GLOBALS['cfg']['Server']['pmadb'])
+        . "." . PMA_Util::backquote($GLOBALS['cfg']['Server']['users']);
+    $sql_query = "SELECT `username` FROM " . $usersTable
+        . " WHERE `usergroup`='" . $userGroup . "'";
+    $result = PMA_queryAsControlUser($sql_query, false);
+    if ($result) {
+        $html_output .= '<table>'
+            . '<thead><tr><th>#</th><th>' . __('User') . '</th></tr></thead>'
+            . '<tbody>';
+        $i = 0;
+        while ($row = $GLOBALS['dbi']->fetchRow($result)) {
+            $i++;
+            $html_output .= '<tr>'
+                . '<td>' . $i . ' </td>'
+                . '<td>' . htmlspecialchars($row[0]) . '</td>'
+                . '</tr>';
+        }
+        $html_output .= '</tbody>'
+            . '</table>';
+    } else {
+        $html_output .= '<p>'
+            . __('No users were found belonging to this user group')
+            . '</p>';
+    }
+    return $html_output;
+}
+
+/**
  * Returns HTML for the 'user groups' table
  *
  * @return string HTML for the 'user groups' table
@@ -3168,6 +3207,11 @@ function PMA_getHtmlForUserGroupsTable()
             $html_output .= '<td>' . _getAllowedTabNames($row, 'table') . '</td>';
 
             $html_output .= '<td>';
+            $html_output .= '<a class="" href="server_user_groups.php?'
+                . PMA_generate_common_url() . '&viewUsers=1&userGroup='
+                . urlencode($row['usergroup']) . '">'
+                . PMA_Util::getIcon('b_usrlist.png', __('View users')) . '</a>';
+            $html_output .= '&nbsp;&nbsp;';
             $html_output .= '<a class="" href="server_user_groups.php?'
                 . PMA_generate_common_url() . '&editUserGroup=1&userGroup='
                 . urlencode($row['usergroup']) . '">'
