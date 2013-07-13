@@ -12,6 +12,7 @@
 require_once 'libraries/Util.class.php';
 require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/url_generating.lib.php';
+require_once 'libraries/Tracker.class.php';
 require_once 'libraries/database_interface.inc.php';
 require_once 'libraries/replication.inc.php';
 require_once 'libraries/replication_gui.lib.php';
@@ -64,22 +65,6 @@ class PMA_ServerReplication_Test extends PHPUnit_Framework_TestCase
         $_SESSION['PMA_Theme'] = new PMA_Theme();
         
         //Mock DBI
-        $server_master_replication = array(
-            array(
-                "File" => "master-bin.000030",
-                "Position" => "107",
-                "Binlog_Do_DB" => "Binlog_Do_DB",
-                "Binlog_Ignore_DB" => "Binlog_Ignore_DB",
-            )
-        );
-        $server_slave_replication = array(
-            array(
-                "File" => "slave-bin.000030",
-                "Position" => "slave_Position",
-                "Binlog_Do_DB" => "slave__Do_DB",
-                "Binlog_Ignore_DB" => "slave_Binlog_Ignore_DB",
-            )
-        );
 
         $slave_host = array(
             array('Server_id'=>'Server_id1', 'Host'=>'Host1'),
@@ -87,22 +72,6 @@ class PMA_ServerReplication_Test extends PHPUnit_Framework_TestCase
         );
         
         $fetchResult = array(
-            array(
-                "SHOW MASTER STATUS",
-                null,
-                null,
-                null,
-                0,
-                $server_master_replication
-            ),
-            array(
-                "SHOW SLAVE STATUS",
-                null,
-                null,
-                null,
-                0,
-                $server_slave_replication
-            ),
             array(
                 "SHOW SLAVE HOSTS",
                 null,
@@ -145,15 +114,7 @@ class PMA_ServerReplication_Test extends PHPUnit_Framework_TestCase
         global $master_variables_oks;
         global $server_master_replication;
         global $strReplicationStatus_master;
-
-        $server_master_replication = array(
-            array(
-                "File" => "master-bin.000030",
-                "Position" => "107",
-                "Binlog_Do_DB" => "Binlog_Do_DB",
-                "Binlog_Ignore_DB" => "Binlog_Ignore_DB",
-            )
-        );
+        
         $master_variables_alerts = null;
         $master_variables_oks = null;
         $strReplicationStatus_master = null;
@@ -272,43 +233,6 @@ class PMA_ServerReplication_Test extends PHPUnit_Framework_TestCase
     public function testPMAGetHtmlForSlaveConfiguration()
     {
         global $server_slave_replication;
-        $server_slave_replication = array(
-            array(
-                'Slave_IO_State' => 'running',
-                'Master_Host' => 'locahost',
-                'Master_User' => 'Master_User',
-                'Master_Port' => '1002',
-                'Connect_Retry' => 'Connect_Retry',
-                'Master_Log_File' => 'Master_Log_File',
-                'Read_Master_Log_Pos' => 'Read_Master_Log_Pos',
-                'Relay_Log_File' => 'Relay_Log_File',
-                'Relay_Log_Pos' => 'Relay_Log_Pos',
-                'Relay_Master_Log_File' =>  'Relay_Master_Log_File',
-                'Slave_IO_Running' => 'NO',
-                'Slave_SQL_Running' => 'NO',
-                'Replicate_Do_DB' => 'Replicate_Do_DB',
-                'Replicate_Ignore_DB' => 'Replicate_Ignore_DB',
-                'Replicate_Do_Table' => 'Replicate_Do_Table',
-                'Replicate_Ignore_Table' => 'Replicate_Ignore_Table',
-                'Replicate_Wild_Do_Table' => 'Replicate_Wild_Do_Table',
-                'Replicate_Wild_Ignore_Table' => 'Replicate_Wild_Ignore_Table',
-                'Last_Errno' => 'Last_Errno',
-                'Last_Error' => 'Last_Error',
-                'Skip_Counter' =>  'Skip_Counter',
-                'Exec_Master_Log_Pos' => 'Exec_Master_Log_Pos',
-                'Relay_Log_Space' => 'Relay_Log_Space',
-                'Until_Condition' => 'Until_Condition',
-                'Until_Log_File' => 'Until_Log_File',
-                'Until_Log_Pos' => 'Until_Log_Pos',
-                'Master_SSL_Allowed' => 'Master_SSL_Allowed',
-                'Master_SSL_CA_File' => 'Master_SSL_CA_File',
-                'Master_SSL_CA_Path' => 'Master_SSL_CA_Path',
-                'Master_SSL_Cert' => 'Master_SSL_Cert',
-                'Master_SSL_Cipher' => 'Master_SSL_Cipher',
-                'Master_SSL_Key' => 'Master_SSL_Key',
-                'Seconds_Behind_Master' => 'Seconds_Behind_Master',
-            )
-        );
         
         //Call the test function
         $html = PMA_getHtmlForSlaveConfiguration(
