@@ -5,6 +5,10 @@
  * @package PhpMyAdmin
  */
 
+if (! defined('PHPMYADMIN')) {
+    exit;
+}
+
 $auto_column_types = empty($cfg['ColumnTypes']);
 
 // VARCHAR, TINYINT, TEXT and DATE are listed first, based on estimated popularity
