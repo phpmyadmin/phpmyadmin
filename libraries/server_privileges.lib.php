@@ -3141,7 +3141,8 @@ function PMA_getHtmlForDisplayUserOverviewPage($link_edit, $pmaThemeImage,
  */
 function PMA_getHtmlForListingUsersofAGroup($userGroup)
 {
-    $html_output  = '<h2>' . sprintf(__('Users of \'%s\' user group'), $userGroup)
+    $html_output  = '<h2>'
+        . sprintf(__('Users of \'%s\' user group'), htmlspecialchars($userGroup))
         . '</h2>';
 
     $usersTable = PMA_Util::backquote($GLOBALS['cfg']['Server']['pmadb'])
