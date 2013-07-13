@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-07-12 16:06+0200\n"
-"PO-Revision-Date: 2013-07-05 16:35+0200\n"
+"PO-Revision-Date: 2013-07-13 20:32+0200\n"
 "Last-Translator: Tony Chen <tonychen@finenet.com.tw>\n"
-"Language-Team: Traditional Chinese <http://l10n.cihar.com/projects/"
-"phpmyadmin/master/zh_TW/>\n"
+"Language-Team: Traditional Chinese "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/zh_TW/>\n"
 "Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1680,10 +1680,9 @@ msgid "Show search criteria"
 msgstr "顯示搜尋條件"
 
 #: js/messages.php:278
-#, fuzzy
 #| msgid "Hide search criteria"
 msgid "Hide find and replace criteria"
-msgstr "隱藏搜尋條件"
+msgstr "隱藏搜尋和替換條件"
 
 #: js/messages.php:279
 msgid "Show find and replace criteria"
@@ -2774,7 +2773,7 @@ msgstr "已刪除主鍵"
 #: libraries/Index.class.php:608
 #, php-format
 msgid "Index %s has been dropped."
-msgstr "已刪除索引 %s"
+msgstr "已刪除索引 %s。"
 
 #: libraries/Index.class.php:731
 #, php-format
@@ -3161,7 +3160,7 @@ msgstr "資料表搜尋"
 
 #: libraries/TableSearch.class.php:217 libraries/TableSearch.class.php:1172
 msgid "Find and Replace"
-msgstr ""
+msgstr "搜尋和替換"
 
 #: libraries/TableSearch.class.php:239 libraries/insert_edit.lib.php:1352
 msgid "Edit/Insert"
@@ -3226,20 +3225,18 @@ msgid "Reset zoom"
 msgstr "重設縮放大小"
 
 #: libraries/TableSearch.class.php:1281
-#, fuzzy
 #| msgid "Replace with"
 msgid "Replace with:"
-msgstr "替換爲"
+msgstr "替換爲："
 
 #: libraries/TableSearch.class.php:1341
 msgid "Find and replace - preview"
 msgstr "尋找和替換-預覽"
 
 #: libraries/TableSearch.class.php:1345
-#, fuzzy
 #| msgid "Column"
 msgid "Count"
-msgstr "欄位"
+msgstr "次數"
 
 #: libraries/TableSearch.class.php:1346
 msgid "Original string"
@@ -3722,7 +3719,7 @@ msgstr "選擇 Web 伺服器上傳目錄 <b>%s</b>："
 #: libraries/Util.class.php:3441 libraries/insert_edit.lib.php:1183
 #: libraries/sql_query_form.lib.php:483
 msgid "The directory you set for upload work cannot be reached."
-msgstr "設定之上傳目錄錯誤，無法使用"
+msgstr "設定之上傳目錄錯誤，無法使用。"
 
 #: libraries/Util.class.php:3452
 msgid "There are no files to upload"
@@ -7666,7 +7663,7 @@ msgstr "空密碼登錄被禁止 (參見 允許空密碼)"
 #: libraries/plugins/auth/AuthenticationSignon.class.php:254
 #, php-format
 msgid "No activity within %s seconds; please log in again."
-msgstr "登錄超時 (%s 秒未操作)，請重新登錄"
+msgstr "登錄超時 (%s 秒未操作)，請重新登錄。"
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:667
 #: libraries/plugins/auth/AuthenticationCookie.class.php:669
@@ -7690,7 +7687,7 @@ msgstr "檔案 %s 未包含任何密鑰"
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:176
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:196
 msgid "Hardware authentication failed!"
-msgstr "硬件認證失敗"
+msgstr "硬體身份驗證失敗！"
 
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:183
 msgid "No valid authentication key plugged"
@@ -9180,7 +9177,7 @@ msgstr "顯示資料表格大小"
 
 #: libraries/schema/User_Schema.class.php:461
 msgid "Same width for all tables"
-msgstr ""
+msgstr "所有資料表使用相同的寬度"
 
 #: libraries/schema/User_Schema.class.php:464 libraries/structure.lib.php:379
 msgid "Data Dictionary"
@@ -10710,9 +10707,7 @@ msgstr "僅查看"
 msgid ""
 "There seems to be an error in your SQL query. The MySQL server error output "
 "below, if there is any, may also help you in diagnosing the problem."
-msgstr ""
-"您的 SQL 查詢可能有錯。如果可能的話，以下會列出 MySQL 伺服器的錯誤輸出，這可"
-"能對您解決問題有一定的幫助"
+msgstr "您的 SQL 查詢可能有錯。如果可能的話，以下會列出 MySQL 伺服器的錯誤輸出，這可能對您解決問題有一定的幫助。"
 
 #: libraries/sqlparser.lib.php:178
 msgid ""
