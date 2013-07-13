@@ -301,6 +301,61 @@ $GLOBALS['dummy_queries'] = array(
             " AND table_name = 'pma_test_table2'" .
             " ORDER BY version DESC",
         'result' => array()
+    ),
+    array(
+        'query' => "SHOW SLAVE STATUS",
+        'result' => array(
+            array(
+                'Slave_IO_State' => 'running',
+                'Master_Host' => 'locahost',
+                'Master_User' => 'Master_User',
+                'Master_Port' => '1002',
+                'Connect_Retry' => 'Connect_Retry',
+                'Master_Log_File' => 'Master_Log_File',
+                'Read_Master_Log_Pos' => 'Read_Master_Log_Pos',
+                'Relay_Log_File' => 'Relay_Log_File',
+                'Relay_Log_Pos' => 'Relay_Log_Pos',
+                'Relay_Master_Log_File' =>  'Relay_Master_Log_File',
+                'Slave_IO_Running' => 'NO',
+                'Slave_SQL_Running' => 'NO',
+                'Replicate_Do_DB' => 'Replicate_Do_DB',
+                'Replicate_Ignore_DB' => 'Replicate_Ignore_DB',
+                'Replicate_Do_Table' => 'Replicate_Do_Table',
+                'Replicate_Ignore_Table' => 'Replicate_Ignore_Table',
+                'Replicate_Wild_Do_Table' => 'Replicate_Wild_Do_Table',
+                'Replicate_Wild_Ignore_Table' => 'Replicate_Wild_Ignore_Table',
+                'Last_Errno' => 'Last_Errno',
+                'Last_Error' => 'Last_Error',
+                'Skip_Counter' =>  'Skip_Counter',
+                'Exec_Master_Log_Pos' => 'Exec_Master_Log_Pos',
+                'Relay_Log_Space' => 'Relay_Log_Space',
+                'Until_Condition' => 'Until_Condition',
+                'Until_Log_File' => 'Until_Log_File',
+                'Until_Log_Pos' => 'Until_Log_Pos',
+                'Master_SSL_Allowed' => 'Master_SSL_Allowed',
+                'Master_SSL_CA_File' => 'Master_SSL_CA_File',
+                'Master_SSL_CA_Path' => 'Master_SSL_CA_Path',
+                'Master_SSL_Cert' => 'Master_SSL_Cert',
+                'Master_SSL_Cipher' => 'Master_SSL_Cipher',
+                'Master_SSL_Key' => 'Master_SSL_Key',
+                'Seconds_Behind_Master' => 'Seconds_Behind_Master',
+            )
+        )
+    ),
+    array(
+        'query' => "SHOW MASTER STATUS",
+        'result' => array(
+            array(
+                "File" => "master-bin.000030",
+                "Position" => "107",
+                "Binlog_Do_DB" => "Binlog_Do_DB",
+                "Binlog_Ignore_DB" => "Binlog_Ignore_DB",
+            )
+        )
+    ),
+    array(
+        'query' => "SHOW GRANTS",
+        'result' => array()
     )
 );
 /**
