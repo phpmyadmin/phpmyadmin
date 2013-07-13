@@ -3151,23 +3151,25 @@ function PMA_getHtmlForListingUsersofAGroup($userGroup)
         . " WHERE `usergroup`='" . $userGroup . "'";
     $result = PMA_queryAsControlUser($sql_query, false);
     if ($result) {
-        $html_output .= '<table>'
-            . '<thead><tr><th>#</th><th>' . __('User') . '</th></tr></thead>'
-            . '<tbody>';
-        $i = 0;
-        while ($row = $GLOBALS['dbi']->fetchRow($result)) {
-            $i++;
-            $html_output .= '<tr>'
-                . '<td>' . $i . ' </td>'
-                . '<td>' . htmlspecialchars($row[0]) . '</td>'
-                . '</tr>';
+        if ($GLOBALS['dbi']->numRows($result) == 0) {
+            $html_output .= '<p>'
+                . __('No users were found belonging to this user group')
+                . '</p>';
+        } else {
+            $html_output .= '<table>'
+                . '<thead><tr><th>#</th><th>' . __('User') . '</th></tr></thead>'
+                . '<tbody>';
+            $i = 0;
+            while ($row = $GLOBALS['dbi']->fetchRow($result)) {
+                $i++;
+                $html_output .= '<tr>'
+                    . '<td>' . $i . ' </td>'
+                    . '<td>' . htmlspecialchars($row[0]) . '</td>'
+                    . '</tr>';
+            }
+            $html_output .= '</tbody>'
+                . '</table>';
         }
-        $html_output .= '</tbody>'
-            . '</table>';
-    } else {
-        $html_output .= '<p>'
-            . __('No users were found belonging to this user group')
-            . '</p>';
     }
     return $html_output;
 }
