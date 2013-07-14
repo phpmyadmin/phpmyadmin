@@ -28,14 +28,12 @@ class PMA_SQLParser_Data_Test extends PHPUnit_Framework_TestCase
 
     public function testPMA_SQPdata()
     {
-        //so that sqlparser.data.php can be covered by PHPUnit
-        include 'libraries/sqlparser.data.php';
-        
-        $this->_assertSorted($PMA_SQPdata_function_name);
-        $this->_assertSorted($PMA_SQPdata_column_attrib);
-        $this->_assertSorted($PMA_SQPdata_reserved_word);
-        $this->_assertSorted($PMA_SQPdata_forbidden_word);
-        $this->_assertSorted($PMA_SQPdata_column_type);
+        $data = PMA_SQL_Parse_Data_Mock::getDataArray();
+        $this->_assertSorted($data['PMA_SQPdata_function_name']);
+        $this->_assertSorted($data['PMA_SQPdata_column_attrib']);
+        $this->_assertSorted($data['PMA_SQPdata_reserved_word']);
+        $this->_assertSorted($data['PMA_SQPdata_forbidden_word']);
+        $this->_assertSorted($data['PMA_SQPdata_column_type']);
     }
 
     public function testPMA_SQPdata_function_name()
@@ -64,4 +62,20 @@ class PMA_SQLParser_Data_Test extends PHPUnit_Framework_TestCase
     }
 
 }
+
+class PMA_SQL_Parse_Data_Mock 
+{
+    public static function getDataArray(){
+        //so that sqlparser.data.php can be covered by PHPUnit
+        include 'libraries/sqlparser.data.php';
+        return array(
+            'PMA_SQPdata_function_name'  => $PMA_SQPdata_function_name,
+            'PMA_SQPdata_column_attrib'  => $PMA_SQPdata_column_attrib,
+            'PMA_SQPdata_reserved_word'  => $PMA_SQPdata_reserved_word,
+            'PMA_SQPdata_forbidden_word' => $PMA_SQPdata_forbidden_word,
+            'PMA_SQPdata_column_type'    => $PMA_SQPdata_column_type,
+        );
+    }
+}
+
 ?>
