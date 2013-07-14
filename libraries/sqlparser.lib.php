@@ -993,6 +993,7 @@ function PMA_SQP_analyze($arr)
      * ['queryflags']['is_func'] = 1;      for the presence of SUM|AVG|STD|STDDEV
      *                                     |MIN|MAX|BIT_OR|BIT_AND
      * ['queryflags']['is_count'] = 1;     for the presence of SELECT COUNT
+     * ['queryflags']['is_procedure'] = 1; for the presence of CALL
      *
      * query clauses
      * -------------
@@ -1720,6 +1721,11 @@ function PMA_SQP_analyze($arr)
 
             if ($upper_data == 'OFFSET') {
                 $subresult['queryflags']['offset'] = 1;
+            }
+            
+            // for the presence of CALL
+            if ($upper_data == 'CALL') {
+                $subresult['queryflags']['is_procedure'] = 1;
             }
 
             // if this is a real SELECT...FROM

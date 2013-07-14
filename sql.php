@@ -196,17 +196,6 @@ if (PMA_isAppendLimitClause($analyzed_sql_results)) {
     );
 }
 
-// Since multiple query execution is anyway handled,
-// ignore the WHERE clause of the first sql statement
-// which might contain a phrase like 'call '        
-if (preg_match("/\bcall\b/i", $full_sql_query)
-    && empty($analyzed_sql[0]['where_clause'])
-) {
-    $is_procedure = true;
-} else {
-    $is_procedure = false;    
-}
-
 $reload = PMA_hasCurrentDbChanged($db);
 
 // Execute the query
