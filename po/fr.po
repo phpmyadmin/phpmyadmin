@@ -4,10 +4,9 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-07-12 16:06+0200\n"
-"PO-Revision-Date: 2013-07-12 15:29+0200\n"
+"PO-Revision-Date: 2013-07-14 01:43+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
-"Language-Team: French <http://l10n.cihar.com/projects/phpmyadmin/master/fr/"
-">\n"
+"Language-Team: French <http://l10n.cihar.com/projects/phpmyadmin/master/fr/>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1668,7 +1667,7 @@ msgstr "Ajouter %d valeur(s)"
 #: js/messages.php:259
 msgid ""
 "Note: If the file contains multiple tables, they will be combined into one."
-msgstr "Note : si le fichier contient plusieurs tables, elles seront combinées"
+msgstr "Note : si le fichier contient plusieurs tables, elles seront combinées."
 
 #: js/messages.php:262
 msgid "Hide query box"
@@ -2848,7 +2847,7 @@ msgstr "La clé primaire a été effacée"
 #: libraries/Index.class.php:608
 #, php-format
 msgid "Index %s has been dropped."
-msgstr "L'index %s a été effacé"
+msgstr "L'index %s a été effacé."
 
 #: libraries/Index.class.php:731
 #, php-format
@@ -3829,7 +3828,7 @@ msgstr ""
 #: libraries/Util.class.php:3441 libraries/insert_edit.lib.php:1183
 #: libraries/sql_query_form.lib.php:483
 msgid "The directory you set for upload work cannot be reached."
-msgstr "Le répertoire de transfert est inaccessible"
+msgstr "Le répertoire de transfert est inaccessible."
 
 #: libraries/Util.class.php:3452
 msgid "There are no files to upload"
@@ -8015,7 +8014,7 @@ msgstr "Le fichier %s ne contient pas d'identifiant de clé"
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:176
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:196
 msgid "Hardware authentication failed!"
-msgstr "L'authentification matérielle a échoué"
+msgstr "L'authentification matérielle a échoué !"
 
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:183
 msgid "No valid authentication key plugged"
