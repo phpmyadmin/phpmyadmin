@@ -438,7 +438,7 @@ function PMA_getHtmlForPrintViewHeader($db, $sql_query, $num_rows)
 
 /**
  * Get the HTML for the profiling table and accompanying chart if profiling is set.
- * Ptherwise returns null
+ * Otherwise returns null
  *
  * @param string $url_query         url query
  * @param string $db                current database
