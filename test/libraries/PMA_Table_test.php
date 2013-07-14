@@ -224,5 +224,69 @@ class PMA_Table_Test extends PHPUnit_Framework_TestCase
             $show_create_table[0]['create_table_fields']['COLUMN_NAME']
         );
     }
+
+    /**
+     * Test object creating
+     *
+     * @return void
+     */
+    public function testCreate()
+    {
+        $table = new PMA_Table('table1', 'pma_test');
+        $this->assertInstanceOf('PMA_Table', $table);
+    }
+
+    /**
+     * Test Set & Get
+     *
+     * @return void
+     */
+    public function testSetAndGet()
+    {
+        $table = new PMA_Table('table1', 'pma_test');
+        $table->set('production', 'Phpmyadmin');
+        $table->set('db', 'mysql');
+        $this->assertEquals(
+            "Phpmyadmin",
+            $table->get("production")
+        );
+        $this->assertEquals(
+            "mysql",
+            $table->get("db")
+        );
+    }
+
+    /**
+     * Test name validation
+     *
+     * @param string  $name   name to test
+     * @param boolena $result expected result
+     *
+     * @return void
+     *
+     * @dataProvider dataValidateName
+     */
+    public function testValidateName($name, $result)
+    {
+        $this->assertEquals(
+            $result,
+            PMA_Table::isValidName($name)
+        );
+    }
+
+    /**
+     * Data provider for name validation
+     *
+     * @return array with test data
+     */
+    public function dataValidateName()
+    {
+        return array(
+            array('test', true),
+            array('te/st', false),
+            array('te.st', false),
+            array('te\\st', false),
+        );
+    }
 }
 ?>
