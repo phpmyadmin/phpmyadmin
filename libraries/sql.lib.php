@@ -452,12 +452,7 @@ function PMA_getHtmlForProfilingChart($url_query, $db, $profiling_results)
         $pma_token = $_SESSION[' PMA_token '];
         $url_query = (isset($url_query) ? $url_query : PMA_generate_common_url($db));
     
-        $profiling_stats = array(
-            'total_time' => 0,
-            'states' => array(),
-        );
         $profiling_table = '';
-
         $profiling_table .= '<fieldset><legend>' . __('Profiling')
             . '</legend>' . "\n";
         $profiling_table .= '<div style="float: left;">';
@@ -474,40 +469,9 @@ function PMA_getHtmlForProfilingChart($url_query, $db, $profiling_results)
         $profiling_table .= '  <th>' . __('Time')
             . '<div class="sorticon"></div></th>' . "\n";
         $profiling_table .= ' </tr></thead><tbody>' . "\n";
-
-        $chart_json = Array();
-        $i = 1;
-        foreach ($profiling_results as $one_result) {
-            if (isset($profiling_stats['states'][ucwords($one_result['Status'])])) {
-                $states = $profiling_stats['states'];
-                $states[ucwords($one_result['Status'])]['time']
-                    += $one_result['Duration'];
-                $states[ucwords($one_result['Status'])]['calls']++;
-            } else {
-                $profiling_stats['states'][ucwords($one_result['Status'])] = array(
-                    'total_time' => $one_result['Duration'],
-                    'calls' => 1,
-                );
-            }
-            $profiling_stats['total_time'] += $one_result['Duration'];
-
-            $profiling_table .= ' <tr>' . "\n";
-            $profiling_table .= '<td>' . $i++ . '</td>' . "\n";
-            $profiling_table .= '<td>' . ucwords($one_result['Status'])
-                . '</td>' . "\n";
-            $profiling_table .= '<td class="right">'
-                . (PMA_Util::formatNumber($one_result['Duration'], 3, 1))
-                . 's<span style="display:none;" class="rawvalue">'
-                . $one_result['Duration'] . '</span></td>' . "\n";
-            if (isset($chart_json[ucwords($one_result['Status'])])) {
-                $chart_json[ucwords($one_result['Status'])]
-                    += $one_result['Duration'];
-            } else {
-                $chart_json[ucwords($one_result['Status'])]
-                    = $one_result['Duration'];
-            }
-        }    
-
+        list($detailed_table, $chart_json, $profiling_stats)
+            = PMA_analyzeAndGetTableHtmlForProfilingResults($profiling_results);    
+        $profiling_table .= $detailed_table;
         $profiling_table .= '</tbody></table>' . "\n";
         $profiling_table .= '</div>';
 
@@ -529,31 +493,9 @@ function PMA_getHtmlForProfilingChart($url_query, $db, $profiling_results)
         $profiling_table .= '  <th>' . __('ø Time')
             . '<div class="sorticon"></div></th>' . "\n";
         $profiling_table .= ' </tr></thead><tbody>' . "\n";
-        foreach ($profiling_stats['states'] as $name => $stats) {
-            $profiling_table .= ' <tr>' . "\n";
-            $profiling_table .= '<td>' . $name . '</td>' . "\n";
-            $profiling_table .= '<td align="right">'
-                . PMA_Util::formatNumber($stats['total_time'], 3, 1)
-                . 's<span style="display:none;" class="rawvalue">'
-                . $stats['total_time'] . '</span></td>' . "\n";
-            $profiling_table .= '<td align="right">'
-                . PMA_Util::formatNumber(
-                    100 * ($stats['total_time'] / $profiling_stats['total_time']),
-                    0, 2
-                )
-            . '%</td>' . "\n";
-            $profiling_table .= '<td align="right">' . $stats['calls'] . '</td>'
-                . "\n";
-            $profiling_table .= '<td align="right">'
-                . PMA_Util::formatNumber(
-                    $stats['total_time'] / $stats['calls'], 3, 1
-                )
-                . 's<span style="display:none;" class="rawvalue">'
-                . number_format($stats['total_time'] / $stats['calls'], 8, '.', '')
-                . '</span></td>' . "\n";
-            $profiling_table .= ' </tr>' . "\n";
-        }    
-
+        $profiling_table .= PMA_getTableHtmlForProfilingSummaryByState(
+            $profiling_stats
+        );
         $profiling_table .= '</tbody></table>' . "\n";
 
         $profiling_table .= <<<EOT
@@ -579,6 +521,93 @@ EOT;
         $profiling_table = null;    
     }
     return $profiling_table;
+}
+
+/**
+ * Function to get HTML for detailed profiling results table, profiling stats, and
+ * $chart_json for displaying the chart.
+ * 
+ * @param array $profiling_results profiling results
+ * @return mixed
+ */
+function PMA_analyzeAndGetTableHtmlForProfilingResults(
+    $profiling_results
+) {
+    $profiling_stats = array(
+        'total_time' => 0,
+        'states' => array(),
+    );
+    $chart_json = Array();
+    $i = 1;
+    $table = '';
+    foreach ($profiling_results as $one_result) {
+        if (isset($profiling_stats['states'][ucwords($one_result['Status'])])) {
+            $states = $profiling_stats['states'];
+            $states[ucwords($one_result['Status'])]['time']
+                += $one_result['Duration'];
+            $states[ucwords($one_result['Status'])]['calls']++;
+        } else {
+            $profiling_stats['states'][ucwords($one_result['Status'])] = array(
+                'total_time' => $one_result['Duration'],
+                'calls' => 1,
+            );
+        }
+        $profiling_stats['total_time'] += $one_result['Duration'];
+
+        $table .= ' <tr>' . "\n";
+        $table .= '<td>' . $i++ . '</td>' . "\n";
+        $table .= '<td>' . ucwords($one_result['Status'])
+            . '</td>' . "\n";
+        $table .= '<td class="right">'
+            . (PMA_Util::formatNumber($one_result['Duration'], 3, 1))
+            . 's<span style="display:none;" class="rawvalue">'
+            . $one_result['Duration'] . '</span></td>' . "\n";
+        if (isset($chart_json[ucwords($one_result['Status'])])) {
+            $chart_json[ucwords($one_result['Status'])]
+                += $one_result['Duration'];
+        } else {
+            $chart_json[ucwords($one_result['Status'])]
+                = $one_result['Duration'];
+        }
+    }
+    return array($table, $chart_json, $profiling_stats);
+}
+
+/**
+ * Function to get HTML for summary by state table
+ * 
+ * @param array $profiling_stats profiling stats
+ * 
+ * @return string $table html for the table
+ */
+function PMA_getTableHtmlForProfilingSummaryByState($profiling_stats)
+{
+    $table = '';
+    foreach ($profiling_stats['states'] as $name => $stats) {
+        $table .= ' <tr>' . "\n";
+        $table .= '<td>' . $name . '</td>' . "\n";
+        $table .= '<td align="right">'
+            . PMA_Util::formatNumber($stats['total_time'], 3, 1)
+            . 's<span style="display:none;" class="rawvalue">'
+            . $stats['total_time'] . '</span></td>' . "\n";
+        $table .= '<td align="right">'
+            . PMA_Util::formatNumber(
+                100 * ($stats['total_time'] / $profiling_stats['total_time']),
+                0, 2
+            )
+        . '%</td>' . "\n";
+        $table .= '<td align="right">' . $stats['calls'] . '</td>'
+            . "\n";
+        $table .= '<td align="right">'
+            . PMA_Util::formatNumber(
+                $stats['total_time'] / $stats['calls'], 3, 1
+            )
+            . 's<span style="display:none;" class="rawvalue">'
+            . number_format($stats['total_time'] / $stats['calls'], 8, '.', '')
+            . '</span></td>' . "\n";
+        $table .= ' </tr>' . "\n";
+    }
+    return $table;
 }
 
 /**
