@@ -341,7 +341,8 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
     
     $bookmark_support_html = PMA_getHtmlForBookmark($disp_mode,
         isset($cfg['Bookmark']) ? $cfg['Bookmark'] : '', $sql_query,
-        $sql_limit_to_append, $err_url, $goto, $cfg['Bookmark']['user']
+        $db, $table, isset($complete_query) ? $complete_query : $sql_query,
+        $cfg['Bookmark']['user']
     );
 
     $print_button_html = PMA_getHtmlForPrintButton();
