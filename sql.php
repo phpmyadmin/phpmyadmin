@@ -186,7 +186,6 @@ if (PMA_isRememberSortingOrder($analyzed_sql_results)) {
     PMA_handleSortOrder($db, $table, $analyzed_sql, $full_sql_query);
 }
 
-$sql_limit_to_append = '';
 // Do append a "LIMIT" clause?
 if (PMA_isAppendLimitClause($analyzed_sql_results)) {
     list($sql_limit_to_append,
@@ -194,6 +193,8 @@ if (PMA_isAppendLimitClause($analyzed_sql_results)) {
     ) = PMA_appendLimitClause(
         $full_sql_query, $analyzed_sql, isset($display_query)
     );
+}else{
+    $sql_limit_to_append = '';
 }
 
 // Since multiple query execution is anyway handled,
