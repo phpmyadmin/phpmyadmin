@@ -130,8 +130,8 @@ require_once 'libraries/parse_analyze.inc.php';
  * into account this case.
  */
 if (PMA_hasNoRightsToDropDatabase(
-    $analyzed_sql_results, $cfg['AllowUserDropDatabase'], $is_superuser)
-) {
+    $analyzed_sql_results, $cfg['AllowUserDropDatabase'], $is_superuser
+)) {
     PMA_Util::mysqlDie(
         __('"DROP DATABASE" statements are disabled.'),
         '',
@@ -193,7 +193,7 @@ if (PMA_isAppendLimitClause($analyzed_sql_results)) {
     ) = PMA_appendLimitClause(
         $full_sql_query, $analyzed_sql, isset($display_query)
     );
-}else{
+} else {
     $sql_limit_to_append = '';
 }
 
@@ -223,7 +223,8 @@ list($result, $num_rows, $unlim_num_rows, $profiling_results,
 
 // No rows returned -> move back to the calling page
 if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
-    PMA_sendResponseForNoResultsReturned($analyzed_sql_results, $db, $table,
+    PMA_sendResponseForNoResultsReturned(
+        $analyzed_sql_results, $db, $table,
         isset($message_to_show) ? $message_to_show : null,
         $num_rows, $displayResultsObject, $extra_data, $cfg
     );
@@ -293,8 +294,8 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
             $analyzed_sql_results, false
         );
         if (empty($sql_data) || ($sql_data['valid_queries'] = 1)) {
-           $response->addHTML($table_maintenance_html);
-           exit();    
+            $response->addHTML($table_maintenance_html);
+            exit();    
         }
     }
 
@@ -307,8 +308,8 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
         $GLOBALS['buffer_message'] = false;
     }
     
-    $print_view_header_html = PMA_getHtmlForPrintViewHeader($db, $full_sql_query,
-        $num_rows
+    $print_view_header_html = PMA_getHtmlForPrintViewHeader(
+        $db, $full_sql_query, $num_rows
     );
     
     $previous_update_query_html = PMA_getHtmlForPreviousUpdateQuery(
@@ -317,12 +318,12 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
         isset($disp_message) ? $disp_message : null
     );
 
-    $profiling_chart_html = PMA_getHtmlForProfilingChart($disp_mode, $db,
-        isset($profiling_results) ? $profiling_results : null
+    $profiling_chart_html = PMA_getHtmlForProfilingChart(
+        $disp_mode, $db, isset($profiling_results) ? $profiling_results : null
     );
     
-    $missing_unique_column_msg = PMA_getMessageIfMissingColumnIndex($table, $db,
-       $editable, $disp_mode
+    $missing_unique_column_msg = PMA_getMessageIfMissingColumnIndex(
+        $table, $db, $editable, $disp_mode
     );
     
     $bookmark_created_msg = PMA_getBookmarkCreatedMessage();
@@ -339,8 +340,8 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
         isset($selected) ? $selected : null
     );
     
-    $bookmark_support_html = PMA_getHtmlForBookmark($disp_mode,
-        isset($cfg['Bookmark']) ? $cfg['Bookmark'] : '', $sql_query,
+    $bookmark_support_html = PMA_getHtmlForBookmark(
+        $disp_mode, isset($cfg['Bookmark']) ? $cfg['Bookmark'] : '', $sql_query,
         $db, $table, isset($complete_query) ? $complete_query : $sql_query,
         $cfg['Bookmark']['user']
     );
@@ -351,8 +352,9 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
     
     $html_output .= isset($print_view_header_html) ? $print_view_header_html : '';
     
-    $html_output .= PMA_getHtmlForSqlQueryResults($previous_update_query_html,
-        $profiling_chart_html, $missing_unique_column_msg, $bookmark_created_msg,
+    $html_output .= PMA_getHtmlForSqlQueryResults(
+        $previous_update_query_html, $profiling_chart_html,
+        $missing_unique_column_msg, $bookmark_created_msg,
         $table_html, $indexes_problems_html, $bookmark_support_html,
         $print_button_html
     );
