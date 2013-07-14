@@ -2528,8 +2528,11 @@ function PMA_getUsersOverview($result, $db_rights, $link_edit, $pmaThemeImage,
         . PMA_Util::showHint(
             __('Note: MySQL privilege names are expressed in English')
         )
-        . '</th>' . "\n"
-        . '<th>' . __('Grant') . '</th>' . "\n"
+        . '</th>' . "\n";
+    if ($GLOBALS['cfgRelation']['menuswork']) {
+        $html_output .= '<th>' . __('User group') . '</th>' . "\n";
+    }
+    $html_output .= '<th>' . __('Grant') . '</th>' . "\n"
         . '<th colspan="2">' . __('Action') . '</th>' . "\n"
         . '</tr>' . "\n"
         . '</thead>' . "\n";
@@ -2578,6 +2581,20 @@ function PMA_getUsersOverview($result, $db_rights, $link_edit, $pmaThemeImage,
  */
 function PMA_getTableBodyForUserRightsTable($db_rights, $link_edit, $link_export)
 {
+    if ($GLOBALS['cfgRelation']['menuswork']) {
+        $usersTable = PMA_Util::backquote($GLOBALS['cfg']['Server']['pmadb'])
+            . "." . PMA_Util::backquote($GLOBALS['cfg']['Server']['users']);
+        $sqlQuery = "SELECT * FROM " . $usersTable;
+        $result = PMA_queryAsControlUser($sqlQuery, false);
+        $groupAssignment = array();
+        if ($result) {
+            while ($row = $GLOBALS['dbi']->fetchAssoc($result)) {
+                $groupAssignment[$row['username']] = $row['usergroup'];
+            }
+        }
+        $GLOBALS['dbi']->freeResult($result);
+    }
+
     $odd_row = true;
     $index_checkbox = 0;
     $html_output = '';
@@ -2620,8 +2637,16 @@ function PMA_getTableBodyForUserRightsTable($db_rights, $link_edit, $link_export
 
             $html_output .= '<td><code>' . "\n"
                 . '' . implode(',' . "\n" . '            ', $host['privs']) . "\n"
-                . '</code></td>' . "\n"
-                . '<td>'
+                . '</code></td>' . "\n";
+            if ($GLOBALS['cfgRelation']['menuswork']) {
+                $html_output .= '<td>' . "\n"
+                    . (isset($groupAssignment[$host['User']])
+                        ? $groupAssignment[$host['User']]
+                        : ''
+                    )
+                    . '</td>' . "\n";
+            }
+            $html_output .= '<td>'
                 . ($host['Grant_priv'] == 'Y' ? __('Yes') : __('No'))
                 . '</td>' . "\n"
                 . '<td class="center">'
@@ -3171,6 +3196,7 @@ function PMA_getHtmlForListingUsersofAGroup($userGroup)
                 . '</table>';
         }
     }
+    $GLOBALS['dbi']->freeResult($result);
     return $html_output;
 }
 
