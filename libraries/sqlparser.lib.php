@@ -3018,4 +3018,22 @@ function PMA_SQP_isKeyWord($column)
     return in_array(strtoupper($column), $PMA_SQPdata_forbidden_word);
 }
 
+
+/**
+ * Get Parser Data Map from sqlparser.data.php
+ *
+ * @return Array Parser Data Map from sqlparser.data.php
+ */
+function PMA_SQP_getParserDataMap()
+{
+    include 'libraries/sqlparser.data.php';
+    return array(
+        'PMA_SQPdata_function_name'  => $PMA_SQPdata_function_name,
+        'PMA_SQPdata_column_attrib'  => $PMA_SQPdata_column_attrib,
+        'PMA_SQPdata_reserved_word'  => $PMA_SQPdata_reserved_word,
+        'PMA_SQPdata_forbidden_word' => $PMA_SQPdata_forbidden_word,
+        'PMA_SQPdata_column_type'    => $PMA_SQPdata_column_type,
+    );
+}
+
 ?>
