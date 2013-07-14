@@ -396,6 +396,7 @@ $PMA_SQPdata_reserved_word = array (
     'BINLOG',
     'BOTH',
     'BY',
+    'CALL',
     'CASCADE',
     'CASE',
     'CHANGE',
