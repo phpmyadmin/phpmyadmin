@@ -4154,6 +4154,69 @@ class PMA_Util
     }
 
     /**
+     * Return the list of tabs for the menu with corresponding names
+     *
+     * @param string $level 'server', 'db' or 'table' level
+     *
+     * @return array list of tabs for the menu
+     */
+    public static function getMenuTabList($level = null)
+    {
+        $tabList = array(
+            'server' => array(
+                'databases'   => __('Databases'),
+                'sql'         => __('SQL'),
+                'status'      => __('Status'),
+                'rights'      => __('Users'),
+                'export'      => __('Export'),
+                'import'      => __('Import'),
+                'settings'    => __('Settings'),
+                'binlog'      => __('Binary log'),
+                'replication' => __('Replication'),
+                'vars'        => __('Variables'),
+                'charset'     => __('Charsets'),
+                'plugins'     => __('Plugins'),
+                'engine'      => __('Engines')
+            ),
+            'db'     => array(
+                'structure'   => __('Structure'),
+                'sql'         => __('SQL'),
+                'search'      => __('Search'),
+                'qbe'         => __('Query'),
+                'export'      => __('Export'),
+                'import'      => __('Import'),
+                'operation'   => __('Operations'),
+                'privileges'  => __('Privileges'),
+                'routines'    => __('Routines'),
+                'events'      => __('Events'),
+                'triggers'    => __('Triggers'),
+                'tracking'    => __('Tracking'),
+                'designer'    => __('Designer')
+            ),
+            'table'  => array(
+                'browse'      => __('Browse'),
+                'structure'   => __('Structure'),
+                'sql'         => __('SQL'),
+                'search'      => __('Search'),
+                'insert'      => __('Insert'),
+                'export'      => __('Export'),
+                'import'      => __('Import'),
+                'operation'   => __('Operations'),
+                'tracking'    => __('Tracking'),
+                'triggers'    => __('Triggers'),
+            )
+        );
+
+        if ($level == null) {
+            return $tabList;
+        } else if (array_key_exists($level, $tabList)) {
+            return $tabList[$level];
+        } else {
+            return null;
+        }
+    }
+
+    /**
      * Returns information with latest version from phpmyadmin.net
      *
      * @return JSON decoded object with the data
@@ -4191,9 +4254,8 @@ class PMA_Util
                             $cfg['VersionCheckProxyUser'] . ':'
                             . $cfg['VersionCheckProxyPass']
                         );
-                        $context['http']['header'] =
-                            'Proxy-Authorization: Basic '
-                            . $auth;
+                        $context['http']['header']
+                            = 'Proxy-Authorization: Basic ' . $auth;
                     }
                 }
                 $response = file_get_contents(
