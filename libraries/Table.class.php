@@ -195,7 +195,7 @@ class PMA_Table
             || $GLOBALS['cfg']['Server']['DisableIS']
         ) {
             $type = PMA_Table::sGetStatusInfo($db, $table, 'TABLE_TYPE');
-            return "2222";
+            return $type == 'VIEW';
         }
 
         // query information_schema
