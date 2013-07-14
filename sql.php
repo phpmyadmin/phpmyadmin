@@ -272,7 +272,9 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
     if (!empty($table) && ($GLOBALS['dbi']->isSystemSchema($db) || !$editable)) {
         $disp_mode = 'nnnn110111';
     }
-    
+    if ( isset($_REQUEST['printview']) && $_REQUEST['printview'] == '1') {
+        $disp_mode = 'nnnn000000';
+    }
     
     if (isset($_REQUEST['table_maintenance'])) {
         $scripts->addFile('makegrid.js');
