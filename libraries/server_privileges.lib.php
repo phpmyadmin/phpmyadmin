@@ -2662,15 +2662,17 @@ function PMA_getTableBodyForUserRightsTable($db_rights, $link_edit, $link_export
                     ''
                 )
                 . '</td>';
-            if (empty($host['User'])) {
-                $html_output .= '<td class="center"></td>';
-            } else {
-                $html_output .= '<td class="center">'
-                    . sprintf(
-                        $link_edit_user_group,
-                        urlencode($host['User'])
-                    )
-                    . '</td>';
+            if ($GLOBALS['cfgRelation']['menuswork']) {
+                if (empty($host['User'])) {
+                    $html_output .= '<td class="center"></td>';
+                } else {
+                    $html_output .= '<td class="center">'
+                        . sprintf(
+                            $link_edit_user_group,
+                            urlencode($host['User'])
+                        )
+                        . '</td>';
+                }
             }
             $html_output .= '<td class="center">'
                 . sprintf(
