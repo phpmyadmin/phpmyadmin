@@ -321,7 +321,7 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
         isset($sql_data) ? $sql_data : null, $displayResultsObject, $db, $goto,
         $pmaThemeImage, $text_dir, $url_query, $disp_mode, $sql_limit_to_append,
         $editable, $unlim_num_rows, $num_rows, $showtable, $result, $querytime,
-        $analyzed_sql_results, $is_procedure
+        $analyzed_sql_results
     );
         
     $indexes_problems_html = PMA_getHtmlForIndexesProblems(

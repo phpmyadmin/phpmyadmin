@@ -1819,17 +1819,18 @@ function PMA_getBookmarkCreatedMessage()
  * @param object $result               result of the executed query
  * @param int    $querytime            query execution time
  * @param array  $analyzed_sql_results analyzed sql results
- * @param bool   $is_procedure         whether it is a procedure call or not
  * 
  * @return type
  */
 function PMA_getHtmlForSqlQueryResultsTable($sql_data, $displayResultsObject, $db,
     $goto, $pmaThemeImage, $text_dir, $url_query, $disp_mode, $sql_limit_to_append,
     $editable, $unlim_num_rows, $num_rows, $showtable, $result, $querytime,
-    $analyzed_sql_results, $is_procedure
+    $analyzed_sql_results
 ) {
     $printview = isset($_REQUEST['printview']) ? $_REQUEST['printview'] : null;
-    if (! empty($sql_data) && ($sql_data['valid_queries'] > 1) || $is_procedure) {
+    if (! empty($sql_data) && ($sql_data['valid_queries'] > 1) 
+        || $analyzed_sql_results['is_procedure']
+    ) {
         $_SESSION['is_multi_query'] = true;
         $table_html = PMA_getTableHtmlForMultipleQueries(
             $displayResultsObject, $db, $sql_data, $goto,
