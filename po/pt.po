@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-07-12 16:06+0200\n"
-"PO-Revision-Date: 2013-07-12 14:48+0200\n"
+"PO-Revision-Date: 2013-07-15 11:13+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Portuguese <http://l10n.cihar.com/projects/phpmyadmin/master/"
-"pt/>\n"
+"Language-Team: Portuguese "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/pt/>\n"
 "Language: pt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1691,7 +1691,7 @@ msgstr "Add %d valor(es)"
 #: js/messages.php:259
 msgid ""
 "Note: If the file contains multiple tables, they will be combined into one."
-msgstr "Nota: Se o arquivo contém várias tabelas, estas serão combinadas numa"
+msgstr "Nota: Se o arquivo contém várias tabelas, estas serão combinadas numa."
 
 #: js/messages.php:262
 msgid "Hide query box"
@@ -2884,7 +2884,7 @@ msgstr "A chave primária foi eliminada"
 #: libraries/Index.class.php:608
 #, php-format
 msgid "Index %s has been dropped."
-msgstr "O Índice %s foi eliminado"
+msgstr "O Índice %s foi eliminado."
 
 #: libraries/Index.class.php:731
 #, php-format
@@ -3843,7 +3843,7 @@ msgstr "Selecionar a partir da directoria de upload do servidor <b>%s</b>:"
 #: libraries/Util.class.php:3441 libraries/insert_edit.lib.php:1183
 #: libraries/sql_query_form.lib.php:483
 msgid "The directory you set for upload work cannot be reached."
-msgstr "Não é possivel alcançar a directoria que configurou para fazer upload"
+msgstr "Não é possivel alcançar a directoria que configurou para fazer upload."
 
 #: libraries/Util.class.php:3452
 msgid "There are no files to upload"
@@ -8107,7 +8107,7 @@ msgstr ""
 #, php-format
 msgid "No activity within %s seconds; please log in again."
 msgstr ""
-"Sem actividade há %s segundos ou mais; Por favor, faça o login novamente"
+"Sem actividade há %s segundos ou mais; Por favor, faça o login novamente."
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:667
 #: libraries/plugins/auth/AuthenticationCookie.class.php:669
@@ -8131,7 +8131,7 @@ msgstr "Arquivo %s não contém qualquer identificação de chave"
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:176
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:196
 msgid "Hardware authentication failed!"
-msgstr "Falha na autenticação de hardware"
+msgstr "Falha na autenticação de hardware!"
 
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:183
 msgid "No valid authentication key plugged"
@@ -11263,7 +11263,7 @@ msgid ""
 msgstr ""
 "Parece haver um erro na sua consulta SQL. A mensagem de erro do servidor "
 "MySQL abaixo, isto se existir alguma, também o poderá ajudar a diagnosticar "
-"o problema"
+"o problema."
 
 #: libraries/sqlparser.lib.php:178
 msgid ""
