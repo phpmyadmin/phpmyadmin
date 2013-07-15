@@ -41,7 +41,7 @@ class PMA_FormDisplay_Test extends PHPUnit_Framework_TestCase
 
     /**
      * tearDown for test cases
-     * 
+     *
      * @return void
      */
     protected function tearDown()
@@ -51,11 +51,11 @@ class PMA_FormDisplay_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for FormDisplay::__constructor
-     * 
+     *
      * @return void
      */
     public function testFormDisplayContructor()
-    {   
+    {
         $this->assertCount(
             5,
             $this->readAttribute($this->object, '_jsLangStrings')
@@ -64,13 +64,13 @@ class PMA_FormDisplay_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for FormDisplay::registerForm
-     * 
+     *
      * @return void
      */
     public function testRegisterForm()
     {
         $reflection = new \ReflectionClass('FormDisplay');
-        
+
         $attrForms = $reflection->getProperty('_forms');
         $attrForms->setAccessible(true);
 
@@ -109,7 +109,7 @@ class PMA_FormDisplay_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for FormDisplay::process
-     * 
+     *
      * @return void
      */
     public function testProcess()
@@ -145,13 +145,13 @@ class PMA_FormDisplay_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for FormDisplay::displayErrors
-     * 
+     *
      * @return void
      */
     public function testDisplayErrors()
     {
         $reflection = new \ReflectionClass('FormDisplay');
-        
+
         $attrIsValidated = $reflection->getProperty('_isValidated');
         $attrIsValidated->setAccessible(true);
         $attrIsValidated->setValue($this->object, true);
@@ -192,13 +192,13 @@ class PMA_FormDisplay_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for FormDisplay::fixErrors
-     * 
+     *
      * @return void
      */
     public function testFixErrors()
     {
         $reflection = new \ReflectionClass('FormDisplay');
-        
+
         $attrIsValidated = $reflection->getProperty('_isValidated');
         $attrIsValidated->setAccessible(true);
         $attrIsValidated->setValue($this->object, true);
@@ -228,7 +228,7 @@ class PMA_FormDisplay_Test extends PHPUnit_Framework_TestCase
         $attrIsValidated->setValue($this->object, $arr);
 
         $this->object->fixErrors();
-        
+
         $this->assertEquals(
             array(
                 'Servers' => array(
@@ -243,17 +243,17 @@ class PMA_FormDisplay_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for FormDisplay::_validateSelect
-     * 
+     *
      * @return void
      */
     public function testValidateSelect()
-    {   
+    {
         $attrValidateSelect = new \ReflectionMethod(
             'FormDisplay',
             '_validateSelect'
         );
         $attrValidateSelect->setAccessible(true);
-        
+
         $arr = array('foo' => 'var');
         $value = 'foo';
         $this->assertTrue(
@@ -284,7 +284,7 @@ class PMA_FormDisplay_Test extends PHPUnit_Framework_TestCase
                 array(&$value, $arr)
             )
         );
-        
+
         $arr = array('1' => 'foobar');
         $value = 0;
         $this->assertFalse(
@@ -297,7 +297,7 @@ class PMA_FormDisplay_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for FormDisplay::hasErrors
-     * 
+     *
      * @return void
      */
     public function testHasErrors()
@@ -321,7 +321,7 @@ class PMA_FormDisplay_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for FormDisplay::getDocLink
-     * 
+     *
      * @return void
      */
     public function testGetDocLink()
@@ -346,25 +346,25 @@ class PMA_FormDisplay_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for FormDisplay::getWikiLink
-     * 
+     *
      * @return void
      */
     public function testGetWikiLink()
     {
         $this->assertEquals(
-            "./url.php?url=http%3A%2F%2Fwiki.phpmyadmin.net%2Fpma%2FConfig%23" . 
+            "./url.php?url=http%3A%2F%2Fwiki.phpmyadmin.net%2Fpma%2FConfig%23" .
             "AllowDeny.29&amp;server=0&amp;lang=en&amp;token=token",
             $this->object->getWikiLink('Servers/1/AllowDeny')
         );
 
         $this->assertEquals(
-            "./url.php?url=http%3A%2F%2Fwiki.phpmyadmin.net%2Fpma%2FConfig%23" . 
+            "./url.php?url=http%3A%2F%2Fwiki.phpmyadmin.net%2Fpma%2FConfig%23" .
             "format_2&amp;server=0&amp;lang=en&amp;token=token",
             $this->object->getWikiLink('Import/format')
         );
 
         $this->assertEquals(
-            "./url.php?url=http%3A%2F%2Fwiki.phpmyadmin.net%2Fpma%2FConfig%23" . 
+            "./url.php?url=http%3A%2F%2Fwiki.phpmyadmin.net%2Fpma%2FConfig%23" .
             "test&amp;server=0&amp;lang=en&amp;token=token",
             $this->object->getWikiLink('Export/test')
         );
@@ -373,7 +373,7 @@ class PMA_FormDisplay_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for FormDisplay::_getOptName
-     * 
+     *
      * @return void
      */
     public function testGetOptName()
@@ -394,14 +394,14 @@ class PMA_FormDisplay_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for FormDisplay::_loadUserprefsInfo
-     * 
+     *
      * @return void
      */
     public function testLoadUserprefsInfo()
     {
         $method = new \ReflectionMethod('FormDisplay', '_loadUserprefsInfo');
         $method->setAccessible(true);
-        
+
         $attrUserprefs = new \ReflectionProperty(
             'FormDisplay',
             '_userprefsDisallow'
@@ -417,12 +417,12 @@ class PMA_FormDisplay_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for FormDisplay::_setComments
-     * 
+     *
      * @return void
      */
     public function testSetComments()
     {
-        if (!function_exists('runkit_constant_redefine')) {
+        if (! PMA_HAS_RUNKIT) {
             $this->markTestSkipped('Cannot redefine constant');
         }
 
@@ -447,11 +447,11 @@ class PMA_FormDisplay_Test extends PHPUnit_Framework_TestCase
         }
         if (!function_exists('recode_string')) {
             $expect['values']['recode'] .= " (unavailable)";
-            $expect['comment'] .= ($expect['comment'] ? ", " : '') . 
+            $expect['comment'] .= ($expect['comment'] ? ", " : '') .
                 '"recode" requires recode extension';
         }
         $expect['comment_warning'] = 1;
-        
+
         $this->assertEquals(
             $expect,
             $opts
@@ -531,7 +531,7 @@ class PMA_FormDisplay_Test extends PHPUnit_Framework_TestCase
         );
 
         // SQLValidate
-        
+
         $GLOBALS['cfg']['SQLValidator']['use'] = false;
 
         $method->invokeArgs(
@@ -555,7 +555,7 @@ class PMA_FormDisplay_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['MaxDbList'] = 10;
         $GLOBALS['cfg']['MaxTableList'] = 10;
         $GLOBALS['cfg']['QueryHistoryMax'] = 10;
-        
+
         $method->invokeArgs(
             $this->object,
             array('MaxDbList', &$opts)
