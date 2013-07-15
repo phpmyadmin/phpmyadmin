@@ -395,13 +395,21 @@ function PMA_getSqlQueryForDisplayPrivTable($db, $table, $username, $hostname)
  * Displays a dropdown to select the user group
  * with menu items configured to each of them.
  *
- * @param boolean $submit wheather to display the submit button or not
+ * @param string $username username
+ * @param string $hostname host name
  *
  * @return string html to select the user group
  */
-function PMA_getHtmlToChoseUserGroup($submit = false)
+function PMA_getHtmlToChoseUserGroup($username, $hostname)
 {
-    $html_output  = '<fieldset id="fieldset_user_group_selection">';
+    $html_output = '<form' . $class . ' id="changeUserGroupForm"'
+            . ' action="server_privileges.php" method="post">';
+    $params = array(
+        'username' => $username,
+        'hostname' => $hostname,
+    );
+    $html_output .= PMA_generate_common_hidden_inputs($params);
+    $html_output .= '<fieldset id="fieldset_user_group_selection">';
     $html_output .= '<legend>' . __('User group') . '</legend>';
 
     $groupTable = PMA_Util::backquote($GLOBALS['cfg']['Server']['pmadb'])
@@ -439,14 +447,9 @@ function PMA_getHtmlToChoseUserGroup($submit = false)
             . '</option>';
     }
     $html_output .= '</select>';
+    $html_output .= '<input type="hidden" name="changeUserGroup" value="1">';
     $html_output .= '</fieldset>';
-
-    if ($submit) {
-        $html_output .= '<fieldset id="fieldset_user_group_selection_footer"'
-            . ' class="tblFooters">';
-        $html_output .= '<input type="submit" name="changeUserGroup" value="Go">';
-        $html_output .= '</fieldset>';
-    }
+    $html_output .= '</form>';
     return $html_output;
 }
 
@@ -1597,9 +1600,6 @@ function PMA_getHtmlForAddUser($dbname)
     }
 
     $html_output .= '</fieldset>' . "\n";
-    if ($GLOBALS['cfgRelation']['menuswork']) {
-        $html_output .= PMA_getHtmlToChoseUserGroup();
-    }
     $html_output .= PMA_getHtmlToDisplayPrivilegesTable('*', '*', false);
     $html_output .= '<fieldset id="fieldset_add_user_footer" class="tblFooters">'
         . "\n"
@@ -2533,7 +2533,7 @@ function PMA_getUsersOverview($result, $db_rights, $link_edit, $pmaThemeImage,
         $html_output .= '<th>' . __('User group') . '</th>' . "\n";
     }
     $html_output .= '<th>' . __('Grant') . '</th>' . "\n"
-        . '<th colspan="2">' . __('Action') . '</th>' . "\n"
+        . '<th colspan="3">' . __('Action') . '</th>' . "\n"
         . '</tr>' . "\n"
         . '</thead>' . "\n";
 
@@ -2593,6 +2593,13 @@ function PMA_getTableBodyForUserRightsTable($db_rights, $link_edit, $link_export
             }
         }
         $GLOBALS['dbi']->freeResult($result);
+
+        $link_edit_user_group = '<a class="edit_user_group_anchor ajax"'
+            . ' href="server_privileges.php?'
+            . str_replace('%', '%%', $GLOBALS['url_query'])
+            . '&amp;username=%s">'
+            . PMA_Util::getIcon('b_usrlist.png', __('Edit user group'))
+            . '</a>';
     }
 
     $odd_row = true;
@@ -2639,7 +2646,7 @@ function PMA_getTableBodyForUserRightsTable($db_rights, $link_edit, $link_export
                 . '' . implode(',' . "\n" . '            ', $host['privs']) . "\n"
                 . '</code></td>' . "\n";
             if ($GLOBALS['cfgRelation']['menuswork']) {
-                $html_output .= '<td>' . "\n"
+                $html_output .= '<td class="usrGroup">' . "\n"
                     . (isset($groupAssignment[$host['User']])
                         ? $groupAssignment[$host['User']]
                         : ''
@@ -2648,25 +2655,35 @@ function PMA_getTableBodyForUserRightsTable($db_rights, $link_edit, $link_export
             }
             $html_output .= '<td>'
                 . ($host['Grant_priv'] == 'Y' ? __('Yes') : __('No'))
-                . '</td>' . "\n"
-                . '<td class="center">'
+                . '</td>' . "\n";
+
+            $html_output .= '<td class="center">'
                 . sprintf(
                     $link_edit,
                     urlencode($host['User']),
                     urlencode($host['Host']),
                     '',
                     ''
-                );
-            $html_output .= '</td>';
-
-            $html_output .= '<td class="center">';
-            $html_output .= sprintf(
-                $link_export,
-                urlencode($host['User']),
-                urlencode($host['Host']),
-                (isset($_GET['initial']) ? $_GET['initial'] : '')
-            );
-            $html_output .= '</td>';
+                )
+                . '</td>';
+            if (empty($host['User'])) {
+                $html_output .= '<td class="center"></td>';
+            } else {
+                $html_output .= '<td class="center">'
+                    . sprintf(
+                        $link_edit_user_group,
+                        urlencode($host['User'])
+                    )
+                    . '</td>';
+            }
+            $html_output .= '<td class="center">'
+                . sprintf(
+                    $link_export,
+                    urlencode($host['User']),
+                    urlencode($host['Host']),
+                    (isset($_GET['initial']) ? $_GET['initial'] : '')
+                )
+                . '</td>';
             $html_output .= '</tr>';
             $odd_row = ! $odd_row;
         }
@@ -3513,14 +3530,6 @@ function PMA_getHtmlForDisplayUserProperties($dbname_is_wildcard,$url_dbname,
         if (strlen($tablename)) {
             $_params['tablename'] = $tablename;
         }
-    }
-
-    if ($GLOBALS['cfgRelation']['menuswork'] && empty($dbname)) {
-        $html_output .= '<form' . $class . ' id="changeUserGroupForm"'
-            . ' action="server_privileges.php" method="post">';
-        $html_output .= PMA_generate_common_hidden_inputs($_params);
-        $html_output .= PMA_getHtmlToChoseUserGroup(true);
-        $html_output .= '</form>';
     }
 
     $html_output .= '<form' . $class . ' name="usersForm" id="addUsersForm"'

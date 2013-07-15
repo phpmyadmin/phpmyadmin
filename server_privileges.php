@@ -396,6 +396,7 @@ if ($GLOBALS['is_ajax_request']
     && (! isset($_REQUEST['initial']) || empty($_REQUEST['initial']))
     && ! isset($_REQUEST['showall'])
     && ! isset($_REQUEST['edit_user_dialog'])
+    && ! isset($_REQUEST['edit_user_group_dialog'])
     && ! isset($_REQUEST['db_specific'])
 ) {
     $extra_data = PMA_getExtraDataForAjaxBehavior(
@@ -441,6 +442,18 @@ if (isset($_REQUEST['viewing_mode']) && $_REQUEST['viewing_mode'] == 'db') {
 /**
  * Displays the page
  */
+
+
+if (! empty($_REQUEST['edit_user_group_dialog']) && $cfgRelation['menuswork']) {
+    $dialog = PMA_getHtmlToChoseUserGroup($username, $hostname);
+    $response = PMA_Response::getInstance();
+    if ($GLOBALS['is_ajax_request']) {
+        $response->addJSON('message', $dialog);
+        exit;
+    } else {
+        $response->addHTML($dialog);
+    }
+}
 
 // export user definition
 if (isset($_REQUEST['export'])
