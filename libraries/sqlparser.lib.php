@@ -1667,7 +1667,7 @@ function PMA_SQP_analyze($arr)
                 $in_limit = false;
                 $after_limit = true;
 
-                // for the presnece of PROCEDURE ANALYSE
+                // for the presence of PROCEDURE ANALYSE
                 if (isset($subresult['queryflags']['select_from'])
                     && $subresult['queryflags']['select_from'] == 1
                     && ($i + 1) < $size
@@ -1678,7 +1678,7 @@ function PMA_SQP_analyze($arr)
                 }
             }
 
-            // for the presnece of INTO OUTFILE
+            // for the presence of INTO OUTFILE
             if ($upper_data == 'INTO'
                 && isset($subresult['queryflags']['select_from'])
                 && $subresult['queryflags']['select_from'] == 1
