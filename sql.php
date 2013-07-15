@@ -130,8 +130,8 @@ require_once 'libraries/parse_analyze.inc.php';
  * into account this case.
  */
 if (PMA_hasNoRightsToDropDatabase(
-    $analyzed_sql_results, $cfg['AllowUserDropDatabase'], $is_superuser)
-) {
+    $analyzed_sql_results, $cfg['AllowUserDropDatabase'], $is_superuser
+)) {
     PMA_Util::mysqlDie(
         __('"DROP DATABASE" statements are disabled.'),
         '',
@@ -186,7 +186,6 @@ if (PMA_isRememberSortingOrder($analyzed_sql_results)) {
     PMA_handleSortOrder($db, $table, $analyzed_sql, $full_sql_query);
 }
 
-$sql_limit_to_append = '';
 // Do append a "LIMIT" clause?
 if (PMA_isAppendLimitClause($analyzed_sql_results)) {
     list($sql_limit_to_append,
@@ -194,17 +193,8 @@ if (PMA_isAppendLimitClause($analyzed_sql_results)) {
     ) = PMA_appendLimitClause(
         $full_sql_query, $analyzed_sql, isset($display_query)
     );
-}
-
-// Since multiple query execution is anyway handled,
-// ignore the WHERE clause of the first sql statement
-// which might contain a phrase like 'call '        
-if (preg_match("/\bcall\b/i", $full_sql_query)
-    && empty($analyzed_sql[0]['where_clause'])
-) {
-    $is_procedure = true;
 } else {
-    $is_procedure = false;    
+    $sql_limit_to_append = '';
 }
 
 $reload = PMA_hasCurrentDbChanged($db);
@@ -222,167 +212,33 @@ list($result, $num_rows, $unlim_num_rows, $profiling_results,
 
 // No rows returned -> move back to the calling page
 if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
-    PMA_sendResponseForNoResultsReturned($analyzed_sql_results, $db, $table,
+    PMA_sendResponseForNoResultsReturned(
+        $analyzed_sql_results, $db, $table,
         isset($message_to_show) ? $message_to_show : null,
         $num_rows, $displayResultsObject, $extra_data, $cfg
     );
    
 } else {
-    $html_output='';
     // At least one row is returned -> displays a table with results
-    //If we are retrieving the full value of a truncated field or the original
+    // If we are retrieving the full value of a truncated field or the original
     // value of a transformed field, show it here and exit
-    if ($GLOBALS['grid_edit'] == true) {
-        $row = $GLOBALS['dbi']->fetchRow($result);
-        $response = PMA_Response::getInstance();
-        $response->addJSON('value', $row[0]);
-        exit;
-    }
-
-    if (isset($_REQUEST['ajax_request']) && isset($_REQUEST['table_maintenance'])) {
-        $response = PMA_Response::getInstance();
-        $header   = $response->getHeader();
-        $scripts  = $header->getScripts();
-        $scripts->addFile('makegrid.js');
-        $scripts->addFile('sql.js');
-
-        // Gets the list of fields properties
-        if (isset($result) && $result) {
-            $fields_meta = $GLOBALS['dbi']->getFieldsMeta($result);
-            $fields_cnt  = count($fields_meta);
-        }
-
-        if (empty($disp_mode)) {
-            // see the "PMA_setDisplayMode()" function in
-            // libraries/DisplayResults.class.php
-            $disp_mode = 'urdr111101';
-        }
-
-        // hide edit and delete links for information_schema
-        if ($GLOBALS['dbi']->isSystemSchema($db)) {
-            $disp_mode = 'nnnn110111';
-        }
-
-        if (isset($message)) {
-            $message = PMA_Message::success($message);
-            $html_output .= PMA_Util::getMessage(
-                $message, $GLOBALS['sql_query'], 'success'
-            );
-        }
-
-        // Should be initialized these parameters before parsing
-        $showtable = isset($showtable) ? $showtable : null;
-        $printview = isset($_REQUEST['printview']) ? $_REQUEST['printview'] : null;
-        $url_query = isset($url_query) ? $url_query : null;
-
-        if (!empty($sql_data) && ($sql_data['valid_queries'] > 1)) {
-
-            $_SESSION['is_multi_query'] = true;
-            $html_output .= getTableHtmlForMultipleQueries(
-                $displayResultsObject, $db, $sql_data, $goto,
-                $pmaThemeImage, $text_dir, $printview, $url_query,
-                $disp_mode, $sql_limit_to_append, false
-            );
-        } else {
-            $_SESSION['is_multi_query'] = false;
-            $displayResultsObject->setProperties(
-                $unlim_num_rows, $fields_meta, $is_count, $is_export, $is_func,
-                $is_analyse, $num_rows, $fields_cnt, $querytime, $pmaThemeImage,
-                $text_dir, $is_maint, $is_explain, $is_show, $showtable,
-                $printview, $url_query, false
-            );
-
-            $html_output .= $displayResultsObject->getTable(
-                $result, $disp_mode, $analyzed_sql
-            );
-            $response = PMA_Response::getInstance();
-            $response->addHTML($html_output);
-            exit();
-        }
-    }
-
-    // Displays the headers
-    if (isset($show_query)) {
-        unset($show_query);
-    }
-    if (isset($_REQUEST['printview']) && $_REQUEST['printview'] == '1') {
-        PMA_Util::checkParameters(array('db', 'full_sql_query'));
-
-        $response = PMA_Response::getInstance();
-        $header = $response->getHeader();
-        $header->enablePrintView();
-
-        $html_output .= PMA_getHtmlForPrintViewHeader(
-            $db, $full_sql_query, $num_rows
-        );
-    } else {
-        $response = PMA_Response::getInstance();
-        $header = $response->getHeader();
-        $scripts = $header->getScripts();
-        $scripts->addFile('makegrid.js');
-        $scripts->addFile('sql.js');
-
-        unset($message);
-
-        if (! $GLOBALS['is_ajax_request']) {
-            if (strlen($table)) {
-                include 'libraries/tbl_common.inc.php';
-                $url_query .= '&amp;goto=tbl_sql.php&amp;back=tbl_sql.php';
-                include 'libraries/tbl_info.inc.php';
-            } elseif (strlen($db)) {
-                include 'libraries/db_common.inc.php';
-                include 'libraries/db_info.inc.php';
-            } else {
-                include 'libraries/server_common.inc.php';
-            }
-        } else {
-            //we don't need to buffer the output in getMessage here.
-            //set a global variable and check against it in the function
-            $GLOBALS['buffer_message'] = false;
-        }
-    }
-
-    if (strlen($db)) {
-        $cfgRelation = PMA_getRelationsParam();
+    if ($_REQUEST['grid_edit'] == true) {
+        PMA_sendResponseForGridEdit($result);
     }
 
     // Gets the list of fields properties
     if (isset($result) && $result) {
         $fields_meta = $GLOBALS['dbi']->getFieldsMeta($result);
-        $fields_cnt  = count($fields_meta);
     }
-
-    //begin the sqlqueryresults div here. container div
-    $html_output .= '<div id="sqlqueryresults"';
-    $html_output .= ' class="ajax"';
-    $html_output .= '>';
-
-    // Display previous update query (from tbl_replace)
-    if (isset($disp_query) && ($cfg['ShowSQL'] == true) && empty($sql_data)) {
-        $html_output .= PMA_Util::getMessage($disp_message, $disp_query, 'success');
-    }
-
-    if (isset($profiling_results)) {
-        // pma_token/url_query needed for chart export
-        $token = $_SESSION[' PMA_token '];
-        $url = (isset($url_query) ? $url_query : PMA_generate_common_url($db));
-
-        $html_output .= PMA_getHtmlForProfilingChart(
-            $url, $token, $profiling_results
-        );
-    }
-
-    // Displays the results in a table
-    if (empty($disp_mode)) {
-        // see the "PMA_setDisplayMode()" function in
-        // libraries/DisplayResults.class.php
-        $disp_mode = 'urdr111101';
-    }
-
-    $has_unique = PMA_resultSetContainsUniqueKey(
-        $db, $table, $fields_meta
-    );
-
+    
+    // Should be initialized these parameters before parsing
+    $showtable = isset($showtable) ? $showtable : null;
+    $url_query = isset($url_query) ? $url_query : null;
+    
+    $response = PMA_Response::getInstance();
+    $header   = $response->getHeader();
+    $scripts  = $header->getScripts();
+                
     // hide edit and delete links:
     // - for information_schema
     // - if the result set does not contain all the columns of a unique key
@@ -391,103 +247,107 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
         = $justBrowsing
         && trim($analyzed_sql[0]['select_expr_clause']) == '*'
         && PMA_Table::isUpdatableView($db, $table);
+        
+    $has_unique = PMA_resultSetContainsUniqueKey(
+        $db, $table, $fields_meta
+    );
+    
     $editable = $has_unique || $updatableView;
+    
+    // Displays the results in a table
+    if (empty($disp_mode)) {
+        // see the "PMA_setDisplayMode()" function in
+        // libraries/DisplayResults.class.php
+        $disp_mode = 'urdr111101';
+    }    
     if (!empty($table) && ($GLOBALS['dbi']->isSystemSchema($db) || !$editable)) {
         $disp_mode = 'nnnn110111';
-        $msg = PMA_message::notice(
-            __(
-                'Table %s does not contain a unique column.'
-                . ' Grid edit, checkbox, Edit, Copy and Delete features'
-                . ' are not available.'
-            )
-        );
-        $msg->addParam($table);
-        $html_output .= $msg->getDisplay();
     }
-
-    if (isset($_GET['label'])) {
-        $msg = PMA_message::success(__('Bookmark %s created'));
-        $msg->addParam($_GET['label']);
-        $html_output .= $msg->getDisplay();
+    if ( isset($_REQUEST['printview']) && $_REQUEST['printview'] == '1') {
+        $disp_mode = 'nnnn000000';
     }
-
-    // Should be initialized these parameters before parsing
-    $showtable = isset($showtable) ? $showtable : null;
-    $printview = isset($_REQUEST['printview']) ? $_REQUEST['printview'] : null;
-    $url_query = isset($url_query) ? $url_query : null;
-
-    if (! empty($sql_data) && ($sql_data['valid_queries'] > 1) || $is_procedure) {
-
-        $_SESSION['is_multi_query'] = true;
-        $html_output .= getTableHtmlForMultipleQueries(
-            $displayResultsObject, $db, $sql_data, $goto,
-            $pmaThemeImage, $text_dir, $printview, $url_query,
-            $disp_mode, $sql_limit_to_append, $editable
-        );
-    } else {
-        $_SESSION['is_multi_query'] = false;
-        $displayResultsObject->setProperties(
-            $unlim_num_rows, $fields_meta, $is_count, $is_export, $is_func,
-            $is_analyse, $num_rows, $fields_cnt, $querytime, $pmaThemeImage,
-            $text_dir, $is_maint, $is_explain, $is_show, $showtable,
-            $printview, $url_query, $editable
-        );
-
-        $html_output .= $displayResultsObject->getTable(
-            $result, $disp_mode, $analyzed_sql
-        );
-        $GLOBALS['dbi']->freeResult($result);
-    }
-
-    // BEGIN INDEX CHECK See if indexes should be checked.
-    if (isset($query_type)
-        && $query_type == 'check_tbl'
-        && isset($selected)
-        && is_array($selected)
-    ) {
-        foreach ($selected as $idx => $tbl_name) {
-            $check = PMA_Index::findDuplicates($tbl_name, $db);
-            if (! empty($check)) {
-                $html_output .= sprintf(
-                    __('Problems with indexes of table `%s`'), $tbl_name
-                );
-                $html_output .= $check;
-            }
+    
+    if (isset($_REQUEST['table_maintenance'])) {
+        $scripts->addFile('makegrid.js');
+        $scripts->addFile('sql.js');
+        if (isset($message)) {
+            $message = PMA_Message::success($message);
+            $table_maintenance_html = PMA_Util::getMessage(
+                $message, $GLOBALS['sql_query'], 'success'
+            );
         }
-    } // End INDEX CHECK
-
-    // Bookmark support if required
-    if ($disp_mode[7] == '1'
-        && (! empty($cfg['Bookmark']) && empty($_GET['id_bookmark']))
-        && ! empty($sql_query)
-    ) {
-        $html_output .= "\n";
-        $goto = 'sql.php?'
-              . PMA_generate_common_url($db, $table)
-              . '&amp;sql_query=' . urlencode($sql_query)
-              . '&amp;id_bookmark=1';
-        $bkm_sql_query = urlencode(
-            isset($complete_query) ? $complete_query : $sql_query
+        $table_maintenance_html .= PMA_getHtmlForSqlQueryResultsTable(
+            isset($sql_data) ? $sql_data : null, $displayResultsObject, $db, $goto,
+            $pmaThemeImage, $text_dir, $url_query, $disp_mode, $sql_limit_to_append,
+            false, $unlim_num_rows, $num_rows, $showtable, $result, $querytime,
+            $analyzed_sql_results, false
         );
-        $html_output .= PMA_getHtmlForBookmark(
-            $db, $goto, $bkm_sql_query, $cfg['Bookmark']['user']
-        );
-    } // end bookmark support
+        if (empty($sql_data) || ($sql_data['valid_queries'] = 1)) {
+            $response->addHTML($table_maintenance_html);
+            exit();    
+        }
+    }
 
-    // Do print the page if required
-    if (isset($_REQUEST['printview']) && $_REQUEST['printview'] == '1') {
-        $html_output .= PMA_Util::getButton();
-    } // end print case
-    $html_output .= '</div>'; // end sqlqueryresults div
-    $response = PMA_Response::getInstance();
-    $response->addHTML($html_output);
+    if (!isset($_REQUEST['printview']) || $_REQUEST['printview'] != '1') {
+        $scripts->addFile('makegrid.js');
+        $scripts->addFile('sql.js');
+        unset($message);         
+        //we don't need to buffer the output in getMessage here.
+        //set a global variable and check against it in the function
+        $GLOBALS['buffer_message'] = false;
+    }
+    
+    $print_view_header_html = PMA_getHtmlForPrintViewHeader(
+        $db, $full_sql_query, $num_rows
+    );
+    
+    $previous_update_query_html = PMA_getHtmlForPreviousUpdateQuery(
+        isset($disp_query) ? $disp_query : null,
+        $cfg['ShowSQL'], isset($sql_data) ? $sql_data : null,
+        isset($disp_message) ? $disp_message : null
+    );
+
+    $profiling_chart_html = PMA_getHtmlForProfilingChart(
+        $disp_mode, $db, isset($profiling_results) ? $profiling_results : null
+    );
+    
+    $missing_unique_column_msg = PMA_getMessageIfMissingColumnIndex(
+        $table, $db, $editable, $disp_mode
+    );
+    
+    $bookmark_created_msg = PMA_getBookmarkCreatedMessage();
+
+    $table_html = PMA_getHtmlForSqlQueryResultsTable(
+        isset($sql_data) ? $sql_data : null, $displayResultsObject, $db, $goto,
+        $pmaThemeImage, $text_dir, $url_query, $disp_mode, $sql_limit_to_append,
+        $editable, $unlim_num_rows, $num_rows, $showtable, $result, $querytime,
+        $analyzed_sql_results, $is_procedure
+    );
+        
+    $indexes_problems_html = PMA_getHtmlForIndexesProblems(
+        isset($query_type) ? $query_type : null,
+        isset($selected) ? $selected : null
+    );
+    
+    $bookmark_support_html = PMA_getHtmlForBookmark(
+        $disp_mode, isset($cfg['Bookmark']) ? $cfg['Bookmark'] : '', $sql_query,
+        $db, $table, isset($complete_query) ? $complete_query : $sql_query,
+        $cfg['Bookmark']['user']
+    );
+
+    $print_button_html = PMA_getHtmlForPrintButton();
+    
+    $html_output = isset($table_maintenance_html) ? $table_maintenance_html : '';
+    
+    $html_output .= isset($print_view_header_html) ? $print_view_header_html : '';
+    
+    $html_output .= PMA_getHtmlForSqlQueryResults(
+        $previous_update_query_html, $profiling_chart_html,
+        $missing_unique_column_msg, $bookmark_created_msg,
+        $table_html, $indexes_problems_html, $bookmark_support_html,
+        $print_button_html
+    );
+    
+    $response->addHTML($html_output);    
 } // end rows returned
-
-$_SESSION['is_multi_query'] = false;
-
-
-if (! isset($_REQUEST['table_maintenance'])) {
-    exit;
-}
-
 ?>
