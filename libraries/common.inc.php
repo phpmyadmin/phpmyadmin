@@ -32,6 +32,13 @@
  */
 
 /**
+ * block attempts to directly run this script 
+ */
+if (getcwd() == dirname(__FILE__)) {
+    die('Attack stopped');
+}
+
+/**
  * Minimum PHP version; can't call PMA_fatalError() which uses a
  * PHP 5 function, so cannot easily localize this message.
  */
@@ -50,13 +57,6 @@ if (!defined('E_DEPRECATED')) {
  * for verification in all procedural scripts under libraries
  */
 define('PHPMYADMIN', true);
-
-/**
- * block attempts to directly run this script 
- */
-if (getcwd() == dirname(__FILE__)) {
-    die('Attack stopped');
-}
 
 /**
  * the error handler
