@@ -29,6 +29,11 @@ class PMA_From_Processing_Test extends PHPUnit_Framework_TestCase
      */
     public function testProcessFormSet()
     {
+        if (!defined('PMA_TEST_HEADERS')) {
+            $this->markTestSkipped(
+                'Cannot redefine constant/function - missing runkit extension'
+            );
+        }
 
         // case 1
         $formDisplay = $this->getMockBuilder('FormDisplay')
@@ -106,7 +111,7 @@ class PMA_From_Processing_Test extends PHPUnit_Framework_TestCase
         process_formset($formDisplay);
 
         $this->assertEquals(
-            'HTTP/1.1 303 See OtherLocation: index.php',
+            array('HTTP/1.1 303 See Other', 'Location: index.php'),
             $GLOBALS['header']
         );
 
