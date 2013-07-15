@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-07-12 16:06+0200\n"
-"PO-Revision-Date: 2013-07-12 14:41+0200\n"
+"PO-Revision-Date: 2013-07-15 11:13+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Serbian (latin) <http://l10n.cihar.com/projects/phpmyadmin/"
-"master/sr@latin/>\n"
+"Language-Team: Serbian (latin) "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/sr@latin/>\n"
 "Language: sr@latin\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
+"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 1.6-dev\n"
 
 #: browse_foreigners.php:51 browse_foreigners.php:75 js/messages.php:339
@@ -1690,7 +1690,7 @@ msgid ""
 "Note: If the file contains multiple tables, they will be combined into one."
 msgstr ""
 "Imajte u vidu: Ako datoteka sadrži više tabela, one će biti kombinovane u "
-"jednu"
+"jednu."
 
 #: js/messages.php:262
 msgid "Hide query box"
@@ -2897,7 +2897,7 @@ msgstr "Primarni ključ je obrisan"
 #: libraries/Index.class.php:608
 #, php-format
 msgid "Index %s has been dropped."
-msgstr "Indeks %s je obrisan"
+msgstr "Indeks %s je obrisan."
 
 #: libraries/Index.class.php:731
 #, php-format
@@ -3834,7 +3834,7 @@ msgstr ""
 #: libraries/Util.class.php:3441 libraries/insert_edit.lib.php:1183
 #: libraries/sql_query_form.lib.php:483
 msgid "The directory you set for upload work cannot be reached."
-msgstr "Direktorijum koji ste izabrali za slanje nije dostupan"
+msgstr "Direktorijum koji ste izabrali za slanje nije dostupan."
 
 #: libraries/Util.class.php:3452
 msgid "There are no files to upload"
@@ -7909,7 +7909,7 @@ msgstr ""
 #: libraries/plugins/auth/AuthenticationSignon.class.php:254
 #, php-format
 msgid "No activity within %s seconds; please log in again."
-msgstr "Nije bilo aktivnosti %s ili više sekundi, molimo prijavite se ponovo"
+msgstr "Nije bilo aktivnosti %s ili više sekundi, molimo prijavite se ponovo."
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:667
 #: libraries/plugins/auth/AuthenticationCookie.class.php:669
@@ -7933,7 +7933,7 @@ msgstr "Datoteka %s ne sadrži ni jedan identifikator ključa"
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:176
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:196
 msgid "Hardware authentication failed!"
-msgstr "Hardverska autentikacija nije uspela"
+msgstr "Hardverska autentikacija nije uspela!"
 
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:183
 msgid "No valid authentication key plugged"
@@ -11077,7 +11077,7 @@ msgid ""
 "below, if there is any, may also help you in diagnosing the problem."
 msgstr ""
 "Izgleda da postoji greška u vašem SQL upitu. Ovde je poruka o greški MySQL "
-"servera, koja vam može pomoći u otkrivanju problema"
+"servera, koja vam može pomoći u otkrivanju problema."
 
 #: libraries/sqlparser.lib.php:178
 msgid ""
