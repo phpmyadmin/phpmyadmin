@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.5-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-06-24 10:43+0200\n"
-"PO-Revision-Date: 2013-05-07 17:31+0200\n"
+"PO-Revision-Date: 2013-07-15 11:32+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Uzbek (latin) <http://l10n.cihar.com/projects/phpmyadmin/4-0/"
-"uz@latin/>\n"
+"Language-Team: Uzbek (latin) "
+"<http://l10n.cihar.com/projects/phpmyadmin/4-0/uz@latin/>\n"
 "Language: uz@latin\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1935,7 +1935,7 @@ msgstr "Maksimum bajarilish vaqti"
 #: libraries/DisplayResults.class.php:733
 #, php-format
 msgid "%d is not valid row number."
-msgstr "%d soni to‘g‘ri qator raqami emas!"
+msgstr "%d soni to‘g‘ri qator raqami emas."
 
 #: js/messages.php:280 libraries/config/FormDisplay.tpl.php:392
 #: libraries/insert_edit.lib.php:1460
@@ -3030,7 +3030,7 @@ msgstr ""
 msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
 msgstr ""
 "Yuklanayotgan fayl hajmi PHP konfiguratsion faylida (php.ini) ko‘rsatilgan "
-"\"upload_max_filesize\" direktivasi qiymatidan katta!"
+"\"upload_max_filesize\" direktivasi qiymatidan katta."
 
 #: libraries/File.class.php:282
 msgid ""
@@ -3038,7 +3038,7 @@ msgid ""
 "the HTML form."
 msgstr ""
 "Yuklanayotgan fayl hajmi HTML formada ko‘rsatilgan \"MAX_FILE_SIZE\" "
-"direktivasi qiymatidan katta!"
+"direktivasi qiymatidan katta."
 
 #: libraries/File.class.php:285
 msgid "The uploaded file was only partially uploaded."
@@ -10052,12 +10052,12 @@ msgstr "Ma`lumotlar bazalarini va jadvallarni o‘chirishga ruxsat beradi."
 msgid "Allows reloading server settings and flushing the server's caches."
 msgstr ""
 "Server sozlanishlarini qayta yuklashga va uning keshlarini tozalashga ruxsat "
-"beradi"
+"beradi."
 
 #: libraries/server_privileges.lib.php:195
 #: libraries/server_privileges.lib.php:934 server_privileges.php:90
 msgid "Allows shutting down the server."
-msgstr "Server ishini yakunlashga ruxsat beradi"
+msgstr "Server ishini yakunlashga ruxsat beradi."
 
 #: libraries/server_privileges.lib.php:199
 #: libraries/server_privileges.lib.php:926 server_privileges.php:82
@@ -10067,7 +10067,7 @@ msgstr "Barcha foydalanuvchilarning jarayonlarini ko‘rishga ruxsat beradi"
 #: libraries/server_privileges.lib.php:203
 #: libraries/server_privileges.lib.php:822 server_privileges.php:73
 msgid "Allows importing data from and exporting data into files."
-msgstr "Ma`lumotlarni fayldan import va faylga eksport qilishga ruxsat beradi"
+msgstr "Ma`lumotlarni fayldan import va faylga eksport qilishga ruxsat beradi."
 
 #: libraries/server_privileges.lib.php:207
 #: libraries/server_privileges.lib.php:650
@@ -10078,17 +10078,17 @@ msgstr "MySQL-serverning ushbu versiyada bunday xususiyat mavjud emas!"
 #: libraries/server_privileges.lib.php:211
 #: libraries/server_privileges.lib.php:850 server_privileges.php:75
 msgid "Allows creating and dropping indexes."
-msgstr "Indekslar qo‘shish va ularni o‘chirishga ruxsat beradi"
+msgstr "Indekslar qo‘shish va ularni o‘chirishga ruxsat beradi."
 
 #: libraries/server_privileges.lib.php:215
 #: libraries/server_privileges.lib.php:848 server_privileges.php:60
 msgid "Allows altering the structure of existing tables."
-msgstr "Mavjud jadvallarning tuzilishini o‘zgartirishga ruxsat beradi"
+msgstr "Mavjud jadvallarning tuzilishini o‘zgartirishga ruxsat beradi."
 
 #: libraries/server_privileges.lib.php:219
 #: libraries/server_privileges.lib.php:938 server_privileges.php:88
 msgid "Gives access to the complete list of databases."
-msgstr "Ma`lumotlar bazalarining to‘liq ro‘yxatiga ruxsat beradi"
+msgstr "Ma`lumotlar bazalarining to‘liq ro‘yxatiga ruxsat beradi."
 
 #: libraries/server_privileges.lib.php:223
 #: libraries/server_privileges.lib.php:922 server_privileges.php:91
@@ -10100,37 +10100,37 @@ msgstr ""
 "Ulanishlar maksimal qiymatga yetganda ham ulanish o‘rnatishga  ruxsat "
 "beradi. (Ko‘pgina administrativ vazifalarni bajarish uchun kerak, masalan, "
 "global o‘zgaruvchilar o‘rnatish yoki boshqa foydalanuvchi jarayonini "
-"o‘chirish)"
+"o‘chirish)."
 
 #: libraries/server_privileges.lib.php:227
 #: libraries/server_privileges.lib.php:860 server_privileges.php:65
 msgid "Allows creating temporary tables."
-msgstr "Vaqtinchalik jadvallar tuzishga ruxsat beradi"
+msgstr "Vaqtinchalik jadvallar tuzishga ruxsat beradi."
 
 #: libraries/server_privileges.lib.php:231
 #: libraries/server_privileges.lib.php:943 server_privileges.php:77
 msgid "Allows locking tables for the current thread."
-msgstr "Joriy oqim uchun jadvalni blokirovku qilishga ruxsat beradi"
+msgstr "Joriy oqim uchun jadvalni blokirovku qilishga ruxsat beradi."
 
 #: libraries/server_privileges.lib.php:235
 #: libraries/server_privileges.lib.php:956 server_privileges.php:86
 msgid "Needed for the replication slaves."
 msgstr ""
-"Replikatsiya (zaxira nusxa ko‘chirish) vaqtida tobe serverlar uchun kerak"
+"Replikatsiya (zaxira nusxa ko‘chirish) vaqtida tobe serverlar uchun kerak."
 
 #: libraries/server_privileges.lib.php:239
 #: libraries/server_privileges.lib.php:952 server_privileges.php:85
 msgid "Allows the user to ask where the slaves / masters are."
 msgstr ""
 "Bosh va tobe serverlarning joylashishi haqidagi ma`lumotni talab qilishga "
-"ruxsat beradi"
+"ruxsat beradi."
 
 #: libraries/server_privileges.lib.php:243
 #: libraries/server_privileges.lib.php:256
 #: libraries/server_privileges.lib.php:880
 #: libraries/server_privileges.lib.php:887 server_privileges.php:67
 msgid "Allows creating new views."
-msgstr "Yangi namoyishlar tuzish(CREATE VIEW)ga ruxsat beradi"
+msgstr "Yangi namoyishlar tuzish(CREATE VIEW)ga ruxsat beradi."
 
 #: libraries/server_privileges.lib.php:247
 #: libraries/server_privileges.lib.php:894 server_privileges.php:71
@@ -10148,28 +10148,29 @@ msgstr ""
 #: libraries/server_privileges.lib.php:265
 #: libraries/server_privileges.lib.php:864 server_privileges.php:89
 msgid "Allows performing SHOW CREATE VIEW queries."
-msgstr "Namoyish tuzadigan so‘rov(SHOW CREATE VIEW)ni bajarishga ruxsat beradi"
+msgstr "Namoyish tuzadigan so‘rov(SHOW CREATE VIEW)ni bajarishga ruxsat beradi."
 
 #: libraries/server_privileges.lib.php:269
 #: libraries/server_privileges.lib.php:868 server_privileges.php:63
 msgid "Allows creating stored routines."
-msgstr "Saqlanadigan muolajalar tuzishga ruxsat beradi"
+msgstr "Saqlanadigan muolajalar tuzishga ruxsat beradi."
 
 #: libraries/server_privileges.lib.php:273
 #: libraries/server_privileges.lib.php:872 server_privileges.php:61
 msgid "Allows altering and dropping stored routines."
-msgstr "Saqlanadigan muolajalarni o‘zgartirish va o‘chirishga ruxsat beradi"
+msgstr "Saqlanadigan muolajalarni o‘zgartirish va o‘chirishga ruxsat beradi."
 
 #: libraries/server_privileges.lib.php:277
 #: libraries/server_privileges.lib.php:960 server_privileges.php:66
 msgid "Allows creating, dropping and renaming user accounts."
 msgstr ""
-"Foydalanuvchilar hisobini qo‘shish, o‘chirish va o‘zgartirishga ruxsat beradi"
+"Foydalanuvchilar hisobini qo‘shish, o‘chirish va o‘zgartirishga ruxsat "
+"beradi."
 
 #: libraries/server_privileges.lib.php:281
 #: libraries/server_privileges.lib.php:874 server_privileges.php:72
 msgid "Allows executing stored routines."
-msgstr "Saqlanadigan muolajalarni bajarishga ruxsat beradi"
+msgstr "Saqlanadigan muolajalarni bajarishga ruxsat beradi."
 
 #: libraries/server_privileges.lib.php:328
 #: libraries/server_privileges.lib.php:329
@@ -10193,7 +10194,7 @@ msgstr ""
 #: libraries/server_privileges.lib.php:508 server_privileges.php:79
 msgid "Limits the number of queries the user may send to the server per hour."
 msgstr ""
-"Foydalanuvchi bir soat davomida yuborishi mumkin bo‘lgan so‘rovlar soni"
+"Foydalanuvchi bir soat davomida yuborishi mumkin bo‘lgan so‘rovlar soni."
 
 #: libraries/server_privileges.lib.php:515
 #: libraries/server_privileges.lib.php:521 server_privileges.php:80
@@ -10202,21 +10203,21 @@ msgid ""
 "execute per hour."
 msgstr ""
 "Foydalanuvchi bir soat davomida bajarishi mumkin bo‘lgan biron-bir jadval "
-"yoki ma`lumotlar bazasini o‘zgartiradigan buyruqlar soni"
+"yoki ma`lumotlar bazasini o‘zgartiradigan buyruqlar soni."
 
 #: libraries/server_privileges.lib.php:528
 #: libraries/server_privileges.lib.php:533 server_privileges.php:78
 msgid "Limits the number of new connections the user may open per hour."
 msgstr ""
 "Foydalanuvchi bir soat davomida o‘rnatishi mumkin bo‘lgan yangi ulanishlar "
-"soni"
+"soni."
 
 #: libraries/server_privileges.lib.php:540
 #: libraries/server_privileges.lib.php:548 server_privileges.php:81
 msgid "Limits the number of simultaneous connections the user may have."
 msgstr ""
 "Bir foydalanuvchi tomonidan bir vaqtning o‘zida o‘rnatishi mumkin bo‘lgan "
-"ulanishlar soni"
+"ulanishlar soni."
 
 #: libraries/server_privileges.lib.php:601
 #: libraries/server_privileges.lib.php:775
@@ -10247,18 +10248,18 @@ msgstr "Ma`lumotlar bazasi privilegiyalari"
 
 #: libraries/server_privileges.lib.php:843 server_privileges.php:64
 msgid "Allows creating new tables."
-msgstr "Yangi jadvallar tuzishga ruxsat beradi"
+msgstr "Yangi jadvallar tuzishga ruxsat beradi."
 
 #: libraries/server_privileges.lib.php:855 server_privileges.php:70
 msgid "Allows dropping tables."
-msgstr "Jadvallarni o‘chirishga rux`sat beradi"
+msgstr "Jadvallarni o‘chirishga rux`sat beradi."
 
 #: libraries/server_privileges.lib.php:916 server_privileges.php:74
 msgid ""
 "Allows adding users and privileges without reloading the privilege tables."
 msgstr ""
 "Foydalanuvchilarni qo‘shish va privilegiyalar jadvalini qayta yuklamasdan "
-"privilegiyalar qo‘shishga ruxsat beradi"
+"privilegiyalar qo‘shishga ruxsat beradi."
 
 #: libraries/server_privileges.lib.php:1024
 msgid "Login Information"
