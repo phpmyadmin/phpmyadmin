@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.5-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-06-24 10:43+0200\n"
-"PO-Revision-Date: 2013-05-07 17:20+0200\n"
+"PO-Revision-Date: 2013-07-15 11:25+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Kazakh <http://l10n.cihar.com/projects/phpmyadmin/4-0/kk/>\n"
 "Language: kk\n"
@@ -125,7 +125,7 @@ msgstr "Дерекқорына түсініктеме: "
 #: libraries/schema/Pdf_Relation_Schema.class.php:1332
 #: libraries/tbl_columns_definition_form.inc.php:836 tbl_printview.php:120
 msgid "Table comments"
-msgstr "Кестеге түсініктеме:"
+msgstr "Кестеге түсініктеме"
 
 #: db_datadict.php:166 libraries/DBQbe.class.php:364
 #: libraries/Index.class.php:565 libraries/TableSearch.class.php:183
@@ -1425,7 +1425,7 @@ msgstr ""
 
 #: js/messages.php:187
 msgid "Sum of grouped rows:"
-msgstr "Топтасқан қатарлар сомасы"
+msgstr "Топтасқан қатарлар сомасы:"
 
 #: js/messages.php:188
 msgid "Total:"
@@ -2303,7 +2303,7 @@ msgstr "Өзгерту"
 #: libraries/DBQbe.class.php:1322
 #, php-format
 msgid "SQL query on database <b>%s</b>:"
-msgstr "<b>%s</b> дерекқорына SQL сұранысы"
+msgstr "<b>%s</b> дерекқорына SQL сұранысы:"
 
 #: libraries/DBQbe.class.php:1336 libraries/Util.class.php:1287
 msgid "Submit Query"
@@ -2390,7 +2390,7 @@ msgstr "Кесте бойынша:"
 
 #: libraries/DbSearch.class.php:445
 msgid "Inside column:"
-msgstr "Бағана бойынша"
+msgstr "Бағана бойынша:"
 
 #: libraries/DisplayResults.class.php:702
 msgid "Save edited data"
