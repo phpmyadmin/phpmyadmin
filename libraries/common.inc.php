@@ -1103,18 +1103,6 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
     $GLOBALS['is_ajax_request'] = false;
 }
 
-/**
- * @global  boolean $GLOBALS['grid_edit']
- *
- * Set to true if this is a request made during an grid edit process.  This
- * request is made to retrieve the non-truncated/transformed values.
- */
-if (isset($_REQUEST['grid_edit']) && $_REQUEST['grid_edit'] == true) {
-    $GLOBALS['grid_edit'] = true;
-} else {
-    $GLOBALS['grid_edit'] = false;
-}
-
 if (isset($_REQUEST['GLOBALS']) || isset($_FILES['GLOBALS'])) {
     PMA_fatalError(__("GLOBALS overwrite attempt"));
 }

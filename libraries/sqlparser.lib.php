@@ -130,7 +130,7 @@ function PMA_SQP_throwError($message, $sql)
         . __(
             'There seems to be an error in your SQL query. The MySQL server '
             . 'error output below, if there is any, may also help you in '
-            . 'diagnosing the problem'
+            . 'diagnosing the problem.'
         )
         . '</p>' . "\n"
         . '<pre>' . "\n"
@@ -993,6 +993,7 @@ function PMA_SQP_analyze($arr)
      * ['queryflags']['is_func'] = 1;      for the presence of SUM|AVG|STD|STDDEV
      *                                     |MIN|MAX|BIT_OR|BIT_AND
      * ['queryflags']['is_count'] = 1;     for the presence of SELECT COUNT
+     * ['queryflags']['is_procedure'] = 1; for the presence of CALL
      *
      * query clauses
      * -------------
@@ -1720,6 +1721,11 @@ function PMA_SQP_analyze($arr)
 
             if ($upper_data == 'OFFSET') {
                 $subresult['queryflags']['offset'] = 1;
+            }
+            
+            // for the presence of CALL
+            if ($upper_data == 'CALL') {
+                $subresult['queryflags']['is_procedure'] = 1;
             }
 
             // if this is a real SELECT...FROM
@@ -3016,6 +3022,24 @@ function PMA_SQP_isKeyWord($column)
 {
     global $PMA_SQPdata_forbidden_word;
     return in_array(strtoupper($column), $PMA_SQPdata_forbidden_word);
+}
+
+
+/**
+ * Get Parser Data Map from sqlparser.data.php
+ *
+ * @return Array Parser Data Map from sqlparser.data.php
+ */
+function PMA_SQP_getParserDataMap()
+{
+    include 'libraries/sqlparser.data.php';
+    return array(
+        'PMA_SQPdata_function_name'  => $PMA_SQPdata_function_name,
+        'PMA_SQPdata_column_attrib'  => $PMA_SQPdata_column_attrib,
+        'PMA_SQPdata_reserved_word'  => $PMA_SQPdata_reserved_word,
+        'PMA_SQPdata_forbidden_word' => $PMA_SQPdata_forbidden_word,
+        'PMA_SQPdata_column_type'    => $PMA_SQPdata_column_type,
+    );
 }
 
 ?>

@@ -133,6 +133,10 @@ function PMA_displayInput($path, $name, $type, $value, $description = '',
     global $_FormDisplayGroup;
     static $icons;    // An array of IMG tags used further below in the function
 
+    if (defined('TESTSUITE')) {
+        $icons = null;
+    }
+
     $is_setup_script = defined('PMA_SETUP');
     if ($icons === null) { // if the static variables have not been initialised
         $icons = array();
@@ -443,6 +447,7 @@ function PMA_addJsValidate($field_id, $validators, &$js_array)
     foreach ((array)$validators as $validator) {
         $validator = (array)$validator;
         $v_name = array_shift($validator);
+        $v_name = "PMA_" . $v_name;
         $v_args = array();
         foreach ($validator as $arg) {
             $v_args[] = PMA_escapeJsString($arg);

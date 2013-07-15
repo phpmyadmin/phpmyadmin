@@ -1445,18 +1445,34 @@ function PMA_getHtmlDivForMoveColumnsDialog()
  */
 function PMA_getHtmlForEditView($url_params)
 {
-    $create_view = $GLOBALS['dbi']->getDefinition(
-        $GLOBALS['db'], 'VIEW', $GLOBALS['table']
+    $retval = array();
+    $query = "SELECT `VIEW_DEFINITION`, `CHECK_OPTION`, `DEFINER`, `SECURITY_TYPE`"
+        . " FROM `INFORMATION_SCHEMA`.`VIEWS`"
+        . " WHERE TABLE_SCHEMA='" . PMA_Util::sqlAddSlashes($GLOBALS['db']) . "'"
+        . " AND TABLE_NAME='" . PMA_Util::sqlAddSlashes($GLOBALS['table']) . "';";
+    $item = $GLOBALS['dbi']->fetchSingleRow($query);
+
+    $view = array(
+        'operation' => 'alter',
+        'definer' => $item['DEFINER'],
+        'sql_security' => $item['SECURITY_TYPE'],
+        'name' => $GLOBALS['table'],
+        'as' => $item['VIEW_DEFINITION'],
+        'with' => $item['CHECK_OPTION'],
     );
-    $create_view = preg_replace('@^CREATE@', 'ALTER', $create_view);
+    $url  = 'view_create.php' . PMA_generate_common_url($url_params) . '&amp;';
+    $url .= implode(
+        '&amp;',
+        array_map(
+            function($key, $val) {
+                return 'view[' . urlencode($key) . ']=' . urlencode($val);
+            },
+            array_keys($view),
+            $view
+        )
+    );
     $html_output = PMA_Util::linkOrButton(
-        'tbl_sql.php' . PMA_generate_common_url(
-            $url_params +
-            array(
-                'sql_query' => $create_view,
-                'show_query' => '1',
-            )
-        ),
+        $url,
         PMA_Util::getIcon('b_edit.png', __('Edit view'), true)
     );
     return $html_output;

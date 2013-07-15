@@ -89,7 +89,7 @@ class PMA_Util
     /**
      * Returns an HTML IMG tag for a particular icon from a theme,
      * which may be an actual file or an icon from a sprite.
-     * This function takes into account the ActionLinksMode 
+     * This function takes into account the ActionLinksMode
      * configuration setting and wraps the image tag in a span tag.
      *
      * @param string  $icon          name of icon file
@@ -106,19 +106,19 @@ class PMA_Util
     ) {
         $include_icon = $include_text = false;
         if (in_array(
-                $GLOBALS['cfg'][$control_param], 
+                $GLOBALS['cfg'][$control_param],
                 array('icons', 'both')
             )
-        ) { 
+        ) {
             $include_icon = true;
-        } 
+        }
         if ($force_text
             || in_array(
-                $GLOBALS['cfg'][$control_param], 
+                $GLOBALS['cfg'][$control_param],
                 array('text', 'both')
             )
         ) {
-            $include_text = true; 
+            $include_text = true;
         }
         // Sometimes use a span (we rely on this in js/sql.js). But for menu bar
         // we don't need a span
@@ -1811,10 +1811,10 @@ class PMA_Util
             // the text that follows and if browser does not display
             // images, the text is duplicated
             $tab['text'] = self::getIcon(
-                $tab['icon'], 
-                $tab['text'], 
-                false, 
-                true, 
+                $tab['icon'],
+                $tab['text'],
+                false,
+                true,
                 'TabsMode'
             );
 
@@ -3438,7 +3438,7 @@ class PMA_Util
 
         if ($files === false) {
             PMA_Message::error(
-                __('The directory you set for upload work cannot be reached')
+                __('The directory you set for upload work cannot be reached.')
             )->display();
         } elseif (! empty($files)) {
             $block_html .= "\n"
@@ -4151,6 +4151,183 @@ class PMA_Util
             }
         }
         return $regex;
+    }
+
+    /**
+     * Returns information with latest version from phpmyadmin.net
+     *
+     * @return JSON decoded object with the data
+     */
+    public static function getLatestVersion()
+    {
+        global $cfg;
+
+        // wait 3s at most for server response, it's enough to get information
+        // from a working server
+        $connection_timeout = 3;
+
+        $response = '{}';
+        // Get response text from phpmyadmin.net or from the session
+        // Update cache every 6 hours
+        if (isset($_SESSION['cache']['version_check'])
+            && time() < $_SESSION['cache']['version_check']['timestamp'] + 3600 * 6
+        ) {
+            $save = false;
+            $response = $_SESSION['cache']['version_check']['response'];
+        } else {
+            $save = true;
+            $file = 'http://www.phpmyadmin.net/home_page/version.json';
+            if (ini_get('allow_url_fopen')) {
+                $context = array(
+                    'http' => array(
+                        'request_fulluri' => true,
+                        'timeout' => $connection_timeout,
+                    )
+                );
+                if (strlen($cfg['VersionCheckProxyUrl'])) {
+                    $context['http']['proxy'] = $cfg['VersionCheckProxyUrl'];
+                    if (strlen($cfg['VersionCheckProxyUser'])) {
+                        $auth = base64_encode(
+                            $cfg['VersionCheckProxyUser'] . ':'
+                            . $cfg['VersionCheckProxyPass']
+                        );
+                        $context['http']['header'] =
+                            'Proxy-Authorization: Basic '
+                            . $auth;
+                    }
+                }
+                $response = file_get_contents(
+                    $file,
+                    false,
+                    stream_context_create($context)
+                );
+            } else if (function_exists('curl_init')) {
+                $curl_handle = curl_init($file);
+                if (strlen($cfg['VersionCheckProxyUrl'])) {
+                    curl_setopt(
+                        $curl_handle,
+                        CURLOPT_PROXY,
+                        $cfg['VersionCheckProxyUrl']
+                    );
+                    if (strlen($cfg['VersionCheckProxyUser'])) {
+                        curl_setopt(
+                            $curl_handle,
+                            CURLOPT_PROXYUSERPWD,
+                            $cfg['VersionCheckProxyUser']
+                            . ':' . $cfg['VersionCheckProxyPass']
+                        );
+                    }
+                }
+                curl_setopt(
+                    $curl_handle,
+                    CURLOPT_RETURNTRANSFER,
+                    1
+                );
+                curl_setopt(
+                    $curl_handle,
+                    CURLOPT_HEADER,
+                    false
+                );
+                curl_setopt(
+                    $curl_handle,
+                    CURLOPT_RETURNTRANSFER,
+                    true
+                );
+                curl_setopt(
+                    $curl_handle,
+                    CURLOPT_TIMEOUT,
+                    $connection_timeout
+                );
+                $response = curl_exec($curl_handle);
+            }
+        }
+
+        if ($save) {
+            $_SESSION['cache']['version_check'] = array(
+                'response' => $response,
+                'timestamp' => time()
+            );
+        }
+
+        $data = json_decode($response);
+        if (is_object($data)
+            && strlen($data->version)
+            && strlen($data->date)
+        ) {
+            if ($save) {
+                $_SESSION['cache']['version_check'] = array(
+                    'response' => $response,
+                    'timestamp' => time()
+                );
+            }
+        }
+
+        return $data;
+    }
+
+    /**
+     * Calculates numerical equivalent of phpMyAdmin version string
+     *
+     * @param string $version version
+     *
+     * @return mixed false on failure, integer on success
+     */
+    public static function versionToInt($version)
+    {
+        $parts = explode('-', $version);
+        if (count($parts) > 1) {
+            $suffix = $parts[1];
+        } else {
+            $suffix = '';
+        }
+        $parts = explode('.', $parts[0]);
+
+        $result = 0;
+
+        if (count($parts) >= 1 && is_numeric($parts[0])) {
+            $result += 1000000 * $parts[0];
+        }
+
+        if (count($parts) >= 2 && is_numeric($parts[1])) {
+            $result += 10000 * $parts[1];
+        }
+
+        if (count($parts) >= 3 && is_numeric($parts[2])) {
+            $result += 100 * $parts[2];
+        }
+
+        if (count($parts) >= 4 && is_numeric($parts[3])) {
+            $result += 1 * $parts[3];
+        }
+
+        if (!empty($suffix)) {
+            $matches = array();
+            if (preg_match('/^(\D+)(\d+)$/', $suffix, $matches)) {
+                $suffix = $matches[1];
+                $result += intval($matches[2]);
+            }
+            switch ($suffix) {
+            case 'pl':
+                $result += 60;
+                break;
+            case 'rc':
+                $result += 30;
+                break;
+            case 'beta':
+                $result += 20;
+                break;
+            case 'alpha':
+                $result += 10;
+                break;
+            case 'dev':
+                $result += 0;
+                break;
+            }
+        } else {
+            $result += 50; // for final
+        }
+
+        return $result;
     }
 }
 ?>
