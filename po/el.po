@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-07-12 16:06+0200\n"
-"PO-Revision-Date: 2013-07-04 19:42+0200\n"
+"PO-Revision-Date: 2013-07-15 07:44+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: Greek <http://l10n.cihar.com/projects/phpmyadmin/master/el/>\n"
 "Language: el\n"
@@ -3312,10 +3312,9 @@ msgid "Reset zoom"
 msgstr "Επανφορά εστίασης"
 
 #: libraries/TableSearch.class.php:1281
-#, fuzzy
 #| msgid "Replace with"
 msgid "Replace with:"
-msgstr "Αντικατάσταση με"
+msgstr "Αντικατάσταση με:"
 
 #: libraries/TableSearch.class.php:1341
 msgid "Find and replace - preview"
