@@ -354,8 +354,10 @@ class PMA_User_Preferences_Test extends PHPUnit_Framework_TestCase
      */
     public function testUserprefsRedirect()
     {
-        if (! PMA_HAS_RUNKIT) {
-            $this->markTestSkipped('Cannot redefine constant');
+        if (!defined('PMA_TEST_HEADERS')) {
+            $this->markTestSkipped(
+                'Cannot redefine constant/function - missing runkit extension'
+            );
         }
 
         $GLOBALS['cfg']['PmaAbsoluteUri'] = 'http://www.phpmyadmin.net';
@@ -379,7 +381,7 @@ class PMA_User_Preferences_Test extends PHPUnit_Framework_TestCase
         $this->assertContains(
             'Location: http://www.phpmyadmin.netfile.html?a=b&saved=1&server=0&' .
             'token=token#h+ash',
-            $GLOBALS['header']
+            $GLOBALS['header'][0]
         );
 
         if ($redefine !== null) {
