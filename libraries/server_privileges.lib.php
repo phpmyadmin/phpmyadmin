@@ -396,18 +396,14 @@ function PMA_getSqlQueryForDisplayPrivTable($db, $table, $username, $hostname)
  * with menu items configured to each of them.
  *
  * @param string $username username
- * @param string $hostname host name
  *
  * @return string html to select the user group
  */
-function PMA_getHtmlToChoseUserGroup($username, $hostname)
+function PMA_getHtmlToChoseUserGroup($username)
 {
-    $html_output = '<form' . $class . ' id="changeUserGroupForm"'
+    $html_output = '<form class="ajax" id="changeUserGroupForm"'
             . ' action="server_privileges.php" method="post">';
-    $params = array(
-        'username' => $username,
-        'hostname' => $hostname,
-    );
+    $params = array('username' => $username);
     $html_output .= PMA_generate_common_hidden_inputs($params);
     $html_output .= '<fieldset id="fieldset_user_group_selection">';
     $html_output .= '<legend>' . __('User group') . '</legend>';
@@ -3245,8 +3241,9 @@ function PMA_getHtmlForUserGroupsTable()
     $sql_query = "SELECT * FROM " . $groupTable;
     $result = PMA_queryAsControlUser($sql_query, false);
     if ($result) {
+        $odd = true;
         while ($row = $GLOBALS['dbi']->fetchAssoc($result)) {
-            $html_output .= '<tr>';
+            $html_output .= '<tr class="' . ($odd ? 'odd' : 'even') . '">';
             $html_output .= '<td>' . htmlspecialchars($row['usergroup']) . '</td>';
             $html_output .= '<td>' . _getAllowedTabNames($row, 'server') . '</td>';
             $html_output .= '<td>' . _getAllowedTabNames($row, 'db') . '</td>';
@@ -3270,6 +3267,8 @@ function PMA_getHtmlForUserGroupsTable()
             $html_output .= '</td>';
 
             $html_output .= '</tr>';
+
+            $odd = ! $odd;
         }
     }
     $GLOBALS['dbi']->freeResult($result);

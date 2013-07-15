@@ -445,7 +445,7 @@ if (isset($_REQUEST['viewing_mode']) && $_REQUEST['viewing_mode'] == 'db') {
 
 
 if (! empty($_REQUEST['edit_user_group_dialog']) && $cfgRelation['menuswork']) {
-    $dialog = PMA_getHtmlToChoseUserGroup($username, $hostname);
+    $dialog = PMA_getHtmlToChoseUserGroup($username);
     $response = PMA_Response::getInstance();
     if ($GLOBALS['is_ajax_request']) {
         $response->addJSON('message', $dialog);
