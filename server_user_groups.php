@@ -1,6 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
+ * Displays the 'User groups' sub page under 'Users' page.
  *
  * @package PhpMyAdmin
  */

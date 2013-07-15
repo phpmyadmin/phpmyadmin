@@ -686,7 +686,7 @@ function PMA_getHtmlForDisplayResourceLimits($row)
  * @param string  $db       the database
  * @param string  $table    the table
  * @param boolean $columns  columns array
- * @param         $row      current privileges row
+ * @param array   $row      current privileges row
  *
  * @return string $html_output
  */
