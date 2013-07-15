@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.5-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-06-24 10:43+0200\n"
-"PO-Revision-Date: 2013-06-24 15:47+0200\n"
+"PO-Revision-Date: 2013-07-15 11:05+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Czech <http://l10n.cihar.com/projects/phpmyadmin/4-0/cs/>\n"
 "Language: cs\n"
@@ -277,7 +277,7 @@ msgstr "Zobrazit výpis (schéma) databáze"
 #: db_export.php:33 db_printview.php:92 db_tracking.php:49 export.php:557
 #: libraries/DBQbe.class.php:268
 msgid "No tables found in database."
-msgstr "V databázi nebyla nalezena žádná tabulka."
+msgstr "V databázi nebyly nalezeny žádné tabulky."
 
 #: db_export.php:40 libraries/DbSearch.class.php:438 server_export.php:25
 msgid "Select All"
