@@ -222,7 +222,7 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
     // At least one row is returned -> displays a table with results
     // If we are retrieving the full value of a truncated field or the original
     // value of a transformed field, show it here and exit
-    if ($_REQUEST['grid_edit'] == true) {
+    if (isset($_REQUEST['grid_edit']) && $_REQUEST['grid_edit'] == true) {
         PMA_sendResponseForGridEdit($result);
     }
 
