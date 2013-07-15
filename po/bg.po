@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-07-12 16:06+0200\n"
-"PO-Revision-Date: 2013-07-12 14:47+0200\n"
+"PO-Revision-Date: 2013-07-15 11:14+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Bulgarian <http://l10n.cihar.com/projects/phpmyadmin/master/"
-"bg/>\n"
+"Language-Team: Bulgarian "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/bg/>\n"
 "Language: bg\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1683,7 +1683,7 @@ msgstr "Добавяне %d стойност(и)"
 #: js/messages.php:259
 msgid ""
 "Note: If the file contains multiple tables, they will be combined into one."
-msgstr "Заб.: Ако файлът съдържа няколко таблици, те ще бъдат обединени"
+msgstr "Заб.: Ако файлът съдържа няколко таблици, те ще бъдат обединени."
 
 #: js/messages.php:262
 msgid "Hide query box"
@@ -2882,7 +2882,7 @@ msgstr "Главният ключ беше изтрит"
 #: libraries/Index.class.php:608
 #, php-format
 msgid "Index %s has been dropped."
-msgstr "Индекс %s беше изтрит"
+msgstr "Индекс %s беше изтрит."
 
 #: libraries/Index.class.php:731
 #, php-format
@@ -3805,7 +3805,7 @@ msgstr "Избор от директорията за качване <b>%s</b>:"
 #: libraries/Util.class.php:3441 libraries/insert_edit.lib.php:1183
 #: libraries/sql_query_form.lib.php:483
 msgid "The directory you set for upload work cannot be reached."
-msgstr "Папката, която сте указали за качване е недостъпна"
+msgstr "Папката, която сте указали за качване е недостъпна."
 
 #: libraries/Util.class.php:3452
 msgid "There are no files to upload"
@@ -7869,7 +7869,7 @@ msgstr "Входът без парола е забранен от конфигу
 #: libraries/plugins/auth/AuthenticationSignon.class.php:254
 #, php-format
 msgid "No activity within %s seconds; please log in again."
-msgstr "Няма активност през последните %s секунди; моля влезте отново"
+msgstr "Няма активност през последните %s секунди; моля влезте отново."
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:667
 #: libraries/plugins/auth/AuthenticationCookie.class.php:669
@@ -7893,7 +7893,7 @@ msgstr "Файлът %s не съдържа идентификатор на кл
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:176
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:196
 msgid "Hardware authentication failed!"
-msgstr "Неуспешно хардуерно удостоверяване"
+msgstr "Неуспешно хардуерно удостоверяване!"
 
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:183
 msgid "No valid authentication key plugged"
@@ -10958,7 +10958,7 @@ msgid ""
 "below, if there is any, may also help you in diagnosing the problem."
 msgstr ""
 "Изглежда, че има грешка в SQL заявката ви. Грешката върната от MySQL сървъра "
-"по долу, ако има такава, би могла да ви помогне в определянето на проблема"
+"по долу, ако има такава, би могла да ви помогне в определянето на проблема."
 
 #: libraries/sqlparser.lib.php:178
 msgid ""
