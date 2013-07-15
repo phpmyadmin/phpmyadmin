@@ -4,6 +4,10 @@
  * @package PhpMyAdmin-Engines
  */
 
+if (! defined('PHPMYADMIN')) {
+    exit;
+}
+
 /**
  * the MyISAM storage engine
  * @package PhpMyAdmin-Engines

@@ -4,6 +4,10 @@
  * @package PhpMyAdmin-Engines
  */
 
+if (! defined('PHPMYADMIN')) {
+    exit;
+}
+
 /**
  * the PBMS daemon
  * @package PhpMyAdmin-Engines
