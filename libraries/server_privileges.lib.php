@@ -430,7 +430,7 @@ function PMA_getHtmlToChoseUserGroup($username, $hostname)
     $userGroup = '';
     if (isset($GLOBALS['username'])) {
         $sql_query = "SELECT `usergroup` FROM " . $userTable
-            . " WHERE `username` = '" . $GLOBALS['username'] . "'";
+            . " WHERE `username` = '" . $username . "'";
         $userGroup = $GLOBALS['dbi']->fetchValue(
             $sql_query, 0, 0, $GLOBALS['controllink']
         );
