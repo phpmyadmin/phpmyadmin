@@ -1965,4 +1965,175 @@ function PMA_getHtmlForPrintButton()
     
     return $print_button_html;
 }
+
+/**
+ * Function to display results when the executed query returns non empty results
+ * 
+ * @param array  $result               executed query results
+ * @param bool   $justBrowsing         whether just browsing or not
+ * @param array  $analyzed_sql_results analysed sql results
+ * @param string $db                   current database
+ * @param string $table                current table
+ * @param string $disp_mode            display mode
+ * @param string $message              message to show
+ * @param array  $sql_data             sql data
+ * @param object $displayResultsObject Instance of DisplyResults.class
+ * @param string $goto                 goto page url
+ * @param string $pmaThemeImage        uri of the theme image
+ * @param string $text_dir             text directory
+ * @param string $sql_limit_to_append  sql limit to append
+ * @param int    $unlim_num_rows       unlimited number of rows
+ * @param int    $num_rows             number of rows
+ * @param int    $querytime            query time
+ * @param string $full_sql_query       full sql query
+ * @param string $disp_query           display query
+ * @param string $disp_message         display message
+ * @param array  $profiling_results    profiling results
+ * @param string $query_type           query type
+ * @param bool   $selected             selected
+ * @param string $sql_query            sql query
+ * @param string $complete_query       complete sql query
+ * @param array  $cfg                  configuration
+ * 
+ * @return void
+ */
+function PMA_sendResponseForResultsReturned($result, $justBrowsing,
+    $analyzed_sql_results, $db, $table, $disp_mode, $message, $sql_data,
+    $displayResultsObject, $goto, $pmaThemeImage, $text_dir, $sql_limit_to_append,
+    $unlim_num_rows, $num_rows, $querytime, $full_sql_query, $disp_query,
+    $disp_message, $profiling_results, $query_type, $selected, $sql_query,
+    $complete_query, $cfg
+) {
+    // If we are retrieving the full value of a truncated field or the original
+    // value of a transformed field, show it here
+    if (isset($_REQUEST['grid_edit']) && $_REQUEST['grid_edit'] == true) {
+        PMA_sendResponseForGridEdit($result);
+    }
+
+    // Gets the list of fields properties
+    if (isset($result) && $result) {
+        $fields_meta = $GLOBALS['dbi']->getFieldsMeta($result);
+    }
+    
+    // Should be initialized these parameters before parsing
+    $showtable = isset($showtable) ? $showtable : null;
+    $url_query = isset($url_query) ? $url_query : null;
+    
+    $response = PMA_Response::getInstance();
+    $header   = $response->getHeader();
+    $scripts  = $header->getScripts();
+                
+    // hide edit and delete links:
+    // - for information_schema
+    // - if the result set does not contain all the columns of a unique key
+    //   and we are not just browing all the columns of an updatable view
+    $updatableView
+        = $justBrowsing
+        && trim($analyzed_sql_results['analyzed_sql'][0]['select_expr_clause']) == '*'
+        && PMA_Table::isUpdatableView($db, $table);
+        
+    $has_unique = PMA_resultSetContainsUniqueKey(
+        $db, $table, $fields_meta
+    );
+    
+    $editable = $has_unique || $updatableView;
+    
+    // Displays the results in a table
+    if (empty($disp_mode)) {
+        // see the "PMA_setDisplayMode()" function in
+        // libraries/DisplayResults.class.php
+        $disp_mode = 'urdr111101';
+    }    
+    if (!empty($table) && ($GLOBALS['dbi']->isSystemSchema($db) || !$editable)) {
+        $disp_mode = 'nnnn110111';
+    }
+    if ( isset($_REQUEST['printview']) && $_REQUEST['printview'] == '1') {
+        $disp_mode = 'nnnn000000';
+    }
+    
+    if (isset($_REQUEST['table_maintenance'])) {
+        $scripts->addFile('makegrid.js');
+        $scripts->addFile('sql.js');
+        if (isset($message)) {
+            $message = PMA_Message::success($message);
+            $table_maintenance_html = PMA_Util::getMessage(
+                $message, $GLOBALS['sql_query'], 'success'
+            );
+        }
+        $table_maintenance_html .= PMA_getHtmlForSqlQueryResultsTable(
+            isset($sql_data) ? $sql_data : null, $displayResultsObject, $db, $goto,
+            $pmaThemeImage, $text_dir, $url_query, $disp_mode, $sql_limit_to_append,
+            false, $unlim_num_rows, $num_rows, $showtable, $result, $querytime,
+            $analyzed_sql_results, false
+        );
+        if (empty($sql_data) || ($sql_data['valid_queries'] = 1)) {
+            $response->addHTML($table_maintenance_html);
+            exit();    
+        }
+    }
+
+    if (!isset($_REQUEST['printview']) || $_REQUEST['printview'] != '1') {
+        $scripts->addFile('makegrid.js');
+        $scripts->addFile('sql.js');
+        unset($message);         
+        //we don't need to buffer the output in getMessage here.
+        //set a global variable and check against it in the function
+        $GLOBALS['buffer_message'] = false;
+    }
+    
+    $print_view_header_html = PMA_getHtmlForPrintViewHeader(
+        $db, $full_sql_query, $num_rows
+    );
+    
+    $previous_update_query_html = PMA_getHtmlForPreviousUpdateQuery(
+        isset($disp_query) ? $disp_query : null,
+        $cfg['ShowSQL'], isset($sql_data) ? $sql_data : null,
+        isset($disp_message) ? $disp_message : null
+    );
+
+    $profiling_chart_html = PMA_getHtmlForProfilingChart(
+        $disp_mode, $db, isset($profiling_results) ? $profiling_results : null
+    );
+    
+    $missing_unique_column_msg = PMA_getMessageIfMissingColumnIndex(
+        $table, $db, $editable, $disp_mode
+    );
+    
+    $bookmark_created_msg = PMA_getBookmarkCreatedMessage();
+
+    $table_html = PMA_getHtmlForSqlQueryResultsTable(
+        isset($sql_data) ? $sql_data : null, $displayResultsObject, $db, $goto,
+        $pmaThemeImage, $text_dir, $url_query, $disp_mode, $sql_limit_to_append,
+        $editable, $unlim_num_rows, $num_rows, $showtable, $result, $querytime,
+        $analyzed_sql_results
+    );
+        
+    $indexes_problems_html = PMA_getHtmlForIndexesProblems(
+        isset($query_type) ? $query_type : null,
+        isset($selected) ? $selected : null
+    );
+    
+    $bookmark_support_html = PMA_getHtmlForBookmark(
+        $disp_mode, isset($cfg['Bookmark']) ? $cfg['Bookmark'] : '', $sql_query,
+        $db, $table, isset($complete_query) ? $complete_query : $sql_query,
+        $cfg['Bookmark']['user']
+    );
+
+    $print_button_html = PMA_getHtmlForPrintButton();
+    
+    $html_output = isset($table_maintenance_html) ? $table_maintenance_html : '';
+    
+    $html_output .= isset($print_view_header_html) ? $print_view_header_html : '';
+    
+    $html_output .= PMA_getHtmlForSqlQueryResults(
+        $previous_update_query_html, $profiling_chart_html,
+        $missing_unique_column_msg, $bookmark_created_msg,
+        $table_html, $indexes_problems_html, $bookmark_support_html,
+        $print_button_html
+    );
+    
+    $response->addHTML($html_output);    
+
+    exit();
+}
 ?>
