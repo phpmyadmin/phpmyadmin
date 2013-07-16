@@ -45,4 +45,6 @@ foreach ($hosts as $host) {
     $cfg['Servers'][$i]['designer_coords'] = 'pma__designer_coords';
     $cfg['Servers'][$i]['userconfig'] = 'pma__userconfig';
     $cfg['Servers'][$i]['recent'] = 'pma__recent';
+    $cfg['Servers'][$i]['users'] = 'pma__users';
+    $cfg['Servers'][$i]['usergroups'] = 'pma__usergroups';
 }
