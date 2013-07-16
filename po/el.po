@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-07-12 16:06+0200\n"
-"PO-Revision-Date: 2013-07-04 19:42+0200\n"
+"PO-Revision-Date: 2013-07-15 07:46+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: Greek <http://l10n.cihar.com/projects/phpmyadmin/master/el/>\n"
 "Language: el\n"
@@ -1672,7 +1672,7 @@ msgstr "Προσθήκη %d τιμής(ών)"
 #: js/messages.php:259
 msgid ""
 "Note: If the file contains multiple tables, they will be combined into one."
-msgstr "Σημείωση: Αν το αρχείο περιέχει πολλούς πίνακες, θα ενωθουν σε έναν"
+msgstr "Σημείωση: Αν το αρχείο περιέχει πολλούς πίνακες, θα ενωθουν σε έναν."
 
 #: js/messages.php:262
 msgid "Hide query box"
@@ -2849,7 +2849,7 @@ msgstr "Το πρωτεύον κλειδί διεγράφη"
 #: libraries/Index.class.php:608
 #, php-format
 msgid "Index %s has been dropped."
-msgstr "Το ευρετήριο %s διεγράφη"
+msgstr "Το ευρετήριο %s έχει διαγραφεί."
 
 #: libraries/Index.class.php:731
 #, php-format
@@ -3312,10 +3312,9 @@ msgid "Reset zoom"
 msgstr "Επανφορά εστίασης"
 
 #: libraries/TableSearch.class.php:1281
-#, fuzzy
 #| msgid "Replace with"
 msgid "Replace with:"
-msgstr "Αντικατάσταση με"
+msgstr "Αντικατάσταση με:"
 
 #: libraries/TableSearch.class.php:1341
 msgid "Find and replace - preview"
@@ -3827,8 +3826,7 @@ msgstr "Επιλογή από το φάκελο αποστολής του δια
 #: libraries/Util.class.php:3441 libraries/insert_edit.lib.php:1183
 #: libraries/sql_query_form.lib.php:483
 msgid "The directory you set for upload work cannot be reached."
-msgstr ""
-"Ο υποκατάλογος που ορίσατε για την αποθήκευση αρχείων δεν μπόρεσε να βρεθεί"
+msgstr "Ο φάκελος που ορίσατε για την αποθήκευση αρχείων δεν μπόρεσε να βρεθεί."
 
 #: libraries/Util.class.php:3452
 msgid "There are no files to upload"
@@ -8014,7 +8012,7 @@ msgstr ""
 msgid "No activity within %s seconds; please log in again."
 msgstr ""
 "Καμιά δραστηριότητα εδώ και %s δευτερόλεπτα τουλάχιστον, για αυτό "
-"ξανασυνδεθείτε"
+"ξανασυνδεθείτε."
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:667
 #: libraries/plugins/auth/AuthenticationCookie.class.php:669
@@ -8038,7 +8036,7 @@ msgstr "Το αρχείο %s δεν περιέχει καμιά ταυτότητ
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:176
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:196
 msgid "Hardware authentication failed!"
-msgstr "Η επικύρωση του υλικού απέτυχε"
+msgstr "Η επικύρωση του υλικού απέτυχε!"
 
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:183
 msgid "No valid authentication key plugged"
@@ -11279,9 +11277,9 @@ msgid ""
 "There seems to be an error in your SQL query. The MySQL server error output "
 "below, if there is any, may also help you in diagnosing the problem."
 msgstr ""
-"Φαίνεται να υπάρχει ένα λάθος στο ερώτημά σας. Το παρακάτω λάθος διακομιστή "
-"MySQL, εάν υπάρχει κάποιο, μπορεί επίσης να σας βοηθήσει να διαγνώσετε το "
-"πρόβλημα"
+"Φαίνεται να υπάρχει ένα λάθος στο ερώτημά SQL σας. Το παρακάτω λάθος "
+"διακομιστή MySQL, εάν υπάρχει κάποιο, μπορεί επίσης να σας βοηθήσει να "
+"διαγνώσετε το πρόβλημα."
 
 #: libraries/sqlparser.lib.php:178
 msgid ""

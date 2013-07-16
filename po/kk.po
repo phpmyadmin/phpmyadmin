@@ -8,10 +8,9 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-07-12 16:06+0200\n"
-"PO-Revision-Date: 2013-05-07 17:20+0200\n"
+"PO-Revision-Date: 2013-07-15 11:25+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Kazakh <http://l10n.cihar.com/projects/phpmyadmin/master/kk/"
-">\n"
+"Language-Team: Kazakh <http://l10n.cihar.com/projects/phpmyadmin/master/kk/>\n"
 "Language: kk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1407,7 +1406,7 @@ msgstr ""
 
 #: js/messages.php:178
 msgid "Sum of grouped rows:"
-msgstr "Топтасқан қатарлар сомасы"
+msgstr "Топтасқан қатарлар сомасы:"
 
 #: js/messages.php:179
 msgid "Total:"
@@ -2356,7 +2355,7 @@ msgstr ""
 #: libraries/DBQbe.class.php:1321
 #, php-format
 msgid "SQL query on database <b>%s</b>:"
-msgstr "<b>%s</b> дерекқорына SQL сұранысы"
+msgstr "<b>%s</b> дерекқорына SQL сұранысы:"
 
 #: libraries/DBQbe.class.php:1335 libraries/Util.class.php:1286
 msgid "Submit Query"
@@ -2461,7 +2460,7 @@ msgstr "Кесте бойынша:"
 
 #: libraries/DbSearch.class.php:445
 msgid "Inside column:"
-msgstr "Бағана бойынша"
+msgstr "Бағана бойынша:"
 
 #: libraries/DisplayResults.class.php:702
 msgid "Save edited data"
@@ -2809,7 +2808,7 @@ msgstr ""
 #: libraries/Index.class.php:608
 #, php-format
 msgid "Index %s has been dropped."
-msgstr "Индекс %s жойылған болатын"
+msgstr "Индекс %s жойылған болатын."
 
 #: libraries/Index.class.php:731
 #, php-format
@@ -7425,7 +7424,7 @@ msgstr ""
 
 #: libraries/operations.lib.php:813
 msgid "Table comments"
-msgstr "Кестеге түсініктеме:"
+msgstr "Кестеге түсініктеме"
 
 #: libraries/operations.lib.php:822 libraries/server_engines.lib.php:49
 msgid "Storage Engine"

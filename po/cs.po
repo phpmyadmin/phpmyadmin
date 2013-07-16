@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-07-12 16:06+0200\n"
-"PO-Revision-Date: 2013-07-09 13:12+0200\n"
+"PO-Revision-Date: 2013-07-15 11:06+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Czech <http://l10n.cihar.com/projects/phpmyadmin/master/cs/>\n"
 "Language: cs\n"
@@ -1657,7 +1657,7 @@ msgstr "Přidat %d hodnot"
 #: js/messages.php:259
 msgid ""
 "Note: If the file contains multiple tables, they will be combined into one."
-msgstr "Poznámka: Pokud soubor obsahuje více tabulek, budou sloučeny do jedné"
+msgstr "Poznámka: Pokud soubor obsahuje více tabulek, budou sloučeny do jedné."
 
 #: js/messages.php:262
 msgid "Hide query box"
@@ -2823,7 +2823,7 @@ msgstr "Primární klíč byl odstraněn"
 #: libraries/Index.class.php:608
 #, php-format
 msgid "Index %s has been dropped."
-msgstr "Klíč %s byl odstraněn"
+msgstr "Klíč %s byl odstraněn."
 
 #: libraries/Index.class.php:731
 #, php-format
@@ -3778,7 +3778,7 @@ msgstr "Zvolte soubor z adresáře pro upload na serveru <b>%s</b>:"
 #: libraries/Util.class.php:3441 libraries/insert_edit.lib.php:1183
 #: libraries/sql_query_form.lib.php:483
 msgid "The directory you set for upload work cannot be reached."
-msgstr "Adresář určený pro upload souborů nemohl být otevřen"
+msgstr "Adresář určený pro upload souborů nemohl být otevřen."
 
 #: libraries/Util.class.php:3452
 msgid "There are no files to upload"
@@ -7879,7 +7879,7 @@ msgstr "Přihlášení bez hesla je zakázáno v nastavení (viz AllowNoPassword
 msgid "No activity within %s seconds; please log in again."
 msgstr ""
 "Nebyla zaznamenána žádná aktivita po dobu %s sekund, prosím přihlaste se "
-"znovu"
+"znovu."
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:667
 #: libraries/plugins/auth/AuthenticationCookie.class.php:669
@@ -7903,7 +7903,7 @@ msgstr "Soubor %s neobsahuje ID klíče"
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:176
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:196
 msgid "Hardware authentication failed!"
-msgstr "Hardwarové přihlašování selhala"
+msgstr "Hardwarové přihlašování selhalo!"
 
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:183
 msgid "No valid authentication key plugged"
@@ -11041,7 +11041,7 @@ msgid ""
 "below, if there is any, may also help you in diagnosing the problem."
 msgstr ""
 "Pravděpodobně máte v SQL dotazu chybu. Níže uvedený výstup MySQL serveru "
-"(pokud je nějaký) vám také může pomoci při zkoumání problému"
+"(pokud je nějaký) vám také může pomoci při zkoumání problému."
 
 #: libraries/sqlparser.lib.php:178
 msgid ""
