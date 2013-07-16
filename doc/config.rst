@@ -110,7 +110,7 @@ Basic settings
     column names match with words which are MySQL reserved.
 
     If you want to turn off this warning, you can set it to ``true`` and
-    warning will not longer be displayed
+    warning will no longer be displayed.
 
 .. config:option:: $cfg['TranslationWarningThreshold']
 
