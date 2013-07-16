@@ -479,7 +479,11 @@ function PMA_getHtmlForServerProcesslist($ServerStatusData)
 
     $odd_row = true;
     while ($process = $GLOBALS['dbi']->fetchAssoc($result)) {
-        $retval .= PMA_getHtmlForServerProcessItem($process, $odd_row, $show_full_sql);
+        $retval .= PMA_getHtmlForServerProcessItem(
+            $process, 
+            $odd_row, 
+            $show_full_sql
+        );
         $odd_row = ! $odd_row;
     }
     $retval .= '</tbody>';
