@@ -225,7 +225,7 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
         $db, $table, isset($disp_mode) ? $disp_mode : null,
         isset($message) ? $message : null, isset($sql_data) ? $sql_data : null,
         $displayResultsObject, $goto, $pmaThemeImage,
-        isset($text_dir) ? $text_dir : null, $sql_limit_to_append, $unlim_num_rows,
+        $sql_limit_to_append, $unlim_num_rows,
         $num_rows, $querytime, $full_sql_query,
         isset($disp_query) ? $disp_query : null,
         isset($disp_message) ? $disp_message : null, $profiling_results,

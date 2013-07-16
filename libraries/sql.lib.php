@@ -69,7 +69,6 @@ function PMA_getTableNameBySQL($sql, $tables)
  * @param array  $sql_data             information about SQL statement
  * @param string $goto                 URL to go back in case of errors
  * @param string $pmaThemeImage        path for theme images  directory
- * @param string $text_dir             text direction
  * @param string $printview            whether printview is enabled
  * @param string $url_query            URL query
  * @param array  $disp_mode            the display mode
@@ -80,7 +79,7 @@ function PMA_getTableNameBySQL($sql, $tables)
  */
 function PMA_getTableHtmlForMultipleQueries(
     $displayResultsObject, $db, $sql_data, $goto, $pmaThemeImage,
-    $text_dir, $printview, $url_query, $disp_mode, $sql_limit_to_append,
+    $printview, $url_query, $disp_mode, $sql_limit_to_append,
     $editable
 ) {
     $table_html = '';
@@ -187,8 +186,8 @@ function PMA_getTableHtmlForMultipleQueries(
             $displayResultsObject->setProperties(
                 $unlim_num_rows, $fields_meta, $is_count, $is_export, $is_func,
                 $is_analyse, $num_rows, $fields_cnt, $querytime, $pmaThemeImage,
-                $text_dir, $is_maint, $is_explain, $is_show, $showtable,
-                $printview, $url_query, $editable
+                $GLOBALS['text_dir'], $is_maint, $is_explain, $is_show, 
+                $showtable, $printview, $url_query, $editable
             );
         }
 
@@ -1808,7 +1807,6 @@ function PMA_getBookmarkCreatedMessage()
  * @param string $db                   current database
  * @param string $goto                 goto page url
  * @param string $pmaThemeImage        theme image uri
- * @param string $text_dir             text directory
  * @param string $url_query            url query
  * @param string $disp_mode            display mode
  * @param string $sql_limit_to_append  sql limit to append
@@ -1823,7 +1821,7 @@ function PMA_getBookmarkCreatedMessage()
  * @return type
  */
 function PMA_getHtmlForSqlQueryResultsTable($sql_data, $displayResultsObject, $db,
-    $goto, $pmaThemeImage, $text_dir, $url_query, $disp_mode, $sql_limit_to_append,
+    $goto, $pmaThemeImage, $url_query, $disp_mode, $sql_limit_to_append,
     $editable, $unlim_num_rows, $num_rows, $showtable, $result, $querytime,
     $analyzed_sql_results
 ) {
@@ -1834,7 +1832,7 @@ function PMA_getHtmlForSqlQueryResultsTable($sql_data, $displayResultsObject, $d
         $_SESSION['is_multi_query'] = true;
         $table_html = PMA_getTableHtmlForMultipleQueries(
             $displayResultsObject, $db, $sql_data, $goto,
-            $pmaThemeImage, $text_dir, $printview, $url_query,
+            $pmaThemeImage, $printview, $url_query,
             $disp_mode, $sql_limit_to_append, $editable
         );
     } else {
@@ -1847,7 +1845,7 @@ function PMA_getHtmlForSqlQueryResultsTable($sql_data, $displayResultsObject, $d
             $unlim_num_rows, $fields_meta, $analyzed_sql_results['is_count'],
             $analyzed_sql_results['is_export'], $analyzed_sql_results['is_func'],
             $analyzed_sql_results['is_analyse'], $num_rows,
-            $fields_cnt, $querytime, $pmaThemeImage, $text_dir,
+            $fields_cnt, $querytime, $pmaThemeImage, $GLOBALS['text_dir'],
             $analyzed_sql_results['is_maint'], $analyzed_sql_results['is_explain'],
             $analyzed_sql_results['is_show'], $showtable, $printview, $url_query,
             $editable
@@ -1980,7 +1978,6 @@ function PMA_getHtmlForPrintButton()
  * @param object $displayResultsObject Instance of DisplyResults.class
  * @param string $goto                 goto page url
  * @param string $pmaThemeImage        uri of the theme image
- * @param string $text_dir             text directory
  * @param string $sql_limit_to_append  sql limit to append
  * @param int    $unlim_num_rows       unlimited number of rows
  * @param int    $num_rows             number of rows
@@ -1999,7 +1996,7 @@ function PMA_getHtmlForPrintButton()
  */
 function PMA_sendResponseForResultsReturned($result, $justBrowsing,
     $analyzed_sql_results, $db, $table, $disp_mode, $message, $sql_data,
-    $displayResultsObject, $goto, $pmaThemeImage, $text_dir, $sql_limit_to_append,
+    $displayResultsObject, $goto, $pmaThemeImage, $sql_limit_to_append,
     $unlim_num_rows, $num_rows, $querytime, $full_sql_query, $disp_query,
     $disp_message, $profiling_results, $query_type, $selected, $sql_query,
     $complete_query, $cfg
@@ -2062,7 +2059,7 @@ function PMA_sendResponseForResultsReturned($result, $justBrowsing,
         }
         $table_maintenance_html .= PMA_getHtmlForSqlQueryResultsTable(
             isset($sql_data) ? $sql_data : null, $displayResultsObject, $db, $goto,
-            $pmaThemeImage, $text_dir, $url_query, $disp_mode, $sql_limit_to_append,
+            $pmaThemeImage, $url_query, $disp_mode, $sql_limit_to_append,
             false, $unlim_num_rows, $num_rows, $showtable, $result, $querytime,
             $analyzed_sql_results, false
         );
@@ -2103,7 +2100,7 @@ function PMA_sendResponseForResultsReturned($result, $justBrowsing,
 
     $table_html = PMA_getHtmlForSqlQueryResultsTable(
         isset($sql_data) ? $sql_data : null, $displayResultsObject, $db, $goto,
-        $pmaThemeImage, $text_dir, $url_query, $disp_mode, $sql_limit_to_append,
+        $pmaThemeImage, $url_query, $disp_mode, $sql_limit_to_append,
         $editable, $unlim_num_rows, $num_rows, $showtable, $result, $querytime,
         $analyzed_sql_results
     );
