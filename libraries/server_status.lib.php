@@ -50,12 +50,14 @@ function PMA_getHtmlForServerStateGeneralInfo($ServerStatusData)
     );
 
     $retval  = '<h3>';
+    $bytes_received = $ServerStatusData->status['Bytes_received'];
+    $bytes_sent = $ServerStatusData->status['Bytes_sent'];
     $retval .= sprintf(
         __('Network traffic since startup: %s'),
         implode(
             ' ',
             PMA_Util::formatByteDown(
-                $ServerStatusData->status['Bytes_received'] + $ServerStatusData->status['Bytes_sent'],
+                $bytes_received + $bytes_sent,
                 3,
                 1
             )
@@ -177,19 +179,22 @@ function PMA_getHtmlForServerStateTraffic($ServerStatusData)
     $retval .= '<tr class="odd">';
     $retval .= '<th class="name">' . __('Total') . '</th>';
     $retval .= '<td class="value">';
+    $bytes_received = $ServerStatusData->status['Bytes_received'];
+    $bytes_sent = $ServerStatusData->status['Bytes_sent'];
     $retval .= implode(
         ' ',
         PMA_Util::formatByteDown(
-            $ServerStatusData->status['Bytes_received'] + $ServerStatusData->status['Bytes_sent'], 3, 1
+            $bytes_received + $bytes_sent, 3, 1
         )
     );
     $retval .= '</td>';
     $retval .= '<td class="value">';
+    $bytes_received = $ServerStatusData->status['Bytes_received'];
+    $bytes_sent = $ServerStatusData->status['Bytes_sent'];
     $retval .= implode(
         ' ',
         PMA_Util::formatByteDown(
-            ($ServerStatusData->status['Bytes_received'] + $ServerStatusData->status['Bytes_sent'])
-            * $hour_factor, 3, 1
+            ($bytes_received + $bytes_sent) * $hour_factor, 3, 1
         )
     );
     $retval .= '</td>';
@@ -242,8 +247,11 @@ function PMA_getHtmlForServerStateConnections($ServerStatusData)
     $retval .= '</td>';
     $retval .= '<td class="value">';
     if ($ServerStatusData->status['Connections'] > 0) {
+        $abortNum = $ServerStatusData->status['Aborted_connects'];
+        $connectNum = $ServerStatusData->status['Connections'];
+       
         $retval .= PMA_Util::formatNumber(
-            $ServerStatusData->status['Aborted_connects'] * 100 / $ServerStatusData->status['Connections'],
+            $abortNum * 100 / $connectNum,
             0, 2, true
         );
         $retval .= '%';
@@ -266,8 +274,11 @@ function PMA_getHtmlForServerStateConnections($ServerStatusData)
     $retval .= '</td>';
     $retval .= '<td class="value">';
     if ($ServerStatusData->status['Connections'] > 0) {
+        $abortNum = $ServerStatusData->status['Aborted_clients'];
+        $connectNum = $ServerStatusData->status['Connections'];
+        
         $retval .= PMA_Util::formatNumber(
-            $ServerStatusData->status['Aborted_clients'] * 100 / $ServerStatusData->status['Connections'],
+            $abortNum * 100 / $connectNum,
             0, 2, true
         );
         $retval .= '%';
