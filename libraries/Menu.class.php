@@ -141,7 +141,7 @@ class PMA_Menu
             $sql_query = "SELECT * FROM " . $groupTable
                 . " WHERE `usergroup` = (SELECT usergroup FROM "
                 . $userTable . " WHERE `username` = '"
-                . $GLOBALS['cfg']['Server']['user'] . "')";
+                . PMA_Util::sqlAddSlashes($GLOBALS['cfg']['Server']['user']) . "')";
 
             $result = PMA_queryAsControlUser($sql_query, false);
             if ($result) {

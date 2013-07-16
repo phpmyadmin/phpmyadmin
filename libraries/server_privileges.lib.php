@@ -426,7 +426,7 @@ function PMA_getHtmlToChoseUserGroup($username)
     $userGroup = '';
     if (isset($GLOBALS['username'])) {
         $sql_query = "SELECT `usergroup` FROM " . $userTable
-            . " WHERE `username` = '" . $username . "'";
+            . " WHERE `username` = '" . PMA_Util::sqlAddSlashes($username) . "'";
         $userGroup = $GLOBALS['dbi']->fetchValue(
             $sql_query, 0, 0, $GLOBALS['controllink']
         );
@@ -463,21 +463,23 @@ function PMA_setUserGroup($username, $userGroup)
         . "." . PMA_Util::backquote($GLOBALS['cfg']['Server']['users']);
 
     $sql_query = "SELECT `usergroup` FROM " . $userTable
-        . " WHERE `username` = '" . $username . "'";
+        . " WHERE `username` = '" . PMA_Util::sqlAddSlashes($username) . "'";
     $oldUserGroup = $GLOBALS['dbi']->fetchValue(
         $sql_query, 0, 0, $GLOBALS['controllink']
     );
 
     if ($oldUserGroup === false) {
         $upd_query = "INSERT INTO " . $userTable . "(`username`, `usergroup`)"
-            . " VALUES ('" . $username . "', '" . $userGroup. "')";
+            . " VALUES ('" . PMA_Util::sqlAddSlashes($username) . "', "
+            . "'" . PMA_Util::sqlAddSlashes($userGroup) . "')";
     } else {
         if (empty($userGroup)) {
             $upd_query = "DELETE FROM " . $userTable
-                . " WHERE `username`='" . $username . "'";
+                . " WHERE `username`='" . PMA_Util::sqlAddSlashes($username) . "'";
         } elseif ($oldUserGroup != $userGroup) {
-            $upd_query = "UPDATE " . $userTable . " SET `usergroup`='" . $userGroup
-                . "' WHERE `username`='" . $username . "'";
+            $upd_query = "UPDATE " . $userTable
+                . " SET `usergroup`='" . PMA_Util::sqlAddSlashes($userGroup) . "'"
+                . " WHERE `username`='" . PMA_Util::sqlAddSlashes($username) . "'";
         }
     }
     if (isset($upd_query)) {
@@ -3188,7 +3190,7 @@ function PMA_getHtmlForListingUsersofAGroup($userGroup)
     $usersTable = PMA_Util::backquote($GLOBALS['cfg']['Server']['pmadb'])
         . "." . PMA_Util::backquote($GLOBALS['cfg']['Server']['users']);
     $sql_query = "SELECT `username` FROM " . $usersTable
-        . " WHERE `usergroup`='" . $userGroup . "'";
+        . " WHERE `usergroup`='" . PMA_Util::sqlAddSlashes($userGroup) . "'";
     $result = PMA_queryAsControlUser($sql_query, false);
     if ($result) {
         if ($GLOBALS['dbi']->numRows($result) == 0) {
@@ -3324,7 +3326,7 @@ function PMA_deleteUserGroup($userGroup)
     $groupTable = PMA_Util::backquote($GLOBALS['cfg']['Server']['pmadb'])
         . "." . PMA_Util::backquote($GLOBALS['cfg']['Server']['usergroups']);
     $sql_query = "DELETE FROM " . $groupTable
-        . " WHERE `usergroup`='" . $userGroup . "'";
+        . " WHERE `usergroup`='" . PMA_Util::sqlAddSlashes($userGroup) . "'";
     PMA_queryAsControlUser($sql_query, true);
 }
 
@@ -3379,7 +3381,7 @@ function PMA_getHtmlToEditUserGroup($userGroup = null)
         $groupTable = PMA_Util::backquote($GLOBALS['cfg']['Server']['pmadb'])
             . "." . PMA_Util::backquote($GLOBALS['cfg']['Server']['usergroups']);
         $sql_query = "SELECT * FROM " . $groupTable
-            . " WHERE `usergroup`='" . $userGroup . "'";
+            . " WHERE `usergroup`='" . PMA_Util::sqlAddSlashes($userGroup) . "'";
         $result = PMA_queryAsControlUser($sql_query, false);
         if ($result) {
             $row = $GLOBALS['dbi']->fetchAssoc($result);
@@ -3478,10 +3480,11 @@ function PMA_editUserGroup($userGroup, $new = false)
     if ($new) {
         $sql_query = "INSERT INTO " . $groupTable
             . "(`usergroup`" . $cols . ")"
-            . " VALUES ('" . $userGroup . "'" . $vals . ")";
+            . " VALUES"
+            . " ('" . PMA_Util::sqlAddSlashes($userGroup) . "'" . $vals . ")";
     } else {
         $sql_query = "UPDATE " . $groupTable . " SET " . substr($colsNvals, 1)
-            . " WHERE `usergroup`='" . $userGroup . "'";
+            . " WHERE `usergroup`='" . PMA_Util::sqlAddSlashes($userGroup) . "'";
     }
     PMA_queryAsControlUser($sql_query, true);
 }
