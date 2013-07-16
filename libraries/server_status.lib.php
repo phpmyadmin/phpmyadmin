@@ -479,7 +479,7 @@ function PMA_getHtmlForServerProcesslist($ServerStatusData)
 
     $odd_row = true;
     while ($process = $GLOBALS['dbi']->fetchAssoc($result)) {
-        $retval .= PMA_getHtmlForServerProcesslist($process);
+        $retval .= PMA_getHtmlForServerProcessItem($process, $odd_row, $show_full_sql);
         $odd_row = ! $odd_row;
     }
     $retval .= '</tbody>';
@@ -491,11 +491,13 @@ function PMA_getHtmlForServerProcesslist($ServerStatusData)
 /**
  * Prints Every Item of Server Process
  *
- * @param Array $process the data of Every Item of Server Process
+ * @param Array $process       data of Every Item of Server Process
+ * @param bool  $odd_row       display odd row or not
+ * @param bool  $show_full_sql show full sql or not
  *
  * @return string
  */
-function PMA_getHtmlForServerProcesslist($process)
+function PMA_getHtmlForServerProcessItem($process, $odd_row, $show_full_sql)
 {
     // Array keys need to modify due to the way it has used
     // to display column values
