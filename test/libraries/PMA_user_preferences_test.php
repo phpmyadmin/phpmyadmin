@@ -416,35 +416,35 @@ class PMA_User_Preferences_Test extends PHPUnit_Framework_TestCase
         $result = PMA_userprefsAutoloadGetHeader();
 
         $this->assertTag(
-            $this->_getTagArray(
+            PMA_getTagArray(
                 '<form action="prefs_manage.php" method="post">'
             ),
             $result
         );
 
         $this->assertTag(
-            $this->_getTagArray(
+            PMA_getTagArray(
                 '<input type="hidden" name="token" value="token"'
             ),
             $result
         );
 
         $this->assertTag(
-            $this->_getTagArray(
+            PMA_getTagArray(
                 '<input type="hidden" name="json" value="" />'
             ),
             $result
         );
 
         $this->assertTag(
-            $this->_getTagArray(
+            PMA_getTagArray(
                 '<input type="hidden" name="submit_import" value="1" />'
             ),
             $result
         );
 
         $this->assertTag(
-            $this->_getTagArray(
+            PMA_getTagArray(
                 '<input type="hidden" name="return_url" value="phpunit?" />'
             ),
             $result
