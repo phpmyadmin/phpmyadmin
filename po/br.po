@@ -8,10 +8,9 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-07-12 16:06+0200\n"
-"PO-Revision-Date: 2013-07-12 15:45+0200\n"
+"PO-Revision-Date: 2013-07-15 11:11+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Breton <http://l10n.cihar.com/projects/phpmyadmin/master/br/"
-">\n"
+"Language-Team: Breton <http://l10n.cihar.com/projects/phpmyadmin/master/br/>\n"
 "Language: br\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -4195,7 +4194,8 @@ msgstr "%s d'ar muiañ"
 #: libraries/config/FormDisplay.tpl.php:225
 msgid "This setting is disabled, it will not be applied to your configuration."
 msgstr ""
-"Diweredekaet eo an arventenn; ne vo ket lakaet e pleustr gant ho kefluniadur."
+"Diweredekaet eo an arventenn; ne vo ket lakaet e pleustr gant ho "
+"kefluniadur."
 
 #: libraries/config/FormDisplay.tpl.php:313
 #, php-format
@@ -7900,7 +7900,7 @@ msgstr "N'eus anaouder alc'hwez ebet er restr %s"
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:176
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:196
 msgid "Hardware authentication failed!"
-msgstr "C'hwitet eo bet dilesadur ar periant."
+msgstr "C'hwitet eo bet dilesadur ar periant !"
 
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:183
 msgid "No valid authentication key plugged"

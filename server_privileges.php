@@ -16,6 +16,8 @@ require_once 'libraries/common.inc.php';
 require_once 'libraries/display_change_password.lib.php';
 require_once 'libraries/server_privileges.lib.php';
 
+$cfgRelation = PMA_getRelationsParam();
+
 /**
  * Does the common work
  */
@@ -23,6 +25,11 @@ $response = PMA_Response::getInstance();
 $header   = $response->getHeader();
 $scripts  = $header->getScripts();
 $scripts->addFile('server_privileges.js');
+
+if ($GLOBALS['cfgRelation']['menuswork']) {
+    $response->addHTML('<div>');
+    $response->addHTML(PMA_getHtmlForSubMenusOnUsersPage('server_privileges.php'));
+}
 
 $_add_user_error = false;
 
@@ -228,6 +235,9 @@ if (isset($_REQUEST['adduser_submit']) || isset($_REQUEST['change_copy'])) {
                 $_error, $real_sql_query, $sql_query, $username, $hostname,
                 isset($dbname) ? $dbname : null
             );
+            if (! empty($_REQUEST['userGroup']) && $cfgRelation['menuswork']) {
+                PMA_setUserGroup($GLOBALS['username'], $_REQUEST['userGroup']);
+            }
 
         } else {
             if (isset($create_user_real)) {
@@ -266,6 +276,14 @@ if (! empty($_POST['update_privs'])) {
         (isset($tablename) ? $tablename : ''),
         (isset($dbname) ? $dbname : '')
     );
+}
+
+/**
+ * Assign users to user groups
+ */
+if (! empty($_REQUEST['changeUserGroup']) && $cfgRelation['menuswork']) {
+    PMA_setUserGroup($username, $_REQUEST['userGroup']);
+    $message = PMA_Message::success();
 }
 
 /**
@@ -378,6 +396,7 @@ if ($GLOBALS['is_ajax_request']
     && (! isset($_REQUEST['initial']) || empty($_REQUEST['initial']))
     && ! isset($_REQUEST['showall'])
     && ! isset($_REQUEST['edit_user_dialog'])
+    && ! isset($_REQUEST['edit_user_group_dialog'])
     && ! isset($_REQUEST['db_specific'])
 ) {
     $extra_data = PMA_getExtraDataForAjaxBehavior(
@@ -423,6 +442,18 @@ if (isset($_REQUEST['viewing_mode']) && $_REQUEST['viewing_mode'] == 'db') {
 /**
  * Displays the page
  */
+
+
+if (! empty($_REQUEST['edit_user_group_dialog']) && $cfgRelation['menuswork']) {
+    $dialog = PMA_getHtmlToChoseUserGroup($username);
+    $response = PMA_Response::getInstance();
+    if ($GLOBALS['is_ajax_request']) {
+        $response->addJSON('message', $dialog);
+        exit;
+    } else {
+        $response->addHTML($dialog);
+    }
+}
 
 // export user definition
 if (isset($_REQUEST['export'])
@@ -490,5 +521,9 @@ if (empty($_REQUEST['adduser'])
         PMA_getHtmlForSpecificDbPrivileges($link_edit, $conditional_class)
     );
 } // end if (empty($_REQUEST['adduser']) && empty($checkprivs))... elseif... else...
+
+if ($GLOBALS['cfgRelation']['menuswork']) {
+    $response->addHTML('</div>');
+}
 
 ?>

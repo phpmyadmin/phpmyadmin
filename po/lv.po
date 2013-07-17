@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-07-12 16:06+0200\n"
-"PO-Revision-Date: 2013-05-07 17:18+0200\n"
+"PO-Revision-Date: 2013-07-15 11:30+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Latvian <http://l10n.cihar.com/projects/phpmyadmin/master/lv/"
-">\n"
+"Language-Team: Latvian "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/lv/>\n"
 "Language: lv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2975,7 +2975,7 @@ msgstr "Primārā atslēga tika izdzēsta"
 #: libraries/Index.class.php:608
 #, php-format
 msgid "Index %s has been dropped."
-msgstr "Indekss %s tika izdzēsts"
+msgstr "Indekss %s tika izdzēsts."
 
 #: libraries/Index.class.php:731
 #, php-format
@@ -3921,7 +3921,7 @@ msgstr "web servera augšupielādes direktorija"
 #: libraries/Util.class.php:3441 libraries/insert_edit.lib.php:1183
 #: libraries/sql_query_form.lib.php:483
 msgid "The directory you set for upload work cannot be reached."
-msgstr "Direktoija, kuru norādijāt augšupielādei, nav pieejama"
+msgstr "Direktoija, kuru norādijāt augšupielādei, nav pieejama."
 
 #: libraries/Util.class.php:3452
 msgid "There are no files to upload"
@@ -8038,7 +8038,8 @@ msgstr ""
 #, php-format
 msgid "No activity within %s seconds; please log in again."
 msgstr ""
-"Nebija aktivitātes vairāk kā %s sekunžu laikā, lūdzu autorizējieties vēlreiz"
+"Nebija aktivitātes vairāk kā %s sekunžu laikā, lūdzu autorizējieties "
+"vēlreiz."
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:667
 #: libraries/plugins/auth/AuthenticationCookie.class.php:669
@@ -11264,7 +11265,7 @@ msgid ""
 "below, if there is any, may also help you in diagnosing the problem."
 msgstr ""
 "Izkatās, ka Jūsu SQL vaicajumā ir kļūda. MySQL servera kļūdas pazinojums "
-"zemāk, ja tāds ir, var arī palīdzet Jums diagnosticēt problēmu"
+"zemāk, ja tāds ir, var arī palīdzet Jums diagnosticēt problēmu."
 
 #: libraries/sqlparser.lib.php:178
 msgid ""

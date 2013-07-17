@@ -33,9 +33,9 @@ class PMA_MySQL_Charsets_Test extends PHPUnit_Framework_TestCase
     public function testGenerateCharsetQueryPart(
         $drizzle, $collation, $expected
     ) {
-        if (! function_exists("runkit_constant_redefine")) {
+        if (! PMA_HAS_RUNKIT) {
             $this->markTestSkipped(
-                'Cannot redefine constant/function - missing APD or/and runkit extension'
+                'Cannot redefine constant - missing runkit extension'
             );
         } else {
             if (defined('PMA_DRIZZLE')) {
@@ -75,9 +75,9 @@ class PMA_MySQL_Charsets_Test extends PHPUnit_Framework_TestCase
      */
     public function testGetDbCollation()
     {
-        if (! function_exists("runkit_constant_redefine")) {
+        if (! PMA_HAS_RUNKIT) {
             $this->markTestSkipped(
-                'Cannot redefine constant/function - missing APD or/and runkit extension'
+                'Cannot redefine constant - missing runkit extension'
             );
         } else {
             $GLOBALS['server'] = 1;

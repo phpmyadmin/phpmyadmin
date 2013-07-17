@@ -4,17 +4,17 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-07-12 16:06+0200\n"
-"PO-Revision-Date: 2012-12-13 13:06+0200\n"
+"PO-Revision-Date: 2013-07-15 11:30+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Belarusian <http://l10n.cihar.com/projects/phpmyadmin/master/"
-"be/>\n"
+"Language-Team: Belarusian "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/be/>\n"
 "Language: be\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 1.4-dev\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
+"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 1.6-dev\n"
 
 #: browse_foreigners.php:51 browse_foreigners.php:75 js/messages.php:339
 #: libraries/DisplayResults.class.php:813
@@ -3130,7 +3130,7 @@ msgstr "Першасны ключ быў выдалены"
 #: libraries/Index.class.php:608
 #, php-format
 msgid "Index %s has been dropped."
-msgstr "Індэкс %s быў выдалены"
+msgstr "Індэкс %s быў выдалены."
 
 #: libraries/Index.class.php:731
 #, php-format
@@ -4092,7 +4092,7 @@ msgstr "тэчка вэб-сэрвэра для загрузкі файлаў"
 #: libraries/Util.class.php:3441 libraries/insert_edit.lib.php:1183
 #: libraries/sql_query_form.lib.php:483
 msgid "The directory you set for upload work cannot be reached."
-msgstr "Немагчыма адкрыць пазначаную вамі тэчку для загрузкі файлаў"
+msgstr "Немагчыма адкрыць пазначаную вамі тэчку для загрузкі файлаў."
 
 #: libraries/Util.class.php:3452
 msgid "There are no files to upload"
@@ -8339,7 +8339,7 @@ msgstr ""
 msgid "No activity within %s seconds; please log in again."
 msgstr ""
 "Не было аніякай актыўнасьці на працягу %s сэкундаў. Калі ласка, увайдзіце "
-"зноў"
+"зноў."
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:667
 #: libraries/plugins/auth/AuthenticationCookie.class.php:669
@@ -8364,7 +8364,7 @@ msgstr "Файл %s ня ўтрымлівае ніякага ідэнтыфік�
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:176
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:196
 msgid "Hardware authentication failed!"
-msgstr "Апаратная аўтэнтыфікацыя скончылася няўдала"
+msgstr "Апаратная аўтэнтыфікацыя скончылася няўдала!"
 
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:183
 msgid "No valid authentication key plugged"
@@ -11749,7 +11749,7 @@ msgid ""
 msgstr ""
 "Здаецца, ваш SQL-запыт утрымлівае памылку. Паведамленьне пра памылку сэрвэра "
 "MySQL прыведзенае ніжэй, магчыма, таксама дапаможа вам высьветліць прычыну "
-"памылкі"
+"памылкі."
 
 #: libraries/sqlparser.lib.php:178
 msgid ""
