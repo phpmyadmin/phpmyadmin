@@ -1,13 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Specialized String Class for phpMyAdmin
- *
- * Defines a set of function callbacks that have a pure C version available if
- * the "ctype" extension is available, but otherwise have PHP versions to use
- * (that are slower).
- *
- * The SQL Parser code relies heavily on these functions.
+ * Implements PMA_StringByte interface using native PHP functions.
  *
  * @package    PhpMyAdmin-String
  * @subpackage Native
@@ -16,7 +10,15 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
-class PMA_StringNative
+require_once 'libraries/String.class.php';
+
+/**
+ * Implements PMA_StringByte interface using native PHP functions.
+ *
+ * @package    PhpMyAdmin-String
+ * @subpackage Native
+ */
+class PMA_StringNative implements PMA_StringByte
 {
     /**
      * Returns length of string depending on current charset.
@@ -25,7 +27,7 @@ class PMA_StringNative
      *
      * @return int string length
      */
-    public static function strlen($string)
+    public function strlen($string)
     {
         return strlen($string);
     }
@@ -39,7 +41,7 @@ class PMA_StringNative
      *
      * @return string the sub string
      */
-    public static function substr($string, $start, $length = 2147483647)
+    public function substr($string, $start, $length = 2147483647)
     {
         return substr($string, $start, $length);
     }
@@ -53,7 +55,7 @@ class PMA_StringNative
      *
      * @return integer position of $needle in $haystack or false
      */
-    public static function strpos($haystack, $needle, $offset = 0)
+    public function strpos($haystack, $needle, $offset = 0)
     {
         return strpos($haystack, $needle, $offset);
     }
@@ -65,7 +67,7 @@ class PMA_StringNative
      *
      * @return string the lower case string
      */
-    public static function strtolower($string)
+    public function strtolower($string)
     {
         return strtolower($string);
     }
