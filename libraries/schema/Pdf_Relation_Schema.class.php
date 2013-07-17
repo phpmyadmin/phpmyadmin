@@ -5,6 +5,13 @@
  * @package PhpMyAdmin
  */
 
+/**
+ * block attempts to directly run this script 
+ */
+if (getcwd() == dirname(__FILE__)) {
+    die('Attack stopped');
+}
+
 require_once 'Export_Relation_Schema.class.php';
 require_once './libraries/PDF.class.php';
 

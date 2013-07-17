@@ -5,6 +5,13 @@
  */
 
 /**
+ * block attempts to directly run this script 
+ */
+if (getcwd() == dirname(__FILE__)) {
+    die('Attack stopped');
+}
+
+/**
  *
  */
 require_once './libraries/common.inc.php';
