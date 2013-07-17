@@ -615,9 +615,8 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
         $_COOKIE['pmaUser-1'] = 'pmaUser1';
         $_COOKIE['pmaPass-1'] = '';
         $GLOBALS['cfg']['blowfish_secret'] = 'secret';
-        $_SESSION['last_access_time'] = time() + 100000;
-        $GLOBALS['cfg']['LoginCookieValidity'] = time();
-        // mock for blowfish function
+        $_SESSION['last_access_time'] = time() - 1000;
+        $GLOBALS['cfg']['LoginCookieValidity'] = 1440;
 
         $this->assertFalse(
             $this->object->authCheck()
@@ -729,8 +728,8 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
         $_COOKIE['pmaPass-1'] = 'pmaPass1';
         $GLOBALS['cfg']['blowfish_secret'] = 'secret';
         $_SESSION['last_valid_captcha'] = true;
-        $_SESSION['last_access_time'] = time() + 100000;
-        $GLOBALS['cfg']['LoginCookieValidity'] = time();
+        $_SESSION['last_access_time'] = time() - 1000;
+        $GLOBALS['cfg']['LoginCookieValidity'] = 1440;
         
         // mock for blowfish function
         $this->object = $this->getMockBuilder('AuthenticationCookie')
