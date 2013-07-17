@@ -146,7 +146,19 @@ class PMA_Table_Test extends PHPUnit_Framework_TestCase
             ->will($this->returnValue(false));   
                   
         $dbi->expects($this->any())->method('numRows')
-            ->will($this->returnValue(20));     
+            ->will($this->returnValue(20));  
+
+        $triggers = array(
+        	array("name" => "name1", "create"=>"crate1"),
+        	array("name" => "name2", "create"=>"crate2"),
+        	array("name" => "name3", "create"=>"crate3"),
+        );   
+                  
+        $dbi->expects($this->any())->method('getTriggers')
+            ->will($this->returnValue($triggers));     
+                  
+        $dbi->expects($this->any())->method('query')
+            ->will($this->returnValue("executed"));
         
         $GLOBALS['dbi'] = $dbi;
     }
@@ -480,5 +492,76 @@ class PMA_Table_Test extends PHPUnit_Framework_TestCase
             $result
         );     
     }
+
+    /**
+     * Test for rename
+     *
+     * @return void
+     */
+    public function testRename()
+    {    
+        $table = 'PMA_BookMark';
+        $db = 'PMA';
+        
+        $table = new PMA_Table($table, $db);
+        
+        //rename to same name
+        $table_new = 'PMA_BookMark';
+        $result = $table->rename($table_new);
+        $this->assertEquals(
+        		true,
+        		$result
+        );
+        
+        //isValidName
+        //space in table name
+        $table_new = 'PMA_BookMark ';
+        $result = $table->rename($table_new);
+        $this->assertEquals(
+        		false,
+        		$result
+        );
+        //empty name
+        $table_new = '';
+        $result = $table->rename($table_new);
+        $this->assertEquals(
+        		false,
+        		$result
+        );
+        //dot in table name
+        $table_new = 'PMA_.BookMark';
+        $result = $table->rename($table_new);
+        $this->assertEquals(
+        		false,
+        		$result
+        );
+        
+
+        $table_new = 'PMA_BookMark_new';
+        $db_new = 'PMA_new';
+        $GLOBALS['pma'] = new DataBasePMAMock();
+        $GLOBALS['pma']->databases = new DataBaseMock();
+        $result = $table->rename($table_new, $db_new);
+        $this->assertEquals(
+        		true,
+        		$result
+        );
+        //message
+        $this->assertEquals(
+        		"Table PMA_BookMark has been renamed to PMA_BookMark_new.",
+        		$table->getLastMessage()
+        );       
+    }
+}
+//mock PMA
+Class DataBasePMAMock{
+	var $databases;	
+}
+
+//mock $GLOBALS['pma']->databases
+Class DataBaseMock{
+	function exists($name){
+		return true;
+	}	
 }
 ?>
