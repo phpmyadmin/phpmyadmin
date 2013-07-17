@@ -132,7 +132,8 @@ class PMA_Menu
     private function _getAllowedTabs($level)
     {
         $allowedTabs = PMA_Util::getMenuTabList($level);
-        if ($GLOBALS['cfgRelation']['menuswork']) {
+        $cfgRelation = PMA_getRelationsParam();
+        if ($cfgRelation['menuswork']) {
             $groupTable = PMA_Util::backquote($GLOBALS['cfg']['Server']['pmadb'])
                 . "." . PMA_Util::backquote($GLOBALS['cfg']['Server']['usergroups']);
             $userTable = PMA_Util::backquote($GLOBALS['cfg']['Server']['pmadb'])
