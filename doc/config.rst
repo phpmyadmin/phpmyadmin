@@ -110,7 +110,7 @@ Basic settings
     column names match with words which are MySQL reserved.
 
     If you want to turn off this warning, you can set it to ``true`` and
-    warning will not longer be displayed
+    warning will no longer be displayed.
 
 .. config:option:: $cfg['TranslationWarningThreshold']
 
@@ -649,6 +649,29 @@ Server connection settings
     * put the table name in :config:option:`$cfg['Servers'][$i]['table\_uiprefs']` (e.g.
       ``pma__table_uiprefs``)
 
+.. _configurablemenus:
+.. config:option:: $cfg['Servers'][$i]['users']
+
+    :type: string
+    :default: ``''``
+
+.. config:option:: $cfg['Servers'][$i]['usergroups']
+
+    :type: string
+    :default: ``''``
+
+    Since release 4.1.0 you can create different user groups with menu items
+    attached to them. Users can be assigned to these groups and the logged in
+    user would only see menu items configured to the usergroup he is assigned to.
+    To do this it needs two tables "usergroups" (storing allowed menu items for each
+    user group) and "users" (storing users and their assignments to user groups).
+
+    To allow the usage of this functionality:
+
+    * set up :config:option:`$cfg['Servers'][$i]['pmadb']` and the phpMyAdmin configuration storage
+    * put the correct table names in
+      :config:option:`$cfg['Servers'][$i]['users']` (e.g. ``pma__users``) and
+      :config:option:`$cfg['Servers'][$i]['usergroups']` (e.g. ``pma__usergroups``)
 
 .. _tracking:
 .. config:option:: $cfg['Servers'][$i]['tracking']

@@ -172,6 +172,7 @@ AJAX.registerTeardown('server_privileges.js', function () {
     $('form[name=usersForm]').unbind('submit');
     $("#fieldset_delete_user_footer #buttonGo.ajax").die('click');
     $("a.edit_user_anchor.ajax").die('click');
+    $("a.edit_user_group_anchor.ajax").die('click');
     $("#edit_user_dialog").find("form.ajax").die('submit');
     $("button.mult_submit[value=export]").die('click');
     $("a.export_user_anchor.ajax").die('click');
@@ -299,6 +300,75 @@ AJAX.registerOnload('server_privileges.js', function () {
             }
         }); // end $.post()
     }); // end Revoke User
+
+    $("a.edit_user_group_anchor.ajax").live('click', function (event) {
+        event.preventDefault();
+        $(this).parents('tr').addClass('current_row');
+        var token = $(this).parents('form').find('input[name="token"]').val();
+        var $msg = PMA_ajaxShowMessage();
+        $.get(
+            $(this).attr('href'),
+            {
+                'ajax_request': true,
+                'edit_user_group_dialog': true,
+                'token': token
+            },
+            function (data) {
+                if (data.success === true) {
+                    PMA_ajaxRemoveMessage($msg);
+                    var buttonOptions = {};
+                    buttonOptions[PMA_messages.strGo] = function () {
+                        var usrGroup = $('#changeUserGroupDialog')
+                            .find('select[name="userGroup"]')
+                            .val();
+                        var $message = PMA_ajaxShowMessage();
+                        $.get(
+                            'server_privileges.php',
+                            $('#changeUserGroupDialog').find('form').serialize() + '&ajax_request=1',
+                            function (data) {
+                                PMA_ajaxRemoveMessage($message);
+                                if (data.success === true) {
+                                    $("#usersForm")
+                                        .find('.current_row')
+                                        .removeClass('current_row')
+                                        .find('.usrGroup')
+                                        .text(usrGroup);
+                                } else {
+                                    PMA_ajaxShowMessage(data.error, false);
+                                    $("#usersForm")
+                                        .find('.current_row')
+                                        .removeClass('current_row');
+                                }
+                            }
+                        );
+                        $(this).dialog("close");
+                    };
+                    buttonOptions[PMA_messages.strClose] = function () {
+                        $(this).dialog("close");
+                    };
+                    var $dialog = $('<div/>')
+                        .attr('id', 'changeUserGroupDialog')
+                        .append(data.message)
+                        .dialog({
+                            width: 500,
+                            minWidth: 300,
+                            modal: true,
+                            buttons: buttonOptions,
+                            title: $('legend', $(data.message)).text(),
+                            close: function () {
+                                $(this).remove();
+                            }
+                        });
+                    $dialog.find('legend').remove();
+                } else {
+                    PMA_ajaxShowMessage(data.error, false);
+                    $("#usersForm")
+                        .find('.current_row')
+                        .removeClass('current_row');
+                }
+            }
+        );
+    });
 
     /**
      * AJAX handler for 'Edit User'
