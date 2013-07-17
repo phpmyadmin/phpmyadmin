@@ -1484,6 +1484,10 @@ function PMA_DBI_postConnect($link, $is_controluser = false)
                 'PMA_MYSQL_VERSION_COMMENT',
                 PMA_Util::cacheGet('PMA_MYSQL_VERSION_COMMENT', true)
             );
+            define(
+                'PMA_DRIZZLE',
+                PMA_Util::cacheGet('PMA_DRIZZLE', true)
+            );
         } else {
             $version = PMA_DBI_fetch_single_row(
                 'SELECT @@version, @@version_comment',
@@ -1528,10 +1532,24 @@ function PMA_DBI_postConnect($link, $is_controluser = false)
                 PMA_MYSQL_VERSION_COMMENT,
                 true
             );
+            // Detect Drizzle - it does not support character sets
+            $charset_result = PMA_DBI_get_variable(
+                'character_set_results', 
+                PMA_DBI_GETVAR_GLOBAL, 
+                $link
+            );
+            if ($charset_result) {
+                define('PMA_DRIZZLE', false);
+            } else {
+                define('PMA_DRIZZLE', true);
+            }
+            PMA_Util::cacheSet(
+                'PMA_DRIZZLE',
+                PMA_DRIZZLE,
+                true
+            );
+
         }
-        // detect Drizzle by version number:
-        // <year>.<month>.<build number>(.<patch rev)
-        define('PMA_DRIZZLE', PMA_MYSQL_MAJOR_VERSION >= 2009);
     }
 
     // Skip charsets for Drizzle
