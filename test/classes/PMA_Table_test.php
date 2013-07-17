@@ -10,6 +10,7 @@
  * Include to test.
  */
 require_once 'libraries/Table.class.php';
+require_once 'libraries/mysql_charsets.lib.php';
 require_once 'libraries/Util.class.php';
 require_once 'libraries/database_interface.inc.php';
 require_once 'libraries/php-gettext/gettext.inc';
@@ -128,6 +129,24 @@ class PMA_Table_Test extends PHPUnit_Framework_TestCase
         
         $dbi->expects($this->any())->method('fetchResult')
             ->will($this->returnValueMap($fetchResult));
+
+        $databases = array();
+        $database_name = 'PMA';
+        $databases[$database_name]['SCHEMA_TABLES'] = 1;
+        $databases[$database_name]['SCHEMA_TABLE_ROWS'] = 3;
+        $databases[$database_name]['SCHEMA_DATA_LENGTH'] = 5;
+        $databases[$database_name]['SCHEMA_MAX_DATA_LENGTH'] = 10;
+        $databases[$database_name]['SCHEMA_INDEX_LENGTH'] = 10;
+        $databases[$database_name]['SCHEMA_LENGTH'] = 10;
+        
+        $dbi->expects($this->any())->method('getTablesFull')
+            ->will($this->returnValue($databases));  
+                  
+        $dbi->expects($this->any())->method('isSystemSchema')
+            ->will($this->returnValue(false));   
+                  
+        $dbi->expects($this->any())->method('numRows')
+            ->will($this->returnValue(20));     
         
         $GLOBALS['dbi'] = $dbi;
     }
@@ -170,10 +189,30 @@ class PMA_Table_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test object creating
+     * Test getName & getDbName
      *
      * @return void
      */
+    public function testGetName()
+    {
+        $table = new PMA_Table('table1', 'pma_test');
+        $this->assertEquals(
+            "table1",
+            $table->getName()
+        );
+        $this->assertEquals(
+            "`table1`",
+            $table->getName(true)
+        );
+        $this->assertEquals(
+            "pma_test",
+            $table->getDbName()
+        );
+        $this->assertEquals(
+            "`pma_test`",
+            $table->getDbName(true)
+        );
+    }
 
     /**
      * Test Set & Get
@@ -192,6 +231,32 @@ class PMA_Table_Test extends PHPUnit_Framework_TestCase
         $this->assertEquals(
             "mysql",
             $table->get("db")
+        );
+    }
+
+    /**
+     * Test getLastError & getLastMessage
+     *
+     * @return void
+     */
+    public function testGetLastErrorAndMessage()
+    {
+        $table = new PMA_Table('table1', 'pma_test');
+        $table->errors[] = "error1";
+        $table->errors[] = "error2";
+        $table->errors[] = "error3";
+        
+        $table->messages[] = "messages1";
+        $table->messages[] = "messages2";
+        $table->messages[] = "messages3";
+        
+        $this->assertEquals(
+            "error3",
+            $table->getLastError()
+        );
+        $this->assertEquals(
+            "messages3",
+            $table->getLastMessage()
         );
     }
 
@@ -294,5 +359,119 @@ class PMA_Table_Test extends PHPUnit_Framework_TestCase
         );
     }
 
+    /**
+     * Test for isMerge
+     *
+     * @return void
+     */
+    public function testIsMerge()
+    {
+        $this->assertEquals(
+            false,
+            PMA_Table::isMerge()
+        );
+          
+        //validate that it is Merge?
+        $result = PMA_Table::isMerge('PMA', 'PMA_BookMark');
+        $this->assertEquals(
+            '',
+            $result
+        );
+        
+        $table = 'PMA_BookMark';
+        $db = 'PMA';
+        PMA_Table::$cache[$db][$table] = array('table_name' => "PMA_BookMark");
+        $result = PMA_Table::isMerge($db, $table);
+        $this->assertEquals(
+            false,
+            $result
+        );
+
+        PMA_Table::$cache[$db][$table] = array('ENGINE' => "MERGE");
+        $result = PMA_Table::isMerge($db, $table);
+        $this->assertEquals(
+            true,
+            $result
+        );
+
+        unset(PMA_Table::$cache[$db][$table]);
+        PMA_Table::$cache[$db][$table] = array('ENGINE' => "MRG_MYISAM");
+        $result = PMA_Table::isMerge($db, $table);
+        $this->assertEquals(
+            true,
+            $result
+        );
+
+        unset(PMA_Table::$cache[$db][$table]);
+
+        PMA_Table::$cache[$db][$table] = array('ENGINE' => "ISDB");
+        $result = PMA_Table::isMerge($db, $table);
+        $this->assertEquals(
+            false,
+            $result
+        );
+    }
+
+    /**
+     * Test for sGetToolTip
+     *
+     * @return void
+     */
+    public function testSGetToolTip()
+    {    
+        $table = 'PMA_BookMark';
+        $db = 'PMA';
+        
+        PMA_Table::$cache[$db][$table] = array('Comment' => "Comment222");
+        
+        PMA_Table::$cache[$db][$table]['ExactRows'] = 10;
+        $result = PMA_Table::sGetToolTip($db, $table);   
+        
+        $this->assertEquals(
+            'Comment222 (10 Rows)',
+            $result
+        );     
+    }
+
+    /**
+     * Test for generateAlter
+     *
+     * @return void
+     */
+    public function testGenerateAlter()
+    {    
+        $table = 'PMA_BookMark';
+        $db = 'PMA';
+        
+        //parameter
+        $oldcol = 'name';
+        $newcol = 'new_name';
+        $type = 'VARCHAR';
+        $length = '2';
+        $attribute = 'new_name';
+        $collation = 'charset1';
+        $null = 'NULL';
+        $default_type = 'USER_DEFINED';
+        $default_value = 'VARCHAR';
+        $extra = 'AUTO_INCREMENT';
+        $comment = 'PMA comment';
+        $field_primary = 'new_name';
+        $index = array('new_name');
+        $move_to = 'new_name';
+        
+        $result = PMA_Table::generateAlter(
+            $oldcol, $newcol, $type, $length,
+            $attribute, $collation, $null, $default_type, $default_value,
+            $extra, $comment, $field_primary, $index, $move_to
+        );   
+
+        $expect = "`name` `new_name` VARCHAR(2) new_name CHARACTER " 
+            . "SET charset1 NULL DEFAULT 'VARCHAR' " 
+            . "AUTO_INCREMENT COMMENT 'PMA comment' AFTER `new_name`";
+        $this->assertEquals(
+            $expect,
+            $result
+        );     
+    }
 }
 ?>
