@@ -187,9 +187,9 @@ class PMA_Table_Test extends PHPUnit_Framework_TestCase
             ->will($this->returnValue(20));  
 
         $triggers = array(
-        	array("name" => "name1", "create"=>"crate1"),
-        	array("name" => "name2", "create"=>"crate2"),
-        	array("name" => "name3", "create"=>"crate3"),
+            array("name" => "name1", "create"=>"crate1"),
+            array("name" => "name2", "create"=>"crate2"),
+            array("name" => "name3", "create"=>"crate3"),
         );   
                   
         $dbi->expects($this->any())->method('getTriggers')
@@ -519,15 +519,16 @@ class PMA_Table_Test extends PHPUnit_Framework_TestCase
         );   
 
         $expect = "";
-        if(PMA_DRIZZLE)
+        if (PMA_DRIZZLE) {
             $expect = "`name` `new_name` VARCHAR(2) new_name " 
                 . "COLLATE charset1 NULL DEFAULT 'VARCHAR' " 
                 . "AUTO_INCREMENT COMMENT 'PMA comment' AFTER `new_name`";
-        else
+        } else {
             $expect = "`name` `new_name` VARCHAR(2) new_name CHARACTER " 
                 . "SET charset1 NULL DEFAULT 'VARCHAR' " 
                 . "AUTO_INCREMENT COMMENT 'PMA comment' AFTER `new_name`";
-		
+        }
+        
         $this->assertEquals(
             $expect,
             $result
@@ -550,8 +551,8 @@ class PMA_Table_Test extends PHPUnit_Framework_TestCase
         $table_new = 'PMA_BookMark';
         $result = $table->rename($table_new);
         $this->assertEquals(
-        		true,
-        		$result
+            true,
+            $result
         );
         
         //isValidName
@@ -559,22 +560,22 @@ class PMA_Table_Test extends PHPUnit_Framework_TestCase
         $table_new = 'PMA_BookMark ';
         $result = $table->rename($table_new);
         $this->assertEquals(
-        		false,
-        		$result
+            false,
+            $result
         );
         //empty name
         $table_new = '';
         $result = $table->rename($table_new);
         $this->assertEquals(
-        		false,
-        		$result
+            false,
+            $result
         );
         //dot in table name
         $table_new = 'PMA_.BookMark';
         $result = $table->rename($table_new);
         $this->assertEquals(
-        		false,
-        		$result
+            false,
+            $result
         );
         
 
@@ -584,13 +585,13 @@ class PMA_Table_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['pma']->databases = new DataBaseMock();
         $result = $table->rename($table_new, $db_new);
         $this->assertEquals(
-        		true,
-        		$result
+            true,
+            $result
         );
         //message
         $this->assertEquals(
-        		"Table PMA_BookMark has been renamed to PMA_BookMark_new.",
-        		$table->getLastMessage()
+            "Table PMA_BookMark has been renamed to PMA_BookMark_new.",
+            $table->getLastMessage()
         );       
     }
 
@@ -613,9 +614,9 @@ class PMA_Table_Test extends PHPUnit_Framework_TestCase
             '`PMA`.`PMA_BookMark`.`index5`'
         );
         $this->assertEquals(
-        		$expect,
-        		$return
-        ); 	
+            $expect,
+            $return
+        );     
     }
 
 
@@ -637,9 +638,9 @@ class PMA_Table_Test extends PHPUnit_Framework_TestCase
             '`PMA`.`PMA_BookMark`.`column5`'
         );
         $this->assertEquals(
-        		$expect,
-        		$return
-        ); 	
+            $expect,
+            $return
+        );     
     }
 
 
@@ -661,21 +662,24 @@ class PMA_Table_Test extends PHPUnit_Framework_TestCase
             '`PMA`.`PMA_BookMark`.`column5`'
         );
         $this->assertEquals(
-        		$expect,
-        		$return
-        ); 	
+            $expect,
+            $return
+        );     
     }
 }
 
 //mock PMA
-Class DataBasePMAMock{
-	var $databases;	
+Class DataBasePMAMock
+{
+    var $databases;    
 }
 
 //mock $GLOBALS['pma']->databases
-Class DataBaseMock{
-	function exists($name){
-		return true;
-	}	
+Class DataBaseMock
+{
+    function exists($name)
+    {
+        return true;
+    }    
 }
 ?>
