@@ -77,7 +77,9 @@ class PMA_Table_Test extends PHPUnit_Framework_TestCase
                 FROM information_schema.COLUMNS
                 WHERE TABLE_SCHEMA = 'PMA'
                 AND TABLE_NAME = 'PMA_BookMark'";
-   
+        
+        $getUniqueColumns_sql = "select unique column";
+        
         $fetchResult = array(
             array(
                 $sql_isView_true,
@@ -121,6 +123,42 @@ class PMA_Table_Test extends PHPUnit_Framework_TestCase
                     array('COLUMN_NAME'=>'COLUMN_NAME', 'DATA_TYPE'=>'DATA_TYPE')
                 )
             ),
+            array(
+                $getUniqueColumns_sql,
+                array('Key_name', null),
+                'Column_name',
+                null,
+                0,
+                array(
+                    array('index1'),
+                    array('index3'),
+                    array('index5'),
+                )
+            ),
+            array(
+                $getUniqueColumns_sql,
+                'Column_name',
+                'Column_name',
+                null,
+                0,
+                array(
+                    'column1',
+                    'column3',
+                    'column5',
+                )
+            ),
+            array(
+                'SHOW COLUMNS FROM `PMA`.`PMA_BookMark`',
+                'Field',
+                'Field',
+                null,
+                0,
+                array(
+                    'column1',
+                    'column3',
+                    'column5',
+                )
+            ),
         );
         
         $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
@@ -158,7 +196,10 @@ class PMA_Table_Test extends PHPUnit_Framework_TestCase
             ->will($this->returnValue($triggers));     
                   
         $dbi->expects($this->any())->method('query')
-            ->will($this->returnValue("executed"));
+            ->will($this->returnValue("executed"));     
+
+        $dbi->expects($this->any())->method('getTableIndexesSql')
+            ->will($this->returnValue($getUniqueColumns_sql));
         
         $GLOBALS['dbi'] = $dbi;
     }
@@ -552,7 +593,80 @@ class PMA_Table_Test extends PHPUnit_Framework_TestCase
         		$table->getLastMessage()
         );       
     }
+
+
+    /**
+     * Test for getUniqueColumns
+     *
+     * @return void
+     */
+    public function testGetUniqueColumns()
+    {    
+        $table = 'PMA_BookMark';
+        $db = 'PMA';
+        
+        $table = new PMA_Table($table, $db);
+        $return = $table->getUniqueColumns();
+        $expect = array(
+            '`PMA`.`PMA_BookMark`.`index1`',
+            '`PMA`.`PMA_BookMark`.`index3`',
+            '`PMA`.`PMA_BookMark`.`index5`'
+        );
+        $this->assertEquals(
+        		$expect,
+        		$return
+        ); 	
+    }
+
+
+    /**
+     * Test for getIndexedColumns
+     *
+     * @return void
+     */
+    public function testGetIndexedColumns()
+    {    
+        $table = 'PMA_BookMark';
+        $db = 'PMA';
+        
+        $table = new PMA_Table($table, $db);
+        $return = $table->getIndexedColumns();
+        $expect = array(
+            '`PMA`.`PMA_BookMark`.`column1`',
+            '`PMA`.`PMA_BookMark`.`column3`',
+            '`PMA`.`PMA_BookMark`.`column5`'
+        );
+        $this->assertEquals(
+        		$expect,
+        		$return
+        ); 	
+    }
+
+
+    /**
+     * Test for getColumns
+     *
+     * @return void
+     */
+    public function testGetColumns()
+    {    
+        $table = 'PMA_BookMark';
+        $db = 'PMA';
+        
+        $table = new PMA_Table($table, $db);
+        $return = $table->getColumns();
+        $expect = array(
+            '`PMA`.`PMA_BookMark`.`column1`',
+            '`PMA`.`PMA_BookMark`.`column3`',
+            '`PMA`.`PMA_BookMark`.`column5`'
+        );
+        $this->assertEquals(
+        		$expect,
+        		$return
+        ); 	
+    }
 }
+
 //mock PMA
 Class DataBasePMAMock{
 	var $databases;	
