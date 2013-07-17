@@ -10,6 +10,7 @@ phpMyAdmin - ChangeLog
 - bug #3985 Call to undefined function mb_detect_encoding
 - bug #4007 Analyze option not shown for InnoDB tables
 - bug #4015 Forcing a storage engine for configuration storage
+- bug Incorrect Drizzle 7 detection
 
 4.0.4.1 (2013-06-30)
 - [security] Global variables scope injection vulnerability (see PMASA-2013-7)
