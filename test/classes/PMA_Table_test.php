@@ -465,9 +465,16 @@ class PMA_Table_Test extends PHPUnit_Framework_TestCase
             $extra, $comment, $field_primary, $index, $move_to
         );   
 
-        $expect = "`name` `new_name` VARCHAR(2) new_name CHARACTER " 
-            . "SET charset1 NULL DEFAULT 'VARCHAR' " 
-            . "AUTO_INCREMENT COMMENT 'PMA comment' AFTER `new_name`";
+        $expect = "";
+        if(PMA_DRIZZLE)
+            $expect = "`name` `new_name` VARCHAR(2) new_name " 
+                . "COLLATE charset1 NULL DEFAULT 'VARCHAR' " 
+                . "AUTO_INCREMENT COMMENT 'PMA comment' AFTER `new_name`";
+        else
+            $expect = "`name` `new_name` VARCHAR(2) new_name CHARACTER " 
+                . "SET charset1 NULL DEFAULT 'VARCHAR' " 
+                . "AUTO_INCREMENT COMMENT 'PMA comment' AFTER `new_name`";
+		
         $this->assertEquals(
             $expect,
             $result
