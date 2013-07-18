@@ -1992,7 +1992,6 @@ function PMA_getHtmlForPrintButton()
  *                                     databse structure page.
  * @param string $sql_query            sql query
  * @param string $complete_query       complete sql query
- * @param array  $cfg                  configuration
  * 
  * @return void
  */
@@ -2001,7 +2000,7 @@ function PMA_sendQueryResponseForResultsReturned($result, $justBrowsing,
     $displayResultsObject, $goto, $pmaThemeImage, $sql_limit_to_append,
     $unlim_num_rows, $num_rows,  $full_sql_query, $disp_query,
     $disp_message, $profiling_results, $query_type, $selected, $sql_query,
-    $complete_query, $cfg
+    $complete_query
 ) {
     // If we are retrieving the full value of a truncated field or the original
     // value of a transformed field, show it here
@@ -2088,7 +2087,7 @@ function PMA_sendQueryResponseForResultsReturned($result, $justBrowsing,
     
     $previous_update_query_html = PMA_getHtmlForPreviousUpdateQuery(
         isset($disp_query) ? $disp_query : null,
-        $cfg['ShowSQL'], isset($sql_data) ? $sql_data : null,
+        $GLOBALS['cfg']['ShowSQL'], isset($sql_data) ? $sql_data : null,
         isset($disp_message) ? $disp_message : null
     );
 
@@ -2115,9 +2114,11 @@ function PMA_sendQueryResponseForResultsReturned($result, $justBrowsing,
     );
     
     $bookmark_support_html = PMA_getHtmlForBookmark(
-        $disp_mode, isset($cfg['Bookmark']) ? $cfg['Bookmark'] : '', $sql_query,
-        $db, $table, isset($complete_query) ? $complete_query : $sql_query,
-        $cfg['Bookmark']['user']
+        $disp_mode,
+        isset($GLOBALS['cfg']['Bookmark']) ? $GLOBALS['cfg']['Bookmark'] : '',
+        $sql_query, $db, $table,
+        isset($complete_query) ? $complete_query : $sql_query,
+        $GLOBALS['cfg']['Bookmark']['user']
     );
 
     $print_button_html = PMA_getHtmlForPrintButton();
@@ -2200,7 +2201,7 @@ function PMA_sendQueryResponse($num_rows, $unlim_num_rows, $is_affected,
             isset($disp_message) ? $disp_message : null, $profiling_results,
             isset($query_type) ? $query_type : null,
             isset($selected) ? $selected : null, $sql_query,
-            isset($complete_query) ? $complete_query : null, $cfg
+            isset($complete_query) ? $complete_query : null
         );
     } // end rows returned
 }
