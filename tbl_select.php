@@ -15,12 +15,8 @@
 require_once 'libraries/common.inc.php';
 require_once 'libraries/mysql_charsets.inc.php';
 require_once 'libraries/TableSearch.class.php';
-require_once 'libraries/Table.class.php';
-require_once 'libraries/Header.class.php';
-require_once 'libraries/check_user_privileges.lib.php';
 require_once 'libraries/bookmark.lib.php';
 require_once 'libraries/sql.lib.php';
-require_once 'libraries/sqlparser.lib.php';
 
 $response = PMA_Response::getInstance();
 $header   = $response->getHeader();
