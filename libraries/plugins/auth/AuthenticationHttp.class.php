@@ -37,7 +37,11 @@ class AuthenticationHttp extends AuthenticationPlugin
             && ! empty($GLOBALS['cfg']['Server']['LogoutURL'])
         ) {
             PMA_sendHeaderLocation($GLOBALS['cfg']['Server']['LogoutURL']);
-            exit;
+            if (! defined('TESTSUITE')) {
+                exit;
+            } else {
+                return false;
+            }
         }
 
         if (empty($GLOBALS['cfg']['Server']['auth_http_realm'])) {
@@ -81,7 +85,11 @@ class AuthenticationHttp extends AuthenticationPlugin
             include CUSTOM_FOOTER_FILE;
         }
 
-        exit;
+        if (! defined('TESTSUITE')) {
+            exit;
+        } else {
+            return false;
+        }
     }
 
     /**
@@ -165,7 +173,9 @@ class AuthenticationHttp extends AuthenticationPlugin
         ) {
             $PHP_AUTH_USER = '';
             // -> delete user's choices that were stored in session
-            session_destroy();
+            if (! defined('TESTSUITE')) {
+                session_destroy();
+            }
         }
 
         // Returns whether we get authentication settings or not
