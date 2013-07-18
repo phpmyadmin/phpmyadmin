@@ -113,35 +113,6 @@ class PMA_SQLParser_Test extends PHPUnit_Framework_TestCase
             'SQL: ' . htmlspecialchars($sql),
             $SQP_errorString
         );
-    }   
-    
-    /**
-     * Test PMA_SQP_bug
-     *
-     * @return void
-     */
-    public function testPMA_SQP_bug()
-    {
-        global $SQP_errorString;
-        define("PMA_MYSQL_STR_VERSION", "5.00.15");
-        define("PMA_USR_OS", "linux");
-        define("PMA_USR_BROWSER_VER", "firefox");
-        define("PMA_PHP_STR_VERSION", "5.0");
-        define("PMA_USR_BROWSER_AGENT", "IE");
-        
-        $message = "error from testPMA_SQP_throwError";
-        $sql = "select * from PMA.PMABookmark";
-        PMA_SQP_bug($message, $sql);
-        
-        $this->assertContains(
-            'ERROR: ' . $message,
-            $SQP_errorString
-        );
-        
-        $this->assertContains(
-            'SQL: ' . htmlspecialchars($sql),
-            $SQP_errorString
-        );
     }
     
     /**
