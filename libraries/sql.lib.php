@@ -1815,14 +1815,13 @@ function PMA_getBookmarkCreatedMessage()
  * @param int    $num_rows             number of rows
  * @param bool   $showtable            whether to show table or not
  * @param object $result               result of the executed query
- * @param int    $querytime            query execution time
  * @param array  $analyzed_sql_results analyzed sql results
  * 
  * @return type
  */
 function PMA_getHtmlForSqlQueryResultsTable($sql_data, $displayResultsObject, $db,
     $goto, $pmaThemeImage, $url_query, $disp_mode, $sql_limit_to_append,
-    $editable, $unlim_num_rows, $num_rows, $showtable, $result, $querytime,
+    $editable, $unlim_num_rows, $num_rows, $showtable, $result,
     $analyzed_sql_results
 ) {
     $printview = isset($_REQUEST['printview']) ? $_REQUEST['printview'] : null;
@@ -1845,7 +1844,7 @@ function PMA_getHtmlForSqlQueryResultsTable($sql_data, $displayResultsObject, $d
             $unlim_num_rows, $fields_meta, $analyzed_sql_results['is_count'],
             $analyzed_sql_results['is_export'], $analyzed_sql_results['is_func'],
             $analyzed_sql_results['is_analyse'], $num_rows,
-            $fields_cnt, $querytime, $pmaThemeImage, $GLOBALS['text_dir'],
+            $fields_cnt, $GLOBALS['querytime'], $pmaThemeImage, $GLOBALS['text_dir'],
             $analyzed_sql_results['is_maint'], $analyzed_sql_results['is_explain'],
             $analyzed_sql_results['is_show'], $showtable, $printview, $url_query,
             $editable
@@ -1981,7 +1980,6 @@ function PMA_getHtmlForPrintButton()
  * @param string $sql_limit_to_append  sql limit to append
  * @param int    $unlim_num_rows       unlimited number of rows
  * @param int    $num_rows             number of rows
- * @param int    $querytime            query time
  * @param string $full_sql_query       full sql query
  * @param string $disp_query           display query
  * @param string $disp_message         display message
@@ -1997,7 +1995,7 @@ function PMA_getHtmlForPrintButton()
 function PMA_sendResponseForResultsReturned($result, $justBrowsing,
     $analyzed_sql_results, $db, $table, $disp_mode, $message, $sql_data,
     $displayResultsObject, $goto, $pmaThemeImage, $sql_limit_to_append,
-    $unlim_num_rows, $num_rows, $querytime, $full_sql_query, $disp_query,
+    $unlim_num_rows, $num_rows,  $full_sql_query, $disp_query,
     $disp_message, $profiling_results, $query_type, $selected, $sql_query,
     $complete_query, $cfg
 ) {
@@ -2101,7 +2099,7 @@ function PMA_sendResponseForResultsReturned($result, $justBrowsing,
     $table_html = PMA_getHtmlForSqlQueryResultsTable(
         isset($sql_data) ? $sql_data : null, $displayResultsObject, $db, $goto,
         $pmaThemeImage, $url_query, $disp_mode, $sql_limit_to_append,
-        $editable, $unlim_num_rows, $num_rows, $showtable, $result, $querytime,
+        $editable, $unlim_num_rows, $num_rows, $showtable, $result,
         $analyzed_sql_results
     );
         
@@ -2132,5 +2130,141 @@ function PMA_sendResponseForResultsReturned($result, $justBrowsing,
     $response->addHTML($html_output);    
 
     exit();
+}
+
+/**
+ * Function to send response for both empty results and non empty results
+ * 
+ * @param int    $num_rows             number of rows returned by the executed query
+ * @param int    $unlim_num_rows       unlimited number of rows
+ * @param bool   $is_affected          is affected
+ * @param string $db                   current database
+ * @param string $table                current table
+ * @param string $message_to_show      message to show
+ * @param array  $analyzed_sql_results analyzed Sql Results
+ * @param object $displayResultsObject Instance of DisplayResult class
+ * @param array  $extra_data           extra data
+ * @param array  $cfg                  configuration
+ * @param array  $result               executed query results
+ * @param bool   $justBrowsing         whether just browsing or not
+ * @param string $disp_mode            disply mode
+ * @param object $message              message
+ * @param array  $sql_data             sql data
+ * @param string $goto                 goto page url
+ * @param string $pmaThemeImage        uri of the PMA theme image
+ * @param string $sql_limit_to_append  sql limit to append
+ * @param string $full_sql_query       full sql query
+ * @param string $disp_query           display query
+ * @param string $disp_message         display message
+ * @param array  $profiling_results    profiling results
+ * @param string $query_type           query type
+ * @param bool   $selected             selected
+ * @param string $sql_query            sql query
+ * @param string $complete_query       complete query
+ * 
+ * @return void
+ */
+function PMA_sendResponse($num_rows, $unlim_num_rows, $is_affected,
+    $db, $table, $message_to_show, $analyzed_sql_results, $displayResultsObject,
+    $extra_data, $cfg, $result, $justBrowsing, $disp_mode,$message, $sql_data,
+    $goto, $pmaThemeImage, $sql_limit_to_append, $full_sql_query,
+    $disp_query, $disp_message, $profiling_results, $query_type, $selected,
+    $sql_query, $complete_query
+) {
+    // No rows returned -> move back to the calling page
+    if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
+        PMA_sendResponseForNoResultsReturned(
+            $analyzed_sql_results, $db, $table,
+            isset($message_to_show) ? $message_to_show : null,
+            $num_rows, $displayResultsObject, $extra_data, $cfg
+        );
+
+    } else {
+        // At least one row is returned -> displays a table with results    
+        PMA_sendResponseForResultsReturned(
+            isset($result) ? $result : null, $justBrowsing, $analyzed_sql_results,
+            $db, $table, isset($disp_mode) ? $disp_mode : null,
+            isset($message) ? $message : null, isset($sql_data) ? $sql_data : null,
+            $displayResultsObject, $goto, $pmaThemeImage,
+            $sql_limit_to_append, $unlim_num_rows,
+            $num_rows, $full_sql_query,
+            isset($disp_query) ? $disp_query : null,
+            isset($disp_message) ? $disp_message : null, $profiling_results,
+            isset($query_type) ? $query_type : null,
+            isset($selected) ? $selected : null, $sql_query,
+            isset($complete_query) ? $complete_query : null, $cfg
+        );
+    } // end rows returned
+}
+
+/**
+ * Function to execute the query and send the response
+ * 
+ * @param array  $analyzed_sql_results analysed sql results
+ * @param string $full_sql_query       full sql query
+ * @param bool   $is_gotofile          whether goto file or not
+ * @param string $db                   current database
+ * @param string $table                current table
+ * @param bool   $find_real_end        whether to find real end or not
+ * @param string $import_text          import text
+ * @param array  $cfg                  configuration
+ * @param bool   $is_affected          whether affected or not
+ * @param string $message_to_show      message to show
+ * @param string $disp_modem           display mode
+ * @param string $message              message
+ * @param array  $sql_data             sql data
+ * @param string $goto                 goto page url
+ * @param string $pmaThemeImage        uri of the PMA theme image
+ * @param string $sql_limit_to_append  sql limit to append
+ * @param string $disp_query           display query
+ * @param string $disp_message         display message
+ * @param string $query_type           query type
+ * @param string $sql_query            sql query
+ * @param bool   $selected             whether selected or not
+ * @param string $complete_query       complete query
+ * 
+ * @return void
+ */
+function PMA_executeQueryAndSendResponse($analyzed_sql_results, $full_sql_query,
+    $is_gotofile, $db, $table, $find_real_end, $import_text, $extra_data, $cfg,
+    $is_affected, $message_to_show, $disp_mode, $message, $sql_data, $goto,
+    $pmaThemeImage, $sql_limit_to_append, $disp_query, $disp_message,
+    $query_type, $sql_query, $selected, $complete_query
+){
+    // Include PMA_Index class for use in PMA_DisplayResults class
+    include './libraries/Index.class.php';
+
+    include 'libraries/DisplayResults.class.php';
+
+    $displayResultsObject = new PMA_DisplayResults(
+        $GLOBALS['db'], $GLOBALS['table'], $GLOBALS['goto'], $GLOBALS['sql_query']
+    );
+
+    $displayResultsObject->setConfigParamsForDisplayTable();
+    
+    
+    // Execute the query
+    list($result, $num_rows, $unlim_num_rows, $profiling_results,
+        $justBrowsing, $extra_data
+    ) = PMA_executeTheQuery(
+        $analyzed_sql_results, $full_sql_query, $is_gotofile, $db, $table,
+        isset($find_real_end) ? $find_real_end : null,
+        isset($import_text) ? $import_text : null, $cfg['Bookmark']['user'],
+        isset($extra_data) ? $extra_data : null
+    );
+
+    PMA_sendResponse(
+        $num_rows, $unlim_num_rows, $is_affected, $db, $table,
+        isset($message_to_show) ? $message_to_show : null,
+        $analyzed_sql_results, $displayResultsObject, $extra_data, $cfg,
+        isset($result) ? $result : null, $justBrowsing,
+        isset($disp_mode) ? $disp_mode : null, isset($message) ? $message : null,
+        isset($sql_data) ? $sql_data : null,
+        $goto, $pmaThemeImage, $sql_limit_to_append, $full_sql_query,
+        isset($disp_query) ? $disp_query : null,
+        isset($disp_message) ? $disp_message : null, $profiling_results,
+        isset($query_type) ? $query_type : null, isset($selected) ? $selected : null,
+        $sql_query, isset($complete_query) ? $complete_query : null
+    );
 }
 ?>
