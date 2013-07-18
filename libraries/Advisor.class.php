@@ -39,8 +39,8 @@ class Advisor
             $this->variables = array_merge(
                 $this->variables,
                 $GLOBALS['dbi']->fetchResult(
-                    "SELECT concat('Com_', variable_name), variable_value
-                    FROM data_dictionary.GLOBAL_STATEMENTS", 0, 1
+                    "SELECT concat('Com_', variable_name), variable_value " 
+                        . "FROM data_dictionary.GLOBAL_STATEMENTS", 0, 1
                 )
             );
         }
