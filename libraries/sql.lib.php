@@ -1919,10 +1919,11 @@ function PMA_getMessageIfMissingColumnIndex($table, $db, $editable, $disp_mode)
  * 
  * @param string  $query_type query type
  * @param boolean $selected   selected
+ * @param string  $db         current database
  * 
  * @return void
  */
-function PMA_getHtmlForIndexesProblems($query_type, $selected)
+function PMA_getHtmlForIndexesProblems($query_type, $selected, $db)
 {
     // BEGIN INDEX CHECK See if indexes should be checked.
     if (isset($query_type)
@@ -2107,7 +2108,7 @@ function PMA_sendResponseForResultsReturned($result, $justBrowsing,
         
     $indexes_problems_html = PMA_getHtmlForIndexesProblems(
         isset($query_type) ? $query_type : null,
-        isset($selected) ? $selected : null
+        isset($selected) ? $selected : null, $db
     );
     
     $bookmark_support_html = PMA_getHtmlForBookmark(
