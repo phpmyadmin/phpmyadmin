@@ -1500,7 +1500,8 @@ function PMA_executeTheQuery($analyzed_sql_results, $full_sql_query, $is_gotofil
         // store the query as a bookmark
         if (! empty($_POST['bkm_label']) && ! empty($import_text)) {
             PMA_storeTheQueryAsBookmark(
-                $db, $GLOBALS['cfg']['Bookmark']['user'], $import_text, $_POST['bkm_label'],
+                $db, $GLOBALS['cfg']['Bookmark']['user'],
+                $import_text, $_POST['bkm_label'],
                 isset($_POST['bkm_replace']) ? $_POST['bkm_replace'] : null
             );
         } // end store bookmarks
@@ -1704,8 +1705,8 @@ function PMA_sendAjaxResponseForNoResultsReturned($message, $analyzed_sql,
  *
  * @return void
  */
-function PMA_sendQueryResponseForNoResultsReturned($analyzed_sql_results, $db, $table,
-    $message_to_show, $num_rows, $displayResultsObject, $extra_data
+function PMA_sendQueryResponseForNoResultsReturned($analyzed_sql_results, $db,
+    $table, $message_to_show, $num_rows, $displayResultsObject, $extra_data
 ) {
     if (PMA_isDeleteTransformationInfo($analyzed_sql_results)) {
         PMA_deleteTransformationInfo(
@@ -1914,8 +1915,8 @@ function PMA_getMessageIfMissingColumnIndex($table, $db, $editable, $disp_mode)
 /**
  * Function to get html to display problems in indexes
  * 
- * @param string  $query_type query type
- * @param bool    $selected   whether check table, optimize table, analyze
+ * @param string $query_type query type
+ * @param bool   $selected   whether check table, optimize table, analyze
  *                            table or repair table has been selected with
  *                            respect to the selected tables from the 
  *                            databse structure page.
