@@ -8,7 +8,8 @@
 if (! defined('PHPMYADMIN')) {
     exit;
 }
-
+require_once 'libraries/bookmark.lib.php';
+require_once 'libraries/sql.lib.php';
 require_once 'libraries/transformations.lib.php';
 
 $request_params = array(
@@ -583,7 +584,42 @@ if (!empty($submit_mult) && !empty($what)) {
     }
 
     if ($use_sql) {
-        include './sql.php';
+        /**
+         * Parse and analyze the query
+         */
+        require_once 'libraries/parse_analyze.inc.php';
+
+        // Include PMA_Index class for use in PMA_DisplayResults class
+        require_once './libraries/Index.class.php';
+
+        require_once 'libraries/DisplayResults.class.php';
+
+        $displayResultsObject = new PMA_DisplayResults(
+            $GLOBALS['db'], $GLOBALS['table'], $GLOBALS['goto'],
+            $GLOBALS['sql_query']
+        );
+
+        $displayResultsObject->setConfigParamsForDisplayTable();
+
+        $reload = PMA_hasCurrentDbChanged($db);
+
+        // Execute the query
+        list($result, $num_rows, $unlim_num_rows, $profiling_results,
+            $justBrowsing, $extra_data
+        ) = PMA_executeTheQuery(
+            $analyzed_sql_results, $sql_query, false, $db, $table, null,
+            null, $cfg['Bookmark']['user'], null
+        );
+
+        // At least one row is returned -> displays a table with results    
+        PMA_sendResponseForResultsReturned(
+            $result, $justBrowsing, $analyzed_sql_results,
+            $db, $table, null, null, null, $displayResultsObject, $goto,
+            $pmaThemeImage, '', $unlim_num_rows, $num_rows, $querytime, $sql_query,
+            null, null, $profiling_results, $query_type, $selected, $sql_query,
+            null, $cfg
+        );
+        
     } elseif (!$run_parts) {
         $GLOBALS['dbi']->selectDb($db);
         // for disabling foreign key checks while dropping tables
