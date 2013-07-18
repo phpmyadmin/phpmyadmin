@@ -831,7 +831,7 @@ $(function () {
         var $routine_params_table = $(this).closest('div.ui-dialog').find('.routine_params_table');
         /**
          * @var new_param_row A string containing the HTML code for the
-         *                    new row for the routine paramaters table
+         *                    new row for the routine parameters table
          */
         var new_param_row = RTE.param_template.replace(/%s/g, $routine_params_table.find('tr').length - 1);
         // Append the new row to the parameters table
