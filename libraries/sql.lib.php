@@ -1704,7 +1704,7 @@ function PMA_sendAjaxResponseForNoResultsReturned($message, $analyzed_sql,
  *
  * @return void
  */
-function PMA_sendResponseForNoResultsReturned($analyzed_sql_results, $db, $table,
+function PMA_sendQueryResponseForNoResultsReturned($analyzed_sql_results, $db, $table,
     $message_to_show, $num_rows, $displayResultsObject, $extra_data
 ) {
     if (PMA_isDeleteTransformationInfo($analyzed_sql_results)) {
@@ -1990,7 +1990,7 @@ function PMA_getHtmlForPrintButton()
  * 
  * @return void
  */
-function PMA_sendResponseForResultsReturned($result, $justBrowsing,
+function PMA_sendQueryResponseForResultsReturned($result, $justBrowsing,
     $analyzed_sql_results, $db, $table, $disp_mode, $message, $sql_data,
     $displayResultsObject, $goto, $pmaThemeImage, $sql_limit_to_append,
     $unlim_num_rows, $num_rows,  $full_sql_query, $disp_query,
@@ -2163,7 +2163,7 @@ function PMA_sendResponseForResultsReturned($result, $justBrowsing,
  * 
  * @return void
  */
-function PMA_sendResponse($num_rows, $unlim_num_rows, $is_affected,
+function PMA_sendQueryResponse($num_rows, $unlim_num_rows, $is_affected,
     $db, $table, $message_to_show, $analyzed_sql_results, $displayResultsObject,
     $extra_data, $result, $justBrowsing, $disp_mode,$message, $sql_data,
     $goto, $pmaThemeImage, $sql_limit_to_append, $full_sql_query,
@@ -2172,7 +2172,7 @@ function PMA_sendResponse($num_rows, $unlim_num_rows, $is_affected,
 ) {
     // No rows returned -> move back to the calling page
     if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
-        PMA_sendResponseForNoResultsReturned(
+        PMA_sendQueryResponseForNoResultsReturned(
             $analyzed_sql_results, $db, $table,
             isset($message_to_show) ? $message_to_show : null,
             $num_rows, $displayResultsObject, $extra_data
@@ -2180,7 +2180,7 @@ function PMA_sendResponse($num_rows, $unlim_num_rows, $is_affected,
 
     } else {
         // At least one row is returned -> displays a table with results    
-        PMA_sendResponseForResultsReturned(
+        PMA_sendQueryResponseForResultsReturned(
             isset($result) ? $result : null, $justBrowsing, $analyzed_sql_results,
             $db, $table, isset($disp_mode) ? $disp_mode : null,
             isset($message) ? $message : null, isset($sql_data) ? $sql_data : null,
@@ -2224,7 +2224,7 @@ function PMA_sendResponse($num_rows, $unlim_num_rows, $is_affected,
  * 
  * @return void
  */
-function PMA_executeQueryAndSendResponse($analyzed_sql_results, $full_sql_query,
+function PMA_executeQueryAndSendQueryResponse($analyzed_sql_results, $full_sql_query,
     $is_gotofile, $db, $table, $find_real_end, $import_text, $extra_data,
     $is_affected, $message_to_show, $disp_mode, $message, $sql_data, $goto,
     $pmaThemeImage, $sql_limit_to_append, $disp_query, $disp_message,
@@ -2252,7 +2252,7 @@ function PMA_executeQueryAndSendResponse($analyzed_sql_results, $full_sql_query,
         isset($extra_data) ? $extra_data : null
     );
 
-    PMA_sendResponse(
+    PMA_sendQueryResponse(
         $num_rows, $unlim_num_rows, $is_affected, $db, $table,
         isset($message_to_show) ? $message_to_show : null,
         $analyzed_sql_results, $displayResultsObject, $extra_data,

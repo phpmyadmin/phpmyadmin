@@ -188,11 +188,11 @@ if (PMA_isAppendLimitClause($analyzed_sql_results)) {
 
 $reload = PMA_hasCurrentDbChanged($db);
 
-PMA_executeQueryAndSendResponse(
+PMA_executeQueryAndSendQueryResponse(
     $analyzed_sql_results, $full_sql_query, $is_gotofile, $db, $table,
     isset($find_real_end) ? $find_real_end : null,
     isset($import_text) ? $import_text : null,
-    isset($extra_data) ? $extra_data : null, $cfg, $is_affected,
+    isset($extra_data) ? $extra_data : null, $is_affected,
     isset($message_to_show) ? $message_to_show : null,
     isset($disp_mode) ? $disp_mode : null, isset($message) ? $message : null,
     isset($sql_data) ? $sql_data : null, $goto, $pmaThemeImage,
