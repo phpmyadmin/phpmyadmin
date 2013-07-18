@@ -9,12 +9,17 @@
 /*
  * Include to test.
  */
+require_once 'libraries/url_generating.lib.php';
 require_once 'libraries/TableSearch.class.php';
 require_once 'libraries/Util.class.php';
 require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/database_interface.inc.php';
 require_once 'libraries/relation.lib.php';
 require_once 'libraries/sqlparser.lib.php';
+require_once 'libraries/Theme.class.php';
+require_once 'libraries/Tracker.class.php';
+require_once 'libraries/Types.class.php';
+require_once 'libraries/relation.lib.php';
 
 /**
  * Tests for PMA_TableSearch
@@ -36,6 +41,21 @@ class PMA_TableSearch_Test extends PHPUnit_Framework_TestCase
          * SET these to avoid undefined index error
          */
         $GLOBALS['server'] = 1;
+        $GLOBALS['cfg']['ServerDefault'] = 1;
+        $GLOBALS['cfg']['maxRowPlotLimit'] = 500;
+        $GLOBALS['cfg']['Server']['DisableIS'] = false;
+        $GLOBALS['cfg']['ServerDefault'] = 1;
+        $GLOBALS['cfg']['MySQLManualType'] = 'viewable';
+        $GLOBALS['cfg']['MySQLManualBase'] = 'http://dev.mysql.com/doc/refman';
+        $GLOBALS['cfg']['ActionLinksMode'] = 'both';
+        $_SESSION['PMA_Theme'] = new PMA_Theme();
+        $GLOBALS['pmaThemeImage'] = 'themes/dot.gif';
+        $GLOBALS['is_ajax_request'] = false;
+        $GLOBALS['cfgRelation'] = PMA_getRelationsParam();
+        $GLOBALS['PMA_Types'] = new PMA_Types_MySQL();
+        $GLOBALS['cfg']['ForeignKeyMaxLimit'] = 100;
+        $GLOBALS['cfg']['InitialSlidersState'] = 'closed';
+        $GLOBALS['cfg']['MaxRows'] = 25;
         
         $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
             ->disableOriginalConstructor()
@@ -101,6 +121,53 @@ class PMA_TableSearch_Test extends PHPUnit_Framework_TestCase
         $this->assertEquals(
             'Field2',
             $columNames[1]
+        );
+    }
+
+    /**
+     * Test for getSelectionForm
+     *
+     * @return void
+     */
+    public function testGetSelectionForm()
+    {
+    	//$this->_searchType == 'zoom'
+        $tableSearch = new PMA_TableSearch("PMA", "PMA_BookMark", "zoom");
+        $url_goto = "http://phpmyadmin.net";
+        $form = $tableSearch->getSelectionForm($url_goto);
+        $this->assertContains(
+            '<fieldset id="fieldset_zoom_search">',
+            $form
+        );
+        $this->assertContains(
+            'Do a "query by example"',
+            $form
+        );
+        
+    	//$this->_searchType == 'normal'
+        $tableSearch = new PMA_TableSearch("PMA", "PMA_BookMark", "normal");
+        $url_goto = "http://phpmyadmin.net";
+        $form = $tableSearch->getSelectionForm($url_goto);
+        $this->assertContains(
+            '<fieldset id="fieldset_table_search">',
+            $form
+        );
+        $this->assertContains(
+            'Do a "query by example"',
+            $form
+        );
+        
+    	//$this->_searchType == 'replace'
+        $tableSearch = new PMA_TableSearch("PMA", "PMA_BookMark", "replace");
+        $url_goto = "http://phpmyadmin.net";
+        $form = $tableSearch->getSelectionForm($url_goto);
+        $this->assertContains(
+            '<fieldset id="fieldset_find_replace">',
+            $form
+        );
+        $this->assertContains(
+            __('Find and Replace'),
+            $form
         );
     }
 }
