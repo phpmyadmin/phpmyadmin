@@ -1915,7 +1915,10 @@ function PMA_getMessageIfMissingColumnIndex($table, $db, $editable, $disp_mode)
  * Function to get html to display problems in indexes
  * 
  * @param string  $query_type query type
- * @param boolean $selected   selected
+ * @param bool    $selected   whether check table, optimize table, analyze
+ *                            table or repair table has been selected with
+ *                            respect to the selected tables from the 
+ *                            databse structure page.
  * 
  * @return void
  */
@@ -1983,7 +1986,10 @@ function PMA_getHtmlForPrintButton()
  * @param string $disp_message         display message
  * @param array  $profiling_results    profiling results
  * @param string $query_type           query type
- * @param bool   $selected             selected
+ * @param bool   $selected             whether check table, optimize table, analyze
+ *                                     table or repair table has been selected with
+ *                                     respect to the selected tables from the 
+ *                                     databse structure page.
  * @param string $sql_query            sql query
  * @param string $complete_query       complete sql query
  * @param array  $cfg                  configuration
@@ -2157,7 +2163,10 @@ function PMA_sendQueryResponseForResultsReturned($result, $justBrowsing,
  * @param string $disp_message         display message
  * @param array  $profiling_results    profiling results
  * @param string $query_type           query type
- * @param bool   $selected             selected
+ * @param bool   $selected             whether check table, optimize table, analyze
+ *                                     table or repair table has been selected with
+ *                                     respect to the selected tables from the 
+ *                                     databse structure page.
  * @param string $sql_query            sql query
  * @param string $complete_query       complete query
  * 
@@ -2219,7 +2228,10 @@ function PMA_sendQueryResponse($num_rows, $unlim_num_rows, $is_affected,
  * @param string $disp_message         display message
  * @param string $query_type           query type
  * @param string $sql_query            sql query
- * @param bool   $selected             whether selected or not
+ * @param bool   $selected             whether check table, optimize table, analyze
+ *                                     table or repair table has been selected with
+ *                                     respect to the selected tables from the 
+ *                                     databse structure page.
  * @param string $complete_query       complete query
  * 
  * @return void
