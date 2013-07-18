@@ -1470,14 +1470,13 @@ function PMA_countQueryResults(
  * @param String  $db                   current database
  * @param String  $table                current table
  * @param boolean $find_real_end        whether to find the real end
- * @param String  $import_text          sql command 
- * @param String  $bkm_user             bookmarking user
+ * @param String  $import_text          sql command
  * @param array   $extra_data           extra data
  * 
  * @return mixed
  */
 function PMA_executeTheQuery($analyzed_sql_results, $full_sql_query, $is_gotofile,
-    $db, $table, $find_real_end, $import_text, $bkm_user, $extra_data
+    $db, $table, $find_real_end, $import_text, $extra_data
 ) {
     // Only if we ask to see the php code
     if (isset($GLOBALS['show_as_php']) || ! empty($GLOBALS['validatequery'])) {
@@ -1501,7 +1500,7 @@ function PMA_executeTheQuery($analyzed_sql_results, $full_sql_query, $is_gotofil
         // store the query as a bookmark
         if (! empty($_POST['bkm_label']) && ! empty($import_text)) {
             PMA_storeTheQueryAsBookmark(
-                $db, $bkm_user, $import_text, $_POST['bkm_label'],
+                $db, $GLOBALS['cfg']['Bookmark']['user'], $import_text, $_POST['bkm_label'],
                 isset($_POST['bkm_replace']) ? $_POST['bkm_replace'] : null
             );
         } // end store bookmarks
@@ -1643,13 +1642,12 @@ function PMA_getMessageForNoRowsReturned($message_to_show, $analyzed_sql_results
  * @param string $message              message to be send
  * @param array  $analyzed_sql         analyzed sql
  * @param object $displayResultsObject DisplayResult instance
- * @param bool   $showSql              whether to show sql or not
  * @param array  $extra_data           extra data
  *
  * @return void
  */
 function PMA_sendAjaxResponseForNoResultsReturned($message, $analyzed_sql,
-    $displayResultsObject, $showSql, $extra_data
+    $displayResultsObject, $extra_data
 ) {
     /**
      * @todo find a better way to make getMessage() in Header.class.php
@@ -1657,7 +1655,7 @@ function PMA_sendAjaxResponseForNoResultsReturned($message, $analyzed_sql,
      */
     $GLOBALS['message'] = $message;
 
-    if ($showSql) {
+    if ($GLOBALS['cfg']['ShowSQL']) {
         $extra_data['sql_query'] = PMA_Util::getMessage(
             $message, $GLOBALS['sql_query'], 'success'
         );
@@ -1703,12 +1701,11 @@ function PMA_sendAjaxResponseForNoResultsReturned($message, $analyzed_sql,
  * @param int    $num_rows             number of rows
  * @param object $displayResultsObject DisplayResult instance
  * @param array  $extra_data           extra data
- * @param array  $cfg                  configuration
  *
  * @return void
  */
 function PMA_sendResponseForNoResultsReturned($analyzed_sql_results, $db, $table,
-    $message_to_show, $num_rows, $displayResultsObject, $extra_data, $cfg
+    $message_to_show, $num_rows, $displayResultsObject, $extra_data
 ) {
     if (PMA_isDeleteTransformationInfo($analyzed_sql_results)) {
         PMA_deleteTransformationInfo(
@@ -1723,7 +1720,7 @@ function PMA_sendResponseForNoResultsReturned($analyzed_sql_results, $db, $table
     if ($GLOBALS['is_ajax_request'] == true) {
         PMA_sendAjaxResponseForNoResultsReturned(
             $message, $analyzed_sql_results['analyzed_sql'],
-            $displayResultsObject, $cfg['ShowSQL'],
+            $displayResultsObject,
             isset($extra_data) ? $extra_data : null
         );
     }
@@ -2147,7 +2144,6 @@ function PMA_sendResponseForResultsReturned($result, $justBrowsing,
  * @param array  $analyzed_sql_results analyzed Sql Results
  * @param object $displayResultsObject Instance of DisplayResult class
  * @param array  $extra_data           extra data
- * @param array  $cfg                  configuration
  * @param array  $result               executed query results
  * @param bool   $justBrowsing         whether just browsing or not
  * @param string $disp_mode            disply mode
@@ -2169,7 +2165,7 @@ function PMA_sendResponseForResultsReturned($result, $justBrowsing,
  */
 function PMA_sendResponse($num_rows, $unlim_num_rows, $is_affected,
     $db, $table, $message_to_show, $analyzed_sql_results, $displayResultsObject,
-    $extra_data, $cfg, $result, $justBrowsing, $disp_mode,$message, $sql_data,
+    $extra_data, $result, $justBrowsing, $disp_mode,$message, $sql_data,
     $goto, $pmaThemeImage, $sql_limit_to_append, $full_sql_query,
     $disp_query, $disp_message, $profiling_results, $query_type, $selected,
     $sql_query, $complete_query
@@ -2179,7 +2175,7 @@ function PMA_sendResponse($num_rows, $unlim_num_rows, $is_affected,
         PMA_sendResponseForNoResultsReturned(
             $analyzed_sql_results, $db, $table,
             isset($message_to_show) ? $message_to_show : null,
-            $num_rows, $displayResultsObject, $extra_data, $cfg
+            $num_rows, $displayResultsObject, $extra_data
         );
 
     } else {
@@ -2211,7 +2207,6 @@ function PMA_sendResponse($num_rows, $unlim_num_rows, $is_affected,
  * @param bool   $find_real_end        whether to find real end or not
  * @param string $import_text          import text
  * @param array  $extra_data           extra data
- * @param array  $cfg                  configuration
  * @param bool   $is_affected          whether affected or not
  * @param string $message_to_show      message to show
  * @param string $disp_mode            display mode
@@ -2230,7 +2225,7 @@ function PMA_sendResponse($num_rows, $unlim_num_rows, $is_affected,
  * @return void
  */
 function PMA_executeQueryAndSendResponse($analyzed_sql_results, $full_sql_query,
-    $is_gotofile, $db, $table, $find_real_end, $import_text, $extra_data, $cfg,
+    $is_gotofile, $db, $table, $find_real_end, $import_text, $extra_data,
     $is_affected, $message_to_show, $disp_mode, $message, $sql_data, $goto,
     $pmaThemeImage, $sql_limit_to_append, $disp_query, $disp_message,
     $query_type, $sql_query, $selected, $complete_query
@@ -2253,14 +2248,14 @@ function PMA_executeQueryAndSendResponse($analyzed_sql_results, $full_sql_query,
     ) = PMA_executeTheQuery(
         $analyzed_sql_results, $full_sql_query, $is_gotofile, $db, $table,
         isset($find_real_end) ? $find_real_end : null,
-        isset($import_text) ? $import_text : null, $cfg['Bookmark']['user'],
+        isset($import_text) ? $import_text : null,
         isset($extra_data) ? $extra_data : null
     );
 
     PMA_sendResponse(
         $num_rows, $unlim_num_rows, $is_affected, $db, $table,
         isset($message_to_show) ? $message_to_show : null,
-        $analyzed_sql_results, $displayResultsObject, $extra_data, $cfg,
+        $analyzed_sql_results, $displayResultsObject, $extra_data,
         isset($result) ? $result : null, $justBrowsing,
         isset($disp_mode) ? $disp_mode : null, isset($message) ? $message : null,
         isset($sql_data) ? $sql_data : null,
