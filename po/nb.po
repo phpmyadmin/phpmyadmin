@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-07-12 16:06+0200\n"
-"PO-Revision-Date: 2013-07-12 14:49+0200\n"
+"PO-Revision-Date: 2013-07-15 11:14+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Norwegian Bokmål <http://l10n.cihar.com/projects/phpmyadmin/"
-"master/nb/>\n"
+"Language-Team: Norwegian Bokmål "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/nb/>\n"
 "Language: nb\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1701,7 +1701,7 @@ msgid ""
 "Note: If the file contains multiple tables, they will be combined into one."
 msgstr ""
 "Legg merke til: Om filen inneholder flere tabeller, så vil de kombineres til "
-"en tabell"
+"en tabell."
 
 #: js/messages.php:262
 msgid "Hide query box"
@@ -2884,7 +2884,7 @@ msgstr "Primærnøkkelen har blitt slettet"
 #: libraries/Index.class.php:608
 #, php-format
 msgid "Index %s has been dropped."
-msgstr "Indeksen %s har blitt slettet"
+msgstr "Indeksen %s har blitt slettet."
 
 #: libraries/Index.class.php:731
 #, php-format
@@ -3817,7 +3817,7 @@ msgstr "Merk fra opplastingskatalogen på vevtjeneren <b>%s</b>:"
 #: libraries/Util.class.php:3441 libraries/insert_edit.lib.php:1183
 #: libraries/sql_query_form.lib.php:483
 msgid "The directory you set for upload work cannot be reached."
-msgstr "Katalogen du anga for opplasting kan ikke nåes"
+msgstr "Katalogen du anga for opplasting kan ikke nåes."
 
 #: libraries/Util.class.php:3452
 msgid "There are no files to upload"
@@ -8108,7 +8108,7 @@ msgstr ""
 #: libraries/plugins/auth/AuthenticationSignon.class.php:254
 #, php-format
 msgid "No activity within %s seconds; please log in again."
-msgstr "Ingen aktivitet på %s sekunder eller mer, du må logge inn på nytt"
+msgstr "Ingen aktivitet på %s sekunder eller mer, du må logge inn på nytt."
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:667
 #: libraries/plugins/auth/AuthenticationCookie.class.php:669
@@ -8132,7 +8132,7 @@ msgstr "Fila %s inneholder ingen nøkkel id"
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:176
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:196
 msgid "Hardware authentication failed!"
-msgstr "Maskinvaregodkjenning mislyktes"
+msgstr "Maskinvaregodkjenning mislyktes!"
 
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:183
 msgid "No valid authentication key plugged"
@@ -11493,7 +11493,7 @@ msgid ""
 msgstr ""
 "Det ser ut til å være en feil i din SQL-spørring. En eventuell feilmelding "
 "fra MySQL-tjeneren er skrevet ut nedenfor, og kan kanskje hjelpe deg med å "
-"finne feilen"
+"finne feilen."
 
 #: libraries/sqlparser.lib.php:178
 msgid ""

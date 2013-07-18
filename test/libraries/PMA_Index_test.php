@@ -312,7 +312,7 @@ class PMA_SetupIndex_Test extends PHPUnit_Framework_TestCase
      */
     public function testCheckConfigRW()
     {
-        if (!function_exists('runkit_constant_redefine')) {
+        if (! PMA_HAS_RUNKIT) {
             $this->markTestSkipped('Cannot redefine constant');
         }
 

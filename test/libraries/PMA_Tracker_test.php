@@ -46,7 +46,7 @@ class PMA_Tracker_Test extends PHPUnit_Framework_TestCase
         if (!defined("PMA_DRIZZLE")) {
             define("PMA_DRIZZLE", false);
         } elseif (PMA_DRIZZLE) {
-            if (function_exists("runkit_constant_redefine")) {
+            if (PMA_HAS_RUNKIT) {
                 runkit_constant_redefine("PMA_DRIZZLE", false);
             } else {
                 $this->markTestSkipped("Cannot redefine constant");
@@ -63,7 +63,7 @@ class PMA_Tracker_Test extends PHPUnit_Framework_TestCase
      */
     protected function tearDown()
     {
-        if (function_exists("runkit_constant_redefine")) {
+        if (PMA_HAS_RUNKIT) {
             runkit_constant_redefine("PMA_DRIZZLE", false);
         }
     }
@@ -669,7 +669,7 @@ class PMA_Tracker_Test extends PHPUnit_Framework_TestCase
      */
     public function testGetVersion()
     {
-        if (!function_exists("runkit_constant_redefine")) {
+        if (! PMA_HAS_RUNKIT) {
             $this->markTestSkipped("Cannot redefine constant");
         }
 
@@ -1050,7 +1050,7 @@ class PMA_Tracker_Test extends PHPUnit_Framework_TestCase
      */
     public function testTransformTrackingSet()
     {
-        if (!function_exists("runkit_constant_redefine")) {
+        if (! PMA_HAS_RUNKIT) {
             $this->markTestSkipped("Cannot redefine constant");
         }
 
