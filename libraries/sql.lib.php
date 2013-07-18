@@ -527,6 +527,7 @@ EOT;
  * $chart_json for displaying the chart.
  * 
  * @param array $profiling_results profiling results
+ * 
  * @return mixed
  */
 function PMA_analyzeAndGetTableHtmlForProfilingResults(
@@ -2022,9 +2023,11 @@ function PMA_sendResponseForResultsReturned($result, $justBrowsing,
     // - for information_schema
     // - if the result set does not contain all the columns of a unique key
     //   and we are not just browing all the columns of an updatable view
+    
+    $sele_exp_cls = $analyzed_sql_results['analyzed_sql'][0]['select_expr_clause'];
     $updatableView
         = $justBrowsing
-        && trim($analyzed_sql_results['analyzed_sql'][0]['select_expr_clause']) == '*'
+        && trim($sele_exp_cls) == '*'
         && PMA_Table::isUpdatableView($db, $table);
         
     $has_unique = PMA_resultSetContainsUniqueKey(
@@ -2207,10 +2210,11 @@ function PMA_sendResponse($num_rows, $unlim_num_rows, $is_affected,
  * @param string $table                current table
  * @param bool   $find_real_end        whether to find real end or not
  * @param string $import_text          import text
+ * @param array  $extra_data           extra data
  * @param array  $cfg                  configuration
  * @param bool   $is_affected          whether affected or not
  * @param string $message_to_show      message to show
- * @param string $disp_modem           display mode
+ * @param string $disp_mode            display mode
  * @param string $message              message
  * @param array  $sql_data             sql data
  * @param string $goto                 goto page url
@@ -2230,7 +2234,7 @@ function PMA_executeQueryAndSendResponse($analyzed_sql_results, $full_sql_query,
     $is_affected, $message_to_show, $disp_mode, $message, $sql_data, $goto,
     $pmaThemeImage, $sql_limit_to_append, $disp_query, $disp_message,
     $query_type, $sql_query, $selected, $complete_query
-){
+) {
     // Include PMA_Index class for use in PMA_DisplayResults class
     include './libraries/Index.class.php';
 
