@@ -141,7 +141,7 @@ class PMA_ServerStatus_Test extends PHPUnit_Framework_TestCase
      */
     public function testPMAGetHtmlForServerStatus()
     {
-        //paramaters
+        //parameters
         $upTime = "10h";
         $bytes_received = 100;
         $bytes_sent = 200;
