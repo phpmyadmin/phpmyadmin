@@ -211,8 +211,6 @@ class PMA_Table_Test extends PHPUnit_Framework_TestCase
         if (PMA_DRIZZLE) {
             if (PMA_HAS_RUNKIT) {
                 runkit_constant_redefine("PMA_DRIZZLE", false);
-            } else {
-                $this->markTestSkipped("Cannot redefine constant");
             }
         }
     }
