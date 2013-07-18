@@ -202,16 +202,13 @@ class PMA_Table_Test extends PHPUnit_Framework_TestCase
             ->will($this->returnValue($getUniqueColumns_sql));
         
         $GLOBALS['dbi'] = $dbi;
-        
-        //RunKit
         if (!defined("PMA_DRIZZLE")) {
             define("PMA_DRIZZLE", true);
         }
-                
-        if (PMA_DRIZZLE) {
-            if (PMA_HAS_RUNKIT) {
-                runkit_constant_redefine("PMA_DRIZZLE", false);
-            }
+        
+        //RunKit
+        if (PMA_HAS_RUNKIT) {
+            runkit_constant_redefine("PMA_DRIZZLE", false);
         }
     }
 
