@@ -248,6 +248,23 @@ function PMA_getRelationsParamDiagnostic($cfgRelation)
             'userconfigwork',
             $messages
         );
+        $retval .= PMA_getDiagMessageForParameter(
+            'users',
+            isset($cfgRelation['users']),
+            $messages,
+            'users'
+        );
+        $retval .= PMA_getDiagMessageForParameter(
+            'usergroups',
+            isset($cfgRelation['usergroups']),
+            $messages,
+            'usergroups'
+        );
+        $retval .= PMA_getDiagMessageForFeature(
+            __('Configurable menus'),
+            'menuswork',
+            $messages
+        );
         $retval .= '</table>' . "\n";
 
         $retval .= '<p>' . __('Quick steps to setup advanced features:') . '</p>';
@@ -347,22 +364,23 @@ function PMA_getDiagMessageForParameter($parameter,
  */
 function PMA_checkRelationsParam()
 {
-    $cfgRelation                = array();
-    $cfgRelation['relwork']     = false;
-    $cfgRelation['displaywork'] = false;
-    $cfgRelation['bookmarkwork']= false;
-    $cfgRelation['pdfwork']     = false;
-    $cfgRelation['commwork']    = false;
-    $cfgRelation['mimework']    = false;
-    $cfgRelation['historywork'] = false;
-    $cfgRelation['recentwork']  = false;
-    $cfgRelation['uiprefswork'] = false;
-    $cfgRelation['trackingwork'] = false;
-    $cfgRelation['designerwork'] = false;
+    $cfgRelation                   = array();
+    $cfgRelation['relwork']        = false;
+    $cfgRelation['displaywork']    = false;
+    $cfgRelation['bookmarkwork']   = false;
+    $cfgRelation['pdfwork']        = false;
+    $cfgRelation['commwork']       = false;
+    $cfgRelation['mimework']       = false;
+    $cfgRelation['historywork']    = false;
+    $cfgRelation['recentwork']     = false;
+    $cfgRelation['uiprefswork']    = false;
+    $cfgRelation['trackingwork']   = false;
+    $cfgRelation['designerwork']   = false;
     $cfgRelation['userconfigwork'] = false;
-    $cfgRelation['allworks']    = false;
-    $cfgRelation['user']        = null;
-    $cfgRelation['db']          = null;
+    $cfgRelation['menuswork']      = false;
+    $cfgRelation['allworks']       = false;
+    $cfgRelation['user']           = null;
+    $cfgRelation['db']             = null;
 
     if ($GLOBALS['server'] == 0
         || empty($GLOBALS['cfg']['Server']['pmadb'])
@@ -408,21 +426,25 @@ function PMA_checkRelationsParam()
         } elseif ($curr_table[0] == $GLOBALS['cfg']['Server']['table_coords']) {
             $cfgRelation['table_coords']    = $curr_table[0];
         } elseif ($curr_table[0] == $GLOBALS['cfg']['Server']['designer_coords']) {
-            $cfgRelation['designer_coords']    = $curr_table[0];
+            $cfgRelation['designer_coords'] = $curr_table[0];
         } elseif ($curr_table[0] == $GLOBALS['cfg']['Server']['column_info']) {
-            $cfgRelation['column_info'] = $curr_table[0];
+            $cfgRelation['column_info']     = $curr_table[0];
         } elseif ($curr_table[0] == $GLOBALS['cfg']['Server']['pdf_pages']) {
             $cfgRelation['pdf_pages']       = $curr_table[0];
         } elseif ($curr_table[0] == $GLOBALS['cfg']['Server']['history']) {
-            $cfgRelation['history'] = $curr_table[0];
+            $cfgRelation['history']         = $curr_table[0];
         } elseif ($curr_table[0] == $GLOBALS['cfg']['Server']['recent']) {
-            $cfgRelation['recent'] = $curr_table[0];
+            $cfgRelation['recent']          = $curr_table[0];
         } elseif ($curr_table[0] == $GLOBALS['cfg']['Server']['table_uiprefs']) {
-            $cfgRelation['table_uiprefs'] = $curr_table[0];
+            $cfgRelation['table_uiprefs']   = $curr_table[0];
         } elseif ($curr_table[0] == $GLOBALS['cfg']['Server']['tracking']) {
-            $cfgRelation['tracking'] = $curr_table[0];
+            $cfgRelation['tracking']        = $curr_table[0];
         } elseif ($curr_table[0] == $GLOBALS['cfg']['Server']['userconfig']) {
-            $cfgRelation['userconfig'] = $curr_table[0];
+            $cfgRelation['userconfig']      = $curr_table[0];
+        } elseif ($curr_table[0] == $GLOBALS['cfg']['Server']['users']) {
+            $cfgRelation['users']           = $curr_table[0];
+        } elseif ($curr_table[0] == $GLOBALS['cfg']['Server']['usergroups']) {
+            $cfgRelation['usergroups']      = $curr_table[0];
         }
     } // end while
     $GLOBALS['dbi']->freeResult($tab_rs);
@@ -430,7 +452,7 @@ function PMA_checkRelationsParam()
     if (isset($cfgRelation['relation'])) {
         $cfgRelation['relwork']         = true;
         if (isset($cfgRelation['table_info'])) {
-                $cfgRelation['displaywork'] = true;
+            $cfgRelation['displaywork'] = true;
         }
     }
 
@@ -473,12 +495,17 @@ function PMA_checkRelationsParam()
         $cfgRelation['bookmarkwork']     = true;
     }
 
+    if (isset($cfgRelation['users']) && isset($cfgRelation['usergroups'])) {
+        $cfgRelation['menuswork']        = true;
+    }
+
     if ($cfgRelation['relwork'] && $cfgRelation['displaywork']
         && $cfgRelation['pdfwork'] && $cfgRelation['commwork']
         && $cfgRelation['mimework'] && $cfgRelation['historywork']
         && $cfgRelation['recentwork'] && $cfgRelation['uiprefswork']
         && $cfgRelation['trackingwork'] && $cfgRelation['userconfigwork']
         && $cfgRelation['bookmarkwork'] && $cfgRelation['designerwork']
+        && $cfgRelation['menuswork']
     ) {
         $cfgRelation['allworks'] = true;
     }

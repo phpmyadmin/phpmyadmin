@@ -70,6 +70,8 @@ $forms['Servers']['Server_pmadb'] = array('Servers' => array(1 => array(
     'bookmarktable' => 'pma__bookmark',
     'relation' => 'pma__relation',
     'userconfig' => 'pma__userconfig',
+    'users' => 'pma__users',
+    'usergroups' => 'pma__usergroups',
     'table_info' => 'pma__table_info',
     'column_info' => 'pma__column_info',
     'history' => 'pma__history',

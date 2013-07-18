@@ -99,15 +99,63 @@ class PMA_Menu
     {
         $tabs = array();
         $url_params = array('db' => $this->_db);
+        $level = '';
+
         if (strlen($this->_table)) {
             $tabs = $this->_getTableTabs();
             $url_params['table'] = $this->_table;
+            $level = 'table';
         } else if (strlen($this->_db)) {
             $tabs = $this->_getDbTabs();
+            $level = 'db';
         } else {
             $tabs = $this->_getServerTabs();
+            $level = 'server';
+        }
+
+        $allowedTabs = $this->_getAllowedTabs($level);
+        foreach ($tabs as $key => $value) {
+            if (! array_key_exists($key, $allowedTabs)) {
+                unset($tabs[$key]);
+            }
         }
         return PMA_Util::getHtmlTabs($tabs, $url_params, 'topmenu', true);
+    }
+
+    /**
+     * Returns a list of allowed tabs for the current user for the given level
+     *
+     * @param string $level 'server', 'db' or 'table' level
+     *
+     * @return array list of allowed tabs
+     */
+    private function _getAllowedTabs($level)
+    {
+        $allowedTabs = PMA_Util::getMenuTabList($level);
+        $cfgRelation = PMA_getRelationsParam();
+        if ($cfgRelation['menuswork']) {
+            $groupTable = PMA_Util::backquote($GLOBALS['cfg']['Server']['pmadb'])
+                . "." . PMA_Util::backquote($GLOBALS['cfg']['Server']['usergroups']);
+            $userTable = PMA_Util::backquote($GLOBALS['cfg']['Server']['pmadb'])
+                . "." . PMA_Util::backquote($GLOBALS['cfg']['Server']['users']);
+
+            $sql_query = "SELECT * FROM " . $groupTable
+                . " WHERE `usergroup` = (SELECT usergroup FROM "
+                . $userTable . " WHERE `username` = '"
+                . PMA_Util::sqlAddSlashes($GLOBALS['cfg']['Server']['user']) . "')";
+
+            $result = PMA_queryAsControlUser($sql_query, false);
+            if ($result) {
+                $row = $GLOBALS['dbi']->fetchAssoc($result);
+                foreach ($allowedTabs as $key => $tab) {
+                    $colName = $level . '_' . $key;
+                    if (isset($row[$colName]) && $row[$colName] == 'N') {
+                        unset($allowedTabs[$key]);
+                    }
+                }
+            }
+        }
+        return $allowedTabs;
     }
 
     /**
@@ -130,21 +178,13 @@ class PMA_Menu
         $item = '<a href="%1$s?%2$s" class="item">';
 
 
-        if (in_array(
-            $GLOBALS['cfg']['TabsMode'],
-            array('text', 'both')
-            )
-        ) {
+        if (in_array($GLOBALS['cfg']['TabsMode'], array('text', 'both'))) {
             $item .= '%4$s: ';
         }
         $item .= '%3$s</a>';
         $retval .= "<div id='floating_menubar'></div>";
         $retval .= "<div id='serverinfo'>";
-        if (in_array(
-            $GLOBALS['cfg']['TabsMode'],
-            array('icons', 'both')
-            )
-        ) {
+        if (in_array($GLOBALS['cfg']['TabsMode'], array('icons', 'both'))) {
             $retval .= PMA_Util::getImage(
                 's_host.png',
                 '',
@@ -161,11 +201,7 @@ class PMA_Menu
 
         if (strlen($this->_db)) {
             $retval .= $separator;
-            if (in_array(
-                $GLOBALS['cfg']['TabsMode'],
-                array('icons', 'both')
-                )
-            ) {
+            if (in_array($GLOBALS['cfg']['TabsMode'], array('icons', 'both'))) {
                 $retval .= PMA_Util::getImage(
                     's_db.png',
                     '',
@@ -187,11 +223,7 @@ class PMA_Menu
                 include './libraries/tbl_info.inc.php';
 
                 $retval .= $separator;
-                if (in_array(
-                    $GLOBALS['cfg']['TabsMode'],
-                    array('icons', 'both')
-                    )
-                ) {
+                if (in_array($GLOBALS['cfg']['TabsMode'], array('icons', 'both'))) {
                     $icon = $tbl_is_view ? 'b_views.png' : 's_tbl.png';
                     $retval .= PMA_Util::getImage(
                         $icon,
@@ -444,11 +476,9 @@ class PMA_Menu
     {
         $is_superuser = isset($GLOBALS['dbi']) && $GLOBALS['dbi']->isSuperuser();
         $binary_logs = null;
-        if (isset($GLOBALS['dbi'])
-            && (! defined('PMA_DRIZZLE')
-                || (defined('PMA_DRIZZLE') && ! PMA_DRIZZLE)
-            )
-        ) {
+        $notDrizzle = ! defined('PMA_DRIZZLE')
+            || (defined('PMA_DRIZZLE') && ! PMA_DRIZZLE);
+        if (isset($GLOBALS['dbi']) && $notDrizzle) {
             $binary_logs = $GLOBALS['dbi']->fetchResult(
                 'SHOW MASTER LOGS',
                 'Log_name',
@@ -486,6 +516,10 @@ class PMA_Menu
             $tabs['rights']['icon'] = 's_rights.png';
             $tabs['rights']['link'] = 'server_privileges.php';
             $tabs['rights']['text'] = __('Users');
+            $tabs['rights']['active'] = in_array(
+                basename($GLOBALS['PMA_PHP_SELF']),
+                array('server_privileges.php', 'server_user_groups.php')
+            );
         }
 
         $tabs['export']['icon'] = 'b_export.png';

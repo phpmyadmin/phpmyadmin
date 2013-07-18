@@ -403,6 +403,24 @@ $cfg['Servers'][$i]['tracking'] = '';
 $cfg['Servers'][$i]['userconfig'] = '';
 
 /**
+ * table to store users and their assignment to user groups
+ *   - leave blank to disable configurable menus feature
+ *     SUGGESTED: 'pma__users'
+ *
+ * @global string $cfg['Servers'][$i]['users']
+ */
+$cfg['Servers'][$i]['users'] = '';
+
+/**
+ * table to store allowed menu items for each user group
+ *   - leave blank to disable configurable menus feature
+ *     SUGGESTED: 'pma__usergroups'
+ *
+ * @global string $cfg['Servers'][$i]['usergroups']
+ */
+$cfg['Servers'][$i]['usergroups'] = '';
+
+/**
  * Maximum number of records saved in $cfg['Servers'][$i]['table_uiprefs'] table.
  *
  * In case where tables in databases is modified (e.g. dropped or renamed),

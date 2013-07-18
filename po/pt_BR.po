@@ -4,15 +4,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-07-12 16:06+0200\n"
-"PO-Revision-Date: 2013-07-01 20:58+0200\n"
-"Last-Translator: Jean Nunes <jeannunes@outlook.com>\n"
-"Language-Team: Portuguese (Brazil) <http://l10n.cihar.com/projects/"
-"phpmyadmin/master/pt_BR/>\n"
+"PO-Revision-Date: 2013-07-17 21:47+0200\n"
+"Last-Translator: Rodrigo Souza <rodrigo.chrome@outlook.com>\n"
+"Language-Team: Portuguese (Brazil) "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/pt_BR/>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 1.6-dev\n"
 
 #: browse_foreigners.php:51 browse_foreigners.php:75 js/messages.php:339
@@ -1735,16 +1735,14 @@ msgid "Show search criteria"
 msgstr "Exibir critério de pesquisa"
 
 #: js/messages.php:278
-#, fuzzy
 #| msgid "Hide search criteria"
 msgid "Hide find and replace criteria"
-msgstr "Ocultar critério de pesquisa"
+msgstr "Ocultar critério de substituição"
 
 #: js/messages.php:279
-#, fuzzy
 #| msgid "Show search criteria"
 msgid "Show find and replace criteria"
-msgstr "Exibir critério de pesquisa"
+msgstr "Exibir critério de substituição"
 
 #: js/messages.php:282 libraries/TableSearch.class.php:212
 msgid "Zoom Search"
@@ -3254,7 +3252,7 @@ msgstr "Pesquisa de tabela"
 
 #: libraries/TableSearch.class.php:217 libraries/TableSearch.class.php:1172
 msgid "Find and Replace"
-msgstr ""
+msgstr "Pesquisar e Substituir"
 
 #: libraries/TableSearch.class.php:239 libraries/insert_edit.lib.php:1352
 msgid "Edit/Insert"
@@ -3321,38 +3319,33 @@ msgid "Reset zoom"
 msgstr "Resetar zoom"
 
 #: libraries/TableSearch.class.php:1281
-#, fuzzy
 #| msgid "Replace NULL with"
 msgid "Replace with:"
-msgstr "Substituir NULL com"
+msgstr "Substituir com:"
 
 #: libraries/TableSearch.class.php:1341
 msgid "Find and replace - preview"
-msgstr ""
+msgstr "Pesquisar e substituir - preview"
 
 #: libraries/TableSearch.class.php:1345
-#, fuzzy
 #| msgid "Column"
 msgid "Count"
-msgstr "Coluna"
+msgstr "Contagem"
 
 #: libraries/TableSearch.class.php:1346
-#, fuzzy
 #| msgid "Original position"
 msgid "Original string"
-msgstr "Posição original"
+msgstr "String original"
 
 #: libraries/TableSearch.class.php:1347
-#, fuzzy
 #| msgid "Related Links"
 msgid "Replaced string"
-msgstr "Links relacionados"
+msgstr "String substituída"
 
 #: libraries/TableSearch.class.php:1371
-#, fuzzy
 #| msgid "Replicated"
 msgid "Replace"
-msgstr "Replicado"
+msgstr "Substituir"
 
 #: libraries/Theme.class.php:170
 #, php-format
