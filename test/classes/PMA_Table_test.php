@@ -205,8 +205,10 @@ class PMA_Table_Test extends PHPUnit_Framework_TestCase
         
         //RunKit
         if (!defined("PMA_DRIZZLE")) {
-            define("PMA_DRIZZLE", false);
-        } elseif (PMA_DRIZZLE) {
+            define("PMA_DRIZZLE", true);
+        }
+                
+        if (PMA_DRIZZLE) {
             if (PMA_HAS_RUNKIT) {
                 runkit_constant_redefine("PMA_DRIZZLE", false);
             } else {
