@@ -711,7 +711,7 @@ function PMA_getHtmlForOptionsList($values, $selected_values)
  * return null
  * 
  * @param string $disp_mode      display mode
- * @param bool   $cfgBookmark    confguration setting for bookmarking    
+ * @param bool   $cfgBookmark    configuration setting for bookmarking    
  * @param string $sql_query      sql query
  * @param string $db             current database
  * @param string $table          current table
@@ -1919,7 +1919,7 @@ function PMA_getMessageIfMissingColumnIndex($table, $db, $editable, $disp_mode)
  * @param bool   $selected   whether check table, optimize table, analyze
  *                            table or repair table has been selected with
  *                            respect to the selected tables from the 
- *                            databse structure page.
+ *                            database structure page.
  * @param string $db         current database
  * 
  * @return void
@@ -1991,7 +1991,7 @@ function PMA_getHtmlForPrintButton()
  * @param bool   $selected             whether check table, optimize table, analyze
  *                                     table or repair table has been selected with
  *                                     respect to the selected tables from the 
- *                                     databse structure page.
+ *                                     database structure page.
  * @param string $sql_query            sql query
  * @param string $complete_query       complete sql query
  * 
@@ -2169,7 +2169,7 @@ function PMA_sendQueryResponseForResultsReturned($result, $justBrowsing,
  * @param bool   $selected             whether check table, optimize table, analyze
  *                                     table or repair table has been selected with
  *                                     respect to the selected tables from the 
- *                                     databse structure page.
+ *                                     database structure page.
  * @param string $sql_query            sql query
  * @param string $complete_query       complete query
  * 
@@ -2234,7 +2234,7 @@ function PMA_sendQueryResponse($num_rows, $unlim_num_rows, $is_affected,
  * @param bool   $selected             whether check table, optimize table, analyze
  *                                     table or repair table has been selected with
  *                                     respect to the selected tables from the 
- *                                     databse structure page.
+ *                                     database structure page.
  * @param string $complete_query       complete query
  * 
  * @return void
