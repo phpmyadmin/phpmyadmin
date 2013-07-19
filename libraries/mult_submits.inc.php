@@ -394,7 +394,7 @@ if (!empty($submit_mult) && !empty($what)) {
     $selected_cnt   = count($selected);
     // whether to run query after each pass
     $run_parts      = false;
-    // whether to include sql.php at the end (to display results)
+    // whether to execute the query at the end (to display results)
     $use_sql        = false;
 
     if ($query_type == 'primary_fld') {
