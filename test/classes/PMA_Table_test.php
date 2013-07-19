@@ -46,6 +46,12 @@ class PMA_Table_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['pmaThemeImage'] = 'themes/dot.gif';
         $GLOBALS['is_ajax_request'] = false;
         $GLOBALS['cfgRelation'] = PMA_getRelationsParam();
+        PMA_Table::$cache["PMA"]["PMA_BookMark"] = array(
+            'ENGINE' => true,
+            'Create_time' => true,
+            'TABLE_TYPE' => true,
+            'Comment' => true,
+        );
         
         $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
             ->disableOriginalConstructor()
