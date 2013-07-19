@@ -1282,7 +1282,7 @@ function PMA_getRelatives($all_tables, $master)
  *
  * usually called after a column in a table was renamed
  *
- * @param string $db       databse name
+ * @param string $db       database name
  * @param string $table    table name
  * @param string $field    old field name
  * @param string $new_name new field name
