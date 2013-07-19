@@ -49,7 +49,7 @@ function PMA_getSysInfo()
     $supported = array('Linux', 'WINNT', 'SunOS');
 
     if (in_array($php_os, $supported)) {
-        $class_name = 'PMA_SysInfo' . $php_os.
+        $class_name = 'PMA_SysInfo' . $php_os;
         $ret = new $class_name;
         if ($ret->supported()) {
             return $ret;
@@ -272,7 +272,7 @@ class PMA_SysInfoLinux extends PMA_SysInfo
         );
 
         $mem = array_combine($matches[1], $matches[2]);
-        
+
         $memTotal   = isset($mem['MemTotal'])   ? $mem['MemTotal']   : 0;
         $memFree    = isset($mem['MemFree'])    ? $mem['MemFree']    : 0;
         $cached     = isset($mem['Cached'])     ? $mem['Cached']     : 0;
@@ -280,7 +280,7 @@ class PMA_SysInfoLinux extends PMA_SysInfo
         $swapTotal  = isset($mem['SwapTotal'])  ? $mem['SwapTotal']  : 0;
         $swapFree   = isset($mem['SwapFree'])   ? $mem['SwapFree']   : 0;
         $swapCached = isset($mem['SwapCached']) ? $mem['SwapCached'] : 0;
-        
+
         $mem['MemUsed']
             = $memTotal - $memFree - $cached - $buffers;
         $mem['SwapUsed']
