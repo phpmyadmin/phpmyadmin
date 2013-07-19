@@ -59,6 +59,7 @@
                 <directory suffix=".php">libraries/bfShapeFiles</directory>
                 <directory suffix=".php">libraries/php-gettext</directory>
                 <directory suffix=".inc">libraries/php-gettext</directory>
+                <directory suffix=".php">libraries/plugins/auth/swekey/</directory>
                 <!-- code sniffer checker -->
                 <directory suffix=".php">PMAStandard</directory>
                 <!-- examples for users -->
