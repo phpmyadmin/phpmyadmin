@@ -202,11 +202,14 @@ class PMA_Table_Test extends PHPUnit_Framework_TestCase
             ->will($this->returnValue($getUniqueColumns_sql));
         
         $GLOBALS['dbi'] = $dbi;
+        
+        //RunKit, we test:
+        //1. without Runkit,  PMA_DRIZZLE = true;
+        //2. with Runkit,  PMA_DRIZZLE = false;
+        
         if (!defined("PMA_DRIZZLE")) {
             define("PMA_DRIZZLE", true);
         }
-        
-        //RunKit
         if (PMA_HAS_RUNKIT) {
             runkit_constant_redefine("PMA_DRIZZLE", false);
         }
@@ -687,6 +690,37 @@ class PMA_Table_Test extends PHPUnit_Framework_TestCase
             $return
         );     
     }
+}
+
+/**
+ * 
+ * Tests behaviour of PMA_Table class with Runkit and PMA_Drizzle = false
+ *
+ * @package PhpMyAdmin-test
+ */
+class PMA_Table_Runkit_Test extends PMA_Table_Test
+{
+    /**
+     * Configures environment
+     *
+     * @return void
+     */
+    protected function setUp()
+    {
+        //we test:
+        //1. without Runkit,  PMA_DRIZZLE = false;  
+        //2. with Runkit,  PMA_DRIZZLE = true;     
+        if (!defined("PMA_DRIZZLE")) {
+            define("PMA_DRIZZLE", false);
+        }
+        
+        parent::setUp();
+        
+        //RunKit
+        if (PMA_HAS_RUNKIT) {
+            runkit_constant_redefine("PMA_DRIZZLE", true);
+        }
+    }    
 }
 
 //mock PMA
