@@ -18,7 +18,7 @@ require_once 'libraries/properties/options/items/TextPropertyItem.class.php';
  *
  * @package PhpMyAdmin-test
  */
-class PMA_PropertyItem_Test extends PHPUnit_Framework_TestCase
+class PMA_PropertyItems_Test extends PHPUnit_Framework_TestCase
 {
     /**
      * Test for BoolPropertyItem::getItemType
