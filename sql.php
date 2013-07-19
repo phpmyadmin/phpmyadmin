@@ -172,7 +172,7 @@ $full_sql_query = $sql_query;
 
 // Handle remembered sorting order, only for single table query
 if (PMA_isRememberSortingOrder($analyzed_sql_results)) {
-    PMA_handleSortOrder($db, $table, $analyzed_sql, $full_sql_query);
+    PMA_handleSortOrder($db, $table, $analyzed_sql_results, $full_sql_query);
 }
 
 // Do append a "LIMIT" clause?
@@ -180,7 +180,8 @@ if (PMA_isAppendLimitClause($analyzed_sql_results)) {
     list($sql_limit_to_append,
         $full_sql_query, $analyzed_display_query, $display_query
     ) = PMA_appendLimitClause(
-        $full_sql_query, $analyzed_sql, isset($display_query)
+        $full_sql_query, $analyzed_sql_results['analyzed_sql'],
+        isset($display_query)
     );
 } else {
     $sql_limit_to_append = '';
