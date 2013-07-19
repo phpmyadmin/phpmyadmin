@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-07-12 16:06+0200\n"
-"PO-Revision-Date: 2013-07-04 21:42+0200\n"
-"Last-Translator: Anders Jonsson <anders.jonsson@norsjovallen.se>\n"
-"Language-Team: Swedish <http://l10n.cihar.com/projects/phpmyadmin/master/sv/"
-">\n"
+"PO-Revision-Date: 2013-07-19 18:26+0200\n"
+"Last-Translator: ProUser <stefan@inkopsforum.se>\n"
+"Language-Team: Swedish "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/sv/>\n"
 "Language: sv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1654,8 +1654,7 @@ msgstr "Lägg till %d värde(n)"
 #: js/messages.php:259
 msgid ""
 "Note: If the file contains multiple tables, they will be combined into one."
-msgstr ""
-"Obs: Om filen innehåller multipla tabeller, kommer de att kombineras till en"
+msgstr "Obs: Om filen innehåller multipla tabeller, kommer de förenas till en."
 
 #: js/messages.php:262
 msgid "Hide query box"
@@ -1712,16 +1711,14 @@ msgid "Show search criteria"
 msgstr "Visa sökkriterier"
 
 #: js/messages.php:278
-#, fuzzy
 #| msgid "Hide search criteria"
 msgid "Hide find and replace criteria"
-msgstr "Dölj sökkriterier"
+msgstr "Dölj sök och ersätt kriterierna"
 
 #: js/messages.php:279
-#, fuzzy
 #| msgid "Show search criteria"
 msgid "Show find and replace criteria"
-msgstr "Visa sökkriterier"
+msgstr "Visa sök och ersätt kriterierna"
 
 #: js/messages.php:282 libraries/TableSearch.class.php:212
 msgid "Zoom Search"
@@ -2251,10 +2248,10 @@ msgid "Unexpected characters on line %s."
 msgstr "Oväntade tecken på rad %s."
 
 #: libraries/Advisor.class.php:434
-#, fuzzy, php-format
+#, php-format
 #| msgid "Unexpected character on line %1$s. Expected tab, but found \"%2$s\""
 msgid "Unexpected character on line %1$s. Expected tab, but found \"%2$s\"."
-msgstr "Oväntat tecken på rad %1$s. Förväntad tab, men fann \"%2$s\""
+msgstr "Oväntat tecken på rad %1$s. Förväntad tab, men fann \"%2$s\"."
 
 #: libraries/Advisor.class.php:467
 msgid "per second"
@@ -2824,7 +2821,7 @@ msgstr "Den primära nyckeln har tagits bort"
 #: libraries/Index.class.php:608
 #, php-format
 msgid "Index %s has been dropped."
-msgstr "Index %s har tagits bort"
+msgstr "Index %s har tagits bort."
 
 #: libraries/Index.class.php:731
 #, php-format
@@ -3219,7 +3216,7 @@ msgstr "Tabellsök"
 
 #: libraries/TableSearch.class.php:217 libraries/TableSearch.class.php:1172
 msgid "Find and Replace"
-msgstr ""
+msgstr "Sök och ersätt"
 
 #: libraries/TableSearch.class.php:239 libraries/insert_edit.lib.php:1352
 msgid "Edit/Insert"
@@ -3285,36 +3282,32 @@ msgid "Reset zoom"
 msgstr "Återställ zoom"
 
 #: libraries/TableSearch.class.php:1281
-#, fuzzy
 #| msgid "Replace with"
 msgid "Replace with:"
-msgstr "Ersätt med"
+msgstr "Ersätt med:"
 
 #: libraries/TableSearch.class.php:1341
 msgid "Find and replace - preview"
-msgstr ""
+msgstr "Sök och ersätt - förhandsgranskning"
 
 #: libraries/TableSearch.class.php:1345
-#, fuzzy
 #| msgid "Column"
 msgid "Count"
-msgstr "Kolumn"
+msgstr "Räkna"
 
 #: libraries/TableSearch.class.php:1346
 msgid "Original string"
 msgstr "Ursprunglig sträng"
 
 #: libraries/TableSearch.class.php:1347
-#, fuzzy
 #| msgid "Related Links"
 msgid "Replaced string"
-msgstr "Liknande länkar"
+msgstr "Ersatt sträng"
 
 #: libraries/TableSearch.class.php:1371
-#, fuzzy
 #| msgid "Replicated"
 msgid "Replace"
-msgstr "Replikerad"
+msgstr "Ersatt"
 
 #: libraries/Theme.class.php:170
 #, php-format
@@ -3799,7 +3792,7 @@ msgstr "Välj katalog att ladda upp till från web-server listningen <b>%s</b>:"
 #: libraries/Util.class.php:3441 libraries/insert_edit.lib.php:1183
 #: libraries/sql_query_form.lib.php:483
 msgid "The directory you set for upload work cannot be reached."
-msgstr "Katalogen som du konfigurerat för uppladdning kan inte nås"
+msgstr "Katalogen du ställt in för uppladdning kan inte nås."
 
 #: libraries/Util.class.php:3452
 msgid "There are no files to upload"
@@ -4141,7 +4134,7 @@ msgstr "Tillåt användare att anpassa detta värde"
 
 #: libraries/config/FormDisplay.tpl.php:396
 msgid "Apply"
-msgstr ""
+msgstr "Applicera"
 
 #: libraries/config/FormDisplay.tpl.php:398 libraries/insert_edit.lib.php:1551
 #: libraries/schema/User_Schema.class.php:558 prefs_manage.php:326
@@ -5365,10 +5358,9 @@ msgid "Use only icons, only text or both"
 msgstr "Använd enbart ikoner, endast text eller både och"
 
 #: libraries/config/messages.inc.php:325
-#, fuzzy
 #| msgid "Iconic navigation bar"
 msgid "Table navigation bar"
-msgstr "Ikonbaserat navigeringsfält"
+msgstr "Tabellbaserat navigeringsfält"
 
 #: libraries/config/messages.inc.php:326
 msgid "use GZip output buffering for increased speed in HTTP transfers"
@@ -5437,14 +5429,13 @@ msgid "MySQL reserved word warning"
 msgstr "Varning för reserverat MySQL-ord"
 
 #: libraries/config/messages.inc.php:339
-#, fuzzy
 #| msgid "Allow to display all the rows"
 msgid "How to display the menu tabs"
-msgstr "Tillåt att visa alla rader"
+msgstr "Hur att visa menyflikarna"
 
 #: libraries/config/messages.inc.php:341
 msgid "How to display various action links"
-msgstr ""
+msgstr "Hur man visar olika åtgärdslänkar"
 
 #: libraries/config/messages.inc.php:342
 msgid "Disallow BLOB and BINARY columns from editing"
@@ -5667,7 +5658,6 @@ msgid "Control host"
 msgstr "Kontrollvärd"
 
 #: libraries/config/messages.inc.php:391
-#, fuzzy
 #| msgid ""
 #| "An alternate host to hold the configuration storage; leave blank to use "
 #| "the already defined host"
@@ -5676,8 +5666,9 @@ msgid ""
 "storage; leave blank to use the default port, or the already defined port, "
 "if the controlhost equals host"
 msgstr ""
-"En alternativ värd för att hålla konfigurationslagring, lämna tomt för att "
-"använda den aktuella värden"
+"En alternativ port för att ansluta till värden som tillhandahåller "
+"konfigurationslagring; lämna tomt för att använda standard porten, eller den "
+"redan definierade porten, om controlhost motsvarar host"
 
 #: libraries/config/messages.inc.php:392
 msgid "Control port"
@@ -6329,12 +6320,15 @@ msgid ""
 "is installed does not have direct access to the internet. The format is: "
 "\"hostname:portnumber\""
 msgstr ""
+"Webbadressen till den proxyserver som ska användas när du hämtar information "
+"om den senaste versionen av phpMyAdmin. Du behöver denna om servern där "
+"phpMyAdmin installeras inte har direkt tillgång till Internet. Formatet är: "
+"\"värdnamn:portnummer\""
 
 #: libraries/config/messages.inc.php:525
-#, fuzzy
 #| msgid "Version check"
 msgid "Version check proxy url"
-msgstr "Versionskontroll"
+msgstr "Versionskontroll av proxywebadressen"
 
 #: libraries/config/messages.inc.php:526
 msgid ""
@@ -6342,22 +6336,23 @@ msgid ""
 "authentication is performed. If a username is supplied, Basic Authentication "
 "will be performed. No other types of authentication are currently supported."
 msgstr ""
+"Användarnamnet för autentisering med proxy. Standard är ingen autentisering. "
+"Om ett användarnamn anges kommer grundläggande autentisering ske. Inga "
+"andra typer av autentisering stöds för närvarande."
 
 #: libraries/config/messages.inc.php:527
-#, fuzzy
 #| msgid "Version check"
 msgid "Version check proxy username"
-msgstr "Versionskontroll"
+msgstr "Versionskontroll proxy användarnamn"
 
 #: libraries/config/messages.inc.php:528
 msgid "The password for authenticating with the proxy"
-msgstr ""
+msgstr "Lösenordet för autentisering med proxy"
 
 #: libraries/config/messages.inc.php:529
-#, fuzzy
 #| msgid "Version check"
 msgid "Version check proxy password"
-msgstr "Versionskontroll"
+msgstr "Versionskontroll proxylösenord"
 
 #: libraries/config/messages.inc.php:531
 msgid ""
@@ -6373,19 +6368,19 @@ msgstr "ZIP"
 
 #: libraries/config/messages.inc.php:533
 msgid "Enter your public key for your domain reCaptcha service"
-msgstr ""
+msgstr "Ange din publika nyckel till reCaptcha tjänsten för din domän "
 
 #: libraries/config/messages.inc.php:534
 msgid "Public key for reCaptcha"
-msgstr ""
+msgstr "Publik nyckel för reCaptcha"
 
 #: libraries/config/messages.inc.php:535
 msgid "Enter your private key for your domain reCaptcha service"
-msgstr ""
+msgstr "Ange din privata nyckel för din domäns reCaptcha tjänst"
 
 #: libraries/config/messages.inc.php:536
 msgid "Private key for reCaptcha"
-msgstr ""
+msgstr "Privat nyckel för reCaptcha"
 
 #: libraries/config/setup.forms.php:41
 msgid "Config authentication"
@@ -7904,11 +7899,11 @@ msgstr "Serverval:"
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:384
 msgid "Entered captcha is wrong, try again!"
-msgstr ""
+msgstr "Angivet captcha är fel, försök igen!"
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:393
 msgid "Please enter correct captcha!"
-msgstr ""
+msgstr "Ange korrekt captcha!"
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:655
 #: libraries/plugins/auth/AuthenticationSignon.class.php:247
@@ -7922,7 +7917,7 @@ msgstr ""
 #: libraries/plugins/auth/AuthenticationSignon.class.php:254
 #, php-format
 msgid "No activity within %s seconds; please log in again."
-msgstr "Ingen aktivitet sedan %s sekunder; var god logga in igen"
+msgstr "Ingen aktivitet inom %s sekunder; vänligen logga in igen."
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:667
 #: libraries/plugins/auth/AuthenticationCookie.class.php:669
@@ -7946,7 +7941,7 @@ msgstr "Filen %s innehåller inget nyckelid"
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:176
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:196
 msgid "Hardware authentication failed!"
-msgstr "Hårdvaruautentisering misslyckades"
+msgstr "Hårdvaruverifieringen misslyckades!"
 
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:183
 msgid "No valid authentication key plugged"
@@ -9488,7 +9483,7 @@ msgstr "Visa tabellers dimensioner"
 
 #: libraries/schema/User_Schema.class.php:461
 msgid "Same width for all tables"
-msgstr ""
+msgstr "Samma bredd för alla tabeller"
 
 #: libraries/schema/User_Schema.class.php:464 libraries/structure.lib.php:379
 msgid "Data Dictionary"
@@ -10259,16 +10254,14 @@ msgid "Instructions/Setup"
 msgstr "Instruktioner/Setup"
 
 #: libraries/server_status_monitor.lib.php:298
-#, fuzzy
 #| msgid "Done rearranging/editing charts"
 msgid "Done dragging (rearranging) charts"
-msgstr "Klar med ändring/redigering av diagram"
+msgstr "Klar med ändring (omdisponering) av diagram"
 
 #: libraries/server_status_monitor.lib.php:317
-#, fuzzy
 #| msgid "Enable highlighting"
 msgid "Enable charts dragging"
-msgstr "Aktivera framhävning"
+msgstr "Aktivera diagram"
 
 #: libraries/server_status_monitor.lib.php:321
 msgid "Refresh rate"
@@ -11014,21 +11007,19 @@ msgid "Detailed profile"
 msgstr "Detaljerad profil"
 
 #: libraries/sql.lib.php:450
-#, fuzzy
 #| msgid "Other"
 msgid "Order"
-msgstr "Annan"
+msgstr "Ordning"
 
 #: libraries/sql.lib.php:452 libraries/sql.lib.php:499
-#, fuzzy
 #| msgctxt "Start of recurring event"
 #| msgid "Start"
 msgid "State"
-msgstr "Start"
+msgstr "Tillstånd"
 
 #: libraries/sql.lib.php:496
 msgid "Summary by state"
-msgstr ""
+msgstr "Sammanfattning av tillståndet"
 
 #: libraries/sql.lib.php:504
 msgid "Total Time"
@@ -11039,16 +11030,14 @@ msgid "% Time"
 msgstr "Tid"
 
 #: libraries/sql.lib.php:508
-#, fuzzy
 #| msgid "Close"
 msgid "Calls"
-msgstr "Stäng"
+msgstr "Anrop"
 
 #: libraries/sql.lib.php:510
-#, fuzzy
 #| msgid "Time"
 msgid "ø Time"
-msgstr "Tid"
+msgstr "ø tid"
 
 #: libraries/sql.lib.php:682 libraries/sql.lib.php:702
 msgid "Bookmark this SQL query"
@@ -11122,8 +11111,8 @@ msgid ""
 "There seems to be an error in your SQL query. The MySQL server error output "
 "below, if there is any, may also help you in diagnosing the problem."
 msgstr ""
-"Det verkar vara ett fel i din SQL-fråga. Felmeddelandet från MySQL-servern "
-"nedan, om det finns något, kan också hjälpa dig analysera problemet"
+"Det verkar vara ett fel i din SQL fråga. Om det finns något felmeddelande "
+"från MySQL-servern nedan, kan detta hjälpa dig analysera problemet."
 
 #: libraries/sqlparser.lib.php:178
 msgid ""
@@ -12359,7 +12348,7 @@ msgid "Wrong data"
 msgstr "Felaktigt data"
 
 #: sql.php:399
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "This table does not contain a unique column. Grid edit, checkbox, Edit, "
 #| "Copy and Delete features are not available."
@@ -12367,7 +12356,7 @@ msgid ""
 "Table %s does not contain a unique column. Grid edit, checkbox, Edit, Copy "
 "and Delete features are not available."
 msgstr ""
-"Denna tabell innehåller ingen unik kolumn. Funktionerna rutnätsredigera, "
+"Tabell %s innehåller ingen unik kolumn. Funktionerna rutnätsredigera, "
 "kryssruta, redigera, kopiera och radera är inte tillgängliga."
 
 #: sql.php:452
