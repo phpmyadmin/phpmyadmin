@@ -1793,6 +1793,13 @@ $cfg['Export']['sql_use_transaction'] = false;
 /**
  *
  *
+ * @global boolean $cfg['Export']['sql_create_database']
+ */
+$cfg['Export']['sql_create_database'] = false;
+
+/**
+ *
+ *
  * @global boolean $cfg['Export']['sql_drop_database']
  */
 $cfg['Export']['sql_drop_database'] = false;
