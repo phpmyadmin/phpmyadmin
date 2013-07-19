@@ -9,6 +9,8 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
+require_once 'libraries/schema/Export_Relation_Schema.class.php';
+
 /**
  * This Class interacts with the user to gather the information
  * about their tables for which they want to export the relational schema
