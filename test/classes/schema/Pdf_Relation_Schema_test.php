@@ -14,6 +14,7 @@ require_once 'libraries/url_generating.lib.php';
 require_once 'libraries/sqlparser.lib.php';
 require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/Index.class.php';
+require_once 'libraries/Table.class.php';
 require_once 'libraries/database_interface.inc.php';
 require_once 'libraries/schema/Pdf_Relation_Schema.class.php';
 
@@ -48,9 +49,18 @@ class PMA_Pdf_Relation_Schema_Test extends PHPUnit_Framework_TestCase
         $_POST['paper'] = 'paper';
         $_POST['export_type'] = 'PMA_ExportType';
         $_POST['with_doc'] = 'on';
+        
         $GLOBALS['server'] = 1;
+        $GLOBALS['cfg']['Server']['pmadb'] = "pmadb";
+        $GLOBALS['cfg']['LimitChars'] = 100;
         $GLOBALS['cfg']['ServerDefault'] = 1;
+        $GLOBALS['cfg']['Server']['user'] = "user";
         $GLOBALS['cfg']['Server']['table_coords'] = "table_name";
+        $GLOBALS['cfg']['Server']['bookmarktable'] = "bookmarktable";
+        $GLOBALS['cfg']['Server']['relation'] = "relation";
+        $GLOBALS['cfg']['Server']['relation'] = "relation";
+        $GLOBALS['cfg']['Server']['table_info'] = "table_info";
+        
         $GLOBALS['cfgRelation']['db'] = "PMA";
         $GLOBALS['cfgRelation']['table_coords'] = "table_name";
         
@@ -81,6 +91,35 @@ class PMA_Pdf_Relation_Schema_Test extends PHPUnit_Framework_TestCase
             ->method('fetchAssoc')
             ->will($this->returnValue(false));
         
+        $fetchRowReturn = array(
+                'table_name'
+        );
+
+        //let fetchRow have more results
+        for ($index=0; $index<10; ++$index) {
+            $dbi->expects($this->at($index))
+                ->method('fetchRow')
+                ->will($this->returnValue($fetchRowReturn));
+        }
+        
+        $dbi->expects($this->at(10))
+            ->method('fetchRow')
+            ->will($this->returnValue($fetchRowReturn));
+
+        $fields_info = array(
+            "Host" => array(
+                "Field" => "host",
+                "Type" => "char(60)",
+                "Null" => "NO",
+                'Extra' => "Extra",
+            )
+        );
+        $dbi->expects($this->any())->method('getColumns')
+            ->will($this->returnValue($fields_info));
+        
+        $dbi->expects($this->any())->method('selectDb')
+            ->will($this->returnValue(true));
+        
         $getIndexesResult = array(
             array(
                 'Table' => 'pma_tbl',
@@ -90,7 +129,7 @@ class PMA_Pdf_Relation_Schema_Test extends PHPUnit_Framework_TestCase
                 'Column_name' => "Column_name"
             )
         );
-        $dbi->expects($this->once())->method('getTableIndexes')
+        $dbi->expects($this->any())->method('getTableIndexes')
             ->will($this->returnValue($getIndexesResult));
         
         $fetchValue = "CREATE TABLE `pma_bookmark` (

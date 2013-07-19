@@ -88,7 +88,7 @@ class PMA_Dia_Relation_Schema_Test extends PHPUnit_Framework_TestCase
                 'Column_name' => "Column_name"
             )
         );
-        $dbi->expects($this->once())->method('getTableIndexes')
+        $dbi->expects($this->any())->method('getTableIndexes')
             ->will($this->returnValue($getIndexesResult));
         
         $fetchValue = "CREATE TABLE `pma_bookmark` (
