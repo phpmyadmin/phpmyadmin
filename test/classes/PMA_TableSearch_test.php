@@ -9,12 +9,17 @@
 /*
  * Include to test.
  */
+require_once 'libraries/url_generating.lib.php';
 require_once 'libraries/TableSearch.class.php';
 require_once 'libraries/Util.class.php';
 require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/database_interface.inc.php';
 require_once 'libraries/relation.lib.php';
 require_once 'libraries/sqlparser.lib.php';
+require_once 'libraries/Theme.class.php';
+require_once 'libraries/Tracker.class.php';
+require_once 'libraries/Types.class.php';
+require_once 'libraries/relation.lib.php';
 
 /**
  * Tests for PMA_TableSearch
@@ -35,7 +40,27 @@ class PMA_TableSearch_Test extends PHPUnit_Framework_TestCase
         /**
          * SET these to avoid undefined index error
          */
+        $_SESSION['PMA_Theme'] = new PMA_Theme();
+        $_POST['zoom_submit'] = 'zoom';
+        
         $GLOBALS['server'] = 1;
+        $GLOBALS['PMA_PHP_SELF'] = 'index.php';
+        $GLOBALS['pmaThemeImage'] = 'themes/dot.gif';
+        $GLOBALS['is_ajax_request'] = false;
+        $GLOBALS['cfgRelation'] = PMA_getRelationsParam();
+        $GLOBALS['PMA_Types'] = new PMA_Types_MySQL();
+        
+        $GLOBALS['cfg']['ServerDefault'] = 1;
+        $GLOBALS['cfg']['maxRowPlotLimit'] = 500;
+        $GLOBALS['cfg']['Server']['DisableIS'] = false;
+        $GLOBALS['cfg']['ServerDefault'] = 1;
+        $GLOBALS['cfg']['MySQLManualType'] = 'viewable';
+        $GLOBALS['cfg']['MySQLManualBase'] = 'http://dev.mysql.com/doc/refman';
+        $GLOBALS['cfg']['ActionLinksMode'] = 'both';
+        $GLOBALS['cfg']['ForeignKeyMaxLimit'] = 100;
+        $GLOBALS['cfg']['InitialSlidersState'] = 'closed';
+        $GLOBALS['cfg']['MaxRows'] = 25;
+        $GLOBALS['cfg']['TabsMode'] = 'text';
         
         $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
             ->disableOriginalConstructor()
@@ -102,6 +127,123 @@ class PMA_TableSearch_Test extends PHPUnit_Framework_TestCase
             'Field2',
             $columNames[1]
         );
+    }
+
+    /**
+     * Test for getSelectionForm
+     *
+     * @return void
+     */
+    public function testGetSelectionForm()
+    {
+    	//$this->_searchType == 'zoom'
+        $tableSearch = new PMA_TableSearch("PMA", "PMA_BookMark", "zoom");
+        $url_goto = "http://phpmyadmin.net";
+        $form = $tableSearch->getSelectionForm($url_goto);
+        $this->assertContains(
+            '<fieldset id="fieldset_zoom_search">',
+            $form
+        );
+        $this->assertContains(
+            'Do a "query by example"',
+            $form
+        );
+        
+    	//$this->_searchType == 'normal'
+        $tableSearch = new PMA_TableSearch("PMA", "PMA_BookMark", "normal");
+        $url_goto = "http://phpmyadmin.net";
+        $form = $tableSearch->getSelectionForm($url_goto);
+        $this->assertContains(
+            '<fieldset id="fieldset_table_search">',
+            $form
+        );
+        $this->assertContains(
+            'Do a "query by example"',
+            $form
+        );
+        
+    	//$this->_searchType == 'replace'
+        $tableSearch = new PMA_TableSearch("PMA", "PMA_BookMark", "replace");
+        $url_goto = "http://phpmyadmin.net";
+        $form = $tableSearch->getSelectionForm($url_goto);
+        $this->assertContains(
+            '<fieldset id="fieldset_find_replace">',
+            $form
+        );
+        $this->assertContains(
+            __('Find and Replace'),
+            $form
+        );
+    }
+
+    /**
+     * Test for getSecondaryTabs
+     *
+     * @return void
+     */
+    public function testGetSecondaryTabs()
+    {
+        $tableSearch = new PMA_TableSearch("PMA", "PMA_BookMark", "zoom");
+        $html = $tableSearch->getSecondaryTabs();
+        $this->assertContains(
+            '<ul id="topmenu2">',
+            $html
+        );
+        //sub tabs
+        $this->assertContains(
+            __('Table Search'),
+            $html
+        );  
+        $this->assertContains(
+            __('Zoom Search'),
+            $html
+        ); 	 
+        $this->assertContains(
+            __('Find and Replace'),
+            $html
+        ); 
+    }
+
+    /**
+     * Test for getZoomResultsForm
+     *
+     * @return void
+     */
+    public function testGetZoomResultsForm()
+    {
+        $tableSearch = new PMA_TableSearch("PMA", "PMA_BookMark", "zoom");
+        $goto = "http://phpmyadmin.net";
+        $data = array("PMAA" => "abc");
+        $html = $tableSearch->getZoomResultsForm($goto, $data);
+        $this->assertContains(
+            '<legend>' . __('Browse/Edit the points') . '</legend>',
+            $html
+        );
+        $this->assertContains(
+            json_encode($data),
+            $html
+        );
+    	
+    }
+
+    /**
+     * Test for _getSearchAndReplaceHTML
+     *
+     * @return void
+     */
+    public function testGetSearchAndReplaceHTML()
+    {
+        $tableSearch = new PMA_TableSearch("PMA", "PMA_BookMark", "zoom");
+        $html = $tableSearch->_getSearchAndReplaceHTML();
+        $this->assertContains(
+            __('Find:'),
+            $html
+        );
+        $this->assertContains(
+            __('Replace with:'),
+            $html
+        );
+    	
     }
 }
 ?>
