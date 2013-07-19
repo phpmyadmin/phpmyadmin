@@ -655,7 +655,7 @@ class PMA_User_Schema
         }
         require "libraries/schema/".$path.'_Relation_Schema.class.php';
         $class_name = 'PMA_' . $path . '_Relation_Schema';
-        $obj_schema = new $class_name;
+        $obj_schema = new $class_name();
         $obj_schema->showOutput();
     }
 
