@@ -10,6 +10,8 @@ if (! defined('PHPMYADMIN')) {
 }
 
 require_once 'libraries/transformations.lib.php';
+require_once 'libraries/bookmark.lib.php';
+require_once 'libraries/sql.lib.php';
 
 $request_params = array(
     'clause_is_unique',
@@ -583,7 +585,18 @@ if (!empty($submit_mult) && !empty($what)) {
     }
 
     if ($use_sql) {
-        include './sql.php';
+        /**
+         * Parse and analyze the query
+         */
+        require_once 'libraries/parse_analyze.inc.php';
+        
+        $reload = PMA_hasCurrentDbChanged($db);
+        
+        PMA_executeQueryAndSendQueryResponse(
+            $analyzed_sql_results, $sql_query, false, $db, $table, null, null, null,
+            false, null, null, null, null, $goto, $pmaThemeImage, '', null, null,
+            $query_type, $sql_query, $selected, null
+        );
     } elseif (!$run_parts) {
         $GLOBALS['dbi']->selectDb($db);
         // for disabling foreign key checks while dropping tables
