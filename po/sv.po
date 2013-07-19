@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.5-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-06-24 10:43+0200\n"
-"PO-Revision-Date: 2013-06-24 16:12+0200\n"
-"Last-Translator: Anders Jonsson <anders.jonsson@norsjovallen.se>\n"
+"PO-Revision-Date: 2013-07-19 18:15+0200\n"
+"Last-Translator: ProUser <stefan@inkopsforum.se>\n"
 "Language-Team: Swedish <http://l10n.cihar.com/projects/phpmyadmin/4-0/sv/>\n"
 "Language: sv\n"
 "MIME-Version: 1.0\n"
@@ -5213,10 +5213,9 @@ msgid "Use only icons, only text or both"
 msgstr "Använd enbart ikoner, endast text eller både och"
 
 #: libraries/config/messages.inc.php:325
-#, fuzzy
 #| msgid "Iconic navigation bar"
 msgid "Table navigation bar"
-msgstr "Ikonbaserat navigeringsfält"
+msgstr "Tabellbaserat navigeringsfält"
 
 #: libraries/config/messages.inc.php:326
 msgid "use GZip output buffering for increased speed in HTTP transfers"
@@ -5285,14 +5284,13 @@ msgid "MySQL reserved word warning"
 msgstr "Varning för reserverat MySQL-ord"
 
 #: libraries/config/messages.inc.php:339
-#, fuzzy
 #| msgid "Allow to display all the rows"
 msgid "How to display the menu tabs"
-msgstr "Tillåt att visa alla rader"
+msgstr "Hur att visa menyflikarna"
 
 #: libraries/config/messages.inc.php:341
 msgid "How to display various action links"
-msgstr ""
+msgstr "Hur man visar olika åtgärdslänkar"
 
 #: libraries/config/messages.inc.php:342
 msgid "Disallow BLOB and BINARY columns from editing"
@@ -10691,20 +10689,18 @@ msgid "Instructions/Setup"
 msgstr "Instruktioner/Setup"
 
 #: server_status_monitor.php:483
-#, fuzzy
 #| msgid "Done rearranging/editing charts"
 msgid "Done dragging (rearranging) charts"
-msgstr "Klar med ändring/redigering av diagram"
+msgstr "Klar med ändring (omdisponering) av diagram"
 
 #: server_status_monitor.php:489 server_status_monitor.php:606
 msgid "Add chart"
 msgstr "Lägg till diagram"
 
 #: server_status_monitor.php:492
-#, fuzzy
 #| msgid "Enable highlighting"
 msgid "Enable charts dragging"
-msgstr "Aktivera framhävning"
+msgstr "Aktivera diagram"
 
 #: server_status_monitor.php:496
 msgid "Refresh rate"
