@@ -11,7 +11,9 @@
 require_once 'libraries/Util.class.php';
 require_once 'libraries/relation.lib.php';
 require_once 'libraries/url_generating.lib.php';
+require_once 'libraries/sqlparser.lib.php';
 require_once 'libraries/php-gettext/gettext.inc';
+require_once 'libraries/Index.class.php';
 require_once 'libraries/database_interface.inc.php';
 require_once 'libraries/schema/Svg_Relation_Schema.class.php';
 
@@ -48,11 +50,13 @@ class PMA_Svg_Relation_Schema_Test extends PHPUnit_Framework_TestCase
         $_POST['with_doc'] = 'on';
         $GLOBALS['server'] = 1;
         $GLOBALS['cfg']['ServerDefault'] = 1;
+        $GLOBALS['cfg']['Server']['table_coords'] = "table_name";
+        $GLOBALS['cfgRelation']['db'] = "PMA";
+        $GLOBALS['cfgRelation']['table_coords'] = "table_name";
         
         $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
-        $GLOBALS['dbi'] = $dbi;
         
         $dbi->expects($this->any())
             ->method('numRows')
@@ -67,11 +71,42 @@ class PMA_Svg_Relation_Schema_Test extends PHPUnit_Framework_TestCase
             ->will($this->returnValue("executed_1"));
         
         $fetchArrayReturn = array(
-        		'table_name' => 'table_name'
+                'table_name' => 'pma_table_name'
         );
-        $dbi->expects($this->at(1))
+
+        $dbi->expects($this->at(2))
             ->method('fetchAssoc')
             ->will($this->returnValue($fetchArrayReturn));
+        $dbi->expects($this->at(3))
+            ->method('fetchAssoc')
+            ->will($this->returnValue(false));
+        
+        $getIndexesResult = array(
+            array(
+                'Table' => 'pma_tbl',
+                'Field' => 'field1',
+                'Key' => 'PRIMARY',
+                'Key_name' => "Key_name",
+                'Column_name' => "Column_name"
+            )
+        );
+        $dbi->expects($this->once())->method('getTableIndexes')
+            ->will($this->returnValue($getIndexesResult));
+        
+        $fetchValue = "CREATE TABLE `pma_bookmark` (
+             `id` int(11) NOT NULL AUTO_INCREMENT,
+              `dbase` varchar(255) COLLATE utf8_bin NOT NULL DEFAULT '',
+              `user` varchar(255) COLLATE utf8_bin NOT NULL DEFAULT '',
+              `label` varchar(255) CHARACTER SET utf8 NOT NULL DEFAULT '',
+              `query` text COLLATE utf8_bin NOT NULL,
+              PRIMARY KEY (`id`)
+             ) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Bookmarks'";
+        
+        $dbi->expects($this->once())
+            ->method('fetchValue')
+            ->will($this->returnValue($fetchValue));     
+
+        $GLOBALS['dbi'] = $dbi;
         
         $this->object = new PMA_Svg_Relation_Schema(); 
     }
