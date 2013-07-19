@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-07-12 16:06+0200\n"
-"PO-Revision-Date: 2013-07-19 18:26+0200\n"
-"Last-Translator: ProUser <stefan@inkopsforum.se>\n"
+"PO-Revision-Date: 2013-07-19 20:33+0200\n"
+"Last-Translator: Anders Jonsson <anders.jonsson@norsjovallen.se>\n"
 "Language-Team: Swedish "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/sv/>\n"
 "Language: sv\n"
@@ -6368,7 +6368,7 @@ msgstr "ZIP"
 
 #: libraries/config/messages.inc.php:533
 msgid "Enter your public key for your domain reCaptcha service"
-msgstr "Ange din publika nyckel till reCaptcha tjänsten för din domän "
+msgstr "Ange din publika nyckel till reCaptcha-tjänsten för din domän"
 
 #: libraries/config/messages.inc.php:534
 msgid "Public key for reCaptcha"
@@ -6376,7 +6376,7 @@ msgstr "Publik nyckel för reCaptcha"
 
 #: libraries/config/messages.inc.php:535
 msgid "Enter your private key for your domain reCaptcha service"
-msgstr "Ange din privata nyckel för din domäns reCaptcha tjänst"
+msgstr "Ange din privata nyckel för din domäns reCaptcha-tjänst"
 
 #: libraries/config/messages.inc.php:536
 msgid "Private key for reCaptcha"
@@ -11111,7 +11111,7 @@ msgid ""
 "There seems to be an error in your SQL query. The MySQL server error output "
 "below, if there is any, may also help you in diagnosing the problem."
 msgstr ""
-"Det verkar vara ett fel i din SQL fråga. Om det finns något felmeddelande "
+"Det verkar vara ett fel i din SQL-fråga. Om det finns något felmeddelande "
 "från MySQL-servern nedan, kan detta hjälpa dig analysera problemet."
 
 #: libraries/sqlparser.lib.php:178
