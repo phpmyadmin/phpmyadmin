@@ -219,6 +219,15 @@ class ExportSql extends ExportPlugin
                 $leaf->setName('add_statements');
                 $leaf->setText(__('Add statements:'));
                 $subgroup->setSubgroupHeader($leaf);
+
+                if ($plugin_param['export_type'] != 'table') {
+                    $leaf = new BoolPropertyItem();
+                    $leaf->setName('create_database');
+                    $create_clause = '<code>CREATE DATABASE / USE</code>';
+                    $leaf->setText(sprintf(__('Add %s statement'), $create_clause));
+                    $subgroup->addProperty($leaf);
+                }
+
                 if ($plugin_param['export_type'] == 'table') {
                     if (PMA_Table::isView($GLOBALS['db'], $GLOBALS['table'])) {
                         $drop_clause = '<code>DROP VIEW</code>';
@@ -706,39 +715,42 @@ class ExportSql extends ExportPlugin
                 return false;
             }
         }
-        $create_query = 'CREATE DATABASE IF NOT EXISTS '
-            . (isset($GLOBALS['sql_backquotes'])
-            ? PMA_Util::backquoteCompat($db, $compat) : $db);
-        $collation = PMA_getDbCollation($db);
-        if (PMA_DRIZZLE) {
-            $create_query .= ' COLLATE ' . $collation;
-        } else {
-            if (strpos($collation, '_')) {
-                $create_query .= ' DEFAULT CHARACTER SET '
-                    . substr($collation, 0, strpos($collation, '_'))
-                    . ' COLLATE ' . $collation;
+        if (isset($GLOBALS['sql_create_database'])) {
+            $create_query = 'CREATE DATABASE IF NOT EXISTS '
+                . (isset($GLOBALS['sql_backquotes'])
+                ? PMA_Util::backquoteCompat($db, $compat) : $db);
+            $collation = PMA_getDbCollation($db);
+            if (PMA_DRIZZLE) {
+                $create_query .= ' COLLATE ' . $collation;
             } else {
-                $create_query .= ' DEFAULT CHARACTER SET ' . $collation;
+                if (strpos($collation, '_')) {
+                    $create_query .= ' DEFAULT CHARACTER SET '
+                        . substr($collation, 0, strpos($collation, '_'))
+                        . ' COLLATE ' . $collation;
+                } else {
+                    $create_query .= ' DEFAULT CHARACTER SET ' . $collation;
+                }
             }
-        }
-        $create_query .= ';' . $crlf;
-        if (! PMA_exportOutputHandler($create_query)) {
-            return false;
-        }
-        if (isset($GLOBALS['sql_backquotes'])
-            && ((isset($GLOBALS['sql_compatibility'])
-            && $GLOBALS['sql_compatibility'] == 'NONE')
-            || PMA_DRIZZLE)
-        ) {
-            $result = PMA_exportOutputHandler(
-                'USE ' . PMA_Util::backquoteCompat($db, $compat)
-                . ';' . $crlf
-            );
+            $create_query .= ';' . $crlf;
+            if (! PMA_exportOutputHandler($create_query)) {
+                return false;
+            }
+            if (isset($GLOBALS['sql_backquotes'])
+                && ((isset($GLOBALS['sql_compatibility'])
+                && $GLOBALS['sql_compatibility'] == 'NONE')
+                || PMA_DRIZZLE)
+            ) {
+                $result = PMA_exportOutputHandler(
+                    'USE ' . PMA_Util::backquoteCompat($db, $compat)
+                    . ';' . $crlf
+                );
+            } else {
+                $result = PMA_exportOutputHandler('USE ' . $db . ';' . $crlf);
+            }
+            return $result;
         } else {
-            $result = PMA_exportOutputHandler('USE ' . $db . ';' . $crlf);
+            return true;
         }
-
-        return $result;
     }
 
     /**
