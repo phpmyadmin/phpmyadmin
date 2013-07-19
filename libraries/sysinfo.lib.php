@@ -49,7 +49,8 @@ function PMA_getSysInfo()
     $supported = array('Linux', 'WINNT', 'SunOS');
 
     if (in_array($php_os, $supported)) {
-        $ret = eval("return new PMA_SysInfo" . $php_os . "();");
+        $class_name = 'PMA_SysInfo' . $php_os.
+        $ret = new $class_name;
         if ($ret->supported()) {
             return $ret;
         }
