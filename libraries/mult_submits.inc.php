@@ -590,11 +590,9 @@ if (!empty($submit_mult) && !empty($what)) {
          */
         require_once 'libraries/parse_analyze.inc.php';
         
-        $reload = PMA_hasCurrentDbChanged($db);
-        
         PMA_executeQueryAndSendQueryResponse(
-            $analyzed_sql_results, $sql_query, false, $db, $table, null, null, null,
-            false, null, null, null, null, $goto, $pmaThemeImage, '', null, null,
+            $analyzed_sql_results, false, $db, $table, null, null, null,
+            false, null, null, null, null, $goto, $pmaThemeImage, null, null,
             $query_type, $sql_query, $selected, null
         );
     } elseif (!$run_parts) {
