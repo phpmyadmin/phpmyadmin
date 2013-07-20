@@ -13,6 +13,20 @@ if (! defined('PHPMYADMIN')) {
 }
 
 /**
+ * Outputs appropriate checked statement for checkbox.
+ *
+ * @param string $str option name
+ *
+ * @return void
+ */
+function PMA_exportCheckboxCheck($str)
+{
+    if (isset($GLOBALS['cfg']['Export'][$str]) && $GLOBALS['cfg']['Export'][$str]) {
+        return ' checked="checked"';
+    }
+}
+
+/**
  * Prints Html For Export Selection Options
  *
  * @param String $tmp_select Tmp seleted method of export
@@ -285,14 +299,15 @@ function PMA_getHtmlForExportOptionsFormat($export_list)
 /**
  * Prints Html For Export Options Rows
  *
- * @param String $db    Selected DB
- * @param String $table Selected Table
+ * @param String $db             Selected DB
+ * @param String $table          Selected Table
+ * @param String $unlim_num_rows Num of Rows
  *
  * @return string
  */
-function PMA_getHtmlForExportOptionsRows($db, $table)
+function PMA_getHtmlForExportOptionsRows($db, $table, $unlim_num_rows)
 {
-    $html .= '<div class="exportoptions" id="rows">';
+    $html  = '<div class="exportoptions" id="rows">';
     $html .= '<h3>' . __('Rows:') . '</h3>';
     $html .= '<ul>';
     $html .= '<li>';
@@ -308,7 +323,7 @@ function PMA_getHtmlForExportOptionsRows($db, $table)
     $html .= '<input type="text" id="limit_to" name="limit_to" size="5" value="';
     if (isset($_GET['limit_to'])) {
         $html .= htmlspecialchars($_GET['limit_to']);
-    } elseif (isset($unlim_num_rows)) {
+    } elseif (!empty($unlim_num_rows)) {
         $html .= $unlim_num_rows;
     } else {
         $html .= PMA_Table::countRecords($db, $table);
@@ -655,18 +670,19 @@ function PMA_getHtmlForExportOptionsOuput($export_type)
 /**
  * Prints Html For Export Options
  *
- * @param String $export_type  Selected Export Type
- * @param String $db           Selected DB
- * @param String $table        Selected Table
- * @param String $multi_values Export selection
- * @param String $num_tables   number of tables
- * @param String $export_list  Export List
+ * @param String $export_type    Selected Export Type
+ * @param String $db             Selected DB
+ * @param String $table          Selected Table
+ * @param String $multi_values   Export selection
+ * @param String $num_tables     number of tables
+ * @param String $export_list    Export List
+ * @param String $unlim_num_rows Number of Rows
  *
  * @return string
  */
 function PMA_getHtmlForExportOptions(
     $export_type, $db, $table, $multi_values, 
-    $num_tables, $export_list
+    $num_tables, $export_list, $unlim_num_rows
 ) {
     global $cfg;
     $html .= PMA_getHtmlForExportOptionHeader($export_type, $db, $table);
@@ -674,14 +690,14 @@ function PMA_getHtmlForExportOptions(
     $html .= PMA_getHtmlForExportOptionsSelection($export_type, $multi_values);
   
     if (strlen($table) && empty($num_tables) && ! PMA_Table::isMerge($db, $table)) {
-        $html .= PMA_getHtmlForExportOptionsRows($db, $table);
+        $html .= PMA_getHtmlForExportOptionsRows($db, $table, $unlim_num_rows);
     }
     
     if (isset($cfg['SaveDir']) && !empty($cfg['SaveDir'])) {
         $html .= PMA_getHtmlForExportOptionsQuickExport();
     }
 
-    $html .= PMA_getHtmlForExportOptionsOuput();
+    $html .= PMA_getHtmlForExportOptionsOuput($export_type);
  
     $html .= PMA_getHtmlForExportOptionsFormat($export_list);
     return $html;

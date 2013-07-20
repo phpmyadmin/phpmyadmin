@@ -20,20 +20,6 @@ require_once './libraries/file_listing.lib.php';
 require_once './libraries/plugin_interface.lib.php';
 require_once './libraries/server_export.lib.php';
 
-/**
- * Outputs appropriate checked statement for checkbox.
- *
- * @param string $str option name
- *
- * @return void
- */
-function PMA_exportCheckboxCheck($str)
-{
-    if (isset($GLOBALS['cfg']['Export'][$str]) && $GLOBALS['cfg']['Export'][$str]) {
-        return ' checked="checked"';
-    }
-}
-
 /* Scan for plugins */
 $export_list = PMA_getPlugins(
     "export",
@@ -55,9 +41,9 @@ if (empty($export_list)) {
 $html = '<form method="post" action="export.php" '
     . ' name="dump" class="disableAjax">';
 
-//output Hidden Input
+//output Hidden Inputs
 $single_table_str = isset($single_table)? $single_table : '';
-$sql_query_str = isset($single_table)? $sql_query : '';
+$sql_query_str = isset($sql_query)? $sql_query : '';
 $html .= PMA_getHtmlForHiddenInput(
     $export_type, 
     $db, 
@@ -68,13 +54,15 @@ $html .= PMA_getHtmlForHiddenInput(
 
 //output Export Options
 $num_tables_str = isset($num_tables)? $num_tables : '';
+$unlim_num_rows_str = isset($unlim_num_rows)? $unlim_num_rows : '';
 $html .= PMA_getHtmlForExportOptions(
     $export_type, 
     $db, 
     $table, 
     $multi_values, 
     $num_tables_str, 
-    $export_list
+    $export_list,
+    $unlim_num_rows
 );
 
 $html .= '</form>';
