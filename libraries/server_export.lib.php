@@ -685,7 +685,7 @@ function PMA_getHtmlForExportOptions(
     $num_tables, $export_list, $unlim_num_rows
 ) {
     global $cfg;
-    $html .= PMA_getHtmlForExportOptionHeader($export_type, $db, $table);
+    $html  = PMA_getHtmlForExportOptionHeader($export_type, $db, $table);
     $html .= PMA_getHtmlForExportOptionsMethod();
     $html .= PMA_getHtmlForExportOptionsSelection($export_type, $multi_values);
   

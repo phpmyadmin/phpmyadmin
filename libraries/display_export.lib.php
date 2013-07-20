@@ -62,7 +62,7 @@ $html .= PMA_getHtmlForExportOptions(
     $multi_values, 
     $num_tables_str, 
     $export_list,
-    $unlim_num_rows
+    $unlim_num_rows_str
 );
 
 $html .= '</form>';
