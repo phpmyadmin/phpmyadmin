@@ -673,6 +673,20 @@ Server connection settings
       :config:option:`$cfg['Servers'][$i]['users']` (e.g. ``pma__users``) and
       :config:option:`$cfg['Servers'][$i]['usergroups']` (e.g. ``pma__usergroups``)
 
+.. _navigation:
+.. config:option:: $cfg['Servers'][$i]['navigation']
+
+    :type: string
+    :default: ``''``
+
+    Since release 4.1.0 you can hide/unhide items in the navigation tree.
+
+    To allow the usage of this functionality:
+
+    * set up :config:option:`$cfg['Servers'][$i]['pmadb']` and the phpMyAdmin configuration storage
+    * put the table name in :config:option:`$cfg['Servers'][$i]['navigation']` (e.g.
+      ``pma__navigation``)
+
 .. _tracking:
 .. config:option:: $cfg['Servers'][$i]['tracking']
 

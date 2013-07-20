@@ -265,6 +265,17 @@ function PMA_getRelationsParamDiagnostic($cfgRelation)
             'menuswork',
             $messages
         );
+        $retval .= PMA_getDiagMessageForParameter(
+            'navigation',
+            isset($cfgRelation['navigation']),
+            $messages,
+            'navigation'
+        );
+        $retval .= PMA_getDiagMessageForFeature(
+            __('Hide/unhide navigation items'),
+            'navworks',
+            $messages
+        );
         $retval .= '</table>' . "\n";
 
         $retval .= '<p>' . __('Quick steps to setup advanced features:') . '</p>';
@@ -378,6 +389,7 @@ function PMA_checkRelationsParam()
     $cfgRelation['designerwork']   = false;
     $cfgRelation['userconfigwork'] = false;
     $cfgRelation['menuswork']      = false;
+    $cfgRelation['navwork']        = false;
     $cfgRelation['allworks']       = false;
     $cfgRelation['user']           = null;
     $cfgRelation['db']             = null;
@@ -445,6 +457,8 @@ function PMA_checkRelationsParam()
             $cfgRelation['users']           = $curr_table[0];
         } elseif ($curr_table[0] == $GLOBALS['cfg']['Server']['usergroups']) {
             $cfgRelation['usergroups']      = $curr_table[0];
+        } elseif ($curr_table[0] == $GLOBALS['cfg']['Server']['navigation']) {
+            $cfgRelation['navigation']      = $curr_table[0];
         }
     } // end while
     $GLOBALS['dbi']->freeResult($tab_rs);
@@ -499,13 +513,17 @@ function PMA_checkRelationsParam()
         $cfgRelation['menuswork']        = true;
     }
 
+    if (isset($cfgRelation['navigation'])) {
+        $cfgRelation['navwork']          = true;
+    }
+
     if ($cfgRelation['relwork'] && $cfgRelation['displaywork']
         && $cfgRelation['pdfwork'] && $cfgRelation['commwork']
         && $cfgRelation['mimework'] && $cfgRelation['historywork']
         && $cfgRelation['recentwork'] && $cfgRelation['uiprefswork']
         && $cfgRelation['trackingwork'] && $cfgRelation['userconfigwork']
         && $cfgRelation['bookmarkwork'] && $cfgRelation['designerwork']
-        && $cfgRelation['menuswork']
+        && $cfgRelation['menuswork'] && $cfgRelation['navwork']
     ) {
         $cfgRelation['allworks'] = true;
     }
