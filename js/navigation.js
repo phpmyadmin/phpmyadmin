@@ -211,6 +211,21 @@ $(function () {
         event.preventDefault();
         PMA_createViewDialog($(this));
     });
+
+    /** Hide navigation tree item */
+    $('.hideNavItem').live('click', function (event) {
+        event.preventDefault();
+        $.ajax({
+            url: $(this).attr('href') + '&ajax_request=true',
+            success: function(data) {
+                if (data.success === true) {
+                    PMA_reloadNavigation();
+                } else {
+                    PMA_ajaxShowMessage(data.error);
+                }
+            }
+        });
+    });
 });
 
 /**

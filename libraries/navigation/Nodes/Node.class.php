@@ -451,5 +451,14 @@ class Node
         return $whereClause;
     }
 
+    /**
+     * Returns HTML for hide button displayed infront of a node
+     *
+     * @return HTML for hide button
+     */
+    public function getHtmlForHideButton()
+    {
+        return '';
+    }
 }
 ?>

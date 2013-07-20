@@ -119,6 +119,18 @@ if (! defined('PMA_MINIMUM_COMMON') && ! defined('TESTSUITE')) {
     color: <?php echo $GLOBALS['cfg']['NaviPointerColor']; ?>;
     background-color: <?php echo $GLOBALS['cfg']['NaviPointerBackground']; ?>;
 }
+#pma_navigation_tree li .tableControls {
+    display: none;
+    padding-left: 4px;
+}
+#pma_navigation_tree li.activePointer .tableControls {
+    display: inline;
+    opacity: 0.5;
+}
+#pma_navigation_tree li.activePointer .tableControls:hover {
+    display: inline;
+    opacity: 1.0;
+}
 #pma_navigation_tree ul {
     clear: both;
     padding: 0;

@@ -440,6 +440,31 @@ class Node_Database extends Node
         default:
             break;
         }
+
+        // Remove hidden items so that they are not displayed in navigation tree
+        $cfgRelation = PMA_getRelationsParam();
+        if ($cfgRelation['navwork']) {
+            $navTable = PMA_Util::backquote($cfgRelation['db'])
+                . "." . PMA_Util::backquote($cfgRelation['navigation']);
+            $sqlQuery = "SELECT `item_name` FROM " . $navTable
+                . " WHERE `username`='" . $cfgRelation['user'] . "'"
+                . " AND `item_type`='" . substr($type, 0, -1) . "'"
+                . " AND `db_name`='" . PMA_Util::sqlAddSlashes($db) . "'";
+            $result = PMA_queryAsControlUser($sqlQuery, false);
+            if ($result) {
+                $hiddenItems = array();
+                while ($row = $GLOBALS['dbi']->fetchArray($result)) {
+                    $hiddenItems[] = $row[0];
+                }
+                foreach ($retval as $key => $item) {
+                    if (in_array($item, $hiddenItems)) {
+                        unset($retval[$key]);
+                    }
+                }
+            }
+            $GLOBALS['dbi']->freeResult($result);
+        }
+
         return $retval;
     }
 

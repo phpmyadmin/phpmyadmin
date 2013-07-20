@@ -313,8 +313,9 @@ CREATE TABLE IF NOT EXISTS `pma__navigation` (
   `username` varchar(64) NOT NULL,
   `item_name` varchar(64) NOT NULL,
   `item_type` varchar(64) NOT NULL,
-  `db_name` varchar(64) DEFAULT NULL,
-  `table_name` varchar(64) DEFAULT NULL
+  `db_name` varchar(64) NOT NULL,
+  `table_name` varchar(64) NOT NULL,
+  PRIMARY KEY (`username`,`item_name`,`item_type`,`db_name`,`table_name`)
 ) 
   COMMENT='Hidden items of navigation tree'
   DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;
