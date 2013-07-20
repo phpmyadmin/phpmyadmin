@@ -48,18 +48,19 @@ $html .= PMA_getHtmlForHiddenInput(
     $export_type, 
     $db, 
     $table, 
-    $single_table_str, 
+    $single_table_str,
     $sql_query_str
 );
 
 //output Export Options
 $num_tables_str = isset($num_tables)? $num_tables : '';
 $unlim_num_rows_str = isset($unlim_num_rows)? $unlim_num_rows : '';
+$multi_values_str = isset($multi_values)? $multi_values : '';
 $html .= PMA_getHtmlForExportOptions(
     $export_type, 
     $db, 
     $table, 
-    $multi_values, 
+    $multi_values_str, 
     $num_tables_str, 
     $export_list,
     $unlim_num_rows_str
