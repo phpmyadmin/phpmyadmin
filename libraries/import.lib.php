@@ -531,13 +531,13 @@ function PMA_getD($last_cumulative_size)
 /**
  * Obtains the decimal size of a given cell
  *
- * @param string &$cell cell content
+ * @param string $cell cell content
  *
  * @return array Contains the precision, scale, and full size
  *                representation of the given decimal cell
  * @access  public
  */
-function PMA_getDecimalSize(&$cell)
+function PMA_getDecimalSize($cell)
 {
     $curr_size = strlen((string)$cell);
     $decPos = strpos($cell, ".");
@@ -557,7 +557,7 @@ function PMA_getDecimalSize(&$cell)
  *                                     (NONE or VARCHAR or DECIMAL or INT or BIGINT)
  * @param int    $curr_type            Type of the current cell
  *                                     (NONE or VARCHAR or DECIMAL or INT or BIGINT)
- * @param string &$cell                The current cell
+ * @param string $cell                 The current cell
  *
  * @return string  Size of the given cell in the type-appropriate format
  * @access  public
@@ -756,7 +756,7 @@ function PMA_detectSize($last_cumulative_size, $last_cumulative_type,
  *
  * @param int    $last_cumulative_type Last cumulative column type
  *                                     (VARCHAR or INT or BIGINT or DECIMAL or NONE)
- * @param string &$cell                String representation of the cell for which
+ * @param string $cell                 String representation of the cell for which
  *                                     a best-fit type is to be determined
  *
  * @return int  The MySQL type representation
