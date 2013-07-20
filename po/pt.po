@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.5-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-06-24 10:43+0200\n"
-"PO-Revision-Date: 2013-07-20 08:14+0200\n"
+"PO-Revision-Date: 2013-07-20 08:17+0200\n"
 "Last-Translator: Telma Gonzaga <novawebproject@gmail.com>\n"
 "Language-Team: Portuguese "
 "<http://l10n.cihar.com/projects/phpmyadmin/4-0/pt/>\n"
@@ -860,7 +860,7 @@ msgid ""
 "Login cookie store is lower than cookie validity configured in phpMyAdmin, "
 "because of this, your login will expire sooner than configured in phpMyAdmin."
 msgstr ""
-"OS parâmetros de validade do cookie de início de sessão armazenado não "
+"Os parâmetros de validade do cookie de início de sessão armazenado não "
 "correspondem aos do cookie de validade configurado no phpMyAdmin."
 
 #: index.php:452
@@ -2998,9 +2998,8 @@ msgid "SQL query"
 msgstr "Comando SQL"
 
 #: libraries/ServerStatusData.class.php:184
-#, fuzzy
 msgid "Handler"
-msgstr "Handler"
+msgstr "Manipulador (handler)"
 
 #: libraries/ServerStatusData.class.php:185
 #, fuzzy
