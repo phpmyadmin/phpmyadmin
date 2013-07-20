@@ -140,17 +140,6 @@ if (PMA_hasNoRightsToDropDatabase(
     );
 } // end if
 
-// Include PMA_Index class for use in PMA_DisplayResults class
-require_once './libraries/Index.class.php';
-
-require_once 'libraries/DisplayResults.class.php';
-
-$displayResultsObject = new PMA_DisplayResults(
-    $GLOBALS['db'], $GLOBALS['table'], $GLOBALS['goto'], $GLOBALS['sql_query']
-);
-
-$displayResultsObject->setConfigParamsForDisplayTable();
-
 /**
  * Need to find the real end of rows?
  */
@@ -183,7 +172,7 @@ $full_sql_query = $sql_query;
 
 // Handle remembered sorting order, only for single table query
 if (PMA_isRememberSortingOrder($analyzed_sql_results)) {
-    PMA_handleSortOrder($db, $table, $analyzed_sql, $full_sql_query);
+    PMA_handleSortOrder($db, $table, $analyzed_sql_results, $full_sql_query);
 }
 
 // Do append a "LIMIT" clause?
@@ -191,7 +180,8 @@ if (PMA_isAppendLimitClause($analyzed_sql_results)) {
     list($sql_limit_to_append,
         $full_sql_query, $analyzed_display_query, $display_query
     ) = PMA_appendLimitClause(
-        $full_sql_query, $analyzed_sql, isset($display_query)
+        $full_sql_query, $analyzed_sql_results['analyzed_sql'],
+        isset($display_query)
     );
 } else {
     $sql_limit_to_append = '';
@@ -199,39 +189,19 @@ if (PMA_isAppendLimitClause($analyzed_sql_results)) {
 
 $reload = PMA_hasCurrentDbChanged($db);
 
-// Execute the query
-list($result, $num_rows, $unlim_num_rows, $profiling_results,
-    $justBrowsing, $extra_data
-) = PMA_executeTheQuery(
+PMA_executeQueryAndSendQueryResponse(
     $analyzed_sql_results, $full_sql_query, $is_gotofile, $db, $table,
     isset($find_real_end) ? $find_real_end : null,
-    isset($import_text) ? $import_text : null, $cfg['Bookmark']['user'],
-    isset($extra_data) ? $extra_data : null
+    isset($import_text) ? $import_text : null,
+    isset($extra_data) ? $extra_data : null, $is_affected,
+    isset($message_to_show) ? $message_to_show : null,
+    isset($disp_mode) ? $disp_mode : null, isset($message) ? $message : null,
+    isset($sql_data) ? $sql_data : null, $goto, $pmaThemeImage,
+    $sql_limit_to_append, isset($disp_query) ? $display_query : null,
+    isset($disp_message) ? $disp_message : null,
+    isset($query_type) ? $query_type : null,
+    $sql_query, isset($selected) ? $selected : null,
+    isset($complete_query) ? $complete_query : null
 );
 
-
-// No rows returned -> move back to the calling page
-if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
-    PMA_sendResponseForNoResultsReturned(
-        $analyzed_sql_results, $db, $table,
-        isset($message_to_show) ? $message_to_show : null,
-        $num_rows, $displayResultsObject, $extra_data, $cfg
-    );
-   
-} else {
-    // At least one row is returned -> displays a table with results    
-    PMA_sendResponseForResultsReturned(
-        isset($result) ? $result : null, $justBrowsing, $analyzed_sql_results,
-        $db, $table, isset($disp_mode) ? $disp_mode : null,
-        isset($message) ? $message : null, isset($sql_data) ? $sql_data : null,
-        $displayResultsObject, $goto, $pmaThemeImage,
-        $sql_limit_to_append, $unlim_num_rows,
-        $num_rows, $querytime, $full_sql_query,
-        isset($disp_query) ? $disp_query : null,
-        isset($disp_message) ? $disp_message : null, $profiling_results,
-        isset($query_type) ? $query_type : null,
-        isset($selected) ? $selected : null, $sql_query,
-        isset($complete_query) ? $complete_query : null, $cfg
-    );
-} // end rows returned
 ?>

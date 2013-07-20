@@ -395,7 +395,7 @@ function PMA_getSqlQueryAndCreateDbBeforeCopy()
  *
  * @param array   $tables_full       array of all tables in given db or dbs
  * @param object  $export_sql_plugin export plugin instance
- * @param boolean $move              whether databse name is empty or not
+ * @param boolean $move              whether database name is empty or not
  * @param string  $db                database name
  *
  * @return string sql constraints query for full databases
@@ -459,7 +459,7 @@ function PMA_getViewsAndCreateSqlViewStandIn(
  *
  * @param array   $tables_full array of all tables in given db or dbs
  * @param string  $sql_query   sql query for all operations
- * @param boolean $move        whether databse name is empty or not
+ * @param boolean $move        whether database name is empty or not
  * @param string  $db          database name
  *
  * @return array ($sql_query, $error)
@@ -562,7 +562,7 @@ function PMA_runEventDefinitionsForDb($db)
  * Handle the views, return the boolean value whether table rename/copy or not
  *
  * @param array   $views views as an array
- * @param boolean $move  whether databse name is empty or not
+ * @param boolean $move  whether database name is empty or not
  * @param string  $db    database name
  *
  * @return boolean $_error whether table rename/copy or not
