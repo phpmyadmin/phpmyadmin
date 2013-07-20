@@ -565,7 +565,7 @@ function PMA_getDecimalSize(&$cell)
  * @todo    Handle the error cases more elegantly
  */
 function PMA_detectSize($last_cumulative_size, $last_cumulative_type,
-    $curr_type, &$cell
+    $curr_type, $cell
 ) {
     $curr_size = strlen((string)$cell);
 
@@ -763,7 +763,7 @@ function PMA_detectSize($last_cumulative_size, $last_cumulative_type,
  *               (VARCHAR or INT or BIGINT or DECIMAL or NONE)
  * @access  public
  */
-function PMA_detectType($last_cumulative_type, &$cell)
+function PMA_detectType($last_cumulative_type, $cell)
 {
     /**
      * If numeric, determine if decimal, int or bigint
