@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-07-12 16:06+0200\n"
-"PO-Revision-Date: 2013-07-15 11:13+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"PO-Revision-Date: 2013-07-20 08:18+0200\n"
+"Last-Translator: Telma Gonzaga <novawebproject@gmail.com>\n"
 "Language-Team: Portuguese "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/pt/>\n"
 "Language: pt\n"
@@ -865,6 +865,8 @@ msgid ""
 "Login cookie store is lower than cookie validity configured in phpMyAdmin, "
 "because of this, your login will expire sooner than configured in phpMyAdmin."
 msgstr ""
+"Os parâmetros de validade do cookie de início de sessão armazenado não "
+"correspondem aos do cookie de validade configurado no phpMyAdmin."
 
 #: index.php:468
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
@@ -3076,14 +3078,12 @@ msgid "SQL query"
 msgstr "Comando SQL"
 
 #: libraries/ServerStatusData.class.php:186
-#, fuzzy
 msgid "Handler"
-msgstr "Handler"
+msgstr "Manipulador (handler)"
 
 #: libraries/ServerStatusData.class.php:187
-#, fuzzy
 msgid "Query cache"
-msgstr "Query cache"
+msgstr "Cache de queries"
 
 #: libraries/ServerStatusData.class.php:188
 msgid "Threads"
