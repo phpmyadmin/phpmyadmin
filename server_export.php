@@ -11,7 +11,7 @@
  */
 require_once 'libraries/common.inc.php';
 require_once 'libraries/server_common.inc.php';
-require_once 'libraries/server_export.lib.php';
+require_once 'libraries/display_export.lib.php';
 
 $response = PMA_Response::getInstance();
 $header   = $response->getHeader();
@@ -24,6 +24,6 @@ $select_item = isset($tmp_select)? $tmp_select : '';
 $multi_values  = PMA_getHtmlForExportSelectOptions($select_item);
 
 $export_type = 'server';
-require_once 'libraries/display_export.lib.php';
+require_once 'libraries/display_export.inc.php';
 
 ?>
