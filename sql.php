@@ -167,36 +167,15 @@ if ($goto == 'sql.php') {
 } // end if
 
 
-// assign default full_sql_query
-$full_sql_query = $sql_query;
-
-// Handle remembered sorting order, only for single table query
-if (PMA_isRememberSortingOrder($analyzed_sql_results)) {
-    PMA_handleSortOrder($db, $table, $analyzed_sql, $full_sql_query);
-}
-
-// Do append a "LIMIT" clause?
-if (PMA_isAppendLimitClause($analyzed_sql_results)) {
-    list($sql_limit_to_append,
-        $full_sql_query, $analyzed_display_query, $display_query
-    ) = PMA_appendLimitClause(
-        $full_sql_query, $analyzed_sql, isset($display_query)
-    );
-} else {
-    $sql_limit_to_append = '';
-}
-
-$reload = PMA_hasCurrentDbChanged($db);
-
 PMA_executeQueryAndSendQueryResponse(
-    $analyzed_sql_results, $full_sql_query, $is_gotofile, $db, $table,
+    $analyzed_sql_results, $is_gotofile, $db, $table,
     isset($find_real_end) ? $find_real_end : null,
     isset($import_text) ? $import_text : null,
     isset($extra_data) ? $extra_data : null, $is_affected,
     isset($message_to_show) ? $message_to_show : null,
     isset($disp_mode) ? $disp_mode : null, isset($message) ? $message : null,
     isset($sql_data) ? $sql_data : null, $goto, $pmaThemeImage,
-    $sql_limit_to_append, isset($disp_query) ? $display_query : null,
+    isset($disp_query) ? $display_query : null,
     isset($disp_message) ? $disp_message : null,
     isset($query_type) ? $query_type : null,
     $sql_query, isset($selected) ? $selected : null,

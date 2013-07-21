@@ -1095,7 +1095,7 @@ class PMA_DisplayResults
 
             if (($is_display['sort_lnk'] == '1') && ! $is_limited_display) {
 
-                list($order_link, $sorted_headrer_html)
+                list($order_link, $sorted_header_html)
                     = $this->_getOrderLinkAndSortedHeaderHtml(
                         $fields_meta[$i], $sort_expression,
                         $sort_expression_nodirection, $i, $unsorted_sql_query,
@@ -1104,7 +1104,7 @@ class PMA_DisplayResults
                         $col_visib[$j], $condition_field
                     );
 
-                $table_headers_html .= $sorted_headrer_html;
+                $table_headers_html .= $sorted_header_html;
 
                 $vertical_display['desc'][] = '    <th '
                     . 'class="draggable'
