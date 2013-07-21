@@ -12,35 +12,60 @@ require_once './libraries/common.inc.php';
 // Also initialises the collapsible tree class
 require_once './libraries/navigation/Navigation.class.php';
 
-$cfgRelation = PMA_getRelationsParam();
-if (isset($_REQUEST['hideNavItem']) && $cfgRelation['navwork']) {
-    if (! empty($_REQUEST['itemName']) && ! empty($_REQUEST['itemType'])) {
-        $navTable = PMA_Util::backquote($cfgRelation['db'])
-            . "." . PMA_Util::backquote($cfgRelation['navigation']);
-        $sqlQuery = "INSERT INTO " . $navTable
-            . "(`username`, `item_name`, `item_type`, `db_name`, `table_name`)"
-            . " VALUES ("
-            . "'" . $GLOBALS['cfg']['Server']['user'] . "',"
-            . "'" . $_REQUEST['itemName'] . "',"
-            . "'" . $_REQUEST['itemType'] . "',"
-            . "'" . (! empty($_REQUEST['dbName']) ? $_REQUEST['dbName'] : "") . "',"
-            . "'" . (! empty($_REQUEST['tableName']) ? $_REQUEST['tableName'] : "")
-            . "')";
-        PMA_queryAsControlUser($sqlQuery, true);
-    }
-    exit;
-}
-
-// Do the magic
 $response = PMA_Response::getInstance();
-if ($response->isAjax()) {
-    $navigation = new PMA_Navigation();
-    $response->addJSON('message', $navigation->getDisplay());
-} else {
+$navigation = new PMA_Navigation();
+if (! $response->isAjax()) {
     $response->addHTML(
         PMA_Message::error(
             __('Fatal error: The navigation can only be accessed via AJAX')
         )
     );
+    exit;
 }
+
+$cfgRelation = PMA_getRelationsParam();
+if ($cfgRelation['navwork']) {
+    if (isset($_REQUEST['hideNavItem'])) {
+        if (! empty($_REQUEST['itemName'])
+            && ! empty($_REQUEST['itemType'])
+            && ! empty($_REQUEST['dbName'])
+        ) {
+            $navigation->hideNavigationItem(
+                $_REQUEST['itemName'],
+                $_REQUEST['itemType'],
+                $_REQUEST['dbName'],
+                (! empty($_REQUEST['tableName']) ? $_REQUEST['tableName'] : null)
+            );
+        }
+        exit;
+    }
+
+    if (isset($_REQUEST['unhideNavItem'])) {
+        if (! empty($_REQUEST['itemName'])
+            && ! empty($_REQUEST['itemType'])
+            && ! empty($_REQUEST['dbName'])
+        ) {
+            $navigation->unhideNavigationItem(
+                $_REQUEST['itemName'],
+                $_REQUEST['itemType'],
+                $_REQUEST['dbName'],
+                (! empty($_REQUEST['tableName']) ? $_REQUEST['tableName'] : null)
+            );
+        }
+        exit;
+    }
+
+    if (isset($_REQUEST['showUnhideDialog'])) {
+        if (! empty($_REQUEST['dbName'])) {
+            $response->addJSON(
+                'message',
+                $navigation->getItemUnhideDialog($_REQUEST['dbName'])
+            );
+        }
+        exit;
+    }
+}
+
+// Do the magic
+$response->addJSON('message', $navigation->getDisplay());
 ?>

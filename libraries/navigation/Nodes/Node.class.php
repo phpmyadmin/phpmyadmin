@@ -452,11 +452,23 @@ class Node
     }
 
     /**
-     * Returns HTML for hide button displayed infront of a node
+     * Returns HTML for control buttons displayed infront of a node
      *
-     * @return HTML for hide button
+     * @return HTML for control buttons
      */
-    public function getHtmlForHideButton()
+    public function getHtmlForControlButtons()
+    {
+        return '';
+    }
+
+    /**
+     * Return HTML for the dialog that allows unhiding hidden child items
+     *
+     * @param string $type the type of children that should be allowed to unhide
+     *
+     * @return HTML for the unhide dialog
+     */
+    public function getHtmlForUnhideDialog($type = null)
     {
         return '';
     }

@@ -949,7 +949,7 @@ class PMA_NavigationTree
             if ($node->type == Node::CONTAINER) {
                 $retval .= "</i>";
             }
-            $retval .= $node->getHtmlForHideButton();
+            $retval .= $node->getHtmlForControlButtons();
             $wrap = true;
         } else {
             $node->visible = true;

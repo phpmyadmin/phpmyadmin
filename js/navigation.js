@@ -226,6 +226,55 @@ $(function () {
             }
         });
     });
+
+    /** Show a dialog to choose navigation items to unhide */
+    $('.showUnhide').live('click', function (event) {
+        event.preventDefault();
+        var $msg = PMA_ajaxShowMessage();
+        $.get($(this).attr('href') + '&ajax_request=1', function (data) {
+            if (data.success === true) {
+                PMA_ajaxRemoveMessage($msg);
+                var buttonOptions = {};
+                buttonOptions[PMA_messages.strClose] = function () {
+                    $(this).dialog("close");
+                };
+                var $dialog = $('<div/>')
+                    .attr('id', 'unhideNavItemDialog')
+                    .append(data.message)
+                    .dialog({
+                        width: 400,
+                        minWidth: 200,
+                        modal: true,
+                        buttons: buttonOptions,
+                        title: PMA_messages.strUnhideNavItem,
+                        close: function () {
+                            $(this).remove();
+                        }
+                });
+            } else {
+                PMA_ajaxShowMessage(data.error);
+            }
+        });
+    });
+
+    /** Unhide a hidden navigation tree item */
+    $('.unhideNavItem').live('click', function (event) {
+        event.preventDefault();
+        var $tr = $(this).parents('tr');
+        var $msg = PMA_ajaxShowMessage();
+        $.ajax({
+            url: $(this).attr('href') + '&ajax_request=true',
+            success: function(data) {
+                PMA_ajaxRemoveMessage($msg);
+                if (data.success === true) {
+                    $tr.remove();
+                    PMA_reloadNavigation();
+                } else {
+                    PMA_ajaxShowMessage(data.error);
+                }
+            }
+        });
+    });
 });
 
 /**

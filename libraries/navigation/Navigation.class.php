@@ -73,5 +73,127 @@ class PMA_Navigation
 
         return $retval;
     }
+
+    /**
+     * Add an item of navigation tree to the hidden items list in PMA database.
+     *
+     * @param string $itemName  name of the navigation tree item
+     * @param string $itemType  type of the navigation tree item
+     * @param string $dbName    database name
+     * @param string $tableName table name if applicable
+     *
+     * @return void
+     */
+    public function hideNavigationItem(
+        $itemName, $itemType, $dbName, $tableName = null
+    ) {
+        $navTable = PMA_Util::backquote($GLOBALS['cfgRelation']['db'])
+            . "." . PMA_Util::backquote($GLOBALS['cfgRelation']['navigation']);
+        $sqlQuery = "INSERT INTO " . $navTable
+            . "(`username`, `item_name`, `item_type`, `db_name`, `table_name`)"
+            . " VALUES ("
+            . "'" . PMA_Util::sqlAddSlashes($GLOBALS['cfg']['Server']['user']) . "',"
+            . "'" . PMA_Util::sqlAddSlashes($itemName) . "',"
+            . "'" . PMA_Util::sqlAddSlashes($itemType) . "',"
+            . "'" . PMA_Util::sqlAddSlashes($dbName) . "',"
+            . "'" . (! empty($tableName)? PMA_Util::sqlAddSlashes($tableName) : "" )
+            . "')";
+        PMA_queryAsControlUser($sqlQuery, true);
+    }
+
+    /**
+     * Remove a hidden item of navigation tree from the
+     * list of hidden items in PMA database.
+     *
+     * @param string $itemName  name of the navigation tree item
+     * @param string $itemType  type of the navigation tree item
+     * @param string $dbName    database name
+     * @param string $tableName table name if applicable
+     *
+     * @return void
+     */
+    public function unhideNavigationItem(
+        $itemName, $itemType, $dbName, $tableName = null
+    ) {
+        $navTable = PMA_Util::backquote($GLOBALS['cfgRelation']['db'])
+            . "." . PMA_Util::backquote($GLOBALS['cfgRelation']['navigation']);
+        $sqlQuery = "DELETE FROM " . $navTable
+            . " WHERE "
+            . " `username`='"
+            . PMA_Util::sqlAddSlashes($GLOBALS['cfg']['Server']['user']) . "'"
+            . " AND `item_name`='" . PMA_Util::sqlAddSlashes($itemName) . "'"
+            . " AND `item_type`='" . PMA_Util::sqlAddSlashes($itemType) . "'"
+            . " AND `db_name`='" . PMA_Util::sqlAddSlashes($dbName) . "'"
+            . (! empty($tableName)
+                ? " AND `table_name`='" . PMA_Util::sqlAddSlashes($tableName) . "'"
+                : ""
+            );
+        PMA_queryAsControlUser($sqlQuery, true);
+    }
+
+    /**
+     * Returns HTML for the dialog to unhide hidden nativation items.
+     *
+     * @param string $dbName    database name
+     * @param string $itemType  type of the items to include
+     * @param string $tableName table name
+     *
+     * @return string HTML for the dialog to unhide hidden nativation items
+     */
+    public function getItemUnhideDialog($dbName, $itemType = null, $tableName = null)
+    {
+        $html  = '<form method="post" action="navigation.php" class="ajax">';
+        $html .= '<fieldset>';
+        $html .= PMA_generate_common_hidden_inputs($dbName, $tableName);
+
+        $navTable = PMA_Util::backquote($GLOBALS['cfgRelation']['db'])
+            . "." . PMA_Util::backquote($GLOBALS['cfgRelation']['navigation']);
+        $sqlQuery = "SELECT `item_name`, `item_type` FROM " . $navTable
+            . " WHERE `username`='"
+            . PMA_Util::sqlAddSlashes($GLOBALS['cfg']['Server']['user']) ."'"
+            . " AND `db_name`='" . PMA_Util::sqlAddSlashes($dbName) . "'"
+            . " AND `table_name`='"
+            . (! empty($tableName) ? PMA_Util::sqlAddSlashes($tableName) : '') . "'";
+        $result = PMA_queryAsControlUser($sqlQuery, true);
+
+        $hidden = array();
+        if ($result) {
+            while ($row = $GLOBALS['dbi']->fetchArray($result)) {
+                $type = $row['item_type'];
+                if (! isset($hidden[$type])) {
+                    $hidden[$type] = array();
+                }
+                $hidden[$type][] = $row['item_name'];
+            }
+        }
+        $GLOBALS['dbi']->freeResult($result);
+
+        if (empty($tableName)) {
+            if ((empty($itemType) || $itemType == 'table')
+                && isset($hidden['table'])
+            ) {
+                $html .= '<h4>' . __('Tables:') . '</h4>';
+                $html .= '<table width="100%"><tbody>';
+                $odd = true;
+                foreach ($hidden['table'] as $hiddenTable) {
+                    $html .= '<tr class="' . ($odd ? 'odd' : 'even') . '">';
+                    $html .= '<td>' . $hiddenTable . '</td>';
+                    $html .= '<td><a href="navigation.php?'
+                        . PMA_generate_common_url()
+                        . '&unhideNavItem=true&itemType=table'
+                        . '&itemName=' . urldecode($hiddenTable)
+                        . '&dbName=' . urldecode($dbName) . '"'
+                        . ' class="unhideNavItem ajax">'
+                        . PMA_Util::getIcon('b_undo.png', __('Unhide'))
+                        .  '</a></td>';
+                }
+                $html .= '</tbody></table>';
+            }
+        }
+
+        $html .= '</fieldset>';
+        $html .= '</form>';
+        return $html;
+    }
 }
 ?>

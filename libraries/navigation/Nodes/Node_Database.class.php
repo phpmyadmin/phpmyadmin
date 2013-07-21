@@ -479,6 +479,44 @@ class Node_Database extends Node
     {
         return PMA_getDbComment($this->real_name);
     }
+
+    /**
+     * Returns HTML for unhide button displayed infront of database node
+     *
+     * @return HTML for unhide button
+     */
+    public function getHtmlForControlButtons()
+    {
+        $ret = '';
+        $db = $this->real_name;
+
+        $cfgRelation = PMA_getRelationsParam();
+        if ($cfgRelation['navwork']) {
+            $navTable = PMA_Util::backquote($cfgRelation['db'])
+                . "." . PMA_Util::backquote($cfgRelation['navigation']);
+            $sqlQuery = "SELECT COUNT(*) FROM " . $navTable
+                . " WHERE `username`='"
+                . PMA_Util::sqlAddSlashes($GLOBALS['cfg']['Server']['user']) ."'"
+                . " AND `db_name`='" . PMA_Util::sqlAddSlashes($db) . "'";
+            $result = PMA_queryAsControlUser($sqlQuery, false);
+
+            if ($result) {
+                $count = $GLOBALS['dbi']->fetchValue($result);
+                if ($count > 0) {
+                    $ret = '<span class="dbItemControls">'
+                        . '<a href="navigation.php?'
+                        . PMA_generate_common_url()
+                        . '&showUnhideDialog=true'
+                        . '&dbName=' . urldecode($db) . '"'
+                        . ' class="showUnhide ajax">'
+                        . PMA_Util::getImage('b_undo.png', 'Unhide')
+                        . '</a></span>';
+                }
+            }
+            $GLOBALS['dbi']->freeResult($result);
+        }
+        return $ret;
+    }
 }
 
 ?>
