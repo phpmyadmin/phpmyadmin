@@ -2217,7 +2217,6 @@ function PMA_sendQueryResponse($num_rows, $unlim_num_rows, $is_affected,
  * Function to execute the query and send the response
  * 
  * @param array  $analyzed_sql_results analysed sql results
- * @param string $full_sql_query       full sql query
  * @param bool   $is_gotofile          whether goto file or not
  * @param string $db                   current database
  * @param string $table                current table
@@ -2231,7 +2230,6 @@ function PMA_sendQueryResponse($num_rows, $unlim_num_rows, $is_affected,
  * @param array  $sql_data             sql data
  * @param string $goto                 goto page url
  * @param string $pmaThemeImage        uri of the PMA theme image
- * @param string $sql_limit_to_append  sql limit to append
  * @param string $disp_query           display query
  * @param string $disp_message         display message
  * @param string $query_type           query type
@@ -2244,10 +2242,10 @@ function PMA_sendQueryResponse($num_rows, $unlim_num_rows, $is_affected,
  * 
  * @return void
  */
-function PMA_executeQueryAndSendQueryResponse($analyzed_sql_results, $full_sql_query,
+function PMA_executeQueryAndSendQueryResponse($analyzed_sql_results,
     $is_gotofile, $db, $table, $find_real_end, $import_text, $extra_data,
     $is_affected, $message_to_show, $disp_mode, $message, $sql_data, $goto,
-    $pmaThemeImage, $sql_limit_to_append, $disp_query, $disp_message,
+    $pmaThemeImage, $disp_query, $disp_message,
     $query_type, $sql_query, $selected, $complete_query
 ) {
     // Include PMA_Index class for use in PMA_DisplayResults class
@@ -2261,6 +2259,27 @@ function PMA_executeQueryAndSendQueryResponse($analyzed_sql_results, $full_sql_q
 
     $displayResultsObject->setConfigParamsForDisplayTable();
     
+    // assign default full_sql_query
+    $full_sql_query = $sql_query;
+
+    // Handle remembered sorting order, only for single table query
+    if (PMA_isRememberSortingOrder($analyzed_sql_results)) {
+        PMA_handleSortOrder($db, $table, $analyzed_sql_results, $full_sql_query);
+    }
+
+    // Do append a "LIMIT" clause?
+    if (PMA_isAppendLimitClause($analyzed_sql_results)) {
+        list($sql_limit_to_append,
+            $full_sql_query, $analyzed_display_query, $display_query
+        ) = PMA_appendLimitClause(
+            $full_sql_query, $analyzed_sql_results['analyzed_sql'],
+            isset($display_query)
+        );
+    } else {
+        $sql_limit_to_append = '';
+    }
+
+    $reload = PMA_hasCurrentDbChanged($db);
     
     // Execute the query
     list($result, $num_rows, $unlim_num_rows, $profiling_results,
