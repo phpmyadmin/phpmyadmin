@@ -2,7 +2,7 @@
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 
 /**
- * functions for displaying server export
+ * functions for displaying server, database and table export
  *
  * @usedby  server_export.php and display_export.inc.php
  *  
@@ -29,7 +29,7 @@ function PMA_exportCheckboxCheck($str)
 /**
  * Prints Html For Export Selection Options
  *
- * @param String $tmp_select Tmp seleted method of export
+ * @param String $tmp_select Tmp selected method of export
  *
  * @return string
  */
@@ -398,7 +398,7 @@ function PMA_getHtmlForExportOptionsQuickExport()
  *
  * @return string
  */
-function PMA_getHtmlForExportOptionsOuputSaveDir()
+function PMA_getHtmlForExportOptionsOutputSaveDir()
 {
     global $cfg;
     $html  = '<li>';
@@ -434,7 +434,7 @@ function PMA_getHtmlForExportOptionsOuputSaveDir()
  *
  * @return string
  */
-function PMA_getHtmlForExportOptionsOuputFormat($export_type)
+function PMA_getHtmlForExportOptionsOutputFormat($export_type)
 {
     $html  = '<li>';
     $html .= '<label for="filename_template" class="desc">';
@@ -518,7 +518,7 @@ function PMA_getHtmlForExportOptionsOuputFormat($export_type)
  *
  * @return string
  */
-function PMA_getHtmlForExportOptionsOuputCharset()
+function PMA_getHtmlForExportOptionsOutputCharset()
 {
     global $cfg;
     $html = '        <li><label for="select_charset_of_file" class="desc">'
@@ -548,7 +548,7 @@ function PMA_getHtmlForExportOptionsOuputCharset()
  *
  * @return string
  */
-function PMA_getHtmlForExportOptionsOuputCompression()
+function PMA_getHtmlForExportOptionsOutputCompression()
 {
     global $cfg;
     if (isset($_GET['compression'])) {
@@ -606,7 +606,7 @@ function PMA_getHtmlForExportOptionsOuputCompression()
  *
  * @return string
  */
-function PMA_getHtmlForExportOptionsOuputRadio()
+function PMA_getHtmlForExportOptionsOutputRadio()
 {
     $html  = '<li>';
     $html .= '<input type="radio" id="radio_view_as_text" '
@@ -627,7 +627,7 @@ function PMA_getHtmlForExportOptionsOuputRadio()
  *
  * @return string
  */
-function PMA_getHtmlForExportOptionsOuput($export_type)
+function PMA_getHtmlForExportOptionsOutput($export_type)
 {
     global $cfg;
     $html  = '<div class="exportoptions" id="output">';
@@ -644,22 +644,22 @@ function PMA_getHtmlForExportOptionsOuput($export_type)
         . __('Save output to a file') . '</label>';
     $html .= '<ul id="ul_save_asfile">';
     if (isset($cfg['SaveDir']) && !empty($cfg['SaveDir'])) {
-        $html .= PMA_getHtmlForExportOptionsOuputSaveDir();
+        $html .= PMA_getHtmlForExportOptionsOutputSaveDir();
     }
 
-    $html .= PMA_getHtmlForExportOptionsOuputFormat($export_type);
+    $html .= PMA_getHtmlForExportOptionsOutputFormat($export_type);
   
     // charset of file
     if ($GLOBALS['PMA_recoding_engine'] != PMA_CHARSET_NONE) {
-        $html .= PMA_getHtmlForExportOptionsOuputCharset();
+        $html .= PMA_getHtmlForExportOptionsOutputCharset();
     } // end if
     
-    $html .= PMA_getHtmlForExportOptionsOuputCompression();
+    $html .= PMA_getHtmlForExportOptionsOutputCompression();
  
     $html .= '</ul>';
     $html .= '</li>';
     
-    $html .= PMA_getHtmlForExportOptionsOuputRadio();
+    $html .= PMA_getHtmlForExportOptionsOutputRadio();
 
     $html .= '</ul>';
     $html .= '</div>';
@@ -697,12 +697,9 @@ function PMA_getHtmlForExportOptions(
         $html .= PMA_getHtmlForExportOptionsQuickExport();
     }
 
-    $html .= PMA_getHtmlForExportOptionsOuput($export_type);
+    $html .= PMA_getHtmlForExportOptionsOutput($export_type);
  
     $html .= PMA_getHtmlForExportOptionsFormat($export_list);
     return $html;
 }
 ?>
-            
-            
-            
