@@ -460,17 +460,5 @@ class Node
     {
         return '';
     }
-
-    /**
-     * Return HTML for the dialog that allows unhiding hidden child items
-     *
-     * @param string $type the type of children that should be allowed to unhide
-     *
-     * @return HTML for the unhide dialog
-     */
-    public function getHtmlForUnhideDialog($type = null)
-    {
-        return '';
-    }
 }
 ?>
