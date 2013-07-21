@@ -250,7 +250,7 @@ $(function () {
                         close: function () {
                             $(this).remove();
                         }
-                });
+                    });
             } else {
                 PMA_ajaxShowMessage(data.error);
             }
