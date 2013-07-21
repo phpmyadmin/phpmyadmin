@@ -136,7 +136,7 @@ class PMA_TableSearch_Test extends PHPUnit_Framework_TestCase
      */
     public function testGetSelectionForm()
     {
-    	//$this->_searchType == 'zoom'
+        //$this->_searchType == 'zoom'
         $tableSearch = new PMA_TableSearch("PMA", "PMA_BookMark", "zoom");
         $url_goto = "http://phpmyadmin.net";
         $form = $tableSearch->getSelectionForm($url_goto);
@@ -149,7 +149,7 @@ class PMA_TableSearch_Test extends PHPUnit_Framework_TestCase
             $form
         );
         
-    	//$this->_searchType == 'normal'
+        //$this->_searchType == 'normal'
         $tableSearch = new PMA_TableSearch("PMA", "PMA_BookMark", "normal");
         $url_goto = "http://phpmyadmin.net";
         $form = $tableSearch->getSelectionForm($url_goto);
@@ -162,7 +162,7 @@ class PMA_TableSearch_Test extends PHPUnit_Framework_TestCase
             $form
         );
         
-    	//$this->_searchType == 'replace'
+        //$this->_searchType == 'replace'
         $tableSearch = new PMA_TableSearch("PMA", "PMA_BookMark", "replace");
         $url_goto = "http://phpmyadmin.net";
         $form = $tableSearch->getSelectionForm($url_goto);
@@ -197,7 +197,7 @@ class PMA_TableSearch_Test extends PHPUnit_Framework_TestCase
         $this->assertContains(
             __('Zoom Search'),
             $html
-        ); 	 
+        );      
         $this->assertContains(
             __('Find and Replace'),
             $html
@@ -223,7 +223,31 @@ class PMA_TableSearch_Test extends PHPUnit_Framework_TestCase
             json_encode($data),
             $html
         );
-    	
+        
+    }
+
+    /**
+     * Test for replace
+     *
+     * @return void
+     */
+    public function testReplace()
+    {
+        $tableSearch = new PMA_TableSearch("PMA", "PMA_BookMark", "zoom");
+        $columnIndex = 0;
+        $find = "Field";
+        $replaceWith = "Column";
+        $charSet = "UTF-8";
+        $tableSearch->replace($columnIndex, $find, $replaceWith, $charSet);
+        
+        $sql_query = $GLOBALS['sql_query'];
+        $result = "UPDATE `PMA`.`PMA_BookMark` SET `Field1` = " 
+            . "REPLACE(`Field1`, 'Field', 'Column') " 
+            . "WHERE `Field1` LIKE '%Field%' COLLATE UTF-8_bin";
+        $this->assertEquals(
+            $result,
+            $sql_query
+        );   
     }
 
     /**
@@ -243,7 +267,79 @@ class PMA_TableSearch_Test extends PHPUnit_Framework_TestCase
             __('Replace with:'),
             $html
         );
-    	
+        
+    }
+
+    /**
+     * Test for getReplacePreview
+     *
+     * @return void
+     */
+    public function testGetReplacePreview()
+    {
+
+        $value = array(
+                'value',
+                'replace_value',
+                'count'
+        );
+        
+        $dbi = $GLOBALS['dbi'];
+        
+        $dbi->expects($this->at(3))->method('fetchRow')
+            ->will($this->returnValue($value));
+
+        $dbi->expects($this->at(4))->method('fetchRow')
+            ->will($this->returnValue(false));
+
+        $GLOBALS['dbi'] = $dbi;
+        
+        $tableSearch = new PMA_TableSearch("PMA", "PMA_BookMark", "zoom");
+        $columnIndex = 0;
+        $find = "Field";
+        $replaceWith = "Column";
+        $charSet = "UTF-8";
+        
+        $html = $tableSearch->getReplacePreview(
+            $columnIndex, 
+            $find, 
+            $replaceWith, 
+            $charSet
+        );
+        
+        $this->assertContains(
+            '<form method="post" action="tbl_find_replace.php"',
+            $html
+        );
+        $this->assertContains(
+            '<input type="hidden" name="replace" value="true" />',
+            $html
+        );
+        $this->assertContains(
+            __('Find and replace - preview'),
+            $html
+        );
+        $this->assertContains(
+            __('Original string'),
+            $html
+        );
+        $this->assertContains(
+            __('Replaced string'),
+            $html
+        );
+        
+        $this->assertContains(
+            '<td>value</td>',
+            $html
+        );
+        $this->assertContains(
+            '<td>replace_value</td>',
+            $html
+        );
+        $this->assertContains(
+            '<td class="right">count</td>',
+            $html
+        );       
     }
 }
 ?>
