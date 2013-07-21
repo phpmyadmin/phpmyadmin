@@ -5279,7 +5279,7 @@ class PMA_DisplayResults
 
         // Export link
         // (the url_query has extra parameters that won't be used to export)
-        // (the single_table parameter is used in display_export.lib.php
+        // (the single_table parameter is used in display_export.inc.php
         //  to hide the SQL and the structure export dialogs)
         // If the parser found a PROCEDURE clause
         // (most probably PROCEDURE ANALYSE()) it makes no sense to
