@@ -11,6 +11,7 @@
  */
 require_once 'libraries/common.inc.php';
 require_once 'libraries/mysql_charsets.inc.php';
+require_once 'libraries/sql.lib.php';
 
 if (isset($_REQUEST['submit_mult'])) {
     $submit_mult = $_REQUEST['submit_mult'];
@@ -124,8 +125,16 @@ if (!empty($submit_mult)) {
         unset($submit_mult, $_REQUEST['mult_btn']);
 
         $active_page = 'sql.php';
-        include 'sql.php';
-        break;
+        /**
+         * Parse and analyze the query
+         */
+        require_once 'libraries/parse_analyze.inc.php';
+
+        PMA_executeQueryAndSendQueryResponse(
+            $analyzed_sql_results, false, $db, $table, null, null, null, false, null,
+            null, null, null, $goto, $pmaThemeImage, null, null, null, $sql_query,
+            null, null
+        );
     }
 }
 ?>
