@@ -232,7 +232,7 @@ class Node_Table extends Node
     }
 
     /**
-     * Returns HTML for hide button displayed infront of a node
+     * Returns HTML for hide button displayed infront of the table node
      *
      * @return HTML for hide button
      */

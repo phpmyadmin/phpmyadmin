@@ -179,13 +179,6 @@ $(function () {
         dialog.editorDialog(0, $(this));
     });
 
-    /** Export Routines, Triggers and Events */
-    $('li.procedure a.ajax img, li.function a.ajax img, li.trigger a.ajax img, li.event a.ajax img').live('click', function (event) {
-        event.preventDefault();
-        var dialog = new RTE.object();
-        dialog.exportDialog($(this).parent());
-    });
-
     /** New index */
     $('li.new_index a.ajax').live('click', function (event) {
         event.preventDefault();
@@ -213,7 +206,7 @@ $(function () {
     });
 
     /** Hide navigation tree item */
-    $('.hideNavItem').live('click', function (event) {
+    $('a.hideNavItem.ajax').live('click', function (event) {
         event.preventDefault();
         $.ajax({
             url: $(this).attr('href') + '&ajax_request=true',
@@ -228,7 +221,7 @@ $(function () {
     });
 
     /** Show a dialog to choose navigation items to unhide */
-    $('.showUnhide').live('click', function (event) {
+    $('a.showUnhide.ajax').live('click', function (event) {
         event.preventDefault();
         var $msg = PMA_ajaxShowMessage();
         $.get($(this).attr('href') + '&ajax_request=1', function (data) {
@@ -258,7 +251,7 @@ $(function () {
     });
 
     /** Unhide a hidden navigation tree item */
-    $('.unhideNavItem').live('click', function (event) {
+    $('a.unhideNavItem.ajax').live('click', function (event) {
         event.preventDefault();
         var $tr = $(this).parents('tr');
         var $msg = PMA_ajaxShowMessage();

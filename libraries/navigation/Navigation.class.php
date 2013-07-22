@@ -98,7 +98,7 @@ class PMA_Navigation
             . "'" . PMA_Util::sqlAddSlashes($dbName) . "',"
             . "'" . (! empty($tableName)? PMA_Util::sqlAddSlashes($tableName) : "" )
             . "')";
-        PMA_queryAsControlUser($sqlQuery, true);
+        PMA_queryAsControlUser($sqlQuery, false);
     }
 
     /**
@@ -128,7 +128,7 @@ class PMA_Navigation
                 ? " AND `table_name`='" . PMA_Util::sqlAddSlashes($tableName) . "'"
                 : ""
             );
-        PMA_queryAsControlUser($sqlQuery, true);
+        PMA_queryAsControlUser($sqlQuery, false);
     }
 
     /**
@@ -154,7 +154,7 @@ class PMA_Navigation
             . " AND `db_name`='" . PMA_Util::sqlAddSlashes($dbName) . "'"
             . " AND `table_name`='"
             . (! empty($tableName) ? PMA_Util::sqlAddSlashes($tableName) : '') . "'";
-        $result = PMA_queryAsControlUser($sqlQuery, true);
+        $result = PMA_queryAsControlUser($sqlQuery, false);
 
         $hidden = array();
         if ($result) {
@@ -168,26 +168,36 @@ class PMA_Navigation
         }
         $GLOBALS['dbi']->freeResult($result);
 
+        $typeMap = array(
+            'event' => __('Events:'),
+            'function' => __('Functions:'),
+            'procedure' => __('Procedures:'),
+            'table' => __('Tables:'),
+            'view' => __('Views:'),
+        );
         if (empty($tableName)) {
-            if ((empty($itemType) || $itemType == 'table')
-                && isset($hidden['table'])
-            ) {
-                $html .= '<h4>' . __('Tables:') . '</h4>';
-                $html .= '<table width="100%"><tbody>';
-                $odd = true;
-                foreach ($hidden['table'] as $hiddenTable) {
-                    $html .= '<tr class="' . ($odd ? 'odd' : 'even') . '">';
-                    $html .= '<td>' . $hiddenTable . '</td>';
-                    $html .= '<td><a href="navigation.php?'
-                        . PMA_generate_common_url()
-                        . '&unhideNavItem=true&itemType=table'
-                        . '&itemName=' . urldecode($hiddenTable)
-                        . '&dbName=' . urldecode($dbName) . '"'
-                        . ' class="unhideNavItem ajax">'
-                        . PMA_Util::getIcon('b_undo.png', __('Unhide'))
-                        .  '</a></td>';
+            foreach ($typeMap as $t => $lable) {
+                if ((empty($itemType) || $itemType == $t)
+                    && isset($hidden[$t])
+                ) {
+                    $html .= '<h4>' . $lable . '</h4>';
+                    $html .= '<table width="100%"><tbody>';
+                    $odd = true;
+                    foreach ($hidden[$t] as $hiddenItem) {
+                        $html .= '<tr class="' . ($odd ? 'odd' : 'even') . '">';
+                        $html .= '<td>' . $hiddenItem . '</td>';
+                        $html .= '<td style="width:80px"><a href="navigation.php?'
+                            . PMA_generate_common_url()
+                            . '&unhideNavItem=true'
+                            . '&itemType=' . $t
+                            . '&itemName=' . urldecode($hiddenItem)
+                            . '&dbName=' . urldecode($dbName) . '"'
+                            . ' class="unhideNavItem ajax">'
+                            . PMA_Util::getIcon('b_undo.png', __('Unhide'))
+                            .  '</a></td>';
+                    }
+                    $html .= '</tbody></table>';
                 }
-                $html .= '</tbody></table>';
             }
         }
 

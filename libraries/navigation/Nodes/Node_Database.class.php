@@ -234,10 +234,10 @@ class Node_Database extends Node
         switch ($type) {
         case 'tables':
             if (! $GLOBALS['cfg']['Servers'][$GLOBALS['server']]['DisableIS']) {
-                $db     = PMA_Util::sqlAddSlashes($db);
+                $escdDb = PMA_Util::sqlAddSlashes($db);
                 $query  = "SELECT `TABLE_NAME` AS `name` ";
                 $query .= "FROM `INFORMATION_SCHEMA`.`TABLES` ";
-                $query .= "WHERE `TABLE_SCHEMA`='$db' ";
+                $query .= "WHERE `TABLE_SCHEMA`='$escdDb' ";
                 $query .= "AND `TABLE_TYPE`='BASE TABLE' ";
                 if (! empty($searchClause)) {
                     $query .= "AND `TABLE_NAME` LIKE '%";
@@ -277,10 +277,10 @@ class Node_Database extends Node
             break;
         case 'views':
             if (! $GLOBALS['cfg']['Servers'][$GLOBALS['server']]['DisableIS']) {
-                $db     = PMA_Util::sqlAddSlashes($db);
+                $escdDb = PMA_Util::sqlAddSlashes($db);
                 $query  = "SELECT `TABLE_NAME` AS `name` ";
                 $query .= "FROM `INFORMATION_SCHEMA`.`TABLES` ";
-                $query .= "WHERE `TABLE_SCHEMA`='$db' ";
+                $query .= "WHERE `TABLE_SCHEMA`='$escdDb' ";
                 $query .= "AND `TABLE_TYPE`!='BASE TABLE' ";
                 if (! empty($searchClause)) {
                     $query .= "AND `TABLE_NAME` LIKE '%";
@@ -320,10 +320,10 @@ class Node_Database extends Node
             break;
         case 'procedures':
             if (! $GLOBALS['cfg']['Servers'][$GLOBALS['server']]['DisableIS']) {
-                $db     = PMA_Util::sqlAddSlashes($db);
+                $escdDb = PMA_Util::sqlAddSlashes($db);
                 $query  = "SELECT `ROUTINE_NAME` AS `name` ";
                 $query .= "FROM `INFORMATION_SCHEMA`.`ROUTINES` ";
-                $query .= "WHERE `ROUTINE_SCHEMA`='$db'";
+                $query .= "WHERE `ROUTINE_SCHEMA`='$escdDb'";
                 $query .= "AND `ROUTINE_TYPE`='PROCEDURE' ";
                 if (! empty($searchClause)) {
                     $query .= "AND `ROUTINE_NAME` LIKE '%";
@@ -336,8 +336,8 @@ class Node_Database extends Node
                 $query .= "LIMIT " . intval($pos) . ", $maxItems";
                 $retval = $GLOBALS['dbi']->fetchResult($query);
             } else {
-                $db    = PMA_Util::sqlAddSlashes($db);
-                $query = "SHOW PROCEDURE STATUS WHERE `Db`='$db' ";
+                $escdDb = PMA_Util::sqlAddSlashes($db);
+                $query  = "SHOW PROCEDURE STATUS WHERE `Db`='$escdDb' ";
                 if (! empty($searchClause)) {
                     $query .= "AND `Name` LIKE '%";
                     $query .= PMA_Util::sqlAddSlashes(
@@ -360,10 +360,10 @@ class Node_Database extends Node
             break;
         case 'functions':
             if (! $GLOBALS['cfg']['Servers'][$GLOBALS['server']]['DisableIS']) {
-                $db     = PMA_Util::sqlAddSlashes($db);
+                $escdDb = PMA_Util::sqlAddSlashes($db);
                 $query  = "SELECT `ROUTINE_NAME` AS `name` ";
                 $query .= "FROM `INFORMATION_SCHEMA`.`ROUTINES` ";
-                $query .= "WHERE `ROUTINE_SCHEMA`='$db' ";
+                $query .= "WHERE `ROUTINE_SCHEMA`='$escdDb' ";
                 $query .= "AND `ROUTINE_TYPE`='FUNCTION' ";
                 if (! empty($searchClause)) {
                     $query .= "AND `ROUTINE_NAME` LIKE '%";
@@ -376,8 +376,8 @@ class Node_Database extends Node
                 $query .= "LIMIT " . intval($pos) . ", $maxItems";
                 $retval = $GLOBALS['dbi']->fetchResult($query);
             } else {
-                $db    = PMA_Util::sqlAddSlashes($db);
-                $query = "SHOW FUNCTION STATUS WHERE `Db`='$db' ";
+                $escdDb = PMA_Util::sqlAddSlashes($db);
+                $query  = "SHOW FUNCTION STATUS WHERE `Db`='$escdDb' ";
                 if (! empty($searchClause)) {
                     $query .= "AND `Name` LIKE '%";
                     $query .= PMA_Util::sqlAddSlashes(
@@ -400,10 +400,10 @@ class Node_Database extends Node
             break;
         case 'events':
             if (! $GLOBALS['cfg']['Servers'][$GLOBALS['server']]['DisableIS']) {
-                $db     = PMA_Util::sqlAddSlashes($db);
+                $escdDb = PMA_Util::sqlAddSlashes($db);
                 $query  = "SELECT `EVENT_NAME` AS `name` ";
                 $query .= "FROM `INFORMATION_SCHEMA`.`EVENTS` ";
-                $query .= "WHERE `EVENT_SCHEMA`='$db' ";
+                $query .= "WHERE `EVENT_SCHEMA`='$escdDb' ";
                 if (! empty($searchClause)) {
                     $query .= "AND `EVENT_NAME` LIKE '%";
                     $query .= PMA_Util::sqlAddSlashes(
@@ -415,8 +415,8 @@ class Node_Database extends Node
                 $query .= "LIMIT " . intval($pos) . ", $maxItems";
                 $retval = $GLOBALS['dbi']->fetchResult($query);
             } else {
-                $db    = PMA_Util::backquote($db);
-                $query = "SHOW EVENTS FROM $db ";
+                $escdDb = PMA_Util::backquote($db);
+                $query  = "SHOW EVENTS FROM $escdDb ";
                 if (! empty($searchClause)) {
                     $query .= "WHERE `Name` LIKE '%";
                     $query .= PMA_Util::sqlAddSlashes(
