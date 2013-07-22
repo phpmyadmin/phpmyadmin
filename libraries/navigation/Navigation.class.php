@@ -176,11 +176,13 @@ class PMA_Navigation
             'view' => __('Views:'),
         );
         if (empty($tableName)) {
+            $first = true;
             foreach ($typeMap as $t => $lable) {
                 if ((empty($itemType) || $itemType == $t)
                     && isset($hidden[$t])
                 ) {
-                    $html .= '<h4>' . $lable . '</h4>';
+                    $html .= (! $first ? '<br/>' : '')
+                        . '<strong>' . $lable . '</strong>';
                     $html .= '<table width="100%"><tbody>';
                     $odd = true;
                     foreach ($hidden[$t] as $hiddenItem) {
@@ -195,8 +197,10 @@ class PMA_Navigation
                             . ' class="unhideNavItem ajax">'
                             . PMA_Util::getIcon('b_undo.png', __('Unhide'))
                             .  '</a></td>';
+                        $odd = ! $odd;
                     }
                     $html .= '</tbody></table>';
+                    $first = false;
                 }
             }
         }
