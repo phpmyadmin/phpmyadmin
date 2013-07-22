@@ -361,9 +361,7 @@ AJAX.registerOnload('sql.js', function () {
 /**
  * Ajax Event for table row change
  * */
-    $("#resultsForm.ajax .mult_submit[value=edit]," +
-            "#resultsForm.ajax .mult_submit[value=delete],"  +
-            "#resultsForm.ajax .mult_submit[value=export]").live('click', function (event) {
+    $("#resultsForm.ajax .mult_submit[value=edit]").live('click', function (event) {
         event.preventDefault();
 
         /*Check whether atleast one row is selected for change*/
@@ -428,6 +426,17 @@ AJAX.registerOnload('sql.js', function () {
         }
     });
 
+    /**
+     * Checks whether atleast one row is selected for slected row editing and export
+     */
+    $("#resultsForm.ajax .mult_submit[value=delete]," +
+            "#resultsForm.ajax .mult_submit[value=export]").live('click', function (event) {
+        /*Check whether atleast one row is selected for change*/
+        if (!$("#table_results tbody tr, #table_results tbody tr td").hasClass("marked")) {
+            event.preventDefault();
+            PMA_ajaxShowMessage(PMA_messages.strNoRowSelected);
+        }
+    });
 /**
  * Click action for "Go" button in ajax dialog insertForm -> insertRowTable
  */
