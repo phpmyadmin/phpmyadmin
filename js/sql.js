@@ -364,7 +364,7 @@ AJAX.registerOnload('sql.js', function () {
     $("#resultsForm.ajax .mult_submit[value=edit]").live('click', function (event) {
         event.preventDefault();
 
-        /*Check whether atleast one row is selected for change*/
+        /*Check whether at least one row is selected*/
         if ($("#table_results tbody tr, #table_results tbody tr td").hasClass("marked")) {
             var $div = $('<div id="change_row_dialog"></div>');
 
@@ -427,11 +427,11 @@ AJAX.registerOnload('sql.js', function () {
     });
 
     /**
-     * Checks whether atleast one row is selected for selcted row editing and export
+     * Checks whether at least one row is selected for deletion or export
      */
     $("#resultsForm.ajax .mult_submit[value=delete]," +
             "#resultsForm.ajax .mult_submit[value=export]").live('click', function (event) {
-        /*Check whether atleast one row is selected for change*/
+        /*Check whether at least one row is selected*/
         if (!$("#table_results tbody tr, #table_results tbody tr td").hasClass("marked")) {
             event.preventDefault();
             PMA_ajaxShowMessage(PMA_messages.strNoRowSelected);
