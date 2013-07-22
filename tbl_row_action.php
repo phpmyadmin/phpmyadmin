@@ -12,18 +12,6 @@
 require_once 'libraries/common.inc.php';
 require_once 'libraries/mysql_charsets.inc.php';
 
-/**
- * No rows were selected => show again the query and tell that user.
- */
-if (! PMA_isValid($_REQUEST['rows_to_delete'], 'array')
-    && ! isset($_REQUEST['mult_btn'])
-) {
-    $disp_message = __('No rows selected');
-    $disp_query = '';
-    include 'sql.php';
-    exit;
-}
-
 if (isset($_REQUEST['submit_mult'])) {
     $submit_mult = $_REQUEST['submit_mult'];
     // workaround for IE problem:

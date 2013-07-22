@@ -361,7 +361,9 @@ AJAX.registerOnload('sql.js', function () {
 /**
  * Ajax Event for table row change
  * */
-    $("#resultsForm.ajax .mult_submit[value=edit]").live('click', function (event) {
+    $("#resultsForm.ajax .mult_submit[value=edit]," +
+            "#resultsForm.ajax .mult_submit[value=delete],"  +
+            "#resultsForm.ajax .mult_submit[value=export]").live('click', function (event) {
         event.preventDefault();
 
         /*Check whether atleast one row is selected for change*/
