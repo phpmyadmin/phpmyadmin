@@ -120,10 +120,6 @@ if (!empty($submit_mult)) {
             $url_query = $original_url_query;
         }
 
-        // this is because sql.php could call tbl_structure
-        // which would think it needs to call mult_submits.inc.php:
-        unset($submit_mult, $_REQUEST['mult_btn']);
-
         $active_page = 'sql.php';
         /**
          * Parse and analyze the query
