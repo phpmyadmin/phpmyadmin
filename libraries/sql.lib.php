@@ -1028,6 +1028,9 @@ function PMA_addBookmark($pmaAbsoluteUri, $goto)
         exit;
     } else {
         // go back to sql.php to redisplay query; do not use &amp; in this case:
+        /**
+         * @todo In which scenario does this happen? 
+         */
         PMA_sendHeaderLocation(
             $pmaAbsoluteUri . $goto
             . '&label=' . $_POST['bkm_fields']['bkm_label']
@@ -2013,6 +2016,7 @@ function PMA_sendQueryResponseForResultsReturned($result, $justBrowsing,
     // value of a transformed field, show it here
     if (isset($_REQUEST['grid_edit']) && $_REQUEST['grid_edit'] == true) {
         PMA_sendResponseForGridEdit($result);
+        // script has exited at this point
     }
 
     // Gets the list of fields properties
