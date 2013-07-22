@@ -427,7 +427,7 @@ AJAX.registerOnload('sql.js', function () {
     });
 
     /**
-     * Checks whether atleast one row is selected for slected row editing and export
+     * Checks whether atleast one row is selected for selcted row editing and export
      */
     $("#resultsForm.ajax .mult_submit[value=delete]," +
             "#resultsForm.ajax .mult_submit[value=export]").live('click', function (event) {
