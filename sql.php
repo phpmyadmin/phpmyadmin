@@ -24,8 +24,6 @@ $header   = $response->getHeader();
 $scripts  = $header->getScripts();
 $scripts->addFile('jquery/jquery-ui-timepicker-addon.js');
 $scripts->addFile('tbl_change.js');
-// the next one needed because sql.php may do a "goto" to tbl_structure.php
-$scripts->addFile('tbl_structure.js');
 $scripts->addFile('indexes.js');
 $scripts->addFile('gis_data_editor.js');
 
