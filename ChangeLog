@@ -12,6 +12,7 @@ phpMyAdmin - ChangeLog
 + [security] Fix full path disclosure, see PMASA-2013-12
 + [security] Fix control user SQL injection in pmd_pdf.php, see PMASA-2013-15
 + [security] Fix control user SQL injection in schema_export.php, see PMASA-2013-15
+- [security] Fix self-XSS in schema export, see PMASA-2013-14
 
 3.5.8.1 (2013-04-24)
 - [security] Remote code execution (preg_replace), reported by Janek Vind
