@@ -366,6 +366,7 @@ $js_messages['strMore'] = __('More');
 /* navigation panel */
 $js_messages['strShowPanel'] = __('Show Panel');
 $js_messages['strHidePanel'] = __('Hide Panel');
+$js_messages['strUnhideNavItem'] = __('Unhide navigation tree items');
 
 /* microhistory */
 $js_messages['strInvalidPage'] = __('The requested page was not found in the history, it may have expired.');

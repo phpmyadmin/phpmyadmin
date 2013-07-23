@@ -180,7 +180,10 @@ $(function () {
     });
 
     /** Export Routines, Triggers and Events */
-    $('li.procedure a.ajax img, li.function a.ajax img, li.trigger a.ajax img, li.event a.ajax img').live('click', function (event) {
+    $('li.procedure div:eq(1) a.ajax img,'
+        + ' li.function div:eq(1) a.ajax img,'
+        + ' li.trigger div:eq(1) a.ajax img,'
+        + ' li.event div:eq(1) a.ajax img').live('click', function (event) {
         event.preventDefault();
         var dialog = new RTE.object();
         dialog.exportDialog($(this).parent());
@@ -210,6 +213,70 @@ $(function () {
     $('li.new_view a.ajax').live('click', function (event) {
         event.preventDefault();
         PMA_createViewDialog($(this));
+    });
+
+    /** Hide navigation tree item */
+    $('a.hideNavItem.ajax').live('click', function (event) {
+        event.preventDefault();
+        $.ajax({
+            url: $(this).attr('href') + '&ajax_request=true',
+            success: function(data) {
+                if (data.success === true) {
+                    PMA_reloadNavigation();
+                } else {
+                    PMA_ajaxShowMessage(data.error);
+                }
+            }
+        });
+    });
+
+    /** Show a dialog to choose navigation items to unhide */
+    $('a.showUnhide.ajax').live('click', function (event) {
+        event.preventDefault();
+        var $msg = PMA_ajaxShowMessage();
+        $.get($(this).attr('href') + '&ajax_request=1', function (data) {
+            if (data.success === true) {
+                PMA_ajaxRemoveMessage($msg);
+                var buttonOptions = {};
+                buttonOptions[PMA_messages.strClose] = function () {
+                    $(this).dialog("close");
+                };
+                var $dialog = $('<div/>')
+                    .attr('id', 'unhideNavItemDialog')
+                    .append(data.message)
+                    .dialog({
+                        width: 400,
+                        minWidth: 200,
+                        modal: true,
+                        buttons: buttonOptions,
+                        title: PMA_messages.strUnhideNavItem,
+                        close: function () {
+                            $(this).remove();
+                        }
+                    });
+            } else {
+                PMA_ajaxShowMessage(data.error);
+            }
+        });
+    });
+
+    /** Unhide a hidden navigation tree item */
+    $('a.unhideNavItem.ajax').live('click', function (event) {
+        event.preventDefault();
+        var $tr = $(this).parents('tr');
+        var $msg = PMA_ajaxShowMessage();
+        $.ajax({
+            url: $(this).attr('href') + '&ajax_request=true',
+            success: function(data) {
+                PMA_ajaxRemoveMessage($msg);
+                if (data.success === true) {
+                    $tr.remove();
+                    PMA_reloadNavigation();
+                } else {
+                    PMA_ajaxShowMessage(data.error);
+                }
+            }
+        });
     });
 });
 
