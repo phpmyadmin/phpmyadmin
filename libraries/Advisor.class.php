@@ -300,11 +300,14 @@ class Advisor
      */
     private function _ruleExprEvaluateVariable($matches)
     {
-        return isset($this->variables[$matches[1]])
-            ? (is_numeric($this->variables[$matches[1]])
-                ? $this->variables[$matches[1]]
-                : '"'.$this->variables[$matches[1]].'"')
-            : $matches[1];
+        if (! isset($this->variables[$matches[1]])) {
+            return $matches[1];
+        }
+        if (is_numeric($this->variables[$matches[1]])) {
+            return $this->variables[$matches[1]];
+        } else {
+            return '\'' . addslashes($this->variables[$matches[1]]) . '\'';
+        }
     }
 
     /**
