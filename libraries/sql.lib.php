@@ -15,7 +15,7 @@ if (!defined('PHPMYADMIN')) {
  * @param string $sql       SQL query
  * @param array  $databases array with all databases
  *
- * @return strin $db new database name
+ * @return string $db new database name
  */
 function PMA_getNewDatabase($sql, $databases)
 {

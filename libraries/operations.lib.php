@@ -428,7 +428,7 @@ function PMA_getSqlConstraintsQueryForFullDb(
  *
  * @param array  $tables_full       array of all tables in given db or dbs
  * @param object $export_sql_plugin export plugin instance
- * @param strin  $db                database name
+ * @param string $db                database name
  *
  * @return array $views
  */

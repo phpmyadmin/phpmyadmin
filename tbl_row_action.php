@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * handle row specifc actions like edit, delete, export
+ * handle row specific actions like edit, delete, export
  *
  * @package PhpMyAdmin
  */
