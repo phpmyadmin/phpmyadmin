@@ -1,8 +1,8 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Displays table structure infos like fields/columns, indexes, size, rows
- * and allows manipulation of indexes and columns/fields
+ * Displays table structure infos like columns, indexes, size, rows
+ * and allows manipulation of indexes and columns
  *
  * @package PhpMyAdmin
  */
@@ -93,7 +93,7 @@ if (! empty($submit_mult)) {
     if (isset($_REQUEST['selected_fld'])) {
         $err_url = 'tbl_structure.php?' . PMA_generate_common_url($db, $table);
         if ($submit_mult == 'browse') {
-            // browsing the table displaying only selected fields/columns
+            // browsing the table displaying only selected columns
             $GLOBALS['active_page'] = 'sql.php';
             $sql_query = '';
             foreach ($_REQUEST['selected_fld'] as $idx => $sval) {
@@ -116,7 +116,7 @@ if (! empty($submit_mult)) {
             );
         } else {
             // handle multiple field commands
-            // handle confirmation of deleting multiple fields/columns
+            // handle confirmation of deleting multiple columns
             $action = 'tbl_structure.php';
             include 'libraries/mult_submits.inc.php';
             /**
