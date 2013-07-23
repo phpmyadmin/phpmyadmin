@@ -235,7 +235,8 @@ class PMA_Export_Relation_Schema
         echo '    ' . $error_message . "\n";
         echo '</p>' . "\n";
         echo '<a href="schema_edit.php?' . PMA_generate_common_url($db)
-            . '&do=selectpage&chpage=' . $pageNumber . '&action_choose=0'
+            . '&do=selectpage&chpage=' . htmlspecialchars($pageNumber)
+            . '&action_choose=0'
             . '">' . __('Back') . '</a>';
         echo "\n";
         exit;
