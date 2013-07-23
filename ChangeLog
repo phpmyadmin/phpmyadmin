@@ -7,6 +7,7 @@ phpMyAdmin - ChangeLog
 - [security] Fix self-XSS in setup, trusted proxies validation, see PMASA-2013-9
 - [security] Fix full path disclosure, see PMASA-2013-12
 - [security] Fix control user SQL injection in pmd_pdf.php, see PMASA-2013-15
+- [security] Fix control user SQL injection in schema_export.php, see PMASA-2013-15
 
 4.0.4.1 (2013-06-30)
 - [security] Global variables scope injection vulnerability (see PMASA-2013-7)
