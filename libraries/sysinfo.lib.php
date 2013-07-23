@@ -176,12 +176,13 @@ class PMA_SysInfoWinnt extends PMA_SysInfo
             }
             $arrInstance = array();
             foreach ($arrProp as $propItem) {
+                $name = $propItem->Name;
                 if ( empty($strValue)) {
-                    eval("\$value = \$objItem->" . $propItem->Name . ";");
+                    $value = $objItem->$name;
                     $arrInstance[$propItem->Name] = trim($value);
                 } else {
                     if (in_array($propItem->Name, $strValue)) {
-                        eval("\$value = \$objItem->" . $propItem->Name . ";");
+                        $value = $objItem->$name;
                         $arrInstance[$propItem->Name] = trim($value);
                     }
                 }
