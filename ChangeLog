@@ -10,6 +10,7 @@ phpMyAdmin - ChangeLog
 + [security] JSON content type header for version_check.php, see PMASA-2013-9
 + [security] Backport fix for jQuery issue #9521 from jQuery 1.6.3, see PMASA-2013-9
 + [security] Fix full path disclosure, see PMASA-2013-12
++ [security] Fix control user SQL injection in pmd_pdf.php, see PMASA-2013-15
 
 3.5.8.1 (2013-04-24)
 - [security] Remote code execution (preg_replace), reported by Janek Vind

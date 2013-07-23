@@ -8,6 +8,13 @@
 require_once './libraries/pmd_common.php';
 
 /**
+ * Validate vulnerable POST parameters
+ */
+if (isset($_POST['scale']) && ! PMA_isValid($_POST['scale'], 'numeric')) {
+    die('Attack stopped');
+}
+
+/**
  * If called directly from the designer, first save the positions
  */
 if (! isset($scale)) {
