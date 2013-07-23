@@ -2253,7 +2253,7 @@ function PMA_executeQueryAndSendQueryResponse($analyzed_sql_results,
     $query_type, $sql_query, $selected, $complete_query
 ) {
     // Include PMA_Index class for use in PMA_DisplayResults class
-    include './libraries/Index.class.php';
+    include_once './libraries/Index.class.php';
 
     include 'libraries/DisplayResults.class.php';
 
