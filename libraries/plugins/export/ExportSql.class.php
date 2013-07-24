@@ -453,7 +453,8 @@ class ExportSql extends ExportPlugin
         $text = '';
         $delimiter = '$$';
 
-        $procedure_names = $GLOBALS['dbi']->getProceduresOrFunctions($db, 'PROCEDURE');
+        $procedure_names = $GLOBALS['dbi']
+            ->getProceduresOrFunctions($db, 'PROCEDURE');
         $function_names = $GLOBALS['dbi']->getProceduresOrFunctions($db, 'FUNCTION');
 
         if ($procedure_names || $function_names) {
@@ -473,7 +474,8 @@ class ExportSql extends ExportPlugin
                         . PMA_Util::backquote($procedure_name)
                         . $delimiter . $crlf;
                 }
-                $text .= $GLOBALS['dbi']->getDefinition($db, 'PROCEDURE', $procedure_name)
+                $text .= $GLOBALS['dbi']
+                    ->getDefinition($db, 'PROCEDURE', $procedure_name)
                     . $delimiter . $crlf . $crlf;
             }
         }
@@ -490,7 +492,8 @@ class ExportSql extends ExportPlugin
                         . PMA_Util::backquote($function_name)
                         . $delimiter . $crlf;
                 }
-                $text .= $GLOBALS['dbi']->getDefinition($db, 'FUNCTION', $function_name)
+                $text .= $GLOBALS['dbi']
+                    ->getDefinition($db, 'FUNCTION', $function_name)
                     . $delimiter . $crlf . $crlf;
             }
         }
@@ -657,7 +660,8 @@ class ExportSql extends ExportPlugin
         /* Change timezone if we should export timestamps in UTC */
         if (isset($GLOBALS['sql_utc_time']) && $GLOBALS['sql_utc_time']) {
             $head .= 'SET time_zone = "+00:00";' . $crlf;
-            $GLOBALS['old_tz'] = $GLOBALS['dbi']->fetchValue('SELECT @@session.time_zone');
+            $GLOBALS['old_tz'] = $GLOBALS['dbi']
+                ->fetchValue('SELECT @@session.time_zone');
             $GLOBALS['dbi']->query('SET time_zone = "+00:00"');
         }
 
@@ -828,7 +832,8 @@ class ExportSql extends ExportPlugin
                             . PMA_Util::backquote($event_name)
                             . $delimiter . $crlf;
                     }
-                    $text .= $GLOBALS['dbi']->getDefinition($db, 'EVENT', $event_name)
+                    $text .= $GLOBALS['dbi']
+                        ->getDefinition($db, 'EVENT', $event_name)
                         . $delimiter . $crlf . $crlf;
                 }
 
@@ -915,7 +920,7 @@ class ExportSql extends ExportPlugin
             $compat = 'NONE';
         }
 
-        // need to use PMA_DatabaseInterface::QUERY_STORE 
+        // need to use PMA_DatabaseInterface::QUERY_STORE
         // with $GLOBALS['dbi']->numRows() in mysqli
         $result = $GLOBALS['dbi']->query(
             'SHOW TABLE STATUS FROM ' . PMA_Util::backquote($db)
@@ -937,7 +942,9 @@ class ExportSql extends ExportPlugin
                         . PMA_Util::sqlAddSlashes($db) . "'
                           AND TABLE_NAME = '"
                         . PMA_Util::sqlAddSlashes($table) . "'";
-                    $tmpres = array_merge($GLOBALS['dbi']->fetchSingleRow($sql), $tmpres);
+                    $tmpres = array_merge(
+                        $GLOBALS['dbi']->fetchSingleRow($sql), $tmpres
+                    );
                 }
                 // Here we optionally add the AUTO_INCREMENT next value,
                 // but starting with MySQL 5.0.24, the clause is already included
