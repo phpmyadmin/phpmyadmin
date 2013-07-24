@@ -10,6 +10,8 @@
  * Get the variables sent or posted to this script and a core script
  */
 require_once 'libraries/common.inc.php';
+require_once 'libraries/sql.lib.php';
+require_once 'libraries/bookmark.lib.php';
 //require_once 'libraries/display_import_functions.lib.php';
 
 if (isset($_REQUEST['show_as_php'])) {
@@ -602,7 +604,14 @@ if (isset($my_die)) {
 }
 
 if ($go_sql) {
-    include 'sql.php';
+    // parse sql query
+    require_once 'libraries/parse_analyze.inc.php';
+    
+    PMA_executeQueryAndSendQueryResponse(
+        $analyzed_sql_results, false, $db, $table, null, null, null, false, null,
+        null, null, null, $goto, $pmaThemeImage, null, null, null, $sql_query,
+        null, null
+    );
 } else {
     $active_page = $goto;
     include '' . $goto;
