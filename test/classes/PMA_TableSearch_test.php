@@ -341,5 +341,93 @@ class PMA_TableSearch_Test extends PHPUnit_Framework_TestCase
             $html
         );       
     }
+
+    /**
+     * Test for buildSqlQuery
+     *
+     * @return void
+     */
+    public function testBuildSqlQueryw()
+    {
+        $_POST['distinct'] = true;
+        $_POST['zoom_submit'] = true;
+        $_POST['table'] = "PMA";
+        $_POST['orderByColumn'] = "name";
+        $_POST['order'] = "asc";
+        $_POST['customWhereClause'] = "name='pma'";
+        
+        $tableSearch = new PMA_TableSearch("PMA", "PMA_BookMark", "zoom");
+        
+        $sql = $tableSearch->buildSqlQuery();
+        $result = "SELECT DISTINCT *  FROM `PMA` WHERE name='pma' ORDER BY `name` asc";
+        $this->assertEquals(
+            $result,
+            $sql
+        );
+        
+        unset($_POST['customWhereClause']);
+        $sql = $tableSearch->buildSqlQuery();
+        $result = "SELECT DISTINCT *  FROM `PMA` ORDER BY `name` asc";
+        $this->assertEquals(
+            $result,
+            $sql
+        );
+         
+        $_POST['criteriaValues'] = array(
+            'value1',
+            'value2',
+            'value3',
+            'value4',
+            'value5',
+            'value6',
+            'value7,value8'
+        );
+        $_POST['criteriaColumnNames'] = array(
+            'name',
+            'id',
+            'index',
+            'index2',
+            'index3',
+            'index4',
+            'index5',
+        );
+        $_POST['criteriaColumnTypes'] = array(
+            'varchar',
+            'int',
+            'enum',
+            'type1',
+            'type2',
+            'type3',
+            'type4'
+        );
+        $_POST['criteriaColumnCollations'] = array(
+            "char1",
+            "char2",
+            "char3",
+            "char4",
+            "char5",
+            "char6",
+            "char7",
+        );
+        $_POST['criteriaColumnOperators'] = array(
+            "!=", 
+            ">", 
+            "IS NULL", 
+            "LIKE %...%",
+            "REGEXP ^...$", 
+            "IN (...)",
+            "BETWEEN" 
+        );
+
+        $sql = $tableSearch->buildSqlQuery();
+        $result = "SELECT DISTINCT *  FROM `PMA` WHERE `name` != 'value1' AND `id` > value2 " 
+            . "AND `index` IS NULL AND `index2` LIKE '%value4%' AND `index3` REGEXP ^value5$ " 
+            . "AND `index4` IN (value6) AND `index5` BETWEEN value7 " 
+            . "AND value8 ORDER BY `name` asc";
+        $this->assertEquals(
+            $result,
+            $sql
+        );
+    }
 }
 ?>
