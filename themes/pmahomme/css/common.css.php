@@ -2754,3 +2754,9 @@ body .ui-widget {
     color: #235A81;
 }
 
+/* over-riding jqplot-yaxis class */
+.jqplot-yaxis {
+    left:0px !important;
+    min-width:25px;
+    width:auto;
+}
