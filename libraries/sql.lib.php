@@ -15,7 +15,7 @@ if (!defined('PHPMYADMIN')) {
  * @param string $sql       SQL query
  * @param array  $databases array with all databases
  *
- * @return strin $db new database name
+ * @return string $db new database name
  */
 function PMA_getNewDatabase($sql, $databases)
 {
@@ -1028,6 +1028,9 @@ function PMA_addBookmark($pmaAbsoluteUri, $goto)
         exit;
     } else {
         // go back to sql.php to redisplay query; do not use &amp; in this case:
+        /**
+         * @todo In which scenario does this happen? 
+         */
         PMA_sendHeaderLocation(
             $pmaAbsoluteUri . $goto
             . '&label=' . $_POST['bkm_fields']['bkm_label']
@@ -2013,6 +2016,7 @@ function PMA_sendQueryResponseForResultsReturned($result, $justBrowsing,
     // value of a transformed field, show it here
     if (isset($_REQUEST['grid_edit']) && $_REQUEST['grid_edit'] == true) {
         PMA_sendResponseForGridEdit($result);
+        // script has exited at this point
     }
 
     // Gets the list of fields properties
@@ -2249,7 +2253,7 @@ function PMA_executeQueryAndSendQueryResponse($analyzed_sql_results,
     $query_type, $sql_query, $selected, $complete_query
 ) {
     // Include PMA_Index class for use in PMA_DisplayResults class
-    include './libraries/Index.class.php';
+    include_once './libraries/Index.class.php';
 
     include 'libraries/DisplayResults.class.php';
 
