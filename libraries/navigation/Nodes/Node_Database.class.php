@@ -445,7 +445,7 @@ class Node_Database extends Node
         $cfgRelation = PMA_getRelationsParam();
         if ($cfgRelation['navwork']) {
             $navTable = PMA_Util::backquote($cfgRelation['db'])
-                . "." . PMA_Util::backquote($cfgRelation['navigation']);
+                . "." . PMA_Util::backquote($cfgRelation['navigationhiding']);
             $sqlQuery = "SELECT `item_name` FROM " . $navTable
                 . " WHERE `username`='" . $cfgRelation['user'] . "'"
                 . " AND `item_type`='" . substr($type, 0, -1) . "'"
@@ -493,7 +493,7 @@ class Node_Database extends Node
         $cfgRelation = PMA_getRelationsParam();
         if ($cfgRelation['navwork']) {
             $navTable = PMA_Util::backquote($cfgRelation['db'])
-                . "." . PMA_Util::backquote($cfgRelation['navigation']);
+                . "." . PMA_Util::backquote($cfgRelation['navigationhiding']);
             $sqlQuery = "SELECT COUNT(*) FROM " . $navTable
                 . " WHERE `username`='"
                 . PMA_Util::sqlAddSlashes($GLOBALS['cfg']['Server']['user']) ."'"

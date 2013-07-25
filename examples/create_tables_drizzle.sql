@@ -292,10 +292,10 @@ CREATE TABLE IF NOT EXISTS `pma__usergroups` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pma__navigation`
+-- Table structure for table `pma__navigationhiding`
 --
 
-CREATE TABLE IF NOT EXISTS `pma__navigation` (
+CREATE TABLE IF NOT EXISTS `pma__navigationhiding` (
   `username` varchar(64) NOT NULL,
   `item_name` varchar(64) NOT NULL,
   `item_type` varchar(64) NOT NULL,

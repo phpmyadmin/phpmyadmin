@@ -266,10 +266,10 @@ function PMA_getRelationsParamDiagnostic($cfgRelation)
             $messages
         );
         $retval .= PMA_getDiagMessageForParameter(
-            'navigation',
-            isset($cfgRelation['navigation']),
+            'navigationhiding',
+            isset($cfgRelation['navigationhiding']),
             $messages,
-            'navigation'
+            'navigationhiding'
         );
         $retval .= PMA_getDiagMessageForFeature(
             __('Hide/show navigation items'),
@@ -457,8 +457,8 @@ function PMA_checkRelationsParam()
             $cfgRelation['users']           = $curr_table[0];
         } elseif ($curr_table[0] == $GLOBALS['cfg']['Server']['usergroups']) {
             $cfgRelation['usergroups']      = $curr_table[0];
-        } elseif ($curr_table[0] == $GLOBALS['cfg']['Server']['navigation']) {
-            $cfgRelation['navigation']      = $curr_table[0];
+        } elseif ($curr_table[0] == $GLOBALS['cfg']['Server']['navigationhiding']) {
+            $cfgRelation['navigationhiding']      = $curr_table[0];
         }
     } // end while
     $GLOBALS['dbi']->freeResult($tab_rs);
@@ -513,7 +513,7 @@ function PMA_checkRelationsParam()
         $cfgRelation['menuswork']        = true;
     }
 
-    if (isset($cfgRelation['navigation'])) {
+    if (isset($cfgRelation['navigationhiding'])) {
         $cfgRelation['navwork']          = true;
     }
 

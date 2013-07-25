@@ -673,8 +673,8 @@ Server connection settings
       :config:option:`$cfg['Servers'][$i]['users']` (e.g. ``pma__users``) and
       :config:option:`$cfg['Servers'][$i]['usergroups']` (e.g. ``pma__usergroups``)
 
-.. _navigation:
-.. config:option:: $cfg['Servers'][$i]['navigation']
+.. _navigationhiding:
+.. config:option:: $cfg['Servers'][$i]['navigationhiding']
 
     :type: string
     :default: ``''``
@@ -684,8 +684,8 @@ Server connection settings
     To allow the usage of this functionality:
 
     * set up :config:option:`$cfg['Servers'][$i]['pmadb']` and the phpMyAdmin configuration storage
-    * put the table name in :config:option:`$cfg['Servers'][$i]['navigation']` (e.g.
-      ``pma__navigation``)
+    * put the table name in :config:option:`$cfg['Servers'][$i]['navigationhiding']` (e.g.
+      ``pma__navigationhiding``)
 
 .. _tracking:
 .. config:option:: $cfg['Servers'][$i]['tracking']

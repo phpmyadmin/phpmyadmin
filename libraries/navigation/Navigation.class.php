@@ -88,7 +88,7 @@ class PMA_Navigation
         $itemName, $itemType, $dbName, $tableName = null
     ) {
         $navTable = PMA_Util::backquote($GLOBALS['cfgRelation']['db'])
-            . "." . PMA_Util::backquote($GLOBALS['cfgRelation']['navigation']);
+            . "." . PMA_Util::backquote($GLOBALS['cfgRelation']['navigationhiding']);
         $sqlQuery = "INSERT INTO " . $navTable
             . "(`username`, `item_name`, `item_type`, `db_name`, `table_name`)"
             . " VALUES ("
@@ -116,7 +116,7 @@ class PMA_Navigation
         $itemName, $itemType, $dbName, $tableName = null
     ) {
         $navTable = PMA_Util::backquote($GLOBALS['cfgRelation']['db'])
-            . "." . PMA_Util::backquote($GLOBALS['cfgRelation']['navigation']);
+            . "." . PMA_Util::backquote($GLOBALS['cfgRelation']['navigationhiding']);
         $sqlQuery = "DELETE FROM " . $navTable
             . " WHERE "
             . " `username`='"
@@ -147,7 +147,7 @@ class PMA_Navigation
         $html .= PMA_generate_common_hidden_inputs($dbName, $tableName);
 
         $navTable = PMA_Util::backquote($GLOBALS['cfgRelation']['db'])
-            . "." . PMA_Util::backquote($GLOBALS['cfgRelation']['navigation']);
+            . "." . PMA_Util::backquote($GLOBALS['cfgRelation']['navigationhiding']);
         $sqlQuery = "SELECT `item_name`, `item_type` FROM " . $navTable
             . " WHERE `username`='"
             . PMA_Util::sqlAddSlashes($GLOBALS['cfg']['Server']['user']) ."'"
