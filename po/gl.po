@@ -4,15 +4,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.5-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-06-24 10:43+0200\n"
-"PO-Revision-Date: 2013-04-13 18:37+0200\n"
-"Last-Translator: Julio Guerra <xullo123@hotmail.com>\n"
+"PO-Revision-Date: 2013-07-25 23:17+0200\n"
+"Last-Translator: Xosé Calvo <xosecalvo@gmail.com>\n"
 "Language-Team: Galician <http://l10n.cihar.com/projects/phpmyadmin/4-0/gl/>\n"
 "Language: gl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 1.5-dev\n"
+"X-Generator: Weblate 1.6\n"
 
 #: browse_foreigners.php:51 browse_foreigners.php:75 js/messages.php:344
 #: libraries/DisplayResults.class.php:813
@@ -802,7 +802,7 @@ msgstr "Colaborar"
 
 #: index.php:365
 msgid "Get support"
-msgstr "Obter soporte"
+msgstr "Obter axuda"
 
 #: index.php:372
 msgid "List of changes"
@@ -5884,8 +5884,8 @@ msgid ""
 "Leave blank for no SQL query tracking support, suggested: "
 "[kbd]pma__tracking[/kbd]"
 msgstr ""
-"Déixeo en branco se non quere un soporte de seguimento das consultas SQL, "
-"valor suxerido: [kbd]pma_tracking[/kbd]"
+"Déixeo en branco se non quere a funcionalidade de seguimento das consultas "
+"de SQL; valor suxerido: [kbd]pma_tracking[/kbd]"
 
 #: libraries/config/messages.inc.php:446
 msgid "SQL query tracking table"
