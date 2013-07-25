@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-07-12 16:06+0200\n"
-"PO-Revision-Date: 2013-07-25 11:43+0200\n"
+"PO-Revision-Date: 2013-07-25 14:40+0200\n"
 "Last-Translator: saurabh chikate <chikate.saurabh@gmail.com>\n"
 "Language-Team: West Flemish "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/vls/>\n"
@@ -2129,7 +2129,7 @@ msgstr "पी एच पी ने ये त्रुटी दिखाई �
 #: libraries/Advisor.class.php:107
 #, php-format
 msgid "Failed evaluating precondition for rule '%s'."
-msgstr "पूर्व शर्त कि वजाह से नियम सुलाझाने मे विफल'%s'"
+msgstr "पूर्व शर्त कि वजाह से नियम सुलाझाने मे विफलता'%s'."
 
 #: libraries/Advisor.class.php:124
 #, php-format
