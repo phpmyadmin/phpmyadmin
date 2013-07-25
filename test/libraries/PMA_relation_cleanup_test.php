@@ -44,12 +44,6 @@ class PMA_Relation_Cleanup_Test extends PHPUnit_Framework_TestCase
         $this->redefineRelation();
     }
     
-    public function tearDown()
-    {
-        unset($GLOBALS['dbi']);
-        unset($_SESSION['relation'][$GLOBALS['server']]);
-    }
-    
     public function redefineRelation()
     {     
         $GLOBALS['dbi'] = new DBI_PMA_Relation_Cleanup();
@@ -345,31 +339,31 @@ class DBI_PMA_Relation_Cleanup extends PMA_DatabaseInterface
     function query($sql, $link = null, $options = 0, $cache_affected_rows = true) 
     {
         if (stripos($sql, "column_info") !== false) {
-            unset ( $this->values [$this->indexs['column_info']] );
+            unset($this->values[$this->indexs['column_info']]);
         }
         
         if (stripos($sql, "table_info") !== false) {
-            unset ($this->values [$this->indexs['table_info']] );
+            unset ($this->values[$this->indexs['table_info']]);
         }
         
         if (stripos($sql, "table_coords") !== false) {
-            unset ( $this->values [$this->indexs['table_coords']] );
+            unset($this->values[$this->indexs['table_coords']]);
         }
         
         if (stripos($sql, "designer_coords") !== false) {
-            unset ( $this->values [$this->indexs['designer_coords']] );
+            unset($this->values[$this->indexs['designer_coords']]);
         }
         
         if (stripos($sql, "relation") !== false) {
-            unset ( $this->values [$this->indexs['relation']] );
+            unset($this->values[$this->indexs['relation']]);
         }
         
         if (stripos($sql, "pdf_pages") !== false) {
-            unset ( $GLOBALS [$this->indexs['pdf_pages']] );
+            unset($GLOBALS [$this->indexs['pdf_pages']]);
         }
         
         if (stripos($sql, "bookmark") !== false) {
-            unset ( $GLOBALS [$this->indexs['bookmark']] );
+            unset($GLOBALS [$this->indexs['bookmark']]);
         }
     }
     
