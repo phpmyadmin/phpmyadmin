@@ -1303,7 +1303,6 @@ AJAX.registerOnload('server_status_monitor.js', function () {
             );
         }
         $('#gridchart' + runtime.chartAI)
-            .css('overflow', 'hidden')
             .parent()
             .append($legend);
 
