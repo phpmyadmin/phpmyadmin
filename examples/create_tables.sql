@@ -306,10 +306,10 @@ CREATE TABLE IF NOT EXISTS `pma__usergroups` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pma__navigation`
+-- Table structure for table `pma__hidden_tables`
 --
 
-CREATE TABLE IF NOT EXISTS `pma__navigation` (
+CREATE TABLE IF NOT EXISTS `pma__hidden_tables` (
   `username` varchar(64) NOT NULL,
   `item_name` varchar(64) NOT NULL,
   `item_type` varchar(64) NOT NULL,

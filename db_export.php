@@ -85,6 +85,6 @@ $multi_values .= "\n";
 $multi_values .= '</select></div>';
 
 $export_type = 'database';
-require_once 'libraries/display_export.lib.php';
+require_once 'libraries/display_export.inc.php';
 
 ?>

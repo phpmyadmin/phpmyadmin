@@ -273,7 +273,7 @@ function PMA_getRelationsParamDiagnostic($cfgRelation)
         );
         $retval .= PMA_getDiagMessageForFeature(
             __('Hide/show navigation items'),
-            'navworks',
+            'navwork',
             $messages
         );
         $retval .= '</table>' . "\n";

@@ -498,22 +498,19 @@ class Node_Database extends Node
                 . " WHERE `username`='"
                 . PMA_Util::sqlAddSlashes($GLOBALS['cfg']['Server']['user']) ."'"
                 . " AND `db_name`='" . PMA_Util::sqlAddSlashes($db) . "'";
-            $result = PMA_queryAsControlUser($sqlQuery, false);
-
-            if ($result) {
-                $count = $GLOBALS['dbi']->fetchValue($result);
-                if ($count > 0) {
-                    $ret = '<span class="dbItemControls">'
-                        . '<a href="navigation.php?'
-                        . PMA_generate_common_url()
-                        . '&showUnhideDialog=true'
-                        . '&dbName=' . urldecode($db) . '"'
-                        . ' class="showUnhide ajax">'
-                        . PMA_Util::getImage('b_undo.png', 'Show hidden items')
-                        . '</a></span>';
-                }
+            $count = $GLOBALS['dbi']->fetchValue(
+                $sqlQuery, 0, 0, $GLOBALS['controllink']
+            );
+            if ($count > 0) {
+                $ret = '<span class="dbItemControls">'
+                    . '<a href="navigation.php?'
+                    . PMA_generate_common_url()
+                    . '&showUnhideDialog=true'
+                    . '&dbName=' . urldecode($db) . '"'
+                    . ' class="showUnhide ajax">'
+                    . PMA_Util::getImage('b_undo.png', 'Show hidden items')
+                    . '</a></span>';
             }
-            $GLOBALS['dbi']->freeResult($result);
         }
         return $ret;
     }
