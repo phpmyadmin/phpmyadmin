@@ -132,13 +132,13 @@ class PMA_Navigation
     }
 
     /**
-     * Returns HTML for the dialog to unhide hidden nativation items.
+     * Returns HTML for the dialog to show hidden nativation items.
      *
      * @param string $dbName    database name
      * @param string $itemType  type of the items to include
      * @param string $tableName table name
      *
-     * @return string HTML for the dialog to unhide hidden nativation items
+     * @return string HTML for the dialog to show hidden nativation items
      */
     public function getItemUnhideDialog($dbName, $itemType = null, $tableName = null)
     {
@@ -195,7 +195,7 @@ class PMA_Navigation
                             . '&itemName=' . urldecode($hiddenItem)
                             . '&dbName=' . urldecode($dbName) . '"'
                             . ' class="unhideNavItem ajax">'
-                            . PMA_Util::getIcon('b_undo.png', __('Unhide'))
+                            . PMA_Util::getIcon('b_undo.png', __('Show'))
                             .  '</a></td>';
                         $odd = ! $odd;
                     }

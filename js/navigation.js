@@ -230,7 +230,7 @@ $(function () {
         });
     });
 
-    /** Show a dialog to choose navigation items to unhide */
+    /** Display a dialog to choose hidden navigation items to show */
     $('a.showUnhide.ajax').live('click', function (event) {
         event.preventDefault();
         var $msg = PMA_ajaxShowMessage();
@@ -260,7 +260,7 @@ $(function () {
         });
     });
 
-    /** Unhide a hidden navigation tree item */
+    /** Show a hidden navigation tree item */
     $('a.unhideNavItem.ajax').live('click', function (event) {
         event.preventDefault();
         var $tr = $(this).parents('tr');

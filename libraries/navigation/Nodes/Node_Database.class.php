@@ -481,9 +481,9 @@ class Node_Database extends Node
     }
 
     /**
-     * Returns HTML for unhide button displayed infront of database node
+     * Returns HTML for show hidden button displayed infront of database node
      *
-     * @return HTML for unhide button
+     * @return HTML for show hidden button
      */
     public function getHtmlForControlButtons()
     {
@@ -509,7 +509,7 @@ class Node_Database extends Node
                         . '&showUnhideDialog=true'
                         . '&dbName=' . urldecode($db) . '"'
                         . ' class="showUnhide ajax">'
-                        . PMA_Util::getImage('b_undo.png', 'Unhide')
+                        . PMA_Util::getImage('b_undo.png', 'Show hidden items')
                         . '</a></span>';
                 }
             }

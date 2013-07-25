@@ -679,7 +679,7 @@ Server connection settings
     :type: string
     :default: ``''``
 
-    Since release 4.1.0 you can hide/unhide items in the navigation tree.
+    Since release 4.1.0 you can hide/show items in the navigation tree.
 
     To allow the usage of this functionality:
 
