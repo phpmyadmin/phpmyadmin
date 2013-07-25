@@ -2760,3 +2760,6 @@ body .ui-widget {
     min-width:25px;
     width:auto;
 }
+.jqplot-axis {
+    overflow:hidden;
+}
