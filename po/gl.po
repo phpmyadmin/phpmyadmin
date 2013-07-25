@@ -618,8 +618,8 @@ msgid ""
 "You probably tried to upload a file that is too large. Please refer to "
 "%sdocumentation%s for a workaround for this limit."
 msgstr ""
-"Posibelmente tentou enviar un ficheiro demasiado grande. Consulte a "
-"%sdocumentación%s para averiguar como evitar este límite."
+"Posibelmente tentou enviar un ficheiro demasiado grande. Consulte a %"
+"sdocumentación%s para averiguar como evitar este límite."
 
 #: import.php:250 import.php:516
 msgid "Showing bookmark"
@@ -848,10 +848,11 @@ msgid ""
 "cookie validity configured in phpMyAdmin, because of this, your login will "
 "expire sooner than configured in phpMyAdmin."
 msgstr ""
-"O parámetro PHP [a@http://php.net/manual/en/session.configuration.php#ini."
-"session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] é menor do que a "
-"validez das cookies que se configurou en phpMyAdmin; por causa disto, o "
-"rexistro caducará antes do que está configurado en phpMyAdmin."
+"O parámetro PHP "
+"[a@http://php.net/manual/en/session.configuration.php#ini.session.gc-"
+"maxlifetime@_blank]session.gc_maxlifetime[/a] é menor do que a validez das "
+"cookies que se configurou en phpMyAdmin; por causa disto, o rexistro "
+"caducará antes do que está configurado en phpMyAdmin."
 
 #: index.php:440
 msgid ""
@@ -1101,7 +1102,7 @@ msgstr "Memoria de intercambio do sistema"
 
 #: js/messages.php:90
 msgid "Average load"
-msgstr "Carga promedio"
+msgstr "Carga media"
 
 #: js/messages.php:91
 msgid "Total memory"
@@ -1534,7 +1535,7 @@ msgstr "Escolla o ficheiro que desexa importar"
 
 #: js/messages.php:203
 msgid "Analyse Query"
-msgstr "Analizar pesquisa"
+msgstr "Analizar a consulta"
 
 #: js/messages.php:207
 msgid "Advisor system"
@@ -1554,7 +1555,7 @@ msgstr "Recomendación"
 
 #: js/messages.php:211
 msgid "Rule details"
-msgstr "Detalles da regla"
+msgstr "Detalles da regra"
 
 #: js/messages.php:212
 msgid "Justification"
@@ -1948,8 +1949,7 @@ msgstr "Agochar o panel"
 
 #: js/messages.php:376
 msgid "The requested page was not found in the history, it may have expired."
-msgstr ""
-"Non foi posíbel atopar a páxina pedida no historial; pode que caducase."
+msgstr "Non foi posíbel atopar a páxina pedida no historial; pode que caducase."
 
 #: js/messages.php:379 setup/lib/index.lib.php:188
 #, php-format
@@ -2334,7 +2334,7 @@ msgstr "Criterio"
 
 #: libraries/DBQbe.class.php:576
 msgid "Add/Delete criteria rows"
-msgstr "Engadir/Eliminar filas de criterio"
+msgstr "Engadir/Eliminar filas de criterios"
 
 #: libraries/DBQbe.class.php:576
 msgid "Add/Delete columns"
@@ -2710,8 +2710,8 @@ msgstr "O ficheiro non foi subido como un ficheiro."
 #: libraries/File.class.php:279
 msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
 msgstr ""
-"O tamaño do ficheiro enviado excede a directiva upload_max_filesize de php."
-"ini."
+"O tamaño do ficheiro enviado excede a directiva upload_max_filesize de "
+"php.ini."
 
 #: libraries/File.class.php:282
 msgid ""
@@ -3141,7 +3141,7 @@ msgstr "A base de datos non é válida"
 
 #: libraries/Table.class.php:1246 tbl_get_field.php:44
 msgid "Invalid table name"
-msgstr "Nome de táboa non válido"
+msgstr "O nome de táboa non é correcto"
 
 #: libraries/Table.class.php:1278
 #, php-format
@@ -3345,8 +3345,8 @@ msgid ""
 "-1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
 msgstr ""
 "Un número de vírgula flutuante pequeno; os valores permitidos son "
-"-3,402823466E+38 até -1,175494351E-38, 0 e 1,175494351E-38 até 3,402823466E"
-"+38"
+"-3,402823466E+38 até -1,175494351E-38, 0 e 1,175494351E-38 até "
+"3,402823466E+38"
 
 #: libraries/Types.class.php:310
 msgid ""
@@ -3601,8 +3601,7 @@ msgstr ""
 
 #: libraries/Types.class.php:714
 msgid "A system's default double-precision floating-point number"
-msgstr ""
-"Un número de vírgula flotante de dupla precisión por omisión do sistema"
+msgstr "Un número de vírgula flotante de dupla precisión por omisión do sistema"
 
 #: libraries/Types.class.php:716
 msgid "True or false"
@@ -3845,12 +3844,12 @@ msgstr "O índice de servidor non é válido: %s"
 #, php-format
 msgid "Invalid hostname for server %1$s. Please review your configuration."
 msgstr ""
-"O nome de servidor non é válido para o servidor %1$s. Revise a configuración."
+"O nome de servidor non é válido para o servidor %1$s. Revise a "
+"configuración."
 
 #: libraries/common.inc.php:854
 msgid "Invalid authentication method set in configuration:"
-msgstr ""
-"Na configuración indicouse un método de autenticación que non é válido:"
+msgstr "Na configuración indicouse un método de autenticación que non é válido:"
 
 #: libraries/common.inc.php:976
 #, php-format
@@ -3876,12 +3875,12 @@ msgstr "detectouse unha tecla numérica"
 #: libraries/config.values.php:49 libraries/config.values.php:64
 #: libraries/config.values.php:69
 msgid "Icons"
-msgstr ""
+msgstr "Iconas"
 
 #: libraries/config.values.php:50 libraries/config.values.php:65
 #: libraries/config.values.php:70
 msgid "Text"
-msgstr ""
+msgstr "Texto"
 
 #: libraries/config.values.php:51 libraries/config.values.php:58
 #: libraries/config.values.php:66 libraries/config.values.php:71
@@ -4146,8 +4145,9 @@ msgid ""
 "Use user-friendly editor for editing SQL queries ([a@http://codemirror."
 "net/]CodeMirror[/a]) with syntax highlighting and line numbers"
 msgstr ""
-"Empregue un editor amigábel para editar as consultas de SQL ([a@http://"
-"codemirror.net/]CodeMirror[/a]) con realce da sintaxe e números de liña"
+"Empregue un editor amigábel para editar as consultas de SQL "
+"([a@http://codemirror.net/]CodeMirror[/a]) con realce da sintaxe e números "
+"de liña"
 
 #: libraries/config/messages.inc.php:31
 msgid "Enable CodeMirror"
@@ -4822,9 +4822,10 @@ msgid ""
 msgstr ""
 "Se desexa empregar o servizo do validador de SQL ha de te ren conta que "
 "[strong]todas as instrucións de SQL se almacenan de maneira anónima con "
-"finalidade estatística[/strong].[br][em][a@http://sqlválidator.mimer."
-"com/]Mimer SQL Validator[/a], Copyright 2002 Upright Database Technology. "
-"Todos os dereitos reservados.[/em]"
+"finalidade "
+"estatística[/strong].[br][em][a@http://sqlválidator.mimer.com/]Mimer SQL "
+"Validator[/a], Copyright 2002 Upright Database Technology. Todos os dereitos "
+"reservados.[/em]"
 
 #: libraries/config/messages.inc.php:220
 msgid "Startup"
@@ -5269,10 +5270,9 @@ msgid "Use only icons, only text or both"
 msgstr "Empregar só iconas, só texto ou ambos os dous"
 
 #: libraries/config/messages.inc.php:325
-#, fuzzy
 #| msgid "Iconic navigation bar"
 msgid "Table navigation bar"
-msgstr "Barra de navegación por iconas"
+msgstr "Barra de navegación das táboas"
 
 #: libraries/config/messages.inc.php:326
 msgid "use GZip output buffering for increased speed in HTTP transfers"
@@ -5316,7 +5316,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:333
 msgid "Missing phpMyAdmin configuration storage tables"
-msgstr "Faltan as táboas de almacenamento da configuración do phpMyadmin"
+msgstr "Faltan as táboas de almacenamento da configuración do phpMyAdmin"
 
 #: libraries/config/messages.inc.php:334
 msgid ""
@@ -5331,7 +5331,6 @@ msgid "Server/library difference warning"
 msgstr "Advertencia de diferenza entre servidor e biblioteca"
 
 #: libraries/config/messages.inc.php:336
-#, fuzzy
 #| msgid ""
 #| "Disable the default warning that is displayed on the database details "
 #| "Structure page if any of the required tables for the phpMyAdmin "
@@ -5340,23 +5339,21 @@ msgid ""
 "Disable the default warning that is displayed on the Structure page if "
 "column names in a table are reserved MySQL words"
 msgstr ""
-"Desactivar o aviso que por omisión se mostra na páxina de detalles da "
-"estrutura da base de datos se non foi posíbel atopar algunha das táboas "
-"requiridas para o almacenamento da configuración do phpMyAdmin"
+"Desactivar o aviso que por omisión se mostra na páxina da estrutura da base "
+"de datos se os nomes de columna dunha táboa son palabras reservadas do MySQL"
 
 #: libraries/config/messages.inc.php:337
 msgid "MySQL reserved word warning"
-msgstr ""
+msgstr "Advertencia de palabra reservada do MySQL"
 
 #: libraries/config/messages.inc.php:339
-#, fuzzy
 #| msgid "Allow to display all the rows"
 msgid "How to display the menu tabs"
-msgstr "Permitir que se mostren todas as fileiras"
+msgstr "Como mostrar as lapelas do menú"
 
 #: libraries/config/messages.inc.php:341
 msgid "How to display various action links"
-msgstr ""
+msgstr "Como mostrar diversas ligazóns de acción"
 
 #: libraries/config/messages.inc.php:342
 msgid "Disallow BLOB and BINARY columns from editing"
@@ -5373,7 +5370,7 @@ msgid ""
 "(lost by window close)."
 msgstr ""
 "Activar se se quere un historial baseado en base de datos (require o "
-"almacenamento da configuración do phpMyadmin). Se se desactiva, utiliza "
+"almacenamento da configuración do phpMyAdmin). Se se desactiva, utiliza "
 "rutinas JS para mostrar o historial de consultas (que se perde cando se "
 "fecha a xanela)."
 
@@ -5498,8 +5495,8 @@ msgid ""
 "swekey.conf)"
 msgstr ""
 "A ruta ao ficheiro de configuración da [a@http://swekey.com]autenticación de "
-"hardware SweKey[/a] (non se localiza na raíz dos documentos; suxírese: /etc/"
-"swekey.conf)"
+"hardware SweKey[/a] (non se localiza na raíz dos documentos; suxírese: "
+"/etc/swekey.conf)"
 
 #: libraries/config/messages.inc.php:375
 msgid "SweKey config file"
@@ -5518,8 +5515,9 @@ msgid ""
 "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/bookmark]bookmark[/a] "
 "support, suggested: [kbd]pma__bookmark[/kbd]"
 msgstr ""
-"Déixeo en branco se non quere a funcionalidade de [a@http://wiki.phpmyadmin."
-"net/pma/bookmark]bookmark[/a]  ; por omisión: [kbd]pma_bookmark[/kbd]"
+"Déixeo en branco se non quere a funcionalidade de "
+"[a@http://wiki.phpmyadmin.net/pma/bookmark]bookmark[/a]  ; por omisión: "
+"[kbd]pma_bookmark[/kbd]"
 
 #: libraries/config/messages.inc.php:379
 msgid "Bookmark table"
@@ -5547,8 +5545,7 @@ msgstr "Comprimir a conexión"
 
 #: libraries/config/messages.inc.php:384
 msgid "How to connect to server, keep [kbd]tcp[/kbd] if unsure"
-msgstr ""
-"Como ligar co servidor; déixeo como [kbd]tcp[/kbd] se non está segura/a"
+msgstr "Como ligar co servidor; déixeo como [kbd]tcp[/kbd] se non está segura/a"
 
 #: libraries/config/messages.inc.php:385
 msgid "Connection type"
@@ -5564,8 +5561,8 @@ msgid ""
 "available on [a@http://wiki.phpmyadmin.net/pma/controluser]wiki[/a]"
 msgstr ""
 "Un usuario especial de MySQL configurado con permisos limitados; hai máis "
-"información dispoñíbel no [a@http://wiki.phpmyadmin.net/pma/"
-"controluser]wiki[/a]"
+"información dispoñíbel no "
+"[a@http://wiki.phpmyadmin.net/pma/controluser]wiki[/a]"
 
 #: libraries/config/messages.inc.php:388
 msgid "Control user"
@@ -5600,9 +5597,9 @@ msgid ""
 "More information on [a@https://sourceforge.net/p/phpmyadmin/bugs/2606/]PMA "
 "bug tracker[/a] and [a@http://bugs.mysql.com/19588]MySQL Bugs[/a]"
 msgstr ""
-"Máis información no [a@https://sourceforge.net/p/phpmyadmin/"
-"bugs/2606/]Seguidor de erros de PMA[/a] e en [a@http://bugs.mysql."
-"com/19588]Erros do MySQL[/a]"
+"Máis información no "
+"[a@https://sourceforge.net/p/phpmyadmin/bugs/2606/]Seguidor de erros de "
+"PMA[/a] e en [a@http://bugs.mysql.com/19588]Erros do MySQL[/a]"
 
 #: libraries/config/messages.inc.php:394
 msgid "Disable use of INFORMATION_SCHEMA"
@@ -5670,7 +5667,6 @@ msgid "Connect without password"
 msgstr "Conectarse sen contrasinal"
 
 #: libraries/config/messages.inc.php:408
-#, fuzzy
 #| msgid ""
 #| "You can use MySQL wildcard characters (% and _), escape them if you want "
 #| "to use their literal instances, i.e. use [kbd]'my\\_db'[/kbd] and not "
@@ -5684,9 +5680,7 @@ msgid ""
 msgstr ""
 "Pódense empregar os caracteres comodín do MySQL (% and _); escápeos se quere "
 "empregar os caracteres en si, isto é, empregue [kbd]'my\\_db'[/kbd]' no "
-"canto de [kbd]'my_db'[/kbd]. Usando esta opción pode ordenar a lista de "
-"bases de datos, só poña os nomes en orde e use [kbd]*[/kbd] ao final para "
-"mostrar o resto en orde alfabética."
+"canto de [kbd]'my_db'[/kbd]."
 
 #: libraries/config/messages.inc.php:409
 msgid "Show only listed databases"
@@ -5704,8 +5698,8 @@ msgstr "Contrasinal para config auth"
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__pdf_pages[/kbd]"
 msgstr ""
-"Déixeo en branco se non quere PDF schema; por omisión: [kbd]pma__pdf_pages[/"
-"kbd]"
+"Déixeo en branco se non quere PDF schema; por omisión: "
+"[kbd]pma__pdf_pages[/kbd]"
 
 #: libraries/config/messages.inc.php:413
 msgid "PDF schema: pages table"
@@ -5753,8 +5747,9 @@ msgid ""
 "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
 "links[/a] support, suggested: [kbd]pma__relation[/kbd]"
 msgstr ""
-"Déixeo en branco se non quere [a@http://wiki.phpmyadmin.net/pma/"
-"relation]ligazóns de relación[/a]; suxírese: [kbd]pma__relation[/kbd]"
+"Déixeo en branco se non quere "
+"[a@http://wiki.phpmyadmin.net/pma/relation]ligazóns de relación[/a]; "
+"suxírese: [kbd]pma__relation[/kbd]"
 
 #: libraries/config/messages.inc.php:421
 msgid "Relation table"
@@ -6014,8 +6009,8 @@ msgid ""
 "Defines whether or not type fields should be initially displayed in edit/"
 "insert mode"
 msgstr ""
-"Define se os campos tipo deben ser mostrados inicialmente no modo editar/"
-"inserir"
+"Define se os campos tipo deben ser mostrados inicialmente no modo "
+"editar/inserir"
 
 #: libraries/config/messages.inc.php:469
 msgid "Show field types"
@@ -6042,8 +6037,8 @@ msgid ""
 "Shows link to [a@http://php.net/manual/function.phpinfo.php]phpinfo()[/a] "
 "output"
 msgstr ""
-"Mostra unha ligazón á saída de [a@http://php.net/manual/function.phpinfo."
-"php]phpinfo()[/a]"
+"Mostra unha ligazón á saída de "
+"[a@http://php.net/manual/function.phpinfo.php]phpinfo()[/a]"
 
 #: libraries/config/messages.inc.php:475
 msgid "Show phpinfo() link"
@@ -6075,8 +6070,8 @@ msgstr "Reter a caixa de consultas"
 #: libraries/config/messages.inc.php:481
 msgid "Allow to display database and table statistics (eg. space usage)"
 msgstr ""
-"Permitir que se mostren as estatísticas das bases de datos e das táboas (p."
-"ex. o uso do espazo)"
+"Permitir que se mostren as estatísticas das bases de datos e das táboas "
+"(p.ex. o uso do espazo)"
 
 #: libraries/config/messages.inc.php:482
 msgid "Show statistics"
@@ -6201,8 +6196,8 @@ msgid ""
 msgstr ""
 "Escriba os proxies como [kbd]IP: cabezallo HTTP de confianza[/kbd]. O "
 "exemplo seguinte especifica que o phpMyAdmin debería confiar nun cabezallo "
-"HTTP_X_FORWARDED_FOR (X-Forwarded-For) proveniente do proxy 1.2.3.4:[br]"
-"[kbd]1.2.3.4: HTTP_X_FORWARDED_FOR[/kbd]"
+"HTTP_X_FORWARDED_FOR (X-Forwarded-For) proveniente do proxy "
+"1.2.3.4:[br][kbd]1.2.3.4: HTTP_X_FORWARDED_FOR[/kbd]"
 
 #: libraries/config/messages.inc.php:512
 msgid "List of trusted proxies for IP allow/deny"
@@ -6210,8 +6205,7 @@ msgstr "Lista de proxies de confianza para permiso/denegación de IP"
 
 #: libraries/config/messages.inc.php:513
 msgid "Directory on server where you can upload files for import"
-msgstr ""
-"Directorio do servidor ao que se poden enviar os ficheiros que importar"
+msgstr "Directorio do servidor ao que se poden enviar os ficheiros que importar"
 
 #: libraries/config/messages.inc.php:514
 msgid "Upload directory"
@@ -6268,11 +6262,11 @@ msgstr "ZIP"
 
 #: libraries/config/setup.forms.php:41
 msgid "Config authentication"
-msgstr "Configurar a autenticación"
+msgstr "Autenticación mediante configuración"
 
 #: libraries/config/setup.forms.php:45
 msgid "Cookie authentication"
-msgstr "Autenticación por cookies"
+msgstr "Autenticación mediante cookies"
 
 #: libraries/config/setup.forms.php:48
 msgid "HTTP authentication"
@@ -6290,10 +6284,9 @@ msgstr "CSV empregando LOAD DATA"
 #: libraries/config/setup.forms.php:256 libraries/config/setup.forms.php:349
 #: libraries/config/user_preferences.forms.php:161
 #: libraries/config/user_preferences.forms.php:253
-#, fuzzy
 #| msgid "Open Document Spreadsheet"
 msgid "OpenDocument Spreadsheet"
-msgstr "Folla de cálculo de Open Document"
+msgstr "Folla de cálculo de OpenDocument"
 
 #: libraries/config/setup.forms.php:263
 #: libraries/config/user_preferences.forms.php:168
@@ -6322,10 +6315,9 @@ msgstr "Microsoft Word 2000"
 
 #: libraries/config/setup.forms.php:353
 #: libraries/config/user_preferences.forms.php:257
-#, fuzzy
 #| msgid "Open Document Text"
 msgid "OpenDocument Text"
-msgstr "Texto de Open Document"
+msgstr "Texto de OpenDocument"
 
 #: libraries/config/validate.lib.php:214
 msgid "Could not initialize Drizzle connection library"
@@ -6718,8 +6710,8 @@ msgid ""
 "A compressed file's name must end in <b>.[format].[compression]</b>. "
 "Example: <b>.sql.zip</b>"
 msgstr ""
-"O nome dun ficheiro comprimido debe rematar en <b>.[formato].[compresión]</"
-"b>. Exemplo: <b>.sql.zip</b>"
+"O nome dun ficheiro comprimido debe rematar en "
+"<b>.[formato].[compresión]</b>. Exemplo: <b>.sql.zip</b>"
 
 #: libraries/display_import.lib.php:245
 msgid "File uploads are not allowed on this server."
@@ -6911,8 +6903,8 @@ msgid ""
 "method."
 msgstr ""
 "Se o ficheiro temporal usado para a creación rápida dun índice de MyISAM for "
-"máis grande que se se usar o caché de chaves na cantidade que se especifique "
-"aquí, preferir o método da caché de chaves."
+"máis grande que se se usar o caché de chaves na cantidade que se "
+"especifique aquí, preferir o método da caché de chaves."
 
 #: libraries/engines/myisam.lib.php:47
 msgid "Repair threads"
@@ -6924,7 +6916,8 @@ msgid ""
 "parallel (each index in its own thread) during the repair by sorting process."
 msgstr ""
 "Se este valor é maior que 1, os índices das táboas MyISAM créanse en "
-"paralelo (cada índice no seu propio fío) durante o proceso Reparar ordenando."
+"paralelo (cada índice no seu propio fío) durante o proceso Reparar "
+"ordenando."
 
 #: libraries/engines/myisam.lib.php:52
 msgid "Sort buffer size"
@@ -7086,10 +7079,10 @@ msgid ""
 "will be deleted, otherwise they are renamed and given the next highest "
 "number."
 msgstr ""
-"Este é o número de ficheiros de rexistro de transaccións (pbxt/system/xlog*."
-"xt) que vai manter o sistema. Se o número de ficheiros de rexistro excede "
-"este valor, os ficheiros de rexistro antigos elimínanse; se non, múdaselles "
-"o nome e dáselles o número máis alto seguinte."
+"Este é o número de ficheiros de rexistro de transaccións "
+"(pbxt/system/xlog*.xt) que vai manter o sistema. Se o número de ficheiros de "
+"rexistro excede este valor, os ficheiros de rexistro antigos elimínanse; se "
+"non, múdaselles o nome e dáselles o número máis alto seguinte."
 
 #: libraries/engines/pbxt.lib.php:131
 #, php-format
@@ -7334,7 +7327,7 @@ msgstr "Esperanto"
 
 #: libraries/mysql_charsets.lib.php:282
 msgid "Estonian"
-msgstr "Estonio"
+msgstr "Estoniano"
 
 #: libraries/mysql_charsets.lib.php:285 libraries/mysql_charsets.lib.php:288
 msgid "German"
@@ -7456,7 +7449,7 @@ msgstr "Árabe"
 
 #: libraries/mysql_charsets.lib.php:412
 msgid "Hebrew"
-msgstr "Hebreu"
+msgstr "Hebreo"
 
 #: libraries/mysql_charsets.lib.php:415
 msgid "Georgian"
@@ -7797,7 +7790,7 @@ msgstr ""
 
 #: libraries/plugins/auth/AuthenticationConfig.class.php:142
 msgid "Retry to connect"
-msgstr ""
+msgstr "Ténteo de novo para conectar"
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:44
 msgid "Failed to use Blowfish from mcrypt!"
@@ -8139,8 +8132,8 @@ msgid ""
 "(1,2,3)</code>"
 msgstr ""
 "incluír os nomes das columnas en todas as instrucións <code>INSERT</code> "
-"<br /> &nbsp;&nbsp;&nbsp; Exemplo: <code>INSERT INTO nome_taboa (col_A,col_B,"
-"col_C) VALUES (1,2,3)</code>"
+"<br /> &nbsp;&nbsp;&nbsp; Exemplo: <code>INSERT INTO nome_taboa "
+"(col_A,col_B,col_C) VALUES (1,2,3)</code>"
 
 #: libraries/plugins/export/ExportSql.class.php:361
 msgid ""
@@ -8230,7 +8223,8 @@ msgid ""
 msgstr ""
 "Se os datos de cada fileira do ficheiro non están na mesma orde que na base "
 "de datos, enumere aquí os nomes das columnas correspondentes. Os nomes das "
-"columnas teñen que estar separados por vírgulas e non encerrados entre aspas."
+"columnas teñen que estar separados por vírgulas e non encerrados entre "
+"aspas."
 
 #: libraries/plugins/import/ImportCsv.class.php:81
 #: libraries/plugins/import/ImportLdi.class.php:66
@@ -8299,10 +8293,9 @@ msgstr ""
 "problema e ténteo de novo."
 
 #: libraries/plugins/import/ImportOds.class.php:182
-#, fuzzy
 #| msgid "Open Document Spreadsheet"
 msgid "Could not parse OpenDocument Spreadsheet!"
-msgstr "Folla de cálculo de Open Document"
+msgstr "Non foi posíbel analizar a folla de cálculo de OpenDocument!"
 
 #: libraries/plugins/import/ImportShp.class.php:53
 msgid "ESRI Shape File"
@@ -8370,10 +8363,10 @@ msgstr ""
 "numérica de UNIX como hora e data con formato. A primeira opción é a "
 "diferenza (en horas) que se engade á hora ou data (Por omisión: 0). Empregue "
 "a segunda opción para indicar unha cadea de formato de data/hora diferente. "
-"A terceira opción determina se se desexa ver a hora local ou a UTC (empregue "
-"as cadeas «local»ou «utc») para iso. Segundo isto, o formato de data ten un "
-"valor diferente - para «local» vexa a documentación acerca da función de PHP "
-"strftime() e para «utc» faise empregando a función gmdate()."
+"A terceira opción determina se se desexa ver a hora local ou a UTC "
+"(empregue as cadeas «local»ou «utc») para iso. Segundo isto, o formato de "
+"data ten un valor diferente - para «local» vexa a documentación acerca da "
+"función de PHP strftime() e para «utc» faise empregando a función gmdate()."
 
 #: libraries/plugins/transformations/abstract/DownloadTransformationsPlugin.class.php:31
 msgid ""
@@ -8403,13 +8396,14 @@ msgstr ""
 "SÓ EN LINUX: Inicia un aplicativo externa e envíalle o campo de datos por "
 "medio da entrada normal. Devolve a saída normal do aplicativo. Por omisión é "
 "Tidy, para que resulte código HTML claro. Por razóns de seguranza, ten que "
-"editar manualmente o ficheiro libraries/plugins/transformations/"
-"Text_Plain_External.class.php e inserir as ferramentas que queira permitir "
-"que funcionen. A primeira opción, polo tanto, é o número do programa que "
-"quere usar e a segunda opción son os parámetros do programa. O terceiro "
-"parámetro, se for 1, usará htmlspecialchars() para converter a saída (Por "
-"omisión é 1). Un cuarto parámetro, se for 1, porá un NOWRAP na cela de "
-"contidos para que toda a saída se mostre sen reformatar (por omisión é 1)."
+"editar manualmente o ficheiro "
+"libraries/plugins/transformations/Text_Plain_External.class.php e inserir as "
+"ferramentas que queira permitir que funcionen. A primeira opción, polo "
+"tanto, é o número do programa que quere usar e a segunda opción son os "
+"parámetros do programa. O terceiro parámetro, se for 1, usará "
+"htmlspecialchars() para converter a saída (Por omisión é 1). Un cuarto "
+"parámetro, se for 1, porá un NOWRAP na cela de contidos para que toda a "
+"saída se mostre sen reformatar (por omisión é 1)."
 
 #: libraries/plugins/transformations/abstract/FormattedTransformationsPlugin.class.php:31
 msgid ""
@@ -8567,8 +8561,8 @@ msgid ""
 "code>), for example by starting from <code>config.sample.inc.php</code>."
 msgstr ""
 "Active as funcionalidades avanzadas no ficheiro de configuración "
-"(<code>config.inc.php</code>) comezando, por exemplo con <code>config.sample."
-"inc.php</code>."
+"(<code>config.inc.php</code>) comezando, por exemplo con "
+"<code>config.sample.inc.php</code>."
 
 #: libraries/relation.lib.php:276
 msgid "Re-login to phpMyAdmin to load the updated configuration file."
@@ -8637,8 +8631,8 @@ msgid ""
 "Only slaves started with the --report-host=host_name option are visible in "
 "this list."
 msgstr ""
-"Nesta listaxe só son visíbeis os escravos que se inicien coa opción --report-"
-"host=nome_da_máquina."
+"Nesta listaxe só son visíbeis os escravos que se inicien coa opción "
+"--report-host=nome_da_máquina."
 
 #: libraries/replication_gui.lib.php:264 server_replication.php:183
 msgid "Add slave replication user"
@@ -8950,10 +8944,8 @@ msgstr "Resultados da execución da rutina %s"
 #, php-format
 msgid "%d row affected by the last statement inside the procedure"
 msgid_plural "%d rows affected by the last statement inside the procedure"
-msgstr[0] ""
-"%d fileira afectada pola última instrución de dentro do procedemento"
-msgstr[1] ""
-"%d fileiras afectadas pola última instrución de dentro do procedemento"
+msgstr[0] "%d fileira afectada pola última instrución de dentro do procedemento"
+msgstr[1] "%d fileiras afectadas pola última instrución de dentro do procedemento"
 
 #: libraries/rte/rte_routines.lib.php:1505
 #: libraries/rte/rte_routines.lib.php:1513
@@ -9482,7 +9474,8 @@ msgstr "Permite eliminar táboas."
 msgid ""
 "Allows adding users and privileges without reloading the privilege tables."
 msgstr ""
-"Permite engadir usuarios e privilexios sen recargar as táboas de privilexios."
+"Permite engadir usuarios e privilexios sen recargar as táboas de "
+"privilexios."
 
 #: libraries/server_privileges.lib.php:1024
 msgid "Login Information"
@@ -9697,7 +9690,7 @@ msgstr "Limpar"
 
 #: libraries/sql_query_form.lib.php:313 sql.php:1331 sql.php:1351
 msgid "Bookmark this SQL query"
-msgstr "Marcar esta busca de SQL"
+msgstr "Marcar esta consulta de SQL"
 
 #: libraries/sql_query_form.lib.php:319 sql.php:1343
 msgid "Let every user access this bookmark"
@@ -9709,7 +9702,7 @@ msgstr "Substituír un marcador xa existente que teña o mesmo nome"
 
 #: libraries/sql_query_form.lib.php:341
 msgid "Do not overwrite this query from outside the window"
-msgstr "Non escribir sobre esta procura desde fóra da xanela"
+msgstr "Non escribir sobre esta consulta desde fóra da xanela"
 
 #: libraries/sql_query_form.lib.php:348
 msgid "Delimiter"
@@ -9914,7 +9907,6 @@ msgid "After %s"
 msgstr "Despois de %s"
 
 #: libraries/structure.lib.php:1678
-#, fuzzy
 #| msgid "Row Statistics"
 msgid "Row statistics"
 msgstr "Estatísticas das fileiras"
@@ -10090,7 +10082,7 @@ msgstr "Definición da PARTICIÓN"
 #: libraries/tbl_common.inc.php:54
 #, php-format
 msgid "Tracking of %s is activated."
-msgstr "O seguemento de %s está activado."
+msgstr "O seguimento de %s está activado."
 
 #: libraries/user_preferences.inc.php:29
 msgid "Manage your settings"
@@ -10360,8 +10352,8 @@ msgid ""
 "You can set more settings by modifying config.inc.php, eg. by using %sSetup "
 "script%s."
 msgstr ""
-"Pode configurar máis opcións modificando config.inc.php, p.ex. usando o "
-"%sScript de configuración%s."
+"Pode configurar máis opcións modificando config.inc.php, p.ex. usando o %"
+"sScript de configuración%s."
 
 #: prefs_manage.php:302
 msgid "Save to browser's storage"
@@ -10428,7 +10420,7 @@ msgstr "Conxuntos de caracteres e Ordes alfabéticas"
 #, php-format
 msgid "%1$d database has been dropped successfully."
 msgid_plural "%1$d databases have been dropped successfully."
-msgstr[0] "Elimináouse %1$d base de datos sen problemas."
+msgstr[0] "Eliminouse %1$d base de datos sen problemas."
 msgstr[1] "Elimináronse %1$d bases de datos sen problemas."
 
 #: server_databases.php:138
@@ -10729,8 +10721,8 @@ msgstr ""
 #: server_status.php:103
 msgid "This MySQL server works as <b>slave</b> in <b>replication</b> process."
 msgstr ""
-"Este servidor funciona como <b>escravo</b>  nun proceso de <b>replicación</"
-"b>."
+"Este servidor funciona como <b>escravo</b>  nun proceso de "
+"<b>replicación</b>."
 
 #: server_status.php:109
 msgid ""
@@ -10820,8 +10812,8 @@ msgid ""
 "no clearly measurable improvement."
 msgstr ""
 "A mellor maneira de axustar o sistema sería modificar só unha opción de cada "
-"vez, observar ou someter a base de datos a probas e desfacer o cambio se non "
-"se apreciaron melloras medíbeis."
+"vez, observar ou someter a base de datos a probas e desfacer o cambio se "
+"non se apreciaron melloras medíbeis."
 
 #: server_status_monitor.php:472
 msgid "Start Monitor"
@@ -10832,20 +10824,18 @@ msgid "Instructions/Setup"
 msgstr "Instrucións/Configuración"
 
 #: server_status_monitor.php:483
-#, fuzzy
 #| msgid "Done rearranging/editing charts"
 msgid "Done dragging (rearranging) charts"
-msgstr "Rematou a redistribución/edición das gráficas"
+msgstr "Rematou o arrastre (redistribución) das gráficas"
 
 #: server_status_monitor.php:489 server_status_monitor.php:606
 msgid "Add chart"
 msgstr "Engadir unha gráfica"
 
 #: server_status_monitor.php:492
-#, fuzzy
 #| msgid "Enable highlighting"
 msgid "Enable charts dragging"
-msgstr "Activar o realce"
+msgstr "Activar o arrastre das gráficas"
 
 #: server_status_monitor.php:496
 msgid "Refresh rate"
@@ -10940,8 +10930,8 @@ msgid ""
 "it is advisable to select only a small time span and to disable the "
 "general_log and empty its table once monitoring is not required any more."
 msgstr ""
-"Activar general_log pode incrementar a carga do servidor entre un 5% e un "
-"15%. Teña tamén en conta que xerar estatísticas a partir de rexistros é unha "
+"Activar general_log pode incrementar a carga do servidor entre un 5% e un 15"
+"%. Teña tamén en conta que xerar estatísticas a partir de rexistros é unha "
 "tarefa que require un traballo intensivo, polo que se recomenda escoller só "
 "un tempo limitado e desactivar general_log e baleirar a súa táboa cando non "
 "se requira máis esa vixilancia."
@@ -11216,9 +11206,9 @@ msgid ""
 "you have joins that don't use keys properly."
 msgstr ""
 "Número de peticións para ler unha fileira baseadas nunha posición fixa. Isto "
-"é alto se está a realizar moitas consultas que requiran ordenar o resultado. "
-"Posibelmente terá un monte de consultas que esixan que MySQL examine táboas "
-"completas ou ten unións que non usan as chaves axeitadamente."
+"é alto se está a realizar moitas consultas que requiran ordenar o "
+"resultado. Posibelmente terá un monte de consultas que esixan que MySQL "
+"examine táboas completas ou ten unións que non usan as chaves axeitadamente."
 
 #: server_status_variables.php:418
 msgid ""
@@ -11325,8 +11315,8 @@ msgid ""
 msgstr ""
 "Normalmente, escríbese no buffer de InnoDB como tarefa de fondo. Porén, de "
 "se precisar ler ou crear unha páxina e non haber páxinas limpas dispoñíbeis, "
-"hai que agardar a que se limpen. Este contador vai contando cantas veces hai "
-"que esperar. Se o tamaño do buffer é o axeitado, este valor debería ser "
+"hai que agardar a que se limpen. Este contador vai contando cantas veces "
+"hai que esperar. Se o tamaño do buffer é o axeitado, este valor debería ser "
 "pequeno."
 
 #: server_status_variables.php:486
@@ -11512,7 +11502,8 @@ msgid ""
 msgstr ""
 "Número de lecturas físicas dun bloque chave desde o disco. Se key_reads for "
 "grande, é que, posiblemente, o valor de key_fuffer_size é demasiado baixo. A "
-"relación de perdas da caché pódese calcular así: Key_reads/Key_read_requests."
+"relación de perdas da caché pódese calcular así: "
+"Key_reads/Key_read_requests."
 
 #: server_status_variables.php:609
 msgid ""
@@ -11965,8 +11956,8 @@ msgid ""
 "You are using Git version, run [kbd]git pull[/kbd] :-)[br]The latest stable "
 "version is %s, released on %s."
 msgstr ""
-"Está a empregar o sistema de versións Git; execute [kbd]git pull[/kbd] :-)"
-"[br]A versión estable máis recente é %s, publicada o %s."
+"Está a empregar o sistema de versións Git; execute [kbd]git pull[/kbd] "
+":-)[br]A versión estable máis recente é %s, publicada o %s."
 
 #: setup/lib/index.lib.php:203
 msgid "No newer stable version is available"
@@ -11981,10 +11972,10 @@ msgid ""
 "belongs to an ISP where thousands of users, including you, are connected to."
 msgstr ""
 "Esta %sopción%s debe estar desactivada porque permite que os atacantes "
-"inicien unhasesión por forza bruta a calquera servidor de MySQL. Se o estima "
-"necesario, utilice unha %slistaxe de proxies de confianza%s. Porén, a "
+"inicien unha sesión por forza bruta a calquera servidor de MySQL. Se o "
+"estima necesario, utilice unha %slistaxe de proxies de confianza%s. Porén, a "
 "protección baseada en IP podería non ser fiábel se o seu IP pertence a un "
-"ISP ao que haxaconectados miles de usuarios, incluíndoo a vostede."
+"ISP ao que estean conectados miles de usuarios, incluíndoo a vostede."
 
 #: setup/lib/index.lib.php:300
 msgid ""
@@ -12046,8 +12037,8 @@ msgid ""
 "most. Values larger than 1800 may pose a security risk such as impersonation."
 msgstr ""
 "A %svalidez das cookies de identificación%s deberíase reducir a un máximo de "
-"1800 seconds (30 minutos). Os valores superiores a 1800 poden supor un risco "
-"de seguranza, como a suplantación de personalidade."
+"1800 seconds (30 minutos). Os valores superiores a 1800 poden supor un "
+"risco de seguranza, como a suplantación de personalidade."
 
 #: setup/lib/index.lib.php:312
 #, php-format
@@ -12067,8 +12058,8 @@ msgid ""
 "protection may not be reliable if your IP belongs to an ISP where thousands "
 "of users, including you, are connected to."
 msgstr ""
-"Se pensa que é preciso, empregue opcións de protección adicionais - "
-"%sautenticación do servidor%s e %slista de proxies de confianza%s. Porén, a "
+"Se pensa que é preciso, empregue opcións de protección adicionais - %"
+"sautenticación do servidor%s e %slista de proxies de confianza%s. Porén, a "
 "protección baseada no IP pode non ser de fiar se o IP pertence a un ISP ao "
 "que estean ligados miles de usuarios, incluído vostede."
 
@@ -12124,8 +12115,7 @@ msgstr "A chave é curta de máis, debería ter un mínimo de oito caracteres."
 
 #: setup/lib/index.lib.php:431
 msgid "Key should contain letters, numbers [em]and[/em] special characters."
-msgstr ""
-"A chave debería conter letras, números [em]e[/em] caracteres especiais."
+msgstr "A chave debería conter letras, números [em]e[/em] caracteres especiais."
 
 #: setup/validate.php:22
 msgid "Wrong data"
@@ -12184,11 +12174,11 @@ msgstr "Non hai datos que mostrar"
 
 #: tbl_chart.php:62 tbl_gis_visualization.php:24
 msgid "No SQL query was set to fetch data."
-msgstr ""
+msgstr "Non se indicou unha consulta de SQL para obter os datos."
 
 #: tbl_chart.php:124
 msgid "No numeric columns present in the table to plot."
-msgstr ""
+msgstr "Na táboa que se quere debuxar non existe ningunha columna numérica."
 
 #: tbl_chart.php:154
 msgctxt "Chart type"
@@ -12227,7 +12217,7 @@ msgstr "Liña de tempo"
 
 #: tbl_chart.php:177
 msgid "Stacked"
-msgstr "Apiladas"
+msgstr "Amontoado"
 
 #: tbl_chart.php:180
 msgid "Chart title"
@@ -12270,7 +12260,7 @@ msgstr "Creouse a táboa %1$s."
 
 #: tbl_export.php:27
 msgid "View dump (schema) of table"
-msgstr "Ver o esquema do  envorcado da táboa"
+msgstr "Ver o esquema do envorcado da táboa"
 
 #: tbl_gis_visualization.php:114
 msgid "Display GIS Visualization"
@@ -12384,27 +12374,24 @@ msgid "Foreign key constraint"
 msgstr "Límite das chaves externas"
 
 #: tbl_relation.php:498
-#, fuzzy
 #| msgid "Constraints for table"
 msgid "Constraint name"
-msgstr "Restricións para a táboa"
+msgstr "Límite do nome"
 
 #: tbl_relation.php:529
-#, fuzzy
 #| msgid "No index defined!"
 msgid "No index defined! Create one below"
-msgstr "Non se definiu ningún índice!"
+msgstr "Non se definiu ningún índice! Cree un embaixo"
 
 #: tbl_structure.php:125
-#, fuzzy
 #| msgid "No rows selected"
 msgid "No column selected."
-msgstr "Non hai ningunha fileira seleccionada"
+msgstr "Non seleccionou ningunha columna."
 
 #: tbl_structure.php:149
 #, php-format
 msgid "The column name '%s' is a MySQL reserved keyword."
-msgstr ""
+msgstr "O nome de columna «%s» é unha palabra chave reservada do MySQL."
 
 #: tbl_tracking.php:135
 #, php-format
@@ -12414,17 +12401,17 @@ msgstr "Informe de seguimento da táboa «%s»"
 #: tbl_tracking.php:205
 #, php-format
 msgid "Version %1$s was created, tracking for %2$s is active."
-msgstr "Creouse a versión %1$s; activouse o seguemento de %2$s."
+msgstr "Creouse a versión %1$s; activouse o seguimento de %2$s."
 
 #: tbl_tracking.php:222
 #, php-format
 msgid "Tracking for %1$s was deactivated at version %2$s."
-msgstr "Desactivouse o seguemento de %1$s na versión %2$s."
+msgstr "Desactivouse o seguimento de %1$s na versión %2$s."
 
 #: tbl_tracking.php:239
 #, php-format
 msgid "Tracking for %1$s was activated at version %2$s."
-msgstr "Activouse o seguemento de %1$s na versión %2$s."
+msgstr "Activouse o seguimento de %1$s na versión %2$s."
 
 #: tbl_tracking.php:253
 msgid "SQL statements executed."
@@ -12516,7 +12503,7 @@ msgstr "Mostrar as versións"
 #: tbl_tracking.php:825
 #, php-format
 msgid "Deactivate tracking for %s"
-msgstr "Desactivar o seguemento para %s"
+msgstr "Desactivar o seguimento para %s"
 
 #: tbl_tracking.php:831
 msgid "Deactivate now"
@@ -12525,7 +12512,7 @@ msgstr "Desactivar agora"
 #: tbl_tracking.php:841
 #, php-format
 msgid "Activate tracking for %s"
-msgstr "Activar o seguemento para %s"
+msgstr "Activar o seguimento para %s"
 
 #: tbl_tracking.php:847
 msgid "Activate now"
@@ -12651,8 +12638,8 @@ msgstr ""
 #, php-format
 msgid "The slow query rate should be below 5%%, your value is %s%%."
 msgstr ""
-"A taxa de consultas lentas deberían estar por debaixo do 5%% e o valor é %s"
-"%%."
+"A taxa de consultas lentas deberían estar por debaixo do 5%% e o valor é %s%"
+"%."
 
 #: libraries/advisory_rules.txt:70
 msgid "Slow query rate"
@@ -12679,7 +12666,6 @@ msgid "Long query time"
 msgstr "Tempo de consultas longas"
 
 #: libraries/advisory_rules.txt:80
-#, fuzzy
 #| msgid ""
 #| "long_query_time is set to 10 seconds or more, thus only slow queries that "
 #| "take above 10 seconds are logged."
@@ -12687,7 +12673,7 @@ msgid ""
 "{long_query_time} is set to 10 seconds or more, thus only slow queries that "
 "take above 10 seconds are logged."
 msgstr ""
-"long_query_time está configurado para 10 segundos ou máis, de xeito que só "
+"{long_query_time} está configurado para 10 segundos ou máis, de xeito que só "
 "se rexistran as consultas lentas que tardan máis de 10 segundos."
 
 #: libraries/advisory_rules.txt:81
@@ -12716,7 +12702,7 @@ msgid ""
 "Enable slow query logging by setting {log_slow_queries} to 'ON'. This will "
 "help troubleshooting badly performing queries."
 msgstr ""
-"Active o rexistro de consultas lentas configurando {long_slow_queries} como "
+"Active o rexistro de consultas lentas configurando {log_slow_queries} como "
 "«ON». Con isto detéctanse as consultas con desempeño defectuoso."
 
 #: libraries/advisory_rules.txt:89
@@ -12898,9 +12884,10 @@ msgid ""
 "cache, especially if you have multiple slaves."
 msgstr ""
 "Está a empregar a caché de consultas de MySQL cunha base de datos de "
-"bastante tráfico. Sería boa idea considerar o uso de <a href=\"http://dev."
-"mysql.com/doc/refman/5.5/en/ha-memcached.html\">memcached</a> no canto da "
-"caché de consultas de MySQL, especialmente se ten varios escravos."
+"bastante tráfico. Sería boa idea considerar o uso de <a "
+"href=\"http://dev.mysql.com/doc/refman/5.5/en/ha-"
+"memcached.html\">memcached</a> no canto da caché de consultas de MySQL, "
+"especialmente se ten varios escravos."
 
 #: libraries/advisory_rules.txt:165
 #, php-format
@@ -13018,7 +13005,7 @@ msgid ""
 msgstr ""
 "Sería boa idea aumentar {query_cache_size}; porén, ha de ter en conta que o "
 "exceso de manter a caché é probábel que incremente co seu tamaño, así que "
-"faga isto en incrementos pequenos e vixile os resultados."
+"faga isto en incrementos pequenos e vixíe os resultados."
 
 #: libraries/advisory_rules.txt:193
 #, php-format
@@ -13098,7 +13085,6 @@ msgid "Too many sorts are causing temporary tables."
 msgstr "Demasiados ordenamentos está causando táboas temporais."
 
 #: libraries/advisory_rules.txt:215 libraries/advisory_rules.txt:222
-#, fuzzy
 #| msgid ""
 #| "Consider increasing sort_buffer_size and/or read_rnd_buffer_size, "
 #| "depending on your system memory limits"
@@ -13106,8 +13092,8 @@ msgid ""
 "Consider increasing {sort_buffer_size} and/or {read_rnd_buffer_size}, "
 "depending on your system memory limits"
 msgstr ""
-"Considere aumentar sort_buffer_size e/ou read_rnd_buffer_size, dependendo "
-"dos límites de memoria do sistema"
+"Considere aumentar {sort_buffer_size} e/ou {read_rnd_buffer_size}, "
+"dependendo dos límites de memoria do sistema"
 
 #: libraries/advisory_rules.txt:216
 #, php-format
@@ -13265,10 +13251,9 @@ msgid "tmp_table_size vs. max_heap_table_size"
 msgstr "tmp_table_size fronte a max_heap_table_size"
 
 #: libraries/advisory_rules.txt:265
-#, fuzzy
 #| msgid "tmp_table_size and max_heap_table_size are not the same."
 msgid "{tmp_table_size} and {max_heap_table_size} are not the same."
-msgstr "tmp_table_size e max_heap_table_size non son o mesmo."
+msgstr "{tmp_table_size} e {max_heap_table_size} non son o mesmo."
 
 #: libraries/advisory_rules.txt:266
 msgid ""
@@ -13314,8 +13299,8 @@ msgstr ""
 "disco, independentemente do valor destas variábeis. Para eliminalas hai que "
 "reescribir as consultas para que eviten esas condicións (Nunha táboa "
 "temporal: presenza dunha columna tipo BLOB ou TEXT ou presenza dunha columna "
-"maior de 512 bytes), como se menciona no comezo dun <a href=\"http://www."
-"facebook.com/note.php?note_id=10150111255065841&comments\">artigo do grupo "
+"maior de 512 bytes), como se menciona no comezo dun <a href=\"http://www.fac"
+"ebook.com/note.php?note_id=10150111255065841&comments\">artigo do grupo "
 "Pythian</a>"
 
 #: libraries/advisory_rules.txt:274
@@ -13346,8 +13331,9 @@ msgstr ""
 "disco, independentemente do valor destas variábeis. Para eliminalas hai que "
 "reescribir as consultas para que eviten esas condicións (Nunha táboa "
 "temporal: presenza dunha columna tipo BLOB ou TEXT ou presenza dunha columna "
-"maior de 512 bytes), como se menciona na <a href=\"http://dev.mysql.com/doc/"
-"refman/5.5/en/internal-temporary-tables.html\">documentación do MySQL</a>"
+"maior de 512 bytes), como se menciona na <a "
+"href=\"http://dev.mysql.com/doc/refman/5.5/en/internal-temporary-"
+"tables.html\">documentación do MySQL</a>"
 
 #: libraries/advisory_rules.txt:281
 #, php-format
@@ -13405,18 +13391,18 @@ msgstr ""
 msgid ""
 "max %% MyISAM key buffer ever used: %s%%, this value should be above 95%%"
 msgstr ""
-"máximo %% buffer de chaves de MyISM %% empregado: %s%%; este valor debería "
+"máximo %% buffer de chaves de MyISAM %% empregado: %s%%; este valor debería "
 "superar o 95%%"
 
 #: libraries/advisory_rules.txt:311
 msgid "Percentage of MyISAM key buffer used"
-msgstr "Porcentaxe do buffer de chaves de MySISAM empregado"
+msgstr "Porcentaxe do buffer de chaves de MyISAM empregado"
 
 #: libraries/advisory_rules.txt:316
 #, php-format
 msgid "%% MyISAM key buffer used: %s%%, this value should be above 95%%"
 msgstr ""
-"%% buffer de chaves de MyISM %% empregado: %s%%; este valor debería superar "
+"%% buffer de chaves de MyISAM %% empregado: %s%%; este valor debería superar "
 "o 95%%"
 
 #: libraries/advisory_rules.txt:318
@@ -13472,7 +13458,6 @@ msgstr ""
 "un erro do tipo «Demasiados ficheiros abertos»."
 
 #: libraries/advisory_rules.txt:338 libraries/advisory_rules.txt:345
-#, fuzzy
 #| msgid ""
 #| "Consider increasing {open_files_limit}, and check the error log when "
 #| "restarting after changing open_files_limit."
@@ -13481,7 +13466,7 @@ msgid ""
 "restarting after changing {open_files_limit}."
 msgstr ""
 "Considere aumentar {open_files_limit}, e comprobe o rexistro de erros ao "
-"reiniciar tras cambiar este valor."
+"reiniciar tras cambiar {open_files_limit}."
 
 #: libraries/advisory_rules.txt:339
 #, php-format
@@ -13538,7 +13523,7 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:362
 msgid "Thread cache"
-msgstr "Caché de fios"
+msgstr "Caché de fíos"
 
 #: libraries/advisory_rules.txt:365
 msgid ""
@@ -13604,7 +13589,6 @@ msgid "Slow_launch_threads is above 2s"
 msgstr "Slow_launch_threads é superior a 2s"
 
 #: libraries/advisory_rules.txt:387
-#, fuzzy
 #| msgid ""
 #| "Set slow_launch_time to 1s or 2s to correctly count threads that are slow "
 #| "to launch"
@@ -13612,7 +13596,7 @@ msgid ""
 "Set {slow_launch_time} to 1s or 2s to correctly count threads that are slow "
 "to launch"
 msgstr ""
-"Configure slow_launch_time a 1 ou 2 segundos para contar correctamente os "
+"Configure {slow_launch_time} a 1 ou 2 segundos para contar correctamente os "
 "fíos que se inician lentamente"
 
 #: libraries/advisory_rules.txt:388
@@ -13625,7 +13609,6 @@ msgid "Percentage of used connections"
 msgstr "Porcentaxe de conexións empregadas"
 
 #: libraries/advisory_rules.txt:395
-#, fuzzy
 #| msgid ""
 #| "The maximum amount of used connections is getting close to the value of "
 #| "max_connections."
@@ -13637,7 +13620,6 @@ msgstr ""
 "conexións máximas (max_connections)."
 
 #: libraries/advisory_rules.txt:396
-#, fuzzy
 #| msgid ""
 #| "Increase max_connections, or decrease wait_timeout so that connections "
 #| "that do not close database handlers properly get killed sooner. Make sure "
@@ -13647,16 +13629,16 @@ msgid ""
 "that do not close database handlers properly get killed sooner. Make sure "
 "the code closes database handlers properly."
 msgstr ""
-"Aumente max_connections ou reduza wait_timeout para que as conexións que non "
-"fechen os xestores da base de datos axeitadamente se maten antes. Asegúrese "
-"de que o código fecha axeitadamente os xestores da base de datos."
+"Aumente {max_connections} ou {reduza wait_timeout} para que as conexións que "
+"non fechen os xestores da base de datos axeitadamente se maten antes. "
+"Asegúrese de que o código fecha axeitadamente os xestores da base de datos."
 
 #: libraries/advisory_rules.txt:397
 #, php-format
 msgid ""
 "Max_used_connections is at %s%% of max_connections, it should be below 80%%"
 msgstr ""
-"max_used_connections está no %s%% de max_connections; debería ser inferior "
+"Max_used_connections está no %s%% de max_connections; debería ser inferior "
 "ao 80%%"
 
 #: libraries/advisory_rules.txt:399
@@ -13784,9 +13766,9 @@ msgstr ""
 "chega simplemente con cambiar o valor desta variábel. hai que apagar o "
 "servidor, retirar os ficheiros de rexistro de InnoDB, configurar o novo "
 "valor en my.cnf, iniciar o servidor e a seguir comprobar os rexistros de "
-"erro par ver que todo fose ben. Consulte tamén <a href=\"http://"
-"mysqldatabaseadministration.blogspot.com/2007/01/increase-innodblogfilesize-"
-"proper-way.html\">esta entrada de blogue</a>"
+"erro par ver que todo fose ben. Consulte tamén <a "
+"href=\"http://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
+"innodblogfilesize-proper-way.html\">esta entrada de blogue</a>"
 
 #: libraries/advisory_rules.txt:441
 #, php-format
@@ -13821,11 +13803,12 @@ msgstr ""
 "Normalmente abonda con configurar {innodb_log_file_size} como o 25%% do "
 "tamaño de {innodb_buffer_pool_size}. Un innodb_log_file moi grande enlentece "
 "considerabelmente o tempo de recuperación a seguir unha quebra da base de "
-"datos. Consulte tamén <a href=\"http://www.mysqlperformanceblog."
-"com/2006/07/03/choosing-proper-innodb_log_file_size/\">este artigo</a>. Hai "
-"que apagar o servidor, retirar os ficheiros de rexistro de InnoDB, "
-"configurar o novo valor en my.cnf, iniciar o servidor, e a seguir comprobar "
-"os rexistros de erro para comprobar que todo fose ben. Consulte tamén <a "
+"datos. Consulte tamén <a "
+"href=\"http://www.mysqlperformanceblog.com/2006/07/03/choosing-proper-"
+"innodb_log_file_size/\">este artigo</a>. Hai que apagar o servidor, retirar "
+"os ficheiros de rexistro de InnoDB, configurar o novo valor en my.cnf, "
+"iniciar o servidor, e a seguir comprobar os rexistros de erro para comprobar "
+"que todo fose ben. Consulte tamén <a "
 "href=\"http://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
 "innodblogfilesize-proper-way.html\">esta entrada de blogue</a>"
 
@@ -13865,8 +13848,9 @@ msgstr ""
 "memoria dos demais servizos e as táboas que non sexan de InnoDB e configurar "
 "esta variábel en consecuencia. Se se configura demasiado alta, o sistema "
 "comezará a gravar no disco, o que reduce o desempeño de maneira "
-"significativa. Consulte tamén <a href=\"http://www.mysqlperformanceblog."
-"com/2007/11/03/choosing-innodb_buffer_pool_size/\">este artigo</a>"
+"significativa. Consulte tamén <a "
+"href=\"http://www.mysqlperformanceblog.com/2007/11/03/choosing-"
+"innodb_buffer_pool_size/\">este artigo</a>"
 
 #: libraries/advisory_rules.txt:455
 #, php-format
@@ -13886,10 +13870,9 @@ msgid "MyISAM concurrent inserts"
 msgstr "Insercións concorrentes de MyISAM"
 
 #: libraries/advisory_rules.txt:462
-#, fuzzy
 #| msgid "Enable concurrent_insert by setting it to 1"
 msgid "Enable {concurrent_insert} by setting it to 1"
-msgstr "Active concurrent_insert configurándoo como 1"
+msgstr "Active {concurrent_insert} configurándoo como 1"
 
 #: libraries/advisory_rules.txt:463
 msgid ""
@@ -13898,8 +13881,9 @@ msgid ""
 "refman/5.5/en/concurrent-inserts.html\">MySQL Documentation</a>"
 msgstr ""
 "Configurar {concurrent_insert} como 1 reduce a contención entre as lecturas "
-"e as escritas nunha táboa dada. Consulte tamén a <a href=\"http://dev.mysql."
-"com/doc/refman/5.5/en/concurrent-inserts.html\">documentación do MySQL</a>"
+"e as escritas nunha táboa dada. Consulte tamén a <a "
+"href=\"http://dev.mysql.com/doc/refman/5.5/en/concurrent-"
+"inserts.html\">documentación do MySQL</a>"
 
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
