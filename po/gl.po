@@ -12614,7 +12614,7 @@ msgid "Wrong data"
 msgstr "Os datos son incorrectos"
 
 #: sql.php:399
-#, php-format
+#, php-format, fuzzy
 #| msgid ""
 #| "This table does not contain a unique column. Features related to the grid "
 #| "edit, checkbox, Edit, Copy and Delete links may not work after saving."
