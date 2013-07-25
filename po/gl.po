@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-07-12 16:06+0200\n"
-"PO-Revision-Date: 2013-07-25 19:52+0200\n"
+"PO-Revision-Date: 2013-07-25 23:17+0200\n"
 "Last-Translator: Xosé Calvo <xosecalvo@gmail.com>\n"
 "Language-Team: Galician "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/gl/>\n"
@@ -804,7 +804,7 @@ msgstr "Colaborar"
 
 #: index.php:366
 msgid "Get support"
-msgstr "Obter soporte"
+msgstr "Obter axuda"
 
 #: index.php:373
 msgid "List of changes"
@@ -6106,8 +6106,8 @@ msgid ""
 "Leave blank for no SQL query tracking support, suggested: "
 "[kbd]pma__tracking[/kbd]"
 msgstr ""
-"Déixeo en branco se non quere un soporte de seguimento das consultas SQL, "
-"valor suxerido: [kbd]pma_tracking[/kbd]"
+"Déixeo en branco se non quere a funcionalidade de seguimento das consultas "
+"de SQL; valor suxerido: [kbd]pma_tracking[/kbd]"
 
 #: libraries/config/messages.inc.php:448
 msgid "SQL query tracking table"
@@ -12614,7 +12614,7 @@ msgid "Wrong data"
 msgstr "Os datos son incorrectos"
 
 #: sql.php:399
-#, php-format, fuzzy
+#, php-format
 #| msgid ""
 #| "This table does not contain a unique column. Features related to the grid "
 #| "edit, checkbox, Edit, Copy and Delete links may not work after saving."
