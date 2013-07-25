@@ -32,7 +32,7 @@ if (empty($import_list)) {
     exit;
 }
 
-$html = '';
+$html  = '';
 $html .= '<iframe id="import_upload_iframe" name="import_upload_iframe" width="1" height="1" style="display: none;"></iframe>';
 $html .= '<div id="import_form_status" style="display: none;"></div>';
 $html .= '<div id="importmain">';
@@ -47,39 +47,24 @@ $html .= '    <script type="text/javascript">
                 $("#upload_form_status_info").css("display", "inline"); // - || -';
 
 if ($_SESSION[$SESSION_KEY]["handler"] != "UploadNoplugin") {
-
-    $ajax_url = "import_status.php?id=" . $upload_id . "&" . PMA_generate_common_url(array('import_status'=>1), '&') + ';';
-    $html .= '     var ajax_url =' . $ajax_url + ';';
-    $html .= '     var pmaThemeImage =' . $GLOBALS['pmaThemeImage'] + ';';
-    $html .= '     var promotStr =' . PMA_jsFormat(__('The file being uploaded is probably larger than the maximum allowed size or this is a known bug in webkit based (Safari, Google Chrome, Arora etc.) browsers.'), false) + ';';
-    $html .= '     var statustext_str =' . PMA_escapeJsString(__('%s of %s')) + ';';
-    $html .= '     var import_str =' . PMA_jsFormat(__('Uploading your import file...'), false) + ';';
-    $html .= '     var second_str =' . PMA_jsFormat(__('%s/sec.'), false) + ';';
-    $html .= '     var remaining_str1 =' . PMA_jsFormat(__('About %MIN min. %SEC sec. remaining.'), false) + ';';
-    $html .= '     var remaining_str2 =' . PMA_jsFormat(__('About %SEC sec. remaining.'), false) + ';';
-    $html .= '     var proceed_str =' . PMA_jsFormat(__('The file is being processed, please be patient.'), false) + ';';
-    $html .= '     var import_url =' . PMA_generate_common_url(array('import_status'=>1), '&') + ';';
-    $html .= '     var ajax_url =' . $ajax_url + ';';
-    $html .= '     var ajax_url =' . $ajax_url + ';';
-    $html .= '     var ajax_url =' . $ajax_url + ';';
-    $html .= '     var ajax_url =' . $ajax_url + ';';
-    $html .= '     var ajax_url =' . $ajax_url + ';';
+    //output for javascript variable
+    $ajax_url = "import_status.php?id=" . $upload_id . "&" . PMA_generate_common_url(array('import_status'=>1), '&');
+    $html .= "     var ajax_url ='" . $ajax_url + "';";
+    $html .= "     var pmaThemeImage ='" . $GLOBALS['pmaThemeImage'] + "';";
+    $html .= "     var promot_str ='" . PMA_jsFormat(__('The file being uploaded is probably larger than the maximum allowed size or this is a known bug in webkit based (Safari, Google Chrome, Arora etc.) browsers.'), false) + "';";
+    $html .= "     var statustext_str ='" . PMA_escapeJsString(__('%s of %s')) + "';";
+    $html .= "     var upload_str ='" . PMA_jsFormat(__('Uploading your import file...'), false) + "';";
+    $html .= "     var second_str ='" . PMA_jsFormat(__('%s/sec.'), false) + "';";
+    $html .= "     var remaining_min ='" . PMA_jsFormat(__('About %MIN min. %SEC sec. remaining.'), false) + "';";
+    $html .= "     var remaining_second ='" . PMA_jsFormat(__('About %SEC sec. remaining.'), false) + "';";
+    $html .= "     var processed_str ='" . PMA_jsFormat(__('The file is being processed, please be patient.'), false) + "';";
+    $html .= "     var import_url ='" . PMA_generate_common_url(array('import_status'=>1), '&') + "';";
     
-    $html .= '     $.include("display_import_no_plugin.js"); ';
-
-    // reload the left sidebar when the import is finished
-    $GLOBALS['reload'] = true;
-    
-    $html .= '                      } // if finished';
-    $html .= '                    else {';
-    $html .= '                        setTimeout(perform_upload, 1000);';
-    $html .= '                    }';
-    $html .= '                });';
-    $html .= '            };';
-    $html .= '            setTimeout(perform_upload, 1000);';
+    $html .= "     $.include('display_import_no_plugin.js'); ";
 
 } else { // no plugin available
-    $html .= '                $("#upload_form_status_info").html("<img src="' . $GLOBALS['pmaThemeImage'] . 'ajax_clock_small.gif" width="16" height="16" alt="ajax clock" /> ' . PMA_jsFormat(__('Please be patient, the file is being uploaded. Details about the upload are not available.'), false) . PMA_Util::showDocu('faq', 'faq2-9') . ');';
+    $image_tag = '<img src="' . $GLOBALS['pmaThemeImage'] . 'ajax_clock_small.gif" width="16" height="16" alt="ajax clock" /> ' . PMA_jsFormat(__('Please be patient, the file is being uploaded. Details about the upload are not available.'), false) . PMA_Util::showDocu('faq', 'faq2-9');
+    $html .= '                $("#upload_form_status_info").html("' . $image_tag + '");';
     $html .= '                       $("#upload_form_status").css("display", "none");';
 } // else
 
@@ -96,9 +81,8 @@ if ($_SESSION[$SESSION_KEY]["handler"] != "UploadNoplugin") {
 $html .= ' class="ajax"';
 $html .= '>';
 $html .= '    <input type="hidden" name="';
-        $html .= $_SESSION[$SESSION_KEY]['handler']::getIdKey();
+$html .= $_SESSION[$SESSION_KEY]['handler']::getIdKey();
 $html .= '" value="' . $upload_id . '" />';
-
 
 if ($import_type == 'server') {
     $html .= PMA_generate_common_hidden_inputs('', '', 1);
@@ -202,7 +186,6 @@ if ($GLOBALS['PMA_recoding_engine'] != PMA_CHARSET_NONE) {
     $html .= '    <div class="importoptions">';
     $html .= '        <h3>' . __('Partial Import:') . '</h3>';
 
-
 if (isset($timeout_passed) && $timeout_passed) {
     $html .= '<div class="formelementrow">' . "\n";
     $html .= '<input type="hidden" name="skip" value="' . $offset . '" />';
@@ -264,6 +247,6 @@ $html .= '</form>';
 $html .= '</div>';
 
 $response = PMA_Response::getInstance();
-$response->addHTML('</div>');
+$response->addHTML($html);
 
 ?>

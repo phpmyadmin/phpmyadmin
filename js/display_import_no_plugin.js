@@ -22,7 +22,7 @@ var perform_upload = function () {
 				complete = response.complete;
 
 				if (total==0 && complete==0 && percent==0) {
-					$('#upload_form_status_info').html('<img src='+ pmaThemeImage + 'ajax_clock_small.gif" width="16" height="16" alt="ajax clock" /> ' + promotStr);
+					$('#upload_form_status_info').html('<img src='+ pmaThemeImage + 'ajax_clock_small.gif" width="16" height="16" alt="ajax clock" /> ' + promot_str);
 					$('#upload_form_status').css("display", "none");
 				} else {
 					var now = new Date();
@@ -39,7 +39,7 @@ var perform_upload = function () {
 						// show progress UI
 						$('#importmain').hide();
 						$('#import_form_status')
-						.html('<div class="upload_progress"><div class="upload_progress_bar_outer"><div class="percentage"></div><div id="status" class="upload_progress_bar_inner"><div class="percentage"></div></div></div><div><img src='+ pmaThemeImage + 'ajax_clock_small.gif" width="16" height="16" alt="ajax clock" /> ' + import_str + '</div><div id="statustext"></div></div>')
+						.html('<div class="upload_progress"><div class="upload_progress_bar_outer"><div class="percentage"></div><div id="status" class="upload_progress_bar_inner"><div class="percentage"></div></div></div><div><img src="'+ pmaThemeImage + 'ajax_clock_small.gif" width="16" height="16" alt="ajax clock" /> ' + upload_str + '</div><div id="statustext"></div></div>')
 						.show();
 						import_start = now;
 					}
@@ -54,11 +54,11 @@ var perform_upload = function () {
 						seconds %= 60;
 						var estimated_time;
 						if (minutes > 0) {
-							estimated_time = remaining_str1
+							estimated_time = remaining_min
 							.replace('%MIN', minutes).replace('%SEC', seconds);
 						}
 						else {
-							estimated_time = remaining_str2
+							estimated_time = remaining_second
 							.replace('%SEC', seconds);
 						}
 
@@ -88,6 +88,16 @@ var perform_upload = function () {
 					}
 					$('#importmain').hide();
 					$('#import_form_status')
-					.html('<img src="' + pmaThemeImage + 'ajax_clock_small.gif" width="16" height="16" alt="ajax clock" />' + proceed_str)
+					.html('<img src="' + pmaThemeImage + 'ajax_clock_small.gif" width="16" height="16" alt="ajax clock" /> ' + processed_str)
 					.show();
 					$('#import_form_status').load('import_status.php?message=true&' + import_url); // loads the message, either success or mysql error
+					
+                    // reload the left sidebar when the import is finished
+					<?php $GLOBALS['reload'] = true; ?>
+                } // if finished
+                else {
+                     setTimeout(perform_upload, 1000);
+                }
+    });
+};
+setTimeout(perform_upload, 1000);
