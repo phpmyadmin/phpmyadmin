@@ -10,7 +10,7 @@ if (!defined('PHPMYADMIN')) {
 }
 
 /**
- * Get the database name inside a USE query
+ * Get the database name inside a query
  *
  * @param string $sql       SQL query
  * @param array  $databases array with all databases
