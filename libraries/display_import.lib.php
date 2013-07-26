@@ -37,14 +37,14 @@ $html .= '<iframe id="import_upload_iframe" name="import_upload_iframe" width="1
 $html .= '<div id="import_form_status" style="display: none;"></div>';
 $html .= '<div id="importmain">';
 $html .= '    <img src="' . $GLOBALS['pmaThemeImage'] . 'ajax_clock_small.gif" width="16" height="16" alt="ajax clock" style="display: none;" />';
-$html .= '    <script type="text/javascript">
-        //<![CDATA[
-        $( function() {
-            // add event when user click on "Go" button
-            $("#buttonGo").bind("click", function() {
-                $("#upload_form_form").css("display", "none"); // hide form
-                $("#upload_form_status").css("display", "inline"); // show progress bar
-                $("#upload_form_status_info").css("display", "inline"); // - || -';
+$html .= '    <script type="text/javascript">';
+$html .= '        //<![CDATA[';
+$html .= '        $( function() {';
+$html .= '            // add event when user click on "Go" button';
+$html .= '            $("#buttonGo").bind("click", function() {';
+$html .= '                $("#upload_form_form").css("display", "none");';
+$html .= '                $("#upload_form_status").css("display", "inline");';
+$html .= '               $("#upload_form_status_info").css("display", "inline");';
 
 if ($_SESSION[$SESSION_KEY]["handler"] != "UploadNoplugin") {
     //output for javascript variable
