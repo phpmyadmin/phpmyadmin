@@ -857,6 +857,14 @@ function PMA_getHistory($username)
 {
     $cfgRelation = PMA_getRelationsParam();
 
+    /**
+     * if db-based history is disabled but there exists a session-based
+     * history, use it
+     */
+    if (! $GLOBALS['cfg']['QueryHistoryDB'] && isset($_SESSION['sql_history'])) {
+            return array_reverse($_SESSION['sql_history']);
+    } 
+
     if (! $cfgRelation['historywork']) {
         return false;
     }
