@@ -60,7 +60,7 @@ if ($_SESSION[$SESSION_KEY]["handler"] != "UploadNoplugin") {
     $html .= "     var processed_str ='" . PMA_jsFormat(__('The file is being processed, please be patient.'), false) + "';";
     $html .= "     var import_url ='" . PMA_generate_common_url(array('import_status'=>1), '&') + "';";
     
-    $html .= "     $.include('display_import_no_plugin.js'); ";
+    $html .= "     $.include('../js/display_import_no_plugin.js'); ";
 
 } else { // no plugin available
     $image_tag = '<img src="' . $GLOBALS['pmaThemeImage'] . 'ajax_clock_small.gif" width="16" height="16" alt="ajax clock" /> ' . PMA_jsFormat(__('Please be patient, the file is being uploaded. Details about the upload are not available.'), false) . PMA_Util::showDocu('faq', 'faq2-9');
@@ -100,9 +100,11 @@ $html .= PMA_Util::getImage('b_import.png', __('Import'));
 if ($import_type == 'server') {
     $html .= __('Importing into the current server');
 } elseif ($import_type == 'database') {
-    printf(__('Importing into the database "%s"'), htmlspecialchars($db));
+    $import_str = sprintf(__('Importing into the database "%s"'), htmlspecialchars($db));
+    $html .= $import_str;
 } else {
-    printf(__('Importing into the table "%s"'), htmlspecialchars($table));
+    $import_str = printf(__('Importing into the table "%s"'), htmlspecialchars($table));
+    $html .= $import_str;
 }
 $html .= '        </h2>';
 $html .= '    </div>';
@@ -125,7 +127,8 @@ if ($cfg['ZipDump'] && @function_exists('zip_open')) {
 // We don't have show anything about compression, when no supported
 if ($compressions != array()) {
     $html .= '<div class="formelementrow" id="compression_info">';
-    printf(__('File may be compressed (%s) or uncompressed.'), implode(", ", $compressions));
+    $compress_str = sprintf(__('File may be compressed (%s) or uncompressed.'), implode(", ", $compressions));
+    $html .= $compress_str;
     $html .= '<br />';
     $html .= __('A compressed file\'s name must end in <b>.[format].[compression]</b>. Example: <b>.sql.zip</b>');
     $html .= '</div>';
@@ -153,7 +156,7 @@ if ($GLOBALS['is_upload'] && !empty($cfg['UploadDir'])) {
     $uid = uniqid('');
     $html .= PMA_Util::getBrowseUploadFileBlock($max_upload_size);
 } elseif (!$GLOBALS['is_upload']) {
-    PMA_Message::notice(__('File uploads are not allowed on this server.'))->display();
+    $html .= PMA_Message::notice(__('File uploads are not allowed on this server.'))->getDisplay();
 } elseif (!empty($cfg['UploadDir'])) {
     $html .= PMA_Util::getSelectUploadFileBlock($import_list, $cfg['UploadDir']);
 } // end if (web-server upload directory)
@@ -181,10 +184,10 @@ if ($GLOBALS['PMA_recoding_engine'] != PMA_CHARSET_NONE) {
     $html .= PMA_generateCharsetDropdownBox(PMA_CSDROPDOWN_CHARSET, 'charset_of_file', 'charset_of_file', 'utf8', false);
 } // end if (recoding)
 
-    $html .= '        </div>';
-    $html .= '   </div>';
-    $html .= '    <div class="importoptions">';
-    $html .= '        <h3>' . __('Partial Import:') . '</h3>';
+$html .= '        </div>';
+$html .= '   </div>';
+$html .= '    <div class="importoptions">';
+$html .= '        <h3>' . __('Partial Import:') . '</h3>';
 
 if (isset($timeout_passed) && $timeout_passed) {
     $html .= '<div class="formelementrow">' . "\n";
@@ -193,15 +196,14 @@ if (isset($timeout_passed) && $timeout_passed) {
     $html .= '</div>' . "\n";
 }
 
-    $html .= '        <div class="formelementrow">';
-    $html .= '           <input type="checkbox" name="allow_interrupt" value="yes"';
-    $html .= '                  id="checkbox_allow_interrupt" ' . PMA_pluginCheckboxCheck('Import', 'allow_interrupt') . '/>';
-    $html .= '            <label for="checkbox_allow_interrupt">' . __('Allow the interruption of an import in case the script detects it is close to the PHP timeout limit. <i>(This might be a good way to import large files, however it can break transactions.)</i>') . '</label><br />';
-    $html .= '        </div>';
+$html .= '        <div class="formelementrow">';
+$html .= '           <input type="checkbox" name="allow_interrupt" value="yes"';
+$html .= '                  id="checkbox_allow_interrupt" ' . PMA_pluginCheckboxCheck('Import', 'allow_interrupt') . '/>';
+$html .= '            <label for="checkbox_allow_interrupt">' . __('Allow the interruption of an import in case the script detects it is close to the PHP timeout limit. <i>(This might be a good way to import large files, however it can break transactions.)</i>') . '</label><br />';
+$html .= '        </div>';
 
  
 if (! (isset($timeout_passed) && $timeout_passed)) {
-
     $html .= '        <div class="formelementrow">';
     $html .= '            <label for="text_skip_queries">' .  __('Number of rows to skip, starting from the first row:') . '</label>';
     $html .= '            <input type="text" name="skip_queries" value="' . PMA_pluginGetDefault('Import', 'skip_queries'). '" id="text_skip_queries" />';
@@ -212,7 +214,6 @@ if (! (isset($timeout_passed) && $timeout_passed)) {
     // do not show the Skip dialog to avoid the risk of someone
     // entering a value here that would interfere with "skip"
     $html .= '         <input type="hidden" name="skip_queries" value="' . PMA_pluginGetDefault('Import', 'skip_queries') . '" id="text_skip_queries" />';
-  
 }
  
 $html .= '    </div>';

@@ -22,7 +22,7 @@ var perform_upload = function () {
 				complete = response.complete;
 
 				if (total==0 && complete==0 && percent==0) {
-					$('#upload_form_status_info').html('<img src='+ pmaThemeImage + 'ajax_clock_small.gif" width="16" height="16" alt="ajax clock" /> ' + promot_str);
+					$('#upload_form_status_info').html('<img src="'+ pmaThemeImage + 'ajax_clock_small.gif" width="16" height="16" alt="ajax clock" /> ' + promot_str);
 					$('#upload_form_status').css("display", "none");
 				} else {
 					var now = new Date();
@@ -91,9 +91,7 @@ var perform_upload = function () {
 					.html('<img src="' + pmaThemeImage + 'ajax_clock_small.gif" width="16" height="16" alt="ajax clock" /> ' + processed_str)
 					.show();
 					$('#import_form_status').load('import_status.php?message=true&' + import_url); // loads the message, either success or mysql error
-					
-                    // reload the left sidebar when the import is finished
-					<?php $GLOBALS['reload'] = true; ?>
+
                 } // if finished
                 else {
                      setTimeout(perform_upload, 1000);
