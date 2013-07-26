@@ -3041,5 +3041,18 @@ function PMA_SQP_getParserDataMap()
         'PMA_SQPdata_column_type'    => $PMA_SQPdata_column_type,
     );
 }
+/**
+ * Get Parser analyze Map from parse_analyze_inc.php
+ *
+ * @param array $sql_query The SQL string
+ * @param array $db        Current DB
+ *
+ * @return Array analyze Map from parse_analyze_inc.php
+ */
+function PMA_SQP_getParserAnalyzeMap($sql_query, $db)
+{
+    include 'libraries/parse_analyze.inc.php';
+    return $analyzed_sql_results;
+}
 
 ?>

@@ -27,16 +27,6 @@ $scripts->addFile('tbl_change.js');
 $scripts->addFile('jquery/jquery-ui-timepicker-addon.js');
 $scripts->addFile('gis_data_editor.js');
 
-$post_params = array(
-    'ajax_request',
-    'session_max_rows'
-);
-foreach ($post_params as $one_post_param) {
-    if (isset($_POST[$one_post_param])) {
-        $GLOBALS[$one_post_param] = $_POST[$one_post_param];
-    }
-}
-
 $table_search = new PMA_TableSearch($db, $table, "normal");
 
 /**

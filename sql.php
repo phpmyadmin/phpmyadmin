@@ -24,8 +24,6 @@ $header   = $response->getHeader();
 $scripts  = $header->getScripts();
 $scripts->addFile('jquery/jquery-ui-timepicker-addon.js');
 $scripts->addFile('tbl_change.js');
-// the next one needed because sql.php may do a "goto" to tbl_structure.php
-$scripts->addFile('tbl_structure.js');
 $scripts->addFile('indexes.js');
 $scripts->addFile('gis_data_editor.js');
 
@@ -84,17 +82,20 @@ if (isset($_REQUEST['get_relational_values'])
     && $_REQUEST['get_relational_values'] == true
 ) {
     PMA_getRelationalValues($db, $table, $display_field);
+    // script has exited at this point 
 }
 
 // Just like above, find possible values for enum fields during grid edit.
 if (isset($_REQUEST['get_enum_values']) && $_REQUEST['get_enum_values'] == true) {
     PMA_getEnumOrSetValues($db, $table, "enum");
+    // script has exited at this point 
 }
 
 
 // Find possible values for set fields during grid edit.
 if (isset($_REQUEST['get_set_values']) && $_REQUEST['get_set_values'] == true) {
     PMA_getEnumOrSetValues($db, $table, "set");
+    // script has exited at this point 
 }
 
 /**
@@ -102,6 +103,7 @@ if (isset($_REQUEST['get_set_values']) && $_REQUEST['get_set_values'] == true) {
  */
 if (isset($_REQUEST['set_col_prefs']) && $_REQUEST['set_col_prefs'] == true) {
     PMA_setColumnOrderOrVisibility($table, $db);
+    // script has exited at this point 
 }
 
 // Default to browse if no query set and we have table
@@ -153,6 +155,7 @@ if (isset($find_real_end) && $find_real_end) {
  */
 if (isset($_POST['store_bkm'])) {
     PMA_addBookmark($cfg['PmaAbsoluteUri'], $goto);
+    // script has exited at this point 
 } // end if
 
 
