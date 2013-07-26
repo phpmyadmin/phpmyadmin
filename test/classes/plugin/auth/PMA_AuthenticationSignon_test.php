@@ -120,7 +120,8 @@ class PMA_AuthenticationSignon_Test extends PHPUnit_Framework_TestCase
         // case 2
 
         $_SESSION['LAST_SIGNON_URL'] = 'http://phpmyadmin.net/SignonURL';
-        $GLOBALS['cfg']['Server']['SignonScript'] = './examples/signon-script.php';
+        $GLOBALS['cfg']['Server']['SignonScript'] = './test/test_data/' . 
+            'signon-script.php';
         $GLOBALS['cfg']['Server']['SignonSession'] = 'session123';
         $GLOBALS['cfg']['Server']['host'] = 'localhost';
         $GLOBALS['cfg']['Server']['port'] = '80';
