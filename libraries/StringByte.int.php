@@ -1,24 +1,11 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Implements PMA_StringByte interface using the "mbstring" extension.
+ * Defines a set of specialized string functions.
  *
- * @package    PhpMyAdmin-String
- * @subpackage MB
+ * @package PhpMyAdmin-String
+ * @todo    May be move this into file of its own
  */
-if (! defined('PHPMYADMIN')) {
-    exit;
-}
-
-require_once 'libraries/StringByte.int.php';
-
-/**
- * Implements PMA_StringByte interface using the "mbstring" extension.
- *
- * @package    PhpMyAdmin-String
- * @subpackage MB
- */
-class PMA_StringMB implements PMA_StringByte
+interface PMA_StringByte
 {
     /**
      * Returns length of string depending on current charset.
@@ -28,10 +15,7 @@ class PMA_StringMB implements PMA_StringByte
      * @return int string length
      */
 
-    public function strlen($string)
-    {
-        return mb_strlen($string);
-    }
+    public function strlen($string);
 
     /**
      * Returns substring from string, works depending on current charset.
@@ -42,10 +26,7 @@ class PMA_StringMB implements PMA_StringByte
      *
      * @return string the sub string
      */
-    public function substr($string, $start, $length = 2147483647)
-    {
-        return mb_substr($string, $start, $length);
-    }
+    public function substr($string, $start, $length = 2147483647);
 
     /**
      * Returns postion of $needle in $haystack or false if not found
@@ -56,11 +37,7 @@ class PMA_StringMB implements PMA_StringByte
      *
      * @return integer position of $needle in $haystack or false
      */
-    public function strpos($haystack, $needle, $offset = 0)
-    {
-        return mb_strpos($haystack, $needle, $offset);
-    }
-
+    public function strpos($haystack, $needle, $offset = 0);
     /**
      * Make a string lowercase
      *
@@ -68,9 +45,6 @@ class PMA_StringMB implements PMA_StringByte
      *
      * @return string the lower case string
      */
-    public function strtolower($string)
-    {
-        return mb_strtolower($string);
-    }
+    public function strtolower($string);
 }
 ?>

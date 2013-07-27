@@ -2046,7 +2046,7 @@ class PMA_Util
      * @param string $Separator The Separator (defaults to "<br />\n")
      *
      * @access  public
-     * @todo    add a multibyte safe function PMA_STR_split()
+     * @todo    add a multibyte safe function $GLOBALS['PMA_String']->split()
      *
      * @return string      The flipped string
      */
