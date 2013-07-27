@@ -26,6 +26,8 @@ phpMyAdmin - ChangeLog
 + rfe #487 and rfe #1405 Find and Replacing column wise
 + rfe #1373 Use same create view dialog for editing a view 
 + rfe #316 Configurable menus; allow user groups with customized menus per group
+- bug #4024 Editing field a record is selected by makes pma load forever
+- bug #4035 Query "inline" link disappears when turning off "Explain SQL" option
 
 4.0.5.0 (not yet released)
 - bug #3977 Not detected configuration storage
@@ -36,6 +38,13 @@ phpMyAdmin - ChangeLog
 - bug #3985 Call to undefined function mb_detect_encoding
 - bug #4007 Analyze option not shown for InnoDB tables
 - bug #4015 Forcing a storage engine for configuration storage
+- bug Incorrect Drizzle 7 detection
+- bug #4019 Create database if not exists (export): add an option to the
+  interface to enable generating CREATE DATABASE and USE (false by default)
+- bug #4012 Crash on CSV file import
+- bug #4009 Statistic Monitor shows only last 3 digits in graph
+- bug #3998 Non-permanent SQL history not working
+- bug #3578 Transformations for text/plain on a BLOB column
 
 4.0.4.1 (2013-06-30)
 - [security] Global variables scope injection vulnerability (see PMASA-2013-7)

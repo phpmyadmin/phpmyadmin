@@ -155,7 +155,7 @@ function PMA_SQP_bug($message, $sql)
 {
     global $SQP_errorString;
     $debugstr = 'ERROR: ' . $message . "\n";
-    $debugstr .= 'MySQL: '.PMA_MYSQL_STR_VERSION . "\n";
+    $debugstr .= 'MySQL: ' . PMA_MYSQL_STR_VERSION . "\n";
     $debugstr .= 'USR OS, AGENT, VER: ' . PMA_USR_OS . ' ';
     $debugstr .= PMA_USR_BROWSER_AGENT . ' ' . PMA_USR_BROWSER_VER . "\n";
     $debugstr .= 'PMA: ' . PMA_VERSION . "\n";
@@ -3040,6 +3040,19 @@ function PMA_SQP_getParserDataMap()
         'PMA_SQPdata_forbidden_word' => $PMA_SQPdata_forbidden_word,
         'PMA_SQPdata_column_type'    => $PMA_SQPdata_column_type,
     );
+}
+/**
+ * Get Parser analyze Map from parse_analyze_inc.php
+ *
+ * @param array $sql_query The SQL string
+ * @param array $db        Current DB
+ *
+ * @return Array analyze Map from parse_analyze_inc.php
+ */
+function PMA_SQP_getParserAnalyzeMap($sql_query, $db)
+{
+    include 'libraries/parse_analyze.inc.php';
+    return $analyzed_sql_results;
 }
 
 ?>

@@ -61,8 +61,59 @@ class PMA_SQLParser_Test extends PHPUnit_Framework_TestCase
         $this->assertTrue(PMA_SQP_isKeyWord("accessible"));
         $this->assertTrue(PMA_SQP_isKeyWord("ASC"));
         $this->assertFalse(PMA_SQP_isKeyWord("hello"));
+    }    
+    
+    /**
+     * Test PMA_SQP_typeCheck
+     *
+     * @return void
+     */
+    public function testPMA_SQP_typeCheck()
+    {
+        $this->assertTrue(
+            PMA_SQP_typeCheck("VARCHAR", "VARCHAR")
+        );
+        
+        $this->assertFalse(
+            PMA_SQP_typeCheck("VARCHAR", "VARCHAR_INT")
+        );
+        
+        $this->assertTrue(
+            PMA_SQP_typeCheck("VARCHAR_INT", "VARCHAR")
+        );
+        
+        $this->assertFalse(
+            PMA_SQP_typeCheck("TIME_INT", "VARCHAR")
+        );
     }
     
+    /**
+     * Test PMA_SQP_throwError
+     *
+     * @return void
+     */
+    public function testPMA_SQP_throwError()
+    {
+        global $SQP_errorString;
+        $message = "error from testPMA_SQP_throwError";
+        $sql = "select * from PMA.PMABookmark";
+        PMA_SQP_throwError($message, $sql);
+        
+        $this->assertContains(
+            "There seems to be an error in your SQL query.",
+            $SQP_errorString
+        );
+        
+        $this->assertContains(
+            'ERROR: ' . $message,
+            $SQP_errorString
+        );
+        
+        $this->assertContains(
+            'SQL: ' . htmlspecialchars($sql),
+            $SQP_errorString
+        );
+    }
     
     /**
      * Data provider for parser testing

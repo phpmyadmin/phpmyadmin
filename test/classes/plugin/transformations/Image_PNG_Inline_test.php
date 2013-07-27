@@ -34,7 +34,7 @@ class Image_PNG_Inline_Test extends PHPUnit_Framework_TestCase
      */
     protected function setUp()
     {
-        $this->object = new Image_PNG_Inline(new PluginManager()); 
+        $this->object = new Image_PNG_Inline(new PluginManager());
     }
 
     /**
@@ -48,7 +48,7 @@ class Image_PNG_Inline_Test extends PHPUnit_Framework_TestCase
     {
         unset($this->object);
     }
-    
+
     /**
      * Test for getInfo
      *
@@ -58,14 +58,13 @@ class Image_PNG_Inline_Test extends PHPUnit_Framework_TestCase
      */
     public function testGetInfo()
     {
-        $info = 
-            'Displays a clickable thumbnail. The options are the maximum width'
+        $info = 'Displays a clickable thumbnail. The options are the maximum width'
             . ' and height in pixels. The original aspect ratio is preserved.';
-         $this->assertEquals(
+        $this->assertEquals(
             $info,
             Image_PNG_Inline::getInfo()
-        );  
-    
+        );
+
     }
 
     /**
@@ -76,11 +75,11 @@ class Image_PNG_Inline_Test extends PHPUnit_Framework_TestCase
      * @group medium
      */
     public function testGetName()
-    {       
+    {
         $this->assertEquals(
             "Inline",
             Image_PNG_Inline::getName()
-        );    
+        );
     }
 
     /**
@@ -91,11 +90,11 @@ class Image_PNG_Inline_Test extends PHPUnit_Framework_TestCase
      * @group medium
      */
     public function testGetMIMEType()
-    {       
+    {
         $this->assertEquals(
             "Image",
             Image_PNG_Inline::getMIMEType()
-        );    
+        );
     }
 
     /**
@@ -106,11 +105,11 @@ class Image_PNG_Inline_Test extends PHPUnit_Framework_TestCase
      * @group medium
      */
     public function testGetMIMESubtype()
-    {       
+    {
         $this->assertEquals(
             "PNG",
             Image_PNG_Inline::getMIMESubtype()
-        );    
+        );
     }
 
     /**
@@ -124,13 +123,13 @@ class Image_PNG_Inline_Test extends PHPUnit_Framework_TestCase
     {
         $buffer = "PMA_PNG_Inline";
         $options = array("./image/", "200", "wrapper_link"=>"PMA_wrapper_link");
-        $result = '<a href="transformation_wrapper.phpPMA_wrapper_link"' 
-            . ' target="_blank"><img src="transformation_wrapper.phpPMA_wrapper_link&amp;' 
-            . 'resize=jpeg&amp;newWidth=./image/&amp;newHeight=200" ' 
+        $result = '<a href="transformation_wrapper.phpPMA_wrapper_link"'
+            . ' target="_blank"><img src="transformation_wrapper.phpPMA_wrapper_link&amp;'
+            . 'resize=jpeg&amp;newWidth=./image/&amp;newHeight=200" '
             . 'alt="PMA_PNG_Inline" border="0" /></a>';
         $this->assertEquals(
             $result,
             $this->object->applyTransformation($buffer, $options)
-        );     
+        );
     }
 }

@@ -4,15 +4,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-07-12 16:06+0200\n"
-"PO-Revision-Date: 2013-07-01 20:58+0200\n"
-"Last-Translator: Jean Nunes <jeannunes@outlook.com>\n"
-"Language-Team: Portuguese (Brazil) <http://l10n.cihar.com/projects/"
-"phpmyadmin/master/pt_BR/>\n"
+"PO-Revision-Date: 2013-07-17 21:50+0200\n"
+"Last-Translator: Rodrigo Souza <rodrigo.chrome@outlook.com>\n"
+"Language-Team: Portuguese (Brazil) "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/pt_BR/>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 1.6-dev\n"
 
 #: browse_foreigners.php:51 browse_foreigners.php:75 js/messages.php:339
@@ -1678,7 +1678,7 @@ msgstr "Adicionar %d valor(es)"
 msgid ""
 "Note: If the file contains multiple tables, they will be combined into one."
 msgstr ""
-"Nota: Se o arquivo contém várias tabelas, elas serão combinadas em uma só"
+"Nota: Se o arquivo contém várias tabelas, elas serão combinadas em uma só."
 
 #: js/messages.php:262
 msgid "Hide query box"
@@ -1735,16 +1735,14 @@ msgid "Show search criteria"
 msgstr "Exibir critério de pesquisa"
 
 #: js/messages.php:278
-#, fuzzy
 #| msgid "Hide search criteria"
 msgid "Hide find and replace criteria"
-msgstr "Ocultar critério de pesquisa"
+msgstr "Ocultar critério de substituição"
 
 #: js/messages.php:279
-#, fuzzy
 #| msgid "Show search criteria"
 msgid "Show find and replace criteria"
-msgstr "Exibir critério de pesquisa"
+msgstr "Exibir critério de substituição"
 
 #: js/messages.php:282 libraries/TableSearch.class.php:212
 msgid "Zoom Search"
@@ -2859,7 +2857,7 @@ msgstr "A chave primária foi deletada"
 #: libraries/Index.class.php:608
 #, php-format
 msgid "Index %s has been dropped."
-msgstr "Índice %s foi eliminado"
+msgstr "Índice %s foi eliminado."
 
 #: libraries/Index.class.php:731
 #, php-format
@@ -3254,7 +3252,7 @@ msgstr "Pesquisa de tabela"
 
 #: libraries/TableSearch.class.php:217 libraries/TableSearch.class.php:1172
 msgid "Find and Replace"
-msgstr ""
+msgstr "Pesquisar e Substituir"
 
 #: libraries/TableSearch.class.php:239 libraries/insert_edit.lib.php:1352
 msgid "Edit/Insert"
@@ -3321,38 +3319,33 @@ msgid "Reset zoom"
 msgstr "Resetar zoom"
 
 #: libraries/TableSearch.class.php:1281
-#, fuzzy
 #| msgid "Replace NULL with"
 msgid "Replace with:"
-msgstr "Substituir NULL com"
+msgstr "Substituir com:"
 
 #: libraries/TableSearch.class.php:1341
 msgid "Find and replace - preview"
-msgstr ""
+msgstr "Pesquisar e substituir - preview"
 
 #: libraries/TableSearch.class.php:1345
-#, fuzzy
 #| msgid "Column"
 msgid "Count"
-msgstr "Coluna"
+msgstr "Contagem"
 
 #: libraries/TableSearch.class.php:1346
-#, fuzzy
 #| msgid "Original position"
 msgid "Original string"
-msgstr "Posição original"
+msgstr "String original"
 
 #: libraries/TableSearch.class.php:1347
-#, fuzzy
 #| msgid "Related Links"
 msgid "Replaced string"
-msgstr "Links relacionados"
+msgstr "String substituída"
 
 #: libraries/TableSearch.class.php:1371
-#, fuzzy
 #| msgid "Replicated"
 msgid "Replace"
-msgstr "Replicado"
+msgstr "Substituir"
 
 #: libraries/Theme.class.php:170
 #, php-format
@@ -3848,7 +3841,7 @@ msgstr "Selecionar a partir do diretório de upload do servidor <b>%s</b>:"
 #: libraries/sql_query_form.lib.php:483
 msgid "The directory you set for upload work cannot be reached."
 msgstr ""
-"O diretório que você especificou para subir arquivos não foi encontrado"
+"O diretório que você especificou para subir arquivos não foi encontrado."
 
 #: libraries/Util.class.php:3452
 msgid "There are no files to upload"
@@ -8007,7 +8000,7 @@ msgstr ""
 #: libraries/plugins/auth/AuthenticationSignon.class.php:254
 #, php-format
 msgid "No activity within %s seconds; please log in again."
-msgstr "Sem atividade por %s segundos ou mais, faça o login novamente"
+msgstr "Sem atividade por %s segundos ou mais, faça o login novamente."
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:667
 #: libraries/plugins/auth/AuthenticationCookie.class.php:669
@@ -8031,7 +8024,7 @@ msgstr "Arquivo %s não contém qualquer identificação da chave"
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:176
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:196
 msgid "Hardware authentication failed!"
-msgstr "Falha na autenticação de hardware"
+msgstr "Falha na autenticação de hardware!"
 
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:183
 msgid "No valid authentication key plugged"
@@ -11218,8 +11211,8 @@ msgid ""
 "There seems to be an error in your SQL query. The MySQL server error output "
 "below, if there is any, may also help you in diagnosing the problem."
 msgstr ""
-"Parece haver um erro na sua consulta SQL. A saída do servidor MySQL abaixo, "
-"se houver alguma, também poderá ajudar a diagnosticar o problema"
+"Parece haver um erro na sua query SQL. A saída de erro do servidor MySQL "
+"abaixo, se houver alguma, também poderá ajudar a diagnosticar o problema."
 
 #: libraries/sqlparser.lib.php:178
 msgid ""

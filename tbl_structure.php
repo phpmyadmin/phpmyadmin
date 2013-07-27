@@ -1,8 +1,8 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Displays table structure infos like fields/columns, indexes, size, rows
- * and allows manipulation of indexes and columns/fields
+ * Displays table structure infos like columns, indexes, size, rows
+ * and allows manipulation of indexes and columns
  *
  * @package PhpMyAdmin
  */
@@ -18,6 +18,8 @@ require_once 'libraries/mysql_charsets.inc.php';
  */
 require_once 'libraries/structure.lib.php';
 require_once 'libraries/index.lib.php';
+require_once 'libraries/sql.lib.php';
+require_once 'libraries/bookmark.lib.php';
 
 $response = PMA_Response::getInstance();
 $header   = $response->getHeader();
@@ -91,7 +93,7 @@ if (! empty($submit_mult)) {
     if (isset($_REQUEST['selected_fld'])) {
         $err_url = 'tbl_structure.php?' . PMA_generate_common_url($db, $table);
         if ($submit_mult == 'browse') {
-            // browsing the table displaying only selected fields/columns
+            // browsing the table displaying only selected columns
             $GLOBALS['active_page'] = 'sql.php';
             $sql_query = '';
             foreach ($_REQUEST['selected_fld'] as $idx => $sval) {
@@ -103,11 +105,18 @@ if (! empty($submit_mult)) {
             }
             $sql_query .= ' FROM ' . PMA_Util::backquote($db)
             . '.' . PMA_Util::backquote($table);
-            include 'sql.php';
-            exit;
+            
+            // Parse and analyze the query
+            require_once 'libraries/parse_analyze.inc.php';
+            
+            PMA_executeQueryAndSendQueryResponse(
+                $analyzed_sql_results, false, $db, $table, null, null, null, false, null,
+                null, null, null, $goto, $pmaThemeImage, null, null, null, $sql_query,
+                null, null
+            );
         } else {
             // handle multiple field commands
-            // handle confirmation of deleting multiple fields/columns
+            // handle confirmation of deleting multiple columns
             $action = 'tbl_structure.php';
             include 'libraries/mult_submits.inc.php';
             /**

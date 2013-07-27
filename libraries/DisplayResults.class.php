@@ -1095,7 +1095,7 @@ class PMA_DisplayResults
 
             if (($is_display['sort_lnk'] == '1') && ! $is_limited_display) {
 
-                list($order_link, $sorted_headrer_html)
+                list($order_link, $sorted_header_html)
                     = $this->_getOrderLinkAndSortedHeaderHtml(
                         $fields_meta[$i], $sort_expression,
                         $sort_expression_nodirection, $i, $unsorted_sql_query,
@@ -1104,7 +1104,7 @@ class PMA_DisplayResults
                         $col_visib[$j], $condition_field
                     );
 
-                $table_headers_html .= $sorted_headrer_html;
+                $table_headers_html .= $sorted_header_html;
 
                 $vertical_display['desc'][] = '    <th '
                     . 'class="draggable'
@@ -5279,7 +5279,7 @@ class PMA_DisplayResults
 
         // Export link
         // (the url_query has extra parameters that won't be used to export)
-        // (the single_table parameter is used in display_export.lib.php
+        // (the single_table parameter is used in display_export.inc.php
         //  to hide the SQL and the structure export dialogs)
         // If the parser found a PROCEDURE clause
         // (most probably PROCEDURE ANALYSE()) it makes no sense to
@@ -5445,7 +5445,9 @@ class PMA_DisplayResults
         $result .= ']';
 
         if (gettype($transformation_plugin) == "object"
-            && strpos($transformation_plugin->getMIMESubtype(), 'Octetstream')
+            && (strpos($transformation_plugin->getMIMESubtype(), 'Octetstream')
+            // if we want to use a text transformation on a BLOB column
+            || strpos($transformation_plugin->getMIMEtype(), 'Text') !== false)
         ) {
             $result = $content;
         }

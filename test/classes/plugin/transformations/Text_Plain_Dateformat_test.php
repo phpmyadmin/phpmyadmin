@@ -36,7 +36,7 @@ class Text_Plain_Dateformat_Test extends PHPUnit_Framework_TestCase
      */
     protected function setUp()
     {
-        $this->object = new Text_Plain_Dateformat(new PluginManager()); 
+        $this->object = new Text_Plain_Dateformat(new PluginManager());
     }
 
     /**
@@ -50,7 +50,7 @@ class Text_Plain_Dateformat_Test extends PHPUnit_Framework_TestCase
     {
         unset($this->object);
     }
-    
+
     /**
      * Test for getInfo
      *
@@ -69,12 +69,12 @@ class Text_Plain_Dateformat_Test extends PHPUnit_Framework_TestCase
             . ' that, date format has different value - for "local" see the'
             . ' documentation for PHP\'s strftime() function and for "utc" it'
             . ' is done using gmdate() function.';
-            
-         $this->assertEquals(
+
+        $this->assertEquals(
             $info,
             Text_Plain_Dateformat::getInfo()
-        );  
-    
+        );
+
     }
 
     /**
@@ -85,11 +85,11 @@ class Text_Plain_Dateformat_Test extends PHPUnit_Framework_TestCase
      * @group medium
      */
     public function testGetName()
-    {       
+    {
         $this->assertEquals(
             "Date Format",
             Text_Plain_Dateformat::getName()
-        );    
+        );
     }
 
     /**
@@ -100,11 +100,11 @@ class Text_Plain_Dateformat_Test extends PHPUnit_Framework_TestCase
      * @group medium
      */
     public function testGetMIMEType()
-    {       
+    {
         $this->assertEquals(
             "Text",
             Text_Plain_Dateformat::getMIMEType()
-        );    
+        );
     }
 
     /**
@@ -115,11 +115,11 @@ class Text_Plain_Dateformat_Test extends PHPUnit_Framework_TestCase
      * @group medium
      */
     public function testGetMIMESubtype()
-    {       
+    {
         $this->assertEquals(
             "Plain",
             Text_Plain_Dateformat::getMIMESubtype()
-        );    
+        );
     }
 
     /**
@@ -143,11 +143,11 @@ class Text_Plain_Dateformat_Test extends PHPUnit_Framework_TestCase
             $result,
             $this->object->applyTransformation($timestamp, $options, $meta)
         );
-        
-        //other format timestamp, Detect TIMESTAMP(6 | 8 | 10 | 12 | 14)  
+
+        //other format timestamp, Detect TIMESTAMP(6 | 8 | 10 | 12 | 14)
         $meta->type = 'string';
         $timestamp = 12345678;
-        $result = '<dfn onclick="alert(\'12345678\');" title="12345678">' 
+        $result = '<dfn onclick="alert(\'12345678\');" title="12345678">'
              . 'May 23, 1970 at 09:21 PM</dfn>';
         $this->assertEquals(
             $result,
@@ -156,7 +156,7 @@ class Text_Plain_Dateformat_Test extends PHPUnit_Framework_TestCase
 
         //no MYSQL timestamp
         $timestamp = 123456789;
-        $result = '<dfn onclick="alert(\'123456789\');" title="123456789">' 
+        $result = '<dfn onclick="alert(\'123456789\');" title="123456789">'
             . 'Nov 29, 1973 at 09:33 PM</dfn>';
         $this->assertEquals(
             $result,
@@ -170,8 +170,8 @@ class Text_Plain_Dateformat_Test extends PHPUnit_Framework_TestCase
             $result,
             $this->object->applyTransformation($timestamp, $options, $meta)
         );
-        
-        
+
+
     }
 }
 
@@ -179,5 +179,5 @@ class Text_Plain_Dateformat_Meta
 {
     var $blob = null;
     var $max_length = null;
-    var $type = null; 
+    var $type = null;
 }

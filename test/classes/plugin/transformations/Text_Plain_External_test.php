@@ -35,7 +35,7 @@ class Text_Plain_External_Test extends PHPUnit_Framework_TestCase
      */
     protected function setUp()
     {
-        $this->object = new Text_Plain_External(new PluginManager()); 
+        $this->object = new Text_Plain_External(new PluginManager());
     }
 
     /**
@@ -49,7 +49,7 @@ class Text_Plain_External_Test extends PHPUnit_Framework_TestCase
     {
         unset($this->object);
     }
-    
+
     /**
      * Test for getInfo
      *
@@ -59,8 +59,8 @@ class Text_Plain_External_Test extends PHPUnit_Framework_TestCase
      */
     public function testGetInfo()
     {
-        $info = 
-            'LINUX ONLY: Launches an external application and feeds it the column'
+        $info
+            = 'LINUX ONLY: Launches an external application and feeds it the column'
             . ' data via standard input. Returns the standard output of the'
             . ' application. The default is Tidy, to pretty-print HTML code.'
             . ' For security reasons, you have to manually edit the file'
@@ -71,12 +71,12 @@ class Text_Plain_External_Test extends PHPUnit_Framework_TestCase
             . ' The third option, if set to 1, will convert the output using'
             . ' htmlspecialchars() (Default 1). The fourth option, if set to 1,'
             . ' will prevent wrapping and ensure that the output appears all on'
-            . ' one line (Default 1).';     
+            . ' one line (Default 1).';
         $this->assertEquals(
             $info,
             Text_Plain_External::getInfo()
-        );  
-    
+        );
+
     }
 
     /**
@@ -87,11 +87,11 @@ class Text_Plain_External_Test extends PHPUnit_Framework_TestCase
      * @group medium
      */
     public function testGetName()
-    {       
+    {
         $this->assertEquals(
             "External",
             Text_Plain_External::getName()
-        );    
+        );
     }
 
     /**
@@ -102,11 +102,11 @@ class Text_Plain_External_Test extends PHPUnit_Framework_TestCase
      * @group medium
      */
     public function testGetMIMEType()
-    {       
+    {
         $this->assertEquals(
             "Text",
             Text_Plain_External::getMIMEType()
-        );    
+        );
     }
 
     /**
@@ -117,11 +117,11 @@ class Text_Plain_External_Test extends PHPUnit_Framework_TestCase
      * @group medium
      */
     public function testGetMIMESubtype()
-    {       
+    {
         $this->assertEquals(
             "Plain",
             Text_Plain_External::getMIMESubtype()
-        );    
+        );
     }
 
     /**
@@ -138,7 +138,7 @@ class Text_Plain_External_Test extends PHPUnit_Framework_TestCase
         $this->assertEquals(
             "PMA_BUFFER",
             $this->object->applyTransformation($buffer, $options)
-        );    
+        );
     }
 
     /**
@@ -154,21 +154,21 @@ class Text_Plain_External_Test extends PHPUnit_Framework_TestCase
         $this->assertEquals(
             true,
             $this->object->applyTransformationNoWrap($options)
-        ); 
+        );
         $options = array("/dev/null -i -wrap -q", "/dev/null -i -wrap -q", "/dev/null -i -wrap -q", 1);
         $this->assertEquals(
             true,
             $this->object->applyTransformationNoWrap($options)
-        ); 
+        );
         $options = array("/dev/null -i -wrap -q", "/dev/null -i -wrap -q", "/dev/null -i -wrap -q", "1");
         $this->assertEquals(
             true,
             $this->object->applyTransformationNoWrap($options)
-        );  
+        );
         $options = array("/dev/null -i -wrap -q", "/dev/null -i -wrap -q", "/dev/null -i -wrap -q", 2);
         $this->assertEquals(
             false,
             $this->object->applyTransformationNoWrap($options)
-        );   
+        );
     }
 }

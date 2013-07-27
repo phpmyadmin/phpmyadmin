@@ -905,6 +905,14 @@ function PMA_getHistory($username)
 {
     $cfgRelation = PMA_getRelationsParam();
 
+    /**
+     * if db-based history is disabled but there exists a session-based
+     * history, use it
+     */
+    if (! $GLOBALS['cfg']['QueryHistoryDB'] && isset($_SESSION['sql_history'])) {
+            return array_reverse($_SESSION['sql_history']);
+    } 
+
     if (! $cfgRelation['historywork']) {
         return false;
     }
@@ -1282,7 +1290,7 @@ function PMA_getRelatives($all_tables, $master)
  *
  * usually called after a column in a table was renamed
  *
- * @param string $db       databse name
+ * @param string $db       database name
  * @param string $table    table name
  * @param string $field    old field name
  * @param string $new_name new field name

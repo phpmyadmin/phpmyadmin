@@ -4,7 +4,7 @@
  * Handles table search tab
  *
  * display table search form, create SQL query from form data
- * and include sql.php to execute it
+ * and call PMA_executeQueryAndSendQueryResponse() to execute it
  *
  * @package PhpMyAdmin
  */
@@ -15,6 +15,7 @@
 require_once 'libraries/common.inc.php';
 require_once 'libraries/mysql_charsets.inc.php';
 require_once 'libraries/TableSearch.class.php';
+require_once 'libraries/sql.lib.php';
 
 $response = PMA_Response::getInstance();
 $header   = $response->getHeader();
@@ -25,16 +26,6 @@ $scripts->addFile('tbl_select.js');
 $scripts->addFile('tbl_change.js');
 $scripts->addFile('jquery/jquery-ui-timepicker-addon.js');
 $scripts->addFile('gis_data_editor.js');
-
-$post_params = array(
-    'ajax_request',
-    'session_max_rows'
-);
-foreach ($post_params as $one_post_param) {
-    if (isset($_POST[$one_post_param])) {
-        $GLOBALS[$one_post_param] = $_POST[$one_post_param];
-    }
-}
 
 $table_search = new PMA_TableSearch($db, $table, "normal");
 
@@ -65,6 +56,16 @@ if (! isset($_POST['columnsToDisplay']) && ! isset($_POST['displayAllColumns']))
      * Selection criteria have been submitted -> do the work
      */
     $sql_query = $table_search->buildSqlQuery();
-    include 'sql.php';
+    
+    /**
+     * Parse and analyze the query
+     */
+    require_once 'libraries/parse_analyze.inc.php';
+    
+    PMA_executeQueryAndSendQueryResponse(
+        $analyzed_sql_results, false, $db, $table, null, null, null, false, null,
+        null, null, null, $goto, $pmaThemeImage, null, null, null, $sql_query,
+        null, null
+    );
 }
 ?>

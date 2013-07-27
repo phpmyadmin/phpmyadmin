@@ -9,12 +9,17 @@
 /*
  * Include to test.
  */
+require_once 'libraries/url_generating.lib.php';
 require_once 'libraries/TableSearch.class.php';
 require_once 'libraries/Util.class.php';
 require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/database_interface.inc.php';
 require_once 'libraries/relation.lib.php';
 require_once 'libraries/sqlparser.lib.php';
+require_once 'libraries/Theme.class.php';
+require_once 'libraries/Tracker.class.php';
+require_once 'libraries/Types.class.php';
+require_once 'libraries/relation.lib.php';
 
 /**
  * Tests for PMA_TableSearch
@@ -35,7 +40,27 @@ class PMA_TableSearch_Test extends PHPUnit_Framework_TestCase
         /**
          * SET these to avoid undefined index error
          */
+        $_SESSION['PMA_Theme'] = new PMA_Theme();
+        $_POST['zoom_submit'] = 'zoom';
+        
         $GLOBALS['server'] = 1;
+        $GLOBALS['PMA_PHP_SELF'] = 'index.php';
+        $GLOBALS['pmaThemeImage'] = 'themes/dot.gif';
+        $GLOBALS['is_ajax_request'] = false;
+        $GLOBALS['cfgRelation'] = PMA_getRelationsParam();
+        $GLOBALS['PMA_Types'] = new PMA_Types_MySQL();
+        
+        $GLOBALS['cfg']['ServerDefault'] = 1;
+        $GLOBALS['cfg']['maxRowPlotLimit'] = 500;
+        $GLOBALS['cfg']['Server']['DisableIS'] = false;
+        $GLOBALS['cfg']['ServerDefault'] = 1;
+        $GLOBALS['cfg']['MySQLManualType'] = 'viewable';
+        $GLOBALS['cfg']['MySQLManualBase'] = 'http://dev.mysql.com/doc/refman';
+        $GLOBALS['cfg']['ActionLinksMode'] = 'both';
+        $GLOBALS['cfg']['ForeignKeyMaxLimit'] = 100;
+        $GLOBALS['cfg']['InitialSlidersState'] = 'closed';
+        $GLOBALS['cfg']['MaxRows'] = 25;
+        $GLOBALS['cfg']['TabsMode'] = 'text';
         
         $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
             ->disableOriginalConstructor()
@@ -101,6 +126,307 @@ class PMA_TableSearch_Test extends PHPUnit_Framework_TestCase
         $this->assertEquals(
             'Field2',
             $columNames[1]
+        );
+    }
+
+    /**
+     * Test for getSelectionForm
+     *
+     * @return void
+     */
+    public function testGetSelectionForm()
+    {
+        //$this->_searchType == 'zoom'
+        $tableSearch = new PMA_TableSearch("PMA", "PMA_BookMark", "zoom");
+        $url_goto = "http://phpmyadmin.net";
+        $form = $tableSearch->getSelectionForm($url_goto);
+        $this->assertContains(
+            '<fieldset id="fieldset_zoom_search">',
+            $form
+        );
+        $this->assertContains(
+            'Do a "query by example"',
+            $form
+        );
+        
+        //$this->_searchType == 'normal'
+        $tableSearch = new PMA_TableSearch("PMA", "PMA_BookMark", "normal");
+        $url_goto = "http://phpmyadmin.net";
+        $form = $tableSearch->getSelectionForm($url_goto);
+        $this->assertContains(
+            '<fieldset id="fieldset_table_search">',
+            $form
+        );
+        $this->assertContains(
+            'Do a "query by example"',
+            $form
+        );
+        
+        //$this->_searchType == 'replace'
+        $tableSearch = new PMA_TableSearch("PMA", "PMA_BookMark", "replace");
+        $url_goto = "http://phpmyadmin.net";
+        $form = $tableSearch->getSelectionForm($url_goto);
+        $this->assertContains(
+            '<fieldset id="fieldset_find_replace">',
+            $form
+        );
+        $this->assertContains(
+            __('Find and Replace'),
+            $form
+        );
+    }
+
+    /**
+     * Test for getSecondaryTabs
+     *
+     * @return void
+     */
+    public function testGetSecondaryTabs()
+    {
+        $tableSearch = new PMA_TableSearch("PMA", "PMA_BookMark", "zoom");
+        $html = $tableSearch->getSecondaryTabs();
+        $this->assertContains(
+            '<ul id="topmenu2">',
+            $html
+        );
+        //sub tabs
+        $this->assertContains(
+            __('Table Search'),
+            $html
+        );  
+        $this->assertContains(
+            __('Zoom Search'),
+            $html
+        );      
+        $this->assertContains(
+            __('Find and Replace'),
+            $html
+        ); 
+    }
+
+    /**
+     * Test for getZoomResultsForm
+     *
+     * @return void
+     */
+    public function testGetZoomResultsForm()
+    {
+        $tableSearch = new PMA_TableSearch("PMA", "PMA_BookMark", "zoom");
+        $goto = "http://phpmyadmin.net";
+        $data = array("PMAA" => "abc");
+        $html = $tableSearch->getZoomResultsForm($goto, $data);
+        $this->assertContains(
+            '<legend>' . __('Browse/Edit the points') . '</legend>',
+            $html
+        );
+        $this->assertContains(
+            json_encode($data),
+            $html
+        );
+        
+    }
+
+    /**
+     * Test for replace
+     *
+     * @return void
+     */
+    public function testReplace()
+    {
+        $tableSearch = new PMA_TableSearch("PMA", "PMA_BookMark", "zoom");
+        $columnIndex = 0;
+        $find = "Field";
+        $replaceWith = "Column";
+        $charSet = "UTF-8";
+        $tableSearch->replace($columnIndex, $find, $replaceWith, $charSet);
+        
+        $sql_query = $GLOBALS['sql_query'];
+        $result = "UPDATE `PMA`.`PMA_BookMark` SET `Field1` = " 
+            . "REPLACE(`Field1`, 'Field', 'Column') " 
+            . "WHERE `Field1` LIKE '%Field%' COLLATE UTF-8_bin";
+        $this->assertEquals(
+            $result,
+            $sql_query
+        );   
+    }
+
+    /**
+     * Test for _getSearchAndReplaceHTML
+     *
+     * @return void
+     */
+    public function testGetSearchAndReplaceHTML()
+    {
+        $tableSearch = new PMA_TableSearch("PMA", "PMA_BookMark", "zoom");
+        $html = $tableSearch->_getSearchAndReplaceHTML();
+        $this->assertContains(
+            __('Find:'),
+            $html
+        );
+        $this->assertContains(
+            __('Replace with:'),
+            $html
+        );
+        
+    }
+
+    /**
+     * Test for getReplacePreview
+     *
+     * @return void
+     */
+    public function testGetReplacePreview()
+    {
+
+        $value = array(
+                'value',
+                'replace_value',
+                'count'
+        );
+        
+        $dbi = $GLOBALS['dbi'];
+        
+        $dbi->expects($this->at(3))->method('fetchRow')
+            ->will($this->returnValue($value));
+
+        $dbi->expects($this->at(4))->method('fetchRow')
+            ->will($this->returnValue(false));
+
+        $GLOBALS['dbi'] = $dbi;
+        
+        $tableSearch = new PMA_TableSearch("PMA", "PMA_BookMark", "zoom");
+        $columnIndex = 0;
+        $find = "Field";
+        $replaceWith = "Column";
+        $charSet = "UTF-8";
+        
+        $html = $tableSearch->getReplacePreview(
+            $columnIndex, 
+            $find, 
+            $replaceWith, 
+            $charSet
+        );
+        
+        $this->assertContains(
+            '<form method="post" action="tbl_find_replace.php"',
+            $html
+        );
+        $this->assertContains(
+            '<input type="hidden" name="replace" value="true" />',
+            $html
+        );
+        $this->assertContains(
+            __('Find and replace - preview'),
+            $html
+        );
+        $this->assertContains(
+            __('Original string'),
+            $html
+        );
+        $this->assertContains(
+            __('Replaced string'),
+            $html
+        );
+        
+        $this->assertContains(
+            '<td>value</td>',
+            $html
+        );
+        $this->assertContains(
+            '<td>replace_value</td>',
+            $html
+        );
+        $this->assertContains(
+            '<td class="right">count</td>',
+            $html
+        );       
+    }
+
+    /**
+     * Test for buildSqlQuery
+     *
+     * @return void
+     */
+    public function testBuildSqlQueryw()
+    {
+        $_POST['distinct'] = true;
+        $_POST['zoom_submit'] = true;
+        $_POST['table'] = "PMA";
+        $_POST['orderByColumn'] = "name";
+        $_POST['order'] = "asc";
+        $_POST['customWhereClause'] = "name='pma'";
+        
+        $tableSearch = new PMA_TableSearch("PMA", "PMA_BookMark", "zoom");
+        
+        $sql = $tableSearch->buildSqlQuery();
+        $result = "SELECT DISTINCT *  FROM `PMA` WHERE name='pma' ORDER BY `name` asc";
+        $this->assertEquals(
+            $result,
+            $sql
+        );
+        
+        unset($_POST['customWhereClause']);
+        $sql = $tableSearch->buildSqlQuery();
+        $result = "SELECT DISTINCT *  FROM `PMA` ORDER BY `name` asc";
+        $this->assertEquals(
+            $result,
+            $sql
+        );
+         
+        $_POST['criteriaValues'] = array(
+            'value1',
+            'value2',
+            'value3',
+            'value4',
+            'value5',
+            'value6',
+            'value7,value8'
+        );
+        $_POST['criteriaColumnNames'] = array(
+            'name',
+            'id',
+            'index',
+            'index2',
+            'index3',
+            'index4',
+            'index5',
+        );
+        $_POST['criteriaColumnTypes'] = array(
+            'varchar',
+            'int',
+            'enum',
+            'type1',
+            'type2',
+            'type3',
+            'type4'
+        );
+        $_POST['criteriaColumnCollations'] = array(
+            "char1",
+            "char2",
+            "char3",
+            "char4",
+            "char5",
+            "char6",
+            "char7",
+        );
+        $_POST['criteriaColumnOperators'] = array(
+            "!=", 
+            ">", 
+            "IS NULL", 
+            "LIKE %...%",
+            "REGEXP ^...$", 
+            "IN (...)",
+            "BETWEEN" 
+        );
+
+        $sql = $tableSearch->buildSqlQuery();
+        $result = "SELECT DISTINCT *  FROM `PMA` WHERE `name` != 'value1' AND `id` > value2 " 
+            . "AND `index` IS NULL AND `index2` LIKE '%value4%' AND `index3` REGEXP ^value5$ " 
+            . "AND `index4` IN (value6) AND `index5` BETWEEN value7 " 
+            . "AND value8 ORDER BY `name` asc";
+        $this->assertEquals(
+            $result,
+            $sql
         );
     }
 }
