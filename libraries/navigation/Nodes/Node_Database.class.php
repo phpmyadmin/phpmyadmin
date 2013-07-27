@@ -234,10 +234,10 @@ class Node_Database extends Node
         switch ($type) {
         case 'tables':
             if (! $GLOBALS['cfg']['Servers'][$GLOBALS['server']]['DisableIS']) {
-                $db     = PMA_Util::sqlAddSlashes($db);
+                $escdDb = PMA_Util::sqlAddSlashes($db);
                 $query  = "SELECT `TABLE_NAME` AS `name` ";
                 $query .= "FROM `INFORMATION_SCHEMA`.`TABLES` ";
-                $query .= "WHERE `TABLE_SCHEMA`='$db' ";
+                $query .= "WHERE `TABLE_SCHEMA`='$escdDb' ";
                 $query .= "AND `TABLE_TYPE`='BASE TABLE' ";
                 if (! empty($searchClause)) {
                     $query .= "AND `TABLE_NAME` LIKE '%";
@@ -277,10 +277,10 @@ class Node_Database extends Node
             break;
         case 'views':
             if (! $GLOBALS['cfg']['Servers'][$GLOBALS['server']]['DisableIS']) {
-                $db     = PMA_Util::sqlAddSlashes($db);
+                $escdDb = PMA_Util::sqlAddSlashes($db);
                 $query  = "SELECT `TABLE_NAME` AS `name` ";
                 $query .= "FROM `INFORMATION_SCHEMA`.`TABLES` ";
-                $query .= "WHERE `TABLE_SCHEMA`='$db' ";
+                $query .= "WHERE `TABLE_SCHEMA`='$escdDb' ";
                 $query .= "AND `TABLE_TYPE`!='BASE TABLE' ";
                 if (! empty($searchClause)) {
                     $query .= "AND `TABLE_NAME` LIKE '%";
@@ -320,10 +320,10 @@ class Node_Database extends Node
             break;
         case 'procedures':
             if (! $GLOBALS['cfg']['Servers'][$GLOBALS['server']]['DisableIS']) {
-                $db     = PMA_Util::sqlAddSlashes($db);
+                $escdDb = PMA_Util::sqlAddSlashes($db);
                 $query  = "SELECT `ROUTINE_NAME` AS `name` ";
                 $query .= "FROM `INFORMATION_SCHEMA`.`ROUTINES` ";
-                $query .= "WHERE `ROUTINE_SCHEMA`='$db'";
+                $query .= "WHERE `ROUTINE_SCHEMA`='$escdDb'";
                 $query .= "AND `ROUTINE_TYPE`='PROCEDURE' ";
                 if (! empty($searchClause)) {
                     $query .= "AND `ROUTINE_NAME` LIKE '%";
@@ -336,8 +336,8 @@ class Node_Database extends Node
                 $query .= "LIMIT " . intval($pos) . ", $maxItems";
                 $retval = $GLOBALS['dbi']->fetchResult($query);
             } else {
-                $db    = PMA_Util::sqlAddSlashes($db);
-                $query = "SHOW PROCEDURE STATUS WHERE `Db`='$db' ";
+                $escdDb = PMA_Util::sqlAddSlashes($db);
+                $query  = "SHOW PROCEDURE STATUS WHERE `Db`='$escdDb' ";
                 if (! empty($searchClause)) {
                     $query .= "AND `Name` LIKE '%";
                     $query .= PMA_Util::sqlAddSlashes(
@@ -360,10 +360,10 @@ class Node_Database extends Node
             break;
         case 'functions':
             if (! $GLOBALS['cfg']['Servers'][$GLOBALS['server']]['DisableIS']) {
-                $db     = PMA_Util::sqlAddSlashes($db);
+                $escdDb = PMA_Util::sqlAddSlashes($db);
                 $query  = "SELECT `ROUTINE_NAME` AS `name` ";
                 $query .= "FROM `INFORMATION_SCHEMA`.`ROUTINES` ";
-                $query .= "WHERE `ROUTINE_SCHEMA`='$db' ";
+                $query .= "WHERE `ROUTINE_SCHEMA`='$escdDb' ";
                 $query .= "AND `ROUTINE_TYPE`='FUNCTION' ";
                 if (! empty($searchClause)) {
                     $query .= "AND `ROUTINE_NAME` LIKE '%";
@@ -376,8 +376,8 @@ class Node_Database extends Node
                 $query .= "LIMIT " . intval($pos) . ", $maxItems";
                 $retval = $GLOBALS['dbi']->fetchResult($query);
             } else {
-                $db    = PMA_Util::sqlAddSlashes($db);
-                $query = "SHOW FUNCTION STATUS WHERE `Db`='$db' ";
+                $escdDb = PMA_Util::sqlAddSlashes($db);
+                $query  = "SHOW FUNCTION STATUS WHERE `Db`='$escdDb' ";
                 if (! empty($searchClause)) {
                     $query .= "AND `Name` LIKE '%";
                     $query .= PMA_Util::sqlAddSlashes(
@@ -400,10 +400,10 @@ class Node_Database extends Node
             break;
         case 'events':
             if (! $GLOBALS['cfg']['Servers'][$GLOBALS['server']]['DisableIS']) {
-                $db     = PMA_Util::sqlAddSlashes($db);
+                $escdDb = PMA_Util::sqlAddSlashes($db);
                 $query  = "SELECT `EVENT_NAME` AS `name` ";
                 $query .= "FROM `INFORMATION_SCHEMA`.`EVENTS` ";
-                $query .= "WHERE `EVENT_SCHEMA`='$db' ";
+                $query .= "WHERE `EVENT_SCHEMA`='$escdDb' ";
                 if (! empty($searchClause)) {
                     $query .= "AND `EVENT_NAME` LIKE '%";
                     $query .= PMA_Util::sqlAddSlashes(
@@ -415,8 +415,8 @@ class Node_Database extends Node
                 $query .= "LIMIT " . intval($pos) . ", $maxItems";
                 $retval = $GLOBALS['dbi']->fetchResult($query);
             } else {
-                $db    = PMA_Util::backquote($db);
-                $query = "SHOW EVENTS FROM $db ";
+                $escdDb = PMA_Util::backquote($db);
+                $query  = "SHOW EVENTS FROM $escdDb ";
                 if (! empty($searchClause)) {
                     $query .= "WHERE `Name` LIKE '%";
                     $query .= PMA_Util::sqlAddSlashes(
@@ -440,6 +440,31 @@ class Node_Database extends Node
         default:
             break;
         }
+
+        // Remove hidden items so that they are not displayed in navigation tree
+        $cfgRelation = PMA_getRelationsParam();
+        if ($cfgRelation['navwork']) {
+            $navTable = PMA_Util::backquote($cfgRelation['db'])
+                . "." . PMA_Util::backquote($cfgRelation['navigationhiding']);
+            $sqlQuery = "SELECT `item_name` FROM " . $navTable
+                . " WHERE `username`='" . $cfgRelation['user'] . "'"
+                . " AND `item_type`='" . substr($type, 0, -1) . "'"
+                . " AND `db_name`='" . PMA_Util::sqlAddSlashes($db) . "'";
+            $result = PMA_queryAsControlUser($sqlQuery, false);
+            if ($result) {
+                $hiddenItems = array();
+                while ($row = $GLOBALS['dbi']->fetchArray($result)) {
+                    $hiddenItems[] = $row[0];
+                }
+                foreach ($retval as $key => $item) {
+                    if (in_array($item, $hiddenItems)) {
+                        unset($retval[$key]);
+                    }
+                }
+            }
+            $GLOBALS['dbi']->freeResult($result);
+        }
+
         return $retval;
     }
 
@@ -453,6 +478,41 @@ class Node_Database extends Node
     public function getComment()
     {
         return PMA_getDbComment($this->real_name);
+    }
+
+    /**
+     * Returns HTML for show hidden button displayed infront of database node
+     *
+     * @return HTML for show hidden button
+     */
+    public function getHtmlForControlButtons()
+    {
+        $ret = '';
+        $db = $this->real_name;
+
+        $cfgRelation = PMA_getRelationsParam();
+        if ($cfgRelation['navwork']) {
+            $navTable = PMA_Util::backquote($cfgRelation['db'])
+                . "." . PMA_Util::backquote($cfgRelation['navigationhiding']);
+            $sqlQuery = "SELECT COUNT(*) FROM " . $navTable
+                . " WHERE `username`='"
+                . PMA_Util::sqlAddSlashes($GLOBALS['cfg']['Server']['user']) ."'"
+                . " AND `db_name`='" . PMA_Util::sqlAddSlashes($db) . "'";
+            $count = $GLOBALS['dbi']->fetchValue(
+                $sqlQuery, 0, 0, $GLOBALS['controllink']
+            );
+            if ($count > 0) {
+                $ret = '<span class="dbItemControls">'
+                    . '<a href="navigation.php?'
+                    . PMA_generate_common_url()
+                    . '&showUnhideDialog=true'
+                    . '&dbName=' . urldecode($db) . '"'
+                    . ' class="showUnhide ajax">'
+                    . PMA_Util::getImage('b_undo.png', 'Show hidden items')
+                    . '</a></span>';
+            }
+        }
+        return $ret;
     }
 }
 

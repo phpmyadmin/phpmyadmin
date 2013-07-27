@@ -288,3 +288,20 @@ CREATE TABLE IF NOT EXISTS `pma__usergroups` (
 ) 
   COMMENT='User groups with configured menu items'
   COLLATE utf8_bin;
+  
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pma__navigationhiding`
+--
+
+CREATE TABLE IF NOT EXISTS `pma__navigationhiding` (
+  `username` varchar(64) NOT NULL,
+  `item_name` varchar(64) NOT NULL,
+  `item_type` varchar(64) NOT NULL,
+  `db_name` varchar(64) NOT NULL,
+  `table_name` varchar(64) NOT NULL,
+  PRIMARY KEY (`username`,`item_name`,`item_type`,`db_name`,`table_name`)
+) 
+  COMMENT='Hidden items of navigation tree'
+  COLLATE utf8_bin;
