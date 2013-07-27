@@ -22,7 +22,7 @@ require 'libraries/db_common.inc.php';
 require 'libraries/db_info.inc.php';
 
 $import_type = 'database';
-require 'libraries/display_import.lib.php';
+require 'libraries/display_import.inc.php';
 
 ?>
 
