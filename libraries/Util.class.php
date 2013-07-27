@@ -4282,11 +4282,6 @@ class PMA_Util
                 }
                 curl_setopt(
                     $curl_handle,
-                    CURLOPT_RETURNTRANSFER,
-                    1
-                );
-                curl_setopt(
-                    $curl_handle,
                     CURLOPT_HEADER,
                     false
                 );
