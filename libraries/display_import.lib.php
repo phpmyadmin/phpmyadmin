@@ -60,7 +60,7 @@ if ($_SESSION[$SESSION_KEY]["handler"] != "UploadNoplugin") {
     $html .= "     var processed_str ='" . PMA_jsFormat(__('The file is being processed, please be patient.'), false) + "';";
     $html .= "     var import_url ='" . PMA_generate_common_url(array('import_status'=>1), '&') + "';";
     
-    $html .= "     $.include('../js/display_import_no_plugin.js'); ";
+    $html .= "     $.include('./js/display_import_no_plugin.js'); ";
 
 } else { // no plugin available
     $image_tag = '<img src="' . $GLOBALS['pmaThemeImage'] . 'ajax_clock_small.gif" width="16" height="16" alt="ajax clock" /> ' . PMA_jsFormat(__('Please be patient, the file is being uploaded. Details about the upload are not available.'), false) . PMA_Util::showDocu('faq', 'faq2-9');
