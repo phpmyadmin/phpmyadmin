@@ -10,7 +10,6 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
-require_once 'libraries/String.class.php';
 require_once 'libraries/StringAbstractType.class.php';
 
 /**

@@ -10,7 +10,7 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
-require_once 'libraries/String.class.php';
+require_once 'libraries/StringByte.int.php';
 
 /**
  * Implements PMA_StringByte interface using native PHP functions.
