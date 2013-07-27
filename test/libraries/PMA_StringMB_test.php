@@ -31,7 +31,7 @@ class PMA_String_Mb_Test extends PMA_StringNative_Test
     {
         if (@function_exists('mb_strlen')) {
             $this->internal_encoding = mb_internal_encoding();
-            $this->$testObject = new PMA_StringMB();
+            $this->testObject = new PMA_StringMB();
         } else {
             $this->markTestSkipped(
                 "Multibyte functions don't exist, skipping test."
