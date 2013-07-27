@@ -23,15 +23,15 @@ class PMA_String_Mb_Test extends PMA_StringNative_Test
 
     /**
      * Setup function for test cases
-     * 
+     *
      * @access protected
      * @return void
      */
-    protected function setUp() 
+    protected function setUp()
     {
         if (@function_exists('mb_strlen')) {
             $this->internal_encoding = mb_internal_encoding();
-            $this->testClass = new PMA_StringMB;
+            $this->$testObject = new PMA_StringMB();
         } else {
             $this->markTestSkipped(
                 "Multibyte functions don't exist, skipping test."
@@ -41,11 +41,11 @@ class PMA_String_Mb_Test extends PMA_StringNative_Test
 
     /**
      * TearDown function for tests, restores internal encoding
-     * 
+     *
      * @access protected
      * @return void
      */
-    protected function tearDown() 
+    protected function tearDown()
     {
         if (isset($this->internal_encoding)) {
             mb_internal_encoding($this->internal_encoding);
