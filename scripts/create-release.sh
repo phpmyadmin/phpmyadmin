@@ -135,6 +135,9 @@ if [ -f ./scripts/compress-js ] ; then
     ./scripts/compress-js
 fi
 
+echo "* Generating line counts"
+./scripts/line-counts.sh
+
 echo "* Removing unneeded files"
 
 # Remove test directory from package to avoid Path disclosure messages
@@ -174,7 +177,7 @@ for kit in $KITS ; do
         rm -rf scripts/google-javascript-compiler/
 
         # Remove scripts which are not useful for user
-        for s in compress-js create-release.sh generate-mo mergepo.py php2gettext.sh remove_control_m.sh update-po upload-release pending-po pendingpo.py ; do
+        for s in compress-js create-release.sh generate-mo mergepo.py php2gettext.sh remove_control_m.sh update-po upload-release pending-po pendingpo.py line-counts.sh ; do
             rm -f scripts/$s
         done
     fi
