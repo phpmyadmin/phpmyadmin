@@ -5398,7 +5398,9 @@ class PMA_DisplayResults
         $result .= ']';
 
         if (gettype($transformation_plugin) == "object"
-            && strpos($transformation_plugin->getMIMESubtype(), 'Octetstream')
+            && (strpos($transformation_plugin->getMIMESubtype(), 'Octetstream')
+            // if we want to use a text transformation on a BLOB column
+            || strpos($transformation_plugin->getMIMEtype(), 'Text') !== false)
         ) {
             $result = $content;
         }
