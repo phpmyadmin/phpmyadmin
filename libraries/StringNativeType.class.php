@@ -30,7 +30,7 @@ class PMA_StringNativeType implements PMA_StringType
      */
     public function isAlnum($c)
     {
-        return (self::isUpper($c) || self::isLower($c) || self::isDigit($c));
+        return ($this->isUpper($c) || $this->isLower($c) || $this->isDigit($c));
     } // end of the "isAlnum()" function
 
     /**
@@ -42,7 +42,7 @@ class PMA_StringNativeType implements PMA_StringType
      */
     public function isAlpha($c)
     {
-        return (self::isUpper($c) || self::isLower($c));
+        return ($this->isUpper($c) || $this->isLower($c));
     } // end of the "isAlpha()" function
 
     /**
