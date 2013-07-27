@@ -15,6 +15,7 @@ if (! defined('PHPMYADMIN')) {
  */
 require_once './libraries/file_listing.lib.php';
 require_once './libraries/plugin_interface.lib.php';
+require_once './libraries/display_import.lib.php';
 require_once './libraries/display_import_ajax.lib.php';
 
 /* Scan for plugins */

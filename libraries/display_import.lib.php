@@ -46,6 +46,7 @@ function PMA_getHtmlForHiddenInput($import_type, $db, $table)
  */
 function PMA_getHtmlForImportJS($upload_id)
 {
+    global $SESSION_KEY;
     $html  = '';
     $html .= '    <script type="text/javascript">';
     $html .= '        //<![CDATA[';
@@ -409,6 +410,7 @@ function PMA_getHtmlForImport(
     $upload_id, $import_type, $db, $table,
     $max_upload_size, $import_list, $timeout_passed, $offset
 ) {
+    global $SESSION_KEY;
     $html  = '';
     $html .= '<iframe id="import_upload_iframe" name="import_upload_iframe" ' 
         . 'width="1" height="1" style="display: none;"></iframe>';
