@@ -1210,7 +1210,7 @@ class PMA_Util
             // but only explain a SELECT (that has not been explained)
             /* SQL-Parser-Analyzer */
             $explain_link = '';
-            $is_select = false;
+            $is_select = preg_match('@^SELECT[[:space:]]+@i', $sql_query);
             if (! empty($cfg['SQLQuery']['Explain']) && ! $query_too_big) {
                 $explain_params = $url_params;
                 // Detect if we are validating as well
@@ -1218,10 +1218,9 @@ class PMA_Util
                 if (! empty($GLOBALS['validatequery'])) {
                     $explain_params['validatequery'] = 1;
                 }
-                if (preg_match('@^SELECT[[:space:]]+@i', $sql_query)) {
+                if ($is_select) {
                     $explain_params['sql_query'] = 'EXPLAIN ' . $sql_query;
                     $_message = __('Explain SQL');
-                    $is_select = true;
                 } elseif (
                     preg_match(
                         '@^EXPLAIN[[:space:]]+SELECT[[:space:]]+@i', $sql_query
