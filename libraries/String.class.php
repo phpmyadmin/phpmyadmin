@@ -70,6 +70,17 @@ interface PMA_StringType
      * @return boolean whether the character is an hexadecimal digit or not
      */
     public function isHexDigit($c);
+
+    /**
+     * Checks if a number is in a range
+     *
+     * @param integer $num   number to check for
+     * @param integer $lower lower bound
+     * @param integer $upper upper bound
+     *
+     * @return boolean  whether the number is in the range or not
+     */
+    public function numberInRangeInclusive($num, $lower, $upper);
 }
 
 /**
@@ -190,20 +201,6 @@ class PMA_String
         } // end while
 
         return $escaped;
-    }
-
-    /**
-     * Checks if a number is in a range
-     *
-     * @param integer $num   number to check for
-     * @param integer $lower lower bound
-     * @param integer $upper upper bound
-     *
-     * @return boolean  whether the number is in the range or not
-     */
-    public function numberInRangeInclusive($num, $lower, $upper)
-    {
-        return ($num >= $lower && $num <= $upper);
     }
 
     /**
@@ -358,6 +355,20 @@ class PMA_String
     public function isHexDigit($c)
     {
         return $this->_type->isHexDigit($c);
+    }
+
+    /**
+     * Checks if a number is in a range
+     *
+     * @param integer $num   number to check for
+     * @param integer $lower lower bound
+     * @param integer $upper upper bound
+     *
+     * @return boolean  whether the number is in the range or not
+     */
+    public function numberInRangeInclusive($num, $lower, $upper)
+    {
+        return $this->_type->numberInRangeInclusive($num, $lower, $upper);
     }
 }
 ?>

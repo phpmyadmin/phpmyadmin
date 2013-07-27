@@ -12,6 +12,7 @@ if (! defined('PHPMYADMIN')) {
 }
 
 require_once 'libraries/String.class.php';
+require_once 'libraries/StringAbstractType.class.php';
 
 /**
  * Implements PMA_StringType interface using the "ctype" extension.
@@ -20,7 +21,7 @@ require_once 'libraries/String.class.php';
  * @package    PhpMyAdmin-String
  * @subpackage CType
  */
-class PMA_StringCType implements PMA_StringType
+class PMA_StringCType extends PMA_StringAbstractType
 {
     /**
      * Checks if a character is an alphanumeric one

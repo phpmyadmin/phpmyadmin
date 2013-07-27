@@ -11,6 +11,7 @@ if (! defined('PHPMYADMIN')) {
 }
 
 require_once 'libraries/String.class.php';
+require_once 'libraries/StringAbstractType.class.php';
 
 /**
  * Implements PMA_StringByte interface using native PHP functions.
@@ -19,7 +20,7 @@ require_once 'libraries/String.class.php';
  * @subpackage Native
  * @todo       May be join this class with PMA_StringNative class
  */
-class PMA_StringNativeType implements PMA_StringType
+class PMA_StringNativeType extends PMA_StringAbstractType
 {
     /**
      * Checks if a character is an alphanumeric one
@@ -58,9 +59,7 @@ class PMA_StringNativeType implements PMA_StringType
         $ord_nine = 57; //ord('9');
         $ord_c    = ord($c);
 
-        return $GLOBALS['PMA_String']->numberInRangeInclusive(
-            $ord_c, $ord_zero, $ord_nine
-        );
+        return $this->numberInRangeInclusive($ord_c, $ord_zero, $ord_nine);
     } // end of the "isDigit()" function
 
     /**
@@ -76,9 +75,7 @@ class PMA_StringNativeType implements PMA_StringType
         $ord_nine = 90; //ord('Z');
         $ord_c    = ord($c);
 
-        return $GLOBALS['PMA_String']->numberInRangeInclusive(
-            $ord_c, $ord_zero, $ord_nine
-        );
+        return $this->numberInRangeInclusive($ord_c, $ord_zero, $ord_nine);
     } // end of the "isUpper()" function
 
     /**
@@ -94,9 +91,7 @@ class PMA_StringNativeType implements PMA_StringType
         $ord_nine = 122; //ord('z');
         $ord_c    = ord($c);
 
-        return $GLOBALS['PMA_String']->numberInRangeInclusive(
-            $ord_c, $ord_zero, $ord_nine
-        );
+        return $this->numberInRangeInclusive($ord_c, $ord_zero, $ord_nine);
     } // end of the "isLower()" function
 
     /**
@@ -116,7 +111,7 @@ class PMA_StringNativeType implements PMA_StringType
 
         return ($ord_c == $ord_space
             || $ord_c == $ord_NOBR
-            || $GLOBALS['PMA_String']->numberInRangeInclusive($ord_c, $ord_tab, $ord_CR));
+            || $this->numberInRangeInclusive($ord_c, $ord_tab, $ord_CR));
     } // end of the "isSpace()" function
 
     /**
@@ -136,9 +131,9 @@ class PMA_StringNativeType implements PMA_StringType
         $ord_nine   = 57;  //ord('9');
         $ord_c      = ord($c);
 
-        return ($GLOBALS['PMA_String']->numberInRangeInclusive($ord_c, $ord_zero, $ord_nine)
-            || $GLOBALS['PMA_String']->numberInRangeInclusive($ord_c, $ord_Aupper, $ord_Fupper)
-            || $GLOBALS['PMA_String']->numberInRangeInclusive($ord_c, $ord_Alower, $ord_Flower));
+        return ($this->numberInRangeInclusive($ord_c, $ord_zero, $ord_nine)
+            || $this->numberInRangeInclusive($ord_c, $ord_Aupper, $ord_Fupper)
+            || $this->numberInRangeInclusive($ord_c, $ord_Alower, $ord_Flower));
     } // end of the "isHexDigit()" function
 }
 ?>
