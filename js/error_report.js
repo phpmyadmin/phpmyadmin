@@ -202,11 +202,34 @@ var ErrorReport = {
         var report_data = {
             "ajax_request": true,
             "token": token,
-            "exception": exception,
+            "exception": ErrorReport._simplify_exception(exception),
             "current_url": window.location.href,
             "microhistory": ErrorReport._get_microhistory(),
+            "scripts": AJAX.cache.pages[AJAX.cache.current-1].scripts.map(
+                function(script) {
+                    return script.name;
+                }
+            ),
         };
         return report_data;
+    },
+    /**
+     * Returns the exception after removing the url of the script file and
+     * concatenating the context
+     *
+     * @param object exception info
+     * 
+     * @return object
+     */
+    _simplify_exception: function(exception) {
+        exception.stack = exception.stack.map(function(level) {
+            if (/get_scripts\.js\.php/.test(level.url)) {
+                level.url = "get_scripts.js.php";
+            }
+            //level.context = level.context.join("\n");
+            return level;
+        });
+        return exception;
     },
     /**
      * Wraps all global functions that start with PMA_
@@ -298,6 +321,5 @@ TraceKit.report.subscribe(ErrorReport.error_handler);
 ErrorReport.set_up_error_reporting();
 $(function(){
     ErrorReport.wrap_global_functions();
-    PMA_exception();
 })
 
