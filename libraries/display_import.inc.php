@@ -2,7 +2,7 @@
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 
 /**
- * include file for display import
+ * include file for display import : server, database, table
  *
  * @package PhpMyAdmin
  */

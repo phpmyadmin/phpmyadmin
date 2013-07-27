@@ -2,12 +2,13 @@
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 
 /**
- * functions for displaying server, database and table import
+ * functions for displaying import for: server, database and table 
  *
  * @usedby display_import.inc.php
  *
  * @package PhpMyAdmin
  */
+ 
 if (! defined('PHPMYADMIN')) {
     exit;
 }
@@ -21,7 +22,7 @@ if (! defined('PHPMYADMIN')) {
  *
  * @return string
  */
-function PMA_getHtmlForHiddenInput($import_type, $db, $table)
+function PMA_getHtmlForHiddenInputs($import_type, $db, $table)
 {
     $html  = '';
     if ($import_type == 'server') {
@@ -50,9 +51,10 @@ function PMA_getHtmlForImportJS($upload_id)
     $html  = '';
     $html .= '    <script type="text/javascript">';
     $html .= '        //<![CDATA[';
+    //with "\n", so that the following lines won't be commented out by //<![CDATA[
+    $html .= "\n";
     $html .= '        $( function() {';
-    $html .= '            // add event when user click on "Go" button';
-    $html .= '            $("#buttonGo").bind("click", function() {';
+    $html .= '          $("#buttonGo").bind("click", function() {';
     $html .= '            $("#upload_form_form").css("display", "none");';
     $html .= '            $("#upload_form_status").css("display", "inline");';
     $html .= '            $("#upload_form_status_info").css("display", "inline");';
@@ -61,8 +63,8 @@ function PMA_getHtmlForImportJS($upload_id)
         //output for javascript variable
         $ajax_url = "import_status.php?id=" . $upload_id . "&" 
             . PMA_generate_common_url(array('import_status'=>1), '&');
-        $html .= "     var ajax_url ='" . $ajax_url + "';";
-        $html .= "     var pmaThemeImage ='" . $GLOBALS['pmaThemeImage'] + "';";
+        $html .= "     var ajax_url ='" . $ajax_url . "';";
+        $html .= "     var pmaThemeImage ='" . $GLOBALS['pmaThemeImage'] . "';";
         $html .= "     var promot_str ='" 
             . PMA_jsFormat(
                 __(
@@ -71,24 +73,24 @@ function PMA_getHtmlForImportJS($upload_id)
                     . 'based (Safari, Google Chrome, Arora etc.) browsers.'
                 ), 
                 false
-            ) + "';";
+            ) . "';";
         $html .= "     var statustext_str ='" 
-            . PMA_escapeJsString(__('%s of %s')) + "';";
+            . PMA_escapeJsString(__('%s of %s')) . "';";
         $html .= "     var upload_str ='" 
-            . PMA_jsFormat(__('Uploading your import file...'), false) + "';";
+            . PMA_jsFormat(__('Uploading your import file...'), false) . "';";
         $html .= "     var second_str ='" 
-            . PMA_jsFormat(__('%s/sec.'), false) + "';";
+            . PMA_jsFormat(__('%s/sec.'), false) . "';";
         $html .= "     var remaining_min ='" 
-            . PMA_jsFormat(__('About %MIN min. %SEC sec. remaining.'), false) + "';";
+            . PMA_jsFormat(__('About %MIN min. %SEC sec. remaining.'), false) . "';";
         $html .= "     var remaining_second ='" 
-            . PMA_jsFormat(__('About %SEC sec. remaining.'), false) + "';";
+            . PMA_jsFormat(__('About %SEC sec. remaining.'), false) . "';";
         $html .= "     var processed_str ='" 
             . PMA_jsFormat(
                 __('The file is being processed, please be patient.'), 
                 false
-            ) + "';";
+            ) . "';";
         $html .= "     var import_url ='" 
-            . PMA_generate_common_url(array('import_status'=>1), '&') + "';";
+            . PMA_generate_common_url(array('import_status'=>1), '&') . "';";
 
         $html .= "     $.include('./js/display_import_no_plugin.js'); ";
 
@@ -102,13 +104,15 @@ function PMA_getHtmlForImportJS($upload_id)
                 ), 
                 false
             ) . PMA_Util::showDocu('faq', 'faq2-9');
-        $html .= '   $("#upload_form_status_info").html("' . $image_tag + '");';
+        $html .= "   $('#upload_form_status_info').html('" . $image_tag . "');";
         $html .= '   $("#upload_form_status").css("display", "none");';
     } // else
 
-    $html .= '                    }); // onclick';
-    $html .= '                }); // domready';
+    $html .= '                    });';
+    $html .= '                });';
     $html .= '                //]]>';
+    //with "\n", so that the following lines won't be commented out by //]]>
+    $html .= "\n";
     $html .= '    </script>';
 
     return $html;
@@ -392,6 +396,7 @@ function PMA_getHtmlForImportOptionsSubmit()
 
     return $html;
 }
+
 /**
  * Prints Html For Display Import
  *
@@ -433,7 +438,7 @@ function PMA_getHtmlForImport(
     $html .= $_SESSION[$SESSION_KEY]['handler']::getIdKey();
     $html .= '" value="' . $upload_id . '" />';
 
-    $html .= PMA_getHtmlForHiddenInput($import_type, $db, $table);
+    $html .= PMA_getHtmlForHiddenInputs($import_type, $db, $table);
 
     $html .= PMA_getHtmlForExportOptions($import_type, $db, $table);
 
