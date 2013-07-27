@@ -427,7 +427,7 @@ $cfg['Servers'][$i]['usergroups'] = '';
  *
  * @global string $cfg['Servers'][$i]['navigationhiding']
  */
-$cfg['Servers'][$i]['nagivation'] = '';
+$cfg['Servers'][$i]['navigationhiding'] = '';
 
 /**
  * Maximum number of records saved in $cfg['Servers'][$i]['table_uiprefs'] table.
