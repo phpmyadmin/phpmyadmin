@@ -92,7 +92,7 @@ function PMA_getHtmlForImportJS($upload_id)
         $html .= "     var import_url ='" 
             . PMA_generate_common_url(array('import_status'=>1), '&') . "';";
 
-        $html .= "     $.include('./js/display_import_no_plugin.js'); ";
+        $html .= "     $.getScript('./js/display_import_no_plugin.js'); ";
 
     } else { // no plugin available
         $image_tag = '<img src="' . $GLOBALS['pmaThemeImage'] 
@@ -142,7 +142,7 @@ function PMA_getHtmlForExportOptions($import_type, $db, $table)
         );
         $html .= $import_str;
     } else {
-        $import_str = printf(
+        $import_str = sprintf(
             __('Importing into the table "%s"'), 
             htmlspecialchars($table)
         );
