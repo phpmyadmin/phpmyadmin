@@ -735,7 +735,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
     /**
      * String handling
      */
-    include_once './libraries/string.lib.php';
+    include_once './libraries/string.inc.php';
 
     /**
      * Lookup server by name

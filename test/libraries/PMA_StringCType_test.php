@@ -18,46 +18,48 @@ require_once 'libraries/StringCType.class.php';
  */
 class PMA_StringCType_Test extends PHPUnit_Framework_TestCase
 {
+    private $_object;
 
     /**
      * Setup function for test cases
-     * 
+     *
      * @access protected
      * @return void
      */
-    protected function setUp() 
+    protected function setUp()
     {
         if (!@extension_loaded('ctype')) {
             $this->markTestSkipped(
                 "ctype extension not present."
             );
         }
+        $this->_object = new PMA_StringCType();
     }
 
     /**
-     * Test for PMA_StringCType::isAlnum
-     * 
+     * Test for isAlnum()
+     *
      * @param integer $expected Expected output
      * @param string  $str      String to check
-     * 
+     *
      * @return void
      * @test
      * @dataProvider isAlnumData
      */
     public function testIsAlnum($expected, $str)
-    {   
+    {
         $this->assertEquals(
             $expected,
-            PMA_StringCType::isAlnum($str)
+            $this->_object->isAlnum($str)
         );
     }
 
     /**
      * Data provider for testIsAlnum
-     * 
+     *
      * @return array Test data
      */
-    public function isAlnumData() 
+    public function isAlnumData()
     {
         return array(
             array(true, "AbCd1zyZ9"),
@@ -66,29 +68,29 @@ class PMA_StringCType_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_StringCType::isAlpha
-     * 
+     * Test for isAlpha()
+     *
      * @param integer $expected Expected output
      * @param string  $str      String to check
-     * 
+     *
      * @return void
      * @test
      * @dataProvider isAlphaData
      */
     public function testIsAlpha($expected, $str)
-    {   
+    {
         $this->assertEquals(
             $expected,
-            PMA_StringCType::isAlpha($str)
+            $this->_object->isAlpha($str)
         );
     }
 
     /**
      * Data provider for testIsAlpha
-     * 
+     *
      * @return array Test data
      */
-    public function isAlphaData() 
+    public function isAlphaData()
     {
         return array(
             array(true, "kJW"),
@@ -97,29 +99,29 @@ class PMA_StringCType_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_StringCType::isDigit
-     * 
+     * Test for isDigit()
+     *
      * @param integer $expected Expected output
      * @param string  $str      String to check
-     * 
+     *
      * @return void
      * @test
      * @dataProvider isDigitData
      */
     public function testIsDigit($expected, $str)
-    {   
+    {
         $this->assertEquals(
             $expected,
-            PMA_StringCType::isDigit($str)
+            $this->_object->isDigit($str)
         );
     }
 
     /**
      * Data provider for testIsDigit
-     * 
+     *
      * @return array Test data
      */
-    public function isDigitData() 
+    public function isDigitData()
     {
         return array(
             array(false, "kJW"),
@@ -129,29 +131,29 @@ class PMA_StringCType_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_StringCType::isUpper
-     * 
+     * Test for isUpper()
+     *
      * @param integer $expected Expected output
      * @param string  $str      String to check
-     * 
+     *
      * @return void
      * @test
      * @dataProvider isUpperData
      */
     public function testIsUpper($expected, $str)
-    {   
+    {
         $this->assertEquals(
             $expected,
-            PMA_StringCType::isUpper($str)
+            $this->_object->isUpper($str)
         );
     }
 
     /**
      * Data provider for testIsUpper
-     * 
+     *
      * @return array Test data
      */
-    public function isUpperData() 
+    public function isUpperData()
     {
         return array(
             array(true, "ABCD"),
@@ -161,29 +163,29 @@ class PMA_StringCType_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_StringCType::isLower
-     * 
+     * Test for isLower()
+     *
      * @param integer $expected Expected output
      * @param string  $str      String to check
-     * 
+     *
      * @return void
      * @test
      * @dataProvider isLowerData
      */
     public function testIsLower($expected, $str)
-    {   
+    {
         $this->assertEquals(
             $expected,
-            PMA_StringCType::isLower($str)
+            $this->_object->isLower($str)
         );
     }
 
     /**
      * Data provider for testIsLower
-     * 
+     *
      * @return array Test data
      */
-    public function isLowerData() 
+    public function isLowerData()
     {
         return array(
             array(true, "abcd"),
@@ -193,29 +195,29 @@ class PMA_StringCType_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_StringCType::isSpace
-     * 
+     * Test for isSpace()
+     *
      * @param integer $expected Expected output
      * @param string  $str      String to check
-     * 
+     *
      * @return void
      * @test
      * @dataProvider isSpaceData
      */
     public function testIsSpace($expected, $str)
-    {   
+    {
         $this->assertEquals(
             $expected,
-            PMA_StringCType::isSpace($str)
+            $this->_object->isSpace($str)
         );
     }
 
     /**
      * Data provider for testIsSpace
-     * 
+     *
      * @return array Test data
      */
-    public function isSpaceData() 
+    public function isSpaceData()
     {
         return array(
             array(true, " "),
@@ -226,29 +228,29 @@ class PMA_StringCType_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_StringCType::isHexDigit
-     * 
+     * Test for isHexDigit()
+     *
      * @param integer $expected Expected output
      * @param string  $str      String to check
-     * 
+     *
      * @return void
      * @test
      * @dataProvider isHexDigitData
      */
     public function testIsHexDigit($expected, $str)
-    {   
+    {
         $this->assertEquals(
             $expected,
-            PMA_StringCType::isHexDigit($str)
+            $this->_object->isHexDigit($str)
         );
     }
 
     /**
      * Data provider for testIsHexDigit
-     * 
+     *
      * @return array Test data
      */
-    public function isHexDigitData() 
+    public function isHexDigitData()
     {
         return array(
             array(true, "AB10BC99"),
