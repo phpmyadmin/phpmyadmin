@@ -13,7 +13,7 @@ require_once 'libraries/Index.class.php';
 require_once 'libraries/tbl_info.inc.php';
 require_once 'libraries/user_preferences.lib.php';
 
-$submission_url = "http://localhost/phpmyadmin-server/reports/submit";
+$submission_url = "http://reports.phpmyadmin.net/reports/submit";
 
 $response = PMA_Response::getInstance();
 
@@ -83,7 +83,6 @@ if ($_REQUEST['send_error_report'] == true) {
     $response->addHTML($html);
 }
 
-$t = "t";
 /**
  * returns the error report data collected from the current configuration or
  * from the request parameters sent by the error reporting js code.
@@ -96,21 +95,22 @@ function get_report_data($json_encode = true) {
     $report = array(
         "exception" => $_REQUEST['exception'],
         "pma_version" => PMA_VERSION,
-        "browser_agent" => PMA_USR_BROWSER_AGENT,
+        "browser_name" => PMA_USR_BROWSER_AGENT,
         "browser_version" => PMA_USR_BROWSER_VER,
         "user_os" => PMA_USR_OS,
         "server_software" => $_SERVER['SERVER_SOFTWARE'],
         "user_agent_string" => $_SERVER['HTTP_USER_AGENT'],
-        "current_locale" => $_COOKIE['pma_lang'],
-        "current_url" => $_REQUEST['current_url'],
+        "locale" => $_COOKIE['pma_lang'],
+        "url" => $_REQUEST['current_url'],
         "configuration_storage_enabled" =>
             !empty($GLOBALS['cfg']['Servers'][1]['pmadb']),
         "php_version" => phpversion(),
         "microhistory" => $_REQUEST['microhistory'],
+        "scripts" => $_REQUEST['scripts'],
     );
 
     if(!empty($_REQUEST['description'])) {
-        $report['description'] = $_REQUEST['description'];
+        $report['steps'] = $_REQUEST['description'];
     }
 
     if($json_encode) {
