@@ -239,13 +239,13 @@ $cfg_db['_validators'] = array(
  */
 $cfg_db['_userValidators'] = array(
     'MaxDbList'       => array(
-        array('PMA_validateUpperBound', 'value:MaxDbList')
+        array('validateUpperBound', 'value:MaxDbList')
     ),
     'MaxTableList'    => array(
-        array('PMA_validateUpperBound', 'value:MaxTableList')
+        array('validateUpperBound', 'value:MaxTableList')
     ),
     'QueryHistoryMax' => array(
-        array('PMA_validateUpperBound', 'value:QueryHistoryMax')
+        array('validateUpperBound', 'value:QueryHistoryMax')
     )
 );
 ?>
