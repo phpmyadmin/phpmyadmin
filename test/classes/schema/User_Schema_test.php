@@ -101,7 +101,7 @@ class PMA_User_Schema_Test extends PHPUnit_Framework_TestCase
      *
      * @group medium
      */
-    public function testSetAction()
+    public function testSetActionAndProcessUserChoice()
     {
         //action: selectpage
         $_REQUEST['chpage'] = 10;
