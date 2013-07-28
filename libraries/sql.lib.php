@@ -1726,7 +1726,7 @@ function PMA_sendQueryResponseForNoResultsReturned($analyzed_sql_results, $db,
         isset($message_to_show) ? $message_to_show : null, $analyzed_sql_results,
         $num_rows
     );
-    if ($GLOBALS['is_ajax_request'] == true) {
+    if ($GLOBALS['is_ajax_request'] == true && !isset($GLOBALS['show_as_php'])) {
         PMA_sendAjaxResponseForNoResultsReturned(
             $message, $analyzed_sql_results['analyzed_sql'],
             $displayResultsObject,
