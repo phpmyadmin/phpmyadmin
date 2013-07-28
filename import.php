@@ -10,6 +10,8 @@
  * Get the variables sent or posted to this script and a core script
  */
 require_once 'libraries/common.inc.php';
+require_once 'libraries/sql.lib.php';
+require_once 'libraries/bookmark.lib.php';
 //require_once 'libraries/display_import_functions.lib.php';
 
 if (isset($_REQUEST['show_as_php'])) {
@@ -601,17 +603,15 @@ if (isset($my_die)) {
     }
 }
 
-// we want to see the results of the last query that returned at least a row
-if (! empty($last_query_with_results)) {
-    // but we want to show intermediate results too
-    $disp_query = $sql_query;
-    $disp_message = __('Your SQL query has been executed successfully');
-    $sql_query = $last_query_with_results;
-    $go_sql = true;
-}
-
 if ($go_sql) {
-    include 'sql.php';
+    // parse sql query
+    require_once 'libraries/parse_analyze.inc.php';
+    
+    PMA_executeQueryAndSendQueryResponse(
+        $analyzed_sql_results, false, $db, $table, null, null, null, false, null,
+        null, null, null, $goto, $pmaThemeImage, null, null, null, $sql_query,
+        null, null
+    );
 } else {
     $active_page = $goto;
     include '' . $goto;
