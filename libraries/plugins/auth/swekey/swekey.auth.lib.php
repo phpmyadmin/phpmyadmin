@@ -3,6 +3,10 @@
  * @package Swekey
  */
 
+if (! defined('PHPMYADMIN')) {
+    exit;
+}
+
 /**
  * Checks Swekey authentication.
  */

@@ -432,7 +432,7 @@ function validate_trusted_proxies($path, $values)
         $matches = array();
         // we catch anything that may (or may not) be an IP
         if (!preg_match("/^(.+):(?:[ ]?)\\w+$/", $line, $matches)) {
-            $result[$path][] = __('Incorrect value') . ': ' . $line;
+            $result[$path][] = __('Incorrect value') . ': ' . htmlspecialchars($line);
             continue;
         }
         // now let's check whether we really have an IP address

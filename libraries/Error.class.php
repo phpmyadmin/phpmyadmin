@@ -6,6 +6,10 @@
  * @package PhpMyAdmin
  */
 
+if (! defined('PHPMYADMIN')) {
+    exit;
+}
+
 /**
  * base class
  */

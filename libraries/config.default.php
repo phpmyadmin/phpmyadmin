@@ -557,7 +557,11 @@ $cfg['ServerDefault'] = 1;
  *
  * @global boolean $cfg['VersionCheck']
  */
-$cfg['VersionCheck'] = VERSION_CHECK_DEFAULT;
+if (defined('VERSION_CHECK_DEFAULT')) {
+    $cfg['VersionCheck'] = VERSION_CHECK_DEFAULT;
+} else {
+    $cfg['VersionCheck'] = true;
+}
 
 /**
  * maximum number of db's displayed in database list

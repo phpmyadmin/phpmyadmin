@@ -41,7 +41,9 @@ if (is_object($data) && strlen($data->version) && strlen($data->date)) {
             'timestamp' => time()
         );
     }
-    echo $response;
+    echo json_encode(
+        array('version' => $data->version, 'date' => $data->date)
+    );
 }
 
 ?>

@@ -4924,31 +4924,28 @@ class PMA_DisplayResults
             $message_view_warning = false;
         }
 
-        $message = PMA_Message::success(__('Showing rows'));
-        $message->addMessage($first_shown_rec);
+        $message = PMA_Message::success(__('Showing rows %1s - %2s'));
+        $message->addParam($first_shown_rec);
 
         if ($message_view_warning) {
-
-            $message->addMessage('...', ' - ');
-            $message->addMessage($message_view_warning);
-            $message->addMessage('(');
-
+            $message->addParam('... ' . $message_view_warning, false);
         } else {
+            $message->addParam($last_shown_rec);
+        }
 
-            $message->addMessage($last_shown_rec, ' - ');
-            $message->addMessage(' (');
-            $message->addMessage(
-                $pre_count . PMA_Util::formatNumber($total, 0)
-            );
-            $message->addString(__('total'));
+        $message->addMessage('(');
+
+        if (!$message_view_warning) {
+            $message_total = PMA_Message::notice($precount . __('%d total'));
+            $message_total->addParam($total);
 
             if (!empty($after_count)) {
-                $message->addMessage($after_count);
+                $message_total->addMessage($after_count);
             }
+            $message->addMessage($message_total, '');
 
             $message->addMessage($selectstring, '');
             $message->addMessage(', ', '');
-
         }
 
         $messagge_qt = PMA_Message::notice(__('Query took %01.4f sec') . ')');

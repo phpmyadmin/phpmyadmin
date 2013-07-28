@@ -9,6 +9,10 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
+if (! defined('PHPMYADMIN')) {
+    exit;
+}
+
 /**
  * The MyISAM storage engine
  *

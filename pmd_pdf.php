@@ -9,6 +9,13 @@ require_once './libraries/common.inc.php';
 require_once 'libraries/pmd_common.php';
 
 /**
+ * Validate vulnerable POST parameters
+ */
+if (isset($_POST['scale']) && ! PMA_isValid($_POST['scale'], 'numeric')) {
+    die('Attack stopped');
+}
+
+/**
   * Sets globals from $_POST
   */
 $post_params = array(
