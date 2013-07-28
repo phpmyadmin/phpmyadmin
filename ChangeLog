@@ -18,7 +18,7 @@ phpMyAdmin - ChangeLog
 - bug #3998 Non-permanent SQL history not working
 - bug #3578 Transformations for text/plain on a BLOB column
 
-4.0.4.2 (not released yet)
+4.0.4.2 (2013-07-28)
 - [security] Fix stored XSS in Server status monitor, see PMASA-2013-9
 - [security] Fix stored XSS in navigation panel logo link, see PMASA-2013-9
 - [security] Fix self-XSS in setup, trusted proxies validation, see PMASA-2013-9
