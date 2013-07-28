@@ -10,6 +10,7 @@ phpMyAdmin - ChangeLog
 - [security] Fix control user SQL injection in schema_export.php, see PMASA-2013-15
 - [security] Fix self-XSS in schema export, see PMASA-2013-14
 - [security] Fix unencoded json object, see PMASA-2013-11
+- [security] Fix stored XSS in link transformation plugin, see PMASA-2013-13
 
 4.0.4.1 (2013-06-30)
 - [security] Global variables scope injection vulnerability (see PMASA-2013-7)
