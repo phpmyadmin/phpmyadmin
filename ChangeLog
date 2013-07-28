@@ -25,7 +25,10 @@ phpMyAdmin - ChangeLog
 - [core] Dropped support for PHP 5.2.
 + rfe #487 and rfe #1405 Find and Replacing column wise
 + rfe #1373 Use same create view dialog for editing a view 
-+ rfe #316 Configurable menus; allow user groups with customized menus per group- bug #4024 Editing field a record is selected by makes pma load forever
++ rfe #316 Configurable menus; allow user groups with customized menus per group
+- bug #4024 Editing field a record is selected by makes pma load forever
+- bug #4035 Query "inline" link disappears when turning off "Explain SQL" option
++ rfe #1385 Hide tables, functions, procedures, events and views in navigation tree
 
 4.0.5.0 (not yet released)
 - bug #3977 Not detected configuration storage
@@ -40,6 +43,20 @@ phpMyAdmin - ChangeLog
 - bug #4019 Create database if not exists (export): add an option to the
   interface to enable generating CREATE DATABASE and USE (false by default)
 - bug #4012 Crash on CSV file import
+- bug #4009 Statistic Monitor shows only last 3 digits in graph
+- bug #3998 Non-permanent SQL history not working
+- bug #3578 Transformations for text/plain on a BLOB column
+
+4.0.4.2 (2013-07-28)
+- [security] Fix stored XSS in Server status monitor, see PMASA-2013-9
+- [security] Fix stored XSS in navigation panel logo link, see PMASA-2013-9
+- [security] Fix self-XSS in setup, trusted proxies validation, see PMASA-2013-9
+- [security] Fix full path disclosure, see PMASA-2013-12
+- [security] Fix control user SQL injection in pmd_pdf.php, see PMASA-2013-15
+- [security] Fix control user SQL injection in schema_export.php, see PMASA-2013-15
+- [security] Fix self-XSS in schema export, see PMASA-2013-14
+- [security] Fix unencoded json object, see PMASA-2013-11
+- [security] Fix stored XSS in link transformation plugin, see PMASA-2013-13
 
 4.0.4.1 (2013-06-30)
 - [security] Global variables scope injection vulnerability (see PMASA-2013-7)
@@ -226,6 +243,20 @@ underscore
 - [security] Global variables overwrite in export.php, reported by Janek Vind
   (see PMASA-2013-5)
 - bug #3892 [export] SQL Export files are empty
+
+3.5.8.2 (2013-07-28)
+- [security] Fix self-XSS in "Showing rows", see PMASA-2013-8
+- [security] Fix self-XSS in Display chart, see PMASA-2013-9
+- [security] Fix stored XSS in Server status monitor, see PMASA-2013-9
+- [security] Fix stored XSS in navigation panel logo link, see PMASA-2013-9
+- [security] Fix self-XSS in setup, trusted proxies validation, see PMASA-2013-9
++ [security] JSON content type header for version_check.php, see PMASA-2013-9
++ [security] Backport fix for jQuery issue #9521 from jQuery 1.6.3, see PMASA-2013-9
++ [security] Fix full path disclosure, see PMASA-2013-12
++ [security] Fix control user SQL injection in pmd_pdf.php, see PMASA-2013-15
++ [security] Fix control user SQL injection in schema_export.php, see PMASA-2013-15
+- [security] Fix self-XSS in schema export, see PMASA-2013-14
+- [security] Fix unencoded json object, see PMASA-2013-11
 
 3.5.8.1 (2013-04-24)
 - [security] Remote code execution (preg_replace), reported by Janek Vind

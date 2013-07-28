@@ -8,6 +8,10 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
+if (! defined('PHPMYADMIN')) {
+    exit;
+}
+
 /**
  *
  */

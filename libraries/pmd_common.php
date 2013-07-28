@@ -4,6 +4,13 @@
  * @package PhpMyAdmin-Designer
  */
 /**
+ * block attempts to directly run this script 
+ */
+if (getcwd() == dirname(__FILE__)) {
+    die('Attack stopped');
+}
+
+/**
  *
  */
 if (! defined('PHPMYADMIN')) {

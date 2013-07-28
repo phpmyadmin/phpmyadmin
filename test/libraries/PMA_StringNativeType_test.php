@@ -18,31 +18,43 @@ require_once 'libraries/StringNativeType.class.php';
  */
 class PMA_StringNativeType_Test extends PHPUnit_Framework_TestCase
 {
+    private $_object;
 
     /**
-     * Test for PMA_StringNativeType::isAlnum
-     * 
+     * Setup function for test cases
+     *
+     * @access protected
+     * @return void
+     */
+    protected function setUp()
+    {
+        $this->_object = new PMA_StringNativeType();
+    }
+
+    /**
+     * Test for isAlnum()
+     *
      * @param integer $expected Expected output
      * @param string  $str      String to check
-     * 
+     *
      * @return void
      * @test
      * @dataProvider isAlnumData
      */
     public function testIsAlnum($expected, $str)
-    {   
+    {
         $this->assertEquals(
             $expected,
-            PMA_StringNativeType::isAlnum($str)
+            $this->_object->isAlnum($str)
         );
     }
 
     /**
      * Data provider for testIsAlnum
-     * 
+     *
      * @return array Test data
      */
-    public function isAlnumData() 
+    public function isAlnumData()
     {
         return array(
             array(true, "A"),
@@ -53,29 +65,29 @@ class PMA_StringNativeType_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_StringNativeType::isAlpha
-     * 
+     * Test for isAlpha()
+     *
      * @param integer $expected Expected output
      * @param string  $str      String to check
-     * 
+     *
      * @return void
      * @test
      * @dataProvider isAlphaData
      */
     public function testIsAlpha($expected, $str)
-    {   
+    {
         $this->assertEquals(
             $expected,
-            PMA_StringNativeType::isAlpha($str)
+            $this->_object->isAlpha($str)
         );
     }
 
     /**
      * Data provider for testIsAlpha
-     * 
+     *
      * @return array Test data
      */
-    public function isAlphaData() 
+    public function isAlphaData()
     {
         return array(
             array(true, "k"),
@@ -84,29 +96,29 @@ class PMA_StringNativeType_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_StringNativeType::isDigit
-     * 
+     * Test for isDigit()
+     *
      * @param integer $expected Expected output
      * @param string  $str      String to check
-     * 
+     *
      * @return void
      * @test
      * @dataProvider isDigitData
      */
     public function testIsDigit($expected, $str)
-    {   
+    {
         $this->assertEquals(
             $expected,
-            PMA_StringNativeType::isDigit($str)
+            $this->_object->isDigit($str)
         );
     }
 
     /**
      * Data provider for testIsDigit
-     * 
+     *
      * @return array Test data
      */
-    public function isDigitData() 
+    public function isDigitData()
     {
         return array(
             array(false, "k"),
@@ -116,29 +128,29 @@ class PMA_StringNativeType_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_StringNativeType::isUpper
-     * 
+     * Test for isUpper()
+     *
      * @param integer $expected Expected output
      * @param string  $str      String to check
-     * 
+     *
      * @return void
      * @test
      * @dataProvider isUpperData
      */
     public function testIsUpper($expected, $str)
-    {   
+    {
         $this->assertEquals(
             $expected,
-            PMA_StringNativeType::isUpper($str)
+            $this->_object->isUpper($str)
         );
     }
 
     /**
      * Data provider for testIsUpper
-     * 
+     *
      * @return array Test data
      */
-    public function isUpperData() 
+    public function isUpperData()
     {
         return array(
             array(true, "A"),
@@ -148,29 +160,29 @@ class PMA_StringNativeType_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_StringNativeType::isLower
-     * 
+     * Test for isLower()
+     *
      * @param integer $expected Expected output
      * @param string  $str      String to check
-     * 
+     *
      * @return void
      * @test
      * @dataProvider isLowerData
      */
     public function testIsLower($expected, $str)
-    {   
+    {
         $this->assertEquals(
             $expected,
-            PMA_StringNativeType::isLower($str)
+            $this->_object->isLower($str)
         );
     }
 
     /**
      * Data provider for testIsLower
-     * 
+     *
      * @return array Test data
      */
-    public function isLowerData() 
+    public function isLowerData()
     {
         return array(
             array(true, "a"),
@@ -180,29 +192,29 @@ class PMA_StringNativeType_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_StringNativeType::isSpace
-     * 
+     * Test for isSpace()
+     *
      * @param integer $expected Expected output
      * @param string  $str      String to check
-     * 
+     *
      * @return void
      * @test
      * @dataProvider isSpaceData
      */
     public function testIsSpace($expected, $str)
-    {   
+    {
         $this->assertEquals(
             $expected,
-            PMA_StringNativeType::isSpace($str)
+            $this->_object->isSpace($str)
         );
     }
 
     /**
      * Data provider for testIsSpace
-     * 
+     *
      * @return array Test data
      */
-    public function isSpaceData() 
+    public function isSpaceData()
     {
         return array(
             array(true, " "),
@@ -213,29 +225,29 @@ class PMA_StringNativeType_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_StringNativeType::isHexDigit
-     * 
+     * Test for isHexDigit()
+     *
      * @param integer $expected Expected output
      * @param string  $str      String to check
-     * 
+     *
      * @return void
      * @test
      * @dataProvider isHexDigitData
      */
     public function testIsHexDigit($expected, $str)
-    {   
+    {
         $this->assertEquals(
             $expected,
-            PMA_StringNativeType::isHexDigit($str)
+            $this->_object->isHexDigit($str)
         );
     }
 
     /**
      * Data provider for testIsHexDigit
-     * 
+     *
      * @return array Test data
      */
-    public function isHexDigitData() 
+    public function isHexDigitData()
     {
         return array(
             array(true, "A"),

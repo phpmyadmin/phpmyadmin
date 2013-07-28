@@ -10,7 +10,7 @@ if (!defined('PHPMYADMIN')) {
 }
 
 /**
- * Get the database name inside a USE query
+ * Get the database name inside a query
  *
  * @param string $sql       SQL query
  * @param array  $databases array with all databases
@@ -23,7 +23,7 @@ function PMA_getNewDatabase($sql, $databases)
     // loop through all the databases
     foreach ($databases as $database) {
         if (strpos($sql, $database['SCHEMA_NAME']) !== false) {
-            $db = $database;
+            $db = $database['SCHEMA_NAME'];
             break;
         }
     }

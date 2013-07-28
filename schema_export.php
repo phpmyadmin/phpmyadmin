@@ -12,6 +12,13 @@ require_once 'libraries/common.inc.php';
 require 'libraries/StorageEngine.class.php';
 
 /**
+ * Validate vulnerable POST parameters
+ */
+if (! PMA_isValid($_POST['pdf_page_number'], 'numeric')) {
+    die('Attack stopped');
+}
+
+/**
  * get all variables needed for exporting relational schema
  * in $cfgRelation
  */

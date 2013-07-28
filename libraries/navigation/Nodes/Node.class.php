@@ -451,5 +451,14 @@ class Node
         return $whereClause;
     }
 
+    /**
+     * Returns HTML for control buttons displayed infront of a node
+     *
+     * @return HTML for control buttons
+     */
+    public function getHtmlForControlButtons()
+    {
+        return '';
+    }
 }
 ?>
