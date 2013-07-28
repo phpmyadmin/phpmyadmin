@@ -1,6 +1,8 @@
 phpMyAdmin - ChangeLog
 ======================
 
+4.0.6.0 (not yet released)
+
 4.0.5.0 (not yet released)
 - bug #3977 Not detected configuration storage
 - bug #3970 Pressing enter in the filter field reloads page
