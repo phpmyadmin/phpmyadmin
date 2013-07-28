@@ -1,7 +1,7 @@
 phpMyAdmin - ChangeLog
 ======================
 
-3.5.8.2 (not released yet)
+3.5.8.2 (2013-07-28)
 - [security] Fix self-XSS in "Showing rows", see PMASA-2013-8
 - [security] Fix self-XSS in Display chart, see PMASA-2013-9
 - [security] Fix stored XSS in Server status monitor, see PMASA-2013-9
