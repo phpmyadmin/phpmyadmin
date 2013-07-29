@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-07-29 15:39+0200\n"
-"PO-Revision-Date: 2013-07-29 20:19+0200\n"
+"PO-Revision-Date: 2013-07-29 20:32+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/tr/>\n"
@@ -6069,7 +6069,6 @@ msgid "User preferences storage table"
 msgstr "Kullanıcı tercihleri depolama tablosu"
 
 #: libraries/config/messages.inc.php:455
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no user preferences storage in database, suggested: "
 #| "[kbd]pma__userconfig[/kbd]"
@@ -6077,17 +6076,15 @@ msgid ""
 "Leave blank to disable configurable menus feature, suggested: "
 "[kbd]pma__users[/kbd]"
 msgstr ""
-"Veritabanında kullanıcı tercihleri depolaması olmaması için boş bırakın, "
-"önerilen: [kbd]pma__userconfig[/kbd]"
+"Yapılandırılabilir menüler özelliğini etkisizleştirmek için boş bırakın, "
+"önerilen: [kbd]pma__users[/kbd]"
 
 #: libraries/config/messages.inc.php:456
-#, fuzzy
 #| msgid "Use Tables"
 msgid "Users table"
-msgstr "Tabloları kullan"
+msgstr "Kullanıcılar tablosu"
 
 #: libraries/config/messages.inc.php:457
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no user preferences storage in database, suggested: "
 #| "[kbd]pma__userconfig[/kbd]"
@@ -6095,17 +6092,15 @@ msgid ""
 "Leave blank to disable configurable menus feature, suggested: "
 "[kbd]pma__usergroups[/kbd]"
 msgstr ""
-"Veritabanında kullanıcı tercihleri depolaması olmaması için boş bırakın, "
-"önerilen: [kbd]pma__userconfig[/kbd]"
+"Yapılandırılabilir menüler özelliğini etkisizleştirmek için boş bırakın, "
+"önerilen: [kbd]pma__usergroups[/kbd]"
 
 #: libraries/config/messages.inc.php:458
-#, fuzzy
 #| msgid "Use Host Table"
 msgid "User groups table"
-msgstr "Anamakine Tablosu kullan"
+msgstr "Kullanıcı grupları tablosu"
 
 #: libraries/config/messages.inc.php:459
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no user preferences storage in database, suggested: "
 #| "[kbd]pma__userconfig[/kbd]"
@@ -6113,12 +6108,12 @@ msgid ""
 "Leave blank to disable the feature to hide and show navigation items, "
 "suggested: [kbd]pma__navigationhiding[/kbd]"
 msgstr ""
-"Veritabanında kullanıcı tercihleri depolaması olmaması için boş bırakın, "
-"önerilen: [kbd]pma__userconfig[/kbd]"
+"Rehber öğelerini gizleme ve gösterme özelliğini etkisizleştirmek için boş "
+"bırakın, önerilen: [kbd]pma__navigationhiding[/kbd]"
 
 #: libraries/config/messages.inc.php:460
 msgid "Hidden navigation items table"
-msgstr ""
+msgstr "Gizli rehber öğeleri tablosu"
 
 #: libraries/config/messages.inc.php:462
 msgid "User for config auth"
@@ -7680,41 +7675,36 @@ msgstr "Çekçe-Slovakça"
 #: libraries/mysql_charsets.lib.php:341 libraries/mysql_charsets.lib.php:348
 #: libraries/structure.lib.php:1068
 msgid "unknown"
-msgstr "bilinmeyen"
+msgstr "bilinmiyor"
 
 #: libraries/navigation/Navigation.class.php:61
 msgid "An error has occured while loading the navigation tree"
 msgstr "Rehber ağacı yüklenirken bir hata meydana geldi"
 
 #: libraries/navigation/Navigation.class.php:172
-#, fuzzy
 #| msgid "Events"
 msgid "Events:"
-msgstr "Olaylar"
+msgstr "Olaylar:"
 
 #: libraries/navigation/Navigation.class.php:173
-#, fuzzy
 #| msgid "Functions"
 msgid "Functions:"
-msgstr "İşlevler"
+msgstr "İşlevler:"
 
 #: libraries/navigation/Navigation.class.php:174
-#, fuzzy
 #| msgid "Procedures"
 msgid "Procedures:"
-msgstr "Yordamlar"
+msgstr "Yordamlar:"
 
 #: libraries/navigation/Navigation.class.php:175
-#, fuzzy
 #| msgid "Tables"
 msgid "Tables:"
-msgstr "Tablolar"
+msgstr "Tablolar:"
 
 #: libraries/navigation/Navigation.class.php:176
-#, fuzzy
 #| msgid "Views"
 msgid "Views:"
-msgstr "Görünümler"
+msgstr "Görünümler:"
 
 #: libraries/navigation/NavigationHeader.class.php:183
 msgid "Home"
@@ -8810,16 +8800,14 @@ msgid "User preferences"
 msgstr "Kullanıcı tercihleri"
 
 #: libraries/relation.lib.php:264
-#, fuzzy
 #| msgid "Configuration: %s"
 msgid "Configurable menus"
-msgstr "Yapılandırma: %s"
+msgstr "Yapılandırılabilir menüler"
 
 #: libraries/relation.lib.php:275
-#, fuzzy
 #| msgid "Reload navigation frame"
 msgid "Hide/show navigation items"
-msgstr "Rehber çerçeveyi yeniden yükle"
+msgstr "Rehber öğelerini gizle/göster"
 
 #: libraries/relation.lib.php:281
 msgid "Quick steps to setup advanced features:"
