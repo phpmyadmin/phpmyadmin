@@ -2574,6 +2574,7 @@ AJAX.registerOnload('functions.js', function () {
         // Get the name of the column that is being edited
         var colname = $(this).closest('tr').find('input:first').val();
         var title;
+        var i;
         // And use it to make up a title for the page
         if (colname.length < 1) {
             title = PMA_messages.enum_newColumnVals;
@@ -2597,7 +2598,7 @@ AJAX.registerOnload('functions.js', function () {
         var values = [];
         var in_string = false;
         var curr, next, buffer = '';
-        for (var i = 0; i < inputstring.length; i++) {
+        for (i = 0; i < inputstring.length; i++) {
             curr = inputstring.charAt(i);
             next = i == inputstring.length ? '' : inputstring.charAt(i + 1);
             if (! in_string && curr == "'") {
@@ -2628,7 +2629,7 @@ AJAX.registerOnload('functions.js', function () {
         }
         // Add the parsed values to the editor
         var drop_icon = PMA_getImage('b_drop.png');
-        for (var i = 0; i < values.length; i++) {
+        for (i = 0; i < values.length; i++) {
             fields += "<tr><td>"
                    + "<input type='text' value='" + values[i] + "'/>"
                    + "</td><td class='drop'>"
