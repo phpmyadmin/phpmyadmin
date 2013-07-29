@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-07-29 15:39+0200\n"
-"PO-Revision-Date: 2013-07-09 13:24+0200\n"
+"PO-Revision-Date: 2013-07-29 16:11+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: Dutch <http://l10n.cihar.com/projects/phpmyadmin/master/nl/>\n"
 "Language: nl\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 1.6-dev\n"
+"X-Generator: Weblate 1.6\n"
 
 #: browse_foreigners.php:51 browse_foreigners.php:75 js/messages.php:339
 #: libraries/DisplayResults.class.php:813
@@ -1674,7 +1674,7 @@ msgid ""
 "Note: If the file contains multiple tables, they will be combined into one."
 msgstr ""
 "Opmerking: Als het bestand meerdere tabellen bevat, zullen deze samengevoegd "
-"worden tot één tabel"
+"worden tot één tabel."
 
 #: js/messages.php:262
 msgid "Hide query box"
@@ -1951,10 +1951,9 @@ msgid "Hide Panel"
 msgstr "Paneel verbergen"
 
 #: js/messages.php:369
-#, fuzzy
 #| msgid "Show logo in navigation panel"
 msgid "Show hidden navigation tree items"
-msgstr "Toon logo in navigatiepaneel"
+msgstr "Verborgen navigatieboom items weergeven"
 
 #: js/messages.php:372
 msgid "The requested page was not found in the history, it may have expired."
@@ -2673,16 +2672,16 @@ msgstr ""
 "Deze view heeft minimaal deze hoeveelheid aan rijen. Zie de %sdocumentatie%s."
 
 #: libraries/DisplayResults.class.php:4921
-#, fuzzy, php-format
+#, php-format
 #| msgid "Showing rows"
 msgid "Showing rows %1s - %2s"
-msgstr "Weergave van records"
+msgstr "Weergave van records %1s - %2s"
 
 #: libraries/DisplayResults.class.php:4933
-#, fuzzy, php-format
+#, php-format
 #| msgid "total"
 msgid "%d total"
-msgstr "totaal"
+msgstr "%d totaal"
 
 #: libraries/DisplayResults.class.php:4945 libraries/sql.lib.php:1640
 #, php-format
@@ -2873,7 +2872,7 @@ msgstr "De primaire sleutel is vervallen"
 #: libraries/Index.class.php:608
 #, php-format
 msgid "Index %s has been dropped."
-msgstr "Index %s is vervallen"
+msgstr "Index %s is verwijderd."
 
 #: libraries/Index.class.php:731
 #, php-format
@@ -3862,7 +3861,7 @@ msgstr "Selecteer uit de web-server upload directory <b>%s</b>:"
 #: libraries/Util.class.php:3406 libraries/insert_edit.lib.php:1183
 #: libraries/sql_query_form.lib.php:483
 msgid "The directory you set for upload work cannot be reached."
-msgstr "De folder die u heeft ingesteld om te uploaden kan niet worden bereikt"
+msgstr "De folder die u heeft ingesteld om te uploaden kan niet worden bereikt."
 
 #: libraries/Util.class.php:3417
 msgid "There are no files to upload"
@@ -6120,10 +6119,9 @@ msgstr ""
 "suggestie: [kbd]pma__userconfig[/kbd]"
 
 #: libraries/config/messages.inc.php:456
-#, fuzzy
 #| msgid "Use Tables"
 msgid "Users table"
-msgstr "Tabellen gebruiken"
+msgstr "Gebruikerstabel"
 
 #: libraries/config/messages.inc.php:457
 #, fuzzy
@@ -6138,10 +6136,9 @@ msgstr ""
 "suggestie: [kbd]pma__userconfig[/kbd]"
 
 #: libraries/config/messages.inc.php:458
-#, fuzzy
 #| msgid "Use Host Table"
 msgid "User groups table"
-msgstr "Gebruik hosttabel"
+msgstr "Gebruikersgroepentabel"
 
 #: libraries/config/messages.inc.php:459
 #, fuzzy
@@ -7736,34 +7733,29 @@ msgid "An error has occured while loading the navigation tree"
 msgstr "Er is een fout opgetreden bij het laden van de navigatieboom"
 
 #: libraries/navigation/Navigation.class.php:172
-#, fuzzy
 #| msgid "Events"
 msgid "Events:"
-msgstr "Gebeurtenissen"
+msgstr "Gebeurtenissen:"
 
 #: libraries/navigation/Navigation.class.php:173
-#, fuzzy
 #| msgid "Functions"
 msgid "Functions:"
-msgstr "Functies"
+msgstr "Functies:"
 
 #: libraries/navigation/Navigation.class.php:174
-#, fuzzy
 #| msgid "Procedures"
 msgid "Procedures:"
-msgstr "Procedures"
+msgstr "Procedures:"
 
 #: libraries/navigation/Navigation.class.php:175
-#, fuzzy
 #| msgid "Tables"
 msgid "Tables:"
-msgstr "Tabellen"
+msgstr "Tabellen:"
 
 #: libraries/navigation/Navigation.class.php:176
-#, fuzzy
 #| msgid "Views"
 msgid "Views:"
-msgstr "Views"
+msgstr "Views:"
 
 #: libraries/navigation/NavigationHeader.class.php:183
 msgid "Home"
@@ -8136,7 +8128,7 @@ msgstr ""
 #: libraries/plugins/auth/AuthenticationSignon.class.php:271
 #, php-format
 msgid "No activity within %s seconds; please log in again."
-msgstr "Geen activiteit voor %s seconden of meer, meld a.u.b. opnieuw aan"
+msgstr "Geen activiteit voor %s seconden of meer, meld a.u.b. opnieuw aan."
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:689
 #: libraries/plugins/auth/AuthenticationCookie.class.php:691
@@ -8160,7 +8152,7 @@ msgstr "Bestand %s bevat geen sleutel-ID"
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:180
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:200
 msgid "Hardware authentication failed!"
-msgstr "Hardware-authenticatie mislukt"
+msgstr "Hardware-authenticatie mislukt!"
 
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:187
 msgid "No valid authentication key plugged"
@@ -8866,10 +8858,9 @@ msgid "User preferences"
 msgstr "Gebruikersvoorkeuren"
 
 #: libraries/relation.lib.php:264
-#, fuzzy
 #| msgid "Configuration: %s"
 msgid "Configurable menus"
-msgstr "Configuratie: %s"
+msgstr "Configureerbare menu's"
 
 # Zowel "frame" als "window" vertalen naar "venster".
 #: libraries/relation.lib.php:275
@@ -10287,10 +10278,9 @@ msgid "Add privileges on the following table:"
 msgstr "Rechten toevoegen op de volgende tabel:"
 
 #: libraries/server_privileges.lib.php:2599
-#, fuzzy
 #| msgid "Edit server"
 msgid "Edit user group"
-msgstr "Server wijzigen"
+msgstr "Gebruikersgroep bewerken"
 
 #: libraries/server_privileges.lib.php:2714
 msgid "Remove selected users"
@@ -10363,10 +10353,9 @@ msgstr ""
 
 #: libraries/server_privileges.lib.php:3229
 #: libraries/server_privileges.lib.php:3878
-#, fuzzy
 #| msgid "Users"
 msgid "User groups"
-msgstr "Gebruikers"
+msgstr "Gebruikersgroepen"
 
 #: libraries/server_privileges.lib.php:3236
 #: libraries/server_privileges.lib.php:3402
@@ -11607,7 +11596,7 @@ msgid ""
 msgstr ""
 "Er schijnt een fout te zitten in uw SQL-query. Mocht de MySQL-server een "
 "foutmelding hebben teruggegeven, probeer dan of u hiermee uw fout kunt "
-"oplossen"
+"oplossen."
 
 #: libraries/sqlparser.lib.php:178
 msgid ""
