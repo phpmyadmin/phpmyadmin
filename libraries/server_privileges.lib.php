@@ -3233,9 +3233,9 @@ function PMA_getHtmlForUserGroupsTable()
     $html_output .= '<table id="userGroupsTable">';
     $html_output .= '<thead><tr>';
     $html_output .= '<th style="white-space: nowrap">' . __('User group') . '</th>';
-    $html_output .= '<th>' . __('Server level tabs') . '</th>';
-    $html_output .= '<th>' . __('Database level tabs') . '</th>';
-    $html_output .= '<th>' . __('Table level tabs') . '</th>';
+    $html_output .= '<th>' . __('Server-level tabs') . '</th>';
+    $html_output .= '<th>' . __('Database-level tabs') . '</th>';
+    $html_output .= '<th>' . __('Table-level tabs') . '</th>';
     $html_output .= '<th>' . __('Action') . '</th>';
     $html_output .= '</tr></thead>';
     $html_output .= '<tbody>';
@@ -3399,13 +3399,13 @@ function PMA_getHtmlToEditUserGroup($userGroup = null)
     }
 
     $html_output .= _getTabList(
-        __('Server level tabs'), 'server', $allowedTabs['server']
+        __('Server-level tabs'), 'server', $allowedTabs['server']
     );
     $html_output .= _getTabList(
-        __('Database level tabs'), 'db', $allowedTabs['db']
+        __('Database-level tabs'), 'db', $allowedTabs['db']
     );
     $html_output .= _getTabList(
-        __('Table level tabs'), 'table', $allowedTabs['table']
+        __('Table-level tabs'), 'table', $allowedTabs['table']
     );
 
     $html_output .= '</fieldset>';
