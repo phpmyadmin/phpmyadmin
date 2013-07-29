@@ -125,7 +125,7 @@ if ($_POST == array() && $_GET == array()) {
  */
 
 if (! in_array(
-    $format, 
+    $format,
     array(
         'csv',
         'ldi',
@@ -606,12 +606,21 @@ if (isset($my_die)) {
 if ($go_sql) {
     // parse sql query
     require_once 'libraries/parse_analyze.inc.php';
-    
+
     PMA_executeQueryAndSendQueryResponse(
         $analyzed_sql_results, false, $db, $table, null, null, null, false, null,
         null, null, null, $goto, $pmaThemeImage, null, null, null, $sql_query,
         null, null
     );
+} else if ($result) {
+    $response = PMA_Response::getInstance();
+    $response->isSuccess(true);
+    $response->addJSON('message', PMA_Message::success($msg));
+    $response->addJSON('sql_query', PMA_Util::getMessage('', $sql_query));
+} else if ($result == false) {
+    $response = PMA_Response::getInstance();
+    $response->isSuccess(false);
+    $response->addJSON('message', PMA_Message::error($msg));
 } else {
     $active_page = $goto;
     include '' . $goto;
