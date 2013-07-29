@@ -1,9 +1,9 @@
 # Automatically generated <>, 2010.
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 4.0.5-dev\n"
+"Project-Id-Version: phpMyAdmin 4.0.5-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-06-24 10:43+0200\n"
+"POT-Creation-Date: 2013-07-29 15:05+0200\n"
 "PO-Revision-Date: 2013-07-25 23:17+0200\n"
 "Last-Translator: Xosé Calvo <xosecalvo@gmail.com>\n"
 "Language-Team: Galician <http://l10n.cihar.com/projects/phpmyadmin/4-0/gl/>\n"
@@ -22,8 +22,8 @@ msgstr "Mostrar todo"
 
 #: browse_foreigners.php:93 libraries/PDF.class.php:65
 #: libraries/Util.class.php:2560
-#: libraries/schema/Pdf_Relation_Schema.class.php:1183
-#: libraries/schema/Pdf_Relation_Schema.class.php:1207
+#: libraries/schema/Pdf_Relation_Schema.class.php:1190
+#: libraries/schema/Pdf_Relation_Schema.class.php:1214
 #: libraries/schema/User_Schema.class.php:430
 #: libraries/select_lang.lib.php:520
 msgid "Page number:"
@@ -75,7 +75,7 @@ msgstr "Buscar"
 #: libraries/server_privileges.lib.php:3068
 #: libraries/sql_query_form.lib.php:369 libraries/sql_query_form.lib.php:426
 #: libraries/sql_query_form.lib.php:491 libraries/structure.lib.php:1590
-#: libraries/tbl_columns_definition_form.inc.php:754 pmd_pdf.php:151
+#: libraries/tbl_columns_definition_form.inc.php:754 pmd_pdf.php:158
 #: prefs_manage.php:266 prefs_manage.php:316 server_binlog.php:115
 #: server_replication.php:224 server_replication.php:327 tbl_chart.php:251
 #: tbl_indexes.php:352 tbl_tracking.php:520 tbl_tracking.php:685
@@ -118,7 +118,7 @@ msgid "Database comment: "
 msgstr "Comentario da base de datos: "
 
 #: db_datadict.php:157 libraries/operations.lib.php:808
-#: libraries/schema/Pdf_Relation_Schema.class.php:1332
+#: libraries/schema/Pdf_Relation_Schema.class.php:1339
 #: libraries/tbl_columns_definition_form.inc.php:836 tbl_printview.php:120
 msgid "Table comments"
 msgstr "Comentarios da táboa"
@@ -134,8 +134,8 @@ msgstr "Comentarios da táboa"
 #: libraries/plugins/export/ExportTexytext.class.php:269
 #: libraries/plugins/export/ExportTexytext.class.php:369
 #: libraries/plugins/export/ExportTexytext.class.php:432
-#: libraries/schema/Pdf_Relation_Schema.class.php:1358
-#: libraries/schema/Pdf_Relation_Schema.class.php:1381
+#: libraries/schema/Pdf_Relation_Schema.class.php:1365
+#: libraries/schema/Pdf_Relation_Schema.class.php:1388
 #: libraries/tbl_columns_definition_form.inc.php:353 tbl_indexes.php:263
 #: tbl_printview.php:130 tbl_relation.php:378 tbl_tracking.php:323
 #: tbl_tracking.php:385
@@ -156,8 +156,8 @@ msgstr "Columna"
 #: libraries/rte/rte_routines.lib.php:939
 #: libraries/rte/rte_routines.lib.php:968
 #: libraries/rte/rte_routines.lib.php:1577
-#: libraries/schema/Pdf_Relation_Schema.class.php:1359
-#: libraries/schema/Pdf_Relation_Schema.class.php:1382
+#: libraries/schema/Pdf_Relation_Schema.class.php:1366
+#: libraries/schema/Pdf_Relation_Schema.class.php:1389
 #: libraries/server_privileges.lib.php:1568 libraries/structure.lib.php:776
 #: libraries/structure.lib.php:1180
 #: libraries/tbl_columns_definition_form.inc.php:96 tbl_printview.php:131
@@ -174,8 +174,8 @@ msgstr "Tipo"
 #: libraries/plugins/export/ExportOdt.class.php:462
 #: libraries/plugins/export/ExportTexytext.class.php:271
 #: libraries/plugins/export/ExportTexytext.class.php:371
-#: libraries/schema/Pdf_Relation_Schema.class.php:1361
-#: libraries/schema/Pdf_Relation_Schema.class.php:1384
+#: libraries/schema/Pdf_Relation_Schema.class.php:1368
+#: libraries/schema/Pdf_Relation_Schema.class.php:1391
 #: libraries/structure.lib.php:1183
 #: libraries/tbl_columns_definition_form.inc.php:116 tbl_printview.php:132
 #: tbl_tracking.php:326 tbl_tracking.php:388
@@ -189,8 +189,8 @@ msgstr "Nulo"
 #: libraries/plugins/export/ExportOdt.class.php:465
 #: libraries/plugins/export/ExportTexytext.class.php:272
 #: libraries/plugins/export/ExportTexytext.class.php:372
-#: libraries/schema/Pdf_Relation_Schema.class.php:1362
-#: libraries/schema/Pdf_Relation_Schema.class.php:1385
+#: libraries/schema/Pdf_Relation_Schema.class.php:1369
+#: libraries/schema/Pdf_Relation_Schema.class.php:1392
 #: libraries/structure.lib.php:210 libraries/structure.lib.php:1184
 #: libraries/tbl_columns_definition_form.inc.php:107 tbl_printview.php:133
 #: tbl_tracking.php:327
@@ -201,20 +201,20 @@ msgstr "Predeterminado"
 #: libraries/plugins/export/ExportLatex.class.php:513
 #: libraries/plugins/export/ExportOdt.class.php:469
 #: libraries/plugins/export/ExportTexytext.class.php:374
-#: libraries/schema/Pdf_Relation_Schema.class.php:1364
-#: libraries/schema/Pdf_Relation_Schema.class.php:1387 tbl_printview.php:135
+#: libraries/schema/Pdf_Relation_Schema.class.php:1371
+#: libraries/schema/Pdf_Relation_Schema.class.php:1394 tbl_printview.php:135
 msgid "Links to"
 msgstr "Liga a"
 
 #: db_datadict.php:176 db_printview.php:107
-#: libraries/config/messages.inc.php:92 libraries/config/messages.inc.php:107
-#: libraries/config/messages.inc.php:129
+#: libraries/config/messages.inc.php:94 libraries/config/messages.inc.php:109
+#: libraries/config/messages.inc.php:131
 #: libraries/plugins/export/ExportHtmlword.class.php:409
 #: libraries/plugins/export/ExportLatex.class.php:516
 #: libraries/plugins/export/ExportOdt.class.php:474
 #: libraries/plugins/export/ExportTexytext.class.php:377
-#: libraries/schema/Pdf_Relation_Schema.class.php:1375
-#: libraries/schema/Pdf_Relation_Schema.class.php:1388
+#: libraries/schema/Pdf_Relation_Schema.class.php:1382
+#: libraries/schema/Pdf_Relation_Schema.class.php:1395
 #: libraries/tbl_columns_definition_form.inc.php:136 tbl_printview.php:137
 msgid "Comments"
 msgstr "Comentarios"
@@ -227,7 +227,7 @@ msgstr "Comentarios"
 #: libraries/plugins/export/ExportLatex.class.php:587
 #: libraries/plugins/export/ExportOdt.class.php:724
 #: libraries/plugins/export/ExportTexytext.class.php:566
-#: libraries/schema/Pdf_Relation_Schema.class.php:1414
+#: libraries/schema/Pdf_Relation_Schema.class.php:1421
 #: libraries/server_privileges.lib.php:1710
 #: libraries/server_privileges.lib.php:1845
 #: libraries/server_privileges.lib.php:1858
@@ -253,7 +253,7 @@ msgstr "Non"
 #: libraries/plugins/export/ExportLatex.class.php:587
 #: libraries/plugins/export/ExportOdt.class.php:725
 #: libraries/plugins/export/ExportTexytext.class.php:566
-#: libraries/schema/Pdf_Relation_Schema.class.php:1415
+#: libraries/schema/Pdf_Relation_Schema.class.php:1422
 #: libraries/server_privileges.lib.php:1710
 #: libraries/server_privileges.lib.php:1842
 #: libraries/server_privileges.lib.php:1856
@@ -272,7 +272,7 @@ msgstr "Si"
 msgid "View dump (schema) of database"
 msgstr "Ver o envorcado (esquema) da base de datos"
 
-#: db_export.php:33 db_printview.php:92 db_tracking.php:49 export.php:557
+#: db_export.php:33 db_printview.php:92 db_tracking.php:49 export.php:558
 #: libraries/DBQbe.class.php:268
 msgid "No tables found in database."
 msgstr "Non foi posíbel atopar ningunha táboa na base de datos."
@@ -309,7 +309,7 @@ msgstr ""
 "que prema %saquí%s."
 
 #: db_printview.php:99 db_tracking.php:79 db_tracking.php:204
-#: libraries/Menu.class.php:207 libraries/config/messages.inc.php:510
+#: libraries/Menu.class.php:207 libraries/config/messages.inc.php:512
 #: libraries/plugins/export/ExportXml.class.php:457
 #: libraries/plugins/export/PMA_ExportPdf.class.php:116
 #: libraries/rte/rte_list.lib.php:65 libraries/rte/rte_triggers.lib.php:355
@@ -332,30 +332,30 @@ msgstr "Filas"
 msgid "Size"
 msgstr "Tamaño"
 
-#: db_printview.php:159 libraries/plugins/export/ExportSql.class.php:1020
+#: db_printview.php:159 libraries/plugins/export/ExportSql.class.php:1032
 #: libraries/structure.lib.php:731
 msgid "in use"
 msgstr "en uso"
 
 #: db_printview.php:185 libraries/Util.class.php:4104
-#: libraries/plugins/export/ExportSql.class.php:946
-#: libraries/schema/Pdf_Relation_Schema.class.php:1337
+#: libraries/plugins/export/ExportSql.class.php:958
+#: libraries/schema/Pdf_Relation_Schema.class.php:1344
 #: libraries/structure.lib.php:798 libraries/structure.lib.php:1762
 #: tbl_printview.php:410
 msgid "Creation"
 msgstr "Creación"
 
 #: db_printview.php:194 libraries/Util.class.php:4110
-#: libraries/plugins/export/ExportSql.class.php:959
-#: libraries/schema/Pdf_Relation_Schema.class.php:1342
+#: libraries/plugins/export/ExportSql.class.php:971
+#: libraries/schema/Pdf_Relation_Schema.class.php:1349
 #: libraries/structure.lib.php:805 libraries/structure.lib.php:1770
 #: tbl_printview.php:421
 msgid "Last update"
 msgstr "Última actualización"
 
 #: db_printview.php:203 libraries/Util.class.php:4116
-#: libraries/plugins/export/ExportSql.class.php:972
-#: libraries/schema/Pdf_Relation_Schema.class.php:1347
+#: libraries/plugins/export/ExportSql.class.php:984
+#: libraries/schema/Pdf_Relation_Schema.class.php:1354
 #: libraries/structure.lib.php:812 libraries/structure.lib.php:1778
 #: tbl_printview.php:432
 msgid "Last check"
@@ -394,11 +394,11 @@ msgid "Tracked tables"
 msgstr "Táboas seguidas"
 
 #: db_tracking.php:78 libraries/Menu.class.php:180
-#: libraries/config/messages.inc.php:504
+#: libraries/config/messages.inc.php:506
 #: libraries/plugins/export/ExportHtmlword.class.php:158
 #: libraries/plugins/export/ExportLatex.class.php:251
 #: libraries/plugins/export/ExportOdt.class.php:203
-#: libraries/plugins/export/ExportSql.class.php:760
+#: libraries/plugins/export/ExportSql.class.php:772
 #: libraries/plugins/export/ExportTexytext.class.php:142
 #: libraries/plugins/export/ExportXml.class.php:390
 #: libraries/plugins/export/PMA_ExportPdf.class.php:115
@@ -486,24 +486,24 @@ msgstr "Seguir a táboa"
 msgid "Database Log"
 msgstr "Rexistro de actividade da base de datos"
 
-#: export.php:151
+#: export.php:152
 msgid "Bad type!"
 msgstr "Ese tipo é incorrecto!"
 
-#: export.php:202
+#: export.php:203
 msgid "Selected export type has to be saved in file!"
 msgstr "Gardouse nun ficheiro o tipo de exportación escollida!"
 
-#: export.php:231
+#: export.php:232
 msgid "Bad parameters!"
 msgstr "Os parámetros son incorrectos!"
 
-#: export.php:335 export.php:366 export.php:928
+#: export.php:336 export.php:367 export.php:929
 #, php-format
 msgid "Insufficient space to save the file %s."
 msgstr "Non hai espazo para gardar o ficheiro %s."
 
-#: export.php:506
+#: export.php:507
 #, php-format
 msgid ""
 "File %s already exists on server, change filename or check overwrite option."
@@ -511,12 +511,12 @@ msgstr ""
 "O ficheiro %s xa existe no servidor - cambie de nome ou escolla a opción de "
 "eliminar."
 
-#: export.php:512 export.php:518
+#: export.php:513 export.php:519
 #, php-format
 msgid "The web server does not have permission to save the file %s."
 msgstr "O servidor web non ten permiso para gardar o ficheiro %s."
 
-#: export.php:934
+#: export.php:935
 #, php-format
 msgid "Dump has been saved to file %s."
 msgstr "Gardouse o  envorcado no ficheiro %s."
@@ -618,23 +618,23 @@ msgid ""
 "You probably tried to upload a file that is too large. Please refer to "
 "%sdocumentation%s for a workaround for this limit."
 msgstr ""
-"Posibelmente tentou enviar un ficheiro demasiado grande. Consulte a %"
-"sdocumentación%s para averiguar como evitar este límite."
+"Posibelmente tentou enviar un ficheiro demasiado grande. Consulte a "
+"%sdocumentación%s para averiguar como evitar este límite."
 
-#: import.php:250 import.php:516
+#: import.php:268 import.php:534
 msgid "Showing bookmark"
 msgstr "A mostrar o marcador"
 
-#: import.php:265 import.php:512
+#: import.php:283 import.php:530
 msgid "The bookmark has been deleted."
 msgstr "Eliminouse o marcador."
 
-#: import.php:360 import.php:421 libraries/File.class.php:432
+#: import.php:378 import.php:439 libraries/File.class.php:432
 #: libraries/File.class.php:525
 msgid "File could not be read"
 msgstr "Non foi posíbel ler o ficheiro"
 
-#: import.php:369 import.php:380 import.php:401 import.php:412
+#: import.php:387 import.php:398 import.php:419 import.php:430
 #: libraries/File.class.php:604
 #, php-format
 msgid ""
@@ -644,7 +644,7 @@ msgstr ""
 "Tentou cargar un ficheiro cunha compresión descoñecida (%s). Ora non se sabe "
 "como descomprimir, ora está desactivada na configuración."
 
-#: import.php:427
+#: import.php:445
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
@@ -654,28 +654,28 @@ msgstr ""
 "o seu tamaño excede o máximo permitido pola súa configuración de PHP. "
 "Consulte a [doc@faq1-16]Pregunta frecuente 1.16[/doc]."
 
-#: import.php:447
+#: import.php:465
 msgid ""
 "Cannot convert file's character set without character set conversion library"
 msgstr ""
 "Non se pode converter o xogo de caracteres do ficheiro sen a biblioteca "
 "correspondente"
 
-#: import.php:485 libraries/display_import.lib.php:29
+#: import.php:503 libraries/display_import.lib.php:29
 msgid "Could not load import plugins, please check your installation!"
 msgstr "Non foi posíbel importar os engadidos - Comprobe a instalación!"
 
-#: import.php:519 sql.php:382 sql.php:1259
+#: import.php:537 sql.php:382 sql.php:1259
 #, php-format
 msgid "Bookmark %s created"
 msgstr "Creouse o marcador %s"
 
-#: import.php:528 import.php:540
+#: import.php:546 import.php:558
 #, php-format
 msgid "Import has been successfully finished, %d queries executed."
 msgstr "A importación rematou sen problemas. Executáronse %d consultas."
 
-#: import.php:555
+#: import.php:573
 msgid ""
 "Script timeout passed, if you want to finish import, please resubmit same "
 "file and import will resume."
@@ -683,7 +683,7 @@ msgstr ""
 "Excedeuse o tempo de espera do  script. Se quere rematar a importación, "
 "envíe de novo o mesmo ficheiro e a importación continuará."
 
-#: import.php:559
+#: import.php:577
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
@@ -692,7 +692,7 @@ msgstr ""
 "significa que o phpMyAdmin non poderá rematar esta importación a non ser que "
 "se lle incrementen os límites de tempo de php."
 
-#: import.php:590 libraries/DisplayResults.class.php:4535
+#: import.php:608 libraries/DisplayResults.class.php:4535
 #: libraries/Message.class.php:180 libraries/rte/rte_routines.lib.php:1424
 #: libraries/sql_query_form.lib.php:114 tbl_operations.php:184
 #: tbl_relation.php:250 tbl_row_action.php:122 view_operations.php:56
@@ -700,7 +700,7 @@ msgid "Your SQL query has been executed successfully"
 msgstr "A consulta de SQL executouse sen problemas"
 
 #: import_status.php:99 libraries/Util.class.php:779
-#: libraries/schema/Export_Relation_Schema.class.php:239 user_password.php:239
+#: libraries/schema/Export_Relation_Schema.class.php:240 user_password.php:239
 msgid "Back"
 msgstr "Recuar"
 
@@ -730,8 +730,8 @@ msgid "Database server"
 msgstr "Servidor de base de datos"
 
 #: index.php:239 libraries/Menu.class.php:159
-#: libraries/ServerStatusData.class.php:339 libraries/common.inc.php:661
-#: libraries/config/messages.inc.php:508
+#: libraries/ServerStatusData.class.php:339 libraries/common.inc.php:675
+#: libraries/config/messages.inc.php:510
 msgid "Server"
 msgstr "Servidor"
 
@@ -740,7 +740,7 @@ msgid "Server type"
 msgstr "Tipo do servidor"
 
 #: index.php:247 libraries/plugins/export/ExportLatex.class.php:225
-#: libraries/plugins/export/ExportSql.class.php:612
+#: libraries/plugins/export/ExportSql.class.php:621
 #: libraries/plugins/export/ExportXml.class.php:198
 msgid "Server version"
 msgstr "Versión do servidor"
@@ -776,14 +776,14 @@ msgstr "Extensión de PHP"
 msgid "Show PHP information"
 msgstr "Mostrar información sobre o PHP"
 
-#: index.php:326 libraries/engines/bdb.lib.php:25
+#: index.php:326 libraries/engines/bdb.lib.php:29
 msgid "Version information"
 msgstr "Información sobre a versión"
 
 #: index.php:335 libraries/Util.class.php:444 libraries/Util.class.php:530
 #: libraries/config/FormDisplay.tpl.php:145
-#: libraries/display_export.lib.php:281 libraries/engines/pbxt.lib.php:112
-#: libraries/navigation/NavigationHeader.class.php:229
+#: libraries/display_export.lib.php:281 libraries/engines/pbxt.lib.php:116
+#: libraries/navigation/NavigationHeader.class.php:234
 #: libraries/relation.lib.php:88 server_variables.php:137
 msgid "Documentation"
 msgstr "Documentación"
@@ -848,11 +848,10 @@ msgid ""
 "cookie validity configured in phpMyAdmin, because of this, your login will "
 "expire sooner than configured in phpMyAdmin."
 msgstr ""
-"O parámetro PHP "
-"[a@http://php.net/manual/en/session.configuration.php#ini.session.gc-"
-"maxlifetime@_blank]session.gc_maxlifetime[/a] é menor do que a validez das "
-"cookies que se configurou en phpMyAdmin; por causa disto, o rexistro "
-"caducará antes do que está configurado en phpMyAdmin."
+"O parámetro PHP [a@http://php.net/manual/en/session.configuration.php#ini."
+"session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] é menor do que a "
+"validez das cookies que se configurou en phpMyAdmin; por causa disto, o "
+"rexistro caducará antes do que está configurado en phpMyAdmin."
 
 #: index.php:440
 msgid ""
@@ -1010,7 +1009,7 @@ msgstr "Fechar"
 #: libraries/DisplayResults.class.php:3318 libraries/Index.class.php:591
 #: libraries/Util.class.php:713 libraries/Util.class.php:1258
 #: libraries/Util.class.php:3471 libraries/Util.class.php:3472
-#: libraries/config/messages.inc.php:486
+#: libraries/config/messages.inc.php:488
 #: libraries/schema/User_Schema.class.php:216 server_variables.php:130
 #: setup/frames/index.inc.php:147
 msgid "Edit"
@@ -1034,7 +1033,7 @@ msgstr "Datos estáticos"
 
 #. l10n: Total number of queries
 #: js/messages.php:68 libraries/build_html_for_db.lib.php:46
-#: libraries/engines/innodb.lib.php:171 libraries/structure.lib.php:2198
+#: libraries/engines/innodb.lib.php:175 libraries/structure.lib.php:2198
 #: server_databases.php:272 server_status.php:186 server_status.php:276
 #: tbl_printview.php:331
 msgid "Total"
@@ -1163,13 +1162,13 @@ msgstr "B"
 
 #. l10n: shortcuts for Kilobyte
 #: js/messages.php:109 libraries/Util.class.php:1475
-#: server_status_monitor.php:648
+#: server_status_monitor.php:647
 msgid "KiB"
 msgstr "KiB"
 
 #. l10n: shortcuts for Megabyte
 #: js/messages.php:110 libraries/Util.class.php:1477
-#: server_status_monitor.php:649
+#: server_status_monitor.php:648
 msgid "MiB"
 msgstr "MiB"
 
@@ -1208,7 +1207,7 @@ msgid "Traffic"
 msgstr "Tráfico"
 
 #: js/messages.php:120 libraries/Menu.class.php:503
-#: server_status_monitor.php:475
+#: server_status_monitor.php:474
 msgid "Settings"
 msgstr "Configuración"
 
@@ -1231,10 +1230,10 @@ msgstr "Engada ao menos unha variábel á serie"
 #: js/messages.php:126 libraries/DisplayResults.class.php:1292
 #: libraries/TableSearch.class.php:841 libraries/TableSearch.class.php:985
 #: libraries/display_export.lib.php:371
-#: libraries/plugins/export/ExportSql.class.php:1545
+#: libraries/plugins/export/ExportSql.class.php:1557
 #: libraries/server_privileges.lib.php:2114
 #: libraries/tbl_columns_definition_form.inc.php:687 pmd_general.php:559
-#: server_status.php:471 server_status_monitor.php:667
+#: server_status.php:471 server_status_monitor.php:666
 msgid "None"
 msgstr "Ningunha"
 
@@ -1334,7 +1333,7 @@ msgstr "Cambiar a configuración"
 msgid "Current settings"
 msgstr "Configuración actual"
 
-#: js/messages.php:151 server_status_monitor.php:608
+#: js/messages.php:151 server_status_monitor.php:607
 msgid "Chart Title"
 msgstr "Título da gráfica"
 
@@ -1519,8 +1518,8 @@ msgstr ""
 
 #: js/messages.php:199 libraries/Menu.class.php:305
 #: libraries/Menu.class.php:388 libraries/Menu.class.php:499
-#: libraries/config/messages.inc.php:168 libraries/display_import.lib.php:187
-#: prefs_manage.php:232 server_status_monitor.php:530
+#: libraries/config/messages.inc.php:170 libraries/display_import.lib.php:187
+#: prefs_manage.php:232 server_status_monitor.php:529
 #: setup/frames/menu.inc.php:21
 msgid "Import"
 msgstr "Importar"
@@ -1577,7 +1576,7 @@ msgid "Cancel"
 msgstr "Cancelar"
 
 #: js/messages.php:222 libraries/navigation/NavigationHeader.class.php:54
-#: server_status_monitor.php:568
+#: server_status_monitor.php:567
 msgid "Loading"
 msgstr "A cargar"
 
@@ -1729,7 +1728,7 @@ msgstr "Mostrar a caixa de consultas"
 msgid "No rows selected"
 msgstr "Non hai ningunha fileira seleccionada"
 
-#: js/messages.php:275 libraries/DisplayResults.class.php:5055
+#: js/messages.php:275 libraries/DisplayResults.class.php:5052
 #: libraries/structure.lib.php:1378 libraries/structure.lib.php:2056
 #: querywindow.php:85
 msgid "Change"
@@ -1949,7 +1948,8 @@ msgstr "Agochar o panel"
 
 #: js/messages.php:376
 msgid "The requested page was not found in the history, it may have expired."
-msgstr "Non foi posíbel atopar a páxina pedida no historial; pode que caducase."
+msgstr ""
+"Non foi posíbel atopar a páxina pedida no historial; pode que caducase."
 
 #: js/messages.php:379 setup/lib/index.lib.php:188
 #, php-format
@@ -2249,7 +2249,7 @@ msgstr "Non foi posíbel executar a proba da regra «%s»"
 msgid "Failed formatting string for rule '%s'."
 msgstr "Produciuse un erro ao formatar a cadea para a regra «%s»."
 
-#: libraries/Advisor.class.php:390
+#: libraries/Advisor.class.php:393
 #, php-format
 msgid ""
 "Invalid rule declaration on line %1$s, expected line %2$s of previous rule"
@@ -2257,52 +2257,52 @@ msgstr ""
 "A declaración da regra na liña %1$s é incorrecta; esperábase a liña %2$s da "
 "regra anterior"
 
-#: libraries/Advisor.class.php:407
+#: libraries/Advisor.class.php:410
 #, php-format
 msgid "Invalid rule declaration on line %s"
 msgstr "Hai unha declaración de regra incorrecta na liña %s"
 
-#: libraries/Advisor.class.php:415
+#: libraries/Advisor.class.php:418
 #, php-format
 msgid "Unexpected characters on line %s"
 msgstr "Hai caracteres inesperados na liña %s"
 
-#: libraries/Advisor.class.php:429
+#: libraries/Advisor.class.php:432
 #, php-format
 msgid "Unexpected character on line %1$s. Expected tab, but found \"%2$s\""
 msgstr ""
 "Hai un carácter inesperado na liña %1$s. Agardábase unha tabulación mais "
 "atopouse «%2$s»"
 
-#: libraries/Advisor.class.php:462 server_status_queries.php:86
+#: libraries/Advisor.class.php:465 server_status_queries.php:86
 msgid "per second"
 msgstr "por segundo"
 
-#: libraries/Advisor.class.php:465 server_status_queries.php:82
+#: libraries/Advisor.class.php:468 server_status_queries.php:82
 msgid "per minute"
 msgstr "por minuto"
 
-#: libraries/Advisor.class.php:468 server_status.php:143 server_status.php:212
+#: libraries/Advisor.class.php:471 server_status.php:143 server_status.php:212
 #: server_status_queries.php:79 server_status_queries.php:107
 msgid "per hour"
 msgstr "por hora"
 
-#: libraries/Advisor.class.php:471
+#: libraries/Advisor.class.php:474
 msgid "per day"
 msgstr "por día"
 
-#: libraries/Config.class.php:1110
+#: libraries/Config.class.php:1111
 #, php-format
 msgid "Existing configuration file (%s) is not readable."
 msgstr "O ficheiro de configuración existente (%s) non e lexíbel."
 
-#: libraries/Config.class.php:1140
+#: libraries/Config.class.php:1141
 msgid "Wrong permissions on configuration file, should not be world writable!"
 msgstr ""
 "Os permisos do ficheiro de configuración son incorrectos; non debería poder "
 "escribir nel todo o mundo!"
 
-#: libraries/Config.class.php:1714
+#: libraries/Config.class.php:1715
 msgid "Font size"
 msgstr "Tamaño da letra"
 
@@ -2426,7 +2426,7 @@ msgid "Delete the matches for the %s table?"
 msgstr "Eliminar as coincidencias para a táboa %s?"
 
 #: libraries/DbSearch.class.php:357 libraries/DisplayResults.class.php:3390
-#: libraries/DisplayResults.class.php:5031
+#: libraries/DisplayResults.class.php:5028
 #: libraries/schema/User_Schema.class.php:217
 #: libraries/schema/User_Schema.class.php:299
 #: libraries/schema/User_Schema.class.php:352
@@ -2579,7 +2579,7 @@ msgid "Show BLOB contents"
 msgstr "Mostrar os contidos BLOB"
 
 #: libraries/DisplayResults.class.php:1626
-#: libraries/config/messages.inc.php:57
+#: libraries/config/messages.inc.php:59
 msgid "Show binary contents as HEX"
 msgstr "Mostrar o contido binario como HEX"
 
@@ -2601,7 +2601,7 @@ msgid "The row has been deleted"
 msgstr "Eliminouse a fileira"
 
 #: libraries/DisplayResults.class.php:3417
-#: libraries/DisplayResults.class.php:5031 server_status.php:467
+#: libraries/DisplayResults.class.php:5028 server_status.php:467
 msgid "Kill"
 msgstr "Matar (kill)"
 
@@ -2624,20 +2624,24 @@ msgstr ""
 "%s."
 
 #: libraries/DisplayResults.class.php:4927
-msgid "Showing rows"
+#, fuzzy, php-format
+#| msgid "Showing rows"
+msgid "Showing rows %1s - %2s"
 msgstr "A mostrar as fileiras"
 
-#: libraries/DisplayResults.class.php:4943
-msgid "total"
+#: libraries/DisplayResults.class.php:4939
+#, fuzzy, php-format
+#| msgid "total"
+msgid "%d total"
 msgstr "total"
 
-#: libraries/DisplayResults.class.php:4954 sql.php:945
+#: libraries/DisplayResults.class.php:4951 sql.php:945
 #, php-format
 msgid "Query took %01.4f sec"
 msgstr "a consulta levou %01.4f segundos"
 
-#: libraries/DisplayResults.class.php:5045
-#: libraries/DisplayResults.class.php:5051 libraries/mult_submits.inc.php:42
+#: libraries/DisplayResults.class.php:5042
+#: libraries/DisplayResults.class.php:5048 libraries/mult_submits.inc.php:42
 #: libraries/server_privileges.lib.php:2402
 #: libraries/server_privileges.lib.php:2405 libraries/structure.lib.php:278
 #: libraries/structure.lib.php:293 libraries/structure.lib.php:295
@@ -2646,8 +2650,8 @@ msgstr "a consulta levou %01.4f segundos"
 msgid "With selected:"
 msgstr "Cos marcados:"
 
-#: libraries/DisplayResults.class.php:5049
-#: libraries/DisplayResults.class.php:5050
+#: libraries/DisplayResults.class.php:5046
+#: libraries/DisplayResults.class.php:5047
 #: libraries/server_privileges.lib.php:779
 #: libraries/server_privileges.lib.php:2403
 #: libraries/server_privileges.lib.php:2404 libraries/structure.lib.php:281
@@ -2657,49 +2661,49 @@ msgstr "Cos marcados:"
 msgid "Check All"
 msgstr "Marcalos todos"
 
-#: libraries/DisplayResults.class.php:5068
-#: libraries/DisplayResults.class.php:5267 libraries/Menu.class.php:296
+#: libraries/DisplayResults.class.php:5065
+#: libraries/DisplayResults.class.php:5264 libraries/Menu.class.php:296
 #: libraries/Menu.class.php:379 libraries/Menu.class.php:495
 #: libraries/Util.class.php:3473 libraries/Util.class.php:3474
-#: libraries/config/messages.inc.php:162 libraries/display_export.lib.php:94
+#: libraries/config/messages.inc.php:164 libraries/display_export.lib.php:94
 #: libraries/server_privileges.lib.php:1786
 #: libraries/server_privileges.lib.php:2409 libraries/structure.lib.php:297
-#: prefs_manage.php:289 server_status_monitor.php:534
+#: prefs_manage.php:289 server_status_monitor.php:533
 #: setup/frames/menu.inc.php:22
 msgid "Export"
 msgstr "Exportar"
 
-#: libraries/DisplayResults.class.php:5167
+#: libraries/DisplayResults.class.php:5164
 msgid "Query results operations"
 msgstr "Operacións cos resultados da consulta"
 
-#: libraries/DisplayResults.class.php:5191 libraries/Header.class.php:334
+#: libraries/DisplayResults.class.php:5188 libraries/Header.class.php:340
 #: libraries/structure.lib.php:299 libraries/structure.lib.php:362
 #: libraries/structure.lib.php:1485
 msgid "Print view"
 msgstr "Visualización previa da impresión"
 
-#: libraries/DisplayResults.class.php:5209
+#: libraries/DisplayResults.class.php:5206
 msgid "Print view (with full texts)"
 msgstr "Vista previa da impresión (con textos completos)"
 
-#: libraries/DisplayResults.class.php:5280 tbl_chart.php:151
+#: libraries/DisplayResults.class.php:5277 tbl_chart.php:151
 msgid "Display chart"
 msgstr "Mostrar a gráfica"
 
-#: libraries/DisplayResults.class.php:5305
+#: libraries/DisplayResults.class.php:5302
 msgid "Visualize GIS data"
 msgstr "Ver os datos GIS"
 
-#: libraries/DisplayResults.class.php:5337 view_create.php:152
+#: libraries/DisplayResults.class.php:5334 view_create.php:152
 msgid "Create view"
 msgstr "Crear unha vista"
 
-#: libraries/DisplayResults.class.php:5526
+#: libraries/DisplayResults.class.php:5525
 msgid "Link not found"
 msgstr "Non se atopou a ligazón"
 
-#: libraries/Error_Handler.class.php:77
+#: libraries/Error_Handler.class.php:81
 msgid "Too many error messages, some are not displayed."
 msgstr "Houbo demasiadas mensaxes de erro; algunhas non se mostran."
 
@@ -2710,8 +2714,8 @@ msgstr "O ficheiro non foi subido como un ficheiro."
 #: libraries/File.class.php:279
 msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
 msgstr ""
-"O tamaño do ficheiro enviado excede a directiva upload_max_filesize de "
-"php.ini."
+"O tamaño do ficheiro enviado excede a directiva upload_max_filesize de php."
+"ini."
 
 #: libraries/File.class.php:282
 msgid ""
@@ -2760,11 +2764,11 @@ msgstr "Non é posíbel ler (movido) o ficheiro subido."
 msgid "Open new phpMyAdmin window"
 msgstr "Abrir unha xanela nova co phpMyAdmin"
 
-#: libraries/Header.class.php:392
+#: libraries/Header.class.php:398
 msgid "Click on the bar to scroll to top of page"
 msgstr "Prema a barra para desprazarse até a parte superior da páxina"
 
-#: libraries/Header.class.php:626
+#: libraries/Header.class.php:639
 #: libraries/plugins/auth/AuthenticationCookie.class.php:172
 msgid "Javascript must be enabled past this point"
 msgstr "Javascript debe estar activo a partir de aquí"
@@ -2837,8 +2841,8 @@ msgstr "Vista"
 
 #: libraries/Menu.class.php:273 libraries/Menu.class.php:357
 #: libraries/Util.class.php:3243 libraries/Util.class.php:3250
-#: libraries/Util.class.php:3466 libraries/config/setup.forms.php:292
-#: libraries/config/setup.forms.php:329 libraries/config/setup.forms.php:355
+#: libraries/Util.class.php:3466 libraries/config/setup.forms.php:293
+#: libraries/config/setup.forms.php:330 libraries/config/setup.forms.php:356
 #: libraries/config/user_preferences.forms.php:196
 #: libraries/config/user_preferences.forms.php:233
 #: libraries/config/user_preferences.forms.php:259
@@ -2852,7 +2856,7 @@ msgstr "Estrutura"
 
 #: libraries/Menu.class.php:277 libraries/Menu.class.php:362
 #: libraries/Menu.class.php:471 libraries/Util.class.php:3244
-#: libraries/Util.class.php:3251 libraries/config/messages.inc.php:212
+#: libraries/Util.class.php:3251 libraries/config/messages.inc.php:214
 #: querywindow.php:59
 msgid "SQL"
 msgstr "SQL"
@@ -2878,7 +2882,7 @@ msgstr "Seguimento"
 #: libraries/navigation/Nodes/Node_Trigger_Container.class.php:26
 #: libraries/plugins/export/ExportHtmlword.class.php:563
 #: libraries/plugins/export/ExportOdt.class.php:655
-#: libraries/plugins/export/ExportSql.class.php:1468
+#: libraries/plugins/export/ExportSql.class.php:1480
 #: libraries/plugins/export/ExportTexytext.class.php:506
 #: libraries/plugins/export/ExportXml.class.php:121
 #: libraries/rte/rte_words.lib.php:41
@@ -2906,7 +2910,7 @@ msgstr "Rutinas"
 
 #: libraries/Menu.class.php:413
 #: libraries/navigation/Nodes/Node_Event_Container.class.php:26
-#: libraries/plugins/export/ExportSql.class.php:810
+#: libraries/plugins/export/ExportSql.class.php:822
 #: libraries/rte/rte_words.lib.php:53
 msgid "Events"
 msgstr "Acontecementos"
@@ -2915,7 +2919,7 @@ msgstr "Acontecementos"
 msgid "Designer"
 msgstr "Deseñador"
 
-#: libraries/Menu.class.php:467 libraries/config/messages.inc.php:175
+#: libraries/Menu.class.php:467 libraries/config/messages.inc.php:177
 #: libraries/server_privileges.lib.php:2855 server_databases.php:138
 msgid "Databases"
 msgstr "Bases de datos"
@@ -2984,15 +2988,15 @@ msgstr[1] "%1$d filas inseridas."
 msgid "Error while creating PDF:"
 msgstr "Produciuse un erro ao crear o PDF:"
 
-#: libraries/RecentTable.class.php:117
+#: libraries/RecentTable.class.php:118
 msgid "Could not save recent table"
 msgstr "Non foi posíbel gravar a táboa recente"
 
-#: libraries/RecentTable.class.php:154
+#: libraries/RecentTable.class.php:155
 msgid "Recent tables"
 msgstr "Táboas recentes"
 
-#: libraries/RecentTable.class.php:166
+#: libraries/RecentTable.class.php:167
 msgid "There are no recent tables"
 msgstr "Non hai táboas recentes"
 
@@ -3035,7 +3039,7 @@ msgstr "Ordenación"
 
 #: libraries/ServerStatusData.class.php:194
 #: libraries/build_html_for_db.lib.php:26
-#: libraries/config/messages.inc.php:181
+#: libraries/config/messages.inc.php:183
 #: libraries/navigation/Nodes/Node_Table_Container.class.php:26
 #: libraries/plugins/export/ExportXml.class.php:116
 msgid "Tables"
@@ -3074,7 +3078,7 @@ msgid "Flush query cache"
 msgstr "Limpar a caché de consultas"
 
 #: libraries/ServerStatusData.class.php:241
-#: libraries/engines/innodb.lib.php:144
+#: libraries/engines/innodb.lib.php:148
 msgid "InnoDB Status"
 msgstr "Estado de InnoDB"
 
@@ -3345,8 +3349,8 @@ msgid ""
 "-1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
 msgstr ""
 "Un número de vírgula flutuante pequeno; os valores permitidos son "
-"-3,402823466E+38 até -1,175494351E-38, 0 e 1,175494351E-38 até "
-"3,402823466E+38"
+"-3,402823466E+38 até -1,175494351E-38, 0 e 1,175494351E-38 até 3,402823466E"
+"+38"
 
 #: libraries/Types.class.php:310
 msgid ""
@@ -3601,7 +3605,8 @@ msgstr ""
 
 #: libraries/Types.class.php:714
 msgid "A system's default double-precision floating-point number"
-msgstr "Un número de vírgula flotante de dupla precisión por omisión do sistema"
+msgstr ""
+"Un número de vírgula flotante de dupla precisión por omisión do sistema"
 
 #: libraries/Types.class.php:716
 msgid "True or false"
@@ -3657,7 +3662,7 @@ msgstr "Mensaxes do MySQL: "
 msgid "Failed to connect to SQL validator!"
 msgstr "Non foi posíbel conectar cun validador de SQL!"
 
-#: libraries/Util.class.php:1224 libraries/config/messages.inc.php:487
+#: libraries/Util.class.php:1224 libraries/config/messages.inc.php:489
 msgid "Explain SQL"
 msgstr "Explicar o SQL"
 
@@ -3669,11 +3674,11 @@ msgstr "Omitir a explicación de SQL"
 msgid "Without PHP Code"
 msgstr "Sen código PHP"
 
-#: libraries/Util.class.php:1275 libraries/config/messages.inc.php:489
+#: libraries/Util.class.php:1275 libraries/config/messages.inc.php:491
 msgid "Create PHP Code"
 msgstr "Crear código PHP"
 
-#: libraries/Util.class.php:1301 libraries/config/messages.inc.php:488
+#: libraries/Util.class.php:1301 libraries/config/messages.inc.php:490
 #: server_status_variables.php:80
 msgid "Refresh"
 msgstr "Anovar"
@@ -3682,7 +3687,7 @@ msgstr "Anovar"
 msgid "Skip Validate SQL"
 msgstr "Omitir a válidacion de"
 
-#: libraries/Util.class.php:1314 libraries/config/messages.inc.php:491
+#: libraries/Util.class.php:1314 libraries/config/messages.inc.php:493
 msgid "Validate SQL"
 msgstr "Validar o SQL"
 
@@ -3766,19 +3771,19 @@ msgstr "Executar"
 msgid "Print"
 msgstr "Imprimir"
 
-#: libraries/bookmark.lib.php:82
+#: libraries/bookmark.lib.php:83
 msgid "shared"
 msgstr "compartida"
 
-#: libraries/build_html_for_db.lib.php:36 libraries/config/setup.forms.php:301
-#: libraries/config/setup.forms.php:337 libraries/config/setup.forms.php:360
-#: libraries/config/setup.forms.php:365
+#: libraries/build_html_for_db.lib.php:36 libraries/config/setup.forms.php:302
+#: libraries/config/setup.forms.php:338 libraries/config/setup.forms.php:361
+#: libraries/config/setup.forms.php:366
 #: libraries/config/user_preferences.forms.php:205
 #: libraries/config/user_preferences.forms.php:241
 #: libraries/config/user_preferences.forms.php:264
 #: libraries/config/user_preferences.forms.php:269
 #: libraries/plugins/export/ExportLatex.class.php:301
-#: libraries/plugins/export/ExportSql.class.php:1545
+#: libraries/plugins/export/ExportSql.class.php:1557
 #: libraries/server_privileges.lib.php:748 libraries/structure.lib.php:2176
 #: tbl_printview.php:299
 msgid "Data"
@@ -3810,11 +3815,11 @@ msgstr "Comprobar os privilexios da base de datos &quot;%s&quot;."
 msgid "Check Privileges"
 msgstr "Comprobar os privilexios"
 
-#: libraries/common.inc.php:585
+#: libraries/common.inc.php:599
 msgid "Failed to read configuration file"
 msgstr "Foi imposíbel ler o ficheiro de configuración"
 
-#: libraries/common.inc.php:587
+#: libraries/common.inc.php:601
 msgid ""
 "This usually means there is a syntax error in it, please check any errors "
 "shown below."
@@ -3822,12 +3827,12 @@ msgstr ""
 "Isto normalmente significa que hai unha erro na sintaxe; comprobe calquera "
 "erro mostrado embaixo."
 
-#: libraries/common.inc.php:594
+#: libraries/common.inc.php:608
 #, php-format
 msgid "Could not load default configuration from: %1$s"
 msgstr "Non foi posíbel cargar a configuración predeterminada desde: %1$s"
 
-#: libraries/common.inc.php:601
+#: libraries/common.inc.php:615
 msgid ""
 "The [code]$cfg['PmaAbsoluteUri'][/code] directive MUST be set in your "
 "configuration file!"
@@ -3835,40 +3840,40 @@ msgstr ""
 "A directiva [code]$cfg['PmaAbsoluteUri'][/code] DEBE estar asignada no seu "
 "ficheiro de configuración!"
 
-#: libraries/common.inc.php:634
+#: libraries/common.inc.php:648
 #, php-format
 msgid "Invalid server index: %s"
 msgstr "O índice de servidor non é válido: %s"
 
-#: libraries/common.inc.php:645
+#: libraries/common.inc.php:659
 #, php-format
 msgid "Invalid hostname for server %1$s. Please review your configuration."
 msgstr ""
-"O nome de servidor non é válido para o servidor %1$s. Revise a "
-"configuración."
+"O nome de servidor non é válido para o servidor %1$s. Revise a configuración."
 
-#: libraries/common.inc.php:854
+#: libraries/common.inc.php:868
 msgid "Invalid authentication method set in configuration:"
-msgstr "Na configuración indicouse un método de autenticación que non é válido:"
+msgstr ""
+"Na configuración indicouse un método de autenticación que non é válido:"
 
-#: libraries/common.inc.php:976
+#: libraries/common.inc.php:990
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "Debería actualizar a %s %s ou posterior."
 
-#: libraries/common.inc.php:1065
+#: libraries/common.inc.php:1079
 msgid "Error: Token mismatch"
 msgstr "Erro: o token non coincide"
 
-#: libraries/common.inc.php:1109
+#: libraries/common.inc.php:1123
 msgid "GLOBALS overwrite attempt"
 msgstr "Tentouse substituír GLOBALS"
 
-#: libraries/common.inc.php:1116
+#: libraries/common.inc.php:1130
 msgid "possible exploit"
 msgstr "posíbel vulnerabilidade (exploit)"
 
-#: libraries/common.inc.php:1125
+#: libraries/common.inc.php:1139
 msgid "numeric key detected"
 msgstr "detectouse unha tecla numérica"
 
@@ -4055,7 +4060,7 @@ msgid "Set value: %s"
 msgstr "Pór como valor: %s"
 
 #: libraries/config/FormDisplay.tpl.php:314
-#: libraries/config/messages.inc.php:361
+#: libraries/config/messages.inc.php:363
 msgid "Restore default value"
 msgstr "Restaurar o valor por omisión"
 
@@ -4081,12 +4086,27 @@ msgid "Allow login to any MySQL server"
 msgstr "Permitir rexistrarse en calquera servidor de MySQL"
 
 #: libraries/config/messages.inc.php:19
+msgid ""
+"Enabling this allows a page located on a different domain to call phpMyAdmin "
+"inside a frame, and is a potential [strong]security hole[/strong] allowing "
+"cross-frame scripting attacks"
+msgstr ""
+"Activar isto permite que unha páxina situada nun dominio diferente poida "
+"chamar o phpMyAdmin desde dentro dunha moldura, o que constitúe un "
+"[strong]furado de seguranza[/strong] potencial que permitiría ataques con "
+"scripts entre molduras"
+
+#: libraries/config/messages.inc.php:20
+msgid "Allow third party framing"
+msgstr "Permitir as molduras de terceiros"
+
+#: libraries/config/messages.inc.php:21
 msgid "Show &quot;Drop database&quot; link to normal users"
 msgstr ""
 "Mostrarlles a ligazón &quot;Eliminar a base de datos&quot; aos usuarios "
 "normais"
 
-#: libraries/config/messages.inc.php:20
+#: libraries/config/messages.inc.php:22
 msgid ""
 "Secret passphrase used for encrypting cookies in [kbd]cookie[/kbd] "
 "authentication"
@@ -4094,27 +4114,27 @@ msgstr ""
 "Contrasinal secreto empregado coas cookies de cifrado na autenticación "
 "mediante [kbd]cookie[/kbd]s"
 
-#: libraries/config/messages.inc.php:21
+#: libraries/config/messages.inc.php:23
 msgid "Blowfish secret"
 msgstr "Segredo Blowfish"
 
-#: libraries/config/messages.inc.php:22
+#: libraries/config/messages.inc.php:24
 msgid "Highlight selected rows"
 msgstr "Realzar as fileiras seleccionadas"
 
-#: libraries/config/messages.inc.php:23
+#: libraries/config/messages.inc.php:25
 msgid "Row marker"
 msgstr "Marcador de fileiras"
 
-#: libraries/config/messages.inc.php:24
+#: libraries/config/messages.inc.php:26
 msgid "Highlight row pointed by the mouse cursor"
 msgstr "Realzar a fileira á que apunta o cursor do rato"
 
-#: libraries/config/messages.inc.php:25
+#: libraries/config/messages.inc.php:27
 msgid "Highlight pointer"
 msgstr "Realzar o punteiro"
 
-#: libraries/config/messages.inc.php:26
+#: libraries/config/messages.inc.php:28
 msgid ""
 "Enable [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] compression for "
 "import and export operations"
@@ -4122,11 +4142,11 @@ msgstr ""
 "Activar a compresión [a@http://gl.wikipedia.org/wiki/Bzip2]bzip2[/a] nas "
 "operacións de importación e exportación"
 
-#: libraries/config/messages.inc.php:27
+#: libraries/config/messages.inc.php:29
 msgid "Bzip2"
 msgstr "Bzip2"
 
-#: libraries/config/messages.inc.php:28
+#: libraries/config/messages.inc.php:30
 msgid ""
 "Defines which type of editing controls should be used for CHAR and VARCHAR "
 "columns; [kbd]input[/kbd] - allows limiting of input length, [kbd]textarea[/"
@@ -4136,24 +4156,23 @@ msgstr ""
 "CHAR e VARCHAR; [kbd]input[/kbd] - permite limitar a lonxitude da entrada, "
 "[kbd]textarea[/kbd] - permite que os campos teñan saltos de parágrafo"
 
-#: libraries/config/messages.inc.php:29
+#: libraries/config/messages.inc.php:31
 msgid "CHAR columns editing"
 msgstr "Edición de columnas CHAR"
 
-#: libraries/config/messages.inc.php:30
+#: libraries/config/messages.inc.php:32
 msgid ""
 "Use user-friendly editor for editing SQL queries ([a@http://codemirror."
 "net/]CodeMirror[/a]) with syntax highlighting and line numbers"
 msgstr ""
-"Empregue un editor amigábel para editar as consultas de SQL "
-"([a@http://codemirror.net/]CodeMirror[/a]) con realce da sintaxe e números "
-"de liña"
+"Empregue un editor amigábel para editar as consultas de SQL ([a@http://"
+"codemirror.net/]CodeMirror[/a]) con realce da sintaxe e números de liña"
 
-#: libraries/config/messages.inc.php:31
+#: libraries/config/messages.inc.php:33
 msgid "Enable CodeMirror"
 msgstr "Activar CodeMirror"
 
-#: libraries/config/messages.inc.php:32
+#: libraries/config/messages.inc.php:34
 msgid ""
 "Defines the minimum size for input fields generated for CHAR and VARCHAR "
 "columns"
@@ -4161,11 +4180,11 @@ msgstr ""
 "Indica o tamaño mínimo dos campos de entrada xerados para as columnas CHAR e "
 "VARCHAR"
 
-#: libraries/config/messages.inc.php:33
+#: libraries/config/messages.inc.php:35
 msgid "Minimum size for input field"
 msgstr "Tamaño mínimo do campo de entrada"
 
-#: libraries/config/messages.inc.php:34
+#: libraries/config/messages.inc.php:36
 msgid ""
 "Defines the maximum size for input fields generated for CHAR and VARCHAR "
 "columns"
@@ -4173,31 +4192,31 @@ msgstr ""
 "Indica o tamaño máximo dos campos de entrada xerados para as columnas CHAR e "
 "VARCHAR"
 
-#: libraries/config/messages.inc.php:35
+#: libraries/config/messages.inc.php:37
 msgid "Maximum size for input field"
 msgstr "Tamaño máximo do campo de entrada"
 
-#: libraries/config/messages.inc.php:36
+#: libraries/config/messages.inc.php:38
 msgid "Number of columns for CHAR/VARCHAR textareas"
 msgstr "Número de columnas das áreas de texto de CHAR/VARCHAR"
 
-#: libraries/config/messages.inc.php:37
+#: libraries/config/messages.inc.php:39
 msgid "CHAR textarea columns"
 msgstr "Columnas de área de texto de CHAR"
 
-#: libraries/config/messages.inc.php:38
+#: libraries/config/messages.inc.php:40
 msgid "Number of rows for CHAR/VARCHAR textareas"
 msgstr "Número de fileiras das áreas de texto de CHAR/VARCHAR"
 
-#: libraries/config/messages.inc.php:39
+#: libraries/config/messages.inc.php:41
 msgid "CHAR textarea rows"
 msgstr "Fileiras de área de texto de CHAR"
 
-#: libraries/config/messages.inc.php:40
+#: libraries/config/messages.inc.php:42
 msgid "Check config file permissions"
 msgstr "Comprobar os permisos do ficheiro de configuración"
 
-#: libraries/config/messages.inc.php:41
+#: libraries/config/messages.inc.php:43
 msgid ""
 "Compress gzip/bzip2 exports on the fly without the need for much memory; if "
 "you encounter problems with created gzip/bzip2 files disable this feature"
@@ -4206,16 +4225,16 @@ msgstr ""
 "memoria; se atopa problemas cos ficheiros gzip/bzip2 que se creen, desactive "
 "esta funcionalidade"
 
-#: libraries/config/messages.inc.php:42
+#: libraries/config/messages.inc.php:44
 msgid "Compress on the fly"
 msgstr "Comprimir ao voo"
 
-#: libraries/config/messages.inc.php:43 setup/frames/config.inc.php:25
+#: libraries/config/messages.inc.php:45 setup/frames/config.inc.php:25
 #: setup/frames/index.inc.php:176
 msgid "Configuration file"
 msgstr "Ficheiro de configuración"
 
-#: libraries/config/messages.inc.php:44
+#: libraries/config/messages.inc.php:46
 msgid ""
 "Whether a warning (&quot;Are your really sure…&quot;) should be displayed "
 "when you're about to lose data"
@@ -4223,65 +4242,65 @@ msgstr ""
 "Se se debe mostrar un aviso (&quot;Ten a certeza…&quot;) cando se estea a "
 "piques de perder datos"
 
-#: libraries/config/messages.inc.php:45
+#: libraries/config/messages.inc.php:47
 msgid "Confirm DROP queries"
 msgstr "Confirmar as consultas tipo DROP"
 
-#: libraries/config/messages.inc.php:46
+#: libraries/config/messages.inc.php:48
 msgid "Debug SQL"
 msgstr "Depurar o SQL"
 
-#: libraries/config/messages.inc.php:47
+#: libraries/config/messages.inc.php:49
 msgid "Default display direction"
 msgstr "Dirección de visualización por omisión"
 
-#: libraries/config/messages.inc.php:48
+#: libraries/config/messages.inc.php:50
 msgid "Tab that is displayed when entering a database"
 msgstr "A lapela que aparece cando se entra nunha base de datos"
 
-#: libraries/config/messages.inc.php:49
+#: libraries/config/messages.inc.php:51
 msgid "Default database tab"
 msgstr "Lapela por omisión das bases de datos"
 
-#: libraries/config/messages.inc.php:50
+#: libraries/config/messages.inc.php:52
 msgid "Tab that is displayed when entering a server"
 msgstr "A lapela que aparece cando se entra nun servidor"
 
-#: libraries/config/messages.inc.php:51
+#: libraries/config/messages.inc.php:53
 msgid "Default server tab"
 msgstr "Lapela por omisión dos servidores"
 
-#: libraries/config/messages.inc.php:52
+#: libraries/config/messages.inc.php:54
 msgid "Tab that is displayed when entering a table"
 msgstr "A lapela que aparece cando se entra nunha táboa"
 
-#: libraries/config/messages.inc.php:53
+#: libraries/config/messages.inc.php:55
 msgid "Default table tab"
 msgstr "Lapela por omisión das táboas"
 
-#: libraries/config/messages.inc.php:54
+#: libraries/config/messages.inc.php:56
 msgid "Whether the table structure actions should be hidden"
 msgstr "Se se desexa agochar as accións da estrutura da táboa"
 
-#: libraries/config/messages.inc.php:55
+#: libraries/config/messages.inc.php:57
 msgid "Hide table structure actions"
 msgstr "Agochar as accións da estrutura da táboa"
 
-#: libraries/config/messages.inc.php:56
+#: libraries/config/messages.inc.php:58
 msgid "Show binary contents as HEX by default"
 msgstr "Mostrar os contidos binarios como HEX de forma predeterminada"
 
-#: libraries/config/messages.inc.php:58
+#: libraries/config/messages.inc.php:60
 msgid "Show server listing as a list instead of a drop down"
 msgstr ""
 "Mostrar a listaxe dos servidores como listaxe no canto de nun menú "
 "despregábel"
 
-#: libraries/config/messages.inc.php:59
+#: libraries/config/messages.inc.php:61
 msgid "Display servers as a list"
 msgstr "Mostrar os servidores nunha listaxe"
 
-#: libraries/config/messages.inc.php:60
+#: libraries/config/messages.inc.php:62
 msgid ""
 "Disable the table maintenance mass operations, like optimizing or repairing "
 "the selected tables of a database."
@@ -4289,27 +4308,27 @@ msgstr ""
 "Desactivar as operacións masivas de mantemento das táboas, como optimizar ou "
 "arranxar as táboas escollidas nunha base de datos."
 
-#: libraries/config/messages.inc.php:61
+#: libraries/config/messages.inc.php:63
 msgid "Disable multi table maintenance"
 msgstr "Desactivar o mantemento de múltiples táboas"
 
-#: libraries/config/messages.inc.php:62
+#: libraries/config/messages.inc.php:64
 msgid "Edit SQL queries in popup window"
 msgstr "Editar as consultas de SQL nunha xanela emerxente"
 
-#: libraries/config/messages.inc.php:63
+#: libraries/config/messages.inc.php:65
 msgid "Edit in window"
 msgstr "Editar nunha xanela"
 
-#: libraries/config/messages.inc.php:64
+#: libraries/config/messages.inc.php:66
 msgid "Display errors"
 msgstr "Mostrar os erros"
 
-#: libraries/config/messages.inc.php:65
+#: libraries/config/messages.inc.php:67
 msgid "Gather errors"
 msgstr "Recoller os erros"
 
-#: libraries/config/messages.inc.php:66
+#: libraries/config/messages.inc.php:68
 msgid ""
 "Set the number of seconds a script is allowed to run ([kbd]0[/kbd] for no "
 "limit)"
@@ -4317,33 +4336,33 @@ msgstr ""
 "Indicar o número de segundos durante o que se permite que un script se "
 "execute ([kbd]0[/kbd] para non o limitar)"
 
-#: libraries/config/messages.inc.php:67
+#: libraries/config/messages.inc.php:69
 msgid "Maximum execution time"
 msgstr "Tempo máximo de execución"
 
-#: libraries/config/messages.inc.php:68 prefs_manage.php:299
+#: libraries/config/messages.inc.php:70 prefs_manage.php:299
 msgid "Save as file"
 msgstr "Enviar <i>(gravar nun ficheiro)</i><br />"
 
-#: libraries/config/messages.inc.php:69 libraries/config/messages.inc.php:241
+#: libraries/config/messages.inc.php:71 libraries/config/messages.inc.php:243
 msgid "Character set of the file"
 msgstr "Conxunto de caracteres do ficheiro"
 
-#: libraries/config/messages.inc.php:70 libraries/config/messages.inc.php:86
+#: libraries/config/messages.inc.php:72 libraries/config/messages.inc.php:88
 #: libraries/structure.lib.php:1690 tbl_gis_visualization.php:181
 #: tbl_printview.php:350
 msgid "Format"
 msgstr "Formato"
 
-#: libraries/config/messages.inc.php:71
+#: libraries/config/messages.inc.php:73
 msgid "Compression"
 msgstr "Compresión"
 
-#: libraries/config/messages.inc.php:72 libraries/config/messages.inc.php:79
-#: libraries/config/messages.inc.php:87 libraries/config/messages.inc.php:91
-#: libraries/config/messages.inc.php:104 libraries/config/messages.inc.php:106
-#: libraries/config/messages.inc.php:139 libraries/config/messages.inc.php:142
-#: libraries/config/messages.inc.php:144
+#: libraries/config/messages.inc.php:74 libraries/config/messages.inc.php:81
+#: libraries/config/messages.inc.php:89 libraries/config/messages.inc.php:93
+#: libraries/config/messages.inc.php:106 libraries/config/messages.inc.php:108
+#: libraries/config/messages.inc.php:141 libraries/config/messages.inc.php:144
+#: libraries/config/messages.inc.php:146
 #: libraries/plugins/export/ExportCsv.class.php:119
 #: libraries/plugins/export/ExportExcel.class.php:68
 #: libraries/plugins/export/ExportHtmlword.class.php:90
@@ -4354,60 +4373,60 @@ msgstr "Compresión"
 msgid "Put columns names in the first row"
 msgstr "Pór os nomes das columnas na primeira fila"
 
-#: libraries/config/messages.inc.php:73 libraries/config/messages.inc.php:243
-#: libraries/config/messages.inc.php:250
+#: libraries/config/messages.inc.php:75 libraries/config/messages.inc.php:245
+#: libraries/config/messages.inc.php:252
 #: libraries/plugins/import/ImportCsv.class.php:150
 msgid "Columns enclosed by"
 msgstr "Columnas delimitadas por"
 
-#: libraries/config/messages.inc.php:74 libraries/config/messages.inc.php:244
-#: libraries/config/messages.inc.php:251
+#: libraries/config/messages.inc.php:76 libraries/config/messages.inc.php:246
+#: libraries/config/messages.inc.php:253
 #: libraries/plugins/import/ImportCsv.class.php:157
 msgid "Columns escaped by"
 msgstr "Carácter de escape das columnas"
 
-#: libraries/config/messages.inc.php:75 libraries/config/messages.inc.php:81
-#: libraries/config/messages.inc.php:88 libraries/config/messages.inc.php:97
-#: libraries/config/messages.inc.php:105 libraries/config/messages.inc.php:109
-#: libraries/config/messages.inc.php:140 libraries/config/messages.inc.php:143
-#: libraries/config/messages.inc.php:145
+#: libraries/config/messages.inc.php:77 libraries/config/messages.inc.php:83
+#: libraries/config/messages.inc.php:90 libraries/config/messages.inc.php:99
+#: libraries/config/messages.inc.php:107 libraries/config/messages.inc.php:111
+#: libraries/config/messages.inc.php:142 libraries/config/messages.inc.php:145
+#: libraries/config/messages.inc.php:147
 msgid "Replace NULL by"
 msgstr "Substituír NULL por"
 
-#: libraries/config/messages.inc.php:76 libraries/config/messages.inc.php:82
+#: libraries/config/messages.inc.php:78 libraries/config/messages.inc.php:84
 msgid "Remove CRLF characters within columns"
 msgstr "Eliminar os caracteres CRLF nas columnas"
 
-#: libraries/config/messages.inc.php:77 libraries/config/messages.inc.php:247
-#: libraries/config/messages.inc.php:255
+#: libraries/config/messages.inc.php:79 libraries/config/messages.inc.php:249
+#: libraries/config/messages.inc.php:257
 #: libraries/plugins/import/ImportCsv.class.php:135
 msgid "Columns terminated by"
 msgstr "Columnas terminadas en"
 
-#: libraries/config/messages.inc.php:78 libraries/config/messages.inc.php:242
+#: libraries/config/messages.inc.php:80 libraries/config/messages.inc.php:244
 #: libraries/plugins/import/ImportCsv.class.php:164
 msgid "Lines terminated by"
 msgstr "As liñas rematan en"
 
-#: libraries/config/messages.inc.php:80
+#: libraries/config/messages.inc.php:82
 msgid "Excel edition"
 msgstr "Versión do Excel"
 
-#: libraries/config/messages.inc.php:83
+#: libraries/config/messages.inc.php:85
 msgid "Database name template"
 msgstr "Modelo de nome das bases de datos"
 
-#: libraries/config/messages.inc.php:84
+#: libraries/config/messages.inc.php:86
 msgid "Server name template"
 msgstr "Modelo de nome dos servidores"
 
-#: libraries/config/messages.inc.php:85
+#: libraries/config/messages.inc.php:87
 msgid "Table name template"
 msgstr "Modelo de nome dos ficheiros"
 
-#: libraries/config/messages.inc.php:89 libraries/config/messages.inc.php:102
-#: libraries/config/messages.inc.php:111 libraries/config/messages.inc.php:135
-#: libraries/config/messages.inc.php:141
+#: libraries/config/messages.inc.php:91 libraries/config/messages.inc.php:104
+#: libraries/config/messages.inc.php:113 libraries/config/messages.inc.php:137
+#: libraries/config/messages.inc.php:143
 #: libraries/plugins/export/ExportHtmlword.class.php:63
 #: libraries/plugins/export/ExportLatex.class.php:97
 #: libraries/plugins/export/ExportMediawiki.class.php:63
@@ -4416,136 +4435,136 @@ msgstr "Modelo de nome dos ficheiros"
 msgid "Dump table"
 msgstr "Envorcar a táboa"
 
-#: libraries/config/messages.inc.php:90
+#: libraries/config/messages.inc.php:92
 #: libraries/plugins/export/ExportLatex.class.php:89
 msgid "Include table caption"
 msgstr "Incluír o título da táboa"
 
-#: libraries/config/messages.inc.php:93 libraries/config/messages.inc.php:99
+#: libraries/config/messages.inc.php:95 libraries/config/messages.inc.php:101
 #: libraries/plugins/export/ExportLatex.class.php:121
 #: libraries/plugins/export/ExportLatex.class.php:166
 msgid "Table caption"
 msgstr "Título da táboa"
 
-#: libraries/config/messages.inc.php:94 libraries/config/messages.inc.php:100
+#: libraries/config/messages.inc.php:96 libraries/config/messages.inc.php:102
 msgid "Continued table caption"
 msgstr "Título da táboa continuado"
 
-#: libraries/config/messages.inc.php:95 libraries/config/messages.inc.php:101
+#: libraries/config/messages.inc.php:97 libraries/config/messages.inc.php:103
 #: libraries/plugins/export/ExportLatex.class.php:131
 #: libraries/plugins/export/ExportLatex.class.php:176
 msgid "Label key"
 msgstr "Chave da etiqueta"
 
-#: libraries/config/messages.inc.php:96 libraries/config/messages.inc.php:108
-#: libraries/config/messages.inc.php:132
+#: libraries/config/messages.inc.php:98 libraries/config/messages.inc.php:110
+#: libraries/config/messages.inc.php:134
 #: libraries/plugins/export/ExportOdt.class.php:480
 #: libraries/tbl_columns_definition_form.inc.php:169
 msgid "MIME type"
 msgstr "Tipo MIME"
 
-#: libraries/config/messages.inc.php:98 libraries/config/messages.inc.php:110
-#: libraries/config/messages.inc.php:134 tbl_relation.php:376
+#: libraries/config/messages.inc.php:100 libraries/config/messages.inc.php:112
+#: libraries/config/messages.inc.php:136 tbl_relation.php:376
 msgid "Relations"
 msgstr "Relacións"
 
-#: libraries/config/messages.inc.php:103
+#: libraries/config/messages.inc.php:105
 msgid "Export method"
 msgstr "Método de exportación"
 
-#: libraries/config/messages.inc.php:112 libraries/config/messages.inc.php:114
+#: libraries/config/messages.inc.php:114 libraries/config/messages.inc.php:116
 msgid "Save on server"
 msgstr "Gravar no servidor"
 
-#: libraries/config/messages.inc.php:113 libraries/config/messages.inc.php:115
+#: libraries/config/messages.inc.php:115 libraries/config/messages.inc.php:117
 #: libraries/display_export.lib.php:222 libraries/display_export.lib.php:260
 msgid "Overwrite existing file(s)"
 msgstr "Eliminar o(s) ficheiro(s) xa existente(s)"
 
-#: libraries/config/messages.inc.php:116
+#: libraries/config/messages.inc.php:118
 msgid "Remember file name template"
 msgstr "Lembrar o modelo do nome de ficheiro"
 
-#: libraries/config/messages.inc.php:117 libraries/operations.lib.php:211
+#: libraries/config/messages.inc.php:119 libraries/operations.lib.php:211
 #: libraries/operations.lib.php:708 libraries/operations.lib.php:1051
 msgid "Add AUTO_INCREMENT value"
 msgstr "Engadir o valor incremental (AUTO_INCREMENT)"
 
-#: libraries/config/messages.inc.php:118
+#: libraries/config/messages.inc.php:120
 msgid "Enclose table and column names with backquotes"
 msgstr "Encerrar os nomes das táboas e das columnas entre aspas invertidas"
 
-#: libraries/config/messages.inc.php:119 libraries/config/messages.inc.php:262
+#: libraries/config/messages.inc.php:121 libraries/config/messages.inc.php:264
 #: libraries/display_export.lib.php:438
 msgid "SQL compatibility mode"
 msgstr "Modo de compatiblidade de SQL"
 
-#: libraries/config/messages.inc.php:120
-#: libraries/plugins/export/ExportSql.class.php:262
+#: libraries/config/messages.inc.php:122
+#: libraries/plugins/export/ExportSql.class.php:271
 msgid "<code>CREATE TABLE</code> options:"
 msgstr "Opcións de <code>CREATE TABLE</code>:"
 
-#: libraries/config/messages.inc.php:121
+#: libraries/config/messages.inc.php:123
 msgid "Creation/Update/Check dates"
 msgstr "Datas de creación/actualización/comprobación"
 
-#: libraries/config/messages.inc.php:122
+#: libraries/config/messages.inc.php:124
 msgid "Use delayed inserts"
 msgstr "Empregar insercións demoradas"
 
-#: libraries/config/messages.inc.php:123
+#: libraries/config/messages.inc.php:125
 #: libraries/plugins/export/ExportSql.class.php:141
 msgid "Disable foreign key checks"
 msgstr "Desactivar as comprobacións de chaves exteriores"
 
-#: libraries/config/messages.inc.php:124 libraries/config/messages.inc.php:125
-#: libraries/config/messages.inc.php:127 libraries/config/messages.inc.php:133
+#: libraries/config/messages.inc.php:126 libraries/config/messages.inc.php:127
+#: libraries/config/messages.inc.php:129 libraries/config/messages.inc.php:135
 #: libraries/operations.lib.php:206 libraries/operations.lib.php:1047
 #, php-format
 msgid "Add %s"
 msgstr "Engadir %s"
 
-#: libraries/config/messages.inc.php:126
+#: libraries/config/messages.inc.php:128
 msgid "Use hexadecimal for BLOB"
 msgstr "Empregar hexadecimal para BLOB"
 
-#: libraries/config/messages.inc.php:128
+#: libraries/config/messages.inc.php:130
 msgid "Use ignore inserts"
 msgstr "Empregar insercións ignoradas"
 
-#: libraries/config/messages.inc.php:130
+#: libraries/config/messages.inc.php:132
 msgid "Syntax to use when inserting data"
 msgstr "A sintaxe que empregar ao inserir datos"
 
-#: libraries/config/messages.inc.php:131
-#: libraries/plugins/export/ExportSql.class.php:382
+#: libraries/config/messages.inc.php:133
+#: libraries/plugins/export/ExportSql.class.php:391
 msgid "Maximal length of created query"
 msgstr "Lonxitude máxima da busca creada"
 
-#: libraries/config/messages.inc.php:136
+#: libraries/config/messages.inc.php:138
 msgid "Export type"
 msgstr "Tipo de exportación"
 
-#: libraries/config/messages.inc.php:137
+#: libraries/config/messages.inc.php:139
 #: libraries/plugins/export/ExportSql.class.php:128
 msgid "Enclose export in a transaction"
 msgstr "Incluír a exportación nunha transacción"
 
-#: libraries/config/messages.inc.php:138
+#: libraries/config/messages.inc.php:140
 msgid "Export time in UTC"
 msgstr "Exportar a hora en UTC"
 
-#: libraries/config/messages.inc.php:146
+#: libraries/config/messages.inc.php:148
 msgid "Force secured connection while using phpMyAdmin"
 msgstr ""
 "Obrigar a que se empregue unha conexión segura mentres se empregue o "
 "phpMyAdmin"
 
-#: libraries/config/messages.inc.php:147
+#: libraries/config/messages.inc.php:149
 msgid "Force SSL connection"
 msgstr "Obrigar a conectarse con SSL"
 
-#: libraries/config/messages.inc.php:148
+#: libraries/config/messages.inc.php:150
 msgid ""
 "Sort order for items in a foreign-key dropdown box; [kbd]content[/kbd] is "
 "the referenced data, [kbd]id[/kbd] is the key value"
@@ -4554,145 +4573,145 @@ msgstr ""
 "[kbd]content[/kbd] son os datos referenciados, [kbd]id[/kbd] é o valor da "
 "chave"
 
-#: libraries/config/messages.inc.php:149
+#: libraries/config/messages.inc.php:151
 msgid "Foreign key dropdown order"
 msgstr "Ordenación das chaves alleas"
 
-#: libraries/config/messages.inc.php:150
+#: libraries/config/messages.inc.php:152
 msgid "A dropdown will be used if fewer items are present"
 msgstr "Emprégase un menú despregábel de haber un número menor de elementos"
 
-#: libraries/config/messages.inc.php:151
+#: libraries/config/messages.inc.php:153
 msgid "Foreign key limit"
 msgstr "Límite das chaves alleas"
 
-#: libraries/config/messages.inc.php:152
+#: libraries/config/messages.inc.php:154
 msgid "Browse mode"
 msgstr "Modo de navegación"
 
-#: libraries/config/messages.inc.php:153
+#: libraries/config/messages.inc.php:155
 msgid "Customize browse mode"
 msgstr "Personalizar o modo de navegación"
 
-#: libraries/config/messages.inc.php:155 libraries/config/messages.inc.php:157
-#: libraries/config/messages.inc.php:174 libraries/config/messages.inc.php:185
-#: libraries/config/messages.inc.php:187 libraries/config/messages.inc.php:215
-#: libraries/config/messages.inc.php:231
+#: libraries/config/messages.inc.php:157 libraries/config/messages.inc.php:159
+#: libraries/config/messages.inc.php:176 libraries/config/messages.inc.php:187
+#: libraries/config/messages.inc.php:189 libraries/config/messages.inc.php:217
+#: libraries/config/messages.inc.php:233
 msgid "Customize default options"
 msgstr "Personalizar as opcións por omisión"
 
-#: libraries/config/messages.inc.php:156 libraries/config/setup.forms.php:239
-#: libraries/config/setup.forms.php:312
+#: libraries/config/messages.inc.php:158 libraries/config/setup.forms.php:240
+#: libraries/config/setup.forms.php:313
 #: libraries/config/user_preferences.forms.php:145
 #: libraries/config/user_preferences.forms.php:216
 msgid "CSV"
 msgstr "CSV"
 
-#: libraries/config/messages.inc.php:158
+#: libraries/config/messages.inc.php:160
 msgid "Developer"
 msgstr "Desenvolvedor"
 
-#: libraries/config/messages.inc.php:159
+#: libraries/config/messages.inc.php:161
 msgid "Settings for phpMyAdmin developers"
 msgstr "Preferencias para os desenvolvedores de phpMyAdmin"
 
-#: libraries/config/messages.inc.php:160
+#: libraries/config/messages.inc.php:162
 msgid "Edit mode"
 msgstr "Modo de edición"
 
-#: libraries/config/messages.inc.php:161
+#: libraries/config/messages.inc.php:163
 msgid "Customize edit mode"
 msgstr "Personalizar o modo de edición"
 
-#: libraries/config/messages.inc.php:163
+#: libraries/config/messages.inc.php:165
 msgid "Export defaults"
 msgstr "Exportar o predeterminado"
 
-#: libraries/config/messages.inc.php:164
+#: libraries/config/messages.inc.php:166
 msgid "Customize default export options"
 msgstr "Personalizar as opcións de exportación por omisión"
 
-#: libraries/config/messages.inc.php:165 libraries/config/messages.inc.php:207
+#: libraries/config/messages.inc.php:167 libraries/config/messages.inc.php:209
 #: setup/frames/menu.inc.php:17
 msgid "Features"
 msgstr "Funcionalidades"
 
-#: libraries/config/messages.inc.php:166
+#: libraries/config/messages.inc.php:168
 msgid "General"
 msgstr "Xeral"
 
-#: libraries/config/messages.inc.php:167
+#: libraries/config/messages.inc.php:169
 msgid "Set some commonly used options"
 msgstr "Configuración de algunhas opcións frecuentes"
 
-#: libraries/config/messages.inc.php:169
+#: libraries/config/messages.inc.php:171
 msgid "Import defaults"
 msgstr "Opcións de importación por omisión"
 
-#: libraries/config/messages.inc.php:170
+#: libraries/config/messages.inc.php:172
 msgid "Customize default common import options"
 msgstr "Personalizar as opcións frecuentes de importación por omisión"
 
-#: libraries/config/messages.inc.php:171
+#: libraries/config/messages.inc.php:173
 msgid "Import / export"
 msgstr "Importación / exportación"
 
-#: libraries/config/messages.inc.php:172
+#: libraries/config/messages.inc.php:174
 msgid "Set import and export directories and compression options"
 msgstr ""
 "Designar os directorios de importación e exportación e as opcións de "
 "compresión"
 
-#: libraries/config/messages.inc.php:173
+#: libraries/config/messages.inc.php:175
 msgid "LaTeX"
 msgstr "LaTeX"
 
-#: libraries/config/messages.inc.php:176
+#: libraries/config/messages.inc.php:178
 msgid "Databases display options"
 msgstr "Opcións de exhibición das bases de datos"
 
-#: libraries/config/messages.inc.php:177 setup/frames/menu.inc.php:19
+#: libraries/config/messages.inc.php:179 setup/frames/menu.inc.php:19
 msgid "Navigation panel"
 msgstr "Panel de navegación"
 
-#: libraries/config/messages.inc.php:178
+#: libraries/config/messages.inc.php:180
 msgid "Customize appearance of the navigation panel"
 msgstr "Personalizar a aparencia do panel de navegación"
 
-#: libraries/config/messages.inc.php:179 libraries/select_server.lib.php:42
+#: libraries/config/messages.inc.php:181 libraries/select_server.lib.php:42
 #: setup/frames/index.inc.php:117
 msgid "Servers"
 msgstr "Servidores"
 
-#: libraries/config/messages.inc.php:180
+#: libraries/config/messages.inc.php:182
 msgid "Servers display options"
 msgstr "Opcións de exhibición dos servidores"
 
-#: libraries/config/messages.inc.php:182
+#: libraries/config/messages.inc.php:184
 msgid "Tables display options"
 msgstr "Opcións de exhibición das táboas"
 
-#: libraries/config/messages.inc.php:183 setup/frames/menu.inc.php:20
+#: libraries/config/messages.inc.php:185 setup/frames/menu.inc.php:20
 msgid "Main panel"
 msgstr "Panel principal"
 
-#: libraries/config/messages.inc.php:184
+#: libraries/config/messages.inc.php:186
 msgid "Microsoft Office"
 msgstr "Office da Microsoft"
 
-#: libraries/config/messages.inc.php:188
+#: libraries/config/messages.inc.php:190
 msgid "Other core settings"
 msgstr "Outras opcións principais"
 
-#: libraries/config/messages.inc.php:189
+#: libraries/config/messages.inc.php:191
 msgid "Settings that didn't fit anywhere else"
 msgstr "Configuracións que non cadraban noutra parte"
 
-#: libraries/config/messages.inc.php:190
+#: libraries/config/messages.inc.php:192
 msgid "Page titles"
 msgstr "Títulos de páxina"
 
-#: libraries/config/messages.inc.php:191
+#: libraries/config/messages.inc.php:193
 msgid ""
 "Specify browser's title bar text. Refer to "
 "[doc@cfg_TitleTable]documentation[/doc] for magic strings that can be used "
@@ -4702,20 +4721,20 @@ msgstr ""
 "[doc@cfg_TitleTable]documentación[/doc] para coñecer as cadeas máximas que "
 "se poden empregar para obter valores especiais."
 
-#: libraries/config/messages.inc.php:192
-#: libraries/navigation/NavigationHeader.class.php:204
+#: libraries/config/messages.inc.php:194
+#: libraries/navigation/NavigationHeader.class.php:209
 msgid "Query window"
 msgstr "Xanela de consultas"
 
-#: libraries/config/messages.inc.php:193
+#: libraries/config/messages.inc.php:195
 msgid "Customize query window options"
 msgstr "Personalizar as opcións da xanela de consultas"
 
-#: libraries/config/messages.inc.php:194
+#: libraries/config/messages.inc.php:196
 msgid "Security"
 msgstr "Seguranza"
 
-#: libraries/config/messages.inc.php:195
+#: libraries/config/messages.inc.php:197
 msgid ""
 "Please note that phpMyAdmin is just a user interface and its features do not "
 "limit MySQL"
@@ -4723,23 +4742,23 @@ msgstr ""
 "Lembre que o phpMyAdmin é simplemente unha interface de usuario e que as "
 "súas funcionalidades non limitan o MySQL"
 
-#: libraries/config/messages.inc.php:196
+#: libraries/config/messages.inc.php:198
 msgid "Basic settings"
 msgstr "Configuración básica"
 
-#: libraries/config/messages.inc.php:197
+#: libraries/config/messages.inc.php:199
 msgid "Authentication"
 msgstr "Autenticación"
 
-#: libraries/config/messages.inc.php:198
+#: libraries/config/messages.inc.php:200
 msgid "Authentication settings"
 msgstr "Configuración da autenticación"
 
-#: libraries/config/messages.inc.php:199
+#: libraries/config/messages.inc.php:201
 msgid "Server configuration"
 msgstr "Configuración do servidor"
 
-#: libraries/config/messages.inc.php:200
+#: libraries/config/messages.inc.php:202
 msgid ""
 "Advanced server configuration, do not change these options unless you know "
 "what they are for"
@@ -4747,15 +4766,15 @@ msgstr ""
 "Configuración avanzada do servidor; non altere estas opcións a non ser que "
 "saiba o que está a facer"
 
-#: libraries/config/messages.inc.php:201
+#: libraries/config/messages.inc.php:203
 msgid "Enter server connection parameters"
 msgstr "Introduza os parámetros da conexión ao servidor"
 
-#: libraries/config/messages.inc.php:202
+#: libraries/config/messages.inc.php:204
 msgid "Configuration storage"
 msgstr "Almacenamento da configuración"
 
-#: libraries/config/messages.inc.php:203
+#: libraries/config/messages.inc.php:205
 msgid ""
 "Configure phpMyAdmin configuration storage to gain access to additional "
 "features, see [doc@linked-tables]phpMyAdmin configuration storage[/doc] in "
@@ -4764,11 +4783,11 @@ msgstr ""
 "Configurar o phpMyAdmin para ter acceso a funcionalidades adicionais, vexa "
 "[doc@linked-tables]infraestrutura de táboas ligadas[/doc] na documentación"
 
-#: libraries/config/messages.inc.php:204
+#: libraries/config/messages.inc.php:206
 msgid "Changes tracking"
 msgstr "Seguimento de cambios"
 
-#: libraries/config/messages.inc.php:205
+#: libraries/config/messages.inc.php:207
 msgid ""
 "Tracking of changes made in database. Requires the phpMyAdmin configuration "
 "storage."
@@ -4776,44 +4795,44 @@ msgstr ""
 "Seguimento de cambios feitos na base de datos. Require o almacenamento de "
 "configuración de phpMyAdmin."
 
-#: libraries/config/messages.inc.php:206
+#: libraries/config/messages.inc.php:208
 msgid "Customize export options"
 msgstr "Personalizar as opcións de exportación"
 
-#: libraries/config/messages.inc.php:208
+#: libraries/config/messages.inc.php:210
 msgid "Customize import defaults"
 msgstr "Personalizar as opcións de importación por omisión"
 
-#: libraries/config/messages.inc.php:209
+#: libraries/config/messages.inc.php:211
 msgid "Customize navigation panel"
 msgstr "Personalizar o panel de navegación"
 
-#: libraries/config/messages.inc.php:210
+#: libraries/config/messages.inc.php:212
 msgid "Customize main panel"
 msgstr "Personalizar o panel principal"
 
-#: libraries/config/messages.inc.php:211 libraries/config/messages.inc.php:216
+#: libraries/config/messages.inc.php:213 libraries/config/messages.inc.php:218
 #: setup/frames/menu.inc.php:18
 msgid "SQL queries"
 msgstr "Consultas SQL"
 
-#: libraries/config/messages.inc.php:213
+#: libraries/config/messages.inc.php:215
 msgid "SQL Query box"
 msgstr "Caixa de consultas de SQL"
 
-#: libraries/config/messages.inc.php:214
+#: libraries/config/messages.inc.php:216
 msgid "Customize links shown in SQL Query boxes"
 msgstr "Personalizar as ligazóns que aparecen nas caixas de consulta de SQL"
 
-#: libraries/config/messages.inc.php:217
+#: libraries/config/messages.inc.php:219
 msgid "SQL queries settings"
 msgstr "Preferencias das consultas de SQL"
 
-#: libraries/config/messages.inc.php:218
+#: libraries/config/messages.inc.php:220
 msgid "SQL Validator"
 msgstr "Validador de SQL"
 
-#: libraries/config/messages.inc.php:219
+#: libraries/config/messages.inc.php:221
 msgid ""
 "If you wish to use the SQL Validator service, you should be aware that "
 "[strong]all SQL statements are stored anonymously for statistical purposes[/"
@@ -4822,66 +4841,65 @@ msgid ""
 msgstr ""
 "Se desexa empregar o servizo do validador de SQL ha de te ren conta que "
 "[strong]todas as instrucións de SQL se almacenan de maneira anónima con "
-"finalidade "
-"estatística[/strong].[br][em][a@http://sqlválidator.mimer.com/]Mimer SQL "
-"Validator[/a], Copyright 2002 Upright Database Technology. Todos os dereitos "
-"reservados.[/em]"
+"finalidade estatística[/strong].[br][em][a@http://sqlválidator.mimer."
+"com/]Mimer SQL Validator[/a], Copyright 2002 Upright Database Technology. "
+"Todos os dereitos reservados.[/em]"
 
-#: libraries/config/messages.inc.php:220
+#: libraries/config/messages.inc.php:222
 msgid "Startup"
 msgstr "Inicio"
 
-#: libraries/config/messages.inc.php:221
+#: libraries/config/messages.inc.php:223
 msgid "Customize startup page"
 msgstr "Personalizar a páxina de inicio"
 
-#: libraries/config/messages.inc.php:222
+#: libraries/config/messages.inc.php:224
 msgid "Database structure"
 msgstr "Estrutura da base de datos"
 
-#: libraries/config/messages.inc.php:223
+#: libraries/config/messages.inc.php:225
 msgid "Choose which details to show in the database structure (list of tables)"
 msgstr ""
 "Escolla os detalles que desexe mostrar na estrutura da base de datos (lista "
 "de táboas)"
 
-#: libraries/config/messages.inc.php:224
+#: libraries/config/messages.inc.php:226
 msgid "Table structure"
 msgstr "Estrutura da táboa"
 
-#: libraries/config/messages.inc.php:225
+#: libraries/config/messages.inc.php:227
 msgid "Settings for the table structure (list of columns)"
 msgstr "Configuración da estrutura da táboa (lista de columnas)"
 
-#: libraries/config/messages.inc.php:226
+#: libraries/config/messages.inc.php:228
 msgid "Tabs"
 msgstr "Lapelas"
 
-#: libraries/config/messages.inc.php:227
+#: libraries/config/messages.inc.php:229
 msgid "Choose how you want tabs to work"
 msgstr "Escolla como quere que funcionen as lapelas"
 
-#: libraries/config/messages.inc.php:228
+#: libraries/config/messages.inc.php:230
 msgid "Text fields"
 msgstr "Campos de texto"
 
-#: libraries/config/messages.inc.php:229
+#: libraries/config/messages.inc.php:231
 msgid "Customize text input fields"
 msgstr "Personalizar os campos de entrada de texto"
 
-#: libraries/config/messages.inc.php:230
+#: libraries/config/messages.inc.php:232
 msgid "Texy! text"
 msgstr "Texto para Texy!"
 
-#: libraries/config/messages.inc.php:232
+#: libraries/config/messages.inc.php:234
 msgid "Warnings"
 msgstr "Avisos"
 
-#: libraries/config/messages.inc.php:233
+#: libraries/config/messages.inc.php:235
 msgid "Disable some of the warnings shown by phpMyAdmin"
 msgstr "Desactiva algúns dos avisos mostrados por phpMyAdmin"
 
-#: libraries/config/messages.inc.php:234
+#: libraries/config/messages.inc.php:236
 msgid ""
 "Enable [a@http://en.wikipedia.org/wiki/Gzip]gzip[/a] compression for import "
 "and export operations"
@@ -4889,15 +4907,15 @@ msgstr ""
 "Activar a compresión [a@http://gl.wikipedia.org/wiki/Gzip]gzip[/a] nas "
 "operacións de importación e exportación"
 
-#: libraries/config/messages.inc.php:235
+#: libraries/config/messages.inc.php:237
 msgid "GZip"
 msgstr "GZip"
 
-#: libraries/config/messages.inc.php:236
+#: libraries/config/messages.inc.php:238
 msgid "Extra parameters for iconv"
 msgstr "Parámetros extra para iconv"
 
-#: libraries/config/messages.inc.php:237
+#: libraries/config/messages.inc.php:239
 msgid ""
 "If enabled, phpMyAdmin continues computing multiple-statement queries even "
 "if one of the queries failed"
@@ -4905,11 +4923,11 @@ msgstr ""
 "Se estiver activado, o phpMyAdmin continúa a calcular as consultas de "
 "afirmacións múltiplas mesmo se unha destas consultas fallase"
 
-#: libraries/config/messages.inc.php:238
+#: libraries/config/messages.inc.php:240
 msgid "Ignore multiple statement errors"
 msgstr "Ignorar os erros de afirmacións múltiplas"
 
-#: libraries/config/messages.inc.php:239
+#: libraries/config/messages.inc.php:241
 msgid ""
 "Allow interrupt of import in case script detects it is close to time limit. "
 "This might be a good way to import large files, however it can break "
@@ -4919,22 +4937,22 @@ msgstr ""
 "que se achega ao límite de tempo. Isto pode ser unha boa maneira de importar "
 "ficheiros grandes; porén, pode rachar as transaccións."
 
-#: libraries/config/messages.inc.php:240
+#: libraries/config/messages.inc.php:242
 msgid "Partial import: allow interrupt"
 msgstr "Importación parcial: permitir interromper"
 
-#: libraries/config/messages.inc.php:245 libraries/config/messages.inc.php:252
+#: libraries/config/messages.inc.php:247 libraries/config/messages.inc.php:254
 #: libraries/plugins/import/ImportCsv.class.php:89
 #: libraries/plugins/import/ImportLdi.class.php:71
 msgid "Do not abort on INSERT error"
 msgstr "Non interromper nos erros de INSERT"
 
-#: libraries/config/messages.inc.php:246 libraries/config/messages.inc.php:254
+#: libraries/config/messages.inc.php:248 libraries/config/messages.inc.php:256
 #: libraries/plugins/import/AbstractImportCsv.class.php:55
 msgid "Replace table data with file"
 msgstr "Substituír os datos da táboa polos do ficheiro"
 
-#: libraries/config/messages.inc.php:248
+#: libraries/config/messages.inc.php:250
 msgid ""
 "Default format; be aware that this list depends on location (database, "
 "table) and only SQL is always available"
@@ -4942,69 +4960,69 @@ msgstr ""
 "Formato por omisión; lembre que esta listaxe depende da localización (base "
 "de datos, táboa) e só SQL está sempre dispoñíbel"
 
-#: libraries/config/messages.inc.php:249
+#: libraries/config/messages.inc.php:251
 msgid "Format of imported file"
 msgstr "Formato do ficheiro importado"
 
-#: libraries/config/messages.inc.php:253
+#: libraries/config/messages.inc.php:255
 #: libraries/plugins/import/ImportLdi.class.php:76
 msgid "Use LOCAL keyword"
 msgstr "Utilice a palabra chave LOCAL"
 
-#: libraries/config/messages.inc.php:256 libraries/config/messages.inc.php:264
-#: libraries/config/messages.inc.php:265
+#: libraries/config/messages.inc.php:258 libraries/config/messages.inc.php:266
+#: libraries/config/messages.inc.php:267
 msgid "Column names in first row"
 msgstr "Nomes das columnas na primeira fileira"
 
-#: libraries/config/messages.inc.php:257
+#: libraries/config/messages.inc.php:259
 #: libraries/plugins/import/ImportOds.class.php:82
 msgid "Do not import empty rows"
 msgstr "Non importar as fileiras baleiras"
 
-#: libraries/config/messages.inc.php:258
+#: libraries/config/messages.inc.php:260
 msgid "Import currencies ($5.00 to 5.00)"
 msgstr "Importar as moedas ($5.00 a 5.00)"
 
-#: libraries/config/messages.inc.php:259
+#: libraries/config/messages.inc.php:261
 msgid "Import percentages as proper decimals (12.00% to .12)"
 msgstr "Importar as porcentaxes como decimais (12.00% a .12)"
 
-#: libraries/config/messages.inc.php:260
+#: libraries/config/messages.inc.php:262
 msgid "Number of queries to skip from start"
 msgstr "Número de consultas que se ignoran dende o comezo"
 
-#: libraries/config/messages.inc.php:261
+#: libraries/config/messages.inc.php:263
 msgid "Partial import: skip queries"
 msgstr "Importación parcial: ignorar as consultas"
 
-#: libraries/config/messages.inc.php:263
+#: libraries/config/messages.inc.php:265
 msgid "Do not use AUTO_INCREMENT for zero values"
 msgstr "Non empregar AUTO_INCREMENT cos valores cero"
 
-#: libraries/config/messages.inc.php:266
+#: libraries/config/messages.inc.php:268
 msgid "Initial state for sliders"
 msgstr "Estado inicial dos controis desprazábeis"
 
-#: libraries/config/messages.inc.php:267
+#: libraries/config/messages.inc.php:269
 msgid "How many rows can be inserted at one time"
 msgstr "Cantas fileiras se poden inserir dunha volta"
 
-#: libraries/config/messages.inc.php:268
+#: libraries/config/messages.inc.php:270
 msgid "Number of inserted rows"
 msgstr "Número de fileiras inseridas"
 
-#: libraries/config/messages.inc.php:269
+#: libraries/config/messages.inc.php:271
 msgid ""
 "Maximum number of characters shown in any non-numeric column on browse view"
 msgstr ""
 "Número máximo de caracteres mostrados nunha columna non numérica na vista de "
 "exploración"
 
-#: libraries/config/messages.inc.php:270
+#: libraries/config/messages.inc.php:272
 msgid "Limit column characters"
 msgstr "Limitar os caracteres das columnas"
 
-#: libraries/config/messages.inc.php:271
+#: libraries/config/messages.inc.php:273
 msgid ""
 "If TRUE, logout deletes cookies for all servers; when set to FALSE, logout "
 "only occurs for the current server. Setting this to FALSE makes it easy to "
@@ -5015,11 +5033,11 @@ msgstr ""
 "FALSO fai que sexa máis doado esquecer saír dos outros servidores cando se "
 "estea conectado a varios servidores."
 
-#: libraries/config/messages.inc.php:272
+#: libraries/config/messages.inc.php:274
 msgid "Delete all cookies on logout"
 msgstr "Eliminar todas as cookies ao saír"
 
-#: libraries/config/messages.inc.php:273
+#: libraries/config/messages.inc.php:275
 msgid ""
 "Define whether the previous login should be recalled or not in cookie "
 "authentication mode"
@@ -5027,11 +5045,11 @@ msgstr ""
 "Definir se se debe lembrar ou non o rexistro previo no modo de autenticación "
 "mediante cookies"
 
-#: libraries/config/messages.inc.php:274
+#: libraries/config/messages.inc.php:276
 msgid "Recall user name"
 msgstr "Lembrar o nome de usuario"
 
-#: libraries/config/messages.inc.php:275
+#: libraries/config/messages.inc.php:277
 msgid ""
 "Defines how long (in seconds) a login cookie should be stored in browser. "
 "The default of 0 means that it will be kept for the existing session only, "
@@ -5043,60 +5061,60 @@ msgstr ""
 "existente e que se elimina cando se feche a xanela do navegador. Recoméndase "
 "isto para os ambientes que non sexan de confianza."
 
-#: libraries/config/messages.inc.php:276
+#: libraries/config/messages.inc.php:278
 msgid "Login cookie store"
 msgstr "Almacenar as cookies de rexistro"
 
-#: libraries/config/messages.inc.php:277
+#: libraries/config/messages.inc.php:279
 msgid "Define how long (in seconds) a login cookie is valid"
 msgstr "Definir por cantos segundos é válida unha cookie"
 
-#: libraries/config/messages.inc.php:278
+#: libraries/config/messages.inc.php:280
 msgid "Login cookie validity"
 msgstr "Validez das cookies de rexistro"
 
-#: libraries/config/messages.inc.php:279
+#: libraries/config/messages.inc.php:281
 msgid "Double size of textarea for LONGTEXT columns"
 msgstr "Tamaño dobre da área de texto nas columnas tipo LONGTEXT"
 
-#: libraries/config/messages.inc.php:280
+#: libraries/config/messages.inc.php:282
 msgid "Bigger textarea for LONGTEXT"
 msgstr "Área de texto máis grande para LONGTEXT"
 
-#: libraries/config/messages.inc.php:281
+#: libraries/config/messages.inc.php:283
 msgid "Maximum number of characters used when a SQL query is displayed"
 msgstr ""
 "Número máximo de caracteres empregados cando se mostre unha consulta de SQL"
 
-#: libraries/config/messages.inc.php:282
+#: libraries/config/messages.inc.php:284
 msgid "Maximum displayed SQL length"
 msgstr "Lonxitude máxima de SQL que se mostra"
 
-#: libraries/config/messages.inc.php:283 libraries/config/messages.inc.php:290
-#: libraries/config/messages.inc.php:346
+#: libraries/config/messages.inc.php:285 libraries/config/messages.inc.php:292
+#: libraries/config/messages.inc.php:348
 msgid "Users cannot set a higher value"
 msgstr "Os usuarios non poden estabelecer un valor máis alto"
 
-#: libraries/config/messages.inc.php:284
+#: libraries/config/messages.inc.php:286
 msgid "Maximum number of databases displayed in database list"
 msgstr "Número máximo de táboas que se mostran na listaxe de bases de datos"
 
-#: libraries/config/messages.inc.php:285
+#: libraries/config/messages.inc.php:287
 msgid "Maximum databases"
 msgstr "Bases de datos máximas"
 
-#: libraries/config/messages.inc.php:286
+#: libraries/config/messages.inc.php:288
 msgid ""
 "The number of items that can be displayed on each page of the navigation tree"
 msgstr ""
 "O número de elementos que desexa mostrar en cada páxina da árbore de "
 "navegación"
 
-#: libraries/config/messages.inc.php:287
+#: libraries/config/messages.inc.php:289
 msgid "Maximum items in branch"
 msgstr "Número máximo de elementos por galla"
 
-#: libraries/config/messages.inc.php:288
+#: libraries/config/messages.inc.php:290
 msgid ""
 "Number of rows displayed when browsing a result set. If the result set "
 "contains more rows, &quot;Previous&quot; and &quot;Next&quot; links will be "
@@ -5106,19 +5124,19 @@ msgstr ""
 "resultados. Se o conxunto de resultados contén máis fileiras, aparecen as "
 "ligazóns &quot;Anterior&quot; e &quot;Seguinte&quot;."
 
-#: libraries/config/messages.inc.php:289
+#: libraries/config/messages.inc.php:291
 msgid "Maximum number of rows to display"
 msgstr "Número máximo de fileiras que se mostran"
 
-#: libraries/config/messages.inc.php:291
+#: libraries/config/messages.inc.php:293
 msgid "Maximum number of tables displayed in table list"
 msgstr "Número máximo de táboas que se mostran na listaxe de táboas"
 
-#: libraries/config/messages.inc.php:292
+#: libraries/config/messages.inc.php:294
 msgid "Maximum tables"
 msgstr "Táboas máximas"
 
-#: libraries/config/messages.inc.php:293
+#: libraries/config/messages.inc.php:295
 msgid ""
 "Disable the default warning that is displayed if mcrypt is missing for "
 "cookie authentication"
@@ -5126,11 +5144,11 @@ msgstr ""
 "Desactivar o aviso por omisión que aparece se falta mcrypt para a "
 "autenticación con cookies"
 
-#: libraries/config/messages.inc.php:294
+#: libraries/config/messages.inc.php:296
 msgid "mcrypt warning"
 msgstr "Aviso de mcrypt"
 
-#: libraries/config/messages.inc.php:295
+#: libraries/config/messages.inc.php:297
 msgid ""
 "The number of bytes a script is allowed to allocate, eg. [kbd]32M[/kbd] "
 "([kbd]0[/kbd] for no limit)"
@@ -5138,27 +5156,27 @@ msgstr ""
 "O número de bytes que se permite asignar a un script, p.ex. [kbd]32M[/kbd] "
 "([kbd]0[/kbd] para non o limitar)"
 
-#: libraries/config/messages.inc.php:296
+#: libraries/config/messages.inc.php:298
 msgid "Memory limit"
 msgstr "Límite da memoria"
 
-#: libraries/config/messages.inc.php:297
+#: libraries/config/messages.inc.php:299
 msgid "Show logo in navigation panel"
 msgstr "Mostrar o logotipo no panel de navegación"
 
-#: libraries/config/messages.inc.php:298
+#: libraries/config/messages.inc.php:300
 msgid "Display logo"
 msgstr "Mostrar o logotipo"
 
-#: libraries/config/messages.inc.php:299
+#: libraries/config/messages.inc.php:301
 msgid "URL where logo in the navigation panel will point to"
 msgstr "URL ao que apunta o logotipo do panel de navegación"
 
-#: libraries/config/messages.inc.php:300
+#: libraries/config/messages.inc.php:302
 msgid "Logo link URL"
 msgstr "URL da ligazón ao logotipo"
 
-#: libraries/config/messages.inc.php:301
+#: libraries/config/messages.inc.php:303
 msgid ""
 "Open the linked page in the main window ([kbd]main[/kbd]) or in a new one "
 "([kbd]new[/kbd])"
@@ -5166,23 +5184,23 @@ msgstr ""
 "Abrir a páxina ligada na xanela principal ([kbd]principal[/kbd]) ou nunha "
 "nova ([kbd]nova[/kbd])"
 
-#: libraries/config/messages.inc.php:302
+#: libraries/config/messages.inc.php:304
 msgid "Logo link target"
 msgstr "Destino da ligazón do logotipo"
 
-#: libraries/config/messages.inc.php:303
+#: libraries/config/messages.inc.php:305
 msgid "Display server choice at the top of the navigation panel"
 msgstr "Mostrar a escolla de servidor na parte superior do panel de navegación"
 
-#: libraries/config/messages.inc.php:304
+#: libraries/config/messages.inc.php:306
 msgid "Display servers selection"
 msgstr "Mostrar a selección de servidores"
 
-#: libraries/config/messages.inc.php:305
+#: libraries/config/messages.inc.php:307
 msgid "Target for quick access icon"
 msgstr "Destino da icona de acceso rápido"
 
-#: libraries/config/messages.inc.php:306
+#: libraries/config/messages.inc.php:308
 msgid ""
 "Defines the minimum number of items (tables, views, routines and events) to "
 "display a filter box."
@@ -5190,15 +5208,15 @@ msgstr ""
 "Indica o número mínimo de elementos (táboas, vistas, rutinas e "
 "acontecementos) para mostrar unha caixa de filtro."
 
-#: libraries/config/messages.inc.php:307
+#: libraries/config/messages.inc.php:309
 msgid "Minimum number of items to display the filter box"
 msgstr "Número mínimo de elementos para mostrar a caixa de filtro"
 
-#: libraries/config/messages.inc.php:308
+#: libraries/config/messages.inc.php:310
 msgid "Minimum number of databases to display the database filter box"
 msgstr "Número mínimo de bases de datos para mostrar a caixa de filtro"
 
-#: libraries/config/messages.inc.php:309
+#: libraries/config/messages.inc.php:311
 msgid ""
 "Group items in the navigation tree (determined by the separator defined "
 "below)"
@@ -5206,85 +5224,84 @@ msgstr ""
 "Agrupar os elementos na árbore de navegación (determinado polo separador "
 "indicado embaixo)"
 
-#: libraries/config/messages.inc.php:310
+#: libraries/config/messages.inc.php:312
 msgid "Group items in the tree"
 msgstr "Agrupar os elementos na árbore"
 
-#: libraries/config/messages.inc.php:311
+#: libraries/config/messages.inc.php:313
 msgid "String that separates databases into different tree levels"
 msgstr "Cadea que separa as bases de datos en tres niveis distintos"
 
-#: libraries/config/messages.inc.php:312
+#: libraries/config/messages.inc.php:314
 msgid "Database tree separator"
 msgstr "Separador da árbore das bases de datos"
 
-#: libraries/config/messages.inc.php:313
+#: libraries/config/messages.inc.php:315
 msgid "String that separates tables into different tree levels"
 msgstr "Cadea que separa as táboas en tres niveis distintos"
 
-#: libraries/config/messages.inc.php:314
+#: libraries/config/messages.inc.php:316
 msgid "Table tree separator"
 msgstr "Separador da árbore de táboas"
 
-#: libraries/config/messages.inc.php:315
+#: libraries/config/messages.inc.php:317
 msgid "Maximum table tree depth"
 msgstr "Profundidade máxima das táboas"
 
-#: libraries/config/messages.inc.php:316
+#: libraries/config/messages.inc.php:318
 msgid "Highlight server under the mouse cursor"
 msgstr "Realzar o servidor que estea por baixo do cursor do rato"
 
-#: libraries/config/messages.inc.php:317
+#: libraries/config/messages.inc.php:319
 msgid "Enable highlighting"
 msgstr "Activar o realce"
 
-#: libraries/config/messages.inc.php:318
+#: libraries/config/messages.inc.php:320
 msgid "Maximum number of recently used tables; set 0 to disable"
 msgstr "Número máximo de táboas usadas recentemente; 0 para desactivar"
 
-#: libraries/config/messages.inc.php:319
+#: libraries/config/messages.inc.php:321
 msgid "Recently used tables"
 msgstr "Táboas usadas recentemente"
 
-#: libraries/config/messages.inc.php:320
+#: libraries/config/messages.inc.php:322
 msgid "These are Edit, Copy and Delete links"
 msgstr "Estas son as ligazóns Editar, Copiar e Eliminar"
 
-#: libraries/config/messages.inc.php:321
+#: libraries/config/messages.inc.php:323
 msgid "Where to show the table row links"
 msgstr "Onde mostrar as ligazóns das fileiras das táboas"
 
-#: libraries/config/messages.inc.php:322
+#: libraries/config/messages.inc.php:324
 msgid "Use natural order for sorting table and database names"
 msgstr ""
 "Empregar a ordenación natural para ordenar os nomes das táboas e as bases de "
 "datos"
 
-#: libraries/config/messages.inc.php:323
+#: libraries/config/messages.inc.php:325
 msgid "Natural order"
 msgstr "Ordenación natural"
 
-#: libraries/config/messages.inc.php:324 libraries/config/messages.inc.php:338
-#: libraries/config/messages.inc.php:340
+#: libraries/config/messages.inc.php:326 libraries/config/messages.inc.php:340
+#: libraries/config/messages.inc.php:342
 msgid "Use only icons, only text or both"
 msgstr "Empregar só iconas, só texto ou ambos os dous"
 
-#: libraries/config/messages.inc.php:325
-#| msgid "Iconic navigation bar"
+#: libraries/config/messages.inc.php:327
 msgid "Table navigation bar"
 msgstr "Barra de navegación das táboas"
 
-#: libraries/config/messages.inc.php:326
+#: libraries/config/messages.inc.php:328
 msgid "use GZip output buffering for increased speed in HTTP transfers"
 msgstr ""
 "Empregar un buffer para a saída de GZip para atinxir unha maior velocidade "
 "nas transferencias mediante HTTP"
 
-#: libraries/config/messages.inc.php:327
+#: libraries/config/messages.inc.php:329
 msgid "GZip output buffering"
 msgstr "Buffer para a saída de GZip"
 
-#: libraries/config/messages.inc.php:328
+#: libraries/config/messages.inc.php:330
 msgid ""
 "[kbd]SMART[/kbd] - i.e. descending order for columns of type TIME, DATE, "
 "DATETIME and TIMESTAMP, ascending order otherwise"
@@ -5292,19 +5309,19 @@ msgstr ""
 "[kbd]INTELIXENTE[/kbd] - isto é, orde descendente para os campos do tipo "
 "TIME, DATE, DATETIME e TIMESTAMP e ascendente para os demais"
 
-#: libraries/config/messages.inc.php:329
+#: libraries/config/messages.inc.php:331
 msgid "Default sorting order"
 msgstr "Ordenación por omisión"
 
-#: libraries/config/messages.inc.php:330
+#: libraries/config/messages.inc.php:332
 msgid "Use persistent connections to MySQL databases"
 msgstr "Empregar conexións persistentes coas bases de datos MySQL"
 
-#: libraries/config/messages.inc.php:331
+#: libraries/config/messages.inc.php:333
 msgid "Persistent connections"
 msgstr "Conexións persistentes"
 
-#: libraries/config/messages.inc.php:332
+#: libraries/config/messages.inc.php:334
 msgid ""
 "Disable the default warning that is displayed on the database details "
 "Structure page if any of the required tables for the phpMyAdmin "
@@ -5314,11 +5331,11 @@ msgstr ""
 "estrutura da base de datos se non foi posíbel atopar algunha das táboas "
 "requiridas para o almacenamento da configuración do phpMyAdmin"
 
-#: libraries/config/messages.inc.php:333
+#: libraries/config/messages.inc.php:335
 msgid "Missing phpMyAdmin configuration storage tables"
 msgstr "Faltan as táboas de almacenamento da configuración do phpMyAdmin"
 
-#: libraries/config/messages.inc.php:334
+#: libraries/config/messages.inc.php:336
 msgid ""
 "Disable the default warning that is displayed if a difference between the "
 "MySQL library and server is detected"
@@ -5326,15 +5343,11 @@ msgstr ""
 "Desactivar o aviso por omisión que aparece se se detecta unha diferenza "
 "entre a biblioteca de MySQL e o servidor"
 
-#: libraries/config/messages.inc.php:335
+#: libraries/config/messages.inc.php:337
 msgid "Server/library difference warning"
 msgstr "Advertencia de diferenza entre servidor e biblioteca"
 
-#: libraries/config/messages.inc.php:336
-#| msgid ""
-#| "Disable the default warning that is displayed on the database details "
-#| "Structure page if any of the required tables for the phpMyAdmin "
-#| "configuration storage could not be found"
+#: libraries/config/messages.inc.php:338
 msgid ""
 "Disable the default warning that is displayed on the Structure page if "
 "column names in a table are reserved MySQL words"
@@ -5342,28 +5355,27 @@ msgstr ""
 "Desactivar o aviso que por omisión se mostra na páxina da estrutura da base "
 "de datos se os nomes de columna dunha táboa son palabras reservadas do MySQL"
 
-#: libraries/config/messages.inc.php:337
+#: libraries/config/messages.inc.php:339
 msgid "MySQL reserved word warning"
 msgstr "Advertencia de palabra reservada do MySQL"
 
-#: libraries/config/messages.inc.php:339
-#| msgid "Allow to display all the rows"
+#: libraries/config/messages.inc.php:341
 msgid "How to display the menu tabs"
 msgstr "Como mostrar as lapelas do menú"
 
-#: libraries/config/messages.inc.php:341
+#: libraries/config/messages.inc.php:343
 msgid "How to display various action links"
 msgstr "Como mostrar diversas ligazóns de acción"
 
-#: libraries/config/messages.inc.php:342
+#: libraries/config/messages.inc.php:344
 msgid "Disallow BLOB and BINARY columns from editing"
 msgstr "Impedir a edición das columnas BLOB e BINARY"
 
-#: libraries/config/messages.inc.php:343
+#: libraries/config/messages.inc.php:345
 msgid "Protect binary columns"
 msgstr "Protexer as columnas binarias"
 
-#: libraries/config/messages.inc.php:344
+#: libraries/config/messages.inc.php:346
 msgid ""
 "Enable if you want DB-based query history (requires phpMyAdmin configuration "
 "storage). If disabled, this utilizes JS-routines to display query history "
@@ -5374,156 +5386,155 @@ msgstr ""
 "rutinas JS para mostrar o historial de consultas (que se perde cando se "
 "fecha a xanela)."
 
-#: libraries/config/messages.inc.php:345
+#: libraries/config/messages.inc.php:347
 msgid "Permanent query history"
 msgstr "Historial de consultas permanente"
 
-#: libraries/config/messages.inc.php:347
+#: libraries/config/messages.inc.php:349
 msgid "How many queries are kept in history"
 msgstr "Cantas consultas se gardan no historial"
 
-#: libraries/config/messages.inc.php:348
+#: libraries/config/messages.inc.php:350
 msgid "Query history length"
 msgstr "Lonxitude do historial de consultas"
 
-#: libraries/config/messages.inc.php:349
+#: libraries/config/messages.inc.php:351
 msgid "Tab displayed when opening a new query window"
 msgstr "A lapela que aparece cando se entra nunha xanela de consultas"
 
-#: libraries/config/messages.inc.php:350
+#: libraries/config/messages.inc.php:352
 msgid "Default query window tab"
 msgstr "Lapela por omisión das xanelas de consultas"
 
-#: libraries/config/messages.inc.php:351
+#: libraries/config/messages.inc.php:353
 msgid "Query window height (in pixels)"
 msgstr "Altura da xanela de consultas (en píxeles)"
 
-#: libraries/config/messages.inc.php:352
+#: libraries/config/messages.inc.php:354
 msgid "Query window height"
 msgstr "Altura da xanela de consultas"
 
-#: libraries/config/messages.inc.php:353
+#: libraries/config/messages.inc.php:355
 msgid "Query window width (in pixels)"
 msgstr "Largo da xanela de consultas (en pixels)"
 
-#: libraries/config/messages.inc.php:354
+#: libraries/config/messages.inc.php:356
 msgid "Query window width"
 msgstr "Largo da xanela de consultas"
 
-#: libraries/config/messages.inc.php:355
+#: libraries/config/messages.inc.php:357
 msgid "Select which functions will be used for character set conversion"
 msgstr ""
 "Escolla as funcións que desexe empregar para a conversión dos conxuntos de "
 "caracteres"
 
-#: libraries/config/messages.inc.php:356
+#: libraries/config/messages.inc.php:358
 msgid "Recoding engine"
 msgstr "Motor de recodificación"
 
-#: libraries/config/messages.inc.php:357
+#: libraries/config/messages.inc.php:359
 msgid "When browsing tables, the sorting of each table is remembered"
 msgstr "Ao navegar polas táboas lémbrase a ordenación de cada unha delas"
 
-#: libraries/config/messages.inc.php:358
+#: libraries/config/messages.inc.php:360
 msgid "Remember table's sorting"
 msgstr "Recordar a ordenación da táboa"
 
-#: libraries/config/messages.inc.php:359
+#: libraries/config/messages.inc.php:361
 msgid "Repeat the headers every X cells, [kbd]0[/kbd] deactivates this feature"
 msgstr ""
 "Repetir os cabezallos cada X celas; [kbd]0[/kbd] desactiva esta "
 "funcionalidade"
 
-#: libraries/config/messages.inc.php:360
+#: libraries/config/messages.inc.php:362
 msgid "Repeat headers"
 msgstr "Repetir os cabezallos"
 
-#: libraries/config/messages.inc.php:362
+#: libraries/config/messages.inc.php:364
 msgid "Grid editing: trigger action"
 msgstr "Edición da grella: activar acción"
 
-#: libraries/config/messages.inc.php:363
+#: libraries/config/messages.inc.php:365
 msgid "Grid editing: save all edited cells at once"
 msgstr "Edición da grella: gravar todas as celas editadas inmediatamente"
 
-#: libraries/config/messages.inc.php:364
+#: libraries/config/messages.inc.php:366
 msgid "Directory where exports can be saved on server"
 msgstr "Directorio no que se poden gravar as exportacións no servidor"
 
-#: libraries/config/messages.inc.php:365
+#: libraries/config/messages.inc.php:367
 msgid "Save directory"
 msgstr "Directorio de gardado"
 
-#: libraries/config/messages.inc.php:366
+#: libraries/config/messages.inc.php:368
 msgid "Leave blank if not used"
 msgstr "Déixeo en branco se non o vai empregar"
 
-#: libraries/config/messages.inc.php:367
+#: libraries/config/messages.inc.php:369
 msgid "Host authorization order"
 msgstr "Orde de autenticación do servidor"
 
-#: libraries/config/messages.inc.php:368
+#: libraries/config/messages.inc.php:370
 msgid "Leave blank for defaults"
 msgstr "Déixeo en branco para o predefinido"
 
-#: libraries/config/messages.inc.php:369
+#: libraries/config/messages.inc.php:371
 msgid "Host authorization rules"
 msgstr "Regras de autorización do servidor"
 
-#: libraries/config/messages.inc.php:370
+#: libraries/config/messages.inc.php:372
 msgid "Allow logins without a password"
 msgstr "Permitir rexistrarse sen contrasinal"
 
-#: libraries/config/messages.inc.php:371
+#: libraries/config/messages.inc.php:373
 msgid "Allow root login"
 msgstr "Permitir o rexistro de root"
 
-#: libraries/config/messages.inc.php:372
+#: libraries/config/messages.inc.php:374
 msgid "HTTP Basic Auth Realm name to display when doing HTTP Auth"
 msgstr ""
 "Nome de HTTP Basic Auth Realm que mostrar cando se faga a autenticación "
 "mediante HTTP"
 
-#: libraries/config/messages.inc.php:373
+#: libraries/config/messages.inc.php:375
 msgid "HTTP Realm"
 msgstr "Dominio HTTP (Realm)"
 
-#: libraries/config/messages.inc.php:374
+#: libraries/config/messages.inc.php:376
 msgid ""
 "The path for the config file for [a@http://swekey.com]SweKey hardware "
 "authentication[/a] (not located in your document root; suggested: /etc/"
 "swekey.conf)"
 msgstr ""
 "A ruta ao ficheiro de configuración da [a@http://swekey.com]autenticación de "
-"hardware SweKey[/a] (non se localiza na raíz dos documentos; suxírese: "
-"/etc/swekey.conf)"
+"hardware SweKey[/a] (non se localiza na raíz dos documentos; suxírese: /etc/"
+"swekey.conf)"
 
-#: libraries/config/messages.inc.php:375
+#: libraries/config/messages.inc.php:377
 msgid "SweKey config file"
 msgstr "Ficheiro de configuración SweKey"
 
-#: libraries/config/messages.inc.php:376
+#: libraries/config/messages.inc.php:378
 msgid "Authentication method to use"
 msgstr "Método de autenticación que se quere empregar"
 
-#: libraries/config/messages.inc.php:377 setup/frames/index.inc.php:136
+#: libraries/config/messages.inc.php:379 setup/frames/index.inc.php:136
 msgid "Authentication type"
 msgstr "Tipo de autenticación"
 
-#: libraries/config/messages.inc.php:378
+#: libraries/config/messages.inc.php:380
 msgid ""
 "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/bookmark]bookmark[/a] "
 "support, suggested: [kbd]pma__bookmark[/kbd]"
 msgstr ""
-"Déixeo en branco se non quere a funcionalidade de "
-"[a@http://wiki.phpmyadmin.net/pma/bookmark]bookmark[/a]  ; por omisión: "
-"[kbd]pma_bookmark[/kbd]"
+"Déixeo en branco se non quere a funcionalidade de [a@http://wiki.phpmyadmin."
+"net/pma/bookmark]bookmark[/a]  ; por omisión: [kbd]pma_bookmark[/kbd]"
 
-#: libraries/config/messages.inc.php:379
+#: libraries/config/messages.inc.php:381
 msgid "Bookmark table"
 msgstr "Táboa de marcadores"
 
-#: libraries/config/messages.inc.php:380
+#: libraries/config/messages.inc.php:382
 msgid ""
 "Leave blank for no column comments/mime types, suggested: "
 "[kbd]pma__column_info[/kbd]"
@@ -5531,44 +5542,45 @@ msgstr ""
 "Déixeo en branco se non quere comentarios/tipos mime das columnas; suxírese: "
 "[kbd]pma__column_info[/kbd]"
 
-#: libraries/config/messages.inc.php:381
+#: libraries/config/messages.inc.php:383
 msgid "Column information table"
 msgstr "Táboa de información das columnas"
 
-#: libraries/config/messages.inc.php:382
+#: libraries/config/messages.inc.php:384
 msgid "Compress connection to MySQL server"
 msgstr "Comprimir a conexión ao servidor de MySQL"
 
-#: libraries/config/messages.inc.php:383
+#: libraries/config/messages.inc.php:385
 msgid "Compress connection"
 msgstr "Comprimir a conexión"
 
-#: libraries/config/messages.inc.php:384
+#: libraries/config/messages.inc.php:386
 msgid "How to connect to server, keep [kbd]tcp[/kbd] if unsure"
-msgstr "Como ligar co servidor; déixeo como [kbd]tcp[/kbd] se non está segura/a"
+msgstr ""
+"Como ligar co servidor; déixeo como [kbd]tcp[/kbd] se non está segura/a"
 
-#: libraries/config/messages.inc.php:385
+#: libraries/config/messages.inc.php:387
 msgid "Connection type"
 msgstr "Tipo de conexión"
 
-#: libraries/config/messages.inc.php:386
+#: libraries/config/messages.inc.php:388
 msgid "Control user password"
 msgstr "Contrasinal do usuario de control"
 
-#: libraries/config/messages.inc.php:387
+#: libraries/config/messages.inc.php:389
 msgid ""
 "A special MySQL user configured with limited permissions, more information "
 "available on [a@http://wiki.phpmyadmin.net/pma/controluser]wiki[/a]"
 msgstr ""
 "Un usuario especial de MySQL configurado con permisos limitados; hai máis "
-"información dispoñíbel no "
-"[a@http://wiki.phpmyadmin.net/pma/controluser]wiki[/a]"
+"información dispoñíbel no [a@http://wiki.phpmyadmin.net/pma/"
+"controluser]wiki[/a]"
 
-#: libraries/config/messages.inc.php:388
+#: libraries/config/messages.inc.php:390
 msgid "Control user"
 msgstr "Usuario de control"
 
-#: libraries/config/messages.inc.php:389
+#: libraries/config/messages.inc.php:391
 msgid ""
 "An alternate host to hold the configuration storage; leave blank to use the "
 "already defined host"
@@ -5576,11 +5588,11 @@ msgstr ""
 "Un servidor alternativo que manteña o almacenamento da configuración; déixeo "
 "en branco para empregar o servidor xa indicado"
 
-#: libraries/config/messages.inc.php:390
+#: libraries/config/messages.inc.php:392
 msgid "Control host"
 msgstr "Servidor de control"
 
-#: libraries/config/messages.inc.php:391
+#: libraries/config/messages.inc.php:393
 msgid ""
 "Leave blank for no Designer support, suggested: [kbd]pma__designer_coords[/"
 "kbd]"
@@ -5588,41 +5600,41 @@ msgstr ""
 "Déixeo en branco se non quere empregar Designer; por omisión: "
 "[kbd]pma__designer_coords[/kbd]"
 
-#: libraries/config/messages.inc.php:392
+#: libraries/config/messages.inc.php:394
 msgid "Designer table"
 msgstr "Táboa do Designer"
 
-#: libraries/config/messages.inc.php:393
+#: libraries/config/messages.inc.php:395
 msgid ""
 "More information on [a@https://sourceforge.net/p/phpmyadmin/bugs/2606/]PMA "
 "bug tracker[/a] and [a@http://bugs.mysql.com/19588]MySQL Bugs[/a]"
 msgstr ""
-"Máis información no "
-"[a@https://sourceforge.net/p/phpmyadmin/bugs/2606/]Seguidor de erros de "
-"PMA[/a] e en [a@http://bugs.mysql.com/19588]Erros do MySQL[/a]"
+"Máis información no [a@https://sourceforge.net/p/phpmyadmin/"
+"bugs/2606/]Seguidor de erros de PMA[/a] e en [a@http://bugs.mysql."
+"com/19588]Erros do MySQL[/a]"
 
-#: libraries/config/messages.inc.php:394
+#: libraries/config/messages.inc.php:396
 msgid "Disable use of INFORMATION_SCHEMA"
 msgstr "Desactivar o uso de INFORMATION_SCHEMA"
 
-#: libraries/config/messages.inc.php:395
+#: libraries/config/messages.inc.php:397
 msgid "What PHP extension to use; you should use mysqli if supported"
 msgstr ""
 "O engadido de PHP que quere empregar; debería empregar mysqli se se admite"
 
-#: libraries/config/messages.inc.php:396
+#: libraries/config/messages.inc.php:398
 msgid "PHP extension to use"
 msgstr "Engadido PHP que empregar"
 
-#: libraries/config/messages.inc.php:397
+#: libraries/config/messages.inc.php:399
 msgid "Hide databases matching regular expression (PCRE)"
 msgstr "Agochar as bases de datos que coincidan cunha expresión regular (PCRE)"
 
-#: libraries/config/messages.inc.php:398
+#: libraries/config/messages.inc.php:400
 msgid "Hide databases"
 msgstr "Agochar as bases de datos"
 
-#: libraries/config/messages.inc.php:399
+#: libraries/config/messages.inc.php:401
 msgid ""
 "Leave blank for no SQL query history support, suggested: [kbd]pma__history[/"
 "kbd]"
@@ -5630,23 +5642,23 @@ msgstr ""
 "Déixeo en branco se non quere un histórico das consultas SQL; por omisión: "
 "[kbd]pma__history[/kbd]"
 
-#: libraries/config/messages.inc.php:400
+#: libraries/config/messages.inc.php:402
 msgid "SQL query history table"
 msgstr "Táboa do historial de consultas SQL"
 
-#: libraries/config/messages.inc.php:401
+#: libraries/config/messages.inc.php:403
 msgid "Hostname where MySQL server is running"
 msgstr "Nome da máquina na que se executa o servidor de MySQL"
 
-#: libraries/config/messages.inc.php:402
+#: libraries/config/messages.inc.php:404
 msgid "Server hostname"
 msgstr "Nome do servidor"
 
-#: libraries/config/messages.inc.php:403
+#: libraries/config/messages.inc.php:405
 msgid "Logout URL"
 msgstr "URL de desconexión"
 
-#: libraries/config/messages.inc.php:404
+#: libraries/config/messages.inc.php:406
 msgid ""
 "Limits number of table preferences which are stored in database, the oldest "
 "records are automatically removed"
@@ -5654,25 +5666,19 @@ msgstr ""
 "Limita o número de preferencias de táboas que se almacenan na base de datos; "
 "os rexistros máis antigos elimínanse automaticamente"
 
-#: libraries/config/messages.inc.php:405
+#: libraries/config/messages.inc.php:407
 msgid "Maximal number of table preferences to store"
 msgstr "Número máximo de preferencias sobre as táboas que almacenar"
 
-#: libraries/config/messages.inc.php:406
+#: libraries/config/messages.inc.php:408
 msgid "Try to connect without password"
 msgstr "Tentar conectarse sen contrasinal"
 
-#: libraries/config/messages.inc.php:407
+#: libraries/config/messages.inc.php:409
 msgid "Connect without password"
 msgstr "Conectarse sen contrasinal"
 
-#: libraries/config/messages.inc.php:408
-#| msgid ""
-#| "You can use MySQL wildcard characters (% and _), escape them if you want "
-#| "to use their literal instances, i.e. use [kbd]'my\\_db'[/kbd] and not "
-#| "[kbd]'my_db'[/kbd]. Using this option you can sort database list, just "
-#| "enter their names in order and use [kbd]*[/kbd] at the end to show the "
-#| "rest in alphabetical order."
+#: libraries/config/messages.inc.php:410
 msgid ""
 "You can use MySQL wildcard characters (% and _), escape them if you want to "
 "use their literal instances, i.e. use [kbd]'my\\_db'[/kbd] and not "
@@ -5682,30 +5688,30 @@ msgstr ""
 "empregar os caracteres en si, isto é, empregue [kbd]'my\\_db'[/kbd]' no "
 "canto de [kbd]'my_db'[/kbd]."
 
-#: libraries/config/messages.inc.php:409
+#: libraries/config/messages.inc.php:411
 msgid "Show only listed databases"
 msgstr "Mostrar só as bases de datos listadas"
 
-#: libraries/config/messages.inc.php:410 libraries/config/messages.inc.php:451
+#: libraries/config/messages.inc.php:412 libraries/config/messages.inc.php:453
 msgid "Leave empty if not using config auth"
 msgstr "Déixeo en branco se non vai empregar config auth"
 
-#: libraries/config/messages.inc.php:411
+#: libraries/config/messages.inc.php:413
 msgid "Password for config auth"
 msgstr "Contrasinal para config auth"
 
-#: libraries/config/messages.inc.php:412
+#: libraries/config/messages.inc.php:414
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__pdf_pages[/kbd]"
 msgstr ""
-"Déixeo en branco se non quere PDF schema; por omisión: "
-"[kbd]pma__pdf_pages[/kbd]"
+"Déixeo en branco se non quere PDF schema; por omisión: [kbd]pma__pdf_pages[/"
+"kbd]"
 
-#: libraries/config/messages.inc.php:413
+#: libraries/config/messages.inc.php:415
 msgid "PDF schema: pages table"
 msgstr "PDF schema: táboa de páxinas"
 
-#: libraries/config/messages.inc.php:414
+#: libraries/config/messages.inc.php:416
 msgid ""
 "Database used for relations, bookmarks, and PDF features. See [a@http://wiki."
 "phpmyadmin.net/pma/pmadb]pmadb[/a] for complete information. Leave blank for "
@@ -5716,21 +5722,21 @@ msgstr ""
 "completa. Déixeo en branco se non lle interesan. Por omisión: "
 "[kbd]phpmyadmin[/kbd]"
 
-#: libraries/config/messages.inc.php:415
+#: libraries/config/messages.inc.php:417
 msgid "Database name"
 msgstr "Nome da base de datos"
 
-#: libraries/config/messages.inc.php:416
+#: libraries/config/messages.inc.php:418
 msgid "Port on which MySQL server is listening, leave empty for default"
 msgstr ""
 "Porto polo que está a escoitar o servidor de MySQL server; déixeo en branco "
 "para deixar o predefinido"
 
-#: libraries/config/messages.inc.php:417
+#: libraries/config/messages.inc.php:419
 msgid "Server port"
 msgstr "Porto do servidor"
 
-#: libraries/config/messages.inc.php:418
+#: libraries/config/messages.inc.php:420
 msgid ""
 "Leave blank for no \"persistent\" recently used tables across sessions, "
 "suggested: [kbd]pma__recent[/kbd]"
@@ -5738,32 +5744,31 @@ msgstr ""
 "Déixeo en branco para eliminar a «persistencia»  das táboas utilizadas "
 "recentemente entre sesións; suxírese: [kbd]pma__recent[/kbd]"
 
-#: libraries/config/messages.inc.php:419
+#: libraries/config/messages.inc.php:421
 msgid "Recently used table"
 msgstr "Táboa usada recentemente"
 
-#: libraries/config/messages.inc.php:420
+#: libraries/config/messages.inc.php:422
 msgid ""
 "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
 "links[/a] support, suggested: [kbd]pma__relation[/kbd]"
 msgstr ""
-"Déixeo en branco se non quere "
-"[a@http://wiki.phpmyadmin.net/pma/relation]ligazóns de relación[/a]; "
-"suxírese: [kbd]pma__relation[/kbd]"
+"Déixeo en branco se non quere [a@http://wiki.phpmyadmin.net/pma/"
+"relation]ligazóns de relación[/a]; suxírese: [kbd]pma__relation[/kbd]"
 
-#: libraries/config/messages.inc.php:421
+#: libraries/config/messages.inc.php:423
 msgid "Relation table"
 msgstr "Táboa de relacións"
 
-#: libraries/config/messages.inc.php:422
+#: libraries/config/messages.inc.php:424
 msgid "SQL command to fetch available databases"
 msgstr "Orde de SQL para obter as bases de datos dispoñíbeis"
 
-#: libraries/config/messages.inc.php:423
+#: libraries/config/messages.inc.php:425
 msgid "SHOW DATABASES command"
 msgstr "Mostrar a orde SHOW DATABASES"
 
-#: libraries/config/messages.inc.php:424
+#: libraries/config/messages.inc.php:426
 msgid ""
 "See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
 "types[/a] for an example"
@@ -5771,33 +5776,33 @@ msgstr ""
 "Vexa os [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]tipos de "
 "autenticación[/a] se quere un exemplo"
 
-#: libraries/config/messages.inc.php:425
+#: libraries/config/messages.inc.php:427
 msgid "Signon session name"
 msgstr "Nome de sesión de rexistro de entrada"
 
-#: libraries/config/messages.inc.php:426
+#: libraries/config/messages.inc.php:428
 msgid "Signon URL"
 msgstr "URL de rexistro de entrada"
 
-#: libraries/config/messages.inc.php:427
+#: libraries/config/messages.inc.php:429
 msgid "Socket on which MySQL server is listening, leave empty for default"
 msgstr ""
 "Socket polo que está a escoitar o servidor de MySQL; déixeo en branco para "
 "deixar o predefinido"
 
-#: libraries/config/messages.inc.php:428
+#: libraries/config/messages.inc.php:430
 msgid "Server socket"
 msgstr "Socket do servidor"
 
-#: libraries/config/messages.inc.php:429
+#: libraries/config/messages.inc.php:431
 msgid "Enable SSL for connection to MySQL server"
 msgstr "Activar a SSL para a conexión ao servidor de MySQL"
 
-#: libraries/config/messages.inc.php:430
+#: libraries/config/messages.inc.php:432
 msgid "Use SSL"
 msgstr "Empregar a SSL"
 
-#: libraries/config/messages.inc.php:431
+#: libraries/config/messages.inc.php:433
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__table_coords[/"
 "kbd]"
@@ -5805,11 +5810,11 @@ msgstr ""
 "Déixeo en branco se non quere PDF schema; por omisión: "
 "[kbd]pma__table_coords[/kbd]"
 
-#: libraries/config/messages.inc.php:432
+#: libraries/config/messages.inc.php:434
 msgid "PDF schema: table coordinates"
 msgstr "PDF schema: coordenadas de táboa"
 
-#: libraries/config/messages.inc.php:433
+#: libraries/config/messages.inc.php:435
 msgid ""
 "Table to describe the display columns, leave blank for no support; "
 "suggested: [kbd]pma__table_info[/kbd]"
@@ -5817,11 +5822,11 @@ msgstr ""
 "Táboa para describir a presentación dos campos; déixeo en branco para non o "
 "activar; suxírese: [kbd]pma__table_info[/kbd]"
 
-#: libraries/config/messages.inc.php:434
+#: libraries/config/messages.inc.php:436
 msgid "Display columns table"
 msgstr "Mostrar a táboa de columnas"
 
-#: libraries/config/messages.inc.php:435
+#: libraries/config/messages.inc.php:437
 msgid ""
 "Leave blank for no \"persistent\" tables'UI preferences across sessions, "
 "suggested: [kbd]pma__table_uiprefs[/kbd]"
@@ -5829,11 +5834,11 @@ msgstr ""
 "Déixeo en branco se non desexa preferencias «persistentes» da interface das "
 "táboas entre sesións; suxírese: [kbd]pma__table_uiprefs[/kbd]"
 
-#: libraries/config/messages.inc.php:436
+#: libraries/config/messages.inc.php:438
 msgid "UI preferences table"
 msgstr "Táboa de preferencias da interface"
 
-#: libraries/config/messages.inc.php:437
+#: libraries/config/messages.inc.php:439
 msgid ""
 "Whether a DROP DATABASE IF EXISTS statement will be added as first line to "
 "the log when creating a database."
@@ -5841,11 +5846,11 @@ msgstr ""
 "Se engadir unha instrución DROP DATABASE IF EXISTS como primeira liña do "
 "rexistro cando se cree unha base de datos."
 
-#: libraries/config/messages.inc.php:438
+#: libraries/config/messages.inc.php:440
 msgid "Add DROP DATABASE"
 msgstr "Engadir DROP DATABASE"
 
-#: libraries/config/messages.inc.php:439
+#: libraries/config/messages.inc.php:441
 msgid ""
 "Whether a DROP TABLE IF EXISTS statement will be added as first line to the "
 "log when creating a table."
@@ -5853,11 +5858,11 @@ msgstr ""
 "Se engadir unha instrución DROP TABLE IF EXISTS como primeira liña do "
 "rexistro cando se cree unha táboa."
 
-#: libraries/config/messages.inc.php:440
+#: libraries/config/messages.inc.php:442
 msgid "Add DROP TABLE"
 msgstr "Engadir DROP TABLE"
 
-#: libraries/config/messages.inc.php:441
+#: libraries/config/messages.inc.php:443
 msgid ""
 "Whether a DROP VIEW IF EXISTS statement will be added as first line to the "
 "log when creating a view."
@@ -5865,21 +5870,21 @@ msgstr ""
 "Se engadir unha instrución DROP VIEW IF EXISTS como primeira liña do "
 "rexistro cando se cree unha vista."
 
-#: libraries/config/messages.inc.php:442
+#: libraries/config/messages.inc.php:444
 msgid "Add DROP VIEW"
 msgstr "Engadir DROP VIEW"
 
-#: libraries/config/messages.inc.php:443
+#: libraries/config/messages.inc.php:445
 msgid "Defines the list of statements the auto-creation uses for new versions."
 msgstr ""
 "Indica a listaxe de instrucións que emprega a creación automática para as "
 "versións novas."
 
-#: libraries/config/messages.inc.php:444
+#: libraries/config/messages.inc.php:446
 msgid "Statements to track"
 msgstr "Instrucións que seguir"
 
-#: libraries/config/messages.inc.php:445
+#: libraries/config/messages.inc.php:447
 msgid ""
 "Leave blank for no SQL query tracking support, suggested: "
 "[kbd]pma__tracking[/kbd]"
@@ -5887,11 +5892,11 @@ msgstr ""
 "Déixeo en branco se non quere a funcionalidade de seguimento das consultas "
 "de SQL; valor suxerido: [kbd]pma_tracking[/kbd]"
 
-#: libraries/config/messages.inc.php:446
+#: libraries/config/messages.inc.php:448
 msgid "SQL query tracking table"
 msgstr "Táboa de seguimento de consultas de SQL"
 
-#: libraries/config/messages.inc.php:447
+#: libraries/config/messages.inc.php:449
 msgid ""
 "Whether the tracking mechanism creates versions for tables and views "
 "automatically."
@@ -5899,11 +5904,11 @@ msgstr ""
 "Se o mecanismo de seguimento crea automaticamente versións das táboas e as "
 "vistas."
 
-#: libraries/config/messages.inc.php:448
+#: libraries/config/messages.inc.php:450
 msgid "Automatically create versions"
 msgstr "Crear versions automaticamente"
 
-#: libraries/config/messages.inc.php:449
+#: libraries/config/messages.inc.php:451
 msgid ""
 "Leave blank for no user preferences storage in database, suggested: "
 "[kbd]pma__userconfig[/kbd]"
@@ -5911,15 +5916,15 @@ msgstr ""
 "Déixeo en branco se non quere almacenar as preferencias na base de datos; "
 "suxerido: [kbd]pma__userconfig[/kbd]"
 
-#: libraries/config/messages.inc.php:450
+#: libraries/config/messages.inc.php:452
 msgid "User preferences storage table"
 msgstr "Empregar a táboa de almacenamento das preferencias"
 
-#: libraries/config/messages.inc.php:452
+#: libraries/config/messages.inc.php:454
 msgid "User for config auth"
 msgstr "Usuario para config auth"
 
-#: libraries/config/messages.inc.php:453
+#: libraries/config/messages.inc.php:455
 msgid ""
 "A user-friendly description of this server. Leave blank to display the "
 "hostname instead."
@@ -5927,21 +5932,21 @@ msgstr ""
 "Unha descrición lexíbel deste servidor. Déixea en branco para que no seu "
 "canto apareza o nome da máquina."
 
-#: libraries/config/messages.inc.php:454
+#: libraries/config/messages.inc.php:456
 msgid "Verbose name of this server"
 msgstr "Nome longo deste servidor"
 
-#: libraries/config/messages.inc.php:455
+#: libraries/config/messages.inc.php:457
 msgid "Whether a user should be displayed a &quot;show all (rows)&quot; button"
 msgstr ""
 "Se se lle desexa mostrar un botón  &quot;mostrar todos (os rexistros)&quot; "
 "ao usuario"
 
-#: libraries/config/messages.inc.php:456
+#: libraries/config/messages.inc.php:458
 msgid "Allow to display all the rows"
 msgstr "Permitir que se mostren todas as fileiras"
 
-#: libraries/config/messages.inc.php:457
+#: libraries/config/messages.inc.php:459
 msgid ""
 "Please note that enabling this has no effect with [kbd]config[/kbd] "
 "authentication mode because the password is hard coded in the configuration "
@@ -5952,47 +5957,47 @@ msgstr ""
 "configuración; isto non limita a capacidade de executar a mesma orde "
 "directamente"
 
-#: libraries/config/messages.inc.php:458
+#: libraries/config/messages.inc.php:460
 msgid "Show password change form"
 msgstr "Mostrar o formulario para mudar de contrasinal"
 
-#: libraries/config/messages.inc.php:459
+#: libraries/config/messages.inc.php:461
 msgid "Show create database form"
 msgstr "Mostrar o formulario para crear bases de datos"
 
-#: libraries/config/messages.inc.php:460
+#: libraries/config/messages.inc.php:462
 msgid "Show or hide a column displaying the Creation timestamp for all tables"
 msgstr ""
 "Mostrar ou agochar unha columna que mostre a marca temporal da creación de "
 "todas as táboas"
 
-#: libraries/config/messages.inc.php:461
+#: libraries/config/messages.inc.php:463
 msgid "Show Creation timestamp"
 msgstr "Mostrar marca temporal de creación"
 
-#: libraries/config/messages.inc.php:462
+#: libraries/config/messages.inc.php:464
 msgid ""
 "Show or hide a column displaying the Last update timestamp for all tables"
 msgstr ""
 "Mostrar ou agochar unha columna que mostre a marca temporal da última "
 "actualización de todas as táboas"
 
-#: libraries/config/messages.inc.php:463
+#: libraries/config/messages.inc.php:465
 msgid "Show Last update timestamp"
 msgstr "Mostrar a última actualización da marca temporal"
 
-#: libraries/config/messages.inc.php:464
+#: libraries/config/messages.inc.php:466
 msgid ""
 "Show or hide a column displaying the Last check timestamp for all tables"
 msgstr ""
 "Mostrar ou agochar unha columna que mostre a marca temporal da última "
 "comprobación de todas as táboas"
 
-#: libraries/config/messages.inc.php:465
+#: libraries/config/messages.inc.php:467
 msgid "Show Last check timestamp"
 msgstr "Mostrar a última revisión da marca temporal"
 
-#: libraries/config/messages.inc.php:466
+#: libraries/config/messages.inc.php:468
 msgid ""
 "Defines whether or not type display direction option is shown when browsing "
 "a table"
@@ -6000,103 +6005,103 @@ msgstr ""
 "Define se se mostra a opción da dirección da escrita cando se navega por "
 "unha táboa"
 
-#: libraries/config/messages.inc.php:467
+#: libraries/config/messages.inc.php:469
 msgid "Show display direction"
 msgstr "Mostrar a dirección de visualización"
 
-#: libraries/config/messages.inc.php:468
+#: libraries/config/messages.inc.php:470
 msgid ""
 "Defines whether or not type fields should be initially displayed in edit/"
 "insert mode"
 msgstr ""
-"Define se os campos tipo deben ser mostrados inicialmente no modo "
-"editar/inserir"
+"Define se os campos tipo deben ser mostrados inicialmente no modo editar/"
+"inserir"
 
-#: libraries/config/messages.inc.php:469
+#: libraries/config/messages.inc.php:471
 msgid "Show field types"
 msgstr "Mostrar os tipos de campo"
 
-#: libraries/config/messages.inc.php:470
+#: libraries/config/messages.inc.php:472
 msgid "Display the function fields in edit/insert mode"
 msgstr "Mostrar os campos de función no modo editar/inserir"
 
-#: libraries/config/messages.inc.php:471
+#: libraries/config/messages.inc.php:473
 msgid "Show function fields"
 msgstr "Mostrar os campos de función"
 
-#: libraries/config/messages.inc.php:472
+#: libraries/config/messages.inc.php:474
 msgid "Whether to show hint or not"
 msgstr "Mostrar axudas ou non"
 
-#: libraries/config/messages.inc.php:473
+#: libraries/config/messages.inc.php:475
 msgid "Show hint"
 msgstr "Mostrar consellos"
 
-#: libraries/config/messages.inc.php:474
+#: libraries/config/messages.inc.php:476
 msgid ""
 "Shows link to [a@http://php.net/manual/function.phpinfo.php]phpinfo()[/a] "
 "output"
 msgstr ""
-"Mostra unha ligazón á saída de "
-"[a@http://php.net/manual/function.phpinfo.php]phpinfo()[/a]"
+"Mostra unha ligazón á saída de [a@http://php.net/manual/function.phpinfo."
+"php]phpinfo()[/a]"
 
-#: libraries/config/messages.inc.php:475
+#: libraries/config/messages.inc.php:477
 msgid "Show phpinfo() link"
 msgstr "Mostrar a ligazón a phpinfo()"
 
-#: libraries/config/messages.inc.php:476
+#: libraries/config/messages.inc.php:478
 msgid "Show detailed MySQL server information"
 msgstr "Mostrar información detallada do servidor de MySQL"
 
-#: libraries/config/messages.inc.php:477
+#: libraries/config/messages.inc.php:479
 msgid "Defines whether SQL queries generated by phpMyAdmin should be displayed"
 msgstr "Define se se deben mostrar as consultas de SQL xeradas polo phpMyAdmin"
 
-#: libraries/config/messages.inc.php:478
+#: libraries/config/messages.inc.php:480
 msgid "Show SQL queries"
 msgstr "Mostrar as consultas de SQL"
 
-#: libraries/config/messages.inc.php:479
+#: libraries/config/messages.inc.php:481
 msgid ""
 "Defines whether the query box should stay on-screen after its submission"
 msgstr ""
 "Define se a caixa de consultas debe permanecer en pantalla despois da súa "
 "execución"
 
-#: libraries/config/messages.inc.php:480 libraries/sql_query_form.lib.php:365
+#: libraries/config/messages.inc.php:482 libraries/sql_query_form.lib.php:365
 msgid "Retain query box"
 msgstr "Reter a caixa de consultas"
 
-#: libraries/config/messages.inc.php:481
+#: libraries/config/messages.inc.php:483
 msgid "Allow to display database and table statistics (eg. space usage)"
 msgstr ""
-"Permitir que se mostren as estatísticas das bases de datos e das táboas "
-"(p.ex. o uso do espazo)"
+"Permitir que se mostren as estatísticas das bases de datos e das táboas (p."
+"ex. o uso do espazo)"
 
-#: libraries/config/messages.inc.php:482
+#: libraries/config/messages.inc.php:484
 msgid "Show statistics"
 msgstr "Mostrar as estatísticas"
 
-#: libraries/config/messages.inc.php:483
+#: libraries/config/messages.inc.php:485
 msgid "Display table comments in tooltips"
 msgstr "Mostrar os comentarios das táboas nas mensaxes"
 
-#: libraries/config/messages.inc.php:484
+#: libraries/config/messages.inc.php:486
 msgid ""
 "Mark used tables and make it possible to show databases with locked tables"
 msgstr ""
 "Marcar as táboas empregadas e permitir que se mostren as bases de datos con "
 "táboas bloqueadas"
 
-#: libraries/config/messages.inc.php:485
+#: libraries/config/messages.inc.php:487
 msgid "Skip locked tables"
 msgstr "Ignorar as táboas bloqueadas"
 
-#: libraries/config/messages.inc.php:490
+#: libraries/config/messages.inc.php:492
 msgid "Requires SQL Validator to be enabled"
 msgstr "Require que o validador SQL estea activado"
 
-#: libraries/config/messages.inc.php:492
+#: libraries/config/messages.inc.php:494
 #: libraries/display_change_password.lib.php:61
 #: libraries/replication_gui.lib.php:64 libraries/replication_gui.lib.php:65
 #: libraries/replication_gui.lib.php:361 libraries/replication_gui.lib.php:365
@@ -6108,7 +6113,7 @@ msgstr "Require que o validador SQL estea activado"
 msgid "Password"
 msgstr "Contrasinal"
 
-#: libraries/config/messages.inc.php:493
+#: libraries/config/messages.inc.php:495
 msgid ""
 "[strong]Warning:[/strong] requires PHP SOAP extension or PEAR SOAP to be "
 "installed"
@@ -6116,11 +6121,11 @@ msgstr ""
 "[strong]Advertencia:[/strong] require que as extensións SOAP de PHP ou SOAP "
 "de PEAR estean instaladas"
 
-#: libraries/config/messages.inc.php:494
+#: libraries/config/messages.inc.php:496
 msgid "Enable SQL Validator"
 msgstr "Activar o validador de SQL"
 
-#: libraries/config/messages.inc.php:495
+#: libraries/config/messages.inc.php:497
 msgid ""
 "If you have a custom username, specify it here (defaults to [kbd]anonymous[/"
 "kbd])"
@@ -6128,20 +6133,20 @@ msgstr ""
 "Se dispón dun nome de usuario personalizado, indíqueo aquí (por omisión é "
 "[kbd]anonymous[/kbd])"
 
-#: libraries/config/messages.inc.php:496 tbl_tracking.php:557
+#: libraries/config/messages.inc.php:498 tbl_tracking.php:557
 #: tbl_tracking.php:619
 msgid "Username"
 msgstr "Nome de usuario"
 
-#: libraries/config/messages.inc.php:497
+#: libraries/config/messages.inc.php:499
 msgid "A warning is displayed on the main page if Suhosin is detected"
 msgstr "Unha advertencia aparece na pantalla principal se Suhosin e detectado"
 
-#: libraries/config/messages.inc.php:498
+#: libraries/config/messages.inc.php:500
 msgid "Suhosin warning"
 msgstr "Aviso de Suhosin"
 
-#: libraries/config/messages.inc.php:499
+#: libraries/config/messages.inc.php:501
 msgid ""
 "Textarea size (columns) in edit mode, this value will be emphasized for SQL "
 "query textareas (*2) and for query window (*1.25)"
@@ -6150,11 +6155,11 @@ msgstr ""
 "enfatízase nas áreas de texto das consultas de SQL (*2) e na xanela de "
 "consultas (*.1,25)"
 
-#: libraries/config/messages.inc.php:500
+#: libraries/config/messages.inc.php:502
 msgid "Textarea columns"
 msgstr "Columnas da área de texto"
 
-#: libraries/config/messages.inc.php:501
+#: libraries/config/messages.inc.php:503
 msgid ""
 "Textarea size (rows) in edit mode, this value will be emphasized for SQL "
 "query textareas (*2) and for query window (*1.25)"
@@ -6163,31 +6168,31 @@ msgstr ""
 "enfatízase nas áreas de texto das consultas de SQL (*2) e na xanela de "
 "consultas (*.1,25)"
 
-#: libraries/config/messages.inc.php:502
+#: libraries/config/messages.inc.php:504
 msgid "Textarea rows"
 msgstr "Fileiras da área de texto"
 
-#: libraries/config/messages.inc.php:503
+#: libraries/config/messages.inc.php:505
 msgid "Title of browser window when a database is selected"
 msgstr "Título da xanela do navegador cando a base de datos estea seleccionada"
 
-#: libraries/config/messages.inc.php:505
+#: libraries/config/messages.inc.php:507
 msgid "Title of browser window when nothing is selected"
 msgstr "Título da xanela do navegador cando non haxa nada escollido"
 
-#: libraries/config/messages.inc.php:506
+#: libraries/config/messages.inc.php:508
 msgid "Default title"
 msgstr "Título por omisión"
 
-#: libraries/config/messages.inc.php:507
+#: libraries/config/messages.inc.php:509
 msgid "Title of browser window when a server is selected"
 msgstr "Título da xanela do navegador cando un servidor estea seleccionado"
 
-#: libraries/config/messages.inc.php:509
+#: libraries/config/messages.inc.php:511
 msgid "Title of browser window when a table is selected"
 msgstr "Título da xanela do navegador cando unha táboa estea seleccionada"
 
-#: libraries/config/messages.inc.php:511
+#: libraries/config/messages.inc.php:513
 msgid ""
 "Input proxies as [kbd]IP: trusted HTTP header[/kbd]. The following example "
 "specifies that phpMyAdmin should trust a HTTP_X_FORWARDED_FOR (X-Forwarded-"
@@ -6196,30 +6201,31 @@ msgid ""
 msgstr ""
 "Escriba os proxies como [kbd]IP: cabezallo HTTP de confianza[/kbd]. O "
 "exemplo seguinte especifica que o phpMyAdmin debería confiar nun cabezallo "
-"HTTP_X_FORWARDED_FOR (X-Forwarded-For) proveniente do proxy "
-"1.2.3.4:[br][kbd]1.2.3.4: HTTP_X_FORWARDED_FOR[/kbd]"
+"HTTP_X_FORWARDED_FOR (X-Forwarded-For) proveniente do proxy 1.2.3.4:[br]"
+"[kbd]1.2.3.4: HTTP_X_FORWARDED_FOR[/kbd]"
 
-#: libraries/config/messages.inc.php:512
+#: libraries/config/messages.inc.php:514
 msgid "List of trusted proxies for IP allow/deny"
 msgstr "Lista de proxies de confianza para permiso/denegación de IP"
 
-#: libraries/config/messages.inc.php:513
+#: libraries/config/messages.inc.php:515
 msgid "Directory on server where you can upload files for import"
-msgstr "Directorio do servidor ao que se poden enviar os ficheiros que importar"
+msgstr ""
+"Directorio do servidor ao que se poden enviar os ficheiros que importar"
 
-#: libraries/config/messages.inc.php:514
+#: libraries/config/messages.inc.php:516
 msgid "Upload directory"
 msgstr "Directorio de envíos"
 
-#: libraries/config/messages.inc.php:515
+#: libraries/config/messages.inc.php:517
 msgid "Allow for searching inside the entire database"
 msgstr "Permitir buscar na base de datos completa"
 
-#: libraries/config/messages.inc.php:516
+#: libraries/config/messages.inc.php:518
 msgid "Use database search"
 msgstr "Empregar buscas na base de datos"
 
-#: libraries/config/messages.inc.php:517
+#: libraries/config/messages.inc.php:519
 msgid ""
 "When disabled, users cannot set any of the options below, regardless of the "
 "checkbox on the right"
@@ -6227,20 +6233,20 @@ msgstr ""
 "Se está desactivado os usuarios non poden establecer ningunha das opcións "
 "que hai debaixo, independentemente da caixa da dereita"
 
-#: libraries/config/messages.inc.php:518
+#: libraries/config/messages.inc.php:520
 msgid "Enable the Developer tab in settings"
 msgstr "Activar a lapela de desenvolvemento na configuración"
 
-#: libraries/config/messages.inc.php:519 setup/frames/index.inc.php:275
+#: libraries/config/messages.inc.php:521 setup/frames/index.inc.php:275
 msgid "Check for latest version"
 msgstr "Comprobar cal é a última versión"
 
-#: libraries/config/messages.inc.php:520
+#: libraries/config/messages.inc.php:522
 msgid "Enables check for latest version on main phpMyAdmin page"
 msgstr ""
 "Activar a comprobación da última versión na páxina principal do phpMyAdmin"
 
-#: libraries/config/messages.inc.php:521 setup/lib/index.lib.php:132
+#: libraries/config/messages.inc.php:523 setup/lib/index.lib.php:132
 #: setup/lib/index.lib.php:143 setup/lib/index.lib.php:164
 #: setup/lib/index.lib.php:175 setup/lib/index.lib.php:187
 #: setup/lib/index.lib.php:195 setup/lib/index.lib.php:202
@@ -6248,7 +6254,7 @@ msgstr ""
 msgid "Version check"
 msgstr "Comprobación da versión"
 
-#: libraries/config/messages.inc.php:522
+#: libraries/config/messages.inc.php:524
 msgid ""
 "Enable [a@http://en.wikipedia.org/wiki/ZIP_(file_format)]ZIP[/a] compression "
 "for import and export operations"
@@ -6256,7 +6262,7 @@ msgstr ""
 "Activar a compresión [a@http://gl.wikipedia.org/wiki/ZIP_(formato de "
 "ficheiro)]ZIP[/a] nas operacións de importación e exportación"
 
-#: libraries/config/messages.inc.php:523
+#: libraries/config/messages.inc.php:525
 msgid "ZIP"
 msgstr "ZIP"
 
@@ -6276,46 +6282,44 @@ msgstr "Autenticación mediante HTTP"
 msgid "Signon authentication"
 msgstr "Autenticación mediante Signon"
 
-#: libraries/config/setup.forms.php:247
+#: libraries/config/setup.forms.php:248
 #: libraries/config/user_preferences.forms.php:153
 msgid "CSV using LOAD DATA"
 msgstr "CSV empregando LOAD DATA"
 
-#: libraries/config/setup.forms.php:256 libraries/config/setup.forms.php:349
+#: libraries/config/setup.forms.php:257 libraries/config/setup.forms.php:350
 #: libraries/config/user_preferences.forms.php:161
 #: libraries/config/user_preferences.forms.php:253
-#| msgid "Open Document Spreadsheet"
 msgid "OpenDocument Spreadsheet"
 msgstr "Folla de cálculo de OpenDocument"
 
-#: libraries/config/setup.forms.php:263
+#: libraries/config/setup.forms.php:264
 #: libraries/config/user_preferences.forms.php:168
 msgid "Quick"
 msgstr "Rápido"
 
-#: libraries/config/setup.forms.php:267
+#: libraries/config/setup.forms.php:268
 #: libraries/config/user_preferences.forms.php:172
 msgid "Custom"
 msgstr "Personalizada"
 
-#: libraries/config/setup.forms.php:288
+#: libraries/config/setup.forms.php:289
 #: libraries/config/user_preferences.forms.php:192
 msgid "Database export options"
 msgstr "Opcións de exportación da base de datos"
 
-#: libraries/config/setup.forms.php:321
+#: libraries/config/setup.forms.php:322
 #: libraries/config/user_preferences.forms.php:225
 msgid "CSV for MS Excel"
 msgstr "CSV (para datos de MS Excel)"
 
-#: libraries/config/setup.forms.php:344
+#: libraries/config/setup.forms.php:345
 #: libraries/config/user_preferences.forms.php:248
 msgid "Microsoft Word 2000"
 msgstr "Microsoft Word 2000"
 
-#: libraries/config/setup.forms.php:353
+#: libraries/config/setup.forms.php:354
 #: libraries/config/user_preferences.forms.php:257
-#| msgid "Open Document Text"
 msgid "OpenDocument Text"
 msgstr "Texto de OpenDocument"
 
@@ -6372,7 +6376,7 @@ msgstr "Falta a extensión %s. Comprobe a configuración do PHP."
 msgid "possible deep recursion attack"
 msgstr "posible ataque tipo deep recursion"
 
-#: libraries/database_interface.lib.php:2056
+#: libraries/database_interface.lib.php:2074
 msgid ""
 "The server is not responding (or the local server's socket is not correctly "
 "configured)."
@@ -6380,15 +6384,15 @@ msgstr ""
 "O servidor non responde (ou o socket local do servidor non se configurou "
 "correctamente)."
 
-#: libraries/database_interface.lib.php:2061
+#: libraries/database_interface.lib.php:2079
 msgid "The server is not responding."
 msgstr "O servidor non responde."
 
-#: libraries/database_interface.lib.php:2066
+#: libraries/database_interface.lib.php:2084
 msgid "Please check privileges of directory containing database."
 msgstr "Comprobe os privilexios do directorio que contén a base de datos."
 
-#: libraries/database_interface.lib.php:2076
+#: libraries/database_interface.lib.php:2094
 msgid "Details…"
 msgstr "Detalles…"
 
@@ -6710,8 +6714,8 @@ msgid ""
 "A compressed file's name must end in <b>.[format].[compression]</b>. "
 "Example: <b>.sql.zip</b>"
 msgstr ""
-"O nome dun ficheiro comprimido debe rematar en "
-"<b>.[formato].[compresión]</b>. Exemplo: <b>.sql.zip</b>"
+"O nome dun ficheiro comprimido debe rematar en <b>.[formato].[compresión]</"
+"b>. Exemplo: <b>.sql.zip</b>"
 
 #: libraries/display_import.lib.php:245
 msgid "File uploads are not allowed on this server."
@@ -6752,25 +6756,25 @@ msgstr "Opcións específicas do formato:"
 msgid "Language"
 msgstr "Lingua"
 
-#: libraries/engines/innodb.lib.php:28
+#: libraries/engines/innodb.lib.php:32
 msgid "Data home directory"
 msgstr "Directorio base dos datos"
 
-#: libraries/engines/innodb.lib.php:29
+#: libraries/engines/innodb.lib.php:33
 msgid "The common part of the directory path for all InnoDB data files."
 msgstr ""
 "Parte común da ruta do directorio que ten todos os ficheiros de datos de "
 "innoDB."
 
-#: libraries/engines/innodb.lib.php:32
+#: libraries/engines/innodb.lib.php:36
 msgid "Data files"
 msgstr "Ficheiros de datos"
 
-#: libraries/engines/innodb.lib.php:35
+#: libraries/engines/innodb.lib.php:39
 msgid "Autoextend increment"
 msgstr "Incremento de Autoextend"
 
-#: libraries/engines/innodb.lib.php:36
+#: libraries/engines/innodb.lib.php:40
 msgid ""
 "The increment size for extending the size of an autoextending tablespace "
 "when it becomes full."
@@ -6778,11 +6782,11 @@ msgstr ""
 "Tamaño do incremento para estender o tamaño dun espazo de táboa cando se "
 "encha."
 
-#: libraries/engines/innodb.lib.php:40
+#: libraries/engines/innodb.lib.php:44
 msgid "Buffer pool size"
 msgstr "Tamaño da reserva da memoria intermedia"
 
-#: libraries/engines/innodb.lib.php:41
+#: libraries/engines/innodb.lib.php:45
 msgid ""
 "The size of the memory buffer InnoDB uses to cache data and indexes of its "
 "tables."
@@ -6790,75 +6794,75 @@ msgstr ""
 "Tamaño da memoria intermedia que usa InnoDB para gardar provisoriamente os "
 "datos e índices das súas táboas."
 
-#: libraries/engines/innodb.lib.php:143
+#: libraries/engines/innodb.lib.php:147
 msgid "Buffer Pool"
 msgstr "Reserva da memoria intermedia"
 
-#: libraries/engines/innodb.lib.php:166
+#: libraries/engines/innodb.lib.php:170
 msgid "Buffer Pool Usage"
 msgstr "Uso da reserva da memoria intermedia"
 
-#: libraries/engines/innodb.lib.php:176
+#: libraries/engines/innodb.lib.php:180
 msgid "pages"
 msgstr "páxinas"
 
-#: libraries/engines/innodb.lib.php:190
+#: libraries/engines/innodb.lib.php:194
 msgid "Free pages"
 msgstr "Páxinas libres"
 
-#: libraries/engines/innodb.lib.php:198
+#: libraries/engines/innodb.lib.php:202
 msgid "Dirty pages"
 msgstr "Páxinas suxas"
 
-#: libraries/engines/innodb.lib.php:206
+#: libraries/engines/innodb.lib.php:210
 msgid "Pages containing data"
 msgstr "Páxinas con datos"
 
-#: libraries/engines/innodb.lib.php:214
+#: libraries/engines/innodb.lib.php:218
 msgid "Pages to be flushed"
 msgstr "Páxinas que se eliminarán"
 
-#: libraries/engines/innodb.lib.php:222
+#: libraries/engines/innodb.lib.php:226
 msgid "Busy pages"
 msgstr "Páxinas ocupadas"
 
-#: libraries/engines/innodb.lib.php:233
+#: libraries/engines/innodb.lib.php:237
 msgid "Latched pages"
 msgstr "Páxinas fechadas"
 
-#: libraries/engines/innodb.lib.php:246
+#: libraries/engines/innodb.lib.php:250
 msgid "Buffer Pool Activity"
 msgstr "Actividade da reserva da memoria intermedia"
 
-#: libraries/engines/innodb.lib.php:250
+#: libraries/engines/innodb.lib.php:254
 msgid "Read requests"
 msgstr "Solicitudes de lectura"
 
-#: libraries/engines/innodb.lib.php:258
+#: libraries/engines/innodb.lib.php:262
 msgid "Write requests"
 msgstr "Solicitudes de escrita"
 
-#: libraries/engines/innodb.lib.php:266
+#: libraries/engines/innodb.lib.php:270
 msgid "Read misses"
 msgstr "Fallos de lectura"
 
-#: libraries/engines/innodb.lib.php:274
+#: libraries/engines/innodb.lib.php:278
 msgid "Write waits"
 msgstr "Esperas para escribir"
 
-#: libraries/engines/innodb.lib.php:282
+#: libraries/engines/innodb.lib.php:286
 msgid "Read misses in %"
 msgstr "Fallos de lectura en %"
 
-#: libraries/engines/innodb.lib.php:297
+#: libraries/engines/innodb.lib.php:301
 msgid "Write waits in %"
 msgstr "Esperas para escribir en %"
 
-#: libraries/engines/myisam.lib.php:28
+#: libraries/engines/myisam.lib.php:32
 msgid "Data pointer size"
 msgstr "Tamaño do punteiro de datos"
 
-#: libraries/engines/myisam.lib.php:29
+#: libraries/engines/myisam.lib.php:33
 msgid ""
 "The default pointer size in bytes, to be used by CREATE TABLE for MyISAM "
 "tables when no MAX_ROWS option is specified."
@@ -6866,11 +6870,11 @@ msgstr ""
 "O tamaño por omisión do punteiro de datos en bytes; emprégase con CREATE "
 "TABLE para táboas MyISAM cando non se especifique a opción MAX_ROWS."
 
-#: libraries/engines/myisam.lib.php:33
+#: libraries/engines/myisam.lib.php:37
 msgid "Automatic recovery mode"
 msgstr "Modo de recuperación automática"
 
-#: libraries/engines/myisam.lib.php:34
+#: libraries/engines/myisam.lib.php:38
 msgid ""
 "The mode for automatic recovery of crashed MyISAM tables, as set via the --"
 "myisam-recover server startup option."
@@ -6878,11 +6882,11 @@ msgstr ""
 "O modo de recuperación automática de táboas MyISAM estragadas, tal e como se "
 "configura na opción de inicio do servidor --myisam-recover."
 
-#: libraries/engines/myisam.lib.php:37
+#: libraries/engines/myisam.lib.php:41
 msgid "Maximum size for temporary sort files"
 msgstr "Tamaño máximo dos ficheiros de ordenación temporais"
 
-#: libraries/engines/myisam.lib.php:38
+#: libraries/engines/myisam.lib.php:42
 msgid ""
 "The maximum size of the temporary file MySQL is allowed to use while re-"
 "creating a MyISAM index (during REPAIR TABLE, ALTER TABLE, or LOAD DATA "
@@ -6892,38 +6896,37 @@ msgstr ""
 "momento de recrear un índice MyISAM (durante REPAIR TABLE, ALTER TABLE, ou "
 "LOAD DATA INFILE)."
 
-#: libraries/engines/myisam.lib.php:42
+#: libraries/engines/myisam.lib.php:46
 msgid "Maximum size for temporary files on index creation"
 msgstr "Tamaño máximo dos ficheiros temporais no momento de crear índices"
 
-#: libraries/engines/myisam.lib.php:43
+#: libraries/engines/myisam.lib.php:47
 msgid ""
 "If the temporary file used for fast MyISAM index creation would be larger "
 "than using the key cache by the amount specified here, prefer the key cache "
 "method."
 msgstr ""
 "Se o ficheiro temporal usado para a creación rápida dun índice de MyISAM for "
-"máis grande que se se usar o caché de chaves na cantidade que se "
-"especifique aquí, preferir o método da caché de chaves."
+"máis grande que se se usar o caché de chaves na cantidade que se especifique "
+"aquí, preferir o método da caché de chaves."
 
-#: libraries/engines/myisam.lib.php:47
+#: libraries/engines/myisam.lib.php:51
 msgid "Repair threads"
 msgstr "Reparar os fíos"
 
-#: libraries/engines/myisam.lib.php:48
+#: libraries/engines/myisam.lib.php:52
 msgid ""
 "If this value is greater than 1, MyISAM table indexes are created in "
 "parallel (each index in its own thread) during the repair by sorting process."
 msgstr ""
 "Se este valor é maior que 1, os índices das táboas MyISAM créanse en "
-"paralelo (cada índice no seu propio fío) durante o proceso Reparar "
-"ordenando."
+"paralelo (cada índice no seu propio fío) durante o proceso Reparar ordenando."
 
-#: libraries/engines/myisam.lib.php:52
+#: libraries/engines/myisam.lib.php:56
 msgid "Sort buffer size"
 msgstr "Tamaño da memoria intermedia de ordenación"
 
-#: libraries/engines/myisam.lib.php:53
+#: libraries/engines/myisam.lib.php:57
 msgid ""
 "The buffer that is allocated when sorting MyISAM indexes during a REPAIR "
 "TABLE or when creating indexes with CREATE INDEX or ALTER TABLE."
@@ -6932,11 +6935,11 @@ msgstr ""
 "durante unha instrución REPAIR TABLE ou ao crear índices con CREATE INDEX ou "
 "ALTER TABLE."
 
-#: libraries/engines/pbxt.lib.php:28
+#: libraries/engines/pbxt.lib.php:32
 msgid "Index cache size"
 msgstr "Tamaño da caché do índice"
 
-#: libraries/engines/pbxt.lib.php:29
+#: libraries/engines/pbxt.lib.php:33
 msgid ""
 "This is the amount of memory allocated to the index cache. Default value is "
 "32MB. The memory allocated here is used only for caching index pages."
@@ -6945,11 +6948,11 @@ msgstr ""
 "omisión é 32MB. A memoria que se asigne aquí só se emprega para a caché das "
 "páxinas de índice."
 
-#: libraries/engines/pbxt.lib.php:33
+#: libraries/engines/pbxt.lib.php:37
 msgid "Record cache size"
 msgstr "Tamaño da caché dos rexistros"
 
-#: libraries/engines/pbxt.lib.php:34
+#: libraries/engines/pbxt.lib.php:38
 msgid ""
 "This is the amount of memory allocated to the record cache used to cache "
 "table data. The default value is 32MB. This memory is used to cache changes "
@@ -6960,11 +6963,11 @@ msgstr ""
 "emprégase como caché das modificacións dos ficheiros de datos de "
 "manipulación (.xtd) e punteiros das fileiras (.xtr)."
 
-#: libraries/engines/pbxt.lib.php:38
+#: libraries/engines/pbxt.lib.php:42
 msgid "Log cache size"
 msgstr "Tamaño da caché do rexistro"
 
-#: libraries/engines/pbxt.lib.php:39
+#: libraries/engines/pbxt.lib.php:43
 msgid ""
 "The amount of memory allocated to the transaction log cache used to cache on "
 "transaction log data. The default is 16MB."
@@ -6973,11 +6976,11 @@ msgstr ""
 "empregada como caché dos datos do rexistro de transaccións. Por omisión é "
 "16MB."
 
-#: libraries/engines/pbxt.lib.php:43
+#: libraries/engines/pbxt.lib.php:47
 msgid "Log file threshold"
 msgstr "Limiar do ficheiro de rexistro"
 
-#: libraries/engines/pbxt.lib.php:44
+#: libraries/engines/pbxt.lib.php:48
 msgid ""
 "The size of a transaction log before rollover, and a new log is created. The "
 "default value is 16MB."
@@ -6985,11 +6988,11 @@ msgstr ""
 "O tamaño dun rexistro de transaccións antes do rollover, e créase un "
 "rexistro novo. O valor por omisión é 16MB."
 
-#: libraries/engines/pbxt.lib.php:48
+#: libraries/engines/pbxt.lib.php:52
 msgid "Transaction buffer size"
 msgstr "Tamaño do buffer de transaccións"
 
-#: libraries/engines/pbxt.lib.php:49
+#: libraries/engines/pbxt.lib.php:53
 msgid ""
 "The size of the global transaction log buffer (the engine allocates 2 "
 "buffers of this size). The default is 1MB."
@@ -6997,11 +7000,11 @@ msgstr ""
 "O tamaño do buffer do rexistro de transaccións globais (o motor asigna dous "
 "bufferes deste tamaño). Por omisión é 1MB."
 
-#: libraries/engines/pbxt.lib.php:53
+#: libraries/engines/pbxt.lib.php:57
 msgid "Checkpoint frequency"
 msgstr "Frecuencia do punto de comprobación"
 
-#: libraries/engines/pbxt.lib.php:54
+#: libraries/engines/pbxt.lib.php:58
 msgid ""
 "The amount of data written to the transaction log before a checkpoint is "
 "performed. The default value is 24MB."
@@ -7009,11 +7012,11 @@ msgstr ""
 "A cantidade de datos escritos no rexistro de transaccións antes de realizar "
 "o punto de comprobación. O valor por omisión é 24MB."
 
-#: libraries/engines/pbxt.lib.php:58
+#: libraries/engines/pbxt.lib.php:62
 msgid "Data log threshold"
 msgstr "Limiar do rexistro de datos"
 
-#: libraries/engines/pbxt.lib.php:59
+#: libraries/engines/pbxt.lib.php:63
 msgid ""
 "The maximum size of a data log file. The default value is 64MB. PBXT can "
 "create a maximum of 32000 data logs, which are used by all tables. So the "
@@ -7026,11 +7029,11 @@ msgstr ""
 "incrementar a cantidade total de datos que se poden almacenar na base de "
 "datos."
 
-#: libraries/engines/pbxt.lib.php:63
+#: libraries/engines/pbxt.lib.php:67
 msgid "Garbage threshold"
 msgstr "Limiar do lixo"
 
-#: libraries/engines/pbxt.lib.php:64
+#: libraries/engines/pbxt.lib.php:68
 msgid ""
 "The percentage of garbage in a data log file before it is compacted. This is "
 "a value between 1 and 99. The default is 50."
@@ -7038,11 +7041,11 @@ msgstr ""
 "A porcentaxe de lixo no ficheiro de datos antes de compactar. É un valor "
 "entre 1 e 99. Por omisión é 50."
 
-#: libraries/engines/pbxt.lib.php:68
+#: libraries/engines/pbxt.lib.php:72
 msgid "Log buffer size"
 msgstr "Tamaño do buffer do rexistro"
 
-#: libraries/engines/pbxt.lib.php:69
+#: libraries/engines/pbxt.lib.php:73
 msgid ""
 "The size of the buffer used when writing a data log. The default is 256MB. "
 "The engine allocates one buffer per thread, but only if the thread is "
@@ -7052,39 +7055,39 @@ msgstr ""
 "256MB. O motor asigna un buffer por fío, mais só se se require o fío para "
 "escribir un rexistro de datos."
 
-#: libraries/engines/pbxt.lib.php:73
+#: libraries/engines/pbxt.lib.php:77
 msgid "Data file grow size"
 msgstr "Tamaño de aumento do ficheiro de datos"
 
-#: libraries/engines/pbxt.lib.php:74
+#: libraries/engines/pbxt.lib.php:78
 msgid "The grow size of the handle data (.xtd) files."
 msgstr "O tamaño de aumento dos ficheiros de datos de manipulación (.xtd)."
 
-#: libraries/engines/pbxt.lib.php:78
+#: libraries/engines/pbxt.lib.php:82
 msgid "Row file grow size"
 msgstr "Tamaño de aumento do ficheiro de fileiras"
 
-#: libraries/engines/pbxt.lib.php:79
+#: libraries/engines/pbxt.lib.php:83
 msgid "The grow size of the row pointer (.xtr) files."
 msgstr "O tamaño de aumento dos ficheiros de punteiro de fileira (.xtr)."
 
-#: libraries/engines/pbxt.lib.php:83
+#: libraries/engines/pbxt.lib.php:87
 msgid "Log file count"
 msgstr "Número de ficheiros de rexistro"
 
-#: libraries/engines/pbxt.lib.php:84
+#: libraries/engines/pbxt.lib.php:88
 msgid ""
 "This is the number of transaction log files (pbxt/system/xlog*.xt) the "
 "system will maintain. If the number of logs exceeds this value then old logs "
 "will be deleted, otherwise they are renamed and given the next highest "
 "number."
 msgstr ""
-"Este é o número de ficheiros de rexistro de transaccións "
-"(pbxt/system/xlog*.xt) que vai manter o sistema. Se o número de ficheiros de "
-"rexistro excede este valor, os ficheiros de rexistro antigos elimínanse; se "
-"non, múdaselles o nome e dáselles o número máis alto seguinte."
+"Este é o número de ficheiros de rexistro de transaccións (pbxt/system/xlog*."
+"xt) que vai manter o sistema. Se o número de ficheiros de rexistro excede "
+"este valor, os ficheiros de rexistro antigos elimínanse; se non, múdaselles "
+"o nome e dáselles o número máis alto seguinte."
 
-#: libraries/engines/pbxt.lib.php:131
+#: libraries/engines/pbxt.lib.php:135
 #, php-format
 msgid ""
 "Documentation and further information about PBXT can be found on the "
@@ -7093,11 +7096,11 @@ msgstr ""
 "Pódese atopar documentación e información adicional sobre PBXT na %sPáxina "
 "de PrimeBase XT %s."
 
-#: libraries/engines/pbxt.lib.php:133
+#: libraries/engines/pbxt.lib.php:137
 msgid "Related Links"
 msgstr "Ligazóns relacionadas"
 
-#: libraries/engines/pbxt.lib.php:135
+#: libraries/engines/pbxt.lib.php:139
 msgid "The PrimeBase XT Blog by Paul McCullagh"
 msgstr "O Blogue de PrimeBase XT de Paul McCullagh"
 
@@ -7472,19 +7475,19 @@ msgstr "descoñecido"
 msgid "An error has occured while loading the navigation tree"
 msgstr "Produciuse un erro ao cargar a árbore de navegación"
 
-#: libraries/navigation/NavigationHeader.class.php:178
+#: libraries/navigation/NavigationHeader.class.php:183
 msgid "Home"
 msgstr "Inicio («Home»)"
 
-#: libraries/navigation/NavigationHeader.class.php:191
+#: libraries/navigation/NavigationHeader.class.php:196
 msgid "Log out"
 msgstr "Saír"
 
-#: libraries/navigation/NavigationHeader.class.php:214
+#: libraries/navigation/NavigationHeader.class.php:219
 msgid "phpMyAdmin documentation"
 msgstr "Documentación do phpMyAdmin"
 
-#: libraries/navigation/NavigationHeader.class.php:238
+#: libraries/navigation/NavigationHeader.class.php:243
 msgid "Reload navigation frame"
 msgstr "Recargar a moldura de navegación"
 
@@ -7537,7 +7540,7 @@ msgid "New"
 msgstr "Novo"
 
 #: libraries/navigation/Nodes/Node_Function_Container.class.php:26
-#: libraries/plugins/export/ExportSql.class.php:475
+#: libraries/plugins/export/ExportSql.class.php:484
 #: libraries/plugins/export/ExportXml.class.php:107
 msgid "Functions"
 msgstr "Funcións"
@@ -7553,7 +7556,7 @@ msgid "New"
 msgstr "Novo"
 
 #: libraries/navigation/Nodes/Node_Procedure_Container.class.php:26
-#: libraries/plugins/export/ExportSql.class.php:458
+#: libraries/plugins/export/ExportSql.class.php:467
 #: libraries/plugins/export/ExportXml.class.php:111
 msgid "Procedures"
 msgstr "Procedementos"
@@ -7857,21 +7860,21 @@ msgstr "O usuario ou o contrasinal están errados. Denegouse o acceso."
 msgid "Can not find signon authentication script:"
 msgstr "Non foi posíbel atopar o script de autenticación de entrada:"
 
-#: libraries/plugins/auth/swekey/swekey.auth.lib.php:134
+#: libraries/plugins/auth/swekey/swekey.auth.lib.php:138
 #, php-format
 msgid "File %s does not contain any key id"
 msgstr "O ficheiro %s non contén ningún identificador de chave"
 
-#: libraries/plugins/auth/swekey/swekey.auth.lib.php:176
-#: libraries/plugins/auth/swekey/swekey.auth.lib.php:196
+#: libraries/plugins/auth/swekey/swekey.auth.lib.php:180
+#: libraries/plugins/auth/swekey/swekey.auth.lib.php:200
 msgid "Hardware authentication failed"
 msgstr "Fallou a autenticación do hardware"
 
-#: libraries/plugins/auth/swekey/swekey.auth.lib.php:183
+#: libraries/plugins/auth/swekey/swekey.auth.lib.php:187
 msgid "No valid authentication key plugged"
 msgstr "Non se meteu ningunha chave de autenticación válida"
 
-#: libraries/plugins/auth/swekey/swekey.auth.lib.php:216
+#: libraries/plugins/auth/swekey/swekey.auth.lib.php:220
 msgid "Authenticating…"
 msgstr "A autenticar…"
 
@@ -7924,7 +7927,7 @@ msgstr "Opcións de  envorcado dos datos"
 
 #: libraries/plugins/export/ExportHtmlword.class.php:203
 #: libraries/plugins/export/ExportOdt.class.php:258
-#: libraries/plugins/export/ExportSql.class.php:1705
+#: libraries/plugins/export/ExportSql.class.php:1717
 #: libraries/plugins/export/ExportTexytext.class.php:185
 msgid "Dumping data for table"
 msgstr "A extraer os datos da táboa"
@@ -7947,21 +7950,21 @@ msgstr "Definición"
 
 #: libraries/plugins/export/ExportHtmlword.class.php:551
 #: libraries/plugins/export/ExportOdt.class.php:641
-#: libraries/plugins/export/ExportSql.class.php:1455
+#: libraries/plugins/export/ExportSql.class.php:1467
 #: libraries/plugins/export/ExportTexytext.class.php:496
 msgid "Table structure for table"
 msgstr "Estrutura da táboa"
 
 #: libraries/plugins/export/ExportHtmlword.class.php:570
 #: libraries/plugins/export/ExportOdt.class.php:665
-#: libraries/plugins/export/ExportSql.class.php:1483
+#: libraries/plugins/export/ExportSql.class.php:1495
 #: libraries/plugins/export/ExportTexytext.class.php:511
 msgid "Structure for view"
 msgstr "Estrutura para a vista"
 
 #: libraries/plugins/export/ExportHtmlword.class.php:579
 #: libraries/plugins/export/ExportOdt.class.php:677
-#: libraries/plugins/export/ExportSql.class.php:1500
+#: libraries/plugins/export/ExportSql.class.php:1512
 #: libraries/plugins/export/ExportTexytext.class.php:518
 msgid "Stand-in structure for view"
 msgstr "Estrutura existente para a vista"
@@ -8007,7 +8010,7 @@ msgid "Display MIME types"
 msgstr "Mostrar os tipos MIME"
 
 #: libraries/plugins/export/ExportLatex.class.php:218
-#: libraries/plugins/export/ExportSql.class.php:601
+#: libraries/plugins/export/ExportSql.class.php:610
 #: libraries/plugins/export/ExportXml.class.php:191
 #: libraries/replication_gui.lib.php:68 libraries/replication_gui.lib.php:195
 #: libraries/replication_gui.lib.php:293 libraries/replication_gui.lib.php:296
@@ -8021,13 +8024,13 @@ msgid "Host"
 msgstr "Servidor"
 
 #: libraries/plugins/export/ExportLatex.class.php:223
-#: libraries/plugins/export/ExportSql.class.php:608
+#: libraries/plugins/export/ExportSql.class.php:617
 #: libraries/plugins/export/ExportXml.class.php:196 sql.php:1115
 msgid "Generation Time"
 msgstr "Xerado en"
 
 #: libraries/plugins/export/ExportLatex.class.php:226
-#: libraries/plugins/export/ExportSql.class.php:614
+#: libraries/plugins/export/ExportSql.class.php:623
 #: libraries/plugins/export/ExportXml.class.php:199
 msgid "PHP Version"
 msgstr "Versión do PHP"
@@ -8076,8 +8079,9 @@ msgstr ""
 "compatibilidade da saída:"
 
 #: libraries/plugins/export/ExportSql.class.php:184
-#: libraries/plugins/export/ExportSql.class.php:241
-#: libraries/plugins/export/ExportSql.class.php:249
+#: libraries/plugins/export/ExportSql.class.php:227
+#: libraries/plugins/export/ExportSql.class.php:250
+#: libraries/plugins/export/ExportSql.class.php:258
 #, php-format
 msgid "Add %s statement"
 msgstr "Engadir unha instrución %s"
@@ -8086,7 +8090,7 @@ msgstr "Engadir unha instrución %s"
 msgid "Add statements:"
 msgstr "Engadir instrucións:"
 
-#: libraries/plugins/export/ExportSql.class.php:279
+#: libraries/plugins/export/ExportSql.class.php:288
 msgid ""
 "Enclose table and column names with backquotes <i>(Protects column and table "
 "names formed with special characters or keywords)</i>"
@@ -8095,47 +8099,47 @@ msgstr ""
 "<i>(Protexe os nomes das columnas e as táboas formadas con caracteres "
 "especiais ou palabras chave)</i>"
 
-#: libraries/plugins/export/ExportSql.class.php:295
+#: libraries/plugins/export/ExportSql.class.php:304
 msgid "Data creation options"
 msgstr "Opcións de creación de datos"
 
-#: libraries/plugins/export/ExportSql.class.php:299
-#: libraries/plugins/export/ExportSql.class.php:1649
+#: libraries/plugins/export/ExportSql.class.php:308
+#: libraries/plugins/export/ExportSql.class.php:1661
 msgid "Truncate table before insert"
 msgstr "Baleirar a táboa antes de inserir"
 
-#: libraries/plugins/export/ExportSql.class.php:305
+#: libraries/plugins/export/ExportSql.class.php:314
 msgid "Instead of <code>INSERT</code> statements, use:"
 msgstr "No canto de instrucións <code>INSERT</code>, empregar:"
 
-#: libraries/plugins/export/ExportSql.class.php:311
+#: libraries/plugins/export/ExportSql.class.php:320
 msgid "<code>INSERT DELAYED</code> statements"
 msgstr "instrucións <code>INSERT DELAYED</code>"
 
-#: libraries/plugins/export/ExportSql.class.php:322
-#: libraries/plugins/export/ExportSql.class.php:352
+#: libraries/plugins/export/ExportSql.class.php:331
+#: libraries/plugins/export/ExportSql.class.php:361
 msgid "<code>INSERT IGNORE</code> statements"
 msgstr "instrucións <code>INSERT IGNORE</code>"
 
-#: libraries/plugins/export/ExportSql.class.php:335
+#: libraries/plugins/export/ExportSql.class.php:344
 msgid "Function to use when dumping data:"
 msgstr "Función que empregar ao envorcar os datos:"
 
-#: libraries/plugins/export/ExportSql.class.php:348
+#: libraries/plugins/export/ExportSql.class.php:357
 msgid "Syntax to use when inserting data:"
 msgstr "Sintaxe que empregar ao inserir os datos:"
 
-#: libraries/plugins/export/ExportSql.class.php:356
+#: libraries/plugins/export/ExportSql.class.php:365
 msgid ""
 "include column names in every <code>INSERT</code> statement <br /> &nbsp; "
 "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name (col_A,col_B,col_C) VALUES "
 "(1,2,3)</code>"
 msgstr ""
 "incluír os nomes das columnas en todas as instrucións <code>INSERT</code> "
-"<br /> &nbsp;&nbsp;&nbsp; Exemplo: <code>INSERT INTO nome_taboa "
-"(col_A,col_B,col_C) VALUES (1,2,3)</code>"
+"<br /> &nbsp;&nbsp;&nbsp; Exemplo: <code>INSERT INTO nome_taboa (col_A,col_B,"
+"col_C) VALUES (1,2,3)</code>"
 
-#: libraries/plugins/export/ExportSql.class.php:361
+#: libraries/plugins/export/ExportSql.class.php:370
 msgid ""
 "insert multiple rows in every <code>INSERT</code> statement<br /> &nbsp; "
 "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name VALUES (1,2,3), (4,5,6), "
@@ -8145,7 +8149,7 @@ msgstr ""
 "&nbsp;&nbsp;&nbsp; Exemplo: <code>INSERT INTO nome_taboa VALUES (1,2,3), "
 "(4,5,6), (7,8,9)</code>"
 
-#: libraries/plugins/export/ExportSql.class.php:366
+#: libraries/plugins/export/ExportSql.class.php:375
 msgid ""
 "both of the above<br /> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 "tbl_name (col_A,col_B) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
@@ -8153,7 +8157,7 @@ msgstr ""
 "as dúas anteriores<br /> &nbsp; &nbsp; &nbsp; Exemplo: <code>INSERT INTO "
 "nome_taboa (col_A,col_B) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 
-#: libraries/plugins/export/ExportSql.class.php:371
+#: libraries/plugins/export/ExportSql.class.php:380
 msgid ""
 "neither of the above<br /> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 "tbl_name VALUES (1,2,3)</code>"
@@ -8161,7 +8165,7 @@ msgstr ""
 "ningunha das anteriores<br /> &nbsp; &nbsp; &nbsp; Exemplo: <code>INSERT "
 "INTO nome_taboa VALUES (1,2,3)</code>"
 
-#: libraries/plugins/export/ExportSql.class.php:390
+#: libraries/plugins/export/ExportSql.class.php:399
 msgid ""
 "Dump binary columns in hexadecimal notation <i>(for example, \"abc\" becomes "
 "0x616263)</i>"
@@ -8169,7 +8173,7 @@ msgstr ""
 "Envorcar as columnas binarias na notación hexadecimal <i>(por exemplo, «abc» "
 "convértese en 0x616263)</i>"
 
-#: libraries/plugins/export/ExportSql.class.php:403
+#: libraries/plugins/export/ExportSql.class.php:412
 msgid ""
 "Dump TIMESTAMP columns in UTC <i>(enables TIMESTAMP columns to be dumped and "
 "reloaded between servers in different time zones)</i>"
@@ -8178,23 +8182,23 @@ msgstr ""
 "se envorquen en carguen entre servidores que estean en fusos horarios "
 "distintos)</i>"
 
-#: libraries/plugins/export/ExportSql.class.php:1197
+#: libraries/plugins/export/ExportSql.class.php:1209
 msgid "Constraints for dumped tables"
 msgstr "Restricións para os envorcados das táboas"
 
-#: libraries/plugins/export/ExportSql.class.php:1208
+#: libraries/plugins/export/ExportSql.class.php:1220
 msgid "Constraints for table"
 msgstr "Restricións para a táboa"
 
-#: libraries/plugins/export/ExportSql.class.php:1349
+#: libraries/plugins/export/ExportSql.class.php:1361
 msgid "MIME TYPES FOR TABLE"
 msgstr "TIPOS MIME PARA A TÁBOA"
 
-#: libraries/plugins/export/ExportSql.class.php:1374
+#: libraries/plugins/export/ExportSql.class.php:1386
 msgid "RELATIONS FOR TABLE"
 msgstr "RELACIÓNS PARA A TÁBOA"
 
-#: libraries/plugins/export/ExportSql.class.php:1566
+#: libraries/plugins/export/ExportSql.class.php:1578
 msgid "Error reading data:"
 msgstr "Produciuse un erro ao ler os datos:"
 
@@ -8223,8 +8227,7 @@ msgid ""
 msgstr ""
 "Se os datos de cada fileira do ficheiro non están na mesma orde que na base "
 "de datos, enumere aquí os nomes das columnas correspondentes. Os nomes das "
-"columnas teñen que estar separados por vírgulas e non encerrados entre "
-"aspas."
+"columnas teñen que estar separados por vírgulas e non encerrados entre aspas."
 
 #: libraries/plugins/import/ImportCsv.class.php:81
 #: libraries/plugins/import/ImportLdi.class.php:66
@@ -8293,7 +8296,6 @@ msgstr ""
 "problema e ténteo de novo."
 
 #: libraries/plugins/import/ImportOds.class.php:182
-#| msgid "Open Document Spreadsheet"
 msgid "Could not parse OpenDocument Spreadsheet!"
 msgstr "Non foi posíbel analizar a folla de cálculo de OpenDocument!"
 
@@ -8363,10 +8365,10 @@ msgstr ""
 "numérica de UNIX como hora e data con formato. A primeira opción é a "
 "diferenza (en horas) que se engade á hora ou data (Por omisión: 0). Empregue "
 "a segunda opción para indicar unha cadea de formato de data/hora diferente. "
-"A terceira opción determina se se desexa ver a hora local ou a UTC "
-"(empregue as cadeas «local»ou «utc») para iso. Segundo isto, o formato de "
-"data ten un valor diferente - para «local» vexa a documentación acerca da "
-"función de PHP strftime() e para «utc» faise empregando a función gmdate()."
+"A terceira opción determina se se desexa ver a hora local ou a UTC (empregue "
+"as cadeas «local»ou «utc») para iso. Segundo isto, o formato de data ten un "
+"valor diferente - para «local» vexa a documentación acerca da función de PHP "
+"strftime() e para «utc» faise empregando a función gmdate()."
 
 #: libraries/plugins/transformations/abstract/DownloadTransformationsPlugin.class.php:31
 msgid ""
@@ -8396,14 +8398,13 @@ msgstr ""
 "SÓ EN LINUX: Inicia un aplicativo externa e envíalle o campo de datos por "
 "medio da entrada normal. Devolve a saída normal do aplicativo. Por omisión é "
 "Tidy, para que resulte código HTML claro. Por razóns de seguranza, ten que "
-"editar manualmente o ficheiro "
-"libraries/plugins/transformations/Text_Plain_External.class.php e inserir as "
-"ferramentas que queira permitir que funcionen. A primeira opción, polo "
-"tanto, é o número do programa que quere usar e a segunda opción son os "
-"parámetros do programa. O terceiro parámetro, se for 1, usará "
-"htmlspecialchars() para converter a saída (Por omisión é 1). Un cuarto "
-"parámetro, se for 1, porá un NOWRAP na cela de contidos para que toda a "
-"saída se mostre sen reformatar (por omisión é 1)."
+"editar manualmente o ficheiro libraries/plugins/transformations/"
+"Text_Plain_External.class.php e inserir as ferramentas que queira permitir "
+"que funcionen. A primeira opción, polo tanto, é o número do programa que "
+"quere usar e a segunda opción son os parámetros do programa. O terceiro "
+"parámetro, se for 1, usará htmlspecialchars() para converter a saída (Por "
+"omisión é 1). Un cuarto parámetro, se for 1, porá un NOWRAP na cela de "
+"contidos para que toda a saída se mostre sen reformatar (por omisión é 1)."
 
 #: libraries/plugins/transformations/abstract/FormattedTransformationsPlugin.class.php:31
 msgid ""
@@ -8561,8 +8562,8 @@ msgid ""
 "code>), for example by starting from <code>config.sample.inc.php</code>."
 msgstr ""
 "Active as funcionalidades avanzadas no ficheiro de configuración "
-"(<code>config.inc.php</code>) comezando, por exemplo con "
-"<code>config.sample.inc.php</code>."
+"(<code>config.inc.php</code>) comezando, por exemplo con <code>config.sample."
+"inc.php</code>."
 
 #: libraries/relation.lib.php:276
 msgid "Re-login to phpMyAdmin to load the updated configuration file."
@@ -8570,7 +8571,7 @@ msgstr ""
 "Entre de novo no phpMyAdmin para cargar o ficheiro de configuración "
 "actualizado."
 
-#: libraries/relation.lib.php:1381
+#: libraries/relation.lib.php:1389
 msgid "no description"
 msgstr "sen descrición"
 
@@ -8631,8 +8632,8 @@ msgid ""
 "Only slaves started with the --report-host=host_name option are visible in "
 "this list."
 msgstr ""
-"Nesta listaxe só son visíbeis os escravos que se inicien coa opción "
-"--report-host=nome_da_máquina."
+"Nesta listaxe só son visíbeis os escravos que se inicien coa opción --report-"
+"host=nome_da_máquina."
 
 #: libraries/replication_gui.lib.php:264 server_replication.php:183
 msgid "Add slave replication user"
@@ -8944,8 +8945,10 @@ msgstr "Resultados da execución da rutina %s"
 #, php-format
 msgid "%d row affected by the last statement inside the procedure"
 msgid_plural "%d rows affected by the last statement inside the procedure"
-msgstr[0] "%d fileira afectada pola última instrución de dentro do procedemento"
-msgstr[1] "%d fileiras afectadas pola última instrución de dentro do procedemento"
+msgstr[0] ""
+"%d fileira afectada pola última instrución de dentro do procedemento"
+msgstr[1] ""
+"%d fileiras afectadas pola última instrución de dentro do procedemento"
 
 #: libraries/rte/rte_routines.lib.php:1505
 #: libraries/rte/rte_routines.lib.php:1513
@@ -9084,7 +9087,7 @@ msgstr "Non hai acontecementos que mostrar."
 
 #: libraries/schema/Dia_Relation_Schema.class.php:236
 #: libraries/schema/Eps_Relation_Schema.class.php:425
-#: libraries/schema/Pdf_Relation_Schema.class.php:410
+#: libraries/schema/Pdf_Relation_Schema.class.php:417
 #: libraries/schema/Svg_Relation_Schema.class.php:392
 #, php-format
 msgid "The %s table doesn't exist!"
@@ -9092,14 +9095,14 @@ msgstr "Non existe a táboa %s!"
 
 #: libraries/schema/Dia_Relation_Schema.class.php:272
 #: libraries/schema/Eps_Relation_Schema.class.php:474
-#: libraries/schema/Pdf_Relation_Schema.class.php:450
+#: libraries/schema/Pdf_Relation_Schema.class.php:457
 #: libraries/schema/Svg_Relation_Schema.class.php:443
 #, php-format
 msgid "Please configure the coordinates for table %s"
 msgstr "Configure as coordenadas da táboa %s"
 
 #: libraries/schema/Eps_Relation_Schema.class.php:828
-#: libraries/schema/Pdf_Relation_Schema.class.php:865
+#: libraries/schema/Pdf_Relation_Schema.class.php:872
 #: libraries/schema/Svg_Relation_Schema.class.php:803
 #, php-format
 msgid "Schema of the %s database - Page %s"
@@ -9113,24 +9116,24 @@ msgstr "Esta páxina non contén ningunha táboa!"
 msgid "SCHEMA ERROR: "
 msgstr "HAI UN ERRO NO ESQUEMA: "
 
-#: libraries/schema/Pdf_Relation_Schema.class.php:887
-#: libraries/schema/Pdf_Relation_Schema.class.php:1212
+#: libraries/schema/Pdf_Relation_Schema.class.php:894
+#: libraries/schema/Pdf_Relation_Schema.class.php:1219
 msgid "Relational schema"
 msgstr "Esquema relacional"
 
-#: libraries/schema/Pdf_Relation_Schema.class.php:1175
+#: libraries/schema/Pdf_Relation_Schema.class.php:1182
 msgid "Table of contents"
 msgstr "Índice"
 
-#: libraries/schema/Pdf_Relation_Schema.class.php:1360
-#: libraries/schema/Pdf_Relation_Schema.class.php:1383
+#: libraries/schema/Pdf_Relation_Schema.class.php:1367
+#: libraries/schema/Pdf_Relation_Schema.class.php:1390
 #: libraries/structure.lib.php:1182
 #: libraries/tbl_columns_definition_form.inc.php:115
 msgid "Attributes"
 msgstr "Atributos"
 
-#: libraries/schema/Pdf_Relation_Schema.class.php:1363
-#: libraries/schema/Pdf_Relation_Schema.class.php:1386
+#: libraries/schema/Pdf_Relation_Schema.class.php:1370
+#: libraries/schema/Pdf_Relation_Schema.class.php:1393
 #: libraries/structure.lib.php:1185 tbl_tracking.php:328
 msgid "Extra"
 msgstr "Extra"
@@ -9474,8 +9477,7 @@ msgstr "Permite eliminar táboas."
 msgid ""
 "Allows adding users and privileges without reloading the privilege tables."
 msgstr ""
-"Permite engadir usuarios e privilexios sen recargar as táboas de "
-"privilexios."
+"Permite engadir usuarios e privilexios sen recargar as táboas de privilexios."
 
 #: libraries/server_privileges.lib.php:1024
 msgid "Login Information"
@@ -9907,7 +9909,6 @@ msgid "After %s"
 msgstr "Despois de %s"
 
 #: libraries/structure.lib.php:1678
-#| msgid "Row Statistics"
 msgid "Row statistics"
 msgstr "Estatísticas das fileiras"
 
@@ -10183,7 +10184,7 @@ msgstr "Alternar pequeno/grande"
 msgid "Toggle relation lines"
 msgstr "Conmutar as liñas de relación"
 
-#: pmd_general.php:147 pmd_pdf.php:102
+#: pmd_general.php:147 pmd_pdf.php:109
 msgid "Import/Export coordinates for PDF schema"
 msgstr "Importar/Exportar coordenadas para esquema de PDF"
 
@@ -10241,39 +10242,39 @@ msgstr "Agregar"
 msgid "Active options"
 msgstr "Opcións activas"
 
-#: pmd_pdf.php:50
+#: pmd_pdf.php:57
 msgid "Page has been created"
 msgstr "Creouse a páxina"
 
-#: pmd_pdf.php:53
+#: pmd_pdf.php:60
 msgid "Page creation failed"
 msgstr "Fallou a creación da páxina"
 
-#: pmd_pdf.php:113
+#: pmd_pdf.php:120
 msgid "Page"
 msgstr "Páxina"
 
-#: pmd_pdf.php:123
+#: pmd_pdf.php:130
 msgid "Import from selected page"
 msgstr "Importar desde a páxina escollida"
 
-#: pmd_pdf.php:124
+#: pmd_pdf.php:131
 msgid "Export to selected page"
 msgstr "Exportar á páxina escollida"
 
-#: pmd_pdf.php:126
+#: pmd_pdf.php:133
 msgid "Create a page and export to it"
 msgstr "Crear unha páxina e exportar a ela"
 
-#: pmd_pdf.php:138
+#: pmd_pdf.php:145
 msgid "New page name: "
 msgstr "Nome da nova páxina: "
 
-#: pmd_pdf.php:141
+#: pmd_pdf.php:148
 msgid "Export/Import to scale"
 msgstr "Exportar/Importar a escala"
 
-#: pmd_pdf.php:146
+#: pmd_pdf.php:153
 msgid "recommended"
 msgstr "recomendado"
 
@@ -10352,8 +10353,8 @@ msgid ""
 "You can set more settings by modifying config.inc.php, eg. by using %sSetup "
 "script%s."
 msgstr ""
-"Pode configurar máis opcións modificando config.inc.php, p.ex. usando o %"
-"sScript de configuración%s."
+"Pode configurar máis opcións modificando config.inc.php, p.ex. usando o "
+"%sScript de configuración%s."
 
 #: prefs_manage.php:302
 msgid "Save to browser's storage"
@@ -10384,7 +10385,7 @@ msgstr "Todo"
 msgid "<b>%s</b> table not found or not set in %s"
 msgstr "Non se atopou a táboa <b>%s</b>ou non se indicou en %s"
 
-#: schema_export.php:62
+#: schema_export.php:69
 msgid "File doesn't exist"
 msgstr "Ese ficheiro non existe"
 
@@ -10721,8 +10722,8 @@ msgstr ""
 #: server_status.php:103
 msgid "This MySQL server works as <b>slave</b> in <b>replication</b> process."
 msgstr ""
-"Este servidor funciona como <b>escravo</b>  nun proceso de "
-"<b>replicación</b>."
+"Este servidor funciona como <b>escravo</b>  nun proceso de <b>replicación</"
+"b>."
 
 #: server_status.php:109
 msgid ""
@@ -10812,44 +10813,42 @@ msgid ""
 "no clearly measurable improvement."
 msgstr ""
 "A mellor maneira de axustar o sistema sería modificar só unha opción de cada "
-"vez, observar ou someter a base de datos a probas e desfacer o cambio se "
-"non se apreciaron melloras medíbeis."
+"vez, observar ou someter a base de datos a probas e desfacer o cambio se non "
+"se apreciaron melloras medíbeis."
 
-#: server_status_monitor.php:472
+#: server_status_monitor.php:471
 msgid "Start Monitor"
 msgstr "Iniciar o vixilante"
 
-#: server_status_monitor.php:479
+#: server_status_monitor.php:478
 msgid "Instructions/Setup"
 msgstr "Instrucións/Configuración"
 
-#: server_status_monitor.php:483
-#| msgid "Done rearranging/editing charts"
+#: server_status_monitor.php:482
 msgid "Done dragging (rearranging) charts"
 msgstr "Rematou o arrastre (redistribución) das gráficas"
 
-#: server_status_monitor.php:489 server_status_monitor.php:606
+#: server_status_monitor.php:488 server_status_monitor.php:605
 msgid "Add chart"
 msgstr "Engadir unha gráfica"
 
-#: server_status_monitor.php:492
-#| msgid "Enable highlighting"
+#: server_status_monitor.php:491
 msgid "Enable charts dragging"
 msgstr "Activar o arrastre das gráficas"
 
-#: server_status_monitor.php:496
+#: server_status_monitor.php:495
 msgid "Refresh rate"
 msgstr "Taxa de anovación"
 
-#: server_status_monitor.php:505
+#: server_status_monitor.php:504
 msgid "Chart columns"
 msgstr "Columnas da gráfica"
 
-#: server_status_monitor.php:521
+#: server_status_monitor.php:520
 msgid "Chart arrangement"
 msgstr "Ordenación das gráficas"
 
-#: server_status_monitor.php:524
+#: server_status_monitor.php:523
 msgid ""
 "The arrangement of the charts is stored to the browsers local storage. You "
 "may want to export it if you have a complicated set up."
@@ -10857,15 +10856,15 @@ msgstr ""
 "A distribución das gráficas almacénase no almacenamento local do navegador. "
 "Pode resultar útil exportala se a configuración é complicada."
 
-#: server_status_monitor.php:538
+#: server_status_monitor.php:537
 msgid "Reset to default"
 msgstr "Restabelecer o predeterminado"
 
-#: server_status_monitor.php:544
+#: server_status_monitor.php:543
 msgid "Monitor Instructions"
 msgstr "Instrucións de monitorización"
 
-#: server_status_monitor.php:546
+#: server_status_monitor.php:545
 msgid ""
 "The phpMyAdmin Monitor can assist you in optimizing the server configuration "
 "and track down time intensive queries. For the latter you will need to set "
@@ -10879,7 +10878,7 @@ msgstr ""
 "general_log. Lembre, porén, que general_log produce moitos datos e "
 "incrementa a carga do servidor nun 15%"
 
-#: server_status_monitor.php:558
+#: server_status_monitor.php:557
 msgid ""
 "Unfortunately your Database server does not support logging to table, which "
 "is a requirement for analyzing the database logs with phpMyAdmin. Logging to "
@@ -10891,11 +10890,11 @@ msgstr ""
 "phpMyAdmin. O rexistro en táboas é posíbel desde MySQL 5.1.6 e posteriores. "
 "Porén, pode tamén empregar a funcionalidade de gráficas do servidor."
 
-#: server_status_monitor.php:573
+#: server_status_monitor.php:572
 msgid "Using the monitor:"
 msgstr "Uso do monitor:"
 
-#: server_status_monitor.php:576
+#: server_status_monitor.php:575
 msgid ""
 "Your browser will refresh all displayed charts in a regular interval. You "
 "may add charts and change the refresh rate under 'Settings', or remove any "
@@ -10906,7 +10905,7 @@ msgstr ""
 "eliminar as gráficas que empreguen a icona da engrenaxe de cada gráfica "
 "respectiva."
 
-#: server_status_monitor.php:582
+#: server_status_monitor.php:581
 msgid ""
 "To display queries from the logs, select the relevant time span on any chart "
 "by holding down the left mouse button and panning over the chart. Once "
@@ -10919,105 +10918,105 @@ msgstr ""
 "consultas agrupadas na que se pode premer calquera instrución SELECT que "
 "apareza para analizala máis polo miúdo."
 
-#: server_status_monitor.php:592
+#: server_status_monitor.php:591
 msgid "Please note:"
 msgstr "Por favor note:"
 
-#: server_status_monitor.php:595
+#: server_status_monitor.php:594
 msgid ""
 "Enabling the general_log may increase the server load by 5-15%. Also be "
 "aware that generating statistics from the logs is a load intensive task, so "
 "it is advisable to select only a small time span and to disable the "
 "general_log and empty its table once monitoring is not required any more."
 msgstr ""
-"Activar general_log pode incrementar a carga do servidor entre un 5% e un 15"
-"%. Teña tamén en conta que xerar estatísticas a partir de rexistros é unha "
+"Activar general_log pode incrementar a carga do servidor entre un 5% e un "
+"15%. Teña tamén en conta que xerar estatísticas a partir de rexistros é unha "
 "tarefa que require un traballo intensivo, polo que se recomenda escoller só "
 "un tempo limitado e desactivar general_log e baleirar a súa táboa cando non "
 "se requira máis esa vixilancia."
 
-#: server_status_monitor.php:610
+#: server_status_monitor.php:609
 msgid "Preset chart"
 msgstr "Gráfica predefinida"
 
-#: server_status_monitor.php:614
+#: server_status_monitor.php:613
 msgid "Status variable(s)"
 msgstr "Variábel/eis de estado"
 
-#: server_status_monitor.php:617
+#: server_status_monitor.php:616
 msgid "Select series:"
 msgstr "Escoller unha serie:"
 
-#: server_status_monitor.php:619
+#: server_status_monitor.php:618
 msgid "Commonly monitored"
 msgstr "Vixilancias frecuentes"
 
-#: server_status_monitor.php:635
+#: server_status_monitor.php:634
 msgid "or type variable name:"
 msgstr "ou escriba o nome da variábel:"
 
-#: server_status_monitor.php:642
+#: server_status_monitor.php:641
 msgid "Display as differential value"
 msgstr "Mostrar como valor diferencial"
 
-#: server_status_monitor.php:645
+#: server_status_monitor.php:644
 msgid "Apply a divisor"
 msgstr "Aplicar un divisor"
 
-#: server_status_monitor.php:653
+#: server_status_monitor.php:652
 msgid "Append unit to data values"
 msgstr "Engadir a unidade aos valores dos datos"
 
-#: server_status_monitor.php:659
+#: server_status_monitor.php:658
 msgid "Add this series"
 msgstr "Engadir esta serie"
 
-#: server_status_monitor.php:661
+#: server_status_monitor.php:660
 msgid "Clear series"
 msgstr "Limpar esta series"
 
-#: server_status_monitor.php:664
+#: server_status_monitor.php:663
 msgid "Series in Chart:"
 msgstr "Series na gráfica:"
 
-#: server_status_monitor.php:675
+#: server_status_monitor.php:674
 msgid "Log statistics"
 msgstr "Estatísticas de rexistro"
 
-#: server_status_monitor.php:676
+#: server_status_monitor.php:675
 msgid "Selected time range:"
 msgstr "Intervalo temporal escollido:"
 
-#: server_status_monitor.php:682
+#: server_status_monitor.php:681
 msgid "Only retrieve SELECT,INSERT,UPDATE and DELETE Statements"
 msgstr "Obter só as instrucións SELECT, INSERT, UPDATE e DELETE"
 
-#: server_status_monitor.php:687
+#: server_status_monitor.php:686
 msgid "Remove variable data in INSERT statements for better grouping"
 msgstr ""
 "Retirar os datos variábeis das instrucións tipo INSERT para agrupar mellor"
 
-#: server_status_monitor.php:690
+#: server_status_monitor.php:689
 msgid "Choose from which log you want the statistics to be generated from."
 msgstr ""
 "Escoller o rexistro a partir do que se desexa que se xeren as estatísticas."
 
-#: server_status_monitor.php:693
+#: server_status_monitor.php:692
 msgid "Results are grouped by query text."
 msgstr "Os resultados están agrupados polo texto da consulta."
 
-#: server_status_monitor.php:697
+#: server_status_monitor.php:696
 msgid "Query analyzer"
 msgstr "Analizador de consultas"
 
-#: server_status_monitor.php:745
+#: server_status_monitor.php:744
 #, php-format
 msgid "%d second"
 msgid_plural "%d seconds"
 msgstr[0] "%d segundo"
 msgstr[1] "%d segundos"
 
-#: server_status_monitor.php:748
+#: server_status_monitor.php:747
 #, php-format
 msgid "%d minute"
 msgid_plural "%d minutes"
@@ -11206,9 +11205,9 @@ msgid ""
 "you have joins that don't use keys properly."
 msgstr ""
 "Número de peticións para ler unha fileira baseadas nunha posición fixa. Isto "
-"é alto se está a realizar moitas consultas que requiran ordenar o "
-"resultado. Posibelmente terá un monte de consultas que esixan que MySQL "
-"examine táboas completas ou ten unións que non usan as chaves axeitadamente."
+"é alto se está a realizar moitas consultas que requiran ordenar o resultado. "
+"Posibelmente terá un monte de consultas que esixan que MySQL examine táboas "
+"completas ou ten unións que non usan as chaves axeitadamente."
 
 #: server_status_variables.php:418
 msgid ""
@@ -11315,8 +11314,8 @@ msgid ""
 msgstr ""
 "Normalmente, escríbese no buffer de InnoDB como tarefa de fondo. Porén, de "
 "se precisar ler ou crear unha páxina e non haber páxinas limpas dispoñíbeis, "
-"hai que agardar a que se limpen. Este contador vai contando cantas veces "
-"hai que esperar. Se o tamaño do buffer é o axeitado, este valor debería ser "
+"hai que agardar a que se limpen. Este contador vai contando cantas veces hai "
+"que esperar. Se o tamaño do buffer é o axeitado, este valor debería ser "
 "pequeno."
 
 #: server_status_variables.php:486
@@ -11502,8 +11501,7 @@ msgid ""
 msgstr ""
 "Número de lecturas físicas dun bloque chave desde o disco. Se key_reads for "
 "grande, é que, posiblemente, o valor de key_fuffer_size é demasiado baixo. A "
-"relación de perdas da caché pódese calcular así: "
-"Key_reads/Key_read_requests."
+"relación de perdas da caché pódese calcular así: Key_reads/Key_read_requests."
 
 #: server_status_variables.php:609
 msgid ""
@@ -11956,8 +11954,8 @@ msgid ""
 "You are using Git version, run [kbd]git pull[/kbd] :-)[br]The latest stable "
 "version is %s, released on %s."
 msgstr ""
-"Está a empregar o sistema de versións Git; execute [kbd]git pull[/kbd] "
-":-)[br]A versión estable máis recente é %s, publicada o %s."
+"Está a empregar o sistema de versións Git; execute [kbd]git pull[/kbd] :-)"
+"[br]A versión estable máis recente é %s, publicada o %s."
 
 #: setup/lib/index.lib.php:203
 msgid "No newer stable version is available"
@@ -12037,8 +12035,8 @@ msgid ""
 "most. Values larger than 1800 may pose a security risk such as impersonation."
 msgstr ""
 "A %svalidez das cookies de identificación%s deberíase reducir a un máximo de "
-"1800 seconds (30 minutos). Os valores superiores a 1800 poden supor un "
-"risco de seguranza, como a suplantación de personalidade."
+"1800 seconds (30 minutos). Os valores superiores a 1800 poden supor un risco "
+"de seguranza, como a suplantación de personalidade."
 
 #: setup/lib/index.lib.php:312
 #, php-format
@@ -12058,8 +12056,8 @@ msgid ""
 "protection may not be reliable if your IP belongs to an ISP where thousands "
 "of users, including you, are connected to."
 msgstr ""
-"Se pensa que é preciso, empregue opcións de protección adicionais - %"
-"sautenticación do servidor%s e %slista de proxies de confianza%s. Porén, a "
+"Se pensa que é preciso, empregue opcións de protección adicionais - "
+"%sautenticación do servidor%s e %slista de proxies de confianza%s. Porén, a "
 "protección baseada no IP pode non ser de fiar se o IP pertence a un ISP ao "
 "que estean ligados miles de usuarios, incluído vostede."
 
@@ -12115,7 +12113,8 @@ msgstr "A chave é curta de máis, debería ter un mínimo de oito caracteres."
 
 #: setup/lib/index.lib.php:431
 msgid "Key should contain letters, numbers [em]and[/em] special characters."
-msgstr "A chave debería conter letras, números [em]e[/em] caracteres especiais."
+msgstr ""
+"A chave debería conter letras, números [em]e[/em] caracteres especiais."
 
 #: setup/validate.php:22
 msgid "Wrong data"
@@ -12374,17 +12373,14 @@ msgid "Foreign key constraint"
 msgstr "Límite das chaves externas"
 
 #: tbl_relation.php:498
-#| msgid "Constraints for table"
 msgid "Constraint name"
 msgstr "Límite do nome"
 
 #: tbl_relation.php:529
-#| msgid "No index defined!"
 msgid "No index defined! Create one below"
 msgstr "Non se definiu ningún índice! Cree un embaixo"
 
 #: tbl_structure.php:125
-#| msgid "No rows selected"
 msgid "No column selected."
 msgstr "Non seleccionou ningunha columna."
 
@@ -12638,8 +12634,8 @@ msgstr ""
 #, php-format
 msgid "The slow query rate should be below 5%%, your value is %s%%."
 msgstr ""
-"A taxa de consultas lentas deberían estar por debaixo do 5%% e o valor é %s%"
-"%."
+"A taxa de consultas lentas deberían estar por debaixo do 5%% e o valor é %s"
+"%%."
 
 #: libraries/advisory_rules.txt:70
 msgid "Slow query rate"
@@ -12666,9 +12662,6 @@ msgid "Long query time"
 msgstr "Tempo de consultas longas"
 
 #: libraries/advisory_rules.txt:80
-#| msgid ""
-#| "long_query_time is set to 10 seconds or more, thus only slow queries that "
-#| "take above 10 seconds are logged."
 msgid ""
 "{long_query_time} is set to 10 seconds or more, thus only slow queries that "
 "take above 10 seconds are logged."
@@ -12884,10 +12877,9 @@ msgid ""
 "cache, especially if you have multiple slaves."
 msgstr ""
 "Está a empregar a caché de consultas de MySQL cunha base de datos de "
-"bastante tráfico. Sería boa idea considerar o uso de <a "
-"href=\"http://dev.mysql.com/doc/refman/5.5/en/ha-"
-"memcached.html\">memcached</a> no canto da caché de consultas de MySQL, "
-"especialmente se ten varios escravos."
+"bastante tráfico. Sería boa idea considerar o uso de <a href=\"http://dev."
+"mysql.com/doc/refman/5.5/en/ha-memcached.html\">memcached</a> no canto da "
+"caché de consultas de MySQL, especialmente se ten varios escravos."
 
 #: libraries/advisory_rules.txt:165
 #, php-format
@@ -13085,9 +13077,6 @@ msgid "Too many sorts are causing temporary tables."
 msgstr "Demasiados ordenamentos está causando táboas temporais."
 
 #: libraries/advisory_rules.txt:215 libraries/advisory_rules.txt:222
-#| msgid ""
-#| "Consider increasing sort_buffer_size and/or read_rnd_buffer_size, "
-#| "depending on your system memory limits"
 msgid ""
 "Consider increasing {sort_buffer_size} and/or {read_rnd_buffer_size}, "
 "depending on your system memory limits"
@@ -13251,7 +13240,6 @@ msgid "tmp_table_size vs. max_heap_table_size"
 msgstr "tmp_table_size fronte a max_heap_table_size"
 
 #: libraries/advisory_rules.txt:265
-#| msgid "tmp_table_size and max_heap_table_size are not the same."
 msgid "{tmp_table_size} and {max_heap_table_size} are not the same."
 msgstr "{tmp_table_size} e {max_heap_table_size} non son o mesmo."
 
@@ -13299,8 +13287,8 @@ msgstr ""
 "disco, independentemente do valor destas variábeis. Para eliminalas hai que "
 "reescribir as consultas para que eviten esas condicións (Nunha táboa "
 "temporal: presenza dunha columna tipo BLOB ou TEXT ou presenza dunha columna "
-"maior de 512 bytes), como se menciona no comezo dun <a href=\"http://www.fac"
-"ebook.com/note.php?note_id=10150111255065841&comments\">artigo do grupo "
+"maior de 512 bytes), como se menciona no comezo dun <a href=\"http://www."
+"facebook.com/note.php?note_id=10150111255065841&comments\">artigo do grupo "
 "Pythian</a>"
 
 #: libraries/advisory_rules.txt:274
@@ -13331,9 +13319,8 @@ msgstr ""
 "disco, independentemente do valor destas variábeis. Para eliminalas hai que "
 "reescribir as consultas para que eviten esas condicións (Nunha táboa "
 "temporal: presenza dunha columna tipo BLOB ou TEXT ou presenza dunha columna "
-"maior de 512 bytes), como se menciona na <a "
-"href=\"http://dev.mysql.com/doc/refman/5.5/en/internal-temporary-"
-"tables.html\">documentación do MySQL</a>"
+"maior de 512 bytes), como se menciona na <a href=\"http://dev.mysql.com/doc/"
+"refman/5.5/en/internal-temporary-tables.html\">documentación do MySQL</a>"
 
 #: libraries/advisory_rules.txt:281
 #, php-format
@@ -13458,9 +13445,6 @@ msgstr ""
 "un erro do tipo «Demasiados ficheiros abertos»."
 
 #: libraries/advisory_rules.txt:338 libraries/advisory_rules.txt:345
-#| msgid ""
-#| "Consider increasing {open_files_limit}, and check the error log when "
-#| "restarting after changing open_files_limit."
 msgid ""
 "Consider increasing {open_files_limit}, and check the error log when "
 "restarting after changing {open_files_limit}."
@@ -13589,9 +13573,6 @@ msgid "Slow_launch_threads is above 2s"
 msgstr "Slow_launch_threads é superior a 2s"
 
 #: libraries/advisory_rules.txt:387
-#| msgid ""
-#| "Set slow_launch_time to 1s or 2s to correctly count threads that are slow "
-#| "to launch"
 msgid ""
 "Set {slow_launch_time} to 1s or 2s to correctly count threads that are slow "
 "to launch"
@@ -13609,9 +13590,6 @@ msgid "Percentage of used connections"
 msgstr "Porcentaxe de conexións empregadas"
 
 #: libraries/advisory_rules.txt:395
-#| msgid ""
-#| "The maximum amount of used connections is getting close to the value of "
-#| "max_connections."
 msgid ""
 "The maximum amount of used connections is getting close to the value of "
 "{max_connections}."
@@ -13620,10 +13598,6 @@ msgstr ""
 "conexións máximas (max_connections)."
 
 #: libraries/advisory_rules.txt:396
-#| msgid ""
-#| "Increase max_connections, or decrease wait_timeout so that connections "
-#| "that do not close database handlers properly get killed sooner. Make sure "
-#| "the code closes database handlers properly."
 msgid ""
 "Increase {max_connections}, or decrease {wait_timeout} so that connections "
 "that do not close database handlers properly get killed sooner. Make sure "
@@ -13766,9 +13740,9 @@ msgstr ""
 "chega simplemente con cambiar o valor desta variábel. hai que apagar o "
 "servidor, retirar os ficheiros de rexistro de InnoDB, configurar o novo "
 "valor en my.cnf, iniciar o servidor e a seguir comprobar os rexistros de "
-"erro par ver que todo fose ben. Consulte tamén <a "
-"href=\"http://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
-"innodblogfilesize-proper-way.html\">esta entrada de blogue</a>"
+"erro par ver que todo fose ben. Consulte tamén <a href=\"http://"
+"mysqldatabaseadministration.blogspot.com/2007/01/increase-innodblogfilesize-"
+"proper-way.html\">esta entrada de blogue</a>"
 
 #: libraries/advisory_rules.txt:441
 #, php-format
@@ -13803,12 +13777,11 @@ msgstr ""
 "Normalmente abonda con configurar {innodb_log_file_size} como o 25%% do "
 "tamaño de {innodb_buffer_pool_size}. Un innodb_log_file moi grande enlentece "
 "considerabelmente o tempo de recuperación a seguir unha quebra da base de "
-"datos. Consulte tamén <a "
-"href=\"http://www.mysqlperformanceblog.com/2006/07/03/choosing-proper-"
-"innodb_log_file_size/\">este artigo</a>. Hai que apagar o servidor, retirar "
-"os ficheiros de rexistro de InnoDB, configurar o novo valor en my.cnf, "
-"iniciar o servidor, e a seguir comprobar os rexistros de erro para comprobar "
-"que todo fose ben. Consulte tamén <a "
+"datos. Consulte tamén <a href=\"http://www.mysqlperformanceblog."
+"com/2006/07/03/choosing-proper-innodb_log_file_size/\">este artigo</a>. Hai "
+"que apagar o servidor, retirar os ficheiros de rexistro de InnoDB, "
+"configurar o novo valor en my.cnf, iniciar o servidor, e a seguir comprobar "
+"os rexistros de erro para comprobar que todo fose ben. Consulte tamén <a "
 "href=\"http://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
 "innodblogfilesize-proper-way.html\">esta entrada de blogue</a>"
 
@@ -13848,9 +13821,8 @@ msgstr ""
 "memoria dos demais servizos e as táboas que non sexan de InnoDB e configurar "
 "esta variábel en consecuencia. Se se configura demasiado alta, o sistema "
 "comezará a gravar no disco, o que reduce o desempeño de maneira "
-"significativa. Consulte tamén <a "
-"href=\"http://www.mysqlperformanceblog.com/2007/11/03/choosing-"
-"innodb_buffer_pool_size/\">este artigo</a>"
+"significativa. Consulte tamén <a href=\"http://www.mysqlperformanceblog."
+"com/2007/11/03/choosing-innodb_buffer_pool_size/\">este artigo</a>"
 
 #: libraries/advisory_rules.txt:455
 #, php-format
@@ -13870,7 +13842,6 @@ msgid "MyISAM concurrent inserts"
 msgstr "Insercións concorrentes de MyISAM"
 
 #: libraries/advisory_rules.txt:462
-#| msgid "Enable concurrent_insert by setting it to 1"
 msgid "Enable {concurrent_insert} by setting it to 1"
 msgstr "Active {concurrent_insert} configurándoo como 1"
 
@@ -13881,9 +13852,8 @@ msgid ""
 "refman/5.5/en/concurrent-inserts.html\">MySQL Documentation</a>"
 msgstr ""
 "Configurar {concurrent_insert} como 1 reduce a contención entre as lecturas "
-"e as escritas nunha táboa dada. Consulte tamén a <a "
-"href=\"http://dev.mysql.com/doc/refman/5.5/en/concurrent-"
-"inserts.html\">documentación do MySQL</a>"
+"e as escritas nunha táboa dada. Consulte tamén a <a href=\"http://dev.mysql."
+"com/doc/refman/5.5/en/concurrent-inserts.html\">documentación do MySQL</a>"
 
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
@@ -14088,19 +14058,6 @@ msgstr "concurrent_insert está definido como 0"
 #~ msgid "phpMyAdmin is more friendly with a <b>frames-capable</b> browser."
 #~ msgstr ""
 #~ "phpMyAdmin utilízase mellor cun navegador que <b>acepte molduras</b>."
-
-#~ msgid ""
-#~ "Enabling this allows a page located on a different domain to call "
-#~ "phpMyAdmin inside a frame, and is a potential [strong]security hole[/"
-#~ "strong] allowing cross-frame scripting attacks"
-#~ msgstr ""
-#~ "Activar isto permite que unha páxina situada nun dominio diferente poida "
-#~ "chamar o phpMyAdmin desde dentro dunha moldura, o que constitúe un "
-#~ "[strong]furado de seguranza[/strong] potencial que permitiría ataques con "
-#~ "scripts entre molduras"
-
-#~ msgid "Allow third party framing"
-#~ msgstr "Permitir as molduras de terceiros"
 
 #~ msgid "Show database listing as a list instead of a drop down"
 #~ msgstr ""
