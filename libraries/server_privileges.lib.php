@@ -3367,7 +3367,7 @@ function PMA_getHtmlToEditUserGroup($userGroup = null)
         . '</legend>';
 
     if ($userGroup == null) {
-        $html_output .= '<label for="userGroup">' . __('Group name: ') . '</label>';
+        $html_output .= '<label for="userGroup">' . __('Group name:') . '</label>';
         $html_output .= '<input type="text" name="userGroup" autocomplete="off" />';
         $html_output .= '<div class="clearfloat"></div>';
     }
