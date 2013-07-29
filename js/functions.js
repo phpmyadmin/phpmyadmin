@@ -1584,8 +1584,8 @@ function PMA_ajaxShowMessage(message, timeout)
      *                    to the created AJAX message
      */
     var $retval = $(
-            '<span class="ajax_notification" id="ajax_message_num_'
-            + ajax_message_count +
+            '<span class="ajax_notification" id="ajax_message_num_' +
+            ajax_message_count +
             '"></span>'
     )
     .hide()
@@ -2630,34 +2630,34 @@ AJAX.registerOnload('functions.js', function () {
         // Add the parsed values to the editor
         var drop_icon = PMA_getImage('b_drop.png');
         for (i = 0; i < values.length; i++) {
-            fields += "<tr><td>"
-                   + "<input type='text' value='" + values[i] + "'/>"
-                   + "</td><td class='drop'>"
-                   + drop_icon
-                   + "</td></tr>";
+            fields += "<tr><td>" +
+                   "<input type='text' value='" + values[i] + "'/>" +
+                   "</td><td class='drop'>" +
+                   drop_icon +
+                   "</td></tr>";
         }
         /**
          * @var dialog HTML code for the ENUM/SET dialog
          */
-        var dialog = "<div id='enum_editor'>"
-                   + "<fieldset>"
-                   + "<legend>" + title + "</legend>"
-                   + "<p>" + PMA_getImage('s_notice.png')
-                   + PMA_messages.enum_hint + "</p>"
-                   + "<table class='values'>" + fields + "</table>"
-                   + "</fieldset><fieldset class='tblFooters'>"
-                   + "<table class='add'><tr><td>"
-                   + "<div class='slider'></div>"
-                   + "</td><td>"
-                   + "<form><div><input type='submit' class='add_value' value='"
-                   + $.sprintf(PMA_messages.enum_addValue, 1)
-                   + "'/></div></form>"
-                   + "</td></tr></table>"
-                   + "<input type='hidden' value='" // So we know which column's data is being edited
-                   + $(this).closest('td').find("input").attr("id")
-                   + "' />"
-                   + "</fieldset>"
-                   + "</div>";
+        var dialog = "<div id='enum_editor'>" +
+                   "<fieldset>" +
+                    "<legend>" + title + "</legend>" +
+                    "<p>" + PMA_getImage('s_notice.png') +
+                    PMA_messages.enum_hint + "</p>" +
+                    "<table class='values'>" + fields + "</table>" +
+                    "</fieldset><fieldset class='tblFooters'>" +
+                    "<table class='add'><tr><td>" +
+                    "<div class='slider'></div>" +
+                    "</td><td>" +
+                    "<form><div><input type='submit' class='add_value' value='" +
+                    $.sprintf(PMA_messages.enum_addValue, 1) +
+                    "'/></div></form>" +
+                    "</td></tr></table>" +
+                    "<input type='hidden' value='" + // So we know which column's data is being edited
+                    $(this).closest('td').find("input").attr("id") +
+                    "' />" +
+                    "</fieldset>" +
+                    "</div>";
         /**
          * @var  Defines functions to be called when the buttons in
          * the buttonOptions jQuery dialog bar are pressed
@@ -2725,11 +2725,11 @@ AJAX.registerOnload('functions.js', function () {
         while (num_new_rows--) {
             $enum_editor_dialog.find('.values')
                 .append(
-                    "<tr style='display: none;'><td>"
-                  + "<input type='text' />"
-                  + "</td><td class='drop'>"
-                  + PMA_getImage('b_drop.png')
-                  + "</td></tr>"
+                    "<tr style='display: none;'><td>" +
+                    "<input type='text' />" +
+                    "</td><td class='drop'>" +
+                    PMA_getImage('b_drop.png') +
+                    "</td></tr>"
                 )
                 .find('tr:last')
                 .show('fast');
@@ -3327,8 +3327,8 @@ function PMA_slidingMessage(msg, $obj)
         // we might have to create a new DOM node.
         if ($('#PMA_slidingMessage').length === 0) {
             $('#page_content').prepend(
-                '<span id="PMA_slidingMessage" '
-                 + 'style="display: inline-block;"></span>'
+                '<span id="PMA_slidingMessage" ' +
+                'style="display: inline-block;"></span>'
             );
         }
         $obj = $('#PMA_slidingMessage');
