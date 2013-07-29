@@ -49,18 +49,18 @@ function PMA_getHtmlForImportJS($upload_id)
 {
     global $SESSION_KEY;
     $html  = '';
-    $html .= '    <script type="text/javascript">';
-    $html .= '        //<![CDATA[';
+    $html .= '<script type="text/javascript">';
+    $html .= '    //<![CDATA[';
     //with "\n", so that the following lines won't be commented out by //<![CDATA[
     $html .= "\n";
-    $html .= '        $( function() {';
+    $html .= '    $( function() {';
     // add event when user click on "Go" button
-    $html .= '          $("#buttonGo").bind("click", function() {';
+    $html .= '      $("#buttonGo").bind("click", function() {';
     // hide form
-    $html .= '            $("#upload_form_form").css("display", "none");';
+    $html .= '        $("#upload_form_form").css("display", "none");';
     // show progress bar
-    $html .= '            $("#upload_form_status").css("display", "inline");';
-    $html .= '            $("#upload_form_status_info").css("display", "inline");';
+    $html .= '        $("#upload_form_status").css("display", "inline");';
+    $html .= '        $("#upload_form_status_info").css("display", "inline");';
 
     if ($_SESSION[$SESSION_KEY]["handler"] != "UploadNoplugin") {
 
@@ -81,13 +81,13 @@ function PMA_getHtmlForImportJS($upload_id)
     } // else
 
     // onclick
-    $html .= '                    });';
+    $html .= '      });';
     // domready
-    $html .= '                });';
-    $html .= '                //]]>';
+    $html .= '    });';
+    $html .= '    //]]>';
     //with "\n", so that the following lines won't be commented out by //]]>
     $html .= "\n";
-    $html .= '    </script>';
+    $html .= '</script>';
 
     return $html;
 }
@@ -489,12 +489,12 @@ function PMA_getHtmlForImportWithPlugin($upload_id)
     $html .= '			} else { ';
     $html .= '				var now = new Date(); ';
     $html .= '				now = Date.UTC( ';
-    $html .= '						now.getFullYear(), now.getMonth(), now.getDate(), ';
-    $html .= '						now.getHours(), now.getMinutes(), now.getSeconds()) ';
-    $html .= '						+ now.getMilliseconds() - 1000; ';
+    $html .= '					now.getFullYear(), now.getMonth(), now.getDate(), ';
+    $html .= '					now.getHours(), now.getMinutes(), now.getSeconds()) ';
+    $html .= '					+ now.getMilliseconds() - 1000; ';
     $html .= '				var statustext = $.sprintf("' . $statustext_str . '", ';
-    $html .= '						formatBytes(complete, 1, PMA_messages.strDecimalSeparator), ';
-    $html .= '						formatBytes(total, 1, PMA_messages.strDecimalSeparator) ';
+    $html .= '					formatBytes(complete, 1, PMA_messages.strDecimalSeparator), ';
+    $html .= '					formatBytes(total, 1, PMA_messages.strDecimalSeparator) ';
     $html .= '				); ';
 
     $html .= '				if ($("#importmain").is(":visible")) { ';
@@ -571,7 +571,7 @@ function PMA_getHtmlForImportWithPlugin($upload_id)
     // if finished
     $html .= '            } ';
     $html .= '            else { ';
-    $html .= '             setTimeout(perform_upload, 1000); ';
+    $html .= '              setTimeout(perform_upload, 1000); ';
     $html .= '         } ';
     $html .= '}); ';
     $html .= '}; ';
