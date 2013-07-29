@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-07-29 15:04+0200\n"
-"PO-Revision-Date: 2013-07-15 11:06+0200\n"
+"PO-Revision-Date: 2013-07-29 15:37+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Czech <http://l10n.cihar.com/projects/phpmyadmin/master/cs/>\n"
 "Language: cs\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Weblate 1.6-dev\n"
+"X-Generator: Weblate 1.6\n"
 
 #: browse_foreigners.php:51 browse_foreigners.php:75 js/messages.php:339
 #: libraries/DisplayResults.class.php:813
@@ -1924,10 +1924,9 @@ msgid "Hide Panel"
 msgstr "Skrýt panel"
 
 #: js/messages.php:369
-#, fuzzy
 #| msgid "Show logo in navigation panel"
 msgid "Show hidden navigation tree items"
-msgstr "Zobrazit logo v navigačním panelu"
+msgstr "Zobrazit skryté položky navigačního panelu"
 
 #: js/messages.php:372
 msgid "The requested page was not found in the history, it may have expired."
@@ -2650,16 +2649,16 @@ msgstr ""
 "Tento pohled má alespoň tolik řádek. Podrobnosti naleznete v %sdokumentaci%s."
 
 #: libraries/DisplayResults.class.php:4921
-#, fuzzy, php-format
+#, php-format
 #| msgid "Showing rows"
 msgid "Showing rows %1s - %2s"
-msgstr "Zobrazeny záznamy"
+msgstr "Zobrazeny záznamy %1s - %2s"
 
 #: libraries/DisplayResults.class.php:4933
-#, fuzzy, php-format
+#, php-format
 #| msgid "total"
 msgid "%d total"
-msgstr "celkem"
+msgstr "%d celkem"
 
 #: libraries/DisplayResults.class.php:4945 libraries/sql.lib.php:1640
 #, php-format
@@ -6017,7 +6016,6 @@ msgid "User preferences storage table"
 msgstr "Tabulka pro uživatelská nastavení"
 
 #: libraries/config/messages.inc.php:455
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no user preferences storage in database, suggested: "
 #| "[kbd]pma__userconfig[/kbd]"
@@ -6025,17 +6023,15 @@ msgid ""
 "Leave blank to disable configurable menus feature, suggested: "
 "[kbd]pma__users[/kbd]"
 msgstr ""
-"Nechte prázdné pro vypnutí podpory pro uživatelské nastavení v databázi, "
-"výchozí nastavení: [kbd]pma__userconfig[/kbd]"
+"Nechte prázdné pro vypnutí podpory pro nastavitelné menu, výchozí nastavení: "
+"[kbd]pma__users[/kbd]"
 
 #: libraries/config/messages.inc.php:456
-#, fuzzy
 #| msgid "Use Tables"
 msgid "Users table"
-msgstr "Použít tabulky"
+msgstr "Tabulka uživatelů"
 
 #: libraries/config/messages.inc.php:457
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no user preferences storage in database, suggested: "
 #| "[kbd]pma__userconfig[/kbd]"
@@ -6043,17 +6039,15 @@ msgid ""
 "Leave blank to disable configurable menus feature, suggested: "
 "[kbd]pma__usergroups[/kbd]"
 msgstr ""
-"Nechte prázdné pro vypnutí podpory pro uživatelské nastavení v databázi, "
-"výchozí nastavení: [kbd]pma__userconfig[/kbd]"
+"Nechte prázdné pro vypnutí podpory pro nastavitelné menu, výchozí nastavení: "
+"[kbd]pma__usergroups[/kbd]"
 
 #: libraries/config/messages.inc.php:458
-#, fuzzy
 #| msgid "Use Host Table"
 msgid "User groups table"
-msgstr "Použít tabulku Host"
+msgstr "Tabulka skupin uživatelů"
 
 #: libraries/config/messages.inc.php:459
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no user preferences storage in database, suggested: "
 #| "[kbd]pma__userconfig[/kbd]"
@@ -6061,12 +6055,12 @@ msgid ""
 "Leave blank to disable the feature to hide and show navigation items, "
 "suggested: [kbd]pma__navigationhiding[/kbd]"
 msgstr ""
-"Nechte prázdné pro vypnutí podpory pro uživatelské nastavení v databázi, "
-"výchozí nastavení: [kbd]pma__userconfig[/kbd]"
+"Nechte prázdné pro vypnutí podpory pro schovávání navigačních položek, "
+"výchozí nastavení: [kbd]pma__navigationhiding[/kbd]"
 
 #: libraries/config/messages.inc.php:460
 msgid "Hidden navigation items table"
-msgstr ""
+msgstr "Tabulka skrývání navigace"
 
 #: libraries/config/messages.inc.php:462
 msgid "User for config auth"
@@ -7613,34 +7607,29 @@ msgid "An error has occured while loading the navigation tree"
 msgstr "Došlo k chybě při nahrávání navigačního stromu"
 
 #: libraries/navigation/Navigation.class.php:172
-#, fuzzy
 #| msgid "Events"
 msgid "Events:"
-msgstr "Události"
+msgstr "Události:"
 
 #: libraries/navigation/Navigation.class.php:173
-#, fuzzy
 #| msgid "Functions"
 msgid "Functions:"
-msgstr "Funkce"
+msgstr "Funkce:"
 
 #: libraries/navigation/Navigation.class.php:174
-#, fuzzy
 #| msgid "Procedures"
 msgid "Procedures:"
-msgstr "Procedury"
+msgstr "Procedury:"
 
 #: libraries/navigation/Navigation.class.php:175
-#, fuzzy
 #| msgid "Tables"
 msgid "Tables:"
-msgstr "Tabulky"
+msgstr "Tabulky:"
 
 #: libraries/navigation/Navigation.class.php:176
-#, fuzzy
 #| msgid "Views"
 msgid "Views:"
-msgstr "Pohledy"
+msgstr "Pohledy:"
 
 #: libraries/navigation/NavigationHeader.class.php:183
 msgid "Home"
@@ -8727,16 +8716,14 @@ msgid "User preferences"
 msgstr "Uživatelská nastavení"
 
 #: libraries/relation.lib.php:264
-#, fuzzy
 #| msgid "Configuration: %s"
 msgid "Configurable menus"
-msgstr "Z nastavení: %s"
+msgstr "Nastavitelná nabídka"
 
 #: libraries/relation.lib.php:275
-#, fuzzy
 #| msgid "Reload navigation frame"
 msgid "Hide/show navigation items"
-msgstr "Znovu nahrát navigační rám"
+msgstr "Zobrazit nebo skrýt položky z navigace"
 
 #: libraries/relation.lib.php:281
 msgid "Quick steps to setup advanced features:"
@@ -9894,7 +9881,7 @@ msgstr "Žádná"
 #: libraries/server_privileges.lib.php:2531
 #: libraries/server_privileges.lib.php:3235
 msgid "User group"
-msgstr ""
+msgstr "Skupina uživatele"
 
 #: libraries/server_privileges.lib.php:618
 msgid "Resource limits"
@@ -10125,10 +10112,9 @@ msgid "Add privileges on the following table:"
 msgstr "Přidat oprávnění pro tabulku:"
 
 #: libraries/server_privileges.lib.php:2599
-#, fuzzy
 #| msgid "Edit server"
 msgid "Edit user group"
-msgstr "Upravit server"
+msgstr "Upravit skupinu"
 
 #: libraries/server_privileges.lib.php:2714
 msgid "Remove selected users"
@@ -10191,68 +10177,60 @@ msgstr ""
 #: libraries/server_privileges.lib.php:3187
 #, php-format
 msgid "Users of '%s' user group"
-msgstr ""
+msgstr "Uživatelé ze skupiny '%s'"
 
 #: libraries/server_privileges.lib.php:3198
 msgid "No users were found belonging to this user group"
-msgstr ""
+msgstr "V této skupině nebyli nalezeni žádní uživatelé."
 
 #: libraries/server_privileges.lib.php:3229
 #: libraries/server_privileges.lib.php:3878
-#, fuzzy
 #| msgid "Users"
 msgid "User groups"
-msgstr "Uživatelé"
+msgstr "Skupiny"
 
 #: libraries/server_privileges.lib.php:3236
-#, fuzzy
 #| msgid "Server version"
 msgid "Server level tabs"
-msgstr "Verze serveru"
+msgstr "Záložky pro práci se serverem"
 
 #: libraries/server_privileges.lib.php:3237
 #: libraries/server_privileges.lib.php:3405
-#, fuzzy
 #| msgid "Database server"
 msgid "Database level tabs"
-msgstr "Databázový server"
+msgstr "Záložky pro práci s databází"
 
 #: libraries/server_privileges.lib.php:3238
 #: libraries/server_privileges.lib.php:3408
-#, fuzzy
 #| msgid "Table comments"
 msgid "Table level tabs"
-msgstr "Komentář k tabulce"
+msgstr "Záložky pro práci s tabulkou"
 
 #: libraries/server_privileges.lib.php:3260
-#, fuzzy
 #| msgid "Views"
 msgid "View users"
-msgstr "Pohledy"
+msgstr "Zobrazit uživatele"
 
 #: libraries/server_privileges.lib.php:3288
 #: libraries/server_privileges.lib.php:3344
-#, fuzzy
 #| msgid "Add user"
 msgid "Add user group"
-msgstr "Přidat uživatele"
+msgstr "Přidat skupinu"
 
 #: libraries/server_privileges.lib.php:3347
 #, php-format
 msgid "Edit user group: '%s'"
-msgstr ""
+msgstr "Upravit skupinu: '%s'"
 
 #: libraries/server_privileges.lib.php:3363
-#, fuzzy
 #| msgid "No privileges."
 msgid "User group privileges"
-msgstr "Žádná oprávnění."
+msgstr "Oprávnění skupiny"
 
 #: libraries/server_privileges.lib.php:3370
-#, fuzzy
 #| msgid "Column names: "
 msgid "Group name: "
-msgstr "Názvy polí: "
+msgstr "Název skupiny: "
 
 #: libraries/server_privileges.lib.php:3402
 msgid "Sever level tabs"
