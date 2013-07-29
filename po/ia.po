@@ -7,11 +7,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-07-29 15:39+0200\n"
+"POT-Creation-Date: 2013-07-29 13:37-0400\n"
 "PO-Revision-Date: 2013-07-29 16:58+0200\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
-"Language-Team: Interlingua "
-"<http://l10n.cihar.com/projects/phpmyadmin/master/ia/>\n"
+"Language-Team: Interlingua <http://l10n.cihar.com/projects/phpmyadmin/master/"
+"ia/>\n"
 "Language: ia\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2295,7 +2295,8 @@ msgstr "Character inexpectate al linea %s."
 #, php-format
 msgid "Unexpected character on line %1$s. Expected tab, but found \"%2$s\"."
 msgstr ""
-"Character inexpectate al linea %1$s. Il expectava tab, ma on trovava \"%2$s\"."
+"Character inexpectate al linea %1$s. Il expectava tab, ma on trovava \"%2$s"
+"\"."
 
 #: libraries/Advisor.class.php:470
 msgid "per second"
@@ -2688,7 +2689,6 @@ msgstr ""
 
 #: libraries/DisplayResults.class.php:4933
 #, php-format
-#| msgid "%d table(s)"
 msgid "%d total"
 msgstr "%d total"
 
@@ -4242,8 +4242,8 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:32
 msgid ""
-"Use user-friendly editor for editing SQL queries ([a@http://codemirror."
-"net/]CodeMirror[/a]) with syntax highlighting and line numbers"
+"Use user-friendly editor for editing SQL queries ([a@http://codemirror.net/]"
+"CodeMirror[/a]) with syntax highlighting and line numbers"
 msgstr ""
 
 #: libraries/config/messages.inc.php:33
@@ -4764,9 +4764,8 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:193
 msgid ""
-"Specify browser's title bar text. Refer to "
-"[doc@cfg_TitleTable]documentation[/doc] for magic strings that can be used "
-"to get special values."
+"Specify browser's title bar text. Refer to [doc@cfg_TitleTable]documentation"
+"[/doc] for magic strings that can be used to get special values."
 msgstr ""
 
 #: libraries/config/messages.inc.php:194
@@ -5504,8 +5503,8 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:382
 msgid ""
-"Leave blank for no column comments/mime types, suggested: "
-"[kbd]pma__column_info[/kbd]"
+"Leave blank for no column comments/mime types, suggested: [kbd]"
+"pma__column_info[/kbd]"
 msgstr ""
 
 #: libraries/config/messages.inc.php:383
@@ -5698,8 +5697,8 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:424
 msgid ""
-"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
-"links[/a] support, suggested: [kbd]pma__relation[/kbd]"
+"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-links"
+"[/a] support, suggested: [kbd]pma__relation[/kbd]"
 msgstr ""
 
 #: libraries/config/messages.inc.php:425
@@ -5716,8 +5715,8 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:428
 msgid ""
-"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
-"types[/a] for an example"
+"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication types"
+"[/a] for an example"
 msgstr ""
 
 #: libraries/config/messages.inc.php:429
@@ -5816,8 +5815,8 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:449
 msgid ""
-"Leave blank for no SQL query tracking support, suggested: "
-"[kbd]pma__tracking[/kbd]"
+"Leave blank for no SQL query tracking support, suggested: [kbd]pma__tracking"
+"[/kbd]"
 msgstr ""
 
 #: libraries/config/messages.inc.php:450
@@ -5836,8 +5835,8 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:453
 msgid ""
-"Leave blank for no user preferences storage in database, suggested: "
-"[kbd]pma__userconfig[/kbd]"
+"Leave blank for no user preferences storage in database, suggested: [kbd]"
+"pma__userconfig[/kbd]"
 msgstr ""
 
 #: libraries/config/messages.inc.php:454
@@ -5845,29 +5844,21 @@ msgid "User preferences storage table"
 msgstr ""
 
 #: libraries/config/messages.inc.php:455
-#| msgid ""
-#| "Leave blank for no \"persistent\" tables' UI preferences across sessions, "
-#| "suggested: [kbd]pma__table_uiprefs[/kbd]"
 msgid ""
-"Leave blank to disable configurable menus feature, suggested: "
-"[kbd]pma__users[/kbd]"
+"Leave blank to disable configurable menus feature, suggested: [kbd]pma__users"
+"[/kbd]"
 msgstr ""
 "Lassa vacue pro dishabilitar characteristica de menus configurabile, "
 "proponite:  [kbd]pma__users[/kbd]"
 
 #: libraries/config/messages.inc.php:456
-#| msgid "%s table"
-#| msgid_plural "%s tables"
 msgid "Users table"
 msgstr "Tabula de usatores"
 
 #: libraries/config/messages.inc.php:457
-#| msgid ""
-#| "Leave blank for no \"persistent\" tables' UI preferences across sessions, "
-#| "suggested: [kbd]pma__table_uiprefs[/kbd]"
 msgid ""
-"Leave blank to disable configurable menus feature, suggested: "
-"[kbd]pma__usergroups[/kbd]"
+"Leave blank to disable configurable menus feature, suggested: [kbd]"
+"pma__usergroups[/kbd]"
 msgstr ""
 "Lassa vacue pro dishabilitar characteristica de menus configurabile, "
 "proponite:  [kbd]pma__usergroups[/kbd]"
@@ -7338,12 +7329,10 @@ msgid "Functions:"
 msgstr "Connexiones"
 
 #: libraries/navigation/Navigation.class.php:174
-#| msgid "Processes"
 msgid "Procedures:"
 msgstr "Procedimentos:"
 
 #: libraries/navigation/Navigation.class.php:175
-#| msgid "Table:"
 msgid "Tables:"
 msgstr "Tabulas:"
 
@@ -9773,30 +9762,29 @@ msgstr ""
 #: libraries/server_privileges.lib.php:3402
 #, fuzzy
 #| msgid "Server version:"
-msgid "Server level tabs"
+msgid "Server-level tabs"
 msgstr "Version de servitor:"
 
 #: libraries/server_privileges.lib.php:3237
 #: libraries/server_privileges.lib.php:3405
 #, fuzzy
 #| msgid "Database server"
-msgid "Database level tabs"
+msgid "Database-level tabs"
 msgstr "Servitor de base de datos"
 
 #: libraries/server_privileges.lib.php:3238
 #: libraries/server_privileges.lib.php:3408
-#| msgid "Table comments"
-msgid "Table level tabs"
+#, fuzzy
+#| msgid "Table level tabs"
+msgid "Table-level tabs"
 msgstr "Tabulationes de nivello de tabula"
 
 #: libraries/server_privileges.lib.php:3260
-#| msgid "in use"
 msgid "View users"
 msgstr "Vide usatores"
 
 #: libraries/server_privileges.lib.php:3288
 #: libraries/server_privileges.lib.php:3344
-#| msgid "Add user"
 msgid "Add user group"
 msgstr "Adde gruppo de usator"
 
@@ -11807,8 +11795,8 @@ msgid ""
 "You set the [kbd]config[/kbd] authentication type and included username and "
 "password for auto-login, which is not a desirable option for live hosts. "
 "Anyone who knows or guesses your phpMyAdmin URL can directly access your "
-"phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or "
-"[kbd]http[/kbd]."
+"phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or [kbd]"
+"http[/kbd]."
 msgstr ""
 
 #: setup/lib/index.lib.php:236

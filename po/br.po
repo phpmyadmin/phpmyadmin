@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-07-29 15:39+0200\n"
+"POT-Creation-Date: 2013-07-29 13:37-0400\n"
 "PO-Revision-Date: 2013-07-15 11:11+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Breton <http://l10n.cihar.com/projects/phpmyadmin/master/br/"
@@ -4321,8 +4321,8 @@ msgid ""
 "cross-frame scripting attacks"
 msgstr ""
 "Gweredekaat kement-mañ a aotre ur bajenn zo en un domani disheñvel da "
-"c'hervel phpMyAdmin e diabarzh ur framm, ar pezh a ya d'ober un "
-"[strong]toull surentez[/strong] posupl evit tagadennoù skript etre frammoù"
+"c'hervel phpMyAdmin e diabarzh ur framm, ar pezh a ya d'ober un [strong]"
+"toull surentez[/strong] posupl evit tagadennoù skript etre frammoù"
 
 #: libraries/config/messages.inc.php:20
 msgid "Allow third party framing"
@@ -4339,8 +4339,8 @@ msgid ""
 "Secret passphrase used for encrypting cookies in [kbd]cookie[/kbd] "
 "authentication"
 msgstr ""
-"Ger-tremen implijet evit enrinegañ toupinoù pa vez gwiriekaet dre "
-"[kbd]cookie[/kbd]"
+"Ger-tremen implijet evit enrinegañ toupinoù pa vez gwiriekaet dre [kbd]cookie"
+"[/kbd]"
 
 #: libraries/config/messages.inc.php:23
 msgid "Blowfish secret"
@@ -4381,8 +4381,8 @@ msgid ""
 "kbd] - allows newlines in columns"
 msgstr ""
 "Spisaat peseurt doare kontrolloù kemmañ a zleer ober ganto evit ar bannoù "
-"CHAR ha VARCHAR; [kbd]input[/kbd] - a dalvez da grennañ ar vent, "
-"[kbd]textarea[/kbd] - a aotren lakaat linennoù nevez er bannoù"
+"CHAR ha VARCHAR; [kbd]input[/kbd] - a dalvez da grennañ ar vent, [kbd]"
+"textarea[/kbd] - a aotren lakaat linennoù nevez er bannoù"
 
 #: libraries/config/messages.inc.php:31
 msgid "CHAR columns editing"
@@ -4390,8 +4390,8 @@ msgstr "Kemmañ ar bannoù CHAR"
 
 #: libraries/config/messages.inc.php:32
 msgid ""
-"Use user-friendly editor for editing SQL queries ([a@http://codemirror."
-"net/]CodeMirror[/a]) with syntax highlighting and line numbers"
+"Use user-friendly editor for editing SQL queries ([a@http://codemirror.net/]"
+"CodeMirror[/a]) with syntax highlighting and line numbers"
 msgstr ""
 
 #: libraries/config/messages.inc.php:33
@@ -4798,8 +4798,8 @@ msgid ""
 "Sort order for items in a foreign-key dropdown box; [kbd]content[/kbd] is "
 "the referenced data, [kbd]id[/kbd] is the key value"
 msgstr ""
-"Urzh renkañ evit an elfennoù en ur voest desachañ alc'hwezioù estren; "
-"[kbd]content[/kbd] zo evit an roadenn a zaveer dezhi, [kbd]id[/kbd] zo evit "
+"Urzh renkañ evit an elfennoù en ur voest desachañ alc'hwezioù estren; [kbd]"
+"content[/kbd] zo evit an roadenn a zaveer dezhi, [kbd]id[/kbd] zo evit "
 "talvout an alc'hwez"
 
 #: libraries/config/messages.inc.php:151
@@ -4946,9 +4946,8 @@ msgstr "Titloù pajennoù"
 
 #: libraries/config/messages.inc.php:193
 msgid ""
-"Specify browser's title bar text. Refer to "
-"[doc@cfg_TitleTable]documentation[/doc] for magic strings that can be used "
-"to get special values."
+"Specify browser's title bar text. Refer to [doc@cfg_TitleTable]documentation"
+"[/doc] for magic strings that can be used to get special values."
 msgstr ""
 "Spisaat testenn barrenn ditl ar merdeer. En em zaveiñ d'an  "
 "[doc@cfg_TitleTable]teuliadur[/doc] evit an neudennadoù hud a c'haller ober "
@@ -5725,8 +5724,8 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:382
 msgid ""
-"Leave blank for no column comments/mime types, suggested: "
-"[kbd]pma__column_info[/kbd]"
+"Leave blank for no column comments/mime types, suggested: [kbd]"
+"pma__column_info[/kbd]"
 msgstr ""
 
 #: libraries/config/messages.inc.php:383
@@ -5919,8 +5918,8 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:424
 msgid ""
-"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
-"links[/a] support, suggested: [kbd]pma__relation[/kbd]"
+"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-links"
+"[/a] support, suggested: [kbd]pma__relation[/kbd]"
 msgstr ""
 
 #: libraries/config/messages.inc.php:425
@@ -5937,8 +5936,8 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:428
 msgid ""
-"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
-"types[/a] for an example"
+"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication types"
+"[/a] for an example"
 msgstr ""
 
 #: libraries/config/messages.inc.php:429
@@ -6035,8 +6034,8 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:449
 msgid ""
-"Leave blank for no SQL query tracking support, suggested: "
-"[kbd]pma__tracking[/kbd]"
+"Leave blank for no SQL query tracking support, suggested: [kbd]pma__tracking"
+"[/kbd]"
 msgstr ""
 
 #: libraries/config/messages.inc.php:450
@@ -6055,8 +6054,8 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:453
 msgid ""
-"Leave blank for no user preferences storage in database, suggested: "
-"[kbd]pma__userconfig[/kbd]"
+"Leave blank for no user preferences storage in database, suggested: [kbd]"
+"pma__userconfig[/kbd]"
 msgstr ""
 
 #: libraries/config/messages.inc.php:454
@@ -6065,8 +6064,8 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:455
 msgid ""
-"Leave blank to disable configurable menus feature, suggested: "
-"[kbd]pma__users[/kbd]"
+"Leave blank to disable configurable menus feature, suggested: [kbd]pma__users"
+"[/kbd]"
 msgstr ""
 
 #: libraries/config/messages.inc.php:456
@@ -6077,8 +6076,8 @@ msgstr "Implijout taolennoù"
 
 #: libraries/config/messages.inc.php:457
 msgid ""
-"Leave blank to disable configurable menus feature, suggested: "
-"[kbd]pma__usergroups[/kbd]"
+"Leave blank to disable configurable menus feature, suggested: [kbd]"
+"pma__usergroups[/kbd]"
 msgstr ""
 
 #: libraries/config/messages.inc.php:458
@@ -10138,21 +10137,21 @@ msgstr ""
 #: libraries/server_privileges.lib.php:3402
 #, fuzzy
 #| msgid "Last version"
-msgid "Server level tabs"
+msgid "Server-level tabs"
 msgstr "Stumm diwezhañ"
 
 #: libraries/server_privileges.lib.php:3237
 #: libraries/server_privileges.lib.php:3405
 #, fuzzy
 #| msgid "Databases"
-msgid "Database level tabs"
+msgid "Database-level tabs"
 msgstr "Diazoù roadennoù"
 
 #: libraries/server_privileges.lib.php:3238
 #: libraries/server_privileges.lib.php:3408
 #, fuzzy
 #| msgid "Table comments"
-msgid "Table level tabs"
+msgid "Table-level tabs"
 msgstr "Evezhiadennoù diwar-benn an daolenn"
 
 #: libraries/server_privileges.lib.php:3260
@@ -12242,8 +12241,8 @@ msgid ""
 "You set the [kbd]config[/kbd] authentication type and included username and "
 "password for auto-login, which is not a desirable option for live hosts. "
 "Anyone who knows or guesses your phpMyAdmin URL can directly access your "
-"phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or "
-"[kbd]http[/kbd]."
+"phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or [kbd]"
+"http[/kbd]."
 msgstr ""
 
 #: setup/lib/index.lib.php:236
