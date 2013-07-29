@@ -86,6 +86,7 @@
    <arg line="
 	      --ignore=*/php-gettext/*,*/tcpdf/*,*/canvg/*,*/codemirror/*,*/openlayers/*,*/jquery/*,*/jqplot/*,*/build/*,*/bfShapeFiles/*,*/PMAStandard/*,*/phpseclib/*,*/recaptchalib.php,*/swekey.php
               --report=checkstyle
+              --extensions=php
               --report-file='${basedir}/build/logs/checkstyle.xml'
               --standard=PMAStandard
               ${source}" />

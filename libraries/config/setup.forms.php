@@ -145,7 +145,8 @@ $forms['Features']['Other_core_settings'] = array(
     'VersionCheck',
     'VersionCheckProxyUrl',
     'VersionCheckProxyUser',
-    'VersionCheckProxyPass'
+    'VersionCheckProxyPass',
+    'AllowThirdPartyFraming',
 );
 $forms['Sql_queries']['Sql_queries'] = array(
     'ShowSQL',
