@@ -3399,7 +3399,7 @@ function PMA_getHtmlToEditUserGroup($userGroup = null)
     }
 
     $html_output .= _getTabList(
-        __('Sever level tabs'), 'server', $allowedTabs['server']
+        __('Server level tabs'), 'server', $allowedTabs['server']
     );
     $html_output .= _getTabList(
         __('Database level tabs'), 'db', $allowedTabs['db']
