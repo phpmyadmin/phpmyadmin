@@ -3195,7 +3195,7 @@ function PMA_getHtmlForListingUsersofAGroup($userGroup)
     if ($result) {
         if ($GLOBALS['dbi']->numRows($result) == 0) {
             $html_output .= '<p>'
-                . __('No users were found belonging to this user group')
+                . __('No users were found belonging to this user group.')
                 . '</p>';
         } else {
             $html_output .= '<table>'

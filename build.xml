@@ -44,7 +44,7 @@
    <arg line="${source_comma_sep}
               xml
               codesize,design,naming,unusedcode
-              --exclude test,build,tcpdf,php-gettext,bfShapeFiles,PMAStandard,phpseclib,recaptchalib.php,swekey.php
+              --exclude lib/Cake/,vendors/
               --reportfile '${basedir}/build/logs/pmd.xml'" />
   </exec>
  </target>
