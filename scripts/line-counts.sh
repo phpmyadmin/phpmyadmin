@@ -1,9 +1,5 @@
 #! /usr/bin/bash
-php_code=$(cat <<EOF
-<?php
-\$LINE_COUNT = array();
-EOF
-)
+php_code="<?php\ndefine('LINE_COUNTS', true);\n\n\$LINE_COUNT = array();"
 for file in `find js -name '*.js'` ; do
   lc=`wc -l $file | sed 's/\([0-9]*\).*/\1/'`
   file=${file:3}

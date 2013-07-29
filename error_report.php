@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Display the form to edit/create an index
+ * Handle error report submission
  *
  * @package PhpMyAdmin
  */
@@ -9,9 +9,7 @@
  * Gets some core libraries
  */
 require_once 'libraries/common.inc.php';
-require_once 'libraries/Index.class.php';
-require_once 'libraries/tbl_info.inc.php';
-require_once 'libraries/user_preferences.lib.php';
+include_once 'js/line_counts.php';
 
 $submission_url = "http://reports.phpmyadmin.net/reports/submit";
 
@@ -92,8 +90,10 @@ if ($_REQUEST['send_error_report'] == true) {
  * @return Array/String $report
  */
 function get_report_data($json_encode = true) {
+    $exception = $_REQUEST['exception'];
+    $exception["stack"] = translate_stacktrace($exception["stack"]);
     $report = array(
-        "exception" => $_REQUEST['exception'],
+        "exception" => $exception,
         "pma_version" => PMA_VERSION,
         "browser_name" => PMA_USR_BROWSER_AGENT,
         "browser_version" => PMA_USR_BROWSER_VER,
@@ -106,7 +106,6 @@ function get_report_data($json_encode = true) {
             !empty($GLOBALS['cfg']['Servers'][1]['pmadb']),
         "php_version" => phpversion(),
         "microhistory" => $_REQUEST['microhistory'],
-        "scripts" => $_REQUEST['scripts'],
     );
 
     if(!empty($_REQUEST['description'])) {
@@ -174,4 +173,38 @@ function send_error_report($report) {
     }
     return $response;
 }
+
+function translate_stacktrace($stack) {
+    if(!defined('LINE_COUNTS')) {
+        return $stack;
+    }
+
+    foreach($stack as &$level) {
+        if(preg_match("<js/get_scripts.js.php\?(.*)>", $level["url"], $matches)) {
+            parse_str($matches[1], $vars);
+            List($file_name, $line_number) =
+                    get_line_number($vars["scripts"], $level["line"]);
+            unset($level["url"]);
+            $level["filename"] = $file_name;
+            $level["line"] = $line_number;
+        }
+    }
+    unset($level);
+    return $stack;
+}
+
+function get_line_number($filenames, $cumulative_number) {
+  global $LINE_COUNT;
+  $cumulative_sum = 0;
+  foreach($filenames as $filename) {
+    $filecount = $LINE_COUNT[$filename];
+    if ($cumulative_number <= $cumulative_sum + $filecount + 2) {
+      $linenumber = $cumulative_number - $cumulative_sum;
+      break;
+    }
+    $cumulative_sum += $filecount + 2;
+  }
+  return array($filename, $linenumber);
+}
+
 ?>

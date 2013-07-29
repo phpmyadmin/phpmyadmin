@@ -202,7 +202,7 @@ var ErrorReport = {
         var report_data = {
             "ajax_request": true,
             "token": token,
-            "exception": ErrorReport._simplify_exception(exception),
+            "exception": exception,
             "current_url": window.location.href,
             "microhistory": ErrorReport._get_microhistory(),
             "scripts": AJAX.cache.pages[AJAX.cache.current-1].scripts.map(
@@ -322,4 +322,3 @@ ErrorReport.set_up_error_reporting();
 $(function(){
     ErrorReport.wrap_global_functions();
 })
-
