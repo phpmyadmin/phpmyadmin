@@ -5,9 +5,6 @@
  *
  * @package PhpMyAdmin
  */
-/**
- * Gets some core libraries
- */
 require_once 'libraries/common.inc.php';
 include_once 'js/line_counts.php';
 
