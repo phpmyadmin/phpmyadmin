@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-07-29 15:39+0200\n"
-"PO-Revision-Date: 2013-07-29 19:40+0200\n"
+"PO-Revision-Date: 2013-07-29 20:21+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: French <http://l10n.cihar.com/projects/phpmyadmin/master/fr/>\n"
 "Language: fr\n"
@@ -6142,7 +6142,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:460
 msgid "Hidden navigation items table"
-msgstr ""
+msgstr "Table contenant les éléments de navigation cachés"
 
 #: libraries/config/messages.inc.php:462
 msgid "User for config auth"
@@ -10028,7 +10028,7 @@ msgstr "Aucun"
 #: libraries/server_privileges.lib.php:2531
 #: libraries/server_privileges.lib.php:3235
 msgid "User group"
-msgstr ""
+msgstr "Groupe d'utilisateurs"
 
 #: libraries/server_privileges.lib.php:618
 msgid "Resource limits"
@@ -10330,11 +10330,11 @@ msgstr ""
 #: libraries/server_privileges.lib.php:3187
 #, php-format
 msgid "Users of '%s' user group"
-msgstr ""
+msgstr "Utilisateurs du groupe « %s »"
 
 #: libraries/server_privileges.lib.php:3198
 msgid "No users were found belonging to this user group."
-msgstr ""
+msgstr "Ce groupe ne contient aucun utilisateur."
 
 #: libraries/server_privileges.lib.php:3229
 #: libraries/server_privileges.lib.php:3878
@@ -10356,40 +10356,35 @@ msgstr "Onglets de niveau base de données"
 
 #: libraries/server_privileges.lib.php:3238
 #: libraries/server_privileges.lib.php:3408
-#, fuzzy
 #| msgid "Table comments"
 msgid "Table level tabs"
-msgstr "Commentaires sur la table"
+msgstr "Onglets de niveau table"
 
 #: libraries/server_privileges.lib.php:3260
-#, fuzzy
 #| msgid "Views"
 msgid "View users"
-msgstr "Vues"
+msgstr "Vue utilisateurs"
 
 #: libraries/server_privileges.lib.php:3288
 #: libraries/server_privileges.lib.php:3344
-#, fuzzy
 #| msgid "Add user"
 msgid "Add user group"
-msgstr "Ajouter un utilisateur"
+msgstr "Ajouter un groupe d'utilisateurs"
 
 #: libraries/server_privileges.lib.php:3347
 #, php-format
 msgid "Edit user group: '%s'"
-msgstr ""
+msgstr "Modifier le groupe : « %s »"
 
 #: libraries/server_privileges.lib.php:3363
-#, fuzzy
 #| msgid "No privileges."
 msgid "User group privileges"
-msgstr "Pas de privilèges."
+msgstr "Privilèges du groupe d'utilisateurs"
 
 #: libraries/server_privileges.lib.php:3370
-#, fuzzy
 #| msgid "Column names: "
 msgid "Group name:"
-msgstr "Nom des colonnes : "
+msgstr "Nom du groupe : "
 
 #: libraries/server_privileges.lib.php:3521
 msgid "The selected user was not found in the privilege table."
