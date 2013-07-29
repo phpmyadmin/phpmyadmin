@@ -1876,9 +1876,9 @@ function PMA_SQLPrettyPrint(string)
         }
         // Normal indentatin and spaces for everything else
         else {
-            if (! spaceExceptionsBefore[tokens[i][1]]
-               && ! (i > 0 && spaceExceptionsAfter[tokens[i - 1][1]])
-               && output.charAt(output.length - 1) != ' ') {
+            if (! spaceExceptionsBefore[tokens[i][1]] &&
+               ! (i > 0 && spaceExceptionsAfter[tokens[i - 1][1]]) &&
+               output.charAt(output.length - 1) != ' ') {
                 output += " ";
             }
             if (tokens[i][0] == 'keyword') {
@@ -1889,15 +1889,15 @@ function PMA_SQLPrettyPrint(string)
         }
 
         // split columns in select and 'update set' clauses, but only inside statements blocks
-        if ((lastStatementPart == 'select' || lastStatementPart == 'where'  || lastStatementPart == 'set')
-            && tokens[i][1] == ',' && blockStack[0] == 'statement') {
+        if ((lastStatementPart == 'select' || lastStatementPart == 'where'  || lastStatementPart == 'set') &&
+            tokens[i][1] == ',' && blockStack[0] == 'statement') {
 
             output += "\n" + tabs(indentLevel + 1);
         }
 
         // split conditions in where clauses, but only inside statements blocks
-        if (lastStatementPart == 'where'
-            && (tokens[i][1] == 'and' || tokens[i][1] == 'or' || tokens[i][1] == 'xor')) {
+        if (lastStatementPart == 'where' &&
+            (tokens[i][1] == 'and' || tokens[i][1] == 'or' || tokens[i][1] == 'xor')) {
 
             if (blockStack[0] == 'statement') {
                 output += "\n" + tabs(indentLevel + 1);
@@ -3698,17 +3698,17 @@ AJAX.registerOnload('functions.js', function () {
             $(this).closest('.ui-dialog').find('.ui-button:first').click();
         }
     }); // end $.live()
-    
+
     var $elm = $('textarea[name="view[as]"]');
     if ($elm.length > 0) {
         if (typeof CodeMirror != 'undefined') {
             syntaxHighlighter = CodeMirror.fromTextArea(
-                $elm[0], 
+                $elm[0],
                 {
-                    lineNumbers: true, 
-                    matchBrackets: true, 
-                    indentUnit: 4, 
-                    mode: "text/x-mysql", 
+                    lineNumbers: true,
+                    matchBrackets: true,
+                    indentUnit: 4,
+                    mode: "text/x-mysql",
                     lineWrapping: true
                 }
             );
