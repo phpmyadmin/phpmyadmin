@@ -17,7 +17,7 @@ if (! defined('PHPMYADMIN')) {
 abstract class Node_DatabaseChild extends Node
 {
     /**
-     * Returns HTML for hide button displayed infront of the table node
+     * Returns HTML for hide button displayed infront of the database child node
      *
      * @return HTML for hide button
      */
