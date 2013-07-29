@@ -64,7 +64,7 @@ function PMA_getHtmlForImportJS($upload_id)
 
     if ($_SESSION[$SESSION_KEY]["handler"] != "UploadNoplugin") {
 
-        $html .= PMA_getHtmlForImportNoPlugin($upload_id);
+        $html .= PMA_getHtmlForImportWithPlugin($upload_id);
 
     } else { // no plugin available
         $image_tag = '<img src="' . $GLOBALS['pmaThemeImage']
@@ -431,13 +431,13 @@ function PMA_getHtmlForImport(
 }
 
 /**
- * Prints javascript For not plugin, upload process bar
+ * Prints javascript for upload with plugin, upload process bar
  *
  * @param int $upload_id The selected upload id
  *
  * @return string
  */
-function PMA_getHtmlForImportNoPlugin($upload_id)
+function PMA_getHtmlForImportWithPlugin($upload_id)
 {
     //some variable for javasript
     $ajax_url = "import_status.php?id=" . $upload_id . "&"
@@ -566,6 +566,7 @@ function PMA_getHtmlForImportNoPlugin($upload_id)
     $html .= '				.show(); ';
     $html .= '				$("#import_form_status").load("import_status.php?'
         . 'message=true&' . $import_url . '"); ';
+    $html .= '				PMA_reloadNavigation(); ';
 
     // if finished
     $html .= '            } ';
