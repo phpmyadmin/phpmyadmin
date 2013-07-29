@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-07-29 15:39+0200\n"
+"POT-Creation-Date: 2013-07-29 13:37-0400\n"
 "PO-Revision-Date: 2013-05-14 06:43+0200\n"
 "Last-Translator: Randall Fan <fanrandall@gmail.com>\n"
 "Language-Team: Simplified Chinese <http://l10n.cihar.com/projects/phpmyadmin/"
@@ -4213,8 +4213,8 @@ msgstr "编辑 CHAR 类型字段"
 
 #: libraries/config/messages.inc.php:32
 msgid ""
-"Use user-friendly editor for editing SQL queries ([a@http://codemirror."
-"net/]CodeMirror[/a]) with syntax highlighting and line numbers"
+"Use user-friendly editor for editing SQL queries ([a@http://codemirror.net/]"
+"CodeMirror[/a]) with syntax highlighting and line numbers"
 msgstr ""
 "使用包含语法凸显与行号的用户友好的编辑器编辑SQL语句  ([a@http://codemirror."
 "net/]CodeMirror[/a])"
@@ -4751,9 +4751,8 @@ msgstr "页面标题"
 
 #: libraries/config/messages.inc.php:193
 msgid ""
-"Specify browser's title bar text. Refer to "
-"[doc@cfg_TitleTable]documentation[/doc] for magic strings that can be used "
-"to get special values."
+"Specify browser's title bar text. Refer to [doc@cfg_TitleTable]documentation"
+"[/doc] for magic strings that can be used to get special values."
 msgstr ""
 "设置浏览器标题栏所显示的文字。参见[doc@cfg_TitleTable]文档[/doc]中关于可以取"
 "得特殊值的魔术字符串。"
@@ -5524,8 +5523,8 @@ msgstr "书签表"
 
 #: libraries/config/messages.inc.php:382
 msgid ""
-"Leave blank for no column comments/mime types, suggested: "
-"[kbd]pma__column_info[/kbd]"
+"Leave blank for no column comments/mime types, suggested: [kbd]"
+"pma__column_info[/kbd]"
 msgstr "留空则不使用列信息和MIME类型。推荐: [kbd]pma__column_info[/kbd]"
 
 #: libraries/config/messages.inc.php:383
@@ -5733,8 +5732,8 @@ msgstr "最近使用的表"
 
 #: libraries/config/messages.inc.php:424
 msgid ""
-"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
-"links[/a] support, suggested: [kbd]pma__relation[/kbd]"
+"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-links"
+"[/a] support, suggested: [kbd]pma__relation[/kbd]"
 msgstr ""
 "不使用[a@http://wiki.phpmyadmin.net/pma/relation]关系链接 (外链，英文)[/a]功"
 "能请留空，推荐: [kbd]pma__relation[/kbd]"
@@ -5753,8 +5752,8 @@ msgstr "显示数据库(SHOW DATABASES)命令"
 
 #: libraries/config/messages.inc.php:428
 msgid ""
-"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
-"types[/a] for an example"
+"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication types"
+"[/a] for an example"
 msgstr ""
 "参见[a@http://wiki.phpmyadmin.net/pma/auth_types#signon]认证方式 (外链，英文)"
 "[/a]中的例子"
@@ -5857,8 +5856,8 @@ msgstr "要追踪的命令"
 
 #: libraries/config/messages.inc.php:449
 msgid ""
-"Leave blank for no SQL query tracking support, suggested: "
-"[kbd]pma__tracking[/kbd]"
+"Leave blank for no SQL query tracking support, suggested: [kbd]pma__tracking"
+"[/kbd]"
 msgstr "不使用 SQL 查询追踪功能请留空，推荐: [kbd]pma__tracking[/kbd]"
 
 #: libraries/config/messages.inc.php:450
@@ -5877,8 +5876,8 @@ msgstr "自动创建版本"
 
 #: libraries/config/messages.inc.php:453
 msgid ""
-"Leave blank for no user preferences storage in database, suggested: "
-"[kbd]pma__userconfig[/kbd]"
+"Leave blank for no user preferences storage in database, suggested: [kbd]"
+"pma__userconfig[/kbd]"
 msgstr "不在数据库中保存用户偏好请留空，推荐: [kbd]pma__userconfig[/kbd]"
 
 #: libraries/config/messages.inc.php:454
@@ -5888,11 +5887,11 @@ msgstr "用户偏好表"
 #: libraries/config/messages.inc.php:455
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no user preferences storage in database, suggested: "
-#| "[kbd]pma__userconfig[/kbd]"
+#| "Leave blank for no user preferences storage in database, suggested: [kbd]"
+#| "pma__userconfig[/kbd]"
 msgid ""
-"Leave blank to disable configurable menus feature, suggested: "
-"[kbd]pma__users[/kbd]"
+"Leave blank to disable configurable menus feature, suggested: [kbd]pma__users"
+"[/kbd]"
 msgstr "不在数据库中保存用户偏好请留空，推荐: [kbd]pma__userconfig[/kbd]"
 
 #: libraries/config/messages.inc.php:456
@@ -5904,11 +5903,11 @@ msgstr "使用表"
 #: libraries/config/messages.inc.php:457
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no user preferences storage in database, suggested: "
-#| "[kbd]pma__userconfig[/kbd]"
+#| "Leave blank for no user preferences storage in database, suggested: [kbd]"
+#| "pma__userconfig[/kbd]"
 msgid ""
-"Leave blank to disable configurable menus feature, suggested: "
-"[kbd]pma__usergroups[/kbd]"
+"Leave blank to disable configurable menus feature, suggested: [kbd]"
+"pma__usergroups[/kbd]"
 msgstr "不在数据库中保存用户偏好请留空，推荐: [kbd]pma__userconfig[/kbd]"
 
 #: libraries/config/messages.inc.php:458
@@ -5920,8 +5919,8 @@ msgstr "使用主机表"
 #: libraries/config/messages.inc.php:459
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no user preferences storage in database, suggested: "
-#| "[kbd]pma__userconfig[/kbd]"
+#| "Leave blank for no user preferences storage in database, suggested: [kbd]"
+#| "pma__userconfig[/kbd]"
 msgid ""
 "Leave blank to disable the feature to hide and show navigation items, "
 "suggested: [kbd]pma__navigationhiding[/kbd]"
@@ -6702,8 +6701,8 @@ msgid ""
 "to the PHP timeout limit. <i>(This might be a good way to import large "
 "files, however it can break transactions.)</i>"
 msgstr ""
-"在导入时脚本若检测到可能需要花费很长时间（接近PHP超时的限定）则允许中断。"
-"<i>(尽管这会中断事务，但在导入大文件时是个很好的方法。)</i>"
+"在导入时脚本若检测到可能需要花费很长时间（接近PHP超时的限定）则允许中断。<i>"
+"(尽管这会中断事务，但在导入大文件时是个很好的方法。)</i>"
 
 #: libraries/display_import.lib.php:296
 msgid "Number of rows to skip, starting from the first row:"
@@ -10015,21 +10014,21 @@ msgstr "用户"
 #: libraries/server_privileges.lib.php:3402
 #, fuzzy
 #| msgid "Server version"
-msgid "Server level tabs"
+msgid "Server-level tabs"
 msgstr "服务器版本"
 
 #: libraries/server_privileges.lib.php:3237
 #: libraries/server_privileges.lib.php:3405
 #, fuzzy
 #| msgid "Database server"
-msgid "Database level tabs"
+msgid "Database-level tabs"
 msgstr "数据库服务器"
 
 #: libraries/server_privileges.lib.php:3238
 #: libraries/server_privileges.lib.php:3408
 #, fuzzy
 #| msgid "Table comments"
-msgid "Table level tabs"
+msgid "Table-level tabs"
 msgstr "表注释"
 
 #: libraries/server_privileges.lib.php:3260
@@ -12218,8 +12217,8 @@ msgid ""
 "You set the [kbd]config[/kbd] authentication type and included username and "
 "password for auto-login, which is not a desirable option for live hosts. "
 "Anyone who knows or guesses your phpMyAdmin URL can directly access your "
-"phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or "
-"[kbd]http[/kbd]."
+"phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or [kbd]"
+"http[/kbd]."
 msgstr ""
 "您设置了 [kbd]config[/kbd] 认证方式，且为了能够自动登录而保存了用户名和密码，"
 "但在常用主机上不建议这样设置。如果有人知道 phpMyAdmin 的地址，他们就能够进入 "
@@ -14047,13 +14046,13 @@ msgstr "concurrent_insert 被设为 0"
 
 #~ msgid ""
 #~ "When setting this to [kbd]nested[/kbd], the alias of the table name is "
-#~ "only used to split/nest the tables according to the "
-#~ "$cfg['LeftFrameTableSeparator'] directive, so only the folder is called "
-#~ "like the alias, the table name itself stays unchanged"
+#~ "only used to split/nest the tables according to the $cfg"
+#~ "['LeftFrameTableSeparator'] directive, so only the folder is called like "
+#~ "the alias, the table name itself stays unchanged"
 #~ msgstr ""
-#~ "当设为 [kbd]nested[/kbd] 时，数据表的别名仅根据 "
-#~ "$cfg['LeftFrameTableSeparator'] 作分割/层叠用，所有只有目录的名字像别名，"
-#~ "数据表自己的名字并不改变"
+#~ "当设为 [kbd]nested[/kbd] 时，数据表的别名仅根据 $cfg"
+#~ "['LeftFrameTableSeparator'] 作分割/层叠用，所有只有目录的名字像别名，数据"
+#~ "表自己的名字并不改变"
 
 #~ msgid "Display table comment instead of its name"
 #~ msgstr "显示表备注而不显示表名"

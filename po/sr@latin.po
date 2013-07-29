@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-07-29 15:39+0200\n"
+"POT-Creation-Date: 2013-07-29 13:37-0400\n"
 "PO-Revision-Date: 2013-07-15 11:13+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Serbian (latin) <http://l10n.cihar.com/projects/phpmyadmin/"
@@ -3298,8 +3298,8 @@ msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
 "['MaxTableUiprefs'] %s)"
 msgstr ""
-"Neuspelo brisanje podešavanja korisničkog interfejsa tabele (pogledajte "
-"$cfg['Servers'][$i]['MaxTableUiprefs'] %s)"
+"Neuspelo brisanje podešavanja korisničkog interfejsa tabele (pogledajte $cfg"
+"['Servers'][$i]['MaxTableUiprefs'] %s)"
 
 #: libraries/Table.class.php:1620
 #, php-format
@@ -4292,9 +4292,8 @@ msgid ""
 "cross-frame scripting attacks"
 msgstr ""
 "Omogućavanje ovoga dozvoljava da stranica koja se nalazi na drugom domenu "
-"pozove phpMyAdmin unutar frame-a, i predstavlja potencijalni "
-"[strong]bezbednosni problem[/strong] dozvoljavajući cross-frame scripting "
-"napade"
+"pozove phpMyAdmin unutar frame-a, i predstavlja potencijalni [strong]"
+"bezbednosni problem[/strong] dozvoljavajući cross-frame scripting napade"
 
 #: libraries/config/messages.inc.php:20
 msgid "Allow third party framing"
@@ -4360,8 +4359,8 @@ msgstr "Uređenje CHAR kolona"
 
 #: libraries/config/messages.inc.php:32
 msgid ""
-"Use user-friendly editor for editing SQL queries ([a@http://codemirror."
-"net/]CodeMirror[/a]) with syntax highlighting and line numbers"
+"Use user-friendly editor for editing SQL queries ([a@http://codemirror.net/]"
+"CodeMirror[/a]) with syntax highlighting and line numbers"
 msgstr ""
 
 #: libraries/config/messages.inc.php:33
@@ -4768,9 +4767,8 @@ msgid ""
 "Sort order for items in a foreign-key dropdown box; [kbd]content[/kbd] is "
 "the referenced data, [kbd]id[/kbd] is the key value"
 msgstr ""
-"Redosled sortiranja stavki u padajućoj listi sa stranim ključevima; "
-"[kbd]content[/kbd] je referencirani podatak;  [kbd]id[/kbd] je vrednost "
-"ključa"
+"Redosled sortiranja stavki u padajućoj listi sa stranim ključevima; [kbd]"
+"content[/kbd] je referencirani podatak;  [kbd]id[/kbd] je vrednost ključa"
 
 #: libraries/config/messages.inc.php:151
 msgid "Foreign key dropdown order"
@@ -4916,9 +4914,8 @@ msgstr "Naslovi strana"
 
 #: libraries/config/messages.inc.php:193
 msgid ""
-"Specify browser's title bar text. Refer to "
-"[doc@cfg_TitleTable]documentation[/doc] for magic strings that can be used "
-"to get special values."
+"Specify browser's title bar text. Refer to [doc@cfg_TitleTable]documentation"
+"[/doc] for magic strings that can be used to get special values."
 msgstr ""
 
 #: libraries/config/messages.inc.php:194
@@ -5343,8 +5340,8 @@ msgid ""
 "The number of bytes a script is allowed to allocate, eg. [kbd]32M[/kbd] "
 "([kbd]0[/kbd] for no limit)"
 msgstr ""
-"Broj bajtova koji je dozvoljen da skript zauzme, primer [kbd]32M[/kbd] "
-"([kbd]0[/kbd] nema ograničenja)"
+"Broj bajtova koji je dozvoljen da skript zauzme, primer [kbd]32M[/kbd] ([kbd]"
+"0[/kbd] nema ograničenja)"
 
 #: libraries/config/messages.inc.php:298
 msgid "Memory limit"
@@ -5735,8 +5732,8 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:382
 msgid ""
-"Leave blank for no column comments/mime types, suggested: "
-"[kbd]pma__column_info[/kbd]"
+"Leave blank for no column comments/mime types, suggested: [kbd]"
+"pma__column_info[/kbd]"
 msgstr ""
 
 #: libraries/config/messages.inc.php:383
@@ -5931,8 +5928,8 @@ msgstr "Skorašnje korišćena tabela"
 
 #: libraries/config/messages.inc.php:424
 msgid ""
-"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
-"links[/a] support, suggested: [kbd]pma__relation[/kbd]"
+"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-links"
+"[/a] support, suggested: [kbd]pma__relation[/kbd]"
 msgstr ""
 
 #: libraries/config/messages.inc.php:425
@@ -5949,8 +5946,8 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:428
 msgid ""
-"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
-"types[/a] for an example"
+"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication types"
+"[/a] for an example"
 msgstr ""
 
 #: libraries/config/messages.inc.php:429
@@ -6047,8 +6044,8 @@ msgstr "Praćenje komandi"
 
 #: libraries/config/messages.inc.php:449
 msgid ""
-"Leave blank for no SQL query tracking support, suggested: "
-"[kbd]pma__tracking[/kbd]"
+"Leave blank for no SQL query tracking support, suggested: [kbd]pma__tracking"
+"[/kbd]"
 msgstr ""
 
 #: libraries/config/messages.inc.php:450
@@ -6067,8 +6064,8 @@ msgstr "Automatski kreiraj verzije"
 
 #: libraries/config/messages.inc.php:453
 msgid ""
-"Leave blank for no user preferences storage in database, suggested: "
-"[kbd]pma__userconfig[/kbd]"
+"Leave blank for no user preferences storage in database, suggested: [kbd]"
+"pma__userconfig[/kbd]"
 msgstr ""
 
 #: libraries/config/messages.inc.php:454
@@ -6077,8 +6074,8 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:455
 msgid ""
-"Leave blank to disable configurable menus feature, suggested: "
-"[kbd]pma__users[/kbd]"
+"Leave blank to disable configurable menus feature, suggested: [kbd]pma__users"
+"[/kbd]"
 msgstr ""
 
 #: libraries/config/messages.inc.php:456
@@ -6089,8 +6086,8 @@ msgstr "Koristi tabele"
 
 #: libraries/config/messages.inc.php:457
 msgid ""
-"Leave blank to disable configurable menus feature, suggested: "
-"[kbd]pma__usergroups[/kbd]"
+"Leave blank to disable configurable menus feature, suggested: [kbd]"
+"pma__usergroups[/kbd]"
 msgstr ""
 
 #: libraries/config/messages.inc.php:458
@@ -10208,21 +10205,21 @@ msgstr "Korisnici"
 #: libraries/server_privileges.lib.php:3402
 #, fuzzy
 #| msgid "Server version"
-msgid "Server level tabs"
+msgid "Server-level tabs"
 msgstr "Verzija servera"
 
 #: libraries/server_privileges.lib.php:3237
 #: libraries/server_privileges.lib.php:3405
 #, fuzzy
 #| msgid "Database server"
-msgid "Database level tabs"
+msgid "Database-level tabs"
 msgstr "Server baze podataka"
 
 #: libraries/server_privileges.lib.php:3238
 #: libraries/server_privileges.lib.php:3408
 #, fuzzy
 #| msgid "Table comments"
-msgid "Table level tabs"
+msgid "Table-level tabs"
 msgstr "Komentari tabele"
 
 #: libraries/server_privileges.lib.php:3260
@@ -12455,8 +12452,8 @@ msgid ""
 "You set the [kbd]config[/kbd] authentication type and included username and "
 "password for auto-login, which is not a desirable option for live hosts. "
 "Anyone who knows or guesses your phpMyAdmin URL can directly access your "
-"phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or "
-"[kbd]http[/kbd]."
+"phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or [kbd]"
+"http[/kbd]."
 msgstr ""
 
 #: setup/lib/index.lib.php:236

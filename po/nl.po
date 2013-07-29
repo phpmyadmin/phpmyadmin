@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-07-29 15:39+0200\n"
+"POT-Creation-Date: 2013-07-29 13:37-0400\n"
 "PO-Revision-Date: 2013-07-29 16:11+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: Dutch <http://l10n.cihar.com/projects/phpmyadmin/master/nl/>\n"
@@ -1951,7 +1951,6 @@ msgid "Hide Panel"
 msgstr "Paneel verbergen"
 
 #: js/messages.php:369
-#| msgid "Show logo in navigation panel"
 msgid "Show hidden navigation tree items"
 msgstr "Verborgen navigatieboom items weergeven"
 
@@ -2673,13 +2672,11 @@ msgstr ""
 
 #: libraries/DisplayResults.class.php:4921
 #, php-format
-#| msgid "Showing rows"
 msgid "Showing rows %1s - %2s"
 msgstr "Weergave van records %1s - %2s"
 
 #: libraries/DisplayResults.class.php:4933
 #, php-format
-#| msgid "total"
 msgid "%d total"
 msgstr "%d totaal"
 
@@ -2798,8 +2795,8 @@ msgstr "Onbekende fout bij het uploaden."
 #: libraries/File.class.php:476
 msgid "Error moving the uploaded file, see [doc@faq1-11]FAQ 1.11[/doc]"
 msgstr ""
-"Fout bij het verplaatsen van het geüploade bestand, zie [doc@faq1-11]FAQ "
-"1.11[/doc]"
+"Fout bij het verplaatsen van het geüploade bestand, zie [doc@faq1-11]FAQ 1.11"
+"[/doc]"
 
 #: libraries/File.class.php:494
 msgid "Error while moving uploaded file."
@@ -3861,7 +3858,8 @@ msgstr "Selecteer uit de web-server upload directory <b>%s</b>:"
 #: libraries/Util.class.php:3406 libraries/insert_edit.lib.php:1183
 #: libraries/sql_query_form.lib.php:483
 msgid "The directory you set for upload work cannot be reached."
-msgstr "De folder die u heeft ingesteld om te uploaden kan niet worden bereikt."
+msgstr ""
+"De folder die u heeft ingesteld om te uploaden kan niet worden bereikt."
 
 #: libraries/Util.class.php:3417
 msgid "There are no files to upload"
@@ -4279,9 +4277,9 @@ msgid ""
 "cross-frame scripting attacks"
 msgstr ""
 "Door deze optie in te schakelen is het toegestaan om phpMyAdmin vanuit een "
-"pagina op een ander domein in een frame te openen. Een potentieel "
-"[strong]beveiligingslek[/strong] wat cross-frame scripting aanvallen "
-"mogelijk kan maken"
+"pagina op een ander domein in een frame te openen. Een potentieel [strong]"
+"beveiligingslek[/strong] wat cross-frame scripting aanvallen mogelijk kan "
+"maken"
 
 #: libraries/config/messages.inc.php:20
 msgid "Allow third party framing"
@@ -4296,8 +4294,8 @@ msgid ""
 "Secret passphrase used for encrypting cookies in [kbd]cookie[/kbd] "
 "authentication"
 msgstr ""
-"Geheime sleutelzin gebruikt voor de versleuteling van cookies in "
-"[kbd]cookie[/kbd]-authenticatie"
+"Geheime sleutelzin gebruikt voor de versleuteling van cookies in [kbd]cookie"
+"[/kbd]-authenticatie"
 
 #: libraries/config/messages.inc.php:23
 msgid "Blowfish secret"
@@ -4348,8 +4346,8 @@ msgstr "CHAR-kolommen bewerken"
 
 #: libraries/config/messages.inc.php:32
 msgid ""
-"Use user-friendly editor for editing SQL queries ([a@http://codemirror."
-"net/]CodeMirror[/a]) with syntax highlighting and line numbers"
+"Use user-friendly editor for editing SQL queries ([a@http://codemirror.net/]"
+"CodeMirror[/a]) with syntax highlighting and line numbers"
 msgstr ""
 "Gebruik de gebruiksvriendelijk editor voor SQL queries ([a@http://codemirror."
 "net/]CodeMirror[/a]) met syntaxmarkering en lijnnummers"
@@ -4747,8 +4745,8 @@ msgid ""
 "Sort order for items in a foreign-key dropdown box; [kbd]content[/kbd] is "
 "the referenced data, [kbd]id[/kbd] is the key value"
 msgstr ""
-"Sorteer volgorde van elementen in een vreemdesleutel-afrolmenu; "
-"[kbd]content[/kbd] is de gerefereerde data, [kbd]id[/kbd] is de sleutelwaarde"
+"Sorteer volgorde van elementen in een vreemdesleutel-afrolmenu; [kbd]content"
+"[/kbd] is de gerefereerde data, [kbd]id[/kbd] is de sleutelwaarde"
 
 #: libraries/config/messages.inc.php:151
 msgid "Foreign key dropdown order"
@@ -4888,9 +4886,8 @@ msgstr "Paginatitels"
 
 #: libraries/config/messages.inc.php:193
 msgid ""
-"Specify browser's title bar text. Refer to "
-"[doc@cfg_TitleTable]documentation[/doc] for magic strings that can be used "
-"to get special values."
+"Specify browser's title bar text. Refer to [doc@cfg_TitleTable]documentation"
+"[/doc] for magic strings that can be used to get special values."
 msgstr ""
 "Browser titel balk tekst. Zie [doc@cfg_TitleTable]documentatie[/doc] voor "
 "bruikbare codes."
@@ -4955,8 +4952,8 @@ msgid ""
 "documentation"
 msgstr ""
 "Configureer de phpMyAdmin-configuratie-opslag om toegang te krijgen tot "
-"extra functionaliteit, zie [doc@linked-tables]phpMyAdmin-configuratie-"
-"opslag[/doc] in de documentatie"
+"extra functionaliteit, zie [doc@linked-tables]phpMyAdmin-configuratie-opslag"
+"[/doc] in de documentatie"
 
 #: libraries/config/messages.inc.php:206
 msgid "Changes tracking"
@@ -5354,8 +5351,8 @@ msgid ""
 "Open the linked page in the main window ([kbd]main[/kbd]) or in a new one "
 "([kbd]new[/kbd])"
 msgstr ""
-"Open de pagina in het hoofdvenster ([kbd]main[/kbd]) of in een nieuwe "
-"([kbd]new[/kbd])"
+"Open de pagina in het hoofdvenster ([kbd]main[/kbd]) of in een nieuwe ([kbd]"
+"new[/kbd])"
 
 #: libraries/config/messages.inc.php:304
 msgid "Logo link target"
@@ -5696,8 +5693,8 @@ msgid ""
 "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/bookmark]bookmark[/a] "
 "support, suggested: [kbd]pma__bookmark[/kbd]"
 msgstr ""
-"Laat dit veld leeg om geen [a@http://wiki.phpmyadmin.net/pma/"
-"bookmark]bladwijzers[/a] te gebruiken, suggestie: [kbd]pma__bookmark[/kbd]"
+"Laat dit veld leeg om geen [a@http://wiki.phpmyadmin.net/pma/bookmark]"
+"bladwijzers[/a] te gebruiken, suggestie: [kbd]pma__bookmark[/kbd]"
 
 #: libraries/config/messages.inc.php:381
 msgid "Bookmark table"
@@ -5705,8 +5702,8 @@ msgstr "Bladwijzertabel"
 
 #: libraries/config/messages.inc.php:382
 msgid ""
-"Leave blank for no column comments/mime types, suggested: "
-"[kbd]pma__column_info[/kbd]"
+"Leave blank for no column comments/mime types, suggested: [kbd]"
+"pma__column_info[/kbd]"
 msgstr ""
 "Laat dit veld leeg om geen kolomopmerkingen en mimetypes te ondersteunen, "
 "suggestie: [kbd]pma__column_info[/kbd]"
@@ -5778,8 +5775,8 @@ msgid ""
 "Leave blank for no Designer support, suggested: [kbd]pma__designer_coords[/"
 "kbd]"
 msgstr ""
-"Laat dit veld leeg om de Designer niet te gebruiken, suggestie: "
-"[kbd]pma__designer_coords[/kbd]"
+"Laat dit veld leeg om de Designer niet te gebruiken, suggestie: [kbd]"
+"pma__designer_coords[/kbd]"
 
 #: libraries/config/messages.inc.php:396
 msgid "Designer table"
@@ -5790,9 +5787,8 @@ msgid ""
 "More information on [a@https://sourceforge.net/p/phpmyadmin/bugs/2606/]PMA "
 "bug tracker[/a] and [a@http://bugs.mysql.com/19588]MySQL Bugs[/a]"
 msgstr ""
-"Zie voor meer informatie: [a@https://sourceforge.net/p/phpmyadmin/"
-"bugs/2606/]PMA-bugtracker[/a] en [a@http://bugs.mysql.com/19588]MySQL Bugs[/"
-"a]"
+"Zie voor meer informatie: [a@https://sourceforge.net/p/phpmyadmin/bugs/2606/]"
+"PMA-bugtracker[/a] en [a@http://bugs.mysql.com/19588]MySQL Bugs[/a]"
 
 #: libraries/config/messages.inc.php:398
 msgid "Disable use of INFORMATION_SCHEMA"
@@ -5822,8 +5818,8 @@ msgid ""
 "Leave blank for no SQL query history support, suggested: [kbd]pma__history[/"
 "kbd]"
 msgstr ""
-"Laat dit veld leeg om geen SQL-geschiedenis te ondersteunen, suggestie: "
-"[kbd]pma__history[/kbd]"
+"Laat dit veld leeg om geen SQL-geschiedenis te ondersteunen, suggestie: [kbd]"
+"pma__history[/kbd]"
 
 #: libraries/config/messages.inc.php:404
 msgid "SQL query history table"
@@ -5903,8 +5899,8 @@ msgid ""
 msgstr ""
 "Databank die wordt gebruikt om relaties, bladwijzers en PDF-eigenschappen op "
 "te slaan. Zie [a@http://wiki.phpmyadmin.net/pma/pmadb]pmadb[/a] voor meer "
-"informatie. Laat dit veld leeg om dit uit te schakelen, suggestie: "
-"[kbd]phpmyadmin[/kbd]"
+"informatie. Laat dit veld leeg om dit uit te schakelen, suggestie: [kbd]"
+"phpmyadmin[/kbd]"
 
 #: libraries/config/messages.inc.php:419
 msgid "Database name"
@@ -5934,12 +5930,11 @@ msgstr "Recent gebruikte tabel"
 
 #: libraries/config/messages.inc.php:424
 msgid ""
-"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
-"links[/a] support, suggested: [kbd]pma__relation[/kbd]"
+"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-links"
+"[/a] support, suggested: [kbd]pma__relation[/kbd]"
 msgstr ""
-"Laat dit veld leeg om geen [a@http://wiki.phpmyadmin.net/pma/"
-"relation]relation-links[/a] te ondersteunen, suggestie: [kbd]pma__relation[/"
-"kbd]"
+"Laat dit veld leeg om geen [a@http://wiki.phpmyadmin.net/pma/relation]"
+"relation-links[/a] te ondersteunen, suggestie: [kbd]pma__relation[/kbd]"
 
 #: libraries/config/messages.inc.php:425
 msgid "Relation table"
@@ -5955,8 +5950,8 @@ msgstr "Opdracht SHOW DATABASES"
 
 #: libraries/config/messages.inc.php:428
 msgid ""
-"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
-"types[/a] for an example"
+"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication types"
+"[/a] for an example"
 msgstr ""
 "Zie [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authenticatietypes[/"
 "a] voor een voorbeeld"
@@ -5992,8 +5987,8 @@ msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__table_coords[/"
 "kbd]"
 msgstr ""
-"Laat dit veld leeg om geen PDF-schema te ondersteunen, suggestie: "
-"[kbd]pma__table_coords[/kbd]"
+"Laat dit veld leeg om geen PDF-schema te ondersteunen, suggestie: [kbd]"
+"pma__table_coords[/kbd]"
 
 #: libraries/config/messages.inc.php:436
 msgid "PDF schema: table coordinates"
@@ -6072,8 +6067,8 @@ msgstr "Bij te houden opdrachten"
 
 #: libraries/config/messages.inc.php:449
 msgid ""
-"Leave blank for no SQL query tracking support, suggested: "
-"[kbd]pma__tracking[/kbd]"
+"Leave blank for no SQL query tracking support, suggested: [kbd]pma__tracking"
+"[/kbd]"
 msgstr ""
 "Laat dit veld leeg om het opvolgen van SQL queries niet te ondersteunen, "
 "suggestie: [kbd]pma__tracking[/kbd]"
@@ -6096,8 +6091,8 @@ msgstr "Automatisch versies aanmaken"
 
 #: libraries/config/messages.inc.php:453
 msgid ""
-"Leave blank for no user preferences storage in database, suggested: "
-"[kbd]pma__userconfig[/kbd]"
+"Leave blank for no user preferences storage in database, suggested: [kbd]"
+"pma__userconfig[/kbd]"
 msgstr ""
 "Laat dit veld leeg om geen gebruikersvoorkeuren op te slaan in de databank, "
 "suggestie: [kbd]pma__userconfig[/kbd]"
@@ -6109,42 +6104,40 @@ msgstr "Opslagtabel voor gebruikersvoorkeuren"
 #: libraries/config/messages.inc.php:455
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no user preferences storage in database, suggested: "
-#| "[kbd]pma__userconfig[/kbd]"
+#| "Leave blank for no user preferences storage in database, suggested: [kbd]"
+#| "pma__userconfig[/kbd]"
 msgid ""
-"Leave blank to disable configurable menus feature, suggested: "
-"[kbd]pma__users[/kbd]"
+"Leave blank to disable configurable menus feature, suggested: [kbd]pma__users"
+"[/kbd]"
 msgstr ""
 "Laat dit veld leeg om geen gebruikersvoorkeuren op te slaan in de databank, "
 "suggestie: [kbd]pma__userconfig[/kbd]"
 
 #: libraries/config/messages.inc.php:456
-#| msgid "Use Tables"
 msgid "Users table"
 msgstr "Gebruikerstabel"
 
 #: libraries/config/messages.inc.php:457
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no user preferences storage in database, suggested: "
-#| "[kbd]pma__userconfig[/kbd]"
+#| "Leave blank for no user preferences storage in database, suggested: [kbd]"
+#| "pma__userconfig[/kbd]"
 msgid ""
-"Leave blank to disable configurable menus feature, suggested: "
-"[kbd]pma__usergroups[/kbd]"
+"Leave blank to disable configurable menus feature, suggested: [kbd]"
+"pma__usergroups[/kbd]"
 msgstr ""
 "Laat dit veld leeg om geen gebruikersvoorkeuren op te slaan in de databank, "
 "suggestie: [kbd]pma__userconfig[/kbd]"
 
 #: libraries/config/messages.inc.php:458
-#| msgid "Use Host Table"
 msgid "User groups table"
 msgstr "Gebruikersgroepentabel"
 
 #: libraries/config/messages.inc.php:459
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no user preferences storage in database, suggested: "
-#| "[kbd]pma__userconfig[/kbd]"
+#| "Leave blank for no user preferences storage in database, suggested: [kbd]"
+#| "pma__userconfig[/kbd]"
 msgid ""
 "Leave blank to disable the feature to hide and show navigation items, "
 "suggested: [kbd]pma__navigationhiding[/kbd]"
@@ -6275,8 +6268,8 @@ msgid ""
 "Shows link to [a@http://php.net/manual/function.phpinfo.php]phpinfo()[/a] "
 "output"
 msgstr ""
-"Toon link naar de uitvoer van [a@http://php.net/manual/function.phpinfo."
-"php]phpinfo()[/a]"
+"Toon link naar de uitvoer van [a@http://php.net/manual/function.phpinfo.php]"
+"phpinfo()[/a]"
 
 #: libraries/config/messages.inc.php:485
 msgid "Show phpinfo() link"
@@ -7733,27 +7726,22 @@ msgid "An error has occured while loading the navigation tree"
 msgstr "Er is een fout opgetreden bij het laden van de navigatieboom"
 
 #: libraries/navigation/Navigation.class.php:172
-#| msgid "Events"
 msgid "Events:"
 msgstr "Gebeurtenissen:"
 
 #: libraries/navigation/Navigation.class.php:173
-#| msgid "Functions"
 msgid "Functions:"
 msgstr "Functies:"
 
 #: libraries/navigation/Navigation.class.php:174
-#| msgid "Procedures"
 msgid "Procedures:"
 msgstr "Procedures:"
 
 #: libraries/navigation/Navigation.class.php:175
-#| msgid "Tables"
 msgid "Tables:"
 msgstr "Tabellen:"
 
 #: libraries/navigation/Navigation.class.php:176
-#| msgid "Views"
 msgid "Views:"
 msgstr "Views:"
 
@@ -8858,7 +8846,6 @@ msgid "User preferences"
 msgstr "Gebruikersvoorkeuren"
 
 #: libraries/relation.lib.php:264
-#| msgid "Configuration: %s"
 msgid "Configurable menus"
 msgstr "Configureerbare menu's"
 
@@ -10278,7 +10265,6 @@ msgid "Add privileges on the following table:"
 msgstr "Rechten toevoegen op de volgende tabel:"
 
 #: libraries/server_privileges.lib.php:2599
-#| msgid "Edit server"
 msgid "Edit user group"
 msgstr "Gebruikersgroep bewerken"
 
@@ -10353,7 +10339,6 @@ msgstr ""
 
 #: libraries/server_privileges.lib.php:3229
 #: libraries/server_privileges.lib.php:3878
-#| msgid "Users"
 msgid "User groups"
 msgstr "Gebruikersgroepen"
 
@@ -10361,21 +10346,21 @@ msgstr "Gebruikersgroepen"
 #: libraries/server_privileges.lib.php:3402
 #, fuzzy
 #| msgid "Server version"
-msgid "Server level tabs"
+msgid "Server-level tabs"
 msgstr "Serverversie"
 
 #: libraries/server_privileges.lib.php:3237
 #: libraries/server_privileges.lib.php:3405
 #, fuzzy
 #| msgid "Database server"
-msgid "Database level tabs"
+msgid "Database-level tabs"
 msgstr "Databankserver"
 
 #: libraries/server_privileges.lib.php:3238
 #: libraries/server_privileges.lib.php:3408
 #, fuzzy
 #| msgid "Table comments"
-msgid "Table level tabs"
+msgid "Table-level tabs"
 msgstr "Tabelopmerkingen"
 
 #: libraries/server_privileges.lib.php:3260
@@ -12681,8 +12666,8 @@ msgid ""
 "You set the [kbd]config[/kbd] authentication type and included username and "
 "password for auto-login, which is not a desirable option for live hosts. "
 "Anyone who knows or guesses your phpMyAdmin URL can directly access your "
-"phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or "
-"[kbd]http[/kbd]."
+"phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or [kbd]"
+"http[/kbd]."
 msgstr ""
 "U gebruikt het [kbd]config[/kbd]-authenticatietype en heeft de te gebruiken "
 "gebruikersnaam en wachtwoord hierbij opgegeven voor automatisch aanmelden. "
@@ -14701,9 +14686,9 @@ msgstr "concurrent_insert is ingesteld op 0"
 
 #~ msgid ""
 #~ "When setting this to [kbd]nested[/kbd], the alias of the table name is "
-#~ "only used to split/nest the tables according to the "
-#~ "$cfg['LeftFrameTableSeparator'] directive, so only the folder is called "
-#~ "like the alias, the table name itself stays unchanged"
+#~ "only used to split/nest the tables according to the $cfg"
+#~ "['LeftFrameTableSeparator'] directive, so only the folder is called like "
+#~ "the alias, the table name itself stays unchanged"
 #~ msgstr ""
 #~ "Indien ingesteld op [kbd]nested[/kbd] wordt de opmerking enkel op basis "
 #~ "van $cfg['LeftFrameTableSeparator'] gesplitst. Hierdoor krijgt enkel de "
