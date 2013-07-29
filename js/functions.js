@@ -3808,6 +3808,7 @@ $(function () {
     });
 });
 
+var checkboxes_sel = "input.checkall:checkbox:enabled";
 /**
  * Watches checkboxes in a form to set the checkall box accordingly
  */
@@ -3828,7 +3829,6 @@ var checkboxes_changed = function () {
         $checkall.prop({checked: false, indeterminate: false});
     }
 };
-var checkboxes_sel = "input.checkall:checkbox:enabled";
 $(checkboxes_sel).live("change", checkboxes_changed);
 
 $("input.checkall_box").live("change", function () {
