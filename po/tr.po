@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-07-29 15:39+0200\n"
-"PO-Revision-Date: 2013-07-29 20:32+0200\n"
+"PO-Revision-Date: 2013-07-29 22:04+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/tr/>\n"
@@ -9969,7 +9969,7 @@ msgstr "Yok"
 #: libraries/server_privileges.lib.php:2531
 #: libraries/server_privileges.lib.php:3235
 msgid "User group"
-msgstr ""
+msgstr "Kullanıcı grubu"
 
 #: libraries/server_privileges.lib.php:618
 msgid "Resource limits"
@@ -10199,10 +10199,9 @@ msgid "Add privileges on the following table:"
 msgstr "Aşağıdaki tabloya yetkileri ekle:"
 
 #: libraries/server_privileges.lib.php:2599
-#, fuzzy
 #| msgid "Edit server"
 msgid "Edit user group"
-msgstr "Sunucuyu düzenle"
+msgstr "Kullanıcı grubunu düzenle"
 
 #: libraries/server_privileges.lib.php:2714
 msgid "Remove selected users"
@@ -10265,69 +10264,61 @@ msgstr ""
 #: libraries/server_privileges.lib.php:3187
 #, php-format
 msgid "Users of '%s' user group"
-msgstr ""
+msgstr "'%s' kullanıcı grubunun kullanıcıları"
 
 #: libraries/server_privileges.lib.php:3198
 msgid "No users were found belonging to this user group."
-msgstr ""
+msgstr "Bu kullanıcı grubuna ait hiç kullanıcı bulunamadı."
 
 #: libraries/server_privileges.lib.php:3229
 #: libraries/server_privileges.lib.php:3878
-#, fuzzy
 #| msgid "Users"
 msgid "User groups"
-msgstr "Kullanıcılar"
+msgstr "Kullanıcı grupları"
 
 #: libraries/server_privileges.lib.php:3236
 #: libraries/server_privileges.lib.php:3402
-#, fuzzy
 #| msgid "Server version"
 msgid "Server level tabs"
-msgstr "Sunucu sürümü"
+msgstr "Sunucu seviyesi sekmeler"
 
 #: libraries/server_privileges.lib.php:3237
 #: libraries/server_privileges.lib.php:3405
-#, fuzzy
 #| msgid "Database server"
 msgid "Database level tabs"
-msgstr "Veritabanı sunucusu"
+msgstr "Veritabanı seviyesi sekmeler"
 
 #: libraries/server_privileges.lib.php:3238
 #: libraries/server_privileges.lib.php:3408
-#, fuzzy
 #| msgid "Table comments"
 msgid "Table level tabs"
-msgstr "Tablo yorumları"
+msgstr "Tablo seviyesi sekmeler"
 
 #: libraries/server_privileges.lib.php:3260
-#, fuzzy
 #| msgid "Views"
 msgid "View users"
-msgstr "Görünümler"
+msgstr "Kullanıcıları göster"
 
 #: libraries/server_privileges.lib.php:3288
 #: libraries/server_privileges.lib.php:3344
-#, fuzzy
 #| msgid "Add user"
 msgid "Add user group"
-msgstr "Kullanıcı ekle"
+msgstr "Kullanıcı grubu ekle"
 
 #: libraries/server_privileges.lib.php:3347
 #, php-format
 msgid "Edit user group: '%s'"
-msgstr ""
+msgstr "Kullanıcı grubunu düzenle: '%s'"
 
 #: libraries/server_privileges.lib.php:3363
-#, fuzzy
 #| msgid "No privileges."
 msgid "User group privileges"
-msgstr "Yetkiniz yok."
+msgstr "Kullanıcı grubu yetkileri"
 
 #: libraries/server_privileges.lib.php:3370
-#, fuzzy
 #| msgid "Column names: "
 msgid "Group name:"
-msgstr "Sütun adları: "
+msgstr "Grup adı:"
 
 #: libraries/server_privileges.lib.php:3521
 msgid "The selected user was not found in the privilege table."
