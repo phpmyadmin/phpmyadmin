@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-07-29 15:39+0200\n"
-"PO-Revision-Date: 2013-07-29 22:46+0200\n"
+"PO-Revision-Date: 2013-07-29 22:51+0200\n"
 "Last-Translator: Marcelo Camargo <marcelocamargo@linuxmail.org>\n"
 "Language-Team: Portuguese (Brazil) "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/pt_BR/>\n"
@@ -6103,7 +6103,6 @@ msgid "User preferences storage table"
 msgstr "Tabela de armazenamento de preferências de usuário"
 
 #: libraries/config/messages.inc.php:455
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no user preferences storage in database, suggested: "
 #| "[kbd]pma__userconfig[/kbd]"
@@ -6111,14 +6110,13 @@ msgid ""
 "Leave blank to disable configurable menus feature, suggested: "
 "[kbd]pma__users[/kbd]"
 msgstr ""
-"Deixe em branco para não usar armazenamento de preferências do usuário em "
-"banco de dados, sugestão: [kbd]pma__userconfig[/kbd]"
+"Deixe em branco para desativar a opção de menus configuráveis, sugestão: "
+"[kbd]pma__userconfig[/kbd]"
 
 #: libraries/config/messages.inc.php:456
-#, fuzzy
 #| msgid "Use Tables"
 msgid "Users table"
-msgstr "Usar tabelas"
+msgstr "Tabelas dos usuários"
 
 #: libraries/config/messages.inc.php:457
 #, fuzzy
@@ -6136,7 +6134,7 @@ msgstr ""
 #, fuzzy
 #| msgid "Use Host Table"
 msgid "User groups table"
-msgstr "Usar tabela Host"
+msgstr "Tabela de grupos de usuário"
 
 #: libraries/config/messages.inc.php:459
 #, fuzzy
@@ -6152,7 +6150,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:460
 msgid "Hidden navigation items table"
-msgstr ""
+msgstr "Tabela de navegação de itens ocultos"
 
 #: libraries/config/messages.inc.php:462
 msgid "User for config auth"
