@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-07-29 15:07+0200\n"
-"PO-Revision-Date: 2013-07-29 20:20+0200\n"
+"PO-Revision-Date: 2013-07-29 20:30+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish <http://l10n.cihar.com/projects/phpmyadmin/4-0/tr/>\n"
 "Language: tr\n"
@@ -7418,7 +7418,7 @@ msgstr "Çekçe-Slovakça"
 #: libraries/mysql_charsets.lib.php:436 libraries/mysql_charsets.lib.php:443
 #: libraries/structure.lib.php:1068
 msgid "unknown"
-msgstr "bilinmeyen"
+msgstr "bilinmiyor"
 
 #: libraries/navigation/Navigation.class.php:61
 msgid "An error has occured while loading the navigation tree"
