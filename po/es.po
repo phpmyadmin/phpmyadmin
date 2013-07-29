@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-07-29 15:39+0200\n"
-"PO-Revision-Date: 2013-07-29 21:57+0200\n"
+"PO-Revision-Date: 2013-07-29 22:30+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone+weblate@gmail.com>\n"
 "Language-Team: Spanish "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/es/>\n"
@@ -7782,28 +7782,24 @@ msgid "Events:"
 msgstr "Eventos:"
 
 #: libraries/navigation/Navigation.class.php:173
-#, fuzzy
 #| msgid "Functions"
 msgid "Functions:"
-msgstr "Funciones"
+msgstr "Funciones:"
 
 #: libraries/navigation/Navigation.class.php:174
-#, fuzzy
 #| msgid "Procedures"
 msgid "Procedures:"
-msgstr "Procedimientos"
+msgstr "Procedimientos:"
 
 #: libraries/navigation/Navigation.class.php:175
-#, fuzzy
 #| msgid "Tables"
 msgid "Tables:"
-msgstr "Tablas"
+msgstr "Tablas:"
 
 #: libraries/navigation/Navigation.class.php:176
-#, fuzzy
 #| msgid "Views"
 msgid "Views:"
-msgstr "Vistas"
+msgstr "Vistas:"
 
 #: libraries/navigation/NavigationHeader.class.php:183
 msgid "Home"
@@ -8914,16 +8910,14 @@ msgid "User preferences"
 msgstr "Preferencias de usuario"
 
 #: libraries/relation.lib.php:264
-#, fuzzy
 #| msgid "Configuration: %s"
 msgid "Configurable menus"
-msgstr "Configuración: %s"
+msgstr "Menús configurables"
 
 #: libraries/relation.lib.php:275
-#, fuzzy
 #| msgid "Reload navigation frame"
 msgid "Hide/show navigation items"
-msgstr "Recargar el marco de navegación"
+msgstr "Ocultar/mostrar elementos de navegación"
 
 #: libraries/relation.lib.php:281
 msgid "Quick steps to setup advanced features:"
@@ -10091,7 +10085,7 @@ msgstr "Ninguno"
 #: libraries/server_privileges.lib.php:2531
 #: libraries/server_privileges.lib.php:3235
 msgid "User group"
-msgstr ""
+msgstr "Grupo de usuario"
 
 #: libraries/server_privileges.lib.php:618
 msgid "Resource limits"
@@ -10333,10 +10327,9 @@ msgid "Add privileges on the following table:"
 msgstr "Añadir privilegios a esta tabla:"
 
 #: libraries/server_privileges.lib.php:2599
-#, fuzzy
 #| msgid "Edit server"
 msgid "Edit user group"
-msgstr "Editar los parámetros del servidor"
+msgstr "Editar groupo de usuario"
 
 #: libraries/server_privileges.lib.php:2714
 msgid "Remove selected users"
@@ -10402,69 +10395,61 @@ msgstr ""
 #: libraries/server_privileges.lib.php:3187
 #, php-format
 msgid "Users of '%s' user group"
-msgstr ""
+msgstr "Usuarios del grupo de usuario '%s'"
 
 #: libraries/server_privileges.lib.php:3198
 msgid "No users were found belonging to this user group."
-msgstr ""
+msgstr "No se encontraron usuarios que pertenezcan a este grupo."
 
 #: libraries/server_privileges.lib.php:3229
 #: libraries/server_privileges.lib.php:3878
-#, fuzzy
 #| msgid "Users"
 msgid "User groups"
-msgstr "Usuarios"
+msgstr "Groupos de usuario"
 
 #: libraries/server_privileges.lib.php:3236
 #: libraries/server_privileges.lib.php:3402
-#, fuzzy
 #| msgid "Server version"
 msgid "Server-level tabs"
-msgstr "Versión del servidor"
+msgstr "Pestañas a nivel servidor"
 
 #: libraries/server_privileges.lib.php:3237
 #: libraries/server_privileges.lib.php:3405
-#, fuzzy
 #| msgid "Database server"
 msgid "Database-level tabs"
-msgstr "Servidor de base de datos"
+msgstr "Pestañas a nivel base de datos"
 
 #: libraries/server_privileges.lib.php:3238
 #: libraries/server_privileges.lib.php:3408
-#, fuzzy
 #| msgid "Table comments"
 msgid "Table-level tabs"
-msgstr "Comentarios de la tabla"
+msgstr "Pestañas a nivel tabla"
 
 #: libraries/server_privileges.lib.php:3260
-#, fuzzy
 #| msgid "Views"
 msgid "View users"
-msgstr "Vistas"
+msgstr "Ver usuarios"
 
 #: libraries/server_privileges.lib.php:3288
 #: libraries/server_privileges.lib.php:3344
-#, fuzzy
 #| msgid "Add user"
 msgid "Add user group"
-msgstr "Agregar usuario"
+msgstr "Agregar groupo de usuarios"
 
 #: libraries/server_privileges.lib.php:3347
 #, php-format
 msgid "Edit user group: '%s'"
-msgstr ""
+msgstr "Editar grupo de usuarios: '%s'"
 
 #: libraries/server_privileges.lib.php:3363
-#, fuzzy
 #| msgid "No privileges."
 msgid "User group privileges"
-msgstr "Sin privilegios."
+msgstr "Privilegios del grupo de usuarios"
 
 #: libraries/server_privileges.lib.php:3370
-#, fuzzy
 #| msgid "Column names: "
 msgid "Group name:"
-msgstr "Nombre de las columnas: "
+msgstr "Nombre del grupo:"
 
 #: libraries/server_privileges.lib.php:3521
 msgid "The selected user was not found in the privilege table."
