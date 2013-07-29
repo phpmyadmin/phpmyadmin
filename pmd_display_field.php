@@ -13,19 +13,8 @@ PMA_Response::getInstance()->disable();
 
 require_once 'libraries/pmd_common.php';
 
-$post_params = array(
-    'T',
-    'F'
-);
-
-foreach ($post_params as $one_post_param) {
-    if (isset($_POST[$one_post_param])) {
-        $GLOBALS[$one_post_param] = $_POST[$one_post_param];
-    }
-}
-
-$table = $T;
-$display_field = $F;
+$table = $_POST['T'];
+$display_field = $_POST['F'];
 
 if ($cfgRelation['displaywork']) {
 

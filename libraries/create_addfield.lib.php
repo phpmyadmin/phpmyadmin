@@ -12,7 +12,7 @@ if (! defined('PHPMYADMIN')) {
 
 /**
  * Transforms the radio button field_key into 4 arrays
- * 
+ *
  * @return array An array of arrays which represents column keys for each index type
  */
 function PMA_getIndexedColumns()
@@ -40,24 +40,25 @@ function PMA_getIndexedColumns()
             }
         } // end if
     } // end for
-    
-    return array( 
+
+    return array(
         $field_cnt, $field_primary, $field_index, $field_unique, $field_fulltext );
 }
 
 /**
  * Initiate the column creation statement according to the table creation or
  * add columns to a existing table
- * 
+ *
  * @param int     $field_cnt     number of columns
- * @param boolean $is_create_tbl true if requirement is to get the statement 
+ * @param boolean $is_create_tbl true if requirement is to get the statement
  *                               for table creation
- * 
- * @return array  $definitions   An array of initial sql statements 
+ *
+ * @return array  $definitions   An array of initial sql statements
  *                               according to the request
  */
-function PMA_buildColumnCreationStatement($field_cnt ,$is_create_tbl = true)
-{
+function PMA_buildColumnCreationStatement(
+    $field_cnt, $field_primary, $is_create_tbl = true
+) {
     $definitions = array();
     for ($i = 0; $i < $field_cnt; ++$i) {
         // '0' is also empty for php :-(
@@ -67,7 +68,7 @@ function PMA_buildColumnCreationStatement($field_cnt ,$is_create_tbl = true)
             continue;
         }
 
-        $definition = PMA_getStatementPrefix($is_create_tbl) . 
+        $definition = PMA_getStatementPrefix($is_create_tbl) .
                 PMA_Table::generateFieldSpec(
                     $_REQUEST['field_name'][$i],
                     $_REQUEST['field_type'][$i],
@@ -91,21 +92,21 @@ function PMA_buildColumnCreationStatement($field_cnt ,$is_create_tbl = true)
                     $field_primary
                 );
 
-        
+
         $definition .= PMA_setColumnCreationStatementSuffix($i, $is_create_tbl);
         $definitions[] = $definition;
     } // end for
-    
+
     return $definitions;
 }
 
 /**
  * Set column creation suffix according to requested position of the new column
- * 
+ *
  * @param int     $current_field_num current column number
- * @param boolean $is_create_tbl     true if requirement is to get the statement 
+ * @param boolean $is_create_tbl     true if requirement is to get the statement
  *                                   for table creation
- * 
+ *
  * @return string $sql_suffix suffix
  */
 function PMA_setColumnCreationStatementSuffix($current_field_num ,$is_create_tbl = true)
@@ -135,14 +136,14 @@ function PMA_setColumnCreationStatementSuffix($current_field_num ,$is_create_tbl
 
 /**
  * Create relevent index statements
- * 
+ *
  * @param array   $indexed_fields an array of index columns
- * @param string  $index_type     index type that which represents 
+ * @param string  $index_type     index type that which represents
  *                                the index type of $indexed_fields
- * @param boolean $is_create_tbl  true if requirement is to get the statement 
+ * @param boolean $is_create_tbl  true if requirement is to get the statement
  *                                for table creation
- * 
- * @return array an array of sql statements for indexes 
+ *
+ * @return array an array of sql statements for indexes
  */
 function PMA_buildIndexStatements($indexed_fields, $index_type,  $is_create_tbl = true)
 {
@@ -156,16 +157,16 @@ function PMA_buildIndexStatements($indexed_fields, $index_type,  $is_create_tbl 
         .' '.$index_type.' (' . implode(', ', $fields) . ') ';
         unset($fields);
     }
-    
+
     return $statement;
 }
 
 /**
  * Statement prefix for the PMA_buildColumnCreationStatement()
- * 
- * @param boolean $is_create_tbl true if requirement is to get the statement 
+ *
+ * @param boolean $is_create_tbl true if requirement is to get the statement
  *                               for table creation
- * 
+ *
  * @return string $sql_prefix prefix
  */
 function PMA_getStatementPrefix($is_create_tbl = true)
@@ -179,51 +180,51 @@ function PMA_getStatementPrefix($is_create_tbl = true)
 
 /**
  * Returns sql statement according to the column and index specifications as requested
- * 
- * @param boolean $is_create_tbl true if requirement is to get the statement 
+ *
+ * @param boolean $is_create_tbl true if requirement is to get the statement
  *                               for table creation
- * 
- * @return string sql statement 
+ *
+ * @return string sql statement
  */
 function PMA_getColumnCreationStatements($is_create_tbl = true)
 {
     $definitions = array();
     $sql_statement = "";
-    list($field_cnt, $field_primary, $field_index, 
+    list($field_cnt, $field_primary, $field_index,
             $field_unique, $field_fulltext
             ) = PMA_getIndexedColumns();
-    $definitions = PMA_buildColumnCreationStatement($field_cnt, $is_create_tbl);
-    
-    // Builds the primary keys statements 
+    $definitions = PMA_buildColumnCreationStatement($field_cnt, $field_primary, $is_create_tbl);
+
+    // Builds the primary keys statements
     $primary_key_statements = PMA_buildIndexStatements(
         $field_primary, " PRIMARY KEY ", $is_create_tbl
     );
     $definitions = array_merge($definitions, $primary_key_statements);
-    
+
     // Builds the indexes statements
     $index_statements = PMA_buildIndexStatements(
         $field_index, " INDEX ", $is_create_tbl
     );
     $definitions = array_merge($definitions, $index_statements);
-    
+
     // Builds the uniques statements
     $unique_statements = PMA_buildIndexStatements(
         $field_unique, " UNIQUE ", $is_create_tbl
     );
     $definitions = array_merge($definitions, $unique_statements);
-    
+
     // Builds the fulltext statements
     $fulltext_statements = PMA_buildIndexStatements(
         $field_fulltext, " FULLTEXT ", $is_create_tbl
     );
     $definitions = array_merge($definitions, $fulltext_statements);
-    
+
     if (count($definitions)) {
         $sql_statement = implode(', ', $definitions);
     }
     $sql_statement = preg_replace('@, $@', '', $sql_statement);
-    
+
     return $sql_statement;
-    
+
 }
 ?>

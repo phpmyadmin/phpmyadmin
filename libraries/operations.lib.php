@@ -358,7 +358,7 @@ function PMA_getSqlQueryAndCreateDbBeforeCopy()
             'SHOW VARIABLES LIKE "lower_case_table_names"', 0, 1
         );
         if ($lower_case_table_names === '1') {
-            $_REQUEST['newname'] = $GLOBALS['PMA_String']::strtolower($_REQUEST['newname']);
+            $_REQUEST['newname'] = $GLOBALS['PMA_String']->strtolower($_REQUEST['newname']);
         }
     }
 
@@ -377,6 +377,11 @@ function PMA_getSqlQueryAndCreateDbBeforeCopy()
     $GLOBALS['dbi']->query($local_query);
     $GLOBALS['db'] = $original_db;
 
+    // Set the SQL mode to NO_AUTO_VALUE_ON_ZERO to prevent MySQL from creating
+    // export statements it cannot import
+    $sql_set_mode = "SET SQL_MODE='NO_AUTO_VALUE_ON_ZERO'";
+    $GLOBALS['dbi']->query($sql_set_mode);
+
     // rebuild the database list because PMA_Table::moveCopy
     // checks in this list if the target db exists
     $GLOBALS['pma']->databases->build();
@@ -390,7 +395,7 @@ function PMA_getSqlQueryAndCreateDbBeforeCopy()
  *
  * @param array   $tables_full       array of all tables in given db or dbs
  * @param object  $export_sql_plugin export plugin instance
- * @param boolean $move              whether databse name is empty or not
+ * @param boolean $move              whether database name is empty or not
  * @param string  $db                database name
  *
  * @return string sql constraints query for full databases
@@ -398,11 +403,13 @@ function PMA_getSqlQueryAndCreateDbBeforeCopy()
 function PMA_getSqlConstraintsQueryForFullDb(
     $tables_full, $export_sql_plugin, $move, $db
 ) {
+    global $sql_constraints, $sql_drop_foreign_keys;
     $sql_constraints_query_full_db = array();
     foreach ($tables_full as $each_table => $tmp) {
+        /* Following globals are set in getTableDef */
         $sql_constraints = '';
         $sql_drop_foreign_keys = '';
-        $sql_structure = $export_sql_plugin->getTableDef(
+        $export_sql_plugin->getTableDef(
             $db, $each_table, "\n", '', false, false
         );
         if ($move && ! empty($sql_drop_foreign_keys)) {
@@ -421,7 +428,7 @@ function PMA_getSqlConstraintsQueryForFullDb(
  *
  * @param array  $tables_full       array of all tables in given db or dbs
  * @param object $export_sql_plugin export plugin instance
- * @param strin  $db                database name
+ * @param string $db                database name
  *
  * @return array $views
  */
@@ -452,7 +459,7 @@ function PMA_getViewsAndCreateSqlViewStandIn(
  *
  * @param array   $tables_full array of all tables in given db or dbs
  * @param string  $sql_query   sql query for all operations
- * @param boolean $move        whether databse name is empty or not
+ * @param boolean $move        whether database name is empty or not
  * @param string  $db          database name
  *
  * @return array ($sql_query, $error)
@@ -555,7 +562,7 @@ function PMA_runEventDefinitionsForDb($db)
  * Handle the views, return the boolean value whether table rename/copy or not
  *
  * @param array   $views views as an array
- * @param boolean $move  whether databse name is empty or not
+ * @param boolean $move  whether database name is empty or not
  * @param string  $db    database name
  *
  * @return boolean $_error whether table rename/copy or not
@@ -1159,7 +1166,7 @@ function PMA_getListofMaintainActionLink($is_myisam_or_aria,
                 'Table_types'
             );
         }
-        if ($is_myisam_or_aria || $is_berkeleydb) {
+        if ($is_innodb || $is_myisam_or_aria || $is_berkeleydb) {
             $params = array(
                 'sql_query' => 'ANALYZE TABLE '
                     . PMA_Util::backquote($GLOBALS['table']),

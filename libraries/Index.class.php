@@ -358,7 +358,7 @@ class PMA_Index
     /**
      * Returns index choice (PRIMARY, UNIQUE, INDEX, SPATIAL, FULLTEXT)
      *
-     * @return index choice
+     * @return string index choice
      */
     public function getChoice()
     {
@@ -605,7 +605,7 @@ class PMA_Index
                         . PMA_Util::backquote($table) . ' DROP INDEX '
                         . PMA_Util::backquote($index->getName()) . ';';
                     $this_params['message_to_show'] = sprintf(
-                        __('Index %s has been dropped'), $index->getName()
+                        __('Index %s has been dropped.'), $index->getName()
                     );
 
                     $js_msg = PMA_jsFormat(

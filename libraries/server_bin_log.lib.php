@@ -16,8 +16,7 @@ if (! defined('PHPMYADMIN')) {
  * Returns the html for log selector.
  *
  * @param Array $binary_log_file_names Binary logs file names
- *
- * @param Array $url_params links parameters
+ * @param Array $url_params            links parameters
  *
  * @return string
  */
@@ -71,8 +70,7 @@ function PMA_getLogSelector($binary_log_file_names, $url_params)
  * Returns the html for binary log information.
  *
  * @param Array $binary_log_file_names Binary logs file names
- *
- * @param Array $url_params links parameters
+ * @param Array $url_params            links parameters
  *
  * @return string
  */
@@ -149,13 +147,10 @@ function PMA_getLogInfo($binary_log_file_names, $url_params)
 /**
  * Returns the html for Navigation Row.
  *
- * @param Array $url_params Links parameters
- *
- * @param int $pos Position to display
- *
- * @param int $num_rows Number of results row
- *
- * @param bool $dontlimitchars Whether limit chars
+ * @param Array $url_params     Links parameters
+ * @param int   $pos            Position to display
+ * @param int   $num_rows       Number of results row
+ * @param bool  $dontlimitchars Whether limit chars
  *
  * @return string
  */
@@ -175,7 +170,7 @@ function PMA_getNavigationRow($url_params, $pos, $num_rows, $dontlimitchars)
         if (in_array(
             $GLOBALS['cfg']['TableNavigationLinksMode'],
             array('icons', 'both')
-            )
+        )
         ) {
             $html .= ' title="' . _pgettext('Previous page', 'Previous') . '">';
         } else {
@@ -213,7 +208,7 @@ function PMA_getNavigationRow($url_params, $pos, $num_rows, $dontlimitchars)
         if (in_array(
             $GLOBALS['cfg']['TableNavigationLinksMode'],
             array('icons', 'both')
-            )
+        ) 
         ) {
             $html .= ' title="' . _pgettext('Next page', 'Next') . '">';
         } else {
@@ -228,9 +223,8 @@ function PMA_getNavigationRow($url_params, $pos, $num_rows, $dontlimitchars)
 /**
  * Returns the html for all binary log items.
  *
- * @param resource $result MySQL Query result
- *
- * @param bool $dontlimitchars Whether limit chars
+ * @param resource $result         MySQL Query result
+ * @param bool     $dontlimitchars Whether limit chars
  *
  * @return string
  */
@@ -239,10 +233,10 @@ function PMA_getAllLogItemInfo($result, $dontlimitchars)
     $html = "";
     $odd_row = true;
     while ($value = $GLOBALS['dbi']->fetchAssoc($result)) {
-        if (! $dontlimitchars
-            && $GLOBALS['PMA_String']::strlen($value['Info']) > $GLOBALS['cfg']['LimitChars']
-        ) {
-            $value['Info'] = $GLOBALS['PMA_String']::substr(
+        $len_info = $GLOBALS['PMA_String']->strlen($value['Info']);
+        $len_limitChars = $GLOBALS['cfg']['LimitChars'];
+        if (! $dontlimitchars && $len_info > $len_limitChars) {
+            $value['Info'] = $GLOBALS['PMA_String']->substr(
                 $value['Info'], 0, $GLOBALS['cfg']['LimitChars']
             ) . '...';
         }

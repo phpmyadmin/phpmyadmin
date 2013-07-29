@@ -480,7 +480,7 @@ function PMA_sqlQueryFormUpload()
     echo '</div>';
 
     if ($files === false) {
-        $errors[] = PMA_Message::error(__('The directory you set for upload work cannot be reached'));
+        $errors[] = PMA_Message::error(__('The directory you set for upload work cannot be reached.'));
     } elseif (!empty($files)) {
         echo '<div class="formelement">';
         echo '<strong>' . __('web server upload directory:') .'</strong>' . "\n";

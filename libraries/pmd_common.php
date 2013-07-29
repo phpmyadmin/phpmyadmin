@@ -4,6 +4,13 @@
  * @package PhpMyAdmin-Designer
  */
 /**
+ * block attempts to directly run this script 
+ */
+if (getcwd() == dirname(__FILE__)) {
+    die('Attack stopped');
+}
+
+/**
  *
  */
 if (! defined('PHPMYADMIN')) {
@@ -214,9 +221,6 @@ function get_all_keys($unique_only = false)
  */
 function get_script_tabs()
 {
-    $script_tabs = 'var j_tabs = new Array();' . "\n"
-        . 'var h_tabs = new Array();' . "\n" ;
-
     $retval = array(
         'j_tabs' => array(),
         'h_tabs' => array()
@@ -255,17 +259,17 @@ function get_tab_pos()
            FROM " . PMA_Util::backquote($cfgRelation['db'])
         . "." . PMA_Util::backquote($cfgRelation['designer_coords']);
     $tab_pos = $GLOBALS['dbi']->fetchResult(
-        $query, 
-        'name', 
-        null, 
-        $GLOBALS['controllink'], 
+        $query,
+        'name',
+        null,
+        $GLOBALS['controllink'],
         PMA_DatabaseInterface::QUERY_STORE
     );
     return count($tab_pos) ? $tab_pos : null;
 }
 
 /**
- * Prepares XML output for js/pmd/ajax.js to display a message 
+ * Prepares XML output for js/pmd/ajax.js to display a message
  *
  */
 function PMD_return_upd($b, $ret)

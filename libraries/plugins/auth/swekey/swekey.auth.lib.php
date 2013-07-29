@@ -3,6 +3,10 @@
  * @package Swekey
  */
 
+if (! defined('PHPMYADMIN')) {
+    exit;
+}
+
 /**
  * Checks Swekey authentication.
  */
@@ -173,7 +177,7 @@ function Swekey_auth_error()
                 $res = Swekey_CheckOtp($swekey_id, $_SESSION['SWEKEY']['RND_TOKEN'], $swekey_otp);
                 unset($_SESSION['SWEKEY']['RND_TOKEN']);
                 if (! $res) {
-                    $result = __('Hardware authentication failed') . ' (' . Swekey_GetLastError() . ')';
+                    $result = __('Hardware authentication failed!') . ' (' . Swekey_GetLastError() . ')';
                 } else {
                     $_SESSION['SWEKEY']['AUTHENTICATED_SWEKEY'] = $swekey_id;
                     $_SESSION['SWEKEY']['FORCE_USER'] = $_SESSION['SWEKEY']['VALID_SWEKEYS'][$swekey_id];
@@ -193,7 +197,7 @@ function Swekey_auth_error()
 
     $_SESSION['SWEKEY']['RND_TOKEN'] = Swekey_GetFastRndToken();
     if (strlen($_SESSION['SWEKEY']['RND_TOKEN']) != 64) {
-        $result = __('Hardware authentication failed') . ' (' . Swekey_GetLastError() . ')';
+        $result = __('Hardware authentication failed!') . ' (' . Swekey_GetLastError() . ')';
         unset($_SESSION['SWEKEY']['CONF_LOADED']); // reload the conf file
     }
 

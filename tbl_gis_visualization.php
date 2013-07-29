@@ -108,9 +108,10 @@ $visualization = PMA_GIS_visualizationResults(
  * Displays the page
  */
 
-$html = PMA_getHtmlForGisVisualization($url_params, $labelCandidates,
-    $spatialCandidates, $visualizationSettings, $sql_query,$visualization,
-    $svg_support, $data
+$html = PMA_getHtmlForGisVisualization(
+    $url_params, $labelCandidates, $spatialCandidates,
+    $visualizationSettings, $sql_query, $visualization, $svg_support,
+    $data
 );
 
 $response->addHTML($html);

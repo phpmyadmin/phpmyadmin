@@ -1207,6 +1207,10 @@ div#tablestatistics table {
     float: <?php echo $left; ?>;
 }
 
+#fieldset_user_group_rights fieldset {
+    float: <?php echo $left; ?>;
+}
+
 #fieldset_user_global_rights legend input {
     margin-<?php echo $left; ?>: 2em;
 }
@@ -2807,3 +2811,12 @@ body .ui-widget {
     color: #235A81;
 }
 
+/* over-riding jqplot-yaxis class */
+.jqplot-yaxis {
+    left:0px !important;
+    min-width:25px;
+    width:auto;
+}
+.jqplot-axis {
+    overflow:hidden;
+}

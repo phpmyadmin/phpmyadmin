@@ -89,7 +89,7 @@ class PMA_Util
     /**
      * Returns an HTML IMG tag for a particular icon from a theme,
      * which may be an actual file or an icon from a sprite.
-     * This function takes into account the ActionLinksMode 
+     * This function takes into account the ActionLinksMode
      * configuration setting and wraps the image tag in a span tag.
      *
      * @param string  $icon          name of icon file
@@ -106,19 +106,19 @@ class PMA_Util
     ) {
         $include_icon = $include_text = false;
         if (in_array(
-                $GLOBALS['cfg'][$control_param], 
+                $GLOBALS['cfg'][$control_param],
                 array('icons', 'both')
             )
-        ) { 
+        ) {
             $include_icon = true;
-        } 
+        }
         if ($force_text
             || in_array(
-                $GLOBALS['cfg'][$control_param], 
+                $GLOBALS['cfg'][$control_param],
                 array('text', 'both')
             )
         ) {
-            $include_text = true; 
+            $include_text = true;
         }
         // Sometimes use a span (we rely on this in js/sql.js). But for menu bar
         // we don't need a span
@@ -1210,7 +1210,7 @@ class PMA_Util
             // but only explain a SELECT (that has not been explained)
             /* SQL-Parser-Analyzer */
             $explain_link = '';
-            $is_select = false;
+            $is_select = preg_match('@^SELECT[[:space:]]+@i', $sql_query);
             if (! empty($cfg['SQLQuery']['Explain']) && ! $query_too_big) {
                 $explain_params = $url_params;
                 // Detect if we are validating as well
@@ -1218,10 +1218,9 @@ class PMA_Util
                 if (! empty($GLOBALS['validatequery'])) {
                     $explain_params['validatequery'] = 1;
                 }
-                if (preg_match('@^SELECT[[:space:]]+@i', $sql_query)) {
+                if ($is_select) {
                     $explain_params['sql_query'] = 'EXPLAIN ' . $sql_query;
                     $_message = __('Explain SQL');
-                    $is_select = true;
                 } elseif (
                     preg_match(
                         '@^EXPLAIN[[:space:]]+SELECT[[:space:]]+@i', $sql_query
@@ -1343,43 +1342,41 @@ class PMA_Util
             }
 
             $retval .= '<div class="tools">';
+            $retval .= '<form action="sql.php" method="post">';
+            $retval .= PMA_generate_common_hidden_inputs(
+                $GLOBALS['db'], $GLOBALS['table']
+            );
+            $retval .= '<input type="hidden" name="sql_query" value="'
+                . htmlspecialchars($sql_query) . '" />';
+
             // avoid displaying a Profiling checkbox that could
             // be checked, which would reexecute an INSERT, for example
-            if (! empty($refresh_link)) {
-                $retval .= self::getProfilingForm($sql_query);
-            }
-            // if needed, generate an invisible form that contains controls for the
-            // Inline link; this way, the behavior of the Inline link does not
-            // depend on the profiling support or on the refresh link
-            if (empty($refresh_link) || !self::profilingSupported()) {
-                $retval .= '<form action="sql.php" method="post">';
-                $retval .= PMA_generate_common_hidden_inputs(
-                    $GLOBALS['db'], $GLOBALS['table']
+            if (! empty($refresh_link) && self::profilingSupported()) {
+                $retval .= '<input type="hidden" name="profiling_form" value="1" />';
+                $retval .= self::getCheckbox(
+                    'profiling', __('Profiling'), isset($_SESSION['profiling']), true
                 );
-                $retval .= '<input type="hidden" name="sql_query" value="'
-                    . htmlspecialchars($sql_query) . '" />';
-                $retval .= '</form>';
             }
+            $retval .= '</form>';
 
-            // in the tools div, only display the Inline link when not in ajax
-            // mode because 1) it currently does not work and 2) we would
-            // have two similar mechanisms on the page for the same goal
-            if ($is_select || ($GLOBALS['is_ajax_request'] === false)
+            /**
+             * TODO: Should we have $cfg['SQLQuery']['InlineEdit']?
+             */
+            if (! empty($cfg['SQLQuery']['Edit'])
+                && $is_select
                 && ! $query_too_big
             ) {
-                // see in js/functions.js the jQuery code attached to id inline_edit
-                // document.write conflicts with jQuery, hence used $().append()
-                $retval .= "<script type=\"text/javascript\">\n" .
-                    "//<![CDATA[\n" .
-                    "$('.tools form').last().after('[ <a href=\"#\" title=\"" .
-                    PMA_escapeJsString(__('Inline edit of this query')) .
-                    "\" class=\"inline_edit_sql\">" .
-                    PMA_escapeJsString(_pgettext('Inline edit query', 'Inline')) .
-                    "</a> ]');\n" .
-                    "//]]>\n" .
-                    "</script>";
+                $inline_edit_link = ' ['
+                    . self::linkOrButton(
+                        '#',
+                        _pgettext('Inline edit query', 'Inline'),
+                        array('class' => 'inline_edit_sql')
+                    )
+                    . ']';
+            } else {
+                $inline_edit_link = '';
             }
-            $retval .= $edit_link . $explain_link . $php_link
+            $retval .= $inline_edit_link . $edit_link . $explain_link . $php_link
                 . $refresh_link . $validate_link;
             $retval .= '</div>';
         }
@@ -1416,38 +1413,6 @@ class PMA_Util
         }
 
         return self::cacheGet('profiling_supported', true);
-    }
-
-    /**
-     * Returns HTML for the form with the Profiling checkbox
-     *
-     * @param string $sql_query sql query
-     *
-     * @return string HTML for the form with the Profiling checkbox
-     *
-     * @access  public
-     */
-    public static function getProfilingForm($sql_query)
-    {
-        $retval = '';
-        if (self::profilingSupported()) {
-
-            $retval .= '<form action="sql.php" method="post">' . "\n";
-            $retval .= PMA_generate_common_hidden_inputs(
-                $GLOBALS['db'], $GLOBALS['table']
-            );
-
-            $retval .= '<input type="hidden" name="sql_query" value="'
-                . htmlspecialchars($sql_query) . '" />' . "\n"
-                . '<input type="hidden" name="profiling_form" value="1" />' . "\n";
-
-            $retval .= self::getCheckbox(
-                'profiling', __('Profiling'), isset($_SESSION['profiling']), true
-            );
-            $retval .= ' </form>' . "\n";
-
-        }
-        return $retval;
     }
 
     /**
@@ -1811,10 +1776,10 @@ class PMA_Util
             // the text that follows and if browser does not display
             // images, the text is duplicated
             $tab['text'] = self::getIcon(
-                $tab['icon'], 
-                $tab['text'], 
-                false, 
-                true, 
+                $tab['icon'],
+                $tab['text'],
+                false,
+                true,
                 'TabsMode'
             );
 
@@ -2081,7 +2046,7 @@ class PMA_Util
      * @param string $Separator The Separator (defaults to "<br />\n")
      *
      * @access  public
-     * @todo    add a multibyte safe function PMA_STR_split()
+     * @todo    add a multibyte safe function $GLOBALS['PMA_String']->split()
      *
      * @return string      The flipped string
      */
@@ -3438,7 +3403,7 @@ class PMA_Util
 
         if ($files === false) {
             PMA_Message::error(
-                __('The directory you set for upload work cannot be reached')
+                __('The directory you set for upload work cannot be reached.')
             )->display();
         } elseif (! empty($files)) {
             $block_html .= "\n"
@@ -4151,6 +4116,240 @@ class PMA_Util
             }
         }
         return $regex;
+    }
+
+    /**
+     * Return the list of tabs for the menu with corresponding names
+     *
+     * @param string $level 'server', 'db' or 'table' level
+     *
+     * @return array list of tabs for the menu
+     */
+    public static function getMenuTabList($level = null)
+    {
+        $tabList = array(
+            'server' => array(
+                'databases'   => __('Databases'),
+                'sql'         => __('SQL'),
+                'status'      => __('Status'),
+                'rights'      => __('Users'),
+                'export'      => __('Export'),
+                'import'      => __('Import'),
+                'settings'    => __('Settings'),
+                'binlog'      => __('Binary log'),
+                'replication' => __('Replication'),
+                'vars'        => __('Variables'),
+                'charset'     => __('Charsets'),
+                'plugins'     => __('Plugins'),
+                'engine'      => __('Engines')
+            ),
+            'db'     => array(
+                'structure'   => __('Structure'),
+                'sql'         => __('SQL'),
+                'search'      => __('Search'),
+                'qbe'         => __('Query'),
+                'export'      => __('Export'),
+                'import'      => __('Import'),
+                'operation'   => __('Operations'),
+                'privileges'  => __('Privileges'),
+                'routines'    => __('Routines'),
+                'events'      => __('Events'),
+                'triggers'    => __('Triggers'),
+                'tracking'    => __('Tracking'),
+                'designer'    => __('Designer')
+            ),
+            'table'  => array(
+                'browse'      => __('Browse'),
+                'structure'   => __('Structure'),
+                'sql'         => __('SQL'),
+                'search'      => __('Search'),
+                'insert'      => __('Insert'),
+                'export'      => __('Export'),
+                'import'      => __('Import'),
+                'operation'   => __('Operations'),
+                'tracking'    => __('Tracking'),
+                'triggers'    => __('Triggers'),
+            )
+        );
+
+        if ($level == null) {
+            return $tabList;
+        } else if (array_key_exists($level, $tabList)) {
+            return $tabList[$level];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+     * Returns information with latest version from phpmyadmin.net
+     *
+     * @return JSON decoded object with the data
+     */
+    public static function getLatestVersion()
+    {
+        global $cfg;
+
+        // wait 3s at most for server response, it's enough to get information
+        // from a working server
+        $connection_timeout = 3;
+
+        $response = '{}';
+        // Get response text from phpmyadmin.net or from the session
+        // Update cache every 6 hours
+        if (isset($_SESSION['cache']['version_check'])
+            && time() < $_SESSION['cache']['version_check']['timestamp'] + 3600 * 6
+        ) {
+            $save = false;
+            $response = $_SESSION['cache']['version_check']['response'];
+        } else {
+            $save = true;
+            $file = 'http://www.phpmyadmin.net/home_page/version.json';
+            if (ini_get('allow_url_fopen')) {
+                $context = array(
+                    'http' => array(
+                        'request_fulluri' => true,
+                        'timeout' => $connection_timeout,
+                    )
+                );
+                if (strlen($cfg['ProxyUrl'])) {
+                    $context['http']['proxy'] = $cfg['ProxyUrl'];
+                    if (strlen($cfg['ProxyUser'])) {
+                        $auth = base64_encode(
+                            $cfg['ProxyUser'] . ':'
+                            . $cfg['ProxyPass']
+                        );
+                        $context['http']['header']
+                            = 'Proxy-Authorization: Basic ' . $auth;
+                    }
+                }
+                $response = file_get_contents(
+                    $file,
+                    false,
+                    stream_context_create($context)
+                );
+            } else if (function_exists('curl_init')) {
+                $curl_handle = curl_init($file);
+                if (strlen($cfg['ProxyUrl'])) {
+                    curl_setopt(
+                        $curl_handle,
+                        CURLOPT_PROXY,
+                        $cfg['ProxyUrl']
+                    );
+                    if (strlen($cfg['ProxyUser'])) {
+                        curl_setopt(
+                            $curl_handle,
+                            CURLOPT_PROXYUSERPWD,
+                            $cfg['ProxyUser']
+                            . ':' . $cfg['ProxyPass']
+                        );
+                    }
+                }
+                curl_setopt(
+                    $curl_handle,
+                    CURLOPT_HEADER,
+                    false
+                );
+                curl_setopt(
+                    $curl_handle,
+                    CURLOPT_RETURNTRANSFER,
+                    true
+                );
+                curl_setopt(
+                    $curl_handle,
+                    CURLOPT_TIMEOUT,
+                    $connection_timeout
+                );
+                $response = curl_exec($curl_handle);
+            }
+        }
+
+        if ($save) {
+            $_SESSION['cache']['version_check'] = array(
+                'response' => $response,
+                'timestamp' => time()
+            );
+        }
+
+        $data = json_decode($response);
+        if (is_object($data)
+            && strlen($data->version)
+            && strlen($data->date)
+        ) {
+            if ($save) {
+                $_SESSION['cache']['version_check'] = array(
+                    'response' => $response,
+                    'timestamp' => time()
+                );
+            }
+        }
+
+        return $data;
+    }
+
+    /**
+     * Calculates numerical equivalent of phpMyAdmin version string
+     *
+     * @param string $version version
+     *
+     * @return mixed false on failure, integer on success
+     */
+    public static function versionToInt($version)
+    {
+        $parts = explode('-', $version);
+        if (count($parts) > 1) {
+            $suffix = $parts[1];
+        } else {
+            $suffix = '';
+        }
+        $parts = explode('.', $parts[0]);
+
+        $result = 0;
+
+        if (count($parts) >= 1 && is_numeric($parts[0])) {
+            $result += 1000000 * $parts[0];
+        }
+
+        if (count($parts) >= 2 && is_numeric($parts[1])) {
+            $result += 10000 * $parts[1];
+        }
+
+        if (count($parts) >= 3 && is_numeric($parts[2])) {
+            $result += 100 * $parts[2];
+        }
+
+        if (count($parts) >= 4 && is_numeric($parts[3])) {
+            $result += 1 * $parts[3];
+        }
+
+        if (!empty($suffix)) {
+            $matches = array();
+            if (preg_match('/^(\D+)(\d+)$/', $suffix, $matches)) {
+                $suffix = $matches[1];
+                $result += intval($matches[2]);
+            }
+            switch ($suffix) {
+            case 'pl':
+                $result += 60;
+                break;
+            case 'rc':
+                $result += 30;
+                break;
+            case 'beta':
+                $result += 20;
+                break;
+            case 'alpha':
+                $result += 10;
+                break;
+            case 'dev':
+                $result += 0;
+                break;
+            }
+        } else {
+            $result += 50; // for final
+        }
+
+        return $result;
     }
 }
 ?>

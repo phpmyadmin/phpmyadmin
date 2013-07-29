@@ -74,8 +74,21 @@ $is_count = isset($analyzed_sql[0]['queryflags']['is_count']);
 // check for a real SELECT ... FROM
 $is_select = isset($analyzed_sql[0]['queryflags']['select_from']);
 
+// check for CALL
+// Since multiple query execution is anyway handled,
+// ignore the WHERE clause of the first sql statement
+// which might contain a phrase like 'call ' 
+if (isset($analyzed_sql[0]['queryflags']['is_procedure'])
+    && empty($analyzed_sql[0]['where_clause'])
+) {
+    $is_procedure = true;
+} else {
+    $is_procedure = false;
+}
+
 // aggregates all the results into one array
 $analyzed_sql_results = array(
+    "parsed_sql" => $parsed_sql,
     "analyzed_sql" => $analyzed_sql,
     "reload" => $reload,
     "drop_database" => $drop_database,
@@ -91,7 +104,8 @@ $analyzed_sql_results = array(
     "is_group" => $is_group,
     "is_func" => $is_func,
     "is_count" => $is_count,
-    "is_select" => $is_select   
+    "is_select" => $is_select,
+    "is_procedure" => $is_procedure
 );
 
 

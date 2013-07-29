@@ -256,7 +256,7 @@ $js_messages['enum_hint'] =__('Enter each value in a separate field');
 $js_messages['enum_addValue'] =__('Add %d value(s)');
 
 /* For import.js */
-$js_messages['strImportCSV'] = __('Note: If the file contains multiple tables, they will be combined into one');
+$js_messages['strImportCSV'] = __('Note: If the file contains multiple tables, they will be combined into one.');
 
 /* For sql.js */
 $js_messages['strHideQueryBox'] = __('Hide query box');
@@ -273,6 +273,10 @@ $js_messages['strSave'] = __('Save');
 /* For tbl_select.js */
 $js_messages['strHideSearchCriteria'] = __('Hide search criteria');
 $js_messages['strShowSearchCriteria'] = __('Show search criteria');
+
+/* For tbl_find_replace.js */
+$js_messages['strHideFindNReplaceCriteria'] = __('Hide find and replace criteria');
+$js_messages['strShowFindNReplaceCriteria'] = __('Show find and replace criteria');
 
 /* For tbl_zoom_plot_jqplot.js */
 $js_messages['strZoomSearch'] = __('Zoom Search');
@@ -362,6 +366,7 @@ $js_messages['strMore'] = __('More');
 /* navigation panel */
 $js_messages['strShowPanel'] = __('Show Panel');
 $js_messages['strHidePanel'] = __('Hide Panel');
+$js_messages['strUnhideNavItem'] = __('Show hidden navigation tree items');
 
 /* microhistory */
 $js_messages['strInvalidPage'] = __('The requested page was not found in the history, it may have expired.');
@@ -372,6 +377,8 @@ $js_messages['strNewerVersion'] = __('A newer version of phpMyAdmin is available
 $js_messages['strLatestAvailable'] = __(', latest stable version:');
 $js_messages['strUpToDate'] = __('up to date');
 
+$js_messages['strCreateView'] = __('Create view');
+
 /* Error Reporting */
 $js_messages['strSendErrorReport'] = __("Send Error Report");
 $js_messages['strSubmitErrorReport'] = __("Submit Error Report");
@@ -380,7 +387,6 @@ $js_messages['strErrorOccured'] = __("An error has occured. Do you want to " .
 $js_messages['strChangeReportSettings'] = __("Change Report Settings");
 $js_messages['strShowReportDetails'] = __("Show Report Details");
 $js_messages['strIgnore'] = __("Ignore");
-
 
 echo "var PMA_messages = new Array();\n";
 foreach ($js_messages as $name => $js_message) {

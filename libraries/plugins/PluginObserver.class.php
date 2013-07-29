@@ -44,8 +44,8 @@ abstract class PluginObserver implements SplObserver
      * is attached calls PluginManager::notify()
      *
      * TODO Declare this function abstract, removing its body,
-     * as soon as we drop support for PHP 5.2.x.
-     * See bug #3538655.
+     * as soon as we drop support for PHP 5.3.x.
+     * See bug #3625
      *
      * @param SplSubject $subject The PluginManager notifying the observer
      *                            of an update.
@@ -58,7 +58,6 @@ abstract class PluginObserver implements SplObserver
             'PluginObserver::update must be overridden in child classes.'
         );
     }
-
 
     /* ~~~~~~~~~~~~~~~~~~~~ Getters and Setters ~~~~~~~~~~~~~~~~~~~~ */
 

@@ -59,11 +59,9 @@ abstract class OptionsPropertyGroup extends OptionsPropertyItem
         $this->_properties = array_udiff(
             $this->getProperties(),
             array($property),
-            // for PHP 5.2 compability 
-            create_function(
-                '$a, $b',
-                'return ($a === $b ) ? 0 : 1'
-            )
+            function ($a, $b) {
+                return ($a === $b ) ? 0 : 1;
+            }
         );
     }
 

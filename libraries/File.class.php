@@ -327,8 +327,9 @@ class PMA_File
      * @access  public
      * @static
      */
-    public function fetchUploadedFromTblChangeRequestMultiple($file, $rownumber, $key)
-    {
+    public function fetchUploadedFromTblChangeRequestMultiple(
+        $file, $rownumber, $key
+    ) {
         $new_file = array(
             'name' => $file['name']['multi_edit'][$rownumber][$key],
             'type' => $file['type']['multi_edit'][$rownumber][$key],
@@ -531,7 +532,7 @@ class PMA_File
          * get registered plugins for file compression
 
         foreach (PMA_getPlugins($type = 'compression') as $plugin) {
-            if (call_user_func_array(array($plugin['classname'], 'canHandle'), array($this->getName()))) {
+            if ($plugin['classname']::canHandle($this->getName())) {
                 $this->setCompressionPlugin($plugin);
                 break;
             }

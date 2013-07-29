@@ -5,6 +5,7 @@
  *
  * @package PhpMyAdmin
  */
+
 if (! defined('PHPMYADMIN')) {
     exit;
 }
@@ -247,6 +248,7 @@ class PMA_List_Database extends PMA_List
         $tmp_mydbs = $GLOBALS['dbi']->fetchResult(
             $local_query, null, null, $GLOBALS['controllink']
         );
+        $dblist = array();
         if ($tmp_mydbs) {
             // Will use as associative array of the following 2 code
             // lines:

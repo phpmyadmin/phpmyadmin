@@ -84,6 +84,14 @@ $cfg['ReservedWordDisableWarning'] = false;
 $cfg['TranslationWarningThreshold'] = 80;
 
 /**
+ * Allows phpMyAdmin to be included from a other document in a frame;
+ * setting this to true is a potential security hole
+ *
+ * @global boolean $cfg['AllowThirdPartyFraming']
+ */
+$cfg['AllowThirdPartyFraming'] = false;
+
+/**
  * The 'cookie' auth_type uses blowfish algorithm to encrypt the password. If
  * at least one server configuration uses 'cookie' auth_type, enter here a
  * pass phrase that will be used by blowfish. The maximum length seems to be 46
@@ -403,6 +411,33 @@ $cfg['Servers'][$i]['tracking'] = '';
 $cfg['Servers'][$i]['userconfig'] = '';
 
 /**
+ * table to store users and their assignment to user groups
+ *   - leave blank to disable configurable menus feature
+ *     SUGGESTED: 'pma__users'
+ *
+ * @global string $cfg['Servers'][$i]['users']
+ */
+$cfg['Servers'][$i]['users'] = '';
+
+/**
+ * table to store allowed menu items for each user group
+ *   - leave blank to disable configurable menus feature
+ *     SUGGESTED: 'pma__usergroups'
+ *
+ * @global string $cfg['Servers'][$i]['usergroups']
+ */
+$cfg['Servers'][$i]['usergroups'] = '';
+
+/**
+ * table to store information about item hidden from navigation triee
+ *   - leave blank to disable hide/show navigation items feature
+ *     SUGGESTED: 'pma__navigationhiding'
+ *
+ * @global string $cfg['Servers'][$i]['navigationhiding']
+ */
+$cfg['Servers'][$i]['navigationhiding'] = '';
+
+/**
  * Maximum number of records saved in $cfg['Servers'][$i]['table_uiprefs'] table.
  *
  * In case where tables in databases is modified (e.g. dropped or renamed),
@@ -566,7 +601,11 @@ $cfg['ServerDefault'] = 1;
  *
  * @global boolean $cfg['VersionCheck']
  */
-$cfg['VersionCheck'] = VERSION_CHECK_DEFAULT;
+if (defined('VERSION_CHECK_DEFAULT')) {
+    $cfg['VersionCheck'] = VERSION_CHECK_DEFAULT;
+} else {
+    $cfg['VersionCheck'] = true;
+}
 
 /**
  * The url of the proxy to be used when retrieving the information about
@@ -1772,6 +1811,13 @@ $cfg['Export']['sql_disable_fk'] = false;
  * @global boolean $cfg['Export']['sql_use_transaction']
  */
 $cfg['Export']['sql_use_transaction'] = false;
+
+/**
+ *
+ *
+ * @global boolean $cfg['Export']['sql_create_database']
+ */
+$cfg['Export']['sql_create_database'] = false;
 
 /**
  *

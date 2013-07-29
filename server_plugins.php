@@ -1,6 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
+ * object the server plugin page
  *
  * @package PhpMyAdmin
  */
@@ -28,8 +29,9 @@ require 'libraries/server_plugins.lib.php';
 /**
  * Prepare plugin list
  */
-$sql = "SELECT p.plugin_name, p.plugin_type, p.is_active, m.module_name, m.module_library,
-        m.module_version, m.module_author, m.module_description, m.module_license
+$sql = "SELECT p.plugin_name, p.plugin_type, p.is_active, m.module_name, 
+        m.module_library, m.module_version, m.module_author, 
+        m.module_description, m.module_license
     FROM data_dictionary.plugins p
         JOIN data_dictionary.modules m USING (module_name)
     ORDER BY m.module_name, p.plugin_type, p.plugin_name";

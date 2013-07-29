@@ -83,6 +83,7 @@ $post_params = array(
         'sql_disable_fk',
         'sql_compatibility',
         'sql_structure_or_data',
+        'sql_create_database',
         'sql_drop_table',
         'sql_procedure_function',
         'sql_create_table_statements',
@@ -271,7 +272,7 @@ function PMA_gzencodeNeeded()
     if (@function_exists('gzencode')
         && ! @ini_get('zlib.output_compression')
         && ! (function_exists('apache_get_modules')
-            && in_array('mod_deflate', apache_get_modules()))
+        && in_array('mod_deflate', apache_get_modules()))
         && ! PMA_isGzHandlerEnabled()
     ) {
         return true;

@@ -87,7 +87,7 @@ function PMA_importRunQuery($sql = '', $full = '', $controluser = false,
 ) {
     global $import_run_buffer, $go_sql, $complete_query, $display_query,
         $sql_query, $my_die, $error, $reload,
-        $last_query_with_results,
+        $last_query_with_results, $result, $msg,
         $skip_queries, $executed_queries, $max_sql_len, $read_multiply,
         $cfg, $sql_query_disabled, $db, $run_query, $is_superuser;
     $read_multiply = 1;
@@ -531,13 +531,13 @@ function PMA_getD($last_cumulative_size)
 /**
  * Obtains the decimal size of a given cell
  *
- * @param string &$cell cell content
+ * @param string $cell cell content
  *
  * @return array Contains the precision, scale, and full size
  *                representation of the given decimal cell
  * @access  public
  */
-function PMA_getDecimalSize(&$cell)
+function PMA_getDecimalSize($cell)
 {
     $curr_size = strlen((string)$cell);
     $decPos = strpos($cell, ".");
@@ -557,7 +557,7 @@ function PMA_getDecimalSize(&$cell)
  *                                     (NONE or VARCHAR or DECIMAL or INT or BIGINT)
  * @param int    $curr_type            Type of the current cell
  *                                     (NONE or VARCHAR or DECIMAL or INT or BIGINT)
- * @param string &$cell                The current cell
+ * @param string $cell                 The current cell
  *
  * @return string  Size of the given cell in the type-appropriate format
  * @access  public
@@ -565,7 +565,7 @@ function PMA_getDecimalSize(&$cell)
  * @todo    Handle the error cases more elegantly
  */
 function PMA_detectSize($last_cumulative_size, $last_cumulative_type,
-    $curr_type, &$cell
+    $curr_type, $cell
 ) {
     $curr_size = strlen((string)$cell);
 
@@ -756,14 +756,14 @@ function PMA_detectSize($last_cumulative_size, $last_cumulative_type,
  *
  * @param int    $last_cumulative_type Last cumulative column type
  *                                     (VARCHAR or INT or BIGINT or DECIMAL or NONE)
- * @param string &$cell                String representation of the cell for which
+ * @param string $cell                 String representation of the cell for which
  *                                     a best-fit type is to be determined
  *
  * @return int  The MySQL type representation
  *               (VARCHAR or INT or BIGINT or DECIMAL or NONE)
  * @access  public
  */
-function PMA_detectType($last_cumulative_type, &$cell)
+function PMA_detectType($last_cumulative_type, $cell)
 {
     /**
      * If numeric, determine if decimal, int or bigint

@@ -34,7 +34,7 @@ class Image_JPEG_Link_Test extends PHPUnit_Framework_TestCase
      */
     protected function setUp()
     {
-        $this->object = new Image_JPEG_Link(new PluginManager()); 
+        $this->object = new Image_JPEG_Link(new PluginManager());
     }
 
     /**
@@ -48,7 +48,7 @@ class Image_JPEG_Link_Test extends PHPUnit_Framework_TestCase
     {
         unset($this->object);
     }
-    
+
     /**
      * Test for getInfo
      *
@@ -58,14 +58,12 @@ class Image_JPEG_Link_Test extends PHPUnit_Framework_TestCase
      */
     public function testGetInfo()
     {
-        $info = __(
-            'Displays a link to download this image.'
-        );
-         $this->assertEquals(
+        $info = __('Displays a link to download this image.');
+        $this->assertEquals(
             $info,
             Image_JPEG_Link::getInfo()
-        );  
-    
+        );
+
     }
 
     /**
@@ -76,11 +74,11 @@ class Image_JPEG_Link_Test extends PHPUnit_Framework_TestCase
      * @group medium
      */
     public function testGetName()
-    {       
+    {
         $this->assertEquals(
             "ImageLink",
             Image_JPEG_Link::getName()
-        );    
+        );
     }
 
     /**
@@ -91,11 +89,11 @@ class Image_JPEG_Link_Test extends PHPUnit_Framework_TestCase
      * @group medium
      */
     public function testGetMIMEType()
-    {       
+    {
         $this->assertEquals(
             "Image",
             Image_JPEG_Link::getMIMEType()
-        );    
+        );
     }
 
     /**
@@ -106,11 +104,11 @@ class Image_JPEG_Link_Test extends PHPUnit_Framework_TestCase
      * @group medium
      */
     public function testGetMIMESubtype()
-    {       
+    {
         $this->assertEquals(
             "JPEG",
             Image_JPEG_Link::getMIMESubtype()
-        );    
+        );
     }
 
     /**
@@ -124,11 +122,11 @@ class Image_JPEG_Link_Test extends PHPUnit_Framework_TestCase
     {
         $buffer = "PMA_IMAGE_LINK";
         $options = array("./image/", "200", "wrapper_link"=>"PMA_wrapper_link");
-        $result = '<a href="transformation_wrapper.phpPMA_wrapper_link"' 
+        $result = '<a href="transformation_wrapper.phpPMA_wrapper_link"'
              . ' alt="PMA_IMAGE_LINK">[BLOB]</a>';
         $this->assertEquals(
             $result,
             $this->object->applyTransformation($buffer, $options)
-        );   
+        );
     }
 }

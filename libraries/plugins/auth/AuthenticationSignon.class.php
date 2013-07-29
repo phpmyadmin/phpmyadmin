@@ -42,7 +42,12 @@ class AuthenticationSignon extends AuthenticationPlugin
         } else {
             PMA_sendHeaderLocation($GLOBALS['cfg']['Server']['SignonURL']);
         }
-        exit();
+
+        if (! defined('TESTSUITE')) {
+            exit();
+        } else {
+            return false;
+        }
     }
 
      /**
@@ -106,18 +111,22 @@ class AuthenticationSignon extends AuthenticationPlugin
             include $script_name;
 
             list ($PHP_AUTH_USER, $PHP_AUTH_PW)
-                = get_login_credentials($cfg['Server']['user']);
+                = get_login_credentials($GLOBALS['cfg']['Server']['user']);
 
         } elseif (isset($_COOKIE[$session_name])) { /* Does session exist? */
             /* End current session */
             $old_session = session_name();
             $old_id = session_id();
-            session_write_close();
+            if (! defined('TESTSUITE')) {
+                session_write_close();
+            }
 
             /* Load single signon session */
             session_name($session_name);
             session_id($_COOKIE[$session_name]);
-            session_start();
+            if (! defined('TESTSUITE')) {
+                session_start();
+            }
 
             /* Clear error message */
             unset($_SESSION['PMA_single_signon_error_message']);
@@ -157,14 +166,18 @@ class AuthenticationSignon extends AuthenticationPlugin
             }
 
             /* End single signon session */
-            session_write_close();
+            if (! defined('TESTSUITE')) {
+                session_write_close();
+            }
 
             /* Restart phpMyAdmin session */
             session_name($old_session);
             if (!empty($old_id)) {
                 session_id($old_id);
             }
-            session_start();
+            if (! defined('TESTSUITE')) {
+                session_start();
+            }
 
             /* Set the single signon host */
             $GLOBALS['cfg']['Server']['host'] = $single_signon_host;
@@ -234,14 +247,16 @@ class AuthenticationSignon extends AuthenticationPlugin
         /* Does session exist? */
         if (isset($_COOKIE[$session_name])) {
             /* End current session */
-            $old_session = session_name();
-            $old_id = session_id();
-            session_write_close();
+            if (! defined('TESTSUITE')) {
+                session_write_close();
+            }
 
             /* Load single signon session */
             session_name($session_name);
             session_id($_COOKIE[$session_name]);
-            session_start();
+            if (! defined('TESTSUITE')) {
+                session_start();
+            }
 
             /* Set error message */
             if (! empty($GLOBALS['login_without_password_is_forbidden'])) {
@@ -253,7 +268,7 @@ class AuthenticationSignon extends AuthenticationPlugin
                 $_SESSION['PMA_single_signon_error_message'] = __('Access denied');
             } elseif (! empty($GLOBALS['no_activity'])) {
                 $_SESSION['PMA_single_signon_error_message'] = sprintf(
-                    __('No activity within %s seconds; please log in again'),
+                    __('No activity within %s seconds; please log in again.'),
                     $GLOBALS['cfg']['LoginCookieValidity']
                 );
             } elseif ($GLOBALS['dbi']->getError()) {

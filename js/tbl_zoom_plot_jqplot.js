@@ -58,13 +58,13 @@ function isEmpty(obj) {
  **/
 function getTimeStamp(val, type) {
     if (type.toString().search(/datetime/i) != -1 || type.toString().search(/timestamp/i) != -1) {
-        return getDateFromFormat(val, 'yyyy-MM-dd HH:mm:ss');
+        return $.datepicker.parseDateTime('yy-mm-dd', 'HH:mm:ss', val);
     }
     else if (type.toString().search(/time/i) != -1) {
-        return getDateFromFormat('1970-01-01 ' + val, 'yyyy-MM-dd HH:mm:ss');
+        return $.datepicker.parseDateTime('yy-mm-dd', 'HH:mm:ss', '1970-01-01 ' + val);
     }
     else if (type.toString().search(/date/i) != -1) {
-        return getDateFromFormat(val, 'yyyy-MM-dd');
+        return $.datepicker.parseDate('yy-mm-dd', val);
     }
 }
 
@@ -362,7 +362,7 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function () {
                 // other
                 } else {
                     // type explicitly identified
-                    if (sqlTypes[key] !== null) {
+                    if (sqlTypes[key] != null) {
                         if (sqlTypes[key] == 'bit') {
                             sql_query += "b'" + value + "', ";
                         }
@@ -376,6 +376,7 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function () {
                     }
                 }
             }
+            // remove two extraneous characters ', '
             sql_query = sql_query.substring(0, sql_query.length - 2);
             sql_query += ' WHERE ' + PMA_urldecode(searchedData[searchedDataKey].where_clause);
 

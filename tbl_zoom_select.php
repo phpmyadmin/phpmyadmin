@@ -21,7 +21,6 @@ $header   = $response->getHeader();
 $scripts  = $header->getScripts();
 $scripts->addFile('makegrid.js');
 $scripts->addFile('sql.js');
-$scripts->addFile('date.js');
 /* < IE 9 doesn't support canvas natively */
 if (PMA_USR_BROWSER_AGENT == 'IE' && PMA_USR_BROWSER_VER < 9) {
     $scripts->addFile('canvg/flashcanvas.js');
@@ -112,6 +111,7 @@ if ( !isset($_POST['zoom_submit']) || $_POST['dataLabel'] == '') {
 }
 
 // Displays the zoom search form
+$response->addHTML($table_search->getSecondaryTabs());
 $response->addHTML($table_search->getSelectionForm($goto, $dataLabel));
 
 /*

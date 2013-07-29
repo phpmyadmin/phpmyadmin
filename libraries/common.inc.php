@@ -32,19 +32,24 @@
  */
 
 /**
- * Minimum PHP version; can't call PMA_fatalError() which uses a
- * PHP 5 function, so cannot easily localize this message.
+ * block attempts to directly run this script 
  */
-if (version_compare(PHP_VERSION, '5.2.0', 'lt')) {
-    die('PHP 5.2+ is required');
+if (getcwd() == dirname(__FILE__)) {
+    die('Attack stopped');
 }
 
 /**
-  * Backward compatibility for PHP 5.2
-  */
-if (!defined('E_DEPRECATED')) {
-    define('E_DEPRECATED', 8192);
+ * Minimum PHP version; can't call PMA_fatalError() which uses a
+ * PHP 5 function, so cannot easily localize this message.
+ */
+if (version_compare(PHP_VERSION, '5.3.0', 'lt')) {
+    die('PHP 5.3+ is required');
 }
+
+/**
+ * for verification in all procedural scripts under libraries
+ */
+define('PHPMYADMIN', true);
 
 /**
  * the error handler
@@ -57,17 +62,6 @@ require './libraries/Error_Handler.class.php';
 $GLOBALS['error_handler'] = new PMA_Error_Handler();
 $cfg['Error_Handler']['display'] = true;
 
-/*
- * This setting was removed in PHP 5.3. But at this point PMA_PHP_INT_VERSION
- * is not yet defined so we use another way to find out the PHP version.
- */
-if (version_compare(phpversion(), '5.3', 'lt')) {
-    /**
-     * Avoid object cloning errors
-     */
-    @ini_set('zend.ze1_compatibility_mode', false);
-}
-
 /**
  * This setting was removed in PHP 5.4. But at this point PMA_PHP_INT_VERSION
  * is not yet defined so we use another way to find out the PHP version.
@@ -78,11 +72,6 @@ if (version_compare(phpversion(), '5.4', 'lt')) {
      */
     @ini_set('magic_quotes_runtime', false);
 }
-
-/**
- * for verification in all procedural scripts under libraries
- */
-define('PHPMYADMIN', true);
 
 /**
  * core functions
@@ -753,7 +742,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
     /**
      * String handling
      */
-    include_once './libraries/string.lib.php';
+    include_once './libraries/string.inc.php';
 
     /**
      * Lookup server by name
@@ -1119,18 +1108,6 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
     $GLOBALS['is_ajax_request'] = true;
 } else {
     $GLOBALS['is_ajax_request'] = false;
-}
-
-/**
- * @global  boolean $GLOBALS['grid_edit']
- *
- * Set to true if this is a request made during an grid edit process.  This
- * request is made to retrieve the non-truncated/transformed values.
- */
-if (isset($_REQUEST['grid_edit']) && $_REQUEST['grid_edit'] == true) {
-    $GLOBALS['grid_edit'] = true;
-} else {
-    $GLOBALS['grid_edit'] = false;
 }
 
 if (isset($_REQUEST['GLOBALS']) || isset($_FILES['GLOBALS'])) {

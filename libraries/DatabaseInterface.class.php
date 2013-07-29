@@ -1438,7 +1438,7 @@ class PMA_DatabaseInterface
 
     /**
      * Function called just after a connection to the MySQL database server has
-     * been established. It sets the connection collation, and determins the
+     * been established. It sets the connection collation, and determines the
      * version of MySQL which is running.
      *
      * @param mixed   $link           mysql link resource|object

@@ -16,6 +16,8 @@ if (!function_exists('__')) {
 
 $strConfigAllowArbitraryServer_desc = __('If enabled user can enter any MySQL server in login form for cookie auth');
 $strConfigAllowArbitraryServer_name = __('Allow login to any MySQL server');
+$strConfigAllowThirdPartyFraming_desc = __('Enabling this allows a page located on a different domain to call phpMyAdmin inside a frame, and is a potential [strong]security hole[/strong] allowing cross-frame scripting attacks');
+$strConfigAllowThirdPartyFraming_name = __('Allow third party framing');
 $strConfigAllowUserDropDatabase_name = __('Show &quot;Drop database&quot; link to normal users');
 $strConfigblowfish_secret_desc = __('Secret passphrase used for encrypting cookies in [kbd]cookie[/kbd] authentication');
 $strConfigblowfish_secret_name = __('Blowfish secret');
@@ -450,6 +452,12 @@ $strConfigServers_tracking_version_auto_create_desc = __('Whether the tracking m
 $strConfigServers_tracking_version_auto_create_name = __('Automatically create versions');
 $strConfigServers_userconfig_desc = __('Leave blank for no user preferences storage in database, suggested: [kbd]pma__userconfig[/kbd]');
 $strConfigServers_userconfig_name = __('User preferences storage table');
+$strConfigServers_users_desc = __('Leave blank to disable configurable menus feature, suggested: [kbd]pma__users[/kbd]');
+$strConfigServers_users_name = __('Users table');
+$strConfigServers_usergroups_desc = __('Leave blank to disable configurable menus feature, suggested: [kbd]pma__usergroups[/kbd]');
+$strConfigServers_usergroups_name = __('User groups table');
+$strConfigServers_navigationhiding_desc = __('Leave blank to disable the feature to hide and show navigation items, suggested: [kbd]pma__navigationhiding[/kbd]');
+$strConfigServers_navigationhiding_name = __('Hidden navigation items table');
 $strConfigServers_user_desc = __('Leave empty if not using config auth');
 $strConfigServers_user_name = __('User for config auth');
 $strConfigServers_verbose_desc = __('A user-friendly description of this server. Leave blank to display the hostname instead.');

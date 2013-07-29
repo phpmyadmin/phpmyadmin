@@ -5,7 +5,7 @@
  * functions for displaying server databases
  *
  * @usedby  server_databases.php
- *  
+ *
  * @package PhpMyAdmin
  */
 if (! defined('PHPMYADMIN')) {
@@ -23,15 +23,15 @@ if (! defined('PHPMYADMIN')) {
  * @param string $sort_order        sort order string
  * @param bool   $is_superuser      User status
  * @param Array  $cfg               configuration
- * @param string $replication_types replication types 
+ * @param string $replication_types replication types
  * @param string $replication_info  replication info
  * @param string $url_query         url query
  *
  * @return string
  */
 function PMA_getHtmlForDatabase(
-    $databases, $databases_count, $pos, $dbstats, 
-    $sort_by, $sort_order, $is_superuser, $cfg, 
+    $databases, $databases_count, $pos, $dbstats,
+    $sort_by, $sort_order, $is_superuser, $cfg,
     $replication_types, $replication_info, $url_query
 ) {
     $html = '<div id="tableslistcontainer">';
@@ -60,67 +60,67 @@ function PMA_getHtmlForDatabase(
     $html .= PMA_generate_common_hidden_inputs($_url_params);
 
     $_url_params['sort_by'] = 'SCHEMA_NAME';
-    $_url_params['sort_order'] 
+    $_url_params['sort_order']
         = ($sort_by == 'SCHEMA_NAME' && $sort_order == 'asc') ? 'desc' : 'asc';
 
     $html .= '<table id="tabledatabases" class="data">' . "\n"
         . '<thead>' . "\n"
         . '<tr>' . "\n";
- 
+
     $html .= PMA_getHtmlForColumnOrderWithSort(
-        $is_superuser, 
-        $cfg['AllowUserDropDatabase'], 
-        $_url_params, 
-        $sort_by, 
-        $sort_order, 
-        $column_order, 
+        $is_superuser,
+        $cfg['AllowUserDropDatabase'],
+        $_url_params,
+        $sort_by,
+        $sort_order,
+        $column_order,
         $first_database
-    );   
-    
+    );
+
     $html .= PMA_getHtmlForReplicationType(
-        $is_superuser, 
-        $replication_types, 
+        $is_superuser,
+        $replication_types,
         $cfg['ActionLinksMode']
-    );  
-    
+    );
+
     $html .= '</tr>' . "\n"
         . '</thead>' . "\n";
 
     $html .= PMA_getHtmlForDatabaseList(
-        $databases, 
-        $is_superuser, 
-        $url_query, 
-        $column_order, 
-        $replication_types, 
+        $databases,
+        $is_superuser,
+        $url_query,
+        $column_order,
+        $replication_types,
         $replication_info
     );
 
     $html .= PMA_getHtmlForTableFooter(
-        $cfg['AllowUserDropDatabase'], 
-        $is_superuser, 
-        $databases_count, 
-        $column_order, 
-        $replication_types, 
+        $cfg['AllowUserDropDatabase'],
+        $is_superuser,
+        $databases_count,
+        $column_order,
+        $replication_types,
         $first_database
     );
-   
+
     $html .= '</table>' . "\n";
 
     $html .= PMA_getHtmlForTableFooterButtons(
-        $cfg['AllowUserDropDatabase'], 
-        $is_superuser, 
-        $sort_by, 
-        $sort_order, 
+        $cfg['AllowUserDropDatabase'],
+        $is_superuser,
+        $sort_by,
+        $sort_order,
         $dbstats
     );
-    
+
     if (empty($dbstats)) {
         //we should put notice above database list
         $html = PMA_getHtmlForNoticeEnableStatistics($url_query, $html);
     }
     $html .= '</form>';
     $html .= '</div>';
-    
+
     return $html;
 }
 
@@ -136,22 +136,15 @@ function PMA_getHtmlForDatabase(
  * @return string
  */
 function PMA_getHtmlForTableFooterButtons(
-    $is_allowUserDropDatabase, $is_superuser, 
+    $is_allowUserDropDatabase, $is_superuser,
     $sort_by, $sort_order, $dbstats
 ) {
     $html = "";
     if ($is_superuser || $is_allowUserDropDatabase) {
-        $common_url_query = PMA_generate_common_url(
-            array(
-                'sort_by' => $sort_by,
-                'sort_order' => $sort_order,
-                'dbstats' => $dbstats
-            )
-        );
-        $html .= '<img class="selectallarrow" src="' 
+        $html .= '<img class="selectallarrow" src="'
             . $GLOBALS['pmaThemeImage'] . 'arrow_' . $GLOBALS['text_dir'] . '.png"'
             . ' width="38" height="22" alt="' . __('With selected:') . '" />' . "\n"
-            . '<input type="checkbox" id="dbStatsForm_checkall" ' 
+            . '<input type="checkbox" id="dbStatsForm_checkall" '
             . 'class="checkall_box" title="' . __('Check All') . '" /> '
             . '<label for="dbStatsForm_checkall">' . __('Check All') . '</label> '
             . '<i style="margin-left: 2em">' . __('With selected:') . '</i>' . "\n";
@@ -178,19 +171,19 @@ function PMA_getHtmlForTableFooterButtons(
  * @return string
  */
 function PMA_getHtmlForTableFooter(
-    $is_allowUserDropDatabase, $is_superuser, 
-    $databases_count, $column_order, 
+    $is_allowUserDropDatabase, $is_superuser,
+    $databases_count, $column_order,
     $replication_types, $first_database
 ) {
     $html = '<tfoot><tr>' . "\n";
     if ($is_superuser || $is_allowUserDropDatabase) {
         $html .= '    <th></th>' . "\n";
     }
-    $html .= '    <th>' . __('Total') . ': <span id="databases_count">' 
+    $html .= '    <th>' . __('Total') . ': <span id="databases_count">'
         . $databases_count . '</span></th>' . "\n";
-        
-    $html .= PMA_getHtmlForColumnOrder($column_order, $first_database);   
-        
+
+    $html .= PMA_getHtmlForColumnOrder($column_order, $first_database);
+
     foreach ($replication_types as $type) {
         if ($GLOBALS["server_" . $type. "_status"]) {
             $html .= '    <th></th>' . "\n";
@@ -204,7 +197,7 @@ function PMA_getHtmlForTableFooter(
     $html .= '</tfoot>' . "\n";
     return $html;
 }
-  
+
 /**
  * Returns the html for Database List with Column order
  *
@@ -218,7 +211,7 @@ function PMA_getHtmlForTableFooter(
  * @return string
  */
 function PMA_getHtmlForDatabaseList(
-    $databases, $is_superuser, $url_query, 
+    $databases, $is_superuser, $url_query,
     $column_order, $replication_types, $replication_info
 ) {
     $odd_row = true;
@@ -264,7 +257,7 @@ function PMA_getHtmlForColumnOrder($column_order, $first_database)
     foreach ($column_order as $stat_name => $stat) {
         if (array_key_exists($stat_name, $first_database)) {
             if ($stat['format'] === 'byte') {
-                list($value, $unit) 
+                list($value, $unit)
                     = PMA_Util::formatByteDown($stat['footer'], 3, 1);
             } elseif ($stat['format'] === 'number') {
                 $value = PMA_Util::formatNumber($stat['footer'], 0);
@@ -273,7 +266,7 @@ function PMA_getHtmlForColumnOrder($column_order, $first_database)
             }
             $html .= '    <th class="value">';
             if (isset($stat['description_function'])) {
-                $html .= '<dfn title="' 
+                $html .= '<dfn title="'
                     . $stat['description_function']($stat['footer']) . '">';
             }
             $html .= $value;
@@ -286,7 +279,7 @@ function PMA_getHtmlForColumnOrder($column_order, $first_database)
             }
         }
     }
-    
+
     return $html;
 }
 
@@ -305,21 +298,21 @@ function PMA_getHtmlForColumnOrder($column_order, $first_database)
  * @return string
  */
 function PMA_getHtmlForColumnOrderWithSort(
-    $is_superuser, $is_allowUserDropDatabase, 
-    $_url_params, $sort_by, $sort_order, 
+    $is_superuser, $is_allowUserDropDatabase,
+    $_url_params, $sort_by, $sort_order,
     $column_order, $first_database
 ) {
-    $html = ($is_superuser || $is_allowUserDropDatabase 
-        ? '        <th></th>' . "\n" 
+    $html = ($is_superuser || $is_allowUserDropDatabase
+        ? '        <th></th>' . "\n"
         : '')
-        . '    <th><a href="server_databases.php' 
+        . '    <th><a href="server_databases.php'
         . PMA_generate_common_url($_url_params) . '">' . "\n"
         . '            ' . __('Database') . "\n"
-        . ($sort_by == 'SCHEMA_NAME' 
+        . ($sort_by == 'SCHEMA_NAME'
             ? '                ' . PMA_Util::getImage(
-                's_' . $sort_order . '.png', 
+                's_' . $sort_order . '.png',
                 ($sort_order == 'asc' ? __('Ascending') : __('Descending'))
-            ) . "\n" 
+            ) . "\n"
             : ''
           )
         . '        </a></th>' . "\n";
@@ -334,17 +327,17 @@ function PMA_getHtmlForColumnOrderWithSort(
                 $colspan = '';
             }
             $_url_params['sort_by'] = $stat_name;
-            $_url_params['sort_order'] 
+            $_url_params['sort_order']
                 = ($sort_by == $stat_name && $sort_order == 'desc') ? 'asc' : 'desc';
             $html .= '    <th' . $colspan . '>'
-                . '<a href="server_databases.php' 
+                . '<a href="server_databases.php'
                 . PMA_generate_common_url($_url_params) . '">' . "\n"
                 . '            ' . $stat['disp_name'] . "\n"
-                . ($sort_by == $stat_name 
+                . ($sort_by == $stat_name
                     ? '            ' . PMA_Util::getImage(
-                        's_' . $sort_order . '.png', 
+                        's_' . $sort_order . '.png',
                         ($sort_order == 'asc' ? __('Ascending') : __('Descending'))
-                    ) . "\n" 
+                    ) . "\n"
                     : ''
                   )
                 . '        </a></th>' . "\n";
@@ -353,7 +346,7 @@ function PMA_getHtmlForColumnOrderWithSort(
     return $html;
 }
 
-        
+
 /**
  * Returns the html for Enable Statistics
  *
@@ -366,7 +359,7 @@ function PMA_getHtmlForNoticeEnableStatistics($url_query, $html)
 {
     $notice = PMA_Message::notice(
         __(
-            'Note: Enabling the database statistics here might cause ' 
+            'Note: Enabling the database statistics here might cause '
             . 'heavy traffic between the web server and the MySQL server.'
         )
     )->getDisplay();
@@ -378,10 +371,10 @@ function PMA_getHtmlForNoticeEnableStatistics($url_query, $html)
         . '            ' . __('Enable Statistics');
     $html .= '</a></strong><br />' . "\n";
     $html .= '</li>' . "\n" . '</ul>' . "\n";
-    
-    return $html;      
+
+    return $html;
 }
-        
+
 /**
  * Returns the html for database replication types
  *
