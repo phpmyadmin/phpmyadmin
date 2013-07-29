@@ -1,5 +1,6 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
+
 /**
  * Displays query statistics for the server
  *
@@ -25,6 +26,7 @@ $response = PMA_Response::getInstance();
 $header   = $response->getHeader();
 $scripts  = $header->getScripts();
 $scripts->addFile('server_status_queries.js');
+
 /* < IE 9 doesn't support canvas natively */
 if (PMA_USR_BROWSER_AGENT == 'IE' && PMA_USR_BROWSER_VER < 9) {
     $scripts->addFile('jqplot/excanvas.js');

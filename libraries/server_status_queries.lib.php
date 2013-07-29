@@ -46,11 +46,17 @@ function PMA_getHtmlForQueryStatistics($ServerStatusData)
     $retval .= PMA_Util::formatNumber($total_queries * $hour_factor, 0);
     $retval .= '<br />';
     $retval .= '&oslash; ' . __('per minute:') . ' ';
-    $retval .= PMA_Util::formatNumber($total_queries * 60 / $ServerStatusData->status['Uptime'], 0);
+    $retval .= PMA_Util::formatNumber(
+        $total_queries * 60 / $ServerStatusData->status['Uptime'], 
+        0
+    );
     $retval .= '<br />';
     if ($total_queries / $ServerStatusData->status['Uptime'] >= 1) {
         $retval .= '&oslash; ' . __('per second:') . ' ';
-        $retval .= PMA_Util::formatNumber($total_queries / $ServerStatusData->status['Uptime'], 0);
+        $retval .= PMA_Util::formatNumber(
+            $total_queries / $ServerStatusData->status['Uptime'], 
+            0
+        );
     }
     $retval .= '</span>';
     $retval .= '</h3>';
@@ -76,9 +82,12 @@ function PMA_getHtmlForServerStatusQueriesDetails($ServerStatusData)
     arsort($used_queries);
 
     $odd_row        = true;
-    $perc_factor    = 100 / $total_queries; //(- $ServerStatusData->status['Connections']);
+    
+    //(- $ServerStatusData->status['Connections']);
+    $perc_factor    = 100 / $total_queries;
 
-    $retval = '<table id="serverstatusqueriesdetails" class="data sortable noclick">';
+    $retval = '<table id="serverstatusqueriesdetails" ' 
+        . 'class="data sortable noclick">';
     $retval .= '<col class="namecol" />';
     $retval .= '<col class="valuecol" span="3" />';
     $retval .= '<thead>';
