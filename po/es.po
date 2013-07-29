@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-07-29 15:39+0200\n"
-"PO-Revision-Date: 2013-07-29 22:22+0200\n"
+"PO-Revision-Date: 2013-07-29 22:30+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone+weblate@gmail.com>\n"
 "Language-Team: Spanish "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/es/>\n"
@@ -10411,54 +10411,47 @@ msgstr "Groupos de usuario"
 
 #: libraries/server_privileges.lib.php:3236
 #: libraries/server_privileges.lib.php:3402
-#, fuzzy
 #| msgid "Server version"
 msgid "Server level tabs"
-msgstr "Versión del servidor"
+msgstr "Pestañas a nivel servidor"
 
 #: libraries/server_privileges.lib.php:3237
 #: libraries/server_privileges.lib.php:3405
-#, fuzzy
 #| msgid "Database server"
 msgid "Database level tabs"
-msgstr "Servidor de base de datos"
+msgstr "Pestañas a nivel base de datos"
 
 #: libraries/server_privileges.lib.php:3238
 #: libraries/server_privileges.lib.php:3408
-#, fuzzy
 #| msgid "Table comments"
 msgid "Table level tabs"
-msgstr "Comentarios de la tabla"
+msgstr "Pestañas a nivel tabla"
 
 #: libraries/server_privileges.lib.php:3260
-#, fuzzy
 #| msgid "Views"
 msgid "View users"
-msgstr "Vistas"
+msgstr "Ver usuarios"
 
 #: libraries/server_privileges.lib.php:3288
 #: libraries/server_privileges.lib.php:3344
-#, fuzzy
 #| msgid "Add user"
 msgid "Add user group"
-msgstr "Agregar usuario"
+msgstr "Agregar groupo de usuarios"
 
 #: libraries/server_privileges.lib.php:3347
 #, php-format
 msgid "Edit user group: '%s'"
-msgstr ""
+msgstr "Editar grupo de usuarios: '%s'"
 
 #: libraries/server_privileges.lib.php:3363
-#, fuzzy
 #| msgid "No privileges."
 msgid "User group privileges"
-msgstr "Sin privilegios."
+msgstr "Privilegios del grupo de usuarios"
 
 #: libraries/server_privileges.lib.php:3370
-#, fuzzy
 #| msgid "Column names: "
 msgid "Group name:"
-msgstr "Nombre de las columnas: "
+msgstr "Nombre del grupo:"
 
 #: libraries/server_privileges.lib.php:3521
 msgid "The selected user was not found in the privilege table."
