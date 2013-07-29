@@ -128,13 +128,13 @@ function PMA_current_version(data)
 {
     if (data && data.version && data.date) {
         var current = parseVersionString(pmaversion);
-        var latest = parseVersionString(data['version']);
-        var version_information_message = PMA_messages.strLatestAvailable + ' ' + escapeHtml(data['version']);
+        var latest = parseVersionString(data.version);
+        var version_information_message = PMA_messages.strLatestAvailable + ' ' + escapeHtml(data.version);
         if (latest > current) {
             var message = $.sprintf(
                 PMA_messages.strNewerVersion,
-                escapeHtml(data['version']),
-                escapeHtml(data['date'])
+                escapeHtml(data.version),
+                escapeHtml(data.date)
             );
             var htmlClass = 'notice';
             if (Math.floor(latest / 10000) === Math.floor(current / 10000)) {
