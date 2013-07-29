@@ -230,6 +230,31 @@ class Node_Table extends Node
         }
         return $retval;
     }
+
+    /**
+     * Returns HTML for hide button displayed infront of the table node
+     *
+     * @return HTML for hide button
+     */
+    public function getHtmlForControlButtons()
+    {
+        $ret = '';
+        $cfgRelation = PMA_getRelationsParam();
+        if ($cfgRelation['navwork']) {
+            $db    = $this->realParent()->real_name;
+            $table = $this->real_name;
+            $ret   = '<span class="navItemControls">'
+                . '<a href="navigation.php?'
+                . PMA_generate_common_url()
+                . '&hideNavItem=true&itemType=table'
+                . '&itemName=' . urldecode($table)
+                . '&dbName=' . urldecode($db) . '"'
+                . ' class="hideNavItem ajax">'
+                . PMA_Util::getImage('b_close', 'Hide')
+                . '</a></span>';
+        }
+        return $ret;
+    }
 }
 
 ?>

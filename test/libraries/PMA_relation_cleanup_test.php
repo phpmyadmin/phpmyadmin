@@ -26,26 +26,27 @@ class PMA_Relation_Cleanup_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['server'] = 1;
         $GLOBALS['cfg']['Server']['user'] = "user";
         $GLOBALS['cfg']['Server']['pmadb'] = "pmadb";
-        $GLOBALS['cfg']['Server']['bookmarktable'] = 'bookmark'; 
-        $GLOBALS['cfg']['Server']['relation'] = 'relation'; 
-        $GLOBALS['cfg']['Server']['table_info'] = 'table_info'; 
-        $GLOBALS['cfg']['Server']['table_coords'] = 'table_coords'; 
-        $GLOBALS['cfg']['Server']['designer_coords'] = 'designer_coords'; 
-        $GLOBALS['cfg']['Server']['column_info'] = 'column_info'; 
-        $GLOBALS['cfg']['Server']['pdf_pages'] = 'pdf_pages'; 
-        $GLOBALS['cfg']['Server']['history'] = 'history'; 
-        $GLOBALS['cfg']['Server']['recent'] = 'recent'; 
-        $GLOBALS['cfg']['Server']['table_uiprefs'] = 'table_uiprefs'; 
-        $GLOBALS['cfg']['Server']['tracking'] = 'tracking';  
-        $GLOBALS['cfg']['Server']['userconfig'] = 'userconfig';  
-        $GLOBALS['cfg']['Server']['users'] = 'users';  
-        $GLOBALS['cfg']['Server']['usergroups'] = 'usergroups'; 
-        
+        $GLOBALS['cfg']['Server']['bookmarktable'] = 'bookmark';
+        $GLOBALS['cfg']['Server']['relation'] = 'relation';
+        $GLOBALS['cfg']['Server']['table_info'] = 'table_info';
+        $GLOBALS['cfg']['Server']['table_coords'] = 'table_coords';
+        $GLOBALS['cfg']['Server']['designer_coords'] = 'designer_coords';
+        $GLOBALS['cfg']['Server']['column_info'] = 'column_info';
+        $GLOBALS['cfg']['Server']['pdf_pages'] = 'pdf_pages';
+        $GLOBALS['cfg']['Server']['history'] = 'history';
+        $GLOBALS['cfg']['Server']['recent'] = 'recent';
+        $GLOBALS['cfg']['Server']['table_uiprefs'] = 'table_uiprefs';
+        $GLOBALS['cfg']['Server']['tracking'] = 'tracking';
+        $GLOBALS['cfg']['Server']['userconfig'] = 'userconfig';
+        $GLOBALS['cfg']['Server']['users'] = 'users';
+        $GLOBALS['cfg']['Server']['usergroups'] = 'usergroups';
+        $GLOBALS['cfg']['Server']['navigationhiding'] = 'navigationhiding';
+
         $this->redefineRelation();
     }
-    
+
     public function redefineRelation()
-    {     
+    {
         $GLOBALS['dbi'] = new DBI_PMA_Relation_Cleanup();
         unset($_SESSION['relation'][$GLOBALS['server']]);
     }
@@ -61,7 +62,7 @@ class PMA_Relation_Cleanup_Test extends PHPUnit_Framework_TestCase
         $table = "PMA_bookmark";
         $column = "name";
         $this->redefineRelation();
-        
+
         //the $cfgRelation value before cleanup column
         $cfgRelation = PMA_checkRelationsParam();
         $this->assertEquals(
@@ -88,20 +89,20 @@ class PMA_Relation_Cleanup_Test extends PHPUnit_Framework_TestCase
             'relation',
             $cfgRelation['relation']
         );
-        
+
         //cleanup
         PMA_relationsCleanupColumn($db, $table, $column);
-        
+
         //the $cfgRelation value after cleanup column
         $cfgRelation = PMA_checkRelationsParam();
-        
-        $is_defined_column_info 
+
+        $is_defined_column_info
             = isset($cfgRelation['column_info'])? $cfgRelation['column_info'] : null;
-        $is_defined_table_info 
+        $is_defined_table_info
             = isset($cfgRelation['table_info'])? $cfgRelation['table_info'] : null;
         $is_defined_relation
             = isset($cfgRelation['relation'])? $cfgRelation['relation'] : null;
-        
+
         $this->assertEquals(
             null,
             $is_defined_column_info
@@ -114,7 +115,7 @@ class PMA_Relation_Cleanup_Test extends PHPUnit_Framework_TestCase
             null,
             $is_defined_relation
         );
-        
+
     }
 
     /**
@@ -127,7 +128,7 @@ class PMA_Relation_Cleanup_Test extends PHPUnit_Framework_TestCase
         $db = "PMA";
         $table = "PMA_bookmark";
         $this->redefineRelation();
-        
+
         //the $cfgRelation value before cleanup column
         $cfgRelation = PMA_checkRelationsParam();
         $this->assertEquals(
@@ -150,28 +151,28 @@ class PMA_Relation_Cleanup_Test extends PHPUnit_Framework_TestCase
             'relation',
             $cfgRelation['relation']
         );
-        
+
         //PMA_relationsCleanupTable
         PMA_relationsCleanupTable($db, $table);
-        
+
         //the $cfgRelation value after cleanup column
         $cfgRelation = PMA_checkRelationsParam();
-        
-        $is_defined_column_info 
+
+        $is_defined_column_info
             = isset($cfgRelation['column_info'])? $cfgRelation['column_info'] : null;
-        $is_defined_table_info 
+        $is_defined_table_info
             = isset($cfgRelation['table_info'])? $cfgRelation['table_info'] : null;
         $is_defined_relation
             = isset($cfgRelation['relation'])? $cfgRelation['relation'] : null;
         $is_defined_table_coords
             = isset($cfgRelation['table_coords'])
-            ? $cfgRelation['table_coords'] 
+            ? $cfgRelation['table_coords']
             : null;
         $is_defined_designer_coords
             = isset($cfgRelation['designer_coords'])
-            ? $cfgRelation['designer_coords'] 
+            ? $cfgRelation['designer_coords']
             : null;
-        
+
         $this->assertEquals(
             null,
             $is_defined_column_info
@@ -192,7 +193,7 @@ class PMA_Relation_Cleanup_Test extends PHPUnit_Framework_TestCase
             null,
             $is_defined_designer_coords
         );
-        
+
     }
 
     /**
@@ -204,7 +205,7 @@ class PMA_Relation_Cleanup_Test extends PHPUnit_Framework_TestCase
     {
         $db = "PMA";
         $this->redefineRelation();
-        
+
         //the $cfgRelation value before cleanup column
         $cfgRelation = PMA_checkRelationsParam();
         $this->assertEquals(
@@ -235,28 +236,28 @@ class PMA_Relation_Cleanup_Test extends PHPUnit_Framework_TestCase
             'relation',
             $cfgRelation['relation']
         );
-        
+
         //cleanup
         PMA_relationsCleanupDatabase($db);
-        
+
         //the value after cleanup column
         $cfgRelation = PMA_checkRelationsParam();
-        
-        $is_defined_column_info 
+
+        $is_defined_column_info
             = isset($cfgRelation['column_info'])? $cfgRelation['column_info'] : null;
-        $is_defined_table_info 
+        $is_defined_table_info
             = isset($cfgRelation['table_info'])? $cfgRelation['table_info'] : null;
         $is_defined_relation
             = isset($cfgRelation['relation'])? $cfgRelation['relation'] : null;
         $is_defined_table_coords
             = isset($cfgRelation['table_coords'])
-            ? $cfgRelation['table_coords'] 
+            ? $cfgRelation['table_coords']
             : null;
         $is_defined_designer_coords
             = isset($cfgRelation['designer_coords'])
-            ? $cfgRelation['designer_coords'] 
+            ? $cfgRelation['designer_coords']
             : null;
-        
+
         $this->assertEquals(
             null,
             $is_defined_column_info
@@ -276,7 +277,7 @@ class PMA_Relation_Cleanup_Test extends PHPUnit_Framework_TestCase
         $this->assertEquals(
             null,
             $is_defined_designer_coords
-        );       
+        );
     }
 }
 
@@ -286,8 +287,8 @@ class DBI_PMA_Relation_Cleanup extends PMA_DatabaseInterface
     var $index;
     var $values = array();
     var $indexs = array();
-    
-    public function __construct() 
+
+    public function __construct()
     {
          $this->index = 0;
          $this->values = array(
@@ -305,6 +306,7 @@ class DBI_PMA_Relation_Cleanup extends PMA_DatabaseInterface
              'userconfig',
              'users',
              'usergroups',
+             'navigationhiding',
          );
          $this->indexs = array(
              'bookmark' => 0,
@@ -321,63 +323,64 @@ class DBI_PMA_Relation_Cleanup extends PMA_DatabaseInterface
              'userconfig' => 11,
              'users' => 12,
              'usergroups' => 13,
+             'navigationhiding' => 14,
          );
     }
-    
-    function fetchRow($result) 
+
+    function fetchRow($result)
     {
         if ($this->index < count($this->values)) {
             $curr_table[0] = $this->values[$this->index];
             $this->index++;
             return $curr_table;
         }
-        
+
         $this->index = 0;
         return false;
     }
-    
-    function query($sql, $link = null, $options = 0, $cache_affected_rows = true) 
+
+    function query($sql, $link = null, $options = 0, $cache_affected_rows = true)
     {
         if (stripos($sql, "column_info") !== false) {
             unset($this->values[$this->indexs['column_info']]);
         }
-        
+
         if (stripos($sql, "table_info") !== false) {
             unset ($this->values[$this->indexs['table_info']]);
         }
-        
+
         if (stripos($sql, "table_coords") !== false) {
             unset($this->values[$this->indexs['table_coords']]);
         }
-        
+
         if (stripos($sql, "designer_coords") !== false) {
             unset($this->values[$this->indexs['designer_coords']]);
         }
-        
+
         if (stripos($sql, "relation") !== false) {
             unset($this->values[$this->indexs['relation']]);
         }
-        
+
         if (stripos($sql, "pdf_pages") !== false) {
             unset($GLOBALS [$this->indexs['pdf_pages']]);
         }
-        
+
         if (stripos($sql, "bookmark") !== false) {
             unset($GLOBALS [$this->indexs['bookmark']]);
         }
     }
-    
+
     public function tryQuery(
         $query, $link = null, $options = 0, $cache_affected_rows = true
     ) {
         return true;
     }
-    
-    public function selectDb($dbname, $link = null) 
+
+    public function selectDb($dbname, $link = null)
     {
         return true;
     }
-    
+
     public function freeResult($result)
     {
         return true;

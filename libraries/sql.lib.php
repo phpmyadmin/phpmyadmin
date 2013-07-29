@@ -1726,7 +1726,7 @@ function PMA_sendQueryResponseForNoResultsReturned($analyzed_sql_results, $db,
         isset($message_to_show) ? $message_to_show : null, $analyzed_sql_results,
         $num_rows
     );
-    if ($GLOBALS['is_ajax_request'] == true) {
+    if ($GLOBALS['is_ajax_request'] == true && !isset($GLOBALS['show_as_php'])) {
         PMA_sendAjaxResponseForNoResultsReturned(
             $message, $analyzed_sql_results['analyzed_sql'],
             $displayResultsObject,
@@ -2086,7 +2086,7 @@ function PMA_sendQueryResponseForResultsReturned($result, $justBrowsing,
     if (!isset($_REQUEST['printview']) || $_REQUEST['printview'] != '1') {
         $scripts->addFile('makegrid.js');
         $scripts->addFile('sql.js');
-        unset($message);         
+        unset($GLOBALS['message']);         
         //we don't need to buffer the output in getMessage here.
         //set a global variable and check against it in the function
         $GLOBALS['buffer_message'] = false;

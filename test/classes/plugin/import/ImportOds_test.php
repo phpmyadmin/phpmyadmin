@@ -4,7 +4,7 @@
  *
  * @package PhpMyAdmin-test
  */
- 
+
 /*
  * we must set $GLOBALS['server'] here
  * since 'check_user_privileges.lib.php' will use it globally
@@ -47,11 +47,11 @@ class ImportOds_Test extends PHPUnit_Framework_TestCase
      * @return void
      */
     protected function setUp()
-    {  
-        $GLOBALS['plugin_param'] = "csv";    
-        $this->object = new ImportOds();    
+    {
+        $GLOBALS['plugin_param'] = "csv";
+        $this->object = new ImportOds();
 
-        //setting        
+        //setting
         $GLOBALS['finished'] = false;
         $GLOBALS['read_limit'] = 100000000;
         $GLOBALS['offset'] = 0;
@@ -59,20 +59,20 @@ class ImportOds_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['ServerDefault'] = 0;
         $GLOBALS['cfg']['AllowUserDropDatabase'] = false;
         $GLOBALS['cfg']['MySQLManualType'] = 'none';
-        
+
         $GLOBALS['import_file'] = 'test/test_data/db_test.ods';
-        
+
         /**
          * Load interface for zip extension.
         */
         include_once 'libraries/zip_extension.lib.php';
         $result = PMA_getZipContents($GLOBALS['import_file']);
         $GLOBALS['import_text'] = $result["data"];
-        $GLOBALS['compression'] = 'application/zip'; 
+        $GLOBALS['compression'] = 'application/zip';
         $GLOBALS['read_multiply'] = 10;
         $GLOBALS['import_type'] = 'ods';
         $GLOBALS['import_handle'] = @fopen($GLOBALS['import_file'], 'r');
-        
+
         //varible for Ods
         $_REQUEST['ods_recognize_percentages'] = true;
         $_REQUEST['ods_recognize_currency'] = true;
@@ -90,7 +90,7 @@ class ImportOds_Test extends PHPUnit_Framework_TestCase
     {
         unset($this->object);
     }
-    
+
     /**
      * Test for getProperties
      *
@@ -104,17 +104,17 @@ class ImportOds_Test extends PHPUnit_Framework_TestCase
         $this->assertEquals(
             __('OpenDocument Spreadsheet'),
             $properties->getText()
-        );  
+        );
         $this->assertEquals(
             'ods',
             $properties->getExtension()
-        );    
+        );
         $this->assertEquals(
             __('Options'),
             $properties->getOptionsText()
-        );    
+        );
     }
-    
+
     /**
      * Test for doImport
      *
@@ -128,57 +128,57 @@ class ImportOds_Test extends PHPUnit_Framework_TestCase
         //$import_notice will show the import detail result
         global $import_notice, $sql_query, $sql_query_disabled;
         $sql_query_disabled = false;
-        
+
         //Mock DBI
         $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
         $GLOBALS['dbi'] = $dbi;
-        
+
         //Test function called
         $this->object->doImport();
-        
-       //asset that all sql are executed
+
+        //asset that all sql are executed
         $this->assertContains(
             'CREATE DATABASE IF NOT EXISTS `ODS_DB` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci',
             $sql_query
-        );           
+        );
         $this->assertContains(
             'CREATE TABLE IF NOT EXISTS `ODS_DB`.`pma_bookmark`',
             $sql_query
-        );          
+        );
         $this->assertContains(
             "INSERT INTO `ODS_DB`.`pma_bookmark` (`A`, `B`, `C`, `D`) VALUES (1, 'dbbase', NULL, 'ddd');",
             $sql_query
-        );       
-        
+        );
+
         //asset that all databases and tables are imported
         $this->assertContains(
             'The following structures have either been created or altered.',
             $import_notice
-        );           
+        );
         $this->assertContains(
             'Go to database: `ODS_DB`',
             $import_notice
-        );          
+        );
         $this->assertContains(
             'Edit settings for `ODS_DB`',
             $import_notice
-        );          
+        );
         $this->assertContains(
             'Go to table: `pma_bookmark`',
             $import_notice
-        );          
+        );
         $this->assertContains(
             'Edit settings for `pma_bookmark`',
             $import_notice
         );
-        
+
         //asset that the import process is finished
         $this->assertEquals(
             true,
             $GLOBALS['finished']
-        );  
+        );
     }
 }
 

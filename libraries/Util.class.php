@@ -1342,43 +1342,41 @@ class PMA_Util
             }
 
             $retval .= '<div class="tools">';
+            $retval .= '<form action="sql.php" method="post">';
+            $retval .= PMA_generate_common_hidden_inputs(
+                $GLOBALS['db'], $GLOBALS['table']
+            );
+            $retval .= '<input type="hidden" name="sql_query" value="'
+                . htmlspecialchars($sql_query) . '" />';
+
             // avoid displaying a Profiling checkbox that could
             // be checked, which would reexecute an INSERT, for example
-            if (! empty($refresh_link)) {
-                $retval .= self::getProfilingForm($sql_query);
-            }
-            // if needed, generate an invisible form that contains controls for the
-            // Inline link; this way, the behavior of the Inline link does not
-            // depend on the profiling support or on the refresh link
-            if (empty($refresh_link) || !self::profilingSupported()) {
-                $retval .= '<form action="sql.php" method="post">';
-                $retval .= PMA_generate_common_hidden_inputs(
-                    $GLOBALS['db'], $GLOBALS['table']
+            if (! empty($refresh_link) && self::profilingSupported()) {
+                $retval .= '<input type="hidden" name="profiling_form" value="1" />';
+                $retval .= self::getCheckbox(
+                    'profiling', __('Profiling'), isset($_SESSION['profiling']), true
                 );
-                $retval .= '<input type="hidden" name="sql_query" value="'
-                    . htmlspecialchars($sql_query) . '" />';
-                $retval .= '</form>';
             }
+            $retval .= '</form>';
 
-            // in the tools div, only display the Inline link when not in ajax
-            // mode because 1) it currently does not work and 2) we would
-            // have two similar mechanisms on the page for the same goal
-            if ($is_select || ($GLOBALS['is_ajax_request'] === false)
+            /**
+             * TODO: Should we have $cfg['SQLQuery']['InlineEdit']?
+             */
+            if (! empty($cfg['SQLQuery']['Edit'])
+                && $is_select
                 && ! $query_too_big
             ) {
-                // see in js/functions.js the jQuery code attached to id inline_edit
-                // document.write conflicts with jQuery, hence used $().append()
-                $retval .= "<script type=\"text/javascript\">\n" .
-                    "//<![CDATA[\n" .
-                    "$('.tools form').last().after('[ <a href=\"#\" title=\"" .
-                    PMA_escapeJsString(__('Inline edit of this query')) .
-                    "\" class=\"inline_edit_sql\">" .
-                    PMA_escapeJsString(_pgettext('Inline edit query', 'Inline')) .
-                    "</a> ]');\n" .
-                    "//]]>\n" .
-                    "</script>";
+                $inline_edit_link = ' ['
+                    . self::linkOrButton(
+                        '#',
+                        _pgettext('Inline edit query', 'Inline'),
+                        array('class' => 'inline_edit_sql')
+                    )
+                    . ']';
+            } else {
+                $inline_edit_link = '';
             }
-            $retval .= $edit_link . $explain_link . $php_link
+            $retval .= $inline_edit_link . $edit_link . $explain_link . $php_link
                 . $refresh_link . $validate_link;
             $retval .= '</div>';
         }
@@ -1415,38 +1413,6 @@ class PMA_Util
         }
 
         return self::cacheGet('profiling_supported', true);
-    }
-
-    /**
-     * Returns HTML for the form with the Profiling checkbox
-     *
-     * @param string $sql_query sql query
-     *
-     * @return string HTML for the form with the Profiling checkbox
-     *
-     * @access  public
-     */
-    public static function getProfilingForm($sql_query)
-    {
-        $retval = '';
-        if (self::profilingSupported()) {
-
-            $retval .= '<form action="sql.php" method="post">' . "\n";
-            $retval .= PMA_generate_common_hidden_inputs(
-                $GLOBALS['db'], $GLOBALS['table']
-            );
-
-            $retval .= '<input type="hidden" name="sql_query" value="'
-                . htmlspecialchars($sql_query) . '" />' . "\n"
-                . '<input type="hidden" name="profiling_form" value="1" />' . "\n";
-
-            $retval .= self::getCheckbox(
-                'profiling', __('Profiling'), isset($_SESSION['profiling']), true
-            );
-            $retval .= ' </form>' . "\n";
-
-        }
-        return $retval;
     }
 
     /**
@@ -2080,7 +2046,7 @@ class PMA_Util
      * @param string $Separator The Separator (defaults to "<br />\n")
      *
      * @access  public
-     * @todo    add a multibyte safe function PMA_STR_split()
+     * @todo    add a multibyte safe function $GLOBALS['PMA_String']->split()
      *
      * @return string      The flipped string
      */
