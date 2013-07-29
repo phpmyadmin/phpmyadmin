@@ -612,6 +612,15 @@ if (! empty($last_query_with_results)) {
 
 if ($go_sql) {
     include 'sql.php';
+} else if ($result) {
+    $response = PMA_Response::getInstance();
+    $response->isSuccess(true);
+    $response->addJSON('message', PMA_Message::success($msg));
+    $response->addJSON('sql_query', PMA_Util::getMessage('', $sql_query));
+} else if ($result == false) {
+    $response = PMA_Response::getInstance();
+    $response->isSuccess(false);
+    $response->addJSON('message', PMA_Message::error($msg));
 } else {
     $active_page = $goto;
     include '' . $goto;
