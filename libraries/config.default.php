@@ -84,6 +84,14 @@ $cfg['ReservedWordDisableWarning'] = false;
 $cfg['TranslationWarningThreshold'] = 80;
 
 /**
+ * Allows phpMyAdmin to be included from a other document in a frame;
+ * setting this to true is a potential security hole
+ *
+ * @global boolean $cfg['AllowThirdPartyFraming']
+ */
+$cfg['AllowThirdPartyFraming'] = false;
+
+/**
  * The 'cookie' auth_type uses blowfish algorithm to encrypt the password. If
  * at least one server configuration uses 'cookie' auth_type, enter here a
  * pass phrase that will be used by blowfish. The maximum length seems to be 46
