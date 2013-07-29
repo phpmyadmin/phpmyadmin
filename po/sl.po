@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-07-29 15:39+0200\n"
-"PO-Revision-Date: 2013-07-29 18:25+0200\n"
+"PO-Revision-Date: 2013-07-29 18:26+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: Slovenian "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/sl/>\n"
@@ -1665,7 +1665,7 @@ msgstr "Dodaj %d vrednost(i)"
 #: js/messages.php:259
 msgid ""
 "Note: If the file contains multiple tables, they will be combined into one."
-msgstr "Opomba: Če datoteka vsebuje več tabel, bodo združene v eno"
+msgstr "Opomba: Če datoteka vsebuje več tabel, bodo združene v eno."
 
 #: js/messages.php:262
 msgid "Hide query box"
@@ -2860,7 +2860,7 @@ msgstr "Primarni ključ je zavržen"
 #: libraries/Index.class.php:608
 #, php-format
 msgid "Index %s has been dropped."
-msgstr "Indeks %s je zavržen"
+msgstr "Zavrgel sem indeks %s."
 
 #: libraries/Index.class.php:731
 #, php-format
@@ -3843,7 +3843,7 @@ msgstr "Izberite iz mape za nalaganje na spletnem strežniku <b>%s</b>:"
 #: libraries/Util.class.php:3406 libraries/insert_edit.lib.php:1183
 #: libraries/sql_query_form.lib.php:483
 msgid "The directory you set for upload work cannot be reached."
-msgstr "Imenik, ki ste ga določili za nalaganje, je nedosegljiv"
+msgstr "Imenik, ki ste ga določili za nalaganje, ni dosegljiv."
 
 #: libraries/Util.class.php:3417
 msgid "There are no files to upload"
@@ -8067,7 +8067,7 @@ msgstr ""
 #: libraries/plugins/auth/AuthenticationSignon.class.php:271
 #, php-format
 msgid "No activity within %s seconds; please log in again."
-msgstr "Brez aktivnosti v zadnjih %s sekundah; prosimo, prijavite se znova"
+msgstr "Brez aktivnosti v zadnjih %s sekundah; prosimo, prijavite se znova."
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:689
 #: libraries/plugins/auth/AuthenticationCookie.class.php:691
@@ -8091,7 +8091,7 @@ msgstr "Datoteka %s ne vsebuje nobenega identifikacijskega ključa"
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:180
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:200
 msgid "Hardware authentication failed!"
-msgstr "Overitev strojne opreme je spodletelo"
+msgstr "Overitev strojne opreme je spodletelo!"
 
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:187
 msgid "No valid authentication key plugged"
@@ -11486,7 +11486,7 @@ msgid ""
 "below, if there is any, may also help you in diagnosing the problem."
 msgstr ""
 "Kaže, da je v poizvedbi SQL prišlo do napake. Če je strežnik MySQL izpisal "
-"napako, vam le-ta lahko pomaga pri odkrivanju težav"
+"napako, vam lahko to pomaga pri odkrivanju težav."
 
 #: libraries/sqlparser.lib.php:178
 msgid ""
