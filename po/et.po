@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-07-29 15:39+0200\n"
-"PO-Revision-Date: 2013-07-29 16:05+0200\n"
+"PO-Revision-Date: 2013-07-29 16:09+0200\n"
 "Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
 "Language-Team: Estonian "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/et/>\n"
@@ -1656,7 +1656,7 @@ msgstr "Lisa %d väärtus(t)"
 #: js/messages.php:259
 msgid ""
 "Note: If the file contains multiple tables, they will be combined into one."
-msgstr "Märkus: Kui fail sisaldab mitut tabelit, siis need liidetakse kokku"
+msgstr "Märkus: Kui fail sisaldab mitut tabelit, siis need liidetakse kokku."
 
 #: js/messages.php:262
 msgid "Hide query box"
@@ -2840,7 +2840,7 @@ msgstr "Primaarvõti on kustutatud"
 #: libraries/Index.class.php:608
 #, php-format
 msgid "Index %s has been dropped."
-msgstr "%s indeks on kustutatud"
+msgstr "%s indeks on kustutatud."
 
 #: libraries/Index.class.php:731
 #, php-format
@@ -3811,7 +3811,7 @@ msgstr "Vali veebiserveri üleslaadimise kataloogist <b>%s</b>:"
 #: libraries/Util.class.php:3406 libraries/insert_edit.lib.php:1183
 #: libraries/sql_query_form.lib.php:483
 msgid "The directory you set for upload work cannot be reached."
-msgstr "Valitud üleslaadimise kataloogile ei pääse ligi"
+msgstr "Valitud üleslaadimise kataloogile ei pääse ligi."
 
 #: libraries/Util.class.php:3417
 msgid "There are no files to upload"
@@ -7996,7 +7996,7 @@ msgstr ""
 #: libraries/plugins/auth/AuthenticationSignon.class.php:271
 #, php-format
 msgid "No activity within %s seconds; please log in again."
-msgstr "%s sekundi jooksul aktiivsust polnud. Palun logi uuesti sisse"
+msgstr "%s sekundi jooksul aktiivsust polnud. Palun logi uuesti sisse."
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:689
 #: libraries/plugins/auth/AuthenticationCookie.class.php:691
@@ -8020,7 +8020,7 @@ msgstr "%s fail ei sisalda ühegi võtme id'd"
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:180
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:200
 msgid "Hardware authentication failed!"
-msgstr "Riistvara autentimine ebaõnnestus"
+msgstr "Riistvara autentimine ebaõnnestus!"
 
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:187
 msgid "No valid authentication key plugged"
@@ -11376,7 +11376,7 @@ msgid ""
 "below, if there is any, may also help you in diagnosing the problem."
 msgstr ""
 "Tundub, et sinu SQL päringus on viga. MySQL serveri viga näidatakse allpool "
-"ja kui seal on midagi, siis peaks see aitama sul probleemi diagnoosida"
+"ja kui seal on midagi, siis peaks see aitama sul probleemi diagnoosida."
 
 #: libraries/sqlparser.lib.php:178
 msgid ""
