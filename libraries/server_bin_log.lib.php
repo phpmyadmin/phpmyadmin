@@ -233,10 +233,10 @@ function PMA_getAllLogItemInfo($result, $dontlimitchars)
     $html = "";
     $odd_row = true;
     while ($value = $GLOBALS['dbi']->fetchAssoc($result)) {
-        $len_info = $GLOBALS['PMA_String']::strlen($value['Info']);
+        $len_info = $GLOBALS['PMA_String']->strlen($value['Info']);
         $len_limitChars = $GLOBALS['cfg']['LimitChars'];
         if (! $dontlimitchars && $len_info > $len_limitChars) {
-            $value['Info'] = $GLOBALS['PMA_String']::substr(
+            $value['Info'] = $GLOBALS['PMA_String']->substr(
                 $value['Info'], 0, $GLOBALS['cfg']['LimitChars']
             ) . '...';
         }

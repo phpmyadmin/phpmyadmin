@@ -61,6 +61,31 @@ class Node_Event extends Node
         $query .= "AND `EVENT_NAME`='$event' ";
         return $GLOBALS['dbi']->fetchValue($query);
     }
+
+    /**
+     * Returns HTML for hide button displayed infront of the event node
+     *
+     * @return HTML for hide button
+     */
+    public function getHtmlForControlButtons()
+    {
+        $ret = '';
+        $cfgRelation = PMA_getRelationsParam();
+        if ($cfgRelation['navwork']) {
+            $db    = $this->realParent()->real_name;
+            $event = $this->real_name;
+            $ret   = '<span class="navItemControls">'
+                . '<a href="navigation.php?'
+                . PMA_generate_common_url()
+                . '&hideNavItem=true&itemType=event'
+                . '&itemName=' . urldecode($event)
+                . '&dbName=' . urldecode($db) . '"'
+                . ' class="hideNavItem ajax">'
+                . PMA_Util::getImage('b_close', 'Hide')
+                . '</a></span>';
+        }
+        return $ret;
+    }
 }
 
 ?>

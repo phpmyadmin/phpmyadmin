@@ -34,7 +34,7 @@ class Text_Plain_Formatted_Test extends PHPUnit_Framework_TestCase
      */
     protected function setUp()
     {
-        $this->object = new Text_Plain_Formatted(new PluginManager()); 
+        $this->object = new Text_Plain_Formatted(new PluginManager());
     }
 
     /**
@@ -48,7 +48,7 @@ class Text_Plain_Formatted_Test extends PHPUnit_Framework_TestCase
     {
         unset($this->object);
     }
-    
+
     /**
      * Test for getInfo
      *
@@ -58,15 +58,14 @@ class Text_Plain_Formatted_Test extends PHPUnit_Framework_TestCase
      */
     public function testGetInfo()
     {
-        $info = 
-            'Displays the contents of the column as-is, without running it'
+        $info = 'Displays the contents of the column as-is, without running it'
             . ' through htmlspecialchars(). That is, the column is assumed'
             . ' to contain valid HTML.';
         $this->assertEquals(
             $info,
             Text_Plain_Formatted::getInfo()
-        );  
-    
+        );
+
     }
 
     /**
@@ -77,11 +76,11 @@ class Text_Plain_Formatted_Test extends PHPUnit_Framework_TestCase
      * @group medium
      */
     public function testGetName()
-    {       
+    {
         $this->assertEquals(
             "Formatted",
             Text_Plain_Formatted::getName()
-        );    
+        );
     }
 
     /**
@@ -92,11 +91,11 @@ class Text_Plain_Formatted_Test extends PHPUnit_Framework_TestCase
      * @group medium
      */
     public function testGetMIMEType()
-    {       
+    {
         $this->assertEquals(
             "Text",
             Text_Plain_Formatted::getMIMEType()
-        );    
+        );
     }
 
     /**
@@ -107,11 +106,11 @@ class Text_Plain_Formatted_Test extends PHPUnit_Framework_TestCase
      * @group medium
      */
     public function testGetMIMESubtype()
-    {       
+    {
         $this->assertEquals(
             "Plain",
             Text_Plain_Formatted::getMIMESubtype()
-        );    
+        );
     }
 
     /**
@@ -126,8 +125,8 @@ class Text_Plain_Formatted_Test extends PHPUnit_Framework_TestCase
         $buffer = "<a ref='http://ci.phpmyadmin.net/'>PMA_BUFFER</a>";
         $options = array("option1", "option2");
         $this->assertEquals(
-             $buffer,
+            $buffer,
             $this->object->applyTransformation($buffer, $options)
-        );    
+        );
     }
 }

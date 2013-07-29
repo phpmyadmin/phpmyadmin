@@ -34,7 +34,7 @@ class Text_Plain_Link_Test extends PHPUnit_Framework_TestCase
      */
     protected function setUp()
     {
-        $this->object = new Text_Plain_Link(new PluginManager()); 
+        $this->object = new Text_Plain_Link(new PluginManager());
     }
 
     /**
@@ -48,7 +48,7 @@ class Text_Plain_Link_Test extends PHPUnit_Framework_TestCase
     {
         unset($this->object);
     }
-    
+
     /**
      * Test for getInfo
      *
@@ -58,15 +58,15 @@ class Text_Plain_Link_Test extends PHPUnit_Framework_TestCase
      */
     public function testGetInfo()
     {
-        $info = 
-            'Displays a link; the column contains the filename. The first option'
+        $info
+            = 'Displays a link; the column contains the filename. The first option'
             . ' is a URL prefix like "http://www.example.com/". The second option'
             . ' is a title for the link.';
-         $this->assertEquals(
+        $this->assertEquals(
             $info,
             Text_Plain_Link::getInfo()
-        );  
-    
+        );
+
     }
 
     /**
@@ -77,11 +77,11 @@ class Text_Plain_Link_Test extends PHPUnit_Framework_TestCase
      * @group medium
      */
     public function testGetName()
-    {       
+    {
         $this->assertEquals(
             "TextLink",
             Text_Plain_Link::getName()
-        );    
+        );
     }
 
     /**
@@ -92,11 +92,11 @@ class Text_Plain_Link_Test extends PHPUnit_Framework_TestCase
      * @group medium
      */
     public function testGetMIMEType()
-    {       
+    {
         $this->assertEquals(
             "Text",
             Text_Plain_Link::getMIMEType()
-        );    
+        );
     }
 
     /**
@@ -107,11 +107,11 @@ class Text_Plain_Link_Test extends PHPUnit_Framework_TestCase
      * @group medium
      */
     public function testGetMIMESubtype()
-    {       
+    {
         $this->assertEquals(
             "Plain",
             Text_Plain_Link::getMIMESubtype()
-        );    
+        );
     }
 
     /**
@@ -125,11 +125,11 @@ class Text_Plain_Link_Test extends PHPUnit_Framework_TestCase
     {
         $buffer = "PMA_TXT_LINK";
         $options = array("./php/", "text_name");
-        $result = '<a href="./php/PMA_TXT_LINK"' 
+        $result = '<a href="./php/PMA_TXT_LINK"'
              . ' title="text_name" target="_new">text_name</a>';
         $this->assertEquals(
             $result,
             $this->object->applyTransformation($buffer, $options)
-        );    
+        );
     }
 }

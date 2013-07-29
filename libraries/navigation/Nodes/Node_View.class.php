@@ -39,6 +39,31 @@ class Node_View extends Node
                     . '&amp;token=' . $GLOBALS['token']
         );
     }
+
+    /**
+     * Returns HTML for hide button displayed infront of the view node
+     *
+     * @return HTML for hide button
+     */
+    public function getHtmlForControlButtons()
+    {
+        $ret = '';
+        $cfgRelation = PMA_getRelationsParam();
+        if ($cfgRelation['navwork']) {
+            $db    = $this->realParent()->real_name;
+            $view  = $this->real_name;
+            $ret   = '<span class="navItemControls">'
+                . '<a href="navigation.php?'
+                . PMA_generate_common_url()
+                . '&hideNavItem=true&itemType=view'
+                . '&itemName=' . urldecode($view)
+                . '&dbName=' . urldecode($db) . '"'
+                . ' class="hideNavItem ajax">'
+                . PMA_Util::getImage('b_close', 'Hide')
+                . '</a></span>';
+        }
+        return $ret;
+    }
 }
 
 ?>

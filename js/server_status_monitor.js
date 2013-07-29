@@ -1201,6 +1201,19 @@ AJAX.registerOnload('server_status_monitor.js', function () {
             settings.axes.yaxis.tickOptions = {
                 formatter: $.jqplot.byteFormatter(1) // KiB
             };
+        } else if (settings.title === PMA_messages.strQuestions
+            || settings.title === PMA_messages.strConnections
+        ) {
+            settings.axes.yaxis.tickOptions = {
+                formatter: function(format, val) {
+                    if (Math.abs(val) >= 1000000)
+                        return $.jqplot.sprintf("%.3g M", val/1000000);
+                    else if (Math.abs(val) >= 1000)
+                        return $.jqplot.sprintf("%.3g k", val/1000);
+                    else
+                        return $.jqplot.sprintf("%d", val);
+                }
+            };
         }
 
         settings.series = chartObj.series;
@@ -1290,7 +1303,6 @@ AJAX.registerOnload('server_status_monitor.js', function () {
             );
         }
         $('#gridchart' + runtime.chartAI)
-            .css('overflow', 'hidden')
             .parent()
             .append($legend);
 

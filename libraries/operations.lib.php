@@ -358,7 +358,7 @@ function PMA_getSqlQueryAndCreateDbBeforeCopy()
             'SHOW VARIABLES LIKE "lower_case_table_names"', 0, 1
         );
         if ($lower_case_table_names === '1') {
-            $_REQUEST['newname'] = $GLOBALS['PMA_String']::strtolower($_REQUEST['newname']);
+            $_REQUEST['newname'] = $GLOBALS['PMA_String']->strtolower($_REQUEST['newname']);
         }
     }
 
@@ -380,7 +380,7 @@ function PMA_getSqlQueryAndCreateDbBeforeCopy()
     // Set the SQL mode to NO_AUTO_VALUE_ON_ZERO to prevent MySQL from creating
     // export statements it cannot import
     $sql_set_mode = "SET SQL_MODE='NO_AUTO_VALUE_ON_ZERO'";
-    PMA_DBI_query($sql_set_mode);
+    $GLOBALS['dbi']->query($sql_set_mode);
 
     // rebuild the database list because PMA_Table::moveCopy
     // checks in this list if the target db exists
@@ -428,7 +428,7 @@ function PMA_getSqlConstraintsQueryForFullDb(
  *
  * @param array  $tables_full       array of all tables in given db or dbs
  * @param object $export_sql_plugin export plugin instance
- * @param strin  $db                database name
+ * @param string $db                database name
  *
  * @return array $views
  */

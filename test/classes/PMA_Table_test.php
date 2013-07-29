@@ -10,6 +10,7 @@
  * Include to test.
  */
 require_once 'libraries/Table.class.php';
+require_once 'libraries/sqlparser.lib.php';
 require_once 'libraries/mysql_charsets.lib.php';
 require_once 'libraries/Util.class.php';
 require_once 'libraries/database_interface.inc.php';
@@ -42,10 +43,15 @@ class PMA_Table_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['MySQLManualType'] = 'viewable';
         $GLOBALS['cfg']['MySQLManualBase'] = 'http://dev.mysql.com/doc/refman';
         $GLOBALS['cfg']['ActionLinksMode'] = 'both';
+        $GLOBALS['cfg']['MaxExactCount'] = 100;
+        $GLOBALS['cfg']['MaxExactCountViews'] = 100;
         $_SESSION['PMA_Theme'] = new PMA_Theme();
         $GLOBALS['pmaThemeImage'] = 'themes/dot.gif';
         $GLOBALS['is_ajax_request'] = false;
         $GLOBALS['cfgRelation'] = PMA_getRelationsParam();
+        $GLOBALS['pma'] = new DataBasePMAMock();
+        $GLOBALS['pma']->databases = new DataBaseMock();
+        
         PMA_Table::$cache["PMA"]["PMA_BookMark"] = array(
             'ENGINE' => true,
             'Create_time' => true,
@@ -151,6 +157,9 @@ class PMA_Table_Test extends PHPUnit_Framework_TestCase
                     'column1',
                     'column3',
                     'column5',
+                    'ACCESSIBLE',
+                    'ADD',
+                    'ALL'
                 )
             ),
             array(
@@ -163,6 +172,9 @@ class PMA_Table_Test extends PHPUnit_Framework_TestCase
                     'column1',
                     'column3',
                     'column5',
+                    'ACCESSIBLE',
+                    'ADD',
+                    'ALL'
                 )
             ),
         );
@@ -191,6 +203,9 @@ class PMA_Table_Test extends PHPUnit_Framework_TestCase
                   
         $dbi->expects($this->any())->method('numRows')
             ->will($this->returnValue(20));  
+                  
+        $dbi->expects($this->any())->method('tryQuery')
+            ->will($this->returnValue(10));  
 
         $triggers = array(
             array("name" => "name1", "create"=>"crate1"),
@@ -611,8 +626,6 @@ class PMA_Table_Test extends PHPUnit_Framework_TestCase
 
         $table_new = 'PMA_BookMark_new';
         $db_new = 'PMA_new';
-        $GLOBALS['pma'] = new DataBasePMAMock();
-        $GLOBALS['pma']->databases = new DataBaseMock();
         $result = $table->rename($table_new, $db_new);
         $this->assertEquals(
             true,
@@ -648,8 +661,7 @@ class PMA_Table_Test extends PHPUnit_Framework_TestCase
             $return
         );     
     }
-
-
+    
     /**
      * Test for getIndexedColumns
      *
@@ -665,7 +677,10 @@ class PMA_Table_Test extends PHPUnit_Framework_TestCase
         $expect = array(
             '`PMA`.`PMA_BookMark`.`column1`',
             '`PMA`.`PMA_BookMark`.`column3`',
-            '`PMA`.`PMA_BookMark`.`column5`'
+            '`PMA`.`PMA_BookMark`.`column5`',
+            '`PMA`.`PMA_BookMark`.`ACCESSIBLE`',
+            '`PMA`.`PMA_BookMark`.`ADD`',
+            '`PMA`.`PMA_BookMark`.`ALL`',
         );
         $this->assertEquals(
             $expect,
@@ -689,12 +704,107 @@ class PMA_Table_Test extends PHPUnit_Framework_TestCase
         $expect = array(
             '`PMA`.`PMA_BookMark`.`column1`',
             '`PMA`.`PMA_BookMark`.`column3`',
-            '`PMA`.`PMA_BookMark`.`column5`'
+            '`PMA`.`PMA_BookMark`.`column5`',
+            '`PMA`.`PMA_BookMark`.`ACCESSIBLE`',
+            '`PMA`.`PMA_BookMark`.`ADD`',
+            '`PMA`.`PMA_BookMark`.`ALL`',
+        );
+        $this->assertEquals(
+            $expect,
+            $return
+        );
+        
+        $return = $table->getReservedColumnNames();
+        $expect = array(
+            'ACCESSIBLE',
+            'ADD',
+            'ALL',
         );
         $this->assertEquals(
             $expect,
             $return
         );     
+    }
+
+    /**
+     * Test for countRecords
+     *
+     * @return void
+     */
+    public function testCountRecords()
+    {
+        $table = 'PMA_BookMark';
+        $db = 'PMA';    
+        PMA_Table::$cache[$db][$table] = array('Comment' => "Comment222");
+
+        $return = PMA_Table::countRecords($db, $table, false, true);
+        $expect = 20;
+        $this->assertEquals(
+            $expect,
+            $return
+        ); 
+    }
+
+    /**
+     * Test for moveCopy
+     *
+     * @return void
+     */
+    public function testMoveCopy()
+    {
+        $source_table = 'PMA_BookMark';
+        $source_db = 'PMA';   
+        $target_table = 'PMA_BookMark_new';
+        $target_db = 'PMA_new';
+        $what = "dataonly";
+        $move = true;
+        $mode = "one_table";
+       
+        $_REQUEST['drop_if_exists'] = true;
+
+        $return = PMA_Table::moveCopy(
+            $source_db, $source_table, $target_db,
+            $target_table, $what, $move, $mode
+        );
+       
+        //successully
+        $expect = true;
+        $this->assertEquals(
+            $expect,
+            $return
+        ); 
+        $sql_query = "INSERT INTO `PMA_new`.`PMA_BookMark_new` SELECT * FROM `PMA`.`PMA_BookMark`";
+        $this->assertContains(
+            $sql_query,
+            $GLOBALS['sql_query']
+        ); 
+        $sql_query = "DROP VIEW `PMA`.`PMA_BookMark`";
+        $this->assertContains(
+            $sql_query,
+            $GLOBALS['sql_query']
+        );
+       
+        $return = PMA_Table::moveCopy(
+            $source_db, $source_table, $target_db,
+            $target_table, $what, false, $mode
+        );
+        
+        //successully
+        $expect = true;
+        $this->assertEquals(
+            $expect,
+            $return
+        );
+        $sql_query = "INSERT INTO `PMA_new`.`PMA_BookMark_new` SELECT * FROM `PMA`.`PMA_BookMark`;";
+        $this->assertContains(
+            $sql_query,
+            $GLOBALS['sql_query']
+        );   
+        $sql_query = "DROP VIEW `PMA`.`PMA_BookMark`";
+        $this->assertNotContains(
+            $sql_query,
+            $GLOBALS['sql_query']
+        );
     }
 }
 

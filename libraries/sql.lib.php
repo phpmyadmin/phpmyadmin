@@ -10,12 +10,12 @@ if (!defined('PHPMYADMIN')) {
 }
 
 /**
- * Get the database name inside a USE query
+ * Get the database name inside a query
  *
  * @param string $sql       SQL query
  * @param array  $databases array with all databases
  *
- * @return strin $db new database name
+ * @return string $db new database name
  */
 function PMA_getNewDatabase($sql, $databases)
 {
@@ -23,7 +23,7 @@ function PMA_getNewDatabase($sql, $databases)
     // loop through all the databases
     foreach ($databases as $database) {
         if (strpos($sql, $database['SCHEMA_NAME']) !== false) {
-            $db = $database;
+            $db = $database['SCHEMA_NAME'];
             break;
         }
     }
@@ -1726,7 +1726,7 @@ function PMA_sendQueryResponseForNoResultsReturned($analyzed_sql_results, $db,
         isset($message_to_show) ? $message_to_show : null, $analyzed_sql_results,
         $num_rows
     );
-    if ($GLOBALS['is_ajax_request'] == true) {
+    if ($GLOBALS['is_ajax_request'] == true && !isset($GLOBALS['show_as_php'])) {
         PMA_sendAjaxResponseForNoResultsReturned(
             $message, $analyzed_sql_results['analyzed_sql'],
             $displayResultsObject,
@@ -2086,7 +2086,7 @@ function PMA_sendQueryResponseForResultsReturned($result, $justBrowsing,
     if (!isset($_REQUEST['printview']) || $_REQUEST['printview'] != '1') {
         $scripts->addFile('makegrid.js');
         $scripts->addFile('sql.js');
-        unset($message);         
+        unset($GLOBALS['message']);         
         //we don't need to buffer the output in getMessage here.
         //set a global variable and check against it in the function
         $GLOBALS['buffer_message'] = false;
@@ -2253,7 +2253,7 @@ function PMA_executeQueryAndSendQueryResponse($analyzed_sql_results,
     $query_type, $sql_query, $selected, $complete_query
 ) {
     // Include PMA_Index class for use in PMA_DisplayResults class
-    include './libraries/Index.class.php';
+    include_once './libraries/Index.class.php';
 
     include 'libraries/DisplayResults.class.php';
 

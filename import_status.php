@@ -63,24 +63,11 @@ if (defined('SESSIONUPLOAD')) {
     }
 }
 
-/**
- * Sets globals from $_GET
- */
-$get_params = array(
-    'message',
-    'id'
-);
-foreach ($get_params as $one_get_param) {
-    if (isset($_GET[$one_get_param])) {
-        $GLOBALS[$one_get_param] = $_GET[$one_get_param];
-    }
-}
-
 // AJAX requests can't be cached!
 PMA_noCacheHeader();
 
-// $GLOBALS["message"] is used for asking for an import message
-if (isset($GLOBALS["message"]) && $GLOBALS["message"]) {
+// $_GET["message"] is used for asking for an import message
+if (isset($_GET["message"]) && $_GET["message"]) {
 
     header('Content-type: text/html');
 
@@ -100,6 +87,6 @@ if (isset($GLOBALS["message"]) && $GLOBALS["message"]) {
     echo '</fieldset>'."\n";
 
 } else {
-    PMA_importAjaxStatus($GLOBALS["id"]);
+    PMA_importAjaxStatus($_GET["id"]);
 }
 ?>

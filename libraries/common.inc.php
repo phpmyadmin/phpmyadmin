@@ -32,12 +32,24 @@
  */
 
 /**
+ * block attempts to directly run this script 
+ */
+if (getcwd() == dirname(__FILE__)) {
+    die('Attack stopped');
+}
+
+/**
  * Minimum PHP version; can't call PMA_fatalError() which uses a
  * PHP 5 function, so cannot easily localize this message.
  */
 if (version_compare(PHP_VERSION, '5.3.0', 'lt')) {
     die('PHP 5.3+ is required');
 }
+
+/**
+ * for verification in all procedural scripts under libraries
+ */
+define('PHPMYADMIN', true);
 
 /**
  * the error handler
@@ -60,11 +72,6 @@ if (version_compare(phpversion(), '5.4', 'lt')) {
      */
     @ini_set('magic_quotes_runtime', false);
 }
-
-/**
- * for verification in all procedural scripts under libraries
- */
-define('PHPMYADMIN', true);
 
 /**
  * core functions
@@ -735,7 +742,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
     /**
      * String handling
      */
-    include_once './libraries/string.lib.php';
+    include_once './libraries/string.inc.php';
 
     /**
      * Lookup server by name
