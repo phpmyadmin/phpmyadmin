@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-07-29 15:39+0200\n"
-"PO-Revision-Date: 2013-07-12 21:25+0200\n"
+"PO-Revision-Date: 2013-07-29 21:57+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone+weblate@gmail.com>\n"
-"Language-Team: Spanish <http://l10n.cihar.com/projects/phpmyadmin/master/es/"
-">\n"
+"Language-Team: Spanish "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/es/>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 1.6-dev\n"
+"X-Generator: Weblate 1.6\n"
 
 #: browse_foreigners.php:51 browse_foreigners.php:75 js/messages.php:339
 #: libraries/DisplayResults.class.php:813
@@ -1958,10 +1958,9 @@ msgid "Hide Panel"
 msgstr "Esconder panel"
 
 #: js/messages.php:369
-#, fuzzy
 #| msgid "Show logo in navigation panel"
 msgid "Show hidden navigation tree items"
-msgstr "Mostrar el logo en el panel de navegación"
+msgstr "Mostrar los elementos escondidos del árbol de navegación"
 
 #: js/messages.php:372
 msgid "The requested page was not found in the history, it may have expired."
@@ -2687,16 +2686,16 @@ msgstr ""
 "%sdocumentation%s."
 
 #: libraries/DisplayResults.class.php:4921
-#, fuzzy, php-format
+#, php-format
 #| msgid "Showing rows"
 msgid "Showing rows %1s - %2s"
-msgstr "Mostrando registros"
+msgstr "Mostrando filas %1s - %2s"
 
 #: libraries/DisplayResults.class.php:4933
-#, fuzzy, php-format
+#, php-format
 #| msgid "total"
 msgid "%d total"
-msgstr "total"
+msgstr "total de %d"
 
 #: libraries/DisplayResults.class.php:4945 libraries/sql.lib.php:1640
 #, php-format
@@ -6150,7 +6149,6 @@ msgid "User preferences storage table"
 msgstr "Tabla de almacenamiento de preferencias de usuario"
 
 #: libraries/config/messages.inc.php:455
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no user preferences storage in database, suggested: "
 #| "[kbd]pma__userconfig[/kbd]"
@@ -6158,17 +6156,15 @@ msgid ""
 "Leave blank to disable configurable menus feature, suggested: "
 "[kbd]pma__users[/kbd]"
 msgstr ""
-"Deje en blanco para evitar el almacenamiento de preferencias en la base de "
-"datos, valor sugerido: [kbd]pma__userconfig[/kbd]"
+"Deje en blanco para desactivar la funcionalidad de menús configurables, "
+"valor sugerido: [kbd]pma__users[/kbd]"
 
 #: libraries/config/messages.inc.php:456
-#, fuzzy
 #| msgid "Use Tables"
 msgid "Users table"
-msgstr "Usar tablas"
+msgstr "Tabla de usuarios"
 
 #: libraries/config/messages.inc.php:457
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no user preferences storage in database, suggested: "
 #| "[kbd]pma__userconfig[/kbd]"
@@ -6176,17 +6172,15 @@ msgid ""
 "Leave blank to disable configurable menus feature, suggested: "
 "[kbd]pma__usergroups[/kbd]"
 msgstr ""
-"Deje en blanco para evitar el almacenamiento de preferencias en la base de "
-"datos, valor sugerido: [kbd]pma__userconfig[/kbd]"
+"Deje en blanco para desactivar la funcionalidad de menús configurables, "
+"valor sugerido: [kbd]pma__usergroups[/kbd]"
 
 #: libraries/config/messages.inc.php:458
-#, fuzzy
 #| msgid "Use Host Table"
 msgid "User groups table"
-msgstr "Usar la tabla Anfitrión (Host)"
+msgstr "Usar la tabla de groupos («groups»)"
 
 #: libraries/config/messages.inc.php:459
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no user preferences storage in database, suggested: "
 #| "[kbd]pma__userconfig[/kbd]"
@@ -6194,12 +6188,12 @@ msgid ""
 "Leave blank to disable the feature to hide and show navigation items, "
 "suggested: [kbd]pma__navigationhiding[/kbd]"
 msgstr ""
-"Deje en blanco para evitar el almacenamiento de preferencias en la base de "
-"datos, valor sugerido: [kbd]pma__userconfig[/kbd]"
+"Deje en blanco para desactivar la funcionalidad para mostrar y ocultar los "
+"elementos de navegación, valor sugerido: [kbd]pma__navigationhiding[/kbd]"
 
 #: libraries/config/messages.inc.php:460
 msgid "Hidden navigation items table"
-msgstr ""
+msgstr "Tabla de elementos de navegación ocultos"
 
 #: libraries/config/messages.inc.php:462
 msgid "User for config auth"
@@ -7784,10 +7778,9 @@ msgid "An error has occured while loading the navigation tree"
 msgstr "Ocurrió un error al cargar el árbol de navegación"
 
 #: libraries/navigation/Navigation.class.php:172
-#, fuzzy
 #| msgid "Events"
 msgid "Events:"
-msgstr "Eventos"
+msgstr "Eventos:"
 
 #: libraries/navigation/Navigation.class.php:173
 #, fuzzy
