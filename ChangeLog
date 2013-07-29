@@ -17,6 +17,8 @@ phpMyAdmin - ChangeLog
 - bug #4009 Statistic Monitor shows only last 3 digits in graph
 - bug #3998 Non-permanent SQL history not working
 - bug #3578 Transformations for text/plain on a BLOB column
+- [security] Improved protection against cross framing, see PMASA-2013-10
++ Reinstated configuration directive: AllowThirdPartyFraming
 
 4.0.4.2 (2013-07-28)
 - [security] Fix stored XSS in Server status monitor, see PMASA-2013-9
