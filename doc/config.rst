@@ -119,6 +119,15 @@ Basic settings
 
     Show warning about incomplete translations on certain threshold.
 
+.. config:option:: $cfg['AllowThirdPartyFraming']
+
+    :type: boolean
+    :default: false
+    
+    Setting this to ``true`` allows phpMyAdmin to be included inside a frame,
+    and is a potential security hole allowing cross-frame scripting attacks or
+    clickjacking.
+
 Server connection settings
 --------------------------
 
