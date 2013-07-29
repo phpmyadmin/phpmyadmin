@@ -616,7 +616,7 @@ if ($go_sql) {
     $response = PMA_Response::getInstance();
     $response->isSuccess(true);
     $response->addJSON('message', PMA_Message::success($msg));
-    $response->addJSON('sql_query', PMA_Util::getMessage('', $sql_query));
+    $response->addJSON('sql_query', PMA_Util::getMessage($msg, $sql_query, 'success'));
 } else if ($result == false) {
     $response = PMA_Response::getInstance();
     $response->isSuccess(false);
