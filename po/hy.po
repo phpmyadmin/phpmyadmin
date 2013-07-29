@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-07-29 15:04+0200\n"
+"POT-Creation-Date: 2013-07-29 15:39+0200\n"
 "PO-Revision-Date: 2013-03-30 12:19+0200\n"
 "Last-Translator: Hamlet Muradyan <contact@hamletmuradyan.com>\n"
 "Language-Team: Armenian <http://l10n.cihar.com/projects/phpmyadmin/master/hy/"
@@ -9688,7 +9688,7 @@ msgid "Users of '%s' user group"
 msgstr ""
 
 #: libraries/server_privileges.lib.php:3198
-msgid "No users were found belonging to this user group"
+msgid "No users were found belonging to this user group."
 msgstr ""
 
 #: libraries/server_privileges.lib.php:3229
@@ -9697,6 +9697,7 @@ msgid "User groups"
 msgstr ""
 
 #: libraries/server_privileges.lib.php:3236
+#: libraries/server_privileges.lib.php:3402
 msgid "Server level tabs"
 msgstr ""
 
@@ -9735,11 +9736,7 @@ msgid "User group privileges"
 msgstr ""
 
 #: libraries/server_privileges.lib.php:3370
-msgid "Group name: "
-msgstr ""
-
-#: libraries/server_privileges.lib.php:3402
-msgid "Sever level tabs"
+msgid "Group name:"
 msgstr ""
 
 #: libraries/server_privileges.lib.php:3521

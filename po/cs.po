@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-07-29 15:04+0200\n"
+"POT-Creation-Date: 2013-07-29 15:39+0200\n"
 "PO-Revision-Date: 2013-07-29 15:37+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Czech <http://l10n.cihar.com/projects/phpmyadmin/master/cs/>\n"
@@ -1924,7 +1924,6 @@ msgid "Hide Panel"
 msgstr "Skrýt panel"
 
 #: js/messages.php:369
-#| msgid "Show logo in navigation panel"
 msgid "Show hidden navigation tree items"
 msgstr "Zobrazit skryté položky navigačního panelu"
 
@@ -2650,13 +2649,11 @@ msgstr ""
 
 #: libraries/DisplayResults.class.php:4921
 #, php-format
-#| msgid "Showing rows"
 msgid "Showing rows %1s - %2s"
 msgstr "Zobrazeny záznamy %1s - %2s"
 
 #: libraries/DisplayResults.class.php:4933
 #, php-format
-#| msgid "total"
 msgid "%d total"
 msgstr "%d celkem"
 
@@ -6016,9 +6013,6 @@ msgid "User preferences storage table"
 msgstr "Tabulka pro uživatelská nastavení"
 
 #: libraries/config/messages.inc.php:455
-#| msgid ""
-#| "Leave blank for no user preferences storage in database, suggested: "
-#| "[kbd]pma__userconfig[/kbd]"
 msgid ""
 "Leave blank to disable configurable menus feature, suggested: "
 "[kbd]pma__users[/kbd]"
@@ -6027,14 +6021,10 @@ msgstr ""
 "[kbd]pma__users[/kbd]"
 
 #: libraries/config/messages.inc.php:456
-#| msgid "Use Tables"
 msgid "Users table"
 msgstr "Tabulka uživatelů"
 
 #: libraries/config/messages.inc.php:457
-#| msgid ""
-#| "Leave blank for no user preferences storage in database, suggested: "
-#| "[kbd]pma__userconfig[/kbd]"
 msgid ""
 "Leave blank to disable configurable menus feature, suggested: "
 "[kbd]pma__usergroups[/kbd]"
@@ -6043,14 +6033,10 @@ msgstr ""
 "[kbd]pma__usergroups[/kbd]"
 
 #: libraries/config/messages.inc.php:458
-#| msgid "Use Host Table"
 msgid "User groups table"
 msgstr "Tabulka skupin uživatelů"
 
 #: libraries/config/messages.inc.php:459
-#| msgid ""
-#| "Leave blank for no user preferences storage in database, suggested: "
-#| "[kbd]pma__userconfig[/kbd]"
 msgid ""
 "Leave blank to disable the feature to hide and show navigation items, "
 "suggested: [kbd]pma__navigationhiding[/kbd]"
@@ -7607,27 +7593,22 @@ msgid "An error has occured while loading the navigation tree"
 msgstr "Došlo k chybě při nahrávání navigačního stromu"
 
 #: libraries/navigation/Navigation.class.php:172
-#| msgid "Events"
 msgid "Events:"
 msgstr "Události:"
 
 #: libraries/navigation/Navigation.class.php:173
-#| msgid "Functions"
 msgid "Functions:"
 msgstr "Funkce:"
 
 #: libraries/navigation/Navigation.class.php:174
-#| msgid "Procedures"
 msgid "Procedures:"
 msgstr "Procedury:"
 
 #: libraries/navigation/Navigation.class.php:175
-#| msgid "Tables"
 msgid "Tables:"
 msgstr "Tabulky:"
 
 #: libraries/navigation/Navigation.class.php:176
-#| msgid "Views"
 msgid "Views:"
 msgstr "Pohledy:"
 
@@ -8716,12 +8697,10 @@ msgid "User preferences"
 msgstr "Uživatelská nastavení"
 
 #: libraries/relation.lib.php:264
-#| msgid "Configuration: %s"
 msgid "Configurable menus"
 msgstr "Nastavitelná nabídka"
 
 #: libraries/relation.lib.php:275
-#| msgid "Reload navigation frame"
 msgid "Hide/show navigation items"
 msgstr "Zobrazit nebo skrýt položky z navigace"
 
@@ -10112,7 +10091,6 @@ msgid "Add privileges on the following table:"
 msgstr "Přidat oprávnění pro tabulku:"
 
 #: libraries/server_privileges.lib.php:2599
-#| msgid "Edit server"
 msgid "Edit user group"
 msgstr "Upravit skupinu"
 
@@ -10180,40 +10158,37 @@ msgid "Users of '%s' user group"
 msgstr "Uživatelé ze skupiny '%s'"
 
 #: libraries/server_privileges.lib.php:3198
-msgid "No users were found belonging to this user group"
+#, fuzzy
+#| msgid "No users were found belonging to this user group"
+msgid "No users were found belonging to this user group."
 msgstr "V této skupině nebyli nalezeni žádní uživatelé."
 
 #: libraries/server_privileges.lib.php:3229
 #: libraries/server_privileges.lib.php:3878
-#| msgid "Users"
 msgid "User groups"
 msgstr "Skupiny"
 
 #: libraries/server_privileges.lib.php:3236
-#| msgid "Server version"
+#: libraries/server_privileges.lib.php:3402
 msgid "Server level tabs"
 msgstr "Záložky pro práci se serverem"
 
 #: libraries/server_privileges.lib.php:3237
 #: libraries/server_privileges.lib.php:3405
-#| msgid "Database server"
 msgid "Database level tabs"
 msgstr "Záložky pro práci s databází"
 
 #: libraries/server_privileges.lib.php:3238
 #: libraries/server_privileges.lib.php:3408
-#| msgid "Table comments"
 msgid "Table level tabs"
 msgstr "Záložky pro práci s tabulkou"
 
 #: libraries/server_privileges.lib.php:3260
-#| msgid "Views"
 msgid "View users"
 msgstr "Zobrazit uživatele"
 
 #: libraries/server_privileges.lib.php:3288
 #: libraries/server_privileges.lib.php:3344
-#| msgid "Add user"
 msgid "Add user group"
 msgstr "Přidat skupinu"
 
@@ -10223,18 +10198,14 @@ msgid "Edit user group: '%s'"
 msgstr "Upravit skupinu: '%s'"
 
 #: libraries/server_privileges.lib.php:3363
-#| msgid "No privileges."
 msgid "User group privileges"
 msgstr "Oprávnění skupiny"
 
 #: libraries/server_privileges.lib.php:3370
-#| msgid "Column names: "
-msgid "Group name: "
+#, fuzzy
+#| msgid "Group name: "
+msgid "Group name:"
 msgstr "Název skupiny: "
-
-#: libraries/server_privileges.lib.php:3402
-msgid "Sever level tabs"
-msgstr ""
 
 #: libraries/server_privileges.lib.php:3521
 msgid "The selected user was not found in the privilege table."

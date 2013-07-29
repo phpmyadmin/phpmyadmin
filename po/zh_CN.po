@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-07-29 15:04+0200\n"
+"POT-Creation-Date: 2013-07-29 15:39+0200\n"
 "PO-Revision-Date: 2013-05-14 06:43+0200\n"
 "Last-Translator: Randall Fan <fanrandall@gmail.com>\n"
 "Language-Team: Simplified Chinese <http://l10n.cihar.com/projects/phpmyadmin/"
@@ -10001,7 +10001,7 @@ msgid "Users of '%s' user group"
 msgstr ""
 
 #: libraries/server_privileges.lib.php:3198
-msgid "No users were found belonging to this user group"
+msgid "No users were found belonging to this user group."
 msgstr ""
 
 #: libraries/server_privileges.lib.php:3229
@@ -10012,6 +10012,7 @@ msgid "User groups"
 msgstr "用户"
 
 #: libraries/server_privileges.lib.php:3236
+#: libraries/server_privileges.lib.php:3402
 #, fuzzy
 #| msgid "Server version"
 msgid "Server level tabs"
@@ -10058,12 +10059,8 @@ msgstr "无权限。"
 #: libraries/server_privileges.lib.php:3370
 #, fuzzy
 #| msgid "Column names: "
-msgid "Group name: "
+msgid "Group name:"
 msgstr "字段名: "
-
-#: libraries/server_privileges.lib.php:3402
-msgid "Sever level tabs"
-msgstr ""
 
 #: libraries/server_privileges.lib.php:3521
 msgid "The selected user was not found in the privilege table."
