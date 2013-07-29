@@ -136,14 +136,14 @@ function send_error_report($report) {
                 'content' => $data_string,
             )
         );
-        if (strlen($cfg['ProxyUrl'])) {
+        if (strlen($GLOBALS['cfg']['ProxyUrl'])) {
             $context['http'] = array(
-                'proxy' => $cfg['ProxyUrl'],
+                'proxy' => $GLOBALS['cfg']['ProxyUrl'],
                 'request_fulluri' => true
             );
-            if (strlen($cfg['ProxyUser'])) {
+            if (strlen($GLOBALS['cfg']['ProxyUser'])) {
                 $auth = base64_encode(
-                    $cfg['ProxyUser'] . ':' . $cfg['ProxyPass']
+                    $GLOBALS['cfg']['ProxyUser'] . ':' . $GLOBALS['cfg']['ProxyPass']
                 );
                 $context['http']['header'] = 'Proxy-Authorization: Basic ' . $auth;
             }
@@ -155,13 +155,13 @@ function send_error_report($report) {
         );
     } else if (function_exists('curl_init')) {
         $curl_handle = curl_init($submission_url);
-        if (strlen($cfg['ProxyUrl'])) {
-            curl_setopt($curl_handle, CURLOPT_PROXY, $cfg['ProxyUrl']);
-            if (strlen($cfg['ProxyUser'])) {
+        if (strlen($GLOBALS['cfg']['ProxyUrl'])) {
+            curl_setopt($curl_handle, CURLOPT_PROXY, $GLOBALS['cfg']['ProxyUrl']);
+            if (strlen($GLOBALS['cfg']['ProxyUser'])) {
                 curl_setopt(
                     $curl_handle,
                     CURLOPT_PROXYUSERPWD,
-                    $cfg['ProxyUser'] . ':' . $cfg['ProxyPass']
+                    $GLOBALS['cfg']['ProxyUser'] . ':' . $GLOBALS['cfg']['ProxyPass']
                 );
             }
         }
