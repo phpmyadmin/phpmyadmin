@@ -4,17 +4,17 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-07-29 15:39+0200\n"
-"PO-Revision-Date: 2013-07-10 01:12+0200\n"
+"PO-Revision-Date: 2013-07-29 18:25+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
-"Language-Team: Slovenian <http://l10n.cihar.com/projects/phpmyadmin/master/"
-"sl/>\n"
+"Language-Team: Slovenian "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/sl/>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
 "%100==4 ? 2 : 3;\n"
-"X-Generator: Weblate 1.6-dev\n"
+"X-Generator: Weblate 1.6\n"
 
 #: browse_foreigners.php:51 browse_foreigners.php:75 js/messages.php:339
 #: libraries/DisplayResults.class.php:813
@@ -2663,16 +2663,16 @@ msgid ""
 msgstr "Pogled ima vsaj toliko vrstic. Prosimo, oglejte si %sdokumentacijo%s."
 
 #: libraries/DisplayResults.class.php:4921
-#, fuzzy, php-format
+#, php-format
 #| msgid "Showing rows"
 msgid "Showing rows %1s - %2s"
-msgstr "Prikazujem vrstice"
+msgstr "Prikazujem vrstice %1s–%2s"
 
 #: libraries/DisplayResults.class.php:4933
-#, fuzzy, php-format
+#, php-format
 #| msgid "total"
 msgid "%d total"
-msgstr "skupaj"
+msgstr "skupaj %d"
 
 #: libraries/DisplayResults.class.php:4945 libraries/sql.lib.php:1640
 #, php-format
@@ -6105,7 +6105,6 @@ msgid "User groups table"
 msgstr "Uporabi tabelo gostiteljev"
 
 #: libraries/config/messages.inc.php:459
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no user preferences storage in database, suggested: "
 #| "[kbd]pma__userconfig[/kbd]"
@@ -6113,8 +6112,8 @@ msgid ""
 "Leave blank to disable the feature to hide and show navigation items, "
 "suggested: [kbd]pma__navigationhiding[/kbd]"
 msgstr ""
-"Pustite prazno, če ne želite hranjenja uporabnikovih nastavitev v zbirki "
-"podatkov; predlagano: [kbd]pma__userconfig[/kbd]"
+"Pustite prazno, če ne želite zmožnosti skrivanja in prikazovanja "
+"navigacijskih predmetov; predlagano: [kbd]pma__navigationhiding[/kbd]"
 
 #: libraries/config/messages.inc.php:460
 msgid "Hidden navigation items table"
@@ -7680,10 +7679,9 @@ msgid "Events:"
 msgstr "Dogodki"
 
 #: libraries/navigation/Navigation.class.php:173
-#, fuzzy
 #| msgid "Functions"
 msgid "Functions:"
-msgstr "Funkcije"
+msgstr "Funkcije:"
 
 #: libraries/navigation/Navigation.class.php:174
 #, fuzzy
@@ -7692,10 +7690,9 @@ msgid "Procedures:"
 msgstr "Procedure"
 
 #: libraries/navigation/Navigation.class.php:175
-#, fuzzy
 #| msgid "Tables"
 msgid "Tables:"
-msgstr "Tabele"
+msgstr "Tabele:"
 
 #: libraries/navigation/Navigation.class.php:176
 #, fuzzy
@@ -8792,16 +8789,14 @@ msgid "User preferences"
 msgstr "Uporabniške nastavitve"
 
 #: libraries/relation.lib.php:264
-#, fuzzy
 #| msgid "Configuration: %s"
 msgid "Configurable menus"
-msgstr "Konfiguracija: %s"
+msgstr "Nastavljivi meniji"
 
 #: libraries/relation.lib.php:275
-#, fuzzy
 #| msgid "Reload navigation frame"
 msgid "Hide/show navigation items"
-msgstr "Osveži navigacijski okvir"
+msgstr "Skrij/prikaži navigacijske predmete"
 
 #: libraries/relation.lib.php:281
 msgid "Quick steps to setup advanced features:"
@@ -9965,7 +9960,7 @@ msgstr "Brez"
 #: libraries/server_privileges.lib.php:2531
 #: libraries/server_privileges.lib.php:3235
 msgid "User group"
-msgstr ""
+msgstr "Uporabniška skupina"
 
 #: libraries/server_privileges.lib.php:618
 msgid "Resource limits"
@@ -10269,14 +10264,13 @@ msgstr ""
 
 #: libraries/server_privileges.lib.php:3198
 msgid "No users were found belonging to this user group."
-msgstr ""
+msgstr "Našel nisem nobenega uporabnika, ki pripada tej uporabniški skupini."
 
 #: libraries/server_privileges.lib.php:3229
 #: libraries/server_privileges.lib.php:3878
-#, fuzzy
 #| msgid "Users"
 msgid "User groups"
-msgstr "Uporabniki"
+msgstr "Uporabniške skupine"
 
 #: libraries/server_privileges.lib.php:3236
 #: libraries/server_privileges.lib.php:3402
@@ -10294,10 +10288,9 @@ msgstr "Strežnik zbirke podatkov"
 
 #: libraries/server_privileges.lib.php:3238
 #: libraries/server_privileges.lib.php:3408
-#, fuzzy
 #| msgid "Table comments"
 msgid "Table level tabs"
-msgstr "Pripomba tabele"
+msgstr "Zavihki stopenj tabele"
 
 #: libraries/server_privileges.lib.php:3260
 #, fuzzy
@@ -10315,19 +10308,17 @@ msgstr "Dodaj uporabnika"
 #: libraries/server_privileges.lib.php:3347
 #, php-format
 msgid "Edit user group: '%s'"
-msgstr ""
+msgstr "Uredi uporabniško skupino: '%s'"
 
 #: libraries/server_privileges.lib.php:3363
-#, fuzzy
 #| msgid "No privileges."
 msgid "User group privileges"
-msgstr "Brez privilegijev."
+msgstr "Privilegiji uporabniške skupine"
 
 #: libraries/server_privileges.lib.php:3370
-#, fuzzy
 #| msgid "Column names: "
 msgid "Group name:"
-msgstr "Imena stolpcev: "
+msgstr "Ime skupine:"
 
 #: libraries/server_privileges.lib.php:3521
 msgid "The selected user was not found in the privilege table."
