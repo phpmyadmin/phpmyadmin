@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-07-29 15:07+0200\n"
-"PO-Revision-Date: 2013-06-24 17:21+0200\n"
+"PO-Revision-Date: 2013-07-29 15:50+0200\n"
 "Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
 "Language-Team: Estonian <http://l10n.cihar.com/projects/phpmyadmin/4-0/et/>\n"
 "Language: et\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 1.6-dev\n"
+"X-Generator: Weblate 1.6\n"
 
 #: browse_foreigners.php:51 browse_foreigners.php:75 js/messages.php:344
 #: libraries/DisplayResults.class.php:813
@@ -2602,16 +2602,16 @@ msgstr ""
 "Sellel vaatel on vähemalt nii palju ridu. Palun loe %sdokumentatsiooni%s."
 
 #: libraries/DisplayResults.class.php:4927
-#, fuzzy, php-format
+#, php-format
 #| msgid "Showing rows"
 msgid "Showing rows %1s - %2s"
-msgstr "Näitan ridu"
+msgstr "Kuvatakse read %1s - %2s"
 
 #: libraries/DisplayResults.class.php:4939
-#, fuzzy, php-format
+#, php-format
 #| msgid "total"
 msgid "%d total"
-msgstr "kokku"
+msgstr "kokku: %d"
 
 #: libraries/DisplayResults.class.php:4951 sql.php:945
 #, php-format
