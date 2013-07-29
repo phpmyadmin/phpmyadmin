@@ -2984,9 +2984,12 @@ function PMA_getRowNumber(classlist)
  */
 function PMA_set_status_label($element)
 {
-    var text = $element.css('display') == 'none'
-        ? '+ '
-        : '- ';
+    var text;
+    if ($element.css('display') == 'none') {
+        text = '+ ';
+    } else {
+        text = '- ';
+    }
     $element.closest('.slide-wrapper').prev().find('span').text(text);
 }
 
