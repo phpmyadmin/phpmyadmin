@@ -3195,7 +3195,7 @@ function PMA_getHtmlForListingUsersofAGroup($userGroup)
     if ($result) {
         if ($GLOBALS['dbi']->numRows($result) == 0) {
             $html_output .= '<p>'
-                . __('No users were found belonging to this user group')
+                . __('No users were found belonging to this user group.')
                 . '</p>';
         } else {
             $html_output .= '<table>'
@@ -3367,7 +3367,7 @@ function PMA_getHtmlToEditUserGroup($userGroup = null)
         . '</legend>';
 
     if ($userGroup == null) {
-        $html_output .= '<label for="userGroup">' . __('Group name: ') . '</label>';
+        $html_output .= '<label for="userGroup">' . __('Group name:') . '</label>';
         $html_output .= '<input type="text" name="userGroup" autocomplete="off" />';
         $html_output .= '<div class="clearfloat"></div>';
     }
@@ -3399,7 +3399,7 @@ function PMA_getHtmlToEditUserGroup($userGroup = null)
     }
 
     $html_output .= _getTabList(
-        __('Sever level tabs'), 'server', $allowedTabs['server']
+        __('Server level tabs'), 'server', $allowedTabs['server']
     );
     $html_output .= _getTabList(
         __('Database level tabs'), 'db', $allowedTabs['db']
