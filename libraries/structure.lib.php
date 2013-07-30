@@ -1464,7 +1464,7 @@ function PMA_getHtmlForEditView($url_params)
     $url .= implode(
         '&amp;',
         array_map(
-            function($key, $val) {
+            function ($key, $val) {
                 return 'view[' . urlencode($key) . ']=' . urlencode($val);
             },
             array_keys($view),

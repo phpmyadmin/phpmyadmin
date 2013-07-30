@@ -211,10 +211,10 @@ function PMA_getHtmlForOptionsList($options, $select)
 /**
  * Function to get html for the lebel column and spatial column
  *
- * @param  String  $column                 the column type. i.e either "labelColumn"
- *                                         or "spatialColumn"
- * @param  array   $columnCandidates       the list of select options
- * @param  array   $visualizationSettings  visualization settings
+ * @param  String  $column                the column type. i.e either "labelColumn"
+ *                                        or "spatialColumn"
+ * @param  array   $columnCandidates      the list of select options
+ * @param  array   $visualizationSettings visualization settings
  * @return String  $html
  */
 function PMA_getHtmlForColumn($column, $columnCandidates, $visualizationSettings)
