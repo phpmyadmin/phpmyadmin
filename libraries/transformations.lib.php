@@ -302,8 +302,10 @@ function PMA_setMIME($db, $table, $key, $mimetype, $transformation,
             WHERE `db_name`     = \'' . PMA_Util::sqlAddSlashes($db) . '\'
               AND `table_name`  = \'' . PMA_Util::sqlAddSlashes($table) . '\'
               AND `column_name` = \'' . PMA_Util::sqlAddSlashes($key) . '\'';
-    } elseif (strlen($mimetype) || strlen($transformation)
-     || strlen($transformation_options)) {
+    } elseif (strlen($mimetype)
+        || strlen($transformation)
+        || strlen($transformation_options)
+    ) {
 
         $upd_query = 'INSERT INTO ' . PMA_Util::backquote($cfgRelation['db']) . '.' . PMA_Util::backquote($cfgRelation['column_info'])
                    . ' (db_name, table_name, column_name, mimetype, transformation, transformation_options) '
