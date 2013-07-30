@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-07-29 13:37-0400\n"
-"PO-Revision-Date: 2013-07-29 15:37+0200\n"
+"PO-Revision-Date: 2013-07-30 07:59+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Czech <http://l10n.cihar.com/projects/phpmyadmin/master/cs/>\n"
 "Language: cs\n"
@@ -10157,7 +10157,6 @@ msgid "Users of '%s' user group"
 msgstr "Uživatelé ze skupiny '%s'"
 
 #: libraries/server_privileges.lib.php:3198
-#, fuzzy
 #| msgid "No users were found belonging to this user group"
 msgid "No users were found belonging to this user group."
 msgstr "V této skupině nebyli nalezeni žádní uživatelé."
@@ -10169,21 +10168,18 @@ msgstr "Skupiny"
 
 #: libraries/server_privileges.lib.php:3236
 #: libraries/server_privileges.lib.php:3402
-#, fuzzy
 #| msgid "Server level tabs"
 msgid "Server-level tabs"
 msgstr "Záložky pro práci se serverem"
 
 #: libraries/server_privileges.lib.php:3237
 #: libraries/server_privileges.lib.php:3405
-#, fuzzy
 #| msgid "Database level tabs"
 msgid "Database-level tabs"
 msgstr "Záložky pro práci s databází"
 
 #: libraries/server_privileges.lib.php:3238
 #: libraries/server_privileges.lib.php:3408
-#, fuzzy
 #| msgid "Table level tabs"
 msgid "Table-level tabs"
 msgstr "Záložky pro práci s tabulkou"
@@ -10207,10 +10203,9 @@ msgid "User group privileges"
 msgstr "Oprávnění skupiny"
 
 #: libraries/server_privileges.lib.php:3370
-#, fuzzy
 #| msgid "Group name: "
 msgid "Group name:"
-msgstr "Název skupiny: "
+msgstr "Název skupiny:"
 
 #: libraries/server_privileges.lib.php:3521
 msgid "The selected user was not found in the privilege table."
