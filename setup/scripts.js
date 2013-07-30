@@ -186,16 +186,16 @@ function ajaxValidate(parent, id, values)
 //
 
 $(function () {
-   $('.userprefs-allow').click(function (e) {
-       if (this != e.target) {
-           return;
-       }
-       var el = $(this).find('input');
-       if (el.prop('disabled')) {
-           return;
-       }
-       el.prop('checked', !el.prop('checked'));
-   });
+    $('.userprefs-allow').click(function (e) {
+        if (this != e.target) {
+            return;
+        }
+        var el = $(this).find('input');
+        if (el.prop('disabled')) {
+            return;
+        }
+        el.prop('checked', !el.prop('checked'));
+    });
 });
 
 //
