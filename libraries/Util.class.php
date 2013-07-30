@@ -4264,24 +4264,16 @@ class PMA_Util
             }
         }
 
-        if ($save) {
-            $_SESSION['cache']['version_check'] = array(
-                'response' => $response,
-                'timestamp' => time()
-            );
-        }
-
         $data = json_decode($response);
         if (is_object($data)
             && strlen($data->version)
             && strlen($data->date)
+            && $save
         ) {
-            if ($save) {
-                $_SESSION['cache']['version_check'] = array(
-                    'response' => $response,
-                    'timestamp' => time()
-                );
-            }
+            $_SESSION['cache']['version_check'] = array(
+                'response' => $response,
+                'timestamp' => time()
+            );
         }
 
         return $data;
