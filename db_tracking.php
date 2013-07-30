@@ -97,11 +97,7 @@ if ($GLOBALS['dbi']->numRows($all_tables_result) > 0) {
             __('Delete tracking data for this table')
         );
     }
-    if (in_array(
-        $GLOBALS['cfg']['ActionLinksMode'],
-        array('text', 'both')
-        )
-    ) {
+    if (PMA_Util::showText('ActionLinksMode')) {
         $drop_image_or_text .= __('Drop');
     }
 

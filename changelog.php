@@ -49,6 +49,7 @@ $tracker_url_bug = 'https://sourceforge.net/p/phpmyadmin/bugs/\\1/';
 $tracker_url_rfe = 'https://sourceforge.net/p/phpmyadmin/feature-requests/\\1/';
 $tracker_url_patch = 'https://sourceforge.net/p/phpmyadmin/patches/\\1/';
 $github_url = 'https://github.com/phpmyadmin/phpmyadmin/';
+$faq_url = 'http://docs.phpmyadmin.net/en/latest/faq.html';
 
 $replaces = array(
     '@(http://[./a-zA-Z0-9.-_-]*[/a-zA-Z0-9_])@'
@@ -80,7 +81,7 @@ $replaces = array(
 
     // FAQ entries
     '/FAQ ([0-9]+)\.([0-9a-z]+)/i'
-    => '<a href="http://docs.phpmyadmin.net/en/latest/faq.html#faq\\1-\\2">FAQ \\1.\\2</a>',
+    => '<a href="' . $faq_url . '#faq\\1-\\2">FAQ \\1.\\2</a>',
 
     // linking bugs
     '/bug\s*#?([0-9]{6,})/i'

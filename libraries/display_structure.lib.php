@@ -21,10 +21,7 @@ if (! defined('PHPMYADMIN')) {
 
 
 $HideStructureActions = '';
-if (in_array(
-    $GLOBALS['cfg']['ActionLinksMode'],
-    array('text', 'both')
-    )
+if (PMA_Util::showText('ActionLinksMode')
     && $GLOBALS['cfg']['HideStructureActions'] === true
 ) {
     $HideStructureActions .= ' HideStructureActions';
