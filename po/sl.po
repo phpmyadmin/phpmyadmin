@@ -3,18 +3,18 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-07-30 09:37-0400\n"
-"PO-Revision-Date: 2013-07-29 18:26+0200\n"
+"POT-Creation-Date: 2013-07-30 08:38-0400\n"
+"PO-Revision-Date: 2013-07-30 19:31+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
-"Language-Team: Slovenian <http://l10n.cihar.com/projects/phpmyadmin/master/"
-"sl/>\n"
+"Language-Team: Slovenian "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/sl/>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
 "%100==4 ? 2 : 3;\n"
-"X-Generator: Weblate 1.6\n"
+"X-Generator: Weblate 1.6-dev\n"
 
 #: browse_foreigners.php:51 browse_foreigners.php:75 js/messages.php:339
 #: libraries/DisplayResults.class.php:805
@@ -693,10 +693,9 @@ msgid "Back"
 msgstr "Nazaj"
 
 #: index.php:115 libraries/Footer.class.php:72
-#, fuzzy
 #| msgid "phpMyAdmin homepage"
 msgid "phpMyAdmin Demo Server"
-msgstr "Domača stran phpMyAdmin"
+msgstr "Preizkusni strežnik phpMyAdmin"
 
 #: index.php:119
 #, php-format
@@ -705,6 +704,9 @@ msgid ""
 "change root, debian-sys-maint and pma users. More information is available "
 "at %s."
 msgstr ""
+"Uporabljate preizkusni strežnik. Tukaj lahko počnete kar koli, vendar "
+"prosimo, da ne spremenite uporabnikov root, debian-sys-maint in pma. Več "
+"informacij lahko najdete na %s."
 
 #: index.php:129
 msgid "General Settings"
@@ -1952,10 +1954,9 @@ msgid "Hide Panel"
 msgstr "Skrij ploščo"
 
 #: js/messages.php:369
-#, fuzzy
 #| msgid "Show logo in navigation panel"
 msgid "Show hidden navigation tree items"
-msgstr "Prikaži logotip na navigacijski plošči"
+msgstr "Prikaži skrite predmete v navigacijskem drevesu"
 
 #: js/messages.php:372
 msgid "The requested page was not found in the history, it may have expired."
@@ -2813,13 +2814,12 @@ msgstr "Ne morem prebrati (premakniti) naložene datoteke."
 #: libraries/Footer.class.php:76
 #, php-format
 msgid "Currently running Git revision %1$s from the %2$s branch."
-msgstr ""
+msgstr "Trenutno poganjamo redakcijo Git %1$s z veje %2$s."
 
 #: libraries/Footer.class.php:83
-#, fuzzy
 #| msgid "Version information"
 msgid "Git information missing!"
-msgstr "Podatki o različici"
+msgstr "Manjkajo podatki o različici Git!"
 
 #: libraries/Footer.class.php:163 libraries/Footer.class.php:167
 #: libraries/Footer.class.php:170
@@ -4698,10 +4698,9 @@ msgstr "Onemogoči preverjanja tujih ključev"
 
 #: libraries/config/messages.inc.php:126
 #: libraries/plugins/export/ExportSql.class.php:154
-#, fuzzy
 #| msgid "Exporting rows from \"%s\" table"
 msgid "Export views as tables"
-msgstr "Izvažanje vrstic iz tabele \"%s\""
+msgstr "Izvozi poglede kot tabele"
 
 #: libraries/config/messages.inc.php:127 libraries/config/messages.inc.php:128
 #: libraries/config/messages.inc.php:130 libraries/config/messages.inc.php:136
@@ -6099,7 +6098,6 @@ msgid "User preferences storage table"
 msgstr "Tabela za hranjenje uporabnikovih nastavitev"
 
 #: libraries/config/messages.inc.php:456
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no user preferences storage in database, suggested: [kbd]"
 #| "pma__userconfig[/kbd]"
@@ -6107,17 +6105,15 @@ msgid ""
 "Leave blank to disable configurable menus feature, suggested: [kbd]pma__users"
 "[/kbd]"
 msgstr ""
-"Pustite prazno, če ne želite hranjenja uporabnikovih nastavitev v zbirki "
-"podatkov; predlagano: [kbd]pma__userconfig[/kbd]"
+"Pustite prazno, da onemogočite zmožnost nastavljivih menijev; predlagano: "
+"[kbd]pma__users[/kbd]"
 
 #: libraries/config/messages.inc.php:457
-#, fuzzy
 #| msgid "Use Tables"
 msgid "Users table"
-msgstr "Uporabi tabele"
+msgstr "Tabela uporabnikov"
 
 #: libraries/config/messages.inc.php:458
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no user preferences storage in database, suggested: [kbd]"
 #| "pma__userconfig[/kbd]"
@@ -6125,14 +6121,13 @@ msgid ""
 "Leave blank to disable configurable menus feature, suggested: [kbd]"
 "pma__usergroups[/kbd]"
 msgstr ""
-"Pustite prazno, če ne želite hranjenja uporabnikovih nastavitev v zbirki "
-"podatkov; predlagano: [kbd]pma__userconfig[/kbd]"
+"Pustite prazno, da onemogočite zmožnost nastavljivih menijev; predlagano: "
+"[kbd]pma__usergroups[/kbd]"
 
 #: libraries/config/messages.inc.php:459
-#, fuzzy
 #| msgid "Use Host Table"
 msgid "User groups table"
-msgstr "Uporabi tabelo gostiteljev"
+msgstr "Tabela uporabniških skupin"
 
 #: libraries/config/messages.inc.php:460
 msgid ""
@@ -6144,7 +6139,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:461
 msgid "Hidden navigation items table"
-msgstr ""
+msgstr "Skriti predmeti navigacijskega drevesa"
 
 #: libraries/config/messages.inc.php:463
 msgid "User for config auth"
@@ -7702,30 +7697,27 @@ msgid "An error has occured while loading the navigation tree"
 msgstr "Med nalaganjem navigacijskega drevesa je prišlo do napake"
 
 #: libraries/navigation/Navigation.class.php:172
-#, fuzzy
 #| msgid "Events"
 msgid "Events:"
-msgstr "Dogodki"
+msgstr "Dogodki:"
 
 #: libraries/navigation/Navigation.class.php:173
 msgid "Functions:"
 msgstr "Funkcije:"
 
 #: libraries/navigation/Navigation.class.php:174
-#, fuzzy
 #| msgid "Procedures"
 msgid "Procedures:"
-msgstr "Procedure"
+msgstr "Procedure:"
 
 #: libraries/navigation/Navigation.class.php:175
 msgid "Tables:"
 msgstr "Tabele:"
 
 #: libraries/navigation/Navigation.class.php:176
-#, fuzzy
 #| msgid "Views"
 msgid "Views:"
-msgstr "Pogledi"
+msgstr "Pogledi:"
 
 #: libraries/navigation/NavigationHeader.class.php:183
 msgid "Home"
@@ -10225,10 +10217,9 @@ msgid "Add privileges on the following table:"
 msgstr "Dodaj privilegije na naslednji tabeli:"
 
 #: libraries/server_privileges.lib.php:2599
-#, fuzzy
 #| msgid "Edit server"
 msgid "Edit user group"
-msgstr "Uredi strežnik"
+msgstr "Uredi uporabniško skupino"
 
 #: libraries/server_privileges.lib.php:2714
 msgid "Remove selected users"
@@ -10291,7 +10282,7 @@ msgstr ""
 #: libraries/server_privileges.lib.php:3187
 #, php-format
 msgid "Users of '%s' user group"
-msgstr ""
+msgstr "Uporabniki uporabniške skupine '%s'"
 
 #: libraries/server_privileges.lib.php:3198
 msgid "No users were found belonging to this user group."
@@ -10304,37 +10295,32 @@ msgstr "Uporabniške skupine"
 
 #: libraries/server_privileges.lib.php:3236
 #: libraries/server_privileges.lib.php:3402
-#, fuzzy
 #| msgid "Server version"
 msgid "Server-level tabs"
-msgstr "Različica strežnika"
+msgstr "Zavihki stopenj strežnika"
 
 #: libraries/server_privileges.lib.php:3237
 #: libraries/server_privileges.lib.php:3405
-#, fuzzy
 #| msgid "Database server"
 msgid "Database-level tabs"
-msgstr "Strežnik zbirke podatkov"
+msgstr "Zavihki stopenj zbirke podatkov"
 
 #: libraries/server_privileges.lib.php:3238
 #: libraries/server_privileges.lib.php:3408
-#, fuzzy
 #| msgid "Table level tabs"
 msgid "Table-level tabs"
 msgstr "Zavihki stopenj tabele"
 
 #: libraries/server_privileges.lib.php:3260
-#, fuzzy
 #| msgid "Views"
 msgid "View users"
-msgstr "Pogledi"
+msgstr "Poglej uporabnike"
 
 #: libraries/server_privileges.lib.php:3288
 #: libraries/server_privileges.lib.php:3344
-#, fuzzy
 #| msgid "Add user"
 msgid "Add user group"
-msgstr "Dodaj uporabnika"
+msgstr "Dodaj uporabniško skupino"
 
 #: libraries/server_privileges.lib.php:3347
 #, php-format
