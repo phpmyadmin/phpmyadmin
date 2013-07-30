@@ -8,8 +8,8 @@ msgstr ""
 "POT-Creation-Date: 2013-07-30 09:37-0400\n"
 "PO-Revision-Date: 2013-07-30 07:13+0200\n"
 "Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
-"Language-Team: Estonian <http://l10n.cihar.com/projects/phpmyadmin/master/et/"
-">\n"
+"Language-Team: Estonian "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/et/>\n"
 "Language: et\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -690,10 +690,9 @@ msgid "Back"
 msgstr "Tagasi"
 
 #: index.php:115 libraries/Footer.class.php:72
-#, fuzzy
 #| msgid "phpMyAdmin homepage"
 msgid "phpMyAdmin Demo Server"
-msgstr "phpMyAdmini koduleht"
+msgstr "phpMyAdmini Demo Server"
 
 #: index.php:119
 #, php-format
@@ -702,6 +701,8 @@ msgid ""
 "change root, debian-sys-maint and pma users. More information is available "
 "at %s."
 msgstr ""
+"Oled kasutamas demo serverit. Sa saad siin teha kõike, kuid palun ära muuda "
+"kasutajaid root, debian-sys-maint ja pma. Lisainfot leiad siit: %s."
 
 #: index.php:129
 msgid "General Settings"
@@ -2792,13 +2793,12 @@ msgstr "Ei saa lugeda (liigutatud) üleslaetud faili."
 #: libraries/Footer.class.php:76
 #, php-format
 msgid "Currently running Git revision %1$s from the %2$s branch."
-msgstr ""
+msgstr "Kasutad Git'i redaktsiooni %1$s harust %2$s."
 
 #: libraries/Footer.class.php:83
-#, fuzzy
 #| msgid "Version information"
 msgid "Git information missing!"
-msgstr "Versioon"
+msgstr "Git'i informatsioon puudub!"
 
 #: libraries/Footer.class.php:163 libraries/Footer.class.php:167
 #: libraries/Footer.class.php:170
@@ -4660,10 +4660,9 @@ msgstr "Keela võõrvõtme kontrollid"
 
 #: libraries/config/messages.inc.php:126
 #: libraries/plugins/export/ExportSql.class.php:154
-#, fuzzy
 #| msgid "Exporting rows from \"%s\" table"
 msgid "Export views as tables"
-msgstr "Ridade eksportimine \"%s\" tabelist"
+msgstr "Vaadete eksportimine tabelitena"
 
 #: libraries/config/messages.inc.php:127 libraries/config/messages.inc.php:128
 #: libraries/config/messages.inc.php:130 libraries/config/messages.inc.php:136
@@ -6864,10 +6863,9 @@ msgid "%s of %s"
 msgstr "%s / %s"
 
 #: libraries/display_import.lib.php:454
-#, fuzzy
 #| msgid "Uploading your import file…"
 msgid "Uploading your import file..."
-msgstr "Imporditava faili üleslaadimine…"
+msgstr "Imporditava faili üleslaadimine..."
 
 #: libraries/display_import.lib.php:455
 #, php-format
@@ -8390,10 +8388,10 @@ msgid "RELATIONS FOR TABLE"
 msgstr "RELATIONS FOR TABLE"
 
 #: libraries/plugins/export/ExportSql.class.php:1512
-#, fuzzy, php-format
+#, php-format
 #| msgid "Structure for view"
 msgid "Structure for view %s exported as a table"
-msgstr "Vaate struktuur"
+msgstr "Vaate %s struktuur eksporditi tabelina"
 
 #: libraries/plugins/export/ExportSql.class.php:1600
 msgid "Error reading data:"

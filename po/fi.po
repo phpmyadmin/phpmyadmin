@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 1.6-dev\n"
+"X-Generator: Weblate 1.6\n"
 
 #: browse_foreigners.php:51 browse_foreigners.php:75 js/messages.php:339
 #: libraries/DisplayResults.class.php:805
@@ -998,17 +998,16 @@ msgstr "Muokkaa indeksiä"
 
 #: js/messages.php:44 libraries/display_indexes.lib.php:199
 #: libraries/display_indexes.lib.php:205
-#, fuzzy, php-format
+#, php-format
 #| msgid "Add %d column(s) to index"
 msgid "Add %s column(s) to index"
-msgstr "Lisää indeksiin %d kolumni(a)"
+msgstr "Lisää indeksiin %s kolumni(a)"
 
 #. l10n: Default label for the y-Axis of Charts
 #: js/messages.php:48 tbl_chart.php:236
-#, fuzzy
 #| msgid "Value"
 msgid "Y Values"
-msgstr "Arvo"
+msgstr "Y Arvot"
 
 #: js/messages.php:51
 msgid "The host name is empty!"
@@ -1605,7 +1604,7 @@ msgstr "Virhekoodi: %s"
 #: js/messages.php:217
 #, php-format
 msgid "Error text: %s"
-msgstr ""
+msgstr "Virhekoodi: %s"
 
 #: js/messages.php:218 libraries/db_common.inc.php:58
 #: libraries/db_table_exists.lib.php:28 server_databases.php:90
@@ -1905,7 +1904,7 @@ msgstr "Lisää valinta sarakkeelle "
 #: js/messages.php:329
 #, php-format
 msgid "%d object(s) created"
-msgstr ""
+msgstr "%d objekti(a) luotu"
 
 #: js/messages.php:332
 msgid "Press escape to cancel editing"
@@ -1949,22 +1948,19 @@ msgstr ""
 "ominaisuudet eivät ehkä ole toiminnassa tallennuksen jälkeen."
 
 #: js/messages.php:345
-#, fuzzy
 #| msgid ""
 #| "You can also edit most columns<br />by clicking directly on their content."
 msgid "You can also edit most values<br />by double-clicking directly on them."
 msgstr ""
-"Useimpia sarakkeita voi myös muokata<br />\n"
+"Useimpia sarakkeita voi myös muokata <br />\n"
 "painamalla suoraan niiden sisältöä."
 
 #: js/messages.php:348
-#, fuzzy
 #| msgid ""
 #| "You can also edit most columns<br />by clicking directly on their content."
 msgid "You can also edit most values<br />by clicking directly on them."
 msgstr ""
-"Useimpia sarakkeita voi myös muokata<br />\n"
-"painamalla suoraan niiden sisältöä."
+"Useimpia sarakkeita voi myös muokata<br/>painamalla suoraan niiden sisältöä."
 
 #: js/messages.php:353
 msgid "Go to link"
@@ -1977,6 +1973,8 @@ msgstr "Kopioi kenttän nimi"
 #: js/messages.php:355
 msgid "Right-click the column name to copy it to your clipboard."
 msgstr ""
+"Napsauta hiiren kakkospainikeella sarakkeen nimeä kopioidaksesi sen "
+"leikepöydälle."
 
 #: js/messages.php:356
 msgid "Show data row(s)"
@@ -1999,16 +1997,14 @@ msgid "More"
 msgstr "Lisää"
 
 #: js/messages.php:367
-#, fuzzy
 #| msgid "Show all"
 msgid "Show Panel"
-msgstr "Näytä kaikki"
+msgstr "Näytä paneeli"
 
 #: js/messages.php:368
-#, fuzzy
 #| msgid "Hide indexes"
 msgid "Hide Panel"
-msgstr "Piilota indeksit"
+msgstr "Piilota paneeli"
 
 #: js/messages.php:369
 #, fuzzy
@@ -2017,10 +2013,9 @@ msgid "Show hidden navigation tree items"
 msgstr "Näytä vasemmassa kehyksessä logo"
 
 #: js/messages.php:372
-#, fuzzy
 #| msgid "The selected user was not found in the privilege table."
 msgid "The requested page was not found in the history, it may have expired."
-msgstr "Valittua käyttäjää ei löytynyt käyttöoikeustaulusta."
+msgstr "Pyydettyä sivua ei löytynyt historiasta, se voi olla vanhentunut."
 
 #: js/messages.php:375 setup/lib/index.lib.php:155
 #, php-format
@@ -2532,13 +2527,13 @@ msgstr[0] "<b>Yhteensä:</b> <i>%s</i> hakutulosta"
 msgstr[1] "<b>Yhteensä:</b> <i>%s</i> hakutulosta"
 
 #: libraries/DbSearch.class.php:331
-#, fuzzy, php-format
+#, php-format
 #| msgid "%1$s match inside table <i>%2$s</i>"
 #| msgid_plural "%1$s matches inside table <i>%2$s</i>"
 msgid "%1$s match in <strong>%2$s</strong>"
 msgid_plural "%1$s matches in <strong>%2$s</strong>"
-msgstr[0] "%1$s hakutulosta taulussa <i>%2$s</i>"
-msgstr[1] "%1$s hakutulosta taulussa <i>%2$s</i>"
+msgstr[0] "%1$s hakutulosta taulussa <strong>%2$s</strong>"
+msgstr[1] "%1$s hakutulosta taulussa <strong>%2$s</strong>"
 
 #: libraries/DbSearch.class.php:346 libraries/Menu.class.php:298
 #: libraries/Util.class.php:3229 libraries/Util.class.php:3444
@@ -2694,7 +2689,7 @@ msgstr "Relaatioavain"
 #, fuzzy
 #| msgid "Relational display field"
 msgid "Relational display column"
-msgstr "Relaationäyttökenttä"
+msgstr "Relaatio näyttökenttä"
 
 #: libraries/DisplayResults.class.php:1600
 msgid "Show binary contents"
@@ -2715,11 +2710,11 @@ msgstr "piilota webselaimen muunnos"
 
 #: libraries/DisplayResults.class.php:1630
 msgid "Well Known Text"
-msgstr ""
+msgstr "Hyvin tunnettu teksti"
 
 #: libraries/DisplayResults.class.php:1631
 msgid "Well Known Binary"
-msgstr ""
+msgstr "Hyvin tunnettu ohjelmakoodi"
 
 #: libraries/DisplayResults.class.php:3351
 #: libraries/DisplayResults.class.php:3367
@@ -2760,7 +2755,7 @@ msgstr ""
 #, fuzzy, php-format
 #| msgid "Showing rows"
 msgid "Showing rows %1s - %2s"
-msgstr "Näkyvillä rivit"
+msgstr "Näytetään rivit %1s - %2s"
 
 #: libraries/DisplayResults.class.php:4880
 #, fuzzy, php-format

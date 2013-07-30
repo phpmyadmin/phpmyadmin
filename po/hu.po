@@ -6,8 +6,8 @@ msgstr ""
 "POT-Creation-Date: 2013-07-30 09:37-0400\n"
 "PO-Revision-Date: 2013-07-30 14:37+0200\n"
 "Last-Translator: G. S. <somogyig@gmail.com>\n"
-"Language-Team: Hungarian <http://l10n.cihar.com/projects/phpmyadmin/master/"
-"hu/>\n"
+"Language-Team: Hungarian "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/hu/>\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -6132,10 +6132,9 @@ msgstr ""
 "[kbd]pma__usergroups[/kbd]"
 
 #: libraries/config/messages.inc.php:459
-#, fuzzy
 #| msgid "Use Host Table"
 msgid "User groups table"
-msgstr "Hoszt-tábla használata"
+msgstr "Felhasználói csoport tábla"
 
 #: libraries/config/messages.inc.php:460
 #, fuzzy
