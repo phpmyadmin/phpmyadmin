@@ -560,7 +560,7 @@ if (file_exists('libraries/language_stats.inc.php')) {
         && $GLOBALS['language_stats'][$lang] < $cfg['TranslationWarningThreshold']
     ) {
         trigger_error(
-            'You are using an incomplete translation, please help to make it better by <a href="http://www.phpmyadmin.net/home_page/improve.php#translate" target="_blank">contributing</a>.',
+            'You are using an incomplete translation, please help to make it better by [a@http://www.phpmyadmin.net/home_page/improve.php#translate@_blank]contributing[/a].',
             E_USER_NOTICE
         );
     }
