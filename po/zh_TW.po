@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-07-29 15:07+0200\n"
-"PO-Revision-Date: 2013-07-30 10:46+0200\n"
+"PO-Revision-Date: 2013-07-31 01:40+0200\n"
 "Last-Translator: Tony Chen <tonychen@finenet.com.tw>\n"
 "Language-Team: Traditional Chinese "
 "<http://l10n.cihar.com/projects/phpmyadmin/4-0/zh_TW/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 1.6\n"
+"X-Generator: Weblate 1.6-dev\n"
 
 #: browse_foreigners.php:51 browse_foreigners.php:75 js/messages.php:344
 #: libraries/DisplayResults.class.php:813
@@ -5605,7 +5605,7 @@ msgstr "描述顯示欄位的表，不使用請留空，建議值：[kbd]pma__ta
 
 #: libraries/config/messages.inc.php:436
 msgid "Display columns table"
-msgstr "顯示字段表"
+msgstr "顯示欄位表"
 
 #: libraries/config/messages.inc.php:437
 msgid ""
@@ -5771,7 +5771,7 @@ msgstr "定義在編輯/插入模式中是否顯示欄位類型一列"
 
 #: libraries/config/messages.inc.php:471
 msgid "Show field types"
-msgstr "顯示字段類型"
+msgstr "顯示欄位類型"
 
 #: libraries/config/messages.inc.php:472
 msgid "Display the function fields in edit/insert mode"
@@ -9473,7 +9473,7 @@ msgstr "規劃表結構"
 #: libraries/structure.lib.php:1545
 #: libraries/tbl_columns_definition_form.inc.php:758
 msgid "You have to add at least one column."
-msgstr "至少要增加一個字段。"
+msgstr "至少要增加一個欄位。"
 
 #: libraries/structure.lib.php:1560
 msgid "Add column"
@@ -9483,7 +9483,7 @@ msgstr "新增欄位"
 #: libraries/tbl_columns_definition_form.inc.php:748
 #, php-format
 msgid "Add %s column(s)"
-msgstr "增加 %s 個字段"
+msgstr "增加 %s 個欄位"
 
 #: libraries/structure.lib.php:1582
 msgid "At End of Table"
