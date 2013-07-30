@@ -130,11 +130,6 @@ if (! empty($disp_message)) {
 }
 
 /**
- * Get the analysis of SHOW CREATE TABLE for this table
- */
-$analyzed_sql = PMA_Table::analyzeStructure($db, $table);
-
-/**
  * Get the list of the fields of the current table
  */
 $GLOBALS['dbi']->selectDb($db);
