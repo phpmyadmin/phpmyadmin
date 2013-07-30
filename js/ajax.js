@@ -59,10 +59,12 @@ var AJAX = {
     registerOnload: function (file, func) {
         var eventName = 'onload_' + AJAX.hash(file);
         $(document).bind(eventName, func);
-        this._debug && console.log(
-            // no need to translate
-            "Registered event " + eventName + " for file " + file
-        );
+        if (this._debug) {
+            console.log(
+                // no need to translate
+                "Registered event " + eventName + " for file " + file
+            );
+        }
         return this;
     },
     /**
@@ -78,10 +80,12 @@ var AJAX = {
     registerTeardown: function (file, func) {
         var eventName = 'teardown_' + AJAX.hash(file);
         $(document).bind(eventName, func);
-        this._debug && console.log(
-            // no need to translate
-            "Registered event " + eventName + " for file " + file
-        );
+        if (this._debug) {
+            console.log(
+                // no need to translate
+                "Registered event " + eventName + " for file " + file
+            );
+        }
         return this;
     },
     /**
@@ -95,10 +99,12 @@ var AJAX = {
     fireOnload: function (file) {
         var eventName = 'onload_' + AJAX.hash(file);
         $(document).trigger(eventName);
-        this._debug && console.log(
-            // no need to translate
-            "Fired event " + eventName + " for file " + file
-        );
+        if (this._debug) {
+            console.log(
+                // no need to translate
+                "Fired event " + eventName + " for file " + file
+            );
+        }
     },
     /**
      * Called just before a page is torn down, once for every
@@ -111,10 +117,12 @@ var AJAX = {
     fireTeardown: function (file) {
         var eventName = 'teardown_' + AJAX.hash(file);
         $(document).triggerHandler(eventName);
-        this._debug && console.log(
-            // no need to translate
-            "Fired event " + eventName + " for file " + file
-        );
+        if (this._debug) {
+            console.log(
+                // no need to translate
+                "Fired event " + eventName + " for file " + file
+            );
+        }
     },
     /**
      * Event handler for clicks on links and form submissions
@@ -169,7 +177,9 @@ var AJAX = {
         // Add a list of menu hashes that we have in the cache to the request
         params += AJAX.cache.menus.getRequestParam();
 
-        AJAX._debug && console.log("Loading: " + url); // no need to translate
+        if (AJAX._debug) {
+            console.log("Loading: " + url); // no need to translate
+        }
 
         if (isLink) {
             AJAX.active = true;
