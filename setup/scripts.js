@@ -43,6 +43,63 @@ $(function () {
 //
 
 /**
+ * Calls server-side validation procedures
+ *
+ * @param {Element} parent  input field in <fieldset> or <fieldset>
+ * @param {String}  id      validator id
+ * @param {Object}  values  values hash {element1_id: value, ...}
+ */
+function ajaxValidate(parent, id, values)
+{
+    parent = $(parent);
+    // ensure that parent is a fieldset
+    if (parent.attr('tagName') != 'FIELDSET') {
+        parent = parent.closest('fieldset');
+        if (parent.length === 0) {
+            return false;
+        }
+    }
+
+    if (parent.data('ajax') !== null) {
+        parent.data('ajax').abort();
+    }
+
+    parent.data('ajax', $.ajax({
+        url: 'validate.php',
+        cache: false,
+        type: 'POST',
+        data: {
+            token: parent.closest('form').find('input[name=token]').val(),
+            id: id,
+            values: $.toJSON(values)
+        },
+        success: function (response) {
+            if (response === null) {
+                return;
+            }
+
+            var error = {};
+            if (typeof response != 'object') {
+                error[parent.id] = [response];
+            } else if (typeof response.error != 'undefined') {
+                error[parent.id] = [response.error];
+            } else {
+                for (var key in response) {
+                    var value = response[key];
+                    error[key] = jQuery.isArray(value) ? value : [value];
+                }
+            }
+            displayErrors(error);
+        },
+        complete: function () {
+            parent.removeData('ajax');
+        }
+    }));
+
+    return true;
+}
+
+/**
  * Automatic form submission on change.
  */
 $('.autosubmit').live('change', function (e) {
@@ -119,63 +176,6 @@ $.extend(true, validators, {
         }
     }
 });
-
-/**
- * Calls server-side validation procedures
- *
- * @param {Element} parent  input field in <fieldset> or <fieldset>
- * @param {String}  id      validator id
- * @param {Object}  values  values hash {element1_id: value, ...}
- */
-function ajaxValidate(parent, id, values)
-{
-    parent = $(parent);
-    // ensure that parent is a fieldset
-    if (parent.attr('tagName') != 'FIELDSET') {
-        parent = parent.closest('fieldset');
-        if (parent.length === 0) {
-            return false;
-        }
-    }
-
-    if (parent.data('ajax') !== null) {
-        parent.data('ajax').abort();
-    }
-
-    parent.data('ajax', $.ajax({
-        url: 'validate.php',
-        cache: false,
-        type: 'POST',
-        data: {
-            token: parent.closest('form').find('input[name=token]').val(),
-            id: id,
-            values: $.toJSON(values)
-        },
-        success: function (response) {
-            if (response === null) {
-                return;
-            }
-
-            var error = {};
-            if (typeof response != 'object') {
-                error[parent.id] = [response];
-            } else if (typeof response.error != 'undefined') {
-                error[parent.id] = [response.error];
-            } else {
-                for (var key in response) {
-                    var value = response[key];
-                    error[key] = jQuery.isArray(value) ? value : [value];
-                }
-            }
-            displayErrors(error);
-        },
-        complete: function () {
-            parent.removeData('ajax');
-        }
-    }));
-
-    return true;
-}
 
 //
 // END: Form validation and field operations
