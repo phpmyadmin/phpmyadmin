@@ -45,6 +45,9 @@ class PMA_Table_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['ActionLinksMode'] = 'both';
         $GLOBALS['cfg']['MaxExactCount'] = 100;
         $GLOBALS['cfg']['MaxExactCountViews'] = 100;
+        $GLOBALS['cfg']['Server']['pmadb'] = "pmadb";
+        $GLOBALS['cfg']['Server']['table_uiprefs'] = "pma__table_uiprefs";
+        
         $_SESSION['PMA_Theme'] = new PMA_Theme();
         $GLOBALS['pmaThemeImage'] = 'themes/dot.gif';
         $GLOBALS['is_ajax_request'] = false;
@@ -742,6 +745,38 @@ class PMA_Table_Test extends PHPUnit_Framework_TestCase
         $this->assertEquals(
             $expect,
             $return
+        ); 
+    }
+
+    /**
+     * Test for setUiProp
+     *
+     * @return void
+     */
+    public function testSetUiProp()
+    {    
+        $table_name = 'PMA_BookMark';
+        $db = 'PMA';
+        
+        $table = new PMA_Table($table_name, $db);
+        
+        $property = PMA_Table::PROP_COLUMN_ORDER;
+        $value = "UiProp_value";
+        $table_create_time = null;
+        $table->setUiProp($property, $value, $table_create_time);
+        
+        //set UI prop successfully
+        $this->assertEquals(
+            $value,
+            $table->uiprefs[$property] 
+        ); 
+        
+        //removeUiProp
+        $table->removeUiProp($property);
+        $is_define_property = isset($table->uiprefs[$property]) ? true : false;
+        $this->assertEquals(
+            false,
+            $is_define_property
         ); 
     }
 
