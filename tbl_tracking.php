@@ -528,16 +528,12 @@ if (isset($_REQUEST['report']) || isset($_REQUEST['report_export'])) {
 
     // Prepare delete link content here
     $drop_image_or_text = '';
-    if ('icons' == $GLOBALS['cfg']['ActionsLinksMode']) {
+    if (PMA_Util::showIcons('ActionsLinksMode')) {
         $drop_image_or_text .= PMA_Util::getImage(
             'b_drop.png', __('Delete tracking data row from report')
         );
     }
-    if (in_array(
-        $GLOBALS['cfg']['ActionLinksMode'],
-        array('text', 'both')
-        )
-    ) {
+    if (PMA_Util::showText('ActionLinksMode')) {
         $drop_image_or_text .= __('Delete');
     }
 

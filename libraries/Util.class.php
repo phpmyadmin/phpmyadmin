@@ -99,6 +99,18 @@ class PMA_Util
     }
 
     /**
+     * Checks whether configuration value tells to show text.
+     *
+     * @param string $value Configuration option name
+     *
+     * @return boolean Whether to show text.
+     */
+    public static function showText($value)
+    {
+        return in_array($GLOBALS['cfg'][$value], array('text', 'both'));
+    }
+
+    /**
      * Returns an HTML IMG tag for a particular icon from a theme,
      * which may be an actual file or an icon from a sprite.
      * This function takes into account the ActionLinksMode
@@ -121,10 +133,7 @@ class PMA_Util
             $include_icon = true;
         }
         if ($force_text
-            || in_array(
-                $GLOBALS['cfg'][$control_param],
-                array('text', 'both')
-            )
+            || self::showText($control_param)
         ) {
             $include_text = true;
         }

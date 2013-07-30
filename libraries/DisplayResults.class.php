@@ -539,11 +539,7 @@ class PMA_DisplayResults
             $caption_output .= $caption;
         }
 
-        if (in_array(
-            $GLOBALS['cfg']['TableNavigationLinksMode'],
-            array('text', 'both')
-            )
-        ) {
+        if (PMA_Util::showText('TableNavigationLinksMode')) {
             $caption_output .= '&nbsp;' . $title;
         }
         $title_output = ' title="' . $title . '"';
