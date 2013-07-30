@@ -4,15 +4,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-07-29 15:07+0200\n"
-"PO-Revision-Date: 2013-07-19 18:15+0200\n"
-"Last-Translator: ProUser <stefan@inkopsforum.se>\n"
+"PO-Revision-Date: 2013-07-30 11:15+0200\n"
+"Last-Translator: Anders Jonsson <anders.jonsson@norsjovallen.se>\n"
 "Language-Team: Swedish <http://l10n.cihar.com/projects/phpmyadmin/4-0/sv/>\n"
 "Language: sv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 1.6-dev\n"
+"X-Generator: Weblate 1.6\n"
 
 #: browse_foreigners.php:51 browse_foreigners.php:75 js/messages.php:344
 #: libraries/DisplayResults.class.php:813
@@ -2603,16 +2603,16 @@ msgid ""
 msgstr "Denna vy har åtminstone detta antal rader. Se %sdokumentationen%s."
 
 #: libraries/DisplayResults.class.php:4927
-#, fuzzy, php-format
+#, php-format
 #| msgid "Showing rows"
 msgid "Showing rows %1s - %2s"
-msgstr "Visar rader"
+msgstr "Visar raderna %1s - %2s"
 
 #: libraries/DisplayResults.class.php:4939
-#, fuzzy, php-format
+#, php-format
 #| msgid "total"
 msgid "%d total"
-msgstr "totalt"
+msgstr "%d totalt"
 
 #: libraries/DisplayResults.class.php:4951 sql.php:945
 #, php-format
