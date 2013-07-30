@@ -35,9 +35,9 @@ function PMA_lang($lang_key, $args = null)
 /**
  * Returns translated field name/description or comment
  *
- * @param string $canonical_path
+ * @param string $canonical_path path to handle
  * @param string $type           'name', 'desc' or 'cmt'
- * @param mixed  $default
+ * @param mixed  $default        default value
  *
  * @return string
  */
