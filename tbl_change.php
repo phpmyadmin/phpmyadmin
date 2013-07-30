@@ -81,13 +81,6 @@ unset($_url_params);
 
 
 /**
- * Sets parameters for links
- * where is this variable used?
- * replace by PMA_generate_common_url($url_params);
- */
-$url_query = PMA_generate_common_url($url_params, 'html', '');
-
-/**
  * get table information
  * @todo should be done by a Table object
  */
