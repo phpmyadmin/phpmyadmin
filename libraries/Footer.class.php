@@ -63,6 +63,36 @@ class PMA_Footer
     }
 
     /**
+     * Adds the message for demo server to error messages
+     *
+     * @return string
+     */
+    private function _addDemoMessage()
+    {
+        $message = '<a href="/">' . __('phpMyAdmin Demo Server') . '</a>: ';
+        if (file_exists('./revision-info.php')) {
+            include('./revision-info.php');
+            $message .= sprintf(
+                __('Currently running Git revision %1$s from the %2$s branch.'),
+                '<a target="_top" href="' . $repobase . $fullrevision . '">'
+                . $revision .'</a>',
+                '<a target="_top" href="' . $repobranchbase . $branch . '">'
+                . $branch . '</a>'
+            );
+        } else {
+            $message .= __('Git information missing!');
+        }
+
+        $GLOBALS['error_handler']->addError(
+            $message,
+            E_USER_NOTICE,
+            '',
+            '',
+            false
+        );
+    }
+
+    /**
      * Renders the debug messages
      *
      * @return string
@@ -239,6 +269,9 @@ class PMA_Footer
         if ($this->_isEnabled) {
             if (! $this->_isAjax) {
                 $retval .= "</div>";
+            }
+            if ($GLOBALS['cfg']['DBG']['demo']) {
+                $this->_addDemoMessage();
             }
             if (! $this->_isAjax && ! $this->_isMinimal) {
                 if (PMA_getenv('SCRIPT_NAME')

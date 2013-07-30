@@ -2906,6 +2906,13 @@ $cfg['DBG'] = array();
  */
 $cfg['DBG']['sql'] = false;
 
+/**
+ * Enable to let server present itself as demo server.
+ *
+ * @global boolean $cfg['DBG']['demo']
+ */
+$cfg['DBG']['demo'] = false;
+
 
 /*******************************************************************************
  * MySQL settings
