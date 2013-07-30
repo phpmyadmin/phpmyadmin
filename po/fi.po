@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-07-30 08:38-0400\n"
-"PO-Revision-Date: 2013-07-30 16:53+0200\n"
+"PO-Revision-Date: 2013-07-30 17:07+0200\n"
 "Last-Translator: Henry Heinänen <h.heinanen@gmail.com>\n"
 "Language-Team: Finnish "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/fi/>\n"
@@ -3758,21 +3758,22 @@ msgid "A collection of points"
 msgstr "Kokoelma pisteitä"
 
 #: libraries/Types.class.php:368
+#, fuzzy
 msgid "A collection of curves with linear interpolation between points"
-msgstr ""
+msgstr "Kokoelma käyrien pisteiden välisen lineaarisen interpoloinnin"
 
 #: libraries/Types.class.php:370
 msgid "A collection of polygons"
-msgstr ""
+msgstr "Kokoelma polygoneja"
 
 #: libraries/Types.class.php:372
 msgid "A collection of geometry objects of any type"
-msgstr ""
+msgstr "Kokoelma mitä tahansa geometrisiä objekteja"
 
 #: libraries/Types.class.php:625 libraries/Types.class.php:975
 msgctxt "numeric types"
 msgid "Numeric"
-msgstr ""
+msgstr "Lukuarvo"
 
 #: libraries/Types.class.php:644 libraries/Types.class.php:978
 msgctxt "date and time types"
@@ -3791,35 +3792,39 @@ msgstr "Geometrinen"
 
 #: libraries/Types.class.php:709
 msgid "A 4-byte integer, range is -2,147,483,648 to 2,147,483,647"
-msgstr ""
+msgstr "4 tavun kokonaisluku, alue on -2,147,483,648 - 2,147,483,647"
 
 #: libraries/Types.class.php:711
 msgid ""
 "An 8-byte integer, range is -9,223,372,036,854,775,808 to "
 "9,223,372,036,854,775,807"
 msgstr ""
+"8 tavun kokonaisluku, alue on -9,223,372,036,854,775,808 - "
+"9,223,372,036,854,775,807"
 
 #: libraries/Types.class.php:715
 msgid "A system's default double-precision floating-point number"
-msgstr ""
+msgstr "Järjestelmän oletus, kaksinkertaisen tarkkuuden liukuluku"
 
 #: libraries/Types.class.php:717
 msgid "True or false"
-msgstr ""
+msgstr "True tai false"
 
 #: libraries/Types.class.php:719
 msgid "An alias for BIGINT NOT NULL AUTO_INCREMENT UNIQUE"
-msgstr ""
+msgstr "Alias arvolle BIGINT NOT NULL AUTO_INCREMENT UNIQUE"
 
 #: libraries/Types.class.php:721
 msgid "Stores a Universally Unique Identifier (UUID)"
-msgstr ""
+msgstr "Tallentaa maailmanlaajuista yksilöllistä tunnistetta (UUID)"
 
 #: libraries/Types.class.php:727
 msgid ""
 "A timestamp, range is '0001-01-01 00:00:00' UTC to '9999-12-31 23:59:59' "
 "UTC; TIMESTAMP(6) can store microseconds"
 msgstr ""
+"Aikaleima, alue on '0001-01-01 00:00:00' UTC to '9999-12-31 23:59:59' UTC; "
+"TIMESTAMP(6) voi tallentaa mikrosekuntia"
 
 #: libraries/Types.class.php:735
 msgid ""
