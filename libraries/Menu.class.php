@@ -178,7 +178,7 @@ class PMA_Menu
         $item = '<a href="%1$s?%2$s" class="item">';
 
 
-        if (in_array($GLOBALS['cfg']['TabsMode'], array('text', 'both'))) {
+        if (PMA_Util::showText('TabsMode')) {
             $item .= '%4$s: ';
         }
         $item .= '%3$s</a>';
