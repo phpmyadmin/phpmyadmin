@@ -4,7 +4,6 @@
   *
   * @param object   event data
   */
-
 function onKeyDownArrowsHandler(e)
 {
     e = e || window.event;
