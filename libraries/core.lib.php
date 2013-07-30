@@ -515,7 +515,8 @@ function PMA_getenv($var_name)
     } elseif (getenv($var_name)) {
         return getenv($var_name);
     } elseif (function_exists('apache_getenv')
-     && apache_getenv($var_name, true)) {
+        && apache_getenv($var_name, true)
+    ) {
         return apache_getenv($var_name, true);
     }
 
