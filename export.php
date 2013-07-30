@@ -324,7 +324,7 @@ function PMA_exportOutputHandler($line)
                 ) {
                     $dump_buffer = bzcompress($dump_buffer);
                 } elseif ($GLOBALS['compression'] == 'gzip'
-                     && PMA_gzencodeNeeded()
+                    && PMA_gzencodeNeeded()
                 ) {
                     // as a gzipped file
                     // without the optional parameter level because it bugs

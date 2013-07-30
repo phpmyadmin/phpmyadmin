@@ -619,7 +619,8 @@ class PMA_DatabaseInterface
                         $each_tables[$table_name]['Type']
                             =& $each_tables[$table_name]['Engine'];
                     } elseif (! isset($each_tables[$table_name]['Engine'])
-                            && isset($each_tables[$table_name]['Type'])) {
+                        && isset($each_tables[$table_name]['Type'])
+                    ) {
                         // old MySQL reports Type, newer MySQL reports Engine
                         $each_tables[$table_name]['Engine']
                             =& $each_tables[$table_name]['Type'];
