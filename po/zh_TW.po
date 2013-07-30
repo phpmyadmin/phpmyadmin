@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-07-29 13:37-0400\n"
-"PO-Revision-Date: 2013-07-30 11:00+0200\n"
+"PO-Revision-Date: 2013-07-30 11:12+0200\n"
 "Last-Translator: Tony Chen <tonychen@finenet.com.tw>\n"
 "Language-Team: Traditional Chinese "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/zh_TW/>\n"
@@ -5888,7 +5888,7 @@ msgstr "空白為禁用配置的選單功能，建議值：[kbd]pma__usergroups[
 #: libraries/config/messages.inc.php:458
 #| msgid "Use Host Table"
 msgid "User groups table"
-msgstr "用戶群組主機表"
+msgstr "使用者群組資料表"
 
 #: libraries/config/messages.inc.php:459
 #| msgid ""
@@ -9828,7 +9828,7 @@ msgstr "在下列資料表新增權限："
 #: libraries/server_privileges.lib.php:2599
 #| msgid "Edit server"
 msgid "Edit user group"
-msgstr "編輯用戶群組"
+msgstr "編輯使用者群組"
 
 #: libraries/server_privileges.lib.php:2714
 msgid "Remove selected users"
@@ -9906,24 +9906,24 @@ msgstr "使用者群組"
 #: libraries/server_privileges.lib.php:3402
 #| msgid "Server version"
 msgid "Server-level tabs"
-msgstr "服務器級標籤"
+msgstr "主機級別標籤頁"
 
 #: libraries/server_privileges.lib.php:3237
 #: libraries/server_privileges.lib.php:3405
 #| msgid "Database server"
 msgid "Database-level tabs"
-msgstr "資料庫級標籤"
+msgstr "資料庫級別標籤頁"
 
 #: libraries/server_privileges.lib.php:3238
 #: libraries/server_privileges.lib.php:3408
 #| msgid "Table comments"
 msgid "Table-level tabs"
-msgstr "資料表級標籤"
+msgstr "資料表級別標籤頁"
 
 #: libraries/server_privileges.lib.php:3260
 #| msgid "Views"
 msgid "View users"
-msgstr "檢視用戶"
+msgstr "檢視使用者"
 
 #: libraries/server_privileges.lib.php:3288
 #: libraries/server_privileges.lib.php:3344
