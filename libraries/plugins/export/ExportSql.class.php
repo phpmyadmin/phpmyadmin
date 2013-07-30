@@ -1489,7 +1489,7 @@ class ExportSql extends ExportPlugin
             }
             break;
         case 'create_view':
-            if (! $GLOBALS['sql_views_as_tables']) {
+            if (empty($GLOBALS['sql_views_as_tables'])) {
                 $dump .=
                     $this->_exportComment(
                         __('Structure for view')
@@ -1568,7 +1568,9 @@ class ExportSql extends ExportPlugin
 
         // Do not export data for a VIEW, unless asked to export the view as a table
         // (For a VIEW, this is called only when exporting a single VIEW)
-        if (PMA_Table::isView($db, $table) && ! $GLOBALS['sql_views_as_tables']) {
+        if (PMA_Table::isView($db, $table)
+            && empty($GLOBALS['sql_views_as_tables'])
+        ) {
             $head = $this->_possibleCRLF()
               . $this->_exportComment()
               . $this->_exportComment('VIEW ' . ' ' . $formatted_table_name)
