@@ -4212,8 +4212,9 @@ class PMA_DisplayResults
     {
 
         $sql_md5 = md5($this->__get('sql_query'));
+        $session_data = $_SESSION['tmp_user_values']['query'][$sql_md5];
 
-        $_SESSION['tmp_user_values']['query'][$sql_md5]['sql']
+        $session_data['sql']
             = $this->__get('sql_query');
 
         $valid_disp_dir = PMA_isValid(
@@ -4224,20 +4225,20 @@ class PMA_DisplayResults
         );
 
         if ($valid_disp_dir) {
-            $_SESSION['tmp_user_values']['query'][$sql_md5]['disp_direction']
+            $session_data['disp_direction']
                 = $_REQUEST['disp_direction'];
             unset($_REQUEST['disp_direction']);
         } elseif (
-            empty($_SESSION['tmp_user_values']['query'][$sql_md5]['disp_direction'])
+            empty($session_data['disp_direction'])
         ) {
-            $_SESSION['tmp_user_values']['query'][$sql_md5]['disp_direction']
+            $session_data['disp_direction']
                 = $GLOBALS['cfg']['DefaultDisplay'];
         }
 
         if (
-            empty($_SESSION['tmp_user_values']['query'][$sql_md5]['repeat_cells'])
+            empty($session_data['repeat_cells'])
         ) {
-            $_SESSION['tmp_user_values']['query'][$sql_md5]['repeat_cells']
+            $session_data['repeat_cells']
                 = $GLOBALS['cfg']['RepeatCells'];
         }
 
@@ -4247,22 +4248,22 @@ class PMA_DisplayResults
             && ((int) $_REQUEST['session_max_rows'] == $_REQUEST['session_max_rows']))
             || ($_REQUEST['session_max_rows'] == self::ALL_ROWS)
         ) {
-            $_SESSION['tmp_user_values']['query'][$sql_md5]['max_rows']
+            $session_data['max_rows']
                 = $_REQUEST['session_max_rows'];
             unset($_REQUEST['session_max_rows']);
         } elseif (
-            empty($_SESSION['tmp_user_values']['query'][$sql_md5]['max_rows'])
+            empty($session_data['max_rows'])
         ) {
-            $_SESSION['tmp_user_values']['query'][$sql_md5]['max_rows']
+            $session_data['max_rows']
                 = $GLOBALS['cfg']['MaxRows'];
         }
 
         if (PMA_isValid($_REQUEST['pos'], 'numeric')) {
-            $_SESSION['tmp_user_values']['query'][$sql_md5]['pos']
+            $session_data['pos']
                 = $_REQUEST['pos'];
             unset($_REQUEST['pos']);
-        } elseif (empty($_SESSION['tmp_user_values']['query'][$sql_md5]['pos'])) {
-            $_SESSION['tmp_user_values']['query'][$sql_md5]['pos'] = 0;
+        } elseif (empty($session_data['pos'])) {
+            $session_data['pos'] = 0;
         }
 
         if (PMA_isValid(
@@ -4272,13 +4273,13 @@ class PMA_DisplayResults
             )
         )
         ) {
-            $_SESSION['tmp_user_values']['query'][$sql_md5]['display_text']
+            $session_data['display_text']
                 = $_REQUEST['display_text'];
             unset($_REQUEST['display_text']);
         } elseif (
-            empty($_SESSION['tmp_user_values']['query'][$sql_md5]['display_text'])
+            empty($session_data['display_text'])
         ) {
-            $_SESSION['tmp_user_values']['query'][$sql_md5]['display_text']
+            $session_data['display_text']
                 = self::DISPLAY_PARTIAL_TEXT;
         }
 
@@ -4289,15 +4290,15 @@ class PMA_DisplayResults
             )
         )
         ) {
-            $_SESSION['tmp_user_values']['query'][$sql_md5]['relational_display']
+            $session_data['relational_display']
                 = $_REQUEST['relational_display'];
             unset($_REQUEST['relational_display']);
         } elseif (
             empty(
-                $_SESSION['tmp_user_values']['query'][$sql_md5]['relational_display']
+                $session_data['relational_display']
             )
         ) {
-            $_SESSION['tmp_user_values']['query'][$sql_md5]['relational_display']
+            $session_data['relational_display']
                 = self::RELATIONAL_KEY;
         }
 
@@ -4309,40 +4310,40 @@ class PMA_DisplayResults
             )
         )
         ) {
-            $_SESSION['tmp_user_values']['query'][$sql_md5]['geometry_display']
+            $session_data['geometry_display']
                 = $_REQUEST['geometry_display'];
             unset($_REQUEST['geometry_display']);
         } elseif (
             empty(
-                $_SESSION['tmp_user_values']['query'][$sql_md5]['geometry_display']
+                $session_data['geometry_display']
             )
         ) {
-            $_SESSION['tmp_user_values']['query'][$sql_md5]['geometry_display']
+            $session_data['geometry_display']
                 = self::GEOMETRY_DISP_GEOM;
         }
 
         if (isset($_REQUEST['display_binary'])) {
-            $_SESSION['tmp_user_values']['query'][$sql_md5]['display_binary'] = true;
+            $session_data['display_binary'] = true;
             unset($_REQUEST['display_binary']);
         } elseif (isset($_REQUEST['display_options_form'])) {
             // we know that the checkbox was unchecked
-            unset($_SESSION['tmp_user_values']['query'][$sql_md5]['display_binary']);
+            unset($session_data['display_binary']);
         } elseif (isset($_REQUEST['full_text_button'])) {
             // do nothing to keep the value that is there in the session
         } else {
             // selected by default because some operations like OPTIMIZE TABLE
             // and all queries involving functions return "binary" contents,
             // according to low-level field flags
-            $_SESSION['tmp_user_values']['query'][$sql_md5]['display_binary'] = true;
+            $session_data['display_binary'] = true;
         }
 
         if (isset($_REQUEST['display_binary_as_hex'])) {
-            $_SESSION['tmp_user_values']['query'][$sql_md5]['display_binary_as_hex']
+            $session_data['display_binary_as_hex']
                 = true;
             unset($_REQUEST['display_binary_as_hex']);
         } elseif (isset($_REQUEST['display_options_form'])) {
             // we know that the checkbox was unchecked
-            unset($_SESSION['tmp_user_values']['query'][$sql_md5]
+            unset($session_data
                 ['display_binary_as_hex']
             );
         } elseif (isset($_REQUEST['full_text_button'])) {
@@ -4352,26 +4353,26 @@ class PMA_DisplayResults
             if (isset($GLOBALS['cfg']['DisplayBinaryAsHex'])
                 && ($GLOBALS['cfg']['DisplayBinaryAsHex'] === true)
             ) {
-                $_SESSION['tmp_user_values']['query'][$sql_md5]
+                $session_data
                     ['display_binary_as_hex'] = true;
             }
         }
 
         if (isset($_REQUEST['display_blob'])) {
-            $_SESSION['tmp_user_values']['query'][$sql_md5]['display_blob'] = true;
+            $session_data['display_blob'] = true;
             unset($_REQUEST['display_blob']);
         } elseif (isset($_REQUEST['display_options_form'])) {
             // we know that the checkbox was unchecked
-            unset($_SESSION['tmp_user_values']['query'][$sql_md5]['display_blob']);
+            unset($session_data['display_blob']);
         }
 
         if (isset($_REQUEST['hide_transformation'])) {
-            $_SESSION['tmp_user_values']['query'][$sql_md5]['hide_transformation']
+            $session_data['hide_transformation']
                 = true;
             unset($_REQUEST['hide_transformation']);
         } elseif (isset($_REQUEST['display_options_form'])) {
             // we know that the checkbox was unchecked
-            unset($_SESSION['tmp_user_values']['query'][$sql_md5]
+            unset($session_data
                 ['hide_transformation']
             );
         }
@@ -4379,9 +4380,8 @@ class PMA_DisplayResults
         // move current query to the last position, to be removed last
         // so only least executed query will be removed if maximum remembered queries
         // limit is reached
-        $tmp = $_SESSION['tmp_user_values']['query'][$sql_md5];
         unset($_SESSION['tmp_user_values']['query'][$sql_md5]);
-        $_SESSION['tmp_user_values']['query'][$sql_md5] = $tmp;
+        $_SESSION['tmp_user_values']['query'][$sql_md5] = $session_data;
 
         // do not exceed a maximum number of queries to remember
         if (count($_SESSION['tmp_user_values']['query']) > 10) {
@@ -4391,41 +4391,41 @@ class PMA_DisplayResults
 
         // populate query configuration
         $_SESSION['tmp_user_values']['display_text']
-            = $_SESSION['tmp_user_values']['query'][$sql_md5]['display_text'];
+            = $session_data['display_text'];
         $_SESSION['tmp_user_values']['relational_display']
-            = $_SESSION['tmp_user_values']['query'][$sql_md5]['relational_display'];
+            = $session_data['relational_display'];
         $_SESSION['tmp_user_values']['geometry_display']
-            = $_SESSION['tmp_user_values']['query'][$sql_md5]['geometry_display'];
+            = $session_data['geometry_display'];
         $_SESSION['tmp_user_values']['display_binary']
-            = isset($_SESSION['tmp_user_values']['query'][$sql_md5]
+            = isset($session_data
                 ['display_binary']
             )
             ? true
             : false;
         $_SESSION['tmp_user_values']['display_binary_as_hex']
-            = isset($_SESSION['tmp_user_values']['query'][$sql_md5]
+            = isset($session_data
                 ['display_binary_as_hex']
             )
             ? true
             : false;
         $_SESSION['tmp_user_values']['display_blob']
-            = isset($_SESSION['tmp_user_values']['query'][$sql_md5]['display_blob'])
+            = isset($session_data['display_blob'])
             ? true
             : false;
         $_SESSION['tmp_user_values']['hide_transformation']
-            = isset($_SESSION['tmp_user_values']['query'][$sql_md5]
+            = isset($session_data
                 ['hide_transformation']
             )
             ? true
             : false;
         $_SESSION['tmp_user_values']['pos']
-            = $_SESSION['tmp_user_values']['query'][$sql_md5]['pos'];
+            = $session_data['pos'];
         $_SESSION['tmp_user_values']['max_rows']
-            = $_SESSION['tmp_user_values']['query'][$sql_md5]['max_rows'];
+            = $session_data['max_rows'];
         $_SESSION['tmp_user_values']['repeat_cells']
-            = $_SESSION['tmp_user_values']['query'][$sql_md5]['repeat_cells'];
+            = $session_data['repeat_cells'];
         $_SESSION['tmp_user_values']['disp_direction']
-            = $_SESSION['tmp_user_values']['query'][$sql_md5]['disp_direction'];
+            = $session_data['disp_direction'];
 
     }
 
