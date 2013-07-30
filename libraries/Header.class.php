@@ -540,7 +540,9 @@ class PMA_Header
         $retval  = '<meta charset="utf-8" />';
         $retval .= '<meta name="robots" content="noindex,nofollow" />';
         $retval .= '<meta http-equiv="X-UA-Compatible" content="IE=Edge">';
-        $retval .= '<style>html{display: none;}</style>';
+        if (! $GLOBALS['cfg']['AllowThirdPartyFraming']) {
+            $retval .= '<style>html{display: none;}</style>';
+        }
         return $retval;
     }
 
