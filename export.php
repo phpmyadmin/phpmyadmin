@@ -81,6 +81,7 @@ $post_params = array(
         'sql_mime',
         'sql_use_transaction',
         'sql_disable_fk',
+        'sql_views_as_tables',
         'sql_compatibility',
         'sql_structure_or_data',
         'sql_create_database',
