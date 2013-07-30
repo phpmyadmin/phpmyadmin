@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-07-30 08:38-0400\n"
-"PO-Revision-Date: 2013-07-30 16:28+0200\n"
+"PO-Revision-Date: 2013-07-30 16:52+0200\n"
 "Last-Translator: Henry Heinänen <h.heinanen@gmail.com>\n"
 "Language-Team: Finnish "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/fi/>\n"
@@ -3666,6 +3666,8 @@ msgid ""
 "A TEXT column with a maximum length of 16,777,215 (2^24 - 1) characters, "
 "stored with a three-byte prefix indicating the length of the value in bytes"
 msgstr ""
+"A TEXT sarakkeen enimmäispituus 16,777,215 (2^24-1) merkkiä, tallennettu "
+"kolmen tavun etuliitteenä, joka osoittaa arvon pituuden tavuina"
 
 #: libraries/Types.class.php:340
 msgid ""
@@ -3673,64 +3675,79 @@ msgid ""
 "characters, stored with a four-byte prefix indicating the length of the "
 "value in bytes"
 msgstr ""
+"A TEXT sarakkeen enimmäispituus 4,294,967,295 tai 4GiB (2^32-1) merkkiä, "
+"tallennetaan neljän tavun etuliirteenä, joka osoittaa arvon pituuden tavuina"
 
 #: libraries/Types.class.php:342
 msgid ""
 "Similar to the CHAR type, but stores binary byte strings rather than non-"
 "binary character strings"
 msgstr ""
+"Samanlainen kuin CHAR tyyppi, mutta tallentaa binaariset merkkijonot "
+"mieluummin kuin ei binaariset merkkijonot"
 
 #: libraries/Types.class.php:344
 msgid ""
 "Similar to the VARCHAR type, but stores binary byte strings rather than non-"
 "binary character strings"
 msgstr ""
+"Samanlainen kuin VARCHAR tyyppi, mutta tallentaa binaariset merkkijonot "
+"mieluummin ei binaariset merkkijonot"
 
 #: libraries/Types.class.php:346
 msgid ""
 "A BLOB column with a maximum length of 255 (2^8 - 1) bytes, stored with a "
 "one-byte prefix indicating the length of the value"
 msgstr ""
+"A BLOB sarakkeen enimmäispituus 255 (2^8-1) tavua, tallennettu yksitavuisena "
+"etuliitteenä, joka ilmaisee arvon pituuden"
 
 #: libraries/Types.class.php:348
 msgid ""
 "A BLOB column with a maximum length of 16,777,215 (2^24 - 1) bytes, stored "
 "with a three-byte prefix indicating the length of the value"
 msgstr ""
+"A BLOB sarakkeen enimmäispituus 16,777,215 (2^24-1) tavua, tallennetaan "
+"kolmen tavun etuliiteenä, joka ilmaisee arvon pituuden"
 
 #: libraries/Types.class.php:350 libraries/Types.class.php:737
 msgid ""
 "A BLOB column with a maximum length of 65,535 (2^16 - 1) bytes, stored with "
 "a two-byte prefix indicating the length of the value"
 msgstr ""
+"A BLOB sarakkeen enimmäispituus 65,535 (2^16-1) tavua, tallennettu "
+"kaksitavuisena etuliiteenä, joka ilmaisee arvon pituuden"
 
 #: libraries/Types.class.php:352
 msgid ""
 "A BLOB column with a maximum length of 4,294,967,295 or 4GiB (2^32 - 1) "
 "bytes, stored with a four-byte prefix indicating the length of the value"
 msgstr ""
+"A BLOB sarakkeen enimmäispituus 4,294,967,295 tai 4GiB (2^32-1) tavua, "
+"varastoitu nelitavuisena etuliiteenä, joka ilmaisee arvon pituuden"
 
 #: libraries/Types.class.php:354
 msgid ""
 "An enumeration, chosen from the list of up to 65,535 values or the special "
 "'' error value"
-msgstr ""
+msgstr "Luettelo, listalta valittu jopa 65,535 arvoa tai erityinen \" virhe arvo"
 
 #: libraries/Types.class.php:356
 msgid "A single value chosen from a set of up to 64 members"
-msgstr ""
+msgstr "Yksittäinen arvo, joka on valittu 64 jäsenen joukosta"
 
 #: libraries/Types.class.php:358
 msgid "A type that can store a geometry of any type"
-msgstr ""
+msgstr "Tyyppi, joka voi tallentaa mitä tahansa geometriaa"
 
 #: libraries/Types.class.php:360
 msgid "A point in 2-dimensional space"
-msgstr ""
+msgstr "Kohta 2-ulotteisessa avaruudessa"
 
 #: libraries/Types.class.php:362
+#, fuzzy
 msgid "A curve with linear interpolation between points"
-msgstr ""
+msgstr "Käyrän pisteiden välisen lineaarisen interpoloinnin"
 
 #: libraries/Types.class.php:364
 msgid "A polygon"
