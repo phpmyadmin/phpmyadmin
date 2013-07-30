@@ -881,9 +881,9 @@ class PMA_DisplayResults
      * Prepare fields for table navigation
      * Number of rows
      *
-     * @param string  $html_sql_query            the sql encoded by html special
-     *                                           characters
-     * @param string  $id_for_direction_dropdown the id for the direction dropdown
+     * @param string $html_sql_query            the sql encoded by html special
+     *                                          characters
+     * @param string $id_for_direction_dropdown the id for the direction dropdown
      *
      * @return  string  $additional_fields_html html content
      *

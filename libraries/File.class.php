@@ -247,7 +247,7 @@ class PMA_File
      * Loads uploaded file from table change request.
      *
      * @param string $key       the md5 hash of the column name
-     * @param string $rownumber
+     * @param string $rownumber number of row to process
      *
      * @return boolean success
      * @access  public
@@ -320,8 +320,8 @@ class PMA_File
      * </code>
      *
      * @param array  $file      the array
-     * @param string $rownumber
-     * @param string $key
+     * @param string $rownumber number of row to process
+     * @param string $key       key to process
      *
      * @return array
      * @access  public
@@ -345,7 +345,7 @@ class PMA_File
      * sets the name if the file to the one selected in the tbl_change form
      *
      * @param string $key       the md5 hash of the column name
-     * @param string $rownumber
+     * @param string $rownumber number of row to process
      *
      * @return boolean success
      * @access  public
@@ -391,7 +391,7 @@ class PMA_File
      * and uses the submitted/selected file
      *
      * @param string $key       the md5 hash of the column name
-     * @param string $rownumber
+     * @param string $rownumber number of row to process
      *
      * @return boolean success
      * @access  public
