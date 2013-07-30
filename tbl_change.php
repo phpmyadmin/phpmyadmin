@@ -46,10 +46,6 @@ if (isset($_REQUEST['ShowFieldTypesInDataEditView'])) {
 if (isset($_REQUEST['after_insert'])) {
     $after_insert = $_REQUEST['after_insert'];
 }
-/**
- * file listing
- */
-require_once 'libraries/file_listing.lib.php';
 
 
 /**
