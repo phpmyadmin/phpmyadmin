@@ -116,10 +116,7 @@ $scripts->addFile('gis_data_editor.js');
  * @todo where does $disp_message and $disp_query come from???
  */
 if (! empty($disp_message)) {
-    if (! isset($disp_query)) {
-        $disp_query     = null;
-    }
-    $response->addHTML(PMA_Util::getMessage($disp_message, $disp_query));
+    $response->addHTML(PMA_Util::getMessage($disp_message, null));
 }
 
 /**
@@ -128,7 +125,6 @@ if (! empty($disp_message)) {
 $GLOBALS['dbi']->selectDb($db);
 $table_fields = array_values($GLOBALS['dbi']->getColumns($db, $table));
 
-$paramTableDbArray = array($table, $db);
 
 /**
  * Determine what to do, edit or insert? 
@@ -375,7 +371,7 @@ foreach ($rows as $row_id => $current_row) {
         $html_output .= PMA_getValueColumn(
             $column, $backup_field, $column_name_appendix, $unnullify_trigger,
             $tabindex, $tabindex_for_value, $idindex, $data, $special_chars,
-            $foreignData, $odd_row, $paramTableDbArray, $rownumber_param, $titles,
+            $foreignData, $odd_row, array($table, $db), $rownumber_param, $titles,
             $text_dir, $special_chars_encoded, $vkey, $is_upload,
             $biggest_max_file_size, $default_char_editing,
             $no_support_types, $gis_data_types, $extracted_columnspec
