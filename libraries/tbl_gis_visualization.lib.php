@@ -189,10 +189,10 @@ function PMA_GIS_saveToFile($data, $visualizationSettings, $format, $fileName)
 /**
  * Function to get html for the options lists
  *
- * @param array    $options    array of options
- * @param String   $select     the item that shoul be selected by default
+ * @param array  $options array of options
+ * @param string $select  the item that shoul be selected by default
  *
- * @return string  $html       the html for the options lists
+ * @return string $html   the html for the options lists
  */
 function PMA_getHtmlForOptionsList($options, $select)
 {
@@ -211,12 +211,12 @@ function PMA_getHtmlForOptionsList($options, $select)
 /**
  * Function to get html for the lebel column and spatial column
  *
- * @param  String  $column                the column type. i.e either "labelColumn"
- *                                        or "spatialColumn"
- * @param  array   $columnCandidates      the list of select options
- * @param  array   $visualizationSettings visualization settings
+ * @param string $column                the column type. i.e either "labelColumn"
+ *                                      or "spatialColumn"
+ * @param array  $columnCandidates      the list of select options
+ * @param array  $visualizationSettings visualization settings
  *
- * @return String  $html
+ * @return string  $html
  */
 function PMA_getHtmlForColumn($column, $columnCandidates, $visualizationSettings)
 {
@@ -244,7 +244,7 @@ function PMA_getHtmlForColumn($column, $columnCandidates, $visualizationSettings
 /**
  * Function to get html for the option of using oprn street maps
  *
- * @param  boolean $isSelected    the default value
+ * @param boolean $isSelected    the default value
  *
  * @return string  $html
  */
