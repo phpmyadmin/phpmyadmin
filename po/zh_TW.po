@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-07-30 09:37-0400\n"
-"PO-Revision-Date: 2013-07-30 11:12+0200\n"
+"PO-Revision-Date: 2013-07-30 22:38+0200\n"
 "Last-Translator: Tony Chen <tonychen@finenet.com.tw>\n"
-"Language-Team: Traditional Chinese <http://l10n.cihar.com/projects/"
-"phpmyadmin/master/zh_TW/>\n"
+"Language-Team: Traditional Chinese "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/zh_TW/>\n"
 "Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 1.6\n"
+"X-Generator: Weblate 1.6-dev\n"
 
 #: browse_foreigners.php:51 browse_foreigners.php:75 js/messages.php:339
 #: libraries/DisplayResults.class.php:805
@@ -675,10 +675,9 @@ msgid "Back"
 msgstr "返回"
 
 #: index.php:115 libraries/Footer.class.php:72
-#, fuzzy
 #| msgid "phpMyAdmin homepage"
 msgid "phpMyAdmin Demo Server"
-msgstr "phpMyAdmin 主頁 (外鏈，英文)"
+msgstr "phpMyAdmin 展示主機"
 
 #: index.php:119
 #, php-format
@@ -686,7 +685,7 @@ msgid ""
 "You are using the demo server. You can do anything here, but please do not "
 "change root, debian-sys-maint and pma users. More information is available "
 "at %s."
-msgstr ""
+msgstr "您正在使用展示主機。您可以在此做任何事情，但請勿更改 root、debian-sys-maint 及 pma 使用者。這兒有更多的資訊 %s。"
 
 #: index.php:129
 msgid "General Settings"
@@ -2748,13 +2747,12 @@ msgstr "移動上傳的暫存檔後，無法讀取該檔案。"
 #: libraries/Footer.class.php:76
 #, php-format
 msgid "Currently running Git revision %1$s from the %2$s branch."
-msgstr ""
+msgstr "目前正在運行 Git %2$s 的分支版本 %1$s。"
 
 #: libraries/Footer.class.php:83
-#, fuzzy
 #| msgid "Version information"
 msgid "Git information missing!"
-msgstr "版本資訊"
+msgstr "缺少 Git 資訊！"
 
 #: libraries/Footer.class.php:163 libraries/Footer.class.php:167
 #: libraries/Footer.class.php:170
@@ -4580,10 +4578,9 @@ msgstr "關閉外鍵 (Foreign Key) 檢查"
 
 #: libraries/config/messages.inc.php:126
 #: libraries/plugins/export/ExportSql.class.php:154
-#, fuzzy
 #| msgid "Exporting rows from \"%s\" table"
 msgid "Export views as tables"
-msgstr "正在匯出資料表“%s”中的記錄"
+msgstr "將視表匯出成資料表"
 
 #: libraries/config/messages.inc.php:127 libraries/config/messages.inc.php:128
 #: libraries/config/messages.inc.php:130 libraries/config/messages.inc.php:136
@@ -6672,10 +6669,9 @@ msgid "%s of %s"
 msgstr "%s 之 %s"
 
 #: libraries/display_import.lib.php:454
-#, fuzzy
 #| msgid "Uploading your import file…"
 msgid "Uploading your import file..."
-msgstr "正在上傳您的匯入檔案…"
+msgstr "正在上傳您的匯入檔案..."
 
 #: libraries/display_import.lib.php:455
 #, php-format
@@ -8160,10 +8156,10 @@ msgid "RELATIONS FOR TABLE"
 msgstr "表的關聯"
 
 #: libraries/plugins/export/ExportSql.class.php:1512
-#, fuzzy, php-format
+#, php-format
 #| msgid "Structure for view"
 msgid "Structure for view %s exported as a table"
-msgstr "視表結構"
+msgstr "視表 %s 結構匯出成資料表"
 
 #: libraries/plugins/export/ExportSql.class.php:1600
 msgid "Error reading data:"
@@ -9953,10 +9949,9 @@ msgid "Edit user group: '%s'"
 msgstr "編輯使用者群組: '%s'"
 
 #: libraries/server_privileges.lib.php:3363
-#, fuzzy
 #| msgid "User group privileges"
 msgid "User group menu assignments"
-msgstr "使用者群組權限"
+msgstr "使用者群組選單分配"
 
 #: libraries/server_privileges.lib.php:3370
 msgid "Group name:"
