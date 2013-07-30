@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-07-29 15:07+0200\n"
-"PO-Revision-Date: 2013-07-30 10:31+0200\n"
+"PO-Revision-Date: 2013-07-30 10:46+0200\n"
 "Last-Translator: Tony Chen <tonychen@finenet.com.tw>\n"
 "Language-Team: Traditional Chinese "
 "<http://l10n.cihar.com/projects/phpmyadmin/4-0/zh_TW/>\n"
@@ -4998,7 +4998,7 @@ msgstr "內存限制"
 
 #: libraries/config/messages.inc.php:299
 msgid "Show logo in navigation panel"
-msgstr "在左側面板中顯示 logo"
+msgstr "在導覽面板中顯示 logo"
 
 #: libraries/config/messages.inc.php:300
 msgid "Display logo"
@@ -5024,7 +5024,7 @@ msgstr "Logo 連結目標"
 
 #: libraries/config/messages.inc.php:305
 msgid "Display server choice at the top of the navigation panel"
-msgstr "在左側面板頂部顯示伺服器選擇"
+msgstr "在導覽面板頂部顯示伺服器選擇"
 
 #: libraries/config/messages.inc.php:306
 msgid "Display servers selection"
@@ -5117,7 +5117,7 @@ msgstr "僅使用圖示、文字或都使用"
 
 #: libraries/config/messages.inc.php:327
 msgid "Table navigation bar"
-msgstr "資料表導航欄"
+msgstr "資料表導覽欄"
 
 #: libraries/config/messages.inc.php:328
 msgid "use GZip output buffering for increased speed in HTTP transfers"
@@ -7144,7 +7144,7 @@ msgstr "未知"
 
 #: libraries/navigation/Navigation.class.php:61
 msgid "An error has occured while loading the navigation tree"
-msgstr "載入導航樹時出錯"
+msgstr "載入導覽樹時出錯"
 
 #: libraries/navigation/NavigationHeader.class.php:183
 msgid "Home"
@@ -7160,7 +7160,7 @@ msgstr "phpMyAdmin 檔案"
 
 #: libraries/navigation/NavigationHeader.class.php:243
 msgid "Reload navigation frame"
-msgstr "重新整理導覽框架"
+msgstr "重新整理導覽區"
 
 #: libraries/navigation/NavigationTree.class.php:712
 #, php-format
@@ -9703,7 +9703,7 @@ msgstr "ZIP 包中有錯誤:"
 
 #: navigation.php:23
 msgid "Fatal error: The navigation can only be accessed via AJAX"
-msgstr "錯誤: 只能經由 AJAX 使用導航"
+msgstr "錯誤: 只能經由 AJAX 使用導覽"
 
 #: pmd_display_field.php:60 pmd_save_pos.php:81
 msgid "Modifications have been saved"
