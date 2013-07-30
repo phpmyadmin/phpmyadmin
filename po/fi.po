@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-07-30 08:38-0400\n"
-"PO-Revision-Date: 2013-07-30 15:58+0200\n"
+"PO-Revision-Date: 2013-07-30 16:00+0200\n"
 "Last-Translator: Henry Heinänen <h.heinanen@gmail.com>\n"
 "Language-Team: Finnish "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/fi/>\n"
@@ -83,7 +83,7 @@ msgstr "Etsi"
 #: view_operations.php:99
 #, fuzzy
 msgid "Go"
-msgstr "Mene"
+msgstr "Go"
 
 #: browse_foreigners.php:197 browse_foreigners.php:201
 #: libraries/Index.class.php:561 tbl_tracking.php:383
@@ -2826,8 +2826,9 @@ msgid "Display chart"
 msgstr "Näytä kaavio"
 
 #: libraries/DisplayResults.class.php:5315
+#, fuzzy
 msgid "Visualize GIS data"
-msgstr ""
+msgstr "Visualize GIS data"
 
 #: libraries/DisplayResults.class.php:5532
 msgid "Link not found"
@@ -2905,7 +2906,7 @@ msgstr "Avaa uusi phpMyAdmin-ikkuna"
 
 #: libraries/Header.class.php:399
 msgid "Click on the bar to scroll to top of page"
-msgstr ""
+msgstr "Palkin klikkaus vierittää sivun ylös"
 
 #: libraries/Header.class.php:650
 #: libraries/plugins/auth/AuthenticationCookie.class.php:178
