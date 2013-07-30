@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-07-29 13:37-0400\n"
-"PO-Revision-Date: 2013-07-15 07:46+0200\n"
+"PO-Revision-Date: 2013-07-30 07:54+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: Greek <http://l10n.cihar.com/projects/phpmyadmin/master/el/>\n"
 "Language: el\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 1.6-dev\n"
+"X-Generator: Weblate 1.6\n"
 
 #: browse_foreigners.php:51 browse_foreigners.php:75 js/messages.php:339
 #: libraries/DisplayResults.class.php:813
@@ -1950,10 +1950,9 @@ msgid "Hide Panel"
 msgstr "Απόκρυψη Πίνακα"
 
 #: js/messages.php:369
-#, fuzzy
 #| msgid "Show logo in navigation panel"
 msgid "Show hidden navigation tree items"
-msgstr "Προβολή λογοτύπου στον πίνακα πλοήγησης"
+msgstr "Προβολή κρυφών αντικειμένων δέντρου πλοήγησης"
 
 #: js/messages.php:372
 msgid "The requested page was not found in the history, it may have expired."
@@ -2674,16 +2673,16 @@ msgstr ""
 "%sτεκμηρίωση%s."
 
 #: libraries/DisplayResults.class.php:4921
-#, fuzzy, php-format
+#, php-format
 #| msgid "Showing rows"
 msgid "Showing rows %1s - %2s"
-msgstr "Εμφάνιση εγγραφών"
+msgstr "Εμφάνιση εγγραφών %1s - %2s"
 
 #: libraries/DisplayResults.class.php:4933
-#, fuzzy, php-format
+#, php-format
 #| msgid "total"
 msgid "%d total"
-msgstr "συνολικά"
+msgstr "%d συνολικά"
 
 #: libraries/DisplayResults.class.php:4945 libraries/sql.lib.php:1640
 #, php-format
@@ -6112,7 +6111,6 @@ msgid "User preferences storage table"
 msgstr "Πίνακας αποθήκευσης προτιμήσεων χρήστη"
 
 #: libraries/config/messages.inc.php:455
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no user preferences storage in database, suggested: [kbd]"
 #| "pma__userconfig[/kbd]"
@@ -6120,17 +6118,15 @@ msgid ""
 "Leave blank to disable configurable menus feature, suggested: [kbd]pma__users"
 "[/kbd]"
 msgstr ""
-"Αφήστε το κενό για μη αποθήκευση των ρυθμίσεων χρήστη, προτείνεται: [kbd]"
-"pma__userconfig[/kbd]"
+"Αφήστε το κενό για απενεργοποίηση του χαρακτηριστικού προσαρμόσιμων μενού, "
+"προτείνεται: [kbd]pma__users[/kbd]"
 
 #: libraries/config/messages.inc.php:456
-#, fuzzy
 #| msgid "Use Tables"
 msgid "Users table"
-msgstr "Χρήση Πινάκων"
+msgstr "Πίνακας χρηστών"
 
 #: libraries/config/messages.inc.php:457
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no user preferences storage in database, suggested: [kbd]"
 #| "pma__userconfig[/kbd]"
@@ -6138,17 +6134,15 @@ msgid ""
 "Leave blank to disable configurable menus feature, suggested: [kbd]"
 "pma__usergroups[/kbd]"
 msgstr ""
-"Αφήστε το κενό για μη αποθήκευση των ρυθμίσεων χρήστη, προτείνεται: [kbd]"
-"pma__userconfig[/kbd]"
+"Αφήστε το κενό για απενεργοποίηση του χαρακτηριστικού προσαρμόσιμων μενού, "
+"προτείνεται: [kbd]pma__usergroups[/kbd]"
 
 #: libraries/config/messages.inc.php:458
-#, fuzzy
 #| msgid "Use Host Table"
 msgid "User groups table"
-msgstr "Χρήση Οικείου Πίνακα"
+msgstr "Πίνακας ομάδων χρηστών"
 
 #: libraries/config/messages.inc.php:459
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no user preferences storage in database, suggested: [kbd]"
 #| "pma__userconfig[/kbd]"
@@ -6156,12 +6150,12 @@ msgid ""
 "Leave blank to disable the feature to hide and show navigation items, "
 "suggested: [kbd]pma__navigationhiding[/kbd]"
 msgstr ""
-"Αφήστε το κενό για μη αποθήκευση των ρυθμίσεων χρήστη, προτείνεται: [kbd]"
-"pma__userconfig[/kbd]"
+"Αφήστε το κενό για απενεργοποίηση του χαρακτηριστικού προσαρμόσιμων μενού, "
+"προτείνεται: [kbd]pma__navigationhiding[/kbd]"
 
 #: libraries/config/messages.inc.php:460
 msgid "Hidden navigation items table"
-msgstr ""
+msgstr "Πίνακας κρυφών αντικειμένων πλοήγησης"
 
 #: libraries/config/messages.inc.php:462
 msgid "User for config auth"
@@ -7741,34 +7735,29 @@ msgid "An error has occured while loading the navigation tree"
 msgstr "Ένα σφάλμα συμβαίνει κατά τη φόρτωση του δέντρου πλοήγησης"
 
 #: libraries/navigation/Navigation.class.php:172
-#, fuzzy
 #| msgid "Events"
 msgid "Events:"
-msgstr "Συμβάντα"
+msgstr "Συμβάντα:"
 
 #: libraries/navigation/Navigation.class.php:173
-#, fuzzy
 #| msgid "Functions"
 msgid "Functions:"
-msgstr "Συναρτήσεις"
+msgstr "Συναρτήσεις:"
 
 #: libraries/navigation/Navigation.class.php:174
-#, fuzzy
 #| msgid "Procedures"
 msgid "Procedures:"
-msgstr "Διαδικασίες"
+msgstr "Διαδικασίες:"
 
 #: libraries/navigation/Navigation.class.php:175
-#, fuzzy
 #| msgid "Tables"
 msgid "Tables:"
-msgstr "Πίνακες"
+msgstr "Πίνακες:"
 
 #: libraries/navigation/Navigation.class.php:176
-#, fuzzy
 #| msgid "Views"
 msgid "Views:"
-msgstr "Προβολές"
+msgstr "Προβολές:"
 
 #: libraries/navigation/NavigationHeader.class.php:183
 msgid "Home"
@@ -8874,16 +8863,14 @@ msgid "User preferences"
 msgstr "Ρυθμίσεις χρήστη"
 
 #: libraries/relation.lib.php:264
-#, fuzzy
 #| msgid "Configuration: %s"
 msgid "Configurable menus"
-msgstr "Ρύθμιση: %s"
+msgstr "Προσαρμόσιμα μενού"
 
 #: libraries/relation.lib.php:275
-#, fuzzy
 #| msgid "Reload navigation frame"
 msgid "Hide/show navigation items"
-msgstr "Επαναφόρτωση πλαισίου πλοήγησης"
+msgstr "Απόκρυψη/εμφάνιση αντικειμένων πλοήγησης"
 
 #: libraries/relation.lib.php:281
 msgid "Quick steps to setup advanced features:"
@@ -10056,7 +10043,7 @@ msgstr "Κανένα"
 #: libraries/server_privileges.lib.php:2531
 #: libraries/server_privileges.lib.php:3235
 msgid "User group"
-msgstr ""
+msgstr "Ομάδας χρηστών"
 
 #: libraries/server_privileges.lib.php:618
 msgid "Resource limits"
@@ -10295,10 +10282,9 @@ msgid "Add privileges on the following table:"
 msgstr "Προσθήκη δεδομένων στον ακόλουθο πίνακα:"
 
 #: libraries/server_privileges.lib.php:2599
-#, fuzzy
 #| msgid "Edit server"
 msgid "Edit user group"
-msgstr "Επεξεργασία διακομιστή"
+msgstr "Επεξεργασία ομάδας χρηστών"
 
 #: libraries/server_privileges.lib.php:2714
 msgid "Remove selected users"
@@ -10363,69 +10349,61 @@ msgstr ""
 #: libraries/server_privileges.lib.php:3187
 #, php-format
 msgid "Users of '%s' user group"
-msgstr ""
+msgstr "Χρήστες της ομάδας χρηστών «%s»"
 
 #: libraries/server_privileges.lib.php:3198
 msgid "No users were found belonging to this user group."
-msgstr ""
+msgstr "Κανένας χρήστης δεν βρέθηκε να ανήκει σε αυτή την ομάδα χρηστών."
 
 #: libraries/server_privileges.lib.php:3229
 #: libraries/server_privileges.lib.php:3878
-#, fuzzy
 #| msgid "Users"
 msgid "User groups"
-msgstr "Χρήστες"
+msgstr "Ομάδες χρηστών"
 
 #: libraries/server_privileges.lib.php:3236
 #: libraries/server_privileges.lib.php:3402
-#, fuzzy
 #| msgid "Server version"
 msgid "Server-level tabs"
-msgstr "Έκδοση διακομιστή"
+msgstr "Καρτέλες επιπέδου διακομιστή"
 
 #: libraries/server_privileges.lib.php:3237
 #: libraries/server_privileges.lib.php:3405
-#, fuzzy
 #| msgid "Database server"
 msgid "Database-level tabs"
-msgstr "Διακομιστής βάσης δεδομένων"
+msgstr "Καρτέλες επιπέδου βάσης δεδομένων"
 
 #: libraries/server_privileges.lib.php:3238
 #: libraries/server_privileges.lib.php:3408
-#, fuzzy
 #| msgid "Table comments"
 msgid "Table-level tabs"
-msgstr "Σχόλια πίνακα"
+msgstr "Καρτέλες επιπέδου πίνακα"
 
 #: libraries/server_privileges.lib.php:3260
-#, fuzzy
 #| msgid "Views"
 msgid "View users"
-msgstr "Προβολές"
+msgstr "Χρήστες προβολών"
 
 #: libraries/server_privileges.lib.php:3288
 #: libraries/server_privileges.lib.php:3344
-#, fuzzy
 #| msgid "Add user"
 msgid "Add user group"
-msgstr "Προσθήκη χρήστη"
+msgstr "Προσθήκη ομάδας χρηστών"
 
 #: libraries/server_privileges.lib.php:3347
 #, php-format
 msgid "Edit user group: '%s'"
-msgstr ""
+msgstr "Επεξεργασία ομάδας χρηστών: «%s»"
 
 #: libraries/server_privileges.lib.php:3363
-#, fuzzy
 #| msgid "No privileges."
 msgid "User group privileges"
-msgstr "Χωρίς δικαιώματα."
+msgstr "Δικαιώματα ομάδας χρηστών"
 
 #: libraries/server_privileges.lib.php:3370
-#, fuzzy
 #| msgid "Column names: "
 msgid "Group name:"
-msgstr "Ονόματα στηλών: "
+msgstr "Όνομα ομάδας:"
 
 #: libraries/server_privileges.lib.php:3521
 msgid "The selected user was not found in the privilege table."
