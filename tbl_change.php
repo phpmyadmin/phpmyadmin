@@ -118,24 +118,11 @@ if (! empty($disp_message)) {
 
 $table_fields = PMA_getTableFields($db, $table);
 
-/**
- * Determine what to do, edit or insert? 
- */
-if (isset($where_clause)) {
-    // we are editing
-    $insert_mode = false;
-    $where_clause_array = PMA_getWhereClauseArray($where_clause);
-    list($where_clauses, $result, $rows, $found_unique_key)
-        = PMA_analyzeWhereClauses($where_clause_array, $table, $db);
-} else {
-    // we are inserting
-    $insert_mode = true;
-    $where_clause = null;
-    list($result, $rows) = PMA_loadFirstRow($table, $db);
-    $where_clauses = null;
-    $where_clause_array = null;
-    $found_unique_key = false;
-}
+
+list(
+    $insert_mode, $where_clause, $where_clause_array, $where_clauses,
+    $result, $rows, $found_unique_key
+) = PMA_determineInsertOrEdit($where_clause, $db, $table);
 
 // Copying a row - fetched data will be inserted as a new row,
 // therefore the where clause is needless.
