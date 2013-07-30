@@ -124,12 +124,6 @@ list(
     $result, $rows, $found_unique_key
 ) = PMA_determineInsertOrEdit($where_clause, $db, $table);
 
-// Copying a row - fetched data will be inserted as a new row,
-// therefore the where clause is needless.
-if (isset($_REQUEST['default_action']) && $_REQUEST['default_action'] === 'insert') {
-    $where_clause = $where_clauses = null;
-}
-
 // retrieve keys into foreign fields, if any
 $foreigners = PMA_getForeigners($db, $table);
 

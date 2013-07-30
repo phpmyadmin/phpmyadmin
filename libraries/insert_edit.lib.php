@@ -2415,6 +2415,14 @@ function PMA_determineInsertOrEdit($where_clause, $db, $table)
         $found_unique_key = false;
     }
     
+    // Copying a row - fetched data will be inserted as a new row,
+    // therefore the where clause is needless.
+    if (isset($_REQUEST['default_action']) 
+        && $_REQUEST['default_action'] === 'insert'
+    ) {
+        $where_clause = $where_clauses = null;
+    }
+    
     return array(
         $insert_mode, $where_clause, $where_clause_array, $where_clauses,
         $result, $rows, $found_unique_key
