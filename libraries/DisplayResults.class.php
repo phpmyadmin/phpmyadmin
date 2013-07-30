@@ -4360,28 +4360,18 @@ class PMA_DisplayResults
             = $query['relational_display'];
         $_SESSION['tmp_user_values']['geometry_display']
             = $query['geometry_display'];
-        $_SESSION['tmp_user_values']['display_binary']
-            = isset($query
-                ['display_binary']
-            )
-            ? true
-            : false;
-        $_SESSION['tmp_user_values']['display_binary_as_hex']
-            = isset($query
-                ['display_binary_as_hex']
-            )
-            ? true
-            : false;
-        $_SESSION['tmp_user_values']['display_blob']
-            = isset($query['display_blob'])
-            ? true
-            : false;
-        $_SESSION['tmp_user_values']['hide_transformation']
-            = isset($query
-                ['hide_transformation']
-            )
-            ? true
-            : false;
+        $_SESSION['tmp_user_values']['display_binary'] = isset(
+            $query['display_binary']
+        );
+        $_SESSION['tmp_user_values']['display_binary_as_hex'] = isset(
+            $query['display_binary_as_hex']
+        );
+        $_SESSION['tmp_user_values']['display_blob'] = isset(
+            $query['display_blob']
+        );
+        $_SESSION['tmp_user_values']['hide_transformation'] = isset(
+            $query['hide_transformation']
+        );
         $_SESSION['tmp_user_values']['pos']
             = $query['pos'];
         $_SESSION['tmp_user_values']['max_rows']
