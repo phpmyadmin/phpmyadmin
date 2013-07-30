@@ -766,6 +766,13 @@ class FormDisplay
                     'recode', 'recode'
                 );
             }
+            if (!function_exists('mb_convert_encoding')) {
+                $opts['values']['mb'] .= ' (' . __('unavailable') . ')';
+                $comment .= ($comment ? ", " : '') . sprintf(
+                    __('"%s" requires %s extension'),
+                    'mb', 'mbstring'
+                );
+            }
             $opts['comment'] = $comment;
             $opts['comment_warning'] = true;
         }
