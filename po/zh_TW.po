@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-07-29 13:37-0400\n"
-"PO-Revision-Date: 2013-07-13 20:32+0200\n"
+"PO-Revision-Date: 2013-07-30 11:00+0200\n"
 "Last-Translator: Tony Chen <tonychen@finenet.com.tw>\n"
-"Language-Team: Traditional Chinese <http://l10n.cihar.com/projects/"
-"phpmyadmin/master/zh_TW/>\n"
+"Language-Team: Traditional Chinese "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/zh_TW/>\n"
 "Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 1.6-dev\n"
+"X-Generator: Weblate 1.6\n"
 
 #: browse_foreigners.php:51 browse_foreigners.php:75 js/messages.php:339
 #: libraries/DisplayResults.class.php:813
@@ -1885,10 +1885,9 @@ msgid "Hide Panel"
 msgstr "隱藏控制面板"
 
 #: js/messages.php:369
-#, fuzzy
 #| msgid "Show logo in navigation panel"
 msgid "Show hidden navigation tree items"
-msgstr "在左側面板中顯示 logo"
+msgstr "顯示隱藏的導覽樹項目"
 
 #: js/messages.php:372
 msgid "The requested page was not found in the history, it may have expired."
@@ -2603,16 +2602,16 @@ msgid ""
 msgstr "這個檢視至少需包含這個數目的資料，請參考%sdocumentation%s。"
 
 #: libraries/DisplayResults.class.php:4921
-#, fuzzy, php-format
+#, php-format
 #| msgid "Showing rows"
 msgid "Showing rows %1s - %2s"
-msgstr "顯示行"
+msgstr "顯示行 %1s-%2s"
 
 #: libraries/DisplayResults.class.php:4933
-#, fuzzy, php-format
+#, php-format
 #| msgid "total"
 msgid "%d total"
-msgstr "總計"
+msgstr "總數 %d"
 
 #: libraries/DisplayResults.class.php:4945 libraries/sql.lib.php:1640
 #, php-format
@@ -5164,7 +5163,7 @@ msgstr "內存限制"
 
 #: libraries/config/messages.inc.php:299
 msgid "Show logo in navigation panel"
-msgstr "在左側面板中顯示 logo"
+msgstr "在導覽面板中顯示 logo"
 
 #: libraries/config/messages.inc.php:300
 msgid "Display logo"
@@ -5190,7 +5189,7 @@ msgstr "Logo 連結目標"
 
 #: libraries/config/messages.inc.php:305
 msgid "Display server choice at the top of the navigation panel"
-msgstr "在左側面板頂部顯示伺服器選擇"
+msgstr "在導覽面板頂部顯示伺服器選擇"
 
 #: libraries/config/messages.inc.php:306
 msgid "Display servers selection"
@@ -5283,7 +5282,7 @@ msgstr "僅使用圖示、文字或都使用"
 
 #: libraries/config/messages.inc.php:327
 msgid "Table navigation bar"
-msgstr "資料表導航欄"
+msgstr "資料表導覽欄"
 
 #: libraries/config/messages.inc.php:328
 msgid "use GZip output buffering for increased speed in HTTP transfers"
@@ -5864,50 +5863,45 @@ msgid "User preferences storage table"
 msgstr "使用者偏好表"
 
 #: libraries/config/messages.inc.php:455
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no user preferences storage in database, suggested: [kbd]"
 #| "pma__userconfig[/kbd]"
 msgid ""
 "Leave blank to disable configurable menus feature, suggested: [kbd]pma__users"
 "[/kbd]"
-msgstr "不在資料庫中儲存使用者偏好請留空，建議值：[kbd]pma__config[/kbd]"
+msgstr "空白為禁用配置的選單功能，建議值：[kbd]pma__users[/kbd]"
 
 #: libraries/config/messages.inc.php:456
-#, fuzzy
 #| msgid "Use Tables"
 msgid "Users table"
-msgstr "使用表"
+msgstr "使用者資料表"
 
 #: libraries/config/messages.inc.php:457
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no user preferences storage in database, suggested: [kbd]"
 #| "pma__userconfig[/kbd]"
 msgid ""
 "Leave blank to disable configurable menus feature, suggested: [kbd]"
 "pma__usergroups[/kbd]"
-msgstr "不在資料庫中儲存使用者偏好請留空，建議值：[kbd]pma__config[/kbd]"
+msgstr "空白為禁用配置的選單功能，建議值：[kbd]pma__usergroups[/kbd]"
 
 #: libraries/config/messages.inc.php:458
-#, fuzzy
 #| msgid "Use Host Table"
 msgid "User groups table"
-msgstr "使用主機表"
+msgstr "用戶群組主機表"
 
 #: libraries/config/messages.inc.php:459
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no user preferences storage in database, suggested: [kbd]"
 #| "pma__userconfig[/kbd]"
 msgid ""
 "Leave blank to disable the feature to hide and show navigation items, "
 "suggested: [kbd]pma__navigationhiding[/kbd]"
-msgstr "不在資料庫中儲存使用者偏好請留空，建議值：[kbd]pma__config[/kbd]"
+msgstr "空白為禁用隱藏和顯示項目的功能，建議值：[kbd]pma__navigationhiding[/kbd]"
 
 #: libraries/config/messages.inc.php:460
 msgid "Hidden navigation items table"
-msgstr ""
+msgstr "隱藏導覽項目資料表"
 
 #: libraries/config/messages.inc.php:462
 msgid "User for config auth"
@@ -7389,37 +7383,32 @@ msgstr "未知"
 
 #: libraries/navigation/Navigation.class.php:61
 msgid "An error has occured while loading the navigation tree"
-msgstr "載入導航樹時出錯"
+msgstr "載入導覽樹時出錯"
 
 #: libraries/navigation/Navigation.class.php:172
-#, fuzzy
 #| msgid "Events"
 msgid "Events:"
-msgstr "事件"
+msgstr "事件："
 
 #: libraries/navigation/Navigation.class.php:173
-#, fuzzy
 #| msgid "Functions"
 msgid "Functions:"
-msgstr "函數"
+msgstr "函數："
 
 #: libraries/navigation/Navigation.class.php:174
-#, fuzzy
 #| msgid "Procedures"
 msgid "Procedures:"
-msgstr "Procedure"
+msgstr "Procedure："
 
 #: libraries/navigation/Navigation.class.php:175
-#, fuzzy
 #| msgid "Tables"
 msgid "Tables:"
-msgstr "資料表"
+msgstr "資料表："
 
 #: libraries/navigation/Navigation.class.php:176
-#, fuzzy
 #| msgid "Views"
 msgid "Views:"
-msgstr "視表"
+msgstr "視表："
 
 #: libraries/navigation/NavigationHeader.class.php:183
 msgid "Home"
@@ -7435,7 +7424,7 @@ msgstr "phpMyAdmin 檔案"
 
 #: libraries/navigation/NavigationHeader.class.php:243
 msgid "Reload navigation frame"
-msgstr "重新整理導覽框架"
+msgstr "重新整理導覽區"
 
 #: libraries/navigation/NavigationTree.class.php:712
 #, php-format
@@ -8474,16 +8463,14 @@ msgid "User preferences"
 msgstr "使用者偏好"
 
 #: libraries/relation.lib.php:264
-#, fuzzy
 #| msgid "Configuration: %s"
 msgid "Configurable menus"
-msgstr "設定: %s"
+msgstr "配置選單"
 
 #: libraries/relation.lib.php:275
-#, fuzzy
 #| msgid "Reload navigation frame"
 msgid "Hide/show navigation items"
-msgstr "重新整理導覽框架"
+msgstr "隱藏/顯示導覽項目"
 
 #: libraries/relation.lib.php:281
 msgid "Quick steps to setup advanced features:"
@@ -9616,7 +9603,7 @@ msgstr "無"
 #: libraries/server_privileges.lib.php:2531
 #: libraries/server_privileges.lib.php:3235
 msgid "User group"
-msgstr ""
+msgstr "使用者群組"
 
 #: libraries/server_privileges.lib.php:618
 msgid "Resource limits"
@@ -9839,10 +9826,9 @@ msgid "Add privileges on the following table:"
 msgstr "在下列資料表新增權限："
 
 #: libraries/server_privileges.lib.php:2599
-#, fuzzy
 #| msgid "Edit server"
 msgid "Edit user group"
-msgstr "編輯伺服器"
+msgstr "編輯用戶群組"
 
 #: libraries/server_privileges.lib.php:2714
 msgid "Remove selected users"
@@ -9904,69 +9890,61 @@ msgstr ""
 #: libraries/server_privileges.lib.php:3187
 #, php-format
 msgid "Users of '%s' user group"
-msgstr ""
+msgstr "使用者群組 '%s' 清單"
 
 #: libraries/server_privileges.lib.php:3198
 msgid "No users were found belonging to this user group."
-msgstr ""
+msgstr "這個使用者群組為空的。"
 
 #: libraries/server_privileges.lib.php:3229
 #: libraries/server_privileges.lib.php:3878
-#, fuzzy
 #| msgid "Users"
 msgid "User groups"
-msgstr "使用者"
+msgstr "使用者群組"
 
 #: libraries/server_privileges.lib.php:3236
 #: libraries/server_privileges.lib.php:3402
-#, fuzzy
 #| msgid "Server version"
 msgid "Server-level tabs"
-msgstr "伺服器版本"
+msgstr "服務器級標籤"
 
 #: libraries/server_privileges.lib.php:3237
 #: libraries/server_privileges.lib.php:3405
-#, fuzzy
 #| msgid "Database server"
 msgid "Database-level tabs"
-msgstr "資料庫伺服器"
+msgstr "資料庫級標籤"
 
 #: libraries/server_privileges.lib.php:3238
 #: libraries/server_privileges.lib.php:3408
-#, fuzzy
 #| msgid "Table comments"
 msgid "Table-level tabs"
-msgstr "表註釋"
+msgstr "資料表級標籤"
 
 #: libraries/server_privileges.lib.php:3260
-#, fuzzy
 #| msgid "Views"
 msgid "View users"
-msgstr "視表"
+msgstr "檢視用戶"
 
 #: libraries/server_privileges.lib.php:3288
 #: libraries/server_privileges.lib.php:3344
-#, fuzzy
 #| msgid "Add user"
 msgid "Add user group"
-msgstr "新增使用者"
+msgstr "新增使用者群組"
 
 #: libraries/server_privileges.lib.php:3347
 #, php-format
 msgid "Edit user group: '%s'"
-msgstr ""
+msgstr "編輯使用者群組: '%s'"
 
 #: libraries/server_privileges.lib.php:3363
-#, fuzzy
 #| msgid "No privileges."
 msgid "User group privileges"
-msgstr "沒有權限。"
+msgstr "使用者群組權限"
 
 #: libraries/server_privileges.lib.php:3370
-#, fuzzy
 #| msgid "Column names: "
 msgid "Group name:"
-msgstr "欄位名稱： "
+msgstr "群組名稱："
 
 #: libraries/server_privileges.lib.php:3521
 msgid "The selected user was not found in the privilege table."
@@ -11473,7 +11451,7 @@ msgstr "ZIP 包中有錯誤:"
 
 #: navigation.php:20
 msgid "Fatal error: The navigation can only be accessed via AJAX"
-msgstr "錯誤: 只能經由 AJAX 使用導航"
+msgstr "錯誤: 只能經由 AJAX 使用導覽"
 
 #: pmd_display_field.php:49 pmd_save_pos.php:75
 msgid "Modifications have been saved"
