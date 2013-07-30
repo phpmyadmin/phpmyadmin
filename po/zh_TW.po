@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-07-30 09:37-0400\n"
-"PO-Revision-Date: 2013-07-30 22:38+0200\n"
+"PO-Revision-Date: 2013-07-31 01:39+0200\n"
 "Last-Translator: Tony Chen <tonychen@finenet.com.tw>\n"
 "Language-Team: Traditional Chinese "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/zh_TW/>\n"
@@ -5810,7 +5810,7 @@ msgstr "描述顯示欄位的表，不使用請留空，建議值：[kbd]pma__ta
 
 #: libraries/config/messages.inc.php:439
 msgid "Display columns table"
-msgstr "顯示字段表"
+msgstr "顯示欄位表"
 
 #: libraries/config/messages.inc.php:440
 msgid ""
@@ -6005,7 +6005,7 @@ msgstr "定義在編輯/插入模式中是否顯示欄位類型一列"
 
 #: libraries/config/messages.inc.php:480
 msgid "Show field types"
-msgstr "顯示字段類型"
+msgstr "顯示欄位類型"
 
 #: libraries/config/messages.inc.php:481
 msgid "Display the function fields in edit/insert mode"
@@ -8159,7 +8159,7 @@ msgstr "表的關聯"
 #, php-format
 #| msgid "Structure for view"
 msgid "Structure for view %s exported as a table"
-msgstr "視表 %s 結構匯出成資料表"
+msgstr "將視表 %s 結構匯出成資料表"
 
 #: libraries/plugins/export/ExportSql.class.php:1600
 msgid "Error reading data:"
@@ -11221,7 +11221,7 @@ msgstr "規劃表結構"
 #: libraries/structure.lib.php:1557
 #: libraries/tbl_columns_definition_form.inc.php:758
 msgid "You have to add at least one column."
-msgstr "至少要增加一個字段。"
+msgstr "至少要增加一個欄位。"
 
 #: libraries/structure.lib.php:1568
 msgid "Add column"
@@ -11231,7 +11231,7 @@ msgstr "新增欄位"
 #: libraries/tbl_columns_definition_form.inc.php:748
 #, php-format
 msgid "Add %s column(s)"
-msgstr "增加 %s 個字段"
+msgstr "增加 %s 個欄位"
 
 #: libraries/structure.lib.php:1590
 msgid "At End of Table"
