@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-07-30 08:38-0400\n"
-"PO-Revision-Date: 2013-07-30 15:36+0200\n"
+"PO-Revision-Date: 2013-07-30 15:37+0200\n"
 "Last-Translator: Henry Heinänen <h.heinanen@gmail.com>\n"
 "Language-Team: Finnish "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/fi/>\n"
@@ -2751,10 +2751,10 @@ msgstr ""
 "%sohjeista%s."
 
 #: libraries/DisplayResults.class.php:4876
-#, fuzzy, php-format
+#, php-format
 #| msgid "Showing rows"
 msgid "Showing rows %1s - %2s"
-msgstr "Näkyvillä rivit"
+msgstr "Näytetään rivit %1s - %2s"
 
 #: libraries/DisplayResults.class.php:4888
 #, fuzzy, php-format
