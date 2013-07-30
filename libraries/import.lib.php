@@ -139,7 +139,7 @@ function PMA_importRunQuery($sql = '', $full = '', $controluser = false,
                         }
                         $sql_query = $import_run_buffer['sql'];
                         $sql_data['valid_sql'][] = $import_run_buffer['sql'];
-                        if(! isset($sql_data['valid_queries'])) {
+                        if (! isset($sql_data['valid_queries'])) {
                             $sql_data['valid_queries'] = 0;
                         }
                         $sql_data['valid_queries']++;
@@ -192,7 +192,7 @@ function PMA_importRunQuery($sql = '', $full = '', $controluser = false,
 
                             if (($a_num_rows > 0) || $is_use_query) {
                                 $sql_data['valid_sql'][] = $import_run_buffer['sql'];
-                                if(! isset($sql_data['valid_queries'])) {
+                                if (! isset($sql_data['valid_queries'])) {
                                     $sql_data['valid_queries'] = 0;
                                 }
                                 $sql_data['valid_queries']++;

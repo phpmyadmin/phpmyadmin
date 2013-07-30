@@ -17,7 +17,7 @@ AJAX.registerOnload('tbl_find_replace.js', function () {
 
     $('#toggle_find')
         .html(PMA_messages.strHideFindNReplaceCriteria)
-        .click(function() {
+        .click(function () {
             var $link = $(this);
             $('#find_replace_form').slideToggle();
             if ($link.text() == PMA_messages.strHideFindNReplaceCriteria) {
@@ -25,10 +25,10 @@ AJAX.registerOnload('tbl_find_replace.js', function () {
             } else {
                 $link.text(PMA_messages.strHideFindNReplaceCriteria);
             }
-            return false
+            return false;
         });
 
-    $('#find_replace_form').submit(function(e) {
+    $('#find_replace_form').submit(function (e) {
         e.preventDefault();
         var findReplaceForm = $('#find_replace_form');
         PMA_prepareForAjaxRequest(findReplaceForm);

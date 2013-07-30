@@ -15,17 +15,17 @@ if (top != self) {
 // stores hidden message ids
 var hiddenMessages = [];
 
-$(function() {
+$(function () {
     var hidden = hiddenMessages.length;
     for (var i = 0; i < hidden; i++) {
-        $('#'+hiddenMessages[i]).css('display', 'none');
+        $('#' + hiddenMessages[i]).css('display', 'none');
     }
     if (hidden > 0) {
         var link = $('#show_hidden_messages');
-        link.click(function(e) {
+        link.click(function (e) {
             e.preventDefault();
             for (var i = 0; i < hidden; i++) {
-                $('#'+hiddenMessages[i]).show(500);
+                $('#' + hiddenMessages[i]).show(500);
             }
             $(this).remove();
         });
@@ -45,7 +45,7 @@ $(function() {
 /**
  * Automatic form submission on change.
  */
-$('.autosubmit').live('change', function(e) {
+$('.autosubmit').live('change', function (e) {
     e.target.form.submit();
 });
 
@@ -57,8 +57,8 @@ $.extend(true, validators, {
          *
          * @param {boolean} isKeyUp
          */
-        hide_db: function(isKeyUp) {
-            if (!isKeyUp && this.value != '') {
+        hide_db: function (isKeyUp) {
+            if (!isKeyUp && this.value !== '') {
                 var data = {};
                 data[this.id] = this.value;
                 ajaxValidate(this, 'Servers/1/hide_db', data);
@@ -70,8 +70,8 @@ $.extend(true, validators, {
          *
          * @param {boolean} isKeyUp
          */
-        TrustedProxies: function(isKeyUp) {
-            if (!isKeyUp && this.value != '') {
+        TrustedProxies: function (isKeyUp) {
+            if (!isKeyUp && this.value !== '') {
                 var data = {};
                 data[this.id] = this.value;
                 ajaxValidate(this, 'TrustedProxies', data);
@@ -86,7 +86,7 @@ $.extend(true, validators, {
          *
          * @param {boolean} isKeyUp
          */
-        Server: function(isKeyUp) {
+        Server: function (isKeyUp) {
             if (!isKeyUp) {
                 ajaxValidate(this, 'Server', getAllValues());
             }
@@ -97,7 +97,7 @@ $.extend(true, validators, {
          *
          * @param {boolean} isKeyUp
          */
-        Server_login_options: function(isKeyUp) {
+        Server_login_options: function (isKeyUp) {
             return validators._fieldset.Server.apply(this, [isKeyUp]);
         },
         /**
@@ -105,14 +105,13 @@ $.extend(true, validators, {
          *
          * @param {boolean} isKeyUp
          */
-        Server_pmadb: function(isKeyUp) {
+        Server_pmadb: function (isKeyUp) {
             if (isKeyUp) {
                 return true;
             }
 
             var prefix = getIdPrefix($(this).find('input'));
-            var pmadb_active = $('#' + prefix + 'pmadb').val() != '';
-            if (pmadb_active) {
+            if ($('#' + prefix + 'pmadb').val() !== '') {
                 ajaxValidate(this, 'Server_pmadb', getAllValues());
             }
 
@@ -134,12 +133,12 @@ function ajaxValidate(parent, id, values)
     // ensure that parent is a fieldset
     if (parent.attr('tagName') != 'FIELDSET') {
         parent = parent.closest('fieldset');
-        if (parent.length == 0) {
+        if (parent.length === 0) {
             return false;
         }
     }
 
-    if (parent.data('ajax') != null) {
+    if (parent.data('ajax') !== null) {
         parent.data('ajax').abort();
     }
 
@@ -152,16 +151,16 @@ function ajaxValidate(parent, id, values)
             id: id,
             values: $.toJSON(values)
         },
-        success: function(response) {
-            if (response == null) {
+        success: function (response) {
+            if (response === null) {
                 return;
             }
 
             var error = {};
             if (typeof response != 'object') {
                 error[parent.id] = [response];
-            } else if (typeof response['error'] != 'undefined') {
-                error[parent.id] = [response['error']];
+            } else if (typeof response.error != 'undefined') {
+                error[parent.id] = [response.error];
             } else {
                 for (var key in response) {
                     var value = response[key];
@@ -170,7 +169,7 @@ function ajaxValidate(parent, id, values)
             }
             displayErrors(error);
         },
-        complete: function() {
+        complete: function () {
             parent.removeData('ajax');
         }
     }));
@@ -186,8 +185,8 @@ function ajaxValidate(parent, id, values)
 // User preferences allow/disallow UI
 //
 
-$(function() {
-   $('.userprefs-allow').click(function(e) {
+$(function () {
+   $('.userprefs-allow').click(function (e) {
        if (this != e.target) {
            return;
        }

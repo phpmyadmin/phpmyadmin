@@ -115,8 +115,9 @@ function PMA_extractPrivInfo($row = '', $enableHTML = false)
                     $privs[] = $current_grant[1];
                 }
             } elseif (! empty($GLOBALS[$current_grant[0]])
-             && is_array($GLOBALS[$current_grant[0]])
-             && empty($GLOBALS[$current_grant[0] . '_none'])) {
+                && is_array($GLOBALS[$current_grant[0]])
+                && empty($GLOBALS[$current_grant[0] . '_none'])
+            ) {
                 if ($enableHTML) {
                     $priv_string = '<dfn title="' . $current_grant[2] . '">'
                         . $current_grant[1] . '</dfn>';
@@ -137,9 +138,8 @@ function PMA_extractPrivInfo($row = '', $enableHTML = false)
             $privs[] = 'USAGE';
         }
     } elseif ($allPrivileges
-            && (! isset($_POST['grant_count'])
-            || count($privs) == $_POST['grant_count'])
-        ) {
+        && (! isset($_POST['grant_count']) || count($privs) == $_POST['grant_count'])
+    ) {
         if ($enableHTML) {
             $privs = array('<dfn title="'
                 . __('Includes all privileges except GRANT.')
@@ -3436,7 +3436,7 @@ function _getTabList($title, $level, $selected)
     foreach ($tabs as $tab => $tabName) {
         $html_output .= '<div class="item">';
         $html_output .= '<input type="checkbox" class="checkall"'
-        	. (in_array($tab, $selected) ? 'checked="checked"' : '')
+            . (in_array($tab, $selected) ? 'checked="checked"' : '')
             . ' name="' . $level . '_' . $tab .  '" value="Y" />';
         $html_output .= '<label for="' . $level . '_' . $tab .  '">'
             . '<code>' . $tabName . '</code>'

@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-07-29 13:37-0400\n"
-"PO-Revision-Date: 2013-07-19 20:33+0200\n"
+"POT-Creation-Date: 2013-07-30 08:38-0400\n"
+"PO-Revision-Date: 2013-07-30 11:17+0200\n"
 "Last-Translator: Anders Jonsson <anders.jonsson@norsjovallen.se>\n"
 "Language-Team: Swedish <http://l10n.cihar.com/projects/phpmyadmin/master/sv/"
 ">\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 1.6-dev\n"
+"X-Generator: Weblate 1.6\n"
 
 #: browse_foreigners.php:51 browse_foreigners.php:75 js/messages.php:339
 #: libraries/DisplayResults.class.php:813
@@ -22,7 +22,7 @@ msgid "Show all"
 msgstr "Visa alla"
 
 #: browse_foreigners.php:93 libraries/PDF.class.php:70
-#: libraries/Util.class.php:2524
+#: libraries/Util.class.php:2526
 #: libraries/schema/Pdf_Relation_Schema.class.php:1203
 #: libraries/schema/Pdf_Relation_Schema.class.php:1227
 #: libraries/schema/User_Schema.class.php:432
@@ -46,10 +46,10 @@ msgstr "Sök:"
 
 #: browse_foreigners.php:186 gis_data_editor.php:396 js/messages.php:209
 #: libraries/DbSearch.class.php:455 libraries/DisplayResults.class.php:1653
-#: libraries/TableSearch.class.php:1185 libraries/core.lib.php:556
+#: libraries/TableSearch.class.php:1185 libraries/core.lib.php:557
 #: libraries/display_change_password.lib.php:94
 #: libraries/display_create_table.lib.php:65
-#: libraries/display_export.lib.php:294 libraries/display_import.lib.php:335
+#: libraries/display_export.lib.php:294 libraries/display_import.lib.php:368
 #: libraries/display_indexes.lib.php:202 libraries/index.lib.php:37
 #: libraries/insert_edit.lib.php:1549 libraries/insert_edit.lib.php:1584
 #: libraries/operations.lib.php:43 libraries/operations.lib.php:90
@@ -208,7 +208,7 @@ msgstr "Länkar till"
 
 #: db_datadict.php:173 db_printview.php:53
 #: libraries/config/messages.inc.php:94 libraries/config/messages.inc.php:109
-#: libraries/config/messages.inc.php:131
+#: libraries/config/messages.inc.php:132
 #: libraries/plugins/export/ExportHtmlword.class.php:411
 #: libraries/plugins/export/ExportLatex.class.php:518
 #: libraries/plugins/export/ExportOdt.class.php:476
@@ -273,7 +273,7 @@ msgid "View dump (schema) of database"
 msgstr "Visa dump (schema) av databasen"
 
 #: db_export.php:33 db_printview.php:41 db_structure.php:86 db_tracking.php:49
-#: export.php:558 libraries/DBQbe.class.php:268
+#: export.php:559 libraries/DBQbe.class.php:268
 msgid "No tables found in database."
 msgstr "Inga tabeller funna i databasen."
 
@@ -310,7 +310,7 @@ msgstr ""
 "Konfigurationsschemat för phpMyAdmin har avaktiverats. %sVisa orsaken%s."
 
 #: db_printview.php:47 db_tracking.php:79 db_tracking.php:204
-#: libraries/Menu.class.php:239 libraries/config/messages.inc.php:520
+#: libraries/Menu.class.php:239 libraries/config/messages.inc.php:521
 #: libraries/plugins/export/ExportXml.class.php:459
 #: libraries/rte/rte_list.lib.php:65 libraries/rte/rte_triggers.lib.php:355
 #: libraries/schema/User_Schema.class.php:300
@@ -322,7 +322,7 @@ msgid "Table"
 msgstr "Tabell"
 
 #: db_printview.php:48 libraries/Table.class.php:351
-#: libraries/build_html_for_db.lib.php:31 libraries/import.lib.php:181
+#: libraries/build_html_for_db.lib.php:31 libraries/import.lib.php:184
 #: libraries/structure.lib.php:768 libraries/structure.lib.php:1728
 #: libraries/structure.lib.php:1921 tbl_printview.php:365
 msgid "Rows"
@@ -333,22 +333,22 @@ msgstr "Rader"
 msgid "Size"
 msgstr "Storlek"
 
-#: db_printview.php:97 libraries/plugins/export/ExportSql.class.php:1033
+#: db_printview.php:97 libraries/plugins/export/ExportSql.class.php:1115
 #: libraries/structure.lib.php:731
 msgid "in use"
 msgstr "används"
 
-#: db_printview.php:117 libraries/plugins/export/ExportSql.class.php:959
+#: db_printview.php:117 libraries/plugins/export/ExportSql.class.php:1041
 #: libraries/schema/Pdf_Relation_Schema.class.php:1357
 msgid "Creation:"
 msgstr "Skapat:"
 
-#: db_printview.php:126 libraries/plugins/export/ExportSql.class.php:972
+#: db_printview.php:126 libraries/plugins/export/ExportSql.class.php:1054
 #: libraries/schema/Pdf_Relation_Schema.class.php:1362
 msgid "Last update:"
 msgstr "Senaste uppdatering:"
 
-#: db_printview.php:135 libraries/plugins/export/ExportSql.class.php:985
+#: db_printview.php:135 libraries/plugins/export/ExportSql.class.php:1067
 #: libraries/schema/Pdf_Relation_Schema.class.php:1367
 msgid "Last check:"
 msgstr "Senaste kontroll:"
@@ -382,7 +382,7 @@ msgid "Tracked tables"
 msgstr "Spårade tabeller"
 
 #: db_tracking.php:78 libraries/Menu.class.php:216
-#: libraries/config/messages.inc.php:514
+#: libraries/config/messages.inc.php:515
 #: libraries/plugins/export/ExportHtmlword.class.php:158
 #: libraries/plugins/export/ExportOdt.class.php:203
 #: libraries/plugins/export/ExportTexytext.class.php:142
@@ -408,7 +408,7 @@ msgid "Updated"
 msgstr "Uppdaterad"
 
 #: db_tracking.php:83 js/messages.php:163 libraries/Menu.class.php:503
-#: libraries/Util.class.php:4134 libraries/rte/rte_events.lib.php:426
+#: libraries/Util.class.php:4136 libraries/rte/rte_events.lib.php:426
 #: libraries/rte/rte_list.lib.php:78 libraries/server_status.lib.php:363
 #: tbl_tracking.php:770
 msgid "Status"
@@ -435,7 +435,7 @@ msgid "Delete tracking data for this table"
 msgstr "Ta bort spårning för denna tabell"
 
 #: db_tracking.php:109 libraries/Index.class.php:625
-#: libraries/Util.class.php:3440 libraries/Util.class.php:3441
+#: libraries/Util.class.php:3442 libraries/Util.class.php:3443
 #: libraries/server_databases.lib.php:155 libraries/structure.lib.php:307
 #: libraries/structure.lib.php:1378 libraries/structure.lib.php:2070
 #: libraries/structure.lib.php:2072
@@ -474,24 +474,24 @@ msgstr "Spåra tabell"
 msgid "Database Log"
 msgstr "Databas-logg"
 
-#: export.php:152
+#: export.php:153
 msgid "Bad type!"
 msgstr "Dålig typ!"
 
-#: export.php:203
+#: export.php:204
 msgid "Selected export type has to be saved in file!"
 msgstr "Vald exporttyp måste sparas till fil!"
 
-#: export.php:232
+#: export.php:233
 msgid "Bad parameters!"
 msgstr "Felaktiga parametrar!"
 
-#: export.php:336 export.php:367 export.php:929
+#: export.php:337 export.php:368 export.php:930
 #, php-format
 msgid "Insufficient space to save the file %s."
 msgstr "Otillräckligt utrymme för att spara filen %s."
 
-#: export.php:507
+#: export.php:508
 #, php-format
 msgid ""
 "File %s already exists on server, change filename or check overwrite option."
@@ -499,12 +499,12 @@ msgstr ""
 "Filen %s finns redan på servern, ändra filnamnet eller kontrollera "
 "ersättningsalternativet."
 
-#: export.php:513 export.php:519
+#: export.php:514 export.php:520
 #, php-format
 msgid "The web server does not have permission to save the file %s."
 msgstr "Webbservern har inte behörighet att spara filen %s."
 
-#: export.php:935
+#: export.php:936
 #, php-format
 msgid "Dump has been saved to file %s."
 msgstr "Dump har sparats till filen %s."
@@ -518,7 +518,7 @@ msgstr "Ogiltig export-typ"
 msgid "Value for the column \"%s\""
 msgstr "Värde för kolumn \"%s\""
 
-#: gis_data_editor.php:140 libraries/tbl_gis_visualization.lib.php:260
+#: gis_data_editor.php:140 libraries/tbl_gis_visualization.lib.php:261
 msgid "Use OpenStreetMaps as Base Layer"
 msgstr "Använd OpenStreetMaps som baslager"
 
@@ -652,7 +652,7 @@ msgstr ""
 "Kan inte konvertera filens teckenuppsättning utan teckenuppsättningens "
 "omvandlingsbibliotek"
 
-#: import.php:505 libraries/display_import.lib.php:29
+#: import.php:505 libraries/display_import.inc.php:32
 msgid "Could not load import plugins, please check your installation!"
 msgstr "Kunde inte läsa in tillägg för import, kontrollera din installation!"
 
@@ -688,78 +688,92 @@ msgstr ""
 msgid "Back"
 msgstr "Föregående"
 
-#: index.php:114
+#: index.php:115 libraries/Footer.class.php:72
+#, fuzzy
+#| msgid "phpMyAdmin homepage"
+msgid "phpMyAdmin Demo Server"
+msgstr "phpMyAdmin:s hemsida"
+
+#: index.php:119
+#, php-format
+msgid ""
+"You are using the demo server. You can do anything here, but please do not "
+"change root, debian-sys-maint and pma users. More information is available "
+"at %s."
+msgstr ""
+
+#: index.php:129
 msgid "General Settings"
 msgstr "Allmänna inställningar"
 
-#: index.php:144 libraries/display_change_password.lib.php:46
+#: index.php:159 libraries/display_change_password.lib.php:46
 #: user_password.php:233
 msgid "Change password"
 msgstr "Byt lösenord"
 
-#: index.php:160
+#: index.php:175
 msgid "Server connection collation"
 msgstr "Serveranslutning kollationering"
 
-#: index.php:186
+#: index.php:201
 msgid "Appearance Settings"
 msgstr "Inställningar för utseende"
 
-#: index.php:216 prefs_manage.php:281
+#: index.php:231 prefs_manage.php:281
 msgid "More settings"
 msgstr "Fler inställningar"
 
-#: index.php:237
+#: index.php:252
 msgid "Database server"
 msgstr "Databas-server"
 
-#: index.php:240 libraries/plugins/auth/AuthenticationCookie.class.php:207
+#: index.php:255 libraries/plugins/auth/AuthenticationCookie.class.php:207
 msgid "Server:"
 msgstr "Server:"
 
-#: index.php:244
+#: index.php:259
 msgid "Server type:"
 msgstr "Servertyp:"
 
-#: index.php:248 libraries/plugins/export/ExportLatex.class.php:225
-#: libraries/plugins/export/ExportSql.class.php:621
+#: index.php:263 libraries/plugins/export/ExportLatex.class.php:225
+#: libraries/plugins/export/ExportSql.class.php:630
 #: libraries/plugins/export/ExportXml.class.php:198
 msgid "Server version:"
 msgstr "Serverversion:"
 
-#: index.php:252
+#: index.php:267
 msgid "Protocol version:"
 msgstr "Protokollversion:"
 
-#: index.php:256
+#: index.php:271
 msgid "User:"
 msgstr "Användare:"
 
-#: index.php:261
+#: index.php:276
 msgid "Server charset:"
 msgstr "Serverns teckenuppsättning:"
 
-#: index.php:273
+#: index.php:288
 msgid "Web server"
 msgstr "Webbserver"
 
-#: index.php:286
+#: index.php:301
 msgid "Database client version:"
 msgstr "Databasens klientversion:"
 
-#: index.php:290
+#: index.php:305
 msgid "PHP extension:"
 msgstr "PHP-tillägg:"
 
-#: index.php:304
+#: index.php:319
 msgid "Show PHP information"
 msgstr "Visa PHP-information"
 
-#: index.php:327
+#: index.php:342
 msgid "Version information:"
 msgstr "Versionsinformation:"
 
-#: index.php:336 libraries/Util.class.php:441 libraries/Util.class.php:527
+#: index.php:351 libraries/Util.class.php:441 libraries/Util.class.php:527
 #: libraries/config/FormDisplay.tpl.php:149
 #: libraries/display_export.lib.php:461 libraries/engines/pbxt.lib.php:116
 #: libraries/navigation/NavigationHeader.class.php:234
@@ -767,27 +781,27 @@ msgstr "Versionsinformation:"
 msgid "Documentation"
 msgstr "Dokumentation"
 
-#: index.php:343 libraries/config/FormDisplay.tpl.php:150
+#: index.php:358 libraries/config/FormDisplay.tpl.php:150
 msgid "Wiki"
 msgstr "Wiki"
 
-#: index.php:352
+#: index.php:367
 msgid "Official Homepage"
 msgstr "phpMyAdmin:s officiella hemsida"
 
-#: index.php:359
+#: index.php:374
 msgid "Contribute"
 msgstr "Bidra"
 
-#: index.php:366
+#: index.php:381
 msgid "Get support"
 msgstr "Få support"
 
-#: index.php:373
+#: index.php:388
 msgid "List of changes"
 msgstr "Lista över ändringar"
 
-#: index.php:397
+#: index.php:412
 msgid ""
 "Your configuration file contains settings (root with no password) that "
 "correspond to the default MySQL privileged account. Your MySQL server is "
@@ -799,7 +813,7 @@ msgstr ""
 "denna standard, är öppen för intrång, och du bör verkligen fixa detta "
 "säkerhetshål genom att ange ett lösenord för användare 'root'."
 
-#: index.php:414
+#: index.php:429
 msgid ""
 "You have enabled mbstring.func_overload in your PHP configuration. This "
 "option is incompatible with phpMyAdmin and might cause some data to be "
@@ -809,7 +823,7 @@ msgstr ""
 "alternativ är inkompatibelt med phpMyAdmin och kan leda till att data kan "
 "skadas!"
 
-#: index.php:429
+#: index.php:444
 msgid ""
 "The mbstring PHP extension was not found and you seem to be using a "
 "multibyte charset. Without the mbstring extension phpMyAdmin is unable to "
@@ -819,7 +833,7 @@ msgstr ""
 "flerbitars teckenuppsättning. phpMyAdmin kan inte dela upp strängar korrekt "
 "utan tillägget mbstring, vilket kan resultera i oväntade resultat."
 
-#: index.php:444
+#: index.php:459
 msgid ""
 "Your PHP parameter [a@http://php.net/manual/en/session.configuration.php#ini."
 "session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower than "
@@ -831,7 +845,7 @@ msgstr ""
 "giltighet konfigurerad i phpMyAdmin. På grund av detta kommer din inloggning "
 "upphöra tidigare än vad som är konfigurerat i phpMyAdmin."
 
-#: index.php:456
+#: index.php:471
 msgid ""
 "Login cookie store is lower than cookie validity configured in phpMyAdmin, "
 "because of this, your login will expire sooner than configured in phpMyAdmin."
@@ -840,11 +854,11 @@ msgstr ""
 "grund av detta kommer dina inloggningsuppgifter upphöra att gälla tidigare "
 "än konfigurerat i phpMyAdmin."
 
-#: index.php:468
+#: index.php:483
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
 msgstr "Konfigurationsfilen behöver nu ett hemligt lösenord (blowfish_secret)."
 
-#: index.php:479
+#: index.php:494
 msgid ""
 "Directory [code]config[/code], which is used by the setup script, still "
 "exists in your phpMyAdmin directory. It is strongly recommended to remove it "
@@ -856,7 +870,7 @@ msgstr ""
 "den när phpMyAdmin har konfigurerats. I annat fall kan din servers säkerhet "
 "hotas av obehöriga som laddar ner din konfiguration."
 
-#: index.php:489
+#: index.php:504
 #, php-format
 msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
@@ -865,7 +879,7 @@ msgstr ""
 "phpMyAdmin-konfigurationen är inte fullständigt konfigurerad, vissa utökade "
 "funktioner har inaktiverats. För att ta reda på varför klicka%shär%s."
 
-#: index.php:521
+#: index.php:536
 #, php-format
 msgid ""
 "Your PHP MySQL library version %s differs from your MySQL server version %s. "
@@ -874,7 +888,7 @@ msgstr ""
 "Din PHP MySQL bibliotekversion %s skiljer sig från din MySQL server version "
 "%s. Detta kan orsaka oförutsägbara beteenden."
 
-#: index.php:545
+#: index.php:560
 #, php-format
 msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
@@ -980,18 +994,18 @@ msgid "Close"
 msgstr "Stäng"
 
 #. l10n: Other, small valued, queries
-#: js/messages.php:61 libraries/ServerStatusData.class.php:200
-#: server_status_queries.php:171
+#: js/messages.php:61 libraries/ServerStatusData.class.php:201
+#: libraries/server_status_queries.lib.php:146
 msgid "Other"
 msgstr "Annan"
 
 #. l10n: Thousands separator
-#: js/messages.php:63 libraries/Util.class.php:1491
+#: js/messages.php:63 libraries/Util.class.php:1492
 msgid ","
 msgstr " "
 
 #. l10n: Decimal separator
-#: js/messages.php:65 libraries/Util.class.php:1493
+#: js/messages.php:65 libraries/Util.class.php:1494
 msgid "."
 msgstr ","
 
@@ -1096,39 +1110,39 @@ msgid "Processes"
 msgstr "Processer"
 
 #. l10n: shortcuts for Byte
-#: js/messages.php:99 libraries/Util.class.php:1437
+#: js/messages.php:99 libraries/Util.class.php:1438
 msgid "B"
 msgstr "bytes"
 
 #. l10n: shortcuts for Kilobyte
-#: js/messages.php:100 libraries/Util.class.php:1439
+#: js/messages.php:100 libraries/Util.class.php:1440
 #: libraries/server_status_monitor.lib.php:250
 msgid "KiB"
 msgstr "kB"
 
 #. l10n: shortcuts for Megabyte
-#: js/messages.php:101 libraries/Util.class.php:1441
+#: js/messages.php:101 libraries/Util.class.php:1442
 #: libraries/server_status_monitor.lib.php:251
 msgid "MiB"
 msgstr "Mb"
 
 #. l10n: shortcuts for Gigabyte
-#: js/messages.php:102 libraries/Util.class.php:1443
+#: js/messages.php:102 libraries/Util.class.php:1444
 msgid "GiB"
 msgstr "GB"
 
 #. l10n: shortcuts for Terabyte
-#: js/messages.php:103 libraries/Util.class.php:1445
+#: js/messages.php:103 libraries/Util.class.php:1446
 msgid "TiB"
 msgstr "TB"
 
 #. l10n: shortcuts for Petabyte
-#: js/messages.php:104 libraries/Util.class.php:1447
+#: js/messages.php:104 libraries/Util.class.php:1448
 msgid "PiB"
 msgstr "PB"
 
 #. l10n: shortcuts for Exabyte
-#: js/messages.php:105 libraries/Util.class.php:1449
+#: js/messages.php:105 libraries/Util.class.php:1450
 msgid "EiB"
 msgstr "EB"
 
@@ -1147,7 +1161,7 @@ msgid "Traffic"
 msgstr "Trafik"
 
 #: js/messages.php:111 libraries/Menu.class.php:535
-#: libraries/Util.class.php:4138 libraries/server_status_monitor.lib.php:290
+#: libraries/Util.class.php:4140 libraries/server_status_monitor.lib.php:290
 msgid "Settings"
 msgstr "Inställningar"
 
@@ -1170,7 +1184,7 @@ msgstr "Lägg till minst en variabel till serien"
 #: js/messages.php:117 libraries/DisplayResults.class.php:1291
 #: libraries/TableSearch.class.php:851 libraries/TableSearch.class.php:998
 #: libraries/display_export.lib.php:572
-#: libraries/plugins/export/ExportSql.class.php:1558
+#: libraries/plugins/export/ExportSql.class.php:1577
 #: libraries/server_privileges.lib.php:2258
 #: libraries/server_status.lib.php:525
 #: libraries/server_status_monitor.lib.php:269
@@ -1455,9 +1469,9 @@ msgstr ""
 
 #: js/messages.php:190 libraries/Menu.class.php:336
 #: libraries/Menu.class.php:418 libraries/Menu.class.php:531
-#: libraries/Util.class.php:4137 libraries/Util.class.php:4152
-#: libraries/Util.class.php:4168 libraries/config/messages.inc.php:170
-#: libraries/display_import.lib.php:187
+#: libraries/Util.class.php:4139 libraries/Util.class.php:4154
+#: libraries/Util.class.php:4170 libraries/config/messages.inc.php:171
+#: libraries/display_import.lib.php:108
 #: libraries/server_status_monitor.lib.php:355 prefs_manage.php:238
 #: setup/frames/menu.inc.php:21
 msgid "Import"
@@ -1666,8 +1680,8 @@ msgstr "Visa frågerutan"
 
 #: js/messages.php:264 libraries/DisplayResults.class.php:3314
 #: libraries/Index.class.php:591 libraries/Util.class.php:710
-#: libraries/Util.class.php:1256 libraries/Util.class.php:3444
-#: libraries/Util.class.php:3445 libraries/config/messages.inc.php:496
+#: libraries/Util.class.php:1257 libraries/Util.class.php:3446
+#: libraries/Util.class.php:3447 libraries/config/messages.inc.php:497
 #: libraries/schema/User_Schema.class.php:218
 #: libraries/server_privileges.lib.php:3265 server_variables.php:130
 #: setup/frames/index.inc.php:147
@@ -1678,7 +1692,7 @@ msgstr "Redigera"
 msgid "No rows selected"
 msgstr "Inga rader valda"
 
-#: js/messages.php:266 libraries/DisplayResults.class.php:5039
+#: js/messages.php:266 libraries/DisplayResults.class.php:4994
 #: libraries/structure.lib.php:1374 libraries/structure.lib.php:2068
 #: querywindow.php:85
 msgid "Change"
@@ -1954,7 +1968,7 @@ msgstr ", senaste stabila version:"
 msgid "up to date"
 msgstr "aktuell"
 
-#: js/messages.php:380 libraries/DisplayResults.class.php:5154
+#: js/messages.php:380 libraries/DisplayResults.class.php:5109
 #: view_create.php:178
 msgid "Create view"
 msgstr "Skapa vy"
@@ -2028,63 +2042,63 @@ msgid "December"
 msgstr "december"
 
 #. l10n: Short month name
-#: js/messages.php:432 libraries/Util.class.php:1648
+#: js/messages.php:432 libraries/Util.class.php:1649
 msgid "Jan"
 msgstr "jan"
 
 #. l10n: Short month name
-#: js/messages.php:434 libraries/Util.class.php:1650
+#: js/messages.php:434 libraries/Util.class.php:1651
 msgid "Feb"
 msgstr "feb"
 
 #. l10n: Short month name
-#: js/messages.php:436 libraries/Util.class.php:1652
+#: js/messages.php:436 libraries/Util.class.php:1653
 msgid "Mar"
 msgstr "mars"
 
 #. l10n: Short month name
-#: js/messages.php:438 libraries/Util.class.php:1654
+#: js/messages.php:438 libraries/Util.class.php:1655
 msgid "Apr"
 msgstr "apr"
 
 #. l10n: Short month name
-#: js/messages.php:440 libraries/Util.class.php:1656
+#: js/messages.php:440 libraries/Util.class.php:1657
 msgctxt "Short month name"
 msgid "May"
 msgstr "maj"
 
 #. l10n: Short month name
-#: js/messages.php:442 libraries/Util.class.php:1658
+#: js/messages.php:442 libraries/Util.class.php:1659
 msgid "Jun"
 msgstr "jun"
 
 #. l10n: Short month name
-#: js/messages.php:444 libraries/Util.class.php:1660
+#: js/messages.php:444 libraries/Util.class.php:1661
 msgid "Jul"
 msgstr "jul"
 
 #. l10n: Short month name
-#: js/messages.php:446 libraries/Util.class.php:1662
+#: js/messages.php:446 libraries/Util.class.php:1663
 msgid "Aug"
 msgstr "aug"
 
 #. l10n: Short month name
-#: js/messages.php:448 libraries/Util.class.php:1664
+#: js/messages.php:448 libraries/Util.class.php:1665
 msgid "Sep"
 msgstr "sep"
 
 #. l10n: Short month name
-#: js/messages.php:450 libraries/Util.class.php:1666
+#: js/messages.php:450 libraries/Util.class.php:1667
 msgid "Oct"
 msgstr "okt"
 
 #. l10n: Short month name
-#: js/messages.php:452 libraries/Util.class.php:1668
+#: js/messages.php:452 libraries/Util.class.php:1669
 msgid "Nov"
 msgstr "nov"
 
 #. l10n: Short month name
-#: js/messages.php:454 libraries/Util.class.php:1670
+#: js/messages.php:454 libraries/Util.class.php:1671
 msgid "Dec"
 msgstr "dec"
 
@@ -2122,32 +2136,32 @@ msgid "Sun"
 msgstr "Sön"
 
 #. l10n: Short week day name
-#: js/messages.php:475 libraries/Util.class.php:1675
+#: js/messages.php:475 libraries/Util.class.php:1676
 msgid "Mon"
 msgstr "Mån"
 
 #. l10n: Short week day name
-#: js/messages.php:477 libraries/Util.class.php:1677
+#: js/messages.php:477 libraries/Util.class.php:1678
 msgid "Tue"
 msgstr "Tis"
 
 #. l10n: Short week day name
-#: js/messages.php:479 libraries/Util.class.php:1679
+#: js/messages.php:479 libraries/Util.class.php:1680
 msgid "Wed"
 msgstr "Ons"
 
 #. l10n: Short week day name
-#: js/messages.php:481 libraries/Util.class.php:1681
+#: js/messages.php:481 libraries/Util.class.php:1682
 msgid "Thu"
 msgstr "Tors"
 
 #. l10n: Short week day name
-#: js/messages.php:483 libraries/Util.class.php:1683
+#: js/messages.php:483 libraries/Util.class.php:1684
 msgid "Fri"
 msgstr "Fre"
 
 #. l10n: Short week day name
-#: js/messages.php:485 libraries/Util.class.php:1685
+#: js/messages.php:485 libraries/Util.class.php:1686
 msgid "Sat"
 msgstr "Lör"
 
@@ -2271,7 +2285,8 @@ msgid "per minute"
 msgstr "per minut"
 
 #: libraries/Advisor.class.php:476 libraries/server_status.lib.php:137
-#: libraries/server_status.lib.php:221 server_status_queries.php:124
+#: libraries/server_status.lib.php:221
+#: libraries/server_status_queries.lib.php:99
 msgid "per hour"
 msgstr "per timme"
 
@@ -2376,11 +2391,11 @@ msgstr "Radera:"
 msgid "SQL query on database <b>%s</b>:"
 msgstr "SQL-fråga i databas <b>%s</b>:"
 
-#: libraries/DBQbe.class.php:1335 libraries/Util.class.php:1285
+#: libraries/DBQbe.class.php:1335 libraries/Util.class.php:1286
 msgid "Submit Query"
 msgstr "Skicka fråga"
 
-#: libraries/DatabaseInterface.class.php:2047
+#: libraries/DatabaseInterface.class.php:2012
 msgid ""
 "The server is not responding (or the local server's socket is not correctly "
 "configured)."
@@ -2388,15 +2403,15 @@ msgstr ""
 "Servern svarar inte (eller den lokala serverns socket är inte korrekt "
 "konfigurerad)."
 
-#: libraries/DatabaseInterface.class.php:2052
+#: libraries/DatabaseInterface.class.php:2017
 msgid "The server is not responding."
 msgstr "Servern svarar inte."
 
-#: libraries/DatabaseInterface.class.php:2057
+#: libraries/DatabaseInterface.class.php:2022
 msgid "Please check privileges of directory containing database."
 msgstr "Kontrollera privilegierna för katalogen som innehåller databasen."
 
-#: libraries/DatabaseInterface.class.php:2067
+#: libraries/DatabaseInterface.class.php:2032
 msgid "Details…"
 msgstr "Detaljer…"
 
@@ -2436,8 +2451,8 @@ msgstr[0] "%1$s träff i <strong>%2$s</strong>"
 msgstr[1] "%1$s träffar i <strong>%2$s</strong>"
 
 #: libraries/DbSearch.class.php:346 libraries/Menu.class.php:298
-#: libraries/Util.class.php:3218 libraries/Util.class.php:3433
-#: libraries/Util.class.php:3434 libraries/Util.class.php:4162
+#: libraries/Util.class.php:3220 libraries/Util.class.php:3435
+#: libraries/Util.class.php:3436 libraries/Util.class.php:4164
 #: libraries/structure.lib.php:1368
 msgid "Browse"
 msgstr "Bläddra"
@@ -2448,7 +2463,7 @@ msgid "Delete the matches for the %s table?"
 msgstr "Ta bort resultat som matchar %s tabellen?"
 
 #: libraries/DbSearch.class.php:357 libraries/DisplayResults.class.php:3386
-#: libraries/DisplayResults.class.php:5022
+#: libraries/DisplayResults.class.php:4977
 #: libraries/schema/User_Schema.class.php:219
 #: libraries/schema/User_Schema.class.php:301
 #: libraries/schema/User_Schema.class.php:354
@@ -2491,28 +2506,28 @@ msgstr "Spara editerade data"
 msgid "Restore column order"
 msgstr "Återställ ordningen på kolumner"
 
-#: libraries/DisplayResults.class.php:779 libraries/Util.class.php:2536
-#: libraries/Util.class.php:2540
+#: libraries/DisplayResults.class.php:779 libraries/Util.class.php:2538
+#: libraries/Util.class.php:2542
 msgctxt "First page"
 msgid "Begin"
 msgstr "Starta"
 
-#: libraries/DisplayResults.class.php:782 libraries/Util.class.php:2538
-#: libraries/Util.class.php:2541 libraries/server_bin_log.lib.php:175
+#: libraries/DisplayResults.class.php:782 libraries/Util.class.php:2540
+#: libraries/Util.class.php:2543 libraries/server_bin_log.lib.php:175
 #: libraries/server_bin_log.lib.php:177
 msgctxt "Previous page"
 msgid "Previous"
 msgstr "Föregående"
 
-#: libraries/DisplayResults.class.php:839 libraries/Util.class.php:2577
-#: libraries/Util.class.php:2580 libraries/server_bin_log.lib.php:213
+#: libraries/DisplayResults.class.php:839 libraries/Util.class.php:2579
+#: libraries/Util.class.php:2582 libraries/server_bin_log.lib.php:213
 #: libraries/server_bin_log.lib.php:215
 msgctxt "Next page"
 msgid "Next"
 msgstr "Nästa"
 
-#: libraries/DisplayResults.class.php:867 libraries/Util.class.php:2578
-#: libraries/Util.class.php:2581
+#: libraries/DisplayResults.class.php:867 libraries/Util.class.php:2580
+#: libraries/Util.class.php:2583
 msgctxt "Last page"
 msgid "End"
 msgstr "Slut"
@@ -2543,7 +2558,7 @@ msgid "Sort by key"
 msgstr "Sortera efter nyckel"
 
 #: libraries/DisplayResults.class.php:1574 libraries/TableSearch.class.php:764
-#: libraries/import.lib.php:1195 libraries/import.lib.php:1221
+#: libraries/import.lib.php:1201 libraries/import.lib.php:1227
 #: libraries/plugins/export/ExportCodegen.class.php:90
 #: libraries/plugins/export/ExportCsv.class.php:51
 #: libraries/plugins/export/ExportExcel.class.php:44
@@ -2618,15 +2633,15 @@ msgid "The row has been deleted"
 msgstr "Raden har raderats"
 
 #: libraries/DisplayResults.class.php:3413
-#: libraries/DisplayResults.class.php:5022 libraries/server_status.lib.php:520
+#: libraries/DisplayResults.class.php:4977 libraries/server_status.lib.php:520
 msgid "Kill"
 msgstr "Döda"
 
-#: libraries/DisplayResults.class.php:4480 libraries/structure.lib.php:771
+#: libraries/DisplayResults.class.php:4435 libraries/structure.lib.php:771
 msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]"
 msgstr "Kan vara ungefärligt. Se [doc@faq3-11]FAQ 3.11[/doc]"
 
-#: libraries/DisplayResults.class.php:4534 libraries/Message.class.php:180
+#: libraries/DisplayResults.class.php:4489 libraries/Message.class.php:180
 #: libraries/rte/rte_routines.lib.php:1427
 #: libraries/sql_query_form.lib.php:116 tbl_find_replace.php:49
 #: tbl_operations.php:184 tbl_relation.php:317 tbl_row_action.php:111
@@ -2634,36 +2649,34 @@ msgstr "Kan vara ungefärligt. Se [doc@faq3-11]FAQ 3.11[/doc]"
 msgid "Your SQL query has been executed successfully"
 msgstr "Din SQL-fråga utfördes korrekt"
 
-#: libraries/DisplayResults.class.php:4871
+#: libraries/DisplayResults.class.php:4826
 msgid "in query"
 msgstr "i fråga"
 
-#: libraries/DisplayResults.class.php:4908 libraries/structure.lib.php:653
+#: libraries/DisplayResults.class.php:4863 libraries/structure.lib.php:653
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to %sdocumentation"
 "%s."
 msgstr "Denna vy har åtminstone detta antal rader. Se %sdokumentationen%s."
 
-#: libraries/DisplayResults.class.php:4921
-#, fuzzy, php-format
-#| msgid "Showing rows"
+#: libraries/DisplayResults.class.php:4876
+#, php-format
 msgid "Showing rows %1s - %2s"
-msgstr "Visar rader"
+msgstr "Visar raderna %1s - %2s"
 
-#: libraries/DisplayResults.class.php:4933
-#, fuzzy, php-format
-#| msgid "total"
+#: libraries/DisplayResults.class.php:4888
+#, php-format
 msgid "%d total"
-msgstr "totalt"
+msgstr "%d totalt"
 
-#: libraries/DisplayResults.class.php:4945 libraries/sql.lib.php:1640
+#: libraries/DisplayResults.class.php:4900 libraries/sql.lib.php:1640
 #, php-format
 msgid "Query took %01.4f sec"
 msgstr "Frågan tog %01.4f sek"
 
-#: libraries/DisplayResults.class.php:5029
-#: libraries/DisplayResults.class.php:5035 libraries/mult_submits.inc.php:45
+#: libraries/DisplayResults.class.php:4984
+#: libraries/DisplayResults.class.php:4990 libraries/mult_submits.inc.php:45
 #: libraries/server_databases.lib.php:146
 #: libraries/server_databases.lib.php:150
 #: libraries/server_privileges.lib.php:2549
@@ -2673,8 +2686,8 @@ msgstr "Frågan tog %01.4f sek"
 msgid "With selected:"
 msgstr "Med markerade:"
 
-#: libraries/DisplayResults.class.php:5033
-#: libraries/DisplayResults.class.php:5034
+#: libraries/DisplayResults.class.php:4988
+#: libraries/DisplayResults.class.php:4989
 #: libraries/server_databases.lib.php:148
 #: libraries/server_databases.lib.php:149
 #: libraries/server_privileges.lib.php:904
@@ -2687,12 +2700,12 @@ msgstr "Med markerade:"
 msgid "Check All"
 msgstr "Markera alla"
 
-#: libraries/DisplayResults.class.php:5052
-#: libraries/DisplayResults.class.php:5322 libraries/Menu.class.php:327
+#: libraries/DisplayResults.class.php:5007
+#: libraries/DisplayResults.class.php:5277 libraries/Menu.class.php:327
 #: libraries/Menu.class.php:409 libraries/Menu.class.php:527
-#: libraries/Util.class.php:3446 libraries/Util.class.php:3447
-#: libraries/Util.class.php:4136 libraries/Util.class.php:4151
-#: libraries/Util.class.php:4167 libraries/config/messages.inc.php:164
+#: libraries/Util.class.php:3448 libraries/Util.class.php:3449
+#: libraries/Util.class.php:4138 libraries/Util.class.php:4153
+#: libraries/Util.class.php:4169 libraries/config/messages.inc.php:165
 #: libraries/display_export.lib.php:163
 #: libraries/server_privileges.lib.php:1917
 #: libraries/server_privileges.lib.php:2557
@@ -2701,29 +2714,29 @@ msgstr "Markera alla"
 msgid "Export"
 msgstr "Exportera"
 
-#: libraries/DisplayResults.class.php:5210
+#: libraries/DisplayResults.class.php:5165
 msgid "Query results operations"
 msgstr "Operationer för frågeresultat"
 
-#: libraries/DisplayResults.class.php:5246 libraries/Header.class.php:340
+#: libraries/DisplayResults.class.php:5201 libraries/Header.class.php:340
 #: libraries/structure.lib.php:299 libraries/structure.lib.php:362
 #: libraries/structure.lib.php:1497
 msgid "Print view"
 msgstr "Utskriftsvänlig visning"
 
-#: libraries/DisplayResults.class.php:5264
+#: libraries/DisplayResults.class.php:5219
 msgid "Print view (with full texts)"
 msgstr "Utskriftsvänlig version (med fullständiga texter)"
 
-#: libraries/DisplayResults.class.php:5335 tbl_chart.php:151
+#: libraries/DisplayResults.class.php:5290 tbl_chart.php:151
 msgid "Display chart"
 msgstr "Visa diagram"
 
-#: libraries/DisplayResults.class.php:5360
+#: libraries/DisplayResults.class.php:5315
 msgid "Visualize GIS data"
 msgstr "Visualisera GIS-data"
 
-#: libraries/DisplayResults.class.php:5577
+#: libraries/DisplayResults.class.php:5532
 msgid "Link not found"
 msgstr "Länken hittades inte"
 
@@ -2780,8 +2793,19 @@ msgstr "Fel vid flytt av uppladdad fil."
 msgid "Cannot read (moved) upload file."
 msgstr "Kan inte läsa (flyttad) uppladdad fil."
 
-#: libraries/Footer.class.php:133 libraries/Footer.class.php:141
-#: libraries/Footer.class.php:144
+#: libraries/Footer.class.php:76
+#, php-format
+msgid "Currently running Git revision %1$s from the %2$s branch."
+msgstr ""
+
+#: libraries/Footer.class.php:83
+#, fuzzy
+#| msgid "Version information"
+msgid "Git information missing!"
+msgstr "Versionsinformation"
+
+#: libraries/Footer.class.php:163 libraries/Footer.class.php:171
+#: libraries/Footer.class.php:174
 msgid "Open new phpMyAdmin window"
 msgstr "Öppna nytt phpMyAdmin-fönster"
 
@@ -2789,7 +2813,7 @@ msgstr "Öppna nytt phpMyAdmin-fönster"
 msgid "Click on the bar to scroll to top of page"
 msgstr "Klicka på bommen för att förflytta dig till toppen av sidan"
 
-#: libraries/Header.class.php:648
+#: libraries/Header.class.php:650
 #: libraries/plugins/auth/AuthenticationCookie.class.php:178
 msgid "Javascript must be enabled past this point"
 msgstr "Javascript måste vara aktiverat efter detta"
@@ -2854,8 +2878,8 @@ msgstr ""
 "Index %1$s och %2$s verkar vara identiska och ett av dem kan möjligen tas "
 "bort."
 
-#: libraries/Menu.class.php:199 libraries/ServerStatusData.class.php:341
-#: libraries/config/messages.inc.php:518
+#: libraries/Menu.class.php:199 libraries/ServerStatusData.class.php:342
+#: libraries/config/messages.inc.php:519
 msgid "Server"
 msgstr "Server"
 
@@ -2866,60 +2890,60 @@ msgid "View"
 msgstr "Vy"
 
 #: libraries/Menu.class.php:304 libraries/Menu.class.php:388
-#: libraries/Util.class.php:3214 libraries/Util.class.php:3221
-#: libraries/Util.class.php:3439 libraries/Util.class.php:4147
-#: libraries/Util.class.php:4163 libraries/config/setup.forms.php:303
-#: libraries/config/setup.forms.php:340 libraries/config/setup.forms.php:366
-#: libraries/config/user_preferences.forms.php:196
-#: libraries/config/user_preferences.forms.php:233
-#: libraries/config/user_preferences.forms.php:259
-#: libraries/import.lib.php:1221 libraries/server_privileges.lib.php:875
+#: libraries/Util.class.php:3216 libraries/Util.class.php:3223
+#: libraries/Util.class.php:3441 libraries/Util.class.php:4149
+#: libraries/Util.class.php:4165 libraries/config/setup.forms.php:304
+#: libraries/config/setup.forms.php:341 libraries/config/setup.forms.php:367
+#: libraries/config/user_preferences.forms.php:197
+#: libraries/config/user_preferences.forms.php:234
+#: libraries/config/user_preferences.forms.php:260
+#: libraries/import.lib.php:1227 libraries/server_privileges.lib.php:875
 #: libraries/tbl_columns_definition_form.inc.php:771 pmd_general.php:174
 #: tbl_tracking.php:321
 msgid "Structure"
 msgstr "Struktur"
 
 #: libraries/Menu.class.php:308 libraries/Menu.class.php:392
-#: libraries/Menu.class.php:499 libraries/Util.class.php:3215
-#: libraries/Util.class.php:3222 libraries/Util.class.php:4133
-#: libraries/Util.class.php:4148 libraries/Util.class.php:4164
-#: libraries/config/messages.inc.php:214 querywindow.php:59
+#: libraries/Menu.class.php:499 libraries/Util.class.php:3217
+#: libraries/Util.class.php:3224 libraries/Util.class.php:4135
+#: libraries/Util.class.php:4150 libraries/Util.class.php:4166
+#: libraries/config/messages.inc.php:215 querywindow.php:59
 msgid "SQL"
 msgstr "SQL"
 
 #: libraries/Menu.class.php:311 libraries/Menu.class.php:395
-#: libraries/Util.class.php:3216 libraries/Util.class.php:3223
-#: libraries/Util.class.php:3435 libraries/Util.class.php:3436
-#: libraries/Util.class.php:4149 libraries/Util.class.php:4165
+#: libraries/Util.class.php:3218 libraries/Util.class.php:3225
+#: libraries/Util.class.php:3437 libraries/Util.class.php:3438
+#: libraries/Util.class.php:4151 libraries/Util.class.php:4167
 msgid "Search"
 msgstr "Sök"
 
-#: libraries/Menu.class.php:321 libraries/Util.class.php:3217
-#: libraries/Util.class.php:3437 libraries/Util.class.php:3438
-#: libraries/Util.class.php:4166 libraries/sql_query_form.lib.php:305
+#: libraries/Menu.class.php:321 libraries/Util.class.php:3219
+#: libraries/Util.class.php:3439 libraries/Util.class.php:3440
+#: libraries/Util.class.php:4168 libraries/sql_query_form.lib.php:305
 #: libraries/sql_query_form.lib.php:308
 msgid "Insert"
 msgstr "Lägg till"
 
 #: libraries/Menu.class.php:340 libraries/Menu.class.php:363
-#: libraries/Menu.class.php:422 libraries/Util.class.php:3224
-#: libraries/Util.class.php:4153 libraries/Util.class.php:4169
+#: libraries/Menu.class.php:422 libraries/Util.class.php:3226
+#: libraries/Util.class.php:4155 libraries/Util.class.php:4171
 #: view_operations.php:87
 msgid "Operations"
 msgstr "Operationer"
 
 #: libraries/Menu.class.php:344 libraries/Menu.class.php:456
-#: libraries/Util.class.php:4158 libraries/Util.class.php:4170
+#: libraries/Util.class.php:4160 libraries/Util.class.php:4172
 #: libraries/relation.lib.php:236
 msgid "Tracking"
 msgstr "Spårning"
 
 #: libraries/Menu.class.php:353 libraries/Menu.class.php:450
-#: libraries/Util.class.php:4157 libraries/Util.class.php:4171
+#: libraries/Util.class.php:4159 libraries/Util.class.php:4173
 #: libraries/navigation/Nodes/Node_Trigger_Container.class.php:26
 #: libraries/plugins/export/ExportHtmlword.class.php:565
 #: libraries/plugins/export/ExportOdt.class.php:657
-#: libraries/plugins/export/ExportSql.class.php:1481
+#: libraries/plugins/export/ExportSql.class.php:1479
 #: libraries/plugins/export/ExportTexytext.class.php:508
 #: libraries/plugins/export/ExportXml.class.php:121
 #: libraries/rte/rte_words.lib.php:46
@@ -2931,76 +2955,76 @@ msgstr "Trigger"
 msgid "Database seems to be empty!"
 msgstr "Databasen verkar vara tom!"
 
-#: libraries/Menu.class.php:402 libraries/Util.class.php:4150
+#: libraries/Menu.class.php:402 libraries/Util.class.php:4152
 msgid "Query"
 msgstr "Fråga"
 
-#: libraries/Menu.class.php:430 libraries/Util.class.php:4154
+#: libraries/Menu.class.php:430 libraries/Util.class.php:4156
 #: libraries/server_privileges.lib.php:1700
 #: libraries/server_privileges.lib.php:2358
 #: libraries/server_privileges.lib.php:2969 server_privileges.php:153
 msgid "Privileges"
 msgstr "Privilegier"
 
-#: libraries/Menu.class.php:435 libraries/Util.class.php:4155
+#: libraries/Menu.class.php:435 libraries/Util.class.php:4157
 #: libraries/rte/rte_words.lib.php:34
 msgid "Routines"
 msgstr "Rutiner"
 
-#: libraries/Menu.class.php:443 libraries/Util.class.php:4156
+#: libraries/Menu.class.php:443 libraries/Util.class.php:4158
 #: libraries/navigation/Nodes/Node_Event_Container.class.php:26
-#: libraries/plugins/export/ExportSql.class.php:822
+#: libraries/plugins/export/ExportSql.class.php:832
 #: libraries/rte/rte_words.lib.php:58
 msgid "Events"
 msgstr "Händelser"
 
-#: libraries/Menu.class.php:462 libraries/Util.class.php:4159
+#: libraries/Menu.class.php:462 libraries/Util.class.php:4161
 #: libraries/relation.lib.php:203
 msgid "Designer"
 msgstr "Designer"
 
-#: libraries/Menu.class.php:495 libraries/Util.class.php:4132
-#: libraries/config/messages.inc.php:177 libraries/server_common.lib.php:43
+#: libraries/Menu.class.php:495 libraries/Util.class.php:4134
+#: libraries/config/messages.inc.php:178 libraries/server_common.lib.php:43
 #: libraries/server_privileges.lib.php:3043
 msgid "Databases"
 msgstr "Databaser"
 
-#: libraries/Menu.class.php:518 libraries/Util.class.php:4135
+#: libraries/Menu.class.php:518 libraries/Util.class.php:4137
 msgid "Users"
 msgstr "Användare"
 
-#: libraries/Menu.class.php:544 libraries/ServerStatusData.class.php:189
-#: libraries/Util.class.php:4139 libraries/server_common.lib.php:31
+#: libraries/Menu.class.php:544 libraries/ServerStatusData.class.php:190
+#: libraries/Util.class.php:4141 libraries/server_common.lib.php:31
 msgid "Binary log"
 msgstr "Binär logg"
 
-#: libraries/Menu.class.php:550 libraries/ServerStatusData.class.php:194
-#: libraries/Util.class.php:4140 libraries/server_common.lib.php:37
+#: libraries/Menu.class.php:550 libraries/ServerStatusData.class.php:195
+#: libraries/Util.class.php:4142 libraries/server_common.lib.php:37
 #: libraries/structure.lib.php:182 libraries/structure.lib.php:761
 msgid "Replication"
 msgstr "Replikering"
 
-#: libraries/Menu.class.php:555 libraries/ServerStatusData.class.php:241
-#: libraries/Util.class.php:4141 libraries/server_engines.lib.php:109
+#: libraries/Menu.class.php:555 libraries/ServerStatusData.class.php:242
+#: libraries/Util.class.php:4143 libraries/server_engines.lib.php:109
 #: libraries/server_engines.lib.php:113
 msgid "Variables"
 msgstr "Variabler"
 
-#: libraries/Menu.class.php:559 libraries/Util.class.php:4142
+#: libraries/Menu.class.php:559 libraries/Util.class.php:4144
 msgid "Charsets"
 msgstr "Teckenuppsättningar"
 
-#: libraries/Menu.class.php:564 libraries/Util.class.php:4143
+#: libraries/Menu.class.php:564 libraries/Util.class.php:4145
 #: libraries/server_common.lib.php:28 libraries/server_plugins.lib.php:31
 msgid "Plugins"
 msgstr "Insticksprogram"
 
-#: libraries/Menu.class.php:568 libraries/Util.class.php:4144
+#: libraries/Menu.class.php:568 libraries/Util.class.php:4146
 msgid "Engines"
 msgstr "Motorer"
 
 #: libraries/Message.class.php:199 libraries/Util.class.php:672
-#: libraries/core.lib.php:232 libraries/import.lib.php:171
+#: libraries/core.lib.php:232 libraries/import.lib.php:174
 #: libraries/insert_edit.lib.php:1182 tbl_chart.php:24 tbl_operations.php:186
 #: view_operations.php:58
 msgid "Error"
@@ -3043,103 +3067,103 @@ msgstr "De senaste tabellerna"
 msgid "There are no recent tables"
 msgstr "Det finns inga nya tabeller"
 
-#: libraries/ServerStatusData.class.php:183
+#: libraries/ServerStatusData.class.php:184
 #: libraries/server_status.lib.php:367
 msgid "SQL query"
 msgstr "SQL-fråga"
 
-#: libraries/ServerStatusData.class.php:186
+#: libraries/ServerStatusData.class.php:187
 msgid "Handler"
 msgstr "Hanterare"
 
-#: libraries/ServerStatusData.class.php:187
+#: libraries/ServerStatusData.class.php:188
 msgid "Query cache"
 msgstr "Frågecache"
 
-#: libraries/ServerStatusData.class.php:188
+#: libraries/ServerStatusData.class.php:189
 msgid "Threads"
 msgstr "Trådar"
 
-#: libraries/ServerStatusData.class.php:190
+#: libraries/ServerStatusData.class.php:191
 msgid "Temporary data"
 msgstr "Temporära data"
 
-#: libraries/ServerStatusData.class.php:191
+#: libraries/ServerStatusData.class.php:192
 msgid "Delayed inserts"
 msgstr "Fördröjda infogningar"
 
-#: libraries/ServerStatusData.class.php:192
+#: libraries/ServerStatusData.class.php:193
 msgid "Key cache"
 msgstr "Nyckelcache"
 
-#: libraries/ServerStatusData.class.php:193
+#: libraries/ServerStatusData.class.php:194
 msgid "Joins"
 msgstr "Kopplingar"
 
-#: libraries/ServerStatusData.class.php:195
+#: libraries/ServerStatusData.class.php:196
 msgid "Sorting"
 msgstr "Sortering"
 
-#: libraries/ServerStatusData.class.php:196
+#: libraries/ServerStatusData.class.php:197
 #: libraries/build_html_for_db.lib.php:26
-#: libraries/config/messages.inc.php:183
+#: libraries/config/messages.inc.php:184
 #: libraries/navigation/Nodes/Node_Table_Container.class.php:26
 #: libraries/plugins/export/ExportXml.class.php:116
 msgid "Tables"
 msgstr "Tabeller"
 
-#: libraries/ServerStatusData.class.php:197
+#: libraries/ServerStatusData.class.php:198
 msgid "Transaction coordinator"
 msgstr "Transaktionssamordnare"
 
-#: libraries/ServerStatusData.class.php:198
+#: libraries/ServerStatusData.class.php:199
 #: libraries/server_bin_log.lib.php:53
 msgid "Files"
 msgstr "Filer"
 
-#: libraries/ServerStatusData.class.php:209
+#: libraries/ServerStatusData.class.php:210
 msgid "Flush (close) all tables"
 msgstr "Flusha (stäng) alla tabeller"
 
-#: libraries/ServerStatusData.class.php:211
+#: libraries/ServerStatusData.class.php:212
 msgid "Show open tables"
 msgstr "Visa öppna tabeller"
 
-#: libraries/ServerStatusData.class.php:216
+#: libraries/ServerStatusData.class.php:217
 msgid "Show slave hosts"
 msgstr "Visa slav-värdar"
 
-#: libraries/ServerStatusData.class.php:220
+#: libraries/ServerStatusData.class.php:221
 #: libraries/replication_gui.lib.php:49
 msgid "Show master status"
 msgstr "Visa master-status"
 
-#: libraries/ServerStatusData.class.php:223
+#: libraries/ServerStatusData.class.php:224
 msgid "Show slave status"
 msgstr "Visa slav-status"
 
-#: libraries/ServerStatusData.class.php:228
+#: libraries/ServerStatusData.class.php:229
 msgid "Flush query cache"
 msgstr "Rensa frågecache"
 
-#: libraries/ServerStatusData.class.php:243
+#: libraries/ServerStatusData.class.php:244
 #: libraries/engines/innodb.lib.php:148
 msgid "InnoDB Status"
 msgstr "InnoDB-status"
 
-#: libraries/ServerStatusData.class.php:345
+#: libraries/ServerStatusData.class.php:346
 msgid "Query statistics"
 msgstr "Visa statistik"
 
-#: libraries/ServerStatusData.class.php:349
+#: libraries/ServerStatusData.class.php:350
 msgid "All status variables"
 msgstr "Alla statusvariabler"
 
-#: libraries/ServerStatusData.class.php:353
+#: libraries/ServerStatusData.class.php:354
 msgid "Monitor"
 msgstr "Övervaka"
 
-#: libraries/ServerStatusData.class.php:357
+#: libraries/ServerStatusData.class.php:358
 msgid "Advisor"
 msgstr "Handledare"
 
@@ -3729,126 +3753,126 @@ msgstr "SQL-fråga:"
 msgid "MySQL said: "
 msgstr "MySQL sa: "
 
-#: libraries/Util.class.php:1181
+#: libraries/Util.class.php:1182
 msgid "Failed to connect to SQL validator!"
 msgstr "Lyckades inte ansluta till SQL-validerare!"
 
-#: libraries/Util.class.php:1223 libraries/config/messages.inc.php:497
+#: libraries/Util.class.php:1224 libraries/config/messages.inc.php:498
 msgid "Explain SQL"
 msgstr "Förklara SQL-kod"
 
-#: libraries/Util.class.php:1230
+#: libraries/Util.class.php:1231
 msgid "Skip Explain SQL"
 msgstr "Utan SQL-förklaring"
 
-#: libraries/Util.class.php:1270
+#: libraries/Util.class.php:1271
 msgid "Without PHP Code"
 msgstr "Utan PHP-kod"
 
-#: libraries/Util.class.php:1273 libraries/config/messages.inc.php:499
+#: libraries/Util.class.php:1274 libraries/config/messages.inc.php:500
 msgid "Create PHP Code"
 msgstr "Skapa PHP-kod"
 
-#: libraries/Util.class.php:1299 libraries/config/messages.inc.php:498
+#: libraries/Util.class.php:1300 libraries/config/messages.inc.php:499
 #: libraries/server_status_variables.lib.php:42
 msgid "Refresh"
 msgstr "Uppdatera"
 
-#: libraries/Util.class.php:1309
+#: libraries/Util.class.php:1310
 msgid "Skip Validate SQL"
 msgstr "Hoppa över SQL-validering"
 
-#: libraries/Util.class.php:1312 libraries/config/messages.inc.php:501
+#: libraries/Util.class.php:1313 libraries/config/messages.inc.php:502
 msgid "Validate SQL"
 msgstr "Validera SQL-kod"
 
-#: libraries/Util.class.php:1357 libraries/sql.lib.php:460
+#: libraries/Util.class.php:1358 libraries/sql.lib.php:460
 msgid "Profiling"
 msgstr "Profilering"
 
-#: libraries/Util.class.php:1372
+#: libraries/Util.class.php:1373
 msgctxt "Inline edit query"
 msgid "Inline"
 msgstr "Infogad"
 
 #. l10n: Short week day name
-#: libraries/Util.class.php:1673
+#: libraries/Util.class.php:1674
 msgctxt "Short week day name"
 msgid "Sun"
 msgstr "Sön"
 
 #. l10n: See http://www.php.net/manual/en/function.strftime.php
-#: libraries/Util.class.php:1689
+#: libraries/Util.class.php:1690
 #: libraries/plugins/transformations/abstract/DateFormatTransformationsPlugin.class.php:69
 msgid "%B %d, %Y at %I:%M %p"
 msgstr "%d %B %Y kl %H:%M"
 
-#: libraries/Util.class.php:2034
+#: libraries/Util.class.php:2036
 #, php-format
 msgid "%s days, %s hours, %s minutes and %s seconds"
 msgstr "%s dagar, %s timmar, %s minuter och %s sekunder"
 
-#: libraries/Util.class.php:2123
+#: libraries/Util.class.php:2125
 msgid "Missing parameter:"
 msgstr "Saknade parametrar:"
 
-#: libraries/Util.class.php:2650
+#: libraries/Util.class.php:2652
 #, php-format
 msgid "Jump to database &quot;%s&quot;."
 msgstr "Hoppa till databas &quot;%s&quot;."
 
-#: libraries/Util.class.php:2674
+#: libraries/Util.class.php:2676
 #, php-format
 msgid "The %s functionality is affected by a known bug, see %s"
 msgstr "Funktionaliteten för %s påverkas av en känd bugg, se %s"
 
-#: libraries/Util.class.php:2850
+#: libraries/Util.class.php:2852
 msgid "Click to toggle"
 msgstr "Klicka för att växla"
 
-#: libraries/Util.class.php:3352 libraries/sql_query_form.lib.php:474
+#: libraries/Util.class.php:3354 libraries/sql_query_form.lib.php:474
 #: prefs_manage.php:248
 msgid "Browse your computer:"
 msgstr "Gå igenom din dator:"
 
-#: libraries/Util.class.php:3377
+#: libraries/Util.class.php:3379
 #, php-format
 msgid "Select from the web server upload directory <b>%s</b>:"
 msgstr "Välj katalog att ladda upp till från web-server listningen <b>%s</b>:"
 
-#: libraries/Util.class.php:3406 libraries/insert_edit.lib.php:1183
+#: libraries/Util.class.php:3408 libraries/insert_edit.lib.php:1183
 #: libraries/sql_query_form.lib.php:483
 msgid "The directory you set for upload work cannot be reached."
 msgstr "Katalogen du ställt in för uppladdning kan inte nås."
 
-#: libraries/Util.class.php:3417
+#: libraries/Util.class.php:3419
 msgid "There are no files to upload"
 msgstr "Det finns inga filer att ladda upp"
 
-#: libraries/Util.class.php:3442 libraries/Util.class.php:3443
+#: libraries/Util.class.php:3444 libraries/Util.class.php:3445
 #: libraries/structure.lib.php:305
 msgid "Empty"
 msgstr "Töm"
 
-#: libraries/Util.class.php:3448 libraries/Util.class.php:3449
+#: libraries/Util.class.php:3450 libraries/Util.class.php:3451
 msgid "Execute"
 msgstr "Utför"
 
-#: libraries/Util.class.php:3976
+#: libraries/Util.class.php:3978
 msgid "Print"
 msgstr "Skriv ut"
 
-#: libraries/Util.class.php:4077 libraries/structure.lib.php:798
+#: libraries/Util.class.php:4079 libraries/structure.lib.php:798
 #: libraries/structure.lib.php:1774 tbl_printview.php:410
 msgid "Creation"
 msgstr "Skapande"
 
-#: libraries/Util.class.php:4083 libraries/structure.lib.php:805
+#: libraries/Util.class.php:4085 libraries/structure.lib.php:805
 #: libraries/structure.lib.php:1782 tbl_printview.php:421
 msgid "Last update"
 msgstr "Senaste uppdatering"
 
-#: libraries/Util.class.php:4089 libraries/structure.lib.php:812
+#: libraries/Util.class.php:4091 libraries/structure.lib.php:812
 #: libraries/structure.lib.php:1790 tbl_printview.php:432
 msgid "Last check"
 msgstr "Senaste kontroll"
@@ -3857,13 +3881,13 @@ msgstr "Senaste kontroll"
 msgid "shared"
 msgstr "delad"
 
-#: libraries/build_html_for_db.lib.php:36 libraries/config/setup.forms.php:312
-#: libraries/config/setup.forms.php:348 libraries/config/setup.forms.php:371
-#: libraries/config/setup.forms.php:376
-#: libraries/config/user_preferences.forms.php:205
-#: libraries/config/user_preferences.forms.php:241
-#: libraries/config/user_preferences.forms.php:264
-#: libraries/config/user_preferences.forms.php:269
+#: libraries/build_html_for_db.lib.php:36 libraries/config/setup.forms.php:313
+#: libraries/config/setup.forms.php:349 libraries/config/setup.forms.php:372
+#: libraries/config/setup.forms.php:377
+#: libraries/config/user_preferences.forms.php:206
+#: libraries/config/user_preferences.forms.php:242
+#: libraries/config/user_preferences.forms.php:265
+#: libraries/config/user_preferences.forms.php:270
 #: libraries/server_privileges.lib.php:874 libraries/structure.lib.php:2188
 #: tbl_printview.php:299
 msgid "Data"
@@ -4021,7 +4045,7 @@ msgstr "Stängd"
 #: libraries/plugins/export/ExportLatex.class.php:103
 #: libraries/plugins/export/ExportMediawiki.class.php:73
 #: libraries/plugins/export/ExportOdt.class.php:83
-#: libraries/plugins/export/ExportSql.class.php:197
+#: libraries/plugins/export/ExportSql.class.php:203
 #: libraries/plugins/export/ExportTexytext.class.php:68
 msgid "structure"
 msgstr "struktur"
@@ -4031,7 +4055,7 @@ msgstr "struktur"
 #: libraries/plugins/export/ExportLatex.class.php:104
 #: libraries/plugins/export/ExportMediawiki.class.php:74
 #: libraries/plugins/export/ExportOdt.class.php:84
-#: libraries/plugins/export/ExportSql.class.php:198
+#: libraries/plugins/export/ExportSql.class.php:204
 #: libraries/plugins/export/ExportTexytext.class.php:69
 msgid "data"
 msgstr "data"
@@ -4041,7 +4065,7 @@ msgstr "data"
 #: libraries/plugins/export/ExportLatex.class.php:105
 #: libraries/plugins/export/ExportMediawiki.class.php:75
 #: libraries/plugins/export/ExportOdt.class.php:85
-#: libraries/plugins/export/ExportSql.class.php:199
+#: libraries/plugins/export/ExportSql.class.php:205
 #: libraries/plugins/export/ExportTexytext.class.php:70
 msgid "structure and data"
 msgstr "struktur och data"
@@ -4108,34 +4132,36 @@ msgstr "Saknar data för %s"
 
 #: libraries/config/FormDisplay.class.php:757
 #: libraries/config/FormDisplay.class.php:763
+#: libraries/config/FormDisplay.class.php:770
 msgid "unavailable"
 msgstr "otillgänglig"
 
 #: libraries/config/FormDisplay.class.php:759
 #: libraries/config/FormDisplay.class.php:765
+#: libraries/config/FormDisplay.class.php:772
 #, php-format
 msgid "\"%s\" requires %s extension"
 msgstr "\"%s\" kräver tillägget %s"
 
-#: libraries/config/FormDisplay.class.php:784
+#: libraries/config/FormDisplay.class.php:791
 #, php-format
 msgid "Compressed import will not work due to missing function %s."
 msgstr "Komprimerad import fungerar inte på grund av saknad funktion %s."
 
-#: libraries/config/FormDisplay.class.php:790
+#: libraries/config/FormDisplay.class.php:797
 #, php-format
 msgid "Compressed export will not work due to missing function %s."
 msgstr "Komprimerad export fungerar inte på grund av saknad funktion %s."
 
-#: libraries/config/FormDisplay.class.php:800
+#: libraries/config/FormDisplay.class.php:807
 msgid "SQL Validator is disabled"
 msgstr "SQL-validerare är inaktiverad"
 
-#: libraries/config/FormDisplay.class.php:807
+#: libraries/config/FormDisplay.class.php:814
 msgid "SOAP extension not found"
 msgstr "SOAP-tillägg hittas inte"
 
-#: libraries/config/FormDisplay.class.php:817
+#: libraries/config/FormDisplay.class.php:824
 #, php-format
 msgid "maximum %s"
 msgstr "maximum %s"
@@ -4152,7 +4178,7 @@ msgid "Set value: %s"
 msgstr "Ange värde: %s"
 
 #: libraries/config/FormDisplay.tpl.php:318
-#: libraries/config/messages.inc.php:363
+#: libraries/config/messages.inc.php:364
 msgid "Restore default value"
 msgstr "Återställ standardvärde"
 
@@ -4477,13 +4503,13 @@ msgstr "Maximal exekveringstid"
 msgid "Save as file"
 msgstr "Spara som fil"
 
-#: libraries/config/messages.inc.php:71 libraries/config/messages.inc.php:243
+#: libraries/config/messages.inc.php:71 libraries/config/messages.inc.php:244
 msgid "Character set of the file"
 msgstr "Filens teckenuppsättning"
 
 #: libraries/config/messages.inc.php:72 libraries/config/messages.inc.php:88
 #: libraries/structure.lib.php:1702
-#: libraries/tbl_gis_visualization.lib.php:328 tbl_printview.php:350
+#: libraries/tbl_gis_visualization.lib.php:329 tbl_printview.php:350
 msgid "Format"
 msgstr "Format"
 
@@ -4494,8 +4520,8 @@ msgstr "Komprimering"
 #: libraries/config/messages.inc.php:74 libraries/config/messages.inc.php:81
 #: libraries/config/messages.inc.php:89 libraries/config/messages.inc.php:93
 #: libraries/config/messages.inc.php:106 libraries/config/messages.inc.php:108
-#: libraries/config/messages.inc.php:141 libraries/config/messages.inc.php:144
-#: libraries/config/messages.inc.php:146
+#: libraries/config/messages.inc.php:142 libraries/config/messages.inc.php:145
+#: libraries/config/messages.inc.php:147
 #: libraries/plugins/export/ExportCsv.class.php:91
 #: libraries/plugins/export/ExportExcel.class.php:68
 #: libraries/plugins/export/ExportHtmlword.class.php:90
@@ -4505,14 +4531,14 @@ msgstr "Komprimering"
 msgid "Put columns names in the first row"
 msgstr "Sätt kolumnnamn på första raden"
 
-#: libraries/config/messages.inc.php:75 libraries/config/messages.inc.php:245
-#: libraries/config/messages.inc.php:252
+#: libraries/config/messages.inc.php:75 libraries/config/messages.inc.php:246
+#: libraries/config/messages.inc.php:253
 #: libraries/plugins/import/ImportCsv.class.php:150
 msgid "Columns enclosed with"
 msgstr "Kolumner omges av"
 
-#: libraries/config/messages.inc.php:76 libraries/config/messages.inc.php:246
-#: libraries/config/messages.inc.php:253
+#: libraries/config/messages.inc.php:76 libraries/config/messages.inc.php:247
+#: libraries/config/messages.inc.php:254
 #: libraries/plugins/import/ImportCsv.class.php:157
 msgid "Columns escaped with"
 msgstr "Specialtecken i fält föregås av"
@@ -4520,8 +4546,8 @@ msgstr "Specialtecken i fält föregås av"
 #: libraries/config/messages.inc.php:77 libraries/config/messages.inc.php:83
 #: libraries/config/messages.inc.php:90 libraries/config/messages.inc.php:99
 #: libraries/config/messages.inc.php:107 libraries/config/messages.inc.php:111
-#: libraries/config/messages.inc.php:142 libraries/config/messages.inc.php:145
-#: libraries/config/messages.inc.php:147
+#: libraries/config/messages.inc.php:143 libraries/config/messages.inc.php:146
+#: libraries/config/messages.inc.php:148
 msgid "Replace NULL with"
 msgstr "Ersätt NULL med"
 
@@ -4529,13 +4555,13 @@ msgstr "Ersätt NULL med"
 msgid "Remove CRLF characters within columns"
 msgstr "Ta bort CRLF-tecken i kolumner"
 
-#: libraries/config/messages.inc.php:79 libraries/config/messages.inc.php:249
-#: libraries/config/messages.inc.php:257
+#: libraries/config/messages.inc.php:79 libraries/config/messages.inc.php:250
+#: libraries/config/messages.inc.php:258
 #: libraries/plugins/import/ImportCsv.class.php:135
 msgid "Columns terminated with"
 msgstr "Kolumner avslutas med"
 
-#: libraries/config/messages.inc.php:80 libraries/config/messages.inc.php:244
+#: libraries/config/messages.inc.php:80 libraries/config/messages.inc.php:245
 #: libraries/plugins/import/ImportCsv.class.php:164
 msgid "Lines terminated with"
 msgstr "Rader avslutas med"
@@ -4557,8 +4583,8 @@ msgid "Table name template"
 msgstr "Mall för tabellnamn"
 
 #: libraries/config/messages.inc.php:91 libraries/config/messages.inc.php:104
-#: libraries/config/messages.inc.php:113 libraries/config/messages.inc.php:137
-#: libraries/config/messages.inc.php:143
+#: libraries/config/messages.inc.php:113 libraries/config/messages.inc.php:138
+#: libraries/config/messages.inc.php:144
 #: libraries/plugins/export/ExportHtmlword.class.php:63
 #: libraries/plugins/export/ExportLatex.class.php:97
 #: libraries/plugins/export/ExportMediawiki.class.php:63
@@ -4585,14 +4611,14 @@ msgid "Label key"
 msgstr "Märk nyckel"
 
 #: libraries/config/messages.inc.php:98 libraries/config/messages.inc.php:110
-#: libraries/config/messages.inc.php:134
+#: libraries/config/messages.inc.php:135
 #: libraries/plugins/export/ExportOdt.class.php:482
 #: libraries/tbl_columns_definition_form.inc.php:169
 msgid "MIME type"
 msgstr "MIME-typ"
 
 #: libraries/config/messages.inc.php:100 libraries/config/messages.inc.php:112
-#: libraries/config/messages.inc.php:136 tbl_relation.php:394
+#: libraries/config/messages.inc.php:137 tbl_relation.php:394
 msgid "Relations"
 msgstr "Relationer"
 
@@ -4622,13 +4648,13 @@ msgstr "Lägg till AUTO_INCREMENT-värde"
 msgid "Enclose table and column names with backquotes"
 msgstr "Använd citattecken runt tabell- och fältnamn"
 
-#: libraries/config/messages.inc.php:121 libraries/config/messages.inc.php:264
+#: libraries/config/messages.inc.php:121 libraries/config/messages.inc.php:265
 #: libraries/display_export.lib.php:291
 msgid "SQL compatibility mode"
 msgstr "SQL-kompatibilitetsläge"
 
 #: libraries/config/messages.inc.php:122
-#: libraries/plugins/export/ExportSql.class.php:271
+#: libraries/plugins/export/ExportSql.class.php:277
 msgid "<code>CREATE TABLE</code> options:"
 msgstr "<code>CREATE TABLE</code>-alternativ:"
 
@@ -4645,52 +4671,59 @@ msgstr "Använd fördröjda inläggningar"
 msgid "Disable foreign key checks"
 msgstr "Inaktivera kontroller av främmande nycklar"
 
-#: libraries/config/messages.inc.php:126 libraries/config/messages.inc.php:127
-#: libraries/config/messages.inc.php:129 libraries/config/messages.inc.php:135
+#: libraries/config/messages.inc.php:126
+#: libraries/plugins/export/ExportSql.class.php:154
+#, fuzzy
+#| msgid "Exporting rows from \"%s\" table"
+msgid "Export views as tables"
+msgstr "Exportera rader från tabellen \"%s\""
+
+#: libraries/config/messages.inc.php:127 libraries/config/messages.inc.php:128
+#: libraries/config/messages.inc.php:130 libraries/config/messages.inc.php:136
 #: libraries/operations.lib.php:206 libraries/operations.lib.php:1057
 #, php-format
 msgid "Add %s"
 msgstr "Lägg till %s"
 
-#: libraries/config/messages.inc.php:128
+#: libraries/config/messages.inc.php:129
 msgid "Use hexadecimal for BLOB"
 msgstr "Använd hexadecimalt för BLOB"
 
-#: libraries/config/messages.inc.php:130
+#: libraries/config/messages.inc.php:131
 msgid "Use ignore inserts"
 msgstr "Använd ignore i inläggningar"
 
-#: libraries/config/messages.inc.php:132
+#: libraries/config/messages.inc.php:133
 msgid "Syntax to use when inserting data"
 msgstr "Syntax att använda när man infogar data"
 
-#: libraries/config/messages.inc.php:133
-#: libraries/plugins/export/ExportSql.class.php:391
+#: libraries/config/messages.inc.php:134
+#: libraries/plugins/export/ExportSql.class.php:397
 msgid "Maximal length of created query"
 msgstr "Maximal längd på skapad fråga"
 
-#: libraries/config/messages.inc.php:138
+#: libraries/config/messages.inc.php:139
 msgid "Export type"
 msgstr "Export-typ"
 
-#: libraries/config/messages.inc.php:139
+#: libraries/config/messages.inc.php:140
 #: libraries/plugins/export/ExportSql.class.php:128
 msgid "Enclose export in a transaction"
 msgstr "Bifoga export i en transaktion"
 
-#: libraries/config/messages.inc.php:140
+#: libraries/config/messages.inc.php:141
 msgid "Export time in UTC"
 msgstr "Exportera tid i UTC"
 
-#: libraries/config/messages.inc.php:148
+#: libraries/config/messages.inc.php:149
 msgid "Force secured connection while using phpMyAdmin"
 msgstr "Tvinga säker anslutning när du använder phpMyAdmin"
 
-#: libraries/config/messages.inc.php:149
+#: libraries/config/messages.inc.php:150
 msgid "Force SSL connection"
 msgstr "Tvinga SSL-anslutning"
 
-#: libraries/config/messages.inc.php:150
+#: libraries/config/messages.inc.php:151
 msgid ""
 "Sort order for items in a foreign-key dropdown box; [kbd]content[/kbd] is "
 "the referenced data, [kbd]id[/kbd] is the key value"
@@ -4698,143 +4731,143 @@ msgstr ""
 "Sorteringsordning för poster i en främmande nyckel-listruta; [kbd]innehåll[/"
 "kbd] är refererad data, [kbd]id[/kbd] är nyckelvärdet"
 
-#: libraries/config/messages.inc.php:151
+#: libraries/config/messages.inc.php:152
 msgid "Foreign key dropdown order"
 msgstr "Ordning i främmande nyckel-listruta"
 
-#: libraries/config/messages.inc.php:152
+#: libraries/config/messages.inc.php:153
 msgid "A dropdown will be used if fewer items are present"
 msgstr "En listruta kommer användas om färre objekt finns"
 
-#: libraries/config/messages.inc.php:153
+#: libraries/config/messages.inc.php:154
 msgid "Foreign key limit"
 msgstr "Begränsning för främmande nyckel"
 
-#: libraries/config/messages.inc.php:154
+#: libraries/config/messages.inc.php:155
 msgid "Browse mode"
 msgstr "Utforskningsläge"
 
-#: libraries/config/messages.inc.php:155
+#: libraries/config/messages.inc.php:156
 msgid "Customize browse mode"
 msgstr "Anpassa utforskningsläge"
 
-#: libraries/config/messages.inc.php:157 libraries/config/messages.inc.php:159
-#: libraries/config/messages.inc.php:176 libraries/config/messages.inc.php:187
-#: libraries/config/messages.inc.php:189 libraries/config/messages.inc.php:217
-#: libraries/config/messages.inc.php:233
+#: libraries/config/messages.inc.php:158 libraries/config/messages.inc.php:160
+#: libraries/config/messages.inc.php:177 libraries/config/messages.inc.php:188
+#: libraries/config/messages.inc.php:190 libraries/config/messages.inc.php:218
+#: libraries/config/messages.inc.php:234
 msgid "Customize default options"
 msgstr "Anpassa förvalda alternativ"
 
-#: libraries/config/messages.inc.php:158 libraries/config/setup.forms.php:250
-#: libraries/config/setup.forms.php:323
+#: libraries/config/messages.inc.php:159 libraries/config/setup.forms.php:250
+#: libraries/config/setup.forms.php:324
 #: libraries/config/user_preferences.forms.php:145
-#: libraries/config/user_preferences.forms.php:216
+#: libraries/config/user_preferences.forms.php:217
 msgid "CSV"
 msgstr "CSV"
 
-#: libraries/config/messages.inc.php:160
+#: libraries/config/messages.inc.php:161
 msgid "Developer"
 msgstr "Utvecklare"
 
-#: libraries/config/messages.inc.php:161
+#: libraries/config/messages.inc.php:162
 msgid "Settings for phpMyAdmin developers"
 msgstr "Inställningar för phpMyAdmin-utvecklare"
 
-#: libraries/config/messages.inc.php:162
+#: libraries/config/messages.inc.php:163
 msgid "Edit mode"
 msgstr "Redigeringsläge"
 
-#: libraries/config/messages.inc.php:163
+#: libraries/config/messages.inc.php:164
 msgid "Customize edit mode"
 msgstr "Anpassa redigeringsläge"
 
-#: libraries/config/messages.inc.php:165
+#: libraries/config/messages.inc.php:166
 msgid "Export defaults"
 msgstr "Exportera standardvärden"
 
-#: libraries/config/messages.inc.php:166
+#: libraries/config/messages.inc.php:167
 msgid "Customize default export options"
 msgstr "Anpassa standard exportalternativ"
 
-#: libraries/config/messages.inc.php:167 libraries/config/messages.inc.php:209
+#: libraries/config/messages.inc.php:168 libraries/config/messages.inc.php:210
 #: setup/frames/menu.inc.php:17
 msgid "Features"
 msgstr "Funktioner"
 
-#: libraries/config/messages.inc.php:168
+#: libraries/config/messages.inc.php:169
 msgid "General"
 msgstr "Allmänt"
 
-#: libraries/config/messages.inc.php:169
+#: libraries/config/messages.inc.php:170
 msgid "Set some commonly used options"
 msgstr "Välj några av de vanligaste alternativen"
 
-#: libraries/config/messages.inc.php:171
+#: libraries/config/messages.inc.php:172
 msgid "Import defaults"
 msgstr "Importera standardvärden"
 
-#: libraries/config/messages.inc.php:172
+#: libraries/config/messages.inc.php:173
 msgid "Customize default common import options"
 msgstr "Anpassa standardalternativ för import"
 
-#: libraries/config/messages.inc.php:173
+#: libraries/config/messages.inc.php:174
 msgid "Import / export"
 msgstr "Importera / exportera"
 
-#: libraries/config/messages.inc.php:174
+#: libraries/config/messages.inc.php:175
 msgid "Set import and export directories and compression options"
 msgstr "Ange kataloger för import och export och komprimeringsalternativ"
 
-#: libraries/config/messages.inc.php:175
+#: libraries/config/messages.inc.php:176
 msgid "LaTeX"
 msgstr "LaTeX"
 
-#: libraries/config/messages.inc.php:178
+#: libraries/config/messages.inc.php:179
 msgid "Databases display options"
 msgstr "Visningsalternativ för databaser"
 
-#: libraries/config/messages.inc.php:179 setup/frames/menu.inc.php:19
+#: libraries/config/messages.inc.php:180 setup/frames/menu.inc.php:19
 msgid "Navigation panel"
 msgstr "Navigationspanel"
 
-#: libraries/config/messages.inc.php:180
+#: libraries/config/messages.inc.php:181
 msgid "Customize appearance of the navigation panel"
 msgstr "Anpassa navigationspanelens utseende"
 
-#: libraries/config/messages.inc.php:181 libraries/select_server.lib.php:42
+#: libraries/config/messages.inc.php:182 libraries/select_server.lib.php:42
 #: setup/frames/index.inc.php:117
 msgid "Servers"
 msgstr "Servrar"
 
-#: libraries/config/messages.inc.php:182
+#: libraries/config/messages.inc.php:183
 msgid "Servers display options"
 msgstr "Visningsalternativ för servrar"
 
-#: libraries/config/messages.inc.php:184
+#: libraries/config/messages.inc.php:185
 msgid "Tables display options"
 msgstr "Visningsalternativ för tabeller"
 
-#: libraries/config/messages.inc.php:185 setup/frames/menu.inc.php:20
+#: libraries/config/messages.inc.php:186 setup/frames/menu.inc.php:20
 msgid "Main panel"
 msgstr "Huvudpanel"
 
-#: libraries/config/messages.inc.php:186
+#: libraries/config/messages.inc.php:187
 msgid "Microsoft Office"
 msgstr "Microsoft Office"
 
-#: libraries/config/messages.inc.php:190
+#: libraries/config/messages.inc.php:191
 msgid "Other core settings"
 msgstr "Andra grundinställningar"
 
-#: libraries/config/messages.inc.php:191
+#: libraries/config/messages.inc.php:192
 msgid "Settings that didn't fit anywhere else"
 msgstr "Inställningar som inte passade någon annanstans"
 
-#: libraries/config/messages.inc.php:192
+#: libraries/config/messages.inc.php:193
 msgid "Page titles"
 msgstr "Sidtitlar"
 
-#: libraries/config/messages.inc.php:193
+#: libraries/config/messages.inc.php:194
 msgid ""
 "Specify browser's title bar text. Refer to [doc@cfg_TitleTable]documentation"
 "[/doc] for magic strings that can be used to get special values."
@@ -4842,20 +4875,20 @@ msgstr ""
 "Ange webbläsarens namnlisttext. Se [doc@cfg_TitleTable]dokumentationen[/doc] "
 "för magiska strängar som kan användas för att få speciella värden."
 
-#: libraries/config/messages.inc.php:194
+#: libraries/config/messages.inc.php:195
 #: libraries/navigation/NavigationHeader.class.php:209
 msgid "Query window"
 msgstr "Sökfönster"
 
-#: libraries/config/messages.inc.php:195
+#: libraries/config/messages.inc.php:196
 msgid "Customize query window options"
 msgstr "Anpassa alternativ för sökfönster"
 
-#: libraries/config/messages.inc.php:196
+#: libraries/config/messages.inc.php:197
 msgid "Security"
 msgstr "Säkerhet"
 
-#: libraries/config/messages.inc.php:197
+#: libraries/config/messages.inc.php:198
 msgid ""
 "Please note that phpMyAdmin is just a user interface and its features do not "
 "limit MySQL"
@@ -4863,23 +4896,23 @@ msgstr ""
 "Observera att phpMyAdmin endast är ett användargränssnitt och dess "
 "funktioner inte begränsar MySQL"
 
-#: libraries/config/messages.inc.php:198
+#: libraries/config/messages.inc.php:199
 msgid "Basic settings"
 msgstr "Grundläggande inställningar"
 
-#: libraries/config/messages.inc.php:199
+#: libraries/config/messages.inc.php:200
 msgid "Authentication"
 msgstr "Verifiering"
 
-#: libraries/config/messages.inc.php:200
+#: libraries/config/messages.inc.php:201
 msgid "Authentication settings"
 msgstr "Autentiseringsinställningar"
 
-#: libraries/config/messages.inc.php:201
+#: libraries/config/messages.inc.php:202
 msgid "Server configuration"
 msgstr "Serverkonfiguration"
 
-#: libraries/config/messages.inc.php:202
+#: libraries/config/messages.inc.php:203
 msgid ""
 "Advanced server configuration, do not change these options unless you know "
 "what they are for"
@@ -4887,15 +4920,15 @@ msgstr ""
 "Avancerad serverkonfiguration, ändra inte dessa alternativ om du inte vet "
 "vad de är till för"
 
-#: libraries/config/messages.inc.php:203
+#: libraries/config/messages.inc.php:204
 msgid "Enter server connection parameters"
 msgstr "Ange parametrar för anslutning till server"
 
-#: libraries/config/messages.inc.php:204
+#: libraries/config/messages.inc.php:205
 msgid "Configuration storage"
 msgstr "Konfigurationslagring"
 
-#: libraries/config/messages.inc.php:205
+#: libraries/config/messages.inc.php:206
 msgid ""
 "Configure phpMyAdmin configuration storage to gain access to additional "
 "features, see [doc@linked-tables]phpMyAdmin configuration storage[/doc] in "
@@ -4905,55 +4938,55 @@ msgstr ""
 "funktionalitet, se [doc@linked-tables]infrastruktur för länkade tabeller[/"
 "doc] i dokumentationen"
 
-#: libraries/config/messages.inc.php:206
+#: libraries/config/messages.inc.php:207
 msgid "Changes tracking"
 msgstr "Förändringar i spårning"
 
-#: libraries/config/messages.inc.php:207
+#: libraries/config/messages.inc.php:208
 msgid ""
 "Tracking of changes made in database. Requires the phpMyAdmin configuration "
 "storage."
 msgstr ""
 "Spårning av ändringar i databasen. Kräver phpMyAdmin konfigurations lagring."
 
-#: libraries/config/messages.inc.php:208
+#: libraries/config/messages.inc.php:209
 msgid "Customize export options"
 msgstr "Anpassa exportalternativ"
 
-#: libraries/config/messages.inc.php:210
+#: libraries/config/messages.inc.php:211
 msgid "Customize import defaults"
 msgstr "Anpassa standardvärden för import"
 
-#: libraries/config/messages.inc.php:211
+#: libraries/config/messages.inc.php:212
 msgid "Customize navigation panel"
 msgstr "Anpassa navigeringspanelen"
 
-#: libraries/config/messages.inc.php:212
+#: libraries/config/messages.inc.php:213
 msgid "Customize main panel"
 msgstr "Anpassa huvudpanelen"
 
-#: libraries/config/messages.inc.php:213 libraries/config/messages.inc.php:218
+#: libraries/config/messages.inc.php:214 libraries/config/messages.inc.php:219
 #: setup/frames/menu.inc.php:18
 msgid "SQL queries"
 msgstr "SQL-frågor"
 
-#: libraries/config/messages.inc.php:215
+#: libraries/config/messages.inc.php:216
 msgid "SQL Query box"
 msgstr "SQL-frågeruta"
 
-#: libraries/config/messages.inc.php:216
+#: libraries/config/messages.inc.php:217
 msgid "Customize links shown in SQL Query boxes"
 msgstr "Anpassa länkar som visas i SQL-frågerutor"
 
-#: libraries/config/messages.inc.php:219
+#: libraries/config/messages.inc.php:220
 msgid "SQL queries settings"
 msgstr "Inställningar för SQL-frågor"
 
-#: libraries/config/messages.inc.php:220
+#: libraries/config/messages.inc.php:221
 msgid "SQL Validator"
 msgstr "SQL-validerare"
 
-#: libraries/config/messages.inc.php:221
+#: libraries/config/messages.inc.php:222
 msgid ""
 "If you wish to use the SQL Validator service, you should be aware that "
 "[strong]all SQL statements are stored anonymously for statistical purposes[/"
@@ -4965,59 +4998,59 @@ msgstr ""
 "[em][a@http://sqlvalidator.mimer.com/]Mimer SQL Validator[/a], Copyright "
 "2002 Upright Database Technology. Alla rättigheter reserverade.[/em]"
 
-#: libraries/config/messages.inc.php:222
+#: libraries/config/messages.inc.php:223
 msgid "Startup"
 msgstr "Uppstart"
 
-#: libraries/config/messages.inc.php:223
+#: libraries/config/messages.inc.php:224
 msgid "Customize startup page"
 msgstr "Anpassa startsidan"
 
-#: libraries/config/messages.inc.php:224
+#: libraries/config/messages.inc.php:225
 msgid "Database structure"
 msgstr "Databasstruktur"
 
-#: libraries/config/messages.inc.php:225
+#: libraries/config/messages.inc.php:226
 msgid "Choose which details to show in the database structure (list of tables)"
 msgstr "Välj vilka detaljer som ska visas i databasstrukturen (tabellista)"
 
-#: libraries/config/messages.inc.php:226
+#: libraries/config/messages.inc.php:227
 msgid "Table structure"
 msgstr "Tabellstruktur"
 
-#: libraries/config/messages.inc.php:227
+#: libraries/config/messages.inc.php:228
 msgid "Settings for the table structure (list of columns)"
 msgstr "Inställningar för tabellstrukturen (kolumnlista)"
 
-#: libraries/config/messages.inc.php:228
+#: libraries/config/messages.inc.php:229
 msgid "Tabs"
 msgstr "Flikar"
 
-#: libraries/config/messages.inc.php:229
+#: libraries/config/messages.inc.php:230
 msgid "Choose how you want tabs to work"
 msgstr "Välj hur du vill att flikar ska fungera"
 
-#: libraries/config/messages.inc.php:230
+#: libraries/config/messages.inc.php:231
 msgid "Text fields"
 msgstr "Textfält"
 
-#: libraries/config/messages.inc.php:231
+#: libraries/config/messages.inc.php:232
 msgid "Customize text input fields"
 msgstr "Anpassa textfält"
 
-#: libraries/config/messages.inc.php:232
+#: libraries/config/messages.inc.php:233
 msgid "Texy! text"
 msgstr "Texy! text"
 
-#: libraries/config/messages.inc.php:234
+#: libraries/config/messages.inc.php:235
 msgid "Warnings"
 msgstr "Varningar"
 
-#: libraries/config/messages.inc.php:235
+#: libraries/config/messages.inc.php:236
 msgid "Disable some of the warnings shown by phpMyAdmin"
 msgstr "Inaktivera några av de varningar som visas av phpMyAdmin"
 
-#: libraries/config/messages.inc.php:236
+#: libraries/config/messages.inc.php:237
 msgid ""
 "Enable [a@http://en.wikipedia.org/wiki/Gzip]gzip[/a] compression for import "
 "and export operations"
@@ -5025,15 +5058,15 @@ msgstr ""
 "Aktivera [a@http://en.wikipedia.org/wiki/Gzip]gzip[/a]-komprimering för "
 "import- och exportoperationer"
 
-#: libraries/config/messages.inc.php:237
+#: libraries/config/messages.inc.php:238
 msgid "GZip"
 msgstr "GZip"
 
-#: libraries/config/messages.inc.php:238
+#: libraries/config/messages.inc.php:239
 msgid "Extra parameters for iconv"
 msgstr "Extra parameterar för iconv"
 
-#: libraries/config/messages.inc.php:239
+#: libraries/config/messages.inc.php:240
 msgid ""
 "If enabled, phpMyAdmin continues computing multiple-statement queries even "
 "if one of the queries failed"
@@ -5041,11 +5074,11 @@ msgstr ""
 "Om aktiverat fortsätter phpMyAdmin att utföra fleruttrycksfrågor även om en "
 "av frågorna misslyckades"
 
-#: libraries/config/messages.inc.php:240
+#: libraries/config/messages.inc.php:241
 msgid "Ignore multiple statement errors"
 msgstr "Ignorera fel i fleruttrycksfrågor"
 
-#: libraries/config/messages.inc.php:241
+#: libraries/config/messages.inc.php:242
 msgid ""
 "Allow interrupt of import in case script detects it is close to time limit. "
 "This might be a good way to import large files, however it can break "
@@ -5055,22 +5088,22 @@ msgstr ""
 "tidsbegränsningen. Detta kan vara ett bra sätt att importera stora filer, "
 "men det kan bryta transaktioner."
 
-#: libraries/config/messages.inc.php:242
+#: libraries/config/messages.inc.php:243
 msgid "Partial import: allow interrupt"
 msgstr "Partiell import: tillåt avbrott"
 
-#: libraries/config/messages.inc.php:247 libraries/config/messages.inc.php:254
+#: libraries/config/messages.inc.php:248 libraries/config/messages.inc.php:255
 #: libraries/plugins/import/ImportCsv.class.php:89
 #: libraries/plugins/import/ImportLdi.class.php:71
 msgid "Do not abort on INSERT error"
 msgstr "Avbryt inte vid INSERT-fel"
 
-#: libraries/config/messages.inc.php:248 libraries/config/messages.inc.php:256
+#: libraries/config/messages.inc.php:249 libraries/config/messages.inc.php:257
 #: libraries/plugins/import/AbstractImportCsv.class.php:55
 msgid "Replace table data with file"
 msgstr "Ersätt tabelldata med fil"
 
-#: libraries/config/messages.inc.php:250
+#: libraries/config/messages.inc.php:251
 msgid ""
 "Default format; be aware that this list depends on location (database, "
 "table) and only SQL is always available"
@@ -5078,69 +5111,69 @@ msgstr ""
 "Standardformat; observera att denna lista beror på plats (databas, tabell) "
 "och endast SQL är alltid tillgängligt"
 
-#: libraries/config/messages.inc.php:251
+#: libraries/config/messages.inc.php:252
 msgid "Format of imported file"
 msgstr "Format på importerad fil"
 
-#: libraries/config/messages.inc.php:255
+#: libraries/config/messages.inc.php:256
 #: libraries/plugins/import/ImportLdi.class.php:76
 msgid "Use LOCAL keyword"
 msgstr "Använd nyckelordet LOCAL"
 
-#: libraries/config/messages.inc.php:258 libraries/config/messages.inc.php:266
-#: libraries/config/messages.inc.php:267
+#: libraries/config/messages.inc.php:259 libraries/config/messages.inc.php:267
+#: libraries/config/messages.inc.php:268
 msgid "Column names in first row"
 msgstr "Kolumnnamn på första raden"
 
-#: libraries/config/messages.inc.php:259
+#: libraries/config/messages.inc.php:260
 #: libraries/plugins/import/ImportOds.class.php:82
 msgid "Do not import empty rows"
 msgstr "Importera inte tomma rader"
 
-#: libraries/config/messages.inc.php:260
+#: libraries/config/messages.inc.php:261
 msgid "Import currencies ($5.00 to 5.00)"
 msgstr "Importera valutor ($5,00 till 5,00)"
 
-#: libraries/config/messages.inc.php:261
+#: libraries/config/messages.inc.php:262
 msgid "Import percentages as proper decimals (12.00% to .12)"
 msgstr "Importera procenttal med riktiga decimaler (12,00% till .12)"
 
-#: libraries/config/messages.inc.php:262
+#: libraries/config/messages.inc.php:263
 msgid "Number of queries to skip from start"
 msgstr "Antal förfrågningar att hoppa från start"
 
-#: libraries/config/messages.inc.php:263
+#: libraries/config/messages.inc.php:264
 msgid "Partial import: skip queries"
 msgstr "Partiell import: hoppa över frågor"
 
-#: libraries/config/messages.inc.php:265
+#: libraries/config/messages.inc.php:266
 msgid "Do not use AUTO_INCREMENT for zero values"
 msgstr "Använd inte AUTO_INCREMENT för nollvärden"
 
-#: libraries/config/messages.inc.php:268
+#: libraries/config/messages.inc.php:269
 msgid "Initial state for sliders"
 msgstr "Utgångsläge för reglagen"
 
-#: libraries/config/messages.inc.php:269
+#: libraries/config/messages.inc.php:270
 msgid "How many rows can be inserted at one time"
 msgstr "Hur många rader som kan infogas på en gång"
 
-#: libraries/config/messages.inc.php:270
+#: libraries/config/messages.inc.php:271
 msgid "Number of inserted rows"
 msgstr "Antal infogade rader"
 
-#: libraries/config/messages.inc.php:271
+#: libraries/config/messages.inc.php:272
 msgid ""
 "Maximum number of characters shown in any non-numeric column on browse view"
 msgstr ""
 "Maximalt antal tecken som visas i alla icke-numeriska kolumner i "
 "bläddringsvyn"
 
-#: libraries/config/messages.inc.php:272
+#: libraries/config/messages.inc.php:273
 msgid "Limit column characters"
 msgstr "Begränsa antalet tecken i kolumn"
 
-#: libraries/config/messages.inc.php:273
+#: libraries/config/messages.inc.php:274
 msgid ""
 "If TRUE, logout deletes cookies for all servers; when set to FALSE, logout "
 "only occurs for the current server. Setting this to FALSE makes it easy to "
@@ -5150,11 +5183,11 @@ msgstr ""
 "sker utloggning endast för aktuell server. Satt till FALSE gör det lätt att "
 "glömma att logga ut från andra servrar när du är ansluten till flera servrar."
 
-#: libraries/config/messages.inc.php:274
+#: libraries/config/messages.inc.php:275
 msgid "Delete all cookies on logout"
 msgstr "Radera alla cookies vid utloggning"
 
-#: libraries/config/messages.inc.php:275
+#: libraries/config/messages.inc.php:276
 msgid ""
 "Define whether the previous login should be recalled or not in cookie "
 "authentication mode"
@@ -5162,11 +5195,11 @@ msgstr ""
 "Ange om den tidigare inloggningen ska återkallas eller inte vid "
 "autentiseringsläge med cookies"
 
-#: libraries/config/messages.inc.php:276
+#: libraries/config/messages.inc.php:277
 msgid "Recall user name"
 msgstr "Återkalla användarnamn"
 
-#: libraries/config/messages.inc.php:277
+#: libraries/config/messages.inc.php:278
 msgid ""
 "Defines how long (in seconds) a login cookie should be stored in browser. "
 "The default of 0 means that it will be kept for the existing session only, "
@@ -5178,57 +5211,57 @@ msgstr ""
 "session, och kommer tas bort så snart webbläsaren stängs. Detta är "
 "rekommenderat för icke tillförlitliga miljöer."
 
-#: libraries/config/messages.inc.php:278
+#: libraries/config/messages.inc.php:279
 msgid "Login cookie store"
 msgstr "Lagringsplats för inloggnings-cookie"
 
-#: libraries/config/messages.inc.php:279
+#: libraries/config/messages.inc.php:280
 msgid "Define how long (in seconds) a login cookie is valid"
 msgstr "Anger hur lång tid (i sekunder) som en inloggnings-cookie är giltig"
 
-#: libraries/config/messages.inc.php:280
+#: libraries/config/messages.inc.php:281
 msgid "Login cookie validity"
 msgstr "Giltighet för inloggnings-cookie"
 
-#: libraries/config/messages.inc.php:281
+#: libraries/config/messages.inc.php:282
 msgid "Double size of textarea for LONGTEXT columns"
 msgstr "Dubbel storlek på textområdet för LONGTEXT-kolumner"
 
-#: libraries/config/messages.inc.php:282
+#: libraries/config/messages.inc.php:283
 msgid "Bigger textarea for LONGTEXT"
 msgstr "Större textarea för LONGTEXT"
 
-#: libraries/config/messages.inc.php:283
+#: libraries/config/messages.inc.php:284
 msgid "Maximum number of characters used when a SQL query is displayed"
 msgstr "Maximalt antal tecken som används när en SQL-fråga visas"
 
-#: libraries/config/messages.inc.php:284
+#: libraries/config/messages.inc.php:285
 msgid "Maximum displayed SQL length"
 msgstr "Maximal visad SQL-längd"
 
-#: libraries/config/messages.inc.php:285 libraries/config/messages.inc.php:292
-#: libraries/config/messages.inc.php:348
+#: libraries/config/messages.inc.php:286 libraries/config/messages.inc.php:293
+#: libraries/config/messages.inc.php:349
 msgid "Users cannot set a higher value"
 msgstr "Användare kan inte ange ett högre värde"
 
-#: libraries/config/messages.inc.php:286
+#: libraries/config/messages.inc.php:287
 msgid "Maximum number of databases displayed in database list"
 msgstr "Maximalt antal databaser som visas i databaslistan"
 
-#: libraries/config/messages.inc.php:287
+#: libraries/config/messages.inc.php:288
 msgid "Maximum databases"
 msgstr "Maximalt antal databaser"
 
-#: libraries/config/messages.inc.php:288
+#: libraries/config/messages.inc.php:289
 msgid ""
 "The number of items that can be displayed on each page of the navigation tree"
 msgstr "Antalet objekt som kan visas på varje sida i navigationsträdet"
 
-#: libraries/config/messages.inc.php:289
+#: libraries/config/messages.inc.php:290
 msgid "Maximum items in branch"
 msgstr "Maximalt antal poster i gren"
 
-#: libraries/config/messages.inc.php:290
+#: libraries/config/messages.inc.php:291
 msgid ""
 "Number of rows displayed when browsing a result set. If the result set "
 "contains more rows, &quot;Previous&quot; and &quot;Next&quot; links will be "
@@ -5237,19 +5270,19 @@ msgstr ""
 "Antal rader som visas vid visning av resultat. Om resultatet innehåller fler "
 "rader, visas länkar för &quot;Föregående&quot; och &quot;Nästa&quot;."
 
-#: libraries/config/messages.inc.php:291
+#: libraries/config/messages.inc.php:292
 msgid "Maximum number of rows to display"
 msgstr "Maximalt antal rader att visa"
 
-#: libraries/config/messages.inc.php:293
+#: libraries/config/messages.inc.php:294
 msgid "Maximum number of tables displayed in table list"
 msgstr "Maximalt antal tabeller som visas i tabellista"
 
-#: libraries/config/messages.inc.php:294
+#: libraries/config/messages.inc.php:295
 msgid "Maximum tables"
 msgstr "Maximalt antal tabeller"
 
-#: libraries/config/messages.inc.php:295
+#: libraries/config/messages.inc.php:296
 msgid ""
 "Disable the default warning that is displayed if mcrypt is missing for "
 "cookie authentication"
@@ -5257,11 +5290,11 @@ msgstr ""
 "Inaktivera standardvarning vilken visas om mcrypt saknas för cookie-"
 "autentisering"
 
-#: libraries/config/messages.inc.php:296
+#: libraries/config/messages.inc.php:297
 msgid "mcrypt warning"
 msgstr "mcrypt-varning"
 
-#: libraries/config/messages.inc.php:297
+#: libraries/config/messages.inc.php:298
 msgid ""
 "The number of bytes a script is allowed to allocate, eg. [kbd]32M[/kbd] "
 "([kbd]0[/kbd] for no limit)"
@@ -5269,27 +5302,27 @@ msgstr ""
 "Antal byte som ett skript har tillåtelse att allokera, t.ex. [kbd]32M[/kbd] "
 "([kbd]0[/kbd] för ingen begränsning)"
 
-#: libraries/config/messages.inc.php:298
+#: libraries/config/messages.inc.php:299
 msgid "Memory limit"
 msgstr "Minnesgräns"
 
-#: libraries/config/messages.inc.php:299
+#: libraries/config/messages.inc.php:300
 msgid "Show logo in navigation panel"
 msgstr "Visa logotypen i navigeringspanelen"
 
-#: libraries/config/messages.inc.php:300
+#: libraries/config/messages.inc.php:301
 msgid "Display logo"
 msgstr "Visa logo"
 
-#: libraries/config/messages.inc.php:301
+#: libraries/config/messages.inc.php:302
 msgid "URL where logo in the navigation panel will point to"
 msgstr "URL som navigationspanelens logotyp pekar mot"
 
-#: libraries/config/messages.inc.php:302
+#: libraries/config/messages.inc.php:303
 msgid "Logo link URL"
 msgstr "Länkadress för logo"
 
-#: libraries/config/messages.inc.php:303
+#: libraries/config/messages.inc.php:304
 msgid ""
 "Open the linked page in the main window ([kbd]main[/kbd]) or in a new one "
 "([kbd]new[/kbd])"
@@ -5297,23 +5330,23 @@ msgstr ""
 "Öppna den länkade sidan i huvudfönstret ([kbd]main[/kbd]) eller i ett nytt "
 "([kbd]new[/kbd])"
 
-#: libraries/config/messages.inc.php:304
+#: libraries/config/messages.inc.php:305
 msgid "Logo link target"
 msgstr "Mål för logo-länk"
 
-#: libraries/config/messages.inc.php:305
+#: libraries/config/messages.inc.php:306
 msgid "Display server choice at the top of the navigation panel"
 msgstr "Visa val av server högst upp i navigationspanelen"
 
-#: libraries/config/messages.inc.php:306
+#: libraries/config/messages.inc.php:307
 msgid "Display servers selection"
 msgstr "Visa serverval"
 
-#: libraries/config/messages.inc.php:307
+#: libraries/config/messages.inc.php:308
 msgid "Target for quick access icon"
 msgstr "Mål för snabbåtkomst-ikon"
 
-#: libraries/config/messages.inc.php:308
+#: libraries/config/messages.inc.php:309
 msgid ""
 "Defines the minimum number of items (tables, views, routines and events) to "
 "display a filter box."
@@ -5321,15 +5354,15 @@ msgstr ""
 "Definierar minsta antal objekt (tabeller, vyer, rutiner och händelser) för "
 "att visa en filterbox."
 
-#: libraries/config/messages.inc.php:309
+#: libraries/config/messages.inc.php:310
 msgid "Minimum number of items to display the filter box"
 msgstr "Minsta antal objekt för att visa filterboxen"
 
-#: libraries/config/messages.inc.php:310
+#: libraries/config/messages.inc.php:311
 msgid "Minimum number of databases to display the database filter box"
 msgstr "Minsta antal databaser för att visa filterboxen för databaser"
 
-#: libraries/config/messages.inc.php:311
+#: libraries/config/messages.inc.php:312
 msgid ""
 "Group items in the navigation tree (determined by the separator defined "
 "below)"
@@ -5337,80 +5370,80 @@ msgstr ""
 "Grupperar objekt i navigationsträdet (bestäms av avskiljaren definierad "
 "nedan)"
 
-#: libraries/config/messages.inc.php:312
+#: libraries/config/messages.inc.php:313
 msgid "Group items in the tree"
 msgstr "Grupperar objekt i trädet"
 
-#: libraries/config/messages.inc.php:313
+#: libraries/config/messages.inc.php:314
 msgid "String that separates databases into different tree levels"
 msgstr "Sträng som separerar databaser i olika trädnivåer"
 
-#: libraries/config/messages.inc.php:314
+#: libraries/config/messages.inc.php:315
 msgid "Database tree separator"
 msgstr "Avskiljare för databasträd"
 
-#: libraries/config/messages.inc.php:315
+#: libraries/config/messages.inc.php:316
 msgid "String that separates tables into different tree levels"
 msgstr "Sträng som separerar tabeller i olika trädnivåer"
 
-#: libraries/config/messages.inc.php:316
+#: libraries/config/messages.inc.php:317
 msgid "Table tree separator"
 msgstr "Avskiljare för tabellträd"
 
-#: libraries/config/messages.inc.php:317
+#: libraries/config/messages.inc.php:318
 msgid "Maximum table tree depth"
 msgstr "Max djup i tabellträd"
 
-#: libraries/config/messages.inc.php:318
+#: libraries/config/messages.inc.php:319
 msgid "Highlight server under the mouse cursor"
 msgstr "Markera server under muspekaren"
 
-#: libraries/config/messages.inc.php:319
+#: libraries/config/messages.inc.php:320
 msgid "Enable highlighting"
 msgstr "Aktivera framhävning"
 
-#: libraries/config/messages.inc.php:320
+#: libraries/config/messages.inc.php:321
 msgid "Maximum number of recently used tables; set 0 to disable"
 msgstr "Maximalt antal nyligen använda tabeller, ange 0 för att avaktivera"
 
-#: libraries/config/messages.inc.php:321
+#: libraries/config/messages.inc.php:322
 msgid "Recently used tables"
 msgstr "Nyligen använda tabeller"
 
-#: libraries/config/messages.inc.php:322
+#: libraries/config/messages.inc.php:323
 msgid "These are Edit, Copy and Delete links"
 msgstr "Dessa är länkar till Redigera, Kopiera och Radera"
 
-#: libraries/config/messages.inc.php:323
+#: libraries/config/messages.inc.php:324
 msgid "Where to show the table row links"
 msgstr "Var länkarna i tabellraden visas"
 
-#: libraries/config/messages.inc.php:324
+#: libraries/config/messages.inc.php:325
 msgid "Use natural order for sorting table and database names"
 msgstr "Använd naturlig ordning vid sortering av tabell- och databasnamn"
 
-#: libraries/config/messages.inc.php:325
+#: libraries/config/messages.inc.php:326
 msgid "Natural order"
 msgstr "Naturlig ordning"
 
-#: libraries/config/messages.inc.php:326 libraries/config/messages.inc.php:340
-#: libraries/config/messages.inc.php:342
+#: libraries/config/messages.inc.php:327 libraries/config/messages.inc.php:341
+#: libraries/config/messages.inc.php:343
 msgid "Use only icons, only text or both"
 msgstr "Använd enbart ikoner, endast text eller både och"
 
-#: libraries/config/messages.inc.php:327
+#: libraries/config/messages.inc.php:328
 msgid "Table navigation bar"
 msgstr "Tabellbaserat navigeringsfält"
 
-#: libraries/config/messages.inc.php:328
+#: libraries/config/messages.inc.php:329
 msgid "use GZip output buffering for increased speed in HTTP transfers"
 msgstr "Använd GZip utmatningsbuffer för ökad hastighet i HTTP-överföringar"
 
-#: libraries/config/messages.inc.php:329
+#: libraries/config/messages.inc.php:330
 msgid "GZip output buffering"
 msgstr "GZip Utmatningsbuffer"
 
-#: libraries/config/messages.inc.php:330
+#: libraries/config/messages.inc.php:331
 msgid ""
 "[kbd]SMART[/kbd] - i.e. descending order for columns of type TIME, DATE, "
 "DATETIME and TIMESTAMP, ascending order otherwise"
@@ -5418,19 +5451,19 @@ msgstr ""
 "[kbd]SMART[/kbd] - dvs fallande ordning för kolumner av typen TIME, DATE, "
 "DATETIME och TIMESTAMP, stigande ordning annars"
 
-#: libraries/config/messages.inc.php:331
+#: libraries/config/messages.inc.php:332
 msgid "Default sorting order"
 msgstr "Förvald sorteringsordning"
 
-#: libraries/config/messages.inc.php:332
+#: libraries/config/messages.inc.php:333
 msgid "Use persistent connections to MySQL databases"
 msgstr "Använd bestående anslutningar till MySQL-databaser"
 
-#: libraries/config/messages.inc.php:333
+#: libraries/config/messages.inc.php:334
 msgid "Persistent connections"
 msgstr "Bestående anslutningar"
 
-#: libraries/config/messages.inc.php:334
+#: libraries/config/messages.inc.php:335
 msgid ""
 "Disable the default warning that is displayed on the database details "
 "Structure page if any of the required tables for the phpMyAdmin "
@@ -5440,11 +5473,11 @@ msgstr ""
 "någon av de nödvändiga tabellerna för phpMyAdmin Configuration Storage inte "
 "kunde hittas"
 
-#: libraries/config/messages.inc.php:335
+#: libraries/config/messages.inc.php:336
 msgid "Missing phpMyAdmin configuration storage tables"
 msgstr "Saknade phpMyAdmin konfiguration lagringstabeller"
 
-#: libraries/config/messages.inc.php:336
+#: libraries/config/messages.inc.php:337
 msgid ""
 "Disable the default warning that is displayed if a difference between the "
 "MySQL library and server is detected"
@@ -5452,11 +5485,11 @@ msgstr ""
 "Inaktivera standardvarningen som visas om en skillnad mellan MySQL-"
 "biblioteket och servern upptäcks"
 
-#: libraries/config/messages.inc.php:337
+#: libraries/config/messages.inc.php:338
 msgid "Server/library difference warning"
 msgstr "Varning för skillnad server/bibliotek"
 
-#: libraries/config/messages.inc.php:338
+#: libraries/config/messages.inc.php:339
 msgid ""
 "Disable the default warning that is displayed on the Structure page if "
 "column names in a table are reserved MySQL words"
@@ -5464,27 +5497,27 @@ msgstr ""
 "Inaktivera standardvarningen som visas på sidan Struktur om kolumnnamn i en "
 "tabell är reserverade MySQL-ord"
 
-#: libraries/config/messages.inc.php:339
+#: libraries/config/messages.inc.php:340
 msgid "MySQL reserved word warning"
 msgstr "Varning för reserverat MySQL-ord"
 
-#: libraries/config/messages.inc.php:341
+#: libraries/config/messages.inc.php:342
 msgid "How to display the menu tabs"
 msgstr "Hur att visa menyflikarna"
 
-#: libraries/config/messages.inc.php:343
+#: libraries/config/messages.inc.php:344
 msgid "How to display various action links"
 msgstr "Hur man visar olika åtgärdslänkar"
 
-#: libraries/config/messages.inc.php:344
+#: libraries/config/messages.inc.php:345
 msgid "Disallow BLOB and BINARY columns from editing"
 msgstr "Tillåt ej redigering av BLOB- och BINARY-kolumner"
 
-#: libraries/config/messages.inc.php:345
+#: libraries/config/messages.inc.php:346
 msgid "Protect binary columns"
 msgstr "Skydda binära kolumner"
 
-#: libraries/config/messages.inc.php:346
+#: libraries/config/messages.inc.php:347
 msgid ""
 "Enable if you want DB-based query history (requires phpMyAdmin configuration "
 "storage). If disabled, this utilizes JS-routines to display query history "
@@ -5494,118 +5527,118 @@ msgstr ""
 "konfigurationslagring). Om inakiverad, så används JS-rutiner för att visa "
 "frågehistorik (förloras när fönstret stängs)."
 
-#: libraries/config/messages.inc.php:347
+#: libraries/config/messages.inc.php:348
 msgid "Permanent query history"
 msgstr "Permanent frågehistorik"
 
-#: libraries/config/messages.inc.php:349
+#: libraries/config/messages.inc.php:350
 msgid "How many queries are kept in history"
 msgstr "Antal frågor som sparas i historiken"
 
-#: libraries/config/messages.inc.php:350
+#: libraries/config/messages.inc.php:351
 msgid "Query history length"
 msgstr "Längd på frågehistorik"
 
-#: libraries/config/messages.inc.php:351
+#: libraries/config/messages.inc.php:352
 msgid "Tab displayed when opening a new query window"
 msgstr "Flik som visas när man öppnar ett nytt frågefönster"
 
-#: libraries/config/messages.inc.php:352
+#: libraries/config/messages.inc.php:353
 msgid "Default query window tab"
 msgstr "Förvald frågefönsterflik"
 
-#: libraries/config/messages.inc.php:353
+#: libraries/config/messages.inc.php:354
 msgid "Query window height (in pixels)"
 msgstr "Höjd på frågefönster (i pixlar)"
 
-#: libraries/config/messages.inc.php:354
+#: libraries/config/messages.inc.php:355
 msgid "Query window height"
 msgstr "Höjd på frågefönster"
 
-#: libraries/config/messages.inc.php:355
+#: libraries/config/messages.inc.php:356
 msgid "Query window width (in pixels)"
 msgstr "Bredd på frågefönster (i pixlar)"
 
-#: libraries/config/messages.inc.php:356
+#: libraries/config/messages.inc.php:357
 msgid "Query window width"
 msgstr "Bredd på frågefönster"
 
-#: libraries/config/messages.inc.php:357
+#: libraries/config/messages.inc.php:358
 msgid "Select which functions will be used for character set conversion"
 msgstr ""
 "Välj vilka funktioner som kommer användas för konvertering av "
 "teckenuppsättning"
 
-#: libraries/config/messages.inc.php:358
+#: libraries/config/messages.inc.php:359
 msgid "Recoding engine"
 msgstr "Omvandlingsmotor"
 
-#: libraries/config/messages.inc.php:359
+#: libraries/config/messages.inc.php:360
 msgid "When browsing tables, the sorting of each table is remembered"
 msgstr "Vid bläddring i tabeller är sorteringen av varje tabell ihågkommen"
 
-#: libraries/config/messages.inc.php:360
+#: libraries/config/messages.inc.php:361
 msgid "Remember table's sorting"
 msgstr "Kom ihåg tabellens sortering"
 
-#: libraries/config/messages.inc.php:361
+#: libraries/config/messages.inc.php:362
 msgid "Repeat the headers every X cells, [kbd]0[/kbd] deactivates this feature"
 msgstr ""
 "Upprepa rubrik varje X celler, [kbd]0[/kbd] avaktiverar den här funktionen"
 
-#: libraries/config/messages.inc.php:362
+#: libraries/config/messages.inc.php:363
 msgid "Repeat headers"
 msgstr "Reparera rubriker"
 
-#: libraries/config/messages.inc.php:364
+#: libraries/config/messages.inc.php:365
 msgid "Grid editing: trigger action"
 msgstr "Rutnäts-redigering: utlösningsåtgärd"
 
-#: libraries/config/messages.inc.php:365
+#: libraries/config/messages.inc.php:366
 msgid "Grid editing: save all edited cells at once"
 msgstr "Rutnäts-redigering: spara alla redigerade celler omedelbart"
 
-#: libraries/config/messages.inc.php:366
+#: libraries/config/messages.inc.php:367
 msgid "Directory where exports can be saved on server"
 msgstr "Katalog där exporter kan sparas på servern"
 
-#: libraries/config/messages.inc.php:367
+#: libraries/config/messages.inc.php:368
 msgid "Save directory"
 msgstr "Sparningskatalog"
 
-#: libraries/config/messages.inc.php:368
+#: libraries/config/messages.inc.php:369
 msgid "Leave blank if not used"
 msgstr "Lämna tomt om den inte används"
 
-#: libraries/config/messages.inc.php:369
+#: libraries/config/messages.inc.php:370
 msgid "Host authorization order"
 msgstr "Host auktorisation för"
 
-#: libraries/config/messages.inc.php:370
+#: libraries/config/messages.inc.php:371
 msgid "Leave blank for defaults"
 msgstr "Lämna blankt för standardvärden"
 
-#: libraries/config/messages.inc.php:371
+#: libraries/config/messages.inc.php:372
 msgid "Host authorization rules"
 msgstr "Behörighetsregler för host"
 
-#: libraries/config/messages.inc.php:372
+#: libraries/config/messages.inc.php:373
 msgid "Allow logins without a password"
 msgstr "Tillåt inloggning utan lösenord"
 
-#: libraries/config/messages.inc.php:373
+#: libraries/config/messages.inc.php:374
 msgid "Allow root login"
 msgstr "Tillåt root-inloggning"
 
-#: libraries/config/messages.inc.php:374
+#: libraries/config/messages.inc.php:375
 msgid "HTTP Basic Auth Realm name to display when doing HTTP Auth"
 msgstr "HTTP Basic Auth Realm namn att visa när man gör HTTP Auth"
 
-#: libraries/config/messages.inc.php:375
+#: libraries/config/messages.inc.php:376
 msgid "HTTP Realm"
 msgstr "HTTP Realm"
 
-#: libraries/config/messages.inc.php:376
+#: libraries/config/messages.inc.php:377
 msgid ""
 "The path for the config file for [a@http://swekey.com]SweKey hardware "
 "authentication[/a] (not located in your document root; suggested: /etc/"
@@ -5615,19 +5648,19 @@ msgstr ""
 "hårdvaruautentisering[/a] (inte placerad i din dokumentrotkatalog; förslag: /"
 "etc/swekey.conf)"
 
-#: libraries/config/messages.inc.php:377
+#: libraries/config/messages.inc.php:378
 msgid "SweKey config file"
 msgstr "SweKey konfigurationsfil"
 
-#: libraries/config/messages.inc.php:378
+#: libraries/config/messages.inc.php:379
 msgid "Authentication method to use"
 msgstr "Autentiseringsmetod att använda"
 
-#: libraries/config/messages.inc.php:379 setup/frames/index.inc.php:136
+#: libraries/config/messages.inc.php:380 setup/frames/index.inc.php:136
 msgid "Authentication type"
 msgstr "Autentiseringstyp"
 
-#: libraries/config/messages.inc.php:380
+#: libraries/config/messages.inc.php:381
 msgid ""
 "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/bookmark]bookmark[/a] "
 "support, suggested: [kbd]pma__bookmark[/kbd]"
@@ -5635,11 +5668,11 @@ msgstr ""
 "Lämna tomt för att stänga av [a@http://wiki.phpmyadmin.net/pma/bookmark]"
 "bokmärken[/a], förslag: [kbd]pma_bookmark[/kbd]"
 
-#: libraries/config/messages.inc.php:381
+#: libraries/config/messages.inc.php:382
 msgid "Bookmark table"
 msgstr "Tabell för bokmärken"
 
-#: libraries/config/messages.inc.php:382
+#: libraries/config/messages.inc.php:383
 msgid ""
 "Leave blank for no column comments/mime types, suggested: [kbd]"
 "pma__column_info[/kbd]"
@@ -5647,31 +5680,31 @@ msgstr ""
 "Lämna tomt för att stänga av kolumnkommentarer/mime-typer, förslag: [kbd]"
 "pma_column_info[/kbd]"
 
-#: libraries/config/messages.inc.php:383
+#: libraries/config/messages.inc.php:384
 msgid "Column information table"
 msgstr "Tabell för kolumninformation"
 
-#: libraries/config/messages.inc.php:384
+#: libraries/config/messages.inc.php:385
 msgid "Compress connection to MySQL server"
 msgstr "Komprimera anslutning till MySQL-servern"
 
-#: libraries/config/messages.inc.php:385
+#: libraries/config/messages.inc.php:386
 msgid "Compress connection"
 msgstr "Komprimera anslutning"
 
-#: libraries/config/messages.inc.php:386
+#: libraries/config/messages.inc.php:387
 msgid "How to connect to server, keep [kbd]tcp[/kbd] if unsure"
 msgstr "Hur ansluta till servern, behåll [kbd]TCP[/kbd] om du är osäker"
 
-#: libraries/config/messages.inc.php:387
+#: libraries/config/messages.inc.php:388
 msgid "Connection type"
 msgstr "Anslutningstyp"
 
-#: libraries/config/messages.inc.php:388
+#: libraries/config/messages.inc.php:389
 msgid "Control user password"
 msgstr "Lösenord för kontrollanvändare"
 
-#: libraries/config/messages.inc.php:389
+#: libraries/config/messages.inc.php:390
 msgid ""
 "A special MySQL user configured with limited permissions, more information "
 "available on [a@http://wiki.phpmyadmin.net/pma/controluser]wiki[/a]"
@@ -5680,11 +5713,11 @@ msgstr ""
 "information tillgänglig på [a@http://wiki.phpmyadmin.net/pma/controluser]wiki"
 "[/a]"
 
-#: libraries/config/messages.inc.php:390
+#: libraries/config/messages.inc.php:391
 msgid "Control user"
 msgstr "Kontrollanvändare"
 
-#: libraries/config/messages.inc.php:391
+#: libraries/config/messages.inc.php:392
 msgid ""
 "An alternate host to hold the configuration storage; leave blank to use the "
 "already defined host"
@@ -5692,11 +5725,11 @@ msgstr ""
 "En alternativ värd för att hålla konfigurationslagring, lämna tomt för att "
 "använda den aktuella värden"
 
-#: libraries/config/messages.inc.php:392
+#: libraries/config/messages.inc.php:393
 msgid "Control host"
 msgstr "Kontrollvärd"
 
-#: libraries/config/messages.inc.php:393
+#: libraries/config/messages.inc.php:394
 msgid ""
 "An alternate port to connect to the host that holds the configuration "
 "storage; leave blank to use the default port, or the already defined port, "
@@ -5706,11 +5739,11 @@ msgstr ""
 "konfigurationslagring; lämna tomt för att använda standard porten, eller den "
 "redan definierade porten, om controlhost motsvarar host"
 
-#: libraries/config/messages.inc.php:394
+#: libraries/config/messages.inc.php:395
 msgid "Control port"
 msgstr "Kontrollport"
 
-#: libraries/config/messages.inc.php:395
+#: libraries/config/messages.inc.php:396
 msgid ""
 "Leave blank for no Designer support, suggested: [kbd]pma__designer_coords[/"
 "kbd]"
@@ -5718,11 +5751,11 @@ msgstr ""
 "Lämna tomt för avstängt Designer stöd, förslag: [kbd]pma_designer_coords[/"
 "kbd]"
 
-#: libraries/config/messages.inc.php:396
+#: libraries/config/messages.inc.php:397
 msgid "Designer table"
 msgstr "Tabell för Designer"
 
-#: libraries/config/messages.inc.php:397
+#: libraries/config/messages.inc.php:398
 msgid ""
 "More information on [a@https://sourceforge.net/p/phpmyadmin/bugs/2606/]PMA "
 "bug tracker[/a] and [a@http://bugs.mysql.com/19588]MySQL Bugs[/a]"
@@ -5730,28 +5763,28 @@ msgstr ""
 "Mer information på [a@https://sourceforge.net/p/phpmyadmin/bugs/2606/]PMA "
 "bug tracker[/a] och [a@http://bugs.mysql.com/19588]MySQL Bugs[/a]"
 
-#: libraries/config/messages.inc.php:398
+#: libraries/config/messages.inc.php:399
 msgid "Disable use of INFORMATION_SCHEMA"
 msgstr "Inaktivera användning av INFORMATION_SCHEMA"
 
-#: libraries/config/messages.inc.php:399
+#: libraries/config/messages.inc.php:400
 msgid "What PHP extension to use; you should use mysqli if supported"
 msgstr ""
 "Vilket PHP-tillägg som ska användas; du bör använda mysqli om det stöds"
 
-#: libraries/config/messages.inc.php:400
+#: libraries/config/messages.inc.php:401
 msgid "PHP extension to use"
 msgstr "PHP-tillägg att använda"
 
-#: libraries/config/messages.inc.php:401
+#: libraries/config/messages.inc.php:402
 msgid "Hide databases matching regular expression (PCRE)"
 msgstr "Dölj databaser som matchar reguljärt uttryck (PCRE)"
 
-#: libraries/config/messages.inc.php:402
+#: libraries/config/messages.inc.php:403
 msgid "Hide databases"
 msgstr "Dölj databaser"
 
-#: libraries/config/messages.inc.php:403
+#: libraries/config/messages.inc.php:404
 msgid ""
 "Leave blank for no SQL query history support, suggested: [kbd]pma__history[/"
 "kbd]"
@@ -5759,23 +5792,23 @@ msgstr ""
 "Lämna blankt för att stänga av stöd för SQL-frågehistorik, förslag: [kbd]"
 "pma__history[/kbd]"
 
-#: libraries/config/messages.inc.php:404
+#: libraries/config/messages.inc.php:405
 msgid "SQL query history table"
 msgstr "Tabell för SQL-frågehistorik"
 
-#: libraries/config/messages.inc.php:405
+#: libraries/config/messages.inc.php:406
 msgid "Hostname where MySQL server is running"
 msgstr "Värdnamn där MySQL-servern körs"
 
-#: libraries/config/messages.inc.php:406
+#: libraries/config/messages.inc.php:407
 msgid "Server hostname"
 msgstr "Serverns värdnamn"
 
-#: libraries/config/messages.inc.php:407
+#: libraries/config/messages.inc.php:408
 msgid "Logout URL"
 msgstr "URL för utloggning"
 
-#: libraries/config/messages.inc.php:408
+#: libraries/config/messages.inc.php:409
 msgid ""
 "Limits number of table preferences which are stored in database, the oldest "
 "records are automatically removed"
@@ -5783,19 +5816,19 @@ msgstr ""
 "Begränsar antalet tabellpreferenser som lagras i databasen, de äldsta "
 "posterna tas bort automatiskt"
 
-#: libraries/config/messages.inc.php:409
+#: libraries/config/messages.inc.php:410
 msgid "Maximal number of table preferences to store"
 msgstr "Maximalt antal tabellinställningar att spara"
 
-#: libraries/config/messages.inc.php:410
+#: libraries/config/messages.inc.php:411
 msgid "Try to connect without password"
 msgstr "Försök ansluta utan lösenord"
 
-#: libraries/config/messages.inc.php:411
+#: libraries/config/messages.inc.php:412
 msgid "Connect without password"
 msgstr "Anslut utan lösenord"
 
-#: libraries/config/messages.inc.php:412
+#: libraries/config/messages.inc.php:413
 msgid ""
 "You can use MySQL wildcard characters (% and _), escape them if you want to "
 "use their literal instances, i.e. use [kbd]'my\\_db'[/kbd] and not "
@@ -5805,30 +5838,30 @@ msgstr ""
 "använda deras ordagranna betydelse, dvs använd [kbd] 'my\\_db\"[/kbd] och "
 "inte [kbd]'my_db\"[/kbd]."
 
-#: libraries/config/messages.inc.php:413
+#: libraries/config/messages.inc.php:414
 msgid "Show only listed databases"
 msgstr "Visa endast listade databaser"
 
-#: libraries/config/messages.inc.php:414 libraries/config/messages.inc.php:461
+#: libraries/config/messages.inc.php:415 libraries/config/messages.inc.php:462
 msgid "Leave empty if not using config auth"
 msgstr "Lämna tomt om inte config auth används"
 
-#: libraries/config/messages.inc.php:415
+#: libraries/config/messages.inc.php:416
 msgid "Password for config auth"
 msgstr "Lösenord för config auth"
 
-#: libraries/config/messages.inc.php:416
+#: libraries/config/messages.inc.php:417
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__pdf_pages[/kbd]"
 msgstr ""
 "Lämna blankt för att stänga av stöd för PDF-schema, förslag: [kbd]"
 "pma__pdf_pages[/kbd]"
 
-#: libraries/config/messages.inc.php:417
+#: libraries/config/messages.inc.php:418
 msgid "PDF schema: pages table"
 msgstr "PDF-schema: Tabell för sidor"
 
-#: libraries/config/messages.inc.php:418
+#: libraries/config/messages.inc.php:419
 msgid ""
 "Database used for relations, bookmarks, and PDF features. See [a@http://wiki."
 "phpmyadmin.net/pma/pmadb]pmadb[/a] for complete information. Leave blank for "
@@ -5838,19 +5871,19 @@ msgstr ""
 "[a@http://wiki.phpmyadmin.net/pma/pmadb]pmadb[/a] för komplett information. "
 "Lämna tomt för inget stöd. Förslag: [kbd]phpmyadmin[/kbd]"
 
-#: libraries/config/messages.inc.php:419
+#: libraries/config/messages.inc.php:420
 msgid "Database name"
 msgstr "Databasnamn"
 
-#: libraries/config/messages.inc.php:420
+#: libraries/config/messages.inc.php:421
 msgid "Port on which MySQL server is listening, leave empty for default"
 msgstr "Port som MySQL-servern lyssnar på, lämna blankt för standardport"
 
-#: libraries/config/messages.inc.php:421
+#: libraries/config/messages.inc.php:422
 msgid "Server port"
 msgstr "Serverport"
 
-#: libraries/config/messages.inc.php:422
+#: libraries/config/messages.inc.php:423
 msgid ""
 "Leave blank for no \"persistent\" recently used tables across sessions, "
 "suggested: [kbd]pma__recent[/kbd]"
@@ -5858,11 +5891,11 @@ msgstr ""
 "Lämna tomt för att stänga av \"ihållande\" nyligen använda tabeller över "
 "sessioner, förslag: [kbd]pma__recent[/kbd]"
 
-#: libraries/config/messages.inc.php:423
+#: libraries/config/messages.inc.php:424
 msgid "Recently used table"
 msgstr "Nyligen använd tabell"
 
-#: libraries/config/messages.inc.php:424
+#: libraries/config/messages.inc.php:425
 msgid ""
 "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-links"
 "[/a] support, suggested: [kbd]pma__relation[/kbd]"
@@ -5870,19 +5903,19 @@ msgstr ""
 "Lämna tomt för avstängt stöd för [a@http://wiki.phpmyadmin.net/pma/relation]"
 "relationslänkar[/a], förslag: [kbd]pma_relation[/kbd]"
 
-#: libraries/config/messages.inc.php:425
+#: libraries/config/messages.inc.php:426
 msgid "Relation table"
 msgstr "Relationstabell"
 
-#: libraries/config/messages.inc.php:426
+#: libraries/config/messages.inc.php:427
 msgid "SQL command to fetch available databases"
 msgstr "SQL-kommando för att hämta tillgängliga databaser"
 
-#: libraries/config/messages.inc.php:427
+#: libraries/config/messages.inc.php:428
 msgid "SHOW DATABASES command"
 msgstr "SHOW DATABASES-kommando"
 
-#: libraries/config/messages.inc.php:428
+#: libraries/config/messages.inc.php:429
 msgid ""
 "See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication types"
 "[/a] for an example"
@@ -5890,31 +5923,31 @@ msgstr ""
 "Se [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]autentiseringstyper[/"
 "a] för ett exempel"
 
-#: libraries/config/messages.inc.php:429
+#: libraries/config/messages.inc.php:430
 msgid "Signon session name"
 msgstr "Signon sessionsnamn"
 
-#: libraries/config/messages.inc.php:430
+#: libraries/config/messages.inc.php:431
 msgid "Signon URL"
 msgstr "Inloggnings-URL"
 
-#: libraries/config/messages.inc.php:431
+#: libraries/config/messages.inc.php:432
 msgid "Socket on which MySQL server is listening, leave empty for default"
 msgstr "Sockel som MySQL-servern lyssnar på, lämna tomt för default"
 
-#: libraries/config/messages.inc.php:432
+#: libraries/config/messages.inc.php:433
 msgid "Server socket"
 msgstr "Server socket"
 
-#: libraries/config/messages.inc.php:433
+#: libraries/config/messages.inc.php:434
 msgid "Enable SSL for connection to MySQL server"
 msgstr "Aktivera SSL för anslutning till MySQL-servern"
 
-#: libraries/config/messages.inc.php:434
+#: libraries/config/messages.inc.php:435
 msgid "Use SSL"
 msgstr "Använd SSL"
 
-#: libraries/config/messages.inc.php:435
+#: libraries/config/messages.inc.php:436
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__table_coords[/"
 "kbd]"
@@ -5922,11 +5955,11 @@ msgstr ""
 "Lämna tomt för avstängt stöd för PDF-schema, förslag: [kbd]pma_table_coords[/"
 "kbd]"
 
-#: libraries/config/messages.inc.php:436
+#: libraries/config/messages.inc.php:437
 msgid "PDF schema: table coordinates"
 msgstr "PDF-schema: tabellkoordinater"
 
-#: libraries/config/messages.inc.php:437
+#: libraries/config/messages.inc.php:438
 msgid ""
 "Table to describe the display columns, leave blank for no support; "
 "suggested: [kbd]pma__table_info[/kbd]"
@@ -5934,11 +5967,11 @@ msgstr ""
 "Tabell för att beskriva visningskolumnerna, lämna tomt för avstängt stöd; "
 "förslag: [kbd]pma__table_info[/kbd]"
 
-#: libraries/config/messages.inc.php:438
+#: libraries/config/messages.inc.php:439
 msgid "Display columns table"
 msgstr "Visa tabellkolumner"
 
-#: libraries/config/messages.inc.php:439
+#: libraries/config/messages.inc.php:440
 msgid ""
 "Leave blank for no \"persistent\" tables' UI preferences across sessions, "
 "suggested: [kbd]pma__table_uiprefs[/kbd]"
@@ -5947,11 +5980,11 @@ msgstr ""
 "användargränssnittspreferenser som sparas över sessioner, förslag: [kbd]"
 "pma__table_uiprefs[/kbd]"
 
-#: libraries/config/messages.inc.php:440
+#: libraries/config/messages.inc.php:441
 msgid "UI preferences table"
 msgstr "Tabell för inställningar av användargränssnittet"
 
-#: libraries/config/messages.inc.php:441
+#: libraries/config/messages.inc.php:442
 msgid ""
 "Whether a DROP DATABASE IF EXISTS statement will be added as first line to "
 "the log when creating a database."
@@ -5959,11 +5992,11 @@ msgstr ""
 "Om DROP DATABASE IF EXISTS-kommando skall läggas till som första raden i "
 "loggen när man skapar en databas."
 
-#: libraries/config/messages.inc.php:442
+#: libraries/config/messages.inc.php:443
 msgid "Add DROP DATABASE"
 msgstr "Lägg till DROP DATABASE"
 
-#: libraries/config/messages.inc.php:443
+#: libraries/config/messages.inc.php:444
 msgid ""
 "Whether a DROP TABLE IF EXISTS statement will be added as first line to the "
 "log when creating a table."
@@ -5971,11 +6004,11 @@ msgstr ""
 "Om DROP TABLE IF EXISTS-kommando skall läggas till som första raden i loggen "
 "när man skapar en tabell."
 
-#: libraries/config/messages.inc.php:444
+#: libraries/config/messages.inc.php:445
 msgid "Add DROP TABLE"
 msgstr "Lägg till DROP TABLE"
 
-#: libraries/config/messages.inc.php:445
+#: libraries/config/messages.inc.php:446
 msgid ""
 "Whether a DROP VIEW IF EXISTS statement will be added as first line to the "
 "log when creating a view."
@@ -5983,21 +6016,21 @@ msgstr ""
 "Om DROP VIEW IF EXISTS-kommando skall läggas till som första raden i loggen "
 "när man skapar en vy."
 
-#: libraries/config/messages.inc.php:446
+#: libraries/config/messages.inc.php:447
 msgid "Add DROP VIEW"
 msgstr "Lägg till DROP VIEW"
 
-#: libraries/config/messages.inc.php:447
+#: libraries/config/messages.inc.php:448
 msgid "Defines the list of statements the auto-creation uses for new versions."
 msgstr ""
 "Definierar lista med påståenden vilken auto-creation använder för nya "
 "versioner."
 
-#: libraries/config/messages.inc.php:448
+#: libraries/config/messages.inc.php:449
 msgid "Statements to track"
 msgstr "Kommandon att spåra"
 
-#: libraries/config/messages.inc.php:449
+#: libraries/config/messages.inc.php:450
 msgid ""
 "Leave blank for no SQL query tracking support, suggested: [kbd]pma__tracking"
 "[/kbd]"
@@ -6005,11 +6038,11 @@ msgstr ""
 "Lämna tomt för avstängt stöd för SQL-frågespårning, förslag: [kbd]"
 "pma__tracking[/kbd]"
 
-#: libraries/config/messages.inc.php:450
+#: libraries/config/messages.inc.php:451
 msgid "SQL query tracking table"
 msgstr "SQL-frågespårningstabell"
 
-#: libraries/config/messages.inc.php:451
+#: libraries/config/messages.inc.php:452
 msgid ""
 "Whether the tracking mechanism creates versions for tables and views "
 "automatically."
@@ -6017,11 +6050,11 @@ msgstr ""
 "Huruvida spårningsmekanismen skapar versioner för tabeller och vyer "
 "automatiskt."
 
-#: libraries/config/messages.inc.php:452
+#: libraries/config/messages.inc.php:453
 msgid "Automatically create versions"
 msgstr "Skapa versioner automatiskt"
 
-#: libraries/config/messages.inc.php:453
+#: libraries/config/messages.inc.php:454
 msgid ""
 "Leave blank for no user preferences storage in database, suggested: [kbd]"
 "pma__userconfig[/kbd]"
@@ -6029,11 +6062,11 @@ msgstr ""
 "Lämna tomt för att stänga av lagring av användarpreferenser i databasen, "
 "förslag: [kbd]pma__userconfig[/kbd]"
 
-#: libraries/config/messages.inc.php:454
+#: libraries/config/messages.inc.php:455
 msgid "User preferences storage table"
 msgstr "Användarinställningar för lagringstabell"
 
-#: libraries/config/messages.inc.php:455
+#: libraries/config/messages.inc.php:456
 #, fuzzy
 #| msgid ""
 #| "Leave blank for no user preferences storage in database, suggested: [kbd]"
@@ -6045,13 +6078,13 @@ msgstr ""
 "Lämna tomt för att stänga av lagring av användarpreferenser i databasen, "
 "förslag: [kbd]pma__userconfig[/kbd]"
 
-#: libraries/config/messages.inc.php:456
+#: libraries/config/messages.inc.php:457
 #, fuzzy
 #| msgid "Use Tables"
 msgid "Users table"
 msgstr "Använd tabeller"
 
-#: libraries/config/messages.inc.php:457
+#: libraries/config/messages.inc.php:458
 #, fuzzy
 #| msgid ""
 #| "Leave blank for no user preferences storage in database, suggested: [kbd]"
@@ -6063,13 +6096,13 @@ msgstr ""
 "Lämna tomt för att stänga av lagring av användarpreferenser i databasen, "
 "förslag: [kbd]pma__userconfig[/kbd]"
 
-#: libraries/config/messages.inc.php:458
+#: libraries/config/messages.inc.php:459
 #, fuzzy
 #| msgid "Use Host Table"
 msgid "User groups table"
 msgstr "Använd värdtabell"
 
-#: libraries/config/messages.inc.php:459
+#: libraries/config/messages.inc.php:460
 #, fuzzy
 #| msgid ""
 #| "Leave blank for no user preferences storage in database, suggested: [kbd]"
@@ -6081,15 +6114,15 @@ msgstr ""
 "Lämna tomt för att stänga av lagring av användarpreferenser i databasen, "
 "förslag: [kbd]pma__userconfig[/kbd]"
 
-#: libraries/config/messages.inc.php:460
+#: libraries/config/messages.inc.php:461
 msgid "Hidden navigation items table"
 msgstr ""
 
-#: libraries/config/messages.inc.php:462
+#: libraries/config/messages.inc.php:463
 msgid "User for config auth"
 msgstr "Användare för config auth"
 
-#: libraries/config/messages.inc.php:463
+#: libraries/config/messages.inc.php:464
 msgid ""
 "A user-friendly description of this server. Leave blank to display the "
 "hostname instead."
@@ -6097,19 +6130,19 @@ msgstr ""
 "En användarvänlig beskrivning av denna server. Lämna tomt för att visa "
 "värdnamnet istället."
 
-#: libraries/config/messages.inc.php:464
+#: libraries/config/messages.inc.php:465
 msgid "Verbose name of this server"
 msgstr "Beskrivande namn för denna server"
 
-#: libraries/config/messages.inc.php:465
+#: libraries/config/messages.inc.php:466
 msgid "Whether a user should be displayed a &quot;show all (rows)&quot; button"
 msgstr "Ifall en användare ska få se en &quot;visa alla (rader)&quot;-knapp"
 
-#: libraries/config/messages.inc.php:466
+#: libraries/config/messages.inc.php:467
 msgid "Allow to display all the rows"
 msgstr "Tillåt att visa alla rader"
 
-#: libraries/config/messages.inc.php:467
+#: libraries/config/messages.inc.php:468
 msgid ""
 "Please note that enabling this has no effect with [kbd]config[/kbd] "
 "authentication mode because the password is hard coded in the configuration "
@@ -6119,47 +6152,47 @@ msgstr ""
 "autentisering eftersom lösenordet är hårdkodat i konfigurationsfilen; detta "
 "begränsar inte möjligheten att utföra samma kommando direkt"
 
-#: libraries/config/messages.inc.php:468
+#: libraries/config/messages.inc.php:469
 msgid "Show password change form"
 msgstr "Visa ändra lösenord-formulär"
 
-#: libraries/config/messages.inc.php:469
+#: libraries/config/messages.inc.php:470
 msgid "Show create database form"
 msgstr "Visa skapa databas-formulär"
 
-#: libraries/config/messages.inc.php:470
+#: libraries/config/messages.inc.php:471
 msgid "Show or hide a column displaying the Creation timestamp for all tables"
 msgstr ""
 "Visa eller dölj en kolumn som visar tidsstämpeln för skapandet av samtliga "
 "tabeller"
 
-#: libraries/config/messages.inc.php:471
+#: libraries/config/messages.inc.php:472
 msgid "Show Creation timestamp"
 msgstr "Visa tidsstämpel för skapande"
 
-#: libraries/config/messages.inc.php:472
+#: libraries/config/messages.inc.php:473
 msgid ""
 "Show or hide a column displaying the Last update timestamp for all tables"
 msgstr ""
 "Visa eller dölj en kolumn som visar den senaste uppdaterade tidsstämpeln för "
 "alla tabeller"
 
-#: libraries/config/messages.inc.php:473
+#: libraries/config/messages.inc.php:474
 msgid "Show Last update timestamp"
 msgstr "Visa senast ändrade tidstämpel"
 
-#: libraries/config/messages.inc.php:474
+#: libraries/config/messages.inc.php:475
 msgid ""
 "Show or hide a column displaying the Last check timestamp for all tables"
 msgstr ""
 "Visa eller dölj en kolumn visar den sista kontroll tidsstämpeln för alla "
 "tabeller"
 
-#: libraries/config/messages.inc.php:475
+#: libraries/config/messages.inc.php:476
 msgid "Show Last check timestamp"
 msgstr "Visa senaste kontrolltidstämpel"
 
-#: libraries/config/messages.inc.php:476
+#: libraries/config/messages.inc.php:477
 msgid ""
 "Defines whether or not type display direction option is shown when browsing "
 "a table"
@@ -6167,37 +6200,37 @@ msgstr ""
 "Definierar oavsett om typ display riktning alternativ visas när du bläddrar "
 "en tabell"
 
-#: libraries/config/messages.inc.php:477
+#: libraries/config/messages.inc.php:478
 msgid "Show display direction"
 msgstr "Visa visnings riktning"
 
-#: libraries/config/messages.inc.php:478
+#: libraries/config/messages.inc.php:479
 msgid ""
 "Defines whether or not type fields should be initially displayed in edit/"
 "insert mode"
 msgstr "Anger om typ-fält bör först visas i ändra/infoga-läge"
 
-#: libraries/config/messages.inc.php:479
+#: libraries/config/messages.inc.php:480
 msgid "Show field types"
 msgstr "Visa fälttyper"
 
-#: libraries/config/messages.inc.php:480
+#: libraries/config/messages.inc.php:481
 msgid "Display the function fields in edit/insert mode"
 msgstr "Visa funktionsfälten i ändra/infoga-läge"
 
-#: libraries/config/messages.inc.php:481
+#: libraries/config/messages.inc.php:482
 msgid "Show function fields"
 msgstr "Visa funktionsfält"
 
-#: libraries/config/messages.inc.php:482
+#: libraries/config/messages.inc.php:483
 msgid "Whether to show hint or not"
 msgstr "Om du vill visa tips eller inte"
 
-#: libraries/config/messages.inc.php:483
+#: libraries/config/messages.inc.php:484
 msgid "Show hint"
 msgstr "Visa tips"
 
-#: libraries/config/messages.inc.php:484
+#: libraries/config/messages.inc.php:485
 msgid ""
 "Shows link to [a@http://php.net/manual/function.phpinfo.php]phpinfo()[/a] "
 "output"
@@ -6205,59 +6238,59 @@ msgstr ""
 "Visar länk till resultatet av [a@http://php.net/manual/function.phpinfo.php]"
 "phpinfo()[/a]"
 
-#: libraries/config/messages.inc.php:485
+#: libraries/config/messages.inc.php:486
 msgid "Show phpinfo() link"
 msgstr "Visa phpinfo()-länk"
 
-#: libraries/config/messages.inc.php:486
+#: libraries/config/messages.inc.php:487
 msgid "Show detailed MySQL server information"
 msgstr "Visa detaljerad MySQL-serverinformation"
 
-#: libraries/config/messages.inc.php:487
+#: libraries/config/messages.inc.php:488
 msgid "Defines whether SQL queries generated by phpMyAdmin should be displayed"
 msgstr "Anger om SQL-frågor som genereras av phpMyAdmin ska visas"
 
-#: libraries/config/messages.inc.php:488
+#: libraries/config/messages.inc.php:489
 msgid "Show SQL queries"
 msgstr "Visa SQL-frågor"
 
-#: libraries/config/messages.inc.php:489
+#: libraries/config/messages.inc.php:490
 msgid ""
 "Defines whether the query box should stay on-screen after its submission"
 msgstr "Anger om frågerutan ska stanna på skärmen efter den skickats"
 
-#: libraries/config/messages.inc.php:490 libraries/sql_query_form.lib.php:377
+#: libraries/config/messages.inc.php:491 libraries/sql_query_form.lib.php:377
 msgid "Retain query box"
 msgstr "Behåll frågerutan"
 
-#: libraries/config/messages.inc.php:491
+#: libraries/config/messages.inc.php:492
 msgid "Allow to display database and table statistics (eg. space usage)"
 msgstr "Tillåt visning av databas- och tabellstatistik (t.ex. av utrymme)"
 
-#: libraries/config/messages.inc.php:492
+#: libraries/config/messages.inc.php:493
 msgid "Show statistics"
 msgstr "Visa statistik"
 
-#: libraries/config/messages.inc.php:493
+#: libraries/config/messages.inc.php:494
 msgid "Display table comments in tooltips"
 msgstr "Visa tabellkommentarer i tooltip"
 
-#: libraries/config/messages.inc.php:494
+#: libraries/config/messages.inc.php:495
 msgid ""
 "Mark used tables and make it possible to show databases with locked tables"
 msgstr ""
 "Markera använda tabeller och gör det möjligt att visa databaser med låsta "
 "tabeller"
 
-#: libraries/config/messages.inc.php:495
+#: libraries/config/messages.inc.php:496
 msgid "Skip locked tables"
 msgstr "Hoppa över låsta tabeller"
 
-#: libraries/config/messages.inc.php:500
+#: libraries/config/messages.inc.php:501
 msgid "Requires SQL Validator to be enabled"
 msgstr "Kräver att SQL Validator är aktiverad"
 
-#: libraries/config/messages.inc.php:502 libraries/replication_gui.lib.php:400
+#: libraries/config/messages.inc.php:503 libraries/replication_gui.lib.php:400
 #: libraries/replication_gui.lib.php:831 libraries/replication_gui.lib.php:847
 #: libraries/server_privileges.lib.php:1321
 #: libraries/server_privileges.lib.php:1345
@@ -6265,7 +6298,7 @@ msgstr "Kräver att SQL Validator är aktiverad"
 msgid "Password"
 msgstr "Lösenord"
 
-#: libraries/config/messages.inc.php:503
+#: libraries/config/messages.inc.php:504
 msgid ""
 "[strong]Warning:[/strong] requires PHP SOAP extension or PEAR SOAP to be "
 "installed"
@@ -6273,11 +6306,11 @@ msgstr ""
 "[strong]Varning:[/strong] kräver PHP SOAP-tillägget eller installation av "
 "PEAR SOAP"
 
-#: libraries/config/messages.inc.php:504
+#: libraries/config/messages.inc.php:505
 msgid "Enable SQL Validator"
 msgstr "Aktivera SQL Validator"
 
-#: libraries/config/messages.inc.php:505
+#: libraries/config/messages.inc.php:506
 msgid ""
 "If you have a custom username, specify it here (defaults to [kbd]anonymous[/"
 "kbd])"
@@ -6285,20 +6318,20 @@ msgstr ""
 "Om du har ett eget användarnamn, ange det här (standardnamn är [kbd]anonymous"
 "[/kbd])"
 
-#: libraries/config/messages.inc.php:506 tbl_tracking.php:559
+#: libraries/config/messages.inc.php:507 tbl_tracking.php:559
 #: tbl_tracking.php:621
 msgid "Username"
 msgstr "Användarnamn"
 
-#: libraries/config/messages.inc.php:507
+#: libraries/config/messages.inc.php:508
 msgid "A warning is displayed on the main page if Suhosin is detected"
 msgstr "En varning visas på huvudsidan om Suhosin upptäcks"
 
-#: libraries/config/messages.inc.php:508
+#: libraries/config/messages.inc.php:509
 msgid "Suhosin warning"
 msgstr "Suhosin-varning"
 
-#: libraries/config/messages.inc.php:509
+#: libraries/config/messages.inc.php:510
 msgid ""
 "Textarea size (columns) in edit mode, this value will be emphasized for SQL "
 "query textareas (*2) and for query window (*1.25)"
@@ -6306,11 +6339,11 @@ msgstr ""
 "Textareans storlek (kolumner) i redigeringsläge, detta värde kommer betonas "
 "för SQL-frågetextfält (* 2) och för frågefönster (* 1,25)"
 
-#: libraries/config/messages.inc.php:510
+#: libraries/config/messages.inc.php:511
 msgid "Textarea columns"
 msgstr "Textarea kolumner"
 
-#: libraries/config/messages.inc.php:511
+#: libraries/config/messages.inc.php:512
 msgid ""
 "Textarea size (rows) in edit mode, this value will be emphasized for SQL "
 "query textareas (*2) and for query window (*1.25)"
@@ -6318,31 +6351,31 @@ msgstr ""
 "Textareans storlek (rader) i redigeringsläge, detta värde kommer betonas för "
 "SQL-frågetextfält (* 2) och för frågefönster (* 1,25)"
 
-#: libraries/config/messages.inc.php:512
+#: libraries/config/messages.inc.php:513
 msgid "Textarea rows"
 msgstr "Textarea rader"
 
-#: libraries/config/messages.inc.php:513
+#: libraries/config/messages.inc.php:514
 msgid "Title of browser window when a database is selected"
 msgstr "Titel på webbläsarfönstret när en databas är vald"
 
-#: libraries/config/messages.inc.php:515
+#: libraries/config/messages.inc.php:516
 msgid "Title of browser window when nothing is selected"
 msgstr "Titel på webbläsarfönstret när ingenting är markerat"
 
-#: libraries/config/messages.inc.php:516
+#: libraries/config/messages.inc.php:517
 msgid "Default title"
 msgstr "Standardtitel"
 
-#: libraries/config/messages.inc.php:517
+#: libraries/config/messages.inc.php:518
 msgid "Title of browser window when a server is selected"
 msgstr "Titel på webbläsarfönstret när en server är vald"
 
-#: libraries/config/messages.inc.php:519
+#: libraries/config/messages.inc.php:520
 msgid "Title of browser window when a table is selected"
 msgstr "Titel på webbläsarfönstret när en tabell är markerad"
 
-#: libraries/config/messages.inc.php:521
+#: libraries/config/messages.inc.php:522
 msgid ""
 "Input proxies as [kbd]IP: trusted HTTP header[/kbd]. The following example "
 "specifies that phpMyAdmin should trust a HTTP_X_FORWARDED_FOR (X-Forwarded-"
@@ -6354,27 +6387,27 @@ msgstr ""
 "som kommer från proxyservern 1.2.3.4:[br][kbd]1.2.3.4: HTTP_X_FORWARDED_FOR[/"
 "kbd]"
 
-#: libraries/config/messages.inc.php:522
+#: libraries/config/messages.inc.php:523
 msgid "List of trusted proxies for IP allow/deny"
 msgstr "Lista med betrodda proxies för IP allow/deny"
 
-#: libraries/config/messages.inc.php:523
+#: libraries/config/messages.inc.php:524
 msgid "Directory on server where you can upload files for import"
 msgstr "Katalog på servern där du kan ladda upp filer för import"
 
-#: libraries/config/messages.inc.php:524
+#: libraries/config/messages.inc.php:525
 msgid "Upload directory"
 msgstr "Uppladdningskatalog"
 
-#: libraries/config/messages.inc.php:525
+#: libraries/config/messages.inc.php:526
 msgid "Allow for searching inside the entire database"
 msgstr "Tillåt sökning i hela databasen"
 
-#: libraries/config/messages.inc.php:526
+#: libraries/config/messages.inc.php:527
 msgid "Use database search"
 msgstr "Använd databassökning"
 
-#: libraries/config/messages.inc.php:527
+#: libraries/config/messages.inc.php:528
 msgid ""
 "When disabled, users cannot set any of the options below, regardless of the "
 "checkbox on the right"
@@ -6382,26 +6415,26 @@ msgstr ""
 "När det är avstängt, kan användare inte ange något av alternativen nedan, "
 "oberoende av kryssrutan till höger"
 
-#: libraries/config/messages.inc.php:528
+#: libraries/config/messages.inc.php:529
 msgid "Enable the Developer tab in settings"
 msgstr "Aktivera fliken Utvecklare i inställningar"
 
-#: libraries/config/messages.inc.php:529 setup/frames/index.inc.php:275
+#: libraries/config/messages.inc.php:530 setup/frames/index.inc.php:275
 msgid "Check for latest version"
 msgstr "Sök efter senaste version"
 
-#: libraries/config/messages.inc.php:530
+#: libraries/config/messages.inc.php:531
 msgid "Enables check for latest version on main phpMyAdmin page"
 msgstr "Aktivera kontroll efter senaste version på phpMyAdmins hemsida"
 
-#: libraries/config/messages.inc.php:531 setup/lib/index.lib.php:117
+#: libraries/config/messages.inc.php:532 setup/lib/index.lib.php:117
 #: setup/lib/index.lib.php:131 setup/lib/index.lib.php:142
 #: setup/lib/index.lib.php:154 setup/lib/index.lib.php:162
 #: setup/lib/index.lib.php:169
 msgid "Version check"
 msgstr "Versionskontroll"
 
-#: libraries/config/messages.inc.php:532
+#: libraries/config/messages.inc.php:533
 msgid ""
 "The url of the proxy to be used when retrieving the information about the "
 "latest version of phpMyAdmin. You need this if the server where phpMyAdmin "
@@ -6413,11 +6446,11 @@ msgstr ""
 "phpMyAdmin installeras inte har direkt tillgång till Internet. Formatet är: "
 "\"värdnamn:portnummer\""
 
-#: libraries/config/messages.inc.php:533
+#: libraries/config/messages.inc.php:534
 msgid "Version check proxy url"
 msgstr "Versionskontroll av proxywebadressen"
 
-#: libraries/config/messages.inc.php:534
+#: libraries/config/messages.inc.php:535
 msgid ""
 "The username for authenticating with the proxy. By default, no "
 "authentication is performed. If a username is supplied, Basic Authentication "
@@ -6427,19 +6460,19 @@ msgstr ""
 "Om ett användarnamn anges kommer grundläggande autentisering ske. Inga andra "
 "typer av autentisering stöds för närvarande."
 
-#: libraries/config/messages.inc.php:535
+#: libraries/config/messages.inc.php:536
 msgid "Version check proxy username"
 msgstr "Versionskontroll proxy användarnamn"
 
-#: libraries/config/messages.inc.php:536
+#: libraries/config/messages.inc.php:537
 msgid "The password for authenticating with the proxy"
 msgstr "Lösenordet för autentisering med proxy"
 
-#: libraries/config/messages.inc.php:537
+#: libraries/config/messages.inc.php:538
 msgid "Version check proxy password"
 msgstr "Versionskontroll proxylösenord"
 
-#: libraries/config/messages.inc.php:539
+#: libraries/config/messages.inc.php:540
 msgid ""
 "Enable [a@http://en.wikipedia.org/wiki/ZIP_(file_format)]ZIP[/a] compression "
 "for import and export operations"
@@ -6447,23 +6480,23 @@ msgstr ""
 "Aktivera [a@http://en.wikipedia.org/wiki/ZIP_(file_format)]ZIP[/a]-"
 "komprimering för import- och exportoperationer"
 
-#: libraries/config/messages.inc.php:540
+#: libraries/config/messages.inc.php:541
 msgid "ZIP"
 msgstr "ZIP"
 
-#: libraries/config/messages.inc.php:541
+#: libraries/config/messages.inc.php:542
 msgid "Enter your public key for your domain reCaptcha service"
 msgstr "Ange din publika nyckel till reCaptcha-tjänsten för din domän"
 
-#: libraries/config/messages.inc.php:542
+#: libraries/config/messages.inc.php:543
 msgid "Public key for reCaptcha"
 msgstr "Publik nyckel för reCaptcha"
 
-#: libraries/config/messages.inc.php:543
+#: libraries/config/messages.inc.php:544
 msgid "Enter your private key for your domain reCaptcha service"
 msgstr "Ange din privata nyckel för din domäns reCaptcha-tjänst"
 
-#: libraries/config/messages.inc.php:544
+#: libraries/config/messages.inc.php:545
 msgid "Private key for reCaptcha"
 msgstr "Privat nyckel för reCaptcha"
 
@@ -6488,9 +6521,9 @@ msgstr "Signon-autentisering"
 msgid "CSV using LOAD DATA"
 msgstr "CSV med LOAD DATA"
 
-#: libraries/config/setup.forms.php:267 libraries/config/setup.forms.php:360
+#: libraries/config/setup.forms.php:267 libraries/config/setup.forms.php:361
 #: libraries/config/user_preferences.forms.php:161
-#: libraries/config/user_preferences.forms.php:253
+#: libraries/config/user_preferences.forms.php:254
 msgid "OpenDocument Spreadsheet"
 msgstr "OpenDocument-kalkylblad"
 
@@ -6504,23 +6537,23 @@ msgstr "Snabb"
 msgid "Custom"
 msgstr "Anpassad"
 
-#: libraries/config/setup.forms.php:299
-#: libraries/config/user_preferences.forms.php:192
+#: libraries/config/setup.forms.php:300
+#: libraries/config/user_preferences.forms.php:193
 msgid "Database export options"
 msgstr "Exportalternativ för databas"
 
-#: libraries/config/setup.forms.php:332
-#: libraries/config/user_preferences.forms.php:225
+#: libraries/config/setup.forms.php:333
+#: libraries/config/user_preferences.forms.php:226
 msgid "CSV for MS Excel"
 msgstr "CSV för MS Excel"
 
-#: libraries/config/setup.forms.php:355
-#: libraries/config/user_preferences.forms.php:248
+#: libraries/config/setup.forms.php:356
+#: libraries/config/user_preferences.forms.php:249
 msgid "Microsoft Word 2000"
 msgstr "Microsoft Word 2000"
 
-#: libraries/config/setup.forms.php:364
-#: libraries/config/user_preferences.forms.php:257
+#: libraries/config/setup.forms.php:365
+#: libraries/config/user_preferences.forms.php:258
 msgid "OpenDocument Text"
 msgstr "OpenDocument-text"
 
@@ -6650,7 +6683,7 @@ msgstr "Databas(er):"
 msgid "Table(s):"
 msgstr "Tabell(er):"
 
-#: libraries/display_export.lib.php:264 libraries/display_import.lib.php:312
+#: libraries/display_export.lib.php:264 libraries/display_import.lib.php:333
 #: libraries/plugins/export/ExportCodegen.class.php:107
 msgid "Format:"
 msgstr "Format:"
@@ -6667,7 +6700,7 @@ msgstr ""
 "Bläddra nedåt för att fylla i alternativen för det valda formatet och "
 "ignorera alternativ för andra format."
 
-#: libraries/display_export.lib.php:283 libraries/display_import.lib.php:327
+#: libraries/display_export.lib.php:283 libraries/display_import.lib.php:350
 msgid "Encoding Conversion:"
 msgstr "Omkodning:"
 
@@ -6727,8 +6760,8 @@ msgstr ""
 msgid "use this for future exports"
 msgstr "använd detta för framtida exporter"
 
-#: libraries/display_export.lib.php:525 libraries/display_import.lib.php:255
-#: libraries/display_import.lib.php:269 libraries/sql_query_form.lib.php:499
+#: libraries/display_export.lib.php:525 libraries/display_import.lib.php:182
+#: libraries/display_import.lib.php:197 libraries/sql_query_form.lib.php:499
 msgid "Character set of the file:"
 msgstr "Teckenuppsättning för filen:"
 
@@ -6779,43 +6812,7 @@ msgstr "inlagd %1$s av %2$s"
 msgid "authored on %1$s by %2$s"
 msgstr "skriven den %1$s av %2$s"
 
-#: libraries/display_import.lib.php:69
-msgid ""
-"The file being uploaded is probably larger than the maximum allowed size or "
-"this is a known bug in webkit based (Safari, Google Chrome, Arora etc.) "
-"browsers."
-msgstr ""
-"Filen som laddas upp är förmodligen större än maximalt tillåtna storlek "
-"eller så är detta en känd bugg i webkit-baserade webbläsare (Safari, Google "
-"Chrome, Arora etc.)."
-
-#: libraries/display_import.lib.php:77
-#, php-format
-msgid "%s of %s"
-msgstr "%s av %s"
-
-#: libraries/display_import.lib.php:86
-msgid "Uploading your import file…"
-msgstr "Ladda upp din importfil…"
-
-#: libraries/display_import.lib.php:94
-#, php-format
-msgid "%s/sec."
-msgstr "%s/sek."
-
-#: libraries/display_import.lib.php:101
-msgid "About %MIN min. %SEC sec. remaining."
-msgstr "Ungefär %MIN min. %SEC sek. återstår."
-
-#: libraries/display_import.lib.php:105
-msgid "About %SEC sec. remaining."
-msgstr "Ungefär %SEC sek. återstår."
-
-#: libraries/display_import.lib.php:135
-msgid "The file is being processed, please be patient."
-msgstr "Filen bearbetas, vänligen vänta."
-
-#: libraries/display_import.lib.php:154
+#: libraries/display_import.lib.php:74
 msgid ""
 "Please be patient, the file is being uploaded. Details about the upload are "
 "not available."
@@ -6823,30 +6820,26 @@ msgstr ""
 "Vänligen vänta, filen laddas upp. Detaljer om denna uppladdning är inte "
 "tillgängliga."
 
-#: libraries/display_import.lib.php:190
+#: libraries/display_import.lib.php:111
 msgid "Importing into the current server"
 msgstr "Importera till den aktuella servern"
 
-#: libraries/display_import.lib.php:192
+#: libraries/display_import.lib.php:114
 #, php-format
 msgid "Importing into the database \"%s\""
 msgstr "Importera till databasen \"%s \""
 
-#: libraries/display_import.lib.php:194
+#: libraries/display_import.lib.php:120
 #, php-format
 msgid "Importing into the table \"%s\""
 msgstr "Importera till tabellen \"%s\""
 
-#: libraries/display_import.lib.php:200
-msgid "File to Import:"
-msgstr "Fil att importera:"
-
-#: libraries/display_import.lib.php:217
+#: libraries/display_import.lib.php:156
 #, php-format
 msgid "File may be compressed (%s) or uncompressed."
 msgstr "Filen kan vara komprimerad (%s) eller okomprimerad."
 
-#: libraries/display_import.lib.php:219
+#: libraries/display_import.lib.php:162
 msgid ""
 "A compressed file's name must end in <b>.[format].[compression]</b>. "
 "Example: <b>.sql.zip</b>"
@@ -6854,15 +6847,19 @@ msgstr ""
 "En komprimerad fils namn måste sluta med <b>.[format].[komprimering]</b>. "
 "Exempel: <b>.sql.zip</b>"
 
-#: libraries/display_import.lib.php:245
+#: libraries/display_import.lib.php:225
+msgid "File to Import:"
+msgstr "Fil att importera:"
+
+#: libraries/display_import.lib.php:248
 msgid "File uploads are not allowed on this server."
 msgstr "Uppladdning är inte tillåten på denna server."
 
-#: libraries/display_import.lib.php:276
+#: libraries/display_import.lib.php:272
 msgid "Partial Import:"
 msgstr "Partiell Import:"
 
-#: libraries/display_import.lib.php:282
+#: libraries/display_import.lib.php:279
 #, php-format
 msgid ""
 "Previous import timed out, after resubmitting will continue from position %d."
@@ -6870,7 +6867,7 @@ msgstr ""
 "Föregående import fick timeout. Efter återupptagning av importen kommer den "
 "fortsätta från position %d."
 
-#: libraries/display_import.lib.php:289
+#: libraries/display_import.lib.php:293
 msgid ""
 "Allow the interruption of an import in case the script detects it is close "
 "to the PHP timeout limit. <i>(This might be a good way to import large "
@@ -6880,13 +6877,51 @@ msgstr ""
 "PHP timeout. <i>(Detta kan vara bra sätt att importera stora filer, men det "
 "kan bryta transaktioner.)</i>"
 
-#: libraries/display_import.lib.php:296
+#: libraries/display_import.lib.php:302
 msgid "Number of rows to skip, starting from the first row:"
 msgstr "Antal rader att hoppa, med början från den första raden:"
 
-#: libraries/display_import.lib.php:318
+#: libraries/display_import.lib.php:339
 msgid "Format-Specific Options:"
 msgstr "Format-specifika alternativ:"
+
+#: libraries/display_import.lib.php:447
+msgid ""
+"The file being uploaded is probably larger than the maximum allowed size or "
+"this is a known bug in webkit based (Safari, Google Chrome, Arora etc.) "
+"browsers."
+msgstr ""
+"Filen som laddas upp är förmodligen större än maximalt tillåtna storlek "
+"eller så är detta en känd bugg i webkit-baserade webbläsare (Safari, Google "
+"Chrome, Arora etc.)."
+
+#: libraries/display_import.lib.php:453
+#, php-format
+msgid "%s of %s"
+msgstr "%s av %s"
+
+#: libraries/display_import.lib.php:454
+#, fuzzy
+#| msgid "Uploading your import file…"
+msgid "Uploading your import file..."
+msgstr "Ladda upp din importfil…"
+
+#: libraries/display_import.lib.php:455
+#, php-format
+msgid "%s/sec."
+msgstr "%s/sek."
+
+#: libraries/display_import.lib.php:456
+msgid "About %MIN min. %SEC sec. remaining."
+msgstr "Ungefär %MIN min. %SEC sek. återstår."
+
+#: libraries/display_import.lib.php:457
+msgid "About %SEC sec. remaining."
+msgstr "Ungefär %SEC sek. återstår."
+
+#: libraries/display_import.lib.php:459
+msgid "The file is being processed, please be patient."
+msgstr "Filen bearbetas, vänligen vänta."
 
 #: libraries/display_indexes.lib.php:50 libraries/structure.lib.php:2032
 #: libraries/structure.lib.php:2035
@@ -7265,53 +7300,53 @@ msgstr "Liknande länkar"
 msgid "The PrimeBase XT Blog by Paul McCullagh"
 msgstr "PrimeBase XT Blogg av Paul McCullagh"
 
-#: libraries/import.lib.php:187 libraries/insert_edit.lib.php:122
+#: libraries/import.lib.php:190 libraries/insert_edit.lib.php:122
 #: libraries/rte/rte_routines.lib.php:1446 libraries/sql.lib.php:1635
 #: tbl_get_field.php:41
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL returnerade ett tomt resultat (dvs inga rader)."
 
-#: libraries/import.lib.php:1190
+#: libraries/import.lib.php:1196
 msgid ""
 "The following structures have either been created or altered. Here you can:"
 msgstr "Följande strukturer har antingen skapats eller ändrats. Du kan:"
 
-#: libraries/import.lib.php:1191
+#: libraries/import.lib.php:1197
 msgid "View a structure's contents by clicking on its name"
 msgstr "Visa en strukturs innehåll genom att klicka på namnet"
 
-#: libraries/import.lib.php:1192
+#: libraries/import.lib.php:1198
 msgid ""
 "Change any of its settings by clicking the corresponding \"Options\" link"
 msgstr ""
 "Ändra någon av inställningarna genom att klicka på motsvarande \"Alternativ"
 "\" länk"
 
-#: libraries/import.lib.php:1193
+#: libraries/import.lib.php:1199
 msgid "Edit structure by following the \"Structure\" link"
 msgstr "Redigera strukturen genom att följa länken \"Struktur\""
 
-#: libraries/import.lib.php:1197
+#: libraries/import.lib.php:1203
 #, php-format
 msgid "Go to database: %s"
 msgstr "Gå till databas: %s"
 
-#: libraries/import.lib.php:1200 libraries/import.lib.php:1228
+#: libraries/import.lib.php:1206 libraries/import.lib.php:1234
 #, php-format
 msgid "Edit settings for %s"
 msgstr "Redigera inställningar för %s"
 
-#: libraries/import.lib.php:1223
+#: libraries/import.lib.php:1229
 #, php-format
 msgid "Go to table: %s"
 msgstr "Gå till tabell: %s"
 
-#: libraries/import.lib.php:1226
+#: libraries/import.lib.php:1232
 #, php-format
 msgid "Structure of %s"
 msgstr "Struktur för %s"
 
-#: libraries/import.lib.php:1234
+#: libraries/import.lib.php:1240
 #, php-format
 msgid "Go to view: %s"
 msgstr "Gå till vy: %s"
@@ -7636,34 +7671,24 @@ msgid "An error has occured while loading the navigation tree"
 msgstr "Ett fel uppstod vid inläsning av navigeringsträdet"
 
 #: libraries/navigation/Navigation.class.php:172
-#, fuzzy
-#| msgid "Events"
 msgid "Events:"
-msgstr "Händelser"
+msgstr "Händelser:"
 
 #: libraries/navigation/Navigation.class.php:173
-#, fuzzy
-#| msgid "Functions"
 msgid "Functions:"
-msgstr "Funktioner"
+msgstr "Funktioner:"
 
 #: libraries/navigation/Navigation.class.php:174
-#, fuzzy
-#| msgid "Procedures"
 msgid "Procedures:"
-msgstr "Procedurer"
+msgstr "Procedurer:"
 
 #: libraries/navigation/Navigation.class.php:175
-#, fuzzy
-#| msgid "Tables"
 msgid "Tables:"
-msgstr "Tabeller"
+msgstr "Tabeller:"
 
 #: libraries/navigation/Navigation.class.php:176
-#, fuzzy
-#| msgid "Views"
 msgid "Views:"
-msgstr "Vy"
+msgstr "Vyer:"
 
 #: libraries/navigation/NavigationHeader.class.php:183
 msgid "Home"
@@ -7728,7 +7753,7 @@ msgid "New"
 msgstr "Ny"
 
 #: libraries/navigation/Nodes/Node_Function_Container.class.php:26
-#: libraries/plugins/export/ExportSql.class.php:484
+#: libraries/plugins/export/ExportSql.class.php:492
 #: libraries/plugins/export/ExportXml.class.php:107
 msgid "Functions"
 msgstr "Funktioner"
@@ -7744,7 +7769,7 @@ msgid "New"
 msgstr "Ny"
 
 #: libraries/navigation/Nodes/Node_Procedure_Container.class.php:26
-#: libraries/plugins/export/ExportSql.class.php:467
+#: libraries/plugins/export/ExportSql.class.php:474
 #: libraries/plugins/export/ExportXml.class.php:111
 msgid "Procedures"
 msgstr "Procedurer"
@@ -8115,7 +8140,7 @@ msgstr "Dumpningsalternativ för data"
 
 #: libraries/plugins/export/ExportHtmlword.class.php:203
 #: libraries/plugins/export/ExportOdt.class.php:260
-#: libraries/plugins/export/ExportSql.class.php:1720
+#: libraries/plugins/export/ExportSql.class.php:1739
 #: libraries/plugins/export/ExportTexytext.class.php:185
 msgid "Dumping data for table"
 msgstr "Dumpning av Data i tabell"
@@ -8138,21 +8163,21 @@ msgstr "Definition"
 
 #: libraries/plugins/export/ExportHtmlword.class.php:553
 #: libraries/plugins/export/ExportOdt.class.php:643
-#: libraries/plugins/export/ExportSql.class.php:1468
+#: libraries/plugins/export/ExportSql.class.php:1466
 #: libraries/plugins/export/ExportTexytext.class.php:498
 msgid "Table structure for table"
 msgstr "Tabellstruktur"
 
 #: libraries/plugins/export/ExportHtmlword.class.php:572
 #: libraries/plugins/export/ExportOdt.class.php:667
-#: libraries/plugins/export/ExportSql.class.php:1496
+#: libraries/plugins/export/ExportSql.class.php:1495
 #: libraries/plugins/export/ExportTexytext.class.php:513
 msgid "Structure for view"
 msgstr "Struktur för vy"
 
 #: libraries/plugins/export/ExportHtmlword.class.php:581
 #: libraries/plugins/export/ExportOdt.class.php:679
-#: libraries/plugins/export/ExportSql.class.php:1513
+#: libraries/plugins/export/ExportSql.class.php:1530
 #: libraries/plugins/export/ExportTexytext.class.php:520
 msgid "Stand-in structure for view"
 msgstr "Ersättningsstruktur för vy"
@@ -8171,7 +8196,7 @@ msgstr "Struktur för tabell @TABLE@"
 
 #: libraries/plugins/export/ExportLatex.class.php:116
 #: libraries/plugins/export/ExportOdt.class.php:97
-#: libraries/plugins/export/ExportSql.class.php:213
+#: libraries/plugins/export/ExportSql.class.php:219
 msgid "Object creation options"
 msgstr "Alternativ för skapande av objekt"
 
@@ -8212,7 +8237,7 @@ msgid "Put columns names in the first row:"
 msgstr "Sätt kolumnnamn på första raden:"
 
 #: libraries/plugins/export/ExportLatex.class.php:218
-#: libraries/plugins/export/ExportSql.class.php:610
+#: libraries/plugins/export/ExportSql.class.php:619
 #: libraries/plugins/export/ExportXml.class.php:191
 #: libraries/replication_gui.lib.php:405 libraries/replication_gui.lib.php:671
 #: libraries/server_privileges.lib.php:1207 libraries/sql.lib.php:421
@@ -8220,19 +8245,19 @@ msgid "Host:"
 msgstr "Värd:"
 
 #: libraries/plugins/export/ExportLatex.class.php:223
-#: libraries/plugins/export/ExportSql.class.php:617
+#: libraries/plugins/export/ExportSql.class.php:626
 #: libraries/plugins/export/ExportXml.class.php:196 libraries/sql.lib.php:425
 msgid "Generation Time:"
 msgstr "Tid vid skapande:"
 
 #: libraries/plugins/export/ExportLatex.class.php:226
-#: libraries/plugins/export/ExportSql.class.php:623
+#: libraries/plugins/export/ExportSql.class.php:632
 #: libraries/plugins/export/ExportXml.class.php:199
 msgid "PHP Version:"
 msgstr "PHP-version:"
 
 #: libraries/plugins/export/ExportLatex.class.php:251
-#: libraries/plugins/export/ExportSql.class.php:772
+#: libraries/plugins/export/ExportSql.class.php:782
 #: libraries/plugins/export/ExportXml.class.php:390
 #: libraries/plugins/export/PMA_ExportPdf.class.php:115
 #: libraries/sql.lib.php:423
@@ -8240,7 +8265,7 @@ msgid "Database:"
 msgstr "Databas:"
 
 #: libraries/plugins/export/ExportLatex.class.php:303
-#: libraries/plugins/export/ExportSql.class.php:1558
+#: libraries/plugins/export/ExportSql.class.php:1577
 msgid "Data:"
 msgstr "Data:"
 
@@ -8284,26 +8309,26 @@ msgstr ""
 "Inkludera en tidsstämpel på när databaser skapades, senast uppdaterade, och "
 "senast kontrollerade"
 
-#: libraries/plugins/export/ExportSql.class.php:163
+#: libraries/plugins/export/ExportSql.class.php:169
 msgid ""
 "Database system or older MySQL server to maximize output compatibility with:"
 msgstr ""
 "Databassystem eller äldre MySQL-server att maximera kompatibilitet av utdata "
 "med:"
 
-#: libraries/plugins/export/ExportSql.class.php:184
-#: libraries/plugins/export/ExportSql.class.php:227
-#: libraries/plugins/export/ExportSql.class.php:250
-#: libraries/plugins/export/ExportSql.class.php:258
+#: libraries/plugins/export/ExportSql.class.php:190
+#: libraries/plugins/export/ExportSql.class.php:233
+#: libraries/plugins/export/ExportSql.class.php:256
+#: libraries/plugins/export/ExportSql.class.php:264
 #, php-format
 msgid "Add %s statement"
 msgstr "Lägg till uppgiften %s"
 
-#: libraries/plugins/export/ExportSql.class.php:220
+#: libraries/plugins/export/ExportSql.class.php:226
 msgid "Add statements:"
 msgstr "Lägg till uppgift:"
 
-#: libraries/plugins/export/ExportSql.class.php:288
+#: libraries/plugins/export/ExportSql.class.php:294
 msgid ""
 "Enclose table and column names with backquotes <i>(Protects column and table "
 "names formed with special characters or keywords)</i>"
@@ -8311,37 +8336,37 @@ msgstr ""
 "Bifoga tabell-och kolumnnamn med backquote (`) <i>(Skyddar kolumn- och "
 "tabellnamn skapade med specialtecken eller nyckelord)</i>"
 
-#: libraries/plugins/export/ExportSql.class.php:304
+#: libraries/plugins/export/ExportSql.class.php:310
 msgid "Data creation options"
 msgstr "Valmöjligheter vid skapande av data"
 
-#: libraries/plugins/export/ExportSql.class.php:308
-#: libraries/plugins/export/ExportSql.class.php:1664
+#: libraries/plugins/export/ExportSql.class.php:314
+#: libraries/plugins/export/ExportSql.class.php:1683
 msgid "Truncate table before insert"
 msgstr "Trunkera tabell innan inläggning"
 
-#: libraries/plugins/export/ExportSql.class.php:314
+#: libraries/plugins/export/ExportSql.class.php:320
 msgid "Instead of <code>INSERT</code> statements, use:"
 msgstr "Istället för <code>INSERT</code>-kommandon, använd:"
 
-#: libraries/plugins/export/ExportSql.class.php:320
+#: libraries/plugins/export/ExportSql.class.php:326
 msgid "<code>INSERT DELAYED</code> statements"
 msgstr "<code>INSERT DELAYED</code>-kommandon"
 
-#: libraries/plugins/export/ExportSql.class.php:331
-#: libraries/plugins/export/ExportSql.class.php:361
+#: libraries/plugins/export/ExportSql.class.php:337
+#: libraries/plugins/export/ExportSql.class.php:367
 msgid "<code>INSERT IGNORE</code> statements"
 msgstr "<code>INSERT IGNORE</code>-kommandon"
 
-#: libraries/plugins/export/ExportSql.class.php:344
+#: libraries/plugins/export/ExportSql.class.php:350
 msgid "Function to use when dumping data:"
 msgstr "Funktion att använda när data dumpas:"
 
-#: libraries/plugins/export/ExportSql.class.php:357
+#: libraries/plugins/export/ExportSql.class.php:363
 msgid "Syntax to use when inserting data:"
 msgstr "Syntax att använda när data infogas:"
 
-#: libraries/plugins/export/ExportSql.class.php:365
+#: libraries/plugins/export/ExportSql.class.php:371
 msgid ""
 "include column names in every <code>INSERT</code> statement <br /> &nbsp; "
 "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name (col_A,col_B,col_C) VALUES "
@@ -8351,7 +8376,7 @@ msgstr ""
 "&nbsp; &nbsp; Exempel: <code>INSERT INTO tbl_name (col_A,col_B,col_C) VALUES "
 "(1,2,3)</code>"
 
-#: libraries/plugins/export/ExportSql.class.php:370
+#: libraries/plugins/export/ExportSql.class.php:376
 msgid ""
 "insert multiple rows in every <code>INSERT</code> statement<br /> &nbsp; "
 "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name VALUES (1,2,3), (4,5,6), "
@@ -8361,7 +8386,7 @@ msgstr ""
 "&nbsp; Exempel: <code>INSERT INTO tbl_name VALUES (1,2,3), (4,5,6), (7,8,9)</"
 "code>"
 
-#: libraries/plugins/export/ExportSql.class.php:375
+#: libraries/plugins/export/ExportSql.class.php:381
 msgid ""
 "both of the above<br /> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 "tbl_name (col_A,col_B) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
@@ -8369,7 +8394,7 @@ msgstr ""
 "båda av ovanstående<br /> &nbsp; &nbsp; &nbsp; Exempel: <code>INSERT INTO "
 "tbl_name (col_A,col_B) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 
-#: libraries/plugins/export/ExportSql.class.php:380
+#: libraries/plugins/export/ExportSql.class.php:386
 msgid ""
 "neither of the above<br /> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 "tbl_name VALUES (1,2,3)</code>"
@@ -8377,7 +8402,7 @@ msgstr ""
 "inget av ovanstående<br /> &nbsp; &nbsp; &nbsp; Exempel: <code>INSERT INTO "
 "tbl_name VALUES (1,2,3)</code>"
 
-#: libraries/plugins/export/ExportSql.class.php:399
+#: libraries/plugins/export/ExportSql.class.php:405
 msgid ""
 "Dump binary columns in hexadecimal notation <i>(for example, \"abc\" becomes "
 "0x616263)</i>"
@@ -8385,7 +8410,7 @@ msgstr ""
 "Dumpa binära kolumner i hexadecimal notation <i>(t.ex. \"abc\" blir 0x616263)"
 "</i>"
 
-#: libraries/plugins/export/ExportSql.class.php:412
+#: libraries/plugins/export/ExportSql.class.php:418
 msgid ""
 "Dump TIMESTAMP columns in UTC <i>(enables TIMESTAMP columns to be dumped and "
 "reloaded between servers in different time zones)</i>"
@@ -8393,23 +8418,29 @@ msgstr ""
 "Dumpa TIMESTAMP-kolumner i UTC <i>(gör TIMESTAMP-kolumner som ska dumpas och "
 "laddas mellan servrar i olika tidszoner)</i>"
 
-#: libraries/plugins/export/ExportSql.class.php:1210
+#: libraries/plugins/export/ExportSql.class.php:1208
 msgid "Constraints for dumped tables"
 msgstr "Restriktioner för dumpade tabeller"
 
-#: libraries/plugins/export/ExportSql.class.php:1221
+#: libraries/plugins/export/ExportSql.class.php:1219
 msgid "Constraints for table"
 msgstr "Restriktioner för tabell"
 
-#: libraries/plugins/export/ExportSql.class.php:1362
+#: libraries/plugins/export/ExportSql.class.php:1360
 msgid "MIME TYPES FOR TABLE"
 msgstr "MIME-TYPER FÖR TABELL"
 
-#: libraries/plugins/export/ExportSql.class.php:1387
+#: libraries/plugins/export/ExportSql.class.php:1385
 msgid "RELATIONS FOR TABLE"
 msgstr "RELATIONER FÖR TABELL"
 
-#: libraries/plugins/export/ExportSql.class.php:1581
+#: libraries/plugins/export/ExportSql.class.php:1512
+#, fuzzy, php-format
+#| msgid "Structure for view"
+msgid "Structure for view %s exported as a table"
+msgstr "Struktur för vy"
+
+#: libraries/plugins/export/ExportSql.class.php:1600
 msgid "Error reading data:"
 msgstr "Fel vid läsning av data:"
 
@@ -9754,7 +9785,7 @@ msgstr "Licens"
 msgid "disabled"
 msgstr "inaktiverad"
 
-#: libraries/server_privileges.lib.php:135 server_privileges.php:101
+#: libraries/server_privileges.lib.php:136 server_privileges.php:101
 msgid "No privileges."
 msgstr "Inga privilegier."
 
@@ -10610,6 +10641,32 @@ msgstr ""
 #: libraries/server_status_monitor.lib.php:363
 msgid "Reset to default"
 msgstr "Återställ till standardinställningen"
+
+#: libraries/server_status_queries.lib.php:33
+#, php-format
+msgid "Questions since startup: %s"
+msgstr "Frågor sedan start: %s"
+
+#: libraries/server_status_queries.lib.php:45
+msgid "per hour:"
+msgstr "per timme:"
+
+#: libraries/server_status_queries.lib.php:48
+msgid "per minute:"
+msgstr "per minut:"
+
+#: libraries/server_status_queries.lib.php:55
+msgid "per second:"
+msgstr "per sekund:"
+
+#: libraries/server_status_queries.lib.php:94
+msgid "Statements"
+msgstr "Uppgifter"
+
+#. l10n: # = Amount of queries
+#: libraries/server_status_queries.lib.php:97
+msgid "#"
+msgstr "#"
 
 #: libraries/server_status_variables.lib.php:39 server_variables.php:156
 msgid "Filters"
@@ -11825,31 +11882,31 @@ msgstr "Spårning av %s är aktiverad."
 msgid "No data found for GIS visualization."
 msgstr "Inga data finns för GIS-visualisering."
 
-#: libraries/tbl_gis_visualization.lib.php:223
+#: libraries/tbl_gis_visualization.lib.php:224
 msgid "Label column"
 msgstr "Etikett kolumn"
 
-#: libraries/tbl_gis_visualization.lib.php:223
+#: libraries/tbl_gis_visualization.lib.php:224
 msgid "Spatial column"
 msgstr "Spatial kolumn"
 
-#: libraries/tbl_gis_visualization.lib.php:230
+#: libraries/tbl_gis_visualization.lib.php:231
 msgid "-- None --"
 msgstr "-- Inget --"
 
-#: libraries/tbl_gis_visualization.lib.php:287
+#: libraries/tbl_gis_visualization.lib.php:288
 msgid "Display GIS Visualization"
 msgstr "Visa GIS-visualisering"
 
-#: libraries/tbl_gis_visualization.lib.php:304
+#: libraries/tbl_gis_visualization.lib.php:305
 msgid "Redraw"
 msgstr "Rita om"
 
-#: libraries/tbl_gis_visualization.lib.php:324
+#: libraries/tbl_gis_visualization.lib.php:325
 msgid "File name"
 msgstr "Filnamn"
 
-#: libraries/tbl_gis_visualization.lib.php:340 setup/frames/config.inc.php:38
+#: libraries/tbl_gis_visualization.lib.php:341 setup/frames/config.inc.php:38
 #: setup/frames/index.inc.php:244
 msgid "Download"
 msgstr "Ladda ner"
@@ -12201,32 +12258,6 @@ msgid ""
 "phpMyAdmin was unable to kill thread %s. It probably has already been closed."
 msgstr ""
 "phpMyAdmin kunde inte döda tråd %s. Troligtvis har den redan avslutats."
-
-#: server_status_queries.php:67
-#, php-format
-msgid "Questions since startup: %s"
-msgstr "Frågor sedan start: %s"
-
-#: server_status_queries.php:79
-msgid "per hour:"
-msgstr "per timme:"
-
-#: server_status_queries.php:82
-msgid "per minute:"
-msgstr "per minut:"
-
-#: server_status_queries.php:86
-msgid "per second:"
-msgstr "per sekund:"
-
-#: server_status_queries.php:119
-msgid "Statements"
-msgstr "Uppgifter"
-
-#. l10n: # = Amount of queries
-#: server_status_queries.php:122
-msgid "#"
-msgstr "#"
 
 #: server_variables.php:107
 msgid "Setting variable failed"

@@ -2,8 +2,8 @@
 /**
  * Conditionally included if framing is not allowed
  */
-if(self == top) {
-    document.documentElement.style.display = 'block' ;
+if (self == top) {
+    document.documentElement.style.display = 'block';
 } else {
-    top.location = self.location ;
+    top.location = self.location;
 }

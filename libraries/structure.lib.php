@@ -1191,7 +1191,7 @@ function PMA_getHtmlForTableStructureHeader(
         if (PMA_DRIZZLE) {
             $colspan -= 2;
         }
-        if (in_array($GLOBALS['cfg']['ActionLinksMode'], array('icons', 'both'))) {
+        if (PMA_Util::showIcons('ActionLinksMode')) {
             $colspan--;
         }
         $html_output .= '<th colspan="' . $colspan . '" '
@@ -1464,7 +1464,7 @@ function PMA_getHtmlForEditView($url_params)
     $url .= implode(
         '&amp;',
         array_map(
-            function($key, $val) {
+            function ($key, $val) {
                 return 'view[' . urlencode($key) . ']=' . urlencode($val);
             },
             array_keys($view),
@@ -1562,11 +1562,7 @@ function PMA_getHtmlForAddColumn($columns_list)
         $GLOBALS['db'],
         $GLOBALS['table']
     );
-    if (in_array(
-        $GLOBALS['cfg']['ActionLinksMode'],
-        array('icons', 'both')
-        )
-    ) {
+    if (PMA_Util::showIcons('ActionLinksMode')) {
         $html_output .=PMA_Util::getImage(
             'b_insrow.png',
             __('Add column')

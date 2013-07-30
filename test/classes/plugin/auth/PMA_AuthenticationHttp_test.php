@@ -39,7 +39,7 @@ class PMA_AuthenticationHttp_Test extends PHPUnit_Framework_TestCase
 
     /**
      * tearDown for test cases
-     * 
+     *
      * @return void
      */
     public function tearDown()
@@ -49,7 +49,7 @@ class PMA_AuthenticationHttp_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for AuthenticationHttp::auth
-     * 
+     *
      * @return void
      */
     public function testAuth()
@@ -73,7 +73,7 @@ class PMA_AuthenticationHttp_Test extends PHPUnit_Framework_TestCase
         );
 
         // case 2
-        
+
         $restoreInstance = PMA_Response::getInstance();
 
         // mock footer
@@ -98,7 +98,7 @@ class PMA_AuthenticationHttp_Test extends PHPUnit_Framework_TestCase
         $mockHeader->expects($this->once())
             ->method('setBodyId')
             ->with('loginform');
-        
+
         $mockHeader->expects($this->once())
             ->method('setTitle')
             ->with('Access denied');
@@ -128,7 +128,7 @@ class PMA_AuthenticationHttp_Test extends PHPUnit_Framework_TestCase
             ->with();
 
         $attrInstance = new ReflectionProperty('PMA_Response', '_instance');
-        $attrInstance->setAccessible(true); 
+        $attrInstance->setAccessible(true);
         $attrInstance->setValue(null, $mockResponse);
 
         $GLOBALS['header'] = array();
@@ -151,7 +151,7 @@ class PMA_AuthenticationHttp_Test extends PHPUnit_Framework_TestCase
         $attrInstance->setValue(null, $restoreInstance);
 
         // case 3
-        
+
         $GLOBALS['header'] = array();
         $GLOBALS['cfg']['Server']['verbose'] = '';
         $GLOBALS['cfg']['Server']['host'] = 'hòst';
@@ -169,7 +169,7 @@ class PMA_AuthenticationHttp_Test extends PHPUnit_Framework_TestCase
         );
 
         // case 4
-        
+
         $GLOBALS['header'] = array();
         $GLOBALS['cfg']['Server']['host'] = '';
         $GLOBALS['cfg']['Server']['auth_http_realm'] = 'rêäealmmessage';
@@ -189,7 +189,7 @@ class PMA_AuthenticationHttp_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for AuthenticationHttp::authCheck
-     * 
+     *
      * @param string $user           test username
      * @param string $pass           test password
      * @param string $userIndex      index to test username against
@@ -198,7 +198,7 @@ class PMA_AuthenticationHttp_Test extends PHPUnit_Framework_TestCase
      * @param string $expectedUser   expected username to be set
      * @param string $expectedPass   expected password to be set
      * @param string $old_usr        value for $_REQUEST['old_usr']
-     * 
+     *
      * @return void
      * @dataProvider authCheckProvider
      */
@@ -217,7 +217,7 @@ class PMA_AuthenticationHttp_Test extends PHPUnit_Framework_TestCase
             $expectedReturn,
             $this->object->authCheck()
         );
-        
+
         $this->assertEquals(
             $expectedUser,
             $GLOBALS['PHP_AUTH_USER']
@@ -234,7 +234,7 @@ class PMA_AuthenticationHttp_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Data provider for testAuthCheck
-     * 
+     *
      * @return array Test data
      */
     public function authCheckProvider()
@@ -291,7 +291,7 @@ class PMA_AuthenticationHttp_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for AuthenticationHttp::authSetUser
-     * 
+     *
      * @return void
      */
     public function testAuthSetUser()
@@ -399,8 +399,10 @@ class PMA_AuthenticationHttp_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for AuthenticationHttp::authSetFails
-     * 
+     *
      * @return void
+     *
+     * @group medium
      */
     public function testAuthFails()
     {

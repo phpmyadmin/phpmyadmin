@@ -459,8 +459,8 @@ class FormDisplay
     /**
      * Validates select field and casts $value to correct type
      *
-     * @param string $value
-     * @param array  $allowed
+     * @param string &$value  Current value
+     * @param array  $allowed List of allowed values
      *
      * @return bool
      */
@@ -743,8 +743,8 @@ class FormDisplay
     /**
      * Sets field comments and warnings based on current environment
      *
-     * @param string $system_path
-     * @param array  $opts
+     * @param string $system_path Path to settings
+     * @param array  &$opts       Chosen options
      *
      * @return void
      */
@@ -764,6 +764,13 @@ class FormDisplay
                 $comment .= ($comment ? ", " : '') . sprintf(
                     __('"%s" requires %s extension'),
                     'recode', 'recode'
+                );
+            }
+            if (!function_exists('mb_convert_encoding')) {
+                $opts['values']['mb'] .= ' (' . __('unavailable') . ')';
+                $comment .= ($comment ? ", " : '') . sprintf(
+                    __('"%s" requires %s extension'),
+                    'mb', 'mbstring'
                 );
             }
             $opts['comment'] = $comment;

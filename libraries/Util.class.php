@@ -87,6 +87,18 @@ class PMA_Util
     }
 
     /**
+     * Checks whether configuration value tells to show icons.
+     *
+     * @param string $value Configuration option name
+     *
+     * @return boolean Whether to show icons.
+     */
+    public static function showIcons($value)
+    {
+        return in_array($GLOBALS['cfg'][$value], array('icons', 'both'));
+    }
+
+    /**
      * Returns an HTML IMG tag for a particular icon from a theme,
      * which may be an actual file or an icon from a sprite.
      * This function takes into account the ActionLinksMode
@@ -105,11 +117,7 @@ class PMA_Util
         $menu_icon = false, $control_param = 'ActionLinksMode'
     ) {
         $include_icon = $include_text = false;
-        if (in_array(
-                $GLOBALS['cfg'][$control_param],
-                array('icons', 'both')
-            )
-        ) {
+        if (self::showIcons($control_param) {
             $include_icon = true;
         }
         if ($force_text
@@ -1116,7 +1124,8 @@ class PMA_Util
                     )
                 );
             } elseif (! empty($GLOBALS['parsed_sql'])
-             && $query_base == $GLOBALS['parsed_sql']['raw']) {
+                && $query_base == $GLOBALS['parsed_sql']['raw']
+            ) {
                 // (here, use "! empty" because when deleting a bookmark,
                 // $GLOBALS['parsed_sql'] is set but empty
                 $parsed_sql = $GLOBALS['parsed_sql'];
@@ -1743,7 +1752,8 @@ class PMA_Util
             ) {
                 $tab['class'] = 'active';
             } elseif (is_null($tab['active']) && empty($GLOBALS['active_page'])
-              && (basename($GLOBALS['PMA_PHP_SELF']) == $tab['link'])) {
+                && (basename($GLOBALS['PMA_PHP_SELF']) == $tab['link'])
+            ) {
                 $tab['class'] = 'active';
             }
         }
@@ -2229,8 +2239,8 @@ class PMA_Util
                     $con_val = '= ' . $row[$i];
                 } elseif ((($meta->type == 'blob') || ($meta->type == 'string'))
                     // hexify only if this is a true not empty BLOB or a BINARY
-                        && stristr($field_flags, 'BINARY')
-                        && ! empty($row[$i])
+                    && stristr($field_flags, 'BINARY')
+                    && ! empty($row[$i])
                 ) {
                     // do not waste memory building a too big condition
                     if (strlen($row[$i]) < 1000) {
@@ -2526,11 +2536,7 @@ class PMA_Util
 
             // Move to the beginning or to the previous page
             if ($pos > 0) {
-                if (in_array(
-                    $GLOBALS['cfg']['TableNavigationLinksMode'],
-                    array('icons', 'both')
-                )
-                ) {
+                if (self::showIcons('TableNavigationLinksMode')) {
                     $caption1 = '&lt;&lt;';
                     $caption2 = ' &lt; ';
                     $title1   = ' title="' . _pgettext('First page', 'Begin') . '"';
@@ -2567,11 +2573,7 @@ class PMA_Util
             $list_navigator_html .= '</form>';
 
             if ($pos + $max_count < $count) {
-                if (in_array(
-                    $GLOBALS['cfg']['TableNavigationLinksMode'],
-                    array('icons', 'both')
-                    )
-                ) {
+                if ( self::showIcons('TableNavigationLinksMode')) {
                     $caption3 = ' &gt; ';
                     $caption4 = '&gt;&gt;';
                     $title3   = ' title="' . _pgettext('Next page', 'Next') . '"';
@@ -4264,24 +4266,16 @@ class PMA_Util
             }
         }
 
-        if ($save) {
-            $_SESSION['cache']['version_check'] = array(
-                'response' => $response,
-                'timestamp' => time()
-            );
-        }
-
         $data = json_decode($response);
         if (is_object($data)
             && strlen($data->version)
             && strlen($data->date)
+            && $save
         ) {
-            if ($save) {
-                $_SESSION['cache']['version_check'] = array(
-                    'response' => $response,
-                    'timestamp' => time()
-                );
-            }
+            $_SESSION['cache']['version_check'] = array(
+                'response' => $response,
+                'timestamp' => time()
+            );
         }
 
         return $data;

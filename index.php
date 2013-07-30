@@ -110,6 +110,21 @@ echo '<div id="maincontainer">' . "\n";
 echo '<div id="main_pane_left">';
 if ($server > 0 || count($cfg['Servers']) > 1
 ) {
+    if ($cfg['DBG']['demo']) {
+        echo '<div class="group">';
+        echo '<h2>' . __('phpMyAdmin Demo Server') . '</h2>';
+        echo '<p style="margin: 0.5em 1em 0.5em 1em">';
+        printf(
+            __(
+                'You are using the demo server. You can do anything here, but '
+                . 'please do not change root, debian-sys-maint and pma users. '
+                . 'More information is available at %s.'
+            ),
+            '<a href="http://demo.phpmyadmin.net/">demo.phpmyadmin.net</a>'
+        );
+        echo '</p>';
+        echo '</div>';
+    }
     echo '<div class="group">';
     echo '<h2>' . __('General Settings') . '</h2>';
     echo '<ul>';
@@ -575,7 +590,7 @@ if (file_exists('libraries/language_stats.inc.php')) {
         && $GLOBALS['language_stats'][$lang] < $cfg['TranslationWarningThreshold']
     ) {
         trigger_error(
-            'You are using an incomplete translation, please help to make it better by <a href="http://www.phpmyadmin.net/home_page/improve.php#translate" target="_blank">contributing</a>.',
+            'You are using an incomplete translation, please help to make it better by [a@http://www.phpmyadmin.net/home_page/improve.php#translate@_blank]contributing[/a].',
             E_USER_NOTICE
         );
     }

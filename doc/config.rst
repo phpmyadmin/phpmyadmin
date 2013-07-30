@@ -1916,6 +1916,7 @@ Languages
       recode)
     * iconv - use iconv or libiconv functions
     * recode - use recode\_string function
+    * mb - use mbstring extension
     * none - disable encoding conversion
 
     Enabled charset conversion activates a pull-down menu in the Export
@@ -2874,6 +2875,14 @@ Developer
 
     Enable logging queries and execution times to be
     displayed in the bottom of main page (right frame).
+
+.. config:option:: $cfg['DBG']['demo']
+
+    :type: boolean
+    :default: false
+
+    Enable to let server present itself as demo server.
+    This is used for <http://demo.phpmyadmin.net/>.
 
 .. config:option:: $cfg['Error_Handler']['display']
 

@@ -72,7 +72,7 @@ class ConfigGenerator
                 $ret .= self::_getVarExport($k, $cf->getDefault($k), $crlf);
             }
         }
-        $ret .= '?>';
+        $ret .= '?' . '>';
 
         return $ret;
     }
@@ -108,7 +108,7 @@ class ConfigGenerator
     /**
      * Check whether $array is a continuous 0-based array
      *
-     * @param array $array
+     * @param array $array Array to check
      *
      * @return boolean
      */
@@ -125,8 +125,8 @@ class ConfigGenerator
     /**
      * Exports continuous 0-based array
      *
-     * @param array $array
-     * @param string $crlf
+     * @param array  $array Array to export
+     * @param string $crlf  Newline string
      *
      * @return string
      */

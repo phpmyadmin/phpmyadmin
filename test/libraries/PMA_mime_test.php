@@ -17,8 +17,8 @@ class PMA_MIME_Test extends PHPUnit_Framework_TestCase
     /**
      * Test for PMA_detectMIME
      *
-     * @param string $test
-     * @param $output
+     * @param string $test   MIME to test
+     * @param string $output Expected output
      *
      * @return void
      * @dataProvider providerForTestDetectMIME

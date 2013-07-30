@@ -4,21 +4,6 @@
   *
   * @param object   event data
   */
-
-AJAX.registerTeardown('keyhandler.js', function() {
-    $('#table_columns').die('keydown keyup');
-    $('table.insertRowTable').die('keydown keyup');
-});
-
-AJAX.registerOnload('keyhandler.js', function() {
-    $('#table_columns').live('keydown keyup', function(event) {
-        onKeyDownArrowsHandler(event.originalEvent);
-    });
-    $('table.insertRowTable').live('keydown keyup', function(event) {
-        onKeyDownArrowsHandler(event.originalEvent);
-    });
-});
-
 function onKeyDownArrowsHandler(e)
 {
     e = e || window.event;
@@ -28,7 +13,8 @@ function onKeyDownArrowsHandler(e)
     }
     if (o.tagName != "TEXTAREA" && o.tagName != "INPUT" && o.tagName != "SELECT") {
         return;
-    }console.log(e);
+    }
+    console.log(e);
     if (navigator.userAgent.toLowerCase().indexOf('applewebkit/') != -1) {
         if (e.ctrlKey || e.shiftKey || !e.altKey) {
             return;
@@ -101,3 +87,17 @@ function onKeyDownArrowsHandler(e)
     }
     e.returnValue = false;
 }
+
+AJAX.registerTeardown('keyhandler.js', function () {
+    $('#table_columns').die('keydown keyup');
+    $('table.insertRowTable').die('keydown keyup');
+});
+
+AJAX.registerOnload('keyhandler.js', function () {
+    $('#table_columns').live('keydown keyup', function (event) {
+        onKeyDownArrowsHandler(event.originalEvent);
+    });
+    $('table.insertRowTable').live('keydown keyup', function (event) {
+        onKeyDownArrowsHandler(event.originalEvent);
+    });
+});

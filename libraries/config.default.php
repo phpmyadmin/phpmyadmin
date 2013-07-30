@@ -1803,6 +1803,12 @@ $cfg['Export']['sql_include_comments'] = true;
  * @global boolean $cfg['Export']['sql_disable_fk']
  */
 $cfg['Export']['sql_disable_fk'] = false;
+/**
+ *
+ *
+ * @global boolean $cfg['Export']['sql_views_as_tables']
+ */
+$cfg['Export']['sql_views_as_tables'] = false;
 
 /**
  *
@@ -2319,6 +2325,7 @@ $cfg['FilterLanguages'] = '';
  *               recode)
  *      iconv  - use iconv or libiconv functions
  *      recode - use recode_string function
+ *      mb     - use mbstring extension
  *      none   - disable encoding conversion
  *
  * @global string $cfg['RecodingEngine']
@@ -2898,6 +2905,13 @@ $cfg['DBG'] = array();
  * @global boolean $cfg['DBG']['sql']
  */
 $cfg['DBG']['sql'] = false;
+
+/**
+ * Enable to let server present itself as demo server.
+ *
+ * @global boolean $cfg['DBG']['demo']
+ */
+$cfg['DBG']['demo'] = false;
 
 
 /*******************************************************************************

@@ -33,8 +33,8 @@ class PMA_Types_Drizzle_Test extends PHPUnit_Framework_TestCase
     /**
      * Test for getTypeDescription
      *
-     * @param string $type The data type to get a description.
-     * @param $output string
+     * @param string $type   The data type to get a description.
+     * @param string $output Expected string
      *
      * @dataProvider providerForTestGetTypeDescription
      */
@@ -127,8 +127,8 @@ class PMA_Types_Drizzle_Test extends PHPUnit_Framework_TestCase
     /**
      * Test for getTypeClass
      *
-     * @param $type
-     * @param $output
+     * @param string $type   Type to test
+     * @param string $output Expected result
      *
      * @dataProvider providerFortTestGetTypeClass
      */
@@ -169,8 +169,8 @@ class PMA_Types_Drizzle_Test extends PHPUnit_Framework_TestCase
     /**
      * Test for getFunctionsClass
      *
-     * @param string $class The class to get function list.
-     * @param $output array
+     * @param string $class  The class to get function list.
+     * @param array  $output Expected result
      *
      * @dataProvider providerFortTestGetFunctionsClass
      */
