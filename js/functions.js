@@ -128,13 +128,13 @@ function PMA_current_version(data)
 {
     if (data && data.version && data.date) {
         var current = parseVersionString(pmaversion);
-        var latest = parseVersionString(data['version']);
-        var version_information_message = PMA_messages.strLatestAvailable + ' ' + escapeHtml(data['version']);
+        var latest = parseVersionString(data.version);
+        var version_information_message = PMA_messages.strLatestAvailable + ' ' + escapeHtml(data.version);
         if (latest > current) {
             var message = $.sprintf(
                 PMA_messages.strNewerVersion,
-                escapeHtml(data['version']),
-                escapeHtml(data['date'])
+                escapeHtml(data.version),
+                escapeHtml(data.date)
             );
             var htmlClass = 'notice';
             if (Math.floor(latest / 10000) === Math.floor(current / 10000)) {
@@ -334,10 +334,10 @@ function confirmQuery(theForm1, sqlQuery1)
     var do_confirm_re_2 = new RegExp('^\\s*DELETE\\s+FROM\\s', 'i');
     var do_confirm_re_3 = new RegExp('^\\s*TRUNCATE\\s', 'i');
 
-    if (do_confirm_re_0.test(sqlQuery1.value)
-        || do_confirm_re_1.test(sqlQuery1.value)
-        || do_confirm_re_2.test(sqlQuery1.value)
-        || do_confirm_re_3.test(sqlQuery1.value)) {
+    if (do_confirm_re_0.test(sqlQuery1.value) ||
+        do_confirm_re_1.test(sqlQuery1.value) ||
+        do_confirm_re_2.test(sqlQuery1.value) ||
+        do_confirm_re_3.test(sqlQuery1.value)) {
         var message      = (sqlQuery1.value.length > 100)
                          ? sqlQuery1.value.substr(0, 100) + '\n    ...'
                          : sqlQuery1.value;
@@ -1584,8 +1584,8 @@ function PMA_ajaxShowMessage(message, timeout)
      *                    to the created AJAX message
      */
     var $retval = $(
-            '<span class="ajax_notification" id="ajax_message_num_'
-            + ajax_message_count +
+            '<span class="ajax_notification" id="ajax_message_num_' +
+            ajax_message_count +
             '"></span>'
     )
     .hide()
@@ -1876,9 +1876,9 @@ function PMA_SQLPrettyPrint(string)
         }
         // Normal indentatin and spaces for everything else
         else {
-            if (! spaceExceptionsBefore[tokens[i][1]]
-               && ! (i > 0 && spaceExceptionsAfter[tokens[i - 1][1]])
-               && output.charAt(output.length - 1) != ' ') {
+            if (! spaceExceptionsBefore[tokens[i][1]] &&
+               ! (i > 0 && spaceExceptionsAfter[tokens[i - 1][1]]) &&
+               output.charAt(output.length - 1) != ' ') {
                 output += " ";
             }
             if (tokens[i][0] == 'keyword') {
@@ -1889,15 +1889,15 @@ function PMA_SQLPrettyPrint(string)
         }
 
         // split columns in select and 'update set' clauses, but only inside statements blocks
-        if ((lastStatementPart == 'select' || lastStatementPart == 'where'  || lastStatementPart == 'set')
-            && tokens[i][1] == ',' && blockStack[0] == 'statement') {
+        if ((lastStatementPart == 'select' || lastStatementPart == 'where'  || lastStatementPart == 'set') &&
+            tokens[i][1] == ',' && blockStack[0] == 'statement') {
 
             output += "\n" + tabs(indentLevel + 1);
         }
 
         // split conditions in where clauses, but only inside statements blocks
-        if (lastStatementPart == 'where'
-            && (tokens[i][1] == 'and' || tokens[i][1] == 'or' || tokens[i][1] == 'xor')) {
+        if (lastStatementPart == 'where' &&
+            (tokens[i][1] == 'and' || tokens[i][1] == 'or' || tokens[i][1] == 'xor')) {
 
             if (blockStack[0] == 'statement') {
                 output += "\n" + tabs(indentLevel + 1);
@@ -2574,6 +2574,7 @@ AJAX.registerOnload('functions.js', function () {
         // Get the name of the column that is being edited
         var colname = $(this).closest('tr').find('input:first').val();
         var title;
+        var i;
         // And use it to make up a title for the page
         if (colname.length < 1) {
             title = PMA_messages.enum_newColumnVals;
@@ -2597,7 +2598,7 @@ AJAX.registerOnload('functions.js', function () {
         var values = [];
         var in_string = false;
         var curr, next, buffer = '';
-        for (var i = 0; i < inputstring.length; i++) {
+        for (i = 0; i < inputstring.length; i++) {
             curr = inputstring.charAt(i);
             next = i == inputstring.length ? '' : inputstring.charAt(i + 1);
             if (! in_string && curr == "'") {
@@ -2628,35 +2629,35 @@ AJAX.registerOnload('functions.js', function () {
         }
         // Add the parsed values to the editor
         var drop_icon = PMA_getImage('b_drop.png');
-        for (var i = 0; i < values.length; i++) {
-            fields += "<tr><td>"
-                   + "<input type='text' value='" + values[i] + "'/>"
-                   + "</td><td class='drop'>"
-                   + drop_icon
-                   + "</td></tr>";
+        for (i = 0; i < values.length; i++) {
+            fields += "<tr><td>" +
+                   "<input type='text' value='" + values[i] + "'/>" +
+                   "</td><td class='drop'>" +
+                   drop_icon +
+                   "</td></tr>";
         }
         /**
          * @var dialog HTML code for the ENUM/SET dialog
          */
-        var dialog = "<div id='enum_editor'>"
-                   + "<fieldset>"
-                   + "<legend>" + title + "</legend>"
-                   + "<p>" + PMA_getImage('s_notice.png')
-                   + PMA_messages.enum_hint + "</p>"
-                   + "<table class='values'>" + fields + "</table>"
-                   + "</fieldset><fieldset class='tblFooters'>"
-                   + "<table class='add'><tr><td>"
-                   + "<div class='slider'></div>"
-                   + "</td><td>"
-                   + "<form><div><input type='submit' class='add_value' value='"
-                   + $.sprintf(PMA_messages.enum_addValue, 1)
-                   + "'/></div></form>"
-                   + "</td></tr></table>"
-                   + "<input type='hidden' value='" // So we know which column's data is being edited
-                   + $(this).closest('td').find("input").attr("id")
-                   + "' />"
-                   + "</fieldset>"
-                   + "</div>";
+        var dialog = "<div id='enum_editor'>" +
+                   "<fieldset>" +
+                    "<legend>" + title + "</legend>" +
+                    "<p>" + PMA_getImage('s_notice.png') +
+                    PMA_messages.enum_hint + "</p>" +
+                    "<table class='values'>" + fields + "</table>" +
+                    "</fieldset><fieldset class='tblFooters'>" +
+                    "<table class='add'><tr><td>" +
+                    "<div class='slider'></div>" +
+                    "</td><td>" +
+                    "<form><div><input type='submit' class='add_value' value='" +
+                    $.sprintf(PMA_messages.enum_addValue, 1) +
+                    "'/></div></form>" +
+                    "</td></tr></table>" +
+                    "<input type='hidden' value='" + // So we know which column's data is being edited
+                    $(this).closest('td').find("input").attr("id") +
+                    "' />" +
+                    "</fieldset>" +
+                    "</div>";
         /**
          * @var  Defines functions to be called when the buttons in
          * the buttonOptions jQuery dialog bar are pressed
@@ -2724,11 +2725,11 @@ AJAX.registerOnload('functions.js', function () {
         while (num_new_rows--) {
             $enum_editor_dialog.find('.values')
                 .append(
-                    "<tr style='display: none;'><td>"
-                  + "<input type='text' />"
-                  + "</td><td class='drop'>"
-                  + PMA_getImage('b_drop.png')
-                  + "</td></tr>"
+                    "<tr style='display: none;'><td>" +
+                    "<input type='text' />" +
+                    "</td><td class='drop'>" +
+                    PMA_getImage('b_drop.png') +
+                    "</td></tr>"
                 )
                 .find('tr:last')
                 .show('fast');
@@ -2983,9 +2984,12 @@ function PMA_getRowNumber(classlist)
  */
 function PMA_set_status_label($element)
 {
-    var text = $element.css('display') == 'none'
-        ? '+ '
-        : '- ';
+    var text;
+    if ($element.css('display') == 'none') {
+        text = '+ ';
+    } else {
+        text = '- ';
+    }
     $element.closest('.slide-wrapper').prev().find('span').text(text);
 }
 
@@ -3326,8 +3330,8 @@ function PMA_slidingMessage(msg, $obj)
         // we might have to create a new DOM node.
         if ($('#PMA_slidingMessage').length === 0) {
             $('#page_content').prepend(
-                '<span id="PMA_slidingMessage" '
-                 + 'style="display: inline-block;"></span>'
+                '<span id="PMA_slidingMessage" ' +
+                'style="display: inline-block;"></span>'
             );
         }
         $obj = $('#PMA_slidingMessage');
@@ -3698,17 +3702,17 @@ AJAX.registerOnload('functions.js', function () {
             $(this).closest('.ui-dialog').find('.ui-button:first').click();
         }
     }); // end $.live()
-    
+
     var $elm = $('textarea[name="view[as]"]');
     if ($elm.length > 0) {
         if (typeof CodeMirror != 'undefined') {
             syntaxHighlighter = CodeMirror.fromTextArea(
-                $elm[0], 
+                $elm[0],
                 {
-                    lineNumbers: true, 
-                    matchBrackets: true, 
-                    indentUnit: 4, 
-                    mode: "text/x-mysql", 
+                    lineNumbers: true,
+                    matchBrackets: true,
+                    indentUnit: 4,
+                    mode: "text/x-mysql",
                     lineWrapping: true
                 }
             );
@@ -3804,6 +3808,7 @@ $(function () {
     });
 });
 
+var checkboxes_sel = "input.checkall:checkbox:enabled";
 /**
  * Watches checkboxes in a form to set the checkall box accordingly
  */
@@ -3824,7 +3829,6 @@ var checkboxes_changed = function () {
         $checkall.prop({checked: false, indeterminate: false});
     }
 };
-var checkboxes_sel = "input.checkall:checkbox:enabled";
 $(checkboxes_sel).live("change", checkboxes_changed);
 
 $("input.checkall_box").live("change", function () {

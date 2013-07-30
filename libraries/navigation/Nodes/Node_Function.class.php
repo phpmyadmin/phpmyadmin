@@ -9,12 +9,14 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
+require_once 'libraries/navigation/Nodes/Node_DatabaseChild.class.php';
+
 /**
  * Represents a function node in the navigation tree
  *
  * @package PhpMyAdmin-Navigation
  */
-class Node_Function extends Node
+class Node_Function extends Node_DatabaseChild
 {
     /**
      * Initialises the class
@@ -64,28 +66,13 @@ class Node_Function extends Node
     }
 
     /**
-     * Returns HTML for hide button displayed infront of the function node
+     * Returns the type of the item represented by the node.
      *
-     * @return HTML for hide button
+     * @return string type of the item
      */
-    public function getHtmlForControlButtons()
+    protected function getItemType()
     {
-        $ret = '';
-        $cfgRelation = PMA_getRelationsParam();
-        if ($cfgRelation['navwork']) {
-            $db       = $this->realParent()->real_name;
-            $function = $this->real_name;
-            $ret      = '<span class="navItemControls">'
-                . '<a href="navigation.php?'
-                . PMA_generate_common_url()
-                . '&hideNavItem=true&itemType=function'
-                . '&itemName=' . urldecode($function)
-                . '&dbName=' . urldecode($db) . '"'
-                . ' class="hideNavItem ajax">'
-                . PMA_Util::getImage('b_close', 'Hide')
-                . '</a></span>';
-        }
-        return $ret;
+        return 'function';
     }
 }
 

@@ -4,7 +4,7 @@
 /**
  * functions for displaying server, database and table export
  *
- * @usedby  server_export.php and display_export.inc.php
+ * @usedby display_export.inc.php
  *  
  * @package PhpMyAdmin
  */

@@ -1,338 +1,583 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
+
 /**
+ * functions for displaying import for: server, database and table
+ *
+ * @usedby display_import.inc.php
  *
  * @package PhpMyAdmin
  */
+
 if (! defined('PHPMYADMIN')) {
     exit;
 }
 
 /**
+ * Prints Html For Display Import Hidden Input
  *
+ * @param String $import_type Import type: server, database, table
+ * @param String $db          Selected DB
+ * @param String $table       Selected Table
+ *
+ * @return string
  */
-require_once './libraries/file_listing.lib.php';
-require_once './libraries/plugin_interface.lib.php';
-require_once './libraries/display_import_ajax.lib.php';
-
-/* Scan for plugins */
-$import_list = PMA_getPlugins(
-    "import",
-    'libraries/plugins/import/',
-    $import_type
-);
-
-/* Fail if we didn't find any plugin */
-if (empty($import_list)) {
-    PMA_Message::error(
-        __(
-            'Could not load import plugins, please check your installation!'
-        )
-    )->display();
-    exit;
-}
-?>
-
-<iframe id="import_upload_iframe" name="import_upload_iframe" width="1" height="1" style="display: none;"></iframe>
-<div id="import_form_status" style="display: none;"></div>
-<div id="importmain">
-    <img src="<?php echo $GLOBALS['pmaThemeImage'];?>ajax_clock_small.gif" width="16" height="16" alt="ajax clock" style="display: none;" />
-    <script type="text/javascript">
-        //<![CDATA[
-        $( function() {
-            // add event when user click on "Go" button
-            $('#buttonGo').bind('click', function() {
-                $('#upload_form_form').css("display", "none"); // hide form
-                $('#upload_form_status').css("display", "inline"); // show progress bar
-                $('#upload_form_status_info').css("display", "inline"); // - || -
-<?php
-if ($_SESSION[$SESSION_KEY]["handler"] != "UploadNoplugin") {
-    ?>
-                var finished = false;
-                var percent  = 0.0;
-                var total    = 0;
-                var complete = 0;
-                var original_title = parent && parent.document ? parent.document.title : false;
-                var import_start;
-
-                var perform_upload = function () {
-                    new $.getJSON(
-                    'import_status.php?id=<?php echo $upload_id ; ?>&<?php echo PMA_generate_common_url(array('import_status'=>1), '&'); ?>',
-                    {},
-                    function(response) {
-                        finished = response.finished;
-                        percent = response.percent;
-                        total = response.total;
-                        complete = response.complete;
-
-                        if (total==0 && complete==0 && percent==0) {
-                            $('#upload_form_status_info').html('<img src="<?php echo $GLOBALS['pmaThemeImage'];?>ajax_clock_small.gif" width="16" height="16" alt="ajax clock" /> <?php echo PMA_jsFormat(__('The file being uploaded is probably larger than the maximum allowed size or this is a known bug in webkit based (Safari, Google Chrome, Arora etc.) browsers.'), false); ?>');
-                            $('#upload_form_status').css("display", "none");
-                        } else {
-                            var now = new Date();
-                            now = Date.UTC(
-                                now.getFullYear(), now.getMonth(), now.getDate(),
-                                now.getHours(), now.getMinutes(), now.getSeconds())
-                                + now.getMilliseconds() - 1000;
-                            var statustext = $.sprintf('<?php echo PMA_escapeJsString(__('%s of %s')); ?>',
-                                formatBytes(complete, 1, PMA_messages.strDecimalSeparator),
-                                formatBytes(total, 1, PMA_messages.strDecimalSeparator)
-                            );
-
-                            if ($('#importmain').is(':visible')) {
-                                // show progress UI
-                                $('#importmain').hide();
-                                $('#import_form_status')
-                                    .html('<div class="upload_progress"><div class="upload_progress_bar_outer"><div class="percentage"></div><div id="status" class="upload_progress_bar_inner"><div class="percentage"></div></div></div><div><img src="<?php echo $GLOBALS['pmaThemeImage'];?>ajax_clock_small.gif" width="16" height="16" alt="ajax clock" /> <?php echo PMA_jsFormat(__('Uploading your import file…'), false); ?></div><div id="statustext"></div></div>')
-                                    .show();
-                                import_start = now;
-                            }
-                            else if (percent > 9 || complete > 2000000) {
-                                // calculate estimated time
-                                var used_time = now - import_start;
-                                var seconds = parseInt(((total - complete) / complete) * used_time / 1000);
-                                var speed = $.sprintf('<?php echo PMA_jsFormat(__('%s/sec.'), false); ?>'
-                                    , formatBytes(complete / used_time * 1000, 1, PMA_messages.strDecimalSeparator));
-
-                                var minutes = parseInt(seconds / 60);
-                                seconds %= 60;
-                                var estimated_time;
-                                if (minutes > 0) {
-                                    estimated_time = '<?php echo PMA_jsFormat(__('About %MIN min. %SEC sec. remaining.'), false); ?>'
-                                        .replace('%MIN', minutes).replace('%SEC', seconds);
-                                }
-                                else {
-                                    estimated_time = '<?php echo PMA_jsFormat(__('About %SEC sec. remaining.'), false); ?>'
-                                        .replace('%SEC', seconds);
-                                }
-
-                                statustext += '<br />' + speed + '<br /><br />' + estimated_time;
-                            }
-
-                            var percent_str = Math.round(percent) + '%';
-                            $('#status').animate({width: percent_str}, 150);
-                            $('.percentage').text(percent_str);
-
-                            // show percent in window title
-                            if (original_title !== false) {
-                                parent.document.title = percent_str + ' - ' + original_title;
-                            }
-                            else {
-                                document.title = percent_str + ' - ' + original_title;
-                            }
-                            $('#statustext').html(statustext);
-                        } // else
-
-                        if (finished == true) {
-                            if (original_title !== false) {
-                                parent.document.title = original_title;
-                            }
-                            else {
-                                document.title = original_title;
-                            }
-                            $('#importmain').hide();
-                            $('#import_form_status')
-                                .html('<img src="<?php echo $GLOBALS['pmaThemeImage'];?>ajax_clock_small.gif" width="16" height="16" alt="ajax clock" /> <?php echo PMA_jsFormat(__('The file is being processed, please be patient.'), false); ?> ')
-                                .show();
-                            $('#import_form_status').load('import_status.php?message=true&<?php echo PMA_generate_common_url(array('import_status'=>1), '&'); ?>'); // loads the message, either success or mysql error
-                            <?php
-                            // reload the left sidebar when the import is finished
-                            $GLOBALS['reload'] = true;
-                            ?>
-
-                        } // if finished
-                        else {
-                            setTimeout(perform_upload, 1000);
-                        }
-                    });
-                };
-                setTimeout(perform_upload, 1000);
-
-    <?php
-} else { // no plugin available
-    ?>
-                $('#upload_form_status_info').html('<img src="<?php echo $GLOBALS['pmaThemeImage'];?>ajax_clock_small.gif" width="16" height="16" alt="ajax clock" /> <?php echo PMA_jsFormat(__('Please be patient, the file is being uploaded. Details about the upload are not available.'), false) . PMA_Util::showDocu('faq', 'faq2-9'); ?>');
-                        $('#upload_form_status').css("display", "none");
-    <?php
-} // else
-?>
-                    }); // onclick
-                }); // domready
-                //]]>
-    </script>
-    <form action="import.php" method="post" enctype="multipart/form-data"
-        name="import"<?php
-if ($_SESSION[$SESSION_KEY]["handler"] != "UploadNoplugin") {
-    echo ' target="import_upload_iframe"';
-}
-echo ' class="ajax"';
-?>>
-    <input type="hidden" name="<?php
-        echo $_SESSION[$SESSION_KEY]['handler']::getIdKey();
-    ?>" value="<?php echo $upload_id ; ?>" />
-
-    <?php
-if ($import_type == 'server') {
-    echo PMA_generate_common_hidden_inputs('', '', 1);
-} elseif ($import_type == 'database') {
-    echo PMA_generate_common_hidden_inputs($db, '', 1);
-} else {
-    echo PMA_generate_common_hidden_inputs($db, $table, 1);
-}
-echo '    <input type="hidden" name="import_type" value="' . $import_type . '" />'."\n";
-    ?>
-
-    <div class="exportoptions" id="header">
-        <h2>
-            <?php echo PMA_Util::getImage('b_import.png', __('Import')); ?>
-            <?php
-if ($import_type == 'server') {
-    echo __('Importing into the current server');
-} elseif ($import_type == 'database') {
-    printf(__('Importing into the database "%s"'), htmlspecialchars($db));
-} else {
-    printf(__('Importing into the table "%s"'), htmlspecialchars($table));
-}?>
-        </h2>
-    </div>
-
-    <div class="importoptions">
-        <h3><?php echo __('File to Import:'); ?></h3>
-        <?php
-// zip, gzip and bzip2 encode features
-$compressions = array();
-
-if ($cfg['GZipDump'] && @function_exists('gzopen')) {
-    $compressions[] = 'gzip';
-}
-if ($cfg['BZipDump'] && @function_exists('bzopen')) {
-    $compressions[] = 'bzip2';
-}
-if ($cfg['ZipDump'] && @function_exists('zip_open')) {
-    $compressions[] = 'zip';
-}
-// We don't have show anything about compression, when no supported
-if ($compressions != array()) {
-    echo '<div class="formelementrow" id="compression_info">';
-    printf(__('File may be compressed (%s) or uncompressed.'), implode(", ", $compressions));
-    echo '<br />';
-    echo __('A compressed file\'s name must end in <b>.[format].[compression]</b>. Example: <b>.sql.zip</b>');
-    echo '</div>';
-}?>
-
-        <div class="formelementrow" id="upload_form">
-        <?php
-if ($GLOBALS['is_upload'] && !empty($cfg['UploadDir'])) { ?>
-            <ul>
-            <li>
-                <input type="radio" name="file_location" id="radio_import_file" />
-                <?php
-    echo PMA_Util::getBrowseUploadFileBlock($max_upload_size);
-                ?>
-            </li>
-            <li>
-                <input type="radio" name="file_location" id="radio_local_import_file" />
-                <?php
-    echo PMA_Util::getSelectUploadFileBlock($import_list, $cfg['UploadDir']);
-                ?>
-            </li>
-            </ul>
-        <?php
-} elseif ($GLOBALS['is_upload']) {
-    $uid = uniqid('');
-    echo PMA_Util::getBrowseUploadFileBlock($max_upload_size);
-} elseif (!$GLOBALS['is_upload']) {
-    PMA_Message::notice(__('File uploads are not allowed on this server.'))->display();
-} elseif (!empty($cfg['UploadDir'])) {
-    echo PMA_Util::getSelectUploadFileBlock($import_list, $cfg['UploadDir']);
-} // end if (web-server upload directory)
-?>
-        </div>
-
-       <div class="formelementrow" id="charaset_of_file">
-        <?php // charset of file
-if ($GLOBALS['PMA_recoding_engine'] != PMA_CHARSET_NONE) {
-    echo '<label for="charset_of_file">' . __('Character set of the file:') . '</label>';
-    reset($cfg['AvailableCharsets']);
-    echo '<select id="charset_of_file" name="charset_of_file" size="1">';
-    foreach ($cfg['AvailableCharsets'] as $temp_charset) {
-        echo '<option value="' . htmlentities($temp_charset) .  '"';
-        if ((empty($cfg['Import']['charset']) && $temp_charset == 'utf-8')
-            || $temp_charset == $cfg['Import']['charset']
-        ) {
-            echo ' selected="selected"';
-        }
-        echo '>' . htmlentities($temp_charset) . '</option>';
+function PMA_getHtmlForHiddenInputs($import_type, $db, $table)
+{
+    $html  = '';
+    if ($import_type == 'server') {
+        $html .= PMA_generate_common_hidden_inputs('', '', 1);
+    } elseif ($import_type == 'database') {
+        $html .= PMA_generate_common_hidden_inputs($db, '', 1);
+    } else {
+        $html .= PMA_generate_common_hidden_inputs($db, $table, 1);
     }
-    echo ' </select><br />';
-} else {
-    echo '<label for="charset_of_file">' . __('Character set of the file:') . '</label>' . "\n";
-    echo PMA_generateCharsetDropdownBox(PMA_CSDROPDOWN_CHARSET, 'charset_of_file', 'charset_of_file', 'utf8', false);
-} // end if (recoding)
-        ?>
-        </div>
-    </div>
-    <div class="importoptions">
-        <h3><?php echo __('Partial Import:'); ?></h3>
+    $html .= '    <input type="hidden" name="import_type" value="'
+        . $import_type . '" />'."\n";
 
-        <?php
-if (isset($timeout_passed) && $timeout_passed) {
-    echo '<div class="formelementrow">' . "\n";
-    echo '<input type="hidden" name="skip" value="' . $offset . '" />';
-    echo sprintf(__('Previous import timed out, after resubmitting will continue from position %d.'), $offset) . '';
-    echo '</div>' . "\n";
+    return $html;
 }
-        ?>
-        <div class="formelementrow">
-            <input type="checkbox" name="allow_interrupt" value="yes"
-                   id="checkbox_allow_interrupt" <?php echo PMA_pluginCheckboxCheck('Import', 'allow_interrupt'); ?>/>
-            <label for="checkbox_allow_interrupt"><?php echo __('Allow the interruption of an import in case the script detects it is close to the PHP timeout limit. <i>(This might be a good way to import large files, however it can break transactions.)</i>'); ?></label><br />
-        </div>
 
-        <?php
-if (! (isset($timeout_passed) && $timeout_passed)) {
-        ?>
-        <div class="formelementrow">
-            <label for="text_skip_queries"><?php echo __('Number of rows to skip, starting from the first row:'); ?></label>
-            <input type="text" name="skip_queries" value="<?php echo PMA_pluginGetDefault('Import', 'skip_queries');?>" id="text_skip_queries" />
-        </div>
-            <?php
-} else {
-    // If timeout has passed,
-    // do not show the Skip dialog to avoid the risk of someone
-    // entering a value here that would interfere with "skip"
-    ?>
-        <input type="hidden" name="skip_queries" value="<?php echo PMA_pluginGetDefault('Import', 'skip_queries');?>" id="text_skip_queries" />
-            <?php
+/**
+ * Prints Html For Import Javascript
+ *
+ * @param int $upload_id The selected upload id
+ *
+ * @return string
+ */
+function PMA_getHtmlForImportJS($upload_id)
+{
+    global $SESSION_KEY;
+    $html  = '';
+    $html .= '<script type="text/javascript">';
+    $html .= '    //<![CDATA[';
+    //with "\n", so that the following lines won't be commented out by //<![CDATA[
+    $html .= "\n";
+    $html .= '    $( function() {';
+    // add event when user click on "Go" button
+    $html .= '      $("#buttonGo").bind("click", function() {';
+    // hide form
+    $html .= '        $("#upload_form_form").css("display", "none");';
+    // show progress bar
+    $html .= '        $("#upload_form_status").css("display", "inline");';
+    $html .= '        $("#upload_form_status_info").css("display", "inline");';
+
+    if ($_SESSION[$SESSION_KEY]["handler"] != "UploadNoplugin") {
+
+        $html .= PMA_getHtmlForImportWithPlugin($upload_id);
+
+    } else { // no plugin available
+        $image_tag = '<img src="' . $GLOBALS['pmaThemeImage']
+            . 'ajax_clock_small.gif" width="16" height="16" alt="ajax clock" /> '
+            . PMA_jsFormat(
+                __(
+                    'Please be patient, the file is being uploaded. '
+                    . 'Details about the upload are not available.'
+                ),
+                false
+            ) . PMA_Util::showDocu('faq', 'faq2-9');
+        $html .= "   $('#upload_form_status_info').html('" . $image_tag . "');";
+        $html .= '   $("#upload_form_status").css("display", "none");';
+    } // else
+
+    // onclick
+    $html .= '      });';
+    // domready
+    $html .= '    });';
+    $html .= '    //]]>';
+    //with "\n", so that the following lines won't be commented out by //]]>
+    $html .= "\n";
+    $html .= '</script>';
+
+    return $html;
 }
-        ?>
-    </div>
 
-    <div class="importoptions">
-        <h3><?php echo __('Format:'); ?></h3>
-        <?php echo PMA_pluginGetChoice('Import', 'format', $import_list); ?>
-        <div id="import_notification"></div>
-    </div>
+/**
+ * Prints Html For Display Export options
+ *
+ * @param String $import_type Import type: server, database, table
+ * @param String $db          Selected DB
+ * @param String $table       Selected Table
+ *
+ * @return string
+ */
+function PMA_getHtmlForExportOptions($import_type, $db, $table)
+{
+    $html  = '    <div class="exportoptions" id="header">';
+    $html .= '        <h2>';
+    $html .= PMA_Util::getImage('b_import.png', __('Import'));
 
-    <div class="importoptions" id="format_specific_opts">
-        <h3><?php echo __('Format-Specific Options:'); ?></h3>
-        <p class="no_js_msg" id="scroll_to_options_msg">Scroll down to fill in the options for the selected format and ignore the options for other formats.</p>
-        <?php echo PMA_pluginGetOptions('Import', $import_list); ?>
-    </div>
-        <div class="clearfloat"></div>
-    <?php
-// Encoding setting form appended by Y.Kawada
-if (function_exists('PMA_Kanji_encodingForm')) { ?>
-        <div class="importoptions" id="kanji_encoding">
-            <h3><?php echo __('Encoding Conversion:'); ?></h3>
-            <?php echo PMA_Kanji_encodingForm(); ?>
-        </div>
-    <?php
+    if ($import_type == 'server') {
+        $html .= __('Importing into the current server');
+    } elseif ($import_type == 'database') {
+        $import_str = sprintf(
+            __('Importing into the database "%s"'),
+            htmlspecialchars($db)
+        );
+        $html .= $import_str;
+    } else {
+        $import_str = sprintf(
+            __('Importing into the table "%s"'),
+            htmlspecialchars($table)
+        );
+        $html .= $import_str;
+    }
+    $html .= '        </h2>';
+    $html .= '    </div>';
+
+    return $html;
 }
-echo "\n";
-    ?>
-    <div class="importoptions" id="submit">
-        <input type="submit" value="<?php echo __('Go'); ?>" id="buttonGo" />
-    </div>
-</form>
-</div>
+
+/**
+ * Prints Html For Display Import options : Compressions
+ *
+ * @return string
+ */
+function PMA_getHtmlForImportCompressions()
+{
+    global $cfg;
+    $html = '';
+    // zip, gzip and bzip2 encode features
+    $compressions = array();
+
+    if ($cfg['GZipDump'] && @function_exists('gzopen')) {
+        $compressions[] = 'gzip';
+    }
+    if ($cfg['BZipDump'] && @function_exists('bzopen')) {
+        $compressions[] = 'bzip2';
+    }
+    if ($cfg['ZipDump'] && @function_exists('zip_open')) {
+        $compressions[] = 'zip';
+    }
+    // We don't have show anything about compression, when no supported
+    if ($compressions != array()) {
+        $html .= '<div class="formelementrow" id="compression_info">';
+        $compress_str = sprintf(
+            __('File may be compressed (%s) or uncompressed.'),
+            implode(", ", $compressions)
+        );
+        $html .= $compress_str;
+        $html .= '<br />';
+        $html .= __(
+            'A compressed file\'s name must end in <b>.[format].[compression]</b>. '
+            . 'Example: <b>.sql.zip</b>'
+        );
+        $html .= '</div>';
+    }
+
+    return $html;
+}
+
+/**
+ * Prints Html For Display Import charset
+ *
+ * @return string
+ */
+function PMA_getHtmlForImportCharset()
+{
+    global $cfg;
+    $html = '       <div class="formelementrow" id="charaset_of_file">';
+    // charset of file
+    if ($GLOBALS['PMA_recoding_engine'] != PMA_CHARSET_NONE) {
+        $html .= '<label for="charset_of_file">' . __('Character set of the file:')
+            . '</label>';
+        reset($cfg['AvailableCharsets']);
+        $html .= '<select id="charset_of_file" name="charset_of_file" size="1">';
+        foreach ($cfg['AvailableCharsets'] as $temp_charset) {
+            $html .= '<option value="' . htmlentities($temp_charset) .  '"';
+            if ((empty($cfg['Import']['charset']) && $temp_charset == 'utf-8')
+                || $temp_charset == $cfg['Import']['charset']
+            ) {
+                $html .= ' selected="selected"';
+            }
+            $html .= '>' . htmlentities($temp_charset) . '</option>';
+        }
+        $html .= ' </select><br />';
+    } else {
+        $html .= '<label for="charset_of_file">' . __('Character set of the file:')
+            . '</label>' . "\n";
+        $html .= PMA_generateCharsetDropdownBox(
+            PMA_CSDROPDOWN_CHARSET,
+            'charset_of_file',
+            'charset_of_file',
+            'utf8',
+            false
+        );
+    } // end if (recoding)
+
+    $html .= '        </div>';
+
+    return $html;
+}
+
+/**
+ * Prints Html For Display Import options : file property
+ *
+ * @param int   $max_upload_size Max upload size
+ * @param Array $import_list     import list
+ *
+ * @return string
+ */
+function PMA_getHtmlForImportOptionsFile($max_upload_size, $import_list)
+{
+    global $cfg;
+    $html  = '    <div class="importoptions">';
+    $html .= '         <h3>'  . __('File to Import:') . '</h3>';
+    $html .= PMA_getHtmlForImportCompressions();
+    $html .= '        <div class="formelementrow" id="upload_form">';
+
+    if ($GLOBALS['is_upload'] && !empty($cfg['UploadDir'])) {
+        $html .= '            <ul>';
+        $html .= '            <li>';
+        $html .= '                <input type="radio" name="file_location" '
+            . 'id="radio_import_file" />';
+        $html .= PMA_Util::getBrowseUploadFileBlock($max_upload_size);
+        $html .= '            </li>';
+        $html .= '            <li>';
+        $html .= '               <input type="radio" name="file_location" '
+            . 'id="radio_local_import_file" />';
+        $html .= PMA_Util::getSelectUploadFileBlock($import_list, $cfg['UploadDir']);
+        $html .= '            </li>';
+        $html .= '            </ul>';
+
+    } elseif ($GLOBALS['is_upload']) {
+        $uid = uniqid('');
+        $html .= PMA_Util::getBrowseUploadFileBlock($max_upload_size);
+    } elseif (!$GLOBALS['is_upload']) {
+        $html .= PMA_Message::notice(
+            __('File uploads are not allowed on this server.')
+        )->getDisplay();
+    } elseif (!empty($cfg['UploadDir'])) {
+        $html .= PMA_Util::getSelectUploadFileBlock($import_list, $cfg['UploadDir']);
+    } // end if (web-server upload directory)
+
+    $html .= '        </div>';
+    $html .= PMA_getHtmlForImportCharset();
+    $html .= '   </div>';
+
+    return $html;
+}
+
+/**
+ * Prints Html For Display Import options : Partial Import
+ *
+ * @param String $timeout_passed timeout passed
+ * @param String $offset         timeout offset
+ *
+ * @return string
+ */
+function PMA_getHtmlForImportOptionsPartialImport($timeout_passed, $offset)
+{
+    $html  = '    <div class="importoptions">';
+    $html .= '        <h3>' . __('Partial Import:') . '</h3>';
+
+    if (isset($timeout_passed) && $timeout_passed) {
+        $html .= '<div class="formelementrow">' . "\n";
+        $html .= '<input type="hidden" name="skip" value="' . $offset . '" />';
+        $html .= sprintf(
+            __(
+                'Previous import timed out, after resubmitting '
+                . 'will continue from position %d.'
+            ),
+            $offset
+        );
+        $html .= '</div>' . "\n";
+    }
+
+    $html .= '        <div class="formelementrow">';
+    $html .= '           <input type="checkbox" name="allow_interrupt" value="yes"';
+    $html .= '                  id="checkbox_allow_interrupt" '
+        . PMA_pluginCheckboxCheck('Import', 'allow_interrupt') . '/>';
+    $html .= '            <label for="checkbox_allow_interrupt">'
+        . __(
+            'Allow the interruption of an import in case the script detects '
+            . 'it is close to the PHP timeout limit. <i>(This might be a good way'
+            . ' to import large files, however it can break transactions.)</i>'
+        ) . '</label><br />';
+    $html .= '        </div>';
+
+    if (! (isset($timeout_passed) && $timeout_passed)) {
+        $html .= '        <div class="formelementrow">';
+        $html .= '            <label for="text_skip_queries">'
+            .  __('Number of rows to skip, starting from the first row:')
+            . '</label>';
+        $html .= '            <input type="text" name="skip_queries" value="'
+            . PMA_pluginGetDefault('Import', 'skip_queries')
+            . '" id="text_skip_queries" />';
+        $html .= '        </div>';
+
+    } else {
+        // If timeout has passed,
+        // do not show the Skip dialog to avoid the risk of someone
+        // entering a value here that would interfere with "skip"
+        $html .= '         <input type="hidden" name="skip_queries" value="'
+            . PMA_pluginGetDefault('Import', 'skip_queries')
+            . '" id="text_skip_queries" />';
+    }
+
+    $html .= '    </div>';
+
+    return $html;
+}
+
+/**
+ * Prints Html For Display Import options : Format
+ *
+ * @param Array $import_list import list
+ *
+ * @return string
+ */
+function PMA_getHtmlForImportOptionsFormat($import_list)
+{
+    $html  = '   <div class="importoptions">';
+    $html .= '       <h3>' . __('Format:') . '</h3>';
+    $html .= PMA_pluginGetChoice('Import', 'format', $import_list);
+    $html .= '       <div id="import_notification"></div>';
+    $html .= '   </div>';
+
+    $html .= '    <div class="importoptions" id="format_specific_opts">';
+    $html .= '        <h3>' . __('Format-Specific Options:') . '</h3>';
+    $html .= '        <p class="no_js_msg" id="scroll_to_options_msg">'
+        . 'Scroll down to fill in the options for the selected format '
+        . 'and ignore the options for other formats.</p>';
+    $html .= PMA_pluginGetOptions('Import', $import_list);
+    $html .= '    </div>';
+    $html .= '        <div class="clearfloat"></div>';
+
+    // Encoding setting form appended by Y.Kawada
+    if (function_exists('PMA_Kanji_encodingForm')) {
+        $html .= '        <div class="importoptions" id="kanji_encoding">';
+        $html .= '            <h3>' . __('Encoding Conversion:') . '</h3>';
+        $html .= PMA_Kanji_encodingForm();
+        $html .= '        </div>';
+
+    }
+    $html .= "\n";
+
+    return $html;
+}
+
+/**
+ * Prints Html For Display Import options : submit
+ *
+ * @return string
+ */
+function PMA_getHtmlForImportOptionsSubmit()
+{
+    $html  = '    <div class="importoptions" id="submit">';
+    $html .= '       <input type="submit" value="' . __('Go') . '" id="buttonGo" />';
+    $html .= '   </div>';
+
+    return $html;
+}
+
+/**
+ * Prints Html For Display Import
+ *
+ * @param int    $upload_id       The selected upload id
+ * @param String $import_type     Import type: server, database, table
+ * @param String $db              Selected DB
+ * @param String $table           Selected Table
+ * @param int    $max_upload_size Max upload size
+ * @param Array  $import_list     Import list
+ * @param String $timeout_passed  Timeout passed
+ * @param String $offset          Timeout offset
+ *
+ * @return string
+ */
+function PMA_getHtmlForImport(
+    $upload_id, $import_type, $db, $table,
+    $max_upload_size, $import_list, $timeout_passed, $offset
+) {
+    global $SESSION_KEY;
+    $html  = '';
+    $html .= '<iframe id="import_upload_iframe" name="import_upload_iframe" '
+        . 'width="1" height="1" style="display: none;"></iframe>';
+    $html .= '<div id="import_form_status" style="display: none;"></div>';
+    $html .= '<div id="importmain">';
+    $html .= '    <img src="' . $GLOBALS['pmaThemeImage'] . 'ajax_clock_small.gif" '
+        . 'width="16" height="16" alt="ajax clock" style="display: none;" />';
+
+    $html .= PMA_getHtmlForImportJS($upload_id);
+
+    $html .= '    <form action="import.php" method="post" '
+        . 'enctype="multipart/form-data"';
+    $html .= '        name="import"';
+    if ($_SESSION[$SESSION_KEY]["handler"] != "UploadNoplugin") {
+        $html .= ' target="import_upload_iframe"';
+    }
+    $html .= ' class="ajax"';
+    $html .= '>';
+    $html .= '    <input type="hidden" name="';
+    $html .= $_SESSION[$SESSION_KEY]['handler']::getIdKey();
+    $html .= '" value="' . $upload_id . '" />';
+
+    $html .= PMA_getHtmlForHiddenInputs($import_type, $db, $table);
+
+    $html .= PMA_getHtmlForExportOptions($import_type, $db, $table);
+
+    $html .= PMA_getHtmlForImportOptionsFile($max_upload_size, $import_list);
+
+    $html .= PMA_getHtmlForImportOptionsPartialImport($timeout_passed, $offset);
+
+    $html .= PMA_getHtmlForImportOptionsFormat($import_list);
+
+    $html .= PMA_getHtmlForImportOptionsSubmit();
+
+    $html .= '</form>';
+    $html .= '</div>';
+
+    return $html;
+}
+
+/**
+ * Prints javascript for upload with plugin, upload process bar
+ *
+ * @param int $upload_id The selected upload id
+ *
+ * @return string
+ */
+function PMA_getHtmlForImportWithPlugin($upload_id)
+{
+    //some variable for javasript
+    $ajax_url = "import_status.php?id=" . $upload_id . "&"
+        . PMA_generate_common_url(array('import_status'=>1), '&');
+    $promot_str = PMA_jsFormat(
+        __(
+            'The file being uploaded is probably larger than '
+            . 'the maximum allowed size or this is a known bug in webkit '
+            . 'based (Safari, Google Chrome, Arora etc.) browsers.'
+        ),
+        false
+    );
+    $statustext_str = PMA_escapeJsString(__('%s of %s'));
+    $upload_str = PMA_jsFormat(__('Uploading your import file...'), false);
+    $second_str = PMA_jsFormat(__('%s/sec.'), false);
+    $remaining_min = PMA_jsFormat(__('About %MIN min. %SEC sec. remaining.'), false);
+    $remaining_second = PMA_jsFormat(__('About %SEC sec. remaining.'), false);
+    $processed_str = PMA_jsFormat(
+        __('The file is being processed, please be patient.'),
+        false
+    );
+    $import_url = PMA_generate_common_url(array('import_status'=>1), '&');
+
+    //start output
+    $html  = 'var finished = false; ';
+    $html .= 'var percent  = 0.0; ';
+    $html .= 'var total    = 0; ';
+    $html .= 'var complete = 0; ';
+    $html .= 'var original_title = '
+        . 'parent && parent.document ? parent.document.title : false; ';
+    $html .= 'var import_start; ';
+
+    $html .= 'var perform_upload = function () { ';
+    $html .= 'new $.getJSON( ';
+    $html .= '		"' . $ajax_url . '", ';
+    $html .= '		{}, ';
+    $html .= '		function(response) { ';
+    $html .= '			finished = response.finished; ';
+    $html .= '			percent = response.percent; ';
+    $html .= '			total = response.total; ';
+    $html .= '			complete = response.complete; ';
+
+    $html .= '			if (total==0 && complete==0 && percent==0) { ';
+    $img_tag = '<img src="'. $GLOBALS['pmaThemeImage'] . 'ajax_clock_small.gif"';
+    $html .= '				$("#upload_form_status_info").html(\''
+        . $img_tag . ' width="16" height="16" alt="ajax clock" /> '
+        . $promot_str . '\'); ';
+    $html .= '				$("#upload_form_status").css("display", "none"); ';
+    $html .= '			} else { ';
+    $html .= '				var now = new Date(); ';
+    $html .= '				now = Date.UTC( ';
+    $html .= '					now.getFullYear(), now.getMonth(), now.getDate(), ';
+    $html .= '					now.getHours(), now.getMinutes(), now.getSeconds()) ';
+    $html .= '					+ now.getMilliseconds() - 1000; ';
+    $html .= '				var statustext = $.sprintf("' . $statustext_str . '", ';
+    $html .= '					formatBytes(complete, 1, PMA_messages.strDecimalSeparator), ';
+    $html .= '					formatBytes(total, 1, PMA_messages.strDecimalSeparator) ';
+    $html .= '				); ';
+
+    $html .= '				if ($("#importmain").is(":visible")) { ';
+    // show progress UI
+    $html .= '					$("#importmain").hide(); ';
+    $html .= '					$("#import_form_status") ';
+    $html .= '					.html(\'<div class="upload_progress">'
+        . '<div class="upload_progress_bar_outer"><div class="percentage">'
+        . '</div><div id="status" class="upload_progress_bar_inner">'
+        . '<div class="percentage"></div></div></div><div>'
+        . '<img src="'. $GLOBALS['pmaThemeImage']
+        . 'ajax_clock_small.gif" width="16" height="16" alt="ajax clock" /> '
+        . $upload_str . '</div><div id="statustext"></div></div>\') ';
+    $html .= '					.show(); ';
+    $html .= '					import_start = now; ';
+    $html .= '				} ';
+    $html .= '				else if (percent > 9 || complete > 2000000) { ';
+    // calculate estimated time
+    $html .= '					var used_time = now - import_start; ';
+    $html .= '					var seconds = '
+        . 'parseInt(((total - complete) / complete) * used_time / 1000); ';
+    $html .= '					var speed = $.sprintf("' . $second_str . '"';
+    $html .= '					   , formatBytes(complete / used_time * 1000, 1,'
+        . ' PMA_messages.strDecimalSeparator)); ';
+
+    $html .= '					var minutes = parseInt(seconds / 60); ';
+    $html .= '					seconds %= 60; ';
+    $html .= '					var estimated_time; ';
+    $html .= '					if (minutes > 0) { ';
+    $html .= '						estimated_time = "' . $remaining_min . '"';
+    $html .= '						.replace("%MIN", minutes).replace("%SEC", seconds); ';
+    $html .= '					} ';
+    $html .= '					else { ';
+    $html .= '						estimated_time = "' . $remaining_second . '"';
+    $html .= '						.replace("%SEC", seconds); ';
+    $html .= '					} ';
+
+    $html .= '					statustext += "<br />" + speed + "<br /><br />" '
+        . '+ estimated_time; ';
+    $html .= '				} ';
+
+    $html .= '				var percent_str = Math.round(percent) + "%"; ';
+    $html .= '				$("#status").animate({width: percent_str}, 150); ';
+    $html .= '				$(".percentage").text(percent_str); ';
+
+    // show percent in window title
+    $html .= '				if (original_title !== false) { ';
+    $html .= '					parent.document.title = percent_str + " - " + original_title; ';
+    $html .= '				} ';
+    $html .= '				else { ';
+    $html .= '					document.title = percent_str + " - " + original_title; ';
+    $html .= '				} ';
+    $html .= '				$("#statustext").html(statustext); ';
+    $html .= '			}  ';
+
+    $html .= '			if (finished == true) { ';
+    $html .= '				if (original_title !== false) { ';
+    $html .= '					parent.document.title = original_title; ';
+    $html .= '				} ';
+    $html .= '				else { ';
+    $html .= '					document.title = original_title; ';
+    $html .= '				} ';
+    $html .= '				$("#importmain").hide(); ';
+    // loads the message, either success or mysql error
+    $html .= '				$("#import_form_status") ';
+    $html .= '				.html(\'<img src="' . $GLOBALS['pmaThemeImage']
+        . 'ajax_clock_small.gif" width="16" height="16" alt="ajax clock" /> '
+        . $processed_str . '\')';
+    $html .= '				.show(); ';
+    $html .= '				$("#import_form_status").load("import_status.php?'
+        . 'message=true&' . $import_url . '"); ';
+    $html .= '				PMA_reloadNavigation(); ';
+
+    // if finished
+    $html .= '            } ';
+    $html .= '            else { ';
+    $html .= '              setTimeout(perform_upload, 1000); ';
+    $html .= '         } ';
+    $html .= '}); ';
+    $html .= '}; ';
+    $html .= 'setTimeout(perform_upload, 1000); ';
+
+    return $html;
+}
+
+?>

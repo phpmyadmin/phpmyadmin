@@ -87,7 +87,7 @@ function PMA_importRunQuery($sql = '', $full = '', $controluser = false,
 ) {
     global $import_run_buffer, $go_sql, $complete_query, $display_query,
         $sql_query, $my_die, $error, $reload,
-        $last_query_with_results,
+        $last_query_with_results, $result, $msg,
         $skip_queries, $executed_queries, $max_sql_len, $read_multiply,
         $cfg, $sql_query_disabled, $db, $run_query, $is_superuser;
     $read_multiply = 1;
@@ -139,6 +139,9 @@ function PMA_importRunQuery($sql = '', $full = '', $controluser = false,
                         }
                         $sql_query = $import_run_buffer['sql'];
                         $sql_data['valid_sql'][] = $import_run_buffer['sql'];
+                        if(! isset($sql_data['valid_queries'])) {
+                            $sql_data['valid_queries'] = 0;
+                        }
                         $sql_data['valid_queries']++;
 
                         // If a 'USE <db>' SQL-clause was found,
@@ -189,6 +192,9 @@ function PMA_importRunQuery($sql = '', $full = '', $controluser = false,
 
                             if (($a_num_rows > 0) || $is_use_query) {
                                 $sql_data['valid_sql'][] = $import_run_buffer['sql'];
+                                if(! isset($sql_data['valid_queries'])) {
+                                    $sql_data['valid_queries'] = 0;
+                                }
                                 $sql_data['valid_queries']++;
                             }
 
