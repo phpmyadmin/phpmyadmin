@@ -129,7 +129,7 @@ class PMA_Util
         $menu_icon = false, $control_param = 'ActionLinksMode'
     ) {
         $include_icon = $include_text = false;
-        if (self::showIcons($control_param) {
+        if (self::showIcons($control_param)) {
             $include_icon = true;
         }
         if ($force_text
