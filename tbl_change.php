@@ -44,18 +44,9 @@ if (empty($GLOBALS['goto'])) {
         $GLOBALS['goto'] = 'db_sql.php';
     }
 }
-/**
- * @todo check if we could replace by "db_|tbl_" - please clarify!?
- */
-$_url_params = array(
-    'db' => $db,
-    'sql_query' => $_REQUEST['sql_query']
-);
 
-if (preg_match('@^tbl_@', $GLOBALS['goto'])) {
-    $_url_params['table'] = $table;
-}
 
+$_url_params = PMA_getUrlParameters($db, $table);
 $err_url = $GLOBALS['goto'] . PMA_generate_common_url($_url_params);
 unset($_url_params);
 
@@ -88,7 +79,6 @@ if (! empty($disp_message)) {
 
 
 $table_fields = PMA_getTableFields($db, $table);
-
 
 // retrieve keys into foreign fields, if any
 $foreigners = PMA_getForeigners($db, $table);

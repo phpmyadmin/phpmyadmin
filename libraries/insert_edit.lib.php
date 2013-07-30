@@ -2476,4 +2476,29 @@ function PMA_getCommentsMap($db, $table)
     
     return $comments_map;
 }
+
+/**
+ * Function to get URL parameters
+ * 
+ * @param string $db    current database
+ * @param string $table current table
+ * 
+ * @return array $url_params url parameters
+ */
+function PMA_getUrlParameters($db, $table)
+{
+    /**
+     * @todo check if we could replace by "db_|tbl_" - please clarify!?
+     */
+    $url_params = array(
+        'db' => $db,
+        'sql_query' => $_REQUEST['sql_query']
+    );
+
+    if (preg_match('@^tbl_@', $GLOBALS['goto'])) {
+        $url_params['table'] = $table;
+    }
+    
+    return $url_params;
+}
 ?>
