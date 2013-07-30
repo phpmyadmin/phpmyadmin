@@ -99,7 +99,7 @@ function PMA_convertString($src_charset, $dest_charset, $what)
             $src_charset, $dest_charset . $GLOBALS['cfg']['IconvExtraParams'], $what
         );
     case PMA_CHARSET_ICONV_AIX:
-        return PMA_aix_iconv_wrapper(
+        return PMA_convertAIXIconv(
             $src_charset, $dest_charset . $GLOBALS['cfg']['IconvExtraParams'], $what
         );
     case PMA_CHARSET_MB:
