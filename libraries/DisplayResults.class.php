@@ -4401,7 +4401,8 @@ class PMA_DisplayResults
      * @see     sql.php file
      */
     public function getTable(
-        &$dt_result, &$the_disp_mode, $analyzed_sql, $is_limited_display = false
+        &$dt_result, &$the_disp_mode, $analyzed_sql,
+        $is_limited_display = false
     ) {
 
         $table_html = '';
