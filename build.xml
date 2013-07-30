@@ -113,6 +113,7 @@
    <fileset dir="${basedir}">
     <include name="js/pmd/*.js" />
     <include name="js/*.js" />
+    <include name="setup/*.js" />
    </fileset>
   </apply>
  </target>

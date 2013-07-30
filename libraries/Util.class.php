@@ -87,6 +87,30 @@ class PMA_Util
     }
 
     /**
+     * Checks whether configuration value tells to show icons.
+     *
+     * @param string $value Configuration option name
+     *
+     * @return boolean Whether to show icons.
+     */
+    public static function showIcons($value)
+    {
+        return in_array($GLOBALS['cfg'][$value], array('icons', 'both'));
+    }
+
+    /**
+     * Checks whether configuration value tells to show text.
+     *
+     * @param string $value Configuration option name
+     *
+     * @return boolean Whether to show text.
+     */
+    public static function showText($value)
+    {
+        return in_array($GLOBALS['cfg'][$value], array('text', 'both'));
+    }
+
+    /**
      * Returns an HTML IMG tag for a particular icon from a theme,
      * which may be an actual file or an icon from a sprite.
      * This function takes into account the ActionLinksMode
@@ -105,18 +129,11 @@ class PMA_Util
         $menu_icon = false, $control_param = 'ActionLinksMode'
     ) {
         $include_icon = $include_text = false;
-        if (in_array(
-                $GLOBALS['cfg'][$control_param],
-                array('icons', 'both')
-            )
-        ) {
+        if (self::showIcons($control_param)) {
             $include_icon = true;
         }
         if ($force_text
-            || in_array(
-                $GLOBALS['cfg'][$control_param],
-                array('text', 'both')
-            )
+            || self::showText($control_param)
         ) {
             $include_text = true;
         }
@@ -2528,11 +2545,7 @@ class PMA_Util
 
             // Move to the beginning or to the previous page
             if ($pos > 0) {
-                if (in_array(
-                    $GLOBALS['cfg']['TableNavigationLinksMode'],
-                    array('icons', 'both')
-                )
-                ) {
+                if (self::showIcons('TableNavigationLinksMode')) {
                     $caption1 = '&lt;&lt;';
                     $caption2 = ' &lt; ';
                     $title1   = ' title="' . _pgettext('First page', 'Begin') . '"';
@@ -2569,11 +2582,7 @@ class PMA_Util
             $list_navigator_html .= '</form>';
 
             if ($pos + $max_count < $count) {
-                if (in_array(
-                    $GLOBALS['cfg']['TableNavigationLinksMode'],
-                    array('icons', 'both')
-                    )
-                ) {
+                if ( self::showIcons('TableNavigationLinksMode')) {
                     $caption3 = ' &gt; ';
                     $caption4 = '&gt;&gt;';
                     $title3   = ' title="' . _pgettext('Next page', 'Next') . '"';

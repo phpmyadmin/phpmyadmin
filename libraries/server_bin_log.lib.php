@@ -167,11 +167,7 @@ function PMA_getNavigationRow($url_params, $pos, $num_rows, $dontlimitchars)
 
         $html .= '<a href="server_binlog.php'
             . PMA_generate_common_url($this_url_params) . '"';
-        if (in_array(
-            $GLOBALS['cfg']['TableNavigationLinksMode'],
-            array('icons', 'both')
-        )
-        ) {
+        if (PMA_Util::showIcons('TableNavigationLinksMode')) {
             $html .= ' title="' . _pgettext('Previous page', 'Previous') . '">';
         } else {
             $html .= '>' . _pgettext('Previous page', 'Previous');
@@ -205,11 +201,7 @@ function PMA_getNavigationRow($url_params, $pos, $num_rows, $dontlimitchars)
         $html .= ' - <a href="server_binlog.php'
             . PMA_generate_common_url($this_url_params)
             . '"';
-        if (in_array(
-            $GLOBALS['cfg']['TableNavigationLinksMode'],
-            array('icons', 'both')
-        ) 
-        ) {
+        if (PMA_Util::showIcons('TableNavigationLinksMode')) {
             $html .= ' title="' . _pgettext('Next page', 'Next') . '">';
         } else {
             $html .= '>' . _pgettext('Next page', 'Next');

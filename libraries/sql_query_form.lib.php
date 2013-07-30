@@ -295,11 +295,7 @@ function PMA_sqlQueryFormInsert(
         }
         $html .= '</select>'
             . '<div id="tablefieldinsertbuttoncontainer">';
-        if (in_array(
-            $GLOBALS['cfg']['ActionLinksMode'],
-            array('icons', 'both')
-            )
-        ) {
+        if (PMA_Util::showIcons('ActionLinksMode')) {
             $html .= '<input type="button" class="button" name="insert"'
                 . ' value="&lt;&lt;" onclick="insertValueQuery()"'
                 . ' title="' . __('Insert') . '" />';

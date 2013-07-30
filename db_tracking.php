@@ -91,21 +91,13 @@ if ($GLOBALS['dbi']->numRows($all_tables_result) > 0) {
     // Print out information about versions
 
     $drop_image_or_text = '';
-    if (in_array(
-        $GLOBALS['cfg']['ActionLinksMode'],
-        array('icons', 'both')
-        )
-    ) {
+    if (PMA_Util::showIcons('ActionLinksMode')) {
         $drop_image_or_text .= PMA_Util::getImage(
             'b_drop.png',
             __('Delete tracking data for this table')
         );
     }
-    if (in_array(
-        $GLOBALS['cfg']['ActionLinksMode'],
-        array('text', 'both')
-        )
-    ) {
+    if (PMA_Util::showText('ActionLinksMode')) {
         $drop_image_or_text .= __('Drop');
     }
 
