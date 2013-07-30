@@ -220,7 +220,7 @@ function PMA_getHtmlForOptionsList($options, $select)
 function PMA_getHtmlForColumn($column, $columnCandidates, $visualizationSettings)
 {
     $html = '<tr><td><label for="labelColumn">';
-    $html .= ($column=="labelColumn") ? __("Label column") : __("Spatial column");;
+    $html .= ($column=="labelColumn") ? __("Label column") : __("Spatial column");
     $html .= '</label></td>';
 
     $html .= '<td><select name="visualizationSettings[' . $column . ']" id="'

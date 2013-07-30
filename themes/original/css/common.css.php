@@ -1867,7 +1867,7 @@ fieldset .disabled-field td {
 }
 
 .config-form .lastrow {
-    background: <?php echo $GLOBALS['cfg']['ThBackground']; ?>;;
+    background: <?php echo $GLOBALS['cfg']['ThBackground']; ?>;
     padding: .5em;
     text-align: center;
 }
