@@ -4236,11 +4236,11 @@ class PMA_DisplayResults
 
         // as this is a form value, the type is always string so we cannot
         // use PMA_isValid($_REQUEST['session_max_rows'], 'integer')
-        if ((PMA_isValid($_REQUEST['session_max_rows'], 'numeric')
-            && ((int) $_REQUEST['session_max_rows'] == $_REQUEST['session_max_rows']))
-            || ($_REQUEST['session_max_rows'] == self::ALL_ROWS)
-        ) {
-            $query['max_rows'] = $_REQUEST['session_max_rows'];
+        if (PMA_isValid($_REQUEST['session_max_rows'], 'numeric')) {
+            $query['max_rows'] = (int)$_REQUEST['session_max_rows'];
+            unset($_REQUEST['session_max_rows']);
+        } elseif ($_REQUEST['session_max_rows'] == self::ALL_ROWS) {
+            $query['max_rows'] = self::ALL_ROWS;
             unset($_REQUEST['session_max_rows']);
         } elseif (empty($query['max_rows'])) {
             $query['max_rows'] = $GLOBALS['cfg']['MaxRows'];
