@@ -1916,6 +1916,7 @@ Languages
       recode)
     * iconv - use iconv or libiconv functions
     * recode - use recode\_string function
+    * mb - use mbstring extension
     * none - disable encoding conversion
 
     Enabled charset conversion activates a pull-down menu in the Export

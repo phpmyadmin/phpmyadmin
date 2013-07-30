@@ -13,6 +13,7 @@ define('PMA_CHARSET_NONE', 0);
 define('PMA_CHARSET_ICONV', 1);
 define('PMA_CHARSET_RECODE', 2);
 define('PMA_CHARSET_ICONV_AIX', 3);
+define('PMA_CHARSET_MB', 4);
 
 if (! isset($GLOBALS['cfg']['RecodingEngine'])) {
     $GLOBALS['cfg']['RecodingEngine'] = '';
@@ -39,6 +40,13 @@ if ($GLOBALS['cfg']['RecodingEngine'] == 'iconv') {
         $PMA_recoding_engine = PMA_CHARSET_NONE;
         PMA_warnMissingExtension('recode');
     }
+} elseif ($GLOBALS['cfg']['RecodingEngine'] == 'mb') {
+    if (@function_exists('mb_convert_encoding')) {
+        $PMA_recoding_engine = PMA_CHARSET_MB;
+    } else {
+        $PMA_recoding_engine = PMA_CHARSET_NONE;
+        PMA_warnMissingExtension('mbstring');
+    }
 } elseif ($GLOBALS['cfg']['RecodingEngine'] == 'auto') {
     if (@function_exists('iconv')) {
         if ((@stristr(PHP_OS, 'AIX'))
@@ -51,6 +59,8 @@ if ($GLOBALS['cfg']['RecodingEngine'] == 'iconv') {
         }
     } elseif (@function_exists('recode_string')) {
         $PMA_recoding_engine = PMA_CHARSET_RECODE;
+    } elseif (@function_exists('mb_convert_encoding')) {
+        $PMA_recoding_engine = PMA_CHARSET_MB;
     } else {
         $PMA_recoding_engine = PMA_CHARSET_NONE;
     }
@@ -91,6 +101,10 @@ function PMA_convertString($src_charset, $dest_charset, $what)
     case PMA_CHARSET_ICONV_AIX:
         return PMA_aix_iconv_wrapper(
             $src_charset, $dest_charset . $GLOBALS['cfg']['IconvExtraParams'], $what
+        );
+    case PMA_CHARSET_MB:
+        return mb_convert_encoding(
+            $message, $dest_charset, $src_charset
         );
     default:
         return $what;
