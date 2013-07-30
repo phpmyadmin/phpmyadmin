@@ -215,6 +215,7 @@ function PMA_getHtmlForOptionsList($options, $select)
  *                                        or "spatialColumn"
  * @param  array   $columnCandidates      the list of select options
  * @param  array   $visualizationSettings visualization settings
+ *
  * @return String  $html
  */
 function PMA_getHtmlForColumn($column, $columnCandidates, $visualizationSettings)
