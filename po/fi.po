@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-07-30 08:38-0400\n"
-"PO-Revision-Date: 2013-07-30 14:54+0200\n"
+"PO-Revision-Date: 2013-07-30 14:55+0200\n"
 "Last-Translator: Henry Heinänen <h.heinanen@gmail.com>\n"
 "Language-Team: Finnish "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/fi/>\n"
@@ -1604,7 +1604,7 @@ msgstr "Virhekoodi: %s"
 #: js/messages.php:217
 #, php-format
 msgid "Error text: %s"
-msgstr ""
+msgstr "Virhekoodi: %s"
 
 #: js/messages.php:218 libraries/db_common.inc.php:58
 #: libraries/db_table_exists.lib.php:28 server_databases.php:90
