@@ -1205,7 +1205,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
             || settings.title === PMA_messages.strConnections
         ) {
             settings.axes.yaxis.tickOptions = {
-                formatter: function(format, val) {
+                formatter: function (format, val) {
                     if (Math.abs(val) >= 1000000)
                         return $.jqplot.sprintf("%.3g M", val/1000000);
                     else if (Math.abs(val) >= 1000)
