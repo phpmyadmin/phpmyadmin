@@ -2365,7 +2365,8 @@ function PMA_verifyWhetherValueCanBeTruncatedAndAppendExtraData(
         . ' WHERE ' . $_REQUEST['where_clause'][0];
 
     if ($GLOBALS['dbi']->fetchValue($sql_for_real_value) !== false) {
-        $extra_data['truncatableFieldValue'] = $GLOBALS['dbi']->fetchValue($sql_for_real_value);
+        $extra_data['truncatableFieldValue']
+            = $GLOBALS['dbi']->fetchValue($sql_for_real_value);
     } else {
         $extra_data['isNeedToRecheck'] = false;
     }
@@ -2390,9 +2391,9 @@ function PMA_getTableFields($db, $table)
 /**
  * Function to determine Insert/Edit rows
  * 
- * @param string $where_clause
- * @param string $db
- * @param string $table
+ * @param string $where_clause where clause
+ * @param string $db           current database
+ * @param string $table        current table
  * 
  * @return mixed
  */
@@ -2410,8 +2411,8 @@ function PMA_determineInsertOrEdit($where_clause, $db, $table)
         $GLOBALS['cfg']['ShowFunctionFields'] = $_REQUEST['ShowFunctionFields'];
     }
     if (isset($_REQUEST['ShowFieldTypesInDataEditView'])) {
-        $GLOBALS['cfg']['ShowFieldTypesInDataEditView'] = 
-            $_REQUEST['ShowFieldTypesInDataEditView'];
+        $GLOBALS['cfg']['ShowFieldTypesInDataEditView']
+            = $_REQUEST['ShowFieldTypesInDataEditView'];
     }
     if (isset($_REQUEST['after_insert'])) {
         $after_insert = $_REQUEST['after_insert'];
@@ -2422,8 +2423,9 @@ function PMA_determineInsertOrEdit($where_clause, $db, $table)
         $insert_mode = false;
         $where_clause_array = PMA_getWhereClauseArray($where_clause);
         list($where_clauses, $result, $rows, $found_unique_key)
-            = PMA_analyzeWhereClauses($where_clause_array, $table, $db
-        );
+            = PMA_analyzeWhereClauses(
+                $where_clause_array, $table, $db
+            );
     } else {
         // we are inserting
         $insert_mode = true;
@@ -2463,7 +2465,7 @@ function PMA_getCommentsMap($db, $table)
      * get table information
      * @todo should be done by a Table object
      */
-    require 'libraries/tbl_info.inc.php';
+    include 'libraries/tbl_info.inc.php';
 
     /**
      * Get comments for table fileds/columns
