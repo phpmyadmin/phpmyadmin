@@ -5,20 +5,6 @@
   * @param object   event data
   */
 
-AJAX.registerTeardown('keyhandler.js', function () {
-    $('#table_columns').die('keydown keyup');
-    $('table.insertRowTable').die('keydown keyup');
-});
-
-AJAX.registerOnload('keyhandler.js', function () {
-    $('#table_columns').live('keydown keyup', function (event) {
-        onKeyDownArrowsHandler(event.originalEvent);
-    });
-    $('table.insertRowTable').live('keydown keyup', function (event) {
-        onKeyDownArrowsHandler(event.originalEvent);
-    });
-});
-
 function onKeyDownArrowsHandler(e)
 {
     e = e || window.event;
@@ -102,3 +88,17 @@ function onKeyDownArrowsHandler(e)
     }
     e.returnValue = false;
 }
+
+AJAX.registerTeardown('keyhandler.js', function () {
+    $('#table_columns').die('keydown keyup');
+    $('table.insertRowTable').die('keydown keyup');
+});
+
+AJAX.registerOnload('keyhandler.js', function () {
+    $('#table_columns').live('keydown keyup', function (event) {
+        onKeyDownArrowsHandler(event.originalEvent);
+    });
+    $('table.insertRowTable').live('keydown keyup', function (event) {
+        onKeyDownArrowsHandler(event.originalEvent);
+    });
+});
