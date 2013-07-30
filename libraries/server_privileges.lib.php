@@ -3360,7 +3360,7 @@ function PMA_getHtmlToEditUserGroup($userGroup = null)
     $html_output .= PMA_generate_common_hidden_inputs($urlParams);
 
     $html_output .= '<fieldset id="fieldset_user_group_rights">';
-    $html_output .= '<legend>' . __('User group privileges')
+    $html_output .= '<legend>' . __('User group menu assignments')
         . '&nbsp;&nbsp;&nbsp;'
         . '<input type="checkbox" class="checkall_box" title="Check All">'
         . '<label for="addUsersForm_checkall">' . __('Check All') .'</label>'
