@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-07-29 13:37-0400\n"
-"PO-Revision-Date: 2013-07-09 11:52+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Hungarian <http://l10n.cihar.com/projects/phpmyadmin/master/"
-"hu/>\n"
+"PO-Revision-Date: 2013-07-30 14:07+0200\n"
+"Last-Translator: G. S. <somogyig@gmail.com>\n"
+"Language-Team: Hungarian "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/hu/>\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 1.6-dev\n"
+"X-Generator: Weblate 1.6\n"
 
 #: browse_foreigners.php:51 browse_foreigners.php:75 js/messages.php:339
 #: libraries/DisplayResults.class.php:813
@@ -1669,7 +1669,7 @@ msgstr "%d érték hozzáadása"
 msgid ""
 "Note: If the file contains multiple tables, they will be combined into one."
 msgstr ""
-"Megjegyzés: Ha a fájl több táblát tartalmaz, akkor azok egyesítve lesznek"
+"Megjegyzés: Ha a fájl több táblát tartalmaz, akkor azok egyesítve lesznek."
 
 #: js/messages.php:262
 msgid "Hide query box"
@@ -1727,16 +1727,14 @@ msgid "Show search criteria"
 msgstr "Keresési kritériumok megjelenítése"
 
 #: js/messages.php:278
-#, fuzzy
 #| msgid "Hide search criteria"
 msgid "Hide find and replace criteria"
-msgstr "Keresési kritériumok elrejtése"
+msgstr "Keresési és csere kritériumok elrejtése"
 
 #: js/messages.php:279
-#, fuzzy
 #| msgid "Show search criteria"
 msgid "Show find and replace criteria"
-msgstr "Keresési kritériumok megjelenítése"
+msgstr "Keresési és csere kritériumok megjelenítése"
 
 #: js/messages.php:282 libraries/TableSearch.class.php:212
 msgid "Zoom Search"
@@ -1947,10 +1945,9 @@ msgid "Hide Panel"
 msgstr "Panel elrejtése"
 
 #: js/messages.php:369
-#, fuzzy
 #| msgid "Show logo in navigation panel"
 msgid "Show hidden navigation tree items"
-msgstr "A logó megjelenítése a bal oldali keretben"
+msgstr "Rejtett navigációs faszerkezet elemeinek mutatása"
 
 #: js/messages.php:372
 msgid "The requested page was not found in the history, it may have expired."
@@ -2670,16 +2667,16 @@ msgstr ""
 "%sdokumentációban%s."
 
 #: libraries/DisplayResults.class.php:4921
-#, fuzzy, php-format
+#, php-format
 #| msgid "Showing rows"
 msgid "Showing rows %1s - %2s"
-msgstr "Megjelenített sorok"
+msgstr "Sorok megjelenítése %1s-%2s"
 
 #: libraries/DisplayResults.class.php:4933
-#, fuzzy, php-format
+#, php-format
 #| msgid "total"
 msgid "%d total"
-msgstr "összesen"
+msgstr "összesen %d"
 
 #: libraries/DisplayResults.class.php:4945 libraries/sql.lib.php:1640
 #, php-format
@@ -2870,7 +2867,7 @@ msgstr "Az elsődleges kulcs eldobása megtörtént"
 #: libraries/Index.class.php:608
 #, php-format
 msgid "Index %s has been dropped."
-msgstr "A(z) %s index eldobása megtörtént"
+msgstr "A(z) %s index eldobása megtörtént."
 
 #: libraries/Index.class.php:731
 #, php-format
@@ -3344,10 +3341,9 @@ msgid "Reset zoom"
 msgstr "Nagyítás visszaállítása"
 
 #: libraries/TableSearch.class.php:1281
-#, fuzzy
 #| msgid "Replace NULL with:"
 msgid "Replace with:"
-msgstr "NULL cseréje ezzel:"
+msgstr "Csere ezzel:"
 
 #: libraries/TableSearch.class.php:1341
 msgid "Find and replace - preview"
@@ -3853,7 +3849,7 @@ msgstr "Válasszon a szerver feltöltési könyvtárából <b> %s </b>:"
 #: libraries/Util.class.php:3406 libraries/insert_edit.lib.php:1183
 #: libraries/sql_query_form.lib.php:483
 msgid "The directory you set for upload work cannot be reached."
-msgstr "Nem elérhető a feltöltésekhez megadott könyvtár"
+msgstr "Nem elérhető a feltöltésekhez megadott könyvtár."
 
 #: libraries/Util.class.php:3417
 msgid "There are no files to upload"
@@ -8110,7 +8106,7 @@ msgstr ""
 #: libraries/plugins/auth/AuthenticationSignon.class.php:271
 #, php-format
 msgid "No activity within %s seconds; please log in again."
-msgstr "Nem volt tevékenység %s másodperce; jelentkezzen be újra"
+msgstr "Nem volt tevékenység %s másodperce; jelentkezzen be újra."
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:689
 #: libraries/plugins/auth/AuthenticationCookie.class.php:691
@@ -8134,7 +8130,7 @@ msgstr "A(z) %s fájl nem tartalmaz semmilyen kulcsazonosítót"
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:180
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:200
 msgid "Hardware authentication failed!"
-msgstr "A hardveres hitelesítés nem sikerült"
+msgstr "A hardveres hitelesítés nem sikerült!"
 
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:187
 msgid "No valid authentication key plugged"
@@ -11554,9 +11550,8 @@ msgid ""
 "There seems to be an error in your SQL query. The MySQL server error output "
 "below, if there is any, may also help you in diagnosing the problem."
 msgstr ""
-"Úgy látszik, hogy hiba van az SQL lekérdezésben. A MySQL szerver "
-"hibakimenete alul látható, ha van ott valami, az segíthet kideríteni a hiba "
-"okát"
+"Úgy tűnik, hogy hiba van az SQL lekérdezésben. A MySQL szerver hibakimenete "
+"alul látható, amennyiben van hibakiírás, az segíthet kideríteni a hiba okát."
 
 #: libraries/sqlparser.lib.php:178
 msgid ""
