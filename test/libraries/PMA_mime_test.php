@@ -12,6 +12,11 @@
 
 require_once 'libraries/mime.lib.php';
 
+/**
+ * Test for mime detection.
+ *
+ * @package PhpMyAdmin-test
+ */
 class PMA_MIME_Test extends PHPUnit_Framework_TestCase
 {
     /**
