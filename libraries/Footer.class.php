@@ -161,11 +161,7 @@ class PMA_Footer
         $retval .= '<div id="selflink" class="print_ignore">';
         $retval .= '<a href="' . $url . '"'
             . ' title="' . __('Open new phpMyAdmin window') . '" target="_blank">';
-        if (in_array(
-            $GLOBALS['cfg']['TabsMode'],
-            array('icons', 'both')
-            )
-        ) {
+        if (PMA_Util::showIcons('TabsMode')) {
             $retval .= PMA_Util::getImage(
                 'window-new.png',
                 __('Open new phpMyAdmin window')

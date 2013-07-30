@@ -535,11 +535,7 @@ class PMA_DisplayResults
     ) {
 
         $caption_output = '';
-        if (in_array(
-            $GLOBALS['cfg']['TableNavigationLinksMode'],
-            array('icons', 'both')
-            )
-        ) {
+        if (PMA_Util::showIcons('TableNavigationLinksMode')) {
             $caption_output .= $caption;
         }
 

@@ -184,7 +184,7 @@ class PMA_Menu
         $item .= '%3$s</a>';
         $retval .= "<div id='floating_menubar'></div>";
         $retval .= "<div id='serverinfo'>";
-        if (in_array($GLOBALS['cfg']['TabsMode'], array('icons', 'both'))) {
+        if (PMA_Util::showIcons('TabsMode')) {
             $retval .= PMA_Util::getImage(
                 's_host.png',
                 '',
@@ -201,7 +201,7 @@ class PMA_Menu
 
         if (strlen($this->_db)) {
             $retval .= $separator;
-            if (in_array($GLOBALS['cfg']['TabsMode'], array('icons', 'both'))) {
+            if (PMA_Util::showIcons('TabsMode')) {
                 $retval .= PMA_Util::getImage(
                     's_db.png',
                     '',
@@ -223,7 +223,7 @@ class PMA_Menu
                 include './libraries/tbl_info.inc.php';
 
                 $retval .= $separator;
-                if (in_array($GLOBALS['cfg']['TabsMode'], array('icons', 'both'))) {
+                if (PMA_Util::showIcons('TabsMode')) {
                     $icon = $tbl_is_view ? 'b_views.png' : 's_tbl.png';
                     $retval .= PMA_Util::getImage(
                         $icon,

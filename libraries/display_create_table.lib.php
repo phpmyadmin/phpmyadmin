@@ -40,11 +40,7 @@ $is_create_table_priv = true;
 <fieldset>
     <legend>
 <?php
-if (in_array(
-        $GLOBALS['cfg']['ActionLinksMode'],
-        array('icons', 'both')
-    )
-) {
+if (PMA_Util::showIcons('ActionLinksMode')) {
     echo PMA_Util::getImage('b_newtbl.png');
 }
 echo __('Create table');
