@@ -24,28 +24,12 @@ require_once 'libraries/db_table_exists.lib.php';
 require_once 'libraries/insert_edit.lib.php';
 
 /**
- * Sets global variables.
- * Here it's better to use a if, instead of the '?' operator
- * to avoid setting a variable to '' when it's not present in $_REQUEST
+ * Determine whether Insert or Edit and set global variables
  */
-
-if (isset($_REQUEST['where_clause'])) {
-    $where_clause = $_REQUEST['where_clause'];
-}
-if (isset($_SESSION['edit_next'])) {
-    $where_clause = $_SESSION['edit_next'];
-    unset($_SESSION['edit_next']);
-    $after_insert = 'edit_next';
-}
-if (isset($_REQUEST['ShowFunctionFields'])) {
-    $cfg['ShowFunctionFields'] = $_REQUEST['ShowFunctionFields'];
-}
-if (isset($_REQUEST['ShowFieldTypesInDataEditView'])) {
-    $cfg['ShowFieldTypesInDataEditView'] = $_REQUEST['ShowFieldTypesInDataEditView'];
-}
-if (isset($_REQUEST['after_insert'])) {
-    $after_insert = $_REQUEST['after_insert'];
-}
+list(
+    $insert_mode, $where_clause, $where_clause_array, $where_clauses,
+    $result, $rows, $found_unique_key, $after_insert
+) = PMA_determineInsertOrEdit($where_clause, $db, $table);
 
 
 /**
@@ -105,11 +89,6 @@ if (! empty($disp_message)) {
 
 $table_fields = PMA_getTableFields($db, $table);
 
-
-list(
-    $insert_mode, $where_clause, $where_clause_array, $where_clauses,
-    $result, $rows, $found_unique_key
-) = PMA_determineInsertOrEdit($where_clause, $db, $table);
 
 // retrieve keys into foreign fields, if any
 $foreigners = PMA_getForeigners($db, $table);

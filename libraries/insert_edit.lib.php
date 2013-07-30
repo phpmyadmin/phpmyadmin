@@ -2398,6 +2398,25 @@ function PMA_getTableFields($db, $table)
  */
 function PMA_determineInsertOrEdit($where_clause, $db, $table)
 {
+    if (isset($_REQUEST['where_clause'])) {
+        $where_clause = $_REQUEST['where_clause'];
+    }
+    if (isset($_SESSION['edit_next'])) {
+        $where_clause = $_SESSION['edit_next'];
+        unset($_SESSION['edit_next']);
+        $after_insert = 'edit_next';
+    }
+    if (isset($_REQUEST['ShowFunctionFields'])) {
+        $GLOBALS['cfg']['ShowFunctionFields'] = $_REQUEST['ShowFunctionFields'];
+    }
+    if (isset($_REQUEST['ShowFieldTypesInDataEditView'])) {
+        $GLOBALS['cfg']['ShowFieldTypesInDataEditView'] = 
+            $_REQUEST['ShowFieldTypesInDataEditView'];
+    }
+    if (isset($_REQUEST['after_insert'])) {
+        $after_insert = $_REQUEST['after_insert'];
+    }
+    
     if (isset($where_clause)) {
         // we are editing
         $insert_mode = false;
@@ -2425,7 +2444,8 @@ function PMA_determineInsertOrEdit($where_clause, $db, $table)
     
     return array(
         $insert_mode, $where_clause, $where_clause_array, $where_clauses,
-        $result, $rows, $found_unique_key
+        $result, $rows, $found_unique_key,
+        isset($after_insert) ? $after_insert : null
     );
 }
 
