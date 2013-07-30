@@ -18,14 +18,14 @@ var hiddenMessages = [];
 $(function () {
     var hidden = hiddenMessages.length;
     for (var i = 0; i < hidden; i++) {
-        $('#'+hiddenMessages[i]).css('display', 'none');
+        $('#' + hiddenMessages[i]).css('display', 'none');
     }
     if (hidden > 0) {
         var link = $('#show_hidden_messages');
         link.click(function (e) {
             e.preventDefault();
             for (var i = 0; i < hidden; i++) {
-                $('#'+hiddenMessages[i]).show(500);
+                $('#' + hiddenMessages[i]).show(500);
             }
             $(this).remove();
         });
@@ -58,7 +58,7 @@ $.extend(true, validators, {
          * @param {boolean} isKeyUp
          */
         hide_db: function (isKeyUp) {
-            if (!isKeyUp && this.value != '') {
+            if (!isKeyUp && this.value !== '') {
                 var data = {};
                 data[this.id] = this.value;
                 ajaxValidate(this, 'Servers/1/hide_db', data);
@@ -71,7 +71,7 @@ $.extend(true, validators, {
          * @param {boolean} isKeyUp
          */
         TrustedProxies: function (isKeyUp) {
-            if (!isKeyUp && this.value != '') {
+            if (!isKeyUp && this.value !== '') {
                 var data = {};
                 data[this.id] = this.value;
                 ajaxValidate(this, 'TrustedProxies', data);
@@ -111,8 +111,7 @@ $.extend(true, validators, {
             }
 
             var prefix = getIdPrefix($(this).find('input'));
-            var pmadb_active = $('#' + prefix + 'pmadb').val() != '';
-            if (pmadb_active) {
+            if ($('#' + prefix + 'pmadb').val() !== '') {
                 ajaxValidate(this, 'Server_pmadb', getAllValues());
             }
 
@@ -134,12 +133,12 @@ function ajaxValidate(parent, id, values)
     // ensure that parent is a fieldset
     if (parent.attr('tagName') != 'FIELDSET') {
         parent = parent.closest('fieldset');
-        if (parent.length == 0) {
+        if (parent.length === 0) {
             return false;
         }
     }
 
-    if (parent.data('ajax') != null) {
+    if (parent.data('ajax') !== null) {
         parent.data('ajax').abort();
     }
 
@@ -153,15 +152,15 @@ function ajaxValidate(parent, id, values)
             values: $.toJSON(values)
         },
         success: function (response) {
-            if (response == null) {
+            if (response === null) {
                 return;
             }
 
             var error = {};
             if (typeof response != 'object') {
                 error[parent.id] = [response];
-            } else if (typeof response['error'] != 'undefined') {
-                error[parent.id] = [response['error']];
+            } else if (typeof response.error != 'undefined') {
+                error[parent.id] = [response.error];
             } else {
                 for (var key in response) {
                     var value = response[key];
