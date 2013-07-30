@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-07-30 08:38-0400\n"
-"PO-Revision-Date: 2013-07-30 14:55+0200\n"
+"PO-Revision-Date: 2013-07-30 15:01+0200\n"
 "Last-Translator: Henry Heinänen <h.heinanen@gmail.com>\n"
 "Language-Team: Finnish "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/fi/>\n"
@@ -1904,7 +1904,7 @@ msgstr "Lisää valinta sarakkeelle "
 #: js/messages.php:329
 #, php-format
 msgid "%d object(s) created"
-msgstr ""
+msgstr "%d objekti(a) luotu"
 
 #: js/messages.php:332
 msgid "Press escape to cancel editing"
@@ -1948,22 +1948,19 @@ msgstr ""
 "ominaisuudet eivät ehkä ole toiminnassa tallennuksen jälkeen."
 
 #: js/messages.php:345
-#, fuzzy
 #| msgid ""
 #| "You can also edit most columns<br />by clicking directly on their content."
 msgid "You can also edit most values<br />by double-clicking directly on them."
 msgstr ""
-"Useimpia sarakkeita voi myös muokata<br />\n"
+"Useimpia sarakkeita voi myös muokata <br />\n"
 "painamalla suoraan niiden sisältöä."
 
 #: js/messages.php:348
-#, fuzzy
 #| msgid ""
 #| "You can also edit most columns<br />by clicking directly on their content."
 msgid "You can also edit most values<br />by clicking directly on them."
 msgstr ""
-"Useimpia sarakkeita voi myös muokata<br />\n"
-"painamalla suoraan niiden sisältöä."
+"Useimpia sarakkeita voi myös muokata<br/>painamalla suoraan niiden sisältöä."
 
 #: js/messages.php:353
 msgid "Go to link"
