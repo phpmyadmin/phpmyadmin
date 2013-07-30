@@ -3436,7 +3436,7 @@ function _getTabList($title, $level, $selected)
     foreach ($tabs as $tab => $tabName) {
         $html_output .= '<div class="item">';
         $html_output .= '<input type="checkbox" class="checkall"'
-        	. (in_array($tab, $selected) ? 'checked="checked"' : '')
+            . (in_array($tab, $selected) ? 'checked="checked"' : '')
             . ' name="' . $level . '_' . $tab .  '" value="Y" />';
         $html_output .= '<label for="' . $level . '_' . $tab .  '">'
             . '<code>' . $tabName . '</code>'
