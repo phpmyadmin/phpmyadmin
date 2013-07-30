@@ -70,7 +70,7 @@ $scripts->addFile('gis_data_editor.js');
 /**
  * Displays the query submitted and its result
  *
- * @todo where does $disp_message and $disp_query come from???
+ * $disp_message come from tbl_replace.php
  */
 if (! empty($disp_message)) {
     $response->addHTML(PMA_Util::getMessage($disp_message, null));
