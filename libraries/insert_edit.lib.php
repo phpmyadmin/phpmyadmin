@@ -2372,4 +2372,18 @@ function PMA_verifyWhetherValueCanBeTruncatedAndAppendExtraData(
 
 }
 
+/**
+ * Function to get the fields of a table
+ * 
+ * @param string $db    current db
+ * @param string $table current table
+ * 
+ * @return array 
+ */
+function PMA_getTableFields($db, $table)
+{
+    $GLOBALS['dbi']->selectDb($db);
+    return array_values($GLOBALS['dbi']->getColumns($db, $table));
+    
+}
 ?>

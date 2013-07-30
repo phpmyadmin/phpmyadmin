@@ -119,12 +119,8 @@ if (! empty($disp_message)) {
     $response->addHTML(PMA_Util::getMessage($disp_message, null));
 }
 
-/**
- * Get the list of the fields of the current table
- */
-$GLOBALS['dbi']->selectDb($db);
-$table_fields = array_values($GLOBALS['dbi']->getColumns($db, $table));
 
+$table_fields = PMA_getTableFields($db, $table);
 
 /**
  * Determine what to do, edit or insert? 
