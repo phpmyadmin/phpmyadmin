@@ -680,6 +680,11 @@ class PMA_Index
         return $r;
     }
 
+    /**
+     * Gets the properties in an array for comparison purposes
+     *
+     * @return array an array containing the properties of the index
+     */
     public function getCompareData()
     {
         $data = array(
