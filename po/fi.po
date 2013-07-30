@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-07-30 08:38-0400\n"
-"PO-Revision-Date: 2013-07-30 15:37+0200\n"
+"PO-Revision-Date: 2013-07-30 15:58+0200\n"
 "Last-Translator: Henry Heinänen <h.heinanen@gmail.com>\n"
 "Language-Team: Finnish "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/fi/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 1.6\n"
+"X-Generator: Weblate 1.6-dev\n"
 
 #: browse_foreigners.php:51 browse_foreigners.php:75 js/messages.php:339
 #: libraries/DisplayResults.class.php:813
@@ -81,8 +81,9 @@ msgstr "Etsi"
 #: prefs_manage.php:272 prefs_manage.php:322 tbl_chart.php:251
 #: tbl_tracking.php:522 tbl_tracking.php:687 view_create.php:273
 #: view_operations.php:99
+#, fuzzy
 msgid "Go"
-msgstr "Suorita"
+msgstr "Mene"
 
 #: browse_foreigners.php:197 browse_foreigners.php:201
 #: libraries/Index.class.php:561 tbl_tracking.php:383
@@ -2757,10 +2758,10 @@ msgid "Showing rows %1s - %2s"
 msgstr "Näytetään rivit %1s - %2s"
 
 #: libraries/DisplayResults.class.php:4888
-#, fuzzy, php-format
+#, php-format
 #| msgid "total"
 msgid "%d total"
-msgstr "yhteensä"
+msgstr "%d tulos"
 
 #: libraries/DisplayResults.class.php:4900 libraries/sql.lib.php:1640
 #, php-format
