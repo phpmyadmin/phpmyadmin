@@ -2428,4 +2428,32 @@ function PMA_determineInsertOrEdit($where_clause, $db, $table)
         $result, $rows, $found_unique_key
     );
 }
+
+/**
+ * Function to get comments for the table columns
+ * 
+ * @param string $db    current database
+ * @param string $table current table
+ * 
+ * @return array $comments_map comments for columns
+ */
+function PMA_getCommentsMap($db, $table)
+{
+    /**
+     * get table information
+     * @todo should be done by a Table object
+     */
+    require 'libraries/tbl_info.inc.php';
+
+    /**
+     * Get comments for table fileds/columns
+     */
+    $comments_map = array();
+
+    if ($GLOBALS['cfg']['ShowPropertyComments']) {
+        $comments_map = PMA_getComments($db, $table);
+    }
+    
+    return $comments_map;
+}
 ?>

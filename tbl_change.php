@@ -76,20 +76,7 @@ $err_url = $GLOBALS['goto'] . PMA_generate_common_url($_url_params);
 unset($_url_params);
 
 
-/**
- * get table information
- * @todo should be done by a Table object
- */
-require_once 'libraries/tbl_info.inc.php';
-
-/**
- * Get comments for table fileds/columns
- */
-$comments_map = array();
-
-if ($GLOBALS['cfg']['ShowPropertyComments']) {
-    $comments_map = PMA_getComments($db, $table);
-}
+$comments_map = PMA_getCommentsMap($db, $table);
 
 /**
  * START REGULAR OUTPUT
