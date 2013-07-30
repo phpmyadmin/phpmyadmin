@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-07-29 13:37-0400\n"
-"PO-Revision-Date: 2013-07-30 14:10+0200\n"
+"PO-Revision-Date: 2013-07-30 14:32+0200\n"
 "Last-Translator: G. S. <somogyig@gmail.com>\n"
 "Language-Team: Hungarian "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/hu/>\n"
@@ -3273,7 +3273,7 @@ msgstr "Táblakeresés"
 
 #: libraries/TableSearch.class.php:217 libraries/TableSearch.class.php:1172
 msgid "Find and Replace"
-msgstr ""
+msgstr "Keresés és csere"
 
 #: libraries/TableSearch.class.php:239 libraries/insert_edit.lib.php:1352
 msgid "Edit/Insert"
@@ -3347,7 +3347,7 @@ msgstr "Csere ezzel:"
 
 #: libraries/TableSearch.class.php:1341
 msgid "Find and replace - preview"
-msgstr ""
+msgstr "Keresés és csere - előnézet"
 
 #: libraries/TableSearch.class.php:1345
 #| msgid "Column"
@@ -6087,7 +6087,6 @@ msgid "User preferences storage table"
 msgstr "Felhasználók beállításainak tárolótáblája"
 
 #: libraries/config/messages.inc.php:455
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no user preferences storage in database, suggested: [kbd]"
 #| "pma__userconfig[/kbd]"
@@ -6095,14 +6094,13 @@ msgid ""
 "Leave blank to disable configurable menus feature, suggested: [kbd]pma__users"
 "[/kbd]"
 msgstr ""
-"Hagyja üresen, ha nincs szükség a felhasználói beállítások tárolására az "
-"adatbázisban, ajánlott: [kbd]pma_history[/kbd]"
+"Hagyja üresen, ha nincs szükség a konfigurálható menü funkcióra, ajánlott: "
+"[kbd]pma__users[/kbd]"
 
 #: libraries/config/messages.inc.php:456
-#, fuzzy
 #| msgid "Use Tables"
 msgid "Users table"
-msgstr "Felhasználandó táblák"
+msgstr "Felhasználók tábla"
 
 #: libraries/config/messages.inc.php:457
 #, fuzzy
