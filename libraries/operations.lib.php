@@ -25,11 +25,7 @@ function PMA_getHtmlForDatabaseComment($db)
         . PMA_generate_common_hidden_inputs($db)
         . '<fieldset>'
         . '<legend>';
-    if (in_array(
-        $GLOBALS['cfg']['ActionLinksMode'],
-        array('icons', 'both')
-        )
-    ) {
+    if (PMA_Util::showIcons('ActionLinksMode')) {
         $html_output .= '<img class="icon ic_b_comment" '
             . 'src="themes/dot.gif" alt="" />';
     }
@@ -73,11 +69,7 @@ function PMA_getHtmlForRenameDatabase($db)
         . '<fieldset>'
         . '<legend>';
 
-    if (in_array(
-        $GLOBALS['cfg']['ActionLinksMode'],
-        array('icons', 'both')
-        )
-    ) {
+    if (PMA_Util::showIcons('ActionLinksMode')) {
         $html_output .= PMA_Util::getImage('b_edit.png');
     }
     $html_output .= __('Rename database to:')
@@ -121,11 +113,7 @@ function PMA_getHtmlForDropDatabaseLink($db)
     $html_output = '<div class="operations_half_width">'
         . '<fieldset class="caution">';
     $html_output .= '<legend>';
-    if (in_array(
-        $GLOBALS['cfg']['ActionLinksMode'],
-        array('icons', 'both')
-        )
-    ) {
+    if (PMA_Util::showIcons('ActionLinksMode')) {
         $html_output .= PMA_Util::getImage('b_deltbl.png');
     }
     $html_output .= __('Remove database')
@@ -181,11 +169,7 @@ function PMA_getHtmlForCopyDatabase($db)
     $html_output .= '<fieldset>'
         . '<legend>';
 
-    if (in_array(
-        $GLOBALS['cfg']['ActionLinksMode'],
-        array('icons', 'both')
-        )
-    ) {
+    if (PMA_Util::showIcons('ActionLinksMode')) {
         $html_output .= PMA_Util::getImage('b_edit.png');
     }
     $html_output .= __('Copy database to:')
@@ -250,11 +234,7 @@ function PMA_getHtmlForChangeDatabaseCharset($db, $table)
 
     $html_output .= '<fieldset>' . "\n"
        . '    <legend>';
-    if (in_array(
-        $GLOBALS['cfg']['ActionLinksMode'],
-        array('icons', 'both')
-        )
-    ) {
+    if (PMA_Util::showIcons('ActionLinksMode')) {
         $html_output .= PMA_Util::getImage('s_asci.png');
     }
     $html_output .= '<label for="select_db_collation">' . __('Collation')
@@ -289,11 +269,7 @@ function PMA_getHtmlForExportRelationalSchemaView($url_query)
 {
     $html_output = '<div class="operations_full_width">'
         . '<fieldset><a href="schema_edit.php?' . $url_query . '">';
-    if (in_array(
-        $GLOBALS['cfg']['ActionLinksMode'],
-        array('icons', 'both')
-        )
-    ) {
+    if (PMA_Util::showIcons('ActionLinksMode')) {
         $html_output .= PMA_Util::getImage(
             'b_edit.png'
         );
