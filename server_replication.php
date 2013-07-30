@@ -53,8 +53,9 @@ $response->addHTML(PMA_getHtmlForErrorMessage());
 
 if ($server_master_status) {
     $response->addHTML(PMA_getHtmlForMasterReplication());
-} elseif (! isset($_REQUEST['mr_configure']) && 
-          ! isset($_REQUEST['repl_clear_scr'])) {
+} elseif (! isset($_REQUEST['mr_configure'])
+    && ! isset($_REQUEST['repl_clear_scr'])
+) {
     $response->addHTML(PMA_getHtmlForNotServerReplication());
 }
 
@@ -70,7 +71,7 @@ if (! isset($_REQUEST['repl_clear_scr'])) {
     // Render the 'Slave configuration' section
     $response->addHTML(
         PMA_getHtmlForSlaveConfiguration(
-            $server_slave_status, 
+            $server_slave_status,
             $server_slave_replication
         )
     );

@@ -217,8 +217,8 @@ class ImportMediawiki extends ImportPlugin
                     // End processing because the current line does not
                     // contain any column information
                 } elseif (substr($cur_buffer_line, 0, 2) === '|-'
-                      || substr($cur_buffer_line, 0, 2) === '|+'
-                      || substr($cur_buffer_line, 0, 2) === '|}'
+                    || substr($cur_buffer_line, 0, 2) === '|+'
+                    || substr($cur_buffer_line, 0, 2) === '|}'
                 ) {
                     // Check begin row or end table
 

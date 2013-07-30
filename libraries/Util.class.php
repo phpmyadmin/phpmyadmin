@@ -1116,7 +1116,8 @@ class PMA_Util
                     )
                 );
             } elseif (! empty($GLOBALS['parsed_sql'])
-             && $query_base == $GLOBALS['parsed_sql']['raw']) {
+                && $query_base == $GLOBALS['parsed_sql']['raw']
+            ) {
                 // (here, use "! empty" because when deleting a bookmark,
                 // $GLOBALS['parsed_sql'] is set but empty
                 $parsed_sql = $GLOBALS['parsed_sql'];
@@ -1743,7 +1744,8 @@ class PMA_Util
             ) {
                 $tab['class'] = 'active';
             } elseif (is_null($tab['active']) && empty($GLOBALS['active_page'])
-              && (basename($GLOBALS['PMA_PHP_SELF']) == $tab['link'])) {
+                && (basename($GLOBALS['PMA_PHP_SELF']) == $tab['link'])
+            ) {
                 $tab['class'] = 'active';
             }
         }
@@ -2229,8 +2231,8 @@ class PMA_Util
                     $con_val = '= ' . $row[$i];
                 } elseif ((($meta->type == 'blob') || ($meta->type == 'string'))
                     // hexify only if this is a true not empty BLOB or a BINARY
-                        && stristr($field_flags, 'BINARY')
-                        && ! empty($row[$i])
+                    && stristr($field_flags, 'BINARY')
+                    && ! empty($row[$i])
                 ) {
                     // do not waste memory building a too big condition
                     if (strlen($row[$i]) < 1000) {
@@ -4264,24 +4266,16 @@ class PMA_Util
             }
         }
 
-        if ($save) {
-            $_SESSION['cache']['version_check'] = array(
-                'response' => $response,
-                'timestamp' => time()
-            );
-        }
-
         $data = json_decode($response);
         if (is_object($data)
             && strlen($data->version)
             && strlen($data->date)
+            && $save
         ) {
-            if ($save) {
-                $_SESSION['cache']['version_check'] = array(
-                    'response' => $response,
-                    'timestamp' => time()
-                );
-            }
+            $_SESSION['cache']['version_check'] = array(
+                'response' => $response,
+                'timestamp' => time()
+            );
         }
 
         return $data;

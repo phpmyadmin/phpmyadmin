@@ -47,8 +47,8 @@ class Form
     /**
      * Constructor, reads default config values
      *
-     * @param string $form_name
-     * @param array  $form
+     * @param string $form_name Form name
+     * @param array  $form      Form data
      * @param int    $index     arbitrary index, stored in Form::$index
      */
     public function __construct($form_name, array $form, $index = null)

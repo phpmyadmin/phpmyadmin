@@ -53,14 +53,14 @@ $gnu_iconv_to_aix_iconv_codepage_map = array (
  * @access  public
  *
  */
-function PMA_aix_iconv_wrapper($in_charset, $out_charset, $str)
+function PMA_convertAIXIconv($in_charset, $out_charset, $str)
 {
-    list($in_charset, $out_charset) = PMA_aix_iconv_mapCharsets(
+    list($in_charset, $out_charset) = PMA_convertAIXMapCharsets(
         $in_charset, $out_charset
     );
     // Call iconv() with the possibly modified parameters
     return iconv($in_charset, $out_charset, $str);
-} //  end of the "PMA_aix_iconv_wrapper()" function
+} //  end of the "PMA_convertAIXIconv()" function
 
 /**
  * Maps input and output character set names to corresponding AIX ones
@@ -70,7 +70,7 @@ function PMA_aix_iconv_wrapper($in_charset, $out_charset, $str)
  *
  * @return array array of mapped input and output character set names
  */
-function PMA_aix_iconv_mapCharsets($in_charset, $out_charset)
+function PMA_convertAIXMapCharsets($in_charset, $out_charset)
 {
     global $gnu_iconv_to_aix_iconv_codepage_map;
 

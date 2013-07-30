@@ -299,7 +299,7 @@ class PMA_User_Preferences_Test extends PHPUnit_Framework_TestCase
     public function testReadUserprefsFieldNames()
     {
         $this->assertCount(
-            216,
+            217,
             PMA_readUserprefsFieldNames()
         );
 

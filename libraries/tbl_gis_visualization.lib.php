@@ -188,11 +188,11 @@ function PMA_GIS_saveToFile($data, $visualizationSettings, $format, $fileName)
 
 /**
  * Function to get html for the options lists
- * 
- * @param array    $options    array of options
- * @param String   $select     the item that shoul be selected by default
- * 
- * @return string  $html       the html for the options lists
+ *
+ * @param array  $options array of options
+ * @param string $select  the item that shoul be selected by default
+ *
+ * @return string $html   the html for the options lists
  */
 function PMA_getHtmlForOptionsList($options, $select)
 {
@@ -204,54 +204,55 @@ function PMA_getHtmlForOptionsList($options, $select)
     }
         $html .= '>' . htmlspecialchars($option) . '</option>';
     }
-    
+
     return $html;
 }
 
 /**
  * Function to get html for the lebel column and spatial column
- * 
- * @param  String  $column                 the column type. i.e either "labelColumn"
- *                                         or "spatialColumn"
- * @param  array   $columnCandidates       the list of select options
- * @param  array   $visualizationSettings  visualization settings
- * @return String  $html
+ *
+ * @param string $column                the column type. i.e either "labelColumn"
+ *                                      or "spatialColumn"
+ * @param array  $columnCandidates      the list of select options
+ * @param array  $visualizationSettings visualization settings
+ *
+ * @return string  $html
  */
 function PMA_getHtmlForColumn($column, $columnCandidates, $visualizationSettings)
 {
     $html = '<tr><td><label for="labelColumn">';
-    $html .= ($column=="labelColumn") ? __("Label column") : __("Spatial column");; 
+    $html .= ($column=="labelColumn") ? __("Label column") : __("Spatial column");
     $html .= '</label></td>';
-    
+
     $html .= '<td><select name="visualizationSettings[' . $column . ']" id="'
         . $column . '">';
-    
+
     if ($column == "labelColumn") {
         $html .= '<option value="">' . __("-- None --") . '</option>';
     }
-    
+
     $html .= PMA_getHtmlForOptionsList(
         $columnCandidates, $visualizationSettings[$column]
     );
-    
+
     $html .= '</select></td>';
     $html .= '</tr>';
-    
+
     return $html;
 }
 
 /**
  * Function to get html for the option of using oprn street maps
- * 
- * @param  boolean $isSelected    the default value
- * 
+ *
+ * @param boolean $isSelected    the default value
+ *
  * @return string  $html
  */
 function PMA_getHtmlForUseOpenStreetMaps($isSelected)
 {
     $html = '<tr><td class="choice" colspan="2">';
     $html .= '<input type="checkbox" name="visualizationSettings[choice]"'
-        . 'id="choice" value="useBaseLayer"';        
+        . 'id="choice" value="useBaseLayer"';
     if ($isSelected) {
         $html .= ' checked="checked"';
     }
@@ -260,22 +261,22 @@ function PMA_getHtmlForUseOpenStreetMaps($isSelected)
     $html .= __("Use OpenStreetMaps as Base Layer");
     $html .= '</label>';
     $html .= '</td></tr>';
-    
+
     return $html;
 }
 
 /**
  * Function to generate html for the GIS visualization page
- * 
+ *
  * @param array   $url_params             url parameters
- * @param array   $labelCandidates        list of candidates for the label 
+ * @param array   $labelCandidates        list of candidates for the label
  * @param array   $spatialCandidates      list of candidates for the spatial column
  * @param array   $visualizationSettings  visualization settings
  * @param String  $sql_query              the sql query
  * @param String  $visualization          html and js code for the visualization
  * @param boolean svg_support             whether svg download format is supported
  * @param array   $data                   array of visualizing data
- * 
+ *
  * @return string $html                   html code for the GIS visualization
  */
 function PMA_getHtmlForGisVisualization(
@@ -285,18 +286,18 @@ function PMA_getHtmlForGisVisualization(
     $html = '<div id="div_view_options">';
     $html .= '<fieldset>';
     $html .= '<legend>' . __('Display GIS Visualization') . '</legend>';
-    
+
     $html .= '<div style="width: 400px; float: left;">';
     $html .= '<form method="post" action="tbl_gis_visualization.php">';
     $html .= PMA_generate_common_hidden_inputs($url_params);
     $html .= '<table class="gis_table">';
-    
-    $html .= PMA_getHtmlForColumn("labelColumn", $labelCandidates,
-        $visualizationSettings
+
+    $html .= PMA_getHtmlForColumn(
+        "labelColumn", $labelCandidates, $visualizationSettings
     );
 
-    $html .= PMA_getHtmlForColumn("spatialColumn", $spatialCandidates,
-        $visualizationSettings
+    $html .= PMA_getHtmlForColumn(
+        "spatialColumn", $spatialCandidates, $visualizationSettings
     );
 
     $html .= '<tr><td></td>';
@@ -308,7 +309,7 @@ function PMA_getHtmlForGisVisualization(
         $isSelected = isset($visualizationSettings['choice']) ? true : false;
         $html .= PMA_getHtmlForUseOpenStreetMaps($isSelected);
     }
-    
+
     $html .= '</table>';
     $html .= '<input type="hidden" name="displayVisualization" value="redraw">';
     $html .= '<input type="hidden" name="sql_query" value="';
@@ -323,7 +324,7 @@ function PMA_getHtmlForGisVisualization(
     $html .= '<tr><td><label for="fileName">';
     $html .= __("File name") . '</label></td>';
     $html .= '<td><input type="text" name="fileName" id="fileName" /></td></tr>';
-    
+
     $html .= '<tr><td><label for="fileFormat">';
     $html .= __("Format") . '</label></td>';
     $html .= '<td><select name="fileFormat" id="fileFormat">';
@@ -334,12 +335,12 @@ function PMA_getHtmlForGisVisualization(
         $html .= '<option value="svg" selected="selected">SVG</option>';
     }
     $html .= '</select></td></tr>';
-    
+
     $html .= '<tr><td></td>';
     $html .= '<td class="button"><input type="submit" name="saveToFileBtn" value="';
     $html .= __('Download') . '" /></td></tr>';
     $html .= '</table>';
-    
+
     $html .= '<input type="hidden" name="saveToFile" value="download">';
     $html .= '<input type="hidden" name="sql_query" value="';
     $html .= htmlspecialchars($sql_query) . '" />';
@@ -353,14 +354,14 @@ function PMA_getHtmlForGisVisualization(
     $html .= htmlspecialchars($visualizationSettings['height']) . 'px;">';
     $html .= $visualization;
     $html .= '</div>';
-    
+
     $html .= '<div id="openlayersmap"></div>';
     $html .= '<input type="hidden" id="pmaThemeImage" value="';
     $html .= $GLOBALS['pmaThemeImage'] . '" />';
     $html .= '<script language="javascript" type="text/javascript">';
     $html .= 'function drawOpenLayers()';
     $html .= '{';
-    
+
     if (! $GLOBALS['PMA_Config']->isHttps()) {
         $html .= PMA_GIS_visualizationResults($data, $visualizationSettings, 'ol');
     }
@@ -368,7 +369,7 @@ function PMA_getHtmlForGisVisualization(
     $html .= '</script>';
     $html .= '</fieldset>';
     $html .= '</div>';
-    
+
     return $html;
 }
 ?>
