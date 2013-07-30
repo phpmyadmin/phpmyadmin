@@ -13,12 +13,9 @@ PHP
 ---
 
 * You need PHP 5.3.0 or newer, with ``session`` support, the Standard PHP Library 
-  (SPL) extension and JSON support.
+  (SPL) extension, JSON support, and the ``mbstring`` and ``ctype`` extensions.
 
 * To support uploading of ZIP files, you need the PHP ``zip`` extension.
-
-* For proper support of multibyte strings (eg. UTF-8, which is currently
-  the default), you should install the ``mbstring`` and ``ctype`` extensions.
 
 * You need GD2 support in PHP to display inline thumbnails of JPEGs
   ("image/jpeg: inline") with their original aspect ratio.
