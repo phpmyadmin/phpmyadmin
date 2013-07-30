@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-07-30 08:38-0400\n"
-"PO-Revision-Date: 2013-07-30 16:00+0200\n"
+"PO-Revision-Date: 2013-07-30 16:28+0200\n"
 "Last-Translator: Henry Heinänen <h.heinanen@gmail.com>\n"
 "Language-Team: Finnish "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/fi/>\n"
@@ -81,9 +81,8 @@ msgstr "Etsi"
 #: prefs_manage.php:272 prefs_manage.php:322 tbl_chart.php:251
 #: tbl_tracking.php:522 tbl_tracking.php:687 view_create.php:273
 #: view_operations.php:99
-#, fuzzy
 msgid "Go"
-msgstr "Go"
+msgstr "Siirry"
 
 #: browse_foreigners.php:197 browse_foreigners.php:201
 #: libraries/Index.class.php:561 tbl_tracking.php:383
@@ -883,7 +882,6 @@ msgstr ""
 "nopeammin kuin phpMyAdminissa on määritetty."
 
 #: index.php:471
-#, fuzzy
 #| msgid ""
 #| "HP parameter http://php.net/manual/en/session.configuration.#ini.session."
 #| "gc-lifetime@]session.gc_maxlifetime[/a] is lower that kie validity "
@@ -893,10 +891,8 @@ msgid ""
 "Login cookie store is lower than cookie validity configured in phpMyAdmin, "
 "because of this, your login will expire sooner than configured in phpMyAdmin."
 msgstr ""
-"PHP-parametri [a@http://php.net/manual/en/session.configuration.php#ini."
-"session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] on matalampi kuin "
-"phpMyAdminissa määritetty evästekelpoisuus. Siksi kirjautumisesi erääntyy "
-"nopeammin kuin phpMyAdminissa on määritetty."
+"Kirjautumistunnuksesi vanhenee nopeammin kuin phpMyAdminissa määritetty. "
+"Siksi kirjautumisesi erääntyy nopeammin kuin phpMyAdminissa on määritetty."
 
 #: index.php:483
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
@@ -919,7 +915,7 @@ msgstr ""
 "määritetty."
 
 #: index.php:504
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "ditional features for working with linked tables have been ctivated. To d "
 #| "out why click %shere%s."
@@ -928,7 +924,7 @@ msgid ""
 "extended features have been deactivated. To find out why click %shere%s."
 msgstr ""
 "Linkitettyihin tauluihin liittyvät lisäominaisuudet eivät ole käytössä. "
-"Katso %slisätietoja%s."
+"Katso miksi %slisätietoja%s."
 
 #: index.php:536
 #, php-format
@@ -3251,10 +3247,9 @@ msgid "Query statistics"
 msgstr "Kyselyn ominaisuuksia"
 
 #: libraries/ServerStatusData.class.php:350
-#, fuzzy
 #| msgid "See slave status table"
 msgid "All status variables"
-msgstr "Näytä alipalvelimen tilan taulu"
+msgstr "Kaikki muuttujat"
 
 #: libraries/ServerStatusData.class.php:354
 msgid "Monitor"
@@ -3404,7 +3399,7 @@ msgstr "Lajittelujärjestys:"
 
 #: libraries/TableSearch.class.php:849
 msgid "Use this column to label each point"
-msgstr ""
+msgstr "Käytä tätä saraketta merkitäksesi jokaisen kohdan"
 
 #: libraries/TableSearch.class.php:870
 msgid "Maximum rows to plot"
@@ -3430,7 +3425,7 @@ msgstr "Suorita mallin mukainen kysely (jokerimerkki: \"%\")"
 
 #: libraries/TableSearch.class.php:1212
 msgid "Browse/Edit the points"
-msgstr ""
+msgstr "Selaa/muokkaa kohtia"
 
 #: libraries/TableSearch.class.php:1219
 msgid "How to use"
@@ -3594,10 +3589,12 @@ msgid ""
 "A synonym for TINYINT(1), a value of zero is considered false, nonzero "
 "values are considered true"
 msgstr ""
+"Synonyymi TINYINT(1), arvo nolla ilmoitetaan false, muut arvot ilmoitetaan "
+"true"
 
 #: libraries/Types.class.php:318
 msgid "An alias for BIGINT UNSIGNED NOT NULL AUTO_INCREMENT UNIQUE"
-msgstr ""
+msgstr "Alias arvolle BIGINT UNSIGNED NOT NULL AUTO_INCREMENT UNIQUE"
 
 #: libraries/Types.class.php:320 libraries/Types.class.php:723
 #, php-format
@@ -3607,13 +3604,16 @@ msgstr "Päiväys, pitää olla välillä %1$s - %2$s"
 #: libraries/Types.class.php:322 libraries/Types.class.php:725
 #, php-format
 msgid "A date and time combination, supported range is %1$s to %2$s"
-msgstr ""
+msgstr "Päivämäärän ja ajan yhdistelmä, tuettu alue on %1$s - %2$s"
 
 #: libraries/Types.class.php:324
+#, fuzzy
 msgid ""
 "A timestamp, range is 1970-01-01 00:00:01 UTC to 2038-01-09 03:14:07 UTC, "
 "stored as the number of seconds since the epoch (1970-01-01 00:00:00 UTC)"
 msgstr ""
+"Aikaleima, alue on 1970-01-01 00:00:01 UTC 01.09.2038 03:14:07 UTC, "
+"tallentaa monta sekuntia, koska aikakausi (1970-01-01 00:00:00 UTC )"
 
 #: libraries/Types.class.php:326 libraries/Types.class.php:729
 #, php-format
@@ -3625,12 +3625,16 @@ msgid ""
 "A year in four-digit (4, default) or two-digit (2) format, the allowable "
 "values are 70 (1970) to 69 (2069) or 1901 to 2155 and 0000"
 msgstr ""
+"Vuosi on nelinumeroinen (4, oletus) tai kaksinumeroinen (2) muodossa, "
+"sallitut arvot ovat 70 (1970), 69 (2069) tai 1901-2155 ja 0000"
 
 #: libraries/Types.class.php:330
 msgid ""
 "A fixed-length (0-255, default 1) string that is always right-padded with "
 "spaces to the specified length when stored"
 msgstr ""
+"Pituudeltaan (0-255, oletus 1) merkkijono, johon on lisätty välilyöntejä "
+"määrittämään pituutta tallennettuna"
 
 #: libraries/Types.class.php:332 libraries/Types.class.php:731
 #, php-format
@@ -3638,18 +3642,24 @@ msgid ""
 "A variable-length (%s) string, the effective maximum length is subject to "
 "the maximum row size"
 msgstr ""
+"Vaihtelevan pituinen (% s) merkkijono, paras enimmäispituus on aihealueen "
+"rivien enimmäiskoko"
 
 #: libraries/Types.class.php:334
 msgid ""
 "A TEXT column with a maximum length of 255 (2^8 - 1) characters, stored with "
 "a one-byte prefix indicating the length of the value in bytes"
 msgstr ""
+"A TEXT sarakkeen enimmäispituus 255 (2 ^ 8 - 1) merkkiä, tallennettu "
+"yksitavuisena etuliitteenä, joka osoittaa arvon pituuden tavuina"
 
 #: libraries/Types.class.php:336 libraries/Types.class.php:733
 msgid ""
 "A TEXT column with a maximum length of 65,535 (2^16 - 1) characters, stored "
 "with a two-byte prefix indicating the length of the value in bytes"
 msgstr ""
+"A TEXT sarakkeen enimmäispituus 65,535 (2^16-1) merkkiä, tallennettu "
+"kaksitavuisena etuliitteenä, joka osoittaa arvon pituuden tavuina"
 
 #: libraries/Types.class.php:338
 msgid ""
@@ -4340,7 +4350,7 @@ msgid ""
 msgstr ""
 "Tämän käyttöönottaminen antaa toisella palvelimella olevan sivun kutsua "
 "phpMyAdminia kehyksen sisältä. Tämä voi olla [strong]turva-aukko[/strong], "
-"joka mahdollistaa kehystenväliset skriptihyökkäykset."
+"joka mahdollistaa kehystenväliset komentosarjahyökkäykset"
 
 #: libraries/config/messages.inc.php:20
 msgid "Allow third party framing"
@@ -14809,7 +14819,7 @@ msgstr ""
 #, fuzzy
 #| msgid "max. concurrent connections"
 msgid "concurrent_insert is set to 0"
-msgstr "Enim. yhtäaikaisia yhteyksiä"
+msgstr "concurrent_insert on asetettu 0"
 
 #~ msgid "Inline edit of this query"
 #~ msgstr "Tämän kyselyn muokkaus"
