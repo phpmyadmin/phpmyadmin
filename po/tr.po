@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-07-30 08:38-0400\n"
-"PO-Revision-Date: 2013-07-30 21:07+0200\n"
+"PO-Revision-Date: 2013-07-31 09:58+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/tr/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 1.6-dev\n"
+"X-Generator: Weblate 1.7-dev\n"
 
 #: browse_foreigners.php:51 browse_foreigners.php:75 js/messages.php:339
 #: libraries/DisplayResults.class.php:805
@@ -10323,10 +10323,9 @@ msgid "Edit user group: '%s'"
 msgstr "Kullanıcı grubunu düzenle: '%s'"
 
 #: libraries/server_privileges.lib.php:3363
-#, fuzzy
 #| msgid "User group privileges"
 msgid "User group menu assignments"
-msgstr "Kullanıcı grubu yetkileri"
+msgstr "Kullanıcı grubu menü atamaları"
 
 #: libraries/server_privileges.lib.php:3370
 msgid "Group name:"
