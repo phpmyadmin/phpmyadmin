@@ -3271,7 +3271,8 @@ function PMA_getHtmlForUserGroupsTable()
                 . urlencode($row['usergroup']) . '">'
                 . PMA_Util::getIcon('b_edit.png', __('Edit')) . '</a>';
             $html_output .= '&nbsp;&nbsp;';
-            $html_output .= '<a class="" href="server_user_groups.php?'
+            $html_output .= '<a class="deleteUserGroup ajax"'
+                . ' href="server_user_groups.php?'
                 . PMA_generate_common_url() . '&deleteUserGroup=1&userGroup='
                 . urlencode($row['usergroup']) . '">'
                 . PMA_Util::getIcon('b_drop.png', __('Delete')) . '</a>';
