@@ -17,13 +17,11 @@ if (!defined('PHPMYADMIN')) {
  * @param string $action        action
  * @param int    $num_fields    number of fields
  * @param bool   $selected      selected
- * @param string $orig_field    original field
  * 
  * @return array $form_params form parameters
  */
-function PMA_getFormsParameters($db, $table, $action, $num_fields, $selected,
-    $orig_field
-) {
+function PMA_getFormsParameters($db, $table, $action, $num_fields, $selected)
+{
     $form_params = array(
         'db' => $db
     );
@@ -54,8 +52,6 @@ function PMA_getFormsParameters($db, $table, $action, $num_fields, $selected,
         foreach ($selected as $o_fld_nr => $o_fld_val) {
             $form_params['selected[' . $o_fld_nr . ']'] = $o_fld_val;
         }
-    } elseif (isset($_REQUEST['field'])) {
-        $form_params['orig_field'] = $_REQUEST['field'];
     }
     
     return $form_params;

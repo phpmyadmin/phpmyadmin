@@ -43,8 +43,7 @@ $length_values_input_size = 8;
 
 $_form_params = PMA_getFormsParameters(
     $db, $table, $action, isset($num_fields) ? $num_fields : null,
-    isset($selected) ? $selected : null,
-    isset($orig_field) ? $orig_field : null
+    isset($selected) ? $selected : null
 );
 
 $is_backup = ($action != 'tbl_create.php' && $action != 'tbl_addfield.php');
