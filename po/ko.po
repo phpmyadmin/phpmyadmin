@@ -4,10 +4,9 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-07-30 09:37-0400\n"
-"PO-Revision-Date: 2013-06-25 01:09+0200\n"
-"Last-Translator: Kyeong Su Shin <ksshin@uwaterloo.ca>\n"
-"Language-Team: Korean <http://l10n.cihar.com/projects/phpmyadmin/master/ko/"
-">\n"
+"PO-Revision-Date: 2013-07-31 08:27+0200\n"
+"Last-Translator: Myung Han Yu <greatymh@gmail.com>\n"
+"Language-Team: Korean <http://l10n.cihar.com/projects/phpmyadmin/master/ko/>\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2660,16 +2659,16 @@ msgstr ""
 "이 뷰는 최소 이 숫자 이상의 열을 가지고 있습니다. %s문서%s를 참조해 주십시오."
 
 #: libraries/DisplayResults.class.php:4868
-#, fuzzy, php-format
+#, php-format
 #| msgid "Showing rows"
 msgid "Showing rows %1s - %2s"
-msgstr "행(레코드) 보기"
+msgstr "%1s - %2s행 표시 중"
 
 #: libraries/DisplayResults.class.php:4880
-#, fuzzy, php-format
+#, php-format
 #| msgid "total"
 msgid "%d total"
-msgstr "합계"
+msgstr "합계 %d"
 
 #: libraries/DisplayResults.class.php:4892 libraries/sql.lib.php:1640
 #, php-format
@@ -3493,13 +3492,15 @@ msgstr "날짜 타입, %1$s 부터 %2$s 까지 지원됨"
 #: libraries/Types.class.php:322 libraries/Types.class.php:725
 #, php-format
 msgid "A date and time combination, supported range is %1$s to %2$s"
-msgstr ""
+msgstr "날짜와 시간 조합, %1$s 부터 %2$s 까지 지원됨"
 
 #: libraries/Types.class.php:324
 msgid ""
 "A timestamp, range is 1970-01-01 00:00:01 UTC to 2038-01-09 03:14:07 UTC, "
 "stored as the number of seconds since the epoch (1970-01-01 00:00:00 UTC)"
 msgstr ""
+"타임스탬프 형식, 1970-01-01 00:00:01 UTC 부터 2038-01-09 03:14:07 UTC 까지, EPOCH "
+"(1970-01-01 00:00:00 UTC) 이후 경과된 초 단위 시간을 숫자로 저장함"
 
 #: libraries/Types.class.php:326 libraries/Types.class.php:729
 #, php-format
@@ -3511,19 +3512,21 @@ msgid ""
 "A year in four-digit (4, default) or two-digit (2) format, the allowable "
 "values are 70 (1970) to 69 (2069) or 1901 to 2155 and 0000"
 msgstr ""
+"네 자리(4, 기본값) 또는 두 자리(2)로 표현한 연도, 70(1970) 부터 69(2069) 또는 1901 부터 2155 까지 및 "
+"0000 값이 허용됨"
 
 #: libraries/Types.class.php:330
 msgid ""
 "A fixed-length (0-255, default 1) string that is always right-padded with "
 "spaces to the specified length when stored"
-msgstr ""
+msgstr "저장시 항상 지정된 길이까지 오른쪽을 공백으로 채우는 고정 길이 (0-255, 기본값 1) 문자열"
 
 #: libraries/Types.class.php:332 libraries/Types.class.php:731
 #, php-format
 msgid ""
 "A variable-length (%s) string, the effective maximum length is subject to "
 "the maximum row size"
-msgstr ""
+msgstr "가변 길이 (%s) 문자열, 효율적인 최대 길이는 최대 열 크기에 따라 다름"
 
 #: libraries/Types.class.php:334
 msgid ""
@@ -13629,7 +13632,7 @@ msgstr ""
 #: libraries/advisory_rules.txt:381
 #, php-format
 msgid "%s thread(s) took longer than %s seconds to start, it should be 0"
-msgstr ""
+msgstr "%s 스레드들이 시작에 %s초 이상 걸렸으며, 이는 0이 되어야 합니다."
 
 #: libraries/advisory_rules.txt:383
 msgid "Slow launch time"
@@ -13658,7 +13661,7 @@ msgstr "사용된 연결의 비율"
 msgid ""
 "The maximum amount of used connections is getting close to the value of "
 "{max_connections}."
-msgstr ""
+msgstr "사용된 연결의 최대값이 {max_connections} 값에 근접하고 있습니다."
 
 #: libraries/advisory_rules.txt:396
 msgid ""
@@ -13666,6 +13669,8 @@ msgid ""
 "that do not close database handlers properly get killed sooner. Make sure "
 "the code closes database handlers properly."
 msgstr ""
+"{max_connections}를 증가시키거나 {wait_timeout}을 줄임으로서 데이터베이스 핸들러를 올바르게 닫지 않는 연결들이 "
+"빨리 제거될 수 있도록 하십시오. 코드에서 데이터베이스 핸들러를 올바르게 닫는지 확인하십시오."
 
 #: libraries/advisory_rules.txt:397
 #, php-format
@@ -13689,6 +13694,9 @@ msgid ""
 "source-of-aborted_connects/\">This article</a> might help you track down the "
 "source."
 msgstr ""
+"연결 강제종료는 보통 인증이 실패할 경우 발생합니다. <a "
+"href=\"http://www.mysqlperformanceblog.com/2008/08/23/how-to-track-down-the-"
+"source-of-aborted_connects/\">이 게시물</a>이 원인을 추적하는 데 도움을 줄 수 있습니다."
 
 #: libraries/advisory_rules.txt:404
 #, php-format
@@ -13869,6 +13877,9 @@ msgid ""
 "writers for a given table. See also <a href=\"http://dev.mysql.com/doc/"
 "refman/5.5/en/concurrent-inserts.html\">MySQL Documentation</a>"
 msgstr ""
+"{concurrent_insert}를 1로 설정하면 주어진 테이블에서의 읽기/쓰기간 경합(contetion)을 줄일 수 있습니다. 자세한 "
+"사항은 <a href=\"http://dev.mysql.com/doc/refman/5.5/en/concurrent-"
+"inserts.html\">MySQL 문서</a>를 참조하십시오."
 
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
