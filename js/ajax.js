@@ -368,16 +368,10 @@ var AJAX = {
                 }
             }
             request.push("token=" + token);
+            request.push("call_done=1");
             // Download the composite js file, if necessary
             if (needRequest) {
-                $.ajax({
-                    url: "js/get_scripts.js.php?" + request.join("&"),
-                    cache: true,
-                    success: function () {
-                        self.done();
-                    },
-                    dataType: "script"
-                });
+                this.appendScript("js/get_scripts.js.php?" + request.join("&"));
             } else {
                 self.done();
             }
@@ -393,6 +387,18 @@ var AJAX = {
                 AJAX.fireOnload(this._scriptsToBeFired[i]);
             }
             AJAX.active = false;
+        },
+        /**
+         * Appends a script element to the head to load the scripts
+         *
+         * @return void
+         */
+        appendScript: function (url) {
+            var head = document.head || document.getElementsByTagName('head')[0];
+            var script = document.createElement('script');
+            script.type = 'text/javascript';
+            script.src = url;
+            head.appendChild(script);
         },
         /**
          * Fires all the teardown event handlers for the current page
