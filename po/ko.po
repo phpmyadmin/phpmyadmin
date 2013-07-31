@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-07-30 09:37-0400\n"
-"PO-Revision-Date: 2013-07-31 08:42+0200\n"
+"PO-Revision-Date: 2013-07-31 10:33+0200\n"
 "Last-Translator: Myung Han Yu <greatymh@gmail.com>\n"
 "Language-Team: Korean <http://l10n.cihar.com/projects/phpmyadmin/master/ko/>\n"
 "Language: ko\n"
@@ -3298,11 +3298,12 @@ msgstr "출력 순서:"
 
 #: libraries/TableSearch.class.php:849
 msgid "Use this column to label each point"
-msgstr ""
+msgstr "다음 컬럼을 통해 각 포인트 레이블"
 
 #: libraries/TableSearch.class.php:870
+#, fuzzy
 msgid "Maximum rows to plot"
-msgstr ""
+msgstr "표시할 최대 열(row) 수"
 
 #: libraries/TableSearch.class.php:899 libraries/TableSearch.class.php:1203
 #: libraries/sql.lib.php:371 tbl_change.php:230
@@ -3314,10 +3315,9 @@ msgid "Additional search criteria"
 msgstr "추가적인 검색 조건"
 
 #: libraries/TableSearch.class.php:1151
-#, fuzzy
 #| msgid "Do a \"query by example\" (wildcard: \"%\")"
 msgid "Do a \"query by example\" (wildcard: \"%\") for two different columns"
-msgstr "다음으로 질의를 만들기 (와일드카드: \"%\")"
+msgstr "두 개의 다른 컬럼을 위해 다음으로 질의를 만들기 (와일드카드: \"%\")"
 
 #: libraries/TableSearch.class.php:1161
 msgid "Do a \"query by example\" (wildcard: \"%\")"
@@ -3325,7 +3325,7 @@ msgstr "다음으로 질의를 만들기 (와일드카드: \"%\")"
 
 #: libraries/TableSearch.class.php:1212
 msgid "Browse/Edit the points"
-msgstr ""
+msgstr "포인트 참조/편집"
 
 #: libraries/TableSearch.class.php:1219
 msgid "How to use"
@@ -3379,8 +3379,9 @@ msgid "No preview available."
 msgstr "미리보기가 불가능합니다."
 
 #: libraries/Theme.class.php:461
+#, fuzzy
 msgid "take it"
-msgstr ""
+msgstr "사용하기"
 
 #: libraries/Theme_Manager.class.php:137
 #, php-format
@@ -3482,7 +3483,7 @@ msgstr ""
 
 #: libraries/Types.class.php:318
 msgid "An alias for BIGINT UNSIGNED NOT NULL AUTO_INCREMENT UNIQUE"
-msgstr ""
+msgstr "BIGINT UNSIGNED NOT NULL AUTO_INCREMENT UNIQUE 의 별칭"
 
 #: libraries/Types.class.php:320 libraries/Types.class.php:723
 #, php-format
@@ -3540,12 +3541,16 @@ msgid ""
 "A TEXT column with a maximum length of 65,535 (2^16 - 1) characters, stored "
 "with a two-byte prefix indicating the length of the value in bytes"
 msgstr ""
+"최대 65,535(2^16-1)글자의 길이를 가지는 TEXT 칼럼, 값의 길이를 바이트 단위로 나타내는 2바이트 인디케이터를 앞에 붙여서 "
+"저장함"
 
 #: libraries/Types.class.php:338
 msgid ""
 "A TEXT column with a maximum length of 16,777,215 (2^24 - 1) characters, "
 "stored with a three-byte prefix indicating the length of the value in bytes"
 msgstr ""
+"최대 16,777,215(2^24-1)글자의 길이를 가지는 TEXT 칼럼, 값의 길이를 바이트 단위로 나타내는 3바이트 인디케이터를 앞에 "
+"붙여서 저장함"
 
 #: libraries/Types.class.php:340
 msgid ""
@@ -3553,6 +3558,8 @@ msgid ""
 "characters, stored with a four-byte prefix indicating the length of the "
 "value in bytes"
 msgstr ""
+"최대 4,294,967,295 또는 4GiB (2^32 - 1) 글자 길이를 가지는 TEXT 칼럼, 값의 길이를 바이트 단위로 나타내는 "
+"4바이트 인디케이터를 앞에 붙여서 저장함"
 
 #: libraries/Types.class.php:342
 msgid ""
@@ -3610,7 +3617,7 @@ msgstr ""
 
 #: libraries/Types.class.php:358
 msgid "A type that can store a geometry of any type"
-msgstr ""
+msgstr "모든 종류의 기하데이터를 저장할 수 있는 타입"
 
 #: libraries/Types.class.php:360
 msgid "A point in 2-dimensional space"
@@ -3626,19 +3633,19 @@ msgstr "폴리곤"
 
 #: libraries/Types.class.php:366
 msgid "A collection of points"
-msgstr ""
+msgstr "포인트들의 집합"
 
 #: libraries/Types.class.php:368
 msgid "A collection of curves with linear interpolation between points"
-msgstr ""
+msgstr "포인트간의 선형 보간을 거친 커브들의 집합"
 
 #: libraries/Types.class.php:370
 msgid "A collection of polygons"
-msgstr ""
+msgstr "폴리곤들의 집합"
 
 #: libraries/Types.class.php:372
 msgid "A collection of geometry objects of any type"
-msgstr ""
+msgstr "모든 종류의 기하데이터 객체들의 집합"
 
 #: libraries/Types.class.php:625 libraries/Types.class.php:975
 msgctxt "numeric types"
@@ -3658,7 +3665,7 @@ msgstr "문자열"
 #: libraries/Types.class.php:674
 msgctxt "spatial types"
 msgid "Spatial"
-msgstr ""
+msgstr "공간(좌표)형"
 
 #: libraries/Types.class.php:709
 msgid "A 4-byte integer, range is -2,147,483,648 to 2,147,483,647"
@@ -3675,7 +3682,7 @@ msgstr ""
 
 #: libraries/Types.class.php:715
 msgid "A system's default double-precision floating-point number"
-msgstr ""
+msgstr "시스템 기본 배정도 부동소수점 (double-pricision floating point) 숫자"
 
 #: libraries/Types.class.php:717
 msgid "True or false"
@@ -3705,7 +3712,7 @@ msgstr ""
 
 #: libraries/Types.class.php:739
 msgid "An enumeration, chosen from the list of defined values"
-msgstr ""
+msgstr "열거형, 정의된 값들의 목록 중에서 선택됨"
 
 #: libraries/Util.class.php:254
 #, php-format
@@ -3952,11 +3959,11 @@ msgstr "%s를 %s 이상으로 업그레이드 하십시오."
 
 #: libraries/common.inc.php:1082
 msgid "Error: Token mismatch"
-msgstr ""
+msgstr "오류: 토큰 불일치"
 
 #: libraries/common.inc.php:1114
 msgid "GLOBALS overwrite attempt"
-msgstr ""
+msgstr "GLOBALS 덮어쓰기 시도"
 
 #: libraries/common.inc.php:1121
 msgid "possible exploit"
@@ -4237,8 +4244,9 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:20
+#, fuzzy
 msgid "Allow third party framing"
-msgstr ""
+msgstr "서드파티 프레이밍 허용"
 
 #: libraries/config/messages.inc.php:21
 msgid "Show &quot;Drop database&quot; link to normal users"
@@ -4700,7 +4708,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:152
 msgid "Foreign key dropdown order"
-msgstr ""
+msgstr "외래키 드롭다운 순서(정렬)"
 
 #: libraries/config/messages.inc.php:153
 msgid "A dropdown will be used if fewer items are present"
@@ -4711,14 +4719,13 @@ msgid "Foreign key limit"
 msgstr "외래키 제한"
 
 #: libraries/config/messages.inc.php:155
-#, fuzzy
 #| msgid "Browse"
 msgid "Browse mode"
-msgstr "보기"
+msgstr "탐색 모드"
 
 #: libraries/config/messages.inc.php:156
 msgid "Customize browse mode"
-msgstr ""
+msgstr "탐색 모드 사용자 정의"
 
 #: libraries/config/messages.inc.php:158 libraries/config/messages.inc.php:160
 #: libraries/config/messages.inc.php:177 libraries/config/messages.inc.php:188
@@ -4800,8 +4807,9 @@ msgid "Navigation panel"
 msgstr ""
 
 #: libraries/config/messages.inc.php:181
+#, fuzzy
 msgid "Customize appearance of the navigation panel"
-msgstr ""
+msgstr "탐색 패널의 형태 설정"
 
 #: libraries/config/messages.inc.php:182 libraries/select_server.lib.php:42
 #: setup/frames/index.inc.php:117
@@ -4841,6 +4849,8 @@ msgid ""
 "Specify browser's title bar text. Refer to [doc@cfg_TitleTable]documentation"
 "[/doc] for magic strings that can be used to get special values."
 msgstr ""
+"브라우저의 타이틀바 텍스트를 지정합니다. 특수한 값을 얻기 위해 사용가능한 매직 문자열들에 대한 내용은 "
+"[doc@cfg_TitleTable]문서[/doc]를 참조하십시오."
 
 #: libraries/config/messages.inc.php:195
 #: libraries/navigation/NavigationHeader.class.php:209
@@ -5055,12 +5065,12 @@ msgstr ""
 #: libraries/plugins/import/ImportCsv.class.php:89
 #: libraries/plugins/import/ImportLdi.class.php:71
 msgid "Do not abort on INSERT error"
-msgstr "INERT 에러시 종료하지 않기"
+msgstr "INSERT 에러시 종료하지 않기"
 
 #: libraries/config/messages.inc.php:249 libraries/config/messages.inc.php:257
 #: libraries/plugins/import/AbstractImportCsv.class.php:55
 msgid "Replace table data with file"
-msgstr "파일로 테이블 대치하기"
+msgstr "파일 내용으로 테이블 데이터 대체하기"
 
 #: libraries/config/messages.inc.php:251
 msgid ""
@@ -13443,14 +13453,14 @@ msgid "key_buffer_size is 0"
 msgstr "key_buffer_size가 0입니다."
 
 #: libraries/advisory_rules.txt:303
-#, php-format
+#, fuzzy, php-format
 msgid "Max %% MyISAM key buffer ever used"
-msgstr ""
+msgstr "사용된 적 있는 MyISAM 키 버퍼 최대 비율(%%)"
 
 #: libraries/advisory_rules.txt:306 libraries/advisory_rules.txt:314
 #, php-format
 msgid "MyISAM key buffer (index cache) %% used is low."
-msgstr ""
+msgstr "MyISAM 키 버퍼 (인덱스 캐시) 사용률이 낮습니다."
 
 #: libraries/advisory_rules.txt:307 libraries/advisory_rules.txt:315
 msgid ""
@@ -13458,12 +13468,14 @@ msgid ""
 "tables to see if indexes have been removed, or examine queries and "
 "expectations about what indexes are being used."
 msgstr ""
+"{key_buffer_size} 크기를 줄여야 할 수도 있으며, 인덱스가 제거된 적이 있는지 테이블을 다시 검사하거나, 쿼리를 검사하여 "
+"어떤 인덱스들이 사용될지 예상하시기 바랍니다."
 
 #: libraries/advisory_rules.txt:308
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "max %% MyISAM key buffer ever used: %s%%, this value should be above 95%%"
-msgstr ""
+msgstr "사용된 적 있는 MyISAM 키 버퍼 최대 비율 (%%): %s%%, 이 값은 95%% 이상이어야 합니다."
 
 #: libraries/advisory_rules.txt:311
 msgid "Percentage of MyISAM key buffer used"
@@ -13481,7 +13493,7 @@ msgstr "메모리에서 읽은 인덱스 비율"
 #: libraries/advisory_rules.txt:321
 #, php-format
 msgid "The %% of indexes that use the MyISAM key buffer is low."
-msgstr ""
+msgstr "MyISAM 키 버퍼를 사용하는 인덱스의 비율(%%)이 낮습니다."
 
 #: libraries/advisory_rules.txt:322
 msgid "You may need to increase {key_buffer_size}."
@@ -13521,13 +13533,15 @@ msgstr "사용된 열린 파일 한도의 비율"
 msgid ""
 "The number of open files is approaching the max number of open files.  You "
 "may get a \"Too many open files\" error."
-msgstr ""
+msgstr "열린 파일들의 수가 최대 한계치에 근접하고 있습니다. \"Too many open files\" 오류가 발생할 수 있습니다."
 
 #: libraries/advisory_rules.txt:338 libraries/advisory_rules.txt:345
 msgid ""
 "Consider increasing {open_files_limit}, and check the error log when "
 "restarting after changing {open_files_limit}."
 msgstr ""
+"{open_files_limit}를 증가시키는 것을 고려하시기 바라며, {open_files_limit} 값을 변경하고 재시작한 뒤 에러 "
+"로그를 확인하십시오."
 
 #: libraries/advisory_rules.txt:339
 #, php-format
@@ -13556,7 +13570,7 @@ msgstr "데이터베이스 %s에 새로운 테이블을 만듭니다."
 
 #: libraries/advisory_rules.txt:351 libraries/advisory_rules.txt:358
 msgid "Too many table locks were not granted immediately."
-msgstr ""
+msgstr "즉시 승인되지 않는 테이블 락이 너무 많습니다."
 
 #: libraries/advisory_rules.txt:352 libraries/advisory_rules.txt:359
 msgid "Optimize queries and/or use InnoDB to reduce lock wait."
@@ -13592,7 +13606,7 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:366
 msgid "Enable the thread cache by setting {thread_cache_size} > 0."
-msgstr ""
+msgstr "{thread_cache_size}를 0 이상으로 설정하여 스레드 캐시를 활성화할 수 있습니다."
 
 #: libraries/advisory_rules.txt:367
 msgid "The thread cache is set to 0"
