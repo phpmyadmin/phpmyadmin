@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-07-30 09:37-0400\n"
-"PO-Revision-Date: 2013-07-31 10:37+0200\n"
+"PO-Revision-Date: 2013-07-31 12:03+0200\n"
 "Last-Translator: Myung Han Yu <greatymh@gmail.com>\n"
 "Language-Team: Korean <http://l10n.cihar.com/projects/phpmyadmin/master/ko/>\n"
 "Language: ko\n"
@@ -3372,7 +3372,7 @@ msgstr "복제"
 #: libraries/Theme.class.php:170
 #, php-format
 msgid "No valid image path for theme %s found!"
-msgstr "%s 테마를 위한 정상적인 이미지 경로를 찾을 수 없습니다."
+msgstr "%s 테마를 위한 올바른 이미지 경로를 찾을 수 없습니다!"
 
 #: libraries/Theme.class.php:459
 msgid "No preview available."
@@ -3405,25 +3405,21 @@ msgstr "테마:"
 #: libraries/Types.class.php:296
 msgid ""
 "A 1-byte integer, signed range is -128 to 127, unsigned range is 0 to 255"
-msgstr ""
-"1바이트 정수형의 범위는 부호가 있는 경우 -128 에서 127, 부호가 없는 경우 0 에"
-"서 255 입니다."
+msgstr "1바이트 정수형의 범위는 부호가 있는 경우 -128 에서 127, 부호가 없는 경우 0 에서 255 입니다"
 
 #: libraries/Types.class.php:298
 msgid ""
 "A 2-byte integer, signed range is -32,768 to 32,767, unsigned range is 0 to "
 "65,535"
-msgstr ""
-"2바이트 정수형의 범위는 부호가 있는 경우 -32,768 에서 32,767, 부호가 없는 경"
-"우 0 에서 65,355 입니다."
+msgstr "2바이트 정수형의 범위는 부호가 있는 경우 -32,768 에서 32,767, 부호가 없는 경우 0 에서 65,355 입니다"
 
 #: libraries/Types.class.php:300
 msgid ""
 "A 3-byte integer, signed range is -8,388,608 to 8,388,607, unsigned range is "
 "0 to 16,777,215"
 msgstr ""
-"3바이트 정수형의 범위는 부호가 있는 경우 -8,388,608 에서 8,388,607, 부호가 없"
-"는 경우 0 에서 16,777,215 입니다."
+"3바이트 정수형의 범위는 부호가 있는 경우 -8,388,608 에서 8,388,607, 부호가 없는 경우 0 에서 16,777,215 "
+"입니다"
 
 #: libraries/Types.class.php:302
 msgid ""
@@ -3439,8 +3435,7 @@ msgid ""
 "9,223,372,036,854,775,807, unsigned range is 0 to 18,446,744,073,709,551,615"
 msgstr ""
 "8바이트 정수형의 범위는 부호가 있는 경우 -9,223,372,036,854,775,808 에서 "
-"9,223,372,036,854,775,807, 부호가 없는 경우 0 에서 "
-"18,446,744,073,709,551,615 입니다."
+"9,223,372,036,854,775,807, 부호가 없는 경우 0 에서 18,446,744,073,709,551,615 입니다"
 
 #: libraries/Types.class.php:306 libraries/Types.class.php:713
 msgid ""
@@ -3738,7 +3733,7 @@ msgstr "MySQL 메시지: "
 
 #: libraries/Util.class.php:1199
 msgid "Failed to connect to SQL validator!"
-msgstr "SQL 검증을 하기 위한 연결이 실패했습니다."
+msgstr "SQL 검증을 위한 연결에 실패했습니다!"
 
 #: libraries/Util.class.php:1241 libraries/config/messages.inc.php:498
 msgid "Explain SQL"
@@ -4109,7 +4104,7 @@ msgstr "잘못된 값"
 #: libraries/config/Validator.class.php:586
 #, php-format
 msgid "Value must be equal or lower than %s"
-msgstr "값은 %s보다 작거나 같아야합니다."
+msgstr "값은 %s보다 작거나 같아야 합니다."
 
 #: libraries/config/FormDisplay.class.php:541
 #, php-format
@@ -4184,7 +4179,7 @@ msgstr "리세트"
 
 #: libraries/config/Validator.class.php:217
 msgid "Could not initialize Drizzle connection library"
-msgstr ""
+msgstr "Drizzle 연결 라이브러리를 초기화할 수 없습니다"
 
 #: libraries/config/Validator.class.php:226
 #: libraries/config/Validator.class.php:234
@@ -5107,11 +5102,11 @@ msgstr "퍼센티지값을 소수로 가져오기 (12.00%를 .12로)"
 
 #: libraries/config/messages.inc.php:263
 msgid "Number of queries to skip from start"
-msgstr ""
+msgstr "건너뛰고 시작할 쿼리 수"
 
 #: libraries/config/messages.inc.php:264
 msgid "Partial import: skip queries"
-msgstr ""
+msgstr "일부분만 가져오기: 쿼리 건너뛰기"
 
 #: libraries/config/messages.inc.php:266
 msgid "Do not use AUTO_INCREMENT for zero values"
@@ -5402,6 +5397,8 @@ msgid ""
 "[kbd]SMART[/kbd] - i.e. descending order for columns of type TIME, DATE, "
 "DATETIME and TIMESTAMP, ascending order otherwise"
 msgstr ""
+"[kbd]SMART[/kbd] - 예: TIME, DATE, DATETIME 및 TIMESTAMP 형식 컬럼에 대해 "
+"내림차순(descending) 정렬, 다른 형식에 대해 오름차순(ascending) 정렬"
 
 #: libraries/config/messages.inc.php:332
 msgid "Default sorting order"
@@ -5700,7 +5697,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:401
 msgid "PHP extension to use"
-msgstr "사용할 PHP 확장"
+msgstr "사용할 PHP 확장기능"
 
 #: libraries/config/messages.inc.php:402
 #, fuzzy
@@ -6244,11 +6241,11 @@ msgstr "시작 행:"
 
 #: libraries/config/messages.inc.php:514
 msgid "Title of browser window when a database is selected"
-msgstr ""
+msgstr "데이터베이스가 선택되었을 때 브라우저 윈도우의 제목"
 
 #: libraries/config/messages.inc.php:516
 msgid "Title of browser window when nothing is selected"
-msgstr ""
+msgstr "아무것도 선택되지 않았을 때 브라우저 윈도우의 제목"
 
 #: libraries/config/messages.inc.php:517
 msgid "Default title"
@@ -6256,7 +6253,7 @@ msgstr "기본 제목"
 
 #: libraries/config/messages.inc.php:518
 msgid "Title of browser window when a server is selected"
-msgstr ""
+msgstr "서버가 선택되었을 때 브라우저 윈도우의 제목"
 
 #: libraries/config/messages.inc.php:520
 msgid "Title of browser window when a table is selected"
@@ -6276,7 +6273,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:524
 msgid "Directory on server where you can upload files for import"
-msgstr "수입할 파일을 업로드 할 수 있는 (서버상 의)(on server) 디렉토리"
+msgstr "가져오기(import) 파일을 업로드할 서버상의 디렉토리"
 
 #: libraries/config/messages.inc.php:525
 msgid "Upload directory"
@@ -6284,18 +6281,17 @@ msgstr "업로드 디렉토리"
 
 #: libraries/config/messages.inc.php:526
 msgid "Allow for searching inside the entire database"
-msgstr "\"전체 데이타베이스\" 안에서 찾기 허락해"
+msgstr "전체 데이터베이스 내에서의 검색 허용"
 
 #: libraries/config/messages.inc.php:527
 msgid "Use database search"
-msgstr "데이터베이스 찾기 사용"
+msgstr "데이터베이스 검색 사용"
 
 #: libraries/config/messages.inc.php:528
 msgid ""
 "When disabled, users cannot set any of the options below, regardless of the "
 "checkbox on the right"
-msgstr ""
-"사용불가일때, 아래의 선택을 할수 없습니다, 오른쪽에 체크박스에 관계없이."
+msgstr "꺼져있을 경우, 사용자들은 오른쪽 체크박스에 관계없이 아래의 옵션 중 어느것도 설정할 수 없습니다."
 
 #: libraries/config/messages.inc.php:529
 msgid "Enable the Developer tab in settings"
@@ -6303,11 +6299,11 @@ msgstr "설정화면에서 개발자 탭을 가능하게 함"
 
 #: libraries/config/messages.inc.php:530 setup/frames/index.inc.php:275
 msgid "Check for latest version"
-msgstr "마지막 버전을 확인"
+msgstr "최신 버전 확인"
 
 #: libraries/config/messages.inc.php:531
 msgid "Enables check for latest version on main phpMyAdmin page"
-msgstr "주 phpMyAdmin 면(쪽)에서 마지막 버전확인 하는것을 가능하게함"
+msgstr "phpMyAdmin 메인화면에서 최근 버전 확인을 가능하게 함"
 
 #: libraries/config/messages.inc.php:532 setup/lib/index.lib.php:117
 #: setup/lib/index.lib.php:131 setup/lib/index.lib.php:142
@@ -6383,7 +6379,7 @@ msgstr ""
 
 #: libraries/config/setup.forms.php:41
 msgid "Config authentication"
-msgstr "환경설정 입증(인증)"
+msgstr "Config 인증"
 
 #: libraries/config/setup.forms.php:45
 msgid "Cookie authentication"
@@ -6697,12 +6693,12 @@ msgstr ""
 #: libraries/display_git_revision.lib.php:67
 #, php-format
 msgid "committed on %1$s by %2$s"
-msgstr ""
+msgstr "%2$s에 의해 %1$s에 커밋됨"
 
 #: libraries/display_git_revision.lib.php:75
 #, php-format
 msgid "authored on %1$s by %2$s"
-msgstr ""
+msgstr "%2$s에 의해 %1$s에 작성됨"
 
 #: libraries/display_import.lib.php:74
 msgid ""
@@ -7893,7 +7889,7 @@ msgstr ""
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:44
 msgid "Failed to use Blowfish from mcrypt!"
-msgstr "mcrypt에서 Blowfish를 사용하는데 실패하였습니다."
+msgstr "mcrypt에서 Blowfish를 사용하는데 실패하였습니다!"
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:82
 #: libraries/plugins/auth/AuthenticationCookie.class.php:196
@@ -8928,17 +8924,16 @@ msgstr ""
 
 #: libraries/replication_gui.lib.php:804
 #: libraries/server_privileges.lib.php:1292
-#, fuzzy
 #| msgid "Use Tables"
 msgid "Use Host Table"
-msgstr "사용할 테이블"
+msgstr "호스트 테이블 사용"
 
 #: libraries/replication_gui.lib.php:820
 #: libraries/server_privileges.lib.php:1311
 msgid ""
 "When Host table is used, this field is ignored and values stored in Host "
 "table are used instead."
-msgstr ""
+msgstr "호스트 테이블을 사용하면 이 필드는 무시되고 대신 호스트 테이블에 저장된 값이 사용됩니다."
 
 #: libraries/replication_gui.lib.php:855
 #: libraries/server_privileges.lib.php:1356
@@ -11700,7 +11695,7 @@ msgstr "설정 저장 완료"
 msgid ""
 "Your preferences will be saved for current session only. Storing them "
 "permanently requires %sphpMyAdmin configuration storage%s."
-msgstr ""
+msgstr "당신의 설정은 현재 세션에만 저장됩니다. 설정을 영구 저장하려면 %sphpMyAdmin 설정 스토리지%s가 필요합니다."
 
 #: libraries/user_preferences.lib.php:122
 msgid "Could not save configuration"
@@ -11710,7 +11705,7 @@ msgstr "설정을 저장할 수 없습니다"
 msgid ""
 "Your browser has phpMyAdmin configuration for this domain. Would you like to "
 "import it for current session?"
-msgstr ""
+msgstr "당신의 브라우저에 현재 도메인을 위한 phpMyAdmin 설정이 존재합니다. 현재 세션을 위해 이를 불러오시겠습니까?"
 
 #: libraries/zip_extension.lib.php:29
 msgid "No files found inside ZIP archive!"
@@ -11723,7 +11718,7 @@ msgstr "ZIP 압축파일 오류:"
 
 #: navigation.php:20
 msgid "Fatal error: The navigation can only be accessed via AJAX"
-msgstr ""
+msgstr "심각한 오류: 네비게이션은 AJAX를 통해서만 접근할 수 있습니다"
 
 #: pmd_display_field.php:49 pmd_save_pos.php:75
 msgid "Modifications have been saved"
@@ -11743,13 +11738,12 @@ msgstr "전체 화면으로부터 나가기"
 
 #: pmd_general.php:81
 msgid "Save position"
-msgstr ""
+msgstr "위치 저장"
 
 #: pmd_general.php:90 pmd_general.php:387
-#, fuzzy
 #| msgid "Creation:"
 msgid "Create relation"
-msgstr "생성:"
+msgstr "관계 생성"
 
 #: pmd_general.php:99
 #, fuzzy
