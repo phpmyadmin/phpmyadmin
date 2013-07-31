@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-07-30 08:38-0400\n"
-"PO-Revision-Date: 2013-07-30 19:31+0200\n"
+"PO-Revision-Date: 2013-07-31 15:26+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: Slovenian "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/sl/>\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
 "%100==4 ? 2 : 3;\n"
-"X-Generator: Weblate 1.6-dev\n"
+"X-Generator: Weblate 1.7-dev\n"
 
 #: browse_foreigners.php:51 browse_foreigners.php:75 js/messages.php:339
 #: libraries/DisplayResults.class.php:805
@@ -6925,10 +6925,9 @@ msgid "%s of %s"
 msgstr "%s od %s"
 
 #: libraries/display_import.lib.php:454
-#, fuzzy
 #| msgid "Uploading your import file…"
 msgid "Uploading your import file..."
-msgstr "Nalaganje datoteke za uvoz …"
+msgstr "Nalaganje datoteke za uvoz ..."
 
 #: libraries/display_import.lib.php:455
 #, php-format
@@ -8466,10 +8465,10 @@ msgid "RELATIONS FOR TABLE"
 msgstr "RELACIJE ZA TABELO"
 
 #: libraries/plugins/export/ExportSql.class.php:1512
-#, fuzzy, php-format
+#, php-format
 #| msgid "Structure for view"
 msgid "Structure for view %s exported as a table"
-msgstr "Struktura pogleda"
+msgstr "Struktura pogleda %s, izvoženega kot tabela"
 
 #: libraries/plugins/export/ExportSql.class.php:1600
 msgid "Error reading data:"
@@ -10328,10 +10327,9 @@ msgid "Edit user group: '%s'"
 msgstr "Uredi uporabniško skupino: '%s'"
 
 #: libraries/server_privileges.lib.php:3363
-#, fuzzy
 #| msgid "User group privileges"
 msgid "User group menu assignments"
-msgstr "Privilegiji uporabniške skupine"
+msgstr "Dodelitve menija uporabniških skupin"
 
 #: libraries/server_privileges.lib.php:3370
 msgid "Group name:"
