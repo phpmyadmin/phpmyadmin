@@ -27,6 +27,8 @@ require_once './libraries/StorageEngine.class.php';
  */
 require_once './libraries/Partition.class.php';
 
+require_once './libraries/tbl_columns_definition_form.lib.php';
+
 /**
  * We are in transition between old-style echo and new-style PMA_Response
  * so this script generates $html and at the bottom, either echos it
@@ -39,53 +41,12 @@ $html = '';
 
 $length_values_input_size = 8;
 
-$_form_params = array(
-    'db' => $db
+$_form_params = PMA_getFormsParameters(
+    $db, $table, $action, isset($num_fields) ? $num_fields : null,
+    isset($selected) ? $selected : null,
+    isset($true_selected) ? $true_selected : null, 
+    isset($orig_field) ? $orig_field : null
 );
-
-if ($action == 'tbl_create.php') {
-    $_form_params['reload'] = 1;
-} elseif ($action == 'tbl_addfield.php') {
-    $_form_params['field_where'] = $_REQUEST['field_where'];
-    $_form_params['after_field'] = $_REQUEST['after_field'];
-    $_form_params['table'] = $table;
-} else {
-    $_form_params['table'] = $table;
-}
-
-if (isset($num_fields)) {
-    $_form_params['orig_num_fields'] = $num_fields;
-}
-
-if (isset($_REQUEST['field_where'])) {
-    $_form_params['orig_field_where'] = $_REQUEST['field_where'];
-}
-
-if (isset($_REQUEST['after_field'])) {
-    $_form_params['orig_after_field'] = $_REQUEST['after_field'];
-}
-
-if (isset($selected) && is_array($selected)) {
-    foreach ($selected as $o_fld_nr => $o_fld_val) {
-        $_form_params['selected[' . $o_fld_nr . ']'] = $o_fld_val;
-        if (! isset($true_selected)) {
-            $_form_params['true_selected[' . $o_fld_nr . ']'] = $o_fld_val;
-        }
-    }
-
-    if (isset($true_selected) && is_array($true_selected)) {
-        foreach ($true_selected as $o_fld_nr => $o_fld_val) {
-            $_form_params['true_selected[' . $o_fld_nr . ']'] = $o_fld_val;
-        }
-    }
-} elseif (isset($_REQUEST['field'])) {
-    $_form_params['orig_field'] = $_REQUEST['field'];
-    if (isset($orig_field)) {
-        $_form_params['true_selected[]'] = $orig_field;
-    } else {
-        $_form_params['true_selected[]'] = $_REQUEST['field'];
-    }
-}
 
 $is_backup = ($action != 'tbl_create.php' && $action != 'tbl_addfield.php');
 
@@ -725,74 +686,6 @@ for ($i = 0; $i < $num_fields; $i++) {
     }
 } // end for
 
-$html .= '<form method="post" action="' . $action  . '" class="'
-    . ($action == 'tbl_create.php' ? 'create_table' : 'append_fields')
-    . '_form ajax">';
-
-$html .= PMA_generate_common_hidden_inputs($_form_params);
-unset($_form_params);
-if ($action == 'tbl_create.php') {
-    $html .= '<table>'
-        . '<tr class="vmiddle">'
-        . '<td>' . __('Table name')
-        . ':&nbsp;<input type="text" name="table" size="40" maxlength="80"'
-        . ' value="'
-        . (isset($_REQUEST['table']) ? htmlspecialchars($_REQUEST['table']) : '')
-        . '" class="textfield" autofocus />'
-        . '</td>'
-        . '<td>';
-    if ($action == 'tbl_create.php'
-        || $action == 'tbl_addfield.php'
-    ) {
-        $html .= sprintf(
-            __('Add %s column(s)'), '<input type="text" id="added_fields" '
-            . 'name="added_fields" size="2" value="1" onfocus="this.select'
-            . '()" />'
-        );
-
-        $html .= '<input type="submit" name="submit_num_fields"'
-            . 'value="' . __('Go') . '"'
-            . 'onclick="return'
-            . ' checkFormElementInRange(this.form, \'added_fields\', \''
-            . str_replace(
-                '\'', '\\\'', __('You have to add at least one column.')
-            ) . '\', 1)" />';
-    }
-    $html .= '</td>'
-        . '</tr>'
-        . '</table>';
-}
-
-if (is_array($content_cells) && is_array($header_cells)) {
-    // last row is for javascript insert
-    //$empty_row = array_pop($content_cells);
-
-    $html .= '<table id="table_columns" class="noclick">';
-    $html .= '<caption class="tblHeaders">' . __('Structure')
-        . PMA_Util::showMySQLDocu('SQL-Syntax', 'CREATE_TABLE') . '</caption>';
-
-    $html .= '<tr>';
-    foreach ($header_cells as $header_val) {
-        $html .= '<th>' . $header_val . '</th>';
-    }
-    $html .= '</tr>';
-
-    $odd_row = true;
-    foreach ($content_cells as $content_row) {
-        $html .= '<tr class="' . ($odd_row ? 'odd' : 'even') . '">';
-        $odd_row = ! $odd_row;
-
-        if (is_array($content_row)) {
-            foreach ($content_row as $content_row_val) {
-                $html .= '<td class="center">' . $content_row_val . '</td>';
-            }
-        }
-        $html .= '</tr>';
-    }
-    $html .= '</table>'
-        . '<br />';
-}
-
 /**
  * needs to be finished
  *
@@ -830,77 +723,11 @@ function addField()
 }
  */
 
-if ($action == 'tbl_create.php') {
-    $html .= '<table>'
-        . '<tr class="vtop">'
-        . '<th>' . __('Table comments:') . '</th>'
-        . '<td width="25">&nbsp;</td>'
-        . '<th>' . __('Storage Engine:')
-        . PMA_Util::showMySQLDocu('Storage_engines', 'Storage_engines')
-        . '</th>'
-        . '<td width="25">&nbsp;</td>'
-        . '<th>' . __('Collation:') . '</th>'
-        . '</tr>'
-        . '<tr><td><input type="text" name="comment" size="40" maxlength="80"'
-        . 'value="'
-        . (isset($_REQUEST['comment'])
-        ? htmlspecialchars($_REQUEST['comment'])
-        : '')
-        . '" class="textfield" />'
-        . '</td>'
-        . '<td width="25">&nbsp;</td>'
-        . '<td>'
-        . PMA_StorageEngine::getHtmlSelect(
-            'tbl_storage_engine', null,
-            (isset($_REQUEST['tbl_storage_engine'])
-                ? $_REQUEST['tbl_storage_engine']
-                : null
-            )
-        )
-        . '</td>'
-        . '<td width="25">&nbsp;</td>'
-        . '<td>'
-        . PMA_generateCharsetDropdownBox(
-            PMA_CSDROPDOWN_COLLATION, 'tbl_collation', null,
-            (isset($_REQUEST['tbl_collation'])
-                ? $_REQUEST['tbl_collation']
-                : null
-            ),
-            false, 3
-        )
-        . '</td>'
-        . '</tr>';
+$html .= PMA_getHtmlForTableCreateOrAddField(
+    $action, $_form_params, $content_cells, $header_cells
+);
 
-    if (PMA_Partition::havePartitioning()) {
-        $html .= '<tr class="vtop">'
-            . '<th>' . __('PARTITION definition:') . '&nbsp;'
-            . PMA_Util::showMySQLDocu('Partitioning', 'Partitioning')
-            . '</th>'
-            . '</tr>'
-            . '<tr>'
-            . '<td>'
-            . '<textarea name="partition_definition" id="partitiondefinition"'
-            . ' cols="' . $GLOBALS['cfg']['TextareaCols'] . '"'
-            . ' rows="' . $GLOBALS['cfg']['TextareaRows'] . '"'
-            . ' dir="' . $GLOBALS['text_dir'] . '">'
-            . (isset($_REQUEST['partition_definition'])
-                ? htmlspecialchars($_REQUEST['partition_definition'])
-                : '')
-            . '</textarea>'
-            . '</td>'
-            . '</tr>';
-    }
-    $html .= '</table>'
-        . '<br />';
-} // end if ($action == 'tbl_create.php')
-
-$html .= '<fieldset class="tblFooters">'
-    . '<input type="submit" name="do_save_data" value="' . __('Save') . '" />'
-    . '</fieldset>'
-    . '<div id="properties_message"></div>'
-    . '</form>';
-
-$html .= '<div id="popup_background"></div>';
+unset($_form_params);
 
 PMA_Response::getInstance()->addHTML($html);
 ?>
