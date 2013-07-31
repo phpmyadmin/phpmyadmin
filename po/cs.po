@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-07-30 09:37-0400\n"
-"PO-Revision-Date: 2013-07-30 07:59+0200\n"
+"PO-Revision-Date: 2013-07-31 08:39+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Czech <http://l10n.cihar.com/projects/phpmyadmin/master/cs/>\n"
 "Language: cs\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Weblate 1.6\n"
+"X-Generator: Weblate 1.7-dev\n"
 
 #: browse_foreigners.php:51 browse_foreigners.php:75 js/messages.php:339
 #: libraries/DisplayResults.class.php:805
@@ -689,10 +689,9 @@ msgid "Back"
 msgstr "Zpět"
 
 #: index.php:115 libraries/Footer.class.php:72
-#, fuzzy
 #| msgid "phpMyAdmin homepage"
 msgid "phpMyAdmin Demo Server"
-msgstr "Domovská stránka phpMyAdmina"
+msgstr "Demo server phpMyAdmina"
 
 #: index.php:119
 #, php-format
@@ -701,6 +700,8 @@ msgid ""
 "change root, debian-sys-maint and pma users. More information is available "
 "at %s."
 msgstr ""
+"Používáte demo server. Můžete zde provádět cokoliv, ale prosím neměňtě "
+"uživatele root, debian-sys-maint a pma. Více informací naleznete na %s."
 
 #: index.php:129
 msgid "General Settings"
@@ -2799,13 +2800,12 @@ msgstr "Nahraný soubor nelze přečíst (přesunout)."
 #: libraries/Footer.class.php:76
 #, php-format
 msgid "Currently running Git revision %1$s from the %2$s branch."
-msgstr ""
+msgstr "Používáte revizi z Gitu %1$s z větve %2$s."
 
 #: libraries/Footer.class.php:83
-#, fuzzy
 #| msgid "Version information"
 msgid "Git information missing!"
-msgstr "Informace o verzi"
+msgstr "Chybí informace o revizi Gitu!"
 
 #: libraries/Footer.class.php:163 libraries/Footer.class.php:167
 #: libraries/Footer.class.php:170
@@ -4659,10 +4659,9 @@ msgstr "Vypnout kontrolu cizích klíčů"
 
 #: libraries/config/messages.inc.php:126
 #: libraries/plugins/export/ExportSql.class.php:154
-#, fuzzy
 #| msgid "Exporting rows from \"%s\" table"
 msgid "Export views as tables"
-msgstr "Exportuji řádky z tabulky „%s“"
+msgstr "Exportovat pohledy jako tabulky"
 
 #: libraries/config/messages.inc.php:127 libraries/config/messages.inc.php:128
 #: libraries/config/messages.inc.php:130 libraries/config/messages.inc.php:136
@@ -8392,10 +8391,10 @@ msgid "RELATIONS FOR TABLE"
 msgstr "RELACE PRO TABULKU"
 
 #: libraries/plugins/export/ExportSql.class.php:1512
-#, fuzzy, php-format
+#, php-format
 #| msgid "Structure for view"
 msgid "Structure for view %s exported as a table"
-msgstr "Struktura pro pohled"
+msgstr "Struktura pro pohled %s exportovaná jako tabulka"
 
 #: libraries/plugins/export/ExportSql.class.php:1600
 msgid "Error reading data:"
@@ -10238,10 +10237,9 @@ msgid "Edit user group: '%s'"
 msgstr "Upravit skupinu: '%s'"
 
 #: libraries/server_privileges.lib.php:3363
-#, fuzzy
 #| msgid "User group privileges"
 msgid "User group menu assignments"
-msgstr "Oprávnění skupiny"
+msgstr "Přiřazení nabídky pro skupinu uživatelů"
 
 #: libraries/server_privileges.lib.php:3370
 msgid "Group name:"
