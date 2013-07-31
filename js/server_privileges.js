@@ -315,7 +315,7 @@ AJAX.registerOnload('server_privileges.js', function () {
         };
         $('<div/>')
             .attr('id', 'confirmUserGroupDeleteDialog')
-            .append($.sprintf(PMA_messages.strDropUserGroupWarning, groupName))
+            .append($.sprintf(PMA_messages.strDropUserGroupWarning, escapeHtml(groupName)))
             .dialog({
                 width: 300,
                 minWidth: 200,
