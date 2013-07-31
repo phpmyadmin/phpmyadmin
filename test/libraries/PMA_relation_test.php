@@ -135,6 +135,30 @@ class PMA_Relation_Test extends PHPUnit_Framework_TestCase
             $result,
             $retval
         );
+        
+        //$GLOBALS['cfg']['Server']['pmadb']==false
+        $value = $GLOBALS['cfg']['Server']['pmadb'];
+        $GLOBALS['cfg']['Server']['pmadb'] = false;
+        $retval = PMA_getRelationsParamDiagnostic($relationsPara);
+
+        $result = __('General relation features');
+        $this->assertContains(
+            $result,
+            $retval
+        );
+        $result = 'PMA Database ... ';
+        $this->assertContains(
+            $result,
+            $retval
+        );
+        $result = "<strong>not OK</strong>";
+        $this->assertContains(
+            $result,
+            $retval
+        );
+        
+        $GLOBALS['cfg']['Server']['pmadb'] = $value;
+        
     }
 
     /**
