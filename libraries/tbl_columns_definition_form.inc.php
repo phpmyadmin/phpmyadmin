@@ -44,7 +44,6 @@ $length_values_input_size = 8;
 $_form_params = PMA_getFormsParameters(
     $db, $table, $action, isset($num_fields) ? $num_fields : null,
     isset($selected) ? $selected : null,
-    isset($true_selected) ? $true_selected : null, 
     isset($orig_field) ? $orig_field : null
 );
 
@@ -299,9 +298,7 @@ for ($i = 0; $i < $num_fields; $i++) {
 
     // old column name
     if ($is_backup) {
-        if (! empty($true_selected[$i])) {
-            $_form_params['field_orig[' . $i . ']'] = $true_selected[$i];
-        } elseif (isset($row['Field'])) {
+        if (isset($row['Field'])) {
             $_form_params['field_orig[' . $i . ']'] = $row['Field'];
         } else {
             $_form_params['field_orig[' . $i . ']'] = '';

@@ -17,13 +17,12 @@ if (!defined('PHPMYADMIN')) {
  * @param string $action        action
  * @param int    $num_fields    number of fields
  * @param bool   $selected      selected
- * @param bool   $true_selected true selected
  * @param string $orig_field    original field
  * 
  * @return array $form_params form parameters
  */
 function PMA_getFormsParameters($db, $table, $action, $num_fields, $selected,
-    $true_selected, $orig_field
+    $orig_field
 ) {
     $form_params = array(
         'db' => $db
@@ -54,23 +53,9 @@ function PMA_getFormsParameters($db, $table, $action, $num_fields, $selected,
     if (isset($selected) && is_array($selected)) {
         foreach ($selected as $o_fld_nr => $o_fld_val) {
             $form_params['selected[' . $o_fld_nr . ']'] = $o_fld_val;
-            if (! isset($true_selected)) {
-                $form_params['true_selected[' . $o_fld_nr . ']'] = $o_fld_val;
-            }
-        }
-
-        if (isset($true_selected) && is_array($true_selected)) {
-            foreach ($true_selected as $o_fld_nr => $o_fld_val) {
-                $form_params['true_selected[' . $o_fld_nr . ']'] = $o_fld_val;
-            }
         }
     } elseif (isset($_REQUEST['field'])) {
         $form_params['orig_field'] = $_REQUEST['field'];
-        if (isset($orig_field)) {
-            $form_params['true_selected[]'] = $orig_field;
-        } else {
-            $form_params['true_selected[]'] = $_REQUEST['field'];
-        }
     }
     
     return $form_params;
