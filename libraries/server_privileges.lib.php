@@ -3236,7 +3236,7 @@ function PMA_getHtmlForUserGroupsTable()
     $html_output  = '<h2>' . __('User groups') . '</h2>';
     $groupTable = PMA_Util::backquote($GLOBALS['cfg']['Server']['pmadb'])
         . "." . PMA_Util::backquote($GLOBALS['cfg']['Server']['usergroups']);
-    $sql_query = "SELECT * FROM " . $groupTable;
+    $sql_query = "SELECT * FROM " . $groupTable . " ORDER BY `usergroup` ASC";
     $result = PMA_queryAsControlUser($sql_query, false);
 
     if ($result && $GLOBALS['dbi']->numRows($result)) {
