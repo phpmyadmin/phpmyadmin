@@ -451,7 +451,7 @@ function PMA_getHtmlForImportWithPlugin($upload_id)
         false
     );
     $statustext_str = PMA_escapeJsString(__('%s of %s'));
-    $upload_str = PMA_jsFormat(__('Uploading your import file...'), false);
+    $upload_str = PMA_jsFormat(__('Uploading your import file…'), false);
     $second_str = PMA_jsFormat(__('%s/sec.'), false);
     $remaining_min = PMA_jsFormat(__('About %MIN min. %SEC sec. remaining.'), false);
     $remaining_second = PMA_jsFormat(__('About %SEC sec. remaining.'), false);
