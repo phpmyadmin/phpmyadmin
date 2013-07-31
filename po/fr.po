@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-07-30 08:38-0400\n"
-"PO-Revision-Date: 2013-07-30 16:51+0200\n"
+"PO-Revision-Date: 2013-07-31 13:11+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: French <http://l10n.cihar.com/projects/phpmyadmin/master/fr/>\n"
 "Language: fr\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 1.6-dev\n"
+"X-Generator: Weblate 1.7-dev\n"
 
 #: browse_foreigners.php:51 browse_foreigners.php:75 js/messages.php:339
 #: libraries/DisplayResults.class.php:805
@@ -4721,10 +4721,9 @@ msgstr "Désactiver la vérification des clés étrangères"
 
 #: libraries/config/messages.inc.php:126
 #: libraries/plugins/export/ExportSql.class.php:154
-#, fuzzy
 #| msgid "Exporting rows from \"%s\" table"
 msgid "Export views as tables"
-msgstr "Exportation des lignes de la table «%s»"
+msgstr "Exporter les vues comme des tables"
 
 #: libraries/config/messages.inc.php:127 libraries/config/messages.inc.php:128
 #: libraries/config/messages.inc.php:130 libraries/config/messages.inc.php:136
@@ -8510,10 +8509,10 @@ msgid "RELATIONS FOR TABLE"
 msgstr "RELATIONS POUR LA TABLE"
 
 #: libraries/plugins/export/ExportSql.class.php:1512
-#, fuzzy, php-format
+#, php-format
 #| msgid "Structure for view"
 msgid "Structure for view %s exported as a table"
-msgstr "Structure de la vue"
+msgstr "Structure de la vue %s exportée comme un table"
 
 #: libraries/plugins/export/ExportSql.class.php:1600
 msgid "Error reading data:"
@@ -10391,10 +10390,9 @@ msgid "Edit user group: '%s'"
 msgstr "Modifier le groupe : « %s »"
 
 #: libraries/server_privileges.lib.php:3363
-#, fuzzy
 #| msgid "User group privileges"
 msgid "User group menu assignments"
-msgstr "Privilèges du groupe d'utilisateurs"
+msgstr "Attributions de menu du groupe d'utilisateurs"
 
 #: libraries/server_privileges.lib.php:3370
 msgid "Group name:"
