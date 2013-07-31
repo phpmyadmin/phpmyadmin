@@ -24,6 +24,7 @@ phpMyAdmin - ChangeLog
 + Reinstated configuration directive: AllowThirdPartyFraming
 
 4.0.4.2 (2013-07-28)
+- [security] fix unescaped parameter, see PMASA-2013-8
 - [security] Fix stored XSS in Server status monitor, see PMASA-2013-9
 - [security] Fix stored XSS in navigation panel logo link, see PMASA-2013-9
 - [security] Fix self-XSS in setup, trusted proxies validation, see PMASA-2013-9
