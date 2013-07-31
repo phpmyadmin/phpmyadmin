@@ -3333,8 +3333,13 @@ function _getAllowedTabNames($row, $level)
  */
 function PMA_deleteUserGroup($userGroup)
 {
+    $userTable = PMA_Util::backquote($GLOBALS['cfg']['Server']['pmadb'])
+        . "." . PMA_Util::backquote($GLOBALS['cfg']['Server']['users']);
     $groupTable = PMA_Util::backquote($GLOBALS['cfg']['Server']['pmadb'])
         . "." . PMA_Util::backquote($GLOBALS['cfg']['Server']['usergroups']);
+    $sql_query = "DELETE FROM " . $userTable
+        . " WHERE `usergroup`='" . PMA_Util::sqlAddSlashes($userGroup) . "'";
+    PMA_queryAsControlUser($sql_query, true);
     $sql_query = "DELETE FROM " . $groupTable
         . " WHERE `usergroup`='" . PMA_Util::sqlAddSlashes($userGroup) . "'";
     PMA_queryAsControlUser($sql_query, true);
