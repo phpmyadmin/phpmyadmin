@@ -50,9 +50,9 @@ if (empty($GLOBALS['goto'])) {
 }
 
 
-$url_params = PMA_getUrlParameters($db, $table);
+$_url_params = PMA_getUrlParameters($db, $table);
 $err_url = $GLOBALS['goto'] . PMA_generate_common_url($_url_params);
-
+unset($_url_params);
 
 $comments_map = PMA_getCommentsMap($db, $table);
 
@@ -117,6 +117,8 @@ $tabindex_for_value    = 0;
 $o_rows                = 0;
 $biggest_max_file_size = 0;
 
+$url_params['db'] = $db;
+$url_params['table'] = $table;
 $url_params = PMA_urlParamsInEditMode(
     $url_params, $where_clause_array, $where_clause
 );
