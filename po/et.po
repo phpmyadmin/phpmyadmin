@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-07-30 09:37-0400\n"
-"PO-Revision-Date: 2013-07-30 07:13+0200\n"
+"PO-Revision-Date: 2013-07-31 07:42+0200\n"
 "Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
 "Language-Team: Estonian "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/et/>\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 1.6\n"
+"X-Generator: Weblate 1.6-dev\n"
 
 #: browse_foreigners.php:51 browse_foreigners.php:75 js/messages.php:339
 #: libraries/DisplayResults.class.php:805
@@ -10227,10 +10227,9 @@ msgid "Edit user group: '%s'"
 msgstr "Muuda kasutajate gruppi: '%s'"
 
 #: libraries/server_privileges.lib.php:3363
-#, fuzzy
 #| msgid "User group privileges"
 msgid "User group menu assignments"
-msgstr "Kasutajate grupi õigused"
+msgstr "Kasutajate grupi menüü seosed"
 
 #: libraries/server_privileges.lib.php:3370
 msgid "Group name:"
