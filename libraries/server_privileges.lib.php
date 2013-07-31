@@ -2592,6 +2592,13 @@ function PMA_getTableBodyForUserRightsTable($db_rights, $link_edit, $link_export
         }
         $GLOBALS['dbi']->freeResult($result);
 
+        $userGroupTable = PMA_Util::backquote($GLOBALS['cfg']['Server']['pmadb'])
+            . "." . PMA_Util::backquote($GLOBALS['cfg']['Server']['usergroups']);
+        $sqlQuery = "SELECT COUNT(*) FROM " . $userGroupTable;
+        $userGroupCount = $GLOBALS['dbi']->fetchValue(
+            $sqlQuery, 0, 0, $GLOBALS['controllink']
+        );
+
         $link_edit_user_group = '<a class="edit_user_group_anchor ajax"'
             . ' href="server_privileges.php?'
             . str_replace('%', '%%', $GLOBALS['url_query'])
@@ -2664,7 +2671,7 @@ function PMA_getTableBodyForUserRightsTable($db_rights, $link_edit, $link_export
                     ''
                 )
                 . '</td>';
-            if ($GLOBALS['cfgRelation']['menuswork']) {
+            if ($GLOBALS['cfgRelation']['menuswork'] && $userGroupCount > 0) {
                 if (empty($host['User'])) {
                     $html_output .= '<td class="center"></td>';
                 } else {
