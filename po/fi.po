@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-07-29 15:07+0200\n"
-"PO-Revision-Date: 2013-07-30 14:53+0200\n"
+"PO-Revision-Date: 2013-07-31 03:14+0200\n"
 "Last-Translator: Henry Heinänen <h.heinanen@gmail.com>\n"
 "Language-Team: Finnish <http://l10n.cihar.com/projects/phpmyadmin/4-0/fi/>\n"
 "Language: fi\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 1.6\n"
+"X-Generator: Weblate 1.6-dev\n"
 
 #: browse_foreigners.php:51 browse_foreigners.php:75 js/messages.php:344
 #: libraries/DisplayResults.class.php:813
@@ -81,7 +81,7 @@ msgstr "Etsi"
 #: tbl_indexes.php:352 tbl_tracking.php:520 tbl_tracking.php:685
 #: view_create.php:225 view_operations.php:98
 msgid "Go"
-msgstr "Suorita"
+msgstr "Siirry"
 
 #: browse_foreigners.php:197 browse_foreigners.php:201
 #: libraries/Index.class.php:561 tbl_tracking.php:381
@@ -852,7 +852,6 @@ msgstr ""
 "nopeammin kuin phpMyAdminissa on määritetty."
 
 #: index.php:440
-#, fuzzy
 #| msgid ""
 #| "HP parameter http://php.net/manual/en/session.configuration.#ini.session."
 #| "gc-lifetime@]session.gc_maxlifetime[/a] is lower that kie validity "
@@ -862,10 +861,8 @@ msgid ""
 "Login cookie store is lower than cookie validity configured in phpMyAdmin, "
 "because of this, your login will expire sooner than configured in phpMyAdmin."
 msgstr ""
-"PHP-parametri [a@http://php.net/manual/en/session.configuration.php#ini."
-"session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] on matalampi kuin "
-"phpMyAdminissa määritetty evästekelpoisuus. Siksi kirjautumisesi erääntyy "
-"nopeammin kuin phpMyAdminissa on määritetty."
+"Kirjautumistunnuksesi vanhenee nopeammin kuin phpMyAdminissa määritetty. "
+"Siksi kirjautumisesi erääntyy nopeammin kuin phpMyAdminissa on määritetty."
 
 #: index.php:452
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
@@ -882,7 +879,7 @@ msgstr ""
 "määritetty."
 
 #: index.php:473
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "ditional features for working with linked tables have been ctivated. To d "
 #| "out why click %shere%s."
@@ -891,7 +888,7 @@ msgid ""
 "extended features have been deactivated. To find out why click %shere%s."
 msgstr ""
 "Linkitettyihin tauluihin liittyvät lisäominaisuudet eivät ole käytössä. "
-"Katso %slisätietoja%s."
+"Katso miksi %slisätietoja%s."
 
 #: index.php:505
 #, php-format
@@ -1597,7 +1594,7 @@ msgstr "Virhekoodi: %s"
 #: js/messages.php:226
 #, php-format
 msgid "Error text: %s"
-msgstr ""
+msgstr "Virhekoodi: %s"
 
 #: js/messages.php:227 libraries/db_common.inc.php:58
 #: libraries/db_table_exists.lib.php:28 server_databases.php:89
@@ -1851,7 +1848,7 @@ msgstr "Lisää valinta sarakkeelle "
 #: js/messages.php:334
 #, php-format
 msgid "%d object(s) created"
-msgstr ""
+msgstr "%d objekti(a) luotu"
 
 #: js/messages.php:337
 msgid "Press escape to cancel editing"
@@ -1895,22 +1892,19 @@ msgstr ""
 "ominaisuudet eivät ehkä ole toiminnassa tallennuksen jälkeen."
 
 #: js/messages.php:350
-#, fuzzy
 #| msgid ""
 #| "You can also edit most columns<br />by clicking directly on their content."
 msgid "You can also edit most values<br />by double-clicking directly on them."
 msgstr ""
-"Useimpia sarakkeita voi myös muokata<br />\n"
+"Useimpia sarakkeita voi myös muokata <br />\n"
 "painamalla suoraan niiden sisältöä."
 
 #: js/messages.php:353
-#, fuzzy
 #| msgid ""
 #| "You can also edit most columns<br />by clicking directly on their content."
 msgid "You can also edit most values<br />by clicking directly on them."
 msgstr ""
-"Useimpia sarakkeita voi myös muokata<br />\n"
-"painamalla suoraan niiden sisältöä."
+"Useimpia sarakkeita voi myös muokata<br/>painamalla suoraan niiden sisältöä."
 
 #: js/messages.php:358
 msgid "Go to link"
@@ -1923,6 +1917,8 @@ msgstr "Kopioi kenttän nimi"
 #: js/messages.php:360
 msgid "Right-click the column name to copy it to your clipboard."
 msgstr ""
+"Napsauta hiiren kakkospainikeella sarakkeen nimeä kopioidaksesi sen "
+"leikepöydälle."
 
 #: js/messages.php:361
 msgid "Show data row(s)"
@@ -1945,22 +1941,19 @@ msgid "More"
 msgstr "Lisää"
 
 #: js/messages.php:372
-#, fuzzy
 #| msgid "Show all"
 msgid "Show Panel"
-msgstr "Näytä kaikki"
+msgstr "Näytä paneeli"
 
 #: js/messages.php:373
-#, fuzzy
 #| msgid "Hide indexes"
 msgid "Hide Panel"
-msgstr "Piilota indeksit"
+msgstr "Piilota paneeli"
 
 #: js/messages.php:376
-#, fuzzy
 #| msgid "The selected user was not found in the privilege table."
 msgid "The requested page was not found in the history, it may have expired."
-msgstr "Valittua käyttäjää ei löytynyt käyttöoikeustaulusta."
+msgstr "Pyydettyä sivua ei löytynyt historiasta, se voi olla vanhentunut."
 
 #: js/messages.php:379 setup/lib/index.lib.php:188
 #, php-format
@@ -2418,13 +2411,13 @@ msgstr[0] "<b>Yhteensä:</b> <i>%s</i> hakutulosta"
 msgstr[1] "<b>Yhteensä:</b> <i>%s</i> hakutulosta"
 
 #: libraries/DbSearch.class.php:331
-#, fuzzy, php-format
+#, php-format
 #| msgid "%1$s match inside table <i>%2$s</i>"
 #| msgid_plural "%1$s matches inside table <i>%2$s</i>"
 msgid "%1$s match in <strong>%2$s</strong>"
 msgid_plural "%1$s matches in <strong>%2$s</strong>"
-msgstr[0] "%1$s hakutulosta taulussa <i>%2$s</i>"
-msgstr[1] "%1$s hakutulosta taulussa <i>%2$s</i>"
+msgstr[0] "%1$s hakutulosta taulussa <strong>%2$s</strong>"
+msgstr[1] "%1$s hakutulosta taulussa <strong>%2$s</strong>"
 
 #: libraries/DbSearch.class.php:346 libraries/Menu.class.php:267
 #: libraries/Util.class.php:3247 libraries/Util.class.php:3460
@@ -2579,10 +2572,9 @@ msgid "Relational key"
 msgstr "Relaatioavain"
 
 #: libraries/DisplayResults.class.php:1604
-#, fuzzy
 #| msgid "Relational display field"
 msgid "Relational display column"
-msgstr "Relaationäyttökenttä"
+msgstr "Relaatio näyttökenttä"
 
 #: libraries/DisplayResults.class.php:1616
 msgid "Show binary contents"
@@ -2603,11 +2595,11 @@ msgstr "piilota webselaimen muunnos"
 
 #: libraries/DisplayResults.class.php:1646
 msgid "Well Known Text"
-msgstr ""
+msgstr "Hyvin tunnettu teksti"
 
 #: libraries/DisplayResults.class.php:1647
 msgid "Well Known Binary"
-msgstr ""
+msgstr "Hyvin tunnettu ohjelmakoodi"
 
 #: libraries/DisplayResults.class.php:3363
 #: libraries/DisplayResults.class.php:3379
@@ -2637,16 +2629,16 @@ msgstr ""
 "%sohjeista%s."
 
 #: libraries/DisplayResults.class.php:4927
-#, fuzzy, php-format
+#, php-format
 #| msgid "Showing rows"
 msgid "Showing rows %1s - %2s"
-msgstr "Näkyvillä rivit"
+msgstr "Näytetään rivit %1s - %2s"
 
 #: libraries/DisplayResults.class.php:4939
-#, fuzzy, php-format
+#, php-format
 #| msgid "total"
 msgid "%d total"
-msgstr "yhteensä"
+msgstr "%d tulos"
 
 #: libraries/DisplayResults.class.php:4951 sql.php:945
 #, php-format
@@ -2706,7 +2698,7 @@ msgstr "Näytä kaavio"
 
 #: libraries/DisplayResults.class.php:5302
 msgid "Visualize GIS data"
-msgstr ""
+msgstr "Visualisoi paikkatieto"
 
 #: libraries/DisplayResults.class.php:5334 view_create.php:152
 msgid "Create view"
@@ -2777,7 +2769,7 @@ msgstr "Avaa uusi phpMyAdmin-ikkuna"
 
 #: libraries/Header.class.php:398
 msgid "Click on the bar to scroll to top of page"
-msgstr ""
+msgstr "Palkin klikkaus vierittää sivun ylös"
 
 #: libraries/Header.class.php:639
 #: libraries/plugins/auth/AuthenticationCookie.class.php:172
@@ -3098,18 +3090,17 @@ msgid "Query statistics"
 msgstr "Kyselyn ominaisuuksia"
 
 #: libraries/ServerStatusData.class.php:347
-#, fuzzy
 #| msgid "See slave status table"
 msgid "All status variables"
-msgstr "Näytä alipalvelimen tilan taulu"
+msgstr "Kaikki muuttujat"
 
 #: libraries/ServerStatusData.class.php:351
 msgid "Monitor"
-msgstr ""
+msgstr "Valvonta"
 
 #: libraries/ServerStatusData.class.php:355
 msgid "Advisor"
-msgstr ""
+msgstr "Neuvonantaja"
 
 #: libraries/StorageEngine.class.php:216
 msgid ""
@@ -3238,7 +3229,7 @@ msgstr "Lajittelujärjestys:"
 
 #: libraries/TableSearch.class.php:839
 msgid "Use this column to label each point"
-msgstr ""
+msgstr "Käytä tätä saraketta merkitäksesi jokaisen kohdan"
 
 #: libraries/TableSearch.class.php:860
 msgid "Maximum rows to plot"
@@ -3264,7 +3255,7 @@ msgstr "Suorita mallin mukainen kysely (jokerimerkki: \"%\")"
 
 #: libraries/TableSearch.class.php:1169
 msgid "Browse/Edit the points"
-msgstr ""
+msgstr "Selaa/muokkaa kohtia"
 
 #: libraries/TableSearch.class.php:1176
 msgid "How to use"
@@ -3392,10 +3383,12 @@ msgid ""
 "A synonym for TINYINT(1), a value of zero is considered false, nonzero "
 "values are considered true"
 msgstr ""
+"Synonyymi TINYINT(1), arvo nolla ilmoitetaan false, muut arvot ilmoitetaan "
+"true"
 
 #: libraries/Types.class.php:318
 msgid "An alias for BIGINT UNSIGNED NOT NULL AUTO_INCREMENT UNIQUE"
-msgstr ""
+msgstr "Alias arvolle BIGINT UNSIGNED NOT NULL AUTO_INCREMENT UNIQUE"
 
 #: libraries/Types.class.php:320 libraries/Types.class.php:722
 #, php-format
@@ -3405,13 +3398,15 @@ msgstr "Päiväys, pitää olla välillä %1$s - %2$s"
 #: libraries/Types.class.php:322 libraries/Types.class.php:724
 #, php-format
 msgid "A date and time combination, supported range is %1$s to %2$s"
-msgstr ""
+msgstr "Päivämäärän ja ajan yhdistelmä, tuettu alue on %1$s - %2$s"
 
 #: libraries/Types.class.php:324
 msgid ""
 "A timestamp, range is 1970-01-01 00:00:01 UTC to 2038-01-09 03:14:07 UTC, "
 "stored as the number of seconds since the epoch (1970-01-01 00:00:00 UTC)"
 msgstr ""
+"Aikaleima, alue on 1970-01-01 00:00:01 UTC 01.09.2038 03:14:07 UTC, "
+"tallentaa monta sekunteina, koska aikakausi on (1970-01-01 00:00:00 UTC )"
 
 #: libraries/Types.class.php:326 libraries/Types.class.php:728
 #, php-format
@@ -3423,12 +3418,16 @@ msgid ""
 "A year in four-digit (4, default) or two-digit (2) format, the allowable "
 "values are 70 (1970) to 69 (2069) or 1901 to 2155 and 0000"
 msgstr ""
+"Vuosi on nelinumeroinen (4, oletus) tai kaksinumeroinen (2) muodossa, "
+"sallitut arvot ovat 70 (1970), 69 (2069) tai 1901-2155 ja 0000"
 
 #: libraries/Types.class.php:330
 msgid ""
 "A fixed-length (0-255, default 1) string that is always right-padded with "
 "spaces to the specified length when stored"
 msgstr ""
+"Pituudeltaan (0-255, oletus 1) merkkijono, johon on lisätty välilyöntejä "
+"määrittämään pituutta tallennettuna"
 
 #: libraries/Types.class.php:332 libraries/Types.class.php:730
 #, php-format
@@ -3436,24 +3435,32 @@ msgid ""
 "A variable-length (%s) string, the effective maximum length is subject to "
 "the maximum row size"
 msgstr ""
+"Vaihtelevan pituinen (% s) merkkijono, paras enimmäispituus on aihealueen "
+"rivien enimmäiskoko"
 
 #: libraries/Types.class.php:334
 msgid ""
 "A TEXT column with a maximum length of 255 (2^8 - 1) characters, stored with "
 "a one-byte prefix indicating the length of the value in bytes"
 msgstr ""
+"A TEXT sarakkeen enimmäispituus 255 (2 ^ 8 - 1) merkkiä, tallennettu "
+"yksitavuisena etuliitteenä, joka osoittaa arvon pituuden tavuina"
 
 #: libraries/Types.class.php:336 libraries/Types.class.php:732
 msgid ""
 "A TEXT column with a maximum length of 65,535 (2^16 - 1) characters, stored "
 "with a two-byte prefix indicating the length of the value in bytes"
 msgstr ""
+"A TEXT sarakkeen enimmäispituus 65,535 (2^16-1) merkkiä, tallennettu "
+"kaksitavuisena etuliitteenä, joka osoittaa arvon pituuden tavuina"
 
 #: libraries/Types.class.php:338
 msgid ""
 "A TEXT column with a maximum length of 16,777,215 (2^24 - 1) characters, "
 "stored with a three-byte prefix indicating the length of the value in bytes"
 msgstr ""
+"A TEXT sarakkeen enimmäispituus 16,777,215 (2^24-1) merkkiä, tallennettu "
+"kolmen tavun etuliitteenä, joka osoittaa arvon pituuden tavuina"
 
 #: libraries/Types.class.php:340
 msgid ""
@@ -3461,64 +3468,78 @@ msgid ""
 "characters, stored with a four-byte prefix indicating the length of the "
 "value in bytes"
 msgstr ""
+"A TEXT sarakkeen enimmäispituus 4,294,967,295 tai 4GiB (2^32-1) merkkiä, "
+"tallennetaan neljän tavun etuliirteenä, joka osoittaa arvon pituuden tavuina"
 
 #: libraries/Types.class.php:342
 msgid ""
 "Similar to the CHAR type, but stores binary byte strings rather than non-"
 "binary character strings"
 msgstr ""
+"Samanlainen kuin CHAR tyyppi, mutta tallentaa binaariset merkkijonot "
+"mieluummin kuin ei binaariset merkkijonot"
 
 #: libraries/Types.class.php:344
 msgid ""
 "Similar to the VARCHAR type, but stores binary byte strings rather than non-"
 "binary character strings"
 msgstr ""
+"Samanlainen kuin VARCHAR tyyppi, mutta tallentaa binaariset merkkijonot "
+"mieluummin ei binaariset merkkijonot"
 
 #: libraries/Types.class.php:346
 msgid ""
 "A BLOB column with a maximum length of 255 (2^8 - 1) bytes, stored with a "
 "one-byte prefix indicating the length of the value"
 msgstr ""
+"A BLOB sarakkeen enimmäispituus 255 (2^8-1) tavua, tallennettu yksitavuisena "
+"etuliitteenä, joka ilmaisee arvon pituuden"
 
 #: libraries/Types.class.php:348
 msgid ""
 "A BLOB column with a maximum length of 16,777,215 (2^24 - 1) bytes, stored "
 "with a three-byte prefix indicating the length of the value"
 msgstr ""
+"A BLOB sarakkeen enimmäispituus 16,777,215 (2^24-1) tavua, tallennetaan "
+"kolmen tavun etuliiteenä, joka ilmaisee arvon pituuden"
 
 #: libraries/Types.class.php:350 libraries/Types.class.php:736
 msgid ""
 "A BLOB column with a maximum length of 65,535 (2^16 - 1) bytes, stored with "
 "a two-byte prefix indicating the length of the value"
 msgstr ""
+"A BLOB sarakkeen enimmäispituus 65,535 (2^16-1) tavua, tallennettu "
+"kaksitavuisena etuliiteenä, joka ilmaisee arvon pituuden"
 
 #: libraries/Types.class.php:352
 msgid ""
 "A BLOB column with a maximum length of 4,294,967,295 or 4GiB (2^32 - 1) "
 "bytes, stored with a four-byte prefix indicating the length of the value"
 msgstr ""
+"A BLOB sarakkeen enimmäispituus 4,294,967,295 tai 4GiB (2^32-1) tavua, "
+"varastoitu nelitavuisena etuliiteenä, joka ilmaisee arvon pituuden"
 
 #: libraries/Types.class.php:354
 msgid ""
 "An enumeration, chosen from the list of up to 65,535 values or the special "
 "'' error value"
-msgstr ""
+msgstr "Luettelo, listalta valittu jopa 65,535 arvoa tai erityinen \" virhe arvo"
 
 #: libraries/Types.class.php:356
 msgid "A single value chosen from a set of up to 64 members"
-msgstr ""
+msgstr "Yksittäinen arvo, joka on valittu 64 jäsenen joukosta"
 
 #: libraries/Types.class.php:358
 msgid "A type that can store a geometry of any type"
-msgstr ""
+msgstr "Tyyppi, joka voi tallentaa mitä tahansa geometriaa"
 
 #: libraries/Types.class.php:360
 msgid "A point in 2-dimensional space"
-msgstr ""
+msgstr "Kohta 2-ulotteisessa avaruudessa"
 
 #: libraries/Types.class.php:362
 msgid "A curve with linear interpolation between points"
-msgstr ""
+msgstr "Käyrän pisteiden välisen lineaarinen interpolointi"
 
 #: libraries/Types.class.php:364
 msgid "A polygon"
@@ -3526,24 +3547,24 @@ msgstr "Monikulmio"
 
 #: libraries/Types.class.php:366
 msgid "A collection of points"
-msgstr ""
+msgstr "Kokoelma pisteitä"
 
 #: libraries/Types.class.php:368
 msgid "A collection of curves with linear interpolation between points"
-msgstr ""
+msgstr "Käyrien pisteiden välisen lineaarisen interpolointi kokoelma"
 
 #: libraries/Types.class.php:370
 msgid "A collection of polygons"
-msgstr ""
+msgstr "Kokoelma polygoneja"
 
 #: libraries/Types.class.php:372
 msgid "A collection of geometry objects of any type"
-msgstr ""
+msgstr "Kokoelma mitä tahansa geometrisiä objekteja"
 
 #: libraries/Types.class.php:624 libraries/Types.class.php:974
 msgctxt "numeric types"
 msgid "Numeric"
-msgstr ""
+msgstr "Lukuarvo"
 
 #: libraries/Types.class.php:643 libraries/Types.class.php:977
 msgctxt "date and time types"
@@ -3562,45 +3583,51 @@ msgstr "Geometrinen"
 
 #: libraries/Types.class.php:708
 msgid "A 4-byte integer, range is -2,147,483,648 to 2,147,483,647"
-msgstr ""
+msgstr "4 tavun kokonaisluku, alue on -2,147,483,648 - 2,147,483,647"
 
 #: libraries/Types.class.php:710
 msgid ""
 "An 8-byte integer, range is -9,223,372,036,854,775,808 to "
 "9,223,372,036,854,775,807"
 msgstr ""
+"8 tavun kokonaisluku, alue on -9,223,372,036,854,775,808 - "
+"9,223,372,036,854,775,807"
 
 #: libraries/Types.class.php:714
 msgid "A system's default double-precision floating-point number"
-msgstr ""
+msgstr "Järjestelmän oletus, kaksinkertaisen tarkkuuden liukuluku"
 
 #: libraries/Types.class.php:716
 msgid "True or false"
-msgstr ""
+msgstr "True tai false"
 
 #: libraries/Types.class.php:718
 msgid "An alias for BIGINT NOT NULL AUTO_INCREMENT UNIQUE"
-msgstr ""
+msgstr "Alias arvolle BIGINT NOT NULL AUTO_INCREMENT UNIQUE"
 
 #: libraries/Types.class.php:720
 msgid "Stores a Universally Unique Identifier (UUID)"
-msgstr ""
+msgstr "Tallentaa maailmanlaajuista yksilöllistä tunnistetta (UUID)"
 
 #: libraries/Types.class.php:726
 msgid ""
 "A timestamp, range is '0001-01-01 00:00:00' UTC to '9999-12-31 23:59:59' "
 "UTC; TIMESTAMP(6) can store microseconds"
 msgstr ""
+"Aikaleima, alue on '0001-01-01 00:00:00' UTC to '9999-12-31 23:59:59' UTC; "
+"TIMESTAMP(6) voi tallentaa mikrosekuntia"
 
 #: libraries/Types.class.php:734
 msgid ""
 "A variable-length (0-65,535) string, uses binary collation for all "
 "comparisons"
 msgstr ""
+"Vaihteleva pituus (0-65,535) merkkijono, käyttää binaarista lajittelua "
+"kaikissa vertailuissa"
 
 #: libraries/Types.class.php:738
 msgid "An enumeration, chosen from the list of defined values"
-msgstr ""
+msgstr "Luettelointi, valittu määritetyt arvot luettelosta"
 
 #: libraries/Util.class.php:237
 #, php-format
@@ -3822,11 +3849,11 @@ msgstr "Sinun tulisi päivittää versioon %s %s tai sitä uudempaan."
 
 #: libraries/common.inc.php:1079
 msgid "Error: Token mismatch"
-msgstr ""
+msgstr "Virhe: Tunnus ei täsmää"
 
 #: libraries/common.inc.php:1123
 msgid "GLOBALS overwrite attempt"
-msgstr ""
+msgstr "GLOBALS ylikirjoitus yritys"
 
 #: libraries/common.inc.php:1130
 msgid "possible exploit"
@@ -3839,12 +3866,12 @@ msgstr "numeerinen avain tunnistettu"
 #: libraries/config.values.php:49 libraries/config.values.php:64
 #: libraries/config.values.php:69
 msgid "Icons"
-msgstr ""
+msgstr "Kuvakkeet"
 
 #: libraries/config.values.php:50 libraries/config.values.php:65
 #: libraries/config.values.php:70
 msgid "Text"
-msgstr ""
+msgstr "Teksti"
 
 #: libraries/config.values.php:51 libraries/config.values.php:58
 #: libraries/config.values.php:66 libraries/config.values.php:71
@@ -3865,11 +3892,11 @@ msgstr "Oikea"
 
 #: libraries/config.values.php:74
 msgid "Click"
-msgstr ""
+msgstr "Valitse"
 
 #: libraries/config.values.php:75
 msgid "Double click"
-msgstr ""
+msgstr "Kaksoisnapsautus"
 
 #: libraries/config.values.php:76 libraries/config.values.php:107
 #: libraries/config/FormDisplay.tpl.php:223 libraries/relation.lib.php:96
@@ -4052,7 +4079,7 @@ msgid ""
 msgstr ""
 "Tämän käyttöönottaminen antaa toisella palvelimella olevan sivun kutsua "
 "phpMyAdminia kehyksen sisältä. Tämä voi olla [strong]turva-aukko[/strong], "
-"joka mahdollistaa kehystenväliset skriptihyökkäykset."
+"joka mahdollistaa kehystenväliset komentosarjahyökkäykset"
 
 #: libraries/config/messages.inc.php:20
 msgid "Allow third party framing"
@@ -4119,10 +4146,13 @@ msgid ""
 "Use user-friendly editor for editing SQL queries ([a@http://codemirror."
 "net/]CodeMirror[/a]) with syntax highlighting and line numbers"
 msgstr ""
+"Käyttäjäystävällisellä editorilla voi muokata SQL kyselyitä "
+"([a@http://codemirror.net/]CodeMirror[/a]) syntaksia korostamalla ja rivi "
+"numeroilla"
 
 #: libraries/config/messages.inc.php:33
 msgid "Enable CodeMirror"
-msgstr ""
+msgstr "Ota käyttöön CodeMirror"
 
 #: libraries/config/messages.inc.php:34
 msgid ""
@@ -4232,7 +4262,7 @@ msgstr "Oletusarvoinen tauluvälilehti"
 
 #: libraries/config/messages.inc.php:56
 msgid "Whether the table structure actions should be hidden"
-msgstr ""
+msgstr "Taulukon rakenteiden toiminnot pitäisi olla piilossa"
 
 #: libraries/config/messages.inc.php:57
 msgid "Hide table structure actions"
@@ -4616,16 +4646,14 @@ msgid "Databases display options"
 msgstr "Tietokantojen näyttöasetukset"
 
 #: libraries/config/messages.inc.php:179 setup/frames/menu.inc.php:19
-#, fuzzy
 #| msgid "Navigation frame"
 msgid "Navigation panel"
-msgstr "Navigointikehys"
+msgstr "Navigointi paneeli"
 
 #: libraries/config/messages.inc.php:180
-#, fuzzy
 #| msgid "Customize appearance of the navigation frame"
 msgid "Customize appearance of the navigation panel"
-msgstr "Mukauta navigointikehyksen näkymää"
+msgstr "Mukauta navigointi paneelin näkymää"
 
 #: libraries/config/messages.inc.php:181 libraries/select_server.lib.php:42
 #: setup/frames/index.inc.php:117
@@ -4641,10 +4669,9 @@ msgid "Tables display options"
 msgstr "Taulujen näyttöasetukset"
 
 #: libraries/config/messages.inc.php:185 setup/frames/menu.inc.php:20
-#, fuzzy
 #| msgid "Main frame"
 msgid "Main panel"
-msgstr "Pääkehys"
+msgstr "Pääpaneeli"
 
 #: libraries/config/messages.inc.php:186
 msgid "Microsoft Office"
@@ -4668,6 +4695,9 @@ msgid ""
 "[doc@cfg_TitleTable]documentation[/doc] for magic strings that can be used "
 "to get special values."
 msgstr ""
+"Määritä selaimen otsikkorivin tekstin. Katso "
+"[doc@cfg_TitleTable]documentation[/doc] magic strings, jonka avulla voidaan "
+"saada erityisiä arvoja."
 
 #: libraries/config/messages.inc.php:194
 #: libraries/navigation/NavigationHeader.class.php:209
@@ -4750,16 +4780,14 @@ msgid "Customize import defaults"
 msgstr "Mukauta tuonnin oletusasetuksia"
 
 #: libraries/config/messages.inc.php:211
-#, fuzzy
 #| msgid "Customize navigation frame"
 msgid "Customize navigation panel"
-msgstr "Mukauta navigointikehystä"
+msgstr "Mukauta navigointi paneelia"
 
 #: libraries/config/messages.inc.php:212
-#, fuzzy
 #| msgid "Customize main frame"
 msgid "Customize main panel"
-msgstr "Mukauta pääkehystä"
+msgstr "Mukauta pääpaneelia"
 
 #: libraries/config/messages.inc.php:213 libraries/config/messages.inc.php:218
 #: setup/frames/menu.inc.php:18
@@ -4809,6 +4837,8 @@ msgstr "Tietokannan rakenne"
 #: libraries/config/messages.inc.php:225
 msgid "Choose which details to show in the database structure (list of tables)"
 msgstr ""
+"Valitse, mitkä tiedot näytetään tietokannan rakenteessa (taulukoiden "
+"luettelo)"
 
 #: libraries/config/messages.inc.php:226
 msgid "Table structure"
@@ -4816,7 +4846,7 @@ msgstr "Taulun rakenne"
 
 #: libraries/config/messages.inc.php:227
 msgid "Settings for the table structure (list of columns)"
-msgstr ""
+msgstr "Taulukkorakenteen asetukset (sarakkeiden luettelo)"
 
 #: libraries/config/messages.inc.php:228
 msgid "Tabs"
@@ -4967,7 +4997,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:272
 msgid "Limit column characters"
-msgstr ""
+msgstr "Merkkien raja sarakkeessa"
 
 #: libraries/config/messages.inc.php:273
 msgid ""
@@ -5021,11 +5051,11 @@ msgstr "Kirjautumisevästeen kelpoisuus"
 
 #: libraries/config/messages.inc.php:281
 msgid "Double size of textarea for LONGTEXT columns"
-msgstr ""
+msgstr "Kaksinkertainen tekstialue LONGTEXT sarakkeille"
 
 #: libraries/config/messages.inc.php:282
 msgid "Bigger textarea for LONGTEXT"
-msgstr ""
+msgstr "Isompi tekstialue LONGTEXT"
 
 #: libraries/config/messages.inc.php:283
 msgid "Maximum number of characters used when a SQL query is displayed"
@@ -5038,30 +5068,26 @@ msgstr "Näytettävän SQL-kyselyn enimmäispituus"
 #: libraries/config/messages.inc.php:285 libraries/config/messages.inc.php:292
 #: libraries/config/messages.inc.php:348
 msgid "Users cannot set a higher value"
-msgstr ""
+msgstr "Käyttäjät eivät voi määrittää suurempaa arvoa"
 
 #: libraries/config/messages.inc.php:286
-#, fuzzy
 #| msgid "Maximum number of tables displayed in table list"
 msgid "Maximum number of databases displayed in database list"
-msgstr "Taululuettelossa näkyvien taulujen enimmäismäärä"
+msgstr "Tietokantaluettelossa näkyvien tietokantojen enimmäismäärä"
 
 #: libraries/config/messages.inc.php:287
 msgid "Maximum databases"
 msgstr "Tietokantoja enintään"
 
 #: libraries/config/messages.inc.php:288
-#, fuzzy
 #| msgid "The number of joins that did a full scan of the first table."
 msgid ""
 "The number of items that can be displayed on each page of the navigation tree"
-msgstr ""
-"Kertoo niiden liitosten määrän, jotka suorittivat ensimmäisestä taulusta "
-"täydellisen tarkistuksen."
+msgstr "Nimikkeiden määrä jotka voidaan näyttää navigointipuun eri sivuilla"
 
 #: libraries/config/messages.inc.php:289
 msgid "Maximum items in branch"
-msgstr ""
+msgstr "Kohteiden enimmäismäärä haarassa"
 
 #: libraries/config/messages.inc.php:290
 msgid ""
@@ -5090,6 +5116,8 @@ msgid ""
 "Disable the default warning that is displayed if mcrypt is missing for "
 "cookie authentication"
 msgstr ""
+"Poistaa oletus varoituksen, joka näytetään jos mcrypt puuttuu eväste "
+"todennuksesta"
 
 #: libraries/config/messages.inc.php:296
 msgid "mcrypt warning"
@@ -5108,10 +5136,9 @@ msgid "Memory limit"
 msgstr "Muistirajoitus"
 
 #: libraries/config/messages.inc.php:299
-#, fuzzy
 #| msgid "Show logo in left frame"
 msgid "Show logo in navigation panel"
-msgstr "Näytä vasemmassa kehyksessä logo"
+msgstr "Näytä navigointi paneelissa logo"
 
 #: libraries/config/messages.inc.php:300
 msgid "Display logo"
@@ -5119,7 +5146,7 @@ msgstr "Näytä logo"
 
 #: libraries/config/messages.inc.php:301
 msgid "URL where logo in the navigation panel will point to"
-msgstr ""
+msgstr "URL-osoite, johon logo navigointi paneelissa osoittaa"
 
 #: libraries/config/messages.inc.php:302
 msgid "Logo link URL"
@@ -5138,10 +5165,9 @@ msgid "Logo link target"
 msgstr "Logon linkin kohde"
 
 #: libraries/config/messages.inc.php:305
-#, fuzzy
 #| msgid "Display server choice at the top of the left frame"
 msgid "Display server choice at the top of the navigation panel"
-msgstr "Näytä palvelimen alinta vasemman kehyksen yläkulmassa"
+msgstr "Näytä palvelimen valinta navigointi paneelin yläreunassa"
 
 #: libraries/config/messages.inc.php:306
 msgid "Display servers selection"
@@ -5152,25 +5178,24 @@ msgid "Target for quick access icon"
 msgstr "Pikakäyttökuvakkeen kohde"
 
 #: libraries/config/messages.inc.php:308
-#, fuzzy
 #| msgid "Minimum number of tables to display the table filter box"
 msgid ""
 "Defines the minimum number of items (tables, views, routines and events) to "
 "display a filter box."
-msgstr "Taululuettelossa näkyvien taulujen minimimäärä"
+msgstr ""
+"Määrittää kohteiden (taulukot, näkymät, rutiinit ja tapahtumat) suodattimen "
+"vähimmäismäärän."
 
 #: libraries/config/messages.inc.php:309
-#, fuzzy
 #| msgid "Minimum number of tables to display the table filter box"
 msgid "Minimum number of items to display the filter box"
-msgstr "Taululuettelossa näkyvien taulujen minimimäärä"
+msgstr "Suodatimessa näytettävien kohteiden vähimmäismäärä"
 
 #: libraries/config/messages.inc.php:310
 msgid "Minimum number of databases to display the database filter box"
 msgstr "Taululuettelossa näkyvien taulujen minimimäärä"
 
 #: libraries/config/messages.inc.php:311
-#, fuzzy
 #| msgid ""
 #| "Only light version; display databases in a tree (determined by the "
 #| "separator defined below)"
@@ -5178,12 +5203,12 @@ msgid ""
 "Group items in the navigation tree (determined by the separator defined "
 "below)"
 msgstr ""
-"Vain kevyt versio; näytä tietokannat puuna (puu määritellään alla "
-"osoitetulla erottimella)"
+"Näytä tietokannat navigointipuuna (puu määritellään alla osoitetulla "
+"erottimella)"
 
 #: libraries/config/messages.inc.php:312
 msgid "Group items in the tree"
-msgstr ""
+msgstr "Navigointipuun ryhmittäminen"
 
 #: libraries/config/messages.inc.php:313
 msgid "String that separates databases into different tree levels"
@@ -5223,11 +5248,11 @@ msgstr "Viimeksi käytetty taulut"
 
 #: libraries/config/messages.inc.php:322
 msgid "These are Edit, Copy and Delete links"
-msgstr ""
+msgstr "Nämä ovat Muokkaa, kopioi ja Poista linkit"
 
 #: libraries/config/messages.inc.php:323
 msgid "Where to show the table row links"
-msgstr ""
+msgstr "Tässä näytetään taulukon rivien linkit"
 
 #: libraries/config/messages.inc.php:324
 msgid "Use natural order for sorting table and database names"
@@ -6277,7 +6302,7 @@ msgstr "Open Document -teksti"
 
 #: libraries/config/validate.lib.php:214
 msgid "Could not initialize Drizzle connection library"
-msgstr ""
+msgstr "Ei voinut alustaa Drizzle tietoyhteyskirjastoa"
 
 #: libraries/config/validate.lib.php:223 libraries/config/validate.lib.php:231
 msgid "Could not connect to Drizzle server"
@@ -6336,7 +6361,7 @@ msgstr "Palvelin ei vastaa."
 
 #: libraries/database_interface.lib.php:2084
 msgid "Please check privileges of directory containing database."
-msgstr ""
+msgstr "Tarkista käyttöoikeudet hakemisto sisältää tietokannan."
 
 #: libraries/database_interface.lib.php:2094
 msgid "Details…"
@@ -14055,7 +14080,7 @@ msgstr ""
 #, fuzzy
 #| msgid "max. concurrent connections"
 msgid "concurrent_insert is set to 0"
-msgstr "Enim. yhtäaikaisia yhteyksiä"
+msgstr "concurrent_insert on asetettu 0"
 
 #~ msgid "Iconic table operations"
 #~ msgstr "Kuvakkeellisen taulun toiminnot"
