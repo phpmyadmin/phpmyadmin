@@ -32,14 +32,23 @@ class PMA_TableReplaceSearchTest extends PHPUnit_Framework_TestCase
     protected function setup()
     {
         $this->_object = $this->getMock(
-        	'PMA_TableSearch',
+            'PMA_TableSearch',
             array('_loadTableInfo'),
-            array('dbName', 'tableName', 'replace'),
-            'Mock_PMA_TableSearch',
+            array(),
+            '',
             false
         );
 
         $reflection = new \ReflectionClass('PMA_TableSearch');
+
+        // set database, table names
+        $attrDb = $reflection->getProperty('_db');
+        $attrDb->setAccessible(true);
+        $attrDb->setValue($this->_object, 'dbName');
+        $attrTable = $reflection->getProperty('_table');
+        $attrTable->setAccessible(true);
+        $attrTable->setValue($this->_object, 'tableName');
+
         // set column names list
         $attrColNames = $reflection->getProperty('_columnNames');
         $attrColNames->setAccessible(true);
@@ -63,7 +72,7 @@ class PMA_TableReplaceSearchTest extends PHPUnit_Framework_TestCase
         $replaceWith = 'replaceWithValue';
         $charSet = 'charSetValue';
 
-        $expectedQuery = "SELECT `column1` REPLACE(`column1`, '" . $find . "', '"
+        $expectedQuery = "SELECT `column1`, REPLACE(`column1`, '" . $find . "', '"
             . $replaceWith . "'), COUNT(*) FROM `dbName`.`tableName` WHERE `column1`"
             . " LIKE '%" . $find . "%' COLLATE " . $charSet . "_bin GROUP BY"
             . " `column1` ORDER BY `column1` ASC";
@@ -71,13 +80,13 @@ class PMA_TableReplaceSearchTest extends PHPUnit_Framework_TestCase
         $dbi->expects($this->once())
             ->method('query')
             ->with($expectedQuery);
-        $dbi->expects($this->at(0))
-            ->method('fetchRow')
-            ->will($this->returnValue(array('val1', 'replace1', 5)));
         $dbi->expects($this->at(1))
             ->method('fetchRow')
-            ->will($this->returnValue(array('va<2', 'replac<2', 1)));
+            ->will($this->returnValue(array('val1', 'replace1', 5)));
         $dbi->expects($this->at(2))
+            ->method('fetchRow')
+            ->will($this->returnValue(array('va<2', 'replac<2', 1)));
+        $dbi->expects($this->at(3))
             ->method('fetchRow')
             ->will($this->returnValue(false));
         $GLOBALS['dbi'] = $dbi;
