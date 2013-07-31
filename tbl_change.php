@@ -81,7 +81,7 @@ if (! empty($disp_message)) {
 }
 
 
-$table_fields = PMA_getTableFields($db, $table);
+$table_columns = PMA_getTableColumns($db, $table);
 
 // retrieve keys into foreign fields, if any
 $foreigners = PMA_getForeigners($db, $table);
@@ -108,7 +108,7 @@ $chg_evt_handler = (PMA_USR_BROWSER_AGENT == 'IE'
 $html_output = '';
 // Set if we passed the first timestamp field
 $timestamp_seen = false;
-$columns_cnt     = count($table_fields);
+$columns_cnt     = count($table_columns);
 
 $tabindex              = 0;
 $tabindex_for_function = +3000;
@@ -126,7 +126,7 @@ $url_params = PMA_urlParamsInEditMode(
 //Insert/Edit form
 //If table has blob fields we have to disable ajax.
 $has_blob_field = false;
-foreach ($table_fields as $column) {
+foreach ($table_columns as $column) {
     if (PMA_isColumnBlob($column)) {
         $has_blob_field = true;
         break;
@@ -191,8 +191,8 @@ foreach ($rows as $row_id => $current_row) {
 
     $odd_row = true;
     for ($i = 0; $i < $columns_cnt; $i++) {
-        if (! isset($table_fields[$i]['processed'])) {
-            $column = $table_fields[$i];
+        if (! isset($table_columns[$i]['processed'])) {
+            $column = $table_columns[$i];
             $column = PMA_analyzeTableColumnsArray(
                 $column, $comments_map, $timestamp_seen
             );
