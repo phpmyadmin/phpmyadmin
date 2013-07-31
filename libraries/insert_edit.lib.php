@@ -99,7 +99,7 @@ function PMA_analyzeWhereClauses(
 }
 
 /**
- * Show message for empty reult or set the unique_condition
+ * Show message for empty result or set the unique_condition
  *
  * @param array  $rows               MySQL returned rows
  * @param string $key_id             ID in current key
@@ -2164,7 +2164,7 @@ function PMA_getCurrentValueAsAnArrayForMultipleEdit($multi_edit_colummns,
 }
 
 /**
- * Get query values array and query fileds array for insert and update in multi edit
+ * Get query values array and query fields array for insert and update in multi edit
  *
  * @param array   $multi_edit_columns_name      multiple edit columns name array
  * @param array   $multi_edit_columns_null      multiple edit columns null array
@@ -2173,7 +2173,7 @@ function PMA_getCurrentValueAsAnArrayForMultipleEdit($multi_edit_colummns,
  * @param array   $multi_edit_funcs             multiple edit functions array
  * @param boolean $is_insert                    boolean value whether insert or not
  * @param array   $query_values                 SET part of the sql query
- * @param array   $query_fields                 array of query fileds
+ * @param array   $query_fields                 array of query fields
  * @param string  $current_value_as_an_array    current value in the column
  *                                              as an array
  * @param array   $value_sets                   array of valu sets
@@ -2468,7 +2468,7 @@ function PMA_getCommentsMap($db, $table)
     include 'libraries/tbl_info.inc.php';
 
     /**
-     * Get comments for table fileds/columns
+     * Get comments for table fields/columns
      */
     $comments_map = array();
 
