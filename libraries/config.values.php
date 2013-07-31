@@ -32,7 +32,7 @@ $cfg_db['Servers'] = array(
         'only_db'      => 'array'
     )
 );
-$cfg_db['RecodingEngine'] = array('auto', 'iconv', 'recode', 'none');
+$cfg_db['RecodingEngine'] = array('auto', 'iconv', 'recode', 'mb', 'none');
 $cfg_db['OBGzip'] = array('auto', true, false);
 $cfg_db['MemoryLimit'] = 'short_string';
 $cfg_db['NavigationLogoLinkWindow'] = array('main', 'new');
@@ -239,13 +239,13 @@ $cfg_db['_validators'] = array(
  */
 $cfg_db['_userValidators'] = array(
     'MaxDbList'       => array(
-        array('PMA_validateUpperBound', 'value:MaxDbList')
+        array('validateUpperBound', 'value:MaxDbList')
     ),
     'MaxTableList'    => array(
-        array('PMA_validateUpperBound', 'value:MaxTableList')
+        array('validateUpperBound', 'value:MaxTableList')
     ),
     'QueryHistoryMax' => array(
-        array('PMA_validateUpperBound', 'value:QueryHistoryMax')
+        array('validateUpperBound', 'value:QueryHistoryMax')
     )
 );
 ?>

@@ -55,7 +55,7 @@ function PMA_ifSetOr(&$var, $default = null, $type = 'similar')
  * $type can be:
  * - false       : no type checking
  * - 'scalar'    : whether type of $var is integer, float, string or boolean
- * - 'numeric'   : whether type of $var is any number repesentation
+ * - 'numeric'   : whether type of $var is any number representation
  * - 'length'    : whether type of $var is scalar with a string length > 0
  * - 'similar'   : whether type of $var is similar to type of $compare
  * - 'equal'     : whether type of $var is identical to type of $compare
@@ -515,7 +515,8 @@ function PMA_getenv($var_name)
     } elseif (getenv($var_name)) {
         return getenv($var_name);
     } elseif (function_exists('apache_getenv')
-     && apache_getenv($var_name, true)) {
+        && apache_getenv($var_name, true)
+    ) {
         return apache_getenv($var_name, true);
     }
 

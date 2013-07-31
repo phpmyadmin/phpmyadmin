@@ -102,7 +102,11 @@ class AuthenticationCookie extends AuthenticationPlugin
                     )
                 );
             }
-            exit;
+            if (defined('TESTSUITE')) {
+                return true;
+            } else {
+                exit;
+            }
         }
 
         /* Perform logout to custom URL */
@@ -110,7 +114,11 @@ class AuthenticationCookie extends AuthenticationPlugin
             && ! empty($GLOBALS['cfg']['Server']['LogoutURL'])
         ) {
             PMA_sendHeaderLocation($GLOBALS['cfg']['Server']['LogoutURL']);
-            exit;
+            if (defined('TESTSUITE')) {
+                return true;
+            } else {
+                exit;
+            }
         }
 
         // No recall if blowfish secret is not configured as it would produce
@@ -301,7 +309,11 @@ class AuthenticationCookie extends AuthenticationPlugin
         if (file_exists(CUSTOM_FOOTER_FILE)) {
             include CUSTOM_FOOTER_FILE;
         }
-        exit;
+        if (! defined('TESTSUITE')) {
+            exit;
+        } else {
+            return true;
+        }
     }
 
     /**
@@ -408,7 +420,9 @@ class AuthenticationCookie extends AuthenticationPlugin
             // according to the PHP manual we should do this before the destroy:
             //$_SESSION = array();
 
-            session_destroy();
+            if (! defined('TESTSUITE')) {
+                session_destroy();
+            }
             // -> delete password cookie(s)
             if ($GLOBALS['cfg']['LoginCookieDeleteAll']) {
                 foreach ($GLOBALS['cfg']['Servers'] as $key => $val) {
@@ -478,7 +492,11 @@ class AuthenticationCookie extends AuthenticationPlugin
             PMA_Util::cacheUnset('dbs_where_create_table_allowed', true);
             $GLOBALS['no_activity'] = true;
             $this->authFails();
-            exit;
+            if (! defined('TESTSUITE')) {
+                exit;
+            } else {
+                return false;
+            }
         }
 
         // password
@@ -625,7 +643,11 @@ class AuthenticationCookie extends AuthenticationPlugin
                 $redirect_url . PMA_generate_common_url($url_params, '&'),
                 true
             );
-            exit;
+            if (! defined('TESTSUITE')) {
+                exit;
+            } else {
+                return false;
+            }
         } // end if
 
         return true;
@@ -659,7 +681,7 @@ class AuthenticationCookie extends AuthenticationPlugin
             $conn_error = __('Access denied');
         } elseif (! empty($GLOBALS['no_activity'])) {
             $conn_error = sprintf(
-                __('No activity within %s seconds; please log in again'),
+                __('No activity within %s seconds; please log in again.'),
                 $GLOBALS['cfg']['LoginCookieValidity']
             );
         } elseif ($GLOBALS['dbi']->getError()) {

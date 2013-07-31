@@ -535,19 +535,11 @@ class PMA_DisplayResults
     ) {
 
         $caption_output = '';
-        if (in_array(
-            $GLOBALS['cfg']['TableNavigationLinksMode'],
-            array('icons', 'both')
-            )
-        ) {
+        if (PMA_Util::showIcons('TableNavigationLinksMode')) {
             $caption_output .= $caption;
         }
 
-        if (in_array(
-            $GLOBALS['cfg']['TableNavigationLinksMode'],
-            array('text', 'both')
-            )
-        ) {
+        if (PMA_Util::showText('TableNavigationLinksMode')) {
             $caption_output .= '&nbsp;' . $title;
         }
         $title_output = ' title="' . $title . '"';
@@ -881,9 +873,9 @@ class PMA_DisplayResults
      * Prepare fields for table navigation
      * Number of rows
      *
-     * @param string  $html_sql_query            the sql encoded by html special
-     *                                           characters
-     * @param string  $id_for_direction_dropdown the id for the direction dropdown
+     * @param string $html_sql_query            the sql encoded by html special
+     *                                          characters
+     * @param string $id_for_direction_dropdown the id for the direction dropdown
      *
      * @return  string  $additional_fields_html html content
      *
@@ -1095,7 +1087,7 @@ class PMA_DisplayResults
 
             if (($is_display['sort_lnk'] == '1') && ! $is_limited_display) {
 
-                list($order_link, $sorted_headrer_html)
+                list($order_link, $sorted_header_html)
                     = $this->_getOrderLinkAndSortedHeaderHtml(
                         $fields_meta[$i], $sort_expression,
                         $sort_expression_nodirection, $i, $unsorted_sql_query,
@@ -1104,7 +1096,7 @@ class PMA_DisplayResults
                         $col_visib[$j], $condition_field
                     );
 
-                $table_headers_html .= $sorted_headrer_html;
+                $table_headers_html .= $sorted_header_html;
 
                 $vertical_display['desc'][] = '    <th '
                     . 'class="draggable'
@@ -3657,11 +3649,11 @@ class PMA_DisplayResults
 
                 // if a transform function for blob is set, none of these
                 // replacements will be made
-                if (($GLOBALS['PMA_String']::strlen($column) > $GLOBALS['cfg']['LimitChars'])
+                if (($GLOBALS['PMA_String']->strlen($column) > $GLOBALS['cfg']['LimitChars'])
                     && ($_SESSION['tmp_user_values']['display_text'] == self::DISPLAY_PARTIAL_TEXT)
                     && ! $this->_isNeedToSyntaxHighlight(strtolower($meta->name))
                 ) {
-                    $column = $GLOBALS['PMA_String']::substr(
+                    $column = $GLOBALS['PMA_String']->substr(
                         $column, 0, $GLOBALS['cfg']['LimitChars']
                     ) . '...';
                     $is_field_truncated = true;
@@ -3749,10 +3741,10 @@ class PMA_DisplayResults
                 // Convert to WKT format
                 $wktval = PMA_Util::asWKT($column);
 
-                if (($GLOBALS['PMA_String']::strlen($wktval) > $GLOBALS['cfg']['LimitChars'])
+                if (($GLOBALS['PMA_String']->strlen($wktval) > $GLOBALS['cfg']['LimitChars'])
                     && ($_SESSION['tmp_user_values']['display_text'] == self::DISPLAY_PARTIAL_TEXT)
                 ) {
-                    $wktval = $GLOBALS['PMA_String']::substr(
+                    $wktval = $GLOBALS['PMA_String']->substr(
                         $wktval, 0, $GLOBALS['cfg']['LimitChars']
                     ) . '...';
                     $is_field_truncated = true;
@@ -3774,10 +3766,10 @@ class PMA_DisplayResults
 
                     $wkbval = $this->_displayBinaryAsPrintable($column, 'binary', 8);
 
-                    if (($GLOBALS['PMA_String']::strlen($wkbval) > $GLOBALS['cfg']['LimitChars'])
+                    if (($GLOBALS['PMA_String']->strlen($wkbval) > $GLOBALS['cfg']['LimitChars'])
                         && ($_SESSION['tmp_user_values']['display_text'] == self::DISPLAY_PARTIAL_TEXT)
                     ) {
-                        $wkbval = $GLOBALS['PMA_String']::substr(
+                        $wkbval = $GLOBALS['PMA_String']->substr(
                             $wkbval, 0, $GLOBALS['cfg']['LimitChars']
                         ) . '...';
                         $is_field_truncated = true;
@@ -3861,12 +3853,12 @@ class PMA_DisplayResults
 
             // Cut all fields to $GLOBALS['cfg']['LimitChars']
             // (unless it's a link-type transformation)
-            if ($GLOBALS['PMA_String']::strlen($column) > $GLOBALS['cfg']['LimitChars']
+            if ($GLOBALS['PMA_String']->strlen($column) > $GLOBALS['cfg']['LimitChars']
                 && ($_SESSION['tmp_user_values']['display_text'] == self::DISPLAY_PARTIAL_TEXT)
                 && gettype($transformation_plugin) == "object"
                 && ! strpos($transformation_plugin->getName(), 'Link') === true
             ) {
-                $column = $GLOBALS['PMA_String']::substr(
+                $column = $GLOBALS['PMA_String']->substr(
                     $column, 0, $GLOBALS['cfg']['LimitChars']
                 ) . '...';
                 $is_field_truncated = true;
@@ -4212,9 +4204,9 @@ class PMA_DisplayResults
     {
 
         $sql_md5 = md5($this->__get('sql_query'));
+        $query = $_SESSION['tmp_user_values']['query'][$sql_md5];
 
-        $_SESSION['tmp_user_values']['query'][$sql_md5]['sql']
-            = $this->__get('sql_query');
+        $query['sql'] = $this->__get('sql_query');
 
         $valid_disp_dir = PMA_isValid(
             $_REQUEST['disp_direction'],
@@ -4224,45 +4216,33 @@ class PMA_DisplayResults
         );
 
         if ($valid_disp_dir) {
-            $_SESSION['tmp_user_values']['query'][$sql_md5]['disp_direction']
-                = $_REQUEST['disp_direction'];
+            $query['disp_direction'] = $_REQUEST['disp_direction'];
             unset($_REQUEST['disp_direction']);
-        } elseif (
-            empty($_SESSION['tmp_user_values']['query'][$sql_md5]['disp_direction'])
-        ) {
-            $_SESSION['tmp_user_values']['query'][$sql_md5]['disp_direction']
-                = $GLOBALS['cfg']['DefaultDisplay'];
+        } elseif (empty($query['disp_direction'])) {
+            $query['disp_direction'] = $GLOBALS['cfg']['DefaultDisplay'];
         }
 
-        if (
-            empty($_SESSION['tmp_user_values']['query'][$sql_md5]['repeat_cells'])
-        ) {
-            $_SESSION['tmp_user_values']['query'][$sql_md5]['repeat_cells']
-                = $GLOBALS['cfg']['RepeatCells'];
+        if (empty($query['repeat_cells'])) {
+            $query['repeat_cells'] = $GLOBALS['cfg']['RepeatCells'];
         }
 
         // as this is a form value, the type is always string so we cannot
         // use PMA_isValid($_REQUEST['session_max_rows'], 'integer')
-        if ((PMA_isValid($_REQUEST['session_max_rows'], 'numeric')
-            && ((int) $_REQUEST['session_max_rows'] == $_REQUEST['session_max_rows']))
-            || ($_REQUEST['session_max_rows'] == self::ALL_ROWS)
-        ) {
-            $_SESSION['tmp_user_values']['query'][$sql_md5]['max_rows']
-                = $_REQUEST['session_max_rows'];
+        if (PMA_isValid($_REQUEST['session_max_rows'], 'numeric')) {
+            $query['max_rows'] = (int)$_REQUEST['session_max_rows'];
             unset($_REQUEST['session_max_rows']);
-        } elseif (
-            empty($_SESSION['tmp_user_values']['query'][$sql_md5]['max_rows'])
-        ) {
-            $_SESSION['tmp_user_values']['query'][$sql_md5]['max_rows']
-                = $GLOBALS['cfg']['MaxRows'];
+        } elseif ($_REQUEST['session_max_rows'] == self::ALL_ROWS) {
+            $query['max_rows'] = self::ALL_ROWS;
+            unset($_REQUEST['session_max_rows']);
+        } elseif (empty($query['max_rows'])) {
+            $query['max_rows'] = $GLOBALS['cfg']['MaxRows'];
         }
 
         if (PMA_isValid($_REQUEST['pos'], 'numeric')) {
-            $_SESSION['tmp_user_values']['query'][$sql_md5]['pos']
-                = $_REQUEST['pos'];
+            $query['pos'] = $_REQUEST['pos'];
             unset($_REQUEST['pos']);
-        } elseif (empty($_SESSION['tmp_user_values']['query'][$sql_md5]['pos'])) {
-            $_SESSION['tmp_user_values']['query'][$sql_md5]['pos'] = 0;
+        } elseif (empty($query['pos'])) {
+            $query['pos'] = 0;
         }
 
         if (PMA_isValid(
@@ -4272,14 +4252,10 @@ class PMA_DisplayResults
             )
         )
         ) {
-            $_SESSION['tmp_user_values']['query'][$sql_md5]['display_text']
-                = $_REQUEST['display_text'];
+            $query['display_text'] = $_REQUEST['display_text'];
             unset($_REQUEST['display_text']);
-        } elseif (
-            empty($_SESSION['tmp_user_values']['query'][$sql_md5]['display_text'])
-        ) {
-            $_SESSION['tmp_user_values']['query'][$sql_md5]['display_text']
-                = self::DISPLAY_PARTIAL_TEXT;
+        } elseif (empty($query['display_text'])) {
+            $query['display_text'] = self::DISPLAY_PARTIAL_TEXT;
         }
 
         if (PMA_isValid(
@@ -4289,16 +4265,10 @@ class PMA_DisplayResults
             )
         )
         ) {
-            $_SESSION['tmp_user_values']['query'][$sql_md5]['relational_display']
-                = $_REQUEST['relational_display'];
+            $query['relational_display'] = $_REQUEST['relational_display'];
             unset($_REQUEST['relational_display']);
-        } elseif (
-            empty(
-                $_SESSION['tmp_user_values']['query'][$sql_md5]['relational_display']
-            )
-        ) {
-            $_SESSION['tmp_user_values']['query'][$sql_md5]['relational_display']
-                = self::RELATIONAL_KEY;
+        } elseif (empty($query['relational_display'])) {
+            $query['relational_display'] = self::RELATIONAL_KEY;
         }
 
         if (PMA_isValid(
@@ -4309,42 +4279,33 @@ class PMA_DisplayResults
             )
         )
         ) {
-            $_SESSION['tmp_user_values']['query'][$sql_md5]['geometry_display']
-                = $_REQUEST['geometry_display'];
+            $query['geometry_display'] = $_REQUEST['geometry_display'];
             unset($_REQUEST['geometry_display']);
-        } elseif (
-            empty(
-                $_SESSION['tmp_user_values']['query'][$sql_md5]['geometry_display']
-            )
-        ) {
-            $_SESSION['tmp_user_values']['query'][$sql_md5]['geometry_display']
-                = self::GEOMETRY_DISP_GEOM;
+        } elseif (empty($query['geometry_display'])) {
+            $query['geometry_display'] = self::GEOMETRY_DISP_GEOM;
         }
 
         if (isset($_REQUEST['display_binary'])) {
-            $_SESSION['tmp_user_values']['query'][$sql_md5]['display_binary'] = true;
+            $query['display_binary'] = true;
             unset($_REQUEST['display_binary']);
         } elseif (isset($_REQUEST['display_options_form'])) {
             // we know that the checkbox was unchecked
-            unset($_SESSION['tmp_user_values']['query'][$sql_md5]['display_binary']);
+            unset($query['display_binary']);
         } elseif (isset($_REQUEST['full_text_button'])) {
             // do nothing to keep the value that is there in the session
         } else {
             // selected by default because some operations like OPTIMIZE TABLE
             // and all queries involving functions return "binary" contents,
             // according to low-level field flags
-            $_SESSION['tmp_user_values']['query'][$sql_md5]['display_binary'] = true;
+            $query['display_binary'] = true;
         }
 
         if (isset($_REQUEST['display_binary_as_hex'])) {
-            $_SESSION['tmp_user_values']['query'][$sql_md5]['display_binary_as_hex']
-                = true;
+            $query['display_binary_as_hex'] = true;
             unset($_REQUEST['display_binary_as_hex']);
         } elseif (isset($_REQUEST['display_options_form'])) {
             // we know that the checkbox was unchecked
-            unset($_SESSION['tmp_user_values']['query'][$sql_md5]
-                ['display_binary_as_hex']
-            );
+            unset($query['display_binary_as_hex']);
         } elseif (isset($_REQUEST['full_text_button'])) {
             // do nothing to keep the value that is there in the session
         } else {
@@ -4352,36 +4313,31 @@ class PMA_DisplayResults
             if (isset($GLOBALS['cfg']['DisplayBinaryAsHex'])
                 && ($GLOBALS['cfg']['DisplayBinaryAsHex'] === true)
             ) {
-                $_SESSION['tmp_user_values']['query'][$sql_md5]
-                    ['display_binary_as_hex'] = true;
+                $query['display_binary_as_hex'] = true;
             }
         }
 
         if (isset($_REQUEST['display_blob'])) {
-            $_SESSION['tmp_user_values']['query'][$sql_md5]['display_blob'] = true;
+            $query['display_blob'] = true;
             unset($_REQUEST['display_blob']);
         } elseif (isset($_REQUEST['display_options_form'])) {
             // we know that the checkbox was unchecked
-            unset($_SESSION['tmp_user_values']['query'][$sql_md5]['display_blob']);
+            unset($query['display_blob']);
         }
 
         if (isset($_REQUEST['hide_transformation'])) {
-            $_SESSION['tmp_user_values']['query'][$sql_md5]['hide_transformation']
-                = true;
+            $query['hide_transformation'] = true;
             unset($_REQUEST['hide_transformation']);
         } elseif (isset($_REQUEST['display_options_form'])) {
             // we know that the checkbox was unchecked
-            unset($_SESSION['tmp_user_values']['query'][$sql_md5]
-                ['hide_transformation']
-            );
+            unset($query['hide_transformation']);
         }
 
         // move current query to the last position, to be removed last
-        // so only least executed query will be removed if maximum remembered queries
-        // limit is reached
-        $tmp = $_SESSION['tmp_user_values']['query'][$sql_md5];
+        // so only least executed query will be removed if maximum remembered
+        // queries limit is reached
         unset($_SESSION['tmp_user_values']['query'][$sql_md5]);
-        $_SESSION['tmp_user_values']['query'][$sql_md5] = $tmp;
+        $_SESSION['tmp_user_values']['query'][$sql_md5] = $query;
 
         // do not exceed a maximum number of queries to remember
         if (count($_SESSION['tmp_user_values']['query']) > 10) {
@@ -4391,41 +4347,31 @@ class PMA_DisplayResults
 
         // populate query configuration
         $_SESSION['tmp_user_values']['display_text']
-            = $_SESSION['tmp_user_values']['query'][$sql_md5]['display_text'];
+            = $query['display_text'];
         $_SESSION['tmp_user_values']['relational_display']
-            = $_SESSION['tmp_user_values']['query'][$sql_md5]['relational_display'];
+            = $query['relational_display'];
         $_SESSION['tmp_user_values']['geometry_display']
-            = $_SESSION['tmp_user_values']['query'][$sql_md5]['geometry_display'];
-        $_SESSION['tmp_user_values']['display_binary']
-            = isset($_SESSION['tmp_user_values']['query'][$sql_md5]
-                ['display_binary']
-            )
-            ? true
-            : false;
-        $_SESSION['tmp_user_values']['display_binary_as_hex']
-            = isset($_SESSION['tmp_user_values']['query'][$sql_md5]
-                ['display_binary_as_hex']
-            )
-            ? true
-            : false;
-        $_SESSION['tmp_user_values']['display_blob']
-            = isset($_SESSION['tmp_user_values']['query'][$sql_md5]['display_blob'])
-            ? true
-            : false;
-        $_SESSION['tmp_user_values']['hide_transformation']
-            = isset($_SESSION['tmp_user_values']['query'][$sql_md5]
-                ['hide_transformation']
-            )
-            ? true
-            : false;
+            = $query['geometry_display'];
+        $_SESSION['tmp_user_values']['display_binary'] = isset(
+            $query['display_binary']
+        );
+        $_SESSION['tmp_user_values']['display_binary_as_hex'] = isset(
+            $query['display_binary_as_hex']
+        );
+        $_SESSION['tmp_user_values']['display_blob'] = isset(
+            $query['display_blob']
+        );
+        $_SESSION['tmp_user_values']['hide_transformation'] = isset(
+            $query['hide_transformation']
+        );
         $_SESSION['tmp_user_values']['pos']
-            = $_SESSION['tmp_user_values']['query'][$sql_md5]['pos'];
+            = $query['pos'];
         $_SESSION['tmp_user_values']['max_rows']
-            = $_SESSION['tmp_user_values']['query'][$sql_md5]['max_rows'];
+            = $query['max_rows'];
         $_SESSION['tmp_user_values']['repeat_cells']
-            = $_SESSION['tmp_user_values']['query'][$sql_md5]['repeat_cells'];
+            = $query['repeat_cells'];
         $_SESSION['tmp_user_values']['disp_direction']
-            = $_SESSION['tmp_user_values']['query'][$sql_md5]['disp_direction'];
+            = $query['disp_direction'];
 
     }
 
@@ -4447,7 +4393,8 @@ class PMA_DisplayResults
      * @see     sql.php file
      */
     public function getTable(
-        &$dt_result, &$the_disp_mode, $analyzed_sql, $is_limited_display = false
+        &$dt_result, &$the_disp_mode, $analyzed_sql,
+        $is_limited_display = false
     ) {
 
         $table_html = '';
@@ -4918,31 +4865,28 @@ class PMA_DisplayResults
             $message_view_warning = false;
         }
 
-        $message = PMA_Message::success(__('Showing rows'));
-        $message->addMessage($first_shown_rec);
+        $message = PMA_Message::success(__('Showing rows %1s - %2s'));
+        $message->addParam($first_shown_rec);
 
         if ($message_view_warning) {
-
-            $message->addMessage('...', ' - ');
-            $message->addMessage($message_view_warning);
-            $message->addMessage('(');
-
+            $message->addParam('... ' . $message_view_warning, false);
         } else {
+            $message->addParam($last_shown_rec);
+        }
 
-            $message->addMessage($last_shown_rec, ' - ');
-            $message->addMessage(' (');
-            $message->addMessage(
-                $pre_count . PMA_Util::formatNumber($total, 0)
-            );
-            $message->addString(__('total'));
+        $message->addMessage('(');
+
+        if (!$message_view_warning) {
+            $message_total = PMA_Message::notice($precount . __('%d total'));
+            $message_total->addParam($total);
 
             if (!empty($after_count)) {
-                $message->addMessage($after_count);
+                $message_total->addMessage($after_count);
             }
+            $message->addMessage($message_total, '');
 
             $message->addMessage($selectstring, '');
             $message->addMessage(', ', '');
-
         }
 
         $message_qt = PMA_Message::notice(__('Query took %01.4f sec') . ')');
@@ -5279,7 +5223,7 @@ class PMA_DisplayResults
 
         // Export link
         // (the url_query has extra parameters that won't be used to export)
-        // (the single_table parameter is used in display_export.lib.php
+        // (the single_table parameter is used in display_export.inc.php
         //  to hide the SQL and the structure export dialogs)
         // If the parser found a PROCEDURE clause
         // (most probably PROCEDURE ANALYSE()) it makes no sense to
@@ -5445,7 +5389,9 @@ class PMA_DisplayResults
         $result .= ']';
 
         if (gettype($transformation_plugin) == "object"
-            && strpos($transformation_plugin->getMIMESubtype(), 'Octetstream')
+            && (strpos($transformation_plugin->getMIMESubtype(), 'Octetstream')
+            // if we want to use a text transformation on a BLOB column
+            || strpos($transformation_plugin->getMIMEtype(), 'Text') !== false)
         ) {
             $result = $content;
         }
@@ -6007,7 +5953,7 @@ class PMA_DisplayResults
         ) {
             $content = bin2hex($content);
             if ($hexlength !== null) {
-                $content = $GLOBALS['PMA_String']::substr($content, $hexlength);
+                $content = $GLOBALS['PMA_String']->substr($content, $hexlength);
             }
         } else {
             $content = htmlspecialchars(

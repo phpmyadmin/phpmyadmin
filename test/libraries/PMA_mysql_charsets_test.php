@@ -33,14 +33,18 @@ class PMA_MySQL_Charsets_Test extends PHPUnit_Framework_TestCase
     public function testGenerateCharsetQueryPart(
         $drizzle, $collation, $expected
     ) {
-        if (! function_exists("runkit_constant_redefine")) {
+        if (! PMA_HAS_RUNKIT) {
             $this->markTestSkipped(
-                'Cannot redefine constant/function - missing APD or/and runkit extension'
+                'Cannot redefine constant - missing runkit extension'
             );
         } else {
+            $restoreDrizzle = '';
+
             if (defined('PMA_DRIZZLE')) {
+                $restoreDrizzle = PMA_DRIZZLE;
                 runkit_constant_redefine('PMA_DRIZZLE', $drizzle);
             } else {
+                $restoreDrizzle = 'PMA_TEST_CONSTANT_REMOVE';
                 define('PMA_DRIZZLE', $drizzle);
             }
 
@@ -48,6 +52,12 @@ class PMA_MySQL_Charsets_Test extends PHPUnit_Framework_TestCase
                 $expected,
                 PMA_generateCharsetQueryPart($collation)
             );
+
+            if ($restoreDrizzle === 'PMA_TEST_CONSTANT_REMOVE') {
+                runkit_constant_remove('PMA_DRIZZLE');
+            } else {
+                runkit_constant_redefine('PMA_DRIZZLE', $restoreDrizzle);
+            }
         }
     }
 
@@ -75,9 +85,9 @@ class PMA_MySQL_Charsets_Test extends PHPUnit_Framework_TestCase
      */
     public function testGetDbCollation()
     {
-        if (! function_exists("runkit_constant_redefine")) {
+        if (! PMA_HAS_RUNKIT) {
             $this->markTestSkipped(
-                'Cannot redefine constant/function - missing APD or/and runkit extension'
+                'Cannot redefine constant - missing runkit extension'
             );
         } else {
             $GLOBALS['server'] = 1;
@@ -87,12 +97,17 @@ class PMA_MySQL_Charsets_Test extends PHPUnit_Framework_TestCase
                 PMA_getDbCollation("information_schema")
             );
 
+            $restoreDrizzle = '';
+
             // test case with no pma drizzle
             if (defined('PMA_DRIZZLE')) {
+                $restoreDrizzle = PMA_DRIZZLE;
                 runkit_constant_redefine('PMA_DRIZZLE', false);
             } else {
+                $restoreDrizzle = 'PMA_TEST_CONSTANT_REMOVE';
                 define('PMA_DRIZZLE', false);
             }
+
             $GLOBALS['cfg']['Server']['DisableIS'] = false;
             $GLOBALS['cfg']['DBG']['sql'] = false;
 
@@ -118,6 +133,12 @@ class PMA_MySQL_Charsets_Test extends PHPUnit_Framework_TestCase
                 'pma_test',
                 $GLOBALS['dummy_db']
             );
+
+            if ($restoreDrizzle === 'PMA_TEST_CONSTANT_REMOVE') {
+                runkit_constant_remove('PMA_DRIZZLE');
+            } else {
+                runkit_constant_redefine('PMA_DRIZZLE', $restoreDrizzle);
+            }
         }
     }
 

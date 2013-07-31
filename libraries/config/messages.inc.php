@@ -16,6 +16,8 @@ if (!function_exists('__')) {
 
 $strConfigAllowArbitraryServer_desc = __('If enabled user can enter any MySQL server in login form for cookie auth');
 $strConfigAllowArbitraryServer_name = __('Allow login to any MySQL server');
+$strConfigAllowThirdPartyFraming_desc = __('Enabling this allows a page located on a different domain to call phpMyAdmin inside a frame, and is a potential [strong]security hole[/strong] allowing cross-frame scripting attacks');
+$strConfigAllowThirdPartyFraming_name = __('Allow third party framing');
 $strConfigAllowUserDropDatabase_name = __('Show &quot;Drop database&quot; link to normal users');
 $strConfigblowfish_secret_desc = __('Secret passphrase used for encrypting cookies in [kbd]cookie[/kbd] authentication');
 $strConfigblowfish_secret_name = __('Blowfish secret');
@@ -121,6 +123,7 @@ $strConfigExport_sql_create_table_statements_name = __('<code>CREATE TABLE</code
 $strConfigExport_sql_dates_name = __('Creation/Update/Check dates');
 $strConfigExport_sql_delayed_name = __('Use delayed inserts');
 $strConfigExport_sql_disable_fk_name = __('Disable foreign key checks');
+$strConfigExport_sql_views_as_tables_name = __('Export views as tables');
 $strConfigExport_sql_drop_database_name = sprintf(__('Add %s'), 'DROP DATABASE');
 $strConfigExport_sql_drop_table_name = sprintf(__('Add %s'), 'DROP TABLE / VIEW / PROCEDURE / FUNCTION / EVENT');
 $strConfigExport_sql_hex_for_blob_name = __('Use hexadecimal for BLOB');
@@ -454,6 +457,8 @@ $strConfigServers_users_desc = __('Leave blank to disable configurable menus fea
 $strConfigServers_users_name = __('Users table');
 $strConfigServers_usergroups_desc = __('Leave blank to disable configurable menus feature, suggested: [kbd]pma__usergroups[/kbd]');
 $strConfigServers_usergroups_name = __('User groups table');
+$strConfigServers_navigationhiding_desc = __('Leave blank to disable the feature to hide and show navigation items, suggested: [kbd]pma__navigationhiding[/kbd]');
+$strConfigServers_navigationhiding_name = __('Hidden navigation items table');
 $strConfigServers_user_desc = __('Leave empty if not using config auth');
 $strConfigServers_user_name = __('User for config auth');
 $strConfigServers_verbose_desc = __('A user-friendly description of this server. Leave blank to display the hostname instead.');

@@ -25,11 +25,7 @@ function PMA_getHtmlForDatabaseComment($db)
         . PMA_generate_common_hidden_inputs($db)
         . '<fieldset>'
         . '<legend>';
-    if (in_array(
-        $GLOBALS['cfg']['ActionLinksMode'],
-        array('icons', 'both')
-        )
-    ) {
+    if (PMA_Util::showIcons('ActionLinksMode')) {
         $html_output .= '<img class="icon ic_b_comment" '
             . 'src="themes/dot.gif" alt="" />';
     }
@@ -73,11 +69,7 @@ function PMA_getHtmlForRenameDatabase($db)
         . '<fieldset>'
         . '<legend>';
 
-    if (in_array(
-        $GLOBALS['cfg']['ActionLinksMode'],
-        array('icons', 'both')
-        )
-    ) {
+    if (PMA_Util::showIcons('ActionLinksMode')) {
         $html_output .= PMA_Util::getImage('b_edit.png');
     }
     $html_output .= __('Rename database to:')
@@ -121,11 +113,7 @@ function PMA_getHtmlForDropDatabaseLink($db)
     $html_output = '<div class="operations_half_width">'
         . '<fieldset class="caution">';
     $html_output .= '<legend>';
-    if (in_array(
-        $GLOBALS['cfg']['ActionLinksMode'],
-        array('icons', 'both')
-        )
-    ) {
+    if (PMA_Util::showIcons('ActionLinksMode')) {
         $html_output .= PMA_Util::getImage('b_deltbl.png');
     }
     $html_output .= __('Remove database')
@@ -181,11 +169,7 @@ function PMA_getHtmlForCopyDatabase($db)
     $html_output .= '<fieldset>'
         . '<legend>';
 
-    if (in_array(
-        $GLOBALS['cfg']['ActionLinksMode'],
-        array('icons', 'both')
-        )
-    ) {
+    if (PMA_Util::showIcons('ActionLinksMode')) {
         $html_output .= PMA_Util::getImage('b_edit.png');
     }
     $html_output .= __('Copy database to:')
@@ -250,11 +234,7 @@ function PMA_getHtmlForChangeDatabaseCharset($db, $table)
 
     $html_output .= '<fieldset>' . "\n"
        . '    <legend>';
-    if (in_array(
-        $GLOBALS['cfg']['ActionLinksMode'],
-        array('icons', 'both')
-        )
-    ) {
+    if (PMA_Util::showIcons('ActionLinksMode')) {
         $html_output .= PMA_Util::getImage('s_asci.png');
     }
     $html_output .= '<label for="select_db_collation">' . __('Collation')
@@ -289,11 +269,7 @@ function PMA_getHtmlForExportRelationalSchemaView($url_query)
 {
     $html_output = '<div class="operations_full_width">'
         . '<fieldset><a href="schema_edit.php?' . $url_query . '">';
-    if (in_array(
-        $GLOBALS['cfg']['ActionLinksMode'],
-        array('icons', 'both')
-        )
-    ) {
+    if (PMA_Util::showIcons('ActionLinksMode')) {
         $html_output .= PMA_Util::getImage(
             'b_edit.png'
         );
@@ -358,7 +334,7 @@ function PMA_getSqlQueryAndCreateDbBeforeCopy()
             'SHOW VARIABLES LIKE "lower_case_table_names"', 0, 1
         );
         if ($lower_case_table_names === '1') {
-            $_REQUEST['newname'] = $GLOBALS['PMA_String']::strtolower($_REQUEST['newname']);
+            $_REQUEST['newname'] = $GLOBALS['PMA_String']->strtolower($_REQUEST['newname']);
         }
     }
 
@@ -377,6 +353,11 @@ function PMA_getSqlQueryAndCreateDbBeforeCopy()
     $GLOBALS['dbi']->query($local_query);
     $GLOBALS['db'] = $original_db;
 
+    // Set the SQL mode to NO_AUTO_VALUE_ON_ZERO to prevent MySQL from creating
+    // export statements it cannot import
+    $sql_set_mode = "SET SQL_MODE='NO_AUTO_VALUE_ON_ZERO'";
+    $GLOBALS['dbi']->query($sql_set_mode);
+
     // rebuild the database list because PMA_Table::moveCopy
     // checks in this list if the target db exists
     $GLOBALS['pma']->databases->build();
@@ -390,7 +371,7 @@ function PMA_getSqlQueryAndCreateDbBeforeCopy()
  *
  * @param array   $tables_full       array of all tables in given db or dbs
  * @param object  $export_sql_plugin export plugin instance
- * @param boolean $move              whether databse name is empty or not
+ * @param boolean $move              whether database name is empty or not
  * @param string  $db                database name
  *
  * @return string sql constraints query for full databases
@@ -423,7 +404,7 @@ function PMA_getSqlConstraintsQueryForFullDb(
  *
  * @param array  $tables_full       array of all tables in given db or dbs
  * @param object $export_sql_plugin export plugin instance
- * @param strin  $db                database name
+ * @param string $db                database name
  *
  * @return array $views
  */
@@ -454,7 +435,7 @@ function PMA_getViewsAndCreateSqlViewStandIn(
  *
  * @param array   $tables_full array of all tables in given db or dbs
  * @param string  $sql_query   sql query for all operations
- * @param boolean $move        whether databse name is empty or not
+ * @param boolean $move        whether database name is empty or not
  * @param string  $db          database name
  *
  * @return array ($sql_query, $error)
@@ -557,7 +538,7 @@ function PMA_runEventDefinitionsForDb($db)
  * Handle the views, return the boolean value whether table rename/copy or not
  *
  * @param array   $views views as an array
- * @param boolean $move  whether databse name is empty or not
+ * @param boolean $move  whether database name is empty or not
  * @param string  $db    database name
  *
  * @return boolean $_error whether table rename/copy or not

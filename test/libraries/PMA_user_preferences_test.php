@@ -34,7 +34,7 @@ class PMA_User_Preferences_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for PMA_userprefsPageInit
-     * 
+     *
      * @return void
      */
     public function testUserPrefPageInit()
@@ -50,8 +50,8 @@ class PMA_User_Preferences_Test extends PHPUnit_Framework_TestCase
                 array('test' => 'val')
             )
         );
-        
-        PMA_userprefsPageInit();        
+
+        PMA_userprefsPageInit();
 
         $this->assertEquals(
             array(
@@ -67,16 +67,16 @@ class PMA_User_Preferences_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for PMA_loadUserprefs
-     * 
+     *
      * @return void
      */
     public function testLoadUserprefs()
     {
         $_SESSION['relation'][$GLOBALS['server']]['userconfigwork'] = null;
         unset($_SESSION['userconfig']);
-        
+
         $result = PMA_loadUserprefs();
-        
+
         $this->assertCount(
             3,
             $result
@@ -104,7 +104,7 @@ class PMA_User_Preferences_Test extends PHPUnit_Framework_TestCase
         $_SESSION['relation'][$GLOBALS['server']]['userconfig'] = "testconf";
         $_SESSION['relation'][$GLOBALS['server']]['user'] = "user";
         $GLOBALS['controllink'] = null;
-        
+
         $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
@@ -149,9 +149,9 @@ class PMA_User_Preferences_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['server'] = 2;
         $_SESSION['relation'][2]['userconfigwork'] = null;
         unset($_SESSION['userconfig']);
-        
+
         $result = PMA_saveUserprefs(array(1));
-        
+
         $this->assertTrue(
             $result
         );
@@ -173,7 +173,7 @@ class PMA_User_Preferences_Test extends PHPUnit_Framework_TestCase
         );
 
         $assert = true;
-        
+
         if (isset($_SESSION['cache']['server_2']['userprefs'])) {
             $assert = false;
         }
@@ -198,7 +198,7 @@ class PMA_User_Preferences_Test extends PHPUnit_Framework_TestCase
             UPDATE `pmadb`.`testconf`
             SET `config_data` = \'' . json_encode(array(1)) . '\'
             WHERE `username` = \'user\'';
-        
+
         $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
@@ -219,7 +219,7 @@ class PMA_User_Preferences_Test extends PHPUnit_Framework_TestCase
         );
 
         // case 3
-        
+
         $query1 = '
         SELECT `username`
         FROM `pmadb`.`testconf`
@@ -229,7 +229,7 @@ class PMA_User_Preferences_Test extends PHPUnit_Framework_TestCase
             INSERT INTO `pmadb`.`testconf` (`username`, `config_data`)
             VALUES (\'user\',
                 \'' . json_encode(array(1)) . '\')';
-        
+
         $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
@@ -248,11 +248,11 @@ class PMA_User_Preferences_Test extends PHPUnit_Framework_TestCase
             ->method('getError')
             ->with(null)
             ->will($this->returnValue("err1"));
-        
+
         $GLOBALS['dbi'] = $dbi;
-        
+
         $result = PMA_saveUserprefs(array(1));
-        
+
         $this->assertEquals(
             'Could not save configuration <br /><br /> err1',
             $result->getMessage()
@@ -261,7 +261,7 @@ class PMA_User_Preferences_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for PMA_applyUserprefs
-     * 
+     *
      * @return void
      */
     public function testApplyUserprefs()
@@ -293,13 +293,13 @@ class PMA_User_Preferences_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for PMA_readUserprefsFieldNames
-     * 
+     *
      * @return void
      */
     public function testReadUserprefsFieldNames()
     {
         $this->assertCount(
-            216,
+            217,
             PMA_readUserprefsFieldNames()
         );
 
@@ -318,7 +318,7 @@ class PMA_User_Preferences_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for PMA_persistOption
-     * 
+     *
      * @return void
      */
     public function testPersistOption()
@@ -333,7 +333,7 @@ class PMA_User_Preferences_Test extends PHPUnit_Framework_TestCase
 
         $GLOBALS['server'] = 2;
         $_SESSION['relation'][2]['userconfigwork'] = null;
-        
+
         $this->assertNull(
             PMA_persistOption('Server/hide_db', 'val', 'val')
         );
@@ -349,13 +349,15 @@ class PMA_User_Preferences_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for PMA_userprefsRedirect
-     * 
+     *
      * @return void
      */
     public function testUserprefsRedirect()
     {
-        if (!function_exists('runkit_constant_redefine')) {
-            $this->markTestSkipped('Cannot redefine constant');
+        if (!defined('PMA_TEST_HEADERS')) {
+            $this->markTestSkipped(
+                'Cannot redefine constant/function - missing runkit extension'
+            );
         }
 
         $GLOBALS['cfg']['PmaAbsoluteUri'] = 'http://www.phpmyadmin.net';
@@ -379,7 +381,7 @@ class PMA_User_Preferences_Test extends PHPUnit_Framework_TestCase
         $this->assertContains(
             'Location: http://www.phpmyadmin.netfile.html?a=b&saved=1&server=0&' .
             'token=token#h+ash',
-            $GLOBALS['header']
+            $GLOBALS['header'][0]
         );
 
         if ($redefine !== null) {
@@ -391,7 +393,7 @@ class PMA_User_Preferences_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for PMA_userprefsAutoloadGetHeader
-     * 
+     *
      * @return void
      */
     public function testUserprefsAutoloadGetHeader()
@@ -414,35 +416,35 @@ class PMA_User_Preferences_Test extends PHPUnit_Framework_TestCase
         $result = PMA_userprefsAutoloadGetHeader();
 
         $this->assertTag(
-            $this->_getTagArray(
+            PMA_getTagArray(
                 '<form action="prefs_manage.php" method="post">'
             ),
             $result
         );
 
         $this->assertTag(
-            $this->_getTagArray(
+            PMA_getTagArray(
                 '<input type="hidden" name="token" value="token"'
             ),
             $result
         );
 
         $this->assertTag(
-            $this->_getTagArray(
+            PMA_getTagArray(
                 '<input type="hidden" name="json" value="" />'
             ),
             $result
         );
 
         $this->assertTag(
-            $this->_getTagArray(
+            PMA_getTagArray(
                 '<input type="hidden" name="submit_import" value="1" />'
             ),
             $result
         );
 
         $this->assertTag(
-            $this->_getTagArray(
+            PMA_getTagArray(
                 '<input type="hidden" name="return_url" value="phpunit?" />'
             ),
             $result
@@ -452,10 +454,10 @@ class PMA_User_Preferences_Test extends PHPUnit_Framework_TestCase
     /**
      * Return the tag array to be used with assertTag by parsing
      * a given HTML element
-     * 
+     *
      * @param string $elementHTML HTML for element to be parsed
      * @param array  $arr         Additional array elements like content, parent
-     * 
+     *
      * @return array              Tag array to be used with assertTag
      */
     private function _getTagArray($elementHTML, $arr = array())

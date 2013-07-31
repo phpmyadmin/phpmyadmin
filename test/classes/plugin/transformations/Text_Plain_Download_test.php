@@ -36,7 +36,7 @@ class Application_Octetstream_Download_Test extends PHPUnit_Framework_TestCase
      */
     protected function setUp()
     {
-        $this->object = new Application_Octetstream_Download(new PluginManager()); 
+        $this->object = new Application_Octetstream_Download(new PluginManager());
         global $row, $fields_meta;
         $fields_meta = array();
         $row = array("pma"=>"aaa", "pca"=>"bbb");
@@ -53,7 +53,7 @@ class Application_Octetstream_Download_Test extends PHPUnit_Framework_TestCase
     {
         unset($this->object);
     }
-    
+
     /**
      * Test for getInfo
      *
@@ -63,17 +63,16 @@ class Application_Octetstream_Download_Test extends PHPUnit_Framework_TestCase
      */
     public function testGetInfo()
     {
-        $info = 
-            'Displays a link to download the binary data of the column. You can'
+        $info = 'Displays a link to download the binary data of the column. You can'
             . ' use the first option to specify the filename, or use the second'
             . ' option as the name of a column which contains the filename. If'
             . ' you use the second option, you need to set the first option to'
-            . ' the empty string.';     
+            . ' the empty string.';
         $this->assertEquals(
             $info,
             Application_Octetstream_Download::getInfo()
-        );  
-    
+        );
+
     }
 
     /**
@@ -84,11 +83,11 @@ class Application_Octetstream_Download_Test extends PHPUnit_Framework_TestCase
      * @group medium
      */
     public function testGetName()
-    {       
+    {
         $this->assertEquals(
             "Download",
             Application_Octetstream_Download::getName()
-        );    
+        );
     }
 
     /**
@@ -99,11 +98,11 @@ class Application_Octetstream_Download_Test extends PHPUnit_Framework_TestCase
      * @group medium
      */
     public function testGetMIMEType()
-    {       
+    {
         $this->assertEquals(
             "Application",
             Application_Octetstream_Download::getMIMEType()
-        );    
+        );
     }
 
     /**
@@ -114,11 +113,11 @@ class Application_Octetstream_Download_Test extends PHPUnit_Framework_TestCase
      * @group medium
      */
     public function testGetMIMESubtype()
-    {       
+    {
         $this->assertEquals(
             "OctetStream",
             Application_Octetstream_Download::getMIMESubtype()
-        );    
+        );
     }
 
     /**
@@ -132,18 +131,18 @@ class Application_Octetstream_Download_Test extends PHPUnit_Framework_TestCase
     {
         $buffer = "PMA_BUFFER";
         $options = array("filename", 'wrapper_link'=>'PMA_wrapper_link');
-        $result = '<a href="transformation_wrapper.phpPMA_wrapper_link' 
-        . '&amp;ct=application/octet-stream&amp;cn=filename" ' 
+        $result = '<a href="transformation_wrapper.phpPMA_wrapper_link'
+        . '&amp;ct=application/octet-stream&amp;cn=filename" '
         . 'title="filename">filename</a>';
         $this->assertEquals(
             $result,
             $this->object->applyTransformation($buffer, $options)
-        );  
-        
+        );
+
         //using default filename: binary_file.dat
         $options = array("", 'cloumn', 'wrapper_link'=>'PMA_wrapper_link');
-        $result = '<a href="transformation_wrapper.phpPMA_wrapper_link&amp;' 
-            . 'ct=application/octet-stream&amp;cn=binary_file.dat" ' 
+        $result = '<a href="transformation_wrapper.phpPMA_wrapper_link&amp;'
+            . 'ct=application/octet-stream&amp;cn=binary_file.dat" '
             . 'title="binary_file.dat">binary_file.dat</a>';
         $this->assertEquals(
             $result,

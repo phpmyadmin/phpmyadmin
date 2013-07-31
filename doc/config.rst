@@ -110,7 +110,7 @@ Basic settings
     column names match with words which are MySQL reserved.
 
     If you want to turn off this warning, you can set it to ``true`` and
-    warning will not longer be displayed
+    warning will no longer be displayed.
 
 .. config:option:: $cfg['TranslationWarningThreshold']
 
@@ -118,6 +118,15 @@ Basic settings
     :default: 80
 
     Show warning about incomplete translations on certain threshold.
+
+.. config:option:: $cfg['AllowThirdPartyFraming']
+
+    :type: boolean
+    :default: false
+    
+    Setting this to ``true`` allows phpMyAdmin to be included inside a frame,
+    and is a potential security hole allowing cross-frame scripting attacks or
+    clickjacking.
 
 Server connection settings
 --------------------------
@@ -672,6 +681,20 @@ Server connection settings
     * put the correct table names in
       :config:option:`$cfg['Servers'][$i]['users']` (e.g. ``pma__users``) and
       :config:option:`$cfg['Servers'][$i]['usergroups']` (e.g. ``pma__usergroups``)
+
+.. _navigationhiding:
+.. config:option:: $cfg['Servers'][$i]['navigationhiding']
+
+    :type: string
+    :default: ``''``
+
+    Since release 4.1.0 you can hide/show items in the navigation tree.
+
+    To allow the usage of this functionality:
+
+    * set up :config:option:`$cfg['Servers'][$i]['pmadb']` and the phpMyAdmin configuration storage
+    * put the table name in :config:option:`$cfg['Servers'][$i]['navigationhiding']` (e.g.
+      ``pma__navigationhiding``)
 
 .. _tracking:
 .. config:option:: $cfg['Servers'][$i]['tracking']
@@ -1893,6 +1916,7 @@ Languages
       recode)
     * iconv - use iconv or libiconv functions
     * recode - use recode\_string function
+    * mb - use mbstring extension
     * none - disable encoding conversion
 
     Enabled charset conversion activates a pull-down menu in the Export
@@ -2851,6 +2875,14 @@ Developer
 
     Enable logging queries and execution times to be
     displayed in the bottom of main page (right frame).
+
+.. config:option:: $cfg['DBG']['demo']
+
+    :type: boolean
+    :default: false
+
+    Enable to let server present itself as demo server.
+    This is used for <http://demo.phpmyadmin.net/>.
 
 .. config:option:: $cfg['Error_Handler']['display']
 

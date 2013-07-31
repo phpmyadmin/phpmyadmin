@@ -25,6 +25,8 @@ class PMA_Charset_Conversion_Test extends PHPUnit_Framework_TestCase
      *
      * @return void
      * @test
+     *
+     * @group medium
      */
     public function testCharsetConversion()
     {

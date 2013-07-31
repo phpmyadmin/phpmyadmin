@@ -10,6 +10,7 @@
  * Include to test.
  */
 require_once 'libraries/sqlparser.data.php';
+require_once 'libraries/sqlparser.lib.php';
 
 class PMA_SQLParser_Data_Test extends PHPUnit_Framework_TestCase
 {
@@ -24,6 +25,16 @@ class PMA_SQLParser_Data_Test extends PHPUnit_Framework_TestCase
     private function _assertParserData($name)
     {
         $this->_assertSorted($GLOBALS[$name]);
+    }
+
+    public function testPMA_SQPdata()
+    {
+        $data = PMA_SQP_getParserDataMap();
+        $this->_assertSorted($data['PMA_SQPdata_function_name']);
+        $this->_assertSorted($data['PMA_SQPdata_column_attrib']);
+        $this->_assertSorted($data['PMA_SQPdata_reserved_word']);
+        $this->_assertSorted($data['PMA_SQPdata_forbidden_word']);
+        $this->_assertSorted($data['PMA_SQPdata_column_type']);
     }
 
     public function testPMA_SQPdata_function_name()
@@ -52,4 +63,5 @@ class PMA_SQLParser_Data_Test extends PHPUnit_Framework_TestCase
     }
 
 }
+
 ?>

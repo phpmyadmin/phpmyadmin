@@ -50,6 +50,7 @@ function PMA_getIndexedColumns()
  * add columns to a existing table
  *
  * @param int     $field_cnt     number of columns
+ * @param int     $field_primary primary index field
  * @param boolean $is_create_tbl true if requirement is to get the statement
  *                               for table creation
  *

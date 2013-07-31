@@ -115,8 +115,9 @@ function PMA_extractPrivInfo($row = '', $enableHTML = false)
                     $privs[] = $current_grant[1];
                 }
             } elseif (! empty($GLOBALS[$current_grant[0]])
-             && is_array($GLOBALS[$current_grant[0]])
-             && empty($GLOBALS[$current_grant[0] . '_none'])) {
+                && is_array($GLOBALS[$current_grant[0]])
+                && empty($GLOBALS[$current_grant[0] . '_none'])
+            ) {
                 if ($enableHTML) {
                     $priv_string = '<dfn title="' . $current_grant[2] . '">'
                         . $current_grant[1] . '</dfn>';
@@ -137,9 +138,8 @@ function PMA_extractPrivInfo($row = '', $enableHTML = false)
             $privs[] = 'USAGE';
         }
     } elseif ($allPrivileges
-            && (! isset($_POST['grant_count'])
-            || count($privs) == $_POST['grant_count'])
-        ) {
+        && (! isset($_POST['grant_count']) || count($privs) == $_POST['grant_count'])
+    ) {
         if ($enableHTML) {
             $privs = array('<dfn title="'
                 . __('Includes all privileges except GRANT.')
@@ -3202,7 +3202,7 @@ function PMA_getHtmlForListingUsersofAGroup($userGroup)
     if ($result) {
         if ($GLOBALS['dbi']->numRows($result) == 0) {
             $html_output .= '<p>'
-                . __('No users were found belonging to this user group')
+                . __('No users were found belonging to this user group.')
                 . '</p>';
         } else {
             $html_output .= '<table>'
@@ -3375,14 +3375,14 @@ function PMA_getHtmlToEditUserGroup($userGroup = null)
     $html_output .= PMA_generate_common_hidden_inputs($urlParams);
 
     $html_output .= '<fieldset id="fieldset_user_group_rights">';
-    $html_output .= '<legend>' . __('User group privileges')
+    $html_output .= '<legend>' . __('User group menu assignments')
         . '&nbsp;&nbsp;&nbsp;'
         . '<input type="checkbox" class="checkall_box" title="Check All">'
         . '<label for="addUsersForm_checkall">' . __('Check All') .'</label>'
         . '</legend>';
 
     if ($userGroup == null) {
-        $html_output .= '<label for="userGroup">' . __('Group name: ') . '</label>';
+        $html_output .= '<label for="userGroup">' . __('Group name:') . '</label>';
         $html_output .= '<input type="text" name="userGroup" autocomplete="off" />';
         $html_output .= '<div class="clearfloat"></div>';
     }
@@ -3414,13 +3414,13 @@ function PMA_getHtmlToEditUserGroup($userGroup = null)
     }
 
     $html_output .= _getTabList(
-        __('Sever level tabs'), 'server', $allowedTabs['server']
+        __('Server-level tabs'), 'server', $allowedTabs['server']
     );
     $html_output .= _getTabList(
-        __('Database level tabs'), 'db', $allowedTabs['db']
+        __('Database-level tabs'), 'db', $allowedTabs['db']
     );
     $html_output .= _getTabList(
-        __('Table level tabs'), 'table', $allowedTabs['table']
+        __('Table-level tabs'), 'table', $allowedTabs['table']
     );
 
     $html_output .= '</fieldset>';
@@ -3451,7 +3451,7 @@ function _getTabList($title, $level, $selected)
     foreach ($tabs as $tab => $tabName) {
         $html_output .= '<div class="item">';
         $html_output .= '<input type="checkbox" class="checkall"'
-        	. (in_array($tab, $selected) ? 'checked="checked"' : '')
+            . (in_array($tab, $selected) ? 'checked="checked"' : '')
             . ' name="' . $level . '_' . $tab .  '" value="Y" />';
         $html_output .= '<label for="' . $level . '_' . $tab .  '">'
             . '<code>' . $tabName . '</code>'

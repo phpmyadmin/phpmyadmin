@@ -109,7 +109,7 @@ class PMA_Validator
             foreach ((array)$validators[$vid] as $validator) {
                 $vdef = (array) $validator;
                 $vname = array_shift($vdef);
-                $vname = "Validator::" . $vname;
+                $vname = "PMA_Validator::" . $vname;
                 $args = array_merge(array($vid, &$arguments), $vdef);
                 $r = call_user_func_array($vname, $args);
 
@@ -435,7 +435,8 @@ class PMA_Validator
             $matches = array();
             // we catch anything that may (or may not) be an IP
             if (!preg_match("/^(.+):(?:[ ]?)\\w+$/", $line, $matches)) {
-                $result[$path][] = __('Incorrect value:') . ' ' . $line;
+                $result[$path][] = __('Incorrect value:') . ' ' 
+                    . htmlspecialchars($line);
                 continue;
             }
             // now let's check whether we really have an IP address

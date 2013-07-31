@@ -18,7 +18,7 @@ require_once 'libraries/plugins/transformations/Text_Plain_Imagelink.class.php';
  *
  * @package PhpMyAdmin-test
  */
-class Text_Plain_Imagelink_test extends PHPUnit_Framework_TestCase
+class Text_Plain_Imagelink_Test extends PHPUnit_Framework_TestCase
 {
     /**
      * @access protected
@@ -34,7 +34,7 @@ class Text_Plain_Imagelink_test extends PHPUnit_Framework_TestCase
      */
     protected function setUp()
     {
-        $this->object = new Text_Plain_Imagelink(new PluginManager()); 
+        $this->object = new Text_Plain_Imagelink(new PluginManager());
     }
 
     /**
@@ -48,7 +48,7 @@ class Text_Plain_Imagelink_test extends PHPUnit_Framework_TestCase
     {
         unset($this->object);
     }
-    
+
     /**
      * Test for getInfo
      *
@@ -58,15 +58,15 @@ class Text_Plain_Imagelink_test extends PHPUnit_Framework_TestCase
      */
     public function testGetInfo()
     {
-        $info = 'Displays an image and a link; ' 
-            . 'the column contains the filename. The first option' 
-            . ' is a URL prefix like "http://www.example.com/". The second and third options' 
-            . ' are the width and the height in pixels.';     
+        $info = 'Displays an image and a link; '
+            . 'the column contains the filename. The first option'
+            . ' is a URL prefix like "http://www.example.com/". The second and third options'
+            . ' are the width and the height in pixels.';
         $this->assertEquals(
             $info,
             Text_Plain_Imagelink::getInfo()
-        );  
-    
+        );
+
     }
 
     /**
@@ -77,11 +77,11 @@ class Text_Plain_Imagelink_test extends PHPUnit_Framework_TestCase
      * @group medium
      */
     public function testGetName()
-    {       
+    {
         $this->assertEquals(
             "Image Link",
             Text_Plain_Imagelink::getName()
-        );    
+        );
     }
 
     /**
@@ -92,11 +92,11 @@ class Text_Plain_Imagelink_test extends PHPUnit_Framework_TestCase
      * @group medium
      */
     public function testGetMIMEType()
-    {       
+    {
         $this->assertEquals(
             "Text",
             Text_Plain_Imagelink::getMIMEType()
-        );    
+        );
     }
 
     /**
@@ -107,11 +107,11 @@ class Text_Plain_Imagelink_test extends PHPUnit_Framework_TestCase
      * @group medium
      */
     public function testGetMIMESubtype()
-    {       
+    {
         $this->assertEquals(
             "Plain",
             Text_Plain_Imagelink::getMIMESubtype()
-        );    
+        );
     }
 
     /**
@@ -125,12 +125,12 @@ class Text_Plain_Imagelink_test extends PHPUnit_Framework_TestCase
     {
         $buffer = "PMA_IMAGE";
         $options = array("./image/", "200");
-        $result = '<a href="./image/PMA_IMAGE" target="_blank">' 
-             . '<img src="./image/PMA_IMAGE" border="0" width="200" ' 
+        $result = '<a href="./image/PMA_IMAGE" target="_blank">'
+             . '<img src="./image/PMA_IMAGE" border="0" width="200" '
              . 'height="50" />PMA_IMAGE</a>';
         $this->assertEquals(
             $result,
             $this->object->applyTransformation($buffer, $options)
-        );    
+        );
     }
 }

@@ -25,9 +25,11 @@ class PMA_Relation_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['Server']['pmadb'] = 'phpmyadmin';
         $_SESSION['relation'][$GLOBALS['server']] = "PMA_relation";
         $_SESSION['PMA_Theme'] = new PMA_Theme();
+        $_SESSION['relation'] = array();
 
         $GLOBALS['pmaThemePath'] = $_SESSION['PMA_Theme']->getPath();
         $GLOBALS['pmaThemeImage'] = 'theme/';
+        $GLOBALS['cfg']['ServerDefault'] = 0;
 
         include_once 'libraries/relation.lib.php';
     }
@@ -71,9 +73,6 @@ class PMA_Relation_Test extends PHPUnit_Framework_TestCase
      */
     public function testPMA_getRelationsParam()
     {
-        $GLOBALS['cfg']['ServerDefault'] = 0;
-        $_SESSION['relation'] = array();
-
         $relationsPara = PMA_getRelationsParam();
         $this->assertEquals(
             false,
@@ -136,6 +135,85 @@ class PMA_Relation_Test extends PHPUnit_Framework_TestCase
             $result,
             $retval
         );
+    }
+
+    /**
+     * Test for PMA_getDisplayField
+     *
+     * @return void
+     */
+    public function testPMA_getDisplayField()
+    {
+        
+        $db = 'information_schema';
+        $table = 'CHARACTER_SETS';
+        $this->assertEquals(
+            'DESCRIPTION',
+            PMA_getDisplayField($db, $table)
+        );  
+              
+        $db = 'information_schema';
+        $table = 'TABLES';
+        $this->assertEquals(
+            'TABLE_COMMENT',
+            PMA_getDisplayField($db, $table)
+        );
+              
+        $db = 'information_schema';
+        $table = 'PMA';
+        $this->assertEquals(
+            false,
+            PMA_getDisplayField($db, $table)
+        );
+        
+    }
+
+    /**
+     * Test for PMA_getComments
+     *
+     * @return void
+     */
+    public function testPMA_getComments()
+    {
+        $GLOBALS['cfg']['ServerDefault'] = 0;
+        $_SESSION['relation'] = array();
+        
+        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+            ->disableOriginalConstructor()
+            ->getMock();
+        
+        $getColumnsResult = array(
+                array(
+                        'Field' => 'field1',
+                        'Type' => 'int(11)',
+                        'Comment' => 'Comment1'
+                ),
+                array(
+                        'Field' => 'field2',
+                        'Type' => 'text',
+                        'Comment' => 'Comment1'
+                )
+        );
+        $dbi->expects($this->any())->method('getColumns')
+            ->will($this->returnValue($getColumnsResult));
+        
+        $GLOBALS['dbi'] = $dbi;
+        
+        $db = 'information_schema';
+        $this->assertEquals(
+            array(''),
+            PMA_getComments($db)
+        );  
+              
+        $db = 'information_schema';
+        $table = 'TABLES';
+        $this->assertEquals(
+            array(
+                'field1' => 'Comment1',
+                'field2' => 'Comment1'
+            ),
+            PMA_getComments($db, $table)
+        );    
     }
 }
 

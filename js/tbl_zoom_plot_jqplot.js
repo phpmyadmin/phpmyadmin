@@ -1,4 +1,4 @@
-// todo: change the axis
+// TODO: change the axis
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  ** @fileoverview JavaScript functions used on tbl_select.php
@@ -57,7 +57,9 @@ function isEmpty(obj) {
  ** @param type Sring  Field type(datetime/timestamp/time/date)
  **/
 function getTimeStamp(val, type) {
-    if (type.toString().search(/datetime/i) != -1 || type.toString().search(/timestamp/i) != -1) {
+    if (type.toString().search(/datetime/i) != -1 ||
+        type.toString().search(/timestamp/i) != -1
+    ) {
         return $.datepicker.parseDateTime('yy-mm-dd', 'HH:mm:ss', val);
     }
     else if (type.toString().search(/time/i) != -1) {
@@ -73,10 +75,14 @@ function getTimeStamp(val, type) {
  ** @param field: field type (as in database structure)
  **/
 function getType(field) {
-    if (field.toString().search(/int/i) != -1 || field.toString().search(/decimal/i) != -1
-        || field.toString().search(/year/i) != -1) {
+    if (field.toString().search(/int/i) != -1 ||
+        field.toString().search(/decimal/i) != -1 ||
+        field.toString().search(/year/i) != -1
+    ) {
         return 'numeric';
-    } else if (field.toString().search(/time/i) != -1 || field.toString().search(/date/i) != -1) {
+    } else if (field.toString().search(/time/i) != -1 ||
+        field.toString().search(/date/i) != -1
+    ) {
         return 'time';
     } else {
         return 'text';
@@ -320,10 +326,10 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function () {
                     series[0][searchedDataKey][0] =
                         getTimeStamp(selectedRow[xLabel], $('#types_0').val());
                 } else {
-                    // todo: text values
+                    // TODO: text values
                 }
                 currentChart.series[0].data = series[0];
-                // todo: axis changing
+                // TODO: axis changing
                 currentChart.replot();
 
             }
@@ -336,10 +342,10 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function () {
                     series[0][searchedDataKey][1] =
                         getTimeStamp(selectedRow[yLabel], $('#types_1').val());
                 } else {
-                    // todo: text values
+                    // TODO: text values
                 }
                 currentChart.series[0].data = series[0];
-                // todo: axis changing
+                // TODO: axis changing
                 currentChart.replot();
             }
         } //End plot update
@@ -362,7 +368,7 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function () {
                 // other
                 } else {
                     // type explicitly identified
-                    if (sqlTypes[key] !== null) {
+                    if (sqlTypes[key] != null) {
                         if (sqlTypes[key] == 'bit') {
                             sql_query += "b'" + value + "', ";
                         }
@@ -376,6 +382,7 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function () {
                     }
                 }
             }
+            // remove two extraneous characters ', '
             sql_query = sql_query.substring(0, sql_query.length - 2);
             sql_query += ' WHERE ' + PMA_urldecode(searchedData[searchedDataKey].where_clause);
 
@@ -447,6 +454,9 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function () {
         var xMin; // xAxis extreme min
         var yMax; // yAxis extreme max
         var yMin; // yAxis extreme min
+        var xVal;
+        var yVal;
+        var format;
 
         var options = {
             series: [
@@ -496,11 +506,10 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function () {
 
         if (xType == 'time') {
             var originalXType = $('#types_0').val();
-            var format;
             if (originalXType == 'date') {
                 format = '%Y-%m-%d';
             }
-            // todo: does not seem to work
+            // TODO: does not seem to work
             //else if (originalXType == 'time') {
               //  format = '%H:%M';
             //} else {
@@ -515,7 +524,6 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function () {
         }
         if (yType == 'time') {
             var originalYType = $('#types_1').val();
-            var format;
             if (originalYType == 'date') {
                 format = '%Y-%m-%d';
             }
@@ -529,16 +537,16 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function () {
 
         $.each(searchedData, function (key, value) {
             if (xType == 'numeric') {
-                var xVal = parseFloat(value[xLabel]);
+                xVal = parseFloat(value[xLabel]);
             }
             if (xType == 'time') {
-                var xVal = getTimeStamp(value[xLabel], originalXType);
+                xVal = getTimeStamp(value[xLabel], originalXType);
             }
             if (yType == 'numeric') {
-                var yVal = parseFloat(value[yLabel]);
+                yVal = parseFloat(value[yLabel]);
             }
             if (yType == 'time') {
-                var yVal = getTimeStamp(value[yLabel], originalYType);
+                yVal = getTimeStamp(value[yLabel], originalYType);
             }
             series[0].push([
                 xVal,

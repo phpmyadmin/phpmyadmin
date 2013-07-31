@@ -188,7 +188,7 @@ AJAX.registerOnload('server_privileges.js', function () {
     $("#fieldset_add_user_login input[name='username']").live("focusout", function () {
         var username = $(this).val();
         var $warning = $("#user_exists_warning");
-        if ($("#select_pred_username").val() == 'userdefined' && username != '') {
+        if ($("#select_pred_username").val() == 'userdefined' && username !== '') {
             var href = $("form[name='usersForm']").attr('action');
             var params = {
                 'ajax_request' : true,
@@ -437,7 +437,7 @@ AJAX.registerOnload('server_privileges.js', function () {
                     }
                     $div.html(data.message);
                     PMA_highlightSQL($div);
-                    var $div = $('#edit_user_dialog');
+                    $div = $('#edit_user_dialog');
                     displayPasswordGenerateButton();
                     $(checkboxes_sel).trigger("change");
                     PMA_ajaxRemoveMessage($msgbox);
@@ -483,14 +483,16 @@ AJAX.registerOnload('server_privileges.js', function () {
         // If any option other than 'keep the old one'(option 4) is chosen, we need to remove
         // the old one from the table.
         var $row_to_remove;
-        if (curr_submit_name == 'change_copy'
-                && $('input[name=mode]:checked', '#fieldset_mode').val() != '4') {
+        if (curr_submit_name == 'change_copy' &&
+            $('input[name=mode]:checked', '#fieldset_mode').val() != '4'
+        ) {
             var old_username = $t.find('input[name="old_username"]').val();
             var old_hostname = $t.find('input[name="old_hostname"]').val();
             $('#usersForm tbody tr').each(function () {
                 var $tr = $(this);
-                if ($tr.find('td:nth-child(2) label').text() == old_username
-                        && $tr.find('td:nth-child(3)').text() == old_hostname) {
+                if ($tr.find('td:nth-child(2) label').text() == old_username &&
+                    $tr.find('td:nth-child(3)').text() == old_hostname
+                ) {
                     $row_to_remove = $tr;
                     return false;
                 }
@@ -611,9 +613,7 @@ AJAX.registerOnload('server_privileges.js', function () {
         ); //end $.post
     });
     // if exporting non-ajax, highlight anyways
-    if ($("textarea.export").length > 0
-        && typeof CodeMirror != 'undefined')
-    {
+    if ($("textarea.export").length > 0 && typeof CodeMirror != 'undefined') {
         CodeMirror.fromTextArea(
             $('textarea.export')[0],
             {

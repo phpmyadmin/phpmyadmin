@@ -265,6 +265,17 @@ function PMA_getRelationsParamDiagnostic($cfgRelation)
             'menuswork',
             $messages
         );
+        $retval .= PMA_getDiagMessageForParameter(
+            'navigationhiding',
+            isset($cfgRelation['navigationhiding']),
+            $messages,
+            'navigationhiding'
+        );
+        $retval .= PMA_getDiagMessageForFeature(
+            __('Hide/show navigation items'),
+            'navwork',
+            $messages
+        );
         $retval .= '</table>' . "\n";
 
         $retval .= '<p>' . __('Quick steps to setup advanced features:') . '</p>';
@@ -378,6 +389,7 @@ function PMA_checkRelationsParam()
     $cfgRelation['designerwork']   = false;
     $cfgRelation['userconfigwork'] = false;
     $cfgRelation['menuswork']      = false;
+    $cfgRelation['navwork']        = false;
     $cfgRelation['allworks']       = false;
     $cfgRelation['user']           = null;
     $cfgRelation['db']             = null;
@@ -445,6 +457,8 @@ function PMA_checkRelationsParam()
             $cfgRelation['users']           = $curr_table[0];
         } elseif ($curr_table[0] == $GLOBALS['cfg']['Server']['usergroups']) {
             $cfgRelation['usergroups']      = $curr_table[0];
+        } elseif ($curr_table[0] == $GLOBALS['cfg']['Server']['navigationhiding']) {
+            $cfgRelation['navigationhiding']      = $curr_table[0];
         }
     } // end while
     $GLOBALS['dbi']->freeResult($tab_rs);
@@ -499,13 +513,17 @@ function PMA_checkRelationsParam()
         $cfgRelation['menuswork']        = true;
     }
 
+    if (isset($cfgRelation['navigationhiding'])) {
+        $cfgRelation['navwork']          = true;
+    }
+
     if ($cfgRelation['relwork'] && $cfgRelation['displaywork']
         && $cfgRelation['pdfwork'] && $cfgRelation['commwork']
         && $cfgRelation['mimework'] && $cfgRelation['historywork']
         && $cfgRelation['recentwork'] && $cfgRelation['uiprefswork']
         && $cfgRelation['trackingwork'] && $cfgRelation['userconfigwork']
         && $cfgRelation['bookmarkwork'] && $cfgRelation['designerwork']
-        && $cfgRelation['menuswork']
+        && $cfgRelation['menuswork'] && $cfgRelation['navwork']
     ) {
         $cfgRelation['allworks'] = true;
     }
@@ -905,6 +923,14 @@ function PMA_getHistory($username)
 {
     $cfgRelation = PMA_getRelationsParam();
 
+    /**
+     * if db-based history is disabled but there exists a session-based
+     * history, use it
+     */
+    if (! $GLOBALS['cfg']['QueryHistoryDB'] && isset($_SESSION['sql_history'])) {
+            return array_reverse($_SESSION['sql_history']);
+    } 
+
     if (! $cfgRelation['historywork']) {
         return false;
     }
@@ -997,7 +1023,7 @@ function PMA_buildForeignDropdown($foreign, $data, $mode)
     }
 
     foreach ($foreign as $key => $value) {
-        if ($GLOBALS['PMA_String']::strlen($value) <= $GLOBALS['cfg']['LimitChars']) {
+        if ($GLOBALS['PMA_String']->strlen($value) <= $GLOBALS['cfg']['LimitChars']) {
             $vtitle = '';
             $value  = htmlspecialchars($value);
         } else {
@@ -1282,7 +1308,7 @@ function PMA_getRelatives($all_tables, $master)
  *
  * usually called after a column in a table was renamed
  *
- * @param string $db       databse name
+ * @param string $db       database name
  * @param string $table    table name
  * @param string $field    old field name
  * @param string $new_name new field name

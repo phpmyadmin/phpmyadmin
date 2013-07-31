@@ -340,6 +340,8 @@ function PMA_langDetails($lang)
         return array('uz[-_]lat|uzbek-latin', 'uz-lat', 'O&lsquo;zbekcha');
     case 'uz':
         return array('uz[-_]cyr|uzbek-cyrillic', 'uz-cyr', '&#1038;&#1079;&#1073;&#1077;&#1082;&#1095;&#1072;');
+    case 'vls':
+        return array('vls|flemish', 'vls', 'West-Vlams');
     case 'zh_TW':
         return array('zh[-_](tw|hk)|chinese traditional', 'zh-TW', '&#20013;&#25991;');
     case 'zh_CN':

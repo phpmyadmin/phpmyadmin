@@ -153,7 +153,9 @@ class AuthenticationConfig extends AuthenticationPlugin
             echo '</tr>' . "\n";
         }
         echo '</table>' . "\n";
-        exit;
+        if (!defined('TESTSUITE')) {
+            exit;
+        }
         return true;
     }
 

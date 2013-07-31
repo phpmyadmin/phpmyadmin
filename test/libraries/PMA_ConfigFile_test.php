@@ -44,7 +44,7 @@ class PMA_ConfigFile_Test extends PHPUnit_Framework_TestCase
 
         unset($_SESSION[$this->readAttribute($this->object, "_id")]);
         unset($this->object);
-        
+
         // reset the instance
         $attr_instance = new ReflectionProperty("ConfigFile", "_instance");
         $attr_instance->setAccessible(true);
@@ -58,7 +58,7 @@ class PMA_ConfigFile_Test extends PHPUnit_Framework_TestCase
      * @test
      */
     public function testConfigFileConstructor()
-    {   
+    {
         $attr_instance = new ReflectionProperty("ConfigFile", "_instance");
         $attr_instance->setAccessible(true);
         $attr_instance->setValue(null, null);
@@ -237,7 +237,7 @@ class PMA_ConfigFile_Test extends PHPUnit_Framework_TestCase
      */
     public function testConfigFileSet()
     {
-        if (!function_exists("runkit_constant_redefine")) {
+        if (! PMA_HAS_RUNKIT) {
             $this->markTestSkipped("Cannot redefine constant");
         }
 

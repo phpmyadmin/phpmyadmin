@@ -39,8 +39,8 @@ class Advisor
             $this->variables = array_merge(
                 $this->variables,
                 $GLOBALS['dbi']->fetchResult(
-                    "SELECT concat('Com_', variable_name), variable_value
-                    FROM data_dictionary.GLOBAL_STATEMENTS", 0, 1
+                    "SELECT concat('Com_', variable_name), variable_value "
+                    . "FROM data_dictionary.GLOBAL_STATEMENTS", 0, 1
                 )
             );
         }
@@ -304,11 +304,14 @@ class Advisor
      */
     private function _ruleExprEvaluateVariable($matches)
     {
-        return isset($this->variables[$matches[1]])
-            ? (is_numeric($this->variables[$matches[1]])
-                ? $this->variables[$matches[1]]
-                : '"'.$this->variables[$matches[1]].'"')
-            : $matches[1];
+        if (! isset($this->variables[$matches[1]])) {
+            return $matches[1];
+        }
+        if (is_numeric($this->variables[$matches[1]])) {
+            return $this->variables[$matches[1]];
+        } else {
+            return '\'' . addslashes($this->variables[$matches[1]]) . '\'';
+        }
     }
 
     /**

@@ -2327,7 +2327,7 @@ fieldset .disabled-field td {
 }
 
 .config-form .lastrow {
-    background: <?php echo $GLOBALS['cfg']['ThBackground']; ?>;;
+    background: <?php echo $GLOBALS['cfg']['ThBackground']; ?>;
     padding: .5em;
     text-align: center;
 }
@@ -2811,3 +2811,12 @@ body .ui-widget {
     color: #235A81;
 }
 
+/* over-riding jqplot-yaxis class */
+.jqplot-yaxis {
+    left:0px !important;
+    min-width:25px;
+    width:auto;
+}
+.jqplot-axis {
+    overflow:hidden;
+}

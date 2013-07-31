@@ -9,12 +9,14 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
+require_once 'libraries/navigation/Nodes/Node_DatabaseChild.class.php';
+
 /**
  * Represents a columns node in the navigation tree
  *
  * @package PhpMyAdmin-Navigation
  */
-class Node_Table extends Node
+class Node_Table extends Node_DatabaseChild
 {
     /**
      * Initialises the class
@@ -229,6 +231,16 @@ class Node_Table extends Node
             $retval = $arr['Comment'];
         }
         return $retval;
+    }
+
+    /**
+     * Returns the type of the item represented by the node.
+     *
+     * @return string type of the item
+     */
+    protected function getItemType()
+    {
+        return 'table';
     }
 }
 

@@ -12,7 +12,7 @@ require_once './libraries/common.inc.php';
 define('TABLE_MAY_BE_ABSENT', true);
 require './libraries/tbl_common.inc.php';
 $url_query .= '&amp;goto=tbl_tracking.php&amp;back=tbl_tracking.php';
-$url_params['goto'] = 'tbl_tracking.php';;
+$url_params['goto'] = 'tbl_tracking.php';
 $url_params['back'] = 'tbl_tracking.php';
 
 // Init vars for tracking report
@@ -528,16 +528,12 @@ if (isset($_REQUEST['report']) || isset($_REQUEST['report_export'])) {
 
     // Prepare delete link content here
     $drop_image_or_text = '';
-    if ('icons' == $GLOBALS['cfg']['ActionsLinksMode']) {
+    if (PMA_Util::showIcons('ActionsLinksMode')) {
         $drop_image_or_text .= PMA_Util::getImage(
             'b_drop.png', __('Delete tracking data row from report')
         );
     }
-    if (in_array(
-        $GLOBALS['cfg']['ActionLinksMode'],
-        array('text', 'both')
-        )
-    ) {
+    if (PMA_Util::showText('ActionLinksMode')) {
         $drop_image_or_text .= __('Delete');
     }
 

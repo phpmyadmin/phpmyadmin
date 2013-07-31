@@ -9,6 +9,8 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
+require_once 'libraries/schema/Export_Relation_Schema.class.php';
+
 /**
  * This Class interacts with the user to gather the information
  * about their tables for which they want to export the relational schema
@@ -407,11 +409,7 @@ class PMA_User_Schema
             <legend>
             <?php
             echo PMA_generate_common_hidden_inputs($db);
-            if (in_array(
-                    $GLOBALS['cfg']['ActionLinksMode'],
-                    array('icons', 'both')
-                )
-            ) {
+            if (PMA_Util::showIcons('ActionLinksMode')) {
                 echo PMA_Util::getImage('b_views.png');
             }
             echo __('Display relational schema');
@@ -637,15 +635,23 @@ class PMA_User_Schema
          * default is PDF, otherwise validate it's only letters a-z
          */
         global  $db,$export_type;
-        if (!isset($export_type) || !preg_match('/^[a-zA-Z]+$/', $export_type)) {
+
+        if (! isset($export_type) || ! preg_match('/^[a-zA-Z]+$/', $export_type)) {
             $export_type = 'pdf';
         }
-
         $GLOBALS['dbi']->selectDb($db);
 
-        include "libraries/schema/" . ucfirst($export_type)
-            . "_Relation_Schema.class.php";
-        $obj_schema = eval("new PMA_" . ucfirst($export_type) . "_Relation_Schema();");
+        $path = PMA_securePath(ucfirst($export_type));
+        if (!file_exists('libraries/schema/' . $path . '_Relation_Schema.class.php')) {
+            PMA_Export_Relation_Schema::dieSchema(
+                $_POST['chpage'],
+                $export_type,
+                __('File doesn\'t exist')
+            );
+        }
+        require "libraries/schema/".$path.'_Relation_Schema.class.php';
+        $class_name = 'PMA_' . $path . '_Relation_Schema';
+        $obj_schema = new $class_name();
         $obj_schema->showOutput();
     }
 

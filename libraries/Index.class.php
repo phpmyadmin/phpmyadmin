@@ -605,7 +605,7 @@ class PMA_Index
                         . PMA_Util::backquote($table) . ' DROP INDEX '
                         . PMA_Util::backquote($index->getName()) . ';';
                     $this_params['message_to_show'] = sprintf(
-                        __('Index %s has been dropped'), $index->getName()
+                        __('Index %s has been dropped.'), $index->getName()
                     );
 
                     $js_msg = PMA_jsFormat(
@@ -680,6 +680,11 @@ class PMA_Index
         return $r;
     }
 
+    /**
+     * Gets the properties in an array for comparison purposes
+     *
+     * @return array an array containing the properties of the index
+     */
     public function getCompareData()
     {
         $data = array(

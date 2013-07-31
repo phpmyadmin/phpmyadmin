@@ -87,6 +87,30 @@ class PMA_Util
     }
 
     /**
+     * Checks whether configuration value tells to show icons.
+     *
+     * @param string $value Configuration option name
+     *
+     * @return boolean Whether to show icons.
+     */
+    public static function showIcons($value)
+    {
+        return in_array($GLOBALS['cfg'][$value], array('icons', 'both'));
+    }
+
+    /**
+     * Checks whether configuration value tells to show text.
+     *
+     * @param string $value Configuration option name
+     *
+     * @return boolean Whether to show text.
+     */
+    public static function showText($value)
+    {
+        return in_array($GLOBALS['cfg'][$value], array('text', 'both'));
+    }
+
+    /**
      * Returns an HTML IMG tag for a particular icon from a theme,
      * which may be an actual file or an icon from a sprite.
      * This function takes into account the ActionLinksMode
@@ -105,18 +129,11 @@ class PMA_Util
         $menu_icon = false, $control_param = 'ActionLinksMode'
     ) {
         $include_icon = $include_text = false;
-        if (in_array(
-                $GLOBALS['cfg'][$control_param],
-                array('icons', 'both')
-            )
-        ) {
+        if (self::showIcons($control_param)) {
             $include_icon = true;
         }
         if ($force_text
-            || in_array(
-                $GLOBALS['cfg'][$control_param],
-                array('text', 'both')
-            )
+            || self::showText($control_param)
         ) {
             $include_text = true;
         }
@@ -1116,7 +1133,8 @@ class PMA_Util
                     )
                 );
             } elseif (! empty($GLOBALS['parsed_sql'])
-             && $query_base == $GLOBALS['parsed_sql']['raw']) {
+                && $query_base == $GLOBALS['parsed_sql']['raw']
+            ) {
                 // (here, use "! empty" because when deleting a bookmark,
                 // $GLOBALS['parsed_sql'] is set but empty
                 $parsed_sql = $GLOBALS['parsed_sql'];
@@ -1210,7 +1228,7 @@ class PMA_Util
             // but only explain a SELECT (that has not been explained)
             /* SQL-Parser-Analyzer */
             $explain_link = '';
-            $is_select = false;
+            $is_select = preg_match('@^SELECT[[:space:]]+@i', $sql_query);
             if (! empty($cfg['SQLQuery']['Explain']) && ! $query_too_big) {
                 $explain_params = $url_params;
                 // Detect if we are validating as well
@@ -1218,10 +1236,9 @@ class PMA_Util
                 if (! empty($GLOBALS['validatequery'])) {
                     $explain_params['validatequery'] = 1;
                 }
-                if (preg_match('@^SELECT[[:space:]]+@i', $sql_query)) {
+                if ($is_select) {
                     $explain_params['sql_query'] = 'EXPLAIN ' . $sql_query;
                     $_message = __('Explain SQL');
-                    $is_select = true;
                 } elseif (
                     preg_match(
                         '@^EXPLAIN[[:space:]]+SELECT[[:space:]]+@i', $sql_query
@@ -1343,43 +1360,41 @@ class PMA_Util
             }
 
             $retval .= '<div class="tools">';
+            $retval .= '<form action="sql.php" method="post">';
+            $retval .= PMA_generate_common_hidden_inputs(
+                $GLOBALS['db'], $GLOBALS['table']
+            );
+            $retval .= '<input type="hidden" name="sql_query" value="'
+                . htmlspecialchars($sql_query) . '" />';
+
             // avoid displaying a Profiling checkbox that could
             // be checked, which would reexecute an INSERT, for example
-            if (! empty($refresh_link)) {
-                $retval .= self::getProfilingForm($sql_query);
-            }
-            // if needed, generate an invisible form that contains controls for the
-            // Inline link; this way, the behavior of the Inline link does not
-            // depend on the profiling support or on the refresh link
-            if (empty($refresh_link) || !self::profilingSupported()) {
-                $retval .= '<form action="sql.php" method="post">';
-                $retval .= PMA_generate_common_hidden_inputs(
-                    $GLOBALS['db'], $GLOBALS['table']
+            if (! empty($refresh_link) && self::profilingSupported()) {
+                $retval .= '<input type="hidden" name="profiling_form" value="1" />';
+                $retval .= self::getCheckbox(
+                    'profiling', __('Profiling'), isset($_SESSION['profiling']), true
                 );
-                $retval .= '<input type="hidden" name="sql_query" value="'
-                    . htmlspecialchars($sql_query) . '" />';
-                $retval .= '</form>';
             }
+            $retval .= '</form>';
 
-            // in the tools div, only display the Inline link when not in ajax
-            // mode because 1) it currently does not work and 2) we would
-            // have two similar mechanisms on the page for the same goal
-            if ($is_select || ($GLOBALS['is_ajax_request'] === false)
+            /**
+             * TODO: Should we have $cfg['SQLQuery']['InlineEdit']?
+             */
+            if (! empty($cfg['SQLQuery']['Edit'])
+                && $is_select
                 && ! $query_too_big
             ) {
-                // see in js/functions.js the jQuery code attached to id inline_edit
-                // document.write conflicts with jQuery, hence used $().append()
-                $retval .= "<script type=\"text/javascript\">\n" .
-                    "//<![CDATA[\n" .
-                    "$('.tools form').last().after('[ <a href=\"#\" title=\"" .
-                    PMA_escapeJsString(__('Inline edit of this query')) .
-                    "\" class=\"inline_edit_sql\">" .
-                    PMA_escapeJsString(_pgettext('Inline edit query', 'Inline')) .
-                    "</a> ]');\n" .
-                    "//]]>\n" .
-                    "</script>";
+                $inline_edit_link = ' ['
+                    . self::linkOrButton(
+                        '#',
+                        _pgettext('Inline edit query', 'Inline'),
+                        array('class' => 'inline_edit_sql')
+                    )
+                    . ']';
+            } else {
+                $inline_edit_link = '';
             }
-            $retval .= $edit_link . $explain_link . $php_link
+            $retval .= $inline_edit_link . $edit_link . $explain_link . $php_link
                 . $refresh_link . $validate_link;
             $retval .= '</div>';
         }
@@ -1416,38 +1431,6 @@ class PMA_Util
         }
 
         return self::cacheGet('profiling_supported', true);
-    }
-
-    /**
-     * Returns HTML for the form with the Profiling checkbox
-     *
-     * @param string $sql_query sql query
-     *
-     * @return string HTML for the form with the Profiling checkbox
-     *
-     * @access  public
-     */
-    public static function getProfilingForm($sql_query)
-    {
-        $retval = '';
-        if (self::profilingSupported()) {
-
-            $retval .= '<form action="sql.php" method="post">' . "\n";
-            $retval .= PMA_generate_common_hidden_inputs(
-                $GLOBALS['db'], $GLOBALS['table']
-            );
-
-            $retval .= '<input type="hidden" name="sql_query" value="'
-                . htmlspecialchars($sql_query) . '" />' . "\n"
-                . '<input type="hidden" name="profiling_form" value="1" />' . "\n";
-
-            $retval .= self::getCheckbox(
-                'profiling', __('Profiling'), isset($_SESSION['profiling']), true
-            );
-            $retval .= ' </form>' . "\n";
-
-        }
-        return $retval;
     }
 
     /**
@@ -1778,7 +1761,8 @@ class PMA_Util
             ) {
                 $tab['class'] = 'active';
             } elseif (is_null($tab['active']) && empty($GLOBALS['active_page'])
-              && (basename($GLOBALS['PMA_PHP_SELF']) == $tab['link'])) {
+                && (basename($GLOBALS['PMA_PHP_SELF']) == $tab['link'])
+            ) {
                 $tab['class'] = 'active';
             }
         }
@@ -2081,7 +2065,7 @@ class PMA_Util
      * @param string $Separator The Separator (defaults to "<br />\n")
      *
      * @access  public
-     * @todo    add a multibyte safe function PMA_STR_split()
+     * @todo    add a multibyte safe function $GLOBALS['PMA_String']->split()
      *
      * @return string      The flipped string
      */
@@ -2264,8 +2248,8 @@ class PMA_Util
                     $con_val = '= ' . $row[$i];
                 } elseif ((($meta->type == 'blob') || ($meta->type == 'string'))
                     // hexify only if this is a true not empty BLOB or a BINARY
-                        && stristr($field_flags, 'BINARY')
-                        && ! empty($row[$i])
+                    && stristr($field_flags, 'BINARY')
+                    && ! empty($row[$i])
                 ) {
                     // do not waste memory building a too big condition
                     if (strlen($row[$i]) < 1000) {
@@ -2561,11 +2545,7 @@ class PMA_Util
 
             // Move to the beginning or to the previous page
             if ($pos > 0) {
-                if (in_array(
-                    $GLOBALS['cfg']['TableNavigationLinksMode'],
-                    array('icons', 'both')
-                )
-                ) {
+                if (self::showIcons('TableNavigationLinksMode')) {
                     $caption1 = '&lt;&lt;';
                     $caption2 = ' &lt; ';
                     $title1   = ' title="' . _pgettext('First page', 'Begin') . '"';
@@ -2602,11 +2582,7 @@ class PMA_Util
             $list_navigator_html .= '</form>';
 
             if ($pos + $max_count < $count) {
-                if (in_array(
-                    $GLOBALS['cfg']['TableNavigationLinksMode'],
-                    array('icons', 'both')
-                    )
-                ) {
+                if ( self::showIcons('TableNavigationLinksMode')) {
                     $caption3 = ' &gt; ';
                     $caption4 = '&gt;&gt;';
                     $title3   = ' title="' . _pgettext('Next page', 'Next') . '"';
@@ -3438,7 +3414,7 @@ class PMA_Util
 
         if ($files === false) {
             PMA_Message::error(
-                __('The directory you set for upload work cannot be reached')
+                __('The directory you set for upload work cannot be reached.')
             )->display();
         } elseif (! empty($files)) {
             $block_html .= "\n"
@@ -4282,11 +4258,6 @@ class PMA_Util
                 }
                 curl_setopt(
                     $curl_handle,
-                    CURLOPT_RETURNTRANSFER,
-                    1
-                );
-                curl_setopt(
-                    $curl_handle,
                     CURLOPT_HEADER,
                     false
                 );
@@ -4304,24 +4275,16 @@ class PMA_Util
             }
         }
 
-        if ($save) {
-            $_SESSION['cache']['version_check'] = array(
-                'response' => $response,
-                'timestamp' => time()
-            );
-        }
-
         $data = json_decode($response);
         if (is_object($data)
             && strlen($data->version)
             && strlen($data->date)
+            && $save
         ) {
-            if ($save) {
-                $_SESSION['cache']['version_check'] = array(
-                    'response' => $response,
-                    'timestamp' => time()
-                );
-            }
+            $_SESSION['cache']['version_check'] = array(
+                'response' => $response,
+                'timestamp' => time()
+            );
         }
 
         return $data;
