@@ -31,6 +31,10 @@ list(
     $result, $rows, $found_unique_key, $after_insert
 ) = PMA_determineInsertOrEdit($where_clause, $db, $table);
 
+/**
+ * file listing
+*/
+require_once 'libraries/file_listing.lib.php';
 
 /**
  * Defines the url to return to in case of error in a sql statement
