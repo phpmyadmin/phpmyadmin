@@ -84,7 +84,7 @@ if (! empty($submit_mult)
         }
     } elseif (isset($selected_fld) && !empty($selected_fld)) {
         // coming from table structure view - do something with
-        // selected columns/fileds
+        // selected columns
         $selected     = $selected_fld;
         switch ($submit_mult) {
         case 'drop':
