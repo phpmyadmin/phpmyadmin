@@ -84,33 +84,11 @@ if (isset($field_fulltext) && is_array($field_fulltext)) {
 
 for ($i = 0; $i < $num_fields; $i++) {
     if (! empty($regenerate)) {
-        // An error happened with previous inputs, so we will restore the data
-        // to embed it once again in this form.
-        $row = PMA_getRowDataForRegeneration(
-            isset($submit_fulltext) ? $submit_fulltext : null
-        );
-        
-        list($submit_length, $submit_attribute, $submit_default_current_timestamp)
-            = PMA_getSubmitPropertiesForRegeneration();
-
-        if (isset($_REQUEST['field_comments'][$i])) {
-            $comments_map[$row['Field']] = $_REQUEST['field_comments'][$i];
-        }
-
-        if (isset($_REQUEST['field_mimetype'][$i])) {
-            $mime_map[$row['Field']]['mimetype'] = $_REQUEST['field_mimetype'][$i];
-        }
-
-        if (isset($_REQUEST['field_transformation'][$i])) {
-            $mime_map[$row['Field']]['transformation']
-                = $_REQUEST['field_transformation'][$i];
-        }
-
-        if (isset($_REQUEST['field_transformation_options'][$i])) {
-            $mime_map[$row['Field']]['transformation_options']
-                = $_REQUEST['field_transformation_options'][$i];
-        }
-
+        list($row, $submit_length, $submit_attribute,
+            $submit_default_current_timestamp, $comments_map, $mime_map)
+            = PMA_handleRegeneration(isset($available_mime) ? $mime_map : null,
+                $comments_map, $mime_map
+            ); 
     } elseif (isset($fields_meta[$i])) {
         $row = $fields_meta[$i];
         switch ($row['Default']) {

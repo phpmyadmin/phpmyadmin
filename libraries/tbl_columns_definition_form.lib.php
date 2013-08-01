@@ -482,4 +482,47 @@ function PMA_getSubmitPropertiesForRegeneration()
         $submit_length, $submit_attribute, $submit_default_current_timestamp
     );
 }
+
+/**
+ * An error happened with previous inputs, so we will restore the data
+ * to embed it once again in this form.
+ * 
+ * @param array $submit_fulltext
+ * @param array $comments_map
+ * @param array $mime_map
+ * 
+ * @return array
+ */
+function PMA_handleRegeneration($submit_fulltext, $comments_map, $mime_map)
+{
+    $row = PMA_getRowDataForRegeneration(
+        isset($submit_fulltext) ? $submit_fulltext : null
+    );
+
+    list($submit_length, $submit_attribute, $submit_default_current_timestamp)
+        = PMA_getSubmitPropertiesForRegeneration();
+
+    if (isset($_REQUEST['field_comments'][$i])) {
+        $comments_map[$row['Field']] = $_REQUEST['field_comments'][$i];
+    }
+
+    if (isset($_REQUEST['field_mimetype'][$i])) {
+        $mime_map[$row['Field']]['mimetype'] = $_REQUEST['field_mimetype'][$i];
+    }
+
+    if (isset($_REQUEST['field_transformation'][$i])) {
+        $mime_map[$row['Field']]['transformation']
+            = $_REQUEST['field_transformation'][$i];
+    }
+
+    if (isset($_REQUEST['field_transformation_options'][$i])) {
+        $mime_map[$row['Field']]['transformation_options']
+            = $_REQUEST['field_transformation_options'][$i];
+    }
+    
+    return array(
+        $row, $submit_length, $submit_attribute, $submit_default_current_timestamp,
+        $comments_map, $mime_map
+    );
+}
 ?>
