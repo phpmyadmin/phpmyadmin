@@ -90,19 +90,8 @@ for ($i = 0; $i < $num_fields; $i++) {
             isset($submit_fulltext) ? $submit_fulltext : null
         );
         
-        $submit_length
-            = (isset($_REQUEST['field_length'][$i])
-            ? $_REQUEST['field_length'][$i]
-            : false);
-        $submit_attribute
-            = (isset($_REQUEST['field_attribute'][$i])
-            ? $_REQUEST['field_attribute'][$i]
-            : false);
-
-        $submit_default_current_timestamp
-            = (isset($_REQUEST['field_default_current_timestamp'][$i])
-            ? true
-            : false);
+        list($submit_length, $submit_attribute, $submit_default_current_timestamp)
+            = PMA_getSubmitPropertiesForRegeneration();
 
         if (isset($_REQUEST['field_comments'][$i])) {
             $comments_map[$row['Field']] = $_REQUEST['field_comments'][$i];

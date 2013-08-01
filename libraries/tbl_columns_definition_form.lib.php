@@ -456,4 +456,30 @@ function PMA_getRowDataForRegeneration($submit_fulltext)
     
     return $row;
 }
+
+/**
+ * Function to get submit properties for regenerating previous when error occured.
+ * 
+ * @return array
+ */
+function PMA_getSubmitPropertiesForRegeneration()
+{
+    $submit_length
+        = (isset($_REQUEST['field_length'][$i])
+        ? $_REQUEST['field_length'][$i]
+        : false);
+    $submit_attribute
+        = (isset($_REQUEST['field_attribute'][$i])
+        ? $_REQUEST['field_attribute'][$i]
+        : false);
+
+    $submit_default_current_timestamp
+        = (isset($_REQUEST['field_default_current_timestamp'][$i])
+        ? true
+        : false);
+    
+    return array(
+        $submit_length, $submit_attribute, $submit_default_current_timestamp
+    );
+}
 ?>
