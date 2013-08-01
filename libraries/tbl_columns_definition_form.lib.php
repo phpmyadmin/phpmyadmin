@@ -380,4 +380,80 @@ function PMA_getMoveColumns($db, $table)
     
     return $move_columns;
 }
+
+/**
+ * Function to get row data for restoring previous when error occured.
+ * 
+ * @param array $submit_fulltext submit full text
+ * 
+ * @return array
+ */
+function PMA_getRowDataForRestoration($submit_fulltext)
+{
+    $row['Field'] = isset($_REQUEST['field_name'][$i])
+        ? $_REQUEST['field_name'][$i]
+        : false;
+    $row['Type'] = isset($_REQUEST['field_type'][$i])
+        ? $_REQUEST['field_type'][$i]
+        : false;
+    $row['Collation'] = isset($_REQUEST['field_collation'][$i])
+        ? $_REQUEST['field_collation'][$i]
+        : '';
+    $row['Null'] = isset($_REQUEST['field_null'][$i])
+        ? $_REQUEST['field_null'][$i]
+        : '';
+
+    if (isset($_REQUEST['field_key'][$i])
+        && $_REQUEST['field_key'][$i] == 'primary_' . $i
+    ) {
+        $row['Key'] = 'PRI';
+    } elseif (isset($_REQUEST['field_key'][$i])
+        && $_REQUEST['field_key'][$i] == 'index_' . $i
+    ) {
+        $row['Key'] = 'MUL';
+    } elseif (isset($_REQUEST['field_key'][$i])
+        && $_REQUEST['field_key'][$i] == 'unique_' . $i
+    ) {
+        $row['Key'] = 'UNI';
+    } elseif (isset($_REQUEST['field_key'][$i])
+        && $_REQUEST['field_key'][$i] == 'fulltext_' . $i
+    ) {
+        $row['Key'] = 'FULLTEXT';
+    } else {
+        $row['Key'] = '';
+    }
+
+    // put None in the drop-down for Default, when someone adds a field
+    $row['DefaultType'] = isset($_REQUEST['field_default_type'][$i])
+        ? $_REQUEST['field_default_type'][$i]
+        : 'NONE';
+    $row['DefaultValue'] = isset($_REQUEST['field_default_value'][$i])
+        ? $_REQUEST['field_default_value'][$i]
+        : '';
+
+    switch ($row['DefaultType']) {
+    case 'NONE' :
+        $row['Default'] = null;
+        break;
+    case 'USER_DEFINED' :
+        $row['Default'] = $row['DefaultValue'];
+        break;
+    case 'NULL' :
+    case 'CURRENT_TIMESTAMP' :
+        $row['Default'] = $row['DefaultType'];
+        break;
+    }
+
+    $row['Extra']
+        = (isset($_REQUEST['field_extra'][$i])
+        ? $_REQUEST['field_extra'][$i]
+        : false);
+    $row['Comment']
+        = (isset($submit_fulltext[$i])
+            && ($submit_fulltext[$i] == $i)
+        ? 'FULLTEXT'
+        : false);
+    
+    return $row;
+}
 ?>
