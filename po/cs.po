@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-08-01 14:09+0200\n"
-"PO-Revision-Date: 2013-07-31 08:39+0200\n"
+"PO-Revision-Date: 2013-08-01 14:26+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Czech <http://l10n.cihar.com/projects/phpmyadmin/master/cs/>\n"
 "Language: cs\n"
@@ -6865,7 +6865,6 @@ msgid "%s of %s"
 msgstr "%s z %s"
 
 #: libraries/display_import.lib.php:454
-#, fuzzy
 #| msgid "Uploading your import file…"
 msgid "Uploading your import file…"
 msgstr "Nahrávám importovaný soubor…"
