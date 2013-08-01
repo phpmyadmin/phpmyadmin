@@ -60,7 +60,7 @@ $available_mime = array();
 $comments_map = PMA_getComments($db, $table);
 
 if (isset($fields_meta)) {
-   $move_columns = PMA_getMoveColumns($db, $table);
+    $move_columns = PMA_getMoveColumns($db, $table);
 }
 
 if ($cfgRelation['mimework'] && $GLOBALS['cfg']['BrowseMIME']) {
@@ -86,9 +86,10 @@ for ($i = 0; $i < $num_fields; $i++) {
     if (! empty($regenerate)) {
         list($row, $submit_length, $submit_attribute,
             $submit_default_current_timestamp, $comments_map, $mime_map)
-            = PMA_handleRegeneration(isset($available_mime) ? $mime_map : null,
-                $comments_map, $mime_map
-            ); 
+                = PMA_handleRegeneration(
+                    isset($available_mime) ? $mime_map : null,
+                    $comments_map, $mime_map
+                ); 
     } elseif (isset($fields_meta[$i])) {
         $row = $fields_meta[$i];
         switch ($row['Default']) {

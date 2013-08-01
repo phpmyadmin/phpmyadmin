@@ -207,8 +207,8 @@ function PMA_getHtmlForTableNameAndNoOfColumns()
 /**
  * Function to get html for table field definitions
  * 
- * @param array $header_cells
- * @param array $content_cells
+ * @param array $header_cells  header cells
+ * @param array $content_cells content cells
  * 
  * @return string
  */
@@ -334,7 +334,8 @@ function PMA_getHeaderCells($is_backup, $fields_meta, $mimework, $db, $table)
             . sprintf(
                 __(
                     'For a list of available transformation options and their MIME'
-                    . ' type transformations, click on %stransformation descriptions%s'
+                    . ' type transformations, click on'
+                    . ' %stransformation descriptions%s'
                 ),
                 '<a href="transformation_overview.php?'
                 . PMA_generate_common_url($db, $table)
@@ -363,8 +364,8 @@ function PMA_getHeaderCells($is_backup, $fields_meta, $mimework, $db, $table)
 /**
  * Function for moving, load all available column names
  * 
- * @param string $db
- * @param string $table
+ * @param string $db    current database
+ * @param string $table current table
  * 
  * @return array
  */
@@ -487,9 +488,9 @@ function PMA_getSubmitPropertiesForRegeneration()
  * An error happened with previous inputs, so we will restore the data
  * to embed it once again in this form.
  * 
- * @param array $submit_fulltext
- * @param array $comments_map
- * @param array $mime_map
+ * @param array $submit_fulltext submit full text
+ * @param array $comments_map    comments map
+ * @param array $mime_map        mime map
  * 
  * @return array
  */
