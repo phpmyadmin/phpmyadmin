@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-07-30 09:37-0400\n"
-"PO-Revision-Date: 2013-07-31 12:03+0200\n"
+"PO-Revision-Date: 2013-08-01 10:53+0200\n"
 "Last-Translator: Myung Han Yu <greatymh@gmail.com>\n"
 "Language-Team: Korean <http://l10n.cihar.com/projects/phpmyadmin/master/ko/>\n"
 "Language: ko\n"
@@ -3703,7 +3703,7 @@ msgstr ""
 msgid ""
 "A variable-length (0-65,535) string, uses binary collation for all "
 "comparisons"
-msgstr ""
+msgstr "가변 길이 (0-65,535) 문자열, 비교에 이진(binary) 콜레이션 사용"
 
 #: libraries/Types.class.php:739
 msgid "An enumeration, chosen from the list of defined values"
@@ -4237,6 +4237,8 @@ msgid ""
 "inside a frame, and is a potential [strong]security hole[/strong] allowing "
 "cross-frame scripting attacks"
 msgstr ""
+"활성화 할 경우, 다른 도메인에 위치한 페이지에서 phpMyAdmin을 프레임 안쪽에 로드하는 것을 허용하게 되며, 이는 크로스 프레임 "
+"스크립팅 공격 [strong]보안 취약점[/strong]을 허용할 가능성을 가집니다."
 
 #: libraries/config/messages.inc.php:20
 #, fuzzy
@@ -4251,7 +4253,7 @@ msgstr "일반 사용자에게 &quot;데이터베이스 삭제(drop)&quot; 링�
 msgid ""
 "Secret passphrase used for encrypting cookies in [kbd]cookie[/kbd] "
 "authentication"
-msgstr ""
+msgstr "[kbd]쿠키[/kbd] 인증방식에서 쿠키를 암호화하는데 사용할 비밀 암호"
 
 #: libraries/config/messages.inc.php:23
 msgid "Blowfish secret"
@@ -5175,11 +5177,11 @@ msgstr "로그인 쿠키의 유효시간을 설정 (초 단위)"
 
 #: libraries/config/messages.inc.php:281
 msgid "Login cookie validity"
-msgstr ""
+msgstr "로그인 쿠키 유효시간"
 
 #: libraries/config/messages.inc.php:282
 msgid "Double size of textarea for LONGTEXT columns"
-msgstr ""
+msgstr "LONGTEXT 형식의 컬럼에 대해 두 배 크기의 textarea를 사용"
 
 #: libraries/config/messages.inc.php:283
 msgid "Bigger textarea for LONGTEXT"
@@ -5828,7 +5830,7 @@ msgstr "사용 가능한 데이터베이스를 조회하는 SQL 명령"
 
 #: libraries/config/messages.inc.php:428
 msgid "SHOW DATABASES command"
-msgstr ""
+msgstr "SHOW DATABASES 명령"
 
 #: libraries/config/messages.inc.php:429
 msgid ""
@@ -5838,11 +5840,11 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:430
 msgid "Signon session name"
-msgstr ""
+msgstr "접속 세션 이름"
 
 #: libraries/config/messages.inc.php:431
 msgid "Signon URL"
-msgstr ""
+msgstr "접속 URL"
 
 #: libraries/config/messages.inc.php:432
 msgid "Socket on which MySQL server is listening, leave empty for default"
