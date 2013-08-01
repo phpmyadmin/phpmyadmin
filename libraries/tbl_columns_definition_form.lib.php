@@ -276,4 +276,108 @@ function PMA_getHtmlForTableCreateOrAddField($action, $form_params, $content_cel
 
     return $html;
 }
+
+/**
+ * Function to get header cells
+ * 
+ * @param bool   $is_backup   whether backup or not
+ * @param array  $fields_meta fields meta data
+ * @param bool   $mimework    whether mimework or not
+ * @param string $db          current database
+ * @param string $table       current table
+ * 
+ * @return string
+ */
+function PMA_getHeaderCells($is_backup, $fields_meta, $mimework, $db, $table)
+{
+    $header_cells = array();
+    $header_cells[] = __('Name');
+    $header_cells[] = __('Type')
+        . PMA_Util::showMySQLDocu('SQL-Syntax', 'data-types');
+    $header_cells[] = __('Length/Values')
+        . PMA_Util::showHint(
+            __(
+                'If column type is "enum" or "set", please enter the values using'
+                . ' this format: \'a\',\'b\',\'c\'…<br />If you ever need to put'
+                . ' a backslash ("\") or a single quote ("\'") amongst those'
+                . ' values, precede it with a backslash (for example \'\\\\xyz\''
+                . ' or \'a\\\'b\').'
+            )
+        );
+    $header_cells[] = __('Default')
+        . PMA_Util::showHint(
+            __(
+                'For default values, please enter just a single value,'
+                . ' without backslash escaping or quotes, using this format: a'
+            )
+        );
+    $header_cells[] = __('Collation');
+    $header_cells[] = __('Attributes');
+    $header_cells[] = __('Null');
+    
+    // We could remove this 'if' and let the key information be shown and
+    // editable. However, for this to work, structure.lib.php must be modified
+    // to use the key fields, as tbl_addfield does.
+    if (! $is_backup) {
+        $header_cells[] = __('Index');
+    }
+
+    $header_cells[] = '<abbr title="AUTO_INCREMENT">A_I</abbr>';    
+    $header_cells[] = __('Comments');
+    
+    if (isset($fields_meta)) {
+        $header_cells[] = __('Move column');
+    }
+    
+    if ($mimework && $GLOBALS['cfg']['BrowseMIME']) {        
+        $hint = '<br />'
+            . sprintf(
+                __(
+                    'For a list of available transformation options and their MIME'
+                    . ' type transformations, click on %stransformation descriptions%s'
+                ),
+                '<a href="transformation_overview.php?'
+                . PMA_generate_common_url($db, $table)
+                . '" target="_blank">',
+                '</a>'
+            );
+
+        $header_cells[] = __('MIME type');
+        $header_cells[] = __('Browser transformation');
+        $header_cells[] = __('Transformation options')
+            . PMA_Util::showHint(
+                __(
+                    'Please enter the values for transformation options using this'
+                    . ' format: \'a\', 100, b,\'c\'…<br />If you ever need to put'
+                    . ' a backslash ("\") or a single quote ("\'") amongst those'
+                    . ' values, precede it with a backslash (for example \'\\\\xyz\''
+                    . ' or \'a\\\'b\').'
+                )
+                . $hint
+            );
+    }
+    
+    return $header_cells;
+}
+
+/**
+ * Function for moving, load all available column names
+ * 
+ * @param string $db
+ * @param string $table
+ * 
+ * @return array
+ */
+function PMA_getMoveColumns($db, $table)
+{
+    $move_columns_sql_query    = 'SELECT * FROM '
+        . PMA_Util::backquote($db)
+        . '.'
+        . PMA_Util::backquote($table)
+        . ' LIMIT 1';
+    $move_columns_sql_result = $GLOBALS['dbi']->tryQuery($move_columns_sql_query);
+    $move_columns = $GLOBALS['dbi']->getFieldsMeta($move_columns_sql_result);
+    
+    return $move_columns;
+}
 ?>
