@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-07-30 09:37-0400\n"
+"POT-Creation-Date: 2013-08-01 14:09+0200\n"
 "PO-Revision-Date: 2013-07-10 16:11+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Bengali <http://l10n.cihar.com/projects/phpmyadmin/master/bn/"
@@ -76,7 +76,7 @@ msgstr "খুঁজুন"
 #: libraries/server_privileges.lib.php:3575
 #: libraries/sql_query_form.lib.php:378 libraries/sql_query_form.lib.php:435
 #: libraries/sql_query_form.lib.php:500 libraries/structure.lib.php:1598
-#: libraries/tbl_columns_definition_form.inc.php:754 pmd_pdf.php:157
+#: libraries/tbl_columns_definition_form.lib.php:174 pmd_pdf.php:157
 #: prefs_manage.php:272 prefs_manage.php:322 tbl_chart.php:251
 #: tbl_tracking.php:522 tbl_tracking.php:683 view_create.php:273
 #: view_operations.php:99
@@ -118,7 +118,7 @@ msgid "Database comment: "
 msgstr "ডাটাবেইজের মন্তব্য"
 
 #: db_datadict.php:157 libraries/schema/Pdf_Relation_Schema.class.php:1352
-#: libraries/tbl_columns_definition_form.inc.php:836 tbl_printview.php:120
+#: libraries/tbl_columns_definition_form.lib.php:70 tbl_printview.php:120
 #, fuzzy
 #| msgid "Table comments"
 msgid "Table comments:"
@@ -137,7 +137,7 @@ msgstr "টেবিলের মন্তব্য সমূহ"
 #: libraries/plugins/export/ExportTexytext.class.php:434
 #: libraries/schema/Pdf_Relation_Schema.class.php:1378
 #: libraries/schema/Pdf_Relation_Schema.class.php:1401
-#: libraries/tbl_columns_definition_form.inc.php:353 tbl_printview.php:130
+#: libraries/tbl_columns_definition_form.inc.php:310 tbl_printview.php:130
 #: tbl_relation.php:396 tbl_relation.php:492 tbl_relation.php:562
 #: tbl_tracking.php:325 tbl_tracking.php:387
 msgid "Column"
@@ -161,7 +161,7 @@ msgstr "স্তম্ভ"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1402
 #: libraries/server_privileges.lib.php:1699 libraries/structure.lib.php:776
 #: libraries/structure.lib.php:1180
-#: libraries/tbl_columns_definition_form.inc.php:96 tbl_printview.php:131
+#: libraries/tbl_columns_definition_form.inc.php:55 tbl_printview.php:131
 #: tbl_tracking.php:326 tbl_tracking.php:384
 msgid "Type"
 msgstr "ধরণ"
@@ -178,7 +178,7 @@ msgstr "ধরণ"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1381
 #: libraries/schema/Pdf_Relation_Schema.class.php:1404
 #: libraries/structure.lib.php:1183
-#: libraries/tbl_columns_definition_form.inc.php:116 tbl_printview.php:132
+#: libraries/tbl_columns_definition_form.inc.php:75 tbl_printview.php:132
 #: tbl_tracking.php:328 tbl_tracking.php:390
 msgid "Null"
 msgstr "নাল"
@@ -193,7 +193,7 @@ msgstr "নাল"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1382
 #: libraries/schema/Pdf_Relation_Schema.class.php:1405
 #: libraries/structure.lib.php:210 libraries/structure.lib.php:1184
-#: libraries/tbl_columns_definition_form.inc.php:107 tbl_printview.php:133
+#: libraries/tbl_columns_definition_form.inc.php:66 tbl_printview.php:133
 #: tbl_tracking.php:329
 msgid "Default"
 msgstr "স্বাভাবিক"
@@ -216,12 +216,12 @@ msgstr "এর সংযোগ"
 #: libraries/plugins/export/ExportTexytext.class.php:379
 #: libraries/schema/Pdf_Relation_Schema.class.php:1395
 #: libraries/schema/Pdf_Relation_Schema.class.php:1408
-#: libraries/tbl_columns_definition_form.inc.php:136 tbl_printview.php:137
+#: libraries/tbl_columns_definition_form.inc.php:95 tbl_printview.php:137
 msgid "Comments"
 msgstr "মন্তব্য"
 
 #: db_datadict.php:237 js/messages.php:231 libraries/Index.class.php:431
-#: libraries/Index.class.php:470 libraries/Index.class.php:874
+#: libraries/Index.class.php:470 libraries/Index.class.php:879
 #: libraries/config/FormDisplay.tpl.php:262 libraries/mult_submits.inc.php:372
 #: libraries/mult_submits.inc.php:373
 #: libraries/plugins/export/ExportHtmlword.class.php:633
@@ -243,7 +243,7 @@ msgid "No"
 msgstr "না"
 
 #: db_datadict.php:237 js/messages.php:230 libraries/Index.class.php:432
-#: libraries/Index.class.php:469 libraries/Index.class.php:874
+#: libraries/Index.class.php:469 libraries/Index.class.php:879
 #: libraries/config/FormDisplay.tpl.php:262 libraries/mult_submits.inc.php:76
 #: libraries/mult_submits.inc.php:111 libraries/mult_submits.inc.php:120
 #: libraries/mult_submits.inc.php:125 libraries/mult_submits.inc.php:130
@@ -264,7 +264,7 @@ msgstr "না"
 #: libraries/server_privileges.lib.php:2655 libraries/structure.lib.php:1268
 #: libraries/user_preferences.lib.php:284 prefs_manage.php:136
 #: server_databases.php:104 server_databases.php:111 tbl_printview.php:187
-#: tbl_structure.php:86 tbl_tracking.php:346 tbl_tracking.php:398
+#: tbl_structure.php:85 tbl_tracking.php:346 tbl_tracking.php:398
 #: tbl_tracking.php:403
 msgid "Yes"
 msgstr "হ্যাঁ"
@@ -273,7 +273,7 @@ msgstr "হ্যাঁ"
 msgid "View dump (schema) of database"
 msgstr "ডাটাবেজ(গঠন)স্তুপ দেখাও"
 
-#: db_export.php:33 db_printview.php:41 db_structure.php:86 db_tracking.php:49
+#: db_export.php:33 db_printview.php:41 db_structure.php:80 db_tracking.php:49
 #: export.php:559 libraries/DBQbe.class.php:268
 msgid "No tables found in database."
 msgstr "ডাটাবেইজে কোন টেবিল নাই"
@@ -302,7 +302,7 @@ msgstr "ডাটাবেইজ %1$s এর  নতুন নামকরণ %2
 msgid "Database %1$s has been copied to %2$s"
 msgstr "ডাটাবেইজ %1$s টি  %2$s এ অনুলিপি হয়েছে"
 
-#: db_operations.php:261
+#: db_operations.php:255
 #, php-format
 msgid ""
 "The phpMyAdmin configuration storage has been deactivated. To find out why "
@@ -434,7 +434,7 @@ msgid "Action"
 msgstr "কর্ম"
 
 #: db_tracking.php:85 libraries/navigation/Navigation.class.php:198
-#: tbl_change.php:235 tbl_tracking.php:767
+#: tbl_change.php:151 tbl_tracking.php:767
 msgid "Show"
 msgstr "দেখাও"
 
@@ -1203,7 +1203,7 @@ msgstr "সিরিজে অন্তত একটি চলক যোগ ক�
 #: libraries/server_privileges.lib.php:2258
 #: libraries/server_status.lib.php:525
 #: libraries/server_status_monitor.lib.php:269
-#: libraries/tbl_columns_definition_form.inc.php:687 pmd_general.php:545
+#: libraries/tbl_columns_definition_form.inc.php:644 pmd_general.php:545
 msgid "None"
 msgstr "কিছু না"
 
@@ -1723,7 +1723,7 @@ msgstr "%d বৈধ রো নাম্বার নয়।"
 #: js/messages.php:271 libraries/display_indexes.lib.php:195
 #: libraries/insert_edit.lib.php:1462
 #: libraries/schema/User_Schema.class.php:385
-#: libraries/tbl_columns_definition_form.inc.php:898 server_variables.php:132
+#: libraries/tbl_columns_definition_form.lib.php:141 server_variables.php:132
 #: setup/frames/config.inc.php:39 setup/frames/index.inc.php:246
 #: tbl_relation.php:636
 msgid "Save"
@@ -1797,7 +1797,7 @@ msgid "Data point content"
 msgstr "প্রতিটি পয়েন্ট তথ্য"
 
 #: js/messages.php:302 libraries/display_indexes.lib.php:134
-#: libraries/display_indexes.lib.php:170 tbl_change.php:263
+#: libraries/display_indexes.lib.php:170 tbl_change.php:179
 msgid "Ignore"
 msgstr "উপেক্ষা"
 
@@ -2856,7 +2856,7 @@ msgstr "ইনডেক্সসমূহ"
 
 #: libraries/Index.class.php:563 libraries/structure.lib.php:1387
 #: libraries/structure.lib.php:2074 libraries/structure.lib.php:2084
-#: libraries/tbl_columns_definition_form.inc.php:569 tbl_tracking.php:385
+#: libraries/tbl_columns_definition_form.inc.php:526 tbl_tracking.php:385
 msgid "Unique"
 msgstr "অনন্য"
 
@@ -2874,7 +2874,7 @@ msgstr "Cardinality"
 #: libraries/server_collations.lib.php:35
 #: libraries/server_collations.lib.php:47 libraries/structure.lib.php:780
 #: libraries/structure.lib.php:1181 libraries/structure.lib.php:1717
-#: libraries/tbl_columns_definition_form.inc.php:114 tbl_tracking.php:327
+#: libraries/tbl_columns_definition_form.inc.php:73 tbl_tracking.php:327
 #: tbl_tracking.php:389
 msgid "Collation"
 msgstr "ভাষা"
@@ -2894,7 +2894,7 @@ msgstr "প্রাথমিক কী মুছা হয়েছে"
 msgid "Index %s has been dropped."
 msgstr "ইনডেক্স %s মুছা হয়েছে"
 
-#: libraries/Index.class.php:731
+#: libraries/Index.class.php:736
 #, php-format
 msgid ""
 "The indexes %1$s and %2$s seem to be equal and one of them could possibly be "
@@ -2921,7 +2921,7 @@ msgstr "দেখা"
 #: libraries/config/user_preferences.forms.php:234
 #: libraries/config/user_preferences.forms.php:260
 #: libraries/import.lib.php:1227 libraries/server_privileges.lib.php:875
-#: libraries/tbl_columns_definition_form.inc.php:771 pmd_general.php:174
+#: libraries/tbl_columns_definition_form.lib.php:199 pmd_general.php:174
 #: tbl_tracking.php:321
 msgid "Structure"
 msgstr "গঠন"
@@ -3334,7 +3334,7 @@ msgid "Maximum rows to plot"
 msgstr "অংশের জন্য সর্বোচ্চ রো"
 
 #: libraries/TableSearch.class.php:899 libraries/TableSearch.class.php:1203
-#: libraries/sql.lib.php:371 tbl_change.php:230
+#: libraries/sql.lib.php:371 tbl_change.php:146
 msgid "Browse foreign values"
 msgstr "ফরেন মান দেখা"
 
@@ -4336,8 +4336,8 @@ msgstr "CHAR স্তম্ভ সম্পাদনা"
 
 #: libraries/config/messages.inc.php:32
 msgid ""
-"Use user-friendly editor for editing SQL queries ([a@http://codemirror.net/]"
-"CodeMirror[/a]) with syntax highlighting and line numbers"
+"Use user-friendly editor for editing SQL queries ([a@http://codemirror."
+"net/]CodeMirror[/a]) with syntax highlighting and line numbers"
 msgstr ""
 "SQL অনুসন্ধান সম্পাদনার জন্য ব্যবহারকারীর জন্য সহজ সফটওয়ার ব্যবহার করুন ([a@http://"
 "codemirror.net/]CodeMirror[/a]), লাইন চিহ্নিতকরন এবং লাইন নাম্বার সহ "
@@ -4629,7 +4629,7 @@ msgstr "লেবেল কী"
 #: libraries/config/messages.inc.php:98 libraries/config/messages.inc.php:110
 #: libraries/config/messages.inc.php:135
 #: libraries/plugins/export/ExportOdt.class.php:482
-#: libraries/tbl_columns_definition_form.inc.php:169
+#: libraries/tbl_columns_definition_form.inc.php:128
 msgid "MIME type"
 msgstr "MIME ধরন"
 
@@ -4744,8 +4744,8 @@ msgid ""
 "Sort order for items in a foreign-key dropdown box; [kbd]content[/kbd] is "
 "the referenced data, [kbd]id[/kbd] is the key value"
 msgstr ""
-"ফরেন কী ড্রপডাউনের বিষয়গুলো গুছানোর পদ্ধতি [kbd]content[/kbd] হলো তথ্য এবং [kbd]id"
-"[/kbd] কী মান "
+"ফরেন কী ড্রপডাউনের বিষয়গুলো গুছানোর পদ্ধতি [kbd]content[/kbd] হলো তথ্য এবং "
+"[kbd]id[/kbd] কী মান "
 
 #: libraries/config/messages.inc.php:152
 msgid "Foreign key dropdown order"
@@ -4885,8 +4885,9 @@ msgstr "পাতার শিরোনাম"
 
 #: libraries/config/messages.inc.php:194
 msgid ""
-"Specify browser's title bar text. Refer to [doc@cfg_TitleTable]documentation"
-"[/doc] for magic strings that can be used to get special values."
+"Specify browser's title bar text. Refer to "
+"[doc@cfg_TitleTable]documentation[/doc] for magic strings that can be used "
+"to get special values."
 msgstr ""
 "ব্রাউজারের শিরোনামের লেখাটি দিন। বিশেষ মান নেওয়ার জন্য কি ব্যবহার করতে হবে "
 "জানার জন্য [doc@cfg_TitleTable]documentation[/doc] দেখুন।"
@@ -5006,10 +5007,10 @@ msgid ""
 "strong].[br][em][a@http://sqlvalidator.mimer.com/]Mimer SQL Validator[/a], "
 "Copyright 2002 Upright Database Technology. All rights reserved.[/em]"
 msgstr ""
-"আপনি যদি SQL বৈধকরণ ব্যবহার করতে চান, তবে আপনার সচেতন থাকা উচিত যে [strong]"
-"পরিসংখ্যানে ব্যবহারের জন্য সমস্ত SQL statements অপরিচিত ভাবে জমা রাখা হয়।[/"
-"strong]। [br][em][a@http://sqlvalidator.mimer.com/]Mimer SQL Validator[/a], "
-"Copyright 2002 Upright Database Technology. সমস্ত স্বত্ব সংরক্ষন করে।[/em]"
+"আপনি যদি SQL বৈধকরণ ব্যবহার করতে চান, তবে আপনার সচেতন থাকা উচিত যে "
+"[strong]পরিসংখ্যানে ব্যবহারের জন্য সমস্ত SQL statements অপরিচিত ভাবে জমা রাখা হয়।"
+"[/strong]। [br][em][a@http://sqlvalidator.mimer.com/]Mimer SQL Validator[/"
+"a], Copyright 2002 Upright Database Technology. সমস্ত স্বত্ব সংরক্ষন করে।[/em]"
 
 #: libraries/config/messages.inc.php:223
 msgid "Startup"
@@ -5308,8 +5309,8 @@ msgid ""
 "The number of bytes a script is allowed to allocate, eg. [kbd]32M[/kbd] "
 "([kbd]0[/kbd] for no limit)"
 msgstr ""
-"একটি স্ক্রীপটের জন্য নির্ধারিত বাইটের সংখ্যা যেমন [kbd]৩২মে[/kbd] ([kbd]০[/kbd]"
-"কোন সীমা নির্দষ্ট না করার জন্য"
+"একটি স্ক্রীপটের জন্য নির্ধারিত বাইটের সংখ্যা যেমন [kbd]৩২মে[/kbd] ([kbd]০[/"
+"kbd]কোন সীমা নির্দষ্ট না করার জন্য"
 
 #: libraries/config/messages.inc.php:299
 msgid "Memory limit"
@@ -5336,8 +5337,8 @@ msgid ""
 "Open the linked page in the main window ([kbd]main[/kbd]) or in a new one "
 "([kbd]new[/kbd])"
 msgstr ""
-"সংযুক্ত পাতাটি একটি নতুন উইন্ডোতে ([kbd]new[/kbd]) খোল বা প্রধান উইন্ডোটিতে ([kbd]"
-"main[/kbd]) খোল"
+"সংযুক্ত পাতাটি একটি নতুন উইন্ডোতে ([kbd]new[/kbd]) খোল বা প্রধান উইন্ডোটিতে "
+"([kbd]main[/kbd]) খোল"
 
 #: libraries/config/messages.inc.php:305
 msgid "Logo link target"
@@ -5674,8 +5675,8 @@ msgstr "বুকর্মাক টেবল"
 
 #: libraries/config/messages.inc.php:383
 msgid ""
-"Leave blank for no column comments/mime types, suggested: [kbd]"
-"pma__column_info[/kbd]"
+"Leave blank for no column comments/mime types, suggested: "
+"[kbd]pma__column_info[/kbd]"
 msgstr ""
 "স্তম্ভের মন্তব্য/মাইমের ধরন না দেখানোর জন্য খালি রাখুন, দেখুন:[kbd]pma_column_info[/"
 "kbd]"
@@ -5865,8 +5866,8 @@ msgid ""
 "no support. Suggested: [kbd]phpmyadmin[/kbd]"
 msgstr ""
 "সর্ম্পক, বুকর্মাক এবং পিডিএফের জন্য ব্যবহৃত ডাটাবেইজসমূহ। পুর্ণ তথ্যে জন্য[a@http://wiki."
-"phpmyadmin.net/pma/pmadb]pmadb[/a] দেখুন। সমর্থন না করলে খালি রাখুন। দেখুন: [kbd]"
-"phpmyadmin[/kbd]"
+"phpmyadmin.net/pma/pmadb]pmadb[/a] দেখুন। সমর্থন না করলে খালি রাখুন। দেখুন: "
+"[kbd]phpmyadmin[/kbd]"
 
 #: libraries/config/messages.inc.php:420
 msgid "Database name"
@@ -5894,8 +5895,8 @@ msgstr "সাময়িককালে ব্যবহৃত টেবল"
 
 #: libraries/config/messages.inc.php:425
 msgid ""
-"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-links"
-"[/a] support, suggested: [kbd]pma__relation[/kbd]"
+"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
+"links[/a] support, suggested: [kbd]pma__relation[/kbd]"
 msgstr ""
 "না করার জন্য খালি রাখুন [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
 "links[/a]সাহায্যের জন্য, দেখুন:[kbd]pma__relation[/kbd] "
@@ -5914,11 +5915,11 @@ msgstr "SHOW DATABASES কমান্ড"
 
 #: libraries/config/messages.inc.php:429
 msgid ""
-"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication types"
-"[/a] for an example"
+"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
+"types[/a] for an example"
 msgstr ""
-"উদাহরণের জন্য [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]"
-"authentication types [/a] দেখুন"
+"উদাহরণের জন্য [a@http://wiki.phpmyadmin.net/pma/"
+"auth_types#signon]authentication types [/a] দেখুন"
 
 #: libraries/config/messages.inc.php:430
 msgid "Signon session name"
@@ -6024,8 +6025,8 @@ msgstr "ট্রেকের জন্য Statements"
 
 #: libraries/config/messages.inc.php:450
 msgid ""
-"Leave blank for no SQL query tracking support, suggested: [kbd]pma__tracking"
-"[/kbd]"
+"Leave blank for no SQL query tracking support, suggested: "
+"[kbd]pma__tracking[/kbd]"
 msgstr ""
 "SQL অনুসন্ধান ট্রেকিং সমর্থন না দেওয়ার জন্য খালি রাখুন, দেখুন: [kbd]pma_tracking[/"
 "kbd]"
@@ -6046,8 +6047,8 @@ msgstr "স্বয়ংক্রীয়ভাবে সংস্করন তৈ�
 
 #: libraries/config/messages.inc.php:454
 msgid ""
-"Leave blank for no user preferences storage in database, suggested: [kbd]"
-"pma__userconfig[/kbd]"
+"Leave blank for no user preferences storage in database, suggested: "
+"[kbd]pma__userconfig[/kbd]"
 msgstr ""
 "ব্যবহারকারীর নির্ধারন (preferences) ডাটাবেইজে মজুদ করতে না চাইলে খালি রাখুন, "
 "দেখুন:[kbd]pma_userconfig[/kbd] "
@@ -6059,11 +6060,11 @@ msgstr "ব্যবহারকারীর নির্ধারন (preferenc
 #: libraries/config/messages.inc.php:456
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no user preferences storage in database, suggested: [kbd]"
-#| "pma__userconfig[/kbd]"
+#| "Leave blank for no user preferences storage in database, suggested: "
+#| "[kbd]pma__userconfig[/kbd]"
 msgid ""
-"Leave blank to disable configurable menus feature, suggested: [kbd]pma__users"
-"[/kbd]"
+"Leave blank to disable configurable menus feature, suggested: "
+"[kbd]pma__users[/kbd]"
 msgstr ""
 "ব্যবহারকারীর নির্ধারন (preferences) ডাটাবেইজে মজুদ করতে না চাইলে খালি রাখুন, "
 "দেখুন:[kbd]pma_userconfig[/kbd] "
@@ -6077,11 +6078,11 @@ msgstr "টেবল ব্যবহার"
 #: libraries/config/messages.inc.php:458
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no user preferences storage in database, suggested: [kbd]"
-#| "pma__userconfig[/kbd]"
+#| "Leave blank for no user preferences storage in database, suggested: "
+#| "[kbd]pma__userconfig[/kbd]"
 msgid ""
-"Leave blank to disable configurable menus feature, suggested: [kbd]"
-"pma__usergroups[/kbd]"
+"Leave blank to disable configurable menus feature, suggested: "
+"[kbd]pma__usergroups[/kbd]"
 msgstr ""
 "ব্যবহারকারীর নির্ধারন (preferences) ডাটাবেইজে মজুদ করতে না চাইলে খালি রাখুন, "
 "দেখুন:[kbd]pma_userconfig[/kbd] "
@@ -6095,8 +6096,8 @@ msgstr "হোষ্ট টেবল ব্যবহার কর"
 #: libraries/config/messages.inc.php:460
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no user preferences storage in database, suggested: [kbd]"
-#| "pma__userconfig[/kbd]"
+#| "Leave blank for no user preferences storage in database, suggested: "
+#| "[kbd]pma__userconfig[/kbd]"
 msgid ""
 "Leave blank to disable the feature to hide and show navigation items, "
 "suggested: [kbd]pma__navigationhiding[/kbd]"
@@ -6611,7 +6612,7 @@ msgstr "টেবিল তৈরী কর"
 #: libraries/rte/rte_list.lib.php:52 libraries/rte/rte_list.lib.php:63
 #: libraries/rte/rte_list.lib.php:77 libraries/rte/rte_routines.lib.php:967
 #: libraries/rte/rte_routines.lib.php:1579 libraries/structure.lib.php:1179
-#: libraries/tbl_columns_definition_form.inc.php:95
+#: libraries/tbl_columns_definition_form.inc.php:54
 #: setup/frames/index.inc.php:135
 msgid "Name"
 msgstr "নাম"
@@ -6843,9 +6844,9 @@ msgid ""
 "to the PHP timeout limit. <i>(This might be a good way to import large "
 "files, however it can break transactions.)</i>"
 msgstr ""
-"পিএইছপি নির্ধারিত শেষ হওয়ার সময়ের কাছাকাছি এলে আমদানি বন্ধ করার অনুমোদন। <i>"
-"(এটা অনেক বড় ফাইল আমদানীর একটি ভাল উপায়, যদিও এটা কাজ বন্ধ করে দিতে পারে।)</"
-"i> "
+"পিএইছপি নির্ধারিত শেষ হওয়ার সময়ের কাছাকাছি এলে আমদানি বন্ধ করার অনুমোদন। "
+"<i>(এটা অনেক বড় ফাইল আমদানীর একটি ভাল উপায়, যদিও এটা কাজ বন্ধ করে দিতে "
+"পারে।)</i> "
 
 #: libraries/display_import.lib.php:302
 msgid "Number of rows to skip, starting from the first row:"
@@ -6872,7 +6873,7 @@ msgstr "%s এর %s"
 #: libraries/display_import.lib.php:454
 #, fuzzy
 #| msgid "Uploading your import file…"
-msgid "Uploading your import file..."
+msgid "Uploading your import file…"
 msgstr "আমদানির জন্য ফাইল আপলোড করছি…"
 
 #: libraries/display_import.lib.php:455
@@ -8365,8 +8366,8 @@ msgid ""
 "(1,2,3)</code>"
 msgstr ""
 "প্রতিটি <code>INSERT</code> এর সাথে স্তম্ভের নাম সংযুক্ত কর <br /> &nbsp;&nbsp; "
-"&nbsp; উদাহরণ: <code>INSERT INTO tbl_name (col_A,col_B,col_C) VALUES (1,2,3)"
-"</code> "
+"&nbsp; উদাহরণ: <code>INSERT INTO tbl_name (col_A,col_B,col_C) VALUES "
+"(1,2,3)</code> "
 
 #: libraries/plugins/export/ExportSql.class.php:376
 msgid ""
@@ -8744,7 +8745,7 @@ msgid "Displaying Column Comments"
 msgstr "স্তম্ভের মন্তব্য দেখাচ্ছে"
 
 #: libraries/relation.lib.php:165
-#: libraries/tbl_columns_definition_form.inc.php:170
+#: libraries/tbl_columns_definition_form.inc.php:129
 #: transformation_overview.php:39
 msgid "Browser transformation"
 msgstr "ব্রাউজারের রুপান্তর"
@@ -9304,7 +9305,7 @@ msgid "Direction"
 msgstr "দিক"
 
 #: libraries/rte/rte_routines.lib.php:969
-#: libraries/tbl_columns_definition_form.inc.php:98
+#: libraries/tbl_columns_definition_form.inc.php:57
 msgid "Length/Values"
 msgstr "দৈর্ঘ্য/মানসমূহ"
 
@@ -9560,7 +9561,7 @@ msgstr "সুচিপত্র"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1380
 #: libraries/schema/Pdf_Relation_Schema.class.php:1403
 #: libraries/structure.lib.php:1182
-#: libraries/tbl_columns_definition_form.inc.php:115
+#: libraries/tbl_columns_definition_form.inc.php:74
 msgid "Attributes"
 msgstr "গুনাবলী"
 
@@ -11579,14 +11580,14 @@ msgstr "স্বম্ভ %s মুছা হয়েছে "
 
 #: libraries/structure.lib.php:1383 libraries/structure.lib.php:2070
 #: libraries/structure.lib.php:2080
-#: libraries/tbl_columns_definition_form.inc.php:562
+#: libraries/tbl_columns_definition_form.inc.php:519
 msgid "Primary"
 msgstr "প্রাথমিক"
 
 #: libraries/structure.lib.php:1391 libraries/structure.lib.php:2072
 #: libraries/structure.lib.php:2082 libraries/structure.lib.php:2190
-#: libraries/tbl_columns_definition_form.inc.php:123
-#: libraries/tbl_columns_definition_form.inc.php:576 tbl_printview.php:306
+#: libraries/tbl_columns_definition_form.inc.php:82
+#: libraries/tbl_columns_definition_form.inc.php:533 tbl_printview.php:306
 msgid "Index"
 msgstr "ইনডেক্স"
 
@@ -11597,7 +11598,7 @@ msgstr "স্পাটিয়াল"
 
 #: libraries/structure.lib.php:1408 libraries/structure.lib.php:2078
 #: libraries/structure.lib.php:2088
-#: libraries/tbl_columns_definition_form.inc.php:584
+#: libraries/tbl_columns_definition_form.inc.php:541
 msgid "Fulltext"
 msgstr "ফুলটেক্সট"
 
@@ -11622,7 +11623,7 @@ msgid "Propose table structure"
 msgstr "প্রস্তাবিত টেবল গঠন"
 
 #: libraries/structure.lib.php:1557
-#: libraries/tbl_columns_definition_form.inc.php:758
+#: libraries/tbl_columns_definition_form.lib.php:178
 msgid "You have to add at least one column."
 msgstr "আপনাকে অন্তত একটি স্বম্ভ যোগ করতে হবে।"
 
@@ -11631,7 +11632,7 @@ msgid "Add column"
 msgstr "স্বম্ভ যোগ করা"
 
 #: libraries/structure.lib.php:1573
-#: libraries/tbl_columns_definition_form.inc.php:748
+#: libraries/tbl_columns_definition_form.lib.php:168
 #, php-format
 msgid "Add %s column(s)"
 msgstr "%s স্বম্ভ যোগ কর"
@@ -11734,7 +11735,7 @@ msgstr "স্তম্ভগুলো সফলভাবে সরানো হ
 msgid "The column name '%s' is a MySQL reserved keyword."
 msgstr "স্তম্ভের নাম '%s'টি MySQL'র সংরক্ষিত শব্দ। "
 
-#: libraries/tbl_columns_definition_form.inc.php:101
+#: libraries/tbl_columns_definition_form.inc.php:60
 msgid ""
 "If column type is \"enum\" or \"set\", please enter the values using this "
 "format: 'a','b','c'…<br />If you ever need to put a backslash (\"\\\") or a "
@@ -11745,17 +11746,17 @@ msgstr ""
 "'অ','আ','ই'…<br /> যদি backslash (\"\\\") বা single quote (\"'\") দেয়ার "
 "প্রয়োজন হয়, তবে মানগুলোর পূর্বে backslash দিন (যেমন '\\\\কখগ' বা 'অ\\'আ')। "
 
-#: libraries/tbl_columns_definition_form.inc.php:110
+#: libraries/tbl_columns_definition_form.inc.php:69
 msgid ""
 "For default values, please enter just a single value, without backslash "
 "escaping or quotes, using this format: a"
 msgstr "স্বাভাবিক মানের জন্য, ব্যাক স্ল্যাশ বা কোঔট ছাড়া একটি মান দিন, এই ভাবে: অ"
 
-#: libraries/tbl_columns_definition_form.inc.php:149
+#: libraries/tbl_columns_definition_form.inc.php:108
 msgid "Move column"
 msgstr "স্বম্ভ সরাও"
 
-#: libraries/tbl_columns_definition_form.inc.php:159
+#: libraries/tbl_columns_definition_form.inc.php:118
 #, php-format
 msgid ""
 "For a list of available transformation options and their MIME type "
@@ -11764,11 +11765,11 @@ msgstr ""
 "রুপান্তর অপশন এবং MIME ধরন রুপান্তরের তালিকার জন্য, ক্লীক করুন %stransformation "
 "descriptions%s"
 
-#: libraries/tbl_columns_definition_form.inc.php:171
+#: libraries/tbl_columns_definition_form.inc.php:130
 msgid "Transformation options"
 msgstr "রুপান্তরের অপশন"
 
-#: libraries/tbl_columns_definition_form.inc.php:174
+#: libraries/tbl_columns_definition_form.inc.php:133
 msgid ""
 "Please enter the values for transformation options using this format: 'a', "
 "100, b,'c'…<br />If you ever need to put a backslash (\"\\\") or a single "
@@ -11779,51 +11780,51 @@ msgstr ""
 "ব্যাক স্ল্যাশ (\"\\\") বা একটি কঔট (\"'\") চিহ্ন দিতে হয় তবে মানটির আগে একটি "
 "ব্যাক স্ল্যাশ দিন ('\\\\কখগ' বা 'অ\\'ক'।"
 
-#: libraries/tbl_columns_definition_form.inc.php:412
+#: libraries/tbl_columns_definition_form.inc.php:369
 msgid "ENUM or SET data too long?"
 msgstr "ENUM বা SET তথ্য অনেক বড়?"
 
-#: libraries/tbl_columns_definition_form.inc.php:414
+#: libraries/tbl_columns_definition_form.inc.php:371
 msgid "Get more editing space"
 msgstr "সম্পাদনার জন্য আরও জায়গা নিন"
 
-#: libraries/tbl_columns_definition_form.inc.php:430
+#: libraries/tbl_columns_definition_form.inc.php:387
 msgctxt "for default"
 msgid "None"
 msgstr "কিছু না"
 
-#: libraries/tbl_columns_definition_form.inc.php:431
+#: libraries/tbl_columns_definition_form.inc.php:388
 msgid "As defined:"
 msgstr "যেমন বলা হয়েছে:"
 
-#: libraries/tbl_columns_definition_form.inc.php:634
+#: libraries/tbl_columns_definition_form.inc.php:591
 msgid "first"
 msgstr "প্রথম"
 
-#: libraries/tbl_columns_definition_form.inc.php:644
+#: libraries/tbl_columns_definition_form.inc.php:601
 #, php-format
 msgid "after %s"
 msgstr "%s এর পরে "
 
-#: libraries/tbl_columns_definition_form.inc.php:737
-msgid "Table name"
-msgstr "টেবিলের নাম"
-
-#: libraries/tbl_columns_definition_form.inc.php:838
+#: libraries/tbl_columns_definition_form.lib.php:72
 #, fuzzy
 #| msgid "Storage Engine"
 msgid "Storage Engine:"
 msgstr "Storage Engine"
 
-#: libraries/tbl_columns_definition_form.inc.php:842
+#: libraries/tbl_columns_definition_form.lib.php:76
 #, fuzzy
 #| msgid "Collation"
 msgid "Collation:"
 msgstr "একত্রীকরণ"
 
-#: libraries/tbl_columns_definition_form.inc.php:876
+#: libraries/tbl_columns_definition_form.lib.php:110
 msgid "PARTITION definition:"
 msgstr ""
+
+#: libraries/tbl_columns_definition_form.lib.php:160
+msgid "Table name"
+msgstr "টেবিলের নাম"
 
 #: libraries/tbl_common.inc.php:54
 #, php-format
@@ -12257,8 +12258,8 @@ msgid ""
 "You are not using a secure connection; all data (including potentially "
 "sensitive information, like passwords) is transferred unencrypted!"
 msgstr ""
-"আপনি নিরাপদ সংযোগ ব্যবহার করছেন না; সমস্ত তথ্য (গুরুত্বপূর্ণ তথ্য, যেমন পাসওয়ার্ড)"
-"আনএনক্রিপটেড স্থানান্তর করা হবে। "
+"আপনি নিরাপদ সংযোগ ব্যবহার করছেন না; সমস্ত তথ্য (গুরুত্বপূর্ণ তথ্য, যেমন "
+"পাসওয়ার্ড)আনএনক্রিপটেড স্থানান্তর করা হবে। "
 
 #: setup/frames/index.inc.php:64
 #, php-format
@@ -12266,8 +12267,8 @@ msgid ""
 "If your server is also configured to accept HTTPS requests follow [a@%s]this "
 "link[/a] to use a secure connection."
 msgstr ""
-"আপনার সার্ভার যদি HTTPS সংযোগের জন্য কনফিগারড হয় তবে নিরাপদ সংযোগের  জন্য [a@%s]"
-"this link[/a] ব্যবহার করেন।"
+"আপনার সার্ভার যদি HTTPS সংযোগের জন্য কনফিগারড হয় তবে নিরাপদ সংযোগের  জন্য [a@"
+"%s]this link[/a] ব্যবহার করেন।"
 
 #: setup/frames/index.inc.php:68
 msgid "Insecure connection"
@@ -12495,8 +12496,8 @@ msgid ""
 "You set the [kbd]config[/kbd] authentication type and included username and "
 "password for auto-login, which is not a desirable option for live hosts. "
 "Anyone who knows or guesses your phpMyAdmin URL can directly access your "
-"phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or [kbd]"
-"http[/kbd]."
+"phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or "
+"[kbd]http[/kbd]."
 msgstr ""
 "আপনি প্রমাণী করনের ধরন [kbd]config[/kbd] নির্ধারণ করেছেন এবং ব্যহবারকারীর নাম ও "
 "পাসওর্য়াড দিয়েছেন স্বয়ংক্রীয় লগইনের জন্য, যা একটি কার্যকর হোস্টের জন্য গ্রহনযোগ্য নয়। "
@@ -12730,7 +12731,7 @@ msgstr "কোন ইনডেক্স তৈরী করা হয়নি!"
 msgid "Choose column to display:"
 msgstr "প্রদর্শনের জন্য ক্ষেত্র পছন্দ কর"
 
-#: tbl_structure.php:134
+#: tbl_structure.php:133
 msgid "No column selected."
 msgstr "কোন স্তম্ভ নির্বাচন করা হয় নাই"
 
