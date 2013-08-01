@@ -86,7 +86,7 @@ for ($i = 0; $i < $num_fields; $i++) {
     if (! empty($regenerate)) {
         // An error happened with previous inputs, so we will restore the data
         // to embed it once again in this form.
-        $row = PMA_getRowDataForRestoration(
+        $row = PMA_getRowDataForRegeneration(
             isset($submit_fulltext) ? $submit_fulltext : null
         );
         

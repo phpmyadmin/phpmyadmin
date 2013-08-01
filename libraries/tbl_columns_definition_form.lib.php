@@ -382,13 +382,13 @@ function PMA_getMoveColumns($db, $table)
 }
 
 /**
- * Function to get row data for restoring previous when error occured.
+ * Function to get row data for regenerating previous when error occured.
  * 
  * @param array $submit_fulltext submit full text
  * 
  * @return array
  */
-function PMA_getRowDataForRestoration($submit_fulltext)
+function PMA_getRowDataForRegeneration($submit_fulltext)
 {
     $row['Field'] = isset($_REQUEST['field_name'][$i])
         ? $_REQUEST['field_name'][$i]
