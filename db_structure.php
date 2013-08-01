@@ -25,9 +25,7 @@ $scripts->addFile('jquery/jquery-ui-timepicker-addon.js');
 $post_params = array(
     'error',
     'message',
-    'mult_btn',
-    'selected_tbl',
-    'submit_mult'
+    'mult_btn'
 );
 foreach ($post_params as $one_post_param) {
     if (isset($_POST[$one_post_param])) {
