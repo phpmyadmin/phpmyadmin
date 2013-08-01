@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-08-01 14:09+0200\n"
-"PO-Revision-Date: 2013-07-29 16:58+0200\n"
+"PO-Revision-Date: 2013-08-01 16:29+0200\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
-"Language-Team: Interlingua <http://l10n.cihar.com/projects/phpmyadmin/master/"
-"ia/>\n"
+"Language-Team: Interlingua "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/ia/>\n"
 "Language: ia\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 1.6\n"
+"X-Generator: Weblate 1.7-dev\n"
 
 #: browse_foreigners.php:51 browse_foreigners.php:75 js/messages.php:339
 #: libraries/DisplayResults.class.php:805
@@ -698,7 +698,7 @@ msgstr "Retro"
 
 #: index.php:115 libraries/Footer.class.php:72
 msgid "phpMyAdmin Demo Server"
-msgstr ""
+msgstr "Servitor demo de phpMyAdmin"
 
 #: index.php:119
 #, php-format
@@ -1974,7 +1974,7 @@ msgstr "Cela pannello"
 
 #: js/messages.php:369
 msgid "Show hidden navigation tree items"
-msgstr ""
+msgstr "MOnstra elementos de arbore de navigation celate"
 
 #: js/messages.php:372
 msgid "The requested page was not found in the history, it may have expired."
@@ -2490,7 +2490,7 @@ msgstr[1] ""
 #: libraries/Util.class.php:3445 libraries/Util.class.php:4173
 #: libraries/structure.lib.php:1368
 msgid "Browse"
-msgstr ""
+msgstr "Naviga"
 
 #: libraries/DbSearch.class.php:353
 #, php-format
@@ -2535,7 +2535,7 @@ msgstr ""
 
 #: libraries/DisplayResults.class.php:694
 msgid "Save edited data"
-msgstr ""
+msgstr "Salveguarda datos modificate"
 
 #: libraries/DisplayResults.class.php:700
 msgid "Restore column order"
@@ -2545,40 +2545,40 @@ msgstr ""
 #: libraries/Util.class.php:2555
 msgctxt "First page"
 msgid "Begin"
-msgstr ""
+msgstr "Initio"
 
 #: libraries/DisplayResults.class.php:774 libraries/Util.class.php:2553
 #: libraries/Util.class.php:2556 libraries/server_bin_log.lib.php:171
 #: libraries/server_bin_log.lib.php:173
 msgctxt "Previous page"
 msgid "Previous"
-msgstr ""
+msgstr "Previe"
 
 #: libraries/DisplayResults.class.php:831 libraries/Util.class.php:2588
 #: libraries/Util.class.php:2591 libraries/server_bin_log.lib.php:205
 #: libraries/server_bin_log.lib.php:207
 msgctxt "Next page"
 msgid "Next"
-msgstr ""
+msgstr "Proxime"
 
 #: libraries/DisplayResults.class.php:859 libraries/Util.class.php:2589
 #: libraries/Util.class.php:2592
 msgctxt "Last page"
 msgid "End"
-msgstr ""
+msgstr "Ultime"
 
 #: libraries/DisplayResults.class.php:900 libraries/display_export.lib.php:322
 #: tbl_chart.php:245
 msgid "Number of rows:"
-msgstr ""
+msgstr "Numero de rangos:"
 
 #: libraries/DisplayResults.class.php:917
 msgid "Mode:"
-msgstr ""
+msgstr "Modo:"
 
 #: libraries/DisplayResults.class.php:919
 msgid "horizontal"
-msgstr ""
+msgstr "horizontal"
 
 #: libraries/DisplayResults.class.php:920
 msgid "horizontal (rotated headers)"
@@ -2586,11 +2586,11 @@ msgstr ""
 
 #: libraries/DisplayResults.class.php:921
 msgid "vertical"
-msgstr ""
+msgstr "vertical"
 
 #: libraries/DisplayResults.class.php:1225
 msgid "Sort by key"
-msgstr ""
+msgstr "Ordina per clave"
 
 #: libraries/DisplayResults.class.php:1566 libraries/TableSearch.class.php:764
 #: libraries/import.lib.php:1201 libraries/import.lib.php:1227
@@ -2617,7 +2617,7 @@ msgstr ""
 #: libraries/plugins/import/ImportXml.class.php:57
 #: libraries/rte/rte_routines.lib.php:970 libraries/structure.lib.php:1709
 msgid "Options"
-msgstr ""
+msgstr "Optiones"
 
 #: libraries/DisplayResults.class.php:1572
 #: libraries/DisplayResults.class.php:1678
@@ -2627,11 +2627,11 @@ msgstr ""
 #: libraries/DisplayResults.class.php:1573
 #: libraries/DisplayResults.class.php:1682
 msgid "Full texts"
-msgstr ""
+msgstr "Textos complete"
 
 #: libraries/DisplayResults.class.php:1587
 msgid "Relational key"
-msgstr ""
+msgstr "Clave relational"
 
 #: libraries/DisplayResults.class.php:1588
 msgid "Relational display column"
@@ -2639,16 +2639,16 @@ msgstr ""
 
 #: libraries/DisplayResults.class.php:1600
 msgid "Show binary contents"
-msgstr ""
+msgstr "Monstra contentos binari"
 
 #: libraries/DisplayResults.class.php:1605
 msgid "Show BLOB contents"
-msgstr ""
+msgstr "Monstra contentos BLOB"
 
 #: libraries/DisplayResults.class.php:1610
 #: libraries/config/messages.inc.php:59
 msgid "Show binary contents as HEX"
-msgstr ""
+msgstr "MOnstra contentos binari como HEX"
 
 #: libraries/DisplayResults.class.php:1621
 msgid "Hide browser transformation"
@@ -2665,12 +2665,12 @@ msgstr ""
 #: libraries/DisplayResults.class.php:3351
 #: libraries/DisplayResults.class.php:3367
 msgid "The row has been deleted"
-msgstr ""
+msgstr "Le rango ha essite delite"
 
 #: libraries/DisplayResults.class.php:3405
 #: libraries/DisplayResults.class.php:4969 libraries/server_status.lib.php:520
 msgid "Kill"
-msgstr ""
+msgstr "Remove"
 
 #: libraries/DisplayResults.class.php:4427 libraries/structure.lib.php:771
 msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]"
@@ -2686,7 +2686,7 @@ msgstr "Le demanda SQL ha essite executate con successo"
 
 #: libraries/DisplayResults.class.php:4818
 msgid "in query"
-msgstr ""
+msgstr "in le query"
 
 #: libraries/DisplayResults.class.php:4855 libraries/structure.lib.php:653
 #, php-format
@@ -2698,7 +2698,7 @@ msgstr ""
 #: libraries/DisplayResults.class.php:4868
 #, php-format
 msgid "Showing rows %1s - %2s"
-msgstr ""
+msgstr "Monstrante rangos %1s - %2s"
 
 #: libraries/DisplayResults.class.php:4880
 #, php-format
@@ -2719,7 +2719,7 @@ msgstr ""
 #: libraries/structure.lib.php:293 libraries/structure.lib.php:295
 #: libraries/structure.lib.php:1357 libraries/structure.lib.php:1364
 msgid "With selected:"
-msgstr ""
+msgstr "Si seligite:"
 
 #: libraries/DisplayResults.class.php:4980
 #: libraries/DisplayResults.class.php:4981
@@ -2733,7 +2733,7 @@ msgstr ""
 #: libraries/structure.lib.php:282 libraries/structure.lib.php:1360
 #: libraries/structure.lib.php:1361
 msgid "Check All"
-msgstr ""
+msgstr "Marca omnes"
 
 #: libraries/DisplayResults.class.php:4999
 #: libraries/DisplayResults.class.php:5269 libraries/Menu.class.php:327
@@ -2747,7 +2747,7 @@ msgstr ""
 #: libraries/server_status_monitor.lib.php:359 libraries/structure.lib.php:297
 #: prefs_manage.php:295 setup/frames/menu.inc.php:22
 msgid "Export"
-msgstr ""
+msgstr "Exporta"
 
 #: libraries/DisplayResults.class.php:5157
 msgid "Query results operations"
@@ -2757,11 +2757,11 @@ msgstr ""
 #: libraries/structure.lib.php:299 libraries/structure.lib.php:362
 #: libraries/structure.lib.php:1497
 msgid "Print view"
-msgstr ""
+msgstr "Vista pro imprimer"
 
 #: libraries/DisplayResults.class.php:5211
 msgid "Print view (with full texts)"
-msgstr ""
+msgstr "Vista pro imprimer (con texto plen)"
 
 #: libraries/DisplayResults.class.php:5282 tbl_chart.php:151
 msgid "Display chart"
@@ -2773,7 +2773,7 @@ msgstr ""
 
 #: libraries/DisplayResults.class.php:5524
 msgid "Link not found"
-msgstr ""
+msgstr "Ligamine non trovate"
 
 #: libraries/Error_Handler.class.php:81
 msgid "Too many error messages, some are not displayed."
@@ -2799,11 +2799,11 @@ msgstr ""
 
 #: libraries/File.class.php:288
 msgid "Missing a temporary folder."
-msgstr ""
+msgstr "Un dossier temporari es mancante."
 
 #: libraries/File.class.php:291
 msgid "Failed to write file to disk."
-msgstr ""
+msgstr "Il falleva scriber sur disco."
 
 #: libraries/File.class.php:294
 msgid "File upload stopped by extension."
@@ -2811,7 +2811,7 @@ msgstr ""
 
 #: libraries/File.class.php:297
 msgid "Unknown error in file upload."
-msgstr ""
+msgstr "Error incognite durante que il cargava un file."
 
 #: libraries/File.class.php:476
 msgid "Error moving the uploaded file, see [doc@faq1-11]FAQ 1.11[/doc]"
@@ -2831,10 +2831,9 @@ msgid "Currently running Git revision %1$s from the %2$s branch."
 msgstr ""
 
 #: libraries/Footer.class.php:83
-#, fuzzy
 #| msgid "Version information"
 msgid "Git information missing!"
-msgstr "Information de version"
+msgstr "Information de git mancante!"
 
 #: libraries/Footer.class.php:163 libraries/Footer.class.php:167
 #: libraries/Footer.class.php:170
@@ -7355,10 +7354,9 @@ msgid "Events:"
 msgstr ""
 
 #: libraries/navigation/Navigation.class.php:173
-#, fuzzy
 #| msgid "Connections"
 msgid "Functions:"
-msgstr "Connexiones"
+msgstr "Functiones:"
 
 #: libraries/navigation/Navigation.class.php:174
 msgid "Procedures:"
@@ -9797,24 +9795,21 @@ msgstr ""
 
 #: libraries/server_privileges.lib.php:3236
 #: libraries/server_privileges.lib.php:3402
-#, fuzzy
 #| msgid "Server version:"
 msgid "Server-level tabs"
-msgstr "Version de servitor:"
+msgstr "Schedas de nivello servitor"
 
 #: libraries/server_privileges.lib.php:3237
 #: libraries/server_privileges.lib.php:3405
-#, fuzzy
 #| msgid "Database server"
 msgid "Database-level tabs"
-msgstr "Servitor de base de datos"
+msgstr "Schedas de nivello de base de datos"
 
 #: libraries/server_privileges.lib.php:3238
 #: libraries/server_privileges.lib.php:3408
-#, fuzzy
 #| msgid "Table level tabs"
 msgid "Table-level tabs"
-msgstr "Tabulationes de nivello de tabula"
+msgstr "Schedas de nivello de tabula"
 
 #: libraries/server_privileges.lib.php:3260
 msgid "View users"
