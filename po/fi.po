@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-07-29 15:07+0200\n"
-"PO-Revision-Date: 2013-07-31 03:14+0200\n"
+"PO-Revision-Date: 2013-08-01 04:29+0200\n"
 "Last-Translator: Henry Heinänen <h.heinanen@gmail.com>\n"
 "Language-Team: Finnish <http://l10n.cihar.com/projects/phpmyadmin/4-0/fi/>\n"
 "Language: fi\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 1.6-dev\n"
+"X-Generator: Weblate 1.7-dev\n"
 
 #: browse_foreigners.php:51 browse_foreigners.php:75 js/messages.php:344
 #: libraries/DisplayResults.class.php:813
@@ -3435,8 +3435,8 @@ msgid ""
 "A variable-length (%s) string, the effective maximum length is subject to "
 "the maximum row size"
 msgstr ""
-"Vaihtelevan pituinen (% s) merkkijono, paras enimmäispituus on aihealueen "
-"rivien enimmäiskoko"
+"Vaihtelevan pituinen (% s) merkkijono, tehokas enimmäispituus on "
+"enimmäisarvo"
 
 #: libraries/Types.class.php:334
 msgid ""
@@ -5268,10 +5268,9 @@ msgid "Use only icons, only text or both"
 msgstr "Käytä vain kuvakkeita, vain tekstiä tai molempia"
 
 #: libraries/config/messages.inc.php:327
-#, fuzzy
 #| msgid "Iconic navigation bar"
 msgid "Table navigation bar"
-msgstr "Navigointipalkki, jossa kuvakkeet"
+msgstr "Taulukon navigointipalkki"
 
 #: libraries/config/messages.inc.php:328
 msgid "use GZip output buffering for increased speed in HTTP transfers"
@@ -5333,10 +5332,9 @@ msgid "MySQL reserved word warning"
 msgstr ""
 
 #: libraries/config/messages.inc.php:341
-#, fuzzy
 #| msgid "Allow to display all the rows"
 msgid "How to display the menu tabs"
-msgstr "Salli kaikkien rivien näyttäminen"
+msgstr "Miten menun välilehdet näytetään"
 
 #: libraries/config/messages.inc.php:343
 msgid "How to display various action links"
@@ -5490,7 +5488,6 @@ msgid "Authentication type"
 msgstr "Todennustyyppi"
 
 #: libraries/config/messages.inc.php:380
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/bookmark]bookmark[/"
 #| "a] support, suggested: [kbd]pma_bookmark[/kbd]"
@@ -5498,15 +5495,15 @@ msgid ""
 "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/bookmark]bookmark[/a] "
 "support, suggested: [kbd]pma__bookmark[/kbd]"
 msgstr ""
-"Jätä tyhjäksi, jos et halua [a@http://wiki.phpmyadmin.net/pma/"
-"bookmark]kirjanmerkki[/a]tukea; oletusarvo: [kbd]pma_bookmark[/kbd]"
+"Jätä tyhjäksi, jos et halua "
+"[a@http://wiki.phpmyadmin.net/pma/bookmark]kirjanmerkki[/a]tukea, "
+"oletusarvo: [kbd]pma__bookmark[/kbd]"
 
 #: libraries/config/messages.inc.php:381
 msgid "Bookmark table"
 msgstr "Kirjanmerkkitaulu"
 
 #: libraries/config/messages.inc.php:382
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no column comments/mime types, suggested: "
 #| "[kbd]pma_column_info[/kbd]"
@@ -5514,8 +5511,8 @@ msgid ""
 "Leave blank for no column comments/mime types, suggested: "
 "[kbd]pma__column_info[/kbd]"
 msgstr ""
-"Jätä tyhjäksi, jos et halua sarakkeiden kommentteja ja mime-tyyppejä; "
-"oletusarvo: [kbd]pma_column_info[/kbd]"
+"Jätä tyhjäksi, jos et halua sarakkeiden kommentteja ja mime-tyyppejä, "
+"oletusarvo: [kbd]pma_column__info[/kbd]"
 
 #: libraries/config/messages.inc.php:383
 msgid "Column information table"
@@ -5566,7 +5563,6 @@ msgid "Control host"
 msgstr "Hallintapalvelin"
 
 #: libraries/config/messages.inc.php:393
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no Designer support, suggested: [kbd]pma_designer_coords[/"
 #| "kbd]"
@@ -5574,8 +5570,8 @@ msgid ""
 "Leave blank for no Designer support, suggested: [kbd]pma__designer_coords[/"
 "kbd]"
 msgstr ""
-"Jätä tyhjäksi, jos et halua Suunnittelija-taulua; oletusarvo: "
-"[kbd]pma_designer_coords[/kbd]"
+"Jätä tyhjäksi, jos et halua Suunnittelija tukea, oletusarvo: "
+"[kbd]pma__designer_coords[/kbd]"
 
 #: libraries/config/messages.inc.php:394
 msgid "Designer table"
@@ -5612,7 +5608,6 @@ msgid "Hide databases"
 msgstr "Piilota tietokannat"
 
 #: libraries/config/messages.inc.php:401
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no SQL query history support, suggested: "
 #| "[kbd]pma_history[/kbd]"
@@ -5620,8 +5615,8 @@ msgid ""
 "Leave blank for no SQL query history support, suggested: [kbd]pma__history[/"
 "kbd]"
 msgstr ""
-"Jätä tyhjäksi, jos et halua SQL-kyselyhistorian tukea; oletusarvo: "
-"[kbd]pma_history[/kbd]"
+"Jätä tyhjäksi, jos et halua SQL-kyselyhistorian tukea, oletusarvo: "
+"[kbd]pma__history[/kbd]"
 
 #: libraries/config/messages.inc.php:402
 msgid "SQL query history table"
@@ -5658,7 +5653,6 @@ msgid "Connect without password"
 msgstr "Yhdistä ilman salasanaa"
 
 #: libraries/config/messages.inc.php:410
-#, fuzzy
 #| msgid ""
 #| "n use MySQL wildcard characters (% and _), escape them if you want use ir "
 #| "literal instances, i.e. use 'my\\_db' and not 'my_db'"
@@ -5667,9 +5661,9 @@ msgid ""
 "use their literal instances, i.e. use [kbd]'my\\_db'[/kbd] and not "
 "[kbd]'my_db'[/kbd]."
 msgstr ""
-"Voit käyttää MySQL-korvausmerkkejä (% ja _) sekä lisätä niihin "
-"koodinvaihtomerkin, mikäli haluat käyttää niiden todellista ilmentymää; "
-"käytä esimerkiksi 'oma\\_db' eikä 'oma_db'."
+"Sinä voit käyttää MySQL-korvausmerkkejä (% ja _) sekä lisätä niihin "
+"koodinvaihtomerkin, mikäli haluat käyttää niiden todellista ilmentymää, "
+"käytä esimerkiksi [kbd]'my\\_db'[/kbd] mutta ei [kbd]'my_db'[/kbd]."
 
 #: libraries/config/messages.inc.php:411
 msgid "Show only listed databases"
@@ -5684,14 +5678,13 @@ msgid "Password for config auth"
 msgstr "Config-todennuksen salasana"
 
 #: libraries/config/messages.inc.php:414
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no PDF schema support, suggested: [kbd]pma_pdf_pages[/kbd]"
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__pdf_pages[/kbd]"
 msgstr ""
 "Jätä tyhjäksi, jos et halua PDF-kaavioiden tukea, oletusarvo: "
-"[kbd]pma_pdf_pages[/kbd]"
+"[kbd]pma__pdf_pages[/kbd]"
 
 #: libraries/config/messages.inc.php:415
 msgid "PDF schema: pages table"
@@ -5721,7 +5714,6 @@ msgid "Server port"
 msgstr "Palvelinportti"
 
 #: libraries/config/messages.inc.php:420
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no \"persistent\" recently used tables across sessions, "
 #| "suggested: [kbd]pma_recent[/kbd]"
@@ -5729,15 +5721,14 @@ msgid ""
 "Leave blank for no \"persistent\" recently used tables across sessions, "
 "suggested: [kbd]pma__recent[/kbd]"
 msgstr ""
-"Jätä tyhjäksi, jos et halua SQL-kyselyhistorian tukea; oletusarvo: "
-"[kbd]pma_recent[/kbd]"
+"Jätä tyhjäksi, jos et halua SQL-kyselyhistorian tukea, oletusarvo: "
+"[kbd]pma__recent[/kbd]"
 
 #: libraries/config/messages.inc.php:421
 msgid "Recently used table"
 msgstr "Viimeisimmäksi käytetty taulu"
 
 #: libraries/config/messages.inc.php:422
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
 #| "links[/a] support, suggested: [kbd]pma_relation[/kbd]"
@@ -5745,8 +5736,9 @@ msgid ""
 "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
 "links[/a] support, suggested: [kbd]pma__relation[/kbd]"
 msgstr ""
-"Jätä tyhjäksi, jos et halua [a@http://wiki.phpmyadmin.net/pma/"
-"relation]relaatiolinkki[/a]tukea; oletusarvo: [kbd]pma_relation[/kbd]"
+"Jätä tyhjäksi, jos et halua "
+"[a@http://wiki.phpmyadmin.net/pma/relation]relaatiolinkki[/a]tukea, "
+"oletusarvo: [kbd]pma__relation[/kbd]"
 
 #: libraries/config/messages.inc.php:423
 msgid "Relation table"
@@ -5795,7 +5787,6 @@ msgid "Use SSL"
 msgstr "Käytä SSL-yhteyttä"
 
 #: libraries/config/messages.inc.php:433
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no PDF schema support, suggested: [kbd]pma_table_coords[/"
 #| "kbd]"
@@ -5803,15 +5794,14 @@ msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__table_coords[/"
 "kbd]"
 msgstr ""
-"Jätä tyhjäksi, jos et halua PDF-kaavioiden tukea; oletusarvo: "
-"[kbd]pma_table_coords[/kbd]"
+"Jätä tyhjäksi, jos et halua PDF-kaavioiden tukea, oletusarvo: "
+"[kbd]pma__table_coords[/kbd]"
 
 #: libraries/config/messages.inc.php:434
 msgid "PDF schema: table coordinates"
 msgstr "PDF-kaavio: taulun koordinaatit"
 
 #: libraries/config/messages.inc.php:435
-#, fuzzy
 #| msgid ""
 #| "to describe the display fields, leave blank for no support; gested: "
 #| "d]pma_table_info[/kbd]"
@@ -5819,8 +5809,8 @@ msgid ""
 "Table to describe the display columns, leave blank for no support; "
 "suggested: [kbd]pma__table_info[/kbd]"
 msgstr ""
-"Taulu kuvaa näyttökentät, jätä tyhjäksi, jos et halua tukea; oletusarvo: "
-"[kbd]pma_table_info[/kbd]"
+"Taulukko kuvaamaan näytettäviä sarakkeita, jätä tyhjäksi jos et halua tukea; "
+"oletusarvo: [kbd]pma__table_info[/kbd]"
 
 #: libraries/config/messages.inc.php:436
 msgid "Display columns table"
@@ -5880,7 +5870,6 @@ msgid "Statements to track"
 msgstr "Jäljitettävä lauseke"
 
 #: libraries/config/messages.inc.php:447
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no SQL query tracking support, suggested: "
 #| "[kbd]pma_tracking[/kbd]"
@@ -5888,8 +5877,8 @@ msgid ""
 "Leave blank for no SQL query tracking support, suggested: "
 "[kbd]pma__tracking[/kbd]"
 msgstr ""
-"Jätä tyhjäksi, jos et halua SQL-kyselyhistorian tukea; oletusarvo: "
-"[kbd]pma_history[/kbd]"
+"Jätä tyhjäksi, jos et halua SQL-kysely seuranta tukea, oletusarvo: "
+"[kbd]pma__history[/kbd]"
 
 #: libraries/config/messages.inc.php:448
 msgid "SQL query tracking table"
@@ -5906,15 +5895,14 @@ msgid "Automatically create versions"
 msgstr "Automaattisesti luodut versiot"
 
 #: libraries/config/messages.inc.php:451
-#, fuzzy
 #| msgid ""
 #| "blank for no SQL query history support, suggested: [kbd]pma_historybd]"
 msgid ""
 "Leave blank for no user preferences storage in database, suggested: "
 "[kbd]pma__userconfig[/kbd]"
 msgstr ""
-"Jätä tyhjäksi, jos et halua SQL-kyselyhistorian tukea; oletusarvo: "
-"[kbd]pma_history[/kbd]"
+"Jätä tyhjäksi,jos ei käyttäjän asetuksia varastoida tietokantaan, "
+"oletusarvo: [kbd]pma__userconfig[/kbd]"
 
 #: libraries/config/messages.inc.php:452
 msgid "User preferences storage table"
@@ -5995,10 +5983,9 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:469
-#, fuzzy
 #| msgid "Databases display options"
 msgid "Show display direction"
-msgstr "Tietokantojen näyttöasetukset"
+msgstr "Näytä näyttämissuunta"
 
 #: libraries/config/messages.inc.php:470
 msgid ""
@@ -6263,10 +6250,9 @@ msgstr "CSV käyttäen LOAD DATA -kyselyä"
 #: libraries/config/setup.forms.php:257 libraries/config/setup.forms.php:350
 #: libraries/config/user_preferences.forms.php:161
 #: libraries/config/user_preferences.forms.php:253
-#, fuzzy
 #| msgid "Open Document Spreadsheet"
 msgid "OpenDocument Spreadsheet"
-msgstr "Open Document -laskentataulukko"
+msgstr "OpenDocument laskentataulukko"
 
 #: libraries/config/setup.forms.php:264
 #: libraries/config/user_preferences.forms.php:168
@@ -6295,10 +6281,9 @@ msgstr "Microsoft Word 2000"
 
 #: libraries/config/setup.forms.php:354
 #: libraries/config/user_preferences.forms.php:257
-#, fuzzy
 #| msgid "Open Document Text"
 msgid "OpenDocument Text"
-msgstr "Open Document -teksti"
+msgstr "OpenDocument teksti"
 
 #: libraries/config/validate.lib.php:214
 msgid "Could not initialize Drizzle connection library"
@@ -6602,10 +6587,10 @@ msgid "committed on %1$s by %2$s"
 msgstr "Lisännyt %2$s %1$s"
 
 #: libraries/display_git_revision.lib.php:75
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create version %s of %s.%s"
 msgid "authored on %1$s by %2$s"
-msgstr "Luo versio %s kohteesta %s.%s"
+msgstr "kirjoittanut %1$s by %2$s"
 
 #: libraries/display_import.lib.php:69
 msgid ""
@@ -6697,7 +6682,6 @@ msgstr ""
 "uudestaan, jatkamme kohdasta %d."
 
 #: libraries/display_import.lib.php:289
-#, fuzzy
 #| msgid ""
 #| "Allow the interruption of an import in case the script detects it is "
 #| "close to the PHP timeout limit. <i>(This might be good way to import "
@@ -6708,8 +6692,8 @@ msgid ""
 "files, however it can break transactions.)</i>"
 msgstr ""
 "Mahdollistaa tuonnin keskeytyksen, mikäli skripti päättyy PHP:n "
-"aikarajoituksen. <i>(Tätä kannattaa käyttää tuotaessa suuria tiedostoja, se "
-"voi kuitenkin aiheuttaa häiriöitä transaktioihin.)</i>"
+"aikarajoituksen. <i>(Tätä on hyvä käyttää tuotaessa suuria tiedostoja, se "
+"voi kuitenkin aiheuttaa häiriöitä tapahtumiin.)</i>"
 
 #: libraries/display_import.lib.php:296
 msgid "Number of rows to skip, starting from the first row:"
@@ -7077,10 +7061,9 @@ msgid ""
 msgstr "Seuraavat rakenteet on joko luotu tai niitä on muutettu. Voit:"
 
 #: libraries/import.lib.php:1191
-#, fuzzy
 #| msgid "View a structure`s contents by clicking on its name"
 msgid "View a structure's contents by clicking on its name"
-msgstr "näyttää rakenteen sisällön painamalla sen nimeä"
+msgstr "Tarkastele rakenteen sisältöä napsauttamalla sen nimeä"
 
 #: libraries/import.lib.php:1192
 msgid ""
@@ -7089,46 +7072,45 @@ msgstr ""
 "muuttaa mitä tahansa sen asetuksia painamalla vastaavaa \"Valinnat\"-linkkiä"
 
 #: libraries/import.lib.php:1193
-#, fuzzy
 #| msgid "Edit its structure by following the \"Structure\" link"
 msgid "Edit structure by following the \"Structure\" link"
-msgstr "Muokkaa sen rakennetta seuraamalla \"Rakenne\"-linkkiä"
+msgstr "Muokkaa rakennetta seuraamalla \"Rakenne\" linkkiä"
 
 #: libraries/import.lib.php:1197
-#, fuzzy, php-format
+#, php-format
 #| msgid "Go to database"
 msgid "Go to database: %s"
-msgstr "Siirry tietokantaan"
+msgstr "Siirry tietokantaan: %s"
 
 #: libraries/import.lib.php:1200 libraries/import.lib.php:1228
-#, fuzzy, php-format
+#, php-format
 #| msgid "Missing data for %s"
 msgid "Edit settings for %s"
-msgstr "Kohteesta %s puuttuu tiedot"
+msgstr "Muokkaa asetuksia: %s"
 
 #: libraries/import.lib.php:1223
-#, fuzzy, php-format
+#, php-format
 #| msgid "Go to table"
 msgid "Go to table: %s"
-msgstr "Siirry tauluun"
+msgstr "Siirry taulukkoon: %s"
 
 #: libraries/import.lib.php:1226
-#, fuzzy, php-format
+#, php-format
 #| msgid "Structure only"
 msgid "Structure of %s"
-msgstr "Vain rakenne"
+msgstr "Rakenne %s"
 
 #: libraries/import.lib.php:1234
-#, fuzzy, php-format
+#, php-format
 #| msgid "Go to view"
 msgid "Go to view: %s"
-msgstr "Siirry näkymään"
+msgstr "Siirry näkymään: %s"
 
 #: libraries/index.lib.php:30
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create an index on&nbsp;%s&nbsp;columns"
 msgid "Create an index on &nbsp;%s&nbsp;columns"
-msgstr "Luo &nbsp;%s:n sarakkeen indeksi"
+msgstr "Luo &nbsp;%s&nbsp;sarakkeen indeksi"
 
 #: libraries/insert_edit.lib.php:214 libraries/insert_edit.lib.php:245
 #: pmd_general.php:197
@@ -7141,10 +7123,9 @@ msgid "Binary"
 msgstr "Binääritietoa"
 
 #: libraries/insert_edit.lib.php:653
-#, fuzzy
 #| msgid "ause of its length,<br /> this field might not be editable "
 msgid "Because of its length,<br /> this column might not be editable"
-msgstr "Pituudestaan johtuen<br /> tätä saraketta ei voine muokata "
+msgstr "Koska sen pituus, <br/> Tätä saraketta ei ehkä voi muokata"
 
 #: libraries/insert_edit.lib.php:1087
 msgid "Binary - do not edit"
@@ -10087,10 +10068,9 @@ msgstr "Pääavaimen lisäys"
 
 #: libraries/structure.lib.php:2020 libraries/structure.lib.php:2023
 #: tbl_indexes.php:195
-#, fuzzy
 #| msgid "Apply index(s)"
 msgid "Add index"
-msgstr "Käytä indeksiä/indeksejä"
+msgstr "Lisää indeksi"
 
 #: libraries/structure.lib.php:2026 libraries/structure.lib.php:2029
 msgid "Add unique index"
@@ -12573,10 +12553,9 @@ msgid "No index parts defined!"
 msgstr "Indeksin osia ei ole määritelty!"
 
 #: tbl_indexes.php:197
-#, fuzzy
 #| msgid "Edit mode"
 msgid "Edit index"
-msgstr "Muokkaustila"
+msgstr "Muokkaa indeksiä"
 
 #: tbl_indexes.php:209
 msgid "Index name:"
@@ -12588,10 +12567,9 @@ msgid ""
 msgstr "(\"PRIMARY\" saa olla <b>vain ja ainoastaan</b> perusavaimen nimenä!)"
 
 #: tbl_indexes.php:234
-#, fuzzy
 #| msgid "Comment"
 msgid "Comment:"
-msgstr "Kommentti"
+msgstr "Kommentti:"
 
 #: tbl_indexes.php:249
 msgid "Index type:"
@@ -12667,10 +12645,9 @@ msgid "No index defined! Create one below"
 msgstr "Indeksiä ei ole määritelty!"
 
 #: tbl_structure.php:125
-#, fuzzy
 #| msgid "No rows selected"
 msgid "No column selected."
-msgstr "Ei yhtään riviä valittu"
+msgstr "Ei valittua saraketta."
 
 #: tbl_structure.php:149
 #, php-format
