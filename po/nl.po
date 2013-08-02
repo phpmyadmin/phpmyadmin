@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-08-01 14:09+0200\n"
-"PO-Revision-Date: 2013-07-31 19:04+0200\n"
+"PO-Revision-Date: 2013-08-02 03:06+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: Dutch <http://l10n.cihar.com/projects/phpmyadmin/master/nl/>\n"
 "Language: nl\n"
@@ -6976,7 +6976,6 @@ msgid "%s of %s"
 msgstr "%s van %s"
 
 #: libraries/display_import.lib.php:454
-#, fuzzy
 #| msgid "Uploading your import file…"
 msgid "Uploading your import file…"
 msgstr "Uw geïmporteerde bestand wordt ingeladen…"
@@ -8525,10 +8524,10 @@ msgid "RELATIONS FOR TABLE"
 msgstr "RELATIES VOOR TABEL"
 
 #: libraries/plugins/export/ExportSql.class.php:1512
-#, fuzzy, php-format
+#, php-format
 #| msgid "Structure for view"
 msgid "Structure for view %s exported as a table"
-msgstr "Structuur voor de view"
+msgstr "Structuur voor view %s geëxporteerd als tabel"
 
 #: libraries/plugins/export/ExportSql.class.php:1600
 msgid "Error reading data:"
@@ -8887,10 +8886,9 @@ msgstr "Configureerbare menu's"
 
 # Zowel "frame" als "window" vertalen naar "venster".
 #: libraries/relation.lib.php:275
-#, fuzzy
 #| msgid "Reload navigation frame"
 msgid "Hide/show navigation items"
-msgstr "Navigatievenster herladen"
+msgstr "Navigatieonderdelen tonen/verbergen"
 
 #: libraries/relation.lib.php:281
 msgid "Quick steps to setup advanced features:"
@@ -10380,37 +10378,32 @@ msgstr "Gebruikersgroepen"
 
 #: libraries/server_privileges.lib.php:3236
 #: libraries/server_privileges.lib.php:3402
-#, fuzzy
 #| msgid "Server version"
 msgid "Server-level tabs"
-msgstr "Serverversie"
+msgstr "Tabs op serverniveau"
 
 #: libraries/server_privileges.lib.php:3237
 #: libraries/server_privileges.lib.php:3405
-#, fuzzy
 #| msgid "Database server"
 msgid "Database-level tabs"
-msgstr "Databankserver"
+msgstr "Tabs op databankniveau"
 
 #: libraries/server_privileges.lib.php:3238
 #: libraries/server_privileges.lib.php:3408
-#, fuzzy
 #| msgid "Table comments"
 msgid "Table-level tabs"
-msgstr "Tabelopmerkingen"
+msgstr "Tabs op tabelniveau"
 
 #: libraries/server_privileges.lib.php:3260
-#, fuzzy
 #| msgid "Views"
 msgid "View users"
-msgstr "Views"
+msgstr "View gebruikers"
 
 #: libraries/server_privileges.lib.php:3288
 #: libraries/server_privileges.lib.php:3344
-#, fuzzy
 #| msgid "Add user"
 msgid "Add user group"
-msgstr "Gebruiker toevoegen"
+msgstr "Gebruikersgroep toevoegen"
 
 #: libraries/server_privileges.lib.php:3347
 #, php-format
@@ -10418,16 +10411,14 @@ msgid "Edit user group: '%s'"
 msgstr ""
 
 #: libraries/server_privileges.lib.php:3363
-#, fuzzy
 #| msgid "No privileges."
 msgid "User group menu assignments"
-msgstr "Geen rechten."
+msgstr "Gebruikersgroep menutoewijzingen"
 
 #: libraries/server_privileges.lib.php:3370
-#, fuzzy
 #| msgid "Column names: "
 msgid "Group name:"
-msgstr "Kolomnamen: "
+msgstr "Groepsnaam:"
 
 #: libraries/server_privileges.lib.php:3521
 msgid "The selected user was not found in the privilege table."
