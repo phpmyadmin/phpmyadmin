@@ -15,6 +15,10 @@ if (! $GLOBALS['cfgRelation']['menuswork']) {
 }
 
 $response = PMA_Response::getInstance();
+$header   = $response->getHeader();
+$scripts  = $header->getScripts();
+$scripts->addFile('server_user_groups.js');
+
 $response->addHTML('<div>');
 $response->addHTML(PMA_getHtmlForSubMenusOnUsersPage('server_user_groups.php'));
 
