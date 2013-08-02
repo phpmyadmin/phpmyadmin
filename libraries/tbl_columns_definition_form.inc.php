@@ -48,42 +48,6 @@ $_form_params = PMA_getFormsParameters(
 
 $is_backup = ($action != 'tbl_create.php' && $action != 'tbl_addfield.php');
 
-$header_cells = array();
-$content_cells = array();
-
-$header_cells[] = __('Name');
-$header_cells[] = __('Type')
-    . PMA_Util::showMySQLDocu('SQL-Syntax', 'data-types');
-$header_cells[] = __('Length/Values')
-    . PMA_Util::showHint(
-        __(
-            'If column type is "enum" or "set", please enter the values using'
-            . ' this format: \'a\',\'b\',\'c\'…<br />If you ever need to put'
-            . ' a backslash ("\") or a single quote ("\'") amongst those values,'
-            . ' precede it with a backslash (for example \'\\\\xyz\' or \'a\\\'b\').'
-        )
-    );
-$header_cells[] = __('Default')
-    . PMA_Util::showHint(
-        __(
-            'For default values, please enter just a single value,'
-            . ' without backslash escaping or quotes, using this format: a'
-        )
-    );
-$header_cells[] = __('Collation');
-$header_cells[] = __('Attributes');
-$header_cells[] = __('Null');
-
-// We could remove this 'if' and let the key information be shown and
-// editable. However, for this to work, structure.lib.php must be modified
-// to use the key fields, as tbl_addfield does.
-
-if (! $is_backup) {
-    $header_cells[] = __('Index');
-}
-
-$header_cells[] = '<abbr title="AUTO_INCREMENT">A_I</abbr>';
-
 require_once './libraries/transformations.lib.php';
 $cfgRelation = PMA_getRelationsParam();
 
@@ -92,53 +56,20 @@ $mime_map = array();
 $available_mime = array();
 
 $comments_map = PMA_getComments($db, $table);
-$header_cells[] = __('Comments');
 
 if (isset($fields_meta)) {
-    // for moving, load all available column names
-    $move_columns_sql_query    = 'SELECT * FROM '
-        . PMA_Util::backquote($db)
-        . '.'
-        . PMA_Util::backquote($table)
-        . ' LIMIT 1';
-    $move_columns_sql_result = $GLOBALS['dbi']->tryQuery($move_columns_sql_query);
-    $move_columns = $GLOBALS['dbi']->getFieldsMeta($move_columns_sql_result);
-    unset($move_columns_sql_query, $move_columns_sql_result);
-
-    $header_cells[] = __('Move column');
+    $move_columns = PMA_getMoveColumns($db, $table);
 }
 
 if ($cfgRelation['mimework'] && $GLOBALS['cfg']['BrowseMIME']) {
     $mime_map = PMA_getMIME($db, $table);
     $available_mime = PMA_getAvailableMIMEtypes();
-
-    $hint = '<br />'
-        . sprintf(
-            __(
-                'For a list of available transformation options and their MIME'
-                . ' type transformations, click on %stransformation descriptions%s'
-            ),
-            '<a href="transformation_overview.php?'
-            . PMA_generate_common_url($db, $table)
-            . '" target="_blank">',
-            '</a>'
-        );
-
-
-    $header_cells[] = __('MIME type');
-    $header_cells[] = __('Browser transformation');
-    $header_cells[] = __('Transformation options')
-        . PMA_Util::showHint(
-            __(
-                'Please enter the values for transformation options using this'
-                . ' format: \'a\', 100, b,\'c\'…<br />If you ever need to put'
-                . ' a backslash ("\") or a single quote ("\'") amongst those'
-                . ' values, precede it with a backslash (for example \'\\\\xyz\''
-                . ' or \'a\\\'b\').'
-            )
-            . $hint
-        );
 }
+
+$header_cells = PMA_getHeaderCells(
+    $is_backup, isset($fields_meta) ? $fields_meta : null,
+    $cfgRelation['mimework'], $db, $table
+);
 
 //  workaround for field_fulltext, because its submitted indices contain
 //  the index as a value, not a key. Inserted here for easier maintaineance
@@ -151,105 +82,12 @@ if (isset($field_fulltext) && is_array($field_fulltext)) {
 
 for ($i = 0; $i < $num_fields; $i++) {
     if (! empty($regenerate)) {
-        // An error happened with previous inputs, so we will restore the data
-        // to embed it once again in this form.
-
-        $row['Field'] = isset($_REQUEST['field_name'][$i])
-            ? $_REQUEST['field_name'][$i]
-            : false;
-        $row['Type'] = isset($_REQUEST['field_type'][$i])
-            ? $_REQUEST['field_type'][$i]
-            : false;
-        $row['Collation'] = isset($_REQUEST['field_collation'][$i])
-            ? $_REQUEST['field_collation'][$i]
-            : '';
-        $row['Null'] = isset($_REQUEST['field_null'][$i])
-            ? $_REQUEST['field_null'][$i]
-            : '';
-
-        if (isset($_REQUEST['field_key'][$i])
-            && $_REQUEST['field_key'][$i] == 'primary_' . $i
-        ) {
-            $row['Key'] = 'PRI';
-        } elseif (isset($_REQUEST['field_key'][$i])
-            && $_REQUEST['field_key'][$i] == 'index_' . $i
-        ) {
-            $row['Key'] = 'MUL';
-        } elseif (isset($_REQUEST['field_key'][$i])
-            && $_REQUEST['field_key'][$i] == 'unique_' . $i
-        ) {
-            $row['Key'] = 'UNI';
-        } elseif (isset($_REQUEST['field_key'][$i])
-            && $_REQUEST['field_key'][$i] == 'fulltext_' . $i
-        ) {
-            $row['Key'] = 'FULLTEXT';
-        } else {
-            $row['Key'] = '';
-        }
-
-        // put None in the drop-down for Default, when someone adds a field
-        $row['DefaultType'] = isset($_REQUEST['field_default_type'][$i])
-            ? $_REQUEST['field_default_type'][$i]
-            : 'NONE';
-        $row['DefaultValue'] = isset($_REQUEST['field_default_value'][$i])
-            ? $_REQUEST['field_default_value'][$i]
-            : '';
-
-        switch ($row['DefaultType']) {
-        case 'NONE' :
-            $row['Default'] = null;
-            break;
-        case 'USER_DEFINED' :
-            $row['Default'] = $row['DefaultValue'];
-            break;
-        case 'NULL' :
-        case 'CURRENT_TIMESTAMP' :
-            $row['Default'] = $row['DefaultType'];
-            break;
-        }
-
-        $row['Extra']
-            = (isset($_REQUEST['field_extra'][$i])
-            ? $_REQUEST['field_extra'][$i]
-            : false);
-        $row['Comment']
-            = (isset($submit_fulltext[$i])
-                && ($submit_fulltext[$i] == $i)
-            ? 'FULLTEXT'
-            : false);
-
-        $submit_length
-            = (isset($_REQUEST['field_length'][$i])
-            ? $_REQUEST['field_length'][$i]
-            : false);
-        $submit_attribute
-            = (isset($_REQUEST['field_attribute'][$i])
-            ? $_REQUEST['field_attribute'][$i]
-            : false);
-
-        $submit_default_current_timestamp
-            = (isset($_REQUEST['field_default_current_timestamp'][$i])
-            ? true
-            : false);
-
-        if (isset($_REQUEST['field_comments'][$i])) {
-            $comments_map[$row['Field']] = $_REQUEST['field_comments'][$i];
-        }
-
-        if (isset($_REQUEST['field_mimetype'][$i])) {
-            $mime_map[$row['Field']]['mimetype'] = $_REQUEST['field_mimetype'][$i];
-        }
-
-        if (isset($_REQUEST['field_transformation'][$i])) {
-            $mime_map[$row['Field']]['transformation']
-                = $_REQUEST['field_transformation'][$i];
-        }
-
-        if (isset($_REQUEST['field_transformation_options'][$i])) {
-            $mime_map[$row['Field']]['transformation_options']
-                = $_REQUEST['field_transformation_options'][$i];
-        }
-
+        list($row, $submit_length, $submit_attribute,
+            $submit_default_current_timestamp, $comments_map, $mime_map)
+                = PMA_handleRegeneration(
+                    isset($available_mime) ? $mime_map : null,
+                    $comments_map, $mime_map
+                ); 
     } elseif (isset($fields_meta[$i])) {
         $row = $fields_meta[$i];
         switch ($row['Default']) {
