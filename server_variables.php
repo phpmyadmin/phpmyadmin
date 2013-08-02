@@ -20,9 +20,9 @@ $scripts->addFile('server_variables.js');
 require 'libraries/server_common.inc.php';
 
 /**
- * Required to display documentation links
+ * Array of documentation links
  */
-require 'libraries/server_variables_doc.php';
+$variable_doc_links = PMA_getArrayForDocumentLinks();
 
 /**
  * Ajax request
@@ -31,9 +31,9 @@ require 'libraries/server_variables_doc.php';
 if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
     if (isset($_REQUEST['type'])) {
         if ($_REQUEST['type'] === 'getval') {
-            PMA_getAjaxReturnForGetVal();
+            PMA_getAjaxReturnForGetVal($variable_doc_links);
         } else if ($_REQUEST['type'] === 'setval') {
-            PMA_getAjaxReturnForSetVal();
+            PMA_getAjaxReturnForSetVal($variable_doc_links);
         }
         exit;
     }
@@ -55,7 +55,7 @@ $response->addHtml(PMA_getHtmlForLinkTemplates());
 /**
  * Displays the page
  */
-$response->addHtml(PMA_getHtmlForServerVariables());
+$response->addHtml(PMA_getHtmlForServerVariables($variable_doc_links));
 
 exit;
 
