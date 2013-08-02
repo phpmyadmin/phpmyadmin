@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-07-29 15:07+0200\n"
-"PO-Revision-Date: 2013-08-01 10:53+0200\n"
+"PO-Revision-Date: 2013-08-02 03:35+0200\n"
 "Last-Translator: Myung Han Yu <greatymh@gmail.com>\n"
 "Language-Team: Korean <http://l10n.cihar.com/projects/phpmyadmin/4-0/ko/>\n"
 "Language: ko\n"
@@ -742,7 +742,7 @@ msgstr "서버 버전"
 
 #: index.php:251
 msgid "Protocol version"
-msgstr "제품 버전"
+msgstr "프로토콜 버전"
 
 #: index.php:255 libraries/server_privileges.lib.php:1566
 #: libraries/server_privileges.lib.php:2378
@@ -4572,9 +4572,8 @@ msgid "Navigation panel"
 msgstr ""
 
 #: libraries/config/messages.inc.php:180
-#, fuzzy
 msgid "Customize appearance of the navigation panel"
-msgstr "탐색 패널의 형태 설정"
+msgstr "네비게이션 패널 모양 설정"
 
 #: libraries/config/messages.inc.php:181 libraries/select_server.lib.php:42
 #: setup/frames/index.inc.php:117
@@ -4935,6 +4934,8 @@ msgid ""
 "and will be deleted as soon as you close the browser window. This is "
 "recommended for non-trusted environments."
 msgstr ""
+"로그인 쿠키가 브라우저에 얼마나 오래 저장될지 결정합니다. (초 단위) 기본값은 0으로, 이는 쿠키가 현재 세션에만 유효하며 브라우저 "
+"창을 닫으면 바로 삭제됨을 의미합니다. 이는 신뢰되지 않는 환경에서 권장됩니다."
 
 #: libraries/config/messages.inc.php:278
 msgid "Login cookie store"
@@ -5037,17 +5038,17 @@ msgstr "로고 출력"
 
 #: libraries/config/messages.inc.php:301
 msgid "URL where logo in the navigation panel will point to"
-msgstr "내비게이션 패널의 로고가 가르킬 URL"
+msgstr "네비게이션 패널의 로고 클릭 시 이동할 URL"
 
 #: libraries/config/messages.inc.php:302
 msgid "Logo link URL"
-msgstr "로고 링크URL"
+msgstr "로고 링크 URL"
 
 #: libraries/config/messages.inc.php:303
 msgid ""
 "Open the linked page in the main window ([kbd]main[/kbd]) or in a new one "
 "([kbd]new[/kbd])"
-msgstr ""
+msgstr "링크된 페이지를 메인 창([kbd]main[/kbd])으로 열지, 새 창([kbd]new[/kbd])으로 열지 선택"
 
 #: libraries/config/messages.inc.php:304
 msgid "Logo link target"
@@ -5055,7 +5056,7 @@ msgstr "로고 링크 타겟"
 
 #: libraries/config/messages.inc.php:305
 msgid "Display server choice at the top of the navigation panel"
-msgstr ""
+msgstr "네비게이션 패널 맨 위에 서버 선택 메뉴를 표시할지 선택"
 
 #: libraries/config/messages.inc.php:306
 msgid "Display servers selection"
@@ -5148,10 +5149,9 @@ msgid "Use only icons, only text or both"
 msgstr "아이콘만 사용, 텍스트만 사용, 둘 다 사용"
 
 #: libraries/config/messages.inc.php:327
-#, fuzzy
 #| msgid "Iconic navigation bar"
 msgid "Table navigation bar"
-msgstr "아이콘화 네비게이션 바"
+msgstr "테이블 네비게이션 바"
 
 #: libraries/config/messages.inc.php:328
 msgid "use GZip output buffering for increased speed in HTTP transfers"
@@ -5709,11 +5709,11 @@ msgstr "버전 자동생성"
 msgid ""
 "Leave blank for no user preferences storage in database, suggested: "
 "[kbd]pma__userconfig[/kbd]"
-msgstr ""
+msgstr "데이터베이스에 사용자 설정 스토리지를 두지 않으려면 비워둠, 추천: [kbd]pma__userconfig[/kbd]"
 
 #: libraries/config/messages.inc.php:452
 msgid "User preferences storage table"
-msgstr ""
+msgstr "사용자 설정 스토리지 테이블"
 
 #: libraries/config/messages.inc.php:454
 msgid "User for config auth"
@@ -5746,7 +5746,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:460
 msgid "Show password change form"
-msgstr ""
+msgstr "비밀번호 변경 폼 보이기"
 
 #: libraries/config/messages.inc.php:461
 msgid "Show create database form"
