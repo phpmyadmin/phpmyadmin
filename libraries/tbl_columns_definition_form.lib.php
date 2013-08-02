@@ -267,7 +267,7 @@ function PMA_getHtmlForTableCreateOrAddField($action, $form_params, $content_cel
  * @param string $db          current database
  * @param string $table       current table
  * 
- * @return string
+ * @return array 
  */
 function PMA_getHeaderCells($is_backup, $fields_meta, $mimework, $db, $table)
 {
