@@ -89,8 +89,12 @@ if ($_REQUEST['send_error_report'] == true) {
 function get_report_data($json_encode = true) {
     $exception = $_REQUEST['exception'];
     $exception["stack"] = translate_stacktrace($exception["stack"]);
+    List($uri, $script_name) = sanitize_url($exception["url"]);
+    $exception["uri"] = $uri;
+    unset($exception["url"]);
     $report = array(
         "exception" => $exception,
+        "script_name" => $script_name,
         "pma_version" => PMA_VERSION,
         "browser_name" => PMA_USR_BROWSER_AGENT,
         "browser_version" => PMA_USR_BROWSER_VER,
@@ -98,7 +102,6 @@ function get_report_data($json_encode = true) {
         "server_software" => $_SERVER['SERVER_SOFTWARE'],
         "user_agent_string" => $_SERVER['HTTP_USER_AGENT'],
         "locale" => $_COOKIE['pma_lang'],
-        "url" => $_REQUEST['current_url'],
         "configuration_storage_enabled" =>
             !empty($GLOBALS['cfg']['Servers'][1]['pmadb']),
         "php_version" => phpversion(),
@@ -114,6 +117,30 @@ function get_report_data($json_encode = true) {
     } else {
         return $report;
     }
+}
+
+function sanitize_url($url) {
+    $components = parse_url($url);
+    if (isset($components["fragment"]) && preg_match("<PMAURL-\d+:>",
+            $components["fragment"], $matches)) {
+        $uri = str_replace($matches[0], "", $components["fragment"]);
+        $url = "http://dummy_host/" . $uri;
+        $components = parse_url($url);
+    }
+
+    # get script name
+    preg_match("<([a-zA-Z\-_\d]*\.php)$>", $components["path"], $matches);
+    $script_name = $matches[1];
+
+    #remove deployment specific details to make uri more generic
+    parse_str($components["query"], $query_array);
+    unset($query_array["db"]);
+    unset($query_array["table"]);
+    unset($query_array["token"]);
+    $query = http_build_query($query_array);
+
+    $uri = $script_name . "?" . $query;
+    return array($uri, $script_name);
 }
 
 /**
@@ -181,10 +208,15 @@ function translate_stacktrace($stack) {
             parse_str($matches[1], $vars);
             List($file_name, $line_number) =
                     get_line_number($vars["scripts"], $level["line"]);
-            unset($level["url"]);
             $level["filename"] = $file_name;
             $level["line"] = $line_number;
+        } else {
+            unset($level["context"]);
+            List($uri, $script_name) = sanitize_url($level["url"]);
+            $level["uri"] = $uri;
+            $level["script_name"] = $script_name;
         }
+        unset($level["url"]);
     }
     unset($level);
     return $stack;
