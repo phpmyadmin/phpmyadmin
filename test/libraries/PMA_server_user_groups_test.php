@@ -34,16 +34,15 @@ class PMA_ServerUserGroupsTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Tests PMA_getHtmlForUserGroupsTable() function
+     * Tests PMA_getHtmlForUserGroupsTable() function when there are no user groups
      *
      * @return void
      */
-    public function testGetHtmlForUserGroupsTable()
+    public function testGetHtmlForUserGroupsTableWithNoUserGroups()
     {
         $expectedQuery = "SELECT * FROM `pmadb`.`usergroups`"
             . " ORDER BY `usergroup` ASC";
 
-        // no user groups
         $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
@@ -69,8 +68,18 @@ class PMA_ServerUserGroupsTest extends PHPUnit_Framework_TestCase
             . PMA_generate_common_url() . '&addUserGroup=1">',
             $html
         );
+    }
 
-        // with user groups
+    /**
+     * Tests PMA_getHtmlForUserGroupsTable() function when there are user groups
+     *
+     * @return void
+     */
+    public function testGetHtmlForUserGroupsTableWithUserGroups()
+    {
+        $expectedQuery = "SELECT * FROM `pmadb`.`usergroups`"
+            . " ORDER BY `usergroup` ASC";
+
         $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
