@@ -18,7 +18,7 @@ var ErrorReport = {
         ErrorReport._last_exception = exception;
         $.get("error_report.php",{
             ajax_request: true,
-            token: ErrorReport._get_token(),
+            token: PMA_commonParams.get('token'),
             get_settings: true,
         }, function(data) {
             if(data.report_setting == "ask") {
@@ -175,19 +175,7 @@ var ErrorReport = {
      * @return void
      */
     _redirect_to_settings: function() {
-        window.location.href = "prefs_forms.php?token=" + ErrorReport._get_token();
-    },
-    /**
-     * Returns the current token to use in requests
-     * 
-     * @return string
-     */
-    _get_token: function() {
-        regex = /token=([\da-z]+)/;
-        if($("#selflink a").length>0) {
-            var token = regex.exec($("#selflink a")[0].href)[1];
-        }
-        return token;
+        window.location.href = "prefs_forms.php?token=" + PMA_commonParams.get('token');
     },
     /**
      * Returns the report data to send to the server
@@ -197,7 +185,7 @@ var ErrorReport = {
      * @return object
      */
     _get_report_data: function(exception) {
-        var token = ErrorReport._get_token();
+        var token = PMA_commonParams.get('token');
 
         var report_data = {
             "ajax_request": true,
