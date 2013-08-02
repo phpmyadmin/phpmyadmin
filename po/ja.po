@@ -2353,9 +2353,7 @@ msgstr "設定ファイル (%s) は存在しますが、読み込むことがで
 
 #: libraries/Config.class.php:1148
 msgid "Wrong permissions on configuration file, should not be world writable!"
-msgstr ""
-"設定ファイルのパーミッションが正しくありません。書き込み可能になっていませ"
-"ん！"
+msgstr "設定ファイルのパーミッションが正しくありません。誰でも書き込み可能になっています！"
 
 #: libraries/Config.class.php:1714
 msgid "Font size"
