@@ -13,13 +13,17 @@ if (! defined('PHPMYADMIN')) {
  * Returns the html for the sub-page heading
  *
  * @param string $type Sub page type
+ * @param string $link Link to the official MySQL documentation
  *
  * @return string
  */
-function PMA_getSubPageHeader($type)
+function PMA_getHtmlForSubPageHeader($type, $link='')
 {
     //array contains Sub page icon and text
     $header = array();
+
+    $header['variables']['icon'] = 's_vars.png';
+    $header['variables']['text'] = __('Server variables and settings');
 
     $header['engines']['icon'] = 'b_engine.png';
     $header['engines']['text'] = __('Storage Engines');
@@ -45,7 +49,7 @@ function PMA_getSubPageHeader($type)
     $html = '<h2>' . "\n"
         . PMA_Util::getImage($header[$type]['icon'])
         . '    ' . $header[$type]['text'] . "\n"
-        . '</h2>' . "\n";
+        . $link . '</h2>' . "\n";
     return $html;
 }
 

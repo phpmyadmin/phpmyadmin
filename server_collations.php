@@ -24,7 +24,7 @@ require_once 'libraries/mysql_charsets.inc.php';
 
 $response = PMA_Response::getInstance();
 
-$response->addHTML(PMA_getSubPageHeader('collations'));
+$response->addHTML(PMA_getHtmlForSubPageHeader('collations'));
 $response->addHTML(
     PMA_getHtmlForCharsets(
         $mysql_charsets, 
