@@ -49,8 +49,8 @@ $GLOBALS['dbi']->selectDb($db);
 /**
  * Multi-tables printview
  */
-if (isset($selected_tbl) && is_array($selected_tbl)) {
-    $the_tables   = $selected_tbl;
+if (isset($_POST['selected_tbl']) && is_array($_POST['selected_tbl'])) {
+    $the_tables   = $_POST['selected_tbl'];
 } elseif (strlen($table)) {
     $the_tables[] = $table;
 }

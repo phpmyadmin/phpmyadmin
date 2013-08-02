@@ -143,6 +143,7 @@ AJAX.registerOnload('tbl_structure.js', function () {
                     .html(data.message)
                     .insertBefore('#page_content');
                 PMA_highlightSQL($('#page_content'));
+                PMA_showHints();
                 PMA_verifyColumnsProperties();
             } else {
                 PMA_ajaxShowMessage(PMA_messages.strErrorProcessingRequest + " : " + data.error, false);
@@ -170,6 +171,7 @@ AJAX.registerOnload('tbl_structure.js', function () {
                     )
                     .show();
                 PMA_highlightSQL($('#page_content'));
+                PMA_showHints();
                 PMA_verifyColumnsProperties();
             } else {
                 $('#page_content').show();
