@@ -90,6 +90,7 @@ AJAX.registerOnload('tbl_structure.js', function() {
                 $('<div id="change_column_dialog" class="margin"></div>')
                     .html(data.message)
                     .insertBefore('#page_content');
+                PMA_showHints();
                 PMA_verifyColumnsProperties();
             } else {
                 PMA_ajaxShowMessage(PMA_messages['strErrorProcessingRequest'] + " : " + data.error, false);
@@ -116,6 +117,7 @@ AJAX.registerOnload('tbl_structure.js', function() {
                             .html(data.message)
                     )
                     .show();
+                PMA_showHints();
                 PMA_verifyColumnsProperties();
             } else {
                 $('#page_content').show();
