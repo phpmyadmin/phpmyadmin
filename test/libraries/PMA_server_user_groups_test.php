@@ -91,7 +91,7 @@ class PMA_ServerUserGroupsTest extends PHPUnit_Framework_TestCase
             ->method('numRows')
             ->withAnyParameters()
             ->will($this->returnValue(1));
-        $dbi->expects($this->at(0))
+        $dbi->expects($this->at(2))
             ->method('fetchAssoc')
             ->withAnyParameters()
             ->will(
@@ -107,7 +107,7 @@ class PMA_ServerUserGroupsTest extends PHPUnit_Framework_TestCase
                     )
                 )
             );
-        $dbi->expects($this->at(1))
+        $dbi->expects($this->at(3))
             ->method('fetchAssoc')
             ->withAnyParameters()
             ->will($this->returnValue(false));
