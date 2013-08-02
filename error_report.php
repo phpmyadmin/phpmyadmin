@@ -8,7 +8,7 @@
 require_once 'libraries/common.inc.php';
 include_once 'js/line_counts.php';
 
-$submission_url = "http://reports.phpmyadmin.net/reports/submit";
+$submission_url = "http://dev-reports.phpmyadmin.net/incidents/create";
 
 $response = PMA_Response::getInstance();
 
