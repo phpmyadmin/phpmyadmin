@@ -332,8 +332,8 @@ class PMA_ExportOds_Test extends PHPUnit_Framework_TestCase
             ->will(
                 $this->returnValue(
                     array(
-                        null, '01-01-2000', '10:00:00', '01-01-2000 10:00:00', "t<s",
-                        "t>s", "a&b", "<"
+                        null, '01-01-2000', '10:00:00', '01-01-2000 10:00:00',
+                        "01-01-2014 10:02:00", "t>s", "a&b", "<"
                     )
                 )
             );
@@ -363,9 +363,9 @@ class PMA_ExportOds_Test extends PHPUnit_Framework_TestCase
             'date-value="2013-08-03" table:style-name="DateCell"><text:p>10:00:00' .
             '</text:p></table:table-cell><table:table-cell office:value-type=' .
             '"time" office:time-value="PT10H00M00S" table:style-name="TimeCell">' .
-            '<text:p>01-01-2000 10:00:00</text:p></table:table-cell>' .
-            '<table:table-cell office:value-type="date" office:date-value=' .
-            '"1970-01-01T01:00:00" table:style-name="DateTimeCell"><text:p>t&lt;s' .
+            '<text:p>01-01-2000 10:00:00</text:p></table:table-cell><table:table-' .
+            'cell office:value-type="date" office:date-value="2014-01-01T10:02:00"' .
+            ' table:style-name="DateTimeCell"><text:p>01-01-2014 10:02:00' .
             '</text:p></table:table-cell><table:table-cell office:value-type=' .
             '"float" office:value="t>s" ><text:p>t&gt;s</text:p>' .
             '</table:table-cell><table:table-cell office:value-type="float" ' .
