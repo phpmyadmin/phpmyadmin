@@ -1981,6 +1981,7 @@ function PMA_getExtraDataForAjaxBehavior($password, $link_export, $sql_query,
         $new_user_string .= '<td>'
             . '<code>' . join(', ', PMA_extractPrivInfo('', true)) . '</code>'
             . '</td>'; //Fill in privileges here
+        $new_user_string .= '<td class="usrGroup"></td>';
         $new_user_string .= '<td>';
 
         if ((isset($_POST['Grant_priv']) && $_POST['Grant_priv'] == 'Y')) {
