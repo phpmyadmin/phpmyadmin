@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-07-29 15:07+0200\n"
-"PO-Revision-Date: 2013-08-02 03:35+0200\n"
-"Last-Translator: Myung Han Yu <greatymh@gmail.com>\n"
+"PO-Revision-Date: 2013-08-03 06:44+0200\n"
+"Last-Translator: 도원 권 <dowon2308@gmail.com>\n"
 "Language-Team: Korean <http://l10n.cihar.com/projects/phpmyadmin/4-0/ko/>\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
@@ -3989,7 +3989,7 @@ msgstr "이 값을 사용자화하기 위한 사용자 허용"
 #: libraries/schema/User_Schema.class.php:558 prefs_manage.php:320
 #: prefs_manage.php:325
 msgid "Reset"
-msgstr "리세트"
+msgstr "초기화"
 
 #: libraries/config/messages.inc.php:17
 msgid ""
@@ -5004,7 +5004,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:294
 msgid "Maximum tables"
-msgstr ""
+msgstr "최대 테이블 수"
 
 #: libraries/config/messages.inc.php:295
 msgid ""
@@ -5746,11 +5746,11 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:460
 msgid "Show password change form"
-msgstr "비밀번호 변경 폼 보이기"
+msgstr "비밀번호 변경 폼 보기"
 
 #: libraries/config/messages.inc.php:461
 msgid "Show create database form"
-msgstr "데이터베이스 생성 폼 보이기"
+msgstr "데이터베이스 생성 폼 보기"
 
 #: libraries/config/messages.inc.php:462
 msgid "Show or hide a column displaying the Creation timestamp for all tables"
@@ -5758,7 +5758,7 @@ msgstr "전체 테이블의 생성 시간을 표시하는 컬럼을 보이기/�
 
 #: libraries/config/messages.inc.php:463
 msgid "Show Creation timestamp"
-msgstr "생성 시간 보이기"
+msgstr "생성 시간 보기"
 
 #: libraries/config/messages.inc.php:464
 msgid ""
@@ -5867,7 +5867,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:487
 msgid "Skip locked tables"
-msgstr ""
+msgstr "잠긴 테이블 건너띄기"
 
 #: libraries/config/messages.inc.php:492
 msgid "Requires SQL Validator to be enabled"
@@ -6145,7 +6145,7 @@ msgstr "디렉토리를 포함하는 데이터베이스의 권한을 확인하�
 
 #: libraries/database_interface.lib.php:2094
 msgid "Details…"
-msgstr ""
+msgstr "자세히…"
 
 #: libraries/dbi/drizzle-wrappers.lib.php:387
 msgid "Can't seek in an unbuffered result set"
@@ -10253,7 +10253,7 @@ msgstr "전체 중지"
 
 #: server_replication.php:304
 msgid "Reset slave"
-msgstr "슬레이브 리셋"
+msgstr "슬레이브 초기화"
 
 #: server_replication.php:306
 msgid "Start SQL Thread only"
@@ -10455,7 +10455,7 @@ msgstr ""
 
 #: server_status_monitor.php:537
 msgid "Reset to default"
-msgstr ""
+msgstr "기본값으로 초기화"
 
 #: server_status_monitor.php:543
 msgid "Monitor Instructions"
