@@ -24,33 +24,17 @@ require_once 'libraries/db_table_exists.lib.php';
 require_once 'libraries/insert_edit.lib.php';
 
 /**
- * Sets global variables.
- * Here it's better to use a if, instead of the '?' operator
- * to avoid setting a variable to '' when it's not present in $_REQUEST
+ * Determine whether Insert or Edit and set global variables
  */
+list(
+    $insert_mode, $where_clause, $where_clause_array, $where_clauses,
+    $result, $rows, $found_unique_key, $after_insert
+) = PMA_determineInsertOrEdit($where_clause, $db, $table);
 
-if (isset($_REQUEST['where_clause'])) {
-    $where_clause = $_REQUEST['where_clause'];
-}
-if (isset($_SESSION['edit_next'])) {
-    $where_clause = $_SESSION['edit_next'];
-    unset($_SESSION['edit_next']);
-    $after_insert = 'edit_next';
-}
-if (isset($_REQUEST['ShowFunctionFields'])) {
-    $cfg['ShowFunctionFields'] = $_REQUEST['ShowFunctionFields'];
-}
-if (isset($_REQUEST['ShowFieldTypesInDataEditView'])) {
-    $cfg['ShowFieldTypesInDataEditView'] = $_REQUEST['ShowFieldTypesInDataEditView'];
-}
-if (isset($_REQUEST['after_insert'])) {
-    $after_insert = $_REQUEST['after_insert'];
-}
 /**
  * file listing
- */
+*/
 require_once 'libraries/file_listing.lib.php';
-
 
 /**
  * Defines the url to return to in case of error in a sql statement
@@ -64,43 +48,13 @@ if (empty($GLOBALS['goto'])) {
         $GLOBALS['goto'] = 'db_sql.php';
     }
 }
-/**
- * @todo check if we could replace by "db_|tbl_" - please clarify!?
- */
-$_url_params = array(
-    'db' => $db,
-    'sql_query' => $_REQUEST['sql_query']
-);
 
-if (preg_match('@^tbl_@', $GLOBALS['goto'])) {
-    $_url_params['table'] = $table;
-}
 
+$_url_params = PMA_getUrlParameters($db, $table);
 $err_url = $GLOBALS['goto'] . PMA_generate_common_url($_url_params);
 unset($_url_params);
 
-
-/**
- * Sets parameters for links
- * where is this variable used?
- * replace by PMA_generate_common_url($url_params);
- */
-$url_query = PMA_generate_common_url($url_params, 'html', '');
-
-/**
- * get table information
- * @todo should be done by a Table object
- */
-require_once 'libraries/tbl_info.inc.php';
-
-/**
- * Get comments for table fileds/columns
- */
-$comments_map = array();
-
-if ($GLOBALS['cfg']['ShowPropertyComments']) {
-    $comments_map = PMA_getComments($db, $table);
-}
+$comments_map = PMA_getCommentsMap($db, $table);
 
 /**
  * START REGULAR OUTPUT
@@ -120,52 +74,14 @@ $scripts->addFile('gis_data_editor.js');
 /**
  * Displays the query submitted and its result
  *
- * @todo where does $disp_message and $disp_query come from???
+ * $disp_message come from tbl_replace.php
  */
 if (! empty($disp_message)) {
-    if (! isset($disp_query)) {
-        $disp_query     = null;
-    }
-    $response->addHTML(PMA_Util::getMessage($disp_message, $disp_query));
+    $response->addHTML(PMA_Util::getMessage($disp_message, null));
 }
 
-/**
- * Get the analysis of SHOW CREATE TABLE for this table
- */
-$analyzed_sql = PMA_Table::analyzeStructure($db, $table);
 
-/**
- * Get the list of the fields of the current table
- */
-$GLOBALS['dbi']->selectDb($db);
-$table_fields = array_values($GLOBALS['dbi']->getColumns($db, $table));
-
-$paramTableDbArray = array($table, $db);
-
-/**
- * Determine what to do, edit or insert? 
- */
-if (isset($where_clause)) {
-    // we are editing
-    $insert_mode = false;
-    $where_clause_array = PMA_getWhereClauseArray($where_clause);
-    list($where_clauses, $result, $rows, $found_unique_key)
-        = PMA_analyzeWhereClauses($where_clause_array, $table, $db);
-} else {
-    // we are inserting
-    $insert_mode = true;
-    $where_clause = null;
-    list($result, $rows) = PMA_loadFirstRow($table, $db);
-    $where_clauses = null;
-    $where_clause_array = null;
-    $found_unique_key = false;
-}
-
-// Copying a row - fetched data will be inserted as a new row,
-// therefore the where clause is needless.
-if (isset($_REQUEST['default_action']) && $_REQUEST['default_action'] === 'insert') {
-    $where_clause = $where_clauses = null;
-}
+$table_columns = PMA_getTableColumns($db, $table);
 
 // retrieve keys into foreign fields, if any
 $foreigners = PMA_getForeigners($db, $table);
@@ -192,7 +108,7 @@ $chg_evt_handler = (PMA_USR_BROWSER_AGENT == 'IE'
 $html_output = '';
 // Set if we passed the first timestamp field
 $timestamp_seen = false;
-$columns_cnt     = count($table_fields);
+$columns_cnt     = count($table_columns);
 
 $tabindex              = 0;
 $tabindex_for_function = +3000;
@@ -210,7 +126,7 @@ $url_params = PMA_urlParamsInEditMode(
 //Insert/Edit form
 //If table has blob fields we have to disable ajax.
 $has_blob_field = false;
-foreach ($table_fields as $column) {
+foreach ($table_columns as $column) {
     if (PMA_isColumnBlob($column)) {
         $has_blob_field = true;
         break;
@@ -275,8 +191,8 @@ foreach ($rows as $row_id => $current_row) {
 
     $odd_row = true;
     for ($i = 0; $i < $columns_cnt; $i++) {
-        if (! isset($table_fields[$i]['processed'])) {
-            $column = $table_fields[$i];
+        if (! isset($table_columns[$i]['processed'])) {
+            $column = $table_columns[$i];
             $column = PMA_analyzeTableColumnsArray(
                 $column, $comments_map, $timestamp_seen
             );
@@ -387,7 +303,7 @@ foreach ($rows as $row_id => $current_row) {
         $html_output .= PMA_getValueColumn(
             $column, $backup_field, $column_name_appendix, $unnullify_trigger,
             $tabindex, $tabindex_for_value, $idindex, $data, $special_chars,
-            $foreignData, $odd_row, $paramTableDbArray, $rownumber_param, $titles,
+            $foreignData, $odd_row, array($table, $db), $rownumber_param, $titles,
             $text_dir, $special_chars_encoded, $vkey, $is_upload,
             $biggest_max_file_size, $default_char_editing,
             $no_support_types, $gis_data_types, $extracted_columnspec

@@ -35,14 +35,14 @@ class PMA_ServerCommon_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_getSubPageHeader
+     * Test for PMA_getHtmlForSubPageHeader
      *
      * @return void
      */
     public function testPMAGetSubPageHeader()
     {
         //server_engines
-        $html = PMA_getSubPageHeader("engines");
+        $html = PMA_getHtmlForSubPageHeader("engines");
         $this->assertContains(
             '<img src="themes/dot.gif" title="" alt="" class="icon ic_b_engine" />',
             $html
@@ -53,7 +53,7 @@ class PMA_ServerCommon_Test extends PHPUnit_Framework_TestCase
         );
         
         //server_databases
-        $html = PMA_getSubPageHeader("databases");
+        $html = PMA_getHtmlForSubPageHeader("databases");
         $this->assertContains(
             '<img src="themes/dot.gif" title="" alt="" class="icon ic_s_db" />',
             $html
@@ -64,7 +64,7 @@ class PMA_ServerCommon_Test extends PHPUnit_Framework_TestCase
         );
         
         //server_replication
-        $html = PMA_getSubPageHeader("replication");
+        $html = PMA_getHtmlForSubPageHeader("replication");
         $replication_img = '<img src="themes/dot.gif" title="" ' 
             . 'alt="" class="icon ic_s_replication" />';
         $this->assertContains(
