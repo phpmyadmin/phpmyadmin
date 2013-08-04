@@ -117,7 +117,7 @@ class PMA_ServerVariables_Test extends PHPUnit_Framework_TestCase
         //Call the test function
         $name_for_value_byte = "binlog_cache_size";
         $name_for_value_not_byte = "auto_increment_increment";
-        $name_not_number = "PMA_key";
+        $name_for_value_not_num = "PMA_key";
 
         $variable_doc_links = PMA_getArrayForDocumentLinks();
 
@@ -133,10 +133,10 @@ class PMA_ServerVariables_Test extends PHPUnit_Framework_TestCase
             PMA_formatVariable($name_for_value_not_byte, "3", $variable_doc_links)
         );
 
-        //name is not a number
+        //value is not a number
         $this->assertEquals(
-            'PMA_value',
-            PMA_formatVariable($name_not_number, "PMA_value", $variable_doc_links)
+            'value',
+            PMA_formatVariable($name_for_value_not_num, "value", $variable_doc_links)
         );
     }
 
