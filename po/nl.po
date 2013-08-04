@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-08-01 14:09+0200\n"
-"PO-Revision-Date: 2013-08-02 03:06+0200\n"
+"PO-Revision-Date: 2013-08-04 19:12+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: Dutch <http://l10n.cihar.com/projects/phpmyadmin/master/nl/>\n"
 "Language: nl\n"
@@ -705,6 +705,9 @@ msgid ""
 "change root, debian-sys-maint and pma users. More information is available "
 "at %s."
 msgstr ""
+"U gebruikt de demoserver. Je kan alles doen, maar gelieve de root, debian-"
+"sys-maint en pma gebruikers niet te wijzigen. Meer informatie is beschikbaar "
+"op %s."
 
 #: index.php:129
 msgid "General Settings"
@@ -2822,7 +2825,7 @@ msgstr "Het geüploade bestand kan niet gelezen (verplaatst) worden."
 #: libraries/Footer.class.php:76
 #, php-format
 msgid "Currently running Git revision %1$s from the %2$s branch."
-msgstr ""
+msgstr "Loopt op Git revisie %1$s van de %2$s tak."
 
 #: libraries/Footer.class.php:83
 msgid "Git information missing!"
@@ -6175,7 +6178,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:461
 msgid "Hidden navigation items table"
-msgstr ""
+msgstr "Tabel met verborgen navigatieonderdelen"
 
 #: libraries/config/messages.inc.php:463
 msgid "User for config auth"
@@ -10061,7 +10064,7 @@ msgstr "Geen"
 #: libraries/server_privileges.lib.php:2531
 #: libraries/server_privileges.lib.php:3235
 msgid "User group"
-msgstr ""
+msgstr "Gebruikersgroep"
 
 #: libraries/server_privileges.lib.php:618
 msgid "Resource limits"
@@ -10365,11 +10368,12 @@ msgstr ""
 #: libraries/server_privileges.lib.php:3187
 #, php-format
 msgid "Users of '%s' user group"
-msgstr ""
+msgstr "Gebruikers in '%s' gebruikersgroep"
 
 #: libraries/server_privileges.lib.php:3198
 msgid "No users were found belonging to this user group."
 msgstr ""
+"Er werden geen gebruikers gevonden die tot deze gebruikersgroep behoren."
 
 #: libraries/server_privileges.lib.php:3229
 #: libraries/server_privileges.lib.php:3878
@@ -10408,7 +10412,7 @@ msgstr "Gebruikersgroep toevoegen"
 #: libraries/server_privileges.lib.php:3347
 #, php-format
 msgid "Edit user group: '%s'"
-msgstr ""
+msgstr "Bewerk gebruikersgroep: '%s'"
 
 #: libraries/server_privileges.lib.php:3363
 #| msgid "No privileges."
