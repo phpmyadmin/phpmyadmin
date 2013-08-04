@@ -115,28 +115,28 @@ class PMA_ServerVariables_Test extends PHPUnit_Framework_TestCase
     public function testPMAFormatVariable()
     {
         //Call the test function
-        $value_right = "auto_increment_increment";
-        $value_byte = "binlog_cache_size";
-        $value_wrong = "PMA_key";
+        $name_for_value_byte = "binlog_cache_size";
+        $name_for_value_not_byte = "auto_increment_increment";
+        $name_not_number = "PMA_key";
 
         $variable_doc_links = PMA_getArrayForDocumentLinks();
 
-        //is_numeric and in $variable_doc_links
+        //name is_numeric and the value type is byte
         $this->assertEquals(
             '<abbr title="3">3 B</abbr>',
-            PMA_formatVariable($value_byte, "3", $variable_doc_links)
+            PMA_formatVariable($name_for_value_byte, "3", $variable_doc_links)
         );
 
-        //is_numeric and not in $variable_doc_links
+        //name is_numeric and and the value type is not byte
         $this->assertEquals(
             '3',
-            PMA_formatVariable($value_right, "3", $variable_doc_links)
+            PMA_formatVariable($name_for_value_not_byte, "3", $variable_doc_links)
         );
 
-        //not a number
+        //name is not a number
         $this->assertEquals(
             'PMA_value',
-            PMA_formatVariable($value_wrong, "PMA_value", $variable_doc_links)
+            PMA_formatVariable($name_not_number, "PMA_value", $variable_doc_links)
         );
     }
 
