@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-08-01 14:09+0200\n"
-"PO-Revision-Date: 2013-08-01 15:48+0200\n"
-"Last-Translator: Myung Han Yu <greatymh@gmail.com>\n"
+"PO-Revision-Date: 2013-08-03 06:44+0200\n"
+"Last-Translator: 도원 권 <dowon2308@gmail.com>\n"
 "Language-Team: Korean <http://l10n.cihar.com/projects/phpmyadmin/master/ko/>\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
@@ -2266,12 +2266,10 @@ msgid "Unexpected characters on line %s."
 msgstr "%s 라인에 알 수 없는 문자가 있습니다."
 
 #: libraries/Advisor.class.php:437
-#, fuzzy, php-format
+#, php-format
 #| msgid "Unexpected character on line %1$s. Expected tab, but found \"%2$s\""
 msgid "Unexpected character on line %1$s. Expected tab, but found \"%2$s\"."
-msgstr ""
-"%1$s 행에 알 수 없는 문자가 있습니다. 탭 문자가 있을 법하나, \"%2$s\"가 있습"
-"니다"
+msgstr "%1$s 행에 알 수 없는 문자가 있습니다. 탭 문자가 있어야하지만, \"%2$s\"가 있습니다"
 
 #: libraries/Advisor.class.php:470
 msgid "per second"
@@ -2412,7 +2410,7 @@ msgstr "디렉토리를 포함하는 데이터베이스의 권한을 확인하�
 
 #: libraries/DatabaseInterface.class.php:2032
 msgid "Details…"
-msgstr ""
+msgstr "자세히…"
 
 #: libraries/DbSearch.class.php:98 libraries/DbSearch.class.php:398
 msgid "at least one of the words"
@@ -4180,7 +4178,7 @@ msgstr "적용"
 #: libraries/schema/User_Schema.class.php:556 prefs_manage.php:326
 #: prefs_manage.php:331
 msgid "Reset"
-msgstr "리세트"
+msgstr "초기화"
 
 #: libraries/config/Validator.class.php:217
 msgid "Could not initialize Drizzle connection library"
@@ -5240,10 +5238,9 @@ msgid "Maximum number of tables displayed in table list"
 msgstr ""
 
 #: libraries/config/messages.inc.php:295
-#, fuzzy
 #| msgid "Variables"
 msgid "Maximum tables"
-msgstr "환경설정값"
+msgstr "최대 테이블 수"
 
 #: libraries/config/messages.inc.php:296
 msgid ""
@@ -6054,11 +6051,11 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:469
 msgid "Show password change form"
-msgstr "비밀번호 변경 폼 보이기"
+msgstr "비밀번호 변경 폼 보기"
 
 #: libraries/config/messages.inc.php:470
 msgid "Show create database form"
-msgstr "데이터베이스 생성 폼 보이기"
+msgstr "데이터베이스 생성 폼 보기"
 
 #: libraries/config/messages.inc.php:471
 msgid "Show or hide a column displaying the Creation timestamp for all tables"
@@ -6066,7 +6063,7 @@ msgstr "전체 테이블의 생성 시간을 표시하는 컬럼을 보이기/�
 
 #: libraries/config/messages.inc.php:472
 msgid "Show Creation timestamp"
-msgstr "생성 시간 보이기"
+msgstr "생성 시간 보기"
 
 #: libraries/config/messages.inc.php:473
 msgid ""
@@ -6177,10 +6174,9 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:496
-#, fuzzy
 #| msgid "Tracked tables"
 msgid "Skip locked tables"
-msgstr "추적된 테이블"
+msgstr "잠긴 테이블 건너띄기"
 
 #: libraries/config/messages.inc.php:501
 msgid "Requires SQL Validator to be enabled"
@@ -8777,7 +8773,7 @@ msgstr "전체 중지"
 
 #: libraries/replication_gui.lib.php:224
 msgid "Reset slave"
-msgstr "슬레이브 리셋"
+msgstr "슬레이브 초기화"
 
 #: libraries/replication_gui.lib.php:227
 msgid "Start SQL Thread only"
@@ -10497,7 +10493,7 @@ msgstr ""
 
 #: libraries/server_status_monitor.lib.php:363
 msgid "Reset to default"
-msgstr ""
+msgstr "기본값으로 초기화"
 
 #: libraries/server_status_queries.lib.php:33
 #, php-format

@@ -410,8 +410,6 @@ are always ways to make your installation more secure:
 
 * remove ``setup`` directory from phpMyAdmin, you will probably not 
   use it after initial setup
-* prevent access to ``libraries`` directory from browser, 
-  as it is not needed, supplied ``.htaccess`` file does this
 * properly choose authentication method - :ref:`cookie`
   is probably the best choice for shared hosting
 * in case you don't want all MySQL users to be able to access 

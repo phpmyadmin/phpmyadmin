@@ -4,17 +4,17 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-08-01 14:09+0200\n"
-"PO-Revision-Date: 2013-07-15 11:29+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Russian <http://l10n.cihar.com/projects/phpmyadmin/master/ru/"
-">\n"
+"PO-Revision-Date: 2013-08-03 16:25+0200\n"
+"Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
+"Language-Team: Russian "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/ru/>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 1.6-dev\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
+"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 1.7-dev\n"
 
 #: browse_foreigners.php:51 browse_foreigners.php:75 js/messages.php:339
 #: libraries/DisplayResults.class.php:805
@@ -695,10 +695,9 @@ msgid "Back"
 msgstr "Назад"
 
 #: index.php:115 libraries/Footer.class.php:72
-#, fuzzy
 #| msgid "phpMyAdmin homepage"
 msgid "phpMyAdmin Demo Server"
-msgstr "Домашняя страница phpMyAdmin"
+msgstr "Демо-сервер phpMyAdmin"
 
 #: index.php:119
 #, php-format
@@ -707,6 +706,9 @@ msgid ""
 "change root, debian-sys-maint and pma users. More information is available "
 "at %s."
 msgstr ""
+"Вы находитесь на демо-сервере. Можете делать здесь что угодно, но, "
+"пожалуйста, не изменяйте пользователей root, debian-sys-maint и pma. "
+"Дополнительная информация доступан на %s."
 
 #: index.php:129
 msgid "General Settings"
@@ -1743,16 +1745,14 @@ msgid "Show search criteria"
 msgstr "Отобразить параметры поиска"
 
 #: js/messages.php:278
-#, fuzzy
 #| msgid "Hide search criteria"
 msgid "Hide find and replace criteria"
-msgstr "Скрыть параметры поиска"
+msgstr "Скрыть параметры поиска и замены"
 
 #: js/messages.php:279
-#, fuzzy
 #| msgid "Show search criteria"
 msgid "Show find and replace criteria"
-msgstr "Отобразить параметры поиска"
+msgstr "Отобразить параметры поиска и замены"
 
 #: js/messages.php:282 libraries/TableSearch.class.php:212
 msgid "Zoom Search"
@@ -1965,10 +1965,9 @@ msgid "Hide Panel"
 msgstr "Скрыть панель"
 
 #: js/messages.php:369
-#, fuzzy
 #| msgid "Show logo in navigation panel"
 msgid "Show hidden navigation tree items"
-msgstr "Отображать логотип в панели навигации"
+msgstr "Отображать скрытые пункты дерева навигации"
 
 #: js/messages.php:372
 msgid "The requested page was not found in the history, it may have expired."
@@ -2298,12 +2297,12 @@ msgid "Unexpected characters on line %s."
 msgstr "Неожиданные символы на строке %s."
 
 #: libraries/Advisor.class.php:437
-#, fuzzy, php-format
+#, php-format
 #| msgid "Unexpected character on line %1$s. Expected tab, but found \"%2$s\""
 msgid "Unexpected character on line %1$s. Expected tab, but found \"%2$s\"."
 msgstr ""
-"Неожиданный символ на строке %1$s. Ожидается символ табуляции, а найден "
-"\"%2$s\""
+"Неожиданный символ на строке %1$s. Ожидается символ табуляции, а найден \"%"
+"2$s\"."
 
 #: libraries/Advisor.class.php:470
 msgid "per second"
@@ -2694,16 +2693,16 @@ msgstr ""
 "Пожалуйста, обратитесь к %sдокументации%s."
 
 #: libraries/DisplayResults.class.php:4868
-#, fuzzy, php-format
+#, php-format
 #| msgid "Showing rows"
 msgid "Showing rows %1s - %2s"
-msgstr "Отображает строки"
+msgstr "Отображение строк %1s - %2s"
 
 #: libraries/DisplayResults.class.php:4880
-#, fuzzy, php-format
+#, php-format
 #| msgid "total"
 msgid "%d total"
-msgstr "всего"
+msgstr "%d всего"
 
 #: libraries/DisplayResults.class.php:4892 libraries/sql.lib.php:1640
 #, php-format
@@ -2836,13 +2835,12 @@ msgstr "Невозможно прочесть (переместить) загр�
 #: libraries/Footer.class.php:76
 #, php-format
 msgid "Currently running Git revision %1$s from the %2$s branch."
-msgstr ""
+msgstr "Запущена Git ревизия %1$s из ветки %2$s."
 
 #: libraries/Footer.class.php:83
-#, fuzzy
 #| msgid "Version information"
 msgid "Git information missing!"
-msgstr "Информация о версии"
+msgstr "Отсутствует Git информация!"
 
 #: libraries/Footer.class.php:163 libraries/Footer.class.php:167
 #: libraries/Footer.class.php:170
@@ -3315,7 +3313,7 @@ msgstr "Поиск в таблице"
 
 #: libraries/TableSearch.class.php:217 libraries/TableSearch.class.php:1172
 msgid "Find and Replace"
-msgstr ""
+msgstr "Поиск и замена"
 
 #: libraries/TableSearch.class.php:239 libraries/insert_edit.lib.php:1352
 msgid "Edit/Insert"
@@ -3382,38 +3380,33 @@ msgid "Reset zoom"
 msgstr "Сбросить увеличение"
 
 #: libraries/TableSearch.class.php:1281
-#, fuzzy
 #| msgid "Replace NULL with"
 msgid "Replace with:"
-msgstr "Заменить NULL на"
+msgstr "Заменить на:"
 
 #: libraries/TableSearch.class.php:1341
 msgid "Find and replace - preview"
-msgstr ""
+msgstr "Поиск и замена - предварительный просмотр"
 
 #: libraries/TableSearch.class.php:1345
-#, fuzzy
 #| msgid "Column"
 msgid "Count"
-msgstr "Столбец"
+msgstr "Количество"
 
 #: libraries/TableSearch.class.php:1346
-#, fuzzy
 #| msgid "Original position"
 msgid "Original string"
-msgstr "Исходная позиция"
+msgstr "Исходная строка"
 
 #: libraries/TableSearch.class.php:1347
-#, fuzzy
 #| msgid "Related Links"
 msgid "Replaced string"
-msgstr "Дополнительные ссылки"
+msgstr "Строка замены"
 
 #: libraries/TableSearch.class.php:1371
-#, fuzzy
 #| msgid "Replicated"
 msgid "Replace"
-msgstr "Реплицировано"
+msgstr "Замена"
 
 #: libraries/Theme.class.php:170
 #, php-format
@@ -4053,17 +4046,15 @@ msgstr "определена числовая клавиша"
 
 #: libraries/config.values.php:49 libraries/config.values.php:65
 #: libraries/config.values.php:70
-#, fuzzy
 #| msgid "Ins"
 msgid "Icons"
-msgstr "Вставить"
+msgstr "Значки"
 
 #: libraries/config.values.php:50 libraries/config.values.php:66
 #: libraries/config.values.php:71
-#, fuzzy
 #| msgid "Test"
 msgid "Text"
-msgstr "Тест"
+msgstr "Текст"
 
 #: libraries/config.values.php:51 libraries/config.values.php:59
 #: libraries/config.values.php:67 libraries/config.values.php:72
@@ -4208,10 +4199,10 @@ msgid "\"%s\" requires %s extension"
 msgstr "Для \"%s\" требуется расширение %s"
 
 #: libraries/config/FormDisplay.class.php:791
-#, fuzzy, php-format
+#, php-format
 #| msgid "import will not work, missing function (%s)"
 msgid "Compressed import will not work due to missing function %s."
-msgstr "импорт не будет функционировать без функции (%s)"
+msgstr "Импорт архива не будет функционировать из-за отсутствия функции %s."
 
 #: libraries/config/FormDisplay.class.php:797
 #, fuzzy, php-format

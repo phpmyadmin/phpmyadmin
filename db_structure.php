@@ -22,17 +22,6 @@ $scripts->addFile('db_structure.js');
 $scripts->addFile('tbl_change.js');
 $scripts->addFile('jquery/jquery-ui-timepicker-addon.js');
 
-$post_params = array(
-    'error',
-    'message',
-    'mult_btn'
-);
-foreach ($post_params as $one_post_param) {
-    if (isset($_POST[$one_post_param])) {
-        $GLOBALS[$one_post_param] = $_POST[$one_post_param];
-    }
-}
-
 // Drops/deletes/etc. multiple tables if required
 if ((!empty($_POST['submit_mult']) && isset($_POST['selected_tbl']))
     || isset($_POST['mult_btn'])

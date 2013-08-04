@@ -1981,6 +1981,7 @@ function PMA_getExtraDataForAjaxBehavior($password, $link_export, $sql_query,
         $new_user_string .= '<td>'
             . '<code>' . join(', ', PMA_extractPrivInfo('', true)) . '</code>'
             . '</td>'; //Fill in privileges here
+        $new_user_string .= '<td class="usrGroup"></td>';
         $new_user_string .= '<td>';
 
         if ((isset($_POST['Grant_priv']) && $_POST['Grant_priv'] == 'Y')) {
@@ -2592,6 +2593,13 @@ function PMA_getTableBodyForUserRightsTable($db_rights, $link_edit, $link_export
         }
         $GLOBALS['dbi']->freeResult($result);
 
+        $userGroupTable = PMA_Util::backquote($GLOBALS['cfg']['Server']['pmadb'])
+            . "." . PMA_Util::backquote($GLOBALS['cfg']['Server']['usergroups']);
+        $sqlQuery = "SELECT COUNT(*) FROM " . $userGroupTable;
+        $userGroupCount = $GLOBALS['dbi']->fetchValue(
+            $sqlQuery, 0, 0, $GLOBALS['controllink']
+        );
+
         $link_edit_user_group = '<a class="edit_user_group_anchor ajax"'
             . ' href="server_privileges.php?'
             . str_replace('%', '%%', $GLOBALS['url_query'])
@@ -2664,7 +2672,7 @@ function PMA_getTableBodyForUserRightsTable($db_rights, $link_edit, $link_export
                     ''
                 )
                 . '</td>';
-            if ($GLOBALS['cfgRelation']['menuswork']) {
+            if ($GLOBALS['cfgRelation']['menuswork'] && $userGroupCount > 0) {
                 if (empty($host['User'])) {
                     $html_output .= '<td class="center"></td>';
                 } else {
@@ -3227,24 +3235,26 @@ function PMA_getHtmlForUserGroupsTable()
     $tabs = PMA_Util::getMenuTabList();
 
     $html_output  = '<h2>' . __('User groups') . '</h2>';
-    $html_output .= '<form name="userGroupsForm" id="userGroupsForm"'
-        . ' action="server_privileges.php" method="post">';
-    $html_output .= PMA_generate_common_hidden_inputs();
-    $html_output .= '<table id="userGroupsTable">';
-    $html_output .= '<thead><tr>';
-    $html_output .= '<th style="white-space: nowrap">' . __('User group') . '</th>';
-    $html_output .= '<th>' . __('Server-level tabs') . '</th>';
-    $html_output .= '<th>' . __('Database-level tabs') . '</th>';
-    $html_output .= '<th>' . __('Table-level tabs') . '</th>';
-    $html_output .= '<th>' . __('Action') . '</th>';
-    $html_output .= '</tr></thead>';
-    $html_output .= '<tbody>';
-
     $groupTable = PMA_Util::backquote($GLOBALS['cfg']['Server']['pmadb'])
         . "." . PMA_Util::backquote($GLOBALS['cfg']['Server']['usergroups']);
-    $sql_query = "SELECT * FROM " . $groupTable;
+    $sql_query = "SELECT * FROM " . $groupTable . " ORDER BY `usergroup` ASC";
     $result = PMA_queryAsControlUser($sql_query, false);
-    if ($result) {
+
+    if ($result && $GLOBALS['dbi']->numRows($result)) {
+        $html_output .= '<form name="userGroupsForm" id="userGroupsForm"'
+            . ' action="server_privileges.php" method="post">';
+        $html_output .= PMA_generate_common_hidden_inputs();
+        $html_output .= '<table id="userGroupsTable">';
+        $html_output .= '<thead><tr>';
+        $html_output .= '<th style="white-space: nowrap">'
+            . __('User group') . '</th>';
+        $html_output .= '<th>' . __('Server level tabs') . '</th>';
+        $html_output .= '<th>' . __('Database level tabs') . '</th>';
+        $html_output .= '<th>' . __('Table level tabs') . '</th>';
+        $html_output .= '<th>' . __('Action') . '</th>';
+        $html_output .= '</tr></thead>';
+        $html_output .= '<tbody>';
+
         $odd = true;
         while ($row = $GLOBALS['dbi']->fetchAssoc($result)) {
             $html_output .= '<tr class="' . ($odd ? 'odd' : 'even') . '">';
@@ -3264,7 +3274,8 @@ function PMA_getHtmlForUserGroupsTable()
                 . urlencode($row['usergroup']) . '">'
                 . PMA_Util::getIcon('b_edit.png', __('Edit')) . '</a>';
             $html_output .= '&nbsp;&nbsp;';
-            $html_output .= '<a class="" href="server_user_groups.php?'
+            $html_output .= '<a class="deleteUserGroup ajax"'
+                . ' href="server_user_groups.php?'
                 . PMA_generate_common_url() . '&deleteUserGroup=1&userGroup='
                 . urlencode($row['usergroup']) . '">'
                 . PMA_Util::getIcon('b_drop.png', __('Delete')) . '</a>';
@@ -3274,12 +3285,12 @@ function PMA_getHtmlForUserGroupsTable()
 
             $odd = ! $odd;
         }
+
+        $html_output .= '</tbody>';
+        $html_output .= '</table>';
+        $html_output .= '</form>';
     }
     $GLOBALS['dbi']->freeResult($result);
-
-    $html_output .= '</tbody>';
-    $html_output .= '</table>';
-    $html_output .= '</form>';
 
     $html_output .= '<fieldset id="fieldset_add_user_group">';
     $html_output .= '<a href="server_user_groups.php?'
@@ -3323,8 +3334,13 @@ function _getAllowedTabNames($row, $level)
  */
 function PMA_deleteUserGroup($userGroup)
 {
+    $userTable = PMA_Util::backquote($GLOBALS['cfg']['Server']['pmadb'])
+        . "." . PMA_Util::backquote($GLOBALS['cfg']['Server']['users']);
     $groupTable = PMA_Util::backquote($GLOBALS['cfg']['Server']['pmadb'])
         . "." . PMA_Util::backquote($GLOBALS['cfg']['Server']['usergroups']);
+    $sql_query = "DELETE FROM " . $userTable
+        . " WHERE `usergroup`='" . PMA_Util::sqlAddSlashes($userGroup) . "'";
+    PMA_queryAsControlUser($sql_query, true);
     $sql_query = "DELETE FROM " . $groupTable
         . " WHERE `usergroup`='" . PMA_Util::sqlAddSlashes($userGroup) . "'";
     PMA_queryAsControlUser($sql_query, true);
@@ -3436,7 +3452,7 @@ function _getTabList($title, $level, $selected)
     foreach ($tabs as $tab => $tabName) {
         $html_output .= '<div class="item">';
         $html_output .= '<input type="checkbox" class="checkall"'
-            . (in_array($tab, $selected) ? 'checked="checked"' : '')
+            . (in_array($tab, $selected) ? ' checked="checked"' : '')
             . ' name="' . $level . '_' . $tab .  '" value="Y" />';
         $html_output .= '<label for="' . $level . '_' . $tab .  '">'
             . '<code>' . $tabName . '</code>'
