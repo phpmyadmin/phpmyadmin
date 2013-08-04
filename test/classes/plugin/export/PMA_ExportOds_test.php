@@ -355,12 +355,16 @@ class PMA_ExportOds_Test extends PHPUnit_Framework_TestCase
             )
         );
 
-        $this->assertEquals(
+        $this->assertContains(
             '<table:table table:name="table"><table:table-row><table:table-cell ' .
             'office:value-type="string"><text:p>&amp;</text:p></table:table-cell>' .
             '<table:table-cell office:value-type="string"><text:p></text:p>' .
             '</table:table-cell><table:table-cell office:value-type="date" office:' .
-            'date-value="2013-08-03" table:style-name="DateCell"><text:p>10:00:00' .
+            'date-value=',
+            $GLOBALS['ods_buffer']
+        );
+        $this->assertContains(
+            'table:style-name="DateCell"><text:p>10:00:00' .
             '</text:p></table:table-cell><table:table-cell office:value-type=' .
             '"time" office:time-value="PT10H00M00S" table:style-name="TimeCell">' .
             '<text:p>01-01-2000 10:00:00</text:p></table:table-cell><table:table-' .
