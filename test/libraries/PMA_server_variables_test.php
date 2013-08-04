@@ -69,7 +69,7 @@ class PMA_ServerVariables_Test extends PHPUnit_Framework_TestCase
             ->getMock();
 
         //this data is needed when PMA_ServerStatusData constructs
-        $server_session_varible = array(
+        $server_session_variable = array(
             "auto_increment_increment" => "1",
             "auto_increment_offset" => "13",
             "automatic_sp_privileges" => "ON",
@@ -89,7 +89,7 @@ class PMA_ServerVariables_Test extends PHPUnit_Framework_TestCase
                 1,
                 null,
                 0,
-                $server_session_varible
+                $server_session_variable
             ),
             array(
                 "SHOW GLOBAL VARIABLES;",
