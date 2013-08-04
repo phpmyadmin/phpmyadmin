@@ -127,7 +127,7 @@ class PMA_ServerVariables_Test extends PHPUnit_Framework_TestCase
             PMA_formatVariable($name_for_value_byte, "3", $variable_doc_links)
         );
 
-        //name is_numeric and and the value type is not byte
+        //name is_numeric and the value type is not byte
         $this->assertEquals(
             '3',
             PMA_formatVariable($name_for_value_not_byte, "3", $variable_doc_links)
