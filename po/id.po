@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-07-29 15:07+0200\n"
-"PO-Revision-Date: 2013-06-20 14:00+0200\n"
+"PO-Revision-Date: 2013-08-04 15:08+0200\n"
 "Last-Translator: Dadan Setia <da2n_s@yahoo.co.id>\n"
-"Language-Team: Indonesian <http://l10n.cihar.com/projects/phpmyadmin/4-0/id/"
-">\n"
+"Language-Team: Indonesian "
+"<http://l10n.cihar.com/projects/phpmyadmin/4-0/id/>\n"
 "Language: id\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 1.6-dev\n"
+"X-Generator: Weblate 1.7-dev\n"
 "X-Poedit-Basepath: ../../..\n"
 
 #: browse_foreigners.php:51 browse_foreigners.php:75 js/messages.php:344
@@ -2614,16 +2614,16 @@ msgstr ""
 "%sdokumentasi%s."
 
 #: libraries/DisplayResults.class.php:4927
-#, fuzzy, php-format
+#, php-format
 #| msgid "Showing rows"
 msgid "Showing rows %1s - %2s"
-msgstr "Tampilan baris"
+msgstr "Menampilkan baris %1s - %2s"
 
 #: libraries/DisplayResults.class.php:4939
-#, fuzzy, php-format
+#, php-format
 #| msgid "total"
 msgid "%d total"
-msgstr "total"
+msgstr "total %d"
 
 #: libraries/DisplayResults.class.php:4951 sql.php:945
 #, php-format
@@ -3216,7 +3216,6 @@ msgid "Use this column to label each point"
 msgstr "Gunakan kolom ini untuk label setiap titik"
 
 #: libraries/TableSearch.class.php:860
-#, fuzzy
 msgid "Maximum rows to plot"
 msgstr "Baris maksimum untuk plot"
 
@@ -3240,19 +3239,17 @@ msgid "Do a \"query by example\" (wildcard: \"%\")"
 msgstr "Lakukan \"kueri dengan contoh\" (wildcard: \"%\")"
 
 #: libraries/TableSearch.class.php:1169
-#, fuzzy
 msgid "Browse/Edit the points"
-msgstr "Melihat-lihat/Edit titik"
+msgstr "Lihat/Edit titik"
 
 #: libraries/TableSearch.class.php:1176
 msgid "How to use"
 msgstr "Cara pakai"
 
 #: libraries/TableSearch.class.php:1181
-#, fuzzy
 #| msgid "Reset"
 msgid "Reset zoom"
-msgstr "Reset Zoom"
+msgstr "Set ulang pembesaran"
 
 #: libraries/Theme.class.php:170
 #, php-format
@@ -3415,6 +3412,8 @@ msgid ""
 "A fixed-length (0-255, default 1) string that is always right-padded with "
 "spaces to the specified length when stored"
 msgstr ""
+"Sebuah panjang tetap (0-255, standar 1) string yang selalu benar-diisi "
+"dengan spasi dengan panjang tertentu bila disimpan"
 
 #: libraries/Types.class.php:332 libraries/Types.class.php:730
 #, php-format
@@ -3422,6 +3421,8 @@ msgid ""
 "A variable-length (%s) string, the effective maximum length is subject to "
 "the maximum row size"
 msgstr ""
+"Sebuah pangjang-variabel(%s) string, panjang maksimum efektif tunduk pada "
+"ukuran baris"
 
 #: libraries/Types.class.php:334
 msgid ""
@@ -3453,42 +3454,57 @@ msgid ""
 "characters, stored with a four-byte prefix indicating the length of the "
 "value in bytes"
 msgstr ""
+"Sebuah kolom TEXT dengan panjang maksimum  4,294,967,295 atau 4GiB (2^32 - "
+"1) karakter, disimpan dengan awalan empat byte menunjukkan panjang nilai "
+"dalam byte"
 
 #: libraries/Types.class.php:342
 msgid ""
 "Similar to the CHAR type, but stores binary byte strings rather than non-"
 "binary character strings"
 msgstr ""
+"Serupa dengan tipe CHAR, tetapi string menyimpan karakter string biner byte "
+"daripada non-biner"
 
 #: libraries/Types.class.php:344
 msgid ""
 "Similar to the VARCHAR type, but stores binary byte strings rather than non-"
 "binary character strings"
 msgstr ""
+"Serupa dengan tipe VARCHAR, tetapi string menyimpan karakter string biner "
+"byte daripada non-biner"
 
 #: libraries/Types.class.php:346
 msgid ""
 "A BLOB column with a maximum length of 255 (2^8 - 1) bytes, stored with a "
 "one-byte prefix indicating the length of the value"
 msgstr ""
+"Sebuah kolom BLOB dengan panjang maksimum 255 (2^8 - 1) byte, disimpan "
+"dengan awalan satu-byte menunjukkan panjang nilai"
 
 #: libraries/Types.class.php:348
 msgid ""
 "A BLOB column with a maximum length of 16,777,215 (2^24 - 1) bytes, stored "
 "with a three-byte prefix indicating the length of the value"
 msgstr ""
+"Sebuah kolom BLOB dengan panjang maksimum 16,777,215 (2^24 - 1) byte, "
+"disimpan dengan awalan tiga byte yang menunjukkan panjang nilai"
 
 #: libraries/Types.class.php:350 libraries/Types.class.php:736
 msgid ""
 "A BLOB column with a maximum length of 65,535 (2^16 - 1) bytes, stored with "
 "a two-byte prefix indicating the length of the value"
 msgstr ""
+"Sebuah kolom BLOB dengan panjang maksimum 65,535 (2^16 - 1) byte, disimpan "
+"dengan awalan dua-byte menunjukkan panjang nilai"
 
 #: libraries/Types.class.php:352
 msgid ""
 "A BLOB column with a maximum length of 4,294,967,295 or 4GiB (2^32 - 1) "
 "bytes, stored with a four-byte prefix indicating the length of the value"
 msgstr ""
+"Sebuah kolom BLOB dengan panjang maksimum 4,294,967,295 atau 4GiB (2^32 - 1) "
+"byte, disimpan dengan awalan empat byte menunjukkan panjang nilai"
 
 #: libraries/Types.class.php:354
 msgid ""
@@ -3498,63 +3514,60 @@ msgstr ""
 
 #: libraries/Types.class.php:356
 msgid "A single value chosen from a set of up to 64 members"
-msgstr ""
+msgstr "Sebuah nilai tunggal dipilih dari satu set hingga 64 anggota"
 
 #: libraries/Types.class.php:358
 msgid "A type that can store a geometry of any type"
-msgstr ""
+msgstr "Suatu jenis yang dapat menyimpan geometri dari jenis apa pun"
 
 #: libraries/Types.class.php:360
 msgid "A point in 2-dimensional space"
-msgstr ""
+msgstr "Sebuah titik dalam ruang 2-dimensi"
 
 #: libraries/Types.class.php:362
 msgid "A curve with linear interpolation between points"
-msgstr ""
+msgstr "Kurva dengan interpolasi linier antara titik"
 
 #: libraries/Types.class.php:364
-#, fuzzy
 #| msgid "Add a polygon"
 msgid "A polygon"
-msgstr "Tambahkan poligon"
+msgstr "Sebuah poligon"
 
 #: libraries/Types.class.php:366
 msgid "A collection of points"
-msgstr ""
+msgstr "Sebuah koleksi poin"
 
 #: libraries/Types.class.php:368
 msgid "A collection of curves with linear interpolation between points"
-msgstr ""
+msgstr "Sebuah koleksi kurva dengan interpolasi linier antara titik"
 
 #: libraries/Types.class.php:370
 msgid "A collection of polygons"
-msgstr ""
+msgstr "Sebuah koleksi poligon"
 
 #: libraries/Types.class.php:372
 msgid "A collection of geometry objects of any type"
-msgstr ""
+msgstr "Sebuah koleksi objek geometri dari jenis apa pun"
 
 #: libraries/Types.class.php:624 libraries/Types.class.php:974
 msgctxt "numeric types"
 msgid "Numeric"
-msgstr ""
+msgstr "Numerik"
 
 #: libraries/Types.class.php:643 libraries/Types.class.php:977
-#, fuzzy
 #| msgid "Create an index"
 msgctxt "date and time types"
 msgid "Date and time"
-msgstr "Buat indeks"
+msgstr "Tanggal dan waktu"
 
 #: libraries/Types.class.php:652 libraries/Types.class.php:980
 #, fuzzy
 #| msgid "Linestring"
 msgctxt "string types"
 msgid "String"
-msgstr "Segmen garis"
+msgstr "String"
 
 #: libraries/Types.class.php:673
-#, fuzzy
 #| msgid "Spatial"
 msgctxt "spatial types"
 msgid "Spatial"
@@ -3562,13 +3575,15 @@ msgstr "Spasial"
 
 #: libraries/Types.class.php:708
 msgid "A 4-byte integer, range is -2,147,483,648 to 2,147,483,647"
-msgstr ""
+msgstr "4-byte integer, berada pada kisaran -2,147,483,648 sampai 2,147,483,647"
 
 #: libraries/Types.class.php:710
 msgid ""
 "An 8-byte integer, range is -9,223,372,036,854,775,808 to "
 "9,223,372,036,854,775,807"
 msgstr ""
+"8-byte integer, berada pada kisaran -9,223,372,036,854,775,808 sampai "
+"9,223,372,036,854,775,807"
 
 #: libraries/Types.class.php:714
 msgid "A system's default double-precision floating-point number"
@@ -3576,31 +3591,36 @@ msgstr ""
 
 #: libraries/Types.class.php:716
 msgid "True or false"
-msgstr ""
+msgstr "Benar atau salah"
 
 #: libraries/Types.class.php:718
 msgid "An alias for BIGINT NOT NULL AUTO_INCREMENT UNIQUE"
-msgstr ""
+msgstr "Alias untuk BIGINT NOT NULL AUTO_INCREMENT UNIQUE"
 
 #: libraries/Types.class.php:720
+#, fuzzy
 msgid "Stores a Universally Unique Identifier (UUID)"
-msgstr ""
+msgstr "Stores a Universally Unique Identifier (UUID)"
 
 #: libraries/Types.class.php:726
 msgid ""
 "A timestamp, range is '0001-01-01 00:00:00' UTC to '9999-12-31 23:59:59' "
 "UTC; TIMESTAMP(6) can store microseconds"
 msgstr ""
+"Timestamp, berada pada kisaran '0001-01-01 00:00:00' UTC sampai '9999-12-31 "
+"23:59:59' UTC; TIMESTAMP(6) dapat disimpan dalam mikro detik"
 
 #: libraries/Types.class.php:734
 msgid ""
 "A variable-length (0-65,535) string, uses binary collation for all "
 "comparisons"
 msgstr ""
+"Sebuah panjang-variabel string(0-65,535), menggunakan pemeriksaan biner "
+"untuk semua perbandingan"
 
 #: libraries/Types.class.php:738
 msgid "An enumeration, chosen from the list of defined values"
-msgstr ""
+msgstr "Sebuah pencacahan, dipilih dari daftar nilai yang ditetapkan"
 
 #: libraries/Util.class.php:237
 #, php-format
@@ -3796,7 +3816,6 @@ msgid "Could not load default configuration from: %1$s"
 msgstr "Tidak dapat memuat konfigurasi default dari: %1$s"
 
 #: libraries/common.inc.php:615
-#, fuzzy
 #| msgid ""
 #| "The <code>$cfg['PmaAbsoluteUri']</code> directive MUST be set in your "
 #| "configuration file!"
@@ -3804,8 +3823,8 @@ msgid ""
 "The [code]$cfg['PmaAbsoluteUri'][/code] directive MUST be set in your "
 "configuration file!"
 msgstr ""
-"Directif <code>$cfg['PmaAbsoluteUri']</code> WAJIB diset dalam berkas "
-"konfigurasi!"
+"[code]$cfg['PmaAbsoluteUri'][/code] direktif HARUS di atur pada file "
+"konfigurasi anda!"
 
 #: libraries/common.inc.php:648
 #, php-format
@@ -3829,7 +3848,7 @@ msgstr "Anda harus memperbarui ke %s %s atau lebih baru."
 
 #: libraries/common.inc.php:1079
 msgid "Error: Token mismatch"
-msgstr ""
+msgstr "Error: Token tidak cocok"
 
 #: libraries/common.inc.php:1123
 msgid "GLOBALS overwrite attempt"
@@ -3846,12 +3865,12 @@ msgstr "tombol angka terdeteksi"
 #: libraries/config.values.php:49 libraries/config.values.php:64
 #: libraries/config.values.php:69
 msgid "Icons"
-msgstr ""
+msgstr "Ikon"
 
 #: libraries/config.values.php:50 libraries/config.values.php:65
 #: libraries/config.values.php:70
 msgid "Text"
-msgstr ""
+msgstr "Teks"
 
 #: libraries/config.values.php:51 libraries/config.values.php:58
 #: libraries/config.values.php:66 libraries/config.values.php:71
@@ -3872,11 +3891,11 @@ msgstr "Kanan"
 
 #: libraries/config.values.php:74
 msgid "Click"
-msgstr ""
+msgstr "Klik"
 
 #: libraries/config.values.php:75
 msgid "Double click"
-msgstr ""
+msgstr "Klik ganda"
 
 #: libraries/config.values.php:76 libraries/config.values.php:107
 #: libraries/config/FormDisplay.tpl.php:223 libraries/relation.lib.php:96
@@ -4130,10 +4149,13 @@ msgid ""
 "Use user-friendly editor for editing SQL queries ([a@http://codemirror."
 "net/]CodeMirror[/a]) with syntax highlighting and line numbers"
 msgstr ""
+"Gunakan editor user-friendly untuk mengedit query SQL "
+"([a@http://codemirror.net/]CodeMirror[/a]) dengan penyorotan sintaks dan "
+"nomor baris"
 
 #: libraries/config/messages.inc.php:33
 msgid "Enable CodeMirror"
-msgstr ""
+msgstr "Aktifkan CodeMirror"
 
 #: libraries/config/messages.inc.php:34
 msgid ""
@@ -4238,13 +4260,12 @@ msgstr "Tab tabel bawaan"
 
 #: libraries/config/messages.inc.php:56
 msgid "Whether the table structure actions should be hidden"
-msgstr ""
+msgstr "Sebaiknya stuktur aksi tabel disembunyikan"
 
 #: libraries/config/messages.inc.php:57
-#, fuzzy
 #| msgid "Propose table structure"
 msgid "Hide table structure actions"
-msgstr "Usulkan struktur tabel"
+msgstr "Sembunyikan stuktur aksi tabel"
 
 #: libraries/config/messages.inc.php:58
 msgid "Show binary contents as HEX by default"
@@ -4291,6 +4312,8 @@ msgid ""
 "Set the number of seconds a script is allowed to run ([kbd]0[/kbd] for no "
 "limit)"
 msgstr ""
+"Atur jumlah detik yang diperbolehkan untuk menjalankan script ([kbd]0[/kbd] "
+"untuk tanpa batas)"
 
 #: libraries/config/messages.inc.php:69
 msgid "Maximum execution time"
@@ -6219,7 +6242,7 @@ msgstr "Open Document Text"
 
 #: libraries/config/validate.lib.php:214
 msgid "Could not initialize Drizzle connection library"
-msgstr ""
+msgstr "Tidak bisa menginisialisasi koneksi pustaka Drizzle"
 
 #: libraries/config/validate.lib.php:223 libraries/config/validate.lib.php:231
 msgid "Could not connect to Drizzle server"
@@ -6227,7 +6250,7 @@ msgstr "Tidak dapat terhubung ke server Drizzle"
 
 #: libraries/config/validate.lib.php:242 libraries/config/validate.lib.php:249
 msgid "Could not connect to MySQL server"
-msgstr ""
+msgstr "Tidak dapat menghubungi server MySQL"
 
 #: libraries/config/validate.lib.php:282
 msgid "Empty username while using config authentication method"
