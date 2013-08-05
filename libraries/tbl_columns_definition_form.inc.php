@@ -431,34 +431,10 @@ for ($i = 0; $i < $num_fields; $i++) {
         );
         $ci++;
 
-        $content_cells[$i][$ci] = '<select id="field_' . $i . '_'
-            . ($ci - $ci_offset) . '" size="1" name="field_transformation['
-            . $i . ']">';
-        $content_cells[$i][$ci] .= '    <option value="" title="' . __('None')
-            . '"></option>';
-        if (is_array($available_mime['transformation'])) {
-            foreach ($available_mime['transformation'] as $mimekey => $transform) {
-                $checked = isset($row['Field'])
-                    && isset($mime_map[$row['Field']]['transformation'])
-                    && preg_match(
-                        '@' . preg_quote(
-                            $available_mime['transformation_file'][$mimekey]
-                        ) . '3?@i',
-                        $mime_map[$row['Field']]['transformation']
-                    )
-                    ? 'selected '
-                    : '';
-                $tooltip = PMA_getTransformationDescription(
-                    $available_mime['transformation_file'][$mimekey], false
-                );
-                $content_cells[$i][$ci] .= '<option value="'
-                    . $available_mime['transformation_file'][$mimekey] . '" '
-                    . $checked . ' title="' . htmlspecialchars($tooltip) . '">'
-                    . htmlspecialchars($transform) . '</option>';
-            }
-        }
-
-        $content_cells[$i][$ci] .= '</select>';
+        // Column Browser transformation
+        $content_cells[$i][$ci] = PMA_getHtmlForBrowserTransformation(
+            $i, $ci, $mi, $available_mime, $row, $mime_map
+        );
         $ci++;
 
         // column Transformation options

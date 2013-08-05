@@ -654,4 +654,51 @@ function PMA_getHtmlForMimeType($i, $ci, $ci_offset,
     
     return $html;
 }
+
+/**
+ * Function to get html for browser transformation
+ * 
+ * @param int   $i              field number
+ * @param int   $ci             cell index
+ * @param int   $ci_offset      cell index offset
+ * @param array $available_mime available mime
+ * @param array $row            row
+ * @param array $mime_map       mime map
+ * 
+ * @return string
+ */
+function PMA_getHtmlForBrowserTransformation($i, $ci, $ci_offset,
+    $available_mime, $row, $mime_map
+) {
+    $html = '<select id="field_' . $i . '_'
+            . ($ci - $ci_offset) . '" size="1" name="field_transformation['
+            . $i . ']">';
+    $html .= '    <option value="" title="' . __('None')
+            . '"></option>';
+    if (is_array($available_mime['transformation'])) {
+        foreach ($available_mime['transformation'] as $mimekey => $transform) {
+            $checked = isset($row['Field'])
+                && isset($mime_map[$row['Field']]['transformation'])
+                && preg_match(
+                    '@' . preg_quote(
+                        $available_mime['transformation_file'][$mimekey]
+                    ) . '3?@i',
+                    $mime_map[$row['Field']]['transformation']
+                )
+                ? 'selected '
+                : '';
+            $tooltip = PMA_getTransformationDescription(
+                $available_mime['transformation_file'][$mimekey], false
+            );
+            $html .= '<option value="'
+                . $available_mime['transformation_file'][$mimekey] . '" '
+                . $checked . ' title="' . htmlspecialchars($tooltip) . '">'
+                . htmlspecialchars($transform) . '</option>';
+        }
+    }
+    
+    $html .= '</select>';
+
+    return $html;
+}
 ?>
