@@ -59,11 +59,11 @@ class Text_Plain_Substring_Test extends PHPUnit_Framework_TestCase
      */
     public function testGetInfo()
     {
-    	$info = 'Displays a part of a string. The first option is the number of'
+        $info = 'Displays a part of a string. The first option is the number of'
             . ' characters to skip from the beginning of the string (Default 0).'
             . ' The second option is the number of characters to return (Default:'
             . ' until end of string). The third option is the string to append';
-    	
+        
         $this->assertContains(
             $info,
             Text_Plain_Substring::getInfo()

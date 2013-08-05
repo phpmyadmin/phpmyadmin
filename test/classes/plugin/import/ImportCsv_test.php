@@ -165,7 +165,7 @@ class ImportCsv_Test extends PHPUnit_Framework_TestCase
      */
     public function testGetPropertiesForTable()
     {
-    	$GLOBALS['plugin_param'] = 'table';    
+        $GLOBALS['plugin_param'] = 'table';    
         $this->object = new ImportCsv(); 
         $properties = $this->object->getProperties();
         $this->assertEquals(
