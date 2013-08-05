@@ -519,29 +519,29 @@ function PMA_handleRegeneration($submit_fulltext, $comments_map, $mime_map)
 function PMA_getRowDataForFieldsMetaSet($row, $isDefault)
 {
     switch ($row['Default']) {
-        case null:
-            if ($row['Null'] == 'YES') {
-                $row['DefaultType']  = 'NULL';
-                $row['DefaultValue'] = '';
-                // SHOW FULL COLUMNS does not report the case
-                // when there is a DEFAULT value which is empty so we need to use the
-                // results of SHOW CREATE TABLE
-            } elseif ($isDefault) {
-                $row['DefaultType']  = 'USER_DEFINED';
-                $row['DefaultValue'] = $row['Default'];
-            } else {
-                $row['DefaultType']  = 'NONE';
-                $row['DefaultValue'] = '';
-            }
-            break;
-        case 'CURRENT_TIMESTAMP':
-            $row['DefaultType']  = 'CURRENT_TIMESTAMP';
+    case null:
+        if ($row['Null'] == 'YES') {
+            $row['DefaultType']  = 'NULL';
             $row['DefaultValue'] = '';
-            break;
-        default:
+            // SHOW FULL COLUMNS does not report the case
+            // when there is a DEFAULT value which is empty so we need to use the
+            // results of SHOW CREATE TABLE
+        } elseif ($isDefault) {
             $row['DefaultType']  = 'USER_DEFINED';
             $row['DefaultValue'] = $row['Default'];
-            break;
+        } else {
+            $row['DefaultType']  = 'NONE';
+            $row['DefaultValue'] = '';
+        }
+        break;
+    case 'CURRENT_TIMESTAMP':
+        $row['DefaultType']  = 'CURRENT_TIMESTAMP';
+        $row['DefaultValue'] = '';
+        break;
+    default:
+        $row['DefaultType']  = 'USER_DEFINED';
+        $row['DefaultValue'] = $row['Default'];
+        break;
     }
     
     return $row;
@@ -550,10 +550,10 @@ function PMA_getRowDataForFieldsMetaSet($row, $isDefault)
 /**
  * Function to get html for the column name
  * 
- * @param int $i         field number
- * @param int $ci        cell index
- * @param int $ci_offset cell index offset
- * @param array $row     row
+ * @param int   $i         field number
+ * @param int   $ci        cell index
+ * @param int   $ci_offset cell index offset
+ * @param array $row       row
  * 
  * @return string
  */
@@ -572,10 +572,11 @@ function PMA_getHtmlForColumnName($i, $ci, $ci_offset, $row)
 /**
  * Function to get html for the column type
  * 
- * @param int $i         field number
- * @param int $ci        cell index
- * @param int $ci_offset cell index offset
- * 
+ * @param int    $i          field number
+ * @param int    $ci         cell index
+ * @param int    $ci_offset  cell index offset
+ * @param string $type_upper type inuppercase
+ *  
  * @return string
  */
 function PMA_getHtmlForColumnType($i, $ci, $ci_offset, $type_upper)
@@ -916,11 +917,12 @@ function PMA_getHtmlForColumnAttribute($i, $ci, $ci_offset, $extracted_columnspe
     // here, we have a TIMESTAMP that SHOW FULL COLUMNS reports as having the
     // NULL attribute, but SHOW CREATE TABLE says the contrary. Believe
     // the latter.
+    $create_table_fields = $analyzed_sql[0]['create_table_fields'];
     if (PMA_MYSQL_INT_VERSION < 50025
         && isset($row['Field'])
-        && isset($analyzed_sql[0]['create_table_fields'][$row['Field']]['type'])
-        && $analyzed_sql[0]['create_table_fields'][$row['Field']]['type'] == 'TIMESTAMP'
-        && $analyzed_sql[0]['create_table_fields'][$row['Field']]['timestamp_not_null'] == true
+        && isset($create_table_fields[$row['Field']]['type'])
+        && $create_table_fields[$row['Field']]['type'] == 'TIMESTAMP'
+        && $create_table_fields[$row['Field']]['timestamp_not_null'] == true
     ) {
         $row['Null'] = '';
     }
@@ -928,12 +930,12 @@ function PMA_getHtmlForColumnAttribute($i, $ci, $ci_offset, $extracted_columnspe
     // MySQL 4.1.2+ TIMESTAMP options
     // (if on_update_current_timestamp is set, then it's TRUE)
     if (isset($row['Field'])
-        && isset($analyzed_sql[0]['create_table_fields'][$row['Field']]['on_update_current_timestamp'])
+        && isset($create_table_fields[$row['Field']]['on_update_current_timestamp'])
     ) {
         $attribute = 'on update CURRENT_TIMESTAMP';
     }
     if ((isset($row['Field'])
-        && isset($analyzed_sql[0]['create_table_fields'][$row['Field']]['default_current_timestamp']))
+        && isset($create_table_fields[$row['Field']]['default_current_timestamp']))
         || (isset($submit_default_current_timestamp)
         && $submit_default_current_timestamp)
     ) {

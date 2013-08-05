@@ -174,7 +174,8 @@ for ($i = 0; $i < $num_fields; $i++) {
         $_form_params['field_default_orig[' . $i . ']']
             = (isset($row['Default']) ? $row['Default'] : '');
     }
-    $content_cells[$i][$ci] = PMA_getHtmlForColumnDefault($i, $ci, $ci_offset,
+    $content_cells[$i][$ci] = PMA_getHtmlForColumnDefault(
+        $i, $ci, $ci_offset,
         isset($type_upper) ? $type_upper : null,
         isset($default_current_timestamp) ? $default_current_timestamp : null,
         isset($row) ? $row : null
@@ -188,13 +189,14 @@ for ($i = 0; $i < $num_fields; $i++) {
     $ci++;
 
     // column attribute
-    $content_cells[$i][$ci] = PMA_getHtmlForColumnAttribute($i, $ci, $ci_offset,
+    $content_cells[$i][$ci] = PMA_getHtmlForColumnAttribute(
+        $i, $ci, $ci_offset,
         isset($extracted_columnspec) ? $extracted_columnspec : null,
         isset($row) ? $row : null,
         isset($submit_attribute) ? $submit_attribute : null,
         isset($analyzed_sql) ? $analyzed_sql : null,
         isset($submit_default_current_timestamp)
-            ? $submit_default_current_timestamp : null
+        ? $submit_default_current_timestamp : null
     );
     $ci++;
 
@@ -208,14 +210,14 @@ for ($i = 0; $i < $num_fields; $i++) {
     // See my other comment about  this 'if'.
     if (!$is_backup) {
         $content_cells[$i][$ci] = PMA_getHtmlForColumnIndexes(
-                $i, $ci, $ci_offset, $row
+            $i, $ci, $ci_offset, $row
         );
         $ci++;
     } // end if ($action ==...)
 
     // column auto_increment
     $content_cells[$i][$ci] = PMA_getHtmlForColumnAutoIncrement(
-            $i, $ci, $ci_offset, $row
+        $i, $ci, $ci_offset, $row
     );
     $ci++;
 
@@ -251,8 +253,8 @@ for ($i = 0; $i < $num_fields; $i++) {
 
         // column Transformation options
         $content_cells[$i][$ci] = PMA_getHtmlForTransformationOption(
-                $i, $ci, $ci_offset, isset($row) ? $row : null,
-                isset($mime_map) ? $mime_map : null
+            $i, $ci, $ci_offset, isset($row) ? $row : null,
+            isset($mime_map) ? $mime_map : null
         );
     }
 } // end for
