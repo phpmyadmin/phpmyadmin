@@ -15,8 +15,20 @@ require_once 'libraries/database_interface.inc.php';
 require_once 'libraries/Tracker.class.php';
 require_once 'libraries/ip_allow_deny.lib.php';
 
-class PMA_Ip_allow_deny_Test extends PHPUnit_Framework_TestCase
+/**
+ * PMA_Ip_Allow_Deny_Test class
+ *
+ * this class is for testing ip_allow_deny.lib.php
+ *
+ * @package PhpMyAdmin-test
+ */
+class PMA_Ip_Allow_Deny_Test extends PHPUnit_Framework_TestCase
 {
+    /**
+     * Prepares environment for the test.
+     *
+     * @return void
+     */
     public function setUp()
     {
         $GLOBALS['cfg']['Server']['user'] = "pma_username";

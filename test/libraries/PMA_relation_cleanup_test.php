@@ -17,9 +17,20 @@ require_once 'libraries/Tracker.class.php';
 require_once 'libraries/relation.lib.php';
 require_once 'libraries/relation_cleanup.lib.php';
 
-
+/**
+ * PMA_Relation_Cleanup_Test class
+ *
+ * this class is for testing relation_cleanup.lib.php functions
+ *
+ * @package PhpMyAdmin-test
+ */
 class PMA_Relation_Cleanup_Test extends PHPUnit_Framework_TestCase
 {
+    /**
+     * Prepares environment for the test.
+     *
+     * @return void
+     */
     public function setUp()
     {
         $_SESSION['relation'] = array();
@@ -45,6 +56,12 @@ class PMA_Relation_Cleanup_Test extends PHPUnit_Framework_TestCase
         $this->redefineRelation();
     }
 
+
+    /**
+     * functions for redefine DBI_PMA_Relation_Cleanup
+     *
+     * @return void
+     */
     public function redefineRelation()
     {
         $GLOBALS['dbi'] = new DBI_PMA_Relation_Cleanup();
@@ -281,13 +298,24 @@ class PMA_Relation_Cleanup_Test extends PHPUnit_Framework_TestCase
     }
 }
 
-//Mock DBI
+/**
+ * DBI_PMA_Relation_Cleanup for Mock DBI class
+ *
+ * this class is for Mock DBI
+ *
+ * @package PhpMyAdmin-test
+ */
 class DBI_PMA_Relation_Cleanup extends PMA_DatabaseInterface
 {
     var $index;
     var $values = array();
     var $indexs = array();
 
+
+    /**
+     * Constructor
+     *
+     */
     public function __construct()
     {
          $this->index = 0;
@@ -327,6 +355,13 @@ class DBI_PMA_Relation_Cleanup extends PMA_DatabaseInterface
          );
     }
 
+    /**
+     * returns array of rows with numeric keys from $result
+     *
+     * @param object $result result set identifier
+     *
+     * @return array
+     */
     function fetchRow($result)
     {
         if ($this->index < count($this->values)) {
@@ -339,6 +374,17 @@ class DBI_PMA_Relation_Cleanup extends PMA_DatabaseInterface
         return false;
     }
 
+
+    /**
+     * runs a query
+     *
+     * @param string $sql                 SQL query to execte
+     * @param mixed  $link                optional database link to use
+     * @param int    $options             optional query options
+     * @param bool   $cache_affected_rows whether to cache affected rows
+     *
+     * @return mixed
+     */
     function query($sql, $link = null, $options = 0, $cache_affected_rows = true)
     {
         if (stripos($sql, "column_info") !== false) {
@@ -370,17 +416,42 @@ class DBI_PMA_Relation_Cleanup extends PMA_DatabaseInterface
         }
     }
 
+    /**
+     * runs a query and returns the result
+     *
+     * @param string   $query               query to run
+     * @param resource $link                mysql link resource
+     * @param integer  $options             query options
+     * @param bool     $cache_affected_rows whether to cache affected row
+     *
+     * @return mixed
+     */
     public function tryQuery(
         $query, $link = null, $options = 0, $cache_affected_rows = true
     ) {
         return true;
     }
 
+    /**
+     * selects given database
+     *
+     * @param string $dbname database name to select
+     * @param object $link   connection object
+     *
+     * @return boolean
+     */
     public function selectDb($dbname, $link = null)
     {
         return true;
     }
 
+    /**
+     * Frees memory associated with the result
+     *
+     * @param object $result database result
+     *
+     * @return void
+     */
     public function freeResult($result)
     {
         return true;
