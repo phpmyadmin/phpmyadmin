@@ -56,7 +56,6 @@ if (isset($_REQUEST['do_save_data'])) {
     } else {
         // continue to show the table's structure
         unset($_REQUEST['selected']);
-        unset($_REQUEST['true_selected']);
     }
 }
 

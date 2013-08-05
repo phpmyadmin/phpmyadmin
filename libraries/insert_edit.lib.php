@@ -99,7 +99,7 @@ function PMA_analyzeWhereClauses(
 }
 
 /**
- * Show message for empty reult or set the unique_condition
+ * Show message for empty result or set the unique_condition
  *
  * @param array  $rows               MySQL returned rows
  * @param string $key_id             ID in current key
@@ -2164,7 +2164,7 @@ function PMA_getCurrentValueAsAnArrayForMultipleEdit($multi_edit_colummns,
 }
 
 /**
- * Get query values array and query fileds array for insert and update in multi edit
+ * Get query values array and query fields array for insert and update in multi edit
  *
  * @param array   $multi_edit_columns_name      multiple edit columns name array
  * @param array   $multi_edit_columns_null      multiple edit columns null array
@@ -2173,7 +2173,7 @@ function PMA_getCurrentValueAsAnArrayForMultipleEdit($multi_edit_colummns,
  * @param array   $multi_edit_funcs             multiple edit functions array
  * @param boolean $is_insert                    boolean value whether insert or not
  * @param array   $query_values                 SET part of the sql query
- * @param array   $query_fields                 array of query fileds
+ * @param array   $query_fields                 array of query fields
  * @param string  $current_value_as_an_array    current value in the column
  *                                              as an array
  * @param array   $value_sets                   array of valu sets
@@ -2365,11 +2365,142 @@ function PMA_verifyWhetherValueCanBeTruncatedAndAppendExtraData(
         . ' WHERE ' . $_REQUEST['where_clause'][0];
 
     if ($GLOBALS['dbi']->fetchValue($sql_for_real_value) !== false) {
-        $extra_data['truncatableFieldValue'] = $GLOBALS['dbi']->fetchValue($sql_for_real_value);
+        $extra_data['truncatableFieldValue']
+            = $GLOBALS['dbi']->fetchValue($sql_for_real_value);
     } else {
         $extra_data['isNeedToRecheck'] = false;
     }
 
 }
 
+/**
+ * Function to get the columns of a table
+ * 
+ * @param string $db    current db
+ * @param string $table current table
+ * 
+ * @return array 
+ */
+function PMA_getTableColumns($db, $table)
+{
+    $GLOBALS['dbi']->selectDb($db);
+    return array_values($GLOBALS['dbi']->getColumns($db, $table));
+    
+}
+
+/**
+ * Function to determine Insert/Edit rows
+ * 
+ * @param string $where_clause where clause
+ * @param string $db           current database
+ * @param string $table        current table
+ * 
+ * @return mixed
+ */
+function PMA_determineInsertOrEdit($where_clause, $db, $table)
+{
+    if (isset($_REQUEST['where_clause'])) {
+        $where_clause = $_REQUEST['where_clause'];
+    }
+    if (isset($_SESSION['edit_next'])) {
+        $where_clause = $_SESSION['edit_next'];
+        unset($_SESSION['edit_next']);
+        $after_insert = 'edit_next';
+    }
+    if (isset($_REQUEST['ShowFunctionFields'])) {
+        $GLOBALS['cfg']['ShowFunctionFields'] = $_REQUEST['ShowFunctionFields'];
+    }
+    if (isset($_REQUEST['ShowFieldTypesInDataEditView'])) {
+        $GLOBALS['cfg']['ShowFieldTypesInDataEditView']
+            = $_REQUEST['ShowFieldTypesInDataEditView'];
+    }
+    if (isset($_REQUEST['after_insert'])) {
+        $after_insert = $_REQUEST['after_insert'];
+    }
+    
+    if (isset($where_clause)) {
+        // we are editing
+        $insert_mode = false;
+        $where_clause_array = PMA_getWhereClauseArray($where_clause);
+        list($where_clauses, $result, $rows, $found_unique_key)
+            = PMA_analyzeWhereClauses(
+                $where_clause_array, $table, $db
+            );
+    } else {
+        // we are inserting
+        $insert_mode = true;
+        $where_clause = null;
+        list($result, $rows) = PMA_loadFirstRow($table, $db);
+        $where_clauses = null;
+        $where_clause_array = null;
+        $found_unique_key = false;
+    }
+    
+    // Copying a row - fetched data will be inserted as a new row,
+    // therefore the where clause is needless.
+    if (isset($_REQUEST['default_action']) 
+        && $_REQUEST['default_action'] === 'insert'
+    ) {
+        $where_clause = $where_clauses = null;
+    }
+    
+    return array(
+        $insert_mode, $where_clause, $where_clause_array, $where_clauses,
+        $result, $rows, $found_unique_key,
+        isset($after_insert) ? $after_insert : null
+    );
+}
+
+/**
+ * Function to get comments for the table columns
+ * 
+ * @param string $db    current database
+ * @param string $table current table
+ * 
+ * @return array $comments_map comments for columns
+ */
+function PMA_getCommentsMap($db, $table)
+{
+    /**
+     * get table information
+     * @todo should be done by a Table object
+     */
+    include 'libraries/tbl_info.inc.php';
+
+    /**
+     * Get comments for table fields/columns
+     */
+    $comments_map = array();
+
+    if ($GLOBALS['cfg']['ShowPropertyComments']) {
+        $comments_map = PMA_getComments($db, $table);
+    }
+    
+    return $comments_map;
+}
+
+/**
+ * Function to get URL parameters
+ * 
+ * @param string $db    current database
+ * @param string $table current table
+ * 
+ * @return array $url_params url parameters
+ */
+function PMA_getUrlParameters($db, $table)
+{
+    /**
+     * @todo check if we could replace by "db_|tbl_" - please clarify!?
+     */
+    $url_params = array(
+        'db' => $db,
+        'sql_query' => $_REQUEST['sql_query']
+    );
+
+    if (preg_match('@^tbl_@', $GLOBALS['goto'])) {
+        $url_params['table'] = $table;
+    }
+    
+    return $url_params;
+}
 ?>

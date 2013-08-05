@@ -7,17 +7,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-07-30 09:37-0400\n"
-"PO-Revision-Date: 2013-07-29 16:58+0200\n"
+"POT-Creation-Date: 2013-08-01 14:09+0200\n"
+"PO-Revision-Date: 2013-08-01 16:29+0200\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
-"Language-Team: Interlingua <http://l10n.cihar.com/projects/phpmyadmin/master/"
-"ia/>\n"
+"Language-Team: Interlingua "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/ia/>\n"
 "Language: ia\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 1.6\n"
+"X-Generator: Weblate 1.7-dev\n"
 
 #: browse_foreigners.php:51 browse_foreigners.php:75 js/messages.php:339
 #: libraries/DisplayResults.class.php:805
@@ -79,7 +79,7 @@ msgstr "Cerca:"
 #: libraries/server_privileges.lib.php:3575
 #: libraries/sql_query_form.lib.php:378 libraries/sql_query_form.lib.php:435
 #: libraries/sql_query_form.lib.php:500 libraries/structure.lib.php:1598
-#: libraries/tbl_columns_definition_form.inc.php:754 pmd_pdf.php:157
+#: libraries/tbl_columns_definition_form.lib.php:174 pmd_pdf.php:157
 #: prefs_manage.php:272 prefs_manage.php:322 tbl_chart.php:251
 #: tbl_tracking.php:522 tbl_tracking.php:683 view_create.php:273
 #: view_operations.php:99
@@ -123,7 +123,7 @@ msgid "Database comment: "
 msgstr "Commento del base de datos: "
 
 #: db_datadict.php:157 libraries/schema/Pdf_Relation_Schema.class.php:1352
-#: libraries/tbl_columns_definition_form.inc.php:836 tbl_printview.php:120
+#: libraries/tbl_columns_definition_form.lib.php:70 tbl_printview.php:120
 msgid "Table comments:"
 msgstr "Commentos de tabella:"
 
@@ -140,7 +140,7 @@ msgstr "Commentos de tabella:"
 #: libraries/plugins/export/ExportTexytext.class.php:434
 #: libraries/schema/Pdf_Relation_Schema.class.php:1378
 #: libraries/schema/Pdf_Relation_Schema.class.php:1401
-#: libraries/tbl_columns_definition_form.inc.php:353 tbl_printview.php:130
+#: libraries/tbl_columns_definition_form.inc.php:310 tbl_printview.php:130
 #: tbl_relation.php:396 tbl_relation.php:492 tbl_relation.php:562
 #: tbl_tracking.php:325 tbl_tracking.php:387
 msgid "Column"
@@ -164,7 +164,7 @@ msgstr "Columna"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1402
 #: libraries/server_privileges.lib.php:1699 libraries/structure.lib.php:776
 #: libraries/structure.lib.php:1180
-#: libraries/tbl_columns_definition_form.inc.php:96 tbl_printview.php:131
+#: libraries/tbl_columns_definition_form.inc.php:55 tbl_printview.php:131
 #: tbl_tracking.php:326 tbl_tracking.php:384
 msgid "Type"
 msgstr "Typo"
@@ -181,7 +181,7 @@ msgstr "Typo"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1381
 #: libraries/schema/Pdf_Relation_Schema.class.php:1404
 #: libraries/structure.lib.php:1183
-#: libraries/tbl_columns_definition_form.inc.php:116 tbl_printview.php:132
+#: libraries/tbl_columns_definition_form.inc.php:75 tbl_printview.php:132
 #: tbl_tracking.php:328 tbl_tracking.php:390
 msgid "Null"
 msgstr "Null"
@@ -196,7 +196,7 @@ msgstr "Null"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1382
 #: libraries/schema/Pdf_Relation_Schema.class.php:1405
 #: libraries/structure.lib.php:210 libraries/structure.lib.php:1184
-#: libraries/tbl_columns_definition_form.inc.php:107 tbl_printview.php:133
+#: libraries/tbl_columns_definition_form.inc.php:66 tbl_printview.php:133
 #: tbl_tracking.php:329
 msgid "Default"
 msgstr "Predefinite"
@@ -219,12 +219,12 @@ msgstr "Ligamines a"
 #: libraries/plugins/export/ExportTexytext.class.php:379
 #: libraries/schema/Pdf_Relation_Schema.class.php:1395
 #: libraries/schema/Pdf_Relation_Schema.class.php:1408
-#: libraries/tbl_columns_definition_form.inc.php:136 tbl_printview.php:137
+#: libraries/tbl_columns_definition_form.inc.php:95 tbl_printview.php:137
 msgid "Comments"
 msgstr "Commentos"
 
 #: db_datadict.php:237 js/messages.php:231 libraries/Index.class.php:431
-#: libraries/Index.class.php:470 libraries/Index.class.php:874
+#: libraries/Index.class.php:470 libraries/Index.class.php:879
 #: libraries/config/FormDisplay.tpl.php:262 libraries/mult_submits.inc.php:372
 #: libraries/mult_submits.inc.php:373
 #: libraries/plugins/export/ExportHtmlword.class.php:633
@@ -246,7 +246,7 @@ msgid "No"
 msgstr "No"
 
 #: db_datadict.php:237 js/messages.php:230 libraries/Index.class.php:432
-#: libraries/Index.class.php:469 libraries/Index.class.php:874
+#: libraries/Index.class.php:469 libraries/Index.class.php:879
 #: libraries/config/FormDisplay.tpl.php:262 libraries/mult_submits.inc.php:76
 #: libraries/mult_submits.inc.php:111 libraries/mult_submits.inc.php:120
 #: libraries/mult_submits.inc.php:125 libraries/mult_submits.inc.php:130
@@ -267,7 +267,7 @@ msgstr "No"
 #: libraries/server_privileges.lib.php:2655 libraries/structure.lib.php:1268
 #: libraries/user_preferences.lib.php:284 prefs_manage.php:136
 #: server_databases.php:104 server_databases.php:111 tbl_printview.php:187
-#: tbl_structure.php:86 tbl_tracking.php:346 tbl_tracking.php:398
+#: tbl_structure.php:85 tbl_tracking.php:346 tbl_tracking.php:398
 #: tbl_tracking.php:403
 msgid "Yes"
 msgstr "Si"
@@ -276,7 +276,7 @@ msgstr "Si"
 msgid "View dump (schema) of database"
 msgstr "Vide dump (schema) del base de datos"
 
-#: db_export.php:33 db_printview.php:41 db_structure.php:86 db_tracking.php:49
+#: db_export.php:33 db_printview.php:41 db_structure.php:80 db_tracking.php:49
 #: export.php:559 libraries/DBQbe.class.php:268
 msgid "No tables found in database."
 msgstr "Il non ha tabulas in le base de datos."
@@ -305,7 +305,7 @@ msgstr "Le base de datos %1$s ha essite renominate como %2$s"
 msgid "Database %1$s has been copied to %2$s"
 msgstr "Le base de datos %1$s ha essite copiate como %2$s"
 
-#: db_operations.php:261
+#: db_operations.php:255
 #, php-format
 msgid ""
 "The phpMyAdmin configuration storage has been deactivated. To find out why "
@@ -431,7 +431,7 @@ msgid "Action"
 msgstr "Action"
 
 #: db_tracking.php:85 libraries/navigation/Navigation.class.php:198
-#: tbl_change.php:235 tbl_tracking.php:767
+#: tbl_change.php:151 tbl_tracking.php:767
 msgid "Show"
 msgstr "Monstra"
 
@@ -698,7 +698,7 @@ msgstr "Retro"
 
 #: index.php:115 libraries/Footer.class.php:72
 msgid "phpMyAdmin Demo Server"
-msgstr ""
+msgstr "Servitor demo de phpMyAdmin"
 
 #: index.php:119
 #, php-format
@@ -1201,7 +1201,7 @@ msgstr "Adde al minus un variabile al serie"
 #: libraries/server_privileges.lib.php:2258
 #: libraries/server_status.lib.php:525
 #: libraries/server_status_monitor.lib.php:269
-#: libraries/tbl_columns_definition_form.inc.php:687 pmd_general.php:545
+#: libraries/tbl_columns_definition_form.inc.php:644 pmd_general.php:545
 msgid "None"
 msgstr "Necun"
 
@@ -1734,7 +1734,7 @@ msgstr "%d non es un valide numero de rangos."
 #: js/messages.php:271 libraries/display_indexes.lib.php:195
 #: libraries/insert_edit.lib.php:1462
 #: libraries/schema/User_Schema.class.php:385
-#: libraries/tbl_columns_definition_form.inc.php:898 server_variables.php:132
+#: libraries/tbl_columns_definition_form.lib.php:141 server_variables.php:132
 #: setup/frames/config.inc.php:39 setup/frames/index.inc.php:246
 #: tbl_relation.php:636
 msgid "Save"
@@ -1806,7 +1806,7 @@ msgid "Data point content"
 msgstr "Contento del puncto de datos"
 
 #: js/messages.php:302 libraries/display_indexes.lib.php:134
-#: libraries/display_indexes.lib.php:170 tbl_change.php:263
+#: libraries/display_indexes.lib.php:170 tbl_change.php:179
 msgid "Ignore"
 msgstr "Ignora"
 
@@ -1974,7 +1974,7 @@ msgstr "Cela pannello"
 
 #: js/messages.php:369
 msgid "Show hidden navigation tree items"
-msgstr ""
+msgstr "MOnstra elementos de arbore de navigation celate"
 
 #: js/messages.php:372
 msgid "The requested page was not found in the history, it may have expired."
@@ -2490,7 +2490,7 @@ msgstr[1] ""
 #: libraries/Util.class.php:3445 libraries/Util.class.php:4173
 #: libraries/structure.lib.php:1368
 msgid "Browse"
-msgstr ""
+msgstr "Naviga"
 
 #: libraries/DbSearch.class.php:353
 #, php-format
@@ -2535,7 +2535,7 @@ msgstr ""
 
 #: libraries/DisplayResults.class.php:694
 msgid "Save edited data"
-msgstr ""
+msgstr "Salveguarda datos modificate"
 
 #: libraries/DisplayResults.class.php:700
 msgid "Restore column order"
@@ -2545,40 +2545,40 @@ msgstr ""
 #: libraries/Util.class.php:2555
 msgctxt "First page"
 msgid "Begin"
-msgstr ""
+msgstr "Initio"
 
 #: libraries/DisplayResults.class.php:774 libraries/Util.class.php:2553
 #: libraries/Util.class.php:2556 libraries/server_bin_log.lib.php:171
 #: libraries/server_bin_log.lib.php:173
 msgctxt "Previous page"
 msgid "Previous"
-msgstr ""
+msgstr "Previe"
 
 #: libraries/DisplayResults.class.php:831 libraries/Util.class.php:2588
 #: libraries/Util.class.php:2591 libraries/server_bin_log.lib.php:205
 #: libraries/server_bin_log.lib.php:207
 msgctxt "Next page"
 msgid "Next"
-msgstr ""
+msgstr "Proxime"
 
 #: libraries/DisplayResults.class.php:859 libraries/Util.class.php:2589
 #: libraries/Util.class.php:2592
 msgctxt "Last page"
 msgid "End"
-msgstr ""
+msgstr "Ultime"
 
 #: libraries/DisplayResults.class.php:900 libraries/display_export.lib.php:322
 #: tbl_chart.php:245
 msgid "Number of rows:"
-msgstr ""
+msgstr "Numero de rangos:"
 
 #: libraries/DisplayResults.class.php:917
 msgid "Mode:"
-msgstr ""
+msgstr "Modo:"
 
 #: libraries/DisplayResults.class.php:919
 msgid "horizontal"
-msgstr ""
+msgstr "horizontal"
 
 #: libraries/DisplayResults.class.php:920
 msgid "horizontal (rotated headers)"
@@ -2586,11 +2586,11 @@ msgstr ""
 
 #: libraries/DisplayResults.class.php:921
 msgid "vertical"
-msgstr ""
+msgstr "vertical"
 
 #: libraries/DisplayResults.class.php:1225
 msgid "Sort by key"
-msgstr ""
+msgstr "Ordina per clave"
 
 #: libraries/DisplayResults.class.php:1566 libraries/TableSearch.class.php:764
 #: libraries/import.lib.php:1201 libraries/import.lib.php:1227
@@ -2617,7 +2617,7 @@ msgstr ""
 #: libraries/plugins/import/ImportXml.class.php:57
 #: libraries/rte/rte_routines.lib.php:970 libraries/structure.lib.php:1709
 msgid "Options"
-msgstr ""
+msgstr "Optiones"
 
 #: libraries/DisplayResults.class.php:1572
 #: libraries/DisplayResults.class.php:1678
@@ -2627,11 +2627,11 @@ msgstr ""
 #: libraries/DisplayResults.class.php:1573
 #: libraries/DisplayResults.class.php:1682
 msgid "Full texts"
-msgstr ""
+msgstr "Textos complete"
 
 #: libraries/DisplayResults.class.php:1587
 msgid "Relational key"
-msgstr ""
+msgstr "Clave relational"
 
 #: libraries/DisplayResults.class.php:1588
 msgid "Relational display column"
@@ -2639,16 +2639,16 @@ msgstr ""
 
 #: libraries/DisplayResults.class.php:1600
 msgid "Show binary contents"
-msgstr ""
+msgstr "Monstra contentos binari"
 
 #: libraries/DisplayResults.class.php:1605
 msgid "Show BLOB contents"
-msgstr ""
+msgstr "Monstra contentos BLOB"
 
 #: libraries/DisplayResults.class.php:1610
 #: libraries/config/messages.inc.php:59
 msgid "Show binary contents as HEX"
-msgstr ""
+msgstr "MOnstra contentos binari como HEX"
 
 #: libraries/DisplayResults.class.php:1621
 msgid "Hide browser transformation"
@@ -2665,12 +2665,12 @@ msgstr ""
 #: libraries/DisplayResults.class.php:3351
 #: libraries/DisplayResults.class.php:3367
 msgid "The row has been deleted"
-msgstr ""
+msgstr "Le rango ha essite delite"
 
 #: libraries/DisplayResults.class.php:3405
 #: libraries/DisplayResults.class.php:4969 libraries/server_status.lib.php:520
 msgid "Kill"
-msgstr ""
+msgstr "Remove"
 
 #: libraries/DisplayResults.class.php:4427 libraries/structure.lib.php:771
 msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]"
@@ -2686,7 +2686,7 @@ msgstr "Le demanda SQL ha essite executate con successo"
 
 #: libraries/DisplayResults.class.php:4818
 msgid "in query"
-msgstr ""
+msgstr "in le query"
 
 #: libraries/DisplayResults.class.php:4855 libraries/structure.lib.php:653
 #, php-format
@@ -2698,7 +2698,7 @@ msgstr ""
 #: libraries/DisplayResults.class.php:4868
 #, php-format
 msgid "Showing rows %1s - %2s"
-msgstr ""
+msgstr "Monstrante rangos %1s - %2s"
 
 #: libraries/DisplayResults.class.php:4880
 #, php-format
@@ -2719,7 +2719,7 @@ msgstr ""
 #: libraries/structure.lib.php:293 libraries/structure.lib.php:295
 #: libraries/structure.lib.php:1357 libraries/structure.lib.php:1364
 msgid "With selected:"
-msgstr ""
+msgstr "Si seligite:"
 
 #: libraries/DisplayResults.class.php:4980
 #: libraries/DisplayResults.class.php:4981
@@ -2733,7 +2733,7 @@ msgstr ""
 #: libraries/structure.lib.php:282 libraries/structure.lib.php:1360
 #: libraries/structure.lib.php:1361
 msgid "Check All"
-msgstr ""
+msgstr "Marca omnes"
 
 #: libraries/DisplayResults.class.php:4999
 #: libraries/DisplayResults.class.php:5269 libraries/Menu.class.php:327
@@ -2747,7 +2747,7 @@ msgstr ""
 #: libraries/server_status_monitor.lib.php:359 libraries/structure.lib.php:297
 #: prefs_manage.php:295 setup/frames/menu.inc.php:22
 msgid "Export"
-msgstr ""
+msgstr "Exporta"
 
 #: libraries/DisplayResults.class.php:5157
 msgid "Query results operations"
@@ -2757,11 +2757,11 @@ msgstr ""
 #: libraries/structure.lib.php:299 libraries/structure.lib.php:362
 #: libraries/structure.lib.php:1497
 msgid "Print view"
-msgstr ""
+msgstr "Vista pro imprimer"
 
 #: libraries/DisplayResults.class.php:5211
 msgid "Print view (with full texts)"
-msgstr ""
+msgstr "Vista pro imprimer (con texto plen)"
 
 #: libraries/DisplayResults.class.php:5282 tbl_chart.php:151
 msgid "Display chart"
@@ -2773,7 +2773,7 @@ msgstr ""
 
 #: libraries/DisplayResults.class.php:5524
 msgid "Link not found"
-msgstr ""
+msgstr "Ligamine non trovate"
 
 #: libraries/Error_Handler.class.php:81
 msgid "Too many error messages, some are not displayed."
@@ -2799,11 +2799,11 @@ msgstr ""
 
 #: libraries/File.class.php:288
 msgid "Missing a temporary folder."
-msgstr ""
+msgstr "Un dossier temporari es mancante."
 
 #: libraries/File.class.php:291
 msgid "Failed to write file to disk."
-msgstr ""
+msgstr "Il falleva scriber sur disco."
 
 #: libraries/File.class.php:294
 msgid "File upload stopped by extension."
@@ -2811,7 +2811,7 @@ msgstr ""
 
 #: libraries/File.class.php:297
 msgid "Unknown error in file upload."
-msgstr ""
+msgstr "Error incognite durante que il cargava un file."
 
 #: libraries/File.class.php:476
 msgid "Error moving the uploaded file, see [doc@faq1-11]FAQ 1.11[/doc]"
@@ -2831,10 +2831,9 @@ msgid "Currently running Git revision %1$s from the %2$s branch."
 msgstr ""
 
 #: libraries/Footer.class.php:83
-#, fuzzy
 #| msgid "Version information"
 msgid "Git information missing!"
-msgstr "Information de version"
+msgstr "Information de git mancante!"
 
 #: libraries/Footer.class.php:163 libraries/Footer.class.php:167
 #: libraries/Footer.class.php:170
@@ -2863,7 +2862,7 @@ msgstr ""
 
 #: libraries/Index.class.php:563 libraries/structure.lib.php:1387
 #: libraries/structure.lib.php:2074 libraries/structure.lib.php:2084
-#: libraries/tbl_columns_definition_form.inc.php:569 tbl_tracking.php:385
+#: libraries/tbl_columns_definition_form.inc.php:526 tbl_tracking.php:385
 msgid "Unique"
 msgstr ""
 
@@ -2881,7 +2880,7 @@ msgstr ""
 #: libraries/server_collations.lib.php:35
 #: libraries/server_collations.lib.php:47 libraries/structure.lib.php:780
 #: libraries/structure.lib.php:1181 libraries/structure.lib.php:1717
-#: libraries/tbl_columns_definition_form.inc.php:114 tbl_tracking.php:327
+#: libraries/tbl_columns_definition_form.inc.php:73 tbl_tracking.php:327
 #: tbl_tracking.php:389
 msgid "Collation"
 msgstr ""
@@ -2901,7 +2900,7 @@ msgstr ""
 msgid "Index %s has been dropped."
 msgstr ""
 
-#: libraries/Index.class.php:731
+#: libraries/Index.class.php:736
 #, php-format
 msgid ""
 "The indexes %1$s and %2$s seem to be equal and one of them could possibly be "
@@ -2928,7 +2927,7 @@ msgstr ""
 #: libraries/config/user_preferences.forms.php:234
 #: libraries/config/user_preferences.forms.php:260
 #: libraries/import.lib.php:1227 libraries/server_privileges.lib.php:875
-#: libraries/tbl_columns_definition_form.inc.php:771 pmd_general.php:174
+#: libraries/tbl_columns_definition_form.lib.php:199 pmd_general.php:174
 #: tbl_tracking.php:321
 msgid "Structure"
 msgstr ""
@@ -3334,7 +3333,7 @@ msgid "Maximum rows to plot"
 msgstr ""
 
 #: libraries/TableSearch.class.php:899 libraries/TableSearch.class.php:1203
-#: libraries/sql.lib.php:371 tbl_change.php:230
+#: libraries/sql.lib.php:371 tbl_change.php:146
 msgid "Browse foreign values"
 msgstr ""
 
@@ -4268,8 +4267,8 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:32
 msgid ""
-"Use user-friendly editor for editing SQL queries ([a@http://codemirror.net/]"
-"CodeMirror[/a]) with syntax highlighting and line numbers"
+"Use user-friendly editor for editing SQL queries ([a@http://codemirror."
+"net/]CodeMirror[/a]) with syntax highlighting and line numbers"
 msgstr ""
 
 #: libraries/config/messages.inc.php:33
@@ -4543,7 +4542,7 @@ msgstr ""
 #: libraries/config/messages.inc.php:98 libraries/config/messages.inc.php:110
 #: libraries/config/messages.inc.php:135
 #: libraries/plugins/export/ExportOdt.class.php:482
-#: libraries/tbl_columns_definition_form.inc.php:169
+#: libraries/tbl_columns_definition_form.inc.php:128
 msgid "MIME type"
 msgstr ""
 
@@ -4795,8 +4794,9 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:194
 msgid ""
-"Specify browser's title bar text. Refer to [doc@cfg_TitleTable]documentation"
-"[/doc] for magic strings that can be used to get special values."
+"Specify browser's title bar text. Refer to "
+"[doc@cfg_TitleTable]documentation[/doc] for magic strings that can be used "
+"to get special values."
 msgstr ""
 
 #: libraries/config/messages.inc.php:195
@@ -5534,8 +5534,8 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:383
 msgid ""
-"Leave blank for no column comments/mime types, suggested: [kbd]"
-"pma__column_info[/kbd]"
+"Leave blank for no column comments/mime types, suggested: "
+"[kbd]pma__column_info[/kbd]"
 msgstr ""
 
 #: libraries/config/messages.inc.php:384
@@ -5728,8 +5728,8 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:425
 msgid ""
-"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-links"
-"[/a] support, suggested: [kbd]pma__relation[/kbd]"
+"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
+"links[/a] support, suggested: [kbd]pma__relation[/kbd]"
 msgstr ""
 
 #: libraries/config/messages.inc.php:426
@@ -5746,8 +5746,8 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:429
 msgid ""
-"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication types"
-"[/a] for an example"
+"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
+"types[/a] for an example"
 msgstr ""
 
 #: libraries/config/messages.inc.php:430
@@ -5846,8 +5846,8 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:450
 msgid ""
-"Leave blank for no SQL query tracking support, suggested: [kbd]pma__tracking"
-"[/kbd]"
+"Leave blank for no SQL query tracking support, suggested: "
+"[kbd]pma__tracking[/kbd]"
 msgstr ""
 
 #: libraries/config/messages.inc.php:451
@@ -5866,8 +5866,8 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:454
 msgid ""
-"Leave blank for no user preferences storage in database, suggested: [kbd]"
-"pma__userconfig[/kbd]"
+"Leave blank for no user preferences storage in database, suggested: "
+"[kbd]pma__userconfig[/kbd]"
 msgstr ""
 
 #: libraries/config/messages.inc.php:455
@@ -5876,8 +5876,8 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:456
 msgid ""
-"Leave blank to disable configurable menus feature, suggested: [kbd]pma__users"
-"[/kbd]"
+"Leave blank to disable configurable menus feature, suggested: "
+"[kbd]pma__users[/kbd]"
 msgstr ""
 "Lassa vacue pro dishabilitar characteristica de menus configurabile, "
 "proponite:  [kbd]pma__users[/kbd]"
@@ -5888,8 +5888,8 @@ msgstr "Tabula de usatores"
 
 #: libraries/config/messages.inc.php:458
 msgid ""
-"Leave blank to disable configurable menus feature, suggested: [kbd]"
-"pma__usergroups[/kbd]"
+"Leave blank to disable configurable menus feature, suggested: "
+"[kbd]pma__usergroups[/kbd]"
 msgstr ""
 "Lassa vacue pro dishabilitar characteristica de menus configurabile, "
 "proponite:  [kbd]pma__usergroups[/kbd]"
@@ -6385,7 +6385,7 @@ msgstr ""
 #: libraries/rte/rte_list.lib.php:52 libraries/rte/rte_list.lib.php:63
 #: libraries/rte/rte_list.lib.php:77 libraries/rte/rte_routines.lib.php:967
 #: libraries/rte/rte_routines.lib.php:1579 libraries/structure.lib.php:1179
-#: libraries/tbl_columns_definition_form.inc.php:95
+#: libraries/tbl_columns_definition_form.inc.php:54
 #: setup/frames/index.inc.php:135
 msgid "Name"
 msgstr ""
@@ -6633,7 +6633,7 @@ msgid "%s of %s"
 msgstr ""
 
 #: libraries/display_import.lib.php:454
-msgid "Uploading your import file..."
+msgid "Uploading your import file…"
 msgstr ""
 
 #: libraries/display_import.lib.php:455
@@ -7354,10 +7354,9 @@ msgid "Events:"
 msgstr ""
 
 #: libraries/navigation/Navigation.class.php:173
-#, fuzzy
 #| msgid "Connections"
 msgid "Functions:"
-msgstr "Connexiones"
+msgstr "Functiones:"
 
 #: libraries/navigation/Navigation.class.php:174
 msgid "Procedures:"
@@ -8350,7 +8349,7 @@ msgid "Displaying Column Comments"
 msgstr ""
 
 #: libraries/relation.lib.php:165
-#: libraries/tbl_columns_definition_form.inc.php:170
+#: libraries/tbl_columns_definition_form.inc.php:129
 #: transformation_overview.php:39
 msgid "Browser transformation"
 msgstr ""
@@ -8877,7 +8876,7 @@ msgid "Direction"
 msgstr ""
 
 #: libraries/rte/rte_routines.lib.php:969
-#: libraries/tbl_columns_definition_form.inc.php:98
+#: libraries/tbl_columns_definition_form.inc.php:57
 msgid "Length/Values"
 msgstr ""
 
@@ -9131,7 +9130,7 @@ msgstr ""
 #: libraries/schema/Pdf_Relation_Schema.class.php:1380
 #: libraries/schema/Pdf_Relation_Schema.class.php:1403
 #: libraries/structure.lib.php:1182
-#: libraries/tbl_columns_definition_form.inc.php:115
+#: libraries/tbl_columns_definition_form.inc.php:74
 msgid "Attributes"
 msgstr ""
 
@@ -9796,24 +9795,21 @@ msgstr ""
 
 #: libraries/server_privileges.lib.php:3236
 #: libraries/server_privileges.lib.php:3402
-#, fuzzy
 #| msgid "Server version:"
 msgid "Server-level tabs"
-msgstr "Version de servitor:"
+msgstr "Schedas de nivello servitor"
 
 #: libraries/server_privileges.lib.php:3237
 #: libraries/server_privileges.lib.php:3405
-#, fuzzy
 #| msgid "Database server"
 msgid "Database-level tabs"
-msgstr "Servitor de base de datos"
+msgstr "Schedas de nivello de base de datos"
 
 #: libraries/server_privileges.lib.php:3238
 #: libraries/server_privileges.lib.php:3408
-#, fuzzy
 #| msgid "Table level tabs"
 msgid "Table-level tabs"
-msgstr "Tabulationes de nivello de tabula"
+msgstr "Schedas de nivello de tabula"
 
 #: libraries/server_privileges.lib.php:3260
 msgid "View users"
@@ -10974,14 +10970,14 @@ msgstr ""
 
 #: libraries/structure.lib.php:1383 libraries/structure.lib.php:2070
 #: libraries/structure.lib.php:2080
-#: libraries/tbl_columns_definition_form.inc.php:562
+#: libraries/tbl_columns_definition_form.inc.php:519
 msgid "Primary"
 msgstr ""
 
 #: libraries/structure.lib.php:1391 libraries/structure.lib.php:2072
 #: libraries/structure.lib.php:2082 libraries/structure.lib.php:2190
-#: libraries/tbl_columns_definition_form.inc.php:123
-#: libraries/tbl_columns_definition_form.inc.php:576 tbl_printview.php:306
+#: libraries/tbl_columns_definition_form.inc.php:82
+#: libraries/tbl_columns_definition_form.inc.php:533 tbl_printview.php:306
 msgid "Index"
 msgstr ""
 
@@ -10992,7 +10988,7 @@ msgstr ""
 
 #: libraries/structure.lib.php:1408 libraries/structure.lib.php:2078
 #: libraries/structure.lib.php:2088
-#: libraries/tbl_columns_definition_form.inc.php:584
+#: libraries/tbl_columns_definition_form.inc.php:541
 msgid "Fulltext"
 msgstr ""
 
@@ -11017,7 +11013,7 @@ msgid "Propose table structure"
 msgstr ""
 
 #: libraries/structure.lib.php:1557
-#: libraries/tbl_columns_definition_form.inc.php:758
+#: libraries/tbl_columns_definition_form.lib.php:178
 msgid "You have to add at least one column."
 msgstr ""
 
@@ -11026,7 +11022,7 @@ msgid "Add column"
 msgstr ""
 
 #: libraries/structure.lib.php:1573
-#: libraries/tbl_columns_definition_form.inc.php:748
+#: libraries/tbl_columns_definition_form.lib.php:168
 #, php-format
 msgid "Add %s column(s)"
 msgstr ""
@@ -11129,7 +11125,7 @@ msgstr ""
 msgid "The column name '%s' is a MySQL reserved keyword."
 msgstr ""
 
-#: libraries/tbl_columns_definition_form.inc.php:101
+#: libraries/tbl_columns_definition_form.inc.php:60
 msgid ""
 "If column type is \"enum\" or \"set\", please enter the values using this "
 "format: 'a','b','c'…<br />If you ever need to put a backslash (\"\\\") or a "
@@ -11137,28 +11133,28 @@ msgid ""
 "example '\\\\xyz' or 'a\\'b')."
 msgstr ""
 
-#: libraries/tbl_columns_definition_form.inc.php:110
+#: libraries/tbl_columns_definition_form.inc.php:69
 msgid ""
 "For default values, please enter just a single value, without backslash "
 "escaping or quotes, using this format: a"
 msgstr ""
 
-#: libraries/tbl_columns_definition_form.inc.php:149
+#: libraries/tbl_columns_definition_form.inc.php:108
 msgid "Move column"
 msgstr ""
 
-#: libraries/tbl_columns_definition_form.inc.php:159
+#: libraries/tbl_columns_definition_form.inc.php:118
 #, php-format
 msgid ""
 "For a list of available transformation options and their MIME type "
 "transformations, click on %stransformation descriptions%s"
 msgstr ""
 
-#: libraries/tbl_columns_definition_form.inc.php:171
+#: libraries/tbl_columns_definition_form.inc.php:130
 msgid "Transformation options"
 msgstr ""
 
-#: libraries/tbl_columns_definition_form.inc.php:174
+#: libraries/tbl_columns_definition_form.inc.php:133
 msgid ""
 "Please enter the values for transformation options using this format: 'a', "
 "100, b,'c'…<br />If you ever need to put a backslash (\"\\\") or a single "
@@ -11166,46 +11162,46 @@ msgid ""
 "'\\\\xyz' or 'a\\'b')."
 msgstr ""
 
-#: libraries/tbl_columns_definition_form.inc.php:412
+#: libraries/tbl_columns_definition_form.inc.php:369
 msgid "ENUM or SET data too long?"
 msgstr ""
 
-#: libraries/tbl_columns_definition_form.inc.php:414
+#: libraries/tbl_columns_definition_form.inc.php:371
 msgid "Get more editing space"
 msgstr ""
 
-#: libraries/tbl_columns_definition_form.inc.php:430
+#: libraries/tbl_columns_definition_form.inc.php:387
 msgctxt "for default"
 msgid "None"
 msgstr ""
 
-#: libraries/tbl_columns_definition_form.inc.php:431
+#: libraries/tbl_columns_definition_form.inc.php:388
 msgid "As defined:"
 msgstr ""
 
-#: libraries/tbl_columns_definition_form.inc.php:634
+#: libraries/tbl_columns_definition_form.inc.php:591
 msgid "first"
 msgstr ""
 
-#: libraries/tbl_columns_definition_form.inc.php:644
+#: libraries/tbl_columns_definition_form.inc.php:601
 #, php-format
 msgid "after %s"
 msgstr ""
 
-#: libraries/tbl_columns_definition_form.inc.php:737
-msgid "Table name"
-msgstr ""
-
-#: libraries/tbl_columns_definition_form.inc.php:838
+#: libraries/tbl_columns_definition_form.lib.php:72
 msgid "Storage Engine:"
 msgstr ""
 
-#: libraries/tbl_columns_definition_form.inc.php:842
+#: libraries/tbl_columns_definition_form.lib.php:76
 msgid "Collation:"
 msgstr "Colliger:"
 
-#: libraries/tbl_columns_definition_form.inc.php:876
+#: libraries/tbl_columns_definition_form.lib.php:110
 msgid "PARTITION definition:"
+msgstr ""
+
+#: libraries/tbl_columns_definition_form.lib.php:160
+msgid "Table name"
 msgstr ""
 
 #: libraries/tbl_common.inc.php:54
@@ -11831,8 +11827,8 @@ msgid ""
 "You set the [kbd]config[/kbd] authentication type and included username and "
 "password for auto-login, which is not a desirable option for live hosts. "
 "Anyone who knows or guesses your phpMyAdmin URL can directly access your "
-"phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or [kbd]"
-"http[/kbd]."
+"phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or "
+"[kbd]http[/kbd]."
 msgstr ""
 
 #: setup/lib/index.lib.php:236
@@ -12052,7 +12048,7 @@ msgstr ""
 msgid "Choose column to display:"
 msgstr "Selige columna de monstrar:"
 
-#: tbl_structure.php:134
+#: tbl_structure.php:133
 msgid "No column selected."
 msgstr ""
 

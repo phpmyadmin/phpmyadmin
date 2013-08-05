@@ -186,23 +186,17 @@ if (isset($_REQUEST['comment'])) {
     PMA_setDbComment($db, $_REQUEST['comment']);
 }
 
-/**
- * Prepares the tables list if the user where not redirected to this script
- * because there is no table in the database ($is_info is true)
- */
-if (empty($is_info)) {
-    include 'libraries/db_common.inc.php';
-    $url_query .= '&amp;goto=db_operations.php';
+include 'libraries/db_common.inc.php';
+$url_query .= '&amp;goto=db_operations.php';
 
-    // Gets the database structure
-    $sub_part = '_structure';
-    include 'libraries/db_info.inc.php';
-    echo "\n";
+// Gets the database structure
+$sub_part = '_structure';
+include 'libraries/db_info.inc.php';
+echo "\n";
 
-    if (isset($message)) {
-        echo PMA_Util::getMessage($message, $sql_query);
-        unset($message);
-    }
+if (isset($message)) {
+    echo PMA_Util::getMessage($message, $sql_query);
+    unset($message);
 }
 
 $_REQUEST['db_collation'] = PMA_getDbCollation($db);

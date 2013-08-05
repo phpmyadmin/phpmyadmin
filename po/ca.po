@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-07-30 09:37-0400\n"
+"POT-Creation-Date: 2013-08-01 14:09+0200\n"
 "PO-Revision-Date: 2013-05-30 13:29+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Catalan <http://l10n.cihar.com/projects/phpmyadmin/master/ca/"
@@ -77,7 +77,7 @@ msgstr "Cerca"
 #: libraries/server_privileges.lib.php:3575
 #: libraries/sql_query_form.lib.php:378 libraries/sql_query_form.lib.php:435
 #: libraries/sql_query_form.lib.php:500 libraries/structure.lib.php:1598
-#: libraries/tbl_columns_definition_form.inc.php:754 pmd_pdf.php:157
+#: libraries/tbl_columns_definition_form.lib.php:174 pmd_pdf.php:157
 #: prefs_manage.php:272 prefs_manage.php:322 tbl_chart.php:251
 #: tbl_tracking.php:522 tbl_tracking.php:683 view_create.php:273
 #: view_operations.php:99
@@ -121,7 +121,7 @@ msgid "Database comment: "
 msgstr "Comentaris de la base de dades: "
 
 #: db_datadict.php:157 libraries/schema/Pdf_Relation_Schema.class.php:1352
-#: libraries/tbl_columns_definition_form.inc.php:836 tbl_printview.php:120
+#: libraries/tbl_columns_definition_form.lib.php:70 tbl_printview.php:120
 #, fuzzy
 #| msgid "Table comments"
 msgid "Table comments:"
@@ -140,7 +140,7 @@ msgstr "Comentaris de la taula"
 #: libraries/plugins/export/ExportTexytext.class.php:434
 #: libraries/schema/Pdf_Relation_Schema.class.php:1378
 #: libraries/schema/Pdf_Relation_Schema.class.php:1401
-#: libraries/tbl_columns_definition_form.inc.php:353 tbl_printview.php:130
+#: libraries/tbl_columns_definition_form.inc.php:310 tbl_printview.php:130
 #: tbl_relation.php:396 tbl_relation.php:492 tbl_relation.php:562
 #: tbl_tracking.php:325 tbl_tracking.php:387
 msgid "Column"
@@ -164,7 +164,7 @@ msgstr "Columna"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1402
 #: libraries/server_privileges.lib.php:1699 libraries/structure.lib.php:776
 #: libraries/structure.lib.php:1180
-#: libraries/tbl_columns_definition_form.inc.php:96 tbl_printview.php:131
+#: libraries/tbl_columns_definition_form.inc.php:55 tbl_printview.php:131
 #: tbl_tracking.php:326 tbl_tracking.php:384
 msgid "Type"
 msgstr "Tipus"
@@ -181,7 +181,7 @@ msgstr "Tipus"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1381
 #: libraries/schema/Pdf_Relation_Schema.class.php:1404
 #: libraries/structure.lib.php:1183
-#: libraries/tbl_columns_definition_form.inc.php:116 tbl_printview.php:132
+#: libraries/tbl_columns_definition_form.inc.php:75 tbl_printview.php:132
 #: tbl_tracking.php:328 tbl_tracking.php:390
 msgid "Null"
 msgstr "Nul"
@@ -196,7 +196,7 @@ msgstr "Nul"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1382
 #: libraries/schema/Pdf_Relation_Schema.class.php:1405
 #: libraries/structure.lib.php:210 libraries/structure.lib.php:1184
-#: libraries/tbl_columns_definition_form.inc.php:107 tbl_printview.php:133
+#: libraries/tbl_columns_definition_form.inc.php:66 tbl_printview.php:133
 #: tbl_tracking.php:329
 msgid "Default"
 msgstr "Defecte"
@@ -219,12 +219,12 @@ msgstr "Enllaços a"
 #: libraries/plugins/export/ExportTexytext.class.php:379
 #: libraries/schema/Pdf_Relation_Schema.class.php:1395
 #: libraries/schema/Pdf_Relation_Schema.class.php:1408
-#: libraries/tbl_columns_definition_form.inc.php:136 tbl_printview.php:137
+#: libraries/tbl_columns_definition_form.inc.php:95 tbl_printview.php:137
 msgid "Comments"
 msgstr "Comentaris"
 
 #: db_datadict.php:237 js/messages.php:231 libraries/Index.class.php:431
-#: libraries/Index.class.php:470 libraries/Index.class.php:874
+#: libraries/Index.class.php:470 libraries/Index.class.php:879
 #: libraries/config/FormDisplay.tpl.php:262 libraries/mult_submits.inc.php:372
 #: libraries/mult_submits.inc.php:373
 #: libraries/plugins/export/ExportHtmlword.class.php:633
@@ -246,7 +246,7 @@ msgid "No"
 msgstr "No"
 
 #: db_datadict.php:237 js/messages.php:230 libraries/Index.class.php:432
-#: libraries/Index.class.php:469 libraries/Index.class.php:874
+#: libraries/Index.class.php:469 libraries/Index.class.php:879
 #: libraries/config/FormDisplay.tpl.php:262 libraries/mult_submits.inc.php:76
 #: libraries/mult_submits.inc.php:111 libraries/mult_submits.inc.php:120
 #: libraries/mult_submits.inc.php:125 libraries/mult_submits.inc.php:130
@@ -267,7 +267,7 @@ msgstr "No"
 #: libraries/server_privileges.lib.php:2655 libraries/structure.lib.php:1268
 #: libraries/user_preferences.lib.php:284 prefs_manage.php:136
 #: server_databases.php:104 server_databases.php:111 tbl_printview.php:187
-#: tbl_structure.php:86 tbl_tracking.php:346 tbl_tracking.php:398
+#: tbl_structure.php:85 tbl_tracking.php:346 tbl_tracking.php:398
 #: tbl_tracking.php:403
 msgid "Yes"
 msgstr "Si"
@@ -276,7 +276,7 @@ msgstr "Si"
 msgid "View dump (schema) of database"
 msgstr "Veure el bolcat (esquema) de la base de dades"
 
-#: db_export.php:33 db_printview.php:41 db_structure.php:86 db_tracking.php:49
+#: db_export.php:33 db_printview.php:41 db_structure.php:80 db_tracking.php:49
 #: export.php:559 libraries/DBQbe.class.php:268
 msgid "No tables found in database."
 msgstr "Base de dades sense taules."
@@ -305,7 +305,7 @@ msgstr "S'ha renombrat la base de dades %1$s a %2$s"
 msgid "Database %1$s has been copied to %2$s"
 msgstr "S'ha copiat la base de dades %1$s a %2$s"
 
-#: db_operations.php:261
+#: db_operations.php:255
 #, php-format
 msgid ""
 "The phpMyAdmin configuration storage has been deactivated. To find out why "
@@ -437,7 +437,7 @@ msgid "Action"
 msgstr "Acció"
 
 #: db_tracking.php:85 libraries/navigation/Navigation.class.php:198
-#: tbl_change.php:235 tbl_tracking.php:767
+#: tbl_change.php:151 tbl_tracking.php:767
 msgid "Show"
 msgstr "Mostra"
 
@@ -1237,7 +1237,7 @@ msgstr "Afegeix al menys una variable a la serie"
 #: libraries/server_privileges.lib.php:2258
 #: libraries/server_status.lib.php:525
 #: libraries/server_status_monitor.lib.php:269
-#: libraries/tbl_columns_definition_form.inc.php:687 pmd_general.php:545
+#: libraries/tbl_columns_definition_form.inc.php:644 pmd_general.php:545
 msgid "None"
 msgstr "Res"
 
@@ -1765,7 +1765,7 @@ msgstr "%d no és un num. vàlid de fila."
 #: js/messages.php:271 libraries/display_indexes.lib.php:195
 #: libraries/insert_edit.lib.php:1462
 #: libraries/schema/User_Schema.class.php:385
-#: libraries/tbl_columns_definition_form.inc.php:898 server_variables.php:132
+#: libraries/tbl_columns_definition_form.lib.php:141 server_variables.php:132
 #: setup/frames/config.inc.php:39 setup/frames/index.inc.php:246
 #: tbl_relation.php:636
 msgid "Save"
@@ -1838,7 +1838,7 @@ msgid "Data point content"
 msgstr "Contingut del punter de dades"
 
 #: js/messages.php:302 libraries/display_indexes.lib.php:134
-#: libraries/display_indexes.lib.php:170 tbl_change.php:263
+#: libraries/display_indexes.lib.php:170 tbl_change.php:179
 msgid "Ignore"
 msgstr "Ignora"
 
@@ -2914,7 +2914,7 @@ msgstr "Indexos"
 
 #: libraries/Index.class.php:563 libraries/structure.lib.php:1387
 #: libraries/structure.lib.php:2074 libraries/structure.lib.php:2084
-#: libraries/tbl_columns_definition_form.inc.php:569 tbl_tracking.php:385
+#: libraries/tbl_columns_definition_form.inc.php:526 tbl_tracking.php:385
 msgid "Unique"
 msgstr "Única"
 
@@ -2932,7 +2932,7 @@ msgstr "Cardinalitat"
 #: libraries/server_collations.lib.php:35
 #: libraries/server_collations.lib.php:47 libraries/structure.lib.php:780
 #: libraries/structure.lib.php:1181 libraries/structure.lib.php:1717
-#: libraries/tbl_columns_definition_form.inc.php:114 tbl_tracking.php:327
+#: libraries/tbl_columns_definition_form.inc.php:73 tbl_tracking.php:327
 #: tbl_tracking.php:389
 msgid "Collation"
 msgstr "Ordenació"
@@ -2952,7 +2952,7 @@ msgstr "S'ha esborrat la clau principal"
 msgid "Index %s has been dropped."
 msgstr "S'ha esborrat l'índex %s"
 
-#: libraries/Index.class.php:731
+#: libraries/Index.class.php:736
 #, php-format
 msgid ""
 "The indexes %1$s and %2$s seem to be equal and one of them could possibly be "
@@ -2981,7 +2981,7 @@ msgstr "Vista"
 #: libraries/config/user_preferences.forms.php:234
 #: libraries/config/user_preferences.forms.php:260
 #: libraries/import.lib.php:1227 libraries/server_privileges.lib.php:875
-#: libraries/tbl_columns_definition_form.inc.php:771 pmd_general.php:174
+#: libraries/tbl_columns_definition_form.lib.php:199 pmd_general.php:174
 #: tbl_tracking.php:321
 msgid "Structure"
 msgstr "Estructura"
@@ -3398,7 +3398,7 @@ msgid "Maximum rows to plot"
 msgstr "Màxim nombre de files a dibuixar"
 
 #: libraries/TableSearch.class.php:899 libraries/TableSearch.class.php:1203
-#: libraries/sql.lib.php:371 tbl_change.php:230
+#: libraries/sql.lib.php:371 tbl_change.php:146
 msgid "Browse foreign values"
 msgstr "Navega valors externs"
 
@@ -4432,8 +4432,8 @@ msgid ""
 "kbd] - allows newlines in columns"
 msgstr ""
 "Defineix quin tipus de control d'edició es farà servir per a columnes CHAR i "
-"VARCHAR; [kbd]input[/kbd] - permet limitar el tamany de l'entrada, [kbd]"
-"textarea[/kbd] - permet varies línies dintre dels camps"
+"VARCHAR; [kbd]input[/kbd] - permet limitar el tamany de l'entrada, "
+"[kbd]textarea[/kbd] - permet varies línies dintre dels camps"
 
 #: libraries/config/messages.inc.php:31
 msgid "CHAR columns editing"
@@ -4441,8 +4441,8 @@ msgstr "Edició de columnes CHAR"
 
 #: libraries/config/messages.inc.php:32
 msgid ""
-"Use user-friendly editor for editing SQL queries ([a@http://codemirror.net/]"
-"CodeMirror[/a]) with syntax highlighting and line numbers"
+"Use user-friendly editor for editing SQL queries ([a@http://codemirror."
+"net/]CodeMirror[/a]) with syntax highlighting and line numbers"
 msgstr ""
 "Fer servir l'editor SQL ([a@http://codemirror.net/]CodeMirror[/a]) amb "
 "resaltat de sintaxi i números de línia"
@@ -4741,7 +4741,7 @@ msgstr "Etiqueta de clau"
 #: libraries/config/messages.inc.php:98 libraries/config/messages.inc.php:110
 #: libraries/config/messages.inc.php:135
 #: libraries/plugins/export/ExportOdt.class.php:482
-#: libraries/tbl_columns_definition_form.inc.php:169
+#: libraries/tbl_columns_definition_form.inc.php:128
 msgid "MIME type"
 msgstr "Tipus MIME"
 
@@ -4999,8 +4999,9 @@ msgstr "Títols de pàgina"
 
 #: libraries/config/messages.inc.php:194
 msgid ""
-"Specify browser's title bar text. Refer to [doc@cfg_TitleTable]documentation"
-"[/doc] for magic strings that can be used to get special values."
+"Specify browser's title bar text. Refer to "
+"[doc@cfg_TitleTable]documentation[/doc] for magic strings that can be used "
+"to get special values."
 msgstr ""
 "Especifica el títol del navegador. Consulta [doc@cfg_TitleTable]la "
 "documentació[/doc]  per a cadenes màgiques que poden usar-se per obtenir "
@@ -5066,8 +5067,8 @@ msgid ""
 "documentation"
 msgstr ""
 "Configura la base de dades phpMyAdmin per tenir accés a característiques "
-"adiccionals, consulta [doc@linked-tables]infraestructura de taules enllaçades"
-"[/doc] a la documentació"
+"adiccionals, consulta [doc@linked-tables]infraestructura de taules "
+"enllaçades[/doc] a la documentació"
 
 #: libraries/config/messages.inc.php:207
 msgid "Changes tracking"
@@ -5812,8 +5813,8 @@ msgid ""
 "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/bookmark]bookmark[/a] "
 "support, suggested: [kbd]pma__bookmark[/kbd]"
 msgstr ""
-"Deixa en blanc per desactivar les [a@http://wiki.phpmyadmin.net/pma/bookmark]"
-"consultes desades[/a], suggerit: [kbd]pma__bookmark[/kbd]"
+"Deixa en blanc per desactivar les [a@http://wiki.phpmyadmin.net/pma/"
+"bookmark]consultes desades[/a], suggerit: [kbd]pma__bookmark[/kbd]"
 
 #: libraries/config/messages.inc.php:382
 msgid "Bookmark table"
@@ -5821,8 +5822,8 @@ msgstr "Taula de consultes desades"
 
 #: libraries/config/messages.inc.php:383
 msgid ""
-"Leave blank for no column comments/mime types, suggested: [kbd]"
-"pma__column_info[/kbd]"
+"Leave blank for no column comments/mime types, suggested: "
+"[kbd]pma__column_info[/kbd]"
 msgstr ""
 "Deixa en blanc per no usar comentaris de columna o tipus mime, suggerit: "
 "[kbd]pma__column_info[/kbd]"
@@ -5899,8 +5900,8 @@ msgid ""
 "Leave blank for no Designer support, suggested: [kbd]pma__designer_coords[/"
 "kbd]"
 msgstr ""
-"Deixa en blanc per desactivar el suport del Dissenyador, suggerit: [kbd]"
-"pma__designer_coords[/kbd]"
+"Deixa en blanc per desactivar el suport del Dissenyador, suggerit: "
+"[kbd]pma__designer_coords[/kbd]"
 
 #: libraries/config/messages.inc.php:397
 msgid "Designer table"
@@ -6006,8 +6007,8 @@ msgstr "Contrasenya autenticació config"
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__pdf_pages[/kbd]"
 msgstr ""
-"Deixa en blanc per desactivar el suport d'esquemes PDF, suggerit: [kbd]"
-"pma__pdf_pages[/kbd]"
+"Deixa en blanc per desactivar el suport d'esquemes PDF, suggerit: "
+"[kbd]pma__pdf_pages[/kbd]"
 
 #: libraries/config/messages.inc.php:418
 msgid "PDF schema: pages table"
@@ -6051,11 +6052,11 @@ msgstr "Taula usada recentment"
 
 #: libraries/config/messages.inc.php:425
 msgid ""
-"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-links"
-"[/a] support, suggested: [kbd]pma__relation[/kbd]"
+"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
+"links[/a] support, suggested: [kbd]pma__relation[/kbd]"
 msgstr ""
-"Deixa en blanc per desactivar els [a@http://wiki.phpmyadmin.net/pma/relation]"
-"enllaços de relacions[/a], suggerit: [kbd]pma__relation[/kbd]"
+"Deixa en blanc per desactivar els [a@http://wiki.phpmyadmin.net/pma/"
+"relation]enllaços de relacions[/a], suggerit: [kbd]pma__relation[/kbd]"
 
 #: libraries/config/messages.inc.php:426
 msgid "Relation table"
@@ -6071,8 +6072,8 @@ msgstr "Ordre SHOW DATABASES"
 
 #: libraries/config/messages.inc.php:429
 msgid ""
-"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication types"
-"[/a] for an example"
+"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
+"types[/a] for an example"
 msgstr ""
 "Consulta [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]tipus "
 "d'autenticació[/a] per veure exemples"
@@ -6108,8 +6109,8 @@ msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__table_coords[/"
 "kbd]"
 msgstr ""
-"Deixa en blanc per desactivar el suport d'esquemes PDF, suggerit: [kbd]"
-"pma__table_coords[/kbd]"
+"Deixa en blanc per desactivar el suport d'esquemes PDF, suggerit: "
+"[kbd]pma__table_coords[/kbd]"
 
 #: libraries/config/messages.inc.php:437
 msgid "PDF schema: table coordinates"
@@ -6191,8 +6192,8 @@ msgstr "Instruccions a seguir"
 
 #: libraries/config/messages.inc.php:450
 msgid ""
-"Leave blank for no SQL query tracking support, suggested: [kbd]pma__tracking"
-"[/kbd]"
+"Leave blank for no SQL query tracking support, suggested: "
+"[kbd]pma__tracking[/kbd]"
 msgstr ""
 "Deixa en blanc per desactivar el suport de seguiment de consultes SQL, "
 "suggerit: [kbd]pma__tracking[/kbd]"
@@ -6215,8 +6216,8 @@ msgstr "Crear versions automàticament"
 
 #: libraries/config/messages.inc.php:454
 msgid ""
-"Leave blank for no user preferences storage in database, suggested: [kbd]"
-"pma__userconfig[/kbd]"
+"Leave blank for no user preferences storage in database, suggested: "
+"[kbd]pma__userconfig[/kbd]"
 msgstr ""
 "Deixa en blanc per no desar les preferències de l'usuari en base de dades, "
 "suggerit: [kbd]pma__userconfig[/kbd]"
@@ -6228,11 +6229,11 @@ msgstr "Taula de preferències de l'usuari"
 #: libraries/config/messages.inc.php:456
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no user preferences storage in database, suggested: [kbd]"
-#| "pma__userconfig[/kbd]"
+#| "Leave blank for no user preferences storage in database, suggested: "
+#| "[kbd]pma__userconfig[/kbd]"
 msgid ""
-"Leave blank to disable configurable menus feature, suggested: [kbd]pma__users"
-"[/kbd]"
+"Leave blank to disable configurable menus feature, suggested: "
+"[kbd]pma__users[/kbd]"
 msgstr ""
 "Deixa en blanc per no desar les preferències de l'usuari en base de dades, "
 "suggerit: [kbd]pma__userconfig[/kbd]"
@@ -6246,11 +6247,11 @@ msgstr "Usa Taules"
 #: libraries/config/messages.inc.php:458
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no user preferences storage in database, suggested: [kbd]"
-#| "pma__userconfig[/kbd]"
+#| "Leave blank for no user preferences storage in database, suggested: "
+#| "[kbd]pma__userconfig[/kbd]"
 msgid ""
-"Leave blank to disable configurable menus feature, suggested: [kbd]"
-"pma__usergroups[/kbd]"
+"Leave blank to disable configurable menus feature, suggested: "
+"[kbd]pma__usergroups[/kbd]"
 msgstr ""
 "Deixa en blanc per no desar les preferències de l'usuari en base de dades, "
 "suggerit: [kbd]pma__userconfig[/kbd]"
@@ -6264,8 +6265,8 @@ msgstr "Utilitza la Taula de Hosts"
 #: libraries/config/messages.inc.php:460
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no user preferences storage in database, suggested: [kbd]"
-#| "pma__userconfig[/kbd]"
+#| "Leave blank for no user preferences storage in database, suggested: "
+#| "[kbd]pma__userconfig[/kbd]"
 msgid ""
 "Leave blank to disable the feature to hide and show navigation items, "
 "suggested: [kbd]pma__navigationhiding[/kbd]"
@@ -6296,8 +6297,8 @@ msgstr "Nom explicatiu d'aquest servidor"
 #: libraries/config/messages.inc.php:466
 msgid "Whether a user should be displayed a &quot;show all (rows)&quot; button"
 msgstr ""
-"Si a un usuari se l'hauria de mostrar el botó &quot;mostrar totes (les files)"
-"&quot;"
+"Si a un usuari se l'hauria de mostrar el botó &quot;mostrar totes (les "
+"files)&quot;"
 
 #: libraries/config/messages.inc.php:467
 msgid "Allow to display all the rows"
@@ -6551,8 +6552,8 @@ msgid ""
 msgstr ""
 "Entra els proxies com [kbd]IP: capçaleta HTTP confiable[/kbd]. El següent "
 "exemple mostra cóm phpMyAdmin hauria de validar la capçalera "
-"HTTP_X_FORWARDED_FOR (X-Forwarded-For) procedent del proxy 1.2.3.4:[br][kbd]"
-"1.2.3.4: HTTP_X_FORWARDED_FOR[/kbd]"
+"HTTP_X_FORWARDED_FOR (X-Forwarded-For) procedent del proxy 1.2.3.4:[br]"
+"[kbd]1.2.3.4: HTTP_X_FORWARDED_FOR[/kbd]"
 
 #: libraries/config/messages.inc.php:523
 msgid "List of trusted proxies for IP allow/deny"
@@ -6819,7 +6820,7 @@ msgstr "Crea una taula"
 #: libraries/rte/rte_list.lib.php:52 libraries/rte/rte_list.lib.php:63
 #: libraries/rte/rte_list.lib.php:77 libraries/rte/rte_routines.lib.php:967
 #: libraries/rte/rte_routines.lib.php:1579 libraries/structure.lib.php:1179
-#: libraries/tbl_columns_definition_form.inc.php:95
+#: libraries/tbl_columns_definition_form.inc.php:54
 #: setup/frames/index.inc.php:135
 msgid "Name"
 msgstr "Nom"
@@ -7090,7 +7091,7 @@ msgstr "%s de %s"
 #: libraries/display_import.lib.php:454
 #, fuzzy
 #| msgid "Uploading your import file…"
-msgid "Uploading your import file..."
+msgid "Uploading your import file…"
 msgstr "Pujant el teu arxiu a importar…"
 
 #: libraries/display_import.lib.php:455
@@ -8702,8 +8703,8 @@ msgid ""
 "The first line of the file contains the table column names <i>(if this is "
 "unchecked, the first line will become part of the data)</i>"
 msgstr ""
-"La primera línia de l'arxiu conté els noms de les columnes de la taula <i>"
-"(si no es marca això, la primera línia formarà part de les dades)</i>"
+"La primera línia de l'arxiu conté els noms de les columnes de la taula "
+"<i>(si no es marca això, la primera línia formarà part de les dades)</i>"
 
 #: libraries/plugins/import/ImportCsv.class.php:72
 msgid ""
@@ -8996,7 +8997,7 @@ msgid "Displaying Column Comments"
 msgstr "Mostrant comentaris de les columnes"
 
 #: libraries/relation.lib.php:165
-#: libraries/tbl_columns_definition_form.inc.php:170
+#: libraries/tbl_columns_definition_form.inc.php:129
 #: transformation_overview.php:39
 msgid "Browser transformation"
 msgstr "Transformació del navegador"
@@ -9573,7 +9574,7 @@ msgid "Direction"
 msgstr "Direcció"
 
 #: libraries/rte/rte_routines.lib.php:969
-#: libraries/tbl_columns_definition_form.inc.php:98
+#: libraries/tbl_columns_definition_form.inc.php:57
 msgid "Length/Values"
 msgstr "Longitud/Valors*"
 
@@ -9830,7 +9831,7 @@ msgstr "Taula de continguts"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1380
 #: libraries/schema/Pdf_Relation_Schema.class.php:1403
 #: libraries/structure.lib.php:1182
-#: libraries/tbl_columns_definition_form.inc.php:115
+#: libraries/tbl_columns_definition_form.inc.php:74
 msgid "Attributes"
 msgstr "Atributs"
 
@@ -11944,14 +11945,14 @@ msgstr "S'ha esborrat la columna %s"
 
 #: libraries/structure.lib.php:1383 libraries/structure.lib.php:2070
 #: libraries/structure.lib.php:2080
-#: libraries/tbl_columns_definition_form.inc.php:562
+#: libraries/tbl_columns_definition_form.inc.php:519
 msgid "Primary"
 msgstr "Principal"
 
 #: libraries/structure.lib.php:1391 libraries/structure.lib.php:2072
 #: libraries/structure.lib.php:2082 libraries/structure.lib.php:2190
-#: libraries/tbl_columns_definition_form.inc.php:123
-#: libraries/tbl_columns_definition_form.inc.php:576 tbl_printview.php:306
+#: libraries/tbl_columns_definition_form.inc.php:82
+#: libraries/tbl_columns_definition_form.inc.php:533 tbl_printview.php:306
 msgid "Index"
 msgstr "Índex"
 
@@ -11962,7 +11963,7 @@ msgstr "Espacial"
 
 #: libraries/structure.lib.php:1408 libraries/structure.lib.php:2078
 #: libraries/structure.lib.php:2088
-#: libraries/tbl_columns_definition_form.inc.php:584
+#: libraries/tbl_columns_definition_form.inc.php:541
 msgid "Fulltext"
 msgstr "Text sencer"
 
@@ -11987,7 +11988,7 @@ msgid "Propose table structure"
 msgstr "Proposa una estructura de taula"
 
 #: libraries/structure.lib.php:1557
-#: libraries/tbl_columns_definition_form.inc.php:758
+#: libraries/tbl_columns_definition_form.lib.php:178
 msgid "You have to add at least one column."
 msgstr "Has d'afegir al menys una columna."
 
@@ -11996,7 +11997,7 @@ msgid "Add column"
 msgstr "Afegeix columna(es)"
 
 #: libraries/structure.lib.php:1573
-#: libraries/tbl_columns_definition_form.inc.php:748
+#: libraries/tbl_columns_definition_form.lib.php:168
 #, php-format
 msgid "Add %s column(s)"
 msgstr "Afegeix %s columna(es)"
@@ -12101,7 +12102,7 @@ msgstr "Les columnes s'han mogut correctament."
 msgid "The column name '%s' is a MySQL reserved keyword."
 msgstr "El nom de columna '%s' és una paraula clau reservada de MySQL."
 
-#: libraries/tbl_columns_definition_form.inc.php:101
+#: libraries/tbl_columns_definition_form.inc.php:60
 msgid ""
 "If column type is \"enum\" or \"set\", please enter the values using this "
 "format: 'a','b','c'…<br />If you ever need to put a backslash (\"\\\") or a "
@@ -12113,7 +12114,7 @@ msgstr ""
 "\") o la cometa simple (\"'\") abans d'aquests valors, escriu davant barres "
 "invertides (per exemple '\\\\xyz' o 'a\\'b')."
 
-#: libraries/tbl_columns_definition_form.inc.php:110
+#: libraries/tbl_columns_definition_form.inc.php:69
 msgid ""
 "For default values, please enter just a single value, without backslash "
 "escaping or quotes, using this format: a"
@@ -12121,11 +12122,11 @@ msgstr ""
 "Per a valors per defecte, només entra un valor, sense barres invertides ni "
 "cometes, fent servir aquest format: a"
 
-#: libraries/tbl_columns_definition_form.inc.php:149
+#: libraries/tbl_columns_definition_form.inc.php:108
 msgid "Move column"
 msgstr "Moure columna"
 
-#: libraries/tbl_columns_definition_form.inc.php:159
+#: libraries/tbl_columns_definition_form.inc.php:118
 #, php-format
 msgid ""
 "For a list of available transformation options and their MIME type "
@@ -12134,11 +12135,11 @@ msgstr ""
 "Per veure una llista d'opcions de transformació disponibles i els seus tipus "
 "MIME de transformació, prem a %sdescripcions de transformació%s"
 
-#: libraries/tbl_columns_definition_form.inc.php:171
+#: libraries/tbl_columns_definition_form.inc.php:130
 msgid "Transformation options"
 msgstr "Opcions de transformació"
 
-#: libraries/tbl_columns_definition_form.inc.php:174
+#: libraries/tbl_columns_definition_form.inc.php:133
 msgid ""
 "Please enter the values for transformation options using this format: 'a', "
 "100, b,'c'…<br />If you ever need to put a backslash (\"\\\") or a single "
@@ -12150,53 +12151,53 @@ msgstr ""
 "(\"'\") entre aquests valors, posa una barra invertida devant (per exemple "
 "'\\\\xyz' o 'a\\'b')."
 
-#: libraries/tbl_columns_definition_form.inc.php:412
+#: libraries/tbl_columns_definition_form.inc.php:369
 msgid "ENUM or SET data too long?"
 msgstr "Dades ENUM o SET massa llargues?"
 
-#: libraries/tbl_columns_definition_form.inc.php:414
+#: libraries/tbl_columns_definition_form.inc.php:371
 msgid "Get more editing space"
 msgstr "Obté més espai d'edició"
 
-#: libraries/tbl_columns_definition_form.inc.php:430
+#: libraries/tbl_columns_definition_form.inc.php:387
 msgctxt "for default"
 msgid "None"
 msgstr "Cap"
 
-#: libraries/tbl_columns_definition_form.inc.php:431
+#: libraries/tbl_columns_definition_form.inc.php:388
 msgid "As defined:"
 msgstr "Com definit:"
 
-#: libraries/tbl_columns_definition_form.inc.php:634
+#: libraries/tbl_columns_definition_form.inc.php:591
 msgid "first"
 msgstr "primer"
 
-#: libraries/tbl_columns_definition_form.inc.php:644
+#: libraries/tbl_columns_definition_form.inc.php:601
 #, php-format
 msgid "after %s"
 msgstr "Després de %s"
 
-#: libraries/tbl_columns_definition_form.inc.php:737
-msgid "Table name"
-msgstr "Nom de taula"
-
-#: libraries/tbl_columns_definition_form.inc.php:838
+#: libraries/tbl_columns_definition_form.lib.php:72
 #, fuzzy
 #| msgid "Storage Engine"
 msgid "Storage Engine:"
 msgstr "Motor d'emmagatzematge"
 
-#: libraries/tbl_columns_definition_form.inc.php:842
+#: libraries/tbl_columns_definition_form.lib.php:76
 #, fuzzy
 #| msgid "Collation"
 msgid "Collation:"
 msgstr "Ordenació"
 
-#: libraries/tbl_columns_definition_form.inc.php:876
+#: libraries/tbl_columns_definition_form.lib.php:110
 #, fuzzy
 #| msgid "PARTITION definition"
 msgid "PARTITION definition:"
 msgstr "Definició de PARTICIÓ"
+
+#: libraries/tbl_columns_definition_form.lib.php:160
+msgid "Table name"
+msgstr "Nom de taula"
 
 #: libraries/tbl_common.inc.php:54
 #, php-format
@@ -12627,8 +12628,9 @@ msgid ""
 "Otherwise you will be only able to download or display it."
 msgstr ""
 "Si us plau, crea una carpeta modificable pel servidor web [em]config[/em] al "
-"directori principal de phpMyAdmin tal com s'explica a la [doc@setup_script]"
-"documentació[/doc]. En cas contrari només podràs descarregar o mostrar."
+"directori principal de phpMyAdmin tal com s'explica a la "
+"[doc@setup_script]documentació[/doc]. En cas contrari només podràs "
+"descarregar o mostrar."
 
 #: setup/frames/index.inc.php:60
 msgid ""
@@ -12885,8 +12887,8 @@ msgid ""
 "You set the [kbd]config[/kbd] authentication type and included username and "
 "password for auto-login, which is not a desirable option for live hosts. "
 "Anyone who knows or guesses your phpMyAdmin URL can directly access your "
-"phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or [kbd]"
-"http[/kbd]."
+"phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or "
+"[kbd]http[/kbd]."
 msgstr ""
 "Has triat el tipus d'autenticació [kbd]config[/kbd] i has inclós el nom "
 "d'usuari i la contrasenya per connexions automàtiques, que es una opció no "
@@ -13130,7 +13132,7 @@ msgstr "No s'ha definit l'índex! Crea un a baix"
 msgid "Choose column to display:"
 msgstr "Tria la columna a mostrar"
 
-#: tbl_structure.php:134
+#: tbl_structure.php:133
 #, fuzzy
 #| msgid "No rows selected"
 msgid "No column selected."
@@ -14924,9 +14926,9 @@ msgstr "{concurrent_insert} està establert a 0"
 
 #~ msgid ""
 #~ "When setting this to [kbd]nested[/kbd], the alias of the table name is "
-#~ "only used to split/nest the tables according to the $cfg"
-#~ "['LeftFrameTableSeparator'] directive, so only the folder is called like "
-#~ "the alias, the table name itself stays unchanged"
+#~ "only used to split/nest the tables according to the "
+#~ "$cfg['LeftFrameTableSeparator'] directive, so only the folder is called "
+#~ "like the alias, the table name itself stays unchanged"
 #~ msgstr ""
 #~ "Quan s'estableix aixó a [kbd]anidat[/kbd], el àlies del nom de la taula "
 #~ "només es fa servir per a separar/anidar les taules segons la directiva "

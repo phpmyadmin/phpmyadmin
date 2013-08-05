@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-07-30 09:37-0400\n"
-"PO-Revision-Date: 2013-07-29 16:11+0200\n"
+"POT-Creation-Date: 2013-08-01 14:09+0200\n"
+"PO-Revision-Date: 2013-08-04 19:12+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: Dutch <http://l10n.cihar.com/projects/phpmyadmin/master/nl/>\n"
 "Language: nl\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 1.6\n"
+"X-Generator: Weblate 1.7-dev\n"
 
 #: browse_foreigners.php:51 browse_foreigners.php:75 js/messages.php:339
 #: libraries/DisplayResults.class.php:805
@@ -73,7 +73,7 @@ msgstr "Zoeken:"
 #: libraries/server_privileges.lib.php:3575
 #: libraries/sql_query_form.lib.php:378 libraries/sql_query_form.lib.php:435
 #: libraries/sql_query_form.lib.php:500 libraries/structure.lib.php:1598
-#: libraries/tbl_columns_definition_form.inc.php:754 pmd_pdf.php:157
+#: libraries/tbl_columns_definition_form.lib.php:174 pmd_pdf.php:157
 #: prefs_manage.php:272 prefs_manage.php:322 tbl_chart.php:251
 #: tbl_tracking.php:522 tbl_tracking.php:683 view_create.php:273
 #: view_operations.php:99
@@ -117,7 +117,7 @@ msgid "Database comment: "
 msgstr "Databankopmerking: "
 
 #: db_datadict.php:157 libraries/schema/Pdf_Relation_Schema.class.php:1352
-#: libraries/tbl_columns_definition_form.inc.php:836 tbl_printview.php:120
+#: libraries/tbl_columns_definition_form.lib.php:70 tbl_printview.php:120
 msgid "Table comments:"
 msgstr "Tabelopmerkingen:"
 
@@ -134,7 +134,7 @@ msgstr "Tabelopmerkingen:"
 #: libraries/plugins/export/ExportTexytext.class.php:434
 #: libraries/schema/Pdf_Relation_Schema.class.php:1378
 #: libraries/schema/Pdf_Relation_Schema.class.php:1401
-#: libraries/tbl_columns_definition_form.inc.php:353 tbl_printview.php:130
+#: libraries/tbl_columns_definition_form.inc.php:310 tbl_printview.php:130
 #: tbl_relation.php:396 tbl_relation.php:492 tbl_relation.php:562
 #: tbl_tracking.php:325 tbl_tracking.php:387
 msgid "Column"
@@ -158,7 +158,7 @@ msgstr "Kolom"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1402
 #: libraries/server_privileges.lib.php:1699 libraries/structure.lib.php:776
 #: libraries/structure.lib.php:1180
-#: libraries/tbl_columns_definition_form.inc.php:96 tbl_printview.php:131
+#: libraries/tbl_columns_definition_form.inc.php:55 tbl_printview.php:131
 #: tbl_tracking.php:326 tbl_tracking.php:384
 msgid "Type"
 msgstr "Type"
@@ -175,7 +175,7 @@ msgstr "Type"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1381
 #: libraries/schema/Pdf_Relation_Schema.class.php:1404
 #: libraries/structure.lib.php:1183
-#: libraries/tbl_columns_definition_form.inc.php:116 tbl_printview.php:132
+#: libraries/tbl_columns_definition_form.inc.php:75 tbl_printview.php:132
 #: tbl_tracking.php:328 tbl_tracking.php:390
 msgid "Null"
 msgstr "Leeg"
@@ -190,7 +190,7 @@ msgstr "Leeg"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1382
 #: libraries/schema/Pdf_Relation_Schema.class.php:1405
 #: libraries/structure.lib.php:210 libraries/structure.lib.php:1184
-#: libraries/tbl_columns_definition_form.inc.php:107 tbl_printview.php:133
+#: libraries/tbl_columns_definition_form.inc.php:66 tbl_printview.php:133
 #: tbl_tracking.php:329
 msgid "Default"
 msgstr "Standaardwaarde"
@@ -213,12 +213,12 @@ msgstr "Verwijst naar"
 #: libraries/plugins/export/ExportTexytext.class.php:379
 #: libraries/schema/Pdf_Relation_Schema.class.php:1395
 #: libraries/schema/Pdf_Relation_Schema.class.php:1408
-#: libraries/tbl_columns_definition_form.inc.php:136 tbl_printview.php:137
+#: libraries/tbl_columns_definition_form.inc.php:95 tbl_printview.php:137
 msgid "Comments"
 msgstr "Opmerkingen"
 
 #: db_datadict.php:237 js/messages.php:231 libraries/Index.class.php:431
-#: libraries/Index.class.php:470 libraries/Index.class.php:874
+#: libraries/Index.class.php:470 libraries/Index.class.php:879
 #: libraries/config/FormDisplay.tpl.php:262 libraries/mult_submits.inc.php:372
 #: libraries/mult_submits.inc.php:373
 #: libraries/plugins/export/ExportHtmlword.class.php:633
@@ -240,7 +240,7 @@ msgid "No"
 msgstr "Nee"
 
 #: db_datadict.php:237 js/messages.php:230 libraries/Index.class.php:432
-#: libraries/Index.class.php:469 libraries/Index.class.php:874
+#: libraries/Index.class.php:469 libraries/Index.class.php:879
 #: libraries/config/FormDisplay.tpl.php:262 libraries/mult_submits.inc.php:76
 #: libraries/mult_submits.inc.php:111 libraries/mult_submits.inc.php:120
 #: libraries/mult_submits.inc.php:125 libraries/mult_submits.inc.php:130
@@ -261,7 +261,7 @@ msgstr "Nee"
 #: libraries/server_privileges.lib.php:2655 libraries/structure.lib.php:1268
 #: libraries/user_preferences.lib.php:284 prefs_manage.php:136
 #: server_databases.php:104 server_databases.php:111 tbl_printview.php:187
-#: tbl_structure.php:86 tbl_tracking.php:346 tbl_tracking.php:398
+#: tbl_structure.php:85 tbl_tracking.php:346 tbl_tracking.php:398
 #: tbl_tracking.php:403
 msgid "Yes"
 msgstr "Ja"
@@ -270,7 +270,7 @@ msgstr "Ja"
 msgid "View dump (schema) of database"
 msgstr "Bekijk een dump (schema) van databank"
 
-#: db_export.php:33 db_printview.php:41 db_structure.php:86 db_tracking.php:49
+#: db_export.php:33 db_printview.php:41 db_structure.php:80 db_tracking.php:49
 #: export.php:559 libraries/DBQbe.class.php:268
 msgid "No tables found in database."
 msgstr "Geen tabellen gevonden in de databank."
@@ -299,7 +299,7 @@ msgstr "Databank %1$s werd hernoemd naar %2$s"
 msgid "Database %1$s has been copied to %2$s"
 msgstr "Databank %1$s werd gekopieerd naar %2$s"
 
-#: db_operations.php:261
+#: db_operations.php:255
 #, php-format
 msgid ""
 "The phpMyAdmin configuration storage has been deactivated. To find out why "
@@ -425,7 +425,7 @@ msgid "Action"
 msgstr "Actie"
 
 #: db_tracking.php:85 libraries/navigation/Navigation.class.php:198
-#: tbl_change.php:235 tbl_tracking.php:767
+#: tbl_change.php:151 tbl_tracking.php:767
 msgid "Show"
 msgstr "Toon"
 
@@ -695,10 +695,8 @@ msgid "Back"
 msgstr "Terug"
 
 #: index.php:115 libraries/Footer.class.php:72
-#, fuzzy
-#| msgid "phpMyAdmin homepage"
 msgid "phpMyAdmin Demo Server"
-msgstr "phpMyAdmin-website"
+msgstr "phpMyAdmin Demo Server"
 
 #: index.php:119
 #, php-format
@@ -707,6 +705,9 @@ msgid ""
 "change root, debian-sys-maint and pma users. More information is available "
 "at %s."
 msgstr ""
+"U gebruikt de demoserver. Je kan alles doen, maar gelieve de root, debian-"
+"sys-maint en pma gebruikers niet te wijzigen. Meer informatie is beschikbaar "
+"op %s."
 
 #: index.php:129
 msgid "General Settings"
@@ -1200,7 +1201,7 @@ msgstr "Gelieve tenminste één variabele toe te voegen aan de reeks"
 #: libraries/server_privileges.lib.php:2258
 #: libraries/server_status.lib.php:525
 #: libraries/server_status_monitor.lib.php:269
-#: libraries/tbl_columns_definition_form.inc.php:687 pmd_general.php:545
+#: libraries/tbl_columns_definition_form.inc.php:644 pmd_general.php:545
 msgid "None"
 msgstr "Geen"
 
@@ -1731,7 +1732,7 @@ msgstr "%d is geen geldig rijnummer."
 #: js/messages.php:271 libraries/display_indexes.lib.php:195
 #: libraries/insert_edit.lib.php:1462
 #: libraries/schema/User_Schema.class.php:385
-#: libraries/tbl_columns_definition_form.inc.php:898 server_variables.php:132
+#: libraries/tbl_columns_definition_form.lib.php:141 server_variables.php:132
 #: setup/frames/config.inc.php:39 setup/frames/index.inc.php:246
 #: tbl_relation.php:636
 msgid "Save"
@@ -1802,7 +1803,7 @@ msgid "Data point content"
 msgstr "Inhoud gegevenspunt"
 
 #: js/messages.php:302 libraries/display_indexes.lib.php:134
-#: libraries/display_indexes.lib.php:170 tbl_change.php:263
+#: libraries/display_indexes.lib.php:170 tbl_change.php:179
 msgid "Ignore"
 msgstr "Negeren"
 
@@ -2810,8 +2811,8 @@ msgstr "Onbekende fout bij het uploaden."
 #: libraries/File.class.php:476
 msgid "Error moving the uploaded file, see [doc@faq1-11]FAQ 1.11[/doc]"
 msgstr ""
-"Fout bij het verplaatsen van het geüploade bestand, zie [doc@faq1-11]FAQ 1.11"
-"[/doc]"
+"Fout bij het verplaatsen van het geüploade bestand, zie [doc@faq1-11]FAQ "
+"1.11[/doc]"
 
 #: libraries/File.class.php:494
 msgid "Error while moving uploaded file."
@@ -2824,13 +2825,11 @@ msgstr "Het geüploade bestand kan niet gelezen (verplaatst) worden."
 #: libraries/Footer.class.php:76
 #, php-format
 msgid "Currently running Git revision %1$s from the %2$s branch."
-msgstr ""
+msgstr "Loopt op Git revisie %1$s van de %2$s tak."
 
 #: libraries/Footer.class.php:83
-#, fuzzy
-#| msgid "Version information"
 msgid "Git information missing!"
-msgstr "Versie-informatie"
+msgstr "Git informatie ontbreekt!"
 
 #: libraries/Footer.class.php:163 libraries/Footer.class.php:167
 #: libraries/Footer.class.php:170
@@ -2859,7 +2858,7 @@ msgstr "Indexen"
 
 #: libraries/Index.class.php:563 libraries/structure.lib.php:1387
 #: libraries/structure.lib.php:2074 libraries/structure.lib.php:2084
-#: libraries/tbl_columns_definition_form.inc.php:569 tbl_tracking.php:385
+#: libraries/tbl_columns_definition_form.inc.php:526 tbl_tracking.php:385
 msgid "Unique"
 msgstr "Unieke waarde"
 
@@ -2877,7 +2876,7 @@ msgstr "Kardinaliteit"
 #: libraries/server_collations.lib.php:35
 #: libraries/server_collations.lib.php:47 libraries/structure.lib.php:780
 #: libraries/structure.lib.php:1181 libraries/structure.lib.php:1717
-#: libraries/tbl_columns_definition_form.inc.php:114 tbl_tracking.php:327
+#: libraries/tbl_columns_definition_form.inc.php:73 tbl_tracking.php:327
 #: tbl_tracking.php:389
 msgid "Collation"
 msgstr "Collatie"
@@ -2897,7 +2896,7 @@ msgstr "De primaire sleutel is vervallen"
 msgid "Index %s has been dropped."
 msgstr "Index %s is verwijderd."
 
-#: libraries/Index.class.php:731
+#: libraries/Index.class.php:736
 #, php-format
 msgid ""
 "The indexes %1$s and %2$s seem to be equal and one of them could possibly be "
@@ -2926,7 +2925,7 @@ msgstr "View"
 #: libraries/config/user_preferences.forms.php:234
 #: libraries/config/user_preferences.forms.php:260
 #: libraries/import.lib.php:1227 libraries/server_privileges.lib.php:875
-#: libraries/tbl_columns_definition_form.inc.php:771 pmd_general.php:174
+#: libraries/tbl_columns_definition_form.lib.php:199 pmd_general.php:174
 #: tbl_tracking.php:321
 msgid "Structure"
 msgstr "Structuur"
@@ -3339,7 +3338,7 @@ msgid "Maximum rows to plot"
 msgstr "Maximum aantal af te drukken regels"
 
 #: libraries/TableSearch.class.php:899 libraries/TableSearch.class.php:1203
-#: libraries/sql.lib.php:371 tbl_change.php:230
+#: libraries/sql.lib.php:371 tbl_change.php:146
 msgid "Browse foreign values"
 msgstr "Bekijk vreemde waarden"
 
@@ -4305,9 +4304,9 @@ msgid ""
 "cross-frame scripting attacks"
 msgstr ""
 "Door deze optie in te schakelen is het toegestaan om phpMyAdmin vanuit een "
-"pagina op een ander domein in een frame te openen. Een potentieel [strong]"
-"beveiligingslek[/strong] wat cross-frame scripting aanvallen mogelijk kan "
-"maken"
+"pagina op een ander domein in een frame te openen. Een potentieel "
+"[strong]beveiligingslek[/strong] wat cross-frame scripting aanvallen "
+"mogelijk kan maken"
 
 #: libraries/config/messages.inc.php:20
 msgid "Allow third party framing"
@@ -4322,8 +4321,8 @@ msgid ""
 "Secret passphrase used for encrypting cookies in [kbd]cookie[/kbd] "
 "authentication"
 msgstr ""
-"Geheime sleutelzin gebruikt voor de versleuteling van cookies in [kbd]cookie"
-"[/kbd]-authenticatie"
+"Geheime sleutelzin gebruikt voor de versleuteling van cookies in "
+"[kbd]cookie[/kbd]-authenticatie"
 
 #: libraries/config/messages.inc.php:23
 msgid "Blowfish secret"
@@ -4374,8 +4373,8 @@ msgstr "CHAR-kolommen bewerken"
 
 #: libraries/config/messages.inc.php:32
 msgid ""
-"Use user-friendly editor for editing SQL queries ([a@http://codemirror.net/]"
-"CodeMirror[/a]) with syntax highlighting and line numbers"
+"Use user-friendly editor for editing SQL queries ([a@http://codemirror."
+"net/]CodeMirror[/a]) with syntax highlighting and line numbers"
 msgstr ""
 "Gebruik de gebruiksvriendelijk editor voor SQL queries ([a@http://codemirror."
 "net/]CodeMirror[/a]) met syntaxmarkering en lijnnummers"
@@ -4664,7 +4663,7 @@ msgstr "Labelsleutel"
 #: libraries/config/messages.inc.php:98 libraries/config/messages.inc.php:110
 #: libraries/config/messages.inc.php:135
 #: libraries/plugins/export/ExportOdt.class.php:482
-#: libraries/tbl_columns_definition_form.inc.php:169
+#: libraries/tbl_columns_definition_form.inc.php:128
 msgid "MIME type"
 msgstr "MIME-type"
 
@@ -4724,10 +4723,8 @@ msgstr "Controle op vreemde sleutels uitschakelen"
 
 #: libraries/config/messages.inc.php:126
 #: libraries/plugins/export/ExportSql.class.php:154
-#, fuzzy
-#| msgid "Exporting rows from \"%s\" table"
 msgid "Export views as tables"
-msgstr "Rijen exporteren uit de tabel \"%s\""
+msgstr "Views exporteren als tabellen"
 
 #: libraries/config/messages.inc.php:127 libraries/config/messages.inc.php:128
 #: libraries/config/messages.inc.php:130 libraries/config/messages.inc.php:136
@@ -4780,8 +4777,8 @@ msgid ""
 "Sort order for items in a foreign-key dropdown box; [kbd]content[/kbd] is "
 "the referenced data, [kbd]id[/kbd] is the key value"
 msgstr ""
-"Sorteer volgorde van elementen in een vreemdesleutel-afrolmenu; [kbd]content"
-"[/kbd] is de gerefereerde data, [kbd]id[/kbd] is de sleutelwaarde"
+"Sorteer volgorde van elementen in een vreemdesleutel-afrolmenu; "
+"[kbd]content[/kbd] is de gerefereerde data, [kbd]id[/kbd] is de sleutelwaarde"
 
 #: libraries/config/messages.inc.php:152
 msgid "Foreign key dropdown order"
@@ -4921,8 +4918,9 @@ msgstr "Paginatitels"
 
 #: libraries/config/messages.inc.php:194
 msgid ""
-"Specify browser's title bar text. Refer to [doc@cfg_TitleTable]documentation"
-"[/doc] for magic strings that can be used to get special values."
+"Specify browser's title bar text. Refer to "
+"[doc@cfg_TitleTable]documentation[/doc] for magic strings that can be used "
+"to get special values."
 msgstr ""
 "Browser titel balk tekst. Zie [doc@cfg_TitleTable]documentatie[/doc] voor "
 "bruikbare codes."
@@ -4987,8 +4985,8 @@ msgid ""
 "documentation"
 msgstr ""
 "Configureer de phpMyAdmin-configuratie-opslag om toegang te krijgen tot "
-"extra functionaliteit, zie [doc@linked-tables]phpMyAdmin-configuratie-opslag"
-"[/doc] in de documentatie"
+"extra functionaliteit, zie [doc@linked-tables]phpMyAdmin-configuratie-"
+"opslag[/doc] in de documentatie"
 
 #: libraries/config/messages.inc.php:207
 msgid "Changes tracking"
@@ -5386,8 +5384,8 @@ msgid ""
 "Open the linked page in the main window ([kbd]main[/kbd]) or in a new one "
 "([kbd]new[/kbd])"
 msgstr ""
-"Open de pagina in het hoofdvenster ([kbd]main[/kbd]) of in een nieuwe ([kbd]"
-"new[/kbd])"
+"Open de pagina in het hoofdvenster ([kbd]main[/kbd]) of in een nieuwe "
+"([kbd]new[/kbd])"
 
 #: libraries/config/messages.inc.php:305
 msgid "Logo link target"
@@ -5728,8 +5726,8 @@ msgid ""
 "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/bookmark]bookmark[/a] "
 "support, suggested: [kbd]pma__bookmark[/kbd]"
 msgstr ""
-"Laat dit veld leeg om geen [a@http://wiki.phpmyadmin.net/pma/bookmark]"
-"bladwijzers[/a] te gebruiken, suggestie: [kbd]pma__bookmark[/kbd]"
+"Laat dit veld leeg om geen [a@http://wiki.phpmyadmin.net/pma/"
+"bookmark]bladwijzers[/a] te gebruiken, suggestie: [kbd]pma__bookmark[/kbd]"
 
 #: libraries/config/messages.inc.php:382
 msgid "Bookmark table"
@@ -5737,8 +5735,8 @@ msgstr "Bladwijzertabel"
 
 #: libraries/config/messages.inc.php:383
 msgid ""
-"Leave blank for no column comments/mime types, suggested: [kbd]"
-"pma__column_info[/kbd]"
+"Leave blank for no column comments/mime types, suggested: "
+"[kbd]pma__column_info[/kbd]"
 msgstr ""
 "Laat dit veld leeg om geen kolomopmerkingen en mimetypes te ondersteunen, "
 "suggestie: [kbd]pma__column_info[/kbd]"
@@ -5810,8 +5808,8 @@ msgid ""
 "Leave blank for no Designer support, suggested: [kbd]pma__designer_coords[/"
 "kbd]"
 msgstr ""
-"Laat dit veld leeg om de Designer niet te gebruiken, suggestie: [kbd]"
-"pma__designer_coords[/kbd]"
+"Laat dit veld leeg om de Designer niet te gebruiken, suggestie: "
+"[kbd]pma__designer_coords[/kbd]"
 
 #: libraries/config/messages.inc.php:397
 msgid "Designer table"
@@ -5822,8 +5820,9 @@ msgid ""
 "More information on [a@https://sourceforge.net/p/phpmyadmin/bugs/2606/]PMA "
 "bug tracker[/a] and [a@http://bugs.mysql.com/19588]MySQL Bugs[/a]"
 msgstr ""
-"Zie voor meer informatie: [a@https://sourceforge.net/p/phpmyadmin/bugs/2606/]"
-"PMA-bugtracker[/a] en [a@http://bugs.mysql.com/19588]MySQL Bugs[/a]"
+"Zie voor meer informatie: [a@https://sourceforge.net/p/phpmyadmin/"
+"bugs/2606/]PMA-bugtracker[/a] en [a@http://bugs.mysql.com/19588]MySQL Bugs[/"
+"a]"
 
 #: libraries/config/messages.inc.php:399
 msgid "Disable use of INFORMATION_SCHEMA"
@@ -5853,8 +5852,8 @@ msgid ""
 "Leave blank for no SQL query history support, suggested: [kbd]pma__history[/"
 "kbd]"
 msgstr ""
-"Laat dit veld leeg om geen SQL-geschiedenis te ondersteunen, suggestie: [kbd]"
-"pma__history[/kbd]"
+"Laat dit veld leeg om geen SQL-geschiedenis te ondersteunen, suggestie: "
+"[kbd]pma__history[/kbd]"
 
 #: libraries/config/messages.inc.php:405
 msgid "SQL query history table"
@@ -5934,8 +5933,8 @@ msgid ""
 msgstr ""
 "Databank die wordt gebruikt om relaties, bladwijzers en PDF-eigenschappen op "
 "te slaan. Zie [a@http://wiki.phpmyadmin.net/pma/pmadb]pmadb[/a] voor meer "
-"informatie. Laat dit veld leeg om dit uit te schakelen, suggestie: [kbd]"
-"phpmyadmin[/kbd]"
+"informatie. Laat dit veld leeg om dit uit te schakelen, suggestie: "
+"[kbd]phpmyadmin[/kbd]"
 
 #: libraries/config/messages.inc.php:420
 msgid "Database name"
@@ -5965,11 +5964,12 @@ msgstr "Recent gebruikte tabel"
 
 #: libraries/config/messages.inc.php:425
 msgid ""
-"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-links"
-"[/a] support, suggested: [kbd]pma__relation[/kbd]"
+"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
+"links[/a] support, suggested: [kbd]pma__relation[/kbd]"
 msgstr ""
-"Laat dit veld leeg om geen [a@http://wiki.phpmyadmin.net/pma/relation]"
-"relation-links[/a] te ondersteunen, suggestie: [kbd]pma__relation[/kbd]"
+"Laat dit veld leeg om geen [a@http://wiki.phpmyadmin.net/pma/"
+"relation]relation-links[/a] te ondersteunen, suggestie: [kbd]pma__relation[/"
+"kbd]"
 
 #: libraries/config/messages.inc.php:426
 msgid "Relation table"
@@ -5985,8 +5985,8 @@ msgstr "Opdracht SHOW DATABASES"
 
 #: libraries/config/messages.inc.php:429
 msgid ""
-"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication types"
-"[/a] for an example"
+"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
+"types[/a] for an example"
 msgstr ""
 "Zie [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authenticatietypes[/"
 "a] voor een voorbeeld"
@@ -6022,8 +6022,8 @@ msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__table_coords[/"
 "kbd]"
 msgstr ""
-"Laat dit veld leeg om geen PDF-schema te ondersteunen, suggestie: [kbd]"
-"pma__table_coords[/kbd]"
+"Laat dit veld leeg om geen PDF-schema te ondersteunen, suggestie: "
+"[kbd]pma__table_coords[/kbd]"
 
 #: libraries/config/messages.inc.php:437
 msgid "PDF schema: table coordinates"
@@ -6102,8 +6102,8 @@ msgstr "Bij te houden opdrachten"
 
 #: libraries/config/messages.inc.php:450
 msgid ""
-"Leave blank for no SQL query tracking support, suggested: [kbd]pma__tracking"
-"[/kbd]"
+"Leave blank for no SQL query tracking support, suggested: "
+"[kbd]pma__tracking[/kbd]"
 msgstr ""
 "Laat dit veld leeg om het opvolgen van SQL queries niet te ondersteunen, "
 "suggestie: [kbd]pma__tracking[/kbd]"
@@ -6126,8 +6126,8 @@ msgstr "Automatisch versies aanmaken"
 
 #: libraries/config/messages.inc.php:454
 msgid ""
-"Leave blank for no user preferences storage in database, suggested: [kbd]"
-"pma__userconfig[/kbd]"
+"Leave blank for no user preferences storage in database, suggested: "
+"[kbd]pma__userconfig[/kbd]"
 msgstr ""
 "Laat dit veld leeg om geen gebruikersvoorkeuren op te slaan in de databank, "
 "suggestie: [kbd]pma__userconfig[/kbd]"
@@ -6137,16 +6137,12 @@ msgid "User preferences storage table"
 msgstr "Opslagtabel voor gebruikersvoorkeuren"
 
 #: libraries/config/messages.inc.php:456
-#, fuzzy
-#| msgid ""
-#| "Leave blank for no user preferences storage in database, suggested: [kbd]"
-#| "pma__userconfig[/kbd]"
 msgid ""
-"Leave blank to disable configurable menus feature, suggested: [kbd]pma__users"
-"[/kbd]"
+"Leave blank to disable configurable menus feature, suggested: "
+"[kbd]pma__users[/kbd]"
 msgstr ""
-"Laat dit veld leeg om geen gebruikersvoorkeuren op te slaan in de databank, "
-"suggestie: [kbd]pma__userconfig[/kbd]"
+"Laat dit veld leeg om configureerbare menu's uit te schakelen, suggestie: "
+"[kbd]pma__users[/kbd]"
 
 #: libraries/config/messages.inc.php:457
 msgid "Users table"
@@ -6155,11 +6151,11 @@ msgstr "Gebruikerstabel"
 #: libraries/config/messages.inc.php:458
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no user preferences storage in database, suggested: [kbd]"
-#| "pma__userconfig[/kbd]"
+#| "Leave blank for no user preferences storage in database, suggested: "
+#| "[kbd]pma__userconfig[/kbd]"
 msgid ""
-"Leave blank to disable configurable menus feature, suggested: [kbd]"
-"pma__usergroups[/kbd]"
+"Leave blank to disable configurable menus feature, suggested: "
+"[kbd]pma__usergroups[/kbd]"
 msgstr ""
 "Laat dit veld leeg om geen gebruikersvoorkeuren op te slaan in de databank, "
 "suggestie: [kbd]pma__userconfig[/kbd]"
@@ -6171,8 +6167,8 @@ msgstr "Gebruikersgroepentabel"
 #: libraries/config/messages.inc.php:460
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no user preferences storage in database, suggested: [kbd]"
-#| "pma__userconfig[/kbd]"
+#| "Leave blank for no user preferences storage in database, suggested: "
+#| "[kbd]pma__userconfig[/kbd]"
 msgid ""
 "Leave blank to disable the feature to hide and show navigation items, "
 "suggested: [kbd]pma__navigationhiding[/kbd]"
@@ -6182,7 +6178,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:461
 msgid "Hidden navigation items table"
-msgstr ""
+msgstr "Tabel met verborgen navigatieonderdelen"
 
 #: libraries/config/messages.inc.php:463
 msgid "User for config auth"
@@ -6303,8 +6299,8 @@ msgid ""
 "Shows link to [a@http://php.net/manual/function.phpinfo.php]phpinfo()[/a] "
 "output"
 msgstr ""
-"Toon link naar de uitvoer van [a@http://php.net/manual/function.phpinfo.php]"
-"phpinfo()[/a]"
+"Toon link naar de uitvoer van [a@http://php.net/manual/function.phpinfo."
+"php]phpinfo()[/a]"
 
 #: libraries/config/messages.inc.php:486
 msgid "Show phpinfo() link"
@@ -6714,7 +6710,7 @@ msgstr "Tabel aanmaken"
 #: libraries/rte/rte_list.lib.php:52 libraries/rte/rte_list.lib.php:63
 #: libraries/rte/rte_list.lib.php:77 libraries/rte/rte_routines.lib.php:967
 #: libraries/rte/rte_routines.lib.php:1579 libraries/structure.lib.php:1179
-#: libraries/tbl_columns_definition_form.inc.php:95
+#: libraries/tbl_columns_definition_form.inc.php:54
 #: setup/frames/index.inc.php:135
 msgid "Name"
 msgstr "Naam"
@@ -6983,9 +6979,8 @@ msgid "%s of %s"
 msgstr "%s van %s"
 
 #: libraries/display_import.lib.php:454
-#, fuzzy
 #| msgid "Uploading your import file…"
-msgid "Uploading your import file..."
+msgid "Uploading your import file…"
 msgstr "Uw geïmporteerde bestand wordt ingeladen…"
 
 #: libraries/display_import.lib.php:455
@@ -8532,10 +8527,10 @@ msgid "RELATIONS FOR TABLE"
 msgstr "RELATIES VOOR TABEL"
 
 #: libraries/plugins/export/ExportSql.class.php:1512
-#, fuzzy, php-format
+#, php-format
 #| msgid "Structure for view"
 msgid "Structure for view %s exported as a table"
-msgstr "Structuur voor de view"
+msgstr "Structuur voor view %s geëxporteerd als tabel"
 
 #: libraries/plugins/export/ExportSql.class.php:1600
 msgid "Error reading data:"
@@ -8857,7 +8852,7 @@ msgid "Displaying Column Comments"
 msgstr "Toon kolomopmerkingen"
 
 #: libraries/relation.lib.php:165
-#: libraries/tbl_columns_definition_form.inc.php:170
+#: libraries/tbl_columns_definition_form.inc.php:129
 #: transformation_overview.php:39
 msgid "Browser transformation"
 msgstr "Browsertransformaties"
@@ -8894,10 +8889,9 @@ msgstr "Configureerbare menu's"
 
 # Zowel "frame" als "window" vertalen naar "venster".
 #: libraries/relation.lib.php:275
-#, fuzzy
 #| msgid "Reload navigation frame"
 msgid "Hide/show navigation items"
-msgstr "Navigatievenster herladen"
+msgstr "Navigatieonderdelen tonen/verbergen"
 
 #: libraries/relation.lib.php:281
 msgid "Quick steps to setup advanced features:"
@@ -9429,7 +9423,7 @@ msgid "Direction"
 msgstr "Richting"
 
 #: libraries/rte/rte_routines.lib.php:969
-#: libraries/tbl_columns_definition_form.inc.php:98
+#: libraries/tbl_columns_definition_form.inc.php:57
 msgid "Length/Values"
 msgstr "Lengte/Waarden"
 
@@ -9685,7 +9679,7 @@ msgstr "Inhoudsopgave"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1380
 #: libraries/schema/Pdf_Relation_Schema.class.php:1403
 #: libraries/structure.lib.php:1182
-#: libraries/tbl_columns_definition_form.inc.php:115
+#: libraries/tbl_columns_definition_form.inc.php:74
 msgid "Attributes"
 msgstr "Attributen"
 
@@ -10070,7 +10064,7 @@ msgstr "Geen"
 #: libraries/server_privileges.lib.php:2531
 #: libraries/server_privileges.lib.php:3235
 msgid "User group"
-msgstr ""
+msgstr "Gebruikersgroep"
 
 #: libraries/server_privileges.lib.php:618
 msgid "Resource limits"
@@ -10374,11 +10368,12 @@ msgstr ""
 #: libraries/server_privileges.lib.php:3187
 #, php-format
 msgid "Users of '%s' user group"
-msgstr ""
+msgstr "Gebruikers in '%s' gebruikersgroep"
 
 #: libraries/server_privileges.lib.php:3198
 msgid "No users were found belonging to this user group."
 msgstr ""
+"Er werden geen gebruikers gevonden die tot deze gebruikersgroep behoren."
 
 #: libraries/server_privileges.lib.php:3229
 #: libraries/server_privileges.lib.php:3878
@@ -10387,54 +10382,47 @@ msgstr "Gebruikersgroepen"
 
 #: libraries/server_privileges.lib.php:3236
 #: libraries/server_privileges.lib.php:3402
-#, fuzzy
 #| msgid "Server version"
 msgid "Server-level tabs"
-msgstr "Serverversie"
+msgstr "Tabs op serverniveau"
 
 #: libraries/server_privileges.lib.php:3237
 #: libraries/server_privileges.lib.php:3405
-#, fuzzy
 #| msgid "Database server"
 msgid "Database-level tabs"
-msgstr "Databankserver"
+msgstr "Tabs op databankniveau"
 
 #: libraries/server_privileges.lib.php:3238
 #: libraries/server_privileges.lib.php:3408
-#, fuzzy
 #| msgid "Table comments"
 msgid "Table-level tabs"
-msgstr "Tabelopmerkingen"
+msgstr "Tabs op tabelniveau"
 
 #: libraries/server_privileges.lib.php:3260
-#, fuzzy
 #| msgid "Views"
 msgid "View users"
-msgstr "Views"
+msgstr "View gebruikers"
 
 #: libraries/server_privileges.lib.php:3288
 #: libraries/server_privileges.lib.php:3344
-#, fuzzy
 #| msgid "Add user"
 msgid "Add user group"
-msgstr "Gebruiker toevoegen"
+msgstr "Gebruikersgroep toevoegen"
 
 #: libraries/server_privileges.lib.php:3347
 #, php-format
 msgid "Edit user group: '%s'"
-msgstr ""
+msgstr "Bewerk gebruikersgroep: '%s'"
 
 #: libraries/server_privileges.lib.php:3363
-#, fuzzy
 #| msgid "No privileges."
 msgid "User group menu assignments"
-msgstr "Geen rechten."
+msgstr "Gebruikersgroep menutoewijzingen"
 
 #: libraries/server_privileges.lib.php:3370
-#, fuzzy
 #| msgid "Column names: "
 msgid "Group name:"
-msgstr "Kolomnamen: "
+msgstr "Groepsnaam:"
 
 #: libraries/server_privileges.lib.php:3521
 msgid "The selected user was not found in the privilege table."
@@ -11775,14 +11763,14 @@ msgstr "Kolom %s is verwijderd"
 
 #: libraries/structure.lib.php:1383 libraries/structure.lib.php:2070
 #: libraries/structure.lib.php:2080
-#: libraries/tbl_columns_definition_form.inc.php:562
+#: libraries/tbl_columns_definition_form.inc.php:519
 msgid "Primary"
 msgstr "Primaire sleutel"
 
 #: libraries/structure.lib.php:1391 libraries/structure.lib.php:2072
 #: libraries/structure.lib.php:2082 libraries/structure.lib.php:2190
-#: libraries/tbl_columns_definition_form.inc.php:123
-#: libraries/tbl_columns_definition_form.inc.php:576 tbl_printview.php:306
+#: libraries/tbl_columns_definition_form.inc.php:82
+#: libraries/tbl_columns_definition_form.inc.php:533 tbl_printview.php:306
 msgid "Index"
 msgstr "Index"
 
@@ -11793,7 +11781,7 @@ msgstr "Ruimtelijk"
 
 #: libraries/structure.lib.php:1408 libraries/structure.lib.php:2078
 #: libraries/structure.lib.php:2088
-#: libraries/tbl_columns_definition_form.inc.php:584
+#: libraries/tbl_columns_definition_form.inc.php:541
 msgid "Fulltext"
 msgstr "Volledige tekst"
 
@@ -11818,7 +11806,7 @@ msgid "Propose table structure"
 msgstr "Tabelstructuur voorstellen"
 
 #: libraries/structure.lib.php:1557
-#: libraries/tbl_columns_definition_form.inc.php:758
+#: libraries/tbl_columns_definition_form.lib.php:178
 msgid "You have to add at least one column."
 msgstr "U moet minstens één kolom toevoegen."
 
@@ -11827,7 +11815,7 @@ msgid "Add column"
 msgstr "Kolom toevoegen"
 
 #: libraries/structure.lib.php:1573
-#: libraries/tbl_columns_definition_form.inc.php:748
+#: libraries/tbl_columns_definition_form.lib.php:168
 #, php-format
 msgid "Add %s column(s)"
 msgstr "%s kolom(men) toevoegen"
@@ -11930,7 +11918,7 @@ msgstr "De geselecteerde kolommen zijn met succes verplaatst."
 msgid "The column name '%s' is a MySQL reserved keyword."
 msgstr "De kolomnaam '%s' is een gereserveerd MySQL sleutelwoord."
 
-#: libraries/tbl_columns_definition_form.inc.php:101
+#: libraries/tbl_columns_definition_form.inc.php:60
 msgid ""
 "If column type is \"enum\" or \"set\", please enter the values using this "
 "format: 'a','b','c'…<br />If you ever need to put a backslash (\"\\\") or a "
@@ -11942,7 +11930,7 @@ msgstr ""
 "enkel aanhalingsteken (\"'\") bij deze waardes, plaats er dan een backslash "
 "voor (voorbeeld '\\\\xyz' of 'a\\'b')."
 
-#: libraries/tbl_columns_definition_form.inc.php:110
+#: libraries/tbl_columns_definition_form.inc.php:69
 msgid ""
 "For default values, please enter just a single value, without backslash "
 "escaping or quotes, using this format: a"
@@ -11950,11 +11938,11 @@ msgstr ""
 "Voer voor standaard waarden aub een enkele waarde in, zonder backslash of "
 "aanhalingstekens, gebruik makend van dit formaat: a"
 
-#: libraries/tbl_columns_definition_form.inc.php:149
+#: libraries/tbl_columns_definition_form.inc.php:108
 msgid "Move column"
 msgstr "Kolom verplaatsen"
 
-#: libraries/tbl_columns_definition_form.inc.php:159
+#: libraries/tbl_columns_definition_form.inc.php:118
 #, php-format
 msgid ""
 "For a list of available transformation options and their MIME type "
@@ -11963,11 +11951,11 @@ msgstr ""
 "Voor een lijst met beschikbare transformatieopties en MIME-type-"
 "transformaties, klik op %sTransformatieopties%s"
 
-#: libraries/tbl_columns_definition_form.inc.php:171
+#: libraries/tbl_columns_definition_form.inc.php:130
 msgid "Transformation options"
 msgstr "Transformatieopties"
 
-#: libraries/tbl_columns_definition_form.inc.php:174
+#: libraries/tbl_columns_definition_form.inc.php:133
 msgid ""
 "Please enter the values for transformation options using this format: 'a', "
 "100, b,'c'…<br />If you ever need to put a backslash (\"\\\") or a single "
@@ -11979,48 +11967,48 @@ msgstr ""
 "(\"'\") moet invoegen in deze waardes, plaats er dan een backslash voor "
 "(bijvoorbeeld '\\\\xyz' of 'a\\'b')."
 
-#: libraries/tbl_columns_definition_form.inc.php:412
+#: libraries/tbl_columns_definition_form.inc.php:369
 msgid "ENUM or SET data too long?"
 msgstr "ENUM- of SET-gegevens te lang?"
 
-#: libraries/tbl_columns_definition_form.inc.php:414
+#: libraries/tbl_columns_definition_form.inc.php:371
 msgid "Get more editing space"
 msgstr "Meer plaats om te bewerken"
 
 # "Geen" of indien telbaar: "Geen enkele".
-#: libraries/tbl_columns_definition_form.inc.php:430
+#: libraries/tbl_columns_definition_form.inc.php:387
 msgctxt "for default"
 msgid "None"
 msgstr "Geen"
 
-#: libraries/tbl_columns_definition_form.inc.php:431
+#: libraries/tbl_columns_definition_form.inc.php:388
 msgid "As defined:"
 msgstr "Zoals aangegeven:"
 
-#: libraries/tbl_columns_definition_form.inc.php:634
+#: libraries/tbl_columns_definition_form.inc.php:591
 msgid "first"
 msgstr "eerste"
 
-#: libraries/tbl_columns_definition_form.inc.php:644
+#: libraries/tbl_columns_definition_form.inc.php:601
 #, php-format
 msgid "after %s"
 msgstr "na %s"
 
-#: libraries/tbl_columns_definition_form.inc.php:737
-msgid "Table name"
-msgstr "Tabelnaam"
-
-#: libraries/tbl_columns_definition_form.inc.php:838
+#: libraries/tbl_columns_definition_form.lib.php:72
 msgid "Storage Engine:"
 msgstr "Opslag-engine:"
 
-#: libraries/tbl_columns_definition_form.inc.php:842
+#: libraries/tbl_columns_definition_form.lib.php:76
 msgid "Collation:"
 msgstr "Collatie:"
 
-#: libraries/tbl_columns_definition_form.inc.php:876
+#: libraries/tbl_columns_definition_form.lib.php:110
 msgid "PARTITION definition:"
 msgstr "PARTITION-definitie:"
+
+#: libraries/tbl_columns_definition_form.lib.php:160
+msgid "Table name"
+msgstr "Tabelnaam"
 
 #: libraries/tbl_common.inc.php:54
 #, php-format
@@ -12709,8 +12697,8 @@ msgid ""
 "You set the [kbd]config[/kbd] authentication type and included username and "
 "password for auto-login, which is not a desirable option for live hosts. "
 "Anyone who knows or guesses your phpMyAdmin URL can directly access your "
-"phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or [kbd]"
-"http[/kbd]."
+"phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or "
+"[kbd]http[/kbd]."
 msgstr ""
 "U gebruikt het [kbd]config[/kbd]-authenticatietype en heeft de te gebruiken "
 "gebruikersnaam en wachtwoord hierbij opgegeven voor automatisch aanmelden. "
@@ -12946,7 +12934,7 @@ msgstr "Geen index gedefiniëerd! Maak hieronder een aan"
 msgid "Choose column to display:"
 msgstr "Kies weer te geven kolom:"
 
-#: tbl_structure.php:134
+#: tbl_structure.php:133
 msgid "No column selected."
 msgstr "Geen kolom geselecteerd."
 
@@ -14729,9 +14717,9 @@ msgstr "concurrent_insert is ingesteld op 0"
 
 #~ msgid ""
 #~ "When setting this to [kbd]nested[/kbd], the alias of the table name is "
-#~ "only used to split/nest the tables according to the $cfg"
-#~ "['LeftFrameTableSeparator'] directive, so only the folder is called like "
-#~ "the alias, the table name itself stays unchanged"
+#~ "only used to split/nest the tables according to the "
+#~ "$cfg['LeftFrameTableSeparator'] directive, so only the folder is called "
+#~ "like the alias, the table name itself stays unchanged"
 #~ msgstr ""
 #~ "Indien ingesteld op [kbd]nested[/kbd] wordt de opmerking enkel op basis "
 #~ "van $cfg['LeftFrameTableSeparator'] gesplitst. Hierdoor krijgt enkel de "

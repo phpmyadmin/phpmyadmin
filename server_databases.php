@@ -1,6 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
+ * Server databases
  *
  * @package PhpMyAdmin
  */
@@ -135,7 +136,7 @@ if ((isset($_REQUEST['drop_selected_dbs']) || isset($_REQUEST['query_type']))
  * Displays the sub-page heading
  */
 $header_type = $dbstats ? "database_statistics" : "databases";
-$response->addHTML(PMA_getSubPageHeader($header_type));
+$response->addHTML(PMA_getHtmlForSubPageHeader($header_type));
 
 /**
  * Displays For Create database.

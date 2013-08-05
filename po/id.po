@@ -3,17 +3,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-07-30 09:37-0400\n"
-"PO-Revision-Date: 2013-06-20 14:00+0200\n"
+"POT-Creation-Date: 2013-08-01 14:09+0200\n"
+"PO-Revision-Date: 2013-08-04 15:10+0200\n"
 "Last-Translator: Dadan Setia <da2n_s@yahoo.co.id>\n"
-"Language-Team: Indonesian <http://l10n.cihar.com/projects/phpmyadmin/master/"
-"id/>\n"
+"Language-Team: Indonesian "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/id/>\n"
 "Language: id\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 1.6-dev\n"
+"X-Generator: Weblate 1.7-dev\n"
 "X-Poedit-Basepath: ../../..\n"
 
 #: browse_foreigners.php:51 browse_foreigners.php:75 js/messages.php:339
@@ -76,7 +76,7 @@ msgstr "Cari:"
 #: libraries/server_privileges.lib.php:3575
 #: libraries/sql_query_form.lib.php:378 libraries/sql_query_form.lib.php:435
 #: libraries/sql_query_form.lib.php:500 libraries/structure.lib.php:1598
-#: libraries/tbl_columns_definition_form.inc.php:754 pmd_pdf.php:157
+#: libraries/tbl_columns_definition_form.lib.php:174 pmd_pdf.php:157
 #: prefs_manage.php:272 prefs_manage.php:322 tbl_chart.php:251
 #: tbl_tracking.php:522 tbl_tracking.php:683 view_create.php:273
 #: view_operations.php:99
@@ -120,7 +120,7 @@ msgid "Database comment: "
 msgstr "Komentar basis data: "
 
 #: db_datadict.php:157 libraries/schema/Pdf_Relation_Schema.class.php:1352
-#: libraries/tbl_columns_definition_form.inc.php:836 tbl_printview.php:120
+#: libraries/tbl_columns_definition_form.lib.php:70 tbl_printview.php:120
 msgid "Table comments:"
 msgstr "Komentar tabel:"
 
@@ -137,7 +137,7 @@ msgstr "Komentar tabel:"
 #: libraries/plugins/export/ExportTexytext.class.php:434
 #: libraries/schema/Pdf_Relation_Schema.class.php:1378
 #: libraries/schema/Pdf_Relation_Schema.class.php:1401
-#: libraries/tbl_columns_definition_form.inc.php:353 tbl_printview.php:130
+#: libraries/tbl_columns_definition_form.inc.php:310 tbl_printview.php:130
 #: tbl_relation.php:396 tbl_relation.php:492 tbl_relation.php:562
 #: tbl_tracking.php:325 tbl_tracking.php:387
 msgid "Column"
@@ -161,7 +161,7 @@ msgstr "Kolom"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1402
 #: libraries/server_privileges.lib.php:1699 libraries/structure.lib.php:776
 #: libraries/structure.lib.php:1180
-#: libraries/tbl_columns_definition_form.inc.php:96 tbl_printview.php:131
+#: libraries/tbl_columns_definition_form.inc.php:55 tbl_printview.php:131
 #: tbl_tracking.php:326 tbl_tracking.php:384
 msgid "Type"
 msgstr "Jenis"
@@ -178,7 +178,7 @@ msgstr "Jenis"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1381
 #: libraries/schema/Pdf_Relation_Schema.class.php:1404
 #: libraries/structure.lib.php:1183
-#: libraries/tbl_columns_definition_form.inc.php:116 tbl_printview.php:132
+#: libraries/tbl_columns_definition_form.inc.php:75 tbl_printview.php:132
 #: tbl_tracking.php:328 tbl_tracking.php:390
 msgid "Null"
 msgstr "Kosong"
@@ -193,7 +193,7 @@ msgstr "Kosong"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1382
 #: libraries/schema/Pdf_Relation_Schema.class.php:1405
 #: libraries/structure.lib.php:210 libraries/structure.lib.php:1184
-#: libraries/tbl_columns_definition_form.inc.php:107 tbl_printview.php:133
+#: libraries/tbl_columns_definition_form.inc.php:66 tbl_printview.php:133
 #: tbl_tracking.php:329
 msgid "Default"
 msgstr "Bawaan"
@@ -216,12 +216,12 @@ msgstr "Tautan ke"
 #: libraries/plugins/export/ExportTexytext.class.php:379
 #: libraries/schema/Pdf_Relation_Schema.class.php:1395
 #: libraries/schema/Pdf_Relation_Schema.class.php:1408
-#: libraries/tbl_columns_definition_form.inc.php:136 tbl_printview.php:137
+#: libraries/tbl_columns_definition_form.inc.php:95 tbl_printview.php:137
 msgid "Comments"
 msgstr "Komentar"
 
 #: db_datadict.php:237 js/messages.php:231 libraries/Index.class.php:431
-#: libraries/Index.class.php:470 libraries/Index.class.php:874
+#: libraries/Index.class.php:470 libraries/Index.class.php:879
 #: libraries/config/FormDisplay.tpl.php:262 libraries/mult_submits.inc.php:372
 #: libraries/mult_submits.inc.php:373
 #: libraries/plugins/export/ExportHtmlword.class.php:633
@@ -243,7 +243,7 @@ msgid "No"
 msgstr "Tidak"
 
 #: db_datadict.php:237 js/messages.php:230 libraries/Index.class.php:432
-#: libraries/Index.class.php:469 libraries/Index.class.php:874
+#: libraries/Index.class.php:469 libraries/Index.class.php:879
 #: libraries/config/FormDisplay.tpl.php:262 libraries/mult_submits.inc.php:76
 #: libraries/mult_submits.inc.php:111 libraries/mult_submits.inc.php:120
 #: libraries/mult_submits.inc.php:125 libraries/mult_submits.inc.php:130
@@ -264,7 +264,7 @@ msgstr "Tidak"
 #: libraries/server_privileges.lib.php:2655 libraries/structure.lib.php:1268
 #: libraries/user_preferences.lib.php:284 prefs_manage.php:136
 #: server_databases.php:104 server_databases.php:111 tbl_printview.php:187
-#: tbl_structure.php:86 tbl_tracking.php:346 tbl_tracking.php:398
+#: tbl_structure.php:85 tbl_tracking.php:346 tbl_tracking.php:398
 #: tbl_tracking.php:403
 msgid "Yes"
 msgstr "Ya"
@@ -273,7 +273,7 @@ msgstr "Ya"
 msgid "View dump (schema) of database"
 msgstr "Tampilkan dump (skema) basis data"
 
-#: db_export.php:33 db_printview.php:41 db_structure.php:86 db_tracking.php:49
+#: db_export.php:33 db_printview.php:41 db_structure.php:80 db_tracking.php:49
 #: export.php:559 libraries/DBQbe.class.php:268
 msgid "No tables found in database."
 msgstr "Tidak ada tabel dalam basis data."
@@ -302,7 +302,7 @@ msgstr "Nama basis data %1$s telah diubah menjadi %2$s"
 msgid "Database %1$s has been copied to %2$s"
 msgstr "Basis data %1$s telah disalin ke %2$s"
 
-#: db_operations.php:261
+#: db_operations.php:255
 #, php-format
 msgid ""
 "The phpMyAdmin configuration storage has been deactivated. To find out why "
@@ -427,7 +427,7 @@ msgid "Action"
 msgstr "Tindakan"
 
 #: db_tracking.php:85 libraries/navigation/Navigation.class.php:198
-#: tbl_change.php:235 tbl_tracking.php:767
+#: tbl_change.php:151 tbl_tracking.php:767
 msgid "Show"
 msgstr "Tampilkan"
 
@@ -689,10 +689,9 @@ msgid "Back"
 msgstr "Kembali"
 
 #: index.php:115 libraries/Footer.class.php:72
-#, fuzzy
 #| msgid "phpMyAdmin homepage"
 msgid "phpMyAdmin Demo Server"
-msgstr "Situs phpMyAdmin"
+msgstr "Server demonstrasi phpMyAdmin"
 
 #: index.php:119
 #, php-format
@@ -701,6 +700,9 @@ msgid ""
 "change root, debian-sys-maint and pma users. More information is available "
 "at %s."
 msgstr ""
+"Anda menggunakan server demonstrasi. Anda dapat melakukan apapun disini, "
+"tetapi harap jangan mengubah root, debian-sys-main dan pma users. Informasi "
+"lebih lanjut tersedia di %s."
 
 #: index.php:129
 msgid "General Settings"
@@ -750,10 +752,9 @@ msgid "User:"
 msgstr "Pengguna:"
 
 #: index.php:276
-#, fuzzy
 #| msgid "Server charset"
 msgid "Server charset:"
-msgstr "Set karakter server"
+msgstr "Kumpulan karakter server:"
 
 #: index.php:288
 msgid "Web server"
@@ -1198,7 +1199,7 @@ msgstr "Harap tambahkan paling tidak satu variabel ke dalam seri"
 #: libraries/server_privileges.lib.php:2258
 #: libraries/server_status.lib.php:525
 #: libraries/server_status_monitor.lib.php:269
-#: libraries/tbl_columns_definition_form.inc.php:687 pmd_general.php:545
+#: libraries/tbl_columns_definition_form.inc.php:644 pmd_general.php:545
 msgid "None"
 msgstr "Tidak ada"
 
@@ -1679,8 +1680,8 @@ msgstr "Tambahkan nilai %d"
 msgid ""
 "Note: If the file contains multiple tables, they will be combined into one."
 msgstr ""
-"Catatan: Jika berkas mengandung banyak tabel, mereka akan di gabung menjadi "
-"satu"
+"Catatan: Jika berkas mengandung banyak tabel, mereka akan di gabungkan "
+"menjadi satu."
 
 #: js/messages.php:262
 msgid "Hide query box"
@@ -1724,7 +1725,7 @@ msgstr "%d bukanlah nomor baris yang berlaku."
 #: js/messages.php:271 libraries/display_indexes.lib.php:195
 #: libraries/insert_edit.lib.php:1462
 #: libraries/schema/User_Schema.class.php:385
-#: libraries/tbl_columns_definition_form.inc.php:898 server_variables.php:132
+#: libraries/tbl_columns_definition_form.lib.php:141 server_variables.php:132
 #: setup/frames/config.inc.php:39 setup/frames/index.inc.php:246
 #: tbl_relation.php:636
 msgid "Save"
@@ -1739,16 +1740,14 @@ msgid "Show search criteria"
 msgstr "Tampilkan kriteria pencarian"
 
 #: js/messages.php:278
-#, fuzzy
 #| msgid "Hide search criteria"
 msgid "Hide find and replace criteria"
-msgstr "Sembunyikan kriteria pencarian"
+msgstr "Sembunyikan kriteria pencarian dan penggantian"
 
 #: js/messages.php:279
-#, fuzzy
 #| msgid "Show search criteria"
 msgid "Show find and replace criteria"
-msgstr "Tampilkan kriteria pencarian"
+msgstr "Tampilkan kriteria pencarian dan penggantian"
 
 #: js/messages.php:282 libraries/TableSearch.class.php:212
 msgid "Zoom Search"
@@ -1797,7 +1796,7 @@ msgid "Data point content"
 msgstr "Isi titk data"
 
 #: js/messages.php:302 libraries/display_indexes.lib.php:134
-#: libraries/display_indexes.lib.php:170 tbl_change.php:263
+#: libraries/display_indexes.lib.php:170 tbl_change.php:179
 msgid "Ignore"
 msgstr "Abaikan"
 
@@ -1960,10 +1959,9 @@ msgid "Hide Panel"
 msgstr "Sembunyikan Panel"
 
 #: js/messages.php:369
-#, fuzzy
 #| msgid "Show logo in left frame"
 msgid "Show hidden navigation tree items"
-msgstr "Tampilkan logo di bingkai kiri"
+msgstr "Tampilkan navigasi pohon item tersembunyi"
 
 #: js/messages.php:372
 msgid "The requested page was not found in the history, it may have expired."
@@ -2683,16 +2681,16 @@ msgstr ""
 "%sdokumentasi%s."
 
 #: libraries/DisplayResults.class.php:4868
-#, fuzzy, php-format
+#, php-format
 #| msgid "Showing rows"
 msgid "Showing rows %1s - %2s"
-msgstr "Tampilan baris"
+msgstr "Menampilkan baris %1s - %2s"
 
 #: libraries/DisplayResults.class.php:4880
-#, fuzzy, php-format
+#, php-format
 #| msgid "total"
 msgid "%d total"
-msgstr "total"
+msgstr "total %d"
 
 #: libraries/DisplayResults.class.php:4892 libraries/sql.lib.php:1640
 #, php-format
@@ -2819,13 +2817,12 @@ msgstr "Tidak bisa membaca (memindah) file unggah."
 #: libraries/Footer.class.php:76
 #, php-format
 msgid "Currently running Git revision %1$s from the %2$s branch."
-msgstr ""
+msgstr "Saat ini menjalankan revisi Git %1$s dari %2$s cabang."
 
 #: libraries/Footer.class.php:83
-#, fuzzy
 #| msgid "Version information"
 msgid "Git information missing!"
-msgstr "Informasi versi"
+msgstr "Informasi Git hilang!"
 
 #: libraries/Footer.class.php:163 libraries/Footer.class.php:167
 #: libraries/Footer.class.php:170
@@ -2854,7 +2851,7 @@ msgstr "Indeks"
 
 #: libraries/Index.class.php:563 libraries/structure.lib.php:1387
 #: libraries/structure.lib.php:2074 libraries/structure.lib.php:2084
-#: libraries/tbl_columns_definition_form.inc.php:569 tbl_tracking.php:385
+#: libraries/tbl_columns_definition_form.inc.php:526 tbl_tracking.php:385
 msgid "Unique"
 msgstr "Unik"
 
@@ -2872,7 +2869,7 @@ msgstr "Kardinalitas"
 #: libraries/server_collations.lib.php:35
 #: libraries/server_collations.lib.php:47 libraries/structure.lib.php:780
 #: libraries/structure.lib.php:1181 libraries/structure.lib.php:1717
-#: libraries/tbl_columns_definition_form.inc.php:114 tbl_tracking.php:327
+#: libraries/tbl_columns_definition_form.inc.php:73 tbl_tracking.php:327
 #: tbl_tracking.php:389
 msgid "Collation"
 msgstr "Penyortiran"
@@ -2890,9 +2887,9 @@ msgstr "Kunci primer telah dihapus"
 #: libraries/Index.class.php:608
 #, php-format
 msgid "Index %s has been dropped."
-msgstr "Indeks %s telah dihapus"
+msgstr "Indeks %s telah dihapus."
 
-#: libraries/Index.class.php:731
+#: libraries/Index.class.php:736
 #, php-format
 msgid ""
 "The indexes %1$s and %2$s seem to be equal and one of them could possibly be "
@@ -2921,7 +2918,7 @@ msgstr "Gambarkan"
 #: libraries/config/user_preferences.forms.php:234
 #: libraries/config/user_preferences.forms.php:260
 #: libraries/import.lib.php:1227 libraries/server_privileges.lib.php:875
-#: libraries/tbl_columns_definition_form.inc.php:771 pmd_general.php:174
+#: libraries/tbl_columns_definition_form.lib.php:199 pmd_general.php:174
 #: tbl_tracking.php:321
 msgid "Structure"
 msgstr "Struktur"
@@ -3299,7 +3296,7 @@ msgstr "Pencarian Tabel"
 
 #: libraries/TableSearch.class.php:217 libraries/TableSearch.class.php:1172
 msgid "Find and Replace"
-msgstr ""
+msgstr "Cari dan Gantikan"
 
 #: libraries/TableSearch.class.php:239 libraries/insert_edit.lib.php:1352
 msgid "Edit/Insert"
@@ -3331,12 +3328,11 @@ msgid "Use this column to label each point"
 msgstr "Gunakan kolom ini untuk label setiap titik"
 
 #: libraries/TableSearch.class.php:870
-#, fuzzy
 msgid "Maximum rows to plot"
 msgstr "Baris maksimum untuk plot"
 
 #: libraries/TableSearch.class.php:899 libraries/TableSearch.class.php:1203
-#: libraries/sql.lib.php:371 tbl_change.php:230
+#: libraries/sql.lib.php:371 tbl_change.php:146
 msgid "Browse foreign values"
 msgstr "Menjelajahi nilai luar"
 
@@ -3355,53 +3351,46 @@ msgid "Do a \"query by example\" (wildcard: \"%\")"
 msgstr "Lakukan \"kueri dengan contoh\" (wildcard: \"%\")"
 
 #: libraries/TableSearch.class.php:1212
-#, fuzzy
 msgid "Browse/Edit the points"
-msgstr "Melihat-lihat/Edit titik"
+msgstr "Lihat/Edit titik"
 
 #: libraries/TableSearch.class.php:1219
 msgid "How to use"
 msgstr "Cara pakai"
 
 #: libraries/TableSearch.class.php:1224
-#, fuzzy
 #| msgid "Reset"
 msgid "Reset zoom"
-msgstr "Reset Zoom"
+msgstr "Set ulang pembesaran"
 
 #: libraries/TableSearch.class.php:1281
-#, fuzzy
 #| msgid "Replace NULL with:"
 msgid "Replace with:"
-msgstr "Ganti NULL dengan:"
+msgstr "Ganti dengan:"
 
 #: libraries/TableSearch.class.php:1341
 msgid "Find and replace - preview"
-msgstr ""
+msgstr "Cari dan gantikan - Pratinjau"
 
 #: libraries/TableSearch.class.php:1345
-#, fuzzy
 #| msgid "Column"
 msgid "Count"
-msgstr "Kolom"
+msgstr "Jumlah"
 
 #: libraries/TableSearch.class.php:1346
-#, fuzzy
 #| msgid "Original position"
 msgid "Original string"
-msgstr "Posisi aslinya"
+msgstr "String asli"
 
 #: libraries/TableSearch.class.php:1347
-#, fuzzy
 #| msgid "Related Links"
 msgid "Replaced string"
-msgstr "Tautan Terkait"
+msgstr "Gantikan string"
 
 #: libraries/TableSearch.class.php:1371
-#, fuzzy
 #| msgid "Replicated"
 msgid "Replace"
-msgstr "Direplikasi"
+msgstr "Gantikan"
 
 #: libraries/Theme.class.php:170
 #, php-format
@@ -3566,6 +3555,8 @@ msgid ""
 "A fixed-length (0-255, default 1) string that is always right-padded with "
 "spaces to the specified length when stored"
 msgstr ""
+"Sebuah panjang tetap (0-255, standar 1) string yang selalu benar-diisi "
+"dengan spasi dengan panjang tertentu bila disimpan"
 
 #: libraries/Types.class.php:332 libraries/Types.class.php:731
 #, php-format
@@ -3573,6 +3564,8 @@ msgid ""
 "A variable-length (%s) string, the effective maximum length is subject to "
 "the maximum row size"
 msgstr ""
+"Sebuah pangjang-variabel(%s) string, panjang maksimum efektif tunduk pada "
+"ukuran baris"
 
 #: libraries/Types.class.php:334
 msgid ""
@@ -3604,42 +3597,57 @@ msgid ""
 "characters, stored with a four-byte prefix indicating the length of the "
 "value in bytes"
 msgstr ""
+"Sebuah kolom TEXT dengan panjang maksimum  4,294,967,295 atau 4GiB (2^32 - "
+"1) karakter, disimpan dengan awalan empat byte menunjukkan panjang nilai "
+"dalam byte"
 
 #: libraries/Types.class.php:342
 msgid ""
 "Similar to the CHAR type, but stores binary byte strings rather than non-"
 "binary character strings"
 msgstr ""
+"Serupa dengan tipe CHAR, tetapi string menyimpan karakter string biner byte "
+"daripada non-biner"
 
 #: libraries/Types.class.php:344
 msgid ""
 "Similar to the VARCHAR type, but stores binary byte strings rather than non-"
 "binary character strings"
 msgstr ""
+"Serupa dengan tipe VARCHAR, tetapi string menyimpan karakter string biner "
+"byte daripada non-biner"
 
 #: libraries/Types.class.php:346
 msgid ""
 "A BLOB column with a maximum length of 255 (2^8 - 1) bytes, stored with a "
 "one-byte prefix indicating the length of the value"
 msgstr ""
+"Sebuah kolom BLOB dengan panjang maksimum 255 (2^8 - 1) byte, disimpan "
+"dengan awalan satu-byte menunjukkan panjang nilai"
 
 #: libraries/Types.class.php:348
 msgid ""
 "A BLOB column with a maximum length of 16,777,215 (2^24 - 1) bytes, stored "
 "with a three-byte prefix indicating the length of the value"
 msgstr ""
+"Sebuah kolom BLOB dengan panjang maksimum 16,777,215 (2^24 - 1) byte, "
+"disimpan dengan awalan tiga byte yang menunjukkan panjang nilai"
 
 #: libraries/Types.class.php:350 libraries/Types.class.php:737
 msgid ""
 "A BLOB column with a maximum length of 65,535 (2^16 - 1) bytes, stored with "
 "a two-byte prefix indicating the length of the value"
 msgstr ""
+"Sebuah kolom BLOB dengan panjang maksimum 65,535 (2^16 - 1) byte, disimpan "
+"dengan awalan dua-byte menunjukkan panjang nilai"
 
 #: libraries/Types.class.php:352
 msgid ""
 "A BLOB column with a maximum length of 4,294,967,295 or 4GiB (2^32 - 1) "
 "bytes, stored with a four-byte prefix indicating the length of the value"
 msgstr ""
+"Sebuah kolom BLOB dengan panjang maksimum 4,294,967,295 atau 4GiB (2^32 - 1) "
+"byte, disimpan dengan awalan empat byte menunjukkan panjang nilai"
 
 #: libraries/Types.class.php:354
 msgid ""
@@ -3649,63 +3657,60 @@ msgstr ""
 
 #: libraries/Types.class.php:356
 msgid "A single value chosen from a set of up to 64 members"
-msgstr ""
+msgstr "Sebuah nilai tunggal dipilih dari satu set hingga 64 anggota"
 
 #: libraries/Types.class.php:358
 msgid "A type that can store a geometry of any type"
-msgstr ""
+msgstr "Suatu jenis yang dapat menyimpan geometri dari jenis apa pun"
 
 #: libraries/Types.class.php:360
 msgid "A point in 2-dimensional space"
-msgstr ""
+msgstr "Sebuah titik dalam ruang 2-dimensi"
 
 #: libraries/Types.class.php:362
 msgid "A curve with linear interpolation between points"
-msgstr ""
+msgstr "Kurva dengan interpolasi linier antara titik"
 
 #: libraries/Types.class.php:364
-#, fuzzy
 #| msgid "Add a polygon"
 msgid "A polygon"
-msgstr "Tambahkan poligon"
+msgstr "Sebuah poligon"
 
 #: libraries/Types.class.php:366
 msgid "A collection of points"
-msgstr ""
+msgstr "Sebuah koleksi poin"
 
 #: libraries/Types.class.php:368
 msgid "A collection of curves with linear interpolation between points"
-msgstr ""
+msgstr "Sebuah koleksi kurva dengan interpolasi linier antara titik"
 
 #: libraries/Types.class.php:370
 msgid "A collection of polygons"
-msgstr ""
+msgstr "Sebuah koleksi poligon"
 
 #: libraries/Types.class.php:372
 msgid "A collection of geometry objects of any type"
-msgstr ""
+msgstr "Sebuah koleksi objek geometri dari jenis apa pun"
 
 #: libraries/Types.class.php:625 libraries/Types.class.php:975
 msgctxt "numeric types"
 msgid "Numeric"
-msgstr ""
+msgstr "Numerik"
 
 #: libraries/Types.class.php:644 libraries/Types.class.php:978
-#, fuzzy
 #| msgid "Create an index"
 msgctxt "date and time types"
 msgid "Date and time"
-msgstr "Buat indeks"
+msgstr "Tanggal dan waktu"
 
 #: libraries/Types.class.php:653 libraries/Types.class.php:981
 #, fuzzy
 #| msgid "Linestring"
 msgctxt "string types"
 msgid "String"
-msgstr "Segmen garis"
+msgstr "String"
 
 #: libraries/Types.class.php:674
-#, fuzzy
 #| msgid "Spatial"
 msgctxt "spatial types"
 msgid "Spatial"
@@ -3713,13 +3718,15 @@ msgstr "Spasial"
 
 #: libraries/Types.class.php:709
 msgid "A 4-byte integer, range is -2,147,483,648 to 2,147,483,647"
-msgstr ""
+msgstr "4-byte integer, berada pada kisaran -2,147,483,648 sampai 2,147,483,647"
 
 #: libraries/Types.class.php:711
 msgid ""
 "An 8-byte integer, range is -9,223,372,036,854,775,808 to "
 "9,223,372,036,854,775,807"
 msgstr ""
+"8-byte integer, berada pada kisaran -9,223,372,036,854,775,808 sampai "
+"9,223,372,036,854,775,807"
 
 #: libraries/Types.class.php:715
 msgid "A system's default double-precision floating-point number"
@@ -3727,31 +3734,36 @@ msgstr ""
 
 #: libraries/Types.class.php:717
 msgid "True or false"
-msgstr ""
+msgstr "Benar atau salah"
 
 #: libraries/Types.class.php:719
 msgid "An alias for BIGINT NOT NULL AUTO_INCREMENT UNIQUE"
-msgstr ""
+msgstr "Alias untuk BIGINT NOT NULL AUTO_INCREMENT UNIQUE"
 
 #: libraries/Types.class.php:721
+#, fuzzy
 msgid "Stores a Universally Unique Identifier (UUID)"
-msgstr ""
+msgstr "Stores a Universally Unique Identifier (UUID)"
 
 #: libraries/Types.class.php:727
 msgid ""
 "A timestamp, range is '0001-01-01 00:00:00' UTC to '9999-12-31 23:59:59' "
 "UTC; TIMESTAMP(6) can store microseconds"
 msgstr ""
+"Timestamp, berada pada kisaran '0001-01-01 00:00:00' UTC sampai '9999-12-31 "
+"23:59:59' UTC; TIMESTAMP(6) dapat disimpan dalam mikro detik"
 
 #: libraries/Types.class.php:735
 msgid ""
 "A variable-length (0-65,535) string, uses binary collation for all "
 "comparisons"
 msgstr ""
+"Sebuah panjang-variabel string(0-65,535), menggunakan pemeriksaan biner "
+"untuk semua perbandingan"
 
 #: libraries/Types.class.php:739
 msgid "An enumeration, chosen from the list of defined values"
-msgstr ""
+msgstr "Sebuah pencacahan, dipilih dari daftar nilai yang ditetapkan"
 
 #: libraries/Util.class.php:254
 #, php-format
@@ -3759,10 +3771,9 @@ msgid "Max: %s%s"
 msgstr "Batas ukuran: %s%s"
 
 #: libraries/Util.class.php:702 libraries/sql.lib.php:429
-#, fuzzy
 #| msgid "SQL query"
 msgid "SQL query:"
-msgstr "Pencarian SQL"
+msgstr "Query SQL:"
 
 #: libraries/Util.class.php:746 libraries/rte/rte_events.lib.php:114
 #: libraries/rte/rte_events.lib.php:123 libraries/rte/rte_events.lib.php:140
@@ -3867,7 +3878,7 @@ msgstr "Pilih dari direktori unggah <b>%s</b> pada web server:"
 #: libraries/Util.class.php:3417 libraries/insert_edit.lib.php:1183
 #: libraries/sql_query_form.lib.php:479
 msgid "The directory you set for upload work cannot be reached."
-msgstr "Direktori yang telah ditetapkan untuk mengunggah tidak dapat dihubungi"
+msgstr "Direktori yang telah ditetapkan untuk mengunggah tidak dapat dihubungi."
 
 #: libraries/Util.class.php:3428
 msgid "There are no files to upload"
@@ -3969,7 +3980,6 @@ msgid "Could not load default configuration from: %1$s"
 msgstr "Tidak dapat memuat konfigurasi default dari: %1$s"
 
 #: libraries/common.inc.php:597
-#, fuzzy
 #| msgid ""
 #| "The <code>$cfg['PmaAbsoluteUri']</code> directive MUST be set in your "
 #| "configuration file!"
@@ -3977,8 +3987,8 @@ msgid ""
 "The [code]$cfg['PmaAbsoluteUri'][/code] directive MUST be set in your "
 "configuration file!"
 msgstr ""
-"Directif <code>$cfg['PmaAbsoluteUri']</code> WAJIB diset dalam berkas "
-"konfigurasi!"
+"[code]$cfg['PmaAbsoluteUri'][/code] direktif HARUS di atur pada file "
+"konfigurasi anda!"
 
 #: libraries/common.inc.php:630
 #, php-format
@@ -3992,10 +4002,10 @@ msgstr ""
 "Hostname tidak sah untuk server %1$s. Harap lihat kembali konfigurasi Anda."
 
 #: libraries/common.inc.php:657
-#, fuzzy, php-format
+#, php-format
 #| msgid "Server"
 msgid "Server %d"
-msgstr "Server"
+msgstr "Server %d"
 
 #: libraries/common.inc.php:850
 msgid "Invalid authentication method set in configuration:"
@@ -4008,7 +4018,7 @@ msgstr "Anda harus memperbarui ke %s %s atau lebih baru."
 
 #: libraries/common.inc.php:1082
 msgid "Error: Token mismatch"
-msgstr ""
+msgstr "Error: Token tidak cocok"
 
 #: libraries/common.inc.php:1114
 msgid "GLOBALS overwrite attempt"
@@ -4024,17 +4034,15 @@ msgstr "tombol angka terdeteksi"
 
 #: libraries/config.values.php:49 libraries/config.values.php:65
 #: libraries/config.values.php:70
-#, fuzzy
 #| msgid "Ins"
 msgid "Icons"
-msgstr "Tambahkan"
+msgstr "Ikon"
 
 #: libraries/config.values.php:50 libraries/config.values.php:66
 #: libraries/config.values.php:71
-#, fuzzy
 #| msgid "Test"
 msgid "Text"
-msgstr "Uji"
+msgstr "Teks"
 
 #: libraries/config.values.php:51 libraries/config.values.php:59
 #: libraries/config.values.php:67 libraries/config.values.php:72
@@ -4055,11 +4063,11 @@ msgstr "Kanan"
 
 #: libraries/config.values.php:75
 msgid "Click"
-msgstr ""
+msgstr "Klik"
 
 #: libraries/config.values.php:76
 msgid "Double click"
-msgstr ""
+msgstr "Klik ganda"
 
 #: libraries/config.values.php:77 libraries/config.values.php:108
 #: libraries/config/FormDisplay.tpl.php:227 libraries/relation.lib.php:96
@@ -4179,16 +4187,16 @@ msgid "\"%s\" requires %s extension"
 msgstr "\"%s\" memerlukan ekstensi %s"
 
 #: libraries/config/FormDisplay.class.php:791
-#, fuzzy, php-format
+#, php-format
 #| msgid "import will not work, missing function (%s)"
 msgid "Compressed import will not work due to missing function %s."
-msgstr "proses impor tidak akan berjalan, fungsi (%s) tidak ditemukan"
+msgstr "proses impor terkompres tidak akan berjalan karena fungsi %s hilang."
 
 #: libraries/config/FormDisplay.class.php:797
-#, fuzzy, php-format
+#, php-format
 #| msgid "export will not work, missing function (%s)"
 msgid "Compressed export will not work due to missing function %s."
-msgstr "proses ekspor tidak akan berjalan, fungsi (%s) tidak ditemukan"
+msgstr "proses ekspor terkompres tidak akan berjalan karena fungsi  %s hilang."
 
 #: libraries/config/FormDisplay.class.php:807
 msgid "SQL Validator is disabled"
@@ -4225,7 +4233,7 @@ msgstr "Izinkan pengguna untuk mengubah nilai ini"
 
 #: libraries/config/FormDisplay.tpl.php:396
 msgid "Apply"
-msgstr ""
+msgstr "Terapkan"
 
 #: libraries/config/FormDisplay.tpl.php:398 libraries/insert_edit.lib.php:1551
 #: libraries/schema/User_Schema.class.php:556 prefs_manage.php:326
@@ -4235,7 +4243,7 @@ msgstr "Reset"
 
 #: libraries/config/Validator.class.php:217
 msgid "Could not initialize Drizzle connection library"
-msgstr ""
+msgstr "Tidak bisa menginisialisasi koneksi pustaka Drizzle"
 
 #: libraries/config/Validator.class.php:226
 #: libraries/config/Validator.class.php:234
@@ -4245,7 +4253,7 @@ msgstr "Tidak dapat terhubung ke server Drizzle"
 #: libraries/config/Validator.class.php:245
 #: libraries/config/Validator.class.php:252
 msgid "Could not connect to MySQL server"
-msgstr ""
+msgstr "Tidak dapat menghubungi server MySQL"
 
 #: libraries/config/Validator.class.php:285
 msgid "Empty username while using config authentication method"
@@ -4270,10 +4278,9 @@ msgstr ""
 "Kosongkan sandi pengguna pengendali phpMyAdmin sewaktu menggunakan pmadb"
 
 #: libraries/config/Validator.class.php:438
-#, fuzzy
 #| msgid "Incorrect value"
 msgid "Incorrect value:"
-msgstr "Nilai yang salah"
+msgstr "Nilai yang salah:"
 
 #: libraries/config/Validator.class.php:447
 #, php-format
@@ -4314,8 +4321,8 @@ msgid ""
 "Secret passphrase used for encrypting cookies in [kbd]cookie[/kbd] "
 "authentication"
 msgstr ""
-"Rahasia passphrase digunakan untuk enkripsi cookie dalam otentifikasi [kbd]"
-"cookie[/kbd]"
+"Rahasia passphrase digunakan untuk enkripsi cookie dalam otentifikasi "
+"[kbd]cookie[/kbd]"
 
 #: libraries/config/messages.inc.php:23
 msgid "Blowfish secret"
@@ -4355,9 +4362,9 @@ msgid ""
 "columns; [kbd]input[/kbd] - allows limiting of input length, [kbd]textarea[/"
 "kbd] - allows newlines in columns"
 msgstr ""
-"Menentukan jenis masukan yang dipakai untuk kolom CHAR dan VARCHAR; [kbd]"
-"input[/kbd] - mengizinkan pembatasan panjang masukan, [kbd]textarea[/kbd] - "
-"mengizinkan baris baru dalam kolom"
+"Menentukan jenis masukan yang dipakai untuk kolom CHAR dan VARCHAR; "
+"[kbd]input[/kbd] - mengizinkan pembatasan panjang masukan, [kbd]textarea[/"
+"kbd] - mengizinkan baris baru dalam kolom"
 
 #: libraries/config/messages.inc.php:31
 msgid "CHAR columns editing"
@@ -4365,13 +4372,16 @@ msgstr "Pengeditan kolom CHAR"
 
 #: libraries/config/messages.inc.php:32
 msgid ""
-"Use user-friendly editor for editing SQL queries ([a@http://codemirror.net/]"
-"CodeMirror[/a]) with syntax highlighting and line numbers"
+"Use user-friendly editor for editing SQL queries ([a@http://codemirror."
+"net/]CodeMirror[/a]) with syntax highlighting and line numbers"
 msgstr ""
+"Gunakan editor user-friendly untuk mengedit query SQL "
+"([a@http://codemirror.net/]CodeMirror[/a]) dengan penyorotan sintaks dan "
+"nomor baris"
 
 #: libraries/config/messages.inc.php:33
 msgid "Enable CodeMirror"
-msgstr ""
+msgstr "Aktifkan CodeMirror"
 
 #: libraries/config/messages.inc.php:34
 msgid ""
@@ -4476,13 +4486,12 @@ msgstr "Tab tabel bawaan"
 
 #: libraries/config/messages.inc.php:56
 msgid "Whether the table structure actions should be hidden"
-msgstr ""
+msgstr "Sebaiknya stuktur aksi tabel disembunyikan"
 
 #: libraries/config/messages.inc.php:57
-#, fuzzy
 #| msgid "Propose table structure"
 msgid "Hide table structure actions"
-msgstr "Usulkan struktur tabel"
+msgstr "Sembunyikan stuktur aksi tabel"
 
 #: libraries/config/messages.inc.php:58
 msgid "Show binary contents as HEX by default"
@@ -4529,6 +4538,8 @@ msgid ""
 "Set the number of seconds a script is allowed to run ([kbd]0[/kbd] for no "
 "limit)"
 msgstr ""
+"Atur jumlah detik yang diperbolehkan untuk menjalankan script ([kbd]0[/kbd] "
+"untuk tanpa batas)"
 
 #: libraries/config/messages.inc.php:69
 msgid "Maximum execution time"
@@ -4569,28 +4580,25 @@ msgstr "Masukkan nama kolom pada baris pertama"
 #: libraries/config/messages.inc.php:75 libraries/config/messages.inc.php:246
 #: libraries/config/messages.inc.php:253
 #: libraries/plugins/import/ImportCsv.class.php:150
-#, fuzzy
 #| msgid "Columns enclosed with:"
 msgid "Columns enclosed with"
-msgstr "Kolom diapit oleh:"
+msgstr "Kolom diapit oleh"
 
 #: libraries/config/messages.inc.php:76 libraries/config/messages.inc.php:247
 #: libraries/config/messages.inc.php:254
 #: libraries/plugins/import/ImportCsv.class.php:157
-#, fuzzy
 #| msgid "Columns escaped with:"
 msgid "Columns escaped with"
-msgstr "Kolom dikembalikan oleh:"
+msgstr "Kolom diloloskan oleh"
 
 #: libraries/config/messages.inc.php:77 libraries/config/messages.inc.php:83
 #: libraries/config/messages.inc.php:90 libraries/config/messages.inc.php:99
 #: libraries/config/messages.inc.php:107 libraries/config/messages.inc.php:111
 #: libraries/config/messages.inc.php:143 libraries/config/messages.inc.php:146
 #: libraries/config/messages.inc.php:148
-#, fuzzy
 #| msgid "Replace NULL with:"
 msgid "Replace NULL with"
-msgstr "Ganti NULL dengan:"
+msgstr "Ganti NULL dengan"
 
 #: libraries/config/messages.inc.php:78 libraries/config/messages.inc.php:84
 msgid "Remove CRLF characters within columns"
@@ -4599,17 +4607,15 @@ msgstr "Hapus karakter CRLF dalam kolom"
 #: libraries/config/messages.inc.php:79 libraries/config/messages.inc.php:250
 #: libraries/config/messages.inc.php:258
 #: libraries/plugins/import/ImportCsv.class.php:135
-#, fuzzy
 #| msgid "Columns terminated by"
 msgid "Columns terminated with"
 msgstr "Kolom diakhiri oleh"
 
 #: libraries/config/messages.inc.php:80 libraries/config/messages.inc.php:245
 #: libraries/plugins/import/ImportCsv.class.php:164
-#, fuzzy
 #| msgid "Lines terminated with:"
 msgid "Lines terminated with"
-msgstr "Baris diakhir dengan:"
+msgstr "Baris diakhir dengan"
 
 #: libraries/config/messages.inc.php:82
 msgid "Excel edition"
@@ -4658,7 +4664,7 @@ msgstr "Kunci nama"
 #: libraries/config/messages.inc.php:98 libraries/config/messages.inc.php:110
 #: libraries/config/messages.inc.php:135
 #: libraries/plugins/export/ExportOdt.class.php:482
-#: libraries/tbl_columns_definition_form.inc.php:169
+#: libraries/tbl_columns_definition_form.inc.php:128
 msgid "MIME type"
 msgstr "Jenis MIME"
 
@@ -4719,10 +4725,9 @@ msgstr "Tanpa pemeriksaan kunci asing"
 
 #: libraries/config/messages.inc.php:126
 #: libraries/plugins/export/ExportSql.class.php:154
-#, fuzzy
 #| msgid "Exporting rows from \"%s\" table"
 msgid "Export views as tables"
-msgstr "Mengekspor baris dari tabel \"%s\""
+msgstr "Mengekspor tampilan sebagai tabel"
 
 #: libraries/config/messages.inc.php:127 libraries/config/messages.inc.php:128
 #: libraries/config/messages.inc.php:130 libraries/config/messages.inc.php:136
@@ -4919,8 +4924,9 @@ msgstr "Judul halaman"
 
 #: libraries/config/messages.inc.php:194
 msgid ""
-"Specify browser's title bar text. Refer to [doc@cfg_TitleTable]documentation"
-"[/doc] for magic strings that can be used to get special values."
+"Specify browser's title bar text. Refer to "
+"[doc@cfg_TitleTable]documentation[/doc] for magic strings that can be used "
+"to get special values."
 msgstr ""
 
 #: libraries/config/messages.inc.php:195
@@ -5713,11 +5719,11 @@ msgstr "Tabel markah"
 #: libraries/config/messages.inc.php:383
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no user preferences storage in database, suggested: [kbd]"
-#| "pma_userconfig[/kbd]"
+#| "Leave blank for no user preferences storage in database, suggested: "
+#| "[kbd]pma_userconfig[/kbd]"
 msgid ""
-"Leave blank for no column comments/mime types, suggested: [kbd]"
-"pma__column_info[/kbd]"
+"Leave blank for no column comments/mime types, suggested: "
+"[kbd]pma__column_info[/kbd]"
 msgstr ""
 "Biarkan kosong untuk tidak menyimpan preferensi pengguna dalam basis data, "
 "saran: [kbd]pma_userconfig[/kbd]"
@@ -5782,8 +5788,8 @@ msgstr "Inang pengendali"
 #: libraries/config/messages.inc.php:396
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no user preferences storage in database, suggested: [kbd]"
-#| "pma_userconfig[/kbd]"
+#| "Leave blank for no user preferences storage in database, suggested: "
+#| "[kbd]pma_userconfig[/kbd]"
 msgid ""
 "Leave blank for no Designer support, suggested: [kbd]pma__designer_coords[/"
 "kbd]"
@@ -5824,8 +5830,8 @@ msgstr "Sembunyikan basis data"
 #: libraries/config/messages.inc.php:404
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no user preferences storage in database, suggested: [kbd]"
-#| "pma_userconfig[/kbd]"
+#| "Leave blank for no user preferences storage in database, suggested: "
+#| "[kbd]pma_userconfig[/kbd]"
 msgid ""
 "Leave blank for no SQL query history support, suggested: [kbd]pma__history[/"
 "kbd]"
@@ -5891,8 +5897,8 @@ msgstr "Sandi untuk autentikasi config"
 #: libraries/config/messages.inc.php:417
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no user preferences storage in database, suggested: [kbd]"
-#| "pma_userconfig[/kbd]"
+#| "Leave blank for no user preferences storage in database, suggested: "
+#| "[kbd]pma_userconfig[/kbd]"
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__pdf_pages[/kbd]"
 msgstr ""
@@ -5925,8 +5931,8 @@ msgstr "Porta server"
 #: libraries/config/messages.inc.php:423
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no user preferences storage in database, suggested: [kbd]"
-#| "pma_userconfig[/kbd]"
+#| "Leave blank for no user preferences storage in database, suggested: "
+#| "[kbd]pma_userconfig[/kbd]"
 msgid ""
 "Leave blank for no \"persistent\" recently used tables across sessions, "
 "suggested: [kbd]pma__recent[/kbd]"
@@ -5940,8 +5946,8 @@ msgstr "Tabel yang baru digunakan"
 
 #: libraries/config/messages.inc.php:425
 msgid ""
-"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-links"
-"[/a] support, suggested: [kbd]pma__relation[/kbd]"
+"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
+"links[/a] support, suggested: [kbd]pma__relation[/kbd]"
 msgstr ""
 
 #: libraries/config/messages.inc.php:426
@@ -5958,8 +5964,8 @@ msgstr "Perintah SHOW DATABASES"
 
 #: libraries/config/messages.inc.php:429
 msgid ""
-"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication types"
-"[/a] for an example"
+"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
+"types[/a] for an example"
 msgstr ""
 
 #: libraries/config/messages.inc.php:430
@@ -5989,8 +5995,8 @@ msgstr "Gunakan SSL"
 #: libraries/config/messages.inc.php:436
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no user preferences storage in database, suggested: [kbd]"
-#| "pma_userconfig[/kbd]"
+#| "Leave blank for no user preferences storage in database, suggested: "
+#| "[kbd]pma_userconfig[/kbd]"
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__table_coords[/"
 "kbd]"
@@ -6015,8 +6021,8 @@ msgstr "Tabel kolom tampilan"
 #: libraries/config/messages.inc.php:440
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no user preferences storage in database, suggested: [kbd]"
-#| "pma_userconfig[/kbd]"
+#| "Leave blank for no user preferences storage in database, suggested: "
+#| "[kbd]pma_userconfig[/kbd]"
 msgid ""
 "Leave blank for no \"persistent\" tables' UI preferences across sessions, "
 "suggested: [kbd]pma__table_uiprefs[/kbd]"
@@ -6069,11 +6075,11 @@ msgstr "Statement untuk dilacak"
 #: libraries/config/messages.inc.php:450
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no user preferences storage in database, suggested: [kbd]"
-#| "pma_userconfig[/kbd]"
+#| "Leave blank for no user preferences storage in database, suggested: "
+#| "[kbd]pma_userconfig[/kbd]"
 msgid ""
-"Leave blank for no SQL query tracking support, suggested: [kbd]pma__tracking"
-"[/kbd]"
+"Leave blank for no SQL query tracking support, suggested: "
+"[kbd]pma__tracking[/kbd]"
 msgstr ""
 "Biarkan kosong untuk tidak menyimpan preferensi pengguna dalam basis data, "
 "saran: [kbd]pma_userconfig[/kbd]"
@@ -6095,11 +6101,11 @@ msgstr "Buat versi secara otomatis"
 #: libraries/config/messages.inc.php:454
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no user preferences storage in database, suggested: [kbd]"
-#| "pma_userconfig[/kbd]"
+#| "Leave blank for no user preferences storage in database, suggested: "
+#| "[kbd]pma_userconfig[/kbd]"
 msgid ""
-"Leave blank for no user preferences storage in database, suggested: [kbd]"
-"pma__userconfig[/kbd]"
+"Leave blank for no user preferences storage in database, suggested: "
+"[kbd]pma__userconfig[/kbd]"
 msgstr ""
 "Biarkan kosong untuk tidak menyimpan preferensi pengguna dalam basis data, "
 "saran: [kbd]pma_userconfig[/kbd]"
@@ -6111,11 +6117,11 @@ msgstr "Tabel penyimpanan preferensi pengguna"
 #: libraries/config/messages.inc.php:456
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no user preferences storage in database, suggested: [kbd]"
-#| "pma_userconfig[/kbd]"
+#| "Leave blank for no user preferences storage in database, suggested: "
+#| "[kbd]pma_userconfig[/kbd]"
 msgid ""
-"Leave blank to disable configurable menus feature, suggested: [kbd]pma__users"
-"[/kbd]"
+"Leave blank to disable configurable menus feature, suggested: "
+"[kbd]pma__users[/kbd]"
 msgstr ""
 "Biarkan kosong untuk tidak menyimpan preferensi pengguna dalam basis data, "
 "saran: [kbd]pma_userconfig[/kbd]"
@@ -6129,11 +6135,11 @@ msgstr "Gunakan Tabel"
 #: libraries/config/messages.inc.php:458
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no user preferences storage in database, suggested: [kbd]"
-#| "pma_userconfig[/kbd]"
+#| "Leave blank for no user preferences storage in database, suggested: "
+#| "[kbd]pma_userconfig[/kbd]"
 msgid ""
-"Leave blank to disable configurable menus feature, suggested: [kbd]"
-"pma__usergroups[/kbd]"
+"Leave blank to disable configurable menus feature, suggested: "
+"[kbd]pma__usergroups[/kbd]"
 msgstr ""
 "Biarkan kosong untuk tidak menyimpan preferensi pengguna dalam basis data, "
 "saran: [kbd]pma_userconfig[/kbd]"
@@ -6147,8 +6153,8 @@ msgstr "Gunakan Host Table"
 #: libraries/config/messages.inc.php:460
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no user preferences storage in database, suggested: [kbd]"
-#| "pma_userconfig[/kbd]"
+#| "Leave blank for no user preferences storage in database, suggested: "
+#| "[kbd]pma_userconfig[/kbd]"
 msgid ""
 "Leave blank to disable the feature to hide and show navigation items, "
 "suggested: [kbd]pma__navigationhiding[/kbd]"
@@ -6664,7 +6670,7 @@ msgstr "Buat tabel"
 #: libraries/rte/rte_list.lib.php:52 libraries/rte/rte_list.lib.php:63
 #: libraries/rte/rte_list.lib.php:77 libraries/rte/rte_routines.lib.php:967
 #: libraries/rte/rte_routines.lib.php:1579 libraries/structure.lib.php:1179
-#: libraries/tbl_columns_definition_form.inc.php:95
+#: libraries/tbl_columns_definition_form.inc.php:54
 #: setup/frames/index.inc.php:135
 msgid "Name"
 msgstr "Nama"
@@ -6926,7 +6932,7 @@ msgstr ""
 #: libraries/display_import.lib.php:454
 #, fuzzy
 #| msgid "Format of imported file"
-msgid "Uploading your import file..."
+msgid "Uploading your import file…"
 msgstr "Format berkas impor"
 
 #: libraries/display_import.lib.php:455
@@ -8109,7 +8115,7 @@ msgstr ""
 #: libraries/plugins/auth/AuthenticationSignon.class.php:271
 #, php-format
 msgid "No activity within %s seconds; please log in again."
-msgstr "Tidak ada aktivitas selama %s detik atau lebih. Harap masuk kembali"
+msgstr "Tidak ada aktivitas selama %s detik atau lebih. Harap masuk kembali."
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:689
 #: libraries/plugins/auth/AuthenticationCookie.class.php:691
@@ -8133,7 +8139,7 @@ msgstr "Arsip %s tidak mengandung key id"
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:180
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:200
 msgid "Hardware authentication failed!"
-msgstr "Autentikasi perangkat keras gagal"
+msgstr "Autentikasi perangkat keras gagal!"
 
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:187
 msgid "No valid authentication key plugged"
@@ -8807,7 +8813,7 @@ msgid "Displaying Column Comments"
 msgstr "Tampilkan komentar kolom"
 
 #: libraries/relation.lib.php:165
-#: libraries/tbl_columns_definition_form.inc.php:170
+#: libraries/tbl_columns_definition_form.inc.php:129
 #: transformation_overview.php:39
 msgid "Browser transformation"
 msgstr "Transformasi Browser"
@@ -9360,7 +9366,7 @@ msgid "Direction"
 msgstr "Arah"
 
 #: libraries/rte/rte_routines.lib.php:969
-#: libraries/tbl_columns_definition_form.inc.php:98
+#: libraries/tbl_columns_definition_form.inc.php:57
 msgid "Length/Values"
 msgstr "Panjang/Nilai"
 
@@ -9617,7 +9623,7 @@ msgstr "Daftar Isi"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1380
 #: libraries/schema/Pdf_Relation_Schema.class.php:1403
 #: libraries/structure.lib.php:1182
-#: libraries/tbl_columns_definition_form.inc.php:115
+#: libraries/tbl_columns_definition_form.inc.php:74
 msgid "Attributes"
 msgstr "Atribut"
 
@@ -11487,7 +11493,7 @@ msgid ""
 "below, if there is any, may also help you in diagnosing the problem."
 msgstr ""
 "Tampaknya ada galat pada kueri SQL Anda. Keluaran galat server MySQL di "
-"bawah, jika ada, mungkin dapat membantu Anda mendiagnosis masalah"
+"bawah, jika ada, mungkin dapat membantu Anda mendiagnosis masalah."
 
 #: libraries/sqlparser.lib.php:178
 msgid ""
@@ -11611,14 +11617,14 @@ msgstr "Kolom %s telah dihapus"
 
 #: libraries/structure.lib.php:1383 libraries/structure.lib.php:2070
 #: libraries/structure.lib.php:2080
-#: libraries/tbl_columns_definition_form.inc.php:562
+#: libraries/tbl_columns_definition_form.inc.php:519
 msgid "Primary"
 msgstr "Kunci Utama"
 
 #: libraries/structure.lib.php:1391 libraries/structure.lib.php:2072
 #: libraries/structure.lib.php:2082 libraries/structure.lib.php:2190
-#: libraries/tbl_columns_definition_form.inc.php:123
-#: libraries/tbl_columns_definition_form.inc.php:576 tbl_printview.php:306
+#: libraries/tbl_columns_definition_form.inc.php:82
+#: libraries/tbl_columns_definition_form.inc.php:533 tbl_printview.php:306
 msgid "Index"
 msgstr "Indeks"
 
@@ -11629,7 +11635,7 @@ msgstr "Spasial"
 
 #: libraries/structure.lib.php:1408 libraries/structure.lib.php:2078
 #: libraries/structure.lib.php:2088
-#: libraries/tbl_columns_definition_form.inc.php:584
+#: libraries/tbl_columns_definition_form.inc.php:541
 msgid "Fulltext"
 msgstr "Teks penuh"
 
@@ -11656,7 +11662,7 @@ msgid "Propose table structure"
 msgstr "Usulkan struktur tabel"
 
 #: libraries/structure.lib.php:1557
-#: libraries/tbl_columns_definition_form.inc.php:758
+#: libraries/tbl_columns_definition_form.lib.php:178
 msgid "You have to add at least one column."
 msgstr "Anda perlu menambahkan paling tidak satu kolom."
 
@@ -11665,7 +11671,7 @@ msgid "Add column"
 msgstr "Tambah kolom"
 
 #: libraries/structure.lib.php:1573
-#: libraries/tbl_columns_definition_form.inc.php:748
+#: libraries/tbl_columns_definition_form.lib.php:168
 #, php-format
 msgid "Add %s column(s)"
 msgstr "Tambahkan %s kolom"
@@ -11774,7 +11780,7 @@ msgstr "Sukses menghapus pengguna yang dipilih."
 msgid "The column name '%s' is a MySQL reserved keyword."
 msgstr ""
 
-#: libraries/tbl_columns_definition_form.inc.php:101
+#: libraries/tbl_columns_definition_form.inc.php:60
 msgid ""
 "If column type is \"enum\" or \"set\", please enter the values using this "
 "format: 'a','b','c'…<br />If you ever need to put a backslash (\"\\\") or a "
@@ -11786,7 +11792,7 @@ msgstr ""
 "petik tunggal (\"'\"), awali dengan petik balik (mis. '\\\\xyz' atau 'a"
 "\\'b')."
 
-#: libraries/tbl_columns_definition_form.inc.php:110
+#: libraries/tbl_columns_definition_form.inc.php:69
 msgid ""
 "For default values, please enter just a single value, without backslash "
 "escaping or quotes, using this format: a"
@@ -11794,13 +11800,13 @@ msgstr ""
 "Untuk nilai (value) default cukup diisi single value saja tanpa menggunakan "
 "backslash, escaping atau quotes dan dengan menggunakan format sbb.: a"
 
-#: libraries/tbl_columns_definition_form.inc.php:149
+#: libraries/tbl_columns_definition_form.inc.php:108
 #, fuzzy
 #| msgid "Remove column(s)"
 msgid "Move column"
 msgstr "Hapus kolom"
 
-#: libraries/tbl_columns_definition_form.inc.php:159
+#: libraries/tbl_columns_definition_form.inc.php:118
 #, php-format
 msgid ""
 "For a list of available transformation options and their MIME type "
@@ -11809,11 +11815,11 @@ msgstr ""
 "Untuk tampilan daftar tentang pilihan transformasi dan transformasi jenis "
 "MIME-nya, harap klik pada %sDeskripsi Transformasi%s"
 
-#: libraries/tbl_columns_definition_form.inc.php:171
+#: libraries/tbl_columns_definition_form.inc.php:130
 msgid "Transformation options"
 msgstr "Pilihan transformasi"
 
-#: libraries/tbl_columns_definition_form.inc.php:174
+#: libraries/tbl_columns_definition_form.inc.php:133
 msgid ""
 "Please enter the values for transformation options using this format: 'a', "
 "100, b,'c'…<br />If you ever need to put a backslash (\"\\\") or a single "
@@ -11825,54 +11831,54 @@ msgstr ""
 "(\"'\") diperlukan di antara nilai tersebut, harap gunakan tanda Backslash "
 "(contoh: '\\\\xyz' atau 'a\\'b')."
 
-#: libraries/tbl_columns_definition_form.inc.php:412
+#: libraries/tbl_columns_definition_form.inc.php:369
 msgid "ENUM or SET data too long?"
 msgstr "Data ENUM atau SET terlalu panjang?"
 
-#: libraries/tbl_columns_definition_form.inc.php:414
+#: libraries/tbl_columns_definition_form.inc.php:371
 msgid "Get more editing space"
 msgstr "Dapatkan ruang pengeditan lebih luas"
 
-#: libraries/tbl_columns_definition_form.inc.php:430
+#: libraries/tbl_columns_definition_form.inc.php:387
 msgctxt "for default"
 msgid "None"
 msgstr "Tidak ada"
 
-#: libraries/tbl_columns_definition_form.inc.php:431
+#: libraries/tbl_columns_definition_form.inc.php:388
 msgid "As defined:"
 msgstr "Seperti yang didefinisikan:"
 
-#: libraries/tbl_columns_definition_form.inc.php:634
+#: libraries/tbl_columns_definition_form.inc.php:591
 msgid "first"
 msgstr ""
 
-#: libraries/tbl_columns_definition_form.inc.php:644
+#: libraries/tbl_columns_definition_form.inc.php:601
 #, fuzzy, php-format
 #| msgid "After %s"
 msgid "after %s"
 msgstr "Setelah %s"
 
-#: libraries/tbl_columns_definition_form.inc.php:737
-msgid "Table name"
-msgstr "Nama tabel"
-
-#: libraries/tbl_columns_definition_form.inc.php:838
+#: libraries/tbl_columns_definition_form.lib.php:72
 #, fuzzy
 #| msgid "Storage Engine"
 msgid "Storage Engine:"
 msgstr "Mesin Penyimpanan"
 
-#: libraries/tbl_columns_definition_form.inc.php:842
+#: libraries/tbl_columns_definition_form.lib.php:76
 #, fuzzy
 #| msgid "Collation"
 msgid "Collation:"
 msgstr "Penyortiran"
 
-#: libraries/tbl_columns_definition_form.inc.php:876
+#: libraries/tbl_columns_definition_form.lib.php:110
 #, fuzzy
 #| msgid "PARTITION definition"
 msgid "PARTITION definition:"
 msgstr "Definisi PARTITION"
+
+#: libraries/tbl_columns_definition_form.lib.php:160
+msgid "Table name"
+msgstr "Nama tabel"
 
 #: libraries/tbl_common.inc.php:54
 #, fuzzy, php-format
@@ -12514,8 +12520,8 @@ msgid ""
 "You set the [kbd]config[/kbd] authentication type and included username and "
 "password for auto-login, which is not a desirable option for live hosts. "
 "Anyone who knows or guesses your phpMyAdmin URL can directly access your "
-"phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or [kbd]"
-"http[/kbd]."
+"phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or "
+"[kbd]http[/kbd]."
 msgstr ""
 
 #: setup/lib/index.lib.php:236
@@ -12765,7 +12771,7 @@ msgstr "Indeks belum ditentukan!"
 msgid "Choose column to display:"
 msgstr "Pilih kolom untuk ditampilkan"
 
-#: tbl_structure.php:134
+#: tbl_structure.php:133
 msgid "No column selected."
 msgstr "Tidak ada kolom yang dipilih."
 

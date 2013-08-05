@@ -48,8 +48,9 @@ $multi_values .= '</a><br />';
 $multi_values .= '<select name="table_select[]" id="table_select" size="10" multiple="multiple">';
 $multi_values .= "\n";
 
-if (!empty($selected_tbl) && empty($table_select)) {
-    $table_select = $selected_tbl;
+// when called by libraries/mult_submits.inc.php
+if (!empty($_POST['selected_tbl']) && empty($table_select)) {
+    $table_select = $_POST['selected_tbl'];
 }
 
 // Check if the selected tables are defined in $_GET

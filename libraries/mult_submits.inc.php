@@ -43,7 +43,10 @@ foreach ($request_params as $one_request_param) {
  */
 if (! empty($submit_mult)
     && $submit_mult != __('With selected:')
-    && (! empty($selected_db) || ! empty($selected_tbl) || ! empty($selected_fld) || ! empty($rows_to_delete))
+    && (! empty($selected_db)
+    || ! empty($_POST['selected_tbl'])
+    || ! empty($selected_fld)
+    || ! empty($rows_to_delete))
 ) {
     define('PMA_SUBMIT_MULT', 1);
     if (isset($selected_db) && !empty($selected_db)) {
@@ -51,13 +54,13 @@ if (! empty($submit_mult)
         // selected databases
         $selected     = $selected_db;
         $what         = 'drop_db';
-    } elseif (isset($selected_tbl) && !empty($selected_tbl)) {
+    } elseif (! empty($_POST['selected_tbl'])) {
         // coming from database structure view - do something with
         // selected tables
         if ($submit_mult == 'print') {
             include './tbl_printview.php';
         } else {
-            $selected = $selected_tbl;
+            $selected = $_POST['selected_tbl'];
             switch ($submit_mult) {
             case 'add_prefix_tbl':
             case 'replace_prefix_tbl':
@@ -84,7 +87,7 @@ if (! empty($submit_mult)
         }
     } elseif (isset($selected_fld) && !empty($selected_fld)) {
         // coming from table structure view - do something with
-        // selected columns/fileds
+        // selected columns
         $selected     = $selected_fld;
         switch ($submit_mult) {
         case 'drop':
