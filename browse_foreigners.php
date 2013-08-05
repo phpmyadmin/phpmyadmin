@@ -15,7 +15,6 @@ require_once 'libraries/transformations.lib.php';
 $request_params = array(
     'field',
     'fieldkey',
-    'foreign_filter',
     'pos',
     'rownumber'
 );
@@ -54,7 +53,9 @@ if (isset($foreign_navig) && $foreign_navig == __('Show all')) {
 
 $foreignData = PMA_getForeignData(
     $foreigners, $field, $override_total,
-    isset($foreign_filter) ? $foreign_filter : '', $foreign_limit
+    isset($_REQUEST['foreign_filter']) 
+    ? $_REQUEST['foreign_filter'] 
+    : '', $foreign_limit
 );
 
 if (isset($rownumber)) {
@@ -181,7 +182,10 @@ if (isset($rownumber)) {
 $output .= '<span class="formelement">'
     . '<label for="input_foreign_filter">' . __('Search:') . '</label>'
     . '<input type="text" name="foreign_filter" id="input_foreign_filter" value="'
-    . (isset($foreign_filter) ? htmlspecialchars($foreign_filter) : '') . '" />'
+    . (isset($_REQUEST['foreign_filter']) 
+    ? htmlspecialchars($_REQUEST['foreign_filter']) 
+    : '') 
+    . '" />'
     . '<input type="submit" name="submit_foreign_filter" value="'
     .  __('Go') . '" />'
     . '</span>'
