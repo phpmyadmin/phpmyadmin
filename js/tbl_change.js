@@ -132,6 +132,7 @@ function isDate(val, tmstmp)
 * The following patterns are accepted in this validation (accepted in mysql as well)
 * 1) 2:3:4
 * 2) 2:23:43
+* 3) 2:23:43.123456
 */
 function isTime(val)
 {
@@ -142,7 +143,7 @@ function isTime(val)
         }
     }
     val = arrayVal.join(":");
-    var tmexp = new RegExp(/^(([0-1][0-9])|(2[0-3])):((0[0-9])|([1-5][0-9])):((0[0-9])|([1-5][0-9]))$/);
+    var tmexp = new RegExp(/^(([0-1][0-9])|(2[0-3])):((0[0-9])|([1-5][0-9])):((0[0-9])|([1-5][0-9]))(\.[0-9]{1,6}){0,1}$/);
     return tmexp.test(val);
 }
 
