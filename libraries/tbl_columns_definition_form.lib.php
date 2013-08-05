@@ -618,7 +618,7 @@ function PMA_getHtmlForTransformationOption($i, $ci, $ci_offset, $row, $mime_map
 }
 
 /**
- * Function to get html for browser transformation
+ * Function to get html for mime type
  * 
  * @param int   $i              field number
  * @param int   $ci             cell index
