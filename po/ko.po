@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-07-29 15:07+0200\n"
-"PO-Revision-Date: 2013-08-03 06:44+0200\n"
-"Last-Translator: 도원 권 <dowon2308@gmail.com>\n"
+"PO-Revision-Date: 2013-08-05 11:40+0200\n"
+"Last-Translator: Dong-bum Kim <dongbum@me.com>\n"
 "Language-Team: Korean <http://l10n.cihar.com/projects/phpmyadmin/4-0/ko/>\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
@@ -3188,7 +3188,7 @@ msgstr "표시할 최대 열(row) 수"
 #: libraries/TableSearch.class.php:888 libraries/TableSearch.class.php:1160
 #: sql.php:159 tbl_change.php:230
 msgid "Browse foreign values"
-msgstr ""
+msgstr "외래값 탐색"
 
 #: libraries/TableSearch.class.php:977
 msgid "Additional search criteria"
@@ -5064,7 +5064,7 @@ msgstr "서버 선택 출력"
 
 #: libraries/config/messages.inc.php:307
 msgid "Target for quick access icon"
-msgstr ""
+msgstr "빠른 접근 아이콘 대상"
 
 #: libraries/config/messages.inc.php:308
 msgid ""
@@ -5200,7 +5200,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:337
 msgid "Server/library difference warning"
-msgstr ""
+msgstr "서버/라이브러리 차이점 경고"
 
 #: libraries/config/messages.inc.php:338
 msgid ""
@@ -5338,11 +5338,11 @@ msgstr "루트 사용자 로그인 허용"
 
 #: libraries/config/messages.inc.php:374
 msgid "HTTP Basic Auth Realm name to display when doing HTTP Auth"
-msgstr ""
+msgstr "HTTP 인증시 HTTP 기본 렐름 이름"
 
 #: libraries/config/messages.inc.php:375
 msgid "HTTP Realm"
-msgstr ""
+msgstr "HTTP 렐름"
 
 #: libraries/config/messages.inc.php:376
 msgid ""
@@ -5381,7 +5381,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:383
 msgid "Column information table"
-msgstr ""
+msgstr "컬럼 정보 테이블"
 
 #: libraries/config/messages.inc.php:384
 msgid "Compress connection to MySQL server"
@@ -5431,7 +5431,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:394
 msgid "Designer table"
-msgstr ""
+msgstr "디자이너 테이블"
 
 #: libraries/config/messages.inc.php:395
 msgid ""
@@ -5467,7 +5467,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:402
 msgid "SQL query history table"
-msgstr ""
+msgstr "SQL 쿼리 히스토리 테이블"
 
 #: libraries/config/messages.inc.php:403
 msgid "Hostname where MySQL server is running"
