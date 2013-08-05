@@ -91,7 +91,7 @@ for ($i = 0; $i < $num_fields; $i++) {
     } elseif (isset($fields_meta[$i])) {
         $row = PMA_getRowDataForFieldsMetaSet(
             $fields_meta[$i], isset($analyzed_sql[0]['create_table_fields']
-            [$row['Field']]['default_value'])
+            [$fields_meta[$i]['Field']]['default_value'])
         );
     }
 
@@ -102,6 +102,7 @@ for ($i = 0; $i < $num_fields; $i++) {
                 = PMA_Util::convertBitDefaultValue($row['Default']);
         }
     }
+    
     // Cell index: If certain fields get left out, the counter shouldn't change.
     $ci = 0;
     // Everytime a cell shall be left out the STRG-jumping feature, $ci_offset
