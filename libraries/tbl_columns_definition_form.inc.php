@@ -164,21 +164,9 @@ for ($i = 0; $i < $num_fields; $i++) {
     }
 
     // column length
-    $length_to_display = $length;
-
-    $content_cells[$i][$ci] = '<input id="field_' . $i . '_' . ($ci - $ci_offset)
-        . '"' . ' type="text" name="field_length[' . $i . ']" size="'
-        . $length_values_input_size . '"' . ' value="' . htmlspecialchars(
-            $length_to_display
-        )
-        . '"'
-        . ' class="textfield" />'
-        . '<p class="enum_notice" id="enum_notice_' . $i . '_' . ($ci - $ci_offset)
-        . '">';
-    $content_cells[$i][$ci] .= __('ENUM or SET data too long?')
-        . '<a href="#" class="open_enum_editor"> '
-        . __('Get more editing space') . '</a>'
-        . '</p>';
+    $content_cells[$i][$ci] = PMA_getHtmlForColumnLength(
+        $i, $ci, $ci_offset, $length_values_input_size, $length
+    );
     $ci++;
 
     // column default

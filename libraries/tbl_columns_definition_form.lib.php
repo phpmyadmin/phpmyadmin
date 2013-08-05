@@ -978,4 +978,35 @@ function PMA_getHtmlForColumnCollation($i, $ci, $ci_offset, $row)
     
     return $html;
 }
+
+/**
+ * Function get html for column length
+ * 
+ * @param int $i                        field number
+ * @param int $ci                       cell index
+ * @param int $ci_offset                cell index offset
+ * @param int $length_values_input_size length values input size
+ * @param int $length_to_display        length to disply
+ * 
+ * @return string
+ */
+function PMA_getHtmlForColumnLength($i, $ci, $ci_offset, $length_values_input_size,
+    $length_to_display
+) {
+    $html = '<input id="field_' . $i . '_' . ($ci - $ci_offset)
+        . '"' . ' type="text" name="field_length[' . $i . ']" size="'
+        . $length_values_input_size . '"' . ' value="' . htmlspecialchars(
+            $length_to_display
+        )
+        . '"'
+        . ' class="textfield" />'
+        . '<p class="enum_notice" id="enum_notice_' . $i . '_' . ($ci - $ci_offset)
+        . '">';
+    $html .= __('ENUM or SET data too long?')
+        . '<a href="#" class="open_enum_editor"> '
+        . __('Get more editing space') . '</a>'
+        . '</p>';
+    
+    return $html;
+}
 ?>
