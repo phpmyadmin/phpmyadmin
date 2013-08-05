@@ -8,11 +8,23 @@
 /*
  * Include to test and mock Drizzle class.
  */
+/**
+ * Drizzle for Mock drizzle class
+ *
+ * this class is for Mock Drizzle
+ *
+ * @package PhpMyAdmin-test
+ */
 class Drizzle
 {
 
 }
 
+/**
+ * function to return drizzle_version
+ *
+ * @return string
+ */
 function drizzle_version()
 {
     return "1.0.0";
