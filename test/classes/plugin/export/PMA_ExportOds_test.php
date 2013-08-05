@@ -332,7 +332,7 @@ class PMA_ExportOds_Test extends PHPUnit_Framework_TestCase
             ->will(
                 $this->returnValue(
                     array(
-                        null, '01-01-2000', '10:00:00', '01-01-2000 10:00:00',
+                        null, '01-01-2000', '01-01-2000', '01-01-2000 10:00:00',
                         "01-01-2014 10:02:00", "t>s", "a&b", "<"
                     )
                 )
@@ -355,17 +355,13 @@ class PMA_ExportOds_Test extends PHPUnit_Framework_TestCase
             )
         );
 
-        $this->assertContains(
+        $this->assertEquals(
             '<table:table table:name="table"><table:table-row><table:table-cell ' .
             'office:value-type="string"><text:p>&amp;</text:p></table:table-cell>' .
             '<table:table-cell office:value-type="string"><text:p></text:p>' .
             '</table:table-cell><table:table-cell office:value-type="date" office:' .
-            'date-value=',
-            $GLOBALS['ods_buffer']
-        );
-        $this->assertContains(
-            'table:style-name="DateCell"><text:p>10:00:00' .
-            '</text:p></table:table-cell><table:table-cell office:value-type=' .
+            'date-value="2000-01-01" table:style-name="DateCell"><text:p>01-01' .
+            '-2000</text:p></table:table-cell><table:table-cell office:value-type=' .
             '"time" office:time-value="PT10H00M00S" table:style-name="TimeCell">' .
             '<text:p>01-01-2000 10:00:00</text:p></table:table-cell><table:table-' .
             'cell office:value-type="date" office:date-value="2014-01-01T10:02:00"' .
