@@ -89,35 +89,10 @@ for ($i = 0; $i < $num_fields; $i++) {
                     $comments_map, $mime_map
                 ); 
     } elseif (isset($fields_meta[$i])) {
-        $row = $fields_meta[$i];
-        switch ($row['Default']) {
-        case null:
-            if ($row['Null'] == 'YES') {
-                $row['DefaultType']  = 'NULL';
-                $row['DefaultValue'] = '';
-                // SHOW FULL COLUMNS does not report the case
-                // when there is a DEFAULT value which is empty so we need to use the
-                // results of SHOW CREATE TABLE
-            } elseif (isset($row)
-                && isset($analyzed_sql[0]['create_table_fields'][$row['Field']]
-                    ['default_value'])
-            ) {
-                $row['DefaultType']  = 'USER_DEFINED';
-                $row['DefaultValue'] = $row['Default'];
-            } else {
-                $row['DefaultType']  = 'NONE';
-                $row['DefaultValue'] = '';
-            }
-            break;
-        case 'CURRENT_TIMESTAMP':
-            $row['DefaultType']  = 'CURRENT_TIMESTAMP';
-            $row['DefaultValue'] = '';
-            break;
-        default:
-            $row['DefaultType']  = 'USER_DEFINED';
-            $row['DefaultValue'] = $row['Default'];
-            break;
-        }
+        $row = PMA_getRowDataForFieldsMetaSet(
+            $fields_meta[$i], isset($analyzed_sql[0]['create_table_fields']
+            [$row['Field']]['default_value'])
+        );
     }
 
     if (isset($row['Type'])) {

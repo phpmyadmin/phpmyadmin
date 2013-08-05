@@ -507,4 +507,43 @@ function PMA_handleRegeneration($submit_fulltext, $comments_map, $mime_map)
         $comments_map, $mime_map
     );
 }
+
+/**
+ * Function to get row data for $fields_meta set
+ * 
+ * @param array $row       row
+ * @param bool  $isDefault whether the row value is default
+ * 
+ * @return array
+ */
+function PMA_getRowDataForFieldsMetaSet($row, $isDefault)
+{
+    switch ($row['Default']) {
+        case null:
+            if ($row['Null'] == 'YES') {
+                $row['DefaultType']  = 'NULL';
+                $row['DefaultValue'] = '';
+                // SHOW FULL COLUMNS does not report the case
+                // when there is a DEFAULT value which is empty so we need to use the
+                // results of SHOW CREATE TABLE
+            } elseif ($isDefault) {
+                $row['DefaultType']  = 'USER_DEFINED';
+                $row['DefaultValue'] = $row['Default'];
+            } else {
+                $row['DefaultType']  = 'NONE';
+                $row['DefaultValue'] = '';
+            }
+            break;
+        case 'CURRENT_TIMESTAMP':
+            $row['DefaultType']  = 'CURRENT_TIMESTAMP';
+            $row['DefaultValue'] = '';
+            break;
+        default:
+            $row['DefaultType']  = 'USER_DEFINED';
+            $row['DefaultValue'] = $row['Default'];
+            break;
+    }
+    
+    return $row;
+}
 ?>
