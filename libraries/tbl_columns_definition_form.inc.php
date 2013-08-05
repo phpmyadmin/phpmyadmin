@@ -304,17 +304,9 @@ for ($i = 0; $i < $num_fields; $i++) {
     $ci++;
 
     // column NULL
-    $content_cells[$i][$ci] = '<input name="field_null[' . $i . ']"'
-        . ' id="field_' . $i . '_' . ($ci - $ci_offset) . '"';
-
-    if (! empty($row['Null'])
-        && $row['Null'] != 'NO'
-        && $row['Null'] != 'NOT NULL'
-    ) {
-        $content_cells[$i][$ci] .= ' checked="checked"';
-    }
-
-    $content_cells[$i][$ci] .= ' type="checkbox" value="NULL" class="allow_null"/>';
+    $content_cells[$i][$ci] = PMA_getHtmlForColumnNull(
+        $i, $ci, $ci_offset, isset($row) ? $row : null
+    );
     $ci++;
 
     // column indexes

@@ -852,4 +852,30 @@ function PMA_getHtmlForColumnIndexes($i, $ci, $ci_offset, $row)
     
     return $html;
 }
+
+/**
+ * Function to get html for column null
+ * 
+ * @param int   $i         field number
+ * @param int   $ci        cell index
+ * @param int   $ci_offset cell index offset
+ * @param array $row       row
+ * 
+ * @return string
+ */
+function PMA_getHtmlForColumnNull($i, $ci, $ci_offset, $row)
+{
+    $html = '<input name="field_null[' . $i . ']"'
+        . ' id="field_' . $i . '_' . ($ci - $ci_offset) . '"';
+    if (! empty($row['Null'])
+        && $row['Null'] != 'NO'
+        && $row['Null'] != 'NOT NULL'
+    ) {
+        $html .= ' checked="checked"';
+    }
+
+    $html .= ' type="checkbox" value="NULL" class="allow_null"/>';
+    
+    return $html;
+}
 ?>
