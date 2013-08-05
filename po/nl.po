@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-08-01 14:09+0200\n"
-"PO-Revision-Date: 2013-08-04 19:12+0200\n"
+"PO-Revision-Date: 2013-08-05 10:50+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: Dutch <http://l10n.cihar.com/projects/phpmyadmin/master/nl/>\n"
 "Language: nl\n"
@@ -6149,7 +6149,6 @@ msgid "Users table"
 msgstr "Gebruikerstabel"
 
 #: libraries/config/messages.inc.php:458
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no user preferences storage in database, suggested: "
 #| "[kbd]pma__userconfig[/kbd]"
@@ -6157,8 +6156,8 @@ msgid ""
 "Leave blank to disable configurable menus feature, suggested: "
 "[kbd]pma__usergroups[/kbd]"
 msgstr ""
-"Laat dit veld leeg om geen gebruikersvoorkeuren op te slaan in de databank, "
-"suggestie: [kbd]pma__userconfig[/kbd]"
+"Laat dit veld leeg om configureerbare menu's uit te schakelen , suggestie: "
+"[kbd]pma__usergroups[/kbd]"
 
 #: libraries/config/messages.inc.php:459
 msgid "User groups table"
