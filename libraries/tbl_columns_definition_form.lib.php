@@ -778,4 +778,27 @@ function PMA_getHtmlForColumnComment($i, $ci, $ci_offset, $row, $comments_map)
     
     return $html;
 }
+
+/**
+ * Function get html for column auto increment
+ * 
+ * @param int   $i         field number
+ * @param int   $ci        cell index
+ * @param int   $ci_offset cell index offset
+ * @param array $row       row
+ * 
+ * @return string
+ */
+function PMA_getHtmlForColumnAutoIncrement($i, $ci, $ci_offset, $row)
+{
+    $html = '<input name="field_extra[' . $i . ']"'
+        . ' id="field_' . $i . '_' . ($ci - $ci_offset) . '"';
+    if (isset($row['Extra']) && strtolower($row['Extra']) == 'auto_increment') {
+        $html .= ' checked="checked"';
+    }
+
+    $html .= ' type="checkbox" value="AUTO_INCREMENT" />';
+    
+    return $html;
+}
 ?>

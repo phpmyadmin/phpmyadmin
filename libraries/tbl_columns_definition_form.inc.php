@@ -359,14 +359,9 @@ for ($i = 0; $i < $num_fields; $i++) {
     } // end if ($action ==...)
 
     // column auto_increment
-    $content_cells[$i][$ci] = '<input name="field_extra[' . $i . ']"'
-        . ' id="field_' . $i . '_' . ($ci - $ci_offset) . '"';
-
-    if (isset($row['Extra']) && strtolower($row['Extra']) == 'auto_increment') {
-        $content_cells[$i][$ci] .= ' checked="checked"';
-    }
-
-    $content_cells[$i][$ci] .= ' type="checkbox" value="AUTO_INCREMENT" />';
+    $content_cells[$i][$ci] = PMA_getHtmlForColumnAutoIncrement(
+            $i, $ci, $ci_offset, $row
+    );
     $ci++;
 
     // column comments
