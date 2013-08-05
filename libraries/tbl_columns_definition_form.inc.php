@@ -395,7 +395,7 @@ for ($i = 0; $i < $num_fields; $i++) {
 
         // Column Browser transformation
         $content_cells[$i][$ci] = PMA_getHtmlForBrowserTransformation(
-            $i, $ci, $mi, $available_mime, $row, $mime_map
+            $i, $ci, $ci_offset, $available_mime, $row, $mime_map
         );
         $ci++;
 
