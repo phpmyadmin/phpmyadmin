@@ -10,6 +10,7 @@
  */
 
 /* Each PluginObserver instance contains a PluginManager instance */
+require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/plugins/PluginManager.class.php';
 require_once 'libraries/plugins/transformations/Text_Plain_Substring.class.php';
 
@@ -47,6 +48,26 @@ class Text_Plain_Substring_Test extends PHPUnit_Framework_TestCase
     protected function tearDown()
     {
         unset($this->object);
+    }
+
+    /**
+     * Test for getInfo
+     *
+     * @return void
+     *
+     * @group medium
+     */
+    public function testGetInfo()
+    {
+    	$info = 'Displays a part of a string. The first option is the number of'
+            . ' characters to skip from the beginning of the string (Default 0).'
+            . ' The second option is the number of characters to return (Default:'
+            . ' until end of string). The third option is the string to append';
+    	
+        $this->assertContains(
+            $info,
+            Text_Plain_Substring::getInfo()
+        );    
     }
 
     /**
