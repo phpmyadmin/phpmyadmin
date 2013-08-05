@@ -588,4 +588,32 @@ function PMA_getHtmlForColumnType($i, $ci, $ci_offset, $type_upper)
     
     return $html;
 }
+
+/**
+ * Function to get html for transhormation option
+ * 
+ * @param int   $i         field number
+ * @param int   $ci        cell index
+ * @param int   $ci_offset cell index offset
+ * @param array $row       row
+ * @param array $mime_map  mime map
+ * 
+ * @return string
+ */
+function PMA_getHtmlForTransformationOption($i, $ci, $ci_offset, $row, $mime_map)
+{
+    $val = isset($row['Field'])
+            && isset($mime_map[$row['Field']]['transformation_options'])
+            ? htmlspecialchars($mime_map[$row['Field']]['transformation_options'])
+            : '';
+    
+    $html = '<input id="field_' . $i . '_'
+                . ($ci - $ci_offset) . '"' . ' type="text" '
+                . 'name="field_transformation_options[' . $i . ']"'
+                . ' size="16" class="textfield"'
+                . ' value="' . $val . '"'
+                . ' />';
+    
+    return $html;
+}
 ?>

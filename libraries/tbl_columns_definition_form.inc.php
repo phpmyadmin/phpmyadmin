@@ -477,17 +477,11 @@ for ($i = 0; $i < $num_fields; $i++) {
         $content_cells[$i][$ci] .= '</select>';
         $ci++;
 
-        $val = isset($row['Field'])
-            && isset($mime_map[$row['Field']]['transformation_options'])
-            ? htmlspecialchars($mime_map[$row['Field']]['transformation_options'])
-            : '';
-        $content_cells[$i][$ci] = '<input id="field_' . $i . '_'
-            . ($ci - $ci_offset) . '"' . ' type="text" '
-            . 'name="field_transformation_options[' . $i . ']"'
-            . ' size="16" class="textfield"'
-            . ' value="' . $val . '"'
-            . ' />';
-        //$ci++;
+        // column Transformation options
+        $content_cells[$i][$ci] = PMA_getHtmlForTransformationOption(
+                $i, $ci, $ci_offset, isset($row) ? $row : null,
+                isset($mime_map) ? $mime_map : null
+        );
     }
 } // end for
 
