@@ -234,12 +234,9 @@ for ($i = 0; $i < $num_fields; $i++) {
     $ci++;
 
     // column collation
-    $tmp_collation          = empty($row['Collation']) ? null : $row['Collation'];
-    $content_cells[$i][$ci] = PMA_generateCharsetDropdownBox(
-        PMA_CSDROPDOWN_COLLATION, 'field_collation[' . $i . ']',
-        'field_' . $i . '_' . ($ci - $ci_offset), $tmp_collation, false
+    $content_cells[$i][$ci] = PMA_getHtmlForColumnCollation(
+        $i, $ci, $ci_offset, $row
     );
-    unset($tmp_collation);
     $ci++;
 
     // column attribute

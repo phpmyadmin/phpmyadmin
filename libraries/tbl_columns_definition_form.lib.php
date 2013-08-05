@@ -957,4 +957,25 @@ function PMA_getHtmlForColumnAttribute($i, $ci, $ci_offset, $extracted_columnspe
     
     return $html;
 }
+
+/**
+ * Function to get html for column collation
+ * 
+ * @param int   $i         field number
+ * @param int   $ci        cell index
+ * @param int   $ci_offset cell index offset
+ * @param array $row       row
+ * 
+ * @return string
+ */
+function PMA_getHtmlForColumnCollation($i, $ci, $ci_offset, $row)
+{
+    $tmp_collation = empty($row['Collation']) ? null : $row['Collation'];
+    $html = PMA_generateCharsetDropdownBox(
+        PMA_CSDROPDOWN_COLLATION, 'field_collation[' . $i . ']',
+        'field_' . $i . '_' . ($ci - $ci_offset), $tmp_collation, false
+    );
+    
+    return $html;
+}
 ?>
