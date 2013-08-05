@@ -584,9 +584,14 @@ if (isset($_REQUEST['report']) || isset($_REQUEST['report_export'])) {
                 echo '<td><small>' . htmlspecialchars($entry['username']) . '</small></td>';
                 echo '<td>' . $statement . '</td>';
                 echo '<td class="nowrap"><a href="tbl_tracking.php?'
-                    . $url_query . '&amp;report=true&amp;version='
-                    . $version['version'] . '&amp;delete_ddlog='
-                    . ($i - 1) . '">' . $drop_image_or_text
+                    . PMA_generate_common_url(
+                        $url_params + array(
+                            'report' => 'true',
+                            'version' => $_REQUEST['version'],
+                            'delete_ddlog' => ($i - 1),
+                        )
+                    )
+                    . '">' . $drop_image_or_text
                     . '</a></td>';
                 echo '</tr>';
 
@@ -645,9 +650,15 @@ if (isset($_REQUEST['report']) || isset($_REQUEST['report_export'])) {
                 echo '<td><small>' . htmlspecialchars($entry['date']) . '</small></td>';
                 echo '<td><small>' . htmlspecialchars($entry['username']) . '</small></td>';
                 echo '<td>' . $statement . '</td>';
-                echo '<td class="nowrap"><a href="tbl_tracking.php?' . $url_query
-                    . '&amp;report=true&amp;version=' . $version['version']
-                    . '&amp;delete_dmlog=' . ($i - $ddlog_count) . '">'
+                echo '<td class="nowrap"><a href="tbl_tracking.php?'
+                    . PMA_generate_common_url(
+                        $url_params + array(
+                            'report' => 'true',
+                            'version' => $_REQUEST['version'],
+                            'delete_dmlog' => ($i - $ddlog_count),
+                        )
+                    )
+                    . '">'
                     . $drop_image_or_text
                     . '</a></td>';
                 echo '</tr>';
