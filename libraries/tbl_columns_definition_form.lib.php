@@ -701,4 +701,56 @@ function PMA_getHtmlForBrowserTransformation($i, $ci, $ci_offset,
 
     return $html;
 }
+
+/**
+ * Function to get html for move column
+ * 
+ * @param int   $i            field number
+ * @param int   $ci           cell index
+ * @param int   $ci_offset    cell index offset
+ * @param array $move_columns move columns
+ * @param array $row          row
+ * 
+ * @return string
+ */
+function PMA_getHtmlForMoveColumn($i, $ci, $ci_offset, $move_columns, $row)
+{
+    $html = '<select id="field_' . $i . '_'
+        . ($ci - $ci_offset) . '"' . ' name="field_move_to[' . $i
+        . ']" size="1" width="5em">'
+        . '<option value="" selected="selected">&nbsp;</option>';
+    // find index of current column
+    $current_index = 0;
+    for ($mi = 0, $cols = count($move_columns); $mi < $cols; $mi++) {
+        if ($move_columns[$mi]->name == $row['Field']) {
+            $current_index = $mi;
+            break;
+        }
+    }
+    
+    $html .= '<option value="-first"'
+            . ($current_index == 0 ? ' disabled="disabled"' : '')
+            . '>' . __('first') . '</option>';
+    for ($mi = 0, $cols = count($move_columns); $mi < $cols; $mi++) {
+        $html .=
+            '<option value="' . htmlspecialchars($move_columns[$mi]->name) . '"'
+            . (($current_index == $mi || $current_index == $mi + 1)
+                ? ' disabled="disabled"'
+                : '')
+            .'>'
+            . sprintf(
+                __('after %s'),
+                PMA_Util::backquote(
+                    htmlspecialchars(
+                        $move_columns[$mi]->name
+                    )
+                )
+            )
+            . '</option>';
+    }
+    
+    $html .= '</select>';
+    
+    return $html;
+}
 ?>
