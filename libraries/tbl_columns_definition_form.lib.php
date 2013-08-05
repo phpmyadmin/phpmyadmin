@@ -1009,4 +1009,65 @@ function PMA_getHtmlForColumnLength($i, $ci, $ci_offset, $length_values_input_si
     
     return $html;
 }
+
+/**
+ * Function to get html for the default column
+ * 
+ * @param int    $i                         field number
+ * @param int    $ci                        cell index
+ * @param int    $ci_offset                 cell index offset
+ * @param string $type_upper                type upper
+ * @param string $default_current_timestamp default current timestamp
+ * @param array  $row                       row
+ * 
+ * @return string
+ */
+function PMA_getHtmlForColumnDefault($i, $ci, $ci_offset, $type_upper,
+    $default_current_timestamp, $row
+) {
+    // here we put 'NONE' as the default value of drop-down; otherwise
+    // users would have problems if they forget to enter the default
+    // value (example, for an INT)
+    $default_options = array(
+        'NONE'              =>  _pgettext('for default', 'None'),
+        'USER_DEFINED'      =>  __('As defined:'),
+        'NULL'              => 'NULL',
+        'CURRENT_TIMESTAMP' => 'CURRENT_TIMESTAMP',
+    );
+
+    // for a TIMESTAMP, do not show the string "CURRENT_TIMESTAMP" as a default value
+    if ($type_upper == 'TIMESTAMP'
+        && ! empty($default_current_timestamp)
+        && isset($row['Default'])
+    ) {
+        $row['Default'] = '';
+    }
+
+    if ($type_upper == 'BIT') {
+        $row['DefaultValue']
+            = PMA_Util::convertBitDefaultValue($row['DefaultValue']);
+    }
+
+    $html = '<select name="field_default_type[' . $i
+        . ']" id="field_' . $i . '_' . ($ci - $ci_offset)
+        . '" class="default_type">';
+    foreach ($default_options as $key => $value) {
+        $html .= '<option value="' . $key . '"';
+        // is only set when we go back to edit a field's structure
+        if (isset($row['DefaultType']) && $row['DefaultType'] == $key) {
+            $html .= ' selected="selected"';
+        }
+        $html .= ' >' . $value . '</option>';
+    }
+    $html .= '</select>';
+    $html .= '<br />';
+    $html .= '<input type="text"'
+        . ' name="field_default_value[' . $i . ']" size="12"'
+        . ' value="' . (isset($row['DefaultValue'])
+            ? htmlspecialchars($row['DefaultValue'])
+            : '') . '"'
+        . ' class="textfield default_value" />';
+    
+    return $html;
+}
 ?>

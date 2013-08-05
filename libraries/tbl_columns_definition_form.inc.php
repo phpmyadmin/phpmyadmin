@@ -121,8 +121,7 @@ for ($i = 0; $i < $num_fields; $i++) {
     // column name
     $content_cells[$i][$ci] = PMA_getHtmlForColumnName(
         $i, $ci, $ci_offset, isset($row) ? $row : null
-    );
-    
+    );    
     $ci++;
 
     if (empty($row['Type'])) {
@@ -170,55 +169,16 @@ for ($i = 0; $i < $num_fields; $i++) {
     $ci++;
 
     // column default
-
     // old column default
     if ($is_backup) {
         $_form_params['field_default_orig[' . $i . ']']
             = (isset($row['Default']) ? $row['Default'] : '');
     }
-
-    // here we put 'NONE' as the default value of drop-down; otherwise
-    // users would have problems if they forget to enter the default
-    // value (example, for an INT)
-    $default_options = array(
-        'NONE'              =>  _pgettext('for default', 'None'),
-        'USER_DEFINED'      =>  __('As defined:'),
-        'NULL'              => 'NULL',
-        'CURRENT_TIMESTAMP' => 'CURRENT_TIMESTAMP',
+    $content_cells[$i][$ci] = PMA_getHtmlForColumnDefault($i, $ci, $ci_offset,
+        isset($type_upper) ? $type_upper : null,
+        isset($default_current_timestamp) ? $default_current_timestamp : null,
+        isset($row) ? $row : null
     );
-
-    // for a TIMESTAMP, do not show the string "CURRENT_TIMESTAMP" as a default value
-    if ($type_upper == 'TIMESTAMP'
-        && ! empty($default_current_timestamp)
-        && isset($row['Default'])
-    ) {
-        $row['Default'] = '';
-    }
-
-    if ($type_upper == 'BIT') {
-        $row['DefaultValue']
-            = PMA_Util::convertBitDefaultValue($row['DefaultValue']);
-    }
-
-    $content_cells[$i][$ci] = '<select name="field_default_type[' . $i
-        . ']" id="field_' . $i . '_' . ($ci - $ci_offset)
-        . '" class="default_type">';
-    foreach ($default_options as $key => $value) {
-        $content_cells[$i][$ci] .= '<option value="' . $key . '"';
-        // is only set when we go back to edit a field's structure
-        if (isset($row['DefaultType']) && $row['DefaultType'] == $key) {
-            $content_cells[$i][$ci] .= ' selected="selected"';
-        }
-        $content_cells[$i][$ci] .= ' >' . $value . '</option>';
-    }
-    $content_cells[$i][$ci] .= '</select>';
-    $content_cells[$i][$ci] .= '<br />';
-    $content_cells[$i][$ci] .= '<input type="text"'
-        . ' name="field_default_value[' . $i . ']" size="12"'
-        . ' value="' . (isset($row['DefaultValue'])
-            ? htmlspecialchars($row['DefaultValue'])
-            : '') . '"'
-        . ' class="textfield default_value" />';
     $ci++;
 
     // column collation
