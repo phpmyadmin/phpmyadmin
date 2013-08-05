@@ -590,7 +590,7 @@ function PMA_getHtmlForColumnType($i, $ci, $ci_offset, $type_upper)
 }
 
 /**
- * Function to get html for transhormation option
+ * Function to get html for transformation option
  * 
  * @param int   $i         field number
  * @param int   $ci        cell index
@@ -613,6 +613,44 @@ function PMA_getHtmlForTransformationOption($i, $ci, $ci_offset, $row, $mime_map
                 . ' size="16" class="textfield"'
                 . ' value="' . $val . '"'
                 . ' />';
+    
+    return $html;
+}
+
+/**
+ * Function to get html for browser transformation
+ * 
+ * @param int   $i              field number
+ * @param int   $ci             cell index
+ * @param int   $ci_offset      cell index offset
+ * @param array $available_mime available mime
+ * @param array $row            row
+ * @param array $mime_map       mime map
+ * 
+ * @return string
+ */
+function PMA_getHtmlForMimeType($i, $ci, $ci_offset,
+    $available_mime, $row, $mime_map
+) {
+    $html = '<select id="field_' . $i . '_'
+            . ($ci - $ci_offset) . '" size="1" name="field_mimetype[' . $i . ']">';
+    $html .= '    <option value="">&nbsp;</option>';
+    
+    if (is_array($available_mime['mimetype'])) {
+        foreach ($available_mime['mimetype'] as $mimetype) {
+            $checked = (isset($row['Field'])
+                && isset($mime_map[$row['Field']]['mimetype'])
+                && ($mime_map[$row['Field']]['mimetype']
+                    == str_replace('/', '_', $mimetype))
+                ? 'selected '
+                : '');
+            $html .= '    <option value="'
+                . str_replace('/', '_', $mimetype) . '" ' . $checked . '>'
+                . htmlspecialchars($mimetype) . '</option>';
+        }
+    }
+    
+    $html .= '</select>';
     
     return $html;
 }

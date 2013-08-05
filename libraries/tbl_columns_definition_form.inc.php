@@ -421,30 +421,14 @@ for ($i = 0; $i < $num_fields; $i++) {
         $ci++;
     }
 
-    // column MIME-types
     if ($cfgRelation['mimework']
         && $GLOBALS['cfg']['BrowseMIME']
         && $cfgRelation['commwork']
     ) {
-        $content_cells[$i][$ci] = '<select id="field_' . $i . '_'
-            . ($ci - $ci_offset) . '" size="1" name="field_mimetype[' . $i . ']">';
-        $content_cells[$i][$ci] .= '    <option value="">&nbsp;</option>';
-
-        if (is_array($available_mime['mimetype'])) {
-            foreach ($available_mime['mimetype'] as $mimekey => $mimetype) {
-                $checked = (isset($row['Field'])
-                    && isset($mime_map[$row['Field']]['mimetype'])
-                    && ($mime_map[$row['Field']]['mimetype']
-                        == str_replace('/', '_', $mimetype))
-                    ? 'selected '
-                    : '');
-                $content_cells[$i][$ci] .= '    <option value="'
-                    . str_replace('/', '_', $mimetype) . '" ' . $checked . '>'
-                    . htmlspecialchars($mimetype) . '</option>';
-            }
-        }
-
-        $content_cells[$i][$ci] .= '</select>';
+        // Column Mime-type
+        $content_cells[$i][$ci] = PMA_getHtmlForMimeType(
+            $i, $ci, $ci_offset, $available_mime, $row, $mime_map
+        );
         $ci++;
 
         $content_cells[$i][$ci] = '<select id="field_' . $i . '_'
