@@ -74,9 +74,9 @@ class PMA_Footer
             include './revision-info.php';
             $message .= sprintf(
                 __('Currently running Git revision %1$s from the %2$s branch.'),
-                '<a target="_top" href="' . $repobase . $fullrevision . '">'
+                '<a target="_blank" href="' . $repobase . $fullrevision . '">'
                 . $revision .'</a>',
-                '<a target="_top" href="' . $repobranchbase . $branch . '">'
+                '<a target="_blank" href="' . $repobranchbase . $branch . '">'
                 . $branch . '</a>'
             );
         } else {
