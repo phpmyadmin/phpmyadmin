@@ -318,43 +318,11 @@ for ($i = 0; $i < $num_fields; $i++) {
     $ci++;
 
     // column indexes
-    // See my other comment about removing this 'if'.
+    // See my other comment about  this 'if'.
     if (!$is_backup) {
-        $content_cells[$i][$ci] = '<select name="field_key[' . $i . ']"'
-            . ' id="field_' . $i . '_' . ($ci - $ci_offset) . '">';
-        $content_cells[$i][$ci] .= '<option value="none_' . $i . '">---</option>';
-
-        $content_cells[$i][$ci] .= '<option value="primary_' . $i . '" title="'
-            . __('Primary') . '"';
-        if (isset($row['Key']) && $row['Key'] == 'PRI') {
-            $content_cells[$i][$ci] .= ' selected="selected"';
-        }
-        $content_cells[$i][$ci] .= '>PRIMARY</option>';
-
-        $content_cells[$i][$ci] .= '<option value="unique_' . $i . '" title="'
-            . __('Unique') . '"';
-        if (isset($row['Key']) && $row['Key'] == 'UNI') {
-            $content_cells[$i][$ci] .= ' selected="selected"';
-        }
-        $content_cells[$i][$ci] .= '>UNIQUE</option>';
-
-        $content_cells[$i][$ci] .= '<option value="index_' . $i . '" title="'
-            . __('Index') . '"';
-        if (isset($row['Key']) && $row['Key'] == 'MUL') {
-            $content_cells[$i][$ci] .= ' selected="selected"';
-        }
-        $content_cells[$i][$ci] .= '>INDEX</option>';
-
-        if (!PMA_DRIZZLE) {
-            $content_cells[$i][$ci] .= '<option value="fulltext_' . $i . '" title="'
-                . __('Fulltext') . '"';
-            if (isset($row['Key']) && $row['Key'] == 'FULLTEXT') {
-                $content_cells[$i][$ci] .= ' selected="selected"';
-            }
-            $content_cells[$i][$ci] .= '>FULLTEXT</option>';
-        }
-
-        $content_cells[$i][$ci] .= '</select>';
+        $content_cells[$i][$ci] = PMA_getHtmlForColumnIndexes(
+                $i, $ci, $ci_offset, $row
+        );
         $ci++;
     } // end if ($action ==...)
 

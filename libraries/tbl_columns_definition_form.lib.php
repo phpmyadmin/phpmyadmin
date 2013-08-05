@@ -801,4 +801,55 @@ function PMA_getHtmlForColumnAutoIncrement($i, $ci, $ci_offset, $row)
     
     return $html;
 }
+
+/**
+ * Function to get html for the column indexes
+ * 
+ * @param int   $i         index
+ * @param int   $ci        cell index
+ * @param int   $ci_offset cell index offset
+ * @param array $row       row
+ * 
+ * @return string
+ */
+function PMA_getHtmlForColumnIndexes($i, $ci, $ci_offset, $row)
+{
+    $html = '<select name="field_key[' . $i . ']"'
+        . ' id="field_' . $i . '_' . ($ci - $ci_offset) . '">';
+    $html .= '<option value="none_' . $i . '">---</option>';
+
+    $html .= '<option value="primary_' . $i . '" title="'
+        . __('Primary') . '"';
+    if (isset($row['Key']) && $row['Key'] == 'PRI') {
+        $html .= ' selected="selected"';
+    }
+    $html .= '>PRIMARY</option>';
+
+    $html .= '<option value="unique_' . $i . '" title="'
+        . __('Unique') . '"';
+    if (isset($row['Key']) && $row['Key'] == 'UNI') {
+        $html .= ' selected="selected"';
+    }
+    $html .= '>UNIQUE</option>';
+
+    $html .= '<option value="index_' . $i . '" title="'
+        . __('Index') . '"';
+    if (isset($row['Key']) && $row['Key'] == 'MUL') {
+        $html .= ' selected="selected"';
+    }
+    $html .= '>INDEX</option>';
+
+    if (!PMA_DRIZZLE) {
+        $html .= '<option value="fulltext_' . $i . '" title="'
+            . __('Fulltext') . '"';
+        if (isset($row['Key']) && $row['Key'] == 'FULLTEXT') {
+            $html .= ' selected="selected"';
+        }
+        $html .= '>FULLTEXT</option>';
+    }
+
+    $html .= '</select>';
+    
+    return $html;
+}
 ?>
