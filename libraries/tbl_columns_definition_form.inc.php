@@ -119,18 +119,11 @@ for ($i = 0; $i < $num_fields; $i++) {
     }
 
     // column name
-    $content_cells[$i][$ci] = '<input id="field_' . $i . '_' . ($ci - $ci_offset)
-        . '"' . ' type="text" name="field_name[' . $i . ']"'
-        . ' maxlength="64" class="textfield" title="' . __('Column') . '"'
-        . ' size="10"'
-        . ' value="' . (isset($row['Field']) ? htmlspecialchars($row['Field']) : '')
-        . '"' . ' />';
+    $content_cells[$i][$ci] = PMA_getHtmlForColumnName(
+        $i, $ci, $ci_offset, isset($row) ? $row : null
+    );
+    
     $ci++;
-
-    // column type
-    $select_id = 'field_' . $i . '_' . ($ci - $ci_offset);
-    $content_cells[$i][$ci] = '<select class="column_type" name="field_type[' .
-        $i . ']"' .' id="' . $select_id . '">';
 
     if (empty($row['Type'])) {
         // creating a column
@@ -157,10 +150,12 @@ for ($i = 0; $i < $num_fields; $i++) {
     // rtrim the type, for cases like "float unsigned"
     $type = rtrim($type);
     $type_upper = strtoupper($type);
-
-    $content_cells[$i][$ci]
-        .= PMA_Util::getSupportedDatatypes(true, $type_upper);
-    $content_cells[$i][$ci] .= '    </select>';
+    
+    // column type    
+    $content_cells[$i][$ci] = PMA_getHtmlForColumnType(
+        $i, $ci, $ci_offset, $type_upper
+    );
+    
     $ci++;
 
     // old column length

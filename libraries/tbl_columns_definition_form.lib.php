@@ -546,4 +546,46 @@ function PMA_getRowDataForFieldsMetaSet($row, $isDefault)
     
     return $row;
 }
+
+/**
+ * Function to get html for the column name
+ * 
+ * @param int $i         field number
+ * @param int $ci        cell index
+ * @param int $ci_offset cell index offset
+ * @param array $row     row
+ * 
+ * @return string
+ */
+function PMA_getHtmlForColumnName($i, $ci, $ci_offset, $row)
+{
+    $html = '<input id="field_' . $i . '_' . ($ci - $ci_offset)
+        . '"' . ' type="text" name="field_name[' . $i . ']"'
+        . ' maxlength="64" class="textfield" title="' . __('Column') . '"'
+        . ' size="10"'
+        . ' value="' . (isset($row['Field']) ? htmlspecialchars($row['Field']) : '')
+        . '"' . ' />';
+    
+    return $html;
+}
+
+/**
+ * Function to get html for the column type
+ * 
+ * @param int $i         field number
+ * @param int $ci        cell index
+ * @param int $ci_offset cell index offset
+ * 
+ * @return string
+ */
+function PMA_getHtmlForColumnType($i, $ci, $ci_offset, $type_upper)
+{
+    $select_id = 'field_' . $i . '_' . ($ci - $ci_offset);
+    $html = '<select class="column_type" name="field_type[' .
+        $i . ']"' .' id="' . $select_id . '">';
+    $html .= PMA_Util::getSupportedDatatypes(true, $type_upper);
+    $html .= '    </select>';
+    
+    return $html;
+}
 ?>
