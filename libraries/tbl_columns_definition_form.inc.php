@@ -243,64 +243,14 @@ for ($i = 0; $i < $num_fields; $i++) {
     $ci++;
 
     // column attribute
-    $content_cells[$i][$ci] = '<select style="font-size: 70%;"'
-        . ' name="field_attribute[' . $i . ']"'
-        . ' id="field_' . $i . '_' . ($ci - $ci_offset) . '">';
-
-    $attribute     = '';
-    if (isset($extracted_columnspec)) {
-        $attribute = $extracted_columnspec['attribute'];
-    }
-
-    if (isset($row['Extra']) && $row['Extra'] == 'on update CURRENT_TIMESTAMP') {
-        $attribute = 'on update CURRENT_TIMESTAMP';
-    }
-
-    if (isset($submit_attribute) && $submit_attribute != false) {
-        $attribute = $submit_attribute;
-    }
-
-    // here, we have a TIMESTAMP that SHOW FULL COLUMNS reports as having the
-    // NULL attribute, but SHOW CREATE TABLE says the contrary. Believe
-    // the latter.
-    if (PMA_MYSQL_INT_VERSION < 50025
-        && isset($row['Field'])
-        && isset($analyzed_sql[0]['create_table_fields'][$row['Field']]['type'])
-        && $analyzed_sql[0]['create_table_fields'][$row['Field']]['type'] == 'TIMESTAMP'
-        && $analyzed_sql[0]['create_table_fields'][$row['Field']]['timestamp_not_null'] == true
-    ) {
-        $row['Null'] = '';
-    }
-
-    // MySQL 4.1.2+ TIMESTAMP options
-    // (if on_update_current_timestamp is set, then it's TRUE)
-    if (isset($row['Field'])
-        && isset($analyzed_sql[0]['create_table_fields'][$row['Field']]['on_update_current_timestamp'])
-    ) {
-        $attribute = 'on update CURRENT_TIMESTAMP';
-    }
-    if ((isset($row['Field'])
-        && isset($analyzed_sql[0]['create_table_fields'][$row['Field']]['default_current_timestamp']))
-        || (isset($submit_default_current_timestamp)
-        && $submit_default_current_timestamp)
-    ) {
-        $default_current_timestamp = true;
-    } else {
-        $default_current_timestamp = false;
-    }
-
-    $attribute_types = $GLOBALS['PMA_Types']->getAttributes();
-    $cnt_attribute_types = count($attribute_types);
-    for ($j = 0; $j < $cnt_attribute_types; $j++) {
-        $content_cells[$i][$ci]
-            .= '                <option value="' . $attribute_types[$j] . '"';
-        if (strtoupper($attribute) == strtoupper($attribute_types[$j])) {
-            $content_cells[$i][$ci] .= ' selected="selected"';
-        }
-        $content_cells[$i][$ci] .= '>' . $attribute_types[$j] . '</option>';
-    }
-
-    $content_cells[$i][$ci] .= '</select>';
+    $content_cells[$i][$ci] = PMA_getHtmlForColumnAttribute($i, $ci, $ci_offset,
+        isset($extracted_columnspec) ? $extracted_columnspec : null,
+        isset($row) ? $row : null,
+        isset($submit_attribute) ? $submit_attribute : null,
+        isset($analyzed_sql) ? $analyzed_sql : null,
+        isset($submit_default_current_timestamp)
+            ? $submit_default_current_timestamp : null
+    );
     $ci++;
 
     // column NULL

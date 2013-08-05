@@ -878,4 +878,83 @@ function PMA_getHtmlForColumnNull($i, $ci, $ci_offset, $row)
     
     return $html;
 }
+
+/**
+ * Function to get html for column attribute
+ * 
+ * @param int   $i                                field number
+ * @param int   $ci                               cell index
+ * @param int   $ci_offset                        cell index offset
+ * @param array $extracted_columnspec             extracted column
+ * @param array $row                              row
+ * @param bool  $submit_attribute                 submit attribute
+ * @param array $analyzed_sql                     analyzed sql
+ * @param bool  $submit_default_current_timestamp submit default current time stamp
+ * 
+ * @return string
+ */
+function PMA_getHtmlForColumnAttribute($i, $ci, $ci_offset, $extracted_columnspec,
+    $row, $submit_attribute, $analyzed_sql, $submit_default_current_timestamp
+) {
+    $html = '<select style="font-size: 70%;"'
+        . ' name="field_attribute[' . $i . ']"'
+        . ' id="field_' . $i . '_' . ($ci - $ci_offset) . '">';
+
+    $attribute     = '';
+    if (isset($extracted_columnspec)) {
+        $attribute = $extracted_columnspec['attribute'];
+    }
+
+    if (isset($row['Extra']) && $row['Extra'] == 'on update CURRENT_TIMESTAMP') {
+        $attribute = 'on update CURRENT_TIMESTAMP';
+    }
+
+    if (isset($submit_attribute) && $submit_attribute != false) {
+        $attribute = $submit_attribute;
+    }
+
+    // here, we have a TIMESTAMP that SHOW FULL COLUMNS reports as having the
+    // NULL attribute, but SHOW CREATE TABLE says the contrary. Believe
+    // the latter.
+    if (PMA_MYSQL_INT_VERSION < 50025
+        && isset($row['Field'])
+        && isset($analyzed_sql[0]['create_table_fields'][$row['Field']]['type'])
+        && $analyzed_sql[0]['create_table_fields'][$row['Field']]['type'] == 'TIMESTAMP'
+        && $analyzed_sql[0]['create_table_fields'][$row['Field']]['timestamp_not_null'] == true
+    ) {
+        $row['Null'] = '';
+    }
+
+    // MySQL 4.1.2+ TIMESTAMP options
+    // (if on_update_current_timestamp is set, then it's TRUE)
+    if (isset($row['Field'])
+        && isset($analyzed_sql[0]['create_table_fields'][$row['Field']]['on_update_current_timestamp'])
+    ) {
+        $attribute = 'on update CURRENT_TIMESTAMP';
+    }
+    if ((isset($row['Field'])
+        && isset($analyzed_sql[0]['create_table_fields'][$row['Field']]['default_current_timestamp']))
+        || (isset($submit_default_current_timestamp)
+        && $submit_default_current_timestamp)
+    ) {
+        $default_current_timestamp = true;
+    } else {
+        $default_current_timestamp = false;
+    }
+
+    $attribute_types = $GLOBALS['PMA_Types']->getAttributes();
+    $cnt_attribute_types = count($attribute_types);
+    for ($j = 0; $j < $cnt_attribute_types; $j++) {
+        $html
+            .= '                <option value="' . $attribute_types[$j] . '"';
+        if (strtoupper($attribute) == strtoupper($attribute_types[$j])) {
+            $html .= ' selected="selected"';
+        }
+        $html .= '>' . $attribute_types[$j] . '</option>';
+    }
+
+    $html .= '</select>';
+    
+    return $html;
+}
 ?>
