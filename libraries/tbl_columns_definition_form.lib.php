@@ -753,4 +753,29 @@ function PMA_getHtmlForMoveColumn($i, $ci, $ci_offset, $move_columns, $row)
     
     return $html;
 }
+
+/**
+ * Function to get html for column comment
+ * 
+ * @param int   $i            field number
+ * @param int   $ci           cell index
+ * @param int   $ci_offset    cell index offset
+ * @param array $row          row
+ * @param array $comments_map comments map
+ * 
+ * @return string
+ */
+function PMA_getHtmlForColumnComment($i, $ci, $ci_offset, $row, $comments_map)
+{
+    $html = '<input id="field_' . $i . '_' . ($ci - $ci_offset)
+        . '"' . ' type="text" name="field_comments[' . $i . ']" size="12"'
+        . ' value="' . (isset($row['Field'])
+                && is_array($comments_map)
+                && isset($comments_map[$row['Field']])
+            ?  htmlspecialchars($comments_map[$row['Field']])
+            : '') . '"'
+        . ' class="textfield" />';
+    
+    return $html;
+}
 ?>

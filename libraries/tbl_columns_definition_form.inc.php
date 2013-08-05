@@ -370,14 +370,9 @@ for ($i = 0; $i < $num_fields; $i++) {
     $ci++;
 
     // column comments
-    $content_cells[$i][$ci] = '<input id="field_' . $i . '_' . ($ci - $ci_offset)
-        . '"' . ' type="text" name="field_comments[' . $i . ']" size="12"'
-        . ' value="' . (isset($row['Field'])
-                && is_array($comments_map)
-                && isset($comments_map[$row['Field']])
-            ?  htmlspecialchars($comments_map[$row['Field']])
-            : '') . '"'
-        . ' class="textfield" />';
+    $content_cells[$i][$ci] = PMA_getHtmlForColumnComment(
+        $i, $ci, $ci_offset, isset($row) ? $row : null, $comments_map
+    );
     $ci++;
 
     // move column
