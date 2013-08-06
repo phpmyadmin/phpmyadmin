@@ -34,7 +34,6 @@ class PMA_ThemeTest extends PHPUnit_Framework_TestCase
         $_SESSION['PMA_Theme'] = $this->object;
         $GLOBALS['PMA_Config'] = new PMA_Config();
         $GLOBALS['PMA_Config']->enableBc();
-        $GLOBALS['cfg']['SQP']['fmtColor'] = array('fake' => 'red');
         $GLOBALS['text_dir'] = 'ltr';
         include 'themes/pmahomme/layout.inc.php';
         $GLOBALS['server'] = '99';
