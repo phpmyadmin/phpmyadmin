@@ -40,7 +40,7 @@ if [ -d $1/themes ]; then
     cd "$d"img
     echo "Processing folder: $PWD"
     FILES=''
-    for f in $(ls *.png); do
+    for f in $(ls *.png| LC_ALL=C sort); do
       VALID=true
       # Do not include blacklisted icons
       for b in $BLACKLIST; do
