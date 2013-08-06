@@ -58,12 +58,6 @@ $foreignData = PMA_getForeignData(
     : '', $foreign_limit
 );
 
-if (isset($rownumber)) {
-    $rownumber_param = '&amp;rownumber=' . urlencode($rownumber);
-} else {
-    $rownumber_param = '';
-}
-
 $gotopage = '';
 $showall = '';
 
