@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-08-06 16:10+0200\n"
-"PO-Revision-Date: 2013-07-18 14:40+0200\n"
-"Last-Translator: Ballen Abdulkarim <ballen.angel@yahoo.com>\n"
-"Language-Team: Kurdish Sorani <http://l10n.cihar.com/projects/phpmyadmin/"
-"master/ckb/>\n"
+"PO-Revision-Date: 2013-08-06 20:07+0200\n"
+"Last-Translator: renwar kurd <renwarkurd@yahoo.com>\n"
+"Language-Team: Kurdish Sorani "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/ckb/>\n"
 "Language: ckb\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 1.6-dev\n"
+"X-Generator: Weblate 1.7-dev\n"
 
 #: browse_foreigners.php:50 browse_foreigners.php:70 js/messages.php:341
 #: libraries/DisplayResults.class.php:805
@@ -44,7 +44,6 @@ msgstr ""
 "ڕێکخستنی پاراستنی وێبگەڕەکەت وا ڕیکخراوە کە ڕی لە تازەکردنەوە بگریت"
 
 #: browse_foreigners.php:177
-#, fuzzy
 #| msgid "Search"
 msgid "Search:"
 msgstr "گەڕان"
