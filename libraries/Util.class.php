@@ -397,15 +397,6 @@ class PMA_Util
      */
     public static function formatSql($sql_query)
     {
-        global $cfg;
-
-        // Check that we actually have a valid set of parsed data
-        // well, not quite
-        // first check for the SQL parser having hit an error
-        if (PMA_SQP_isError()) {
-            return htmlspecialchars($sql_query);
-        }
-
         return '<span class="inner_sql"><pre>' . "\n"
             . htmlspecialchars($sql_query) . "\n"
             . '</pre></span>';
