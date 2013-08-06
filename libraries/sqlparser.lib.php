@@ -1633,14 +1633,16 @@ function PMA_SQP_analyze($arr)
                 }
                 // A table has to be created, renamed, dropped -> navi panel
                 // should be reloaded
-                if (in_array($first_reserved_word, array("CREATE", "ALTER", "DROP"))
-                    && in_array($upper_data, array("VIEW", "TABLE", "DATABASE", "SCHEMA"))
+                $keywords1 = array('CREATE', 'ALTER', 'DROP');
+                $keywords2 = array('VIEW', 'TABLE', 'DATABASE', 'SCHEMA');
+                if (in_array($first_reserved_word, $keywords1)
+                    && in_array($upper_data, $keywords2)
                 ) {
                     $subresult['queryflags']['reload'] = 1;
                 }
 
                 // for the presence of INSERT|LOAD DATA
-                if (in_array($first_reserved_word, array("INSERT", "LOAD"))
+                if (in_array($first_reserved_word, array('INSERT', 'LOAD'))
                     && $upper_data == 'REPLACE'
                 ) {
                     $subresult['queryflags']['is_insert'] = 1;
@@ -1648,7 +1650,10 @@ function PMA_SQP_analyze($arr)
                 }
 
                 // for the presence of CHECK|ANALYZE|REPAIR|OPTIMIZE TABLE
-                if (in_array($first_reserved_word, array("CHECK","ANALYZE","REPAIR","OPTIMIZE"))
+                $keywords = array(
+                    'CHECK', 'ANALYZE', 'REPAIR', 'OPTIMIZE'
+                );
+                if (in_array($first_reserved_word, $keywords)
                     && $upper_data == 'TABLE'
                 ) {
                     $subresult['queryflags']['is_maint'] = 1;
