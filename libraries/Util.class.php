@@ -1022,7 +1022,7 @@ class PMA_Util
         if (null === $sql_query) {
             if (! empty($GLOBALS['display_query'])) {
                 $sql_query = $GLOBALS['display_query'];
-            } elseif (! empty($GLOBALS['unparsed_sql']) {
+            } elseif (! empty($GLOBALS['unparsed_sql'])) {
                 $sql_query = $GLOBALS['unparsed_sql'];
             } elseif (! empty($GLOBALS['sql_query'])) {
                 $sql_query = $GLOBALS['sql_query'];
