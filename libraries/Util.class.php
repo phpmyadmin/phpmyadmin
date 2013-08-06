@@ -385,7 +385,6 @@ class PMA_Util
     /**
      * format sql strings
      *
-     * @param mixed  $parsed_sql pre-parsed SQL structure
      * @param string $sql_query  raw SQL string
      *
      * @return string  the formatted sql
@@ -396,7 +395,7 @@ class PMA_Util
      * @access  public
      * @todo    move into PMA_Sql
      */
-    public static function formatSql($parsed_sql, $sql_query)
+    public static function formatSql($sql_query)
     {
         global $cfg;
 
@@ -649,9 +648,7 @@ class PMA_Util
                 )
                 . '[...]';
             } else {
-                $formatted_sql = self::formatSql(
-                    PMA_SQP_parse($the_query), $the_query
-                );
+                $formatted_sql = self::formatSql($the_query);
             }
         }
         // ---
@@ -1169,8 +1166,8 @@ class PMA_Util
                         __('Failed to connect to SQL validator!')
                     )->getDisplay();
                 }
-            } elseif (isset($parsed_sql)) {
-                $query_base = self::formatSql($parsed_sql, $query_base);
+            } elseif (isset($query_base)) {
+                $query_base = self::formatSql($query_base);
             }
 
             // Prepares links that may be displayed to edit/explain the query

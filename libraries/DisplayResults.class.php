@@ -2789,10 +2789,7 @@ class PMA_DisplayResults
                 && (trim($row[$i]) != '')
             ) {
 
-                $parsed_sql = PMA_SQP_parse($row[$i]);
-                $row[$i] = PMA_Util::formatSql(
-                    $parsed_sql, $row[$i]
-                );
+                $row[$i] = PMA_Util::formatSql($row[$i]);
                 include_once $this->syntax_highlighting_column_info[strtolower($this->__get('db'))][strtolower($this->__get('table'))][strtolower($meta->name)][0];
                 $transformation_plugin = new $this->syntax_highlighting_column_info
                     [strtolower($this->__get('db'))]

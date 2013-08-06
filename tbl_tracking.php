@@ -568,7 +568,7 @@ if (isset($_REQUEST['report']) || isset($_REQUEST['report_export'])) {
                     $GLOBALS['cfg']['MaxCharactersInDisplayedSQL']
                 ) . '[...]';
             } else {
-                $statement  = PMA_Util::formatSql(PMA_SQP_parse($entry['statement']), $entry['statement']);
+                $statement  = PMA_Util::formatSql($entry['statement']);
             }
             $timestamp = strtotime($entry['date']);
 
@@ -635,7 +635,7 @@ if (isset($_REQUEST['report']) || isset($_REQUEST['report_export'])) {
                     $GLOBALS['cfg']['MaxCharactersInDisplayedSQL']
                 ) . '[...]';
             } else {
-                $statement  = PMA_Util::formatSql(PMA_SQP_parse($entry['statement']), $entry['statement']);
+                $statement  = PMA_Util::formatSql($entry['statement']);
             }
             $timestamp = strtotime($entry['date']);
 
