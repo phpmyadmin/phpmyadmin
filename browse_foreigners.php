@@ -14,8 +14,7 @@ require_once 'libraries/transformations.lib.php';
  */
 $request_params = array(
     'field',
-    'fieldkey',
-    'pos'
+    'fieldkey'
 );
 
 foreach ($request_params as $one_request_param) {
@@ -41,8 +40,10 @@ $foreigners  = ($cfgRelation['relwork'] ? PMA_getForeigners($db, $table) : false
 
 $override_total = true;
 
-if (! isset($pos)) {
+if (! isset($_REQUEST['pos'])) {
     $pos = 0;
+} else {
+    $pos = $_REQUEST['pos'];
 }
 
 $foreign_limit = 'LIMIT ' . $pos . ', ' . $GLOBALS['cfg']['MaxRows'] . ' ';
