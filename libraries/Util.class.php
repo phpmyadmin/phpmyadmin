@@ -395,7 +395,7 @@ class PMA_Util
      * @access  public
      * @todo    move into PMA_Sql
      */
-    public static function formatSql($sql_query, $truncate=False)
+    public static function formatSql($sql_query, $truncate = false)
     {
         global $cfg;
         if ($truncate
