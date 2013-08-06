@@ -640,17 +640,7 @@ class PMA_Util
         } elseif (empty($the_query) || (trim($the_query) == '')) {
             $formatted_sql = '';
         } else {
-            if (strlen($the_query) > $GLOBALS['cfg']['MaxCharactersInDisplayedSQL']) {
-                $formatted_sql = htmlspecialchars(
-                    substr(
-                        $the_query, 0,
-                        $GLOBALS['cfg']['MaxCharactersInDisplayedSQL']
-                    )
-                )
-                . '[...]';
-            } else {
-                $formatted_sql = self::formatSql($the_query);
-            }
+            $formatted_sql = self::formatSql($the_query, true);
         }
         // ---
         $error_msg .= "\n" . '<!-- PMA-SQL-ERROR -->' . "\n";

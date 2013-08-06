@@ -561,15 +561,7 @@ if (isset($_REQUEST['report']) || isset($_REQUEST['report_export'])) {
 
         $style = 'odd';
         foreach ($data['ddlog'] as $entry) {
-            if (strlen($entry['statement']) > $GLOBALS['cfg']['MaxCharactersInDisplayedSQL']) {
-                $statement = substr(
-                    $entry['statement'],
-                    0,
-                    $GLOBALS['cfg']['MaxCharactersInDisplayedSQL']
-                ) . '[...]';
-            } else {
-                $statement  = PMA_Util::formatSql($entry['statement']);
-            }
+            $statement  = PMA_Util::formatSql($entry['statement'], true);
             $timestamp = strtotime($entry['date']);
 
             if ($timestamp >= $filter_ts_from
@@ -628,15 +620,7 @@ if (isset($_REQUEST['report']) || isset($_REQUEST['report_export'])) {
 
         $style = 'odd';
         foreach ($data['dmlog'] as $entry) {
-            if (strlen($entry['statement']) > $GLOBALS['cfg']['MaxCharactersInDisplayedSQL']) {
-                $statement = substr(
-                    $entry['statement'],
-                    0,
-                    $GLOBALS['cfg']['MaxCharactersInDisplayedSQL']
-                ) . '[...]';
-            } else {
-                $statement  = PMA_Util::formatSql($entry['statement']);
-            }
+            $statement  = PMA_Util::formatSql($entry['statement'], true);
             $timestamp = strtotime($entry['date']);
 
             if ($timestamp >= $filter_ts_from
