@@ -74,7 +74,7 @@ class PMA_FormatSql_Test extends PHPUnit_Framework_TestCase
           'len' => 3,
         );
         $unparsed = "SELECT 1;";
-        $expected = '<span class="inner_sql">SELECT</a> 1 ;<br /><br /></span>';
+        $expected = '<span class="inner_sql">SELECT 1 ;<br /><br /></span>';
 
         $this->assertEquals(
             $expected, PMA_Util::formatSql($sql, $unparsed)
@@ -124,7 +124,7 @@ class PMA_FormatSql_Test extends PHPUnit_Framework_TestCase
           ),
           'len' => 5,
         );
-        $expected = '<span class="inner_sql">SELECT</a>  * <br />FROM  `tTable` ;<br /><br /></span>';
+        $expected = '<span class="inner_sql">SELECT  * <br />FROM  `tTable` ;<br /><br /></span>';
 
         $this->assertEquals(
             $expected, PMA_Util::formatSql($sql, $unparsed)
@@ -261,7 +261,7 @@ class PMA_FormatSql_Test extends PHPUnit_Framework_TestCase
           ),
           'len' => 18,
         );
-        $expected = '<span class="inner_sql">SELECT</a>  * <br />FROM  `tTable_A` A<br />INNER  JOIN  `tTable_B` B ON B.ID =</a> A.ID;<br /><br /></span>';
+        $expected = '<span class="inner_sql">SELECT  * <br />FROM  `tTable_A` A<br />INNER  JOIN  `tTable_B` B ON B.ID = A.ID;<br /><br /></span>';
 
         $this->assertEquals(
             $expected, PMA_Util::formatSql($sql, $unparsed)

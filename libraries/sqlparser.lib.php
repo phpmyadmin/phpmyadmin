@@ -1722,7 +1722,7 @@ function PMA_SQP_analyze($arr)
             if ($upper_data == 'OFFSET') {
                 $subresult['queryflags']['offset'] = 1;
             }
-            
+
             // for the presence of CALL
             if ($upper_data == 'CALL') {
                 $subresult['queryflags']['is_procedure'] = 1;
@@ -2293,7 +2293,13 @@ function PMA_SQP_format(
     case 'text':
         $str                                = '';
         $html_line_break                    = '<br />';
-        $docu                               = true;
+        if (($GLOBALS['cfg']['MySQLManualType'] == 'none')
+            || empty($GLOBALS['cfg']['MySQLManualBase'])
+        ) {
+            $docu = false;
+        } else {
+            $docu = true;
+        }
         break;
     } // end switch
     // inner_sql is a span that exists for all cases, except query_only
