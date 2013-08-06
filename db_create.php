@@ -1,6 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
+ * Database creating page
  *
  * @package PhpMyAdmin
  */
@@ -30,7 +31,7 @@ if (! empty($_POST['db_collation'])) {
     if (in_array($db_charset, $mysql_charsets)
         && in_array($_POST['db_collation'], $mysql_collations[$db_charset])
     ) {
-        $sql_query .= ' DEFAULT' 
+        $sql_query .= ' DEFAULT'
             . PMA_generateCharsetQueryPart($_POST['db_collation']);
     }
     $db_collation_for_ajax = $_POST['db_collation'];
@@ -106,7 +107,7 @@ if (! $result) {
             );
         } else {
             $current = array(
-                'SCHEMA_NAME' => $_POST['new_db'] 
+                'SCHEMA_NAME' => $_POST['new_db']
             );
         }
 

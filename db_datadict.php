@@ -107,9 +107,11 @@ foreach ($tables as $table) {
 
         $indexes_info[$row['Key_name']]['Comment'] = $row['Comment'];
 
-        $indexes_data[$row['Key_name']][$row['Seq_in_index']]['Column_name'] = $row['Column_name'];
+        $indexes_data[$row['Key_name']][$row['Seq_in_index']]['Column_name']
+            = $row['Column_name'];
         if (isset($row['Sub_part'])) {
-            $indexes_data[$row['Key_name']][$row['Seq_in_index']]['Sub_part'] = $row['Sub_part'];
+            $indexes_data[$row['Key_name']][$row['Seq_in_index']]['Sub_part']
+                = $row['Sub_part'];
         }
 
     } // end while

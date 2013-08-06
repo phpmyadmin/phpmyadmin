@@ -36,16 +36,19 @@ if ($num_tables < 1) {
 
 $multi_values  = '<div>';
 $multi_values .= '<a href="#"';
-$multi_values .= ' onclick="setSelectOptions(\'dump\', \'table_select[]\', true); return false;">';
+$multi_values .= ' onclick="setSelectOptions(\'dump\', \'table_select[]\', true);'
+    . ' return false;">';
 $multi_values .= __('Select All');
 $multi_values .= '</a>';
 $multi_values .= ' / ';
 $multi_values .= '<a href="#"';
-$multi_values .= ' onclick="setSelectOptions(\'dump\', \'table_select[]\', false); return false;">';
+$multi_values .= ' onclick="setSelectOptions(\'dump\', \'table_select[]\', false);'
+    . ' return false;">';
 $multi_values .= __('Unselect All');
 $multi_values .= '</a><br />';
 
-$multi_values .= '<select name="table_select[]" id="table_select" size="10" multiple="multiple">';
+$multi_values .= '<select name="table_select[]" id="table_select" size="10"'
+    . ' multiple="multiple">';
 $multi_values .= "\n";
 
 // when called by libraries/mult_submits.inc.php
