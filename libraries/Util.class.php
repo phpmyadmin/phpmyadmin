@@ -385,8 +385,8 @@ class PMA_Util
     /**
      * format sql strings
      *
-     * @param mixed  $parsed_sql   pre-parsed SQL structure
-     * @param string $unparsed_sql raw SQL string
+     * @param mixed  $parsed_sql pre-parsed SQL structure
+     * @param string $sql_query  raw SQL string
      *
      * @return string  the formatted sql
      *
@@ -396,7 +396,7 @@ class PMA_Util
      * @access  public
      * @todo    move into PMA_Sql
      */
-    public static function formatSql($parsed_sql, $unparsed_sql)
+    public static function formatSql($parsed_sql, $sql_query)
     {
         global $cfg;
 
@@ -404,36 +404,19 @@ class PMA_Util
         // well, not quite
         // first check for the SQL parser having hit an error
         if (PMA_SQP_isError()) {
-            return htmlspecialchars($parsed_sql['raw']);
-        }
-        // then check for an array
-        if (! is_array($parsed_sql)) {
-            // We don't so just return the input directly
-            // This is intended to be used for when the SQL Parser is turned off
-            $formatted_sql = "<pre>\n";
-            if (($cfg['SQP']['fmtType'] == 'none') && ($unparsed_sql != '')) {
-                $formatted_sql .= $unparsed_sql;
-            } else {
-                $formatted_sql .= $parsed_sql;
-            }
-            $formatted_sql .= "\n</pre>";
-            return $formatted_sql;
+            return htmlspecialchars($sql_query);
         }
 
         $formatted_sql = '';
 
         switch ($cfg['SQP']['fmtType']) {
         case 'none':
-            if ($unparsed_sql != '') {
-                $formatted_sql = '<span class="inner_sql"><pre>' . "\n"
-                    . PMA_SQP_formatNone(array('raw' => $unparsed_sql)) . "\n"
-                    . '</pre></span>';
-            } else {
-                $formatted_sql = PMA_SQP_formatNone($parsed_sql);
-            }
+            $formatted_sql = '<span class="inner_sql"><pre>' . "\n"
+                . htmlspecialchars($sql_query) . "\n"
+                . '</pre></span>';
             break;
         case 'text':
-            $formatted_sql = PMA_SQP_format($parsed_sql, 'text');
+            $formatted_sql = htmlspecialchars($sql_query) . "\n";
             break;
         default:
             break;
