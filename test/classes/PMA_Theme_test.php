@@ -306,57 +306,6 @@ background: -o-linear-gradient(top, #12345, #54321);'
     }
 
     /**
-     * Test for getCssCodeMirror
-     *
-     * @return void
-     */
-    public function testGetCssCodeMirror()
-    {
-        $this->assertEquals(
-            $this->object->getCssCodeMirror(),
-            'span.cm-keyword, span.cm-statement-verb {
-    color: #909;
-}
-span.cm-variable {
-    color: black;
-}
-span.cm-comment {
-    color: #808000;
-}
-span.cm-mysql-string {
-    color: #008000;
-}
-span.cm-operator {
-    color: fuchsia;
-}
-span.cm-mysql-word {
-    color: black;
-}
-span.cm-builtin {
-    color: #f00;
-}
-span.cm-variable-2 {
-    color: #f90;
-}
-span.cm-variable-3 {
-    color: #00f;
-}
-span.cm-separator {
-    color: fuchsia;
-}
-span.cm-number {
-    color: teal;
-}'
-        );
-
-        $GLOBALS['cfg']['CodemirrorEnable'] = false;
-            $this->assertEquals(
-                $this->object->getCssCodeMirror(),
-                ''
-            );
-    }
-
-    /**
      * Test for getImgPath
      *
      * @param string $file   file name for image
