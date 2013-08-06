@@ -2844,20 +2844,6 @@ $cfg['SQP'] = array();
  */
 $cfg['SQP']['fmtType'] = 'none';
 
-/**
- * Amount to indent each level (floats are valid)
- *
- * @global integer $cfg['SQP']['fmtInd']
- */
-$cfg['SQP']['fmtInd'] = '1';
-
-/**
- * Units for indenting each level (CSS Types - {em, px, pt})
- *
- * @global string $cfg['SQP']['fmtIndUnit']
- */
-$cfg['SQP']['fmtIndUnit'] = 'em';
-
 
 /*******************************************************************************
  * If you wish to use the SQL Validator service, you should be aware of the

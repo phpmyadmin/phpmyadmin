@@ -2693,6 +2693,7 @@ Default queries
     Default queries that will be displayed in query boxes when user didn't
     specify any. You can use standard :ref:`faq6_27`.
 
+.. _cfg_SQP:
 SQL parser settings
 -------------------
 
@@ -2710,33 +2711,6 @@ SQL parser settings
 
     * ``'text'``
     * ``'none'``
-
-.. _cfg_SQP:
-.. config:option:: $cfg['SQP']['fmtInd']
-
-    :type: float
-    :default: ``'1'``
-
-.. config:option:: $cfg['SQP']['fmtIndUnit']
-
-    :type: string
-    :default: ``'em'``
-
-    For the pretty-printing of :term:`SQL` queries,
-    under some cases the part of a query inside a bracket is indented. By
-    changing :config:option:`$cfg['SQP']['fmtInd']` you can change the amount
-    of this indent.
-
-    Related in purpose is :config:option:`$cfg['SQP']['fmtIndUnit']` which
-    specifies the units of the indent amount that you specified. This is used
-    via stylesheets.
-
-    You can use any HTML unit, for example:
-
-    * ``'em'``
-    * ``'ex'``
-    * ``'pt'``
-    * ``'px'``
 
 .. config:option:: $cfg['SQP']['fmtColor']
 
