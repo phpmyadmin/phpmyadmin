@@ -1,6 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
+ * Links configuration for MySQL system tables
  *
  * @package PhpMyAdmin
  */
@@ -14,7 +15,7 @@ if (! defined('PHPMYADMIN')) {
  * Major element represent a schema.
  * All the strings in this array represented in lower case
  * This global variable has not modified anywhere
- * 
+ *
  * Variable structure ex:
  * $GLOBALS['special_schema_links'] = array(
  *     // Database name is the major element
@@ -32,7 +33,7 @@ if (! defined('PHPMYADMIN')) {
  *                         // (can be array where url param has static value)
  *                         'param_info' => 'hostname',
  *                         // Column name related to url param
- *                         'column_name' => 'host'                        
+ *                         'column_name' => 'host'
  *                     )
  *                 ),
  *                 // Page to link
@@ -41,7 +42,7 @@ if (! defined('PHPMYADMIN')) {
  *         )
  *     )
  * );
- * 
+ *
  */
 $GLOBALS['special_schema_links'] = array(
     'mysql' => array(
@@ -55,7 +56,7 @@ $GLOBALS['special_schema_links'] = array(
                 'link_dependancy_params' => array(
                     0 => array(
                         'param_info' => 'hostname',
-                        'column_name' => 'host'                        
+                        'column_name' => 'host'
                     )
                 ),
                 'default_page' => 'server_privileges.php'
@@ -74,7 +75,7 @@ $GLOBALS['special_schema_links'] = array(
                 'link_dependancy_params' => array(
                     0 => array(
                         'param_info' => 'hostname',
-                        'column_name' => 'host'                        
+                        'column_name' => 'host'
                     )
                 ),
                 'default_page' => 'server_privileges.php'
@@ -103,11 +104,11 @@ $GLOBALS['special_schema_links'] = array(
                 'link_dependancy_params' => array(
                     0 => array(
                         'param_info' => 'db',
-                        'column_name' => 'table_schema'     
+                        'column_name' => 'table_schema'
                     ),
                     1 => array(
                         'param_info' => 'table',
-                        'column_name' => 'table_name' 
+                        'column_name' => 'table_name'
                     )
                 ),
                 'default_page' => 'index.php'
@@ -119,7 +120,7 @@ $GLOBALS['special_schema_links'] = array(
                 'link_dependancy_params' => array(
                     0 => array(
                         'param_info' => 'db',
-                        'column_name' => 'constraint_schema'                        
+                        'column_name' => 'constraint_schema'
                     )
                 ),
                 'default_page' => 'index.php'
@@ -133,11 +134,11 @@ $GLOBALS['special_schema_links'] = array(
                 'link_dependancy_params' => array(
                     0 => array(
                         'param_info' => 'db',
-                        'column_name' => 'table_schema'     
+                        'column_name' => 'table_schema'
                     ),
                     1 => array(
                         'param_info' => 'table',
-                        'column_name' => 'table_name' 
+                        'column_name' => 'table_name'
                     )
                 ),
                 'default_page' => 'index.php'
@@ -151,7 +152,7 @@ $GLOBALS['special_schema_links'] = array(
                 'link_dependancy_params' => array(
                     0 => array(
                         'param_info' => 'db',
-                        'column_name' => 'referenced_table_schema'                        
+                        'column_name' => 'referenced_table_schema'
                     )
                 ),
                 'default_page' => 'index.php'
@@ -165,11 +166,11 @@ $GLOBALS['special_schema_links'] = array(
                 'link_dependancy_params' => array(
                     0 => array(
                         'param_info' => 'db',
-                        'column_name' => 'referenced_table_schema'     
+                        'column_name' => 'referenced_table_schema'
                     ),
                     1 => array(
                         'param_info' => 'table',
-                        'column_name' => 'referenced_table_name' 
+                        'column_name' => 'referenced_table_name'
                     )
                 ),
                 'default_page' => 'index.php'
@@ -185,7 +186,7 @@ $GLOBALS['special_schema_links'] = array(
                 'link_dependancy_params' => array(
                     0 => array(
                         'param_info' => 'db',
-                        'column_name' => 'table_schema'                        
+                        'column_name' => 'table_schema'
                     )
                 ),
                 'default_page' => 'index.php'
@@ -201,7 +202,7 @@ $GLOBALS['special_schema_links'] = array(
                 'link_dependancy_params' => array(
                     0 => array(
                         'param_info' => 'hostname',
-                        'column_name' => 'host'                        
+                        'column_name' => 'host'
                     )
                 ),
                 'default_page' => 'server_privileges.php'
@@ -221,7 +222,7 @@ $GLOBALS['special_schema_links'] = array(
                 'link_dependancy_params' => array(
                     0 => array(
                         'param_info' => 'db',
-                        'column_name' => 'constraint_schema'                        
+                        'column_name' => 'constraint_schema'
                     )
                 ),
                 'default_page' => 'index.php'
@@ -231,11 +232,11 @@ $GLOBALS['special_schema_links'] = array(
                 'link_dependancy_params' => array(
                     0 => array(
                         'param_info' => 'db',
-                        'column_name' => 'constraint_schema'                        
+                        'column_name' => 'constraint_schema'
                     )
                 ),
                 'default_page' => 'index.php'
-            )            
+            )
         ),
         'routines' => array(
             'routine_name' => array(
@@ -243,7 +244,7 @@ $GLOBALS['special_schema_links'] = array(
                 'link_dependancy_params' => array(
                     0 => array(
                         'param_info' => 'db',
-                        'column_name' => 'routine_schema'                        
+                        'column_name' => 'routine_schema'
                     ),
                     1 => array(
                         'param_info' => 'item_type',
@@ -269,7 +270,7 @@ $GLOBALS['special_schema_links'] = array(
                 'link_dependancy_params' => array(
                     0 => array(
                         'param_info' => 'db',
-                        'column_name' => 'table_schema'                        
+                        'column_name' => 'table_schema'
                     )
                 ),
                 'default_page' => 'index.php'
@@ -283,11 +284,11 @@ $GLOBALS['special_schema_links'] = array(
                 'link_dependancy_params' => array(
                     0 => array(
                         'param_info' => 'db',
-                        'column_name' => 'table_schema'     
+                        'column_name' => 'table_schema'
                     ),
                     1 => array(
                         'param_info' => 'table',
-                        'column_name' => 'table_name' 
+                        'column_name' => 'table_name'
                     )
                 ),
                 'default_page' => 'index.php'
@@ -299,7 +300,7 @@ $GLOBALS['special_schema_links'] = array(
                 'link_dependancy_params' => array(
                     0 => array(
                         'param_info' => 'db',
-                        'column_name' => 'table_schema'                        
+                        'column_name' => 'table_schema'
                     )
                 ),
                 'default_page' => 'index.php'
@@ -311,7 +312,7 @@ $GLOBALS['special_schema_links'] = array(
                 'link_dependancy_params' => array(
                     0 => array(
                         'param_info' => 'db',
-                        'column_name' => 'table_schema'                        
+                        'column_name' => 'table_schema'
                     )
                 ),
                 'default_page' => 'index.php'

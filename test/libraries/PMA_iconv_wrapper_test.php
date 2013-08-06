@@ -20,7 +20,7 @@ class PMA_Iconv_Wrapper_Test extends PHPUnit_Framework_TestCase
 {
 
     /**
-     * Test for PMA_aix_iconv_mapCharsets
+     * Test for PMA_convertAIXMapCharsets
      *
      * @param string $in_charset         Non IBM-AIX-Compliant in-charset
      * @param string $out_charset        Non IBM-AIX-Compliant out-charset
@@ -36,7 +36,7 @@ class PMA_Iconv_Wrapper_Test extends PHPUnit_Framework_TestCase
     ) {
         $this->assertEquals(
             array($in_charset_mapped, $out_charset_mapped),
-            PMA_aix_iconv_mapCharsets($in_charset, $out_charset)
+            PMA_convertAIXMapCharsets($in_charset, $out_charset)
         );
     }
 

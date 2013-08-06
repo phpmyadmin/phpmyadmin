@@ -54,9 +54,10 @@ AJAX.registerOnload('tbl_chart.js', function () {
     $('input[name="chartType"]').click(function () {
         currentSettings.type = $(this).val();
         drawChart();
-        if ($(this).val() == 'bar' || $(this).val() == 'column'
-            || $(this).val() == 'line' || $(this).val() == 'area'
-            || $(this).val() == 'timeline' || $(this).val() == 'spline') {
+        if ($(this).val() == 'bar' || $(this).val() == 'column' ||
+            $(this).val() == 'line' || $(this).val() == 'area' ||
+            $(this).val() == 'timeline' || $(this).val() == 'spline'
+        ) {
             $('span.barStacked').show();
         } else {
             $('span.barStacked').hide();
@@ -151,8 +152,9 @@ AJAX.registerOnload('tbl_chart.js', function () {
  *
  */
 $("#tblchartform").live('submit', function (event) {
-    if (!checkFormElementInRange(this, 'session_max_rows', PMA_messages.strNotValidRowNumber, 1)
-        || !checkFormElementInRange(this, 'pos', PMA_messages.strNotValidRowNumber, 0 - 1)) {
+    if (!checkFormElementInRange(this, 'session_max_rows', PMA_messages.strNotValidRowNumber, 1) ||
+        !checkFormElementInRange(this, 'pos', PMA_messages.strNotValidRowNumber, 0 - 1)
+    ) {
         return false;
     }
 

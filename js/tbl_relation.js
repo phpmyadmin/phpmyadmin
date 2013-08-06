@@ -60,13 +60,13 @@ function getDropdownValues($dropdown) {
         + '&table=' + $form.find('input[name="table"]').val()
         + '&foreign=' + (foreign != '')
         + '&foreignDb=' + encodeURIComponent(foreignDb)
-        + (foreignTable !== null ? 
+        + (foreignTable !== null ?
             '&foreignTable=' + encodeURIComponent(foreignTable) : ''
         );
     $.ajax({
         url: url,
         datatype: 'json',
-        success: function(data) {
+        success: function (data) {
             PMA_ajaxRemoveMessage($msgbox);
             if (data.success) {
                 // if the changed dropdown is a database selector
@@ -90,7 +90,7 @@ function setDropdownValues($dropdown, values) {
     var optionsAsString = '';
     // add an empty string to the beginning for empty selection
     values.unshift('');
-    $.each(values, function() {
+    $.each(values, function () {
         optionsAsString += "<option value='" + this + "'>" + this + "</option>";
     })
     $dropdown.append($(optionsAsString));
@@ -121,7 +121,7 @@ AJAX.registerOnload('tbl_relation.js', function () {
             + ' select[name^="destination_table"],'
             + ' select[name^="destination_foreign_db"],'
             + ' select[name^="destination_foreign_table"]')
-        .change(function() {
+        .change(function () {
             getDropdownValues($(this));
         });
 });

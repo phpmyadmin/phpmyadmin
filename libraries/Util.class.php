@@ -87,6 +87,30 @@ class PMA_Util
     }
 
     /**
+     * Checks whether configuration value tells to show icons.
+     *
+     * @param string $value Configuration option name
+     *
+     * @return boolean Whether to show icons.
+     */
+    public static function showIcons($value)
+    {
+        return in_array($GLOBALS['cfg'][$value], array('icons', 'both'));
+    }
+
+    /**
+     * Checks whether configuration value tells to show text.
+     *
+     * @param string $value Configuration option name
+     *
+     * @return boolean Whether to show text.
+     */
+    public static function showText($value)
+    {
+        return in_array($GLOBALS['cfg'][$value], array('text', 'both'));
+    }
+
+    /**
      * Returns an HTML IMG tag for a particular icon from a theme,
      * which may be an actual file or an icon from a sprite.
      * This function takes into account the ActionLinksMode
@@ -105,18 +129,11 @@ class PMA_Util
         $menu_icon = false, $control_param = 'ActionLinksMode'
     ) {
         $include_icon = $include_text = false;
-        if (in_array(
-                $GLOBALS['cfg'][$control_param],
-                array('icons', 'both')
-            )
-        ) {
+        if (self::showIcons($control_param)) {
             $include_icon = true;
         }
         if ($force_text
-            || in_array(
-                $GLOBALS['cfg'][$control_param],
-                array('text', 'both')
-            )
+            || self::showText($control_param)
         ) {
             $include_text = true;
         }
@@ -368,61 +385,31 @@ class PMA_Util
     /**
      * format sql strings
      *
-     * @param mixed  $parsed_sql   pre-parsed SQL structure
-     * @param string $unparsed_sql raw SQL string
+     * @param string  $sql_query raw SQL string
+     * @param boolean $truncate  truncate the query if it is too long
      *
      * @return string  the formatted sql
      *
      * @global  array    the configuration array
-     * @global  boolean  whether the current statement is a multiple one or not
      *
      * @access  public
      * @todo    move into PMA_Sql
      */
-    public static function formatSql($parsed_sql, $unparsed_sql = '')
+    public static function formatSql($sql_query, $truncate = false)
     {
         global $cfg;
-
-        // Check that we actually have a valid set of parsed data
-        // well, not quite
-        // first check for the SQL parser having hit an error
-        if (PMA_SQP_isError()) {
-            return htmlspecialchars($parsed_sql['raw']);
+        if ($truncate
+            && strlen($sql_query) > $cfg['MaxCharactersInDisplayedSQL']
+        ) {
+            $sql_query = $GLOBALS['PMA_String']->substr(
+                $sql_query,
+                0,
+                $cfg['MaxCharactersInDisplayedSQL']
+            ) . '[...]';
         }
-        // then check for an array
-        if (! is_array($parsed_sql)) {
-            // We don't so just return the input directly
-            // This is intended to be used for when the SQL Parser is turned off
-            $formatted_sql = "<pre>\n";
-            if (($cfg['SQP']['fmtType'] == 'none') && ($unparsed_sql != '')) {
-                $formatted_sql .= $unparsed_sql;
-            } else {
-                $formatted_sql .= $parsed_sql;
-            }
-            $formatted_sql .= "\n</pre>";
-            return $formatted_sql;
-        }
-
-        $formatted_sql = '';
-
-        switch ($cfg['SQP']['fmtType']) {
-        case 'none':
-            if ($unparsed_sql != '') {
-                $formatted_sql = '<span class="inner_sql"><pre>' . "\n"
-                    . PMA_SQP_formatNone(array('raw' => $unparsed_sql)) . "\n"
-                    . '</pre></span>';
-            } else {
-                $formatted_sql = PMA_SQP_formatNone($parsed_sql);
-            }
-            break;
-        case 'text':
-            $formatted_sql = PMA_SQP_format($parsed_sql, 'text');
-            break;
-        default:
-            break;
-        } // end switch
-
-        return $formatted_sql;
+        return '<span class="inner_sql"><pre>' . "\n"
+            . htmlspecialchars($sql_query) . "\n"
+            . '</pre></span>';
     } // end of the "formatSql()" function
 
     /**
@@ -653,19 +640,7 @@ class PMA_Util
         } elseif (empty($the_query) || (trim($the_query) == '')) {
             $formatted_sql = '';
         } else {
-            if (strlen($the_query) > $GLOBALS['cfg']['MaxCharactersInDisplayedSQL']) {
-                $formatted_sql = htmlspecialchars(
-                    substr(
-                        $the_query, 0,
-                        $GLOBALS['cfg']['MaxCharactersInDisplayedSQL']
-                    )
-                )
-                . '[...]';
-            } else {
-                $formatted_sql = self::formatSql(
-                    PMA_SQP_parse($the_query), $the_query
-                );
-            }
+            $formatted_sql = self::formatSql($the_query, true);
         }
         // ---
         $error_msg .= "\n" . '<!-- PMA-SQL-ERROR -->' . "\n";
@@ -1047,9 +1022,7 @@ class PMA_Util
         if (null === $sql_query) {
             if (! empty($GLOBALS['display_query'])) {
                 $sql_query = $GLOBALS['display_query'];
-            } elseif ($cfg['SQP']['fmtType'] == 'none'
-                && ! empty($GLOBALS['unparsed_sql'])
-            ) {
+            } elseif (! empty($GLOBALS['unparsed_sql'])) {
                 $sql_query = $GLOBALS['unparsed_sql'];
             } elseif (! empty($GLOBALS['sql_query'])) {
                 $sql_query = $GLOBALS['sql_query'];
@@ -1116,7 +1089,8 @@ class PMA_Util
                     )
                 );
             } elseif (! empty($GLOBALS['parsed_sql'])
-             && $query_base == $GLOBALS['parsed_sql']['raw']) {
+                && $query_base == $GLOBALS['parsed_sql']['raw']
+            ) {
                 // (here, use "! empty" because when deleting a bookmark,
                 // $GLOBALS['parsed_sql'] is set but empty
                 $parsed_sql = $GLOBALS['parsed_sql'];
@@ -1181,8 +1155,8 @@ class PMA_Util
                         __('Failed to connect to SQL validator!')
                     )->getDisplay();
                 }
-            } elseif (isset($parsed_sql)) {
-                $query_base = self::formatSql($parsed_sql, $query_base);
+            } elseif (isset($query_base)) {
+                $query_base = self::formatSql($query_base);
             }
 
             // Prepares links that may be displayed to edit/explain the query
@@ -1743,7 +1717,8 @@ class PMA_Util
             ) {
                 $tab['class'] = 'active';
             } elseif (is_null($tab['active']) && empty($GLOBALS['active_page'])
-              && (basename($GLOBALS['PMA_PHP_SELF']) == $tab['link'])) {
+                && (basename($GLOBALS['PMA_PHP_SELF']) == $tab['link'])
+            ) {
                 $tab['class'] = 'active';
             }
         }
@@ -2229,8 +2204,8 @@ class PMA_Util
                     $con_val = '= ' . $row[$i];
                 } elseif ((($meta->type == 'blob') || ($meta->type == 'string'))
                     // hexify only if this is a true not empty BLOB or a BINARY
-                        && stristr($field_flags, 'BINARY')
-                        && ! empty($row[$i])
+                    && stristr($field_flags, 'BINARY')
+                    && ! empty($row[$i])
                 ) {
                     // do not waste memory building a too big condition
                     if (strlen($row[$i]) < 1000) {
@@ -2526,11 +2501,7 @@ class PMA_Util
 
             // Move to the beginning or to the previous page
             if ($pos > 0) {
-                if (in_array(
-                    $GLOBALS['cfg']['TableNavigationLinksMode'],
-                    array('icons', 'both')
-                )
-                ) {
+                if (self::showIcons('TableNavigationLinksMode')) {
                     $caption1 = '&lt;&lt;';
                     $caption2 = ' &lt; ';
                     $title1   = ' title="' . _pgettext('First page', 'Begin') . '"';
@@ -2567,11 +2538,7 @@ class PMA_Util
             $list_navigator_html .= '</form>';
 
             if ($pos + $max_count < $count) {
-                if (in_array(
-                    $GLOBALS['cfg']['TableNavigationLinksMode'],
-                    array('icons', 'both')
-                    )
-                ) {
+                if ( self::showIcons('TableNavigationLinksMode')) {
                     $caption3 = ' &gt; ';
                     $caption4 = '&gt;&gt;';
                     $title3   = ' title="' . _pgettext('Next page', 'Next') . '"';
@@ -4264,24 +4231,16 @@ class PMA_Util
             }
         }
 
-        if ($save) {
-            $_SESSION['cache']['version_check'] = array(
-                'response' => $response,
-                'timestamp' => time()
-            );
-        }
-
         $data = json_decode($response);
         if (is_object($data)
             && strlen($data->version)
             && strlen($data->date)
+            && $save
         ) {
-            if ($save) {
-                $_SESSION['cache']['version_check'] = array(
-                    'response' => $response,
-                    'timestamp' => time()
-                );
-            }
+            $_SESSION['cache']['version_check'] = array(
+                'response' => $response,
+                'timestamp' => time()
+            );
         }
 
         return $data;

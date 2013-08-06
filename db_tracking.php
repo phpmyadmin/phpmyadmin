@@ -1,6 +1,8 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
+ * Tracking configuration for database
+ *
  * @package PhpMyAdmin
  */
 
@@ -91,21 +93,13 @@ if ($GLOBALS['dbi']->numRows($all_tables_result) > 0) {
     // Print out information about versions
 
     $drop_image_or_text = '';
-    if (in_array(
-        $GLOBALS['cfg']['ActionLinksMode'],
-        array('icons', 'both')
-        )
-    ) {
+    if (PMA_Util::showIcons('ActionLinksMode')) {
         $drop_image_or_text .= PMA_Util::getImage(
             'b_drop.png',
             __('Delete tracking data for this table')
         );
     }
-    if (in_array(
-        $GLOBALS['cfg']['ActionLinksMode'],
-        array('text', 'both')
-        )
-    ) {
+    if (PMA_Util::showText('ActionLinksMode')) {
         $drop_image_or_text .= __('Drop');
     }
 
@@ -140,10 +134,16 @@ if ($GLOBALS['dbi']->numRows($all_tables_result) > 0) {
             <td><?php echo $version_data['date_created'];?></td>
             <td><?php echo $version_data['date_updated'];?></td>
             <td><?php echo $version_status;?></td>
-            <td><a class="drop_tracking_anchor ajax" href="<?php echo $delete_link;?>" ><?php echo $drop_image_or_text; ?></a></td>
-            <td> <a href="<?php echo $tmp_link; ?>"><?php echo __('Versions');?></a>
-               | <a href="<?php echo $tmp_link; ?>&amp;report=true&amp;version=<?php echo $version_data['version'];?>"><?php echo __('Tracking report');?></a>
-               | <a href="<?php echo $tmp_link; ?>&amp;snapshot=true&amp;version=<?php echo $version_data['version'];?>"><?php echo __('Structure snapshot');?></a></td>
+            <td>
+            <a class="drop_tracking_anchor ajax" href="<?php echo $delete_link;?>" >
+            <?php echo $drop_image_or_text; ?></a>
+            </td>
+            <td>
+                <a href="<?php echo $tmp_link; ?>"><?php echo __('Versions');?></a>
+                |
+                <a href="<?php echo $tmp_link; ?>&amp;report=true&amp;version=<?php echo $version_data['version'];?>"><?php echo __('Tracking report');?></a>
+                |
+                <a href="<?php echo $tmp_link; ?>&amp;snapshot=true&amp;version=<?php echo $version_data['version'];?>"><?php echo __('Structure snapshot');?></a></td>
         </tr>
         <?php
         if ($style == 'even') {

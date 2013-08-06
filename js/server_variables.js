@@ -56,9 +56,8 @@ AJAX.registerOnload('server_variables.js', function () {
         var mark_next = false, $row, odd_row = false;
         $('#serverVariables .var-row').not('.var-header').each(function () {
             $row = $(this);
-            if (mark_next
-                || textFilter === null
-                || textFilter.exec($row.find('.var-name').text())
+            if (mark_next || textFilter === null ||
+                textFilter.exec($row.find('.var-name').text())
             ) {
                 // If current global value is different from session value
                 // (has class diffSession), then display that one too

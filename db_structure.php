@@ -1,6 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
+ * Database structure manipulation
  *
  * @package PhpMyAdmin
  */
@@ -22,54 +23,35 @@ $scripts->addFile('db_structure.js');
 $scripts->addFile('tbl_change.js');
 $scripts->addFile('jquery/jquery-ui-timepicker-addon.js');
 
-$post_params = array(
-    'error',
-    'is_info',
-    'message',
-    'mult_btn',
-    'selected_tbl',
-    'submit_mult'
-);
-foreach ($post_params as $one_post_param) {
-    if (isset($_POST[$one_post_param])) {
-        $GLOBALS[$one_post_param] = $_POST[$one_post_param];
+// Drops/deletes/etc. multiple tables if required
+if ((!empty($_POST['submit_mult']) && isset($_POST['selected_tbl']))
+    || isset($_POST['mult_btn'])
+) {
+    $action = 'db_structure.php';
+    $err_url = 'db_structure.php?'. PMA_generate_common_url($db);
+
+    // see bug #2794840; in this case, code path is:
+    // db_structure.php -> libraries/mult_submits.inc.php -> sql.php
+    // -> db_structure.php and if we got an error on the multi submit,
+    // we must display it here and not call again mult_submits.inc.php
+    if (! isset($_POST['error']) || false === $_POST['error']) {
+        include 'libraries/mult_submits.inc.php';
+    }
+    if (empty($_POST['message'])) {
+        $_POST['message'] = PMA_Message::success();
     }
 }
-/**
- * Prepares the tables list if the user where not redirected to this script
- * because there is no table in the database ($is_info is true)
- */
-if (empty($_POST['is_info'])) {
-    // Drops/deletes/etc. multiple tables if required
-    if ((!empty($_POST['submit_mult']) && isset($_POST['selected_tbl']))
-        || isset($_POST['mult_btn'])
-    ) {
-        $action = 'db_structure.php';
-        $err_url = 'db_structure.php?'. PMA_generate_common_url($db);
+require 'libraries/db_common.inc.php';
+$url_query .= '&amp;goto=db_structure.php';
 
-        // see bug #2794840; in this case, code path is:
-        // db_structure.php -> libraries/mult_submits.inc.php -> sql.php
-        // -> db_structure.php and if we got an error on the multi submit,
-        // we must display it here and not call again mult_submits.inc.php
-        if (! isset($_POST['error']) || false === $_POST['error']) {
-            include 'libraries/mult_submits.inc.php';
-        }
-        if (empty($_POST['message'])) {
-            $_POST['message'] = PMA_Message::success();
-        }
-    }
-    include 'libraries/db_common.inc.php';
-    $url_query .= '&amp;goto=db_structure.php';
+// Gets the database structure
+$sub_part = '_structure';
+require 'libraries/db_info.inc.php';
 
-    // Gets the database structure
-    $sub_part = '_structure';
-    include 'libraries/db_info.inc.php';
-
-    if (!PMA_DRIZZLE) {
-        include_once 'libraries/replication.inc.php';
-    } else {
-        $server_slave_status = false;
-    }
+if (!PMA_DRIZZLE) {
+    include_once 'libraries/replication.inc.php';
+} else {
+    $server_slave_status = false;
 }
 
 require_once 'libraries/bookmark.lib.php';

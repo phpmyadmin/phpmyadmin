@@ -22,6 +22,8 @@ phpmyadmin.wpj
 .idea
 .netbeans
 *.sw[op]
+# IIS files
+web.config
 # Locales
 /locale/
 # Backups

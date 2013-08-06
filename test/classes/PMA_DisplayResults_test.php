@@ -627,9 +627,9 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
     /**
      * Test for _getCheckBoxesForMultipleRowOperations
      *
-     * @param string $dir    _left / _right
-     * @param array $is_display display mode
-     * @param string $output output of _getCheckBoxesForMultipleRowOperations
+     * @param string $dir        _left / _right
+     * @param array  $is_display display mode
+     * @param string $output     output of _getCheckBoxesForMultipleRowOperations
      *
      * @return void
      *

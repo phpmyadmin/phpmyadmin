@@ -15,7 +15,7 @@ $(function () {
     }
 
     // Do not let the page reload on submitting the fast filter
-    $(document).on('submit', '.fast_filter', function(event) {
+    $(document).on('submit', '.fast_filter', function (event) {
         event.preventDefault();
     });
 
@@ -220,7 +220,7 @@ $(function () {
         event.preventDefault();
         $.ajax({
             url: $(this).attr('href') + '&ajax_request=true',
-            success: function(data) {
+            success: function (data) {
                 if (data.success === true) {
                     PMA_reloadNavigation();
                 } else {
@@ -267,7 +267,7 @@ $(function () {
         var $msg = PMA_ajaxShowMessage();
         $.ajax({
             url: $(this).attr('href') + '&ajax_request=true',
-            success: function(data) {
+            success: function (data) {
                 PMA_ajaxRemoveMessage($msg);
                 if (data.success === true) {
                     $tr.remove();

@@ -12,8 +12,20 @@
 require_once 'libraries/Util.class.php';
 require_once 'libraries/sqlparser.lib.php';
 
+/**
+ * PMA_SQLParserAnalyze_Test class
+ *
+ * this class is for testing sqlparser.lib.php
+ *
+ * @package PhpMyAdmin-test
+ */
 class PMA_SQLParserAnalyze_Test extends PHPUnit_Framework_TestCase
 {
+    /**
+     * Test for PMA_SQP_getParserAnalyze
+     *
+     * @return void
+     */
     public function testPMA_SQP_getParserAnalyzeMa()
     {
         //select statement

@@ -1,6 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
+ * Save handler for PMD
  *
  * @package PhpMyAdmin-Designer
  */
@@ -14,7 +15,7 @@ require_once 'libraries/pmd_common.php';
 $cfgRelation = PMA_getRelationsParam();
 
 if (! $cfgRelation['designerwork']) {
-    PMD_err_sav();
+    PMD_errorSave();
 }
 
 /**
@@ -58,13 +59,22 @@ foreach ($_POST['t_x'] as $key => $value) {
 }
 //----------------------------------------------------------------------------
 
-function PMD_err_sav()
+/**
+ * Error handler
+ *
+ * @return void
+ */
+function PMD_errorSave()
 {
     global $die_save_pos; // if this file included
     if (! empty($die_save_pos)) {
         header("Content-Type: text/xml; charset=utf-8");
         header("Cache-Control: no-cache");
-        die('<root act="save_pos" return="' . __('Error saving coordinates for Designer.') . '"></root>');
+        die(
+            '<root act="save_pos" return="'
+            . __('Error saving coordinates for Designer.')
+            . '"></root>'
+        );
     }
 }
 
@@ -72,7 +82,9 @@ if (! empty($die_save_pos)) {
     header("Content-Type: text/xml; charset=utf-8");
     header("Cache-Control: no-cache");
     ?>
-    <root act='save_pos' return='<?php echo __('Modifications have been saved'); ?>'></root>
+    <root
+        act='save_pos'
+        return='<?php echo __('Modifications have been saved'); ?>'></root>
     <?php
 }
 ?>

@@ -42,6 +42,7 @@ require_once './libraries/bookmark.lib.php'; // used for bookmarks
  */
 function PMA_sqlQueryForm($query = true, $display_tab = false, $delimiter = ';')
 {
+    $html = '';
     // check tab to display if inside querywindow
     if (! $display_tab) {
         $display_tab = 'full';
@@ -92,7 +93,7 @@ function PMA_sqlQueryForm($query = true, $display_tab = false, $delimiter = ';')
               return checkSqlQuery(this)">
         <?php
     } else {
-        $html = '<form method="post" action="import.php" ' . $enctype;
+        $html .= '<form method="post" action="import.php" ' . $enctype;
         $html .= ' class="ajax"';
         $html .= ' id="sqlqueryform" name="sqlform">' . "\n";
     }
@@ -295,11 +296,7 @@ function PMA_sqlQueryFormInsert(
         }
         $html .= '</select>'
             . '<div id="tablefieldinsertbuttoncontainer">';
-        if (in_array(
-            $GLOBALS['cfg']['ActionLinksMode'],
-            array('icons', 'both')
-            )
-        ) {
+        if (PMA_Util::showIcons('ActionLinksMode')) {
             $html .= '<input type="button" class="button" name="insert"'
                 . ' value="&lt;&lt;" onclick="insertValueQuery()"'
                 . ' title="' . __('Insert') . '" />';

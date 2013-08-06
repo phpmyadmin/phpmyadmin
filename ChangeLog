@@ -29,9 +29,15 @@ phpMyAdmin - ChangeLog
 - bug #4024 Editing field a record is selected by makes pma load forever
 - bug #4035 Query "inline" link disappears when turning off "Explain SQL" option
 + rfe #1385 Hide tables, functions, procedures, events and views in navigation tree
++ rfe #1321 Export view as if it was a table
++ Dropped configuration directive: SQP
 + Change the proxy variable names in the config to remove the VersionCheck prefix from them
 
-4.0.5.0 (not yet released)
+4.0.6.0 (not yet released)
+- bug #4036 Call to undefined function mb_detect_encoding (clarify the doc)
+- bug Missing hints when changing a column's structure
+
+4.0.5.0 (2013-08-04)
 - bug #3977 Not detected configuration storage
 - bug #3970 Pressing enter in the filter field reloads page
 - bug #3984 Cannot insert in this table (PHP < 5.4)
@@ -47,8 +53,11 @@ phpMyAdmin - ChangeLog
 - bug #4009 Statistic Monitor shows only last 3 digits in graph
 - bug #3998 Non-permanent SQL history not working
 - bug #3578 Transformations for text/plain on a BLOB column
+- [security] Improved protection against cross framing, see PMASA-2013-10
++ Reinstated configuration directive: AllowThirdPartyFraming
 
 4.0.4.2 (2013-07-28)
+- [security] fix unescaped parameter, see PMASA-2013-8
 - [security] Fix stored XSS in Server status monitor, see PMASA-2013-9
 - [security] Fix stored XSS in navigation panel logo link, see PMASA-2013-9
 - [security] Fix self-XSS in setup, trusted proxies validation, see PMASA-2013-9

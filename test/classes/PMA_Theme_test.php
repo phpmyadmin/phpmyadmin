@@ -34,7 +34,6 @@ class PMA_ThemeTest extends PHPUnit_Framework_TestCase
         $_SESSION['PMA_Theme'] = $this->object;
         $GLOBALS['PMA_Config'] = new PMA_Config();
         $GLOBALS['PMA_Config']->enableBc();
-        $GLOBALS['cfg']['SQP']['fmtColor'] = array('fake' => 'red');
         $GLOBALS['text_dir'] = 'ltr';
         include 'themes/pmahomme/layout.inc.php';
         $GLOBALS['server'] = '99';
@@ -306,57 +305,6 @@ background: -o-linear-gradient(top, #12345, #54321);'
     }
 
     /**
-     * Test for getCssCodeMirror
-     *
-     * @return void
-     */
-    public function testGetCssCodeMirror()
-    {
-        $this->assertEquals(
-            $this->object->getCssCodeMirror(),
-            'span.cm-keyword, span.cm-statement-verb {
-    color: #909;
-}
-span.cm-variable {
-    color: black;
-}
-span.cm-comment {
-    color: #808000;
-}
-span.cm-mysql-string {
-    color: #008000;
-}
-span.cm-operator {
-    color: fuchsia;
-}
-span.cm-mysql-word {
-    color: black;
-}
-span.cm-builtin {
-    color: #f00;
-}
-span.cm-variable-2 {
-    color: #f90;
-}
-span.cm-variable-3 {
-    color: #00f;
-}
-span.cm-separator {
-    color: fuchsia;
-}
-span.cm-number {
-    color: teal;
-}'
-        );
-
-        $GLOBALS['cfg']['CodemirrorEnable'] = false;
-            $this->assertEquals(
-                $this->object->getCssCodeMirror(),
-                ''
-            );
-    }
-
-    /**
      * Test for getImgPath
      *
      * @param string $file   file name for image
@@ -395,62 +343,6 @@ span.cm-number {
                 './themes/pmahomme/img/arrow_ltr.png'
             )
 
-        );
-    }
-
-    /**
-     * Test for buildSQPCssRule
-     *
-     * @return void
-     */
-    public function testBuildSQPCssRule()
-    {
-        $this->assertEquals(
-            $this->object->buildSQPCssRule('PMA_Config', 'fontSize', '12px'),
-            '.PMA_Config {fontSize: 12px;}
-'
-        );
-    }
-
-    /**
-     * Test for buildSQPCssData
-     *
-     * @return void
-     */
-    public function testBuildSQPCssData()
-    {
-        $this->assertEquals(
-            $this->object->buildSQPCssData(),
-            '.syntax_comment {color: #808000;}
-.syntax_comment_mysql {}
-.syntax_comment_ansi {}
-.syntax_comment_c {}
-.syntax_digit {}
-.syntax_digit_hex {color: teal;}
-.syntax_digit_integer {color: teal;}
-.syntax_digit_float {color: aqua;}
-.syntax_punct {color: fuchsia;}
-.syntax_alpha {}
-.syntax_alpha_columnType {color: #f90;}
-.syntax_alpha_columnAttrib {color: #00f;}
-.syntax_alpha_reservedWord {color: #909;}
-.syntax_alpha_functionName {color: #f00;}
-.syntax_alpha_identifier {color: black;}
-.syntax_alpha_charset {color: #6495ed;}
-.syntax_alpha_variable {color: #800000;}
-.syntax_quote {color: #008000;}
-.syntax_quote_double {}
-.syntax_quote_single {}
-.syntax_quote_backtick {}
-.syntax_indent0 {margin-left: 0em;}
-.syntax_indent1 {margin-left: 1em;}
-.syntax_indent2 {margin-left: 2em;}
-.syntax_indent3 {margin-left: 3em;}
-.syntax_indent4 {margin-left: 4em;}
-.syntax_indent5 {margin-left: 5em;}
-.syntax_indent6 {margin-left: 6em;}
-.syntax_indent7 {margin-left: 7em;}
-'
         );
     }
 }

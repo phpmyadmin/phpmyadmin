@@ -409,11 +409,7 @@ class PMA_User_Schema
             <legend>
             <?php
             echo PMA_generate_common_hidden_inputs($db);
-            if (in_array(
-                    $GLOBALS['cfg']['ActionLinksMode'],
-                    array('icons', 'both')
-                )
-            ) {
+            if (PMA_Util::showIcons('ActionLinksMode')) {
                 echo PMA_Util::getImage('b_views.png');
             }
             echo __('Display relational schema');
@@ -646,14 +642,15 @@ class PMA_User_Schema
         $GLOBALS['dbi']->selectDb($db);
 
         $path = PMA_securePath(ucfirst($export_type));
-        if (!file_exists('libraries/schema/' . $path . '_Relation_Schema.class.php')) {
+        $filename = 'libraries/schema/' . $path . '_Relation_Schema.class.php';
+        if (!file_exists($filename)) {
             PMA_Export_Relation_Schema::dieSchema(
                 $_POST['chpage'],
                 $export_type,
                 __('File doesn\'t exist')
             );
         }
-        require "libraries/schema/".$path.'_Relation_Schema.class.php';
+        include $filename;
         $class_name = 'PMA_' . $path . '_Relation_Schema';
         $obj_schema = new $class_name();
         $obj_schema->showOutput();

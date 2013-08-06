@@ -1,6 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
+ * Server replications
  *
  * @package PhpMyAdmin
  */
@@ -27,7 +28,7 @@ $scripts->addFile('replication.js');
  * Checks if the user is allowed to do what he tries to...
  */
 if (! $is_superuser) {
-    $html  = PMA_getSubPageHeader('replication');
+    $html  = PMA_getHtmlForSubPageHeader('replication');
     $html .= PMA_Message::error(__('No Privileges'))->getDisplay();
     $response->addHTML($html);
     exit;
@@ -46,15 +47,16 @@ PMA_handleControlRequest();
  * start output
  */
 $response->addHTML('<div id="replication">');
-$response->addHTML(PMA_getSubPageHeader('replication'));
+$response->addHTML(PMA_getHtmlForSubPageHeader('replication'));
 
 // Display error messages
 $response->addHTML(PMA_getHtmlForErrorMessage());
 
 if ($server_master_status) {
     $response->addHTML(PMA_getHtmlForMasterReplication());
-} elseif (! isset($_REQUEST['mr_configure']) && 
-          ! isset($_REQUEST['repl_clear_scr'])) {
+} elseif (! isset($_REQUEST['mr_configure'])
+    && ! isset($_REQUEST['repl_clear_scr'])
+) {
     $response->addHTML(PMA_getHtmlForNotServerReplication());
 }
 
@@ -70,7 +72,7 @@ if (! isset($_REQUEST['repl_clear_scr'])) {
     // Render the 'Slave configuration' section
     $response->addHTML(
         PMA_getHtmlForSlaveConfiguration(
-            $server_slave_status, 
+            $server_slave_status,
             $server_slave_replication
         )
     );

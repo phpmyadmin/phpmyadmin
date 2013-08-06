@@ -1,0 +1,37 @@
+#!/bin/sh
+#
+# Generates revision-info.php file which is used by demo server
+#
+
+set -e
+
+remote_url=`git remote show -n origin | grep 'Fetch' | sed 's/.*URL: //'`
+ref=$(git symbolic-ref -q HEAD || git name-rev --name-only HEAD 2>/dev/null)
+ref=${ref#refs/heads/}
+rev=`git describe --always`
+fullrev=`git log -1 | head -n 1 | awk '{print $2}'`
+if [ "$remote_url" = "git://github.com/phpmyadmin/phpmyadmin.git" ] \
+    || [ "$remote_url" = "https://github.com/phpmyadmin/phpmyadmin" ]; then
+    repobase="https://github.com/phpmyadmin/phpmyadmin/commit/"
+    repobranchbase="https://github.com/phpmyadmin/phpmyadmin/tree/"
+    reponame=''
+elif echo "$remote_url" | grep -q "git://github.com/" ; then
+    repobase=`echo $remote_url | sed 's@git://github.com/\(.*\)/\(.*\).git@https://github.com/\1/\2/commit/@'`
+    repobranchbase=`echo $remote_url | sed 's@git://github.com/\(.*\)/\(.*\).git@https://github.com/\1/\2/tree/@'`
+    reponame=`echo $remote_url | sed 's@git://github.com/\(.*\)/\(.*\).git@\1@'`
+else
+    repobase=`echo $remote_url | sed 's@git://repo.or.cz@http://repo.or.cz/w@'`/commitdiff/
+    repobranchbase=`echo $remote_url | sed 's@git://repo.or.cz@http://repo.or.cz/w@'`/shortlog/refs/heads/
+    reponame=''
+fi
+cat > revision-info.php.tmp <<EOT
+<?php
+\$revision = '$rev';
+\$fullrevision = '$fullrev';
+\$repobase = '$repobase';
+\$reponame = '$reponame';
+\$repobranchbase = '$repobranchbase';
+\$branch = '$ref';
+?>
+EOT
+mv revision-info.php.tmp revision-info.php

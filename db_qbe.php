@@ -28,9 +28,9 @@ if (isset($_REQUEST['submit_sql']) && ! empty($sql_query)) {
         $message_to_display = true;
     } else {
         $goto      = 'db_sql.php';
-        
+
         // Parse and analyze the query
-        require_once 'libraries/parse_analyze.inc.php';
+        include_once 'libraries/parse_analyze.inc.php';
 
         PMA_executeQueryAndSendQueryResponse(
             $analyzed_sql_results, false, $_REQUEST['db'], null, null, null, null,

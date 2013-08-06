@@ -104,7 +104,7 @@ AJAX.registerTeardown('sql.js', function () {
  */
 AJAX.registerOnload('sql.js', function () {
     // Delete row from SQL results
-    $('a.delete_row.ajax').live('click',function (e) {
+    $('a.delete_row.ajax').live('click', function (e) {
         e.preventDefault();
         var question = $.sprintf(PMA_messages.strDoYouReally, $(this).closest('td').find('div').text());
         var $link = $(this);
@@ -589,11 +589,9 @@ AJAX.registerOnload('sql.js', function () {
  */
 function makeProfilingChart()
 {
-    if ($('#profilingchart').length === 0
-        || $('#profilingchart').html().length !== 0
-        || !$.jqplot
-        || !$.jqplot.Highlighter
-        || !$.jqplot.PieRenderer
+    if ($('#profilingchart').length === 0 ||
+        $('#profilingchart').html().length !== 0 ||
+        !$.jqplot || !$.jqplot.Highlighter || !$.jqplot.PieRenderer
     ) {
         return;
     }
@@ -621,7 +619,7 @@ function initProfilingTables()
 
     $('#profiletable').tablesorter({
         widgets: ['zebra'],
-        sortList: [[0,0]],
+        sortList: [[0, 0]],
         textExtraction: function (node) {
             if (node.children.length > 0) {
                 return node.children[0].innerHTML;
@@ -630,10 +628,10 @@ function initProfilingTables()
             }
         }
     });
-    
+
     $('#profilesummarytable').tablesorter({
         widgets: ['zebra'],
-        sortList: [[1,1]],
+        sortList: [[1, 1]],
         textExtraction: function (node) {
             if (node.children.length > 0) {
                 return node.children[0].innerHTML;

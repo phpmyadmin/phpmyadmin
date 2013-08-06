@@ -1,6 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
+ * PMD handler for creating new relation
  *
  * @package PhpMyAdmin-Designer
  */
@@ -51,7 +52,8 @@ if (PMA_Util::isForeignKeySupported($type_T1)
         'SHOW INDEX FROM ' . PMA_Util::backquote($db)
         . '.' . PMA_Util::backquote($T2) . ';'
     );
-    $index_array2 = array(); // will be used to emphasis prim. keys in the table view
+    // will be used to emphasis prim. keys in the table view
+    $index_array2 = array();
     while ($row = $GLOBALS['dbi']->fetchAssoc($result)) {
         $index_array2[$row['Column_name']] = 1;
     }

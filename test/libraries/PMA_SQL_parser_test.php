@@ -17,6 +17,13 @@ require_once 'libraries/Util.class.php';
 require_once 'libraries/Theme.class.php';
 require_once 'libraries/sanitizing.lib.php';
 
+/**
+ * PMA_SQLParser_Test class
+ *
+ * this class is for testing sqlparser.lib.php
+ *
+ * @package PhpMyAdmin-test
+ */
 class PMA_SQLParser_Test extends PHPUnit_Framework_TestCase
 {
     /**
@@ -53,7 +60,12 @@ class PMA_SQLParser_Test extends PHPUnit_Framework_TestCase
         $this->assertEquals('', PMA_SQP_getErrorString());
         $this->assertEquals($expected, $parsed_sql);
     }
-    
+
+    /**
+     * Test for PMA_SQP_isKeyWord
+     *
+     * @return void
+     */
     public function testPMA_SQP_isKeyWord()
     {
         PMA_SQP_resetError();

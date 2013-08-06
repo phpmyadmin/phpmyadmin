@@ -9,6 +9,7 @@
 require_once 'libraries/navigation/NodeFactory.class.php';
 require_once 'libraries/Util.class.php';
 require_once 'libraries/Theme.class.php';
+require_once 'libraries/php-gettext/gettext.inc';
 
 /**
  * Tests for NodeFactory class
@@ -22,12 +23,6 @@ class NodeFactory_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['server'] = 0;
         $GLOBALS['token'] = 'token';
         $_SESSION['PMA_Theme'] = PMA_Theme::load('./themes/pmahomme');
-        if (! function_exists('__')) {
-            function __($str)
-            {
-                return $str;
-            }
-        }
     }
 
     public function testDefaultNode()

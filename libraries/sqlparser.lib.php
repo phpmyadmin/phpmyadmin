@@ -758,7 +758,8 @@ function PMA_SQP_parse($sql)
             } elseif (($t_next == 'punct_qualifier') || ($t_prev == 'punct_qualifier')) {
                 $t_suffix = '_identifier';
             } elseif (($t_next == 'punct_bracket_open_round')
-              && isset($PMA_SQPdata_function_name[$d_cur_upper])) {
+                && isset($PMA_SQPdata_function_name[$d_cur_upper])
+            ) {
                 /**
                  * @todo 2005-10-16: in the case of a CREATE TABLE containing
                  * a TIMESTAMP, since TIMESTAMP() is also a function, it's
@@ -825,8 +826,9 @@ function PMA_SQP_parse($sql)
                     $t_suffix = '_charset';
                 }
             } elseif (in_array($d_cur, $mysql_charsets)
-              || in_array($d_cur, $mysql_collations_flat)
-              || ($d_cur{0} == '_' && in_array(substr($d_cur, 1), $mysql_charsets))) {
+                || in_array($d_cur, $mysql_collations_flat)
+                || ($d_cur{0} == '_' && in_array(substr($d_cur, 1), $mysql_charsets))
+            ) {
                 $t_suffix = '_charset';
             } else {
                 // Do nothing
@@ -1631,15 +1633,16 @@ function PMA_SQP_analyze($arr)
                 }
                 // A table has to be created, renamed, dropped -> navi panel
                 // should be reloaded
-                if (in_array($first_reserved_word, array("CREATE", "ALTER", "DROP"))
-                    && in_array(
-                    $upper_data, array("VIEW", "TABLE", "DATABASE", "SCHEMA"))
+                $keywords1 = array('CREATE', 'ALTER', 'DROP');
+                $keywords2 = array('VIEW', 'TABLE', 'DATABASE', 'SCHEMA');
+                if (in_array($first_reserved_word, $keywords1)
+                    && in_array($upper_data, $keywords2)
                 ) {
                     $subresult['queryflags']['reload'] = 1;
                 }
 
                 // for the presence of INSERT|LOAD DATA
-                if (in_array($first_reserved_word, array("INSERT", "LOAD"))
+                if (in_array($first_reserved_word, array('INSERT', 'LOAD'))
                     && $upper_data == 'REPLACE'
                 ) {
                     $subresult['queryflags']['is_insert'] = 1;
@@ -1647,7 +1650,10 @@ function PMA_SQP_analyze($arr)
                 }
 
                 // for the presence of CHECK|ANALYZE|REPAIR|OPTIMIZE TABLE
-                if (in_array($first_reserved_word, array("CHECK","ANALYZE","REPAIR","OPTIMIZE"))
+                $keywords = array(
+                    'CHECK', 'ANALYZE', 'REPAIR', 'OPTIMIZE'
+                );
+                if (in_array($first_reserved_word, $keywords)
                     && $upper_data == 'TABLE'
                 ) {
                     $subresult['queryflags']['is_maint'] = 1;
@@ -1722,7 +1728,7 @@ function PMA_SQP_analyze($arr)
             if ($upper_data == 'OFFSET') {
                 $subresult['queryflags']['offset'] = 1;
             }
-            
+
             // for the presence of CALL
             if ($upper_data == 'CALL') {
                 $subresult['queryflags']['is_procedure'] = 1;
@@ -1891,8 +1897,7 @@ function PMA_SQP_analyze($arr)
 
         // for the presence of SUM|AVG|STD|STDDEV|MIN|MAX|BIT_OR|BIT_AND
         if ($arr[$i]['type'] == 'alpha_functionName'
-            && in_array(strtoupper($arr[$i]['data']), array(
-            "SUM","AVG","STD","STDDEV","MIN","MAX","BIT_OR","BIT_AND"))
+            && in_array(strtoupper($arr[$i]['data']), array("SUM","AVG","STD","STDDEV","MIN","MAX","BIT_OR","BIT_AND"))
             && isset($subresult['queryflags']['select_from'])
             && $subresult['queryflags']['select_from'] == 1
             && !isset($subresult['queryflags']['is_group'])
@@ -2060,12 +2065,12 @@ function PMA_SQP_analyze($arr)
                     if ($second_upper_data == 'UPDATE') {
                         $clause = 'on_update';
                     }
+                    // ugly workaround because currently, NO is not
+                    // in the list of reserved words in sqlparser.data
+                    // (we got a bug report about not being able to use
+                    // 'no' as an identifier)
                     if (isset($clause)
                         && ($arr[$i+2]['type'] == 'alpha_reservedWord'
-                        // ugly workaround because currently, NO is not
-                        // in the list of reserved words in sqlparser.data
-                        // (we got a bug report about not being able to use
-                        // 'no' as an identifier)
                         || ($arr[$i+2]['type'] == 'alpha_identifier'
                         && strtoupper($arr[$i+2]['data'])=='NO'))
                     ) {
@@ -2288,21 +2293,18 @@ function PMA_SQP_format(
     case 'query_only':
         $str                                = '';
         $html_line_break                    = "\n";
-        $docu                               = false;
         break;
     case 'text':
         $str                                = '';
         $html_line_break                    = '<br />';
-        $docu                               = true;
         break;
     } // end switch
     // inner_sql is a span that exists for all cases, except query_only
-    // of $cfg['SQP']['fmtType'] to make possible a replacement
+    // to make possible a replacement
     // for inline editing
     if ($mode!='query_only') {
         $str .= '<span class="inner_sql">';
     }
-    $close_docu_link = false;
     $indent                                     = 0;
     $bracketlevel                               = 0;
     $functionlevel                              = 0;
@@ -2473,18 +2475,6 @@ function PMA_SQP_format(
             break;
         case 'punct':
             $before         .= ' ';
-            if ($docu && isset($PMA_SQPdata_operators_docs[$arr[$i]['data']])
-                && ($arr[$i]['data'] != '*' || in_array($arr[$i]['type'], array('digit_integer','digit_float','digit_hex')))
-            ) {
-                $before .= PMA_Util::showMySQLDocu(
-                    'functions',
-                    $PMA_SQPdata_operators_docs[$arr[$i]['data']]['link'],
-                    false,
-                    $PMA_SQPdata_operators_docs[$arr[$i]['data']]['anchor'],
-                    true
-                );
-                $after .= '</a>';
-            }
 
             // workaround for
             // select * from mytable limit 0,-1
@@ -2513,68 +2503,6 @@ function PMA_SQP_format(
             }
             break;
         case 'alpha_columnType':
-            if ($docu) {
-                switch ($arr[$i]['data']) {
-                case 'tinyint':
-                case 'smallint':
-                case 'mediumint':
-                case 'int':
-                case 'bigint':
-                case 'decimal':
-                case 'float':
-                case 'double':
-                case 'real':
-                case 'bit':
-                case 'boolean':
-                case 'serial':
-                    $before .= PMA_Util::showMySQLDocu(
-                        'data-types',
-                        'numeric-types',
-                        false,
-                        '',
-                        true
-                    );
-                    $after = '</a>' . $after;
-                    break;
-                case 'date':
-                case 'datetime':
-                case 'timestamp':
-                case 'time':
-                case 'year':
-                    $before .= PMA_Util::showMySQLDocu(
-                        'data-types',
-                        'date-and-time-types',
-                        false,
-                        '',
-                        true
-                    );
-                    $after = '</a>' . $after;
-                    break;
-                case 'char':
-                case 'varchar':
-                case 'tinytext':
-                case 'text':
-                case 'mediumtext':
-                case 'longtext':
-                case 'binary':
-                case 'varbinary':
-                case 'tinyblob':
-                case 'mediumblob':
-                case 'blob':
-                case 'longblob':
-                case 'enum':
-                case 'set':
-                    $before .= PMA_Util::showMySQLDocu(
-                        'data-types',
-                        'string-types',
-                        false,
-                        '',
-                        true
-                    );
-                    $after = '</a>' . $after;
-                    break;
-                }
-            }
             if ($typearr[3] == 'alpha_columnAttrib') {
                 $after     .= ' ';
             }
@@ -2617,16 +2545,6 @@ function PMA_SQP_format(
             break;
         case 'alpha_functionName':
             $funcname = strtoupper($arr[$i]['data']);
-            if ($docu && isset($PMA_SQPdata_functions_docs[$funcname])) {
-                $before .= PMA_Util::showMySQLDocu(
-                    'functions',
-                    $PMA_SQPdata_functions_docs[$funcname]['link'],
-                    false,
-                    $PMA_SQPdata_functions_docs[$funcname]['anchor'],
-                    true
-                );
-                $after .= '</a>';
-            }
             break;
         case 'alpha_reservedWord':
             // do not uppercase the reserved word if we are calling
@@ -2691,41 +2609,6 @@ function PMA_SQP_format(
             case 'ANALYZE':
             case 'ANALYSE':
             case 'OPTIMIZE':
-                if ($docu) {
-                    switch ($arr[$i + 1]['data']) {
-                    case 'EVENT':
-                    case 'TABLE':
-                    case 'TABLESPACE':
-                    case 'FUNCTION':
-                    case 'INDEX':
-                    case 'PROCEDURE':
-                    case 'TRIGGER':
-                    case 'SERVER':
-                    case 'DATABASE':
-                    case 'VIEW':
-                        $before .= PMA_Util::showMySQLDocu(
-                            'SQL-Syntax',
-                            $arr[$i]['data'] . '_' . $arr[$i + 1]['data'],
-                            false,
-                            '',
-                            true
-                        );
-                        $close_docu_link = true;
-                        break;
-                    }
-                    if ($arr[$i + 1]['data'] == 'LOGFILE'
-                        && $arr[$i + 2]['data'] == 'GROUP'
-                    ) {
-                        $before .= PMA_Util::showMySQLDocu(
-                            'SQL-Syntax',
-                            $arr[$i]['data'] . '_LOGFILE_GROUP',
-                            false,
-                            '',
-                            true
-                        );
-                        $close_docu_link = true;
-                    }
-                }
                 if (!$in_priv_list) {
                     $space_punct_listsep       = $html_line_break;
                     $space_alpha_reserved_word = ' ';
@@ -2742,24 +2625,8 @@ function PMA_SQP_format(
             case 'DATABASE':
             case 'VIEW':
             case 'GROUP':
-                if ($close_docu_link) {
-                    $after = '</a>' . $after;
-                    $close_docu_link = false;
-                }
                 break;
             case 'SET':
-                if ($docu
-                    && ($i == 0 || $arr[$i - 1]['data'] != 'CHARACTER')
-                ) {
-                    $before .= PMA_Util::showMySQLDocu(
-                        'SQL-Syntax',
-                        $arr[$i]['data'],
-                        false,
-                        '',
-                        true
-                    );
-                    $after = '</a>' . $after;
-                }
                 if (!$in_priv_list) {
                     $space_punct_listsep       = $html_line_break;
                     $space_alpha_reserved_word = ' ';
@@ -2770,16 +2637,6 @@ function PMA_SQP_format(
             case 'DELETE':
             case 'SHOW':
             case 'UPDATE':
-                if ($docu) {
-                    $before .= PMA_Util::showMySQLDocu(
-                        'SQL-Syntax',
-                        $arr[$i]['data'],
-                        false,
-                        '',
-                        true
-                    );
-                    $after = '</a>' . $after;
-                }
                 if (!$in_priv_list) {
                     $space_punct_listsep       = $html_line_break;
                     $space_alpha_reserved_word = ' ';
@@ -2787,16 +2644,6 @@ function PMA_SQP_format(
                 break;
             case 'INSERT':
             case 'REPLACE':
-                if ($docu) {
-                    $before .= PMA_Util::showMySQLDocu(
-                        'SQL-Syntax',
-                        $arr[$i]['data'],
-                        false,
-                        '',
-                        true
-                    );
-                    $after = '</a>' . $after;
-                }
                 if (!$in_priv_list) {
                     $space_punct_listsep       = $html_line_break;
                     $space_alpha_reserved_word = $html_line_break;
@@ -2807,96 +2654,14 @@ function PMA_SQP_format(
                 $space_alpha_reserved_word = $html_line_break;
                 break;
             case 'SELECT':
-                if ($docu) {
-                    $before .= PMA_Util::showMySQLDocu(
-                        'SQL-Syntax',
-                        'SELECT',
-                        false,
-                        '',
-                        true
-                    );
-                    $after = '</a>' . $after;
-                }
                 $space_punct_listsep       = ' ';
                 $space_alpha_reserved_word = $html_line_break;
                 break;
             case 'CALL':
             case 'DO':
             case 'HANDLER':
-                if ($docu) {
-                    $before .= PMA_Util::showMySQLDocu(
-                        'SQL-Syntax',
-                        $arr[$i]['data'],
-                        false,
-                        '',
-                        true
-                    );
-                    $after = '</a>' . $after;
-                }
                 break;
             default:
-                if ($close_docu_link
-                    && in_array(
-                        $arr[$i]['data'],
-                        array('LIKE', 'NOT', 'IN', 'REGEXP', 'NULL')
-                    )
-                ) {
-                    $after .= '</a>';
-                    $close_docu_link = false;
-                } else if ($docu
-                    && isset($PMA_SQPdata_functions_docs[$arr[$i]['data']])
-                ) {
-                    /* Handle multi word statements first */
-                    if (isset($typearr[4])
-                        && $typearr[4] == 'alpha_reservedWord'
-                        && $typearr[3] == 'alpha_reservedWord'
-                        && isset($PMA_SQPdata_functions_docs[strtoupper(
-                            $arr[$i]['data'] . '_'
-                            . $arr[$i + 1]['data'] . '_'
-                            . $arr[$i + 2]['data']
-                        )])
-                    ) {
-                        $tempname = strtoupper(
-                            $arr[$i]['data'] . '_'
-                            . $arr[$i + 1]['data'] . '_'
-                            . $arr[$i + 2]['data']
-                        );
-                        $before .= PMA_Util::showMySQLDocu(
-                            'functions',
-                            $PMA_SQPdata_functions_docs[$tempname]['link'],
-                            false,
-                            $PMA_SQPdata_functions_docs[$tempname]['anchor'],
-                            true
-                        );
-                        $close_docu_link = true;
-                    } else if (isset($typearr[3])
-                        && $typearr[3] == 'alpha_reservedWord'
-                        && isset($PMA_SQPdata_functions_docs[strtoupper(
-                            $arr[$i]['data'] . '_' . $arr[$i + 1]['data']
-                        )])
-                    ) {
-                        $tempname = strtoupper(
-                            $arr[$i]['data'] . '_' . $arr[$i + 1]['data']
-                        );
-                        $before .= PMA_Util::showMySQLDocu(
-                            'functions',
-                            $PMA_SQPdata_functions_docs[$tempname]['link'],
-                            false,
-                            $PMA_SQPdata_functions_docs[$tempname]['anchor'],
-                            true
-                        );
-                        $close_docu_link = true;
-                    } else {
-                        $before .= PMA_Util::showMySQLDocu(
-                            'functions',
-                            $PMA_SQPdata_functions_docs[$arr[$i]['data']]['link'],
-                            false,
-                            $PMA_SQPdata_functions_docs[$arr[$i]['data']]['anchor'],
-                            true
-                        );
-                        $after .= '</a>';
-                    }
-                }
                 break;
             } // end switch ($arr[$i]['data'])
 
@@ -2976,11 +2741,6 @@ function PMA_SQP_format(
     while ($indent > 0) {
         $indent--;
         $str .= ($mode != 'query_only' ? '</div>' : ' ');
-    }
-    /* End possibly unclosed documentation link */
-    if ($close_docu_link) {
-        $str .= '</a>';
-        $close_docu_link = false;
     }
     if ($mode!='query_only') {
         // close inner_sql span

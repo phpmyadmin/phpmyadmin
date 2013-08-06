@@ -12,7 +12,7 @@ require_once './libraries/common.inc.php';
 define('TABLE_MAY_BE_ABSENT', true);
 require './libraries/tbl_common.inc.php';
 $url_query .= '&amp;goto=tbl_tracking.php&amp;back=tbl_tracking.php';
-$url_params['goto'] = 'tbl_tracking.php';;
+$url_params['goto'] = 'tbl_tracking.php';
 $url_params['back'] = 'tbl_tracking.php';
 
 // Init vars for tracking report
@@ -528,16 +528,12 @@ if (isset($_REQUEST['report']) || isset($_REQUEST['report_export'])) {
 
     // Prepare delete link content here
     $drop_image_or_text = '';
-    if ('icons' == $GLOBALS['cfg']['ActionsLinksMode']) {
+    if (PMA_Util::showIcons('ActionsLinksMode')) {
         $drop_image_or_text .= PMA_Util::getImage(
             'b_drop.png', __('Delete tracking data row from report')
         );
     }
-    if (in_array(
-        $GLOBALS['cfg']['ActionLinksMode'],
-        array('text', 'both')
-        )
-    ) {
+    if (PMA_Util::showText('ActionLinksMode')) {
         $drop_image_or_text .= __('Delete');
     }
 
@@ -565,15 +561,7 @@ if (isset($_REQUEST['report']) || isset($_REQUEST['report_export'])) {
 
         $style = 'odd';
         foreach ($data['ddlog'] as $entry) {
-            if (strlen($entry['statement']) > $GLOBALS['cfg']['MaxCharactersInDisplayedSQL']) {
-                $statement = substr(
-                    $entry['statement'],
-                    0,
-                    $GLOBALS['cfg']['MaxCharactersInDisplayedSQL']
-                ) . '[...]';
-            } else {
-                $statement  = PMA_Util::formatSql(PMA_SQP_parse($entry['statement']));
-            }
+            $statement  = PMA_Util::formatSql($entry['statement'], true);
             $timestamp = strtotime($entry['date']);
 
             if ($timestamp >= $filter_ts_from
@@ -586,9 +574,14 @@ if (isset($_REQUEST['report']) || isset($_REQUEST['report_export'])) {
                 echo '<td><small>' . htmlspecialchars($entry['username']) . '</small></td>';
                 echo '<td>' . $statement . '</td>';
                 echo '<td class="nowrap"><a href="tbl_tracking.php?'
-                    . $url_query . '&amp;report=true&amp;version='
-                    . $version['version'] . '&amp;delete_ddlog='
-                    . ($i - 1) . '">' . $drop_image_or_text
+                    . PMA_generate_common_url(
+                        $url_params + array(
+                            'report' => 'true',
+                            'version' => $_REQUEST['version'],
+                            'delete_ddlog' => ($i - 1),
+                        )
+                    )
+                    . '">' . $drop_image_or_text
                     . '</a></td>';
                 echo '</tr>';
 
@@ -627,15 +620,7 @@ if (isset($_REQUEST['report']) || isset($_REQUEST['report_export'])) {
 
         $style = 'odd';
         foreach ($data['dmlog'] as $entry) {
-            if (strlen($entry['statement']) > $GLOBALS['cfg']['MaxCharactersInDisplayedSQL']) {
-                $statement = substr(
-                    $entry['statement'],
-                    0,
-                    $GLOBALS['cfg']['MaxCharactersInDisplayedSQL']
-                ) . '[...]';
-            } else {
-                $statement  = PMA_Util::formatSql(PMA_SQP_parse($entry['statement']));
-            }
+            $statement  = PMA_Util::formatSql($entry['statement'], true);
             $timestamp = strtotime($entry['date']);
 
             if ($timestamp >= $filter_ts_from
@@ -647,9 +632,15 @@ if (isset($_REQUEST['report']) || isset($_REQUEST['report_export'])) {
                 echo '<td><small>' . htmlspecialchars($entry['date']) . '</small></td>';
                 echo '<td><small>' . htmlspecialchars($entry['username']) . '</small></td>';
                 echo '<td>' . $statement . '</td>';
-                echo '<td class="nowrap"><a href="tbl_tracking.php?' . $url_query
-                    . '&amp;report=true&amp;version=' . $version['version']
-                    . '&amp;delete_dmlog=' . ($i - $ddlog_count) . '">'
+                echo '<td class="nowrap"><a href="tbl_tracking.php?'
+                    . PMA_generate_common_url(
+                        $url_params + array(
+                            'report' => 'true',
+                            'version' => $_REQUEST['version'],
+                            'delete_dmlog' => ($i - $ddlog_count),
+                        )
+                    )
+                    . '">'
                     . $drop_image_or_text
                     . '</a></td>';
                 echo '</tr>';

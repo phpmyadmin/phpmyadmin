@@ -62,7 +62,7 @@ class PMA_ServerStatusData
         $server_status = $GLOBALS['dbi']->fetchResult('SHOW GLOBAL STATUS', 0, 1);
         if (PMA_DRIZZLE) {
             // Drizzle doesn't put query statistics into variables, add it
-            $sql = "SELECT concat('Com_', variable_name), variable_value " 
+            $sql = "SELECT concat('Com_', variable_name), variable_value "
                 . "FROM data_dictionary.GLOBAL_STATEMENTS";
             $statements = $GLOBALS['dbi']->fetchResult($sql, 0, 1);
             $server_status = array_merge($server_status, $statements);
@@ -93,7 +93,8 @@ class PMA_ServerStatusData
                 / $server_variables['key_buffer_size']
                 * 100;
         } elseif (isset($server_status['Key_blocks_used'])
-                && isset($server_variables['key_buffer_size'])) {
+            && isset($server_variables['key_buffer_size'])
+        ) {
             $server_status['Key_buffer_fraction_%']
                 = $server_status['Key_blocks_used']
                 * 1024

@@ -1940,6 +1940,7 @@ Languages
       recode)
     * iconv - use iconv or libiconv functions
     * recode - use recode\_string function
+    * mb - use mbstring extension
     * none - disable encoding conversion
 
     Enabled charset conversion activates a pull-down menu in the Export
@@ -2716,118 +2717,6 @@ Default queries
     Default queries that will be displayed in query boxes when user didn't
     specify any. You can use standard :ref:`faq6_27`.
 
-SQL parser settings
--------------------
-
-.. config:option:: $cfg['SQP']['fmtType']
-
-    :type: string
-    :default: ``'html'``
-
-    The main use of the :term:`SQL` Parser
-    is to format and analyze :term:`SQL` queries. By
-    default we use text to format the query, but you can disable this by
-    setting this variable to ``'none'``.
-
-    Available options:
-
-    * ``'text'``
-    * ``'none'``
-
-.. _cfg_SQP:
-.. config:option:: $cfg['SQP']['fmtInd']
-
-    :type: float
-    :default: ``'1'``
-
-.. config:option:: $cfg['SQP']['fmtIndUnit']
-
-    :type: string
-    :default: ``'em'``
-
-    For the pretty-printing of :term:`SQL` queries,
-    under some cases the part of a query inside a bracket is indented. By
-    changing :config:option:`$cfg['SQP']['fmtInd']` you can change the amount
-    of this indent.
-
-    Related in purpose is :config:option:`$cfg['SQP']['fmtIndUnit']` which
-    specifies the units of the indent amount that you specified. This is used
-    via stylesheets.
-
-    You can use any HTML unit, for example:
-
-    * ``'em'``
-    * ``'ex'``
-    * ``'pt'``
-    * ``'px'``
-
-.. config:option:: $cfg['SQP']['fmtColor']
-
-    :type: array of string tuples
-    :default:
-
-    This array is used to define the colours for each type of element of
-    the pretty-printed :term:`SQL` queries.
-    The tuple format is *class* => [*HTML colour code* | *empty string*]
-
-
-    If you specify an empty string for the color of a class, it is ignored
-    in creating the stylesheet. You should not alter the class names, only
-    the colour strings.
-
-    **Class name key:**
-
-    comment
-        Applies to all comment sub-classes
-    comment\_mysql
-        Comments as ``"#...\n"``
-    comment\_ansi
-        Comments as ``"-- ...\n"``
-    comment\_c
-        Comments as ``"/*...*/"``
-    digit
-        Applies to all digit sub-classes
-    digit\_hex
-        Hexadecimal numbers
-    digit\_integer
-        Integer numbers
-    digit\_float
-        Floating point numbers
-    punct
-        Applies to all punctuation sub-classes
-    punct\_bracket\_open\_round
-        Opening brackets ``"("``
-    punct\_bracket\_close\_round
-        Closing brackets ``")"``
-    punct\_listsep
-        List item Separator ``","``
-    punct\_qualifier
-        Table/Column Qualifier ``"."``
-    punct\_queryend
-        End of query marker ``";"``
-    alpha
-        Applies to all alphabetic classes
-    alpha\_columnType
-        Identifiers matching a column type
-    alpha\_columnAttrib
-        Identifiers matching a database/table/column attribute
-    alpha\_functionName
-        Identifiers matching a MySQL function name
-    alpha\_reservedWord
-        Identifiers matching any other reserved word
-    alpha\_variable
-        Identifiers matching a :term:`SQL` variable ``"@foo"``
-    alpha\_identifier
-        All other identifiers
-    quote
-        Applies to all quotation mark classes
-    quote\_double
-        Double quotes ``"``
-    quote\_single
-        Single quotes ``'``
-    quote\_backtick
-        Backtick quotes `````
-
 SQL validator settings
 ----------------------
 
@@ -2898,6 +2787,14 @@ Developer
 
     Enable logging queries and execution times to be
     displayed in the bottom of main page (right frame).
+
+.. config:option:: $cfg['DBG']['demo']
+
+    :type: boolean
+    :default: false
+
+    Enable to let server present itself as demo server.
+    This is used for <http://demo.phpmyadmin.net/>.
 
 .. config:option:: $cfg['Error_Handler']['display']
 

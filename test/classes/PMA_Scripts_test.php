@@ -67,11 +67,13 @@ class PMA_Scripts_Test extends PHPUnit_Framework_TestCase
      * Test for _includeFile
      *
      * @return void
+     *
+     * @group medium
      */
     public function testIncludeFile()
     {
         $this->assertEquals(
-            '<script type=\'text/javascript\' src=\'js/get_scripts.js.php?scripts[]=common.js\'></script>',
+            '<script type="text/javascript" src="js/get_scripts.js.php?scripts[]=common.js"></script>',
             $this->_callPrivateFunction(
                 '_includeFiles',
                 array(
@@ -99,7 +101,7 @@ class PMA_Scripts_Test extends PHPUnit_Framework_TestCase
         $this->object->addEvent('onClick', 'doSomething');
 
         $this->assertRegExp(
-            '@<script type=\'text/javascript\' src=\'js/get_scripts.js.php\\?scripts\\[\\]=common.js\'></script><script type="text/javascript">// <!\\[CDATA\\[
+            '@<script type="text/javascript" src="js/get_scripts.js.php\\?scripts\\[\\]=common.js"></script><script type="text/javascript">// <!\\[CDATA\\[
 AJAX.scriptHandler.add\\("common.js",1\\);
 \\$\\(function\\(\\) \\{AJAX.fireOnload\\("common.js"\\);\\}\\);
 \\$\\(window\\).bind\\(\'onClick\', doSomething\\);

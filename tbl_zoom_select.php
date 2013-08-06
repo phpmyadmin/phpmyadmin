@@ -55,7 +55,9 @@ if (isset($_REQUEST['get_data_row']) && $_REQUEST['get_data_row'] == true) {
         $i = 0;
         foreach ($row as $col => $val) {
             if ($fields_meta[$i]->type == 'bit') {
-                $row[$col] = PMA_Util::printableBitValue($val, $fields_meta[$i]->length);
+                $row[$col] = PMA_Util::printableBitValue(
+                    $val, $fields_meta[$i]->length
+                );
             }
             $i++;
         }
@@ -148,8 +150,10 @@ if (isset($_POST['zoom_submit'])
         $row['where_clause'] = $uniqueCondition[0];
 
         $tmpData = array(
-            $_POST['criteriaColumnNames'][0] => $row[$_POST['criteriaColumnNames'][0]],
-            $_POST['criteriaColumnNames'][1] => $row[$_POST['criteriaColumnNames'][1]],
+            $_POST['criteriaColumnNames'][0] =>
+                $row[$_POST['criteriaColumnNames'][0]],
+            $_POST['criteriaColumnNames'][1] =>
+                $row[$_POST['criteriaColumnNames'][1]],
             'where_clause' => $uniqueCondition[0]
         );
         $tmpData[$dataLabel] = ($dataLabel) ? $row[$dataLabel] : '';

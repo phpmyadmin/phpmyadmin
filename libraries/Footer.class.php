@@ -63,6 +63,36 @@ class PMA_Footer
     }
 
     /**
+     * Adds the message for demo server to error messages
+     *
+     * @return string
+     */
+    private function _addDemoMessage()
+    {
+        $message = '<a href="/">' . __('phpMyAdmin Demo Server') . '</a>: ';
+        if (file_exists('./revision-info.php')) {
+            include './revision-info.php';
+            $message .= sprintf(
+                __('Currently running Git revision %1$s from the %2$s branch.'),
+                '<a target="_blank" href="' . $repobase . $fullrevision . '">'
+                . $revision .'</a>',
+                '<a target="_blank" href="' . $repobranchbase . $branch . '">'
+                . $branch . '</a>'
+            );
+        } else {
+            $message .= __('Git information missing!');
+        }
+
+        $GLOBALS['error_handler']->addError(
+            $message,
+            E_USER_NOTICE,
+            '',
+            '',
+            false
+        );
+    }
+
+    /**
      * Renders the debug messages
      *
      * @return string
@@ -131,11 +161,7 @@ class PMA_Footer
         $retval .= '<div id="selflink" class="print_ignore">';
         $retval .= '<a href="' . $url . '"'
             . ' title="' . __('Open new phpMyAdmin window') . '" target="_blank">';
-        if (in_array(
-            $GLOBALS['cfg']['TabsMode'],
-            array('icons', 'both')
-            )
-        ) {
+        if (PMA_Util::showIcons('TabsMode')) {
             $retval .= PMA_Util::getImage(
                 'window-new.png',
                 __('Open new phpMyAdmin window')
@@ -239,6 +265,9 @@ class PMA_Footer
         if ($this->_isEnabled) {
             if (! $this->_isAjax) {
                 $retval .= "</div>";
+            }
+            if ($GLOBALS['cfg']['DBG']['demo']) {
+                $this->_addDemoMessage();
             }
             if (! $this->_isAjax && ! $this->_isMinimal) {
                 if (PMA_getenv('SCRIPT_NAME')

@@ -296,6 +296,7 @@ $forms['Export']['Sql'] = array('Export' => array(
         ':group:end',
     'sql_use_transaction',
     'sql_disable_fk',
+    'sql_views_as_tables',
     'sql_compatibility',
     ':group:' . __('Database export options'),
         'sql_drop_database',

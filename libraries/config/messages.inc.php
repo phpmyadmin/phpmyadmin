@@ -123,6 +123,7 @@ $strConfigExport_sql_create_table_statements_name = __('<code>CREATE TABLE</code
 $strConfigExport_sql_dates_name = __('Creation/Update/Check dates');
 $strConfigExport_sql_delayed_name = __('Use delayed inserts');
 $strConfigExport_sql_disable_fk_name = __('Disable foreign key checks');
+$strConfigExport_sql_views_as_tables_name = __('Export views as tables');
 $strConfigExport_sql_drop_database_name = sprintf(__('Add %s'), 'DROP DATABASE');
 $strConfigExport_sql_drop_table_name = sprintf(__('Add %s'), 'DROP TABLE / VIEW / PROCEDURE / FUNCTION / EVENT');
 $strConfigExport_sql_hex_for_blob_name = __('Use hexadecimal for BLOB');

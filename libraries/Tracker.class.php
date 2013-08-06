@@ -92,12 +92,14 @@ class PMA_Tracker
      */
     static protected function init()
     {
-        self::$pma_table = PMA_Util::backquote($GLOBALS['cfg']['Server']['pmadb']) .".".
-                           PMA_Util::backquote($GLOBALS['cfg']['Server']['tracking']);
+        self::$pma_table = PMA_Util::backquote($GLOBALS['cfg']['Server']['pmadb'])
+            . '.' . PMA_Util::backquote($GLOBALS['cfg']['Server']['tracking']);
 
-        self::$add_drop_table = $GLOBALS['cfg']['Server']['tracking_add_drop_table'];
+        self::$add_drop_table
+            = $GLOBALS['cfg']['Server']['tracking_add_drop_table'];
 
-        self::$add_drop_view = $GLOBALS['cfg']['Server']['tracking_add_drop_view'];
+        self::$add_drop_view
+            = $GLOBALS['cfg']['Server']['tracking_add_drop_view'];
 
         self::$add_drop_database
             = $GLOBALS['cfg']['Server']['tracking_add_drop_database'];
@@ -330,7 +332,8 @@ class PMA_Tracker
         '" . PMA_Util::sqlAddSlashes($snapshot) . "',
         '" . PMA_Util::sqlAddSlashes($create_sql) . "',
         '" . PMA_Util::sqlAddSlashes("\n") . "',
-        '" . PMA_Util::sqlAddSlashes(self::_transformTrackingSet($tracking_set)) . "' )";
+        '" . PMA_Util::sqlAddSlashes(self::_transformTrackingSet($tracking_set))
+        . "' )";
 
         $result = PMA_queryAsControlUser($sql_query);
 
@@ -419,7 +422,8 @@ class PMA_Tracker
         '" . PMA_Util::sqlAddSlashes('') . "',
         '" . PMA_Util::sqlAddSlashes($create_sql) . "',
         '" . PMA_Util::sqlAddSlashes("\n") . "',
-        '" . PMA_Util::sqlAddSlashes(self::_transformTrackingSet($tracking_set)) . "' )";
+        '" . PMA_Util::sqlAddSlashes(self::_transformTrackingSet($tracking_set))
+        . "' )";
 
         $result = PMA_queryAsControlUser($sql_query);
 
@@ -554,9 +558,13 @@ class PMA_Tracker
         " AND `table_name` = '" . PMA_Util::sqlAddSlashes($tablename) . "' ";
 
         if ($statement != "") {
-            $sql_query .= PMA_DRIZZLE
-                ? ' AND tracking & ' . self::_transformTrackingSet($statement) . ' <> 0'
-                : " AND FIND_IN_SET('" . $statement . "',tracking) > 0" ;
+            if (PMA_DRIZZLE) {
+                $sql_query .= ' AND tracking & '
+                    . self::_transformTrackingSet($statement) . ' <> 0';
+            } else {
+                $sql_query .= " AND FIND_IN_SET('"
+                    . $statement . "',tracking) > 0" ;
+            }
         }
         $row = $GLOBALS['dbi']->fetchArray(PMA_queryAsControlUser($sql_query));
         return isset($row[0])
@@ -574,7 +582,8 @@ class PMA_Tracker
      *
      * @static
      *
-     * @return mixed record DDM log, DDL log, structure snapshot, tracked statements.
+     * @return mixed record DDM log, DDL log, structure snapshot, tracked
+     *         statements.
      */
     static public function getTrackedData($dbname, $tablename, $version)
     {
@@ -587,8 +596,8 @@ class PMA_Tracker
             $sql_query .= " AND `table_name` = '"
                 . PMA_Util::sqlAddSlashes($tablename) ."' ";
         }
-        $sql_query .= " AND `version` = '" . PMA_Util::sqlAddSlashes($version) ."' ".
-                     " ORDER BY `version` DESC LIMIT 1";
+        $sql_query .= " AND `version` = '" . PMA_Util::sqlAddSlashes($version)
+            . "' " . " ORDER BY `version` DESC LIMIT 1";
 
         $mixed = $GLOBALS['dbi']->fetchAssoc(PMA_queryAsControlUser($sql_query));
 
@@ -1012,7 +1021,8 @@ class PMA_Tracker
                 $sql_query .=
                 " WHERE FIND_IN_SET('" . $result['identifier'] . "',tracking) > 0" .
                 " AND `db_name` = '" . PMA_Util::sqlAddSlashes($dbname) . "' " .
-                " AND `table_name` = '" . PMA_Util::sqlAddSlashes($result['tablename']) . "' " .
+                " AND `table_name` = '"
+                . PMA_Util::sqlAddSlashes($result['tablename']) . "' " .
                 " AND `version` = '" . PMA_Util::sqlAddSlashes($version) . "' ";
 
                 $result = PMA_queryAsControlUser($sql_query);
@@ -1025,7 +1035,7 @@ class PMA_Tracker
      *
      * Converts int<>string for Drizzle, does nothing for MySQL
      *
-     * @param int|string $tracking_set
+     * @param int|string $tracking_set Set to convert
      *
      * @return int|string
      */

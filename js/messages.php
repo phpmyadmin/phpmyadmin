@@ -27,6 +27,7 @@ require_once './libraries/js_escape.lib.php';
 $js_messages['strNoDropDatabases'] = $cfg['AllowUserDropDatabase'] ? '' : __('"DROP DATABASE" statements are disabled.');
 
 /* For confirmations */
+$js_messages['strConfirm'] = __('Confirm');
 $js_messages['strDoYouReally'] = __('Do you really want to execute "%s"?');
 $js_messages['strDropDatabaseStrongWarning'] = __('You are about to DESTROY a complete database!');
 $js_messages['strDropTableStrongWarning'] = __('You are about to DESTROY a complete table!');
@@ -35,6 +36,7 @@ $js_messages['strDeleteTrackingData'] = __('Delete tracking data for this table'
 $js_messages['strDeletingTrackingData'] = __('Deleting tracking data');
 $js_messages['strDroppingPrimaryKeyIndex'] = __('Dropping Primary Key/Index');
 $js_messages['strOperationTakesLongTime'] = __('This operation could take a long time. Proceed anyway?');
+$js_messages['strDropUserGroupWarning'] = __('Do you really want to delete user group "%s"?');
 
 /* For indexes */
 $js_messages['strFormEmpty'] = __('Missing value in the form!');

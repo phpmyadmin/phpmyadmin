@@ -9,10 +9,6 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
-if (! defined('PHPMYADMIN')) {
-    exit;
-}
-
 /**
  * The NDBCLUSTER storage engine
  *
