@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-08-01 14:09+0200\n"
-"PO-Revision-Date: 2013-08-05 11:41+0200\n"
-"Last-Translator: Dong-bum Kim <dongbum@me.com>\n"
+"PO-Revision-Date: 2013-08-06 03:07+0200\n"
+"Last-Translator: Myung Han Yu <greatymh@gmail.com>\n"
 "Language-Team: Korean <http://l10n.cihar.com/projects/phpmyadmin/master/ko/>\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
@@ -3297,7 +3297,6 @@ msgid "Use this column to label each point"
 msgstr "다음 컬럼을 통해 각 포인트 레이블"
 
 #: libraries/TableSearch.class.php:870
-#, fuzzy
 msgid "Maximum rows to plot"
 msgstr "표시할 최대 열(row) 수"
 
