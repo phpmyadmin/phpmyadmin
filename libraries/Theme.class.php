@@ -334,61 +334,6 @@ class PMA_Theme
     }
 
     /**
-     * Builds a CSS rule used for html formatted SQL queries
-     *
-     * @param string $classname The class name
-     * @param string $property  The property name
-     * @param string $value     The property value
-     *
-     * @return string  The CSS rule
-     *
-     * @access public
-     *
-     * @see    PMA_SQP_buildCssData()
-     */
-    public function buildSQPCssRule($classname, $property, $value)
-    {
-        $str     = '.' . $classname . ' {';
-        if ($value != '') {
-            $str .= $property . ': ' . $value . ';';
-        }
-        $str     .= '}' . "\n";
-
-        return $str;
-    } // end of the "PMA_SQP_buildCssRule()" function
-
-
-    /**
-     * Builds CSS rules used for html formatted SQL queries
-     *
-     * @return string  The CSS rules set
-     *
-     * @access public
-     *
-     * @global array   The current PMA configuration
-     *
-     * @see    PMA_SQP_buildCssRule()
-     */
-    public function buildSQPCssData()
-    {
-        global $cfg;
-
-        $css_string     = '';
-        foreach ($cfg['SQP']['fmtColor'] as $key => $col) {
-            $css_string .= $this->buildSQPCssRule('syntax_' . $key, 'color', $col);
-        }
-
-        for ($i = 0; $i < 8; $i++) {
-            $css_string .= $this->buildSQPCssRule(
-                'syntax_indent' . $i, 'margin-left',
-                ($i * $cfg['SQP']['fmtInd']) . $cfg['SQP']['fmtIndUnit']
-            );
-        }
-
-        return $css_string;
-    } // end of the "PMA_SQP_buildCssData()" function
-
-    /**
      * load css (send to stdout, normally the browser)
      *
      * @return bool
@@ -397,8 +342,6 @@ class PMA_Theme
     public function loadCss()
     {
         $success = true;
-
-        echo $this->buildSQPCssData();
 
         if ($GLOBALS['text_dir'] === 'ltr') {
             $right = 'right';
