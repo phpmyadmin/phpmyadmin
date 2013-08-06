@@ -2693,25 +2693,6 @@ Default queries
     Default queries that will be displayed in query boxes when user didn't
     specify any. You can use standard :ref:`faq6_27`.
 
-.. _cfg_SQP:
-SQL parser settings
--------------------
-
-.. config:option:: $cfg['SQP']['fmtType']
-
-    :type: string
-    :default: ``'html'``
-
-    The main use of the :term:`SQL` Parser
-    is to format and analyze :term:`SQL` queries. By
-    default we use text to format the query, but you can disable this by
-    setting this variable to ``'none'``.
-
-    Available options:
-
-    * ``'text'``
-    * ``'none'``
-
 SQL validator settings
 ----------------------
 

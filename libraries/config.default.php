@@ -2830,20 +2830,6 @@ $cfg['LinkLengthLimit'] = 1000;
  */
 $cfg['DisableMultiTableMaintenance'] = false;
 
-/*******************************************************************************
- * SQL Parser Settings
- *
- * @global array $cfg['SQP']
- */
-$cfg['SQP'] = array();
-
-/**
- * Pretty-printing style to use on queries (html, text, none)
- *
- * @global string $cfg['SQP']['fmtType']
- */
-$cfg['SQP']['fmtType'] = 'none';
-
 
 /*******************************************************************************
  * If you wish to use the SQL Validator service, you should be aware of the

@@ -2295,7 +2295,7 @@ function PMA_SQP_format(
         break;
     } // end switch
     // inner_sql is a span that exists for all cases, except query_only
-    // of $cfg['SQP']['fmtType'] to make possible a replacement
+    // to make possible a replacement
     // for inline editing
     if ($mode!='query_only') {
         $str .= '<span class="inner_sql">';

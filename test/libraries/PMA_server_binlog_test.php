@@ -39,7 +39,7 @@ class PMA_ServerBinlog_Test extends PHPUnit_Framework_TestCase
         //$_REQUEST
         $_REQUEST['log'] = "index1";
         $_REQUEST['pos'] = 3;
-        
+
         //$GLOBALS
         $GLOBALS['cfg']['MaxRows'] = 10;
         $GLOBALS['server'] = 1;
@@ -48,16 +48,15 @@ class PMA_ServerBinlog_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['SQP'] = array();
         $GLOBALS['cfg']['MaxCharactersInDisplayedSQL'] = 1000;
         $GLOBALS['cfg']['ShowSQL'] = true;
-        $GLOBALS['cfg']['SQP']['fmtType'] = 'none';
         $GLOBALS['cfg']['TableNavigationLinksMode'] = 'icons';
         $GLOBALS['cfg']['LimitChars'] = 100;
-        
+
         $GLOBALS['table'] = "table";
         $GLOBALS['pmaThemeImage'] = 'image';
-        
+
         //$_SESSION
         $_SESSION['PMA_Theme'] = PMA_Theme::load('./themes/pmahomme');
-        $_SESSION['PMA_Theme'] = new PMA_Theme();     
+        $_SESSION['PMA_Theme'] = new PMA_Theme();
     }
 
     /**
@@ -70,7 +69,7 @@ class PMA_ServerBinlog_Test extends PHPUnit_Framework_TestCase
         $binary_log_file_names = array();
         $binary_log_file_names[] = array("Log_name"=>"index1", "File_size"=>100);
         $binary_log_file_names[] = array("Log_name"=>"index2", "File_size"=>200);
-        
+
         $url_params = array();
         $url_params['log'] = "log";
         $url_params['dontlimitchars'] = 1;
@@ -100,16 +99,16 @@ class PMA_ServerBinlog_Test extends PHPUnit_Framework_TestCase
         $binary_log_file_names = array();
         $binary_log_file_names[] = array("Log_name"=>"index1", "File_size"=>100);
         $binary_log_file_names[] = array("Log_name"=>"index2", "File_size"=>200);
-        
+
         $url_params = array();
         $url_params['log'] = "log";
         $url_params['dontlimitchars'] = 1;
-        
+
         //Mock DBI
         $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
-        
+
         //expects return value
         $result = array(
             array(
@@ -134,19 +133,19 @@ class PMA_ServerBinlog_Test extends PHPUnit_Framework_TestCase
                 'Event_type' => "index1_Event_type",
                 'End_log_pos' => "index1_End_log_pos",
                 'Server_id' => "index1_Server_id",
-        );   
+        );
         $count = 3;
 
         //expects functions
         $dbi->expects($this->once())->method('query')
             ->will($this->returnValue($result));
-        
+
         $dbi->expects($this->once())->method('numRows')
             ->will($this->returnValue($count));
-        
+
         $dbi->expects($this->at(0))->method('fetchAssoc')
             ->will($this->returnValue($value));
-        
+
         $dbi->expects($this->at(1))->method('fetchAssoc')
             ->will($this->returnValue(false));
 
@@ -154,7 +153,7 @@ class PMA_ServerBinlog_Test extends PHPUnit_Framework_TestCase
 
         //Call the test function
         $html = PMA_getLogInfo($binary_log_file_names, $url_params);
-    
+
         //validate 1: the sql has been executed
         $this->assertContains(
             'Your SQL query has been executed successfully',
@@ -180,7 +179,7 @@ class PMA_ServerBinlog_Test extends PHPUnit_Framework_TestCase
         $this->assertContains(
             'title="Previous"',
             $html
-        ); 	
+        );
         //validate 5: Log Item
         $this->assertContains(
             'Log name',

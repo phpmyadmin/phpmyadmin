@@ -17,14 +17,14 @@ $GLOBALS['url_query'] = "url_query";
 $GLOBALS['PMA_PHP_SELF'] = PMA_getenv('PHP_SELF');
 $GLOBALS['lang'] = "en";
 $GLOBALS['available_languages']= array(
-    "en" => array("English", "US-ENGLISH"), 
+    "en" => array("English", "US-ENGLISH"),
     "ch" => array("Chinese", "TW-Chinese")
 );
 $GLOBALS['text_dir'] = "text_dir";
 $GLOBALS['cfg']['DBG']['sql'] = false;
 //$_SESSION
 require_once 'libraries/Theme.class.php';
-$_SESSION['PMA_Theme'] = PMA_Theme::load('./themes/pmahomme'); 
+$_SESSION['PMA_Theme'] = PMA_Theme::load('./themes/pmahomme');
 
 require_once 'libraries/Util.class.php';
 require_once 'libraries/php-gettext/gettext.inc';
@@ -58,7 +58,7 @@ class PMA_ServerCollations_Test extends PHPUnit_Framework_TestCase
         //$_REQUEST
         $_REQUEST['log'] = "index1";
         $_REQUEST['pos'] = 3;
-        
+
         //$GLOBALS
         $GLOBALS['cfg']['MaxRows'] = 10;
         $GLOBALS['is_ajax_request'] = true;
@@ -67,12 +67,11 @@ class PMA_ServerCollations_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['SQP'] = array();
         $GLOBALS['cfg']['MaxCharactersInDisplayedSQL'] = 1000;
         $GLOBALS['cfg']['ShowSQL'] = true;
-        $GLOBALS['cfg']['SQP']['fmtType'] = 'none';
         $GLOBALS['cfg']['TableNavigationLinksMode'] = 'icons';
         $GLOBALS['cfg']['LimitChars'] = 100;
-        
+
         $GLOBALS['table'] = "table";
-        $GLOBALS['pmaThemeImage'] = 'image';    
+        $GLOBALS['pmaThemeImage'] = 'image';
     }
 
     /**
@@ -84,30 +83,30 @@ class PMA_ServerCollations_Test extends PHPUnit_Framework_TestCase
     {
         $mysql_charsets = array("armscii8", "ascii", "big5", "binary");
         $mysql_collations = array(
-            "armscii8" => array("armscii8"), 
-            "ascii" => array("ascii"), 
-            "big5" => array("big5"), 
-            "binary" => array("binary"),         		
+            "armscii8" => array("armscii8"),
+            "ascii" => array("ascii"),
+            "big5" => array("big5"),
+            "binary" => array("binary"),
         );
         $mysql_charsets_descriptions = array(
-            "armscii8" => "PMA_armscii8_general_ci", 
-            "ascii" => "PMA_ascii_general_ci", 
-            "big5" => "PMA_big5_general_ci", 
-            "binary" => "PMA_binary_general_ci",         		
+            "armscii8" => "PMA_armscii8_general_ci",
+            "ascii" => "PMA_ascii_general_ci",
+            "big5" => "PMA_big5_general_ci",
+            "binary" => "PMA_binary_general_ci",
         );
         $mysql_default_collations = array(
-            "armscii8" => "armscii8", 
-            "ascii" => "ascii", 
-            "big5" => "big5", 
-            "binary" => "binary",         		
+            "armscii8" => "armscii8",
+            "ascii" => "ascii",
+            "big5" => "big5",
+            "binary" => "binary",
         );
         $mysql_collations_available = array(
-            "armscii8" => true, 
-            "ascii" => true, 
-            "big5" => true, 
-            "binary" => true,         		
+            "armscii8" => true,
+            "ascii" => true,
+            "big5" => true,
+            "binary" => true,
         );
-        
+
         //Mock DBI
         $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
             ->disableOriginalConstructor()
@@ -123,7 +122,7 @@ class PMA_ServerCollations_Test extends PHPUnit_Framework_TestCase
             $mysql_default_collations,
             $mysql_collations_available
         );
-    
+
         //validate 1: Charset HTML
         $this->assertContains(
             '<div id="div_mysql_charset_collations">',
