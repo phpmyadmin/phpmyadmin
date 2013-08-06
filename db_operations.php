@@ -186,12 +186,12 @@ if (isset($_REQUEST['comment'])) {
     PMA_setDbComment($db, $_REQUEST['comment']);
 }
 
-include 'libraries/db_common.inc.php';
+require 'libraries/db_common.inc.php';
 $url_query .= '&amp;goto=db_operations.php';
 
 // Gets the database structure
 $sub_part = '_structure';
-include 'libraries/db_info.inc.php';
+require 'libraries/db_info.inc.php';
 echo "\n";
 
 if (isset($message)) {
