@@ -385,18 +385,28 @@ class PMA_Util
     /**
      * format sql strings
      *
-     * @param string $sql_query  raw SQL string
+     * @param string  $sql_query raw SQL string
+     * @param boolean $truncate  truncate the query if it is too long
      *
      * @return string  the formatted sql
      *
      * @global  array    the configuration array
-     * @global  boolean  whether the current statement is a multiple one or not
      *
      * @access  public
      * @todo    move into PMA_Sql
      */
-    public static function formatSql($sql_query)
+    public static function formatSql($sql_query, $truncate=False)
     {
+        global $cfg;
+        if ($truncate
+            && strlen($sql_query) > $cfg['MaxCharactersInDisplayedSQL']
+        ) {
+            $sql_query = $GLOBALS['PMA_String']->substr(
+                $sql_query,
+                0,
+                $cfg['MaxCharactersInDisplayedSQL']
+            ) . '[...]';
+        }
         return '<span class="inner_sql"><pre>' . "\n"
             . htmlspecialchars($sql_query) . "\n"
             . '</pre></span>';

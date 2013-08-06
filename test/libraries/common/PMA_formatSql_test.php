@@ -15,7 +15,7 @@ require_once 'libraries/sqlparser.lib.php';
 
 class PMA_FormatSql_Test extends PHPUnit_Framework_TestCase
 {
-    function testFormatSQLfmTypeText()
+    function testFormatSQL()
     {
 
         $this->assertEquals(
@@ -23,6 +23,18 @@ class PMA_FormatSql_Test extends PHPUnit_Framework_TestCase
             . 'SELECT 1 &lt; 2' . "\n"
             . '</pre></span>',
             PMA_Util::formatSql('SELECT 1 < 2')
+        );
+    }
+
+    function testFormatSQLTruncate()
+    {
+        $GLOBALS['cfg']['MaxCharactersInDisplayedSQL'] = 6;
+
+        $this->assertEquals(
+            '<span class="inner_sql"><pre>' . "\n"
+            . 'SELECT[...]' . "\n"
+            . '</pre></span>',
+            PMA_Util::formatSql('SELECT 1 < 2', true)
         );
     }
 }
