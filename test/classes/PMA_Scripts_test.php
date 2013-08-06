@@ -67,6 +67,8 @@ class PMA_Scripts_Test extends PHPUnit_Framework_TestCase
      * Test for _includeFile
      *
      * @return void
+     *
+     * @group medium
      */
     public function testIncludeFile()
     {
