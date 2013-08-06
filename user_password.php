@@ -68,8 +68,8 @@ exit;
 /**
  * Send the message as an ajax request
  *
- * @param array   $change_password_message
- * @param string  $sql_query
+ * @param array  $change_password_message Message to display
+ * @param string $sql_query               SQL query executed
  *
  * @return void
  */
@@ -120,9 +120,9 @@ function PMA_setChangePasswordMsg()
 /**
  * Change the password
  *
- * @param string  $password
- * @param string  $message
- * @param array   $change_password_message
+ * @param string $password
+ * @param string $message
+ * @param array  $change_password_message Message to show
  *
  * @return void
  */
@@ -133,7 +133,7 @@ function PMA_changePassword($password, $message, $change_password_message)
     $hashing_function = PMA_changePassHashingFunction();
     $sql_query = 'SET password = '
         . (($password == '') ? '\'\'' : $hashing_function . '(\'***\')');
-    PMA_ChangePassUrlParamsAndSubmitQuery(
+    PMA_changePassUrlParamsAndSubmitQuery(
         $password, $_url_params, $sql_query, $hashing_function
     );
 
@@ -167,7 +167,7 @@ function PMA_changePassHashingFunction()
  *
  * @return void
  */
-function PMA_ChangePassUrlParamsAndSubmitQuery(
+function PMA_changePassUrlParamsAndSubmitQuery(
     $password, $_url_params, $sql_query, $hashing_function
 ) {
     $err_url = 'user_password.php' . PMA_generate_common_url($_url_params);
