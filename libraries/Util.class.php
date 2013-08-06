@@ -407,22 +407,9 @@ class PMA_Util
             return htmlspecialchars($sql_query);
         }
 
-        $formatted_sql = '';
-
-        switch ($cfg['SQP']['fmtType']) {
-        case 'none':
-            $formatted_sql = '<span class="inner_sql"><pre>' . "\n"
-                . htmlspecialchars($sql_query) . "\n"
-                . '</pre></span>';
-            break;
-        case 'text':
-            $formatted_sql = htmlspecialchars($sql_query) . "\n";
-            break;
-        default:
-            break;
-        } // end switch
-
-        return $formatted_sql;
+        return '<span class="inner_sql"><pre>' . "\n"
+            . htmlspecialchars($sql_query) . "\n"
+            . '</pre></span>';
     } // end of the "formatSql()" function
 
     /**
