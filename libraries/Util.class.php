@@ -396,7 +396,7 @@ class PMA_Util
      * @access  public
      * @todo    move into PMA_Sql
      */
-    public static function formatSql($parsed_sql, $unparsed_sql = '')
+    public static function formatSql($parsed_sql, $unparsed_sql)
     {
         global $cfg;
 
