@@ -56,12 +56,12 @@ if (! isset($_POST['columnsToDisplay']) && ! isset($_POST['displayAllColumns']))
      * Selection criteria have been submitted -> do the work
      */
     $sql_query = $table_search->buildSqlQuery();
-    
+
     /**
      * Parse and analyze the query
      */
-    require_once 'libraries/parse_analyze.inc.php';
-    
+    include_once 'libraries/parse_analyze.inc.php';
+
     PMA_executeQueryAndSendQueryResponse(
         $analyzed_sql_results, false, $db, $table, null, null, null, false, null,
         null, null, null, $goto, $pmaThemeImage, null, null, null, $sql_query,

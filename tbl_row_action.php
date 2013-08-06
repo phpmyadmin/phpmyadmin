@@ -124,7 +124,7 @@ if (!empty($submit_mult)) {
         /**
          * Parse and analyze the query
          */
-        require_once 'libraries/parse_analyze.inc.php';
+        include_once 'libraries/parse_analyze.inc.php';
 
         PMA_executeQueryAndSendQueryResponse(
             $analyzed_sql_results, false, $db, $table, null, null, null, false, null,
