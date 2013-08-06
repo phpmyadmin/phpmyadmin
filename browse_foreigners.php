@@ -15,8 +15,7 @@ require_once 'libraries/transformations.lib.php';
 $request_params = array(
     'field',
     'fieldkey',
-    'pos',
-    'rownumber'
+    'pos'
 );
 
 foreach ($request_params as $one_request_param) {
@@ -92,11 +91,11 @@ if (is_array($foreignData['disp_row'])) {
 
 
 
-if (isset($rownumber)) {
+if (isset($_REQUEST['rownumber'])) {
     $element_name  = "        var element_name = field + '[multi_edit]["
-        . htmlspecialchars($rownumber) . "][' + fieldmd5 + ']';\n"
+        . htmlspecialchars($_REQUEST['rownumber']) . "][' + fieldmd5 + ']';\n"
         . "        var null_name = field_null + '[multi_edit]["
-        . htmlspecialchars($rownumber) . "][' + fieldmd5 + ']';\n";
+        . htmlspecialchars($_REQUEST['rownumber']) . "][' + fieldmd5 + ']';\n";
 } else {
     $element_name = "var element_name = field + '[]'";
 }
@@ -169,9 +168,9 @@ $output = '<form action="browse_foreigners.php" method="post">'
     . '<input type="hidden" name="fieldkey" value="'
     . (isset($fieldkey) ? htmlspecialchars($fieldkey) : '') . '" />';
 
-if (isset($rownumber)) {
+if (isset($_REQUEST['rownumber'])) {
     $output .= '<input type="hidden" name="rownumber" value="'
-        . htmlspecialchars($rownumber) . '" />';
+        . htmlspecialchars($_REQUEST['rownumber']) . '" />';
 }
 $output .= '<span class="formelement">'
     . '<label for="input_foreign_filter">' . __('Search:') . '</label>'
