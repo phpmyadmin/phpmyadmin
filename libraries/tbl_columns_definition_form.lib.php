@@ -367,38 +367,39 @@ function PMA_getMoveColumns($db, $table)
  * Function to get row data for regenerating previous when error occured.
  *
  * @param array $submit_fulltext submit full text
+ * @param int   $columnNumber    column number
  *
  * @return array
  */
-function PMA_getRowDataForRegeneration($submit_fulltext)
+function PMA_getRowDataForRegeneration($submit_fulltext, $columnNumber)
 {
-    $row['Field'] = isset($_REQUEST['field_name'][$i])
-        ? $_REQUEST['field_name'][$i]
+    $row['Field'] = isset($_REQUEST['field_name'][$columnNumber])
+        ? $_REQUEST['field_name'][$columnNumber]
         : false;
-    $row['Type'] = isset($_REQUEST['field_type'][$i])
-        ? $_REQUEST['field_type'][$i]
+    $row['Type'] = isset($_REQUEST['field_type'][$columnNumber])
+        ? $_REQUEST['field_type'][$columnNumber]
         : false;
-    $row['Collation'] = isset($_REQUEST['field_collation'][$i])
-        ? $_REQUEST['field_collation'][$i]
+    $row['Collation'] = isset($_REQUEST['field_collation'][$columnNumber])
+        ? $_REQUEST['field_collation'][$columnNumber]
         : '';
-    $row['Null'] = isset($_REQUEST['field_null'][$i])
-        ? $_REQUEST['field_null'][$i]
+    $row['Null'] = isset($_REQUEST['field_null'][$columnNumber])
+        ? $_REQUEST['field_null'][$columnNumber]
         : '';
 
-    if (isset($_REQUEST['field_key'][$i])
-        && $_REQUEST['field_key'][$i] == 'primary_' . $i
+    if (isset($_REQUEST['field_key'][$columnNumber])
+        && $_REQUEST['field_key'][$columnNumber] == 'primary_' . $columnNumber
     ) {
         $row['Key'] = 'PRI';
-    } elseif (isset($_REQUEST['field_key'][$i])
-        && $_REQUEST['field_key'][$i] == 'index_' . $i
+    } elseif (isset($_REQUEST['field_key'][$columnNumber])
+        && $_REQUEST['field_key'][$columnNumber] == 'index_' . $columnNumber
     ) {
         $row['Key'] = 'MUL';
-    } elseif (isset($_REQUEST['field_key'][$i])
-        && $_REQUEST['field_key'][$i] == 'unique_' . $i
+    } elseif (isset($_REQUEST['field_key'][$columnNumber])
+        && $_REQUEST['field_key'][$columnNumber] == 'unique_' . $columnNumber
     ) {
         $row['Key'] = 'UNI';
-    } elseif (isset($_REQUEST['field_key'][$i])
-        && $_REQUEST['field_key'][$i] == 'fulltext_' . $i
+    } elseif (isset($_REQUEST['field_key'][$columnNumber])
+        && $_REQUEST['field_key'][$columnNumber] == 'fulltext_' . $columnNumber
     ) {
         $row['Key'] = 'FULLTEXT';
     } else {
@@ -406,11 +407,11 @@ function PMA_getRowDataForRegeneration($submit_fulltext)
     }
 
     // put None in the drop-down for Default, when someone adds a field
-    $row['DefaultType'] = isset($_REQUEST['field_default_type'][$i])
-        ? $_REQUEST['field_default_type'][$i]
+    $row['DefaultType'] = isset($_REQUEST['field_default_type'][$columnNumber])
+        ? $_REQUEST['field_default_type'][$columnNumber]
         : 'NONE';
-    $row['DefaultValue'] = isset($_REQUEST['field_default_value'][$i])
-        ? $_REQUEST['field_default_value'][$i]
+    $row['DefaultValue'] = isset($_REQUEST['field_default_value'][$columnNumber])
+        ? $_REQUEST['field_default_value'][$columnNumber]
         : '';
 
     switch ($row['DefaultType']) {
@@ -427,12 +428,12 @@ function PMA_getRowDataForRegeneration($submit_fulltext)
     }
 
     $row['Extra']
-        = (isset($_REQUEST['field_extra'][$i])
-        ? $_REQUEST['field_extra'][$i]
+        = (isset($_REQUEST['field_extra'][$columnNumber])
+        ? $_REQUEST['field_extra'][$columnNumber]
         : false);
     $row['Comment']
-        = (isset($submit_fulltext[$i])
-            && ($submit_fulltext[$i] == $i)
+        = (isset($submit_fulltext[$columnNumber])
+            && ($submit_fulltext[$columnNumber] == $columnNumber)
         ? 'FULLTEXT'
         : false);
 
@@ -441,22 +442,24 @@ function PMA_getRowDataForRegeneration($submit_fulltext)
 
 /**
  * Function to get submit properties for regenerating previous when error occured.
+ * 
+ * @param int $columnNumber column number
  *
  * @return array
  */
-function PMA_getSubmitPropertiesForRegeneration()
+function PMA_getSubmitPropertiesForRegeneration($columnNumber)
 {
     $submit_length
-        = (isset($_REQUEST['field_length'][$i])
-        ? $_REQUEST['field_length'][$i]
+        = (isset($_REQUEST['field_length'][$columnNumber])
+        ? $_REQUEST['field_length'][$columnNumber]
         : false);
     $submit_attribute
-        = (isset($_REQUEST['field_attribute'][$i])
-        ? $_REQUEST['field_attribute'][$i]
+        = (isset($_REQUEST['field_attribute'][$columnNumber])
+        ? $_REQUEST['field_attribute'][$columnNumber]
         : false);
 
     $submit_default_current_timestamp
-        = (isset($_REQUEST['field_default_current_timestamp'][$i])
+        = (isset($_REQUEST['field_default_current_timestamp'][$columnNumber])
         ? true
         : false);
 
@@ -484,22 +487,22 @@ function PMA_handleRegeneration($submit_fulltext, $comments_map, $mime_map)
     list($submit_length, $submit_attribute, $submit_default_current_timestamp)
         = PMA_getSubmitPropertiesForRegeneration();
 
-    if (isset($_REQUEST['field_comments'][$i])) {
-        $comments_map[$row['Field']] = $_REQUEST['field_comments'][$i];
+    if (isset($_REQUEST['field_comments'][$columnNumber])) {
+        $comments_map[$row['Field']] = $_REQUEST['field_comments'][$columnNumber];
     }
 
-    if (isset($_REQUEST['field_mimetype'][$i])) {
-        $mime_map[$row['Field']]['mimetype'] = $_REQUEST['field_mimetype'][$i];
+    if (isset($_REQUEST['field_mimetype'][$columnNumber])) {
+        $mime_map[$row['Field']]['mimetype'] = $_REQUEST['field_mimetype'][$columnNumber];
     }
 
-    if (isset($_REQUEST['field_transformation'][$i])) {
+    if (isset($_REQUEST['field_transformation'][$columnNumber])) {
         $mime_map[$row['Field']]['transformation']
-            = $_REQUEST['field_transformation'][$i];
+            = $_REQUEST['field_transformation'][$columnNumber];
     }
 
-    if (isset($_REQUEST['field_transformation_options'][$i])) {
+    if (isset($_REQUEST['field_transformation_options'][$columnNumber])) {
         $mime_map[$row['Field']]['transformation_options']
-            = $_REQUEST['field_transformation_options'][$i];
+            = $_REQUEST['field_transformation_options'][$columnNumber];
     }
 
     return array(
@@ -550,17 +553,17 @@ function PMA_getRowDataForFieldsMetaSet($row, $isDefault)
 /**
  * Function to get html for the column name
  * 
- * @param int   $i         field number
- * @param int   $ci        cell index
- * @param int   $ci_offset cell index offset
- * @param array $row       row
+ * @param int   $columnNumber column number
+ * @param int   $ci           cell index
+ * @param int   $ci_offset    cell index offset
+ * @param array $row          row
  * 
  * @return string
  */
-function PMA_getHtmlForColumnName($i, $ci, $ci_offset, $row)
+function PMA_getHtmlForColumnName($columnNumber, $ci, $ci_offset, $row)
 {
-    $html = '<input id="field_' . $i . '_' . ($ci - $ci_offset)
-        . '"' . ' type="text" name="field_name[' . $i . ']"'
+    $html = '<input id="field_' . $columnNumber . '_' . ($ci - $ci_offset)
+        . '"' . ' type="text" name="field_name[' . $columnNumber . ']"'
         . ' maxlength="64" class="textfield" title="' . __('Column') . '"'
         . ' size="10"'
         . ' value="' . (isset($row['Field']) ? htmlspecialchars($row['Field']) : '')
@@ -572,18 +575,18 @@ function PMA_getHtmlForColumnName($i, $ci, $ci_offset, $row)
 /**
  * Function to get html for the column type
  * 
- * @param int    $i          field number
- * @param int    $ci         cell index
- * @param int    $ci_offset  cell index offset
- * @param string $type_upper type inuppercase
+ * @param int    $columnNumber column number
+ * @param int    $ci           cell index
+ * @param int    $ci_offset    cell index offset
+ * @param string $type_upper   type inuppercase
  *  
  * @return string
  */
-function PMA_getHtmlForColumnType($i, $ci, $ci_offset, $type_upper)
+function PMA_getHtmlForColumnType($columnNumber, $ci, $ci_offset, $type_upper)
 {
-    $select_id = 'field_' . $i . '_' . ($ci - $ci_offset);
+    $select_id = 'field_' . $columnNumber . '_' . ($ci - $ci_offset);
     $html = '<select class="column_type" name="field_type[' .
-        $i . ']"' .' id="' . $select_id . '">';
+        $columnNumber . ']"' .' id="' . $select_id . '">';
     $html .= PMA_Util::getSupportedDatatypes(true, $type_upper);
     $html .= '    </select>';
     
@@ -593,24 +596,24 @@ function PMA_getHtmlForColumnType($i, $ci, $ci_offset, $type_upper)
 /**
  * Function to get html for transformation option
  * 
- * @param int   $i         field number
- * @param int   $ci        cell index
- * @param int   $ci_offset cell index offset
- * @param array $row       row
- * @param array $mime_map  mime map
+ * @param int   $columnNumber column number
+ * @param int   $ci           cell index
+ * @param int   $ci_offset    cell index offset
+ * @param array $row          row
+ * @param array $mime_map     mime map
  * 
  * @return string
  */
-function PMA_getHtmlForTransformationOption($i, $ci, $ci_offset, $row, $mime_map)
+function PMA_getHtmlForTransformationOption($columnNumber, $ci, $ci_offset, $row, $mime_map)
 {
     $val = isset($row['Field'])
             && isset($mime_map[$row['Field']]['transformation_options'])
             ? htmlspecialchars($mime_map[$row['Field']]['transformation_options'])
             : '';
     
-    $html = '<input id="field_' . $i . '_'
+    $html = '<input id="field_' . $columnNumber . '_'
                 . ($ci - $ci_offset) . '"' . ' type="text" '
-                . 'name="field_transformation_options[' . $i . ']"'
+                . 'name="field_transformation_options[' . $columnNumber . ']"'
                 . ' size="16" class="textfield"'
                 . ' value="' . $val . '"'
                 . ' />';
@@ -621,7 +624,7 @@ function PMA_getHtmlForTransformationOption($i, $ci, $ci_offset, $row, $mime_map
 /**
  * Function to get html for mime type
  * 
- * @param int   $i              field number
+ * @param int   $columnNumber   column number
  * @param int   $ci             cell index
  * @param int   $ci_offset      cell index offset
  * @param array $available_mime available mime
@@ -630,11 +633,11 @@ function PMA_getHtmlForTransformationOption($i, $ci, $ci_offset, $row, $mime_map
  * 
  * @return string
  */
-function PMA_getHtmlForMimeType($i, $ci, $ci_offset,
+function PMA_getHtmlForMimeType($columnNumber, $ci, $ci_offset,
     $available_mime, $row, $mime_map
 ) {
-    $html = '<select id="field_' . $i . '_'
-            . ($ci - $ci_offset) . '" size="1" name="field_mimetype[' . $i . ']">';
+    $html = '<select id="field_' . $columnNumber . '_'
+            . ($ci - $ci_offset) . '" size="1" name="field_mimetype[' . $columnNumber . ']">';
     $html .= '    <option value="">&nbsp;</option>';
     
     if (is_array($available_mime['mimetype'])) {
@@ -659,7 +662,7 @@ function PMA_getHtmlForMimeType($i, $ci, $ci_offset,
 /**
  * Function to get html for browser transformation
  * 
- * @param int   $i              field number
+ * @param int   $columnNumber   column number
  * @param int   $ci             cell index
  * @param int   $ci_offset      cell index offset
  * @param array $available_mime available mime
@@ -668,12 +671,12 @@ function PMA_getHtmlForMimeType($i, $ci, $ci_offset,
  * 
  * @return string
  */
-function PMA_getHtmlForBrowserTransformation($i, $ci, $ci_offset,
+function PMA_getHtmlForBrowserTransformation($columnNumber, $ci, $ci_offset,
     $available_mime, $row, $mime_map
 ) {
-    $html = '<select id="field_' . $i . '_'
+    $html = '<select id="field_' . $columnNumber . '_'
             . ($ci - $ci_offset) . '" size="1" name="field_transformation['
-            . $i . ']">';
+            . $columnNumber . ']">';
     $html .= '    <option value="" title="' . __('None')
             . '"></option>';
     if (is_array($available_mime['transformation'])) {
@@ -706,7 +709,7 @@ function PMA_getHtmlForBrowserTransformation($i, $ci, $ci_offset,
 /**
  * Function to get html for move column
  * 
- * @param int   $i            field number
+ * @param int   $columnNumber column number
  * @param int   $ci           cell index
  * @param int   $ci_offset    cell index offset
  * @param array $move_columns move columns
@@ -714,10 +717,10 @@ function PMA_getHtmlForBrowserTransformation($i, $ci, $ci_offset,
  * 
  * @return string
  */
-function PMA_getHtmlForMoveColumn($i, $ci, $ci_offset, $move_columns, $row)
+function PMA_getHtmlForMoveColumn($columnNumber, $ci, $ci_offset, $move_columns, $row)
 {
-    $html = '<select id="field_' . $i . '_'
-        . ($ci - $ci_offset) . '"' . ' name="field_move_to[' . $i
+    $html = '<select id="field_' . $columnNumber . '_'
+        . ($ci - $ci_offset) . '"' . ' name="field_move_to[' . $columnNumber
         . ']" size="1" width="5em">'
         . '<option value="" selected="selected">&nbsp;</option>';
     // find index of current column
@@ -758,7 +761,7 @@ function PMA_getHtmlForMoveColumn($i, $ci, $ci_offset, $move_columns, $row)
 /**
  * Function to get html for column comment
  * 
- * @param int   $i            field number
+ * @param int   $columnNumber column number
  * @param int   $ci           cell index
  * @param int   $ci_offset    cell index offset
  * @param array $row          row
@@ -766,10 +769,10 @@ function PMA_getHtmlForMoveColumn($i, $ci, $ci_offset, $move_columns, $row)
  * 
  * @return string
  */
-function PMA_getHtmlForColumnComment($i, $ci, $ci_offset, $row, $comments_map)
+function PMA_getHtmlForColumnComment($columnNumber, $ci, $ci_offset, $row, $comments_map)
 {
-    $html = '<input id="field_' . $i . '_' . ($ci - $ci_offset)
-        . '"' . ' type="text" name="field_comments[' . $i . ']" size="12"'
+    $html = '<input id="field_' . $columnNumber . '_' . ($ci - $ci_offset)
+        . '"' . ' type="text" name="field_comments[' . $columnNumber . ']" size="12"'
         . ' value="' . (isset($row['Field'])
                 && is_array($comments_map)
                 && isset($comments_map[$row['Field']])
@@ -783,17 +786,17 @@ function PMA_getHtmlForColumnComment($i, $ci, $ci_offset, $row, $comments_map)
 /**
  * Function get html for column auto increment
  * 
- * @param int   $i         field number
- * @param int   $ci        cell index
- * @param int   $ci_offset cell index offset
- * @param array $row       row
+ * @param int   $columnNumber column number
+ * @param int   $ci           cell index
+ * @param int   $ci_offset    cell index offset
+ * @param array $row          row
  * 
  * @return string
  */
-function PMA_getHtmlForColumnAutoIncrement($i, $ci, $ci_offset, $row)
+function PMA_getHtmlForColumnAutoIncrement($columnNumber, $ci, $ci_offset, $row)
 {
-    $html = '<input name="field_extra[' . $i . ']"'
-        . ' id="field_' . $i . '_' . ($ci - $ci_offset) . '"';
+    $html = '<input name="field_extra[' . $columnNumber . ']"'
+        . ' id="field_' . $columnNumber . '_' . ($ci - $ci_offset) . '"';
     if (isset($row['Extra']) && strtolower($row['Extra']) == 'auto_increment') {
         $html .= ' checked="checked"';
     }
@@ -806,34 +809,34 @@ function PMA_getHtmlForColumnAutoIncrement($i, $ci, $ci_offset, $row)
 /**
  * Function to get html for the column indexes
  * 
- * @param int   $i         index
- * @param int   $ci        cell index
- * @param int   $ci_offset cell index offset
- * @param array $row       row
+ * @param int   $columnNumber column number
+ * @param int   $ci           cell index
+ * @param int   $ci_offset    cell index offset
+ * @param array $row          row
  * 
  * @return string
  */
-function PMA_getHtmlForColumnIndexes($i, $ci, $ci_offset, $row)
+function PMA_getHtmlForColumnIndexes($columnNumber, $ci, $ci_offset, $row)
 {
-    $html = '<select name="field_key[' . $i . ']"'
-        . ' id="field_' . $i . '_' . ($ci - $ci_offset) . '">';
-    $html .= '<option value="none_' . $i . '">---</option>';
+    $html = '<select name="field_key[' . $columnNumber . ']"'
+        . ' id="field_' . $columnNumber . '_' . ($ci - $ci_offset) . '">';
+    $html .= '<option value="none_' . $columnNumber . '">---</option>';
 
-    $html .= '<option value="primary_' . $i . '" title="'
+    $html .= '<option value="primary_' . $columnNumber . '" title="'
         . __('Primary') . '"';
     if (isset($row['Key']) && $row['Key'] == 'PRI') {
         $html .= ' selected="selected"';
     }
     $html .= '>PRIMARY</option>';
 
-    $html .= '<option value="unique_' . $i . '" title="'
+    $html .= '<option value="unique_' . $columnNumber . '" title="'
         . __('Unique') . '"';
     if (isset($row['Key']) && $row['Key'] == 'UNI') {
         $html .= ' selected="selected"';
     }
     $html .= '>UNIQUE</option>';
 
-    $html .= '<option value="index_' . $i . '" title="'
+    $html .= '<option value="index_' . $columnNumber . '" title="'
         . __('Index') . '"';
     if (isset($row['Key']) && $row['Key'] == 'MUL') {
         $html .= ' selected="selected"';
@@ -841,7 +844,7 @@ function PMA_getHtmlForColumnIndexes($i, $ci, $ci_offset, $row)
     $html .= '>INDEX</option>';
 
     if (!PMA_DRIZZLE) {
-        $html .= '<option value="fulltext_' . $i . '" title="'
+        $html .= '<option value="fulltext_' . $columnNumber . '" title="'
             . __('Fulltext') . '"';
         if (isset($row['Key']) && $row['Key'] == 'FULLTEXT') {
             $html .= ' selected="selected"';
@@ -857,17 +860,17 @@ function PMA_getHtmlForColumnIndexes($i, $ci, $ci_offset, $row)
 /**
  * Function to get html for column null
  * 
- * @param int   $i         field number
- * @param int   $ci        cell index
- * @param int   $ci_offset cell index offset
- * @param array $row       row
+ * @param int   $columnNumber column number
+ * @param int   $ci           cell index
+ * @param int   $ci_offset    cell index offset
+ * @param array $row          row
  * 
  * @return string
  */
-function PMA_getHtmlForColumnNull($i, $ci, $ci_offset, $row)
+function PMA_getHtmlForColumnNull($columnNumber, $ci, $ci_offset, $row)
 {
-    $html = '<input name="field_null[' . $i . ']"'
-        . ' id="field_' . $i . '_' . ($ci - $ci_offset) . '"';
+    $html = '<input name="field_null[' . $columnNumber . ']"'
+        . ' id="field_' . $columnNumber . '_' . ($ci - $ci_offset) . '"';
     if (! empty($row['Null'])
         && $row['Null'] != 'NO'
         && $row['Null'] != 'NOT NULL'
@@ -883,7 +886,7 @@ function PMA_getHtmlForColumnNull($i, $ci, $ci_offset, $row)
 /**
  * Function to get html for column attribute
  * 
- * @param int   $i                                field number
+ * @param int   $columnNumber                     column number
  * @param int   $ci                               cell index
  * @param int   $ci_offset                        cell index offset
  * @param array $extracted_columnspec             extracted column
@@ -894,12 +897,12 @@ function PMA_getHtmlForColumnNull($i, $ci, $ci_offset, $row)
  * 
  * @return string
  */
-function PMA_getHtmlForColumnAttribute($i, $ci, $ci_offset, $extracted_columnspec,
+function PMA_getHtmlForColumnAttribute($columnNumber, $ci, $ci_offset, $extracted_columnspec,
     $row, $submit_attribute, $analyzed_sql, $submit_default_current_timestamp
 ) {
     $html = '<select style="font-size: 70%;"'
-        . ' name="field_attribute[' . $i . ']"'
-        . ' id="field_' . $i . '_' . ($ci - $ci_offset) . '">';
+        . ' name="field_attribute[' . $columnNumber . ']"'
+        . ' id="field_' . $columnNumber . '_' . ($ci - $ci_offset) . '">';
 
     $attribute     = '';
     if (isset($extracted_columnspec)) {
@@ -963,19 +966,19 @@ function PMA_getHtmlForColumnAttribute($i, $ci, $ci_offset, $extracted_columnspe
 /**
  * Function to get html for column collation
  * 
- * @param int   $i         field number
- * @param int   $ci        cell index
- * @param int   $ci_offset cell index offset
- * @param array $row       row
+ * @param int   $columnNumber column number
+ * @param int   $ci           cell index
+ * @param int   $ci_offset    cell index offset
+ * @param array $row          row
  * 
  * @return string
  */
-function PMA_getHtmlForColumnCollation($i, $ci, $ci_offset, $row)
+function PMA_getHtmlForColumnCollation($columnNumber, $ci, $ci_offset, $row)
 {
     $tmp_collation = empty($row['Collation']) ? null : $row['Collation'];
     $html = PMA_generateCharsetDropdownBox(
-        PMA_CSDROPDOWN_COLLATION, 'field_collation[' . $i . ']',
-        'field_' . $i . '_' . ($ci - $ci_offset), $tmp_collation, false
+        PMA_CSDROPDOWN_COLLATION, 'field_collation[' . $columnNumber . ']',
+        'field_' . $columnNumber . '_' . ($ci - $ci_offset), $tmp_collation, false
     );
     
     return $html;
@@ -984,7 +987,7 @@ function PMA_getHtmlForColumnCollation($i, $ci, $ci_offset, $row)
 /**
  * Function get html for column length
  * 
- * @param int $i                        field number
+ * @param int $columnNumber             column number
  * @param int $ci                       cell index
  * @param int $ci_offset                cell index offset
  * @param int $length_values_input_size length values input size
@@ -992,17 +995,17 @@ function PMA_getHtmlForColumnCollation($i, $ci, $ci_offset, $row)
  * 
  * @return string
  */
-function PMA_getHtmlForColumnLength($i, $ci, $ci_offset, $length_values_input_size,
+function PMA_getHtmlForColumnLength($columnNumber, $ci, $ci_offset, $length_values_input_size,
     $length_to_display
 ) {
-    $html = '<input id="field_' . $i . '_' . ($ci - $ci_offset)
-        . '"' . ' type="text" name="field_length[' . $i . ']" size="'
+    $html = '<input id="field_' . $columnNumber . '_' . ($ci - $ci_offset)
+        . '"' . ' type="text" name="field_length[' . $columnNumber . ']" size="'
         . $length_values_input_size . '"' . ' value="' . htmlspecialchars(
             $length_to_display
         )
         . '"'
         . ' class="textfield" />'
-        . '<p class="enum_notice" id="enum_notice_' . $i . '_' . ($ci - $ci_offset)
+        . '<p class="enum_notice" id="enum_notice_' . $columnNumber . '_' . ($ci - $ci_offset)
         . '">';
     $html .= __('ENUM or SET data too long?')
         . '<a href="#" class="open_enum_editor"> '
@@ -1015,7 +1018,7 @@ function PMA_getHtmlForColumnLength($i, $ci, $ci_offset, $length_values_input_si
 /**
  * Function to get html for the default column
  * 
- * @param int    $i                         field number
+ * @param int    $columnNumber              column number
  * @param int    $ci                        cell index
  * @param int    $ci_offset                 cell index offset
  * @param string $type_upper                type upper
@@ -1024,7 +1027,7 @@ function PMA_getHtmlForColumnLength($i, $ci, $ci_offset, $length_values_input_si
  * 
  * @return string
  */
-function PMA_getHtmlForColumnDefault($i, $ci, $ci_offset, $type_upper,
+function PMA_getHtmlForColumnDefault($columnNumber, $ci, $ci_offset, $type_upper,
     $default_current_timestamp, $row
 ) {
     // here we put 'NONE' as the default value of drop-down; otherwise
@@ -1050,8 +1053,8 @@ function PMA_getHtmlForColumnDefault($i, $ci, $ci_offset, $type_upper,
             = PMA_Util::convertBitDefaultValue($row['DefaultValue']);
     }
 
-    $html = '<select name="field_default_type[' . $i
-        . ']" id="field_' . $i . '_' . ($ci - $ci_offset)
+    $html = '<select name="field_default_type[' . $columnNumber
+        . ']" id="field_' . $columnNumber . '_' . ($ci - $ci_offset)
         . '" class="default_type">';
     foreach ($default_options as $key => $value) {
         $html .= '<option value="' . $key . '"';
@@ -1064,7 +1067,7 @@ function PMA_getHtmlForColumnDefault($i, $ci, $ci_offset, $type_upper,
     $html .= '</select>';
     $html .= '<br />';
     $html .= '<input type="text"'
-        . ' name="field_default_value[' . $i . ']" size="12"'
+        . ' name="field_default_value[' . $columnNumber . ']" size="12"'
         . ' value="' . (isset($row['DefaultValue'])
             ? htmlspecialchars($row['DefaultValue'])
             : '') . '"'
