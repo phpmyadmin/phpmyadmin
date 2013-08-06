@@ -758,7 +758,8 @@ function PMA_SQP_parse($sql)
             } elseif (($t_next == 'punct_qualifier') || ($t_prev == 'punct_qualifier')) {
                 $t_suffix = '_identifier';
             } elseif (($t_next == 'punct_bracket_open_round')
-              && isset($PMA_SQPdata_function_name[$d_cur_upper])) {
+                && isset($PMA_SQPdata_function_name[$d_cur_upper])
+            ) {
                 /**
                  * @todo 2005-10-16: in the case of a CREATE TABLE containing
                  * a TIMESTAMP, since TIMESTAMP() is also a function, it's
@@ -825,8 +826,9 @@ function PMA_SQP_parse($sql)
                     $t_suffix = '_charset';
                 }
             } elseif (in_array($d_cur, $mysql_charsets)
-              || in_array($d_cur, $mysql_collations_flat)
-              || ($d_cur{0} == '_' && in_array(substr($d_cur, 1), $mysql_charsets))) {
+                || in_array($d_cur, $mysql_collations_flat)
+                || ($d_cur{0} == '_' && in_array(substr($d_cur, 1), $mysql_charsets))
+            ) {
                 $t_suffix = '_charset';
             } else {
                 // Do nothing
@@ -1632,8 +1634,7 @@ function PMA_SQP_analyze($arr)
                 // A table has to be created, renamed, dropped -> navi panel
                 // should be reloaded
                 if (in_array($first_reserved_word, array("CREATE", "ALTER", "DROP"))
-                    && in_array(
-                    $upper_data, array("VIEW", "TABLE", "DATABASE", "SCHEMA"))
+                    && in_array($upper_data, array("VIEW", "TABLE", "DATABASE", "SCHEMA"))
                 ) {
                     $subresult['queryflags']['reload'] = 1;
                 }
@@ -1891,8 +1892,7 @@ function PMA_SQP_analyze($arr)
 
         // for the presence of SUM|AVG|STD|STDDEV|MIN|MAX|BIT_OR|BIT_AND
         if ($arr[$i]['type'] == 'alpha_functionName'
-            && in_array(strtoupper($arr[$i]['data']), array(
-            "SUM","AVG","STD","STDDEV","MIN","MAX","BIT_OR","BIT_AND"))
+            && in_array(strtoupper($arr[$i]['data']), array("SUM","AVG","STD","STDDEV","MIN","MAX","BIT_OR","BIT_AND"))
             && isset($subresult['queryflags']['select_from'])
             && $subresult['queryflags']['select_from'] == 1
             && !isset($subresult['queryflags']['is_group'])
@@ -2060,12 +2060,12 @@ function PMA_SQP_analyze($arr)
                     if ($second_upper_data == 'UPDATE') {
                         $clause = 'on_update';
                     }
+                    // ugly workaround because currently, NO is not
+                    // in the list of reserved words in sqlparser.data
+                    // (we got a bug report about not being able to use
+                    // 'no' as an identifier)
                     if (isset($clause)
                         && ($arr[$i+2]['type'] == 'alpha_reservedWord'
-                        // ugly workaround because currently, NO is not
-                        // in the list of reserved words in sqlparser.data
-                        // (we got a bug report about not being able to use
-                        // 'no' as an identifier)
                         || ($arr[$i+2]['type'] == 'alpha_identifier'
                         && strtoupper($arr[$i+2]['data'])=='NO'))
                     ) {
