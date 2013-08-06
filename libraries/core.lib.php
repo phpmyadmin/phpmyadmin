@@ -220,12 +220,9 @@ function PMA_fatalError(
     } else {
         $error_message = strtr($error_message, array('<br />' => '[br]'));
 
-        /* Define fake gettext for fatal errors */
+        /* Load gettext for fatal errors */
         if (!function_exists('__')) {
-            function __($text)
-            {
-                return $text;
-            }
+            include_once './libraries/php-gettext/gettext.inc';
         }
 
         // these variables are used in the included file libraries/error.inc.php
