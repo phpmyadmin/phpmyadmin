@@ -56,7 +56,6 @@ foreach ($post_params as $one_post_param) {
     }
 }
 
-include_once 'libraries/schema/User_Schema.class.php';
 $user_schema = new PMA_User_Schema();
 
 /**
