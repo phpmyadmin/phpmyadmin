@@ -4,10 +4,9 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-08-06 16:10+0200\n"
-"PO-Revision-Date: 2013-08-06 03:07+0200\n"
-"Last-Translator: Myung Han Yu <greatymh@gmail.com>\n"
-"Language-Team: Korean <http://l10n.cihar.com/projects/phpmyadmin/master/ko/"
-">\n"
+"PO-Revision-Date: 2013-08-07 01:05+0200\n"
+"Last-Translator: 성현 양 <rctq@paran.com>\n"
+"Language-Team: Korean <http://l10n.cihar.com/projects/phpmyadmin/master/ko/>\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -554,13 +553,13 @@ msgstr "포인트 %d"
 #: gis_data_editor.php:245 gis_data_editor.php:300 gis_data_editor.php:373
 #: js/messages.php:315
 msgid "Add a point"
-msgstr "포인트 추가하기"
+msgstr "포인트 추가"
 
 #: gis_data_editor.php:262
-#, fuzzy, php-format
+#, php-format
 #| msgid "Linestring"
 msgid "Linestring %d:"
-msgstr "줄(열) 구분자"
+msgstr "문자열 %d"
 
 #: gis_data_editor.php:265 gis_data_editor.php:341
 #, fuzzy
@@ -569,10 +568,10 @@ msgid "Outer ring:"
 msgstr "외륜"
 
 #: gis_data_editor.php:267 gis_data_editor.php:343
-#, fuzzy, php-format
+#, php-format
 #| msgid "Inner Ring"
 msgid "Inner ring %d:"
-msgstr "내륜"
+msgstr "내부 원 %d"
 
 #: gis_data_editor.php:303
 msgid "Add a linestring"
