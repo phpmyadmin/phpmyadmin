@@ -1729,7 +1729,9 @@ function PMA_getHtmlForSpecificDbPrivileges()
         . '</fieldset>'
         . '</form>' . "\n";
 
-    if ($GLOBALS['is_ajax_request'] == true && empty($_REQUEST['ajax_page_request'])) {
+    if ($GLOBALS['is_ajax_request'] == true 
+        && empty($_REQUEST['ajax_page_request'])
+    ) {
         $message = PMA_Message::success(__('User has been added.'));
         $response = PMA_Response::getInstance();
         $response->addJSON('message', $message);
@@ -1839,7 +1841,8 @@ function PMA_getHtmlTableBodyForSpecificDbPrivs($found, $row, $odd_row,
                     . '<td>' . "\n";
                 $html_output .= PMA_getUserEditLink(
                     $current_user, $current_host,
-                    ! (isset($current['Db']) || $current['Db'] == '*') ? '' : $current['Db']
+                    (isset($current['Db']) && $current['Db'] != '*') 
+                    ? $current['Db'] : ''
                 );
                 $html_output .= '</td>' . "\n"
                    . '    </tr>' . "\n";
@@ -2159,7 +2162,8 @@ function PMA_getLinkToDbAndTable($url_dbname, $dbname, $tablename)
  * So this function returns user rights as an array
  *
  * @param array  $tables              tables
- * @param string $user_host_condition a where clause that containd user's host condition
+ * @param string $user_host_condition a where clause that containd user's host 
+ *                                    condition
  * @param string $dbname              database name
  *
  * @return array $db_rights database rights
@@ -2432,7 +2436,8 @@ function PMA_getHtmlForDisplaySelectDbInEditPrivs($found_rows)
             // already escaped in $found_rows,
             // contrary to the output of SHOW DATABASES
             if (empty($found_rows) || ! in_array($current_db, $found_rows)) {
-                $html_output .= '<option value="' . htmlspecialchars($current_db) . '">'
+                $html_output .= '<option value="' 
+                    . htmlspecialchars($current_db) . '">'
                     . htmlspecialchars($current_db_show) . '</option>' . "\n";
             }
         }
@@ -2716,20 +2721,29 @@ function PMA_getFieldsetForAddDeleteUser()
         . '</legend>' . "\n";
 
     $html_output .= '<input type="hidden" name="mode" value="2" />' . "\n"
-        . '(' . __('Revoke all active privileges from the users and delete them afterwards.') . ')'
+        . '(' 
+        . __('Revoke all active privileges from the users and delete them afterwards.') 
+        . ')'
         . '<br />' . "\n";
 
     $html_output .= '<input type="checkbox" '
-        . 'title="' . __('Drop the databases that have the same names as the users.') . '" '
+        . 'title="' 
+        . __('Drop the databases that have the same names as the users.') 
+        . '" '
         . 'name="drop_users_db" id="checkbox_drop_users_db" />' . "\n";
 
     $html_output .= '<label for="checkbox_drop_users_db" '
-        . 'title="' . __('Drop the databases that have the same names as the users.') . '">' . "\n"
-        . '            ' . __('Drop the databases that have the same names as the users.') . "\n"
+        . 'title="' 
+        . __('Drop the databases that have the same names as the users.') 
+        . '">' . "\n"
+        . '            ' 
+        . __('Drop the databases that have the same names as the users.') 
+        . "\n"
         . '</label>' . "\n"
         . '</fieldset>' . "\n";
 
-    $html_output .= '<fieldset id="fieldset_delete_user_footer" class="tblFooters">' . "\n";
+    $html_output .= '<fieldset id="fieldset_delete_user_footer" class="tblFooters">' 
+        . "\n";
     $html_output .= '<input type="submit" name="delete" '
         . 'value="' . __('Go') . '" id="buttonGo" '
         . 'class="ajax"/>' . "\n";
@@ -2945,7 +2959,8 @@ function PMA_updatePrivileges($username, $hostname, $tablename, $dbname)
     $sql_query = $sql_query0 . ' ' . $sql_query1 . ' ' . $sql_query2;
     $message = PMA_Message::success(__('You have updated the privileges for %s.'));
     $message->addParam(
-        '\'' . htmlspecialchars($username) . '\'@\'' . htmlspecialchars($hostname) . '\''
+        '\'' . htmlspecialchars($username) 
+        . '\'@\'' . htmlspecialchars($hostname) . '\''
     );
 
     return array($sql_query, $message);
@@ -3038,7 +3053,8 @@ function PMA_getHtmlHeaderForDisplayUserProperties(
             . '\'@\'' . htmlspecialchars($hostname)
             . '\'</a></i>' . "\n";
 
-        $html_output .= ' - ' . ($dbname_is_wildcard ? __('Databases') : __('Database') );
+        $html_output .= ' - ';
+        $html_output .= $dbname_is_wildcard ? __('Databases') : __('Database');
         if (isset($_REQUEST['tablename'])) {
             $html_output .= ' <i><a href="server_privileges.php?' . $GLOBALS['url_query']
                 . '&amp;username=' . htmlspecialchars(urlencode($username))
