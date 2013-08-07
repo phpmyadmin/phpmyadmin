@@ -183,7 +183,8 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
                 '9.80',
             ),
             array(
-                'Mozilla/5.0 (Macintosh; U; Intel Mac OS X; en-US) AppleWebKit/528.16 OmniWeb/622.8.0.112941',
+                'Mozilla/5.0 (Macintosh; U; Intel Mac OS X; en-US) AppleWebKit/'
+                . '528.16 OmniWeb/622.8.0.112941',
                 'Mac',
                 'OMNIWEB',
                 '622',
@@ -201,25 +202,29 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
                 '9.0',
             ),
             array(
-                'Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; Win64; x64; Trident/6.0)',
+                'Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; Win64; x64; '
+                . 'Trident/6.0)',
                 'Win',
                 'IE',
                 '10.0',
             ),
             array(
-                'Mozilla/5.0 (IE 11.0; Windows NT 6.3; Trident/7.0; .NET4.0E; .NET4.0C; rv:11.0) like Gecko',
+                'Mozilla/5.0 (IE 11.0; Windows NT 6.3; Trident/7.0; .NET4.0E; '
+                . '.NET4.0C; rv:11.0) like Gecko',
                 'Win',
                 'IE',
                 '11.0',
             ),
             array(
-                'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.22 (KHTML, like Gecko) Chrome/25.0.1364.172 Safari/537.22',
+                'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.22 (KHTML, '
+                . 'like Gecko) Chrome/25.0.1364.172 Safari/537.22',
                 'Win',
                 'CHROME',
                 '25.0.1364.172',
             ),
             array(
-                'Mozilla/5.0 (Unknown; U; Unix BSD/SYSV system; C -) AppleWebKit/527+ (KHTML, like Gecko, Safari/419.3) Arora/0.10.2',
+                'Mozilla/5.0 (Unknown; U; Unix BSD/SYSV system; C -) '
+                . 'AppleWebKit/527+ (KHTML, like Gecko, Safari/419.3) Arora/0.10.2',
                 'Unix',
                 'SAFARI',
                 '5.0.419',
@@ -231,7 +236,8 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
                 '1.9',
             ),
             array(
-                'Mozilla/5.0 (compatible; Konqueror/4.5; NetBSD 5.0.2; X11; amd64; en_US) KHTML/4.5.4 (like Gecko)',
+                'Mozilla/5.0 (compatible; Konqueror/4.5; NetBSD 5.0.2; X11; '
+                . 'amd64; en_US) KHTML/4.5.4 (like Gecko)',
                 'Other',
                 'KONQUEROR',
             ),
@@ -242,7 +248,8 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
                 '5.0',
             ),
             array(
-                'Mozilla/5.0 (X11; Linux x86_64; rv:12.0) Gecko/20100101 Firefox/12.0',
+                'Mozilla/5.0 (X11; Linux x86_64; rv:12.0) Gecko/20100101 '
+                . 'Firefox/12.0',
                 'Linux',
                 'FIREFOX',
                 '12.0',
@@ -251,7 +258,8 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
              * @todo Is this version really expected?
              */
             array(
-                'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/535.4+ (KHTML, like Gecko) Version/5.0 Safari/535.4+ SUSE/12.1 (3.2.1) Epiphany/3.2.1',
+                'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/535.4+ (KHTML, like G'
+                . 'ecko) Version/5.0 Safari/535.4+ SUSE/12.1 (3.2.1) Epiphany/3.2.1',
                 'Linux',
                 'SAFARI',
                 '5.0',
@@ -816,7 +824,10 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
 
         $partial_sum = (
             PHPUnit_Framework_Assert::readAttribute($this->object, 'source_mtime') +
-            PHPUnit_Framework_Assert::readAttribute($this->object, 'default_source_mtime') +
+            PHPUnit_Framework_Assert::readAttribute(
+                $this->object,
+                'default_source_mtime'
+            ) +
             $this->object->get('user_preferences_mtime') +
             $_SESSION['PMA_Theme']->mtime_info +
             $_SESSION['PMA_Theme']->filesize_info
