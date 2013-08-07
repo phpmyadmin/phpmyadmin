@@ -3734,7 +3734,9 @@ function PMA_getDbSpecificPrivsQueriesForChangeOrCopyUser(
         .' AND `Host`'
         .' = \'' . PMA_Util::sqlAddSlashes($_REQUEST['old_username']) . '\';';
 
-    $res = $GLOBALS['dbi']->query('SELECT * FROM `mysql`.`db`' . $user_host_condition);
+    $res = $GLOBALS['dbi']->query(
+        'SELECT * FROM `mysql`.`db`' . $user_host_condition
+    );
 
     while ($row = $GLOBALS['dbi']->fetchAssoc($res)) {
         $queries[] = 'GRANT ' . join(', ', PMA_extractPrivInfo($row))
