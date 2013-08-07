@@ -1206,14 +1206,15 @@ function PMA_getListofMaintainActionLink($is_myisam_or_aria,
 /**
  * Get maintain action HTML link
  *
- * @param string $action
+ * @param string $action     action name
  * @param array  $params     url parameters array
- * @param array  $url_params
+ * @param array  $url_params additional url parameters
  * @param string $link       contains name of page/anchor that is being linked
  *
  * @return string $html_output
  */
-function PMA_getMaintainActionlink($action, $params, $url_params, $link) {
+function PMA_getMaintainActionlink($action, $params, $url_params, $link)
+{
     return '<li>'
         . '<a class="maintain_action ajax" '
         . 'href="sql.php'
