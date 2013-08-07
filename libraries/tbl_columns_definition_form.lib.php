@@ -262,14 +262,14 @@ function PMA_getHtmlForTableCreateOrAddField($action, $form_params, $content_cel
  * Function to get header cells
  *
  * @param bool   $is_backup   whether backup or not
- * @param array  $fields_meta fields meta data
+ * @param array  $columnMeta  column meta data
  * @param bool   $mimework    whether mimework or not
  * @param string $db          current database
  * @param string $table       current table
  *
  * @return array
  */
-function PMA_getHeaderCells($is_backup, $fields_meta, $mimework, $db, $table)
+function PMA_getHeaderCells($is_backup, $columnMeta, $mimework, $db, $table)
 {
     $header_cells = array();
     $header_cells[] = __('Name');
@@ -306,7 +306,7 @@ function PMA_getHeaderCells($is_backup, $fields_meta, $mimework, $db, $table)
     $header_cells[] = '<abbr title="AUTO_INCREMENT">A_I</abbr>';
     $header_cells[] = __('Comments');
 
-    if (isset($fields_meta)) {
+    if (isset($columnMeta)) {
         $header_cells[] = __('Move column');
     }
 
@@ -515,7 +515,7 @@ function PMA_handleRegeneration($columnNumber, $submit_fulltext, $comments_map,
 }
 
 /**
- * Function to get row data for $fields_meta set
+ * Function to get row data for $columnMeta set
  * 
  * @param array $columnMeta column meta
  * @param bool  $isDefault  whether the row value is default
