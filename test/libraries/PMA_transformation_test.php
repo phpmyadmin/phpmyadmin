@@ -66,7 +66,7 @@ class PMA_Transformation_Test extends PHPUnit_Framework_TestCase
     {
         $this->assertEquals(
             $expected,
-            PMA_transformation_getOptions($input)
+            PMA_Transformation_getOptions($input)
         );
     }
 

@@ -12,7 +12,7 @@ if (! defined('PHPMYADMIN')) {
 
 /* Get the transformations interface */
 require_once 'libraries/plugins/TransformationsPlugin.class.php';
-/* For PMA_transformation_global_html_replace */
+/* For PMA_Transformation_globalHtmlReplace */
 require_once 'libraries/transformations.lib.php';
 
 /**
@@ -49,7 +49,7 @@ abstract class ImageLinkTransformationsPlugin extends TransformationsPlugin
             'string' => '<a href="transformation_wrapper.php'
                 . $options['wrapper_link'] . '" alt="[__BUFFER__]">[BLOB]</a>'
         );
-        return PMA_transformation_global_html_replace(
+        return PMA_Transformation_globalHtmlReplace(
             $buffer,
             $transform_options
         );

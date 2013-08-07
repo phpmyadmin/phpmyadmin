@@ -24,7 +24,7 @@ if (! defined('PHPMYADMIN')) {
  * removes quotes
  *
  * <code>
- * PMA_transformation_getOptions("'option ,, quoted',abd,'2,3',");
+ * PMA_Transformation_getOptions("'option ,, quoted',abd,'2,3',");
  * // array {
  * //     'option ,, quoted',
  * //     'abc',
@@ -37,7 +37,7 @@ if (! defined('PHPMYADMIN')) {
  *
  * @return array options
  */
-function PMA_transformation_getOptions($option_string)
+function PMA_Transformation_getOptions($option_string)
 {
     $result = array();
 
@@ -348,7 +348,7 @@ function PMA_setMIME($db, $table, $key, $mimetype, $transformation,
  *
  * @return string containing the text with all the replacements
  */
-function PMA_transformation_global_html_replace($buffer, $options = array())
+function PMA_Transformation_globalHtmlReplace($buffer, $options = array())
 {
     if ( ! isset($options['string']) ) {
         $options['string'] = '';

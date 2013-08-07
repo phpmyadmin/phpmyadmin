@@ -2749,7 +2749,7 @@ class PMA_DisplayResults
                             $plugin_manager
                         );
 
-                        $transform_options  = PMA_transformation_getOptions(
+                        $transform_options  = PMA_Transformation_getOptions(
                             isset($mime_map[$meta->name]
                                 ['transformation_options']
                             )
@@ -2796,7 +2796,7 @@ class PMA_DisplayResults
                     [strtolower($this->__get('table'))]
                     [strtolower($meta->name)][1](null);
 
-                $transform_options  = PMA_transformation_getOptions(
+                $transform_options  = PMA_Transformation_getOptions(
                     isset($mime_map[$meta->name]['transformation_options'])
                     ? $mime_map[$meta->name]['transformation_options']
                     : ''

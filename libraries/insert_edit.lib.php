@@ -2088,7 +2088,7 @@ function PMA_transformEditedValues($db, $table,
             if (file_exists($include_file)) {
                 include_once $include_file;
 
-                $transform_options  = PMA_transformation_getOptions(
+                $transform_options  = PMA_Transformation_getOptions(
                     isset($transformation['transformation_options'])
                     ? $transformation['transformation_options']
                     : ''
