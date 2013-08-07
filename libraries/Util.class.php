@@ -439,7 +439,8 @@ class PMA_Util
      *
      * @access  public
      */
-    public static function getMySQLDocuURL($link, $anchor = '') {
+    public static function getMySQLDocuURL($link, $anchor = '')
+    {
         global $cfg;
 
         // Fixup for newly used names:
@@ -1164,7 +1165,6 @@ class PMA_Util
             // but only explain a SELECT (that has not been explained)
             /* SQL-Parser-Analyzer */
             $explain_link = '';
-            $is_select = preg_match('@^SELECT[[:space:]]+@i', $sql_query);
             if (! empty($cfg['SQLQuery']['Explain']) && ! $query_too_big) {
                 $explain_params = $url_params;
                 // Detect if we are validating as well
@@ -1172,14 +1172,10 @@ class PMA_Util
                 if (! empty($GLOBALS['validatequery'])) {
                     $explain_params['validatequery'] = 1;
                 }
-                if ($is_select) {
+                if ($analyzed_display_query[0]['queryflags']['select_from']) {
                     $explain_params['sql_query'] = 'EXPLAIN ' . $sql_query;
                     $_message = __('Explain SQL');
-                } elseif (
-                    preg_match(
-                        '@^EXPLAIN[[:space:]]+SELECT[[:space:]]+@i', $sql_query
-                    )
-                ) {
+                } elseif ($analyzed_display_query[0]['queryflags']['is_explain']) {
                     $explain_params['sql_query'] = substr($sql_query, 8);
                     $_message = __('Skip Explain SQL');
                 }
@@ -1317,7 +1313,7 @@ class PMA_Util
              * TODO: Should we have $cfg['SQLQuery']['InlineEdit']?
              */
             if (! empty($cfg['SQLQuery']['Edit'])
-                && $is_select
+                && $analyzed_display_query[0]['queryflags']['select_from']
                 && ! $query_too_big
             ) {
                 $inline_edit_link = ' ['
