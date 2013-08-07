@@ -419,13 +419,15 @@ class PMA_Config
 
             $ref_file = $git_folder . '/' . $ref_head;
             if (@file_exists($ref_file)) {
-                if (! $hash = @file_get_contents($ref_file)) {
+                $hash = @file_get_contents($ref_file);
+                if (! $hash) {
                     return;
                 }
                 $hash = trim($hash);
             } else {
                 // deal with packed refs
-                if (! $packed_refs = @file_get_contents($git_folder . '/packed-refs')) {
+                $packed_refs = @file_get_contents($git_folder . '/packed-refs');
+                if (! $packed_refs) {
                     return;
                 }
                 // split file to lines
@@ -470,8 +472,9 @@ class PMA_Config
             } else {
                 $pack_names = array();
                 // work with packed data
-                if (file_exists($git_folder . '/objects/info/packs')
-                    && $packs = @file_get_contents($git_folder . '/objects/info/packs')
+                $packs_file = $git_folder . '/objects/info/packs';
+                if (file_exists($packs_file)
+                    && $packs = @file_get_contents($packs_file)
                 ) {
                     // File exists. Read it, parse the file to get the names of the
                     // packs. (to look for them in .git/object/pack directory later)
@@ -509,7 +512,10 @@ class PMA_Config
                     $index_name = str_replace('.pack', '.idx', $pack_name);
 
                     // load index
-                    if (! $index_data = @file_get_contents($git_folder . '/objects/pack/' . $index_name)) {
+                    $index_data = @file_get_contents(
+                        $git_folder . '/objects/pack/' . $index_name
+                    );
+                    if (! $index_data) {
                         continue;
                     }
                     // check format
