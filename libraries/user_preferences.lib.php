@@ -58,8 +58,8 @@ function PMA_loadUserprefs()
     $query_table = PMA_Util::backquote($cfgRelation['db']) . '.'
         . PMA_Util::backquote($cfgRelation['userconfig']);
     $query = 'SELECT `config_data`, UNIX_TIMESTAMP(`timevalue`) ts'
-        . 'FROM ' . $query_table .
-        . 'WHERE `username` = \''
+        . ' FROM ' . $query_table
+        . ' WHERE `username` = \''
         . PMA_Util::sqlAddSlashes($cfgRelation['user'])
         . '\'';
     $row = $GLOBALS['dbi']->fetchSingleRow($query, 'ASSOC', $GLOBALS['controllink']);
