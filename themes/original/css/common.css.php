@@ -369,7 +369,7 @@ img.lightbulb {
 }
 
 /* Doc links in SQL */
-.sql-higlight a {
+.cm-sql-doc {
     text-decoration: none;
     border-bottom: 1px dotted #000;
 }

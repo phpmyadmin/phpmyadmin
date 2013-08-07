@@ -24,6 +24,7 @@ require_once './libraries/common.inc.php';
 session_write_close();
 // But this one is needed for PMA_escapeJsString()
 require_once './libraries/js_escape.lib.php';
+require_once './libraries/Util.class.php';
 
 $js_messages['strNoDropDatabases'] = $cfg['AllowUserDropDatabase'] ? '' : __('"DROP DATABASE" statements are disabled.');
 
@@ -395,6 +396,8 @@ echo "var pmaThemeImage = '" . $GLOBALS['pmaThemeImage'] . "';\n";
 
 /* Version */
 echo "var pmaversion = '" . PMA_VERSION . "';\n";
+
+echo "var mysql_doc_template = '" . PMA_Util::getMySQLDocuURL('%s') . "';\n";
 
 echo "if ($.datepicker) {\n";
 /* l10n: Display text for calendar close link */

@@ -1488,6 +1488,25 @@ function catchKeypressesFromSqlTextboxes(event) {
     }
 }
 
+function PMA_doc_keyword(idx, elm)
+{
+    var $elm = $(elm);
+    var keyword = $elm.text().toUpperCase();
+    if (keyword in mysql_doc_keyword) {
+        var params = mysql_doc_keyword[keyword];
+        var url = $.sprintf(
+            mysql_doc_template,
+            params[0]
+        );
+        if (params.length > 1) {
+            url += '#' + params[1];
+        }
+        var content = $elm.text();
+        $elm.text('');
+        $elm.append('<a class="cm-sql-doc" href="' + url + '">' + content + '</a>');
+    }
+}
+
 /**
  * Higlights SQL using CodeMirror.
  */
@@ -1505,6 +1524,7 @@ function PMA_highlightSQL(base)
                 CodeMirror.runMode($sql.text(), 'text/x-mysql', $highlight[0]);
                 $pre.hide();
             }
+            $highlight.find('.cm-keyword').each(PMA_doc_keyword);
         }
     });
 }

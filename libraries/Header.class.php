@@ -186,6 +186,7 @@ class PMA_Header
         $this->_scripts->addFile(
             'get_image.js.php?theme=' . $theme_id
         );
+        $this->_scripts->addFile('doclinks.js');
         $this->_scripts->addFile('functions.js');
         $this->_scripts->addFile('navigation.js');
         $this->_scripts->addFile('indexes.js');
