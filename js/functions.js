@@ -1488,22 +1488,35 @@ function catchKeypressesFromSqlTextboxes(event) {
     }
 }
 
+function PMA_doc_add($elm, params)
+{
+    var url = $.sprintf(
+        mysql_doc_template,
+        params[0]
+    );
+    if (params.length > 1) {
+        url += '#' + params[1];
+    }
+    var content = $elm.text();
+    $elm.text('');
+    $elm.append('<a class="cm-sql-doc" href="' + url + '">' + content + '</a>');
+}
+
 function PMA_doc_keyword(idx, elm)
 {
     var $elm = $(elm);
     var keyword = $elm.text().toUpperCase();
     if (keyword in mysql_doc_keyword) {
-        var params = mysql_doc_keyword[keyword];
-        var url = $.sprintf(
-            mysql_doc_template,
-            params[0]
-        );
-        if (params.length > 1) {
-            url += '#' + params[1];
-        }
-        var content = $elm.text();
-        $elm.text('');
-        $elm.append('<a class="cm-sql-doc" href="' + url + '">' + content + '</a>');
+        PMA_doc_add($elm, mysql_doc_keyword[keyword]);
+    }
+}
+
+function PMA_doc_builtin(idx, elm)
+{
+    var $elm = $(elm);
+    var builtin = $elm.text().toUpperCase();
+    if (builtin in mysql_doc_builtin) {
+        PMA_doc_add($elm, mysql_doc_builtin[builtin]);
     }
 }
 
@@ -1525,6 +1538,7 @@ function PMA_highlightSQL(base)
                 $pre.hide();
             }
             $highlight.find('.cm-keyword').each(PMA_doc_keyword);
+            $highlight.find('.cm-builtin').each(PMA_doc_builtin);
         }
     });
 }
