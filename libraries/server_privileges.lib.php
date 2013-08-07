@@ -1758,11 +1758,11 @@ function PMA_getHtmlForSpecificDbPrivileges()
 /**
  * Get HTML snippet for table body of specific database privileges
  *
- * @param boolean $found     whether user found or not
- * @param array   $row       array of rows from mysql,
- *                           db table with list of privileges
- * @param boolean $odd_row   whether odd or not
- * @param string  $res       ran sql query
+ * @param boolean $found   whether user found or not
+ * @param array   $row     array of rows from mysql,
+ *                         db table with list of privileges
+ * @param boolean $odd_row whether odd or not
+ * @param string  $res     ran sql query
  *
  * @return string $html_output
  */
@@ -1868,6 +1868,13 @@ function PMA_getHtmlTableBodyForSpecificDbPrivs($found, $row, $odd_row,
 
 /**
  * Returns edit link for a user.
+ *
+ * @param string $username  User name
+ * @param string $hostname  Host name
+ * @param string $dbname    Database name
+ * @param string $tablename Table name
+ *
+ * @return HTML code with link
  */
 function PMA_getUserEditLink($username, $hostname, $dbname = '', $tablename = '')
 {
@@ -1888,6 +1895,13 @@ function PMA_getUserEditLink($username, $hostname, $dbname = '', $tablename = ''
 
 /**
  * Returns revoke link for a user.
+ *
+ * @param string $username  User name
+ * @param string $hostname  Host name
+ * @param string $dbname    Database name
+ * @param string $tablename Table name
+ *
+ * @return HTML code with link
  */
 function PMA_getUserRevokeLink($username, $hostname, $dbname = '', $tablename = '')
 {
@@ -1907,7 +1921,13 @@ function PMA_getUserRevokeLink($username, $hostname, $dbname = '', $tablename = 
 }
 
 /**
- * Returns revoke link for a user.
+ * Returns export link for a user.
+ *
+ * @param string $username User name
+ * @param string $hostname Host name
+ * @param string $initial  Initial value
+ *
+ * @return HTML code with link
  */
 function PMA_getUserExportLink($username, $hostname, $initial = '')
 {
@@ -1929,10 +1949,10 @@ function PMA_getUserExportLink($username, $hostname, $initial = '')
 /**
  * This function return the extra data array for the ajax behavior
  *
- * @param string $password    password
- * @param string $sql_query   sql query
- * @param string $hostname    hostname
- * @param string $username    username
+ * @param string $password  password
+ * @param string $sql_query sql query
+ * @param string $hostname  hostname
+ * @param string $username  username
  *
  * @return array $extra_data
  */
@@ -2236,10 +2256,10 @@ function PMA_getUserSpecificRights($tables, $user_host_condition, $dbname)
 /**
  * Display user rights in table rows(Table specific or database specific privs)
  *
- * @param array  $db_rights   user's database rights array
- * @param string $dbname      database name
- * @param string $hostname    host name
- * @param string $username    username
+ * @param array  $db_rights user's database rights array
+ * @param string $dbname    database name
+ * @param string $hostname  host name
+ * @param string $username  username
  *
  * @return array $found_rows, $html_output
  */
@@ -2316,9 +2336,9 @@ function PMA_getHtmlForDisplayUserRightsInRows($db_rights, $dbname,
 /**
  * Get a HTML table for display user's tabel specific or database specific rights
  *
- * @param string $username    username
- * @param string $hostname    host name
- * @param string $dbname      database name
+ * @param string $username username
+ * @param string $hostname host name
+ * @param string $dbname   database name
  *
  * @return array $html_output, $found_rows
  */
@@ -2481,14 +2501,15 @@ function PMA_displayTablesInEditPrivs($dbname, $found_rows)
  * Get HTML for display the users overview
  * (if less than 50 users, display them immediately)
  *
- * @param array  $result            ran sql query
- * @param array  $db_rights         user's database rights array
- * @param string $pmaThemeImage     a image source link
- * @param string $text_dir          text directory
+ * @param array  $result        ran sql query
+ * @param array  $db_rights     user's database rights array
+ * @param string $pmaThemeImage a image source link
+ * @param string $text_dir      text directory
  *
  * @return string HTML snippet
  */
-function PMA_getUsersOverview($result, $db_rights, $pmaThemeImage, $text_dir) {
+function PMA_getUsersOverview($result, $db_rights, $pmaThemeImage, $text_dir)
+{
     while ($row = $GLOBALS['dbi']->fetchAssoc($result)) {
         $row['privs'] = PMA_extractPrivInfo($row, true);
         $db_rights[$row['User']][$row['Host']] = $row;
@@ -2552,7 +2573,7 @@ function PMA_getUsersOverview($result, $db_rights, $pmaThemeImage, $text_dir) {
 /**
  * Get table body for 'tableuserrights' table in userform
  *
- * @param array  $db_rights   user's database rights array
+ * @param array $db_rights user's database rights array
  *
  * @return string HTML snippet
  */
@@ -2721,7 +2742,7 @@ function PMA_getFieldsetForAddDeleteUser()
 /**
  * Get HTML for Displays the initials
  *
- * @param array  $array_initials    array for all initials, even non A-Z
+ * @param array $array_initials array for all initials, even non A-Z
  *
  * @return string HTML snippet
  */
@@ -3046,12 +3067,13 @@ function PMA_getHtmlHeaderForDisplayUserProperties(
 /**
  * Get HTML snippet for display user overview page
  *
- * @param string $pmaThemeImage     a image source link
- * @param string $text_dir          text directory
+ * @param string $pmaThemeImage a image source link
+ * @param string $text_dir      text directory
  *
  * @return string $html_output
  */
-function PMA_getHtmlForDisplayUserOverviewPage($pmaThemeImage, $text_dir) {
+function PMA_getHtmlForDisplayUserOverviewPage($pmaThemeImage, $text_dir)
+{
     $html_output = '<h2>' . "\n"
        . PMA_Util::getIcon('b_usrlist.png')
        . __('Users overview') . "\n"
@@ -3226,24 +3248,30 @@ function PMA_getHtmlForUserGroupsTable()
 
             $html_output .= '<td>';
             $html_output .= '<a class="" href="server_user_groups.php?'
-                . PMA_URL_getCommon(array(
-                    'viewUsers' => 1, 'userGroup' => $row['usergroup']
-                ))
+                . PMA_URL_getCommon(
+                    array(
+                        'viewUsers' => 1, 'userGroup' => $row['usergroup']
+                    )
+                )
                 . '">'
                 . PMA_Util::getIcon('b_usrlist.png', __('View users')) . '</a>';
             $html_output .= '&nbsp;&nbsp;';
             $html_output .= '<a class="" href="server_user_groups.php?'
-                . PMA_URL_getCommon(array(
-                    'editUserGroup' => 1, 'userGroup' => $row['usergroup']
-                ))
+                . PMA_URL_getCommon(
+                    array(
+                        'editUserGroup' => 1, 'userGroup' => $row['usergroup']
+                    )
+                )
                 . '">'
                 . PMA_Util::getIcon('b_edit.png', __('Edit')) . '</a>';
             $html_output .= '&nbsp;&nbsp;';
             $html_output .= '<a class="deleteUserGroup ajax"'
                 . ' href="server_user_groups.php?'
-                . PMA_URL_getCommon(array(
-                    'deleteUserGroup' => 1, 'userGroup' => $row['usergroup']
-                ))
+                . PMA_URL_getCommon(
+                    array(
+                        'deleteUserGroup' => 1, 'userGroup' => $row['usergroup']
+                    )
+                )
                 . '">'
                 . PMA_Util::getIcon('b_drop.png', __('Delete')) . '</a>';
             $html_output .= '</td>';
