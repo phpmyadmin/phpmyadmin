@@ -1505,7 +1505,33 @@ function PMA_doc_add($elm, params)
 function PMA_doc_keyword(idx, elm)
 {
     var $elm = $(elm);
+    /* Skip already processed ones */
+    if ($elm.find('a').length > 0) {
+        return;
+    }
     var keyword = $elm.text().toUpperCase();
+    var $next = $elm.next('.cm-keyword');
+    if ($next) {
+        var next_keyword = $next.text().toUpperCase();
+        var full = keyword + ' ' + next_keyword;
+
+        var $next2 = $next.next('.cm-keyword');
+        if ($next2) {
+            var next2_keyword = $next2.text().toUpperCase();
+            var full2 = full + ' ' + next2_keyword;
+            if (full2 in mysql_doc_keyword) {
+                PMA_doc_add($elm, mysql_doc_keyword[full2]);
+                PMA_doc_add($next, mysql_doc_keyword[full2]);
+                PMA_doc_add($next2, mysql_doc_keyword[full2]);
+                return;
+            }
+        }
+        if (full in mysql_doc_keyword) {
+            PMA_doc_add($elm, mysql_doc_keyword[full]);
+            PMA_doc_add($next, mysql_doc_keyword[full]);
+            return;
+        }
+    }
     if (keyword in mysql_doc_keyword) {
         PMA_doc_add($elm, mysql_doc_keyword[keyword]);
     }
