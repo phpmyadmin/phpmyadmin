@@ -602,71 +602,10 @@ img.lightbulb {
     border: 1px dashed #000;
 }
 
-/* MySQL Parser */
-.syntax {
-    font-family: Verdana, 'Segoe UI', Arial, Tahoma;
-    font-size: 110%;
-}
-
-.syntax a {
+/* Doc links in SQL */
+.sql-higlight a {
     text-decoration: none;
     border-bottom: 1px dotted #000;
-}
-
-.syntax_comment {
-    padding-left: 4pt;
-    padding-right: 4pt;
-}
-
-.syntax_digit {
-}
-
-.syntax_digit_hex {
-}
-
-.syntax_digit_integer {
-}
-
-.syntax_digit_float {
-}
-
-.syntax_punct {
-}
-
-.syntax_alpha {
-}
-
-.syntax_alpha_columnType {
-    text-transform: uppercase;
-}
-
-.syntax_alpha_columnAttrib {
-    text-transform: uppercase;
-}
-
-.syntax_alpha_reservedWord {
-    text-transform: uppercase;
-    font-weight: bold;
-}
-
-.syntax_alpha_functionName {
-    text-transform: uppercase;
-}
-
-.syntax_alpha_identifier {
-}
-
-.syntax_alpha_charset {
-}
-
-.syntax_alpha_variable {
-}
-
-.syntax_quote {
-    white-space: pre;
-}
-
-.syntax_quote_backtick {
 }
 
 /* no extra space in table cells */
