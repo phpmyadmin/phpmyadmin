@@ -649,7 +649,7 @@ function PMA_getHtmlForMimeType($columnNumber, $ci, $ci_offset,
     if (is_array($available_mime['mimetype'])) {
         foreach ($available_mime['mimetype'] as $mimetype) {
             $checked = (isset($columnMeta['Field'])
-                && isset($mime_map[$columnMetaw['Field']]['mimetype'])
+                && isset($mime_map[$columnMeta['Field']]['mimetype'])
                 && ($mime_map[$columnMeta['Field']]['mimetype']
                     == str_replace('/', '_', $mimetype))
                 ? 'selected '
