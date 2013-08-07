@@ -380,7 +380,7 @@ if (isset($_REQUEST['validate_username'])) {
 /**
  * some standard links
  */
-list($link_revoke, $link_export) = PMA_getStandardLinks();
+list($link_export) = PMA_getStandardLinks();
 
 /**
  * If we are in an Ajax request for Create User/Edit User/Revoke User/
@@ -500,7 +500,7 @@ if (empty($_REQUEST['adduser'])
         $response->addHTML(
             PMA_getHtmlForDisplayUserProperties(
                 ((isset ($dbname_is_wildcard)) ? $dbname_is_wildcard : ''),
-                $url_dbname, $username, $hostname, $link_revoke,
+                $url_dbname, $username, $hostname,
                 (isset($dbname) ? $dbname : ''),
                 (isset($tablename) ? $tablename : '')
             )
