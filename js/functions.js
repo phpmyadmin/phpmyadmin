@@ -1562,9 +1562,9 @@ function PMA_highlightSQL(base)
             if (typeof CodeMirror != 'undefined') {
                 CodeMirror.runMode($sql.text(), 'text/x-mysql', $highlight[0]);
                 $pre.hide();
+                $highlight.find('.cm-keyword').each(PMA_doc_keyword);
+                $highlight.find('.cm-builtin').each(PMA_doc_builtin);
             }
-            $highlight.find('.cm-keyword').each(PMA_doc_keyword);
-            $highlight.find('.cm-builtin').each(PMA_doc_builtin);
         }
     });
 }
