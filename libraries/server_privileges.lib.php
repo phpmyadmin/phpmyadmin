@@ -1670,11 +1670,10 @@ function PMA_getListOfPrivilegesAndComparedPrivileges()
  * Get the HTML for user form and check the privileges for a particular database.
  *
  * @param string $link_edit         standard link for edit
- * @param string $conditional_class if ajaxable 'Ajax' otherwise ''
  *
  * @return string $html_output
  */
-function PMA_getHtmlForSpecificDbPrivileges($link_edit, $conditional_class)
+function PMA_getHtmlForSpecificDbPrivileges($link_edit)
 {
     // check the privileges for a particular database.
     $html_output = '<form id="usersForm" action="server_privileges.php">'
@@ -1749,8 +1748,7 @@ function PMA_getHtmlForSpecificDbPrivileges($link_edit, $conditional_class)
             .'" rel="'
             .'checkprivs='.htmlspecialchars($_REQUEST['checkprivs'])
             . '&amp;'.$GLOBALS['url_query']
-            . '" class="'.$conditional_class
-            .'" name="db_specific">' . "\n"
+            . '" class="ajax" name="db_specific">' . "\n"
             . PMA_Util::getIcon('b_usradd.png')
             . '        ' . __('Add user') . '</a>' . "\n";
 
@@ -1880,13 +1878,11 @@ function PMA_getHtmlTableBodyForSpecificDbPrivs($found, $row, $odd_row,
  * Define some standard links
  * $link_edit, $link_revoke, $link_export
  *
- * @param string $conditional_class if ajaxable 'Ajax' otherwise ''
- *
  * @return array with some standard links
  */
-function PMA_getStandardLinks($conditional_class)
+function PMA_getStandardLinks()
 {
-    $link_edit = '<a class="edit_user_anchor ' . $conditional_class . '"'
+    $link_edit = '<a class="edit_user_anchor ajax"'
         . ' href="server_privileges.php?'
         . str_replace('%', '%%', $GLOBALS['url_query'])
         . '&amp;username=%s'
@@ -1907,7 +1903,7 @@ function PMA_getStandardLinks($conditional_class)
         . PMA_Util::getIcon('b_usrdrop.png', __('Revoke'))
         . '</a>';
 
-    $link_export = '<a class="export_user_anchor ' . $conditional_class . '"'
+    $link_export = '<a class="export_user_anchor ajax"'
         . ' href="server_privileges.php?'
         . str_replace('%', '%%', $GLOBALS['url_query'])
         . '&amp;username=%s'
@@ -2499,13 +2495,12 @@ function PMA_displayTablesInEditPrivs($dbname, $found_rows)
  * @param string $link_edit         standard link to edit privileges
  * @param string $pmaThemeImage     a image source link
  * @param string $text_dir          text directory
- * @param string $conditional_class if ajaxable 'Ajax' otherwise ''
  * @param string $link_export       standard link to export privileges
  *
  * @return string HTML snippet
  */
 function PMA_getUsersOverview($result, $db_rights, $link_edit, $pmaThemeImage,
-    $text_dir, $conditional_class, $link_export
+    $text_dir, $link_export
 ) {
     while ($row = $GLOBALS['dbi']->fetchAssoc($result)) {
         $row['privs'] = PMA_extractPrivInfo($row, true);
@@ -2563,7 +2558,7 @@ function PMA_getUsersOverview($result, $db_rights, $link_edit, $pmaThemeImage,
         . '<div class="clear_both" style="clear:both"></div>';
 
     // add/delete user fieldset
-    $html_output .= PMA_getFieldsetForAddDeleteUser($conditional_class);
+    $html_output .= PMA_getFieldsetForAddDeleteUser();
     $html_output .= '</form>' . "\n";
 
     return $html_output;
@@ -2702,16 +2697,14 @@ function PMA_getTableBodyForUserRightsTable($db_rights, $link_edit, $link_export
 /**
  * Get HTML fieldset for Add/Delete user
  *
- * @param string $conditional_class if ajaxable 'Ajax' otherwise ''
- *
  * @return string HTML snippet
  */
-function PMA_getFieldsetForAddDeleteUser($conditional_class)
+function PMA_getFieldsetForAddDeleteUser()
 {
     $html_output = '<fieldset id="fieldset_add_user">' . "\n";
     $html_output .= '<a href="server_privileges.php?'
         . $GLOBALS['url_query'] . '&amp;adduser=1"'
-        . 'class="' . $conditional_class . '">' . "\n"
+        . 'class="ajax">' . "\n"
         . PMA_Util::getIcon('b_usradd.png')
         . '            ' . __('Add user') . '</a>' . "\n";
     $html_output .= '</fieldset>' . "\n";
@@ -2739,7 +2732,7 @@ function PMA_getFieldsetForAddDeleteUser($conditional_class)
     $html_output .= '<fieldset id="fieldset_delete_user_footer" class="tblFooters">' . "\n";
     $html_output .= '<input type="submit" name="delete" '
         . 'value="' . __('Go') . '" id="buttonGo" '
-        . 'class="' . $conditional_class . '"/>' . "\n";
+        . 'class="ajax"/>' . "\n";
 
     $html_output .= '</fieldset>' . "\n";
 
@@ -2750,11 +2743,10 @@ function PMA_getFieldsetForAddDeleteUser($conditional_class)
  * Get HTML for Displays the initials
  *
  * @param array  $array_initials    array for all initials, even non A-Z
- * @param string $conditional_class if ajaxable 'Ajax' otherwise ''
  *
  * @return string HTML snippet
  */
-function PMA_getHtmlForDisplayTheInitials($array_initials, $conditional_class)
+function PMA_getHtmlForDisplayTheInitials($array_initials)
 {
     // initialize to false the letters A-Z
     for ($letter_counter = 1; $letter_counter < 27; $letter_counter++) {
@@ -2784,7 +2776,7 @@ function PMA_getHtmlForDisplayTheInitials($array_initials, $conditional_class)
         if (! empty($tmp_initial)) {
             if ($initial_was_found) {
                 $html_output .= '<td>'
-                    . '<a class="' . $conditional_class . '"'
+                    . '<a class="ajax"'
                     . ' href="server_privileges.php?'
                     . $GLOBALS['url_query'] . '&amp;'
                     . 'initial=' . urlencode($tmp_initial) . '">' . $tmp_initial
@@ -3004,16 +2996,14 @@ function PMA_getHtmlForExportUserDefinition($username, $hostname)
 /**
  * Get HTML for display Add userfieldset
  *
- * @param string $conditional_class if ajaxable 'Ajax' otherwise ''
- *
  * @return string html output
  */
-function PMA_getAddUserHtmlFieldset($conditional_class)
+function PMA_getAddUserHtmlFieldset()
 {
     return '<fieldset id="fieldset_add_user">' . "\n"
         . '<a href="server_privileges.php?' . $GLOBALS['url_query']
         . '&amp;adduser=1" '
-        . 'class="' . $conditional_class . '">' . "\n"
+        . 'class="ajax">' . "\n"
         . PMA_Util::getIcon('b_usradd.png')
         . '            ' . __('Add user') . '</a>' . "\n"
         . '</fieldset>' . "\n";
@@ -3080,13 +3070,12 @@ function PMA_getHtmlHeaderForDisplayUserProperties(
  * @param string $link_edit         standard link to edit privileges
  * @param string $pmaThemeImage     a image source link
  * @param string $text_dir          text directory
- * @param string $conditional_class if ajaxable 'Ajax' otherwise ''
  * @param string $link_export       standard link to export privileges
  *
  * @return string $html_output
  */
 function PMA_getHtmlForDisplayUserOverviewPage($link_edit, $pmaThemeImage,
-    $text_dir, $conditional_class, $link_export
+    $text_dir, $link_export
 ) {
     $html_output = '<h2>' . "\n"
        . PMA_Util::getIcon('b_usrlist.png')
@@ -3143,7 +3132,7 @@ function PMA_getHtmlForDisplayUserOverviewPage($link_edit, $pmaThemeImage,
          */
         if ($GLOBALS['dbi']->numRows($res) > 20 ) {
             $html_output .= PMA_getHtmlForDisplayTheInitials(
-                $array_initials, $conditional_class
+                $array_initials, 
             );
         }
 
@@ -3157,10 +3146,10 @@ function PMA_getHtmlForDisplayUserOverviewPage($link_edit, $pmaThemeImage,
         ) {
             $html_output .= PMA_getUsersOverview(
                 $res, $db_rights, $link_edit, $pmaThemeImage,
-                $text_dir, $conditional_class, $link_export
+                $text_dir, $link_export
             );
         } else {
-            $html_output .= PMA_getAddUserHtmlFieldset($conditional_class);
+            $html_output .= PMA_getAddUserHtmlFieldset();
         } // end if (display overview)
 
         if (! $GLOBALS['is_ajax_request'] || ! empty($_REQUEST['ajax_page_request'])) {

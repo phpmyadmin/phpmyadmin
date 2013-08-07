@@ -59,8 +59,6 @@ foreach (array_keys($_POST) as $post_key) {
 
 require 'libraries/server_common.inc.php';
 
-$conditional_class = 'ajax';
-
 /**
  * Messages are built using the message name
  */
@@ -382,8 +380,7 @@ if (isset($_REQUEST['validate_username'])) {
 /**
  * some standard links
  */
-list($link_edit, $link_revoke, $link_export)
-    = PMA_getStandardLinks($conditional_class);
+list($link_edit, $link_revoke, $link_export) = PMA_getStandardLinks();
 
 /**
  * If we are in an Ajax request for Create User/Edit User/Revoke User/
@@ -485,8 +482,7 @@ if (empty($_REQUEST['adduser'])
         // No username is given --> display the overview
         $response->addHTML(
             PMA_getHtmlForDisplayUserOverviewPage(
-                $link_edit, $pmaThemeImage, $text_dir,
-                $conditional_class, $link_export
+                $link_edit, $pmaThemeImage, $text_dir, $link_export
             )
         );
     } else {
@@ -519,7 +515,7 @@ if (empty($_REQUEST['adduser'])
 } else {
     // check the privileges for a particular database.
     $response->addHTML(
-        PMA_getHtmlForSpecificDbPrivileges($link_edit, $conditional_class)
+        PMA_getHtmlForSpecificDbPrivileges($link_edit)
     );
 } // end if (empty($_REQUEST['adduser']) && empty($checkprivs))... elseif... else...
 
