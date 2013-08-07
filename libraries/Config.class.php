@@ -1314,12 +1314,12 @@ class PMA_Config
                 $path = dirname($url['path'] . 'a');
             }
 
-            // To work correctly within transformations overview:
-            if (defined('PMA_PATH_TO_BASEDIR') && PMA_PATH_TO_BASEDIR == '../../') {
+            // To work correctly within javascript
+            if (defined('PMA_PATH_TO_BASEDIR') && PMA_PATH_TO_BASEDIR == '../') {
                 if ($this->get('PMA_IS_WINDOWS') == 1) {
-                    $path = str_replace("\\", "/", dirname(dirname($path)));
+                    $path = str_replace("\\", "/", dirname($path));
                 } else {
-                    $path = dirname(dirname($path));
+                    $path = dirname($path);
                 }
             }
 
