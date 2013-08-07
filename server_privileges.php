@@ -380,7 +380,7 @@ if (isset($_REQUEST['validate_username'])) {
 /**
  * some standard links
  */
-list($link_edit, $link_revoke, $link_export) = PMA_getStandardLinks();
+list($link_revoke, $link_export) = PMA_getStandardLinks();
 
 /**
  * If we are in an Ajax request for Create User/Edit User/Revoke User/
@@ -401,7 +401,6 @@ if ($GLOBALS['is_ajax_request']
         (isset($password) ? $password : ''),
         $link_export,
         (isset($sql_query) ? $sql_query : ''),
-        $link_edit,
         (isset($hostname) ? $hostname : ''),
         (isset($username) ? $username : '')
     );
@@ -482,7 +481,7 @@ if (empty($_REQUEST['adduser'])
         // No username is given --> display the overview
         $response->addHTML(
             PMA_getHtmlForDisplayUserOverviewPage(
-                $link_edit, $pmaThemeImage, $text_dir, $link_export
+                $pmaThemeImage, $text_dir, $link_export
             )
         );
     } else {
@@ -501,7 +500,7 @@ if (empty($_REQUEST['adduser'])
         $response->addHTML(
             PMA_getHtmlForDisplayUserProperties(
                 ((isset ($dbname_is_wildcard)) ? $dbname_is_wildcard : ''),
-                $url_dbname, $username, $hostname, $link_edit, $link_revoke,
+                $url_dbname, $username, $hostname, $link_revoke,
                 (isset($dbname) ? $dbname : ''),
                 (isset($tablename) ? $tablename : '')
             )
@@ -515,7 +514,7 @@ if (empty($_REQUEST['adduser'])
 } else {
     // check the privileges for a particular database.
     $response->addHTML(
-        PMA_getHtmlForSpecificDbPrivileges($link_edit)
+        PMA_getHtmlForSpecificDbPrivileges()
     );
 } // end if (empty($_REQUEST['adduser']) && empty($checkprivs))... elseif... else...
 

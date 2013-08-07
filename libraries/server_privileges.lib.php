@@ -1669,11 +1669,9 @@ function PMA_getListOfPrivilegesAndComparedPrivileges()
 /**
  * Get the HTML for user form and check the privileges for a particular database.
  *
- * @param string $link_edit         standard link for edit
- *
  * @return string $html_output
  */
-function PMA_getHtmlForSpecificDbPrivileges($link_edit)
+function PMA_getHtmlForSpecificDbPrivileges()
 {
     // check the privileges for a particular database.
     $html_output = '<form id="usersForm" action="server_privileges.php">'
@@ -1725,7 +1723,7 @@ function PMA_getHtmlForSpecificDbPrivileges($link_edit)
         $found = true;
     }
     $html_output .= PMA_getHtmlTableBodyForSpecificDbPrivs(
-        $found, $row, $odd_row, $link_edit, $res
+        $found, $row, $odd_row, $res
     );
     $html_output .= '</table>'
         . '</fieldset>'
@@ -1764,13 +1762,12 @@ function PMA_getHtmlForSpecificDbPrivileges($link_edit)
  * @param array   $row       array of rows from mysql,
  *                           db table with list of privileges
  * @param boolean $odd_row   whether odd or not
- * @param string  $link_edit standard link for edit
  * @param string  $res       ran sql query
  *
  * @return string $html_output
  */
 function PMA_getHtmlTableBodyForSpecificDbPrivs($found, $row, $odd_row,
-    $link_edit, $res
+    $res
 ) {
     $html_output = '<tbody>' . "\n";
     if ($found) {
@@ -1840,14 +1837,9 @@ function PMA_getHtmlTableBodyForSpecificDbPrivs($found, $row, $odd_row,
                     . "\n"
                     . '</td>' . "\n"
                     . '<td>' . "\n";
-                $html_output .= sprintf(
-                    $link_edit,
-                    urlencode($current_user),
-                    urlencode($current_host),
-                    urlencode(
-                        ! (isset($current['Db']) || $current['Db'] == '*') ? '' : $current['Db']
-                    ),
-                    ''
+                $html_output .= PMA_getUserEditLink(
+                    $current_user, $current_host,
+                    ! (isset($current['Db']) || $current['Db'] == '*') ? '' : $current['Db']
                 );
                 $html_output .= '</td>' . "\n"
                    . '    </tr>' . "\n";
@@ -1875,23 +1867,33 @@ function PMA_getHtmlTableBodyForSpecificDbPrivs($found, $row, $odd_row,
 }
 
 /**
+ * Returns edit link for a user.
+ */
+function PMA_getUserEditLink($username, $hostname, $dbname = '', $tablename = '')
+{
+    return '<a class="edit_user_anchor ajax"'
+        . ' href="server_privileges.php'
+        . PMA_URL_getCommon(
+            array(
+                'username' => $username,
+                'hostname' => $hostname,
+                'dbname' => $dbname,
+                'tablename' => $tablename,
+            )
+        )
+        . '">'
+        . PMA_Util::getIcon('b_usredit.png', __('Edit Privileges'))
+        . '</a>';
+}
+
+/**
  * Define some standard links
- * $link_edit, $link_revoke, $link_export
+ * $link_revoke, $link_export
  *
  * @return array with some standard links
  */
 function PMA_getStandardLinks()
 {
-    $link_edit = '<a class="edit_user_anchor ajax"'
-        . ' href="server_privileges.php?'
-        . str_replace('%', '%%', $GLOBALS['url_query'])
-        . '&amp;username=%s'
-        . '&amp;hostname=%s'
-        . '&amp;dbname=%s'
-        . '&amp;tablename=%s">'
-        . PMA_Util::getIcon('b_usredit.png', __('Edit Privileges'))
-        . '</a>';
-
     $link_revoke = '<a href='
         .'"server_privileges.php?'
         . str_replace('%', '%%', $GLOBALS['url_query'])
@@ -1913,7 +1915,7 @@ function PMA_getStandardLinks()
         . PMA_Util::getIcon('b_tblexport.png', __('Export'))
         . '</a>';
 
-    return array($link_edit, $link_revoke, $link_export);
+    return array($link_revoke, $link_export);
 }
 
 /**
@@ -1922,14 +1924,13 @@ function PMA_getStandardLinks()
  * @param string $password    password
  * @param string $link_export export link
  * @param string $sql_query   sql query
- * @param string $link_edit   standard link for edit
  * @param string $hostname    hostname
  * @param string $username    username
  *
  * @return array $extra_data
  */
 function PMA_getExtraDataForAjaxBehavior($password, $link_export, $sql_query,
-    $link_edit, $hostname, $username
+    $hostname, $username
 ) {
     if (isset($GLOBALS['dbname'])) {
         //if (preg_match('/\\\\(?:_|%)/i', $dbname)) {
@@ -1989,13 +1990,7 @@ function PMA_getExtraDataForAjaxBehavior($password, $link_export, $sql_query,
         $new_user_string .='</td>';
 
         $new_user_string .= '<td>'
-            . sprintf(
-                $link_edit,
-                urlencode($username),
-                urlencode($hostname),
-                '',
-                ''
-            )
+            . PMA_getUserEditLink($username, $hostname)
             . '</td>' . "\n";
         $new_user_string .= '<td>'
             . sprintf(
@@ -2236,7 +2231,6 @@ function PMA_getUserSpecificRights($tables, $user_host_condition, $dbname)
  * Display user rights in table rows(Table specific or database specific privs)
  *
  * @param array  $db_rights   user's database rights array
- * @param string $link_edit   standard link to edit privileges
  * @param string $dbname      database name
  * @param string $link_revoke standard link to revoke
  * @param string $hostname    host name
@@ -2244,7 +2238,7 @@ function PMA_getUserSpecificRights($tables, $user_host_condition, $dbname)
  *
  * @return array $found_rows, $html_output
  */
-function PMA_getHtmlForDisplayUserRightsInRows($db_rights, $link_edit, $dbname,
+function PMA_getHtmlForDisplayUserRightsInRows($db_rights, $dbname,
     $link_revoke, $hostname, $username
 ) {
     $html_output = '';
@@ -2287,14 +2281,11 @@ function PMA_getHtmlForDisplayUserRightsInRows($db_rights, $link_edit, $dbname,
             }
             $html_output .= '</td>' . "\n"
                . '<td>';
-            $html_output .= sprintf(
-                $link_edit,
-                htmlspecialchars(urlencode($username)),
-                urlencode(htmlspecialchars($hostname)),
-                urlencode(
-                    (! strlen($dbname)) ? $row['Db'] : htmlspecialchars($dbname)
-                ),
-                urlencode((! strlen($dbname)) ? '' : $row['Table_name'])
+            $html_output .= PMA_getUserEditLink(
+                $username, 
+                $hostname,
+                (! strlen($dbname)) ? $row['Db'] : $dbname,
+                (! strlen($dbname)) ? '' : $row['Table_name']
             );
             $html_output .= '</td>' . "\n"
                . '    <td>';
@@ -2325,14 +2316,13 @@ function PMA_getHtmlForDisplayUserRightsInRows($db_rights, $link_edit, $dbname,
  *
  * @param string $username    username
  * @param string $hostname    host name
- * @param string $link_edit   standard link to edit privileges
  * @param string $link_revoke standard link to revoke
  * @param string $dbname      database name
  *
  * @return array $html_output, $found_rows
  */
 function PMA_getTableForDisplayAllTableSpecificRights($username, $hostname
-    , $link_edit, $link_revoke, $dbname
+    , $link_revoke, $dbname
 ) {
     // table header
     $html_output = PMA_URL_getHiddenInputs('', '')
@@ -2386,7 +2376,7 @@ function PMA_getTableForDisplayAllTableSpecificRights($username, $hostname
     $html_output .= '<tbody>' . "\n";
     // display rows
     list ($found_rows, $html_out) =  PMA_getHtmlForDisplayUserRightsInRows(
-        $db_rights, $link_edit, $dbname, $link_revoke, $hostname, $username
+        $db_rights, $dbname, $link_revoke, $hostname, $username
     );
 
     $html_output .= $html_out;
@@ -2492,14 +2482,13 @@ function PMA_displayTablesInEditPrivs($dbname, $found_rows)
  *
  * @param array  $result            ran sql query
  * @param array  $db_rights         user's database rights array
- * @param string $link_edit         standard link to edit privileges
  * @param string $pmaThemeImage     a image source link
  * @param string $text_dir          text directory
  * @param string $link_export       standard link to export privileges
  *
  * @return string HTML snippet
  */
-function PMA_getUsersOverview($result, $db_rights, $link_edit, $pmaThemeImage,
+function PMA_getUsersOverview($result, $db_rights, $pmaThemeImage,
     $text_dir, $link_export
 ) {
     while ($row = $GLOBALS['dbi']->fetchAssoc($result)) {
@@ -2533,7 +2522,7 @@ function PMA_getUsersOverview($result, $db_rights, $link_edit, $pmaThemeImage,
 
     $html_output .= '<tbody>' . "\n";
     $html_output .= PMA_getTableBodyForUserRightsTable(
-        $db_rights, $link_edit, $link_export
+        $db_rights, $link_export
     );
     $html_output .= '</tbody>'
         . '</table>' . "\n";
@@ -2568,12 +2557,11 @@ function PMA_getUsersOverview($result, $db_rights, $link_edit, $pmaThemeImage,
  * Get table body for 'tableuserrights' table in userform
  *
  * @param array  $db_rights   user's database rights array
- * @param string $link_edit   standard link to edit privileges
  * @param string $link_export Link for export all users
  *
  * @return string HTML snippet
  */
-function PMA_getTableBodyForUserRightsTable($db_rights, $link_edit, $link_export)
+function PMA_getTableBodyForUserRightsTable($db_rights, $link_export)
 {
     if ($GLOBALS['cfgRelation']['menuswork']) {
         $usersTable = PMA_Util::backquote($GLOBALS['cfg']['Server']['pmadb'])
@@ -2659,12 +2647,9 @@ function PMA_getTableBodyForUserRightsTable($db_rights, $link_edit, $link_export
                 . '</td>' . "\n";
 
             $html_output .= '<td class="center">'
-                . sprintf(
-                    $link_edit,
-                    urlencode($host['User']),
-                    urlencode($host['Host']),
-                    '',
-                    ''
+                . PMA_getUserEditLink(
+                    $host['User'],
+                    $host['Host']
                 )
                 . '</td>';
             if ($GLOBALS['cfgRelation']['menuswork'] && $userGroupCount > 0) {
@@ -3067,14 +3052,13 @@ function PMA_getHtmlHeaderForDisplayUserProperties(
 /**
  * Get HTML snippet for display user overview page
  *
- * @param string $link_edit         standard link to edit privileges
  * @param string $pmaThemeImage     a image source link
  * @param string $text_dir          text directory
  * @param string $link_export       standard link to export privileges
  *
  * @return string $html_output
  */
-function PMA_getHtmlForDisplayUserOverviewPage($link_edit, $pmaThemeImage,
+function PMA_getHtmlForDisplayUserOverviewPage($pmaThemeImage,
     $text_dir, $link_export
 ) {
     $html_output = '<h2>' . "\n"
@@ -3131,9 +3115,7 @@ function PMA_getHtmlForDisplayUserOverviewPage($link_edit, $pmaThemeImage,
          * Also not necassary if there is less than 20 privileges
          */
         if ($GLOBALS['dbi']->numRows($res) > 20 ) {
-            $html_output .= PMA_getHtmlForDisplayTheInitials(
-                $array_initials, 
-            );
+            $html_output .= PMA_getHtmlForDisplayTheInitials($array_initials);
         }
 
         /**
@@ -3145,7 +3127,7 @@ function PMA_getHtmlForDisplayUserOverviewPage($link_edit, $pmaThemeImage,
             || $GLOBALS['dbi']->numRows($res) < 50
         ) {
             $html_output .= PMA_getUsersOverview(
-                $res, $db_rights, $link_edit, $pmaThemeImage,
+                $res, $db_rights, $pmaThemeImage,
                 $text_dir, $link_export
             );
         } else {
@@ -3501,7 +3483,6 @@ function PMA_editUserGroup($userGroup, $new = false)
  * @param type    $url_dbname         url database name that urlencode() string
  * @param string  $username           username
  * @param string  $hostname           host name
- * @param string  $link_edit          standard link to edit privileges
  * @param string  $link_revoke        standard link to revoke
  * @param string  $dbname             database name
  * @param string  $tablename          table name
@@ -3509,7 +3490,7 @@ function PMA_editUserGroup($userGroup, $new = false)
  * @return string $html_output
  */
 function PMA_getHtmlForDisplayUserProperties($dbname_is_wildcard,$url_dbname,
-    $username, $hostname, $link_edit, $link_revoke, $dbname, $tablename
+    $username, $hostname, $link_revoke, $dbname, $tablename
 ) {
     $html_output = PMA_getHtmlHeaderForDisplayUserProperties(
         $dbname_is_wildcard, $url_dbname, $dbname, $username, $hostname, $tablename
@@ -3563,7 +3544,7 @@ function PMA_getHtmlForDisplayUserProperties($dbname_is_wildcard,$url_dbname,
         $unescaped_db = PMA_Util::unescapeMysqlWildcards($dbname);
         list($html_rightsTable, $found_rows)
             = PMA_getTableForDisplayAllTableSpecificRights(
-                $username, $hostname, $link_edit, $link_revoke, $unescaped_db
+                $username, $hostname, $link_revoke, $unescaped_db
             );
         $html_output .= $html_rightsTable;
 
