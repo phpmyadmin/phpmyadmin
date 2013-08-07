@@ -792,11 +792,15 @@ class PMA_Config
         $cfg = array();
 
         /**
-         * Parses the configuration file, the eval is used here to avoid
-         * problems with trailing whitespace, what is often a problem.
+         * Parses the configuration file, we throw away any errors or
+         * output.
          */
         $old_error_reporting = error_reporting(0);
-        $eval_result = eval('?' . '>' . trim(file_get_contents($this->getSource())));
+        ob_start();
+        $GLOBALS['pma_config_loading'] = true;
+        $eval_result = include $this->getSource();
+        $GLOBALS['pma_config_loading'] = false;
+        ob_end_clean();
         error_reporting($old_error_reporting);
 
         if ($eval_result === false) {
@@ -1826,4 +1830,34 @@ class PMA_Config
         return true;
     }
 }
+
+
+/**
+ * Error handler to catch fatal errors when loading configuration
+ * file
+ *
+ * @return void
+ */
+function PMA_Config_fatalErrorHandler()
+{
+    if ($GLOBALS['pma_config_loading']) {
+        $error = error_get_last();
+        if ($error !== null) {
+            PMA_fatalError(
+                sprintf(
+                    'Failed to load phpMyAdmin configuration (%s:%s): %s',
+                    PMA_Error::relPath($error['file']),
+                    $error['line'],
+                    $error['message']
+                )
+            );
+        }
+    }
+}
+
+if (!defined('TESTSUITE')) {
+    $GLOBALS['pma_config_loading'] = false;
+    register_shutdown_function('PMA_Config_fatalErrorHandler');
+}
+
 ?>
