@@ -1499,7 +1499,7 @@ function PMA_doc_add($elm, params)
     }
     var content = $elm.text();
     $elm.text('');
-    $elm.append('<a class="cm-sql-doc" href="' + url + '">' + content + '</a>');
+    $elm.append('<a target="mysql_doc" class="cm-sql-doc" href="' + url + '">' + content + '</a>');
 }
 
 function PMA_doc_keyword(idx, elm)
