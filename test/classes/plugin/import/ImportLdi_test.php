@@ -175,7 +175,8 @@ class ImportLdi_Test extends PHPUnit_Framework_TestCase
 
         //asset that all sql are executed
         $this->assertContains(
-            "LOAD DATA INFILE 'test/test_data/db_test_ldi.csv' INTO TABLE `phpmyadmintest`",
+            "LOAD DATA INFILE 'test/test_data/db_test_ldi.csv' INTO TABLE "
+            . "`phpmyadmintest`",
             $sql_query
         );
 
@@ -221,8 +222,8 @@ class ImportLdi_Test extends PHPUnit_Framework_TestCase
      */
     public function testDoImportLDISetting()
     {
-        global $ldi_local_option, $ldi_replace, $ldi_ignore, $ldi_terminated, $ldi_enclosed,
-        $ldi_escaped, $ldi_new_line, $skip_queries, $ldi_columns;
+        global $ldi_local_option, $ldi_replace, $ldi_ignore, $ldi_terminated,
+        $ldi_enclosed, $ldi_escaped, $ldi_new_line, $skip_queries, $ldi_columns;
 
         //$sql_query_disabled will show the import SQL detail
         global $sql_query, $sql_query_disabled;
@@ -243,7 +244,8 @@ class ImportLdi_Test extends PHPUnit_Framework_TestCase
         //asset that all sql are executed
         //replace
         $this->assertContains(
-            "LOAD DATA LOCAL INFILE 'test/test_data/db_test_ldi.csv' REPLACE INTO TABLE `phpmyadmintest`",
+            "LOAD DATA LOCAL INFILE 'test/test_data/db_test_ldi.csv' REPLACE INTO "
+            . "TABLE `phpmyadmintest`",
             $sql_query
         );
 

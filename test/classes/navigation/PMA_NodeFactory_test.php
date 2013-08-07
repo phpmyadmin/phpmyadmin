@@ -18,6 +18,11 @@ require_once 'libraries/php-gettext/gettext.inc';
  */
 class NodeFactory_Test extends PHPUnit_Framework_TestCase
 {
+    /**
+     * SetUp for test cases
+     * 
+     * @return void
+     */
     public function setup()
     {
         $GLOBALS['server'] = 0;
@@ -25,6 +30,11 @@ class NodeFactory_Test extends PHPUnit_Framework_TestCase
         $_SESSION['PMA_Theme'] = PMA_Theme::load('./themes/pmahomme');
     }
 
+    /**
+     * Test for PMA_NodeFactory::getInstance
+     * 
+     * @return void
+     */
     public function testDefaultNode()
     {
         $node = PMA_NodeFactory::getInstance();
@@ -33,6 +43,11 @@ class NodeFactory_Test extends PHPUnit_Framework_TestCase
         $this->assertEquals(false, $node->is_group);
     }
 
+    /**
+     * Test for PMA_NodeFactory::getInstance
+     * 
+     * @return void
+     */
     public function testDefaultContainer()
     {
         $node = PMA_NodeFactory::getInstance('Node', 'default', Node::CONTAINER);
@@ -41,6 +56,11 @@ class NodeFactory_Test extends PHPUnit_Framework_TestCase
         $this->assertEquals(false, $node->is_group);
     }
 
+    /**
+     * Test for PMA_NodeFactory::getInstance
+     * 
+     * @return void
+     */
     public function testGroupContainer()
     {
         $node = PMA_NodeFactory::getInstance(
@@ -51,12 +71,22 @@ class NodeFactory_Test extends PHPUnit_Framework_TestCase
         $this->assertEquals(true, $node->is_group);
     }
 
+    /**
+     * Test for PMA_NodeFactory::getInstance
+     * 
+     * @return void
+     */
     public function testFileError()
     {
         $this->setExpectedException('PHPUnit_Framework_Error');
         PMA_NodeFactory::getInstance('Node_DoesNotExist');
     }
 
+    /**
+     * Test for PMA_NodeFactory::getInstance
+     * 
+     * @return void
+     */
     public function testClassNameError()
     {
         $this->setExpectedException('PHPUnit_Framework_Error');

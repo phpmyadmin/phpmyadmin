@@ -17,6 +17,11 @@ require_once 'libraries/Theme.class.php';
  */
 class Node_Column_Test extends PHPUnit_Framework_TestCase
 {
+    /**
+     * SetUp for test cases
+     * 
+     * @return void
+     */
     public function setup()
     {
         $GLOBALS['server'] = 0;
@@ -24,6 +29,11 @@ class Node_Column_Test extends PHPUnit_Framework_TestCase
         $_SESSION['PMA_Theme'] = PMA_Theme::load('./themes/pmahomme');
     }
 
+    /**
+     * Test for PMA_NodeFactory::getInstance
+     * 
+     * @return void
+     */
     public function testConstructor()
     {
         $parent = PMA_NodeFactory::getInstance('Node_Column');
@@ -51,10 +61,16 @@ class Node_Column_Test extends PHPUnit_Framework_TestCase
         $query .= "AND `TABLE_NAME`='tableName' ";
         $query .= "AND `COLUMN_NAME`='colName' ";
 
-        $dbNode = PMA_NodeFactory::getInstance('Node_Database', 'dbName', Node::OBJECT);
-        $tableNode = PMA_NodeFactory::getInstance('Node_Table', 'tableName', Node::OBJECT);
+        $dbNode = PMA_NodeFactory::getInstance(
+            'Node_Database', 'dbName', Node::OBJECT
+        );
+        $tableNode = PMA_NodeFactory::getInstance(
+            'Node_Table', 'tableName', Node::OBJECT
+        );
         $dbNode->addChild($tableNode);
-        $colNode = PMA_NodeFactory::getInstance('Node_Column', 'colName', Node::OBJECT);
+        $colNode = PMA_NodeFactory::getInstance(
+            'Node_Column', 'colName', Node::OBJECT
+        );
         $tableNode->addChild($colNode);
 
         $dbi = $this->getMockBuilder('PMA_DatabaseInterface')

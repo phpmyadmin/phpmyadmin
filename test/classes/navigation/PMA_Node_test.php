@@ -72,7 +72,9 @@ class Node_Test extends PHPUnit_Framework_TestCase
     public function testNodeHasChildren()
     {
         $parent = PMA_NodeFactory::getInstance();
-        $empty_container = PMA_NodeFactory::getInstance('Node', 'empty', Node::CONTAINER);
+        $empty_container = PMA_NodeFactory::getInstance(
+            'Node', 'empty', Node::CONTAINER
+        );
         $child = PMA_NodeFactory::getInstance();
         // test with no children
         $this->assertEquals(
@@ -119,7 +121,9 @@ class Node_Test extends PHPUnit_Framework_TestCase
         $child->addChild(PMA_NodeFactory::getInstance());
         $this->assertEquals($parent->numChildren(), 1);
         // add a container, this one doesn't count wither
-        $container = PMA_NodeFactory::getInstance('Node', 'default', Node::CONTAINER);
+        $container = PMA_NodeFactory::getInstance(
+            'Node', 'default', Node::CONTAINER
+        );
         $parent->addChild($container);
         $this->assertEquals($parent->numChildren(), 1);
         // add a grandchild to container, this one counts
@@ -140,7 +144,10 @@ class Node_Test extends PHPUnit_Framework_TestCase
         $parent->addChild($child);
 
         $this->assertEquals($child->parents(), array($parent)); // exclude self
-        $this->assertEquals($child->parents(true), array($child, $parent)); // include self
+        $this->assertEquals(
+            $child->parents(true),
+            array($child, $parent)
+        ); // include self
     }
 
     public function testRealParent()
