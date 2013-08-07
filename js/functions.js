@@ -1501,8 +1501,10 @@ function PMA_highlightSQL(base)
         if ($pre.is(":visible")) {
             var $highlight = $('<div class="sql-highlight cm-s-default"></div>');
             $sql.append($highlight);
-            CodeMirror.runMode($sql.text(), 'text/x-mysql', $highlight[0]);
-            $pre.hide();
+            if (typeof CodeMirror != 'undefined') {
+                CodeMirror.runMode($sql.text(), 'text/x-mysql', $highlight[0]);
+                $pre.hide();
+            }
         }
     });
 }
