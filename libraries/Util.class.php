@@ -1711,8 +1711,8 @@ class PMA_Util
             $tab['link'] = $tab['link'] . PMA_URL_getCommon($url_params);
             if (! empty($tab['args'])) {
                 foreach ($tab['args'] as $param => $value) {
-                    $tab['link'] .= PMA_URL_getArgSeparator('html') . urlencode($param)
-                        . '=' . urlencode($value);
+                    $tab['link'] .= PMA_URL_getArgSeparator('html')
+                        . urlencode($param) . '=' . urlencode($value);
                 }
             }
         }
