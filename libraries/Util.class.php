@@ -430,21 +430,17 @@ class PMA_Util
     } // end of the 'showDocLink()' function
 
     /**
-     * Displays a link to the official MySQL documentation
+     * Get a URL link to the official MySQL documentation
      *
      * @param string $chapter   chapter of "HTML, one page per chapter" documentation
      * @param string $link      contains name of page/anchor that is being linked
-     * @param bool   $big_icon  whether to use big icon (like in left frame)
      * @param string $anchor    anchor to page part
-     * @param bool   $just_open whether only the opening <a> tag should be returned
      *
-     * @return string  the html link
+     * @return string  the URL link
      *
      * @access  public
      */
-    public static function showMySQLDocu(
-        $chapter, $link, $big_icon = false, $anchor = '', $just_open = false
-    ) {
+    public static function getMySQLDocuURL($chapter, $link, $anchor = '') {
         global $cfg;
 
         if (($cfg['MySQLManualType'] == 'none') || empty($cfg['MySQLManualBase'])) {
@@ -505,15 +501,34 @@ class PMA_Util
             }
             break;
         }
+        return PMA_linkURL($url);
+    }
 
-        $open_link = '<a href="' . PMA_linkURL($url) . '" target="mysql_doc">';
+    /**
+     * Displays a link to the official MySQL documentation
+     *
+     * @param string $chapter   chapter of "HTML, one page per chapter" documentation
+     * @param string $link      contains name of page/anchor that is being linked
+     * @param bool   $big_icon  whether to use big icon (like in left frame)
+     * @param string $anchor    anchor to page part
+     * @param bool   $just_open whether only the opening <a> tag should be returned
+     *
+     * @return string  the html link
+     *
+     * @access  public
+     */
+    public static function showMySQLDocu(
+        $chapter, $link, $big_icon = false, $anchor = '', $just_open = false
+    ) {
+        $url = self::getMySQLDocuURL($chapter, $link, $anchor);
+        $open_link = '<a href="' . $url . '" target="mysql_doc">';
         if ($just_open) {
             return $open_link;
         } elseif ($big_icon) {
             return $open_link
                 . self::getImage('b_sqlhelp.png', __('Documentation')) . '</a>';
         } else {
-            return self::showDocLink(PMA_linkURL($url), 'mysql_doc');
+            return self::showDocLink($url, 'mysql_doc');
         }
     } // end of the 'showMySQLDocu()' function
 
