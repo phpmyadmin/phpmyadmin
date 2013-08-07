@@ -14,6 +14,8 @@ require_once 'libraries/server_privileges.lib.php';
 
 $_add_user_error = false;
 
+$username = '';
+$hostname = '';
 if (isset ($_REQUEST['username'])) {
     $username = $_REQUEST['username'];
 }
@@ -103,6 +105,7 @@ $strPrivDescUsage = __('No privileges.');
 /**
  * Checks if a dropdown box has been used for selecting a database / table
  */
+$tablename = '';
 if (PMA_isValid($_REQUEST['pred_tablename'])) {
     $tablename = $_REQUEST['pred_tablename'];
 } elseif (PMA_isValid($_REQUEST['tablename'])) {
@@ -111,6 +114,7 @@ if (PMA_isValid($_REQUEST['pred_tablename'])) {
     unset($tablename);
 }
 
+$dbname = '';
 if (PMA_isValid($_REQUEST['pred_dbname'])) {
     $dbname = $_REQUEST['pred_dbname'];
     unset($pred_dbname);
@@ -121,6 +125,8 @@ if (PMA_isValid($_REQUEST['pred_dbname'])) {
     unset($tablename);
 }
 
+$unescaped_db = '';
+$db_and_table = '';
 if (isset($dbname)) {
     $unescaped_db = PMA_Util::unescapeMysqlWildcards($dbname);
     $db_and_table = PMA_Util::backquote($unescaped_db) . '.';
@@ -134,6 +140,7 @@ if (isset($dbname)) {
 }
 
 // check if given $dbname is a wildcard or not
+$dbname_is_wildcard = false;
 if (isset($dbname)) {
     //if (preg_match('/\\\\(?:_|%)/i', $dbname)) {
     if (preg_match('/(?<!\\\\)(?:_|%)/i', $dbname)) {
@@ -155,6 +162,7 @@ if (! $is_superuser) {
 /**
  * Changes / copies a user, part I
  */
+$queries = array();
 if (isset($_REQUEST['change_copy'])) {
     $user_host_condition = ' WHERE `User` = '
         . "'". PMA_Util::sqlAddSlashes($_REQUEST['old_username']) . "'"
@@ -182,6 +190,7 @@ if (isset($_REQUEST['change_copy'])) {
  * Adds a user
  *   (Changes / copies a user, part II)
  */
+$message = '';
 if (isset($_REQUEST['adduser_submit']) || isset($_REQUEST['change_copy'])) {
     $sql_query = '';
     if ($_POST['pred_username'] == 'any') {
