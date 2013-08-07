@@ -90,7 +90,8 @@ for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
                 ); 
     } elseif (isset($fields_meta[$columnNumber])) {
         $columnMeta = PMA_getColumnMetaForDefault(
-            $fields_meta[$columnNumber], isset($analyzed_sql[0]['create_table_fields']
+            $fields_meta[$columnNumber],
+            isset($analyzed_sql[0]['create_table_fields']
             [$fields_meta[$columnNumber]['Field']]['default_value'])
         );
     }
@@ -112,7 +113,8 @@ for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
     // old column name
     if ($is_backup) {
         if (isset($columnMeta['Field'])) {
-            $_form_params['field_orig[' . $columnNumber . ']'] = $columnMeta['Field'];
+            $_form_params['field_orig[' . $columnNumber . ']']
+                = $columnMeta['Field'];
         } else {
             $_form_params['field_orig[' . $columnNumber . ']'] = '';
         }
@@ -223,7 +225,8 @@ for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
 
     // column comments
     $content_cells[$columnNumber][$ci] = PMA_getHtmlForColumnComment(
-        $columnNumber, $ci, $ci_offset, isset($columnMeta) ? $columnMeta : null, $comments_map
+        $columnNumber, $ci, $ci_offset, isset($columnMeta) ? $columnMeta : null,
+        $comments_map
     );
     $ci++;
 

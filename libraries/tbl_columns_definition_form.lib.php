@@ -12,11 +12,11 @@ if (!defined('PHPMYADMIN')) {
 /**
  * Function to get form parameters
  *
- * @param string $db            database
- * @param string $table         table
- * @param string $action        action
- * @param int    $num_fields    number of fields
- * @param bool   $selected      selected
+ * @param string $db         database
+ * @param string $table      table
+ * @param string $action     action
+ * @param int    $num_fields number of fields
+ * @param bool   $selected   selected
  *
  * @return array $form_params form parameters
  */
@@ -261,11 +261,11 @@ function PMA_getHtmlForTableCreateOrAddField($action, $form_params, $content_cel
 /**
  * Function to get header cells
  *
- * @param bool   $is_backup   whether backup or not
- * @param array  $columnMeta  column meta data
- * @param bool   $mimework    whether mimework or not
- * @param string $db          current database
- * @param string $table       current table
+ * @param bool   $is_backup  whether backup or not
+ * @param array  $columnMeta column meta data
+ * @param bool   $mimework   whether mimework or not
+ * @param string $db         current database
+ * @param string $table      current table
  *
  * @return array
  */
@@ -407,12 +407,14 @@ function PMA_getRowDataForRegeneration($columnNumber, $submit_fulltext)
     }
 
     // put None in the drop-down for Default, when someone adds a field
-    $columnMeta['DefaultType'] = isset($_REQUEST['field_default_type'][$columnNumber])
-        ? $_REQUEST['field_default_type'][$columnNumber]
-        : 'NONE';
-    $columnMeta['DefaultValue'] = isset($_REQUEST['field_default_value'][$columnNumber])
-        ? $_REQUEST['field_default_value'][$columnNumber]
-        : '';
+    $columnMeta['DefaultType']
+        = isset($_REQUEST['field_default_type'][$columnNumber])
+            ? $_REQUEST['field_default_type'][$columnNumber]
+            : 'NONE';
+    $columnMeta['DefaultValue']
+        = isset($_REQUEST['field_default_value'][$columnNumber])
+            ? $_REQUEST['field_default_value'][$columnNumber]
+            : '';
 
     switch ($columnMeta['DefaultType']) {
     case 'NONE' :
@@ -490,7 +492,8 @@ function PMA_handleRegeneration($columnNumber, $submit_fulltext, $comments_map,
         = PMA_getSubmitPropertiesForRegeneration();
 
     if (isset($_REQUEST['field_comments'][$columnNumber])) {
-        $comments_map[$columnMeta['Field']] = $_REQUEST['field_comments'][$columnNumber];
+        $comments_map[$columnMeta['Field']]
+            = $_REQUEST['field_comments'][$columnNumber];
     }
 
     if (isset($_REQUEST['field_mimetype'][$columnNumber])) {
@@ -509,8 +512,8 @@ function PMA_handleRegeneration($columnNumber, $submit_fulltext, $comments_map,
     }
 
     return array(
-        $columnMeta, $submit_length, $submit_attribute, $submit_default_current_timestamp,
-        $comments_map, $mime_map
+        $columnMeta, $submit_length, $submit_attribute,
+        $submit_default_current_timestamp, $comments_map, $mime_map
     );
 }
 
@@ -570,7 +573,8 @@ function PMA_getHtmlForColumnName($columnNumber, $ci, $ci_offset, $columnMeta)
         . ' maxlength="64" class="textfield" title="' . __('Column') . '"'
         . ' size="10"'
         . ' value="' 
-        . (isset($columnMeta['Field']) ? htmlspecialchars($columnMeta['Field']) : '')
+        . (isset($columnMeta['Field'])
+            ? htmlspecialchars($columnMeta['Field']) : '')
         . '"' . ' />';
     
     return $html;
@@ -608,13 +612,16 @@ function PMA_getHtmlForColumnType($columnNumber, $ci, $ci_offset, $type_upper)
  * 
  * @return string
  */
-function PMA_getHtmlForTransformationOption($columnNumber, $ci, $ci_offset, $columnMeta,
-    $mime_map
+function PMA_getHtmlForTransformationOption($columnNumber, $ci, $ci_offset,
+    $columnMeta, $mime_map
 ) {
     $val = isset($columnMeta['Field'])
             && isset($mime_map[$columnMeta['Field']]['transformation_options'])
-            ? htmlspecialchars($mime_map[$columnMeta['Field']]['transformation_options'])
-            : '';
+                ? htmlspecialchars(
+                    $mime_map[$columnMeta['Field']]
+                    ['transformation_options']
+                )
+                : '';
     
     $html = '<input id="field_' . $columnNumber . '_'
                 . ($ci - $ci_offset) . '"' . ' type="text" '
@@ -802,11 +809,14 @@ function PMA_getHtmlForColumnComment($columnNumber, $ci, $ci_offset, $columnMeta
  * 
  * @return string
  */
-function PMA_getHtmlForColumnAutoIncrement($columnNumber, $ci, $ci_offset, $columnMeta)
-{
+function PMA_getHtmlForColumnAutoIncrement($columnNumber, $ci, $ci_offset,
+    $columnMeta
+) {
     $html = '<input name="field_extra[' . $columnNumber . ']"'
         . ' id="field_' . $columnNumber . '_' . ($ci - $ci_offset) . '"';
-    if (isset($columnMeta['Extra']) && strtolower($columnMeta['Extra']) == 'auto_increment') {
+    if (isset($columnMeta['Extra'])
+        && strtolower($columnMeta['Extra']) == 'auto_increment'
+    ) {
         $html .= ' checked="checked"';
     }
 
@@ -887,8 +897,8 @@ function PMA_getHtmlForUniqueIndexOption($columnNumber, $columnMeta)
 /**
  * Function to get html for the index option
  * 
- * @param int   $columnNumber  column number
- * @param array $columnMeta    column meta
+ * @param int   $columnNumber column number
+ * @param array $columnMeta   column meta
  * 
  * @return string
  */
@@ -977,7 +987,9 @@ function PMA_getHtmlForColumnAttribute($columnNumber, $ci, $ci_offset,
         $attribute = $extracted_columnspec['attribute'];
     }
 
-    if (isset($columnMeta['Extra']) && $columnMeta['Extra'] == 'on update CURRENT_TIMESTAMP') {
+    if (isset($columnMeta['Extra'])
+        && $columnMeta['Extra'] == 'on update CURRENT_TIMESTAMP'
+    ) {
         $attribute = 'on update CURRENT_TIMESTAMP';
     }
 
@@ -1000,13 +1012,14 @@ function PMA_getHtmlForColumnAttribute($columnNumber, $ci, $ci_offset,
 
     // MySQL 4.1.2+ TIMESTAMP options
     // (if on_update_current_timestamp is set, then it's TRUE)
+    $field = $create_table_fields[$columnMeta['Field']];
     if (isset($columnMeta['Field'])
-        && isset($create_table_fields[$columnMeta['Field']]['on_update_current_timestamp'])
+        && isset($field['on_update_current_timestamp'])
     ) {
         $attribute = 'on update CURRENT_TIMESTAMP';
     }
     if ((isset($columnMeta['Field'])
-        && isset($create_table_fields[$columnMeta['Field']]['default_current_timestamp']))
+        && isset($field['default_current_timestamp']))
         || (isset($submit_default_current_timestamp)
         && $submit_default_current_timestamp)
     ) {
@@ -1074,7 +1087,8 @@ function PMA_getHtmlForColumnLength($columnNumber, $ci, $ci_offset,
         )
         . '"'
         . ' class="textfield" />'
-        . '<p class="enum_notice" id="enum_notice_' . $columnNumber . '_' . ($ci - $ci_offset)
+        . '<p class="enum_notice" id="enum_notice_' . $columnNumber . '_'
+        . ($ci - $ci_offset)
         . '">';
     $html .= __('ENUM or SET data too long?')
         . '<a href="#" class="open_enum_editor"> '
@@ -1109,7 +1123,8 @@ function PMA_getHtmlForColumnDefault($columnNumber, $ci, $ci_offset, $type_upper
         'CURRENT_TIMESTAMP' => 'CURRENT_TIMESTAMP',
     );
 
-    // for a TIMESTAMP, do not show the string "CURRENT_TIMESTAMP" as a default value
+    // for a TIMESTAMP, do not show the string "CURRENT_TIMESTAMP" as a default
+    // value
     if ($type_upper == 'TIMESTAMP'
         && ! empty($default_current_timestamp)
         && isset($columnMeta['Default'])
@@ -1128,7 +1143,9 @@ function PMA_getHtmlForColumnDefault($columnNumber, $ci, $ci_offset, $type_upper
     foreach ($default_options as $key => $value) {
         $html .= '<option value="' . $key . '"';
         // is only set when we go back to edit a field's structure
-        if (isset($columnMeta['DefaultType']) && $columnMeta['DefaultType'] == $key) {
+        if (isset($columnMeta['DefaultType'])
+            && $columnMeta['DefaultType'] == $key
+        ) {
             $html .= ' selected="selected"';
         }
         $html .= ' >' . $value . '</option>';
