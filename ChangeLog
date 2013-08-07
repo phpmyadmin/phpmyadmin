@@ -31,6 +31,7 @@ phpMyAdmin - ChangeLog
 + rfe #1385 Hide tables, functions, procedures, events and views in navigation tree
 + rfe #1321 Export view as if it was a table
 + Dropped configuration directive: SQP
++ Dropped configuration directive: MySQLManual*
 
 4.0.6.0 (not yet released)
 - bug #4036 Call to undefined function mb_detect_encoding (clarify the doc)

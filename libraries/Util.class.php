@@ -443,64 +443,32 @@ class PMA_Util
     public static function getMySQLDocuURL($chapter, $link, $anchor = '') {
         global $cfg;
 
-        if (($cfg['MySQLManualType'] == 'none') || empty($cfg['MySQLManualBase'])) {
-            return '';
-        }
-
         // Fixup for newly used names:
         $chapter = str_replace('_', '-', strtolower($chapter));
         $link = str_replace('_', '-', strtolower($link));
 
-        switch ($cfg['MySQLManualType']) {
-        case 'chapters':
-            if (empty($chapter)) {
-                $chapter = 'index';
-            }
-            if (empty($anchor)) {
-                $anchor = $link;
-            }
-            $url = $cfg['MySQLManualBase'] . '/' . $chapter . '.html#' . $anchor;
-            break;
-        case 'big':
-            if (empty($anchor)) {
-                $anchor = $link;
-            }
-            $url = $cfg['MySQLManualBase'] . '#' . $anchor;
-            break;
-        case 'searchable':
-            if (empty($link)) {
-                $link = 'index';
-            }
-            $url = $cfg['MySQLManualBase'] . '/' . $link . '.html';
-            if (! empty($anchor)) {
-                $url .= '#' . $anchor;
-            }
-            break;
-        case 'viewable':
-        default:
-            if (empty($link)) {
-                $link = 'index';
-            }
-            $mysql = '5.5';
-            $lang = 'en';
-            if (defined('PMA_MYSQL_INT_VERSION')) {
-                if (PMA_MYSQL_INT_VERSION >= 50600) {
-                    $mysql = '5.6';
-                } else if (PMA_MYSQL_INT_VERSION >= 50500) {
-                    $mysql = '5.5';
-                } else if (PMA_MYSQL_INT_VERSION >= 50100) {
-                    $mysql = '5.1';
-                } else {
-                    $mysql = '5.0';
-                }
-            }
-            $url = $cfg['MySQLManualBase']
-                . '/' . $mysql . '/' . $lang . '/' . $link . '.html';
-            if (! empty($anchor)) {
-                $url .= '#' . $anchor;
-            }
-            break;
+        if (empty($link)) {
+            $link = 'index';
         }
+        $mysql = '5.5';
+        $lang = 'en';
+        if (defined('PMA_MYSQL_INT_VERSION')) {
+            if (PMA_MYSQL_INT_VERSION >= 50600) {
+                $mysql = '5.6';
+            } else if (PMA_MYSQL_INT_VERSION >= 50500) {
+                $mysql = '5.5';
+            } else if (PMA_MYSQL_INT_VERSION >= 50100) {
+                $mysql = '5.1';
+            } else {
+                $mysql = '5.0';
+            }
+        }
+        $url = 'http://dev.mysql.com/doc/refman/'
+            . $mysql . '/' . $lang . '/' . $link . '.html';
+        if (! empty($anchor)) {
+            $url .= '#' . $anchor;
+        }
+
         return PMA_linkURL($url);
     }
 

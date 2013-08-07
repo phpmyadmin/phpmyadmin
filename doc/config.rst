@@ -1836,35 +1836,6 @@ Tabs display settings
     * ``tbl_change.php``
     * ``sql.php``
 
-Documentation
--------------
-
-.. config:option:: $cfg['MySQLManualBase']
-
-    :type: string
-    :default: ``'http://dev.mysql.com/doc/refman'``
-
-    If set to an :term:`URL` which points to
-    the MySQL documentation (type depends on
-    :config:option:`$cfg['MySQLManualType']`), appropriate help links are
-    generated.
-
-    See `MySQL Documentation page <http://dev.mysql.com/doc/>`_ for more
-    information about MySQL manuals and their types.
-
-.. config:option:: $cfg['MySQLManualType']
-
-    :type: string
-    :default: ``'viewable'``
-
-    Type of MySQL documentation:
-
-    * viewable - "viewable online", current one used on MySQL website
-    * searchable - "Searchable, with user comments"
-    * chapters - "HTML, one page per chapter"
-    * big - "HTML, all on one page"
-    * none - do not show documentation links
-
 Languages
 ---------
 

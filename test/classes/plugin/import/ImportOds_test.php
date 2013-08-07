@@ -58,7 +58,6 @@ class ImportOds_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $GLOBALS['cfg']['ServerDefault'] = 0;
         $GLOBALS['cfg']['AllowUserDropDatabase'] = false;
-        $GLOBALS['cfg']['MySQLManualType'] = 'none';
 
         $GLOBALS['import_file'] = 'test/test_data/db_test.ods';
 

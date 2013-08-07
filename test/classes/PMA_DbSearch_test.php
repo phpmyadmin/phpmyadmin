@@ -42,8 +42,6 @@ class PMA_DbSearch_Test extends PHPUnit_Framework_TestCase
         $this->object = new PMA_DbSearch('pma_test');
         $GLOBALS['server'] = 0;
         $GLOBALS['cfg']['ServerDefault'] = 1;
-        $GLOBALS['cfg']['MySQLManualType'] = 'viewable';
-        $GLOBALS['cfg']['MySQLManualBase'] = 'http://dev.mysql.com/doc/refman';
         $GLOBALS['cfg']['ShowHint'] = true;
         $GLOBALS['db'] = 'pma';
     }

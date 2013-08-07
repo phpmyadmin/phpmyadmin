@@ -2244,32 +2244,6 @@ $cfg['Import']['xls_empty_rows'] = true;
  */
 $cfg['Import']['xlsx_col_names'] = false;
 
-/**
- * Link to the official MySQL documentation.
- * Be sure to include no trailing slash on the path.
- * See http://dev.mysql.com/doc/ for more information
- * about MySQL manuals and their types.
- *
- * @global string $cfg['MySQLManualBase']
- */
-$cfg['MySQLManualBase'] = 'http://dev.mysql.com/doc/refman';
-
-/**
- * Type of MySQL documentation:
- *   viewable     - "viewable online", current one used on MySQL website
- *   searchable   - "Searchable, with user comments"
- *   chapters     - "HTML, one page per chapter"
- *   chapters_old - "HTML, one page per chapter",
- *                  format used prior to MySQL 5.0 release
- *   big          - "HTML, all on one page"
- *   old          - old style used in phpMyAdmin 2.3.0 and sooner
- *   none         - do not show documentation links
- *
- * @global string $cfg['MySQLManualType']
- */
-$cfg['MySQLManualType'] = 'viewable';
-
-
 /*******************************************************************************
  * PDF options
  */
