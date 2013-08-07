@@ -366,11 +366,12 @@ function PMA_getMoveColumns($db, $table)
 /**
  * Function to get row data for regenerating previous when error occured.
  *
+ * @param int   $i               coulmn number
  * @param array $submit_fulltext submit full text
  *
  * @return array
  */
-function PMA_getRowDataForRegeneration($submit_fulltext)
+function PMA_getRowDataForRegeneration($i, $submit_fulltext)
 {
     $row['Field'] = isset($_REQUEST['field_name'][$i])
         ? $_REQUEST['field_name'][$i]
@@ -442,9 +443,11 @@ function PMA_getRowDataForRegeneration($submit_fulltext)
 /**
  * Function to get submit properties for regenerating previous when error occured.
  *
+ * @param int $i coulmn number
+ *
  * @return array
  */
-function PMA_getSubmitPropertiesForRegeneration()
+function PMA_getSubmitPropertiesForRegeneration($i)
 {
     $submit_length
         = (isset($_REQUEST['field_length'][$i])
@@ -469,13 +472,14 @@ function PMA_getSubmitPropertiesForRegeneration()
  * An error happened with previous inputs, so we will restore the data
  * to embed it once again in this form.
  *
+ * @param int   $i               coulmn number
  * @param array $submit_fulltext submit full text
  * @param array $comments_map    comments map
  * @param array $mime_map        mime map
  *
  * @return array
  */
-function PMA_handleRegeneration($submit_fulltext, $comments_map, $mime_map)
+function PMA_handleRegeneration($i, $submit_fulltext, $comments_map, $mime_map)
 {
     $row = PMA_getRowDataForRegeneration(
         isset($submit_fulltext) ? $submit_fulltext : null
