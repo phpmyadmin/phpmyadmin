@@ -283,7 +283,7 @@ class PMA_TableSearch
 EOT;
             $html_output .= '' . PMA_generate_common_url($this->_db, $this->_table)
                 . '&amp;field=' . urlencode($column_name) . '&amp;fieldkey='
-                . $column_index . '"';
+                . $column_index . '&amp;fromsearch=1"';
             if ($in_zoom_search_edit) {
                 $html_output .= ' class="browse_foreign"';
             }
