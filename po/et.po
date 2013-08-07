@@ -6,10 +6,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-08-06 16:10+0200\n"
-"PO-Revision-Date: 2013-08-01 20:32+0200\n"
+"PO-Revision-Date: 2013-08-07 06:37+0200\n"
 "Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
-"Language-Team: Estonian <http://l10n.cihar.com/projects/phpmyadmin/master/et/"
-">\n"
+"Language-Team: Estonian "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/et/>\n"
 "Language: et\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -904,7 +904,7 @@ msgstr "\"DROP DATABASE\" käsud on keelatud."
 
 #: js/messages.php:30
 msgid "Confirm"
-msgstr ""
+msgstr "Kinnita"
 
 #: js/messages.php:31
 #, php-format
@@ -936,10 +936,10 @@ msgid "This operation could take a long time. Proceed anyway?"
 msgstr "See tegevus võib võtta kaua aega. Jätkan sellegipoolest?"
 
 #: js/messages.php:39
-#, fuzzy, php-format
+#, php-format
 #| msgid "Do you really want to execute \"%s\"?"
 msgid "Do you really want to delete user group \"%s\"?"
-msgstr "Kas tõesti tahad käivitada \"%s\"?"
+msgstr "Kas tõesti tahad kustudata kasutajate grupi \"%s\"?"
 
 #: js/messages.php:42
 msgid "Missing value in the form!"
@@ -10210,19 +10210,16 @@ msgid "User groups"
 msgstr "Kasutajate grupid"
 
 #: libraries/server_privileges.lib.php:3251
-#, fuzzy
 #| msgid "Server-level tabs"
 msgid "Server level tabs"
 msgstr "Serveri tasemete sakid"
 
 #: libraries/server_privileges.lib.php:3252
-#, fuzzy
 #| msgid "Database-level tabs"
 msgid "Database level tabs"
 msgstr "Andmebaasi tasemete sakid"
 
 #: libraries/server_privileges.lib.php:3253
-#, fuzzy
 #| msgid "Table-level tabs"
 msgid "Table level tabs"
 msgstr "Tabeli tasemete sakid"
