@@ -1153,13 +1153,12 @@ class PMA_Config
                 $this->checkWebServerOs();
                 if ($this->get('PMA_IS_WINDOWS') == 0) {
                     $this->source_mtime = 0;
-                    /* Gettext is possibly still not loaded */
-                    if (function_exists('__')) {
-                        $msg = __('Wrong permissions on configuration file, should not be world writable!');
-                    } else {
-                        $msg = 'Wrong permissions on configuration file, should not be world writable!';
-                    }
-                    PMA_fatalError($msg);
+                    PMA_fatalError(
+                        __(
+                            'Wrong permissions on configuration file, '
+                            . 'should not be world writable!'
+                        )
+                    );
                 }
             }
         }
