@@ -239,6 +239,10 @@ function PMA_displayInput($path, $name, $type, $value, $description = '',
         echo '<input type="text" size="60" ' . $name_id . $field_class
             . ' value="' . htmlspecialchars($value) . '" />';
         break;
+    case 'password':
+        echo '<input type="password" size="60" ' . $name_id . $field_class
+            . ' value="' . htmlspecialchars($value) . '" />';
+        break;
     case 'short_text':
         echo '<input type="text" size="25" ' . $name_id . $field_class
             . ' value="' . htmlspecialchars($value) . '" />';
