@@ -1488,6 +1488,9 @@ function catchKeypressesFromSqlTextboxes(event) {
     }
 }
 
+/**
+ * Adds doc link to single highlighted SQL element
+ */
 function PMA_doc_add($elm, params)
 {
     var url = $.sprintf(
@@ -1502,6 +1505,9 @@ function PMA_doc_add($elm, params)
     $elm.append('<a target="mysql_doc" class="cm-sql-doc" href="' + url + '">' + content + '</a>');
 }
 
+/**
+ * Generates doc links for keywords inside highlighted SQL
+ */
 function PMA_doc_keyword(idx, elm)
 {
     var $elm = $(elm);
@@ -1537,6 +1543,9 @@ function PMA_doc_keyword(idx, elm)
     }
 }
 
+/**
+ * Generates doc links for builtins inside highlighted SQL
+ */
 function PMA_doc_builtin(idx, elm)
 {
     var $elm = $(elm);
