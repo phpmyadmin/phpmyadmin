@@ -1907,39 +1907,37 @@ function PMA_getUserRevokeLink($username, $hostname, $dbname = '', $tablename = 
 }
 
 /**
- * Define some standard links
- * $link_export
- *
- * @return array with some standard links
+ * Returns revoke link for a user.
  */
-function PMA_getStandardLinks()
+function PMA_getUserExportLink($username, $hostname, $initial = '')
 {
-    $link_export = '<a class="export_user_anchor ajax"'
-        . ' href="server_privileges.php?'
-        . str_replace('%', '%%', $GLOBALS['url_query'])
-        . '&amp;username=%s'
-        . '&amp;hostname=%s'
-        . '&amp;initial=%s'
-        . '&amp;export=1">'
+    return '<a class="export_user_anchor ajax"'
+        . ' href="server_privileges.php'
+        . PMA_URL_getCommon(
+            array(
+                'username' => $username,
+                'hostname' => $hostname,
+                'initial' => $initial,
+                'export' => 1,
+            )
+        )
+        . '">'
         . PMA_Util::getIcon('b_tblexport.png', __('Export'))
         . '</a>';
-
-    return array($link_export);
 }
 
 /**
  * This function return the extra data array for the ajax behavior
  *
  * @param string $password    password
- * @param string $link_export export link
  * @param string $sql_query   sql query
  * @param string $hostname    hostname
  * @param string $username    username
  *
  * @return array $extra_data
  */
-function PMA_getExtraDataForAjaxBehavior($password, $link_export, $sql_query,
-    $hostname, $username
+function PMA_getExtraDataForAjaxBehavior(
+    $password, $sql_query, $hostname, $username
 ) {
     if (isset($GLOBALS['dbname'])) {
         //if (preg_match('/\\\\(?:_|%)/i', $dbname)) {
@@ -2002,11 +2000,10 @@ function PMA_getExtraDataForAjaxBehavior($password, $link_export, $sql_query,
             . PMA_getUserEditLink($username, $hostname)
             . '</td>' . "\n";
         $new_user_string .= '<td>'
-            . sprintf(
-                $link_export,
-                urlencode($username),
-                urlencode($hostname),
-                (isset($_GET['initial']) ? $_GET['initial'] : '')
+            . PMA_getUserExportLink(
+                $username, 
+                $hostname,
+                isset($_GET['initial']) ? $_GET['initial'] : ''
             )
             . '</td>' . "\n";
 
@@ -2488,13 +2485,10 @@ function PMA_displayTablesInEditPrivs($dbname, $found_rows)
  * @param array  $db_rights         user's database rights array
  * @param string $pmaThemeImage     a image source link
  * @param string $text_dir          text directory
- * @param string $link_export       standard link to export privileges
  *
  * @return string HTML snippet
  */
-function PMA_getUsersOverview($result, $db_rights, $pmaThemeImage,
-    $text_dir, $link_export
-) {
+function PMA_getUsersOverview($result, $db_rights, $pmaThemeImage, $text_dir) {
     while ($row = $GLOBALS['dbi']->fetchAssoc($result)) {
         $row['privs'] = PMA_extractPrivInfo($row, true);
         $db_rights[$row['User']][$row['Host']] = $row;
@@ -2525,9 +2519,7 @@ function PMA_getUsersOverview($result, $db_rights, $pmaThemeImage,
         . '</thead>' . "\n";
 
     $html_output .= '<tbody>' . "\n";
-    $html_output .= PMA_getTableBodyForUserRightsTable(
-        $db_rights, $link_export
-    );
+    $html_output .= PMA_getTableBodyForUserRightsTable($db_rights);
     $html_output .= '</tbody>'
         . '</table>' . "\n";
 
@@ -2561,11 +2553,10 @@ function PMA_getUsersOverview($result, $db_rights, $pmaThemeImage,
  * Get table body for 'tableuserrights' table in userform
  *
  * @param array  $db_rights   user's database rights array
- * @param string $link_export Link for export all users
  *
  * @return string HTML snippet
  */
-function PMA_getTableBodyForUserRightsTable($db_rights, $link_export)
+function PMA_getTableBodyForUserRightsTable($db_rights)
 {
     if ($GLOBALS['cfgRelation']['menuswork']) {
         $usersTable = PMA_Util::backquote($GLOBALS['cfg']['Server']['pmadb'])
@@ -2669,11 +2660,10 @@ function PMA_getTableBodyForUserRightsTable($db_rights, $link_export)
                 }
             }
             $html_output .= '<td class="center">'
-                . sprintf(
-                    $link_export,
-                    urlencode($host['User']),
-                    urlencode($host['Host']),
-                    (isset($_GET['initial']) ? $_GET['initial'] : '')
+                . PMA_getUserExportLink(
+                    $host['User'],
+                    $host['Host'],
+                    isset($_GET['initial']) ? $_GET['initial'] : ''
                 )
                 . '</td>';
             $html_output .= '</tr>';
@@ -3058,13 +3048,10 @@ function PMA_getHtmlHeaderForDisplayUserProperties(
  *
  * @param string $pmaThemeImage     a image source link
  * @param string $text_dir          text directory
- * @param string $link_export       standard link to export privileges
  *
  * @return string $html_output
  */
-function PMA_getHtmlForDisplayUserOverviewPage($pmaThemeImage,
-    $text_dir, $link_export
-) {
+function PMA_getHtmlForDisplayUserOverviewPage($pmaThemeImage, $text_dir) {
     $html_output = '<h2>' . "\n"
        . PMA_Util::getIcon('b_usrlist.png')
        . __('Users overview') . "\n"
@@ -3131,8 +3118,7 @@ function PMA_getHtmlForDisplayUserOverviewPage($pmaThemeImage,
             || $GLOBALS['dbi']->numRows($res) < 50
         ) {
             $html_output .= PMA_getUsersOverview(
-                $res, $db_rights, $pmaThemeImage,
-                $text_dir, $link_export
+                $res, $db_rights, $pmaThemeImage, $text_dir
             );
         } else {
             $html_output .= PMA_getAddUserHtmlFieldset();

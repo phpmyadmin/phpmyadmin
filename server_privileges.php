@@ -378,11 +378,6 @@ if (isset($_REQUEST['validate_username'])) {
 }
 
 /**
- * some standard links
- */
-list($link_export) = PMA_getStandardLinks();
-
-/**
  * If we are in an Ajax request for Create User/Edit User/Revoke User/
  * Flush Privileges, show $message and exit.
  */
@@ -399,7 +394,6 @@ if ($GLOBALS['is_ajax_request']
 ) {
     $extra_data = PMA_getExtraDataForAjaxBehavior(
         (isset($password) ? $password : ''),
-        $link_export,
         (isset($sql_query) ? $sql_query : ''),
         (isset($hostname) ? $hostname : ''),
         (isset($username) ? $username : '')
@@ -480,9 +474,7 @@ if (empty($_REQUEST['adduser'])
     if (! isset($username)) {
         // No username is given --> display the overview
         $response->addHTML(
-            PMA_getHtmlForDisplayUserOverviewPage(
-                $pmaThemeImage, $text_dir, $link_export
-            )
+            PMA_getHtmlForDisplayUserOverviewPage($pmaThemeImage, $text_dir)
         );
     } else {
         // A user was selected -> display the user's properties
