@@ -545,7 +545,9 @@ if (! empty($id_bookmark) && $action_bookmark == 2) {
     } else {
         if ($import_notice) {
             $message = PMA_Message::success(
-                '<em>' . __('Import has been successfully finished, %d queries executed.') . '</em>'
+                '<em>'
+                . __('Import has been successfully finished, %d queries executed.')
+                . '</em>'
             );
             $message->addParam($executed_queries);
 
@@ -605,7 +607,7 @@ if (isset($my_die)) {
 
 if ($go_sql) {
     // parse sql query
-    require_once 'libraries/parse_analyze.inc.php';
+    include_once 'libraries/parse_analyze.inc.php';
 
     PMA_executeQueryAndSendQueryResponse(
         $analyzed_sql_results, false, $db, $table, null, null, null, false, null,
@@ -616,7 +618,10 @@ if ($go_sql) {
     $response = PMA_Response::getInstance();
     $response->isSuccess(true);
     $response->addJSON('message', PMA_Message::success($msg));
-    $response->addJSON('sql_query', PMA_Util::getMessage($msg, $sql_query, 'success'));
+    $response->addJSON(
+        'sql_query',
+        PMA_Util::getMessage($msg, $sql_query, 'success')
+    );
 } else if ($result == false) {
     $response = PMA_Response::getInstance();
     $response->isSuccess(false);

@@ -26,7 +26,10 @@ session_write_close();
 require_once './libraries/js_escape.lib.php';
 require_once './libraries/Util.class.php';
 
-$js_messages['strNoDropDatabases'] = $cfg['AllowUserDropDatabase'] ? '' : __('"DROP DATABASE" statements are disabled.');
+$js_messages['strNoDropDatabases'] = __('"DROP DATABASE" statements are disabled.');
+if ($cfg['AllowUserDropDatabase']) {
+    $js_messages['strNoDropDatabases'] = '';
+}
 
 /* For confirmations */
 $js_messages['strConfirm'] = __('Confirm');
@@ -298,7 +301,9 @@ $js_messages['strDisplayHelp'] = '<ul><li>'
     . __('The plot can be resized by dragging it along the bottom right corner.')
     . '</li></ul>';
 $js_messages['strInputNull'] = '<strong>' . __('Select two columns') . '</strong>';
-$js_messages['strSameInputs'] = '<strong>' . __('Select two different columns') . '</strong>';
+$js_messages['strSameInputs'] = '<strong>'
+    . __('Select two different columns')
+    . '</strong>';
 $js_messages['strQueryResults'] = __('Query results');
 $js_messages['strDataPointContent'] = __('Data point content');
 
@@ -517,7 +522,10 @@ PMA_printJsValue("$.datepicker.regional['']['weekHeader']", __('Wk'));
 PMA_printJsValue("$.datepicker.regional['']['showMonthAfterYear']", (__('calendar-month-year') == 'calendar-year-month'));
 /* l10n: Year suffix for calendar, "none" is empty. */
 $year_suffix = _pgettext('Year suffix', 'none');
-PMA_printJsValue("$.datepicker.regional['']['yearSuffix']", ($year_suffix == 'none' ? '' : $year_suffix));
+PMA_printJsValue(
+    "$.datepicker.regional['']['yearSuffix']",
+    ($year_suffix == 'none' ? '' : $year_suffix)
+);
 ?>
 $.extend($.datepicker._defaults, $.datepicker.regional['']);
 } /* if ($.datepicker) */
