@@ -216,15 +216,11 @@ class PMA_User_Preferences_Test extends PHPUnit_Framework_TestCase
 
         // case 3
 
-        $query1 = '
-        SELECT `username`
-        FROM `pmadb`.`testconf`
-          WHERE `username` = \'user\'';
+        $query1 = 'SELECT `username` FROM `pmadb`.`testconf` '
+            . 'WHERE `username` = \'user\'';
 
-        $query2 = '
-            INSERT INTO `pmadb`.`testconf` (`username`, `config_data`)
-            VALUES (\'user\',
-                \'' . json_encode(array(1)) . '\')';
+        $query2 = 'INSERT INTO `pmadb`.`testconf` (`username`, `config_data`) '
+            . 'VALUES (\'user\', \'' . json_encode(array(1)) . '\')';
 
         $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
             ->disableOriginalConstructor()
