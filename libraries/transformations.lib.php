@@ -290,8 +290,8 @@ function PMA_setMIME($db, $table, $key, $mimetype, $transformation,
             || strlen($transformation_options) || strlen($row['comment']))
         ) {
             $upd_query = 'UPDATE ' . PMA_Util::backquote($cfgRelation['db']) . '.'
-                . PMA_Util::backquote($cfgRelation['column_info']) .
-                . 'SET '
+                . PMA_Util::backquote($cfgRelation['column_info'])
+                . ' SET '
                 . '`mimetype` = \''
                 . PMA_Util::sqlAddSlashes($mimetype) . '\', '
                 . '`transformation` = \''
