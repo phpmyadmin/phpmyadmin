@@ -208,16 +208,16 @@ class PMA_ServerStatusData
         $links = array();
 
         $links['table'][__('Flush (close) all tables')]
-            = $this->selfUrl . '?flush=TABLES&amp;' . PMA_generate_common_url();
+            = $this->selfUrl . '?flush=TABLES&amp;' . PMA_URL_getCommon();
         $links['table'][__('Show open tables')]
             = 'sql.php?sql_query=' . urlencode('SHOW OPEN TABLES') .
-                '&amp;goto=' . $this->selfUrl . '&amp;' . PMA_generate_common_url();
+                '&amp;goto=' . $this->selfUrl . '&amp;' . PMA_URL_getCommon();
 
         if ($GLOBALS['server_master_status']) {
             $links['repl'][__('Show slave hosts')]
                 = 'sql.php?sql_query=' . urlencode('SHOW SLAVE HOSTS')
                     . '&amp;goto=' . $this->selfUrl . '&amp;'
-                    . PMA_generate_common_url();
+                    . PMA_URL_getCommon();
             $links['repl'][__('Show master status')] = '#replication_master';
         }
         if ($GLOBALS['server_slave_status']) {
@@ -228,7 +228,7 @@ class PMA_ServerStatusData
 
         $links['qcache'][__('Flush query cache')]
             = $this->selfUrl . '?flush=' . urlencode('QUERY CACHE') . '&amp;' .
-                PMA_generate_common_url();
+                PMA_URL_getCommon();
         $links['qcache']['doc'] = 'query_cache';
 
         $links['threads']['doc'] = 'mysql_threads';
@@ -240,10 +240,10 @@ class PMA_ServerStatusData
         $links['Slow_queries']['doc'] = 'slow_query_log';
 
         $links['innodb'][__('Variables')]
-            = 'server_engines.php?engine=InnoDB&amp;' . PMA_generate_common_url();
+            = 'server_engines.php?engine=InnoDB&amp;' . PMA_URL_getCommon();
         $links['innodb'][__('InnoDB Status')]
             = 'server_engines.php?engine=InnoDB&amp;page=Status&amp;' .
-                PMA_generate_common_url();
+                PMA_URL_getCommon();
         $links['innodb']['doc'] = 'innodb';
 
 
@@ -336,7 +336,7 @@ class PMA_ServerStatusData
      */
     public function getMenuHtml()
     {
-        $url_params = PMA_generate_common_url();
+        $url_params = PMA_URL_getCommon();
         $items = array(
             array(
                 'name' => __('Server'),

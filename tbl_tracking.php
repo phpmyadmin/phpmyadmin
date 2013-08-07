@@ -496,7 +496,7 @@ if (isset($_REQUEST['report']) || isset($_REQUEST['report_export'])) {
     echo '<br/>';
 
     echo '<form method="post" action="tbl_tracking.php'
-        . PMA_generate_common_url(
+        . PMA_URL_getCommon(
             $url_params + array('report' => 'true', 'version' => $_REQUEST['version'])
         )
         . '">';
@@ -574,7 +574,7 @@ if (isset($_REQUEST['report']) || isset($_REQUEST['report_export'])) {
                 echo '<td><small>' . htmlspecialchars($entry['username']) . '</small></td>';
                 echo '<td>' . $statement . '</td>';
                 echo '<td class="nowrap"><a href="tbl_tracking.php?'
-                    . PMA_generate_common_url(
+                    . PMA_URL_getCommon(
                         $url_params + array(
                             'report' => 'true',
                             'version' => $_REQUEST['version'],
@@ -633,7 +633,7 @@ if (isset($_REQUEST['report']) || isset($_REQUEST['report_export'])) {
                 echo '<td><small>' . htmlspecialchars($entry['username']) . '</small></td>';
                 echo '<td>' . $statement . '</td>';
                 echo '<td class="nowrap"><a href="tbl_tracking.php?'
-                    . PMA_generate_common_url(
+                    . PMA_URL_getCommon(
                         $url_params + array(
                             'report' => 'true',
                             'version' => $_REQUEST['version'],
@@ -658,7 +658,7 @@ if (isset($_REQUEST['report']) || isset($_REQUEST['report_export'])) {
     }
     echo '</form>';
     echo '<form method="post" action="tbl_tracking.php'
-        . PMA_generate_common_url(
+        . PMA_URL_getCommon(
             $url_params + array('report' => 'true', 'version' => $_REQUEST['version'])
         )
         . '">';
@@ -678,7 +678,7 @@ if (isset($_REQUEST['report']) || isset($_REQUEST['report_export'])) {
                  . '<input type="submit" value="' . __('Go') .'" />';
     echo '</form>';
     echo '<form class="disableAjax" method="post" action="tbl_tracking.php'
-        . PMA_generate_common_url(
+        . PMA_URL_getCommon(
             $url_params + array('report' => 'true', 'version' => $_REQUEST['version'])
         )
         . '">';
@@ -787,12 +787,12 @@ if ($last_version > 0) {
         echo '<td>' . htmlspecialchars($version['date_updated']) . '</td>';
         echo '<td>' . $version_status . '</td>';
         echo '<td><a href="tbl_tracking.php';
-        echo PMA_generate_common_url(
+        echo PMA_URL_getCommon(
             $url_params + array('report' => 'true', 'version' => $version['version'])
         );
         echo '">' . __('Tracking report') . '</a>';
         echo '| <a href="tbl_tracking.php';
-        echo PMA_generate_common_url(
+        echo PMA_URL_getCommon(
             $url_params + array('snapshot' => 'true', 'version' => $version['version'])
         );
         echo '">' . __('Structure snapshot') . '</a>';
@@ -846,7 +846,7 @@ if ($last_version > 0) {
 
 echo '<div id="div_create_version">';
 echo '<form method="post" action="tbl_tracking.php?' . $url_query . '">';
-echo PMA_generate_common_hidden_inputs($GLOBALS['db'], $GLOBALS['table']);
+echo PMA_URL_getHiddenInputs($GLOBALS['db'], $GLOBALS['table']);
 echo '<fieldset>';
 echo '<legend>';
 printf(

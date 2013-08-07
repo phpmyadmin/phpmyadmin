@@ -149,7 +149,7 @@ function PMA_formatVariable($name, $value, $variable_doc_links)
  */
 function PMA_getHtmlForLinkTemplates()
 {
-    $url = htmlspecialchars('server_variables.php?' . PMA_generate_common_url());
+    $url = htmlspecialchars('server_variables.php?' . PMA_URL_getCommon());
     $output  = '<a style="display: none;" href="#" class="editLink">';
     $output .= PMA_Util::getIcon('b_edit.png', __('Edit')) . '</a>';
     $output .= '<a style="display: none;" href="'

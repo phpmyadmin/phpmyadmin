@@ -164,7 +164,7 @@ $header->getScripts()->addCode($code);
 // HTML output
 $output = '<form action="browse_foreigners.php" method="post">'
     . '<fieldset>'
-    . PMA_generate_common_hidden_inputs($db, $table)
+    . PMA_URL_getHiddenInputs($db, $table)
     . '<input type="hidden" name="field" value="' . htmlspecialchars($field) . '" />'
     . '<input type="hidden" name="fieldkey" value="'
     . (isset($fieldkey) ? htmlspecialchars($fieldkey) : '') . '" />';

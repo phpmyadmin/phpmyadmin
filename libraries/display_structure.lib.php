@@ -31,7 +31,7 @@ $html_form = '<form method="post" action="tbl_structure.php" name="fieldsForm" '
 . 'id="fieldsForm" class="ajax' . $HideStructureActions . '">';
 
 $response->addHTML($html_form);
-$response->addHTML(PMA_generate_common_hidden_inputs($db, $table));
+$response->addHTML(PMA_URL_getHiddenInputs($db, $table));
 
 $tabletype = '<input type="hidden" name="table_type" value=';
 if ($db_is_information_schema) {

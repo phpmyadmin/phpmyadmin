@@ -64,7 +64,7 @@ function PMA_getHtmlForAllServerEngines()
                 ? ' disabled' : '')
             . '">' . "\n"
             . '    <td><a rel="newpage" href="server_engines.php'
-            . PMA_generate_common_url(array('engine' => $engine)) . '">' . "\n"
+            . PMA_URL_getCommon(array('engine' => $engine)) . '">' . "\n"
             . '            ' . htmlspecialchars($details['Engine']) . "\n"
             . '        </a></td>' . "\n"
             . '    <td>' . htmlspecialchars($details['Comment']) . '</td>' . "\n"
@@ -109,7 +109,7 @@ function PMA_getHtmlForSpecifiedServerEngines()
             $html .= '    <strong>' . __('Variables') . '</strong>' . "\n";
         } else {
             $html .= '    <a href="server_engines.php'
-                . PMA_generate_common_url(array('engine' => $_REQUEST['engine']))
+                . PMA_URL_getCommon(array('engine' => $_REQUEST['engine']))
                 . '">' . __('Variables') . '</a>' . "\n";
         }
         foreach ($infoPages as $current => $label) {
@@ -118,7 +118,7 @@ function PMA_getHtmlForSpecifiedServerEngines()
                 $html .= '    <strong>' . $label . '</strong>' . "\n";
             } else {
                 $html .= '    <a href="server_engines.php'
-                    . PMA_generate_common_url(
+                    . PMA_URL_getCommon(
                         array('engine' => $_REQUEST['engine'], 'page' => $current)
                     )
                     . '">' . htmlspecialchars($label) . '</a>' . "\n";

@@ -30,7 +30,7 @@ abstract class Node_DatabaseChild extends Node
             $item = $this->real_name;
             $ret  = '<span class="navItemControls">'
                 . '<a href="navigation.php?'
-                . PMA_generate_common_url()
+                . PMA_URL_getCommon()
                 . '&hideNavItem=true'
                 . '&itemType=' . urldecode($this->getItemType())
                 . '&itemName=' . urldecode($item)

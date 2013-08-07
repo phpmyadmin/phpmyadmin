@@ -2027,7 +2027,7 @@ class PMA_DatabaseInterface
                  */
                 $error .= ' - ' . $error_message .
                     ' (<a href="server_engines.php' .
-                    PMA_generate_common_url(
+                    PMA_URL_getCommon(
                         array('engine' => 'InnoDB', 'page' => 'Status')
                     ) . '">' . __('Details…') . '</a>)';
             }

@@ -292,7 +292,7 @@ class AuthenticationCookie extends AuthenticationPlugin
         }
         // do not generate a "server" hidden field as we want the "server"
         // drop-down to have priority
-        echo PMA_generate_common_hidden_inputs($_form_params, '', 0, 'server');
+        echo PMA_URL_getHiddenInputs($_form_params, '', 0, 'server');
         echo '</fieldset>
     </form>';
 
@@ -640,7 +640,7 @@ class AuthenticationCookie extends AuthenticationPlugin
             PMA_Response::getInstance()->disable();
 
             PMA_sendHeaderLocation(
-                $redirect_url . PMA_generate_common_url($url_params, '&'),
+                $redirect_url . PMA_URL_getCommon($url_params, '&'),
                 true
             );
             if (! defined('TESTSUITE')) {

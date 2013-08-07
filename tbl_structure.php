@@ -90,7 +90,7 @@ if (isset($_REQUEST['submit_mult_change_x'])) {
 }
 if (! empty($submit_mult)) {
     if (isset($_REQUEST['selected_fld'])) {
-        $err_url = 'tbl_structure.php?' . PMA_generate_common_url($db, $table);
+        $err_url = 'tbl_structure.php?' . PMA_URL_getCommon($db, $table);
         if ($submit_mult == 'browse') {
             // browsing the table displaying only selected columns
             $GLOBALS['active_page'] = 'sql.php';

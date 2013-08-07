@@ -104,7 +104,7 @@ if (! empty($message)) {
 ?>
   <form name="form1" method="post" action="pmd_pdf.php">
 <?php
-echo PMA_generate_common_hidden_inputs($db);
+echo PMA_URL_getHiddenInputs($db);
 echo '<div>';
 echo '<fieldset><legend>' . __('Import/Export coordinates for PDF schema') . '</legend>';
 

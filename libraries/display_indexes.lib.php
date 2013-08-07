@@ -40,7 +40,7 @@ if (isset($_REQUEST['create_index'])) {
     $form_params['old_index'] = $_REQUEST['index'];
 }
 
-$html .= PMA_generate_common_hidden_inputs($form_params);
+$html .= PMA_URL_getHiddenInputs($form_params);
 
 $html .= '<fieldset id="index_edit_fields">';
 

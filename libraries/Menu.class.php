@@ -194,7 +194,7 @@ class PMA_Menu
         $retval .= sprintf(
             $item,
             $GLOBALS['cfg']['DefaultTabServer'],
-            PMA_generate_common_url(),
+            PMA_URL_getCommon(),
             htmlspecialchars($server_info),
             __('Server')
         );
@@ -211,7 +211,7 @@ class PMA_Menu
             $retval .= sprintf(
                 $item,
                 $GLOBALS['cfg']['DefaultTabDatabase'],
-                PMA_generate_common_url($this->_db),
+                PMA_URL_getCommon($this->_db),
                 htmlspecialchars($this->_db),
                 __('Database')
             );
@@ -234,7 +234,7 @@ class PMA_Menu
                 $retval .= sprintf(
                     $item,
                     $GLOBALS['cfg']['DefaultTabTable'],
-                    PMA_generate_common_url($this->_db, $this->_table),
+                    PMA_URL_getCommon($this->_db, $this->_table),
                     str_replace(' ', '&nbsp;', htmlspecialchars($this->_table)),
                     $tbl_is_view ? __('View') : __('Table')
                 );

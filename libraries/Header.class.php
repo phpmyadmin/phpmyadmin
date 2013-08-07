@@ -174,7 +174,7 @@ class PMA_Header
         if (isset($GLOBALS['db'])) {
             $params['db'] = $GLOBALS['db'];
         }
-        $this->_scripts->addFile('messages.php' . PMA_generate_common_url($params));
+        $this->_scripts->addFile('messages.php' . PMA_URL_getCommon($params));
         // Append the theme id to this url to invalidate
         // the cache on a theme change. Though this might be
         // unavailable for fatal errors.
@@ -205,7 +205,7 @@ class PMA_Header
         $db = ! empty($GLOBALS['db']) ? $GLOBALS['db'] : '';
         $table = ! empty($GLOBALS['table']) ? $GLOBALS['table'] : '';
         return array(
-            'common_query' => PMA_generate_common_url('', '', '&'),
+            'common_query' => PMA_URL_getCommon('', '', '&'),
             'opendb_url' => $GLOBALS['cfg']['DefaultTabDatabase'],
             'safari_browser' => PMA_USR_BROWSER_AGENT == 'SAFARI' ? 1 : 0,
             'querywindow_height' => $GLOBALS['cfg']['QueryWindowHeight'],
@@ -560,7 +560,7 @@ class PMA_Header
             . 'type="image/x-icon" />';
         // stylesheets
         $basedir    = defined('PMA_PATH_TO_BASEDIR') ? PMA_PATH_TO_BASEDIR : '';
-        $common_url = PMA_generate_common_url(array('server' => $GLOBALS['server']));
+        $common_url = PMA_URL_getCommon(array('server' => $GLOBALS['server']));
         $theme_id   = $GLOBALS['PMA_Config']->getThemeUniqueValue();
         $theme_path = $GLOBALS['pmaThemePath'];
 
@@ -670,7 +670,7 @@ class PMA_Header
             $tmp_result = PMA_RecentTable::getInstance()->add($db, $table);
             if ($tmp_result === true) {
                 $params  = array('ajax_request' => true, 'recent_table' => true);
-                $url     = 'index.php' . PMA_generate_common_url($params);
+                $url     = 'index.php' . PMA_URL_getCommon($params);
                 $retval  = '<a class="hide" id="update_recent_tables"';
                 $retval .= ' href="' . $url . '"></a>';
             } else {

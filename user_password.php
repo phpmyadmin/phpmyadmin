@@ -170,7 +170,7 @@ function PMA_changePassHashingFunction()
 function PMA_changePassUrlParamsAndSubmitQuery(
     $password, $_url_params, $sql_query, $hashing_function
 ) {
-    $err_url = 'user_password.php' . PMA_generate_common_url($_url_params);
+    $err_url = 'user_password.php' . PMA_URL_getCommon($_url_params);
     $local_query = 'SET password = ' . (($password == '')
         ? '\'\''
         : $hashing_function . '(\'' . PMA_Util::sqlAddSlashes($password) . '\')');
@@ -234,7 +234,7 @@ function PMA_changePassDisplayPage($message, $sql_query, $_url_params)
     echo PMA_Util::getMessage(
         $message, $sql_query, 'success'
     );
-    echo '<a href="index.php'.PMA_generate_common_url($_url_params)
+    echo '<a href="index.php'.PMA_URL_getCommon($_url_params)
         .' target="_parent">'. "\n"
         .'<strong>'.__('Back').'</strong></a>';
     exit;

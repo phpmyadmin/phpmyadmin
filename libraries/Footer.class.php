@@ -128,7 +128,7 @@ class PMA_Footer
     /**
      * Returns the url of the current page
      *
-     * @param mixed $encoding See PMA_generate_common_url()
+     * @param mixed $encoding See PMA_URL_getCommon()
      *
      * @return string
      */
@@ -137,7 +137,7 @@ class PMA_Footer
         $db = ! empty($GLOBALS['db']) ? $GLOBALS['db'] : '';
         $table = ! empty($GLOBALS['table']) ? $GLOBALS['table'] : '';
         $target = ! empty($_REQUEST['target']) ? $_REQUEST['target'] : '';
-        return basename(PMA_getenv('SCRIPT_NAME')) . PMA_generate_common_url(
+        return basename(PMA_getenv('SCRIPT_NAME')) . PMA_URL_getCommon(
             array(
                 'db' => $db,
                 'table' => $table,

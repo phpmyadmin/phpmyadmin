@@ -81,7 +81,7 @@ $url_params['back'] = 'view_operations.php';
 <!-- Table operations -->
 <div class="operations_half_width">
 <form method="post" action="view_operations.php">
-<?php echo PMA_generate_common_hidden_inputs($GLOBALS['db'], $GLOBALS['table']); ?>
+<?php echo PMA_URL_getHiddenInputs($GLOBALS['db'], $GLOBALS['table']); ?>
 <input type="hidden" name="reload" value="1" />
 <fieldset>
     <legend><?php echo __('Operations'); ?></legend>

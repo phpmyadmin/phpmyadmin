@@ -1189,8 +1189,8 @@ function PMA_buildSQL($db_name, &$tables, &$analyses = null,
     }
 
     $params = array('db' => (string)$db_name);
-    $db_url = 'db_structure.php' . PMA_generate_common_url($params);
-    $db_ops_url = 'db_operations.php' . PMA_generate_common_url($params);
+    $db_url = 'db_structure.php' . PMA_URL_getCommon($params);
+    $db_ops_url = 'db_operations.php' . PMA_URL_getCommon($params);
 
     $message = '<br /><br />';
     $message .= '<strong>' . __('The following structures have either been created or altered. Here you can:') . '</strong><br />';
@@ -1216,9 +1216,9 @@ function PMA_buildSQL($db_name, &$tables, &$analyses = null,
              'db' => (string) $db_name,
              'table' => (string) $tables[$i][TBL_NAME]
         );
-        $tbl_url = 'sql.php' . PMA_generate_common_url($params);
-        $tbl_struct_url = 'tbl_structure.php' . PMA_generate_common_url($params);
-        $tbl_ops_url = 'tbl_operations.php' . PMA_generate_common_url($params);
+        $tbl_url = 'sql.php' . PMA_URL_getCommon($params);
+        $tbl_struct_url = 'tbl_structure.php' . PMA_URL_getCommon($params);
+        $tbl_ops_url = 'tbl_operations.php' . PMA_URL_getCommon($params);
 
         unset($params);
 

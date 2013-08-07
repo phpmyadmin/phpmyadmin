@@ -57,7 +57,7 @@ if (! empty($goto)) {
 
 if (! isset($err_url)) {
     $err_url = (! empty($back) ? $back : $goto)
-        . '?' . PMA_generate_common_url($db)
+        . '?' . PMA_URL_getCommon($db)
         . ((strpos(' ' . $goto, 'db_') != 1 && strlen($table))
             ? '&amp;table=' . urlencode($table)
             : ''
@@ -165,7 +165,7 @@ if (isset($_POST['store_bkm'])) {
 if ($goto == 'sql.php') {
     $is_gotofile = false;
     $goto = 'sql.php?'
-          . PMA_generate_common_url($db, $table)
+          . PMA_URL_getCommon($db, $table)
           . '&amp;sql_query=' . urlencode($sql_query);
 } // end if
 

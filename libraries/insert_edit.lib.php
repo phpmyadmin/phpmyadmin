@@ -207,12 +207,12 @@ function PMA_showFunctionFieldsInEditMode($url_params, $showFuncFields)
     $this_url_params = array_merge($url_params, $params);
     if (! $showFuncFields) {
         return ' : <a href="tbl_change.php'
-            . PMA_generate_common_url($this_url_params) . '">'
+            . PMA_URL_getCommon($this_url_params) . '">'
             . __('Function')
             . '</a>' . "\n";
     }
     return '<th><a href="tbl_change.php'
-        . PMA_generate_common_url($this_url_params)
+        . PMA_URL_getCommon($this_url_params)
         . '" title="' . __('Hide') . '">'
         . __('Function')
         . '</a></th>' . "\n";
@@ -239,11 +239,11 @@ function PMA_showColumnTypesInDataEditView($url_params, $showColumnType)
     $this_other_url_params = array_merge($url_params, $params);
     if (! $showColumnType) {
         return ' : <a href="tbl_change.php'
-            . PMA_generate_common_url($this_other_url_params) . '">'
+            . PMA_URL_getCommon($this_other_url_params) . '">'
             . __('Type') . '</a>' . "\n";
     }
     return '<th><a href="tbl_change.php'
-        . PMA_generate_common_url($this_other_url_params)
+        . PMA_URL_getCommon($this_other_url_params)
         . '" title="' . __('Hide') . '">' . __('Type') . '</a></th>' . "\n";
 
 }
@@ -734,7 +734,7 @@ function PMA_getForeignLink($column, $backup_field, $column_name_appendix,
         . 'onclick="window.open(this.href,\'foreigners\', \'width=640,height=240,'
         . 'scrollbars=yes,resizable=yes\'); return false;" '
         . 'href="browse_foreigners.php?'
-        . PMA_generate_common_url($db, $table) . '&amp;field='
+        . PMA_URL_getCommon($db, $table) . '&amp;field='
         . PMA_escapeJsString(urlencode($column['Field']) . $rownumber_param) . '">'
         . str_replace("'", "\'", $titles['Browse']) . '</a>';
     return $html_output;
@@ -1371,7 +1371,7 @@ function PMA_getContinueInsertionForm($table, $db, $where_clause_array, $err_url
 {
     $html_output = '<form id="continueForm" method="post"'
         . ' action="tbl_replace.php" name="continueForm">'
-        . PMA_generate_common_hidden_inputs($db, $table)
+        . PMA_URL_getHiddenInputs($db, $table)
         . '<input type="hidden" name="goto"'
         . ' value="' . htmlspecialchars($GLOBALS['goto']) . '" />'
         . '<input type="hidden" name="err_url"'
@@ -1854,7 +1854,7 @@ function PMA_getErrorUrl($url_params)
     if (isset($_REQUEST['err_url'])) {
         return $_REQUEST['err_url'];
     } else {
-        return 'tbl_change.php' . PMA_generate_common_url($url_params);
+        return 'tbl_change.php' . PMA_URL_getCommon($url_params);
     }
 }
 
@@ -2042,7 +2042,7 @@ function PMA_getLinkForRelationalDisplayField($map, $relation_field,
             . $where_comparison
     );
     $output = '<a href="sql.php'
-        . PMA_generate_common_url($_url_params) . '"' . $title . '>';
+        . PMA_URL_getCommon($_url_params) . '"' . $title . '>';
 
     if ('D' == $_SESSION['tmp_user_values']['relational_display']) {
         // user chose "relational display field" in the
@@ -2094,7 +2094,7 @@ function PMA_transformEditedValues($db, $table,
                     : ''
                 );
                 $transform_options['wrapper_link']
-                    = PMA_generate_common_url($_url_params);
+                    = PMA_URL_getCommon($_url_params);
                 $class_name = str_replace('.class.php', '', $file);
                 $plugin_manager = null;
                 $transformation_plugin = new $class_name(

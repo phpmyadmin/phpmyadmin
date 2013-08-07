@@ -926,7 +926,7 @@ function PMA_RTN_getEditorForm($mode, $operation, $routine)
     $retval .= "<form class='rte_form' action='db_routines.php' method='post'>\n";
     $retval .= "<input name='{$mode}_item' type='hidden' value='1' />\n";
     $retval .= $original_routine;
-    $retval .= PMA_generate_common_hidden_inputs($db) . "\n";
+    $retval .= PMA_URL_getHiddenInputs($db) . "\n";
     $retval .= "<fieldset>\n";
     $retval .= "<legend>" . __('Details') . "</legend>\n";
     $retval .= "<table class='rte_table' style='width: 100%'>\n";
@@ -1563,7 +1563,7 @@ function PMA_RTN_getExecuteForm($routine)
     $retval .= "       value='{$routine['item_name']}' />\n";
     $retval .= "<input type='hidden' name='item_type'\n";
     $retval .= "       value='{$routine['item_type']}' />\n";
-    $retval .= PMA_generate_common_hidden_inputs($db) . "\n";
+    $retval .= PMA_URL_getHiddenInputs($db) . "\n";
     $retval .= "<fieldset>\n";
     if ($GLOBALS['is_ajax_request'] != true) {
         $retval .= "<legend>{$routine['item_name']}</legend>\n";

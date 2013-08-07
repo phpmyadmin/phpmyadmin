@@ -24,7 +24,7 @@ if ($is_create_db_priv) {
         . '</label>&nbsp;'
         . PMA_Util::showMySQLDocu('CREATE_DATABASE');
     $html .= '</strong><br />';
-    $html .= PMA_generate_common_hidden_inputs('', '', 5);
+    $html .= PMA_URL_getHiddenInputs('', '', 5);
     $html .= '<input type="hidden" name="reload" value="1" />';
     $html .= '<input type="text" name="new_db" value="' . $db_to_create
         . '" maxlength="64" class="textfield" id="text_create_db"/>';

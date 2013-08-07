@@ -1738,7 +1738,7 @@ class PMA_Config
     {
         return '<form name="form_fontsize_selection" id="form_fontsize_selection"'
             . ' method="get" action="index.php" class="disableAjax">' . "\n"
-            . PMA_generate_common_hidden_inputs() . "\n"
+            . PMA_URL_getHiddenInputs() . "\n"
             . PMA_Config::getFontsizeSelection() . "\n"
             . '</form>';
     }

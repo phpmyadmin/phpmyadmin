@@ -546,7 +546,7 @@ class PMA_DisplayResults
 
         return '<td>'
             . '<form action="sql.php" method="post" ' . $onsubmit . '>'
-            . PMA_generate_common_hidden_inputs(
+            . PMA_URL_getHiddenInputs(
                 $this->__get('db'), $this->__get('table')
             )
             . '<input type="hidden" name="sql_query" value="'
@@ -641,7 +641,7 @@ class PMA_DisplayResults
                 //<form> to keep the form alignment of button < and <<
                 // and also to know what to execute when the selector changes
                 $table_navigation_html .= '<form action="sql.php'
-                    . PMA_generate_common_url($_url_params)
+                    . PMA_URL_getCommon($_url_params)
                     . '" method="post">';
 
                 $table_navigation_html .= PMA_Util::pageselector(
@@ -733,7 +733,7 @@ class PMA_DisplayResults
                 . ')'
             .'">';
 
-        $table_navigation_html .= PMA_generate_common_hidden_inputs(
+        $table_navigation_html .= PMA_URL_getHiddenInputs(
             $this->__get('db'), $this->__get('table')
         );
 
@@ -793,7 +793,7 @@ class PMA_DisplayResults
         return "\n"
             . '<td>'
             . '<form action="sql.php" method="post">'
-            . PMA_generate_common_hidden_inputs(
+            . PMA_URL_getHiddenInputs(
                 $this->__get('db'), $this->__get('table')
             )
             . '<input type="hidden" name="sql_query" value="'
@@ -998,7 +998,7 @@ class PMA_DisplayResults
         $table_headers_html .= '<input id="save_cells_at_once" type="hidden" value="'
             . $GLOBALS['cfg']['SaveCellsAtOnce'] . '" />'
             . '<div class="common_hidden_inputs">'
-            . PMA_generate_common_hidden_inputs(
+            . PMA_URL_getHiddenInputs(
                 $this->__get('db'), $this->__get('table')
             )
             . '</div>';
@@ -1219,7 +1219,7 @@ class PMA_DisplayResults
         $drop_down_html = '';
 
         $drop_down_html .= '<form action="sql.php" method="post">' . "\n"
-            . PMA_generate_common_hidden_inputs(
+            . PMA_URL_getHiddenInputs(
                 $this->__get('db'), $this->__get('table')
             )
             . __('Sort by key')
@@ -1560,7 +1560,7 @@ class PMA_DisplayResults
             'display_options_form' => 1
         );
 
-        $options_html .= PMA_generate_common_hidden_inputs($url_params)
+        $options_html .= PMA_URL_getHiddenInputs($url_params)
             . '<br />'
             . PMA_Util::getDivForSliderEffect(
                 'displayoptions', __('Options')
@@ -1685,7 +1685,7 @@ class PMA_DisplayResults
 
         $tmp_image = '<img class="fulltext" src="' . $tmp_image_file . '" alt="'
                      . $tmp_txt . '" title="' . $tmp_txt . '" />';
-        $tmp_url = 'sql.php' . PMA_generate_common_url($url_params_full_text);
+        $tmp_url = 'sql.php' . PMA_URL_getCommon($url_params_full_text);
 
         return PMA_Util::linkOrButton(
             $tmp_url, $tmp_image, array(), false
@@ -1718,7 +1718,7 @@ class PMA_DisplayResults
             $form_html .= ' class="ajax" ';
 
             $form_html .= '>'
-                . PMA_generate_common_hidden_inputs(
+                . PMA_URL_getHiddenInputs(
                     $this->__get('db'), $this->__get('table'), 1
                 )
                 . '<input type="hidden" name="goto" value="sql.php" />';
@@ -1872,7 +1872,7 @@ class PMA_DisplayResults
             'sql_query'         => $sorted_sql_query,
             'session_max_rows'  => $session_max_rows
         );
-        $order_url  = 'sql.php' . PMA_generate_common_url($_url_params);
+        $order_url  = 'sql.php' . PMA_URL_getCommon($_url_params);
 
         // Displays the sorting URL
         // enable sort order swapping for image
@@ -2779,7 +2779,7 @@ class PMA_DisplayResults
             }
 
             $transform_options['wrapper_link']
-                = PMA_generate_common_url($_url_params);
+                = PMA_URL_getCommon($_url_params);
 
             $vertical_display = $this->__get('vertical_display');
 
@@ -3113,7 +3113,7 @@ class PMA_DisplayResults
         }
 
         return $link_relations['default_page']
-            . PMA_generate_common_url($linking_url_params);
+            . PMA_URL_getCommon($linking_url_params);
 
     }
 
@@ -3290,12 +3290,12 @@ class PMA_DisplayResults
             );
 
         $edit_url = 'tbl_change.php'
-            . PMA_generate_common_url(
+            . PMA_URL_getCommon(
                 $_url_params + array('default_action' => 'update')
             );
 
         $copy_url = 'tbl_change.php'
-            . PMA_generate_common_url(
+            . PMA_URL_getCommon(
                 $_url_params + array('default_action' => 'insert')
             );
 
@@ -3349,7 +3349,7 @@ class PMA_DisplayResults
                 'goto'      => (empty($goto) ? 'tbl_sql.php' : $goto),
             );
 
-            $lnk_goto = 'sql.php' . PMA_generate_common_url($_url_params, 'text');
+            $lnk_goto = 'sql.php' . PMA_URL_getCommon($_url_params, 'text');
 
             $del_query = 'DELETE FROM '
                 . PMA_Util::backquote($this->__get('db')) . '.'
@@ -3364,7 +3364,7 @@ class PMA_DisplayResults
                     'message_to_show' => __('The row has been deleted'),
                     'goto'      => $lnk_goto,
                 );
-            $del_url  = 'sql.php' . PMA_generate_common_url($_url_params);
+            $del_url  = 'sql.php' . PMA_URL_getCommon($_url_params);
 
             $js_conf  = 'DELETE FROM ' . PMA_jsFormat($this->__get('db')) . '.'
                 . PMA_jsFormat($this->__get('table'))
@@ -3385,7 +3385,7 @@ class PMA_DisplayResults
                 );
 
             $lnk_goto = 'sql.php'
-                . PMA_generate_common_url(
+                . PMA_URL_getCommon(
                     $_url_params, 'text'
                 );
 
@@ -3395,7 +3395,7 @@ class PMA_DisplayResults
                     'goto'      => $lnk_goto,
                 );
 
-            $del_url  = 'sql.php' . PMA_generate_common_url($_url_params);
+            $del_url  = 'sql.php' . PMA_URL_getCommon($_url_params);
             $del_query = 'KILL ' . $row[0];
             $js_conf  = 'KILL ' . $row[0];
             $del_str = PMA_Util::getIcon(
@@ -5160,7 +5160,7 @@ class PMA_DisplayResults
                     'printview' => '1',
                     'sql_query' => $this->__get('sql_query'),
                 );
-        $url_query = PMA_generate_common_url($_url_params);
+        $url_query = PMA_URL_getCommon($_url_params);
 
         if (!$header_shown) {
             $results_operations_html .= $header;
@@ -5202,7 +5202,7 @@ class PMA_DisplayResults
 
                     $results_operations_html
                         .= PMA_Util::linkOrButton(
-                            'sql.php' . PMA_generate_common_url($_url_params),
+                            'sql.php' . PMA_URL_getCommon($_url_params),
                             PMA_Util::getIcon(
                                 'b_print.png',
                                 __('Print view (with full texts)'), true
@@ -5261,7 +5261,7 @@ class PMA_DisplayResults
             }
 
             $results_operations_html .= PMA_Util::linkOrButton(
-                'tbl_export.php' . PMA_generate_common_url($_url_params),
+                'tbl_export.php' . PMA_URL_getCommon($_url_params),
                 PMA_Util::getIcon(
                     'b_tblexport.png', __('Export'), true
                 ),
@@ -5274,7 +5274,7 @@ class PMA_DisplayResults
 
             // prepare chart
             $results_operations_html .= PMA_Util::linkOrButton(
-                'tbl_chart.php' . PMA_generate_common_url($_url_params),
+                'tbl_chart.php' . PMA_URL_getCommon($_url_params),
                 PMA_Util::getIcon(
                     'b_chart.png', __('Display chart'), true
                 ),
@@ -5299,7 +5299,7 @@ class PMA_DisplayResults
                 $results_operations_html
                     .= PMA_Util::linkOrButton(
                         'tbl_gis_visualization.php'
-                        . PMA_generate_common_url($_url_params),
+                        . PMA_URL_getCommon($_url_params),
                         PMA_Util::getIcon(
                             'b_globe.gif', __('Visualize GIS data'), true
                         ),
@@ -5414,7 +5414,7 @@ class PMA_DisplayResults
                 /* Create link to download */
                 if (count($url_params) > 0) {
                     $result = '<a href="tbl_get_field.php'
-                        . PMA_generate_common_url($url_params)
+                        . PMA_URL_getCommon($url_params)
                         . '" class="disableAjax">'
                         . $result . '</a>';
                 }
@@ -5572,7 +5572,7 @@ class PMA_DisplayResults
                 );
 
                 $result .= '<a class="ajax" href="sql.php'
-                    . PMA_generate_common_url($_url_params)
+                    . PMA_URL_getCommon($_url_params)
                     . '"' . $title . '>';
 
                 if ($transformation_plugin != $default_function) {
@@ -5627,7 +5627,7 @@ class PMA_DisplayResults
             );
 
             $result .= '<input type="hidden" class="data_browse_link" value="'
-                . PMA_generate_common_url($_url_params_for_show_data_row). '" />';
+                . PMA_URL_getCommon($_url_params_for_show_data_row). '" />';
 
         }
 

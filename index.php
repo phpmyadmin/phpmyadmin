@@ -75,7 +75,7 @@ if (! empty($message)) {
     unset($message);
 }
 
-$common_url_query =  PMA_generate_common_url('', '');
+$common_url_query =  PMA_URL_getCommon('', '');
 
 // when $server > 0, a server has been chosen so we can display
 // all MySQL-related information
@@ -169,7 +169,7 @@ if ($server > 0 || count($cfg['Servers']) > 1
         } // end if
         echo '    <li id="li_select_mysql_collation" class="no_bullets" >';
         echo '        <form method="post" action="index.php">' . "\n"
-           . PMA_generate_common_hidden_inputs(null, null, 4, 'collation_connection')
+           . PMA_URL_getHiddenInputs(null, null, 4, 'collation_connection')
            . '            <label for="select_collation_connection">' . "\n"
            . '                '. PMA_Util::getImage('s_asci.png') . " "
                                . __('Server connection collation') . "\n"

@@ -404,7 +404,7 @@ function PMA_getHtmlToChoseUserGroup($username)
     $html_output = '<form class="ajax" id="changeUserGroupForm"'
             . ' action="server_privileges.php" method="post">';
     $params = array('username' => $username);
-    $html_output .= PMA_generate_common_hidden_inputs($params);
+    $html_output .= PMA_URL_getHiddenInputs($params);
     $html_output .= '<fieldset id="fieldset_user_group_selection">';
     $html_output .= '<legend>' . __('User group') . '</legend>';
 
@@ -1566,7 +1566,7 @@ function PMA_getHtmlForAddUser($dbname)
        . '</h2>' . "\n"
        . '<form name="usersForm" class="ajax" id="addUsersForm"'
        . ' action="server_privileges.php" method="post">' . "\n"
-       . PMA_generate_common_hidden_inputs('', '')
+       . PMA_URL_getHiddenInputs('', '')
        . PMA_getHtmlForDisplayLoginInformationFields('new');
 
     $html_output .= '<fieldset id="fieldset_add_user_database">' . "\n"
@@ -1685,7 +1685,7 @@ function PMA_getHtmlForSpecificDbPrivileges($link_edit, $conditional_class)
         . sprintf(
             __('Users having access to &quot;%s&quot;'),
             '<a href="' . $GLOBALS['cfg']['DefaultTabDatabase'] . '?'
-            . PMA_generate_common_url($_REQUEST['checkprivs']) . '">'
+            . PMA_URL_getCommon($_REQUEST['checkprivs']) . '">'
             .  htmlspecialchars($_REQUEST['checkprivs'])
             . '</a>'
         )
@@ -2072,7 +2072,7 @@ function PMA_getChangeLoginInformationHtmlForm($username, $hostname)
     $class = ' ajax';
     $html_output = '<form action="server_privileges.php" '
         . 'method="post" class="copyUserForm' . $class .'">' . "\n"
-        . PMA_generate_common_hidden_inputs('', '')
+        . PMA_URL_getHiddenInputs('', '')
         . '<input type="hidden" name="old_username" '
         . 'value="' . htmlspecialchars($username) . '" />' . "\n"
         . '<input type="hidden" name="old_hostname" '
@@ -2339,7 +2339,7 @@ function PMA_getTableForDisplayAllTableSpecificRights($username, $hostname
     , $link_edit, $link_revoke, $dbname
 ) {
     // table header
-    $html_output = PMA_generate_common_hidden_inputs('', '')
+    $html_output = PMA_URL_getHiddenInputs('', '')
         . '<input type="hidden" name="username" '
         . 'value="' . htmlspecialchars($username) . '" />' . "\n"
         . '<input type="hidden" name="hostname" '
@@ -2516,7 +2516,7 @@ function PMA_getUsersOverview($result, $db_rights, $link_edit, $pmaThemeImage,
     $html_output
         = '<form name="usersForm" id="usersForm" action="server_privileges.php" '
         . 'method="post">' . "\n"
-        . PMA_generate_common_hidden_inputs('', '')
+        . PMA_URL_getHiddenInputs('', '')
         . '<table id="tableuserrights" class="data">' . "\n"
         . '<thead>' . "\n"
         . '<tr><th></th>' . "\n"
@@ -3243,7 +3243,7 @@ function PMA_getHtmlForUserGroupsTable()
     if ($result && $GLOBALS['dbi']->numRows($result)) {
         $html_output .= '<form name="userGroupsForm" id="userGroupsForm"'
             . ' action="server_privileges.php" method="post">';
-        $html_output .= PMA_generate_common_hidden_inputs();
+        $html_output .= PMA_URL_getHiddenInputs();
         $html_output .= '<table id="userGroupsTable">';
         $html_output .= '<thead><tr>';
         $html_output .= '<th style="white-space: nowrap">'
@@ -3265,18 +3265,18 @@ function PMA_getHtmlForUserGroupsTable()
 
             $html_output .= '<td>';
             $html_output .= '<a class="" href="server_user_groups.php?'
-                . PMA_generate_common_url() . '&viewUsers=1&userGroup='
+                . PMA_URL_getCommon() . '&viewUsers=1&userGroup='
                 . urlencode($row['usergroup']) . '">'
                 . PMA_Util::getIcon('b_usrlist.png', __('View users')) . '</a>';
             $html_output .= '&nbsp;&nbsp;';
             $html_output .= '<a class="" href="server_user_groups.php?'
-                . PMA_generate_common_url() . '&editUserGroup=1&userGroup='
+                . PMA_URL_getCommon() . '&editUserGroup=1&userGroup='
                 . urlencode($row['usergroup']) . '">'
                 . PMA_Util::getIcon('b_edit.png', __('Edit')) . '</a>';
             $html_output .= '&nbsp;&nbsp;';
             $html_output .= '<a class="deleteUserGroup ajax"'
                 . ' href="server_user_groups.php?'
-                . PMA_generate_common_url() . '&deleteUserGroup=1&userGroup='
+                . PMA_URL_getCommon() . '&deleteUserGroup=1&userGroup='
                 . urlencode($row['usergroup']) . '">'
                 . PMA_Util::getIcon('b_drop.png', __('Delete')) . '</a>';
             $html_output .= '</td>';
@@ -3294,7 +3294,7 @@ function PMA_getHtmlForUserGroupsTable()
 
     $html_output .= '<fieldset id="fieldset_add_user_group">';
     $html_output .= '<a href="server_user_groups.php?'
-        . PMA_generate_common_url() . '&addUserGroup=1">'
+        . PMA_URL_getCommon() . '&addUserGroup=1">'
         . PMA_Util::getIcon('b_usradd.png')
         . __('Add user group') . '</a>';
     $html_output .= '</fieldset>';
@@ -3373,7 +3373,7 @@ function PMA_getHtmlToEditUserGroup($userGroup = null)
     } else {
         $urlParams['addUserGroupSubmit'] = '1';
     }
-    $html_output .= PMA_generate_common_hidden_inputs($urlParams);
+    $html_output .= PMA_URL_getHiddenInputs($urlParams);
 
     $html_output .= '<fieldset id="fieldset_user_group_rights">';
     $html_output .= '<legend>' . __('User group menu assignments')
@@ -3554,7 +3554,7 @@ function PMA_getHtmlForDisplayUserProperties($dbname_is_wildcard,$url_dbname,
 
     $html_output .= '<form' . $class . ' name="usersForm" id="addUsersForm"'
         . ' action="server_privileges.php" method="post">' . "\n";
-    $html_output .= PMA_generate_common_hidden_inputs($_params);
+    $html_output .= PMA_URL_getHiddenInputs($_params);
     $html_output .= PMA_getHtmlToDisplayPrivilegesTable(
         PMA_ifSetOr($dbname, '*', 'length'),
         PMA_ifSetOr($tablename, '*', 'length')
@@ -3884,7 +3884,7 @@ function PMA_getSqlQueriesForDisplayAndAddUser($username, $hostname, $password)
  */
 function PMA_getHtmlForSubMenusOnUsersPage($selfUrl)
 {
-    $url_params = PMA_generate_common_url();
+    $url_params = PMA_URL_getCommon();
     $items = array(
         array(
             'name' => __('Users overview'),

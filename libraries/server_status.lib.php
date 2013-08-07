@@ -323,11 +323,11 @@ function PMA_getHtmlForServerProcesslist($ServerStatusData)
     $show_full_sql = ! empty($_REQUEST['full']);
     if ($show_full_sql) {
         $url_params['full'] = 1;
-        $full_text_link = 'server_status.php' . PMA_generate_common_url(
+        $full_text_link = 'server_status.php' . PMA_URL_getCommon(
             array(), 'html', '?'
         );
     } else {
-        $full_text_link = 'server_status.php' . PMA_generate_common_url(
+        $full_text_link = 'server_status.php' . PMA_URL_getCommon(
             array('full' => 1)
         );
     }
@@ -434,7 +434,7 @@ function PMA_getHtmlForServerProcesslist($ServerStatusData)
         }
 
         $retval .= '<th>';
-        $columnUrl = PMA_generate_common_url($column);
+        $columnUrl = PMA_URL_getCommon($column);
         $retval .= '<a href="server_status.php' . $columnUrl . '" ';
         if ($is_sorted) {
             $retval .= 'onmouseout="$(\'.soimg\').toggle()" '
@@ -514,7 +514,7 @@ function PMA_getHtmlForServerProcessItem($process, $odd_row, $show_full_sql)
     }
     
     $url_params['kill'] = $process['Id'];
-    $kill_process = 'server_status.php' . PMA_generate_common_url($url_params);
+    $kill_process = 'server_status.php' . PMA_URL_getCommon($url_params);
     
     $retval  = '<tr class="' . ($odd_row ? 'odd' : 'even') . '">';
     $retval .= '<td><a href="' . $kill_process . '">' . __('Kill') . '</a></td>';

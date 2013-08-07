@@ -254,7 +254,7 @@ function PMA_userprefsRedirect($file_name,
     }
     PMA_sendHeaderLocation(
         $GLOBALS['cfg']['PmaAbsoluteUri'] . $file_name
-        . PMA_generate_common_url($url_params, '&') . $hash
+        . PMA_URL_getCommon($url_params, '&') . $hash
     );
 }
 
@@ -280,7 +280,7 @@ function PMA_userprefsAutoloadGetHeader()
 
         $retval .= '<div id="prefs_autoload" class="notice" style="display:none">';
         $retval .= '<form action="prefs_manage.php" method="post">';
-        $retval .= PMA_generate_common_hidden_inputs();
+        $retval .= PMA_URL_getHiddenInputs();
         $retval .= '<input type="hidden" name="json" value="" />';
         $retval .= '<input type="hidden" name="submit_import" value="1" />';
         $retval .= '<input type="hidden" name="return_url" value="'

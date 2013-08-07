@@ -22,7 +22,7 @@ $all_languages = PMA_langList();
 uasort($all_languages, 'PMA_languageCmp');
 
 $cf = ConfigFile::getInstance();
-$separator = PMA_get_arg_separator('html');
+$separator = PMA_URL_getArgSeparator('html');
 
 // message handling
 messages_begin();
@@ -70,7 +70,7 @@ if (!$is_https) {
 ?>
 
 <form id="select_lang" method="post" action="<?php echo htmlspecialchars($_SERVER['REQUEST_URI']) ?>">
-    <?php echo PMA_generate_common_hidden_inputs() ?>
+    <?php echo PMA_URL_getHiddenInputs() ?>
     <bdo lang="en" dir="ltr"><label for="lang">
     <?php echo __('Language') . (__('Language') != 'Language' ? ' - Language' : '') ?>
     </label></bdo><br />

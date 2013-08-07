@@ -25,7 +25,7 @@ function PMA_getLogSelector($binary_log_file_names, $url_params)
     $html = "";
     if (count($binary_log_file_names) > 1) {
         $html .= '<form action="server_binlog.php" method="get">';
-        $html .= PMA_generate_common_hidden_inputs($url_params);
+        $html .= PMA_URL_getHiddenInputs($url_params);
         $html .= '<fieldset><legend>';
         $html .= __('Select binary log to view');
         $html .= '</legend><select name="log">';
@@ -166,7 +166,7 @@ function PMA_getNavigationRow($url_params, $pos, $num_rows, $dontlimitchars)
         }
 
         $html .= '<a href="server_binlog.php'
-            . PMA_generate_common_url($this_url_params) . '"';
+            . PMA_URL_getCommon($this_url_params) . '"';
         if (PMA_Util::showIcons('TableNavigationLinksMode')) {
             $html .= ' title="' . _pgettext('Previous page', 'Previous') . '">';
         } else {
@@ -188,7 +188,7 @@ function PMA_getNavigationRow($url_params, $pos, $num_rows, $dontlimitchars)
         $tempTitle = __('Show Full Queries');
         $tempImgMode = 'full';
     }
-    $html .= '<a href="server_binlog.php' . PMA_generate_common_url($this_url_params)
+    $html .= '<a href="server_binlog.php' . PMA_URL_getCommon($this_url_params)
         . '" title="' . $tempTitle . '">'
         . '<img src="' .$GLOBALS['pmaThemeImage'] . 's_' . $tempImgMode . 'text.png"'
         . 'alt="' . $tempTitle . '" /></a>';
@@ -199,7 +199,7 @@ function PMA_getNavigationRow($url_params, $pos, $num_rows, $dontlimitchars)
         $this_url_params = $url_params;
         $this_url_params['pos'] = $pos + $GLOBALS['cfg']['MaxRows'];
         $html .= ' - <a href="server_binlog.php'
-            . PMA_generate_common_url($this_url_params)
+            . PMA_URL_getCommon($this_url_params)
             . '"';
         if (PMA_Util::showIcons('TableNavigationLinksMode')) {
             $html .= ' title="' . _pgettext('Next page', 'Next') . '">';

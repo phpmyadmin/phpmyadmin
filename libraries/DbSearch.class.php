@@ -337,15 +337,15 @@ class PMA_DbSearch
         // Displays browse/delete link if result count > 0
         if ($res_cnt > 0) {
             $this_url_params['sql_query'] = $newsearchsqls['select_columns'];
-            $browse_result_path = 'sql.php' . PMA_generate_common_url($this_url_params);
+            $browse_result_path = 'sql.php' . PMA_URL_getCommon($this_url_params);
             $html_output .= '<td><a name="browse_search" href="'
                 . $browse_result_path . '" onclick="loadResult(\''
                 . $browse_result_path . '\',\'' . $each_table . '\',\''
-                . PMA_generate_common_url($GLOBALS['db'], $each_table) . '\''
+                . PMA_URL_getCommon($GLOBALS['db'], $each_table) . '\''
                 . ');return false;" >'
                 . __('Browse') . '</a></td>';
             $this_url_params['sql_query'] = $newsearchsqls['delete'];
-            $delete_result_path = 'sql.php' . PMA_generate_common_url($this_url_params);
+            $delete_result_path = 'sql.php' . PMA_URL_getCommon($this_url_params);
             $html_output .= '<td><a name="delete_search" href="'
                 . $delete_result_path . '" onclick="deleteResult(\''
                 . $delete_result_path . '\' , \''
@@ -376,7 +376,7 @@ class PMA_DbSearch
         $html_output .= '<form id="db_search_form"'
             . ' class="ajax"'
             . ' method="post" action="db_search.php" name="db_search">';
-        $html_output .= PMA_generate_common_hidden_inputs($GLOBALS['db']);
+        $html_output .= PMA_URL_getHiddenInputs($GLOBALS['db']);
         $html_output .= '<fieldset>';
         // set legend caption
         $html_output .= '<legend>' . __('Search in database') . '</legend>';

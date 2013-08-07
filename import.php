@@ -165,15 +165,15 @@ require_once 'libraries/import.lib.php';
 
 // Create error and goto url
 if ($import_type == 'table') {
-    $err_url = 'tbl_import.php?' . PMA_generate_common_url($db, $table);
+    $err_url = 'tbl_import.php?' . PMA_URL_getCommon($db, $table);
     $_SESSION['Import_message']['go_back_url'] = $err_url;
     $goto = 'tbl_import.php';
 } elseif ($import_type == 'database') {
-    $err_url = 'db_import.php?' . PMA_generate_common_url($db);
+    $err_url = 'db_import.php?' . PMA_URL_getCommon($db);
     $_SESSION['Import_message']['go_back_url'] = $err_url;
     $goto = 'db_import.php';
 } elseif ($import_type == 'server') {
-    $err_url = 'server_import.php?' . PMA_generate_common_url();
+    $err_url = 'server_import.php?' . PMA_URL_getCommon();
     $_SESSION['Import_message']['go_back_url'] = $err_url;
     $goto = 'server_import.php';
 } else {
@@ -187,11 +187,11 @@ if ($import_type == 'table') {
         }
     }
     if (strlen($table) && strlen($db)) {
-        $common = PMA_generate_common_url($db, $table);
+        $common = PMA_URL_getCommon($db, $table);
     } elseif (strlen($db)) {
-        $common = PMA_generate_common_url($db);
+        $common = PMA_URL_getCommon($db);
     } else {
-        $common = PMA_generate_common_url();
+        $common = PMA_URL_getCommon();
     }
     $err_url  = $goto . '?' . $common
         . (preg_match('@^tbl_[a-z]*\.php$@', $goto)

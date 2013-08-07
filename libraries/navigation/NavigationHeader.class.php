@@ -25,9 +25,9 @@ class PMA_NavigationHeader
     public function getDisplay()
     {
         if (empty($GLOBALS['url_query'])) {
-            $GLOBALS['url_query'] = PMA_generate_common_url();
+            $GLOBALS['url_query'] = PMA_URL_getCommon();
         }
-        $link_url = PMA_generate_common_url(
+        $link_url = PMA_URL_getCommon(
             array(
                 'ajax_request' => true
             )
@@ -178,7 +178,7 @@ class PMA_NavigationHeader
         $retval  = '<!-- LINKS START -->';
         $retval .= '<div id="leftframelinks">';
         $retval .= $this->_getLink(
-            'index.php?' . PMA_generate_common_url(),
+            'index.php?' . PMA_URL_getCommon(),
             $showText,
             __('Home'),
             $showIcon,
@@ -201,7 +201,7 @@ class PMA_NavigationHeader
                 );
             }
             $link  = 'querywindow.php?';
-            $link .= PMA_generate_common_url($GLOBALS['db'], $GLOBALS['table']);
+            $link .= PMA_URL_getCommon($GLOBALS['db'], $GLOBALS['table']);
             $link .= '&amp;no_js=true';
             $retval .= $this->_getLink(
                 $link,
@@ -285,7 +285,7 @@ class PMA_NavigationHeader
             $retval .= '<div id="recentTableList">';
             $retval .= '<form method="post" ';
             $retval .= 'action="' . $GLOBALS['cfg']['DefaultTabTable'] . '">';
-            $retval .= PMA_generate_common_hidden_inputs(
+            $retval .= PMA_URL_getHiddenInputs(
                 array(
                     'db' => '',
                     'table' => '',

@@ -893,7 +893,7 @@ function PMA_sortableTableHeader($title, $sort, $initial_sort_order = 'ASC')
         'db' => $_REQUEST['db'],
     );
 
-    $url = 'db_structure.php'.PMA_generate_common_url($_url_params);
+    $url = 'db_structure.php'.PMA_URL_getCommon($_url_params);
     // We set the position back to 0 every time they sort.
     $url .= "&amp;pos=0&amp;sort=$sort&amp;sort_order=$future_sort_order";
 
@@ -1427,7 +1427,7 @@ function PMA_getHtmlDivForMoveColumnsDialog()
 
     $html_output .= '<form action="tbl_structure.php">'
         . '<div>'
-        . PMA_generate_common_hidden_inputs($GLOBALS['db'], $GLOBALS['table'])
+        . PMA_URL_getHiddenInputs($GLOBALS['db'], $GLOBALS['table'])
         . '<ul></ul>'
         . '</div>'
         . '</form>'
@@ -1460,7 +1460,7 @@ function PMA_getHtmlForEditView($url_params)
         'as' => $item['VIEW_DEFINITION'],
         'with' => $item['CHECK_OPTION'],
     );
-    $url  = 'view_create.php' . PMA_generate_common_url($url_params) . '&amp;';
+    $url  = 'view_create.php' . PMA_URL_getCommon($url_params) . '&amp;';
     $url .= implode(
         '&amp;',
         array_map(
@@ -1556,7 +1556,7 @@ function PMA_getHtmlForAddColumn($columns_list)
             ) . '\', 1)'
         . '">';
 
-    $html_output .= PMA_generate_common_hidden_inputs(
+    $html_output .= PMA_URL_getHiddenInputs(
         $GLOBALS['db'],
         $GLOBALS['table']
     );
@@ -2301,7 +2301,7 @@ function PMA_displayHtmlForColumnChange($db, $table, $selected, $action)
  */
 function PMA_updateColumns($db, $table)
 {
-    $err_url = 'tbl_structure.php?' . PMA_generate_common_url($db, $table);
+    $err_url = 'tbl_structure.php?' . PMA_URL_getCommon($db, $table);
     $regenerate = false;
     $field_cnt = count($_REQUEST['field_name']);
     $key_fields = array();

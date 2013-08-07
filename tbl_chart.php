@@ -146,7 +146,7 @@ $htmlString = '<script type="text/javascript">'
     . '<!-- Display Chart options -->'
     . '<div id="div_view_options">'
     . '<form method="post" id="tblchartform" action="tbl_chart.php" class="ajax">'
-    . PMA_generate_common_hidden_inputs($url_params)
+    . PMA_URL_getHiddenInputs($url_params)
     . '<fieldset>'
     . '<legend>' . __('Display chart') . '</legend>'
     . '<div style="float:left; width:420px;">'

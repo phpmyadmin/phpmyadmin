@@ -239,7 +239,7 @@ function PMA_getHtmlForTableCreateOrAddField($action, $form_params, $content_cel
     $html = '<form method="post" action="' . $action  . '" class="'
         . ($action == 'tbl_create.php' ? 'create_table' : 'append_fields')
         . '_form ajax">';
-    $html .= PMA_generate_common_hidden_inputs($form_params);
+    $html .= PMA_URL_getHiddenInputs($form_params);
 
     if ($action == 'tbl_create.php') {
         $html .= PMA_getHtmlForTableNameAndNoOfColumns();
@@ -319,7 +319,7 @@ function PMA_getHeaderCells($is_backup, $fields_meta, $mimework, $db, $table)
                     . ' %stransformation descriptions%s'
                 ),
                 '<a href="transformation_overview.php?'
-                . PMA_generate_common_url($db, $table)
+                . PMA_URL_getCommon($db, $table)
                 . '" target="_blank">',
                 '</a>'
             );

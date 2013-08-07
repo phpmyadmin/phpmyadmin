@@ -130,7 +130,7 @@ function PMA_getTableHtmlForMultipleQueries(
 
             $unlim_num_rows = PMA_Table::countRecords($db, $table, true);
             $showtable = PMA_Table::sGetStatusInfo($db, $table, null, true);
-            $url_query = PMA_generate_common_url($db, $table);
+            $url_query = PMA_URL_getCommon($db, $table);
 
             // Handle remembered sorting order, only for single table query
             if ($GLOBALS['cfg']['RememberSorting']
@@ -366,7 +366,7 @@ function PMA_getHtmlForRelationalColumnDropdown($db, $table, $column, $curr_valu
             . htmlspecialchars($_REQUEST['curr_value'])
             . '</span>'
             . '<a href="browse_foreigners.php'
-            . PMA_generate_common_url($_url_params) . '"'
+            . PMA_URL_getCommon($_url_params) . '"'
             . ' target="_blank" class="browse_foreign" ' .'>'
             . __('Browse foreign values')
             . '</a>';
@@ -454,7 +454,7 @@ function PMA_getHtmlForProfilingChart($url_query, $db, $profiling_results)
 {
     if (isset($profiling_results)) {
         $pma_token = $_SESSION[' PMA_token '];
-        $url_query = (isset($url_query) ? $url_query : PMA_generate_common_url($db));
+        $url_query = (isset($url_query) ? $url_query : PMA_URL_getCommon($db));
 
         $profiling_table = '';
         $profiling_table .= '<fieldset><legend>' . __('Profiling')
@@ -730,7 +730,7 @@ function PMA_getHtmlForBookmark($disp_mode, $cfgBookmark, $sql_query, $db, $tabl
     ) {
         $html = "\n";
         $goto = 'sql.php?'
-            . PMA_generate_common_url($db, $table)
+            . PMA_URL_getCommon($db, $table)
             . '&amp;sql_query=' . urlencode($sql_query)
             . '&amp;id_bookmark=1';
         $bkm_sql_query = urlencode(
@@ -740,7 +740,7 @@ function PMA_getHtmlForBookmark($disp_mode, $cfgBookmark, $sql_query, $db, $tabl
             . ' onsubmit="return ! emptyFormElements(this,'
             . '\'bkm_fields[bkm_label]\');"'
             . ' id="bookmarkQueryForm">';
-        $html .= PMA_generate_common_hidden_inputs();
+        $html .= PMA_URL_getHiddenInputs();
         $html .= '<input type="hidden" name="goto" value="' . $goto . '" />';
         $html .= '<input type="hidden" name="bkm_fields[bkm_database]"'
             . ' value="' . htmlspecialchars($db) . '" />';

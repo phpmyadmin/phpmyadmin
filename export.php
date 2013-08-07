@@ -219,9 +219,9 @@ if (!defined('TESTSUITE')) {
 
     // Generate error url and check for needed variables
     if ($export_type == 'server') {
-        $err_url = 'server_export.php?' . PMA_generate_common_url();
+        $err_url = 'server_export.php?' . PMA_URL_getCommon();
     } elseif ($export_type == 'database' && strlen($db)) {
-        $err_url = 'db_export.php?' . PMA_generate_common_url($db);
+        $err_url = 'db_export.php?' . PMA_URL_getCommon($db);
         // Check if we have something to export
         if (isset($table_select)) {
             $tables = $table_select;
@@ -229,7 +229,7 @@ if (!defined('TESTSUITE')) {
             $tables = array();
         }
     } elseif ($export_type == 'table' && strlen($db) && strlen($table)) {
-        $err_url = 'tbl_export.php?' . PMA_generate_common_url($db, $table);
+        $err_url = 'tbl_export.php?' . PMA_URL_getCommon($db, $table);
     } else {
         PMA_fatalError(__('Bad parameters!'));
     }
@@ -576,11 +576,11 @@ if (!defined('TESTSUITE')) {
              */
             $back_button = '<p>[ <a href="';
             if ($export_type == 'server') {
-                $back_button .= 'server_export.php?' . PMA_generate_common_url();
+                $back_button .= 'server_export.php?' . PMA_URL_getCommon();
             } elseif ($export_type == 'database') {
-                $back_button .= 'db_export.php?' . PMA_generate_common_url($db);
+                $back_button .= 'db_export.php?' . PMA_URL_getCommon($db);
             } else {
-                $back_button .= 'tbl_export.php?' . PMA_generate_common_url($db, $table);
+                $back_button .= 'tbl_export.php?' . PMA_URL_getCommon($db, $table);
             }
 
             // Convert the multiple select elements from an array to a string

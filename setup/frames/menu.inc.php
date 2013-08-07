@@ -10,7 +10,7 @@ if (!defined('PHPMYADMIN')) {
     exit;
 }
 
-$separator = PMA_get_arg_separator('html');
+$separator = PMA_URL_getArgSeparator('html');
 ?>
 <ul>
     <li><a href="index.php"><?php echo __('Overview') ?></a></li>
