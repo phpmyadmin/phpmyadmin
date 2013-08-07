@@ -164,9 +164,13 @@ if (isset($_POST['store_bkm'])) {
  */
 if ($goto == 'sql.php') {
     $is_gotofile = false;
-    $goto = 'sql.php?'
-          . PMA_URL_getCommon($db, $table)
-          . '&amp;sql_query=' . urlencode($sql_query);
+    $goto = 'sql.php' . PMA_URL_getCommon(
+        array(
+            'db' => $db,
+            'table' => $table,
+            'sql_query' => $sql_query.
+        )
+    );
 } // end if
 
 

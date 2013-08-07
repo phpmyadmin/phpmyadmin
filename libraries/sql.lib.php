@@ -729,10 +729,15 @@ function PMA_getHtmlForBookmark($disp_mode, $cfgBookmark, $sql_query, $db, $tabl
         && ! empty($sql_query)
     ) {
         $html = "\n";
-        $goto = 'sql.php?'
-            . PMA_URL_getCommon($db, $table)
-            . '&amp;sql_query=' . urlencode($sql_query)
-            . '&amp;id_bookmark=1';
+        $goto = 'sql.php'
+            . PMA_URL_getCommon(
+                array(
+                    'db' => $db,
+                    'table' => $table,
+                    'sql_query' => $sql_query,
+                    'id_bookmark'=> 1,
+                )
+            )
         $bkm_sql_query = urlencode(
             isset($complete_query) ? $complete_query : $sql_query
         );

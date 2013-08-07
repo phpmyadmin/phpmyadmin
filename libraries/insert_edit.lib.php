@@ -733,9 +733,14 @@ function PMA_getForeignLink($column, $backup_field, $column_name_appendix,
     $html_output .= '<a class="foreign_values_anchor" target="_blank" '
         . 'onclick="window.open(this.href,\'foreigners\', \'width=640,height=240,'
         . 'scrollbars=yes,resizable=yes\'); return false;" '
-        . 'href="browse_foreigners.php?'
-        . PMA_URL_getCommon($db, $table) . '&amp;field='
-        . PMA_escapeJsString(urlencode($column['Field']) . $rownumber_param) . '">'
+        . 'href="browse_foreigners.php'
+        . PMA_URL_getCommon(
+            array(
+                'db' => $db,
+                'table' => $table,
+                'field' => $column['Field'] . $rownumber_param
+            )
+        ) . '">'
         . str_replace("'", "\'", $titles['Browse']) . '</a>';
     return $html_output;
 }

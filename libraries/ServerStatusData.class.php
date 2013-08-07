@@ -209,17 +209,28 @@ class PMA_ServerStatusData
         // variable or section name => (name => url)
         $links = array();
 
-        $links['table'][__('Flush (close) all tables')]
-            = $this->selfUrl . '?flush=TABLES&amp;' . PMA_URL_getCommon();
+        $links['table'][__('Flush (close) all tables')] = $this->selfUrl
+            . PMA_URL_getCommon(
+                array(
+                    'flush' => 'TABLES'
+                )
+            );
         $links['table'][__('Show open tables')]
-            = 'sql.php?sql_query=' . urlencode('SHOW OPEN TABLES') .
-                '&amp;goto=' . $this->selfUrl . '&amp;' . PMA_URL_getCommon();
+            = 'sql.php' . PMA_URL_getCommon(
+                array(
+                    'sql_query' => 'SHOW OPEN TABLES',
+                    'goto' => $this->selfUrl,
+                )
+            );
 
         if ($GLOBALS['server_master_status']) {
             $links['repl'][__('Show slave hosts')]
-                = 'sql.php?sql_query=' . urlencode('SHOW SLAVE HOSTS')
-                    . '&amp;goto=' . $this->selfUrl . '&amp;'
-                    . PMA_URL_getCommon();
+                = 'sql.php' . PMA_URL_getCommon(
+                    array(
+                        'sql_query' => 'SHOW SLAVE HOSTS',
+                        'goto' => $this->selfUrl,
+                    )
+                );
             $links['repl'][__('Show master status')] = '#replication_master';
         }
         if ($GLOBALS['server_slave_status']) {
@@ -229,8 +240,12 @@ class PMA_ServerStatusData
         $links['repl']['doc'] = 'replication';
 
         $links['qcache'][__('Flush query cache')]
-            = $this->selfUrl . '?flush=' . urlencode('QUERY CACHE') . '&amp;' .
-                PMA_URL_getCommon();
+            = $this->selfUrl
+            . PMA_URL_getCommon(
+                array(
+                    'flush' => 'QUERY CACHE'
+                )
+            );
         $links['qcache']['doc'] = 'query_cache';
 
         $links['threads']['doc'] = 'mysql_threads';
@@ -244,8 +259,13 @@ class PMA_ServerStatusData
         $links['innodb'][__('Variables')]
             = 'server_engines.php?engine=InnoDB&amp;' . PMA_URL_getCommon();
         $links['innodb'][__('InnoDB Status')]
-            = 'server_engines.php?engine=InnoDB&amp;page=Status&amp;' .
-                PMA_URL_getCommon();
+            = 'server_engines.php'
+            . PMA_URL_getCommon(
+                array(
+                    'engine' => 'InnoDB',
+                    'page' => 'Status'
+                )
+            );
         $links['innodb']['doc'] = 'innodb';
 
 
