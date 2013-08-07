@@ -432,9 +432,8 @@ class PMA_Util
     /**
      * Get a URL link to the official MySQL documentation
      *
-     * @param string $chapter   chapter of "HTML, one page per chapter" documentation
-     * @param string $link      contains name of page/anchor that is being linked
-     * @param string $anchor    anchor to page part
+     * @param string $link   contains name of page/anchor that is being linked
+     * @param string $anchor anchor to page part
      *
      * @return string  the URL link
      *
@@ -474,7 +473,6 @@ class PMA_Util
     /**
      * Displays a link to the official MySQL documentation
      *
-     * @param string $chapter   chapter of "HTML, one page per chapter" documentation
      * @param string $link      contains name of page/anchor that is being linked
      * @param bool   $big_icon  whether to use big icon (like in left frame)
      * @param string $anchor    anchor to page part
