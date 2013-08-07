@@ -109,10 +109,10 @@ function PMA_saveUserprefs(array $config_array)
     $config_data = json_encode($config_array);
     if ($has_config) {
         $query = 'UPDATE ' . $query_table
-            . 'SET `config_data` = \''
+            . ' SET `config_data` = \''
             . PMA_Util::sqlAddSlashes($config_data)
             . '\''
-            . 'WHERE `username` = \''
+            . ' WHERE `username` = \''
             . PMA_Util::sqlAddSlashes($cfgRelation['user'])
             . '\'';
     } else {
