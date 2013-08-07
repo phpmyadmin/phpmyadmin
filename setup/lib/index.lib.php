@@ -389,14 +389,9 @@ function perform_config_checks()
     // $cfg['LoginCookieValidity']
     // value greater than session.gc_maxlifetime will cause
     // random session invalidation after that time
-    if ($cf->getValue('LoginCookieValidity') > 1440
-        || $cf->getValue('LoginCookieValidity') > ini_get('session.gc_maxlifetime')
-    ) {
-        $message_type = $cf->getValue('LoginCookieValidity') > ini_get('session.gc_maxlifetime')
-            ? 'error'
-            : 'notice';
+    if ($cf->getValue('LoginCookieValidity') > ini_get('session.gc_maxlifetime')) {
         messages_set(
-            $message_type,
+            'error',
             'LoginCookieValidity',
             PMA_lang(PMA_langName('LoginCookieValidity')),
             PMA_lang($strLoginCookieValidityWarning)
