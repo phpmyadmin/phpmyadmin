@@ -135,7 +135,8 @@ class PMA_Menu
         $cfgRelation = PMA_getRelationsParam();
         if ($cfgRelation['menuswork']) {
             $groupTable = PMA_Util::backquote($GLOBALS['cfg']['Server']['pmadb'])
-                . "." . PMA_Util::backquote($GLOBALS['cfg']['Server']['usergroups']);
+                . "."
+                . PMA_Util::backquote($GLOBALS['cfg']['Server']['usergroups']);
             $userTable = PMA_Util::backquote($GLOBALS['cfg']['Server']['pmadb'])
                 . "." . PMA_Util::backquote($GLOBALS['cfg']['Server']['users']);
 

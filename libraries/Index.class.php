@@ -10,6 +10,7 @@ if (! defined('PHPMYADMIN')) {
 }
 
 /**
+ * Index manipulation class
  *
  * @package PhpMyAdmin
  * @since   phpMyAdmin 3.0.0
@@ -747,6 +748,8 @@ class PMA_Index
 }
 
 /**
+ * Index column wrapper
+ *
  * @package PhpMyAdmin
  */
 class PMA_Index_Column

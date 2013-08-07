@@ -1,6 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
+ * MySQL charsets listings
  *
  * @package PhpMyAdmin
  */
@@ -86,21 +87,49 @@ if (! PMA_Util::cacheExists('mysql_charsets', true)) {
     }
     unset($key, $value);
 
-    PMA_Util::cacheSet('mysql_charsets', $GLOBALS['mysql_charsets'], true);
-    PMA_Util::cacheSet('mysql_charsets_descriptions', $GLOBALS['mysql_charsets_descriptions'], true);
-    PMA_Util::cacheSet('mysql_charsets_available', $GLOBALS['mysql_charsets_available'], true);
-    PMA_Util::cacheSet('mysql_collations', $GLOBALS['mysql_collations'], true);
-    PMA_Util::cacheSet('mysql_default_collations', $GLOBALS['mysql_default_collations'], true);
-    PMA_Util::cacheSet('mysql_collations_flat', $GLOBALS['mysql_collations_flat'], true);
-    PMA_Util::cacheSet('mysql_collations_available', $GLOBALS['mysql_collations_available'], true);
+    PMA_Util::cacheSet(
+        'mysql_charsets', $GLOBALS['mysql_charsets'], true
+    );
+    PMA_Util::cacheSet(
+        'mysql_charsets_descriptions', $GLOBALS['mysql_charsets_descriptions'], true
+    );
+    PMA_Util::cacheSet(
+        'mysql_charsets_available', $GLOBALS['mysql_charsets_available'], true
+    );
+    PMA_Util::cacheSet(
+        'mysql_collations', $GLOBALS['mysql_collations'], true
+    );
+    PMA_Util::cacheSet(
+        'mysql_default_collations', $GLOBALS['mysql_default_collations'], true
+    );
+    PMA_Util::cacheSet(
+        'mysql_collations_flat', $GLOBALS['mysql_collations_flat'], true
+    );
+    PMA_Util::cacheSet(
+        'mysql_collations_available', $GLOBALS['mysql_collations_available'], true
+    );
 } else {
-    $GLOBALS['mysql_charsets']              = PMA_Util::cacheGet('mysql_charsets', true);
-    $GLOBALS['mysql_charsets_descriptions'] = PMA_Util::cacheGet('mysql_charsets_descriptions', true);
-    $GLOBALS['mysql_charsets_available']    = PMA_Util::cacheGet('mysql_charsets_available', true);
-    $GLOBALS['mysql_collations']            = PMA_Util::cacheGet('mysql_collations', true);
-    $GLOBALS['mysql_default_collations']    = PMA_Util::cacheGet('mysql_default_collations', true);
-    $GLOBALS['mysql_collations_flat']       = PMA_Util::cacheGet('mysql_collations_flat', true);
-    $GLOBALS['mysql_collations_available']  = PMA_Util::cacheGet('mysql_collations_available', true);
+    $GLOBALS['mysql_charsets'] = PMA_Util::cacheGet(
+        'mysql_charsets', true
+    );
+    $GLOBALS['mysql_charsets_descriptions'] = PMA_Util::cacheGet(
+        'mysql_charsets_descriptions', true
+    );
+    $GLOBALS['mysql_charsets_available'] = PMA_Util::cacheGet(
+        'mysql_charsets_available', true
+    );
+    $GLOBALS['mysql_collations'] = PMA_Util::cacheGet(
+        'mysql_collations', true
+    );
+    $GLOBALS['mysql_default_collations'] = PMA_Util::cacheGet(
+        'mysql_default_collations', true
+    );
+    $GLOBALS['mysql_collations_flat'] = PMA_Util::cacheGet(
+        'mysql_collations_flat', true
+    );
+    $GLOBALS['mysql_collations_available'] = PMA_Util::cacheGet(
+        'mysql_collations_available', true
+    );
 }
 
 define('PMA_CSDROPDOWN_COLLATION', 0);

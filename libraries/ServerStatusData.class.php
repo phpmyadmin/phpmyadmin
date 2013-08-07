@@ -6,9 +6,9 @@
  *
  * @package PhpMyAdmin
  */
-if (!defined('TESTSUITE')) {
-    //the TESTSUITE has already included common.inc.php
-    require_once 'libraries/common.inc.php';
+
+if (! defined('PHPMYADMIN')) {
+    exit;
 }
 
 /**
@@ -71,7 +71,9 @@ class PMA_ServerStatusData
         /**
          * for some calculations we require also some server settings
          */
-        $server_variables = $GLOBALS['dbi']->fetchResult('SHOW GLOBAL VARIABLES', 0, 1);
+        $server_variables = $GLOBALS['dbi']->fetchResult(
+            'SHOW GLOBAL VARIABLES', 0, 1
+        );
 
         /**
          * cleanup of some deprecated values

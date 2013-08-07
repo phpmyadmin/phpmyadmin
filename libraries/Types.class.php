@@ -161,12 +161,13 @@ class PMA_Types
 
         foreach ($this->getTypeOperators($type, $null) as $fc) {
             if (isset($selectedOperator) && $selectedOperator == $fc) {
-                $html .= '<option value="' . htmlspecialchars($fc)  . '" selected="selected">'
-                    . htmlspecialchars($fc)  . '</option>';
+                $selected = ' selected="selected"';
             } else {
-                $html .= '<option value="' . htmlspecialchars($fc)  . '">'
-                    . htmlspecialchars($fc)  . '</option>';
+                $selected = '';
             }
+            $html .= '<option value="' . htmlspecialchars($fc)  . '"'
+                . $selected . '>'
+                . htmlspecialchars($fc)  . '</option>';
         }
 
         return $html;
