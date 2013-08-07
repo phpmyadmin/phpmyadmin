@@ -4051,12 +4051,12 @@ class PMA_Util
         $minimum_first_occurence_index = null;
         $regex = null;
 
-        for ($i = 0; $i < count($regex_array); $i++) {
-            if (preg_match($regex_array[$i], $query, $matches, PREG_OFFSET_CAPTURE)) {
+        foreach ($regex_array as $test_regex) {
+            if (preg_match($test_regex, $query, $matches, PREG_OFFSET_CAPTURE)) {
                 if (is_null($minimum_first_occurence_index)
                     || ($matches[0][1] < $minimum_first_occurence_index)
                 ) {
-                    $regex = $regex_array[$i];
+                    $regex = $test_regex;
                     $minimum_first_occurence_index = $matches[0][1];
                 }
             }
