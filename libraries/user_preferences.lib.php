@@ -99,7 +99,7 @@ function PMA_saveUserprefs(array $config_array)
     $query_table = PMA_Util::backquote($cfgRelation['db']) . '.'
         . PMA_Util::backquote($cfgRelation['userconfig']);
     $query = 'SELECT `username` FROM ' . $query_table
-        . 'WHERE `username` = \''
+        . ' WHERE `username` = \''
         . PMA_Util::sqlAddSlashes($cfgRelation['user'])
         . '\'';
 
