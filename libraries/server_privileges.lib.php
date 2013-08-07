@@ -2282,7 +2282,7 @@ function PMA_getHtmlForDisplayUserRightsInRows($db_rights, $dbname,
             $html_output .= '</td>' . "\n"
                . '<td>';
             $html_output .= PMA_getUserEditLink(
-                $username, 
+                $username,
                 $hostname,
                 (! strlen($dbname)) ? $row['Db'] : $dbname,
                 (! strlen($dbname)) ? '' : $row['Table_name']
@@ -3236,19 +3236,25 @@ function PMA_getHtmlForUserGroupsTable()
 
             $html_output .= '<td>';
             $html_output .= '<a class="" href="server_user_groups.php?'
-                . PMA_URL_getCommon() . '&viewUsers=1&userGroup='
-                . urlencode($row['usergroup']) . '">'
+                . PMA_URL_getCommon(array(
+                    'viewUsers' => 1, 'userGroup' => $row['usergroup']
+                ))
+                . '">'
                 . PMA_Util::getIcon('b_usrlist.png', __('View users')) . '</a>';
             $html_output .= '&nbsp;&nbsp;';
             $html_output .= '<a class="" href="server_user_groups.php?'
-                . PMA_URL_getCommon() . '&editUserGroup=1&userGroup='
-                . urlencode($row['usergroup']) . '">'
+                . PMA_URL_getCommon(array(
+                    'editUserGroup' => 1, 'userGroup' => $row['usergroup']
+                ))
+                . '">'
                 . PMA_Util::getIcon('b_edit.png', __('Edit')) . '</a>';
             $html_output .= '&nbsp;&nbsp;';
             $html_output .= '<a class="deleteUserGroup ajax"'
                 . ' href="server_user_groups.php?'
-                . PMA_URL_getCommon() . '&deleteUserGroup=1&userGroup='
-                . urlencode($row['usergroup']) . '">'
+                . PMA_URL_getCommon(array(
+                    'deleteUserGroup' => 1, 'userGroup' => $row['usergroup']
+                ))
+                . '">'
                 . PMA_Util::getIcon('b_drop.png', __('Delete')) . '</a>';
             $html_output .= '</td>';
 
@@ -3264,8 +3270,8 @@ function PMA_getHtmlForUserGroupsTable()
     $GLOBALS['dbi']->freeResult($result);
 
     $html_output .= '<fieldset id="fieldset_add_user_group">';
-    $html_output .= '<a href="server_user_groups.php?'
-        . PMA_URL_getCommon() . '&addUserGroup=1">'
+    $html_output .= '<a href="server_user_groups.php'
+        . PMA_URL_getCommon(array('addUserGroup' => 1)) . '">'
         . PMA_Util::getIcon('b_usradd.png')
         . __('Add user group') . '</a>';
     $html_output .= '</fieldset>';
