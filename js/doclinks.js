@@ -65,7 +65,6 @@ var mysql_doc_keyword = {
     'CREATE INDEX': Array('create-index'),
     'CREATE LOGFILE GROUP': Array('create-logfile-group'),
     'CREATE PROCEDURE': Array('create-procedure'),
-    'CREATE FUNCTION': Array('create-procedure'),
     'CREATE SERVER': Array('create-server'),
     'CREATE TABLE': Array('create-table'),
     'CREATE TABLESPACE': Array('create-tablespace'),
@@ -77,7 +76,6 @@ var mysql_doc_keyword = {
     'DROP INDEX': Array('drop-index'),
     'DROP LOGFILE GROUP': Array('drop-logfile-group'),
     'DROP PROCEDURE': Array('drop-procedure'),
-    'DROP FUNCTION': Array('drop-procedure'),
     'DROP SERVER': Array('drop-server'),
     'DROP TABLE': Array('drop-table'),
     'DROP TABLESPACE': Array('drop-tablespace'),
@@ -193,7 +191,6 @@ var mysql_doc_keyword = {
     'IN': Array('comparison-operators', 'function_in'),
     'INET_ATON': Array('miscellaneous-functions', 'function_inet_aton'),
     'INET_NTOA': Array('miscellaneous-functions', 'function_inet_ntoa'),
-    'INSERT': Array('string-functions', 'function_insert'),
     'INSTR': Array('string-functions', 'function_instr'),
     'INTERVAL': Array('comparison-operators', 'function_interval'),
     'IS_FREE_LOCK': Array('miscellaneous-functions', 'function_is_free_lock'),
@@ -255,7 +252,6 @@ var mysql_doc_keyword = {
     'REGEXP': Array('regexp', 'operator_regexp'),
     'RELEASE_LOCK': Array('miscellaneous-functions', 'function_release_lock'),
     'REPEAT': Array('string-functions', 'function_repeat'),
-    'REPLACE': Array('string-functions', 'function_replace'),
     'REVERSE': Array('string-functions', 'function_reverse'),
     'RIGHT': Array('string-functions', 'function_right'),
     'RLIKE': Array('regexp', 'operator_rlike'),
@@ -331,7 +327,7 @@ var mysql_doc_keyword = {
     'NOT_LIKE': Array('string-comparison-functions', 'operator_not-like'),
     'NOT_REGEXP': Array('regexp', 'operator_not-regexp'),
     'COUNT_DISTINCT': Array('group-by-functions', 'function_count-distinct'),
-    'NOT_IN': Array('comparison-operators', 'function_not-in'),
+    'NOT_IN': Array('comparison-operators', 'function_not-in')
 };
 
 var mysql_doc_builtin = {
