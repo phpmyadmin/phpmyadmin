@@ -22,7 +22,6 @@ if (isset($_POST['scale']) && ! PMA_isValid($_POST['scale'], 'numeric')) {
 $post_params = array(
     'db',
     'mode',
-    'newpage',
     'pdf_page_number',
     'scale'
 );
@@ -52,7 +51,7 @@ if (isset($mode)) {
     $scale_q = PMA_Util::sqlAddSlashes($scale);
 
     if ('create_export' == $mode) {
-        $pdf_page_number = PMA_REL_createPage($newpage, $cfgRelation, $db);
+        $pdf_page_number = PMA_REL_createPage($_POST['newpage'], $cfgRelation, $db);
         if ($pdf_page_number > 0) {
             $message = PMA_Message::success(__('Page has been created'));
             $mode = 'export';
