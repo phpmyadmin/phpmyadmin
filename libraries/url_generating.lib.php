@@ -156,7 +156,8 @@ function PMA_getHiddenFields($values, $pre = '')
  * // produces with cookies enabled:
  * // script.php?myparam=myvalue&amp;db=mysql&amp;table=rights
  * // with cookies disabled:
- * // script.php?server=1&amp;lang=en&amp;myparam=myvalue&amp;db=mysql&amp;table=rights
+ * // script.php?server=1&amp;lang=en&amp;myparam=myvalue&amp;db=mysql
+ * // &amp;table=rights
  *
  * // note the missing ?
  * echo 'script.php' . PMA_URL_getCommon();

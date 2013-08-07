@@ -134,7 +134,8 @@ function PMA_pluginGetDefault($section, $opt)
         return htmlspecialchars($_GET[$opt]);
     } elseif (isset($GLOBALS['timeout_passed'])
         && $GLOBALS['timeout_passed']
-        && isset($_REQUEST[$opt])) {
+        && isset($_REQUEST[$opt])
+    ) {
         return htmlspecialchars($_REQUEST[$opt]);
     } elseif (isset($GLOBALS['cfg'][$section][$opt])) {
         $matches = array();

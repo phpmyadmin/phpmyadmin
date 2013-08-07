@@ -261,7 +261,7 @@ function PMA_getHtmlForChangeDatabaseCharset($db, $table)
 /**
  * Get HTML snippet for export relational schema view
  *
- * @param string $url_query
+ * @param string $url_query Query string for link
  *
  * @return string $html_output
  */
@@ -312,7 +312,9 @@ function PMA_runProcedureAndFunctionDefinitions($db)
     if ($function_names) {
         foreach ($function_names as $function_name) {
             $GLOBALS['dbi']->selectDb($db);
-            $tmp_query = $GLOBALS['dbi']->getDefinition($db, 'FUNCTION', $function_name);
+            $tmp_query = $GLOBALS['dbi']->getDefinition(
+                $db, 'FUNCTION', $function_name
+            );
             // collect for later display
             $GLOBALS['sql_query'] .= "\n" . $tmp_query;
             $GLOBALS['dbi']->selectDb($_REQUEST['newname']);
@@ -334,7 +336,9 @@ function PMA_getSqlQueryAndCreateDbBeforeCopy()
             'SHOW VARIABLES LIKE "lower_case_table_names"', 0, 1
         );
         if ($lower_case_table_names === '1') {
-            $_REQUEST['newname'] = $GLOBALS['PMA_String']->strtolower($_REQUEST['newname']);
+            $_REQUEST['newname'] = $GLOBALS['PMA_String']->strtolower(
+                $_REQUEST['newname']
+            );
         }
     }
 
@@ -1012,8 +1016,8 @@ function PMA_getHtmlForCopytable()
             . '</select>';
     }
     $html_output .= '&nbsp;<strong>.</strong>&nbsp;';
-    $html_output .= '<input class="halfWidth" type="text" size="20" name="new_name" '
-        . 'onfocus="this.select()" '
+    $html_output .= '<input class="halfWidth" type="text" '
+        . 'size="20" name="new_name" onfocus="this.select()" '
         . 'value="'. htmlspecialchars($GLOBALS['table']) . '"/><br />';
 
     $choices = array(
@@ -1410,6 +1414,11 @@ function PMA_getHtmlForReferentialIntegrityCheck($foreign, $url_params)
     return $html_output;
 }
 
+/**
+ * Reorder table based on request params
+ *
+ * @return array SQL query and result
+ */
 function PMA_getQueryAndResultForReorderingTable()
 {
     $sql_query = 'ALTER TABLE '
@@ -1430,19 +1439,19 @@ function PMA_getQueryAndResultForReorderingTable()
 /**
  * Get table alters array
  *
- * @param boolean $is_myisam_or_aria  whether MYISAM | ARIA or not
- * @param boolean $is_isam            whether ISAM or not
- * @param string  $pack_keys          pack keys
- * @param string  $checksum           value of checksum
- * @param boolean $is_aria            whether ARIA or not
- * @param string  $page_checksum      value of page checksum
- * @param string  $delay_key_write    delay key write
- * @param boolean $is_innodb          whether INNODB or not
- * @param boolean $is_pbxt            whether PBXT or not
- * @param string  $row_format         row format
- * @param string  $tbl_storage_engine table storage engine
- * @param string  $transactional      value of transactional
- * @param string  $tbl_collation      collation of the table
+ * @param boolean $is_myisam_or_aria      whether MYISAM | ARIA or not
+ * @param boolean $is_isam                whether ISAM or not
+ * @param string  $pack_keys              pack keys
+ * @param string  $checksum               value of checksum
+ * @param boolean $is_aria                whether ARIA or not
+ * @param string  $page_checksum          value of page checksum
+ * @param string  $delay_key_write        delay key write
+ * @param boolean $is_innodb              whether INNODB or not
+ * @param boolean $is_pbxt                whether PBXT or not
+ * @param string  $row_format             row format
+ * @param string  $new_tbl_storage_engine table storage engine
+ * @param string  $transactional          value of transactional
+ * @param string  $tbl_collation          collation of the table
  *
  * @return array  $table_alters
  */

@@ -12,11 +12,11 @@ if (!defined('PHPMYADMIN')) {
 /**
  * Function to get form parameters
  *
- * @param string $db            database
- * @param string $table         table
- * @param string $action        action
- * @param int    $num_fields    number of fields
- * @param bool   $selected      selected
+ * @param string $db         database
+ * @param string $table      table
+ * @param string $action     action
+ * @param int    $num_fields number of fields
+ * @param bool   $selected   selected
  *
  * @return array $form_params form parameters
  */
