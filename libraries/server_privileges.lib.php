@@ -1559,8 +1559,6 @@ function PMA_getWithClauseForAddUserAndUpdatePrivs()
  */
 function PMA_getHtmlForAddUser($dbname)
 {
-    $GLOBALS['url_query'] .= '&amp;adduser=1';
-
     $html_output = '<h2>' . "\n"
        . PMA_Util::getIcon('b_usradd.png') . __('Add user') . "\n"
        . '</h2>' . "\n"
@@ -1729,7 +1727,7 @@ function PMA_getHtmlForSpecificDbPrivileges()
         . '</fieldset>'
         . '</form>' . "\n";
 
-    if ($GLOBALS['is_ajax_request'] == true 
+    if ($GLOBALS['is_ajax_request'] == true
         && empty($_REQUEST['ajax_page_request'])
     ) {
         $message = PMA_Message::success(__('User has been added.'));
@@ -1742,12 +1740,15 @@ function PMA_getHtmlForSpecificDbPrivileges()
         $html_output .= '<fieldset id="fieldset_add_user">' . "\n"
            . '<legend>' . _pgettext('Create new user', 'New') . '</legend>' . "\n";
 
-        $html_output .= '<a href="server_privileges.php?'
-            . $GLOBALS['url_query'] . '&amp;adduser=1&amp;'
-            . 'dbname=' . htmlspecialchars($_REQUEST['checkprivs'])
+        $html_output .= '<a href="server_privileges.php'
+            . PMA_URL_getCommon(
+                array(
+                    'adduser' => 1,
+                    'dbname' => $_REQUEST['checkprivs'],
+                )
+            )
             .'" rel="'
-            .'checkprivs='.htmlspecialchars($_REQUEST['checkprivs'])
-            . '&amp;'.$GLOBALS['url_query']
+            . PMA_URL_getCommon(array('checkprivs' => $_REQUEST['checkprivs']))
             . '" class="ajax" name="db_specific">' . "\n"
             . PMA_Util::getIcon('b_usradd.png')
             . '        ' . __('Add user') . '</a>' . "\n";
@@ -1841,7 +1842,7 @@ function PMA_getHtmlTableBodyForSpecificDbPrivs($found, $row, $odd_row,
                     . '<td>' . "\n";
                 $html_output .= PMA_getUserEditLink(
                     $current_user, $current_host,
-                    (isset($current['Db']) && $current['Db'] != '*') 
+                    (isset($current['Db']) && $current['Db'] != '*')
                     ? $current['Db'] : ''
                 );
                 $html_output .= '</td>' . "\n"
@@ -2024,7 +2025,7 @@ function PMA_getExtraDataForAjaxBehavior(
             . '</td>' . "\n";
         $new_user_string .= '<td>'
             . PMA_getUserExportLink(
-                $username, 
+                $username,
                 $hostname,
                 isset($_GET['initial']) ? $_GET['initial'] : ''
             )
@@ -2039,8 +2040,8 @@ function PMA_getExtraDataForAjaxBehavior(
          * pagination
          */
         $new_user_initial = strtoupper(substr($username, 0, 1));
-        $new_user_initial_string = '<a href="server_privileges.php?'
-            . $GLOBALS['url_query'] . '&initial=' . $new_user_initial .'">'
+        $new_user_initial_string = '<a href="server_privileges.php'
+            . PMA_URL_getCommon(array('initial' => $new_user_initial)) .'">'
             . $new_user_initial . '</a>';
         $extra_data['new_user_initial'] = $new_user_initial;
         $extra_data['new_user_initial_string'] = $new_user_initial_string;
@@ -2134,8 +2135,14 @@ function PMA_getChangeLoginInformationHtmlForm($username, $hostname)
 function PMA_getLinkToDbAndTable($url_dbname, $dbname, $tablename)
 {
     $html_output = '[ ' . __('Database')
-        . ' <a href="' . $GLOBALS['cfg']['DefaultTabDatabase'] . '?'
-        . $GLOBALS['url_query'] . '&amp;db=' . $url_dbname . '&amp;reload=1">'
+        . ' <a href="' . $GLOBALS['cfg']['DefaultTabDatabase']
+        . PMA_URL_getCommon(
+            array(
+                'db' => $url_dbname,
+                'reload' => 1
+            )
+        )
+        . '">'
         . htmlspecialchars($dbname) . ': '
         . PMA_Util::getTitleForTarget(
             $GLOBALS['cfg']['DefaultTabDatabase']
@@ -2144,10 +2151,15 @@ function PMA_getLinkToDbAndTable($url_dbname, $dbname, $tablename)
 
     if (strlen($tablename)) {
         $html_output .= ' [ ' . __('Table') . ' <a href="'
-            . $GLOBALS['cfg']['DefaultTabTable'] . '?' . $GLOBALS['url_query']
-            . '&amp;db=' . $url_dbname
-            . '&amp;table=' . htmlspecialchars(urlencode($tablename))
-            . '&amp;reload=1">' . htmlspecialchars($tablename) . ': '
+            . $GLOBALS['cfg']['DefaultTabTable']
+            . PMA_URL_getCommon(
+                array(
+                    'db' => $url_dbname,
+                    'table' => $tablename,
+                    'reload' => 1,
+                )
+            )
+            . '">' . htmlspecialchars($tablename) . ': '
             . PMA_Util::getTitleForTarget(
                 $GLOBALS['cfg']['DefaultTabTable']
             )
@@ -2162,7 +2174,7 @@ function PMA_getLinkToDbAndTable($url_dbname, $dbname, $tablename)
  * So this function returns user rights as an array
  *
  * @param array  $tables              tables
- * @param string $user_host_condition a where clause that containd user's host 
+ * @param string $user_host_condition a where clause that containd user's host
  *                                    condition
  * @param string $dbname              database name
  *
@@ -2346,7 +2358,7 @@ function PMA_getHtmlForDisplayUserRightsInRows($db_rights, $dbname,
  *
  * @return array $html_output, $found_rows
  */
-function PMA_getTableForDisplayAllTableSpecificRights(  
+function PMA_getTableForDisplayAllTableSpecificRights(
     $username, $hostname, $dbname
 ) {
     // table header
@@ -2436,7 +2448,7 @@ function PMA_getHtmlForDisplaySelectDbInEditPrivs($found_rows)
             // already escaped in $found_rows,
             // contrary to the output of SHOW DATABASES
             if (empty($found_rows) || ! in_array($current_db, $found_rows)) {
-                $html_output .= '<option value="' 
+                $html_output .= '<option value="'
                     . htmlspecialchars($current_db) . '">'
                     . htmlspecialchars($current_db_show) . '</option>' . "\n";
             }
@@ -2603,13 +2615,6 @@ function PMA_getTableBodyForUserRightsTable($db_rights)
         $userGroupCount = $GLOBALS['dbi']->fetchValue(
             $sqlQuery, 0, 0, $GLOBALS['controllink']
         );
-
-        $link_edit_user_group = '<a class="edit_user_group_anchor ajax"'
-            . ' href="server_privileges.php?'
-            . str_replace('%', '%%', $GLOBALS['url_query'])
-            . '&amp;username=%s">'
-            . PMA_Util::getIcon('b_usrlist.png', __('Edit user group'))
-            . '</a>';
     }
 
     $odd_row = true;
@@ -2678,10 +2683,12 @@ function PMA_getTableBodyForUserRightsTable($db_rights)
                     $html_output .= '<td class="center"></td>';
                 } else {
                     $html_output .= '<td class="center">'
-                        . sprintf(
-                            $link_edit_user_group,
-                            urlencode($host['User'])
-                        )
+                        . '<a class="edit_user_group_anchor ajax"'
+                        . ' href="server_privileges.php'
+                        . PMA_URL_getCommon(array('username' => $host['User']))
+                        . '">'
+                        . PMA_Util::getIcon('b_usrlist.png', __('Edit user group'))
+                        . '</a>'
                         . '</td>';
                 }
             }
@@ -2707,9 +2714,9 @@ function PMA_getTableBodyForUserRightsTable($db_rights)
 function PMA_getFieldsetForAddDeleteUser()
 {
     $html_output = '<fieldset id="fieldset_add_user">' . "\n";
-    $html_output .= '<a href="server_privileges.php?'
-        . $GLOBALS['url_query'] . '&amp;adduser=1"'
-        . 'class="ajax">' . "\n"
+    $html_output .= '<a href="server_privileges.php'
+        . PMA_URL_getCommon(array('adduser' => 1))
+        . '" class="ajax">' . "\n"
         . PMA_Util::getIcon('b_usradd.png')
         . '            ' . __('Add user') . '</a>' . "\n";
     $html_output .= '</fieldset>' . "\n";
@@ -2721,28 +2728,28 @@ function PMA_getFieldsetForAddDeleteUser()
         . '</legend>' . "\n";
 
     $html_output .= '<input type="hidden" name="mode" value="2" />' . "\n"
-        . '(' 
-        . __('Revoke all active privileges from the users and delete them afterwards.') 
+        . '('
+        . __('Revoke all active privileges from the users and delete them afterwards.')
         . ')'
         . '<br />' . "\n";
 
     $html_output .= '<input type="checkbox" '
-        . 'title="' 
-        . __('Drop the databases that have the same names as the users.') 
+        . 'title="'
+        . __('Drop the databases that have the same names as the users.')
         . '" '
         . 'name="drop_users_db" id="checkbox_drop_users_db" />' . "\n";
 
     $html_output .= '<label for="checkbox_drop_users_db" '
-        . 'title="' 
-        . __('Drop the databases that have the same names as the users.') 
+        . 'title="'
+        . __('Drop the databases that have the same names as the users.')
         . '">' . "\n"
-        . '            ' 
-        . __('Drop the databases that have the same names as the users.') 
+        . '            '
+        . __('Drop the databases that have the same names as the users.')
         . "\n"
         . '</label>' . "\n"
         . '</fieldset>' . "\n";
 
-    $html_output .= '<fieldset id="fieldset_delete_user_footer" class="tblFooters">' 
+    $html_output .= '<fieldset id="fieldset_delete_user_footer" class="tblFooters">'
         . "\n";
     $html_output .= '<input type="submit" name="delete" '
         . 'value="' . __('Go') . '" id="buttonGo" '
@@ -2791,9 +2798,9 @@ function PMA_getHtmlForDisplayTheInitials($array_initials)
             if ($initial_was_found) {
                 $html_output .= '<td>'
                     . '<a class="ajax"'
-                    . ' href="server_privileges.php?'
-                    . $GLOBALS['url_query'] . '&amp;'
-                    . 'initial=' . urlencode($tmp_initial) . '">' . $tmp_initial
+                    . ' href="server_privileges.php'
+                    . PMA_URL_getCommon(array('initial' => $tmp_initial))
+                    . '">' . $tmp_initial
                     . '</a>'
                     . '</td>' . "\n";
             } else {
@@ -2802,9 +2809,9 @@ function PMA_getHtmlForDisplayTheInitials($array_initials)
         }
     }
     $html_output .= '<td>'
-        . '<a href="server_privileges.php?' . $GLOBALS['url_query']
-        . '&amp;showall=1" '
-        . 'class="nowrap">[' . __('Show all') . ']</a></td>' . "\n";
+        . '<a href="server_privileges.php'
+        . PMA_URL_getCommon(array('showall' => 1))
+        . '" class="nowrap">[' . __('Show all') . ']</a></td>' . "\n";
     $html_output .= '</tr></table>';
 
     return $html_output;
@@ -2959,7 +2966,7 @@ function PMA_updatePrivileges($username, $hostname, $tablename, $dbname)
     $sql_query = $sql_query0 . ' ' . $sql_query1 . ' ' . $sql_query2;
     $message = PMA_Message::success(__('You have updated the privileges for %s.'));
     $message->addParam(
-        '\'' . htmlspecialchars($username) 
+        '\'' . htmlspecialchars($username)
         . '\'@\'' . htmlspecialchars($hostname) . '\''
     );
 
@@ -3016,9 +3023,9 @@ function PMA_getHtmlForExportUserDefinition($username, $hostname)
 function PMA_getAddUserHtmlFieldset()
 {
     return '<fieldset id="fieldset_add_user">' . "\n"
-        . '<a href="server_privileges.php?' . $GLOBALS['url_query']
-        . '&amp;adduser=1" '
-        . 'class="ajax">' . "\n"
+        . '<a href="server_privileges.php'
+        . PMA_URL_getCommon(array('adduser' => 1))
+        . '" class="ajax">' . "\n"
         . PMA_Util::getIcon('b_usradd.png')
         . '            ' . __('Add user') . '</a>' . "\n"
         . '</fieldset>' . "\n";
@@ -3045,22 +3052,32 @@ function PMA_getHtmlHeaderForDisplayUserProperties(
        . __('User');
 
     if (isset($dbname)) {
-        $html_output .= ' <i><a href="server_privileges.php?'
-            . $GLOBALS['url_query']
-            . '&amp;username=' . htmlspecialchars(urlencode($username))
-            . '&amp;hostname=' . htmlspecialchars(urlencode($hostname))
-            . '&amp;dbname=&amp;tablename=">\'' . htmlspecialchars($username)
+        $html_output .= ' <i><a href="server_privileges.php'
+            . PMA_URL_getCommon(
+                array(
+                    'username' => $username,
+                    'hostname' => $hostname,
+                    'dbname' => '',
+                    'tablename' => '',
+                )
+            )
+            . '">\'' . htmlspecialchars($username)
             . '\'@\'' . htmlspecialchars($hostname)
             . '\'</a></i>' . "\n";
 
         $html_output .= ' - ';
         $html_output .= $dbname_is_wildcard ? __('Databases') : __('Database');
         if (isset($_REQUEST['tablename'])) {
-            $html_output .= ' <i><a href="server_privileges.php?' . $GLOBALS['url_query']
-                . '&amp;username=' . htmlspecialchars(urlencode($username))
-                . '&amp;hostname=' . htmlspecialchars(urlencode($hostname))
-                . '&amp;dbname=' . htmlspecialchars($url_dbname)
-                . '&amp;tablename=">' . htmlspecialchars($dbname)
+            $html_output .= ' <i><a href="server_privileges.php'
+                . PMA_URL_getCommon(
+                    array(
+                        'username' => $username,
+                        'hostname' => $hostname,
+                        'dbname' => $url_dbname,
+                        'tablename' => '',
+                    )
+                )
+                . '">' . htmlspecialchars($dbname)
                 . '</a></i>';
 
             $html_output .= ' - ' . __('Table')
@@ -3167,8 +3184,9 @@ function PMA_getHtmlForDisplayUserOverviewPage($pmaThemeImage, $text_dir)
                 __('Note: phpMyAdmin gets the users\' privileges directly from MySQL\'s privilege tables. The content of these tables may differ from the privileges the server uses, if they have been changed manually. In this case, you should %sreload the privileges%s before you continue.'),
                 PMA_Message::NOTICE
             );
-            $flushLink = '<a href="server_privileges.php?' . $GLOBALS['url_query'] . '&amp;'
-                . 'flush_privileges=1" id="reload_privileges_anchor">';
+            $flushLink = '<a href="server_privileges.php'
+                . PMA_URL_getCommon(array('flush_privileges' => 1))
+                . '" id="reload_privileges_anchor">';
             $flushnote->addParam(
                 $flushLink,
                 false
