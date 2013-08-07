@@ -108,7 +108,8 @@ class ImportSql_Test extends PHPUnit_Framework_TestCase
             $sql_query
         );          
         $this->assertContains(
-            'INSERT INTO `pma_bookmark` (`id`, `dbase`, `user`, `label`, `query`) VALUES',
+            'INSERT INTO `pma_bookmark` (`id`, `dbase`, `user`, `label`, `query`) '
+            . 'VALUES',
             $sql_query
         );          
    
