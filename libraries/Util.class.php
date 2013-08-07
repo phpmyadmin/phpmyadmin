@@ -1859,7 +1859,8 @@ class PMA_Util
         // Suhosin: Check that each query parameter is not above maximum
         $in_suhosin_limits = true;
         if ($url_length <= $GLOBALS['cfg']['LinkLengthLimit']) {
-            if ($suhosin_get_MaxValueLength = ini_get('suhosin.get.max_value_length')) {
+            $suhosin_get_MaxValueLength = ini_get('suhosin.get.max_value_length');
+            if ($suhosin_get_MaxValueLength) {
                 $query_parts = self::splitURLQuery($url);
                 foreach ($query_parts as $query_pair) {
                     list($eachvar, $eachval) = explode('=', $query_pair);
