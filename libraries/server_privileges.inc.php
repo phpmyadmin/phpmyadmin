@@ -163,6 +163,7 @@ if (! $is_superuser) {
  * Changes / copies a user, part I
  */
 $queries = array();
+$row = array();
 if (isset($_REQUEST['change_copy'])) {
     $user_host_condition = ' WHERE `User` = '
         . "'". PMA_Util::sqlAddSlashes($_REQUEST['old_username']) . "'"
