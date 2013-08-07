@@ -95,15 +95,22 @@ if (is_array($foreignData['disp_row'])) {
     }
 }
 
-
+// When coming from Table/Zoom search
+if (isset($_REQUEST['fromsearch'])) {
+    // In table or zoom search, input fields are named "criteriaValues"
+    $element_name = " var field = 'criteriaValues';\n";
+} else {
+    // In insert/edit, input fields are named "fields"
+    $element_name = " var field = 'fields';\n";
+}
 
 if (isset($rownumber)) {
-    $element_name  = "        var element_name = field + '[multi_edit]["
+    $element_name  .= "        var element_name = field + '[multi_edit]["
         . htmlspecialchars($rownumber) . "][' + fieldmd5 + ']';\n"
         . "        var null_name = field_null + '[multi_edit]["
         . htmlspecialchars($rownumber) . "][' + fieldmd5 + ']';\n";
 } else {
-    $element_name = "var element_name = field + '[]'";
+    $element_name .= "var element_name = field + '[]'";
 }
 $error = PMA_jsFormat(
     __(
