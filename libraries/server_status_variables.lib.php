@@ -5,7 +5,7 @@
  * functions for displaying server status variables
  *
  * @usedby  server_status_variables.php
- *  
+ *
  * @package PhpMyAdmin
  */
 if (! defined('PHPMYADMIN')) {
@@ -37,7 +37,7 @@ function PMA_getHtmlForFilter($ServerStatusData)
     $retval  = '';
     $retval .= '<fieldset id="tableFilter">';
     $retval .= '<legend>' . __('Filters') . '</legend>';
-    $retval .= '<form action="server_status_variables.php?' 
+    $retval .= '<form action="server_status_variables.php?'
         . PMA_generate_common_url() . '">';
     $retval .= '<input type="submit" value="' . __('Refresh') . '" />';
     $retval .= '<div class="formelement">';
@@ -46,7 +46,7 @@ function PMA_getHtmlForFilter($ServerStatusData)
         . 'style="vertical-align: baseline;" value="' . $filterText . '" />';
     $retval .= '</div>';
     $retval .= '<div class="formelement">';
-    $retval .= '<input' . $filterAlert . ' type="checkbox" ' 
+    $retval .= '<input' . $filterAlert . ' type="checkbox" '
         . 'name="filterAlert" id="filterAlert" />';
     $retval .= '<label for="filterAlert">';
     $retval .= __('Show only alert values');
@@ -72,7 +72,7 @@ function PMA_getHtmlForFilter($ServerStatusData)
     $retval .= '</select>';
     $retval .= '</div>';
     $retval .= '<div class="formelement">';
-    $retval .= '<input' . $dontFormat . ' type="checkbox" ' 
+    $retval .= '<input' . $dontFormat . ' type="checkbox" '
         . 'name="dontFormat" id="dontFormat" />';
     $retval .= '<label for="dontFormat">';
     $retval .= __('Show unformatted values');
@@ -93,7 +93,7 @@ function PMA_getHtmlForFilter($ServerStatusData)
  */
 function PMA_getHtmlForLinkSuggestions($ServerStatusData)
 {
-    $retval  = '<div id="linkSuggestions" class="defaultLinks" ' 
+    $retval  = '<div id="linkSuggestions" class="defaultLinks" '
         . 'style="display:none">';
     $retval .= '<p class="notice">' . __('Related links:');
     foreach ($ServerStatusData->links as $section_name => $section_links) {
@@ -104,7 +104,7 @@ function PMA_getHtmlForLinkSuggestions($ServerStatusData)
                 $retval .= ', ';
             }
             if ('doc' == $link_name) {
-                $retval .= PMA_Util::showMySQLDocu($link_url, $link_url);
+                $retval .= PMA_Util::showMySQLDocu($link_url);
             } else {
                 $retval .= '<a href="' . $link_url . '">' . $link_name . '</a>';
             }
@@ -164,9 +164,9 @@ function PMA_getHtmlForVariablesList($ServerStatusData)
         'Table_locks_waited' => 0,
         'Qcache_lowmem_prunes' => 0,
 
-        'Qcache_free_blocks' => 
+        'Qcache_free_blocks' =>
             isset($ServerStatusData->server_status['Qcache_total_blocks'])
-            ? $ServerStatusData->server_status['Qcache_total_blocks'] / 5 
+            ? $ServerStatusData->server_status['Qcache_total_blocks'] / 5
             : 0,
         'Slow_launch_threads' => 0,
 
@@ -191,8 +191,8 @@ function PMA_getHtmlForVariablesList($ServerStatusData)
     );
 
     $retval .= PMA_getHtmlForRenderVariables(
-        $ServerStatusData, 
-        $alerts, 
+        $ServerStatusData,
+        $alerts,
         $strShowStatus
     );
 
@@ -228,17 +228,16 @@ function PMA_getHtmlForRenderVariables($ServerStatusData, $alerts, $strShowStatu
         $odd_row = !$odd_row;
         $retval .= '<tr class="' . ($odd_row ? 'odd' : 'even')
             . (isset($ServerStatusData->allocationMap[$name])
-                ?' s_' . $ServerStatusData->allocationMap[$name] 
+                ?' s_' . $ServerStatusData->allocationMap[$name]
                 : '')
             . '">';
 
         $retval .= '<th class="name">';
         $retval .= htmlspecialchars(str_replace('_', ' ', $name));
-        // Fields containing % are calculated, 
+        // Fields containing % are calculated,
         // they can not be described in MySQL documentation
         if (strpos($name, '%') === false) {
             $retval .= PMA_Util::showMySQLDocu(
-                'server-status-variables',
                 'server-status-variables',
                 false,
                 'statvar_' . $name
@@ -289,7 +288,7 @@ function PMA_getHtmlForRenderVariables($ServerStatusData, $alerts, $strShowStatu
         if (isset($ServerStatusData->links[$name])) {
             foreach ($ServerStatusData->links[$name] as $link_name => $link_url) {
                 if ('doc' == $link_name) {
-                    $retval .= PMA_Util::showMySQLDocu($link_url, $link_url);
+                    $retval .= PMA_Util::showMySQLDocu($link_url);
                 } else {
                     $retval .= ' <a href="' . $link_url . '">' . $link_name . '</a>';
                 }
@@ -301,7 +300,7 @@ function PMA_getHtmlForRenderVariables($ServerStatusData, $alerts, $strShowStatu
     }
     $retval .= '</tbody>';
     $retval .= '</table>';
-    
+
     return $retval;
 }
 

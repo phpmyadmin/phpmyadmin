@@ -801,9 +801,7 @@ function PMA_getTableOptionFieldset($comment, $tbl_collation,
 
     //Storage engine
     $html_output .= '<tr><td>' . __('Storage Engine')
-        . PMA_Util::showMySQLDocu(
-            'Storage_engines', 'Storage_engines'
-        )
+        . PMA_Util::showMySQLDocu('Storage_engines')
         . '</td>'
         . '<td>'
         . PMA_StorageEngine::getHtmlSelect(
@@ -1212,20 +1210,17 @@ function PMA_getListofMaintainActionLink($is_myisam_or_aria,
  * @param array  $params     url parameters array
  * @param array  $url_params
  * @param string $link       contains name of page/anchor that is being linked
- * @param string $chapter    chapter of "HTML, one page per chapter" documentation
  *
  * @return string $html_output
  */
-function PMA_getMaintainActionlink($action, $params, $url_params, $link,
-    $chapter = 'MySQL_Database_Administration'
-) {
+function PMA_getMaintainActionlink($action, $params, $url_params, $link) {
     return '<li>'
         . '<a class="maintain_action ajax" '
         . 'href="sql.php'
         . PMA_generate_common_url(array_merge($url_params, $params)) .'">'
         . $action
         . '</a>'
-        . PMA_Util::showMySQLDocu($chapter, $link)
+        . PMA_Util::showMySQLDocu($link)
         . '</li>';
 }
 
@@ -1284,9 +1279,7 @@ function PMA_getDeleteDataOrTablelink($url_params, $syntax, $link, $id)
         . 'href="sql.php' . PMA_generate_common_url($url_params) . '"'
         . ' id="' . $id . '" class="ajax">'
         . $link . '</a>'
-        . PMA_Util::showMySQLDocu(
-            'SQL-Syntax', $syntax
-        )
+        . PMA_Util::showMySQLDocu($syntax)
         . '</li>';
 }
 
@@ -1326,10 +1319,7 @@ function PMA_getHtmlForPartitionMaintenance($partition_names, $url_params)
     $html_output .= PMA_Util::getRadioFields(
         'partition_operation', $choices, '', false
     );
-    $html_output .= PMA_Util::showMySQLDocu(
-        'partitioning_maintenance',
-        'partitioning_maintenance'
-    );
+    $html_output .= PMA_Util::showMySQLDocu('partitioning_maintenance');
     $this_url_params = array_merge(
         $url_params,
         array(

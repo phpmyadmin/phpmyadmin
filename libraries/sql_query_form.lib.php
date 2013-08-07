@@ -238,7 +238,7 @@ function PMA_sqlQueryFormInsert(
             );
         }
     }
-    $legend .= ': ' . PMA_Util::showMySQLDocu('SQL-Syntax', 'SELECT');
+    $legend .= ': ' . PMA_Util::showMySQLDocu('SELECT');
 
     if (count($fields_list)) {
         $sqlquerycontainer_id = 'sqlquerycontainer';

@@ -174,10 +174,7 @@ if ($server > 0 || count($cfg['Servers']) > 1
            . '                '. PMA_Util::getImage('s_asci.png') . " "
                                . __('Server connection collation') . "\n"
            // put the doc link in the form so that it appears on the same line
-           . PMA_Util::showMySQLDocu(
-               'MySQL_Database_Administration',
-               'Charset-connection'
-           )
+           . PMA_Util::showMySQLDocu('Charset-connection')
            . ': ' .  "\n"
            . '            </label>' . "\n"
 
@@ -640,7 +637,7 @@ function PMA_printListItem($name, $id = null, $url = null,
         echo '</a>' . "\n";
     }
     if (null !== $mysql_help_page) {
-        echo PMA_Util::showMySQLDocu('', $mysql_help_page);
+        echo PMA_Util::showMySQLDocu($mysql_help_page);
     }
     echo '</li>';
 }

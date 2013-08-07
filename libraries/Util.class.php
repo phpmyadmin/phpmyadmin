@@ -440,11 +440,10 @@ class PMA_Util
      *
      * @access  public
      */
-    public static function getMySQLDocuURL($chapter, $link, $anchor = '') {
+    public static function getMySQLDocuURL($link, $anchor = '') {
         global $cfg;
 
         // Fixup for newly used names:
-        $chapter = str_replace('_', '-', strtolower($chapter));
         $link = str_replace('_', '-', strtolower($link));
 
         if (empty($link)) {
@@ -486,9 +485,9 @@ class PMA_Util
      * @access  public
      */
     public static function showMySQLDocu(
-        $chapter, $link, $big_icon = false, $anchor = '', $just_open = false
+        $link, $big_icon = false, $anchor = '', $just_open = false
     ) {
-        $url = self::getMySQLDocuURL($chapter, $link, $anchor);
+        $url = self::getMySQLDocuURL($link, $anchor);
         $open_link = '<a href="' . $url . '" target="mysql_doc">';
         if ($just_open) {
             return $open_link;
@@ -643,7 +642,7 @@ class PMA_Util
             $error_msg .= '<p><strong>' . __('SQL query:') . '</strong>' . "\n";
             if (strstr(strtolower($formatted_sql), 'select')) {
                 // please show me help to the error on select
-                $error_msg .= self::showMySQLDocu('SQL-Syntax', 'SELECT');
+                $error_msg .= self::showMySQLDocu('SELECT');
             }
             if ($is_modify_link) {
                 $_url_params = array(
@@ -685,7 +684,7 @@ class PMA_Util
         // (now error-messages-server)
         $error_msg .= '<p>' . "\n"
             . '    <strong>' . __('MySQL said: ') . '</strong>'
-            . self::showMySQLDocu('Error-messages-server', 'Error-messages-server')
+            . self::showMySQLDocu('Error-messages-server')
             . "\n"
             . '</p>' . "\n";
 

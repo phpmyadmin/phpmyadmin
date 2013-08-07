@@ -97,7 +97,7 @@ $html .= '<div>'
     . '<strong>'
     . '<label for="select_index_type">'
     . __('Index type:')
-    . PMA_Util::showMySQLDocu('SQL-Syntax', 'ALTER_TABLE')
+    . PMA_Util::showMySQLDocu('ALTER_TABLE')
     . '</label>'
     . '</strong>'
     . '</div>'

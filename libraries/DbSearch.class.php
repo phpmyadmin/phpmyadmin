@@ -405,7 +405,7 @@ class PMA_DbSearch
                 ),
             '3' => __('the exact phrase'),
             '4' => __('as regular expression') . ' '
-                . PMA_Util::showMySQLDocu('Regexp', 'Regexp')
+                . PMA_Util::showMySQLDocu('Regexp')
         );
         // 4th parameter set to true to add line breaks
         // 5th parameter set to false to avoid htmlspecialchars() escaping

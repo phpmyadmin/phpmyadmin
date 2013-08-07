@@ -422,7 +422,6 @@ function PMA_pluginGetOneOption(
         if ($doc != null) {
             if (count($doc) == 3) {
                 $ret .= PMA_Util::showMySQLDocu(
-                    $doc[0],
                     $doc[1],
                     false,
                     $doc[2]
@@ -431,7 +430,6 @@ function PMA_pluginGetOneOption(
                 $ret .= PMA_Util::showDocu('faq', $doc[0]);
             } else {
                 $ret .= PMA_Util::showMySQLDocu(
-                    $doc[0],
                     $doc[1]
                 );
             }

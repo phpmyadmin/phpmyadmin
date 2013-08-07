@@ -172,8 +172,8 @@ class PMA_NavigationHeader
     private function _links()
     {
         // always iconic
-        $showIcon = true; 
-        $showText = false; 
+        $showIcon = true;
+        $showText = false;
 
         $retval  = '<!-- LINKS START -->';
         $retval .= '<div id="leftframelinks">';
@@ -224,7 +224,7 @@ class PMA_NavigationHeader
             'documentation'
         );
         if ($showIcon) {
-            $retval .= PMA_Util::showMySQLDocu('', '', true);
+            $retval .= PMA_Util::showMySQLDocu('', true);
         }
         if ($showText) {
             // PMA_showMySQLDocu always spits out an icon,
@@ -232,7 +232,7 @@ class PMA_NavigationHeader
             $link = preg_replace(
                 '/<img[^>]+>/i',
                 __('Documentation'),
-                PMA_Util::showMySQLDocu('', '', true)
+                PMA_Util::showMySQLDocu('', true)
             );
             $retval .= $link;
             $retval .= '<br />';

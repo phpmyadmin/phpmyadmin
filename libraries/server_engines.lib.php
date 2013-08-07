@@ -5,7 +5,7 @@
  * functions for displaying server engines
  *
  * @usedby  server_engines.php
- *  
+ *
  * @package PhpMyAdmin
  */
 if (! defined('PHPMYADMIN')) {
@@ -30,7 +30,7 @@ function PMA_getHtmlForServerEngines()
     } else {
         $html .= PMA_getHtmlForSpecifiedServerEngines();
     }
- 
+
     return $html;
 }
 
@@ -75,7 +75,7 @@ function PMA_getHtmlForAllServerEngines()
     unset($odd_row, $engine, $details);
     $html .= '</tbody>' . "\n"
         . '</table>' . "\n";
-    
+
     return $html;
 }
 
@@ -89,12 +89,12 @@ function PMA_getHtmlForSpecifiedServerEngines()
     /**
      * Displays details about a given Storage Engine
      */
-    $html = ''; 
+    $html = '';
     $engine_plugin = PMA_StorageEngine::getEngine($_REQUEST['engine']);
     $html .= '<h2>' . "\n"
         . PMA_Util::getImage('b_engine.png')
         . '    ' . htmlspecialchars($engine_plugin->getTitle()) . "\n"
-        . '    ' . PMA_Util::showMySQLDocu('', $engine_plugin->getMysqlHelpPage())
+        . '    ' . PMA_Util::showMySQLDocu($engine_plugin->getMysqlHelpPage())
         . "\n" . '</h2>' . "\n\n";
     $html .= '<p>' . "\n"
         . '    <em>' . "\n"
@@ -139,7 +139,7 @@ function PMA_getHtmlForSpecifiedServerEngines()
            . '</p>' . "\n"
            . $engine_plugin->getHtmlVariables();
     }
-    
+
     return $html;
 }
 

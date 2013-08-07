@@ -1522,9 +1522,7 @@ function PMA_getHtmlForOptionalActionLinks($url_query, $tbl_is_view,
                     true
                 )
                 . '</a>';
-            $html_output .= PMA_Util::showMySQLDocu(
-                'Extending_MySQL', 'procedure_analyse'
-            ) . "\n";
+            $html_output .= PMA_Util::showMySQLDocu('procedure_analyse') . "\n";
         }
         if (PMA_Tracker::isActive()) {
             $html_output .= '<a href="tbl_tracking.php?' . $url_query . '">'

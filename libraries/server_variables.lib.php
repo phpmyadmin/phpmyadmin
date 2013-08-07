@@ -102,8 +102,8 @@ function PMA_getAjaxReturnForSetVal($variable_doc_links)
         $response->addJSON(
             'variable',
             PMA_formatVariable(
-                $_REQUEST['varName'], 
-                $varValue[1], 
+                $_REQUEST['varName'],
+                $varValue[1],
                 $variable_doc_links
             )
         );
@@ -240,7 +240,6 @@ function PMA_getHtmlForServerVariablesItems($variable_doc_links)
                 . htmlspecialchars(str_replace('_', ' ', $name)) . '">';
             $output .= PMA_Util::showMySQLDocu(
                 $variable_doc_links[$name][1],
-                $variable_doc_links[$name][1],
                 false,
                 $variable_doc_links[$name][2] . '_' . $variable_doc_links[$name][0],
                 true
@@ -264,8 +263,8 @@ function PMA_getHtmlForServerVariablesItems($variable_doc_links)
                 . '<div class="var-name session">(' . __('Session value') . ')</div>'
                 . '<div class="var-value value">&nbsp;'
                 . PMA_formatVariable(
-                    $name, 
-                    $serverVarsSession[$name], 
+                    $name,
+                    $serverVarsSession[$name],
                     $variable_doc_links
                 ) . '</div>'
                 . '<div style="clear:both"></div>'

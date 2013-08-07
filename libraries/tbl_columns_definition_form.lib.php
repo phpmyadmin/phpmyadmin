@@ -70,7 +70,7 @@ function PMA_getHtmlForTableConfigurations()
         . '<th>' . __('Table comments:') . '</th>'
         . '<td width="25">&nbsp;</td>'
         . '<th>' . __('Storage Engine:')
-        . PMA_Util::showMySQLDocu('Storage_engines', 'Storage_engines')
+        . PMA_Util::showMySQLDocu('Storage_engines')
         . '</th>'
         . '<td width="25">&nbsp;</td>'
         . '<th>' . __('Collation:') . '</th>'
@@ -108,7 +108,7 @@ function PMA_getHtmlForTableConfigurations()
     if (PMA_Partition::havePartitioning()) {
         $html .= '<tr class="vtop">'
             . '<th>' . __('PARTITION definition:') . '&nbsp;'
-            . PMA_Util::showMySQLDocu('Partitioning', 'Partitioning')
+            . PMA_Util::showMySQLDocu('Partitioning')
             . '</th>'
             . '</tr>'
             . '<tr>'
@@ -197,7 +197,7 @@ function PMA_getHtmlForTableFieldDefinitions($header_cells, $content_cells)
 {
     $html = '<table id="table_columns" class="noclick">';
     $html .= '<caption class="tblHeaders">' . __('Structure')
-        . PMA_Util::showMySQLDocu('SQL-Syntax', 'CREATE_TABLE') . '</caption>';
+        . PMA_Util::showMySQLDocu('CREATE_TABLE') . '</caption>';
 
     $html .= '<tr>';
     foreach ($header_cells as $header_val) {
@@ -274,7 +274,7 @@ function PMA_getHeaderCells($is_backup, $fields_meta, $mimework, $db, $table)
     $header_cells = array();
     $header_cells[] = __('Name');
     $header_cells[] = __('Type')
-        . PMA_Util::showMySQLDocu('SQL-Syntax', 'data-types');
+        . PMA_Util::showMySQLDocu('data-types');
     $header_cells[] = __('Length/Values')
         . PMA_Util::showHint(
             __(

@@ -286,7 +286,7 @@ if (isset($destination_foreign_db)) {
                     );
                 }
                 $html_output .= PMA_Util::showMySQLDocu(
-                    'manual_Table_types', 'InnoDB_foreign_key_constraints'
+                    'InnoDB_foreign_key_constraints'
                 ) . "\n";
             }
 

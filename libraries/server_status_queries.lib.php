@@ -5,7 +5,7 @@
  * functions for displaying query statistics for the server
  *
  * @usedby  server_status_queries.php
- *  
+ *
  * @package PhpMyAdmin
  */
 if (! defined('PHPMYADMIN')) {
@@ -36,7 +36,6 @@ function PMA_getHtmlForQueryStatistics($ServerStatusData)
     $retval .= ' ';
     $retval .= PMA_Util::showMySQLDocu(
         'server-status-variables',
-        'server-status-variables',
         false,
         'statvar_Questions'
     );
@@ -47,14 +46,14 @@ function PMA_getHtmlForQueryStatistics($ServerStatusData)
     $retval .= '<br />';
     $retval .= '&oslash; ' . __('per minute:') . ' ';
     $retval .= PMA_Util::formatNumber(
-        $total_queries * 60 / $ServerStatusData->status['Uptime'], 
+        $total_queries * 60 / $ServerStatusData->status['Uptime'],
         0
     );
     $retval .= '<br />';
     if ($total_queries / $ServerStatusData->status['Uptime'] >= 1) {
         $retval .= '&oslash; ' . __('per second:') . ' ';
         $retval .= PMA_Util::formatNumber(
-            $total_queries / $ServerStatusData->status['Uptime'], 
+            $total_queries / $ServerStatusData->status['Uptime'],
             0
         );
     }
@@ -82,11 +81,11 @@ function PMA_getHtmlForServerStatusQueriesDetails($ServerStatusData)
     arsort($used_queries);
 
     $odd_row        = true;
-    
+
     //(- $ServerStatusData->status['Connections']);
     $perc_factor    = 100 / $total_queries;
 
-    $retval = '<table id="serverstatusqueriesdetails" ' 
+    $retval = '<table id="serverstatusqueriesdetails" '
         . 'class="data sortable noclick">';
     $retval .= '<col class="namecol" />';
     $retval .= '<col class="valuecol" span="3" />';
@@ -147,7 +146,7 @@ function PMA_getHtmlForServerStatusQueriesDetails($ServerStatusData)
     }
     $retval .= htmlspecialchars(json_encode($chart_json));
     $retval .= '</div>';
-    
+
     return $retval;
 }
 
