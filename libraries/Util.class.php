@@ -1166,6 +1166,7 @@ class PMA_Util
             // but only explain a SELECT (that has not been explained)
             /* SQL-Parser-Analyzer */
             $explain_link = '';
+            $is_select = preg_match('@^SELECT[[:space:]]+@i', $sql_query);
             if (! empty($cfg['SQLQuery']['Explain']) && ! $query_too_big) {
                 $explain_params = $url_params;
                 // Detect if we are validating as well
@@ -1173,10 +1174,14 @@ class PMA_Util
                 if (! empty($GLOBALS['validatequery'])) {
                     $explain_params['validatequery'] = 1;
                 }
-                if ($analyzed_display_query[0]['queryflags']['select_from']) {
+                if ($is_select) {
                     $explain_params['sql_query'] = 'EXPLAIN ' . $sql_query;
                     $_message = __('Explain SQL');
-                } elseif ($analyzed_display_query[0]['queryflags']['is_explain']) {
+                } elseif (
+                    preg_match(
+                        '@^EXPLAIN[[:space:]]+SELECT[[:space:]]+@i', $sql_query
+                    )
+                ) {
                     $explain_params['sql_query'] = substr($sql_query, 8);
                     $_message = __('Skip Explain SQL');
                 }
@@ -1314,7 +1319,7 @@ class PMA_Util
              * TODO: Should we have $cfg['SQLQuery']['InlineEdit']?
              */
             if (! empty($cfg['SQLQuery']['Edit'])
-                && $analyzed_display_query[0]['queryflags']['select_from']
+                && $is_select
                 && ! $query_too_big
             ) {
                 $inline_edit_link = ' ['
