@@ -180,8 +180,9 @@ class PMA_Util
         // If it's the first time this function is called
         if (! isset($sprites)) {
             // Try to load the list of sprites
-            if (is_readable($_SESSION['PMA_Theme']->getPath() . '/sprites.lib.php')) {
-                include_once $_SESSION['PMA_Theme']->getPath() . '/sprites.lib.php';
+            $sprite_file = $_SESSION['PMA_Theme']->getPath() . '/sprites.lib.php';
+            if (is_readable($sprite_file)) {
+                include_once $sprite_file;
                 $sprites = PMA_sprites();
             } else {
                 // No sprites are available for this theme
@@ -2180,10 +2181,11 @@ class PMA_Util
                 ) {
                     $con_val = '= ' . $row[$i];
                 } elseif ((($meta->type == 'blob') || ($meta->type == 'string'))
-                    // hexify only if this is a true not empty BLOB or a BINARY
                     && stristr($field_flags, 'BINARY')
                     && ! empty($row[$i])
                 ) {
+                    // hexify only if this is a true not empty BLOB or a BINARY
+
                     // do not waste memory building a too big condition
                     if (strlen($row[$i]) < 1000) {
                         // use a CAST if possible, to avoid problems
