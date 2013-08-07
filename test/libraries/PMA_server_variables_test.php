@@ -147,7 +147,7 @@ class PMA_ServerVariables_Test extends PHPUnit_Framework_TestCase
     {
         //Call the test function
         $html = PMA_getHtmlForLinkTemplates();
-        $url = htmlspecialchars('server_variables.php?' . PMA_URL_getCommon());
+        $url = 'server_variables.php' . PMA_URL_getCommon(array());
 
         //validate 1: URL
         $this->assertContains(
