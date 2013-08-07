@@ -372,6 +372,7 @@ img.lightbulb {
 .cm-sql-doc {
     text-decoration: none;
     border-bottom: 1px dotted #000;
+    color: inherit !important;
 }
 
 /* leave some space between icons and text */
