@@ -89,7 +89,7 @@ for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
                     $comments_map, $mime_map
                 ); 
     } elseif (isset($fields_meta[$columnNumber])) {
-        $columnMeta = PMA_getRowDataForFieldsMetaSet(
+        $columnMeta = PMA_getColumnMetaForDefault(
             $fields_meta[$columnNumber], isset($analyzed_sql[0]['create_table_fields']
             [$fields_meta[$columnNumber]['Field']]['default_value'])
         );

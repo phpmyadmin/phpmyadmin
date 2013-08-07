@@ -522,7 +522,7 @@ function PMA_handleRegeneration($columnNumber, $submit_fulltext, $comments_map,
  * 
  * @return array
  */
-function PMA_getRowDataForFieldsMetaSet($columnMeta, $isDefault)
+function PMA_getColumnMetaForDefault($columnMeta, $isDefault)
 {
     switch ($columnMeta['Default']) {
     case null:
