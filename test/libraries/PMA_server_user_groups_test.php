@@ -63,9 +63,10 @@ class PMA_ServerUserGroupsTest extends PHPUnit_Framework_TestCase
             '<table id="userGroupsTable">',
             $html
         );
+        $url_tag = '<a href="server_user_groups.php'
+            . PMA_URL_getCommon(array('addUserGroup' => 1));
         $this->assertContains(
-            '<a href="server_user_groups.php?'
-            . PMA_URL_getCommon() . '&addUserGroup=1">',
+            $url_tag,
             $html
         );
     }
@@ -120,22 +121,34 @@ class PMA_ServerUserGroupsTest extends PHPUnit_Framework_TestCase
             '<td>usergroup&lt;</td>',
             $html
         );
+        $url_tag = '<a class="" href="server_user_groups.php?'
+                . PMA_URL_getCommon(
+                    array(
+                        'viewUsers' => 1, 'userGroup' => 'usergroup'
+                    )
+                );
         $this->assertContains(
-            '<a class="" href="server_user_groups.php?'
-            . PMA_URL_getCommon() . '&viewUsers=1&userGroup='
-            . urlencode('usergroup<') . '">',
+            $url_tag,
             $html
         );
+        $url_tag = '<a class="" href="server_user_groups.php?'
+                . PMA_URL_getCommon(
+                    array(
+                        'editUserGroup' => 1, 'userGroup' => 'usergroup'
+                    )
+                );
         $this->assertContains(
-            '<a class="" href="server_user_groups.php?'
-            . PMA_URL_getCommon() . '&editUserGroup=1&userGroup='
-            . urlencode('usergroup<') . '">',
+            $url_tag,
             $html
         );
+        $url_tag = '<a class="" href="server_user_groups.php?'
+                . PMA_URL_getCommon(
+                    array(
+                        'deleteUserGroup' => 1, 'userGroup' => 'usergroup'
+                    )
+                );
         $this->assertContains(
-            '<a class="deleteUserGroup ajax" href="server_user_groups.php?'
-            . PMA_URL_getCommon() . '&deleteUserGroup=1&userGroup='
-            . urlencode('usergroup<') . '">',
+            $url_tag,
             $html
         );
     }
