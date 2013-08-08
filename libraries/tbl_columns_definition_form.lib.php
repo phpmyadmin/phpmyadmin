@@ -841,12 +841,19 @@ function PMA_getHtmlForColumnIndexes($columnNumber, $ci, $ci_offset, $columnMeta
         . ' id="field_' . $columnNumber . '_' . ($ci - $ci_offset) . '">';
     $html .= '<option value="none_' . $columnNumber . '">---</option>';
     
-    $html .= PMA_getHtmlForPrimaryIndexOption($columnNumber, $columnMeta);
-    $html .= PMA_getHtmlForUniqueIndexOption($columnNumber, $columnMeta);
-    $html .= PMA_getHtmlForIndexOption($columnNumber, $columnMeta);
-    
+    $html .= PMA_getHtmlForIndexTypeOption(
+        $columnNumber, $columnMeta, 'Primary', 'PRI'
+    );
+    $html .= PMA_getHtmlForIndexTypeOption(
+        $columnNumber, $columnMeta, 'Unique', 'UNI'
+    );
+    $html .= PMA_getHtmlForIndexTypeOption(
+        $columnNumber, $columnMeta, 'Index', 'MUL'
+    );
     if (!PMA_DRIZZLE) {
-        $html .= PMA_getHtmlForFulltextOption($columnNumber, $columnMeta);
+        $html .= PMA_getHtmlForIndexTypeOption(
+            $columnNumber, $columnMeta, 'Fulltext', 'FULLTEXT'
+        );
     }
 
     $html .= '</select>';
@@ -855,84 +862,29 @@ function PMA_getHtmlForColumnIndexes($columnNumber, $ci, $ci_offset, $columnMeta
 }
 
 /**
- * Function to get html for the primary index option
+ * Function to get html for the index options
  * 
- * @param int   $columnNumber column number
- * @param array $columnMeta   column meta
+ * @param int    $columnNumber column number
+ * @param array  $columnMeta   column meta
+ * @param string $type         index type
+ * @param string $key          column meta key
  * 
  * @return string
  */
-function PMA_getHtmlForPrimaryIndexOption($columnNumber, $columnMeta)
+
+function PMA_getHtmlForIndexTypeOption($columnNumber, $columnMeta, $type, $key)
 {
-    $html = '<option value="primary_' . $columnNumber . '" title="'
-        . __('Primary') . '"';
-    if (isset($columnMeta['Key']) && $columnMeta['Key'] == 'PRI') {
+    $html = '<option value="' . strtolower($type) . '_' . $columnNumber
+        . '" title="'
+        . __($type) . '"';
+    if (isset($columnMeta['Key']) && $columnMeta['Key'] == $key) {
         $html .= ' selected="selected"';
     }
-    $html .= '>PRIMARY</option>';
+    $html .= '>' . strtoupper($type) . '</option>';
     
     return $html;
 }
 
-/**
- * Function to get html for the unique index option
- * 
- * @param int   $columnNumber column number
- * @param array $columnMeta   column meta
- * 
- * @return string
- */
-function PMA_getHtmlForUniqueIndexOption($columnNumber, $columnMeta)
-{
-    $html = '<option value="unique_' . $columnNumber . '" title="'
-        . __('Unique') . '"';
-    if (isset($columnMeta['Key']) && $columnMeta['Key'] == 'UNI') {
-        $html .= ' selected="selected"';
-    }
-    $html .= '>UNIQUE</option>';
-    
-    return $html;
-}
-
-/**
- * Function to get html for the index option
- * 
- * @param int   $columnNumber column number
- * @param array $columnMeta   column meta
- * 
- * @return string
- */
-function PMA_getHtmlForIndexOption($columnNumber, $columnMeta)
-{
-    $html = '<option value="index_' . $columnNumber . '" title="'
-        . __('Index') . '"';
-    if (isset($columnMeta['Key']) && $columnMeta['Key'] == 'MUL') {
-        $html .= ' selected="selected"';
-    }
-    $html .= '>INDEX</option>';
-    
-    return $html;
-}
-
-/**
- * Function to get html for the fulltext option
- * 
- * @param int   $columnNumber column number
- * @param array $columnMeta   column meta
- * 
- * @return string
- */
-function PMA_getHtmlForFulltextOption($columnNumber, $columnMeta)
-{
-    $html = '<option value="fulltext_' . $columnNumber . '" title="'
-            . __('Fulltext') . '"';
-    if (isset($columnMeta['Key']) && $columnMeta['Key'] == 'FULLTEXT') {
-        $html .= ' selected="selected"';
-    }
-    $html .= '>FULLTEXT</option>';
-    
-    return $html;
-}
         
 /**
  * Function to get html for column null
