@@ -9,6 +9,32 @@
 if (! defined('PHPMYADMIN')) {
     exit;
 }
+
+/**
+ * Get Html for User Group Dialog
+ *
+ * @param string $username     username
+ * @param bool   $is_menuswork Is menuswork set in configuration
+ *
+ * @return string html
+ */
+function PMA_getHtmlForUserGroupDialog($username, $is_menuswork)
+{
+    $html = '';
+    if (! empty($_REQUEST['edit_user_group_dialog']) && $is_menuswork) {
+        $dialog = PMA_getHtmlToChoseUserGroup($username);
+        $response = PMA_Response::getInstance();
+        if ($GLOBALS['is_ajax_request']) {
+            $response->addJSON('message', $dialog);
+            exit;
+        } else {
+            $html .= $dialog;
+        }
+    }
+    
+    return $html;
+}
+
 /**
  * Escapes wildcard in a database+table specification
  * before using it in a GRANT statement.
@@ -234,7 +260,11 @@ function PMA_getGrantsArray()
         array(
             'Super_priv',
             'SUPER',
-            __('Allows connecting, even if maximum number of connections is reached; required for most administrative operations like setting global variables or killing threads of other users.')
+            __(
+                'Allows connecting, even if maximum number of connections ' 
+                . 'is reached; required for most administrative operations ' 
+                . 'like setting global variables or killing threads of other users.'
+            )
         ),
         array(
             'Create_tmp_table_priv',
@@ -585,13 +615,13 @@ function PMA_getHtmlToDisplayPrivilegesTable($db = '*',
         }
         unset($res, $row1);
     }
-    // t a b l e - s p e c i f i c    p r i v i l e g e s
+    // table-specific privileges
     if (! empty($columns)) {
         $html_output .= PMA_getHtmlForTableSpecificPrivileges(
             $username, $hostname, $db, $table, $columns, $row
         );
     } else {
-        // g l o b a l    o r    d b - s p e c i f i c
+        // global or db-specific
         $html_output .= PMA_getHtmlForGlobalOrDbSpecificPrivs($db, $table, $row);
     }
     $html_output .= '</fieldset>' . "\n";
@@ -623,7 +653,9 @@ function PMA_getHtmlForDisplayResourceLimits($row)
     $html_output .= '<div class="item">' . "\n"
         . '<label for="text_max_questions">'
         . '<code><dfn title="'
-        . __('Limits the number of queries the user may send to the server per hour.')
+        . __(
+            'Limits the number of queries the user may send to the server per hour.'
+        )
         . '">'
         . 'MAX QUERIES PER HOUR'
         . '</dfn></code></label>' . "\n"
@@ -631,32 +663,44 @@ function PMA_getHtmlForDisplayResourceLimits($row)
         . 'value="' . $row['max_questions'] . '" '
         . 'size="11" maxlength="11" '
         . 'title="'
-        . __('Limits the number of queries the user may send to the server per hour.')
+        . __(
+            'Limits the number of queries the user may send to the server per hour.'
+        )
         . '" />' . "\n"
         . '</div>' . "\n";
 
     $html_output .= '<div class="item">' . "\n"
         . '<label for="text_max_updates">'
         . '<code><dfn title="'
-        . __('Limits the number of commands that change any table or database the user may execute per hour.') . '">'
+        . __(
+            'Limits the number of commands that change any table ' 
+            . 'or database the user may execute per hour.'
+        ) . '">'
         . 'MAX UPDATES PER HOUR'
         . '</dfn></code></label>' . "\n"
         . '<input type="text" name="max_updates" id="text_max_updates" '
         . 'value="' . $row['max_updates'] . '" size="11" maxlength="11" '
         . 'title="'
-        . __('Limits the number of commands that change any table or database the user may execute per hour.')
+        . __(
+            'Limits the number of commands that change any table ' 
+            . 'or database the user may execute per hour.'
+        )
         . '" />' . "\n"
         . '</div>' . "\n";
 
     $html_output .= '<div class="item">' . "\n"
         . '<label for="text_max_connections">'
         . '<code><dfn title="'
-        . __('Limits the number of new connections the user may open per hour.') . '">'
+        . __(
+            'Limits the number of new connections the user may open per hour.'
+        ) . '">'
         . 'MAX CONNECTIONS PER HOUR'
         . '</dfn></code></label>' . "\n"
         . '<input type="text" name="max_connections" id="text_max_connections" '
         . 'value="' . $row['max_connections'] . '" size="11" maxlength="11" '
-        . 'title="' . __('Limits the number of new connections the user may open per hour.')
+        . 'title="' . __(
+            'Limits the number of new connections the user may open per hour.'
+        )
         . '" />' . "\n"
         . '</div>' . "\n";
 
@@ -790,7 +834,8 @@ function PMA_getHtmlForNotAttachedPrivilegesToTableSpecificColumn($row)
     $html_output = '';
     foreach ($row as $current_grant => $current_grant_value) {
         $grant_type = substr($current_grant, 0, (strlen($current_grant) - 5));
-        if (in_array($grant_type, array('Select', 'Insert', 'Update', 'References'))) {
+        if (in_array($grant_type, array('Select', 'Insert', 'Update', 'References'))
+        ) {
             continue;
         }
         // make a substitution to match the messages variables;
@@ -1036,13 +1081,21 @@ function PMA_getAdministrationPrivilegeTable($db)
     $administration_privTable = array(
         array('Grant',
             'GRANT',
-            __('Allows adding users and privileges without reloading the privilege tables.')
+            __(
+                'Allows adding users and privileges ' 
+                . 'without reloading the privilege tables.'
+            )
         ),
     );
     if ($db == '*') {
         $administration_privTable[] = array('Super',
             'SUPER',
-            __('Allows connecting, even if maximum number of connections is reached; required for most administrative operations like setting global variables or killing threads of other users.')
+            __(
+                'Allows connecting, even if maximum number ' 
+                . 'of connections is reached; required for ' 
+                . 'most administrative operations like ' 
+                . 'setting global variables or killing threads of other users.'
+            )
         );
         $administration_privTable[] = array('Process',
             'PROCESS',
@@ -1197,7 +1250,11 @@ function PMA_getHtmlForDisplayLoginInformationFields($mode = 'new')
     $html_output .= '<div id="user_exists_warning"'
         . ' name="user_exists_warning" style="display:none;">'
         . PMA_Message::notice(
-            __('An account already exists with the same username but possibly a different hostname. Are you sure you wish to proceed?')
+            __(
+                'An account already exists with the same username ' 
+                . 'but possibly a different hostname. ' 
+                . 'Are you sure you wish to proceed?'
+            )
         )->getDisplay()
         . '</div>';
     $html_output .= '</div>';
@@ -1308,7 +1365,10 @@ function PMA_getHtmlForDisplayLoginInformationFields($mode = 'new')
         . '" title="' . __('Host')
         . '" onchange="pred_hostname.value = \'userdefined\';" />' . "\n"
         . PMA_Util::showHint(
-            __('When Host table is used, this field is ignored and values stored in Host table are used instead.')
+            __(
+                'When Host table is used, this field is ignored ' 
+                . 'and values stored in Host table are used instead.'
+            )
         )
         . '</div>' . "\n";
 
@@ -1586,7 +1646,10 @@ function PMA_getHtmlForAddUser($dbname)
     if (! empty($dbname) ) {
         $html_output .= PMA_Util::getCheckbox(
             'createdb-3',
-            sprintf(__('Grant all privileges on database &quot;%s&quot;'), htmlspecialchars($dbname)),
+            sprintf(
+                __('Grant all privileges on database &quot;%s&quot;'), 
+                htmlspecialchars($dbname)
+            ),
             true,
             false
         );
@@ -1727,7 +1790,7 @@ function PMA_getHtmlForSpecificDbPrivileges()
         . '</fieldset>'
         . '</form>' . "\n";
 
-    if ($GLOBALS['is_ajax_request'] == true
+    if ($GLOBALS['is_ajax_request'] == true 
         && empty($_REQUEST['ajax_page_request'])
     ) {
         $message = PMA_Message::success(__('User has been added.'));
@@ -2087,8 +2150,15 @@ function PMA_getChangeLoginInformationHtmlForm($username, $hostname)
     $choices = array(
         '4' => __('… keep the old one.'),
         '1' => __('… delete the old one from the user tables.'),
-        '2' => __('… revoke all active privileges from the old one and delete it afterwards.'),
-        '3' => __('… delete the old one from the user tables and reload the privileges afterwards.'));
+        '2' => __(
+            '… revoke all active privileges from ' 
+            . 'the old one and delete it afterwards.'
+        ),
+        '3' => __(
+            '… delete the old one from the user tables ' 
+            . 'and reload the privileges afterwards.'
+        )
+    );
 
     $class = ' ajax';
     $html_output = '<form action="server_privileges.php" '
@@ -2981,7 +3051,7 @@ function PMA_updatePrivileges($username, $hostname, $tablename, $dbname)
  *
  * @return array ($title, $export)
  */
-function PMA_getHtmlForExportUserDefinition($username, $hostname)
+function PMA_getListForExportUserDefinition($username, $hostname)
 {
     $export = '<textarea class="export" cols="' . $GLOBALS['cfg']['TextareaCols']
         . '" rows="' . $GLOBALS['cfg']['TextareaRows'] . '">';
