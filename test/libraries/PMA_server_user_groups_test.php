@@ -124,7 +124,7 @@ class PMA_ServerUserGroupsTest extends PHPUnit_Framework_TestCase
         $url_tag = '<a class="" href="server_user_groups.php?'
                 . PMA_URL_getCommon(
                     array(
-                        'viewUsers' => 1, 'userGroup' => 'usergroup'
+                        'viewUsers' => 1, 'userGroup' => urlencode('usergroup<')
                     )
                 );
         $this->assertContains(
@@ -134,7 +134,7 @@ class PMA_ServerUserGroupsTest extends PHPUnit_Framework_TestCase
         $url_tag = '<a class="" href="server_user_groups.php?'
                 . PMA_URL_getCommon(
                     array(
-                        'editUserGroup' => 1, 'userGroup' => 'usergroup'
+                        'editUserGroup' => 1, 'userGroup' => urlencode('usergroup<')
                     )
                 );
         $this->assertContains(
@@ -144,7 +144,7 @@ class PMA_ServerUserGroupsTest extends PHPUnit_Framework_TestCase
         $url_tag = '<a class="" href="server_user_groups.php?'
                 . PMA_URL_getCommon(
                     array(
-                        'deleteUserGroup' => 1, 'userGroup' => 'usergroup'
+                        'deleteUserGroup' => 1, 'userGroup'=>urlencode('usergroup<')
                     )
                 );
         $this->assertContains(
