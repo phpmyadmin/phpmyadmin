@@ -147,7 +147,7 @@ for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
             = (isset($columnMeta['Default']) ? $columnMeta['Default'] : '');
     }
     
-    $content_cells[$columnNumber] = PMA_getHtmlForColumnAtributes(
+    $content_cells[$columnNumber] = PMA_getHtmlForColumnAttributes(
         $columnNumber, isset($columnMeta) ? $columnMeta : null, $type_upper,
         $length_values_input_size, $length,
         isset($default_current_timestamp) ? $default_current_timestamp : null,

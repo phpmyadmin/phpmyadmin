@@ -967,7 +967,7 @@ function PMA_getHtmlForColumnAttribute($columnNumber, $ci, $ci_offset,
     if (isset($columnMeta['Field'])) {
         $field = $create_table_fields[$columnMeta['Field']];
     }
-    
+
     if (isset($field)
         && isset($field['on_update_current_timestamp'])
     ) {
@@ -995,7 +995,7 @@ function PMA_getHtmlForColumnAttribute($columnNumber, $ci, $ci_offset,
     }
 
     $html .= '</select>';
-    
+
     return $html;
 }
 
@@ -1140,7 +1140,7 @@ function PMA_getHtmlForColumnDefault($columnNumber, $ci, $ci_offset, $type_upper
  * 
  * @return array
  */
-function PMA_getHtmlForColumnAtributes($columnNumber, $columnMeta, $type_upper,
+function PMA_getHtmlForColumnAttributes($columnNumber, $columnMeta, $type_upper,
     $length_values_input_size, $length, $default_current_timestamp,
     $extracted_columnspec, $submit_attribute, $analyzed_sql,
     $submit_default_current_timestamp, $comments_map, $fields_meta, $is_backup,
