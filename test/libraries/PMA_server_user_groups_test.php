@@ -142,7 +142,7 @@ class PMA_ServerUserGroupsTest extends PHPUnit_Framework_TestCase
             $url_tag,
             $html
         );
-        $url_tag = '<a class="" href="server_user_groups.php?'
+        $url_tag = '<a class="deleteUserGroup ajax" href="server_user_groups.php?'
                 . PMA_URL_getCommon(
                     array(
                         'deleteUserGroup'=> 1, 
