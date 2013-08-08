@@ -118,13 +118,13 @@ class PMA_ServerUserGroupsTest extends PHPUnit_Framework_TestCase
 
         $html = PMA_getHtmlForUserGroupsTable();
         $this->assertContains(
-            '<td>usergroup&lt;</td>',
+            '<td>usergroup</td>',
             $html
         );
         $url_tag = '<a class="" href="server_user_groups.php?'
                 . PMA_URL_getCommon(
                     array(
-                        'viewUsers' => 1, 'userGroup' => htmlspecialchars('usergroup')
+                        'viewUsers'=>1, 'userGroup'=>htmlspecialchars('usergroup')
                     )
                 );
         $this->assertContains(
@@ -134,7 +134,8 @@ class PMA_ServerUserGroupsTest extends PHPUnit_Framework_TestCase
         $url_tag = '<a class="" href="server_user_groups.php?'
                 . PMA_URL_getCommon(
                     array(
-                        'editUserGroup' => 1, 'userGroup' => htmlspecialchars('usergroup')
+                        'editUserGroup'=>1, 
+                        'userGroup'=>htmlspecialchars('usergroup')
                     )
                 );
         $this->assertContains(
@@ -144,7 +145,8 @@ class PMA_ServerUserGroupsTest extends PHPUnit_Framework_TestCase
         $url_tag = '<a class="" href="server_user_groups.php?'
                 . PMA_URL_getCommon(
                     array(
-                        'deleteUserGroup' => 1, 'userGroup'=>htmlspecialchars('usergroup')
+                        'deleteUserGroup'=> 1, 
+                        'userGroup'=>htmlspecialchars('usergroup')
                     )
                 );
         $this->assertContains(
