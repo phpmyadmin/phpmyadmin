@@ -286,7 +286,7 @@ if (isset($destination_foreign_db)) {
                     );
                 }
                 $html_output .= PMA_Util::showMySQLDocu(
-                    'manual_Table_types', 'InnoDB_foreign_key_constraints'
+                    'InnoDB_foreign_key_constraints'
                 ) . "\n";
             }
 
@@ -377,7 +377,7 @@ if ($cfgRelation['displaywork']) {
 
 // common form
 $html_output .= '<form method="post" action="tbl_relation.php">' . "\n"
-    . PMA_generate_common_hidden_inputs($db, $table);
+    . PMA_URL_getHiddenInputs($db, $table);
 
 // Now find out the columns of our $table
 // need to use PMA_DatabaseInterface::QUERY_STORE with $GLOBALS['dbi']->numRows() in mysqli

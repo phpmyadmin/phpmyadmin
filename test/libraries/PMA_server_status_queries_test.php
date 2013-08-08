@@ -44,7 +44,7 @@ class PMA_ServerStatusQueries_Test extends PHPUnit_Framework_TestCase
      * @return void
      */
     public function setUp()
-    {    
+    {
         //$GLOBALS
         $GLOBALS['cfg']['MaxRows'] = 10;
         $GLOBALS['cfg']['ServerDefault'] = "server";
@@ -52,19 +52,17 @@ class PMA_ServerStatusQueries_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['SQP'] = array();
         $GLOBALS['cfg']['MaxCharactersInDisplayedSQL'] = 1000;
         $GLOBALS['cfg']['ShowSQL'] = true;
-        $GLOBALS['cfg']['SQP']['fmtType'] = 'none';
         $GLOBALS['cfg']['TableNavigationLinksMode'] = 'icons';
         $GLOBALS['cfg']['LimitChars'] = 100;
         $GLOBALS['cfg']['DBG']['sql'] = false;
-        $GLOBALS['cfg']['Server']['host'] = "localhost";   
-        $GLOBALS['cfg']['MySQLManualType'] = 'viewable';  
+        $GLOBALS['cfg']['Server']['host'] = "localhost";
         $GLOBALS['PMA_PHP_SELF'] = PMA_getenv('PHP_SELF');
         $GLOBALS['server_master_status'] = false;
         $GLOBALS['server_slave_status'] = false;
-        
+
         $GLOBALS['table'] = "table";
         $GLOBALS['pmaThemeImage'] = 'image';
-        
+
         //$_SESSION
         $_SESSION['PMA_Theme'] = PMA_Theme::load('./themes/pmahomme');
         $_SESSION['PMA_Theme'] = new PMA_Theme();
@@ -82,7 +80,7 @@ class PMA_ServerStatusQueries_Test extends PHPUnit_Framework_TestCase
             "Com_create_function" => "0",
             "Com_empty_query" => "0",
         );
-        
+
         $server_variables= array(
             "auto_increment_increment" => "1",
             "auto_increment_offset" => "1",
@@ -90,7 +88,7 @@ class PMA_ServerStatusQueries_Test extends PHPUnit_Framework_TestCase
             "back_log" => "50",
             "big_tables" => "OFF",
         );
-        
+
         $fetchResult = array(
             array(
                 "SHOW GLOBAL STATUS",
@@ -109,10 +107,10 @@ class PMA_ServerStatusQueries_Test extends PHPUnit_Framework_TestCase
                 $server_variables
             )
         );
-        
+
         $dbi->expects($this->any())->method('fetchResult')
             ->will($this->returnValueMap($fetchResult));
-         
+
         $GLOBALS['dbi'] = $dbi;
         $this->ServerStatusData = new PMA_ServerStatusData();
         $upTime = "10h";
@@ -134,13 +132,13 @@ class PMA_ServerStatusQueries_Test extends PHPUnit_Framework_TestCase
      */
     public function testPMAGetHtmlForQueryStatistics()
     {
-        //Call the test function          
+        //Call the test function
         $html = PMA_getHtmlForQueryStatistics($this->ServerStatusData);
 
         $hour_factor   = 3600 / $this->ServerStatusData->status['Uptime'];
         $used_queries = $this->ServerStatusData->used_queries;
         $total_queries = array_sum($used_queries);
-        
+
         $questions_from_start = sprintf(
             __('Questions since startup: %s'),
             PMA_Util::formatNumber($total_queries, 0)
@@ -155,7 +153,7 @@ class PMA_ServerStatusQueries_Test extends PHPUnit_Framework_TestCase
             $questions_from_start,
             $html
         );
-        
+
         //validate 2: per hour
         $this->assertContains(
             __('per hour:'),
@@ -165,10 +163,10 @@ class PMA_ServerStatusQueries_Test extends PHPUnit_Framework_TestCase
             PMA_Util::formatNumber($total_queries * $hour_factor, 0),
             $html
         );
-        
+
         //validate 3:per minute
         $value_per_minute = PMA_Util::formatNumber(
-            $total_queries * 60 / $this->ServerStatusData->status['Uptime'], 
+            $total_queries * 60 / $this->ServerStatusData->status['Uptime'],
             0
         );
         $this->assertContains(
@@ -188,7 +186,7 @@ class PMA_ServerStatusQueries_Test extends PHPUnit_Framework_TestCase
      */
     public function testPMAGetHtmlForServerStatusQueriesDetails()
     {
-        //Call the test function          
+        //Call the test function
         $html = PMA_getHtmlForServerStatusQueriesDetails($this->ServerStatusData);
 
         $hour_factor   = 3600 / $this->ServerStatusData->status['Uptime'];
@@ -200,7 +198,7 @@ class PMA_ServerStatusQueries_Test extends PHPUnit_Framework_TestCase
             __('Statements'),
             $html
         );
-        
+
         //validate 2: used queries
         $this->assertContains(
             htmlspecialchars("change db"),
@@ -230,7 +228,7 @@ class PMA_ServerStatusQueries_Test extends PHPUnit_Framework_TestCase
             htmlspecialchars("show tables"),
             $html
         );
-        
+
         //validate 3:serverstatusquerieschart
         $this->assertContains(
             '<div id="serverstatusquerieschart"></div>',

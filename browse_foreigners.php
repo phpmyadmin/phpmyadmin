@@ -14,10 +14,7 @@ require_once 'libraries/transformations.lib.php';
  */
 $request_params = array(
     'field',
-    'fieldkey',
-    'foreign_filter',
-    'pos',
-    'rownumber'
+    'fieldkey'
 );
 
 foreach ($request_params as $one_request_param) {
@@ -43,8 +40,10 @@ $foreigners  = ($cfgRelation['relwork'] ? PMA_getForeigners($db, $table) : false
 
 $override_total = true;
 
-if (! isset($pos)) {
+if (! isset($_REQUEST['pos'])) {
     $pos = 0;
+} else {
+    $pos = $_REQUEST['pos'];
 }
 
 $foreign_limit = 'LIMIT ' . $pos . ', ' . $GLOBALS['cfg']['MaxRows'] . ' ';
@@ -54,14 +53,10 @@ if (isset($foreign_navig) && $foreign_navig == __('Show all')) {
 
 $foreignData = PMA_getForeignData(
     $foreigners, $field, $override_total,
-    isset($foreign_filter) ? $foreign_filter : '', $foreign_limit
+    isset($_REQUEST['foreign_filter']) 
+    ? $_REQUEST['foreign_filter'] 
+    : '', $foreign_limit
 );
-
-if (isset($rownumber)) {
-    $rownumber_param = '&amp;rownumber=' . urlencode($rownumber);
-} else {
-    $rownumber_param = '';
-}
 
 $gotopage = '';
 $showall = '';
@@ -95,15 +90,22 @@ if (is_array($foreignData['disp_row'])) {
     }
 }
 
-
-
-if (isset($rownumber)) {
-    $element_name  = "        var element_name = field + '[multi_edit]["
-        . htmlspecialchars($rownumber) . "][' + fieldmd5 + ']';\n"
-        . "        var null_name = field_null + '[multi_edit]["
-        . htmlspecialchars($rownumber) . "][' + fieldmd5 + ']';\n";
+// When coming from Table/Zoom search
+if (isset($_REQUEST['fromsearch'])) {
+    // In table or zoom search, input fields are named "criteriaValues"
+    $element_name = " var field = 'criteriaValues';\n";
 } else {
-    $element_name = "var element_name = field + '[]'";
+    // In insert/edit, input fields are named "fields"
+    $element_name = " var field = 'fields';\n";
+}
+
+if (isset($_REQUEST['rownumber'])) {
+    $element_name  .= "        var element_name = field + '[multi_edit]["
+        . htmlspecialchars($_REQUEST['rownumber']) . "][' + fieldmd5 + ']';\n"
+        . "        var null_name = field_null + '[multi_edit]["
+        . htmlspecialchars($_REQUEST['rownumber']) . "][' + fieldmd5 + ']';\n";
+} else {
+    $element_name .= "var element_name = field + '[]'";
 }
 $error = PMA_jsFormat(
     __(
@@ -169,19 +171,22 @@ $header->getScripts()->addCode($code);
 // HTML output
 $output = '<form action="browse_foreigners.php" method="post">'
     . '<fieldset>'
-    . PMA_generate_common_hidden_inputs($db, $table)
+    . PMA_URL_getHiddenInputs($db, $table)
     . '<input type="hidden" name="field" value="' . htmlspecialchars($field) . '" />'
     . '<input type="hidden" name="fieldkey" value="'
     . (isset($fieldkey) ? htmlspecialchars($fieldkey) : '') . '" />';
 
-if (isset($rownumber)) {
+if (isset($_REQUEST['rownumber'])) {
     $output .= '<input type="hidden" name="rownumber" value="'
-        . htmlspecialchars($rownumber) . '" />';
+        . htmlspecialchars($_REQUEST['rownumber']) . '" />';
 }
 $output .= '<span class="formelement">'
     . '<label for="input_foreign_filter">' . __('Search:') . '</label>'
     . '<input type="text" name="foreign_filter" id="input_foreign_filter" value="'
-    . (isset($foreign_filter) ? htmlspecialchars($foreign_filter) : '') . '" />'
+    . (isset($_REQUEST['foreign_filter']) 
+    ? htmlspecialchars($_REQUEST['foreign_filter']) 
+    : '') 
+    . '" />'
     . '<input type="submit" name="submit_foreign_filter" value="'
     .  __('Go') . '" />'
     . '</span>'

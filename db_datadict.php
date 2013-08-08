@@ -37,9 +37,9 @@ PMA_Util::checkParameters(array('db'));
  * Defines the url to return to in case of error in a sql statement
  */
 if (strlen($table)) {
-    $err_url = 'tbl_sql.php?' . PMA_generate_common_url($db, $table);
+    $err_url = 'tbl_sql.php?' . PMA_URL_getCommon($db, $table);
 } else {
-    $err_url = 'db_sql.php?' . PMA_generate_common_url($db);
+    $err_url = 'db_sql.php?' . PMA_URL_getCommon($db);
 }
 
 if ($cfgRelation['commwork']) {
@@ -107,9 +107,11 @@ foreach ($tables as $table) {
 
         $indexes_info[$row['Key_name']]['Comment'] = $row['Comment'];
 
-        $indexes_data[$row['Key_name']][$row['Seq_in_index']]['Column_name'] = $row['Column_name'];
+        $indexes_data[$row['Key_name']][$row['Seq_in_index']]['Column_name']
+            = $row['Column_name'];
         if (isset($row['Sub_part'])) {
-            $indexes_data[$row['Key_name']][$row['Seq_in_index']]['Sub_part'] = $row['Sub_part'];
+            $indexes_data[$row['Key_name']][$row['Seq_in_index']]['Sub_part']
+                = $row['Sub_part'];
         }
 
     } // end while

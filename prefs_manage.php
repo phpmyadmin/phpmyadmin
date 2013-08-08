@@ -118,7 +118,7 @@ if (isset($_POST['submit_export'])
             $form_display->displayErrors();
             echo '</div>';
             echo '<form action="prefs_manage.php" method="post">';
-            echo PMA_generate_common_hidden_inputs() . "\n";
+            echo PMA_URL_getHiddenInputs() . "\n";
             echo '<input type="hidden" name="json" value="'
                 . htmlspecialchars($json) . '" />';
             echo '<input type="hidden" name="fix_errors" value="1" />';
@@ -239,7 +239,7 @@ PMA_printJsValue("PMA_messages['strSavedOn']", __('Saved on: @DATE@'));
             <form class="group-cnt prefs-form disableAjax" name="prefs_import" action="prefs_manage.php" method="post" enctype="multipart/form-data">
                 <?php
                 echo PMA_Util::generateHiddenMaxFileSize($max_upload_size) . "\n";
-                echo PMA_generate_common_hidden_inputs() . "\n";
+                echo PMA_URL_getHiddenInputs() . "\n";
                 ?>
                 <input type="hidden" name="json" value="" />
                 <input type="radio" id="import_text_file" name="import_type" value="text_file" checked="checked" />
@@ -299,7 +299,7 @@ PMA_printJsValue("PMA_messages['strSavedOn']", __('Saved on: @DATE@'));
                 ?>
             </div>
             <form class="group-cnt prefs-form disableAjax" name="prefs_export" action="prefs_manage.php" method="post">
-            <?php echo PMA_generate_common_hidden_inputs() . "\n" ?>
+            <?php echo PMA_URL_getHiddenInputs() . "\n" ?>
                 <div style="padding-bottom:0.5em">
                     <input type="radio" id="export_text_file" name="export_type" value="text_file" checked="checked" />
                     <label for="export_text_file"><?php echo __('Save as file') ?></label>
@@ -325,7 +325,7 @@ PMA_printJsValue("PMA_messages['strSavedOn']", __('Saved on: @DATE@'));
         <div class="group">
             <h2><?php echo __('Reset') ?></h2>
             <form class="group-cnt prefs-form disableAjax" name="prefs_reset" action="prefs_manage.php" method="post">
-            <?php echo PMA_generate_common_hidden_inputs() . "\n" ?>
+            <?php echo PMA_URL_getHiddenInputs() . "\n" ?>
                 <?php echo __('You can reset all your settings and restore them to default values.') ?>
                 <br /><br />
                 <input type="submit" name="submit_clear" value="<?php echo __('Reset') ?>" />

@@ -10,6 +10,8 @@ if (! defined('PHPMYADMIN')) {
 }
 
 /**
+ * Generic list class
+ *
  * @todo add caching
  * @abstract
  * @package PhpMyAdmin
@@ -22,8 +24,9 @@ abstract class PMA_List extends ArrayObject
      */
     protected $item_empty = '';
 
-    public function __construct($array = array(), $flags = 0, $iterator_class = "ArrayIterator")
-    {
+    public function __construct(
+        $array = array(), $flags = 0, $iterator_class = "ArrayIterator"
+    ) {
         parent::__construct($array, $flags, $iterator_class);
     }
 
@@ -78,8 +81,9 @@ abstract class PMA_List extends ArrayObject
      *
      * @return string  HTML option tags
      */
-    public function getHtmlOptions($selected = '', $include_information_schema = true)
-    {
+    public function getHtmlOptions(
+        $selected = '', $include_information_schema = true
+    ) {
         if (true === $selected) {
             $selected = $this->getDefault();
         }

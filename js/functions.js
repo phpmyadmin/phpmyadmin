@@ -1489,6 +1489,73 @@ function catchKeypressesFromSqlTextboxes(event) {
 }
 
 /**
+ * Adds doc link to single highlighted SQL element
+ */
+function PMA_doc_add($elm, params)
+{
+    var url = $.sprintf(
+        mysql_doc_template,
+        params[0]
+    );
+    if (params.length > 1) {
+        url += '#' + params[1];
+    }
+    var content = $elm.text();
+    $elm.text('');
+    $elm.append('<a target="mysql_doc" class="cm-sql-doc" href="' + url + '">' + content + '</a>');
+}
+
+/**
+ * Generates doc links for keywords inside highlighted SQL
+ */
+function PMA_doc_keyword(idx, elm)
+{
+    var $elm = $(elm);
+    /* Skip already processed ones */
+    if ($elm.find('a').length > 0) {
+        return;
+    }
+    var keyword = $elm.text().toUpperCase();
+    var $next = $elm.next('.cm-keyword');
+    if ($next) {
+        var next_keyword = $next.text().toUpperCase();
+        var full = keyword + ' ' + next_keyword;
+
+        var $next2 = $next.next('.cm-keyword');
+        if ($next2) {
+            var next2_keyword = $next2.text().toUpperCase();
+            var full2 = full + ' ' + next2_keyword;
+            if (full2 in mysql_doc_keyword) {
+                PMA_doc_add($elm, mysql_doc_keyword[full2]);
+                PMA_doc_add($next, mysql_doc_keyword[full2]);
+                PMA_doc_add($next2, mysql_doc_keyword[full2]);
+                return;
+            }
+        }
+        if (full in mysql_doc_keyword) {
+            PMA_doc_add($elm, mysql_doc_keyword[full]);
+            PMA_doc_add($next, mysql_doc_keyword[full]);
+            return;
+        }
+    }
+    if (keyword in mysql_doc_keyword) {
+        PMA_doc_add($elm, mysql_doc_keyword[keyword]);
+    }
+}
+
+/**
+ * Generates doc links for builtins inside highlighted SQL
+ */
+function PMA_doc_builtin(idx, elm)
+{
+    var $elm = $(elm);
+    var builtin = $elm.text().toUpperCase();
+    if (builtin in mysql_doc_builtin) {
+        PMA_doc_add($elm, mysql_doc_builtin[builtin]);
+    }
+}
+
+/**
  * Higlights SQL using CodeMirror.
  */
 function PMA_highlightSQL(base)
@@ -1501,8 +1568,12 @@ function PMA_highlightSQL(base)
         if ($pre.is(":visible")) {
             var $highlight = $('<div class="sql-highlight cm-s-default"></div>');
             $sql.append($highlight);
-            CodeMirror.runMode($sql.text(), 'text/x-mysql', $highlight[0]);
-            $pre.hide();
+            if (typeof CodeMirror != 'undefined') {
+                CodeMirror.runMode($sql.text(), 'text/x-mysql', $highlight[0]);
+                $pre.hide();
+                $highlight.find('.cm-keyword').each(PMA_doc_keyword);
+                $highlight.find('.cm-builtin').each(PMA_doc_builtin);
+            }
         }
     });
 }

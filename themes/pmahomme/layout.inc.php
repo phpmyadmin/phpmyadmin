@@ -85,34 +85,6 @@ $GLOBALS['cfg']['QueryWindowWidth']     = 600;
 $GLOBALS['cfg']['QueryWindowHeight']    = 400;
 
 /**
- * SQL Parser Settings
- * Syntax colouring data
- */
-$GLOBALS['cfg']['SQP']['fmtColor']      = array(
-    'comment'            => '#808000',
-    'comment_mysql'      => '',
-    'comment_ansi'       => '',
-    'comment_c'          => '',
-    'digit'              => '',
-    'digit_hex'          => 'teal',
-    'digit_integer'      => 'teal',
-    'digit_float'        => 'aqua',
-    'punct'              => 'fuchsia',
-    'alpha'              => '',
-    'alpha_columnType'   => '#f90',
-    'alpha_columnAttrib' => '#00f',
-    'alpha_reservedWord' => '#909',
-    'alpha_functionName' => '#f00',
-    'alpha_identifier'   => 'black',
-    'alpha_charset'      => '#6495ed',
-    'alpha_variable'     => '#800000',
-    'quote'              => '#008000',
-    'quote_double'       => '',
-    'quote_single'       => '',
-    'quote_backtick'     => ''
-);
-
-/**
  * Chart colors
  */
 

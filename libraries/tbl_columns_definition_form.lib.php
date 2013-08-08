@@ -11,13 +11,13 @@ if (!defined('PHPMYADMIN')) {
 
 /**
  * Function to get form parameters
- * 
- * @param string $db            database
- * @param string $table         table
- * @param string $action        action
- * @param int    $num_fields    number of fields
- * @param bool   $selected      selected
- * 
+ *
+ * @param string $db         database
+ * @param string $table      table
+ * @param string $action     action
+ * @param int    $num_fields number of fields
+ * @param bool   $selected   selected
+ *
  * @return array $form_params form parameters
  */
 function PMA_getFormsParameters($db, $table, $action, $num_fields, $selected)
@@ -53,14 +53,14 @@ function PMA_getFormsParameters($db, $table, $action, $num_fields, $selected)
             $form_params['selected[' . $o_fld_nr . ']'] = $o_fld_val;
         }
     }
-    
+
     return $form_params;
 }
 
 /**
- * Function to get html for table comments, storage engine, collation and 
+ * Function to get html for table comments, storage engine, collation and
  * partition definition
- * 
+ *
  * @return string
  */
 function PMA_getHtmlForTableConfigurations()
@@ -70,7 +70,7 @@ function PMA_getHtmlForTableConfigurations()
         . '<th>' . __('Table comments:') . '</th>'
         . '<td width="25">&nbsp;</td>'
         . '<th>' . __('Storage Engine:')
-        . PMA_Util::showMySQLDocu('Storage_engines', 'Storage_engines')
+        . PMA_Util::showMySQLDocu('Storage_engines')
         . '</th>'
         . '<td width="25">&nbsp;</td>'
         . '<th>' . __('Collation:') . '</th>'
@@ -108,7 +108,7 @@ function PMA_getHtmlForTableConfigurations()
     if (PMA_Partition::havePartitioning()) {
         $html .= '<tr class="vtop">'
             . '<th>' . __('PARTITION definition:') . '&nbsp;'
-            . PMA_Util::showMySQLDocu('Partitioning', 'Partitioning')
+            . PMA_Util::showMySQLDocu('Partitioning')
             . '</th>'
             . '</tr>'
             . '<tr>'
@@ -126,13 +126,13 @@ function PMA_getHtmlForTableConfigurations()
     }
     $html .= '</table>'
         . '<br />';
-    
+
     return $html;
 }
 
 /**
  * Function to get html for the footer
- * 
+ *
  * @return string
  */
 function PMA_getHtmlForFooter()
@@ -144,13 +144,13 @@ function PMA_getHtmlForFooter()
         . '</form>';
 
     $html .= '<div id="popup_background"></div>';
-    
+
     return $html;
 }
 
 /**
  * Function to get html for table create table name and number of fields
- * 
+ *
  * @return string
  */
 function PMA_getHtmlForTableNameAndNoOfColumns()
@@ -177,27 +177,27 @@ function PMA_getHtmlForTableNameAndNoOfColumns()
         . str_replace(
             '\'', '\\\'', __('You have to add at least one column.')
         ) . '\', 1)" />';
-        
+
     $html .= '</td>'
         . '</tr>'
         . '</table>';
-    
+
     return $html;
 }
 
 /**
  * Function to get html for table field definitions
- * 
+ *
  * @param array $header_cells  header cells
  * @param array $content_cells content cells
- * 
+ *
  * @return string
  */
 function PMA_getHtmlForTableFieldDefinitions($header_cells, $content_cells)
 {
     $html = '<table id="table_columns" class="noclick">';
     $html .= '<caption class="tblHeaders">' . __('Structure')
-        . PMA_Util::showMySQLDocu('SQL-Syntax', 'CREATE_TABLE') . '</caption>';
+        . PMA_Util::showMySQLDocu('CREATE_TABLE') . '</caption>';
 
     $html .= '<tr>';
     foreach ($header_cells as $header_val) {
@@ -219,40 +219,40 @@ function PMA_getHtmlForTableFieldDefinitions($header_cells, $content_cells)
     }
     $html .= '</table>'
         . '<br />';
-    
+
     return $html;
 }
 
 /**
  * Function to get html for the create table or field add view
- * 
+ *
  * @param string $action        action
  * @param array  $form_params   forms parameters
  * @param array  $content_cells content cells
  * @param array  $header_cells  header cells
- * 
+ *
  * @return string
  */
 function PMA_getHtmlForTableCreateOrAddField($action, $form_params, $content_cells,
     $header_cells
-) {    
+) {
     $html = '<form method="post" action="' . $action  . '" class="'
         . ($action == 'tbl_create.php' ? 'create_table' : 'append_fields')
         . '_form ajax">';
-    $html .= PMA_generate_common_hidden_inputs($form_params);
-    
+    $html .= PMA_URL_getHiddenInputs($form_params);
+
     if ($action == 'tbl_create.php') {
         $html .= PMA_getHtmlForTableNameAndNoOfColumns();
     }
-    
+
     if (is_array($content_cells) && is_array($header_cells)) {
         $html .= PMA_getHtmlForTableFieldDefinitions($header_cells, $content_cells);
     }
-    
+
     if ($action == 'tbl_create.php') {
         $html .= PMA_getHtmlForTableConfigurations();
-    }    
-    
+    }
+
     $html .= PMA_getHtmlForFooter();
 
     return $html;
@@ -260,21 +260,21 @@ function PMA_getHtmlForTableCreateOrAddField($action, $form_params, $content_cel
 
 /**
  * Function to get header cells
- * 
+ *
  * @param bool   $is_backup   whether backup or not
  * @param array  $fields_meta fields meta data
  * @param bool   $mimework    whether mimework or not
  * @param string $db          current database
  * @param string $table       current table
- * 
- * @return array 
+ *
+ * @return array
  */
 function PMA_getHeaderCells($is_backup, $fields_meta, $mimework, $db, $table)
 {
     $header_cells = array();
     $header_cells[] = __('Name');
     $header_cells[] = __('Type')
-        . PMA_Util::showMySQLDocu('SQL-Syntax', 'data-types');
+        . PMA_Util::showMySQLDocu('data-types');
     $header_cells[] = __('Length/Values')
         . PMA_Util::showHint(
             __(
@@ -295,7 +295,7 @@ function PMA_getHeaderCells($is_backup, $fields_meta, $mimework, $db, $table)
     $header_cells[] = __('Collation');
     $header_cells[] = __('Attributes');
     $header_cells[] = __('Null');
-    
+
     // We could remove this 'if' and let the key information be shown and
     // editable. However, for this to work, structure.lib.php must be modified
     // to use the key fields, as tbl_addfield does.
@@ -303,14 +303,14 @@ function PMA_getHeaderCells($is_backup, $fields_meta, $mimework, $db, $table)
         $header_cells[] = __('Index');
     }
 
-    $header_cells[] = '<abbr title="AUTO_INCREMENT">A_I</abbr>';    
+    $header_cells[] = '<abbr title="AUTO_INCREMENT">A_I</abbr>';
     $header_cells[] = __('Comments');
-    
+
     if (isset($fields_meta)) {
         $header_cells[] = __('Move column');
     }
-    
-    if ($mimework && $GLOBALS['cfg']['BrowseMIME']) {        
+
+    if ($mimework && $GLOBALS['cfg']['BrowseMIME']) {
         $hint = '<br />'
             . sprintf(
                 __(
@@ -319,7 +319,7 @@ function PMA_getHeaderCells($is_backup, $fields_meta, $mimework, $db, $table)
                     . ' %stransformation descriptions%s'
                 ),
                 '<a href="transformation_overview.php?'
-                . PMA_generate_common_url($db, $table)
+                . PMA_URL_getCommon($db, $table)
                 . '" target="_blank">',
                 '</a>'
             );
@@ -338,16 +338,16 @@ function PMA_getHeaderCells($is_backup, $fields_meta, $mimework, $db, $table)
                 . $hint
             );
     }
-    
+
     return $header_cells;
 }
 
 /**
  * Function for moving, load all available column names
- * 
+ *
  * @param string $db    current database
  * @param string $table current table
- * 
+ *
  * @return array
  */
 function PMA_getMoveColumns($db, $table)
@@ -359,15 +359,15 @@ function PMA_getMoveColumns($db, $table)
         . ' LIMIT 1';
     $move_columns_sql_result = $GLOBALS['dbi']->tryQuery($move_columns_sql_query);
     $move_columns = $GLOBALS['dbi']->getFieldsMeta($move_columns_sql_result);
-    
+
     return $move_columns;
 }
 
 /**
  * Function to get row data for regenerating previous when error occured.
- * 
+ *
  * @param array $submit_fulltext submit full text
- * 
+ *
  * @return array
  */
 function PMA_getRowDataForRegeneration($submit_fulltext)
@@ -435,13 +435,13 @@ function PMA_getRowDataForRegeneration($submit_fulltext)
             && ($submit_fulltext[$i] == $i)
         ? 'FULLTEXT'
         : false);
-    
+
     return $row;
 }
 
 /**
  * Function to get submit properties for regenerating previous when error occured.
- * 
+ *
  * @return array
  */
 function PMA_getSubmitPropertiesForRegeneration()
@@ -459,7 +459,7 @@ function PMA_getSubmitPropertiesForRegeneration()
         = (isset($_REQUEST['field_default_current_timestamp'][$i])
         ? true
         : false);
-    
+
     return array(
         $submit_length, $submit_attribute, $submit_default_current_timestamp
     );
@@ -468,11 +468,11 @@ function PMA_getSubmitPropertiesForRegeneration()
 /**
  * An error happened with previous inputs, so we will restore the data
  * to embed it once again in this form.
- * 
+ *
  * @param array $submit_fulltext submit full text
  * @param array $comments_map    comments map
  * @param array $mime_map        mime map
- * 
+ *
  * @return array
  */
 function PMA_handleRegeneration($submit_fulltext, $comments_map, $mime_map)
@@ -501,7 +501,7 @@ function PMA_handleRegeneration($submit_fulltext, $comments_map, $mime_map)
         $mime_map[$row['Field']]['transformation_options']
             = $_REQUEST['field_transformation_options'][$i];
     }
-    
+
     return array(
         $row, $submit_length, $submit_attribute, $submit_default_current_timestamp,
         $comments_map, $mime_map

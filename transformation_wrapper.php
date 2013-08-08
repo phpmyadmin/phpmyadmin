@@ -1,6 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
+ * Wrapper script for rendering transformations
  *
  * @package PhpMyAdmin
  */
@@ -49,7 +50,8 @@ foreach ($request_params as $one_request_param) {
 $GLOBALS['dbi']->selectDb($db);
 if (isset($where_clause)) {
     $result = $GLOBALS['dbi']->query(
-        'SELECT * FROM ' . PMA_Util::backquote($table) . ' WHERE ' . $where_clause . ';',
+        'SELECT * FROM ' . PMA_Util::backquote($table)
+        . ' WHERE ' . $where_clause . ';',
         null,
         PMA_DatabaseInterface::QUERY_STORE
     );
@@ -72,7 +74,7 @@ $default_ct = 'application/octet-stream';
 
 if ($cfgRelation['commwork'] && $cfgRelation['mimework']) {
     $mime_map = PMA_getMime($db, $table);
-    $mime_options = PMA_transformation_getOptions(
+    $mime_options = PMA_Transformation_getOptions(
         isset($mime_map[$transform_key]['transformation_options'])
         ? $mime_map[$transform_key]['transformation_options'] : ''
     );

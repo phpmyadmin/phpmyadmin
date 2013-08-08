@@ -57,7 +57,7 @@ if (! empty($goto)) {
 
 if (! isset($err_url)) {
     $err_url = (! empty($back) ? $back : $goto)
-        . '?' . PMA_generate_common_url($db)
+        . '?' . PMA_URL_getCommon($db)
         . ((strpos(' ' . $goto, 'db_') != 1 && strlen($table))
             ? '&amp;table=' . urlencode($table)
             : ''
@@ -82,20 +82,20 @@ if (isset($_REQUEST['get_relational_values'])
     && $_REQUEST['get_relational_values'] == true
 ) {
     PMA_getRelationalValues($db, $table, $display_field);
-    // script has exited at this point 
+    // script has exited at this point
 }
 
 // Just like above, find possible values for enum fields during grid edit.
 if (isset($_REQUEST['get_enum_values']) && $_REQUEST['get_enum_values'] == true) {
     PMA_getEnumOrSetValues($db, $table, "enum");
-    // script has exited at this point 
+    // script has exited at this point
 }
 
 
 // Find possible values for set fields during grid edit.
 if (isset($_REQUEST['get_set_values']) && $_REQUEST['get_set_values'] == true) {
     PMA_getEnumOrSetValues($db, $table, "set");
-    // script has exited at this point 
+    // script has exited at this point
 }
 
 /**
@@ -103,14 +103,14 @@ if (isset($_REQUEST['get_set_values']) && $_REQUEST['get_set_values'] == true) {
  */
 if (isset($_REQUEST['set_col_prefs']) && $_REQUEST['set_col_prefs'] == true) {
     PMA_setColumnOrderOrVisibility($table, $db);
-    // script has exited at this point 
+    // script has exited at this point
 }
 
 // Default to browse if no query set and we have table
 // (needed for browsing from DefaultTabTable)
 if (empty($sql_query) && strlen($table) && strlen($db)) {
     $sql_query = PMA_getDefaultSqlQueryForBrowse($db, $table);
-    
+
     // set $goto to what will be displayed if query returns 0 rows
     $goto = '';
 } else {
@@ -155,7 +155,7 @@ if (isset($find_real_end) && $find_real_end) {
  */
 if (isset($_POST['store_bkm'])) {
     PMA_addBookmark($cfg['PmaAbsoluteUri'], $goto);
-    // script has exited at this point 
+    // script has exited at this point
 } // end if
 
 
@@ -164,9 +164,13 @@ if (isset($_POST['store_bkm'])) {
  */
 if ($goto == 'sql.php') {
     $is_gotofile = false;
-    $goto = 'sql.php?'
-          . PMA_generate_common_url($db, $table)
-          . '&amp;sql_query=' . urlencode($sql_query);
+    $goto = 'sql.php' . PMA_URL_getCommon(
+        array(
+            'db' => $db,
+            'table' => $table,
+            'sql_query' => $sql_query
+        )
+    );
 } // end if
 
 

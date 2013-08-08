@@ -235,7 +235,7 @@ class PMA_TableSearch
             . ' size="40" class="textfield" id="field_' . $column_index . '" />';
 
         if ($in_fbs) {
-            $edit_url = 'gis_data_editor.php?' . PMA_generate_common_url();
+            $edit_url = 'gis_data_editor.php?' . PMA_URL_getCommon();
             $edit_str = PMA_Util::getIcon('b_edit.png', __('Edit/Insert'));
             $html_output .= '<span class="open_search_gis_editor">';
             $html_output .= PMA_Util::linkOrButton(
@@ -288,9 +288,9 @@ class PMA_TableSearch
             $html_output .=  <<<EOT
 <a target="_blank" onclick="window.open(this.href, 'foreigners', 'width=640,height=240,scrollbars=yes'); return false" href="browse_foreigners.php?
 EOT;
-            $html_output .= '' . PMA_generate_common_url($this->_db, $this->_table)
+            $html_output .= '' . PMA_URL_getCommon($this->_db, $this->_table)
                 . '&amp;field=' . urlencode($column_name) . '&amp;fieldkey='
-                . $column_index . '"';
+                . $column_index . '&amp;fromsearch=1"';
             if ($in_zoom_search_edit) {
                 $html_output .= ' class="browse_foreign"';
             }
@@ -789,9 +789,7 @@ EOT;
         $html_output .= '<fieldset id="fieldset_search_conditions">'
             . '<legend>' . '<em>' . __('Or') . '</em> '
             . __('Add search conditions (body of the "where" clause):') . '</legend>';
-        $html_output .= PMA_Util::showMySQLDocu(
-            'SQL-Syntax', 'Functions'
-        );
+        $html_output .= PMA_Util::showMySQLDocu('Functions');
         $html_output .= '<input type="text" name="customWhereClause"'
             . ' class="textfield" size="64" />';
         $html_output .= '</fieldset>';
@@ -1104,7 +1102,7 @@ EOT;
             . 'name="insertForm" id="' . $formId . '" '
             . 'class="ajax"' . '>';
 
-        $html_output .= PMA_generate_common_hidden_inputs($this->_db, $this->_table);
+        $html_output .= PMA_URL_getHiddenInputs($this->_db, $this->_table);
         $html_output .= '<input type="hidden" name="goto" value="' . $goto . '" />';
         $html_output .= '<input type="hidden" name="back" value="' . $scriptName
             . '" />';
@@ -1204,7 +1202,7 @@ EOT;
         $html_output .= '<form method="post" action="tbl_zoom_select.php"'
             . ' name="displayResultForm" id="zoom_display_form"'
             . ' class="ajax"' . '>';
-        $html_output .= PMA_generate_common_hidden_inputs($this->_db, $this->_table);
+        $html_output .= PMA_URL_getHiddenInputs($this->_db, $this->_table);
         $html_output .= '<input type="hidden" name="goto" value="' . $goto . '" />';
         $html_output .= '<input type="hidden" name="back" value="tbl_zoom_select.php" />';
 
@@ -1328,7 +1326,7 @@ EOT;
 
         $htmlOutput = '<form method="post" action="tbl_find_replace.php"'
             . ' name="previewForm" id="previewForm" class="ajax">';
-        $htmlOutput .= PMA_generate_common_hidden_inputs($this->_db, $this->_table);
+        $htmlOutput .= PMA_URL_getHiddenInputs($this->_db, $this->_table);
         $htmlOutput .= '<input type="hidden" name="replace" value="true" />';
         $htmlOutput .= '<input type="hidden" name="columnIndex" value="'
             . $columnIndex . '" />';

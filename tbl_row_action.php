@@ -88,7 +88,7 @@ if (!empty($submit_mult)) {
     default:
         $action = 'tbl_row_action.php';
         $err_url = 'tbl_row_action.php'
-            . PMA_generate_common_url($GLOBALS['url_params']);
+            . PMA_URL_getCommon($GLOBALS['url_params']);
         if (! isset($_REQUEST['mult_btn'])) {
             $original_sql_query = $sql_query;
             if (! empty($url_query)) {
@@ -98,7 +98,7 @@ if (!empty($submit_mult)) {
         include 'libraries/mult_submits.inc.php';
         $_url_params = $GLOBALS['url_params'];
         $_url_params['goto'] = 'tbl_sql.php';
-        $url_query = PMA_generate_common_url($_url_params);
+        $url_query = PMA_URL_getCommon($_url_params);
 
 
         /**
@@ -124,7 +124,7 @@ if (!empty($submit_mult)) {
         /**
          * Parse and analyze the query
          */
-        require_once 'libraries/parse_analyze.inc.php';
+        include_once 'libraries/parse_analyze.inc.php';
 
         PMA_executeQueryAndSendQueryResponse(
             $analyzed_sql_results, false, $db, $table, null, null, null, false, null,

@@ -1304,7 +1304,7 @@ class PMA_DbQbe
         $url_params['db'] = $this->_db;
         $url_params['criteriaColumnCount'] = $this->_new_column_count;
         $url_params['rows'] = $this->_new_row_count;
-        $html_output .= PMA_generate_common_hidden_inputs($url_params);
+        $html_output .= PMA_URL_getHiddenInputs($url_params);
         $html_output .= '</fieldset>';
         // get footers
         $html_output .= $this->_getTableFooters();
@@ -1312,7 +1312,7 @@ class PMA_DbQbe
         $html_output .= $this->_getTablesList();
         $html_output .= '</form>';
         $html_output .= '<form action="db_qbe.php" method="post">';
-        $html_output .= PMA_generate_common_hidden_inputs(array('db' => $this->_db));
+        $html_output .= PMA_URL_getHiddenInputs(array('db' => $this->_db));
         // get SQL query
         $html_output .= '<div class="floatleft">';
         $html_output .= '<fieldset>';

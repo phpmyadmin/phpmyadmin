@@ -41,15 +41,14 @@ class PMA_DisplayExport_Test extends PHPUnit_Framework_TestCase
      * @return void
      */
     public function setUp()
-    {    
+    {
         //$GLOBALS
         $GLOBALS['cfg']['MaxRows'] = 10;
         $GLOBALS['cfg']['ServerDefault'] = "PMA_server";
         $GLOBALS['cfg']['TableNavigationLinksMode'] = 'icons';
         $GLOBALS['cfg']['LimitChars'] = 100;
         $GLOBALS['cfg']['ActionLinksMode'] = 'icons';
-        $GLOBALS['cfg']['Server']['host'] = "localhost";   
-        $GLOBALS['cfg']['MySQLManualType'] = 'viewable';  
+        $GLOBALS['cfg']['Server']['host'] = "localhost";
         $GLOBALS['cfg']['Server']['user'] = "pma_user";
         $GLOBALS['cfg']['ShowHint'] = true;
         $GLOBALS['cfg']['ActionLinksMode'] = 'icons';
@@ -61,16 +60,16 @@ class PMA_DisplayExport_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['PMA_PHP_SELF'] = PMA_getenv('PHP_SELF');
         $GLOBALS['PMA_recoding_engine'] = "InnerDB";
         $GLOBALS['server'] = 0;
-        
+
         $GLOBALS['table'] = "table";
         $GLOBALS['pmaThemeImage'] = 'image';
         $GLOBALS['db'] = "PMA";
-        
+
         //$_SESSION
         $_SESSION['PMA_Theme'] = PMA_Theme::load('./themes/pmahomme');
         $_SESSION['PMA_Theme'] = new PMA_Theme();
         $_SESSION['relation'][$GLOBALS['server']] = "";
-      
+
         $pmaconfig = $this->getMockBuilder('PMA_Config')
             ->disableOriginalConstructor()
             ->getMock();
@@ -97,14 +96,14 @@ class PMA_DisplayExport_Test extends PHPUnit_Framework_TestCase
 
         //Call the test function
         $html = PMA_getHtmlForHiddenInput(
-            $export_type, 
-            $db, 
-            $table, 
+            $export_type,
+            $db,
+            $table,
             $single_table_str,
             $sql_query_str
         );
 
-        //validate 1: PMA_generate_common_hidden_inputs
+        //validate 1: PMA_URL_getHiddenInputs
         //$single_table
         $this->assertContains(
             '<input type="hidden" name="single_table" value="TRUE"',
@@ -127,11 +126,11 @@ class PMA_DisplayExport_Test extends PHPUnit_Framework_TestCase
      * @return vgetUserValue
      */
     public function testPMAGetHtmlForExportOptions()
-    {      
+    {
         global $cfg;
         $cfg['Export']['method'] = "XML";
         $cfg['SaveDir'] = "/tmp";
-        
+
         $export_type = "server";
         $db = "PMA";
         $table = "PMA_test";
@@ -141,7 +140,7 @@ class PMA_DisplayExport_Test extends PHPUnit_Framework_TestCase
         $unlim_num_rows_str = "unlim_num_rows_str";
         $single_table = "single_table";
         PMA_Table::$cache[$db][$table]['ENGINE'] = "MERGE";
-        
+
         /* Scan for plugins */
         $export_list = PMA_getPlugins(
             "export",
@@ -150,15 +149,15 @@ class PMA_DisplayExport_Test extends PHPUnit_Framework_TestCase
                 'export_type' => $export_type,
                 'single_table' => isset($single_table)
             )
-        );      
+        );
 
         //Call the test function
         $html = PMA_getHtmlForExportOptions(
-            $export_type, 
-            $db, 
-            $table, 
-            $multi_values_str, 
-            $num_tables_str, 
+            $export_type,
+            $db,
+            $table,
+            $multi_values_str,
+            $num_tables_str,
             $export_list,
             $unlim_num_rows_str
         );
@@ -225,7 +224,7 @@ class PMA_DisplayExport_Test extends PHPUnit_Framework_TestCase
             'user value for test',
             $html
         );
-        
+
         //validate 6: PMA_getHtmlForExportOptionsFormat
         $this->assertContains(
             '<div class="exportoptions" id="format">',

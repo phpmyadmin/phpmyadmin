@@ -57,7 +57,7 @@ function PMA_getHtmlForDatabase(
 
     $html .= '<form class="ajax" action="server_databases.php" ';
     $html .= 'method="post" name="dbStatsForm" id="dbStatsForm">' . "\n";
-    $html .= PMA_generate_common_hidden_inputs($_url_params);
+    $html .= PMA_URL_getHiddenInputs($_url_params);
 
     $_url_params['sort_by'] = 'SCHEMA_NAME';
     $_url_params['sort_order']
@@ -306,7 +306,7 @@ function PMA_getHtmlForColumnOrderWithSort(
         ? '        <th></th>' . "\n"
         : '')
         . '    <th><a href="server_databases.php'
-        . PMA_generate_common_url($_url_params) . '">' . "\n"
+        . PMA_URL_getCommon($_url_params) . '">' . "\n"
         . '            ' . __('Database') . "\n"
         . ($sort_by == 'SCHEMA_NAME'
             ? '                ' . PMA_Util::getImage(
@@ -331,7 +331,7 @@ function PMA_getHtmlForColumnOrderWithSort(
                 = ($sort_by == $stat_name && $sort_order == 'desc') ? 'asc' : 'desc';
             $html .= '    <th' . $colspan . '>'
                 . '<a href="server_databases.php'
-                . PMA_generate_common_url($_url_params) . '">' . "\n"
+                . PMA_URL_getCommon($_url_params) . '">' . "\n"
                 . '            ' . $stat['disp_name'] . "\n"
                 . ($sort_by == $stat_name
                     ? '            ' . PMA_Util::getImage(

@@ -46,7 +46,7 @@ if (! isset($_POST['columnsToDisplay']) && ! isset($_POST['displayAllColumns']))
         $goto = $GLOBALS['cfg']['DefaultTabTable'];
     }
     // Defines the url to return to in case of error in the next sql statement
-    $err_url   = $goto . '?' . PMA_generate_common_url($db, $table);
+    $err_url   = $goto . '?' . PMA_URL_getCommon($db, $table);
     // Displays the table search form
     $response->addHTML($table_search->getSecondaryTabs());
     $response->addHTML($table_search->getSelectionForm($goto));
@@ -56,12 +56,12 @@ if (! isset($_POST['columnsToDisplay']) && ! isset($_POST['displayAllColumns']))
      * Selection criteria have been submitted -> do the work
      */
     $sql_query = $table_search->buildSqlQuery();
-    
+
     /**
      * Parse and analyze the query
      */
-    require_once 'libraries/parse_analyze.inc.php';
-    
+    include_once 'libraries/parse_analyze.inc.php';
+
     PMA_executeQueryAndSendQueryResponse(
         $analyzed_sql_results, false, $db, $table, null, null, null, false, null,
         null, null, null, $goto, $pmaThemeImage, null, null, null, $sql_query,

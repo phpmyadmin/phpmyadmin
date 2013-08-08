@@ -404,7 +404,7 @@ function PMA_getHtmlToChoseUserGroup($username)
     $html_output = '<form class="ajax" id="changeUserGroupForm"'
             . ' action="server_privileges.php" method="post">';
     $params = array('username' => $username);
-    $html_output .= PMA_generate_common_hidden_inputs($params);
+    $html_output .= PMA_URL_getHiddenInputs($params);
     $html_output .= '<fieldset id="fieldset_user_group_selection">';
     $html_output .= '<legend>' . __('User group') . '</legend>';
 
@@ -1559,14 +1559,12 @@ function PMA_getWithClauseForAddUserAndUpdatePrivs()
  */
 function PMA_getHtmlForAddUser($dbname)
 {
-    $GLOBALS['url_query'] .= '&amp;adduser=1';
-
     $html_output = '<h2>' . "\n"
        . PMA_Util::getIcon('b_usradd.png') . __('Add user') . "\n"
        . '</h2>' . "\n"
        . '<form name="usersForm" class="ajax" id="addUsersForm"'
        . ' action="server_privileges.php" method="post">' . "\n"
-       . PMA_generate_common_hidden_inputs('', '')
+       . PMA_URL_getHiddenInputs('', '')
        . PMA_getHtmlForDisplayLoginInformationFields('new');
 
     $html_output .= '<fieldset id="fieldset_add_user_database">' . "\n"
@@ -1669,12 +1667,9 @@ function PMA_getListOfPrivilegesAndComparedPrivileges()
 /**
  * Get the HTML for user form and check the privileges for a particular database.
  *
- * @param string $link_edit         standard link for edit
- * @param string $conditional_class if ajaxable 'Ajax' otherwise ''
- *
  * @return string $html_output
  */
-function PMA_getHtmlForSpecificDbPrivileges($link_edit, $conditional_class)
+function PMA_getHtmlForSpecificDbPrivileges()
 {
     // check the privileges for a particular database.
     $html_output = '<form id="usersForm" action="server_privileges.php">'
@@ -1685,7 +1680,7 @@ function PMA_getHtmlForSpecificDbPrivileges($link_edit, $conditional_class)
         . sprintf(
             __('Users having access to &quot;%s&quot;'),
             '<a href="' . $GLOBALS['cfg']['DefaultTabDatabase'] . '?'
-            . PMA_generate_common_url($_REQUEST['checkprivs']) . '">'
+            . PMA_URL_getCommon($_REQUEST['checkprivs']) . '">'
             .  htmlspecialchars($_REQUEST['checkprivs'])
             . '</a>'
         )
@@ -1726,13 +1721,15 @@ function PMA_getHtmlForSpecificDbPrivileges($link_edit, $conditional_class)
         $found = true;
     }
     $html_output .= PMA_getHtmlTableBodyForSpecificDbPrivs(
-        $found, $row, $odd_row, $link_edit, $res
+        $found, $row, $odd_row, $res
     );
     $html_output .= '</table>'
         . '</fieldset>'
         . '</form>' . "\n";
 
-    if ($GLOBALS['is_ajax_request'] == true && empty($_REQUEST['ajax_page_request'])) {
+    if ($GLOBALS['is_ajax_request'] == true
+        && empty($_REQUEST['ajax_page_request'])
+    ) {
         $message = PMA_Message::success(__('User has been added.'));
         $response = PMA_Response::getInstance();
         $response->addJSON('message', $message);
@@ -1743,14 +1740,16 @@ function PMA_getHtmlForSpecificDbPrivileges($link_edit, $conditional_class)
         $html_output .= '<fieldset id="fieldset_add_user">' . "\n"
            . '<legend>' . _pgettext('Create new user', 'New') . '</legend>' . "\n";
 
-        $html_output .= '<a href="server_privileges.php?'
-            . $GLOBALS['url_query'] . '&amp;adduser=1&amp;'
-            . 'dbname=' . htmlspecialchars($_REQUEST['checkprivs'])
+        $html_output .= '<a href="server_privileges.php'
+            . PMA_URL_getCommon(
+                array(
+                    'adduser' => 1,
+                    'dbname' => $_REQUEST['checkprivs'],
+                )
+            )
             .'" rel="'
-            .'checkprivs='.htmlspecialchars($_REQUEST['checkprivs'])
-            . '&amp;'.$GLOBALS['url_query']
-            . '" class="'.$conditional_class
-            .'" name="db_specific">' . "\n"
+            . PMA_URL_getCommon(array('checkprivs' => $_REQUEST['checkprivs']))
+            . '" class="ajax" name="db_specific">' . "\n"
             . PMA_Util::getIcon('b_usradd.png')
             . '        ' . __('Add user') . '</a>' . "\n";
 
@@ -1762,17 +1761,16 @@ function PMA_getHtmlForSpecificDbPrivileges($link_edit, $conditional_class)
 /**
  * Get HTML snippet for table body of specific database privileges
  *
- * @param boolean $found     whether user found or not
- * @param array   $row       array of rows from mysql,
- *                           db table with list of privileges
- * @param boolean $odd_row   whether odd or not
- * @param string  $link_edit standard link for edit
- * @param string  $res       ran sql query
+ * @param boolean $found   whether user found or not
+ * @param array   $row     array of rows from mysql,
+ *                         db table with list of privileges
+ * @param boolean $odd_row whether odd or not
+ * @param string  $res     ran sql query
  *
  * @return string $html_output
  */
 function PMA_getHtmlTableBodyForSpecificDbPrivs($found, $row, $odd_row,
-    $link_edit, $res
+    $res
 ) {
     $html_output = '<tbody>' . "\n";
     if ($found) {
@@ -1842,14 +1840,10 @@ function PMA_getHtmlTableBodyForSpecificDbPrivs($found, $row, $odd_row,
                     . "\n"
                     . '</td>' . "\n"
                     . '<td>' . "\n";
-                $html_output .= sprintf(
-                    $link_edit,
-                    urlencode($current_user),
-                    urlencode($current_host),
-                    urlencode(
-                        ! (isset($current['Db']) || $current['Db'] == '*') ? '' : $current['Db']
-                    ),
-                    ''
+                $html_output .= PMA_getUserEditLink(
+                    $current_user, $current_host,
+                    (isset($current['Db']) && $current['Db'] != '*')
+                    ? $current['Db'] : ''
                 );
                 $html_output .= '</td>' . "\n"
                    . '    </tr>' . "\n";
@@ -1877,63 +1871,97 @@ function PMA_getHtmlTableBodyForSpecificDbPrivs($found, $row, $odd_row,
 }
 
 /**
- * Define some standard links
- * $link_edit, $link_revoke, $link_export
+ * Returns edit link for a user.
  *
- * @param string $conditional_class if ajaxable 'Ajax' otherwise ''
+ * @param string $username  User name
+ * @param string $hostname  Host name
+ * @param string $dbname    Database name
+ * @param string $tablename Table name
  *
- * @return array with some standard links
+ * @return HTML code with link
  */
-function PMA_getStandardLinks($conditional_class)
+function PMA_getUserEditLink($username, $hostname, $dbname = '', $tablename = '')
 {
-    $link_edit = '<a class="edit_user_anchor ' . $conditional_class . '"'
-        . ' href="server_privileges.php?'
-        . str_replace('%', '%%', $GLOBALS['url_query'])
-        . '&amp;username=%s'
-        . '&amp;hostname=%s'
-        . '&amp;dbname=%s'
-        . '&amp;tablename=%s">'
+    return '<a class="edit_user_anchor ajax"'
+        . ' href="server_privileges.php'
+        . PMA_URL_getCommon(
+            array(
+                'username' => $username,
+                'hostname' => $hostname,
+                'dbname' => $dbname,
+                'tablename' => $tablename,
+            )
+        )
+        . '">'
         . PMA_Util::getIcon('b_usredit.png', __('Edit Privileges'))
         . '</a>';
+}
 
-    $link_revoke = '<a href='
-        .'"server_privileges.php?'
-        . str_replace('%', '%%', $GLOBALS['url_query'])
-        . '&amp;username=%s'
-        . '&amp;hostname=%s'
-        . '&amp;dbname=%s'
-        . '&amp;tablename=%s'
-        . '&amp;revokeall=1">'
+/**
+ * Returns revoke link for a user.
+ *
+ * @param string $username  User name
+ * @param string $hostname  Host name
+ * @param string $dbname    Database name
+ * @param string $tablename Table name
+ *
+ * @return HTML code with link
+ */
+function PMA_getUserRevokeLink($username, $hostname, $dbname = '', $tablename = '')
+{
+    return '<a  href="server_privileges.php'
+        . PMA_URL_getCommon(
+            array(
+                'username' => $username,
+                'hostname' => $hostname,
+                'dbname' => $dbname,
+                'tablename' => $tablename,
+                'revokeall' => 1,
+            )
+        )
+        . '">'
         . PMA_Util::getIcon('b_usrdrop.png', __('Revoke'))
         . '</a>';
+}
 
-    $link_export = '<a class="export_user_anchor ' . $conditional_class . '"'
-        . ' href="server_privileges.php?'
-        . str_replace('%', '%%', $GLOBALS['url_query'])
-        . '&amp;username=%s'
-        . '&amp;hostname=%s'
-        . '&amp;initial=%s'
-        . '&amp;export=1">'
+/**
+ * Returns export link for a user.
+ *
+ * @param string $username User name
+ * @param string $hostname Host name
+ * @param string $initial  Initial value
+ *
+ * @return HTML code with link
+ */
+function PMA_getUserExportLink($username, $hostname, $initial = '')
+{
+    return '<a class="export_user_anchor ajax"'
+        . ' href="server_privileges.php'
+        . PMA_URL_getCommon(
+            array(
+                'username' => $username,
+                'hostname' => $hostname,
+                'initial' => $initial,
+                'export' => 1,
+            )
+        )
+        . '">'
         . PMA_Util::getIcon('b_tblexport.png', __('Export'))
         . '</a>';
-
-    return array($link_edit, $link_revoke, $link_export);
 }
 
 /**
  * This function return the extra data array for the ajax behavior
  *
- * @param string $password    password
- * @param string $link_export export link
- * @param string $sql_query   sql query
- * @param string $link_edit   standard link for edit
- * @param string $hostname    hostname
- * @param string $username    username
+ * @param string $password  password
+ * @param string $sql_query sql query
+ * @param string $hostname  hostname
+ * @param string $username  username
  *
  * @return array $extra_data
  */
-function PMA_getExtraDataForAjaxBehavior($password, $link_export, $sql_query,
-    $link_edit, $hostname, $username
+function PMA_getExtraDataForAjaxBehavior(
+    $password, $sql_query, $hostname, $username
 ) {
     if (isset($GLOBALS['dbname'])) {
         //if (preg_match('/\\\\(?:_|%)/i', $dbname)) {
@@ -1993,20 +2021,13 @@ function PMA_getExtraDataForAjaxBehavior($password, $link_export, $sql_query,
         $new_user_string .='</td>';
 
         $new_user_string .= '<td>'
-            . sprintf(
-                $link_edit,
-                urlencode($username),
-                urlencode($hostname),
-                '',
-                ''
-            )
+            . PMA_getUserEditLink($username, $hostname)
             . '</td>' . "\n";
         $new_user_string .= '<td>'
-            . sprintf(
-                $link_export,
-                urlencode($username),
-                urlencode($hostname),
-                (isset($_GET['initial']) ? $_GET['initial'] : '')
+            . PMA_getUserExportLink(
+                $username,
+                $hostname,
+                isset($_GET['initial']) ? $_GET['initial'] : ''
             )
             . '</td>' . "\n";
 
@@ -2019,8 +2040,8 @@ function PMA_getExtraDataForAjaxBehavior($password, $link_export, $sql_query,
          * pagination
          */
         $new_user_initial = strtoupper(substr($username, 0, 1));
-        $new_user_initial_string = '<a href="server_privileges.php?'
-            . $GLOBALS['url_query'] . '&initial=' . $new_user_initial .'">'
+        $new_user_initial_string = '<a href="server_privileges.php'
+            . PMA_URL_getCommon(array('initial' => $new_user_initial)) .'">'
             . $new_user_initial . '</a>';
         $extra_data['new_user_initial'] = $new_user_initial;
         $extra_data['new_user_initial_string'] = $new_user_initial_string;
@@ -2072,7 +2093,7 @@ function PMA_getChangeLoginInformationHtmlForm($username, $hostname)
     $class = ' ajax';
     $html_output = '<form action="server_privileges.php" '
         . 'method="post" class="copyUserForm' . $class .'">' . "\n"
-        . PMA_generate_common_hidden_inputs('', '')
+        . PMA_URL_getHiddenInputs('', '')
         . '<input type="hidden" name="old_username" '
         . 'value="' . htmlspecialchars($username) . '" />' . "\n"
         . '<input type="hidden" name="old_hostname" '
@@ -2114,8 +2135,14 @@ function PMA_getChangeLoginInformationHtmlForm($username, $hostname)
 function PMA_getLinkToDbAndTable($url_dbname, $dbname, $tablename)
 {
     $html_output = '[ ' . __('Database')
-        . ' <a href="' . $GLOBALS['cfg']['DefaultTabDatabase'] . '?'
-        . $GLOBALS['url_query'] . '&amp;db=' . $url_dbname . '&amp;reload=1">'
+        . ' <a href="' . $GLOBALS['cfg']['DefaultTabDatabase']
+        . PMA_URL_getCommon(
+            array(
+                'db' => $url_dbname,
+                'reload' => 1
+            )
+        )
+        . '">'
         . htmlspecialchars($dbname) . ': '
         . PMA_Util::getTitleForTarget(
             $GLOBALS['cfg']['DefaultTabDatabase']
@@ -2124,10 +2151,15 @@ function PMA_getLinkToDbAndTable($url_dbname, $dbname, $tablename)
 
     if (strlen($tablename)) {
         $html_output .= ' [ ' . __('Table') . ' <a href="'
-            . $GLOBALS['cfg']['DefaultTabTable'] . '?' . $GLOBALS['url_query']
-            . '&amp;db=' . $url_dbname
-            . '&amp;table=' . htmlspecialchars(urlencode($tablename))
-            . '&amp;reload=1">' . htmlspecialchars($tablename) . ': '
+            . $GLOBALS['cfg']['DefaultTabTable']
+            . PMA_URL_getCommon(
+                array(
+                    'db' => $url_dbname,
+                    'table' => $tablename,
+                    'reload' => 1,
+                )
+            )
+            . '">' . htmlspecialchars($tablename) . ': '
             . PMA_Util::getTitleForTarget(
                 $GLOBALS['cfg']['DefaultTabTable']
             )
@@ -2142,7 +2174,8 @@ function PMA_getLinkToDbAndTable($url_dbname, $dbname, $tablename)
  * So this function returns user rights as an array
  *
  * @param array  $tables              tables
- * @param string $user_host_condition a where clause that containd user's host condition
+ * @param string $user_host_condition a where clause that containd user's host
+ *                                    condition
  * @param string $dbname              database name
  *
  * @return array $db_rights database rights
@@ -2239,17 +2272,15 @@ function PMA_getUserSpecificRights($tables, $user_host_condition, $dbname)
 /**
  * Display user rights in table rows(Table specific or database specific privs)
  *
- * @param array  $db_rights   user's database rights array
- * @param string $link_edit   standard link to edit privileges
- * @param string $dbname      database name
- * @param string $link_revoke standard link to revoke
- * @param string $hostname    host name
- * @param string $username    username
+ * @param array  $db_rights user's database rights array
+ * @param string $dbname    database name
+ * @param string $hostname  host name
+ * @param string $username  username
  *
  * @return array $found_rows, $html_output
  */
-function PMA_getHtmlForDisplayUserRightsInRows($db_rights, $link_edit, $dbname,
-    $link_revoke, $hostname, $username
+function PMA_getHtmlForDisplayUserRightsInRows($db_rights, $dbname,
+    $hostname, $username
 ) {
     $html_output = '';
     $found_rows = array();
@@ -2291,14 +2322,11 @@ function PMA_getHtmlForDisplayUserRightsInRows($db_rights, $link_edit, $dbname,
             }
             $html_output .= '</td>' . "\n"
                . '<td>';
-            $html_output .= sprintf(
-                $link_edit,
-                htmlspecialchars(urlencode($username)),
-                urlencode(htmlspecialchars($hostname)),
-                urlencode(
-                    (! strlen($dbname)) ? $row['Db'] : htmlspecialchars($dbname)
-                ),
-                urlencode((! strlen($dbname)) ? '' : $row['Table_name'])
+            $html_output .= PMA_getUserEditLink(
+                $username,
+                $hostname,
+                (! strlen($dbname)) ? $row['Db'] : $dbname,
+                (! strlen($dbname)) ? '' : $row['Table_name']
             );
             $html_output .= '</td>' . "\n"
                . '    <td>';
@@ -2306,14 +2334,11 @@ function PMA_getHtmlForDisplayUserRightsInRows($db_rights, $link_edit, $dbname,
                 || isset($row['Table_name'])
                 && strlen($row['Table_name'])
             ) {
-                $html_output .= sprintf(
-                    $link_revoke,
-                    htmlspecialchars(urlencode($username)),
-                    urlencode(htmlspecialchars($hostname)),
-                    urlencode(
-                        (! strlen($dbname)) ? $row['Db'] : htmlspecialchars($dbname)
-                    ),
-                    urlencode((! strlen($dbname)) ? '' : $row['Table_name'])
+                $html_output .= PMA_getUserRevokeLink(
+                    $username,
+                    $hostname,
+                    (! strlen($dbname)) ? $row['Db'] : $dbname,
+                    (! strlen($dbname)) ? '' : $row['Table_name']
                 );
             }
             $html_output .= '</td>' . "\n"
@@ -2327,19 +2352,17 @@ function PMA_getHtmlForDisplayUserRightsInRows($db_rights, $link_edit, $dbname,
 /**
  * Get a HTML table for display user's tabel specific or database specific rights
  *
- * @param string $username    username
- * @param string $hostname    host name
- * @param string $link_edit   standard link to edit privileges
- * @param string $link_revoke standard link to revoke
- * @param string $dbname      database name
+ * @param string $username username
+ * @param string $hostname host name
+ * @param string $dbname   database name
  *
  * @return array $html_output, $found_rows
  */
-function PMA_getTableForDisplayAllTableSpecificRights($username, $hostname
-    , $link_edit, $link_revoke, $dbname
+function PMA_getTableForDisplayAllTableSpecificRights(
+    $username, $hostname, $dbname
 ) {
     // table header
-    $html_output = PMA_generate_common_hidden_inputs('', '')
+    $html_output = PMA_URL_getHiddenInputs('', '')
         . '<input type="hidden" name="username" '
         . 'value="' . htmlspecialchars($username) . '" />' . "\n"
         . '<input type="hidden" name="hostname" '
@@ -2390,7 +2413,7 @@ function PMA_getTableForDisplayAllTableSpecificRights($username, $hostname
     $html_output .= '<tbody>' . "\n";
     // display rows
     list ($found_rows, $html_out) =  PMA_getHtmlForDisplayUserRightsInRows(
-        $db_rights, $link_edit, $dbname, $link_revoke, $hostname, $username
+        $db_rights, $dbname, $hostname, $username
     );
 
     $html_output .= $html_out;
@@ -2425,7 +2448,8 @@ function PMA_getHtmlForDisplaySelectDbInEditPrivs($found_rows)
             // already escaped in $found_rows,
             // contrary to the output of SHOW DATABASES
             if (empty($found_rows) || ! in_array($current_db, $found_rows)) {
-                $html_output .= '<option value="' . htmlspecialchars($current_db) . '">'
+                $html_output .= '<option value="'
+                    . htmlspecialchars($current_db) . '">'
                     . htmlspecialchars($current_db_show) . '</option>' . "\n";
             }
         }
@@ -2494,19 +2518,15 @@ function PMA_displayTablesInEditPrivs($dbname, $found_rows)
  * Get HTML for display the users overview
  * (if less than 50 users, display them immediately)
  *
- * @param array  $result            ran sql query
- * @param array  $db_rights         user's database rights array
- * @param string $link_edit         standard link to edit privileges
- * @param string $pmaThemeImage     a image source link
- * @param string $text_dir          text directory
- * @param string $conditional_class if ajaxable 'Ajax' otherwise ''
- * @param string $link_export       standard link to export privileges
+ * @param array  $result        ran sql query
+ * @param array  $db_rights     user's database rights array
+ * @param string $pmaThemeImage a image source link
+ * @param string $text_dir      text directory
  *
  * @return string HTML snippet
  */
-function PMA_getUsersOverview($result, $db_rights, $link_edit, $pmaThemeImage,
-    $text_dir, $conditional_class, $link_export
-) {
+function PMA_getUsersOverview($result, $db_rights, $pmaThemeImage, $text_dir)
+{
     while ($row = $GLOBALS['dbi']->fetchAssoc($result)) {
         $row['privs'] = PMA_extractPrivInfo($row, true);
         $db_rights[$row['User']][$row['Host']] = $row;
@@ -2516,7 +2536,7 @@ function PMA_getUsersOverview($result, $db_rights, $link_edit, $pmaThemeImage,
     $html_output
         = '<form name="usersForm" id="usersForm" action="server_privileges.php" '
         . 'method="post">' . "\n"
-        . PMA_generate_common_hidden_inputs('', '')
+        . PMA_URL_getHiddenInputs('', '')
         . '<table id="tableuserrights" class="data">' . "\n"
         . '<thead>' . "\n"
         . '<tr><th></th>' . "\n"
@@ -2537,9 +2557,7 @@ function PMA_getUsersOverview($result, $db_rights, $link_edit, $pmaThemeImage,
         . '</thead>' . "\n";
 
     $html_output .= '<tbody>' . "\n";
-    $html_output .= PMA_getTableBodyForUserRightsTable(
-        $db_rights, $link_edit, $link_export
-    );
+    $html_output .= PMA_getTableBodyForUserRightsTable($db_rights);
     $html_output .= '</tbody>'
         . '</table>' . "\n";
 
@@ -2563,7 +2581,7 @@ function PMA_getUsersOverview($result, $db_rights, $link_edit, $pmaThemeImage,
         . '<div class="clear_both" style="clear:both"></div>';
 
     // add/delete user fieldset
-    $html_output .= PMA_getFieldsetForAddDeleteUser($conditional_class);
+    $html_output .= PMA_getFieldsetForAddDeleteUser();
     $html_output .= '</form>' . "\n";
 
     return $html_output;
@@ -2572,13 +2590,11 @@ function PMA_getUsersOverview($result, $db_rights, $link_edit, $pmaThemeImage,
 /**
  * Get table body for 'tableuserrights' table in userform
  *
- * @param array  $db_rights   user's database rights array
- * @param string $link_edit   standard link to edit privileges
- * @param string $link_export Link for export all users
+ * @param array $db_rights user's database rights array
  *
  * @return string HTML snippet
  */
-function PMA_getTableBodyForUserRightsTable($db_rights, $link_edit, $link_export)
+function PMA_getTableBodyForUserRightsTable($db_rights)
 {
     if ($GLOBALS['cfgRelation']['menuswork']) {
         $usersTable = PMA_Util::backquote($GLOBALS['cfg']['Server']['pmadb'])
@@ -2599,13 +2615,6 @@ function PMA_getTableBodyForUserRightsTable($db_rights, $link_edit, $link_export
         $userGroupCount = $GLOBALS['dbi']->fetchValue(
             $sqlQuery, 0, 0, $GLOBALS['controllink']
         );
-
-        $link_edit_user_group = '<a class="edit_user_group_anchor ajax"'
-            . ' href="server_privileges.php?'
-            . str_replace('%', '%%', $GLOBALS['url_query'])
-            . '&amp;username=%s">'
-            . PMA_Util::getIcon('b_usrlist.png', __('Edit user group'))
-            . '</a>';
     }
 
     $odd_row = true;
@@ -2664,12 +2673,9 @@ function PMA_getTableBodyForUserRightsTable($db_rights, $link_edit, $link_export
                 . '</td>' . "\n";
 
             $html_output .= '<td class="center">'
-                . sprintf(
-                    $link_edit,
-                    urlencode($host['User']),
-                    urlencode($host['Host']),
-                    '',
-                    ''
+                . PMA_getUserEditLink(
+                    $host['User'],
+                    $host['Host']
                 )
                 . '</td>';
             if ($GLOBALS['cfgRelation']['menuswork'] && $userGroupCount > 0) {
@@ -2677,19 +2683,20 @@ function PMA_getTableBodyForUserRightsTable($db_rights, $link_edit, $link_export
                     $html_output .= '<td class="center"></td>';
                 } else {
                     $html_output .= '<td class="center">'
-                        . sprintf(
-                            $link_edit_user_group,
-                            urlencode($host['User'])
-                        )
+                        . '<a class="edit_user_group_anchor ajax"'
+                        . ' href="server_privileges.php'
+                        . PMA_URL_getCommon(array('username' => $host['User']))
+                        . '">'
+                        . PMA_Util::getIcon('b_usrlist.png', __('Edit user group'))
+                        . '</a>'
                         . '</td>';
                 }
             }
             $html_output .= '<td class="center">'
-                . sprintf(
-                    $link_export,
-                    urlencode($host['User']),
-                    urlencode($host['Host']),
-                    (isset($_GET['initial']) ? $_GET['initial'] : '')
+                . PMA_getUserExportLink(
+                    $host['User'],
+                    $host['Host'],
+                    isset($_GET['initial']) ? $_GET['initial'] : ''
                 )
                 . '</td>';
             $html_output .= '</tr>';
@@ -2702,16 +2709,14 @@ function PMA_getTableBodyForUserRightsTable($db_rights, $link_edit, $link_export
 /**
  * Get HTML fieldset for Add/Delete user
  *
- * @param string $conditional_class if ajaxable 'Ajax' otherwise ''
- *
  * @return string HTML snippet
  */
-function PMA_getFieldsetForAddDeleteUser($conditional_class)
+function PMA_getFieldsetForAddDeleteUser()
 {
     $html_output = '<fieldset id="fieldset_add_user">' . "\n";
-    $html_output .= '<a href="server_privileges.php?'
-        . $GLOBALS['url_query'] . '&amp;adduser=1"'
-        . 'class="' . $conditional_class . '">' . "\n"
+    $html_output .= '<a href="server_privileges.php'
+        . PMA_URL_getCommon(array('adduser' => 1))
+        . '" class="ajax">' . "\n"
         . PMA_Util::getIcon('b_usradd.png')
         . '            ' . __('Add user') . '</a>' . "\n";
     $html_output .= '</fieldset>' . "\n";
@@ -2723,23 +2728,32 @@ function PMA_getFieldsetForAddDeleteUser($conditional_class)
         . '</legend>' . "\n";
 
     $html_output .= '<input type="hidden" name="mode" value="2" />' . "\n"
-        . '(' . __('Revoke all active privileges from the users and delete them afterwards.') . ')'
+        . '('
+        . __('Revoke all active privileges from the users and delete them afterwards.')
+        . ')'
         . '<br />' . "\n";
 
     $html_output .= '<input type="checkbox" '
-        . 'title="' . __('Drop the databases that have the same names as the users.') . '" '
+        . 'title="'
+        . __('Drop the databases that have the same names as the users.')
+        . '" '
         . 'name="drop_users_db" id="checkbox_drop_users_db" />' . "\n";
 
     $html_output .= '<label for="checkbox_drop_users_db" '
-        . 'title="' . __('Drop the databases that have the same names as the users.') . '">' . "\n"
-        . '            ' . __('Drop the databases that have the same names as the users.') . "\n"
+        . 'title="'
+        . __('Drop the databases that have the same names as the users.')
+        . '">' . "\n"
+        . '            '
+        . __('Drop the databases that have the same names as the users.')
+        . "\n"
         . '</label>' . "\n"
         . '</fieldset>' . "\n";
 
-    $html_output .= '<fieldset id="fieldset_delete_user_footer" class="tblFooters">' . "\n";
+    $html_output .= '<fieldset id="fieldset_delete_user_footer" class="tblFooters">'
+        . "\n";
     $html_output .= '<input type="submit" name="delete" '
         . 'value="' . __('Go') . '" id="buttonGo" '
-        . 'class="' . $conditional_class . '"/>' . "\n";
+        . 'class="ajax"/>' . "\n";
 
     $html_output .= '</fieldset>' . "\n";
 
@@ -2749,12 +2763,11 @@ function PMA_getFieldsetForAddDeleteUser($conditional_class)
 /**
  * Get HTML for Displays the initials
  *
- * @param array  $array_initials    array for all initials, even non A-Z
- * @param string $conditional_class if ajaxable 'Ajax' otherwise ''
+ * @param array $array_initials array for all initials, even non A-Z
  *
  * @return string HTML snippet
  */
-function PMA_getHtmlForDisplayTheInitials($array_initials, $conditional_class)
+function PMA_getHtmlForDisplayTheInitials($array_initials)
 {
     // initialize to false the letters A-Z
     for ($letter_counter = 1; $letter_counter < 27; $letter_counter++) {
@@ -2784,10 +2797,10 @@ function PMA_getHtmlForDisplayTheInitials($array_initials, $conditional_class)
         if (! empty($tmp_initial)) {
             if ($initial_was_found) {
                 $html_output .= '<td>'
-                    . '<a class="' . $conditional_class . '"'
-                    . ' href="server_privileges.php?'
-                    . $GLOBALS['url_query'] . '&amp;'
-                    . 'initial=' . urlencode($tmp_initial) . '">' . $tmp_initial
+                    . '<a class="ajax"'
+                    . ' href="server_privileges.php'
+                    . PMA_URL_getCommon(array('initial' => $tmp_initial))
+                    . '">' . $tmp_initial
                     . '</a>'
                     . '</td>' . "\n";
             } else {
@@ -2796,9 +2809,9 @@ function PMA_getHtmlForDisplayTheInitials($array_initials, $conditional_class)
         }
     }
     $html_output .= '<td>'
-        . '<a href="server_privileges.php?' . $GLOBALS['url_query']
-        . '&amp;showall=1" '
-        . 'class="nowrap">[' . __('Show all') . ']</a></td>' . "\n";
+        . '<a href="server_privileges.php'
+        . PMA_URL_getCommon(array('showall' => 1))
+        . '" class="nowrap">[' . __('Show all') . ']</a></td>' . "\n";
     $html_output .= '</tr></table>';
 
     return $html_output;
@@ -2953,7 +2966,8 @@ function PMA_updatePrivileges($username, $hostname, $tablename, $dbname)
     $sql_query = $sql_query0 . ' ' . $sql_query1 . ' ' . $sql_query2;
     $message = PMA_Message::success(__('You have updated the privileges for %s.'));
     $message->addParam(
-        '\'' . htmlspecialchars($username) . '\'@\'' . htmlspecialchars($hostname) . '\''
+        '\'' . htmlspecialchars($username)
+        . '\'@\'' . htmlspecialchars($hostname) . '\''
     );
 
     return array($sql_query, $message);
@@ -3004,16 +3018,14 @@ function PMA_getHtmlForExportUserDefinition($username, $hostname)
 /**
  * Get HTML for display Add userfieldset
  *
- * @param string $conditional_class if ajaxable 'Ajax' otherwise ''
- *
  * @return string html output
  */
-function PMA_getAddUserHtmlFieldset($conditional_class)
+function PMA_getAddUserHtmlFieldset()
 {
     return '<fieldset id="fieldset_add_user">' . "\n"
-        . '<a href="server_privileges.php?' . $GLOBALS['url_query']
-        . '&amp;adduser=1" '
-        . 'class="' . $conditional_class . '">' . "\n"
+        . '<a href="server_privileges.php'
+        . PMA_URL_getCommon(array('adduser' => 1))
+        . '" class="ajax">' . "\n"
         . PMA_Util::getIcon('b_usradd.png')
         . '            ' . __('Add user') . '</a>' . "\n"
         . '</fieldset>' . "\n";
@@ -3040,21 +3052,32 @@ function PMA_getHtmlHeaderForDisplayUserProperties(
        . __('User');
 
     if (isset($dbname)) {
-        $html_output .= ' <i><a href="server_privileges.php?'
-            . $GLOBALS['url_query']
-            . '&amp;username=' . htmlspecialchars(urlencode($username))
-            . '&amp;hostname=' . htmlspecialchars(urlencode($hostname))
-            . '&amp;dbname=&amp;tablename=">\'' . htmlspecialchars($username)
+        $html_output .= ' <i><a href="server_privileges.php'
+            . PMA_URL_getCommon(
+                array(
+                    'username' => $username,
+                    'hostname' => $hostname,
+                    'dbname' => '',
+                    'tablename' => '',
+                )
+            )
+            . '">\'' . htmlspecialchars($username)
             . '\'@\'' . htmlspecialchars($hostname)
             . '\'</a></i>' . "\n";
 
-        $html_output .= ' - ' . ($dbname_is_wildcard ? __('Databases') : __('Database') );
+        $html_output .= ' - ';
+        $html_output .= $dbname_is_wildcard ? __('Databases') : __('Database');
         if (isset($_REQUEST['tablename'])) {
-            $html_output .= ' <i><a href="server_privileges.php?' . $GLOBALS['url_query']
-                . '&amp;username=' . htmlspecialchars(urlencode($username))
-                . '&amp;hostname=' . htmlspecialchars(urlencode($hostname))
-                . '&amp;dbname=' . htmlspecialchars($url_dbname)
-                . '&amp;tablename=">' . htmlspecialchars($dbname)
+            $html_output .= ' <i><a href="server_privileges.php'
+                . PMA_URL_getCommon(
+                    array(
+                        'username' => $username,
+                        'hostname' => $hostname,
+                        'dbname' => $url_dbname,
+                        'tablename' => '',
+                    )
+                )
+                . '">' . htmlspecialchars($dbname)
                 . '</a></i>';
 
             $html_output .= ' - ' . __('Table')
@@ -3077,17 +3100,13 @@ function PMA_getHtmlHeaderForDisplayUserProperties(
 /**
  * Get HTML snippet for display user overview page
  *
- * @param string $link_edit         standard link to edit privileges
- * @param string $pmaThemeImage     a image source link
- * @param string $text_dir          text directory
- * @param string $conditional_class if ajaxable 'Ajax' otherwise ''
- * @param string $link_export       standard link to export privileges
+ * @param string $pmaThemeImage a image source link
+ * @param string $text_dir      text directory
  *
  * @return string $html_output
  */
-function PMA_getHtmlForDisplayUserOverviewPage($link_edit, $pmaThemeImage,
-    $text_dir, $conditional_class, $link_export
-) {
+function PMA_getHtmlForDisplayUserOverviewPage($pmaThemeImage, $text_dir)
+{
     $html_output = '<h2>' . "\n"
        . PMA_Util::getIcon('b_usrlist.png')
        . __('Users overview') . "\n"
@@ -3142,9 +3161,7 @@ function PMA_getHtmlForDisplayUserOverviewPage($link_edit, $pmaThemeImage,
          * Also not necassary if there is less than 20 privileges
          */
         if ($GLOBALS['dbi']->numRows($res) > 20 ) {
-            $html_output .= PMA_getHtmlForDisplayTheInitials(
-                $array_initials, $conditional_class
-            );
+            $html_output .= PMA_getHtmlForDisplayTheInitials($array_initials);
         }
 
         /**
@@ -3156,11 +3173,10 @@ function PMA_getHtmlForDisplayUserOverviewPage($link_edit, $pmaThemeImage,
             || $GLOBALS['dbi']->numRows($res) < 50
         ) {
             $html_output .= PMA_getUsersOverview(
-                $res, $db_rights, $link_edit, $pmaThemeImage,
-                $text_dir, $conditional_class, $link_export
+                $res, $db_rights, $pmaThemeImage, $text_dir
             );
         } else {
-            $html_output .= PMA_getAddUserHtmlFieldset($conditional_class);
+            $html_output .= PMA_getAddUserHtmlFieldset();
         } // end if (display overview)
 
         if (! $GLOBALS['is_ajax_request'] || ! empty($_REQUEST['ajax_page_request'])) {
@@ -3168,8 +3184,9 @@ function PMA_getHtmlForDisplayUserOverviewPage($link_edit, $pmaThemeImage,
                 __('Note: phpMyAdmin gets the users\' privileges directly from MySQL\'s privilege tables. The content of these tables may differ from the privileges the server uses, if they have been changed manually. In this case, you should %sreload the privileges%s before you continue.'),
                 PMA_Message::NOTICE
             );
-            $flushLink = '<a href="server_privileges.php?' . $GLOBALS['url_query'] . '&amp;'
-                . 'flush_privileges=1" id="reload_privileges_anchor">';
+            $flushLink = '<a href="server_privileges.php'
+                . PMA_URL_getCommon(array('flush_privileges' => 1))
+                . '" id="reload_privileges_anchor">';
             $flushnote->addParam(
                 $flushLink,
                 false
@@ -3243,7 +3260,7 @@ function PMA_getHtmlForUserGroupsTable()
     if ($result && $GLOBALS['dbi']->numRows($result)) {
         $html_output .= '<form name="userGroupsForm" id="userGroupsForm"'
             . ' action="server_privileges.php" method="post">';
-        $html_output .= PMA_generate_common_hidden_inputs();
+        $html_output .= PMA_URL_getHiddenInputs();
         $html_output .= '<table id="userGroupsTable">';
         $html_output .= '<thead><tr>';
         $html_output .= '<th style="white-space: nowrap">'
@@ -3265,19 +3282,31 @@ function PMA_getHtmlForUserGroupsTable()
 
             $html_output .= '<td>';
             $html_output .= '<a class="" href="server_user_groups.php?'
-                . PMA_generate_common_url() . '&viewUsers=1&userGroup='
-                . urlencode($row['usergroup']) . '">'
+                . PMA_URL_getCommon(
+                    array(
+                        'viewUsers' => 1, 'userGroup' => $row['usergroup']
+                    )
+                )
+                . '">'
                 . PMA_Util::getIcon('b_usrlist.png', __('View users')) . '</a>';
             $html_output .= '&nbsp;&nbsp;';
             $html_output .= '<a class="" href="server_user_groups.php?'
-                . PMA_generate_common_url() . '&editUserGroup=1&userGroup='
-                . urlencode($row['usergroup']) . '">'
+                . PMA_URL_getCommon(
+                    array(
+                        'editUserGroup' => 1, 'userGroup' => $row['usergroup']
+                    )
+                )
+                . '">'
                 . PMA_Util::getIcon('b_edit.png', __('Edit')) . '</a>';
             $html_output .= '&nbsp;&nbsp;';
             $html_output .= '<a class="deleteUserGroup ajax"'
                 . ' href="server_user_groups.php?'
-                . PMA_generate_common_url() . '&deleteUserGroup=1&userGroup='
-                . urlencode($row['usergroup']) . '">'
+                . PMA_URL_getCommon(
+                    array(
+                        'deleteUserGroup' => 1, 'userGroup' => $row['usergroup']
+                    )
+                )
+                . '">'
                 . PMA_Util::getIcon('b_drop.png', __('Delete')) . '</a>';
             $html_output .= '</td>';
 
@@ -3293,8 +3322,8 @@ function PMA_getHtmlForUserGroupsTable()
     $GLOBALS['dbi']->freeResult($result);
 
     $html_output .= '<fieldset id="fieldset_add_user_group">';
-    $html_output .= '<a href="server_user_groups.php?'
-        . PMA_generate_common_url() . '&addUserGroup=1">'
+    $html_output .= '<a href="server_user_groups.php'
+        . PMA_URL_getCommon(array('addUserGroup' => 1)) . '">'
         . PMA_Util::getIcon('b_usradd.png')
         . __('Add user group') . '</a>';
     $html_output .= '</fieldset>';
@@ -3373,7 +3402,7 @@ function PMA_getHtmlToEditUserGroup($userGroup = null)
     } else {
         $urlParams['addUserGroupSubmit'] = '1';
     }
-    $html_output .= PMA_generate_common_hidden_inputs($urlParams);
+    $html_output .= PMA_URL_getHiddenInputs($urlParams);
 
     $html_output .= '<fieldset id="fieldset_user_group_rights">';
     $html_output .= '<legend>' . __('User group menu assignments')
@@ -3512,15 +3541,13 @@ function PMA_editUserGroup($userGroup, $new = false)
  * @param type    $url_dbname         url database name that urlencode() string
  * @param string  $username           username
  * @param string  $hostname           host name
- * @param string  $link_edit          standard link to edit privileges
- * @param string  $link_revoke        standard link to revoke
  * @param string  $dbname             database name
  * @param string  $tablename          table name
  *
  * @return string $html_output
  */
 function PMA_getHtmlForDisplayUserProperties($dbname_is_wildcard,$url_dbname,
-    $username, $hostname, $link_edit, $link_revoke, $dbname, $tablename
+    $username, $hostname, $dbname, $tablename
 ) {
     $html_output = PMA_getHtmlHeaderForDisplayUserProperties(
         $dbname_is_wildcard, $url_dbname, $dbname, $username, $hostname, $tablename
@@ -3554,7 +3581,7 @@ function PMA_getHtmlForDisplayUserProperties($dbname_is_wildcard,$url_dbname,
 
     $html_output .= '<form' . $class . ' name="usersForm" id="addUsersForm"'
         . ' action="server_privileges.php" method="post">' . "\n";
-    $html_output .= PMA_generate_common_hidden_inputs($_params);
+    $html_output .= PMA_URL_getHiddenInputs($_params);
     $html_output .= PMA_getHtmlToDisplayPrivilegesTable(
         PMA_ifSetOr($dbname, '*', 'length'),
         PMA_ifSetOr($tablename, '*', 'length')
@@ -3574,7 +3601,7 @@ function PMA_getHtmlForDisplayUserProperties($dbname_is_wildcard,$url_dbname,
         $unescaped_db = PMA_Util::unescapeMysqlWildcards($dbname);
         list($html_rightsTable, $found_rows)
             = PMA_getTableForDisplayAllTableSpecificRights(
-                $username, $hostname, $link_edit, $link_revoke, $unescaped_db
+                $username, $hostname, $unescaped_db
             );
         $html_output .= $html_rightsTable;
 
@@ -3707,7 +3734,9 @@ function PMA_getDbSpecificPrivsQueriesForChangeOrCopyUser(
         .' AND `Host`'
         .' = \'' . PMA_Util::sqlAddSlashes($_REQUEST['old_username']) . '\';';
 
-    $res = $GLOBALS['dbi']->query('SELECT * FROM `mysql`.`db`' . $user_host_condition);
+    $res = $GLOBALS['dbi']->query(
+        'SELECT * FROM `mysql`.`db`' . $user_host_condition
+    );
 
     while ($row = $GLOBALS['dbi']->fetchAssoc($res)) {
         $queries[] = 'GRANT ' . join(', ', PMA_extractPrivInfo($row))
@@ -3884,7 +3913,7 @@ function PMA_getSqlQueriesForDisplayAndAddUser($username, $hostname, $password)
  */
 function PMA_getHtmlForSubMenusOnUsersPage($selfUrl)
 {
-    $url_params = PMA_generate_common_url();
+    $url_params = PMA_URL_getCommon();
     $items = array(
         array(
             'name' => __('Users overview'),

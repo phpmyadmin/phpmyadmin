@@ -65,7 +65,7 @@ class PMA_ServerUserGroupsTest extends PHPUnit_Framework_TestCase
         );
         $this->assertContains(
             '<a href="server_user_groups.php?'
-            . PMA_generate_common_url() . '&addUserGroup=1">',
+            . PMA_URL_getCommon() . '&addUserGroup=1">',
             $html
         );
     }
@@ -122,19 +122,19 @@ class PMA_ServerUserGroupsTest extends PHPUnit_Framework_TestCase
         );
         $this->assertContains(
             '<a class="" href="server_user_groups.php?'
-            . PMA_generate_common_url() . '&viewUsers=1&userGroup='
+            . PMA_URL_getCommon() . '&viewUsers=1&userGroup='
             . urlencode('usergroup<') . '">',
             $html
         );
         $this->assertContains(
             '<a class="" href="server_user_groups.php?'
-            . PMA_generate_common_url() . '&editUserGroup=1&userGroup='
+            . PMA_URL_getCommon() . '&editUserGroup=1&userGroup='
             . urlencode('usergroup<') . '">',
             $html
         );
         $this->assertContains(
             '<a class="deleteUserGroup ajax" href="server_user_groups.php?'
-            . PMA_generate_common_url() . '&deleteUserGroup=1&userGroup='
+            . PMA_URL_getCommon() . '&deleteUserGroup=1&userGroup='
             . urlencode('usergroup<') . '">',
             $html
         );

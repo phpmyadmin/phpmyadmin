@@ -12,7 +12,7 @@ if (! defined('PHPMYADMIN')) {
 
 /* Get the transformations interface */
 require_once 'libraries/plugins/TransformationsPlugin.class.php';
-/* For PMA_transformation_global_html_replace */
+/* For PMA_Transformation_globalHtmlReplace */
 require_once 'libraries/transformations.lib.php';
 
 /**
@@ -60,7 +60,7 @@ abstract class TextLinkTransformationsPlugin extends TransformationsPlugin
                 . '</a>'
         );
 
-        return PMA_transformation_global_html_replace(
+        return PMA_Transformation_globalHtmlReplace(
             $buffer,
             $transform_options
         );

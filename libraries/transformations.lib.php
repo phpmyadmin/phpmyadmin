@@ -24,7 +24,7 @@ if (! defined('PHPMYADMIN')) {
  * removes quotes
  *
  * <code>
- * PMA_transformation_getOptions("'option ,, quoted',abd,'2,3',");
+ * PMA_Transformation_getOptions("'option ,, quoted',abd,'2,3',");
  * // array {
  * //     'option ,, quoted',
  * //     'abc',
@@ -37,7 +37,7 @@ if (! defined('PHPMYADMIN')) {
  *
  * @return array options
  */
-function PMA_transformation_getOptions($option_string)
+function PMA_Transformation_getOptions($option_string)
 {
     $result = array();
 
@@ -289,14 +289,18 @@ function PMA_setMIME($db, $table, $key, $mimetype, $transformation,
             && (strlen($mimetype) || strlen($transformation)
             || strlen($transformation_options) || strlen($row['comment']))
         ) {
-            $upd_query = '
-                UPDATE ' . PMA_Util::backquote($cfgRelation['db']) . '.'
-                . PMA_Util::backquote($cfgRelation['column_info']) . '
-                   SET `mimetype`               = \'' . PMA_Util::sqlAddSlashes($mimetype) . '\',
-                       `transformation`         = \'' . PMA_Util::sqlAddSlashes($transformation) . '\',
-                       `transformation_options` = \'' . PMA_Util::sqlAddSlashes($transformation_options) . '\'';
+            $upd_query = 'UPDATE ' . PMA_Util::backquote($cfgRelation['db']) . '.'
+                . PMA_Util::backquote($cfgRelation['column_info'])
+                . ' SET '
+                . '`mimetype` = \''
+                . PMA_Util::sqlAddSlashes($mimetype) . '\', '
+                . '`transformation` = \''
+                . PMA_Util::sqlAddSlashes($transformation) . '\', '
+                . '`transformation_options` = \''
+                . PMA_Util::sqlAddSlashes($transformation_options) . '\'';
         } else {
-            $upd_query = 'DELETE FROM ' . PMA_Util::backquote($cfgRelation['db']) . '.' . PMA_Util::backquote($cfgRelation['column_info']);
+            $upd_query = 'DELETE FROM ' . PMA_Util::backquote($cfgRelation['db'])
+                . '.' . PMA_Util::backquote($cfgRelation['column_info']);
         }
         $upd_query .= '
             WHERE `db_name`     = \'' . PMA_Util::sqlAddSlashes($db) . '\'
@@ -307,15 +311,17 @@ function PMA_setMIME($db, $table, $key, $mimetype, $transformation,
         || strlen($transformation_options)
     ) {
 
-        $upd_query = 'INSERT INTO ' . PMA_Util::backquote($cfgRelation['db']) . '.' . PMA_Util::backquote($cfgRelation['column_info'])
-                   . ' (db_name, table_name, column_name, mimetype, transformation, transformation_options) '
-                   . ' VALUES('
-                   . '\'' . PMA_Util::sqlAddSlashes($db) . '\','
-                   . '\'' . PMA_Util::sqlAddSlashes($table) . '\','
-                   . '\'' . PMA_Util::sqlAddSlashes($key) . '\','
-                   . '\'' . PMA_Util::sqlAddSlashes($mimetype) . '\','
-                   . '\'' . PMA_Util::sqlAddSlashes($transformation) . '\','
-                   . '\'' . PMA_Util::sqlAddSlashes($transformation_options) . '\')';
+        $upd_query = 'INSERT INTO ' . PMA_Util::backquote($cfgRelation['db'])
+            . '.' . PMA_Util::backquote($cfgRelation['column_info'])
+            . ' (db_name, table_name, column_name, mimetype, '
+            . 'transformation, transformation_options) '
+            . ' VALUES('
+            . '\'' . PMA_Util::sqlAddSlashes($db) . '\','
+            . '\'' . PMA_Util::sqlAddSlashes($table) . '\','
+            . '\'' . PMA_Util::sqlAddSlashes($key) . '\','
+            . '\'' . PMA_Util::sqlAddSlashes($mimetype) . '\','
+            . '\'' . PMA_Util::sqlAddSlashes($transformation) . '\','
+            . '\'' . PMA_Util::sqlAddSlashes($transformation_options) . '\')';
     }
 
     if (isset($upd_query)) {
@@ -348,7 +354,7 @@ function PMA_setMIME($db, $table, $key, $mimetype, $transformation,
  *
  * @return string containing the text with all the replacements
  */
-function PMA_transformation_global_html_replace($buffer, $options = array())
+function PMA_Transformation_globalHtmlReplace($buffer, $options = array())
 {
     if ( ! isset($options['string']) ) {
         $options['string'] = '';

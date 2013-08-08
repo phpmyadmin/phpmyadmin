@@ -286,7 +286,7 @@ if (!empty($submit_mult) && !empty($what)) {
     }
     if ($what == 'replace_prefix_tbl' || $what == 'copy_tbl_change_prefix') {
         echo '<form action="' . $action . '" method="post">';
-        echo PMA_generate_common_hidden_inputs($_url_params);
+        echo PMA_URL_getHiddenInputs($_url_params);
         echo '<fieldset class = "input">';
         echo '<legend>';
         if ($what == 'replace_prefix_tbl') {
@@ -317,7 +317,7 @@ if (!empty($submit_mult) && !empty($what)) {
         echo '</form>';
     } elseif ($what == 'add_prefix_tbl') {
         echo '<form action="' . $action . '" method="post">';
-        echo PMA_generate_common_hidden_inputs($_url_params);
+        echo PMA_URL_getHiddenInputs($_url_params);
         echo '<fieldset class = "input">';
         echo '<legend>' . __('Add table prefix:') . '</legend>';
         echo '<table>';
@@ -347,7 +347,7 @@ if (!empty($submit_mult) && !empty($what)) {
         echo '</fieldset>';
         echo '<fieldset class="tblFooters">';
         echo '<form action="' . $action . '" method="post">';
-        echo PMA_generate_common_hidden_inputs($_url_params);
+        echo PMA_URL_getHiddenInputs($_url_params);
         // Display option to disable foreign key checks while dropping tables
         if ($what == 'drop_tbl') {
             echo '<div id="foreignkeychk">';
@@ -371,7 +371,7 @@ if (!empty($submit_mult) && !empty($what)) {
         echo '</form>';
 
         echo '<form action="' . $action . '" method="post">';
-        echo PMA_generate_common_hidden_inputs($_url_params);
+        echo PMA_URL_getHiddenInputs($_url_params);
         echo '<input type="hidden" name="mult_btn" value="' . __('No') . '" />';
         echo '<input type="submit" value="' . __('No') . '" id="buttonNo" />';
         echo '</form>';

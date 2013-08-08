@@ -35,7 +35,6 @@ class PMA_Transformation_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['db'] = 'db';
         $_SESSION['PMA_Theme'] = PMA_Theme::load('./themes/pmahomme');
         $GLOBALS['cfg'] = array(
-            'MySQLManualType' => 'none',
             'ServerDefault' => 1,
             'ActionLinksMode' => 'icons',
         );
@@ -67,7 +66,7 @@ class PMA_Transformation_Test extends PHPUnit_Framework_TestCase
     {
         $this->assertEquals(
             $expected,
-            PMA_transformation_getOptions($input)
+            PMA_Transformation_getOptions($input)
         );
     }
 
@@ -145,7 +144,7 @@ class PMA_Transformation_Test extends PHPUnit_Framework_TestCase
      * @return void
      */
     public function testGetMime()
-    {   
+    {
         $_SESSION['relation'][$GLOBALS['server']]['commwork'] = true;
         $_SESSION['relation'][$GLOBALS['server']]['db'] = "pmadb";
         $_SESSION['relation'][$GLOBALS['server']]['column_info'] = "column_info";

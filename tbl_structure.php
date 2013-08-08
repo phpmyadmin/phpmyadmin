@@ -90,7 +90,7 @@ if (isset($_REQUEST['submit_mult_change_x'])) {
 }
 if (! empty($submit_mult)) {
     if (isset($_REQUEST['selected_fld'])) {
-        $err_url = 'tbl_structure.php?' . PMA_generate_common_url($db, $table);
+        $err_url = 'tbl_structure.php?' . PMA_URL_getCommon($db, $table);
         if ($submit_mult == 'browse') {
             // browsing the table displaying only selected columns
             $GLOBALS['active_page'] = 'sql.php';
@@ -104,14 +104,14 @@ if (! empty($submit_mult)) {
             }
             $sql_query .= ' FROM ' . PMA_Util::backquote($db)
             . '.' . PMA_Util::backquote($table);
-            
+
             // Parse and analyze the query
-            require_once 'libraries/parse_analyze.inc.php';
-            
+            include_once 'libraries/parse_analyze.inc.php';
+
             PMA_executeQueryAndSendQueryResponse(
-                $analyzed_sql_results, false, $db, $table, null, null, null, false, null,
-                null, null, null, $goto, $pmaThemeImage, null, null, null, $sql_query,
-                null, null
+                $analyzed_sql_results, false, $db, $table, null, null, null, false,
+                null, null, null, null, $goto, $pmaThemeImage, null, null,
+                null, $sql_query, null, null
             );
         } else {
             // handle multiple field commands

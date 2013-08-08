@@ -3,7 +3,6 @@
 /**
  * Shared code for mysql charsets
  *
- *
  * @package PhpMyAdmin
  */
 if (! defined('PHPMYADMIN')) {

@@ -1,6 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
+ * Server privileges and users manipulations
  *
  * @package PhpMyAdmin
  */
@@ -57,8 +58,6 @@ foreach (array_keys($_POST) as $post_key) {
 }
 
 require 'libraries/server_common.inc.php';
-
-$conditional_class = 'ajax';
 
 /**
  * Messages are built using the message name
@@ -379,12 +378,6 @@ if (isset($_REQUEST['validate_username'])) {
 }
 
 /**
- * some standard links
- */
-list($link_edit, $link_revoke, $link_export)
-    = PMA_getStandardLinks($conditional_class);
-
-/**
  * If we are in an Ajax request for Create User/Edit User/Revoke User/
  * Flush Privileges, show $message and exit.
  */
@@ -401,9 +394,7 @@ if ($GLOBALS['is_ajax_request']
 ) {
     $extra_data = PMA_getExtraDataForAjaxBehavior(
         (isset($password) ? $password : ''),
-        $link_export,
         (isset($sql_query) ? $sql_query : ''),
-        $link_edit,
         (isset($hostname) ? $hostname : ''),
         (isset($username) ? $username : '')
     );
@@ -483,10 +474,7 @@ if (empty($_REQUEST['adduser'])
     if (! isset($username)) {
         // No username is given --> display the overview
         $response->addHTML(
-            PMA_getHtmlForDisplayUserOverviewPage(
-                $link_edit, $pmaThemeImage, $text_dir,
-                $conditional_class, $link_export
-            )
+            PMA_getHtmlForDisplayUserOverviewPage($pmaThemeImage, $text_dir)
         );
     } else {
         // A user was selected -> display the user's properties
@@ -504,7 +492,7 @@ if (empty($_REQUEST['adduser'])
         $response->addHTML(
             PMA_getHtmlForDisplayUserProperties(
                 ((isset ($dbname_is_wildcard)) ? $dbname_is_wildcard : ''),
-                $url_dbname, $username, $hostname, $link_edit, $link_revoke,
+                $url_dbname, $username, $hostname,
                 (isset($dbname) ? $dbname : ''),
                 (isset($tablename) ? $tablename : '')
             )
@@ -518,7 +506,7 @@ if (empty($_REQUEST['adduser'])
 } else {
     // check the privileges for a particular database.
     $response->addHTML(
-        PMA_getHtmlForSpecificDbPrivileges($link_edit, $conditional_class)
+        PMA_getHtmlForSpecificDbPrivileges()
     );
 } // end if (empty($_REQUEST['adduser']) && empty($checkprivs))... elseif... else...
 

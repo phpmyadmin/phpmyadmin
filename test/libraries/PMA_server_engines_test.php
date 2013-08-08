@@ -41,7 +41,7 @@ class PMA_ServerEngines_Test extends PHPUnit_Framework_TestCase
         //$_REQUEST
         $_REQUEST['log'] = "index1";
         $_REQUEST['pos'] = 3;
-        
+
         //$GLOBALS
         $GLOBALS['cfg']['MaxRows'] = 10;
         $GLOBALS['cfg']['ServerDefault'] = "server";
@@ -49,18 +49,16 @@ class PMA_ServerEngines_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['SQP'] = array();
         $GLOBALS['cfg']['MaxCharactersInDisplayedSQL'] = 1000;
         $GLOBALS['cfg']['ShowSQL'] = true;
-        $GLOBALS['cfg']['SQP']['fmtType'] = 'none';
         $GLOBALS['cfg']['TableNavigationLinksMode'] = 'icons';
         $GLOBALS['cfg']['LimitChars'] = 100;
         $GLOBALS['cfg']['DBG']['sql'] = false;
-        $GLOBALS['cfg']['MySQLManualType'] = 'viewable';
-        
+
         $GLOBALS['table'] = "table";
         $GLOBALS['pmaThemeImage'] = 'image';
-        
+
         //$_SESSION
         $_SESSION['PMA_Theme'] = PMA_Theme::load('./themes/pmahomme');
-        $_SESSION['PMA_Theme'] = new PMA_Theme();     
+        $_SESSION['PMA_Theme'] = new PMA_Theme();
     }
 
     /**
@@ -69,7 +67,7 @@ class PMA_ServerEngines_Test extends PHPUnit_Framework_TestCase
      * @return void
      */
     public function testPMAGetPluginAndModuleInfo()
-    {	
+    {
         //test PMA_getHtmlForAllServerEngines
         $html = PMA_getHtmlForServerEngines();
 
@@ -82,7 +80,7 @@ class PMA_ServerEngines_Test extends PHPUnit_Framework_TestCase
             '<th>Description</th>',
             $html
         );
-        
+
         //validate 2: FEDERATED
         $this->assertContains(
             '<td>Federated MySQL storage engine</td>',
@@ -96,7 +94,7 @@ class PMA_ServerEngines_Test extends PHPUnit_Framework_TestCase
             'server_engines.php?engine=FEDERATED',
             $html
         );
-        
+
         //validate 3: dummy
         $this->assertContains(
             '<td>dummy comment</td>',
@@ -118,7 +116,7 @@ class PMA_ServerEngines_Test extends PHPUnit_Framework_TestCase
      * @return void
      */
     public function testPMAGetPluginAndModuleInfoSpecific()
-    {   
+    {
         $_REQUEST['engine'] = "FEDERATED";
         //Mock DBI
         $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
@@ -143,7 +141,7 @@ class PMA_ServerEngines_Test extends PHPUnit_Framework_TestCase
             'This MySQL server does not support the FEDERATED storage engine.',
             $html
         );
-        $enginer_info = 'There is no detailed status information ' 
+        $enginer_info = 'There is no detailed status information '
             . 'available for this storage engine';
         $this->assertContains(
             $enginer_info,

@@ -1,13 +1,11 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
+ * Database import page
  *
  * @package PhpMyAdmin
  */
 
-/**
- *
- */
 require_once 'libraries/common.inc.php';
 
 $response = PMA_Response::getInstance();
@@ -25,4 +23,3 @@ $import_type = 'database';
 require 'libraries/display_import.inc.php';
 
 ?>
-

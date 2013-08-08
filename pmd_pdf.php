@@ -1,6 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
+ * PDF export for PMD
  *
  * @package PhpMyAdmin-Designer
  */
@@ -21,7 +22,6 @@ if (isset($_POST['scale']) && ! PMA_isValid($_POST['scale'], 'numeric')) {
 $post_params = array(
     'db',
     'mode',
-    'newpage',
     'pdf_page_number',
     'scale'
 );
@@ -51,7 +51,7 @@ if (isset($mode)) {
     $scale_q = PMA_Util::sqlAddSlashes($scale);
 
     if ('create_export' == $mode) {
-        $pdf_page_number = PMA_REL_createPage($newpage, $cfgRelation, $db);
+        $pdf_page_number = PMA_REL_createPage($_POST['newpage'], $cfgRelation, $db);
         if ($pdf_page_number > 0) {
             $message = PMA_Message::success(__('Page has been created'));
             $mode = 'export';
@@ -103,7 +103,7 @@ if (! empty($message)) {
 ?>
   <form name="form1" method="post" action="pmd_pdf.php">
 <?php
-echo PMA_generate_common_hidden_inputs($db);
+echo PMA_URL_getHiddenInputs($db);
 echo '<div>';
 echo '<fieldset><legend>' . __('Import/Export coordinates for PDF schema') . '</legend>';
 
@@ -149,7 +149,9 @@ echo '<p>' . __('Export/Import to scale:');
       <select name="scale">
         <option value="1">1:1</option>
         <option value="2">1:2</option>
-        <option value="3" selected="selected">1:3 (<?php echo __('recommended'); ?>)</option>
+        <option value="3" selected="selected">
+            1:3 (<?php echo __('recommended'); ?>)
+        </option>
         <option value="4">1:4</option>
         <option value="5">1:5</option>
       </select>

@@ -289,7 +289,7 @@ function PMA_getHtmlForGisVisualization(
 
     $html .= '<div style="width: 400px; float: left;">';
     $html .= '<form method="post" action="tbl_gis_visualization.php">';
-    $html .= PMA_generate_common_hidden_inputs($url_params);
+    $html .= PMA_URL_getHiddenInputs($url_params);
     $html .= '<table class="gis_table">';
 
     $html .= PMA_getHtmlForColumn(
@@ -319,7 +319,7 @@ function PMA_getHtmlForGisVisualization(
 
     $html .= '<div  style="float:left;">';
     $html .= '<form method="post" class="disableAjax"  action="tbl_gis_visualization.php">';
-    $html .= PMA_generate_common_hidden_inputs($url_params);
+    $html .= PMA_URL_getHiddenInputs($url_params);
     $html .= '<table class="gis_table">';
     $html .= '<tr><td><label for="fileName">';
     $html .= __("File name") . '</label></td>';
