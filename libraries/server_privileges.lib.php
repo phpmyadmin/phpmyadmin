@@ -2380,7 +2380,8 @@ function PMA_getHtmlForDisplayUserRightsInRows($db_rights, $dbname,
                 . '</code></td>' . "\n"
                 . '<td>'
                     . ((((! strlen($dbname)) && $row['Grant_priv'] == 'Y')
-                        || (strlen($dbname) && in_array('Grant', explode(',', $row['Table_priv']))))
+                        || (strlen($dbname) 
+                        && in_array('Grant', explode(',', $row['Table_priv']))))
                     ? __('Yes')
                     : __('No'))
                 . '</td>' . "\n"
@@ -2799,7 +2800,10 @@ function PMA_getFieldsetForAddDeleteUser()
 
     $html_output .= '<input type="hidden" name="mode" value="2" />' . "\n"
         . '('
-        . __('Revoke all active privileges from the users and delete them afterwards.')
+        . __(
+            'Revoke all active privileges from the users ' 
+            . 'and delete them afterwards.'
+        )
         . ')'
         . '<br />' . "\n";
 
@@ -2906,7 +2910,9 @@ function PMA_getDbRightsForUserOverview()
         if (in_array($table_search_in, $tables)) {
             $db_rights_sqls[] = 'SELECT DISTINCT `User`, `Host` FROM `mysql`.`'
                 . $table_search_in . '` '
-                . (isset($_GET['initial']) ? PMA_rangeOfUsers($_GET['initial']) : '');
+                . (isset($_GET['initial']) 
+                ? PMA_rangeOfUsers($_GET['initial']) 
+                : '');
         }
     }
     $user_defaults = array(
@@ -3012,7 +3018,8 @@ function PMA_updatePrivileges($username, $hostname, $tablename, $dbname)
         if ((isset($_POST['Grant_priv']) && $_POST['Grant_priv'] == 'Y')
             || (! strlen($dbname)
             && (isset($_POST['max_questions']) || isset($_POST['max_connections'])
-            || isset($_POST['max_updates']) || isset($_POST['max_user_connections'])))
+            || isset($_POST['max_updates']) 
+            || isset($_POST['max_user_connections'])))
         ) {
             $sql_query2 .= PMA_getWithClauseForAddUserAndUpdatePrivs();
         }
@@ -3249,9 +3256,17 @@ function PMA_getHtmlForDisplayUserOverviewPage($pmaThemeImage, $text_dir)
             $html_output .= PMA_getAddUserHtmlFieldset();
         } // end if (display overview)
 
-        if (! $GLOBALS['is_ajax_request'] || ! empty($_REQUEST['ajax_page_request'])) {
+        if (! $GLOBALS['is_ajax_request'] 
+            || ! empty($_REQUEST['ajax_page_request'])
+        ) {
             $flushnote = new PMA_Message(
-                __('Note: phpMyAdmin gets the users\' privileges directly from MySQL\'s privilege tables. The content of these tables may differ from the privileges the server uses, if they have been changed manually. In this case, you should %sreload the privileges%s before you continue.'),
+                __(
+                    'Note: phpMyAdmin gets the users\' privileges directly ' 
+                    . 'from MySQL\'s privilege tables. The content of these tables ' 
+                    . 'may differ from the privileges the server uses, ' 
+                    . 'if they have been changed manually. In this case, ' 
+                    . 'you should %sreload the privileges%s before you continue.'
+                ),
                 PMA_Message::NOTICE
             );
             $flushLink = '<a href="server_privileges.php'
@@ -3708,7 +3723,8 @@ function PMA_getHtmlForDisplayUserProperties($dbname_is_wildcard,$url_dbname,
 /**
  * Get queries for Table privileges to change or copy user
  *
- * @param string $user_host_condition user host condition to select relevent table privileges
+ * @param string $user_host_condition user host condition to 
+                                      select relevent table privileges
  * @param array  $queries             queries array
  * @param string $username            username
  * @param string $hostname            host name
@@ -3719,7 +3735,8 @@ function PMA_getTablePrivsQueriesForChangeOrCopyUser($user_host_condition,
     $queries, $username, $hostname
 ) {
     $res = $GLOBALS['dbi']->query(
-        'SELECT `Db`, `Table_name`, `Table_priv` FROM `mysql`.`tables_priv`' . $user_host_condition,
+        'SELECT `Db`, `Table_name`, `Table_priv` FROM `mysql`.`tables_priv`' 
+        . $user_host_condition,
         $GLOBALS['userlink'],
         PMA_DatabaseInterface::QUERY_STORE
     );
@@ -3773,8 +3790,11 @@ function PMA_getTablePrivsQueriesForChangeOrCopyUser($user_host_condition,
         if (count($tmp_privs2['Update']) > 0 && ! in_array('UPDATE', $tmp_privs1)) {
             $tmp_privs1[] = 'UPDATE (`' . join('`, `', $tmp_privs2['Update']) . '`)';
         }
-        if (count($tmp_privs2['References']) > 0 && ! in_array('REFERENCES', $tmp_privs1)) {
-            $tmp_privs1[] = 'REFERENCES (`' . join('`, `', $tmp_privs2['References']) . '`)';
+        if (count($tmp_privs2['References']) > 0 
+            && ! in_array('REFERENCES', $tmp_privs1)
+        ) {
+            $tmp_privs1[] 
+                = 'REFERENCES (`' . join('`, `', $tmp_privs2['References']) . '`)';
         }
 
         $queries[] = 'GRANT ' . join(', ', $tmp_privs1)
@@ -3782,7 +3802,9 @@ function PMA_getTablePrivsQueriesForChangeOrCopyUser($user_host_condition,
             . PMA_Util::backquote($row['Table_name'])
             . ' TO \'' . PMA_Util::sqlAddSlashes($username)
             . '\'@\'' . PMA_Util::sqlAddSlashes($hostname) . '\''
-            . (in_array('Grant', explode(',', $row['Table_priv'])) ? ' WITH GRANT OPTION;' : ';');
+            . (in_array('Grant', explode(',', $row['Table_priv'])) 
+            ? ' WITH GRANT OPTION;' 
+            : ';');
     }
     return $queries;
 }

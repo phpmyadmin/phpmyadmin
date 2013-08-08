@@ -14,8 +14,9 @@ require_once 'libraries/server_privileges.lib.php';
 
 $_add_user_error = false;
 
-$username = '';
-$hostname = '';
+//these variables can be passed from included files
+$username = isset($username) ? $username : '';
+$hostname = isset($hostname) ? $hostname : '';
 if (isset ($_REQUEST['username'])) {
     $username = $_REQUEST['username'];
 }
@@ -103,7 +104,7 @@ $strPrivDescUsage = __('No privileges.');
 /**
  * Checks if a dropdown box has been used for selecting a database / table
  */
-$tablename = '';
+$tablename = isset($tablename) ? $tablename : '';
 if (PMA_isValid($_REQUEST['pred_tablename'])) {
     $tablename = $_REQUEST['pred_tablename'];
 } elseif (PMA_isValid($_REQUEST['tablename'])) {
@@ -112,7 +113,7 @@ if (PMA_isValid($_REQUEST['pred_tablename'])) {
     unset($tablename);
 }
 
-$dbname = '';
+$dbname = isset($dbname) ? $dbname : '';
 if (PMA_isValid($_REQUEST['pred_dbname'])) {
     $dbname = $_REQUEST['pred_dbname'];
     unset($pred_dbname);
@@ -123,8 +124,8 @@ if (PMA_isValid($_REQUEST['pred_dbname'])) {
     unset($tablename);
 }
 
-$unescaped_db = '';
-$db_and_table = '';
+$unescaped_db = isset($unescaped_db) ? $unescaped_db : '';
+$db_and_table = isset($db_and_table) ? $db_and_table : '';
 if (isset($dbname)) {
     $unescaped_db = PMA_Util::unescapeMysqlWildcards($dbname);
     $db_and_table = PMA_Util::backquote($unescaped_db) . '.';
@@ -138,7 +139,7 @@ if (isset($dbname)) {
 }
 
 // check if given $dbname is a wildcard or not
-$dbname_is_wildcard = false;
+$dbname_is_wildcard = isset($dbname_is_wildcard) ? $dbname_is_wildcard : false;
 if (isset($dbname)) {
     //if (preg_match('/\\\\(?:_|%)/i', $dbname)) {
     if (preg_match('/(?<!\\\\)(?:_|%)/i', $dbname)) {
@@ -160,9 +161,10 @@ if (! $is_superuser) {
 /**
  * Changes / copies a user, part I
  */
-$queries = array();
-$row = array();
+$queries = isset($queries)? $queries : array();
+$row = isset($row)? $row : array();
 $password = isset($password) ? $password : '';
+$user_host_condition = isset($user_host_condition) ? $user_host_condition : '';
 if (isset($_REQUEST['change_copy'])) {
     $user_host_condition = ' WHERE `User` = '
         . "'". PMA_Util::sqlAddSlashes($_REQUEST['old_username']) . "'"
@@ -172,7 +174,7 @@ if (isset($_REQUEST['change_copy'])) {
         'SELECT * FROM `mysql`.`user` ' . $user_host_condition
     );
     if (! $row) {
-        PMA_Message::notice(__('No user found.'))->display();
+        $response->addHTML(PMA_Message::notice(__('No user found.'))->getDisplay());
         unset($_REQUEST['change_copy']);
     } else {
         extract($row, EXTR_OVERWRITE);
@@ -190,7 +192,9 @@ if (isset($_REQUEST['change_copy'])) {
  * Adds a user
  *   (Changes / copies a user, part II)
  */
-$message = '';
+$message = isset($message)? $message : '';
+$sql_query = isset($sql_query)? $sql_query : '';
+$queries_for_display = isset($queries_for_display)? $queries_for_display : array();
 if (isset($_REQUEST['adduser_submit']) || isset($_REQUEST['change_copy'])) {
     $sql_query = '';
     if ($_POST['pred_username'] == 'any') {
