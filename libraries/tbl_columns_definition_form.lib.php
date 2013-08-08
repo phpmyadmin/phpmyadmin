@@ -964,7 +964,7 @@ function PMA_getHtmlForColumnAttribute($columnNumber, $ci, $ci_offset,
 
     // MySQL 4.1.2+ TIMESTAMP options
     // (if on_update_current_timestamp is set, then it's TRUE)
-    if(isset($columnMeta['Field'])){
+    if (isset($columnMeta['Field'])) {
         $field = $create_table_fields[$columnMeta['Field']];
     }
     
