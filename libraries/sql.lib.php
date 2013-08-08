@@ -737,7 +737,7 @@ function PMA_getHtmlForBookmark($disp_mode, $cfgBookmark, $sql_query, $db, $tabl
                     'sql_query' => $sql_query,
                     'id_bookmark'=> 1,
                 )
-            )
+            );
         $bkm_sql_query = urlencode(
             isset($complete_query) ? $complete_query : $sql_query
         );

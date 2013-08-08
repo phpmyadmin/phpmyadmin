@@ -298,7 +298,17 @@ class PMA_GIS_MultipointTest extends PMA_GIS_GeomTest
                     'scale' => 2,
                     'height' => 150
                 ),
-                '/^(<circle cx="72" cy="138" r="3" name="svg" class="multipoint vector" fill="white" stroke="#B02EE0" stroke-width="2" id="svg)(\d+)("\/><circle cx="114" cy="242" r="3" name="svg" class="multipoint vector" fill="white" stroke="#B02EE0" stroke-width="2" id="svg)(\d+)("\/><circle cx="26" cy="198" r="3" name="svg" class="multipoint vector" fill="white" stroke="#B02EE0" stroke-width="2" id="svg)(\d+)("\/><circle cx="4" cy="182" r="3" name="svg" class="multipoint vector" fill="white" stroke="#B02EE0" stroke-width="2" id="svg)(\d+)("\/><circle cx="46" cy="132" r="3" name="svg" class="multipoint vector" fill="white" stroke="#B02EE0" stroke-width="2" id="svg)(\d+)("\/>)$/'
+                '/^(<circle cx="72" cy="138" r="3" name="svg" class="multipoint '
+                . 'vector" fill="white" stroke="#B02EE0" stroke-width="2" id="svg)'
+                . '(\d+)("\/><circle cx="114" cy="242" r="3" name="svg" class="mult'
+                . 'ipoint vector" fill="white" stroke="#B02EE0" stroke-width="2" id'
+                . '="svg)(\d+)("\/><circle cx="26" cy="198" r="3" name="svg" class='
+                . '"multipoint vector" fill="white" stroke="#B02EE0" stroke-width='
+                . '"2" id="svg)(\d+)("\/><circle cx="4" cy="182" r="3" name="svg" '
+                . 'class="multipoint vector" fill="white" stroke="#B02EE0" stroke-'
+                . 'width="2" id="svg)(\d+)("\/><circle cx="46" cy="132" r="3" name='
+                . '"svg" class="multipoint vector" fill="white" stroke="#B02EE0" '
+                . 'stroke-width="2" id="svg)(\d+)("\/>)$/'
             )
         );
     }
@@ -346,7 +356,26 @@ class PMA_GIS_MultipointTest extends PMA_GIS_GeomTest
                     'maxX' => '1',
                     'maxY' => '1',
                 ),
-                'bound = new OpenLayers.Bounds(); bound.extend(new OpenLayers.LonLat(0, 0).transform(new OpenLayers.Projection("EPSG:4326"), map.getProjectionObject())); bound.extend(new OpenLayers.LonLat(1, 1).transform(new OpenLayers.Projection("EPSG:4326"), map.getProjectionObject()));vectorLayer.addFeatures(new OpenLayers.Feature.Vector(new OpenLayers.Geometry.MultiPoint(new Array((new OpenLayers.Geometry.Point(12,35)).transform(new OpenLayers.Projection("EPSG:4326"), map.getProjectionObject()), (new OpenLayers.Geometry.Point(48,75)).transform(new OpenLayers.Projection("EPSG:4326"), map.getProjectionObject()), (new OpenLayers.Geometry.Point(69,23)).transform(new OpenLayers.Projection("EPSG:4326"), map.getProjectionObject()), (new OpenLayers.Geometry.Point(25,45)).transform(new OpenLayers.Projection("EPSG:4326"), map.getProjectionObject()), (new OpenLayers.Geometry.Point(14,53)).transform(new OpenLayers.Projection("EPSG:4326"), map.getProjectionObject()), (new OpenLayers.Geometry.Point(35,78)).transform(new OpenLayers.Projection("EPSG:4326"), map.getProjectionObject()))), null, {"pointRadius":3,"fillColor":"#ffffff","strokeColor":"#B02EE0","strokeWidth":2,"label":"Ol","labelYOffset":-8,"fontSize":10}));'
+                'bound = new OpenLayers.Bounds(); bound.extend(new OpenLayers.Lon'
+                . 'Lat(0, 0).transform(new OpenLayers.Projection("EPSG:4326"), '
+                . 'map.getProjectionObject())); bound.extend(new OpenLayers.LonLat'
+                . '(1, 1).transform(new OpenLayers.Projection("EPSG:4326"), map.'
+                . 'getProjectionObject()));vectorLayer.addFeatures(new OpenLayers.'
+                . 'Feature.Vector(new OpenLayers.Geometry.MultiPoint(new Array(('
+                . 'new OpenLayers.Geometry.Point(12,35)).transform(new OpenLayers.'
+                . 'Projection("EPSG:4326"), map.getProjectionObject()), (new Open'
+                . 'Layers.Geometry.Point(48,75)).transform(new OpenLayers.Projec'
+                . 'tion("EPSG:4326"), map.getProjectionObject()), (new OpenLayers.'
+                . 'Geometry.Point(69,23)).transform(new OpenLayers.Projection("'
+                . 'EPSG:4326"), map.getProjectionObject()), (new OpenLayers.Geometry'
+                . '.Point(25,45)).transform(new OpenLayers.Projection("EPSG:4326"), '
+                . 'map.getProjectionObject()), (new OpenLayers.Geometry.Point(14,53)'
+                . ').transform(new OpenLayers.Projection("EPSG:4326"), map.getProjec'
+                . 'tionObject()), (new OpenLayers.Geometry.Point(35,78)).transform'
+                . '(new OpenLayers.Projection("EPSG:4326"), map.getProjectionObject('
+                . ')))), null, {"pointRadius":3,"fillColor":"#ffffff","strokeColor"'
+                . ':"#B02EE0","strokeWidth":2,"label":"Ol","labelYOffset":-8,'
+                . '"fontSize":10}));'
             )
         );
     }

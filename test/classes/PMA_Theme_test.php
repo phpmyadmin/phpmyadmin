@@ -1,6 +1,10 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
-
+/**
+ * Test class for PMA_Theme.
+ *
+ * @package PhpMyAdmin-test
+ */
 require_once 'libraries/Theme.class.php';
 require_once 'libraries/core.lib.php';
 require_once 'libraries/Util.class.php';
@@ -49,12 +53,22 @@ class PMA_ThemeTest extends PHPUnit_Framework_TestCase
     {
     }
 
+    /**
+     * Test for PMA_Theme::loadInfo
+     * 
+     * @return void
+     */
     public function testCheckImgPathNotExisted()
     {
         $this->object->setPath('path/to/nowhere');
         $this->assertFalse($this->object->loadInfo());
     }
 
+    /**
+     * Test for PMA_Theme::loadInfo
+     * 
+     * @return void
+     */
     public function testCheckImgPathIncorrect()
     {
         $this->object->setPath('./test/classes/_data/incorrect_theme');
@@ -64,6 +78,11 @@ class PMA_ThemeTest extends PHPUnit_Framework_TestCase
         );
     }
 
+    /**
+     * Test for PMA_Theme::getName, getVersion
+     * 
+     * @return void
+     */
     public function testCheckImgPathFull()
     {
         $this->object->setPath('./test/classes/_data/gen_version_info');
@@ -72,6 +91,11 @@ class PMA_ThemeTest extends PHPUnit_Framework_TestCase
         $this->assertEquals('2.0.3', $this->object->getVersion());
     }
 
+    /**
+     * Test for PMA_Theme::loadInfo
+     * 
+     * @return void
+     */
     public function testLoadInfo()
     {
         $this->object->setPath('./themes/original');
@@ -89,21 +113,31 @@ class PMA_ThemeTest extends PHPUnit_Framework_TestCase
         $this->assertEquals('Original', $this->object->getName());
     }
 
+    /**
+     * Test for PMA_Theme::load
+     * 
+     * @return void
+     */
     public function testLoad()
     {
         $newTheme = PMA_Theme::load('./themes/original');
         $this->assertNotNull($newTheme);
     }
 
+    /**
+     * Test for PMA_Theme::load
+     * 
+     * @return void
+     */
     public function testLoadNotExisted()
     {
         $this->assertFalse(PMA_Theme::load('/path/to/nowhere'));
     }
 
     /**
-     *
+     * Test fir PMA_Theme::checkImgPath
+     * 
      * @return void
-     *
      * @expectedException PHPUnit_Framework_Error
      */
     public function testCheckImgPathBad()
@@ -114,12 +148,22 @@ class PMA_ThemeTest extends PHPUnit_Framework_TestCase
         $this->assertFalse($this->object->checkImgPath());
     }
 
+    /**
+     * Test for PMA_Theme::checkImgPath
+     * 
+     * @return void
+     */
     public function testCheckImgPath()
     {
         $this->object->setPath('./themes/original');
         $this->assertTrue($this->object->checkImgPath());
     }
 
+    /**
+     * Test for PMA_Theme::checkImgPath
+     * 
+     * @return void
+     */
     public function testCheckImgPathGlobals()
     {
         $this->object->setPath('/this/is/wrong/path');
@@ -128,9 +172,9 @@ class PMA_ThemeTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     *
+     * Test for PMA_Theme::checkImgPath
+     * 
      * @return void
-     *
      * @expectedException PHPUnit_Framework_Error
      */
     public function testCheckImgPathGlobalsWrongPath()
@@ -145,7 +189,8 @@ class PMA_ThemeTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     *
+     * Test for PMA_Theme::getPath
+     * 
      * @return void
      *
      * @covers PMA_Theme::setPath
@@ -159,13 +204,19 @@ class PMA_ThemeTest extends PHPUnit_Framework_TestCase
         $this->assertEquals('./themes/original', $this->object->getPath());
     }
 
+    /**
+     * Test for PMA_Theme::loadInfo
+     * 
+     * @return void
+     */
     public function testGetLayoutFile()
     {
         $this->assertContains('layout.inc.php', $this->object->getLayoutFile());
     }
 
     /**
-     *
+     * Test for PMA_Theme::checkVersion
+     * 
      * @return void
      *
      * @depends testLoadInfo
@@ -186,7 +237,8 @@ class PMA_ThemeTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     *
+     * Test for PMA_Theme::getName
+     * 
      * @return void
      *
      * @covers PMA_Theme::getName
@@ -201,7 +253,8 @@ class PMA_ThemeTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     *
+     * Test for PMA_Theme::getId
+     * 
      * @return void
      *
      * @covers PMA_Theme::getId
@@ -216,7 +269,8 @@ class PMA_ThemeTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     *
+     * Test for PMA_Theme::getImgPath
+     * 
      * @return void
      *
      * @covers PMA_Theme::getImgPath
@@ -242,7 +296,10 @@ class PMA_ThemeTest extends PHPUnit_Framework_TestCase
     {
         $this->assertEquals(
             $this->object->getPrintPreview(),
-            '<div class="theme_preview"><h2> (0.0.0.0) </h2><p><a class="take_theme" name="" href="index.php?set_theme=&amp;server=99&amp;lang=en&amp;token=token">No preview available.[ <strong>take it</strong> ]</a></p></div>'
+            '<div class="theme_preview"><h2> (0.0.0.0) </h2><p><a class="take_'
+            . 'theme" name="" href="index.php?set_theme=&amp;server=99&amp;lang=en'
+            . '&amp;token=token">No preview available.[ <strong>take it</strong> ]'
+            . '</a></p></div>'
         );
     }
 
@@ -294,13 +351,14 @@ class PMA_ThemeTest extends PHPUnit_Framework_TestCase
     {
         $this->assertEquals(
             $this->object->getCssGradient('12345', '54321'),
-            'background-image: url(./themes/svg_gradient.php?from=12345&to=54321);
-background-size: 100% 100%;
-background: -webkit-gradient(linear, left top, left bottom, from(#12345), to(#54321));
-background: -webkit-linear-gradient(top, #12345, #54321);
-background: -moz-linear-gradient(top, #12345, #54321);
-background: -ms-linear-gradient(top, #12345, #54321);
-background: -o-linear-gradient(top, #12345, #54321);'
+            'background-image: url(./themes/svg_gradient.php?from=12345&to=54321);'
+            . "\n" . 'background-size: 100% 100%;'
+            . "\n" . 'background: -webkit-gradient(linear, left top, left bottom, '
+            . 'from(#12345), to(#54321));'
+            . "\n" . 'background: -webkit-linear-gradient(top, #12345, #54321);'
+            . "\n" . 'background: -moz-linear-gradient(top, #12345, #54321);'
+            . "\n" . 'background: -ms-linear-gradient(top, #12345, #54321);'
+            . "\n" . 'background: -o-linear-gradient(top, #12345, #54321);'
         );
     }
 

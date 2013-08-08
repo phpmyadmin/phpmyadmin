@@ -56,7 +56,7 @@ class Advisor_Test extends PHPUnit_Framework_TestCase
         $this->assertEquals($parseResult['errors'], array());
     }
    
-    public function testADVISOR_bytime()
+    public function testAdvisorBytime()
     {
         $result = ADVISOR_bytime(10, 2);
         $this->assertEquals("10 per second", $result);
@@ -68,7 +68,7 @@ class Advisor_Test extends PHPUnit_Framework_TestCase
         $this->assertEquals("10.8 per hour", $result);
     }
  
-    public function testADVISOR_timespanFormat()
+    public function testAdvisorTimespanFormat()
     {
         $result = ADVISOR_timespanFormat(1200);
         $this->assertEquals("0 days, 0 hours, 20 minutes and 0 seconds", $result);
@@ -135,7 +135,8 @@ class Advisor_Test extends PHPUnit_Framework_TestCase
                     'id' => 'Variable',
                     'name' => 'Variable',
                     'issue' => 'issue',
-                    'recommendation' => 'Recommend <a href="server_variables.php?lang=en&amp;token=token&filter=status_var">status_var</a>'
+                    'recommendation' => 'Recommend <a href="server_variables.php?' .
+                    'lang=en&amp;token=token&filter=status_var">status_var</a>'
                 ),
                 null,
             ),
@@ -195,7 +196,9 @@ class Advisor_Test extends PHPUnit_Framework_TestCase
                     'recommendation' => 'Recommend'
                 ),
                 array(),
-                'Failed formatting string for rule \'Failure\'. PHP threw following error: Use of undefined constant fsafdsa - assumed \'fsafdsa\'',
+                'Failed formatting string for rule \'Failure\'. PHP threw ' .
+                'following error: Use of undefined constant fsafdsa - ' .
+                'assumed \'fsafdsa\'',
             ),
             array(
                 array(
@@ -208,7 +211,8 @@ class Advisor_Test extends PHPUnit_Framework_TestCase
                     'justification' => 'Version string (0)',
                     'name' => 'Distribution',
                     'issue' => 'official MySQL binaries.',
-                    'recommendation' => 'See <a href="./url.php?url=http%3A%2F%2Fphpma.org%2F&amp;lang=en&amp;token=token">web</a>',
+                    'recommendation' => 'See <a href="./url.php?url=http%3A%2F%2F' .
+                        'phpma.org%2F&amp;lang=en&amp;token=token">web</a>',
                     'id' => 'Distribution'
                 ),
                 null,
