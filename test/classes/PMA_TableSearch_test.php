@@ -89,7 +89,8 @@ class PMA_TableSearch_Test extends PHPUnit_Framework_TestCase
         `query` text COLLATE utf8_bin NOT NULL,
         PRIMARY KEY (`id`),
         KEY `foreign_field` (`foreign_db`,`foreign_table`)
-        ) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Bookmarks'";
+        ) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_bin "
+        . "COMMENT='Bookmarks'";
 
         $dbi->expects($this->any())->method('fetchValue')
             ->will($this->returnValue($show_create_table));
@@ -357,7 +358,9 @@ class PMA_TableSearch_Test extends PHPUnit_Framework_TestCase
         $tableSearch = new PMA_TableSearch("PMA", "PMA_BookMark", "zoom");
 
         $sql = $tableSearch->buildSqlQuery();
-        $result = "SELECT DISTINCT *  FROM `PMA` WHERE name='pma' ORDER BY `name` asc";
+        $result = "SELECT DISTINCT *  FROM `PMA` WHERE name='pma' "
+            . "ORDER BY `name` asc";
+
         $this->assertEquals(
             $result,
             $sql
@@ -418,10 +421,10 @@ class PMA_TableSearch_Test extends PHPUnit_Framework_TestCase
         );
 
         $sql = $tableSearch->buildSqlQuery();
-        $result = "SELECT DISTINCT *  FROM `PMA` WHERE `name` != 'value1' AND `id` > value2 "
-            . "AND `index` IS NULL AND `index2` LIKE '%value4%' AND `index3` REGEXP ^value5$ "
-            . "AND `index4` IN (value6) AND `index5` BETWEEN value7 "
-            . "AND value8 ORDER BY `name` asc";
+        $result = "SELECT DISTINCT *  FROM `PMA` WHERE `name` != 'value1'"
+            . " AND `id` > value2 AND `index` IS NULL AND `index2` LIKE '%value4%'"
+            . " AND `index3` REGEXP ^value5$ AND `index4` IN (value6) AND `index5`"
+            . " BETWEEN value7 AND value8 ORDER BY `name` asc";
         $this->assertEquals(
             $result,
             $sql

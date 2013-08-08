@@ -133,9 +133,11 @@ class ImportMediawiki_Test extends PHPUnit_Framework_TestCase
         $this->object->doImport();
  
 
-        //If import successfully, PMA will show all databases and tables imported as following HTML Page
+        // If import successfully, PMA will show all databases and 
+        // tables imported as following HTML Page
         /*
-           The following structures have either been created or altered. Here you can:
+           The following structures have either been created or altered. Here you 
+           can:
            View a structure's contents by clicking on its name
            Change any of its settings by clicking the corresponding "Options" link
            Edit structure by following the "Structure" link

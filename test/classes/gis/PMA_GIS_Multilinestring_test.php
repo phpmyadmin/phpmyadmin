@@ -354,7 +354,11 @@ class PMA_GIS_MultilinestringTest extends PMA_GIS_GeomTest
                     'scale' => 2,
                     'height' => 150
                 ),
-                '/^(<polyline points="48,260 70,242 100,138 " name="svg" class="linestring vector" fill="none" stroke="#B02EE0" stroke-width="2" id="svg)(\d+)("\/><polyline points="48,268 10,242 332,182 " name="svg" class="linestring vector" fill="none" stroke="#B02EE0" stroke-width="2" id="svg)(\d+)("\/>)$/'
+                '/^(<polyline points="48,260 70,242 100,138 " name="svg" '
+                . 'class="linestring vector" fill="none" stroke="#B02EE0" '
+                . 'stroke-width="2" id="svg)(\d+)("\/><polyline points="48,268 10,'
+                . '242 332,182 " name="svg" class="linestring vector" fill="none" '
+                . 'stroke="#B02EE0" stroke-width="2" id="svg)(\d+)("\/>)$/'
             )
         );
     }
@@ -402,7 +406,26 @@ class PMA_GIS_MultilinestringTest extends PMA_GIS_GeomTest
                     'maxX' => '1',
                     'maxY' => '1',
                 ),
-                'bound = new OpenLayers.Bounds(); bound.extend(new OpenLayers.LonLat(0, 0).transform(new OpenLayers.Projection("EPSG:4326"), map.getProjectionObject())); bound.extend(new OpenLayers.LonLat(1, 1).transform(new OpenLayers.Projection("EPSG:4326"), map.getProjectionObject()));vectorLayer.addFeatures(new OpenLayers.Feature.Vector(new OpenLayers.Geometry.MultiLineString(new Array(new OpenLayers.Geometry.LineString(new Array((new OpenLayers.Geometry.Point(36,14)).transform(new OpenLayers.Projection("EPSG:4326"), map.getProjectionObject()), (new OpenLayers.Geometry.Point(47,23)).transform(new OpenLayers.Projection("EPSG:4326"), map.getProjectionObject()), (new OpenLayers.Geometry.Point(62,75)).transform(new OpenLayers.Projection("EPSG:4326"), map.getProjectionObject()))), new OpenLayers.Geometry.LineString(new Array((new OpenLayers.Geometry.Point(36,10)).transform(new OpenLayers.Projection("EPSG:4326"), map.getProjectionObject()), (new OpenLayers.Geometry.Point(17,23)).transform(new OpenLayers.Projection("EPSG:4326"), map.getProjectionObject()), (new OpenLayers.Geometry.Point(178,53)).transform(new OpenLayers.Projection("EPSG:4326"), map.getProjectionObject()))))), null, {"strokeColor":"#B02EE0","strokeWidth":2,"label":"Ol","fontSize":10}));'
+                'bound = new OpenLayers.Bounds(); bound.extend(new OpenLayers.'
+                . 'LonLat(0, 0).transform(new OpenLayers.Projection("EPSG:4326"), '
+                . 'map.getProjectionObject())); bound.extend(new OpenLayers.LonLat'
+                . '(1, 1).transform(new OpenLayers.Projection("EPSG:4326"), map.'
+                . 'getProjectionObject()));vectorLayer.addFeatures(new OpenLayers.'
+                . 'Feature.Vector(new OpenLayers.Geometry.MultiLineString(new Arr'
+                . 'ay(new OpenLayers.Geometry.LineString(new Array((new OpenLayers.'
+                . 'Geometry.Point(36,14)).transform(new OpenLayers.Projection("EPSG:'
+                . '4326"), map.getProjectionObject()), (new OpenLayers.Geometry.Po'
+                . 'int(47,23)).transform(new OpenLayers.Projection("EPSG:4326"), '
+                . 'map.getProjectionObject()), (new OpenLayers.Geometry.Point(62,75)'
+                . ').transform(new OpenLayers.Projection("EPSG:4326"), map.getProjec'
+                . 'tionObject()))), new OpenLayers.Geometry.LineString(new Array(('
+                . 'new OpenLayers.Geometry.Point(36,10)).transform(new OpenLayers.'
+                . 'Projection("EPSG:4326"), map.getProjectionObject()), (new Open'
+                . 'Layers.Geometry.Point(17,23)).transform(new OpenLayers.Projection'
+                . '("EPSG:4326"), map.getProjectionObject()), (new OpenLayers.Geo'
+                . 'metry.Point(178,53)).transform(new OpenLayers.Projection("EPSG:'
+                . '4326"), map.getProjectionObject()))))), null, {"strokeColor":"'
+                . '#B02EE0","strokeWidth":2,"label":"Ol","fontSize":10}));'
             )
         );
     }

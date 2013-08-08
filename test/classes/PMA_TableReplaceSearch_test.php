@@ -107,7 +107,8 @@ class PMA_TableReplaceSearchTest extends PHPUnit_Framework_TestCase
             $ret
         );
         $this->assertContains(
-            '<input type="hidden" name="replaceWith"' . ' value="' . $replaceWith . '" />',
+            '<input type="hidden" name="replaceWith"' . ' value="'
+            . $replaceWith . '" />',
             $ret
         );
 

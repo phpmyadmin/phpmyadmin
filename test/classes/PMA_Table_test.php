@@ -806,7 +806,8 @@ class PMA_Table_Test extends PHPUnit_Framework_TestCase
             $expect,
             $return
         );
-        $sql_query = "INSERT INTO `PMA_new`.`PMA_BookMark_new` SELECT * FROM `PMA`.`PMA_BookMark`";
+        $sql_query = "INSERT INTO `PMA_new`.`PMA_BookMark_new` SELECT * FROM "
+            . "`PMA`.`PMA_BookMark`";
         $this->assertContains(
             $sql_query,
             $GLOBALS['sql_query']
@@ -828,7 +829,8 @@ class PMA_Table_Test extends PHPUnit_Framework_TestCase
             $expect,
             $return
         );
-        $sql_query = "INSERT INTO `PMA_new`.`PMA_BookMark_new` SELECT * FROM `PMA`.`PMA_BookMark`;";
+        $sql_query = "INSERT INTO `PMA_new`.`PMA_BookMark_new` SELECT * FROM "
+            . "`PMA`.`PMA_BookMark`;";
         $this->assertContains(
             $sql_query,
             $GLOBALS['sql_query']
@@ -842,7 +844,6 @@ class PMA_Table_Test extends PHPUnit_Framework_TestCase
 }
 
 /**
- *
  * Tests behaviour of PMA_Table class with Runkit and PMA_Drizzle = false
  *
  * @package PhpMyAdmin-test
@@ -872,13 +873,17 @@ class PMA_Table_Runkit_Test extends PMA_Table_Test
     }
 }
 
-//mock PMA
+/**
+ * DataBasePMAMock Class
+ */
 Class DataBasePMAMock
 {
     var $databases;
 }
 
-//mock $GLOBALS['pma']->databases
+/**
+ * DataBasePMAMock Class
+ */
 Class DataBaseMock
 {
     function exists($name)
