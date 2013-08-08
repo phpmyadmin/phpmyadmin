@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-07-29 15:07+0200\n"
-"PO-Revision-Date: 2013-08-01 14:07+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"PO-Revision-Date: 2013-08-08 12:25+0200\n"
+"Last-Translator: Jouni Kähkönen <asdfsdf@asdfasdfasdf.com>\n"
 "Language-Team: Finnish <http://l10n.cihar.com/projects/phpmyadmin/4-0/fi/>\n"
 "Language: fi\n"
 "MIME-Version: 1.0\n"
@@ -718,7 +718,7 @@ msgstr "Palvelinyhteyden aakkosjärjestys"
 
 #: index.php:185
 msgid "Appearance Settings"
-msgstr "Näkymäasetukset"
+msgstr "Ulkoasuasetukset"
 
 #: index.php:215 prefs_manage.php:275
 msgid "More settings"
@@ -4652,7 +4652,7 @@ msgstr "Navigointi paneeli"
 #: libraries/config/messages.inc.php:180
 #| msgid "Customize appearance of the navigation frame"
 msgid "Customize appearance of the navigation panel"
-msgstr "Mukauta navigointi paneelin näkymää"
+msgstr "Mukauta navigointipalkin näkymää"
 
 #: libraries/config/messages.inc.php:181 libraries/select_server.lib.php:42
 #: setup/frames/index.inc.php:117
