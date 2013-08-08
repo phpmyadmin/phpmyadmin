@@ -98,7 +98,7 @@ class PMA_ServerUserGroupsTest extends PHPUnit_Framework_TestCase
             ->will(
                 $this->returnValue(
                     array(
-                        'usergroup' => 'usergroup<',
+                        'usergroup' => 'usergroup',
                         'server_sql' => 'Y',
                         'server_databases' => 'N',
                         'db_sql' => 'Y',
@@ -124,7 +124,7 @@ class PMA_ServerUserGroupsTest extends PHPUnit_Framework_TestCase
         $url_tag = '<a class="" href="server_user_groups.php?'
                 . PMA_URL_getCommon(
                     array(
-                        'viewUsers' => 1, 'userGroup' => urlencode('usergroup<')
+                        'viewUsers' => 1, 'userGroup' => htmlspecialchars('usergroup')
                     )
                 );
         $this->assertContains(
@@ -134,7 +134,7 @@ class PMA_ServerUserGroupsTest extends PHPUnit_Framework_TestCase
         $url_tag = '<a class="" href="server_user_groups.php?'
                 . PMA_URL_getCommon(
                     array(
-                        'editUserGroup' => 1, 'userGroup' => urlencode('usergroup<')
+                        'editUserGroup' => 1, 'userGroup' => htmlspecialchars('usergroup')
                     )
                 );
         $this->assertContains(
@@ -144,7 +144,7 @@ class PMA_ServerUserGroupsTest extends PHPUnit_Framework_TestCase
         $url_tag = '<a class="" href="server_user_groups.php?'
                 . PMA_URL_getCommon(
                     array(
-                        'deleteUserGroup' => 1, 'userGroup'=>urlencode('usergroup<')
+                        'deleteUserGroup' => 1, 'userGroup'=>htmlspecialchars('usergroup')
                     )
                 );
         $this->assertContains(
