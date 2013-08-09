@@ -103,29 +103,7 @@ for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
                 = PMA_Util::convertBitDefaultValue($columnMeta['Default']);
         }
     }
-    
-    // Cell index: If certain fields get left out, the counter shouldn't change.
-    $ci = 0;
-    // Everytime a cell shall be left out the STRG-jumping feature, $ci_offset
-    // has to be incremented ($ci_offset++)
-    $ci_offset = -1;
-
-    // old column name
-    if ($is_backup) {
-        if (isset($columnMeta['Field'])) {
-            $_form_params['field_orig[' . $columnNumber . ']']
-                = $columnMeta['Field'];
-        } else {
-            $_form_params['field_orig[' . $columnNumber . ']'] = '';
-        }
-    }
-
-    // column name
-    $content_cells[$columnNumber][$ci] = PMA_getHtmlForColumnName(
-        $columnNumber, $ci, $ci_offset, isset($columnMeta) ? $columnMeta : null
-    );    
-    $ci++;
-
+        
     if (empty($columnMeta['Type'])) {
         // creating a column
         $columnMeta['Type'] = '';
@@ -151,115 +129,37 @@ for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
     // rtrim the type, for cases like "float unsigned"
     $type = rtrim($type);
     $type_upper = strtoupper($type);
-    
-    // column type    
-    $content_cells[$columnNumber][$ci] = PMA_getHtmlForColumnType(
-        $columnNumber, $ci, $ci_offset, $type_upper
-    );
-    
-    $ci++;
 
-    // old column length
+
+    // old column attributes
     if ($is_backup) {
+        if (isset($columnMeta['Field'])) {
+            $_form_params['field_orig[' . $columnNumber . ']']
+                = $columnMeta['Field'];
+        } else {
+            $_form_params['field_orig[' . $columnNumber . ']'] = '';
+        }
+        // old column length
         $_form_params['field_length_orig[' . $columnNumber . ']'] = $length;
-    }
-
-    // column length
-    $content_cells[$columnNumber][$ci] = PMA_getHtmlForColumnLength(
-        $columnNumber, $ci, $ci_offset, $length_values_input_size, $length
-    );
-    $ci++;
-
-    // column default
-    // old column default
-    if ($is_backup) {
+    
+        // old column default
         $_form_params['field_default_orig[' . $columnNumber . ']']
             = (isset($columnMeta['Default']) ? $columnMeta['Default'] : '');
     }
-    $content_cells[$columnNumber][$ci] = PMA_getHtmlForColumnDefault(
-        $columnNumber, $ci, $ci_offset,
-        isset($type_upper) ? $type_upper : null,
+    
+    $content_cells[$columnNumber] = PMA_getHtmlForColumnAttributes(
+        $columnNumber, isset($columnMeta) ? $columnMeta : null, $type_upper,
+        $length_values_input_size, $length,
         isset($default_current_timestamp) ? $default_current_timestamp : null,
-        isset($columnMeta) ? $columnMeta : null
-    );
-    $ci++;
-
-    // column collation
-    $content_cells[$columnNumber][$ci] = PMA_getHtmlForColumnCollation(
-        $columnNumber, $ci, $ci_offset, $columnMeta
-    );
-    $ci++;
-
-    // column attribute
-    $content_cells[$columnNumber][$ci] = PMA_getHtmlForColumnAttribute(
-        $columnNumber, $ci, $ci_offset,
         isset($extracted_columnspec) ? $extracted_columnspec : null,
-        isset($columnMeta) ? $columnMeta : null,
         isset($submit_attribute) ? $submit_attribute : null,
         isset($analyzed_sql) ? $analyzed_sql : null,
         isset($submit_default_current_timestamp)
-        ? $submit_default_current_timestamp : null
+        ? $submit_default_current_timestamp : null,
+        $comments_map, isset($fields_meta) ? $fields_meta : null, $is_backup,
+        isset($move_columns) ? $move_columns : null, $cfgRelation, $available_mime,
+        $mime_map
     );
-    $ci++;
-
-    // column NULL
-    $content_cells[$columnNumber][$ci] = PMA_getHtmlForColumnNull(
-        $columnNumber, $ci, $ci_offset, isset($columnMeta) ? $columnMeta : null
-    );
-    $ci++;
-
-    // column indexes
-    // See my other comment about  this 'if'.
-    if (!$is_backup) {
-        $content_cells[$columnNumber][$ci] = PMA_getHtmlForColumnIndexes(
-            $columnNumber, $ci, $ci_offset, $columnMeta
-        );
-        $ci++;
-    } // end if ($action ==...)
-
-    // column auto_increment
-    $content_cells[$columnNumber][$ci] = PMA_getHtmlForColumnAutoIncrement(
-        $columnNumber, $ci, $ci_offset, $columnMeta
-    );
-    $ci++;
-
-    // column comments
-    $content_cells[$columnNumber][$ci] = PMA_getHtmlForColumnComment(
-        $columnNumber, $ci, $ci_offset, isset($columnMeta) ? $columnMeta : null,
-        $comments_map
-    );
-    $ci++;
-
-    // move column
-    if (isset($fields_meta)) {
-        $content_cells[$columnNumber][$ci] = PMA_getHtmlForMoveColumn(
-            $columnNumber, $ci, $ci_offset, $move_columns, $columnMeta
-        );
-        $ci++;
-    }
-
-    if ($cfgRelation['mimework']
-        && $GLOBALS['cfg']['BrowseMIME']
-        && $cfgRelation['commwork']
-    ) {
-        // Column Mime-type
-        $content_cells[$columnNumber][$ci] = PMA_getHtmlForMimeType(
-            $columnNumber, $ci, $ci_offset, $available_mime, $columnMeta, $mime_map
-        );
-        $ci++;
-
-        // Column Browser transformation
-        $content_cells[$columnNumber][$ci] = PMA_getHtmlForBrowserTransformation(
-            $columnNumber, $ci, $ci_offset, $available_mime, $columnMeta, $mime_map
-        );
-        $ci++;
-
-        // column Transformation options
-        $content_cells[$columnNumber][$ci] = PMA_getHtmlForTransformationOption(
-            $columnNumber, $ci, $ci_offset, isset($columnMeta) ? $columnMeta : null,
-            isset($mime_map) ? $mime_map : null
-        );
-    }
 } // end for
 
 /**

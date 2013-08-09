@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-08-06 16:10+0200\n"
-"PO-Revision-Date: 2013-08-08 08:53+0200\n"
+"PO-Revision-Date: 2013-08-08 12:25+0200\n"
 "Last-Translator: Jouni Kähkönen <asdfsdf@asdfasdfasdf.com>\n"
 "Language-Team: Finnish "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/fi/>\n"
@@ -4846,7 +4846,7 @@ msgstr "Navigointi paneeli"
 
 #: libraries/config/messages.inc.php:181
 msgid "Customize appearance of the navigation panel"
-msgstr "Mukauta navigointi paneelin näkymää"
+msgstr "Mukauta navigointipalkin näkymää"
 
 #: libraries/config/messages.inc.php:182 libraries/select_server.lib.php:44
 #: setup/frames/index.inc.php:117
