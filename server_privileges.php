@@ -107,8 +107,9 @@ $dbname = isset($dbname)? $dbname : null;
 $tablename = isset($tablename)? $tablename : null; 
 $db_and_table = isset($db_and_table)? $db_and_table : null; 
 $dbname_is_wildcard = isset($dbname_is_wildcard)? $dbname_is_wildcard : null; 
+$pred_dbname = isset($pred_dbname)? $pred_dbname : null; 
 
-PMA_updateDataForDBInfo($dbname, $tablename, $db_and_table, $dbname_is_wildcard);
+PMA_updateDataForDBInfo($dbname, $tablename, $db_and_table, $dbname_is_wildcard, $pred_dbname);
 
 /**
  * Checks if the user is allowed to do what he tries to...
@@ -127,14 +128,14 @@ $queries = isset($queries)? $queries : null;
 $password = isset($password)? $password : null; 
 $Password = isset($Password)? $Password : null;  
 
-PMA_updateForChangeOrCopyUser($row, $queries, $password, $Password);
+PMA_updateDataForChangeOrCopyUser($row, $queries, $password, $Password);
     
 /**
  * Adds a user
  *   (Changes / copies a user, part II)
  */
-$queries_for_display = array();
-PMA_getDataForAddUser(
+$queries_for_display = isset($queries_for_display)? $queries_for_display : null;  
+PMA_updateDataForAddUser(
     $dbname, $username, $hostname, 
     $_add_user_error, $password, 
     $message, $queries, $queries_for_display,
@@ -198,7 +199,7 @@ if (isset($_REQUEST['change_pw'])) {
 if (isset($_REQUEST['delete'])
     || (isset($_REQUEST['change_copy']) && $_REQUEST['mode'] < 4)
 ) {
-    PMA_getDataForDeleteusers($queries);
+    PMA_updateDataForDeleteUsers($queries);
     if (empty($_REQUEST['change_copy'])) {
         list($sql_query, $message) = PMA_deleteUser($queries);
     }
@@ -308,7 +309,6 @@ if (empty($_REQUEST['adduser'])
         );
     } else {
         // A user was selected -> display the user's properties
-
         // In an Ajax request, prevent cached values from showing
         if ($GLOBALS['is_ajax_request'] == true) {
             header('Cache-Control: no-cache');

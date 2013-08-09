@@ -3060,7 +3060,7 @@ function PMA_updatePrivileges($username, $hostname, $tablename, $dbname)
  *
  * @return null
  */
-function PMA_updateForChangeOrCopyUser(&$row, &$queries, &$password, $Password)
+function PMA_updateDataForChangeOrCopyUser(&$row, &$queries, &$password, $Password)
 {
     if (isset($_REQUEST['change_copy'])) {
         $user_host_condition = ' WHERE `User` = '
@@ -3088,13 +3088,13 @@ function PMA_updateForChangeOrCopyUser(&$row, &$queries, &$password, $Password)
 }
 
 /**
- * Get Data for information: Deletes users
+ * Update Data for information: Deletes users
  *
  * @param  array $queries queries array
  *
  * @return null
  */
-function PMA_getDataForDeleteusers(&$queries)
+function PMA_updateDataForDeleteUsers(&$queries)
 {
     if (isset($_REQUEST['change_copy'])) {
         $selected_usr = array(
@@ -3127,7 +3127,7 @@ function PMA_getDataForDeleteusers(&$queries)
 /**
  * update Message For Reload
  *
- * @param array $message sql execute message
+ * @param array $message sql execute return message
  *
  * @return null
  */
@@ -3169,7 +3169,7 @@ function PMA_updateDataForQueries(&$queries, $queries_for_display)
 }
 
 /**
- * Get Data for information: Adds a user
+ * update Data for information: Adds a user
  *
  * @param  string $dbname              db name
  * @param  string $username            user name
@@ -3183,7 +3183,7 @@ function PMA_updateDataForQueries(&$queries, $queries_for_display)
  *
  * @return null
  */
-function PMA_getDataForAddUser($dbname, &$username, &$hostname, &$_add_user_error, $password, &$message, &$queries, &$queries_for_display, $is_menuwork)
+function PMA_updateDataForAddUser(&$dbname, &$username, &$hostname, &$_add_user_error, $password, &$message, &$queries, &$queries_for_display, $is_menuwork)
 {
     if (isset($_REQUEST['adduser_submit']) || isset($_REQUEST['change_copy'])) {
         $sql_query = '';
@@ -3262,13 +3262,14 @@ function PMA_getDataForAddUser($dbname, &$username, &$hostname, &$_add_user_erro
  * @param string $dbname             database name
  * @param string $tablename          table name
  * @param string $db_and_table       db_and_table
- * @param bool   $dbname_is_wildcard isWildcard
+ * @param bool   $dbname_is_wildcard is Wild card
+ * @param string $pred_dbname        Pre database name
  *
  * @return null
  */
 function PMA_updateDataForDBInfo(
     &$dbname, &$tablename, &$db_and_table, 
-    &$dbname_is_wildcard
+    &$dbname_is_wildcard, &$pred_dbname
 ) {
     /**
      * Checks if a dropdown box has been used for selecting a database / table
