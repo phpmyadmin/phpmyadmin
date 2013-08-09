@@ -99,48 +99,16 @@ $strPrivDescTrigger = __('Allows creating and dropping triggers');
 $strPrivDescUpdate = __('Allows changing data.');
 $strPrivDescUsage = __('No privileges.');
 
+
 /**
- * Checks if a dropdown box has been used for selecting a database / table
+ * Get DB information: dbname, tablename, db_and_table, dbname_is_wildcard
  */
-if (PMA_isValid($_REQUEST['pred_tablename'])) {
-    $tablename = $_REQUEST['pred_tablename'];
-} elseif (PMA_isValid($_REQUEST['tablename'])) {
-    $tablename = $_REQUEST['tablename'];
-} else {
-    unset($tablename);
-}
+$dbname = isset($dbname)? $dbname : null; 
+$tablename = isset($tablename)? $tablename : null; 
+$db_and_table = isset($db_and_table)? $db_and_table : null; 
+$dbname_is_wildcard = isset($dbname_is_wildcard)? $dbname_is_wildcard : null; 
 
-if (PMA_isValid($_REQUEST['pred_dbname'])) {
-    $dbname = $_REQUEST['pred_dbname'];
-    unset($pred_dbname);
-} elseif (PMA_isValid($_REQUEST['dbname'])) {
-    $dbname = $_REQUEST['dbname'];
-} else {
-    unset($dbname);
-    unset($tablename);
-}
-
-if (isset($dbname)) {
-    $unescaped_db = PMA_Util::unescapeMysqlWildcards($dbname);
-    $db_and_table = PMA_Util::backquote($unescaped_db) . '.';
-    if (isset($tablename)) {
-        $db_and_table .= PMA_Util::backquote($tablename);
-    } else {
-        $db_and_table .= '*';
-    }
-} else {
-    $db_and_table = '*.*';
-}
-
-// check if given $dbname is a wildcard or not
-if (isset($dbname)) {
-    //if (preg_match('/\\\\(?:_|%)/i', $dbname)) {
-    if (preg_match('/(?<!\\\\)(?:_|%)/i', $dbname)) {
-        $dbname_is_wildcard = true;
-    } else {
-        $dbname_is_wildcard = false;
-    }
-}
+PMA_updateDataForDBInfo($dbname, $tablename, $db_and_table, $dbname_is_wildcard);
 
 /**
  * Checks if the user is allowed to do what he tries to...
@@ -159,102 +127,19 @@ if (! $is_superuser) {
 /**
  * Changes / copies a user, part I
  */
-if (isset($_REQUEST['change_copy'])) {
-    $user_host_condition = ' WHERE `User` = '
-        . "'". PMA_Util::sqlAddSlashes($_REQUEST['old_username']) . "'"
-        . ' AND `Host` = '
-        . "'" . PMA_Util::sqlAddSlashes($_REQUEST['old_hostname']) . "';";
-    $row = $GLOBALS['dbi']->fetchSingleRow(
-        'SELECT * FROM `mysql`.`user` ' . $user_host_condition
-    );
-    if (! $row) {
-        PMA_Message::notice(__('No user found.'))->display();
-        unset($_REQUEST['change_copy']);
-    } else {
-        extract($row, EXTR_OVERWRITE);
-        // Recent MySQL versions have the field "Password" in mysql.user,
-        // so the previous extract creates $Password but this script
-        // uses $password
-        if (! isset($password) && isset($Password)) {
-            $password = $Password;
-        }
-        $queries = array();
-    }
-}
 
+list($row, $password, $queries) = PMA_getListForChangeOrCopyUser();
+    
 /**
  * Adds a user
  *   (Changes / copies a user, part II)
  */
-if (isset($_REQUEST['adduser_submit']) || isset($_REQUEST['change_copy'])) {
-    $sql_query = '';
-    if ($_POST['pred_username'] == 'any') {
-        $username = '';
-    }
-    switch ($_POST['pred_hostname']) {
-    case 'any':
-        $hostname = '%';
-        break;
-    case 'localhost':
-        $hostname = 'localhost';
-        break;
-    case 'hosttable':
-        $hostname = '';
-        break;
-    case 'thishost':
-        $_user_name = $GLOBALS['dbi']->fetchValue('SELECT USER()');
-        $hostname = substr($_user_name, (strrpos($_user_name, '@') + 1));
-        unset($_user_name);
-        break;
-    }
-    $sql = "SELECT '1' FROM `mysql`.`user`"
-        . " WHERE `User` = '" . PMA_Util::sqlAddSlashes($username) . "'"
-        . " AND `Host` = '" . PMA_Util::sqlAddSlashes($hostname) . "';";
-    if ($GLOBALS['dbi']->fetchValue($sql) == 1) {
-        $message = PMA_Message::error(__('The user %s already exists!'));
-        $message->addParam('[em]\'' . $username . '\'@\'' . $hostname . '\'[/em]');
-        $_REQUEST['adduser'] = true;
-        $_add_user_error = true;
-    } else {
-        list($create_user_real, $create_user_show, $real_sql_query, $sql_query)
-            = PMA_getSqlQueriesForDisplayAndAddUser(
-                $username, $hostname, (isset ($password) ? $password : '')
-            );
-
-        if (empty($_REQUEST['change_copy'])) {
-            $_error = false;
-
-            if (isset($create_user_real)) {
-                if (! $GLOBALS['dbi']->tryQuery($create_user_real)) {
-                    $_error = true;
-                }
-                $sql_query = $create_user_show . $sql_query;
-            }
-            list($sql_query, $message) = PMA_addUserAndCreateDatabase(
-                $_error, $real_sql_query, $sql_query, $username, $hostname,
-                isset($dbname) ? $dbname : null
-            );
-            if (! empty($_REQUEST['userGroup']) && $cfgRelation['menuswork']) {
-                PMA_setUserGroup($GLOBALS['username'], $_REQUEST['userGroup']);
-            }
-
-        } else {
-            if (isset($create_user_real)) {
-                $queries[] = $create_user_real;
-            }
-            $queries[] = $real_sql_query;
-            // we put the query containing the hidden password in
-            // $queries_for_display, at the same position occupied
-            // by the real query in $queries
-            $tmp_count = count($queries);
-            if (isset($create_user_real)) {
-                $queries_for_display[$tmp_count - 2] = $create_user_show;
-            }
-            $queries_for_display[$tmp_count - 1] = $sql_query;
-        }
-        unset($res, $real_sql_query);
-    }
-}
+$queries_for_display = array();
+PMA_getDataForAddUser(
+    dbname, $username, $hostname, 
+    $_add_user_error, $password, 
+    $message, $queries, $queries_for_display
+);
 
 /**
  * Changes / copies a user, part III
@@ -313,32 +198,7 @@ if (isset($_REQUEST['change_pw'])) {
 if (isset($_REQUEST['delete'])
     || (isset($_REQUEST['change_copy']) && $_REQUEST['mode'] < 4)
 ) {
-    if (isset($_REQUEST['change_copy'])) {
-        $selected_usr = array(
-            $_REQUEST['old_username'] . '&amp;#27;' . $_REQUEST['old_hostname']
-        );
-    } else {
-        $selected_usr = $_REQUEST['selected_usr'];
-        $queries = array();
-    }
-    foreach ($selected_usr as $each_user) {
-        list($this_user, $this_host) = explode('&amp;#27;', $each_user);
-        $queries[] = '# '
-            . sprintf(
-                __('Deleting %s'),
-                '\'' . $this_user . '\'@\'' . $this_host . '\''
-            )
-            . ' ...';
-        $queries[] = 'DROP USER \''
-            . PMA_Util::sqlAddSlashes($this_user)
-            . '\'@\'' . PMA_Util::sqlAddSlashes($this_host) . '\';';
-
-        if (isset($_REQUEST['drop_users_db'])) {
-            $queries[] = 'DROP DATABASE IF EXISTS '
-                . PMA_Util::backquote($this_user) . ';';
-            $GLOBALS['reload'] = true;
-        }
-    }
+    PMA_getDataForAddUser($queries);
     if (empty($_REQUEST['change_copy'])) {
         list($sql_query, $message) = PMA_deleteUser($queries);
     }
@@ -348,18 +208,7 @@ if (isset($_REQUEST['delete'])
  * Changes / copies a user, part V
  */
 if (isset($_REQUEST['change_copy'])) {
-    $tmp_count = 0;
-    foreach ($queries as $sql_query) {
-        if ($sql_query{0} != '#') {
-            $GLOBALS['dbi']->query($sql_query);
-        }
-        // when there is a query containing a hidden password, take it
-        // instead of the real query sent
-        if (isset($queries_for_display[$tmp_count])) {
-            $queries[$tmp_count] = $queries_for_display[$tmp_count];
-        }
-        $tmp_count++;
-    }
+    PMA_getDataForQueries($queries, $queries_for_display);
     $message = PMA_Message::success();
     $sql_query = join("\n", $queries);
 }
@@ -450,7 +299,7 @@ if (! empty($_REQUEST['edit_user_group_dialog']) && $cfgRelation['menuswork']) {
 if (isset($_REQUEST['export'])
     || (isset($_REQUEST['submit_mult']) && $_REQUEST['submit_mult'] == 'export')
 ) {
-    list($title, $export) = PMA_getHtmlForExportUserDefinition(
+    list($title, $export) = PMA_getListForExportUserDefinition(
         isset($username) ? $username : null,
         isset($hostname) ? $hostname : null
     );
