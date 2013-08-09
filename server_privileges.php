@@ -114,12 +114,7 @@ PMA_updateDataForDBInfo($dbname, $tablename, $db_and_table, $dbname_is_wildcard)
  * Checks if the user is allowed to do what he tries to...
  */
 if (! $is_superuser) {
-    $response->addHTML(
-        '<h2>' . "\n"
-        . PMA_Util::getIcon('b_usrlist.png')
-        . __('Privileges') . "\n"
-        . '</h2>' . "\n"
-    );
+    $response->addHTML(PMA_getHtmlForSubPageHeader('privileges', '', false));
     $response->addHTML(PMA_Message::error(__('No Privileges'))->getDisplay());
     exit;
 }
@@ -127,8 +122,12 @@ if (! $is_superuser) {
 /**
  * Changes / copies a user, part I
  */
+$row = isset($row)? $row : null; 
+$queries = isset($queries)? $queries : null;
+$password = isset($password)? $password : null; 
+$Password = isset($Password)? $Password : null;  
 
-list($row, $password, $queries) = PMA_getListForChangeOrCopyUser();
+PMA_updateForChangeOrCopyUser($row, $queries, $password, $Password);
     
 /**
  * Adds a user
@@ -136,9 +135,10 @@ list($row, $password, $queries) = PMA_getListForChangeOrCopyUser();
  */
 $queries_for_display = array();
 PMA_getDataForAddUser(
-    dbname, $username, $hostname, 
+    $dbname, $username, $hostname, 
     $_add_user_error, $password, 
-    $message, $queries, $queries_for_display
+    $message, $queries, $queries_for_display,
+    $cfgRelation['menuswork']
 );
 
 /**
@@ -198,7 +198,7 @@ if (isset($_REQUEST['change_pw'])) {
 if (isset($_REQUEST['delete'])
     || (isset($_REQUEST['change_copy']) && $_REQUEST['mode'] < 4)
 ) {
-    PMA_getDataForAddUser($queries);
+    PMA_getDataForDeleteusers($queries);
     if (empty($_REQUEST['change_copy'])) {
         list($sql_query, $message) = PMA_deleteUser($queries);
     }
@@ -208,7 +208,7 @@ if (isset($_REQUEST['delete'])
  * Changes / copies a user, part V
  */
 if (isset($_REQUEST['change_copy'])) {
-    PMA_getDataForQueries($queries, $queries_for_display);
+    PMA_updateDataForQueries($queries, $queries_for_display);
     $message = PMA_Message::success();
     $sql_query = join("\n", $queries);
 }
@@ -216,15 +216,7 @@ if (isset($_REQUEST['change_copy'])) {
 /**
  * Reloads the privilege tables into memory
  */
-if (isset($_REQUEST['flush_privileges'])) {
-    $sql_query = 'FLUSH PRIVILEGES;';
-    $GLOBALS['dbi']->query($sql_query);
-    $message = PMA_Message::success(__('The privileges were reloaded successfully.'));
-}
-
-if (isset($_REQUEST['validate_username'])) {
-    $message = PMA_Message::success();
-}
+PMA_updateMessageForReload($message);
 
 /**
  * If we are in an Ajax request for Create User/Edit User/Revoke User/
@@ -282,18 +274,7 @@ if (isset($_REQUEST['viewing_mode']) && $_REQUEST['viewing_mode'] == 'db') {
 /**
  * Displays the page
  */
-
-
-if (! empty($_REQUEST['edit_user_group_dialog']) && $cfgRelation['menuswork']) {
-    $dialog = PMA_getHtmlToChoseUserGroup($username);
-    $response = PMA_Response::getInstance();
-    if ($GLOBALS['is_ajax_request']) {
-        $response->addJSON('message', $dialog);
-        exit;
-    } else {
-        $response->addHTML($dialog);
-    }
-}
+$response->addHTML(PMA_getHtmlForUserGroupDialog($username, $cfgRelation['menuswork']));
 
 // export user definition
 if (isset($_REQUEST['export'])

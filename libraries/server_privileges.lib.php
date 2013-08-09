@@ -3053,16 +3053,15 @@ function PMA_updatePrivileges($username, $hostname, $tablename, $dbname)
 /**
  * Get List of information: Changes / copies a user
  *
- * @param null
+ * @param  array  $row      query result rows
+ * @param  array  $queries  queries
+ * @param  string $password password
+ * @param  string $Password Recent MySQL versions Password
  *
- * @return array ($row, $password, $queries)
+ * @return null
  */
-function PMA_getListForChangeOrCopyUser()
+function PMA_updateForChangeOrCopyUser(&$row, &$queries, &$password, $Password)
 {
-    $row = null;
-    $password = null;
-    $queries = null;
-    
     if (isset($_REQUEST['change_copy'])) {
         $user_host_condition = ' WHERE `User` = '
             . "'". PMA_Util::sqlAddSlashes($_REQUEST['old_username']) . "'"
@@ -3086,8 +3085,6 @@ function PMA_getListForChangeOrCopyUser()
             $queries = array();
         }
     }
-
-    return array($row, $password, $queries);
 }
 
 /**
@@ -3128,14 +3125,34 @@ function PMA_getDataForDeleteusers(&$queries)
 }
 
 /**
- * Get Data for information: Adds a user
+ * update Message For Reload
+ *
+ * @param array $message sql execute message
+ *
+ * @return null
+ */
+function PMA_updateMessageForReload(&$message)
+{
+    if (isset($_REQUEST['flush_privileges'])) {
+        $sql_query = 'FLUSH PRIVILEGES;';
+        $GLOBALS['dbi']->query($sql_query);
+        $message = PMA_Message::success(__('The privileges were reloaded successfully.'));
+    }
+    
+    if (isset($_REQUEST['validate_username'])) {
+        $message = PMA_Message::success();
+    }
+}
+
+/**
+ * update Data For Queries from queries_for_display
  *
  * @param  array  $queries             queries array
  * @param  array  $queries_for_display queries arry for display
  *
  * @return null
  */
-function PMA_getDataForQueries(&$queries, $queries_for_display)
+function PMA_updateDataForQueries(&$queries, $queries_for_display)
 {
     $tmp_count = 0;
     foreach ($queries as $sql_query) {
@@ -3162,10 +3179,11 @@ function PMA_getDataForQueries(&$queries, $queries_for_display)
  * @param  array  $message             message to display
  * @param  array  $queries             queries array
  * @param  array  $queries_for_display queries arry for display
+ * @param  bool   $is_menuwork         is_menuwork set?
  *
  * @return null
  */
-function PMA_getDataForAddUser($dbname, &$username, &$hostname, &$_add_user_error, $password, &$message, $queries, $queries_for_display)
+function PMA_getDataForAddUser($dbname, &$username, &$hostname, &$_add_user_error, $password, &$message, &$queries, &$queries_for_display, $is_menuwork)
 {
     if (isset($_REQUEST['adduser_submit']) || isset($_REQUEST['change_copy'])) {
         $sql_query = '';
@@ -3215,7 +3233,7 @@ function PMA_getDataForAddUser($dbname, &$username, &$hostname, &$_add_user_erro
                     $_error, $real_sql_query, $sql_query, $username, $hostname,
                     isset($dbname) ? $dbname : null
                 );
-                if (! empty($_REQUEST['userGroup']) && $cfgRelation['menuswork']) {
+                if (! empty($_REQUEST['userGroup']) && $is_menuwork) {
                     PMA_setUserGroup($GLOBALS['username'], $_REQUEST['userGroup']);
                 }
     
