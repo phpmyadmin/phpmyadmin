@@ -3053,10 +3053,10 @@ function PMA_updatePrivileges($username, $hostname, $tablename, $dbname)
 /**
  * Get List of information: Changes / copies a user
  *
- * @param  array  $row      query result rows
- * @param  array  $queries  queries
- * @param  string $password password
- * @param  string $Password Recent MySQL versions Password
+ * @param array  &$row      query result rows
+ * @param array  &$queries  queries
+ * @param string &$password password
+ * @param string $Password  Recent MySQL versions Password
  *
  * @return null
  */
@@ -3072,7 +3072,9 @@ function PMA_updateDataForChangeOrCopyUser(&$row, &$queries, &$password, $Passwo
         );
         if (! $row) {
             $response = PMA_Response::getInstance();
-            $response->addHTML(PMA_Message::notice(__('No user found.'))->getDisplay());
+            $response->addHTML(
+                PMA_Message::notice(__('No user found.'))->getDisplay()
+            );
             unset($_REQUEST['change_copy']);
         } else {
             extract($row, EXTR_OVERWRITE);
@@ -3090,7 +3092,7 @@ function PMA_updateDataForChangeOrCopyUser(&$row, &$queries, &$password, $Passwo
 /**
  * Update Data for information: Deletes users
  *
- * @param  array $queries queries array
+ * @param array &$queries queries array
  *
  * @return null
  */
@@ -3127,7 +3129,7 @@ function PMA_updateDataForDeleteUsers(&$queries)
 /**
  * update Message For Reload
  *
- * @param array $message sql execute return message
+ * @param array &$message sql execute return message
  *
  * @return null
  */
@@ -3136,7 +3138,9 @@ function PMA_updateMessageForReload(&$message)
     if (isset($_REQUEST['flush_privileges'])) {
         $sql_query = 'FLUSH PRIVILEGES;';
         $GLOBALS['dbi']->query($sql_query);
-        $message = PMA_Message::success(__('The privileges were reloaded successfully.'));
+        $message = PMA_Message::success(
+            __('The privileges were reloaded successfully.')
+        );
     }
     
     if (isset($_REQUEST['validate_username'])) {
@@ -3147,8 +3151,8 @@ function PMA_updateMessageForReload(&$message)
 /**
  * update Data For Queries from queries_for_display
  *
- * @param  array  $queries             queries array
- * @param  array  $queries_for_display queries arry for display
+ * @param array &$queries            queries array
+ * @param array $queries_for_display queries arry for display
  *
  * @return null
  */
@@ -3171,20 +3175,24 @@ function PMA_updateDataForQueries(&$queries, $queries_for_display)
 /**
  * update Data for information: Adds a user
  *
- * @param  string $dbname              db name
- * @param  string $username            user name
- * @param  string $hostname            host name
- * @param  bool   $_add_user_error     store add_user_error
- * @param  string $password            password
- * @param  array  $message             message to display
- * @param  array  $queries             queries array
- * @param  array  $queries_for_display queries arry for display
- * @param  bool   $is_menuwork         is_menuwork set?
+ * @param string &$dbname              db name
+ * @param string &$username            user name
+ * @param string &$hostname            host name
+ * @param bool   &$_add_user_error     store add_user_error
+ * @param string $password             password
+ * @param array  &$message             message to display
+ * @param array  &$queries             queries array
+ * @param array  &$queries_for_display queries arry for display
+ * @param bool   $is_menuwork          is_menuwork set?
+ * @param string &$sql_query           sql_query to display
  *
  * @return null
  */
-function PMA_updateDataForAddUser(&$dbname, &$username, &$hostname, &$_add_user_error, $password, &$message, &$queries, &$queries_for_display, $is_menuwork)
-{
+function PMA_updateDataForAddUser(
+    &$dbname, &$username, &$hostname, &$_add_user_error, 
+    $password, &$message, &$queries, &$queries_for_display, 
+    $is_menuwork, &$sql_query
+) {
     if (isset($_REQUEST['adduser_submit']) || isset($_REQUEST['change_copy'])) {
         $sql_query = '';
         if ($_POST['pred_username'] == 'any') {
@@ -3211,7 +3219,9 @@ function PMA_updateDataForAddUser(&$dbname, &$username, &$hostname, &$_add_user_
             . " AND `Host` = '" . PMA_Util::sqlAddSlashes($hostname) . "';";
         if ($GLOBALS['dbi']->fetchValue($sql) == 1) {
             $message = PMA_Message::error(__('The user %s already exists!'));
-            $message->addParam('[em]\'' . $username . '\'@\'' . $hostname . '\'[/em]');
+            $message->addParam(
+                '[em]\'' . $username . '\'@\'' . $hostname . '\'[/em]'
+            );
             $_REQUEST['adduser'] = true;
             $_add_user_error = true;
         } else {
@@ -3259,11 +3269,11 @@ function PMA_updateDataForAddUser(&$dbname, &$username, &$hostname, &$_add_user_
 /**
  * Update DB information: DB, Table, isWildcard
  *
- * @param string $dbname             database name
- * @param string $tablename          table name
- * @param string $db_and_table       db_and_table
- * @param bool   $dbname_is_wildcard is Wild card
- * @param string $pred_dbname        Pre database name
+ * @param string &$dbname             database name
+ * @param string &$tablename          table name
+ * @param string &$db_and_table       db_and_table
+ * @param bool   &$dbname_is_wildcard is Wild card
+ * @param string &$pred_dbname        Pre database name
  *
  * @return null
  */

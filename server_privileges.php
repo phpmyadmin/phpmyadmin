@@ -77,24 +77,43 @@ $strPrivDescDropTbl = __('Allows dropping tables.');
 $strPrivDescEvent = __('Allows to set up events for the event scheduler');
 $strPrivDescExecute = __('Allows executing stored routines.');
 $strPrivDescFile = __('Allows importing data from and exporting data into files.');
-$strPrivDescGrant = __('Allows adding users and privileges without reloading the privilege tables.');
+$strPrivDescGrant = __(
+    'Allows adding users and privileges without reloading the privilege tables.'
+);
 $strPrivDescIndex = __('Allows creating and dropping indexes.');
 $strPrivDescInsert = __('Allows inserting and replacing data.');
 $strPrivDescLockTables = __('Allows locking tables for the current thread.');
-$strPrivDescMaxConnections = __('Limits the number of new connections the user may open per hour.');
-$strPrivDescMaxQuestions = __('Limits the number of queries the user may send to the server per hour.');
-$strPrivDescMaxUpdates = __('Limits the number of commands that change any table or database the user may execute per hour.');
-$strPrivDescMaxUserConnections = __('Limits the number of simultaneous connections the user may have.');
+$strPrivDescMaxConnections = __(
+    'Limits the number of new connections the user may open per hour.'
+);
+$strPrivDescMaxQuestions = __(
+    'Limits the number of queries the user may send to the server per hour.'
+);
+$strPrivDescMaxUpdates = __(
+    'Limits the number of commands that change any table or database ' 
+    . 'the user may execute per hour.'
+);
+$strPrivDescMaxUserConnections = __(
+    'Limits the number of simultaneous connections the user may have.'
+);
 $strPrivDescProcess = __('Allows viewing processes of all users');
 $strPrivDescReferences = __('Has no effect in this MySQL version.');
-$strPrivDescReload = __('Allows reloading server settings and flushing the server\'s caches.');
-$strPrivDescReplClient = __('Allows the user to ask where the slaves / masters are.');
+$strPrivDescReload = __(
+    'Allows reloading server settings and flushing the server\'s caches.'
+);
+$strPrivDescReplClient = __(
+    'Allows the user to ask where the slaves / masters are.'
+);
 $strPrivDescReplSlave = __('Needed for the replication slaves.');
 $strPrivDescSelect = __('Allows reading data.');
 $strPrivDescShowDb = __('Gives access to the complete list of databases.');
 $strPrivDescShowView = __('Allows performing SHOW CREATE VIEW queries.');
 $strPrivDescShutdown = __('Allows shutting down the server.');
-$strPrivDescSuper = __('Allows connecting, even if maximum number of connections is reached; required for most administrative operations like setting global variables or killing threads of other users.');
+$strPrivDescSuper = __(
+    'Allows connecting, even if maximum number of connections is reached; ' 
+    . 'required for most administrative operations like setting global variables ' 
+    . 'or killing threads of other users.'
+);
 $strPrivDescTrigger = __('Allows creating and dropping triggers');
 $strPrivDescUpdate = __('Allows changing data.');
 $strPrivDescUsage = __('No privileges.');
@@ -109,7 +128,9 @@ $db_and_table = isset($db_and_table)? $db_and_table : null;
 $dbname_is_wildcard = isset($dbname_is_wildcard)? $dbname_is_wildcard : null; 
 $pred_dbname = isset($pred_dbname)? $pred_dbname : null; 
 
-PMA_updateDataForDBInfo($dbname, $tablename, $db_and_table, $dbname_is_wildcard, $pred_dbname);
+PMA_updateDataForDBInfo(
+    $dbname, $tablename, $db_and_table, $dbname_is_wildcard, $pred_dbname
+);
 
 /**
  * Checks if the user is allowed to do what he tries to...
@@ -134,12 +155,14 @@ PMA_updateDataForChangeOrCopyUser($row, $queries, $password, $Password);
  * Adds a user
  *   (Changes / copies a user, part II)
  */
-$queries_for_display = isset($queries_for_display)? $queries_for_display : null;  
+$queries_for_display = isset($queries_for_display)? $queries_for_display : null;
+$sql_query = isset($sql_query)? $sql_query : null;   
 PMA_updateDataForAddUser(
     $dbname, $username, $hostname, 
     $_add_user_error, $password, 
     $message, $queries, $queries_for_display,
-    $cfgRelation['menuswork']
+    $cfgRelation['menuswork'],
+    $sql_query
 );
 
 /**
@@ -275,7 +298,9 @@ if (isset($_REQUEST['viewing_mode']) && $_REQUEST['viewing_mode'] == 'db') {
 /**
  * Displays the page
  */
-$response->addHTML(PMA_getHtmlForUserGroupDialog($username, $cfgRelation['menuswork']));
+$response->addHTML(
+    PMA_getHtmlForUserGroupDialog($username, $cfgRelation['menuswork'])
+);
 
 // export user definition
 if (isset($_REQUEST['export'])
