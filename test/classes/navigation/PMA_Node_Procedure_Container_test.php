@@ -17,6 +17,11 @@ require_once 'libraries/Theme.class.php';
  */
 class Node_Procedure_Container_Test extends PHPUnit_Framework_TestCase
 {
+    /**
+     * SetUp for test cases
+     * 
+     * @return void
+     */
     public function setup()
     {
         $GLOBALS['server'] = 0;
@@ -24,6 +29,11 @@ class Node_Procedure_Container_Test extends PHPUnit_Framework_TestCase
         $_SESSION['PMA_Theme'] = PMA_Theme::load('./themes/pmahomme');
     }
 
+    /**
+     * Test for __construct
+     * 
+     * @return void
+     */
     public function testConstructor()
     {
         $parent = PMA_NodeFactory::getInstance('Node_Procedure_Container');
