@@ -98,7 +98,8 @@ class PMA_Dia_Relation_Schema_Test extends PHPUnit_Framework_TestCase
               `label` varchar(255) CHARACTER SET utf8 NOT NULL DEFAULT '',
               `query` text COLLATE utf8_bin NOT NULL,
               PRIMARY KEY (`id`)
-             ) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Bookmarks'";
+             ) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 " 
+            . "COLLATE=utf8_bin COMMENT='Bookmarks'";
         
         $dbi->expects($this->once())
             ->method('fetchValue')

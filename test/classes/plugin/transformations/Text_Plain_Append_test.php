@@ -58,7 +58,8 @@ class Text_Plain_Append_Test extends PHPUnit_Framework_TestCase
      */
     public function testGetInfo()
     {
-        $info = 'Appends text to a string. The only option is the text to be appended'
+        $info = 'Appends text to a string. The only option is ' 
+            . 'the text to be appended'
             . ' (enclosed in single quotes, default empty string).';     
         $this->assertEquals(
             $info,
