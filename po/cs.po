@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-08-06 16:10+0200\n"
-"PO-Revision-Date: 2013-08-01 14:26+0200\n"
+"PO-Revision-Date: 2013-08-09 11:24+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Czech <http://l10n.cihar.com/projects/phpmyadmin/master/cs/>\n"
 "Language: cs\n"
@@ -903,7 +903,7 @@ msgstr "Příkaz „DROP DATABASE“ je vypnutý."
 
 #: js/messages.php:30
 msgid "Confirm"
-msgstr ""
+msgstr "Potvrzení"
 
 #: js/messages.php:31
 #, php-format
@@ -935,10 +935,10 @@ msgid "This operation could take a long time. Proceed anyway?"
 msgstr "Tato operace může trvat velmi dlouho. Přejete si ji přesto provést?"
 
 #: js/messages.php:39
-#, fuzzy, php-format
+#, php-format
 #| msgid "Do you really want to execute \"%s\"?"
 msgid "Do you really want to delete user group \"%s\"?"
-msgstr "Opravdu si přejete provést „%s“?"
+msgstr "Opravdu si přejete odstranit skupinu „%s“?"
 
 #: js/messages.php:42
 msgid "Missing value in the form!"
@@ -10218,19 +10218,16 @@ msgid "User groups"
 msgstr "Skupiny"
 
 #: libraries/server_privileges.lib.php:3251
-#, fuzzy
 #| msgid "Server-level tabs"
 msgid "Server level tabs"
 msgstr "Záložky pro práci se serverem"
 
 #: libraries/server_privileges.lib.php:3252
-#, fuzzy
 #| msgid "Database-level tabs"
 msgid "Database level tabs"
 msgstr "Záložky pro práci s databází"
 
 #: libraries/server_privileges.lib.php:3253
-#, fuzzy
 #| msgid "Table-level tabs"
 msgid "Table level tabs"
 msgstr "Záložky pro práci s tabulkou"
