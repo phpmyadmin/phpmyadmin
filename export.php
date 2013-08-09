@@ -268,13 +268,8 @@ function PMA_isGzHandlerEnabled()
  */
 function PMA_gzencodeNeeded()
 {
-    // Here, we detect Apache's mod_deflate so we bet that
-    // this module is active for this instance of phpMyAdmin
-    // and therefore, will gzip encode the content
     if (@function_exists('gzencode')
         && ! @ini_get('zlib.output_compression')
-        && ! (function_exists('apache_get_modules')
-        && in_array('mod_deflate', apache_get_modules()))
         && ! PMA_isGzHandlerEnabled()
     ) {
         return true;
