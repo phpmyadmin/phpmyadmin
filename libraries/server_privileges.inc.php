@@ -12,6 +12,12 @@ if (! defined('PHPMYADMIN')) {
 
 require_once 'libraries/server_privileges.lib.php';
 
+$cfgRelation = PMA_getRelationsParam();
+if ($GLOBALS['cfgRelation']['menuswork']) {
+	$response->addHTML('<div>');
+	$response->addHTML(PMA_getHtmlForSubMenusOnUsersPage('server_privileges.php'));
+}
+
 $_add_user_error = false;
 
 //these variables can be passed from included files

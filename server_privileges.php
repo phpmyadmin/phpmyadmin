@@ -24,12 +24,6 @@ $header   = $response->getHeader();
 $scripts  = $header->getScripts();
 $scripts->addFile('server_privileges.js');
 
-$cfgRelation = PMA_getRelationsParam();
-if ($GLOBALS['cfgRelation']['menuswork']) {
-    $response->addHTML('<div>');
-    $response->addHTML(PMA_getHtmlForSubMenusOnUsersPage('server_privileges.php'));
-}
-
 /**
  * Make the required data ready for server privileges
  */
