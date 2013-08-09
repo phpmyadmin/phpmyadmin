@@ -187,6 +187,16 @@ class PMA_Table_Test extends PHPUnit_Framework_TestCase
         $dbi->expects($this->any())->method('fetchResult')
             ->will($this->returnValueMap($fetchResult));
 
+        $dbi->expects($this->any())->method('fetchValue')
+            ->will(
+                $this->returnValue(
+                    "CREATE TABLE `PMA`.`PMA_BookMark_2` (
+                    `id` int(11) NOT NULL AUTO_INCREMENT,
+                    `username` text NOT NULL
+                    )"
+                )
+            );
+
         $databases = array();
         $database_name = 'PMA';
         $databases[$database_name]['SCHEMA_TABLES'] = 1;
@@ -456,6 +466,17 @@ class PMA_Table_Test extends PHPUnit_Framework_TestCase
             array('type'=>'DATA_TYPE'),
             $show_create_table[0]['create_table_fields']['COLUMN_NAME']
         );
+        //not a view
+        $show_create_table = PMA_Table::analyzeStructure('PMA', 'PMA_BookMark_2');
+        $this->assertEquals(
+            array('type'=>'INT', 'timestamp_not_null'=>false),
+            $show_create_table[0]['create_table_fields']['id']
+        );
+        $this->assertEquals(
+            array('type'=>'TEXT', 'timestamp_not_null'=>false),
+            $show_create_table[0]['create_table_fields']['username']
+        );
+        
     }
 
     /**
@@ -772,6 +793,13 @@ class PMA_Table_Test extends PHPUnit_Framework_TestCase
         //removeUiProp
         $table->removeUiProp($property);
         $is_define_property = isset($table->uiprefs[$property]) ? true : false;
+        $this->assertEquals(
+            false,
+            $is_define_property
+        );
+
+        //getUiProp after removeUiProp
+        $is_define_property = $table->getUiProp($property);
         $this->assertEquals(
             false,
             $is_define_property

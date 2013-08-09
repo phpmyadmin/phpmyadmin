@@ -167,8 +167,7 @@ class PMA_Relation_Test extends PHPUnit_Framework_TestCase
      * @return void
      */
     public function testPMA_getDisplayField()
-    {
-        
+    {        
         $db = 'information_schema';
         $table = 'CHARACTER_SETS';
         $this->assertEquals(
