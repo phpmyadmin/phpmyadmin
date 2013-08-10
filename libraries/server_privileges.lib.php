@@ -3053,7 +3053,7 @@ function PMA_updatePrivileges($username, $hostname, $tablename, $dbname)
 /**
  * Get List of information: Changes / copies a user
  *
- * @param string $Password  Recent MySQL versions Password
+ * @param string $Password Recent MySQL versions Password
  *
  * @return array()
  */
@@ -3095,11 +3095,11 @@ function PMA_updateDataForChangeOrCopyUser($Password)
 /**
  * Update Data for information: Deletes users
  *
- * @param array &$queries queries array
+ * @param array $queries queries array
  *
- * @return null
+ * @return array
  */
-function PMA_updateDataForDeleteUsers(&$queries)
+function PMA_updateDataForDeleteUsers($queries)
 {
     if (isset($_REQUEST['change_copy'])) {
         $selected_usr = array(
@@ -3127,17 +3127,17 @@ function PMA_updateDataForDeleteUsers(&$queries)
             $GLOBALS['reload'] = true;
         }
     }
+    return $queries;
 }
 
 /**
  * update Message For Reload
  *
- * @param array &$message sql execute return message
- *
- * @return null
+ * @return array
  */
-function PMA_updateMessageForReload(&$message)
+function PMA_updateMessageForReload()
 {
+    $message = null;
     if (isset($_REQUEST['flush_privileges'])) {
         $sql_query = 'FLUSH PRIVILEGES;';
         $GLOBALS['dbi']->query($sql_query);
@@ -3149,17 +3149,19 @@ function PMA_updateMessageForReload(&$message)
     if (isset($_REQUEST['validate_username'])) {
         $message = PMA_Message::success();
     }
+    
+    return $message;
 }
 
 /**
  * update Data For Queries from queries_for_display
  *
- * @param array &$queries            queries array
+ * @param array $queries             queries array
  * @param array $queries_for_display queries arry for display
  *
  * @return null
  */
-function PMA_updateDataForQueries(&$queries, $queries_for_display)
+function PMA_updateDataForQueries($queries, $queries_for_display)
 {
     $tmp_count = 0;
     foreach ($queries as $sql_query) {
@@ -3173,16 +3175,18 @@ function PMA_updateDataForQueries(&$queries, $queries_for_display)
         }
         $tmp_count++;
     }
+    
+    return $queries;
 }
 
 /**
  * update Data for information: Adds a user
  *
- * @param string $dbname              db name
- * @param string $username            user name
- * @param string $hostname            host name
- * @param string $password             password
- * @param bool   $is_menuwork          is_menuwork set?
+ * @param string $dbname      db name
+ * @param string $username    user name
+ * @param string $hostname    host name
+ * @param string $password    password
+ * @param bool   $is_menuwork is_menuwork set?
  *
  * @return array
  */
@@ -3267,21 +3271,18 @@ function PMA_updateDataForAddUser(
         }
     }
     
-    return array($message, $queries, $queries_for_display, $sql_query, $_add_user_error);
+    return array(
+        $message, $queries, $queries_for_display, $sql_query, $_add_user_error
+    );
 }
 
 /**
  * Update DB information: DB, Table, isWildcard
  *
- * @param string $dbname             database name
- * @param string $tablename          table name
- * @param string $db_and_table       db_and_table
- * @param bool   $dbname_is_wildcard is Wild card
- *
  * @return array
  */
-function PMA_updateDataForDBInfo(
-) {
+function PMA_updateDataForDBInfo() 
+{
     $dbname = null;
     $tablename = null;
     $db_and_table = null;

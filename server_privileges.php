@@ -155,8 +155,14 @@ list($ret_message, $ret_queries, $queries_for_display, $sql_query, $_add_user_er
         $cfgRelation['menuswork']
     );
 //update the old variables
-if(isset($ret_queries)) $queries = $ret_queries; 
-if(isset($ret_message)) $message = $ret_message;
+if (isset($ret_queries)) {
+    $queries = $ret_queries;
+    unset($ret_queries);
+}
+if (isset($ret_message)) {
+    $message = $ret_message;
+    unset($ret_message);
+}
 
 /**
  * Changes / copies a user, part III
@@ -215,7 +221,7 @@ if (isset($_REQUEST['change_pw'])) {
 if (isset($_REQUEST['delete'])
     || (isset($_REQUEST['change_copy']) && $_REQUEST['mode'] < 4)
 ) {
-    PMA_updateDataForDeleteUsers($queries);
+    $queries = PMA_updateDataForDeleteUsers($queries);
     if (empty($_REQUEST['change_copy'])) {
         list($sql_query, $message) = PMA_deleteUser($queries);
     }
@@ -225,7 +231,7 @@ if (isset($_REQUEST['delete'])
  * Changes / copies a user, part V
  */
 if (isset($_REQUEST['change_copy'])) {
-    PMA_updateDataForQueries($queries, $queries_for_display);
+    $queries = PMA_updateDataForQueries($queries, $queries_for_display);
     $message = PMA_Message::success();
     $sql_query = join("\n", $queries);
 }
@@ -233,7 +239,11 @@ if (isset($_REQUEST['change_copy'])) {
 /**
  * Reloads the privilege tables into memory
  */
-PMA_updateMessageForReload($message);
+$message_ret = PMA_updateMessageForReload();
+if (isset($message_ret)) { 
+    $message = $message_ret; 
+    unset($message_ret);
+}
 
 /**
  * If we are in an Ajax request for Create User/Edit User/Revoke User/
@@ -294,7 +304,8 @@ if (isset($_REQUEST['viewing_mode']) && $_REQUEST['viewing_mode'] == 'db') {
 $response->addHTML(
     PMA_getHtmlForUserGroupDialog(
         isset($username)? $username : null, 
-        $cfgRelation['menuswork'])
+        $cfgRelation['menuswork']
+    )
 );
 
 // export user definition
