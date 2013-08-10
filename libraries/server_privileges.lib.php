@@ -3057,7 +3057,7 @@ function PMA_updatePrivileges($username, $hostname, $tablename, $dbname)
  *
  * @return array()
  */
-function PMA_updateDataForChangeOrCopyUser($Password)
+function PMA_getDataForChangeOrCopyUser($Password)
 {
     $row = null;
     $queries = null;
@@ -3099,7 +3099,7 @@ function PMA_updateDataForChangeOrCopyUser($Password)
  *
  * @return array
  */
-function PMA_updateDataForDeleteUsers($queries)
+function PMA_getDataForDeleteUsers($queries)
 {
     if (isset($_REQUEST['change_copy'])) {
         $selected_usr = array(
@@ -3161,7 +3161,7 @@ function PMA_updateMessageForReload()
  *
  * @return null
  */
-function PMA_updateDataForQueries($queries, $queries_for_display)
+function PMA_getDataForQueries($queries, $queries_for_display)
 {
     $tmp_count = 0;
     foreach ($queries as $sql_query) {
@@ -3190,7 +3190,7 @@ function PMA_updateDataForQueries($queries, $queries_for_display)
  *
  * @return array
  */
-function PMA_updateDataForAddUser(
+function PMA_getDataForAddUser(
     $dbname, $username, $hostname,
     $password, $is_menuwork
 ) {
@@ -3281,7 +3281,7 @@ function PMA_updateDataForAddUser(
  *
  * @return array
  */
-function PMA_updateDataForDBInfo() 
+function PMA_getDataForDBInfo() 
 {
     $dbname = null;
     $tablename = null;

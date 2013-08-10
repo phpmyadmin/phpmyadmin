@@ -123,7 +123,7 @@ $strPrivDescUsage = __('No privileges.');
  * Get DB information: dbname, tablename, db_and_table, dbname_is_wildcard
  */
 list($dbname, $tablename, $db_and_table, $dbname_is_wildcard) 
-    = PMA_updateDataForDBInfo();
+    = PMA_getDataForDBInfo();
 
 /**
  * Checks if the user is allowed to do what he tries to...
@@ -138,7 +138,7 @@ if (! $is_superuser) {
  * Changes / copies a user, part I
  */
 list($row, $queries, $password) 
-    = PMA_updateDataForChangeOrCopyUser(
+    = PMA_getDataForChangeOrCopyUser(
         isset($Password)? $Password : null
     );
     
@@ -147,7 +147,7 @@ list($row, $queries, $password)
  *   (Changes / copies a user, part II)
  */ 
 list($ret_message, $ret_queries, $queries_for_display, $sql_query, $_add_user_error) 
-    = PMA_updateDataForAddUser(
+    = PMA_getDataForAddUser(
         isset($dbname)? $dbname : null, 
         isset($username)? $username : null, 
         isset($hostname)? $hostname : null,
@@ -221,7 +221,7 @@ if (isset($_REQUEST['change_pw'])) {
 if (isset($_REQUEST['delete'])
     || (isset($_REQUEST['change_copy']) && $_REQUEST['mode'] < 4)
 ) {
-    $queries = PMA_updateDataForDeleteUsers($queries);
+    $queries = PMA_getDataForDeleteUsers($queries);
     if (empty($_REQUEST['change_copy'])) {
         list($sql_query, $message) = PMA_deleteUser($queries);
     }
@@ -231,7 +231,7 @@ if (isset($_REQUEST['delete'])
  * Changes / copies a user, part V
  */
 if (isset($_REQUEST['change_copy'])) {
-    $queries = PMA_updateDataForQueries($queries, $queries_for_display);
+    $queries = PMA_getDataForQueries($queries, $queries_for_display);
     $message = PMA_Message::success();
     $sql_query = join("\n", $queries);
 }
