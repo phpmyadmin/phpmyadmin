@@ -3269,18 +3269,20 @@ function PMA_updateDataForAddUser(
 /**
  * Update DB information: DB, Table, isWildcard
  *
- * @param string &$dbname             database name
- * @param string &$tablename          table name
- * @param string &$db_and_table       db_and_table
- * @param bool   &$dbname_is_wildcard is Wild card
- * @param string &$pred_dbname        Pre database name
+ * @param string $dbname             database name
+ * @param string $tablename          table name
+ * @param string $db_and_table       db_and_table
+ * @param bool   $dbname_is_wildcard is Wild card
  *
- * @return null
+ * @return array
  */
 function PMA_updateDataForDBInfo(
-    &$dbname, &$tablename, &$db_and_table, 
-    &$dbname_is_wildcard, &$pred_dbname
 ) {
+    $dbname = null;
+    $tablename = null;
+    $db_and_table = null;
+    $dbname_is_wildcard = null;
+    
     /**
      * Checks if a dropdown box has been used for selecting a database / table
      */
@@ -3323,6 +3325,13 @@ function PMA_updateDataForDBInfo(
             $dbname_is_wildcard = false;
         }
     }
+    
+    return array(
+        isset($dbname)? $dbname : null, 
+        isset($tablename)? $tablename : null,
+        isset($db_and_table)? $db_and_table : null,
+        isset($dbname_is_wildcard)? $dbname_is_wildcard : null,
+    );
 }
 
 /**

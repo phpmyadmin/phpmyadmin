@@ -122,15 +122,9 @@ $strPrivDescUsage = __('No privileges.');
 /**
  * Get DB information: dbname, tablename, db_and_table, dbname_is_wildcard
  */
-$dbname = isset($dbname)? $dbname : null; 
-$tablename = isset($tablename)? $tablename : null; 
-$db_and_table = isset($db_and_table)? $db_and_table : null; 
-$dbname_is_wildcard = isset($dbname_is_wildcard)? $dbname_is_wildcard : null; 
-$pred_dbname = isset($pred_dbname)? $pred_dbname : null; 
 
-PMA_updateDataForDBInfo(
-    $dbname, $tablename, $db_and_table, $dbname_is_wildcard, $pred_dbname
-);
+list($dbname, $tablename, $db_and_table, $dbname_is_wildcard) 
+    = PMA_updateDataForDBInfo();
 
 /**
  * Checks if the user is allowed to do what he tries to...
