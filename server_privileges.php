@@ -122,7 +122,6 @@ $strPrivDescUsage = __('No privileges.');
 /**
  * Get DB information: dbname, tablename, db_and_table, dbname_is_wildcard
  */
-
 list($dbname, $tablename, $db_and_table, $dbname_is_wildcard) 
     = PMA_updateDataForDBInfo();
 
@@ -146,16 +145,18 @@ list($row, $queries, $password)
 /**
  * Adds a user
  *   (Changes / copies a user, part II)
- */
-$queries_for_display = isset($queries_for_display)? $queries_for_display : null;
-$sql_query = isset($sql_query)? $sql_query : null;   
-PMA_updateDataForAddUser(
-    $dbname, $username, $hostname, 
-    $_add_user_error, $password, 
-    $message, $queries, $queries_for_display,
-    $cfgRelation['menuswork'],
-    $sql_query
-);
+ */ 
+list($ret_message, $ret_queries, $queries_for_display, $sql_query, $_add_user_error) 
+    = PMA_updateDataForAddUser(
+        isset($dbname)? $dbname : null, 
+        isset($username)? $username : null, 
+        isset($hostname)? $hostname : null,
+        isset($password)? $password : null,
+        $cfgRelation['menuswork']
+    );
+//update the old variables
+if(isset($ret_queries)) $queries = $ret_queries; 
+if(isset($ret_message)) $message = $ret_message;
 
 /**
  * Changes / copies a user, part III
@@ -171,8 +172,8 @@ if (isset($_REQUEST['change_copy'])) {
  */
 if (! empty($_POST['update_privs'])) {
     list($sql_query, $message) = PMA_updatePrivileges(
-        $username,
-        $hostname,
+        (isset($username) ? $username : ''),
+        (isset($hostname) ? $hostname : ''),
         (isset($tablename) ? $tablename : ''),
         (isset($dbname) ? $dbname : '')
     );
@@ -291,7 +292,9 @@ if (isset($_REQUEST['viewing_mode']) && $_REQUEST['viewing_mode'] == 'db') {
  * Displays the page
  */
 $response->addHTML(
-    PMA_getHtmlForUserGroupDialog($username, $cfgRelation['menuswork'])
+    PMA_getHtmlForUserGroupDialog(
+        isset($username)? $username : null, 
+        $cfgRelation['menuswork'])
 );
 
 // export user definition

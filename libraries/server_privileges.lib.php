@@ -3178,24 +3178,23 @@ function PMA_updateDataForQueries(&$queries, $queries_for_display)
 /**
  * update Data for information: Adds a user
  *
- * @param string &$dbname              db name
- * @param string &$username            user name
- * @param string &$hostname            host name
- * @param bool   &$_add_user_error     store add_user_error
+ * @param string $dbname              db name
+ * @param string $username            user name
+ * @param string $hostname            host name
  * @param string $password             password
- * @param array  &$message             message to display
- * @param array  &$queries             queries array
- * @param array  &$queries_for_display queries arry for display
  * @param bool   $is_menuwork          is_menuwork set?
- * @param string &$sql_query           sql_query to display
  *
- * @return null
+ * @return array
  */
 function PMA_updateDataForAddUser(
-    &$dbname, &$username, &$hostname, &$_add_user_error, 
-    $password, &$message, &$queries, &$queries_for_display, 
-    $is_menuwork, &$sql_query
+    $dbname, $username, $hostname,
+    $password, $is_menuwork
 ) {
+    $_add_user_error = false;
+    $message = null;
+    $queries = null;
+    $queries_for_display = null;
+    $sql_query = null;
     if (isset($_REQUEST['adduser_submit']) || isset($_REQUEST['change_copy'])) {
         $sql_query = '';
         if ($_POST['pred_username'] == 'any') {
@@ -3267,6 +3266,8 @@ function PMA_updateDataForAddUser(
             unset($res, $real_sql_query);
         }
     }
+    
+    return array($message, $queries, $queries_for_display, $sql_query, $_add_user_error);
 }
 
 /**
