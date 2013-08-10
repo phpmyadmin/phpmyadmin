@@ -3053,15 +3053,16 @@ function PMA_updatePrivileges($username, $hostname, $tablename, $dbname)
 /**
  * Get List of information: Changes / copies a user
  *
- * @param array  &$row      query result rows
- * @param array  &$queries  queries
- * @param string &$password password
  * @param string $Password  Recent MySQL versions Password
  *
- * @return null
+ * @return array()
  */
-function PMA_updateDataForChangeOrCopyUser(&$row, &$queries, &$password, $Password)
+function PMA_updateDataForChangeOrCopyUser($Password)
 {
+    $row = null;
+    $queries = null;
+    $password = null;
+    
     if (isset($_REQUEST['change_copy'])) {
         $user_host_condition = ' WHERE `User` = '
             . "'". PMA_Util::sqlAddSlashes($_REQUEST['old_username']) . "'"
@@ -3087,6 +3088,8 @@ function PMA_updateDataForChangeOrCopyUser(&$row, &$queries, &$password, $Passwo
             $queries = array();
         }
     }
+    
+    return array($row, $queries, $password);
 }
 
 /**
