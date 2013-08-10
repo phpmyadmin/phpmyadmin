@@ -203,10 +203,12 @@ function PMA_addDatepicker($this_element, options)
         stepMinutes: 1,
         stepHours: 1,
         showSecond: true,
+        showMillisec: true,
+        showMicrosec: true,
         showTimepicker: showTimeOption,
         showButtonPanel: false,
         dateFormat: 'yy-mm-dd', // yy means year with four digits
-        timeFormat: 'HH:mm:ss',
+        timeFormat: 'HH:mm:ss.lc',
         altFieldTimeOnly: false,
         showAnim: '',
         beforeShow: function (input, inst) {

@@ -985,11 +985,24 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                     // (after adding a datepicker, the input field doesn't display the time anymore, only the date)
                     if (is_null
                         || current_datetime_value == '0000-00-00'
-                        || current_datetime_value == '0000-00-00 00:00:00'
+                        || current_datetime_value == '0000-00-00 00:00:00.000000'
                     ) {
                         $input_field.val(current_datetime_value);
                     } else {
-                        $editArea.datetimepicker('setDate', current_datetime_value);
+                        var date;
+                        if (current_datetime_value.match(/^\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}\.\d{6}$/)) {
+                            date = new Date(current_datetime_value.substring(0, 10));
+                            var hour = current_datetime_value.substring(11, 13);
+                            var min = current_datetime_value.substring(14, 16);
+                            var sec = current_datetime_value.substring(17, 19);
+                            var milli = current_datetime_value.substring(20, 23);
+                            var micro = current_datetime_value.substring(23);
+                            date.setHours(hour, min, sec, milli);
+                            date.setMicroseconds(micro);
+                        } else {
+                            date = new Date(current_datetime_value);
+                        }
+                        $editArea.datetimepicker('setDate', date);
                     }
                     $editArea.append('<div class="cell_edit_hint">' + g.cellEditHint + '</div>');
 

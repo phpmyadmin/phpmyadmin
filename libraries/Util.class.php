@@ -4354,5 +4354,26 @@ class PMA_Util
 
         return $result;
     }
+
+    /**
+     * Add fractional seconds to time, datetime and timestamp strings.
+     * If the string contsins fractional seconds,
+     * pads it with 0s upto 6 decimal places.
+     *
+     * @param string $value time, datetime or timestamp strings
+     *
+     * @return string time, datetime or timestamp strings with fractional seconds
+     */
+    public static function addMicroseconds($value)
+    {
+        if (empty($value)) {
+            return '';
+        } elseif (strpos($value, '.')) {
+            $value .= '000000';
+            return substr($value, 0, strpos($value, '.') + 7);
+        } else {
+            return $value . '.000000';
+        }
+    }
 }
 ?>

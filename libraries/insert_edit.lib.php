@@ -1618,6 +1618,11 @@ function PMA_getSpecialCharsAndBackupFieldForExistingRow(
         $special_chars = PMA_Util::printableBitValue(
             $current_row[$column['Field']], $extracted_columnspec['spec_in_brackets']
         );
+    } elseif (substr($column['True_Type'], 0, 9) == 'timestamp'
+        || $column['True_Type'] == 'datetime'
+        || $column['True_Type'] == 'time'
+    ) {
+        $special_chars = PMA_Util::addMicroseconds($current_row[$column['Field']]);
     } elseif (in_array($column['True_Type'], $gis_data_types)) {
         // Convert gis data to Well Know Text format
         $current_row[$column['Field']] = PMA_Util::asWKT(
@@ -1703,6 +1708,11 @@ function PMA_getSpecialCharsAndBackupFieldForInsertingMode(
 
     if ($column['True_Type'] == 'bit') {
         $special_chars = PMA_Util::convertBitDefaultValue($column['Default']);
+    } elseif (substr($column['True_Type'], 0, 9) == 'timestamp'
+        || $column['True_Type'] == 'datetime'
+        || $column['True_Type'] == 'time'
+    ) {
+        $special_chars = PMA_Util::addMicroseconds($column['Default']);
     } else {
         $special_chars = htmlspecialchars($column['Default']);
     }
@@ -2364,9 +2374,20 @@ function PMA_verifyWhetherValueCanBeTruncatedAndAppendExtraData(
         . PMA_Util::backquote($table)
         . ' WHERE ' . $_REQUEST['where_clause'][0];
 
-    if ($GLOBALS['dbi']->fetchValue($sql_for_real_value) !== false) {
-        $extra_data['truncatableFieldValue']
-            = $GLOBALS['dbi']->fetchValue($sql_for_real_value);
+    $result = $GLOBALS['dbi']->tryQuery(
+        $sql_for_real_value, 0, PMA_DBI_QUERY_STORE, false
+    );
+    $fields_meta = $GLOBALS['dbi']->getFieldsMeta($result);
+    $meta = $fields_meta[0];
+    $new_value = $GLOBALS['dbi']->fetchValue($result);
+    if ($new_value !== false) {
+        if ((substr($meta->type, 0, 9) == 'timestamp')
+            || ($meta->type == 'datetime')
+            || ($meta->type == 'time')
+        ) {
+            $new_value = PMA_Util::addMicroseconds($new_value);
+        }
+        $extra_data['truncatableFieldValue'] = $new_value;
     } else {
         $extra_data['isNeedToRecheck'] = false;
     }
@@ -2375,26 +2396,26 @@ function PMA_verifyWhetherValueCanBeTruncatedAndAppendExtraData(
 
 /**
  * Function to get the columns of a table
- * 
+ *
  * @param string $db    current db
  * @param string $table current table
- * 
- * @return array 
+ *
+ * @return array
  */
 function PMA_getTableColumns($db, $table)
 {
     $GLOBALS['dbi']->selectDb($db);
     return array_values($GLOBALS['dbi']->getColumns($db, $table));
-    
+
 }
 
 /**
  * Function to determine Insert/Edit rows
- * 
+ *
  * @param string $where_clause where clause
  * @param string $db           current database
  * @param string $table        current table
- * 
+ *
  * @return mixed
  */
 function PMA_determineInsertOrEdit($where_clause, $db, $table)
@@ -2417,7 +2438,7 @@ function PMA_determineInsertOrEdit($where_clause, $db, $table)
     if (isset($_REQUEST['after_insert'])) {
         $after_insert = $_REQUEST['after_insert'];
     }
-    
+
     if (isset($where_clause)) {
         // we are editing
         $insert_mode = false;
@@ -2435,15 +2456,15 @@ function PMA_determineInsertOrEdit($where_clause, $db, $table)
         $where_clause_array = null;
         $found_unique_key = false;
     }
-    
+
     // Copying a row - fetched data will be inserted as a new row,
     // therefore the where clause is needless.
-    if (isset($_REQUEST['default_action']) 
+    if (isset($_REQUEST['default_action'])
         && $_REQUEST['default_action'] === 'insert'
     ) {
         $where_clause = $where_clauses = null;
     }
-    
+
     return array(
         $insert_mode, $where_clause, $where_clause_array, $where_clauses,
         $result, $rows, $found_unique_key,
@@ -2453,10 +2474,10 @@ function PMA_determineInsertOrEdit($where_clause, $db, $table)
 
 /**
  * Function to get comments for the table columns
- * 
+ *
  * @param string $db    current database
  * @param string $table current table
- * 
+ *
  * @return array $comments_map comments for columns
  */
 function PMA_getCommentsMap($db, $table)
@@ -2475,16 +2496,16 @@ function PMA_getCommentsMap($db, $table)
     if ($GLOBALS['cfg']['ShowPropertyComments']) {
         $comments_map = PMA_getComments($db, $table);
     }
-    
+
     return $comments_map;
 }
 
 /**
  * Function to get URL parameters
- * 
+ *
  * @param string $db    current database
  * @param string $table current table
- * 
+ *
  * @return array $url_params url parameters
  */
 function PMA_getUrlParameters($db, $table)
@@ -2500,7 +2521,7 @@ function PMA_getUrlParameters($db, $table)
     if (preg_match('@^tbl_@', $GLOBALS['goto'])) {
         $url_params['table'] = $table;
     }
-    
+
     return $url_params;
 }
 ?>
