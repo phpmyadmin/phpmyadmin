@@ -158,43 +158,6 @@ for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
     );
 } // end for
 
-/**
- * needs to be finished
- *
- *
-if ($display_type == 'horizontal') {
-    $new_field = '';
-    foreach ($empty_row as $content_row_val) {
-        $new_field .= '<td class="center">' . $content_row_val . '</td>';
-    }
-    ?>
-<script type="text/javascript">
-// <![CDATA[
-var odd_row = <?php echo $odd_row; ?>;
-
-function addField()
-{
-    var new_fields = document.getElementById('added_fields').value;
-    var new_field_container = document.getElementById('table_columns');
-    var new_field = '<?php echo preg_replace('|\s+|', ' ', preg_replace('|\'|', '\\\'', $new_field)); ?>';
-    var i = 0;
-    for (i = 0; i < new_fields; i++) {
-        if (odd_row) {
-            new_field_container.innerHTML += '<tr class="odd">' + new_field + '</tr>';
-        } else {
-            new_field_container.innerHTML += '<tr class="even">' + new_field + '</tr>';
-        }
-        odd_row = ! odd_row;
-    }
-
-    return true;
-}
-// ]]>
-</script>
-    <?php
-}
- */
-
 $html = PMA_getHtmlForTableCreateOrAddField(
     $action, $_form_params, $content_cells, $header_cells
 );
