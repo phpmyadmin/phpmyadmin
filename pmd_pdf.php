@@ -22,7 +22,6 @@ if (isset($_POST['scale']) && ! PMA_isValid($_POST['scale'], 'numeric')) {
 $post_params = array(
     'db',
     'mode',
-    'pdf_page_number',
     'scale'
 );
 
@@ -40,7 +39,7 @@ if (! isset($scale)) {
 }
 
 if (isset($mode)) {
-    if ('create_export' != $mode && empty($pdf_page_number)) {
+    if ('create_export' != $mode && empty($_POST['pdf_page_number'])) {
         die("<script>alert('Pages not found!');history.go(-2);</script>");
     }
 
@@ -58,6 +57,8 @@ if (isset($mode)) {
         } else {
             $message = PMA_Message::error(__('Page creation failed'));
         }
+    } else {
+        $pdf_page_number = $_POST['pdf_page_number'];
     }
 
     $pdf_page_number_q = PMA_Util::sqlAddSlashes($pdf_page_number);
