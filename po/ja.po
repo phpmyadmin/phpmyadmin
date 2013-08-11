@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-08-11 13:17+0200\n"
-"PO-Revision-Date: 2013-07-08 21:24+0200\n"
+"PO-Revision-Date: 2013-08-11 13:31+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Japanese <http://l10n.cihar.com/projects/phpmyadmin/master/ja/"
-">\n"
+"Language-Team: Japanese "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/ja/>\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 1.6-dev\n"
+"X-Generator: Weblate 1.7-dev\n"
 
 #: browse_foreigners.php:50 browse_foreigners.php:70 js/messages.php:348
 #: libraries/DisplayResults.class.php:805
@@ -749,17 +749,17 @@ msgstr "データベースサーバ"
 
 #: index.php:252 libraries/plugins/auth/AuthenticationCookie.class.php:207
 msgid "Server:"
-msgstr "サーバ:"
+msgstr "サーバ："
 
 #: index.php:256
 msgid "Server type:"
-msgstr "サーバの種類"
+msgstr "サーバの種類："
 
 #: index.php:260 libraries/plugins/export/ExportLatex.class.php:225
 #: libraries/plugins/export/ExportSql.class.php:630
 #: libraries/plugins/export/ExportXml.class.php:198
 msgid "Server version:"
-msgstr "サーバのバージョン"
+msgstr "サーバのバージョン："
 
 #: index.php:264
 #, fuzzy
@@ -769,7 +769,7 @@ msgstr "プロトコルバージョン"
 
 #: index.php:268
 msgid "User:"
-msgstr "ユーザ"
+msgstr "ユーザ："
 
 #: index.php:273
 #, fuzzy
@@ -783,7 +783,7 @@ msgstr "ウェブサーバ"
 
 #: index.php:298
 msgid "Database client version:"
-msgstr "データベースクライアントのバージョン"
+msgstr "データベースクライアントのバージョン："
 
 #: index.php:302
 #, fuzzy
@@ -797,7 +797,7 @@ msgstr "PHP情報を表示する"
 
 #: index.php:339
 msgid "Version information:"
-msgstr "バージョン情報"
+msgstr "バージョン情報："
 
 #: index.php:348 libraries/Util.class.php:429 libraries/Util.class.php:496
 #: libraries/config/FormDisplay.tpl.php:149
