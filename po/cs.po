@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-08-11 13:17+0200\n"
-"PO-Revision-Date: 2013-08-09 11:24+0200\n"
+"PO-Revision-Date: 2013-08-11 16:26+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Czech <http://l10n.cihar.com/projects/phpmyadmin/master/cs/>\n"
 "Language: cs\n"
@@ -12425,7 +12425,7 @@ msgstr ""
 "tomto systému."
 
 #: setup/lib/index.lib.php:226
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "%sLogin cookie validity%s greater than 1440 seconds may cause random "
 #| "session invalidation if %ssession.gc_maxlifetime%s is lower than its "
@@ -12434,9 +12434,9 @@ msgid ""
 "%sLogin cookie validity%s greater than %ssession.gc_maxlifetime%s may cause "
 "random session invalidation (currently session.gc_maxlifetime is %d)."
 msgstr ""
-"%sPlatnost přihlašovací cookie%s větší než 1440 sekund může způsobit náhodné "
-"ukončení sezení pokud je %ssession.gc_maxlifetime%s nižší než tato hodnota "
-"(v současné době %d)."
+"%sPlatnost přihlašovací cookie%s větší než %ssession.gc_maxlifetime%s může "
+"způsobit náhodné ukončení sezení (session.gc_maxlifetime je nastaveno na %"
+"d)."
 
 #: setup/lib/index.lib.php:228
 #, php-format
