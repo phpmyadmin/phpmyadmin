@@ -8,16 +8,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-07-29 15:07+0200\n"
-"PO-Revision-Date: 2012-09-01 12:11+0200\n"
-"Last-Translator: gurjit dhillon <dhillon616@gmail.com>\n"
-"Language-Team: Punjabi <http://l10n.cihar.com/projects/phpmyadmin/master/pa/"
-">\n"
+"PO-Revision-Date: 2013-08-11 13:38+0200\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"Language-Team: Punjabi <http://l10n.cihar.com/projects/phpmyadmin/4-0/pa/>\n"
 "Language: pa\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Weblate 1.2\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 1.7-dev\n"
 
 #: browse_foreigners.php:51 browse_foreigners.php:75 js/messages.php:344
 #: libraries/DisplayResults.class.php:813
@@ -111,7 +110,7 @@ msgstr ""
 #: db_create.php:74
 #, php-format
 msgid "Database %1$s has been created."
-msgstr "%1$s ਡਾਟਾਬੇਸ ਬਣ ਚੁੱਕਾ ਹੈ"
+msgstr "%1$s ਡਾਟਾਬੇਸ ਬਣ ਚੁੱਕਾ ਹੈ."
 
 #: db_datadict.php:51 libraries/operations.lib.php:36
 msgid "Database comment: "
