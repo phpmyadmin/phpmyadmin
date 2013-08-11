@@ -137,10 +137,7 @@ if (! $is_superuser) {
 /**
  * Changes / copies a user, part I
  */
-list($row, $queries, $password) 
-    = PMA_getDataForChangeOrCopyUser(
-        isset($Password)? $Password : null
-    );
+list($queries, $password) = PMA_getDataForChangeOrCopyUser();
     
 /**
  * Adds a user

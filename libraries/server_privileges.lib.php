@@ -3053,11 +3053,9 @@ function PMA_updatePrivileges($username, $hostname, $tablename, $dbname)
 /**
  * Get List of information: Changes / copies a user
  *
- * @param string $Password Recent MySQL versions Password
- *
  * @return array()
  */
-function PMA_getDataForChangeOrCopyUser($Password)
+function PMA_getDataForChangeOrCopyUser()
 {
     $row = null;
     $queries = null;
@@ -3089,7 +3087,7 @@ function PMA_getDataForChangeOrCopyUser($Password)
         }
     }
     
-    return array($row, $queries, $password);
+    return array($queries, $password);
 }
 
 /**
@@ -3334,8 +3332,8 @@ function PMA_getDataForDBInfo()
     return array(
         isset($dbname)? $dbname : null, 
         isset($tablename)? $tablename : null,
-        isset($db_and_table)? $db_and_table : null,
-        isset($dbname_is_wildcard)? $dbname_is_wildcard : null,
+        $db_and_table,
+        $dbname_is_wildcard,
     );
 }
 
