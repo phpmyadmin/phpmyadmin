@@ -114,14 +114,15 @@ for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
     if ($tmp) {
         $type = substr($type, 0, $tmp - 1);
     }
+    // rtrim the type, for cases like "float unsigned"
+    $type = rtrim($type);
 
+    
     if (isset($submit_length) && $submit_length != false) {
         $length = $submit_length;
     }
 
-    // rtrim the type, for cases like "float unsigned"
-    $type = rtrim($type);
-
+    
     // old column attributes
     if ($is_backup) {
         $_form_params = PMA_getFormParamsForOldColumn(
