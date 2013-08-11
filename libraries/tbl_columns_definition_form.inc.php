@@ -98,18 +98,15 @@ for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
             $columnMeta['Default']
                 = PMA_Util::convertBitDefaultValue($columnMeta['Default']);
         }
-    }
-        
-    if (empty($columnMeta['Type'])) {
+        $type = $extracted_columnspec['type'];
+        $length = $extracted_columnspec['spec_in_brackets'];
+    } else {
         // creating a column
         $columnMeta['Type'] = '';
         $type        = '';
         $length = '';
-    } else {
-        $type = $extracted_columnspec['type'];
-        $length = $extracted_columnspec['spec_in_brackets'];
     }
-
+    
     // some types, for example longtext, are reported as
     // "longtext character set latin7" when their charset and / or collation
     // differs from the ones of the corresponding database.
@@ -124,8 +121,6 @@ for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
 
     // rtrim the type, for cases like "float unsigned"
     $type = rtrim($type);
-    $type_upper = strtoupper($type);
-
 
     // old column attributes
     if ($is_backup) {
@@ -135,7 +130,7 @@ for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
     }
     
     $content_cells[$columnNumber] = PMA_getHtmlForColumnAttributes(
-        $columnNumber, isset($columnMeta) ? $columnMeta : null, $type_upper,
+        $columnNumber, isset($columnMeta) ? $columnMeta : null, strtoupper($type),
         $length_values_input_size, $length,
         isset($default_current_timestamp) ? $default_current_timestamp : null,
         isset($extracted_columnspec) ? $extracted_columnspec : null,
