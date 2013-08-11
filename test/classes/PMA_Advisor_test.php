@@ -15,8 +15,20 @@ require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/url_generating.lib.php';
 require_once 'libraries/core.lib.php';
 
+/**
+ * Tests behaviour of PMA_Advisor class
+ *
+ * @package PhpMyAdmin-test
+ */
 class Advisor_Test extends PHPUnit_Framework_TestCase
 {
+
+    /**
+     * Sets up the fixture, for example, opens a network connection.
+     * This method is called before a test is executed.
+     *
+     * @return void
+     */
     public function setup()
     {
         $_SESSION['PMA_Theme'] = PMA_Theme::load('./themes/pmahomme');
@@ -39,6 +51,11 @@ class Advisor_Test extends PHPUnit_Framework_TestCase
         $this->assertEquals(Advisor::escapePercent($text), $expected);
     }
 
+    /**
+     * return of escape Strings
+     *
+     * @return array
+     */
     public function escapeStrings()
     {
         return array(
@@ -49,13 +66,23 @@ class Advisor_Test extends PHPUnit_Framework_TestCase
             );
     }
 
+    /**
+     * test for parseRulesFile
+     *
+     * @return void
+     */
     public function testParse()
     {
         $advisor = new Advisor();
         $parseResult = $advisor->parseRulesFile();
         $this->assertEquals($parseResult['errors'], array());
     }
-   
+
+    /**
+     * test for ADVISOR_bytime
+     *
+     * @return void
+     */
     public function testAdvisorBytime()
     {
         $result = ADVISOR_bytime(10, 2);
@@ -67,7 +94,12 @@ class Advisor_Test extends PHPUnit_Framework_TestCase
         $result = ADVISOR_bytime(0.003, 2);
         $this->assertEquals("10.8 per hour", $result);
     }
- 
+
+    /**
+     * test for ADVISOR_timespanFormat
+     *
+     * @return void
+     */
     public function testAdvisorTimespanFormat()
     {
         $result = ADVISOR_timespanFormat(1200);
@@ -104,6 +136,11 @@ class Advisor_Test extends PHPUnit_Framework_TestCase
         }
     }
 
+    /**
+     * rules Provider
+     *
+     * @return array
+     */
     public function rulesProvider()
     {
         return array(

@@ -116,7 +116,7 @@ class PMA_Util_Test extends PHPUnit_Framework_TestCase
     /**
      * Test version to int conversion.
      *
-     * @param string $version  Version string
+     * @param string $version Version string
      * @param int    $numeric Integer matching version
      *
      * @return void
