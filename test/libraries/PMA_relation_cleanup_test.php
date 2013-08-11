@@ -73,7 +73,7 @@ class PMA_Relation_Cleanup_Test extends PHPUnit_Framework_TestCase
      *
      * @return void
      */
-    public function testPMA_relationsCleanupColumn()
+    public function testPMARelationsCleanupColumn()
     {
         $db = "PMA";
         $table = "PMA_bookmark";
@@ -153,7 +153,7 @@ class PMA_Relation_Cleanup_Test extends PHPUnit_Framework_TestCase
      *
      * @return void
      */
-    public function testPMA_relationsCleanupTable()
+    public function testPMARelationsCleanupTable()
     {
         $db = "PMA";
         $table = "PMA_bookmark";
@@ -231,7 +231,7 @@ class PMA_Relation_Cleanup_Test extends PHPUnit_Framework_TestCase
      *
      * @return void
      */
-    public function testPMA_relationsCleanupDatabase()
+    public function testPMARelationsCleanupDatabase()
     {
         $db = "PMA";
         $this->redefineRelation();
