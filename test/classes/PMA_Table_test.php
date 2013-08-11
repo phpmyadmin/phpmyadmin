@@ -902,7 +902,9 @@ class PMA_Table_Runkit_Test extends PMA_Table_Test
 }
 
 /**
- * DataBasePMAMock Class
+ * Mock class for DataBasePMAMock
+ *
+ * @package PhpMyAdmin-test
  */
 Class DataBasePMAMock
 {
@@ -910,10 +912,19 @@ Class DataBasePMAMock
 }
 
 /**
- * DataBasePMAMock Class
+ * Mock class for DataBaseMock
+ *
+ * @package PhpMyAdmin-test
  */
 Class DataBaseMock
 {
+    /**
+     * mock function to return table is existed
+     *
+     * @param string $name table name
+     *
+     * @return bool
+     */
     function exists($name)
     {
         return true;

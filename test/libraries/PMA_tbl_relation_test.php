@@ -71,7 +71,8 @@ class PMA_TblRelationTest extends PHPUnit_Framework_TestCase
 
         // test for selected value not found in values array and its escaping
         $this->assertContains(
-            '<option value="valu&lt;4" selected="selected">valu&lt;4</option></select>',
+            '<option value="valu&lt;4" selected="selected">valu&lt;4' 
+            . '</option></select>',
             PMA_generateRelationalDropdown('name', $values, 'valu<4')
         );
     }
