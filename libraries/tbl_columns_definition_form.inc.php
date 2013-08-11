@@ -51,9 +51,6 @@ $is_backup = ($action != 'tbl_create.php' && $action != 'tbl_addfield.php');
 require_once './libraries/transformations.lib.php';
 $cfgRelation = PMA_getRelationsParam();
 
-$comments_map = array();
-$mime_map = array();
-$available_mime = array();
 
 $comments_map = PMA_getComments($db, $table);
 
