@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-07-29 15:07+0200\n"
-"PO-Revision-Date: 2013-08-02 09:09+0200\n"
+"PO-Revision-Date: 2013-08-11 13:31+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Japanese <http://l10n.cihar.com/projects/phpmyadmin/4-0/ja/>\n"
 "Language: ja\n"
@@ -7840,7 +7840,7 @@ msgstr ""
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:201
 msgid "Server:"
-msgstr "サーバ:"
+msgstr "サーバ："
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:213
 msgid "Username:"
