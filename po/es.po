@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-08-11 13:17+0200\n"
-"PO-Revision-Date: 2013-08-11 13:39+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"PO-Revision-Date: 2013-08-12 00:16+0200\n"
+"Last-Translator: Matías Bellone <matiasbellone+weblate@gmail.com>\n"
 "Language-Team: Spanish "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/es/>\n"
 "Language: es\n"
@@ -12717,7 +12717,7 @@ msgstr ""
 "disponibles en este sistema."
 
 #: setup/lib/index.lib.php:226
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "%sLogin cookie validity%s greater than 1440 seconds may cause random "
 #| "session invalidation if %ssession.gc_maxlifetime%s is lower than its "
@@ -12726,9 +12726,9 @@ msgid ""
 "%sLogin cookie validity%s greater than %ssession.gc_maxlifetime%s may cause "
 "random session invalidation (currently session.gc_maxlifetime is %d)."
 msgstr ""
-"%sLa validez de la cookie de inicio de sesión%s mayor a 1440 segundos puede "
-"causar invalidaciones de sesión aleatorias si %ssession.gc_maxlifetime%s es "
-"menor que su valor (actualmente %d)."
+"Valores para la %svalidez de la cookie de inicio de sesión%s mayores a %"
+"ssession.gc_maxlifetime%s pueden causar invalidaciones de sesión aleatorias "
+"(actualmente, el valor de session.gc_maxlifetime es %d)."
 
 #: setup/lib/index.lib.php:228
 #, php-format
