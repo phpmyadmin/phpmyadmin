@@ -129,18 +129,9 @@ for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
 
     // old column attributes
     if ($is_backup) {
-        if (isset($columnMeta['Field'])) {
-            $_form_params['field_orig[' . $columnNumber . ']']
-                = $columnMeta['Field'];
-        } else {
-            $_form_params['field_orig[' . $columnNumber . ']'] = '';
-        }
-        // old column length
-        $_form_params['field_length_orig[' . $columnNumber . ']'] = $length;
-    
-        // old column default
-        $_form_params['field_default_orig[' . $columnNumber . ']']
-            = (isset($columnMeta['Default']) ? $columnMeta['Default'] : '');
+        $_form_params = PMA_getFormParamsForOldColumn(
+            $columnMeta, $length, $_form_params
+        );
     }
     
     $content_cells[$columnNumber] = PMA_getHtmlForColumnAttributes(
