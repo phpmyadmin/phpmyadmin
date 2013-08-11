@@ -16,8 +16,20 @@ require_once 'libraries/database_interface.inc.php';
 require_once 'libraries/Tracker.class.php';
 require_once 'libraries/relation.lib.php';
 
+/**
+ * Tests for libraries/relation.lib.php
+ *
+ * @package PhpMyAdmin-test
+ */
 class PMA_Relation_Test extends PHPUnit_Framework_TestCase
 {
+    /**
+     * Sets up the fixture, for example, opens a network connection.
+     * This method is called before a test is executed.
+     *
+     * @access protected
+     * @return void
+     */
     public function setUp()
     {
         $GLOBALS['server'] = 1;
@@ -39,7 +51,7 @@ class PMA_Relation_Test extends PHPUnit_Framework_TestCase
      *
      * @return void
      */
-    public function testPMA_queryAsControlUser()
+    public function testPMAQueryAsControlUser()
     {
         $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
             ->disableOriginalConstructor()
@@ -71,7 +83,7 @@ class PMA_Relation_Test extends PHPUnit_Framework_TestCase
      *
      * @return void
      */
-    public function testPMA_getRelationsParam()
+    public function testPMAGetRelationsParam()
     {
         $relationsPara = PMA_getRelationsParam();
         $this->assertEquals(
@@ -123,7 +135,8 @@ class PMA_Relation_Test extends PHPUnit_Framework_TestCase
             $retval
         );
         // $cfg['Servers'][$i]['table_info'] 
-        $result = "\$cfg['Servers'][\$i]['table_info']  ... </th><td class=\"right\">" 
+        $result = "\$cfg['Servers'][\$i]['table_info']  ... </th>" 
+        	. "<td class=\"right\">" 
             . "<font color=\"red\"><strong>not OK</strong></font>";
         $this->assertContains(
             $result,
@@ -166,7 +179,7 @@ class PMA_Relation_Test extends PHPUnit_Framework_TestCase
      *
      * @return void
      */
-    public function testPMA_getDisplayField()
+    public function testPMAGetDisplayField()
     {        
         $db = 'information_schema';
         $table = 'CHARACTER_SETS';
@@ -196,7 +209,7 @@ class PMA_Relation_Test extends PHPUnit_Framework_TestCase
      *
      * @return void
      */
-    public function testPMA_getComments()
+    public function testPMAGetComments()
     {
         $GLOBALS['cfg']['ServerDefault'] = 0;
         $_SESSION['relation'] = array();
