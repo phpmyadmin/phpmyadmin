@@ -3188,7 +3188,7 @@ function PMA_getDataForQueries($queries, $queries_for_display)
  *
  * @return array
  */
-function PMA_getDataForAddUser(
+function PMA_addUser(
     $dbname, $username, $hostname,
     $password, $is_menuwork
 ) {

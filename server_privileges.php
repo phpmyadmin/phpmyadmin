@@ -144,7 +144,7 @@ list($queries, $password) = PMA_getDataForChangeOrCopyUser();
  *   (Changes / copies a user, part II)
  */ 
 list($ret_message, $ret_queries, $queries_for_display, $sql_query, $_add_user_error) 
-    = PMA_getDataForAddUser(
+    = PMA_addUser(
         isset($dbname)? $dbname : null, 
         isset($username)? $username : null, 
         isset($hostname)? $hostname : null,
