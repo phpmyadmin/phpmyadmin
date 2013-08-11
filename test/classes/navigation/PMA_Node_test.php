@@ -18,6 +18,11 @@ require_once 'libraries/database_interface.inc.php';
  */
 class Node_Test extends PHPUnit_Framework_TestCase
 {
+    /**
+     * SetUp for test cases
+     * 
+     * @return void
+     */
     public function setup()
     {
         $GLOBALS['server'] = 0;
@@ -25,6 +30,11 @@ class Node_Test extends PHPUnit_Framework_TestCase
         $_SESSION['PMA_Theme'] = PMA_Theme::load('./themes/pmahomme');
     }
 
+    /**
+     * SetUp for AddNode
+     *
+     * @return void
+     */
     public function testAddNode()
     {
         $parent = PMA_NodeFactory::getInstance('Node', 'parent');
@@ -40,6 +50,11 @@ class Node_Test extends PHPUnit_Framework_TestCase
         );
     }
 
+    /**
+     * SetUp for getChild
+     *
+     * @return void
+     */
     public function testGetChildError()
     {
         $parent = PMA_NodeFactory::getInstance('Node', 'parent');
@@ -53,6 +68,11 @@ class Node_Test extends PHPUnit_Framework_TestCase
         );
     }
 
+    /**
+     * SetUp for getChild
+     *
+     * @return void
+     */
     public function testRemoveNode()
     {
         $parent = PMA_NodeFactory::getInstance('Node', 'parent');
@@ -69,6 +89,11 @@ class Node_Test extends PHPUnit_Framework_TestCase
         );
     }
 
+    /**
+     * SetUp for hasChildren
+     *
+     * @return void
+     */
     public function testNodeHasChildren()
     {
         $parent = PMA_NodeFactory::getInstance();
@@ -107,6 +132,11 @@ class Node_Test extends PHPUnit_Framework_TestCase
         );
     }
 
+    /**
+     * SetUp for numChildren
+     *
+     * @return void
+     */
     public function testNumChildren()
     {
         // start with root node only
@@ -134,6 +164,11 @@ class Node_Test extends PHPUnit_Framework_TestCase
         $this->assertEquals($parent->numChildren(), 3);
     }
 
+    /**
+     * SetUp for parents
+     *
+     * @return void
+     */
     public function testParents()
     {
         $parent = PMA_NodeFactory::getInstance();
@@ -150,6 +185,11 @@ class Node_Test extends PHPUnit_Framework_TestCase
         ); // include self
     }
 
+    /**
+     * SetUp for realParent
+     *
+     * @return void
+     */
     public function testRealParent()
     {
         $parent = PMA_NodeFactory::getInstance();
@@ -403,6 +443,11 @@ class Node_Test extends PHPUnit_Framework_TestCase
         $node->getPresence('', 'dbname');
     }
 
+    /**
+     * SetUp for getComment
+     *
+     * @return void
+     */
     public function testComment()
     {
         // A non-qualified Node shouldn't have a comment
