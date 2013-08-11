@@ -22,7 +22,7 @@ function PMA_getHtmlForUserGroupDialog($username, $is_menuswork)
 {
     $html = '';
     if (! empty($_REQUEST['edit_user_group_dialog']) && $is_menuswork) {
-        $dialog = PMA_getHtmlToChoseUserGroup($username);
+        $dialog = PMA_getHtmlToChooseUserGroup($username);
         $response = PMA_Response::getInstance();
         if ($GLOBALS['is_ajax_request']) {
             $response->addJSON('message', $dialog);
@@ -429,7 +429,7 @@ function PMA_getSqlQueryForDisplayPrivTable($db, $table, $username, $hostname)
  *
  * @return string html to select the user group
  */
-function PMA_getHtmlToChoseUserGroup($username)
+function PMA_getHtmlToChooseUserGroup($username)
 {
     $html_output = '<form class="ajax" id="changeUserGroupForm"'
             . ' action="server_privileges.php" method="post">';
