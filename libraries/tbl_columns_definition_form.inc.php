@@ -37,7 +37,6 @@ require_once './libraries/tbl_columns_definition_form.lib.php';
  * Initialize $html in case this variable was used by a caller
  * (yes, this script should be refactored into functions)
  */
-$html = '';
 
 $length_values_input_size = 8;
 
@@ -196,7 +195,7 @@ function addField()
 }
  */
 
-$html .= PMA_getHtmlForTableCreateOrAddField(
+$html = PMA_getHtmlForTableCreateOrAddField(
     $action, $_form_params, $content_cells, $header_cells
 );
 
