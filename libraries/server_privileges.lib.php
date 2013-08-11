@@ -9,6 +9,32 @@
 if (! defined('PHPMYADMIN')) {
     exit;
 }
+
+/**
+ * Get Html for User Group Dialog
+ *
+ * @param string $username     username
+ * @param bool   $is_menuswork Is menuswork set in configuration
+ *
+ * @return string html
+ */
+function PMA_getHtmlForUserGroupDialog($username, $is_menuswork)
+{
+    $html = '';
+    if (! empty($_REQUEST['edit_user_group_dialog']) && $is_menuswork) {
+        $dialog = PMA_getHtmlToChoseUserGroup($username);
+        $response = PMA_Response::getInstance();
+        if ($GLOBALS['is_ajax_request']) {
+            $response->addJSON('message', $dialog);
+            exit;
+        } else {
+            $html .= $dialog;
+        }
+    }
+    
+    return $html;
+}
+
 /**
  * Escapes wildcard in a database+table specification
  * before using it in a GRANT statement.
@@ -234,7 +260,11 @@ function PMA_getGrantsArray()
         array(
             'Super_priv',
             'SUPER',
-            __('Allows connecting, even if maximum number of connections is reached; required for most administrative operations like setting global variables or killing threads of other users.')
+            __(
+                'Allows connecting, even if maximum number of connections ' 
+                . 'is reached; required for most administrative operations ' 
+                . 'like setting global variables or killing threads of other users.'
+            )
         ),
         array(
             'Create_tmp_table_priv',
@@ -585,13 +615,13 @@ function PMA_getHtmlToDisplayPrivilegesTable($db = '*',
         }
         unset($res, $row1);
     }
-    // t a b l e - s p e c i f i c    p r i v i l e g e s
+    // table-specific privileges
     if (! empty($columns)) {
         $html_output .= PMA_getHtmlForTableSpecificPrivileges(
             $username, $hostname, $db, $table, $columns, $row
         );
     } else {
-        // g l o b a l    o r    d b - s p e c i f i c
+        // global or db-specific
         $html_output .= PMA_getHtmlForGlobalOrDbSpecificPrivs($db, $table, $row);
     }
     $html_output .= '</fieldset>' . "\n";
@@ -623,7 +653,9 @@ function PMA_getHtmlForDisplayResourceLimits($row)
     $html_output .= '<div class="item">' . "\n"
         . '<label for="text_max_questions">'
         . '<code><dfn title="'
-        . __('Limits the number of queries the user may send to the server per hour.')
+        . __(
+            'Limits the number of queries the user may send to the server per hour.'
+        )
         . '">'
         . 'MAX QUERIES PER HOUR'
         . '</dfn></code></label>' . "\n"
@@ -631,32 +663,44 @@ function PMA_getHtmlForDisplayResourceLimits($row)
         . 'value="' . $row['max_questions'] . '" '
         . 'size="11" maxlength="11" '
         . 'title="'
-        . __('Limits the number of queries the user may send to the server per hour.')
+        . __(
+            'Limits the number of queries the user may send to the server per hour.'
+        )
         . '" />' . "\n"
         . '</div>' . "\n";
 
     $html_output .= '<div class="item">' . "\n"
         . '<label for="text_max_updates">'
         . '<code><dfn title="'
-        . __('Limits the number of commands that change any table or database the user may execute per hour.') . '">'
+        . __(
+            'Limits the number of commands that change any table ' 
+            . 'or database the user may execute per hour.'
+        ) . '">'
         . 'MAX UPDATES PER HOUR'
         . '</dfn></code></label>' . "\n"
         . '<input type="text" name="max_updates" id="text_max_updates" '
         . 'value="' . $row['max_updates'] . '" size="11" maxlength="11" '
         . 'title="'
-        . __('Limits the number of commands that change any table or database the user may execute per hour.')
+        . __(
+            'Limits the number of commands that change any table ' 
+            . 'or database the user may execute per hour.'
+        )
         . '" />' . "\n"
         . '</div>' . "\n";
 
     $html_output .= '<div class="item">' . "\n"
         . '<label for="text_max_connections">'
         . '<code><dfn title="'
-        . __('Limits the number of new connections the user may open per hour.') . '">'
+        . __(
+            'Limits the number of new connections the user may open per hour.'
+        ) . '">'
         . 'MAX CONNECTIONS PER HOUR'
         . '</dfn></code></label>' . "\n"
         . '<input type="text" name="max_connections" id="text_max_connections" '
         . 'value="' . $row['max_connections'] . '" size="11" maxlength="11" '
-        . 'title="' . __('Limits the number of new connections the user may open per hour.')
+        . 'title="' . __(
+            'Limits the number of new connections the user may open per hour.'
+        )
         . '" />' . "\n"
         . '</div>' . "\n";
 
@@ -790,7 +834,8 @@ function PMA_getHtmlForNotAttachedPrivilegesToTableSpecificColumn($row)
     $html_output = '';
     foreach ($row as $current_grant => $current_grant_value) {
         $grant_type = substr($current_grant, 0, (strlen($current_grant) - 5));
-        if (in_array($grant_type, array('Select', 'Insert', 'Update', 'References'))) {
+        if (in_array($grant_type, array('Select', 'Insert', 'Update', 'References'))
+        ) {
             continue;
         }
         // make a substitution to match the messages variables;
@@ -1036,13 +1081,21 @@ function PMA_getAdministrationPrivilegeTable($db)
     $administration_privTable = array(
         array('Grant',
             'GRANT',
-            __('Allows adding users and privileges without reloading the privilege tables.')
+            __(
+                'Allows adding users and privileges ' 
+                . 'without reloading the privilege tables.'
+            )
         ),
     );
     if ($db == '*') {
         $administration_privTable[] = array('Super',
             'SUPER',
-            __('Allows connecting, even if maximum number of connections is reached; required for most administrative operations like setting global variables or killing threads of other users.')
+            __(
+                'Allows connecting, even if maximum number ' 
+                . 'of connections is reached; required for ' 
+                . 'most administrative operations like ' 
+                . 'setting global variables or killing threads of other users.'
+            )
         );
         $administration_privTable[] = array('Process',
             'PROCESS',
@@ -1197,7 +1250,11 @@ function PMA_getHtmlForDisplayLoginInformationFields($mode = 'new')
     $html_output .= '<div id="user_exists_warning"'
         . ' name="user_exists_warning" style="display:none;">'
         . PMA_Message::notice(
-            __('An account already exists with the same username but possibly a different hostname. Are you sure you wish to proceed?')
+            __(
+                'An account already exists with the same username ' 
+                . 'but possibly a different hostname. ' 
+                . 'Are you sure you wish to proceed?'
+            )
         )->getDisplay()
         . '</div>';
     $html_output .= '</div>';
@@ -1308,7 +1365,10 @@ function PMA_getHtmlForDisplayLoginInformationFields($mode = 'new')
         . '" title="' . __('Host')
         . '" onchange="pred_hostname.value = \'userdefined\';" />' . "\n"
         . PMA_Util::showHint(
-            __('When Host table is used, this field is ignored and values stored in Host table are used instead.')
+            __(
+                'When Host table is used, this field is ignored ' 
+                . 'and values stored in Host table are used instead.'
+            )
         )
         . '</div>' . "\n";
 
@@ -1586,7 +1646,10 @@ function PMA_getHtmlForAddUser($dbname)
     if (! empty($dbname) ) {
         $html_output .= PMA_Util::getCheckbox(
             'createdb-3',
-            sprintf(__('Grant all privileges on database &quot;%s&quot;'), htmlspecialchars($dbname)),
+            sprintf(
+                __('Grant all privileges on database &quot;%s&quot;'), 
+                htmlspecialchars($dbname)
+            ),
             true,
             false
         );
@@ -1727,7 +1790,7 @@ function PMA_getHtmlForSpecificDbPrivileges()
         . '</fieldset>'
         . '</form>' . "\n";
 
-    if ($GLOBALS['is_ajax_request'] == true
+    if ($GLOBALS['is_ajax_request'] == true 
         && empty($_REQUEST['ajax_page_request'])
     ) {
         $message = PMA_Message::success(__('User has been added.'));
@@ -2087,8 +2150,15 @@ function PMA_getChangeLoginInformationHtmlForm($username, $hostname)
     $choices = array(
         '4' => __('… keep the old one.'),
         '1' => __('… delete the old one from the user tables.'),
-        '2' => __('… revoke all active privileges from the old one and delete it afterwards.'),
-        '3' => __('… delete the old one from the user tables and reload the privileges afterwards.'));
+        '2' => __(
+            '… revoke all active privileges from ' 
+            . 'the old one and delete it afterwards.'
+        ),
+        '3' => __(
+            '… delete the old one from the user tables ' 
+            . 'and reload the privileges afterwards.'
+        )
+    );
 
     $class = ' ajax';
     $html_output = '<form action="server_privileges.php" '
@@ -2310,7 +2380,8 @@ function PMA_getHtmlForDisplayUserRightsInRows($db_rights, $dbname,
                 . '</code></td>' . "\n"
                 . '<td>'
                     . ((((! strlen($dbname)) && $row['Grant_priv'] == 'Y')
-                        || (strlen($dbname) && in_array('Grant', explode(',', $row['Table_priv']))))
+                        || (strlen($dbname) 
+                        && in_array('Grant', explode(',', $row['Table_priv']))))
                     ? __('Yes')
                     : __('No'))
                 . '</td>' . "\n"
@@ -2729,7 +2800,10 @@ function PMA_getFieldsetForAddDeleteUser()
 
     $html_output .= '<input type="hidden" name="mode" value="2" />' . "\n"
         . '('
-        . __('Revoke all active privileges from the users and delete them afterwards.')
+        . __(
+            'Revoke all active privileges from the users ' 
+            . 'and delete them afterwards.'
+        )
         . ')'
         . '<br />' . "\n";
 
@@ -2836,7 +2910,9 @@ function PMA_getDbRightsForUserOverview()
         if (in_array($table_search_in, $tables)) {
             $db_rights_sqls[] = 'SELECT DISTINCT `User`, `Host` FROM `mysql`.`'
                 . $table_search_in . '` '
-                . (isset($_GET['initial']) ? PMA_rangeOfUsers($_GET['initial']) : '');
+                . (isset($_GET['initial']) 
+                ? PMA_rangeOfUsers($_GET['initial']) 
+                : '');
         }
     }
     $user_defaults = array(
@@ -2942,7 +3018,8 @@ function PMA_updatePrivileges($username, $hostname, $tablename, $dbname)
         if ((isset($_POST['Grant_priv']) && $_POST['Grant_priv'] == 'Y')
             || (! strlen($dbname)
             && (isset($_POST['max_questions']) || isset($_POST['max_connections'])
-            || isset($_POST['max_updates']) || isset($_POST['max_user_connections'])))
+            || isset($_POST['max_updates']) 
+            || isset($_POST['max_user_connections'])))
         ) {
             $sql_query2 .= PMA_getWithClauseForAddUserAndUpdatePrivs();
         }
@@ -2974,6 +3051,293 @@ function PMA_updatePrivileges($username, $hostname, $tablename, $dbname)
 }
 
 /**
+ * Get List of information: Changes / copies a user
+ *
+ * @return array()
+ */
+function PMA_getDataForChangeOrCopyUser()
+{
+    $row = null;
+    $queries = null;
+    $password = null;
+    
+    if (isset($_REQUEST['change_copy'])) {
+        $user_host_condition = ' WHERE `User` = '
+            . "'". PMA_Util::sqlAddSlashes($_REQUEST['old_username']) . "'"
+            . ' AND `Host` = '
+            . "'" . PMA_Util::sqlAddSlashes($_REQUEST['old_hostname']) . "';";
+        $row = $GLOBALS['dbi']->fetchSingleRow(
+            'SELECT * FROM `mysql`.`user` ' . $user_host_condition
+        );
+        if (! $row) {
+            $response = PMA_Response::getInstance();
+            $response->addHTML(
+                PMA_Message::notice(__('No user found.'))->getDisplay()
+            );
+            unset($_REQUEST['change_copy']);
+        } else {
+            extract($row, EXTR_OVERWRITE);
+            // Recent MySQL versions have the field "Password" in mysql.user,
+            // so the previous extract creates $Password but this script
+            // uses $password
+            if (! isset($password) && isset($Password)) {
+                $password = $Password;
+            }
+            $queries = array();
+        }
+    }
+    
+    return array($queries, $password);
+}
+
+/**
+ * Update Data for information: Deletes users
+ *
+ * @param array $queries queries array
+ *
+ * @return array
+ */
+function PMA_getDataForDeleteUsers($queries)
+{
+    if (isset($_REQUEST['change_copy'])) {
+        $selected_usr = array(
+            $_REQUEST['old_username'] . '&amp;#27;' . $_REQUEST['old_hostname']
+        );
+    } else {
+        $selected_usr = $_REQUEST['selected_usr'];
+        $queries = array();
+    }
+    foreach ($selected_usr as $each_user) {
+        list($this_user, $this_host) = explode('&amp;#27;', $each_user);
+        $queries[] = '# '
+            . sprintf(
+                __('Deleting %s'),
+                '\'' . $this_user . '\'@\'' . $this_host . '\''
+            )
+            . ' ...';
+        $queries[] = 'DROP USER \''
+            . PMA_Util::sqlAddSlashes($this_user)
+            . '\'@\'' . PMA_Util::sqlAddSlashes($this_host) . '\';';
+
+        if (isset($_REQUEST['drop_users_db'])) {
+            $queries[] = 'DROP DATABASE IF EXISTS '
+                . PMA_Util::backquote($this_user) . ';';
+            $GLOBALS['reload'] = true;
+        }
+    }
+    return $queries;
+}
+
+/**
+ * update Message For Reload
+ *
+ * @return array
+ */
+function PMA_updateMessageForReload()
+{
+    $message = null;
+    if (isset($_REQUEST['flush_privileges'])) {
+        $sql_query = 'FLUSH PRIVILEGES;';
+        $GLOBALS['dbi']->query($sql_query);
+        $message = PMA_Message::success(
+            __('The privileges were reloaded successfully.')
+        );
+    }
+    
+    if (isset($_REQUEST['validate_username'])) {
+        $message = PMA_Message::success();
+    }
+    
+    return $message;
+}
+
+/**
+ * update Data For Queries from queries_for_display
+ *
+ * @param array $queries             queries array
+ * @param array $queries_for_display queries arry for display
+ *
+ * @return null
+ */
+function PMA_getDataForQueries($queries, $queries_for_display)
+{
+    $tmp_count = 0;
+    foreach ($queries as $sql_query) {
+        if ($sql_query{0} != '#') {
+            $GLOBALS['dbi']->query($sql_query);
+        }
+        // when there is a query containing a hidden password, take it
+        // instead of the real query sent
+        if (isset($queries_for_display[$tmp_count])) {
+            $queries[$tmp_count] = $queries_for_display[$tmp_count];
+        }
+        $tmp_count++;
+    }
+    
+    return $queries;
+}
+
+/**
+ * update Data for information: Adds a user
+ *
+ * @param string $dbname      db name
+ * @param string $username    user name
+ * @param string $hostname    host name
+ * @param string $password    password
+ * @param bool   $is_menuwork is_menuwork set?
+ *
+ * @return array
+ */
+function PMA_getDataForAddUser(
+    $dbname, $username, $hostname,
+    $password, $is_menuwork
+) {
+    $_add_user_error = false;
+    $message = null;
+    $queries = null;
+    $queries_for_display = null;
+    $sql_query = null;
+    if (isset($_REQUEST['adduser_submit']) || isset($_REQUEST['change_copy'])) {
+        $sql_query = '';
+        if ($_POST['pred_username'] == 'any') {
+            $username = '';
+        }
+        switch ($_POST['pred_hostname']) {
+        case 'any':
+            $hostname = '%';
+            break;
+        case 'localhost':
+            $hostname = 'localhost';
+            break;
+        case 'hosttable':
+            $hostname = '';
+            break;
+        case 'thishost':
+            $_user_name = $GLOBALS['dbi']->fetchValue('SELECT USER()');
+            $hostname = substr($_user_name, (strrpos($_user_name, '@') + 1));
+            unset($_user_name);
+            break;
+        }
+        $sql = "SELECT '1' FROM `mysql`.`user`"
+            . " WHERE `User` = '" . PMA_Util::sqlAddSlashes($username) . "'"
+            . " AND `Host` = '" . PMA_Util::sqlAddSlashes($hostname) . "';";
+        if ($GLOBALS['dbi']->fetchValue($sql) == 1) {
+            $message = PMA_Message::error(__('The user %s already exists!'));
+            $message->addParam(
+                '[em]\'' . $username . '\'@\'' . $hostname . '\'[/em]'
+            );
+            $_REQUEST['adduser'] = true;
+            $_add_user_error = true;
+        } else {
+            list($create_user_real, $create_user_show, $real_sql_query, $sql_query)
+                = PMA_getSqlQueriesForDisplayAndAddUser(
+                    $username, $hostname, (isset ($password) ? $password : '')
+                );
+    
+            if (empty($_REQUEST['change_copy'])) {
+                $_error = false;
+    
+                if (isset($create_user_real)) {
+                    if (! $GLOBALS['dbi']->tryQuery($create_user_real)) {
+                        $_error = true;
+                    }
+                    $sql_query = $create_user_show . $sql_query;
+                }
+                list($sql_query, $message) = PMA_addUserAndCreateDatabase(
+                    $_error, $real_sql_query, $sql_query, $username, $hostname,
+                    isset($dbname) ? $dbname : null
+                );
+                if (! empty($_REQUEST['userGroup']) && $is_menuwork) {
+                    PMA_setUserGroup($GLOBALS['username'], $_REQUEST['userGroup']);
+                }
+    
+            } else {
+                if (isset($create_user_real)) {
+                    $queries[] = $create_user_real;
+                }
+                $queries[] = $real_sql_query;
+                // we put the query containing the hidden password in
+                // $queries_for_display, at the same position occupied
+                // by the real query in $queries
+                $tmp_count = count($queries);
+                if (isset($create_user_real)) {
+                    $queries_for_display[$tmp_count - 2] = $create_user_show;
+                }
+                $queries_for_display[$tmp_count - 1] = $sql_query;
+            }
+            unset($res, $real_sql_query);
+        }
+    }
+    
+    return array(
+        $message, $queries, $queries_for_display, $sql_query, $_add_user_error
+    );
+}
+
+/**
+ * Update DB information: DB, Table, isWildcard
+ *
+ * @return array
+ */
+function PMA_getDataForDBInfo() 
+{
+    $dbname = null;
+    $tablename = null;
+    $db_and_table = null;
+    $dbname_is_wildcard = null;
+    
+    /**
+     * Checks if a dropdown box has been used for selecting a database / table
+     */
+    if (PMA_isValid($_REQUEST['pred_tablename'])) {
+        $tablename = $_REQUEST['pred_tablename'];
+    } elseif (PMA_isValid($_REQUEST['tablename'])) {
+        $tablename = $_REQUEST['tablename'];
+    } else {
+        unset($tablename);
+    }
+    
+    if (PMA_isValid($_REQUEST['pred_dbname'])) {
+        $dbname = $_REQUEST['pred_dbname'];
+        unset($pred_dbname);
+    } elseif (PMA_isValid($_REQUEST['dbname'])) {
+        $dbname = $_REQUEST['dbname'];
+    } else {
+        unset($dbname);
+        unset($tablename);
+    }
+    
+    if (isset($dbname)) {
+        $unescaped_db = PMA_Util::unescapeMysqlWildcards($dbname);
+        $db_and_table = PMA_Util::backquote($unescaped_db) . '.';
+        if (isset($tablename)) {
+            $db_and_table .= PMA_Util::backquote($tablename);
+        } else {
+            $db_and_table .= '*';
+        }
+    } else {
+        $db_and_table = '*.*';
+    }
+    
+    // check if given $dbname is a wildcard or not
+    if (isset($dbname)) {
+        //if (preg_match('/\\\\(?:_|%)/i', $dbname)) {
+        if (preg_match('/(?<!\\\\)(?:_|%)/i', $dbname)) {
+            $dbname_is_wildcard = true;
+        } else {
+            $dbname_is_wildcard = false;
+        }
+    }
+    
+    return array(
+        isset($dbname)? $dbname : null, 
+        isset($tablename)? $tablename : null,
+        $db_and_table,
+        $dbname_is_wildcard,
+    );
+}
+
+/**
  * Get title and textarea for export user definition in Privileges
  *
  * @param string $username username
@@ -2981,7 +3345,7 @@ function PMA_updatePrivileges($username, $hostname, $tablename, $dbname)
  *
  * @return array ($title, $export)
  */
-function PMA_getHtmlForExportUserDefinition($username, $hostname)
+function PMA_getListForExportUserDefinition($username, $hostname)
 {
     $export = '<textarea class="export" cols="' . $GLOBALS['cfg']['TextareaCols']
         . '" rows="' . $GLOBALS['cfg']['TextareaRows'] . '">';
@@ -3179,9 +3543,17 @@ function PMA_getHtmlForDisplayUserOverviewPage($pmaThemeImage, $text_dir)
             $html_output .= PMA_getAddUserHtmlFieldset();
         } // end if (display overview)
 
-        if (! $GLOBALS['is_ajax_request'] || ! empty($_REQUEST['ajax_page_request'])) {
+        if (! $GLOBALS['is_ajax_request'] 
+            || ! empty($_REQUEST['ajax_page_request'])
+        ) {
             $flushnote = new PMA_Message(
-                __('Note: phpMyAdmin gets the users\' privileges directly from MySQL\'s privilege tables. The content of these tables may differ from the privileges the server uses, if they have been changed manually. In this case, you should %sreload the privileges%s before you continue.'),
+                __(
+                    'Note: phpMyAdmin gets the users\' privileges directly ' 
+                    . 'from MySQL\'s privilege tables. The content of these tables ' 
+                    . 'may differ from the privileges the server uses, ' 
+                    . 'if they have been changed manually. In this case, ' 
+                    . 'you should %sreload the privileges%s before you continue.'
+                ),
                 PMA_Message::NOTICE
             );
             $flushLink = '<a href="server_privileges.php'
@@ -3638,7 +4010,8 @@ function PMA_getHtmlForDisplayUserProperties($dbname_is_wildcard,$url_dbname,
 /**
  * Get queries for Table privileges to change or copy user
  *
- * @param string $user_host_condition user host condition to select relevent table privileges
+ * @param string $user_host_condition user host condition to 
+                                      select relevent table privileges
  * @param array  $queries             queries array
  * @param string $username            username
  * @param string $hostname            host name
@@ -3649,7 +4022,8 @@ function PMA_getTablePrivsQueriesForChangeOrCopyUser($user_host_condition,
     $queries, $username, $hostname
 ) {
     $res = $GLOBALS['dbi']->query(
-        'SELECT `Db`, `Table_name`, `Table_priv` FROM `mysql`.`tables_priv`' . $user_host_condition,
+        'SELECT `Db`, `Table_name`, `Table_priv` FROM `mysql`.`tables_priv`' 
+        . $user_host_condition,
         $GLOBALS['userlink'],
         PMA_DatabaseInterface::QUERY_STORE
     );
@@ -3703,8 +4077,11 @@ function PMA_getTablePrivsQueriesForChangeOrCopyUser($user_host_condition,
         if (count($tmp_privs2['Update']) > 0 && ! in_array('UPDATE', $tmp_privs1)) {
             $tmp_privs1[] = 'UPDATE (`' . join('`, `', $tmp_privs2['Update']) . '`)';
         }
-        if (count($tmp_privs2['References']) > 0 && ! in_array('REFERENCES', $tmp_privs1)) {
-            $tmp_privs1[] = 'REFERENCES (`' . join('`, `', $tmp_privs2['References']) . '`)';
+        if (count($tmp_privs2['References']) > 0 
+            && ! in_array('REFERENCES', $tmp_privs1)
+        ) {
+            $tmp_privs1[] 
+                = 'REFERENCES (`' . join('`, `', $tmp_privs2['References']) . '`)';
         }
 
         $queries[] = 'GRANT ' . join(', ', $tmp_privs1)
@@ -3712,7 +4089,9 @@ function PMA_getTablePrivsQueriesForChangeOrCopyUser($user_host_condition,
             . PMA_Util::backquote($row['Table_name'])
             . ' TO \'' . PMA_Util::sqlAddSlashes($username)
             . '\'@\'' . PMA_Util::sqlAddSlashes($hostname) . '\''
-            . (in_array('Grant', explode(',', $row['Table_priv'])) ? ' WITH GRANT OPTION;' : ';');
+            . (in_array('Grant', explode(',', $row['Table_priv'])) 
+            ? ' WITH GRANT OPTION;' 
+            : ';');
     }
     return $queries;
 }
