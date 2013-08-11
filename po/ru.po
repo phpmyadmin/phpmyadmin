@@ -1558,8 +1558,8 @@ msgstr "Отмена"
 
 #: js/messages.php:215 libraries/navigation/NavigationHeader.class.php:54
 #: libraries/server_status_monitor.lib.php:159
-msgid "Loading"
-msgstr "Загрузка"
+msgid "Loading…"
+msgstr "Загрузка…"
 
 #: js/messages.php:216
 msgid "Processing Request"

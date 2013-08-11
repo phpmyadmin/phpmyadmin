@@ -1559,7 +1559,7 @@ msgstr "لغو کردن"
 
 #: js/messages.php:215 libraries/navigation/NavigationHeader.class.php:54
 #: libraries/server_status_monitor.lib.php:159
-msgid "Loading"
+msgid "Loading…"
 msgstr "در حال بارگیری"
 
 #: js/messages.php:216

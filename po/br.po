@@ -1589,8 +1589,8 @@ msgstr "Nullañ"
 
 #: js/messages.php:215 libraries/navigation/NavigationHeader.class.php:54
 #: libraries/server_status_monitor.lib.php:159
-msgid "Loading"
-msgstr "O kargañ"
+msgid "Loading…"
+msgstr "O kargañ…"
 
 #: js/messages.php:216
 msgid "Processing Request"

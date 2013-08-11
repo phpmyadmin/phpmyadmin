@@ -1591,8 +1591,8 @@ msgstr "Zrušiť"
 
 #: js/messages.php:215 libraries/navigation/NavigationHeader.class.php:54
 #: libraries/server_status_monitor.lib.php:159
-msgid "Loading"
-msgstr "Načítanie"
+msgid "Loading…"
+msgstr "Načítanie…"
 
 #: js/messages.php:216
 msgid "Processing Request"

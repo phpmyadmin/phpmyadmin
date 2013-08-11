@@ -1528,8 +1528,8 @@ msgstr ""
 
 #: js/messages.php:215 libraries/navigation/NavigationHeader.class.php:54
 #: libraries/server_status_monitor.lib.php:159
-msgid "Loading"
-msgstr "Жүктелуде"
+msgid "Loading…"
+msgstr "Жүктелуде…"
 
 #: js/messages.php:216
 msgid "Processing Request"

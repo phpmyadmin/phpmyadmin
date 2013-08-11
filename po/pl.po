@@ -1591,8 +1591,8 @@ msgstr "Anuluj"
 
 #: js/messages.php:215 libraries/navigation/NavigationHeader.class.php:54
 #: libraries/server_status_monitor.lib.php:159
-msgid "Loading"
-msgstr "Wczytywanie"
+msgid "Loading…"
+msgstr "Wczytywanie…"
 
 #: js/messages.php:216
 msgid "Processing Request"

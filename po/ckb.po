@@ -1531,7 +1531,7 @@ msgstr "لابردن"
 
 #: js/messages.php:215 libraries/navigation/NavigationHeader.class.php:54
 #: libraries/server_status_monitor.lib.php:159
-msgid "Loading"
+msgid "Loading…"
 msgstr "ئامادەکردن"
 
 #: js/messages.php:216

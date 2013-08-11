@@ -1556,8 +1556,8 @@ msgstr "Annuler"
 
 #: js/messages.php:215 libraries/navigation/NavigationHeader.class.php:54
 #: libraries/server_status_monitor.lib.php:159
-msgid "Loading"
-msgstr "Chargement en cours"
+msgid "Loading…"
+msgstr "Chargement en cours…"
 
 #: js/messages.php:216
 msgid "Processing Request"

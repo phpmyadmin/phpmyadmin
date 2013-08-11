@@ -156,7 +156,7 @@ function PMA_getHtmlForInstructionsDialog()
         $retval .= '<p></p>';
         $retval .= '<img class="ajaxIcon" src="';
         $retval .= $GLOBALS['pmaThemeImage'] . 'ajax_clock_small.gif"';
-        $retval .= ' alt="' . __('Loading') . '" />';
+        $retval .= ' alt="' . __('Loading…') . '" />';
         $retval .= '<div class="ajaxContent"></div>';
         $retval .= '<div class="monitorUse" style="display:none;">';
         $retval .= '<p></p>';
