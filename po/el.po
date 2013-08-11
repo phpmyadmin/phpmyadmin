@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-08-11 13:17+0200\n"
-"PO-Revision-Date: 2013-08-07 08:03+0200\n"
+"PO-Revision-Date: 2013-08-11 22:53+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: Greek <http://l10n.cihar.com/projects/phpmyadmin/master/el/>\n"
 "Language: el\n"
@@ -12672,7 +12672,7 @@ msgstr ""
 "διαθέσιμες σε αυτό το σύστημα."
 
 #: setup/lib/index.lib.php:226
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "%sLogin cookie validity%s greater than 1440 seconds may cause random "
 #| "session invalidation if %ssession.gc_maxlifetime%s is lower than its "
@@ -12681,9 +12681,9 @@ msgid ""
 "%sLogin cookie validity%s greater than %ssession.gc_maxlifetime%s may cause "
 "random session invalidation (currently session.gc_maxlifetime is %d)."
 msgstr ""
-"Αν η %sεγκυρότητα Σύνδεσης cookie%s είναι μεγαλύτερη από 1440 δευτερόλεπτα "
-"μπορεί να προκαλέσει τυχαία ακύρωση συνεδρίας αν το %ssession.gc_maxlifetime"
-"%s είναι μικρότερο από την τιμή της (τρέχουσα: %d)."
+"Αν η %sLogin cookie validity%s είναι μεγαλύτερη από %ssession.gc_maxlifetime"
+"%s μπορεί να προκαλέσει τυχαία ακύρωση συνεδρίας (το τρέχον "
+"session.gc_maxlifetime είναι %d)."
 
 #: setup/lib/index.lib.php:228
 #, php-format
