@@ -1482,7 +1482,7 @@ function PMA_getGrants($user, $host)
  *
  * @return string $message  success or error message after updating password
  */
-function PMA_getMessageForUpdatePassword($err_url, $username, $hostname)
+function PMA_updatePassword($err_url, $username, $hostname)
 {
     // similar logic in user_password.php
     $message = '';
