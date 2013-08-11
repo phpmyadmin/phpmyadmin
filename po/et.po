@@ -6,10 +6,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-08-11 13:17+0200\n"
-"PO-Revision-Date: 2013-08-07 06:37+0200\n"
+"PO-Revision-Date: 2013-08-11 14:42+0200\n"
 "Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
-"Language-Team: Estonian <http://l10n.cihar.com/projects/phpmyadmin/master/et/"
-">\n"
+"Language-Team: Estonian "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/et/>\n"
 "Language: et\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -12423,7 +12423,7 @@ msgstr ""
 "süsteemis pole."
 
 #: setup/lib/index.lib.php:226
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "%sLogin cookie validity%s greater than 1440 seconds may cause random "
 #| "session invalidation if %ssession.gc_maxlifetime%s is lower than its "
@@ -12432,9 +12432,9 @@ msgid ""
 "%sLogin cookie validity%s greater than %ssession.gc_maxlifetime%s may cause "
 "random session invalidation (currently session.gc_maxlifetime is %d)."
 msgstr ""
-"Kui %ssisselogimise küpsise kehtivus%s on suurem, kui 1440 sekundit, siis "
-"see võib põhjustada juhuslikku seansi aegumist, kui %ssession.gc_maxlifetime"
-"%s väärtus on sellest madalam (praegu %d)."
+"%sSisselogimise küpsise kehtivus%s on suurem, kui %ssession.gc_maxlifetime%"
+"s. See võib põhjustada juhuslikke sessiooni vananemisi "
+"(session.gc_maxlifetime on hetkel %d)."
 
 #: setup/lib/index.lib.php:228
 #, php-format
