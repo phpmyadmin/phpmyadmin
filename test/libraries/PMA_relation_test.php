@@ -135,8 +135,8 @@ class PMA_Relation_Test extends PHPUnit_Framework_TestCase
             $retval
         );
         // $cfg['Servers'][$i]['table_info'] 
-        $result = "\$cfg['Servers'][\$i]['table_info']  ... </th>' 
-        	. '<td class=\"right\">" 
+        $result = "\$cfg['Servers'][\$i]['table_info']  ... </th>" 
+        	. "<td class=\"right\">" 
             . "<font color=\"red\"><strong>not OK</strong></font>";
         $this->assertContains(
             $result,
