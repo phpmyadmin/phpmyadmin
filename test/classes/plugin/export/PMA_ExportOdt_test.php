@@ -329,9 +329,11 @@ class PMA_ExportOdt_Test extends PHPUnit_Framework_TestCase
     {
         $GLOBALS['odt_buffer'] = 'header';
 
+        ob_start();
         $this->assertTrue(
             $this->object->exportFooter()
         );
+        $result = ob_get_clean();
 
         $this->assertContains(
             "header",

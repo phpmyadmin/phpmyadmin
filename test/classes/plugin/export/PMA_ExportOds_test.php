@@ -190,9 +190,11 @@ class PMA_ExportOds_Test extends PHPUnit_Framework_TestCase
     {
         $GLOBALS['ods_buffer'] = 'header';
 
+        ob_start();
         $this->assertTrue(
             $this->object->exportFooter()
         );
+        $result = ob_get_clean();
 
         $this->assertContains(
             'header',
