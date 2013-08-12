@@ -19,6 +19,7 @@ require_once 'libraries/sanitizing.lib.php';
 require_once 'libraries/sqlparser.lib.php';
 require_once 'libraries/js_escape.lib.php';
 require_once 'libraries/Message.class.php';
+require_once 'libraries/Response.class.php';
 require_once 'libraries/server_privileges.lib.php';
 
 /**
@@ -51,6 +52,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['TableNavigationLinksMode'] = 'icons';
         $GLOBALS['cfg']['LimitChars'] = 100;
         $GLOBALS['cfg']['DBG']['sql'] = false;
+        $GLOBALS['cfg']['AllowThirdPartyFraming'] = false;
 
         $GLOBALS['table'] = "table";
         $GLOBALS['PMA_PHP_SELF'] = PMA_getenv('PHP_SELF');
@@ -79,11 +81,110 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
                 )
             );
 
+        $fetchSingleRow = array('password' => 'pma_password');
+        $dbi->expects($this->any())->method('fetchSingleRow')
+            ->will($this->returnValue($fetchSingleRow));
+
+        $fetchValue = array('key1' => 'value1');
+        $dbi->expects($this->any())->method('fetchValue')
+            ->will($this->returnValue($fetchValue));
+        
+        $dbi->expects($this->any())->method('tryQuery')
+            ->will($this->returnValue(true));
+        
         $GLOBALS['dbi'] = $dbi;
     }
 
     /**
-     * Test for PMA_getHtmlForExportUserDefinition
+     * Test for PMA_getDataForDBInfo
+     *
+     * @return void
+     */
+    public function testPMAGetDataForDBInfo()
+    {
+        $_REQUEST['tablename'] = "PMA_tablename";
+        $_REQUEST['dbname'] = "PMA_dbname";
+        list($dbname, $tablename, $db_and_table, $dbname_is_wildcard) 
+            = PMA_getDataForDBInfo();
+        $this->assertEquals(
+            "PMA_dbname",
+            $dbname
+        );
+        $this->assertEquals(
+            "PMA_tablename",
+            $tablename
+        );
+        $this->assertEquals(
+            "`PMA_dbname`.`PMA_tablename`",
+            $db_and_table
+        );
+        $this->assertEquals(
+            true,
+            $dbname_is_wildcard
+        );
+        
+        //pre variable have been defined
+        $_REQUEST['pred_tablename'] = "PMA_pred__tablename";
+        $_REQUEST['pred_dbname'] = "PMA_pred_dbname";
+        list($dbname, $tablename, $db_and_table, $dbname_is_wildcard) 
+            = PMA_getDataForDBInfo();
+        $this->assertEquals(
+            "PMA_pred_dbname",
+            $dbname
+        );
+        $this->assertEquals(
+            "PMA_pred__tablename",
+            $tablename
+        );
+        $this->assertEquals(
+            "`PMA_pred_dbname`.`PMA_pred__tablename`",
+            $db_and_table
+        );
+        $this->assertEquals(
+            true,
+            $dbname_is_wildcard
+        );
+        
+    }
+
+
+    /**
+     * Test for PMA_getDataForChangeOrCopyUser
+     *
+     * @return void
+     */
+    public function testPMAGetDataForChangeOrCopyUser()
+    {
+        //$_REQUEST['change_copy'] not set
+        list($queries, $password) = PMA_getDataForChangeOrCopyUser();
+        $this->assertEquals(
+            null,
+            $queries
+        );
+        $this->assertEquals(
+            null,
+            $queries
+        );
+
+        //$_REQUEST['change_copy'] is set
+        $_REQUEST['change_copy'] = true;
+        $_REQUEST['old_username'] = 'PMA_old_username';
+        $_REQUEST['old_hostname'] = 'PMA_old_hostname';
+        list($queries, $password) = PMA_getDataForChangeOrCopyUser();
+        $this->assertEquals(
+            'pma_password',
+            $password
+        );
+        $this->assertEquals(
+            array(),
+            $queries
+        );
+        unset($_REQUEST['change_copy']);
+    }
+    
+    
+    /**
+     * Test for PMA_getListForExportUserDefinition
      *
      * @return void
      */
@@ -98,7 +199,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['TextareaRows'] = 'TextareaCols';
         
         list($title, $export) 
-            = PMA_getHtmlForExportUserDefinition($username, $hostname);
+            = PMA_getListForExportUserDefinition($username, $hostname);
         
         //validate 1: $export
         $result = '<textarea class="export" cols="' . $GLOBALS['cfg']['TextareaCols']
@@ -122,6 +223,184 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
         $this->assertContains(
             $title_user,
             $title
+        );
+    }
+
+    /**
+     * Test for PMA_getSqlQueriesForDisplayAndAddUser
+     *
+     * @return void
+     */
+    public function testPMAGetSqlQueriesForDisplayAndAddNewUser()
+    {
+        $dbname = 'pma_dbname';
+        $username = 'pma_username';
+        $hostname = 'pma_hostname';
+        $dbname = 'pma_dbname';
+        $password = 'pma_password';
+        $_REQUEST['adduser_submit'] = true;
+        $_POST['pred_username'] = 'any';
+        $_POST['pred_hostname'] = 'localhost';
+        $_REQUEST['createdb-3'] = true;
+        list($create_user_real, $create_user_show, $real_sql_query, $sql_query)
+            = PMA_getSqlQueriesForDisplayAndAddUser(
+                $username, $hostname, 
+                (isset ($password) ? $password : '')
+            );
+        $this->assertEquals(
+            "CREATE USER 'pma_username'@'pma_hostname';",
+            $create_user_real
+        );
+        $this->assertEquals(
+            "CREATE USER 'pma_username'@'pma_hostname';",
+            $create_user_show
+        );
+        $this->assertEquals(
+            "GRANT USAGE ON *.* TO 'pma_username'@'pma_hostname';",
+            $real_sql_query
+        );
+        $this->assertEquals(
+            "GRANT USAGE ON *.* TO 'pma_username'@'pma_hostname';",
+            $sql_query
+        );
+    }
+
+    /**
+     * Test for PMA_addUser
+     *
+     * @return void
+     */
+    public function testPMAAddUser()
+    {
+        $dbname = 'pma_dbname';
+        $username = 'pma_username';
+        $hostname = 'pma_hostname';
+        $tablename = 'pma_tablename';
+        $password = 'pma_password';
+        $_REQUEST['adduser_submit'] = true;
+        $_POST['pred_username'] = 'any';
+        $_POST['pred_hostname'] = 'localhost';
+        $_REQUEST['createdb-3'] = true;
+        list(
+            $ret_message, $ret_queries, 
+            $queries_for_display, $sql_query, 
+            $_add_user_error
+        ) = PMA_addUser(
+            $dbname,
+            $username,
+            $hostname,
+            $dbname,
+            true
+        );
+        $this->assertEquals(
+            'You have added a new user.',
+            $ret_message->getMessage()
+        );
+        $this->assertEquals(
+            "CREATE USER ''@'localhost';GRANT USAGE ON *.* TO ''@'localhost';" 
+            . "GRANT ALL PRIVILEGES ON `pma_dbname`.* TO ''@'localhost';",
+            $sql_query
+        );
+        $this->assertEquals(
+            false,
+            $_add_user_error
+        );
+    }
+
+    /**
+     * Test for PMA_updatePassword
+     *
+     * @return void
+     */
+    public function testPMAUpdatePassword()
+    {
+        $dbname = 'pma_dbname';
+        $db_and_table = 'pma_dbname.pma_tablename';
+        $username = 'pma_username';
+        $hostname = 'pma_hostname';
+        $tablename = 'pma_tablename';
+        $password = 'pma_password';
+        $err_url = "error.php";
+        $_POST['pma_pw'] = 'pma_pw';
+        
+        $message = PMA_updatePassword(
+            $err_url, $username, $hostname
+        );
+    
+        $this->assertEquals(
+            "The password for 'pma_username'@'pma_hostname' " 
+            . "was changed successfully.",
+            $message->getMessage()
+        );
+    }
+
+    /**
+     * Test for PMA_getMessageAndSqlQueryForPrivilegesRevoke
+     *
+     * @return void
+     */
+    public function testPMAGetMessageAndSqlQueryForPrivilegesRevoke()
+    {
+        $dbname = 'pma_dbname';
+        $db_and_table = 'pma_dbname.pma_tablename';
+        $username = 'pma_username';
+        $hostname = 'pma_hostname';
+        $tablename = 'pma_tablename';
+        $password = 'pma_password';
+        $_REQUEST['adduser_submit'] = true;
+        $_POST['pred_username'] = 'any';
+        $_POST['pred_hostname'] = 'localhost';
+        $_REQUEST['createdb-3'] = true;
+        $_POST['Grant_priv'] = 'Y';
+        $_POST['max_questions'] = 1000;
+        list ($message, $sql_query) 
+            = PMA_getMessageAndSqlQueryForPrivilegesRevoke(
+                $db_and_table, $dbname, $tablename, $username, $hostname
+            );
+    
+        $this->assertEquals(
+            "You have revoked the privileges for 'pma_username'@'pma_hostname'",
+            $message->getMessage()
+        );
+        $this->assertEquals(
+            "REVOKE ALL PRIVILEGES ON `pma_dbname`.`pma_tablename` " 
+            . "FROM 'pma_username'@'pma_hostname'; " 
+            . "REVOKE GRANT OPTION ON `pma_dbname`.`pma_tablename` " 
+            . "FROM 'pma_username'@'pma_hostname';",
+            $sql_query
+        );
+    }
+
+    /**
+     * Test for PMA_updatePrivileges
+     *
+     * @return void
+     */
+    public function testPMAUpdatePrivileges()
+    {
+        $dbname = 'pma_dbname';
+        $username = 'pma_username';
+        $hostname = 'pma_hostname';
+        $tablename = 'pma_tablename';
+        $password = 'pma_password';
+        $_REQUEST['adduser_submit'] = true;
+        $_POST['pred_username'] = 'any';
+        $_POST['pred_hostname'] = 'localhost';
+        $_REQUEST['createdb-3'] = true;
+        $_POST['Grant_priv'] = 'Y';
+        $_POST['max_questions'] = 1000;
+        list($sql_query, $message) = PMA_updatePrivileges(
+            $username, $hostname, $tablename, $dbname
+        );
+    
+        $this->assertEquals(
+            "You have updated the privileges for 'pma_username'@'pma_hostname'.",
+            $message->getMessage()
+        );
+        $this->assertEquals(
+            "REVOKE ALL PRIVILEGES ON `pma_dbname`.`pma_tablename` " 
+            . "FROM 'pma_username'@'pma_hostname';  ",
+            $sql_query
         );
     }
 
@@ -208,19 +487,13 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
         
         //validate 5: $sql_query
         $this->assertEquals(
-            "GRANT USAGE ON *.* TO 'PMA_username'@'PMA_hostname';" 
-            . "CREATE DATABASE IF NOT EXISTS `PMA_username`;" 
-            . "GRANT ALL PRIVILEGES ON `PMA\_username`.* TO " 
-            . "'PMA_username'@'PMA_hostname';" 
-            . "GRANT ALL PRIVILEGES ON `PMA_username\_%`.* TO " 
-            . "'PMA_username'@'PMA_hostname';" 
-            . "GRANT ALL PRIVILEGES ON `PMA_db`.* TO 'PMA_username'@'PMA_hostname';",
+            "GRANT USAGE ON *.* TO 'PMA_username'@'PMA_hostname';",
             $sql_query
         );
         
         //validate 6: $message
         $this->assertEquals(
-            "",
+            "You have added a new user.",
             $message->getMessage()
         );
     }
