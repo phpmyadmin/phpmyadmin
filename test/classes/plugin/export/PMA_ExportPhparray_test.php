@@ -6,6 +6,7 @@
  * @package PhpMyAdmin-test
  */
 require_once 'libraries/plugins/export/ExportPhparray.class.php';
+require_once 'libraries/DatabaseInterface.class.php';
 require_once 'libraries/Util.class.php';
 require_once 'libraries/Theme.class.php';
 require_once 'libraries/Config.class.php';
@@ -30,6 +31,7 @@ class PMA_ExportPhparray_Test extends PHPUnit_Framework_TestCase
     {
         $GLOBALS['server'] = 0;
         $GLOBALS['output_kanji_conversion'] = false;
+        $GLOBALS['output_charset_conversion'] = false;
         $GLOBALS['buffer_needed'] = false;
         $GLOBALS['asfile'] = true;
         $GLOBALS['save_on_server'] = false;
@@ -38,7 +40,7 @@ class PMA_ExportPhparray_Test extends PHPUnit_Framework_TestCase
 
     /**
      * tearDown for test cases
-     * 
+     *
      * @return void
      */
     public function tearDown()
@@ -48,7 +50,7 @@ class PMA_ExportPhparray_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for ExportPhparray::setProperties
-     * 
+     *
      * @return void
      */
     public function testSetProperties()
@@ -123,7 +125,7 @@ class PMA_ExportPhparray_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for ExportPhparray::exportHeader
-     * 
+     *
      * @return void
      */
     public function testExportHeader()
@@ -137,14 +139,14 @@ class PMA_ExportPhparray_Test extends PHPUnit_Framework_TestCase
         $result = ob_get_clean();
 
         $this->assertContains(
-            '&lt;?php ',
+            '<?php ',
             $result
         );
     }
 
     /**
      * Test for ExportPhparray::exportFooter
-     * 
+     *
      * @return void
      */
     public function testExportFooter()
@@ -156,7 +158,7 @@ class PMA_ExportPhparray_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for ExportPhparray::exportDBHeader
-     * 
+     *
      * @return void
      */
     public function testExportDBHeader()
@@ -177,7 +179,7 @@ class PMA_ExportPhparray_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for ExportPhparray::exportDBFooter
-     * 
+     *
      * @return void
      */
     public function testExportDBFooter()
@@ -189,7 +191,7 @@ class PMA_ExportPhparray_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for ExportPhparray::exportDBCreate
-     * 
+     *
      * @return void
      */
     public function testExportDBCreate()
@@ -201,7 +203,7 @@ class PMA_ExportPhparray_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for ExportPhparray::exportData
-     * 
+     *
      * @return void
      */
     public function testExportData()
@@ -253,7 +255,7 @@ class PMA_ExportPhparray_Test extends PHPUnit_Framework_TestCase
         $this->assertEquals(
             "\n" . '// `db`.`table`' . "\n" .
             '$table = array('  . "\n" .
-            '  array(\'c1\' =&gt; 1,\'\' =&gt; \'a\')' . "\n" .
+            '  array(\'c1\' => 1,\'\' => \'a\')' . "\n" .
             ');' . "\n",
             $result
         );
@@ -291,7 +293,7 @@ class PMA_ExportPhparray_Test extends PHPUnit_Framework_TestCase
         $this->assertContains(
             '$_0_932table',
             $result
-        );        
+        );
     }
 }
 ?>
