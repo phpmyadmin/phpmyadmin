@@ -16,6 +16,7 @@ require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/Index.class.php';
 require_once 'libraries/Table.class.php';
 require_once 'libraries/database_interface.inc.php';
+require_once 'libraries/transformations.lib.php';
 require_once 'libraries/schema/Pdf_Relation_Schema.class.php';
 
 /**
@@ -51,6 +52,8 @@ class PMA_Pdf_Relation_Schema_Test extends PHPUnit_Framework_TestCase
         $_POST['with_doc'] = 'on';
         
         $GLOBALS['server'] = 1;
+        $GLOBALS['controllink'] = null;
+        $GLOBALS['db'] = 'information_schema';
         $GLOBALS['cfg']['Server']['pmadb'] = "pmadb";
         $GLOBALS['cfg']['LimitChars'] = 100;
         $GLOBALS['cfg']['ServerDefault'] = 1;
@@ -58,11 +61,20 @@ class PMA_Pdf_Relation_Schema_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['Server']['table_coords'] = "table_name";
         $GLOBALS['cfg']['Server']['bookmarktable'] = "bookmarktable";
         $GLOBALS['cfg']['Server']['relation'] = "relation";
-        $GLOBALS['cfg']['Server']['relation'] = "relation";
         $GLOBALS['cfg']['Server']['table_info'] = "table_info";
-        
-        $GLOBALS['cfgRelation']['db'] = "PMA";
-        $GLOBALS['cfgRelation']['table_coords'] = "table_name";
+  
+        //_SESSION
+        $_SESSION['relation'][$GLOBALS['server']] = array(
+            'table_coords' => "table_name",
+            'displaywork' => 'displaywork',
+            'db' => "information_schema",
+            'table_info' => 'table_info',
+            'relwork' => false,
+            'relation' => 'relation',
+            'mimework' => 'mimework',
+            'commwork' => 'commwork',
+            'column_info' => 'column_info'
+        );
         
         $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
             ->disableOriginalConstructor()
@@ -79,15 +91,24 @@ class PMA_Pdf_Relation_Schema_Test extends PHPUnit_Framework_TestCase
         $dbi->expects($this->any())
             ->method('tryQuery')
             ->will($this->returnValue("executed_1"));
-        
+          
         $fetchArrayReturn = array(
-                'table_name' => 'pma_table_name'
+            //table name in information_schema_relations
+            'table_name' => 'CHARACTER_SETS'
+        );
+        
+        $fetchArrayReturn2 = array(
+            //table name in information_schema_relations
+            'table_name' => 'COLLATIONS'
         );
 
         $dbi->expects($this->at(2))
             ->method('fetchAssoc')
             ->will($this->returnValue($fetchArrayReturn));
         $dbi->expects($this->at(3))
+            ->method('fetchAssoc')
+            ->will($this->returnValue($fetchArrayReturn2));
+        $dbi->expects($this->at(4))
             ->method('fetchAssoc')
             ->will($this->returnValue(false));
         
@@ -142,10 +163,19 @@ class PMA_Pdf_Relation_Schema_Test extends PHPUnit_Framework_TestCase
              ) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 " 
             . "COLLATE=utf8_bin COMMENT='Bookmarks'";
         
-        $dbi->expects($this->once())
+        $dbi->expects($this->any())
             ->method('fetchValue')
             ->will($this->returnValue($fetchValue));     
 
+
+        $fetchResult = array(
+            'column1' => array('mimetype' => 'value1', 'transformation'=> 'pdf'),
+            'column2' => array('mimetype' => 'value2', 'transformation'=> 'xml'),
+        );
+        
+        $dbi->expects($this->any())->method('fetchResult')
+            ->will($this->returnValue($fetchResult));
+        
         $GLOBALS['dbi'] = $dbi;
         
         $this->object = new PMA_Pdf_Relation_Schema(); 
