@@ -30,8 +30,9 @@ class PMA_ExportLatex_Test extends PHPUnit_Framework_TestCase
     {
         $GLOBALS['server'] = 0;
         $GLOBALS['output_kanji_conversion'] = false;
+        $GLOBALS['output_charset_conversion'] = false;
         $GLOBALS['buffer_needed'] = false;
-        $GLOBALS['asfile'] = false;
+        $GLOBALS['asfile'] = true;
         $GLOBALS['save_on_server'] = false;
         $GLOBALS['plugin_param'] = array();
         $GLOBALS['plugin_param']['export_type'] = 'table';
@@ -42,7 +43,7 @@ class PMA_ExportLatex_Test extends PHPUnit_Framework_TestCase
 
     /**
      * tearDown for test cases
-     * 
+     *
      * @return void
      */
     public function tearDown()
@@ -52,7 +53,7 @@ class PMA_ExportLatex_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for ExportLatex::setProperties
-     * 
+     *
      * @return void
      */
     public function testSetProperties()
@@ -128,7 +129,7 @@ class PMA_ExportLatex_Test extends PHPUnit_Framework_TestCase
             'BoolPropertyItem',
             $property
         );
-        
+
         $this->assertEquals(
             'caption',
             $property->getName()
@@ -164,7 +165,7 @@ class PMA_ExportLatex_Test extends PHPUnit_Framework_TestCase
             'RadioPropertyItem',
             $property
         );
-        
+
         $this->assertEquals(
             'structure_or_data',
             $property->getName()
@@ -210,7 +211,7 @@ class PMA_ExportLatex_Test extends PHPUnit_Framework_TestCase
             'TextPropertyItem',
             $property
         );
-        
+
         $this->assertEquals(
             'structure_caption',
             $property->getName()
@@ -232,7 +233,7 @@ class PMA_ExportLatex_Test extends PHPUnit_Framework_TestCase
             'TextPropertyItem',
             $property
         );
-        
+
         $this->assertEquals(
             'structure_continued_caption',
             $property->getName()
@@ -254,7 +255,7 @@ class PMA_ExportLatex_Test extends PHPUnit_Framework_TestCase
             'TextPropertyItem',
             $property
         );
-        
+
         $this->assertEquals(
             'structure_label',
             $property->getName()
@@ -276,7 +277,7 @@ class PMA_ExportLatex_Test extends PHPUnit_Framework_TestCase
             'BoolPropertyItem',
             $property
         );
-        
+
         $this->assertEquals(
             'relation',
             $property->getName()
@@ -293,7 +294,7 @@ class PMA_ExportLatex_Test extends PHPUnit_Framework_TestCase
             'BoolPropertyItem',
             $property
         );
-        
+
         $this->assertEquals(
             'comments',
             $property->getName()
@@ -310,7 +311,7 @@ class PMA_ExportLatex_Test extends PHPUnit_Framework_TestCase
             'BoolPropertyItem',
             $property
         );
-        
+
         $this->assertEquals(
             'mime',
             $property->getName()
@@ -352,7 +353,7 @@ class PMA_ExportLatex_Test extends PHPUnit_Framework_TestCase
             'BoolPropertyItem',
             $property
         );
-        
+
         $this->assertEquals(
             'columns',
             $property->getName()
@@ -369,7 +370,7 @@ class PMA_ExportLatex_Test extends PHPUnit_Framework_TestCase
             'TextPropertyItem',
             $property
         );
-        
+
         $this->assertEquals(
             'data_caption',
             $property->getName()
@@ -391,7 +392,7 @@ class PMA_ExportLatex_Test extends PHPUnit_Framework_TestCase
             'TextPropertyItem',
             $property
         );
-        
+
         $this->assertEquals(
             'data_continued_caption',
             $property->getName()
@@ -413,7 +414,7 @@ class PMA_ExportLatex_Test extends PHPUnit_Framework_TestCase
             'TextPropertyItem',
             $property
         );
-        
+
         $this->assertEquals(
             'data_label',
             $property->getName()
@@ -435,7 +436,7 @@ class PMA_ExportLatex_Test extends PHPUnit_Framework_TestCase
             'TextPropertyItem',
             $property
         );
-        
+
         $this->assertEquals(
             'null',
             $property->getName()
@@ -463,7 +464,7 @@ class PMA_ExportLatex_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for ExportLatex::exportHeader
-     * 
+     *
      * @return void
      */
     public function testExportHeader()
@@ -471,7 +472,7 @@ class PMA_ExportLatex_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['crlf'] = "\n";
         $GLOBALS['cfg']['Server']['port'] = 80;
         $GLOBALS['cfg']['Server']['host'] = 'localhost';
-        
+
         ob_start();
         $this->assertTrue(
             $this->object->exportHeader()
@@ -481,12 +482,12 @@ class PMA_ExportLatex_Test extends PHPUnit_Framework_TestCase
         $this->assertContains(
             "\n% Host: localhost:80",
             $result
-        );      
+        );
     }
 
     /**
      * Test for ExportLatex::exportFooter
-     * 
+     *
      * @return void
      */
     public function testExportFooter()
@@ -498,7 +499,7 @@ class PMA_ExportLatex_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for ExportLatex::exportDBHeader
-     * 
+     *
      * @return void
      */
     public function testExportDBHeader()
@@ -516,7 +517,7 @@ class PMA_ExportLatex_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for ExportLatex::exportDBFooter
-     * 
+     *
      * @return void
      */
     public function testExportDBFooter()
@@ -528,7 +529,7 @@ class PMA_ExportLatex_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for ExportLatex::exportDBCreate
-     * 
+     *
      * @return void
      */
     public function testExportDBCreate()
@@ -540,7 +541,7 @@ class PMA_ExportLatex_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for ExportLatex::exportData
-     * 
+     *
      * @return void
      */
     public function testExportData()
@@ -556,7 +557,7 @@ class PMA_ExportLatex_Test extends PHPUnit_Framework_TestCase
         $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
-        
+
         $dbi->expects($this->once())
             ->method('numFields')
             ->with(null)
@@ -613,7 +614,7 @@ class PMA_ExportLatex_Test extends PHPUnit_Framework_TestCase
         $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
-        
+
         $dbi->expects($this->once())
             ->method('numFields')
             ->with(null)
@@ -655,7 +656,7 @@ class PMA_ExportLatex_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for ExportLatex::exportStructure
-     * 
+     *
      * @return void
      */
     public function testExportStructure()
@@ -723,7 +724,7 @@ class PMA_ExportLatex_Test extends PHPUnit_Framework_TestCase
             ->method('getColumns')
             ->with('database', '')
             ->will($this->returnValue($columns));
-        
+
         $dbi->expects($this->any())
             ->method('query')
             ->will($this->returnValue(true));
@@ -777,7 +778,7 @@ class PMA_ExportLatex_Test extends PHPUnit_Framework_TestCase
         //echo $result; die;
         $this->assertEquals(
             "\n" . '%' . "\n" .
-            '% Structure: ' . "\n" . 
+            '% Structure: ' . "\n" .
             '%' . "\n" .
             ' \\begin{longtable}{|l|c|c|c|l|l|} ' . "\n" .
             ' \\hline \\multicolumn{1}{|c|}{\\textbf{Column}} &amp; ' .
@@ -797,10 +798,10 @@ class PMA_ExportLatex_Test extends PHPUnit_Framework_TestCase
             ' \\end{longtable}' . "\n",
             $result
         );
-        
+
 
         // case 2
-        
+
         $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
@@ -841,7 +842,7 @@ class PMA_ExportLatex_Test extends PHPUnit_Framework_TestCase
             ->method('getColumns')
             ->with('database', '')
             ->will($this->returnValue($columns));
-        
+
         $dbi->expects($this->any())
             ->method('query')
             ->will($this->returnValue(true));
@@ -909,7 +910,7 @@ class PMA_ExportLatex_Test extends PHPUnit_Framework_TestCase
             ->method('getColumns')
             ->with('database', '')
             ->will($this->returnValue($columns));
-        
+
         $dbi->expects($this->any())
             ->method('query')
             ->will($this->returnValue(true));
@@ -959,7 +960,7 @@ class PMA_ExportLatex_Test extends PHPUnit_Framework_TestCase
             )
         );
         $result = ob_get_clean();
-        
+
         $this->assertContains(
             '\\caption{latexstructure} \\label{latexlabel}',
             $result
@@ -985,7 +986,7 @@ class PMA_ExportLatex_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for ExportLatex::texEscape
-     * 
+     *
      * @return void
      */
     public function testTexEscape()

@@ -31,8 +31,9 @@ class PMA_ExportOds_Test extends PHPUnit_Framework_TestCase
     {
         $GLOBALS['server'] = 0;
         $GLOBALS['output_kanji_conversion'] = false;
+        $GLOBALS['output_charset_conversion'] = false;
         $GLOBALS['buffer_needed'] = false;
-        $GLOBALS['asfile'] = false;
+        $GLOBALS['asfile'] = true;
         $GLOBALS['save_on_server'] = false;
         $this->object = new ExportOds();
     }

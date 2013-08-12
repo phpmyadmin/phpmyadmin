@@ -30,15 +30,16 @@ class PMA_ExportMediawiki_Test extends PHPUnit_Framework_TestCase
     {
         $GLOBALS['server'] = 0;
         $GLOBALS['output_kanji_conversion'] = false;
+        $GLOBALS['output_charset_conversion'] = false;
         $GLOBALS['buffer_needed'] = false;
-        $GLOBALS['asfile'] = false;
+        $GLOBALS['asfile'] = true;
         $GLOBALS['save_on_server'] = false;
         $this->object = new ExportMediawiki();
     }
 
     /**
      * tearDown for test cases
-     * 
+     *
      * @return void
      */
     public function tearDown()
@@ -48,7 +49,7 @@ class PMA_ExportMediawiki_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for ExportMediawiki::setProperties
-     * 
+     *
      * @return void
      */
     public function testSetProperties()
@@ -124,7 +125,7 @@ class PMA_ExportMediawiki_Test extends PHPUnit_Framework_TestCase
             'OptionsPropertySubgroup',
             $property
         );
-        
+
         $this->assertEquals(
             'dump_table',
             $property->getName()
@@ -141,7 +142,7 @@ class PMA_ExportMediawiki_Test extends PHPUnit_Framework_TestCase
             'RadioPropertyItem',
             $sgHeader
         );
-        
+
         $this->assertEquals(
             'structure_or_data',
             $sgHeader->getName()
@@ -162,7 +163,7 @@ class PMA_ExportMediawiki_Test extends PHPUnit_Framework_TestCase
             'BoolPropertyItem',
             $property
         );
-        
+
         $this->assertEquals(
             'caption',
             $property->getName()
@@ -179,7 +180,7 @@ class PMA_ExportMediawiki_Test extends PHPUnit_Framework_TestCase
             'BoolPropertyItem',
             $property
         );
-        
+
         $this->assertEquals(
             'headers',
             $property->getName()
@@ -193,7 +194,7 @@ class PMA_ExportMediawiki_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for ExportMediawiki::exportHeader
-     * 
+     *
      * @return void
      */
     public function testExportHeader()
@@ -205,7 +206,7 @@ class PMA_ExportMediawiki_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for ExportMediawiki::exportFooter
-     * 
+     *
      * @return void
      */
     public function testExportFooter()
@@ -217,7 +218,7 @@ class PMA_ExportMediawiki_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for ExportMediawiki::exportDBHeader
-     * 
+     *
      * @return void
      */
     public function testExportDBHeader()
@@ -229,7 +230,7 @@ class PMA_ExportMediawiki_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for ExportMediawiki::exportDBFooter
-     * 
+     *
      * @return void
      */
     public function testExportDBFooter()
@@ -241,7 +242,7 @@ class PMA_ExportMediawiki_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for ExportMediawiki::exportDBCreate
-     * 
+     *
      * @return void
      */
     public function testExportDBCreate()
@@ -253,7 +254,7 @@ class PMA_ExportMediawiki_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for ExportMediaWiki::exportStructure
-     * 
+     *
      * @return void
      */
     public function testExportStructure()
@@ -331,7 +332,7 @@ class PMA_ExportMediawiki_Test extends PHPUnit_Framework_TestCase
 
         /**
          * This case produces an error, should it be tested?
-         
+
         ob_start();
         $this->assertTrue(
             $this->object->exportStructure(
@@ -343,7 +344,7 @@ class PMA_ExportMediawiki_Test extends PHPUnit_Framework_TestCase
     }
     /**
      * Test for ExportMediawiki::exportData
-     * 
+     *
      * @return void
      */
     public function testExportData()

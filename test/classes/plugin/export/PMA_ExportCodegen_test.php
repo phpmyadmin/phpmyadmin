@@ -34,7 +34,7 @@ class PMA_ExportCodegen_Test extends PHPUnit_Framework_TestCase
 
     /**
      * tearDown for test cases
-     * 
+     *
      * @return void
      */
     public function tearDown()
@@ -44,12 +44,12 @@ class PMA_ExportCodegen_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for ExportCodegen::initSpecificVariables
-     * 
+     *
      * @return void
      */
     public function testInitSpecificVariables()
     {
-        
+
         $method = new ReflectionMethod('ExportCodegen', 'initSpecificVariables');
         $method->setAccessible(true);
         $method->invoke($this->object, null);
@@ -79,7 +79,7 @@ class PMA_ExportCodegen_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for ExportCodegen::setProperties
-     * 
+     *
      * @return void
      */
     public function testSetProperties()
@@ -184,7 +184,7 @@ class PMA_ExportCodegen_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for ExportCodegen::exportHeader
-     * 
+     *
      * @return void
      */
     public function testExportHeader()
@@ -196,7 +196,7 @@ class PMA_ExportCodegen_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for ExportCodegen::exportFooter
-     * 
+     *
      * @return void
      */
     public function testExportFooter()
@@ -208,7 +208,7 @@ class PMA_ExportCodegen_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for ExportCodegen::exportDBHeader
-     * 
+     *
      * @return void
      */
     public function testExportDBHeader()
@@ -220,7 +220,7 @@ class PMA_ExportCodegen_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for ExportCodegen::exportDBFooter
-     * 
+     *
      * @return void
      */
     public function testExportDBFooter()
@@ -232,22 +232,23 @@ class PMA_ExportCodegen_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for ExportCodegen::exportData
-     * 
+     *
      * @return void
      */
     public function testExportData()
     {
         $GLOBALS['codegen_format'] = 1;
         $GLOBALS['output_kanji_conversion'] = false;
+        $GLOBALS['output_charset_conversion'] = false;
         $GLOBALS['buffer_needed'] = false;
-        $GLOBALS['asfile'] = false;
+        $GLOBALS['asfile'] = true;
         $GLOBALS['save_on_server'] = false;
         $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
         $GLOBALS['dbi'] = $dbi;
-        
+
         ob_start();
         $this->object->exportData(
             'testDB', 'testTable', "\n", 'example.com', 'test'
@@ -287,7 +288,7 @@ class PMA_ExportCodegen_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for ExportCodegen::cgMakeIdentifier
-     * 
+     *
      * @return void
      */
     public function testCgMakeIdentifier()
@@ -310,7 +311,7 @@ class PMA_ExportCodegen_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for ExportCodegen::_handleNHibernateCSBody
-     * 
+     *
      * @return void
      */
     public function testHandleNHibernateCSBody()
@@ -375,7 +376,7 @@ class PMA_ExportCodegen_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for ExportCodegen::_handleNHibernateXMLBody
-     * 
+     *
      * @return void
      */
     public function testHandleNHibernateXMLBody()
@@ -432,13 +433,13 @@ class PMA_ExportCodegen_Test extends PHPUnit_Framework_TestCase
      * Test for
      *     - ExportCodegen::_getCgFormats
      *     - ExportCodegen::_setCgFormats
-     * 
+     *
      * @return void
      */
     public function testSetGetCgFormats()
     {
         $reflection = new ReflectionClass('ExportCodegen');
-        
+
         $getter = $reflection->getMethod('_getCgFormats');
         $setter = $reflection->getMethod('_setCgFormats');
 
@@ -457,13 +458,13 @@ class PMA_ExportCodegen_Test extends PHPUnit_Framework_TestCase
      * Test for
      *     - ExportCodegen::_getCgHandlers
      *     - ExportCodegen::_setCgHandlers
-     * 
+     *
      * @return void
      */
     public function testSetGetCgHandlers()
     {
         $reflection = new ReflectionClass('ExportCodegen');
-        
+
         $getter = $reflection->getMethod('_getCgHandlers');
         $setter = $reflection->getMethod('_setCgHandlers');
 

@@ -30,8 +30,9 @@ class PMA_ExportOdt_Test extends PHPUnit_Framework_TestCase
     {
         $GLOBALS['server'] = 0;
         $GLOBALS['output_kanji_conversion'] = false;
+        $GLOBALS['output_charset_conversion'] = false;
         $GLOBALS['buffer_needed'] = false;
-        $GLOBALS['asfile'] = false;
+        $GLOBALS['asfile'] = true;
         $GLOBALS['save_on_server'] = false;
         $GLOBALS['plugin_param'] = array();
         $GLOBALS['plugin_param']['export_type'] = 'table';
@@ -42,7 +43,7 @@ class PMA_ExportOdt_Test extends PHPUnit_Framework_TestCase
 
     /**
      * tearDown for test cases
-     * 
+     *
      * @return void
      */
     public function tearDown()
@@ -52,7 +53,7 @@ class PMA_ExportOdt_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for ExportOdt::setProperties
-     * 
+     *
      * @return void
      */
     public function testSetProperties()
@@ -137,7 +138,7 @@ class PMA_ExportOdt_Test extends PHPUnit_Framework_TestCase
             'RadioPropertyItem',
             $property
         );
-        
+
         $this->assertEquals(
             'structure_or_data',
             $property->getName()
@@ -182,7 +183,7 @@ class PMA_ExportOdt_Test extends PHPUnit_Framework_TestCase
             'BoolPropertyItem',
             $property
         );
-        
+
         $this->assertEquals(
             'relation',
             $property->getName()
@@ -199,7 +200,7 @@ class PMA_ExportOdt_Test extends PHPUnit_Framework_TestCase
             'BoolPropertyItem',
             $property
         );
-        
+
         $this->assertEquals(
             'comments',
             $property->getName()
@@ -216,7 +217,7 @@ class PMA_ExportOdt_Test extends PHPUnit_Framework_TestCase
             'BoolPropertyItem',
             $property
         );
-        
+
         $this->assertEquals(
             'mime',
             $property->getName()
@@ -258,7 +259,7 @@ class PMA_ExportOdt_Test extends PHPUnit_Framework_TestCase
             'BoolPropertyItem',
             $property
         );
-        
+
         $this->assertEquals(
             'columns',
             $property->getName()
@@ -275,7 +276,7 @@ class PMA_ExportOdt_Test extends PHPUnit_Framework_TestCase
             'TextPropertyItem',
             $property
         );
-        
+
         $this->assertEquals(
             'null',
             $property->getName()
@@ -303,13 +304,13 @@ class PMA_ExportOdt_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for ExportOdt::exportHeader
-     * 
+     *
      * @return void
      */
     public function testExportHeader()
     {
         $GLOBALS['OpenDocumentNS'] = "ODNS";
-        
+
         $this->assertTrue(
             $this->object->exportHeader()
         );
@@ -317,12 +318,12 @@ class PMA_ExportOdt_Test extends PHPUnit_Framework_TestCase
         $this->assertContains(
             "<office:document-content ODNSoffice:version",
             $GLOBALS['odt_buffer']
-        );      
+        );
     }
 
     /**
      * Test for ExportOdt::exportFooter
-     * 
+     *
      * @return void
      */
     public function testExportFooter()
@@ -336,17 +337,17 @@ class PMA_ExportOdt_Test extends PHPUnit_Framework_TestCase
         $this->assertContains(
             "header",
             $GLOBALS['odt_buffer']
-        ); 
+        );
 
         $this->assertContains(
             "</office:text></office:body></office:document-content>",
             $GLOBALS['odt_buffer']
-        );  
+        );
     }
 
     /**
      * Test for ExportOdt::exportDBHeader
-     * 
+     *
      * @return void
      */
     public function testExportDBHeader()
@@ -360,7 +361,7 @@ class PMA_ExportOdt_Test extends PHPUnit_Framework_TestCase
         $this->assertContains(
             "header",
             $GLOBALS['odt_buffer']
-        ); 
+        );
 
         $this->assertContains(
             "Database d&amp;b</text:h>",
@@ -370,7 +371,7 @@ class PMA_ExportOdt_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for ExportOdt::exportDBFooter
-     * 
+     *
      * @return void
      */
     public function testExportDBFooter()
@@ -382,7 +383,7 @@ class PMA_ExportOdt_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for ExportOdt::exportDBCreate
-     * 
+     *
      * @return void
      */
     public function testExportDBCreate()
@@ -394,7 +395,7 @@ class PMA_ExportOdt_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for ExportOdt::exportData
-     * 
+     *
      * @return void
      */
     public function testExportData()
@@ -490,7 +491,7 @@ class PMA_ExportOdt_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for ExportOdt::exportData
-     * 
+     *
      * @return void
      */
     public function testExportDataWithFieldNames()
@@ -509,7 +510,7 @@ class PMA_ExportOdt_Test extends PHPUnit_Framework_TestCase
         $dbi->expects($this->any())
             ->method('fieldFlags')
             ->will($this->returnValue('BINARYTEST'));
-        
+
         $dbi->expects($this->once())
             ->method('query')
             ->with('SELECT', null, PMA_DatabaseInterface::QUERY_UNBUFFERED)
@@ -615,7 +616,7 @@ class PMA_ExportOdt_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for ExportOdt::getTableDefStandIn
-     * 
+     *
      * @return void
      */
     public function testGetTableDefStandIn()
@@ -664,7 +665,7 @@ class PMA_ExportOdt_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for ExportOdt::getTableDef
-     * 
+     *
      * @return void
      */
     public function testGetTableDef()
@@ -704,7 +705,7 @@ class PMA_ExportOdt_Test extends PHPUnit_Framework_TestCase
             ->method('getColumns')
             ->with('database', '')
             ->will($this->returnValue(array($columns)));
-        
+
         $dbi->expects($this->any())
             ->method('query')
             ->will($this->returnValue(true));
@@ -751,7 +752,7 @@ class PMA_ExportOdt_Test extends PHPUnit_Framework_TestCase
                 true
             )
         );
-        
+
         $this->assertContains(
             '<table:table table:name="_structure"><table:table-column ' .
             'table:number-columns-repeated="6"/>',
@@ -779,7 +780,7 @@ class PMA_ExportOdt_Test extends PHPUnit_Framework_TestCase
         );
 
         // case 2
-        
+
         $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
@@ -819,7 +820,7 @@ class PMA_ExportOdt_Test extends PHPUnit_Framework_TestCase
             ->method('getColumns')
             ->with('database', '')
             ->will($this->returnValue(array($columns)));
-        
+
         $dbi->expects($this->any())
             ->method('query')
             ->will($this->returnValue(true));
@@ -870,7 +871,7 @@ class PMA_ExportOdt_Test extends PHPUnit_Framework_TestCase
 
      /**
      * Test for ExportOdt::getTriggers
-     * 
+     *
      * @return void
      */
     public function testGetTriggers()
@@ -887,7 +888,7 @@ class PMA_ExportOdt_Test extends PHPUnit_Framework_TestCase
                 'definition' => 'def'
             )
         );
-        
+
         $dbi->expects($this->once())
             ->method('getTriggers')
             ->with('database', 'ta<ble')
@@ -931,12 +932,12 @@ class PMA_ExportOdt_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for ExportOdt::exportStructure
-     * 
+     *
      * @return void
      */
     public function testExportStructure()
     {
-        
+
         $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
@@ -974,7 +975,7 @@ class PMA_ExportOdt_Test extends PHPUnit_Framework_TestCase
             ->will($this->returnValue('dumpText4'));
 
         $GLOBALS['dbi'] = $dbi;
-        
+
         // case 1
         $this->assertTrue(
             $this->object->exportStructure(
@@ -990,7 +991,7 @@ class PMA_ExportOdt_Test extends PHPUnit_Framework_TestCase
 
         // case 2
         $GLOBALS['odt_buffer'] = '';
-        
+
         $this->assertTrue(
             $this->object->exportStructure(
                 'db', 't&bl', "\n", "example.com", "triggers", "test"
@@ -1011,7 +1012,7 @@ class PMA_ExportOdt_Test extends PHPUnit_Framework_TestCase
                 'db', 't&bl', "\n", "example.com", "create_view", "test"
             )
         );
-    
+
         $this->assertEquals(
             '<text:h text:outline-level="2" text:style-name="Heading_2" ' .
             'text:is-list-header="true">Structure for view t&amp;bl</text:h>',
@@ -1019,7 +1020,7 @@ class PMA_ExportOdt_Test extends PHPUnit_Framework_TestCase
         );
 
         // case 4
-        $GLOBALS['odt_buffer'] = '';        
+        $GLOBALS['odt_buffer'] = '';
         $this->assertTrue(
             $this->object->exportStructure(
                 'db', 't&bl', "\n", "example.com", "stand_in", "test"
@@ -1035,7 +1036,7 @@ class PMA_ExportOdt_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for ExportOdt::formatOneColumnDefinition
-     * 
+     *
      * @return void
      */
     public function testFormatOneColumnDefinition()
