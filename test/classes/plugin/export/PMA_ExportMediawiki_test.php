@@ -300,9 +300,9 @@ class PMA_ExportMediawiki_Test extends PHPUnit_Framework_TestCase
         $result = ob_get_clean();
 
         $this->assertEquals(
-            "\n&lt;!--\n" .
+            "\n<!--\n" .
             "Table structure for `table`\n" .
-            "--&gt;\n" .
+            "-->\n" .
             "\n" .
             "{| class=&quot;wikitable&quot; style=&quot;text-align:center;&quot;\n" .
             "|+'''table'''\n" .
@@ -415,9 +415,9 @@ class PMA_ExportMediawiki_Test extends PHPUnit_Framework_TestCase
         $result = ob_get_clean();
 
         $this->assertEquals(
-            "\n&lt;!--\n" .
+            "\n<!--\n" .
             "Table data for `table`\n" .
-            "--&gt;\n" .
+            "-->\n" .
             "\n" .
             "{| class=&quot;wikitable sortable&quot; style=&quot;text-align:" .
             "center;&quot;\n" .

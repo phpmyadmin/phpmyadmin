@@ -6,6 +6,7 @@
  * @package PhpMyAdmin-test
  */
 require_once 'libraries/plugins/export/ExportHtmlword.class.php';
+require_once 'libraries/DatabaseInterface.class.php';
 require_once 'libraries/Util.class.php';
 require_once 'libraries/Theme.class.php';
 require_once 'libraries/Config.class.php';
@@ -295,7 +296,7 @@ class PMA_ExportHtmlword_Test extends PHPUnit_Framework_TestCase
         $result = ob_get_clean();
 
         $this->assertEquals(
-            '&lt;h1&gt;Database d&amp;quot;b&lt;/h1&gt;',
+            '<h1>Database d&amp;quot;b</h1>',
             $result
         );
     }
@@ -828,7 +829,7 @@ class PMA_ExportHtmlword_Test extends PHPUnit_Framework_TestCase
         $result = ob_get_clean();
 
         $this->assertEquals(
-            '&lt;h2&gt;Table structure for table tbl&lt;/h2&gt;dumpText1',
+            '<h2>Table structure for table tbl</h2>dumpText1',
             $result
         );
 
@@ -841,7 +842,7 @@ class PMA_ExportHtmlword_Test extends PHPUnit_Framework_TestCase
         $result = ob_get_clean();
 
         $this->assertEquals(
-            '&lt;h2&gt;Triggers tbl&lt;/h2&gt;dumpText2',
+            '<h2>Triggers tbl</h2>dumpText2',
             $result
         );
 
@@ -854,7 +855,7 @@ class PMA_ExportHtmlword_Test extends PHPUnit_Framework_TestCase
         $result = ob_get_clean();
 
         $this->assertEquals(
-            '&lt;h2&gt;Structure for view tbl&lt;/h2&gt;dumpText3',
+            '<h2>Structure for view tbl</h2>dumpText3',
             $result
         );
 
@@ -867,7 +868,7 @@ class PMA_ExportHtmlword_Test extends PHPUnit_Framework_TestCase
         $result = ob_get_clean();
 
         $this->assertEquals(
-            '&lt;h2&gt;Stand-in structure for view tbl&lt;/h2&gt;dumpText4',
+            '<h2>Stand-in structure for view tbl</h2>dumpText4',
             $result
         );
     }
