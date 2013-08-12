@@ -330,6 +330,8 @@ class PMA_ExportOdt_Test extends PHPUnit_Framework_TestCase
     {
         $GLOBALS['odt_buffer'] = 'header';
 
+        $this->expectOutputRegex('/^PK.*content.xml/');
+
         $this->assertTrue(
             $this->object->exportFooter()
         );

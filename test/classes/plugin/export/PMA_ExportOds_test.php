@@ -192,6 +192,8 @@ class PMA_ExportOds_Test extends PHPUnit_Framework_TestCase
     {
         $GLOBALS['ods_buffer'] = 'header';
 
+        $this->expectOutputRegex('/^PK.*content.xml/');
+
         $this->assertTrue(
             $this->object->exportFooter()
         );
