@@ -256,12 +256,12 @@ class PMA_ExportCodegen_Test extends PHPUnit_Framework_TestCase
         $result = ob_get_clean();
 
         $this->assertContains(
-            '<?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?>',
+            '<?xml version="1.0" encoding="utf-8" ?>',
             $result
         );
 
         $this->assertContains(
-            '<class name=&quot;TestTable&quot; table=&quot;TestTable&quot;>',
+            '<class name="TestTable" table="TestTable">',
             $result
         );
 

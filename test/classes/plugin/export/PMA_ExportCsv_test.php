@@ -594,7 +594,7 @@ class PMA_ExportCsv_Test extends PHPUnit_Framework_TestCase
         $result = ob_get_clean();
 
         $this->assertEquals(
-            "&quot;foo&quot;bar;customNull;",
+            "\"foo\"bar;customNull;",
             $result
         );
 
@@ -644,7 +644,7 @@ class PMA_ExportCsv_Test extends PHPUnit_Framework_TestCase
         $result = ob_get_clean();
 
         $this->assertEquals(
-            "&quot;foo&quot;&quot;bar;&quot;test&quot;;",
+            "\"foo\"\"bar;\"test\";",
             $result
         );
 
@@ -693,7 +693,7 @@ class PMA_ExportCsv_Test extends PHPUnit_Framework_TestCase
         $result = ob_get_clean();
 
         $this->assertEquals(
-            "&quot;foo;&quot;bar;&quot;test\n&quot;;",
+            "\"foo;\"bar;\"test\n\";",
             $result
         );
 
@@ -741,9 +741,9 @@ class PMA_ExportCsv_Test extends PHPUnit_Framework_TestCase
         $result = ob_get_clean();
 
         $this->assertEquals(
-            "&quot;foo#&quot;bar&quot;&quot;foo#&quot;bar;&quot;test\n" .
-            "&quot;&quot;test\n" .
-            "&quot;;",
+            "\"foo#\"bar\"\"foo#\"bar;\"test\n" .
+            "\"\"test\n" .
+            "\";",
             $result
         );
     }

@@ -304,10 +304,10 @@ class PMA_ExportMediawiki_Test extends PHPUnit_Framework_TestCase
             "Table structure for `table`\n" .
             "-->\n" .
             "\n" .
-            "{| class=&quot;wikitable&quot; style=&quot;text-align:center;&quot;\n" .
+            "{| class=\"wikitable\" style=\"text-align:center;\"\n" .
             "|+'''table'''\n" .
-            "|- style=&quot;background:#ffdead;&quot;\n" .
-            "! style=&quot;background:#ffffff&quot; | \n" .
+            "|- style=\"background:#ffdead;\"\n" .
+            "! style=\"background:#ffffff\" | \n" .
             " | name1\n" .
             " | fields\n" .
             "|-\n" .
@@ -419,8 +419,8 @@ class PMA_ExportMediawiki_Test extends PHPUnit_Framework_TestCase
             "Table data for `table`\n" .
             "-->\n" .
             "\n" .
-            "{| class=&quot;wikitable sortable&quot; style=&quot;text-align:" .
-            "center;&quot;\n" .
+            "{| class=\"wikitable sortable\" style=\"text-align:" .
+            "center;\"\n" .
             "|+'''table'''\n" .
             "|-\n" .
             " ! name1\n" .
