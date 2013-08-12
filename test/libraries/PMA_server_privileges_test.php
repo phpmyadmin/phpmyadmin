@@ -18,6 +18,7 @@ require_once 'libraries/Message.class.php';
 require_once 'libraries/sanitizing.lib.php';
 require_once 'libraries/sqlparser.lib.php';
 require_once 'libraries/js_escape.lib.php';
+require_once 'libraries/Message.class.php';
 require_once 'libraries/server_privileges.lib.php';
 
 /**
@@ -66,8 +67,98 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
         $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
+        
+        $dbi->expects($this->any())
+            ->method('fetchResult')
+            ->will(
+                $this->returnValue(
+                    array(
+                        'grant user1 select',
+                        'grant user2 delete'
+                    )
+                )
+            );
 
         $GLOBALS['dbi'] = $dbi;
+    }
+
+    /**
+     * Test for PMA_getHtmlForExportUserDefinition
+     *
+     * @return void
+     */
+    public function testPMAGetHtmlForExportUserDefinition()
+    {
+        $username = "PMA_username";
+        $hostname = "PMA_hostname";
+        $GLOBALS['cfg']['Server']['pmadb'] = 'pmadb';
+        $GLOBALS['cfg']['Server']['usergroups'] = 'usergroups';
+        $GLOBALS['cfg']['Server']['users'] = 'users';
+        $GLOBALS['cfg']['TextareaCols'] = 'TextareaCols';
+        $GLOBALS['cfg']['TextareaRows'] = 'TextareaCols';
+        
+        list($title, $export) 
+            = PMA_getHtmlForExportUserDefinition($username, $hostname);
+        
+        //validate 1: $export
+        $result = '<textarea class="export" cols="' . $GLOBALS['cfg']['TextareaCols']
+        . '" rows="' . $GLOBALS['cfg']['TextareaRows'];
+        $this->assertContains(
+            'grant user2 delete',
+            $export
+        );
+        $this->assertContains(
+            'grant user1 select',
+            $export
+        );
+        $this->assertContains(
+            $result,
+            $export
+        );
+ 
+        //validate 2: $title
+        $title_user = __('User') . ' `' . htmlspecialchars($username)
+            . '`@`' . htmlspecialchars($hostname) . '`';
+        $this->assertContains(
+            $title_user,
+            $title
+        );
+    }
+
+    /**
+     * Test for PMA_getHtmlForSubMenusOnUsersPage
+     *
+     * @return void
+     */
+    public function testPMAGetHtmlForSubMenusOnUsersPage()
+    {
+        $html = PMA_getHtmlForSubMenusOnUsersPage('server_privileges.php');
+
+        //validate 1: topmenu2
+        $this->assertContains(
+            '<ul id="topmenu2">',
+            $html
+        );
+        
+        //validate 2: tabactive for server_privileges.php
+        $this->assertContains(
+            '<a class="tabactive" href="server_privileges.php',
+            $html
+        );
+        $this->assertContains(
+            __('Users overview'),
+            $html
+        );
+        
+        //validate 3: not-active for server_user_groups.php
+        $this->assertContains(
+            '<a href="server_user_groups.php',
+            $html
+        );
+        $this->assertContains(
+            __('User groups'),
+            $html
+        );
     }
 
     /**
@@ -80,6 +171,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
         $username = "PMA_username";
         $hostname = "PMA_hostname";
         $password = "PMA_password";
+        $dbname = "PMA_db";
 
         list($create_user_real, $create_user_show, $real_sql_query, $sql_query)
             = PMA_getSqlQueriesForDisplayAndAddUser($username, $hostname, $password);
@@ -108,5 +200,28 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
             $sql_query
         );
         
+        
+        //test for PMA_addUserAndCreateDatabase
+        list($sql_query, $message) = PMA_addUserAndCreateDatabase(
+            false, $real_sql_query, $sql_query, $username, $hostname, $dbname
+        );
+        
+        //validate 5: $sql_query
+        $this->assertEquals(
+            "GRANT USAGE ON *.* TO 'PMA_username'@'PMA_hostname';" 
+            . "CREATE DATABASE IF NOT EXISTS `PMA_username`;" 
+            . "GRANT ALL PRIVILEGES ON `PMA\_username`.* TO " 
+            . "'PMA_username'@'PMA_hostname';" 
+            . "GRANT ALL PRIVILEGES ON `PMA_username\_%`.* TO " 
+            . "'PMA_username'@'PMA_hostname';" 
+            . "GRANT ALL PRIVILEGES ON `PMA_db`.* TO 'PMA_username'@'PMA_hostname';",
+            $sql_query
+        );
+        
+        //validate 6: $message
+        $this->assertEquals(
+            "",
+            $message->getMessage()
+        );
     }
 }
