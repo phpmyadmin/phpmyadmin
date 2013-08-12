@@ -201,7 +201,54 @@ Server connection settings
     :type: boolean
     :default: false
 
-    Whether to enable SSL for connection to MySQL server.
+    Whether to enable SSL for the connection between phpMyAdmin and the MySQL server.
+
+    When using :config:option:`$cfg['Servers'][$i]['extension']` = ``'mysql'``,
+    none of the remaining ``'ssl...'`` configuration options apply.
+
+    We strongly recommend using :config:option:`$cfg['Servers'][$i]['extension']` = ``'mysqli'``
+    when using this option.
+
+.. config:option:: $cfg['Servers'][$i]['ssl_key']
+
+    :type: string
+    :default: NULL
+
+    Path to the key file when using SSL for connecting to the MySQL server.
+
+    For example:
+
+    .. code-block:: php
+
+        $cfg['Servers'][$i]['ssl_key'] = '/etc/mysql/server-key.pem';
+
+.. config:option:: $cfg['Servers'][$i]['ssl_cert']
+
+    :type: string
+    :default: NULL
+
+    Path to the cert file when using SSL for connecting to the MySQL server.
+
+.. config:option:: $cfg['Servers'][$i]['ssl_ca']
+
+    :type: string
+    :default: NULL
+
+    Path to the CA file when using SSL for connecting to the MySQL server.
+
+.. config:option:: $cfg['Servers'][$i]['ssl_ca_path']
+
+    :type: string
+    :default: NULL
+
+    Directory containing trusted SSL CA certificates in PEM format.
+
+.. config:option:: $cfg['Servers'][$i]['ssl_ciphers']
+
+    :type: string
+    :default: NULL
+
+    List of allowable ciphers for SSL connections to the MySQL server.
 
 .. config:option:: $cfg['Servers'][$i]['connect_type']
 
