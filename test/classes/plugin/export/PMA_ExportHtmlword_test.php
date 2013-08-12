@@ -215,7 +215,7 @@ class PMA_ExportHtmlword_Test extends PHPUnit_Framework_TestCase
         $this->object->exportHeader();
         $result = ob_get_clean();
 
-        $expected = htmlspecialchars(
+        $expected =
             '<html xmlns:o="urn:schemas-microsoft-com:office:office"
             xmlns:x="urn:schemas-microsoft-com:office:word"
             xmlns="http://www.w3.org/TR/REC-html40">
@@ -227,8 +227,7 @@ class PMA_ExportHtmlword_Test extends PHPUnit_Framework_TestCase
                 <meta http-equiv="Content-type" content="text/html;charset='
             . 'utf-8' . '" />
             </head>
-            <body>'
-        );
+            <body>';
 
         $this->assertEquals(
             $expected,
@@ -277,7 +276,7 @@ class PMA_ExportHtmlword_Test extends PHPUnit_Framework_TestCase
         $result = ob_get_clean();
 
         $this->assertEquals(
-            htmlspecialchars('</body></html>'),
+            '</body></html>',
             $result
         );
     }
@@ -296,7 +295,7 @@ class PMA_ExportHtmlword_Test extends PHPUnit_Framework_TestCase
         $result = ob_get_clean();
 
         $this->assertEquals(
-            '<h1>Database d&amp;quot;b</h1>',
+            '<h1>Database d&quot;b</h1>',
             $result
         );
     }

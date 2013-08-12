@@ -243,7 +243,7 @@ class PMA_ExportJson_Test extends PHPUnit_Framework_TestCase
 
         $this->expectOutputString(
             "// db.tbl\n\n" .
-            "[{&quot;f1&quot;:&quot;foo&quot;}, {&quot;f1&quot;:&quot;bar&quot;}]"
+            "[{\"f1\":\"foo\"}, {\"f1\":\"bar\"}]"
         );
 
         $this->assertTrue(

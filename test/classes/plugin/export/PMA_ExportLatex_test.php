@@ -781,20 +781,20 @@ class PMA_ExportLatex_Test extends PHPUnit_Framework_TestCase
             '% Structure: ' . "\n" .
             '%' . "\n" .
             ' \\begin{longtable}{|l|c|c|c|l|l|} ' . "\n" .
-            ' \\hline \\multicolumn{1}{|c|}{\\textbf{Column}} &amp; ' .
-            '\\multicolumn{1}{|c|}{\\textbf{Type}} &amp; \\multicolumn{1}{|c|}' .
-            '{\\textbf{Null}} &amp; \\multicolumn{1}{|c|}{\\textbf{Default}} &amp;' .
-            ' \\multicolumn{1}{|c|}{\\textbf{Comments}} &amp; \\multicolumn{1}' .
+            ' \\hline \\multicolumn{1}{|c|}{\\textbf{Column}} & ' .
+            '\\multicolumn{1}{|c|}{\\textbf{Type}} & \\multicolumn{1}{|c|}' .
+            '{\\textbf{Null}} & \\multicolumn{1}{|c|}{\\textbf{Default}} &' .
+            ' \\multicolumn{1}{|c|}{\\textbf{Comments}} & \\multicolumn{1}' .
             '{|c|}{\\textbf{MIME}} \\\\ \\hline \\hline' . "\n" .
             '\\endfirsthead' . "\n" . ' \\hline \\multicolumn{1}{|c|}' .
-            '{\\textbf{Column}} &amp; \\multicolumn{1}' . '{|c|}{\\textbf{Type}}' .
-            ' &amp; \\multicolumn{1}{|c|}{\\textbf{Null}} &amp; \\multicolumn' .
-            '{1}{|c|}{\\textbf{Default}} &amp; \\multicolumn{1}{|c|}{\\textbf' .
-            '{Comments}} &amp; \\multicolumn{1}{|c|}{\\textbf{MIME}} \\\\ ' .
+            '{\\textbf{Column}} & \\multicolumn{1}' . '{|c|}{\\textbf{Type}}' .
+            ' & \\multicolumn{1}{|c|}{\\textbf{Null}} & \\multicolumn' .
+            '{1}{|c|}{\\textbf{Default}} & \\multicolumn{1}{|c|}{\\textbf' .
+            '{Comments}} & \\multicolumn{1}{|c|}{\\textbf{MIME}} \\\\ ' .
             '\\hline \\hline \\endhead \\endfoot ' . "\n" . '\\textbf{\\textit' .
-            '{name1}} &amp; set(abc) &amp; Yes &amp; NULL &amp;  ' .
-            '&amp; Testmimetype/ \\\\ \\hline ' . "\n" .
-            'fields &amp;   &amp; No &amp; def &amp;  &amp;  \\\\ \\hline ' . "\n" .
+            '{name1}} & set(abc) & Yes & NULL &  ' .
+            '& Testmimetype/ \\\\ \\hline ' . "\n" .
+            'fields &   & No & def &  &  \\\\ \\hline ' . "\n" .
             ' \\end{longtable}' . "\n",
             $result
         );
@@ -890,8 +890,8 @@ class PMA_ExportLatex_Test extends PHPUnit_Framework_TestCase
         $result = ob_get_clean();
 
         $this->assertContains(
-            '\\textbf{\\textit{name1}} &amp; set(abc) &amp; Yes &amp; NULL &amp; ' .
-            'ftable (ffield) &amp;  &amp;  \\\\ \\hline',
+            '\\textbf{\\textit{name1}} & set(abc) & Yes & NULL & ' .
+            'ftable (ffield) &  &  \\\\ \\hline',
             $result
         );
 
