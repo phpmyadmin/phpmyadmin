@@ -430,7 +430,7 @@ class ExportTexytext extends ExportPlugin
      */
     function getTriggers($db, $table)
     {
-        $text_output .= "|------\n";
+        $text_output = "|------\n";
         $text_output .= '|' . __('Column');
         $dump = "|------\n";
         $dump .= '|' . __('Name');
