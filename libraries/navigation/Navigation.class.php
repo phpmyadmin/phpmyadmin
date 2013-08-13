@@ -118,7 +118,7 @@ class PMA_Navigation
         $navTable = PMA_Util::backquote($GLOBALS['cfgRelation']['db'])
             . "." . PMA_Util::backquote($GLOBALS['cfgRelation']['navigationhiding']);
         $sqlQuery = "DELETE FROM " . $navTable
-            . " WHERE "
+            . " WHERE"
             . " `username`='"
             . PMA_Util::sqlAddSlashes($GLOBALS['cfg']['Server']['user']) . "'"
             . " AND `item_name`='" . PMA_Util::sqlAddSlashes($itemName) . "'"
@@ -150,7 +150,7 @@ class PMA_Navigation
             . "." . PMA_Util::backquote($GLOBALS['cfgRelation']['navigationhiding']);
         $sqlQuery = "SELECT `item_name`, `item_type` FROM " . $navTable
             . " WHERE `username`='"
-            . PMA_Util::sqlAddSlashes($GLOBALS['cfg']['Server']['user']) ."'"
+            . PMA_Util::sqlAddSlashes($GLOBALS['cfg']['Server']['user']) . "'"
             . " AND `db_name`='" . PMA_Util::sqlAddSlashes($dbName) . "'"
             . " AND `table_name`='"
             . (! empty($tableName) ? PMA_Util::sqlAddSlashes($tableName) : '') . "'";
