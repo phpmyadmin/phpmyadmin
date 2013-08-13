@@ -21,8 +21,7 @@ if (isset($_POST['scale']) && ! PMA_isValid($_POST['scale'], 'numeric')) {
   */
 $post_params = array(
     'db',
-    'mode',
-    'scale'
+    'mode'
 );
 
 foreach ($post_params as $one_post_param) {
@@ -34,7 +33,7 @@ foreach ($post_params as $one_post_param) {
 /**
  * If called directly from the designer, first save the positions
  */
-if (! isset($scale)) {
+if (! isset($_POST['scale'])) {
     include_once 'pmd_save_pos.php';
 }
 
@@ -47,7 +46,7 @@ if (isset($mode)) {
         . PMA_Util::backquote($GLOBALS['cfgRelation']['designer_coords']);
     $pma_table = PMA_Util::backquote($GLOBALS['cfgRelation']['db']) . '.'
         . PMA_Util::backquote($cfgRelation['table_coords']);
-    $scale_q = PMA_Util::sqlAddSlashes($scale);
+    $scale_q = PMA_Util::sqlAddSlashes($_POST['scale']);
 
     if ('create_export' == $mode) {
         $pdf_page_number = PMA_REL_createPage($_POST['newpage'], $cfgRelation, $db);
