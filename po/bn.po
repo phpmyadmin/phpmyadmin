@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-07-29 15:07+0200\n"
-"PO-Revision-Date: 2013-07-10 16:11+0200\n"
+"PO-Revision-Date: 2013-08-13 10:15+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Bengali <http://l10n.cihar.com/projects/phpmyadmin/4-0/bn/>\n"
 "Language: bn\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 1.6-dev\n"
+"X-Generator: Weblate 1.7-dev\n"
 
 #: browse_foreigners.php:51 browse_foreigners.php:75 js/messages.php:344
 #: libraries/DisplayResults.class.php:813
@@ -112,7 +112,7 @@ msgstr "ডাটাবেইজ %1$s তৈরী করা হয়েছে।"
 
 #: db_datadict.php:51 libraries/operations.lib.php:36
 msgid "Database comment: "
-msgstr "ডাটাবেইজের মন্তব্য"
+msgstr "ডাটাবেইজের মন্তব্য: "
 
 #: db_datadict.php:157 libraries/operations.lib.php:808
 #: libraries/schema/Pdf_Relation_Schema.class.php:1339
@@ -280,7 +280,7 @@ msgstr "সবগুলো নির্বাচন"
 
 #: db_export.php:45 libraries/DbSearch.class.php:441 server_export.php:30
 msgid "Unselect All"
-msgstr "সবগুলো অনির্বাচন "
+msgstr "সবগুলো অনির্বাচন"
 
 #: db_operations.php:45 tbl_create.php:22
 msgid "The database name is empty!"
@@ -289,7 +289,7 @@ msgstr "ডাটাবেইজের নাম দেওয়া হয় না�
 #: db_operations.php:129
 #, php-format
 msgid "Database %1$s has been renamed to %2$s"
-msgstr "ডাটাবেইজ %1$s এর  নতুন নামকরণ %2$s হয়েছে "
+msgstr "ডাটাবেইজ %1$s এর  নতুন নামকরণ %2$s হয়েছে"
 
 #: db_operations.php:133
 #, php-format
@@ -449,7 +449,7 @@ msgstr "টেবিল থেকে ট্র্যাকিং এর তথ�
 #: libraries/structure.lib.php:2058 libraries/structure.lib.php:2060
 #: server_databases.php:328
 msgid "Drop"
-msgstr "মুছ "
+msgstr "মুছ"
 
 #: db_tracking.php:126 tbl_tracking.php:724 tbl_tracking.php:778
 msgid "active"
@@ -615,8 +615,8 @@ msgid ""
 "You probably tried to upload a file that is too large. Please refer to "
 "%sdocumentation%s for a workaround for this limit."
 msgstr ""
-"সম্ভবত আপনি একটি বিশাল ফাইল আপলোড করতে চাচ্ছেন। অনুগ্র্রহ করে %sdocumentation%s "
-"দেখে এই সমস্যা সমাধানের চেষ্টা করুন "
+"সম্ভবত আপনি একটি বিশাল ফাইল আপলোড করতে চাচ্ছেন। অনুগ্র্রহ করে %"
+"sdocumentation%s দেখে এই সমস্যা সমাধানের চেষ্টা করুন"
 
 #: import.php:268 import.php:534
 msgid "Showing bookmark"
@@ -638,8 +638,8 @@ msgid ""
 "You attempted to load file with unsupported compression (%s). Either support "
 "for it is not implemented or disabled by your configuration."
 msgstr ""
-"আপনি অপরিচিত সংকোচন (%s) এর ফাইল ব্যবহার করছেন। সম্ভব এটি নিয়ে কাজ করার ব্যবস্থা "
-"নাই বা এটি অর্কাযকর করা আছে। "
+"আপনি অপরিচিত সংকোচন (%s) এর ফাইল ব্যবহার করছেন। সম্ভব এটি নিয়ে কাজ করার "
+"ব্যবস্থা নাই বা এটি অর্কাযকর করা আছে।"
 
 #: import.php:445
 msgid ""
@@ -648,7 +648,7 @@ msgid ""
 "[doc@faq1-16]FAQ 1.16[/doc]."
 msgstr ""
 "আমদানির জন্য কোন তথ্য পাওয়া যায়নি। হয় কোন ফাইলের নাম দেওয়া হয়নি বা অনেক বড় "
-"আকারের ফাইল যা পিএইছপি সমর্থন করছে না। [doc@faq1-16]FAQ 1.16[/doc] দেখুন। "
+"আকারের ফাইল যা পিএইছপি সমর্থন করছে না। [doc@faq1-16]FAQ 1.16[/doc] দেখুন।"
 
 #: import.php:465
 msgid ""
@@ -674,7 +674,8 @@ msgstr "আমদানি প্রক্রীয়াটি সফলভাব�
 msgid ""
 "Script timeout passed, if you want to finish import, please resubmit same "
 "file and import will resume."
-msgstr "নির্ধারিত কার্যকাল শেষ হয়ে গেছে, আমদানি শেষ করার জন্য কাজটি আবার শুরু করুন "
+msgstr ""
+"নির্ধারিত কার্যকাল শেষ হয়ে গেছে, আমদানি শেষ করার জন্য কাজটি আবার শুরু করুন"
 
 #: import.php:577
 msgid ""
@@ -1049,9 +1050,9 @@ msgid ""
 "likely that your current configuration will not work anymore. Please reset "
 "your configuration to default in the <i>Settings</i> menu."
 msgstr ""
-"ব্রাউজারে থাকা চিত্র সজ্জার কনফিগারেশন নতুন পর্যবেক্ষকের উপযুক্ত নয়। আপনার বর্তমান "
-"কনফিগারেশন কাজ করবে না মনে হয়। আপনার কনফিগরেশন <i>Settings</i> ম্যানু থেকে "
-"স্বাভাবিকে নির্ধারন করন। "
+"ব্রাউজারে থাকা চিত্র সজ্জার কনফিগারেশন নতুন পর্যবেক্ষকের উপযুক্ত নয়। আপনার "
+"বর্তমান কনফিগারেশন কাজ করবে না মনে হয়। আপনার কনফিগরেশন <i>Settings</i> "
+"ম্যানু থেকে স্বাভাবিকে নির্ধারন করন।"
 
 #: js/messages.php:82
 msgid "Query cache efficiency"
@@ -1221,7 +1222,7 @@ msgstr "র্পযবেক্ষন পুনরায় শুরু কর"
 
 #: js/messages.php:128
 msgid "Pause monitor"
-msgstr "পর্যবেক্ষন বিরতি "
+msgstr "পর্যবেক্ষন বিরতি"
 
 #: js/messages.php:130
 msgid "general_log and slow_query_log are enabled."
@@ -1261,7 +1262,7 @@ msgstr ""
 #: js/messages.php:137
 #, php-format
 msgid "long_query_time is set to %d second(s)."
-msgstr "long_query_time %d সেকেন্ডে নির্ধারন করা হয়েছে। "
+msgstr "long_query_time %d সেকেন্ডে নির্ধারন করা হয়েছে।"
 
 #: js/messages.php:138
 msgid ""
@@ -1355,9 +1356,9 @@ msgid ""
 "However only the SQL query itself has been used as a grouping criteria, so "
 "the other attributes of queries, such as start time, may differ."
 msgstr ""
-"এই স্তম্ভে একই ধরনের অনুসন্ধানগুলো দলবদ্ধ করে দেখাচ্ছে। দলবদ্ধ করার শর্ত হিসাবে শুধু "
-"SQL অনুসন্ধানটিই ব্যবহৃত হয়েছে। অনুসন্ধানগুলোর অন্যান্য বিষয়, যেমন আরম্ভের সময় ইত্যাদি "
-"পার্থক্য হতে পারে। "
+"এই স্তম্ভে একই ধরনের অনুসন্ধানগুলো দলবদ্ধ করে দেখাচ্ছে। দলবদ্ধ করার শর্ত "
+"হিসাবে শুধু SQL অনুসন্ধানটিই ব্যবহৃত হয়েছে। অনুসন্ধানগুলোর অন্যান্য বিষয়, "
+"যেমন আরম্ভের সময় ইত্যাদি পার্থক্য হতে পারে।"
 
 #: js/messages.php:163
 msgid ""
@@ -1445,7 +1446,7 @@ msgstr "WHERE এর তথ্য উপেক্ষা করে অনুস�
 
 #: js/messages.php:187
 msgid "Sum of grouped rows:"
-msgstr "দলবদ্ধকৃত রো'র সংখ্যা"
+msgstr "দলবদ্ধকৃত রো'র সংখ্যা:"
 
 #: js/messages.php:188
 msgid "Total:"
@@ -1626,7 +1627,7 @@ msgstr "ইনডেক্স দেখাও"
 
 #: js/messages.php:246 libraries/mult_submits.inc.php:329
 msgid "Foreign key check:"
-msgstr "foreign key পরীক্ষা: "
+msgstr "foreign key পরীক্ষা:"
 
 #: js/messages.php:247 libraries/mult_submits.inc.php:333
 msgid "(Enabled)"
@@ -1755,11 +1756,12 @@ msgstr "মুল অবস্থায় ফিরিয়ে নেওয়ার �
 #: js/messages.php:297
 msgid "Click a data point to view and possibly edit the data row."
 msgstr ""
-"দেখার জন্য একটি তথ্য পয়েন্ট এ ক্লীক করুন এবং প্রয়োজনে তথ্য সারিটি সম্পাদনা করুন। "
+"দেখার জন্য একটি তথ্য পয়েন্ট এ ক্লীক করুন এবং প্রয়োজনে তথ্য সারিটি সম্পাদনা "
+"করুন।"
 
 #: js/messages.php:299
 msgid "The plot can be resized by dragging it along the bottom right corner."
-msgstr "নীচের ডান কোণার দিকে টেনে এই অংশটির আকৃতি পরিবর্তন করা যাবে। "
+msgstr "নীচের ডান কোণার দিকে টেনে এই অংশটির আকৃতি পরিবর্তন করা যাবে।"
 
 #: js/messages.php:301
 msgid "Select two columns"
@@ -1818,7 +1820,7 @@ msgstr ""
 
 #: js/messages.php:333
 msgid "Add an option for column "
-msgstr "স্তম্ভের জন্য একটি অপশন যোগ কর"
+msgstr "স্তম্ভের জন্য একটি অপশন যোগ কর "
 
 #: js/messages.php:334
 #, php-format
@@ -1923,8 +1925,8 @@ msgid ""
 "A newer version of phpMyAdmin is available and you should consider "
 "upgrading. The newest version is %s, released on %s."
 msgstr ""
-"phpMyAdmin এর একটি নতুন সংস্করন আছে এবং আপনি আপডেট করতে পারেন। নতুন সংস্করনটি হল "
-"%s, বেরিয়েছে %s। "
+"phpMyAdmin এর একটি নতুন সংস্করন আছে এবং আপনি আপডেট করতে পারেন। নতুন "
+"সংস্করনটি হল %s, বেরিয়েছে %s।"
 
 #. l10n: Latest available phpMyAdmin version
 #: js/messages.php:381
@@ -2256,11 +2258,11 @@ msgstr "প্রতি দিন"
 #: libraries/Config.class.php:1111
 #, php-format
 msgid "Existing configuration file (%s) is not readable."
-msgstr "বর্তমান কনফিগারেশন ফাইল (%s) টি পড়া যাচ্ছে না। "
+msgstr "বর্তমান কনফিগারেশন ফাইল (%s) টি পড়া যাচ্ছে না।"
 
 #: libraries/Config.class.php:1141
 msgid "Wrong permissions on configuration file, should not be world writable!"
-msgstr "কনফিগারেশন ফাইলে ভুল অনুমতি দেয়া, ওটা লেখার মত নয় "
+msgstr "কনফিগারেশন ফাইলে ভুল অনুমতি দেয়া, ওটা লেখার মত নয়"
 
 #: libraries/Config.class.php:1715
 msgid "Font size"
@@ -2333,7 +2335,7 @@ msgstr "পরিবর্তন"
 #: libraries/DBQbe.class.php:1322
 #, php-format
 msgid "SQL query on database <b>%s</b>:"
-msgstr "ডাটাবেইজে SQL অনুসন্ধান: <b>%s</b> "
+msgstr "ডাটাবেইজে SQL অনুসন্ধান <b>%s</b>:"
 
 #: libraries/DBQbe.class.php:1336 libraries/Util.class.php:1287
 msgid "Submit Query"
@@ -2541,7 +2543,7 @@ msgstr "BLOB লেখা দেখাও"
 #: libraries/DisplayResults.class.php:1626
 #: libraries/config/messages.inc.php:59
 msgid "Show binary contents as HEX"
-msgstr "বাইনারী লেখা গুলো HEX এ দেখাও "
+msgstr "বাইনারী লেখা গুলো HEX এ দেখাও"
 
 #: libraries/DisplayResults.class.php:1637
 msgid "Hide browser transformation"
@@ -2596,7 +2598,7 @@ msgstr "মোট"
 #: libraries/DisplayResults.class.php:4951 sql.php:945
 #, php-format
 msgid "Query took %01.4f sec"
-msgstr "অনুসন্ধানে %01.4f সেঃ লেগেছ "
+msgstr "অনুসন্ধানে %01.4f সেঃ লেগেছ"
 
 #: libraries/DisplayResults.class.php:5042
 #: libraries/DisplayResults.class.php:5048 libraries/mult_submits.inc.php:42
@@ -2606,7 +2608,7 @@ msgstr "অনুসন্ধানে %01.4f সেঃ লেগেছ "
 #: libraries/structure.lib.php:1361 libraries/structure.lib.php:1368
 #: server_databases.php:320 server_databases.php:323
 msgid "With selected:"
-msgstr "নিবার্চিত গুলো নিয়ে"
+msgstr "নিবার্চিত গুলো নিয়ে:"
 
 #: libraries/DisplayResults.class.php:5046
 #: libraries/DisplayResults.class.php:5047
@@ -2643,7 +2645,7 @@ msgstr "মুদ্রনের দেখা"
 
 #: libraries/DisplayResults.class.php:5206
 msgid "Print view (with full texts)"
-msgstr "প্রিন্টের দেখা (with full texts) "
+msgstr "প্রিন্টের দেখা (with full texts)"
 
 #: libraries/DisplayResults.class.php:5277 tbl_chart.php:151
 msgid "Display chart"
@@ -2701,7 +2703,7 @@ msgstr "ফাইল আপলোডের সময় অজ্ঞাত ভু�
 
 #: libraries/File.class.php:475
 msgid "Error moving the uploaded file, see [doc@faq1-11]FAQ 1.11[/doc]"
-msgstr "আপলোডকৃত ফাইলটি সরাতে সমস্যা হয়েছে, [doc@faq1-11]FAQ 1.11[/doc] দেখুন। "
+msgstr "আপলোডকৃত ফাইলটি সরাতে সমস্যা হয়েছে, [doc@faq1-11]FAQ 1.11[/doc] দেখুন।"
 
 #: libraries/File.class.php:493
 msgid "Error while moving uploaded file."
@@ -2781,7 +2783,7 @@ msgstr "ইনডেক্স %s মুছা হয়েছে"
 msgid ""
 "The indexes %1$s and %2$s seem to be equal and one of them could possibly be "
 "removed."
-msgstr "ইনডেক্স %1$s এবং %2$s এক সমান মনে হয় এবং যে কোন একটি মুছে ফেলুন। "
+msgstr "ইনডেক্স %1$s এবং %2$s এক সমান মনে হয় এবং যে কোন একটি মুছে ফেলুন।"
 
 #: libraries/Menu.class.php:207 libraries/structure.lib.php:677
 #: libraries/structure.lib.php:707 libraries/structure.lib.php:1188
@@ -3075,7 +3077,7 @@ msgstr "এই MySQL সার্ভারটি %s মজুদ ব্যবস
 
 #: libraries/Table.class.php:395
 msgid "unknown table status: "
-msgstr "টেবিলের অবস্থা অজ্ঞাত:"
+msgstr "টেবিলের অবস্থা অজ্ঞাত: "
 
 #: libraries/Table.class.php:796
 #, php-format
@@ -3157,7 +3159,7 @@ msgstr "সম্পাদন/নতুন"
 
 #: libraries/TableSearch.class.php:761
 msgid "Select columns (at least one):"
-msgstr "স্বম্ভ নির্বাচন করুন (একটি হলেও)"
+msgstr "স্বম্ভ নির্বাচন করুন (একটি হলেও):"
 
 #: libraries/TableSearch.class.php:781
 msgid "Add search conditions (body of the \"where\" clause):"
@@ -3575,7 +3577,7 @@ msgstr "সবোর্চ্চ: %s%s"
 #: libraries/rte/rte_triggers.lib.php:112
 #: libraries/rte/rte_triggers.lib.php:133
 msgid "MySQL said: "
-msgstr "MySQL বলেছে:"
+msgstr "MySQL বলেছে: "
 
 #: libraries/Util.class.php:1182
 msgid "Failed to connect to SQL validator!"
@@ -3661,7 +3663,7 @@ msgstr "টোগল ক্লীক করুন"
 #: libraries/Util.class.php:3379 libraries/sql_query_form.lib.php:461
 #: prefs_manage.php:242
 msgid "Browse your computer:"
-msgstr "আপনার কম্পিউটারে দেখুন"
+msgstr "আপনার কম্পিউটারে দেখুন:"
 
 #: libraries/Util.class.php:3404
 #, php-format
@@ -4404,7 +4406,7 @@ msgstr "SQL উপযুক্ততার ধরন"
 #: libraries/config/messages.inc.php:122
 #: libraries/plugins/export/ExportSql.class.php:271
 msgid "<code>CREATE TABLE</code> options:"
-msgstr "<code>CREATE TABLE</code> পছন্দ"
+msgstr "<code>CREATE TABLE</code> পছন্দ:"
 
 #: libraries/config/messages.inc.php:123
 msgid "Creation/Update/Check dates"
@@ -6330,7 +6332,7 @@ msgstr "কিছু রো স্তুপ কর"
 
 #: libraries/display_export.lib.php:165
 msgid "Number of rows:"
-msgstr "রো সংখ্যা"
+msgstr "রো সংখ্যা:"
 
 #: libraries/display_export.lib.php:177
 msgid "Row to begin at:"
@@ -6412,7 +6414,7 @@ msgstr "লেখার মত আউটপুট দেখা "
 #: libraries/display_export.lib.php:414 libraries/display_import.lib.php:312
 #: libraries/plugins/export/ExportCodegen.class.php:107
 msgid "Format:"
-msgstr "গঠন"
+msgstr "গঠন:"
 
 #: libraries/display_export.lib.php:419
 msgid "Format-specific options:"
@@ -6426,7 +6428,7 @@ msgstr "এই গঠনের অপশনগুলো পূর্ণ কর�
 
 #: libraries/display_export.lib.php:430 libraries/display_import.lib.php:327
 msgid "Encoding Conversion:"
-msgstr "এনকোডিং কনভারশন"
+msgstr "এনকোডিং কনভারশন:"
 
 #: libraries/display_git_revision.lib.php:56
 #, php-format
@@ -7655,7 +7657,7 @@ msgstr "কোন কার্যকর প্রমাণীকরণ কী �
 
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:220
 msgid "Authenticating…"
-msgstr "প্রমাণীকরণ"
+msgstr "প্রমাণীকরণ…"
 
 #: libraries/plugins/export/ExportCsv.class.php:93
 #: libraries/plugins/import/AbstractImportCsv.class.php:59
@@ -8002,7 +8004,7 @@ msgstr ""
 #: libraries/plugins/import/ImportCsv.class.php:81
 #: libraries/plugins/import/ImportLdi.class.php:66
 msgid "Column names: "
-msgstr "স্তম্ভের নাম:"
+msgstr "স্তম্ভের নাম: "
 
 #: libraries/plugins/import/ImportCsv.class.php:133
 #: libraries/plugins/import/ImportCsv.class.php:148
@@ -8589,9 +8591,9 @@ msgid ""
 "fail![/strong] Please use the improved 'mysqli' extension to avoid any "
 "problems."
 msgstr ""
-"আপনি পিএইচপির বাতিলকৃত বা অনঅনুমোদিত 'mysql' সংযোজক ব্যবহার করছেন যা অনেকগুলো "
-"অনুসন্ধান ত্বত্তাবধান করতে সক্ষম নয়। <b> কিছু সঞ্চিত রুটিনের কাজ হয়ত ব্যার্থ হবে! </"
-"b>সমস্যা এড়াতে 'mysqli' সংযোজক ব্যবহার করুন।"
+"আপনি পিএইচপির বাতিলকৃত বা অনঅনুমোদিত 'mysql' সংযোজক ব্যবহার করছেন যা "
+"অনেকগুলো অনুসন্ধান ত্বত্তাবধান করতে সক্ষম নয়। [strong]কিছু সঞ্চিত রুটিনের "
+"কাজ হয়ত ব্যার্থ হবে![/strong] সমস্যা এড়াতে 'mysqli' সংযোজক ব্যবহার করুন।"
 
 #: libraries/rte/rte_routines.lib.php:281
 #: libraries/rte/rte_routines.lib.php:1118
@@ -8872,7 +8874,7 @@ msgstr "এই পাতায় কোন টেবল নাই!"
 
 #: libraries/schema/Export_Relation_Schema.class.php:230
 msgid "SCHEMA ERROR: "
-msgstr "রূপরেখায় ভুল :"
+msgstr "রূপরেখায় ভুল : "
 
 #: libraries/schema/Pdf_Relation_Schema.class.php:894
 #: libraries/schema/Pdf_Relation_Schema.class.php:1219
@@ -10008,7 +10010,7 @@ msgstr "একটি পাতা তৈরী কর এবং উহাতে 
 
 #: pmd_pdf.php:145
 msgid "New page name: "
-msgstr "নতুন পাতার নাম"
+msgstr "নতুন পাতার নাম: "
 
 #: pmd_pdf.php:148
 msgid "Export/Import to scale"
@@ -10768,7 +10770,7 @@ msgstr "শুধু সর্তককারী মানসমূহ দেখ
 
 #: server_status_variables.php:94
 msgid "Filter by category…"
-msgstr "শ্রেণী অনুযায়ী ফিল্টার"
+msgstr "শ্রেণী অনুযায়ী ফিল্টার…"
 
 #: server_status_variables.php:114
 msgid "Show unformatted values"
