@@ -112,8 +112,8 @@ class PMA_NavigationTest extends PHPUnit_Framework_TestCase
             ->will(
                 $this->returnValue(
                     array(
-                    	'item_name' => 'tableName',
-                    	'item_type' => 'table'
+                        'item_name' => 'tableName',
+                        'item_type' => 'table'
                     )
                 )
             );
@@ -122,8 +122,8 @@ class PMA_NavigationTest extends PHPUnit_Framework_TestCase
             ->will(
                 $this->returnValue(
                     array(
-                    	'item_name' => 'viewName',
-                    	'item_type' => 'view'
+                        'item_name' => 'viewName',
+                        'item_type' => 'view'
                     )
                 )
             );
@@ -136,11 +136,11 @@ class PMA_NavigationTest extends PHPUnit_Framework_TestCase
 
         $html = $this->object->getItemUnhideDialog('db');
         $this->assertContains(
-            '<td>tableName&lt;</td>',
+            '<td>tableName</td>',
             $html
         );
         $this->assertContains(
-        	'<a href="navigation.php?' . PMA_generate_common_url()
+            '<a href="navigation.php?' . PMA_generate_common_url()
             . '&unhideNavItem=true&itemType=table&itemName=tableName&dbName=db"'
             . ' class="unhideNavItem ajax">',
             $html
