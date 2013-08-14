@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-08-11 13:17+0200\n"
-"PO-Revision-Date: 2013-08-11 17:50+0200\n"
-"Last-Translator: Mauricio Bastos <msbmail@gmail.com>\n"
+"PO-Revision-Date: 2013-08-14 16:57+0200\n"
+"Last-Translator: Stephan Souza <blad3d@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -691,10 +691,9 @@ msgid "Back"
 msgstr "Voltar"
 
 #: index.php:115 libraries/Footer.class.php:72
-#, fuzzy
 #| msgid "phpMyAdmin homepage"
 msgid "phpMyAdmin Demo Server"
-msgstr "Página inicial do phpMyAdmin"
+msgstr "Servidor de Demonstração do phpMyAdmin"
 
 #: index.php:119
 #, php-format
@@ -909,7 +908,7 @@ msgstr "O comando \"DROP DATABASE\" está desabilitado."
 
 #: js/messages.php:35
 msgid "Confirm"
-msgstr ""
+msgstr "Confirmar"
 
 #: js/messages.php:36
 #, php-format
@@ -941,10 +940,10 @@ msgid "This operation could take a long time. Proceed anyway?"
 msgstr "Esta operação pode ser demorada. Deseja prosseguir?"
 
 #: js/messages.php:44
-#, fuzzy, php-format
+#, php-format
 #| msgid "Do you really want to execute \"%s\"?"
 msgid "Do you really want to delete user group \"%s\"?"
-msgstr "Você realmente deseja executar \"%s\"?"
+msgstr "Você realmente deseja remover o grupo \"%s\"?"
 
 #: js/messages.php:47
 msgid "Missing value in the form!"
@@ -2842,13 +2841,12 @@ msgstr "Não pode ler (mover) arquivo carregado."
 #: libraries/Footer.class.php:76
 #, php-format
 msgid "Currently running Git revision %1$s from the %2$s branch."
-msgstr ""
+msgstr "Atualmente rodando a revisão Git %1$s da branch %2$s."
 
 #: libraries/Footer.class.php:83
-#, fuzzy
 #| msgid "Version information"
 msgid "Git information missing!"
-msgstr "Informações da versão"
+msgstr "Faltando informações do Git!"
 
 #: libraries/Footer.class.php:163 libraries/Footer.class.php:167
 #: libraries/Footer.class.php:170
@@ -4736,10 +4734,9 @@ msgstr "Desabilitar verificação de chaves estrangeiras"
 
 #: libraries/config/messages.inc.php:126
 #: libraries/plugins/export/ExportSql.class.php:154
-#, fuzzy
 #| msgid "Exporting rows from \"%s\" table"
 msgid "Export views as tables"
-msgstr "Exportando as linhas da tabela \"%s\""
+msgstr "Exportando views como tabelas"
 
 #: libraries/config/messages.inc.php:127 libraries/config/messages.inc.php:128
 #: libraries/config/messages.inc.php:130 libraries/config/messages.inc.php:136
@@ -6170,7 +6167,6 @@ msgstr ""
 "banco de dados, sugestão: [kbd]pma__userconfig[/kbd]"
 
 #: libraries/config/messages.inc.php:459
-#, fuzzy
 #| msgid "Use Host Table"
 msgid "User groups table"
 msgstr "Tabela de grupos de usuário"
@@ -6986,7 +6982,6 @@ msgid "%s of %s"
 msgstr "%s de %s"
 
 #: libraries/display_import.lib.php:454
-#, fuzzy
 #| msgid "Uploading your import file…"
 msgid "Uploading your import file…"
 msgstr "Subindo seu arquivo de importação…"
@@ -7761,34 +7756,29 @@ msgid "An error has occured while loading the navigation tree"
 msgstr "Um erro ocorreu enquanto carregava a árvore de navegação"
 
 #: libraries/navigation/Navigation.class.php:172
-#, fuzzy
 #| msgid "Events"
 msgid "Events:"
-msgstr "Eventos"
+msgstr "Eventos:"
 
 #: libraries/navigation/Navigation.class.php:173
-#, fuzzy
 #| msgid "Functions"
 msgid "Functions:"
-msgstr "Funções"
+msgstr "Funções:"
 
 #: libraries/navigation/Navigation.class.php:174
-#, fuzzy
 #| msgid "Procedures"
 msgid "Procedures:"
-msgstr "Procedimentos"
+msgstr "Procedimentos:"
 
 #: libraries/navigation/Navigation.class.php:175
-#, fuzzy
 #| msgid "Tables"
 msgid "Tables:"
-msgstr "Tabelas"
+msgstr "Tabelas:"
 
 #: libraries/navigation/Navigation.class.php:176
-#, fuzzy
 #| msgid "Views"
 msgid "Views:"
-msgstr "Views"
+msgstr "Views:"
 
 #: libraries/navigation/NavigationHeader.class.php:183
 msgid "Home"
@@ -8540,10 +8530,10 @@ msgid "RELATIONS FOR TABLE"
 msgstr "RELACIONAMENTOS PARA TABELAS"
 
 #: libraries/plugins/export/ExportSql.class.php:1512
-#, fuzzy, php-format
+#, php-format
 #| msgid "Structure for view"
 msgid "Structure for view %s exported as a table"
-msgstr "Estrutura para view"
+msgstr "Estrutura da view %s exportado como tabela"
 
 #: libraries/plugins/export/ExportSql.class.php:1600
 msgid "Error reading data:"
@@ -8895,16 +8885,14 @@ msgid "User preferences"
 msgstr "Preferências do usuário"
 
 #: libraries/relation.lib.php:264
-#, fuzzy
 #| msgid "Configuration: %s"
 msgid "Configurable menus"
-msgstr "Configuração: %s"
+msgstr "Menus Configuráveis"
 
 #: libraries/relation.lib.php:275
-#, fuzzy
 #| msgid "Reload navigation frame"
 msgid "Hide/show navigation items"
-msgstr "Recarregar frame de navegação"
+msgstr "Exibir/ocultar itens de navegação"
 
 #: libraries/relation.lib.php:281
 msgid "Quick steps to setup advanced features:"
@@ -10068,7 +10056,7 @@ msgstr "Nenhum privilégio"
 #: libraries/server_privileges.lib.php:2552
 #: libraries/server_privileges.lib.php:3267
 msgid "User group"
-msgstr ""
+msgstr "Grupo de usuários"
 
 #: libraries/server_privileges.lib.php:618
 msgid "Resource limits"
@@ -10301,10 +10289,9 @@ msgid "Add privileges on the following table:"
 msgstr "Adicionar privilégios na seguinte tabela:"
 
 #: libraries/server_privileges.lib.php:2690
-#, fuzzy
 #| msgid "Edit server"
 msgid "Edit user group"
-msgstr "Editar servidor"
+msgstr "Editar grupo de usuários"
 
 #: libraries/server_privileges.lib.php:2727
 msgid "Remove selected users"
@@ -10367,7 +10354,7 @@ msgstr ""
 #: libraries/server_privileges.lib.php:3212
 #, php-format
 msgid "Users of '%s' user group"
-msgstr ""
+msgstr "Usuários do grupo '%s'"
 
 #: libraries/server_privileges.lib.php:3223
 msgid "No users were found belonging to this user group."
