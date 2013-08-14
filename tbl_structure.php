@@ -64,30 +64,8 @@ if (isset($_REQUEST['do_save_data'])) {
  *
  * submit_mult_*_x comes from IE if <input type="img" ...> is used
  */
-if (isset($_REQUEST['submit_mult_change_x'])) {
-    $submit_mult = 'change';
-} elseif (isset($_REQUEST['submit_mult_drop_x'])) {
-    $submit_mult = 'drop';
-} elseif (isset($_REQUEST['submit_mult_primary_x'])) {
-    $submit_mult = 'primary';
-} elseif (isset($_REQUEST['submit_mult_index_x'])) {
-    $submit_mult = 'index';
-} elseif (isset($_REQUEST['submit_mult_unique_x'])) {
-    $submit_mult = 'unique';
-} elseif (isset($_REQUEST['submit_mult_spatial_x'])) {
-    $submit_mult = 'spatial';
-} elseif (isset($_REQUEST['submit_mult_fulltext_x'])) {
-    $submit_mult = 'ftext';
-} elseif (isset($_REQUEST['submit_mult_browse_x'])) {
-    $submit_mult = 'browse';
-} elseif (isset($_REQUEST['submit_mult'])) {
-    $submit_mult = $_REQUEST['submit_mult'];
-} elseif (isset($_REQUEST['mult_btn']) && $_REQUEST['mult_btn'] == __('Yes')) {
-    $submit_mult = 'row_delete';
-    if (isset($_REQUEST['selected'])) {
-        $_REQUEST['selected_fld'] = $_REQUEST['selected'];
-    }
-}
+$submit_mult = PMA_getMultipleFieldCommandType();
+
 if (! empty($submit_mult)) {
     if (isset($_REQUEST['selected_fld'])) {
         $err_url = 'tbl_structure.php?' . PMA_URL_getCommon($db, $table);
