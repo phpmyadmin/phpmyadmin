@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-08-11 13:17+0200\n"
-"PO-Revision-Date: 2013-08-14 04:38+0200\n"
-"Last-Translator: Myung Han Yu <greatymh@gmail.com>\n"
+"PO-Revision-Date: 2013-08-14 05:01+0200\n"
+"Last-Translator: 성현 양 <rctq@paran.com>\n"
 "Language-Team: Korean <http://l10n.cihar.com/projects/phpmyadmin/master/ko/>\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
@@ -4141,7 +4141,7 @@ msgstr "사용불가"
 #: libraries/config/FormDisplay.class.php:772
 #, php-format
 msgid "\"%s\" requires %s extension"
-msgstr "\"%s\"는 %s 확장기능을 요구합니다"
+msgstr "\"%s\"(은)는 확장기능 %s 이 필요합니다"
 
 #: libraries/config/FormDisplay.class.php:791
 #, fuzzy, php-format
@@ -4157,7 +4157,7 @@ msgstr "(%s) 기능이 누락되어 내보낼 수 없습니다."
 
 #: libraries/config/FormDisplay.class.php:807
 msgid "SQL Validator is disabled"
-msgstr "SQL 유효화검증기가 비활성화되어 있습니다"
+msgstr "SQL 검증기능이 비활성화됨"
 
 #: libraries/config/FormDisplay.class.php:814
 msgid "SOAP extension not found"
