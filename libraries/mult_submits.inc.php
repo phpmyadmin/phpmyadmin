@@ -136,7 +136,7 @@ if (!empty($submit_mult) && !empty($what)) {
 
     // Builds the query
     list($full_query, $reload, $full_query_views)
-        = PMA_getQueryFormSelected(
+        = PMA_getQueryFromSelected(
             $what, $db, $table, $selected, $action, $views
         );
 

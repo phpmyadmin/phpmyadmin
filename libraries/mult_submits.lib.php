@@ -253,7 +253,7 @@ function PMA_getDataForSubmitMult($submit_mult, $db, $table, $selected, $action)
  *
  * @return array()
  */
-function PMA_getQueryFormSelected($what, $db, $table, $selected, $action, $views)
+function PMA_getQueryFromSelected($what, $db, $table, $selected, $action, $views)
 {
     $reload = null;
     $full_query_views = null;
