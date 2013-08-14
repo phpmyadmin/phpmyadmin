@@ -89,51 +89,24 @@ if (! empty($submit_mult)
     } elseif (isset($selected_fld) && !empty($selected_fld)) {
         // coming from table structure view - do something with
         // selected columns
-        $selected     = $selected_fld;
-        switch ($submit_mult) {
-        case 'drop':
-            $what     = 'drop_fld';
-            break;
-        case 'primary':
-            // Gets table primary key
-            $primary = PMA_getKeyForTablePrimary($db, $table);
-            if (empty($primary)) {
-                // no primary key, so we can safely create new
-                unset($submit_mult);
-                $query_type = 'primary_fld';
-                $mult_btn   = __('Yes');
-            } else {
-                // primary key exists, so lets as user
-                $what = 'primary_fld';
-            }
-            break;
-        case 'index':
+        $selected = $selected_fld;
+        list($what_ret, $query_type_ret, $is_unset_submit_mult, $mult_btn_ret)
+            = PMA_getDataForSubmitMult(
+                $submit_mult, $db, $table, 
+                $selected, $action
+            );
+        //update the exist variables
+        if (isset($what_ret)) {
+            $what = $what_ret;
+        }
+        if (isset($query_type_ret)) {
+            $query_type = $query_type_ret;
+        }
+        if (isset($is_unset_submit_mult)) {
             unset($submit_mult);
-            $query_type = 'index_fld';
-            $mult_btn   = __('Yes');
-            break;
-        case 'unique':
-            unset($submit_mult);
-            $query_type = 'unique_fld';
-            $mult_btn   = __('Yes');
-            break;
-        case 'spatial':
-            unset($submit_mult);
-            $query_type = 'spatial_fld';
-            $mult_btn   = __('Yes');
-            break;
-        case 'ftext':
-            unset($submit_mult);
-            $query_type = 'fulltext_fld';
-            $mult_btn   = __('Yes');
-            break;
-        case 'change':
-            PMA_displayHtmlForColumnChange($db, $table, $selected, $action);
-            // execution stops here but PMA_Response correctly finishes
-            // the rendering
-            exit;
-        case 'browse':
-            // this should already be handled by tbl_structure.php
+        }
+        if (isset($mult_btn_ret)) {
+            $mult_btn = $mult_btn_ret;
         }
     } else {
         // coming from browsing - do something with selected rows
@@ -162,87 +135,10 @@ if (!empty($submit_mult) && !empty($what)) {
     }
 
     // Builds the query
-    $full_query     = '';
-    if ($what == 'drop_tbl') {
-        $full_query_views = '';
-    }
-    $selected_cnt   = count($selected);
-    $i = 0;
-    foreach ($selected as $idx => $sval) {
-        switch ($what) {
-        case 'row_delete':
-            $full_query .= 'DELETE FROM ' . PMA_Util::backquote($db) 
-                . '.' . PMA_Util::backquote($table)
-                . ' WHERE ' . urldecode($sval) . ' LIMIT 1'
-                . ';<br />';
-            break;
-        case 'drop_db':
-            $full_query .= 'DROP DATABASE '
-                . PMA_Util::backquote(htmlspecialchars($sval))
-                . ';<br />';
-            $reload = 1;
-            break;
-
-        case 'drop_tbl':
-            $current = $sval;
-            if (!empty($views) && in_array($current, $views)) {
-                $full_query_views .= (empty($full_query_views) ? 'DROP VIEW ' : ', ')
-                    . PMA_Util::backquote(htmlspecialchars($current));
-            } else {
-                $full_query .= (empty($full_query) ? 'DROP TABLE ' : ', ')
-                    . PMA_Util::backquote(htmlspecialchars($current));
-            }
-            break;
-
-        case 'empty_tbl':
-            $full_query .= 'TRUNCATE ';
-            $full_query .= PMA_Util::backquote(htmlspecialchars($sval))
-                        . ';<br />';
-            break;
-
-        case 'primary_fld':
-            if ($full_query == '') {
-                $full_query .= 'ALTER TABLE '
-                    . PMA_Util::backquote(htmlspecialchars($table))
-                    . '<br />&nbsp;&nbsp;DROP PRIMARY KEY,'
-                    . '<br />&nbsp;&nbsp; ADD PRIMARY KEY('
-                    . '<br />&nbsp;&nbsp;&nbsp;&nbsp; '
-                    . PMA_Util::backquote(htmlspecialchars($sval))
-                    . ',';
-            } else {
-                $full_query .= '<br />&nbsp;&nbsp;&nbsp;&nbsp; '
-                    . PMA_Util::backquote(htmlspecialchars($sval))
-                    . ',';
-            }
-            if ($i == $selected_cnt-1) {
-                $full_query = preg_replace('@,$@', ');<br />', $full_query);
-            }
-            break;
-
-        case 'drop_fld':
-            if ($full_query == '') {
-                $full_query .= 'ALTER TABLE '
-                    . PMA_Util::backquote(htmlspecialchars($table));
-            }
-            $full_query .= '<br />&nbsp;&nbsp;DROP '
-                . PMA_Util::backquote(htmlspecialchars($sval))
-                . ',';
-            if ($i == $selected_cnt - 1) {
-                $full_query = preg_replace('@,$@', ';<br />', $full_query);
-            }
-            break;
-        } // end switch
-        $i++;
-    }
-    if ($what == 'drop_tbl') {
-        if (!empty($full_query)) {
-            $full_query .= ';<br />' . "\n";
-        }
-        if (!empty($full_query_views)) {
-            $full_query .= $full_query_views . ';<br />' . "\n";
-        }
-        unset($full_query_views);
-    }
+    list($full_query, $reload, $full_query_views)
+        = PMA_getQueryFormSelected(
+            $what, $db, $table, $selected, $action, $views
+        );
 
     // Displays the confirmation form
     $_url_params = array(

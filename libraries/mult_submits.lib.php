@@ -174,4 +174,177 @@ function PMA_getHtmlForOtherActions($what, $action, $_url_params, $full_query)
     return $html;
 }
 
+/**
+ * Get List of information for Submit Mult
+ *
+ * @param string $submit_mult mult_submit type
+ * @param string $db          dtabase name 
+ * @param array  $table       table name
+ * @param array  $selected    the selected columns
+ * @param array  $action      action type
+ *
+ * @return array()
+ */
+function PMA_getDataForSubmitMult($submit_mult, $db, $table, $selected, $action)
+{
+    $what = null;
+    $query_type = null;
+    $is_unset_submit_mult = false;
+    $mult_btn = null;
+    
+    switch ($submit_mult) {
+    case 'drop':
+        $what     = 'drop_fld';
+        break;
+    case 'primary':
+        // Gets table primary key
+        $primary = PMA_getKeyForTablePrimary($db, $table);
+        if (empty($primary)) {
+            // no primary key, so we can safely create new
+            $is_unset_submit_mult = true;
+            $query_type = 'primary_fld';
+            $mult_btn   = __('Yes');
+        } else {
+            // primary key exists, so lets as user
+            $what = 'primary_fld';
+        }
+        break;
+    case 'index':
+        $is_unset_submit_mult = true;
+        $query_type = 'index_fld';
+        $mult_btn   = __('Yes');
+        break;
+    case 'unique':
+        $is_unset_submit_mult = true;
+        $query_type = 'unique_fld';
+        $mult_btn   = __('Yes');
+        break;
+    case 'spatial':
+        $is_unset_submit_mult = true;
+        $query_type = 'spatial_fld';
+        $mult_btn   = __('Yes');
+        break;
+    case 'ftext':
+        $is_unset_submit_mult = true;
+        $query_type = 'fulltext_fld';
+        $mult_btn   = __('Yes');
+        break;
+    case 'change':
+        PMA_displayHtmlForColumnChange($db, $table, $selected, $action);
+        // execution stops here but PMA_Response correctly finishes
+        // the rendering
+        exit;
+    case 'browse':
+        // this should already be handled by tbl_structure.php
+    }
+    
+    return array($what, $query_type, $is_unset_submit_mult, $mult_btn);
+}
+
+/**
+ * Get query string from Selected
+ *
+ * @param string $what     mult_submit type
+ * @param string $db       dtabase name
+ * @param array  $table    table name
+ * @param array  $selected the selected columns
+ * @param array  $action   action type
+ * @param array  $views    table views
+ *
+ * @return array()
+ */
+function PMA_getQueryFormSelected($what, $db, $table, $selected, $action, $views)
+{
+    $reload = null;
+    $full_query_views = null;
+    $full_query     = '';
+    
+    if ($what == 'drop_tbl') {
+        $full_query_views = '';
+    }
+    
+    $selected_cnt   = count($selected);
+    $i = 0;
+    foreach ($selected as $idx => $sval) {
+        switch ($what) {
+        case 'row_delete':
+            $full_query .= 'DELETE FROM ' . PMA_Util::backquote($db) 
+                . '.' . PMA_Util::backquote($table)
+                . ' WHERE ' . urldecode($sval) . ' LIMIT 1'
+                . ';<br />';
+            break;
+        case 'drop_db':
+            $full_query .= 'DROP DATABASE '
+                . PMA_Util::backquote(htmlspecialchars($sval))
+                . ';<br />';
+            $reload = 1;
+            break;
+
+        case 'drop_tbl':
+            $current = $sval;
+            if (!empty($views) && in_array($current, $views)) {
+                $full_query_views .= (empty($full_query_views) ? 'DROP VIEW ' : ', ')
+                    . PMA_Util::backquote(htmlspecialchars($current));
+            } else {
+                $full_query .= (empty($full_query) ? 'DROP TABLE ' : ', ')
+                    . PMA_Util::backquote(htmlspecialchars($current));
+            }
+            break;
+
+        case 'empty_tbl':
+            $full_query .= 'TRUNCATE ';
+            $full_query .= PMA_Util::backquote(htmlspecialchars($sval))
+                        . ';<br />';
+            break;
+
+        case 'primary_fld':
+            if ($full_query == '') {
+                $full_query .= 'ALTER TABLE '
+                    . PMA_Util::backquote(htmlspecialchars($table))
+                    . '<br />&nbsp;&nbsp;DROP PRIMARY KEY,'
+                    . '<br />&nbsp;&nbsp; ADD PRIMARY KEY('
+                    . '<br />&nbsp;&nbsp;&nbsp;&nbsp; '
+                    . PMA_Util::backquote(htmlspecialchars($sval))
+                    . ',';
+            } else {
+                $full_query .= '<br />&nbsp;&nbsp;&nbsp;&nbsp; '
+                    . PMA_Util::backquote(htmlspecialchars($sval))
+                    . ',';
+            }
+            if ($i == $selected_cnt-1) {
+                $full_query = preg_replace('@,$@', ');<br />', $full_query);
+            }
+            break;
+
+        case 'drop_fld':
+            if ($full_query == '') {
+                $full_query .= 'ALTER TABLE '
+                    . PMA_Util::backquote(htmlspecialchars($table));
+            }
+            $full_query .= '<br />&nbsp;&nbsp;DROP '
+                . PMA_Util::backquote(htmlspecialchars($sval))
+                . ',';
+            if ($i == $selected_cnt - 1) {
+                $full_query = preg_replace('@,$@', ';<br />', $full_query);
+            }
+            break;
+        } // end switch
+        $i++;
+    }
+
+    if ($what == 'drop_tbl') {
+        if (!empty($full_query)) {
+            $full_query .= ';<br />' . "\n";
+        }
+        if (!empty($full_query_views)) {
+            $full_query .= $full_query_views . ';<br />' . "\n";
+        }
+        unset($full_query_views);
+    }
+    
+    $full_query_views = isset($full_query_views)? $full_query_views : null;
+    
+    return array($full_query, $reload, $full_query_views);
+}
+
 ?>
