@@ -31,7 +31,23 @@ class Node_Table extends Node_DatabaseChild
     public function __construct($name, $type = Node::OBJECT, $is_group = false)
     {
         parent::__construct($name, $type, $is_group);
-        $this->icon  = PMA_Util::getImage('b_browse.png');
+        switch($GLOBALS['cfg']['NavigationTreeDefaultTabTable']) {
+        case 'tbl_structure.php':
+            $this->icon  = PMA_Util::getImage('b_props.png');
+            break;
+        case 'tbl_select.php':
+            $this->icon  = PMA_Util::getImage('b_search.png');
+            break;
+        case 'tbl_change.php':
+            $this->icon  = PMA_Util::getImage('b_insrow.png');
+            break;
+        case 'tbl_sql.php':
+            $this->icon  = PMA_Util::getImage('b_sql.png');
+            break;
+        case 'sql.php':
+            $this->icon  = PMA_Util::getImage('b_browse.png');
+            break;
+        }
         $this->links = array(
             'text' => 'sql.php?server=' . $GLOBALS['server']
                     . '&amp;db=%2$s&amp;table=%1$s'
