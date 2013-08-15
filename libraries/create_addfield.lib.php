@@ -58,7 +58,7 @@ function PMA_getIndexedColumns()
  *                               according to the request
  */
 function PMA_buildColumnCreationStatement(
-    $field_cnt, $field_primary, $is_create_tbl = true
+    $field_cnt, &$field_primary, $is_create_tbl = true
 ) {
     $definitions = array();
     for ($i = 0; $i < $field_cnt; ++$i) {
