@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-08-11 13:17+0200\n"
-"PO-Revision-Date: 2013-08-05 10:50+0200\n"
+"PO-Revision-Date: 2013-08-15 14:57+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: Dutch <http://l10n.cihar.com/projects/phpmyadmin/master/nl/>\n"
 "Language: nl\n"
@@ -945,10 +945,10 @@ msgid "This operation could take a long time. Proceed anyway?"
 msgstr "Deze bewerking kan lang duren. Toch voortgaan?"
 
 #: js/messages.php:44
-#, fuzzy, php-format
+#, php-format
 #| msgid "Do you really want to execute \"%s\"?"
 msgid "Do you really want to delete user group \"%s\"?"
-msgstr "Weet u zeker dat u de query \"%s\" wil uitvoeren?"
+msgstr "Weet u zeker dat u gebruikersgroep \"%s\" wil verwijderen?"
 
 #: js/messages.php:47
 msgid "Missing value in the form!"
@@ -6172,7 +6172,6 @@ msgid "User groups table"
 msgstr "Gebruikersgroepentabel"
 
 #: libraries/config/messages.inc.php:460
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no user preferences storage in database, suggested: "
 #| "[kbd]pma__userconfig[/kbd]"
@@ -6180,8 +6179,8 @@ msgid ""
 "Leave blank to disable the feature to hide and show navigation items, "
 "suggested: [kbd]pma__navigationhiding[/kbd]"
 msgstr ""
-"Laat dit veld leeg om geen gebruikersvoorkeuren op te slaan in de databank, "
-"suggestie: [kbd]pma__userconfig[/kbd]"
+"Laat dit veld leeg om de optie, die navigatieonderdelen kan verbergen of te "
+"tonen, uit te schakelen, suggestie: [kbd]pma__navigationhiding[/kbd]"
 
 #: libraries/config/messages.inc.php:461
 msgid "Hidden navigation items table"
@@ -10389,19 +10388,16 @@ msgid "User groups"
 msgstr "Gebruikersgroepen"
 
 #: libraries/server_privileges.lib.php:3268
-#, fuzzy
 #| msgid "Server-level tabs"
 msgid "Server level tabs"
 msgstr "Tabs op serverniveau"
 
 #: libraries/server_privileges.lib.php:3269
-#, fuzzy
 #| msgid "Database-level tabs"
 msgid "Database level tabs"
 msgstr "Tabs op databankniveau"
 
 #: libraries/server_privileges.lib.php:3270
-#, fuzzy
 #| msgid "Table-level tabs"
 msgid "Table level tabs"
 msgstr "Tabs op tabelniveau"
@@ -12660,7 +12656,7 @@ msgstr ""
 "beschikbaar zijn op dit systeem."
 
 #: setup/lib/index.lib.php:226
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "%sLogin cookie validity%s greater than 1440 seconds may cause random "
 #| "session invalidation if %ssession.gc_maxlifetime%s is lower than its "
@@ -12669,9 +12665,9 @@ msgid ""
 "%sLogin cookie validity%s greater than %ssession.gc_maxlifetime%s may cause "
 "random session invalidation (currently session.gc_maxlifetime is %d)."
 msgstr ""
-"%sAanmeldingscookiegeldigheid%s groter dan 1440 seconden kan willekeurige "
-"sessieproblemen veroorzaken als %ssession.gc_maxlifetime%s lager is dan deze "
-"waarde (huidige waarde: %d)."
+"%sAanmeldingscookiegeldigheid%s groter dan %ssession.gc_maxlifetime%s kan "
+"willekeurige sessieproblemen veroorzaken (huidige waarde van "
+"session.gc_maxlifetime is %d)."
 
 #: setup/lib/index.lib.php:228
 #, php-format
