@@ -1512,9 +1512,16 @@ class PMA_DatabaseInterface
 
         // Skip charsets for Drizzle
         if (!PMA_DRIZZLE) {
+            if (PMA_MYSQL_INT_VERSION >  50503) {
+                $default_charset = 'utf8mb4';
+                $default_collation = 'utf8mb4_general_ci';
+            } else {
+                $default_charset = 'utf8';
+                $default_collation = 'utf8_general_ci';
+            }
             if (! empty($GLOBALS['collation_connection'])) {
                 $this->query(
-                    "SET CHARACTER SET 'utf8';",
+                    "SET CHARACTER SET '$default_charset';",
                     $link,
                     self::QUERY_STORE
                 );
@@ -1528,7 +1535,7 @@ class PMA_DatabaseInterface
                 );
             } else {
                 $this->query(
-                    "SET NAMES 'utf8' COLLATE 'utf8_general_ci';",
+                    "SET NAMES '$default_charset' COLLATE '$default_collation';",
                     $link,
                     self::QUERY_STORE
                 );
