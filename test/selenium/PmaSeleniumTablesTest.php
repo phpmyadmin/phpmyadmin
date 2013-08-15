@@ -178,4 +178,9 @@ class PmaSeleniumTablesTest extends PHPUnit_Extensions_SeleniumTestCase
             'css=ul.table-structure-actions:eq(1) li.primary a'
         );
     }
+
+    public function tearDown()
+    {
+        $this->_seleniumTasks->dbQuery('DROP DATABASE ' . $this->_dbname);
+    }
 }

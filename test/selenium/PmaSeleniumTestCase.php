@@ -75,6 +75,7 @@ class PmaSeleniumTestCase
         $this->_btnLogin = 'input_go';
         $this->_config = new TestConfig();
         $this->_selenium = $selenium;
+        $this->_mysqli = null;
     }
 
     /**
@@ -91,7 +92,6 @@ class PmaSeleniumTestCase
         $this->_selenium->type($this->_txtUsername, $username);
         $this->_selenium->type($this->_txtPassword, $password);
         $this->_selenium->clickAndWait($this->_btnLogin);
-        $this->_mysqli = null;
         //$this->_selenium->waitForPageToLoad($this->_config->getTimeoutValue());
     }
 
