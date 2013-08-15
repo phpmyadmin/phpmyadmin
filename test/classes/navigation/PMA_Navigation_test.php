@@ -140,7 +140,7 @@ class PMA_NavigationTest extends PHPUnit_Framework_TestCase
             $html
         );
         $this->assertContains(
-            '<a href="navigation.php?' . PMA_generate_common_url()
+            '<a href="navigation.php?' . PMA_URL_getCommon()
             . '&unhideNavItem=true&itemType=table&itemName=tableName&dbName=db"'
             . ' class="unhideNavItem ajax">',
             $html

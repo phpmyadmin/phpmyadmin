@@ -82,7 +82,7 @@ class Node_DatabaseChildTest extends PHPUnit_Framework_TestCase
             $html
         );
         $this->assertContains(
-            '<a href="navigation.php?' . PMA_generate_common_url()
+            '<a href="navigation.php?' . PMA_URL_getCommon()
             . '&hideNavItem=true&itemType=itemType&itemName=child'
             . '&dbName=parent" class="hideNavItem ajax">',
             $html
