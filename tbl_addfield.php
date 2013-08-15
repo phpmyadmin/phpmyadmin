@@ -23,7 +23,7 @@ PMA_Util::checkParameters(array('db', 'table'));
 /**
  * Defines the url to return to in case of error in a sql statement
  */
-$err_url = 'tbl_sql.php?' . PMA_generate_common_url($db, $table);
+$err_url = 'tbl_sql.php?' . PMA_URL_getCommon($db, $table);
 
 /**
  * The form used to define the field to add has been submitted

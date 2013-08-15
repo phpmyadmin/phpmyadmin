@@ -223,7 +223,7 @@ function perform_config_checks()
     $strForceSSLNotice = sprintf($strForceSSLNotice, '[a@?page=form&amp;formset=Features#tab_Security]', '[/a]');
     $strGZipDumpWarning = __('%sGZip compression and decompression%s requires functions (%s) which are unavailable on this system.');
     $strGZipDumpWarning = sprintf($strGZipDumpWarning, '[a@?page=form&amp;formset=Features#tab_Import_export]', '[/a]', '%s');
-    $strLoginCookieValidityWarning = __('%sLogin cookie validity%s greater than 1440 seconds may cause random session invalidation if %ssession.gc_maxlifetime%s is lower than its value (currently %d).');
+    $strLoginCookieValidityWarning = __('%sLogin cookie validity%s greater than %ssession.gc_maxlifetime%s may cause random session invalidation (currently session.gc_maxlifetime is %d).');
     $strLoginCookieValidityWarning = sprintf($strLoginCookieValidityWarning, '[a@?page=form&amp;formset=Features#tab_Security]', '[/a]', '[a@' . PMA_getPHPDocLink('session.configuration.php#ini.session.gc-maxlifetime') . ']', '[/a]', ini_get('session.gc_maxlifetime'));
     $strLoginCookieValidityWarning2 = __('%sLogin cookie validity%s should be set to 1800 seconds (30 minutes) at most. Values larger than 1800 may pose a security risk such as impersonation.');
     $strLoginCookieValidityWarning2 = sprintf($strLoginCookieValidityWarning2, '[a@?page=form&amp;formset=Features#tab_Security]', '[/a]');
@@ -389,14 +389,9 @@ function perform_config_checks()
     // $cfg['LoginCookieValidity']
     // value greater than session.gc_maxlifetime will cause
     // random session invalidation after that time
-    if ($cf->getValue('LoginCookieValidity') > 1440
-        || $cf->getValue('LoginCookieValidity') > ini_get('session.gc_maxlifetime')
-    ) {
-        $message_type = $cf->getValue('LoginCookieValidity') > ini_get('session.gc_maxlifetime')
-            ? 'error'
-            : 'notice';
+    if ($cf->getValue('LoginCookieValidity') > ini_get('session.gc_maxlifetime')) {
         messages_set(
-            $message_type,
+            'error',
             'LoginCookieValidity',
             PMA_lang(PMA_langName('LoginCookieValidity')),
             PMA_lang($strLoginCookieValidityWarning)

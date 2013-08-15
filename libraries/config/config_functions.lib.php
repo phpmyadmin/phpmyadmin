@@ -12,7 +12,7 @@
  * Based on PMA_sanitize from sanitize.lib.php.
  *
  * @param string $lang_key key in $GLOBALS WITHOUT 'strSetup' prefix
- * @param mixed  $args,... arguments for sprintf
+ * @param mixed  $args     arguments for sprintf
  *
  * @return string
  */

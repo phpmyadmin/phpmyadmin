@@ -38,7 +38,7 @@ function PMA_RTE_getFooterLinks($docu, $priv, $name)
         $retval .= "            " . PMA_Util::getIcon($icon);
         $retval .= PMA_RTE_getWord('no_create') . "\n";
     }
-    $retval .= "            " . PMA_Util::showMySQLDocu('SQL-Syntax', $docu) . "\n";
+    $retval .= "            " . PMA_Util::showMySQLDocu($docu) . "\n";
     $retval .= "        </div>\n";
     $retval .= "</fieldset>\n";
     $retval .= "<!-- ADD " . $name . " FORM END -->\n\n";

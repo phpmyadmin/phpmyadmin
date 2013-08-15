@@ -165,15 +165,15 @@ require_once 'libraries/import.lib.php';
 
 // Create error and goto url
 if ($import_type == 'table') {
-    $err_url = 'tbl_import.php?' . PMA_generate_common_url($db, $table);
+    $err_url = 'tbl_import.php?' . PMA_URL_getCommon($db, $table);
     $_SESSION['Import_message']['go_back_url'] = $err_url;
     $goto = 'tbl_import.php';
 } elseif ($import_type == 'database') {
-    $err_url = 'db_import.php?' . PMA_generate_common_url($db);
+    $err_url = 'db_import.php?' . PMA_URL_getCommon($db);
     $_SESSION['Import_message']['go_back_url'] = $err_url;
     $goto = 'db_import.php';
 } elseif ($import_type == 'server') {
-    $err_url = 'server_import.php?' . PMA_generate_common_url();
+    $err_url = 'server_import.php?' . PMA_URL_getCommon();
     $_SESSION['Import_message']['go_back_url'] = $err_url;
     $goto = 'server_import.php';
 } else {
@@ -187,11 +187,11 @@ if ($import_type == 'table') {
         }
     }
     if (strlen($table) && strlen($db)) {
-        $common = PMA_generate_common_url($db, $table);
+        $common = PMA_URL_getCommon($db, $table);
     } elseif (strlen($db)) {
-        $common = PMA_generate_common_url($db);
+        $common = PMA_URL_getCommon($db);
     } else {
-        $common = PMA_generate_common_url();
+        $common = PMA_URL_getCommon();
     }
     $err_url  = $goto . '?' . $common
         . (preg_match('@^tbl_[a-z]*\.php$@', $goto)
@@ -545,7 +545,9 @@ if (! empty($id_bookmark) && $action_bookmark == 2) {
     } else {
         if ($import_notice) {
             $message = PMA_Message::success(
-                '<em>' . __('Import has been successfully finished, %d queries executed.') . '</em>'
+                '<em>'
+                . __('Import has been successfully finished, %d queries executed.')
+                . '</em>'
             );
             $message->addParam($executed_queries);
 
@@ -605,7 +607,7 @@ if (isset($my_die)) {
 
 if ($go_sql) {
     // parse sql query
-    require_once 'libraries/parse_analyze.inc.php';
+    include_once 'libraries/parse_analyze.inc.php';
 
     PMA_executeQueryAndSendQueryResponse(
         $analyzed_sql_results, false, $db, $table, null, null, null, false, null,
@@ -616,7 +618,10 @@ if ($go_sql) {
     $response = PMA_Response::getInstance();
     $response->isSuccess(true);
     $response->addJSON('message', PMA_Message::success($msg));
-    $response->addJSON('sql_query', PMA_Util::getMessage($msg, $sql_query, 'success'));
+    $response->addJSON(
+        'sql_query',
+        PMA_Util::getMessage($msg, $sql_query, 'success')
+    );
 } else if ($result == false) {
     $response = PMA_Response::getInstance();
     $response->isSuccess(false);

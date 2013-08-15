@@ -180,8 +180,9 @@ class PMA_Util
         // If it's the first time this function is called
         if (! isset($sprites)) {
             // Try to load the list of sprites
-            if (is_readable($_SESSION['PMA_Theme']->getPath() . '/sprites.lib.php')) {
-                include_once $_SESSION['PMA_Theme']->getPath() . '/sprites.lib.php';
+            $sprite_file = $_SESSION['PMA_Theme']->getPath() . '/sprites.lib.php';
+            if (is_readable($sprite_file)) {
+                include_once $sprite_file;
                 $sprites = PMA_sprites();
             } else {
                 // No sprites are available for this theme
@@ -385,61 +386,31 @@ class PMA_Util
     /**
      * format sql strings
      *
-     * @param mixed  $parsed_sql   pre-parsed SQL structure
-     * @param string $unparsed_sql raw SQL string
+     * @param string  $sql_query raw SQL string
+     * @param boolean $truncate  truncate the query if it is too long
      *
      * @return string  the formatted sql
      *
      * @global  array    the configuration array
-     * @global  boolean  whether the current statement is a multiple one or not
      *
      * @access  public
      * @todo    move into PMA_Sql
      */
-    public static function formatSql($parsed_sql, $unparsed_sql = '')
+    public static function formatSql($sql_query, $truncate = false)
     {
         global $cfg;
-
-        // Check that we actually have a valid set of parsed data
-        // well, not quite
-        // first check for the SQL parser having hit an error
-        if (PMA_SQP_isError()) {
-            return htmlspecialchars($parsed_sql['raw']);
+        if ($truncate
+            && strlen($sql_query) > $cfg['MaxCharactersInDisplayedSQL']
+        ) {
+            $sql_query = $GLOBALS['PMA_String']->substr(
+                $sql_query,
+                0,
+                $cfg['MaxCharactersInDisplayedSQL']
+            ) . '[...]';
         }
-        // then check for an array
-        if (! is_array($parsed_sql)) {
-            // We don't so just return the input directly
-            // This is intended to be used for when the SQL Parser is turned off
-            $formatted_sql = "<pre>\n";
-            if (($cfg['SQP']['fmtType'] == 'none') && ($unparsed_sql != '')) {
-                $formatted_sql .= $unparsed_sql;
-            } else {
-                $formatted_sql .= $parsed_sql;
-            }
-            $formatted_sql .= "\n</pre>";
-            return $formatted_sql;
-        }
-
-        $formatted_sql = '';
-
-        switch ($cfg['SQP']['fmtType']) {
-        case 'none':
-            if ($unparsed_sql != '') {
-                $formatted_sql = '<span class="inner_sql"><pre>' . "\n"
-                    . PMA_SQP_formatNone(array('raw' => $unparsed_sql)) . "\n"
-                    . '</pre></span>';
-            } else {
-                $formatted_sql = PMA_SQP_formatNone($parsed_sql);
-            }
-            break;
-        case 'text':
-            $formatted_sql = PMA_SQP_format($parsed_sql, 'text');
-            break;
-        default:
-            break;
-        } // end switch
-
-        return $formatted_sql;
+        return '<span class="inner_sql"><pre>' . "\n"
+            . htmlspecialchars($sql_query) . "\n"
+            . '</pre></span>';
     } // end of the "formatSql()" function
 
     /**
@@ -460,9 +431,50 @@ class PMA_Util
     } // end of the 'showDocLink()' function
 
     /**
+     * Get a URL link to the official MySQL documentation
+     *
+     * @param string $link   contains name of page/anchor that is being linked
+     * @param string $anchor anchor to page part
+     *
+     * @return string  the URL link
+     *
+     * @access  public
+     */
+    public static function getMySQLDocuURL($link, $anchor = '')
+    {
+        global $cfg;
+
+        // Fixup for newly used names:
+        $link = str_replace('_', '-', strtolower($link));
+
+        if (empty($link)) {
+            $link = 'index';
+        }
+        $mysql = '5.5';
+        $lang = 'en';
+        if (defined('PMA_MYSQL_INT_VERSION')) {
+            if (PMA_MYSQL_INT_VERSION >= 50600) {
+                $mysql = '5.6';
+            } else if (PMA_MYSQL_INT_VERSION >= 50500) {
+                $mysql = '5.5';
+            } else if (PMA_MYSQL_INT_VERSION >= 50100) {
+                $mysql = '5.1';
+            } else {
+                $mysql = '5.0';
+            }
+        }
+        $url = 'http://dev.mysql.com/doc/refman/'
+            . $mysql . '/' . $lang . '/' . $link . '.html';
+        if (! empty($anchor)) {
+            $url .= '#' . $anchor;
+        }
+
+        return PMA_linkURL($url);
+    }
+
+    /**
      * Displays a link to the official MySQL documentation
      *
-     * @param string $chapter   chapter of "HTML, one page per chapter" documentation
      * @param string $link      contains name of page/anchor that is being linked
      * @param bool   $big_icon  whether to use big icon (like in left frame)
      * @param string $anchor    anchor to page part
@@ -473,77 +485,17 @@ class PMA_Util
      * @access  public
      */
     public static function showMySQLDocu(
-        $chapter, $link, $big_icon = false, $anchor = '', $just_open = false
+        $link, $big_icon = false, $anchor = '', $just_open = false
     ) {
-        global $cfg;
-
-        if (($cfg['MySQLManualType'] == 'none') || empty($cfg['MySQLManualBase'])) {
-            return '';
-        }
-
-        // Fixup for newly used names:
-        $chapter = str_replace('_', '-', strtolower($chapter));
-        $link = str_replace('_', '-', strtolower($link));
-
-        switch ($cfg['MySQLManualType']) {
-        case 'chapters':
-            if (empty($chapter)) {
-                $chapter = 'index';
-            }
-            if (empty($anchor)) {
-                $anchor = $link;
-            }
-            $url = $cfg['MySQLManualBase'] . '/' . $chapter . '.html#' . $anchor;
-            break;
-        case 'big':
-            if (empty($anchor)) {
-                $anchor = $link;
-            }
-            $url = $cfg['MySQLManualBase'] . '#' . $anchor;
-            break;
-        case 'searchable':
-            if (empty($link)) {
-                $link = 'index';
-            }
-            $url = $cfg['MySQLManualBase'] . '/' . $link . '.html';
-            if (! empty($anchor)) {
-                $url .= '#' . $anchor;
-            }
-            break;
-        case 'viewable':
-        default:
-            if (empty($link)) {
-                $link = 'index';
-            }
-            $mysql = '5.5';
-            $lang = 'en';
-            if (defined('PMA_MYSQL_INT_VERSION')) {
-                if (PMA_MYSQL_INT_VERSION >= 50600) {
-                    $mysql = '5.6';
-                } else if (PMA_MYSQL_INT_VERSION >= 50500) {
-                    $mysql = '5.5';
-                } else if (PMA_MYSQL_INT_VERSION >= 50100) {
-                    $mysql = '5.1';
-                } else {
-                    $mysql = '5.0';
-                }
-            }
-            $url = $cfg['MySQLManualBase']
-                . '/' . $mysql . '/' . $lang . '/' . $link . '.html';
-            if (! empty($anchor)) {
-                $url .= '#' . $anchor;
-            }
-            break;
-        }
-
-        $open_link = '<a href="' . PMA_linkURL($url) . '" target="mysql_doc">';
+        $url = self::getMySQLDocuURL($link, $anchor);
+        $open_link = '<a href="' . $url . '" target="mysql_doc">';
         if ($just_open) {
             return $open_link;
         } elseif ($big_icon) {
             return $open_link
                 . self::getImage('b_sqlhelp.png', __('Documentation')) . '</a>';
         } else {
-            return self::showDocLink(PMA_linkURL($url), 'mysql_doc');
+            return self::showDocLink($url, 'mysql_doc');
         }
     } // end of the 'showMySQLDocu()' function
 
@@ -670,19 +622,7 @@ class PMA_Util
         } elseif (empty($the_query) || (trim($the_query) == '')) {
             $formatted_sql = '';
         } else {
-            if (strlen($the_query) > $GLOBALS['cfg']['MaxCharactersInDisplayedSQL']) {
-                $formatted_sql = htmlspecialchars(
-                    substr(
-                        $the_query, 0,
-                        $GLOBALS['cfg']['MaxCharactersInDisplayedSQL']
-                    )
-                )
-                . '[...]';
-            } else {
-                $formatted_sql = self::formatSql(
-                    PMA_SQP_parse($the_query), $the_query
-                );
-            }
+            $formatted_sql = self::formatSql($the_query, true);
         }
         // ---
         $error_msg .= "\n" . '<!-- PMA-SQL-ERROR -->' . "\n";
@@ -702,7 +642,7 @@ class PMA_Util
             $error_msg .= '<p><strong>' . __('SQL query:') . '</strong>' . "\n";
             if (strstr(strtolower($formatted_sql), 'select')) {
                 // please show me help to the error on select
-                $error_msg .= self::showMySQLDocu('SQL-Syntax', 'SELECT');
+                $error_msg .= self::showMySQLDocu('SELECT');
             }
             if ($is_modify_link) {
                 $_url_params = array(
@@ -713,14 +653,14 @@ class PMA_Util
                     $_url_params['db'] = $db;
                     $_url_params['table'] = $table;
                     $doedit_goto = '<a href="tbl_sql.php'
-                        . PMA_generate_common_url($_url_params) . '">';
+                        . PMA_URL_getCommon($_url_params) . '">';
                 } elseif (strlen($db)) {
                     $_url_params['db'] = $db;
                     $doedit_goto = '<a href="db_sql.php'
-                        . PMA_generate_common_url($_url_params) . '">';
+                        . PMA_URL_getCommon($_url_params) . '">';
                 } else {
                     $doedit_goto = '<a href="server_sql.php'
-                        . PMA_generate_common_url($_url_params) . '">';
+                        . PMA_URL_getCommon($_url_params) . '">';
                 }
 
                 $error_msg .= $doedit_goto
@@ -744,7 +684,7 @@ class PMA_Util
         // (now error-messages-server)
         $error_msg .= '<p>' . "\n"
             . '    <strong>' . __('MySQL said: ') . '</strong>'
-            . self::showMySQLDocu('Error-messages-server', 'Error-messages-server')
+            . self::showMySQLDocu('Error-messages-server')
             . "\n"
             . '</p>' . "\n";
 
@@ -1064,9 +1004,7 @@ class PMA_Util
         if (null === $sql_query) {
             if (! empty($GLOBALS['display_query'])) {
                 $sql_query = $GLOBALS['display_query'];
-            } elseif ($cfg['SQP']['fmtType'] == 'none'
-                && ! empty($GLOBALS['unparsed_sql'])
-            ) {
+            } elseif (! empty($GLOBALS['unparsed_sql'])) {
                 $sql_query = $GLOBALS['unparsed_sql'];
             } elseif (! empty($GLOBALS['sql_query'])) {
                 $sql_query = $GLOBALS['sql_query'];
@@ -1199,8 +1137,8 @@ class PMA_Util
                         __('Failed to connect to SQL validator!')
                     )->getDisplay();
                 }
-            } elseif (isset($parsed_sql)) {
-                $query_base = self::formatSql($parsed_sql, $query_base);
+            } elseif (isset($query_base)) {
+                $query_base = self::formatSql($query_base);
             }
 
             // Prepares links that may be displayed to edit/explain the query
@@ -1249,7 +1187,7 @@ class PMA_Util
                 }
                 if (isset($explain_params['sql_query'])) {
                     $explain_link = 'import.php'
-                        . PMA_generate_common_url($explain_params);
+                        . PMA_URL_getCommon($explain_params);
                     $explain_link = ' ['
                         . self::linkOrButton($explain_link, $_message) . ']';
                 }
@@ -1268,7 +1206,7 @@ class PMA_Util
                     $onclick = '';
                 }
 
-                $edit_link .= PMA_generate_common_url($url_params) . '#querybox';
+                $edit_link .= PMA_URL_getCommon($url_params) . '#querybox';
                 $edit_link = ' ['
                     . self::linkOrButton(
                         $edit_link, __('Edit'),
@@ -1291,13 +1229,13 @@ class PMA_Util
                     $_message = __('Create PHP Code');
                 }
 
-                $php_link = 'import.php' . PMA_generate_common_url($php_params);
+                $php_link = 'import.php' . PMA_URL_getCommon($php_params);
                 $php_link = ' [' . self::linkOrButton($php_link, $_message) . ']';
 
                 if (isset($GLOBALS['show_as_php'])) {
 
                     $runquery_link = 'import.php'
-                        . PMA_generate_common_url($url_params);
+                        . PMA_URL_getCommon($url_params);
 
                     $php_link .= ' ['
                         . self::linkOrButton($runquery_link, __('Submit Query'))
@@ -1312,7 +1250,7 @@ class PMA_Util
                 && ! isset($GLOBALS['show_as_php']) // 'Submit query' does the same
                 && preg_match('@^(SELECT|SHOW)[[:space:]]+@i', $sql_query)
             ) {
-                $refresh_link = 'import.php' . PMA_generate_common_url($url_params);
+                $refresh_link = 'import.php' . PMA_URL_getCommon($url_params);
                 $refresh_link = ' ['
                     . self::linkOrButton($refresh_link, __('Refresh')) . ']';
             } else {
@@ -1331,7 +1269,7 @@ class PMA_Util
                 }
 
                 $validate_link = 'import.php'
-                    . PMA_generate_common_url($validate_params);
+                    . PMA_URL_getCommon($validate_params);
                 $validate_link = ' ['
                     . self::linkOrButton($validate_link, $validate_message) . ']';
             } else {
@@ -1361,7 +1299,7 @@ class PMA_Util
 
             $retval .= '<div class="tools">';
             $retval .= '<form action="sql.php" method="post">';
-            $retval .= PMA_generate_common_hidden_inputs(
+            $retval .= PMA_URL_getHiddenInputs(
                 $GLOBALS['db'], $GLOBALS['table']
             );
             $retval .= '<input type="hidden" name="sql_query" value="'
@@ -1776,11 +1714,11 @@ class PMA_Util
         // build the link
         if (! empty($tab['link'])) {
             $tab['link'] = htmlentities($tab['link']);
-            $tab['link'] = $tab['link'] . PMA_generate_common_url($url_params);
+            $tab['link'] = $tab['link'] . PMA_URL_getCommon($url_params);
             if (! empty($tab['args'])) {
                 foreach ($tab['args'] as $param => $value) {
-                    $tab['link'] .= PMA_get_arg_separator('html') . urlencode($param)
-                        . '=' . urlencode($value);
+                    $tab['link'] .= PMA_URL_getArgSeparator('html')
+                        . urlencode($param) . '=' . urlencode($value);
                 }
             }
         }
@@ -1927,7 +1865,8 @@ class PMA_Util
         // Suhosin: Check that each query parameter is not above maximum
         $in_suhosin_limits = true;
         if ($url_length <= $GLOBALS['cfg']['LinkLengthLimit']) {
-            if ($suhosin_get_MaxValueLength = ini_get('suhosin.get.max_value_length')) {
+            $suhosin_get_MaxValueLength = ini_get('suhosin.get.max_value_length');
+            if ($suhosin_get_MaxValueLength) {
                 $query_parts = self::splitURLQuery($url);
                 foreach ($query_parts as $query_pair) {
                     list($eachvar, $eachval) = explode('=', $query_pair);
@@ -2009,7 +1948,7 @@ class PMA_Util
     public static function splitURLQuery($url)
     {
         // decode encoded url separators
-        $separator = PMA_get_arg_separator();
+        $separator = PMA_URL_getArgSeparator();
         // on most places separator is still hard coded ...
         if ($separator !== '&') {
             // ... so always replace & with $separator
@@ -2247,10 +2186,11 @@ class PMA_Util
                 ) {
                     $con_val = '= ' . $row[$i];
                 } elseif ((($meta->type == 'blob') || ($meta->type == 'string'))
-                    // hexify only if this is a true not empty BLOB or a BINARY
                     && stristr($field_flags, 'BINARY')
                     && ! empty($row[$i])
                 ) {
+                    // hexify only if this is a true not empty BLOB or a BINARY
+
                     // do not waste memory building a too big condition
                     if (strlen($row[$i]) < 1000) {
                         // use a CAST if possible, to avoid problems
@@ -2560,19 +2500,19 @@ class PMA_Util
 
                 $_url_params[$name] = 0;
                 $list_navigator_html .= '<a' . $class . $title1 . ' href="' . $script
-                    . PMA_generate_common_url($_url_params) . '">' . $caption1
+                    . PMA_URL_getCommon($_url_params) . '">' . $caption1
                     . '</a>';
 
                 $_url_params[$name] = $pos - $max_count;
                 $list_navigator_html .= '<a' . $class . $title2 . ' href="' . $script
-                    . PMA_generate_common_url($_url_params) . '">' . $caption2
+                    . PMA_URL_getCommon($_url_params) . '">' . $caption2
                     . '</a>';
             }
 
             $list_navigator_html .= '<form action="' . basename($script).
                 '" method="post">';
 
-            $list_navigator_html .= PMA_generate_common_hidden_inputs($_url_params);
+            $list_navigator_html .= PMA_URL_getHiddenInputs($_url_params);
             $list_navigator_html .= self::pageselector(
                 $name,
                 $max_count,
@@ -2596,7 +2536,7 @@ class PMA_Util
 
                 $_url_params[$name] = $pos + $max_count;
                 $list_navigator_html .= '<a' . $class . $title3 . ' href="' . $script
-                    . PMA_generate_common_url($_url_params) . '" >' . $caption3
+                    . PMA_URL_getCommon($_url_params) . '" >' . $caption3
                     . '</a>';
 
                 $_url_params[$name] = floor($count / $max_count) * $max_count;
@@ -2605,7 +2545,7 @@ class PMA_Util
                 }
 
                 $list_navigator_html .= '<a' . $class . $title4 . ' href="' . $script
-                    . PMA_generate_common_url($_url_params) . '" >' . $caption4
+                    . PMA_URL_getCommon($_url_params) . '" >' . $caption4
                     . '</a>';
             }
             $list_navigator_html .= '</div>' . "\n";
@@ -2656,7 +2596,7 @@ class PMA_Util
         }
 
         return '<a href="' . $GLOBALS['cfg']['DefaultTabDatabase'] . '?'
-            . PMA_generate_common_url($database) . '" title="'
+            . PMA_URL_getCommon($database) . '" title="'
             . sprintf(
                 __('Jump to database &quot;%s&quot;.'),
                 htmlspecialchars($database)
@@ -4116,12 +4056,12 @@ class PMA_Util
         $minimum_first_occurence_index = null;
         $regex = null;
 
-        for ($i = 0; $i < count($regex_array); $i++) {
-            if (preg_match($regex_array[$i], $query, $matches, PREG_OFFSET_CAPTURE)) {
+        foreach ($regex_array as $test_regex) {
+            if (preg_match($test_regex, $query, $matches, PREG_OFFSET_CAPTURE)) {
                 if (is_null($minimum_first_occurence_index)
                     || ($matches[0][1] < $minimum_first_occurence_index)
                 ) {
-                    $regex = $regex_array[$i];
+                    $regex = $test_regex;
                     $minimum_first_occurence_index = $matches[0][1];
                 }
             }

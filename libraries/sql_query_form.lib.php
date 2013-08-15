@@ -42,6 +42,7 @@ require_once './libraries/bookmark.lib.php'; // used for bookmarks
  */
 function PMA_sqlQueryForm($query = true, $display_tab = false, $delimiter = ';')
 {
+    $html = '';
     // check tab to display if inside querywindow
     if (! $display_tab) {
         $display_tab = 'full';
@@ -92,7 +93,7 @@ function PMA_sqlQueryForm($query = true, $display_tab = false, $delimiter = ';')
               return checkSqlQuery(this)">
         <?php
     } else {
-        $html = '<form method="post" action="import.php" ' . $enctype;
+        $html .= '<form method="post" action="import.php" ' . $enctype;
         $html .= ' class="ajax"';
         $html .= ' id="sqlqueryform" name="sqlform">' . "\n";
     }
@@ -108,7 +109,7 @@ function PMA_sqlQueryForm($query = true, $display_tab = false, $delimiter = ';')
         }
     }
     $html .= '<input type="hidden" name="is_js_confirmed" value="0" />'
-        . "\n" . PMA_generate_common_hidden_inputs($db, $table) . "\n"
+        . "\n" . PMA_URL_getHiddenInputs($db, $table) . "\n"
         .'<input type="hidden" name="pos" value="0" />' . "\n"
         .'<input type="hidden" name="goto" value="'
         .htmlspecialchars($goto) . '" />' . "\n"
@@ -197,7 +198,7 @@ function PMA_sqlQueryFormInsert(
         $db     = $GLOBALS['db'];
         // if you want navigation:
         $tmp_db_link = '<a href="' . $GLOBALS['cfg']['DefaultTabDatabase']
-            . '?' . PMA_generate_common_url($db) . '"';
+            . '?' . PMA_URL_getCommon($db) . '"';
         if ($is_querywindow) {
             $tmp_db_link .= ' target="_self"'
                 . ' onclick="this.target=window.opener.frame_content.name"';
@@ -221,7 +222,7 @@ function PMA_sqlQueryFormInsert(
         $fields_list = $GLOBALS['dbi']->getColumns($db, $GLOBALS['table'], null, true);
 
         $tmp_db_link = '<a href="' . $GLOBALS['cfg']['DefaultTabDatabase']
-            . '?' . PMA_generate_common_url($db) . '"';
+            . '?' . PMA_URL_getCommon($db) . '"';
         if ($is_querywindow) {
             $tmp_db_link .= ' target="_self"'
                 . ' onclick="this.target=window.opener.frame_content.name"';
@@ -237,7 +238,7 @@ function PMA_sqlQueryFormInsert(
             );
         }
     }
-    $legend .= ': ' . PMA_Util::showMySQLDocu('SQL-Syntax', 'SELECT');
+    $legend .= ': ' . PMA_Util::showMySQLDocu('SELECT');
 
     if (count($fields_list)) {
         $sqlquerycontainer_id = 'sqlquerycontainer';

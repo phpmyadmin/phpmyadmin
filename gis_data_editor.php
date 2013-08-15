@@ -122,7 +122,7 @@ if (isset($_REQUEST['input_name'])) {
     echo '<input type="hidden" name="input_name" value="'
         . htmlspecialchars($_REQUEST['input_name']) . '" />';
 }
-echo PMA_generate_common_hidden_inputs();
+echo PMA_URL_getHiddenInputs();
 
 echo '<!-- Visualization section -->';
 echo '<div id="placeholder" style="width:450px;height:300px;'

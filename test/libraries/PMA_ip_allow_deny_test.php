@@ -15,8 +15,20 @@ require_once 'libraries/database_interface.inc.php';
 require_once 'libraries/Tracker.class.php';
 require_once 'libraries/ip_allow_deny.lib.php';
 
-class PMA_Ip_allow_deny_Test extends PHPUnit_Framework_TestCase
+/**
+ * PMA_Ip_Allow_Deny_Test class
+ *
+ * this class is for testing ip_allow_deny.lib.php
+ *
+ * @package PhpMyAdmin-test
+ */
+class PMA_Ip_Allow_Deny_Test extends PHPUnit_Framework_TestCase
 {
+    /**
+     * Prepares environment for the test.
+     *
+     * @return void
+     */
     public function setUp()
     {
         $GLOBALS['cfg']['Server']['user'] = "pma_username";
@@ -48,7 +60,18 @@ class PMA_Ip_allow_deny_Test extends PHPUnit_Framework_TestCase
             "101.0.0.25",
             PMA_getIp()
         );
-
+        
+        //proxy
+        $var_name = "direct_ip";
+        $direct_ip = $_SERVER['REMOTE_ADDR'];
+        $GLOBALS['cfg']['TrustedProxies'][$direct_ip] = $var_name; 
+        $_SERVER[$var_name] = "192.168.0.1";
+        $this->assertEquals(
+            "192.168.0.1",
+            PMA_getIp()
+        );
+        unset($_SERVER[$var_name]);
+        unset($GLOBALS['cfg']['TrustedProxies'][$direct_ip]);
     }
 
     /**

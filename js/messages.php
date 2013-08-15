@@ -18,13 +18,18 @@ header('Expires: ' . gmdate('D, d M Y H:i:s', time() + 3600) . ' GMT');
 // Avoid loading the full common.inc.php because this would add many
 // non-js-compatible stuff like DOCTYPE
 define('PMA_MINIMUM_COMMON', true);
+define('PMA_PATH_TO_BASEDIR', '../');
 require_once './libraries/common.inc.php';
 // Close session early as we won't write anything there
 session_write_close();
 // But this one is needed for PMA_escapeJsString()
 require_once './libraries/js_escape.lib.php';
+require_once './libraries/Util.class.php';
 
-$js_messages['strNoDropDatabases'] = $cfg['AllowUserDropDatabase'] ? '' : __('"DROP DATABASE" statements are disabled.');
+$js_messages['strNoDropDatabases'] = __('"DROP DATABASE" statements are disabled.');
+if ($cfg['AllowUserDropDatabase']) {
+    $js_messages['strNoDropDatabases'] = '';
+}
 
 /* For confirmations */
 $js_messages['strConfirm'] = __('Confirm');
@@ -212,7 +217,7 @@ $js_messages['strGo'] = __('Go');
 $js_messages['strCancel'] = __('Cancel');
 
 /* For Ajax Notifications */
-$js_messages['strLoading'] = __('Loading');
+$js_messages['strLoading'] = __('Loading…');
 $js_messages['strProcessingRequest'] = __('Processing Request');
 $js_messages['strErrorProcessingRequest'] = __('Error in Processing Request');
 $js_messages['strErrorCode'] = __('Error code: %s');
@@ -296,7 +301,9 @@ $js_messages['strDisplayHelp'] = '<ul><li>'
     . __('The plot can be resized by dragging it along the bottom right corner.')
     . '</li></ul>';
 $js_messages['strInputNull'] = '<strong>' . __('Select two columns') . '</strong>';
-$js_messages['strSameInputs'] = '<strong>' . __('Select two different columns') . '</strong>';
+$js_messages['strSameInputs'] = '<strong>'
+    . __('Select two different columns')
+    . '</strong>';
 $js_messages['strQueryResults'] = __('Query results');
 $js_messages['strDataPointContent'] = __('Data point content');
 
@@ -394,6 +401,8 @@ echo "var pmaThemeImage = '" . $GLOBALS['pmaThemeImage'] . "';\n";
 
 /* Version */
 echo "var pmaversion = '" . PMA_VERSION . "';\n";
+
+echo "var mysql_doc_template = '" . PMA_Util::getMySQLDocuURL('%s') . "';\n";
 
 echo "if ($.datepicker) {\n";
 /* l10n: Display text for calendar close link */
@@ -513,7 +522,10 @@ PMA_printJsValue("$.datepicker.regional['']['weekHeader']", __('Wk'));
 PMA_printJsValue("$.datepicker.regional['']['showMonthAfterYear']", (__('calendar-month-year') == 'calendar-year-month'));
 /* l10n: Year suffix for calendar, "none" is empty. */
 $year_suffix = _pgettext('Year suffix', 'none');
-PMA_printJsValue("$.datepicker.regional['']['yearSuffix']", ($year_suffix == 'none' ? '' : $year_suffix));
+PMA_printJsValue(
+    "$.datepicker.regional['']['yearSuffix']",
+    ($year_suffix == 'none' ? '' : $year_suffix)
+);
 ?>
 $.extend($.datepicker._defaults, $.datepicker.regional['']);
 } /* if ($.datepicker) */

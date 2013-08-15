@@ -22,7 +22,7 @@ if (!($values instanceof stdClass)) {
     PMA_fatalError(__('Wrong data'));
 }
 $values = (array)$values;
-$result = PMA_Validator::config_validate($vids, $values, true);
+$result = PMA_Validator::validate($vids, $values, true);
 if ($result === false) {
     $result = 'Wrong data or no validation for ' . $vids;
 }

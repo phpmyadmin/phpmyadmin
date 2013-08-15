@@ -55,7 +55,7 @@ if (! isset($goto)) {
     $goto = $GLOBALS['cfg']['DefaultTabTable'];
 }
 // Defines the url to return to in case of error in the next sql statement
-$err_url   = $goto . '?' . PMA_generate_common_url($db, $table);
+$err_url   = $goto . '?' . PMA_URL_getCommon($db, $table);
 // Displays the find and replace form
 $htmlOutput .= $table_search->getSelectionForm($goto);
 $response->addHTML($htmlOutput);

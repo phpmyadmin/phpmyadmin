@@ -74,9 +74,9 @@ class PMA_Footer
             include './revision-info.php';
             $message .= sprintf(
                 __('Currently running Git revision %1$s from the %2$s branch.'),
-                '<a target="_top" href="' . $repobase . $fullrevision . '">'
+                '<a target="_blank" href="' . $repobase . $fullrevision . '">'
                 . $revision .'</a>',
-                '<a target="_top" href="' . $repobranchbase . $branch . '">'
+                '<a target="_blank" href="' . $repobranchbase . $branch . '">'
                 . $branch . '</a>'
             );
         } else {
@@ -128,7 +128,7 @@ class PMA_Footer
     /**
      * Returns the url of the current page
      *
-     * @param mixed $encoding See PMA_generate_common_url()
+     * @param mixed $encoding See PMA_URL_getCommon()
      *
      * @return string
      */
@@ -137,7 +137,7 @@ class PMA_Footer
         $db = ! empty($GLOBALS['db']) ? $GLOBALS['db'] : '';
         $table = ! empty($GLOBALS['table']) ? $GLOBALS['table'] : '';
         $target = ! empty($_REQUEST['target']) ? $_REQUEST['target'] : '';
-        return basename(PMA_getenv('SCRIPT_NAME')) . PMA_generate_common_url(
+        return basename(PMA_getenv('SCRIPT_NAME')) . PMA_URL_getCommon(
             array(
                 'db' => $db,
                 'table' => $table,

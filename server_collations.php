@@ -1,6 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
+ * Server collations page
  *
  * @package PhpMyAdmin
  */
@@ -27,14 +28,12 @@ $response = PMA_Response::getInstance();
 $response->addHTML(PMA_getHtmlForSubPageHeader('collations'));
 $response->addHTML(
     PMA_getHtmlForCharsets(
-        $mysql_charsets, 
+        $mysql_charsets,
         $mysql_collations,
-        $mysql_charsets_descriptions, 
-        $mysql_default_collations, 
+        $mysql_charsets_descriptions,
+        $mysql_default_collations,
         $mysql_collations_available
     )
 );
-
-exit;
 
 ?>

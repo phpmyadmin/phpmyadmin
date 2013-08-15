@@ -1,6 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
+ * Database structure manipulation
  *
  * @package PhpMyAdmin
  */
@@ -27,7 +28,7 @@ if ((!empty($_POST['submit_mult']) && isset($_POST['selected_tbl']))
     || isset($_POST['mult_btn'])
 ) {
     $action = 'db_structure.php';
-    $err_url = 'db_structure.php?'. PMA_generate_common_url($db);
+    $err_url = 'db_structure.php?'. PMA_URL_getCommon($db);
 
     // see bug #2794840; in this case, code path is:
     // db_structure.php -> libraries/mult_submits.inc.php -> sql.php
@@ -40,12 +41,12 @@ if ((!empty($_POST['submit_mult']) && isset($_POST['selected_tbl']))
         $_POST['message'] = PMA_Message::success();
     }
 }
-include 'libraries/db_common.inc.php';
+require 'libraries/db_common.inc.php';
 $url_query .= '&amp;goto=db_structure.php';
 
 // Gets the database structure
 $sub_part = '_structure';
-include 'libraries/db_info.inc.php';
+require 'libraries/db_info.inc.php';
 
 if (!PMA_DRIZZLE) {
     include_once 'libraries/replication.inc.php';
@@ -110,7 +111,7 @@ $response->addHTML(
     . 'name="tablesForm" id="tablesForm">'
 );
 
-$response->addHTML(PMA_generate_common_hidden_inputs($db));
+$response->addHTML(PMA_URL_getHiddenInputs($db));
 
 $response->addHTML(
     PMA_tableHeader($db_is_information_schema, $server_slave_status)

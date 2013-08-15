@@ -331,7 +331,7 @@ if ($GLOBALS['PMA_Config']->get('ForceSSL')
     // grab SSL URL
     $url = $GLOBALS['PMA_Config']->getSSLUri();
     // Actually redirect
-    PMA_sendHeaderLocation($url . PMA_generate_common_url($_GET, 'text'));
+    PMA_sendHeaderLocation($url . PMA_URL_getCommon($_GET, 'text'));
     // delete the current session, otherwise we get problems (see bug #2397877)
     $GLOBALS['PMA_Config']->removeCookie($GLOBALS['session_name']);
     exit;

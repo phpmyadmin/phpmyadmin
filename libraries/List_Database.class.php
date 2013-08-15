@@ -123,7 +123,9 @@ class PMA_List_Database extends PMA_List
             $command = $this->command;
         }
 
-        $database_list = $GLOBALS['dbi']->fetchResult($command, null, null, $this->db_link);
+        $database_list = $GLOBALS['dbi']->fetchResult(
+            $command, null, null, $this->db_link
+        );
         $GLOBALS['dbi']->getError();
 
         if ($GLOBALS['errno'] !== 0) {
@@ -137,9 +139,9 @@ class PMA_List_Database extends PMA_List
             $GLOBALS['dbi']->getError();
 
             if ($GLOBALS['errno'] !== 0) {
-                // failed! we will display a warning that phpMyAdmin could not safely
-                // retrieve database list, the admin has to setup a control user or
-                // allow SHOW DATABASES
+                // failed! we will display a warning that phpMyAdmin could not
+                // safely retrieve database list, the admin has to setup a control
+                // user or allow SHOW DATABASES
                 $GLOBALS['error_showdatabases'] = true;
                 $this->show_databases_disabled = true;
             }
@@ -244,7 +246,9 @@ class PMA_List_Database extends PMA_List
             SELECT DISTINCT `Db` FROM `mysql`.`db`
             WHERE `Select_priv` = 'Y'
             AND `User`
-            IN ('" . PMA_Util::sqlAddSlashes($GLOBALS['cfg']['Server']['user']) . "', '')";
+            IN ('"
+            . PMA_Util::sqlAddSlashes($GLOBALS['cfg']['Server']['user'])
+            . "', '')";
         $tmp_mydbs = $GLOBALS['dbi']->fetchResult(
             $local_query, null, null, $GLOBALS['controllink']
         );
@@ -260,7 +264,9 @@ class PMA_List_Database extends PMA_List
             // populating $dblist[], as previous code did. But it is
             // now populated with actual database names instead of
             // with regular expressions.
-            $tmp_alldbs = $GLOBALS['dbi']->query('SHOW DATABASES;', $GLOBALS['controllink']);
+            $tmp_alldbs = $GLOBALS['dbi']->query(
+                'SHOW DATABASES;', $GLOBALS['controllink']
+            );
             // all databases cases - part 2
             if (isset($tmp_mydbs['%'])) {
                 while ($tmp_row = $GLOBALS['dbi']->fetchRow($tmp_alldbs)) {
@@ -287,9 +293,8 @@ class PMA_List_Database extends PMA_List
                                     $tmp_matchpattern
                                 )
                             );
-                            // Fixed db name matching
-                            // 2000-08-28 -- Benjamin Gandon
-                            if (preg_match('/^' . addcslashes($tmp_regex, '/') . '$/', $tmp_db)) {
+                            $tmp_regex = '/^' . addcslashes($tmp_regex, '/') . '$/';
+                            if (preg_match($tmp_regex, $tmp_db)) {
                                 $dblist[] = $tmp_db;
                                 break;
                             }
@@ -305,8 +310,10 @@ class PMA_List_Database extends PMA_List
         $local_query = 'SELECT DISTINCT `Db` FROM `mysql`.`tables_priv`';
         $local_query .= ' WHERE `Table_priv` LIKE \'%Select%\'';
         $local_query .= ' AND `User` = \'';
-        $local_query .= PMA_Util::sqlAddSlashes($GLOBALS['cfg']['Server']['user']) . '\'';
-        $rs          = $GLOBALS['dbi']->tryQuery($local_query, $GLOBALS['controllink']);
+        $local_query .= PMA_Util::sqlAddSlashes(
+            $GLOBALS['cfg']['Server']['user']
+        ) . '\'';
+        $rs = $GLOBALS['dbi']->tryQuery($local_query, $GLOBALS['controllink']);
         if ($rs && @$GLOBALS['dbi']->numRows($rs)) {
             while ($row = $GLOBALS['dbi']->fetchAssoc($rs)) {
                 if (!in_array($row['Db'], $dblist)) {

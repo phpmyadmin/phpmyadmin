@@ -1,6 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
+ * PDF export for PMD
  *
  * @package PhpMyAdmin-Designer
  */
@@ -20,10 +21,7 @@ if (isset($_POST['scale']) && ! PMA_isValid($_POST['scale'], 'numeric')) {
   */
 $post_params = array(
     'db',
-    'mode',
-    'newpage',
-    'pdf_page_number',
-    'scale'
+    'mode'
 );
 
 foreach ($post_params as $one_post_param) {
@@ -35,12 +33,12 @@ foreach ($post_params as $one_post_param) {
 /**
  * If called directly from the designer, first save the positions
  */
-if (! isset($scale)) {
+if (! isset($_POST['scale'])) {
     include_once 'pmd_save_pos.php';
 }
 
 if (isset($mode)) {
-    if ('create_export' != $mode && empty($pdf_page_number)) {
+    if ('create_export' != $mode && empty($_POST['pdf_page_number'])) {
         die("<script>alert('Pages not found!');history.go(-2);</script>");
     }
 
@@ -48,16 +46,18 @@ if (isset($mode)) {
         . PMA_Util::backquote($GLOBALS['cfgRelation']['designer_coords']);
     $pma_table = PMA_Util::backquote($GLOBALS['cfgRelation']['db']) . '.'
         . PMA_Util::backquote($cfgRelation['table_coords']);
-    $scale_q = PMA_Util::sqlAddSlashes($scale);
+    $scale_q = PMA_Util::sqlAddSlashes($_POST['scale']);
 
     if ('create_export' == $mode) {
-        $pdf_page_number = PMA_REL_createPage($newpage, $cfgRelation, $db);
+        $pdf_page_number = PMA_REL_createPage($_POST['newpage'], $cfgRelation, $db);
         if ($pdf_page_number > 0) {
             $message = PMA_Message::success(__('Page has been created'));
             $mode = 'export';
         } else {
             $message = PMA_Message::error(__('Page creation failed'));
         }
+    } else {
+        $pdf_page_number = $_POST['pdf_page_number'];
     }
 
     $pdf_page_number_q = PMA_Util::sqlAddSlashes($pdf_page_number);
@@ -103,7 +103,7 @@ if (! empty($message)) {
 ?>
   <form name="form1" method="post" action="pmd_pdf.php">
 <?php
-echo PMA_generate_common_hidden_inputs($db);
+echo PMA_URL_getHiddenInputs($db);
 echo '<div>';
 echo '<fieldset><legend>' . __('Import/Export coordinates for PDF schema') . '</legend>';
 
@@ -149,7 +149,9 @@ echo '<p>' . __('Export/Import to scale:');
       <select name="scale">
         <option value="1">1:1</option>
         <option value="2">1:2</option>
-        <option value="3" selected="selected">1:3 (<?php echo __('recommended'); ?>)</option>
+        <option value="3" selected="selected">
+            1:3 (<?php echo __('recommended'); ?>)
+        </option>
         <option value="4">1:4</option>
         <option value="5">1:5</option>
       </select>

@@ -593,7 +593,9 @@ class PMA_Table
                 // Make an exception for views in I_S and D_D schema in
                 // Drizzle, as these map to in-memory data and should execute
                 // fast enough
-                if (! $is_view || (PMA_DRIZZLE && $GLOBALS['dbi']->isSystemSchema($db))) {
+                if (! $is_view
+                    || (PMA_DRIZZLE && $GLOBALS['dbi']->isSystemSchema($db))
+                ) {
                     $row_count = $GLOBALS['dbi']->fetchValue(
                         'SELECT COUNT(*) FROM ' . PMA_Util::backquote($db) . '.'
                         . PMA_Util::backquote($table)

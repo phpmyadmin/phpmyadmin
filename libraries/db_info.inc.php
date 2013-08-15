@@ -82,7 +82,7 @@ if (true === $cfg['SkipLockedTables']) {
 
         if (isset($sot_cache)) {
             $db_info_result = $GLOBALS['dbi']->query(
-                'SHOW TABLES FROM ' . PMA_Util::backquote($db) . $tbl_group_sql . ';',
+                'SHOW TABLES FROM ' . PMA_Util::backquote($db) . $tbl_group_sql,
                 null, PMA_DatabaseInterface::QUERY_STORE
             );
             if ($db_info_result && $GLOBALS['dbi']->numRows($db_info_result) > 0) {
@@ -90,7 +90,8 @@ if (true === $cfg['SkipLockedTables']) {
                     if (! isset($sot_cache[$tmp[0]])) {
                         $sts_result  = $GLOBALS['dbi']->query(
                             'SHOW TABLE STATUS FROM ' . PMA_Util::backquote($db)
-                            . ' LIKE \'' . PMA_Util::sqlAddSlashes($tmp[0], true) . '\';'
+                            . ' LIKE \'' . PMA_Util::sqlAddSlashes($tmp[0], true)
+                            . '\';'
                         );
                         $sts_tmp     = $GLOBALS['dbi']->fetchAssoc($sts_result);
                         $GLOBALS['dbi']->freeResult($sts_result);

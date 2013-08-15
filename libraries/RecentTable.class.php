@@ -1,6 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
+ * Recent table list handling
  *
  * @package PhpMyAdmin
  */
@@ -44,6 +45,11 @@ class PMA_RecentTable
      */
     private static $_instance;
 
+    /**
+     * Creates a new instance of PMA_RecentTable
+     *
+     * @return New PMA_RecentTable
+     */
     public function __construct()
     {
         if (strlen($GLOBALS['cfg']['Server']['pmadb'])
@@ -118,7 +124,9 @@ class PMA_RecentTable
             $message = PMA_Message::error(__('Could not save recent table'));
             $message->addMessage('<br /><br />');
             $message->addMessage(
-                PMA_Message::rawError($GLOBALS['dbi']->getError($GLOBALS['controllink']))
+                PMA_Message::rawError(
+                    $GLOBALS['dbi']->getError($GLOBALS['controllink'])
+                )
             );
             return $message;
         }

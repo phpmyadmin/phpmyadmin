@@ -107,11 +107,11 @@ function PMA_getHtmlForHiddenInput(
     global $cfg;
     $html = "";
     if ($export_type == 'server') {
-        $html .= PMA_generate_common_hidden_inputs('', '', 1);
+        $html .= PMA_URL_getHiddenInputs('', '', 1);
     } elseif ($export_type == 'database') {
-        $html .= PMA_generate_common_hidden_inputs($db, '', 1);
+        $html .= PMA_URL_getHiddenInputs($db, '', 1);
     } else {
-        $html .= PMA_generate_common_hidden_inputs($db, $table, 1);
+        $html .= PMA_URL_getHiddenInputs($db, $table, 1);
     }
     
     // just to keep this value for possible next display of this form after saving

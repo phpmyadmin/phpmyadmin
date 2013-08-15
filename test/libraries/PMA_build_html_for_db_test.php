@@ -35,8 +35,6 @@ class PMA_BuildHtmlForDb_Test extends PHPUnit_Framework_TestCase
         $cfg['ShowFunctionFields'] = false;
         $GLOBALS['server'] = 0;
         $cfg['ServerDefault'] = 1;
-        $cfg['MySQLManualType'] = 'viewable';
-        $cfg['MySQLManualBase'] = 'http://dev.mysql.com/doc/refman';
 
         $GLOBALS['PMA_Types'] = new PMA_Types_MySQL();
         $_SESSION['PMA_Theme'] = new PMA_Theme();

@@ -144,7 +144,7 @@ class PMA_Navigation
     {
         $html  = '<form method="post" action="navigation.php" class="ajax">';
         $html .= '<fieldset>';
-        $html .= PMA_generate_common_hidden_inputs($dbName, $tableName);
+        $html .= PMA_URL_getHiddenInputs($dbName, $tableName);
 
         $navTable = PMA_Util::backquote($GLOBALS['cfgRelation']['db'])
             . "." . PMA_Util::backquote($GLOBALS['cfgRelation']['navigationhiding']);
@@ -189,7 +189,7 @@ class PMA_Navigation
                         $html .= '<tr class="' . ($odd ? 'odd' : 'even') . '">';
                         $html .= '<td>' . htmlspecialchars($hiddenItem) . '</td>';
                         $html .= '<td style="width:80px"><a href="navigation.php?'
-                            . PMA_generate_common_url()
+                            . PMA_URL_getCommon()
                             . '&unhideNavItem=true'
                             . '&itemType=' . $t
                             . '&itemName=' . urldecode($hiddenItem)

@@ -51,7 +51,7 @@ if (empty($GLOBALS['goto'])) {
 
 
 $_url_params = PMA_getUrlParameters($db, $table);
-$err_url = $GLOBALS['goto'] . PMA_generate_common_url($_url_params);
+$err_url = $GLOBALS['goto'] . PMA_URL_getCommon($_url_params);
 unset($_url_params);
 
 $comments_map = PMA_getCommentsMap($db, $table);
@@ -141,7 +141,7 @@ if ($is_upload) {
     $html_output .= ' enctype="multipart/form-data"';
 }
 $html_output .= '>';
-$html_output .= PMA_generate_common_hidden_inputs($_form_params);
+$html_output .= PMA_URL_getHiddenInputs($_form_params);
 
 $titles['Browse'] = PMA_Util::getIcon('b_browse.png', __('Browse foreign values'));
 

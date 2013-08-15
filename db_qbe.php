@@ -28,9 +28,9 @@ if (isset($_REQUEST['submit_sql']) && ! empty($sql_query)) {
         $message_to_display = true;
     } else {
         $goto      = 'db_sql.php';
-        
+
         // Parse and analyze the query
-        require_once 'libraries/parse_analyze.inc.php';
+        include_once 'libraries/parse_analyze.inc.php';
 
         PMA_executeQueryAndSendQueryResponse(
             $analyzed_sql_results, false, $_REQUEST['db'], null, null, null, null,
@@ -58,7 +58,7 @@ $db_qbe = new PMA_DBQbe($GLOBALS['db']);
  * Displays the Query by example form
  */
 if ($cfgRelation['designerwork']) {
-    $url = 'pmd_general.php' . PMA_generate_common_url(
+    $url = 'pmd_general.php' . PMA_URL_getCommon(
         array_merge(
             $url_params,
             array('query' => 1)

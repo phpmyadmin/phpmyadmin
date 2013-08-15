@@ -20,7 +20,7 @@ PMA_Util::checkParameters(array('db'));
 /**
  * Defines the url to return to in case of error in a sql statement
  */
-$err_url = 'db_sql.php?' . PMA_generate_common_url($db);
+$err_url = 'db_sql.php?' . PMA_URL_getCommon($db);
 
 /**
  * Settings for relations stuff

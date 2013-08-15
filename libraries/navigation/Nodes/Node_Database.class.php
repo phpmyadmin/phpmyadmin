@@ -504,7 +504,7 @@ class Node_Database extends Node
             if ($count > 0) {
                 $ret = '<span class="dbItemControls">'
                     . '<a href="navigation.php?'
-                    . PMA_generate_common_url()
+                    . PMA_URL_getCommon()
                     . '&showUnhideDialog=true'
                     . '&dbName=' . urldecode($db) . '"'
                     . ' class="showUnhide ajax">'

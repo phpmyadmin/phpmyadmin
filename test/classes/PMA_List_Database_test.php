@@ -13,8 +13,18 @@ require_once 'libraries/Util.class.php';
 require_once 'libraries/List_Database.class.php';
 require_once 'libraries/relation.lib.php';
 
+/**
+ * tests for PMA_List_Database class
+ *
+ * @package PhpMyAdmin-test
+ */
 class PMA_List_Database_Test extends PHPUnit_Framework_TestCase
 {
+    /**
+     * SetUp for test cases
+     * 
+     * @return void
+     */
     public function setup()
     {
         $GLOBALS['cfg']['Server']['only_db'] = array('single\\_db');
@@ -37,28 +47,51 @@ class PMA_List_Database_Test extends PHPUnit_Framework_TestCase
         return $method->invokeArgs($this->object, $params);
     }
 
+    /**
+     * Test for PMA_List_Database::getEmpty
+     * 
+     * @return void
+     */
     public function testEmpty()
     {
         $arr = new PMA_List_Database;
         $this->assertEquals('', $arr->getEmpty());
     }
 
+    /**
+     * Test for PMA_List_Database::getSingleItem
+     * 
+     * @return void
+     */
     public function testSingle()
     {
         $arr = new PMA_List_Database;
         $this->assertEquals('single_db', $arr->getSingleItem());
     }
 
+    /**
+     * Test for PMA_List_Database::exists
+     * 
+     * @return void
+     */
     public function testExists()
     {
         $arr = new PMA_List_Database;
         $this->assertEquals(true, $arr->exists('single_db'));
     }
 
+    /**
+     * Test for PMA_List_Database::getHtmlOptions
+     * 
+     * @return void
+     */
     public function testHtmlOptions()
     {
         $arr = new PMA_List_Database;
-        $this->assertEquals('<option value="single_db">single_db</option>' . "\n", $arr->getHtmlOptions());
+        $this->assertEquals(
+            '<option value="single_db">single_db</option>' . "\n",
+            $arr->getHtmlOptions()
+        );
     }
 
     /**

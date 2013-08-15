@@ -42,9 +42,7 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
 /**
  * Displays the sub-page heading
  */
-$doc_link = PMA_Util::showMySQLDocu(
-    'server_system_variables', 'server_system_variables'
-);
+$doc_link = PMA_Util::showMySQLDocu('server_system_variables');
 $response->addHtml(PMA_getHtmlForSubPageHeader('variables', $doc_link));
 
 /**

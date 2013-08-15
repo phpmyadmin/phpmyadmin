@@ -25,9 +25,9 @@ class PMA_NavigationHeader
     public function getDisplay()
     {
         if (empty($GLOBALS['url_query'])) {
-            $GLOBALS['url_query'] = PMA_generate_common_url();
+            $GLOBALS['url_query'] = PMA_URL_getCommon();
         }
-        $link_url = PMA_generate_common_url(
+        $link_url = PMA_URL_getCommon(
             array(
                 'ajax_request' => true
             )
@@ -51,7 +51,7 @@ class PMA_NavigationHeader
         $buffer .= $this->_recent();
         $buffer .= PMA_Util::getImage(
             'ajax_clock_small.gif',
-            __('Loading'),
+            __('Loading…'),
             array('style' => 'visibility: hidden;', 'class' => 'throbber')
         );
         $buffer .= '<div id="pma_navigation_tree"' . $class . '>';
@@ -172,13 +172,13 @@ class PMA_NavigationHeader
     private function _links()
     {
         // always iconic
-        $showIcon = true; 
-        $showText = false; 
+        $showIcon = true;
+        $showText = false;
 
         $retval  = '<!-- LINKS START -->';
         $retval .= '<div id="leftframelinks">';
         $retval .= $this->_getLink(
-            'index.php?' . PMA_generate_common_url(),
+            'index.php?' . PMA_URL_getCommon(),
             $showText,
             __('Home'),
             $showIcon,
@@ -201,7 +201,7 @@ class PMA_NavigationHeader
                 );
             }
             $link  = 'querywindow.php?';
-            $link .= PMA_generate_common_url($GLOBALS['db'], $GLOBALS['table']);
+            $link .= PMA_URL_getCommon($GLOBALS['db'], $GLOBALS['table']);
             $link .= '&amp;no_js=true';
             $retval .= $this->_getLink(
                 $link,
@@ -224,7 +224,7 @@ class PMA_NavigationHeader
             'documentation'
         );
         if ($showIcon) {
-            $retval .= PMA_Util::showMySQLDocu('', '', true);
+            $retval .= PMA_Util::showMySQLDocu('', true);
         }
         if ($showText) {
             // PMA_showMySQLDocu always spits out an icon,
@@ -232,7 +232,7 @@ class PMA_NavigationHeader
             $link = preg_replace(
                 '/<img[^>]+>/i',
                 __('Documentation'),
-                PMA_Util::showMySQLDocu('', '', true)
+                PMA_Util::showMySQLDocu('', true)
             );
             $retval .= $link;
             $retval .= '<br />';
@@ -285,7 +285,7 @@ class PMA_NavigationHeader
             $retval .= '<div id="recentTableList">';
             $retval .= '<form method="post" ';
             $retval .= 'action="' . $GLOBALS['cfg']['DefaultTabTable'] . '">';
-            $retval .= PMA_generate_common_hidden_inputs(
+            $retval .= PMA_URL_getHiddenInputs(
                 array(
                     'db' => '',
                     'table' => '',

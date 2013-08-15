@@ -10,6 +10,7 @@ if (! defined('PHPMYADMIN')) {
 }
 
 /**
+ * Index manipulation class
  *
  * @package PhpMyAdmin
  * @since   phpMyAdmin 3.0.0
@@ -534,9 +535,7 @@ class PMA_Index
         if (! $print_mode) {
             $r  = '<fieldset class="index_info">';
             $r .= '<legend id="index_header">' . __('Indexes');
-            $r .= PMA_Util::showMySQLDocu(
-                'optimization', 'optimizing-database-structure'
-            );
+            $r .= PMA_Util::showMySQLDocu('optimizing-database-structure');
 
             $r .= '</legend>';
             $r .= $no_indexes;
@@ -587,7 +586,7 @@ class PMA_Index
                 $r .= '" ' . $row_span . '>'
                    . '    <a class="';
                 $r .= 'ajax';
-                $r .= '" href="tbl_indexes.php' . PMA_generate_common_url($this_params)
+                $r .= '" href="tbl_indexes.php' . PMA_URL_getCommon($this_params)
                    . '">' . PMA_Util::getIcon('b_edit.png', __('Edit')) . '</a>'
                    . '</td>' . "\n";
                 $this_params = $GLOBALS['url_params'];
@@ -620,7 +619,7 @@ class PMA_Index
                     . ' value="' . $js_msg . '" />';
                 $r .= '    <a class="drop_primary_key_index_anchor';
                 $r .= ' ajax';
-                $r .= '" href="sql.php' . PMA_generate_common_url($this_params)
+                $r .= '" href="sql.php' . PMA_URL_getCommon($this_params)
                    . '" >'
                    . PMA_Util::getIcon('b_drop.png', __('Drop'))  . '</a>'
                    . '</td>' . "\n";
@@ -749,6 +748,8 @@ class PMA_Index
 }
 
 /**
+ * Index column wrapper
+ *
  * @package PhpMyAdmin
  */
 class PMA_Index_Column

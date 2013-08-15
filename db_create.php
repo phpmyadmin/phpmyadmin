@@ -1,6 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
+ * Database creating page
  *
  * @package PhpMyAdmin
  */
@@ -19,7 +20,7 @@ require 'libraries/build_html_for_db.lib.php';
 /**
  * Defines the url to return to in case of error in a sql statement
  */
-$err_url = 'index.php?' . PMA_generate_common_url();
+$err_url = 'index.php?' . PMA_URL_getCommon();
 
 /**
  * Builds and executes the db creation sql query
@@ -30,7 +31,7 @@ if (! empty($_POST['db_collation'])) {
     if (in_array($db_charset, $mysql_charsets)
         && in_array($_POST['db_collation'], $mysql_collations[$db_charset])
     ) {
-        $sql_query .= ' DEFAULT' 
+        $sql_query .= ' DEFAULT'
             . PMA_generateCharsetQueryPart($_POST['db_collation']);
     }
     $db_collation_for_ajax = $_POST['db_collation'];
@@ -69,7 +70,7 @@ if (! $result) {
         // the list of databases on server_databases.php
 
         /**
-         * Build the array to be passed to {@link PMA_generate_common_url}
+         * Build the array to be passed to {@link PMA_URL_getCommon}
          * to generate the links
          *
          * @global array $GLOBALS['db_url_params']
@@ -79,7 +80,7 @@ if (! $result) {
 
         $is_superuser = $GLOBALS['dbi']->isSuperuser();
         $column_order = PMA_getColumnOrder();
-        $url_query = PMA_generate_common_url($_POST['new_db']);
+        $url_query = PMA_URL_getCommon($_POST['new_db']);
 
         /**
          * String that will contain the output HTML
@@ -106,7 +107,7 @@ if (! $result) {
             );
         } else {
             $current = array(
-                'SCHEMA_NAME' => $_POST['new_db'] 
+                'SCHEMA_NAME' => $_POST['new_db']
             );
         }
 
