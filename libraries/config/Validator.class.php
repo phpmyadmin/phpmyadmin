@@ -177,7 +177,7 @@ class PMA_Validator
             ini_set('html_errors', false);
             ini_set('track_errors', true);
             ini_set('display_errors', true);
-            set_error_handler("PMA_Validator", "nullErrorHandler");
+            set_error_handler(array("PMA_Validator", "nullErrorHandler"));
             ob_start();
         } else {
             ob_end_clean();
