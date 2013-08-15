@@ -1173,10 +1173,10 @@ Generic settings
 .. config:option:: $cfg['MemoryLimit']
 
     :type: string [number of bytes]
-    :default: ``'0'``
+    :default: ``'-1'``
 
     Set the number of bytes a script is allowed to allocate. If set to
-    zero, no limit is imposed.
+    ``'-1'``, no limit is imposed.
 
     This setting is used while importing/exporting dump files and at some other
     places in phpMyAdmin so you definitely don't want to put here a too low
