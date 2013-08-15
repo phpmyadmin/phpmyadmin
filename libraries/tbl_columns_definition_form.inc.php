@@ -106,7 +106,7 @@ for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
         $type        = '';
         $length = '';
     }
-    
+
     // some types, for example longtext, are reported as
     // "longtext character set latin7" when their charset and / or collation
     // differs from the ones of the corresponding database.
