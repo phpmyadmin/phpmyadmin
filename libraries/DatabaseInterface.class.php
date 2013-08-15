@@ -1525,6 +1525,15 @@ class PMA_DatabaseInterface
                     $link,
                     self::QUERY_STORE
                 );
+                /* Automatically adjust collation to mb4 variant */
+                if ($default_charset == 'utf8mb4'
+                    && strncmp('utf8_', $GLOBALS['collation_connection'], 5) == 0
+                ) {
+                    $GLOBALS['collation_connection'] = 'utf8mb4_' . substr(
+                        $GLOBALS['collation_connection'],
+                        5
+                    );
+                }
                 $set_collation_con_query = "SET collation_connection = '"
                     . PMA_Util::sqlAddSlashes($GLOBALS['collation_connection'])
                     . "';";
