@@ -11,6 +11,7 @@
  */
 require_once 'libraries/common.inc.php';
 
+// for libraries/tbl_columns_definition_form.inc.php
 $action = 'tbl_create.php';
 
 // Check parameters
