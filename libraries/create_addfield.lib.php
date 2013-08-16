@@ -42,7 +42,9 @@ function PMA_getIndexedColumns()
     } // end for
 
     return array(
-        $field_cnt, $field_primary, $field_index, $field_unique, $field_fulltext );
+        $field_cnt, $field_primary, $field_index, $field_unique,
+        $field_fulltext 
+    );
 }
 
 /**
@@ -110,8 +112,9 @@ function PMA_buildColumnCreationStatement(
  *
  * @return string $sql_suffix suffix
  */
-function PMA_setColumnCreationStatementSuffix($current_field_num ,$is_create_tbl = true)
-{
+function PMA_setColumnCreationStatementSuffix($current_field_num,
+    $is_create_tbl = true
+) {
     // no suffix is needed if request is a table creation
     $sql_suffix = " ";
     if (! $is_create_tbl) {
@@ -146,8 +149,9 @@ function PMA_setColumnCreationStatementSuffix($current_field_num ,$is_create_tbl
  *
  * @return array an array of sql statements for indexes
  */
-function PMA_buildIndexStatements($indexed_fields, $index_type,  $is_create_tbl = true)
-{
+function PMA_buildIndexStatements($indexed_fields, $index_type,
+    $is_create_tbl = true
+) {
     $statement = array();
     if (count($indexed_fields)) {
         $fields = array();
@@ -180,7 +184,8 @@ function PMA_getStatementPrefix($is_create_tbl = true)
 }
 
 /**
- * Returns sql statement according to the column and index specifications as requested
+ * Returns sql statement according to the column and index specifications as 
+ * requested
  *
  * @param boolean $is_create_tbl true if requirement is to get the statement
  *                               for table creation
@@ -194,7 +199,9 @@ function PMA_getColumnCreationStatements($is_create_tbl = true)
     list($field_cnt, $field_primary, $field_index,
             $field_unique, $field_fulltext
             ) = PMA_getIndexedColumns();
-    $definitions = PMA_buildColumnCreationStatement($field_cnt, $field_primary, $is_create_tbl);
+    $definitions = PMA_buildColumnCreationStatement(
+        $field_cnt, $field_primary, $is_create_tbl
+    );
 
     // Builds the primary keys statements
     $primary_key_statements = PMA_buildIndexStatements(

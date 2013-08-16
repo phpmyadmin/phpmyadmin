@@ -10,7 +10,7 @@
  * Get some core libraries
  */
 require_once 'libraries/common.inc.php';
-include_once 'libraries/create_addfield.lib.php';
+require_once 'libraries/create_addfield.lib.php';
 
 // for libraries/tbl_columns_definition_form.inc.php
 
