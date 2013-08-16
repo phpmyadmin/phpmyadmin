@@ -37,7 +37,6 @@ if ($GLOBALS['dbi']->getColumns($db, $table)) {
     );
 }
 
-$err_url = 'tbl_create.php?' . PMA_URL_getCommon($db, $table);
 
 // check number of fields to be created
 if (isset($_REQUEST['submit_num_fields'])) {
