@@ -20,8 +20,7 @@ if (isset($_POST['scale']) && ! PMA_isValid($_POST['scale'], 'numeric')) {
   * Sets globals from $_POST
   */
 $post_params = array(
-    'db',
-    'mode'
+    'db'
 );
 
 foreach ($post_params as $one_post_param) {
@@ -37,8 +36,8 @@ if (! isset($_POST['scale'])) {
     include_once 'pmd_save_pos.php';
 }
 
-if (isset($mode)) {
-    if ('create_export' != $mode && empty($_POST['pdf_page_number'])) {
+if (isset($_POST['mode'])) {
+    if ('create_export' != $_POST['mode'] && empty($_POST['pdf_page_number'])) {
         die("<script>alert('Pages not found!');history.go(-2);</script>");
     }
 
@@ -48,11 +47,11 @@ if (isset($mode)) {
         . PMA_Util::backquote($cfgRelation['table_coords']);
     $scale_q = PMA_Util::sqlAddSlashes($_POST['scale']);
 
-    if ('create_export' == $mode) {
+    if ('create_export' == $_POST['mode']) {
         $pdf_page_number = PMA_REL_createPage($_POST['newpage'], $cfgRelation, $db);
         if ($pdf_page_number > 0) {
             $message = PMA_Message::success(__('Page has been created'));
-            $mode = 'export';
+            $_POST['mode'] = 'export';
         } else {
             $message = PMA_Message::error(__('Page creation failed'));
         }
@@ -62,7 +61,7 @@ if (isset($mode)) {
 
     $pdf_page_number_q = PMA_Util::sqlAddSlashes($pdf_page_number);
 
-    if ('export' == $mode) {
+    if ('export' == $_POST['mode']) {
         $sql = "REPLACE INTO " . $pma_table
             . " (db_name, table_name, pdf_page_number, x, y)"
             . " SELECT db_name, table_name, " . $pdf_page_number_q . ","
@@ -73,7 +72,7 @@ if (isset($mode)) {
         PMA_queryAsControlUser($sql, true, PMA_DatabaseInterface::QUERY_STORE);
     }
 
-    if ('import' == $mode) {
+    if ('import' == $_POST['mode']) {
         PMA_queryAsControlUser(
             'UPDATE ' . $pma_table . ',' . $pmd_table .
             ' SET ' . $pmd_table . '.`x`= ' . $pma_table . '.`x` * '. $scale_q . ',
