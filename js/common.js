@@ -41,6 +41,22 @@ var PMA_commonParams = (function () {
                 if (params[i] !== undefined && params[i] !== obj[i]) {
                     reload = true;
                 }
+                // To expand the database in use and collapse the previous one
+                if(i == 'db' && obj[i] !== '') {
+                    var $expandElem, $icon;
+                    if(params['db'] !== '' && params['db'] !== obj[i]) {
+                        $expandElem = $('#pma_navigation_tree a.dbLink:contains("' + params['db'] + '")')
+                            .parent().find('a.expander').eq(0);
+                        $icon = $expandElem.find('img');
+                        if ($icon.is('.ic_b_minus'))
+                            PMA_expandNavigationTree($expandElem);
+                    }
+                    $expandElem = $('#pma_navigation_tree a.dbLink:contains("' + obj[i] + '")')
+                        .parent().find('a.expander').eq(0);
+                    $icon = $expandElem.find('img');
+                    if ($icon.is('.ic_b_plus'))
+                        PMA_expandNavigationTree($expandElem);
+                }
                 params[i] = obj[i];
             }
             if (reload) {
