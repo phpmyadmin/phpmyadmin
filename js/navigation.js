@@ -227,6 +227,29 @@ function PMA_expandNavigationTree($expandElem) {
     $expandElem.blur();
 }
 
+/*
+ * Auto-expands the newly chosen database
+ *
+ * @param  string   $oldDb 
+ * @param  string   $newDb
+ *
+ */
+function PMA_autoExpandDatabaseInUse($oldDb, $newDb) {
+    var $expandElem, $icon;
+    if($oldDb !== '' && $oldDb !== $newDb) {
+        $expandElem = $('#pma_navigation_tree a.dbLink:contains("' + $oldDb + '")')
+            .parent().find('a.expander').eq(0);
+        $icon = $expandElem.find('img');
+        if ($icon.is('.ic_b_minus'))
+            PMA_expandNavigationTree($expandElem);
+    }
+    $expandElem = $('#pma_navigation_tree a.dbLink:contains("' + $newDb + '")')
+        .parent().find('a.expander').eq(0);
+    $icon = $expandElem.find('img');
+    if ($icon.is('.ic_b_plus'))
+        PMA_expandNavigationTree($expandElem);
+}
+
 /**
  * Reloads the whole navigation tree while preserving its state
  *
