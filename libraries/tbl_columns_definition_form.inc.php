@@ -37,7 +37,6 @@ require_once './libraries/tbl_columns_definition_form.lib.php';
  * Initialize $html in case this variable was used by a caller
  * (yes, this script should be refactored into functions)
  */
-$html = '';
 
 $length_values_input_size = 8;
 
@@ -51,9 +50,6 @@ $is_backup = ($action != 'tbl_create.php' && $action != 'tbl_addfield.php');
 require_once './libraries/transformations.lib.php';
 $cfgRelation = PMA_getRelationsParam();
 
-$comments_map = array();
-$mime_map = array();
-$available_mime = array();
 
 $comments_map = PMA_getComments($db, $table);
 
@@ -102,16 +98,13 @@ for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
             $columnMeta['Default']
                 = PMA_Util::convertBitDefaultValue($columnMeta['Default']);
         }
-    }
-        
-    if (empty($columnMeta['Type'])) {
+        $type = $extracted_columnspec['type'];
+        $length = $extracted_columnspec['spec_in_brackets'];
+    } else {
         // creating a column
         $columnMeta['Type'] = '';
         $type        = '';
         $length = '';
-    } else {
-        $type = $extracted_columnspec['type'];
-        $length = $extracted_columnspec['spec_in_brackets'];
     }
 
     // some types, for example longtext, are reported as
@@ -121,34 +114,24 @@ for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
     if ($tmp) {
         $type = substr($type, 0, $tmp - 1);
     }
+    // rtrim the type, for cases like "float unsigned"
+    $type = rtrim($type);
 
+    
     if (isset($submit_length) && $submit_length != false) {
         $length = $submit_length;
     }
 
-    // rtrim the type, for cases like "float unsigned"
-    $type = rtrim($type);
-    $type_upper = strtoupper($type);
-
-
+    
     // old column attributes
     if ($is_backup) {
-        if (isset($columnMeta['Field'])) {
-            $_form_params['field_orig[' . $columnNumber . ']']
-                = $columnMeta['Field'];
-        } else {
-            $_form_params['field_orig[' . $columnNumber . ']'] = '';
-        }
-        // old column length
-        $_form_params['field_length_orig[' . $columnNumber . ']'] = $length;
-    
-        // old column default
-        $_form_params['field_default_orig[' . $columnNumber . ']']
-            = (isset($columnMeta['Default']) ? $columnMeta['Default'] : '');
+        $_form_params = PMA_getFormParamsForOldColumn(
+            $columnMeta, $length, $_form_params
+        );
     }
     
     $content_cells[$columnNumber] = PMA_getHtmlForColumnAttributes(
-        $columnNumber, isset($columnMeta) ? $columnMeta : null, $type_upper,
+        $columnNumber, isset($columnMeta) ? $columnMeta : null, strtoupper($type),
         $length_values_input_size, $length,
         isset($default_current_timestamp) ? $default_current_timestamp : null,
         isset($extracted_columnspec) ? $extracted_columnspec : null,
@@ -162,44 +145,7 @@ for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
     );
 } // end for
 
-/**
- * needs to be finished
- *
- *
-if ($display_type == 'horizontal') {
-    $new_field = '';
-    foreach ($empty_row as $content_row_val) {
-        $new_field .= '<td class="center">' . $content_row_val . '</td>';
-    }
-    ?>
-<script type="text/javascript">
-// <![CDATA[
-var odd_row = <?php echo $odd_row; ?>;
-
-function addField()
-{
-    var new_fields = document.getElementById('added_fields').value;
-    var new_field_container = document.getElementById('table_columns');
-    var new_field = '<?php echo preg_replace('|\s+|', ' ', preg_replace('|\'|', '\\\'', $new_field)); ?>';
-    var i = 0;
-    for (i = 0; i < new_fields; i++) {
-        if (odd_row) {
-            new_field_container.innerHTML += '<tr class="odd">' + new_field + '</tr>';
-        } else {
-            new_field_container.innerHTML += '<tr class="even">' + new_field + '</tr>';
-        }
-        odd_row = ! odd_row;
-    }
-
-    return true;
-}
-// ]]>
-</script>
-    <?php
-}
- */
-
-$html .= PMA_getHtmlForTableCreateOrAddField(
+$html = PMA_getHtmlForTableCreateOrAddField(
     $action, $_form_params, $content_cells, $header_cells
 );
 

@@ -1,11 +1,11 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * tests for ExportJson class
+ * tests for ExportYaml class
  *
  * @package PhpMyAdmin-test
  */
-require_once 'libraries/plugins/export/ExportJson.class.php';
+require_once 'libraries/plugins/export/ExportYaml.class.php';
 require_once 'libraries/Util.class.php';
 require_once 'libraries/Theme.class.php';
 require_once 'libraries/Config.class.php';
@@ -13,11 +13,11 @@ require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/config.default.php';
 require_once 'export.php';
 /**
- * tests for ExportJson class
+ * tests for ExportYaml class
  *
  * @package PhpMyAdmin-test
  */
-class PMA_ExportJson_Test extends PHPUnit_Framework_TestCase
+class PMA_ExportYaml_Test extends PHPUnit_Framework_TestCase
 {
     protected $object;
 
@@ -30,16 +30,17 @@ class PMA_ExportJson_Test extends PHPUnit_Framework_TestCase
     {
         $GLOBALS['server'] = 0;
         $GLOBALS['output_kanji_conversion'] = false;
-        $GLOBALS['output_charset_conversion'] = false;
         $GLOBALS['buffer_needed'] = false;
-        $GLOBALS['asfile'] = true;
+        $GLOBALS['asfile'] = false;
         $GLOBALS['save_on_server'] = false;
-        $this->object = new ExportJson();
+        $GLOBALS['crlf'] = "\n";
+        $GLOBALS['cfgRelation']['relation'] = true;
+        $this->object = new ExportYaml();
     }
 
     /**
      * tearDown for test cases
-     *
+     * 
      * @return void
      */
     public function tearDown()
@@ -48,17 +49,17 @@ class PMA_ExportJson_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for ExportJson::setProperties
-     *
+     * Test for ExportYaml::setProperties
+     * 
      * @return void
      */
     public function testSetProperties()
     {
-        $method = new ReflectionMethod('ExportJson', 'setProperties');
+        $method = new ReflectionMethod('ExportYaml', 'setProperties');
         $method->setAccessible(true);
         $method->invoke($this->object, null);
 
-        $attrProperties = new ReflectionProperty('ExportJson', 'properties');
+        $attrProperties = new ReflectionProperty('ExportYaml', 'properties');
         $attrProperties->setAccessible(true);
         $properties = $attrProperties->getValue($this->object);
 
@@ -68,23 +69,18 @@ class PMA_ExportJson_Test extends PHPUnit_Framework_TestCase
         );
 
         $this->assertEquals(
-            'JSON',
+            'YAML',
             $properties->getText()
         );
 
         $this->assertEquals(
-            'json',
+            'yml',
             $properties->getExtension()
         );
 
         $this->assertEquals(
-            'text/plain',
+            'text/yaml',
             $properties->getMimeType()
-        );
-
-        $this->assertEquals(
-            'Options',
-            $properties->getOptionsText()
         );
 
         $options = $properties->getOptions();
@@ -100,7 +96,8 @@ class PMA_ExportJson_Test extends PHPUnit_Framework_TestCase
         );
 
         $generalOptionsArray = $options->getProperties();
-        $generalOptions = $generalOptionsArray[0];
+
+        $generalOptions = array_shift($generalOptionsArray);
 
         $this->assertInstanceOf(
             'OptionsPropertyMainGroup',
@@ -120,80 +117,69 @@ class PMA_ExportJson_Test extends PHPUnit_Framework_TestCase
             'HiddenPropertyItem',
             $property
         );
-
-        $this->assertEquals(
-            'structure_or_data',
-            $property->getName()
-        );
-
     }
 
     /**
-     * Test for ExportJson::exportHeader
-     *
+     * Test for ExportYaml::exportHeader
+     * 
      * @return void
      */
     public function testExportHeader()
     {
-        $GLOBALS['crlf'] = "\n";
-
-        $this->expectOutputString(
-            '/**' . "\n"
-            . ' Export to JSON plugin for PHPMyAdmin' . "\n"
-            . ' @version 0.1' . "\n"
-            . ' */' . "\n" . "\n"
-        );
-
+        ob_start();
         $this->assertTrue(
             $this->object->exportHeader()
+        );
+        $result = ob_get_clean();
+
+        $this->assertContains(
+            "%YAML 1.1\n---\n",
+            $result
         );
     }
 
     /**
-     * Test for ExportJson::exportFooter
-     *
+     * Test for ExportYaml::exportFooter
+     * 
      * @return void
      */
     public function testExportFooter()
     {
+        $this->expectOutputString(
+            "...\n"
+        );
         $this->assertTrue(
             $this->object->exportFooter()
         );
     }
 
     /**
-     * Test for ExportJson::exportDBHeader
-     *
+     * Test for ExportYaml::exportDBHeader
+     * 
      * @return void
      */
     public function testExportDBHeader()
     {
-        $GLOBALS['crlf'] = "\n";
-
-        $this->expectOutputString(
-            "// Database 'testDB'\n"
-        );
-
         $this->assertTrue(
-            $this->object->exportDBHeader('testDB')
+            $this->object->exportDBHeader('&db')
         );
     }
 
     /**
-     * Test for ExportJson::exportDBFooter
-     *
+     * Test for ExportYaml::exportDBFooter
+     * 
      * @return void
      */
     public function testExportDBFooter()
     {
         $this->assertTrue(
-            $this->object->exportDBFooter('testDB')
+            $this->object->exportDBFooter('&db')
         );
     }
 
     /**
-     * Test for ExportJson::exportDBCreate
-     *
+     * Test for ExportYaml::exportDBCreate
+     * 
      * @return void
      */
     public function testExportDBCreate()
@@ -204,8 +190,8 @@ class PMA_ExportJson_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for ExportJson::exportData
-     *
+     * Test for ExportYaml::exportData
+     * 
      * @return void
      */
     public function testExportData()
@@ -215,39 +201,66 @@ class PMA_ExportJson_Test extends PHPUnit_Framework_TestCase
             ->getMock();
 
         $dbi->expects($this->once())
+            ->method('query')
+            ->with('SELECT', null, PMA_DatabaseInterface::QUERY_UNBUFFERED)
+            ->will($this->returnValue(true));
+
+        $dbi->expects($this->once())
             ->method('numFields')
-            ->with(null)
-            ->will($this->returnValue(1));
+            ->with(true)
+            ->will($this->returnValue(4));
 
         $dbi->expects($this->at(2))
             ->method('fieldName')
-            ->with(null, 0)
-            ->will($this->returnValue('f1'));
+            ->will($this->returnValue('fName1'));
 
         $dbi->expects($this->at(3))
-            ->method('fetchRow')
-            ->with(null)
-            ->will($this->returnValue(array('foo')));
+            ->method('fieldName')
+            ->will($this->returnValue('fNa"me2'));
 
         $dbi->expects($this->at(4))
-            ->method('fetchRow')
-            ->with(null)
-            ->will($this->returnValue(array('bar')));
+            ->method('fieldName')
+            ->will($this->returnValue('fNa\\me3'));
 
         $dbi->expects($this->at(5))
+            ->method('fieldName')
+            ->will($this->returnValue('fName4'));
+
+        $dbi->expects($this->at(6))
             ->method('fetchRow')
-            ->with(null)
-            ->will($this->returnValue(null));
+            ->with(true)
+            ->will(
+                $this->returnValue(
+                    array(null, '123', "\"c\\a\nb\r")
+                )
+            );
+
+        $dbi->expects($this->at(7))
+            ->method('fetchRow')
+            ->with(true)
+            ->will(
+                $this->returnValue(
+                    array(null)
+                )
+            );
 
         $GLOBALS['dbi'] = $dbi;
 
-        $this->expectOutputString(
-            "// db.tbl\n\n" .
-            "[{\"f1\":\"foo\"}, {\"f1\":\"bar\"}]"
-        );
-
+        ob_start();
         $this->assertTrue(
-            $this->object->exportData('db', 'tbl', "\n", "example.com", "SELECT")
+            $this->object->exportData(
+                'db', 'ta<ble', "\n", "example.com", "SELECT"
+            )
+        );
+        $result = ob_get_clean();
+
+        $this->assertEquals(
+            '# db.ta&lt;ble' . "\n" .
+            '-' . "\n" .
+            '  fNa&quot;me2: 123' . "\n" .
+            '  fName3: &quot;\&quot;c\\\\a\nb\r&quot;' . "\n" .
+            '-' . "\n",
+            $result
         );
     }
 }

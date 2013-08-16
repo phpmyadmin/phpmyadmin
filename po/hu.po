@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-08-11 13:17+0200\n"
-"PO-Revision-Date: 2013-07-30 14:37+0200\n"
+"PO-Revision-Date: 2013-08-15 08:50+0200\n"
 "Last-Translator: G. S. <somogyig@gmail.com>\n"
-"Language-Team: Hungarian <http://l10n.cihar.com/projects/phpmyadmin/master/"
-"hu/>\n"
+"Language-Team: Hungarian "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/hu/>\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 1.6\n"
+"X-Generator: Weblate 1.7-dev\n"
 
 #: browse_foreigners.php:50 browse_foreigners.php:70 js/messages.php:348
 #: libraries/DisplayResults.class.php:805
@@ -693,10 +693,9 @@ msgid "Back"
 msgstr "Vissza"
 
 #: index.php:115 libraries/Footer.class.php:72
-#, fuzzy
 #| msgid "phpMyAdmin homepage"
 msgid "phpMyAdmin Demo Server"
-msgstr "phpMyAdmin honlap"
+msgstr "phpMyAdmin Demo Server"
 
 #: index.php:119
 #, php-format
@@ -705,6 +704,8 @@ msgid ""
 "change root, debian-sys-maint and pma users. More information is available "
 "at %s."
 msgstr ""
+"Ön demo szervert használ. Bármit szerkeszthet, de kérjük, ne változtasson "
+"root, debian-sys-maint és pma felhasználók értékein. További információ: %s."
 
 #: index.php:129
 msgid "General Settings"
@@ -910,7 +911,7 @@ msgstr "A \"DROP DATABASE\" utasítást letiltották."
 
 #: js/messages.php:35
 msgid "Confirm"
-msgstr ""
+msgstr "Megerősítés"
 
 #: js/messages.php:36
 #, php-format
@@ -942,10 +943,10 @@ msgid "This operation could take a long time. Proceed anyway?"
 msgstr "Ez a művelet sokáig eltarthat. Mindenképp folytatja?"
 
 #: js/messages.php:44
-#, fuzzy, php-format
+#, php-format
 #| msgid "Do you really want to execute \"%s\"?"
 msgid "Do you really want to delete user group \"%s\"?"
-msgstr "Valóban végre szeretné hajtani: „%s”?"
+msgstr "Valóban törölni szeretné a következő felhasználói csoportot: \"%s\"?"
 
 #: js/messages.php:47
 msgid "Missing value in the form!"
@@ -2828,13 +2829,12 @@ msgstr "A feltöltött fájl nem olvasható."
 #: libraries/Footer.class.php:76
 #, php-format
 msgid "Currently running Git revision %1$s from the %2$s branch."
-msgstr ""
+msgstr "Jelenleg futtatott Git revízió %1$s a %2$s branchból."
 
 #: libraries/Footer.class.php:83
-#, fuzzy
 #| msgid "Version information"
 msgid "Git information missing!"
-msgstr "Verziószám"
+msgstr "Git információ hiányzik!"
 
 #: libraries/Footer.class.php:163 libraries/Footer.class.php:167
 #: libraries/Footer.class.php:170
@@ -4712,10 +4712,9 @@ msgstr "Az idegen kulcsok ellenőrzésének letiltása"
 
 #: libraries/config/messages.inc.php:126
 #: libraries/plugins/export/ExportSql.class.php:154
-#, fuzzy
 #| msgid "Exporting rows from \"%s\" table"
 msgid "Export views as tables"
-msgstr "Sorok exportálása a \"%s\" táblából"
+msgstr "Nézetek exportálása táblaként"
 
 #: libraries/config/messages.inc.php:127 libraries/config/messages.inc.php:128
 #: libraries/config/messages.inc.php:130 libraries/config/messages.inc.php:136
@@ -6148,7 +6147,6 @@ msgid "User groups table"
 msgstr "Felhasználói csoport tábla"
 
 #: libraries/config/messages.inc.php:460
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no user preferences storage in database, suggested: "
 #| "[kbd]pma__userconfig[/kbd]"
@@ -6156,12 +6154,12 @@ msgid ""
 "Leave blank to disable the feature to hide and show navigation items, "
 "suggested: [kbd]pma__navigationhiding[/kbd]"
 msgstr ""
-"Hagyja üresen, ha nincs szükség a felhasználói beállítások tárolására az "
-"adatbázisban, ajánlott: [kbd]pma_history[/kbd]"
+"Hagyja üresen, ha nincs szükség a navigációs elemek mutatása/elrejtése "
+"opcióra, ajánlott: [kbd]pma__navigationhiding[/kbd]"
 
 #: libraries/config/messages.inc.php:461
 msgid "Hidden navigation items table"
-msgstr ""
+msgstr "Rejtett navigációs elemek tábla"
 
 #: libraries/config/messages.inc.php:463
 msgid "User for config auth"
@@ -6959,7 +6957,6 @@ msgid "%s of %s"
 msgstr "%s %s-ból/ből"
 
 #: libraries/display_import.lib.php:454
-#, fuzzy
 #| msgid "Uploading your import file…"
 msgid "Uploading your import file…"
 msgstr "Az importfájl feltöltése…"
@@ -7733,34 +7730,29 @@ msgid "An error has occured while loading the navigation tree"
 msgstr "Hiba történt a navigációs faszerkezet megnyitása során"
 
 #: libraries/navigation/Navigation.class.php:172
-#, fuzzy
 #| msgid "Events"
 msgid "Events:"
-msgstr "Események"
+msgstr "Események:"
 
 #: libraries/navigation/Navigation.class.php:173
-#, fuzzy
 #| msgid "Functions"
 msgid "Functions:"
-msgstr "Függvények"
+msgstr "Függvények:"
 
 #: libraries/navigation/Navigation.class.php:174
-#, fuzzy
 #| msgid "Procedures"
 msgid "Procedures:"
-msgstr "Eljárások"
+msgstr "Eljárások:"
 
 #: libraries/navigation/Navigation.class.php:175
-#, fuzzy
 #| msgid "Tables"
 msgid "Tables:"
-msgstr "Tábla"
+msgstr "Tábla:"
 
 #: libraries/navigation/Navigation.class.php:176
-#, fuzzy
 #| msgid "Views"
 msgid "Views:"
-msgstr "Nézetek"
+msgstr "Nézetek:"
 
 #: libraries/navigation/NavigationHeader.class.php:183
 msgid "Home"
@@ -8508,10 +8500,10 @@ msgid "RELATIONS FOR TABLE"
 msgstr "TÁBLA KAPCSOLATAI"
 
 #: libraries/plugins/export/ExportSql.class.php:1512
-#, fuzzy, php-format
+#, php-format
 #| msgid "Structure for view"
 msgid "Structure for view %s exported as a table"
-msgstr "Nézet szerkezete"
+msgstr "%s nézet struktúrája táblaként exportálva"
 
 #: libraries/plugins/export/ExportSql.class.php:1600
 msgid "Error reading data:"
@@ -8867,16 +8859,14 @@ msgid "User preferences"
 msgstr "Felhasználói beállítások"
 
 #: libraries/relation.lib.php:264
-#, fuzzy
 #| msgid "Configuration: %s"
 msgid "Configurable menus"
-msgstr "Beállítás: %s"
+msgstr "Beállítható menü"
 
 #: libraries/relation.lib.php:275
-#, fuzzy
 #| msgid "Reload navigation frame"
 msgid "Hide/show navigation items"
-msgstr "A navigációs keret újratöltése"
+msgstr "Navigációs elemek mutatása/elrejtése"
 
 #: libraries/relation.lib.php:281
 msgid "Quick steps to setup advanced features:"
@@ -10045,7 +10035,7 @@ msgstr "Nincs"
 #: libraries/server_privileges.lib.php:2552
 #: libraries/server_privileges.lib.php:3267
 msgid "User group"
-msgstr ""
+msgstr "Felhasználói csoport"
 
 #: libraries/server_privileges.lib.php:618
 msgid "Resource limits"
@@ -10279,10 +10269,9 @@ msgid "Add privileges on the following table:"
 msgstr "Jogok hozzáadása a következő táblán:"
 
 #: libraries/server_privileges.lib.php:2690
-#, fuzzy
 #| msgid "Edit server"
 msgid "Edit user group"
-msgstr "Szerver módosítása"
+msgstr "Felhasználói csoport szerkesztése"
 
 #: libraries/server_privileges.lib.php:2727
 msgid "Remove selected users"
@@ -10345,84 +10334,73 @@ msgstr ""
 #: libraries/server_privileges.lib.php:3212
 #, php-format
 msgid "Users of '%s' user group"
-msgstr ""
+msgstr "A '%s' felhasználói csoport felhasználói"
 
 #: libraries/server_privileges.lib.php:3223
 msgid "No users were found belonging to this user group."
-msgstr ""
+msgstr "Nem található ehhez a felhasználói csoporthoz tartozó felhasználó."
 
 #: libraries/server_privileges.lib.php:3254
 #: libraries/server_privileges.lib.php:3923
-#, fuzzy
 #| msgid "Users"
 msgid "User groups"
-msgstr "Felhasználók"
+msgstr "Felhasználói csoportok"
 
 #: libraries/server_privileges.lib.php:3268
-#, fuzzy
 #| msgid "Server version"
 msgid "Server level tabs"
-msgstr "Szerver verzió"
+msgstr "Szerver level fülek"
 
 #: libraries/server_privileges.lib.php:3269
-#, fuzzy
 #| msgid "Database server"
 msgid "Database level tabs"
-msgstr "Adatbázis-kiszolgáló"
+msgstr "Adatbázis level fülek"
 
 #: libraries/server_privileges.lib.php:3270
-#, fuzzy
 #| msgid "Table comments"
 msgid "Table level tabs"
-msgstr "Tábla megjegyzése"
+msgstr "Tábla level fülek"
 
 #: libraries/server_privileges.lib.php:3291
-#, fuzzy
 #| msgid "Views"
 msgid "View users"
-msgstr "Nézetek"
+msgstr "Felhasználók mutatása"
 
 #: libraries/server_privileges.lib.php:3328
 #: libraries/server_privileges.lib.php:3389
-#, fuzzy
 #| msgid "Add user"
 msgid "Add user group"
-msgstr "Felhasználó hozzáadása"
+msgstr "Felhasználói csoport hozzáadása"
 
 #: libraries/server_privileges.lib.php:3392
 #, php-format
 msgid "Edit user group: '%s'"
-msgstr ""
+msgstr "'%s' Felhasználói csoport szerkesztése"
 
 #: libraries/server_privileges.lib.php:3408
-#, fuzzy
 #| msgid "No privileges."
 msgid "User group menu assignments"
-msgstr "Nincsenek jogok."
+msgstr "Felhasználói csoport menü hozzárendelések"
 
 #: libraries/server_privileges.lib.php:3415
-#, fuzzy
 #| msgid "Column names: "
 msgid "Group name:"
-msgstr "Oszlopnevek: "
+msgstr "Csoport neve:"
 
 #: libraries/server_privileges.lib.php:3447
-#, fuzzy
 #| msgid "Server version"
 msgid "Server-level tabs"
-msgstr "Szerver verzió"
+msgstr "Szerver level fülek"
 
 #: libraries/server_privileges.lib.php:3450
-#, fuzzy
 #| msgid "Database server"
 msgid "Database-level tabs"
-msgstr "Adatbázis-kiszolgáló"
+msgstr "Adatbázis level fülek"
 
 #: libraries/server_privileges.lib.php:3453
-#, fuzzy
 #| msgid "Table comments"
 msgid "Table-level tabs"
-msgstr "Tábla megjegyzése"
+msgstr "Tábla level fülek"
 
 #: libraries/server_privileges.lib.php:3564
 msgid "The selected user was not found in the privilege table."
@@ -12624,7 +12602,7 @@ msgstr ""
 "szükség, amelyek ezen a rendszeren nem elérhetőek."
 
 #: setup/lib/index.lib.php:226
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "%sLogin cookie validity%s greater than 1440 seconds may cause random "
 #| "session invalidation if %ssession.gc_maxlifetime%s is lower than its "
@@ -12633,9 +12611,9 @@ msgid ""
 "%sLogin cookie validity%s greater than %ssession.gc_maxlifetime%s may cause "
 "random session invalidation (currently session.gc_maxlifetime is %d)."
 msgstr ""
-"Az 1440 másodpercnél magasabb %sLogin cookie validity%s véletlenszerű "
-"munkamenet érvénytelenítést okozhat, ha %ssession.gc_maxlifetime%s "
-"alacsonyabb, mint az érték (jelenleg: %d)."
+"A %sLogin cookie validity%s, amely nagyobb, mint a %ssession.gc_maxlifetime%"
+"s, véletlenszerű munkamenet érvénytelenítést okozhat (a "
+"session.gc_maxlifetime értéke jelenleg: %d)."
 
 #: setup/lib/index.lib.php:228
 #, php-format

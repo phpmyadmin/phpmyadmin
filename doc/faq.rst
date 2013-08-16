@@ -1828,8 +1828,8 @@ t/pma/Charts#Data_formats_for_query_results_chart>`_.
 
 .. _faq6_30:
 
-6.30 Import: How can I import ESRI Shapefiles
----------------------------------------------
+6.30 Import: How can I import ESRI Shapefiles?
+----------------------------------------------
 
 An ESRI Shapefile is actually a set of several files, where .shp file
 contains geometry data and .dbf file contains data related to those
