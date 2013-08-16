@@ -39,10 +39,7 @@ if ($GLOBALS['dbi']->getColumns($db, $table)) {
 
 
 // check number of fields to be created
-if (isset($_REQUEST['submit_num_fields'])) {
-    $regenerate = true; // for libraries/tbl_columns_definition_form.inc.php
-    $num_fields = $_REQUEST['orig_num_fields'] + $_REQUEST['added_fields'];
-} elseif (isset($_REQUEST['num_fields']) && intval($_REQUEST['num_fields']) > 0) {
+if (isset($_REQUEST['num_fields']) && intval($_REQUEST['num_fields']) > 0) {
     $num_fields = (int) $_REQUEST['num_fields'];
 } else {
     $num_fields = 4;
