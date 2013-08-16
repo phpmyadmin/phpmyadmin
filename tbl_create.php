@@ -13,7 +13,7 @@ require_once 'libraries/common.inc.php';
 include_once 'libraries/create_addfield.lib.php';
 
 // for libraries/tbl_columns_definition_form.inc.php
-$action = 'tbl_create.php';
+
 
 // Check parameters
 PMA_Util::checkParameters(array('db'));
@@ -26,24 +26,6 @@ if (strlen($db) == 0) {
 }
 
 /**
- * Defines the url to return to in case of error in a sql statement
- */
-if ($GLOBALS['dbi']->getColumns($db, $table)) {
-    // table exists already
-    PMA_Util::mysqlDie(
-        sprintf(__('Table %s already exists!'), htmlspecialchars($table)),
-        '',
-        '',
-        'db_structure.php?' . PMA_URL_getCommon($db)
-    );
-}
-
-
-// check number of fields to be created
-// for libraries/tbl_columns_definition_form.inc.php
-$num_fields = PMA_getNumberOfFieldsFromRequest();
-
-/**
  * Selects the database to work with
  */
 if (!$GLOBALS['dbi']->selectDb($db)) {
@@ -54,6 +36,22 @@ if (!$GLOBALS['dbi']->selectDb($db)) {
         'index.php'
     );
 }
+
+if ($GLOBALS['dbi']->getColumns($db, $table)) {
+    // table exists already
+    PMA_Util::mysqlDie(
+        sprintf(__('Table %s already exists!'), htmlspecialchars($table)),
+        '',
+        '',
+        'db_structure.php?' . PMA_URL_getCommon($db)
+    );
+}
+
+// for libraries/tbl_columns_definition_form.inc.php
+// check number of fields to be created
+$num_fields = PMA_getNumberOfFieldsFromRequest();
+
+$action = 'tbl_create.php';
 
 /**
  * The form used to define the structure of the table has been submitted
