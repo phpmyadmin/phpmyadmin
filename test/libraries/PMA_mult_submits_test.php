@@ -177,5 +177,49 @@ class PMA_MultSubmits_Test extends PHPUnit_Framework_TestCase
         );
     }
 
+    /**
+     * Test for PMA_getUrlParams
+     *
+     * @return void
+     */
+    public function testPMAGetUrlParams()
+    {
+        $what = 'row_delete';
+        $reload = true;
+        $action = 'db_delete_row';
+        $db = "PMA_db";
+        $table = "PMA_table";
+        $selected = array(
+            "index1" => "table1"
+        );
+        $views = null;
+        $original_sql_query = "original_sql_query";
+        $original_url_query = "original_url_query";
+        
+        $_url_params = PMA_getUrlParams(
+            $what, $reload, $action, $db, $table, $selected, $views, 
+            $original_sql_query, $original_url_query
+        );
+        $this->assertEquals(
+            $what,
+            $_url_params['query_type']
+        );
+        $this->assertEquals(
+            $db,
+            $_url_params['db']
+        );
+        $this->assertEquals(
+            array('DELETE FROM `PMA_db`.`PMA_table` WHERE table1 LIMIT 1;'),
+            $_url_params['selected']
+        );
+        $this->assertEquals(
+            $original_sql_query,
+            $_url_params['original_sql_query']
+        );
+        $this->assertEquals(
+            $original_url_query,
+            $_url_params['original_url_query']
+        );
+    }
 }
 
