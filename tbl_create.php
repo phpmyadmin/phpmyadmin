@@ -316,16 +316,6 @@ if (isset($_REQUEST['do_save_data'])) {
 /**
  * Displays the form used to define the structure of the table
  */
-
-// This div is used to show the content(eg: create table form with more columns)
-// fetched with AJAX subsequently.
-if ($GLOBALS['is_ajax_request'] != true) {
-    echo('<div id="create_table_div">');
-}
-
 require 'libraries/tbl_columns_definition_form.inc.php';
 
-if ($GLOBALS['is_ajax_request'] != true) {
-    echo('</div>');
-}
 ?>
