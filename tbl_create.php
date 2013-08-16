@@ -10,6 +10,7 @@
  * Get some core libraries
  */
 require_once 'libraries/common.inc.php';
+include_once 'libraries/create_addfield.lib.php';
 
 // for libraries/tbl_columns_definition_form.inc.php
 $action = 'tbl_create.php';
@@ -39,11 +40,8 @@ if ($GLOBALS['dbi']->getColumns($db, $table)) {
 
 
 // check number of fields to be created
-if (isset($_REQUEST['num_fields']) && intval($_REQUEST['num_fields']) > 0) {
-    $num_fields = (int) $_REQUEST['num_fields'];
-} else {
-    $num_fields = 4;
-}
+// for libraries/tbl_columns_definition_form.inc.php
+$num_fields = PMA_getNumberOfFieldsFromRequest();
 
 /**
  * Selects the database to work with
@@ -61,9 +59,6 @@ if (!$GLOBALS['dbi']->selectDb($db)) {
  * The form used to define the structure of the table has been submitted
  */
 if (isset($_REQUEST['do_save_data'])) {
-    $sql_query = '';
-
-    include_once 'libraries/create_addfield.lib.php';
     // get column addition statements
     $sql_statement = PMA_getColumnCreationStatements(true);
 

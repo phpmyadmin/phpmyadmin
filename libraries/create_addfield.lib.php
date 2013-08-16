@@ -228,4 +228,20 @@ function PMA_getColumnCreationStatements($is_create_tbl = true)
     return $sql_statement;
 
 }
+
+/**
+ * Function to get the number of fields for the table creation form
+ * 
+ * @return int
+ */
+function PMA_getNumberOfFieldsFromRequest()
+{
+    if (isset($_REQUEST['num_fields']) && intval($_REQUEST['num_fields']) > 0) {
+        $num_fields = (int) $_REQUEST['num_fields'];
+    } else {
+        $num_fields = 4;
+    }
+
+    return $num_fields;
+}
 ?>
