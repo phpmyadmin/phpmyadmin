@@ -159,7 +159,7 @@ $(function() {
 });
 
 /**
- * Expands/collapses the navigation tree
+ * Expands/collapses the navigation tree and sets to view the expanded
  *
  * @param  object $expandElem the element that initiated the expanding
  * @return void
@@ -171,6 +171,9 @@ function PMA_expandNavigationTree($expandElem) {
         if ($icon.is('.ic_b_plus')) {
             $icon.removeClass('ic_b_plus').addClass('ic_b_minus');
             $children.show('fast');
+            $('#pma_navigation').animate({
+                scrollTop: $children.offset().top
+            });
         } else {
             $icon.removeClass('ic_b_minus').addClass('ic_b_plus');
             $children.hide('fast');
@@ -211,6 +214,9 @@ function PMA_expandNavigationTree($expandElem) {
                         .find('a.expander.container')
                         .click();
                 }
+                $('#pma_navigation').animate({
+                    scrollTop: $destination.children('div.list_container').offset().top
+                });
             } else {
                 PMA_ajaxShowMessage(data.error, false);
             }
