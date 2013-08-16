@@ -57,33 +57,7 @@ $action = 'tbl_create.php';
  * The form used to define the structure of the table has been submitted
  */
 if (isset($_REQUEST['do_save_data'])) {
-    // get column addition statements
-    $sql_statement = PMA_getColumnCreationStatements(true);
-
-    // Builds the 'create table' statement
-    $sql_query = 'CREATE TABLE ' . PMA_Util::backquote($db) . '.'
-        . PMA_Util::backquote($table) . ' (' . $sql_statement . ')';
-
-    // Adds table type, character set, comments and partition definition
-    if (!empty($_REQUEST['tbl_storage_engine'])
-        && ($_REQUEST['tbl_storage_engine'] != 'Default')
-    ) {
-        $sql_query .= ' ENGINE = ' . $_REQUEST['tbl_storage_engine'];
-    }
-    if (!empty($_REQUEST['tbl_collation'])) {
-        $sql_query .= PMA_generateCharsetQueryPart($_REQUEST['tbl_collation']);
-    }
-    if (!empty($_REQUEST['comment'])) {
-        $sql_query .= ' COMMENT = \''
-            . PMA_Util::sqlAddSlashes($_REQUEST['comment']) . '\'';
-    }
-    if (!empty($_REQUEST['partition_definition'])) {
-        $sql_query .= ' ' . PMA_Util::sqlAddSlashes(
-            $_REQUEST['partition_definition']
-        );
-    }
-    $sql_query .= ';';
-
+    $sql_query = PMA_getTableCreationQuery($db, $table);
     // Executes the query
     $result = $GLOBALS['dbi']->tryQuery($sql_query);
 
