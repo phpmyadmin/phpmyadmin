@@ -13,8 +13,6 @@ require_once 'libraries/common.inc.php';
 
 $action = 'tbl_create.php';
 
-$titles = PMA_Util::buildActionTitles();
-
 // Check parameters
 PMA_Util::checkParameters(array('db'));
 
