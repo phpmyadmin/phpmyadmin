@@ -61,7 +61,25 @@ if (isset($_REQUEST['do_save_data'])) {
     // Executes the query
     $result = $GLOBALS['dbi']->tryQuery($sql_query);
 
-    if (!$result) {
+    if ($result) {
+        if (isset($_REQUEST['field_mimetype'])
+            && is_array($_REQUEST['field_mimetype'])
+            && $cfg['BrowseMIME']
+        ) {
+            foreach ($_REQUEST['field_mimetype'] as $fieldindex => $mimetype) {
+                if (isset($_REQUEST['field_name'][$fieldindex])
+                    && strlen($_REQUEST['field_name'][$fieldindex])
+                ) {
+                    PMA_setMIME(
+                        $db, $table, $_REQUEST['field_name'][$fieldindex], $mimetype,
+                        $_REQUEST['field_transformation'][$fieldindex],
+                        $_REQUEST['field_transformation_options'][$fieldindex]
+                    );
+                }
+            }            
+        }
+        
+    } else {
         $response = PMA_Response::getInstance();
         $response->isSuccess(false);
         $response->addJSON('message', $GLOBALS['dbi']->getError());
