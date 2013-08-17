@@ -1103,7 +1103,9 @@ function PMA_getBinaryAndBlobColumn(
             . $column_name_appendix . '" value="protected" />'
             . '<input type="hidden" name="fields'
             . $column_name_appendix . '" value="" />';
-    } elseif ($column['is_blob']) {
+    } elseif ($column['is_blob']
+        || ($column['len'] > $GLOBALS['cfg']['LimitChars'])
+    ) {
         $html_output .= "\n" . PMA_getTextarea(
             $column, $backup_field, $column_name_appendix, $unnullify_trigger,
             $tabindex, $tabindex_for_value, $idindex, $text_dir,
