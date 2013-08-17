@@ -382,6 +382,7 @@ function PMA_pluginGetOneOption(
                     $ret .= '</select>';
                     break;
                 case "TextPropertyItem":
+                case "NumberPropertyItem":
                     $ret .= '<li>' . "\n";
                     $ret .= '<label for="text_' . $plugin_name . '_'
                         . $propertyItem->getName() . '" class="desc">'

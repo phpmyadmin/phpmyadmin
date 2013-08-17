@@ -63,6 +63,7 @@ class ExportSql extends ExportPlugin
             include_once "$props/options/items/RadioPropertyItem.class.php";
             include_once "$props/options/items/SelectPropertyItem.class.php";
             include_once "$props/options/items/TextPropertyItem.class.php";
+            include_once "$props/options/items/NumberPropertyItem.class.php";
 
             $exportPluginProperties = new ExportPluginProperties();
             $exportPluginProperties->setText('SQL');
@@ -392,7 +393,7 @@ class ExportSql extends ExportPlugin
             $dataOptions->addProperty($subgroup);
 
             // Max length of query
-            $leaf = new TextPropertyItem();
+            $leaf = new NumberPropertyItem();
             $leaf->setName("max_query_size");
             $leaf->setText(__('Maximal length of created query'));
             $dataOptions->addProperty($leaf);

@@ -659,9 +659,9 @@ function PMA_getHtmlForDisplayResourceLimits($row)
         . '">'
         . 'MAX QUERIES PER HOUR'
         . '</dfn></code></label>' . "\n"
-        . '<input type="text" name="max_questions" id="text_max_questions" '
+        . '<input type="number" name="max_questions" id="text_max_questions" '
         . 'value="' . $row['max_questions'] . '" '
-        . 'size="11" maxlength="11" '
+        . 'size="6" maxlength="11" '
         . 'title="'
         . __(
             'Limits the number of queries the user may send to the server per hour.'
@@ -678,8 +678,8 @@ function PMA_getHtmlForDisplayResourceLimits($row)
         ) . '">'
         . 'MAX UPDATES PER HOUR'
         . '</dfn></code></label>' . "\n"
-        . '<input type="text" name="max_updates" id="text_max_updates" '
-        . 'value="' . $row['max_updates'] . '" size="11" maxlength="11" '
+        . '<input type="number" name="max_updates" id="text_max_updates" '
+        . 'value="' . $row['max_updates'] . '" size="6" maxlength="11" '
         . 'title="'
         . __(
             'Limits the number of commands that change any table ' 
@@ -696,8 +696,8 @@ function PMA_getHtmlForDisplayResourceLimits($row)
         ) . '">'
         . 'MAX CONNECTIONS PER HOUR'
         . '</dfn></code></label>' . "\n"
-        . '<input type="text" name="max_connections" id="text_max_connections" '
-        . 'value="' . $row['max_connections'] . '" size="11" maxlength="11" '
+        . '<input type="number" name="max_connections" id="text_max_connections" '
+        . 'value="' . $row['max_connections'] . '" size="6" maxlength="11" '
         . 'title="' . __(
             'Limits the number of new connections the user may open per hour.'
         )
@@ -711,9 +711,9 @@ function PMA_getHtmlForDisplayResourceLimits($row)
         . '">'
         . 'MAX USER_CONNECTIONS'
         . '</dfn></code></label>' . "\n"
-        . '<input type="text" name="max_user_connections" '
+        . '<input type="number" name="max_user_connections" '
         . 'id="text_max_user_connections" '
-        . 'value="' . $row['max_user_connections'] . '" size="11" maxlength="11" '
+        . 'value="' . $row['max_user_connections'] . '" size="6" maxlength="11" '
         . 'title="'
         . __('Limits the number of simultaneous connections the user may have.')
         . '" />' . "\n"
