@@ -2526,7 +2526,7 @@ function PMA_getHtmlForDisplaySelectDbInEditPrivs($found_rows)
         }
         $html_output .= '</select>' . "\n";
     }
-    $html_output .= '<input type="text" id="text_dbname" name="dbname" />' . "\n"
+    $html_output .= '<input type="text" id="text_dbname" name="dbname" required />' . "\n"
         . PMA_Util::showHint(
             __('Wildcards % and _ should be escaped with a \ to use them literally')
         );
@@ -3785,7 +3785,7 @@ function PMA_getHtmlToEditUserGroup($userGroup = null)
 
     if ($userGroup == null) {
         $html_output .= '<label for="userGroup">' . __('Group name:') . '</label>';
-        $html_output .= '<input type="text" name="userGroup" autocomplete="off" />';
+        $html_output .= '<input type="text" name="userGroup" autocomplete="off" required />';
         $html_output .= '<div class="clearfloat"></div>';
     }
 
