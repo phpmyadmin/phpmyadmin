@@ -42,7 +42,9 @@ function PMA_getIndexedColumns()
     } // end for
 
     return array(
-        $field_cnt, $field_primary, $field_index, $field_unique, $field_fulltext );
+        $field_cnt, $field_primary, $field_index, $field_unique,
+        $field_fulltext 
+    );
 }
 
 /**
@@ -110,8 +112,9 @@ function PMA_buildColumnCreationStatement(
  *
  * @return string $sql_suffix suffix
  */
-function PMA_setColumnCreationStatementSuffix($current_field_num ,$is_create_tbl = true)
-{
+function PMA_setColumnCreationStatementSuffix($current_field_num,
+    $is_create_tbl = true
+) {
     // no suffix is needed if request is a table creation
     $sql_suffix = " ";
     if (! $is_create_tbl) {
@@ -146,8 +149,9 @@ function PMA_setColumnCreationStatementSuffix($current_field_num ,$is_create_tbl
  *
  * @return array an array of sql statements for indexes
  */
-function PMA_buildIndexStatements($indexed_fields, $index_type,  $is_create_tbl = true)
-{
+function PMA_buildIndexStatements($indexed_fields, $index_type,
+    $is_create_tbl = true
+) {
     $statement = array();
     if (count($indexed_fields)) {
         $fields = array();
@@ -180,7 +184,8 @@ function PMA_getStatementPrefix($is_create_tbl = true)
 }
 
 /**
- * Returns sql statement according to the column and index specifications as requested
+ * Returns sql statement according to the column and index specifications as 
+ * requested
  *
  * @param boolean $is_create_tbl true if requirement is to get the statement
  *                               for table creation
@@ -194,7 +199,9 @@ function PMA_getColumnCreationStatements($is_create_tbl = true)
     list($field_cnt, $field_primary, $field_index,
             $field_unique, $field_fulltext
             ) = PMA_getIndexedColumns();
-    $definitions = PMA_buildColumnCreationStatement($field_cnt, $field_primary, $is_create_tbl);
+    $definitions = PMA_buildColumnCreationStatement(
+        $field_cnt, $field_primary, $is_create_tbl
+    );
 
     // Builds the primary keys statements
     $primary_key_statements = PMA_buildIndexStatements(
@@ -227,5 +234,61 @@ function PMA_getColumnCreationStatements($is_create_tbl = true)
 
     return $sql_statement;
 
+}
+
+/**
+ * Function to get table creation sql query
+ * 
+ * @param string $db    database name
+ * @param string $table table name
+ * 
+ * @return string
+ */
+function PMA_getTableCreationQuery($db, $table)
+{
+    // get column addition statements
+    $sql_statement = PMA_getColumnCreationStatements(true);
+
+    // Builds the 'create table' statement
+    $sql_query = 'CREATE TABLE ' . PMA_Util::backquote($db) . '.'
+        . PMA_Util::backquote($table) . ' (' . $sql_statement . ')';
+
+    // Adds table type, character set, comments and partition definition
+    if (!empty($_REQUEST['tbl_storage_engine'])
+        && ($_REQUEST['tbl_storage_engine'] != 'Default')
+    ) {
+        $sql_query .= ' ENGINE = ' . $_REQUEST['tbl_storage_engine'];
+    }
+    if (!empty($_REQUEST['tbl_collation'])) {
+        $sql_query .= PMA_generateCharsetQueryPart($_REQUEST['tbl_collation']);
+    }
+    if (!empty($_REQUEST['comment'])) {
+        $sql_query .= ' COMMENT = \''
+            . PMA_Util::sqlAddSlashes($_REQUEST['comment']) . '\'';
+    }
+    if (!empty($_REQUEST['partition_definition'])) {
+        $sql_query .= ' ' . PMA_Util::sqlAddSlashes(
+            $_REQUEST['partition_definition']
+        );
+    }
+    $sql_query .= ';';
+
+    return $sql_query;
+}
+
+/**
+ * Function to get the number of fields for the table creation form
+ * 
+ * @return int
+ */
+function PMA_getNumberOfFieldsFromRequest()
+{
+    if (isset($_REQUEST['num_fields']) && intval($_REQUEST['num_fields']) > 0) {
+        $num_fields = (int) $_REQUEST['num_fields'];
+    } else {
+        $num_fields = 4;
+    }
+
+    return $num_fields;
 }
 ?>
