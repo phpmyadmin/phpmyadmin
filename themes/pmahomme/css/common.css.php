@@ -167,24 +167,9 @@ form {
     display: inline;
 }
 
-input[type=text] {
-    border-radius: 2px;
-    -moz-border-radius: 2px;
-    -webkit-border-radius: 2px;
-
-    box-shadow: 0 1px 2px #ddd;
-    -moz-box-shadow: 0 1px 2px #ddd;
-    -webkit-box-shadow: 0 1px 2px #ddd;
-
-    background: white;
-    border: 1px solid #aaa;
-    color: #555;
-    padding: 4px;
-    margin: 6px;
-
-}
-
-input[type=password] {
+input[type=text],
+input[type=password],
+input[type=number] {
     border-radius: 2px;
     -moz-border-radius: 2px;
     -webkit-border-radius: 2px;
@@ -1654,10 +1639,14 @@ li.no_bullets {
     float: <?php echo $left; ?>;
 }
 .operations_half_width input[type=text],
+.operations_half_width input[type=password],
+.operations_half_width input[type=number],
 .operations_half_width select {
     width: 95%;
 }
 .operations_half_width input[type=text].halfWidth,
+.operations_half_width input[type=password].halfWidth,
+.operations_half_width input[type=number].halfWidth,
 .operations_half_width select.halfWidth {
     width: 40%;
 }

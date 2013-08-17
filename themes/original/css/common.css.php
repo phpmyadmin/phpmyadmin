@@ -1279,10 +1279,14 @@ li.no_bullets {
     float: <?php echo $left; ?>;
 }
 .operations_half_width input[type=text],
+.operations_half_width input[type=password],
+.operations_half_width input[type=number],
 .operations_half_width select {
     width: 95%;
 }
 .operations_half_width input[type=text].halfWidth,
+.operations_half_width input[type=password].halfWidth,
+.operations_half_width input[type=number].halfWidth,
 .operations_half_width select.halfWidth {
     width: 40%;
 }
