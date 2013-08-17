@@ -210,7 +210,7 @@ class FormDisplay
             PMA_displayTabsTop($tabs);
         }
 
-        // valdiate only when we aren't displaying a "new server" form
+        // validate only when we aren't displaying a "new server" form
         $is_new_server = false;
         foreach ($this->_forms as $form) {
             /* @var $form Form */
