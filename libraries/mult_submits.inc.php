@@ -92,7 +92,7 @@ if (! empty($submit_mult)
         $selected = $selected_fld;
         list($what_ret, $query_type_ret, $is_unset_submit_mult, $mult_btn_ret)
             = PMA_getDataForSubmitMult(
-                $submit_mult, $db, $table, 
+                $submit_mult, $db, $table,
                 $selected, $action
             );
         //update the exist variables
@@ -102,7 +102,7 @@ if (! empty($submit_mult)
         if (isset($query_type_ret)) {
             $query_type = $query_type_ret;
         }
-        if (isset($is_unset_submit_mult)) {
+        if ($is_unset_submit_mult) {
             unset($submit_mult);
         }
         if (isset($mult_btn_ret)) {
@@ -143,10 +143,10 @@ if (!empty($submit_mult) && !empty($what)) {
     // Displays the confirmation form
     $_url_params = PMA_getUrlParams(
         $what, $reload, $action, $db, $table, $selected, $views,
-        isset($original_sql_query)? $original_sql_query : null, 
+        isset($original_sql_query)? $original_sql_query : null,
         isset($original_url_query)? $original_url_query : null
     );
-    
+
     if ($what == 'replace_prefix_tbl' || $what == 'copy_tbl_change_prefix') {
         echo PMA_getHtmlForReplacePrefixTable($what, $action, $_url_params);
     } elseif ($what == 'add_prefix_tbl') {
@@ -187,7 +187,7 @@ if (!empty($submit_mult) && !empty($what)) {
         $result, $rebuild_database_list, $reload_ret,
         $run_parts, $use_sql, $sql_query, $sql_query_views
     ) = PMA_getQueryStrFromSelected(
-        $query_type, $selected, $db, $table, $views,  
+        $query_type, $selected, $db, $table, $views,
         isset($primary) ? $primary : null,
         isset($from_prefix) ? $from_prefix : null,
         isset($to_prefix) ? $to_prefix : null
@@ -214,7 +214,7 @@ if (!empty($submit_mult) && !empty($what)) {
          * Parse and analyze the query
          */
         include_once 'libraries/parse_analyze.inc.php';
-        
+
         PMA_executeQueryAndSendQueryResponse(
             $analyzed_sql_results, false, $db, $table, null, null, null,
             false, null, null, null, null, $goto, $pmaThemeImage, null, null,

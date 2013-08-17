@@ -4,7 +4,7 @@
  * functions for multi submit forms
  *
  * @usedby  mult_submits.inc.php
- *  
+ *
  * @package PhpMyAdmin
  */
 if (! defined('PHPMYADMIN')) {
@@ -27,7 +27,7 @@ if (! defined('PHPMYADMIN')) {
  * @return array
  */
 function PMA_getUrlParams(
-    $what, $reload, $action, $db, $table, $selected, $views, 
+    $what, $reload, $action, $db, $table, $selected, $views,
     $original_sql_query, $original_url_query
 ) {
     $_url_params = array(
@@ -60,12 +60,12 @@ function PMA_getUrlParams(
             $_url_params['original_url_query'] = $original_url_query;
         }
     }
-    
+
     return  $_url_params;
 }
 
 /**
- * Gets query results from 
+ * Gets query results from
  *
  * @param string $query_type  query type
  * @param array  $selected    selected tables
@@ -79,7 +79,7 @@ function PMA_getUrlParams(
  * @return array
  */
 function PMA_getQueryStrFromSelected(
-    $query_type, $selected, $db, $table, $views, $primary, 
+    $query_type, $selected, $db, $table, $views, $primary,
     $from_prefix, $to_prefix
 ) {
     $rebuild_database_list = false;
@@ -88,17 +88,17 @@ function PMA_getQueryStrFromSelected(
     $sql_query = '';
     $sql_query_views = null;
     // whether to run query after each pass
-    $run_parts      = false;
+    $run_parts = false;
     // whether to execute the query at the end (to display results)
-    $use_sql        = false;
+    $use_sql = false;
     $result = null;
-    
+
     if ($query_type == 'drop_tbl') {
         $sql_query_views = '';
     }
 
     $selected_cnt   = count($selected);
-    
+
     for ($i = 0; $i < $selected_cnt; $i++) {
         switch ($query_type) {
         case 'row_delete':
@@ -160,50 +160,50 @@ function PMA_getQueryStrFromSelected(
 
         case 'drop_fld':
             PMA_relationsCleanupColumn($db, $table, $selected[$i]);
-            $sql_query .= (empty($sql_query) 
-                ? 'ALTER TABLE ' . PMA_Util::backquote($table) 
+            $sql_query .= (empty($sql_query)
+                ? 'ALTER TABLE ' . PMA_Util::backquote($table)
                 : ',')
                        . ' DROP ' . PMA_Util::backquote($selected[$i])
                        . (($i == $selected_cnt-1) ? ';' : '');
             break;
 
         case 'primary_fld':
-            $sql_query .= (empty($sql_query) 
-                ? 'ALTER TABLE ' . PMA_Util::backquote($table) . (empty($primary) 
-                    ? '' 
-                    : ' DROP PRIMARY KEY,') . ' ADD PRIMARY KEY( ' 
+            $sql_query .= (empty($sql_query)
+                ? 'ALTER TABLE ' . PMA_Util::backquote($table) . (empty($primary)
+                    ? ''
+                    : ' DROP PRIMARY KEY,') . ' ADD PRIMARY KEY( '
                 : ', ')
                        . PMA_Util::backquote($selected[$i])
                        . (($i == $selected_cnt-1) ? ');' : '');
             break;
 
         case 'index_fld':
-            $sql_query .= (empty($sql_query) 
-                ? 'ALTER TABLE ' . PMA_Util::backquote($table) . ' ADD INDEX( ' 
+            $sql_query .= (empty($sql_query)
+                ? 'ALTER TABLE ' . PMA_Util::backquote($table) . ' ADD INDEX( '
                 : ', ')
                        . PMA_Util::backquote($selected[$i])
                        . (($i == $selected_cnt-1) ? ');' : '');
             break;
 
         case 'unique_fld':
-            $sql_query .= (empty($sql_query) 
-                ? 'ALTER TABLE ' . PMA_Util::backquote($table) . ' ADD UNIQUE( ' 
+            $sql_query .= (empty($sql_query)
+                ? 'ALTER TABLE ' . PMA_Util::backquote($table) . ' ADD UNIQUE( '
                 : ', ')
                        . PMA_Util::backquote($selected[$i])
                        . (($i == $selected_cnt-1) ? ');' : '');
             break;
 
         case 'spatial_fld':
-            $sql_query .= (empty($sql_query) 
-                ? 'ALTER TABLE ' . PMA_Util::backquote($table) . ' ADD SPATIAL( ' 
+            $sql_query .= (empty($sql_query)
+                ? 'ALTER TABLE ' . PMA_Util::backquote($table) . ' ADD SPATIAL( '
                 : ', ')
                        . PMA_Util::backquote($selected[$i])
                        . (($i == $selected_cnt-1) ? ');' : '');
             break;
 
         case 'fulltext_fld':
-            $sql_query .= (empty($sql_query) 
-                ? 'ALTER TABLE ' . PMA_Util::backquote($table) . ' ADD FULLTEXT( ' 
+            $sql_query .= (empty($sql_query)
+                ? 'ALTER TABLE ' . PMA_Util::backquote($table) . ' ADD FULLTEXT( '
                 : ', ')
                        . PMA_Util::backquote($selected[$i])
                        . (($i == $selected_cnt-1) ? ');' : '');
@@ -270,11 +270,11 @@ function PMA_getQueryStrFromSelected(
             }
         } // end if
     } // end for
-    
+
     return array(
         $result, $rebuild_database_list, $reload,
         $run_parts, $use_sql, $sql_query, $sql_query_views
-    ); 
+    );
 }
 
 /**
@@ -299,7 +299,7 @@ function PMA_getKeyForTablePrimary($db, $table)
         }
     } // end while
     $GLOBALS['dbi']->freeResult($result);
-    
+
     return $primary;
 }
 
@@ -344,7 +344,7 @@ function PMA_getHtmlForReplacePrefixTable($what, $action, $_url_params)
     $html .= '<input type="submit" value="' . __('Submit') . '" id="buttonYes" />';
     $html .= '</fieldset>';
     $html .= '</form>';
-    
+
     return $html;
 }
 
@@ -377,7 +377,7 @@ function PMA_getHtmlForAddPrefixTable($action, $_url_params)
     $html .= '<input type="submit" value="' . __('Submit') . '" id="buttonYes" />';
     $html .= '</fieldset>';
     $html .= '</form>';
-    
+
     return $html;
 }
 
@@ -412,7 +412,7 @@ function PMA_getHtmlForOtherActions($what, $action, $_url_params, $full_query)
         $html .= __('Foreign key check:');
         $html .= '</span>';
         $html .= '<span class="checkbox">';
-        $html .= '<input type="checkbox" name="fk_check" value="1" ' 
+        $html .= '<input type="checkbox" name="fk_check" value="1" '
             . 'id="fkc_checkbox"';
         $default_fk_check_value = $GLOBALS['dbi']->fetchValue(
             'SHOW VARIABLES LIKE \'foreign_key_checks\';', 0, 1
@@ -436,7 +436,7 @@ function PMA_getHtmlForOtherActions($what, $action, $_url_params, $full_query)
     $html .= '<input type="submit" value="' . __('No') . '" id="buttonNo" />';
     $html .= '</form>';
     $html .= '</fieldset>';
-    
+
     return $html;
 }
 
@@ -444,7 +444,7 @@ function PMA_getHtmlForOtherActions($what, $action, $_url_params, $full_query)
  * Get List of information for Submit Mult
  *
  * @param string $submit_mult mult_submit type
- * @param string $db          dtabase name 
+ * @param string $db          dtabase name
  * @param array  $table       table name
  * @param array  $selected    the selected columns
  * @param array  $action      action type
@@ -457,7 +457,7 @@ function PMA_getDataForSubmitMult($submit_mult, $db, $table, $selected, $action)
     $query_type = null;
     $is_unset_submit_mult = false;
     $mult_btn = null;
-    
+
     switch ($submit_mult) {
     case 'drop':
         $what     = 'drop_fld';
@@ -503,7 +503,7 @@ function PMA_getDataForSubmitMult($submit_mult, $db, $table, $selected, $action)
     case 'browse':
         // this should already be handled by tbl_structure.php
     }
-    
+
     return array($what, $query_type, $is_unset_submit_mult, $mult_btn);
 }
 
@@ -524,17 +524,17 @@ function PMA_getQueryFromSelected($what, $db, $table, $selected, $action, $views
     $reload = null;
     $full_query_views = null;
     $full_query     = '';
-    
+
     if ($what == 'drop_tbl') {
         $full_query_views = '';
     }
-    
+
     $selected_cnt   = count($selected);
     $i = 0;
     foreach ($selected as $idx => $sval) {
         switch ($what) {
         case 'row_delete':
-            $full_query .= 'DELETE FROM ' . PMA_Util::backquote($db) 
+            $full_query .= 'DELETE FROM ' . PMA_Util::backquote($db)
                 . '.' . PMA_Util::backquote($table)
                 . ' WHERE ' . urldecode($sval) . ' LIMIT 1'
                 . ';<br />';
@@ -607,9 +607,9 @@ function PMA_getQueryFromSelected($what, $db, $table, $selected, $action, $views
         }
         unset($full_query_views);
     }
-    
+
     $full_query_views = isset($full_query_views)? $full_query_views : null;
-    
+
     return array($full_query, $reload, $full_query_views);
 }
 
