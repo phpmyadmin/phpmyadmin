@@ -1441,6 +1441,8 @@ table#serverconnection_trg_local  {
   *  Validation error message styles
   */
 input[type=text].invalid_value,
+input[type=password].invalid_value,
+input[type=number].invalid_value,
 .invalid_value {
     background: #FFCCCC;
 }
@@ -1843,6 +1845,8 @@ fieldset .disabled-field td {
 }
 
 .config-form input[type="text"],
+.config-form input[type="password"],
+.config-form input[type="number"],
 .config-form select,
 .config-form textarea {
     border: 1px #A7A6AA solid;
@@ -1850,6 +1854,8 @@ fieldset .disabled-field td {
 }
 
 .config-form input[type="text"]:focus,
+.config-form input[type="password"]:focus,
+.config-form input[type="number"]:focus,
 .config-form select:focus,
 .config-form textarea:focus {
     border:     1px #6676FF solid;
@@ -1953,6 +1959,8 @@ fieldset .disabled-field td {
 }
 
 #table_columns input[type="text"],
+#table_columns input[type="password"],
+#table_columns input[type="number"],
 #table_columns select {
     width:              10em;
     box-sizing:         border-box;
@@ -2189,7 +2197,9 @@ fieldset .disabled-field td {
     position: absolute;
 }
 
-.cEdit input[type=text] {
+.cEdit input[type=text],
+.cEdit input[type=password],
+.cEdit input[type=number] {
     background: #FFF;
     height: 100%;
     margin: 0;
