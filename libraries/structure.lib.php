@@ -1567,7 +1567,7 @@ function PMA_getHtmlForAddColumn($columns_list)
         );
     }
     $num_fields = '<input type="number" name="num_fields" size="2" '
-        . 'maxlength="2" value="1" onfocus="this.select()" />';
+        . 'maxlength="2" value="1" onfocus="this.select()" required />';
     $html_output .= sprintf(__('Add %s column(s)'), $num_fields);
 
     // I tried displaying the drop-down inside the label but with Firefox

@@ -387,7 +387,8 @@ function PMA_getHtmlForReplicationChangeMaster($submitname)
             'name'=>'username',
             'id'=>'text_username',
             'maxlength'=>$username_length,
-            'title'=>__('User name')
+            'title'=>__('User name'),
+            'required'=>'required'
         )
     );
 
@@ -397,7 +398,8 @@ function PMA_getHtmlForReplicationChangeMaster($submitname)
             'type'=>'password',
             'name'=>'pma_pw',
             'id'=>'text_pma_pw',
-            'title'=>__('Password')
+            'title'=>__('Password'),
+            'required'=>'required'
         )
     );
 
@@ -408,18 +410,20 @@ function PMA_getHtmlForReplicationChangeMaster($submitname)
             'name'=>'hostname',
             'id'=>'text_hostname',
             'maxlength'=>$hostname_length,
-            'value'=>''
+            'value'=>'',
+            'required'=>'required'
         )
     );
 
     $html .= PMA_getHtmlForAddUserInputDiv(
         array('text'=>__('Port:'), 'for'=>"text_port"),
         array(
-            'type'=>'text',
+            'type'=>'number',
             'name'=>'text_port',
             'id'=>'text_port',
             'maxlength'=>6,
-            'value'=>'3306'
+            'value'=>'3306',
+            'required'=>'required'
          )
     );
 

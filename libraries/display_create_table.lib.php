@@ -49,7 +49,7 @@ echo __('Create table');
     <?php echo PMA_URL_getHiddenInputs($db); ?>
     <div class="formelement">
         <?php echo __('Name'); ?>:
-        <input type="text" name="table" maxlength="64" size="30" />
+        <input type="text" name="table" maxlength="64" size="30" required />
     </div>
     <div class="formelement">
         <?php echo __('Number of columns'); ?>:
