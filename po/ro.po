@@ -7461,9 +7461,9 @@ msgstr "Nume index&nbsp;:"
 
 #: libraries/display_indexes.lib.php:67
 msgid ""
-"(\"PRIMARY\" <b>must</b> be the name of and <b>only of</b> a primary key!)"
+"\"PRIMARY\" <b>must</b> be the name of and <b>only of</b> a primary key!"
 msgstr ""
-"(Numele „PRIMARY” <b>trebuie</b> să fie <b>numai</b> la cheia primară!)"
+"Numele „PRIMARY” <b>trebuie</b> să fie <b>numai</b> la cheia primară!"
 
 #: libraries/display_indexes.lib.php:85
 #, fuzzy

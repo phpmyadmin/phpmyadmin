@@ -7142,10 +7142,10 @@ msgstr "Nom d'índex:"
 
 #: libraries/display_indexes.lib.php:67
 msgid ""
-"(\"PRIMARY\" <b>must</b> be the name of and <b>only of</b> a primary key!)"
+"\"PRIMARY\" <b>must</b> be the name of and <b>only of</b> a primary key!"
 msgstr ""
-"(\"PRIMARY\" <b>ha de ser</b> el nom i <b>només</b> el nom de la clau "
-"principal!)"
+"\"PRIMARY\" <b>ha de ser</b> el nom i <b>només</b> el nom de la clau "
+"principal!"
 
 #: libraries/display_indexes.lib.php:85
 msgid "Comment:"

@@ -6843,8 +6843,8 @@ msgstr "اسم فهرست&nbsp;:"
 
 #: libraries/display_indexes.lib.php:67
 msgid ""
-"(\"PRIMARY\" <b>must</b> be the name of and <b>only of</b> a primary key!)"
-msgstr "(\"PRIMARY\" فقط <b>بايد</b> نام <b>يك</b> كليد اصلي باشد!)"
+"\"PRIMARY\" <b>must</b> be the name of and <b>only of</b> a primary key!"
+msgstr "\"PRIMARY\" فقط <b>بايد</b> نام <b>يك</b> كليد اصلي باشد!"
 
 #: libraries/display_indexes.lib.php:85
 #, fuzzy

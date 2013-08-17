@@ -7021,10 +7021,10 @@ msgstr "Indexnaam:"
 
 #: libraries/display_indexes.lib.php:67
 msgid ""
-"(\"PRIMARY\" <b>must</b> be the name of and <b>only of</b> a primary key!)"
+"\"PRIMARY\" <b>must</b> be the name of and <b>only of</b> a primary key!"
 msgstr ""
-"(\"PRIMARY\" <b>moet</b> de naam van en <b>alleen van</b> een primaire "
-"sleutel zijn!)"
+"\"PRIMARY\" <b>moet</b> de naam van en <b>alleen van</b> een primaire "
+"sleutel zijn!"
 
 #: libraries/display_indexes.lib.php:85
 msgid "Comment:"

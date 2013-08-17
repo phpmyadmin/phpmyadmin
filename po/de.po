@@ -7167,10 +7167,10 @@ msgstr "Indexname:"
 
 #: libraries/display_indexes.lib.php:67
 msgid ""
-"(\"PRIMARY\" <b>must</b> be the name of and <b>only of</b> a primary key!)"
+"\"PRIMARY\" <b>must</b> be the name of and <b>only of</b> a primary key!"
 msgstr ""
-"(Nur der Name des Primärschlüssels <b>darf</b> und <b>muß</b> \"PRIMARY\" "
-"lauten!)"
+"Nur der Name des Primärschlüssels <b>darf</b> und <b>muss</b> \"PRIMARY\" "
+"lauten!"
 
 #: libraries/display_indexes.lib.php:85
 msgid "Comment:"

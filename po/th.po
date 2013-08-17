@@ -6886,8 +6886,8 @@ msgstr "ชื่อดัชนี :"
 
 #: libraries/display_indexes.lib.php:67
 msgid ""
-"(\"PRIMARY\" <b>must</b> be the name of and <b>only of</b> a primary key!)"
-msgstr "(ชื่อของไพรมารีคีย์<b>จะต้องเป็น</b> \"PRIMARY\" เท่านั้น!)"
+"\"PRIMARY\" <b>must</b> be the name of and <b>only of</b> a primary key!"
+msgstr "ชื่อของไพรมารีคีย์<b>จะต้องเป็น</b> \"PRIMARY\" เท่านั้น!"
 
 #: libraries/display_indexes.lib.php:85
 #, fuzzy
