@@ -9,6 +9,8 @@
 // Run common work
 require_once './libraries/common.inc.php';
 
+require_once './libraries/tbl_tracking.lib.php';
+
 define('TABLE_MAY_BE_ABSENT', true);
 require './libraries/tbl_common.inc.php';
 $url_query .= '&amp;goto=tbl_tracking.php&amp;back=tbl_tracking.php';
@@ -51,41 +53,6 @@ if (isset($_REQUEST['report']) || isset($_REQUEST['report_export'])) {
 
 // Prepare export
 if (isset($_REQUEST['report_export'])) {
-
-    /**
-     * Filters tracking entries
-     *
-     * @param array  $data           the entries to filter
-     * @param string $filter_ts_from "from" date
-     * @param string $filter_ts_to   "to" date
-     * @param string $filter_users   users
-     *
-     * @return array filtered entries
-     */
-    function PMA_filterTracking(
-        $data, $filter_ts_from, $filter_ts_to, $filter_users
-    ) {
-        $tmp_entries = array();
-        $id = 0;
-        foreach ($data as $entry) {
-            $timestamp = strtotime($entry['date']);
-
-            if ($timestamp >= $filter_ts_from
-                && $timestamp <= $filter_ts_to
-                && (in_array('*', $filter_users) || in_array($entry['username'], $filter_users))
-            ) {
-                $tmp_entries[] = array(
-                    'id'        => $id,
-                    'timestamp' => $timestamp,
-                    'username'  => $entry['username'],
-                    'statement' => $entry['statement']
-                );
-            }
-            $id++;
-        }
-        return($tmp_entries);
-    }
-
     $entries = array();
     // Filtering data definition statements
     if ($_REQUEST['logtype'] == 'schema'
@@ -142,7 +109,7 @@ if (isset($_REQUEST['report_export'])
     $filename = 'log_' . htmlspecialchars($_REQUEST['table']) . '.sql';
     PMA_downloadHeader($filename, 'text/x-sql', strlen($dump));
 
-    echo $dump;
+    $html .= $dump;
     exit();
 }
 
@@ -151,7 +118,7 @@ if (isset($_REQUEST['report_export'])
  * Gets tables informations
  */
 
-echo '<br />';
+$html = '<br />';
 
 /**
  * Actions
@@ -290,7 +257,7 @@ if (isset($_REQUEST['report_export']) && $_REQUEST['export_type'] == 'sqldump') 
  * Schema snapshot
  */
 if (isset($_REQUEST['snapshot'])) {
-    echo '<h3>' . __('Structure snapshot')
+    $html .= '<h3>' . __('Structure snapshot')
         . '  [<a href="tbl_tracking.php?' . $url_query . '">' . __('Close')
         . '</a>]</h3>';
     $data = PMA_Tracker::getTrackedData(
@@ -306,7 +273,7 @@ if (isset($_REQUEST['snapshot'])) {
         $drop_create_statements .= $data['ddlog'][1]['statement'];
     }
     // Print SQL code
-    echo PMA_Util::getMessage(
+    $html .= PMA_Util::getMessage(
         sprintf(
             __('Version %s snapshot (SQL code)'),
             htmlspecialchars($_REQUEST['version'])
@@ -318,52 +285,52 @@ if (isset($_REQUEST['snapshot'])) {
     $temp = unserialize($data['schema_snapshot']);
     $columns = $temp['COLUMNS'];
     $indexes = $temp['INDEXES'];
-    echo '<h3>' . __('Structure') . '</h3>';
-    echo '<table id="tablestructure" class="data">';
-    echo '<thead>';
-    echo '<tr>';
-    echo '<th>' . __('Column') . '</th>';
-    echo '<th>' . __('Type') . '</th>';
-    echo '<th>' . __('Collation') . '</th>';
-    echo '<th>' . __('Null') . '</th>';
-    echo '<th>' . __('Default') . '</th>';
-    echo '<th>' . __('Extra') . '</th>';
-    echo '<th>' . __('Comment') . '</th>';
-    echo '</tr>';
-    echo '</thead>';
-    echo '<tbody>';
+    $html .= '<h3>' . __('Structure') . '</h3>';
+    $html .= '<table id="tablestructure" class="data">';
+    $html .= '<thead>';
+    $html .= '<tr>';
+    $html .= '<th>' . __('Column') . '</th>';
+    $html .= '<th>' . __('Type') . '</th>';
+    $html .= '<th>' . __('Collation') . '</th>';
+    $html .= '<th>' . __('Null') . '</th>';
+    $html .= '<th>' . __('Default') . '</th>';
+    $html .= '<th>' . __('Extra') . '</th>';
+    $html .= '<th>' . __('Comment') . '</th>';
+    $html .= '</tr>';
+    $html .= '</thead>';
+    $html .= '<tbody>';
     $style = 'odd';
     foreach ($columns as $field_index => $field) {
-        echo '<tr class="noclick ' . $style . '">';
+        $html .= '<tr class="noclick ' . $style . '">';
         if ($field['Key'] == 'PRI') {
-            echo '<td><b><u>' . htmlspecialchars($field['Field']) . '</u></b></td>';
+            $html .= '<td><b><u>' . htmlspecialchars($field['Field']) . '</u></b></td>';
         } else {
-            echo '<td><b>' . htmlspecialchars($field['Field']) . '</b></td>';
+            $html .= '<td><b>' . htmlspecialchars($field['Field']) . '</b></td>';
         }
-        echo "\n";
-        echo '<td>' . htmlspecialchars($field['Type']) . '</td>';
-        echo '<td>' . htmlspecialchars($field['Collation']) . '</td>';
-        echo '<td>' . (($field['Null'] == 'YES') ? __('Yes') : __('No')) . '</td>';
-        echo '<td>';
+        $html .= "\n";
+        $html .= '<td>' . htmlspecialchars($field['Type']) . '</td>';
+        $html .= '<td>' . htmlspecialchars($field['Collation']) . '</td>';
+        $html .= '<td>' . (($field['Null'] == 'YES') ? __('Yes') : __('No')) . '</td>';
+        $html .= '<td>';
         if (isset($field['Default'])) {
             $extracted_columnspec = PMA_Util::extractColumnSpec($field['Type']);
             if ($extracted_columnspec['type'] == 'bit') {
                 // here, $field['Default'] contains something like b'010'
-                echo PMA_Util::convertBitDefaultValue($field['Default']);
+                $html .= PMA_Util::convertBitDefaultValue($field['Default']);
             } else {
-                echo htmlspecialchars($field['Default']);
+                $html .= htmlspecialchars($field['Default']);
             }
         } else {
             if ($field['Null'] == 'YES') {
-                echo '<i>NULL</i>';
+                $html .= '<i>NULL</i>';
             } else {
-                echo '<i>' . _pgettext('None for default', 'None') . '</i>';
+                $html .= '<i>' . _pgettext('None for default', 'None') . '</i>';
             }
         }
-        echo '</td>';
-        echo '<td>' . htmlspecialchars($field['Extra']) . '</td>';
-        echo '<td>' . htmlspecialchars($field['Comment']) . '</td>';
-        echo '</tr>';
+        $html .= '</td>';
+        $html .= '<td>' . htmlspecialchars($field['Extra']) . '</td>';
+        $html .= '<td>' . htmlspecialchars($field['Comment']) . '</td>';
+        $html .= '</tr>';
 
         if ($style == 'even') {
             $style = 'odd';
@@ -372,25 +339,25 @@ if (isset($_REQUEST['snapshot'])) {
         }
     }
 
-    echo '</tbody>';
-    echo '</table>';
+    $html .= '</tbody>';
+    $html .= '</table>';
 
     if (count($indexes) > 0) {
-        echo '<h3>' . __('Indexes') . '</h3>';
-        echo '<table id="tablestructure_indexes" class="data">';
-        echo '<thead>';
-        echo '<tr>';
-        echo '<th>' . __('Keyname') . '</th>';
-        echo '<th>' . __('Type') . '</th>';
-        echo '<th>' . __('Unique') . '</th>';
-        echo '<th>' . __('Packed') . '</th>';
-        echo '<th>' . __('Column') . '</th>';
-        echo '<th>' . __('Cardinality') . '</th>';
-        echo '<th>' . __('Collation') . '</th>';
-        echo '<th>' . __('Null') . '</th>';
-        echo '<th>' . __('Comment') . '</th>';
-        echo '</tr>';
-        echo '<tbody>';
+        $html .= '<h3>' . __('Indexes') . '</h3>';
+        $html .= '<table id="tablestructure_indexes" class="data">';
+        $html .= '<thead>';
+        $html .= '<tr>';
+        $html .= '<th>' . __('Keyname') . '</th>';
+        $html .= '<th>' . __('Type') . '</th>';
+        $html .= '<th>' . __('Unique') . '</th>';
+        $html .= '<th>' . __('Packed') . '</th>';
+        $html .= '<th>' . __('Column') . '</th>';
+        $html .= '<th>' . __('Cardinality') . '</th>';
+        $html .= '<th>' . __('Collation') . '</th>';
+        $html .= '<th>' . __('Null') . '</th>';
+        $html .= '<th>' . __('Comment') . '</th>';
+        $html .= '</tr>';
+        $html .= '<tbody>';
 
         $style = 'odd';
         foreach ($indexes as $indexes_index => $index) {
@@ -405,17 +372,17 @@ if (isset($_REQUEST['snapshot'])) {
                 $str_packed = __('No');
             }
 
-            echo '<tr class="noclick ' . $style . '">';
-            echo '<td><b>' . htmlspecialchars($index['Key_name']) . '</b></td>';
-            echo '<td>' . htmlspecialchars($index['Index_type']) . '</td>';
-            echo '<td>' . $str_unique . '</td>';
-            echo '<td>' . $str_packed . '</td>';
-            echo '<td>' . htmlspecialchars($index['Column_name']) . '</td>';
-            echo '<td>' . htmlspecialchars($index['Cardinality']) . '</td>';
-            echo '<td>' . htmlspecialchars($index['Collation']) . '</td>';
-            echo '<td>' . htmlspecialchars($index['Null']) . '</td>';
-            echo '<td>' . htmlspecialchars($index['Comment']) . '</td>';
-            echo '</tr>';
+            $html .= '<tr class="noclick ' . $style . '">';
+            $html .= '<td><b>' . htmlspecialchars($index['Key_name']) . '</b></td>';
+            $html .= '<td>' . htmlspecialchars($index['Index_type']) . '</td>';
+            $html .= '<td>' . $str_unique . '</td>';
+            $html .= '<td>' . $str_packed . '</td>';
+            $html .= '<td>' . htmlspecialchars($index['Column_name']) . '</td>';
+            $html .= '<td>' . htmlspecialchars($index['Cardinality']) . '</td>';
+            $html .= '<td>' . htmlspecialchars($index['Collation']) . '</td>';
+            $html .= '<td>' . htmlspecialchars($index['Null']) . '</td>';
+            $html .= '<td>' . htmlspecialchars($index['Comment']) . '</td>';
+            $html .= '</tr>';
 
             if ($style == 'even') {
                 $style = 'odd';
@@ -423,10 +390,10 @@ if (isset($_REQUEST['snapshot'])) {
                 $style = 'even';
             }
         }
-        echo '</tbody>';
-        echo '</table>';
+        $html .= '</tbody>';
+        $html .= '</table>';
     } // endif
-    echo '<br /><hr /><br />';
+    $html .= '<br /><hr /><br />';
 }
 // end of snapshot report
 
@@ -487,15 +454,15 @@ if (isset($_REQUEST['report'])
 }
 
 if (isset($_REQUEST['report']) || isset($_REQUEST['report_export'])) {
-    echo '<h3>' . __('Tracking report')
+    $html .= '<h3>' . __('Tracking report')
         . '  [<a href="tbl_tracking.php?' . $url_query . '">' . __('Close')
         . '</a>]</h3>';
 
-    echo '<small>' . __('Tracking statements') . ' '
+    $html .= '<small>' . __('Tracking statements') . ' '
         . htmlspecialchars($data['tracking']) . '</small><br/>';
-    echo '<br/>';
+    $html .= '<br/>';
 
-    echo '<form method="post" action="tbl_tracking.php'
+    $html .= '<form method="post" action="tbl_tracking.php'
         . PMA_URL_getCommon(
             $url_params + array('report' => 'true', 'version' => $_REQUEST['version'])
         )
@@ -521,7 +488,7 @@ if (isset($_REQUEST['report']) || isset($_REQUEST['report_export'])) {
     $str5 = '<input type="hidden" name="list_report" value="1" />'
       . '<input type="submit" value="' . __('Go') . '" />';
 
-    printf(
+    $html .= printf(
         __('Show %1$s with dates from %2$s to %3$s by user %4$s %5$s'),
         $str1, $str2, $str3, $str4, $str5
     );
@@ -547,17 +514,17 @@ if (isset($_REQUEST['report']) || isset($_REQUEST['report_export'])) {
     }
 
     if ($selection_schema || $selection_both  && count($data['ddlog']) > 0) {
-        echo '<table id="ddl_versions" class="data" width="100%">';
-        echo '<thead>';
-        echo '<tr>';
-        echo '<th width="18">#</th>';
-        echo '<th width="100">' . __('Date') . '</th>';
-        echo '<th width="60">' . __('Username') . '</th>';
-        echo '<th>' . __('Data definition statement') . '</th>';
-        echo '<th>' . __('Delete') . '</th>';
-        echo '</tr>';
-        echo '</thead>';
-        echo '<tbody>';
+        $html .= '<table id="ddl_versions" class="data" width="100%">';
+        $html .= '<thead>';
+        $html .= '<tr>';
+        $html .= '<th width="18">#</th>';
+        $html .= '<th width="100">' . __('Date') . '</th>';
+        $html .= '<th width="60">' . __('Username') . '</th>';
+        $html .= '<th>' . __('Data definition statement') . '</th>';
+        $html .= '<th>' . __('Delete') . '</th>';
+        $html .= '</tr>';
+        $html .= '</thead>';
+        $html .= '<tbody>';
 
         $style = 'odd';
         foreach ($data['ddlog'] as $entry) {
@@ -568,12 +535,12 @@ if (isset($_REQUEST['report']) || isset($_REQUEST['report_export'])) {
                 && $timestamp <= $filter_ts_to
                 && (in_array('*', $filter_users) || in_array($entry['username'], $filter_users))
             ) {
-                echo '<tr class="noclick ' . $style . '">';
-                echo '<td><small>' . $i . '</small></td>';
-                echo '<td><small>' . htmlspecialchars($entry['date']) . '</small></td>';
-                echo '<td><small>' . htmlspecialchars($entry['username']) . '</small></td>';
-                echo '<td>' . $statement . '</td>';
-                echo '<td class="nowrap"><a href="tbl_tracking.php?'
+                $html .= '<tr class="noclick ' . $style . '">';
+                $html .= '<td><small>' . $i . '</small></td>';
+                $html .= '<td><small>' . htmlspecialchars($entry['date']) . '</small></td>';
+                $html .= '<td><small>' . htmlspecialchars($entry['username']) . '</small></td>';
+                $html .= '<td>' . $statement . '</td>';
+                $html .= '<td class="nowrap"><a href="tbl_tracking.php?'
                     . PMA_URL_getCommon(
                         $url_params + array(
                             'report' => 'true',
@@ -583,7 +550,7 @@ if (isset($_REQUEST['report']) || isset($_REQUEST['report_export'])) {
                     )
                     . '">' . $drop_image_or_text
                     . '</a></td>';
-                echo '</tr>';
+                $html .= '</tr>';
 
                 if ($style == 'even') {
                     $style = 'odd';
@@ -593,8 +560,8 @@ if (isset($_REQUEST['report']) || isset($_REQUEST['report_export'])) {
                 $i++;
             }
         }
-        echo '</tbody>';
-        echo '</table>';
+        $html .= '</tbody>';
+        $html .= '</table>';
 
     } //endif
 
@@ -606,17 +573,17 @@ if (isset($_REQUEST['report']) || isset($_REQUEST['report_export'])) {
      */
 
     if (($selection_data || $selection_both) && count($data['dmlog']) > 0) {
-        echo '<table id="dml_versions" class="data" width="100%">';
-        echo '<thead>';
-        echo '<tr>';
-        echo '<th width="18">#</th>';
-        echo '<th width="100">' . __('Date') . '</th>';
-        echo '<th width="60">' . __('Username') . '</th>';
-        echo '<th>' . __('Data manipulation statement') . '</th>';
-        echo '<th>' . __('Delete') . '</th>';
-        echo '</tr>';
-        echo '</thead>';
-        echo '<tbody>';
+        $html .= '<table id="dml_versions" class="data" width="100%">';
+        $html .= '<thead>';
+        $html .= '<tr>';
+        $html .= '<th width="18">#</th>';
+        $html .= '<th width="100">' . __('Date') . '</th>';
+        $html .= '<th width="60">' . __('Username') . '</th>';
+        $html .= '<th>' . __('Data manipulation statement') . '</th>';
+        $html .= '<th>' . __('Delete') . '</th>';
+        $html .= '</tr>';
+        $html .= '</thead>';
+        $html .= '<tbody>';
 
         $style = 'odd';
         foreach ($data['dmlog'] as $entry) {
@@ -627,12 +594,12 @@ if (isset($_REQUEST['report']) || isset($_REQUEST['report_export'])) {
                 && $timestamp <= $filter_ts_to
                 && (in_array('*', $filter_users) || in_array($entry['username'], $filter_users))
             ) {
-                echo '<tr class="noclick ' . $style . '">';
-                echo '<td><small>' . $i . '</small></td>';
-                echo '<td><small>' . htmlspecialchars($entry['date']) . '</small></td>';
-                echo '<td><small>' . htmlspecialchars($entry['username']) . '</small></td>';
-                echo '<td>' . $statement . '</td>';
-                echo '<td class="nowrap"><a href="tbl_tracking.php?'
+                $html .= '<tr class="noclick ' . $style . '">';
+                $html .= '<td><small>' . $i . '</small></td>';
+                $html .= '<td><small>' . htmlspecialchars($entry['date']) . '</small></td>';
+                $html .= '<td><small>' . htmlspecialchars($entry['username']) . '</small></td>';
+                $html .= '<td>' . $statement . '</td>';
+                $html .= '<td class="nowrap"><a href="tbl_tracking.php?'
                     . PMA_URL_getCommon(
                         $url_params + array(
                             'report' => 'true',
@@ -643,7 +610,7 @@ if (isset($_REQUEST['report']) || isset($_REQUEST['report_export'])) {
                     . '">'
                     . $drop_image_or_text
                     . '</a></td>';
-                echo '</tr>';
+                $html .= '</tr>';
 
                 if ($style == 'even') {
                     $style = 'odd';
@@ -653,16 +620,16 @@ if (isset($_REQUEST['report']) || isset($_REQUEST['report_export'])) {
                 $i++;
             }
         }
-        echo '</tbody>';
-        echo '</table>';
+        $html .= '</tbody>';
+        $html .= '</table>';
     }
-    echo '</form>';
-    echo '<form method="post" action="tbl_tracking.php'
+    $html .= '</form>';
+    $html .= '<form method="post" action="tbl_tracking.php'
         . PMA_URL_getCommon(
             $url_params + array('report' => 'true', 'version' => $_REQUEST['version'])
         )
         . '">';
-    printf(
+    $html .= printf(
         __('Show %1$s with dates from %2$s to %3$s by user %4$s %5$s'),
         $str1, $str2, $str3, $str4, $str5
     );
@@ -676,24 +643,24 @@ if (isset($_REQUEST['report']) || isset($_REQUEST['report_export'])) {
 
     $str_export2 = '<input type="hidden" name="report_export" value="1" />'
                  . '<input type="submit" value="' . __('Go') .'" />';
-    echo '</form>';
-    echo '<form class="disableAjax" method="post" action="tbl_tracking.php'
+    $html .= '</form>';
+    $html .= '<form class="disableAjax" method="post" action="tbl_tracking.php'
         . PMA_URL_getCommon(
             $url_params + array('report' => 'true', 'version' => $_REQUEST['version'])
         )
         . '">';
-    echo '<input type="hidden" name="logtype" value="'
+    $html .= '<input type="hidden" name="logtype" value="'
         . htmlspecialchars($_REQUEST['logtype']) . '" />';
-    echo '<input type="hidden" name="date_from" value="'
+    $html .= '<input type="hidden" name="date_from" value="'
         . htmlspecialchars($_REQUEST['date_from']) . '" />';
-    echo '<input type="hidden" name="date_to" value="'
+    $html .= '<input type="hidden" name="date_to" value="'
         . htmlspecialchars($_REQUEST['date_to']) . '" />';
-    echo '<input type="hidden" name="users" value="'
+    $html .= '<input type="hidden" name="users" value="'
         . htmlspecialchars($_REQUEST['users']) . '" />';
-    echo "<br/>" . sprintf(__('Export as %s'), $str_export1)
+    $html .= "<br/>" . sprintf(__('Export as %s'), $str_export1)
         . $str_export2 . "<br/>";
-    echo '</form>';
-    echo "<br/><br/><hr/><br/>\n";
+    $html .= '</form>';
+    $html .= "<br/><br/><hr/><br/>\n";
 } // end of report
 
 
@@ -710,8 +677,8 @@ $sql_query = " SELECT DISTINCT db_name, table_name FROM " .
 $sql_result = PMA_queryAsControlUser($sql_query);
 
 if ($GLOBALS['dbi']->numRows($sql_result) > 0) {
-    echo '<form method="post" action="tbl_tracking.php?' . $url_query . '">';
-    echo '<select name="table">';
+    $html .= '<form method="post" action="tbl_tracking.php?' . $url_query . '">';
+    $html .= '<select name="table">';
     while ($entries = $GLOBALS['dbi']->fetchArray($sql_result)) {
         if (PMA_Tracker::isTracked($entries['db_name'], $entries['table_name'])) {
             $status = ' (' . __('active') . ')';
@@ -723,162 +690,41 @@ if ($GLOBALS['dbi']->numRows($sql_result) > 0) {
         } else {
             $s = '';
         }
-        echo '<option value="' . htmlspecialchars($entries['table_name']) . '"' . $s . '>' . htmlspecialchars($entries['db_name']) . ' . ' . htmlspecialchars($entries['table_name']) . $status . '</option>' . "\n";
+        $html .= '<option value="' . htmlspecialchars($entries['table_name']) . '"' . $s . '>' . htmlspecialchars($entries['db_name']) . ' . ' . htmlspecialchars($entries['table_name']) . $status . '</option>' . "\n";
     }
-    echo '</select>';
-    echo '<input type="hidden" name="show_versions_submit" value="1" />';
-    echo '<input type="submit" value="' . __('Show versions') . '" />';
-    echo '</form>';
+    $html .= '</select>';
+    $html .= '<input type="hidden" name="show_versions_submit" value="1" />';
+    $html .= '<input type="submit" value="' . __('Show versions') . '" />';
+    $html .= '</form>';
 }
-echo '<br />';
+$html .= '<br />';
 
 /*
  * List versions of current table
  */
-
-$sql_query = " SELECT * FROM " .
-     PMA_Util::backquote($GLOBALS['cfg']['Server']['pmadb']) . "." .
-     PMA_Util::backquote($GLOBALS['cfg']['Server']['tracking']) .
-     " WHERE db_name = '" . PMA_Util::sqlAddSlashes($_REQUEST['db']) . "' ".
-     " AND table_name = '" . PMA_Util::sqlAddSlashes($_REQUEST['table']) ."' ".
-     " ORDER BY version DESC ";
-
-$sql_result = PMA_queryAsControlUser($sql_query);
-
-$last_version = 0;
+$sql_result = PMA_getListOfVersionsOfTable();
 $maxversion = $GLOBALS['dbi']->fetchArray($sql_result);
 $last_version = $maxversion['version'];
 
 if ($last_version > 0) {
-    echo '<table id="versions" class="data">';
-    echo '<thead>';
-    echo '<tr>';
-    echo '<th>' . __('Database') . '</th>';
-    echo '<th>' . __('Table') . '</th>';
-    echo '<th>' . __('Version') . '</th>';
-    echo '<th>' . __('Created') . '</th>';
-    echo '<th>' . __('Updated') . '</th>';
-    echo '<th>' . __('Status') . '</th>';
-    echo '<th>' . __('Show') . '</th>';
-    echo '</tr>';
-    echo '</thead>';
-    echo '<tbody>';
-
-    $style = 'odd';
-    $GLOBALS['dbi']->dataSeek($sql_result, 0);
-    while ($version = $GLOBALS['dbi']->fetchArray($sql_result)) {
-        if ($version['tracking_active'] == 1) {
-            $version_status = __('active');
-        } else {
-            $version_status = __('not active');
-        }
-        if ($version['version'] == $last_version) {
-            if ($version['tracking_active'] == 1) {
-                $tracking_active = true;
-            } else {
-                $tracking_active = false;
-            }
-        }
-        echo '<tr class="noclick ' . $style . '">';
-        echo '<td>' . htmlspecialchars($version['db_name']) . '</td>';
-        echo '<td>' . htmlspecialchars($version['table_name']) . '</td>';
-        echo '<td>' . htmlspecialchars($version['version']) . '</td>';
-        echo '<td>' . htmlspecialchars($version['date_created']) . '</td>';
-        echo '<td>' . htmlspecialchars($version['date_updated']) . '</td>';
-        echo '<td>' . $version_status . '</td>';
-        echo '<td><a href="tbl_tracking.php';
-        echo PMA_URL_getCommon(
-            $url_params + array('report' => 'true', 'version' => $version['version'])
-        );
-        echo '">' . __('Tracking report') . '</a>';
-        echo '| <a href="tbl_tracking.php';
-        echo PMA_URL_getCommon(
-            $url_params + array('snapshot' => 'true', 'version' => $version['version'])
-        );
-        echo '">' . __('Structure snapshot') . '</a>';
-        echo '</td>';
-        echo '</tr>';
-
-        if ($style == 'even') {
-            $style = 'odd';
-        } else {
-            $style = 'even';
-        }
-    }
-
-    echo '</tbody>';
-    echo '</table>';
-
+    list($temp, $tracking_active) = PMA_getHtmlForTableVersionDetails(
+        $sql_result, $last_version, $url_params
+    );
+    $html .= $temp;
+    unset($temp);
+    
     if ($tracking_active) {
-        echo '<div id="div_deactivate_tracking">';
-        echo '<form method="post" action="tbl_tracking.php?' . $url_query . '">';
-        echo '<fieldset>';
-        echo '<legend>';
-        printf(
-            __('Deactivate tracking for %s'),
-            htmlspecialchars($GLOBALS['db'] . '.' . $GLOBALS['table'])
-        );
-        echo '</legend>';
-        echo '<input type="hidden" name="version" value="' . $last_version . '" />';
-        echo '<input type="hidden" name="submit_deactivate_now" value="1" />';
-        echo '<input type="submit" value="' . __('Deactivate now') . '" />';
-        echo '</fieldset>';
-        echo '</form>';
-        echo '</div>';
+        $html .= PMA_getHtmlForDeactivateTracking($url_query, $last_version);
     } else {
-        echo '<div id="div_activate_tracking">';
-        echo '<form method="post" action="tbl_tracking.php?' . $url_query . '">';
-        echo '<fieldset>';
-        echo '<legend>';
-        printf(
-            __('Activate tracking for %s'),
-            htmlspecialchars($GLOBALS['db'] . '.' . $GLOBALS['table'])
-        );
-        echo '</legend>';
-        echo '<input type="hidden" name="version" value="' . $last_version . '" />';
-        echo '<input type="hidden" name="submit_activate_now" value="1" />';
-        echo '<input type="submit" value="' . __('Activate now') . '" />';
-        echo '</fieldset>';
-        echo '</form>';
-        echo '</div>';
+        $html .= PMA_getHtmlForActivateTracking($url_query, $last_version);
     }
 }
 
-echo '<div id="div_create_version">';
-echo '<form method="post" action="tbl_tracking.php?' . $url_query . '">';
-echo PMA_URL_getHiddenInputs($GLOBALS['db'], $GLOBALS['table']);
-echo '<fieldset>';
-echo '<legend>';
-printf(
-    __('Create version %1$s of %2$s'),
-    ($last_version + 1),
-    htmlspecialchars($GLOBALS['db'] . '.' . $GLOBALS['table'])
+$html .= PMA_getHtmlForDataDefinitionAndManipulationStatements(
+    $url_query, $last_version
 );
-echo '</legend>';
 
-echo '<input type="hidden" name="version" value="' . ($last_version + 1) . '" />';
+$html .= '<br class="clearfloat"/>';
 
-echo '<p>' . __('Track these data definition statements:') . '</p>';
-echo '<input type="checkbox" name="alter_table" value="true" checked="checked" /> ALTER TABLE<br/>';
-echo '<input type="checkbox" name="rename_table" value="true" checked="checked" /> RENAME TABLE<br/>';
-echo '<input type="checkbox" name="create_table" value="true" checked="checked" /> CREATE TABLE<br/>';
-echo '<input type="checkbox" name="drop_table" value="true" checked="checked" /> DROP TABLE<br/>';
-echo '<br/>';
-echo '<input type="checkbox" name="create_index" value="true" checked="checked" /> CREATE INDEX<br/>';
-echo '<input type="checkbox" name="drop_index" value="true" checked="checked" /> DROP INDEX<br/>';
-echo '<p>' . __('Track these data manipulation statements:') . '</p>';
-echo '<input type="checkbox" name="insert" value="true" checked="checked" /> INSERT<br/>';
-echo '<input type="checkbox" name="update" value="true" checked="checked" /> UPDATE<br/>';
-echo '<input type="checkbox" name="delete" value="true" checked="checked" /> DELETE<br/>';
-echo '<input type="checkbox" name="truncate" value="true" checked="checked" /> TRUNCATE<br/>';
-
-echo '</fieldset>';
-echo '<fieldset class="tblFooters">';
-
-echo '<input type="hidden" name="submit_create_version" value="1" />';
-echo '<input type="submit" value="' . __('Create version') . '" />';
-echo '</fieldset>';
-echo '</form>';
-echo '</div>';
-
-echo '<br class="clearfloat"/>';
+$response = PMA_Response::getInstance();
+$response->addHTML($html);
