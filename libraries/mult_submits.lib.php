@@ -14,8 +14,8 @@ if (! defined('PHPMYADMIN')) {
 /**
  * Gets url params
  *
- * @param string $what               mult subimt type
- * @param bool   $reload             is relaoad
+ * @param string $what               mult submit type
+ * @param bool   $reload             is reload
  * @param string $action             action type
  * @param string $db                 database name
  * @param string $table              table name

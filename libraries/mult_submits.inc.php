@@ -95,7 +95,7 @@ if (! empty($submit_mult)
                 $submit_mult, $db, $table,
                 $selected, $action
             );
-        //update the exist variables
+        //update the existing variables
         if (isset($what_ret)) {
             $what = $what_ret;
         }
