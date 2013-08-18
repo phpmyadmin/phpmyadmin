@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-08-18 06:16-0400\n"
-"PO-Revision-Date: 2013-08-11 22:53+0200\n"
+"PO-Revision-Date: 2013-08-18 16:11+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: Greek <http://l10n.cihar.com/projects/phpmyadmin/master/el/>\n"
 "Language: el\n"
@@ -953,16 +953,14 @@ msgid "Missing value in the form!"
 msgstr "Η τιμή δεν υπάρχει στη φόρμα!"
 
 #: js/messages.php:48
-#, fuzzy
 #| msgid "Not a valid port number"
 msgid "Please enter a valid number"
-msgstr "Μη έγκυρος αριθμός θύρας"
+msgstr "Εισάγετε έναν έγκυρο αριθμό"
 
 #: js/messages.php:49
-#, fuzzy
 #| msgid "Please enter correct captcha!"
 msgid "Please enter a valid length"
-msgstr "Εισάγετε το σωστό captcha!"
+msgstr "Εισάγετε ένα έγκυρο μήκος"
 
 #: js/messages.php:50
 msgid "Add Index"
