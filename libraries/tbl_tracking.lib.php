@@ -422,57 +422,10 @@ function PMA_getHtmlForTrackingReport($url_query, $data, $url_params,
      *  Secondly, list tracked data manipulation statements
      */
     if (($selection_data || $selection_both) && count($data['dmlog']) > 0) {
-        $html .= '<table id="dml_versions" class="data" width="100%">';
-        $html .= '<thead>';
-        $html .= '<tr>';
-        $html .= '<th width="18">#</th>';
-        $html .= '<th width="100">' . __('Date') . '</th>';
-        $html .= '<th width="60">' . __('Username') . '</th>';
-        $html .= '<th>' . __('Data manipulation statement') . '</th>';
-        $html .= '<th>' . __('Delete') . '</th>';
-        $html .= '</tr>';
-        $html .= '</thead>';
-        $html .= '<tbody>';
-
-        $style = 'odd';
-        foreach ($data['dmlog'] as $entry) {
-            $statement  = PMA_Util::formatSql($entry['statement'], true);
-            $timestamp = strtotime($entry['date']);
-            $filtered_user = in_array($entry['username'], $filter_users);
-            if ($timestamp >= $filter_ts_from
-                && $timestamp <= $filter_ts_to
-                && (in_array('*', $filter_users) || $filtered_user)
-            ) {
-                $html .= '<tr class="noclick ' . $style . '">';
-                $html .= '<td><small>' . $i . '</small></td>';
-                $html .= '<td><small>'
-                    . htmlspecialchars($entry['date']) . '</small></td>';
-                $html .= '<td><small>'
-                    . htmlspecialchars($entry['username']) . '</small></td>';
-                $html .= '<td>' . $statement . '</td>';
-                $html .= '<td class="nowrap"><a href="tbl_tracking.php?'
-                    . PMA_URL_getCommon(
-                        $url_params + array(
-                            'report' => 'true',
-                            'version' => $_REQUEST['version'],
-                            'delete_dmlog' => ($i - $ddlog_count),
-                        )
-                    )
-                    . '">'
-                    . $drop_image_or_text
-                    . '</a></td>';
-                $html .= '</tr>';
-
-                if ($style == 'even') {
-                    $style = 'odd';
-                } else {
-                    $style = 'even';
-                }
-                $i++;
-            }
-        }
-        $html .= '</tbody>';
-        $html .= '</table>';
+        $html .= PMA_getHtmlForDataManipulationStatements(
+            $data, $filter_users, $filter_ts_from, $filter_ts_to, $url_params,
+            $ddlog_count, $drop_image_or_text
+        );
     }
     $html .= '</form>';
     $html .= '<form method="post" action="tbl_tracking.php'
@@ -521,7 +474,104 @@ function PMA_getHtmlForTrackingReport($url_query, $data, $url_params,
     
     return $html;
 }
+/**
+ * Function to get html for data manipulation statements
+ * 
+ * @param array $data               data
+ * @param array $filter_users       filter users
+ * @param int   $filter_ts_from     filter time staml from
+ * @param int   $filter_ts_to       filter time stamp to
+ * @param array $url_params         url parameters
+ * @param int   $ddlog_count        data definition log count
+ * @param bool  $drop_image_or_text drop image or text
+ * 
+ * @return string
+ */
+function PMA_getHtmlForDataManipulationStatements($data, $filter_users,
+    $filter_ts_from, $filter_ts_to, $url_params, $ddlog_count,
+    $drop_image_or_text
+) {
+    $i = $ddlog_count;
+    $html = '<table id="dml_versions" class="data" width="100%">';
+    $html .= '<thead>';
+    $html .= '<tr>';
+    $html .= '<th width="18">#</th>';
+    $html .= '<th width="100">' . __('Date') . '</th>';
+    $html .= '<th width="60">' . __('Username') . '</th>';
+    $html .= '<th>' . __('Data manipulation statement') . '</th>';
+    $html .= '<th>' . __('Delete') . '</th>';
+    $html .= '</tr>';
+    $html .= '</thead>';
+    $html .= '<tbody>';
 
+    $style = 'odd';
+    foreach ($data['dmlog'] as $entry) {
+        $html .= PMA_getHtmlForDataManipulationStatement(
+            $entry, $filter_users, $filter_ts_from, $filter_ts_to, $style, $i,
+            $url_params, $ddlog_count, $drop_image_or_text
+        );
+        if ($style == 'even') {
+            $style = 'odd';
+        } else {
+            $style = 'even';
+        }
+        $i++;
+    }
+    $html .= '</tbody>';
+    $html .= '</table>';
+    
+    return $html;
+}
+
+/**
+ * Function to get html for data manipulation statements
+ * 
+ * @param array  $entry              entry
+ * @param array  $filter_users       filter users
+ * @param int    $filter_ts_from     filter time stamp from
+ * @param int    $filter_ts_to       filter time stamp to
+ * @param string $style              style
+ * @param int    $i                  field number
+ * @param array  $url_params         url parameters
+ * @param int    $ddlog_count        data definition log count
+ * @param bool   $drop_image_or_text drop image or text
+ * 
+ * @return string
+ */
+function PMA_getHtmlForDataManipulationStatement($entry, $filter_users,
+    $filter_ts_from, $filter_ts_to, $style, $i, $url_params, $ddlog_count,
+    $drop_image_or_text
+) {
+    $statement  = PMA_Util::formatSql($entry['statement'], true);
+    $timestamp = strtotime($entry['date']);
+    $filtered_user = in_array($entry['username'], $filter_users);
+    if ($timestamp >= $filter_ts_from
+        && $timestamp <= $filter_ts_to
+        && (in_array('*', $filter_users) || $filtered_user)
+    ) {
+        $html = '<tr class="noclick ' . $style . '">';
+        $html .= '<td><small>' . $i . '</small></td>';
+        $html .= '<td><small>'
+            . htmlspecialchars($entry['date']) . '</small></td>';
+        $html .= '<td><small>'
+            . htmlspecialchars($entry['username']) . '</small></td>';
+        $html .= '<td>' . $statement . '</td>';
+        $html .= '<td class="nowrap"><a href="tbl_tracking.php?'
+            . PMA_URL_getCommon(
+                $url_params + array(
+                    'report' => 'true',
+                    'version' => $_REQUEST['version'],
+                    'delete_dmlog' => ($i - $ddlog_count),
+                )
+            )
+            . '">'
+            . $drop_image_or_text
+            . '</a></td>';
+        $html .= '</tr>';
+    }
+    
+    return $html;
+}
 /**
  * Function to get html for data definition statements in schema snapshot
  * 
