@@ -45,7 +45,8 @@ $js_messages['strDropUserGroupWarning'] = __('Do you really want to delete user 
 
 /* For indexes */
 $js_messages['strFormEmpty'] = __('Missing value in the form!');
-$js_messages['strNotNumber'] = __('This is not a number!');
+$js_messages['strEnterValidNumber'] = __('Please enter a valid number');
+$js_messages['strEnterValidLength'] = __('Please enter a valid length');
 $js_messages['strAddIndex'] = __('Add Index');
 $js_messages['strEditIndex'] = __('Edit Index');
 $js_messages['strAddToIndex'] = __('Add %s column(s) to index');

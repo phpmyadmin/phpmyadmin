@@ -478,7 +478,7 @@ function checkFormElementInRange(theForm, theFieldName, message, min, max)
     // It's not a number
     if (isNaN(val)) {
         theField.select();
-        alert(PMA_messages.strNotNumber);
+        alert(PMA_messages.strEnterValidNumber);
         theField.focus();
         return false;
     }
@@ -516,7 +516,7 @@ function checkTableEditForm(theForm, fieldsCnt)
             elm3 = $("#field_" + i + "_1");
             if (isNaN(val) && elm3.val() !== "") {
                 elm2.select();
-                alert(PMA_messages.strNotNumber);
+                alert(PMA_messages.strEnterValidLength);
                 elm2.focus();
                 return false;
             }

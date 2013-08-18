@@ -33,6 +33,7 @@ phpMyAdmin - ChangeLog
 + Dropped configuration directive: SQP
 + Dropped configuration directive: MySQLManual*
 + rfe #1041 and bug #2954 Improved support for SSL connections between MySQL and phpMyAdmin
+- bug #4056 Language: Vague error message when adding a varchar field
 
 4.0.6.0 (not yet released)
 - bug #4036 Call to undefined function mb_detect_encoding (clarify the doc)
