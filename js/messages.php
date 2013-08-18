@@ -156,6 +156,7 @@ $js_messages['strUnit'] = __('Unit');
 
 $js_messages['strFromSlowLog'] = __('From slow log');
 $js_messages['strFromGeneralLog'] = __('From general log');
+$js_messages['strServerLogError'] = __('The database name is not known for this query in the server\'s logs');
 $js_messages['strAnalysingLogsTitle'] = __('Analysing logs');
 $js_messages['strAnalysingLogs'] = __('Analysing & loading logs. This may take a while.');
 $js_messages['strCancelRequest'] = __('Cancel request');
