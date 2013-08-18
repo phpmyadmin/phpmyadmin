@@ -678,7 +678,8 @@ $html .= '<br />';
 /*
  * List versions of current table
  */
-$last_version = PMA_getTableLastVersionNumber();
+$sql_result = PMA_getListOfVersionsOfTable();
+$last_version = PMA_getTableLastVersionNumber($sql_result);
 if ($last_version > 0) {
     $html .= PMA_getHtmlForTableVersionDetails(
         $sql_result, $last_version, $url_params, $url_query

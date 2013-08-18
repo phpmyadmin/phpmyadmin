@@ -264,11 +264,12 @@ function PMA_getHtmlForTableVersionDetails($sql_result, $last_version, $url_para
 /**
  * Function to get the last version number of a table
  * 
+ * @param array $sql_result sql result
+ * 
  * @return int
  */
-function PMA_getTableLastVersionNumber()
+function PMA_getTableLastVersionNumber($sql_result)
 {
-    $sql_result = PMA_getListOfVersionsOfTable();
     $maxversion = $GLOBALS['dbi']->fetchArray($sql_result);
     $last_version = $maxversion['version'];
     
@@ -282,7 +283,7 @@ function PMA_getTableLastVersionNumber()
  */
 function PMA_getSQLResultForSelectableTables()
 {
-    include 'libraries/relation.lib.php';
+    include_once 'libraries/relation.lib.php';
     
     $sql_query = " SELECT DISTINCT db_name, table_name FROM " .
              PMA_Util::backquote($GLOBALS['cfg']['Server']['pmadb']) . "." .
