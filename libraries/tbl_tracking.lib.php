@@ -608,7 +608,26 @@ function PMA_getHtmlForSchemaSnapshot($url_query)
     $temp = unserialize($data['schema_snapshot']);
     $columns = $temp['COLUMNS'];
     $indexes = $temp['INDEXES'];
-    $html .= '<h3>' . __('Structure') . '</h3>';
+    $html .= PMA_getHtmlForColumns($columns);
+    
+    if (count($indexes) > 0) {
+        $html .= PMA_getHtmlForIndexes($indexes);
+    } // endif
+    $html .= '<br /><hr /><br />';
+    
+    return $html;
+}
+
+/**
+ * Function to get html for displaying columns in the schema snapshot
+ * 
+ * @param array $columns columns
+ * 
+ * @return string
+ */
+function PMA_getHtmlForColumns($columns)
+{
+    $html = '<h3>' . __('Structure') . '</h3>';
     $html .= '<table id="tablestructure" class="data">';
     $html .= '<thead>';
     $html .= '<tr>';
@@ -623,38 +642,8 @@ function PMA_getHtmlForSchemaSnapshot($url_query)
     $html .= '</thead>';
     $html .= '<tbody>';
     $style = 'odd';
-    foreach ($columns as $field_index => $field) {
-        $html .= '<tr class="noclick ' . $style . '">';
-        if ($field['Key'] == 'PRI') {
-            $html .= '<td><b><u>' . htmlspecialchars($field['Field']) . '</u></b></td>';
-        } else {
-            $html .= '<td><b>' . htmlspecialchars($field['Field']) . '</b></td>';
-        }
-        $html .= "\n";
-        $html .= '<td>' . htmlspecialchars($field['Type']) . '</td>';
-        $html .= '<td>' . htmlspecialchars($field['Collation']) . '</td>';
-        $html .= '<td>' . (($field['Null'] == 'YES') ? __('Yes') : __('No')) . '</td>';
-        $html .= '<td>';
-        if (isset($field['Default'])) {
-            $extracted_columnspec = PMA_Util::extractColumnSpec($field['Type']);
-            if ($extracted_columnspec['type'] == 'bit') {
-                // here, $field['Default'] contains something like b'010'
-                $html .= PMA_Util::convertBitDefaultValue($field['Default']);
-            } else {
-                $html .= htmlspecialchars($field['Default']);
-            }
-        } else {
-            if ($field['Null'] == 'YES') {
-                $html .= '<i>NULL</i>';
-            } else {
-                $html .= '<i>' . _pgettext('None for default', 'None') . '</i>';
-            }
-        }
-        $html .= '</td>';
-        $html .= '<td>' . htmlspecialchars($field['Extra']) . '</td>';
-        $html .= '<td>' . htmlspecialchars($field['Comment']) . '</td>';
-        $html .= '</tr>';
-
+    foreach ($columns as $field) {
+        $html .= PMA_getHtmlForColumn($field, $style);
         if ($style == 'even') {
             $style = 'odd';
         } else {
@@ -665,10 +654,49 @@ function PMA_getHtmlForSchemaSnapshot($url_query)
     $html .= '</tbody>';
     $html .= '</table>';
 
-    if (count($indexes) > 0) {
-        $html .= PMA_getHtmlForIndexes($indexes);
-    } // endif
-    $html .= '<br /><hr /><br />';
+    return $html;
+}
+
+/**
+ * Function to get html for column
+ * 
+ * @param array  $field field
+ * @param string $style style
+ * 
+ * @return string
+ */
+function PMA_getHtmlForColumn($field, $style)
+{
+    $html .= '<tr class="noclick ' . $style . '">';
+    if ($field['Key'] == 'PRI') {
+        $html .= '<td><b><u>' . htmlspecialchars($field['Field']) . '</u></b></td>';
+    } else {
+        $html .= '<td><b>' . htmlspecialchars($field['Field']) . '</b></td>';
+    }
+    $html .= "\n";
+    $html .= '<td>' . htmlspecialchars($field['Type']) . '</td>';
+    $html .= '<td>' . htmlspecialchars($field['Collation']) . '</td>';
+    $html .= '<td>' . (($field['Null'] == 'YES') ? __('Yes') : __('No')) . '</td>';
+    $html .= '<td>';
+    if (isset($field['Default'])) {
+        $extracted_columnspec = PMA_Util::extractColumnSpec($field['Type']);
+        if ($extracted_columnspec['type'] == 'bit') {
+            // here, $field['Default'] contains something like b'010'
+            $html .= PMA_Util::convertBitDefaultValue($field['Default']);
+        } else {
+            $html .= htmlspecialchars($field['Default']);
+        }
+    } else {
+        if ($field['Null'] == 'YES') {
+            $html .= '<i>NULL</i>';
+        } else {
+            $html .= '<i>' . _pgettext('None for default', 'None') . '</i>';
+        }
+    }
+    $html .= '</td>';
+    $html .= '<td>' . htmlspecialchars($field['Extra']) . '</td>';
+    $html .= '<td>' . htmlspecialchars($field['Comment']) . '</td>';
+    $html .= '</tr>';
     
     return $html;
 }
