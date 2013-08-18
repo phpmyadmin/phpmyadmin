@@ -20,6 +20,8 @@ require_once 'libraries/Message.class.php';
 require_once 'libraries/sanitizing.lib.php';
 require_once 'libraries/sqlparser.lib.php';
 require_once 'libraries/js_escape.lib.php';
+require_once 'libraries/relation_cleanup.lib.php';
+require_once 'libraries/relation.lib.php';
 
 /**
  * class PMA_MultSubmits_Test
@@ -46,6 +48,41 @@ class PMA_MultSubmits_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['ShowSQL'] = true;
         $GLOBALS['cfg']['TableNavigationLinksMode'] = 'icons';
         $GLOBALS['cfg']['LimitChars'] = 100;
+        $GLOBALS['server'] = 0;
+        $GLOBALS['cfg']['ActionLinksMode'] = "both";
+        $GLOBALS['pmaThemeImage'] = 'image';
+
+        //_SESSION
+        $_SESSION['relation'][$GLOBALS['server']] = array(
+            'table_coords' => "table_name",
+            'displaywork' => 'displaywork',
+            'db' => "information_schema",
+            'table_info' => 'table_info',
+            'relwork' => 'relwork',
+            'commwork' => 'commwork',
+            'displaywork' => 'displaywork',
+            'pdfwork' => 'pdfwork',
+            'designerwork' => 'designerwork',
+            'column_info' => 'column_info',
+            'designer_coords' => 'designer_coords',
+            'relation' => 'relation',
+            'relwork' => 'relwork',
+        );
+
+        //$_SESSION
+        $_SESSION['PMA_Theme'] = PMA_Theme::load('./themes/pmahomme');
+        $_SESSION['PMA_Theme'] = new PMA_Theme();
+
+        //Mock DBI
+        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+            ->disableOriginalConstructor()
+            ->getMock();
+
+        $dbi->expects($this->any())
+            ->method('query')
+            ->will($this->returnValue(true));
+
+        $GLOBALS['dbi'] = $dbi;
     }
 
     /**
@@ -58,7 +95,7 @@ class PMA_MultSubmits_Test extends PHPUnit_Framework_TestCase
         $what = 'replace_prefix_tbl';
         $action = 'delete_row';
         $_url_params = array('url_query'=>'PMA_original_url_query');
-        
+
         //Call the test function
         $html = PMA_getHtmlForReplacePrefixTable($what, $action, $_url_params);
 
@@ -98,7 +135,7 @@ class PMA_MultSubmits_Test extends PHPUnit_Framework_TestCase
     {
         $action = 'delete_row';
         $_url_params = array('url_query'=>'PMA_original_url_query');
-        
+
         //Call the test function
         $html = PMA_getHtmlForAddPrefixTable($action, $_url_params);
 
@@ -140,7 +177,7 @@ class PMA_MultSubmits_Test extends PHPUnit_Framework_TestCase
         $action = 'delete_row';
         $_url_params = array('url_query'=>'PMA_original_url_query');
         $full_query = 'select column from PMA_table';
-        
+
         //Call the test function
         $html = PMA_getHtmlForOtherActions(
             $what, $action, $_url_params, $full_query
@@ -195,9 +232,9 @@ class PMA_MultSubmits_Test extends PHPUnit_Framework_TestCase
         $views = null;
         $original_sql_query = "original_sql_query";
         $original_url_query = "original_url_query";
-        
+
         $_url_params = PMA_getUrlParams(
-            $what, $reload, $action, $db, $table, $selected, $views, 
+            $what, $reload, $action, $db, $table, $selected, $views,
             $original_sql_query, $original_url_query
         );
         $this->assertEquals(
@@ -219,6 +256,216 @@ class PMA_MultSubmits_Test extends PHPUnit_Framework_TestCase
         $this->assertEquals(
             $original_url_query,
             $_url_params['original_url_query']
+        );
+    }
+
+    /**
+     * Test for PMA_getQueryStrFromSelected
+     *
+     * @return void
+     */
+    public function testPMAGetQueryStrFromSelected()
+    {
+        $query_type = 'row_delete';
+        $action = 'db_delete_row';
+        $db = "PMA_db";
+        $table = "PMA_table";
+        $selected = array(
+            "table1", "table2"
+        );
+        $views = null;
+        $primary = null;
+        $from_prefix = "from_prefix";
+        $to_prefix = "to_prefix";
+
+        list(
+            $result, $rebuild_database_list, $reload_ret,
+            $run_parts, $use_sql, $sql_query, $sql_query_views
+        ) = PMA_getQueryStrFromSelected(
+            $query_type, $selected, $db, $table, $views,
+            $primary, $from_prefix, $to_prefix
+        );
+
+        //validate 1: $run_parts
+        $this->assertEquals(
+            true,
+            $run_parts
+        );
+
+        //validate 2: $result
+        $this->assertEquals(
+            true,
+            $result
+        );
+
+        //validate 3: $rebuild_database_list
+        $this->assertEquals(
+            false,
+            $rebuild_database_list
+        );
+
+        //validate 4: $reload_ret
+        $this->assertEquals(
+            null,
+            $reload_ret
+        );
+
+        $query_type = 'analyze_tbl';
+        list(
+            $result, $rebuild_database_list, $reload_ret,
+            $run_parts, $use_sql, $sql_query, $sql_query_views
+        ) = PMA_getQueryStrFromSelected(
+            $query_type, $selected, $db, $table, $views,
+            $primary, $from_prefix, $to_prefix
+        );
+
+        //validate 5: $use_sql
+        $this->assertEquals(
+            true,
+            $use_sql
+        );
+
+        //validate 6: $use_sql
+        $this->assertEquals(
+            true,
+            $use_sql
+        );
+    }
+
+    /**
+     * Test for PMA_getDataForSubmitMult
+     *
+     * @return void
+     */
+    public function testPMAGetDataForSubmitMult()
+    {
+        $submit_mult = "index";
+        $db = "PMA_db";
+        $table = "PMA_table";
+        $selected = array(
+            "table1", "table2"
+        );
+        $action = 'db_delete_row';
+
+        list($what, $query_type, $is_unset_submit_mult, $mult_btn)
+            = PMA_getDataForSubmitMult(
+                $submit_mult, $db, $table, $selected, $action
+            );
+
+        //validate 1: $what
+        $this->assertEquals(
+            null,
+            $what
+        );
+
+        //validate 2: $query_type
+        $this->assertEquals(
+            'index_fld',
+            $query_type
+        );
+
+        //validate 3: $is_unset_submit_mult
+        $this->assertEquals(
+            true,
+            $is_unset_submit_mult
+        );
+
+        //validate 4:
+        $this->assertEquals(
+            __('Yes'),
+            $mult_btn
+        );
+
+        $submit_mult = "unique";
+
+        list($what, $query_type, $is_unset_submit_mult, $mult_btn)
+            = PMA_getDataForSubmitMult(
+                $submit_mult, $db, $table, $selected, $action
+            );
+
+        //validate 1: $what
+        $this->assertEquals(
+            null,
+            $what
+        );
+
+        //validate 2: $query_type
+        $this->assertEquals(
+            'unique_fld',
+            $query_type
+        );
+
+        //validate 3: $is_unset_submit_mult
+        $this->assertEquals(
+            true,
+            $is_unset_submit_mult
+        );
+
+        //validate 4: $mult_btn
+        $this->assertEquals(
+            __('Yes'),
+            $mult_btn
+        );
+    }
+
+    /**
+     * Test for PMA_getQueryFromSelected
+     *
+     * @return void
+     */
+    public function testPMAGetQueryFromSelected()
+    {
+        $what = "drop_tbl";
+        $db = "PMA_db";
+        $table = "PMA_table";
+        $selected = array(
+            "table1", "table2"
+        );
+        $action = 'db_delete_row';
+        $views = array(
+            "table1", "table2"
+        );
+
+        list($full_query, $reload, $full_query_views)
+            = PMA_getQueryFromSelected(
+                $what, $db, $table, $selected, $action, $views
+            );
+
+        //validate 1: $full_query
+        $this->assertContains(
+            "DROP VIEW `table1`, `table2`",
+            $full_query
+        );
+
+        //validate 2: $reload
+        $this->assertEquals(
+            null,
+            $reload
+        );
+
+        //validate 3: $full_query_views
+        $this->assertEquals(
+            null,
+            $full_query_views
+        );
+
+        $what = "drop_db";
+
+        list($full_query, $reload, $full_query_views)
+            = PMA_getQueryFromSelected(
+                $what, $db, $table, $selected, $action, $views
+            );
+
+        //validate 1: $full_query
+        $this->assertContains(
+            "DROP DATABASE `table1`;<br />DROP DATABASE `table2`;",
+            $full_query
+        );
+
+        //validate 2: $reload
+        $this->assertEquals(
+            true,
+            $reload
         );
     }
 }
