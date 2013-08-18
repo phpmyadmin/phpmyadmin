@@ -1141,7 +1141,7 @@ function PMA_getBinaryAndBlobColumn(
  * Get HTML input type
  *
  * @param array   $column               description of column in given table
- * @param string  $column_name_appendix the name atttibute
+ * @param string  $column_name_appendix the name attribute
  * @param array   $special_chars        special characters
  * @param integer $fieldsize            html field size
  * @param string  $unnullify_trigger    validation string
