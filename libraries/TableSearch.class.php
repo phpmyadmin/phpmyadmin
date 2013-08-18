@@ -800,6 +800,7 @@ EOT;
         $html_output .= '<fieldset id="fieldset_limit_rows">'
             . '<legend>' . __('Number of rows per page') . '</legend>'
             . '<input type="number" size="4" name="session_max_rows" required '
+            . 'min="1" '
             . 'value="' . $GLOBALS['cfg']['MaxRows'] . '" class="textfield" />'
             . '</fieldset>';
 

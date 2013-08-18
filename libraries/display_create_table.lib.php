@@ -53,7 +53,7 @@ echo __('Create table');
     </div>
     <div class="formelement">
         <?php echo __('Number of columns'); ?>:
-        <input type="number" name="num_fields" size="2" />
+        <input type="number" min="1" name="num_fields" size="2" />
     </div>
     <div class="clearfloat"></div>
 </fieldset>

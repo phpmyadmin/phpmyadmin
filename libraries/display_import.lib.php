@@ -303,7 +303,7 @@ function PMA_getHtmlForImportOptionsPartialImport($timeout_passed, $offset)
             . '</label>';
         $html .= '            <input type="number" name="skip_queries" value="'
             . PMA_pluginGetDefault('Import', 'skip_queries')
-            . '" id="text_skip_queries" />';
+            . '" id="text_skip_queries" min="0" />';
         $html .= '        </div>';
 
     } else {

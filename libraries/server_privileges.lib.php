@@ -661,7 +661,7 @@ function PMA_getHtmlForDisplayResourceLimits($row)
         . '</dfn></code></label>' . "\n"
         . '<input type="number" name="max_questions" id="text_max_questions" '
         . 'value="' . $row['max_questions'] . '" '
-        . 'size="6" maxlength="11" '
+        . 'size="6" maxlength="11" min="0" '
         . 'title="'
         . __(
             'Limits the number of queries the user may send to the server per hour.'
@@ -679,7 +679,7 @@ function PMA_getHtmlForDisplayResourceLimits($row)
         . 'MAX UPDATES PER HOUR'
         . '</dfn></code></label>' . "\n"
         . '<input type="number" name="max_updates" id="text_max_updates" '
-        . 'value="' . $row['max_updates'] . '" size="6" maxlength="11" '
+        . 'value="' . $row['max_updates'] . '" size="6" maxlength="11" min="0" '
         . 'title="'
         . __(
             'Limits the number of commands that change any table ' 
@@ -697,7 +697,7 @@ function PMA_getHtmlForDisplayResourceLimits($row)
         . 'MAX CONNECTIONS PER HOUR'
         . '</dfn></code></label>' . "\n"
         . '<input type="number" name="max_connections" id="text_max_connections" '
-        . 'value="' . $row['max_connections'] . '" size="6" maxlength="11" '
+        . 'value="' . $row['max_connections'] . '" size="6" maxlength="11" min="0" '
         . 'title="' . __(
             'Limits the number of new connections the user may open per hour.'
         )
