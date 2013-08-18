@@ -127,7 +127,7 @@ function PMA_sqlQueryForm($query = true, $display_tab = false, $delimiter = ';')
 
     // display uploads
     if ($display_tab === 'files' && $GLOBALS['is_upload']) {
-        PMA_sqlQueryFormUpload();
+        echo PMA_sqlQueryFormUpload();
     }
 
     // Bookmark Support
@@ -466,45 +466,47 @@ function PMA_sqlQueryFormUpload()
     }
 
     // start output
-    echo '<fieldset id="">';
-    echo '<legend>';
-    echo __('Browse your computer:') . '</legend>';
-    echo '<div class="formelement">';
-    echo '<input type="file" name="sql_file" class="textfield" /> ';
-    echo PMA_Util::getFormattedMaximumUploadSize($GLOBALS['max_upload_size']);
+    $html  = '<fieldset id="">';
+    $html .= '<legend>';
+    $html .= __('Browse your computer:') . '</legend>';
+    $html .= '<div class="formelement">';
+    $html .= '<input type="file" name="sql_file" class="textfield" /> ';
+    $html .= PMA_Util::getFormattedMaximumUploadSize($GLOBALS['max_upload_size']);
     // some browsers should respect this :)
-    echo PMA_Util::generateHiddenMaxFileSize($GLOBALS['max_upload_size']) . "\n";
-    echo '</div>';
+    $html .= PMA_Util::generateHiddenMaxFileSize($GLOBALS['max_upload_size']) . "\n";
+    $html .= '</div>';
 
     if ($files === false) {
         $errors[] = PMA_Message::error(__('The directory you set for upload work cannot be reached.'));
     } elseif (!empty($files)) {
-        echo '<div class="formelement">';
-        echo '<strong>' . __('web server upload directory:') .'</strong>' . "\n";
-        echo '<select size="1" name="sql_localfile">' . "\n";
-        echo '<option value="" selected="selected"></option>' . "\n";
-        echo $files;
-        echo '</select>' . "\n";
-        echo '</div>';
+        $html .= '<div class="formelement">';
+        $html .= '<strong>' . __('web server upload directory:') .'</strong>' . "\n";
+        $html .= '<select size="1" name="sql_localfile">' . "\n";
+        $html .= '<option value="" selected="selected"></option>' . "\n";
+        $html .= $files;
+        $html .= '</select>' . "\n";
+        $html .= '</div>';
     }
 
-    echo '<div class="clearfloat"></div>' . "\n";
-    echo '</fieldset>';
+    $html .= '<div class="clearfloat"></div>' . "\n";
+    $html .= '</fieldset>';
 
 
-    echo '<fieldset id="" class="tblFooters">';
-    echo __('Character set of the file:') . "\n";
-    echo PMA_generateCharsetDropdownBox(
+    $html .= '<fieldset id="" class="tblFooters">';
+    $html .= __('Character set of the file:') . "\n";
+    $html .= PMA_generateCharsetDropdownBox(
         PMA_CSDROPDOWN_CHARSET,
         'charset_of_file', null, 'utf8', false
     );
-    echo '<input type="submit" name="SQL" value="' . __('Go')
+    $html .= '<input type="submit" name="SQL" value="' . __('Go')
         .'" />' . "\n";
-    echo '<div class="clearfloat"></div>' . "\n";
-    echo '</fieldset>';
+    $html .= '<div class="clearfloat"></div>' . "\n";
+    $html .= '</fieldset>';
 
     foreach ($errors as $error) {
-        $error->display();
+        $html .= $error->getDisplay();
     }
+    
+    return $html;
 }
 ?>
