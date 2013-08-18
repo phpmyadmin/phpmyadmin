@@ -127,13 +127,13 @@ function PMA_sqlQueryForm($query = true, $display_tab = false, $delimiter = ';')
 
     // display uploads
     if ($display_tab === 'files' && $GLOBALS['is_upload']) {
-        echo PMA_sqlQueryFormUpload();
+        echo PMA_getHtmlForSqlQueryFormUpload();
     }
 
     // Bookmark Support
     if ($display_tab === 'full' || $display_tab === 'history') {
         if (! empty($GLOBALS['cfg']['Bookmark'])) {
-            PMA_sqlQueryFormBookmark();
+            echo PMA_getHtmlForsqlQueryFormBookmark();
         }
     }
 
@@ -383,69 +383,71 @@ function PMA_sqlQueryFormInsert(
 }
 
 /**
- * Prints bookmark fieldset
+ * return HTML for sql Query Form Bookmark
  *
- * @return void
+ * @return string
  *
  * @usedby  PMA_sqlQueryForm()
  */
-function PMA_sqlQueryFormBookmark()
+function PMA_getHtmlForsqlQueryFormBookmark()
 {
     $bookmark_list = PMA_Bookmark_getList($GLOBALS['db']);
     if (! $bookmark_list || count($bookmark_list) < 1) {
         return;
     }
 
-    echo '<fieldset id="bookmarkoptions">';
-    echo '<legend>';
-    echo __('Bookmarked SQL query') . '</legend>' . "\n";
-    echo '<div class="formelement">';
-    echo '<select name="id_bookmark" id="id_bookmark">' . "\n";
-    echo '<option value="">&nbsp;</option>' . "\n";
+    $html  = '<fieldset id="bookmarkoptions">';
+    $html .= '<legend>';
+    $html .= __('Bookmarked SQL query') . '</legend>' . "\n";
+    $html .= '<div class="formelement">';
+    $html .= '<select name="id_bookmark" id="id_bookmark">' . "\n";
+    $html .= '<option value="">&nbsp;</option>' . "\n";
     foreach ($bookmark_list as $key => $value) {
-        echo '<option value="' . htmlspecialchars($key) . '">'
+        $html .= '<option value="' . htmlspecialchars($key) . '">'
             .htmlspecialchars($value) . '</option>' . "\n";
     }
     // &nbsp; is required for correct display with styles/line height
-    echo '</select>&nbsp;' . "\n";
-    echo '</div>' . "\n";
-    echo '<div class="formelement">' . "\n";
-    echo __('Variable');
-    echo PMA_Util::showDocu('faq', 'faqbookmark');
-    echo '<input type="text" name="bookmark_variable" class="textfield"'
+    $html .= '</select>&nbsp;' . "\n";
+    $html .= '</div>' . "\n";
+    $html .= '<div class="formelement">' . "\n";
+    $html .= __('Variable');
+    $html .= PMA_Util::showDocu('faq', 'faqbookmark');
+    $html .= '<input type="text" name="bookmark_variable" class="textfield"'
         .' size="10" />' . "\n";
-    echo '</div>' . "\n";
-    echo '<div class="formelement">' . "\n";
-    echo '<input type="radio" name="action_bookmark" value="0"'
+    $html .= '</div>' . "\n";
+    $html .= '<div class="formelement">' . "\n";
+    $html .= '<input type="radio" name="action_bookmark" value="0"'
         .' id="radio_bookmark_exe" checked="checked" />'
         .'<label for="radio_bookmark_exe">' . __('Submit')
         .'</label>' . "\n";
-    echo '<input type="radio" name="action_bookmark" value="1"'
+    $html .= '<input type="radio" name="action_bookmark" value="1"'
         .' id="radio_bookmark_view" />'
         .'<label for="radio_bookmark_view">' . __('View only')
         .'</label>' . "\n";
-    echo '<input type="radio" name="action_bookmark" value="2"'
+    $html .= '<input type="radio" name="action_bookmark" value="2"'
         .' id="radio_bookmark_del" />'
         .'<label for="radio_bookmark_del">' . __('Delete')
         .'</label>' . "\n";
-    echo '</div>' . "\n";
-    echo '<div class="clearfloat"></div>' . "\n";
-    echo '</fieldset>' . "\n";
+    $html .= '</div>' . "\n";
+    $html .= '<div class="clearfloat"></div>' . "\n";
+    $html .= '</fieldset>' . "\n";
 
-    echo '<fieldset id="bookmarkoptionsfooter" class="tblFooters">' . "\n";
-    echo '<input type="submit" name="SQL" id="button_submit_bookmark" value="' . __('Go') . '" />';
-    echo '<div class="clearfloat"></div>' . "\n";
-    echo '</fieldset>' . "\n";
+    $html .= '<fieldset id="bookmarkoptionsfooter" class="tblFooters">' . "\n";
+    $html .= '<input type="submit" name="SQL" id="button_submit_bookmark" value="' . __('Go') . '" />';
+    $html .= '<div class="clearfloat"></div>' . "\n";
+    $html .= '</fieldset>' . "\n";
+    
+    return $html;
 }
 
 /**
- * Prints bookmark fieldset
+ * return HTML for Sql Query Form Upload
  *
- * @return void
+ * @return string
  *
  * @usedby  PMA_sqlQueryForm()
  */
-function PMA_sqlQueryFormUpload()
+function PMA_getHtmlForSqlQueryFormUpload()
 {
     global $timeout_passed, $local_import_file;
 
