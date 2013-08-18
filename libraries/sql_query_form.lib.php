@@ -88,7 +88,8 @@ function PMA_sqlQueryForm($query = true, $display_tab = false, $delimiter = ';')
         <form method="post" id="sqlqueryform" target="frame_content"
               action="import.php"<?php echo $enctype; ?> name="sqlform"
               onsubmit="var save_name = window.opener.parent.frame_content.name;
-              window.opener.parent.frame_content.name = save_name + '<?php echo time(); ?>';
+              window.opener.parent.frame_content.name 
+                  = save_name + '<?php echo time(); ?>';
               this.target = window.opener.parent.frame_content.name;
               return checkSqlQuery(this)">
         <?php
@@ -118,31 +119,31 @@ function PMA_sqlQueryForm($query = true, $display_tab = false, $delimiter = ';')
         . "\n" .'<input type="hidden" name="prev_sql_query" value="'
         . htmlspecialchars($query) . '" />' . "\n";
 
-    echo $html;
-
     // display querybox
     if ($display_tab === 'full' || $display_tab === 'sql') {
-        echo PMA_getHtmlForSqlQueryFormInsert($query, $is_querywindow, $delimiter);
+        $html .= PMA_getHtmlForSqlQueryFormInsert(
+            $query, $is_querywindow, $delimiter
+        );
     }
 
     // display uploads
     if ($display_tab === 'files' && $GLOBALS['is_upload']) {
-        echo PMA_getHtmlForSqlQueryFormUpload();
+        $html .= PMA_getHtmlForSqlQueryFormUpload();
     }
 
     // Bookmark Support
     if ($display_tab === 'full' || $display_tab === 'history') {
         if (! empty($GLOBALS['cfg']['Bookmark'])) {
-            echo PMA_getHtmlForsqlQueryFormBookmark();
+            $html .= PMA_getHtmlForsqlQueryFormBookmark();
         }
     }
 
     // Encoding setting form appended by Y.Kawada
     if (function_exists('PMA_Kanji_encodingForm')) {
-        echo PMA_Kanji_encodingForm();
+        $html .= PMA_Kanji_encodingForm();
     }
 
-    $html = '</form>' . "\n";
+    $html .= '</form>' . "\n";
     // print an empty div, which will be later filled with
     // the sql query results by ajax
     $html .= '<div id="sqlqueryresults"></div>';
@@ -219,7 +220,9 @@ function PMA_getHtmlForSqlQueryFormInsert(
         // Get the list and number of fields
         // we do a try_query here, because we could be in the query window,
         // trying to synchonize and the table has not yet been created
-        $fields_list = $GLOBALS['dbi']->getColumns($db, $GLOBALS['table'], null, true);
+        $fields_list = $GLOBALS['dbi']->getColumns(
+            $db, $GLOBALS['table'], null, true
+        );
 
         $tmp_db_link = '<a href="' . $GLOBALS['cfg']['DefaultTabDatabase']
             . '?' . PMA_URL_getCommon($db) . '"';
@@ -372,8 +375,8 @@ function PMA_getHtmlForSqlQueryFormInsert(
             . '</label>';
     }
     $html .= '</div>' . "\n";
-    $html .= '<input type="submit" id="button_submit_query" name="SQL" tabindex="200"'
-        . ' value="' . __('Go') . '" />' . "\n";
+    $html .= '<input type="submit" id="button_submit_query" name="SQL"'
+        . ' tabindex="200" value="' . __('Go') . '" />' . "\n";
     $html .= '<div class="clearfloat"></div>' . "\n";
     $html .= '</fieldset>' . "\n";
     
@@ -431,7 +434,8 @@ function PMA_getHtmlForsqlQueryFormBookmark()
     $html .= '</fieldset>' . "\n";
 
     $html .= '<fieldset id="bookmarkoptionsfooter" class="tblFooters">' . "\n";
-    $html .= '<input type="submit" name="SQL" id="button_submit_bookmark" value="' . __('Go') . '" />';
+    $html .= '<input type="submit" name="SQL" id="button_submit_bookmark" value="' 
+        . __('Go') . '" />';
     $html .= '<div class="clearfloat"></div>' . "\n";
     $html .= '</fieldset>' . "\n";
     
@@ -477,7 +481,9 @@ function PMA_getHtmlForSqlQueryFormUpload()
     $html .= '</div>';
 
     if ($files === false) {
-        $errors[] = PMA_Message::error(__('The directory you set for upload work cannot be reached.'));
+        $errors[] = PMA_Message::error(
+            __('The directory you set for upload work cannot be reached.')
+        );
     } elseif (!empty($files)) {
         $html .= '<div class="formelement">';
         $html .= '<strong>' . __('web server upload directory:') .'</strong>' . "\n";
