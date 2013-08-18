@@ -243,4 +243,18 @@ function PMA_getHtmlForTableVersionDetails($sql_result, $last_version, $url_para
 
     return array($html, $tracking_active);
 }
+
+/**
+ * Function to get the last version number of a table
+ * 
+ * @return int
+ */
+function PMA_getTableLastVersionNumber()
+{
+    $sql_result = PMA_getListOfVersionsOfTable();
+    $maxversion = $GLOBALS['dbi']->fetchArray($sql_result);
+    $last_version = $maxversion['version'];
+    
+    return $last_version;
+}
 ?>

@@ -702,10 +702,8 @@ $html .= '<br />';
 /*
  * List versions of current table
  */
-$sql_result = PMA_getListOfVersionsOfTable();
-$maxversion = $GLOBALS['dbi']->fetchArray($sql_result);
-$last_version = $maxversion['version'];
 
+$last_version = PMA_getTableLastVersionNumber();
 if ($last_version > 0) {
     list($temp, $tracking_active) = PMA_getHtmlForTableVersionDetails(
         $sql_result, $last_version, $url_params
