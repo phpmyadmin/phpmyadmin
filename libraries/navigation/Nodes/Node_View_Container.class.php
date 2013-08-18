@@ -32,6 +32,7 @@ class Node_View_Container extends Node
                     . '&amp;db=%1$s&amp;token=' . $GLOBALS['token'],
         );
         $this->real_name = 'views';
+        $this->classes = 'viewContainer';
 
         $new        = PMA_NodeFactory::getInstance(
             'Node', _pgettext('Create new view', 'New')
