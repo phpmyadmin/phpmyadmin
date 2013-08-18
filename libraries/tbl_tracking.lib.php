@@ -274,4 +274,22 @@ function PMA_getTableLastVersionNumber()
     
     return $last_version;
 }
+
+/**
+ * Function to get sql results for selectable tables
+ * 
+ * @return array
+ */
+function PMA_getSQLResultForSelectableTables()
+{
+    include 'libraries/relation.lib.php';
+    
+    $sql_query = " SELECT DISTINCT db_name, table_name FROM " .
+             PMA_Util::backquote($GLOBALS['cfg']['Server']['pmadb']) . "." .
+             PMA_Util::backquote($GLOBALS['cfg']['Server']['tracking']) .
+             " WHERE db_name = '" . PMA_Util::sqlAddSlashes($GLOBALS['db']) . "' " .
+             " ORDER BY db_name, table_name";
+
+    return PMA_queryAsControlUser($sql_query);
+}
 ?>

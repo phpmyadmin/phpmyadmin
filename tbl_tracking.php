@@ -667,19 +667,11 @@ if (isset($_REQUEST['report']) || isset($_REQUEST['report_export'])) {
 /*
  * List selectable tables
  */
-
-$sql_query = " SELECT DISTINCT db_name, table_name FROM " .
-             PMA_Util::backquote($GLOBALS['cfg']['Server']['pmadb']) . "." .
-             PMA_Util::backquote($GLOBALS['cfg']['Server']['tracking']) .
-             " WHERE db_name = '" . PMA_Util::sqlAddSlashes($GLOBALS['db']) . "' " .
-             " ORDER BY db_name, table_name";
-
-$sql_result = PMA_queryAsControlUser($sql_query);
-
-if ($GLOBALS['dbi']->numRows($sql_result) > 0) {
+$selectable_tables_sql_result = PMA_getSQLResultForSelectableTables();
+if ($GLOBALS['dbi']->numRows($selectable_tables_sql_result) > 0) {
     $html .= '<form method="post" action="tbl_tracking.php?' . $url_query . '">';
     $html .= '<select name="table">';
-    while ($entries = $GLOBALS['dbi']->fetchArray($sql_result)) {
+    while ($entries = $GLOBALS['dbi']->fetchArray($selectable_tables_sql_result)) {
         if (PMA_Tracker::isTracked($entries['db_name'], $entries['table_name'])) {
             $status = ' (' . __('active') . ')';
         } else {
