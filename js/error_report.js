@@ -157,12 +157,23 @@ var ErrorReport = {
      */
     _get_microhistory: function() {
         cached_pages = AJAX.cache.pages.slice(-7);
+        remove = ["common_query", "table", "db", "token", "pma_absolute_uri"];
         return {
             pages: cached_pages.map(function(page) {
-                return {
+                simplepage = {
                     hash: page.hash,
-                    params: page.params,
                 };
+
+                if (page.params) {
+                    simplepage.params = $.extend({}, page.params)
+                    $.each(simplepage.params, function(param) {
+                        if($.inArray(param, remove) != -1) {
+                            delete simplepage.params[param];
+                        };
+                    });
+                }
+
+                return simplepage;
             }),
             current_index: AJAX.cache.current -
                 (AJAX.cache.pages.length - cached_pages.length)

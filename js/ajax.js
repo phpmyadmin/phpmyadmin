@@ -553,7 +553,7 @@ AJAX.cache = {
                 $('#selflink').html(record.selflink);
                 AJAX.cache.menus.replace(AJAX.cache.menus.get(record.menu));
                 PMA_commonParams.setAll(record.params);
-                AJAX.scriptHandler.load(record.scripts, records.params.token);
+                AJAX.scriptHandler.load(record.scripts, record.params.token);
                 AJAX.cache.current = ++index;
             });
         }

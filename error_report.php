@@ -102,8 +102,9 @@ function get_report_data($json_encode = true) {
         "server_software" => $_SERVER['SERVER_SOFTWARE'],
         "user_agent_string" => $_SERVER['HTTP_USER_AGENT'],
         "locale" => $_COOKIE['pma_lang'],
-        "configuration_storage_enabled" =>
-            !empty($GLOBALS['cfg']['Servers'][1]['pmadb']),
+        "configuration_storage" =>
+            empty($GLOBALS['cfg']['Servers'][1]['pmadb']) ? "disabled" :
+            "enabled",
         "php_version" => phpversion(),
         "microhistory" => $_REQUEST['microhistory'],
     );
@@ -137,6 +138,7 @@ function sanitize_url($url) {
     unset($query_array["db"]);
     unset($query_array["table"]);
     unset($query_array["token"]);
+    unset($query_array["server"]);
     $query = http_build_query($query_array);
 
     $uri = $script_name . "?" . $query;
@@ -203,7 +205,12 @@ function translate_stacktrace($stack) {
         return $stack;
     }
 
-    foreach($stack as &$level) {
+    foreach ($stack as &$level) {
+        foreach ($level["context"] as &$line) {
+            if (strlen($line) > 80) {
+                $line = substr($line, 0, 75) . "//...";
+            }
+        }
         if(preg_match("<js/get_scripts.js.php\?(.*)>", $level["url"], $matches)) {
             parse_str($matches[1], $vars);
             List($file_name, $line_number) =
@@ -214,7 +221,7 @@ function translate_stacktrace($stack) {
             unset($level["context"]);
             List($uri, $script_name) = sanitize_url($level["url"]);
             $level["uri"] = $uri;
-            $level["script_name"] = $script_name;
+            $level["scriptname"] = $script_name;
         }
         unset($level["url"]);
     }
