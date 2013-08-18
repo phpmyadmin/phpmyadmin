@@ -134,7 +134,7 @@ function PMA_sqlQueryForm($query = true, $display_tab = false, $delimiter = ';')
     // Bookmark Support
     if ($display_tab === 'full' || $display_tab === 'history') {
         if (! empty($GLOBALS['cfg']['Bookmark'])) {
-            $html .= PMA_getHtmlForsqlQueryFormBookmark();
+            $html .= PMA_getHtmlForSqlQueryFormBookmark();
         }
     }
 
@@ -390,7 +390,7 @@ function PMA_getHtmlForSqlQueryFormInsert(
  *
  * @usedby  PMA_sqlQueryForm()
  */
-function PMA_getHtmlForsqlQueryFormBookmark()
+function PMA_getHtmlForSqlQueryFormBookmark()
 {
     $bookmark_list = PMA_Bookmark_getList($GLOBALS['db']);
     if (! $bookmark_list || count($bookmark_list) < 1) {
