@@ -34,7 +34,7 @@ phpMyAdmin - ChangeLog
 + Dropped configuration directive: MySQLManual*
 + rfe #1041 and bug #2954 Improved support for SSL connections between MySQL and phpMyAdmin
 - bug #4056 Language: Vague error message when adding a varchar field
-+ [setup] rfe Use type="password" for server passwords
++ [setup] rfe #1452 Use type="password" for server passwords
 + rfe #1451 HTML5 input tag enhancements
 
 4.0.6.0 (not yet released)
