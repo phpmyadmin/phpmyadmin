@@ -1171,15 +1171,18 @@ function PMA_getHTMLinput($column, $column_name_appendix, $special_chars,
         )
     );
 
+    $input_type = 'text';
     $the_class = 'textfield';
-    if ($column['pma_type'] == 'date') {
+    if ($column['pma_type'] === 'date') {
         $the_class .= ' datefield';
-    } elseif ($column['pma_type'] == 'datetime'
-        || substr($column['pma_type'], 0, 9) == 'timestamp'
+        $input_type = 'date';
+    } elseif ($column['pma_type'] === 'datetime'
+        || substr($column['pma_type'], 0, 9) === 'timestamp'
     ) {
         $the_class .= ' datetimefield';
+    } elseif ($column['pma_type'] === 'time') {
+        $input_type = 'time';
     }
-    $input_type = 'text';
     $input_min_max = false;
     if (in_array(
         $column['True_Type'],
@@ -1196,7 +1199,8 @@ function PMA_getHTMLinput($column, $column_name_appendix, $special_chars,
     return '<input type="' . $input_type . '"'
         . ' name="fields'. $column_name_appendix . '"'
         . ' value="' . $special_chars . '" size="' . $fieldsize . '"'
-        . ($input_min_max !== false ? $input_min_max : '')
+        . ($input_min_max !== false ? ' ' . $input_min_max : '')
+        . ($input_type === 'time' ? ' step="1"' : '')
         . ' class="' . $the_class . '" ' . $unnullify_trigger
         . ' tabindex="' . ($tabindex + $tabindex_for_value). '"'
         . ' id="field_' . ($idindex) . '_3" />';
