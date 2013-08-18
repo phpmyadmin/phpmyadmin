@@ -666,58 +666,71 @@ function PMA_getHtmlForSchemaSnapshot($url_query)
     $html .= '</table>';
 
     if (count($indexes) > 0) {
-        $html .= '<h3>' . __('Indexes') . '</h3>';
-        $html .= '<table id="tablestructure_indexes" class="data">';
-        $html .= '<thead>';
-        $html .= '<tr>';
-        $html .= '<th>' . __('Keyname') . '</th>';
-        $html .= '<th>' . __('Type') . '</th>';
-        $html .= '<th>' . __('Unique') . '</th>';
-        $html .= '<th>' . __('Packed') . '</th>';
-        $html .= '<th>' . __('Column') . '</th>';
-        $html .= '<th>' . __('Cardinality') . '</th>';
-        $html .= '<th>' . __('Collation') . '</th>';
-        $html .= '<th>' . __('Null') . '</th>';
-        $html .= '<th>' . __('Comment') . '</th>';
-        $html .= '</tr>';
-        $html .= '<tbody>';
-
-        $style = 'odd';
-        foreach ($indexes as $indexes_index => $index) {
-            if ($index['Non_unique'] == 0) {
-                $str_unique = __('Yes');
-            } else {
-                $str_unique = __('No');
-            }
-            if ($index['Packed'] != '') {
-                $str_packed = __('Yes');
-            } else {
-                $str_packed = __('No');
-            }
-
-            $html .= '<tr class="noclick ' . $style . '">';
-            $html .= '<td><b>' . htmlspecialchars($index['Key_name']) . '</b></td>';
-            $html .= '<td>' . htmlspecialchars($index['Index_type']) . '</td>';
-            $html .= '<td>' . $str_unique . '</td>';
-            $html .= '<td>' . $str_packed . '</td>';
-            $html .= '<td>' . htmlspecialchars($index['Column_name']) . '</td>';
-            $html .= '<td>' . htmlspecialchars($index['Cardinality']) . '</td>';
-            $html .= '<td>' . htmlspecialchars($index['Collation']) . '</td>';
-            $html .= '<td>' . htmlspecialchars($index['Null']) . '</td>';
-            $html .= '<td>' . htmlspecialchars($index['Comment']) . '</td>';
-            $html .= '</tr>';
-
-            if ($style == 'even') {
-                $style = 'odd';
-            } else {
-                $style = 'even';
-            }
-        }
-        $html .= '</tbody>';
-        $html .= '</table>';
+        $html .= PMA_getHtmlForIndexes($indexes);
     } // endif
     $html .= '<br /><hr /><br />';
     
+    return $html;
+}
+
+/**
+ * Fuunction to get html for the indexes in schema snapshot
+ * 
+ * @param array $indexes indexes
+ * 
+ * @return string
+ */
+function PMA_getHtmlForIndexes($indexes)
+{
+    $html = '<h3>' . __('Indexes') . '</h3>';
+    $html .= '<table id="tablestructure_indexes" class="data">';
+    $html .= '<thead>';
+    $html .= '<tr>';
+    $html .= '<th>' . __('Keyname') . '</th>';
+    $html .= '<th>' . __('Type') . '</th>';
+    $html .= '<th>' . __('Unique') . '</th>';
+    $html .= '<th>' . __('Packed') . '</th>';
+    $html .= '<th>' . __('Column') . '</th>';
+    $html .= '<th>' . __('Cardinality') . '</th>';
+    $html .= '<th>' . __('Collation') . '</th>';
+    $html .= '<th>' . __('Null') . '</th>';
+    $html .= '<th>' . __('Comment') . '</th>';
+    $html .= '</tr>';
+    $html .= '<tbody>';
+
+    $style = 'odd';
+    foreach ($indexes as $indexes_index => $index) {
+        if ($index['Non_unique'] == 0) {
+            $str_unique = __('Yes');
+        } else {
+            $str_unique = __('No');
+        }
+        if ($index['Packed'] != '') {
+            $str_packed = __('Yes');
+        } else {
+            $str_packed = __('No');
+        }
+
+        $html .= '<tr class="noclick ' . $style . '">';
+        $html .= '<td><b>' . htmlspecialchars($index['Key_name']) . '</b></td>';
+        $html .= '<td>' . htmlspecialchars($index['Index_type']) . '</td>';
+        $html .= '<td>' . $str_unique . '</td>';
+        $html .= '<td>' . $str_packed . '</td>';
+        $html .= '<td>' . htmlspecialchars($index['Column_name']) . '</td>';
+        $html .= '<td>' . htmlspecialchars($index['Cardinality']) . '</td>';
+        $html .= '<td>' . htmlspecialchars($index['Collation']) . '</td>';
+        $html .= '<td>' . htmlspecialchars($index['Null']) . '</td>';
+        $html .= '<td>' . htmlspecialchars($index['Comment']) . '</td>';
+        $html .= '</tr>';
+
+        if ($style == 'even') {
+            $style = 'odd';
+        } else {
+            $style = 'even';
+        }
+    }
+    $html .= '</tbody>';
+    $html .= '</table>';
     return $html;
 }
 ?>
