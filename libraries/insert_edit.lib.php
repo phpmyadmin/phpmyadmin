@@ -1162,7 +1162,15 @@ function PMA_getHTMLinput($column, $column_name_appendix, $special_chars,
     ) {
         $the_class .= ' datetimefield';
     }
-    return '<input type="text" name="fields' . $column_name_appendix . '"'
+    $input_type = 'text';
+    if (substr($column['pma_type'], 0, 4) === 'int('
+        || substr($column['pma_type'], 0, 8) === 'tinyint('
+        || substr($column['pma_type'], 0, 8) === 'longint('
+    ) {
+        $input_type = 'number';
+    }
+    return '<input type="' . $input_type . '" '
+        . 'name="fields'. $column_name_appendix . '"'
         . ' value="' . $special_chars . '" size="' . $fieldsize . '"'
         . ' class="' . $the_class . '" ' . $unnullify_trigger
         . ' tabindex="' . ($tabindex + $tabindex_for_value). '"'
