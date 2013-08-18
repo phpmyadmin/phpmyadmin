@@ -699,30 +699,8 @@ function PMA_getHtmlForIndexes($indexes)
     $html .= '<tbody>';
 
     $style = 'odd';
-    foreach ($indexes as $indexes_index => $index) {
-        if ($index['Non_unique'] == 0) {
-            $str_unique = __('Yes');
-        } else {
-            $str_unique = __('No');
-        }
-        if ($index['Packed'] != '') {
-            $str_packed = __('Yes');
-        } else {
-            $str_packed = __('No');
-        }
-
-        $html .= '<tr class="noclick ' . $style . '">';
-        $html .= '<td><b>' . htmlspecialchars($index['Key_name']) . '</b></td>';
-        $html .= '<td>' . htmlspecialchars($index['Index_type']) . '</td>';
-        $html .= '<td>' . $str_unique . '</td>';
-        $html .= '<td>' . $str_packed . '</td>';
-        $html .= '<td>' . htmlspecialchars($index['Column_name']) . '</td>';
-        $html .= '<td>' . htmlspecialchars($index['Cardinality']) . '</td>';
-        $html .= '<td>' . htmlspecialchars($index['Collation']) . '</td>';
-        $html .= '<td>' . htmlspecialchars($index['Null']) . '</td>';
-        $html .= '<td>' . htmlspecialchars($index['Comment']) . '</td>';
-        $html .= '</tr>';
-
+    foreach ($indexes as $index) {
+        $html .= PMA_getHtmlForIndex($index, $style);
         if ($style == 'even') {
             $style = 'odd';
         } else {
@@ -731,6 +709,42 @@ function PMA_getHtmlForIndexes($indexes)
     }
     $html .= '</tbody>';
     $html .= '</table>';
+    return $html;
+}
+
+/**
+ * Funtion to get html for an index in schema snapshot
+ * 
+ * @param array  $index index
+ * @param string $style style
+ * 
+ * @return string
+ */
+function PMA_getHtmlForIndex($index, $style)
+{
+    if ($index['Non_unique'] == 0) {
+        $str_unique = __('Yes');
+    } else {
+        $str_unique = __('No');
+    }
+    if ($index['Packed'] != '') {
+        $str_packed = __('Yes');
+    } else {
+        $str_packed = __('No');
+    }
+
+    $html .= '<tr class="noclick ' . $style . '">';
+    $html .= '<td><b>' . htmlspecialchars($index['Key_name']) . '</b></td>';
+    $html .= '<td>' . htmlspecialchars($index['Index_type']) . '</td>';
+    $html .= '<td>' . $str_unique . '</td>';
+    $html .= '<td>' . $str_packed . '</td>';
+    $html .= '<td>' . htmlspecialchars($index['Column_name']) . '</td>';
+    $html .= '<td>' . htmlspecialchars($index['Cardinality']) . '</td>';
+    $html .= '<td>' . htmlspecialchars($index['Collation']) . '</td>';
+    $html .= '<td>' . htmlspecialchars($index['Null']) . '</td>';
+    $html .= '<td>' . htmlspecialchars($index['Comment']) . '</td>';
+    $html .= '</tr>';
+
     return $html;
 }
 ?>
