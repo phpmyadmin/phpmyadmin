@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-08-11 13:17+0200\n"
+"POT-Creation-Date: 2013-08-18 06:16-0400\n"
 "PO-Revision-Date: 2012-12-13 13:06+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Belarusian (latin) <http://l10n.cihar.com/projects/phpmyadmin/"
@@ -16,9 +16,9 @@ msgstr ""
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Weblate 1.4-dev\n"
 
-#: browse_foreigners.php:50 browse_foreigners.php:70 js/messages.php:348
+#: browse_foreigners.php:50 browse_foreigners.php:70 js/messages.php:349
 #: libraries/DisplayResults.class.php:805
-#: libraries/server_privileges.lib.php:2814
+#: libraries/server_privileges.lib.php:2888
 msgid "Show all"
 msgstr "Pakazać usie"
 
@@ -47,7 +47,7 @@ msgstr ""
 msgid "Search:"
 msgstr "Pošuk"
 
-#: browse_foreigners.php:191 gis_data_editor.php:396 js/messages.php:216
+#: browse_foreigners.php:191 gis_data_editor.php:396 js/messages.php:217
 #: libraries/DbSearch.class.php:455 libraries/DisplayResults.class.php:1645
 #: libraries/TableSearch.class.php:1183 libraries/core.lib.php:554
 #: libraries/display_change_password.lib.php:94
@@ -71,14 +71,14 @@ msgstr "Pošuk"
 #: libraries/schema/User_Schema.class.php:228
 #: libraries/schema/User_Schema.class.php:485
 #: libraries/schema/User_Schema.class.php:535
-#: libraries/server_bin_log.lib.php:61 libraries/server_privileges.lib.php:602
-#: libraries/server_privileges.lib.php:1603
-#: libraries/server_privileges.lib.php:2119
-#: libraries/server_privileges.lib.php:2755
-#: libraries/server_privileges.lib.php:3618
+#: libraries/server_bin_log.lib.php:61 libraries/server_privileges.lib.php:632
+#: libraries/server_privileges.lib.php:1666
+#: libraries/server_privileges.lib.php:2189
+#: libraries/server_privileges.lib.php:2829
+#: libraries/server_privileges.lib.php:3990
 #: libraries/sql_query_form.lib.php:379 libraries/sql_query_form.lib.php:436
 #: libraries/sql_query_form.lib.php:501 libraries/structure.lib.php:1596
-#: libraries/tbl_columns_definition_form.lib.php:174 pmd_pdf.php:160
+#: libraries/tbl_columns_definition_form.lib.php:174 pmd_pdf.php:158
 #: prefs_manage.php:272 prefs_manage.php:322 tbl_chart.php:251
 #: tbl_tracking.php:522 tbl_tracking.php:678 view_create.php:273
 #: view_operations.php:99
@@ -163,7 +163,7 @@ msgstr "Nazvy kalonak"
 #: libraries/rte/rte_routines.lib.php:1580
 #: libraries/schema/Pdf_Relation_Schema.class.php:1379
 #: libraries/schema/Pdf_Relation_Schema.class.php:1402
-#: libraries/server_privileges.lib.php:1694 libraries/structure.lib.php:776
+#: libraries/server_privileges.lib.php:1757 libraries/structure.lib.php:776
 #: libraries/structure.lib.php:1180
 #: libraries/tbl_columns_definition_form.lib.php:276 tbl_printview.php:131
 #: tbl_tracking.php:326 tbl_tracking.php:384
@@ -224,51 +224,51 @@ msgstr "Źviazanaja z"
 msgid "Comments"
 msgstr "Kamentary"
 
-#: db_datadict.php:239 js/messages.php:238 libraries/Index.class.php:432
+#: db_datadict.php:239 js/messages.php:239 libraries/Index.class.php:432
 #: libraries/Index.class.php:471 libraries/Index.class.php:880
-#: libraries/config/FormDisplay.tpl.php:262 libraries/mult_submits.inc.php:375
-#: libraries/mult_submits.inc.php:376
+#: libraries/config/FormDisplay.tpl.php:262 libraries/mult_submits.lib.php:435
+#: libraries/mult_submits.lib.php:436
 #: libraries/plugins/export/ExportHtmlword.class.php:633
 #: libraries/plugins/export/ExportLatex.class.php:589
 #: libraries/plugins/export/ExportOdt.class.php:726
 #: libraries/plugins/export/ExportTexytext.class.php:568
 #: libraries/schema/Pdf_Relation_Schema.class.php:1434
-#: libraries/server_privileges.lib.php:1839
-#: libraries/server_privileges.lib.php:2004
-#: libraries/server_privileges.lib.php:2018
-#: libraries/server_privileges.lib.php:2315
-#: libraries/server_privileges.lib.php:2321
-#: libraries/server_privileges.lib.php:2650
-#: libraries/server_privileges.lib.php:2672 libraries/structure.lib.php:1268
+#: libraries/server_privileges.lib.php:1902
+#: libraries/server_privileges.lib.php:2067
+#: libraries/server_privileges.lib.php:2081
+#: libraries/server_privileges.lib.php:2386
+#: libraries/server_privileges.lib.php:2392
+#: libraries/server_privileges.lib.php:2721
+#: libraries/server_privileges.lib.php:2743 libraries/structure.lib.php:1268
 #: libraries/user_preferences.lib.php:295 prefs_manage.php:138
 #: tbl_printview.php:186 tbl_tracking.php:346 tbl_tracking.php:400
 #: tbl_tracking.php:405
 msgid "No"
 msgstr "Nie"
 
-#: db_datadict.php:239 js/messages.php:237 libraries/Index.class.php:433
+#: db_datadict.php:239 js/messages.php:238 libraries/Index.class.php:433
 #: libraries/Index.class.php:470 libraries/Index.class.php:880
-#: libraries/config/FormDisplay.tpl.php:262 libraries/mult_submits.inc.php:79
-#: libraries/mult_submits.inc.php:114 libraries/mult_submits.inc.php:123
-#: libraries/mult_submits.inc.php:128 libraries/mult_submits.inc.php:133
-#: libraries/mult_submits.inc.php:138 libraries/mult_submits.inc.php:314
-#: libraries/mult_submits.inc.php:334 libraries/mult_submits.inc.php:369
-#: libraries/mult_submits.inc.php:370 libraries/mult_submits.inc.php:382
+#: libraries/config/FormDisplay.tpl.php:262 libraries/mult_submits.inc.php:80
+#: libraries/mult_submits.inc.php:159 libraries/mult_submits.lib.php:343
+#: libraries/mult_submits.lib.php:376 libraries/mult_submits.lib.php:429
+#: libraries/mult_submits.lib.php:430 libraries/mult_submits.lib.php:472
+#: libraries/mult_submits.lib.php:481 libraries/mult_submits.lib.php:486
+#: libraries/mult_submits.lib.php:491 libraries/mult_submits.lib.php:496
 #: libraries/plugins/export/ExportHtmlword.class.php:634
 #: libraries/plugins/export/ExportLatex.class.php:589
 #: libraries/plugins/export/ExportOdt.class.php:727
 #: libraries/plugins/export/ExportTexytext.class.php:568
 #: libraries/schema/Pdf_Relation_Schema.class.php:1435
-#: libraries/server_privileges.lib.php:1839
-#: libraries/server_privileges.lib.php:2001
-#: libraries/server_privileges.lib.php:2016
-#: libraries/server_privileges.lib.php:2314
-#: libraries/server_privileges.lib.php:2319
-#: libraries/server_privileges.lib.php:2647
-#: libraries/server_privileges.lib.php:2672 libraries/structure.lib.php:1268
-#: libraries/user_preferences.lib.php:293 prefs_manage.php:136
-#: server_databases.php:105 server_databases.php:112 tbl_printview.php:187
-#: tbl_structure.php:85 tbl_tracking.php:346 tbl_tracking.php:398
+#: libraries/server_privileges.lib.php:1902
+#: libraries/server_privileges.lib.php:2064
+#: libraries/server_privileges.lib.php:2079
+#: libraries/server_privileges.lib.php:2385
+#: libraries/server_privileges.lib.php:2390
+#: libraries/server_privileges.lib.php:2718
+#: libraries/server_privileges.lib.php:2743 libraries/structure.lib.php:1268
+#: libraries/structure.lib.php:2608 libraries/user_preferences.lib.php:293
+#: prefs_manage.php:136 server_databases.php:105 server_databases.php:112
+#: tbl_printview.php:187 tbl_tracking.php:346 tbl_tracking.php:398
 #: tbl_tracking.php:403
 msgid "Yes"
 msgstr "Tak"
@@ -325,9 +325,9 @@ msgstr ""
 #: libraries/plugins/export/ExportXml.class.php:459
 #: libraries/rte/rte_list.lib.php:65 libraries/rte/rte_triggers.lib.php:355
 #: libraries/schema/User_Schema.class.php:300
-#: libraries/server_privileges.lib.php:2153
-#: libraries/server_privileges.lib.php:2380
-#: libraries/server_privileges.lib.php:3083 libraries/structure.lib.php:757
+#: libraries/server_privileges.lib.php:2223
+#: libraries/server_privileges.lib.php:2451
+#: libraries/server_privileges.lib.php:3447 libraries/structure.lib.php:757
 #: tbl_relation.php:475 tbl_relation.php:545 tbl_tracking.php:757
 msgid "Table"
 msgstr "Tablica"
@@ -407,9 +407,9 @@ msgstr ""
 #: libraries/plugins/export/ExportOdt.class.php:203
 #: libraries/plugins/export/ExportTexytext.class.php:142
 #: libraries/server_databases.lib.php:310
-#: libraries/server_privileges.lib.php:2137
-#: libraries/server_privileges.lib.php:2380
-#: libraries/server_privileges.lib.php:3069
+#: libraries/server_privileges.lib.php:2207
+#: libraries/server_privileges.lib.php:2451
+#: libraries/server_privileges.lib.php:3433
 #: libraries/server_status.lib.php:351 tbl_relation.php:452
 #: tbl_relation.php:518 tbl_tracking.php:756
 msgid "Database"
@@ -427,7 +427,7 @@ msgstr ""
 msgid "Updated"
 msgstr ""
 
-#: db_tracking.php:85 js/messages.php:170 libraries/Menu.class.php:504
+#: db_tracking.php:85 js/messages.php:171 libraries/Menu.class.php:504
 #: libraries/Util.class.php:4085 libraries/rte/rte_events.lib.php:426
 #: libraries/rte/rte_list.lib.php:78 libraries/server_status.lib.php:363
 #: tbl_tracking.php:761
@@ -437,10 +437,10 @@ msgstr "Stan"
 #: db_tracking.php:86 libraries/Index.class.php:558
 #: libraries/rte/rte_list.lib.php:53 libraries/rte/rte_list.lib.php:67
 #: libraries/rte/rte_list.lib.php:79 libraries/server_databases.lib.php:404
-#: libraries/server_privileges.lib.php:1697
-#: libraries/server_privileges.lib.php:2390
-#: libraries/server_privileges.lib.php:2555
-#: libraries/server_privileges.lib.php:3271 libraries/structure.lib.php:765
+#: libraries/server_privileges.lib.php:1760
+#: libraries/server_privileges.lib.php:2461
+#: libraries/server_privileges.lib.php:2626
+#: libraries/server_privileges.lib.php:3643 libraries/structure.lib.php:765
 #: libraries/structure.lib.php:1198
 msgid "Action"
 msgstr "Dziejańnie"
@@ -562,23 +562,23 @@ msgid "Point:"
 msgstr ""
 
 #: gis_data_editor.php:207 gis_data_editor.php:234 gis_data_editor.php:289
-#: gis_data_editor.php:362 js/messages.php:313
+#: gis_data_editor.php:362 js/messages.php:314
 msgid "X"
 msgstr ""
 
 #: gis_data_editor.php:210 gis_data_editor.php:238 gis_data_editor.php:293
-#: gis_data_editor.php:366 js/messages.php:314
+#: gis_data_editor.php:366 js/messages.php:315
 msgid "Y"
 msgstr ""
 
 #: gis_data_editor.php:232 gis_data_editor.php:287 gis_data_editor.php:360
-#: js/messages.php:316
+#: js/messages.php:317
 #, php-format
 msgid "Point %d"
 msgstr ""
 
 #: gis_data_editor.php:245 gis_data_editor.php:300 gis_data_editor.php:373
-#: js/messages.php:322
+#: js/messages.php:323
 #, fuzzy
 #| msgid "Add new field"
 msgid "Add a point"
@@ -605,7 +605,7 @@ msgstr ""
 msgid "Add a linestring"
 msgstr "Dadać abmiežavańni"
 
-#: gis_data_editor.php:304 gis_data_editor.php:378 js/messages.php:323
+#: gis_data_editor.php:304 gis_data_editor.php:378 js/messages.php:324
 msgid "Add an inner ring"
 msgstr ""
 
@@ -615,7 +615,7 @@ msgstr ""
 msgid "Polygon %d:"
 msgstr "Dadać %s novyja pali"
 
-#: gis_data_editor.php:384 js/messages.php:324
+#: gis_data_editor.php:384 js/messages.php:325
 #, fuzzy
 #| msgid "Add %s field(s)"
 msgid "Add a polygon"
@@ -968,7 +968,7 @@ msgstr ""
 msgid "Do you really want to execute \"%s\"?"
 msgstr "Ci sapraŭdy vy žadajecie "
 
-#: js/messages.php:37 libraries/mult_submits.inc.php:342
+#: js/messages.php:37 libraries/mult_submits.lib.php:399
 msgid "You are about to DESTROY a complete database!"
 msgstr "Vy źbirajecie VYDALIĆ bazu dadzienych całkam!"
 
@@ -1009,22 +1009,28 @@ msgid "Missing value in the form!"
 msgstr "Nie zadadzienaje značeńnie ŭ formie!"
 
 #: js/messages.php:48
-msgid "This is not a number!"
-msgstr "Heta nia lik!"
+#, fuzzy
+#| msgid "%d is not valid row number."
+msgid "Please enter a valid number"
+msgstr "%d nie źjaŭlajecca karektnym numaram radka."
 
 #: js/messages.php:49
+msgid "Please enter a valid length"
+msgstr ""
+
+#: js/messages.php:50
 #, fuzzy
 #| msgid "Add new field"
 msgid "Add Index"
 msgstr "Dadać novaje pole"
 
-#: js/messages.php:50
+#: js/messages.php:51
 #, fuzzy
 #| msgid "Edit next row"
 msgid "Edit Index"
 msgstr "Redagavać nastupny radok"
 
-#: js/messages.php:51 libraries/display_indexes.lib.php:199
+#: js/messages.php:52 libraries/display_indexes.lib.php:199
 #: libraries/display_indexes.lib.php:205
 #, fuzzy, php-format
 #| msgid "Add %s field(s)"
@@ -1032,85 +1038,85 @@ msgid "Add %s column(s) to index"
 msgstr "Dadać %s novyja pali"
 
 #. l10n: Default label for the y-Axis of Charts
-#: js/messages.php:55 tbl_chart.php:236
+#: js/messages.php:56 tbl_chart.php:236
 #, fuzzy
 #| msgid "Value"
 msgid "Y Values"
 msgstr "Značeńnie"
 
-#: js/messages.php:58
+#: js/messages.php:59
 msgid "The host name is empty!"
 msgstr "Pustoje imia chostu!"
 
-#: js/messages.php:59
+#: js/messages.php:60
 msgid "The user name is empty!"
 msgstr "Pustoje imia karystalnika!"
 
-#: js/messages.php:60 libraries/server_privileges.lib.php:1437
+#: js/messages.php:61 libraries/server_privileges.lib.php:1497
 #: user_password.php:110
 msgid "The password is empty!"
 msgstr "Pusty parol!"
 
-#: js/messages.php:61 libraries/server_privileges.lib.php:1435
+#: js/messages.php:62 libraries/server_privileges.lib.php:1495
 #: user_password.php:113
 msgid "The passwords aren't the same!"
 msgstr "Paroli nie supadajuć!"
 
-#: js/messages.php:62 libraries/server_privileges.lib.php:1563
-#: libraries/server_privileges.lib.php:1754
-#: libraries/server_privileges.lib.php:2721
-#: libraries/server_privileges.lib.php:3030
+#: js/messages.php:63 libraries/server_privileges.lib.php:1623
+#: libraries/server_privileges.lib.php:1817
+#: libraries/server_privileges.lib.php:2792
+#: libraries/server_privileges.lib.php:3394
 #, fuzzy
 #| msgid "Any user"
 msgid "Add user"
 msgstr "Luby karystalnik"
 
-#: js/messages.php:63
+#: js/messages.php:64
 #, fuzzy
 #| msgid "Reload privileges"
 msgid "Reloading Privileges"
 msgstr "Pierazahruzić pryvilei"
 
-#: js/messages.php:64
+#: js/messages.php:65
 #, fuzzy
 #| msgid "Remove selected users"
 msgid "Removing Selected Users"
 msgstr "Vydalić vybranych karystalnikaŭ"
 
-#: js/messages.php:65 js/messages.php:122 tbl_tracking.php:294
+#: js/messages.php:66 js/messages.php:123 tbl_tracking.php:294
 #: tbl_tracking.php:491
 msgid "Close"
 msgstr ""
 
 #. l10n: Other, small valued, queries
-#: js/messages.php:68 libraries/ServerStatusData.class.php:203
+#: js/messages.php:69 libraries/ServerStatusData.class.php:203
 #: libraries/server_status_queries.lib.php:145
 msgid "Other"
 msgstr ""
 
 #. l10n: Thousands separator
-#: js/messages.php:70 libraries/Util.class.php:1447
+#: js/messages.php:71 libraries/Util.class.php:1447
 msgid ","
 msgstr ","
 
 #. l10n: Decimal separator
-#: js/messages.php:72 libraries/Util.class.php:1449
+#: js/messages.php:73 libraries/Util.class.php:1449
 msgid "."
 msgstr "."
 
-#: js/messages.php:74
+#: js/messages.php:75
 #, fuzzy
 #| msgid "Connections"
 msgid "Connections / Processes"
 msgstr "Padłučeńni"
 
-#: js/messages.php:77
+#: js/messages.php:78
 #, fuzzy
 #| msgid "Could not load default configuration from: \"%1$s\""
 msgid "Local monitor configuration incompatible"
 msgstr "Niemahčyma zahruzić kanfihuracyju pa zmoŭčańni z: \"%1$s\""
 
-#: js/messages.php:78
+#: js/messages.php:79
 msgid ""
 "The chart arrangement configuration in your browsers local storage is not "
 "compatible anymore to the newer version of the monitor dialog. It is very "
@@ -1118,227 +1124,227 @@ msgid ""
 "your configuration to default in the <i>Settings</i> menu."
 msgstr ""
 
-#: js/messages.php:80
+#: js/messages.php:81
 #, fuzzy
 #| msgid "Query cache"
 msgid "Query cache efficiency"
 msgstr "Keš zapytaŭ"
 
-#: js/messages.php:81
+#: js/messages.php:82
 #, fuzzy
 #| msgid "Query cache"
 msgid "Query cache usage"
 msgstr "Keš zapytaŭ"
 
-#: js/messages.php:82
+#: js/messages.php:83
 #, fuzzy
 #| msgid "Query cache"
 msgid "Query cache used"
 msgstr "Keš zapytaŭ"
 
-#: js/messages.php:84
+#: js/messages.php:85
 msgid "System CPU Usage"
 msgstr ""
 
-#: js/messages.php:85
+#: js/messages.php:86
 msgid "System memory"
 msgstr ""
 
-#: js/messages.php:86
+#: js/messages.php:87
 msgid "System swap"
 msgstr ""
 
-#: js/messages.php:88
+#: js/messages.php:89
 msgid "Average load"
 msgstr ""
 
-#: js/messages.php:89
+#: js/messages.php:90
 #, fuzzy
 #| msgid "Log file count"
 msgid "Total memory"
 msgstr "Kolkaść fajłaŭ łogu"
 
-#: js/messages.php:90
+#: js/messages.php:91
 msgid "Cached memory"
 msgstr ""
 
-#: js/messages.php:91
+#: js/messages.php:92
 #, fuzzy
 #| msgid "Buffer Pool"
 msgid "Buffered memory"
 msgstr "Puł buferu"
 
-#: js/messages.php:92
+#: js/messages.php:93
 msgid "Free memory"
 msgstr ""
 
-#: js/messages.php:93
+#: js/messages.php:94
 msgid "Used memory"
 msgstr ""
 
-#: js/messages.php:95
+#: js/messages.php:96
 #, fuzzy
 #| msgid "Total"
 msgid "Total Swap"
 msgstr "Ahułam"
 
-#: js/messages.php:96
+#: js/messages.php:97
 msgid "Cached Swap"
 msgstr ""
 
-#: js/messages.php:97
+#: js/messages.php:98
 msgid "Used Swap"
 msgstr ""
 
-#: js/messages.php:98
+#: js/messages.php:99
 #, fuzzy
 #| msgid "Free pages"
 msgid "Free Swap"
 msgstr "Volnych staronak"
 
-#: js/messages.php:100
+#: js/messages.php:101
 msgid "Bytes sent"
 msgstr ""
 
-#: js/messages.php:101
+#: js/messages.php:102
 #, fuzzy
 #| msgid "Received"
 msgid "Bytes received"
 msgstr "Atrymana"
 
-#: js/messages.php:102 libraries/server_status.lib.php:220
+#: js/messages.php:103 libraries/server_status.lib.php:220
 msgid "Connections"
 msgstr "Padłučeńni"
 
-#: js/messages.php:103 libraries/server_status.lib.php:414
+#: js/messages.php:104 libraries/server_status.lib.php:414
 msgid "Processes"
 msgstr "Pracesy"
 
 #. l10n: shortcuts for Byte
-#: js/messages.php:106 libraries/Util.class.php:1393
+#: js/messages.php:107 libraries/Util.class.php:1393
 msgid "B"
 msgstr "B"
 
 #. l10n: shortcuts for Kilobyte
-#: js/messages.php:107 libraries/Util.class.php:1395
+#: js/messages.php:108 libraries/Util.class.php:1395
 #: libraries/server_status_monitor.lib.php:250
 msgid "KiB"
 msgstr "KiB"
 
 #. l10n: shortcuts for Megabyte
-#: js/messages.php:108 libraries/Util.class.php:1397
+#: js/messages.php:109 libraries/Util.class.php:1397
 #: libraries/server_status_monitor.lib.php:251
 msgid "MiB"
 msgstr "MiB"
 
 #. l10n: shortcuts for Gigabyte
-#: js/messages.php:109 libraries/Util.class.php:1399
+#: js/messages.php:110 libraries/Util.class.php:1399
 msgid "GiB"
 msgstr "GiB"
 
 #. l10n: shortcuts for Terabyte
-#: js/messages.php:110 libraries/Util.class.php:1401
+#: js/messages.php:111 libraries/Util.class.php:1401
 msgid "TiB"
 msgstr "TiB"
 
 #. l10n: shortcuts for Petabyte
-#: js/messages.php:111 libraries/Util.class.php:1403
+#: js/messages.php:112 libraries/Util.class.php:1403
 msgid "PiB"
 msgstr "PiB"
 
 #. l10n: shortcuts for Exabyte
-#: js/messages.php:112 libraries/Util.class.php:1405
+#: js/messages.php:113 libraries/Util.class.php:1405
 msgid "EiB"
 msgstr "EiB"
 
-#: js/messages.php:113
+#: js/messages.php:114
 #, fuzzy, php-format
 #| msgid "%s table(s)"
 msgid "%d table(s)"
 msgstr "%s tablic(y)"
 
 #. l10n: Questions is the name of a MySQL Status variable
-#: js/messages.php:116
+#: js/messages.php:117
 #, fuzzy
 #| msgid "Relations"
 msgid "Questions"
 msgstr "Suviazi"
 
-#: js/messages.php:117 libraries/server_status.lib.php:129
+#: js/messages.php:118 libraries/server_status.lib.php:129
 msgid "Traffic"
 msgstr "Trafik"
 
-#: js/messages.php:118 libraries/Menu.class.php:536
+#: js/messages.php:119 libraries/Menu.class.php:536
 #: libraries/Util.class.php:4089 libraries/server_status_monitor.lib.php:290
 #, fuzzy
 #| msgid "General relation features"
 msgid "Settings"
 msgstr "Mahčymaści asnoŭnych suviaziaŭ"
 
-#: js/messages.php:119
+#: js/messages.php:120
 #, fuzzy
 #| msgid "Rename database to"
 msgid "Remove chart"
 msgstr "Pierajmienavać bazu dadzienych u"
 
-#: js/messages.php:120
+#: js/messages.php:121
 msgid "Edit title and labels"
 msgstr ""
 
-#: js/messages.php:121
+#: js/messages.php:122
 #, fuzzy
 #| msgid "Snap to grid"
 msgid "Add chart to grid"
 msgstr "Źviać ź sietkaj"
 
-#: js/messages.php:123
+#: js/messages.php:124
 msgid "Please add at least one variable to the series"
 msgstr ""
 
-#: js/messages.php:124 libraries/DisplayResults.class.php:1283
+#: js/messages.php:125 libraries/DisplayResults.class.php:1283
 #: libraries/TableSearch.class.php:849 libraries/TableSearch.class.php:996
 #: libraries/display_export.lib.php:572
 #: libraries/plugins/export/ExportSql.class.php:1577
-#: libraries/server_privileges.lib.php:2290
+#: libraries/server_privileges.lib.php:2360
 #: libraries/server_status.lib.php:525
 #: libraries/server_status_monitor.lib.php:269
 #: libraries/tbl_columns_definition_form.lib.php:694 pmd_general.php:545
 msgid "None"
 msgstr "Nijakaja"
 
-#: js/messages.php:125
+#: js/messages.php:126
 msgid "Resume monitor"
 msgstr ""
 
-#: js/messages.php:126
+#: js/messages.php:127
 msgid "Pause monitor"
 msgstr ""
 
-#: js/messages.php:128
+#: js/messages.php:129
 msgid "general_log and slow_query_log are enabled."
 msgstr ""
 
-#: js/messages.php:129
+#: js/messages.php:130
 msgid "general_log is enabled."
 msgstr ""
 
-#: js/messages.php:130
+#: js/messages.php:131
 msgid "slow_query_log is enabled."
 msgstr ""
 
-#: js/messages.php:131
+#: js/messages.php:132
 msgid "slow_query_log and general_log are disabled."
 msgstr ""
 
-#: js/messages.php:132
+#: js/messages.php:133
 msgid "log_output is not set to TABLE."
 msgstr ""
 
-#: js/messages.php:133
+#: js/messages.php:134
 msgid "log_output is set to TABLE."
 msgstr ""
 
-#: js/messages.php:134
+#: js/messages.php:135
 #, php-format
 msgid ""
 "slow_query_log is enabled, but the server logs only queries that take longer "
@@ -1346,153 +1352,153 @@ msgid ""
 "depending on your system."
 msgstr ""
 
-#: js/messages.php:135
+#: js/messages.php:136
 #, php-format
 msgid "long_query_time is set to %d second(s)."
 msgstr ""
 
-#: js/messages.php:136
+#: js/messages.php:137
 msgid ""
 "Following settings will be applied globally and reset to default on server "
 "restart:"
 msgstr ""
 
 #. l10n: %s is FILE or TABLE
-#: js/messages.php:138
+#: js/messages.php:139
 #, fuzzy, php-format
 #| msgid "Save as file"
 msgid "Set log_output to %s"
 msgstr "Zachavać jak fajł"
 
 #. l10n: Enable in this context means setting a status variable to ON
-#: js/messages.php:140
+#: js/messages.php:141
 #, fuzzy, php-format
 #| msgid "Enabled"
 msgid "Enable %s"
 msgstr "Uklučana"
 
 #. l10n: Disable in this context means setting a status variable to OFF
-#: js/messages.php:142
+#: js/messages.php:143
 #, fuzzy, php-format
 #| msgid "Disabled"
 msgid "Disable %s"
 msgstr "Adklučana"
 
 #. l10n: %d seconds
-#: js/messages.php:144
+#: js/messages.php:145
 #, php-format
 msgid "Set long_query_time to %ds"
 msgstr ""
 
-#: js/messages.php:145
+#: js/messages.php:146
 msgid ""
 "You can't change these variables. Please log in as root or contact your "
 "database administrator."
 msgstr ""
 
-#: js/messages.php:146
+#: js/messages.php:147
 #, fuzzy
 #| msgid "General relation features"
 msgid "Change settings"
 msgstr "Mahčymaści asnoŭnych suviaziaŭ"
 
-#: js/messages.php:147
+#: js/messages.php:148
 #, fuzzy
 #| msgid "General relation features"
 msgid "Current settings"
 msgstr "Mahčymaści asnoŭnych suviaziaŭ"
 
-#: js/messages.php:149 libraries/server_status_monitor.lib.php:209
+#: js/messages.php:150 libraries/server_status_monitor.lib.php:209
 #, fuzzy
 #| msgid "Report title"
 msgid "Chart Title"
 msgstr "Zahałovak spravazdačy"
 
 #. l10n: As in differential values
-#: js/messages.php:151
+#: js/messages.php:152
 msgid "Differential"
 msgstr ""
 
-#: js/messages.php:152
+#: js/messages.php:153
 #, php-format
 msgid "Divided by %s"
 msgstr ""
 
-#: js/messages.php:153
+#: js/messages.php:154
 msgid "Unit"
 msgstr ""
 
-#: js/messages.php:155
+#: js/messages.php:156
 msgid "From slow log"
 msgstr ""
 
-#: js/messages.php:156
+#: js/messages.php:157
 msgid "From general log"
 msgstr ""
 
-#: js/messages.php:157
+#: js/messages.php:158
 #, fuzzy
 #| msgid "Reload privileges"
 msgid "Analysing logs"
 msgstr "Pierazahruzić pryvilei"
 
-#: js/messages.php:158
+#: js/messages.php:159
 msgid "Analysing & loading logs. This may take a while."
 msgstr ""
 
-#: js/messages.php:159
+#: js/messages.php:160
 #, fuzzy
 #| msgid "Read requests"
 msgid "Cancel request"
 msgstr "Zapyty čytańnia"
 
-#: js/messages.php:160
+#: js/messages.php:161
 msgid ""
 "This column shows the amount of identical queries that are grouped together. "
 "However only the SQL query itself has been used as a grouping criteria, so "
 "the other attributes of queries, such as start time, may differ."
 msgstr ""
 
-#: js/messages.php:161
+#: js/messages.php:162
 msgid ""
 "Since grouping of INSERTs queries has been selected, INSERT queries into the "
 "same table are also being grouped together, disregarding of the inserted "
 "data."
 msgstr ""
 
-#: js/messages.php:162
+#: js/messages.php:163
 msgid "Log data loaded. Queries executed in this time span:"
 msgstr ""
 
-#: js/messages.php:164
+#: js/messages.php:165
 #, fuzzy
 #| msgid "No databases"
 msgid "Jump to Log table"
 msgstr "Bazy dadzienych adsutničajuć"
 
-#: js/messages.php:165
+#: js/messages.php:166
 #, fuzzy
 #| msgid "No databases"
 msgid "No data found"
 msgstr "Bazy dadzienych adsutničajuć"
 
-#: js/messages.php:166
+#: js/messages.php:167
 msgid "Log analysed, but no data found in this time span."
 msgstr ""
 
-#: js/messages.php:168
+#: js/messages.php:169
 #, fuzzy
 #| msgid "Analyze"
 msgid "Analyzing…"
 msgstr "Praanalizavać"
 
-#: js/messages.php:169
+#: js/messages.php:170
 #, fuzzy
 #| msgid "Explain SQL"
 msgid "Explain output"
 msgstr "Tłumačyć SQL"
 
-#: js/messages.php:171 js/messages.php:535
+#: js/messages.php:172 js/messages.php:536
 #: libraries/plugins/export/ExportHtmlword.class.php:486
 #: libraries/plugins/export/ExportOdt.class.php:564
 #: libraries/plugins/export/ExportTexytext.class.php:437
@@ -1501,112 +1507,112 @@ msgstr "Tłumačyć SQL"
 msgid "Time"
 msgstr "Čas"
 
-#: js/messages.php:172
+#: js/messages.php:173
 #, fuzzy
 #| msgid "Total"
 msgid "Total time:"
 msgstr "Ahułam"
 
-#: js/messages.php:173
+#: js/messages.php:174
 #, fuzzy
 #| msgid "Profiling"
 msgid "Profiling results"
 msgstr "Prafilavańnie"
 
-#: js/messages.php:174
+#: js/messages.php:175
 #, fuzzy
 #| msgid "Table"
 msgctxt "Display format"
 msgid "Table"
 msgstr "Tablica"
 
-#: js/messages.php:175
+#: js/messages.php:176
 #, fuzzy
 #| msgid "Charset"
 msgid "Chart"
 msgstr "Kadyroŭka"
 
-#: js/messages.php:176
+#: js/messages.php:177
 #, fuzzy
 #| msgid "Add new field"
 msgid "Edit chart"
 msgstr "Dadać novaje pole"
 
-#: js/messages.php:177
+#: js/messages.php:178
 #, fuzzy
 #| msgid "Select Tables"
 msgid "Series"
 msgstr "Vybierycie tablicu(y)"
 
 #. l10n: A collection of available filters
-#: js/messages.php:180
+#: js/messages.php:181
 #, fuzzy
 #| msgid "Table options"
 msgid "Log table filter options"
 msgstr "Opcyi tablicy"
 
 #. l10n: Filter as in "Start Filtering"
-#: js/messages.php:182
+#: js/messages.php:183
 msgid "Filter"
 msgstr ""
 
-#: js/messages.php:183
+#: js/messages.php:184
 msgid "Filter queries by word/regexp:"
 msgstr ""
 
-#: js/messages.php:184
+#: js/messages.php:185
 msgid "Group queries, ignoring variable data in WHERE clauses"
 msgstr ""
 
-#: js/messages.php:185
+#: js/messages.php:186
 #, fuzzy
 #| msgid "Number of fields"
 msgid "Sum of grouped rows:"
 msgstr "Kolkaść paloŭ"
 
-#: js/messages.php:186
+#: js/messages.php:187
 #, fuzzy
 #| msgid "Total"
 msgid "Total:"
 msgstr "Ahułam"
 
-#: js/messages.php:188
+#: js/messages.php:189
 #, fuzzy
 #| msgid "Reload privileges"
 msgid "Loading logs"
 msgstr "Pierazahruzić pryvilei"
 
-#: js/messages.php:189
+#: js/messages.php:190
 msgid "Monitor refresh failed"
 msgstr ""
 
-#: js/messages.php:190
+#: js/messages.php:191
 msgid ""
 "While requesting new chart data the server returned an invalid response. "
 "This is most likely because your session expired. Reloading the page and "
 "reentering your credentials should help."
 msgstr ""
 
-#: js/messages.php:191
+#: js/messages.php:192
 #, fuzzy
 #| msgid "Reload"
 msgid "Reload page"
 msgstr "Abnavić"
 
-#: js/messages.php:193
+#: js/messages.php:194
 msgid "Affected rows:"
 msgstr ""
 
-#: js/messages.php:195
+#: js/messages.php:196
 msgid "Failed parsing config file. It doesn't seem to be valid JSON code."
 msgstr ""
 
-#: js/messages.php:196
+#: js/messages.php:197
 msgid ""
 "Failed building chart grid with imported config. Resetting to default config…"
 msgstr ""
 
-#: js/messages.php:197 libraries/Menu.class.php:337
+#: js/messages.php:198 libraries/Menu.class.php:337
 #: libraries/Menu.class.php:419 libraries/Menu.class.php:532
 #: libraries/Util.class.php:4088 libraries/Util.class.php:4103
 #: libraries/Util.class.php:4119 libraries/config/messages.inc.php:171
@@ -1616,291 +1622,291 @@ msgstr ""
 msgid "Import"
 msgstr "Imrart"
 
-#: js/messages.php:198
+#: js/messages.php:199
 #, fuzzy
 #| msgid "Could not load default configuration from: \"%1$s\""
 msgid "Import monitor configuration"
 msgstr "Niemahčyma zahruzić kanfihuracyju pa zmoŭčańni z: \"%1$s\""
 
-#: js/messages.php:199
+#: js/messages.php:200
 #, fuzzy
 #| msgid "Please select the primary key or a unique key"
 msgid "Please select the file you want to import"
 msgstr "Kali łaska, vybierycie pieršasny (PRIMARY) albo ŭnikalny kluč (UNIQUE)"
 
-#: js/messages.php:201
+#: js/messages.php:202
 #, fuzzy
 #| msgid "Update Query"
 msgid "Analyse Query"
 msgstr "Abnavić zapyt"
 
-#: js/messages.php:205
+#: js/messages.php:206
 msgid "Advisor system"
 msgstr ""
 
-#: js/messages.php:206
+#: js/messages.php:207
 msgid "Possible performance issues"
 msgstr ""
 
-#: js/messages.php:207
+#: js/messages.php:208
 msgid "Issue"
 msgstr ""
 
-#: js/messages.php:208
+#: js/messages.php:209
 #, fuzzy
 #| msgid "Documentation"
 msgid "Recommendation"
 msgstr "Dakumentacyja"
 
-#: js/messages.php:209
+#: js/messages.php:210
 #, fuzzy
 #| msgid "Details…"
 msgid "Rule details"
 msgstr "Padrabiaźniej…"
 
-#: js/messages.php:210
+#: js/messages.php:211
 #, fuzzy
 #| msgid "Authenticating…"
 msgid "Justification"
 msgstr "Aŭtentyfikacyja…"
 
-#: js/messages.php:211
+#: js/messages.php:212
 msgid "Used variable / formula"
 msgstr ""
 
-#: js/messages.php:212
+#: js/messages.php:213
 msgid "Test"
 msgstr ""
 
-#: js/messages.php:217 libraries/server_variables.lib.php:159
+#: js/messages.php:218 libraries/server_variables.lib.php:159
 #: pmd_general.php:423 pmd_general.php:460 pmd_general.php:580
 #: pmd_general.php:628 pmd_general.php:704 pmd_general.php:758
 #: pmd_general.php:821 pmd_general.php:852
 msgid "Cancel"
 msgstr "Skasavać"
 
-#: js/messages.php:220 libraries/navigation/NavigationHeader.class.php:54
+#: js/messages.php:221 libraries/navigation/NavigationHeader.class.php:54
 #: libraries/server_status_monitor.lib.php:159
 #, fuzzy
 #| msgid "Reload privileges"
 msgid "Loading…"
 msgstr "Pierazahruzić pryvilei"
 
-#: js/messages.php:221
+#: js/messages.php:222
 #, fuzzy
 #| msgid "Processes"
 msgid "Processing Request"
 msgstr "Pracesy"
 
-#: js/messages.php:222
-msgid "Error in Processing Request"
-msgstr ""
-
 #: js/messages.php:223
-#, php-format
-msgid "Error code: %s"
+msgid "Error in Processing Request"
 msgstr ""
 
 #: js/messages.php:224
 #, php-format
+msgid "Error code: %s"
+msgstr ""
+
+#: js/messages.php:225
+#, php-format
 msgid "Error text: %s"
 msgstr ""
 
-#: js/messages.php:225 libraries/db_common.inc.php:58
+#: js/messages.php:226 libraries/db_common.inc.php:58
 #: libraries/db_table_exists.lib.php:28 server_databases.php:91
 msgid "No databases selected."
 msgstr "Nia vybranaja baza dadzienych."
 
-#: js/messages.php:226
+#: js/messages.php:227
 msgid "Dropping Column"
 msgstr ""
 
-#: js/messages.php:227
+#: js/messages.php:228
 msgid "Adding Primary Key"
 msgstr ""
 
-#: js/messages.php:228 pmd_general.php:421 pmd_general.php:578
+#: js/messages.php:229 pmd_general.php:421 pmd_general.php:578
 #: pmd_general.php:626 pmd_general.php:702 pmd_general.php:756
 #: pmd_general.php:819
 msgid "OK"
 msgstr "OK"
 
-#: js/messages.php:229
+#: js/messages.php:230
 msgid "Click to dismiss this notification"
 msgstr ""
 
-#: js/messages.php:232
+#: js/messages.php:233
 #, fuzzy
 #| msgid "Rename database to"
 msgid "Renaming Databases"
 msgstr "Pierajmienavać bazu dadzienych u"
 
-#: js/messages.php:233
+#: js/messages.php:234
 #, fuzzy
 #| msgid "Rename database to"
 msgid "Reload Database"
 msgstr "Pierajmienavać bazu dadzienych u"
 
-#: js/messages.php:234
+#: js/messages.php:235
 #, fuzzy
 #| msgid "Copy database to"
 msgid "Copying Database"
 msgstr "Kapijavać bazu dadzienych u"
 
-#: js/messages.php:235
+#: js/messages.php:236
 #, fuzzy
 #| msgid "Charset"
 msgid "Changing Charset"
 msgstr "Kadyroŭka"
 
-#: js/messages.php:236
+#: js/messages.php:237
 #, fuzzy
 #| msgid "Table must have at least one field."
 msgid "Table must have at least one column"
 msgstr "Tablica musić mieć prynamsi adno pole."
 
-#: js/messages.php:241
+#: js/messages.php:242
 #, fuzzy
 #| msgid "Use Tables"
 msgid "Insert Table"
 msgstr "Vykarystoŭvać tablicy"
 
-#: js/messages.php:242
+#: js/messages.php:243
 #, fuzzy
 #| msgid "Add new field"
 msgid "Hide indexes"
 msgstr "Dadać novaje pole"
 
-#: js/messages.php:243
+#: js/messages.php:244
 #, fuzzy
 #| msgid "Show grid"
 msgid "Show indexes"
 msgstr "Pakazać sietku"
 
-#: js/messages.php:244 libraries/mult_submits.inc.php:355
+#: js/messages.php:245 libraries/mult_submits.lib.php:412
 #, fuzzy
 #| msgid "Disable foreign key checks"
 msgid "Foreign key check:"
 msgstr "Adklučyć pravierku źniešnich klučoŭ"
 
-#: js/messages.php:245 libraries/mult_submits.inc.php:365
+#: js/messages.php:246 libraries/mult_submits.lib.php:425
 #, fuzzy
 #| msgid "Enabled"
 msgid "(Enabled)"
 msgstr "Uklučana"
 
-#: js/messages.php:246 libraries/mult_submits.inc.php:365
+#: js/messages.php:247 libraries/mult_submits.lib.php:425
 #, fuzzy
 #| msgid "Disabled"
 msgid "(Disabled)"
 msgstr "Adklučana"
 
-#: js/messages.php:249
+#: js/messages.php:250
 #, fuzzy
 #| msgid "Search"
 msgid "Searching"
 msgstr "Pošuk"
 
-#: js/messages.php:250
+#: js/messages.php:251
 #, fuzzy
 #| msgid "in query"
 msgid "Hide search results"
 msgstr "pa zapytu"
 
-#: js/messages.php:251
+#: js/messages.php:252
 #, fuzzy
 #| msgid "Showing SQL query"
 msgid "Show search results"
 msgstr "U vyhladzie SQL-zapytu"
 
-#: js/messages.php:252
+#: js/messages.php:253
 #, fuzzy
 #| msgid "Browse"
 msgid "Browsing"
 msgstr "Prahlad"
 
-#: js/messages.php:253
+#: js/messages.php:254
 #, fuzzy
 #| msgid "Deleting %s"
 msgid "Deleting"
 msgstr "Vydaleńnie %s"
 
-#: js/messages.php:256
+#: js/messages.php:257
 msgid "The definition of a stored function must contain a RETURN statement!"
 msgstr ""
 
-#: js/messages.php:259 libraries/rte/rte_routines.lib.php:790
+#: js/messages.php:260 libraries/rte/rte_routines.lib.php:790
 msgid "ENUM/SET editor"
 msgstr ""
 
-#: js/messages.php:260
+#: js/messages.php:261
 #, fuzzy, php-format
 #| msgid "Number of fields"
 msgid "Values for column %s"
 msgstr "Kolkaść paloŭ"
 
-#: js/messages.php:261
+#: js/messages.php:262
 msgid "Values for a new column"
 msgstr ""
 
-#: js/messages.php:262
+#: js/messages.php:263
 msgid "Enter each value in a separate field"
 msgstr ""
 
-#: js/messages.php:263
+#: js/messages.php:264
 #, fuzzy, php-format
 #| msgid "Add a new User"
 msgid "Add %d value(s)"
 msgstr "Dadać novaha karystalnika"
 
-#: js/messages.php:266
+#: js/messages.php:267
 msgid ""
 "Note: If the file contains multiple tables, they will be combined into one."
 msgstr ""
 
-#: js/messages.php:269
+#: js/messages.php:270
 #, fuzzy
 #| msgid "in query"
 msgid "Hide query box"
 msgstr "pa zapytu"
 
-#: js/messages.php:270
+#: js/messages.php:271
 #, fuzzy
 #| msgid "Showing SQL query"
 msgid "Show query box"
 msgstr "U vyhladzie SQL-zapytu"
 
-#: js/messages.php:271 libraries/DisplayResults.class.php:3303
+#: js/messages.php:272 libraries/DisplayResults.class.php:3303
 #: libraries/Index.class.php:590 libraries/Util.class.php:667
 #: libraries/Util.class.php:1212 libraries/Util.class.php:3395
 #: libraries/Util.class.php:3396 libraries/config/messages.inc.php:497
 #: libraries/schema/User_Schema.class.php:218
-#: libraries/server_privileges.lib.php:3300
+#: libraries/server_privileges.lib.php:3672
 #: libraries/server_variables.lib.php:154 setup/frames/index.inc.php:176
 msgid "Edit"
 msgstr "Redagavać"
 
-#: js/messages.php:272
+#: js/messages.php:273
 msgid "No rows selected"
 msgstr "Nivodny radok nia vybrany"
 
-#: js/messages.php:273 libraries/DisplayResults.class.php:4983
+#: js/messages.php:274 libraries/DisplayResults.class.php:4983
 #: libraries/structure.lib.php:1374 libraries/structure.lib.php:2062
 #: querywindow.php:85
 msgid "Change"
 msgstr "Źmianić"
 
-#: js/messages.php:274
+#: js/messages.php:275
 msgid "Query execution time"
 msgstr ""
 
-#: js/messages.php:275 libraries/DisplayResults.class.php:717
+#: js/messages.php:276 libraries/DisplayResults.class.php:717
 #: libraries/DisplayResults.class.php:725
 #, php-format
 msgid "%d is not valid row number."
 msgstr "%d nie źjaŭlajecca karektnym numaram radka."
 
-#: js/messages.php:278 libraries/display_indexes.lib.php:195
+#: js/messages.php:279 libraries/display_indexes.lib.php:195
 #: libraries/insert_edit.lib.php:1467
 #: libraries/schema/User_Schema.class.php:385
 #: libraries/server_variables.lib.php:157
@@ -1910,265 +1916,265 @@ msgstr "%d nie źjaŭlajecca karektnym numaram radka."
 msgid "Save"
 msgstr "Zachavać"
 
-#: js/messages.php:281
+#: js/messages.php:282
 #, fuzzy
 #| msgid "in query"
 msgid "Hide search criteria"
 msgstr "pa zapytu"
 
-#: js/messages.php:282
+#: js/messages.php:283
 #, fuzzy
 #| msgid "Showing SQL query"
 msgid "Show search criteria"
 msgstr "U vyhladzie SQL-zapytu"
 
-#: js/messages.php:285
+#: js/messages.php:286
 #, fuzzy
 #| msgid "in query"
 msgid "Hide find and replace criteria"
 msgstr "pa zapytu"
 
-#: js/messages.php:286
+#: js/messages.php:287
 #, fuzzy
 #| msgid "Showing SQL query"
 msgid "Show find and replace criteria"
 msgstr "U vyhladzie SQL-zapytu"
 
-#: js/messages.php:289 libraries/TableSearch.class.php:212
+#: js/messages.php:290 libraries/TableSearch.class.php:212
 #, fuzzy
 #| msgid "Search"
 msgid "Zoom Search"
 msgstr "Pošuk"
 
-#: js/messages.php:291
+#: js/messages.php:292
 msgid "Each point represents a data row."
 msgstr ""
 
-#: js/messages.php:293
+#: js/messages.php:294
 msgid "Hovering over a point will show its label."
 msgstr ""
 
-#: js/messages.php:295
+#: js/messages.php:296
 msgid "To zoom in, select a section of the plot with the mouse."
 msgstr ""
 
-#: js/messages.php:297
+#: js/messages.php:298
 msgid "Click reset zoom button to come back to original state."
 msgstr ""
 
-#: js/messages.php:299
+#: js/messages.php:300
 msgid "Click a data point to view and possibly edit the data row."
 msgstr ""
 
-#: js/messages.php:301
+#: js/messages.php:302
 msgid "The plot can be resized by dragging it along the bottom right corner."
 msgstr ""
 
-#: js/messages.php:303
+#: js/messages.php:304
 #, fuzzy
 #| msgid "Add/Delete Field Columns"
 msgid "Select two columns"
 msgstr "Dadać/vydalić kalonku kryteru"
 
-#: js/messages.php:305
+#: js/messages.php:306
 msgid "Select two different columns"
 msgstr ""
 
-#: js/messages.php:307
+#: js/messages.php:308
 #, fuzzy
 #| msgid "Query results operations"
 msgid "Query results"
 msgstr "Dziejańni z vynikami zapytaŭ"
 
-#: js/messages.php:308
+#: js/messages.php:309
 #, fuzzy
 #| msgid "Data pointer size"
 msgid "Data point content"
 msgstr "Pamier ukazalnika na dadzienyja"
 
-#: js/messages.php:311 libraries/display_indexes.lib.php:134
+#: js/messages.php:312 libraries/display_indexes.lib.php:134
 #: libraries/display_indexes.lib.php:170 tbl_change.php:179
 msgid "Ignore"
 msgstr "Ignaravać"
 
-#: js/messages.php:312 libraries/DisplayResults.class.php:3306
+#: js/messages.php:313 libraries/DisplayResults.class.php:3306
 msgid "Copy"
 msgstr "Skapijavać"
 
-#: js/messages.php:315
+#: js/messages.php:316
 msgid "Point"
 msgstr ""
 
-#: js/messages.php:317
+#: js/messages.php:318
 #, fuzzy
 #| msgid "Lines terminated by"
 msgid "Linestring"
 msgstr "Radki padzielenyja"
 
-#: js/messages.php:318
+#: js/messages.php:319
 msgid "Polygon"
 msgstr ""
 
-#: js/messages.php:319 libraries/DisplayResults.class.php:1629
+#: js/messages.php:320 libraries/DisplayResults.class.php:1629
 msgid "Geometry"
 msgstr ""
 
-#: js/messages.php:320
+#: js/messages.php:321
 msgid "Inner Ring"
 msgstr ""
 
-#: js/messages.php:321
+#: js/messages.php:322
 msgid "Outer Ring"
 msgstr ""
 
-#: js/messages.php:327
+#: js/messages.php:328
 #, fuzzy
 #| msgid "Add %s field(s)"
 msgid "Add columns"
 msgstr "Dadać %s novyja pali"
 
-#: js/messages.php:330
+#: js/messages.php:331
 msgid "Select referenced key"
 msgstr "Vybierycie spasyłkavy kluč"
 
-#: js/messages.php:331
+#: js/messages.php:332
 msgid "Select Foreign Key"
 msgstr "Vybierycie źniešni kluč"
 
-#: js/messages.php:332
+#: js/messages.php:333
 msgid "Please select the primary key or a unique key"
 msgstr "Kali łaska, vybierycie pieršasny (PRIMARY) albo ŭnikalny kluč (UNIQUE)"
 
-#: js/messages.php:333 pmd_general.php:95
+#: js/messages.php:334 pmd_general.php:95
 #, fuzzy
 #| msgid "Choose field to display"
 msgid "Choose column to display"
 msgstr "Vybierycie pole dla adlustravańnia"
 
-#: js/messages.php:334
+#: js/messages.php:335
 msgid ""
 "You haven't saved the changes in the layout. They will be lost if you don't "
 "save them. Do you want to continue?"
 msgstr ""
 
-#: js/messages.php:337
+#: js/messages.php:338
 msgid "Add an option for column "
 msgstr ""
 
-#: js/messages.php:338
+#: js/messages.php:339
 #, php-format
 msgid "%d object(s) created"
 msgstr ""
 
-#: js/messages.php:341
+#: js/messages.php:342
 msgid "Press escape to cancel editing"
 msgstr ""
 
-#: js/messages.php:342
+#: js/messages.php:343
 msgid ""
 "You have edited some data and they have not been saved. Are you sure you "
 "want to leave this page before saving the data?"
 msgstr ""
 
-#: js/messages.php:343
+#: js/messages.php:344
 msgid "Drag to reorder"
 msgstr ""
 
-#: js/messages.php:344
+#: js/messages.php:345
 msgid "Click to sort"
 msgstr ""
 
-#: js/messages.php:345
+#: js/messages.php:346
 msgid "Click to mark/unmark"
 msgstr ""
 
-#: js/messages.php:346
+#: js/messages.php:347
 msgid "Double-click to copy column name"
 msgstr ""
 
-#: js/messages.php:347
+#: js/messages.php:348
 msgid "Click the drop-down arrow<br />to toggle column's visibility"
 msgstr ""
 
-#: js/messages.php:349
+#: js/messages.php:350
 msgid ""
 "This table does not contain a unique column. Features related to the grid "
 "edit, checkbox, Edit, Copy and Delete links may not work after saving."
 msgstr ""
 
-#: js/messages.php:354
+#: js/messages.php:355
 msgid "You can also edit most values<br />by double-clicking directly on them."
 msgstr ""
 
-#: js/messages.php:357
+#: js/messages.php:358
 msgid "You can also edit most values<br />by clicking directly on them."
 msgstr ""
 
-#: js/messages.php:362
+#: js/messages.php:363
 msgid "Go to link"
 msgstr ""
 
-#: js/messages.php:363
+#: js/messages.php:364
 #, fuzzy
 #| msgid "Column names"
 msgid "Copy column name"
 msgstr "Nazvy kalonak"
 
-#: js/messages.php:364
+#: js/messages.php:365
 msgid "Right-click the column name to copy it to your clipboard."
 msgstr ""
 
-#: js/messages.php:365
+#: js/messages.php:366
 #, fuzzy
 #| msgid "Showing rows"
 msgid "Show data row(s)"
 msgstr "Pakazanyja zapisy"
 
-#: js/messages.php:368
+#: js/messages.php:369
 #, fuzzy
 #| msgid "Generate Password"
 msgid "Generate password"
 msgstr "Zgieneravać parol"
 
-#: js/messages.php:369 libraries/replication_gui.lib.php:863
+#: js/messages.php:370 libraries/replication_gui.lib.php:863
 msgid "Generate"
 msgstr "Zgieneravać"
 
-#: js/messages.php:370
+#: js/messages.php:371
 #, fuzzy
 #| msgid "Change password"
 msgid "Change Password"
 msgstr "Źmianić parol"
 
-#: js/messages.php:373
+#: js/messages.php:374
 #, fuzzy
 #| msgid "Mon"
 msgid "More"
 msgstr "Pan"
 
-#: js/messages.php:376
+#: js/messages.php:377
 #, fuzzy
 #| msgid "Show all"
 msgid "Show Panel"
 msgstr "Pakazać usie"
 
-#: js/messages.php:377
+#: js/messages.php:378
 #, fuzzy
 #| msgid "Add new field"
 msgid "Hide Panel"
 msgstr "Dadać novaje pole"
 
-#: js/messages.php:378
+#: js/messages.php:379
 msgid "Show hidden navigation tree items"
 msgstr ""
 
-#: js/messages.php:381
+#: js/messages.php:382
 #, fuzzy
 #| msgid "The selected user was not found in the privilege table."
 msgid "The requested page was not found in the history, it may have expired."
 msgstr "Vyłučany karystalnik nia znojdzieny ŭ tablicy pryvilejaŭ."
 
-#: js/messages.php:384 setup/lib/index.lib.php:155
+#: js/messages.php:385 setup/lib/index.lib.php:155
 #, php-format
 msgid ""
 "A newer version of phpMyAdmin is available and you should consider "
@@ -2176,17 +2182,17 @@ msgid ""
 msgstr ""
 
 #. l10n: Latest available phpMyAdmin version
-#: js/messages.php:386
+#: js/messages.php:387
 msgid ", latest stable version:"
 msgstr ""
 
-#: js/messages.php:387
+#: js/messages.php:388
 #, fuzzy
 #| msgid "No databases"
 msgid "up to date"
 msgstr "Bazy dadzienych adsutničajuć"
 
-#: js/messages.php:389 libraries/DisplayResults.class.php:5098
+#: js/messages.php:390 libraries/DisplayResults.class.php:5098
 #: view_create.php:178
 #, fuzzy
 #| msgid "Create"
@@ -2194,20 +2200,20 @@ msgid "Create view"
 msgstr "Stvaryć"
 
 #. l10n: Display text for calendar close link
-#: js/messages.php:409
+#: js/messages.php:410
 #, fuzzy
 #| msgid "None"
 msgid "Done"
 msgstr "Nijakaja"
 
-#: js/messages.php:413
+#: js/messages.php:414
 #, fuzzy
 #| msgid "Previous"
 msgctxt "Previous month"
 msgid "Prev"
 msgstr "Papiaredniaja staronka"
 
-#: js/messages.php:418
+#: js/messages.php:419
 #, fuzzy
 #| msgid "Next"
 msgctxt "Next month"
@@ -2215,96 +2221,96 @@ msgid "Next"
 msgstr "Nastupnaja staronka"
 
 #. l10n: Display text for current month link in calendar
-#: js/messages.php:421
+#: js/messages.php:422
 #, fuzzy
 #| msgid "Total"
 msgid "Today"
 msgstr "Ahułam"
 
-#: js/messages.php:425
+#: js/messages.php:426
 #, fuzzy
 #| msgid "Binary"
 msgid "January"
 msgstr "Dvajkovy"
 
-#: js/messages.php:426
+#: js/messages.php:427
 msgid "February"
 msgstr ""
 
-#: js/messages.php:427
+#: js/messages.php:428
 #, fuzzy
 #| msgid "Mar"
 msgid "March"
 msgstr "Sak"
 
-#: js/messages.php:428
+#: js/messages.php:429
 #, fuzzy
 #| msgid "Apr"
 msgid "April"
 msgstr "Kra"
 
-#: js/messages.php:429
+#: js/messages.php:430
 msgid "May"
 msgstr "Tra"
 
-#: js/messages.php:430
+#: js/messages.php:431
 #, fuzzy
 #| msgid "Jun"
 msgid "June"
 msgstr "Čer"
 
-#: js/messages.php:431
+#: js/messages.php:432
 #, fuzzy
 #| msgid "Jul"
 msgid "July"
 msgstr "Lip"
 
-#: js/messages.php:432
+#: js/messages.php:433
 #, fuzzy
 #| msgid "Aug"
 msgid "August"
 msgstr "Žni"
 
-#: js/messages.php:433
+#: js/messages.php:434
 msgid "September"
 msgstr ""
 
-#: js/messages.php:434
+#: js/messages.php:435
 #, fuzzy
 #| msgid "Oct"
 msgid "October"
 msgstr "Kas"
 
-#: js/messages.php:435
+#: js/messages.php:436
 msgid "November"
 msgstr ""
 
-#: js/messages.php:436
+#: js/messages.php:437
 msgid "December"
 msgstr ""
 
 #. l10n: Short month name
-#: js/messages.php:443 libraries/Util.class.php:1604
+#: js/messages.php:444 libraries/Util.class.php:1604
 msgid "Jan"
 msgstr "Stu"
 
 #. l10n: Short month name
-#: js/messages.php:445 libraries/Util.class.php:1606
+#: js/messages.php:446 libraries/Util.class.php:1606
 msgid "Feb"
 msgstr "Lut"
 
 #. l10n: Short month name
-#: js/messages.php:447 libraries/Util.class.php:1608
+#: js/messages.php:448 libraries/Util.class.php:1608
 msgid "Mar"
 msgstr "Sak"
 
 #. l10n: Short month name
-#: js/messages.php:449 libraries/Util.class.php:1610
+#: js/messages.php:450 libraries/Util.class.php:1610
 msgid "Apr"
 msgstr "Kra"
 
 #. l10n: Short month name
-#: js/messages.php:451 libraries/Util.class.php:1612
+#: js/messages.php:452 libraries/Util.class.php:1612
 #, fuzzy
 #| msgid "May"
 msgctxt "Short month name"
@@ -2312,78 +2318,78 @@ msgid "May"
 msgstr "Tra"
 
 #. l10n: Short month name
-#: js/messages.php:453 libraries/Util.class.php:1614
+#: js/messages.php:454 libraries/Util.class.php:1614
 msgid "Jun"
 msgstr "Čer"
 
 #. l10n: Short month name
-#: js/messages.php:455 libraries/Util.class.php:1616
+#: js/messages.php:456 libraries/Util.class.php:1616
 msgid "Jul"
 msgstr "Lip"
 
 #. l10n: Short month name
-#: js/messages.php:457 libraries/Util.class.php:1618
+#: js/messages.php:458 libraries/Util.class.php:1618
 msgid "Aug"
 msgstr "Žni"
 
 #. l10n: Short month name
-#: js/messages.php:459 libraries/Util.class.php:1620
+#: js/messages.php:460 libraries/Util.class.php:1620
 msgid "Sep"
 msgstr "Vier"
 
 #. l10n: Short month name
-#: js/messages.php:461 libraries/Util.class.php:1622
+#: js/messages.php:462 libraries/Util.class.php:1622
 msgid "Oct"
 msgstr "Kas"
 
 #. l10n: Short month name
-#: js/messages.php:463 libraries/Util.class.php:1624
+#: js/messages.php:464 libraries/Util.class.php:1624
 msgid "Nov"
 msgstr "Lis"
 
 #. l10n: Short month name
-#: js/messages.php:465 libraries/Util.class.php:1626
+#: js/messages.php:466 libraries/Util.class.php:1626
 msgid "Dec"
 msgstr "Śn"
 
-#: js/messages.php:471
+#: js/messages.php:472
 #, fuzzy
 #| msgid "Sun"
 msgid "Sunday"
 msgstr "Ndz"
 
-#: js/messages.php:472
+#: js/messages.php:473
 #, fuzzy
 #| msgid "Mon"
 msgid "Monday"
 msgstr "Pan"
 
-#: js/messages.php:473
+#: js/messages.php:474
 #, fuzzy
 #| msgid "Tue"
 msgid "Tuesday"
 msgstr "Aŭt"
 
-#: js/messages.php:474
+#: js/messages.php:475
 msgid "Wednesday"
 msgstr ""
 
-#: js/messages.php:475
+#: js/messages.php:476
 msgid "Thursday"
 msgstr ""
 
-#: js/messages.php:476
+#: js/messages.php:477
 #, fuzzy
 #| msgid "Fri"
 msgid "Friday"
 msgstr "Piat"
 
-#: js/messages.php:477
+#: js/messages.php:478
 msgid "Saturday"
 msgstr ""
 
 #. l10n: Short week day name
-#: js/messages.php:484
+#: js/messages.php:485
 #, fuzzy
 #| msgctxt "Short week day name"
 #| msgid "Sun"
@@ -2391,115 +2397,115 @@ msgid "Sun"
 msgstr "Ndz"
 
 #. l10n: Short week day name
-#: js/messages.php:486 libraries/Util.class.php:1631
+#: js/messages.php:487 libraries/Util.class.php:1631
 msgid "Mon"
 msgstr "Pan"
 
 #. l10n: Short week day name
-#: js/messages.php:488 libraries/Util.class.php:1633
+#: js/messages.php:489 libraries/Util.class.php:1633
 msgid "Tue"
 msgstr "Aŭt"
 
 #. l10n: Short week day name
-#: js/messages.php:490 libraries/Util.class.php:1635
+#: js/messages.php:491 libraries/Util.class.php:1635
 msgid "Wed"
 msgstr "Sier"
 
 #. l10n: Short week day name
-#: js/messages.php:492 libraries/Util.class.php:1637
+#: js/messages.php:493 libraries/Util.class.php:1637
 msgid "Thu"
 msgstr "Cač"
 
 #. l10n: Short week day name
-#: js/messages.php:494 libraries/Util.class.php:1639
+#: js/messages.php:495 libraries/Util.class.php:1639
 msgid "Fri"
 msgstr "Piat"
 
 #. l10n: Short week day name
-#: js/messages.php:496 libraries/Util.class.php:1641
+#: js/messages.php:497 libraries/Util.class.php:1641
 msgid "Sat"
 msgstr "Sub"
 
 #. l10n: Minimal week day name
-#: js/messages.php:503
+#: js/messages.php:504
 #, fuzzy
 #| msgid "Sun"
 msgid "Su"
 msgstr "Ndz"
 
 #. l10n: Minimal week day name
-#: js/messages.php:505
+#: js/messages.php:506
 #, fuzzy
 #| msgid "Mon"
 msgid "Mo"
 msgstr "Pan"
 
 #. l10n: Minimal week day name
-#: js/messages.php:507
+#: js/messages.php:508
 #, fuzzy
 #| msgid "Tue"
 msgid "Tu"
 msgstr "Aŭt"
 
 #. l10n: Minimal week day name
-#: js/messages.php:509
+#: js/messages.php:510
 #, fuzzy
 #| msgid "Wed"
 msgid "We"
 msgstr "Sier"
 
 #. l10n: Minimal week day name
-#: js/messages.php:511
+#: js/messages.php:512
 #, fuzzy
 #| msgid "Thu"
 msgid "Th"
 msgstr "Cač"
 
 #. l10n: Minimal week day name
-#: js/messages.php:513
+#: js/messages.php:514
 #, fuzzy
 #| msgid "Fri"
 msgid "Fr"
 msgstr "Piat"
 
 #. l10n: Minimal week day name
-#: js/messages.php:515
+#: js/messages.php:516
 #, fuzzy
 #| msgid "Sat"
 msgid "Sa"
 msgstr "Sub"
 
 #. l10n: Column header for week of the year in calendar
-#: js/messages.php:519
+#: js/messages.php:520
 #, fuzzy
 #| msgid "Wiki"
 msgid "Wk"
 msgstr "Wiki"
 
 #. l10n: Month-year order for calendar, use either "calendar-month-year" or "calendar-year-month".
-#: js/messages.php:522
+#: js/messages.php:523
 msgid "calendar-month-year"
 msgstr ""
 
 #. l10n: Year suffix for calendar, "none" is empty.
-#: js/messages.php:524
+#: js/messages.php:525
 #, fuzzy
 #| msgid "None"
 msgctxt "Year suffix"
 msgid "none"
 msgstr "Nijakaja"
 
-#: js/messages.php:536
+#: js/messages.php:537
 msgid "Hour"
 msgstr ""
 
-#: js/messages.php:537
+#: js/messages.php:538
 #, fuzzy
 #| msgid "in use"
 msgid "Minute"
 msgstr "vykarystoŭvajecca"
 
-#: js/messages.php:538
+#: js/messages.php:539
 #, fuzzy
 #| msgid "per second"
 msgid "Second"
@@ -2686,7 +2692,7 @@ msgstr "SQL-zapyt da BD <b>%s</b>:"
 msgid "Submit Query"
 msgstr "Vykanać zapyt"
 
-#: libraries/DatabaseInterface.class.php:2012
+#: libraries/DatabaseInterface.class.php:2028
 #, fuzzy
 #| msgid "(or the local MySQL server's socket is not correctly configured)"
 msgid ""
@@ -2694,17 +2700,17 @@ msgid ""
 "configured)."
 msgstr "(abo sokiet lakalnaha servera MySQL nie skanfihuravany pravilna)"
 
-#: libraries/DatabaseInterface.class.php:2017
+#: libraries/DatabaseInterface.class.php:2033
 #, fuzzy
 #| msgid "The server is not responding"
 msgid "The server is not responding."
 msgstr "Server nie adkazvaje"
 
-#: libraries/DatabaseInterface.class.php:2022
+#: libraries/DatabaseInterface.class.php:2038
 msgid "Please check privileges of directory containing database."
 msgstr ""
 
-#: libraries/DatabaseInterface.class.php:2032
+#: libraries/DatabaseInterface.class.php:2048
 msgid "Details…"
 msgstr "Padrabiaźniej…"
 
@@ -2765,7 +2771,7 @@ msgstr "Damp dadzienych tablicy"
 #: libraries/schema/User_Schema.class.php:219
 #: libraries/schema/User_Schema.class.php:301
 #: libraries/schema/User_Schema.class.php:354
-#: libraries/server_privileges.lib.php:3310
+#: libraries/server_privileges.lib.php:3682
 #: libraries/sql_query_form.lib.php:429 pmd_general.php:458
 #: setup/frames/index.inc.php:180 setup/frames/index.inc.php:290
 #: tbl_tracking.php:537 tbl_tracking.php:557 tbl_tracking.php:616
@@ -3006,11 +3012,11 @@ msgid "Query took %01.4f sec"
 msgstr "Zapyt vykonvaŭsia %01.4f sek"
 
 #: libraries/DisplayResults.class.php:4973
-#: libraries/DisplayResults.class.php:4979 libraries/mult_submits.inc.php:45
+#: libraries/DisplayResults.class.php:4979 libraries/mult_submits.inc.php:46
 #: libraries/server_databases.lib.php:146
 #: libraries/server_databases.lib.php:150
-#: libraries/server_privileges.lib.php:2568
-#: libraries/server_privileges.lib.php:2572 libraries/structure.lib.php:278
+#: libraries/server_privileges.lib.php:2639
+#: libraries/server_privileges.lib.php:2643 libraries/structure.lib.php:278
 #: libraries/structure.lib.php:293 libraries/structure.lib.php:295
 #: libraries/structure.lib.php:1357 libraries/structure.lib.php:1364
 msgid "With selected:"
@@ -3020,11 +3026,11 @@ msgstr "Z adznačanymi:"
 #: libraries/DisplayResults.class.php:4978
 #: libraries/server_databases.lib.php:148
 #: libraries/server_databases.lib.php:149
-#: libraries/server_privileges.lib.php:904
-#: libraries/server_privileges.lib.php:905
-#: libraries/server_privileges.lib.php:2570
-#: libraries/server_privileges.lib.php:2571
-#: libraries/server_privileges.lib.php:3411 libraries/structure.lib.php:281
+#: libraries/server_privileges.lib.php:949
+#: libraries/server_privileges.lib.php:950
+#: libraries/server_privileges.lib.php:2641
+#: libraries/server_privileges.lib.php:2642
+#: libraries/server_privileges.lib.php:3783 libraries/structure.lib.php:281
 #: libraries/structure.lib.php:282 libraries/structure.lib.php:1360
 #: libraries/structure.lib.php:1361
 msgid "Check All"
@@ -3037,8 +3043,8 @@ msgstr "Adznačyć usio"
 #: libraries/Util.class.php:4087 libraries/Util.class.php:4102
 #: libraries/Util.class.php:4118 libraries/config/messages.inc.php:165
 #: libraries/display_export.lib.php:163
-#: libraries/server_privileges.lib.php:1949
-#: libraries/server_privileges.lib.php:2576
+#: libraries/server_privileges.lib.php:2012
+#: libraries/server_privileges.lib.php:2647
 #: libraries/server_status_monitor.lib.php:359 libraries/structure.lib.php:297
 #: prefs_manage.php:295 setup/frames/menu.inc.php:27
 msgid "Export"
@@ -3117,8 +3123,8 @@ msgstr "Padčas zahruzki fajła adbyłasia nieviadomaja pamyłka."
 #: libraries/File.class.php:476
 msgid "Error moving the uploaded file, see [doc@faq1-11]FAQ 1.11[/doc]"
 msgstr ""
-"Pamyłka pieramiaščeńnia zahružanaha fajła. Hladzicie raździeł "
-"[doc@faq1-11]1.11 u FAQ[/doc]"
+"Pamyłka pieramiaščeńnia zahružanaha fajła. Hladzicie raździeł [doc@faq1-11]"
+"1.11 u FAQ[/doc]"
 
 #: libraries/File.class.php:494
 msgid "Error while moving uploaded file."
@@ -3234,7 +3240,7 @@ msgstr "Vyhlad"
 #: libraries/config/user_preferences.forms.php:197
 #: libraries/config/user_preferences.forms.php:234
 #: libraries/config/user_preferences.forms.php:260
-#: libraries/import.lib.php:1227 libraries/server_privileges.lib.php:875
+#: libraries/import.lib.php:1227 libraries/server_privileges.lib.php:920
 #: libraries/tbl_columns_definition_form.lib.php:199 pmd_general.php:174
 #: tbl_tracking.php:321
 msgid "Structure"
@@ -3297,9 +3303,9 @@ msgid "Query"
 msgstr "Zapyt zhodna prykładu"
 
 #: libraries/Menu.class.php:431 libraries/Util.class.php:4105
-#: libraries/server_privileges.lib.php:1695
-#: libraries/server_privileges.lib.php:2382
-#: libraries/server_privileges.lib.php:2991 server_privileges.php:152
+#: libraries/server_common.lib.php:51 libraries/server_privileges.lib.php:1758
+#: libraries/server_privileges.lib.php:2453
+#: libraries/server_privileges.lib.php:3355
 msgid "Privileges"
 msgstr "Pryvilei"
 
@@ -3321,8 +3327,8 @@ msgid "Designer"
 msgstr "Dyzajner"
 
 #: libraries/Menu.class.php:496 libraries/Util.class.php:4083
-#: libraries/config/messages.inc.php:178 libraries/server_common.lib.php:47
-#: libraries/server_privileges.lib.php:3069
+#: libraries/config/messages.inc.php:178 libraries/server_common.lib.php:48
+#: libraries/server_privileges.lib.php:3433
 msgid "Databases"
 msgstr "Bazy dadzienych"
 
@@ -3333,12 +3339,12 @@ msgid "Users"
 msgstr "Karystalnik"
 
 #: libraries/Menu.class.php:545 libraries/ServerStatusData.class.php:192
-#: libraries/Util.class.php:4090 libraries/server_common.lib.php:35
+#: libraries/Util.class.php:4090 libraries/server_common.lib.php:36
 msgid "Binary log"
 msgstr "Dvajkovy łog"
 
 #: libraries/Menu.class.php:551 libraries/ServerStatusData.class.php:197
-#: libraries/Util.class.php:4091 libraries/server_common.lib.php:41
+#: libraries/Util.class.php:4091 libraries/server_common.lib.php:42
 #: libraries/structure.lib.php:182 libraries/structure.lib.php:761
 msgid "Replication"
 msgstr "Replikacyja"
@@ -3354,7 +3360,7 @@ msgid "Charsets"
 msgstr "Kadyroŭki"
 
 #: libraries/Menu.class.php:565 libraries/Util.class.php:4094
-#: libraries/server_common.lib.php:32 libraries/server_plugins.lib.php:31
+#: libraries/server_common.lib.php:33 libraries/server_plugins.lib.php:31
 msgid "Plugins"
 msgstr ""
 
@@ -3647,7 +3653,7 @@ msgid "Select columns (at least one):"
 msgstr "Vybrać pali (prynamsi adno):"
 
 #: libraries/TableSearch.class.php:790 libraries/display_indexes.lib.php:197
-#: libraries/insert_edit.lib.php:1191 libraries/server_privileges.lib.php:352
+#: libraries/insert_edit.lib.php:1191 libraries/server_privileges.lib.php:382
 msgid "Or"
 msgstr "Abo"
 
@@ -4223,7 +4229,7 @@ msgstr ""
 #: libraries/config/user_preferences.forms.php:242
 #: libraries/config/user_preferences.forms.php:265
 #: libraries/config/user_preferences.forms.php:270
-#: libraries/server_privileges.lib.php:874 libraries/structure.lib.php:2182
+#: libraries/server_privileges.lib.php:919 libraries/structure.lib.php:2182
 #: tbl_printview.php:299
 msgid "Data"
 msgstr "Dadzienyja"
@@ -4674,8 +4680,8 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:32
 msgid ""
-"Use user-friendly editor for editing SQL queries ([a@http://codemirror."
-"net/]CodeMirror[/a]) with syntax highlighting and line numbers"
+"Use user-friendly editor for editing SQL queries ([a@http://codemirror.net/]"
+"CodeMirror[/a]) with syntax highlighting and line numbers"
 msgstr ""
 
 #: libraries/config/messages.inc.php:33
@@ -5249,9 +5255,8 @@ msgstr "Staronka:"
 
 #: libraries/config/messages.inc.php:194
 msgid ""
-"Specify browser's title bar text. Refer to "
-"[doc@cfg_TitleTable]documentation[/doc] for magic strings that can be used "
-"to get special values."
+"Specify browser's title bar text. Refer to [doc@cfg_TitleTable]documentation"
+"[/doc] for magic strings that can be used to get special values."
 msgstr ""
 
 #: libraries/config/messages.inc.php:195
@@ -6041,8 +6046,8 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:383
 msgid ""
-"Leave blank for no column comments/mime types, suggested: "
-"[kbd]pma__column_info[/kbd]"
+"Leave blank for no column comments/mime types, suggested: [kbd]"
+"pma__column_info[/kbd]"
 msgstr ""
 
 #: libraries/config/messages.inc.php:384
@@ -6243,8 +6248,8 @@ msgstr "Analizavać tablicu"
 
 #: libraries/config/messages.inc.php:425
 msgid ""
-"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
-"links[/a] support, suggested: [kbd]pma__relation[/kbd]"
+"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-links"
+"[/a] support, suggested: [kbd]pma__relation[/kbd]"
 msgstr ""
 
 #: libraries/config/messages.inc.php:426
@@ -6261,8 +6266,8 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:429
 msgid ""
-"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
-"types[/a] for an example"
+"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication types"
+"[/a] for an example"
 msgstr ""
 
 #: libraries/config/messages.inc.php:430
@@ -6365,8 +6370,8 @@ msgstr "Vyrazy"
 
 #: libraries/config/messages.inc.php:450
 msgid ""
-"Leave blank for no SQL query tracking support, suggested: "
-"[kbd]pma__tracking[/kbd]"
+"Leave blank for no SQL query tracking support, suggested: [kbd]pma__tracking"
+"[/kbd]"
 msgstr ""
 
 #: libraries/config/messages.inc.php:451
@@ -6387,8 +6392,8 @@ msgstr "Režym aŭtamatyčnaha ŭznaŭleńnia"
 
 #: libraries/config/messages.inc.php:454
 msgid ""
-"Leave blank for no user preferences storage in database, suggested: "
-"[kbd]pma__userconfig[/kbd]"
+"Leave blank for no user preferences storage in database, suggested: [kbd]"
+"pma__userconfig[/kbd]"
 msgstr ""
 
 #: libraries/config/messages.inc.php:455
@@ -6397,8 +6402,8 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:456
 msgid ""
-"Leave blank to disable configurable menus feature, suggested: "
-"[kbd]pma__users[/kbd]"
+"Leave blank to disable configurable menus feature, suggested: [kbd]pma__users"
+"[/kbd]"
 msgstr ""
 
 #: libraries/config/messages.inc.php:457
@@ -6409,8 +6414,8 @@ msgstr "Vykarystoŭvać tablicy"
 
 #: libraries/config/messages.inc.php:458
 msgid ""
-"Leave blank to disable configurable menus feature, suggested: "
-"[kbd]pma__usergroups[/kbd]"
+"Leave blank to disable configurable menus feature, suggested: [kbd]"
+"pma__usergroups[/kbd]"
 msgstr ""
 
 #: libraries/config/messages.inc.php:459
@@ -6597,9 +6602,9 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:503 libraries/replication_gui.lib.php:400
 #: libraries/replication_gui.lib.php:831 libraries/replication_gui.lib.php:847
-#: libraries/server_privileges.lib.php:1321
-#: libraries/server_privileges.lib.php:1345
-#: libraries/server_privileges.lib.php:2545
+#: libraries/server_privileges.lib.php:1381
+#: libraries/server_privileges.lib.php:1405
+#: libraries/server_privileges.lib.php:2616
 msgid "Password"
 msgstr "Parol"
 
@@ -6869,7 +6874,7 @@ msgid "possible deep recursion attack"
 msgstr ""
 
 #: libraries/dbi/DBIDrizzle.class.php:146 libraries/dbi/DBIMysql.class.php:170
-#: libraries/dbi/DBIMysqli.class.php:216
+#: libraries/dbi/DBIMysqli.class.php:224
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr ""
 "Nie atrymałasia ŭstalavać złučeńnie dla controluser, vyznačanaje ŭ vašym "
@@ -6885,20 +6890,20 @@ msgstr ""
 
 #: libraries/display_change_password.lib.php:53
 #: libraries/replication_gui.lib.php:840
-#: libraries/server_privileges.lib.php:1337
+#: libraries/server_privileges.lib.php:1397
 msgid "No Password"
 msgstr "Biez parola"
 
 #: libraries/display_change_password.lib.php:61
 #: libraries/plugins/auth/AuthenticationCookie.class.php:225
 #: libraries/replication_gui.lib.php:395 libraries/replication_gui.lib.php:827
-#: libraries/server_privileges.lib.php:1317
+#: libraries/server_privileges.lib.php:1377
 msgid "Password:"
 msgstr "Parol:"
 
 #: libraries/display_change_password.lib.php:67
 #: libraries/replication_gui.lib.php:851
-#: libraries/server_privileges.lib.php:1352
+#: libraries/server_privileges.lib.php:1412
 #, fuzzy
 #| msgid "Re-type"
 msgid "Re-type:"
@@ -6933,7 +6938,7 @@ msgid "Create database:"
 msgstr "Stvaryć novuju bazu dadzienych"
 
 #: libraries/display_create_database.lib.php:60
-#: libraries/server_privileges.lib.php:3140 server_privileges.php:155
+#: libraries/server_privileges.lib.php:3504 server_privileges.php:133
 #: server_replication.php:32
 msgid "No Privileges"
 msgstr "Biez pryvilejaŭ"
@@ -7825,54 +7830,54 @@ msgstr "Nijakaja"
 msgid "Convert to Kana"
 msgstr ""
 
-#: libraries/mult_submits.inc.php:293
+#: libraries/mult_submits.inc.php:252 tbl_replace.php:251
+msgid "No change"
+msgstr "Niama źmienaŭ"
+
+#: libraries/mult_submits.lib.php:322
 #, fuzzy
 #| msgid "Replace table data with file"
 msgid "Replace table prefix:"
 msgstr "Zamianić dadzienyja tablicy dadzienymi z fajła"
 
-#: libraries/mult_submits.inc.php:295
+#: libraries/mult_submits.lib.php:324
 #, fuzzy
 #| msgid "Replace table data with file"
 msgid "Copy table with prefix:"
 msgstr "Zamianić dadzienyja tablicy dadzienymi z fajła"
 
-#: libraries/mult_submits.inc.php:300
+#: libraries/mult_submits.lib.php:329
 #, fuzzy
 #| msgid "Fri"
 msgid "From"
 msgstr "Piat"
 
-#: libraries/mult_submits.inc.php:306
+#: libraries/mult_submits.lib.php:335
 msgid "To"
 msgstr ""
 
-#: libraries/mult_submits.inc.php:315 libraries/mult_submits.inc.php:335
+#: libraries/mult_submits.lib.php:344 libraries/mult_submits.lib.php:377
 #: libraries/sql_query_form.lib.php:421
 msgid "Submit"
 msgstr "Adpravić"
 
-#: libraries/mult_submits.inc.php:322
+#: libraries/mult_submits.lib.php:364
 #, fuzzy
 #| msgid "Add new field"
 msgid "Add table prefix:"
 msgstr "Dadać novaje pole"
 
-#: libraries/mult_submits.inc.php:325
+#: libraries/mult_submits.lib.php:367
 #, fuzzy
 #| msgid "Add new field"
 msgid "Add prefix"
 msgstr "Dadać novaje pole"
 
-#: libraries/mult_submits.inc.php:344
+#: libraries/mult_submits.lib.php:401
 #, fuzzy
 #| msgid "Do you really want to "
 msgid "Do you really want to execute the following query?"
 msgstr "Ci sapraŭdy vy žadajecie "
-
-#: libraries/mult_submits.inc.php:630 tbl_replace.php:251
-msgid "No change"
-msgstr "Niama źmienaŭ"
 
 #: libraries/mysql_charsets.lib.php:33
 msgid "Charset"
@@ -8712,7 +8717,7 @@ msgstr "Paznačyć nazvy paloŭ u pieršym radku"
 #: libraries/plugins/export/ExportSql.class.php:619
 #: libraries/plugins/export/ExportXml.class.php:191
 #: libraries/replication_gui.lib.php:405 libraries/replication_gui.lib.php:671
-#: libraries/server_privileges.lib.php:1207 libraries/sql.lib.php:421
+#: libraries/server_privileges.lib.php:1264 libraries/sql.lib.php:421
 #, fuzzy
 #| msgid "Host"
 msgid "Host:"
@@ -9511,7 +9516,7 @@ msgid ""
 msgstr ""
 
 #: libraries/replication_gui.lib.php:384 libraries/replication_gui.lib.php:761
-#: libraries/server_privileges.lib.php:1150
+#: libraries/server_privileges.lib.php:1203
 #, fuzzy
 #| msgid "User name"
 msgid "User name:"
@@ -9519,8 +9524,8 @@ msgstr "Imia karystalnika"
 
 #: libraries/replication_gui.lib.php:390 libraries/replication_gui.lib.php:765
 #: libraries/replication_gui.lib.php:781
-#: libraries/server_privileges.lib.php:1155
-#: libraries/server_privileges.lib.php:1186
+#: libraries/server_privileges.lib.php:1208
+#: libraries/server_privileges.lib.php:1239
 msgid "User name"
 msgstr "Imia karystalnika"
 
@@ -9550,10 +9555,10 @@ msgstr "ID servera"
 
 #: libraries/replication_gui.lib.php:588 libraries/replication_gui.lib.php:675
 #: libraries/replication_gui.lib.php:816
-#: libraries/server_privileges.lib.php:1212
-#: libraries/server_privileges.lib.php:1308
-#: libraries/server_privileges.lib.php:1693
-#: libraries/server_privileges.lib.php:2544
+#: libraries/server_privileges.lib.php:1269
+#: libraries/server_privileges.lib.php:1365
+#: libraries/server_privileges.lib.php:1756
+#: libraries/server_privileges.lib.php:2615
 #: libraries/server_status.lib.php:347
 msgid "Host"
 msgstr "Chost"
@@ -9565,48 +9570,48 @@ msgid ""
 msgstr ""
 
 #: libraries/replication_gui.lib.php:718
-#: libraries/server_privileges.lib.php:1265
+#: libraries/server_privileges.lib.php:1322
 msgid "Any host"
 msgstr "Luby chost"
 
 #: libraries/replication_gui.lib.php:723
-#: libraries/server_privileges.lib.php:1273
+#: libraries/server_privileges.lib.php:1330
 msgid "Local"
 msgstr "Lakalny"
 
 #: libraries/replication_gui.lib.php:730
-#: libraries/server_privileges.lib.php:1282
+#: libraries/server_privileges.lib.php:1339
 msgid "This Host"
 msgstr "Hety chost"
 
 #: libraries/replication_gui.lib.php:772
-#: libraries/server_privileges.lib.php:1170
+#: libraries/server_privileges.lib.php:1223
 msgid "Any user"
 msgstr "Luby karystalnik"
 
 #: libraries/replication_gui.lib.php:777 libraries/replication_gui.lib.php:810
 #: libraries/replication_gui.lib.php:843
-#: libraries/server_privileges.lib.php:1301
-#: libraries/server_privileges.lib.php:2442
+#: libraries/server_privileges.lib.php:1358
+#: libraries/server_privileges.lib.php:2513
 #, fuzzy
 #| msgid "Use text field"
 msgid "Use text field:"
 msgstr "Vykarystoŭvać tekstavaje pole"
 
 #: libraries/replication_gui.lib.php:804
-#: libraries/server_privileges.lib.php:1292
+#: libraries/server_privileges.lib.php:1349
 msgid "Use Host Table"
 msgstr "Vykarystoŭvać tablicu chostaŭ"
 
 #: libraries/replication_gui.lib.php:820
-#: libraries/server_privileges.lib.php:1311
+#: libraries/server_privileges.lib.php:1369
 msgid ""
 "When Host table is used, this field is ignored and values stored in Host "
 "table are used instead."
 msgstr ""
 
 #: libraries/replication_gui.lib.php:855
-#: libraries/server_privileges.lib.php:1356
+#: libraries/server_privileges.lib.php:1416
 msgid "Re-type"
 msgstr "Paćvierdžańnie"
 
@@ -10314,19 +10319,19 @@ msgstr "Abrazać pakazanyja zapyty"
 msgid "Show Full Queries"
 msgstr "Pakazać poŭnyja zapyty"
 
-#: libraries/server_common.lib.php:26
+#: libraries/server_common.lib.php:27
 msgid "Server variables and settings"
 msgstr "Nałady i źmiennyja servera"
 
-#: libraries/server_common.lib.php:29
+#: libraries/server_common.lib.php:30
 msgid "Storage Engines"
 msgstr "Mašyny zachavańnia dadzienych"
 
-#: libraries/server_common.lib.php:38
+#: libraries/server_common.lib.php:39
 msgid "Character Sets and Collations"
 msgstr "Raskładki i supastaŭleńni"
 
-#: libraries/server_common.lib.php:44
+#: libraries/server_common.lib.php:45
 msgid "Databases statistics"
 msgstr "Statystyka bazaŭ dadzienych"
 
@@ -10382,91 +10387,91 @@ msgstr ""
 msgid "disabled"
 msgstr "Adklučana"
 
-#: libraries/server_privileges.lib.php:136 server_privileges.php:100
+#: libraries/server_privileges.lib.php:162 server_privileges.php:119
 msgid "No privileges."
 msgstr "Biez pryvilejaŭ."
 
-#: libraries/server_privileges.lib.php:145 server_privileges.php:65
+#: libraries/server_privileges.lib.php:171 server_privileges.php:65
 msgid "Includes all privileges except GRANT."
 msgstr "Uklučaje ŭsie pryvilei, aproč GRANT."
 
-#: libraries/server_privileges.lib.php:167
-#: libraries/server_privileges.lib.php:761
-#: libraries/server_privileges.lib.php:936 server_privileges.php:93
+#: libraries/server_privileges.lib.php:193
+#: libraries/server_privileges.lib.php:805
+#: libraries/server_privileges.lib.php:981 server_privileges.php:108
 msgid "Allows reading data."
 msgstr "Dazvalaje čytać dadzienyja."
 
-#: libraries/server_privileges.lib.php:172
-#: libraries/server_privileges.lib.php:766
-#: libraries/server_privileges.lib.php:937 server_privileges.php:82
+#: libraries/server_privileges.lib.php:198
+#: libraries/server_privileges.lib.php:810
+#: libraries/server_privileges.lib.php:982 server_privileges.php:84
 msgid "Allows inserting and replacing data."
 msgstr "Dazvalaje ŭstaŭlać i zamianiać dadzienyja."
 
-#: libraries/server_privileges.lib.php:177
-#: libraries/server_privileges.lib.php:771
-#: libraries/server_privileges.lib.php:938 server_privileges.php:99
+#: libraries/server_privileges.lib.php:203
+#: libraries/server_privileges.lib.php:815
+#: libraries/server_privileges.lib.php:983 server_privileges.php:118
 msgid "Allows changing data."
 msgstr "Dazvalaje źmianiać dadzienyja."
 
-#: libraries/server_privileges.lib.php:182
-#: libraries/server_privileges.lib.php:939 server_privileges.php:74
+#: libraries/server_privileges.lib.php:208
+#: libraries/server_privileges.lib.php:984 server_privileges.php:74
 msgid "Allows deleting data."
 msgstr "Dazvalaje vydalać dadzienyja."
 
-#: libraries/server_privileges.lib.php:187
-#: libraries/server_privileges.lib.php:965 server_privileges.php:68
+#: libraries/server_privileges.lib.php:213
+#: libraries/server_privileges.lib.php:1010 server_privileges.php:68
 msgid "Allows creating new databases and tables."
 msgstr "Dazvalaje stvarać novyja bazy dadzienych i tablicy."
 
-#: libraries/server_privileges.lib.php:192
-#: libraries/server_privileges.lib.php:977 server_privileges.php:75
+#: libraries/server_privileges.lib.php:218
+#: libraries/server_privileges.lib.php:1022 server_privileges.php:75
 msgid "Allows dropping databases and tables."
 msgstr "Dazvalaje vydalać bazy dadzienych i tablicy."
 
-#: libraries/server_privileges.lib.php:197
-#: libraries/server_privileges.lib.php:1053 server_privileges.php:90
+#: libraries/server_privileges.lib.php:223
+#: libraries/server_privileges.lib.php:1106 server_privileges.php:102
 msgid "Allows reloading server settings and flushing the server's caches."
 msgstr "Dazvalaje pierazahružać nałady servera i ačyščać keš servera."
 
-#: libraries/server_privileges.lib.php:202
-#: libraries/server_privileges.lib.php:1057 server_privileges.php:96
+#: libraries/server_privileges.lib.php:228
+#: libraries/server_privileges.lib.php:1110 server_privileges.php:111
 msgid "Allows shutting down the server."
 msgstr "Dazvalaje spyniać server."
 
-#: libraries/server_privileges.lib.php:207
-#: libraries/server_privileges.lib.php:1049 server_privileges.php:88
+#: libraries/server_privileges.lib.php:233
+#: libraries/server_privileges.lib.php:1102 server_privileges.php:99
 msgid "Allows viewing processes of all users"
 msgstr "Dazvalaje prahladać pracesy ŭsich karystalnikaŭ"
 
-#: libraries/server_privileges.lib.php:212
-#: libraries/server_privileges.lib.php:945 server_privileges.php:79
+#: libraries/server_privileges.lib.php:238
+#: libraries/server_privileges.lib.php:990 server_privileges.php:79
 msgid "Allows importing data from and exporting data into files."
 msgstr ""
 "Dazvalaje impartavać dadzienyja z fajłaŭ i ekspartavać dadzienyja ŭ fajły."
 
-#: libraries/server_privileges.lib.php:217
-#: libraries/server_privileges.lib.php:776
-#: libraries/server_privileges.lib.php:1070 server_privileges.php:89
+#: libraries/server_privileges.lib.php:243
+#: libraries/server_privileges.lib.php:820
+#: libraries/server_privileges.lib.php:1123 server_privileges.php:100
 msgid "Has no effect in this MySQL version."
 msgstr "Nie pracuje ŭ hetaj versii MySQL."
 
-#: libraries/server_privileges.lib.php:222
-#: libraries/server_privileges.lib.php:973 server_privileges.php:81
+#: libraries/server_privileges.lib.php:248
+#: libraries/server_privileges.lib.php:1018 server_privileges.php:83
 msgid "Allows creating and dropping indexes."
 msgstr "Dazvalaje stvarać i vydalać indeksy."
 
-#: libraries/server_privileges.lib.php:227
-#: libraries/server_privileges.lib.php:971 server_privileges.php:66
+#: libraries/server_privileges.lib.php:253
+#: libraries/server_privileges.lib.php:1016 server_privileges.php:66
 msgid "Allows altering the structure of existing tables."
 msgstr "Dazvalaje źmianiać strukturu isnych tablic."
 
-#: libraries/server_privileges.lib.php:232
-#: libraries/server_privileges.lib.php:1061 server_privileges.php:94
+#: libraries/server_privileges.lib.php:258
+#: libraries/server_privileges.lib.php:1114 server_privileges.php:109
 msgid "Gives access to the complete list of databases."
 msgstr "Daje dostup da poŭnaha śpisu bazaŭ dadzienych."
 
-#: libraries/server_privileges.lib.php:237
-#: libraries/server_privileges.lib.php:1045 server_privileges.php:97
+#: libraries/server_privileges.lib.php:264
+#: libraries/server_privileges.lib.php:1094 server_privileges.php:113
 msgid ""
 "Allows connecting, even if maximum number of connections is reached; "
 "required for most administrative operations like setting global variables or "
@@ -10476,102 +10481,102 @@ msgstr ""
 "Patrabujecca dla bolšaści administratyŭnych aperacyjaŭ, takich jak "
 "vyznačeńnie hlabalnych źmiennych abo spynieńnie patokaŭ inšych karystalnikaŭ."
 
-#: libraries/server_privileges.lib.php:242
-#: libraries/server_privileges.lib.php:983 server_privileges.php:71
+#: libraries/server_privileges.lib.php:272
+#: libraries/server_privileges.lib.php:1028 server_privileges.php:71
 msgid "Allows creating temporary tables."
 msgstr "Dazvalaje stvarać časovyja tablicy."
 
-#: libraries/server_privileges.lib.php:247
-#: libraries/server_privileges.lib.php:1066 server_privileges.php:83
+#: libraries/server_privileges.lib.php:277
+#: libraries/server_privileges.lib.php:1119 server_privileges.php:85
 msgid "Allows locking tables for the current thread."
 msgstr "Dazvalaje blakavać tablicy dla biahučaha patoku."
 
-#: libraries/server_privileges.lib.php:252
-#: libraries/server_privileges.lib.php:1079 server_privileges.php:92
+#: libraries/server_privileges.lib.php:282
+#: libraries/server_privileges.lib.php:1132 server_privileges.php:107
 msgid "Needed for the replication slaves."
 msgstr "Nieabchodna dla replikacyi slaves."
 
-#: libraries/server_privileges.lib.php:257
-#: libraries/server_privileges.lib.php:1075 server_privileges.php:91
+#: libraries/server_privileges.lib.php:287
+#: libraries/server_privileges.lib.php:1128 server_privileges.php:105
 msgid "Allows the user to ask where the slaves / masters are."
 msgstr "Dazvalaje karystalniku pytacca, dzie znachodziacca slaves / masters."
 
-#: libraries/server_privileges.lib.php:262
-#: libraries/server_privileges.lib.php:278
-#: libraries/server_privileges.lib.php:1003
-#: libraries/server_privileges.lib.php:1010 server_privileges.php:73
+#: libraries/server_privileges.lib.php:292
+#: libraries/server_privileges.lib.php:308
+#: libraries/server_privileges.lib.php:1048
+#: libraries/server_privileges.lib.php:1055 server_privileges.php:73
 msgid "Allows creating new views."
 msgstr "Dazvalaje stvarać novyja prahlady."
 
-#: libraries/server_privileges.lib.php:267
-#: libraries/server_privileges.lib.php:1017 server_privileges.php:77
+#: libraries/server_privileges.lib.php:297
+#: libraries/server_privileges.lib.php:1062 server_privileges.php:77
 msgid "Allows to set up events for the event scheduler"
 msgstr "Dazvalaje stvarać padziei ŭ planiroŭniku padziejaŭ"
 
-#: libraries/server_privileges.lib.php:272
-#: libraries/server_privileges.lib.php:1021 server_privileges.php:98
+#: libraries/server_privileges.lib.php:302
+#: libraries/server_privileges.lib.php:1066 server_privileges.php:117
 msgid "Allows creating and dropping triggers"
 msgstr "Dazvalaje stvareńnie i vydaleńnie tryhieraŭ"
 
-#: libraries/server_privileges.lib.php:283
-#: libraries/server_privileges.lib.php:289
-#: libraries/server_privileges.lib.php:987 server_privileges.php:95
+#: libraries/server_privileges.lib.php:313
+#: libraries/server_privileges.lib.php:319
+#: libraries/server_privileges.lib.php:1032 server_privileges.php:110
 msgid "Allows performing SHOW CREATE VIEW queries."
 msgstr "Dazvalaje vykanańnie zapytaŭ SHOW CREATE VIEW."
 
-#: libraries/server_privileges.lib.php:294
-#: libraries/server_privileges.lib.php:991 server_privileges.php:69
+#: libraries/server_privileges.lib.php:324
+#: libraries/server_privileges.lib.php:1036 server_privileges.php:69
 msgid "Allows creating stored routines."
 msgstr "Dazvalaje stvarać pragramy, jakija zachoŭvajucca."
 
-#: libraries/server_privileges.lib.php:299
-#: libraries/server_privileges.lib.php:995 server_privileges.php:67
+#: libraries/server_privileges.lib.php:329
+#: libraries/server_privileges.lib.php:1040 server_privileges.php:67
 msgid "Allows altering and dropping stored routines."
 msgstr "Dazvalaje źmianiać i vydalać pragramy, jakija zachoŭvajucca."
 
-#: libraries/server_privileges.lib.php:304
-#: libraries/server_privileges.lib.php:1083 server_privileges.php:72
+#: libraries/server_privileges.lib.php:334
+#: libraries/server_privileges.lib.php:1136 server_privileges.php:72
 msgid "Allows creating, dropping and renaming user accounts."
 msgstr ""
 "Dazvalaje stvarać, vydalać i pierajmianoŭvać ulikovyja zapisy karystalnikaŭ."
 
-#: libraries/server_privileges.lib.php:309
-#: libraries/server_privileges.lib.php:997 server_privileges.php:78
+#: libraries/server_privileges.lib.php:339
+#: libraries/server_privileges.lib.php:1042 server_privileges.php:78
 msgid "Allows executing stored routines."
 msgstr "Dazvalaje vykanańnie pragramaŭ, jakija zachoŭvajucca."
 
-#: libraries/server_privileges.lib.php:357
-#: libraries/server_privileges.lib.php:358
+#: libraries/server_privileges.lib.php:387
+#: libraries/server_privileges.lib.php:388
 #, fuzzy
 #| msgid "None"
 msgctxt "None privileges"
 msgid "None"
 msgstr "Nijakaja"
 
-#: libraries/server_privileges.lib.php:409
-#: libraries/server_privileges.lib.php:435
-#: libraries/server_privileges.lib.php:2552
-#: libraries/server_privileges.lib.php:3267
+#: libraries/server_privileges.lib.php:439
+#: libraries/server_privileges.lib.php:465
+#: libraries/server_privileges.lib.php:2623
+#: libraries/server_privileges.lib.php:3639
 msgid "User group"
 msgstr ""
 
-#: libraries/server_privileges.lib.php:618
+#: libraries/server_privileges.lib.php:648
 msgid "Resource limits"
 msgstr "Abmiežavańni resursaŭ"
 
-#: libraries/server_privileges.lib.php:620
+#: libraries/server_privileges.lib.php:650
 msgid "Note: Setting these options to 0 (zero) removes the limit."
 msgstr "Zaŭvaha: Paznačeńnie hetych opcyjaŭ jak 0 (nul) zdymaje abmiežavańnie."
 
-#: libraries/server_privileges.lib.php:626
-#: libraries/server_privileges.lib.php:634 server_privileges.php:85
+#: libraries/server_privileges.lib.php:657
+#: libraries/server_privileges.lib.php:667 server_privileges.php:90
 msgid "Limits the number of queries the user may send to the server per hour."
 msgstr ""
 "Abmiažoŭvaje kolkaść zapytaŭ, jakija karystalnik moža adpravić na server na "
 "praciahu hadziny."
 
-#: libraries/server_privileges.lib.php:641
-#: libraries/server_privileges.lib.php:647 server_privileges.php:86
+#: libraries/server_privileges.lib.php:676
+#: libraries/server_privileges.lib.php:685 server_privileges.php:93
 msgid ""
 "Limits the number of commands that change any table or database the user may "
 "execute per hour."
@@ -10579,281 +10584,296 @@ msgstr ""
 "Abmiažoŭvaje kolkaść kamandaŭ, źmianiajučych lubuju tablicu abo bazu "
 "dadzienych, jakija karystalnik moža vykanać na praciahu hadziny."
 
-#: libraries/server_privileges.lib.php:654
-#: libraries/server_privileges.lib.php:659 server_privileges.php:84
+#: libraries/server_privileges.lib.php:695
+#: libraries/server_privileges.lib.php:702 server_privileges.php:87
 msgid "Limits the number of new connections the user may open per hour."
 msgstr ""
 "Abmiažoŭvaje kolkaść novych złučeńniaŭ, jakija karystalnik moža adkryć na "
 "praciahu hadziny."
 
-#: libraries/server_privileges.lib.php:666
-#: libraries/server_privileges.lib.php:674 server_privileges.php:87
+#: libraries/server_privileges.lib.php:710
+#: libraries/server_privileges.lib.php:718 server_privileges.php:97
 msgid "Limits the number of simultaneous connections the user may have."
 msgstr ""
 "Abmiažoŭvaje kolkaść adnačasovych złučeńniaŭ, jakija moža mieć karystalnik."
 
-#: libraries/server_privileges.lib.php:727
-#: libraries/server_privileges.lib.php:901
-#: libraries/server_privileges.lib.php:2374
-#: libraries/server_privileges.lib.php:2386
+#: libraries/server_privileges.lib.php:771
+#: libraries/server_privileges.lib.php:946
+#: libraries/server_privileges.lib.php:2445
+#: libraries/server_privileges.lib.php:2457
 msgid "Table-specific privileges"
 msgstr "Pryvilei, specyfičnyja dla tablicy"
 
-#: libraries/server_privileges.lib.php:729
-#: libraries/server_privileges.lib.php:908
-#: libraries/server_privileges.lib.php:2548
+#: libraries/server_privileges.lib.php:773
+#: libraries/server_privileges.lib.php:953
+#: libraries/server_privileges.lib.php:2619
 msgid "Note: MySQL privilege names are expressed in English"
 msgstr "Zaŭvaha: imiony pryvilejaŭ MySQL zadajucca pa-anhielsku"
 
-#: libraries/server_privileges.lib.php:876
+#: libraries/server_privileges.lib.php:921
 msgid "Administration"
 msgstr "Administravańnie"
 
-#: libraries/server_privileges.lib.php:897
-#: libraries/server_privileges.lib.php:2546
+#: libraries/server_privileges.lib.php:942
+#: libraries/server_privileges.lib.php:2617
 msgid "Global privileges"
 msgstr "Hlabalnyja pryvilei"
 
-#: libraries/server_privileges.lib.php:899
-#: libraries/server_privileges.lib.php:2373
+#: libraries/server_privileges.lib.php:944
+#: libraries/server_privileges.lib.php:2444
 msgid "Database-specific privileges"
 msgstr "Specyfičnyja pryvilei bazy dadzienych"
 
-#: libraries/server_privileges.lib.php:966 server_privileges.php:70
+#: libraries/server_privileges.lib.php:1011 server_privileges.php:70
 msgid "Allows creating new tables."
 msgstr "Dazvalaje stvarać novyja tablicy."
 
-#: libraries/server_privileges.lib.php:978 server_privileges.php:76
+#: libraries/server_privileges.lib.php:1023 server_privileges.php:76
 msgid "Allows dropping tables."
 msgstr "Dazvalaje vydalać tablicy."
 
-#: libraries/server_privileges.lib.php:1039 server_privileges.php:80
+#: libraries/server_privileges.lib.php:1085 server_privileges.php:81
 msgid ""
 "Allows adding users and privileges without reloading the privilege tables."
 msgstr ""
 "Dazvalaje dadavać karystalnikaŭ i pryvilei biez pierazahruzki tablic "
 "pryvilejaŭ."
 
-#: libraries/server_privileges.lib.php:1147
+#: libraries/server_privileges.lib.php:1200
 msgid "Login Information"
 msgstr "Infarmacyja pra ŭvachod"
 
-#: libraries/server_privileges.lib.php:1179
-#: libraries/server_privileges.lib.php:1340
-#: libraries/server_privileges.lib.php:2500
+#: libraries/server_privileges.lib.php:1232
+#: libraries/server_privileges.lib.php:1400
+#: libraries/server_privileges.lib.php:2571
 msgid "Use text field"
 msgstr "Vykarystoŭvać tekstavaje pole"
 
-#: libraries/server_privileges.lib.php:1200
+#: libraries/server_privileges.lib.php:1254
 msgid ""
 "An account already exists with the same username but possibly a different "
 "hostname. Are you sure you wish to proceed?"
 msgstr ""
 
-#: libraries/server_privileges.lib.php:1330
+#: libraries/server_privileges.lib.php:1390
 msgid "Do not change the password"
 msgstr "Nie źmianiać parol"
 
-#: libraries/server_privileges.lib.php:1471
+#: libraries/server_privileges.lib.php:1531
 #, php-format
 msgid "The password for %s was changed successfully."
 msgstr "Parol dla %s paśpiachova źmienieny."
 
-#: libraries/server_privileges.lib.php:1513
+#: libraries/server_privileges.lib.php:1573
 #, php-format
 msgid "You have revoked the privileges for %s"
 msgstr "Vy anulavali pryvilei dla %s"
 
-#: libraries/server_privileges.lib.php:1571
+#: libraries/server_privileges.lib.php:1631
 msgid "Database for user"
 msgstr "Baza dadzienych dla karystalnika"
 
-#: libraries/server_privileges.lib.php:1575
+#: libraries/server_privileges.lib.php:1635
 msgid "Create database with same name and grant all privileges"
 msgstr ""
 "Stvaryć bazu dadzienych z takim samym imiem i nadzialić usimi pryvilejami"
 
-#: libraries/server_privileges.lib.php:1581
+#: libraries/server_privileges.lib.php:1641
 msgid "Grant all privileges on wildcard name (username\\_%)"
 msgstr ""
 "Nadzialić usimi pryvilejami bazy z imienami pa mascy (imia karystalnika_%)"
 
-#: libraries/server_privileges.lib.php:1589
+#: libraries/server_privileges.lib.php:1650
 #, php-format
 msgid "Grant all privileges on database &quot;%s&quot;"
 msgstr ""
 
-#: libraries/server_privileges.lib.php:1681
+#: libraries/server_privileges.lib.php:1744
 #, php-format
 msgid "Users having access to &quot;%s&quot;"
 msgstr "Karystalniki z pravami dostupu da \"%s\""
 
-#: libraries/server_privileges.lib.php:1692
-#: libraries/server_privileges.lib.php:2543
-#: libraries/server_privileges.lib.php:3006
-#: libraries/server_privileges.lib.php:3052
-#: libraries/server_privileges.lib.php:3227
+#: libraries/server_privileges.lib.php:1755
+#: libraries/server_privileges.lib.php:2614
+#: libraries/server_privileges.lib.php:3370
+#: libraries/server_privileges.lib.php:3416
+#: libraries/server_privileges.lib.php:3599
 #: libraries/server_status.lib.php:343
 msgid "User"
 msgstr "Karystalnik"
 
-#: libraries/server_privileges.lib.php:1696
-#: libraries/server_privileges.lib.php:2383
-#: libraries/server_privileges.lib.php:2554
+#: libraries/server_privileges.lib.php:1759
+#: libraries/server_privileges.lib.php:2454
+#: libraries/server_privileges.lib.php:2625
 msgid "Grant"
 msgstr "Grant"
 
-#: libraries/server_privileges.lib.php:1733
+#: libraries/server_privileges.lib.php:1796
 #, fuzzy
 #| msgid "View %s has been dropped"
 msgid "User has been added."
 msgstr "Vyhlad %s byŭ vydaleny"
 
-#: libraries/server_privileges.lib.php:1741
+#: libraries/server_privileges.lib.php:1804
 msgctxt "Create new user"
 msgid "New"
 msgstr ""
 
-#: libraries/server_privileges.lib.php:1798
-#: libraries/server_privileges.lib.php:1994
-#: libraries/server_privileges.lib.php:2640
+#: libraries/server_privileges.lib.php:1861
+#: libraries/server_privileges.lib.php:2057
+#: libraries/server_privileges.lib.php:2711
 msgid "Any"
 msgstr "Luby"
 
-#: libraries/server_privileges.lib.php:1813
+#: libraries/server_privileges.lib.php:1876
 msgid "global"
 msgstr "hlabalny"
 
-#: libraries/server_privileges.lib.php:1819
+#: libraries/server_privileges.lib.php:1882
 msgid "database-specific"
 msgstr "specyfičny dla bazy dadzienych"
 
-#: libraries/server_privileges.lib.php:1821
+#: libraries/server_privileges.lib.php:1884
 msgid "wildcard"
 msgstr "šablon"
 
-#: libraries/server_privileges.lib.php:1864 server_privileges.php:171
+#: libraries/server_privileges.lib.php:1927
+#: libraries/server_privileges.lib.php:3075
 #, fuzzy
 #| msgid "No user(s) found."
 msgid "No user found."
 msgstr "Nie znojdzieny karystalnik."
 
-#: libraries/server_privileges.lib.php:1896
+#: libraries/server_privileges.lib.php:1959
 msgid "Edit Privileges"
 msgstr "Redagavać pryvilei"
 
-#: libraries/server_privileges.lib.php:1923
+#: libraries/server_privileges.lib.php:1986
 msgid "Revoke"
 msgstr "Anulavać"
 
-#: libraries/server_privileges.lib.php:2088
+#: libraries/server_privileges.lib.php:2151
 msgid "… keep the old one."
 msgstr "… pakinuć staroha."
 
-#: libraries/server_privileges.lib.php:2089
+#: libraries/server_privileges.lib.php:2152
 msgid "… delete the old one from the user tables."
 msgstr "… vydalić staroha z tablicy karystalnikaŭ."
 
-#: libraries/server_privileges.lib.php:2090
+#: libraries/server_privileges.lib.php:2154
 msgid ""
 "… revoke all active privileges from the old one and delete it afterwards."
 msgstr "… anulavać usie aktyŭnyja pryvilei staroha i paśla vydalić jaho."
 
-#: libraries/server_privileges.lib.php:2091
+#: libraries/server_privileges.lib.php:2158
 msgid ""
 "… delete the old one from the user tables and reload the privileges "
 "afterwards."
 msgstr ""
 "… vydalić staroha z tablicy karystalnikaŭ i paśla pierazahruzić pryvilei."
 
-#: libraries/server_privileges.lib.php:2102
+#: libraries/server_privileges.lib.php:2172
 msgid "Change Login Information / Copy User"
 msgstr "Źmianić rehistracyjnuju infarmacyju / Kapijavać karystalnika"
 
-#: libraries/server_privileges.lib.php:2108
+#: libraries/server_privileges.lib.php:2178
 msgid "Create a new user with the same privileges and …"
 msgstr "Stvaryć novaha karystalnika z takimi ž pryvilejami i …"
 
-#: libraries/server_privileges.lib.php:2387
+#: libraries/server_privileges.lib.php:2458
 msgid "Column-specific privileges"
 msgstr "Specyfičnyja pryvilei kalonak"
 
-#: libraries/server_privileges.lib.php:2438
+#: libraries/server_privileges.lib.php:2509
 #, fuzzy
 #| msgid "Add privileges on the following database"
 msgid "Add privileges on the following database:"
 msgstr "Dadać pryvilei na nastupnuju bazu"
 
-#: libraries/server_privileges.lib.php:2460
+#: libraries/server_privileges.lib.php:2531
 msgid "Wildcards % and _ should be escaped with a \\ to use them literally"
 msgstr ""
 "Symbali padstanoŭki % i _ musiać być ekranavanymi symbalem \\ dla ich "
 "litaralnaha vykarystańnia"
 
-#: libraries/server_privileges.lib.php:2478
+#: libraries/server_privileges.lib.php:2549
 #, fuzzy
 #| msgid "Add privileges on the following table"
 msgid "Add privileges on the following table:"
 msgstr "Dadać pryvilei na nastupnuju tablicu"
 
-#: libraries/server_privileges.lib.php:2690
+#: libraries/server_privileges.lib.php:2761
 #, fuzzy
 #| msgid "Edit next row"
 msgid "Edit user group"
 msgstr "Redagavać nastupny radok"
 
-#: libraries/server_privileges.lib.php:2727
+#: libraries/server_privileges.lib.php:2798
 msgid "Remove selected users"
 msgstr "Vydalić vybranych karystalnikaŭ"
 
-#: libraries/server_privileges.lib.php:2732
+#: libraries/server_privileges.lib.php:2804
 msgid "Revoke all active privileges from the users and delete them afterwards."
 msgstr "Anulavać usie aktyŭnyja pryvilei karystalnikaŭ i paśla vydalić ich."
 
-#: libraries/server_privileges.lib.php:2738
-#: libraries/server_privileges.lib.php:2744
-#: libraries/server_privileges.lib.php:2747
+#: libraries/server_privileges.lib.php:2812
+#: libraries/server_privileges.lib.php:2818
+#: libraries/server_privileges.lib.php:2821
 msgid "Drop the databases that have the same names as the users."
 msgstr ""
 "Vydalić bazy dadzienych, jakija majuć takija ž imiony jak i karystalniki."
 
-#: libraries/server_privileges.lib.php:2879
+#: libraries/server_privileges.lib.php:2955
 msgid "No users selected for deleting!"
 msgstr "Na vybranyja karystalniki dla vydaleńnia!"
 
-#: libraries/server_privileges.lib.php:2882
+#: libraries/server_privileges.lib.php:2958
 msgid "Reloading the privileges"
 msgstr "Pierazahruzić pryvilei"
 
-#: libraries/server_privileges.lib.php:2901
+#: libraries/server_privileges.lib.php:2977
 msgid "The selected users have been deleted successfully."
 msgstr "Vybranyja karystalniki byli paśpiachova vydalenyja."
 
-#: libraries/server_privileges.lib.php:2967
+#: libraries/server_privileges.lib.php:3044
 #, php-format
 msgid "You have updated the privileges for %s."
 msgstr "Vy źmianili pryvilei dla %s."
 
-#: libraries/server_privileges.lib.php:2997
+#: libraries/server_privileges.lib.php:3114
+#, php-format
+msgid "Deleting %s"
+msgstr "Vydaleńnie %s"
+
+#: libraries/server_privileges.lib.php:3143
+msgid "The privileges were reloaded successfully."
+msgstr "Pryvilei byli paśpiachova pierazahružanyja."
+
+#: libraries/server_privileges.lib.php:3225
+#, php-format
+msgid "The user %s already exists!"
+msgstr "Karystalnik %s užo isnuje!"
+
+#: libraries/server_privileges.lib.php:3361
 #, fuzzy, php-format
 #| msgid "Privileges"
 msgid "Privileges for %s"
 msgstr "Pryvilei"
 
-#: libraries/server_privileges.lib.php:3051
+#: libraries/server_privileges.lib.php:3415
 #, fuzzy
 #| msgid "Edit Privileges"
 msgid "Edit Privileges:"
 msgstr "Redagavać pryvilei"
 
-#: libraries/server_privileges.lib.php:3112
-#: libraries/server_privileges.lib.php:3919
+#: libraries/server_privileges.lib.php:3476
+#: libraries/server_privileges.lib.php:4298
 #, fuzzy
 #| msgid "User overview"
 msgid "Users overview"
 msgstr "Karystalniki"
 
-#: libraries/server_privileges.lib.php:3184
+#: libraries/server_privileges.lib.php:3551
 #, php-format
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
@@ -10866,93 +10886,93 @@ msgstr ""
 "jakija vykarystoŭvaje server, kali jany byli źmienienyja ŭručnuju. U hetym "
 "vypadku vam treba %spierazahruzić pryvilei%s da taho, jak vy praciahniecie."
 
-#: libraries/server_privileges.lib.php:3212
+#: libraries/server_privileges.lib.php:3584
 #, php-format
 msgid "Users of '%s' user group"
 msgstr ""
 
-#: libraries/server_privileges.lib.php:3223
+#: libraries/server_privileges.lib.php:3595
 msgid "No users were found belonging to this user group."
 msgstr ""
 
-#: libraries/server_privileges.lib.php:3254
-#: libraries/server_privileges.lib.php:3923
+#: libraries/server_privileges.lib.php:3626
+#: libraries/server_privileges.lib.php:4302
 #, fuzzy
 #| msgid "User"
 msgid "User groups"
 msgstr "Karystalnik"
 
-#: libraries/server_privileges.lib.php:3268
+#: libraries/server_privileges.lib.php:3640
 #, fuzzy
 #| msgid "Server version"
 msgid "Server level tabs"
 msgstr "Versija servera"
 
-#: libraries/server_privileges.lib.php:3269
+#: libraries/server_privileges.lib.php:3641
 #, fuzzy
 #| msgid "Database for user"
 msgid "Database level tabs"
 msgstr "Baza dadzienych dla karystalnika"
 
-#: libraries/server_privileges.lib.php:3270
+#: libraries/server_privileges.lib.php:3642
 #, fuzzy
 #| msgid "Table removal"
 msgid "Table level tabs"
 msgstr "Imia tablicy"
 
-#: libraries/server_privileges.lib.php:3291
+#: libraries/server_privileges.lib.php:3663
 #, fuzzy
 #| msgid "View"
 msgid "View users"
 msgstr "Vyhlad"
 
-#: libraries/server_privileges.lib.php:3328
-#: libraries/server_privileges.lib.php:3389
+#: libraries/server_privileges.lib.php:3700
+#: libraries/server_privileges.lib.php:3761
 #, fuzzy
 #| msgid "Any user"
 msgid "Add user group"
 msgstr "Luby karystalnik"
 
-#: libraries/server_privileges.lib.php:3392
+#: libraries/server_privileges.lib.php:3764
 #, php-format
 msgid "Edit user group: '%s'"
 msgstr ""
 
-#: libraries/server_privileges.lib.php:3408
+#: libraries/server_privileges.lib.php:3780
 #, fuzzy
 #| msgid "No privileges."
 msgid "User group menu assignments"
 msgstr "Biez pryvilejaŭ."
 
-#: libraries/server_privileges.lib.php:3415
+#: libraries/server_privileges.lib.php:3787
 #, fuzzy
 #| msgid "Column names"
 msgid "Group name:"
 msgstr "Nazvy kalonak"
 
-#: libraries/server_privileges.lib.php:3447
+#: libraries/server_privileges.lib.php:3819
 #, fuzzy
 #| msgid "Server version"
 msgid "Server-level tabs"
 msgstr "Versija servera"
 
-#: libraries/server_privileges.lib.php:3450
+#: libraries/server_privileges.lib.php:3822
 #, fuzzy
 #| msgid "Database for user"
 msgid "Database-level tabs"
 msgstr "Baza dadzienych dla karystalnika"
 
-#: libraries/server_privileges.lib.php:3453
+#: libraries/server_privileges.lib.php:3825
 #, fuzzy
 #| msgid "Table removal"
 msgid "Table-level tabs"
 msgstr "Imia tablicy"
 
-#: libraries/server_privileges.lib.php:3564
+#: libraries/server_privileges.lib.php:3936
 msgid "The selected user was not found in the privilege table."
 msgstr "Vyłučany karystalnik nia znojdzieny ŭ tablicy pryvilejaŭ."
 
-#: libraries/server_privileges.lib.php:3778
+#: libraries/server_privileges.lib.php:4157
 msgid "You have added a new user."
 msgstr "Byŭ dadadzieny novy karystalnik."
 
@@ -12750,7 +12770,7 @@ msgid "Toggle relation lines"
 msgstr ""
 "Kab vybrać suviaź, naciśnicie na kropcy złučeńnia, jak pakazana na vyjavie:"
 
-#: pmd_general.php:133 pmd_pdf.php:109
+#: pmd_general.php:133 pmd_pdf.php:107
 msgid "Import/Export coordinates for PDF schema"
 msgstr "Impartavać/Ekspartavać kaardynaty tablic ŭ PDF-schiemu"
 
@@ -12826,51 +12846,51 @@ msgstr "Stvaryć"
 msgid "Active options"
 msgstr "Opcyi tablicy"
 
-#: pmd_pdf.php:55
+#: pmd_pdf.php:53
 msgid "Page has been created"
 msgstr ""
 
-#: pmd_pdf.php:58
+#: pmd_pdf.php:56
 msgid "Page creation failed"
 msgstr ""
 
-#: pmd_pdf.php:120
+#: pmd_pdf.php:118
 #, fuzzy
 #| msgid "pages"
 msgid "Page:"
 msgstr "staronak"
 
-#: pmd_pdf.php:130
+#: pmd_pdf.php:128
 #, fuzzy
 #| msgid "Import files"
 msgid "Import from selected page"
 msgstr "Impartavać fajły"
 
-#: pmd_pdf.php:131
+#: pmd_pdf.php:129
 #, fuzzy
 #| msgid "Export/Import to scale"
 msgid "Export to selected page"
 msgstr "Maštab"
 
-#: pmd_pdf.php:133
+#: pmd_pdf.php:131
 #, fuzzy
 #| msgid "Create a new index"
 msgid "Create a page and export to it"
 msgstr "Stvaryć novy indeks"
 
-#: pmd_pdf.php:145
+#: pmd_pdf.php:143
 #, fuzzy
 #| msgid "User name"
 msgid "New page name: "
 msgstr "Imia karystalnika"
 
-#: pmd_pdf.php:148
+#: pmd_pdf.php:146
 #, fuzzy
 #| msgid "Export/Import to scale"
 msgid "Export/Import to scale:"
 msgstr "Maštab"
 
-#: pmd_pdf.php:154
+#: pmd_pdf.php:152
 msgid "recommended"
 msgstr "rekamendavany"
 
@@ -13010,20 +13030,6 @@ msgstr "Bazy dadzienych adsutničajuć"
 #: server_export.php:21
 msgid "View dump (schema) of databases"
 msgstr "Prahladzieć damp (schiemu) bazaŭ dadzienych"
-
-#: server_privileges.php:214
-#, php-format
-msgid "The user %s already exists!"
-msgstr "Karystalnik %s užo isnuje!"
-
-#: server_privileges.php:328
-#, php-format
-msgid "Deleting %s"
-msgstr "Vydaleńnie %s"
-
-#: server_privileges.php:373
-msgid "The privileges were reloaded successfully."
-msgstr "Pryvilei byli paśpiachova pierazahružanyja."
 
 #: server_status.php:32
 #, php-format
@@ -13266,8 +13272,8 @@ msgid ""
 "You set the [kbd]config[/kbd] authentication type and included username and "
 "password for auto-login, which is not a desirable option for live hosts. "
 "Anyone who knows or guesses your phpMyAdmin URL can directly access your "
-"phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or "
-"[kbd]http[/kbd]."
+"phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or [kbd]"
+"http[/kbd]."
 msgstr ""
 
 #: setup/lib/index.lib.php:236
@@ -13525,7 +13531,7 @@ msgstr "Indeks nia vyznačany!"
 msgid "Choose column to display:"
 msgstr "Vybierycie pole dla adlustravańnia"
 
-#: tbl_structure.php:133
+#: tbl_structure.php:111
 #, fuzzy
 #| msgid "No rows selected"
 msgid "No column selected."
@@ -14919,6 +14925,9 @@ msgstr ""
 #| msgid "max. concurrent connections"
 msgid "concurrent_insert is set to 0"
 msgstr "maksymum adnačasovych złučeńniaŭ"
+
+#~ msgid "This is not a number!"
+#~ msgstr "Heta nia lik!"
 
 #, fuzzy
 #~| msgid "Find:"
