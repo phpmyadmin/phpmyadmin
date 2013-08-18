@@ -76,7 +76,7 @@ function PMA_getHtmlForTableConfigurations()
         . '<th>' . __('Collation:') . '</th>'
         . '</tr>'
         . '<tr><td><input type="text" name="comment" size="40" maxlength="80"'
-        . 'value="'
+        . ' value="'
         . (isset($_REQUEST['comment'])
         ? htmlspecialchars($_REQUEST['comment'])
         : '')
@@ -172,7 +172,7 @@ function PMA_getHtmlForTableNameAndNoOfColumns()
 
     $html .= '<input type="submit" name="submit_num_fields"'
         . 'value="' . __('Go') . '"'
-        . 'onclick="return'
+        . ' onclick="return'
         . ' checkFormElementInRange(this.form, \'added_fields\', \''
         . str_replace(
             '\'', '\\\'', __('You have to add at least one column.')
@@ -486,11 +486,11 @@ function PMA_handleRegeneration($columnNumber, $submit_fulltext, $comments_map,
     $mime_map
 ) {
     $columnMeta = PMA_getRowDataForRegeneration(
-        isset($submit_fulltext) ? $submit_fulltext : null
+        $columnNumber, isset($submit_fulltext) ? $submit_fulltext : null
     );
 
     list($submit_length, $submit_attribute, $submit_default_current_timestamp)
-        = PMA_getSubmitPropertiesForRegeneration();
+        = PMA_getSubmitPropertiesForRegeneration($columnNumber);
 
     if (isset($_REQUEST['field_comments'][$columnNumber])) {
         $comments_map[$columnMeta['Field']]
