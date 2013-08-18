@@ -2117,7 +2117,8 @@ AJAX.registerOnload('server_status_monitor.js', function() {
         }, function(data) {
             if (data.success == true) {
                 data = data.message;
-            } else {
+            }
+            if (data.error) {
                 $('#queryAnalyzerDialog div.placeHolder').html('<div class="error">' + data.error + '</div>');
                 return;
             }
