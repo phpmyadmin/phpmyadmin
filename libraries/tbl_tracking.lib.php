@@ -404,73 +404,23 @@ function PMA_getHtmlForTrackingReport($url_query, $data, $url_params,
     /*
      *  First, list tracked data definition statements
      */
-    $i = 1;
     if (count($data['ddlog']) == 0 && count($data['dmlog']) == 0) {
         $msg = PMA_Message::notice(__('No data'));
         $msg->display();
     }
 
     if ($selection_schema || $selection_both  && count($data['ddlog']) > 0) {
-        $html .= '<table id="ddl_versions" class="data" width="100%">';
-        $html .= '<thead>';
-        $html .= '<tr>';
-        $html .= '<th width="18">#</th>';
-        $html .= '<th width="100">' . __('Date') . '</th>';
-        $html .= '<th width="60">' . __('Username') . '</th>';
-        $html .= '<th>' . __('Data definition statement') . '</th>';
-        $html .= '<th>' . __('Delete') . '</th>';
-        $html .= '</tr>';
-        $html .= '</thead>';
-        $html .= '<tbody>';
-
-        $style = 'odd';
-        foreach ($data['ddlog'] as $entry) {
-            $statement  = PMA_Util::formatSql($entry['statement'], true);
-            $timestamp = strtotime($entry['date']);
-            $filtered_user = in_array($entry['username'], $filter_users);
-            if ($timestamp >= $filter_ts_from
-                && $timestamp <= $filter_ts_to
-                && (in_array('*', $filter_users) || $filtered_user)
-            ) {
-                $html .= '<tr class="noclick ' . $style . '">';
-                $html .= '<td><small>' . $i . '</small></td>';
-                $html .= '<td><small>'
-                    . htmlspecialchars($entry['date']) . '</small></td>';
-                $html .= '<td><small>'
-                    . htmlspecialchars($entry['username']) . '</small></td>';
-                $html .= '<td>' . $statement . '</td>';
-                $html .= '<td class="nowrap"><a href="tbl_tracking.php?'
-                    . PMA_URL_getCommon(
-                        $url_params + array(
-                            'report' => 'true',
-                            'version' => $_REQUEST['version'],
-                            'delete_ddlog' => ($i - 1),
-                        )
-                    )
-                    . '">' . $drop_image_or_text
-                    . '</a></td>';
-                $html .= '</tr>';
-
-                if ($style == 'even') {
-                    $style = 'odd';
-                } else {
-                    $style = 'even';
-                }
-                $i++;
-            }
-        }
-        $html .= '</tbody>';
-        $html .= '</table>';
-
+        list($temp, $ddlog_count) = PMA_getHtmlForDataDefinitionStatements(
+            $data, $filter_users, $filter_ts_from, $filter_ts_to, $url_params,
+            $drop_image_or_text
+        );
+        $html .= $temp;
+        unset($temp);
     } //endif
-
-    // Memorize data definition amount
-    $ddlog_count = $i;
 
     /*
      *  Secondly, list tracked data manipulation statements
      */
-
     if (($selection_data || $selection_both) && count($data['dmlog']) > 0) {
         $html .= '<table id="dml_versions" class="data" width="100%">';
         $html .= '<thead>';
@@ -572,6 +522,98 @@ function PMA_getHtmlForTrackingReport($url_query, $data, $url_params,
     return $html;
 }
 
+/**
+ * Function to get html for data definition statements in schema snapshot
+ * 
+ * @param array $data               data
+ * @param array $filter_users       filter users
+ * @param int   $filter_ts_from     filter time stamp from
+ * @param int   $filter_ts_to       filter time stamp to
+ * @param array $url_params         url parameters
+ * @param bool  $drop_image_or_text drop image or text
+ * 
+ * @return string
+ */
+function PMA_getHtmlForDataDefinitionStatements($data, $filter_users,
+    $filter_ts_from, $filter_ts_to, $url_params, $drop_image_or_text
+) {
+    $i = 1;
+    $html = '<table id="ddl_versions" class="data" width="100%">';
+    $html .= '<thead>';
+    $html .= '<tr>';
+    $html .= '<th width="18">#</th>';
+    $html .= '<th width="100">' . __('Date') . '</th>';
+    $html .= '<th width="60">' . __('Username') . '</th>';
+    $html .= '<th>' . __('Data definition statement') . '</th>';
+    $html .= '<th>' . __('Delete') . '</th>';
+    $html .= '</tr>';
+    $html .= '</thead>';
+    $html .= '<tbody>';
+
+    $style = 'odd';
+    foreach ($data['ddlog'] as $entry) {
+        $html .= PMA_getHtmlForDataDefinitionStatement($entry, $filter_users,
+            $filter_ts_from, $filter_ts_to, $style, $i, $url_params,
+            $drop_image_or_text
+        );
+        if ($style == 'even') {
+            $style = 'odd';
+        } else {
+            $style = 'even';
+        }
+        $i++;
+    }
+    $html .= '</tbody>';
+    $html .= '</table>';
+
+    return array($html, $i);
+}
+/**
+ * Function to get html for a data definition statement in schema snapshot
+ * 
+ * @param array  $entry              entry
+ * @param array  $filter_users       filter users
+ * @param int    $filter_ts_from     filter time stamp from
+ * @param int    $filter_ts_to       filter time stamp to
+ * @param string $style              style
+ * @param int    $i                  column number
+ * @param array  $url_params         url parameters
+ * @param bool   $drop_image_or_text drop image or text
+ * 
+ * @return string
+ */
+function PMA_getHtmlForDataDefinitionStatement($entry, $filter_users,
+    $filter_ts_from, $filter_ts_to, $style, $i, $url_params, $drop_image_or_text
+) {
+    $statement  = PMA_Util::formatSql($entry['statement'], true);
+    $timestamp = strtotime($entry['date']);
+    $filtered_user = in_array($entry['username'], $filter_users);
+    if ($timestamp >= $filter_ts_from
+        && $timestamp <= $filter_ts_to
+        && (in_array('*', $filter_users) || $filtered_user)
+    ) {
+        $html = '<tr class="noclick ' . $style . '">';
+        $html .= '<td><small>' . $i . '</small></td>';
+        $html .= '<td><small>'
+            . htmlspecialchars($entry['date']) . '</small></td>';
+        $html .= '<td><small>'
+            . htmlspecialchars($entry['username']) . '</small></td>';
+        $html .= '<td>' . $statement . '</td>';
+        $html .= '<td class="nowrap"><a href="tbl_tracking.php?'
+            . PMA_URL_getCommon(
+                $url_params + array(
+                    'report' => 'true',
+                    'version' => $_REQUEST['version'],
+                    'delete_ddlog' => ($i - 1),
+                )
+            )
+            . '">' . $drop_image_or_text
+            . '</a></td>';
+        $html .= '</tr>';
+    }
+    
+    return $html;
+}
 /**
  * Function to get html for schema snapshot
  * 
