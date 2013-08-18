@@ -2138,7 +2138,8 @@ AJAX.registerOnload('server_status_monitor.js', function () {
             var i;
             if (data.success === true) {
                 data = data.message;
-            } else {
+            }
+            if (data.error) {
                 $('#queryAnalyzerDialog div.placeHolder').html('<div class="error">' + data.error + '</div>');
                 return;
             }
