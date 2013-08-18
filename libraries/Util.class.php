@@ -4366,8 +4366,8 @@ class PMA_Util
      */
     public static function addMicroseconds($value)
     {
-        if (empty($value)) {
-            return '';
+        if (empty($value) || $value == 'CURRENT_TIMESTAMP') {
+            return $value;
         } elseif (strpos($value, '.')) {
             $value .= '000000';
             return substr($value, 0, strpos($value, '.') + 7);
