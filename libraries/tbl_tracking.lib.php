@@ -477,13 +477,13 @@ function PMA_getHtmlForTrackingReport($url_query, $data, $url_params,
 /**
  * Function to get html for data manipulation statements
  * 
- * @param array $data               data
- * @param array $filter_users       filter users
- * @param int   $filter_ts_from     filter time staml from
- * @param int   $filter_ts_to       filter time stamp to
- * @param array $url_params         url parameters
- * @param int   $ddlog_count        data definition log count
- * @param bool  $drop_image_or_text drop image or text
+ * @param array  $data               data
+ * @param array  $filter_users       filter users
+ * @param int    $filter_ts_from     filter time staml from
+ * @param int    $filter_ts_to       filter time stamp to
+ * @param array  $url_params         url parameters
+ * @param int    $ddlog_count        data definition log count
+ * @param string  $drop_image_or_text drop image or text
  * 
  * @return string
  */
@@ -534,7 +534,7 @@ function PMA_getHtmlForDataManipulationStatements($data, $filter_users,
  * @param int    $i                  field number
  * @param array  $url_params         url parameters
  * @param int    $ddlog_count        data definition log count
- * @param bool   $drop_image_or_text drop image or text
+ * @param string $drop_image_or_text drop image or text
  * 
  * @return string
  */
@@ -575,12 +575,12 @@ function PMA_getHtmlForDataManipulationStatement($entry, $filter_users,
 /**
  * Function to get html for data definition statements in schema snapshot
  * 
- * @param array $data               data
- * @param array $filter_users       filter users
- * @param int   $filter_ts_from     filter time stamp from
- * @param int   $filter_ts_to       filter time stamp to
- * @param array $url_params         url parameters
- * @param bool  $drop_image_or_text drop image or text
+ * @param array  $data               data
+ * @param array  $filter_users       filter users
+ * @param int    $filter_ts_from     filter time stamp from
+ * @param int    $filter_ts_to       filter time stamp to
+ * @param array  $url_params         url parameters
+ * @param string $drop_image_or_text drop image or text
  * 
  * @return string
  */
@@ -621,14 +621,14 @@ function PMA_getHtmlForDataDefinitionStatements($data, $filter_users,
 /**
  * Function to get html for a data definition statement in schema snapshot
  * 
- * @param array  $entry              entry
- * @param array  $filter_users       filter users
- * @param int    $filter_ts_from     filter time stamp from
- * @param int    $filter_ts_to       filter time stamp to
- * @param string $style              style
- * @param int    $i                  column number
- * @param array  $url_params         url parameters
- * @param bool   $drop_image_or_text drop image or text
+ * @param array   $entry              entry
+ * @param array   $filter_users       filter users
+ * @param int     $filter_ts_from     filter time stamp from
+ * @param int     $filter_ts_to       filter time stamp to
+ * @param string  $style              style
+ * @param int     $i                  column number
+ * @param array   $url_params         url parameters
+ * @param string  $drop_image_or_text drop image or text
  * 
  * @return string
  */
