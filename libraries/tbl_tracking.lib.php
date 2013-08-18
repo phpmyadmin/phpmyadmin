@@ -760,7 +760,7 @@ function PMA_getHtmlForColumns($columns)
  */
 function PMA_getHtmlForColumn($field, $style)
 {
-    $html .= '<tr class="noclick ' . $style . '">';
+    $html = '<tr class="noclick ' . $style . '">';
     if ($field['Key'] == 'PRI') {
         $html .= '<td><b><u>' . htmlspecialchars($field['Field']) . '</u></b></td>';
     } else {
