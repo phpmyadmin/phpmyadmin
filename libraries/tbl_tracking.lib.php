@@ -349,7 +349,7 @@ function PMA_getHtmlForTrackingReport($url_query, $data, $url_params,
     $selection_schema, $selection_data, $selection_both, $filter_ts_to,
     $filter_ts_from, $filter_users
 ) {
-    $html .= '<h3>' . __('Tracking report')
+    $html = '<h3>' . __('Tracking report')
         . '  [<a href="tbl_tracking.php?' . $url_query . '">' . __('Close')
         . '</a>]</h3>';
 
