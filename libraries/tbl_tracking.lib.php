@@ -176,8 +176,19 @@ function PMA_getListOfVersionsOfTable()
     return PMA_queryAsControlUser($sql_query);
 }
 
-function PMA_getHtmlForTableVersionDetails($sql_result, $last_version, $url_params)
-{
+/**
+ * Function to get html for displaying last version number
+ * 
+ * @param array  $sql_result   sql result
+ * @param int    $last_version last version
+ * @param array  $url_params   url parameters
+ * @param string $url_query    url query
+ * 
+ * @return string
+ */
+function PMA_getHtmlForTableVersionDetails($sql_result, $last_version, $url_params,
+    $url_query
+) {
     $html = '<table id="versions" class="data">';
     $html .= '<thead>';
     $html .= '<tr>';
@@ -241,7 +252,13 @@ function PMA_getHtmlForTableVersionDetails($sql_result, $last_version, $url_para
     $html .= '</tbody>';
     $html .= '</table>';
 
-    return array($html, $tracking_active);
+    if ($tracking_active) {
+        $html .= PMA_getHtmlForDeactivateTracking($url_query, $last_version);
+    } else {
+        $html .= PMA_getHtmlForActivateTracking($url_query, $last_version);
+    }
+    
+    return $html;
 }
 
 /**

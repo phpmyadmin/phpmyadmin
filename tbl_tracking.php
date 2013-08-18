@@ -702,20 +702,11 @@ $html .= '<br />';
 /*
  * List versions of current table
  */
-
 $last_version = PMA_getTableLastVersionNumber();
 if ($last_version > 0) {
-    list($temp, $tracking_active) = PMA_getHtmlForTableVersionDetails(
-        $sql_result, $last_version, $url_params
+    $html .= PMA_getHtmlForTableVersionDetails(
+        $sql_result, $last_version, $url_params, $url_query
     );
-    $html .= $temp;
-    unset($temp);
-    
-    if ($tracking_active) {
-        $html .= PMA_getHtmlForDeactivateTracking($url_query, $last_version);
-    } else {
-        $html .= PMA_getHtmlForActivateTracking($url_query, $last_version);
-    }
 }
 
 $html .= PMA_getHtmlForDataDefinitionAndManipulationStatements(
