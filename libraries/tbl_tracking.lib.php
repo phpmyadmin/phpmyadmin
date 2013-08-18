@@ -292,4 +292,40 @@ function PMA_getSQLResultForSelectableTables()
 
     return PMA_queryAsControlUser($sql_query);
 }
+
+/**
+ * Function to get html for selectable table rows
+ * 
+ * @param array  $selectable_tables_sql_result sql results for selectable rows
+ * @param string $url_query                    url query
+ * 
+ * @return string
+ */
+function PMA_getHtmlForSelectableTables($selectable_tables_sql_result, $url_query)
+{
+    $html = '<form method="post" action="tbl_tracking.php?' . $url_query . '">';
+    $html .= '<select name="table">';
+    while ($entries = $GLOBALS['dbi']->fetchArray($selectable_tables_sql_result)) {
+        if (PMA_Tracker::isTracked($entries['db_name'], $entries['table_name'])) {
+            $status = ' (' . __('active') . ')';
+        } else {
+            $status = ' (' . __('not active') . ')';
+        }
+        if ($entries['table_name'] == $_REQUEST['table']) {
+            $s = ' selected="selected"';
+        } else {
+            $s = '';
+        }
+        $html .= '<option value="' . htmlspecialchars($entries['table_name'])
+            . '"' . $s . '>' . htmlspecialchars($entries['db_name']) . ' . '
+            . htmlspecialchars($entries['table_name']) . $status . '</option>'
+            . "\n";
+    }
+    $html .= '</select>';
+    $html .= '<input type="hidden" name="show_versions_submit" value="1" />';
+    $html .= '<input type="submit" value="' . __('Show versions') . '" />';
+    $html .= '</form>';
+    
+    return $html;
+}
 ?>
