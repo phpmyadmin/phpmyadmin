@@ -122,7 +122,7 @@ function PMA_sqlQueryForm($query = true, $display_tab = false, $delimiter = ';')
 
     // display querybox
     if ($display_tab === 'full' || $display_tab === 'sql') {
-        PMA_sqlQueryFormInsert($query, $is_querywindow, $delimiter);
+        echo PMA_getHtmlForSqlQueryFormInsert($query, $is_querywindow, $delimiter);
     }
 
     // display uploads
@@ -150,17 +150,17 @@ function PMA_sqlQueryForm($query = true, $display_tab = false, $delimiter = ';')
 }
 
 /**
- * Prints querybox fieldset
+ * return HTML for Sql Query Form Insert
  *
  * @param string  $query          query to display in the textarea
  * @param boolean $is_querywindow if inside querywindow or not
  * @param string  $delimiter      default delimiter to use
  *
- * @return void
+ * @return string
  *
  * @usedby  PMA_sqlQueryForm()
  */
-function PMA_sqlQueryFormInsert(
+function PMA_getHtmlForSqlQueryFormInsert(
     $query = '', $is_querywindow = false, $delimiter = ';'
 ) {
     // enable auto select text in textarea
@@ -341,18 +341,15 @@ function PMA_sqlQueryFormInsert(
 
     $html .= '<fieldset id="queryboxfooter" class="tblFooters">' . "\n";
     $html .= '<div class="formelement">' . "\n";
-    echo $html;
 
     if ($is_querywindow) {
-        ?>
-        <script type="text/javascript">
-        //<![CDATA[
-            document.writeln(' <input type="checkbox" name="LockFromUpdate" checked="checked" tabindex="120" id="checkbox_lock" /> <label for="checkbox_lock"><?php echo __('Do not overwrite this query from outside the window'); ?></label> ');
-        //]]>
-        </script>
-        <?php
+        $html .= '<input type="checkbox" ' 
+            . 'name="LockFromUpdate" checked="checked" tabindex="120" ' 
+            . 'id="checkbox_lock" /> <label for="checkbox_lock">' 
+            . __('Do not overwrite this query from outside the window') 
+            . '</label>';
     }
-    $html = '</div>' . "\n";
+    $html .= '</div>' . "\n";
     $html .= '<div class="formelement">' . "\n";
     $html .= '<label for="id_sql_delimiter">[ ' . __('Delimiter')
         .'</label>' . "\n";
@@ -379,7 +376,8 @@ function PMA_sqlQueryFormInsert(
         . ' value="' . __('Go') . '" />' . "\n";
     $html .= '<div class="clearfloat"></div>' . "\n";
     $html .= '</fieldset>' . "\n";
-    echo $html;
+    
+    return $html;
 }
 
 /**
