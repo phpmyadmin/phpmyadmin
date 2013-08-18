@@ -23,10 +23,10 @@ function PMA_filterTracking(
     $id = 0;
     foreach ($data as $entry) {
         $timestamp = strtotime($entry['date']);
-
+        $filtered_user = in_array($entry['username'], $filter_users);
         if ($timestamp >= $filter_ts_from
             && $timestamp <= $filter_ts_to
-            && (in_array('*', $filter_users) || in_array($entry['username'], $filter_users))
+            && (in_array('*', $filter_users) || $filtered_user)
         ) {
             $tmp_entries[] = array(
                 'id'        => $id,
@@ -427,10 +427,10 @@ function PMA_getHtmlForTrackingReport($url_query, $data, $url_params,
         foreach ($data['ddlog'] as $entry) {
             $statement  = PMA_Util::formatSql($entry['statement'], true);
             $timestamp = strtotime($entry['date']);
-
+            $filtered_user = in_array($entry['username'], $filter_users);
             if ($timestamp >= $filter_ts_from
                 && $timestamp <= $filter_ts_to
-                && (in_array('*', $filter_users) || in_array($entry['username'], $filter_users))
+                && (in_array('*', $filter_users) || $filtered_user)
             ) {
                 $html .= '<tr class="noclick ' . $style . '">';
                 $html .= '<td><small>' . $i . '</small></td>';
@@ -488,10 +488,10 @@ function PMA_getHtmlForTrackingReport($url_query, $data, $url_params,
         foreach ($data['dmlog'] as $entry) {
             $statement  = PMA_Util::formatSql($entry['statement'], true);
             $timestamp = strtotime($entry['date']);
-
+            $filtered_user = in_array($entry['username'], $filter_users);
             if ($timestamp >= $filter_ts_from
                 && $timestamp <= $filter_ts_to
-                && (in_array('*', $filter_users) || in_array($entry['username'], $filter_users))
+                && (in_array('*', $filter_users) || $filtered_user)
             ) {
                 $html .= '<tr class="noclick ' . $style . '">';
                 $html .= '<td><small>' . $i . '</small></td>';
@@ -552,7 +552,8 @@ function PMA_getHtmlForTrackingReport($url_query, $data, $url_params,
     $html .= '</form>';
     $html .= '<form class="disableAjax" method="post" action="tbl_tracking.php'
         . PMA_URL_getCommon(
-            $url_params + array('report' => 'true', 'version' => $_REQUEST['version'])
+            $url_params
+            + array('report' => 'true', 'version' => $_REQUEST['version'])
         )
         . '">';
     $html .= '<input type="hidden" name="logtype" value="'
