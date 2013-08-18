@@ -169,7 +169,8 @@ form {
 
 input[type=text],
 input[type=password],
-input[type=number] {
+input[type=number],
+input[type=date] {
     border-radius: 2px;
     -moz-border-radius: 2px;
     -webkit-border-radius: 2px;
@@ -1812,6 +1813,7 @@ table#serverconnection_trg_local  {
 input[type=text].invalid_value,
 input[type=password].invalid_value,
 input[type=number].invalid_value,
+input[type=date].invalid_value,
 .invalid_value {
     background: #FFCCCC;
 }

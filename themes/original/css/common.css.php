@@ -1443,6 +1443,7 @@ table#serverconnection_trg_local  {
 input[type=text].invalid_value,
 input[type=password].invalid_value,
 input[type=number].invalid_value,
+input[type=date].invalid_value,
 .invalid_value {
     background: #FFCCCC;
 }
@@ -1961,6 +1962,7 @@ fieldset .disabled-field td {
 #table_columns input[type="text"],
 #table_columns input[type="password"],
 #table_columns input[type="number"],
+#table_columns input[type="date"],
 #table_columns select {
     width:              10em;
     box-sizing:         border-box;
