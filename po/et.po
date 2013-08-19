@@ -6,10 +6,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-08-18 06:16-0400\n"
-"PO-Revision-Date: 2013-08-11 14:42+0200\n"
+"PO-Revision-Date: 2013-08-19 10:47+0200\n"
 "Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
-"Language-Team: Estonian <http://l10n.cihar.com/projects/phpmyadmin/master/et/"
-">\n"
+"Language-Team: Estonian "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/et/>\n"
 "Language: et\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -945,16 +945,14 @@ msgid "Missing value in the form!"
 msgstr "Puuduv väärtus vormis!"
 
 #: js/messages.php:48
-#, fuzzy
 #| msgid "Not a valid port number"
 msgid "Please enter a valid number"
-msgstr "Pole õige pordi number"
+msgstr "Palun sisesta korrektne number"
 
 #: js/messages.php:49
-#, fuzzy
 #| msgid "Please enter correct captcha!"
 msgid "Please enter a valid length"
-msgstr "Palun sisesta korrektne tekst!"
+msgstr "Palun sisesta korrektne pikkus"
 
 #: js/messages.php:50
 msgid "Add Index"
