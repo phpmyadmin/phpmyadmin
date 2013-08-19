@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-08-18 06:16-0400\n"
-"PO-Revision-Date: 2013-08-15 14:57+0200\n"
+"PO-Revision-Date: 2013-08-19 19:53+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: Dutch <http://l10n.cihar.com/projects/phpmyadmin/master/nl/>\n"
 "Language: nl\n"
@@ -913,7 +913,7 @@ msgstr "\"DROP DATABASE\" opdrachten zijn uitgeschakeld."
 
 #: js/messages.php:35
 msgid "Confirm"
-msgstr ""
+msgstr "Bevestig"
 
 #: js/messages.php:36
 #, php-format
@@ -954,16 +954,14 @@ msgid "Missing value in the form!"
 msgstr "Er ontbreekt een waarde in het formulier!"
 
 #: js/messages.php:48
-#, fuzzy
 #| msgid "Not a valid port number"
 msgid "Please enter a valid number"
-msgstr "Geen geldig poortnummer"
+msgstr "Gelieve een geldig nummer in te geven"
 
 #: js/messages.php:49
-#, fuzzy
 #| msgid "Please enter correct captcha!"
 msgid "Please enter a valid length"
-msgstr "Gelieve een correcte captcha in te voeren!"
+msgstr "Gelieve een geldige lengte in te voeren"
 
 #: js/messages.php:50
 msgid "Add Index"
