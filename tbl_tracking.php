@@ -355,3 +355,4 @@ $html .= '<br class="clearfloat"/>';
 
 $response = PMA_Response::getInstance();
 $response->addHTML($html);
+?>
