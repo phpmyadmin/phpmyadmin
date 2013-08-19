@@ -239,6 +239,9 @@ function collapseOrExpandTreeNode($this, callback)
             $icon.removeClass('ic_b_minus').addClass('ic_b_plus');
             $children.hide('fast');
         }
+        if (callback && typeof callback == 'function') {
+            callback.call();
+        }
     } else {
         var $destination = $this.closest('li');
         var $throbber = $('#pma_navigation .throbber')
@@ -325,12 +328,7 @@ function PMA_showCurrentNavigation()
    $('#pma_navigation_tree')
        .find('li.selected')
        .removeClass('selected');
-   if (! table) {
-       // open in the tree and select the database
-       highlightLoadedItem(
-           $('#pma_navigation_tree > div'), db, 'database', true
-       );
-   } else {
+   if (db && table) {
        // open the database in the tree
        var $dbItem = highlightLoadedItem(
            $('#pma_navigation_tree > div'), db, 'database', false
@@ -347,6 +345,11 @@ function PMA_showCurrentNavigation()
        } else {
            highlightTableOrView($dbItem, table);
        }
+   } else if (db) {
+       // open in the tree and select the database
+       highlightLoadedItem(
+           $('#pma_navigation_tree > div'), db, 'database', true
+       );
    }
 
    function highlightLoadedItem($container, name, clazz, doSelect) {
