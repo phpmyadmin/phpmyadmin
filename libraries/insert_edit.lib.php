@@ -1552,9 +1552,9 @@ function PMA_getSumbitAndResetButtonForActionsPanel($tabindex, $tabindex_for_val
     . '</td>'
     . '<td colspan="3" class="right vmiddle">'
     . '<input type="submit" class="control_at_footer" value="' . __('Go') . '"'
-    . 'tabindex="' . ($tabindex + $tabindex_for_value + 6) . '" id="buttonYes" />'
+    . ' tabindex="' . ($tabindex + $tabindex_for_value + 6) . '" id="buttonYes" />'
     . '<input type="reset" class="control_at_footer" value="' . __('Reset') . '"'
-    . 'tabindex="' . ($tabindex + $tabindex_for_value + 7) . '" />'
+    . ' tabindex="' . ($tabindex + $tabindex_for_value + 7) . '" />'
     . '</td>';
 }
 
@@ -1613,6 +1613,7 @@ function PMA_getSpecialCharsAndBackupFieldForExistingRow(
     $real_null_value, $gis_data_types, $column_name_appendix
 ) {
     $special_chars_encoded = '';
+    $data = null;
     // (we are editing)
     if (is_null($current_row[$column['Field']])) {
         $real_null_value = true;
@@ -1775,8 +1776,10 @@ function PMA_isInsertRow()
         $header = $response->getHeader();
         $scripts = $header->getScripts();
         $scripts->addFile('tbl_change.js');
-        include 'tbl_change.php';
-        exit;
+        if (!defined('TESTSUITE')) {
+            include 'tbl_change.php';
+            exit;
+        }
     }
 }
 
