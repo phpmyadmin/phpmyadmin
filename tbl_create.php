@@ -12,9 +12,6 @@
 require_once 'libraries/common.inc.php';
 require_once 'libraries/create_addfield.lib.php';
 
-// for libraries/tbl_columns_definition_form.inc.php
-
-
 // Check parameters
 PMA_Util::checkParameters(array('db'));
 
