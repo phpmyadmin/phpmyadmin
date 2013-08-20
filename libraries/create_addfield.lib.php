@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * set of functions that needed for tbl_create.php and tbl_addfield.php in pma
+ * set of functions for tbl_create.php and tbl_addfield.php
  *
  * @package PhpMyAdmin
  */
@@ -139,7 +139,7 @@ function PMA_setColumnCreationStatementSuffix($current_field_num,
 }
 
 /**
- * Create relevent index statements
+ * Create relevant index statements
  *
  * @param array   $indexed_fields an array of index columns
  * @param string  $index_type     index type that which represents
