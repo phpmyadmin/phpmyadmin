@@ -142,7 +142,7 @@ if ($tabs) {
     unset($tabs);
 }
 
-PMA_sqlQueryForm($query_to_display, $querydisplay_tab);
+echo PMA_getHtmlForSqlQueryForm($query_to_display, $querydisplay_tab);
 
 // Hidden forms and query frame interaction stuff
 
