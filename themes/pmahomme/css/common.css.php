@@ -1007,6 +1007,7 @@ div#tablestatistics table {
     margin-bottom: .5em;
     margin-<?php echo $right; ?>: 1.5em;
     margin-top: .5em;
+    min-width: 16em;
 }
 
 /* END table stats */
