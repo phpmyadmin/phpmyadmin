@@ -95,7 +95,43 @@ class PMA_DBI_Mysql_Test extends PHPUnit_Framework_TestCase
         runkit_function_redefine('mysql_field_flags','','return "mysql_field_flags";');
         runkit_function_redefine('mysql_field_name','','return "mysql_field_name";');
         runkit_function_redefine('mysql_field_len','','return "mysql_field_len";');
+        runkit_function_redefine('mysql_num_fields','','return "mysql_num_fields";');
+        runkit_function_redefine('mysql_affected_rows','','return "mysql_affected_rows";');
 
+        //test for fieldFlags
+        $result = array("table1", "table2");
+        $ret = $this->object->numFields($result);
+        $this->assertEquals(
+            'mysql_num_fields',
+            $ret
+        );
+
+        //test for fetchRow
+        $result = array("table1", "table2");
+        $ret = $this->object->fetchRow($result);
+        $this->assertEquals(
+            'mysql_fetch_array',
+            $ret
+        );
+
+        //test for fetchRow
+        $result = array("table1", "table2");
+        $ret = $this->object->fetchAssoc($result);
+        $this->assertEquals(
+            'mysql_fetch_array',
+            $ret
+        );
+        
+        //test for affectedRows
+        $link = "PMA_link";
+        $get_from_cache = false;  
+        $ret = $this->object->affectedRows($link, $get_from_cache);
+        $this->assertEquals(
+            "mysql_affected_rows",
+            $ret
+        );       
+
+        //test for connect
         $user = 'PMA_user';
         $password = 'PMA_password';
         $is_controluser = false;
