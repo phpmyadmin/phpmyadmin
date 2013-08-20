@@ -72,7 +72,8 @@ if (isset($_REQUEST['report_export'])) {
 
             if ($timestamp >= $filter_ts_from
                 && $timestamp <= $filter_ts_to
-                && (in_array('*', $filter_users) || in_array($entry['username'], $filter_users))
+                && (in_array('*', $filter_users) 
+                || in_array($entry['username'], $filter_users))
             ) {
                 $tmp_entries[] = array(
                     'id'        => $id,
@@ -258,7 +259,10 @@ if (isset($_REQUEST['report_export']) && $_REQUEST['export_type'] == 'execution'
 // Export as SQL dump
 if (isset($_REQUEST['report_export']) && $_REQUEST['export_type'] == 'sqldump') {
     $new_query = "# "
-        . __('You can execute the dump by creating and using a temporary database. Please ensure that you have the privileges to do so.')
+        . __(
+            'You can execute the dump by creating and using a temporary database. ' 
+            . 'Please ensure that you have the privileges to do so.'
+        )
         . "\n"
         . "# " . __('Comment out these two lines if you do not need them.') . "\n"
         . "\n"
@@ -280,7 +284,7 @@ if (isset($_REQUEST['report_export']) && $_REQUEST['export_type'] == 'sqldump') 
     $db = $table = '';
     include_once './libraries/sql_query_form.lib.php';
 
-    PMA_sqlQueryForm($new_query, 'sql');
+    echo PMA_getHtmlForSqlQueryForm($new_query, 'sql');
 
     $db = $db_temp;
     $table = $table_temp;
@@ -497,7 +501,10 @@ if (isset($_REQUEST['report']) || isset($_REQUEST['report_export'])) {
 
     echo '<form method="post" action="tbl_tracking.php'
         . PMA_URL_getCommon(
-            $url_params + array('report' => 'true', 'version' => $_REQUEST['version'])
+            $url_params + array(
+                'report' => 'true', 
+                'version' => $_REQUEST['version']
+            )
         )
         . '">';
 
@@ -566,12 +573,15 @@ if (isset($_REQUEST['report']) || isset($_REQUEST['report_export'])) {
 
             if ($timestamp >= $filter_ts_from
                 && $timestamp <= $filter_ts_to
-                && (in_array('*', $filter_users) || in_array($entry['username'], $filter_users))
+                && (in_array('*', $filter_users) 
+                || in_array($entry['username'], $filter_users))
             ) {
                 echo '<tr class="noclick ' . $style . '">';
                 echo '<td><small>' . $i . '</small></td>';
-                echo '<td><small>' . htmlspecialchars($entry['date']) . '</small></td>';
-                echo '<td><small>' . htmlspecialchars($entry['username']) . '</small></td>';
+                echo '<td><small>' . htmlspecialchars($entry['date']) 
+                    . '</small></td>';
+                echo '<td><small>' . htmlspecialchars($entry['username']) 
+                    . '</small></td>';
                 echo '<td>' . $statement . '</td>';
                 echo '<td class="nowrap"><a href="tbl_tracking.php?'
                     . PMA_URL_getCommon(
@@ -625,12 +635,15 @@ if (isset($_REQUEST['report']) || isset($_REQUEST['report_export'])) {
 
             if ($timestamp >= $filter_ts_from
                 && $timestamp <= $filter_ts_to
-                && (in_array('*', $filter_users) || in_array($entry['username'], $filter_users))
+                && (in_array('*', $filter_users) 
+                || in_array($entry['username'], $filter_users))
             ) {
                 echo '<tr class="noclick ' . $style . '">';
                 echo '<td><small>' . $i . '</small></td>';
-                echo '<td><small>' . htmlspecialchars($entry['date']) . '</small></td>';
-                echo '<td><small>' . htmlspecialchars($entry['username']) . '</small></td>';
+                echo '<td><small>' . htmlspecialchars($entry['date']) 
+                    . '</small></td>';
+                echo '<td><small>' . htmlspecialchars($entry['username']) 
+                    . '</small></td>';
                 echo '<td>' . $statement . '</td>';
                 echo '<td class="nowrap"><a href="tbl_tracking.php?'
                     . PMA_URL_getCommon(
@@ -659,7 +672,10 @@ if (isset($_REQUEST['report']) || isset($_REQUEST['report_export'])) {
     echo '</form>';
     echo '<form method="post" action="tbl_tracking.php'
         . PMA_URL_getCommon(
-            $url_params + array('report' => 'true', 'version' => $_REQUEST['version'])
+            $url_params + array(
+                'report' => 'true', 
+                'version' => $_REQUEST['version']
+            )
         )
         . '">';
     printf(
@@ -668,10 +684,13 @@ if (isset($_REQUEST['report']) || isset($_REQUEST['report_export'])) {
     );
 
     $str_export1 =  '<select name="export_type">'
-        . '<option value="sqldumpfile">' . __('SQL dump (file download)') . '</option>'
+        . '<option value="sqldumpfile">' 
+        . __('SQL dump (file download)') . '</option>'
         . '<option value="sqldump">' . __('SQL dump') . '</option>'
         . '<option value="execution" onclick="alert(\''
-        . PMA_escapeJsString(__('This option will replace your table and contained data.'))
+        . PMA_escapeJsString(
+            __('This option will replace your table and contained data.')
+        )
         .'\')">' . __('SQL execution') . '</option>' . '</select>';
 
     $str_export2 = '<input type="hidden" name="report_export" value="1" />'
@@ -679,7 +698,10 @@ if (isset($_REQUEST['report']) || isset($_REQUEST['report_export'])) {
     echo '</form>';
     echo '<form class="disableAjax" method="post" action="tbl_tracking.php'
         . PMA_URL_getCommon(
-            $url_params + array('report' => 'true', 'version' => $_REQUEST['version'])
+            $url_params + array(
+                'report' => 'true', 
+                'version' => $_REQUEST['version']
+            )
         )
         . '">';
     echo '<input type="hidden" name="logtype" value="'
@@ -723,7 +745,10 @@ if ($GLOBALS['dbi']->numRows($sql_result) > 0) {
         } else {
             $s = '';
         }
-        echo '<option value="' . htmlspecialchars($entries['table_name']) . '"' . $s . '>' . htmlspecialchars($entries['db_name']) . ' . ' . htmlspecialchars($entries['table_name']) . $status . '</option>' . "\n";
+        echo '<option value="' . htmlspecialchars($entries['table_name']) 
+            . '"' . $s . '>' . htmlspecialchars($entries['db_name']) 
+            . ' . ' . htmlspecialchars($entries['table_name']) 
+            . $status . '</option>' . "\n";
     }
     echo '</select>';
     echo '<input type="hidden" name="show_versions_submit" value="1" />';
@@ -793,7 +818,10 @@ if ($last_version > 0) {
         echo '">' . __('Tracking report') . '</a>';
         echo '| <a href="tbl_tracking.php';
         echo PMA_URL_getCommon(
-            $url_params + array('snapshot' => 'true', 'version' => $version['version'])
+            $url_params + array(
+                'snapshot' => 'true', 
+                'version' => $version['version']
+            )
         );
         echo '">' . __('Structure snapshot') . '</a>';
         echo '</td>';
@@ -859,18 +887,28 @@ echo '</legend>';
 echo '<input type="hidden" name="version" value="' . ($last_version + 1) . '" />';
 
 echo '<p>' . __('Track these data definition statements:') . '</p>';
-echo '<input type="checkbox" name="alter_table" value="true" checked="checked" /> ALTER TABLE<br/>';
-echo '<input type="checkbox" name="rename_table" value="true" checked="checked" /> RENAME TABLE<br/>';
-echo '<input type="checkbox" name="create_table" value="true" checked="checked" /> CREATE TABLE<br/>';
-echo '<input type="checkbox" name="drop_table" value="true" checked="checked" /> DROP TABLE<br/>';
+echo '<input type="checkbox" name="alter_table" value="true" checked="checked" />' 
+    . ' ALTER TABLE<br/>';
+echo '<input type="checkbox" name="rename_table" value="true" checked="checked" />' 
+    . ' RENAME TABLE<br/>';
+echo '<input type="checkbox" name="create_table" value="true" checked="checked" />' 
+    . ' CREATE TABLE<br/>';
+echo '<input type="checkbox" name="drop_table" value="true" checked="checked" />' 
+    . ' DROP TABLE<br/>';
 echo '<br/>';
-echo '<input type="checkbox" name="create_index" value="true" checked="checked" /> CREATE INDEX<br/>';
-echo '<input type="checkbox" name="drop_index" value="true" checked="checked" /> DROP INDEX<br/>';
+echo '<input type="checkbox" name="create_index" value="true" checked="checked" />' 
+    . ' CREATE INDEX<br/>';
+echo '<input type="checkbox" name="drop_index" value="true" checked="checked" />' 
+    . ' DROP INDEX<br/>';
 echo '<p>' . __('Track these data manipulation statements:') . '</p>';
-echo '<input type="checkbox" name="insert" value="true" checked="checked" /> INSERT<br/>';
-echo '<input type="checkbox" name="update" value="true" checked="checked" /> UPDATE<br/>';
-echo '<input type="checkbox" name="delete" value="true" checked="checked" /> DELETE<br/>';
-echo '<input type="checkbox" name="truncate" value="true" checked="checked" /> TRUNCATE<br/>';
+echo '<input type="checkbox" name="insert" value="true" checked="checked" />' 
+    . ' INSERT<br/>';
+echo '<input type="checkbox" name="update" value="true" checked="checked" />' 
+    . ' UPDATE<br/>';
+echo '<input type="checkbox" name="delete" value="true" checked="checked" />' 
+    . ' DELETE<br/>';
+echo '<input type="checkbox" name="truncate" value="true" checked="checked" />' 
+    . ' TRUNCATE<br/>';
 
 echo '</fieldset>';
 echo '<fieldset class="tblFooters">';
