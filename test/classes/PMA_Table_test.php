@@ -44,6 +44,9 @@ class PMA_Table_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['MaxExactCount'] = 100;
         $GLOBALS['cfg']['MaxExactCountViews'] = 100;
         $GLOBALS['cfg']['Server']['pmadb'] = "pmadb";
+        $GLOBALS['sql_auto_increment'] = true;
+        $GLOBALS['sql_if_not_exists'] = true;
+        $GLOBALS['sql_drop_table'] = true;
         $GLOBALS['cfg']['Server']['table_uiprefs'] = "pma__table_uiprefs";
 
         $_SESSION['PMA_Theme'] = new PMA_Theme();
@@ -91,6 +94,11 @@ class PMA_Table_Test extends PHPUnit_Framework_TestCase
                 WHERE TABLE_SCHEMA = 'PMA'
                 AND TABLE_NAME = 'PMA_BookMark'";
 
+        $sql_copy_data = "SELECT TABLE_NAME
+            FROM information_schema.VIEWS
+            WHERE TABLE_SCHEMA = 'db_data'
+                AND TABLE_NAME = 'table_data'";
+
         $getUniqueColumns_sql = "select unique column";
 
         $fetchResult = array(
@@ -101,6 +109,14 @@ class PMA_Table_Test extends PHPUnit_Framework_TestCase
                 null,
                 0,
                 true
+            ),
+            array(
+                $sql_copy_data,
+                null,
+                null,
+                null,
+                0,
+                false
             ),
             array(
                 $sql_isView_false,
@@ -227,11 +243,31 @@ class PMA_Table_Test extends PHPUnit_Framework_TestCase
         $dbi->expects($this->any())->method('getTriggers')
             ->will($this->returnValue($triggers));
 
+        $create_sql = "CREATE TABLE `PMA`.`PMA_BookMark_2` (
+                    `id` int(11) NOT NULL AUTO_INCREMENT,
+                    `username` text NOT NULL";
         $dbi->expects($this->any())->method('query')
-            ->will($this->returnValue("executed"));
+            ->will($this->returnValue($create_sql));
 
         $dbi->expects($this->any())->method('getTableIndexesSql')
             ->will($this->returnValue($getUniqueColumns_sql));
+
+        $dbi->expects($this->any())->method('insertId')
+            ->will($this->returnValue(10));
+
+
+        $value = array("key1" => "value1");
+        $dbi->expects($this->any())->method('fetchAssoc')
+            ->will($this->returnValue(false));
+
+        $value = array("Auto_increment" => "Auto_increment");
+        $dbi->expects($this->any())->method('fetchSingleRow')
+            ->will($this->returnValue($value));
+
+
+        $value = array("value1", "value2");
+        $dbi->expects($this->any())->method('fetchRow')
+            ->will($this->returnValue(false));
 
         $GLOBALS['dbi'] = $dbi;
 
@@ -341,6 +377,10 @@ class PMA_Table_Test extends PHPUnit_Framework_TestCase
             "mysql",
             $table->get("db")
         );
+        $this->assertEquals(
+            null,
+            $table->get("key_not_existed")
+        );
     }
 
     /**
@@ -426,6 +466,120 @@ class PMA_Table_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test for generateFieldSpec
+     *
+     * @return void
+     */
+    public function testGenerateFieldSpec()
+    {
+        //type is BIT
+        $name = "PMA_name";
+        $type = "BIT";
+        $index = "PMA_index";
+        $length = '12';
+        $attribute = 'PMA_attribute';
+        $collation = 'PMA_collation';
+        $null = true;
+        $default_type = 'USER_DEFINED';
+        $default_value = 12;
+        $extra = 'AUTO_INCREMENT';
+
+        $comment = 'PMA_comment';
+        $field_primary = array("field_primary1", "field_primary2");
+        $move_to = '-first';
+
+        $query = PMA_Table::generateFieldSpec(
+            $name, $type, $index, $length, $attribute, $collation,
+            $null, $default_type,  $default_value, $extra, $comment,
+            $field_primary, $move_to
+        );
+        $this->assertEquals(
+            "`PMA_name` BIT(12) PMA_attribute NULL DEFAULT b'10' " 
+            . "AUTO_INCREMENT COMMENT 'PMA_comment' FIRST",
+            $query
+        );
+
+        //type is BOOLEAN
+        $type = "BOOLEAN";
+        $query = PMA_Table::generateFieldSpec(
+            $name, $type, $index, $length, $attribute, $collation,
+            $null, $default_type,  $default_value, $extra, $comment,
+            $field_primary, $move_to
+        );
+        $this->assertEquals(
+            "`PMA_name` BOOLEAN PMA_attribute NULL DEFAULT TRUE " 
+            . "AUTO_INCREMENT COMMENT 'PMA_comment' FIRST",
+            $query
+        );
+
+        //$default_type is NULL
+        $default_type = 'NULL';
+        $query = PMA_Table::generateFieldSpec(
+            $name, $type, $index, $length, $attribute, $collation,
+            $null, $default_type,  $default_value, $extra, $comment,
+            $field_primary, $move_to
+        );
+        $this->assertEquals(
+            "`PMA_name` BOOLEAN PMA_attribute NULL DEFAULT NULL " 
+            . "AUTO_INCREMENT COMMENT 'PMA_comment' FIRST",
+            $query
+        );
+
+        //$default_type is CURRENT_TIMESTAMP
+        $default_type = 'CURRENT_TIMESTAMP';
+        $query = PMA_Table::generateFieldSpec(
+            $name, $type, $index, $length, $attribute, $collation,
+            $null, $default_type,  $default_value, $extra, $comment,
+            $field_primary, $move_to
+        );
+        $this->assertEquals(
+            "`PMA_name` BOOLEAN PMA_attribute NULL DEFAULT CURRENT_TIMESTAMP " 
+            . "AUTO_INCREMENT COMMENT 'PMA_comment' FIRST",
+            $query
+        );
+
+        //$default_type is NONE
+        $default_type = 'NONE';
+        $extra = 'INCREMENT';
+        $move_to = '-first';
+        $query = PMA_Table::generateFieldSpec(
+            $name, $type, $index, $length, $attribute, $collation,
+            $null, $default_type,  $default_value, $extra, $comment,
+            $field_primary, $move_to
+        );
+        $this->assertEquals(
+            "`PMA_name` BOOLEAN PMA_attribute NULL INCREMENT " 
+            . "COMMENT 'PMA_comment' FIRST",
+            $query
+        );
+    }
+
+
+    /**
+     * Test for duplicateInfo
+     *
+     * @return void
+     */
+    public function testDuplicateInfo()
+    {
+        $work = "PMA_work";
+        $pma_table = "pma_table";
+        $get_fields =  array("filed0", "field6");
+        $where_fields = array("field2", "filed5");
+        $new_fields = array("field3", "filed4");
+        $GLOBALS['cfgRelation'][$work] = true;
+        $GLOBALS['cfgRelation']['db'] = "PMA_db";
+        $GLOBALS['cfgRelation'][$pma_table] = "pma_table";
+
+        $ret = PMA_Table::duplicateInfo(
+            $work, $pma_table, $get_fields, $where_fields, $new_fields
+        );
+        $this->assertEquals(
+            true,
+            $ret
+        );
+    }
+    /**
      * Test for isUpdatableView
      *
      * @return void
@@ -476,7 +630,7 @@ class PMA_Table_Test extends PHPUnit_Framework_TestCase
             array('type'=>'TEXT', 'timestamp_not_null'=>false),
             $show_create_table[0]['create_table_fields']['username']
         );
-        
+
     }
 
     /**
