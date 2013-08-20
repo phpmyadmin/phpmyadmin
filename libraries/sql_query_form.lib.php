@@ -22,7 +22,7 @@ require_once './libraries/file_listing.lib.php'; // used for file listing
 require_once './libraries/bookmark.lib.php'; // used for bookmarks
 
 /**
- * Prints the sql query boxes
+ * return HTML for the sql query boxes
  *
  * @param boolean|string $query       query to display in the textarea
  *                                    or true to display last executed
@@ -31,7 +31,7 @@ require_once './libraries/bookmark.lib.php'; // used for bookmarks
  *                                    false if not inside querywindow
  * @param string         $delimiter   delimeter
  *
- * @return void
+ * @return string
  *
  * @usedby  server_sql.php
  * @usedby  db_sql.php
@@ -40,8 +40,9 @@ require_once './libraries/bookmark.lib.php'; // used for bookmarks
  * @usedby  tbl_tracking.php
  * @usedby  querywindow.php
  */
-function PMA_sqlQueryForm($query = true, $display_tab = false, $delimiter = ';')
-{
+function PMA_getHtmlForSqlQueryForm(
+    $query = true, $display_tab = false, $delimiter = ';'
+) {
     $html = '';
     // check tab to display if inside querywindow
     if (! $display_tab) {
@@ -81,18 +82,16 @@ function PMA_sqlQueryForm($query = true, $display_tab = false, $delimiter = ';')
                     'tbl_sql.php' : $GLOBALS['goto'];
     }
 
-
     // start output
     if ($is_querywindow) {
-        ?>
-        <form method="post" id="sqlqueryform" target="frame_content"
-              action="import.php"<?php echo $enctype; ?> name="sqlform"
-              onsubmit="var save_name = window.opener.parent.frame_content.name;
-              window.opener.parent.frame_content.name 
-                  = save_name + '<?php echo time(); ?>';
-              this.target = window.opener.parent.frame_content.name;
-              return checkSqlQuery(this)">
-        <?php
+        $html .= '<form method="post" id="sqlqueryform" target="frame_content"';
+        $html .= '      action="import.php" ' . $enctype . ' name="sqlform"';
+        $html .= '      onsubmit="var save_name ';
+        $html .= '          = window.opener.parent.frame_content.name;';
+        $html .= '      window.opener.parent.frame_content.name ';
+        $html .= '          = save_name + \'' .  time() . '\';';
+        $html .= '      this.target = window.opener.parent.frame_content.name;';
+        $html .= '      return checkSqlQuery(this)">';
     } else {
         $html .= '<form method="post" action="import.php" ' . $enctype;
         $html .= ' class="ajax"';
@@ -147,7 +146,8 @@ function PMA_sqlQueryForm($query = true, $display_tab = false, $delimiter = ';')
     // print an empty div, which will be later filled with
     // the sql query results by ajax
     $html .= '<div id="sqlqueryresults"></div>';
-    echo $html;
+    
+    return $html;
 }
 
 /**
@@ -159,7 +159,7 @@ function PMA_sqlQueryForm($query = true, $display_tab = false, $delimiter = ';')
  *
  * @return string
  *
- * @usedby  PMA_sqlQueryForm()
+ * @usedby  PMA_getHtmlForSqlQueryForm()
  */
 function PMA_getHtmlForSqlQueryFormInsert(
     $query = '', $is_querywindow = false, $delimiter = ';'
@@ -388,7 +388,7 @@ function PMA_getHtmlForSqlQueryFormInsert(
  *
  * @return string
  *
- * @usedby  PMA_sqlQueryForm()
+ * @usedby  PMA_getHtmlForSqlQueryForm()
  */
 function PMA_getHtmlForSqlQueryFormBookmark()
 {
@@ -447,7 +447,7 @@ function PMA_getHtmlForSqlQueryFormBookmark()
  *
  * @return string
  *
- * @usedby  PMA_sqlQueryForm()
+ * @usedby  PMA_getHtmlForSqlQueryForm()
  */
 function PMA_getHtmlForSqlQueryFormUpload()
 {
