@@ -139,9 +139,9 @@ class PMA_String_Test extends PHPUnit_Framework_TestCase
             array(true, 'a'),
             array(true, '.', true),
             array(false, '.'),
-            array(true, chr(192)),
-            array(false, chr(215)),
-            array(false, chr(249)),
+            array(true, 'À'),
+            array(false, '×'),
+            array(false, 'ù'),
             array(true, '_'),
             array(true, '$')
         );
