@@ -71,5 +71,17 @@ class PMA_StringNative implements PMA_StringByte
     {
         return strtolower($string);
     }
+
+    /**
+     * Get the ordinal value of a string
+     *
+     * @param string $string the string for which ord is required
+     *
+     * @return string the ord value
+     */
+    public function ord($string)
+    {
+        return ord($string);
+    }
 };
 ?>
