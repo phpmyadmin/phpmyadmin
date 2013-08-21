@@ -1103,6 +1103,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         $column['is_blob'] = true;
         $column['Field_md5'] = '123';
         $column['pma_type'] = 'blob';
+        $column['True_Type'] = 'pma_true_Type';
         $GLOBALS['max_upload_size'] = 65536;
 
         $result = PMA_getBinaryAndBlobColumn(
@@ -1206,6 +1207,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
     public function testGetHTMLinput()
     {
         $column['pma_type'] = 'date';
+        $column['True_Type'] = 'pma_true_Type';
         $result = PMA_getHTMLinput($column, 'a', 'b', 30, 'c', 23, 2, 0);
 
         $this->assertEquals(

@@ -39,7 +39,7 @@ class PMA_DBI_Mysqli_Test extends PHPUnit_Framework_TestCase
      */
     protected function setUp()
     {
-        $GLOBALS['cfg']['Server']['ssl'] = true;
+        $GLOBALS['cfg']['Server']['ssl'] = false;
         $GLOBALS['cfg']['PersistentConnections'] = false;
         $GLOBALS['cfg']['Server']['compress'] = true; 
         $GLOBALS['cfg']['MaxCharactersInDisplayedSQL'] = 1000; 
