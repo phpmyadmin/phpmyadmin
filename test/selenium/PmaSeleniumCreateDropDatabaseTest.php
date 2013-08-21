@@ -6,7 +6,6 @@
  * @package    PhpMyAdmin-test
  * @subpackage Selenium
  */
-require_once 'PmaSeleniumTestCase.php';
 require_once 'Helper.php';
 
 /**
@@ -25,11 +24,11 @@ class PmaSeleniumCreateDropDatabaseTest extends PHPUnit_Extensions_SeleniumTestC
     private $_dbname;
 
     /**
-     * PmaSeleniumTestCase Object
+     * Helper Object
      * 
      * @var obj
      */
-    private $_seleniumTasks;
+    private $_helper;
 
     /**
      * Setup the browser environment to run the selenium test case
@@ -38,10 +37,10 @@ class PmaSeleniumCreateDropDatabaseTest extends PHPUnit_Extensions_SeleniumTestC
      */
     public function setUp()
     {
-        $helper = new Helper();
-        $this->setBrowser(Helper::getBrowserString());
+        $this->_helper = new Helper($this);
+        $this->setBrowser($this->_helper->getBrowserString());
         $this->setBrowserUrl(TESTSUITE_PHPMYADMIN_HOST . TESTSUITE_PHPMYADMIN_URL);
-        $this->_seleniumTasks = new PmaSeleniumTestCase($this);
+        
     }
 
     /**
@@ -52,7 +51,7 @@ class PmaSeleniumCreateDropDatabaseTest extends PHPUnit_Extensions_SeleniumTestC
     public function testCreateDropDatabase()
     {
         $this->_dbname = 'pma_testdb' . time();
-        $this->_seleniumTasks->login(TESTSUITE_USER, TESTSUITE_PASSWORD);
+        $this->_helper->login(TESTSUITE_USER, TESTSUITE_PASSWORD);
         $this->click("link=Databases");
         $this->waitForElementPresent("id=text_create_db");
         $this->type("id=text_create_db", $this->_dbname);
@@ -69,7 +68,7 @@ class PmaSeleniumCreateDropDatabaseTest extends PHPUnit_Extensions_SeleniumTestC
      */
     private function _dropDatabase()
     {
-        $this->_seleniumTasks->gotoHomepage();
+        $this->_helper->gotoHomepage();
         $this->click("css=ul#topmenu a:contains('Databases')");
         $this->waitForElementNotPresent('css=div#loading_parent');
         $this->click(

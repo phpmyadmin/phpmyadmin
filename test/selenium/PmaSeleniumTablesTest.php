@@ -6,7 +6,6 @@
  * @package    PhpMyAdmin-test
  * @subpackage Selenium
  */
-require_once 'PmaSeleniumTestCase.php';
 require_once 'Helper.php';
 
 /**
@@ -25,11 +24,11 @@ class PmaSeleniumTablesTest extends PHPUnit_Extensions_SeleniumTestCase
     private $_dbname;
 
     /**
-     * PmaSeleniumTestCase Object
+     * Helper Object
      * 
      * @var obj
      */
-    private $_seleniumTasks;
+    private $_helper;
 
     /**
      * Setup the browser environment to run the selenium test case
@@ -38,13 +37,12 @@ class PmaSeleniumTablesTest extends PHPUnit_Extensions_SeleniumTestCase
      */
     public function setUp()
     {
-        $helper = new Helper();
-        $this->setBrowser(Helper::getBrowserString());
+        $this->_helper = new Helper($this);
+        $this->setBrowser($this->_helper->getBrowserString());
         $this->setBrowserUrl(TESTSUITE_PHPMYADMIN_HOST . TESTSUITE_PHPMYADMIN_URL);
-        $this->_seleniumTasks = new PmaSeleniumTestCase($this);
-        $this->_seleniumTasks->dbConnect();
+        $this->_helper->dbConnect();
         $this->_dbname = 'pma_db_' . time();
-        $this->_seleniumTasks->dbQuery('CREATE DATABASE ' . $this->_dbname);
+        $this->_helper->dbQuery('CREATE DATABASE ' . $this->_dbname);
     }
 
     /**
@@ -54,7 +52,7 @@ class PmaSeleniumTablesTest extends PHPUnit_Extensions_SeleniumTestCase
      */
     public function testCreateTable()
     {
-        $this->_seleniumTasks->login(TESTSUITE_USER, TESTSUITE_PASSWORD);
+        $this->_helper->login(TESTSUITE_USER, TESTSUITE_PASSWORD);
         $this->click('link='. $this->_dbname.'');
         $this->waitForElementPresent('id=create_table_form_minimal');
         $this->type(
@@ -179,8 +177,13 @@ class PmaSeleniumTablesTest extends PHPUnit_Extensions_SeleniumTestCase
         );
     }
 
+    /**
+     * Tear down functions for test cases
+     * 
+     * @return void
+     */
     public function tearDown()
     {
-        $this->_seleniumTasks->dbQuery('DROP DATABASE ' . $this->_dbname);
+        $this->_helper->dbQuery('DROP DATABASE ' . $this->_dbname);
     }
 }
