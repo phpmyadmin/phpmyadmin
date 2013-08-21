@@ -3,6 +3,7 @@
          backupGlobals="true"
          backupStaticAttributes="false"
          strict="true"
+         timeoutForSmallTests="3"
          colors="true"
          verbose="true">
 
