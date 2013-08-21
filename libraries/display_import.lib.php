@@ -301,9 +301,9 @@ function PMA_getHtmlForImportOptionsPartialImport($timeout_passed, $offset)
         $html .= '            <label for="text_skip_queries">'
             .  __('Number of rows to skip, starting from the first row:')
             . '</label>';
-        $html .= '            <input type="text" name="skip_queries" value="'
+        $html .= '            <input type="number" name="skip_queries" value="'
             . PMA_pluginGetDefault('Import', 'skip_queries')
-            . '" id="text_skip_queries" />';
+            . '" id="text_skip_queries" min="0" />';
         $html .= '        </div>';
 
     } else {

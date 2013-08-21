@@ -799,7 +799,8 @@ EOT;
          */
         $html_output .= '<fieldset id="fieldset_limit_rows">'
             . '<legend>' . __('Number of rows per page') . '</legend>'
-            . '<input type="text" size="4" name="session_max_rows" '
+            . '<input type="number" size="4" name="session_max_rows" required '
+            . 'min="1" '
             . 'value="' . $GLOBALS['cfg']['MaxRows'] . '" class="textfield" />'
             . '</fieldset>';
 
@@ -867,8 +868,8 @@ EOT;
         $html_output .= '<td><label for="maxRowPlotLimit">'
             . __("Maximum rows to plot") . '</label></td>';
         $html_output .= '<td>';
-        $html_output .= '<input type="text" name="maxPlotLimit"'
-            . ' id="maxRowPlotLimit"'
+        $html_output .= '<input type="number" name="maxPlotLimit"'
+            . ' id="maxRowPlotLimit" required'
             . ' value="' . ((! empty($_POST['maxPlotLimit']))
                 ? htmlspecialchars($_POST['maxPlotLimit'])
                 : $GLOBALS['cfg']['maxRowPlotLimit'])
@@ -1275,9 +1276,9 @@ EOT;
     function _getSearchAndReplaceHTML()
     {
         $htmlOutput  = __('Find:')
-            . '<input type="text" value="" name="find" />';
+            . '<input type="text" value="" name="find" required />';
         $htmlOutput .= __('Replace with:')
-            . '<input type="text" value="" name="replaceWith" />';
+            . '<input type="text" value="" name="replaceWith" required />';
 
         $htmlOutput .= __('Column:') . '<select name="columnIndex">';
         for ($i = 0; $i < count($this->_columnNames); $i++) {

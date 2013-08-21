@@ -7119,8 +7119,8 @@ msgstr "Indekso vardas&nbsp;:"
 
 #: libraries/display_indexes.lib.php:67
 msgid ""
-"(\"PRIMARY\" <b>must</b> be the name of and <b>only of</b> a primary key!)"
-msgstr "(\"PRIMARY\" <b>yra vienintelis</b> pirminio rakto tipas!)"
+"\"PRIMARY\" <b>must</b> be the name of and <b>only of</b> a primary key!"
+msgstr "\"PRIMARY\" <b>yra vienintelis</b> pirminio rakto tipas!"
 
 #: libraries/display_indexes.lib.php:85
 #, fuzzy

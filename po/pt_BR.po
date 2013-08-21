@@ -7018,9 +7018,9 @@ msgstr "Nome do índice:"
 
 #: libraries/display_indexes.lib.php:67
 msgid ""
-"(\"PRIMARY\" <b>must</b> be the name of and <b>only of</b> a primary key!)"
+"\"PRIMARY\" <b>must</b> be the name of and <b>only of</b> a primary key!"
 msgstr ""
-"(\"PRIMARY\" <b>precisa</b> ser o nome <b>de e apenas da</b> chave primária!)"
+"\"PRIMARY\" <b>precisa</b> ser o nome <b>de e apenas da</b> chave primária!"
 
 #: libraries/display_indexes.lib.php:85
 msgid "Comment:"

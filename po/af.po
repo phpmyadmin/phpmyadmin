@@ -7034,10 +7034,10 @@ msgstr "Indeks naam&nbsp;:"
 
 #: libraries/display_indexes.lib.php:67
 msgid ""
-"(\"PRIMARY\" <b>must</b> be the name of and <b>only of</b> a primary key!)"
+"\"PRIMARY\" <b>must</b> be the name of and <b>only of</b> a primary key!"
 msgstr ""
-"(\"PRIMARY\" <b>moet</b> die naam wees van die primere sleutel, en <b>slegs</"
-"b> van die primere sleutel!)"
+"\"PRIMARY\" <b>moet</b> die naam wees van die primere sleutel, en <b>slegs</"
+"b> van die primere sleutel!"
 
 #: libraries/display_indexes.lib.php:85
 #, fuzzy

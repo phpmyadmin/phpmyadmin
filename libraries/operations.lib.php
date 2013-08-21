@@ -686,7 +686,7 @@ function PMA_getHtmlForMoveTable()
     }
     $html_output .= '&nbsp;<strong>.</strong>&nbsp;';
     $html_output .= '<input class="halfWidth" type="text" size="20" name="new_name"'
-        . ' onfocus="this.select()"'
+        . ' onfocus="this.select()" required '
         . 'value="' . htmlspecialchars($GLOBALS['table']) . '" /><br />';
 
     // starting with MySQL 5.0.24, SHOW CREATE TABLE includes the AUTO_INCREMENT
@@ -790,7 +790,7 @@ function PMA_getTableOptionFieldset($comment, $tbl_collation,
     $html_output .= '<tr><td>' . __('Rename table to') . '</td>'
         . '<td>'
         . '<input type="text" size="20" name="new_name" onfocus="this.select()"'
-        . 'value="' . htmlspecialchars($GLOBALS['table']) . '" />'
+        . 'value="' . htmlspecialchars($GLOBALS['table']) . '" required />'
         . '</td>'
         . '</tr>';
 
@@ -882,7 +882,7 @@ function PMA_getTableOptionFieldset($comment, $tbl_collation,
     ) {
         $html_output .= '<tr><td>'
             . '<label for="auto_increment_opt">AUTO_INCREMENT</label></td>'
-            . '<td><input type="text" name="new_auto_increment" '
+            . '<td><input type="number" name="new_auto_increment" '
             . 'id="auto_increment_opt"'
             . 'value="' . $auto_increment . '" /></td>'
             . '</tr> ';
@@ -1016,7 +1016,7 @@ function PMA_getHtmlForCopytable()
             . '</select>';
     }
     $html_output .= '&nbsp;<strong>.</strong>&nbsp;';
-    $html_output .= '<input class="halfWidth" type="text" '
+    $html_output .= '<input class="halfWidth" type="text" required '
         . 'size="20" name="new_name" onfocus="this.select()" '
         . 'value="'. htmlspecialchars($GLOBALS['table']) . '"/><br />';
 

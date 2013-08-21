@@ -6852,8 +6852,8 @@ msgstr "인덱스 이름:"
 
 #: libraries/display_indexes.lib.php:67
 msgid ""
-"(\"PRIMARY\" <b>must</b> be the name of and <b>only of</b> a primary key!)"
-msgstr "(\"PRIMARY\"는 기본 키만의 <b>유일한</b> 이름입니다!)"
+"\"PRIMARY\" <b>must</b> be the name of and <b>only of</b> a primary key!"
+msgstr "\"PRIMARY\"는 기본 키만의 <b>유일한</b> 이름입니다!"
 
 #: libraries/display_indexes.lib.php:85
 msgid "Comment:"

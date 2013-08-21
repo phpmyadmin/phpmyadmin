@@ -161,7 +161,7 @@ function PMA_getHtmlForTableNameAndNoOfColumns()
         . ':&nbsp;<input type="text" name="table" size="40" maxlength="80"'
         . ' value="'
         . (isset($_REQUEST['table']) ? htmlspecialchars($_REQUEST['table']) : '')
-        . '" class="textfield" autofocus />'
+        . '" class="textfield" autofocus required />'
         . '</td>'
         . '<td>';
     $html .= sprintf(

@@ -7161,10 +7161,10 @@ msgstr "インデックス名:"
 
 #: libraries/display_indexes.lib.php:67
 msgid ""
-"(\"PRIMARY\" <b>must</b> be the name of and <b>only of</b> a primary key!)"
+"\"PRIMARY\" <b>must</b> be the name of and <b>only of</b> a primary key!"
 msgstr ""
-"(<b>主キーは必ず</b> \"PRIMARY\" という名前でなければなりません。また<b>主"
-"キー以外に</b> \"PRIMARY\" という名前を<b>使ってはなりません</b>！)"
+"<b>主キーは必ず</b> \"PRIMARY\" という名前でなければなりません。また<b>主"
+"キー以外に</b> \"PRIMARY\" という名前を<b>使ってはなりません</b>！"
 
 #: libraries/display_indexes.lib.php:85
 #, fuzzy

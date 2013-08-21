@@ -6992,10 +6992,10 @@ msgstr "Index neve:"
 
 #: libraries/display_indexes.lib.php:67
 msgid ""
-"(\"PRIMARY\" <b>must</b> be the name of and <b>only of</b> a primary key!)"
+"\"PRIMARY\" <b>must</b> be the name of and <b>only of</b> a primary key!"
 msgstr ""
-"(Az elsődleges kulcs nevének, és <b>csak annak</b> \"PRIMARY\"-nak <b>kell</"
-"b> lennie!)"
+"Az elsődleges kulcs nevének, és <b>csak annak</b> \"PRIMARY\"-nak <b>kell</"
+"b> lennie!"
 
 #: libraries/display_indexes.lib.php:85
 msgid "Comment:"
