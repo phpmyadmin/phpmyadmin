@@ -6,7 +6,6 @@
  * @package    PhpMyAdmin-test
  * @subpackage Selenium
  */
-require_once 'PmaSeleniumTestCase.php';
 require_once 'Helper.php';
 
 /**
@@ -34,14 +33,21 @@ class PmaSeleniumCreateRemoveUserTest extends PHPUnit_Extensions_SeleniumTestCas
     private $_txtPassword;
 
     /**
+     * Helper Object
+     * 
+     * @var obj
+     */
+    private $_helper;
+
+    /**
      * Setup the browser environment to run the selenium test case
      *
      * @return void
      */
     public function setUp()
     {
-        $helper = new Helper();
-        $this->setBrowser(Helper::getBrowserString());
+        $this->_helper = new Helper($this);
+        $this->setBrowser($this->_helper->getBrowserString());
         $this->setBrowserUrl(TESTSUITE_PHPMYADMIN_HOST . TESTSUITE_PHPMYADMIN_URL);
         $this->_txtUsername = 'pma_user';
         $this->_txtPassword = 'abc_123';
@@ -54,8 +60,7 @@ class PmaSeleniumCreateRemoveUserTest extends PHPUnit_Extensions_SeleniumTestCas
      */
     public function testCreateRemoveUser()
     {
-        $log = new PmaSeleniumTestCase($this);
-        $log->login(TESTSUITE_USER, TESTSUITE_PASSWORD);
+        $this->_helper->login(TESTSUITE_USER, TESTSUITE_PASSWORD);
         $this->click("link=Users");
         $this->waitForElementPresent("fieldset_add_user");
         $this->click("link=Add user");
@@ -72,11 +77,12 @@ class PmaSeleniumCreateRemoveUserTest extends PHPUnit_Extensions_SeleniumTestCas
         $this->click("id=createdb-1");
         $this->click("id=createdb-2");
         $this->waitForElementPresent("fieldset_user_global_rights");
-        $this->click("link=Check All");
+        $this->click("id=addUsersForm_checkall");
         $this->waitForElementPresent("fieldset_add_user_footer");
         $this->click("name=adduser_submit");
-        $this->waitForElementPresent("css=span.ajax_notification");
-        $this->assertElementPresent("css=span.ajax_notification div.success");
+        $this->waitForElementPresent(
+            "css=div.success:contains('You have added a new user')"
+        );
         $this->waitForElementPresent("usersForm");
         $temp = $this->_txtUsername."&amp;#27;localhost";
         $this->click(
@@ -85,7 +91,8 @@ class PmaSeleniumCreateRemoveUserTest extends PHPUnit_Extensions_SeleniumTestCas
         $this->click("id=checkbox_drop_users_db");
         $this->getConfirmation();
         $this->click("id=buttonGo");
-        $this->waitForElementPresent("css=span.ajax_notification");
-        $this->assertElementPresent("css=span.ajax_notification div.success");
+        $this->waitForElementPresent(
+            "css=div.success:contains('The selected users have been deleted')"
+        );
     }
 }
