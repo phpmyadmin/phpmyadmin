@@ -21,6 +21,8 @@
         <const name="TESTSUITE_DATABASE" value="test"/>
         <const name="TESTSUITE_PHPMYADMIN_HOST" value="http://localhost" />
         <const name="TESTSUITE_PHPMYADMIN_URL" value="/phpmyadmin" />
+        <const name="TESTSUITE_MYSQL_USER" value="root" />
+        <const name="TESTSUITE_MYSQL_PASSWORD" value="root" />
     </php>
 
     <testsuites>

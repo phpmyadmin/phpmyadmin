@@ -56,6 +56,14 @@ class PmaSeleniumTestCase
     private $_config;
 
     /**
+     * mysqli object
+     *
+     * @access private
+     * @var object
+     */
+    private $_mysqli;
+
+    /**
      * constructor
      *
      * @param object $selenium Selenium Context
@@ -67,6 +75,7 @@ class PmaSeleniumTestCase
         $this->_btnLogin = 'input_go';
         $this->_config = new TestConfig();
         $this->_selenium = $selenium;
+        $this->_mysqli = null;
     }
 
     /**
@@ -82,8 +91,8 @@ class PmaSeleniumTestCase
         $this->_selenium->open($this->_config->getLoginURL());
         $this->_selenium->type($this->_txtUsername, $username);
         $this->_selenium->type($this->_txtPassword, $password);
-        $this->_selenium->click($this->_btnLogin);
-        $this->_selenium->waitForPageToLoad($this->_config->getTimeoutValue());
+        $this->_selenium->clickAndWait($this->_btnLogin);
+        //$this->_selenium->waitForPageToLoad($this->_config->getTimeoutValue());
     }
 
     /**
@@ -112,6 +121,56 @@ class PmaSeleniumTestCase
         } else {
             return false;
         }
+    }
+
+    /**
+    * Used to go to the homepage
+    *
+    * @return void
+    */
+    public function gotoHomepage()
+    {
+        $this->_selenium->click("css=div#serverinfo a:contains('Server:')");
+        $this->_selenium->waitForElementNotPresent('css=div#loading_parent');
+    }
+
+    /**
+     * Establishes a connection with the local database
+     * 
+     * @return void
+     */
+    public function dbConnect()
+    {
+        if ($this->_mysqli === null) {
+            list($user, $pass) = $this->_config->getDBCredentials();
+            
+            $this->_mysqli = new mysqli(
+                "localhost", $user, $pass
+            );
+            
+            if ($this->_mysqli->connect_errno) {
+                throw new Exception(
+                    'Failed to connect to MySQL (' . $this->_mysqli->error . ')'
+                );
+            }
+        }
+    }
+
+    /**
+     * Executes a database query
+     * 
+     * @param string $query SQL Query to be executed
+     * 
+     * @return void
+     */
+    public function dbQuery($query)
+    {
+        if ($this->_mysqli === null) {
+            throw new Exception(
+                'MySQL not connected'
+            );
+        }
+        $this->_mysqli->query($query);
     }
 }
 ?>
