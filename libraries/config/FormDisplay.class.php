@@ -210,7 +210,7 @@ class FormDisplay
             PMA_displayTabsTop($tabs);
         }
 
-        // valdiate only when we aren't displaying a "new server" form
+        // validate only when we aren't displaying a "new server" form
         $is_new_server = false;
         foreach ($this->_forms as $form) {
             /* @var $form Form */
@@ -371,6 +371,13 @@ class FormDisplay
             return;
         }
 
+        // detect password fields
+        if ($type === 'text'
+            && substr($translated_path, -9) === '-password'
+        ) {
+            $type = 'password';
+        }
+
         // TrustedProxies requires changes before displaying
         if ($system_path == 'TrustedProxies') {
             foreach ($value as $ip => &$v) {
@@ -387,6 +394,7 @@ class FormDisplay
         case 'text':
         case 'short_text':
         case 'number_text':
+        case 'password':
             $js_line .= '\'' . PMA_escapeJsString($value_default) . '\'';
             break;
         case 'checkbox':

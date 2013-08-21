@@ -7052,8 +7052,8 @@ msgstr "Nama indeks&nbsp;:"
 
 #: libraries/display_indexes.lib.php:67
 msgid ""
-"(\"PRIMARY\" <b>must</b> be the name of and <b>only of</b> a primary key!)"
-msgstr "(\"PRIMARY\" <b>mesti</b> nama dan <b>semesti</b> dari kekunci utama!)"
+"\"PRIMARY\" <b>must</b> be the name of and <b>only of</b> a primary key!"
+msgstr "\"PRIMARY\" <b>mesti</b> nama dan <b>semesti</b> dari kekunci utama!"
 
 #: libraries/display_indexes.lib.php:85
 #, fuzzy

@@ -6957,10 +6957,10 @@ msgstr "Indexnamn:"
 
 #: libraries/display_indexes.lib.php:67
 msgid ""
-"(\"PRIMARY\" <b>must</b> be the name of and <b>only of</b> a primary key!)"
+"\"PRIMARY\" <b>must</b> be the name of and <b>only of</b> a primary key!"
 msgstr ""
-"(\"PRIMARY\" <b>måste</b> vara namnet på och <b>endast på</b> en "
-"primärnyckel!)"
+"\"PRIMARY\" <b>måste</b> vara namnet på och <b>endast på</b> en "
+"primärnyckel!"
 
 #: libraries/display_indexes.lib.php:85
 msgid "Comment:"

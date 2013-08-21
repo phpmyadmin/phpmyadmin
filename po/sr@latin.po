@@ -6950,8 +6950,8 @@ msgstr "Ime ključa :"
 
 #: libraries/display_indexes.lib.php:67
 msgid ""
-"(\"PRIMARY\" <b>must</b> be the name of and <b>only of</b> a primary key!)"
-msgstr "(\"PRIMARY\" <b>mora</b> biti ime <b>samo</b> primarnog ključa!)"
+"\"PRIMARY\" <b>must</b> be the name of and <b>only of</b> a primary key!"
+msgstr "\"PRIMARY\" <b>mora</b> biti ime <b>samo</b> primarnog ključa!"
 
 #: libraries/display_indexes.lib.php:85
 #, fuzzy

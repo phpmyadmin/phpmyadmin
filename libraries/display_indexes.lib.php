@@ -63,9 +63,8 @@ $html .= '<div>'
     . __('Index name:')
     . PMA_Util::showHint(
         PMA_Message::notice(
-            __(
-                '("PRIMARY" <b>must</b> be the name of'
-                . ' and <b>only of</b> a primary key!)'
+            __('"PRIMARY" <b>must</b> be the name of'
+                . ' and <b>only of</b> a primary key!'
             )
         )
     )

@@ -24,7 +24,7 @@ phpMyAdmin - ChangeLog
 + rfe #175 Allow cross-database relations
 - [core] Dropped support for PHP 5.2.
 + rfe #487 and rfe #1405 Find and Replacing column wise
-+ rfe #1373 Use same create view dialog for editing a view 
++ rfe #1373 Use same create view dialog for editing a view
 + rfe #316 Configurable menus; allow user groups with customized menus per group
 - bug #4024 Editing field a record is selected by makes pma load forever
 - bug #4035 Query "inline" link disappears when turning off "Explain SQL" option
@@ -34,6 +34,8 @@ phpMyAdmin - ChangeLog
 + Dropped configuration directive: MySQLManual*
 + rfe #1041 and bug #2954 Improved support for SSL connections between MySQL and phpMyAdmin
 - bug #4056 Language: Vague error message when adding a varchar field
++ [setup] rfe #1452 Use type="password" for server passwords
++ rfe #1451 HTML5 input tag enhancements
 
 4.0.6.0 (not yet released)
 - bug #4036 Call to undefined function mb_detect_encoding (clarify the doc)
@@ -85,7 +87,7 @@ phpMyAdmin - ChangeLog
 - bug #3966 Only display "table has no unique column" message when applicable
 - bug #3965 Default language wrong with zh-TW
 - bug #3921 Call to undefined function PMA_isSuperuser() if default server is
-not set 
+not set
 - bug #3971 Ctrl/shift + click opens links in same window
 - bug #3964 Import using https does not work
 - bug Missing removeCRLF option in ExportCsv and ExportExcel plugins
@@ -112,7 +114,7 @@ not set
 - bug #3925 Table sorting in navigation panel is case-sensitive
 - bug #3915 Import of CSV file (Replace table data with file) with duplicate values
 - bug #3907 undefined variables, function parameter problems
-- bug #3898 Structure not refreshed after column drop 
+- bug #3898 Structure not refreshed after column drop
 - bug #3926 View is not updatable
 - bug #3919 PropertiesIconic not honored
 - bug #3930 Databases to choose for specific privileges show up escaped
@@ -130,7 +132,7 @@ not set
 - bug #3879 Import broken for CSV using LOAD DATA
 - bug #3889 When login fails and error display is active, login data is displayed
 - bug #3890 [import] Web server upload directory import fails
-- bug #3891 [import] Server upload folder import file name missing in success message 
+- bug #3891 [import] Server upload folder import file name missing in success message
 + rfe #1421 [auth] Add retry button on connection failure with config auth
 - bug #3894 [interface] Provide feedback if no columns selected for multi-submit
 - bug #3799 [interface] Incorrect select field change on ctrl key navigation in Firefox
@@ -142,8 +144,8 @@ not set
 - bug #3905 [export] Custom Exporting exports all databases
 - bug #3909 [import] Import of CSV FIle to selected table doesn't work
 - bug #3904 Browsing an empty table should not display its Structure
-- bug #3908 Calendar widget improperly redirects to home 
-- bug #3918 Greyed out tabs when there are no rows fixed 
+- bug #3908 Calendar widget improperly redirects to home
+- bug #3918 Greyed out tabs when there are no rows fixed
 - bug #3916 [interface] Missing scrollbar (original theme)
 + [vendor] add tcpdf path to vendor_config.php
 - bug fix compat with tcpdf >= 6.0 (tested with 6.0.012)
@@ -237,7 +239,7 @@ VerboseMultiSubmit, ReplaceHelpImg
 - bug #3762 [core] Make Advisor work on Windows withou COM extension.
 - bug #3519 [export] Prevent infinite recursion in PDF export.
 - bug #3827 Table specific privileges not displayed for db name containing
-underscore 
+underscore
 - rfe #1386 Add IF NOT EXISTS clause when copying database
 - No longer package .travis.yml configuration file when creating a release.
 - bug #3830 Can't export custom query because it lowercases table names
@@ -285,7 +287,7 @@ underscore
 - bug #3828 MariaDB reported as MySQL
 - bug #3854 Incorrect header for Safari 6.0
 - bug #3705 Attempt to open trigger for edit gives NULL
-- Use HTML5 DOCTYPE 
+- Use HTML5 DOCTYPE
 - [security] Self-XSS on GIS visualisation page, reported by Janek Vind
 - bug #3800 Incorrect keyhandler behaviour #2
 

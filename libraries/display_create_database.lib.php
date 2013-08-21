@@ -27,7 +27,8 @@ if ($is_create_db_priv) {
     $html .= PMA_URL_getHiddenInputs('', '', 5);
     $html .= '<input type="hidden" name="reload" value="1" />';
     $html .= '<input type="text" name="new_db" value="' . $db_to_create
-        . '" maxlength="64" class="textfield" id="text_create_db"/>';
+        . '" maxlength="64" class="textfield" id="text_create_db" '
+        . 'required placeholder="'.__('Database name').'"/>';
 
     include_once './libraries/mysql_charsets.inc.php';
     $html .= PMA_generateCharsetDropdownBox(

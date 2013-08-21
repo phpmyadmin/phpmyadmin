@@ -7042,8 +7042,8 @@ msgstr "Имя индекса&nbsp;:"
 
 #: libraries/display_indexes.lib.php:67
 msgid ""
-"(\"PRIMARY\" <b>must</b> be the name of and <b>only of</b> a primary key!)"
-msgstr "(Имя \"PRIMARY\" <b>должен</b> иметь <b>только</b> первичный индекс!)"
+"\"PRIMARY\" <b>must</b> be the name of and <b>only of</b> a primary key!"
+msgstr "Имя \"PRIMARY\" <b>должен</b> иметь <b>только</b> первичный индекс!"
 
 #: libraries/display_indexes.lib.php:85
 msgid "Comment:"

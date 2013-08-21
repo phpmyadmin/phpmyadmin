@@ -1141,7 +1141,7 @@ function PMA_getBinaryAndBlobColumn(
  * Get HTML input type
  *
  * @param array   $column               description of column in given table
- * @param string  $column_name_appendix the name atttibute
+ * @param string  $column_name_appendix the name attribute
  * @param array   $special_chars        special characters
  * @param integer $fieldsize            html field size
  * @param string  $unnullify_trigger    validation string
@@ -1154,16 +1154,53 @@ function PMA_getBinaryAndBlobColumn(
 function PMA_getHTMLinput($column, $column_name_appendix, $special_chars,
     $fieldsize, $unnullify_trigger, $tabindex, $tabindex_for_value, $idindex
 ) {
+    static $min_max_data = array(
+        'signed' => array(
+            'tinyint'   => array('0', '255'),
+            'smallint'  => array('0', '65535'),
+            'mediumint' => array('0', '16777215'),
+            'int'       => array('0', '4294967295'),
+            'bigint'    => array('0', '18446744073709551615')
+        ),
+        'unsigned' => array(
+            'tinyint'   => array('-128', '127'),
+            'smallint'  => array('-32768', '32767'),
+            'mediumint' => array('-8388608', '8388607'),
+            'int'       => array('-2147483648', '2147483647'),
+            'bigint'    => array('-9223372036854775808', '9223372036854775807')
+        )
+    );
+
+    $input_type = 'text';
     $the_class = 'textfield';
-    if ($column['pma_type'] == 'date') {
+    if ($column['pma_type'] === 'date') {
         $the_class .= ' datefield';
-    } elseif ($column['pma_type'] == 'datetime'
-        || substr($column['pma_type'], 0, 9) == 'timestamp'
+        $input_type = 'date';
+    } elseif ($column['pma_type'] === 'datetime'
+        || substr($column['pma_type'], 0, 9) === 'timestamp'
     ) {
         $the_class .= ' datetimefield';
+    } elseif ($column['pma_type'] === 'time') {
+        $input_type = 'time';
     }
-    return '<input type="text" name="fields' . $column_name_appendix . '"'
+    $input_min_max = false;
+    if (in_array(
+        $column['True_Type'],
+        array('tinyint', 'smallint', 'mediumint', 'int', 'bigint')
+    )) {
+        $input_type = 'number';
+        $is_unsigned = substr($column['pma_type'], -9) === ' unsigned';
+        $min_max_values
+            = $min_max_data[$is_unsigned ? 'unsigned' : 'signed']
+                [$column['True_Type']];
+        $input_min_max = 'min="' . $min_max_values[0] . '" '
+            . 'max="' . $min_max_values[1] . '" ';
+    }
+    return '<input type="' . $input_type . '"'
+        . ' name="fields'. $column_name_appendix . '"'
         . ' value="' . $special_chars . '" size="' . $fieldsize . '"'
+        . ($input_min_max !== false ? ' ' . $input_min_max : '')
+        . ($input_type === 'time' ? ' step="1"' : '')
         . ' class="' . $the_class . '" ' . $unnullify_trigger
         . ' tabindex="' . ($tabindex + $tabindex_for_value). '"'
         . ' id="field_' . ($idindex) . '_3" />';

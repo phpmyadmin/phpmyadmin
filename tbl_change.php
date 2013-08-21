@@ -209,14 +209,14 @@ foreach ($rows as $row_id => $current_row) {
                 $column['len'] = 30;
             }
         }
-        //Call validation when the form submited...
+        //Call validation when the form submitted...
         $unnullify_trigger = $chg_evt_handler
             . "=\"return verificationsAfterFieldChange('"
             . PMA_escapeJsString($column['Field_md5']) . "', '"
             . PMA_escapeJsString($jsvkey) . "','".$column['pma_type'] . "')\"";
 
         // Use an MD5 as an array index to avoid having special characters
-        // in the name atttibute (see bug #1746964 )
+        // in the name attribute (see bug #1746964 )
         $column_name_appendix = $vkey . '[' . $column['Field_md5'] . ']';
 
         if ($column['Type'] == 'datetime'
