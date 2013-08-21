@@ -1092,8 +1092,10 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
      * @return void
      */
     public function testBlowfishDecrypt()
-    {   
-        if (! function_exists('mcrypt_encrypt')) {
+    {
+        if (function_exists('mcrypt_encrypt')) {
+            $this->markTestIncomplete('Not testing mcrypt support');
+        } else {
             $this->assertEquals(
                 'data123',
                 $this->object->blowfishDecrypt(
