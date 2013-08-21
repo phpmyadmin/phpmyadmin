@@ -39,18 +39,18 @@ class PMA_DBI_Mysqli_Test extends PHPUnit_Framework_TestCase
      */
     protected function setUp()
     {
-        $GLOBALS['cfg']['Server']['ssl'] = true;
+        $GLOBALS['cfg']['Server']['ssl'] = false;
         $GLOBALS['cfg']['PersistentConnections'] = false;
-        $GLOBALS['cfg']['Server']['compress'] = true; 
-        $GLOBALS['cfg']['MaxCharactersInDisplayedSQL'] = 1000; 
-        $GLOBALS['cfg']['ActionLinksMode'] = "both";  
+        $GLOBALS['cfg']['Server']['compress'] = true;
+        $GLOBALS['cfg']['MaxCharactersInDisplayedSQL'] = 1000;
+        $GLOBALS['cfg']['ActionLinksMode'] = "both";
         $GLOBALS['pmaThemeImage'] = 'image';
 
         //$_SESSION
         $_SESSION['PMA_Theme'] = PMA_Theme::load('./themes/pmahomme');
         $_SESSION['PMA_Theme'] = new PMA_Theme();
         $this->object = new PMA_DBI_Mysqli();
-        
+
         //Mock DBI, just for postConnect usage
         $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
             ->disableOriginalConstructor()
@@ -83,7 +83,7 @@ class PMA_DBI_Mysqli_Test extends PHPUnit_Framework_TestCase
         if (! PMA_HAS_RUNKIT) {
             $this->markTestSkipped("Cannot redefine function");
         }
-        
+
         //FOR UT, we just test the right mysql client API is called
         runkit_function_redefine('mysqli_real_connect','','return "mysqli_real_connect";');
         runkit_function_redefine('mysqli_init','','return "mysqli_init";');
@@ -97,7 +97,7 @@ class PMA_DBI_Mysqli_Test extends PHPUnit_Framework_TestCase
         runkit_function_redefine('mysqli_get_host_info','','return "mysqli_get_host_info";');
         runkit_function_redefine('mysqli_get_proto_info','','return "mysqli_get_proto_info";');
         runkit_function_redefine('mysqli_get_client_info','','return "mysqli_get_client_info";');
-   
+
         $user = 'PMA_user';
         $password = 'PMA_password';
         $is_controluser = false;
@@ -107,7 +107,7 @@ class PMA_DBI_Mysqli_Test extends PHPUnit_Framework_TestCase
             'host' => 'locahost',
         );
         $auxiliary_connection = true;
-    
+
         //test for connect
         $ret = $this->object->connect(
             $user, $password, $is_controluser,
@@ -117,7 +117,7 @@ class PMA_DBI_Mysqli_Test extends PHPUnit_Framework_TestCase
             'mysqli_init',
             $ret
         );
-    
+
         //test for realQuery
         $query = 'select * from DBI';
         $link = $ret;
@@ -127,7 +127,7 @@ class PMA_DBI_Mysqli_Test extends PHPUnit_Framework_TestCase
             'mysqli_query',
             $ret
         );
-    
+
         //test for realMultiQuery
         $result = $ret;
         $ret = $this->object->realMultiQuery($link, $query);
@@ -135,7 +135,7 @@ class PMA_DBI_Mysqli_Test extends PHPUnit_Framework_TestCase
             'mysqli_multi_query',
             $ret
         );
-    
+
         //test for fetchArray
         $result = $ret;
         $ret = $this->object->fetchArray($result);
@@ -143,7 +143,7 @@ class PMA_DBI_Mysqli_Test extends PHPUnit_Framework_TestCase
             'mysqli_fetch_array',
             $ret
         );
-    
+
         //test for fetchAssoc
         $result = $ret;
         $ret = $this->object->fetchAssoc($result);
@@ -151,7 +151,7 @@ class PMA_DBI_Mysqli_Test extends PHPUnit_Framework_TestCase
             'mysqli_fetch_array',
             $ret
         );
-    
+
         //test for fetchRow
         $result = $ret;
         $ret = $this->object->fetchRow($result);
@@ -159,7 +159,7 @@ class PMA_DBI_Mysqli_Test extends PHPUnit_Framework_TestCase
             'mysqli_fetch_array',
             $ret
         );
-    
+
         //test for dataSeek
         $result = $ret;
         $offset = 10;
@@ -168,7 +168,7 @@ class PMA_DBI_Mysqli_Test extends PHPUnit_Framework_TestCase
             'mysqli_data_seek',
             $ret
         );
-    
+
         //test for moreResults
         $link = $ret;
         $ret = $this->object->moreResults($link);
@@ -176,7 +176,7 @@ class PMA_DBI_Mysqli_Test extends PHPUnit_Framework_TestCase
             'mysqli_more_results',
             $ret
         );
-    
+
         //test for nextResult
         $link = $ret;
         $ret = $this->object->nextResult($link);
@@ -184,7 +184,7 @@ class PMA_DBI_Mysqli_Test extends PHPUnit_Framework_TestCase
             'mysqli_next_result',
             $ret
         );
-    
+
         //test for getHostInfo
         $link = $ret;
         $ret = $this->object->getHostInfo($link);
@@ -192,7 +192,7 @@ class PMA_DBI_Mysqli_Test extends PHPUnit_Framework_TestCase
             'mysqli_get_host_info',
             $ret
         );
-    
+
         //test for getProtoInfo
         $link = $ret;
         $ret = $this->object->getProtoInfo($link);
@@ -200,7 +200,7 @@ class PMA_DBI_Mysqli_Test extends PHPUnit_Framework_TestCase
             'mysqli_get_proto_info',
             $ret
         );
-    
+
         //test for getClientInfo
         $link = $ret;
         $ret = $this->object->getClientInfo();
@@ -209,7 +209,7 @@ class PMA_DBI_Mysqli_Test extends PHPUnit_Framework_TestCase
             $ret
         );
     }
-      
+
     /**
      * Test for selectDb
      *
@@ -224,7 +224,7 @@ class PMA_DBI_Mysqli_Test extends PHPUnit_Framework_TestCase
         $this->assertEquals(
             false,
             $this->object->selectDb("PMA")
-        ); 
+        );
     }
 
     /**
