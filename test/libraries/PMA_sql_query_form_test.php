@@ -8,7 +8,6 @@
 
 //the following defination should be used globally
 $GLOBALS['server'] = 1;
-define('PMA_CSDROPDOWN_CHARSET',   1);
 //_SESSION
 $_SESSION['relation'][$GLOBALS['server']] = array(
     'table_coords' => "table_name",
