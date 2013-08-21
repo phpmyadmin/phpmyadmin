@@ -22,7 +22,7 @@ class PMA_TblColumnsDefinitionFormTest extends PHPUnit_Framework_TestCase
 {
     /**
      * SetUp function for test cases
-     * 
+     *
      * @return void
      */
     public function setUp()
@@ -35,7 +35,7 @@ class PMA_TblColumnsDefinitionFormTest extends PHPUnit_Framework_TestCase
 
     /**
      * Test for PMA_getFormsParameters
-     * 
+     *
      * @return void
      */
     public function testGetFormsParameters()
@@ -98,7 +98,7 @@ class PMA_TblColumnsDefinitionFormTest extends PHPUnit_Framework_TestCase
 
     /**
      * Test for PMA_getHtmlForTableConfigurations
-     * 
+     *
      * @return void
      */
     public function testGetHtmlForTableConfigurations()
@@ -170,7 +170,7 @@ class PMA_TblColumnsDefinitionFormTest extends PHPUnit_Framework_TestCase
 
     /**
      * Test for PMA_getHtmlForFooter
-     * 
+     *
      * @return void
      */
     public function testGetHtmlForFooter()
@@ -201,7 +201,7 @@ class PMA_TblColumnsDefinitionFormTest extends PHPUnit_Framework_TestCase
 
     /**
      * Test for PMA_getHtmlForTableNameAndNoOfColumns
-     * 
+     *
      * @return void
      */
     public function testGetHtmlForTableNameAndNoOfColumns()
@@ -238,7 +238,7 @@ class PMA_TblColumnsDefinitionFormTest extends PHPUnit_Framework_TestCase
 
     /**
      * Test for PMA_getHtmlForTableFieldDefinitions
-     * 
+     *
      * @return void
      */
     public function testGetHtmlForTableFieldDefinitions()
@@ -279,7 +279,7 @@ class PMA_TblColumnsDefinitionFormTest extends PHPUnit_Framework_TestCase
 
     /**
      * Test for PMA_getHtmlForTableCreateOrAddField
-     * 
+     *
      * @return void
      */
     public function testGetHtmlForTableCreateOrAddField()
@@ -343,7 +343,7 @@ class PMA_TblColumnsDefinitionFormTest extends PHPUnit_Framework_TestCase
 
     /**
      * Test for PMA_getHeaderCells
-     * 
+     *
      * @return void
      */
     public function testGetHeaderCells()
@@ -375,7 +375,7 @@ class PMA_TblColumnsDefinitionFormTest extends PHPUnit_Framework_TestCase
 
     /**
      * Test for PMA_getMoveColumns
-     * 
+     *
      * @return void
      */
     public function testGetMoveColumns()
@@ -404,7 +404,7 @@ class PMA_TblColumnsDefinitionFormTest extends PHPUnit_Framework_TestCase
 
     /**
      * Test for PMA_getRowDataForRegeneration
-     * 
+     *
      * @return void
      */
     public function testGetRowDataForRegeneration()
@@ -443,7 +443,7 @@ class PMA_TblColumnsDefinitionFormTest extends PHPUnit_Framework_TestCase
 
     /**
      * Test for PMA_getSubmitPropertiesForRegeneration
-     * 
+     *
      * @return void
      */
     public function testGetSubmitPropertiesForRegeneration()
@@ -465,7 +465,7 @@ class PMA_TblColumnsDefinitionFormTest extends PHPUnit_Framework_TestCase
 
     /**
      * Test for PMA_getColumnMetaForDefault
-     * 
+     *
      * @return void
      */
     public function testHandleRegeneration()
@@ -498,7 +498,7 @@ class PMA_TblColumnsDefinitionFormTest extends PHPUnit_Framework_TestCase
 
     /**
      * Test for PMA_getColumnMetaForDefault
-     * 
+     *
      * @return void
      */
     public function testGetColumnMetaForDefault()
@@ -605,7 +605,7 @@ class PMA_TblColumnsDefinitionFormTest extends PHPUnit_Framework_TestCase
 
     /**
      * Test for PMA_getHtmlForColumnName
-     * 
+     *
      * @return void
      */
     public function testGetHtmlForColumnName()
@@ -626,7 +626,7 @@ class PMA_TblColumnsDefinitionFormTest extends PHPUnit_Framework_TestCase
 
     /**
      * Test for PMA_getHtmlForColumnType
-     * 
+     *
      * @return void
      */
     public function testGetHtmlForColumnType()
@@ -653,7 +653,7 @@ class PMA_TblColumnsDefinitionFormTest extends PHPUnit_Framework_TestCase
 
     /**
      * Test for PMA_getHtmlForTransformationOption
-     * 
+     *
      * @return void
      */
     public function testGetHtmlForTransformationOption()
@@ -683,7 +683,7 @@ class PMA_TblColumnsDefinitionFormTest extends PHPUnit_Framework_TestCase
 
     /**
      * Test for PMA_getHtmlForBrowserTransformation
-     * 
+     *
      * @return void
      */
     public function testGetHtmlForBrowserTransformation()
@@ -736,7 +736,7 @@ class PMA_TblColumnsDefinitionFormTest extends PHPUnit_Framework_TestCase
 
     /**
      * Test for PMA_getHtmlForMoveColumn
-     * 
+     *
      * @return void
      */
     public function testGetHtmlForMoveColumn()
@@ -794,7 +794,7 @@ class PMA_TblColumnsDefinitionFormTest extends PHPUnit_Framework_TestCase
 
     /**
      * Test for PMA_getHtmlForColumnComment
-     * 
+     *
      * @return void
      */
     public function testGetHtmlForColumnComment()
@@ -822,7 +822,7 @@ class PMA_TblColumnsDefinitionFormTest extends PHPUnit_Framework_TestCase
 
     /**
      * Test for PMA_getHtmlForColumnAutoIncrement
-     * 
+     *
      * @return void
      */
     public function testGetHtmlForColumnAutoIncrement()
@@ -846,7 +846,7 @@ class PMA_TblColumnsDefinitionFormTest extends PHPUnit_Framework_TestCase
 
     /**
      * Test for PMA_getHtmlForColumnIndexes
-     * 
+     *
      * @return void
      */
     public function testGetHtmlForColumnIndexes()
@@ -901,7 +901,7 @@ class PMA_TblColumnsDefinitionFormTest extends PHPUnit_Framework_TestCase
 
     /**
      * Test for PMA_getHtmlForIndexTypeOption
-     * 
+     *
      * @return void
      */
     public function testGetHtmlForIndexTypeOption()
@@ -925,7 +925,7 @@ class PMA_TblColumnsDefinitionFormTest extends PHPUnit_Framework_TestCase
 
     /**
      * Test for PMA_getHtmlForColumnNull
-     * 
+     *
      * @return void
      */
     public function testGetHtmlForColumnNull()
@@ -949,7 +949,7 @@ class PMA_TblColumnsDefinitionFormTest extends PHPUnit_Framework_TestCase
 
     /**
      * Test for PMA_getHtmlForColumnAttribute
-     * 
+     *
      * @return void
      */
     public function testGetHtmlForColumnAttribute()
@@ -1005,7 +1005,7 @@ class PMA_TblColumnsDefinitionFormTest extends PHPUnit_Framework_TestCase
 
     /**
      * Test for PMA_getHtmlForColumnCollation
-     * 
+     *
      * @return void
      */
     public function testGetHtmlForColumnCollation()
@@ -1036,7 +1036,7 @@ class PMA_TblColumnsDefinitionFormTest extends PHPUnit_Framework_TestCase
 
     /**
      * Test for PMA_getHtmlForColumnLength
-     * 
+     *
      * @return void
      */
     public function testGetHtmlForColumnLength()
@@ -1063,7 +1063,7 @@ class PMA_TblColumnsDefinitionFormTest extends PHPUnit_Framework_TestCase
 
     /**
      * Test for PMA_getHtmlForColumnDefault
-     * 
+     *
      * @return void
      */
     public function testGetHtmlForColumnDefault()
@@ -1105,12 +1105,13 @@ class PMA_TblColumnsDefinitionFormTest extends PHPUnit_Framework_TestCase
 
     /**
      * Test for PMA_getFormParamsForOldColumn
-     * 
+     *
      * @return void
      */
     public function testGetFormParamsForOldColumn()
     {
         // Function needs correction
+        $this->markTestIncomplete('Not yet implemented!');
     }
 }
 ?>
