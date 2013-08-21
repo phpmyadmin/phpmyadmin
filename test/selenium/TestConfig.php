@@ -48,8 +48,8 @@ class TestConfig
         }
         $this->setLoginURL(TESTSUITE_PHPMYADMIN_HOST . TESTSUITE_PHPMYADMIN_URL);
         $this->setDBCredentials(
-            TESTSUITE_MYSQL_USER,
-            TESTSUITE_MYSQL_PASSWORD
+            TESTSUITE_USER,
+            TESTSUITE_PASSWORD
         );
     }
 
@@ -121,10 +121,10 @@ class TestConfig
 
     /**
      * Sets database credentials
-     * 
+     *
      * @param string $user DB User
      * @param string $pass DB Password
-     * 
+     *
      * @return void
      */
     public function setDBCredentials($user, $pass)
@@ -134,7 +134,7 @@ class TestConfig
 
     /**
      * Return database credentials
-     * 
+     *
      * @return array DB user and pass
      */
     public function getDBCredentials()
