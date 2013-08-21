@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Selenium Helper class for selenium test cases
+ * Selenium helper class for TestCases
  *
  * @package    PhpMyAdmin-test
  * @subpackage Selenium
@@ -9,7 +9,7 @@
 require_once 'TestConfig.php';
 
 /**
- * Selenium Helper Class
+ * Helper class
  *
  * @package    PhpMyAdmin-test
  * @subpackage Selenium
@@ -17,43 +17,193 @@ require_once 'TestConfig.php';
 class Helper
 {
     /**
-     * SeleniumTestSuite instance
+     * Username of the user
      *
-     * @var object
+     * @access private
+     * @var string
      */
-    public static $selenium;
+    private $_txtUsername;
 
     /**
-     * TestConfig instance
+     * Password for the user
      *
-     * @var object TestConfig
+     * @access private
+     * @var string
      */
-    public static $config;
+    private $_txtPassword;
+
+    /**
+     * id of the login button
+     *
+     * @access private
+     * @var string
+     */
+    private $_btnLogin;
+
+    /**
+     * Selenium Context
+     *
+     * @access private
+     * @var object
+     */
+    private $_selenium;
+
+    /**
+     * Configuration Instance
+     *
+     * @access private
+     * @var object
+     */
+    private $_config;
+
+    /**
+     * mysqli object
+     *
+     * @access private
+     * @var object
+     */
+    private $_mysqli;
 
     /**
      * constructor
      *
+     * @param object $selenium Selenium Context
      */
-    function __construct()
+    public function __construct($selenium)
     {
-        self::$config = new TestConfig();
+        $this->_txtUsername = 'input_username';
+        $this->_txtPassword = 'input_password';
+        $this->_btnLogin = 'input_go';
+        $this->_config = new TestConfig();
+        $this->_selenium = $selenium;
+        $this->_mysqli = null;
     }
 
-    public static function isLoggedIn($selenium)
+    /**
+     * perform a login
+     *
+     * @param string $username Username
+     * @param string $password Password
+     *
+     * @return void
+     */
+    public function login($username, $password)
     {
-        return $selenium->isElementPresent('//*[@id="serverinfo"]/a[1]');
+        $this->_selenium->open($this->_config->getLoginURL());
+        $this->_selenium->type($this->_txtUsername, $username);
+        $this->_selenium->type($this->_txtPassword, $password);
+        $this->_selenium->clickAndWait($this->_btnLogin);
+        //$this->_selenium->waitForPageToLoad($this->_config->getTimeoutValue());
     }
 
-    public static function logOutIfLoggedIn($selenium)
+    /**
+     * Checks whether the login is successful
+     *
+     * @return boolean
+     */
+    public function isSuccessLogin()
     {
-        if (self::isLoggedIn($selenium)) {
-            $selenium->clickAndWait("css=img.icon.ic_s_loggoff");
+        if ($this->_selenium->isElementPresent("//*[@id=\"serverinfo\"]")) {
+            return true;
+        } else {
+            return false;
         }
     }
 
-    public static function getBrowserString()
+    /**
+    * Checks whether the login is unsuccessful
+    *
+    * @return boolean
+    */
+    public function isUnsuccessLogin()
     {
-        $browserString = self::$config->getCurrentBrowser();
+        if ($this->_selenium->isElementPresent("css=div.error")) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    /**
+    * Used to go to the homepage
+    *
+    * @return void
+    */
+    public function gotoHomepage()
+    {
+        $this->_selenium->click("css=div#serverinfo a:contains('Server:')");
+        $this->_selenium->waitForElementNotPresent('css=div#loading_parent');
+    }
+
+    /**
+     * Establishes a connection with the local database
+     * 
+     * @return void
+     */
+    public function dbConnect()
+    {
+        if ($this->_mysqli === null) {
+            list($user, $pass) = $this->_config->getDBCredentials();
+            
+            $this->_mysqli = new mysqli(
+                "localhost", $user, $pass
+            );
+            
+            if ($this->_mysqli->connect_errno) {
+                throw new Exception(
+                    'Failed to connect to MySQL (' . $this->_mysqli->error . ')'
+                );
+            }
+        }
+    }
+
+    /**
+     * Executes a database query
+     * 
+     * @param string $query SQL Query to be executed
+     * 
+     * @return void
+     */
+    public function dbQuery($query)
+    {
+        if ($this->_mysqli === null) {
+            throw new Exception(
+                'MySQL not connected'
+            );
+        }
+        $this->_mysqli->query($query);
+    }
+
+    /**
+     * Check if user is logged in to phpmyadmin
+     * 
+     * @return boolean Where or not user is logged in
+     */
+    public function isLoggedIn()
+    {
+        return $this->_selenium->isElementPresent('//*[@id="serverinfo"]/a[1]');
+    }
+
+    /**
+     * Perform a logout, if logged in
+     * 
+     * @return void
+     */
+    public function logOutIfLoggedIn()
+    {
+        if ($this->isLoggedIn()) {
+            $this->_selenium->clickAndWait("css=img.icon.ic_s_loggoff");
+        }
+    }
+
+    /**
+     * Get current browser string
+     * 
+     * @return string Browser String
+     */
+    public function getBrowserString()
+    {
+        $browserString = $this->_config->getCurrentBrowser();
         return $browserString;
     }
 }
