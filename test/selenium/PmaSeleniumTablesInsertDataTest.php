@@ -19,14 +19,14 @@ class PmaSeleniumTablesInsertDataTest extends PHPUnit_Extensions_SeleniumTestCas
 {
     /**
      * Name of database for the test
-     * 
+     *
      * @var string
      */
     private $_dbname;
 
     /**
      * PmaSeleniumTestCase Object
-     * 
+     *
      * @var obj
      */
     private $_seleniumTasks;
@@ -97,48 +97,49 @@ class PmaSeleniumTablesInsertDataTest extends PHPUnit_Extensions_SeleniumTestCas
         $this->waitForElementPresent("id=table_results");
 
         $this->assertEquals(
-            $this->getTable("table_results.1.4"),
-            "1"
+            "1",
+            $this->getTable("table_results.1.4")
         );
 
         $this->assertEquals(
-            $this->getTable("table_results.1.5"),
-            "abcd"
+            "abcd",
+            $this->getTable("table_results.1.5")
+
         );
 
         $this->assertEquals(
-            $this->getTable("table_results.1.6"),
-            "2011-01-20 02:00:02"
+            "2011-01-20 02:00:02",
+            $this->getTable("table_results.1.6")
         );
 
         $this->assertEquals(
-            $this->getTable("table_results.2.4"),
-            "2"
+            "2",
+            $this->getTable("table_results.2.4")
         );
 
         $this->assertEquals(
-            $this->getTable("table_results.2.5"),
-            "foo"
+            "foo",
+            $this->getTable("table_results.2.5")
         );
 
         $this->assertEquals(
-            $this->getTable("table_results.2.6"),
-            "2010-01-20 02:00:02"
+            "2010-01-20 02:00:02",
+            $this->getTable("table_results.2.6")
         );
 
         $this->assertEquals(
-            $this->getTable("table_results.3.4"),
-            "3"
+            "3",
+            $this->getTable("table_results.3.4")
         );
 
         $this->assertEquals(
-            $this->getTable("table_results.3.5"),
-            "Abcd"
+            "Abcd",
+            $this->getTable("table_results.3.5")
         );
 
         $this->assertEquals(
-            $this->getTable("table_results.3.6"),
-            "2012-01-20 02:00:02"
+            "2012-01-20 02:00:02",
+            $this->getTable("table_results.3.6")
         );
     }
     public function tearDown()
