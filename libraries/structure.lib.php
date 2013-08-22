@@ -2615,4 +2615,41 @@ function PMA_getMultipleFieldCommandType()
     
     return $submit_mult;
 }
+
+/**
+ * Function to display table browse for selected columns
+ * 
+ * @param string $db            current database
+ * @param string $table         current table
+ * @param string $goto          goto page url
+ * @param string $pmaThemeImage URI of the pma theme image
+ * 
+ * @return void
+ */
+function PMA_displayTableBrowseForSelectedColumns($db, $table, $goto,
+    $pmaThemeImage
+) {
+    $GLOBALS['active_page'] = 'sql.php';
+    $sql_query = '';
+    foreach ($_REQUEST['selected_fld'] as $idx => $sval) {
+        if ($sql_query == '') {
+            $sql_query .= 'SELECT ' . PMA_Util::backquote($sval);
+        } else {
+            $sql_query .=  ', ' . PMA_Util::backquote($sval);
+        }
+    }
+    $sql_query .= ' FROM ' . PMA_Util::backquote($db)
+    . '.' . PMA_Util::backquote($table);
+
+    // Parse and analyze the query
+    include_once 'libraries/parse_analyze.inc.php';
+
+    include_once 'libraries/sql.lib.php';
+    
+    PMA_executeQueryAndSendQueryResponse(
+        $analyzed_sql_results, false, $db, $table, null, null, null, false,
+        null, null, null, null, $goto, $pmaThemeImage, null, null,
+        null, $sql_query, null, null
+    );
+}
 ?>

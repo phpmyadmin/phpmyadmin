@@ -68,28 +68,10 @@ $submit_mult = PMA_getMultipleFieldCommandType();
 
 if (! empty($submit_mult)) {
     if (isset($_REQUEST['selected_fld'])) {
-        $err_url = 'tbl_structure.php?' . PMA_URL_getCommon($db, $table);
         if ($submit_mult == 'browse') {
             // browsing the table displaying only selected columns
-            $GLOBALS['active_page'] = 'sql.php';
-            $sql_query = '';
-            foreach ($_REQUEST['selected_fld'] as $idx => $sval) {
-                if ($sql_query == '') {
-                    $sql_query .= 'SELECT ' . PMA_Util::backquote($sval);
-                } else {
-                    $sql_query .=  ', ' . PMA_Util::backquote($sval);
-                }
-            }
-            $sql_query .= ' FROM ' . PMA_Util::backquote($db)
-            . '.' . PMA_Util::backquote($table);
-
-            // Parse and analyze the query
-            include_once 'libraries/parse_analyze.inc.php';
-
-            PMA_executeQueryAndSendQueryResponse(
-                $analyzed_sql_results, false, $db, $table, null, null, null, false,
-                null, null, null, null, $goto, $pmaThemeImage, null, null,
-                null, $sql_query, null, null
+            PMA_displayTableBrowseForSelectedColumns(
+                $db, $table, $goto, $pmaThemeImage
             );
         } else {
             // handle multiple field commands
@@ -178,5 +160,5 @@ $titles = PMA_getActionTitlesArray();
 $hidden_titles = PMA_getHiddenTitlesArray();
 
 //display table structure
-require_once 'libraries/display_structure.lib.php';
+require_once 'libraries/display_structure.inc.php';
 ?>
