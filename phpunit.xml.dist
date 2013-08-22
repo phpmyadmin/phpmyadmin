@@ -9,7 +9,7 @@
 
     <selenium>
         <browser name="Firefox on localhost"
-                 browser="*firefox"
+                 browser="firefox"
                  host="127.0.0.1"
                  port="4444"
                  timeout="30000"/>
