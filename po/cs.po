@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-08-18 06:16-0400\n"
-"PO-Revision-Date: 2013-08-11 16:26+0200\n"
+"PO-Revision-Date: 2013-08-22 11:45+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Czech <http://l10n.cihar.com/projects/phpmyadmin/master/cs/>\n"
 "Language: cs\n"
@@ -944,16 +944,14 @@ msgid "Missing value in the form!"
 msgstr "Chybějící hodnota ve formuláři!"
 
 #: js/messages.php:48
-#, fuzzy
 #| msgid "Not a valid port number"
 msgid "Please enter a valid number"
-msgstr "Neplatné číslo portu"
+msgstr "Prosím zadejte platné číslo"
 
 #: js/messages.php:49
-#, fuzzy
 #| msgid "Please enter correct captcha!"
 msgid "Please enter a valid length"
-msgstr "Zadejte, prosím, správný kód!"
+msgstr "Prosím zadejte platné délku"
 
 #: js/messages.php:50
 msgid "Add Index"
