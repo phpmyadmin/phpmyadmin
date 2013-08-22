@@ -63,11 +63,6 @@ if (isset($_REQUEST['report_export'])
     PMA_exportAsFileDownload($entries);
 }
 
-
-/**
- * Gets tables informations
- */
-
 $html = '<br />';
 
 /**
