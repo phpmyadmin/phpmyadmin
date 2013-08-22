@@ -210,6 +210,7 @@ function PMA_Bookmark_delete($db, $id)
 /**
  * Bookmark Support
  */
-$GLOBALS['cfg']['Bookmark'] = PMA_Bookmark_getParams();
-
+if (!defined('TESTSUITE')) {
+    $GLOBALS['cfg']['Bookmark'] = PMA_Bookmark_getParams();
+}
 ?>
