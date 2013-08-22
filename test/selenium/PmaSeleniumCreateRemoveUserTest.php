@@ -14,7 +14,7 @@ require_once 'Helper.php';
  * @package    PhpMyAdmin-test
  * @subpackage Selenium
  */
-class PmaSeleniumCreateRemoveUserTest extends PHPUnit_Extensions_SeleniumTestCase
+class PmaSeleniumCreateRemoveUserTest extends PHPUnit_Extensions_Selenium2TestCase
 {
     /**
      * Username for the user
@@ -61,38 +61,47 @@ class PmaSeleniumCreateRemoveUserTest extends PHPUnit_Extensions_SeleniumTestCas
     public function testCreateRemoveUser()
     {
         $this->_helper->login(TESTSUITE_USER, TESTSUITE_PASSWORD);
-        $this->click("link=Users");
-        $this->waitForElementPresent("fieldset_add_user");
-        $this->click("link=Add user");
-        $this->waitForElementPresent("fieldset_add_user_login");
-        $this->type("name=username", $this->_txtUsername);
-        $this->select("id=select_pred_hostname", "label=Local");
-        $this->click("id=button_generate_password");
-        $this->assertNotEquals("", $this->getValue("text_pma_pw"));
-        $this->assertNotEquals("", $this->getValue("text_pma_pw2"));
-        $this->assertNotEquals("", $this->getValue("generated_pw"));
-        $this->type("id=text_pma_pw", $this->_txtPassword);
-        $this->type("id=text_pma_pw2", $this->_txtPassword);
-        $this->waitForElementPresent("fieldset_add_user_database");
-        $this->click("id=createdb-1");
-        $this->click("id=createdb-2");
-        $this->waitForElementPresent("fieldset_user_global_rights");
-        $this->click("id=addUsersForm_checkall");
-        $this->waitForElementPresent("fieldset_add_user_footer");
-        $this->click("name=adduser_submit");
-        $this->waitForElementPresent(
-            "css=div.success:contains('You have added a new user')"
-        );
-        $this->waitForElementPresent("usersForm");
+        $this->byLinkText("Users")->click();
+        
+        $link = $this->_helper->waitForElement("byLinkText", "Add user");
+        $link->click();
+
+        $userField = $this->_helper->waitForElement("byName", "username");
+        $userField->value($this->_txtUsername);
+
+        $select = $this->select($this->byId("select_pred_hostname"));
+        $select->selectOptionByLabel("Local");
+
+        $this->byId("button_generate_password")->click();
+        $this->assertNotEquals("", $this->byId("text_pma_pw")->value());
+        $this->assertNotEquals("", $this->byId("text_pma_pw2")->value());
+        $this->assertNotEquals("", $this->byId("generated_pw")->value());
+
+        $this->byId("text_pma_pw")->value($this->_txtPassword);
+        $this->byId("text_pma_pw2")->value($this->_txtPassword);
+        $this->byId("createdb-1")->click();
+        $this->byId("createdb-2")->click();
+        $this->byId("addUsersForm_checkall")->click();
+        $this->byName("adduser_submit")->click();
+
+        $success = $this->_helper->waitForElement("byCssSelector", "div.success");
+        $this->assertContains('You have added a new user', $success->text());
+
+        $el = $this->_helper->waitForElement("byId", "usersForm");
         $temp = $this->_txtUsername."&amp;#27;localhost";
-        $this->click(
-            "xpath=(//input[@name='selected_usr[]'])[@value='".$temp."']"
-        );
-        $this->click("id=checkbox_drop_users_db");
-        $this->getConfirmation();
-        $this->click("id=buttonGo");
-        $this->waitForElementPresent(
-            "css=div.success:contains('The selected users have been deleted')"
+        
+        $this->byXPath(
+            "(//input[@name='selected_usr[]'])[@value='".$temp."']"
+        )->click();
+
+        $this->byId("checkbox_drop_users_db")->click();
+        $this->acceptAlert();
+        $this->byId("buttonGo")->click();
+
+        $success = $this->_helper->waitForElement("byCssSelector", "div.success");
+        $this->assertContains(
+            'The selected users have been deleted',
+            $success->text()
         );
     }
 }
