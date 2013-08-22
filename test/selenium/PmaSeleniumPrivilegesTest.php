@@ -15,7 +15,7 @@ require_once 'Helper.php';
  * @package    PhpMyAdmin-test
  * @subpackage Selenium
  */
-class PmaSeleniumPrivilegesTest extends PHPUnit_Extensions_SeleniumTestCase
+class PmaSeleniumPrivilegesTest extends PHPUnit_Extensions_Selenium2TestCase
 {
     /**
      * Helper Object
@@ -44,42 +44,45 @@ class PmaSeleniumPrivilegesTest extends PHPUnit_Extensions_SeleniumTestCase
     public function testChangePassword()
     {
         $this->_helper->login(TESTSUITE_USER, TESTSUITE_PASSWORD);
-        $this->click("link=Change password");
-        $this->waitForElementPresent("id=change_password_anchor");
+        $this->byLinkText("Change password")->click();
+        
+        $e = $this->_helper->waitForElement("byId", "change_password_anchor");
         try {
-            $this->waitForElementPresent("id=text_pma_pw");
-            $this->assertEquals("", $this->getValue("text_pma_pw"));
+            $ele = $this->_helper->waitForElement("byId", "text_pma_pw");
+            $this->assertEquals("", $ele->value());
         } catch (PHPUnit_Framework_AssertionFailedError $e) {
             array_push($this->verificationErrors, $e->toString());
         }
         try {
-            $this->waitForElementPresent("id=text_pma_pw2");
-            $this->assertEquals("", $this->getValue("text_pma_pw2"));
+            $ele = $this->_helper->waitForElement("byId", "text_pma_pw2");
+            $this->assertEquals("", $ele->value());
         } catch (PHPUnit_Framework_AssertionFailedError $e) {
             array_push($this->verificationErrors, $e->toString());
         }
         try {
-            $this->waitForElementPresent("id=generated_pw");
-            $this->assertEquals("", $this->getValue("generated_pw"));
+            $ele = $this->_helper->waitForElement("byId", "generated_pw");
+            $this->assertEquals("", $ele->value());
         } catch (PHPUnit_Framework_AssertionFailedError $e) {
             array_push($this->verificationErrors, $e->toString());
         }
-        $this->click("button_generate_password");
-        $this->assertNotEquals("", $this->getValue("text_pma_pw"));
-        $this->assertNotEquals("", $this->getValue("text_pma_pw2"));
-        $this->assertNotEquals("", $this->getValue("generated_pw"));
+        $this->byId("button_generate_password")->click();
+        $this->assertNotEquals("", $this->byId("text_pma_pw")->value());
+        $this->assertNotEquals("", $this->byId("text_pma_pw2")->value());
+        $this->assertNotEquals("", $this->byId("generated_pw")->value());
 
         if (TESTSUITE_PASSWORD != "") {
-            $this->type("text_pma_pw", TESTSUITE_PASSWORD);
-            $this->type("text_pma_pw2", TESTSUITE_PASSWORD);
-            $this->click("css=button:contains('Go')");
+            $this->byId("text_pma_pw")->value(TESTSUITE_PASSWORD);
+            $this->byId("text_pma_pw2")->value(TESTSUITE_PASSWORD);
         } else {
-            $this->click("id=nopass_1");
-            $this->click("css=button:contains('Go')");
+            $this->byId("nopass_1")->click();
         }		 		 
 
-        $this->waitForElementPresent("id=result_query");
-        $this->assertTrue($this->isTextPresent("The profile has been updated."));
+        $this->byCssSelector("span.ui-button-text:nth-child(1)")->click();
+        $ele = $this->_helper->waitForElement("byCssSelector", "div.success");
+        $this->assertEquals(
+            "The profile has been updated.",
+            $ele->text()
+        );
     } 
 }
 
