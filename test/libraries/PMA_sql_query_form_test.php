@@ -62,7 +62,7 @@ class PMA_SqlQueryForm_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['ActionLinksMode'] = 'both';
 
         //_SESSION
-        $_SESSION['relation'][$GLOBALS['server']] = array(
+        $_SESSION['relation'][0] = array(
             'table_coords' => "table_name",
             'displaywork' => 'displaywork',
             'db' => "information_schema",
