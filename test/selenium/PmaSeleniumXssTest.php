@@ -7,7 +7,6 @@
  * @subpackage Selenium
  */
 
-require_once 'PmaSeleniumTestCase.php';
 require_once 'Helper.php';
 
 /**
@@ -19,14 +18,21 @@ require_once 'Helper.php';
 class PmaSeleniumXSSTest extends PHPUnit_Extensions_SeleniumTestCase
 {
     /**
+     * Helper Object
+     *
+     * @var obj
+     */
+    private $_helper;
+
+    /**
      * Setup the browser environment to run the selenium test case
      *
      * @return void
      */
     public function setUp()
     {
-        $helper = new Helper();
-        $this->setBrowser(Helper::getBrowserString());
+        $this->_helper = new Helper($this);
+        $this->setBrowser($this->_helper->getBrowserString());
         $this->setBrowserUrl(
             TESTSUITE_PHPMYADMIN_HOST . TESTSUITE_PHPMYADMIN_URL
         );
@@ -39,8 +45,7 @@ class PmaSeleniumXSSTest extends PHPUnit_Extensions_SeleniumTestCase
      */
     public function testQueryTabWithNullValue()
     {
-        $log = new PmaSeleniumTestCase($this);
-        $log->login(TESTSUITE_USER, TESTSUITE_PASSWORD);
+        $this->_helper->login(TESTSUITE_USER, TESTSUITE_PASSWORD);
         $this->click("link=SQL");
         $this->waitForElementPresent("id=queryboxf");
         $this->click("button_submit_query");
