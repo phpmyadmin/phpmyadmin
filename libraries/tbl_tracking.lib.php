@@ -524,7 +524,7 @@ function PMA_getHtmlForDataManipulationStatements($data, $filter_users,
 }
 
 /**
- * Function to get html for data manipulation statements
+ * Function to get html for one data manipulation statement
  * 
  * @param array  $entry              entry
  * @param array  $filter_users       filter users
