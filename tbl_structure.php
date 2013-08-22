@@ -160,5 +160,5 @@ $titles = PMA_getActionTitlesArray();
 $hidden_titles = PMA_getHiddenTitlesArray();
 
 //display table structure
-require_once 'libraries/display_structure.lib.php';
+require_once 'libraries/display_structure.inc.php';
 ?>
