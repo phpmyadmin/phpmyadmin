@@ -108,16 +108,20 @@ class PMA_ServerStatusData
             && isset($server_status['Key_write_requests'])
             && $server_status['Key_write_requests'] > 0
         ) {
+            $key_writes = $server_status['Key_writes'];
+            $key_write_requests = $server_status['Key_write_requests'];
             $server_status['Key_write_ratio_%']
-                = 100 * $server_status['Key_writes'] / $server_status['Key_write_requests'];
+                = 100 * $key_writes / $key_write_requests;
         }
 
         if (isset($server_status['Key_reads'])
             && isset($server_status['Key_read_requests'])
             && $server_status['Key_read_requests'] > 0
         ) {
+            $key_reads = $server_status['Key_reads'];
+            $key_read_requests = $server_status['Key_read_requests'];
             $server_status['Key_read_ratio_%']
-                = 100 * $server_status['Key_reads'] / $server_status['Key_read_requests'];
+                = 100 * $key_reads / $key_read_requests;
         }
 
         // Threads_cache_hitrate
