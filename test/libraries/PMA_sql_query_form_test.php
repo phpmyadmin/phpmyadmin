@@ -104,42 +104,6 @@ class PMA_SqlQueryForm_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_getHtmlForSqlQueryFormUpload
-     *
-     * @return void
-     */
-    public function testPMAGetHtmlForSqlQueryFormUpload()
-    {
-        //Call the test function
-        $html = PMA_getHtmlForSqlQueryFormUpload();
-
-        //validate 1: Browse your computer
-        $this->assertContains(
-            __('Browse your computer:'),
-            $html
-        );
-
-        //validate 2: $GLOBALS['max_upload_size']
-        $this->assertContains(
-            PMA_Util::getFormattedMaximumUploadSize($GLOBALS['max_upload_size']),
-            $html
-        );
-        $this->assertContains(
-            PMA_Util::generateHiddenMaxFileSize($GLOBALS['max_upload_size']),
-            $html
-        );
-
-        //validate 3: Dropdown Box
-        $this->assertContains(
-            PMA_generateCharsetDropdownBox(
-                PMA_CSDROPDOWN_CHARSET,
-                'charset_of_file', null, 'utf8', false
-            ),
-            $html
-        );
-    }
-
-    /**
      * Test for PMA_getHtmlForSqlQueryFormBookmark
      *
      * @return void
