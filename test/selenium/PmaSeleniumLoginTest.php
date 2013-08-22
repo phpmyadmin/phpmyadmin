@@ -14,7 +14,7 @@ require_once 'Helper.php';
  * @package    PhpMyAdmin-test
  * @subpackage Selenium
  */
-class PmaSeleniumLoginTest extends PHPUnit_Extensions_SeleniumTestCase
+class PmaSeleniumLoginTest extends PHPUnit_Extensions_Selenium2TestCase
 {
     /**
      * Helper Object

@@ -89,11 +89,12 @@ class Helper
      */
     public function login($username, $password)
     {
-        $this->_selenium->open($this->_config->getLoginURL());
-        $this->_selenium->type($this->_txtUsername, $username);
-        $this->_selenium->type($this->_txtPassword, $password);
-        $this->_selenium->clickAndWait($this->_btnLogin);
-        //$this->_selenium->waitForPageToLoad($this->_config->getTimeoutValue());
+        $this->_selenium->url($this->_config->getLoginURL());
+        $usernameField = $this->_selenium->byId($this->_txtUsername);
+        $usernameField->value($username);
+        $passwordField = $this->_selenium->byId($this->_txtPassword);
+        $passwordField->value($password);
+        $this->_selenium->byId($this->_btnLogin)->click();
     }
 
     /**
@@ -103,7 +104,7 @@ class Helper
      */
     public function isSuccessLogin()
     {
-        if ($this->_selenium->isElementPresent("//*[@id=\"serverinfo\"]")) {
+        if ($this->isElementPresent("byXPath", "//*[@id=\"serverinfo\"]")) {
             return true;
         } else {
             return false;
@@ -117,7 +118,7 @@ class Helper
     */
     public function isUnsuccessLogin()
     {
-        if ($this->_selenium->isElementPresent("css=div.error")) {
+        if ($this->isElementPresent("byCssSelector", "div.error")) {
             return true;
         } else {
             return false;
@@ -131,8 +132,9 @@ class Helper
     */
     public function gotoHomepage()
     {
-        $this->_selenium->click("css=div#serverinfo a:contains('Server:')");
-        $this->_selenium->waitForElementNotPresent('css=div#loading_parent');
+        $e = $this->_selenium->byPartialLinkText("Server: ");
+        $e->click();
+        $this->waitForElementNotPresent('byCssSelector', 'div#loading_parent');
     }
 
     /**
@@ -181,7 +183,7 @@ class Helper
      */
     public function isLoggedIn()
     {
-        return $this->_selenium->isElementPresent('//*[@id="serverinfo"]/a[1]');
+        return $this->isElementPresent('byXPath', '//*[@id="serverinfo"]/a[1]');
     }
 
     /**
@@ -192,7 +194,7 @@ class Helper
     public function logOutIfLoggedIn()
     {
         if ($this->isLoggedIn()) {
-            $this->_selenium->clickAndWait("css=img.icon.ic_s_loggoff");
+            $this->_selenium->byCssSelector("img.icon.ic_s_loggoff")->click();
         }
     }
 
@@ -205,6 +207,43 @@ class Helper
     {
         $browserString = $this->_config->getCurrentBrowser();
         return $browserString;
+    }
+
+    public function waitForElement($func, $arg)
+    {
+        $this->_selenium->timeouts()->implicitWait(10000);
+        $element = call_user_func_array(
+            array($this->_selenium, $func), array($arg)
+        );
+        $this->_selenium->timeouts()->implicitWait(0);
+        return $element;
+    }
+
+    public function waitForElementNotPresent($func, $arg)
+    {
+        while(true)
+        {
+            if (!$this->isElementPresent($func, $arg)) {
+                return true;
+            }
+
+            usleep(100);
+        }
+    }
+
+    public function isElementPresent($func, $arg)
+    {
+        try {
+            $element = call_user_func_array(
+                array($this->_selenium, $func), array($arg)
+            );
+        } catch (PHPUnit_Extensions_Selenium2TestCase_WebDriverException $e) {
+            // Element not present
+            return false;
+        }
+
+        // Element Present
+        return true;
     }
 }
 ?>
