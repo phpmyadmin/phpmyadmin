@@ -4,17 +4,17 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-08-18 06:16-0400\n"
-"PO-Revision-Date: 2013-07-15 11:30+0200\n"
+"PO-Revision-Date: 2013-08-23 11:32+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Belarusian <http://l10n.cihar.com/projects/phpmyadmin/master/"
-"be/>\n"
+"Language-Team: Belarusian "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/be/>\n"
 "Language: be\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 1.6-dev\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
+"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 1.7-dev\n"
 
 #: browse_foreigners.php:50 browse_foreigners.php:70 js/messages.php:349
 #: libraries/DisplayResults.class.php:805
@@ -9287,7 +9287,7 @@ msgid ""
 "Please see the documentation on how to update your column_comments table."
 msgstr ""
 "За інфармацыяй як абнавіць табліцу column_comments зьвярніцеся, калі ласка, "
-"да дакумэнтацыі"
+"да дакумэнтацыі."
 
 #: libraries/relation.lib.php:181 libraries/sql_query_form.lib.php:401
 msgid "Bookmarked SQL query"
@@ -10666,7 +10666,7 @@ msgstr "Пароль для %s пасьпяхова зьменены."
 #: libraries/server_privileges.lib.php:1573
 #, php-format
 msgid "You have revoked the privileges for %s."
-msgstr "Вы анулявалі прывілеі для %s"
+msgstr "Вы анулявалі прывілеі для %s."
 
 #: libraries/server_privileges.lib.php:1631
 msgid "Database for user"
@@ -10674,12 +10674,12 @@ msgstr "База дадзеных для карыстальніка"
 
 #: libraries/server_privileges.lib.php:1635
 msgid "Create database with same name and grant all privileges."
-msgstr "Стварыць базу дадзеных з такім самым імем і надзяліць усімі прывілеямі"
+msgstr "Стварыць базу дадзеных з такім самым імем і надзяліць усімі прывілеямі."
 
 #: libraries/server_privileges.lib.php:1641
 msgid "Grant all privileges on wildcard name (username\\_%)."
 msgstr ""
-"Надзяліць усімі прывілеямі базы з іменамі па масцы (імя карыстальніка_%)"
+"Надзяліць усімі прывілеямі базы з іменамі па масцы (імя карыстальніка_%)."
 
 #: libraries/server_privileges.lib.php:1650
 #, fuzzy, php-format
@@ -10792,7 +10792,7 @@ msgstr "Дадаць прывілеі на наступную базу"
 msgid "Wildcards % and _ should be escaped with a \\ to use them literally."
 msgstr ""
 "Сымбалі падстаноўкі _ і % мусяць быць экранаванымі сымбалем \\ для іх "
-"літаральнага выкарыстаньня"
+"літаральнага выкарыстаньня."
 
 #: libraries/server_privileges.lib.php:2549
 #, fuzzy
