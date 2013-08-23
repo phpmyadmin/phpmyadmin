@@ -4,17 +4,17 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-08-18 06:16-0400\n"
-"PO-Revision-Date: 2013-06-17 09:33+0200\n"
+"PO-Revision-Date: 2013-08-23 09:20+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Bosnian <http://l10n.cihar.com/projects/phpmyadmin/master/bs/"
-">\n"
+"Language-Team: Bosnian "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/bs/>\n"
 "Language: bs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 1.6-dev\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
+"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 1.7-dev\n"
 
 #: browse_foreigners.php:50 browse_foreigners.php:70 js/messages.php:349
 #: libraries/DisplayResults.class.php:805
@@ -3099,7 +3099,7 @@ msgstr "Primarni ključ je obrisan"
 #: libraries/Index.class.php:607
 #, php-format
 msgid "Index %s has been dropped."
-msgstr "Ključ %s je obrisan"
+msgstr "Ključ %s je obrisan."
 
 #: libraries/Index.class.php:735
 #, php-format
@@ -4054,7 +4054,7 @@ msgstr "direkcija za slanje web servera "
 #: libraries/Util.class.php:3357 libraries/insert_edit.lib.php:1188
 #: libraries/sql_query_form.lib.php:480
 msgid "The directory you set for upload work cannot be reached."
-msgstr "Direkcija koju ste izabrali za slanje nije dostupna"
+msgstr "Direkcija koju ste izabrali za slanje nije dostupna."
 
 #: libraries/Util.class.php:3368
 msgid "There are no files to upload"
@@ -11721,7 +11721,7 @@ msgid ""
 "below, if there is any, may also help you in diagnosing the problem."
 msgstr ""
 "Izgleda da postoji greška u vašem SQL upitu. Ovde je poruka o greški MySQL "
-"servera, koja vam može pomoći u otkrivanju problema"
+"servera, koja vam može pomoći u otkrivanju problema."
 
 #: libraries/sqlparser.lib.php:178
 msgid ""
