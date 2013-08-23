@@ -82,13 +82,12 @@ class PMA_TblTrackingTest extends PHPUnit_Framework_TestCase
         );
 
         $this->assertEquals(
-            array(
-            'id' => 0,
-            'timestamp' => 1325458800,
-            'username' => 'username1',
-            'statement' => 'statement1',
-            ),
-            $ret[0]
+            'username1',
+            $ret[0]['username']
+        );
+        $this->assertEquals(
+            'statement1',
+            $ret[0]['statement']
         );
     }
     
