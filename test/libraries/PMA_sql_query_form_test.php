@@ -92,7 +92,7 @@ class PMA_SqlQueryForm_Test extends PHPUnit_Framework_TestCase
 
         $getColumns = array(
             array(
-                "Field" => "filed1",
+                "Field" => "field1",
                 "Comment" => "Comment1"
             )
         );
