@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-08-18 06:16-0400\n"
-"PO-Revision-Date: 2013-04-25 15:34+0200\n"
+"PO-Revision-Date: 2013-08-23 09:21+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Mongolian <http://l10n.cihar.com/projects/phpmyadmin/master/"
-"mn/>\n"
+"Language-Team: Mongolian "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/mn/>\n"
 "Language: mn\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 1.6-dev\n"
+"X-Generator: Weblate 1.7-dev\n"
 
 #: browse_foreigners.php:50 browse_foreigners.php:70 js/messages.php:349
 #: libraries/DisplayResults.class.php:805
@@ -942,7 +942,7 @@ msgstr "Та үнэхээр "
 
 #: js/messages.php:37 libraries/mult_submits.lib.php:399
 msgid "You are about to DESTROY a complete database!"
-msgstr "Дүүрэн өгөгдлийн сан УСТГАХ тухай?"
+msgstr "Дүүрэн өгөгдлийн сан УСТГАХ тухай!"
 
 #: js/messages.php:38
 #, fuzzy
@@ -3163,7 +3163,7 @@ msgstr "Үндсэн түлхүүр устгагдлаа"
 #: libraries/Index.class.php:607
 #, php-format
 msgid "Index %s has been dropped."
-msgstr "Индекс %s нь устгагдсан"
+msgstr "Индекс %s нь устгагдсан."
 
 #: libraries/Index.class.php:735
 #, php-format
@@ -4128,7 +4128,7 @@ msgstr "web-сервэр түлхэх хавтас"
 #: libraries/Util.class.php:3357 libraries/insert_edit.lib.php:1188
 #: libraries/sql_query_form.lib.php:480
 msgid "The directory you set for upload work cannot be reached."
-msgstr "Таны сонгосон хавтас \"upload\" хийгдэхгүй байна"
+msgstr "Таны сонгосон хавтас \"upload\" хийгдэхгүй байна."
 
 #: libraries/Util.class.php:3368
 msgid "There are no files to upload"
@@ -8361,7 +8361,7 @@ msgstr ""
 #: libraries/plugins/auth/AuthenticationSignon.class.php:271
 #, php-format
 msgid "No activity within %s seconds; please log in again."
-msgstr "%s секунд ба түүнээс их идэвхгүй байжээ, дахин нэвтэрнэ үү"
+msgstr "%s секунд ба түүнээс их идэвхгүй байжээ, дахин нэвтэрнэ үү."
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:689
 #: libraries/plugins/auth/AuthenticationCookie.class.php:691
