@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-08-18 06:16-0400\n"
-"PO-Revision-Date: 2013-06-06 16:49+0200\n"
-"Last-Translator: Spartak Ferrollari <spartakx@gmail.com>\n"
-"Language-Team: Albanian <http://l10n.cihar.com/projects/phpmyadmin/master/sq/"
-">\n"
+"PO-Revision-Date: 2013-08-23 11:35+0200\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"Language-Team: Albanian "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/sq/>\n"
 "Language: sq\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 1.6-dev\n"
+"X-Generator: Weblate 1.7-dev\n"
 
 #: browse_foreigners.php:50 browse_foreigners.php:70 js/messages.php:349
 #: libraries/DisplayResults.class.php:805
@@ -2886,7 +2886,7 @@ msgstr "Kyçi primar u eleminua"
 #: libraries/Index.class.php:607
 #, php-format
 msgid "Index %s has been dropped."
-msgstr "Treguesi %s u eleminua"
+msgstr "Treguesi %s u eleminua."
 
 #: libraries/Index.class.php:735
 #, php-format
@@ -3835,7 +3835,7 @@ msgstr "directory e upload të server-it web"
 #: libraries/Util.class.php:3357 libraries/insert_edit.lib.php:1188
 #: libraries/sql_query_form.lib.php:480
 msgid "The directory you set for upload work cannot be reached."
-msgstr "Directory që keni zgjedhur për upload nuk arrin të gjehet"
+msgstr "Directory që keni zgjedhur për upload nuk arrin të gjehet."
 
 #: libraries/Util.class.php:3368
 msgid "There are no files to upload"
@@ -8779,7 +8779,7 @@ msgstr "Transformimi i Shfletuesit"
 msgid ""
 "Please see the documentation on how to update your column_comments table."
 msgstr ""
-"Ju lutem lexoni dokumentet mbi rifreskimin e tabelës suaj Column_comments"
+"Ju lutem lexoni dokumentet mbi rifreskimin e tabelës suaj Column_comments."
 
 #: libraries/relation.lib.php:181 libraries/sql_query_form.lib.php:401
 msgid "Bookmarked SQL query"
@@ -10140,7 +10140,7 @@ msgstr "Fjalëkalimi për përdoruesin %s u ndryshua me sukses."
 #: libraries/server_privileges.lib.php:1573
 #, php-format
 msgid "You have revoked the privileges for %s."
-msgstr "Ke anulluar të drejtat për %s"
+msgstr "Ke anulluar të drejtat për %s."
 
 #: libraries/server_privileges.lib.php:1631
 msgid "Database for user"
@@ -11535,7 +11535,7 @@ msgid ""
 msgstr ""
 "Mesa duket ekziston një gabim tek query juaj SQL e futur. Gabimi i serverit "
 "MySQL i treguar më poshtë, nëse ekziston, mund t'ju ndihmojë në "
-"diagnostikimin e problemit"
+"diagnostikimin e problemit."
 
 #: libraries/sqlparser.lib.php:178
 msgid ""
