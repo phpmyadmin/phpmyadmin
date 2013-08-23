@@ -4,16 +4,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-08-18 06:16-0400\n"
-"PO-Revision-Date: 2013-06-29 18:06+0200\n"
-"Last-Translator: Aputsiaq Niels Janussen <aj@isit.gl>\n"
-"Language-Team: Danish <http://l10n.cihar.com/projects/phpmyadmin/master/da/"
-">\n"
+"PO-Revision-Date: 2013-08-23 09:15+0200\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"Language-Team: Danish <http://l10n.cihar.com/projects/phpmyadmin/master/da/>\n"
 "Language: da\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 1.6-dev\n"
+"X-Generator: Weblate 1.7-dev\n"
 
 #: browse_foreigners.php:50 browse_foreigners.php:70 js/messages.php:349
 #: libraries/DisplayResults.class.php:805
@@ -1693,7 +1692,7 @@ msgstr "Tilføj %d værdi(er)"
 msgid ""
 "Note: If the file contains multiple tables, they will be combined into one."
 msgstr ""
-"Note: Hvis filen indeholder flere tabeller, vil de blive kombineret til én"
+"Note: Hvis filen indeholder flere tabeller, vil de blive kombineret til én."
 
 #: js/messages.php:270
 msgid "Hide query box"
@@ -2902,7 +2901,7 @@ msgstr "Primærnøglen er slettet"
 #: libraries/Index.class.php:607
 #, php-format
 msgid "Index %s has been dropped."
-msgstr "Indeks %s er blevet slettet"
+msgstr "Indeks %s er blevet slettet."
 
 #: libraries/Index.class.php:735
 #, php-format
@@ -3890,7 +3889,7 @@ msgstr "Vælg fra <b>%s</b> - webserverens upload-mappe:"
 #: libraries/Util.class.php:3357 libraries/insert_edit.lib.php:1188
 #: libraries/sql_query_form.lib.php:480
 msgid "The directory you set for upload work cannot be reached."
-msgstr "Mappen du har sat til upload-arbejde kan ikke findes"
+msgstr "Mappen du har sat til upload-arbejde kan ikke findes."
 
 #: libraries/Util.class.php:3368
 msgid "There are no files to upload"
@@ -8127,7 +8126,7 @@ msgstr ""
 #, php-format
 msgid "No activity within %s seconds; please log in again."
 msgstr ""
-"Ingen aktivitet i de seneste %s sekunder eller mere, log venligst ind igen"
+"Ingen aktivitet i de seneste %s sekunder eller mere, log venligst ind igen."
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:689
 #: libraries/plugins/auth/AuthenticationCookie.class.php:691
@@ -8151,7 +8150,7 @@ msgstr "Filen %s indeholder ikke noget nøgle-id"
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:180
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:200
 msgid "Hardware authentication failed!"
-msgstr "Hardwareautentifikation mislykkedes"
+msgstr "Hardwareautentifikation mislykkedes!"
 
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:187
 msgid "No valid authentication key plugged"
@@ -11626,7 +11625,7 @@ msgid ""
 msgstr ""
 "Der ser ud til at være en fejl i din SQL-forespørgsel. MySQL-serverens "
 "fejlmelding der følger herunder, hvis der er nogen, kan også hjælpe dig med "
-"at finde problemet"
+"at finde problemet."
 
 #: libraries/sqlparser.lib.php:178
 msgid ""
