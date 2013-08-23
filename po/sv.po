@@ -8781,7 +8781,7 @@ msgstr "Webbläsaromvandling"
 
 #: libraries/relation.lib.php:171
 msgid ""
-"Please see the documentation on how to update your column_comments table"
+"Please see the documentation on how to update your column_comments table."
 msgstr ""
 "Vänligen se dokumentationen om hur du uppdaterar din column_comments-tabell"
 
@@ -10082,7 +10082,7 @@ msgstr "Lösenordet för %s har ändrats."
 
 #: libraries/server_privileges.lib.php:1573
 #, php-format
-msgid "You have revoked the privileges for %s"
+msgid "You have revoked the privileges for %s."
 msgstr "Du har upphävt privilegierna för %s"
 
 #: libraries/server_privileges.lib.php:1631
@@ -10090,16 +10090,16 @@ msgid "Database for user"
 msgstr "Databas för användare"
 
 #: libraries/server_privileges.lib.php:1635
-msgid "Create database with same name and grant all privileges"
+msgid "Create database with same name and grant all privileges."
 msgstr "Skapa databas med samma namn och tilldela alla privilegier"
 
 #: libraries/server_privileges.lib.php:1641
-msgid "Grant all privileges on wildcard name (username\\_%)"
+msgid "Grant all privileges on wildcard name (username\\_%)."
 msgstr "Bevilja alla privilegier till namn med jokertecken (username\\_%)"
 
 #: libraries/server_privileges.lib.php:1650
 #, php-format
-msgid "Grant all privileges on database &quot;%s&quot;"
+msgid "Grant all privileges on database &quot;%s&quot;."
 msgstr "Bevilja alla privilegier för databas &quot;%s&quot;"
 
 #: libraries/server_privileges.lib.php:1744
@@ -10201,7 +10201,7 @@ msgid "Add privileges on the following database:"
 msgstr "Lägg till privilegier till följande databas:"
 
 #: libraries/server_privileges.lib.php:2531
-msgid "Wildcards % and _ should be escaped with a \\ to use them literally"
+msgid "Wildcards % and _ should be escaped with a \\ to use them literally."
 msgstr ""
 "Jokertecknen _ och % måste föregås av ett \\ för att användas i egentlig "
 "betydelse"

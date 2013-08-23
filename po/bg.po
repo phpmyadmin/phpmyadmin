@@ -8731,7 +8731,7 @@ msgstr "Браузърна трансформация"
 
 #: libraries/relation.lib.php:171
 msgid ""
-"Please see the documentation on how to update your column_comments table"
+"Please see the documentation on how to update your column_comments table."
 msgstr ""
 "Моля консултирайте се с документацията относно обновяването на вашата "
 "column_comments таблица"
@@ -10033,7 +10033,7 @@ msgstr "Паролата на %s беше променена успешно."
 
 #: libraries/server_privileges.lib.php:1573
 #, php-format
-msgid "You have revoked the privileges for %s"
+msgid "You have revoked the privileges for %s."
 msgstr "Вие отменихте правата на %s"
 
 #: libraries/server_privileges.lib.php:1631
@@ -10041,16 +10041,16 @@ msgid "Database for user"
 msgstr "БД за потребителя"
 
 #: libraries/server_privileges.lib.php:1635
-msgid "Create database with same name and grant all privileges"
+msgid "Create database with same name and grant all privileges."
 msgstr "Създаване на БД със същото име и даване на пълни права"
 
 #: libraries/server_privileges.lib.php:1641
-msgid "Grant all privileges on wildcard name (username\\_%)"
+msgid "Grant all privileges on wildcard name (username\\_%)."
 msgstr "Даване на всички привилегии на име с маска (username\\_%)"
 
 #: libraries/server_privileges.lib.php:1650
 #, php-format
-msgid "Grant all privileges on database &quot;%s&quot;"
+msgid "Grant all privileges on database &quot;%s&quot;."
 msgstr "Даване на пълни права над БД &quot;%s&quot;"
 
 #: libraries/server_privileges.lib.php:1744
@@ -10155,7 +10155,7 @@ msgid "Add privileges on the following database:"
 msgstr "Добавяне на права към следната БД"
 
 #: libraries/server_privileges.lib.php:2531
-msgid "Wildcards % and _ should be escaped with a \\ to use them literally"
+msgid "Wildcards % and _ should be escaped with a \\ to use them literally."
 msgstr "sdgf"
 
 #: libraries/server_privileges.lib.php:2549

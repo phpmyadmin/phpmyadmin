@@ -8854,7 +8854,7 @@ msgstr "Transformações do navegador"
 
 #: libraries/relation.lib.php:171
 msgid ""
-"Please see the documentation on how to update your column_comments table"
+"Please see the documentation on how to update your column_comments table."
 msgstr ""
 "Consulte a documentação sobre como atualizar sua tabela Column_comments"
 
@@ -10154,7 +10154,7 @@ msgstr "A senha para %s foi modificada com sucesso."
 
 #: libraries/server_privileges.lib.php:1573
 #, php-format
-msgid "You have revoked the privileges for %s"
+msgid "You have revoked the privileges for %s."
 msgstr "Você revogou os privilégios para %s"
 
 #: libraries/server_privileges.lib.php:1631
@@ -10162,16 +10162,16 @@ msgid "Database for user"
 msgstr "Banco de dados para usuário"
 
 #: libraries/server_privileges.lib.php:1635
-msgid "Create database with same name and grant all privileges"
+msgid "Create database with same name and grant all privileges."
 msgstr "Criar banco de dados com o mesmo nome e conceder todos os privilégios"
 
 #: libraries/server_privileges.lib.php:1641
-msgid "Grant all privileges on wildcard name (username\\_%)"
+msgid "Grant all privileges on wildcard name (username\\_%)."
 msgstr "Conceder todos os privilégios no nome coringa (nome_do_usuário_%)"
 
 #: libraries/server_privileges.lib.php:1650
 #, php-format
-msgid "Grant all privileges on database &quot;%s&quot;"
+msgid "Grant all privileges on database &quot;%s&quot;."
 msgstr "Conceder todos os privilégios no banco de dados '%s'"
 
 #: libraries/server_privileges.lib.php:1744
@@ -10272,7 +10272,7 @@ msgid "Add privileges on the following database:"
 msgstr "Adicionar privilégios no seguinte banco de dados:"
 
 #: libraries/server_privileges.lib.php:2531
-msgid "Wildcards % and _ should be escaped with a \\ to use them literally"
+msgid "Wildcards % and _ should be escaped with a \\ to use them literally."
 msgstr ""
 "Coringas % e _ precisam ser precedidos com uma \\ para serem usados "
 "literalmente"

@@ -8852,7 +8852,7 @@ msgstr "Transformation"
 
 #: libraries/relation.lib.php:171
 msgid ""
-"Please see the documentation on how to update your column_comments table"
+"Please see the documentation on how to update your column_comments table."
 msgstr ""
 "La documentation indique comment mettre à jour votre table column_comments"
 
@@ -10173,7 +10173,7 @@ msgstr "Le mot de passe de %s a été changé."
 
 #: libraries/server_privileges.lib.php:1573
 #, php-format
-msgid "You have revoked the privileges for %s"
+msgid "You have revoked the privileges for %s."
 msgstr "Vous avez révoqué les privilèges pour %s"
 
 #: libraries/server_privileges.lib.php:1631
@@ -10181,18 +10181,18 @@ msgid "Database for user"
 msgstr "Base de données pour cet utilisateur"
 
 #: libraries/server_privileges.lib.php:1635
-msgid "Create database with same name and grant all privileges"
+msgid "Create database with same name and grant all privileges."
 msgstr ""
 "Créer une base portant son nom et donner à cet utilisateur tous les "
 "privilèges sur cette base"
 
 #: libraries/server_privileges.lib.php:1641
-msgid "Grant all privileges on wildcard name (username\\_%)"
+msgid "Grant all privileges on wildcard name (username\\_%)."
 msgstr "Donner les privilèges passepartout (utilisateur\\_%)"
 
 #: libraries/server_privileges.lib.php:1650
 #, php-format
-msgid "Grant all privileges on database &quot;%s&quot;"
+msgid "Grant all privileges on database &quot;%s&quot;."
 msgstr "Donner tous les privilèges sur la base de données &quot;%s&quot;"
 
 #: libraries/server_privileges.lib.php:1744
@@ -10292,7 +10292,7 @@ msgid "Add privileges on the following database:"
 msgstr "Ajouter des privilèges sur cette base de données : "
 
 #: libraries/server_privileges.lib.php:2531
-msgid "Wildcards % and _ should be escaped with a \\ to use them literally"
+msgid "Wildcards % and _ should be escaped with a \\ to use them literally."
 msgstr "Préfixer avec \\ les passepartouts _ et % pour un usage littéral"
 
 #: libraries/server_privileges.lib.php:2549

@@ -8829,7 +8829,7 @@ msgstr "Browser-transformation"
 
 #: libraries/relation.lib.php:171
 msgid ""
-"Please see the documentation on how to update your column_comments table"
+"Please see the documentation on how to update your column_comments table."
 msgstr ""
 "Se venligst dokumentationen for oplysninger om, hvordan du opdaterer din "
 "column_comments (kolonne-kommentarer) tabel"
@@ -10126,7 +10126,7 @@ msgstr "Adgangskoden for %s blev korrekt udskiftet."
 
 #: libraries/server_privileges.lib.php:1573
 #, php-format
-msgid "You have revoked the privileges for %s"
+msgid "You have revoked the privileges for %s."
 msgstr "Du har tilbagekaldt privilegierne for %s"
 
 #: libraries/server_privileges.lib.php:1631
@@ -10134,17 +10134,17 @@ msgid "Database for user"
 msgstr "Database for bruger"
 
 #: libraries/server_privileges.lib.php:1635
-msgid "Create database with same name and grant all privileges"
+msgid "Create database with same name and grant all privileges."
 msgstr "Opret database med samme navn og tildel alle privilegier"
 
 #: libraries/server_privileges.lib.php:1641
-msgid "Grant all privileges on wildcard name (username\\_%)"
+msgid "Grant all privileges on wildcard name (username\\_%)."
 msgstr "Tildel alle privilegier til jokertegn-navn (brugernavn_%)"
 
 #: libraries/server_privileges.lib.php:1650
 #, php-format
-msgid "Grant all privileges on database &quot;%s&quot;"
-msgstr "Tildel alle privilegier på database &quot;%s&quot;"
+msgid "Grant all privileges on database &quot;%s&quot;."
+msgstr "Tildel alle privilegier på database &quot;%s&quot;."
 
 #: libraries/server_privileges.lib.php:1744
 #, php-format
@@ -10246,7 +10246,7 @@ msgid "Add privileges on the following database:"
 msgstr "Tilføj privilegier på følgende database:"
 
 #: libraries/server_privileges.lib.php:2531
-msgid "Wildcards % and _ should be escaped with a \\ to use them literally"
+msgid "Wildcards % and _ should be escaped with a \\ to use them literally."
 msgstr ""
 "Jokertegn % og _ skal escapes med en \\ for brug af dem som almindelige tegn"
 

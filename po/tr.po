@@ -8806,7 +8806,7 @@ msgstr "Tarayıcı dönüşümü"
 
 #: libraries/relation.lib.php:171
 msgid ""
-"Please see the documentation on how to update your column_comments table"
+"Please see the documentation on how to update your column_comments table."
 msgstr ""
 "Lütfen column_comments tablonuzun nasıl güncelleneceğini öğrenmek için "
 "belgeye bakın"
@@ -10109,7 +10109,7 @@ msgstr "%s için parola başarılı olarak değiştirildi."
 
 #: libraries/server_privileges.lib.php:1573
 #, php-format
-msgid "You have revoked the privileges for %s"
+msgid "You have revoked the privileges for %s."
 msgstr "%s için yetkileri geri aldınız"
 
 #: libraries/server_privileges.lib.php:1631
@@ -10117,16 +10117,16 @@ msgid "Database for user"
 msgstr "Kullanıcı için veritabanı"
 
 #: libraries/server_privileges.lib.php:1635
-msgid "Create database with same name and grant all privileges"
+msgid "Create database with same name and grant all privileges."
 msgstr "Aynı isimle veritabanı oluştur ve tüm yetkileri ver"
 
 #: libraries/server_privileges.lib.php:1641
-msgid "Grant all privileges on wildcard name (username\\_%)"
+msgid "Grant all privileges on wildcard name (username\\_%)."
 msgstr "Joker isimlere tüm yetkileri ver (kullanıcıadı\\_%)"
 
 #: libraries/server_privileges.lib.php:1650
 #, php-format
-msgid "Grant all privileges on database &quot;%s&quot;"
+msgid "Grant all privileges on database &quot;%s&quot;."
 msgstr "&quot;%s&quot; veritabanı üzerindeki tüm yetkileri ver"
 
 #: libraries/server_privileges.lib.php:1744
@@ -10226,7 +10226,7 @@ msgid "Add privileges on the following database:"
 msgstr "Aşağıdaki veritabanına yetkileri ekle:"
 
 #: libraries/server_privileges.lib.php:2531
-msgid "Wildcards % and _ should be escaped with a \\ to use them literally"
+msgid "Wildcards % and _ should be escaped with a \\ to use them literally."
 msgstr "_ ve % jokerleri harfi harfine kullanılmak için \\ ile doldurun"
 
 #: libraries/server_privileges.lib.php:2549

@@ -9015,7 +9015,7 @@ msgstr "Перетворення МІМЕ-типу бровзером"
 
 #: libraries/relation.lib.php:171
 msgid ""
-"Please see the documentation on how to update your column_comments table"
+"Please see the documentation on how to update your column_comments table."
 msgstr ""
 "За інформацією як поновити Вашу таблицю Column_comments прошу дивитись у "
 "Документації"
@@ -10330,7 +10330,7 @@ msgstr "Пароль для %s успішно змінено."
 
 #: libraries/server_privileges.lib.php:1573
 #, php-format
-msgid "You have revoked the privileges for %s"
+msgid "You have revoked the privileges for %s."
 msgstr "Ви відмінили права для %s"
 
 #: libraries/server_privileges.lib.php:1631
@@ -10338,20 +10338,20 @@ msgid "Database for user"
 msgstr "База даних для користувача"
 
 #: libraries/server_privileges.lib.php:1635
-msgid "Create database with same name and grant all privileges"
+msgid "Create database with same name and grant all privileges."
 msgstr ""
 "Створити базу даних з ім'ям користувача в назві та надати на неї повні "
 "привілеї"
 
 #: libraries/server_privileges.lib.php:1641
-msgid "Grant all privileges on wildcard name (username\\_%)"
+msgid "Grant all privileges on wildcard name (username\\_%)."
 msgstr ""
 "Надати повні привілеї на бази даних підпадають під шаблон (ім'я користувача"
 "\\_%)"
 
 #: libraries/server_privileges.lib.php:1650
 #, php-format
-msgid "Grant all privileges on database &quot;%s&quot;"
+msgid "Grant all privileges on database &quot;%s&quot;."
 msgstr "Виставити повні привілеї на базу даних &quot;%s&quot;"
 
 #: libraries/server_privileges.lib.php:1744
@@ -10456,7 +10456,7 @@ msgid "Add privileges on the following database:"
 msgstr "Додати права для цієї бази даних"
 
 #: libraries/server_privileges.lib.php:2531
-msgid "Wildcards % and _ should be escaped with a \\ to use them literally"
+msgid "Wildcards % and _ should be escaped with a \\ to use them literally."
 msgstr ""
 "При використанні в імені бази даних символів нижнього підкреслення _ і "
 "відсотка%, необхідно екранувати їх символом зворотної косої межі \\, в "

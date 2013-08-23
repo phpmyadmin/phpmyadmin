@@ -8478,7 +8478,7 @@ msgstr "瀏覽器轉換"
 
 #: libraries/relation.lib.php:171
 msgid ""
-"Please see the documentation on how to update your column_comments table"
+"Please see the documentation on how to update your column_comments table."
 msgstr "請參見檔案中關於如何更新您的 column_comments 表"
 
 #: libraries/relation.lib.php:181 libraries/sql_query_form.lib.php:401
@@ -9744,7 +9744,7 @@ msgstr "%s 的密碼已修改。"
 
 #: libraries/server_privileges.lib.php:1573
 #, php-format
-msgid "You have revoked the privileges for %s"
+msgid "You have revoked the privileges for %s."
 msgstr "您已移除 %s 的權限"
 
 #: libraries/server_privileges.lib.php:1631
@@ -9752,16 +9752,16 @@ msgid "Database for user"
 msgstr "使用者資料庫"
 
 #: libraries/server_privileges.lib.php:1635
-msgid "Create database with same name and grant all privileges"
+msgid "Create database with same name and grant all privileges."
 msgstr "建立與使用者同名的資料庫並授予所有權限"
 
 #: libraries/server_privileges.lib.php:1641
-msgid "Grant all privileges on wildcard name (username\\_%)"
+msgid "Grant all privileges on wildcard name (username\\_%)."
 msgstr "給以 帳號_ 開頭的資料庫 (username\\_%) 授予所有權限"
 
 #: libraries/server_privileges.lib.php:1650
 #, php-format
-msgid "Grant all privileges on database &quot;%s&quot;"
+msgid "Grant all privileges on database &quot;%s&quot;."
 msgstr "授予資料庫“%s”的所有權限"
 
 #: libraries/server_privileges.lib.php:1744
@@ -9860,7 +9860,7 @@ msgid "Add privileges on the following database:"
 msgstr "在下列資料庫新增權限："
 
 #: libraries/server_privileges.lib.php:2531
-msgid "Wildcards % and _ should be escaped with a \\ to use them literally"
+msgid "Wildcards % and _ should be escaped with a \\ to use them literally."
 msgstr "要使用萬用字元 _ 和 % 本身，應使用用 \\ 轉義"
 
 #: libraries/server_privileges.lib.php:2549

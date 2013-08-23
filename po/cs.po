@@ -8722,7 +8722,7 @@ msgstr "Transformace při prohlížení"
 
 #: libraries/relation.lib.php:171
 msgid ""
-"Please see the documentation on how to update your column_comments table"
+"Please see the documentation on how to update your column_comments table."
 msgstr ""
 "Podívejte se prosím do dokumentace, jak aktualizovat informace o polích v "
 "tabulce column_comments"
@@ -10021,7 +10021,7 @@ msgstr "Heslo pro %s bylo úspěšně změněno."
 
 #: libraries/server_privileges.lib.php:1573
 #, php-format
-msgid "You have revoked the privileges for %s"
+msgid "You have revoked the privileges for %s."
 msgstr "Byla zrušena práva pro %s"
 
 #: libraries/server_privileges.lib.php:1631
@@ -10029,16 +10029,16 @@ msgid "Database for user"
 msgstr "Databáze pro uživatele"
 
 #: libraries/server_privileges.lib.php:1635
-msgid "Create database with same name and grant all privileges"
+msgid "Create database with same name and grant all privileges."
 msgstr "Vytvořit databázi stejného jména a přidělit všechna oprávnění"
 
 #: libraries/server_privileges.lib.php:1641
-msgid "Grant all privileges on wildcard name (username\\_%)"
+msgid "Grant all privileges on wildcard name (username\\_%)."
 msgstr "Přidělit všechna oprávnění na jméno odpovídající masce (uživatel\\_%)"
 
 #: libraries/server_privileges.lib.php:1650
 #, php-format
-msgid "Grant all privileges on database &quot;%s&quot;"
+msgid "Grant all privileges on database &quot;%s&quot;."
 msgstr "Přidělit všechna oprávnění na databázi „%s“"
 
 #: libraries/server_privileges.lib.php:1744
@@ -10137,7 +10137,7 @@ msgid "Add privileges on the following database:"
 msgstr "Přidat oprávnění pro databázi:"
 
 #: libraries/server_privileges.lib.php:2531
-msgid "Wildcards % and _ should be escaped with a \\ to use them literally"
+msgid "Wildcards % and _ should be escaped with a \\ to use them literally."
 msgstr ""
 "Zástupné znaky _ a % by měly být escapovány pomocí \\ pokud si je přejete "
 "použít jako znak"

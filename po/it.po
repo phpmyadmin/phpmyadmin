@@ -9118,7 +9118,7 @@ msgstr "Trasformazione del browser"
 
 #: libraries/relation.lib.php:171
 msgid ""
-"Please see the documentation on how to update your column_comments table"
+"Please see the documentation on how to update your column_comments table."
 msgstr ""
 "Prego vedi la documentazione su come aggiornare la tabella column_comments"
 
@@ -10447,7 +10447,7 @@ msgstr "La password per l'utente %s è cambiata con successo."
 
 #: libraries/server_privileges.lib.php:1573
 #, php-format
-msgid "You have revoked the privileges for %s"
+msgid "You have revoked the privileges for %s."
 msgstr "Hai revocato i privilegi per %s"
 
 #: libraries/server_privileges.lib.php:1631
@@ -10455,17 +10455,17 @@ msgid "Database for user"
 msgstr "Database per l'utente"
 
 #: libraries/server_privileges.lib.php:1635
-msgid "Create database with same name and grant all privileges"
+msgid "Create database with same name and grant all privileges."
 msgstr "Crea un database con lo stesso nome e concedi tutti i privilegi"
 
 #: libraries/server_privileges.lib.php:1641
-msgid "Grant all privileges on wildcard name (username\\_%)"
+msgid "Grant all privileges on wildcard name (username\\_%)."
 msgstr "Concedi tutti i privilegi al nome con caratteri jolly (username\\_%)"
 
 #: libraries/server_privileges.lib.php:1650
 #, php-format
-msgid "Grant all privileges on database &quot;%s&quot;"
-msgstr "Garantisci tutti i privilegi per il database &quot;%s&quot;"
+msgid "Grant all privileges on database &quot;%s&quot;."
+msgstr "Garantisci tutti i privilegi per il database &quot;%s&quot;."
 
 #: libraries/server_privileges.lib.php:1744
 #, php-format
@@ -10568,7 +10568,7 @@ msgid "Add privileges on the following database:"
 msgstr "Aggiungi privilegi sul seguente database"
 
 #: libraries/server_privileges.lib.php:2531
-msgid "Wildcards % and _ should be escaped with a \\ to use them literally"
+msgid "Wildcards % and _ should be escaped with a \\ to use them literally."
 msgstr ""
 "I caratteri jolly _ e % dovrebbero essere preceduti da un \\ per l'utilizzo "
 "letterale"

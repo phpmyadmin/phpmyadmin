@@ -9673,7 +9673,7 @@ msgstr "O‘girish"
 
 #: libraries/relation.lib.php:171
 msgid ""
-"Please see the documentation on how to update your column_comments table"
+"Please see the documentation on how to update your column_comments table."
 msgstr ""
 "\"column_comments\" jadvalini yangilash zarur. Batafsil ma`lumot uchun "
 "dokumentatsiyaga qarang."
@@ -11117,7 +11117,7 @@ msgstr "\"%s\" foydalanuvchining paroli muvaffaqiyatli o‘zgartirildi."
 
 #: libraries/server_privileges.lib.php:1573
 #, php-format
-msgid "You have revoked the privileges for %s"
+msgid "You have revoked the privileges for %s."
 msgstr "\"%s\" foydalanuvchining privilegiyalari bekor qilindi."
 
 #: libraries/server_privileges.lib.php:1631
@@ -11125,20 +11125,20 @@ msgid "Database for user"
 msgstr "Foydalanuvchi uchun ma`lumotlar bazasi"
 
 #: libraries/server_privileges.lib.php:1635
-msgid "Create database with same name and grant all privileges"
+msgid "Create database with same name and grant all privileges."
 msgstr ""
 "Foydalanuvchi nomi bilan atalgan ma`lumotlar bazasi tuzish va unga to‘liq "
 "privilegiyalarni berish."
 
 #: libraries/server_privileges.lib.php:1641
-msgid "Grant all privileges on wildcard name (username\\_%)"
+msgid "Grant all privileges on wildcard name (username\\_%)."
 msgstr ""
 "(foydalanuvchi\\_%) shabloniga to‘g‘ri keladigan barcha ma`lumotlar "
 "bazalariga to‘liq privilegiyalarni berish."
 
 #: libraries/server_privileges.lib.php:1650
 #, php-format
-msgid "Grant all privileges on database &quot;%s&quot;"
+msgid "Grant all privileges on database &quot;%s&quot;."
 msgstr "\"%s\"&quot ma`lumotlar bazasiga barcha privilegiyalarni berish;"
 
 #: libraries/server_privileges.lib.php:1744
@@ -11245,7 +11245,7 @@ msgid "Add privileges on the following database:"
 msgstr "Quyidagi ma`lumotlar omboriga privilegiya qo‘shish"
 
 #: libraries/server_privileges.lib.php:2531
-msgid "Wildcards % and _ should be escaped with a \\ to use them literally"
+msgid "Wildcards % and _ should be escaped with a \\ to use them literally."
 msgstr ""
 "Ma`lumotlar bazalari nomlarida pastki chiziq (_) va foiz (%) belgilari "
 "ishlatilganda ular oldiga teskari egri chiziq (\\) qo‘yish kerak."

@@ -8996,7 +8996,7 @@ msgstr "Naršyklės transformacija"
 
 #: libraries/relation.lib.php:171
 msgid ""
-"Please see the documentation on how to update your column_comments table"
+"Please see the documentation on how to update your column_comments table."
 msgstr ""
 "Informaciją, kaip atnaujinti column_comments lentelę, galite rasti "
 "dokumentacijoje"
@@ -10326,7 +10326,7 @@ msgstr "Vartotojo %s slaptažodis sėkmingai pakeistas."
 
 #: libraries/server_privileges.lib.php:1573
 #, php-format
-msgid "You have revoked the privileges for %s"
+msgid "You have revoked the privileges for %s."
 msgstr "Jūs panaikinote privilegijas %s"
 
 #: libraries/server_privileges.lib.php:1631
@@ -10334,17 +10334,17 @@ msgid "Database for user"
 msgstr "Vartotojo duomenų bazė"
 
 #: libraries/server_privileges.lib.php:1635
-msgid "Create database with same name and grant all privileges"
+msgid "Create database with same name and grant all privileges."
 msgstr ""
 "Sukurti duomenų bazę su tokiu pat vardu ir suteikti jai visas privilegijas"
 
 #: libraries/server_privileges.lib.php:1641
-msgid "Grant all privileges on wildcard name (username\\_%)"
+msgid "Grant all privileges on wildcard name (username\\_%)."
 msgstr "Suteikti visas privilegijas pakaitos vardui (username\\_%)"
 
 #: libraries/server_privileges.lib.php:1650
 #, php-format
-msgid "Grant all privileges on database &quot;%s&quot;"
+msgid "Grant all privileges on database &quot;%s&quot;."
 msgstr "Suteikti visas privilegijas duomenų bazei „%s“"
 
 #: libraries/server_privileges.lib.php:1744
@@ -10448,7 +10448,7 @@ msgid "Add privileges on the following database:"
 msgstr "Sukurti privilegijas šiai duomenų bazei"
 
 #: libraries/server_privileges.lib.php:2531
-msgid "Wildcards % and _ should be escaped with a \\ to use them literally"
+msgid "Wildcards % and _ should be escaped with a \\ to use them literally."
 msgstr "Norėdami naudoti _ ir % kaip simbolius, prieš juos prirašykite \\"
 
 #: libraries/server_privileges.lib.php:2549
