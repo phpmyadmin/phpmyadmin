@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-08-18 06:16-0400\n"
-"PO-Revision-Date: 2013-08-03 16:25+0200\n"
-"Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
-"Language-Team: Russian <http://l10n.cihar.com/projects/phpmyadmin/master/ru/"
-">\n"
+"PO-Revision-Date: 2013-08-23 11:35+0200\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"Language-Team: Russian "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/ru/>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
+"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 1.7-dev\n"
 
 #: browse_foreigners.php:50 browse_foreigners.php:70 js/messages.php:349
@@ -10203,7 +10203,7 @@ msgstr "Пароль для %s был успешно изменен."
 #: libraries/server_privileges.lib.php:1573
 #, php-format
 msgid "You have revoked the privileges for %s."
-msgstr "Отменены привилегии для %s"
+msgstr "Отменены привилегии для %s."
 
 #: libraries/server_privileges.lib.php:1631
 msgid "Database for user"
@@ -10213,18 +10213,18 @@ msgstr "База данных для пользователя"
 msgid "Create database with same name and grant all privileges."
 msgstr ""
 "Создать базу данных с именем пользователя в названии и предоставить на нее "
-"полные привилегии"
+"полные привилегии."
 
 #: libraries/server_privileges.lib.php:1641
 msgid "Grant all privileges on wildcard name (username\\_%)."
 msgstr ""
 "Предоставить полные привилегии на базы данных подпадающие под шаблон (имя "
-"пользователя\\_%)"
+"пользователя\\_%)."
 
 #: libraries/server_privileges.lib.php:1650
 #, php-format
 msgid "Grant all privileges on database &quot;%s&quot;."
-msgstr "Выставить полные привилегии на базу данных &quot;%s&quot;"
+msgstr "Выставить полные привилегии на базу данных &quot;%s&quot;."
 
 #: libraries/server_privileges.lib.php:1744
 #, php-format
@@ -10326,7 +10326,7 @@ msgid "Wildcards % and _ should be escaped with a \\ to use them literally."
 msgstr ""
 "При использовании в имени базы данных символов нижнего подчеркивания _ и "
 "процента %, необходимо экранировать их символом обратной косой черты \\, в "
-"противном случае они будут интерпретированы как групповые символы"
+"противном случае они будут интерпретированы как групповые символы."
 
 #: libraries/server_privileges.lib.php:2549
 msgid "Add privileges on the following table:"
