@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-08-18 06:16-0400\n"
-"PO-Revision-Date: 2013-06-24 16:06+0200\n"
+"PO-Revision-Date: 2013-08-23 11:43+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Tatar <http://l10n.cihar.com/projects/phpmyadmin/master/tt/>\n"
 "Language: tt\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 1.6-dev\n"
+"X-Generator: Weblate 1.7-dev\n"
 
 #: browse_foreigners.php:50 browse_foreigners.php:70 js/messages.php:349
 #: libraries/DisplayResults.class.php:805
@@ -3150,7 +3150,7 @@ msgstr "Töp açqıç beterelde"
 #: libraries/Index.class.php:607
 #, php-format
 msgid "Index %s has been dropped."
-msgstr "\"%s\" digän tezeş salındı"
+msgstr "\"%s\" digän tezeş salındı."
 
 #: libraries/Index.class.php:735
 #, php-format
@@ -4110,7 +4110,7 @@ msgstr "web-server'neñ yökläw törgäge"
 #: libraries/Util.class.php:3357 libraries/insert_edit.lib.php:1188
 #: libraries/sql_query_form.lib.php:480
 msgid "The directory you set for upload work cannot be reached."
-msgstr "Yökläw öçen bigelängän törgäkne uqıp bulmí"
+msgstr "Yökläw öçen bigelängän törgäkne uqıp bulmí."
 
 #: libraries/Util.class.php:3368
 msgid "There are no files to upload"
@@ -8354,7 +8354,7 @@ msgstr ""
 #: libraries/plugins/auth/AuthenticationSignon.class.php:271
 #, php-format
 msgid "No activity within %s seconds; please log in again."
-msgstr "Kimendä %s sekund eşlämi tordıq, şuña kürä yañadan keräse"
+msgstr "Kimendä %s sekund eşlämi tordıq, şuña kürä yañadan keräse."
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:689
 #: libraries/plugins/auth/AuthenticationCookie.class.php:691
@@ -9111,7 +9111,7 @@ msgstr "Browser transformation"
 #: libraries/relation.lib.php:171
 msgid ""
 "Please see the documentation on how to update your column_comments table."
-msgstr "Sineñ Column_comments Tüşämä yañartu eşe turında Qullanmada qarísı"
+msgstr "Sineñ Column_comments Tüşämä yañartu eşe turında Qullanmada qarísı."
 
 #: libraries/relation.lib.php:181 libraries/sql_query_form.lib.php:401
 msgid "Bookmarked SQL query"
@@ -10588,7 +10588,7 @@ msgstr "Kiläse biremlek öçen xoquqlar östäw"
 #: libraries/server_privileges.lib.php:2531
 msgid "Wildcards % and _ should be escaped with a \\ to use them literally."
 msgstr ""
-"_ belän % bilgelären şul kileş kenä qullanu öçen \\ belän ütkärergä kiräk"
+"_ belän % bilgelären şul kileş kenä qullanu öçen \\ belän ütkärergä kiräk."
 
 #: libraries/server_privileges.lib.php:2549
 #, fuzzy

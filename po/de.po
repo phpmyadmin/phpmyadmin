@@ -4,16 +4,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-08-18 06:16-0400\n"
-"PO-Revision-Date: 2013-07-15 11:31+0200\n"
+"PO-Revision-Date: 2013-08-23 11:43+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: German <http://l10n.cihar.com/projects/phpmyadmin/master/de/"
-">\n"
+"Language-Team: German <http://l10n.cihar.com/projects/phpmyadmin/master/de/>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 1.6-dev\n"
+"X-Generator: Weblate 1.7-dev\n"
 
 #: browse_foreigners.php:50 browse_foreigners.php:70 js/messages.php:349
 #: libraries/DisplayResults.class.php:805
@@ -9074,7 +9073,7 @@ msgid ""
 "Please see the documentation on how to update your column_comments table."
 msgstr ""
 "Bitte lesen Sie in der Dokumentation nach, wie Sie die Struktur Ihrer "
-"Spaltenkommentartabelle aktualisieren können"
+"Spaltenkommentartabelle aktualisieren können."
 
 #: libraries/relation.lib.php:181 libraries/sql_query_form.lib.php:401
 msgid "Bookmarked SQL query"
@@ -10409,7 +10408,7 @@ msgstr "Das Passwort für %s wurde geändert."
 #: libraries/server_privileges.lib.php:1573
 #, php-format
 msgid "You have revoked the privileges for %s."
-msgstr "Sie haben die Rechte für %s widerrufen"
+msgstr "Sie haben die Rechte für %s widerrufen."
 
 #: libraries/server_privileges.lib.php:1631
 msgid "Database for user"
@@ -10417,18 +10416,18 @@ msgstr "Datenbank für Benutzer"
 
 #: libraries/server_privileges.lib.php:1635
 msgid "Create database with same name and grant all privileges."
-msgstr "Erstelle eine Datenbank mit gleichem Namen und gewähre alle Rechte"
+msgstr "Erstelle eine Datenbank mit gleichem Namen und gewähre alle Rechte."
 
 #: libraries/server_privileges.lib.php:1641
 msgid "Grant all privileges on wildcard name (username\\_%)."
 msgstr ""
 "Gewähre alle Rechte auf Datenbanken die mit dem Benutzernamen beginnen "
-"(username\\_%)"
+"(username\\_%)."
 
 #: libraries/server_privileges.lib.php:1650
 #, php-format
 msgid "Grant all privileges on database &quot;%s&quot;."
-msgstr "Gewähre alle Rechte auf die Datenbank &quot;%s&quot;"
+msgstr "Gewähre alle Rechte auf die Datenbank &quot;%s&quot;."
 
 #: libraries/server_privileges.lib.php:1744
 #, php-format
@@ -10531,7 +10530,7 @@ msgstr "Rechte zu folgender Datenbank hinzufügen"
 msgid "Wildcards % and _ should be escaped with a \\ to use them literally."
 msgstr ""
 "Platzhalter _ und % sollten mit einem \\ escaped werden, um das gewünschte "
-"Sonderzeichen einzubinden"
+"Sonderzeichen einzubinden."
 
 #: libraries/server_privileges.lib.php:2549
 #, fuzzy

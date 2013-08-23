@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-08-18 06:16-0400\n"
-"PO-Revision-Date: 2013-08-23 09:29+0200\n"
+"PO-Revision-Date: 2013-08-23 11:34+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Uzbek (latin) "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/uz@latin/>\n"
@@ -11139,7 +11139,7 @@ msgstr ""
 #: libraries/server_privileges.lib.php:1650
 #, php-format
 msgid "Grant all privileges on database &quot;%s&quot;."
-msgstr "\"%s\"&quot ma`lumotlar bazasiga barcha privilegiyalarni berish;"
+msgstr "\"%s\" ma`lumotlar bazasiga barcha privilegiyalarni berish."
 
 #: libraries/server_privileges.lib.php:1744
 #, php-format

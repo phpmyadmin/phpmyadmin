@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-08-18 06:16-0400\n"
-"PO-Revision-Date: 2013-08-23 09:19+0200\n"
+"PO-Revision-Date: 2013-08-23 11:33+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Afrikaans "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/af/>\n"
@@ -10147,7 +10147,7 @@ msgstr ""
 #: libraries/server_privileges.lib.php:1573
 #, php-format
 msgid "You have revoked the privileges for %s."
-msgstr "Jy het die regte herroep vir %s"
+msgstr "Jy het die regte herroep vir %s."
 
 #: libraries/server_privileges.lib.php:1631
 msgid "Database for user"

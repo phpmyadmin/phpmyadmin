@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-08-18 06:16-0400\n"
-"PO-Revision-Date: 2013-08-17 08:54+0200\n"
-"Last-Translator: Dark Killer <66darkkiller66@gmail.com>\n"
-"Language-Team: Bulgarian <http://l10n.cihar.com/projects/phpmyadmin/master/"
-"bg/>\n"
+"PO-Revision-Date: 2013-08-23 11:40+0200\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"Language-Team: Bulgarian "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/bg/>\n"
 "Language: bg\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -8734,7 +8734,7 @@ msgid ""
 "Please see the documentation on how to update your column_comments table."
 msgstr ""
 "Моля консултирайте се с документацията относно обновяването на вашата "
-"column_comments таблица"
+"column_comments таблица."
 
 #: libraries/relation.lib.php:181 libraries/sql_query_form.lib.php:401
 msgid "Bookmarked SQL query"
@@ -10034,7 +10034,7 @@ msgstr "Паролата на %s беше променена успешно."
 #: libraries/server_privileges.lib.php:1573
 #, php-format
 msgid "You have revoked the privileges for %s."
-msgstr "Вие отменихте правата на %s"
+msgstr "Вие отменихте правата на %s."
 
 #: libraries/server_privileges.lib.php:1631
 msgid "Database for user"
@@ -10042,16 +10042,16 @@ msgstr "БД за потребителя"
 
 #: libraries/server_privileges.lib.php:1635
 msgid "Create database with same name and grant all privileges."
-msgstr "Създаване на БД със същото име и даване на пълни права"
+msgstr "Създаване на БД със същото име и даване на пълни права."
 
 #: libraries/server_privileges.lib.php:1641
 msgid "Grant all privileges on wildcard name (username\\_%)."
-msgstr "Даване на всички привилегии на име с маска (username\\_%)"
+msgstr "Даване на всички привилегии на име с маска (username\\_%)."
 
 #: libraries/server_privileges.lib.php:1650
 #, php-format
 msgid "Grant all privileges on database &quot;%s&quot;."
-msgstr "Даване на пълни права над БД &quot;%s&quot;"
+msgstr "Даване на пълни права над БД &quot;%s&quot;."
 
 #: libraries/server_privileges.lib.php:1744
 #, php-format
@@ -10156,7 +10156,7 @@ msgstr "Добавяне на права към следната БД"
 
 #: libraries/server_privileges.lib.php:2531
 msgid "Wildcards % and _ should be escaped with a \\ to use them literally."
-msgstr "sdgf"
+msgstr ""
 
 #: libraries/server_privileges.lib.php:2549
 #, fuzzy

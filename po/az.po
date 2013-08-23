@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-08-18 06:16-0400\n"
-"PO-Revision-Date: 2013-08-23 09:19+0200\n"
+"PO-Revision-Date: 2013-08-23 11:33+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Azerbaijani "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/az/>\n"
@@ -9000,7 +9000,7 @@ msgstr "Browser transformation"
 #: libraries/relation.lib.php:171
 msgid ""
 "Please see the documentation on how to update your column_comments table."
-msgstr "Please see Documentation on how to update your Column_comments Table"
+msgstr "Please see Documentation on how to update your Column_comments Table."
 
 #: libraries/relation.lib.php:181 libraries/sql_query_form.lib.php:401
 msgid "Bookmarked SQL query"
