@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-08-18 06:16-0400\n"
-"PO-Revision-Date: 2013-08-23 09:20+0200\n"
+"PO-Revision-Date: 2013-08-23 11:31+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Bosnian "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/bs/>\n"
@@ -8981,7 +8981,7 @@ msgstr "Tranformacije čitača"
 msgid ""
 "Please see the documentation on how to update your column_comments table."
 msgstr ""
-"Molimo pogledajte u dokumentaciji kako se ažurira tabela Column_comments"
+"Molimo pogledajte u dokumentaciji kako se ažurira tabela Column_comments."
 
 #: libraries/relation.lib.php:181 libraries/sql_query_form.lib.php:401
 msgid "Bookmarked SQL query"
@@ -10337,7 +10337,7 @@ msgstr "Lozinka za %s je uspješno promjenjena."
 #: libraries/server_privileges.lib.php:1573
 #, php-format
 msgid "You have revoked the privileges for %s."
-msgstr "Zabranili ste privilegije za %s"
+msgstr "Zabranili ste privilegije za %s."
 
 #: libraries/server_privileges.lib.php:1631
 msgid "Database for user"
