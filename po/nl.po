@@ -8862,7 +8862,7 @@ msgstr "Browsertransformaties"
 
 #: libraries/relation.lib.php:171
 msgid ""
-"Please see the documentation on how to update your column_comments table"
+"Please see the documentation on how to update your column_comments table."
 msgstr ""
 "Raadpleeg de documentatie over hoe u de tabel column_comments kunt bijwerkt"
 
@@ -10179,7 +10179,7 @@ msgstr "Het wachtwoord voor %s is succesvol veranderd."
 
 #: libraries/server_privileges.lib.php:1573
 #, php-format
-msgid "You have revoked the privileges for %s"
+msgid "You have revoked the privileges for %s."
 msgstr "U heeft de rechten ingetrokken voor %s"
 
 #: libraries/server_privileges.lib.php:1631
@@ -10187,16 +10187,16 @@ msgid "Database for user"
 msgstr "Databank voor gebruiker"
 
 #: libraries/server_privileges.lib.php:1635
-msgid "Create database with same name and grant all privileges"
+msgid "Create database with same name and grant all privileges."
 msgstr "Een databank aanmaken met dezelfde naam en alle rechten hierop geven"
 
 #: libraries/server_privileges.lib.php:1641
-msgid "Grant all privileges on wildcard name (username\\_%)"
+msgid "Grant all privileges on wildcard name (username\\_%)."
 msgstr "Alle rechten geven op de wildcardnaam (gebruikersnaam\\_%)"
 
 #: libraries/server_privileges.lib.php:1650
 #, php-format
-msgid "Grant all privileges on database &quot;%s&quot;"
+msgid "Grant all privileges on database &quot;%s&quot;."
 msgstr "Alle rechten geven op databank &quot;%s&quot;"
 
 #: libraries/server_privileges.lib.php:1744
@@ -10299,7 +10299,7 @@ msgid "Add privileges on the following database:"
 msgstr "Rechten toevoegen op de volgende databank:"
 
 #: libraries/server_privileges.lib.php:2531
-msgid "Wildcards % and _ should be escaped with a \\ to use them literally"
+msgid "Wildcards % and _ should be escaped with a \\ to use them literally."
 msgstr ""
 "Wildcards _ en % moeten worden voorafgegaan door een \\ om ze letterlijk te "
 "gebruiken"

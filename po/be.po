@@ -9284,7 +9284,7 @@ msgstr "Пераўтварэньне MIME-тыпу браўзэрам"
 
 #: libraries/relation.lib.php:171
 msgid ""
-"Please see the documentation on how to update your column_comments table"
+"Please see the documentation on how to update your column_comments table."
 msgstr ""
 "За інфармацыяй як абнавіць табліцу column_comments зьвярніцеся, калі ласка, "
 "да дакумэнтацыі"
@@ -10665,7 +10665,7 @@ msgstr "Пароль для %s пасьпяхова зьменены."
 
 #: libraries/server_privileges.lib.php:1573
 #, php-format
-msgid "You have revoked the privileges for %s"
+msgid "You have revoked the privileges for %s."
 msgstr "Вы анулявалі прывілеі для %s"
 
 #: libraries/server_privileges.lib.php:1631
@@ -10673,17 +10673,17 @@ msgid "Database for user"
 msgstr "База дадзеных для карыстальніка"
 
 #: libraries/server_privileges.lib.php:1635
-msgid "Create database with same name and grant all privileges"
+msgid "Create database with same name and grant all privileges."
 msgstr "Стварыць базу дадзеных з такім самым імем і надзяліць усімі прывілеямі"
 
 #: libraries/server_privileges.lib.php:1641
-msgid "Grant all privileges on wildcard name (username\\_%)"
+msgid "Grant all privileges on wildcard name (username\\_%)."
 msgstr ""
 "Надзяліць усімі прывілеямі базы з іменамі па масцы (імя карыстальніка_%)"
 
 #: libraries/server_privileges.lib.php:1650
 #, fuzzy, php-format
-msgid "Grant all privileges on database &quot;%s&quot;"
+msgid "Grant all privileges on database &quot;%s&quot;."
 msgstr "Праверыць прывілеі для базы &quot;%s&quot;."
 
 #: libraries/server_privileges.lib.php:1744
@@ -10789,7 +10789,7 @@ msgid "Add privileges on the following database:"
 msgstr "Дадаць прывілеі на наступную базу"
 
 #: libraries/server_privileges.lib.php:2531
-msgid "Wildcards % and _ should be escaped with a \\ to use them literally"
+msgid "Wildcards % and _ should be escaped with a \\ to use them literally."
 msgstr ""
 "Сымбалі падстаноўкі _ і % мусяць быць экранаванымі сымбалем \\ для іх "
 "літаральнага выкарыстаньня"

@@ -9224,7 +9224,7 @@ msgstr "Pretvaranje preglednika"
 
 #: libraries/relation.lib.php:171
 msgid ""
-"Please see the documentation on how to update your column_comments table"
+"Please see the documentation on how to update your column_comments table."
 msgstr ""
 "Pogledajte dokumentaciju radi uputa o ažuriranju tablice column_comments"
 
@@ -10602,7 +10602,7 @@ msgstr "Lozinka za %s uspješno je promijenjena."
 
 #: libraries/server_privileges.lib.php:1573
 #, php-format
-msgid "You have revoked the privileges for %s"
+msgid "You have revoked the privileges for %s."
 msgstr "Opozvali ste privilegije za %s"
 
 #: libraries/server_privileges.lib.php:1631
@@ -10610,16 +10610,16 @@ msgid "Database for user"
 msgstr "Baza podataka za korisnika"
 
 #: libraries/server_privileges.lib.php:1635
-msgid "Create database with same name and grant all privileges"
+msgid "Create database with same name and grant all privileges."
 msgstr "Izradi bazu podataka istog naziva i podari sve privilegije"
 
 #: libraries/server_privileges.lib.php:1641
-msgid "Grant all privileges on wildcard name (username\\_%)"
+msgid "Grant all privileges on wildcard name (username\\_%)."
 msgstr "Podari sve privilegije imenima s džokerima (korisničkoime_%)"
 
 #: libraries/server_privileges.lib.php:1650
 #, fuzzy, php-format
-msgid "Grant all privileges on database &quot;%s&quot;"
+msgid "Grant all privileges on database &quot;%s&quot;."
 msgstr "Provjeri privilegije za bazu podataka \"%s\"."
 
 #: libraries/server_privileges.lib.php:1744
@@ -10727,7 +10727,7 @@ msgid "Add privileges on the following database:"
 msgstr "Dodaj privilegije za sljedeće baze podataka"
 
 #: libraries/server_privileges.lib.php:2531
-msgid "Wildcards % and _ should be escaped with a \\ to use them literally"
+msgid "Wildcards % and _ should be escaped with a \\ to use them literally."
 msgstr ""
 "Kako bi se mogli upotrebljavati u doslovnom smislu, džokerima \\_ i \\% mora "
 "prethoditi znak \\"

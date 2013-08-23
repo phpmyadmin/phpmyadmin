@@ -9071,7 +9071,7 @@ msgstr "Darstellungsumwandlung"
 
 #: libraries/relation.lib.php:171
 msgid ""
-"Please see the documentation on how to update your column_comments table"
+"Please see the documentation on how to update your column_comments table."
 msgstr ""
 "Bitte lesen Sie in der Dokumentation nach, wie Sie die Struktur Ihrer "
 "Spaltenkommentartabelle aktualisieren können"
@@ -10408,7 +10408,7 @@ msgstr "Das Passwort für %s wurde geändert."
 
 #: libraries/server_privileges.lib.php:1573
 #, php-format
-msgid "You have revoked the privileges for %s"
+msgid "You have revoked the privileges for %s."
 msgstr "Sie haben die Rechte für %s widerrufen"
 
 #: libraries/server_privileges.lib.php:1631
@@ -10416,18 +10416,18 @@ msgid "Database for user"
 msgstr "Datenbank für Benutzer"
 
 #: libraries/server_privileges.lib.php:1635
-msgid "Create database with same name and grant all privileges"
+msgid "Create database with same name and grant all privileges."
 msgstr "Erstelle eine Datenbank mit gleichem Namen und gewähre alle Rechte"
 
 #: libraries/server_privileges.lib.php:1641
-msgid "Grant all privileges on wildcard name (username\\_%)"
+msgid "Grant all privileges on wildcard name (username\\_%)."
 msgstr ""
 "Gewähre alle Rechte auf Datenbanken die mit dem Benutzernamen beginnen "
 "(username\\_%)"
 
 #: libraries/server_privileges.lib.php:1650
 #, php-format
-msgid "Grant all privileges on database &quot;%s&quot;"
+msgid "Grant all privileges on database &quot;%s&quot;."
 msgstr "Gewähre alle Rechte auf die Datenbank &quot;%s&quot;"
 
 #: libraries/server_privileges.lib.php:1744
@@ -10528,7 +10528,7 @@ msgid "Add privileges on the following database:"
 msgstr "Rechte zu folgender Datenbank hinzufügen"
 
 #: libraries/server_privileges.lib.php:2531
-msgid "Wildcards % and _ should be escaped with a \\ to use them literally"
+msgid "Wildcards % and _ should be escaped with a \\ to use them literally."
 msgstr ""
 "Platzhalter _ und % sollten mit einem \\ escaped werden, um das gewünschte "
 "Sonderzeichen einzubinden"

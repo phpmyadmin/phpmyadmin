@@ -8803,7 +8803,7 @@ msgstr "Transformasi Browser"
 
 #: libraries/relation.lib.php:171
 msgid ""
-"Please see the documentation on how to update your column_comments table"
+"Please see the documentation on how to update your column_comments table."
 msgstr ""
 "Harap pelajari dokumentasi tentang cara memperbarui tabel column_comments "
 "Anda"
@@ -10103,7 +10103,7 @@ msgstr "Sukses mengubah Kata Sandi untuk %s ."
 
 #: libraries/server_privileges.lib.php:1573
 #, php-format
-msgid "You have revoked the privileges for %s"
+msgid "You have revoked the privileges for %s."
 msgstr "Anda telah mencabut hak akses untuk %s"
 
 #: libraries/server_privileges.lib.php:1631
@@ -10111,16 +10111,16 @@ msgid "Database for user"
 msgstr "Basis data untuk pengguna"
 
 #: libraries/server_privileges.lib.php:1635
-msgid "Create database with same name and grant all privileges"
+msgid "Create database with same name and grant all privileges."
 msgstr "Buat basis data dengan nama yang sama dan beri semua hak"
 
 #: libraries/server_privileges.lib.php:1641
-msgid "Grant all privileges on wildcard name (username\\_%)"
+msgid "Grant all privileges on wildcard name (username\\_%)."
 msgstr "Berikan semua hak untuk nama wildcard (pengguna\\_%)"
 
 #: libraries/server_privileges.lib.php:1650
 #, php-format
-msgid "Grant all privileges on database &quot;%s&quot;"
+msgid "Grant all privileges on database &quot;%s&quot;."
 msgstr "Berikan semua hak untuk basis data &quot;%s&quot;"
 
 #: libraries/server_privileges.lib.php:1744
@@ -10226,7 +10226,7 @@ msgid "Add privileges on the following database:"
 msgstr "Tambahkan hak akses pada basis data berikut"
 
 #: libraries/server_privileges.lib.php:2531
-msgid "Wildcards % and _ should be escaped with a \\ to use them literally"
+msgid "Wildcards % and _ should be escaped with a \\ to use them literally."
 msgstr ""
 "Wildcard _ dan % sebaiknya diakhiri dengan tanda \\ untuk mengunakannya "
 "secara harfiah"

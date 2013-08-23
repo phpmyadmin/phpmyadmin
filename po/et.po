@@ -8721,7 +8721,7 @@ msgstr "Veebilehitseja transformatsioon"
 
 #: libraries/relation.lib.php:171
 msgid ""
-"Please see the documentation on how to update your column_comments table"
+"Please see the documentation on how to update your column_comments table."
 msgstr ""
 "Palun loe dokumentatsioonist, kuidas uuendada oma column_comments tabelit"
 
@@ -10011,7 +10011,7 @@ msgstr "%s parool on edukalt vahetatud."
 
 #: libraries/server_privileges.lib.php:1573
 #, php-format
-msgid "You have revoked the privileges for %s"
+msgid "You have revoked the privileges for %s."
 msgstr "Tühistasid %s õigused"
 
 #: libraries/server_privileges.lib.php:1631
@@ -10019,16 +10019,16 @@ msgid "Database for user"
 msgstr "Andmebaas kasutajale"
 
 #: libraries/server_privileges.lib.php:1635
-msgid "Create database with same name and grant all privileges"
+msgid "Create database with same name and grant all privileges."
 msgstr "Loo samanimeline andmebaas ja anna kõik õigused"
 
 #: libraries/server_privileges.lib.php:1641
-msgid "Grant all privileges on wildcard name (username\\_%)"
+msgid "Grant all privileges on wildcard name (username\\_%)."
 msgstr "Anna kõik õigused metamärgiga nimele (kasutajanimi\\_%)"
 
 #: libraries/server_privileges.lib.php:1650
 #, php-format
-msgid "Grant all privileges on database &quot;%s&quot;"
+msgid "Grant all privileges on database &quot;%s&quot;."
 msgstr "Anna kõik õigused &quot;%s&quot; andmebaasis"
 
 #: libraries/server_privileges.lib.php:1744
@@ -10127,7 +10127,7 @@ msgid "Add privileges on the following database:"
 msgstr "Lisa õigusi järgnevas andmebaasis:"
 
 #: libraries/server_privileges.lib.php:2531
-msgid "Wildcards % and _ should be escaped with a \\ to use them literally"
+msgid "Wildcards % and _ should be escaped with a \\ to use them literally."
 msgstr ""
 "Metamärkide % ja _ täheliseks kasutamiseks peaksid nende ette asetama "
 "kurakaldkriipsu ehk \\"
