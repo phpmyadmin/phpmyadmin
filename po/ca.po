@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-08-18 06:16-0400\n"
-"PO-Revision-Date: 2013-05-30 13:29+0200\n"
+"PO-Revision-Date: 2013-08-23 09:21+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Catalan <http://l10n.cihar.com/projects/phpmyadmin/master/ca/"
-">\n"
+"Language-Team: Catalan "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/ca/>\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 1.6-dev\n"
+"X-Generator: Weblate 1.7-dev\n"
 
 #: browse_foreigners.php:50 browse_foreigners.php:70 js/messages.php:349
 #: libraries/DisplayResults.class.php:805
@@ -1738,7 +1738,7 @@ msgstr "Afegir %d valors"
 #: js/messages.php:267
 msgid ""
 "Note: If the file contains multiple tables, they will be combined into one."
-msgstr "Nota: Si l'arxiu conté múltiples taules, es combinaran en una"
+msgstr "Nota: Si l'arxiu conté múltiples taules, es combinaran en una."
 
 #: js/messages.php:270
 msgid "Hide query box"
@@ -2967,7 +2967,7 @@ msgstr "S'ha esborrat la clau principal"
 #: libraries/Index.class.php:607
 #, php-format
 msgid "Index %s has been dropped."
-msgstr "S'ha esborrat l'índex %s"
+msgstr "S'ha esborrat l'índex %s."
 
 #: libraries/Index.class.php:735
 #, php-format
@@ -3969,7 +3969,7 @@ msgstr ""
 #: libraries/Util.class.php:3357 libraries/insert_edit.lib.php:1188
 #: libraries/sql_query_form.lib.php:480
 msgid "The directory you set for upload work cannot be reached."
-msgstr "No està disponible el directori indicat per pujar arxius"
+msgstr "No està disponible el directori indicat per pujar arxius."
 
 #: libraries/Util.class.php:3368
 msgid "There are no files to upload"
@@ -8292,7 +8292,7 @@ msgstr ""
 #: libraries/plugins/auth/AuthenticationSignon.class.php:271
 #, php-format
 msgid "No activity within %s seconds; please log in again."
-msgstr "Sense activitat des de fa %s segons o més, entra de nou"
+msgstr "Sense activitat des de fa %s segons o més, entra de nou."
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:689
 #: libraries/plugins/auth/AuthenticationCookie.class.php:691
@@ -8316,7 +8316,7 @@ msgstr "L 'arxiu %s no conté cap identificació de clau"
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:180
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:200
 msgid "Hardware authentication failed!"
-msgstr "Error a l'autenticació de maquinari"
+msgstr "Error a l'autenticació de maquinari!"
 
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:187
 msgid "No valid authentication key plugged"
@@ -11884,7 +11884,7 @@ msgid ""
 "below, if there is any, may also help you in diagnosing the problem."
 msgstr ""
 "Sembla que hi ha un error a la consulta SQL. La sortida següent generada pel "
-"servidor MySQL, si n'hi ha, pot ajudar-vos a diagnosticar el problema"
+"servidor MySQL, si n'hi ha, pot ajudar-vos a diagnosticar el problema."
 
 #: libraries/sqlparser.lib.php:178
 msgid ""
