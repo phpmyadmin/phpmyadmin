@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-08-18 06:16-0400\n"
-"PO-Revision-Date: 2013-08-23 09:20+0200\n"
+"PO-Revision-Date: 2013-08-23 11:35+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Macedonian "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/mk/>\n"
@@ -9111,7 +9111,7 @@ msgid ""
 "Please see the documentation on how to update your column_comments table."
 msgstr ""
 "Ве молиме погледнете во документацијата за тоа како се ажурира табелата "
-"Column_comments"
+"Column_comments."
 
 #: libraries/relation.lib.php:181 libraries/sql_query_form.lib.php:401
 msgid "Bookmarked SQL query"
@@ -10478,7 +10478,7 @@ msgstr "Лозинката за %s успешно е променета."
 #: libraries/server_privileges.lib.php:1573
 #, php-format
 msgid "You have revoked the privileges for %s."
-msgstr "Ги забранивте привилегиите за %s"
+msgstr "Ги забранивте привилегиите за %s."
 
 #: libraries/server_privileges.lib.php:1631
 msgid "Database for user"
@@ -10603,7 +10603,7 @@ msgstr "Додади привилегии на следната база"
 #: libraries/server_privileges.lib.php:2531
 msgid "Wildcards % and _ should be escaped with a \\ to use them literally."
 msgstr ""
-"Пред џокер знаците _ и % треба да стои знакот \\ ако ги користите самостојно"
+"Пред џокер знаците _ и % треба да стои знакот \\ ако ги користите самостојно."
 
 #: libraries/server_privileges.lib.php:2549
 #, fuzzy
