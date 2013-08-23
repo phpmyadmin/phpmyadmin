@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-08-18 06:16-0400\n"
-"PO-Revision-Date: 2013-06-28 21:11+0200\n"
-"Last-Translator: Marc Delisle <marc@infomarc.info>\n"
-"Language-Team: Italian <http://l10n.cihar.com/projects/phpmyadmin/master/it/"
-">\n"
+"PO-Revision-Date: 2013-08-23 09:15+0200\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"Language-Team: Italian "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/it/>\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 1.6-dev\n"
+"X-Generator: Weblate 1.7-dev\n"
 
 #: browse_foreigners.php:50 browse_foreigners.php:70 js/messages.php:349
 #: libraries/DisplayResults.class.php:805
@@ -1753,7 +1753,7 @@ msgid ""
 "Note: If the file contains multiple tables, they will be combined into one."
 msgstr ""
 "Nota: Se il file contiene piú di una tabella, i dati saranno combinati in un "
-"unica tabella"
+"unica tabella."
 
 #: js/messages.php:270
 msgid "Hide query box"
@@ -2984,7 +2984,7 @@ msgstr "La chiave primaria è stata eliminata"
 #: libraries/Index.class.php:607
 #, php-format
 msgid "Index %s has been dropped."
-msgstr "L'indice %s è stato eliminato"
+msgstr "L'indice %s è stato eliminato."
 
 #: libraries/Index.class.php:735
 #, php-format
@@ -3931,7 +3931,7 @@ msgstr "Selezionare dalla cartella di upload del server web <b>%s</b>:"
 #: libraries/Util.class.php:3357 libraries/insert_edit.lib.php:1188
 #: libraries/sql_query_form.lib.php:480
 msgid "The directory you set for upload work cannot be reached."
-msgstr "La directory impostata per l'upload non può essere trovata"
+msgstr "La directory impostata per l'upload non può essere trovata."
 
 #: libraries/Util.class.php:3368
 msgid "There are no files to upload"
@@ -8363,7 +8363,7 @@ msgstr ""
 #, php-format
 msgid "No activity within %s seconds; please log in again."
 msgstr ""
-"Nessuna attività da %s secondi o più, si prega di autenticarsi nuovamente"
+"Nessuna attività da %s secondi o più, si prega di autenticarsi nuovamente."
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:689
 #: libraries/plugins/auth/AuthenticationCookie.class.php:691
@@ -8387,7 +8387,7 @@ msgstr "Il file %s non contiente nessuna chiave id"
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:180
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:200
 msgid "Hardware authentication failed!"
-msgstr "Autenticazione hardware fallita"
+msgstr "Autenticazione hardware fallita!"
 
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:187
 msgid "No valid authentication key plugged"
@@ -12007,7 +12007,8 @@ msgid ""
 "below, if there is any, may also help you in diagnosing the problem."
 msgstr ""
 "Pare che ci sia un errore nella query SQL immessa. L'errore del server MySQL "
-"mostrato qui sotto, se c'è, può anche aiutare nella risoluzione del problema"
+"mostrato qui sotto, se c'è, può anche aiutare nella risoluzione del "
+"problema."
 
 #: libraries/sqlparser.lib.php:178
 msgid ""
