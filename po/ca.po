@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-08-18 06:16-0400\n"
-"PO-Revision-Date: 2013-08-23 09:21+0200\n"
+"PO-Revision-Date: 2013-08-23 11:41+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Catalan "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/ca/>\n"
@@ -9023,7 +9023,7 @@ msgid ""
 "Please see the documentation on how to update your column_comments table."
 msgstr ""
 "Mira a la documentació cóm actualitzar la teva taula de comentaris de les "
-"columnes"
+"columnes."
 
 #: libraries/relation.lib.php:181 libraries/sql_query_form.lib.php:401
 msgid "Bookmarked SQL query"
@@ -10338,7 +10338,7 @@ msgstr "La contrasenya per %s s'ha canviat correctament."
 #: libraries/server_privileges.lib.php:1573
 #, php-format
 msgid "You have revoked the privileges for %s."
-msgstr "Has tret els permisos per %s"
+msgstr "Has tret els permisos per %s."
 
 #: libraries/server_privileges.lib.php:1631
 msgid "Database for user"
@@ -10346,16 +10346,16 @@ msgstr "Base de dades per usuari"
 
 #: libraries/server_privileges.lib.php:1635
 msgid "Create database with same name and grant all privileges."
-msgstr "Crea una base de dades amb el mateix nom i atorga tots els permisos"
+msgstr "Crea una base de dades amb el mateix nom i atorga tots els permisos."
 
 #: libraries/server_privileges.lib.php:1641
 msgid "Grant all privileges on wildcard name (username\\_%)."
-msgstr "Atorga tots els permisos en un nom comodí (nomusuari\\_%)"
+msgstr "Atorga tots els permisos en un nom comodí (nomusuari\\_%)."
 
 #: libraries/server_privileges.lib.php:1650
 #, php-format
 msgid "Grant all privileges on database &quot;%s&quot;."
-msgstr "Atorga tots els permisos a la base de dades &quot;%s&quot;"
+msgstr "Atorga tots els permisos a la base de dades &quot;%s&quot;."
 
 #: libraries/server_privileges.lib.php:1744
 #, php-format
@@ -10457,8 +10457,7 @@ msgstr "Afegeix permisos a la següent base de dades"
 
 #: libraries/server_privileges.lib.php:2531
 msgid "Wildcards % and _ should be escaped with a \\ to use them literally."
-msgstr ""
-"Els comodins _ i % han de marcar-se amb una \\ per usar-los literalment"
+msgstr "Els comodins _ i % han de marcar-se amb una \\ per usar-los literalment."
 
 #: libraries/server_privileges.lib.php:2549
 #, fuzzy
