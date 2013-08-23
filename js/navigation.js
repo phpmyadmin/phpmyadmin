@@ -25,7 +25,12 @@ $(function () {
     $('#pma_navigation_tree a.expander').live('click', function (event) {
         event.preventDefault();
         event.stopImmediatePropagation();
-        collapseOrExpandTreeNode($(this));
+        var $icon = $(this).find('img');
+        if ($icon.is('.ic_b_plus')) {
+            expandTreeNode($(this));
+        } else {
+            collapseTreeNode($(this));
+        }
     });
 
     /**
@@ -223,11 +228,7 @@ $(function () {
     PMA_showCurrentNavigation();
 });
 
-/**
- * opens/closes (hides/shows) tree elements
- * loads data via ajax
- */
-function collapseOrExpandTreeNode($this, callback)
+function expandTreeNode($this, callback)
 {
     var $children = $this.closest('li').children('div.list_container');
     var $icon = $this.find('img');
@@ -235,15 +236,11 @@ function collapseOrExpandTreeNode($this, callback)
         if ($icon.is('.ic_b_plus')) {
             $icon.removeClass('ic_b_plus').addClass('ic_b_minus');
             $children.show('fast');
-        } else {
-            $icon.removeClass('ic_b_minus').addClass('ic_b_plus');
-            $children.hide('fast');
         }
         if (callback && typeof callback == 'function') {
             callback.call();
         }
     } else {
-        var $destination = $this.closest('li');
         var $throbber = $('#pma_navigation .throbber')
             .first()
             .clone()
@@ -252,24 +249,9 @@ function collapseOrExpandTreeNode($this, callback)
         $icon.hide();
         $throbber.insertBefore($icon);
 
-        var searchClause = PMA_fastFilter.getSearchClause();
-        var searchClause2 = PMA_fastFilter.getSearchClause2($this);
-
-        var params = {
-            aPath: $this.find('span.aPath').text(),
-            vPath: $this.find('span.vPath').text(),
-            pos: $this.find('span.pos').text(),
-            pos2_name: $this.find('span.pos2_name').text(),
-            pos2_value: $this.find('span.pos2_value').text(),
-            searchClause: searchClause,
-            searchClause2: searchClause2
-        };
-        var url = $('#pma_navigation').find('a.navigation_url').attr('href');
-        $.get(url, params, function (data) {
+        loadChildNodes($this, function(data) {
             if (data.success === true) {
-                $this.addClass('loaded');
-                $destination.find('div.list_container').remove(); // FIXME: Hack, there shouldn't be a list container there
-                $destination.append(data.message);
+                var $destination = $this.closest('li');
                 $icon.removeClass('ic_b_plus').addClass('ic_b_minus');
                 $destination
                     .children('div.list_container')
@@ -292,8 +274,20 @@ function collapseOrExpandTreeNode($this, callback)
     $this.blur();
 }
 
+function collapseTreeNode($this) {
+    var $children = $this.closest('li').children('div.list_container');
+    var $icon = $this.find('img');
+    if ($this.hasClass('loaded')) {
+        if ($icon.is('.ic_b_minus')) {
+            $icon.removeClass('ic_b_minus').addClass('ic_b_plus');
+            $children.hide('fast');
+        }
+    }
+    $this.blur();
+}
+
 function loadChildNodes($this, callback) {
-   var $destination = $this.closest('li');
+    var $destination = $this.closest('li');
 
     var searchClause = PMA_fastFilter.getSearchClause();
     var searchClause2 = PMA_fastFilter.getSearchClause2($this);
@@ -315,7 +309,7 @@ function loadChildNodes($this, callback) {
             $destination.find('div.list_container').remove(); // FIXME: Hack, there shouldn't be a list container there
             $destination.append(data.message);
             if (callback && typeof callback == 'function') {
-               callback.call();
+               callback(data);
             }
         }
     });
@@ -339,11 +333,11 @@ function PMA_showCurrentNavigation()
        if (! $expander.hasClass('loaded')
            || $expander.find('img').is('.ic_b_plus')
        ) {
-           collapseOrExpandTreeNode($expander, function() {
-               highlightTableOrView($dbItem, table);
+           expandTreeNode($expander, function() {
+               loadAndHighlightTableOrView($dbItem, table);
            });
        } else {
-           highlightTableOrView($dbItem, table);
+           loadAndHighlightTableOrView($dbItem, table);
        }
    } else if (db) {
        // open in the tree and select the database
@@ -387,7 +381,7 @@ function PMA_showCurrentNavigation()
        return ret;
    }
 
-   function highlightTableOrView($dbItem, table) {
+   function loadAndHighlightTableOrView($dbItem, table) {
        var $container = $dbItem.children('div.list_container');
        var $tableContainer = $container
            .children('ul')
@@ -395,40 +389,55 @@ function PMA_showCurrentNavigation()
        var $viewContainer = $container
            .children('ul')
            .children('li.viewContainer');
-       if ($tableContainer.length > 0 || $viewContainer.length > 0) {
-           if ($tableContainer.length > 0) {
-               var $expander = $tableContainer
-                   .children('div:first')
-                   .children('a.expander');
-               if (! $expander.hasClass('loaded')
-                   || $expander.find('img').is('.ic_b_plus')
-               ) {
-                   collapseOrExpandTreeNode($expander, function() {
-                       var $ret = highlightLoadedItem(
-                           $tableContainer.children('div.list_container'),
-                           table, 'table', true
-                       );
-                       if (! $ret && $viewContainer.length > 0) {
-                           collapseOrExpandTreeNode($expander);
-                           highlightView($viewContainer, table);
-                       }
-                   });
-               } else {
-                   var $ret = highlightLoadedItem(
-                       $tableContainer.children('div.list_container'),
-                       table, 'table', true
-                   );
-                   if (! $ret && $viewContainer.length > 0) {
-                       collapseOrExpandTreeNode($expander);
-                       highlightView($viewContainer, table);
-                   }
-               }
+
+       if ($tableContainer.length > 0) {
+           var $expander = $tableContainer
+               .children('div:first')
+               .children('a.expander');
+
+           if (! $expander.hasClass('loaded') ) {
+               loadChildNodes($expander, function(data) {
+                   highlightTableOrView($tableContainer, $viewContainer, table);
+               });
            } else {
-               highlightView($viewContainer, table);
+               highlightTableOrView($tableContainer, $viewContainer, table);
            }
+       } else if ($viewContainer.length > 0) {
+           highlightView($viewContainer, table);
        } else {
            highlightLoadedItem($container, table, 'table', true);
        }
+   }
+
+   function highlightTableOrView($tableContainer, $viewContainer, table)
+   {
+       if (isItemInContainer($tableContainer, table, 'table')) {
+           var $expander = $tableContainer
+               .children('div:first')
+               .children('a.expander');
+           if ($expander.find('img').is('.ic_b_plus')) {
+               expandTreeNode($expander);
+           }
+           var $ret = highlightLoadedItem(
+               $tableContainer.children('div.list_container'),
+               table, 'table', true
+           );
+       } else if ($viewContainer.length > 0) {
+           highlightView($viewContainer, table);
+       }
+   }
+
+   function isItemInContainer($container, name, clazz)
+   {
+       $items = $container.find('li.' + clazz);
+       var found = false;
+       $items.each(function() {
+           if ($(this).children('a').text() == name) {
+               found = true;
+               return false;
+           }
+       });
+       return found;
    }
 
    function highlightView($viewContainer, view) {
@@ -438,7 +447,7 @@ function PMA_showCurrentNavigation()
        if (! $expander.hasClass('loaded')
            || $expander.find('img').is('.ic_b_plus')
        ) {
-           collapseOrExpandTreeNode($expander, function() {
+           expandTreeNode($expander, function() {
                highlightLoadedItem(
                    $viewContainer.children('div.list_container'),
                    view, 'view', true
@@ -508,6 +517,7 @@ function PMA_reloadNavigation(callback) {
         $throbber.css('visibility', 'hidden');
         if (data.success) {
             $('#pma_navigation_tree').html(data.message).children('div').show();
+            PMA_showCurrentNavigation();
             // Fire the callback, if any
             if (typeof callback === 'function') {
                 callback.call();
