@@ -228,6 +228,14 @@ $(function () {
     PMA_showCurrentNavigation();
 });
 
+/**
+ * Expands a node in navigation tree.
+ *
+ * @param $this    expander
+ * @param callback callback function
+ *
+ * @returns void
+ */
 function expandTreeNode($this, callback)
 {
     var $children = $this.closest('li').children('div.list_container');
@@ -274,6 +282,13 @@ function expandTreeNode($this, callback)
     $this.blur();
 }
 
+/**
+ * Collapses a node in navigation tree.
+ *
+ * @param $this expander
+ *
+ * @returns void
+ */
 function collapseTreeNode($this) {
     var $children = $this.closest('li').children('div.list_container');
     var $icon = $this.find('img');
@@ -286,6 +301,14 @@ function collapseTreeNode($this) {
     $this.blur();
 }
 
+/**
+ * Loads child items of a node and executes a given callback
+ *
+ * @param $this    expander
+ * @param callback callback function
+ *
+ * @returns void
+ */
 function loadChildNodes($this, callback) {
     var $destination = $this.closest('li');
 
@@ -315,6 +338,11 @@ function loadChildNodes($this, callback) {
     });
 }
 
+/**
+ * Expand the navigation and highlight the current database or table/view
+ *
+ * @returns void
+ */
 function PMA_showCurrentNavigation()
 {
    var db = PMA_commonParams.get('db');
@@ -322,7 +350,7 @@ function PMA_showCurrentNavigation()
    $('#pma_navigation_tree')
        .find('li.selected')
        .removeClass('selected');
-   if (db && table) {
+   if (db && table) { // if we are at the table/view level
        // open the database in the tree
        var $dbItem = highlightLoadedItem(
            $('#pma_navigation_tree > div'), db, 'database', false
@@ -339,7 +367,7 @@ function PMA_showCurrentNavigation()
        } else {
            loadAndHighlightTableOrView($dbItem, table);
        }
-   } else if (db) {
+   } else if (db) { // if we are at the database level
        // open in the tree and select the database
        highlightLoadedItem(
            $('#pma_navigation_tree > div'), db, 'database', true
@@ -350,6 +378,7 @@ function PMA_showCurrentNavigation()
        var ret = false;
        $container.children('ul').children('li').each(function() {
            var $li = $(this);
+           // this is a navigation group, recurse
            if ($li.is('.navGroup')) {
                var $container = $li.children('div.list_container');
                var $childRet = highlightLoadedItem(
@@ -359,11 +388,13 @@ function PMA_showCurrentNavigation()
                    ret = $childRet;
                    return false;
                }
-           } else {
+           } else { // this is a real navigation item
+               // name and class matches
                if ($li.is('.' + clazz) && $li.children('a').text() == name) {
                    if (doSelect) {
                        $li.addClass('selected');
                    }
+                   // taverse up and expand and parent navigation groups
                    $li.parents('.navGroup').each(function() {
                        $cont = $(this).children('div.list_container');
                        if (! $cont.is(':visible')) {
@@ -405,6 +436,7 @@ function PMA_showCurrentNavigation()
        } else if ($viewContainer.length > 0) {
            highlightView($viewContainer, table);
        } else {
+           // no containers, highlight the item
            highlightLoadedItem($container, table, 'table', true);
        }
    }
@@ -418,7 +450,7 @@ function PMA_showCurrentNavigation()
            if ($expander.find('img').is('.ic_b_plus')) {
                expandTreeNode($expander);
            }
-           var $ret = highlightLoadedItem(
+           highlightLoadedItem(
                $tableContainer.children('div.list_container'),
                table, 'table', true
            );
