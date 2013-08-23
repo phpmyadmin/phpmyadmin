@@ -4,16 +4,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-08-18 06:16-0400\n"
-"PO-Revision-Date: 2013-07-12 15:38+0200\n"
+"PO-Revision-Date: 2013-08-23 09:21+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Basque <http://l10n.cihar.com/projects/phpmyadmin/master/eu/"
-">\n"
+"Language-Team: Basque <http://l10n.cihar.com/projects/phpmyadmin/master/eu/>\n"
 "Language: eu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 1.6-dev\n"
+"X-Generator: Weblate 1.7-dev\n"
 
 #: browse_foreigners.php:50 browse_foreigners.php:70 js/messages.php:349
 #: libraries/DisplayResults.class.php:805
@@ -208,7 +207,7 @@ msgstr "Lehenetsia"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1384
 #: libraries/schema/Pdf_Relation_Schema.class.php:1407 tbl_printview.php:135
 msgid "Links to"
-msgstr "Esteka:"
+msgstr "Esteka"
 
 #: db_datadict.php:175 db_printview.php:53
 #: libraries/config/messages.inc.php:94 libraries/config/messages.inc.php:109
@@ -3088,7 +3087,7 @@ msgstr "Lehen mailako gakoa ezabatu da"
 #: libraries/Index.class.php:607
 #, php-format
 msgid "Index %s has been dropped."
-msgstr "%s indizea ezabatu da"
+msgstr "%s indizea ezabatu da."
 
 #: libraries/Index.class.php:735
 #, php-format
@@ -4040,7 +4039,7 @@ msgstr "Fitxategiak igotzeko web-zerbitzariaren direktorioa"
 #: libraries/Util.class.php:3357 libraries/insert_edit.lib.php:1188
 #: libraries/sql_query_form.lib.php:480
 msgid "The directory you set for upload work cannot be reached."
-msgstr "Igoerentzat ezarri duzun direktorioa ez dago eskuragarri"
+msgstr "Igoerentzat ezarri duzun direktorioa ez dago eskuragarri."
 
 #: libraries/Util.class.php:3368
 msgid "There are no files to upload"
@@ -11730,7 +11729,7 @@ msgid ""
 "below, if there is any, may also help you in diagnosing the problem."
 msgstr ""
 "Ematen du zure SQL kontsultan errore bat dagoela. MySQL zerbitzariak "
-"itzulitako erroreak, baldin badago, arazoa diagnostikatzen lagundu zaitzake"
+"itzulitako erroreak, baldin badago, arazoa diagnostikatzen lagundu zaitzake."
 
 #: libraries/sqlparser.lib.php:178
 msgid ""
