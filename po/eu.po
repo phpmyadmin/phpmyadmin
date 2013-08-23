@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-07-29 15:07+0200\n"
-"PO-Revision-Date: 2013-07-12 15:38+0200\n"
+"PO-Revision-Date: 2013-08-23 09:21+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Basque <http://l10n.cihar.com/projects/phpmyadmin/4-0/eu/>\n"
 "Language: eu\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 1.6-dev\n"
+"X-Generator: Weblate 1.7-dev\n"
 
 #: browse_foreigners.php:51 browse_foreigners.php:75 js/messages.php:344
 #: libraries/DisplayResults.class.php:813
@@ -204,7 +204,7 @@ msgstr "Lehenetsia"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1371
 #: libraries/schema/Pdf_Relation_Schema.class.php:1394 tbl_printview.php:135
 msgid "Links to"
-msgstr "Esteka:"
+msgstr "Esteka"
 
 #: db_datadict.php:176 db_printview.php:107
 #: libraries/config/messages.inc.php:94 libraries/config/messages.inc.php:109
