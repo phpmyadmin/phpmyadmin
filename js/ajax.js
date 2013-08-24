@@ -305,6 +305,7 @@ var AJAX = {
                 }
                 AJAX._callback = function () {};
             });
+            PMA_showCurrentNavigation();
         } else {
             PMA_ajaxShowMessage(data.error, false);
             AJAX.active = false;
