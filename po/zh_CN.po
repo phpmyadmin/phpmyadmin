@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-07-29 15:07+0200\n"
-"PO-Revision-Date: 2013-08-24 09:25+0200\n"
+"PO-Revision-Date: 2013-08-24 12:11+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: Simplified Chinese "
 "<http://l10n.cihar.com/projects/phpmyadmin/4-0/zh_CN/>\n"
@@ -867,24 +867,24 @@ msgstr "服务器上运行了 Suhosin。请查看%s文档%s了解可能发生的
 
 #: js/messages.php:27 libraries/import.lib.php:118 sql.php:342
 msgid "\"DROP DATABASE\" statements are disabled."
-msgstr "已经禁用删除数据库 (“DROP DATABASE”) 语句。"
+msgstr "已禁用“删除数据库”语句。"
 
 #: js/messages.php:30
 #, php-format
 msgid "Do you really want to execute \"%s\"?"
-msgstr "您真的要执行\"%s\"吗?"
+msgstr "您真的要执行“%s”吗？"
 
 #: js/messages.php:31 libraries/mult_submits.inc.php:316 sql.php:464
 msgid "You are about to DESTROY a complete database!"
-msgstr "您将要删除一个完整的数据库！"
+msgstr "您将要完全删除一个数据库！"
 
 #: js/messages.php:32
 msgid "You are about to DESTROY a complete table!"
-msgstr "您将要删除一个完整的数据表！"
+msgstr "您将要完全删除一个表！"
 
 #: js/messages.php:33
 msgid "You are about to TRUNCATE a complete table!"
-msgstr "您将要清空一个完整的数据表！"
+msgstr "您将要完全清空一个表！"
 
 #: js/messages.php:35
 msgid "Deleting tracking data"
@@ -896,7 +896,7 @@ msgstr "正在删除主键"
 
 #: js/messages.php:37
 msgid "This operation could take a long time. Proceed anyway?"
-msgstr "该操作可能需要执行较长时间，确定执行？"
+msgstr "该操作可能需要较长时间执行。是否继续？"
 
 #: js/messages.php:40
 msgid "Missing value in the form!"
@@ -951,7 +951,7 @@ msgstr "添加用户"
 
 #: js/messages.php:56
 msgid "Reloading Privileges"
-msgstr "重新载入权限"
+msgstr "正在重新载入权限"
 
 #: js/messages.php:57
 msgid "Removing Selected Users"
@@ -1018,7 +1018,7 @@ msgstr "连接 / 进程"
 
 #: js/messages.php:79
 msgid "Local monitor configuration incompatible"
-msgstr "本地监控配置不兼容"
+msgstr "本地监控设置不兼容"
 
 #: js/messages.php:80
 msgid ""
@@ -1060,7 +1060,7 @@ msgstr "平均负载"
 
 #: js/messages.php:91
 msgid "Total memory"
-msgstr "内存总数"
+msgstr "内存总量"
 
 #: js/messages.php:92
 msgid "Cached memory"
@@ -1080,7 +1080,7 @@ msgstr "已用内存"
 
 #: js/messages.php:97
 msgid "Total Swap"
-msgstr "交换空间总数"
+msgstr "交换空间总量"
 
 #: js/messages.php:98
 msgid "Cached Swap"
@@ -1202,27 +1202,27 @@ msgstr "暂停监控"
 
 #: js/messages.php:130
 msgid "general_log and slow_query_log are enabled."
-msgstr "general_log 和 slow_query_log 已启用。"
+msgstr "已启用 general_log 和 slow_query_log。"
 
 #: js/messages.php:131
 msgid "general_log is enabled."
-msgstr "general_log 已启用。"
+msgstr "已启用 general_log。"
 
 #: js/messages.php:132
 msgid "slow_query_log is enabled."
-msgstr "slow_query_log 已启用。"
+msgstr "已启用 slow_query_log。"
 
 #: js/messages.php:133
 msgid "slow_query_log and general_log are disabled."
-msgstr "slow_query_log 和 general_log 已禁用。"
+msgstr "未启用 slow_query_log 和 general_log。"
 
 #: js/messages.php:134
 msgid "log_output is not set to TABLE."
-msgstr "log_output 未设置到 TABLE 。"
+msgstr "未设置 log_output 为 TABLE。"
 
 #: js/messages.php:135
 msgid "log_output is set to TABLE."
-msgstr "log_output 已设置到 TABLE 。"
+msgstr "已设置 log_output 为 TABLE。"
 
 #: js/messages.php:136
 #, php-format
@@ -1231,19 +1231,19 @@ msgid ""
 "than %d seconds. It is advisable to set this long_query_time 0-2 seconds, "
 "depending on your system."
 msgstr ""
-"slow_query_log 已启用，但服务器仅记录查询时间超过 %d 秒的查询。请根据您的系统"
-"适当设置  long_query_time 为 0-2 秒。"
+"已启用 slow_query_log，但服务器仅记录查询时间超过 %d 秒的查询。请根据您的系统适当设置  long_query_time 为 0-2 "
+"秒。"
 
 #: js/messages.php:137
 #, php-format
 msgid "long_query_time is set to %d second(s)."
-msgstr "long_query_time 已设为 %d 秒。"
+msgstr "已设置 long_query_time 为 %d 秒。"
 
 #: js/messages.php:138
 msgid ""
 "Following settings will be applied globally and reset to default on server "
 "restart:"
-msgstr "下列设置将被应用到整个服务器直到服务器重新启动:"
+msgstr "下列设置将被应用到整个服务器直到服务器重新启动："
 
 #. l10n: %s is FILE or TABLE
 #: js/messages.php:140
@@ -1307,7 +1307,7 @@ msgstr "从慢查询日志"
 
 #: js/messages.php:158
 msgid "From general log"
-msgstr "从通用日志"
+msgstr "从常规日志"
 
 #: js/messages.php:159
 msgid "Analysing logs"
@@ -1315,7 +1315,7 @@ msgstr "正在分析日志"
 
 #: js/messages.php:160
 msgid "Analysing & loading logs. This may take a while."
-msgstr "正在加载并分析日志。请稍候。"
+msgstr "正在分析并加载日志。请稍候。"
 
 #: js/messages.php:161
 msgid "Cancel request"
