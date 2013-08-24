@@ -1483,7 +1483,7 @@ function PMA_getSubmitTypeDropDown($where_clause, $tabindex, $tabindex_for_value
  */
 function PMA_getAfterInsertDropDown($where_clause, $after_insert, $found_unique_key)
 {
-    $html_output = '<select name="after_insert">'
+    $html_output = '<select name="after_insert" class="control_at_footer">'
         . '<option value="back" '
         . ($after_insert == 'back' ? 'selected="selected"' : '') . '>'
         . __('Go back to previous page') . '</option>'

@@ -473,7 +473,7 @@ AJAX.registerOnload('tbl_change.js', function() {
                 // update the IDs of textfields to ensure that they are unique
                 $(this).attr('id', "field_" + tabindex + "_3");
             });
-        $('select.control_at_footer')
+        $('.control_at_footer')
         .each(function() {
                 tabindex++;
                 $(this).attr('tabindex', tabindex);
