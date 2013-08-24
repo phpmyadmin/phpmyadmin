@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-08-18 06:16-0400\n"
-"PO-Revision-Date: 2013-05-14 06:43+0200\n"
-"Last-Translator: Randall Fan <fanrandall@gmail.com>\n"
-"Language-Team: Simplified Chinese <http://l10n.cihar.com/projects/phpmyadmin/"
-"master/zh_CN/>\n"
+"PO-Revision-Date: 2013-08-24 09:11+0200\n"
+"Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
+"Language-Team: Simplified Chinese "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/zh_CN/>\n"
 "Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 1.6-dev\n"
+"X-Generator: Weblate 1.7-dev\n"
 
 #: browse_foreigners.php:50 browse_foreigners.php:70 js/messages.php:349
 #: libraries/DisplayResults.class.php:805
@@ -35,9 +35,7 @@ msgid ""
 "The target browser window could not be updated. Maybe you have closed the "
 "parent window, or your browser's security settings are configured to block "
 "cross-window updates."
-msgstr ""
-"无法更新目标浏览窗口。可能你已经关闭了父窗口或您浏览器的安全设置阻止了跨窗口"
-"更新。"
+msgstr "无法更新目标浏览窗口。您可能关闭了父窗口或您的浏览器安全设置阻止了跨窗口更新。"
 
 #: browse_foreigners.php:184
 msgid "Search:"
@@ -97,23 +95,23 @@ msgstr "说明"
 #: browse_foreigners.php:289 browse_foreigners.php:301
 #: browse_foreigners.php:317 browse_foreigners.php:329
 msgid "Use this value"
-msgstr "使用此值"
+msgstr "使用该值"
 
 #: changelog.php:36 license.php:28
 #, php-format
 msgid ""
 "The %s file is not available on this system, please visit www.phpmyadmin.net "
 "for more information."
-msgstr "该系统不支持 %s 文件，请访问 www.phpmyadmin.net 查询更多信息。"
+msgstr "该系统上没有文件 %s，请访问 www.phpmyadmin.net 获取更多信息。"
 
 #: db_create.php:61
 #, php-format
 msgid "Database %1$s has been created."
-msgstr "创建数据库 %1$s 成功。"
+msgstr "已创建数据库 %1$s。"
 
 #: db_datadict.php:52 libraries/operations.lib.php:32
 msgid "Database comment: "
-msgstr "数据库注释: "
+msgstr "数据库注释： "
 
 #: db_datadict.php:159 libraries/schema/Pdf_Relation_Schema.class.php:1352
 #: libraries/tbl_columns_definition_form.lib.php:70 tbl_printview.php:120
@@ -267,7 +265,7 @@ msgstr "是"
 
 #: db_export.php:29
 msgid "View dump (schema) of database"
-msgstr "查看数据库的转储(大纲)"
+msgstr "查看数据库的转储（大纲）"
 
 #: db_export.php:33 db_printview.php:41 db_structure.php:68 db_tracking.php:51
 #: export.php:556 libraries/DBQbe.class.php:268
@@ -303,7 +301,7 @@ msgstr "已将数据库 %1$s 复制为 %2$s"
 msgid ""
 "The phpMyAdmin configuration storage has been deactivated. To find out why "
 "click %shere%s."
-msgstr "phpMyAdmin 高级功能尚未激活。要查出原因，请点击%s此处%s。"
+msgstr "phpMyAdmin 高级功能尚未激活。请点击%s这里%s查看原因。"
 
 #: db_printview.php:47 db_tracking.php:81 db_tracking.php:204
 #: libraries/Menu.class.php:240 libraries/config/messages.inc.php:521
@@ -362,7 +360,7 @@ msgstr "您最少要选择显示一列"
 #: db_qbe.php:70
 #, php-format
 msgid "Switch to %svisual builder%s"
-msgstr "切换到 %s可视化查询生成器%s"
+msgstr "切换到%s可视化查询生成器%s"
 
 #: db_search.php:30 libraries/plugins/auth/AuthenticationConfig.class.php:81
 #: libraries/plugins/auth/AuthenticationConfig.class.php:96
@@ -370,7 +368,7 @@ msgstr "切换到 %s可视化查询生成器%s"
 #: libraries/plugins/auth/AuthenticationHttp.class.php:69
 #: libraries/plugins/auth/AuthenticationSignon.class.php:268
 msgid "Access denied"
-msgstr "拒绝访问"
+msgstr "访问被拒绝"
 
 #: db_tracking.php:75
 msgid "Tracked tables"
@@ -427,7 +425,7 @@ msgstr "显示"
 
 #: db_tracking.php:99 js/messages.php:40
 msgid "Delete tracking data for this table"
-msgstr "删除追踪数据"
+msgstr "删除该表的追踪数据"
 
 #: db_tracking.php:103 libraries/Index.class.php:624
 #: libraries/Util.class.php:3391 libraries/Util.class.php:3392
@@ -471,15 +469,15 @@ msgstr "数据库日志"
 
 #: export.php:154
 msgid "Bad type!"
-msgstr "非法类型！"
+msgstr "类型无效！"
 
 #: export.php:205
 msgid "Selected export type has to be saved in file!"
-msgstr "选择导出文件的类型！"
+msgstr "选择的导出类型必须保存为文件！"
 
 #: export.php:234
 msgid "Bad parameters!"
-msgstr "非法参数！"
+msgstr "参数无效！"
 
 #: export.php:333 export.php:364 export.php:927
 #, php-format
@@ -500,7 +498,7 @@ msgstr "网站服务器没有保存文件 %s 的权限。"
 #: export.php:933
 #, php-format
 msgid "Dump has been saved to file %s."
-msgstr "转存已经保存到文件 %s 中。"
+msgstr "已保存转储到文件 %s 中。"
 
 #: file_echo.php:22
 msgid "Invalid export type"
@@ -509,7 +507,7 @@ msgstr "导出类型无效"
 #: gis_data_editor.php:112
 #, php-format
 msgid "Value for the column \"%s\""
-msgstr "字段 %s 的值"
+msgstr "字段“%s”的值"
 
 #: gis_data_editor.php:140 libraries/tbl_gis_visualization.lib.php:261
 msgid "Use OpenStreetMaps as Base Layer"
@@ -518,13 +516,13 @@ msgstr "以 OpenStreetMaps 为背景"
 # what's the f**k word of "SRID"?
 #: gis_data_editor.php:161
 msgid "SRID:"
-msgstr "SRID:"
+msgstr "空间参照标识符："
 
 #: gis_data_editor.php:184
-#, fuzzy, php-format
+#, php-format
 #| msgid "Geometry"
 msgid "Geometry %d:"
-msgstr "几何体"
+msgstr "几何体 %d："
 
 #: gis_data_editor.php:206
 msgid "Point:"
@@ -552,22 +550,21 @@ msgid "Add a point"
 msgstr "添加点"
 
 #: gis_data_editor.php:262
-#, fuzzy, php-format
+#, php-format
 #| msgid "Linestring"
 msgid "Linestring %d:"
-msgstr "线"
+msgstr "线 %d："
 
 #: gis_data_editor.php:265 gis_data_editor.php:341
-#, fuzzy
 #| msgid "Outer Ring"
 msgid "Outer ring:"
-msgstr "外环"
+msgstr "外环："
 
 #: gis_data_editor.php:267 gis_data_editor.php:343
-#, fuzzy, php-format
+#, php-format
 #| msgid "Inner Ring"
 msgid "Inner ring %d:"
-msgstr "内环"
+msgstr "内环 %d："
 
 #: gis_data_editor.php:303
 msgid "Add a linestring"
@@ -578,10 +575,10 @@ msgid "Add an inner ring"
 msgstr "添加内环"
 
 #: gis_data_editor.php:325
-#, fuzzy, php-format
+#, php-format
 #| msgid "Polygon"
 msgid "Polygon %d:"
-msgstr "多边形"
+msgstr "多边形 %d："
 
 #: gis_data_editor.php:384 js/messages.php:325
 msgid "Add a polygon"
@@ -599,14 +596,14 @@ msgstr "输出"
 msgid ""
 "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
 "below into the \"Value\" field"
-msgstr "从 \"函数\" 列中选择 \"GeomFromText\" 并粘贴内容到下列 \"值\" 列中"
+msgstr "从“函数”列中选择“GeomFromText”并粘贴下列内容到“值”中"
 
 #: import.php:109
 #, php-format
 msgid ""
 "You probably tried to upload a file that is too large. Please refer to "
 "%sdocumentation%s for a workaround for this limit."
-msgstr "您可能正在上传很大的文件，请参考%s文档%s来寻找解决方法。"
+msgstr "您想要上传的文件可能太大了，请参考%s文档%s来寻找解决方法。"
 
 #: import.php:270 import.php:536
 msgid "Showing bookmark"
@@ -614,7 +611,7 @@ msgstr "显示书签"
 
 #: import.php:285 import.php:532
 msgid "The bookmark has been deleted."
-msgstr "书签已删除。"
+msgstr "已删除书签。"
 
 #: import.php:380 import.php:441 libraries/File.class.php:433
 #: libraries/File.class.php:526
@@ -627,8 +624,7 @@ msgstr "无法读取文件"
 msgid ""
 "You attempted to load file with unsupported compression (%s). Either support "
 "for it is not implemented or disabled by your configuration."
-msgstr ""
-"您正在载入不支持的压缩格式 (%s)。配置文件中没有对应这种格式的配置说明。"
+msgstr "您尝试导入的文件是不支持的压缩格式（%s）。可能服务器不支持或您在设置中禁止了这种格式。"
 
 #: import.php:447
 msgid ""
@@ -636,8 +632,7 @@ msgid ""
 "file size exceeded the maximum size permitted by your PHP configuration. See "
 "[doc@faq1-16]FAQ 1.16[/doc]."
 msgstr ""
-"没有接收到要导入的数据。可能是文件名没有提交，也可能是文件大小超出 PHP 限制。"
-"参见 [doc@faq1-16]FAQ 1.16[/doc]。"
+"没有接收到要导入的数据。可能是文件名没有提交，也可能是文件大小超出 PHP 限制。参见[doc@faq1-16]常见问题 1.16[/doc]。"
 
 #: import.php:467
 msgid ""
@@ -646,7 +641,7 @@ msgstr "没有字符集转换库，无法转换文件字符集"
 
 #: import.php:505 libraries/display_import.inc.php:32
 msgid "Could not load import plugins, please check your installation!"
-msgstr "无法加载导入插件，请检查你的安装！"
+msgstr "无法加载导入插件，请检查您的安装！"
 
 #: import.php:539 libraries/sql.lib.php:1021 libraries/sql.lib.php:1801
 #, php-format
@@ -662,7 +657,7 @@ msgstr "导入成功，执行了 %d 个查询。"
 msgid ""
 "Script timeout passed, if you want to finish import, please resubmit same "
 "file and import will resume."
-msgstr "脚本超时，如果你要完成导入，请重新提交相同的文件，导入将会继续进行。"
+msgstr "脚本超时，如果您要完成导入，请重新提交相同的文件，导入将会继续进行。"
 
 #: import.php:581
 msgid ""
@@ -678,10 +673,9 @@ msgid "Back"
 msgstr "返回"
 
 #: index.php:115 libraries/Footer.class.php:72
-#, fuzzy
 #| msgid "phpMyAdmin homepage"
 msgid "phpMyAdmin Demo Server"
-msgstr "phpMyAdmin 主页 (外链，英文)"
+msgstr "phpMyAdmin 演示服务器"
 
 #: index.php:119
 #, php-format
@@ -689,7 +683,7 @@ msgid ""
 "You are using the demo server. You can do anything here, but please do not "
 "change root, debian-sys-maint and pma users. More information is available "
 "at %s."
-msgstr ""
+msgstr "您正在使用演示服务器。您可以在这里做任何事，但请不要修改 root、debian-sys-maint 和 pma 用户。详情请见 %s。"
 
 #: index.php:129
 msgid "General Settings"
@@ -702,7 +696,7 @@ msgstr "修改密码"
 
 #: index.php:175
 msgid "Server connection collation"
-msgstr "服务器连接校对"
+msgstr "服务器连接排序规则"
 
 #: index.php:198
 msgid "Appearance Settings"
@@ -740,7 +734,7 @@ msgstr "用户："
 
 #: index.php:273
 msgid "Server charset:"
-msgstr "服务器字符集:"
+msgstr "服务器字符集："
 
 #: index.php:285
 msgid "Web server"
@@ -748,11 +742,11 @@ msgstr "网站服务器"
 
 #: index.php:298
 msgid "Database client version:"
-msgstr "数据库客户端版本:"
+msgstr "数据库客户端版本："
 
 #: index.php:302
 msgid "PHP extension:"
-msgstr "PHP 扩展:"
+msgstr "PHP 扩展："
 
 #: index.php:316
 msgid "Show PHP information"
@@ -772,11 +766,11 @@ msgstr "文档"
 
 #: index.php:355 libraries/config/FormDisplay.tpl.php:150
 msgid "Wiki"
-msgstr "维基 (Wiki) (外链，英文)"
+msgstr "维基"
 
 #: index.php:364
 msgid "Official Homepage"
-msgstr "官方主页 (外链，英文)"
+msgstr "官方主页"
 
 #: index.php:371
 msgid "Contribute"
@@ -797,18 +791,15 @@ msgid ""
 "running with this default, is open to intrusion, and you really should fix "
 "this security hole by setting a password for user 'root'."
 msgstr ""
-"您配置文件中的设置 (空密码的 root) 与 MySQL 默认管理员账户对应。您的 MySQL 服"
-"务器使用默认值运行当然没有问题，不过这样的话，被入侵的可能性会很大，我们强烈"
-"建议您应该立即给 'root' 用户设置一个密码来补上这个安全漏洞。"
+"您配置文件中的设置（空密码的 root）是 MySQL 的默认管理员帐号。您的 MySQL "
+"服务器正在使用这个默认设置运行，这样容易被入侵，我们强烈建议您立即给‘root’用户设置一个密码来修复这个安全漏洞。"
 
 #: index.php:426
 msgid ""
 "You have enabled mbstring.func_overload in your PHP configuration. This "
 "option is incompatible with phpMyAdmin and might cause some data to be "
 "corrupted!"
-msgstr ""
-"PHP 配置中已启用了 mbstring.func_overload 。这个选项和 phpMyAdmin 不兼容，可"
-"能会导致一些数据损坏！"
+msgstr "您在 PHP 设置中启用了 mbstring.func_overload。该选项和 phpMyAdmin 不兼容并可能会导致一些数据损坏！"
 
 #: index.php:441
 msgid ""
