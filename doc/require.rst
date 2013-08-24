@@ -27,9 +27,8 @@ PHP
 
 * To support upload progress bars, see :ref:`faq2_9`.
 
-* To support XML and Open Document Spreadsheet importing, you need PHP
-  with the `libxml <http://www.php.net/libxml>`_
-  extension.
+* To support XML and Open Document Spreadsheet importing, you need the 
+  `libxml <http://www.php.net/libxml>`_ extension.
 
 * Performance suggestion: install the ``ctype`` extension.
 
