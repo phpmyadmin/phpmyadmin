@@ -14,7 +14,7 @@ require_once 'Helper.php';
  * @package    PhpMyAdmin-test
  * @subpackage Selenium
  */
-class PmaSeleniumTablesInsertDataTest extends PHPUnit_Extensions_SeleniumTestCase
+class PmaSeleniumTablesInsertDataTest extends PHPUnit_Extensions_Selenium2TestCase
 {
     /**
      * Name of database for the test
@@ -40,7 +40,6 @@ class PmaSeleniumTablesInsertDataTest extends PHPUnit_Extensions_SeleniumTestCas
         $this->_helper = new Helper($this);
         $this->setBrowser($this->_helper->getBrowserString());
         $this->setBrowserUrl(TESTSUITE_PHPMYADMIN_HOST . TESTSUITE_PHPMYADMIN_URL);
-        $this->start();
         $this->_helper->dbConnect();
         $this->_dbname = 'pma_db_' . time();
         $this->_helper->dbQuery('CREATE DATABASE ' . $this->_dbname);
@@ -53,9 +52,19 @@ class PmaSeleniumTablesInsertDataTest extends PHPUnit_Extensions_SeleniumTestCas
             . " PRIMARY KEY (`id`)"
             . ")"
         );
+        
+    }
+
+    /**
+     * setUp function that can use the selenium session (called before each test)
+     * 
+     * @return void
+     */
+    public function setUpPage()
+    {
         $this->_helper->login(TESTSUITE_USER, TESTSUITE_PASSWORD);
-        $this->click('link='. $this->_dbname.'');
-        $this->waitForElementPresent("link=test_table");
+        $this->byLinkText($this->_dbname)->click();
+        $this->_helper->waitForElement("byLinkText", "test_table");
     }
 
     /**
@@ -65,79 +74,85 @@ class PmaSeleniumTablesInsertDataTest extends PHPUnit_Extensions_SeleniumTestCas
      */
     public function testAddData()
     {
-        $this->click("link=Insert");
-        $this->waitForElementPresent("css=form#insertForm");
+        $this->byLinkText("Insert")->click();
+        $this->_helper->waitForElement("byId", "insertForm");
 
-        $this->type("id=field_1_3", "1");
-        $this->type("id=field_2_3", "abcd");
-        $this->type("id=field_3_3", "2011-01-20 02:00:02");
-        $this->type("id=field_5_3", "foo");
-        $this->type("id=field_6_3", "2010-01-20 02:00:02");
+        $this->byId("field_1_3")->value("1");
+        $this->byId("field_2_3")->value("abcd");
+        $this->byId("field_3_3")->value("2011-01-20 02:00:02");
+        $this->byId("field_5_3")->value("foo");
+        $this->byId("field_6_3")->value("2010-01-20 02:00:02");
 
-        $this->select("name=after_insert", "Insert another new row");
-
-        // post
-        $this->click("id=buttonYes");
-        $this->waitForElementPresent("css=div.success:contains('2 rows inserted')");
-
-        $this->type("id=field_2_3", "Abcd");
-        $this->type("id=field_3_3", "2012-01-20 02:00:02");
+        $select = $this->select($this->byName("after_insert"));
+        $select->selectOptionByLabel("Insert another new row");
 
         // post
-        $this->click("css=table.insertRowTable:first input[value=Go]");
-        $this->waitForElementPresent("css=div.success:contains('1 row inserted')");
+        $this->byId("buttonYes")->click();
+        $ele = $this->_helper->waitForElement("byClassName", "success");
+        $this->assertContains("2 rows inserted", $ele->text());
+
+        $this->byId("field_2_3")->value("Abcd");
+        $this->byId("field_3_3")->value("2012-01-20 02:00:02");
+
+        // post
+        $this->byCssSelector(
+            "input[value=Go]"
+            )->click();
+
+        $this->_helper->waitForElementNotPresent("byId", "loading_parent");
+        $ele = $this->_helper->waitForElement("byClassName", "success");
+        $this->assertContains("1 row inserted", $ele->text());
         $this->_assertDataPresent();
     }
 
     private function _assertDataPresent()
     {
-        $this->click("link=Browse");
-        $this->waitForElementPresent("id=table_results");
+        $this->byLinkText("Browse")->click();
+        $this->_helper->waitForElement("byId", "table_results");
 
         $this->assertEquals(
             "1",
-            $this->getTable("table_results.1.4")
+            $this->_helper->getTable("table_results.1.5")
         );
 
         $this->assertEquals(
             "abcd",
-            $this->getTable("table_results.1.5")
-
+            $this->_helper->getTable("table_results.1.6")
         );
 
         $this->assertEquals(
             "2011-01-20 02:00:02",
-            $this->getTable("table_results.1.6")
+            $this->_helper->getTable("table_results.1.7")
         );
 
         $this->assertEquals(
             "2",
-            $this->getTable("table_results.2.4")
+            $this->_helper->getTable("table_results.2.5")
         );
 
         $this->assertEquals(
             "foo",
-            $this->getTable("table_results.2.5")
+            $this->_helper->getTable("table_results.2.6")
         );
 
         $this->assertEquals(
             "2010-01-20 02:00:02",
-            $this->getTable("table_results.2.6")
+            $this->_helper->getTable("table_results.2.7")
         );
 
         $this->assertEquals(
             "3",
-            $this->getTable("table_results.3.4")
+            $this->_helper->getTable("table_results.3.5")
         );
 
         $this->assertEquals(
             "Abcd",
-            $this->getTable("table_results.3.5")
+            $this->_helper->getTable("table_results.3.6")
         );
 
         $this->assertEquals(
             "2012-01-20 02:00:02",
-            $this->getTable("table_results.3.6")
+            $this->_helper->getTable("table_results.3.7")
         );
     }
 

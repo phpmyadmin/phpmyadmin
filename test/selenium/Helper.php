@@ -245,5 +245,18 @@ class Helper
         // Element Present
         return true;
     }
+
+    public function getTable($identifier)
+    {
+        list($tableID, $row, $column) = explode(".", $identifier);
+
+        $selector = "table#{$tableID} tbody tr:nth-child({$row}) td:nth-child({$column})";
+        
+        $element = $this->_selenium->byCssSelector(
+            $selector
+        );
+
+        return $element->text();
+    }
 }
 ?>

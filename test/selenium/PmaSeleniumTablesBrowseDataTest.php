@@ -14,7 +14,7 @@ require_once 'Helper.php';
  * @package    PhpMyAdmin-test
  * @subpackage Selenium
  */
-class PmaSeleniumTablesBrowseDataTest extends PHPUnit_Extensions_SeleniumTestCase
+class PmaSeleniumTablesBrowseDataTest extends PHPUnit_Extensions_Selenium2TestCase
 {
     /**
      * Name of database for the test
@@ -40,7 +40,6 @@ class PmaSeleniumTablesBrowseDataTest extends PHPUnit_Extensions_SeleniumTestCas
         $this->_helper = new Helper($this);
         $this->setBrowser($this->_helper->getBrowserString());
         $this->setBrowserUrl(TESTSUITE_PHPMYADMIN_HOST . TESTSUITE_PHPMYADMIN_URL);
-        $this->start();
         $this->_helper->dbConnect();
         $this->_dbname = 'pma_db_' . time();
         $this->_helper->dbQuery('CREATE DATABASE ' . $this->_dbname);
@@ -59,11 +58,20 @@ class PmaSeleniumTablesBrowseDataTest extends PHPUnit_Extensions_SeleniumTestCas
             . " (2, 'foo', '2010-01-20 02:00:02'),"
             . " (3, 'Abcd', '2012-01-20 02:00:02')"
         );
+    }
+
+    /**
+     * setUp function that can use the selenium session (called before each test)
+     * 
+     * @return void
+     */
+    public function setUpPage()
+    {
         $this->_helper->login(TESTSUITE_USER, TESTSUITE_PASSWORD);
-        $this->click('link='. $this->_dbname.'');
-        $this->waitForElementPresent("link=test_table");
-        $this->click("link=Browse");
-        $this->waitForElementPresent("id=table_results");
+        $this->byLinkText($this->_dbname)->click();
+        $this->_helper->waitForElement("byLinkText", "test_table");
+        $this->byLinkText("Browse")->click();
+        $this->_helper->waitForElement("byId", "table_results");
     }
 
     /**
@@ -74,83 +82,83 @@ class PmaSeleniumTablesBrowseDataTest extends PHPUnit_Extensions_SeleniumTestCas
     public function testSortRecords()
     {
         // case 1
-        $this->click("link=name");
-        $this->waitForElementNotPresent("id=loading_parent");
+        $this->byLinkText("name")->click();
+        $this->_helper->waitForElementNotPresent("byId", "loading_parent");
         usleep(100);
         
         $this->assertEquals(
-            $this->getTable("table_results.1.4"),
-            "1"
+            "1",
+            $this->_helper->getTable("table_results.1.5")
         );
 
         $this->assertEquals(
-            $this->getTable("table_results.2.4"),
-            "3"
+            "3",
+            $this->_helper->getTable("table_results.2.5")
         );
 
         $this->assertEquals(
-            $this->getTable("table_results.3.4"),
-            "2"
+            "2",
+            $this->_helper->getTable("table_results.3.5")
         );
 
         // case 2
-        $this->click("link=name");
-        $this->waitForElementNotPresent("id=loading_parent");
+        $this->byLinkText("name")->click();
+        $this->_helper->waitForElementNotPresent("byId", "loading_parent");
         usleep(100);
         
         $this->assertEquals(
-            $this->getTable("table_results.1.4"),
-            "2"
+            "2",
+            $this->_helper->getTable("table_results.1.5")
         );
 
         $this->assertEquals(
-            $this->getTable("table_results.2.4"),
-            "1"
+            "1",
+            $this->_helper->getTable("table_results.2.5")
         );
 
         $this->assertEquals(
-            $this->getTable("table_results.3.4"),
-            "3"
+            "3",
+            $this->_helper->getTable("table_results.3.5")
         );
 
         // case 2
-        $this->click("link=datetimefield");
-        $this->waitForElementNotPresent("id=loading_parent");
+        $this->byLinkText("datetimefield")->click();
+        $this->_helper->waitForElementNotPresent("byId", "loading_parent");
         usleep(100);
         
         $this->assertEquals(
-            $this->getTable("table_results.1.4"),
-            "3"
+            "3",
+            $this->_helper->getTable("table_results.1.5")
         );
 
         $this->assertEquals(
-            $this->getTable("table_results.2.4"),
-            "1"
+            "1",
+            $this->_helper->getTable("table_results.2.5")
         );
 
         $this->assertEquals(
-            $this->getTable("table_results.3.4"),
-            "2"
+            "2",
+            $this->_helper->getTable("table_results.3.5")
         );
 
         // case 4
-        $this->click("link=datetimefield");
-        $this->waitForElementNotPresent("id=loading_parent");
+        $this->byLinkText("datetimefield")->click();
+        $this->_helper->waitForElementNotPresent("byId", "loading_parent");
         usleep(100);
         
         $this->assertEquals(
-            $this->getTable("table_results.1.4"),
-            "2"
+            "2",
+            $this->_helper->getTable("table_results.1.5")
         );
 
         $this->assertEquals(
-            $this->getTable("table_results.2.4"),
-            "1"
+            "1",
+            $this->_helper->getTable("table_results.2.5")
         );
 
         $this->assertEquals(
-            $this->getTable("table_results.3.4"),
-            "3"
+            "3",
+            $this->_helper->getTable("table_results.3.5")
         );
     }
 
@@ -161,38 +169,44 @@ class PmaSeleniumTablesBrowseDataTest extends PHPUnit_Extensions_SeleniumTestCas
      */
     public function testChangeRecords()
     {
-        $this->click("css=table#table_results tr:eq(2) td:eq(1) a");
-        $this->waitForElementPresent("css=form#insertForm");
+        $this->byCssSelector(
+            "table#table_results tbody tr:nth-child(2) td:nth-child(2) a"
+            )->click();
+        $this->_helper->waitForElement("byId", "insertForm");
         
         $this->assertEquals(
-            $this->getValue("id=field_1_3"),
-            "2"
+            "2",
+            $this->byId("field_1_3")->value()
         );
 
         $this->assertEquals(
-            $this->getValue("id=field_2_3"),
-            "foo"
+            "foo",
+            $this->byId("field_2_3")->value()
         );
 
         $this->assertEquals(
-            $this->getValue("id=field_3_3"),
-            "2010-01-20 02:00:02"
+            "2010-01-20 02:00:02",
+            $this->byId("field_3_3")->value()
         );
 
-        $this->type("id=field_2_3", "foobar");
-        $this->type("id=field_3_3", "2009-01-20 02:00:02");
+        $this->byId("field_2_3")->clear();
+        $this->byId("field_2_3")->value("foobar");
+        $this->byId("field_3_3")->clear();
+        $this->byId("field_3_3")->value("2009-01-20 02:00:02");
 
-        $this->click("id=buttonYes");
-        $this->waitForElementPresent("css=div.success:contains('1 row affected')");
+        $this->byId("buttonYes")->click();
+        
+        $success = $this->_helper->waitForElement("byClassName", "success");
+        $this->assertContains("1 row affected", $success->text());
 
         $this->assertEquals(
-            $this->getTable("table_results.2.5"),
-            "foobar"
+            "foobar",
+            $this->_helper->getTable("table_results.2.6")
         );
 
         $this->assertEquals(
-            $this->getTable("table_results.2.6"),
-            "2009-01-20 02:00:02"
+            "2009-01-20 02:00:02",
+            $this->_helper->getTable("table_results.2.7")
         );
     }
 
@@ -203,22 +217,30 @@ class PmaSeleniumTablesBrowseDataTest extends PHPUnit_Extensions_SeleniumTestCas
      */
     public function testChangeRecordsByDoubleClick()
     {
-        $this->doubleClick("css=table#table_results tr:eq(1) td:eq(5)");
+        $element = $this->byCssSelector(
+            "table#table_results tbody tr:nth-child(1) td:nth-child(6)"
+        );
+
+        $this->moveto($element);
+        $this->doubleclick();
 
         $this->assertEquals(
-            $this->getValue("css=textarea.edit_box:first"),
+            $this->byCssSelector("textarea.edit_box")->value(),
             "abcd"
         );
 
-        $this->type("css=textarea.edit_box:first", "abcde");
-        usleep(100);
-        $this->keyPressNative(10);
+        $this->byCssSelector("textarea.edit_box")->clear();
+        $this->byCssSelector("textarea.edit_box")->value("abcde");
+        $this->keys(PHPUnit_Extensions_Selenium2TestCase_Keys::RETURN_);
         
-        $this->waitForElementPresent("css=div.success:contains('1 row affected')");
-
+        $success = $this->_helper->waitForElement(
+            "byCssSelector", "span.ajax_notification div.success"
+        );
+        $this->assertContains("1 row affected", $success->text());
+        
         $this->assertEquals(
-            $this->getTable("table_results.1.5"),
-            "abcde"
+            "abcde",
+            $this->_helper->getTable("table_results.1.6")
         );
     }
 
@@ -229,33 +251,39 @@ class PmaSeleniumTablesBrowseDataTest extends PHPUnit_Extensions_SeleniumTestCas
      */
     public function testCopyRecords()
     {
-        $this->click("css=table#table_results tr:eq(3) td:eq(2) a");
-        $this->waitForElementPresent("css=form#insertForm");
+        $this->byCssSelector(
+            "table#table_results tbody tr:nth-child(3) td:nth-child(3) a"
+            )->click();
+
+        $this->_helper->waitForElement("byId", "insertForm");
         
         $this->assertEquals(
-            $this->getValue("id=field_2_3"),
-            "Abcd"
+            "Abcd",
+            $this->byId("field_2_3")->value()
         );
 
         $this->assertEquals(
-            $this->getValue("id=field_3_3"),
-            "2012-01-20 02:00:02"
+            "2012-01-20 02:00:02",
+            $this->byId("field_3_3")->value()
         );
 
-        $this->type("id=field_2_3", "ABCDEFG");
-        $this->type("id=field_3_3", "2012-01-20 02:05:02");
+        $this->byId("field_2_3")->clear();
+        $this->byId("field_2_3")->value("ABCDEFG");
+        $this->byId("field_3_3")->clear();
+        $this->byId("field_3_3")->value("2012-01-20 02:05:02");
 
-        $this->click("id=buttonYes");
-        $this->waitForElementPresent("css=div.success:contains('1 row inserted')");
+        $this->byId("buttonYes")->click();
+        $success = $this->_helper->waitForElement("byClassName", "success");
+        $this->assertContains("1 row inserted", $success->text());
 
         $this->assertEquals(
-            $this->getTable("table_results.4.5"),
-            "ABCDEFG"
+            "ABCDEFG",
+            $this->_helper->getTable("table_results.4.6")
         );
 
         $this->assertEquals(
-            $this->getTable("table_results.4.6"),
-            "2012-01-20 02:05:02"
+            "2012-01-20 02:05:02",
+            $this->_helper->getTable("table_results.4.7")
         );
     }
 
@@ -266,23 +294,25 @@ class PmaSeleniumTablesBrowseDataTest extends PHPUnit_Extensions_SeleniumTestCas
      */
     public function testSearchRecords()
     {
-        $this->click("link=Search");
-        $this->waitForElementPresent("css=form#tbl_search_form");
+        $this->byLinkText("Search")->click();
+        $this->_helper->waitForElement("byId", "tbl_search_form");
         
-        $this->type("id=fieldID_1", "abcd");
-        $this->select("name=criteriaColumnOperators[1]", "LIKE %...%");
+        $this->byId("fieldID_1")->value("abcd");
+        $select = $this->select($this->byName("criteriaColumnOperators[1]"));
+        $select->selectOptionByLabel("LIKE %...%");
 
-        $this->click("name=submit");
-        $this->waitForElementPresent("css=div.success:contains('Showing rows')");
+        $this->byName("submit")->click();
+        $success = $this->_helper->waitForElement("byClassName", "success");
+        $this->assertContains("Showing rows", $success->text());
 
         $this->assertEquals(
-            $this->getTable("table_results.1.4"),
-            "1"
+            "1",
+            $this->_helper->getTable("table_results.1.5")
         );
 
         $this->assertEquals(
-            $this->getTable("table_results.2.4"),
-            "3"
+            "3",
+            $this->_helper->getTable("table_results.2.5")
         );
     }
 
@@ -293,17 +323,21 @@ class PmaSeleniumTablesBrowseDataTest extends PHPUnit_Extensions_SeleniumTestCas
      */
     public function testDeleteRecords()
     {
-        $this->click("id=id_rows_to_delete1_left");
-        $this->click("id=id_rows_to_delete2_left");
+        $this->byId("id_rows_to_delete1_left")->click();
+        $this->byId("id_rows_to_delete2_left")->click();
 
-        $this->click("css=button[value=delete]");
-        $this->waitForElementPresent("css=fieldset.confirmation");
+        $this->byCssSelector("button[value=delete]")->click();
+        $this->_helper->waitForElement("byCssSelector", "fieldset.confirmation");
 
-        $this->click("id=buttonYes");
-        $this->waitForElementPresent("css=div.success:contains('Showing rows')");
+        $this->byId("buttonYes")->click();
+        $success = $this->_helper->waitForElement("byClassName", "success");
+        $this->assertContains("Showing rows", $success->text());
 
-        $this->assertElementNotPresent("table#table_results tr:eq(2)");
-        $this->assertTextNotPresent("foobar");
+        $this->assertFalse(
+            $this->_helper->isElementPresent(
+                "byCssSelector", "table#table_results tbody tr:nth-child(2)"
+            )
+        );
 
     }
 
