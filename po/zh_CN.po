@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-07-29 15:07+0200\n"
-"PO-Revision-Date: 2013-08-24 12:11+0200\n"
+"PO-Revision-Date: 2013-08-24 13:00+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: Simplified Chinese "
 "<http://l10n.cihar.com/projects/phpmyadmin/4-0/zh_CN/>\n"
@@ -1326,20 +1326,18 @@ msgid ""
 "This column shows the amount of identical queries that are grouped together. "
 "However only the SQL query itself has been used as a grouping criteria, so "
 "the other attributes of queries, such as start time, may differ."
-msgstr ""
-"这一列显示了相同的查询被组合在一起了。然而，有且只有SQL文本被修改过了,因此查"
-"询其他属性例如启动时间可能不同。"
+msgstr "该列显示了已分组的相同查询数量。然而只有 SQL 查询本身被作为分组依据，所以查询的其它属性，如开始时间可能不同。"
 
 #: js/messages.php:163
 msgid ""
 "Since grouping of INSERTs queries has been selected, INSERT queries into the "
 "same table are also being grouped together, disregarding of the inserted "
 "data."
-msgstr "因选择了分组 INSERT 查询，相同表的 INSERT 查询将被分为一组，忽略数据。"
+msgstr "因选择了分组 INSERT 查询，对相同表的 INSERT 查询将忽略插入的数据而被分为一组。"
 
 #: js/messages.php:164
 msgid "Log data loaded. Queries executed in this time span:"
-msgstr "日志数据已加载。查询执行时间为："
+msgstr "已加载日志数据。该时间段执行的查询："
 
 #: js/messages.php:166
 msgid "Jump to Log table"
@@ -1351,7 +1349,7 @@ msgstr "未找到数据"
 
 #: js/messages.php:168
 msgid "Log analysed, but no data found in this time span."
-msgstr "日志已分析，时间段内没有数据。"
+msgstr "已分析日志，但在该时间段内没有找到数据。"
 
 #: js/messages.php:170
 msgid "Analyzing…"
