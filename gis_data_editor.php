@@ -158,6 +158,7 @@ foreach ($gis_types as $gis_type) {
 }
 echo '</select>';
 echo '&nbsp;&nbsp;&nbsp;&nbsp;';
+/* l10n: Spatial Reference System Identifier */
 echo '<label for="srid">' .  __('SRID:') . '</label>';
 echo '<input name="gis_data[srid]" type="text" value="' . $srid . '" />';
 echo '</div>';
