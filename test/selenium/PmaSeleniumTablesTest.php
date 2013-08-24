@@ -14,7 +14,7 @@ require_once 'Helper.php';
  * @package    PhpMyAdmin-test
  * @subpackage Selenium
  */
-class PmaSeleniumTablesTest extends PHPUnit_Extensions_SeleniumTestCase
+class PmaSeleniumTablesTest extends PHPUnit_Extensions_Selenium2TestCase
 {
     /**
      * Name of database for the test
@@ -53,15 +53,15 @@ class PmaSeleniumTablesTest extends PHPUnit_Extensions_SeleniumTestCase
     public function testCreateTable()
     {
         $this->_helper->login(TESTSUITE_USER, TESTSUITE_PASSWORD);
-        $this->click('link='. $this->_dbname.'');
-        $this->waitForElementPresent('id=create_table_form_minimal');
-        $this->type(
-            "css=form#create_table_form_minimal input[name=\"table\"]",
-            "test_table"
-        );
-        $this->type("name=num_fields", "4");
-        $this->click('css=input[value="Go"]');
-        $this->waitForElementPresent('name=do_save_data');
+        $this->byLinkText($this->_dbname)->click();
+
+        $this->_helper->waitForElement('byId', 'create_table_form_minimal');
+        $this->byCssSelector(
+            "form#create_table_form_minimal input[name=table]"
+        )->value("test_table");
+        $this->byName("num_fields")->value("4");
+        $this->byCssSelector('input[value=Go]')->click();
+        $this->_helper->waitForElement('byName', 'do_save_data');
 
         // column details
         $column_text_details = array(
@@ -74,7 +74,7 @@ class PmaSeleniumTablesTest extends PHPUnit_Extensions_SeleniumTestCase
         );
 
         foreach ($column_text_details as $field => $val) {
-            $this->type("id=" . $field, $val);
+            $this->byId($field)->value($val);
         }
 
         $column_dropdown_details = array(
@@ -86,16 +86,17 @@ class PmaSeleniumTablesTest extends PHPUnit_Extensions_SeleniumTestCase
         );
 
         foreach ($column_dropdown_details as $selector => $value) {
-            $this->select("id=" . $selector, $value);
+            $sel = $this->select($this->byId($selector));
+            $sel->selectOptionByLabel($value);
         }
 
-        $this->type("name=field_default_value[1]", "def");
-        $this->click("id=field_0_9"); // auto increment
-        $this->click("id=field_1_7"); // null
+        $this->byName("field_default_value[1]")->value("def");
+        $this->byId("field_0_9")->click(); // auto increment
+        $this->byId("field_1_7")->click(); // null
 
         // post
-        $this->click("name=do_save_data");
-        $this->waitForElementPresent("link=test_table");
+        $this->byName("do_save_data")->click();
+        $this->_helper->waitForElement("byLinkText", "test_table");
 
         $this->_tableStructureAssertions();
     }
@@ -108,72 +109,77 @@ class PmaSeleniumTablesTest extends PHPUnit_Extensions_SeleniumTestCase
     private function _tableStructureAssertions()
     {
         // go to structure page
-        $this->click("css=a:contains(\"Structure\"):eq(1)");
-        $this->waitForElementPresent("id=tablestructure");
+        $this->byLinkText("Structure")->click();
+        $this->_helper->waitForElement("byId", "tablestructure");
 
         // make assertions for first row
-        $this->assertElementContainsText(
-            'css=label[for=checkbox_row_1]',
-            "test_id"
+        $this->assertContains(
+            "test_id",
+            $this->byCssSelector('label[for=checkbox_row_1]')->text()
         );
 
         $this->assertEquals(
-            $this->getTable("tablestructure.1.3"),
-            "int(14)"
+            "int(14)",
+            $this->_helper->getTable("tablestructure.1.4")
         );
 
         $this->assertEquals(
-            $this->getTable("tablestructure.1.5"),
-            "UNSIGNED"
+            "UNSIGNED",
+            $this->_helper->getTable("tablestructure.1.6")
         );
 
         $this->assertEquals(
-            $this->getTable("tablestructure.1.6"),
-            "No"
+            "No",
+            $this->_helper->getTable("tablestructure.1.7")
         );
 
         $this->assertEquals(
-            $this->getTable("tablestructure.1.7"),
-            "None"
+            "None",
+            $this->_helper->getTable("tablestructure.1.8")
         );
 
         $this->assertEquals(
-            $this->getTable("tablestructure.1.8"),
-            "AUTO_INCREMENT"
+            "AUTO_INCREMENT",
+            $this->_helper->getTable("tablestructure.1.9")
         );
 
-        $this->assertElementNotPresent(
-            'css=ul.table-structure-actions:eq(0) li.primary a'
+        $this->assertFalse(
+            $this->_helper->isElementPresent(
+                'byCssSelector',
+                'table#tablestructure tbody tr:nth-child(1) ul.table-structure-actions li.primary a'
+            )
         );
 
         // make assertions for second row
-        $this->assertElementContainsText(
-            'css=label[for=checkbox_row_2]',
-            "test_column"
+        $this->assertContains(
+            "test_column",
+            $this->byCssSelector('label[for=checkbox_row_2]')->text()
         );
 
         $this->assertEquals(
-            $this->getTable("tablestructure.2.3"),
-            "varchar(10)"
+            "varchar(10)",
+            $this->_helper->getTable("tablestructure.2.4")
         );
 
         $this->assertEquals(
-            $this->getTable("tablestructure.2.4"),
-            "utf8_general_ci"
+            "utf8_general_ci",
+            $this->_helper->getTable("tablestructure.2.5")
         );
 
         $this->assertEquals(
-            $this->getTable("tablestructure.2.6"),
-            "Yes"
+            "Yes",
+            $this->_helper->getTable("tablestructure.2.7")
         );
 
         $this->assertEquals(
-            $this->getTable("tablestructure.2.7"),
-            "def"
+            "def",
+            $this->_helper->getTable("tablestructure.2.8")
         );
 
-        $this->assertElementPresent(
-            'css=ul.table-structure-actions:eq(1) li.primary a'
+        $this->assertFalse(
+            $this->_helper->isElementPresent(
+                'byCssSelector', 'css=ul.table-structure-actions:nth-child(2) li.primary a'
+            )
         );
     }
 
