@@ -1288,7 +1288,7 @@ function PMA_getMaxUploadSize($column, $biggest_max_file_size)
  * @param string  $column_name_appendix  the name atttibute
  * @param string  $unnullify_trigger     validation string
  * @param integer $tabindex              tab index
- * @param array   $special_chars         apecial characters
+ * @param array   $special_chars         special characters
  * @param integer $tabindex_for_value    offset for the values tabindex
  * @param integer $idindex               id index
  * @param string  $text_dir              text direction
