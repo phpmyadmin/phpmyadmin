@@ -36,6 +36,7 @@ phpMyAdmin - ChangeLog
 - bug #4056 Language: Vague error message when adding a varchar field
 + [setup] rfe #1452 Use type="password" for server passwords
 + rfe #1451 HTML5 input tag enhancements
+- bug #1193 Text field too small when editing a row longer than $cfg['LimitChars']
 
 4.0.6.0 (not yet released)
 - bug #4036 Call to undefined function mb_detect_encoding (clarify the doc)
