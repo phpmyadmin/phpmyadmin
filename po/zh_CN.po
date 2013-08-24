@@ -525,7 +525,6 @@ msgstr "字段“%s”的值"
 msgid "Use OpenStreetMaps as Base Layer"
 msgstr "以 OpenStreetMaps 为背景"
 
-# what's the f**k word of "SRID"?
 #: gis_data_editor.php:161
 msgid "SRID"
 msgstr "SRID"
