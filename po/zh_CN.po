@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-08-18 06:16-0400\n"
-"PO-Revision-Date: 2013-08-24 09:11+0200\n"
+"PO-Revision-Date: 2013-08-24 09:25+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: Simplified Chinese "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/zh_CN/>\n"
@@ -806,8 +806,8 @@ msgid ""
 "multibyte charset. Without the mbstring extension phpMyAdmin is unable to "
 "split strings correctly and it may result in unexpected results."
 msgstr ""
-"没有找到 PHP 扩展 mbstring，而您现在好像在使用多字节字符集。没有 mbstring 扩"
-"展的 phpMyAdmin 不能正确分割字符串，可能产生意想不到的结果。"
+"没有找到 PHP 扩展 mbstring，而您现在好像在使用多字节字符集。没有 mbstring 扩展的 phpMyAdmin "
+"不能正确分割字符串并可能产生意料之外的结果。"
 
 #: index.php:456
 msgid ""
@@ -816,10 +816,9 @@ msgid ""
 "cookie validity configured in phpMyAdmin, because of this, your login will "
 "expire sooner than configured in phpMyAdmin."
 msgstr ""
-"您的 PHP 配置参数 [a@http://php.net/manual/en/session.configuration.php#ini."
-"session.gc-maxlifetime@_blank]session.gc_maxlifetime (外链，英文)[/a] 短于您"
-"在 phpMyAdmin 中设置的 Cookies 有效期，因此您的登录会话有效期将会比您在 "
-"phpMyAdmin 中设置的时间要更短。"
+"您的 PHP 参数 [a@http://php.net/manual/zh/session.configuration.php#ini.session"
+".gc-maxlifetime@_blank]session.gc_maxlifetime[/a] 短于您在 phpMyAdmin 中设置的 "
+"Cookies 有效期，因此您的登录会话有效期将会比您在 phpMyAdmin 中设置的时间要更短。"
 
 #: index.php:468
 msgid ""
@@ -840,32 +839,29 @@ msgid ""
 "once phpMyAdmin has been configured. Otherwise the security of your server "
 "may be compromised by unauthorized people downloading your configuration."
 msgstr ""
-"安装时所用的 [code]config[/code] 文件夹尚未删除，如果 phpMyAdmin 已经安装配置"
-"好，请立即删除该文件夹。否则，未经授权的人员可通过下载配置文件入侵服务器。"
+"安装时所用的 [code]config[/code] 文件夹尚未删除。我们强烈建议您在完成 phpMyAdmin "
+"安装后立即删除该文件夹。否则未经授权的用户都可以下载您的配置文件从而使服务器陷入危险。"
 
 #: index.php:501
 #, php-format
 msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
 "extended features have been deactivated. To find out why click %shere%s."
-msgstr ""
-"phpMyAdmin 高级功能未全部设置，部分功能不可用。要查出原因请%s点这里%s。"
+msgstr "phpMyAdmin 高级功能尚未完全设置，部分功能未激活。请点击%s这里%s查看原因。"
 
 #: index.php:533
 #, php-format
 msgid ""
 "Your PHP MySQL library version %s differs from your MySQL server version %s. "
 "This may cause unpredictable behavior."
-msgstr ""
-"你的 PHP MySQL 库版本 %s 和你的 MySQL 服务器版本 %s 不同。这可能造成一些未知"
-"的问题。"
+msgstr "您的 PHP MySQL 库版本 %s 与您的 MySQL 服务器版本 %s 不同。这可能导致无法预料的问题。"
 
 #: index.php:557
 #, php-format
 msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
 "issues."
-msgstr "服务器上运行了 Suhosin。请先查看%s文档%s中是否有类似的情况。"
+msgstr "服务器上运行了 Suhosin。请查看%s文档%s了解可能发生的问题。"
 
 #: js/messages.php:29 libraries/import.lib.php:118 sql.php:138
 msgid "\"DROP DATABASE\" statements are disabled."
