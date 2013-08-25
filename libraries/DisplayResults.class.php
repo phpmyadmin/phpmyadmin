@@ -3865,8 +3865,8 @@ class PMA_DisplayResults
             // (unless it's a link-type transformation)
             if (PMA_strlen($column) > $GLOBALS['cfg']['LimitChars']
                 && ($_SESSION['tmp_user_values']['display_text'] == self::DISPLAY_PARTIAL_TEXT)
-                && gettype($transformation_plugin) == "object"
-                && ! strpos($transformation_plugin->getName(), 'Link') === true
+                && ! (gettype($transformation_plugin) == "object"
+                && strpos($transformation_plugin->getName(), 'Link') !== false)
             ) {
                 $column = PMA_substr($column, 0, $GLOBALS['cfg']['LimitChars'])
                     . '...';
