@@ -736,7 +736,7 @@ function PMA_getHtmlForColumns($columns)
     $html .= '<tbody>';
     $style = 'odd';
     foreach ($columns as $field) {
-        $html .= PMA_getHtmlForColumn($field, $style);
+        $html .= PMA_getHtmlForField($field, $style);
         if ($style == 'even') {
             $style = 'odd';
         } else {
@@ -751,14 +751,14 @@ function PMA_getHtmlForColumns($columns)
 }
 
 /**
- * Function to get html for column
+ * Function to get html for field
  * 
  * @param array  $field field
  * @param string $style style
  * 
  * @return string
  */
-function PMA_getHtmlForColumn($field, $style)
+function PMA_getHtmlForField($field, $style)
 {
     $html = '<tr class="noclick ' . $style . '">';
     if ($field['Key'] == 'PRI') {
