@@ -172,7 +172,7 @@ function PMA_expandNavigationTree($expandElem) {
             $icon.removeClass('ic_b_plus').addClass('ic_b_minus');
             $children.show('fast');
             $('#pma_navigation').animate({
-                scrollTop: $children.offset().top
+                scrollTop: $expandElem.closest('li').offset().top
             });
         } else {
             $icon.removeClass('ic_b_minus').addClass('ic_b_plus');
@@ -215,7 +215,7 @@ function PMA_expandNavigationTree($expandElem) {
                         .click();
                 }
                 $('#pma_navigation').animate({
-                    scrollTop: $destination.children('div.list_container').offset().top
+                    scrollTop: $expandElem.closest('li').offset().top
                 });
             } else {
                 PMA_ajaxShowMessage(data.error, false);
