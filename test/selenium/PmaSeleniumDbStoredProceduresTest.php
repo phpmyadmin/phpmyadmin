@@ -52,12 +52,12 @@ class PmaSeleniumDbStoredProceduresTest extends PHPUnit_Extensions_Selenium2Test
             . " PRIMARY KEY (`id`)"
             . ")"
         );
-        
+
     }
 
     /**
      * setUp function that can use the selenium session (called before each test)
-     * 
+     *
      * @return void
      */
     public function setUpPage()
@@ -68,7 +68,7 @@ class PmaSeleniumDbStoredProceduresTest extends PHPUnit_Extensions_Selenium2Test
 
     /**
      * Creates procedure for tests
-     * 
+     *
      * @return void
      */
     private function _procedureSQL()
@@ -91,14 +91,14 @@ class PmaSeleniumDbStoredProceduresTest extends PHPUnit_Extensions_Selenium2Test
         $this->moveto($more);
         $ele = $this->_helper->waitForElement("byPartialLinkText", "Routines");
         $ele->click();
-        
+
         $ele = $this->_helper->waitForElement("byLinkText", "Add routine");
         $ele->click();
 
         $this->_helper->waitForElement("byClassName", "rte_form");
 
         $this->byName("item_name")->value("test_procedure");
-        
+
         $this->byName("item_param_name[0]")->value("inp");
         $this->select(
             $this->byName("item_param_type[0]")
@@ -137,7 +137,7 @@ class PmaSeleniumDbStoredProceduresTest extends PHPUnit_Extensions_Selenium2Test
 
     /**
      * Test for editing procedure
-     * 
+     *
      * @return void
      */
     public function testEditProcedure()
@@ -170,7 +170,7 @@ class PmaSeleniumDbStoredProceduresTest extends PHPUnit_Extensions_Selenium2Test
 
     /**
      * Test for dropping procedure
-     * 
+     *
      * @return void
      */
     public function testDropProcedure()
@@ -202,7 +202,7 @@ class PmaSeleniumDbStoredProceduresTest extends PHPUnit_Extensions_Selenium2Test
 
     /**
      * Execute procedure
-     * 
+     *
      * @return void
      */
     private function _executeProcedure($text, $length)
@@ -220,7 +220,7 @@ class PmaSeleniumDbStoredProceduresTest extends PHPUnit_Extensions_Selenium2Test
 
     /**
      * Tear Down function for test cases
-     * 
+     *
      * @return void
      */
     public function tearDown()
@@ -228,4 +228,3 @@ class PmaSeleniumDbStoredProceduresTest extends PHPUnit_Extensions_Selenium2Test
         $this->_helper->dbQuery('DROP DATABASE ' . $this->_dbname);
     }
 }
-    

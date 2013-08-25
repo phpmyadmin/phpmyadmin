@@ -52,12 +52,12 @@ class PmaSeleniumTablesInsertDataTest extends PHPUnit_Extensions_Selenium2TestCa
             . " PRIMARY KEY (`id`)"
             . ")"
         );
-        
+
     }
 
     /**
      * setUp function that can use the selenium session (called before each test)
-     * 
+     *
      * @return void
      */
     public function setUpPage()
@@ -158,7 +158,7 @@ class PmaSeleniumTablesInsertDataTest extends PHPUnit_Extensions_Selenium2TestCa
 
     /**
      * Tear Down function for test cases
-     * 
+     *
      * @return void
      */
     public function tearDown()

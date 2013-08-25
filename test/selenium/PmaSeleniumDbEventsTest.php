@@ -54,12 +54,12 @@ class PmaSeleniumDbEventsTest extends PHPUnit_Extensions_Selenium2TestCase
         $this->_helper->dbQuery(
             "INSERT INTO `test_table` (val) VALUES (2);"
         );
-        
+
     }
 
     /**
      * setUp function that can use the selenium session (called before each test)
-     * 
+     *
      * @return void
      */
     public function setUpPage()
@@ -70,7 +70,7 @@ class PmaSeleniumDbEventsTest extends PHPUnit_Extensions_Selenium2TestCase
 
     /**
      * Creates procedure for tests
-     * 
+     *
      * @return void
      */
     private function _eventSQL()
@@ -96,31 +96,31 @@ class PmaSeleniumDbEventsTest extends PHPUnit_Extensions_Selenium2TestCase
         $this->moveto($more);
         $ele = $this->_helper->waitForElement("byPartialLinkText", "Events");
         $ele->click();
-        
+
         $ele = $this->_helper->waitForElement("byLinkText", "Add event");
         $ele->click();
 
         $this->_helper->waitForElement("byClassName", "rte_form");
 
         $this->byName("item_name")->value("test_event");
-        
+
         $this->select($this->byName("item_type"))
             ->selectOptionByLabel("RECURRING");
-        
+
         $this->byName("item_interval_value")->value("1");
-        
+
         $this->select($this->byName("item_interval_field"))
             ->selectOptionByLabel("MINUTE_SECOND");
-        
+
         $this->byName("item_starts")
             ->value(date('Y-m-d H:i:s', strtotime('-1 day')));
-        
+
         $this->byName("item_ends")
             ->value(date('Y-m-d H:i:s', strtotime('+1 day')));
-        
+
         $proc = "UPDATE " . $this->_dbname . ".`test_table` SET val=val+1";
         $this->_helper->typeInTextArea($proc);
-        
+
         $this->byXPath("//button[contains(., 'Go')]")->click();
 
         $ele = $this->_helper->waitForElement(
@@ -150,7 +150,7 @@ class PmaSeleniumDbEventsTest extends PHPUnit_Extensions_Selenium2TestCase
 
     /**
      * Test for editing events
-     * 
+     *
      * @return void
      */
     public function testEditEvents()
@@ -179,7 +179,7 @@ class PmaSeleniumDbEventsTest extends PHPUnit_Extensions_Selenium2TestCase
             "byXPath",
             "//div[@class='success' and contains(., 'Event `test_event` has been modified')]"
         );
-        
+
         usleep(2000000);
         $result = $this->_helper->dbQuery(
             "SELECT val FROM `" . $this->_dbname . "`.`test_table`"
@@ -190,7 +190,7 @@ class PmaSeleniumDbEventsTest extends PHPUnit_Extensions_Selenium2TestCase
 
     /**
      * Test for dropping event
-     * 
+     *
      * @return void
      */
     public function testDropEvent()
@@ -222,7 +222,7 @@ class PmaSeleniumDbEventsTest extends PHPUnit_Extensions_Selenium2TestCase
 
     /**
      * Tear Down function for test cases
-     * 
+     *
      * @return void
      */
     public function tearDown()
@@ -230,4 +230,3 @@ class PmaSeleniumDbEventsTest extends PHPUnit_Extensions_Selenium2TestCase
         $this->_helper->dbQuery('DROP DATABASE ' . $this->_dbname);
     }
 }
-    

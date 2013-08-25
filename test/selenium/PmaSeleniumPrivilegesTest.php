@@ -19,7 +19,7 @@ class PmaSeleniumPrivilegesTest extends PHPUnit_Extensions_Selenium2TestCase
 {
     /**
      * Helper Object
-     * 
+     *
      * @var obj
      */
     private $_helper;
@@ -45,7 +45,7 @@ class PmaSeleniumPrivilegesTest extends PHPUnit_Extensions_Selenium2TestCase
     {
         $this->_helper->login(TESTSUITE_USER, TESTSUITE_PASSWORD);
         $this->byLinkText("Change password")->click();
-        
+
         $e = $this->_helper->waitForElement("byId", "change_password_anchor");
         try {
             $ele = $this->_helper->waitForElement("byId", "text_pma_pw");
@@ -75,7 +75,7 @@ class PmaSeleniumPrivilegesTest extends PHPUnit_Extensions_Selenium2TestCase
             $this->byId("text_pma_pw2")->value(TESTSUITE_PASSWORD);
         } else {
             $this->byId("nopass_1")->click();
-        }		 		 
+        }
 
         $this->byCssSelector("span.ui-button-text:nth-child(1)")->click();
         $ele = $this->_helper->waitForElement("byCssSelector", "div.success");
@@ -83,7 +83,7 @@ class PmaSeleniumPrivilegesTest extends PHPUnit_Extensions_Selenium2TestCase
             "The profile has been updated.",
             $ele->text()
         );
-    } 
+    }
 }
 
 ?>
