@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-08-18 06:16-0400\n"
-"PO-Revision-Date: 2013-08-24 13:00+0200\n"
+"PO-Revision-Date: 2013-08-25 10:17+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: Simplified Chinese "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/zh_CN/>\n"
@@ -1338,7 +1338,7 @@ msgstr "正在分析…"
 
 #: js/messages.php:170
 msgid "Explain output"
-msgstr "分析输出"
+msgstr "解析输出"
 
 #: js/messages.php:172 js/messages.php:536
 #: libraries/plugins/export/ExportHtmlword.class.php:486
@@ -1351,7 +1351,7 @@ msgstr "时间"
 
 #: js/messages.php:173
 msgid "Total time:"
-msgstr "总时间:"
+msgstr "总时间："
 
 #: js/messages.php:174
 msgid "Profiling results"
@@ -1377,28 +1377,28 @@ msgstr "数据"
 #. l10n: A collection of available filters
 #: js/messages.php:181
 msgid "Log table filter options"
-msgstr "日志表过滤选项"
+msgstr "日志表筛选选项"
 
 #. l10n: Filter as in "Start Filtering"
 #: js/messages.php:183
 msgid "Filter"
-msgstr "快速搜索"
+msgstr "筛选"
 
 #: js/messages.php:184
 msgid "Filter queries by word/regexp:"
-msgstr "根据内容/正则表达式搜索:"
+msgstr "根据内容/正则表达式筛选："
 
 #: js/messages.php:185
 msgid "Group queries, ignoring variable data in WHERE clauses"
-msgstr "忽略 WHERE 语句中的变量值对查询分组"
+msgstr "忽略 WHERE 从句中的变量值对查询分组"
 
 #: js/messages.php:186
 msgid "Sum of grouped rows:"
-msgstr "分组后的行数:"
+msgstr "分组后的行数："
 
 #: js/messages.php:187
 msgid "Total:"
-msgstr "总数:"
+msgstr "总数："
 
 #: js/messages.php:189
 msgid "Loading logs"
@@ -1406,16 +1406,14 @@ msgstr "正在加载日志"
 
 #: js/messages.php:190
 msgid "Monitor refresh failed"
-msgstr "监控刷新失败"
+msgstr "刷新监控失败"
 
 #: js/messages.php:191
 msgid ""
 "While requesting new chart data the server returned an invalid response. "
 "This is most likely because your session expired. Reloading the page and "
 "reentering your credentials should help."
-msgstr ""
-"请求新图表数据时服务器返回了无效数据。这可能是因为会话过期。请尝试重新加载页"
-"面。"
+msgstr "请求新图表数据时服务器返回了无效数据。这很可能是因为您的会话已过期所造成的。请尝试重新载入页面并重新登录。"
 
 #: js/messages.php:192
 msgid "Reload page"
@@ -1423,16 +1421,16 @@ msgstr "重新载入页面"
 
 #: js/messages.php:194
 msgid "Affected rows:"
-msgstr "影响的行数:"
+msgstr "影响的行数："
 
 #: js/messages.php:196
 msgid "Failed parsing config file. It doesn't seem to be valid JSON code."
-msgstr "解析配置文件失败。它看上去不像有效的 JSON 代码。"
+msgstr "解析配置文件失败。它似乎不是有效的 JSON 代码。"
 
 #: js/messages.php:197
 msgid ""
 "Failed building chart grid with imported config. Resetting to default config…"
-msgstr "导入配置失败。正在重设为默认设置…"
+msgstr "使用导入的设置建立图表失败。正在重设为默认设置…"
 
 #: js/messages.php:198 libraries/Menu.class.php:337
 #: libraries/Menu.class.php:419 libraries/Menu.class.php:532
@@ -1450,9 +1448,10 @@ msgstr "导入监控设置"
 
 #: js/messages.php:200
 msgid "Please select the file you want to import"
-msgstr "请选择要导入的文件"
+msgstr "请选择您要导入的文件"
 
 #: js/messages.php:202
+#, fuzzy
 msgid "Analyse Query"
 msgstr "查询分析"
 
@@ -1474,19 +1473,19 @@ msgstr "建议"
 
 #: js/messages.php:210
 msgid "Rule details"
-msgstr "规则详细"
+msgstr "规则细节"
 
 #: js/messages.php:211
 msgid "Justification"
-msgstr "校正"
+msgstr "现状"
 
 #: js/messages.php:212
 msgid "Used variable / formula"
-msgstr "已使用的 变量/公式"
+msgstr "使用的变量/公式"
 
 #: js/messages.php:213
 msgid "Test"
-msgstr "测试"
+msgstr "检验"
 
 #: js/messages.php:218 libraries/server_variables.lib.php:159
 #: pmd_general.php:423 pmd_general.php:460 pmd_general.php:580
@@ -1497,10 +1496,9 @@ msgstr "取消"
 
 #: js/messages.php:221 libraries/navigation/NavigationHeader.class.php:54
 #: libraries/server_status_monitor.lib.php:159
-#, fuzzy
 #| msgid "Loading"
 msgid "Loading…"
-msgstr "正在加载"
+msgstr "正在加载…"
 
 #: js/messages.php:222
 msgid "Processing Request"
@@ -1523,7 +1521,7 @@ msgstr "错误信息：%s"
 #: js/messages.php:226 libraries/db_common.inc.php:58
 #: libraries/db_table_exists.lib.php:28 server_databases.php:91
 msgid "No databases selected."
-msgstr "未选中数据库。"
+msgstr "没有已选择的数据库。"
 
 #: js/messages.php:227
 msgid "Dropping Column"
@@ -1541,7 +1539,7 @@ msgstr "确定"
 
 #: js/messages.php:230
 msgid "Click to dismiss this notification"
-msgstr "点击解除这条通知"
+msgstr "点击隐藏该提示"
 
 #: js/messages.php:233
 msgid "Renaming Databases"
@@ -1561,9 +1559,10 @@ msgstr "正在修改字符集"
 
 #: js/messages.php:237
 msgid "Table must have at least one column"
-msgstr "数据表至少要有一个字段"
+msgstr "表至少要有一个字段"
 
 #: js/messages.php:242
+#, fuzzy
 msgid "Insert Table"
 msgstr "插入表格"
 
@@ -1577,7 +1576,7 @@ msgstr "显示索引"
 
 #: js/messages.php:245 libraries/mult_submits.lib.php:412
 msgid "Foreign key check:"
-msgstr "检查外键："
+msgstr "外键约束："
 
 #: js/messages.php:246 libraries/mult_submits.lib.php:425
 msgid "(Enabled)"
@@ -1626,7 +1625,7 @@ msgstr "新字段的值"
 
 #: js/messages.php:263
 msgid "Enter each value in a separate field"
-msgstr "请将每个值分别输入"
+msgstr "每个输入框一个值"
 
 #: js/messages.php:264
 #, php-format
@@ -1636,7 +1635,7 @@ msgstr "添加 %d 个值"
 #: js/messages.php:267
 msgid ""
 "Note: If the file contains multiple tables, they will be combined into one."
-msgstr "注意：如果文件包含多个表，它们会被合并成一个"
+msgstr "注意：如果文件包含多张表，它们将会被合并到一起。"
 
 #: js/messages.php:270
 msgid "Hide query box"
@@ -1695,16 +1694,14 @@ msgid "Show search criteria"
 msgstr "显示搜索条件"
 
 #: js/messages.php:286
-#, fuzzy
 #| msgid "Hide search criteria"
 msgid "Hide find and replace criteria"
-msgstr "隐藏搜索条件"
+msgstr "隐藏搜索替换条件"
 
 #: js/messages.php:287
-#, fuzzy
 #| msgid "Show search criteria"
 msgid "Show find and replace criteria"
-msgstr "显示搜索条件"
+msgstr "显示搜索替换条件"
 
 #: js/messages.php:290 libraries/TableSearch.class.php:212
 msgid "Zoom Search"
@@ -1788,6 +1785,7 @@ msgid "Add columns"
 msgstr "添加字段"
 
 #: js/messages.php:331
+#, fuzzy
 msgid "Select referenced key"
 msgstr "选择外键"
 
@@ -1816,7 +1814,7 @@ msgstr "给字段添加选项 "
 #: js/messages.php:339
 #, php-format
 msgid "%d object(s) created"
-msgstr "创建了 %d 个对象"
+msgstr "已创建 %d 个对象"
 
 #: js/messages.php:342
 msgid "Press escape to cancel editing"
