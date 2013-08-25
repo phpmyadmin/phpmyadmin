@@ -171,7 +171,7 @@ function PMA_expandNavigationTree($expandElem) {
         if ($icon.is('.ic_b_plus')) {
             $icon.removeClass('ic_b_plus').addClass('ic_b_minus');
             $children.show('fast');
-            $('#pma_navigation').animate({
+            $('#pma_navigation_tree_content').animate({
                 scrollTop: $expandElem.closest('li').offset().top
             });
         } else {
@@ -214,7 +214,7 @@ function PMA_expandNavigationTree($expandElem) {
                         .find('a.expander.container')
                         .click();
                 }
-                $('#pma_navigation').animate({
+                $('#pma_navigation_tree_content').animate({
                     scrollTop: $expandElem.closest('li').offset().top
                 });
             } else {
