@@ -722,6 +722,11 @@ $GLOBALS['pmaThemePath']    = $_SESSION['PMA_Theme']->getPath();
  * @global string $GLOBALS['pmaThemeImage']
  */
 $GLOBALS['pmaThemeImage']   = $_SESSION['PMA_Theme']->getImgPath();
+/**
+ * the theme audio path
+ * @global string $GLOBALS['pmaThemeAudio']
+ */
+$GLOBALS['pmaThemeAudio']   = $GLOBALS['pmaThemePath'] . '/audio/';
 
 /**
  * load layout file if exists

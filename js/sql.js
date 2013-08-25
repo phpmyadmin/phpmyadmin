@@ -321,6 +321,15 @@ AJAX.registerOnload('sql.js', function () {
                         }
                     }
                 }
+				
+				// sound notification
+				aExt = 'wav';
+				if(navigator.appName=='Microsoft Internet Explorer'){
+					aExt = 'mp3';
+				}
+				var notification = new Audio(pmaThemeAudio + 'pin.' + aExt);
+				notification.play();
+				
             } else if (data.success === false) {
                 // show an error message that stays on screen
                 $('#sqlqueryform').before(data.error);
