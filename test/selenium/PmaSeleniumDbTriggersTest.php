@@ -9,12 +9,12 @@
 require_once 'Helper.php';
 
 /**
- * PmaSeleniumDbStoredProceduresTest class
+ * PmaSeleniumDbTriggersTest class
  *
  * @package    PhpMyAdmin-test
  * @subpackage Selenium
  */
-class PmaSeleniumDbStoredProceduresTest extends PHPUnit_Extensions_Selenium2TestCase
+class PmaSeleniumDbTriggersTest extends PHPUnit_Extensions_Selenium2TestCase
 {
     /**
      * Name of database for the test
@@ -47,10 +47,19 @@ class PmaSeleniumDbStoredProceduresTest extends PHPUnit_Extensions_Selenium2Test
         $this->_helper->dbQuery(
             "CREATE TABLE `test_table` ("
             . " `id` int(11) NOT NULL AUTO_INCREMENT,"
-            . " `name` varchar(20) NOT NULL,"
-            . " `datetimefield` datetime NOT NULL,"
+            . " `val` int(11) NOT NULL,"
             . " PRIMARY KEY (`id`)"
             . ")"
+        );
+         $this->_helper->dbQuery(
+            "CREATE TABLE `test_table2` ("
+            . " `id` int(11) NOT NULL AUTO_INCREMENT,"
+            . " `val` int(11) NOT NULL,"
+            . " PRIMARY KEY (`id`)"
+            . ")"
+        );
+        $this->_helper->dbQuery(
+            "INSERT INTO `test_table2` (val) VALUES (2);"
         );
         
     }
@@ -71,119 +80,127 @@ class PmaSeleniumDbStoredProceduresTest extends PHPUnit_Extensions_Selenium2Test
      * 
      * @return void
      */
-    private function _procedureSQL()
+    private function _triggerSQL()
     {
+        $start = date('Y-m-d H:i:s', strtotime('-1 day'));
+        $end = date('Y-m-d H:i:s', strtotime('+1 day'));
+
         $this->_helper->dbQuery(
-            "CREATE PROCEDURE `test_procedure`(IN `inp` VARCHAR(10), OUT `outp` INT)"
-            . " NOT DETERMINISTIC READS SQL DATA SQL SECURITY DEFINER SELECT char_"
-            . "length(inp) + count(*) FROM test_table INTO outp"
+            "CREATE TRIGGER `test_trigger` AFTER INSERT ON `test_table` FOR EACH ROW"
+            . " UPDATE `" . $this->_dbname . "`.`test_table2` SET val = val + 1"
         );
     }
 
     /**
-     * Create a procedure
+     * Create a Trigger
      *
      * @return void
      */
-    public function testAddProcedure()
+    public function testAddTrigger()
     {
         $more = $this->_helper->waitForElement("byLinkText", "More");
         $this->moveto($more);
-        $ele = $this->_helper->waitForElement("byPartialLinkText", "Routines");
+        $ele = $this->_helper->waitForElement("byPartialLinkText", "Triggers");
         $ele->click();
         
-        $ele = $this->_helper->waitForElement("byLinkText", "Add routine");
+        $ele = $this->_helper->waitForElement("byLinkText", "Add trigger");
         $ele->click();
 
         $this->_helper->waitForElement("byClassName", "rte_form");
 
-        $this->byName("item_name")->value("test_procedure");
+        $this->byName("item_name")->value("test_trigger");
         
-        $this->byName("item_param_name[0]")->value("inp");
-        $this->select(
-            $this->byName("item_param_type[0]")
-            )->selectOptionByLabel("VARCHAR");
-        $this->byName("item_param_length[0]")->value("10");
+        $this->select($this->byName("item_table"))
+            ->selectOptionByLabel("test_table");
+        
+        $this->select($this->byName("item_timing"))
+            ->selectOptionByLabel("AFTER");
 
-        $this->byCssSelector("input[value='Add parameter']")->click();
-
-        $this->select(
-            $this->byName("item_param_dir[1]")
-            )->selectOptionByLabel("OUT");
-        $ele = $this->_helper->waitForElement("byName", "item_param_name[1]");
-        $ele->value("outp");
-
-        $proc = "SELECT char_length(inp) + count(*) FROM test_table INTO outp";
+        $this->select($this->byName("item_event"))
+            ->selectOptionByLabel("INSERT");
+        
+        $proc = "UPDATE " . $this->_dbname . ".`test_table2` SET val=val+1";
         $this->_helper->typeInTextArea($proc);
-
-        $this->select(
-            $this->byName("item_sqldataaccess")
-            )->selectOptionByLabel("READS SQL DATA");
-
+        
         $this->byXPath("//button[contains(., 'Go')]")->click();
 
         $ele = $this->_helper->waitForElement(
             "byXPath",
-            "//div[@class='success' and contains(., 'Routine `test_procedure` has been created')]"
+            "//div[@class='success' and contains(., 'Trigger `test_trigger` has been created')]"
+        );
+
+        $this->assertTrue(
+            $this->_helper->isElementPresent(
+                'byXPath',
+                "//td[contains(., 'test_trigger')]"
+            )
         );
 
         $result = $this->_helper->dbQuery(
-            "SHOW PROCEDURE STATUS WHERE Db='" . $this->_dbname . "'"
+            "SHOW TRIGGERS FROM `" . $this->_dbname . "`;"
         );
-
         $this->assertEquals(1, $result->num_rows);
-        $this->_executeProcedure("abcabcabcabcabcabcabc", 10);
+
+        // test trigger
+        $this->_helper->dbQuery("INSERT INTO `test_table` (val) VALUES (1);");
+        $result = $this->_helper->dbQuery("SELECT val FROM `test_table2`;");
+        $row = $result->fetch_assoc();
+        $this->assertEquals(3, $row['val']);
     }
 
     /**
-     * Test for editing procedure
+     * Test for editing Triggers
      * 
      * @return void
      */
-    public function testEditProcedure()
+    public function testEditTriggers()
     {
-        $this->_procedureSQL();
+        $this->_triggerSQL();
         $more = $this->_helper->waitForElement("byLinkText", "More");
         $this->moveto($more);
-        $ele = $this->_helper->waitForElement("byPartialLinkText", "Routines");
+        $ele = $this->_helper->waitForElement("byPartialLinkText", "Triggers");
         $ele->click();
 
         $this->_helper->waitForElement(
             "byXPath",
-            "//legend[contains(., 'Routines')]"
+            "//legend[contains(., 'Triggers')]"
         );
 
         $this->byLinkText("Edit")->click();
+
         $this->_helper->waitForElement("byClassName", "rte_form");
-        $this->byName("item_param_length[0]")->clear();
-        $this->byName("item_param_length[0]")->value("12");
+        $this->_helper->typeInTextArea("0");
 
         $this->byXPath("//button[contains(., 'Go')]")->click();
 
         $ele = $this->_helper->waitForElement(
             "byXPath",
-            "//div[@class='success' and contains(., 'Routine `test_procedure` has been modified')]"
+            "//div[@class='success' and contains(., 'Trigger `test_trigger` has been modified')]"
         );
-
-        $this->_executeProcedure("abcabcabcabcabcabcabc", 12);
+        
+        // test trigger
+        $this->_helper->dbQuery("INSERT INTO `test_table` (val) VALUES (1);");
+        $result = $this->_helper->dbQuery("SELECT val FROM `test_table2`;");
+        $row = $result->fetch_assoc();
+        $this->assertEquals(12, $row['val']);
     }
 
     /**
-     * Test for dropping procedure
+     * Test for dropping Trigger
      * 
      * @return void
      */
-    public function testDropProcedure()
+    public function testDropTrigger()
     {
-        $this->_procedureSQL();
+        $this->_triggerSQL();
         $more = $this->_helper->waitForElement("byLinkText", "More");
         $this->moveto($more);
-        $ele = $this->_helper->waitForElement("byPartialLinkText", "Routines");
+        $ele = $this->_helper->waitForElement("byPartialLinkText", "Triggers");
         $ele->click();
 
         $this->_helper->waitForElement(
             "byXPath",
-            "//legend[contains(., 'Routines')]"
+            "//legend[contains(., 'Triggers')]"
         );
 
         $this->byLinkText("Drop")->click();
@@ -193,29 +210,10 @@ class PmaSeleniumDbStoredProceduresTest extends PHPUnit_Extensions_Selenium2Test
 
         $this->_helper->waitForElement("byId", "nothing2display");
 
-        usleep(1000000);
         $result = $this->_helper->dbQuery(
-            "SHOW PROCEDURE STATUS WHERE Db='" . $this->_dbname . "'"
+            "SHOW TRIGGERS FROM `" . $this->_dbname . "`;"
         );
         $this->assertEquals(0, $result->num_rows);
-    }
-
-    /**
-     * Execute procedure
-     * 
-     * @return void
-     */
-    private function _executeProcedure($text, $length)
-    {
-        $this->_helper->waitForElement("byLinkText", "Execute")->click();
-        $this->_helper->waitForElement("byName", "params[inp]")->value($text);
-        $this->byCssSelector("div.ui-dialog-buttonset button:nth-child(1)")->click();
-        $this->_helper->waitForElement(
-            "byCssSelector",
-            "span#PMA_slidingMessage table tbody"
-        );
-        $head = $this->byCssSelector("span#PMA_slidingMessage table tbody")->text();
-        $this->assertEquals("outp\n$length", $head);
     }
 
     /**

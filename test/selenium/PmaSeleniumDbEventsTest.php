@@ -9,12 +9,12 @@
 require_once 'Helper.php';
 
 /**
- * PmaSeleniumDbStoredProceduresTest class
+ * PmaSeleniumDbEventsTest class
  *
  * @package    PhpMyAdmin-test
  * @subpackage Selenium
  */
-class PmaSeleniumDbStoredProceduresTest extends PHPUnit_Extensions_Selenium2TestCase
+class PmaSeleniumDbEventsTest extends PHPUnit_Extensions_Selenium2TestCase
 {
     /**
      * Name of database for the test
@@ -47,10 +47,12 @@ class PmaSeleniumDbStoredProceduresTest extends PHPUnit_Extensions_Selenium2Test
         $this->_helper->dbQuery(
             "CREATE TABLE `test_table` ("
             . " `id` int(11) NOT NULL AUTO_INCREMENT,"
-            . " `name` varchar(20) NOT NULL,"
-            . " `datetimefield` datetime NOT NULL,"
+            . " `val` int(11) NOT NULL,"
             . " PRIMARY KEY (`id`)"
             . ")"
+        );
+        $this->_helper->dbQuery(
+            "INSERT INTO `test_table` (val) VALUES (2);"
         );
         
     }
@@ -71,119 +73,137 @@ class PmaSeleniumDbStoredProceduresTest extends PHPUnit_Extensions_Selenium2Test
      * 
      * @return void
      */
-    private function _procedureSQL()
+    private function _eventSQL()
     {
+        $start = date('Y-m-d H:i:s', strtotime('-1 day'));
+        $end = date('Y-m-d H:i:s', strtotime('+1 day'));
+
         $this->_helper->dbQuery(
-            "CREATE PROCEDURE `test_procedure`(IN `inp` VARCHAR(10), OUT `outp` INT)"
-            . " NOT DETERMINISTIC READS SQL DATA SQL SECURITY DEFINER SELECT char_"
-            . "length(inp) + count(*) FROM test_table INTO outp"
+            "CREATE EVENT `test_event` ON SCHEDULE EVERY 2 MINUTE_SECOND STARTS "
+            . "'$start' ENDS '$end' ON COMPLETION NOT PRESERVE ENABLE "
+            . "DO UPDATE `". $this->_dbname. "`.`test_table` SET val = val + 1"
         );
     }
 
     /**
-     * Create a procedure
+     * Create an event
      *
      * @return void
      */
-    public function testAddProcedure()
+    public function testAddEvent()
     {
         $more = $this->_helper->waitForElement("byLinkText", "More");
         $this->moveto($more);
-        $ele = $this->_helper->waitForElement("byPartialLinkText", "Routines");
+        $ele = $this->_helper->waitForElement("byPartialLinkText", "Events");
         $ele->click();
         
-        $ele = $this->_helper->waitForElement("byLinkText", "Add routine");
+        $ele = $this->_helper->waitForElement("byLinkText", "Add event");
         $ele->click();
 
         $this->_helper->waitForElement("byClassName", "rte_form");
 
-        $this->byName("item_name")->value("test_procedure");
+        $this->byName("item_name")->value("test_event");
         
-        $this->byName("item_param_name[0]")->value("inp");
-        $this->select(
-            $this->byName("item_param_type[0]")
-            )->selectOptionByLabel("VARCHAR");
-        $this->byName("item_param_length[0]")->value("10");
-
-        $this->byCssSelector("input[value='Add parameter']")->click();
-
-        $this->select(
-            $this->byName("item_param_dir[1]")
-            )->selectOptionByLabel("OUT");
-        $ele = $this->_helper->waitForElement("byName", "item_param_name[1]");
-        $ele->value("outp");
-
-        $proc = "SELECT char_length(inp) + count(*) FROM test_table INTO outp";
+        $this->select($this->byName("item_type"))
+            ->selectOptionByLabel("RECURRING");
+        
+        $this->byName("item_interval_value")->value("1");
+        
+        $this->select($this->byName("item_interval_field"))
+            ->selectOptionByLabel("MINUTE_SECOND");
+        
+        $this->byName("item_starts")
+            ->value(date('Y-m-d H:i:s', strtotime('-1 day')));
+        
+        $this->byName("item_ends")
+            ->value(date('Y-m-d H:i:s', strtotime('+1 day')));
+        
+        $proc = "UPDATE " . $this->_dbname . ".`test_table` SET val=val+1";
         $this->_helper->typeInTextArea($proc);
-
-        $this->select(
-            $this->byName("item_sqldataaccess")
-            )->selectOptionByLabel("READS SQL DATA");
-
+        
         $this->byXPath("//button[contains(., 'Go')]")->click();
 
         $ele = $this->_helper->waitForElement(
             "byXPath",
-            "//div[@class='success' and contains(., 'Routine `test_procedure` has been created')]"
+            "//div[@class='success' and contains(., 'Event `test_event` has been created')]"
+        );
+
+        $this->assertTrue(
+            $this->_helper->isElementPresent(
+                'byXPath',
+                "//td[contains(., 'test_event')]"
+            )
         );
 
         $result = $this->_helper->dbQuery(
-            "SHOW PROCEDURE STATUS WHERE Db='" . $this->_dbname . "'"
+            "SHOW EVENTS WHERE Db='" . $this->_dbname . "' AND Name='test_event'"
         );
-
         $this->assertEquals(1, $result->num_rows);
-        $this->_executeProcedure("abcabcabcabcabcabcabc", 10);
+
+        usleep(2000000);
+        $result = $this->_helper->dbQuery(
+            "SELECT val FROM `" . $this->_dbname . "`.`test_table`"
+        );
+        $row = $result->fetch_assoc();
+        $this->assertGreaterThan(2, $row['val']);
     }
 
     /**
-     * Test for editing procedure
+     * Test for editing events
      * 
      * @return void
      */
-    public function testEditProcedure()
+    public function testEditEvents()
     {
-        $this->_procedureSQL();
+        $this->_eventSQL();
         $more = $this->_helper->waitForElement("byLinkText", "More");
         $this->moveto($more);
-        $ele = $this->_helper->waitForElement("byPartialLinkText", "Routines");
+        $ele = $this->_helper->waitForElement("byPartialLinkText", "Events");
         $ele->click();
 
         $this->_helper->waitForElement(
             "byXPath",
-            "//legend[contains(., 'Routines')]"
+            "//legend[contains(., 'Events')]"
         );
 
         $this->byLinkText("Edit")->click();
+
         $this->_helper->waitForElement("byClassName", "rte_form");
-        $this->byName("item_param_length[0]")->clear();
-        $this->byName("item_param_length[0]")->value("12");
+        $this->byName("item_interval_value")->clear();
+        $this->byName("item_interval_value")->value("1");
+        $this->_helper->typeInTextArea("00");
 
         $this->byXPath("//button[contains(., 'Go')]")->click();
 
         $ele = $this->_helper->waitForElement(
             "byXPath",
-            "//div[@class='success' and contains(., 'Routine `test_procedure` has been modified')]"
+            "//div[@class='success' and contains(., 'Event `test_event` has been modified')]"
         );
-
-        $this->_executeProcedure("abcabcabcabcabcabcabc", 12);
+        
+        usleep(2000000);
+        $result = $this->_helper->dbQuery(
+            "SELECT val FROM `" . $this->_dbname . "`.`test_table`"
+        );
+        $row = $result->fetch_assoc();
+        $this->assertGreaterThan(100, $row['val']);
     }
 
     /**
-     * Test for dropping procedure
+     * Test for dropping event
      * 
      * @return void
      */
-    public function testDropProcedure()
+    public function testDropEvent()
     {
-        $this->_procedureSQL();
+        $this->_eventSQL();
         $more = $this->_helper->waitForElement("byLinkText", "More");
         $this->moveto($more);
-        $ele = $this->_helper->waitForElement("byPartialLinkText", "Routines");
+        $ele = $this->_helper->waitForElement("byPartialLinkText", "Events");
         $ele->click();
 
         $this->_helper->waitForElement(
             "byXPath",
-            "//legend[contains(., 'Routines')]"
+            "//legend[contains(., 'Events')]"
         );
 
         $this->byLinkText("Drop")->click();
@@ -195,27 +215,9 @@ class PmaSeleniumDbStoredProceduresTest extends PHPUnit_Extensions_Selenium2Test
 
         usleep(1000000);
         $result = $this->_helper->dbQuery(
-            "SHOW PROCEDURE STATUS WHERE Db='" . $this->_dbname . "'"
+            "SHOW EVENTS WHERE Db='" . $this->_dbname . "' AND Name='test_event'"
         );
         $this->assertEquals(0, $result->num_rows);
-    }
-
-    /**
-     * Execute procedure
-     * 
-     * @return void
-     */
-    private function _executeProcedure($text, $length)
-    {
-        $this->_helper->waitForElement("byLinkText", "Execute")->click();
-        $this->_helper->waitForElement("byName", "params[inp]")->value($text);
-        $this->byCssSelector("div.ui-dialog-buttonset button:nth-child(1)")->click();
-        $this->_helper->waitForElement(
-            "byCssSelector",
-            "span#PMA_slidingMessage table tbody"
-        );
-        $head = $this->byCssSelector("span#PMA_slidingMessage table tbody")->text();
-        $this->assertEquals("outp\n$length", $head);
     }
 
     /**
