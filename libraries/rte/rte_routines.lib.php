@@ -979,7 +979,7 @@ function PMA_RTN_getEditorForm($mode, $operation, $routine)
     $retval .= "<tr>\n";
     $retval .= "    <td>&nbsp;</td>\n";
     $retval .= "    <td>\n";
-    $retval .= "        <input style='width: 49%;' type='submit' \n";
+    $retval .= "        <input style='width: 49%;' type='button' \n";
     $retval .= "               name='routine_addparameter'\n";
     $retval .= "               value='" . __('Add parameter') . "' />\n";
     $retval .= "        <input style='width: 49%;$disable_remove_parameter'\n";
