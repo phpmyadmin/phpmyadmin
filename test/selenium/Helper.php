@@ -139,18 +139,18 @@ class Helper
 
     /**
      * Establishes a connection with the local database
-     * 
+     *
      * @return void
      */
     public function dbConnect()
     {
         if ($this->_mysqli === null) {
             list($user, $pass) = $this->_config->getDBCredentials();
-            
+
             $this->_mysqli = new mysqli(
                 "localhost", $user, $pass
             );
-            
+
             if ($this->_mysqli->connect_errno) {
                 throw new Exception(
                     'Failed to connect to MySQL (' . $this->_mysqli->error . ')'
@@ -161,9 +161,9 @@ class Helper
 
     /**
      * Executes a database query
-     * 
+     *
      * @param string $query SQL Query to be executed
-     * 
+     *
      * @return void
      */
     public function dbQuery($query)
@@ -178,7 +178,7 @@ class Helper
 
     /**
      * Check if user is logged in to phpmyadmin
-     * 
+     *
      * @return boolean Where or not user is logged in
      */
     public function isLoggedIn()
@@ -188,7 +188,7 @@ class Helper
 
     /**
      * Perform a logout, if logged in
-     * 
+     *
      * @return void
      */
     public function logOutIfLoggedIn()
@@ -200,7 +200,7 @@ class Helper
 
     /**
      * Get current browser string
-     * 
+     *
      * @return string Browser String
      */
     public function getBrowserString()
@@ -251,7 +251,7 @@ class Helper
         list($tableID, $row, $column) = explode(".", $identifier);
 
         $selector = "table#{$tableID} tbody tr:nth-child({$row}) td:nth-child({$column})";
-        
+
         $element = $this->_selenium->byCssSelector(
             $selector
         );

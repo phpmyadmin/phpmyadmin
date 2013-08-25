@@ -18,7 +18,7 @@ class PmaSeleniumLoginTest extends PHPUnit_Extensions_Selenium2TestCase
 {
     /**
      * Helper Object
-     * 
+     *
      * @var obj
      */
     private $_helper;

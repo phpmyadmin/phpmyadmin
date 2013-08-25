@@ -34,7 +34,7 @@ class PmaSeleniumCreateRemoveUserTest extends PHPUnit_Extensions_Selenium2TestCa
 
     /**
      * Helper Object
-     * 
+     *
      * @var obj
      */
     private $_helper;
@@ -62,7 +62,7 @@ class PmaSeleniumCreateRemoveUserTest extends PHPUnit_Extensions_Selenium2TestCa
     {
         $this->_helper->login(TESTSUITE_USER, TESTSUITE_PASSWORD);
         $this->byLinkText("Users")->click();
-        
+
         $link = $this->_helper->waitForElement("byLinkText", "Add user");
         $link->click();
 
@@ -89,7 +89,7 @@ class PmaSeleniumCreateRemoveUserTest extends PHPUnit_Extensions_Selenium2TestCa
 
         $el = $this->_helper->waitForElement("byId", "usersForm");
         $temp = $this->_txtUsername."&amp;#27;localhost";
-        
+
         $this->byXPath(
             "(//input[@name='selected_usr[]'])[@value='".$temp."']"
         )->click();

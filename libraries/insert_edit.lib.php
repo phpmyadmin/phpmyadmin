@@ -809,6 +809,10 @@ function PMA_getTextarea($column, $backup_field, $column_name_appendix,
     $textareaCols = $GLOBALS['cfg']['TextareaCols'];
 
     if ($column['is_char']) {
+        /**
+         * @todo clarify the meaning of the "textfield" class and explain 
+         *       why character columns have the "char" class instead 
+         */
         $the_class = 'char';
         $textAreaRows = $GLOBALS['cfg']['CharTextareaRows'];
         $textareaCols = $GLOBALS['cfg']['CharTextareaCols'];
@@ -1096,14 +1100,16 @@ function PMA_getBinaryAndBlobColumn(
             $data_size = PMA_Util::formatByteDown(
                 strlen(stripslashes($data)), 3, 1
             );
-            $html_output .= ' ('. $data_size [0] . ' ' . $data_size[1] . ')';
+            $html_output .= ' ('. $data_size[0] . ' ' . $data_size[1] . ')';
             unset($data_size);
         }
         $html_output .= '<input type="hidden" name="fields_type'
             . $column_name_appendix . '" value="protected" />'
             . '<input type="hidden" name="fields'
             . $column_name_appendix . '" value="" />';
-    } elseif ($column['is_blob']) {
+    } elseif ($column['is_blob']
+        || ($column['len'] > $GLOBALS['cfg']['LimitChars'])
+    ) {
         $html_output .= "\n" . PMA_getTextarea(
             $column, $backup_field, $column_name_appendix, $unnullify_trigger,
             $tabindex, $tabindex_for_value, $idindex, $text_dir,
@@ -1284,7 +1290,7 @@ function PMA_getMaxUploadSize($column, $biggest_max_file_size)
  * @param string  $column_name_appendix  the name atttibute
  * @param string  $unnullify_trigger     validation string
  * @param integer $tabindex              tab index
- * @param array   $special_chars         apecial characters
+ * @param array   $special_chars         special characters
  * @param integer $tabindex_for_value    offset for the values tabindex
  * @param integer $idindex               id index
  * @param string  $text_dir              text direction
@@ -1527,7 +1533,7 @@ function PMA_getSubmitTypeDropDown($where_clause, $tabindex, $tabindex_for_value
  */
 function PMA_getAfterInsertDropDown($where_clause, $after_insert, $found_unique_key)
 {
-    $html_output = '<select name="after_insert">'
+    $html_output = '<select name="after_insert" class="control_at_footer">'
         . '<option value="back" '
         . ($after_insert == 'back' ? 'selected="selected"' : '') . '>'
         . __('Go back to previous page') . '</option>'
@@ -2420,26 +2426,26 @@ function PMA_verifyWhetherValueCanBeTruncatedAndAppendExtraData(
 
 /**
  * Function to get the columns of a table
- * 
+ *
  * @param string $db    current db
  * @param string $table current table
- * 
- * @return array 
+ *
+ * @return array
  */
 function PMA_getTableColumns($db, $table)
 {
     $GLOBALS['dbi']->selectDb($db);
     return array_values($GLOBALS['dbi']->getColumns($db, $table));
-    
+
 }
 
 /**
  * Function to determine Insert/Edit rows
- * 
+ *
  * @param string $where_clause where clause
  * @param string $db           current database
  * @param string $table        current table
- * 
+ *
  * @return mixed
  */
 function PMA_determineInsertOrEdit($where_clause, $db, $table)
@@ -2462,7 +2468,7 @@ function PMA_determineInsertOrEdit($where_clause, $db, $table)
     if (isset($_REQUEST['after_insert'])) {
         $after_insert = $_REQUEST['after_insert'];
     }
-    
+
     if (isset($where_clause)) {
         // we are editing
         $insert_mode = false;
@@ -2480,15 +2486,15 @@ function PMA_determineInsertOrEdit($where_clause, $db, $table)
         $where_clause_array = null;
         $found_unique_key = false;
     }
-    
+
     // Copying a row - fetched data will be inserted as a new row,
     // therefore the where clause is needless.
-    if (isset($_REQUEST['default_action']) 
+    if (isset($_REQUEST['default_action'])
         && $_REQUEST['default_action'] === 'insert'
     ) {
         $where_clause = $where_clauses = null;
     }
-    
+
     return array(
         $insert_mode, $where_clause, $where_clause_array, $where_clauses,
         $result, $rows, $found_unique_key,
@@ -2498,10 +2504,10 @@ function PMA_determineInsertOrEdit($where_clause, $db, $table)
 
 /**
  * Function to get comments for the table columns
- * 
+ *
  * @param string $db    current database
  * @param string $table current table
- * 
+ *
  * @return array $comments_map comments for columns
  */
 function PMA_getCommentsMap($db, $table)
@@ -2520,16 +2526,16 @@ function PMA_getCommentsMap($db, $table)
     if ($GLOBALS['cfg']['ShowPropertyComments']) {
         $comments_map = PMA_getComments($db, $table);
     }
-    
+
     return $comments_map;
 }
 
 /**
  * Function to get URL parameters
- * 
+ *
  * @param string $db    current database
  * @param string $table current table
- * 
+ *
  * @return array $url_params url parameters
  */
 function PMA_getUrlParameters($db, $table)
@@ -2545,7 +2551,7 @@ function PMA_getUrlParameters($db, $table)
     if (preg_match('@^tbl_@', $GLOBALS['goto'])) {
         $url_params['table'] = $table;
     }
-    
+
     return $url_params;
 }
 ?>

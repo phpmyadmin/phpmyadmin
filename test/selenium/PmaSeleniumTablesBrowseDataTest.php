@@ -18,14 +18,14 @@ class PmaSeleniumTablesBrowseDataTest extends PHPUnit_Extensions_Selenium2TestCa
 {
     /**
      * Name of database for the test
-     * 
+     *
      * @var string
      */
     private $_dbname;
 
     /**
      * Helper Object
-     * 
+     *
      * @var obj
      */
     private $_helper;
@@ -62,7 +62,7 @@ class PmaSeleniumTablesBrowseDataTest extends PHPUnit_Extensions_Selenium2TestCa
 
     /**
      * setUp function that can use the selenium session (called before each test)
-     * 
+     *
      * @return void
      */
     public function setUpPage()
@@ -76,7 +76,7 @@ class PmaSeleniumTablesBrowseDataTest extends PHPUnit_Extensions_Selenium2TestCa
 
     /**
      * Test sorting of records in browse table
-     * 
+     *
      * @return void
      */
     public function testSortRecords()
@@ -85,7 +85,7 @@ class PmaSeleniumTablesBrowseDataTest extends PHPUnit_Extensions_Selenium2TestCa
         $this->byLinkText("name")->click();
         $this->_helper->waitForElementNotPresent("byId", "loading_parent");
         usleep(100);
-        
+
         $this->assertEquals(
             "1",
             $this->_helper->getTable("table_results.1.5")
@@ -105,7 +105,7 @@ class PmaSeleniumTablesBrowseDataTest extends PHPUnit_Extensions_Selenium2TestCa
         $this->byLinkText("name")->click();
         $this->_helper->waitForElementNotPresent("byId", "loading_parent");
         usleep(100);
-        
+
         $this->assertEquals(
             "2",
             $this->_helper->getTable("table_results.1.5")
@@ -125,7 +125,7 @@ class PmaSeleniumTablesBrowseDataTest extends PHPUnit_Extensions_Selenium2TestCa
         $this->byLinkText("datetimefield")->click();
         $this->_helper->waitForElementNotPresent("byId", "loading_parent");
         usleep(100);
-        
+
         $this->assertEquals(
             "3",
             $this->_helper->getTable("table_results.1.5")
@@ -145,7 +145,7 @@ class PmaSeleniumTablesBrowseDataTest extends PHPUnit_Extensions_Selenium2TestCa
         $this->byLinkText("datetimefield")->click();
         $this->_helper->waitForElementNotPresent("byId", "loading_parent");
         usleep(100);
-        
+
         $this->assertEquals(
             "2",
             $this->_helper->getTable("table_results.1.5")
@@ -164,7 +164,7 @@ class PmaSeleniumTablesBrowseDataTest extends PHPUnit_Extensions_Selenium2TestCa
 
     /**
      * Test Edit Record
-     * 
+     *
      * @return void
      */
     public function testChangeRecords()
@@ -173,7 +173,7 @@ class PmaSeleniumTablesBrowseDataTest extends PHPUnit_Extensions_Selenium2TestCa
             "table#table_results tbody tr:nth-child(2) td:nth-child(2) a"
             )->click();
         $this->_helper->waitForElement("byId", "insertForm");
-        
+
         $this->assertEquals(
             "2",
             $this->byId("field_1_3")->value()
@@ -195,7 +195,7 @@ class PmaSeleniumTablesBrowseDataTest extends PHPUnit_Extensions_Selenium2TestCa
         $this->byId("field_3_3")->value("2009-01-20 02:00:02");
 
         $this->byId("buttonYes")->click();
-        
+
         $success = $this->_helper->waitForElement("byClassName", "success");
         $this->assertContains("1 row affected", $success->text());
 
@@ -212,7 +212,7 @@ class PmaSeleniumTablesBrowseDataTest extends PHPUnit_Extensions_Selenium2TestCa
 
     /**
      * Test edit record by double click
-     * 
+     *
      * @return void
      */
     public function testChangeRecordsByDoubleClick()
@@ -232,12 +232,12 @@ class PmaSeleniumTablesBrowseDataTest extends PHPUnit_Extensions_Selenium2TestCa
         $this->byCssSelector("textarea.edit_box")->clear();
         $this->byCssSelector("textarea.edit_box")->value("abcde");
         $this->keys(PHPUnit_Extensions_Selenium2TestCase_Keys::RETURN_);
-        
+
         $success = $this->_helper->waitForElement(
             "byCssSelector", "span.ajax_notification div.success"
         );
         $this->assertContains("1 row affected", $success->text());
-        
+
         $this->assertEquals(
             "abcde",
             $this->_helper->getTable("table_results.1.6")
@@ -246,7 +246,7 @@ class PmaSeleniumTablesBrowseDataTest extends PHPUnit_Extensions_Selenium2TestCa
 
     /**
      * Test copy and insert record
-     * 
+     *
      * @return void
      */
     public function testCopyRecords()
@@ -256,7 +256,7 @@ class PmaSeleniumTablesBrowseDataTest extends PHPUnit_Extensions_Selenium2TestCa
             )->click();
 
         $this->_helper->waitForElement("byId", "insertForm");
-        
+
         $this->assertEquals(
             "Abcd",
             $this->byId("field_2_3")->value()
@@ -289,14 +289,14 @@ class PmaSeleniumTablesBrowseDataTest extends PHPUnit_Extensions_Selenium2TestCa
 
     /**
      * Test search table
-     * 
+     *
      * @return void
      */
     public function testSearchRecords()
     {
         $this->byLinkText("Search")->click();
         $this->_helper->waitForElement("byId", "tbl_search_form");
-        
+
         $this->byId("fieldID_1")->value("abcd");
         $select = $this->select($this->byName("criteriaColumnOperators[1]"));
         $select->selectOptionByLabel("LIKE %...%");
@@ -318,7 +318,7 @@ class PmaSeleniumTablesBrowseDataTest extends PHPUnit_Extensions_Selenium2TestCa
 
     /**
      * Test delete multiple records
-     * 
+     *
      * @return void
      */
     public function testDeleteRecords()
@@ -343,7 +343,7 @@ class PmaSeleniumTablesBrowseDataTest extends PHPUnit_Extensions_Selenium2TestCa
 
     /**
      * Teardown for test cases (drops database)
-     * 
+     *
      * @return void
      */
     public function tearDown()

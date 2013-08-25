@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-08-18 06:16-0400\n"
-"PO-Revision-Date: 2013-08-24 12:11+0200\n"
+"PO-Revision-Date: 2013-08-25 12:52+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: Simplified Chinese "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/zh_CN/>\n"
@@ -1307,20 +1307,18 @@ msgid ""
 "This column shows the amount of identical queries that are grouped together. "
 "However only the SQL query itself has been used as a grouping criteria, so "
 "the other attributes of queries, such as start time, may differ."
-msgstr ""
-"这一列显示了相同的查询被组合在一起了。然而，有且只有SQL文本被修改过了,因此查"
-"询其他属性例如启动时间可能不同。"
+msgstr "该列显示了已分组的相同查询数量。然而只有 SQL 查询本身被作为分组依据，所以查询的其它属性，如开始时间可能不同。"
 
 #: js/messages.php:162
 msgid ""
 "Since grouping of INSERTs queries has been selected, INSERT queries into the "
 "same table are also being grouped together, disregarding of the inserted "
 "data."
-msgstr "因选择了分组 INSERT 查询，相同表的 INSERT 查询将被分为一组，忽略数据。"
+msgstr "因选择了分组 INSERT 查询，对相同表的 INSERT 查询将忽略插入的数据而被分为一组。"
 
 #: js/messages.php:163
 msgid "Log data loaded. Queries executed in this time span:"
-msgstr "日志数据已加载。查询执行时间为："
+msgstr "已加载日志数据。该时间段执行的查询："
 
 #: js/messages.php:165
 msgid "Jump to Log table"
@@ -1332,7 +1330,7 @@ msgstr "未找到数据"
 
 #: js/messages.php:167
 msgid "Log analysed, but no data found in this time span."
-msgstr "日志已分析，时间段内没有数据。"
+msgstr "已分析日志，但在该时间段内没有找到数据。"
 
 #: js/messages.php:169
 msgid "Analyzing…"
@@ -1340,7 +1338,7 @@ msgstr "正在分析…"
 
 #: js/messages.php:170
 msgid "Explain output"
-msgstr "分析输出"
+msgstr "解析输出"
 
 #: js/messages.php:172 js/messages.php:536
 #: libraries/plugins/export/ExportHtmlword.class.php:486
@@ -1353,7 +1351,7 @@ msgstr "时间"
 
 #: js/messages.php:173
 msgid "Total time:"
-msgstr "总时间:"
+msgstr "总时间："
 
 #: js/messages.php:174
 msgid "Profiling results"
@@ -1379,28 +1377,28 @@ msgstr "数据"
 #. l10n: A collection of available filters
 #: js/messages.php:181
 msgid "Log table filter options"
-msgstr "日志表过滤选项"
+msgstr "日志表筛选选项"
 
 #. l10n: Filter as in "Start Filtering"
 #: js/messages.php:183
 msgid "Filter"
-msgstr "快速搜索"
+msgstr "筛选"
 
 #: js/messages.php:184
 msgid "Filter queries by word/regexp:"
-msgstr "根据内容/正则表达式搜索:"
+msgstr "根据内容/正则表达式筛选："
 
 #: js/messages.php:185
 msgid "Group queries, ignoring variable data in WHERE clauses"
-msgstr "忽略 WHERE 语句中的变量值对查询分组"
+msgstr "忽略 WHERE 从句中的变量值对查询分组"
 
 #: js/messages.php:186
 msgid "Sum of grouped rows:"
-msgstr "分组后的行数:"
+msgstr "分组后的行数："
 
 #: js/messages.php:187
 msgid "Total:"
-msgstr "总数:"
+msgstr "总数："
 
 #: js/messages.php:189
 msgid "Loading logs"
@@ -1408,16 +1406,14 @@ msgstr "正在加载日志"
 
 #: js/messages.php:190
 msgid "Monitor refresh failed"
-msgstr "监控刷新失败"
+msgstr "刷新监控失败"
 
 #: js/messages.php:191
 msgid ""
 "While requesting new chart data the server returned an invalid response. "
 "This is most likely because your session expired. Reloading the page and "
 "reentering your credentials should help."
-msgstr ""
-"请求新图表数据时服务器返回了无效数据。这可能是因为会话过期。请尝试重新加载页"
-"面。"
+msgstr "请求新图表数据时服务器返回了无效数据。这很可能是因为您的会话已过期所造成的。请尝试重新载入页面并重新登录。"
 
 #: js/messages.php:192
 msgid "Reload page"
@@ -1425,16 +1421,16 @@ msgstr "重新载入页面"
 
 #: js/messages.php:194
 msgid "Affected rows:"
-msgstr "影响的行数:"
+msgstr "影响的行数："
 
 #: js/messages.php:196
 msgid "Failed parsing config file. It doesn't seem to be valid JSON code."
-msgstr "解析配置文件失败。它看上去不像有效的 JSON 代码。"
+msgstr "解析配置文件失败。它似乎不是有效的 JSON 代码。"
 
 #: js/messages.php:197
 msgid ""
 "Failed building chart grid with imported config. Resetting to default config…"
-msgstr "导入配置失败。正在重设为默认设置…"
+msgstr "使用导入的设置建立图表失败。正在重设为默认设置…"
 
 #: js/messages.php:198 libraries/Menu.class.php:337
 #: libraries/Menu.class.php:419 libraries/Menu.class.php:532
@@ -1452,9 +1448,10 @@ msgstr "导入监控设置"
 
 #: js/messages.php:200
 msgid "Please select the file you want to import"
-msgstr "请选择要导入的文件"
+msgstr "请选择您要导入的文件"
 
 #: js/messages.php:202
+#, fuzzy
 msgid "Analyse Query"
 msgstr "查询分析"
 
@@ -1476,19 +1473,19 @@ msgstr "建议"
 
 #: js/messages.php:210
 msgid "Rule details"
-msgstr "规则详细"
+msgstr "规则细节"
 
 #: js/messages.php:211
 msgid "Justification"
-msgstr "校正"
+msgstr "现状"
 
 #: js/messages.php:212
 msgid "Used variable / formula"
-msgstr "已使用的 变量/公式"
+msgstr "使用的变量/公式"
 
 #: js/messages.php:213
 msgid "Test"
-msgstr "测试"
+msgstr "检验"
 
 #: js/messages.php:218 libraries/server_variables.lib.php:159
 #: pmd_general.php:423 pmd_general.php:460 pmd_general.php:580
@@ -1499,10 +1496,9 @@ msgstr "取消"
 
 #: js/messages.php:221 libraries/navigation/NavigationHeader.class.php:54
 #: libraries/server_status_monitor.lib.php:159
-#, fuzzy
 #| msgid "Loading"
 msgid "Loading…"
-msgstr "正在加载"
+msgstr "正在加载…"
 
 #: js/messages.php:222
 msgid "Processing Request"
@@ -1525,7 +1521,7 @@ msgstr "错误信息：%s"
 #: js/messages.php:226 libraries/db_common.inc.php:58
 #: libraries/db_table_exists.lib.php:28 server_databases.php:91
 msgid "No databases selected."
-msgstr "未选中数据库。"
+msgstr "没有已选择的数据库。"
 
 #: js/messages.php:227
 msgid "Dropping Column"
@@ -1543,7 +1539,7 @@ msgstr "确定"
 
 #: js/messages.php:230
 msgid "Click to dismiss this notification"
-msgstr "点击解除这条通知"
+msgstr "点击隐藏该提示"
 
 #: js/messages.php:233
 msgid "Renaming Databases"
@@ -1563,9 +1559,10 @@ msgstr "正在修改字符集"
 
 #: js/messages.php:237
 msgid "Table must have at least one column"
-msgstr "数据表至少要有一个字段"
+msgstr "表至少要有一个字段"
 
 #: js/messages.php:242
+#, fuzzy
 msgid "Insert Table"
 msgstr "插入表格"
 
@@ -1579,7 +1576,7 @@ msgstr "显示索引"
 
 #: js/messages.php:245 libraries/mult_submits.lib.php:412
 msgid "Foreign key check:"
-msgstr "检查外键："
+msgstr "外键约束："
 
 #: js/messages.php:246 libraries/mult_submits.lib.php:425
 msgid "(Enabled)"
@@ -1628,7 +1625,7 @@ msgstr "新字段的值"
 
 #: js/messages.php:263
 msgid "Enter each value in a separate field"
-msgstr "请将每个值分别输入"
+msgstr "每个输入框一个值"
 
 #: js/messages.php:264
 #, php-format
@@ -1638,7 +1635,7 @@ msgstr "添加 %d 个值"
 #: js/messages.php:267
 msgid ""
 "Note: If the file contains multiple tables, they will be combined into one."
-msgstr "注意：如果文件包含多个表，它们会被合并成一个"
+msgstr "注意：如果文件包含多张表，它们将会被合并到一起。"
 
 #: js/messages.php:270
 msgid "Hide query box"
@@ -1697,16 +1694,14 @@ msgid "Show search criteria"
 msgstr "显示搜索条件"
 
 #: js/messages.php:286
-#, fuzzy
 #| msgid "Hide search criteria"
 msgid "Hide find and replace criteria"
-msgstr "隐藏搜索条件"
+msgstr "隐藏搜索替换条件"
 
 #: js/messages.php:287
-#, fuzzy
 #| msgid "Show search criteria"
 msgid "Show find and replace criteria"
-msgstr "显示搜索条件"
+msgstr "显示搜索替换条件"
 
 #: js/messages.php:290 libraries/TableSearch.class.php:212
 msgid "Zoom Search"
@@ -1790,6 +1785,7 @@ msgid "Add columns"
 msgstr "添加字段"
 
 #: js/messages.php:331
+#, fuzzy
 msgid "Select referenced key"
 msgstr "选择外键"
 
@@ -1818,7 +1814,7 @@ msgstr "给字段添加选项 "
 #: js/messages.php:339
 #, php-format
 msgid "%d object(s) created"
-msgstr "创建了 %d 个对象"
+msgstr "已创建 %d 个对象"
 
 #: js/messages.php:342
 msgid "Press escape to cancel editing"
@@ -1828,7 +1824,7 @@ msgstr "按 Esc 键取消编辑"
 msgid ""
 "You have edited some data and they have not been saved. Are you sure you "
 "want to leave this page before saving the data?"
-msgstr "已有数据被修改但尚未保存。你真的要不保存修改就离开本页吗？"
+msgstr "您已修改了一些数据但尚未保存。您真的要放弃保存并离开吗？"
 
 #: js/messages.php:344
 msgid "Drag to reorder"
@@ -1844,9 +1840,10 @@ msgstr "点击以标记/取消标记"
 
 #: js/messages.php:347
 msgid "Double-click to copy column name"
-msgstr "双击以复制字段名字"
+msgstr "双击以复制字段名"
 
 #: js/messages.php:348
+#, fuzzy
 msgid "Click the drop-down arrow<br />to toggle column's visibility"
 msgstr "点击下箭头以设置显示的字段"
 
@@ -1854,21 +1851,19 @@ msgstr "点击下箭头以设置显示的字段"
 msgid ""
 "This table does not contain a unique column. Features related to the grid "
 "edit, checkbox, Edit, Copy and Delete links may not work after saving."
-msgstr ""
-"该表没有唯一字段。单元格编辑、复选框、编辑、复制和删除链接相关功能可能无法正"
-"常使用。"
+msgstr "该表没有唯一字段。在保存后单元格编辑、多选、编辑、复制和删除等功能可能无法正常使用。"
 
 #: js/messages.php:355
 msgid "You can also edit most values<br />by double-clicking directly on them."
-msgstr "您可以直接通过双击来编辑绝大部分字段。"
+msgstr "您可以直接双击大部分<br />单元格以修改其值。"
 
 #: js/messages.php:358
 msgid "You can also edit most values<br />by clicking directly on them."
-msgstr "您可以直接编辑绝大部分字段<br />仅仅通过点击就可以实现。"
+msgstr "您可以直接点击大部分<br />单元格以修改其值。"
 
 #: js/messages.php:363
 msgid "Go to link"
-msgstr "转到此链接"
+msgstr "打开链接"
 
 #: js/messages.php:364
 msgid "Copy column name"
@@ -1876,9 +1871,10 @@ msgstr "复制字段名"
 
 #: js/messages.php:365
 msgid "Right-click the column name to copy it to your clipboard."
-msgstr "在字段名处右键复制名字到粘贴板。"
+msgstr "在字段名上右键以复制到剪贴板。"
 
 #: js/messages.php:366
+#, fuzzy
 msgid "Show data row(s)"
 msgstr "显示数据行"
 
@@ -1900,33 +1896,32 @@ msgstr "更多"
 
 #: js/messages.php:377
 msgid "Show Panel"
-msgstr "显示面板"
+msgstr "显示导航面板"
 
 #: js/messages.php:378
 msgid "Hide Panel"
-msgstr "隐藏面板"
+msgstr "隐藏导航面板"
 
 #: js/messages.php:379
-#, fuzzy
 #| msgid "Show logo in navigation panel"
 msgid "Show hidden navigation tree items"
-msgstr "在导航面板中显示 logo"
+msgstr "显示隐藏的导航树节点"
 
 #: js/messages.php:382
 msgid "The requested page was not found in the history, it may have expired."
-msgstr "无法在历史记录中找到请求页面,页面可能已经过期。"
+msgstr "没有在历史记录中找到所请求的页面，页面可能已过期。"
 
 #: js/messages.php:385 setup/lib/index.lib.php:155
 #, php-format
 msgid ""
 "A newer version of phpMyAdmin is available and you should consider "
 "upgrading. The newest version is %s, released on %s."
-msgstr "有新的 phpMyAdmin 可用，请考虑升级。最新的版本是 %s，于 %s 发布。"
+msgstr "phpMyAdmin 有新版本了，请您考虑升级。最新的版本是 %s，于 %s 发布。"
 
 #. l10n: Latest available phpMyAdmin version
 #: js/messages.php:387
 msgid ", latest stable version:"
-msgstr "，最新稳定版本:"
+msgstr "，最新稳定版本："
 
 #: js/messages.php:388
 msgid "up to date"
@@ -2172,7 +2167,7 @@ msgstr "周"
 #. l10n: Month-year order for calendar, use either "calendar-month-year" or "calendar-year-month".
 #: js/messages.php:523
 msgid "calendar-month-year"
-msgstr "日历-月-年"
+msgstr "calendar-year-month"
 
 #. l10n: Year suffix for calendar, "none" is empty.
 #: js/messages.php:525
@@ -2195,49 +2190,49 @@ msgstr "秒"
 #: libraries/Advisor.class.php:78
 #, php-format
 msgid "PHP threw following error: %s"
-msgstr "php给出下述错误：%s"
+msgstr "PHP 抛出下列错误：%s"
 
 #: libraries/Advisor.class.php:107
 #, php-format
 msgid "Failed evaluating precondition for rule '%s'."
-msgstr "在预编译时出错，错误信息：“%s”"
+msgstr "检查规则‘%s’的前提条件时出错。"
 
 #: libraries/Advisor.class.php:124
 #, php-format
 msgid "Failed calculating value for rule '%s'."
-msgstr "在数学计算时出错，错误信息：“%s”"
+msgstr "计算规则‘%s’的值时出错。"
 
 #: libraries/Advisor.class.php:143
 #, php-format
 msgid "Failed running test for rule '%s'."
-msgstr "规则‘%s’运行测试失败"
+msgstr "检验规则‘%s’时出错。"
 
 #: libraries/Advisor.class.php:225
 #, php-format
 msgid "Failed formatting string for rule '%s'."
-msgstr "格式化字符串 '%s' 失败。"
+msgstr "格式化规则‘%s’的字符串时出错。"
 
 #: libraries/Advisor.class.php:398
 #, php-format
 msgid ""
 "Invalid rule declaration on line %1$s, expected line %2$s of previous rule."
-msgstr "第%1$s行的规则声明无效，上一条规则应在第%2$s行"
+msgstr "第 %1$s 行的规则声明无效，该行应是上一规则的 %2$s 声明。"
 
 #: libraries/Advisor.class.php:415
 #, php-format
 msgid "Invalid rule declaration on line %s."
-msgstr "第 %s 行有无效的规则定义"
+msgstr "第 %s 行的规则声明无效。"
 
 #: libraries/Advisor.class.php:423
 #, php-format
 msgid "Unexpected characters on line %s."
-msgstr "第 %s 行有不应出现的字符"
+msgstr "第 %s 行有不应出现的字符。"
 
 #: libraries/Advisor.class.php:437
-#, fuzzy, php-format
+#, php-format
 #| msgid "Unexpected character on line %1$s. Expected tab, but found \"%2$s\""
 msgid "Unexpected character on line %1$s. Expected tab, but found \"%2$s\"."
-msgstr "第 %1$s 行有不应出现的字符。 预期是 tab， 而不是 \"%2$s\""
+msgstr "第 %1$s 行有不应出现的字符。应是制表符，而不是“%2$s”。"
 
 #: libraries/Advisor.class.php:470
 msgid "per second"
@@ -2260,11 +2255,11 @@ msgstr "每天"
 #: libraries/Config.class.php:1128
 #, php-format
 msgid "Existing configuration file (%s) is not readable."
-msgstr "已存在的配置文件(%s)是不可读的。"
+msgstr "现有的配置文件（%s）是不可读的。"
 
 #: libraries/Config.class.php:1158
 msgid "Wrong permissions on configuration file, should not be world writable!"
-msgstr "配置文件权限错误，无法写入！"
+msgstr "配置文件权限错误，不应任何用户都能修改！"
 
 #: libraries/Config.class.php:1723
 msgid "Font size"
@@ -2289,10 +2284,9 @@ msgid "Descending"
 msgstr "递减"
 
 #: libraries/DBQbe.class.php:364 libraries/TableSearch.class.php:1282
-#, fuzzy
 #| msgid "Column"
 msgid "Column:"
-msgstr "字段"
+msgstr "字段："
 
 #: libraries/DBQbe.class.php:406
 msgid "Sort:"
@@ -2307,6 +2301,7 @@ msgid "Criteria:"
 msgstr "条件："
 
 #: libraries/DBQbe.class.php:576
+#, fuzzy
 msgid "Add/Delete criteria rows"
 msgstr "添加/删除标准行"
 
@@ -2328,7 +2323,7 @@ msgstr "或："
 
 #: libraries/DBQbe.class.php:657 libraries/DBQbe.class.php:742
 msgid "And:"
-msgstr "和："
+msgstr "且："
 
 #: libraries/DBQbe.class.php:661
 msgid "Ins"
@@ -2344,11 +2339,11 @@ msgstr "修改："
 
 #: libraries/DBQbe.class.php:737
 msgid "Ins:"
-msgstr ""
+msgstr "插入："
 
 #: libraries/DBQbe.class.php:752
 msgid "Del:"
-msgstr ""
+msgstr "删除："
 
 #: libraries/DBQbe.class.php:1321
 #, php-format
@@ -2363,7 +2358,7 @@ msgstr "提交查询"
 msgid ""
 "The server is not responding (or the local server's socket is not correctly "
 "configured)."
-msgstr "服务器无响应(或者本地 MySQL 服务器的套接字没有正确配置)。"
+msgstr "服务器没有响应（或本地服务器的套接字没有正确设置）。"
 
 #: libraries/DatabaseInterface.class.php:2033
 msgid "The server is not responding."
@@ -2371,7 +2366,7 @@ msgstr "服务器没有响应。"
 
 #: libraries/DatabaseInterface.class.php:2038
 msgid "Please check privileges of directory containing database."
-msgstr "请检查数据库目录的权限。"
+msgstr "请检查数据库文件夹的权限。"
 
 #: libraries/DatabaseInterface.class.php:2048
 msgid "Details…"
@@ -2402,13 +2397,13 @@ msgstr "“<i>%s</i>”的搜索结果 %s："
 #, php-format
 msgid "<b>Total:</b> <i>%s</i> match"
 msgid_plural "<b>Total:</b> <i>%s</i> matches"
-msgstr[0] "<b>总计：</b> <i>%s</i> 个匹配"
+msgstr[0] "<b>总计：</b>找到 <i>%s</i> 个"
 
 #: libraries/DbSearch.class.php:331
 #, php-format
 msgid "%1$s match in <strong>%2$s</strong>"
 msgid_plural "%1$s matches in <strong>%2$s</strong>"
-msgstr[0] "在 <strong>%2$s</strong> 中找到 %1$s 个匹配"
+msgstr[0] "在 <strong>%2$s</strong> 中找到 %1$s 个"
 
 #: libraries/DbSearch.class.php:346 libraries/Menu.class.php:299
 #: libraries/Util.class.php:3169 libraries/Util.class.php:3384
@@ -2420,7 +2415,7 @@ msgstr "浏览"
 #: libraries/DbSearch.class.php:353
 #, php-format
 msgid "Delete the matches for the %s table?"
-msgstr "删除 %s 表中所有匹配的记录？"
+msgstr "删除在 %s 表中找到的所有记录吗？"
 
 #: libraries/DbSearch.class.php:357 libraries/DisplayResults.class.php:3375
 #: libraries/DisplayResults.class.php:4966
@@ -2440,27 +2435,27 @@ msgstr "在数据库中搜索"
 
 #: libraries/DbSearch.class.php:386
 msgid "Words or values to search for (wildcard: \"%\"):"
-msgstr "要查找的内容 (通配符: \"%\"):"
+msgstr "要搜索的内容（通配符：“%”）："
 
 #: libraries/DbSearch.class.php:395 libraries/TableSearch.class.php:1277
 msgid "Find:"
-msgstr "查找:"
+msgstr "查找："
 
 #: libraries/DbSearch.class.php:400 libraries/DbSearch.class.php:404
 msgid "Words are separated by a space character (\" \")."
-msgstr "每个单词用空格 (\" \") 分隔。"
+msgstr "每个单词用空格（“ ”）分开。"
 
 #: libraries/DbSearch.class.php:419
 msgid "Inside tables:"
-msgstr "于下列表:"
+msgstr "于下列表："
 
 #: libraries/DbSearch.class.php:445
 msgid "Inside column:"
-msgstr "包含字段:"
+msgstr "包含字段："
 
 #: libraries/DisplayResults.class.php:694
 msgid "Save edited data"
-msgstr "保存已编辑的数据"
+msgstr "保存已修改的数据"
 
 #: libraries/DisplayResults.class.php:700
 msgid "Restore column order"
@@ -2495,7 +2490,7 @@ msgstr "尾页"
 #: libraries/DisplayResults.class.php:900 libraries/display_export.lib.php:322
 #: tbl_chart.php:245
 msgid "Number of rows:"
-msgstr "记录数："
+msgstr "行数："
 
 #: libraries/DisplayResults.class.php:917
 msgid "Mode:"
@@ -2507,15 +2502,15 @@ msgstr "水平"
 
 #: libraries/DisplayResults.class.php:920
 msgid "horizontal (rotated headers)"
-msgstr "水平 (旋转表头)"
+msgstr "水平（旋转表头）"
 
 #: libraries/DisplayResults.class.php:921
 msgid "vertical"
-msgstr "垂直"
+msgstr "竖直"
 
 #: libraries/DisplayResults.class.php:1225
 msgid "Sort by key"
-msgstr "主键排序"
+msgstr "按索引排序"
 
 #: libraries/DisplayResults.class.php:1566 libraries/TableSearch.class.php:764
 #: libraries/import.lib.php:1201 libraries/import.lib.php:1227
@@ -2581,11 +2576,11 @@ msgstr "隐藏浏览器转换"
 
 #: libraries/DisplayResults.class.php:1630
 msgid "Well Known Text"
-msgstr "文本表达式 (WKT)"
+msgstr "WKT 文本表达"
 
 #: libraries/DisplayResults.class.php:1631
 msgid "Well Known Binary"
-msgstr "二进制表达式 (WKB)"
+msgstr "WKB 二进制表达"
 
 #: libraries/DisplayResults.class.php:3348
 #: libraries/DisplayResults.class.php:3364
@@ -2599,7 +2594,7 @@ msgstr "杀死"
 
 #: libraries/DisplayResults.class.php:4424 libraries/structure.lib.php:771
 msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]"
-msgstr "可能接近。参见 [doc@faq3-11]FAQ 3.11[/doc]"
+msgstr "近似值。参见[doc@faq3-11]常见问题 3.11[/doc]"
 
 #: libraries/DisplayResults.class.php:4478 libraries/Message.class.php:180
 #: libraries/rte/rte_routines.lib.php:1427
@@ -2610,27 +2605,28 @@ msgid "Your SQL query has been executed successfully"
 msgstr "您的 SQL 语句已成功运行"
 
 #: libraries/DisplayResults.class.php:4815
+#, fuzzy
 msgid "in query"
 msgstr "查询中"
 
 #: libraries/DisplayResults.class.php:4852 libraries/structure.lib.php:653
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to %sdocumentation"
 "%s."
 msgstr "该视图最少包含的行数，参见%s文档%s。"
 
 #: libraries/DisplayResults.class.php:4865
-#, fuzzy, php-format
+#, php-format
 #| msgid "Showing rows"
 msgid "Showing rows %1s - %2s"
-msgstr "显示行"
+msgstr "正在显示第 %1s - %2s 行"
 
 #: libraries/DisplayResults.class.php:4877
-#, fuzzy, php-format
+#, php-format
 #| msgid "total"
 msgid "%d total"
-msgstr "总计"
+msgstr "共 %d 行"
 
 #: libraries/DisplayResults.class.php:4889 libraries/sql.lib.php:1641
 #, php-format
@@ -2678,7 +2674,7 @@ msgstr "导出"
 
 #: libraries/DisplayResults.class.php:5154
 msgid "Query results operations"
-msgstr "查询结果选项"
+msgstr "查询结果操作"
 
 #: libraries/DisplayResults.class.php:5190 libraries/Header.class.php:341
 #: libraries/structure.lib.php:299 libraries/structure.lib.php:362
@@ -2688,7 +2684,7 @@ msgstr "打印预览"
 
 #: libraries/DisplayResults.class.php:5208
 msgid "Print view (with full texts)"
-msgstr "打印预览 (全文显示)"
+msgstr "打印预览（全文显示）"
 
 #: libraries/DisplayResults.class.php:5279 tbl_chart.php:151
 msgid "Display chart"
@@ -2718,11 +2714,11 @@ msgstr "上传文件的大小超过 php.ini 文件中 upload_max_filesize 的限
 msgid ""
 "The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in "
 "the HTML form."
-msgstr "上传文件的大小超过 HTML 表单中指定的 MAX_FILE_SIZE 值。"
+msgstr "上传文件的大小超过 HTML 表单中 MAX_FILE_SIZE 的限制。"
 
 #: libraries/File.class.php:285
 msgid "The uploaded file was only partially uploaded."
-msgstr "仅上传了文件的一部分内容。"
+msgstr "文件没有完全上传。"
 
 #: libraries/File.class.php:288
 msgid "Missing a temporary folder."
@@ -2730,11 +2726,11 @@ msgstr "找不到临时文件夹。"
 
 #: libraries/File.class.php:291
 msgid "Failed to write file to disk."
-msgstr "将文件写入磁盘失败。"
+msgstr "向磁盘写入文件失败。"
 
 #: libraries/File.class.php:294
 msgid "File upload stopped by extension."
-msgstr "因扩展而停止文件上传。"
+msgstr "扩展停止了文件上传。"
 
 #: libraries/File.class.php:297
 msgid "Unknown error in file upload."
@@ -2742,40 +2738,39 @@ msgstr "上传文件时发生未知错误。"
 
 #: libraries/File.class.php:476
 msgid "Error moving the uploaded file, see [doc@faq1-11]FAQ 1.11[/doc]"
-msgstr "移动上传文件时发生错误，参见 [doc@faq1-11]FAQ 1.11[/doc]"
+msgstr "移动已上传的文件时发生错误，参见[doc@faq1-11]常见问题 1.11[/doc]"
 
 #: libraries/File.class.php:494
 msgid "Error while moving uploaded file."
-msgstr "移动上传的文件时发生错误。"
+msgstr "移动已上传的文件时发生错误。"
 
 #: libraries/File.class.php:502
 msgid "Cannot read (moved) upload file."
-msgstr "无法读取移动后的上传文件。"
+msgstr "无法读取（移动后的）上传文件。"
 
 #: libraries/Footer.class.php:76
 #, php-format
 msgid "Currently running Git revision %1$s from the %2$s branch."
-msgstr ""
+msgstr "当前为 Git %2$s 分支 %1$s 版。"
 
 #: libraries/Footer.class.php:83
-#, fuzzy
 #| msgid "Version information"
 msgid "Git information missing!"
-msgstr "版本信息"
+msgstr "缺少 Git 信息！"
 
 #: libraries/Footer.class.php:163 libraries/Footer.class.php:167
 #: libraries/Footer.class.php:170
 msgid "Open new phpMyAdmin window"
-msgstr "打开新 phpMyAdmin 窗口"
+msgstr "打开新的 phpMyAdmin 窗口"
 
 #: libraries/Header.class.php:399
 msgid "Click on the bar to scroll to top of page"
-msgstr "点击控制条回滚到页面顶部"
+msgstr "点击以滚动到页面顶部"
 
 #: libraries/Header.class.php:651
 #: libraries/plugins/auth/AuthenticationCookie.class.php:178
 msgid "Javascript must be enabled past this point"
-msgstr "必须启用 javascript 才能登录"
+msgstr "该处必须启用 Javascript"
 
 #: libraries/Index.class.php:532
 msgid "No index defined!"
@@ -2811,7 +2806,7 @@ msgstr "基数"
 #: libraries/tbl_columns_definition_form.lib.php:295 tbl_tracking.php:327
 #: tbl_tracking.php:389
 msgid "Collation"
-msgstr "整理"
+msgstr "排序规则"
 
 #: libraries/Index.class.php:569 libraries/rte/rte_events.lib.php:529
 #: libraries/rte/rte_routines.lib.php:1068 tbl_tracking.php:331
@@ -2833,7 +2828,7 @@ msgstr "已删除索引 %s"
 msgid ""
 "The indexes %1$s and %2$s seem to be equal and one of them could possibly be "
 "removed."
-msgstr "索引 %1$s 和 %2$s 可能是相同的，其中一个将可能被删除。"
+msgstr "索引 %1$s 和 %2$s 似乎是相同的，可以删除其中一个。"
 
 #: libraries/Menu.class.php:200 libraries/ServerStatusData.class.php:364
 #: libraries/config/messages.inc.php:519
@@ -3007,7 +3002,7 @@ msgstr[0] "插入了 %1$d 行。"
 
 #: libraries/PDF.class.php:127
 msgid "Error while creating PDF:"
-msgstr "创建 PDF 时发生错误:"
+msgstr "创建 PDF 时发生错误："
 
 #: libraries/RecentTable.class.php:124
 msgid "Could not save recent table"
@@ -3048,7 +3043,7 @@ msgstr "延迟插入"
 
 #: libraries/ServerStatusData.class.php:195
 msgid "Key cache"
-msgstr "键缓存"
+msgstr "索引缓存"
 
 #: libraries/ServerStatusData.class.php:196
 msgid "Joins"
@@ -3064,7 +3059,7 @@ msgstr "排序"
 #: libraries/navigation/Nodes/Node_Table_Container.class.php:26
 #: libraries/plugins/export/ExportXml.class.php:116
 msgid "Tables"
-msgstr "数据表"
+msgstr "表"
 
 #: libraries/ServerStatusData.class.php:200
 msgid "Transaction coordinator"
@@ -3077,7 +3072,7 @@ msgstr "文件"
 
 #: libraries/ServerStatusData.class.php:212
 msgid "Flush (close) all tables"
-msgstr "强制更新 (关闭) 所有表"
+msgstr "刷新（关闭）所有表"
 
 #: libraries/ServerStatusData.class.php:218
 msgid "Show open tables"
@@ -3090,7 +3085,7 @@ msgstr "显示从服务器"
 #: libraries/ServerStatusData.class.php:234
 #: libraries/replication_gui.lib.php:49
 msgid "Show master status"
-msgstr "查看主服务器状态"
+msgstr "显示主服务器状态"
 
 #: libraries/ServerStatusData.class.php:237
 msgid "Show slave status"
@@ -3098,7 +3093,7 @@ msgstr "显示从服务器状态"
 
 #: libraries/ServerStatusData.class.php:242
 msgid "Flush query cache"
-msgstr "强制更新查询缓存"
+msgstr "刷新查询缓存"
 
 #: libraries/ServerStatusData.class.php:261
 #: libraries/engines/innodb.lib.php:144
@@ -3124,41 +3119,41 @@ msgstr "建议"
 #: libraries/StorageEngine.class.php:216
 msgid ""
 "There is no detailed status information available for this storage engine."
-msgstr "没有该存储引擎的详细信息。"
+msgstr "没有该存储引擎的详细状态信息。"
 
 #: libraries/StorageEngine.class.php:352 libraries/structure.lib.php:200
 #, php-format
 msgid "%s is the default storage engine on this MySQL server."
-msgstr "%s 是此 MySQL 服务器的默认存储引擎。"
+msgstr "%s 是该 MySQL 服务器的默认存储引擎。"
 
 #: libraries/StorageEngine.class.php:355
 #, php-format
 msgid "%s is available on this MySQL server."
-msgstr "%s 在此 MySQL 服务器上可用。"
+msgstr "%s 在该 MySQL 服务器上可用。"
 
 #: libraries/StorageEngine.class.php:358
 #, php-format
 msgid "%s has been disabled for this MySQL server."
-msgstr "%s 在此 MySQL 服务器上被禁止了。"
+msgstr "%s 在该 MySQL 服务器上被禁止了。"
 
 #: libraries/StorageEngine.class.php:362
 #, php-format
 msgid "This MySQL server does not support the %s storage engine."
-msgstr "此 MySQL 服务器不支持 %s 存储引擎。"
+msgstr "该 MySQL 服务器不支持 %s 存储引擎。"
 
 #: libraries/Table.class.php:395
 msgid "unknown table status: "
-msgstr "未知表状态: "
+msgstr "未知表状态： "
 
 #: libraries/Table.class.php:798
 #, php-format
 msgid "Source database `%s` was not found!"
-msgstr "源数据库 `%s` 未找到!"
+msgstr "未找到源数据库 `%s`！"
 
 #: libraries/Table.class.php:806
 #, php-format
 msgid "Target database `%s` was not found!"
-msgstr "未找到目标数据库 %s ！"
+msgstr "未找到目标数据库 `%s`！"
 
 #: libraries/Table.class.php:1239
 msgid "Invalid database:"
@@ -3176,7 +3171,7 @@ msgstr "将表 %1$s 改名为 %2$s 时发生错误"
 #: libraries/Table.class.php:1307
 #, php-format
 msgid "Table %1$s has been renamed to %2$s."
-msgstr "已将数据表 %1$s 改名为 %2$s。"
+msgstr "已将表 %1$s 改名为 %2$s。"
 
 #: libraries/Table.class.php:1453
 msgid "Could not save table UI preferences"
@@ -3187,8 +3182,7 @@ msgstr "无法保存表界面设置"
 msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
 "['MaxTableUiprefs'] %s)"
-msgstr ""
-"清除表用户界面设置失败（查看$cfg['Servers'][$i]['MaxTableUiprefs'] %s）"
+msgstr "清除表界面设置失败（参见 $cfg['Servers'][$i]['MaxTableUiprefs'] %s）"
 
 #: libraries/Table.class.php:1622
 #, php-format
@@ -12431,7 +12425,7 @@ msgstr "查看数据表的转储(大纲)"
 
 #: tbl_get_field.php:30
 msgid "Invalid table name"
-msgstr "无效的数据表名"
+msgstr "表名无效"
 
 #: tbl_indexes.php:71
 msgid "The name of the primary key must be \"PRIMARY\"!"

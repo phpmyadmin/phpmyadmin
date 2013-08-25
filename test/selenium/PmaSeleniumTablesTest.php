@@ -18,14 +18,14 @@ class PmaSeleniumTablesTest extends PHPUnit_Extensions_Selenium2TestCase
 {
     /**
      * Name of database for the test
-     * 
+     *
      * @var string
      */
     private $_dbname;
 
     /**
      * Helper Object
-     * 
+     *
      * @var obj
      */
     private $_helper;
@@ -103,7 +103,7 @@ class PmaSeleniumTablesTest extends PHPUnit_Extensions_Selenium2TestCase
 
     /**
      * Make assertions for table structure
-     * 
+     *
      * @return void
      */
     private function _tableStructureAssertions()
@@ -185,7 +185,7 @@ class PmaSeleniumTablesTest extends PHPUnit_Extensions_Selenium2TestCase
 
     /**
      * Tear down functions for test cases
-     * 
+     *
      * @return void
      */
     public function tearDown()
