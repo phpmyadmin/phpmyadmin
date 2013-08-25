@@ -120,18 +120,13 @@ class PmaSeleniumDbStoredProceduresTest extends PHPUnit_Extensions_Selenium2Test
             $this->byName("item_sqldataaccess")
             )->selectOptionByLabel("READS SQL DATA");
 
-        $this->byCssSelector("div.ui-dialog-buttonset button:nth-child(1)")->click();
+        $this->byXPath("//button[contains(., 'Go')]")->click();
 
         $ele = $this->_helper->waitForElement(
-            "byCssSelector", "div#result_query div.success"
+            "byXPath",
+            "//div[@class='success' and contains(., 'Routine `test_procedure` has been created')]"
         );
 
-        $this->assertContains(
-            "Routine `test_procedure` has been created",
-            $ele->text()
-        );
-
-        
         $result = $this->_helper->dbQuery(
             "SHOW PROCEDURE STATUS WHERE Db='" . $this->_dbname . "'"
         );
@@ -163,15 +158,11 @@ class PmaSeleniumDbStoredProceduresTest extends PHPUnit_Extensions_Selenium2Test
         $this->byName("item_param_length[0]")->clear();
         $this->byName("item_param_length[0]")->value("12");
 
-        $this->byCssSelector("div.ui-dialog-buttonset button:nth-child(1)")->click();
+        $this->byXPath("//button[contains(., 'Go')]")->click();
 
         $ele = $this->_helper->waitForElement(
-            "byCssSelector", "div#result_query div.success"
-        );
-
-        $this->assertContains(
-            "Routine `test_procedure` has been modified",
-            $ele->text()
+            "byXPath",
+            "//div[@class='success' and contains(., 'Routine `test_procedure` has been modified')]"
         );
 
         $this->_executeProcedure("abcabcabcabcabcabcabc", 12);
@@ -196,9 +187,17 @@ class PmaSeleniumDbStoredProceduresTest extends PHPUnit_Extensions_Selenium2Test
         );
 
         $this->byLinkText("Drop")->click();
-        $this->byCssSelector("div.ui-dialog-buttonset button:nth-child(1)")->click();
+        $this->_helper->waitForElement(
+            "byXPath", "//button[contains(., 'OK')]"
+            )->click();
 
         $this->_helper->waitForElement("byId", "nothing2display");
+
+        usleep(1000000);
+        $result = $this->_helper->dbQuery(
+            "SHOW PROCEDURE STATUS WHERE Db='" . $this->_dbname . "'"
+        );
+        $this->assertEquals(0, $result->num_rows);
     }
 
     /**
