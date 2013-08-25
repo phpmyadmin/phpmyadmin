@@ -173,7 +173,7 @@ class Helper
                 'MySQL not connected'
             );
         }
-        $this->_mysqli->query($query);
+        return $this->_mysqli->query($query);
     }
 
     /**
@@ -257,6 +257,19 @@ class Helper
         );
 
         return $element->text();
+    }
+
+    public function typeInTextArea($text)
+    {
+        $text = str_replace(
+            "(",
+            PHPUnit_Extensions_Selenium2TestCase_Keys::SHIFT
+            . PHPUnit_Extensions_Selenium2TestCase_Keys::NUMPAD9
+            . PHPUnit_Extensions_Selenium2TestCase_Keys::NULL,
+            $text
+        );
+        $this->_selenium->byClassName("CodeMirror-scroll")->click();
+        $this->_selenium->keys($text);
     }
 }
 ?>
