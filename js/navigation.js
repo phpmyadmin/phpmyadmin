@@ -259,7 +259,10 @@ function PMA_autoExpandDatabaseInUse($oldDb, $newDb) {
 function PMA_reloadNavigation(callback) {
     var $throbber = $('#pma_navigation .throbber')
         .first()
-        .css('visibility', 'visible');
+        .css({
+            'visibility' : 'visible',
+            'display' : 'block'
+        });
     var params = {
         reload: true,
         pos: $('#pma_navigation_tree').find('a.expander:first > span.pos').text()
@@ -302,7 +305,10 @@ function PMA_reloadNavigation(callback) {
     });
     var url = $('#pma_navigation').find('a.navigation_url').attr('href');
     $.post(url, params, function (data) {
-        $throbber.css('visibility', 'hidden');
+        $throbber.css('visibility', 'hidden').css({
+            'visibility' : 'hidden',
+            'display' : 'none'
+        });
         if (data.success) {
             $('#pma_navigation_tree').html(data.message).children('div').show();
             // Fire the callback, if any

@@ -84,7 +84,7 @@ if (! defined('PMA_MINIMUM_COMMON') && ! defined('TESTSUITE')) {
 }
 
 #pma_navigation_content > img.throbber {
-    display: block;
+    display: none;
     margin: .3em auto 0;
 }
 
