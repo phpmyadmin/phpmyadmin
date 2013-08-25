@@ -3528,7 +3528,7 @@ class PMA_DisplayResults
     /**
      * Prepare data cell for numeric type fields
      *
-     * @param string  $column                the relavent column in data row
+     * @param string  $column                the relevant column in data row
      * @param string  $class                 the html class for column
      * @param boolean $condition_field       the column should highlighted
      *                                       or not
@@ -3587,7 +3587,7 @@ class PMA_DisplayResults
     /**
      * Get data cell for blob type fields
      *
-     * @param string  $column                the relavent column in data row
+     * @param string  $column                the relevant column in data row
      * @param string  $class                 the html class for column
      * @param object  $meta                  the meta-information about this
      *                                       field
@@ -3685,7 +3685,7 @@ class PMA_DisplayResults
     /**
      * Get data cell for geometry type fields
      *
-     * @param string  $column                the relavent column in data row
+     * @param string  $column                the relevant column in data row
      * @param string  $class                 the html class for column
      * @param object  $meta                  the meta-information about this field
      * @param array   $map                   the list of relations
@@ -3804,7 +3804,7 @@ class PMA_DisplayResults
     /**
      * Get data cell for non numeric and non blob type fields
      *
-     * @param string  $column                the relavent column in data row
+     * @param string  $column                the relevant column in data row
      * @param string  $class                 the html class for column
      * @param object  $meta                  the meta-information about the field
      * @param array   $map                   the list of relations
