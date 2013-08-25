@@ -1318,10 +1318,7 @@ class PMA_Util
             /**
              * TODO: Should we have $cfg['SQLQuery']['InlineEdit']?
              */
-            if (! empty($cfg['SQLQuery']['Edit'])
-                && $is_select
-                && ! $query_too_big
-            ) {
+            if (! empty($cfg['SQLQuery']['Edit']) && ! $query_too_big) {
                 $inline_edit_link = ' ['
                     . self::linkOrButton(
                         '#',
