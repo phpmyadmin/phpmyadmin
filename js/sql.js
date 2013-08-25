@@ -296,6 +296,7 @@ AJAX.registerOnload('sql.js', function() {
                 } else if (typeof data.reload != 'undefined') {
                     // this happens if a USE or DROP command was typed
                     PMA_commonActions.setDb(data.db);
+                    PMA_reloadNavigation();
                     PMA_commonActions.refreshMain(false, function () {
                         if ($('#result_query').length) {
                             $('#result_query').remove();
@@ -306,7 +307,6 @@ AJAX.registerOnload('sql.js', function() {
                                 .prependTo('#page_content');
                         }
                     });
-                    PMA_reloadNavigation();
                 }
                 
                 $sqlqueryresults.show().trigger('makegrid');
