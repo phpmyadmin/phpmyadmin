@@ -82,27 +82,32 @@ class PmaSeleniumDbStructureTest extends PHPUnit_Extensions_Selenium2TestCase
      *
      * @return void
      */
-    // public function testTruncateTable()
-    // {
-    //     $this->byXPath("(//a[contains(., 'Empty')])[1]")->click();
+    public function testTruncateTable()
+    {
+        $this->byXPath("(//a[contains(., 'Empty')])[1]")->click();
 
-    //     $this->_helper->waitForElement(
-    //         "byXPath",
-    //         "//button[contains(., 'OK')]"
-    //         )->click();
+        $this->_helper->waitForElement(
+            "byXPath",
+            "//button[contains(., 'OK')]"
+            )->click();
 
-    //     $this->assertNotNull(
-    //         $this->_helper->waitForElement(
-    //             "byXPath",
-    //             "//div[@class='success' and contains(., 'MySQL returned an empty result')]"
-    //         )
-    //     );
+        $this->assertNotNull(
+            $this->_helper->waitForElement(
+                "byXPath",
+                "//div[@class='success' and contains(., 'MySQL returned an empty result')]"
+            )
+        );
 
-    //     $result = $this->_helper->dbQuery("SELECT count(*) as c FROM test_table");
-    //     $row = $result->fetch_assoc();
-    //     $this->assertEquals(0, $row['c']);
-    // }
+        $result = $this->_helper->dbQuery("SELECT count(*) as c FROM test_table");
+        $row = $result->fetch_assoc();
+        $this->assertEquals(0, $row['c']);
+    }
 
+    /**
+     * Tests for dropping multiple tables
+     *
+     * @return void
+     */
     public function testDropMultipleTables()
     {
         $this->byCssSelector("label[for='tablesForm_checkall']")->click();
