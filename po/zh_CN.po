@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-08-18 06:16-0400\n"
-"PO-Revision-Date: 2013-08-26 05:48+0200\n"
+"PO-Revision-Date: 2013-08-26 17:34+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: Simplified Chinese "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/zh_CN/>\n"
@@ -3879,30 +3879,28 @@ msgstr "企图覆盖 GLOBALS"
 
 #: libraries/common.inc.php:1125
 msgid "possible exploit"
-msgstr "可利用"
+msgstr "检测到有利用漏洞的企图"
 
 #: libraries/common.inc.php:1134
 msgid "numeric key detected"
-msgstr "监测到数值型键"
+msgstr "检测到数字索引"
 
 #: libraries/config.values.php:49 libraries/config.values.php:65
 #: libraries/config.values.php:70
-#, fuzzy
 #| msgid "Ins"
 msgid "Icons"
-msgstr "插入"
+msgstr "图标"
 
 #: libraries/config.values.php:50 libraries/config.values.php:66
 #: libraries/config.values.php:71
-#, fuzzy
 #| msgid "Test"
 msgid "Text"
-msgstr "测试"
+msgstr "文字"
 
 #: libraries/config.values.php:51 libraries/config.values.php:59
 #: libraries/config.values.php:67 libraries/config.values.php:72
 msgid "Both"
-msgstr "全部"
+msgstr "都有"
 
 #: libraries/config.values.php:56
 msgid "Nowhere"
@@ -3918,7 +3916,7 @@ msgstr "右侧"
 
 #: libraries/config.values.php:75
 msgid "Click"
-msgstr "点击"
+msgstr "单击"
 
 #: libraries/config.values.php:76
 msgid "Double click"
@@ -3978,7 +3976,7 @@ msgstr "自定义 - 显示所有可用的设置项"
 
 #: libraries/config.values.php:144
 msgid "Custom - like above, but without the quick/custom choice"
-msgstr "自定义 - 不显示 快速/自定义 选择"
+msgstr "自定义 - 同上，但不允许选择快速/自定义"
 
 #: libraries/config.values.php:172
 msgid "complete inserts"
@@ -3999,34 +3997,34 @@ msgstr "以上均不"
 #: libraries/config/FormDisplay.class.php:88
 #: libraries/config/Validator.class.php:537
 msgid "Not a positive number"
-msgstr "输入值不是正数"
+msgstr "请输入正数"
 
 #: libraries/config/FormDisplay.class.php:89
 #: libraries/config/Validator.class.php:559
 msgid "Not a non-negative number"
-msgstr "输入值不是非负数"
+msgstr "请输入非负数"
 
 #: libraries/config/FormDisplay.class.php:90
 #: libraries/config/Validator.class.php:515
 msgid "Not a valid port number"
-msgstr "非法的端口号"
+msgstr "请输入有效的端口号"
 
 #: libraries/config/FormDisplay.class.php:91
 #: libraries/config/FormDisplay.class.php:579
 #: libraries/config/Validator.class.php:577
 msgid "Incorrect value"
-msgstr "输入的值不正确"
+msgstr "值错误"
 
 #: libraries/config/FormDisplay.class.php:92
 #: libraries/config/Validator.class.php:593
 #, php-format
 msgid "Value must be equal or lower than %s"
-msgstr "输入的值应小于等于 %s"
+msgstr "值应小于等于 %s"
 
 #: libraries/config/FormDisplay.class.php:541
 #, php-format
 msgid "Missing data for %s"
-msgstr "在 %s 中丢失数据"
+msgstr "缺少 %s 的数据"
 
 #: libraries/config/FormDisplay.class.php:757
 #: libraries/config/FormDisplay.class.php:763
@@ -4039,19 +4037,19 @@ msgstr "不可用"
 #: libraries/config/FormDisplay.class.php:772
 #, php-format
 msgid "\"%s\" requires %s extension"
-msgstr "“%s”功能需要 %s 扩展"
+msgstr "“%s”需要 %s 扩展"
 
 #: libraries/config/FormDisplay.class.php:791
-#, fuzzy, php-format
+#, php-format
 #| msgid "import will not work, missing function (%s)"
 msgid "Compressed import will not work due to missing function %s."
-msgstr "缺少函数 (%s)，导入功能无效"
+msgstr "因缺少函数 %s 压缩导入功能无效。"
 
 #: libraries/config/FormDisplay.class.php:797
-#, fuzzy, php-format
+#, php-format
 #| msgid "export will not work, missing function (%s)"
 msgid "Compressed export will not work due to missing function %s."
-msgstr "缺少函数 (%s)，导出功能无效"
+msgstr "因缺少函数 %s 压缩导出功能无效。"
 
 #: libraries/config/FormDisplay.class.php:807
 msgid "SQL Validator is disabled"
@@ -4068,17 +4066,17 @@ msgstr "最大 %s"
 
 #: libraries/config/FormDisplay.tpl.php:225
 msgid "This setting is disabled, it will not be applied to your configuration."
-msgstr "此设置已禁用，不会应用到你的设置中"
+msgstr "该设置已禁用，不会被应用到您的设置中。"
 
 #: libraries/config/FormDisplay.tpl.php:313
 #, php-format
 msgid "Set value: %s"
-msgstr "设置值: %s"
+msgstr "设置值：%s"
 
 #: libraries/config/FormDisplay.tpl.php:318
 #: libraries/config/messages.inc.php:364
 msgid "Restore default value"
-msgstr "还原默认值"
+msgstr "还原为默认值"
 
 #: libraries/config/FormDisplay.tpl.php:332
 msgid "Allow users to customize this value"
@@ -4086,7 +4084,7 @@ msgstr "允许用户自定义该值"
 
 #: libraries/config/FormDisplay.tpl.php:396
 msgid "Apply"
-msgstr ""
+msgstr "应用"
 
 #: libraries/config/FormDisplay.tpl.php:398 libraries/insert_edit.lib.php:1556
 #: libraries/schema/User_Schema.class.php:556 prefs_manage.php:326
@@ -4110,39 +4108,40 @@ msgstr "无法连接到 MySQL 服务器"
 
 #: libraries/config/Validator.class.php:292
 msgid "Empty username while using config authentication method"
-msgstr "使用 config 认证方式时 config 认证方式的用户名不能为空"
+msgstr "使用 config 认证方式时用户名不能为空"
 
 #: libraries/config/Validator.class.php:299
 msgid "Empty signon session name while using signon authentication method"
-msgstr "使用 singon 认证方式时 Signon 会话名不能为空"
+msgstr "使用 singon 认证方式时 signon 会话名不能为空"
 
 #: libraries/config/Validator.class.php:308
 msgid "Empty signon URL while using signon authentication method"
-msgstr "使用 singon 认证方式时登录地址不能为空"
+msgstr "使用 singon 认证方式时 singon 地址不能为空"
 
 #: libraries/config/Validator.class.php:356
+#, fuzzy
 msgid "Empty phpMyAdmin control user while using pmadb"
 msgstr "使用 PMA 数据库时控制用户不能为空"
 
 #: libraries/config/Validator.class.php:361
+#, fuzzy
 msgid "Empty phpMyAdmin control user password while using pmadb"
 msgstr "使用 PMA 数据时控制用户的密码不能为空"
 
 #: libraries/config/Validator.class.php:445
-#, fuzzy
 #| msgid "Incorrect value"
 msgid "Incorrect value:"
-msgstr "输入的值不正确"
+msgstr "值错误："
 
 #: libraries/config/Validator.class.php:454
 #, php-format
 msgid "Incorrect IP address: %s"
-msgstr "%s 是一个错误的 IP 地址"
+msgstr "IP 地址错误：%s"
 
 #: libraries/config/messages.inc.php:17
 msgid ""
 "If enabled user can enter any MySQL server in login form for cookie auth"
-msgstr "如果启用，用户可以在 cookie 认证方式中输入任意 MySQL 服务器"
+msgstr "如果启用，用户可以在 cookie 认证时的登录表单中输入任意 MySQL 服务器"
 
 #: libraries/config/messages.inc.php:18
 msgid "Allow login to any MySQL server"
