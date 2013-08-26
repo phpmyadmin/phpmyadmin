@@ -584,7 +584,7 @@ function PMA_getNullifyCodeForNullColumn($column, $foreigners, $foreignData)
  * @param array   $foreignData           data about the foreign keys
  * @param boolean $odd_row               whether row is odd
  * @param array   $paramTableDbArray     array containing $table and $db
- * @param array   $rownumber_param       &amp;rownumber=row_id
+ * @param array   $rownumber             the row number 
  * @param array   $titles                An HTML IMG tag for a particular icon from
  *                                       a theme, which may be an actual file or
  *                                       an icon from a sprite
@@ -607,7 +607,7 @@ function PMA_getNullifyCodeForNullColumn($column, $foreigners, $foreignData)
  */
 function PMA_getValueColumn($column, $backup_field, $column_name_appendix,
     $unnullify_trigger, $tabindex, $tabindex_for_value, $idindex, $data,
-    $special_chars, $foreignData, $odd_row, $paramTableDbArray, $rownumber_param,
+    $special_chars, $foreignData, $odd_row, $paramTableDbArray, $rownumber,
     $titles, $text_dir, $special_chars_encoded, $vkey,
     $is_upload, $biggest_max_file_size,
     $default_char_editing, $no_support_types, $gis_data_types, $extracted_columnspec
@@ -618,7 +618,7 @@ function PMA_getValueColumn($column, $backup_field, $column_name_appendix,
         $html_output .= PMA_getForeignLink(
             $column, $backup_field, $column_name_appendix,
             $unnullify_trigger, $tabindex, $tabindex_for_value, $idindex, $data,
-            $paramTableDbArray, $rownumber_param, $titles
+            $paramTableDbArray, $rownumber, $titles
         );
 
     } elseif (is_array($foreignData['disp_row'])) {
@@ -705,7 +705,7 @@ function PMA_getValueColumn($column, $backup_field, $column_name_appendix,
  * @param integer $idindex              id index
  * @param array   $data                 data to edit
  * @param array   $paramTableDbArray    array containing $table and $db
- * @param array   $rownumber_param      &amp;rownumber=row_id
+ * @param array   $rownumber            the row number 
  * @param array   $titles               An HTML IMG tag for a particular icon from
  *                                      a theme, which may be an actual file or
  *                                      an icon from a sprite
@@ -714,7 +714,7 @@ function PMA_getValueColumn($column, $backup_field, $column_name_appendix,
  */
 function PMA_getForeignLink($column, $backup_field, $column_name_appendix,
     $unnullify_trigger, $tabindex, $tabindex_for_value, $idindex, $data,
-    $paramTableDbArray, $rownumber_param, $titles
+    $paramTableDbArray, $rownumber, $titles
 ) {
     list($table, $db) = $paramTableDbArray;
     $html_output = '';
@@ -738,7 +738,8 @@ function PMA_getForeignLink($column, $backup_field, $column_name_appendix,
             array(
                 'db' => $db,
                 'table' => $table,
-                'field' => $column['Field'] . $rownumber_param
+                'field' => $column['Field'],
+                'rownumber' => $rownumber
             )
         ) . '">'
         . str_replace("'", "\'", $titles['Browse']) . '</a>';

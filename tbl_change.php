@@ -165,7 +165,6 @@ foreach ($rows as $row_id => $current_row) {
     }
 
     $jsvkey = $row_id;
-    $rownumber_param = '&amp;rownumber=' . $row_id;
     $vkey = '[multi_edit][' . $jsvkey . ']';
 
     $current_result = (isset($result) && is_array($result) && isset($result[$row_id])
@@ -303,7 +302,7 @@ foreach ($rows as $row_id => $current_row) {
         $html_output .= PMA_getValueColumn(
             $column, $backup_field, $column_name_appendix, $unnullify_trigger,
             $tabindex, $tabindex_for_value, $idindex, $data, $special_chars,
-            $foreignData, $odd_row, array($table, $db), $rownumber_param, $titles,
+            $foreignData, $odd_row, array($table, $db), $row_id, $titles,
             $text_dir, $special_chars_encoded, $vkey, $is_upload,
             $biggest_max_file_size, $default_char_editing,
             $no_support_types, $gis_data_types, $extracted_columnspec
