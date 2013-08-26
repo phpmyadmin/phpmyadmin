@@ -31,7 +31,7 @@ $(function() {
         event.stopImmediatePropagation();
         PMA_expandNavigationTree($(this));
     });
-        
+
     /**
      * Register event handler for click on the reload
      * navigation icon at the top of the panel
@@ -262,7 +262,7 @@ function PMA_autoExpandDatabaseInUse($oldDb, $newDb) {
     //scroll to new database
     if ($oldDb !== $newDb) {
         setTimeout(function() {
-            scrollToView($expandElem.closest('li'), $('#pma_navigation_tree_content'));    
+            scrollToView($expandElem.closest('li'), $('#pma_navigation_tree_content'));
         }, 150);
     }
 }
@@ -270,7 +270,7 @@ function PMA_autoExpandDatabaseInUse($oldDb, $newDb) {
 /**
  * Reloads the whole navigation tree while preserving its state
  *
- * @param  function     the callback function 
+ * @param  function     the callback function
  * @return void
  */
 function PMA_reloadNavigation(callback) {
