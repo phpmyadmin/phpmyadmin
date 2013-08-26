@@ -43,19 +43,7 @@ var PMA_commonParams = (function () {
                 }
                 // To expand the database in use and collapse the previous one
                 if(i == 'db' && obj[i] !== '') {
-                    var $expandElem, $icon;
-                    if(params['db'] !== '' && params['db'] !== obj[i]) {
-                        $expandElem = $('#pma_navigation_tree a.dbLink:contains("' + params['db'] + '")')
-                            .parent().find('a.expander').eq(0);
-                        $icon = $expandElem.find('img');
-                        if ($icon.is('.ic_b_minus'))
-                            PMA_expandNavigationTree($expandElem);
-                    }
-                    $expandElem = $('#pma_navigation_tree a.dbLink:contains("' + obj[i] + '")')
-                        .parent().find('a.expander').eq(0);
-                    $icon = $expandElem.find('img');
-                    if ($icon.is('.ic_b_plus'))
-                        PMA_expandNavigationTree($expandElem);
+                    PMA_autoExpandDatabaseInUse(params['db'], obj[i]);
                 }
                 params[i] = obj[i];
             }
@@ -86,6 +74,9 @@ var PMA_commonParams = (function () {
             if (params[name] !== undefined && params[name] !== value) {
                 PMA_querywindow.refresh();
                 PMA_reloadNavigation();
+            }
+            if(name == 'db' && value !== '') {
+                PMA_autoExpandDatabaseInUse(params['db'], value);
             }
             params[name] = value;
             return this;
@@ -124,6 +115,9 @@ var PMA_commonActions = {
      */
     setDb: function (new_db) {
         if (new_db != PMA_commonParams.get('db')) {
+            if(new_db !== '') {
+                PMA_autoExpandDatabaseInUse(PMA_commonParams.get('db'), new_db);
+            }
             PMA_commonParams.set('db', new_db);
             PMA_querywindow.refresh();
         }

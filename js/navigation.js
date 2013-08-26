@@ -226,7 +226,7 @@ $(function () {
 });
 
 /**
- * Expands/collapses the navigation tree
+ * Expands/collapses the navigation tree and sets to view the expanded
  *
  * @param  object $expandElem the element that initiated the expanding
  * @return void
@@ -238,6 +238,9 @@ function PMA_expandNavigationTree($expandElem) {
         if ($icon.is('.ic_b_plus')) {
             $icon.removeClass('ic_b_plus').addClass('ic_b_minus');
             $children.show('fast');
+            $('#pma_navigation').animate({
+                scrollTop: $children.offset().top
+            });
         } else {
             $icon.removeClass('ic_b_minus').addClass('ic_b_plus');
             $children.hide('fast');
@@ -278,6 +281,9 @@ function PMA_expandNavigationTree($expandElem) {
                         .find('a.expander.container')
                         .click();
                 }
+                $('#pma_navigation').animate({
+                    scrollTop: $destination.children('div.list_container').offset().top
+                });
             } else {
                 PMA_ajaxShowMessage(data.error, false);
             }
@@ -286,6 +292,29 @@ function PMA_expandNavigationTree($expandElem) {
         });
     }
     $expandElem.blur();
+}
+
+/*
+ * Auto-expands the newly chosen database
+ *
+ * @param  string   $oldDb 
+ * @param  string   $newDb
+ *
+ */
+function PMA_autoExpandDatabaseInUse($oldDb, $newDb) {
+    var $expandElem, $icon;
+    if($oldDb !== '' && $oldDb !== $newDb) {
+        $expandElem = $('#pma_navigation_tree a.dbLink:contains("' + $oldDb + '")')
+            .parent().find('a.expander').eq(0);
+        $icon = $expandElem.find('img');
+        if ($icon.is('.ic_b_minus'))
+            PMA_expandNavigationTree($expandElem);
+    }
+    $expandElem = $('#pma_navigation_tree a.dbLink:contains("' + $newDb + '")')
+        .parent().find('a.expander').eq(0);
+    $icon = $expandElem.find('img');
+    if ($icon.is('.ic_b_plus'))
+        PMA_expandNavigationTree($expandElem);
 }
 
 /**
