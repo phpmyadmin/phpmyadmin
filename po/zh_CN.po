@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-08-18 06:16-0400\n"
-"PO-Revision-Date: 2013-08-25 17:21+0200\n"
+"PO-Revision-Date: 2013-08-26 05:48+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: Simplified Chinese "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/zh_CN/>\n"
@@ -3434,121 +3434,115 @@ msgid ""
 "A timestamp, range is 1970-01-01 00:00:01 UTC to 2038-01-09 03:14:07 UTC, "
 "stored as the number of seconds since the epoch (1970-01-01 00:00:00 UTC)"
 msgstr ""
-"时间戳，支持的范围是从1970-01-01 00:00:01 UTC 到 2038-01-09 03:14:07 UTC，存"
-"储从公元1970-01-01 00:00:00 UTC以来的秒数"
+"时间戳，范围从 1970-01-01 00:00:01 UTC 到 2038-01-09 03:14:07 UTC，存储为自纪元（1970-01-01 "
+"00:00:00 UTC）起的秒数"
 
 #: libraries/Types.class.php:327 libraries/Types.class.php:730
 #, php-format
 msgid "A time, range is %1$s to %2$s"
-msgstr "从 %1$s 到 %2$s 之间的一个时间"
+msgstr "时间，范围从 %1$s 到 %2$s"
 
 #: libraries/Types.class.php:329
 msgid ""
 "A year in four-digit (4, default) or two-digit (2) format, the allowable "
 "values are 70 (1970) to 69 (2069) or 1901 to 2155 and 0000"
-msgstr ""
-"四位数（默认）或者两位数的年份，允许的值是70（1970）到69（2069）或者是1901到"
-"2155和0000"
+msgstr "四位数（4，默认）或两位数（2）的年份，取值范围从 70（1970）到 69（2069）或从 1901 到 2155 以及 0000"
 
 #: libraries/Types.class.php:331
 msgid ""
 "A fixed-length (0-255, default 1) string that is always right-padded with "
 "spaces to the specified length when stored"
-msgstr "始终会在最后部分用空格填充不足部分的定长字符串（0-255,默认长度为1）"
+msgstr "定长（0-255，默认 1）字符串，存储时会向右边补足空格到指定长度"
 
 #: libraries/Types.class.php:333 libraries/Types.class.php:732
 #, php-format
 msgid ""
 "A variable-length (%s) string, the effective maximum length is subject to "
 "the maximum row size"
-msgstr "可变长（%s）字符串，实际可用最长长度由最长字段长度定义"
+msgstr "变长（%s）字符串，最大有效长度取决于最大行大小"
 
 #: libraries/Types.class.php:335
 msgid ""
 "A TEXT column with a maximum length of 255 (2^8 - 1) characters, stored with "
 "a one-byte prefix indicating the length of the value in bytes"
-msgstr ""
-"一个最长255字符的TEXT字段，并采用一个前缀（一个字节长）来表示当前值的字节长度"
+msgstr "最多存储 255（2^8 - 1）字节的文本字段，存储时在内容前使用 1 字节表示内容的字节数"
 
 #: libraries/Types.class.php:337 libraries/Types.class.php:734
 msgid ""
 "A TEXT column with a maximum length of 65,535 (2^16 - 1) characters, stored "
 "with a two-byte prefix indicating the length of the value in bytes"
-msgstr ""
-"一个最长65536字符的TEXT字段，采用一个前缀（两个字节）表示当前值的字节长度"
+msgstr "最多存储 65535（2^16 - 1）字节的文本字段，存储时在内容前使用 2 字节表示内容的字节数"
 
 #: libraries/Types.class.php:339
 msgid ""
 "A TEXT column with a maximum length of 16,777,215 (2^24 - 1) characters, "
 "stored with a three-byte prefix indicating the length of the value in bytes"
-msgstr "一个最长16777215字节的TEXT字段，在字节开始处用三个字节保存当前值的长度"
+msgstr "最多存储 16777215（2^24 - 1）字节的文本字段，存储时在内容前使用 3 字节表示内容的字节数"
 
 #: libraries/Types.class.php:341
 msgid ""
 "A TEXT column with a maximum length of 4,294,967,295 or 4GiB (2^32 - 1) "
 "characters, stored with a four-byte prefix indicating the length of the "
 "value in bytes"
-msgstr ""
-"一个最长4294967295字节的TEXT字段，在字节开始处用四个字节保存当前值的长度"
+msgstr "最多存储 4294967295 字节即 4GB（2^32 - 1）的文本字段，存储时在内容前使用 4 字节表示内容的字节数"
 
 #: libraries/Types.class.php:343
 msgid ""
 "Similar to the CHAR type, but stores binary byte strings rather than non-"
 "binary character strings"
-msgstr "和CHAR类型相似，但是存储二进制字符串而不是非二进制字符串"
+msgstr "类似于 CHAR 类型，但其存储的是二进制字节串而不是非二进制字符串"
 
 #: libraries/Types.class.php:345
 msgid ""
 "Similar to the VARCHAR type, but stores binary byte strings rather than non-"
 "binary character strings"
-msgstr "和VARCHAR类型相似，但是存储二进制字符串而不是非二进制字符串"
+msgstr "类似于 VARCHAR 类型，但其存储的是二进制字节串而不是非二进制字符串"
 
 #: libraries/Types.class.php:347
 msgid ""
 "A BLOB column with a maximum length of 255 (2^8 - 1) bytes, stored with a "
 "one-byte prefix indicating the length of the value"
-msgstr "一个最长255字节的BLOB字段，在字节开始处用一个字节保存当前值的长度"
+msgstr "最多存储 255（2^8 - 1）字节的 BLOB 字段，存储时在内容前使用 1 字节表示内容的字节数"
 
 #: libraries/Types.class.php:349
 msgid ""
 "A BLOB column with a maximum length of 16,777,215 (2^24 - 1) bytes, stored "
 "with a three-byte prefix indicating the length of the value"
-msgstr "一个最长16777215字节的BOLB字段，在字节开始处用三个字节保存当前值的长度"
+msgstr "最多存储 16777215（2^24 - 1）字节的 BLOB 字段，存储时在内容前使用 3 字节表示内容的字节数"
 
 #: libraries/Types.class.php:351 libraries/Types.class.php:738
 msgid ""
 "A BLOB column with a maximum length of 65,535 (2^16 - 1) bytes, stored with "
 "a two-byte prefix indicating the length of the value"
-msgstr "一个最长65535字节的BLOB字段，在字节开始处用两个字节保存当前值的长度"
+msgstr "最多存储 65535（2^16 - 1）字节的 BLOB 字段，存储时在内容前使用 2 字节表示内容的字节数"
 
 #: libraries/Types.class.php:353
 msgid ""
 "A BLOB column with a maximum length of 4,294,967,295 or 4GiB (2^32 - 1) "
 "bytes, stored with a four-byte prefix indicating the length of the value"
-msgstr ""
-"一个最长4294967295/4Gb字节的BLOB字段，在字节开始处用四个字节保存当前值的长度"
+msgstr "最多存储 4294967295 字节即 4GB（2^32 - 1）的 BLOB 字段，存储时在内容前使用 4 字节表示内容的字节数"
 
 #: libraries/Types.class.php:355
 msgid ""
 "An enumeration, chosen from the list of up to 65,535 values or the special "
 "'' error value"
-msgstr "枚举类型，可从多达65535个值的列表中选择，或者是特殊的''错误代码"
+msgstr "枚举，可从最多 65535 个值的列表中选择或特殊的错误值 ''"
 
 #: libraries/Types.class.php:357
 msgid "A single value chosen from a set of up to 64 members"
-msgstr "从一组最多64个成员的集合中选择的单个值"
+msgstr "可从最多 64 个成员中选择集合为一个值"
 
 #: libraries/Types.class.php:359
 msgid "A type that can store a geometry of any type"
-msgstr "一个能存储任何几何形状的类型"
+msgstr "一种能存储任意类型几何体的类型"
 
 #: libraries/Types.class.php:361
 msgid "A point in 2-dimensional space"
-msgstr "二维空间的点"
+msgstr "二维空间中的点"
 
 #: libraries/Types.class.php:363
 msgid "A curve with linear interpolation between points"
-msgstr "一条点与点之间线性插值的曲线"
+msgstr "点之间的线性插值曲线"
 
 #: libraries/Types.class.php:365
 msgid "A polygon"
@@ -3556,24 +3550,24 @@ msgstr "多边形"
 
 #: libraries/Types.class.php:367
 msgid "A collection of points"
-msgstr "点集合"
+msgstr "点的集合"
 
 #: libraries/Types.class.php:369
 msgid "A collection of curves with linear interpolation between points"
-msgstr "一个点与点之间线性插值的曲线集合"
+msgstr "点之间的线性插值曲线的集合"
 
 #: libraries/Types.class.php:371
 msgid "A collection of polygons"
-msgstr "一个多边形集合"
+msgstr "多边形的集合"
 
 #: libraries/Types.class.php:373
 msgid "A collection of geometry objects of any type"
-msgstr "一个任何类型几何对象的集合"
+msgstr "任意类型几何体对象的集合"
 
 #: libraries/Types.class.php:626 libraries/Types.class.php:976
 msgctxt "numeric types"
 msgid "Numeric"
-msgstr "数字的"
+msgstr "数字"
 
 #: libraries/Types.class.php:645 libraries/Types.class.php:979
 msgctxt "date and time types"
@@ -3583,7 +3577,7 @@ msgstr "日期与时间"
 #: libraries/Types.class.php:654 libraries/Types.class.php:982
 msgctxt "string types"
 msgid "String"
-msgstr "字符串"
+msgstr "文本"
 
 #: libraries/Types.class.php:675
 msgctxt "spatial types"
@@ -3592,49 +3586,47 @@ msgstr "空间"
 
 #: libraries/Types.class.php:710
 msgid "A 4-byte integer, range is -2,147,483,648 to 2,147,483,647"
-msgstr "4字节的整形，取值范围是-2,147,483,648 到 2,147,483,647"
+msgstr "4 字节整数，范围从 -2147483648 到 2147483647"
 
 #: libraries/Types.class.php:712
 msgid ""
 "An 8-byte integer, range is -9,223,372,036,854,775,808 to "
 "9,223,372,036,854,775,807"
-msgstr ""
-"8字节的整形，取值范围是 -9,223,372,036,854,775,808 到 "
-"9,223,372,036,854,775,807\t"
+msgstr "8 字节整数，范围从 -9223372036854775808 到 9223372036854775807"
 
 #: libraries/Types.class.php:716
 msgid "A system's default double-precision floating-point number"
-msgstr "系统默认的双精度浮点型"
+msgstr "系统默认的双精度浮点数"
 
 #: libraries/Types.class.php:718
 msgid "True or false"
-msgstr "true 或者 false"
+msgstr "真或假"
 
 #: libraries/Types.class.php:720
 msgid "An alias for BIGINT NOT NULL AUTO_INCREMENT UNIQUE"
-msgstr "BIGINT NOT NULL AUTO_INCREMENT UNIQUE 的别称"
+msgstr "BIGINT NOT NULL AUTO_INCREMENT UNIQUE 的别名"
 
 #: libraries/Types.class.php:722
 msgid "Stores a Universally Unique Identifier (UUID)"
-msgstr "保存全局唯一标识符 （UUID）"
+msgstr "存储一个通用唯一识别码（UUID）"
 
 #: libraries/Types.class.php:728
 msgid ""
 "A timestamp, range is '0001-01-01 00:00:00' UTC to '9999-12-31 23:59:59' "
 "UTC; TIMESTAMP(6) can store microseconds"
 msgstr ""
-"时间戳，取值范围从 '0001-01-01 00:00:00' UTC 到 '9999-12-31 23:59:59' UTC; "
-"TIMESTAMP(6) 可以保存到微秒"
+"时间戳，范围从‘0001-01-01 00:00:00’UTC 到‘9999-12-31 23:59:59’UTC；TIMESTAMP(6) "
+"可以存储微秒"
 
 #: libraries/Types.class.php:736
 msgid ""
 "A variable-length (0-65,535) string, uses binary collation for all "
 "comparisons"
-msgstr "一个长度不定（0-65,535）的字符串，对所有对比采用二进制排序规则"
+msgstr "变长（0-65535）字符串，使用二进制排序规则进行所有比较"
 
 #: libraries/Types.class.php:740
 msgid "An enumeration, chosen from the list of defined values"
-msgstr "在已定义值列表中取值的枚举类型"
+msgstr "枚举，从定义好的值中选择"
 
 #: libraries/Util.class.php:255
 #, php-format
@@ -3656,7 +3648,7 @@ msgstr "SQL 查询："
 #: libraries/rte/rte_triggers.lib.php:112
 #: libraries/rte/rte_triggers.lib.php:133
 msgid "MySQL said: "
-msgstr "MySQL 返回: "
+msgstr "MySQL 返回： "
 
 #: libraries/Util.class.php:1137
 msgid "Failed to connect to SQL validator!"
@@ -3710,7 +3702,7 @@ msgstr "周日"
 #: libraries/Util.class.php:1645
 #: libraries/plugins/transformations/abstract/DateFormatTransformationsPlugin.class.php:69
 msgid "%B %d, %Y at %I:%M %p"
-msgstr "%Y 年 %m 月 %d 日 %H:%M"
+msgstr "%Y-%m-%d %H:%M:%S"
 
 #: libraries/Util.class.php:1992
 #, php-format
@@ -3719,17 +3711,17 @@ msgstr "%s 天 %s 小时，%s 分 %s 秒"
 
 #: libraries/Util.class.php:2081
 msgid "Missing parameter:"
-msgstr "缺少参数:"
+msgstr "缺少参数："
 
 #: libraries/Util.class.php:2601
 #, php-format
 msgid "Jump to database &quot;%s&quot;."
-msgstr "跳转到数据库“%s”。"
+msgstr "转到数据库 &quot;%s&quot;。"
 
 #: libraries/Util.class.php:2625
 #, php-format
 msgid "The %s functionality is affected by a known bug, see %s"
-msgstr "%s 功能受到一个已知的缺陷 (bug) 影响，参见 %s"
+msgstr "功能 %s 受到一个已知缺陷的影响，参见 %s"
 
 #: libraries/Util.class.php:2801
 msgid "Click to toggle"
@@ -3748,7 +3740,7 @@ msgstr "从网站服务器上传文件夹 <b>%s</b> 中选择："
 #: libraries/Util.class.php:3357 libraries/insert_edit.lib.php:1188
 #: libraries/sql_query_form.lib.php:480
 msgid "The directory you set for upload work cannot be reached."
-msgstr "用于上传的文件夹出错，无法使用"
+msgstr "无法访问用于上传的文件夹。"
 
 #: libraries/Util.class.php:3368
 msgid "There are no files to upload"
@@ -3825,7 +3817,7 @@ msgstr "已复制"
 #: libraries/build_html_for_db.lib.php:171
 #, php-format
 msgid "Check privileges for database &quot;%s&quot;."
-msgstr "检查数据库“%s”的权限。"
+msgstr "检查数据库 &quot;%s&quot; 的权限。"
 
 #: libraries/build_html_for_db.lib.php:176
 msgid "Check Privileges"
@@ -3844,29 +3836,29 @@ msgstr "这通常意味着文件中有语法错误，请检查下面显示出的
 #: libraries/common.inc.php:590
 #, php-format
 msgid "Could not load default configuration from: %1$s"
-msgstr "无法加载默认配置: %1$s"
+msgstr "无法加载默认设置：%1$s"
 
 #: libraries/common.inc.php:597
 msgid ""
 "The [code]$cfg['PmaAbsoluteUri'][/code] directive MUST be set in your "
 "configuration file!"
-msgstr "必须在您的配置文件中设置 [code]$cfg['PmaAbsoluteUri'][/code] ！"
+msgstr "必须在您的配置文件中设置好 [code]$cfg['PmaAbsoluteUri'][/code]！"
 
 #: libraries/common.inc.php:630
 #, php-format
 msgid "Invalid server index: %s"
-msgstr "无效的服务器索引: %s"
+msgstr "无效的服务器索引：%s"
 
 #: libraries/common.inc.php:641
 #, php-format
 msgid "Invalid hostname for server %1$s. Please review your configuration."
-msgstr "无效的主机名 %1$s，请检查配置文件。"
+msgstr "服务器 %1$s 的主机名无效。请复查您的设置。"
 
 #: libraries/common.inc.php:657
-#, fuzzy, php-format
+#, php-format
 #| msgid "Server"
 msgid "Server %d"
-msgstr "服务器"
+msgstr "服务器 %d"
 
 #: libraries/common.inc.php:854
 msgid "Invalid authentication method set in configuration:"
@@ -3879,7 +3871,7 @@ msgstr "您应升级到 %s %s 或更高版本。"
 
 #: libraries/common.inc.php:1086
 msgid "Error: Token mismatch"
-msgstr "错误：Token不符"
+msgstr "错误：令牌不符"
 
 #: libraries/common.inc.php:1118
 msgid "GLOBALS overwrite attempt"
