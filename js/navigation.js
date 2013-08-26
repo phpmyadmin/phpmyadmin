@@ -31,7 +31,7 @@ $(function() {
         event.stopImmediatePropagation();
         PMA_expandNavigationTree($(this));
     });
-        
+
     /**
      * Register event handler for click on the reload
      * navigation icon at the top of the panel
@@ -262,7 +262,7 @@ function PMA_autoExpandDatabaseInUse($oldDb, $newDb) {
     //scroll to new database
     if ($oldDb !== $newDb) {
         setTimeout(function() {
-            scrollToView($expandElem.closest('li'), $('#pma_navigation_tree_content'));    
+            scrollToView($expandElem.closest('li'), $('#pma_navigation_tree_content'));
         }, 150);
     }
 }
@@ -270,7 +270,7 @@ function PMA_autoExpandDatabaseInUse($oldDb, $newDb) {
 /**
  * Reloads the whole navigation tree while preserving its state
  *
- * @param  function     the callback function 
+ * @param  function     the callback function
  * @return void
  */
 function PMA_reloadNavigation(callback) {
@@ -562,6 +562,17 @@ var ResizeHandler = function () {
         event.data.resize_handler.setWidth(panel_width);
         event.data.resize_handler.panel_width = width;
     };
+    /**
+     * Even thandler for resizing the navigation tree height on window resize
+     *
+     * @return void
+     */
+    this.treeResize = function (event) {
+        var $nav        = $("#pma_navigation"),
+            $nav_tree   = $("#pma_navigation_tree"),
+            $nav_header = $("#pma_navigation_header");
+        $nav_tree.height($nav.height() - $nav_header.height());
+    };
     /* Initialisation section begins here */
     if ($.cookie('pma_navi_width')) {
         // If we have a cookie, set the width of the panel to its value
@@ -579,6 +590,11 @@ var ResizeHandler = function () {
     $collapser.live('click', {'resize_handler':this}, this.collapse);
     // Add the correct arrow symbol to the collapser
     $collapser.html(this.getSymbol($('#pma_navigation').width()));
+    // Fix navigation tree height
+    $(window).on('resize', this.treeResize);
+    // need to call this now and then, browser might decide
+    // to show/hide horizontal scrollbars depending on page content width
+    setInterval(this.treeResize, 2000);
 }; // End of ResizeHandler
 
 /**

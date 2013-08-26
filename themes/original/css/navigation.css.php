@@ -105,7 +105,7 @@ if (! defined('PMA_MINIMUM_COMMON') && ! defined('TESTSUITE')) {
 
 /* Navigation tree*/
 #pma_navigation_tree {
-    margin: 0.5em 0 0;
+    margin: 0;
     margin-<?php echo $left; ?>: 1em;
     color: #444;
     height: 74%;
