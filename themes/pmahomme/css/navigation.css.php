@@ -73,7 +73,7 @@ if (! defined('PMA_MINIMUM_COMMON') && ! defined('TESTSUITE')) {
 #pma_navigation #databaseList,
 #pma_navigation div.pageselector.dbselector {
     text-align: center;
-    margin: 5px 10px 0px;
+    padding: 5px 10px 0px;
     border: 0;
 }
 
@@ -90,7 +90,7 @@ if (! defined('PMA_MINIMUM_COMMON') && ! defined('TESTSUITE')) {
 
 /* Navigation tree*/
 #pma_navigation_tree {
-    margin: 5px 0 0;
+    margin: 0;
     margin-<?php echo $left; ?>: 10px;
     color: #444;
     height: 74%; /*it needs to be dynamically set*/

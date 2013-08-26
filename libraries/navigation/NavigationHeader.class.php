@@ -41,6 +41,7 @@ class PMA_NavigationHeader
         $buffer .= '<div id="pma_navigation_resizer"></div>';
         $buffer .= '<div id="pma_navigation_collapser"></div>';
         $buffer .= '<div id="pma_navigation_content">';
+        $buffer .= '<div id="pma_navigation_header">';
         $buffer .= sprintf(
             '<a class="hide navigation_url" href="navigation.php%s"></a>',
             $link_url
@@ -54,6 +55,7 @@ class PMA_NavigationHeader
             __('Loading'),
             array('style' => 'visibility: hidden;', 'class' => 'throbber')
         );
+        $buffer .= '</div>'; // pma_navigation_header
         $buffer .= '<div id="pma_navigation_tree"' . $class . '>';
         return $buffer;
     }
@@ -172,8 +174,8 @@ class PMA_NavigationHeader
     private function _links()
     {
         // always iconic
-        $showIcon = true; 
-        $showText = false; 
+        $showIcon = true;
+        $showText = false;
 
         $retval  = '<!-- LINKS START -->';
         $retval .= '<div id="leftframelinks">';
