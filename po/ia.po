@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-08-18 06:16-0400\n"
-"PO-Revision-Date: 2013-08-01 16:29+0200\n"
+"PO-Revision-Date: 2013-08-26 19:51+0200\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
-"Language-Team: Interlingua <http://l10n.cihar.com/projects/phpmyadmin/master/"
-"ia/>\n"
+"Language-Team: Interlingua "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/ia/>\n"
 "Language: ia\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -913,7 +913,7 @@ msgstr "Commandos \"DROP DATABASE\" es dishabilitate."
 
 #: js/messages.php:35
 msgid "Confirm"
-msgstr ""
+msgstr "Confirma"
 
 #: js/messages.php:36
 #, php-format
@@ -945,24 +945,23 @@ msgid "This operation could take a long time. Proceed anyway?"
 msgstr "Iste operation poterea prender multo tempore. On procede de omne modo?"
 
 #: js/messages.php:44
-#, fuzzy, php-format
+#, php-format
 #| msgid "Do you really want to execute \"%s\"?"
 msgid "Do you really want to delete user group \"%s\"?"
-msgstr "Tu es vermente secur que tu vole executar \"%s\"?"
+msgstr "Tu es vermente secur que tu vole deler gruppo de usator \"%s\"?"
 
 #: js/messages.php:47
 msgid "Missing value in the form!"
 msgstr "Valore mancante in le formulario!"
 
 #: js/messages.php:48
-#, fuzzy
 #| msgid "%d is not valid row number."
 msgid "Please enter a valid number"
-msgstr "%d non es un valide numero de rangos."
+msgstr "Pro favor inserta un numero valide"
 
 #: js/messages.php:49
 msgid "Please enter a valid length"
-msgstr ""
+msgstr "Pro favor inserta un longor valide"
 
 #: js/messages.php:50
 msgid "Add Index"
@@ -2486,7 +2485,7 @@ msgstr "como expression regular"
 #: libraries/DbSearch.class.php:267
 #, php-format
 msgid "Search results for \"<i>%s</i>\" %s:"
-msgstr ""
+msgstr "Cerca exitos pro \"<i>%s</i>\"%s:"
 
 #: libraries/DbSearch.class.php:294
 #, php-format
@@ -2512,7 +2511,7 @@ msgstr "Naviga"
 #: libraries/DbSearch.class.php:353
 #, php-format
 msgid "Delete the matches for the %s table?"
-msgstr ""
+msgstr "Dele le correspondentias pro le tabula %s ?"
 
 #: libraries/DbSearch.class.php:357 libraries/DisplayResults.class.php:3375
 #: libraries/DisplayResults.class.php:4966
@@ -2540,15 +2539,15 @@ msgstr "Trova:"
 
 #: libraries/DbSearch.class.php:400 libraries/DbSearch.class.php:404
 msgid "Words are separated by a space character (\" \")."
-msgstr ""
+msgstr "Parolas es separate per un character de spatio (\" \")."
 
 #: libraries/DbSearch.class.php:419
 msgid "Inside tables:"
-msgstr ""
+msgstr "Intra tabulas:"
 
 #: libraries/DbSearch.class.php:445
 msgid "Inside column:"
-msgstr ""
+msgstr "Intra columna:"
 
 #: libraries/DisplayResults.class.php:694
 msgid "Save edited data"
@@ -2556,7 +2555,7 @@ msgstr "Salveguarda datos modificate"
 
 #: libraries/DisplayResults.class.php:700
 msgid "Restore column order"
-msgstr ""
+msgstr "Restabili ordine de columna"
 
 #: libraries/DisplayResults.class.php:771 libraries/Util.class.php:2491
 #: libraries/Util.class.php:2495
@@ -2639,7 +2638,7 @@ msgstr "Optiones"
 #: libraries/DisplayResults.class.php:1572
 #: libraries/DisplayResults.class.php:1678
 msgid "Partial texts"
-msgstr ""
+msgstr "Textos partial"
 
 #: libraries/DisplayResults.class.php:1573
 #: libraries/DisplayResults.class.php:1682
@@ -2669,11 +2668,11 @@ msgstr "MOnstra contentos binari como HEX"
 
 #: libraries/DisplayResults.class.php:1621
 msgid "Hide browser transformation"
-msgstr ""
+msgstr "Cela transformation de navigator"
 
 #: libraries/DisplayResults.class.php:1630
 msgid "Well Known Text"
-msgstr ""
+msgstr "Well Known Text (Texto ben cognoscite)"
 
 #: libraries/DisplayResults.class.php:1631
 msgid "Well Known Binary"
@@ -9827,19 +9826,16 @@ msgid "User groups"
 msgstr ""
 
 #: libraries/server_privileges.lib.php:3640
-#, fuzzy
 #| msgid "Server-level tabs"
 msgid "Server level tabs"
 msgstr "Schedas de nivello servitor"
 
 #: libraries/server_privileges.lib.php:3641
-#, fuzzy
 #| msgid "Database-level tabs"
 msgid "Database level tabs"
 msgstr "Schedas de nivello de base de datos"
 
 #: libraries/server_privileges.lib.php:3642
-#, fuzzy
 #| msgid "Table-level tabs"
 msgid "Table level tabs"
 msgstr "Schedas de nivello de tabula"
