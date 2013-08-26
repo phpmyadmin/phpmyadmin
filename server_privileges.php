@@ -26,7 +26,9 @@ $header   = $response->getHeader();
 $scripts  = $header->getScripts();
 $scripts->addFile('server_privileges.js');
 
-if ($GLOBALS['cfgRelation']['menuswork']) {
+if ((empty($_REQUEST['viewing_mode']) || $_REQUEST['viewing_mode'] != 'db')
+    && $GLOBALS['cfgRelation']['menuswork']
+) {
     $response->addHTML('<div>');
     $response->addHTML(PMA_getHtmlForSubMenusOnUsersPage('server_privileges.php'));
 }
@@ -522,7 +524,9 @@ if (empty($_REQUEST['adduser'])
     );
 } // end if (empty($_REQUEST['adduser']) && empty($checkprivs))... elseif... else...
 
-if ($GLOBALS['cfgRelation']['menuswork']) {
+if ((empty($_REQUEST['viewing_mode']) || $_REQUEST['viewing_mode'] != 'db')
+    && $GLOBALS['cfgRelation']['menuswork']
+) {
     $response->addHTML('</div>');
 }
 
