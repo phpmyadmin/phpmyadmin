@@ -249,9 +249,11 @@ function PMA_autoExpandDatabaseInUse($oldDb, $newDb) {
     $icon = $expandElem.find('img');
     if ($icon.is('.ic_b_plus')) {
         PMA_expandNavigationTree($expandElem);
+    }
+    if ($oldDb !== $newDb) {
         setTimeout(function() {
             scrollToView($expandElem.closest('li'), $('#pma_navigation_tree_content'));    
-        }, 120);
+        }, 150);
     }
 }
 
