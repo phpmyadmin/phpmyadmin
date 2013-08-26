@@ -570,8 +570,10 @@ var ResizeHandler = function () {
     this.treeResize = function (event) {
         var $nav        = $("#pma_navigation"),
             $nav_tree   = $("#pma_navigation_tree"),
-            $nav_header = $("#pma_navigation_header");
+            $nav_header = $("#pma_navigation_header"),
+            $nav_tree_content = $("#pma_navigation_tree_content");
         $nav_tree.height($nav.height() - $nav_header.height());
+        $nav_tree_content.height($nav_tree.height() - $nav_tree_content.position().top);
     };
     /* Initialisation section begins here */
     if ($.cookie('pma_navi_width')) {

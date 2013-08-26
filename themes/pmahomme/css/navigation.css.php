@@ -93,7 +93,7 @@ if (! defined('PMA_MINIMUM_COMMON') && ! defined('TESTSUITE')) {
     margin: 0;
     margin-<?php echo $left; ?>: 10px;
     color: #444;
-    height: 74%; /*it needs to be dynamically set*/
+    height: 74%;
     position: relative;
 }
 #pma_navigation_tree_content {
