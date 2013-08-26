@@ -9,12 +9,12 @@
 require_once 'Helper.php';
 
 /**
- * PmaSeleniumTablesTest class
+ * PmaSeleniumTableCreateTest class
  *
  * @package    PhpMyAdmin-test
  * @subpackage Selenium
  */
-class PmaSeleniumTablesTest extends PHPUnit_Extensions_Selenium2TestCase
+class PmaSeleniumTableCreateTest extends PHPUnit_Extensions_Selenium2TestCase
 {
     /**
      * Name of database for the test
