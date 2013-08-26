@@ -221,6 +221,13 @@ function PMA_expandNavigationTree($expandElem) {
     $expandElem.blur();
 }
 
+/*
+ * Auto-scrolls the newly chosen database
+ *
+ * @param  object   $element    The element to set to view
+ * @param  object   $container  The container srollable element
+ *
+ */
 function scrollToView($element, $container) {
     var pushToOffset = $element.offset().top - $container.offset().top + $container.scrollTop();
     $('#pma_navigation_tree_content').stop().animate({
@@ -231,12 +238,13 @@ function scrollToView($element, $container) {
 /*
  * Auto-expands the newly chosen database
  *
- * @param  string   $oldDb 
- * @param  string   $newDb
+ * @param  string   $oldDb  The previous database
+ * @param  string   $newDb  The newly chosen database
  *
  */
 function PMA_autoExpandDatabaseInUse($oldDb, $newDb) {
     var $expandElem, $icon;
+    //Collapse the previous database
     if($oldDb !== '' && $oldDb !== $newDb) {
         $expandElem = $('#pma_navigation_tree a.dbLink:contains("' + $oldDb + '")')
             .parent().find('a.expander').eq(0);
@@ -244,12 +252,14 @@ function PMA_autoExpandDatabaseInUse($oldDb, $newDb) {
         if ($icon.is('.ic_b_minus'))
             PMA_expandNavigationTree($expandElem);
     }
+    //expand the newly chosen database
     $expandElem = $('#pma_navigation_tree a.dbLink:contains("' + $newDb + '")')
         .parent().find('a.expander').eq(0);
     $icon = $expandElem.find('img');
     if ($icon.is('.ic_b_plus')) {
         PMA_expandNavigationTree($expandElem);
     }
+    //scroll to new database
     if ($oldDb !== $newDb) {
         setTimeout(function() {
             scrollToView($expandElem.closest('li'), $('#pma_navigation_tree_content'));    
