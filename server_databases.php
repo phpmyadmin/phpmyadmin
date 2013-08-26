@@ -40,36 +40,7 @@ foreach ($post_params as $one_post_param) {
     }
 }
 
-/**
- * avoids 'undefined index' errors
- */
-if (empty($_REQUEST['sort_by'])) {
-    $sort_by = 'SCHEMA_NAME';
-} else {
-    $sort_by_whitelist = array(
-        'SCHEMA_NAME',
-        'DEFAULT_COLLATION_NAME',
-        'SCHEMA_TABLES',
-        'SCHEMA_TABLE_ROWS',
-        'SCHEMA_DATA_LENGTH',
-        'SCHEMA_INDEX_LENGTH',
-        'SCHEMA_LENGTH',
-        'SCHEMA_DATA_FREE'
-    );
-    if (in_array($_REQUEST['sort_by'], $sort_by_whitelist)) {
-        $sort_by = $_REQUEST['sort_by'];
-    } else {
-        $sort_by = 'SCHEMA_NAME';
-    }
-}
-
-if (isset($_REQUEST['sort_order'])
-    && strtolower($_REQUEST['sort_order']) == 'desc'
-) {
-    $sort_order = 'desc';
-} else {
-    $sort_order = 'asc';
-}
+list($sort_by, $sort_order) = PMA_getListForSortDatabase();
 
 $dbstats    = empty($_REQUEST['dbstats']) ? 0 : 1;
 $pos        = empty($_REQUEST['pos']) ? 0 : (int) $_REQUEST['pos'];
