@@ -171,9 +171,6 @@ function PMA_expandNavigationTree($expandElem) {
         if ($icon.is('.ic_b_plus')) {
             $icon.removeClass('ic_b_plus').addClass('ic_b_minus');
             $children.show('fast');
-            $('#pma_navigation_tree_content').animate({
-                scrollTop: $expandElem.closest('li').offset().top
-            });
         } else {
             $icon.removeClass('ic_b_minus').addClass('ic_b_plus');
             $children.hide('fast');
@@ -214,9 +211,6 @@ function PMA_expandNavigationTree($expandElem) {
                         .find('a.expander.container')
                         .click();
                 }
-                $('#pma_navigation_tree_content').animate({
-                    scrollTop: $expandElem.closest('li').offset().top
-                });
             } else {
                 PMA_ajaxShowMessage(data.error, false);
             }
@@ -225,6 +219,13 @@ function PMA_expandNavigationTree($expandElem) {
         });
     }
     $expandElem.blur();
+}
+
+function scrollToView($element, $container) {
+    var pushToOffset = $element.offset().top - $container.offset().top + $container.scrollTop();
+    $('#pma_navigation_tree_content').stop().animate({
+        scrollTop: pushToOffset
+    });
 }
 
 /*
@@ -246,8 +247,12 @@ function PMA_autoExpandDatabaseInUse($oldDb, $newDb) {
     $expandElem = $('#pma_navigation_tree a.dbLink:contains("' + $newDb + '")')
         .parent().find('a.expander').eq(0);
     $icon = $expandElem.find('img');
-    if ($icon.is('.ic_b_plus'))
+    if ($icon.is('.ic_b_plus')) {
         PMA_expandNavigationTree($expandElem);
+        setTimeout(function() {
+            scrollToView($expandElem.closest('li'), $('#pma_navigation_tree_content'));    
+        }, 120);
+    }
 }
 
 /**
