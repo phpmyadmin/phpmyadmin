@@ -9,12 +9,12 @@
 require_once 'Helper.php';
 
 /**
- * PmaSeleniumDbStoredProceduresTest class
+ * PmaSeleniumDbProceduresTest class
  *
  * @package    PhpMyAdmin-test
  * @subpackage Selenium
  */
-class PmaSeleniumDbStoredProceduresTest extends PHPUnit_Extensions_Selenium2TestCase
+class PmaSeleniumDbProceduresTest extends PHPUnit_Extensions_Selenium2TestCase
 {
     /**
      * Name of database for the test

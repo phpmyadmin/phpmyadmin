@@ -9,12 +9,12 @@
 require_once 'Helper.php';
 
 /**
- * PmaSeleniumTablesInsertDataTest class
+ * PmaSeleniumTableInsertTest class
  *
  * @package    PhpMyAdmin-test
  * @subpackage Selenium
  */
-class PmaSeleniumTablesInsertDataTest extends PHPUnit_Extensions_Selenium2TestCase
+class PmaSeleniumTableInsertTest extends PHPUnit_Extensions_Selenium2TestCase
 {
     /**
      * Name of database for the test
@@ -31,7 +31,8 @@ class PmaSeleniumTablesInsertDataTest extends PHPUnit_Extensions_Selenium2TestCa
     private $_helper;
 
     /**
-     * Setup the browser environment to run the selenium test case
+     * Setup the browser environment to run the selenium t
+     * est case
      *
      * @return void
      */
