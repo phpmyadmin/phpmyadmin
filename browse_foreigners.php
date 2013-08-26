@@ -13,8 +13,7 @@ require_once 'libraries/transformations.lib.php';
  * Sets globals from $_REQUEST
  */
 $request_params = array(
-    'field',
-    'fieldkey'
+    'field'
 );
 
 foreach ($request_params as $one_request_param) {
@@ -117,8 +116,10 @@ $error = PMA_jsFormat(
 );
 
 
-if (! isset($fieldkey) || ! is_numeric($fieldkey)) {
+if (! isset($_REQUEST['fieldkey']) || ! is_numeric($_REQUEST['fieldkey'])) {
     $fieldkey = 0;
+} else {
+    $fieldkey = $_REQUEST['fieldkey'];
 }
 
 $code = <<<EOC
