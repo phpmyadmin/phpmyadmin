@@ -29,63 +29,9 @@ $(function() {
     $('#pma_navigation_tree a.expander').live('click', function(event) {
         event.preventDefault();
         event.stopImmediatePropagation();
-        var $this = $(this);
-        var $children = $this.closest('li').children('div.list_container');
-        var $icon = $this.find('img');
-        if ($this.hasClass('loaded')) {
-            if ($icon.is('.ic_b_plus')) {
-                $icon.removeClass('ic_b_plus').addClass('ic_b_minus');
-                $children.show('fast');
-            } else {
-                $icon.removeClass('ic_b_minus').addClass('ic_b_plus');
-                $children.hide('fast');
-            }
-        } else {
-            var $destination = $this.closest('li');
-            var $throbber = $('#pma_navigation .throbber')
-                .first()
-                .clone()
-                .css('visibility', 'visible');
-            $icon.hide();
-            $throbber.insertBefore($icon);
-
-            var searchClause = PMA_fastFilter.getSearchClause();
-            var searchClause2 = PMA_fastFilter.getSearchClause2($(this));
-
-            var params = {
-                aPath: $(this).find('span.aPath').text(),
-                vPath: $(this).find('span.vPath').text(),
-                pos: $(this).find('span.pos').text(),
-                pos2_name: $(this).find('span.pos2_name').text(),
-                pos2_value: $(this).find('span.pos2_value').text(),
-                searchClause: searchClause,
-                searchClause2: searchClause2
-            };
-            var url = $('#pma_navigation').find('a.navigation_url').attr('href');
-            $.get(url, params, function (data) {
-                if (data.success === true) {
-                    $this.addClass('loaded');
-                    $destination.find('div.list_container').remove(); // FIXME: Hack, there shouldn't be a list container there
-                    $destination.append(data.message);
-                    $icon.removeClass('ic_b_plus').addClass('ic_b_minus');
-                    $destination
-                        .children('div.list_container')
-                        .show('fast');
-                    if ($destination.find('ul > li').length == 1) {
-                        $destination.find('ul > li')
-                            .find('a.expander.container')
-                            .click();
-                    }
-                } else {
-                    PMA_ajaxShowMessage(data.error, false);
-                }
-                $icon.show();
-                $throbber.remove();
-            });
-        }
-        $(this).blur();
+        PMA_expandNavigationTree($(this));
     });
-
+        
     /**
      * Register event handler for click on the reload
      * navigation icon at the top of the panel
@@ -213,6 +159,115 @@ $(function() {
 });
 
 /**
+ * Expands/collapses the navigation tree and sets to view the expanded
+ *
+ * @param  object $expandElem the element that initiated the expanding
+ * @return void
+ */
+function PMA_expandNavigationTree($expandElem) {
+    var $children = $expandElem.closest('li').children('div.list_container');
+    var $icon = $expandElem.find('img');
+    if ($expandElem.hasClass('loaded')) {
+        if ($icon.is('.ic_b_plus')) {
+            $icon.removeClass('ic_b_plus').addClass('ic_b_minus');
+            $children.show('fast');
+        } else {
+            $icon.removeClass('ic_b_minus').addClass('ic_b_plus');
+            $children.hide('fast');
+        }
+    } else {
+        var $destination = $expandElem.closest('li');
+        var $throbber = $('#pma_navigation .throbber')
+            .first()
+            .clone()
+            .css('visibility', 'visible');
+        $icon.hide();
+        $throbber.insertBefore($icon);
+
+        var searchClause = PMA_fastFilter.getSearchClause();
+        var searchClause2 = PMA_fastFilter.getSearchClause2($expandElem);
+
+        var params = {
+            aPath: $expandElem.find('span.aPath').text(),
+            vPath: $expandElem.find('span.vPath').text(),
+            pos: $expandElem.find('span.pos').text(),
+            pos2_name: $expandElem.find('span.pos2_name').text(),
+            pos2_value: $expandElem.find('span.pos2_value').text(),
+            searchClause: searchClause,
+            searchClause2: searchClause2
+        };
+        var url = $('#pma_navigation').find('a.navigation_url').attr('href');
+        $.get(url, params, function (data) {
+            if (data.success === true) {
+                $expandElem.addClass('loaded');
+                $destination.find('div.list_container').remove(); // FIXME: Hack, there shouldn't be a list container there
+                $destination.append(data.message);
+                $icon.removeClass('ic_b_plus').addClass('ic_b_minus');
+                $destination
+                    .children('div.list_container')
+                    .show('fast');
+                if ($destination.find('ul > li').length == 1) {
+                    $destination.find('ul > li')
+                        .find('a.expander.container')
+                        .click();
+                }
+            } else {
+                PMA_ajaxShowMessage(data.error, false);
+            }
+            $icon.show();
+            $throbber.remove();
+        });
+    }
+    $expandElem.blur();
+}
+
+/*
+ * Auto-scrolls the newly chosen database
+ *
+ * @param  object   $element    The element to set to view
+ * @param  object   $container  The container srollable element
+ *
+ */
+function scrollToView($element, $container) {
+    var pushToOffset = $element.offset().top - $container.offset().top + $container.scrollTop();
+    $('#pma_navigation_tree_content').stop().animate({
+        scrollTop: pushToOffset
+    });
+}
+
+/*
+ * Auto-expands the newly chosen database
+ *
+ * @param  string   $oldDb  The previous database
+ * @param  string   $newDb  The newly chosen database
+ *
+ */
+function PMA_autoExpandDatabaseInUse($oldDb, $newDb) {
+    var $expandElem, $icon;
+    //Collapse the previous database
+    if($oldDb !== '' && $oldDb !== $newDb) {
+        $expandElem = $('#pma_navigation_tree a.dbLink:contains("' + $oldDb + '")')
+            .parent().find('a.expander').eq(0);
+        $icon = $expandElem.find('img');
+        if ($icon.is('.ic_b_minus'))
+            PMA_expandNavigationTree($expandElem);
+    }
+    //expand the newly chosen database
+    $expandElem = $('#pma_navigation_tree a.dbLink:contains("' + $newDb + '")')
+        .parent().find('a.expander').eq(0);
+    $icon = $expandElem.find('img');
+    if ($icon.is('.ic_b_plus')) {
+        PMA_expandNavigationTree($expandElem);
+    }
+    //scroll to new database
+    if ($oldDb !== $newDb) {
+        setTimeout(function() {
+            scrollToView($expandElem.closest('li'), $('#pma_navigation_tree_content'));    
+        }, 150);
+    }
+}
+
+/**
  * Reloads the whole navigation tree while preserving its state
  *
  * @param  function     the callback function 
@@ -221,7 +276,10 @@ $(function() {
 function PMA_reloadNavigation(callback) {
     var $throbber = $('#pma_navigation .throbber')
         .first()
-        .css('visibility', 'visible');
+        .css({
+            'visibility' : 'visible',
+            'display' : 'block'
+        });
     var params = {
         reload: true,
         pos: $('#pma_navigation_tree').find('a.expander:first > span.pos').text()
@@ -264,7 +322,10 @@ function PMA_reloadNavigation(callback) {
     });
     var url = $('#pma_navigation').find('a.navigation_url').attr('href');
     $.post(url, params, function (data) {
-        $throbber.css('visibility', 'hidden');
+        $throbber.css('visibility', 'hidden').css({
+            'visibility' : 'hidden',
+            'display' : 'none'
+        });
         if (data.success) {
             $('#pma_navigation_tree').html(data.message).children('div').show();
             // Fire the callback, if any
