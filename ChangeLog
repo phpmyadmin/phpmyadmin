@@ -7,6 +7,10 @@ phpMyAdmin - ChangeLog
 - bug #4048 Cannot select foreign value in Search
 - bug #4025 gzip export is not actually compressed with mod_deflate
 - bug #4054 query analysis doesn't launch in status monitor
++ Add pmahomme icon credits (FamFamFam silk icon set)
+- bug #4064 Table structure statistics "Space usage" caption too small for l10n
+- bug #4051 Wrong tabindex when inserting rows
+- bug #4066 varchar field not truncated in table browse mode
 
 4.0.5.0 (2013-08-04)
 - bug #3977 Not detected configuration storage

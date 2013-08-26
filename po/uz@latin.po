@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-07-29 15:07+0200\n"
-"PO-Revision-Date: 2013-07-15 11:32+0200\n"
+"PO-Revision-Date: 2013-08-23 09:29+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Uzbek (latin) <http://l10n.cihar.com/projects/phpmyadmin/4-0/"
-"uz@latin/>\n"
+"Language-Team: Uzbek (latin) "
+"<http://l10n.cihar.com/projects/phpmyadmin/4-0/uz@latin/>\n"
 "Language: uz@latin\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 1.6-dev\n"
+"X-Generator: Weblate 1.7-dev\n"
 
 #: browse_foreigners.php:51 browse_foreigners.php:75 js/messages.php:344
 #: libraries/DisplayResults.class.php:813
@@ -10089,7 +10089,7 @@ msgstr "Ma`lumotlarni fayldan import va faylga eksport qilishga ruxsat beradi."
 #: libraries/server_privileges.lib.php:650
 #: libraries/server_privileges.lib.php:947 server_privileges.php:83
 msgid "Has no effect in this MySQL version."
-msgstr "MySQL-serverning ushbu versiyada bunday xususiyat mavjud emas!"
+msgstr "MySQL-serverning ushbu versiyada bunday xususiyat mavjud emas."
 
 #: libraries/server_privileges.lib.php:211
 #: libraries/server_privileges.lib.php:850 server_privileges.php:75
@@ -12210,7 +12210,7 @@ msgid ""
 msgstr ""
 "InnoDB tomonidan amalga oshirilgan ketma-ket oldinga o‘tib ketgan o‘qishlar "
 "soni. Ushbu hol InnoDB jadvalni to‘laligicha ketma-ket ko‘rib chiqayotganda "
-"ro‘y beradi"
+"ro‘y beradi."
 
 #: server_status_variables.php:471
 msgid "The number of logical read requests InnoDB has done."
@@ -12289,7 +12289,7 @@ msgid ""
 "wait for it to be flushed before continuing."
 msgstr ""
 "Jurnal buferining hajmi kichik bo‘lganligi sababli, uning tozalanishi "
-"kutayotgan yozuvlar soni"
+"kutayotgan yozuvlar soni."
 
 #: server_status_variables.php:524
 msgid "The number of log write requests."
@@ -12492,7 +12492,7 @@ msgstr ""
 
 #: server_status_variables.php:654
 msgid "The amount of free memory for query cache."
-msgstr "So‘rovlar keshi uchun bo‘sh xotira hajmi"
+msgstr "So‘rovlar keshi uchun bo‘sh xotira hajmi."
 
 #: server_status_variables.php:657
 msgid "The number of cache hits."
@@ -12514,7 +12514,7 @@ msgstr ""
 "Yangi so‘rovlarni keshlashga xotira bo‘shatish uchun keshdan o‘chirilgan "
 "so‘rovlar soni. Bu ma`lumot so‘rovlar keshi hajmini belgilashga yordam "
 "beradi. So‘rovlar keshi keshdan so‘rovlarni o‘chirishda \"LRU\" (Least "
-"Recently Used - eng oldingi ishlatilgan) strategiyasidan foydalanadi"
+"Recently Used - eng oldingi ishlatilgan) strategiyasidan foydalanadi."
 
 #: server_status_variables.php:670
 msgid ""
@@ -12556,9 +12556,9 @@ msgid ""
 "(If this is not 0, you should carefully check the indexes of your tables.)"
 msgstr ""
 "Ikkilamchi jadvaldan qatorlarga murojaat etish uchun diapazon bo‘yicha "
-"qidiruv ishlatgan holda bajarilgan birlashma so‘rovlar soni. Agar "
+"qidiruv ishlatgan holda bajarilgan birlashma so‘rovlar soni. (Agar "
 "o‘zgaruvchi qiymati 0 bo‘lmasa, jadval indekslarini tekshirish tavsiya "
-"etiladi."
+"etiladi.)"
 
 #: server_status_variables.php:695
 msgid ""
@@ -12566,8 +12566,8 @@ msgid ""
 "critical even if this is big.)"
 msgstr ""
 "Birinchi jadvalda diapazon bo‘yicha qidiruv ishlatgan holda bajarilgan "
-"birlashma so‘rovlar soni. Odatda, ushbu o‘zgaruvchining qiymati, hatto juda "
-"katta bo‘lsa ham, unchalik muhim emas."
+"birlashma so‘rovlar soni. (Odatda, ushbu o‘zgaruvchining qiymati, hatto juda "
+"katta bo‘lsa ham, unchalik muhim emas.)"
 
 #: server_status_variables.php:699
 msgid "The number of joins that did a full scan of the first table."
@@ -12622,7 +12622,7 @@ msgstr "Diapazon yordamida bajarilgan sortirovka operatsiyalari soni."
 
 #: server_status_variables.php:729
 msgid "The number of sorted rows."
-msgstr "Sortirovka qilingan qatorlar soni"
+msgstr "Sortirovka qilingan qatorlar soni."
 
 #: server_status_variables.php:732
 msgid "The number of sorts that were done by scanning the table."
@@ -13077,7 +13077,7 @@ msgstr "Unumdorlikni oshirish maqsadida \"mysqli\"dan foydalaning"
 
 #: setup/lib/index.lib.php:400
 msgid "You allow for connecting to the server without a password."
-msgstr "Serverga parolsiz ulanishga ruxsat berasizmi"
+msgstr "Serverga parolsiz ulanishga ruxsat berasizmi."
 
 #: setup/lib/index.lib.php:424
 #, fuzzy

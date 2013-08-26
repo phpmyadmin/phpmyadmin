@@ -466,14 +466,14 @@ AJAX.registerOnload('tbl_change.js', function() {
         // IMO it's not really important to handle the tabindex for
         // function and Null
         var tabindex = 0;
-        $('.textfield')
+        $('.textfield, .char')
         .each(function() {
                 tabindex++;
                 $(this).attr('tabindex', tabindex);
                 // update the IDs of textfields to ensure that they are unique
                 $(this).attr('id', "field_" + tabindex + "_3");
             });
-        $('select.control_at_footer')
+        $('.control_at_footer')
         .each(function() {
                 tabindex++;
                 $(this).attr('tabindex', tabindex);

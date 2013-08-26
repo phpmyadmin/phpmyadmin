@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-07-29 15:07+0200\n"
-"PO-Revision-Date: 2013-08-04 15:08+0200\n"
+"PO-Revision-Date: 2013-08-23 19:00+0200\n"
 "Last-Translator: Dadan Setia <da2n_s@yahoo.co.id>\n"
 "Language-Team: Indonesian "
 "<http://l10n.cihar.com/projects/phpmyadmin/4-0/id/>\n"
@@ -3507,10 +3507,13 @@ msgstr ""
 "byte, disimpan dengan awalan empat byte menunjukkan panjang nilai"
 
 #: libraries/Types.class.php:354
+#, fuzzy
 msgid ""
 "An enumeration, chosen from the list of up to 65,535 values or the special "
 "'' error value"
 msgstr ""
+"Sebuah pencacahan, nilai dipilih dari daftar hingga 65,535 atau nilai khusus "
+"'' error"
 
 #: libraries/Types.class.php:356
 msgid "A single value chosen from a set of up to 64 members"
@@ -3587,7 +3590,7 @@ msgstr ""
 
 #: libraries/Types.class.php:714
 msgid "A system's default double-precision floating-point number"
-msgstr ""
+msgstr "Sebuah nomor standar presisi-ganda sistem"
 
 #: libraries/Types.class.php:716
 msgid "True or false"
@@ -3852,7 +3855,7 @@ msgstr "Error: Token tidak cocok"
 
 #: libraries/common.inc.php:1123
 msgid "GLOBALS overwrite attempt"
-msgstr ""
+msgstr "upaya penimpaan GLOBALS"
 
 #: libraries/common.inc.php:1130
 msgid "possible exploit"
@@ -4554,7 +4557,7 @@ msgstr "Urutan tarik turun foreign key"
 
 #: libraries/config/messages.inc.php:152
 msgid "A dropdown will be used if fewer items are present"
-msgstr ""
+msgstr "Sebuah dropdown akan digunakan jika sedikit item yang tampil"
 
 #: libraries/config/messages.inc.php:153
 msgid "Foreign key limit"
@@ -4644,16 +4647,14 @@ msgid "Databases display options"
 msgstr "Opsi tampilan basis data"
 
 #: libraries/config/messages.inc.php:179 setup/frames/menu.inc.php:19
-#, fuzzy
 #| msgid "Navigation frame"
 msgid "Navigation panel"
-msgstr "Bingkai navigasi"
+msgstr "Panel navigasi"
 
 #: libraries/config/messages.inc.php:180
-#, fuzzy
 #| msgid "Customize appearance of the navigation frame"
 msgid "Customize appearance of the navigation panel"
-msgstr "Atur tampilan bingkai navigasi"
+msgstr "Atur tampilan panel navigasi"
 
 #: libraries/config/messages.inc.php:181 libraries/select_server.lib.php:42
 #: setup/frames/index.inc.php:117
@@ -4669,10 +4670,9 @@ msgid "Tables display options"
 msgstr "Opsi tampilan tabel"
 
 #: libraries/config/messages.inc.php:185 setup/frames/menu.inc.php:20
-#, fuzzy
 #| msgid "Main frame"
 msgid "Main panel"
-msgstr "Bingkai utama"
+msgstr "Panel utama"
 
 #: libraries/config/messages.inc.php:186
 msgid "Microsoft Office"
@@ -4715,6 +4715,8 @@ msgid ""
 "Please note that phpMyAdmin is just a user interface and its features do not "
 "limit MySQL"
 msgstr ""
+"Sebagai catatan bahwa phpMyAdmin hanyalah antarmuka pengguna dan fitur-"
+"fiturnya tidak membatasi MySQL"
 
 #: libraries/config/messages.inc.php:198
 msgid "Basic settings"
@@ -4737,6 +4739,8 @@ msgid ""
 "Advanced server configuration, do not change these options unless you know "
 "what they are for"
 msgstr ""
+"Konfigurasi mahir server, tidak mengubah pilihan ini kecuali Anda tahu untuk "
+"apa penggunaannya"
 
 #: libraries/config/messages.inc.php:203
 msgid "Enter server connection parameters"
@@ -4762,6 +4766,8 @@ msgid ""
 "Tracking of changes made in database. Requires the phpMyAdmin configuration "
 "storage."
 msgstr ""
+"Pelacakan perubahan yang dilakukan dalam database. Membutuhkan penyimpanan "
+"konfigurasi phpMyAdmin."
 
 #: libraries/config/messages.inc.php:208
 msgid "Customize export options"
@@ -4772,16 +4778,14 @@ msgid "Customize import defaults"
 msgstr "Atur bawaan impor"
 
 #: libraries/config/messages.inc.php:211
-#, fuzzy
 #| msgid "Customize navigation frame"
 msgid "Customize navigation panel"
-msgstr "Atur bingkai navigasi"
+msgstr "Atur panel navigasi"
 
 #: libraries/config/messages.inc.php:212
-#, fuzzy
 #| msgid "Customize main frame"
 msgid "Customize main panel"
-msgstr "Atur bingkai utama"
+msgstr "Atur panel utama"
 
 #: libraries/config/messages.inc.php:213 libraries/config/messages.inc.php:218
 #: setup/frames/menu.inc.php:18
@@ -4821,24 +4825,22 @@ msgid "Customize startup page"
 msgstr "Atur halaman awal"
 
 #: libraries/config/messages.inc.php:224
-#, fuzzy
 #| msgid "Database server"
 msgid "Database structure"
-msgstr "Server basis data"
+msgstr "Stuktur basis data"
 
 #: libraries/config/messages.inc.php:225
 msgid "Choose which details to show in the database structure (list of tables)"
-msgstr ""
+msgstr "Pilih detail mana untuk menampilkan struktur database (daftar tabel)"
 
 #: libraries/config/messages.inc.php:226
-#, fuzzy
 #| msgid "Database server"
 msgid "Table structure"
-msgstr "Server basis data"
+msgstr "Struktur tabel"
 
 #: libraries/config/messages.inc.php:227
 msgid "Settings for the table structure (list of columns)"
-msgstr ""
+msgstr "Pengaturan untuk struktur tabel (daftar kolom)"
 
 #: libraries/config/messages.inc.php:228
 msgid "Tabs"
@@ -4873,6 +4875,8 @@ msgid ""
 "Enable [a@http://en.wikipedia.org/wiki/Gzip]gzip[/a] compression for import "
 "and export operations"
 msgstr ""
+"Aktifkan kompresi [a@http://en.wikipedia.org/wiki/Gzip]gzip[/a] untuk "
+"operasi impor dan ekspor"
 
 #: libraries/config/messages.inc.php:237
 msgid "GZip"
@@ -4887,6 +4891,8 @@ msgid ""
 "If enabled, phpMyAdmin continues computing multiple-statement queries even "
 "if one of the queries failed"
 msgstr ""
+"Jika diaktifkan, phpMyAdmin terus menjalankan multi-statmen query bahkan "
+"jika salah satu query gagal"
 
 #: libraries/config/messages.inc.php:240
 msgid "Ignore multiple statement errors"
@@ -4919,6 +4925,8 @@ msgid ""
 "Default format; be aware that this list depends on location (database, "
 "table) and only SQL is always available"
 msgstr ""
+"Format standar, sadari bahwa daftar ini tergantung pada lokasi (database, "
+"tabel) dan hanya SQL selalu tersedia"
 
 #: libraries/config/messages.inc.php:251
 msgid "Format of imported file"
@@ -13211,13 +13219,12 @@ msgid "Slow_launch_threads is above 2s"
 msgstr "Slow_launch_threads diatas 2 detik"
 
 #: libraries/advisory_rules.txt:387
-#, fuzzy
 #| msgid "There are too many joins without indexes."
 msgid ""
 "Set {slow_launch_time} to 1s or 2s to correctly count threads that are slow "
 "to launch"
 msgstr ""
-"Atur {slow_launch_time} ke 1 atau 2 detik untuk memperbaiki perhitungan "
+"Atur {slow_launch_time} menjadi 1 atau 2 detik untuk memperbaiki perhitungan "
 "thread yang lambat diluncurkan"
 
 #: libraries/advisory_rules.txt:388
