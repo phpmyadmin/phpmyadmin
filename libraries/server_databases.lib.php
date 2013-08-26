@@ -406,4 +406,48 @@ function PMA_getHtmlForReplicationType(
     }
     return $html;
 }
+
+/**
+ * Returns the array about $sort_order and $sort_by
+ *
+ * @return Array
+ */
+function PMA_getListForSortDatabase()
+{
+    /**
+     * avoids 'undefined index' errors
+     */
+    $sort_by = '';
+    $sort_order = '';
+    if (empty($_REQUEST['sort_by'])) {
+        $sort_by = 'SCHEMA_NAME';
+    } else {
+        $sort_by_whitelist = array(
+            'SCHEMA_NAME',
+            'DEFAULT_COLLATION_NAME',
+            'SCHEMA_TABLES',
+            'SCHEMA_TABLE_ROWS',
+            'SCHEMA_DATA_LENGTH',
+            'SCHEMA_INDEX_LENGTH',
+            'SCHEMA_LENGTH',
+            'SCHEMA_DATA_FREE'
+        );
+        if (in_array($_REQUEST['sort_by'], $sort_by_whitelist)) {
+            $sort_by = $_REQUEST['sort_by'];
+        } else {
+            $sort_by = 'SCHEMA_NAME';
+        }
+    }
+    
+    if (isset($_REQUEST['sort_order'])
+        && strtolower($_REQUEST['sort_order']) == 'desc'
+    ) {
+        $sort_order = 'desc';
+    } else {
+        $sort_order = 'asc';
+    }
+    
+    return array($sort_by, $sort_order);
+}
+
 ?>
