@@ -1025,7 +1025,7 @@ Generic settings
 .. config:option:: $cfg['MaxNavigationItems']
 
     :type: integer
-    :default: 25
+    :default: 250
 
     The number of items that can be displayed on each page of the
     navigation tree.
