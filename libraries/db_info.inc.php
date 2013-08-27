@@ -106,12 +106,6 @@ if (true === $cfg['SkipLockedTables']) {
                             continue;
                         }
 
-                        if ($cfg['ShowTooltip']) {
-                            PMA_Util::fillTooltip(
-                                $tooltip_truename, $tooltip_aliasname, $sts_tmp
-                            );
-                        }
-
                         $tables[$sts_tmp['Name']]    = $sts_tmp;
                     } else { // table in use
                         $tables[$tmp[0]]    = array('Name' => $tmp[0]);
@@ -187,14 +181,6 @@ if (! isset($sot_ready)) {
             // fetch the details for a possible limited subset
             $tables = PMA_DBI_get_tables_full(
                 $db, false, false, null, $pos, true, $sort, $sort_order
-            );
-        }
-    }
-
-    if ($cfg['ShowTooltip']) {
-        foreach ($tables as $each_table) {
-            PMA_Util::fillTooltip(
-                $tooltip_truename, $tooltip_aliasname, $each_table
             );
         }
     }

@@ -155,14 +155,5 @@ class Node_test extends PHPUnit_Framework_TestCase
         $parent->addChild($child);
         $this->assertEquals($child->hasSiblings(), false);
     }
-
-    public function testComment()
-    {
-        // A non-qualified Node shouldn't have a comment
-        $this->assertEquals(
-            PMA_NodeFactory::getInstance()->getComment(),
-            ''
-        );
-    }
 }
 ?>

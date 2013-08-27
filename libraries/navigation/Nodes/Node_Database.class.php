@@ -430,18 +430,6 @@ class Node_Database extends Node
         }
         return $retval;
     }
-
-
-    /**
-     * Returns the comment associated with node
-     * This method should be overridden by specific type of nodes
-     *
-     * @return string
-     */
-    public function getComment()
-    {
-        return PMA_getDbComment($this->real_name);
-    }
 }
 
 ?>

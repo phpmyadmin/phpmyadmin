@@ -197,33 +197,6 @@ class Node_Table extends Node
         }
         return $retval;
     }
-
-    /**
-     * Returns the comment associated with node
-     * This method should be overridden by specific type of nodes
-     *
-     * @return string
-     */
-    public function getComment()
-    {
-        $db    = $this->realParent()->real_name;
-        $table = PMA_Util::sqlAddSlashes($this->real_name);
-        if (! $GLOBALS['cfg']['Servers'][$GLOBALS['server']]['DisableIS']) {
-            $db     = PMA_Util::sqlAddSlashes($db);
-            $query  = "SELECT `TABLE_COMMENT` ";
-            $query .= "FROM `INFORMATION_SCHEMA`.`TABLES` ";
-            $query .= "WHERE `TABLE_SCHEMA`='$db' ";
-            $query .= "AND `TABLE_NAME`='$table' ";
-            $retval = PMA_DBI_fetch_value($query);
-        } else {
-            $db     = PMA_Util::backquote($db);
-            $query  = "SHOW TABLE STATUS FROM $db ";
-            $query .= "WHERE Name = '$table'";
-            $arr = PMA_DBI_fetch_assoc(PMA_DBI_try_query($query));
-            $retval = $arr['Comment'];
-        }
-        return $retval;
-    }
 }
 
 ?>
