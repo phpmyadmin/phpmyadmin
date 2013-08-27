@@ -177,12 +177,14 @@ function PMA_expandNavigationTree($expandElem) {
         }
     } else {
         var $destination = $expandElem.closest('li');
-        var $throbber = $('#pma_navigation .throbber')
-            .first()
-            .clone()
-            .css('visibility', 'visible');
-        $icon.hide();
-        $throbber.insertBefore($icon);
+        if($icon.siblings('.throbber').length <= 0) {
+            var $throbber = $('#pma_navigation .throbber')
+                .first()
+                .clone()
+                .css('visibility', 'visible');
+            $icon.hide();
+            $throbber.insertBefore($icon);
+        }
 
         var searchClause = PMA_fastFilter.getSearchClause();
         var searchClause2 = PMA_fastFilter.getSearchClause2($expandElem);
@@ -215,7 +217,8 @@ function PMA_expandNavigationTree($expandElem) {
                 PMA_ajaxShowMessage(data.error, false);
             }
             $icon.show();
-            $throbber.remove();
+            if($icon.siblings('.throbber').length)
+                $icon.siblings('.throbber').remove();
         });
     }
     $expandElem.blur();
@@ -229,10 +232,14 @@ function PMA_expandNavigationTree($expandElem) {
  *
  */
 function scrollToView($element, $container) {
-    var pushToOffset = $element.offset().top - $container.offset().top + $container.scrollTop();
-    $('#pma_navigation_tree_content').stop().animate({
-        scrollTop: pushToOffset
-    });
+    var elementOffset = $element.offset(),
+        containerOffset = $container.offset();
+    if(elementOffset != undefined && containerOffset != undefined) {
+        var pushToOffset = elementOffset.top - containerOffset.top + $container.scrollTop();
+        $('#pma_navigation_tree_content').stop().animate({
+            scrollTop: pushToOffset
+        });
+    }
 }
 
 /*
@@ -263,7 +270,7 @@ function PMA_autoExpandDatabaseInUse($oldDb, $newDb) {
     if ($oldDb !== $newDb) {
         setTimeout(function() {
             scrollToView($expandElem.closest('li'), $('#pma_navigation_tree_content'));
-        }, 150);
+        }, 200);
     }
 }
 
@@ -322,6 +329,7 @@ function PMA_reloadNavigation(callback) {
             if (typeof callback === 'function') {
                 callback.call();
             }
+            PMA_autoExpandDatabaseInUse('', PMA_commonParams.get('db'));
         } else {
             PMA_ajaxShowMessage(data.error);
         }

@@ -73,7 +73,6 @@ var PMA_commonParams = (function () {
         set: function (name, value) {
             if (params[name] !== undefined && params[name] !== value) {
                 PMA_querywindow.refresh();
-                PMA_reloadNavigation();
             }
             if(name == 'db' && value !== '') {
                 PMA_autoExpandDatabaseInUse(params['db'], value);
