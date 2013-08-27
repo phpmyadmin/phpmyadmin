@@ -2426,7 +2426,9 @@ function PMA_verifyWhetherValueCanBeTruncatedAndAppendExtraData(
         . PMA_Util::backquote($table)
         . ' WHERE ' . $_REQUEST['where_clause'][0];
 
-    $result = $GLOBALS['dbi']->tryQuery($sql_for_real_value);
+    $result = $GLOBALS['dbi']->tryQuery(
+        $sql_for_real_value, null, PMA_DatabaseInterface::QUERY_STORE, false
+    );
     $fields_meta = $GLOBALS['dbi']->getFieldsMeta($result);
     $meta = $fields_meta[0];
     $new_value = $GLOBALS['dbi']->fetchValue($result);
