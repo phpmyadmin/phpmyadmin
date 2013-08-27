@@ -445,7 +445,7 @@ class TCPDF_COLORS {
 	}
 
 
-} // --- END OF CLASS ---
+} // END OF TCPDF_COLORS CLASS
 
 //============================================================+
 // END OF FILE
