@@ -44,7 +44,7 @@ class Helper
      * Selenium Context
      *
      * @access private
-     * @var object
+     * @var PHPUnit_Extensions_Selenium2TestCase
      */
     private $_selenium;
 
@@ -52,7 +52,7 @@ class Helper
      * Configuration Instance
      *
      * @access private
-     * @var object
+     * @var TestConfig
      */
     private $_config;
 
@@ -60,16 +60,16 @@ class Helper
      * mysqli object
      *
      * @access private
-     * @var object
+     * @var mysqli
      */
     private $_mysqli;
 
     /**
      * constructor
      *
-     * @param object $selenium Selenium Context
+     * @param PHPUnit_Extensions_Selenium2TestCase $selenium Selenium Context
      */
-    public function __construct($selenium)
+    public function __construct(PHPUnit_Extensions_Selenium2TestCase $selenium)
     {
         $this->_txtUsername = 'input_username';
         $this->_txtPassword = 'input_password';
@@ -146,11 +146,7 @@ class Helper
     {
         if ($this->_mysqli === null) {
             list($user, $pass) = $this->_config->getDBCredentials();
-
-            $this->_mysqli = new mysqli(
-                "localhost", $user, $pass
-            );
-
+            $this->_mysqli = new mysqli("localhost", $user, $pass);
             if ($this->_mysqli->connect_errno) {
                 throw new Exception(
                     'Failed to connect to MySQL (' . $this->_mysqli->error . ')'
@@ -226,7 +222,6 @@ class Helper
             if (!$this->isElementPresent($func, $arg)) {
                 return true;
             }
-
             usleep(100);
         }
     }
@@ -241,7 +236,6 @@ class Helper
             // Element not present
             return false;
         }
-
         // Element Present
         return true;
     }
@@ -249,13 +243,10 @@ class Helper
     public function getTable($identifier)
     {
         list($tableID, $row, $column) = explode(".", $identifier);
-
         $selector = "table#{$tableID} tbody tr:nth-child({$row}) td:nth-child({$column})";
-
         $element = $this->_selenium->byCssSelector(
             $selector
         );
-
         return $element->text();
     }
 

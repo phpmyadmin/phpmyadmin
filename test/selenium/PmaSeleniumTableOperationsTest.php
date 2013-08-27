@@ -26,7 +26,7 @@ class PmaSeleniumTableOperationsTest extends PHPUnit_Extensions_Selenium2TestCas
     /**
      * Helper Object
      *
-     * @var obj
+     * @var Helper
      */
     private $_helper;
 

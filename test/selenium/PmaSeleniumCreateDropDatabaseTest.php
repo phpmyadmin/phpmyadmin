@@ -26,7 +26,7 @@ class PmaSeleniumCreateDropDatabaseTest extends PHPUnit_Extensions_Selenium2Test
     /**
      * Helper Object
      *
-     * @var obj
+     * @var Helper
      */
     private $_helper;
 
