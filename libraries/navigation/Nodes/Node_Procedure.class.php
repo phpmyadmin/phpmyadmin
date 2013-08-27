@@ -40,28 +40,6 @@ class Node_Procedure extends Node
         );
         $this->classes = 'procedure';
     }
-
-    /**
-     * Returns the comment associated with node
-     * This method should be overridden by specific type of nodes
-     *
-     * @return string
-     */
-    public function getComment()
-    {
-        $db    = PMA_Util::sqlAddSlashes(
-            $this->realParent()->real_name
-        );
-        $routine = PMA_Util::sqlAddSlashes(
-            $this->real_name
-        );
-        $query  = "SELECT `ROUTINE_COMMENT` ";
-        $query .= "FROM `INFORMATION_SCHEMA`.`ROUTINES` ";
-        $query .= "WHERE `ROUTINE_SCHEMA`='$db' ";
-        $query .= "AND `ROUTINE_NAME`='$routine' ";
-        $query .= "AND `ROUTINE_TYPE`='PROCEDURE' ";
-        return PMA_DBI_fetch_value($query);
-    }
 }
 
 ?>
