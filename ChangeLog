@@ -1,6 +1,8 @@
 phpMyAdmin - ChangeLog
 ======================
 
+4.0.7.0 (not yet released)
+
 4.0.6.0 (not yet released)
 - bug #4036 Call to undefined function mb_detect_encoding (clarify the doc)
 - bug Missing hints when changing a column's structure
