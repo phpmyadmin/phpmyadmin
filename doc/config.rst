@@ -1875,6 +1875,26 @@ Tabs display settings
     * ``tbl_change.php``
     * ``sql.php``
 
+PDF Options
+-----------
+
+.. config:option:: $cfg['PDFPageSizes']
+
+    :type: array
+    :default: ``array('A3', 'A4', 'A5', 'letter', 'legal')``
+
+    Array of possible paper sizes for creating PDF pages.
+
+    You should never need to change this.
+
+.. config:option:: $cfg['PDFDefaultPageSize']
+
+    :type: string
+    :default: ``'A4'``
+
+    Default page size to use when creating PDF pages. Valid values are any
+    listed in :config:option:`$cfg['PDFPageSizes']`.
+
 Languages
 ---------
 
