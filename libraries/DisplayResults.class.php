@@ -47,6 +47,7 @@ class PMA_DisplayResults
     const DATE_FIELD = 'date';
     const DATETIME_FIELD = 'datetime';
     const TIMESTAMP_FIELD = 'timestamp';
+    const TIME_FIELD = 'time';
     const STRING_FIELD = 'string';
     const GEOMETRY_FIELD = 'geometry';
     const BLOB_FIELD = 'BLOB';
@@ -3892,6 +3893,11 @@ class PMA_DisplayResults
                     );
                     $formatted = true;
                 }
+            } elseif ((substr($meta->type, 0, 9) == self::TIMESTAMP_FIELD)
+                || ($meta->type == self::DATETIME_FIELD)
+                || ($meta->type == self::TIME_FIELD)
+            ) {
+                $column = PMA_Util::addMicroseconds($column);
             }
 
             if ($formatted) {
