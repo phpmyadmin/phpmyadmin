@@ -584,7 +584,7 @@ function PMA_getNullifyCodeForNullColumn($column, $foreigners, $foreignData)
  * @param array   $foreignData           data about the foreign keys
  * @param boolean $odd_row               whether row is odd
  * @param array   $paramTableDbArray     array containing $table and $db
- * @param array   $rownumber             the row number 
+ * @param array   $rownumber             the row number
  * @param array   $titles                An HTML IMG tag for a particular icon from
  *                                       a theme, which may be an actual file or
  *                                       an icon from a sprite
@@ -705,7 +705,7 @@ function PMA_getValueColumn($column, $backup_field, $column_name_appendix,
  * @param integer $idindex              id index
  * @param array   $data                 data to edit
  * @param array   $paramTableDbArray    array containing $table and $db
- * @param array   $rownumber            the row number 
+ * @param array   $rownumber            the row number
  * @param array   $titles               An HTML IMG tag for a particular icon from
  *                                      a theme, which may be an actual file or
  *                                      an icon from a sprite
@@ -811,8 +811,8 @@ function PMA_getTextarea($column, $backup_field, $column_name_appendix,
 
     if ($column['is_char']) {
         /**
-         * @todo clarify the meaning of the "textfield" class and explain 
-         *       why character columns have the "char" class instead 
+         * @todo clarify the meaning of the "textfield" class and explain
+         *       why character columns have the "char" class instead
          */
         $the_class = 'char';
         $textAreaRows = $GLOBALS['cfg']['CharTextareaRows'];
@@ -2427,7 +2427,7 @@ function PMA_verifyWhetherValueCanBeTruncatedAndAppendExtraData(
         . ' WHERE ' . $_REQUEST['where_clause'][0];
 
     $result = $GLOBALS['dbi']->tryQuery(
-        $sql_for_real_value, 0, PMA_DBI_QUERY_STORE, false
+        $sql_for_real_value, 0, PMA_DatabaseInterface::QUERY_STORE, false
     );
     $fields_meta = $GLOBALS['dbi']->getFieldsMeta($result);
     $meta = $fields_meta[0];
