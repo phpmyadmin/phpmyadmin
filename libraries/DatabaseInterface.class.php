@@ -33,6 +33,9 @@ class PMA_DatabaseInterface
      */
     const GETVAR_GLOBAL = 2;
 
+    /**
+     * @var PMA_DBI_Extension
+     */
     private $_extension;
 
     /**
