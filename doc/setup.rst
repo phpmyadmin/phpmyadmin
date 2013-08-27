@@ -43,8 +43,8 @@ Quick Install
    some advanced features.
 
 
-Manualy creating file
----------------------
+Manually creating file
+----------------------
 
 To manually create the file, simply use your text editor to create the
 file :file:`config.inc.php` (you can copy :file:`config.sample.inc.php` to get
