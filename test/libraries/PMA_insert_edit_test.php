@@ -2547,17 +2547,17 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
             ->getMock();
 
         $dbi->expects($this->at(0))
-            ->method('fetchValue')
+            ->method('tryQuery')
             ->with('SELECT `table`.`a` FROM `db`.`table` WHERE 1')
             ->will($this->returnValue(false));
 
-        $dbi->expects($this->at(1))
-            ->method('fetchValue')
+        $dbi->expects($this->at(3))
+            ->method('tryQuery')
             ->with('SELECT `table`.`a` FROM `db`.`table` WHERE 1')
             ->will($this->returnValue('123'));
 
-        $dbi->expects($this->at(2))
-            ->method('fetchValue')
+        $dbi->expects($this->at(6))
+            ->method('tryQuery')
             ->with('SELECT `table`.`a` FROM `db`.`table` WHERE 1')
             ->will($this->returnValue('123'));
 
