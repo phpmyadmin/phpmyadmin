@@ -93,7 +93,7 @@ $forms['Navi_panel']['Navi_tables'] = array(
     'NavigationTreeDefaultTabTable',
     'NavigationTreeTableSeparator',
     'NavigationTreeTableLevel',
-    'ShowTooltip');
+);
 $forms['Main_panel']['Startup'] = array(
     'ShowCreateDb',
     'ShowStats',

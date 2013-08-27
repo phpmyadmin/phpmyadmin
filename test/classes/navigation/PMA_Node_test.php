@@ -442,19 +442,5 @@ class Node_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['dbi'] = $dbi;
         $node->getPresence('', 'dbname');
     }
-
-    /**
-     * SetUp for getComment
-     *
-     * @return void
-     */
-    public function testComment()
-    {
-        // A non-qualified Node shouldn't have a comment
-        $this->assertEquals(
-            PMA_NodeFactory::getInstance()->getComment(),
-            ''
-        );
-    }
 }
 ?>

@@ -1452,14 +1452,6 @@ Navigation panel setup
     The maximum number of recently used tables shown in the navigation
     panel. Set this to 0 (zero) to disable the listing of recent tables.
 
-.. config:option:: $cfg['ShowTooltip']
-
-    :type: boolean
-    :default: true
-
-    Defines whether to display item comments as tooltips in navigation
-    panel or not.
-
 .. config:option:: $cfg['NavigationDisplayLogo']
 
     :type: boolean

@@ -223,33 +223,6 @@ class Node_Table extends Node_DatabaseChild
     }
 
     /**
-     * Returns the comment associated with node
-     * This method should be overridden by specific type of nodes
-     *
-     * @return string
-     */
-    public function getComment()
-    {
-        $db    = $this->realParent()->real_name;
-        $table = PMA_Util::sqlAddSlashes($this->real_name);
-        if (! $GLOBALS['cfg']['Servers'][$GLOBALS['server']]['DisableIS']) {
-            $db     = PMA_Util::sqlAddSlashes($db);
-            $query  = "SELECT `TABLE_COMMENT` ";
-            $query .= "FROM `INFORMATION_SCHEMA`.`TABLES` ";
-            $query .= "WHERE `TABLE_SCHEMA`='$db' ";
-            $query .= "AND `TABLE_NAME`='$table' ";
-            $retval = $GLOBALS['dbi']->fetchValue($query);
-        } else {
-            $db     = PMA_Util::backquote($db);
-            $query  = "SHOW TABLE STATUS FROM $db ";
-            $query .= "WHERE Name = '$table'";
-            $arr = $GLOBALS['dbi']->fetchAssoc($GLOBALS['dbi']->tryQuery($query));
-            $retval = $arr['Comment'];
-        }
-        return $retval;
-    }
-
-    /**
      * Returns the type of the item represented by the node.
      *
      * @return string type of the item

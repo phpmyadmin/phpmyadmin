@@ -922,17 +922,7 @@ class PMA_NavigationTree
                     $retval .= htmlspecialchars($node->name);
                     $retval .= "</a>";
                 } else {
-                    if ($GLOBALS['cfg']['ShowTooltip']) {
-                        $title = $node->getComment();
-                        if ($title) {
-                            $title = ' title="'
-                                . htmlentities($title, ENT_QUOTES, 'UTF-8')
-                                . '"';
-                        }
-                    } else {
-                        $title = '';
-                    }
-                    $retval .= "<a$dblinkclass$linkClass$title href='$link'>";
+                    $retval .= "<a$dblinkclass$linkClass href='$link'>";
                     $retval .= htmlspecialchars($node->real_name);
                     $retval .= "</a>";
                 }

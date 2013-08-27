@@ -937,13 +937,6 @@ $cfg['NavigationTreeTableSeparator'] = '__';
 $cfg['NavigationTreeTableLevel'] = 1;
 
 /**
- * display table comment as tooltip in navigation panel
- *
- * @global boolean $cfg['ShowTooltip']
- */
-$cfg['ShowTooltip'] = true;
-
-/**
  * display logo at top of navigation panel
  *
  * @global boolean $cfg['NavigationDisplayLogo']
