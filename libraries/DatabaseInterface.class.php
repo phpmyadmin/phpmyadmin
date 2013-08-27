@@ -43,7 +43,7 @@ class PMA_DatabaseInterface
      *
      * @param object $ext PMA_DBI_Extension object to be used for database queries
      */
-    public function __construct($ext)
+    public function __construct(PMA_DBI_Extension $ext)
     {
         $this->_extension = $ext;
     }
