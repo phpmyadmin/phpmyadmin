@@ -707,4 +707,111 @@ function PMA_getQueryForDisplayUpdate($disp, $display_field, $db, $table,
 
     return $upd_query;
 }
+
+/**
+ * Function to handle updates for internal relations
+ * 
+ * @param string $destination_db          destination database
+ * @param string $multi_edit_columns_name multi edit column name
+ * @param string $destination_table       destination table
+ * @param string $destination_column      destination column
+ * @param array  $cfgRelation             configuration relation
+ * @param string $db                      current database
+ * @param string $table                   current table
+ * @param array  $existrel                db, table, column
+ * 
+ * @return void
+ */
+function PMA_handleUpdatesForInternalRelations($destination_db,
+    $multi_edit_columns_name, $destination_table, $destination_column, $cfgRelation,
+    $db, $table, $existrel
+) {    
+    foreach ($destination_db as $master_field_md5 => $foreign_db) {
+        $upd_query = PMA_getQueryForInternalRelationUpdate(
+            $multi_edit_columns_name,
+            $master_field_md5, $foreign_db, $destination_table, $destination_column,
+            $cfgRelation, $db, $table, isset($existrel) ? $existrel : null
+        );
+        if ($upd_query) {
+            PMA_queryAsControlUser($upd_query);
+        }
+    }
+}
+
+/**
+ * Function to get update query for updating internal relations
+ * 
+ * @param string $multi_edit_columns_name multi edit column names
+ * @param string $master_field_md5        master field md5
+ * @param string $foreign_db              foreign database
+ * @param string $destination_table       destination table
+ * @param string $destination_column      destination column
+ * @param array  $cfgRelation             configuration relation
+ * @param string $db                      current database
+ * @param string $table                   current table
+ * @param array  $existrel                db, table, column
+ * 
+ * @return string
+ */
+function PMA_getQueryForInternalRelationUpdate($multi_edit_columns_name,
+    $master_field_md5, $foreign_db, $destination_table, $destination_column,
+    $cfgRelation, $db, $table, $existrel
+) {
+    $upd_query = false;
+
+    // Map the fieldname's md5 back to its real name
+    $master_field = $multi_edit_columns_name[$master_field_md5];
+
+    $foreign_table = $destination_table[$master_field_md5];
+    $foreign_field = $destination_column[$master_field_md5];
+    if (! empty($foreign_db)
+        && ! empty($foreign_table)
+        && ! empty($foreign_field)
+    ) {
+        if (! isset($existrel[$master_field])) {
+            $upd_query  = 'INSERT INTO '
+                . PMA_Util::backquote($GLOBALS['cfgRelation']['db'])
+                . '.' . PMA_Util::backquote($cfgRelation['relation'])
+                . '(master_db, master_table, master_field, foreign_db,'
+                . ' foreign_table, foreign_field)'
+                . ' values('
+                . '\'' . PMA_Util::sqlAddSlashes($db) . '\', '
+                . '\'' . PMA_Util::sqlAddSlashes($table) . '\', '
+                . '\'' . PMA_Util::sqlAddSlashes($master_field) . '\', '
+                . '\'' . PMA_Util::sqlAddSlashes($foreign_db) . '\', '
+                . '\'' . PMA_Util::sqlAddSlashes($foreign_table) . '\','
+                . '\'' . PMA_Util::sqlAddSlashes($foreign_field) . '\')';
+
+        } elseif ($existrel[$master_field]['foreign_db'] != $foreign_db
+            || $existrel[$master_field]['foreign_table'] != $foreign_table
+            || $existrel[$master_field]['foreign_field'] != $foreign_field
+        ) {
+            $upd_query  = 'UPDATE '
+                . PMA_Util::backquote($GLOBALS['cfgRelation']['db'])
+                . '.' . PMA_Util::backquote($cfgRelation['relation']) . ' SET'
+                . ' foreign_db       = \''
+                . PMA_Util::sqlAddSlashes($foreign_db) . '\', '
+                . ' foreign_table    = \''
+                . PMA_Util::sqlAddSlashes($foreign_table) . '\', '
+                . ' foreign_field    = \''
+                . PMA_Util::sqlAddSlashes($foreign_field) . '\' '
+                . ' WHERE master_db  = \''
+                . PMA_Util::sqlAddSlashes($db) . '\''
+                . ' AND master_table = \''
+                . PMA_Util::sqlAddSlashes($table) . '\''
+                . ' AND master_field = \''
+                . PMA_Util::sqlAddSlashes($master_field) . '\'';
+        } // end if... else....
+    } elseif (isset($existrel[$master_field])) {
+        $upd_query = 'DELETE FROM '
+            . PMA_Util::backquote($GLOBALS['cfgRelation']['db'])
+            . '.' . PMA_Util::backquote($cfgRelation['relation'])
+            . ' WHERE master_db  = \'' . PMA_Util::sqlAddSlashes($db) . '\''
+            . ' AND master_table = \'' . PMA_Util::sqlAddSlashes($table) . '\''
+            . ' AND master_field = \'' . PMA_Util::sqlAddSlashes($master_field)
+            . '\'';
+    } // end if... else....
+    
+    return $upd_query;
+}
 ?>
