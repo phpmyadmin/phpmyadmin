@@ -146,7 +146,8 @@ class PmaSeleniumTableCreateTest extends PHPUnit_Extensions_Selenium2TestCase
         $this->assertFalse(
             $this->_helper->isElementPresent(
                 'byCssSelector',
-                'table#tablestructure tbody tr:nth-child(1) ul.table-structure-actions li.primary a'
+                'table#tablestructure tbody tr:nth-child(1) "
+                . "ul.table-structure-actions li.primary a'
             )
         );
 
@@ -178,7 +179,8 @@ class PmaSeleniumTableCreateTest extends PHPUnit_Extensions_Selenium2TestCase
 
         $this->assertFalse(
             $this->_helper->isElementPresent(
-                'byCssSelector', 'css=ul.table-structure-actions:nth-child(2) li.primary a'
+                'byCssSelector',
+                'css=ul.table-structure-actions:nth-child(2) li.primary a'
             )
         );
     }

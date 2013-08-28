@@ -89,12 +89,13 @@ class PmaSeleniumDbStructureTest extends PHPUnit_Extensions_Selenium2TestCase
         $this->_helper->waitForElement(
             "byXPath",
             "//button[contains(., 'OK')]"
-            )->click();
+        )->click();
 
         $this->assertNotNull(
             $this->_helper->waitForElement(
                 "byXPath",
-                "//div[@class='success' and contains(., 'MySQL returned an empty result')]"
+                "//div[@class='success' and contains(., "
+                . "'MySQL returned an empty result')]"
             )
         );
 

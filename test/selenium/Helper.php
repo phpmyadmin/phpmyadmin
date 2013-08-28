@@ -209,6 +209,14 @@ class Helper
         return $browserString;
     }
 
+    /**
+     * Wait for an element to be present on the page
+     *
+     * @param string $func Locate using - byCss, byXPath, etc
+     * @param string $arg  Selector
+     *
+     * @return PHPUnit_Extensions_Selenium2TestCase_Element  Element waited for
+     */
     public function waitForElement($func, $arg)
     {
         $this->_selenium->timeouts()->implicitWait(10000);
@@ -219,18 +227,32 @@ class Helper
         return $element;
     }
 
+    /**
+     * Wait for an element to disappear
+     *
+     * @param string $func Locate using - byCss, byXPath, etc
+     * @param string $arg  Selector
+     *
+     * @return bool Whether or not the element disappeared
+     */
     public function waitForElementNotPresent($func, $arg)
     {
-        while(true)
-        {
+        while (true) {
             if (!$this->isElementPresent($func, $arg)) {
                 return true;
             }
-
             usleep(100);
         }
     }
 
+    /**
+     * Check if element is present or not
+     *
+     * @param string $func Locate using - byCss, byXPath, etc
+     * @param string $arg  Selector
+     *
+     * @return bool Whether or not the element is present
+     */
     public function isElementPresent($func, $arg)
     {
         try {
@@ -246,19 +268,33 @@ class Helper
         return true;
     }
 
+    /**
+     * Get table cell data
+     *
+     * @param string $identifier Identifier: tableId.row.column
+     *
+     * @return text Data from the particular table cell
+     */
     public function getTable($identifier)
     {
         list($tableID, $row, $column) = explode(".", $identifier);
 
-        $selector = "table#{$tableID} tbody tr:nth-child({$row}) td:nth-child({$column})";
+        $sel = "table#{$tableID} tbody tr:nth-child({$row}) td:nth-child({$column})";
 
         $element = $this->_selenium->byCssSelector(
-            $selector
+            $sel
         );
 
         return $element->text();
     }
 
+    /**
+     * Type text in textarea (CodeMirror enabled)
+     *
+     * @param string $text Text to type
+     *
+     * @return void
+     */
     public function typeInTextArea($text)
     {
         $text = str_replace(

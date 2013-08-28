@@ -116,7 +116,8 @@ class PmaSeleniumTableOperationsTest extends PHPUnit_Extensions_Selenium2TestCas
      */
     public function testMoveTable()
     {
-        $this->byCssSelector("form#moveTableForm input[name='new_name']")->value("2");
+        $this->byCssSelector("form#moveTableForm input[name='new_name']")
+            ->value("2");
 
         $this->byXPath("(//input[@value='Go'])[2]")->click();
 

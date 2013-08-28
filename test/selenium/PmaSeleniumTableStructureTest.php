@@ -89,7 +89,8 @@ class PmaSeleniumTableStructureTest extends PHPUnit_Extensions_Selenium2TestCase
 
         $this->_helper->waitForElement(
             "byXPath",
-            "//div[@class='success' and contains(., 'Table test_table has been altered successfully')]"
+            "//div[@class='success' and contains(., "
+            . "'Table test_table has been altered successfully')]"
         );
 
         $this->byLinkText("Structure")->click();
@@ -124,7 +125,8 @@ class PmaSeleniumTableStructureTest extends PHPUnit_Extensions_Selenium2TestCase
 
         $this->_helper->waitForElement(
             "byXPath",
-            "//div[@class='success' and contains(., 'Table test_table has been altered successfully')]"
+            "//div[@class='success' and contains(., "
+            . "'Table test_table has been altered successfully')]"
         );
 
         $this->assertEquals(
@@ -142,16 +144,18 @@ class PmaSeleniumTableStructureTest extends PHPUnit_Extensions_Selenium2TestCase
     {
         $this->byCssSelector('label[for=checkbox_row_2]')->click();
         $this->byCssSelector('label[for=checkbox_row_3]')->click();
-        $this->byXPath("//button[@class='mult_submit' and contains(., 'Drop')]")->click();
+        $this->byXPath(
+            "//button[@class='mult_submit' and contains(., 'Drop')]"
+        )->click();
 
         $this->_helper->waitForElement(
             "byCssSelector", "input[id='buttonYes']"
-            )
-            ->click();
+        )->click();
 
         $this->_helper->waitForElement(
             "byXPath",
-            "//div[@class='success' and contains(., 'Your SQL query has been executed successfully')]"
+            "//div[@class='success' and contains(., "
+            . "'Your SQL query has been executed successfully')]"
         );
 
         $this->assertFalse(
