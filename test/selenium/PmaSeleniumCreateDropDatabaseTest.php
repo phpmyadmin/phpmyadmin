@@ -38,8 +38,6 @@ class PmaSeleniumCreateDropDatabaseTest extends PHPUnit_Extensions_Selenium2Test
     public function setUp()
     {
         $this->_helper = new Helper($this);
-        // $this->setHost("http://phpMyAdmin:x2daRszTynrLnKaLAAqr@hub.browserstack.com");
-        // $this->setPort(8080);
         $this->setBrowser($this->_helper->getBrowserString());
         $this->setBrowserUrl(TESTSUITE_PHPMYADMIN_HOST . TESTSUITE_PHPMYADMIN_URL);
 
