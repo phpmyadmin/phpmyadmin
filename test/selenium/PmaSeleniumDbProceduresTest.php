@@ -102,14 +102,14 @@ class PmaSeleniumDbProceduresTest extends PHPUnit_Extensions_Selenium2TestCase
         $this->byName("item_param_name[0]")->value("inp");
         $this->select(
             $this->byName("item_param_type[0]")
-            )->selectOptionByLabel("VARCHAR");
+        )->selectOptionByLabel("VARCHAR");
         $this->byName("item_param_length[0]")->value("10");
 
         $this->byCssSelector("input[value='Add parameter']")->click();
 
         $this->select(
             $this->byName("item_param_dir[1]")
-            )->selectOptionByLabel("OUT");
+        )->selectOptionByLabel("OUT");
         $ele = $this->_helper->waitForElement("byName", "item_param_name[1]");
         $ele->value("outp");
 
@@ -118,13 +118,14 @@ class PmaSeleniumDbProceduresTest extends PHPUnit_Extensions_Selenium2TestCase
 
         $this->select(
             $this->byName("item_sqldataaccess")
-            )->selectOptionByLabel("READS SQL DATA");
+        )->selectOptionByLabel("READS SQL DATA");
 
         $this->byXPath("//button[contains(., 'Go')]")->click();
 
         $ele = $this->_helper->waitForElement(
             "byXPath",
-            "//div[@class='success' and contains(., 'Routine `test_procedure` has been created')]"
+            "//div[@class='success' and contains(., "
+            . "'Routine `test_procedure` has been created')]"
         );
 
         $result = $this->_helper->dbQuery(
@@ -162,7 +163,8 @@ class PmaSeleniumDbProceduresTest extends PHPUnit_Extensions_Selenium2TestCase
 
         $ele = $this->_helper->waitForElement(
             "byXPath",
-            "//div[@class='success' and contains(., 'Routine `test_procedure` has been modified')]"
+            "//div[@class='success' and contains(., "
+            . "'Routine `test_procedure` has been modified')]"
         );
 
         $this->_executeProcedure("abcabcabcabcabcabcabc", 12);
@@ -189,7 +191,7 @@ class PmaSeleniumDbProceduresTest extends PHPUnit_Extensions_Selenium2TestCase
         $this->byLinkText("Drop")->click();
         $this->_helper->waitForElement(
             "byXPath", "//button[contains(., 'OK')]"
-            )->click();
+        )->click();
 
         $this->_helper->waitForElement("byId", "nothing2display");
 
@@ -202,6 +204,9 @@ class PmaSeleniumDbProceduresTest extends PHPUnit_Extensions_Selenium2TestCase
 
     /**
      * Execute procedure
+     *
+     * @param string $text   String to pass as inp param
+     * @param int    $length Expected output length
      *
      * @return void
      */
