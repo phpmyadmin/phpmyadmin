@@ -803,6 +803,11 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
         $this->assertEquals($expected, $this->object->getCookiePath());
     }
 
+    /**
+     * Data provider for testGetCookiePath
+     *
+     * @return array data for testGetCookiePath
+     */
     public function cookieUris()
     {
         return array(

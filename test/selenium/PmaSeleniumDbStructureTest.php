@@ -26,7 +26,7 @@ class PmaSeleniumDbStructureTest extends PHPUnit_Extensions_Selenium2TestCase
     /**
      * Helper Object
      *
-     * @var obj
+     * @var Helper
      */
     private $_helper;
 

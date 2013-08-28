@@ -35,7 +35,7 @@ class PmaSeleniumCreateRemoveUserTest extends PHPUnit_Extensions_Selenium2TestCa
     /**
      * Helper Object
      *
-     * @var obj
+     * @var Helper
      */
     private $_helper;
 

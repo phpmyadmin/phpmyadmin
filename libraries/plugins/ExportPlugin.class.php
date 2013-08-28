@@ -23,9 +23,10 @@ require_once 'PluginObserver.class.php';
 abstract class ExportPlugin extends PluginObserver
 {
     /**
-     * Array containing the specific export plugin type properties
+     * ExportPluginProperties object containing
+     * the specific export plugin type properties
      *
-     * @var array
+     * @var ExportPluginProperties
      */
     protected $properties;
 

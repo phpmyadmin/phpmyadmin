@@ -11,6 +11,20 @@
  */
 require_once 'libraries/insert_edit.lib.php';
 
+require_once 'libraries/database_interface.inc.php';
+require_once 'libraries/Util.class.php';
+require_once 'libraries/url_generating.lib.php';
+require_once 'libraries/php-gettext/gettext.inc';
+require_once 'libraries/Types.class.php';
+require_once 'libraries/js_escape.lib.php';
+require_once 'libraries/relation.lib.php';
+require_once 'libraries/Message.class.php';
+require_once 'libraries/transformations.lib.php';
+require_once 'libraries/Theme.class.php';
+require_once 'libraries/Response.class.php';
+require_once 'libraries/sanitizing.lib.php';
+require_once 'libraries/Table.class.php';
+
 /**
  * Tests for libraries/insert_edit.lib.php
  *
@@ -26,6 +40,16 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
     public function setup()
     {
         $GLOBALS['server'] = 1;
+        $_SESSION['PMA_Theme'] = PMA_Theme::load('./themes/pmahomme');
+        $GLOBALS['pmaThemeImage'] = 'theme/';
+        $GLOBALS['PMA_PHP_SELF'] = 'index.php';
+        $GLOBALS['cfg']['ServerDefault'] = 1;
+        $GLOBALS['available_languages']= array(
+            "en" => array("English", "US-ENGLISH")
+        );
+        $GLOBALS['text_dir'] = 'ltr';
+        $GLOBALS['db'] = 'db';
+        $GLOBALS['table'] = 'table';
     }
 
     /**
@@ -2540,6 +2564,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
     public function testVerifyWhetherValueCanBeTruncatedAndAppendExtraData()
     {
         $extra_data = array('isNeedToRecheck' => true);
+        $meta = new stdClass();
         $_REQUEST['where_clause'][0] = 1;
 
         $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
@@ -2548,18 +2573,42 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
 
         $dbi->expects($this->at(0))
             ->method('tryQuery')
-            ->with('SELECT `table`.`a` FROM `db`.`table` WHERE 1')
+            ->with('SELECT `table`.`a` FROM `db`.`table` WHERE 1');
+
+        $meta->type = 'int';
+        $dbi->expects($this->at(1))
+            ->method('getFieldsMeta')
+            ->will($this->returnValue(array($meta)));
+
+        $dbi->expects($this->at(2))
+            ->method('fetchValue')
             ->will($this->returnValue(false));
 
         $dbi->expects($this->at(3))
             ->method('tryQuery')
-            ->with('SELECT `table`.`a` FROM `db`.`table` WHERE 1')
+            ->with('SELECT `table`.`a` FROM `db`.`table` WHERE 1');
+
+        $meta->type = 'int';
+        $dbi->expects($this->at(4))
+            ->method('getFieldsMeta')
+            ->will($this->returnValue(array($meta)));
+
+        $dbi->expects($this->at(5))
+            ->method('fetchValue')
             ->will($this->returnValue('123'));
 
         $dbi->expects($this->at(6))
             ->method('tryQuery')
-            ->with('SELECT `table`.`a` FROM `db`.`table` WHERE 1')
-            ->will($this->returnValue('123'));
+            ->with('SELECT `table`.`a` FROM `db`.`table` WHERE 1');
+
+        $meta->type = 'timestamp';
+        $dbi->expects($this->at(7))
+            ->method('getFieldsMeta')
+            ->will($this->returnValue(array($meta)));
+
+        $dbi->expects($this->at(8))
+            ->method('fetchValue')
+            ->will($this->returnValue('2013-08-28 06:34:14'));
 
         $GLOBALS['dbi'] = $dbi;
 
@@ -2574,6 +2623,15 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         );
 
         $this->assertEquals('123', $extra_data['truncatableFieldValue']);
+        $this->assertTrue($extra_data['isNeedToRecheck']);
+
+        PMA_verifyWhetherValueCanBeTruncatedAndAppendExtraData(
+            'db', 'table', 'a', $extra_data
+        );
+
+        $this->assertEquals(
+            '2013-08-28 06:34:14.000000', $extra_data['truncatableFieldValue']
+        );
         $this->assertTrue($extra_data['isNeedToRecheck']);
     }
 
