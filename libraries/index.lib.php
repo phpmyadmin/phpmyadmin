@@ -19,7 +19,9 @@ require_once 'libraries/Index.class.php';
  */
 function PMA_getHtmlForDisplayIndexes()
 {
-    $html_output = PMA_Util::getDivForSliderEffect(
+    $html_output = '<div id="index_div" class="ajax" >';
+    
+    $html_output .= PMA_Util::getDivForSliderEffect(
         'indexes', __('Indexes')
     );
     $html_output .= PMA_Index::getView($GLOBALS['table'], $GLOBALS['db']);
