@@ -171,7 +171,7 @@ class PmaSeleniumTableBrowseTest extends PHPUnit_Extensions_Selenium2TestCase
     {
         $this->byCssSelector(
             "table#table_results tbody tr:nth-child(2) td:nth-child(2) a"
-            )->click();
+        )->click();
         $this->_helper->waitForElement("byId", "insertForm");
 
         $this->assertEquals(
@@ -253,7 +253,7 @@ class PmaSeleniumTableBrowseTest extends PHPUnit_Extensions_Selenium2TestCase
     {
         $this->byCssSelector(
             "table#table_results tbody tr:nth-child(3) td:nth-child(3) a"
-            )->click();
+        )->click();
 
         $this->_helper->waitForElement("byId", "insertForm");
 

@@ -93,7 +93,7 @@ class PmaSeleniumDbOperationsTest extends PHPUnit_Extensions_Selenium2TestCase
 
         $this->_helper->waitForElement(
             "byXPath", "//button[contains(., 'OK')]"
-            )->click();
+        )->click();
 
         $this->_helper->waitForElement(
             "byXPath",

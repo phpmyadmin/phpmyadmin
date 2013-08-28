@@ -51,7 +51,8 @@ class PmaSeleniumDbTriggersTest extends PHPUnit_Extensions_Selenium2TestCase
             . " PRIMARY KEY (`id`)"
             . ")"
         );
-         $this->_helper->dbQuery(
+
+        $this->_helper->dbQuery(
             "CREATE TABLE `test_table2` ("
             . " `id` int(11) NOT NULL AUTO_INCREMENT,"
             . " `val` int(11) NOT NULL,"
@@ -123,7 +124,8 @@ class PmaSeleniumDbTriggersTest extends PHPUnit_Extensions_Selenium2TestCase
 
         $ele = $this->_helper->waitForElement(
             "byXPath",
-            "//div[@class='success' and contains(., 'Trigger `test_trigger` has been created')]"
+            "//div[@class='success' and contains(., "
+            . "'Trigger `test_trigger` has been created')]"
         );
 
         $this->assertTrue(
@@ -172,7 +174,8 @@ class PmaSeleniumDbTriggersTest extends PHPUnit_Extensions_Selenium2TestCase
 
         $ele = $this->_helper->waitForElement(
             "byXPath",
-            "//div[@class='success' and contains(., 'Trigger `test_trigger` has been modified')]"
+            "//div[@class='success' and contains(., "
+            . "'Trigger `test_trigger` has been modified')]"
         );
 
         // test trigger
@@ -203,7 +206,7 @@ class PmaSeleniumDbTriggersTest extends PHPUnit_Extensions_Selenium2TestCase
         $this->byLinkText("Drop")->click();
         $this->_helper->waitForElement(
             "byXPath", "//button[contains(., 'OK')]"
-            )->click();
+        )->click();
 
         $this->_helper->waitForElement("byId", "nothing2display");
 
