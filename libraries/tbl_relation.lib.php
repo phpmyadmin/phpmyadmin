@@ -257,7 +257,7 @@ function PMA_getHtmlForRow($save_row, $i, $odd_row, $cfgRelation, $existrel, $db
 ) {
     $myfield = $save_row[$i]['Field'];
     // Use an md5 as array index to avoid having special characters
-    // in the name atttibure (see bug #1746964 )
+    // in the name attribute (see bug #1746964 )
     $myfield_md5 = md5($myfield);
     $myfield_html = htmlspecialchars($myfield);
 
@@ -573,7 +573,7 @@ function PMA_getHtmlForForeignKey($save_row, $i, $existrel_foreign, $myfield, $d
 function PMA_sendHtmlForTableOrColumnDropdownList()
 {
     if (isset($_REQUEST['foreignTable'])) { // if both db and table are selected
-        PMA_sendHtmlForColumnDorpdownList();
+        PMA_sendHtmlForColumnDropdownList();
     } else { // if only the db is selected
         PMA_sendHtmlForTableDropdownList();
     }
@@ -585,7 +585,7 @@ function PMA_sendHtmlForTableOrColumnDropdownList()
  * 
  * @return void
  */
-function PMA_sendHtmlForColumnDorpdownList()
+function PMA_sendHtmlForColumnDropdownList()
 {
     $response = PMA_Response::getInstance();
     
