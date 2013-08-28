@@ -814,4 +814,133 @@ function PMA_getQueryForInternalRelationUpdate($multi_edit_columns_name,
     
     return $upd_query;
 }
+
+/**
+ * Function to handle foreign key updates
+ * 
+ * @param string $destination_foreign_db     destination foreign database
+ * @param string $multi_edit_columns_name    multi edit column names
+ * @param string $destination_foreign_table  destination foreign table
+ * @param string $destination_foreign_column destination foreign column
+ * @param array  $options_array              options array
+ * @param string $table                      current table
+ * @param array  $existrel_foreign           db, table, column
+ * 
+ * @return void
+ */
+function PMA_handleUpdatesForForeignKeys($destination_foreign_db,
+    $multi_edit_columns_name, $destination_foreign_table,
+    $destination_foreign_column, $options_array, $table, $existrel_foreign
+ ) {
+    $display_query = '';
+    $seen_error = false;
+    foreach ($destination_foreign_db as $master_field_md5 => $foreign_db) {
+        $create = false;
+        $drop = false;
+
+        // Map the fieldname's md5 back to it's real name
+        $master_field = $multi_edit_columns_name[$master_field_md5];
+
+        $foreign_table = $destination_foreign_table[$master_field_md5];
+        $foreign_field = $destination_foreign_column[$master_field_md5];
+        if (! empty($foreign_db)
+            && ! empty($foreign_table)
+            && ! empty($foreign_field)
+        ) {
+            if (! isset($existrel_foreign[$master_field])) {
+                // no key defined for this field
+                $create = true;
+            } elseif ($existrel_foreign[$master_field]['foreign_db'] != $foreign_db
+                || $existrel_foreign[$master_field]['foreign_table'] != $foreign_table
+                || $existrel_foreign[$master_field]['foreign_field'] != $foreign_field
+                || $_REQUEST['constraint_name'][$master_field_md5] != $existrel_foreign[$master_field]['constraint']
+                || ($_REQUEST['on_delete'][$master_field_md5] != (! empty($existrel_foreign[$master_field]['on_delete']) ? $existrel_foreign[$master_field]['on_delete'] : 'RESTRICT'))
+                || ($_REQUEST['on_update'][$master_field_md5] != (! empty($existrel_foreign[$master_field]['on_update']) ? $existrel_foreign[$master_field]['on_update'] : 'RESTRICT'))
+            ) {
+                // another foreign key is already defined for this field
+                // or an option has been changed for ON DELETE or ON UPDATE
+                $drop = true;
+                $create = true;
+            } // end if... else....
+        } elseif (isset($existrel_foreign[$master_field])) {
+            $drop = true;
+        } // end if... else....
+
+        $tmp_error_drop = false;
+        if ($drop) {
+            $drop_query = PMA_getSQLToDropForeignKey(
+                $table, $existrel_foreign[$master_field]['constraint']
+            );
+            $display_query .= $drop_query . "\n";
+            $GLOBALS['dbi']->tryQuery($drop_query);
+            $tmp_error_drop = $GLOBALS['dbi']->getError();
+
+            if (! empty($tmp_error_drop)) {
+                $seen_error = true;
+                $html_output .= PMA_Util::mysqlDie(
+                    $tmp_error_drop, $drop_query, false, '', false
+                );
+                continue;
+            }
+        }
+        $tmp_error_create = false;
+        if ($create) {
+            $create_query = PMA_getSQLToCreateForeignKey(
+                $table, $master_field, $foreign_db, $foreign_table, $foreign_field,
+                $_REQUEST['constraint_name'][$master_field_md5],
+                $options_array[$_REQUEST['on_delete'][$master_field_md5]],
+                $options_array[$_REQUEST['on_update'][$master_field_md5]]
+            );
+
+            $display_query .= $create_query . "\n";
+            $GLOBALS['dbi']->tryQuery($create_query);
+            $tmp_error_create = $GLOBALS['dbi']->getError();
+            if (! empty($tmp_error_create)) {
+                $seen_error = true;
+
+                if (substr($tmp_error_create, 1, 4) == '1005') {
+                    $message = PMA_Message::error(
+                        __('Error creating foreign key on %1$s (check data types)')
+                    );
+                    $message->addParam($master_field);
+                    $message->display();
+                } else {
+                    $html_output .= PMA_Util::mysqlDie(
+                        $tmp_error_create, $create_query, false, '', false
+                    );
+                }
+                $html_output .= PMA_Util::showMySQLDocu(
+                    'InnoDB_foreign_key_constraints'
+                ) . "\n";
+            }
+
+            // this is an alteration and the old constraint has been dropped
+            // without creation of a new one
+            if ($drop && $create && empty($tmp_error_drop)
+                && ! empty($tmp_error_create)
+            ) {
+                // a rollback may be better here
+                $sql_query_recreate = '# Restoring the dropped constraint...' . "\n";
+                $sql_query_recreate .= PMA_getSQLToCreateForeignKey(
+                    $table,
+                    $master_field,
+                    $existrel_foreign[$master_field]['foreign_db'],
+                    $existrel_foreign[$master_field]['foreign_table'],
+                    $existrel_foreign[$master_field]['foreign_field'],
+                    $existrel_foreign[$master_field]['constraint'],
+                    $options_array[$existrel_foreign[$master_field]['on_delete']],
+                    $options_array[$existrel_foreign[$master_field]['on_update']]
+                );
+                $display_query .= $sql_query_recreate . "\n";
+                $GLOBALS['dbi']->tryQuery($sql_query_recreate);
+            }
+        }
+    } // end foreach
+    if (! empty($display_query) && ! $seen_error) {
+        $html_output .= PMA_Util::getMessage(
+            __('Your SQL query has been executed successfully'),
+            null, 'success'
+        );
+    }
+}
 ?>
