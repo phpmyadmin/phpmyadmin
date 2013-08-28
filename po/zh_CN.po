@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-08-18 06:16-0400\n"
-"PO-Revision-Date: 2013-08-28 09:03+0200\n"
+"PO-Revision-Date: 2013-08-28 12:27+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: Simplified Chinese "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/zh_CN/>\n"
@@ -4809,19 +4809,17 @@ msgid ""
 "Configure phpMyAdmin configuration storage to gain access to additional "
 "features, see [doc@linked-tables]phpMyAdmin configuration storage[/doc] in "
 "documentation"
-msgstr ""
-"配置 phpMyAdmin 高级功能，参见文档[doc@linked-tables]phpMyAdmin 高级功能[/"
-"doc]"
+msgstr "设置 phpMyAdmin 高级功能以获得更多功能，参见文档 [doc@linked-tables]phpMyAdmin 高级功能[/doc]"
 
 #: libraries/config/messages.inc.php:207
 msgid "Changes tracking"
-msgstr "修改追踪"
+msgstr "追踪变化"
 
 #: libraries/config/messages.inc.php:208
 msgid ""
 "Tracking of changes made in database. Requires the phpMyAdmin configuration "
 "storage."
-msgstr "追踪数据库的修改。需要 phpMyAdmin 高级功能。"
+msgstr "追踪数据库的改变。需要 phpMyAdmin 高级功能。"
 
 #: libraries/config/messages.inc.php:209
 msgid "Customize export options"
@@ -4850,7 +4848,7 @@ msgstr "SQL 查询框"
 
 #: libraries/config/messages.inc.php:217
 msgid "Customize links shown in SQL Query boxes"
-msgstr "自定义显示在 SQL 查询框中的链接"
+msgstr "自定义在 SQL 查询框中显示的链接"
 
 #: libraries/config/messages.inc.php:220
 msgid "SQL queries settings"
@@ -4867,17 +4865,17 @@ msgid ""
 "strong].[br][em][a@http://sqlvalidator.mimer.com/]Mimer SQL Validator[/a], "
 "Copyright 2002 Upright Database Technology. All rights reserved.[/em]"
 msgstr ""
-"若要使用 SQL 校验服务，请注意[strong]所有 SQL 语句将出于统计目的而被匿名存储"
-"[/strong]。[br][em][a@http://sqlvalidator.mimer.com/]Mimer SQL 校验器[/a]，版"
-"权所有 2002 Upright Database Technology. 保留所有权利。[/em]"
+"若您想使用 SQL 校验服务，请注意[strong]所有 SQL "
+"语句将出于统计目的而被匿名存储[/strong]。[br][em][a@http://sqlvalidator.mimer.com/]Mimer SQL "
+"校验器[/a]，版权所有 2002 Upright Database Technology. 保留所有权利。[/em]"
 
 #: libraries/config/messages.inc.php:223
 msgid "Startup"
-msgstr "起始页"
+msgstr "首页"
 
 #: libraries/config/messages.inc.php:224
 msgid "Customize startup page"
-msgstr "自定义起始页"
+msgstr "自定义首页"
 
 #: libraries/config/messages.inc.php:225
 msgid "Database structure"
@@ -4885,7 +4883,7 @@ msgstr "数据库结构"
 
 #: libraries/config/messages.inc.php:226
 msgid "Choose which details to show in the database structure (list of tables)"
-msgstr "选择在数据库结构（表列表）中显示哪些细节"
+msgstr "设置在数据库结构（表列表）中显示哪些细节"
 
 #: libraries/config/messages.inc.php:227
 msgid "Table structure"
@@ -4901,7 +4899,7 @@ msgstr "标签"
 
 #: libraries/config/messages.inc.php:230
 msgid "Choose how you want tabs to work"
-msgstr "选择你想让标签怎样工作"
+msgstr "设置您希望的标签行为"
 
 #: libraries/config/messages.inc.php:231
 msgid "Text fields"
@@ -4927,9 +4925,7 @@ msgstr "禁止部分 phpMyAdmin 发出的警告"
 msgid ""
 "Enable [a@http://en.wikipedia.org/wiki/Gzip]gzip[/a] compression for import "
 "and export operations"
-msgstr ""
-"允许在导入和导出时使用 [a@http://en.wikipedia.org/wiki/Gzip]gzip (外链，英文)"
-"[/a] 压缩"
+msgstr "允许在导入和导出时使用 [a@http://zh.wikipedia.org/wiki/Gzip]gzip[/a] 压缩"
 
 #: libraries/config/messages.inc.php:238
 msgid "GZip"
@@ -4943,22 +4939,18 @@ msgstr "iconv 的额外参数"
 msgid ""
 "If enabled, phpMyAdmin continues computing multiple-statement queries even "
 "if one of the queries failed"
-msgstr ""
-"如果打开此选项，在执行多语句查询的时候，即使有一条或多条语句发生错误，"
-"phpMyAdmin 也会继续执行其他的语句"
+msgstr "若启用，在执行多语句查询时即使有错误发生，phpMyAdmin 也会继续执行其它语句"
 
 #: libraries/config/messages.inc.php:241
 msgid "Ignore multiple statement errors"
-msgstr "忽略多个语句错误"
+msgstr "忽略多语句查询中的错误"
 
 #: libraries/config/messages.inc.php:242
 msgid ""
 "Allow interrupt of import in case script detects it is close to time limit. "
 "This might be a good way to import large files, however it can break "
 "transactions."
-msgstr ""
-"该功能作用于在导入时脚本检测到可能需要花费很长时间。尽管这会中断事务，但在导"
-"入大文件时是个很好的方法。"
+msgstr "允许脚本在即将超时时中断导入。尽管这样会中断事务，但在导入大文件时也许是个好方法。"
 
 #: libraries/config/messages.inc.php:243
 msgid "Partial import: allow interrupt"
@@ -4968,12 +4960,12 @@ msgstr "部分导入：允许中断"
 #: libraries/plugins/import/ImportCsv.class.php:89
 #: libraries/plugins/import/ImportLdi.class.php:71
 msgid "Do not abort on INSERT error"
-msgstr "不在发生插入错误时中断"
+msgstr "忽略插入错误"
 
 #: libraries/config/messages.inc.php:249 libraries/config/messages.inc.php:257
 #: libraries/plugins/import/AbstractImportCsv.class.php:55
 msgid "Replace table data with file"
-msgstr "将表的数据用此文件替换"
+msgstr "替换表的数据"
 
 #: libraries/config/messages.inc.php:251
 msgid ""
