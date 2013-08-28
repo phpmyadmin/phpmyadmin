@@ -7,7 +7,7 @@
  */
 
 /**
- *
+ * include common file
  */
 require_once 'libraries/common.inc.php';
 
@@ -32,15 +32,6 @@ if ((empty($_REQUEST['viewing_mode']) || $_REQUEST['viewing_mode'] != 'db')
 ) {
     $response->addHTML('<div>');
     $response->addHTML(PMA_getHtmlForSubMenusOnUsersPage('server_privileges.php'));
-}
-
-$_add_user_error = false;
-
-if (isset ($_REQUEST['username'])) {
-    $username = $_REQUEST['username'];
-}
-if (isset ($_REQUEST['hostname'])) {
-    $hostname = $_REQUEST['hostname'];
 }
 
 /**
@@ -92,7 +83,7 @@ $strPrivDescMaxQuestions = __(
     'Limits the number of queries the user may send to the server per hour.'
 );
 $strPrivDescMaxUpdates = __(
-    'Limits the number of commands that change any table or database ' 
+    'Limits the number of commands that change any table or database '
     . 'the user may execute per hour.'
 );
 $strPrivDescMaxUserConnections = __(
@@ -112,20 +103,23 @@ $strPrivDescShowDb = __('Gives access to the complete list of databases.');
 $strPrivDescShowView = __('Allows performing SHOW CREATE VIEW queries.');
 $strPrivDescShutdown = __('Allows shutting down the server.');
 $strPrivDescSuper = __(
-    'Allows connecting, even if maximum number of connections is reached; ' 
-    . 'required for most administrative operations like setting global variables ' 
+    'Allows connecting, even if maximum number of connections is reached; '
+    . 'required for most administrative operations like setting global variables '
     . 'or killing threads of other users.'
 );
 $strPrivDescTrigger = __('Allows creating and dropping triggers');
 $strPrivDescUpdate = __('Allows changing data.');
 $strPrivDescUsage = __('No privileges.');
 
-
+$_add_user_error = false;
 /**
- * Get DB information: dbname, tablename, db_and_table, dbname_is_wildcard
+ * Get DB information: username, hostname, dbname,
+ * tablename, db_and_table, dbname_is_wildcard
  */
-list($dbname, $tablename, $db_and_table, $dbname_is_wildcard) 
-    = PMA_getDataForDBInfo();
+list(
+    $username, $hostname, $dbname, $tablename,
+    $db_and_table, $dbname_is_wildcard
+) = PMA_getDataForDBInfo();
 
 /**
  * Checks if the user is allowed to do what he tries to...
@@ -140,15 +134,15 @@ if (! $is_superuser) {
  * Changes / copies a user, part I
  */
 list($queries, $password) = PMA_getDataForChangeOrCopyUser();
-    
+
 /**
  * Adds a user
  *   (Changes / copies a user, part II)
- */ 
-list($ret_message, $ret_queries, $queries_for_display, $sql_query, $_add_user_error) 
+ */
+list($ret_message, $ret_queries, $queries_for_display, $sql_query, $_add_user_error)
     = PMA_addUser(
-        isset($dbname)? $dbname : null, 
-        isset($username)? $username : null, 
+        isset($dbname)? $dbname : null,
+        isset($username)? $username : null,
         isset($hostname)? $hostname : null,
         isset($password)? $password : null,
         $cfgRelation['menuswork']
@@ -239,8 +233,8 @@ if (isset($_REQUEST['change_copy'])) {
  * Reloads the privilege tables into memory
  */
 $message_ret = PMA_updateMessageForReload();
-if (isset($message_ret)) { 
-    $message = $message_ret; 
+if (isset($message_ret)) {
+    $message = $message_ret;
     unset($message_ret);
 }
 
@@ -302,7 +296,7 @@ if (isset($_REQUEST['viewing_mode']) && $_REQUEST['viewing_mode'] == 'db') {
  */
 $response->addHTML(
     PMA_getHtmlForUserGroupDialog(
-        isset($username)? $username : null, 
+        isset($username)? $username : null,
         $cfgRelation['menuswork']
     )
 );

@@ -2526,7 +2526,8 @@ function PMA_getHtmlForDisplaySelectDbInEditPrivs($found_rows)
         }
         $html_output .= '</select>' . "\n";
     }
-    $html_output .= '<input type="text" id="text_dbname" name="dbname" required />' . "\n"
+    $html_output .= '<input type="text" id="text_dbname" name="dbname" required />'
+        . "\n"
         . PMA_Util::showHint(
             __('Wildcards % and _ should be escaped with a \ to use them literally.')
         );
@@ -3281,11 +3282,19 @@ function PMA_addUser(
  */
 function PMA_getDataForDBInfo()
 {
+    $username = null;
+    $hostname = null;
     $dbname = null;
     $tablename = null;
     $db_and_table = null;
     $dbname_is_wildcard = null;
 
+    if (isset ($_REQUEST['username'])) {
+        $username = $_REQUEST['username'];
+    }
+    if (isset ($_REQUEST['hostname'])) {
+        $hostname = $_REQUEST['hostname'];
+    }
     /**
      * Checks if a dropdown box has been used for selecting a database / table
      */
@@ -3330,6 +3339,7 @@ function PMA_getDataForDBInfo()
     }
 
     return array(
+        $username, $hostname,
         isset($dbname)? $dbname : null,
         isset($tablename)? $tablename : null,
         $db_and_table,
@@ -3785,7 +3795,8 @@ function PMA_getHtmlToEditUserGroup($userGroup = null)
 
     if ($userGroup == null) {
         $html_output .= '<label for="userGroup">' . __('Group name:') . '</label>';
-        $html_output .= '<input type="text" name="userGroup" autocomplete="off" required />';
+        $html_output .= '<input type="text" name="userGroup" '
+            . 'autocomplete="off" required />';
         $html_output .= '<div class="clearfloat"></div>';
     }
 
