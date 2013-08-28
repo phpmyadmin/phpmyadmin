@@ -98,7 +98,7 @@ class PmaSeleniumTableInsertTest extends PHPUnit_Extensions_Selenium2TestCase
         // post
         $this->byCssSelector(
             "input[value=Go]"
-            )->click();
+        )->click();
 
         $this->_helper->waitForElementNotPresent("byId", "loading_parent");
         $ele = $this->_helper->waitForElement("byClassName", "success");
@@ -106,6 +106,11 @@ class PmaSeleniumTableInsertTest extends PHPUnit_Extensions_Selenium2TestCase
         $this->_assertDataPresent();
     }
 
+    /**
+     * Assert various data present in results table
+     *
+     * @return void
+     */
     private function _assertDataPresent()
     {
         $this->byLinkText("Browse")->click();
