@@ -28,51 +28,7 @@ $response = PMA_Response::getInstance();
 if (isset($_REQUEST['getDropdownValues'])
     && $_REQUEST['getDropdownValues'] === 'true'
 ) {
-    $foreignDb = $_REQUEST['foreignDb'];
-
-    if (isset($_REQUEST['foreignTable'])) { // if both db and table are selected
-        $foreignTable = $_REQUEST['foreignTable'];
-        $table_obj = new PMA_Table($foreignTable, $foreignDb);
-        $columns = array();
-        foreach ($table_obj->getUniqueColumns(false, false) as $column) {
-            $columns[] = htmlspecialchars($column);
-        }
-        $response->addJSON('columns', $columns);
-
-    } else { // if only the db is selected
-        $foreign = isset($_REQUEST['foreign']) && $_REQUEST['foreign'] === 'true';
-        if ($foreign) {
-            $query = 'SHOW TABLE STATUS FROM ' . PMA_Util::backquote($foreignDb);
-            $tbl_storage_engine = strtoupper(
-                PMA_Table::sGetStatusInfo(
-                    $_REQUEST['db'],
-                    $_REQUEST['table'],
-                    'Engine'
-                )
-            );
-        } else {
-            $query = 'SHOW TABLES FROM ' . PMA_Util::backquote($foreignDb);
-        }
-        $tables_rs = $GLOBALS['dbi']->query(
-            $query,
-            null,
-            PMA_DatabaseInterface::QUERY_STORE
-        );
-        $tables = array();
-        while ($row = $GLOBALS['dbi']->fetchRow($tables_rs)) {
-            if ($foreign) {
-                if (isset($row[1])
-                    && strtoupper($row[1]) == $tbl_storage_engine
-                ) {
-                    $tables[] = htmlspecialchars($row[0]);
-                }
-            } else {
-                $tables[] = htmlspecialchars($row[0]);
-            }
-        }
-        $response->addJSON('tables', $tables);
-    }
-    exit;
+    PMA_sendHtmlForTableOrColumnDropdownList();
 }
 
 $header   = $response->getHeader();

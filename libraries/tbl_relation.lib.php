@@ -564,4 +564,81 @@ function PMA_getHtmlForForeignKey($save_row, $i, $existrel_foreign, $myfield, $d
     
     return $html_output;
 }
+
+/**
+ * Function to send html for table or column dropdown list
+ * 
+ * @retrun void
+ */
+function PMA_sendHtmlForTableOrColumnDropdownList()
+{
+    if (isset($_REQUEST['foreignTable'])) { // if both db and table are selected
+        PMA_sendHtmlForColumnDorpdownList();
+    } else { // if only the db is selected
+        PMA_sendHtmlForTableDropdownList();
+    }
+    exit;
+}
+
+/**
+ * Function to send html for column dropdown list
+ * 
+ * @return void
+ */
+function PMA_sendHtmlForColumnDorpdownList()
+{
+    $response = PMA_Response::getInstance();
+    
+    $foreignTable = $_REQUEST['foreignTable'];
+    $table_obj = new PMA_Table($foreignTable, $_REQUEST['foreignDb']);
+    $columns = array();
+    foreach ($table_obj->getUniqueColumns(false, false) as $column) {
+        $columns[] = htmlspecialchars($column);
+    }
+    $response->addJSON('columns', $columns);
+}
+
+/**
+ * Function to send html for table dropdown list
+ * 
+ * @return void
+ */
+function PMA_sendHtmlForTableDropdownList()
+{
+    $response = PMA_Response::getInstance();
+    
+    $foreign = isset($_REQUEST['foreign']) && $_REQUEST['foreign'] === 'true';
+    if ($foreign) {
+        $query = 'SHOW TABLE STATUS FROM '
+            . PMA_Util::backquote($_REQUEST['foreignDb']);
+        $tbl_storage_engine = strtoupper(
+            PMA_Table::sGetStatusInfo(
+                $_REQUEST['db'],
+                $_REQUEST['table'],
+                'Engine'
+            )
+        );
+    } else {
+        $query = 'SHOW TABLES FROM '
+            . PMA_Util::backquote( $_REQUEST['foreignDb']);
+    }
+    $tables_rs = $GLOBALS['dbi']->query(
+        $query,
+        null,
+        PMA_DatabaseInterface::QUERY_STORE
+    );
+    $tables = array();
+    while ($row = $GLOBALS['dbi']->fetchRow($tables_rs)) {
+        if ($foreign) {
+            if (isset($row[1])
+                && strtoupper($row[1]) == $tbl_storage_engine
+            ) {
+                $tables[] = htmlspecialchars($row[0]);
+            }
+        } else {
+            $tables[] = htmlspecialchars($row[0]);
+        }
+    }
+    $response->addJSON('tables', $tables);
+}
 ?>
