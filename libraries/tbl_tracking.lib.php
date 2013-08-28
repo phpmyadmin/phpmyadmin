@@ -854,7 +854,7 @@ function PMA_getHtmlForIndex($index, $style)
         $str_packed = __('No');
     }
 
-    $html .= '<tr class="noclick ' . $style . '">';
+    $html  = '<tr class="noclick ' . $style . '">';
     $html .= '<td><b>' . htmlspecialchars($index['Key_name']) . '</b></td>';
     $html .= '<td>' . htmlspecialchars($index['Index_type']) . '</td>';
     $html .= '<td>' . $str_unique . '</td>';

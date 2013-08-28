@@ -720,6 +720,107 @@ class PMA_TblTrackingTest extends PHPUnit_Framework_TestCase
             $html
         );
     }
+
+    /**
+     * Tests for PMA_getHtmlForIndexes() method.
+     *
+     * @return void
+     * @test
+     */
+    public function testPMAGetHtmlForIndexes()
+    {
+        $indexs = array(
+            array(
+                'Non_unique' => 0,
+                'Packed' => '',
+                'Key_name' => 'Key_name1',
+                'Index_type' => 'Index_type1',
+                'Column_name' => 'Column_name',
+                'Cardinality' => 'Cardinality',
+                'Collation' => 'Collation',
+                'Null' => 'Null',
+                'Comment' => 'Comment',
+            ),
+        );
+    
+        $html = PMA_getHtmlForIndexes($indexs);
+
+        $this->assertContains(
+            __('Indexes'),
+            $html
+        );
+        $this->assertContains(
+            __('Keyname'),
+            $html
+        );
+        $this->assertContains(
+            __('Type'),
+            $html
+        );
+        $this->assertContains(
+            __('Unique'),
+            $html
+        );
+        $this->assertContains(
+            __('Packed'),
+            $html
+        );
+        $this->assertContains(
+            __('Column'),
+            $html
+        );
+        $this->assertContains(
+            __('Cardinality'),
+            $html
+        );
+        // items
+        $this->assertContains(
+            htmlspecialchars($indexs[0]['Key_name']),
+            $html
+        );
+        $this->assertContains(
+            htmlspecialchars($indexs[0]['Index_type']),
+            $html
+        );
+        $this->assertContains(
+            htmlspecialchars($indexs[0]['Column_name']),
+            $html
+        );
+        $this->assertContains(
+            htmlspecialchars($indexs[0]['Cardinality']),
+            $html
+        );
+        $this->assertContains(
+            htmlspecialchars($indexs[0]['Collation']),
+            $html
+        );        
+    }
+
+    /**
+     * Tests for PMA_getTrackingSet() method.
+     *
+     * @return void
+     * @test
+     */
+    public function testPMAGetTrackingSet()
+    {
+        $_REQUEST['alter_table'] = false;
+        $_REQUEST['rename_table'] = true;
+        $_REQUEST['create_table'] = true;
+        $_REQUEST['drop_table'] = true;
+        $_REQUEST['create_index'] = false;
+        $_REQUEST['drop_index'] = true;
+        $_REQUEST['insert'] = true;
+        $_REQUEST['update'] = false;
+        $_REQUEST['delete'] = true;
+        $_REQUEST['truncate'] = true;
+        
+        $tracking_set = PMA_getTrackingSet();
+        $this->assertEquals(
+            'RENAME TABLE,CREATE TABLE,DROP TABLE,DROP INDEX,INSERT,DELETE,TRUNCATE',
+            $tracking_set
+        );  
+    }
 }
 
 ?>
