@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-07-29 15:07+0200\n"
-"PO-Revision-Date: 2013-08-26 17:34+0200\n"
+"PO-Revision-Date: 2013-08-28 17:26+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: Simplified Chinese "
 "<http://l10n.cihar.com/projects/phpmyadmin/4-0/zh_CN/>\n"
@@ -3919,9 +3919,7 @@ msgid ""
 "Enabling this allows a page located on a different domain to call phpMyAdmin "
 "inside a frame, and is a potential [strong]security hole[/strong] allowing "
 "cross-frame scripting attacks"
-msgstr ""
-"开启这个功能将允许其它域的页面通过框架调用 phpMyAdmin，这将允许潜在的跨框架脚"
-"本攻击[strong]安全漏洞[/strong]"
+msgstr "启用该功能将允许其它域的页面通过框架调用 phpMyAdmin，将可能成为潜在的跨框架脚本攻击的[strong]安全漏洞[/strong]"
 
 #: libraries/config/messages.inc.php:20
 msgid "Allow third party framing"
@@ -3961,9 +3959,7 @@ msgstr "高亮指针"
 msgid ""
 "Enable [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] compression for "
 "import and export operations"
-msgstr ""
-"允许在导入和导出时使用 [a@http://en.wikipedia.org/wiki/Bzip2]bzip2 (外链，英"
-"文)[/a] 压缩"
+msgstr "允许在导入和导出时使用 [a@http://zh.wikipedia.org/wiki/Bzip2]bzip2[/a] 压缩"
 
 #: libraries/config/messages.inc.php:29
 msgid "Bzip2"
@@ -3975,8 +3971,8 @@ msgid ""
 "columns; [kbd]input[/kbd] - allows limiting of input length, [kbd]textarea[/"
 "kbd] - allows newlines in columns"
 msgstr ""
-"定义编辑 CHAR 和 VARCHAR 类型字段时应使用何种控件，[kbd]输入框 (input)[/kbd] "
-"- 可以限制输入长度，[kbd]文本框 (textarea)[/kbd] - 可以输入多行数据"
+"当编辑 CHAR 和 VARCHAR 类型字段时所使用的控件；[kbd]输入框（input）[/kbd] - "
+"可以限制输入长度，[kbd]文本框（textarea）[/kbd] - 可以输入多行数据"
 
 #: libraries/config/messages.inc.php:31
 msgid "CHAR columns editing"
@@ -3987,8 +3983,7 @@ msgid ""
 "Use user-friendly editor for editing SQL queries ([a@http://codemirror."
 "net/]CodeMirror[/a]) with syntax highlighting and line numbers"
 msgstr ""
-"使用包含语法凸显与行号的用户友好的编辑器编辑SQL语句  ([a@http://codemirror."
-"net/]CodeMirror[/a])"
+"使用带有语法高亮及行号显示的人性化编辑器来编辑 SQL 语句（[a@http://codemirror.net/]CodeMirror[/a]）"
 
 #: libraries/config/messages.inc.php:33
 msgid "Enable CodeMirror"
@@ -3998,7 +3993,7 @@ msgstr "启用 CodeMirror"
 msgid ""
 "Defines the minimum size for input fields generated for CHAR and VARCHAR "
 "columns"
-msgstr "定义编辑 CHAR 和 VARCHAR 字段时所使用输入框的最小大小"
+msgstr "当编辑 CHAR 和 VARCHAR 字段时所使用输入框的最小大小"
 
 #: libraries/config/messages.inc.php:35
 msgid "Minimum size for input field"
@@ -4008,7 +4003,7 @@ msgstr "输入框最小大小"
 msgid ""
 "Defines the maximum size for input fields generated for CHAR and VARCHAR "
 "columns"
-msgstr "定义编辑 CHAR 和 VARCHAR 字段时所使用输入框的最大大小"
+msgstr "当编辑 CHAR 和 VARCHAR 字段时所使用输入框的最大大小"
 
 #: libraries/config/messages.inc.php:37
 msgid "Maximum size for input field"
@@ -4038,9 +4033,7 @@ msgstr "检查配置文件权限"
 msgid ""
 "Compress gzip/bzip2 exports on the fly without the need for much memory; if "
 "you encounter problems with created gzip/bzip2 files disable this feature"
-msgstr ""
-"使用较少的内存进行 gzip/bzip2 实时压缩。如果创建压缩文档时发生错误，请禁用该"
-"选项"
+msgstr "在导出时使用较少的内存对 gzip/bzip2 进行实时压缩；如果您在创建 gzip/bzip2 压缩文件时遇到问题，请禁用该功能"
 
 #: libraries/config/messages.inc.php:44
 msgid "Compress on the fly"
@@ -4055,11 +4048,11 @@ msgstr "配置文件"
 msgid ""
 "Whether a warning (&quot;Are your really sure…&quot;) should be displayed "
 "when you're about to lose data"
-msgstr "当查询可能丢失数据时是否显示警告 (&quot;您真的要…&quot;)"
+msgstr "当查询可能丢失数据时是否显示警告（&quot;您真的要…&quot;）"
 
 #: libraries/config/messages.inc.php:47
 msgid "Confirm DROP queries"
-msgstr "确认删除 (DROP) 查询"
+msgstr "删除语句确认"
 
 #: libraries/config/messages.inc.php:48
 msgid "Debug SQL"
@@ -4071,31 +4064,31 @@ msgstr "默认显示模式"
 
 #: libraries/config/messages.inc.php:50
 msgid "Tab that is displayed when entering a database"
-msgstr "在进入数据库标签时默认显示的页面"
+msgstr "当进入数据库时默认显示的选项卡"
 
 #: libraries/config/messages.inc.php:51
 msgid "Default database tab"
-msgstr "默认数据库标签"
+msgstr "数据库默认选项卡"
 
 #: libraries/config/messages.inc.php:52
 msgid "Tab that is displayed when entering a server"
-msgstr "在进入服务器标签时默认显示的页面"
+msgstr "当进入服务器时默认显示的选项卡"
 
 #: libraries/config/messages.inc.php:53
 msgid "Default server tab"
-msgstr "默认服务器标签"
+msgstr "服务器默认选项卡"
 
 #: libraries/config/messages.inc.php:54
 msgid "Tab that is displayed when entering a table"
-msgstr "在进入数据表标签时默认显示的页面"
+msgstr "当进入表时默认显示的选项卡"
 
 #: libraries/config/messages.inc.php:55
 msgid "Default table tab"
-msgstr "默认数据表标签"
+msgstr "表默认选项卡"
 
 #: libraries/config/messages.inc.php:56
 msgid "Whether the table structure actions should be hidden"
-msgstr "是否隐藏表结构"
+msgstr "是否隐藏对表结构的相关操作"
 
 #: libraries/config/messages.inc.php:57
 msgid "Hide table structure actions"
@@ -4111,13 +4104,13 @@ msgstr "直接显示服务器列表而不使用下拉框"
 
 #: libraries/config/messages.inc.php:61
 msgid "Display servers as a list"
-msgstr "显示服务器为列表"
+msgstr "列表显示服务器"
 
 #: libraries/config/messages.inc.php:62
 msgid ""
 "Disable the table maintenance mass operations, like optimizing or repairing "
 "the selected tables of a database."
-msgstr "禁止大量表维护操作，例如优化或修复一个数据库中的选中表。"
+msgstr "禁止批量表维护操作，例如优化或修复数据库中选中的表。"
 
 #: libraries/config/messages.inc.php:63
 msgid "Disable multi table maintenance"
@@ -4125,7 +4118,7 @@ msgstr "禁止多表维护"
 
 #: libraries/config/messages.inc.php:64
 msgid "Edit SQL queries in popup window"
-msgstr "在新窗口中编辑 SQL 查询"
+msgstr "在弹出窗口中编辑 SQL 语句"
 
 #: libraries/config/messages.inc.php:65
 msgid "Edit in window"
@@ -4143,7 +4136,7 @@ msgstr "收集错误"
 msgid ""
 "Set the number of seconds a script is allowed to run ([kbd]0[/kbd] for no "
 "limit)"
-msgstr "设置脚本最大运行时间 (单位：秒，[kbd]0[/kbd] 为不限制)"
+msgstr "设置脚本运行最长时间（[kbd]0[/kbd] 为无限制）"
 
 #: libraries/config/messages.inc.php:69
 msgid "Maximum execution time"
@@ -4151,7 +4144,7 @@ msgstr "最长执行时间"
 
 #: libraries/config/messages.inc.php:70 prefs_manage.php:299
 msgid "Save as file"
-msgstr "另存为文件"
+msgstr "保存为文件"
 
 #: libraries/config/messages.inc.php:71 libraries/config/messages.inc.php:243
 msgid "Character set of the file"
@@ -4204,7 +4197,7 @@ msgstr "将 NULL 替换为"
 
 #: libraries/config/messages.inc.php:78 libraries/config/messages.inc.php:84
 msgid "Remove CRLF characters within columns"
-msgstr "删除字段中的回车换行符"
+msgstr "删除内容中的回车换行符"
 
 #: libraries/config/messages.inc.php:79 libraries/config/messages.inc.php:249
 #: libraries/config/messages.inc.php:257
@@ -4223,15 +4216,15 @@ msgstr "Excel 版本"
 
 #: libraries/config/messages.inc.php:85
 msgid "Database name template"
-msgstr "数据库名模板"
+msgstr "数据库名称模板"
 
 #: libraries/config/messages.inc.php:86
 msgid "Server name template"
-msgstr "服务器名模板"
+msgstr "服务器名称模板"
 
 #: libraries/config/messages.inc.php:87
 msgid "Table name template"
-msgstr "数据表名模板"
+msgstr "表名称模板"
 
 #: libraries/config/messages.inc.php:91 libraries/config/messages.inc.php:104
 #: libraries/config/messages.inc.php:113 libraries/config/messages.inc.php:137
@@ -4242,28 +4235,28 @@ msgstr "数据表名模板"
 #: libraries/plugins/export/ExportOdt.class.php:77
 #: libraries/plugins/export/ExportTexytext.class.php:62
 msgid "Dump table"
-msgstr "转储数据表"
+msgstr "转储表"
 
 #: libraries/config/messages.inc.php:92
 #: libraries/plugins/export/ExportLatex.class.php:89
 msgid "Include table caption"
-msgstr "包含表的标题"
+msgstr "包含表说明"
 
 #: libraries/config/messages.inc.php:95 libraries/config/messages.inc.php:101
 #: libraries/plugins/export/ExportLatex.class.php:121
 #: libraries/plugins/export/ExportLatex.class.php:166
 msgid "Table caption"
-msgstr "表的标题"
+msgstr "表说明"
 
 #: libraries/config/messages.inc.php:96 libraries/config/messages.inc.php:102
 msgid "Continued table caption"
-msgstr "延续的表的标题"
+msgstr "表说明续"
 
 #: libraries/config/messages.inc.php:97 libraries/config/messages.inc.php:103
 #: libraries/plugins/export/ExportLatex.class.php:131
 #: libraries/plugins/export/ExportLatex.class.php:176
 msgid "Label key"
-msgstr "关键标签"
+msgstr "标签"
 
 #: libraries/config/messages.inc.php:98 libraries/config/messages.inc.php:110
 #: libraries/config/messages.inc.php:134
@@ -4288,7 +4281,7 @@ msgstr "保存在服务器上"
 #: libraries/config/messages.inc.php:115 libraries/config/messages.inc.php:117
 #: libraries/display_export.lib.php:222 libraries/display_export.lib.php:260
 msgid "Overwrite existing file(s)"
-msgstr "覆盖已有文件"
+msgstr "覆盖现有文件"
 
 #: libraries/config/messages.inc.php:118
 msgid "Remember file name template"
@@ -4297,11 +4290,11 @@ msgstr "记住文件名模板"
 #: libraries/config/messages.inc.php:119 libraries/operations.lib.php:211
 #: libraries/operations.lib.php:708 libraries/operations.lib.php:1051
 msgid "Add AUTO_INCREMENT value"
-msgstr "添加自增 (AUTO_INCREMENT) 值"
+msgstr "添加自增值"
 
 #: libraries/config/messages.inc.php:120
 msgid "Enclose table and column names with backquotes"
-msgstr "给数据表名及字段名加上反引号"
+msgstr "给表名及字段名加上反引号"
 
 #: libraries/config/messages.inc.php:121 libraries/config/messages.inc.php:264
 #: libraries/display_export.lib.php:438
@@ -4324,7 +4317,7 @@ msgstr "使用延迟插入"
 #: libraries/config/messages.inc.php:125
 #: libraries/plugins/export/ExportSql.class.php:141
 msgid "Disable foreign key checks"
-msgstr "禁止选定不相关的主键"
+msgstr "禁止外键约束"
 
 #: libraries/config/messages.inc.php:126 libraries/config/messages.inc.php:127
 #: libraries/config/messages.inc.php:129 libraries/config/messages.inc.php:135
@@ -4335,7 +4328,7 @@ msgstr "添加 %s"
 
 #: libraries/config/messages.inc.php:128
 msgid "Use hexadecimal for BLOB"
-msgstr "为 BLOB 字段使用16进制 (HEX)"
+msgstr "使用十六进制表示 BLOB 数据"
 
 #: libraries/config/messages.inc.php:130
 msgid "Use ignore inserts"
@@ -4348,7 +4341,7 @@ msgstr "在插入数据时使用的语法"
 #: libraries/config/messages.inc.php:133
 #: libraries/plugins/export/ExportSql.class.php:391
 msgid "Maximal length of created query"
-msgstr "创建查询的最大长度"
+msgstr "查询语句的最大长度"
 
 #: libraries/config/messages.inc.php:138
 msgid "Export type"
@@ -4357,11 +4350,11 @@ msgstr "导出类型"
 #: libraries/config/messages.inc.php:139
 #: libraries/plugins/export/ExportSql.class.php:128
 msgid "Enclose export in a transaction"
-msgstr "处理事务中封装输出"
+msgstr "使用事务执行导出"
 
 #: libraries/config/messages.inc.php:140
 msgid "Export time in UTC"
-msgstr "以协调世界时 (UTC) 导出时间"
+msgstr "导出时间为协调世界时"
 
 #: libraries/config/messages.inc.php:148
 msgid "Force secured connection while using phpMyAdmin"
@@ -4435,7 +4428,7 @@ msgstr "导出选项"
 
 #: libraries/config/messages.inc.php:166
 msgid "Customize default export options"
-msgstr "自定义导出选项的默认值"
+msgstr "自定义默认导出选项"
 
 #: libraries/config/messages.inc.php:167 libraries/config/messages.inc.php:209
 #: setup/frames/menu.inc.php:17
@@ -4456,7 +4449,7 @@ msgstr "导入选项"
 
 #: libraries/config/messages.inc.php:172
 msgid "Customize default common import options"
-msgstr "自定义导入选项的默认值"
+msgstr "自定义默认导入选项"
 
 #: libraries/config/messages.inc.php:173
 msgid "Import / export"
@@ -4493,7 +4486,7 @@ msgstr "服务器显示选项"
 
 #: libraries/config/messages.inc.php:184
 msgid "Tables display options"
-msgstr "数据表显示选项"
+msgstr "表显示选项"
 
 #: libraries/config/messages.inc.php:185 setup/frames/menu.inc.php:20
 msgid "Main panel"
@@ -4505,11 +4498,11 @@ msgstr "微软 Office"
 
 #: libraries/config/messages.inc.php:190
 msgid "Other core settings"
-msgstr "其他核心设置"
+msgstr "其它核心设置"
 
 #: libraries/config/messages.inc.php:191
 msgid "Settings that didn't fit anywhere else"
-msgstr "其他设置"
+msgstr "暂时没有明确分类的设置"
 
 #: libraries/config/messages.inc.php:192
 msgid "Page titles"
@@ -4541,7 +4534,7 @@ msgstr "安全"
 msgid ""
 "Please note that phpMyAdmin is just a user interface and its features do not "
 "limit MySQL"
-msgstr "注意：phpMyAdmin 只是一个用户接口，其功能不会对 MySQL 有限制"
+msgstr "请注意 phpMyAdmin 只是提供了一个用户界面，其功能不会对 MySQL 造成限制"
 
 #: libraries/config/messages.inc.php:198
 msgid "Basic settings"
@@ -4563,11 +4556,11 @@ msgstr "服务器设置"
 msgid ""
 "Advanced server configuration, do not change these options unless you know "
 "what they are for"
-msgstr "高级服务器设置，如果你不知道这些是什么，请不要修改"
+msgstr "高级服务器设置，如果您不知道这些选项是什么意思，请不要修改"
 
 #: libraries/config/messages.inc.php:203
 msgid "Enter server connection parameters"
-msgstr "服务器连接参数"
+msgstr "请输入服务器连接参数"
 
 #: libraries/config/messages.inc.php:204
 msgid "Configuration storage"
@@ -4578,19 +4571,17 @@ msgid ""
 "Configure phpMyAdmin configuration storage to gain access to additional "
 "features, see [doc@linked-tables]phpMyAdmin configuration storage[/doc] in "
 "documentation"
-msgstr ""
-"配置 phpMyAdmin 高级功能，参见文档[doc@linked-tables]phpMyAdmin 高级功能[/"
-"doc]"
+msgstr "设置 phpMyAdmin 高级功能以获得更多功能，参见文档 [doc@linked-tables]phpMyAdmin 高级功能[/doc]"
 
 #: libraries/config/messages.inc.php:206
 msgid "Changes tracking"
-msgstr "修改追踪"
+msgstr "追踪变化"
 
 #: libraries/config/messages.inc.php:207
 msgid ""
 "Tracking of changes made in database. Requires the phpMyAdmin configuration "
 "storage."
-msgstr "追踪数据库的修改。需要 phpMyAdmin 高级功能。"
+msgstr "追踪数据库的改变。需要 phpMyAdmin 高级功能。"
 
 #: libraries/config/messages.inc.php:208
 msgid "Customize export options"
@@ -4619,7 +4610,7 @@ msgstr "SQL 查询框"
 
 #: libraries/config/messages.inc.php:216
 msgid "Customize links shown in SQL Query boxes"
-msgstr "自定义显示在 SQL 查询框中的链接"
+msgstr "自定义在 SQL 查询框中显示的链接"
 
 #: libraries/config/messages.inc.php:219
 msgid "SQL queries settings"
@@ -4636,17 +4627,17 @@ msgid ""
 "strong].[br][em][a@http://sqlvalidator.mimer.com/]Mimer SQL Validator[/a], "
 "Copyright 2002 Upright Database Technology. All rights reserved.[/em]"
 msgstr ""
-"若要使用 SQL 校验服务，请注意[strong]所有 SQL 语句将出于统计目的而被匿名存储"
-"[/strong]。[br][em][a@http://sqlvalidator.mimer.com/]Mimer SQL 校验器[/a]，版"
-"权所有 2002 Upright Database Technology. 保留所有权利。[/em]"
+"若您想使用 SQL 校验服务，请注意[strong]所有 SQL "
+"语句将出于统计目的而被匿名存储[/strong]。[br][em][a@http://sqlvalidator.mimer.com/]Mimer SQL "
+"校验器[/a]，版权所有 2002 Upright Database Technology. 保留所有权利。[/em]"
 
 #: libraries/config/messages.inc.php:222
 msgid "Startup"
-msgstr "起始页"
+msgstr "首页"
 
 #: libraries/config/messages.inc.php:223
 msgid "Customize startup page"
-msgstr "自定义起始页"
+msgstr "自定义首页"
 
 #: libraries/config/messages.inc.php:224
 msgid "Database structure"
@@ -4654,7 +4645,7 @@ msgstr "数据库结构"
 
 #: libraries/config/messages.inc.php:225
 msgid "Choose which details to show in the database structure (list of tables)"
-msgstr "选择在数据库结构（表列表）中显示哪些细节"
+msgstr "设置在数据库结构（表列表）中显示哪些细节"
 
 #: libraries/config/messages.inc.php:226
 msgid "Table structure"
@@ -4670,7 +4661,7 @@ msgstr "标签"
 
 #: libraries/config/messages.inc.php:229
 msgid "Choose how you want tabs to work"
-msgstr "选择你想让标签怎样工作"
+msgstr "设置您希望的标签行为"
 
 #: libraries/config/messages.inc.php:230
 msgid "Text fields"
@@ -4696,9 +4687,7 @@ msgstr "禁止部分 phpMyAdmin 发出的警告"
 msgid ""
 "Enable [a@http://en.wikipedia.org/wiki/Gzip]gzip[/a] compression for import "
 "and export operations"
-msgstr ""
-"允许在导入和导出时使用 [a@http://en.wikipedia.org/wiki/Gzip]gzip (外链，英文)"
-"[/a] 压缩"
+msgstr "允许在导入和导出时使用 [a@http://zh.wikipedia.org/wiki/Gzip]gzip[/a] 压缩"
 
 #: libraries/config/messages.inc.php:237
 msgid "GZip"
@@ -4712,22 +4701,18 @@ msgstr "iconv 的额外参数"
 msgid ""
 "If enabled, phpMyAdmin continues computing multiple-statement queries even "
 "if one of the queries failed"
-msgstr ""
-"如果打开此选项，在执行多语句查询的时候，即使有一条或多条语句发生错误，"
-"phpMyAdmin 也会继续执行其他的语句"
+msgstr "若启用，在执行多语句查询时即使有错误发生，phpMyAdmin 也会继续执行其它语句"
 
 #: libraries/config/messages.inc.php:240
 msgid "Ignore multiple statement errors"
-msgstr "忽略多个语句错误"
+msgstr "忽略多语句查询中的错误"
 
 #: libraries/config/messages.inc.php:241
 msgid ""
 "Allow interrupt of import in case script detects it is close to time limit. "
 "This might be a good way to import large files, however it can break "
 "transactions."
-msgstr ""
-"该功能作用于在导入时脚本检测到可能需要花费很长时间。尽管这会中断事务，但在导"
-"入大文件时是个很好的方法。"
+msgstr "允许脚本在即将超时时中断导入。尽管这样会中断事务，但在导入大文件时也许是个好方法。"
 
 #: libraries/config/messages.inc.php:242
 msgid "Partial import: allow interrupt"
@@ -4737,19 +4722,18 @@ msgstr "部分导入：允许中断"
 #: libraries/plugins/import/ImportCsv.class.php:89
 #: libraries/plugins/import/ImportLdi.class.php:71
 msgid "Do not abort on INSERT error"
-msgstr "不在发生插入错误时中断"
+msgstr "忽略插入错误"
 
 #: libraries/config/messages.inc.php:248 libraries/config/messages.inc.php:256
 #: libraries/plugins/import/AbstractImportCsv.class.php:55
 msgid "Replace table data with file"
-msgstr "将表的数据用此文件替换"
+msgstr "替换表的数据"
 
 #: libraries/config/messages.inc.php:250
 msgid ""
 "Default format; be aware that this list depends on location (database, "
 "table) and only SQL is always available"
-msgstr ""
-"默认格式，此列表根据位置(数据库或数据表)不同将有所改变，只有 SQL 总是可用的"
+msgstr "默认格式；请注意根据位置（数据库或表）的不同该列表将有所变化，只有 SQL 是一直可用的"
 
 #: libraries/config/messages.inc.php:251
 msgid "Format of imported file"
@@ -4758,12 +4742,12 @@ msgstr "导入文件的格式"
 #: libraries/config/messages.inc.php:255
 #: libraries/plugins/import/ImportLdi.class.php:76
 msgid "Use LOCAL keyword"
-msgstr "使用本地 (LOCAL) 关键词"
+msgstr "使用 LOCAL 关键字"
 
 #: libraries/config/messages.inc.php:258 libraries/config/messages.inc.php:266
 #: libraries/config/messages.inc.php:267
 msgid "Column names in first row"
-msgstr "忽略首行 (首行为字段名)"
+msgstr "首行为字段名"
 
 #: libraries/config/messages.inc.php:259
 #: libraries/plugins/import/ImportOds.class.php:82
@@ -4772,15 +4756,15 @@ msgstr "不导入空行"
 
 #: libraries/config/messages.inc.php:260
 msgid "Import currencies ($5.00 to 5.00)"
-msgstr "导入货币 ($5.00 将被导入为 5.00)"
+msgstr "导入货币（$5.00 将被导入为 5.00）"
 
 #: libraries/config/messages.inc.php:261
 msgid "Import percentages as proper decimals (12.00% to .12)"
-msgstr "导入百分数为小数 (12.00% 将被导入为 .12)"
+msgstr "导入百分数为小数（12.00% 将被导入为 .12）"
 
 #: libraries/config/messages.inc.php:262
 msgid "Number of queries to skip from start"
-msgstr "跳过查询的数量"
+msgstr "要跳过的查询数量"
 
 #: libraries/config/messages.inc.php:263
 msgid "Partial import: skip queries"
@@ -4788,11 +4772,11 @@ msgstr "部分导入：跳过查询"
 
 #: libraries/config/messages.inc.php:265
 msgid "Do not use AUTO_INCREMENT for zero values"
-msgstr "不要给零值使用自增 (AUTO_INCREMENT)"
+msgstr "值为零时不自增"
 
 #: libraries/config/messages.inc.php:268
 msgid "Initial state for sliders"
-msgstr "滑块初始状态"
+msgstr "滑动区域初始状态"
 
 #: libraries/config/messages.inc.php:269
 msgid "How many rows can be inserted at one time"
@@ -4805,11 +4789,11 @@ msgstr "插入的行数"
 #: libraries/config/messages.inc.php:271
 msgid ""
 "Maximum number of characters shown in any non-numeric column on browse view"
-msgstr "浏览非数字字段时所显示的最大字符数"
+msgstr "浏览非数字字段时最多显示的字数"
 
 #: libraries/config/messages.inc.php:272
 msgid "Limit column characters"
-msgstr "限制字段字符数"
+msgstr "字段字数限制"
 
 #: libraries/config/messages.inc.php:273
 msgid ""
@@ -4817,8 +4801,8 @@ msgid ""
 "only occurs for the current server. Setting this to FALSE makes it easy to "
 "forget to log out from other servers when connected to multiple servers."
 msgstr ""
-"如果设为 TRUE，在退出时将会删除所有服务器的 Cookies。如果设为 FALSE，在您登录"
-"多台服务器的时候，容易忘记退出登录。"
+"若设为 TRUE，退出时将在所有服务器中退出；若设为 FALSE，退出时仅在当前服务器中退出。若设为 FALSE "
+"且当您连接到多台服务器时，您可能会容易忘记退出其它的服务器。"
 
 #: libraries/config/messages.inc.php:274
 msgid "Delete all cookies on logout"
@@ -4828,7 +4812,7 @@ msgstr "退出时删除所有 cookies"
 msgid ""
 "Define whether the previous login should be recalled or not in cookie "
 "authentication mode"
-msgstr "定义在 cookie 认证方式中是否显示上次登录的用户名"
+msgstr "设置在 cookie 认证方式中是否显示上次登录的用户名"
 
 #: libraries/config/messages.inc.php:276
 msgid "Recall user name"
@@ -4841,9 +4825,8 @@ msgid ""
 "and will be deleted as soon as you close the browser window. This is "
 "recommended for non-trusted environments."
 msgstr ""
-"设置登录 Cookies 应该保存多长时间 (单位：秒)。若设置为 0，Cookies 的有效期将"
-"为浏览器进程，在关闭浏览器之后 Cookies 就会被删除。默认值为0。在不安全的环境"
-"下建议使用默认值。"
+"设置浏览器需要保存登录 cookie 多久（单位：秒）。若设为默认的 0 "
+"表示其仅作用于当前会话，并在您关闭浏览器窗口后立即删除。推荐在不安全的环境下使用默认设置。"
 
 #: libraries/config/messages.inc.php:278
 msgid "Login cookie store"
@@ -4851,7 +4834,7 @@ msgstr "登录 cookie 存储"
 
 #: libraries/config/messages.inc.php:279
 msgid "Define how long (in seconds) a login cookie is valid"
-msgstr "定义登录 cookie 的有效期 (单位：秒)"
+msgstr "设置登录 cookie 的有效期（单位：秒）"
 
 #: libraries/config/messages.inc.php:280
 msgid "Login cookie validity"
@@ -4859,11 +4842,11 @@ msgstr "登录 cookie 有效期"
 
 #: libraries/config/messages.inc.php:281
 msgid "Double size of textarea for LONGTEXT columns"
-msgstr "放大一倍 LONGTEXT 字段的输入框"
+msgstr "将 LONGTEXT 字段的文本框放大一倍"
 
 #: libraries/config/messages.inc.php:282
 msgid "Bigger textarea for LONGTEXT"
-msgstr "放大 LONGTEXT 字段的输入框"
+msgstr "放大 LONGTEXT 的文本框"
 
 #: libraries/config/messages.inc.php:283
 msgid "Maximum number of characters used when a SQL query is displayed"
