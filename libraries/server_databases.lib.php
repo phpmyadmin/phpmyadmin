@@ -53,7 +53,6 @@ function PMA_getHtmlForDatabase(
     );
 
     $_url_params['pos'] = $pos;
-    $_url_params['drop_selected_dbs'] = 1;
 
     $html .= '<form class="ajax" action="server_databases.php" ';
     $html .= 'method="post" name="dbStatsForm" id="dbStatsForm">' . "\n";

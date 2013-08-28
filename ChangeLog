@@ -39,6 +39,7 @@ phpMyAdmin - ChangeLog
 - bug #1193 Text field too small when editing a row longer than $cfg['LimitChars']
 
 4.0.7.0 (not yet released)
+- bug #3993 Sorting in database overview with statistics doesn't work
 
 4.0.6.0 (not yet released)
 - bug #4036 Call to undefined function mb_detect_encoding (clarify the doc)
