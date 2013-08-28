@@ -641,4 +641,70 @@ function PMA_sendHtmlForTableDropdownList()
     }
     $response->addJSON('tables', $tables);
 }
+
+/**
+ * Function to handle update for display field
+ * 
+ * @param string $disp          field name
+ * @param string $display_field display field
+ * @param string $db            current database
+ * @param string $table         current table
+ * @param array  $cfgRelation   configuration relation
+ * 
+ * @return void
+ */
+function PMA_handleUpdateForDisplayField($disp, $display_field, $db, $table,
+    $cfgRelation
+) {
+    $upd_query = PMA_getQueryForDisplayUpdate(
+        $disp, $display_field, $db, $table, $cfgRelation
+    );
+    if ($upd_query) {
+        PMA_queryAsControlUser($upd_query);
+    }
+}
+
+/**
+ * Function to get display query for handlingdisplay update
+ * 
+ * @param string $disp          field name
+ * @param string $display_field display field
+ * @param string $db            current database
+ * @param string $table         current table
+ * @param array  $cfgRelation   configuration relation
+ * 
+ * @return string
+ */
+function PMA_getQueryForDisplayUpdate($disp, $display_field, $db, $table,
+    $cfgRelation
+) {
+    $upd_query = false;
+    if ($disp) {
+        if ($display_field != '') {
+            $upd_query = 'UPDATE '
+                . PMA_Util::backquote($GLOBALS['cfgRelation']['db'])
+                . '.' . PMA_Util::backquote($cfgRelation['table_info'])
+                . ' SET display_field = \''
+                . PMA_Util::sqlAddSlashes($display_field) . '\''
+                . ' WHERE db_name  = \'' . PMA_Util::sqlAddSlashes($db) . '\''
+                . ' AND table_name = \'' . PMA_Util::sqlAddSlashes($table) . '\'';
+        } else {
+            $upd_query = 'DELETE FROM '
+                . PMA_Util::backquote($GLOBALS['cfgRelation']['db'])
+                . '.' . PMA_Util::backquote($cfgRelation['table_info'])
+                . ' WHERE db_name  = \'' . PMA_Util::sqlAddSlashes($db) . '\''
+                . ' AND table_name = \'' . PMA_Util::sqlAddSlashes($table) . '\'';
+        }
+    } elseif ($display_field != '') {
+        $upd_query = 'INSERT INTO '
+            . PMA_Util::backquote($GLOBALS['cfgRelation']['db'])
+            . '.' . PMA_Util::backquote($cfgRelation['table_info'])
+            . '(db_name, table_name, display_field) VALUES('
+            . '\'' . PMA_Util::sqlAddSlashes($db) . '\','
+            . '\'' . PMA_Util::sqlAddSlashes($table) . '\','
+            . '\'' . PMA_Util::sqlAddSlashes($display_field) . '\')';
+    }
+
+    return $upd_query;
+}
 ?>
