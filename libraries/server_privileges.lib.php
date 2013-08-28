@@ -3664,7 +3664,7 @@ function PMA_getHtmlForUserGroupsTable()
             $html_output .= '<td>' . _getAllowedTabNames($row, 'table') . '</td>';
 
             $html_output .= '<td>';
-            $html_output .= '<a class="" href="server_user_groups.php?'
+            $html_output .= '<a class="" href="server_user_groups.php'
                 . PMA_URL_getCommon(
                     array(
                         'viewUsers' => 1, 'userGroup' => $row['usergroup']
@@ -3673,7 +3673,7 @@ function PMA_getHtmlForUserGroupsTable()
                 . '">'
                 . PMA_Util::getIcon('b_usrlist.png', __('View users')) . '</a>';
             $html_output .= '&nbsp;&nbsp;';
-            $html_output .= '<a class="" href="server_user_groups.php?'
+            $html_output .= '<a class="" href="server_user_groups.php'
                 . PMA_URL_getCommon(
                     array(
                         'editUserGroup' => 1, 'userGroup' => $row['usergroup']
@@ -3683,7 +3683,7 @@ function PMA_getHtmlForUserGroupsTable()
                 . PMA_Util::getIcon('b_edit.png', __('Edit')) . '</a>';
             $html_output .= '&nbsp;&nbsp;';
             $html_output .= '<a class="deleteUserGroup ajax"'
-                . ' href="server_user_groups.php?'
+                . ' href="server_user_groups.php'
                 . PMA_URL_getCommon(
                     array(
                         'deleteUserGroup' => 1, 'userGroup' => $row['usergroup']
