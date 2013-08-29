@@ -103,11 +103,13 @@ if (isset($destination_db) && $cfgRelation['relwork']) {
      );
 } // end if (updates for internal relations)
 
+$html_output = '';
+
 // u p d a t e s    f o r    f o r e i g n    k e y s
 // (for now, one index name only; we keep the definitions if the
 // foreign db is not the same)
 if (isset($destination_foreign_db)) {
-    $html_output = PMA_handleUpdatesForForeignKeys(
+    $html_output .= PMA_handleUpdatesForForeignKeys(
         $destination_foreign_db,
         $multi_edit_columns_name, $destination_foreign_table,
         $destination_foreign_column, $options_array, $table,
@@ -117,7 +119,6 @@ if (isset($destination_foreign_db)) {
 
 
 // U p d a t e s   f o r   d i s p l a y   f i e l d
-
 if ($cfgRelation['displaywork'] && isset($display_field)) {
     PMA_handleUpdateForDisplayField(
         $disp, $display_field, $db, $table, $cfgRelation

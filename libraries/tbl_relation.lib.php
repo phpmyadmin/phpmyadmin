@@ -832,10 +832,11 @@ function PMA_handleUpdatesForForeignKeys($destination_foreign_db,
     $multi_edit_columns_name, $destination_foreign_table,
     $destination_foreign_column, $options_array, $table, $existrel_foreign
  ) {
+    $html_output = '';
     $display_query = '';
     $seen_error = false;
     foreach ($destination_foreign_db as $master_field_md5 => $foreign_db) {
-        PMA_handleUpdateForForeignKey(
+        $html_output .= PMA_handleUpdateForForeignKey(
             $multi_edit_columns_name, $master_field_md5,
             $destination_foreign_table, $destination_foreign_column, $options_array,
             $existrel_foreign, $table, $seen_error, $display_query, $foreign_db
@@ -865,12 +866,13 @@ function PMA_handleUpdatesForForeignKeys($destination_foreign_db,
  * @param string $display_query              display query
  * @param string $foreign_db                 foreign database
  * 
- * @return void
+ * @return string
  */
 function PMA_handleUpdateForForeignKey($multi_edit_columns_name, $master_field_md5,
     $destination_foreign_table, $destination_foreign_column, $options_array,
     $existrel_foreign, $table, &$seen_error, &$display_query, $foreign_db
 ) {
+    $html_output = '';
     $create = false;
     $drop = false;
 
@@ -923,7 +925,7 @@ function PMA_handleUpdateForForeignKey($multi_edit_columns_name, $master_field_m
             $html_output .= PMA_Util::mysqlDie(
                 $tmp_error_drop, $drop_query, false, '', false
             );
-            return;
+            return $html_output;
         }
     }
     $tmp_error_create = false;
@@ -978,5 +980,7 @@ function PMA_handleUpdateForForeignKey($multi_edit_columns_name, $master_field_m
             $GLOBALS['dbi']->tryQuery($sql_query_recreate);
         }
     }
+    
+    return $html_output;
 }
 ?>
