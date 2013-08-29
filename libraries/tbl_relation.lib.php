@@ -568,7 +568,7 @@ function PMA_getHtmlForForeignKey($save_row, $i, $existrel_foreign, $myfield, $d
 /**
  * Function to send html for table or column dropdown list
  * 
- * @retrun void
+ * @return void
  */
 function PMA_sendHtmlForTableOrColumnDropdownList()
 {
@@ -620,7 +620,7 @@ function PMA_sendHtmlForTableDropdownList()
         );
     } else {
         $query = 'SHOW TABLES FROM '
-            . PMA_Util::backquote( $_REQUEST['foreignDb']);
+            . PMA_Util::backquote($_REQUEST['foreignDb']);
     }
     $tables_rs = $GLOBALS['dbi']->query(
         $query,
@@ -831,7 +831,7 @@ function PMA_getQueryForInternalRelationUpdate($multi_edit_columns_name,
 function PMA_handleUpdatesForForeignKeys($destination_foreign_db,
     $multi_edit_columns_name, $destination_foreign_table,
     $destination_foreign_column, $options_array, $table, $existrel_foreign
- ) {
+) {
     $html_output = '';
     $display_query = '';
     $seen_error = false;
@@ -862,8 +862,8 @@ function PMA_handleUpdatesForForeignKeys($destination_foreign_db,
  * @param array  $options_array              options array
  * @param array  $existrel_foreign           db, table, column
  * @param string $table                      current table
- * @param bool   $seen_error                 whether seen error
- * @param string $display_query              display query
+ * @param bool   &$seen_error                whether seen error
+ * @param string &$display_query             display query
  * @param string $foreign_db                 foreign database
  * 
  * @return string
