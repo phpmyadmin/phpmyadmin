@@ -588,7 +588,7 @@ function PMA_getHtmlForDataDefinitionStatements($data, $filter_users,
     $filter_ts_from, $filter_ts_to, $url_params, $drop_image_or_text
 ) {
     $i = 1;
-    $html = '<table id="ddl_versions" class="data" width="100%">';
+    $html  = '<table id="ddl_versions" class="data" width="100%">';
     $html .= '<thead>';
     $html .= '<tr>';
     $html .= '<th width="18">#</th>';
