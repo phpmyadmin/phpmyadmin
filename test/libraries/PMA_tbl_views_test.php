@@ -36,11 +36,11 @@ class PMA_TblViewsTest extends PHPUnit_Framework_TestCase
          */
         $GLOBALS['server'] = 1;
         $GLOBALS['cfg']['Server']['pmadb'] = '';
-        
+
         $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
-            
+
         $dbi->expects($this->any())
             ->method('tryQuery')
             ->will($this->returnValue('executeResult2'));
@@ -55,22 +55,40 @@ class PMA_TblViewsTest extends PHPUnit_Framework_TestCase
             'relation' => 'relation',
             'column_info' => 'column_info',
         );
-            
+
+        //_SESSION
+        $_SESSION['relation'][$GLOBALS['server']] = array(
+            'table_coords' => "table_name",
+            'displaywork' => 'displaywork',
+            'db' => "information_schema",
+            'table_info' => 'table_info',
+            'relwork' => 'relwork',
+            'commwork' => 'commwork',
+            'displaywork' => 'displaywork',
+            'pdfwork' => 'pdfwork',
+            'designerwork' => 'designerwork',
+            'column_info' => 'column_info',
+            'designer_coords' => 'designer_coords',
+            'relation' => 'relation',
+            'relwork' => 'relwork',
+        );
+
         $meta1 = new FieldMeta();
         $meta1->table = "meta1_table";
-        $meta1->name = "meta1_name";            
+        $meta1->name = "meta1_name";
         $meta2 = new FieldMeta();
         $meta2->table = "meta2_table";
         $meta2->name = "meta2_name";
-        
+
         $getFieldsMeta = array($meta1, $meta2);
+
         $dbi->expects($this->any())
             ->method('getFieldsMeta')
             ->will($this->returnValue($getFieldsMeta));
 
         $GLOBALS['dbi'] = $dbi;
     }
-    
+
     /**
      * Tests for PMA_getColumnMap() method.
      *
@@ -83,7 +101,7 @@ class PMA_TblViewsTest extends PHPUnit_Framework_TestCase
         $view_columns = array(
             "view_columns1", "view_columns2"
         );
-        
+
         $column_map = PMA_getColumnMap($sql_query, $view_columns);
 
         $this->assertEquals(
@@ -103,7 +121,7 @@ class PMA_TblViewsTest extends PHPUnit_Framework_TestCase
             $column_map[1]
         );
     }
-    
+
     /**
      * Tests for PMA_getExistingTranformationData() method.
      *
@@ -114,10 +132,58 @@ class PMA_TblViewsTest extends PHPUnit_Framework_TestCase
     {
         $db = "PMA_db";
         $ret = PMA_getExistingTranformationData($db);
-        
+
         //validate that is the same as $GLOBALS['dbi']->tryQuery
         $this->assertEquals(
             'executeResult2',
+            $ret
+        );
+    }
+
+    /**
+     * Tests for PMA_getNewTransformationDataSql() method.
+     *
+     * @return void
+     * @test
+     */
+    public function testPMAGetNewTransformationDataSql()
+    {
+        $dbi = $GLOBALS['dbi'];
+        $value = array(
+            'table_name' => "table_name",
+            'column_name' => "column_name",
+            'comment' => "comment",
+            'mimetype' => "mimetype",
+            'transformation' => "transformation",
+            'transformation_options' => "transformation_options",
+        );
+
+        $dbi->expects($this->at(0))->method('fetchAssoc')
+            ->will($this->returnValue($value));
+
+        $GLOBALS['dbi'] = $dbi;
+
+        $db = "PMA_db";
+        $pma_tranformation_data = array();
+        $column_map = array(
+            array(
+                "table_name" => "table_name",
+                "refering_column" => "column_name"
+            )
+        );
+        $view_name = "view_name";
+
+        $ret = PMA_getNewTransformationDataSql(
+            $pma_tranformation_data, $column_map, $view_name, $db
+        );
+
+        $sql = "INSERT INTO `information_schema`.`column_info` "
+            . "(`db_name`, `table_name`, `column_name`, `comment`, `mimetype`, "
+            . "`transformation`, `transformation_options`) VALUES "
+            . "('PMA_db', 'view_name', 'column_name', 'comment', 'mimetype', "
+            . "'transformation', 'transformation_options')";
+        $this->assertEquals(
+            $sql,
             $ret
         );
     }
