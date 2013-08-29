@@ -885,13 +885,15 @@ function PMA_handleUpdateForForeignKey($multi_edit_columns_name, $master_field_m
         && ! empty($foreign_table)
         && ! empty($foreign_field)
     ) {
-        $constraint_name = $existrel_foreign[$master_field]['constraint'];
-        $on_delete = ! empty(
+        if ( isset($existrel_foreign[$master_field])) {
+            $constraint_name = $existrel_foreign[$master_field]['constraint'];
+            $on_delete = ! empty(
                         $existrel_foreign[$master_field]['on_delete']) 
                         ? $existrel_foreign[$master_field]['on_delete'] : 'RESTRICT';
-        $on_update = ! empty(
+            $on_update = ! empty(
                         $existrel_foreign[$master_field]['on_update'])
                         ? $existrel_foreign[$master_field]['on_update'] : 'RESTRICT';
+        }
         if (! isset($existrel_foreign[$master_field])) {
             // no key defined for this field
             $create = true;
