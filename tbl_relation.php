@@ -93,7 +93,6 @@ $multi_edit_columns_name = isset($_REQUEST['fields_name'])
     ? $_REQUEST['fields_name']
     : null;
 
-$html_output = '';
 
 // u p d a t e s   f o r   I n t e r n a l    r e l a t i o n s
 if (isset($destination_db) && $cfgRelation['relwork']) {
@@ -108,7 +107,7 @@ if (isset($destination_db) && $cfgRelation['relwork']) {
 // (for now, one index name only; we keep the definitions if the
 // foreign db is not the same)
 if (isset($destination_foreign_db)) {
-    PMA_handleUpdatesForForeignKeys(
+    $html_output = PMA_handleUpdatesForForeignKeys(
         $destination_foreign_db,
         $multi_edit_columns_name, $destination_foreign_table,
         $destination_foreign_column, $options_array, $table,
