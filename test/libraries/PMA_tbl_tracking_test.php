@@ -574,8 +574,8 @@ class PMA_TblTrackingTest extends PHPUnit_Framework_TestCase
         $_REQUEST['logtype'] = 'logtype';
         $url_query = "select * from PMA";
         $data = array(
-            'tracking'=>'tracking', 
-            'ddlog' => array('ddlog'), 
+            'tracking'=>'tracking',
+            'ddlog' => array('ddlog'),
             'dmlog' => array('dmlog')
         );
         $url_params = array();
@@ -588,7 +588,7 @@ class PMA_TblTrackingTest extends PHPUnit_Framework_TestCase
 
         $html = PMA_getHtmlForTrackingReport(
             $url_query, $data, $url_params,
-            $selection_schema, $selection_data, 
+            $selection_schema, $selection_data,
             $selection_both, $filter_ts_to,
             $filter_ts_from, $filter_users
         );
@@ -672,14 +672,14 @@ class PMA_TblTrackingTest extends PHPUnit_Framework_TestCase
         $_REQUEST['version'] = "10";
         $url_query = "select * from PMA";
         $data = array(
-            'tracking'=>'tracking', 
+            'tracking'=>'tracking',
             'dmlog' => array(
                 array(
                     'statement' => 'statement',
                     'date' => 'date',
                     'username' => 'username',
                 )
-            ), 
+            ),
             'ddlog' => array('ddlog')
         );
         $url_params = array();
@@ -691,7 +691,7 @@ class PMA_TblTrackingTest extends PHPUnit_Framework_TestCase
 
         $html = PMA_getHtmlForDataManipulationStatements(
             $data, $filter_users,
-            $filter_ts_from, $filter_ts_to, $url_params, 
+            $filter_ts_from, $filter_ts_to, $url_params,
             $ddlog_count, $drop_image_or_text
         );
 
@@ -722,6 +722,72 @@ class PMA_TblTrackingTest extends PHPUnit_Framework_TestCase
     }
 
     /**
+     * Tests for PMA_getHtmlForDataDefinitionStatements() method.
+     *
+     * @return void
+     * @test
+     */
+    public function testPMAGetHtmlForDataDefinitionStatements()
+    {
+        $_REQUEST['version'] = "10";
+        $url_query = "select * from PMA";
+
+        $data = array(
+            'tracking'=>'tracking',
+            'ddlog' => array(
+                array(
+                    'statement' => 'statement',
+                    'date' => 'date',
+                    'username' => 'username',
+                )
+            ),
+            'dmlog' => array('dmlog')
+        );
+        $filter_users = array("*");
+        $filter_ts_to = 9999999999;
+        $filter_ts_from = 0;
+        $url_params = array();
+        $drop_image_or_text = "text";
+
+        list($html, $count) = PMA_getHtmlForDataDefinitionStatements(
+            $data, $filter_users,
+            $filter_ts_from, $filter_ts_to, $url_params, $drop_image_or_text
+        );
+
+        $this->assertContains(
+            __('Date'),
+            $html
+        );
+
+        $this->assertContains(
+            __('Username'),
+            $html
+        );
+
+        $this->assertContains(
+            __('Data definition statement'),
+            $html
+        );
+
+        $this->assertContains(
+            __('Delete'),
+            $html
+        );
+
+        //PMA_getHtmlForDataDefinitionStatement
+        $this->assertContains(
+            htmlspecialchars($data['ddlog'][0]['username']),
+            $html
+        );
+
+        $this->assertEquals(
+            2,
+            $count
+        );
+
+    }
+
+    /**
      * Tests for PMA_getHtmlForIndexes() method.
      *
      * @return void
@@ -742,7 +808,7 @@ class PMA_TblTrackingTest extends PHPUnit_Framework_TestCase
                 'Comment' => 'Comment',
             ),
         );
-    
+
         $html = PMA_getHtmlForIndexes($indexs);
 
         $this->assertContains(
@@ -793,7 +859,7 @@ class PMA_TblTrackingTest extends PHPUnit_Framework_TestCase
         $this->assertContains(
             htmlspecialchars($indexs[0]['Collation']),
             $html
-        );        
+        );
     }
 
     /**
@@ -814,12 +880,76 @@ class PMA_TblTrackingTest extends PHPUnit_Framework_TestCase
         $_REQUEST['update'] = false;
         $_REQUEST['delete'] = true;
         $_REQUEST['truncate'] = true;
-        
+
         $tracking_set = PMA_getTrackingSet();
         $this->assertEquals(
             'RENAME TABLE,CREATE TABLE,DROP TABLE,DROP INDEX,INSERT,DELETE,TRUNCATE',
             $tracking_set
-        );  
+        );
+
+        //other set to true
+        $_REQUEST['alter_table'] = true;
+        $_REQUEST['rename_table'] = false;
+        $_REQUEST['create_table'] = false;
+        $_REQUEST['drop_table'] = false;
+        $_REQUEST['create_index'] = true;
+        $_REQUEST['drop_index'] = false;
+        $_REQUEST['insert'] = false;
+        $_REQUEST['update'] = true;
+        $_REQUEST['delete'] = false;
+        $_REQUEST['truncate'] = false;
+
+        $tracking_set = PMA_getTrackingSet();
+        $this->assertEquals(
+            'ALTER TABLE,CREATE INDEX,UPDATE',
+            $tracking_set
+        );
+    }
+
+
+    /**
+     * Tests for PMA_getEntries() method.
+     *
+     * @return void
+     * @test
+     */
+    public function testPMAGetEntries()
+    {
+        $_REQUEST['logtype'] = 'schema';
+        $data = array(
+            'tracking'=>'tracking',
+            'ddlog' => array(
+                array(
+                    'statement' => 'statement1',
+                    'date' => 'date2',
+                    'username' => 'username3',
+                )
+            ),
+            'dmlog' =>  array(
+                array(
+                    'statement' => 'statement1',
+                    'date' => 'date2',
+                    'username' => 'username3',
+                )
+            ),
+        );
+        $filter_users = array("*");
+        $filter_ts_to = 9999999999;
+        $filter_ts_from = 0;
+        $url_params = array();
+        $drop_image_or_text = "text";
+
+        $entries = PMA_getEntries(
+            $data, $filter_ts_from, $filter_ts_to, $filter_users
+        );
+        $this->assertEquals(
+            'username3',
+            $entries[0]['username']
+        );
+        $this->assertEquals(
+            'statement1',
+            $entries[0]['statement']
+        );
     }
 }
 

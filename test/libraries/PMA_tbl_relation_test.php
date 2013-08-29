@@ -117,6 +117,48 @@ class PMA_TblRelationTest extends PHPUnit_Framework_TestCase
     }
     
     /**
+     * Tests for PMA_backquoteSplit() method.
+     *
+     * @return void
+     * @test
+     */
+    public function testPMABackquoteSplit()
+    {
+        $text = "test `PMA` Back `quote` Split";
+
+        $this->assertEquals(
+            array('`PMA`', '`quote`'),
+            PMA_backquoteSplit($text)
+        );
+    }
+    
+    /**
+     * Tests for PMA_getSQLToCreateForeignKey() method.
+     *
+     * @return void
+     * @test
+     */
+    public function testPMAGetSQLToCreateForeignKey()
+    {
+        $table = "PMA_table";
+        $field = "PMA_field";
+        $foreignDb = "foreignDb";
+        $foreignTable = "foreignTable";
+        $foreignField = "foreignField";
+
+        $sql =  PMA_getSQLToCreateForeignKey(
+            $table, $field, $foreignDb, $foreignTable, $foreignField
+        );
+        $sql_excepted = 'ALTER TABLE `PMA_table` ADD  ' 
+            . 'FOREIGN KEY (`PMA_field`) REFERENCES ' 
+            . '`foreignDb`.`foreignTable`(`foreignField`);';
+        $this->assertEquals(
+            $sql_excepted,
+            $sql
+        );
+    }
+    
+    /**
      * Tests for PMA_getSQLToDropForeignKey() method.
      *
      * @return void
