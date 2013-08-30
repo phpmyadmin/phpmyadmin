@@ -1287,7 +1287,7 @@ class PMA_Config
 
                 // And finally the path could be already set from REQUEST_URI
                 if (empty($url['path'])) {
-                    $path = parse_url($GLOBALS['PMA_PHP_SELF']);
+                    $path = parse_url(PMA_getenv('REQUEST_URI'));
                     $url['path'] = $path['path'];
                 }
             }
