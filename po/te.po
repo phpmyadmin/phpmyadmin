@@ -7,16 +7,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-07-29 15:07+0200\n"
-"PO-Revision-Date: 2012-11-06 12:16+0200\n"
-"Last-Translator: వీవెన్ <veeven@gmail.com>\n"
-"Language-Team: Telugu <http://l10n.cihar.com/projects/phpmyadmin/master/te/"
-">\n"
+"PO-Revision-Date: 2013-08-30 15:46+0200\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"Language-Team: Telugu <http://l10n.cihar.com/projects/phpmyadmin/4-0/te/>\n"
 "Language: te\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Weblate 1.3-dev\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 1.7-dev\n"
 
 #: browse_foreigners.php:51 browse_foreigners.php:75 js/messages.php:344
 #: libraries/DisplayResults.class.php:813
@@ -111,7 +110,7 @@ msgstr ""
 #: db_create.php:74
 #, php-format
 msgid "Database %1$s has been created."
-msgstr "%1$s డేటాబేసు సృష్టించబడింది"
+msgstr "%1$s డేటాబేసు సృష్టించబడింది."
 
 #: db_datadict.php:51 libraries/operations.lib.php:36
 msgid "Database comment: "
@@ -276,7 +275,7 @@ msgstr ""
 #: db_export.php:33 db_printview.php:92 db_tracking.php:49 export.php:558
 #: libraries/DBQbe.class.php:268
 msgid "No tables found in database."
-msgstr "డేటాబేస్ లో ఏ పట్టికలు లేవు"
+msgstr "డేటాబేస్ లో ఏ పట్టికలు లేవు."
 
 #: db_export.php:40 libraries/DbSearch.class.php:438 server_export.php:25
 msgid "Select All"
@@ -7403,7 +7402,7 @@ msgstr "డేటాబేసుకు ఈ పేరు పెట్టండి
 #: libraries/operations.lib.php:115
 #, php-format
 msgid "Database %s has been dropped."
-msgstr "%s డేటాబేస్ తుడిచివేయడమైనది"
+msgstr "%s డేటాబేస్ తుడిచివేయడమైనది."
 
 # మొదటి అనువాదము
 #: libraries/operations.lib.php:131
@@ -9340,7 +9339,7 @@ msgstr ""
 # మొదటి అనువాదము
 #: libraries/server_privileges.lib.php:1922
 msgid "… keep the old one."
-msgstr "… పాతదే ఉంచుము"
+msgstr "… పాతదే ఉంచుము."
 
 #: libraries/server_privileges.lib.php:1923
 msgid "… delete the old one from the user tables."
@@ -11077,7 +11076,7 @@ msgstr ""
 # మొదటి అనువాదము
 #: server_status_variables.php:542
 msgid "The number of pages created."
-msgstr "సృష్టించబడిన పుటల సంఖ్య"
+msgstr "సృష్టించబడిన పుటల సంఖ్య."
 
 #: server_status_variables.php:545
 msgid ""
@@ -11088,12 +11087,12 @@ msgstr ""
 # మొదటి అనువాదము
 #: server_status_variables.php:550
 msgid "The number of pages read."
-msgstr "చదివిన పుటల సంఖ్య"
+msgstr "చదివిన పుటల సంఖ్య."
 
 # మొదటి అనువాదము
 #: server_status_variables.php:553
 msgid "The number of pages written."
-msgstr "వ్రాసిన పుటల సంఖ్య"
+msgstr "వ్రాసిన పుటల సంఖ్య."
 
 #: server_status_variables.php:556
 msgid "The number of row locks currently being waited for."
