@@ -22,7 +22,7 @@ require_once 'libraries/Message.class.php';
 require_once 'libraries/Response.class.php';
 require_once 'libraries/relation.lib.php';
 require_once 'libraries/server_privileges.lib.php';
-define('PMA_USR_BROWSER_AGENT', 1);
+
 /**
  * PMA_ServerPrivileges_Test class
  *
