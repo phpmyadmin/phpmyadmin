@@ -843,6 +843,7 @@ function PMA_handleUpdatesForForeignKeys($destination_foreign_db,
         );
     } // end foreach
     if (! empty($display_query) && ! $seen_error) {
+        $GLOBALS['display_query'] = $display_query;
         $html_output = PMA_Util::getMessage(
             __('Your SQL query has been executed successfully'),
             null, 'success'
