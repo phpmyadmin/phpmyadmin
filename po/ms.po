@@ -12781,7 +12781,7 @@ msgstr "Jadual %s telah disalin ke %s."
 
 #: tbl_move_copy.php:80
 msgid "The table name is empty!"
-msgstr "Nama jadual  adalah kosong"
+msgstr "Nama jadual adalah kosong!"
 
 #: tbl_printview.php:65
 #, fuzzy
