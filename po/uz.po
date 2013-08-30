@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-08-18 06:16-0400\n"
-"PO-Revision-Date: 2013-07-12 15:04+0200\n"
+"PO-Revision-Date: 2013-08-30 15:47+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Uzbek <http://l10n.cihar.com/projects/phpmyadmin/master/uz/>\n"
 "Language: uz\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 1.6-dev\n"
+"X-Generator: Weblate 1.7-dev\n"
 
 #: browse_foreigners.php:50 browse_foreigners.php:70 js/messages.php:349
 #: libraries/DisplayResults.class.php:805
@@ -3235,7 +3235,7 @@ msgstr "Бирламчи калит ўчирилди"
 #: libraries/Index.class.php:607
 #, php-format
 msgid "Index %s has been dropped."
-msgstr "\"%s\" индекси ўчирилди"
+msgstr "\"%s\" индекси ўчирилди."
 
 #: libraries/Index.class.php:735
 #, php-format
@@ -4216,7 +4216,7 @@ msgstr "Юклаш каталогидан"
 #: libraries/Util.class.php:3357 libraries/insert_edit.lib.php:1188
 #: libraries/sql_query_form.lib.php:480
 msgid "The directory you set for upload work cannot be reached."
-msgstr "Кўрсатилган каталокка юклаб бўлмади"
+msgstr "Кўрсатилган каталокка юклаб бўлмади."
 
 #: libraries/Util.class.php:3368
 msgid "There are no files to upload"
