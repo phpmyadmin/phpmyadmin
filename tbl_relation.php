@@ -40,9 +40,6 @@ $scripts->addFile('indexes.js');
  * Sets globals from $_POST
  */
 $post_params = array(
-    'destination_db',
-    'destination_table',
-    'destination_column',
     'destination_foreign_db',
     'destination_foreign_table',
     'destination_foreign_column',
@@ -95,10 +92,11 @@ $multi_edit_columns_name = isset($_REQUEST['fields_name'])
 
 
 // u p d a t e s   f o r   I n t e r n a l    r e l a t i o n s
-if (isset($destination_db) && $cfgRelation['relwork']) {
+if (isset($_POST['destination_db']) && $cfgRelation['relwork']) {
      PMA_handleUpdatesForInternalRelations(
-        $destination_db, $multi_edit_columns_name, $destination_table,
-        $destination_column, $cfgRelation, $db, $table,
+        $_POST['destination_db'], $multi_edit_columns_name,
+        $_POST['destination_table'],
+        $_POST['destination_column'], $cfgRelation, $db, $table,
         isset($existrel) ? $existrel : null
      );
 } // end if (updates for internal relations)
@@ -126,7 +124,7 @@ if ($cfgRelation['displaywork'] && isset($display_field)) {
 } // end if
 
 // If we did an update, refresh our data
-if (isset($destination_db) && $cfgRelation['relwork']) {
+if (isset($_POST['destination_db']) && $cfgRelation['relwork']) {
     $existrel = PMA_getForeigners($db, $table, '', 'internal');
 }
 if (isset($destination_foreign_db)
