@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-08-18 06:16-0400\n"
-"PO-Revision-Date: 2013-07-15 11:30+0200\n"
+"PO-Revision-Date: 2013-08-30 15:48+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Latvian <http://l10n.cihar.com/projects/phpmyadmin/master/lv/"
-">\n"
+"Language-Team: Latvian "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/lv/>\n"
 "Language: lv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : 2;\n"
-"X-Generator: Weblate 1.6-dev\n"
+"X-Generator: Weblate 1.7-dev\n"
 
 #: browse_foreigners.php:50 browse_foreigners.php:70 js/messages.php:349
 #: libraries/DisplayResults.class.php:805
@@ -8948,7 +8948,7 @@ msgstr "Pārlūkprogrammas transformācija"
 msgid ""
 "Please see the documentation on how to update your column_comments table."
 msgstr ""
-"Lūdzu skatieties dokumentāciju par to, kā atjaunot 'Column_comments' tabulu"
+"Lūdzu skatieties dokumentāciju par to, kā atjaunot 'column_comments' tabulu."
 
 #: libraries/relation.lib.php:181 libraries/sql_query_form.lib.php:401
 msgid "Bookmarked SQL query"
@@ -10307,7 +10307,7 @@ msgstr "Lietotāja %s parole tika veiksmīgi mainīta."
 #: libraries/server_privileges.lib.php:1573
 #, php-format
 msgid "You have revoked the privileges for %s."
-msgstr "Jūs atņēmāt privilēgijas lietotājam %s"
+msgstr "Jūs atņēmāt privilēgijas lietotājam %s."
 
 #: libraries/server_privileges.lib.php:1631
 msgid "Database for user"
@@ -10433,7 +10433,7 @@ msgstr "Pievienot privilēģijas uz sekojošo  datubāzi"
 #: libraries/server_privileges.lib.php:2531
 msgid "Wildcards % and _ should be escaped with a \\ to use them literally."
 msgstr ""
-"Aizstājējzīmes _ un % jāaizsargā ar \\ priekšā, lai izmantotu tās burtiski"
+"Aizstājējzīmes _ un % jāaizsargā ar \\ priekšā, lai izmantotu tās burtiski."
 
 #: libraries/server_privileges.lib.php:2549
 #, fuzzy
