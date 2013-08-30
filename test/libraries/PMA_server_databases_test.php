@@ -198,4 +198,51 @@ class PMA_ServerDatabases_Test extends PHPUnit_Framework_TestCase
             $html
         );
     }
+
+    /**
+     * Test for PMA_getListForSortDatabase
+     *
+     * @return void
+     */
+    public function testPMAGetListForSortDatabase()
+    {
+        //$_REQUEST['sort_by'] and $_REQUEST['sort_order'] are empty
+        list($sort_by, $sort_order) = PMA_getListForSortDatabase();
+        $this->assertEquals(
+            'SCHEMA_NAME',
+            $sort_by
+        );
+        $this->assertEquals(
+            'asc',
+            $sort_order
+        );
+
+        // $_REQUEST['sort_by'] = 'DEFAULT_COLLATION_NAME'
+        // and $_REQUEST['sort_order'] is not 'desc'
+        $_REQUEST['sort_by'] = 'DEFAULT_COLLATION_NAME';
+        $_REQUEST['sort_order'] = 'abc';
+        list($sort_by, $sort_order) = PMA_getListForSortDatabase();
+        $this->assertEquals(
+            'DEFAULT_COLLATION_NAME',
+            $sort_by
+        );
+        $this->assertEquals(
+            'asc',
+            $sort_order
+        );
+
+        // $_REQUEST['sort_by'] = 'DEFAULT_COLLATION_NAME'
+        // and $_REQUEST['sort_order'] is 'desc'
+        $_REQUEST['sort_by'] = 'DEFAULT_COLLATION_NAME';
+        $_REQUEST['sort_order'] = 'desc';
+        list($sort_by, $sort_order) = PMA_getListForSortDatabase();
+        $this->assertEquals(
+            'DEFAULT_COLLATION_NAME',
+            $sort_by
+        );
+        $this->assertEquals(
+            'desc',
+            $sort_order
+        );
+    }
 }

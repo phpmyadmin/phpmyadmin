@@ -20,8 +20,9 @@ require_once 'libraries/sqlparser.lib.php';
 require_once 'libraries/js_escape.lib.php';
 require_once 'libraries/Message.class.php';
 require_once 'libraries/Response.class.php';
+require_once 'libraries/relation.lib.php';
 require_once 'libraries/server_privileges.lib.php';
-
+define('PMA_USR_BROWSER_AGENT', 1);
 /**
  * PMA_ServerPrivileges_Test class
  *
@@ -53,11 +54,15 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['LimitChars'] = 100;
         $GLOBALS['cfg']['DBG']['sql'] = false;
         $GLOBALS['cfg']['AllowThirdPartyFraming'] = false;
+        $GLOBALS['cfg']['Server']['pmadb'] = 'pmadb';
+        $GLOBALS['cfg']['Server']['usergroups'] = 'usergroups';
+        $GLOBALS['cfg']['Server']['users'] = 'users';
 
         $GLOBALS['table'] = "table";
         $GLOBALS['PMA_PHP_SELF'] = PMA_getenv('PHP_SELF');
         $GLOBALS['pmaThemeImage'] = 'image';
         $GLOBALS['server'] = 1;
+        $GLOBALS['username'] = "pma_username";
 
         //$_POST
         $_POST['pred_password'] = 'none';
@@ -107,7 +112,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
         $_REQUEST['tablename'] = "PMA_tablename";
         $_REQUEST['dbname'] = "PMA_dbname";
         list(
-            $username, $hostname, $dbname, $tablename, 
+            $username, $hostname, $dbname, $tablename,
             $db_and_table, $dbname_is_wildcard
         ) = PMA_getDataForDBInfo();
         $this->assertEquals(
@@ -139,7 +144,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
         $_REQUEST['pred_tablename'] = "PMA_pred__tablename";
         $_REQUEST['pred_dbname'] = "PMA_pred_dbname";
         list(
-            $username, $hostname, $dbname, $tablename, 
+            $username, $hostname, $dbname, $tablename,
             $db_and_table, $dbname_is_wildcard
         ) = PMA_getDataForDBInfo();
         $this->assertEquals(
@@ -161,6 +166,162 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
 
     }
 
+    /**
+     * Test for PMA_wildcardEscapeForGrant
+     *
+     * @return void
+     */
+    public function testPMAWildcardEscapeForGrant()
+    {
+        $dbname = '';
+        $tablename = '';
+        $db_and_table = PMA_wildcardEscapeForGrant($dbname, $tablename);
+        $this->assertEquals(
+            '*.*',
+            $db_and_table
+        );
+
+        $dbname = 'dbname';
+        $tablename = '';
+        $db_and_table = PMA_wildcardEscapeForGrant($dbname, $tablename);
+        $this->assertEquals(
+            '`dbname`.*',
+            $db_and_table
+        );
+
+        $dbname = 'dbname';
+        $tablename = 'tablename';
+        $db_and_table = PMA_wildcardEscapeForGrant($dbname, $tablename);
+        $this->assertEquals(
+            '`dbname`.`tablename`',
+            $db_and_table
+        );
+    }
+
+    /**
+     * Test for PMA_rangeOfUsers
+     *
+     * @return void
+     */
+    public function testPMARangeOfUsers()
+    {
+        $ret = PMA_rangeOfUsers("INIT");
+        $this->assertEquals(
+            " WHERE `User` LIKE 'INIT%' OR `User` LIKE 'init%'",
+            $ret
+        );
+    }
+
+    /**
+     * Test for PMA_getGrantsArray
+     *
+     * @return void
+     */
+    public function testPMAGetGrantsArray()
+    {
+        $ret = PMA_getGrantsArray();
+        $this->assertEquals(
+            array(
+                'Select_priv',
+                'SELECT',
+                __('Allows reading data.')
+            ),
+            $ret[0]
+        );
+        $this->assertEquals(
+            array(
+                'Insert_priv',
+                'INSERT',
+                __('Allows inserting and replacing data.')
+            ),
+            $ret[1]
+        );
+    }
+
+    /**
+     * Test for PMA_getHtmlForDisplayColumnPrivileges
+     *
+     * @return void
+     */
+    public function testPMAGetHtmlForDisplayColumnPrivileges()
+    {
+        $columns = array(
+            'row1' => 'name1'
+        );
+        $row = array(
+            'name_for_select' => 'Y'
+        );
+        $name_for_select = 'name_for_select';
+        $priv_for_header = 'priv_for_header';
+        $name = 'name';
+        $name_for_dfn = 'name_for_dfn';
+        $name_for_current = 'name_for_current';
+
+        $html = PMA_getHtmlForDisplayColumnPrivileges(
+            $columns, $row, $name_for_select,
+            $priv_for_header, $name, $name_for_dfn, $name_for_current
+        );
+        //$name
+        $this->assertContains(
+            $name,
+            $html
+        );
+        //$name_for_dfn
+        $this->assertContains(
+            $name_for_dfn,
+            $html
+        );
+        //$priv_for_header
+        $this->assertContains(
+            $priv_for_header,
+            $html
+        );
+        //$name_for_select
+        $this->assertContains(
+            $name_for_select,
+            $html
+        );
+        //$columns and $row
+        $this->assertContains(
+            htmlspecialchars('row1'),
+            $html
+        );
+        //$columns and $row
+        $this->assertContains(
+            _pgettext('None privileges', 'None'),
+            $html
+        );
+
+    }
+
+    /**
+     * Test for PMA_getHtmlToChooseUserGroup
+     *
+     * @return void
+     */
+    public function testPMAGetHtmlToChooseUserGroup()
+    {
+        $username = "pma_username";
+
+        //PMA_getHtmlToChooseUserGroup
+        $html = PMA_getHtmlToChooseUserGroup($username);
+        $this->assertContains(
+            '<form class="ajax" id="changeUserGroupForm"',
+            $html
+        );
+        //PMA_URL_getHiddenInputs
+        $params = array('username' => $username);
+        $html_output = PMA_URL_getHiddenInputs($params);
+        $this->assertContains(
+            $html_output,
+            $html
+        );
+        //__('User group')
+        $this->assertContains(
+            __('User group'),
+            $html
+        );
+    }
 
     /**
      * Test for PMA_getDataForChangeOrCopyUser
