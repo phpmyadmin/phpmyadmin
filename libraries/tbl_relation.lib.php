@@ -877,7 +877,7 @@ function PMA_handleUpdateForForeignKey($multi_edit_columns_name, $master_field_m
     $create = false;
     $drop = false;
 
-    // Map the fieldname's md5 back to it's real name
+    // Map the fieldname's md5 back to its real name
     $master_field = $multi_edit_columns_name[$master_field_md5];
 
     $foreign_table = $destination_foreign_table[$master_field_md5];
