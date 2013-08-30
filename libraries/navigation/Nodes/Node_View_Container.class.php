@@ -31,6 +31,7 @@ class Node_View_Container extends Node
             'icon' => 'db_structure.php?server=' . $GLOBALS['server']
                     . '&amp;db=%1$s&amp;token=' . $GLOBALS['token'],
         );
+        $this->classes   = 'viewContainer';
         $this->real_name = 'views';
 
         $new        = PMA_NodeFactory::getInstance('Node', _pgettext('Create new view', 'New'));

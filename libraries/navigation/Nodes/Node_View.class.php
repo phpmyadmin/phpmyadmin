@@ -38,6 +38,7 @@ class Node_View extends Node
                     . '&amp;db=%2$s&amp;table=%1$s'
                     . '&amp;token=' . $GLOBALS['token']
         );
+        $this->classes = 'view';
     }
 }
 
