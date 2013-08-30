@@ -92,7 +92,7 @@ $strPrivDescMaxQuestions = __(
     'Limits the number of queries the user may send to the server per hour.'
 );
 $strPrivDescMaxUpdates = __(
-    'Limits the number of commands that change any table or database ' 
+    'Limits the number of commands that change any table or database '
     . 'the user may execute per hour.'
 );
 $strPrivDescMaxUserConnections = __(
@@ -112,8 +112,8 @@ $strPrivDescShowDb = __('Gives access to the complete list of databases.');
 $strPrivDescShowView = __('Allows performing SHOW CREATE VIEW queries.');
 $strPrivDescShutdown = __('Allows shutting down the server.');
 $strPrivDescSuper = __(
-    'Allows connecting, even if maximum number of connections is reached; ' 
-    . 'required for most administrative operations like setting global variables ' 
+    'Allows connecting, even if maximum number of connections is reached; '
+    . 'required for most administrative operations like setting global variables '
     . 'or killing threads of other users.'
 );
 $strPrivDescTrigger = __('Allows creating and dropping triggers');
@@ -124,7 +124,7 @@ $strPrivDescUsage = __('No privileges.');
 /**
  * Get DB information: dbname, tablename, db_and_table, dbname_is_wildcard
  */
-list($dbname, $tablename, $db_and_table, $dbname_is_wildcard) 
+list($dbname, $tablename, $db_and_table, $dbname_is_wildcard)
     = PMA_getDataForDBInfo();
 
 /**
@@ -140,15 +140,15 @@ if (! $is_superuser) {
  * Changes / copies a user, part I
  */
 list($queries, $password) = PMA_getDataForChangeOrCopyUser();
-    
+
 /**
  * Adds a user
  *   (Changes / copies a user, part II)
- */ 
-list($ret_message, $ret_queries, $queries_for_display, $sql_query, $_add_user_error) 
+ */
+list($ret_message, $ret_queries, $queries_for_display, $sql_query, $_add_user_error)
     = PMA_addUser(
-        isset($dbname)? $dbname : null, 
-        isset($username)? $username : null, 
+        isset($dbname)? $dbname : null,
+        isset($username)? $username : null,
         isset($hostname)? $hostname : null,
         isset($password)? $password : null,
         $cfgRelation['menuswork']
@@ -239,8 +239,8 @@ if (isset($_REQUEST['change_copy'])) {
  * Reloads the privilege tables into memory
  */
 $message_ret = PMA_updateMessageForReload();
-if (isset($message_ret)) { 
-    $message = $message_ret; 
+if (isset($message_ret)) {
+    $message = $message_ret;
     unset($message_ret);
 }
 
@@ -279,7 +279,7 @@ if ($GLOBALS['is_ajax_request']
  * Displays the links
  */
 if (isset($_REQUEST['viewing_mode']) && $_REQUEST['viewing_mode'] == 'db') {
-    $_REQUEST['db'] = $_REQUEST['checkprivs'];
+    $_REQUEST['db'] = $_REQUEST['checkprivsdb'];
 
     $url_query .= '&amp;goto=db_operations.php';
 
@@ -302,7 +302,7 @@ if (isset($_REQUEST['viewing_mode']) && $_REQUEST['viewing_mode'] == 'db') {
  */
 $response->addHTML(
     PMA_getHtmlForUserGroupDialog(
-        isset($username)? $username : null, 
+        isset($username)? $username : null,
         $cfgRelation['menuswork']
     )
 );
@@ -328,10 +328,26 @@ if (isset($_REQUEST['export'])
     }
 }
 
-if (empty($_REQUEST['adduser'])
-    && (! isset($_REQUEST['checkprivs'])
-    || ! strlen($_REQUEST['checkprivs']))
-) {
+if (isset($_REQUEST['adduser'])) {
+    // Add user
+    $response->addHTML(
+        PMA_getHtmlForAddUser((isset($dbname) ? $dbname : ''))
+    );
+} elseif (isset($_REQUEST['checkprivsdb'])) {
+    if (isset($_REQUEST['checkprivstable'])) {
+        // check the privileges for a particular table.
+        $response->addHTML(
+            PMA_getHtmlForSpecificTablePrivileges(
+                $_REQUEST['checkprivsdb'], $_REQUEST['checkprivstable']
+            )
+        );
+    } else {
+        // check the privileges for a particular database.
+        $response->addHTML(
+            PMA_getHtmlForSpecificDbPrivileges($_REQUEST['checkprivsdb'])
+        );
+    }
+} else {
     if (! isset($username)) {
         // No username is given --> display the overview
         $response->addHTML(
@@ -358,17 +374,7 @@ if (empty($_REQUEST['adduser'])
             )
         );
     }
-} elseif (isset($_REQUEST['adduser'])) {
-    // Add user
-    $response->addHTML(
-        PMA_getHtmlForAddUser((isset($dbname) ? $dbname : ''))
-    );
-} else {
-    // check the privileges for a particular database.
-    $response->addHTML(
-        PMA_getHtmlForSpecificDbPrivileges()
-    );
-} // end if (empty($_REQUEST['adduser']) && empty($checkprivs))... elseif... else...
+}
 
 if ((empty($_REQUEST['viewing_mode']) || $_REQUEST['viewing_mode'] != 'db')
     && $GLOBALS['cfgRelation']['menuswork']

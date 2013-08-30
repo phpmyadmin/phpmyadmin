@@ -4114,6 +4114,7 @@ class PMA_Util
                 'insert'      => __('Insert'),
                 'export'      => __('Export'),
                 'import'      => __('Import'),
+                'privileges'  => __('Privileges'),
                 'operation'   => __('Operations'),
                 'tracking'    => __('Tracking'),
                 'triggers'    => __('Triggers'),
