@@ -401,7 +401,7 @@ echo "var themeCalendarImage = '" . $GLOBALS['pmaThemeImage'] . 'b_calendar.png'
 /* Image path */
 echo "var pmaThemeImage = '" . $GLOBALS['pmaThemeImage'] . "';\n";
 
-/* Audio path */
+/* Audio path and status*/
 echo "var pmaThemeAudio = '" . $GLOBALS['pmaThemeAudio'] . "';\n";
 
 /* Version */

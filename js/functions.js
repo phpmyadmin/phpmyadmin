@@ -1663,6 +1663,7 @@ function PMA_ajaxShowMessage(message, timeout)
     .appendTo("#loading_parent")
     .html(message)
     .show();
+	
     // If the notification is self-closing we should create a callback to remove it
     if (self_closing) {
         $retval
@@ -3702,6 +3703,32 @@ AJAX.registerOnload('functions.js', function () {
             return false;
         }
         return true;
+    });
+	/**
+    * Change audio settings
+    */
+	var changeAudioState = function(state){
+		localStorage.setItem('audio', state);
+		if (window.opener){
+			myWin = window.opener;
+		}else{
+			myWin = window;
+		}
+		var myLocation = myWin.location.href.split('#')[0];
+		myWin.location.href = myLocation.split('?')[0]+ '?set_audio='+ state + '&token=' + PMA_commonParams.get('token');
+	};
+	if(typeof $('a#clickAudioSetting') != 'undefined' && typeof $('a#clickAudioSetting').attr('name') != 'undefined' ){
+		var state = ($('a#clickAudioSetting').attr('name')=='1' ? '1' :'0');
+		if(localStorage.getItem('audio') == null){
+			localStorage.setItem('audio',state);
+		}else if(localStorage.getItem('audio')!=state){
+			changeAudioState(localStorage.getItem('audio'));
+		}	
+	}	
+    $('a#clickAudioSetting').click(function (e) {
+        var state = (this.name=='1' ? '0' :'1');
+		changeAudioState(state);
+        return false;
     });
 });
 
