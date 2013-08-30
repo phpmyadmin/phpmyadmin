@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-07-29 15:07+0200\n"
-"PO-Revision-Date: 2013-05-07 17:19+0200\n"
+"PO-Revision-Date: 2013-08-30 15:47+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Malay <http://l10n.cihar.com/projects/phpmyadmin/4-0/ms/>\n"
 "Language: ms\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 1.6-dev\n"
+"X-Generator: Weblate 1.7-dev\n"
 
 #: browse_foreigners.php:51 browse_foreigners.php:75 js/messages.php:344
 #: libraries/DisplayResults.class.php:813
@@ -12111,7 +12111,7 @@ msgstr "Jadual %s telah disalin ke %s."
 
 #: tbl_move_copy.php:79
 msgid "The table name is empty!"
-msgstr "Nama jadual  adalah kosong"
+msgstr "Nama jadual adalah kosong!"
 
 #: tbl_printview.php:65
 #, fuzzy
