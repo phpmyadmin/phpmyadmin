@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-08-18 06:16-0400\n"
-"PO-Revision-Date: 2013-05-07 17:19+0200\n"
+"PO-Revision-Date: 2013-08-30 15:47+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Malay <http://l10n.cihar.com/projects/phpmyadmin/master/ms/>\n"
 "Language: ms\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 1.6-dev\n"
+"X-Generator: Weblate 1.7-dev\n"
 
 #: browse_foreigners.php:50 browse_foreigners.php:70 js/messages.php:349
 #: libraries/DisplayResults.class.php:805
@@ -3073,7 +3073,7 @@ msgstr "Kekunci utama telah digugurkan"
 #: libraries/Index.class.php:607
 #, php-format
 msgid "Index %s has been dropped."
-msgstr "Indeks %s telah digugurkan"
+msgstr "Indeks %s telah digugurkan."
 
 #: libraries/Index.class.php:735
 #, php-format
@@ -4021,7 +4021,7 @@ msgstr "direktori muatnaik pelayan-web"
 #: libraries/Util.class.php:3357 libraries/insert_edit.lib.php:1188
 #: libraries/sql_query_form.lib.php:480
 msgid "The directory you set for upload work cannot be reached."
-msgstr "Direktori muatnaik yang telah ditetapkan tidak dapat dicapai"
+msgstr "Direktori muatnaik yang telah ditetapkan tidak dapat dicapai."
 
 #: libraries/Util.class.php:3368
 msgid "There are no files to upload"
@@ -10178,7 +10178,7 @@ msgstr ""
 #: libraries/server_privileges.lib.php:1573
 #, php-format
 msgid "You have revoked the privileges for %s."
-msgstr "Anda telah menarikbalik privilej Keistimewaan untuk %s"
+msgstr "Anda telah menarikbalik privilej Keistimewaan untuk %s."
 
 #: libraries/server_privileges.lib.php:1631
 msgid "Database for user"
@@ -11550,7 +11550,7 @@ msgid ""
 "below, if there is any, may also help you in diagnosing the problem."
 msgstr ""
 "Ada kemungkin kueri SQL anda salah. Dibawah adalah kesalah Pelayan MySql , "
-"jika ada, ianya membantu anda menganalisis masalah"
+"jika ada, ianya membantu anda menganalisis masalah."
 
 #: libraries/sqlparser.lib.php:178
 msgid ""
