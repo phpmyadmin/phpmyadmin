@@ -7,7 +7,7 @@
  */
 
 /**
- *
+ * include common file
  */
 require_once 'libraries/common.inc.php';
 
@@ -32,15 +32,6 @@ if ((isset($_REQUEST['viewing_mode']) && $_REQUEST['viewing_mode'] == 'server')
 ) {
     $response->addHTML('<div>');
     $response->addHTML(PMA_getHtmlForSubMenusOnUsersPage('server_privileges.php'));
-}
-
-$_add_user_error = false;
-
-if (isset ($_REQUEST['username'])) {
-    $username = $_REQUEST['username'];
-}
-if (isset ($_REQUEST['hostname'])) {
-    $hostname = $_REQUEST['hostname'];
 }
 
 /**
@@ -120,12 +111,15 @@ $strPrivDescTrigger = __('Allows creating and dropping triggers');
 $strPrivDescUpdate = __('Allows changing data.');
 $strPrivDescUsage = __('No privileges.');
 
-
+$_add_user_error = false;
 /**
- * Get DB information: dbname, tablename, db_and_table, dbname_is_wildcard
+ * Get DB information: username, hostname, dbname,
+ * tablename, db_and_table, dbname_is_wildcard
  */
-list($dbname, $tablename, $db_and_table, $dbname_is_wildcard)
-    = PMA_getDataForDBInfo();
+list(
+    $username, $hostname, $dbname, $tablename,
+    $db_and_table, $dbname_is_wildcard
+) = PMA_getDataForDBInfo();
 
 /**
  * Checks if the user is allowed to do what he tries to...

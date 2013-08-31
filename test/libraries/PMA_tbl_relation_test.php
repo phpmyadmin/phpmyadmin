@@ -10,6 +10,7 @@
  * Include to test.
  */
 require_once 'libraries/tbl_relation.lib.php';
+require_once 'libraries/Util.class.php';
 
 /**
  * Tests for libraries/tbl_relation.lib.php
@@ -74,6 +75,103 @@ class PMA_TblRelationTest extends PHPUnit_Framework_TestCase
             '<option value="valu&lt;4" selected="selected">valu&lt;4' 
             . '</option></select>',
             PMA_generateRelationalDropdown('name', $values, 'valu<4')
+        );
+    }
+    
+    /**
+     * Tests for PMA_generateDropdown() method.
+     *
+     * @return void
+     * @test
+     */
+    public function testPMAGenerateDropdown()
+    {
+        $dropdown_question = "dropdown_question";
+        $select_name = "select_name";
+        $choices = array("choice1", "choice2");
+        $selected_value = "";
+        
+        $html_output = PMA_generateDropdown(
+            $dropdown_question, $select_name, $choices, $selected_value
+        );
+
+        $this->assertContains(
+            htmlspecialchars($dropdown_question),
+            $html_output
+        );
+
+        $this->assertContains(
+            htmlspecialchars($select_name),
+            $html_output
+        );
+
+        $this->assertContains(
+            htmlspecialchars("choice1"),
+            $html_output
+        );
+
+        $this->assertContains(
+            htmlspecialchars("choice2"),
+            $html_output
+        );
+    }
+    
+    /**
+     * Tests for PMA_backquoteSplit() method.
+     *
+     * @return void
+     * @test
+     */
+    public function testPMABackquoteSplit()
+    {
+        $text = "test `PMA` Back `quote` Split";
+
+        $this->assertEquals(
+            array('`PMA`', '`quote`'),
+            PMA_backquoteSplit($text)
+        );
+    }
+    
+    /**
+     * Tests for PMA_getSQLToCreateForeignKey() method.
+     *
+     * @return void
+     * @test
+     */
+    public function testPMAGetSQLToCreateForeignKey()
+    {
+        $table = "PMA_table";
+        $field = "PMA_field";
+        $foreignDb = "foreignDb";
+        $foreignTable = "foreignTable";
+        $foreignField = "foreignField";
+
+        $sql =  PMA_getSQLToCreateForeignKey(
+            $table, $field, $foreignDb, $foreignTable, $foreignField
+        );
+        $sql_excepted = 'ALTER TABLE `PMA_table` ADD  ' 
+            . 'FOREIGN KEY (`PMA_field`) REFERENCES ' 
+            . '`foreignDb`.`foreignTable`(`foreignField`);';
+        $this->assertEquals(
+            $sql_excepted,
+            $sql
+        );
+    }
+    
+    /**
+     * Tests for PMA_getSQLToDropForeignKey() method.
+     *
+     * @return void
+     * @test
+     */
+    public function testPMAGetSQLToDropForeignKey()
+    {
+        $table = "pma_table";
+        $fk = "pma_fk";
+
+        $this->assertEquals(
+            "ALTER TABLE `pma_table` DROP FOREIGN KEY `pma_fk`;",
+            PMA_getSQLToDropForeignKey($table, $fk)
         );
     }
 }

@@ -125,7 +125,8 @@ class PmaSeleniumDbEventsTest extends PHPUnit_Extensions_Selenium2TestCase
 
         $ele = $this->_helper->waitForElement(
             "byXPath",
-            "//div[@class='success' and contains(., 'Event `test_event` has been created')]"
+            "//div[@class='success' and contains(., "
+            . "'Event `test_event` has been created')]"
         );
 
         $this->assertTrue(
@@ -177,7 +178,8 @@ class PmaSeleniumDbEventsTest extends PHPUnit_Extensions_Selenium2TestCase
 
         $ele = $this->_helper->waitForElement(
             "byXPath",
-            "//div[@class='success' and contains(., 'Event `test_event` has been modified')]"
+            "//div[@class='success' and contains(., "
+            . "'Event `test_event` has been modified')]"
         );
 
         usleep(2000000);
@@ -209,7 +211,7 @@ class PmaSeleniumDbEventsTest extends PHPUnit_Extensions_Selenium2TestCase
         $this->byLinkText("Drop")->click();
         $this->_helper->waitForElement(
             "byXPath", "//button[contains(., 'OK')]"
-            )->click();
+        )->click();
 
         $this->_helper->waitForElement("byId", "nothing2display");
 

@@ -588,7 +588,7 @@ function PMA_getHtmlForDataDefinitionStatements($data, $filter_users,
     $filter_ts_from, $filter_ts_to, $url_params, $drop_image_or_text
 ) {
     $i = 1;
-    $html = '<table id="ddl_versions" class="data" width="100%">';
+    $html  = '<table id="ddl_versions" class="data" width="100%">';
     $html .= '<thead>';
     $html .= '<tr>';
     $html .= '<th width="18">#</th>';
@@ -854,7 +854,7 @@ function PMA_getHtmlForIndex($index, $style)
         $str_packed = __('No');
     }
 
-    $html .= '<tr class="noclick ' . $style . '">';
+    $html  = '<tr class="noclick ' . $style . '">';
     $html .= '<td><b>' . htmlspecialchars($index['Key_name']) . '</b></td>';
     $html .= '<td>' . htmlspecialchars($index['Index_type']) . '</td>';
     $html .= '<td>' . $str_unique . '</td>';

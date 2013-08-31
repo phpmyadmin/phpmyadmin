@@ -102,10 +102,22 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
      */
     public function testPMAGetDataForDBInfo()
     {
+        $_REQUEST['username'] = "PMA_username";
+        $_REQUEST['hostname'] = "PMA_hostname";
         $_REQUEST['tablename'] = "PMA_tablename";
         $_REQUEST['dbname'] = "PMA_dbname";
-        list($dbname, $tablename, $db_and_table, $dbname_is_wildcard)
-            = PMA_getDataForDBInfo();
+        list(
+            $username, $hostname, $dbname, $tablename, 
+            $db_and_table, $dbname_is_wildcard
+        ) = PMA_getDataForDBInfo();
+        $this->assertEquals(
+            "PMA_username",
+            $username
+        );
+        $this->assertEquals(
+            "PMA_hostname",
+            $hostname
+        );
         $this->assertEquals(
             "PMA_dbname",
             $dbname
@@ -126,8 +138,10 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
         //pre variable have been defined
         $_REQUEST['pred_tablename'] = "PMA_pred__tablename";
         $_REQUEST['pred_dbname'] = "PMA_pred_dbname";
-        list($dbname, $tablename, $db_and_table, $dbname_is_wildcard)
-            = PMA_getDataForDBInfo();
+        list(
+            $username, $hostname, $dbname, $tablename, 
+            $db_and_table, $dbname_is_wildcard
+        ) = PMA_getDataForDBInfo();
         $this->assertEquals(
             "PMA_pred_dbname",
             $dbname
