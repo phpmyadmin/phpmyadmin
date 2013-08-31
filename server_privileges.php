@@ -27,7 +27,7 @@ $header   = $response->getHeader();
 $scripts  = $header->getScripts();
 $scripts->addFile('server_privileges.js');
 
-if ((empty($_REQUEST['viewing_mode']) || $_REQUEST['viewing_mode'] != 'db')
+if ((isset($_REQUEST['viewing_mode']) && $_REQUEST['viewing_mode'] == 'server')
     && $GLOBALS['cfgRelation']['menuswork']
 ) {
     $response->addHTML('<div>');
@@ -376,7 +376,7 @@ if (isset($_REQUEST['adduser'])) {
     }
 }
 
-if ((empty($_REQUEST['viewing_mode']) || $_REQUEST['viewing_mode'] != 'db')
+if ((isset($_REQUEST['viewing_mode']) && $_REQUEST['viewing_mode'] == 'server')
     && $GLOBALS['cfgRelation']['menuswork']
 ) {
     $response->addHTML('</div>');

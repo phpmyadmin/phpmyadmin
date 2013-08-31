@@ -535,6 +535,7 @@ class PMA_Menu
                 array('server_privileges.php', 'server_user_groups.php')
             );
         }
+        $tabs['rights']['args']['viewing_mode'] = 'server';
 
         $tabs['export']['icon'] = 'b_export.png';
         $tabs['export']['link'] = 'server_export.php';
