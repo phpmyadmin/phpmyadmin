@@ -2006,7 +2006,7 @@ function PMA_getHtmlForSpecificTablePrivileges($db, $table)
         . '    '
         . sprintf(
             __('Users having access to &quot;%s&quot;'),
-            '<a href="' . $GLOBALS['cfg']['DefaultTabDatabase']
+            '<a href="' . $GLOBALS['cfg']['DefaultTabTable']
             . PMA_URL_getCommon(
                 array(
                     'db' => $db,
