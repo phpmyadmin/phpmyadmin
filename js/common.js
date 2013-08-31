@@ -78,7 +78,7 @@ var PMA_commonParams = (function () {
                 PMA_querywindow.refresh();
             }
             params[name] = value;
-            if(name == 'db' || name == 'table') {
+            if (name == 'db' || name == 'table') {
                 PMA_showCurrentNavigation();
             }
             return this;
@@ -117,9 +117,7 @@ var PMA_commonActions = {
      */
     setDb: function (new_db) {
         if (new_db != PMA_commonParams.get('db')) {
-            PMA_commonParams.set('db', new_db);
-            PMA_showCurrentNavigation();
-            PMA_querywindow.refresh();
+            PMA_commonParams.setAll({'db': new_db, 'table': ''});
         }
     },
     /**
