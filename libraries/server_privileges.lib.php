@@ -1837,13 +1837,21 @@ function PMA_getHtmlForSpecificDbPrivileges($db)
         .'  `Host` ASC,'
         .'  `Db` ASC;';
     $res = $GLOBALS['dbi']->query($sql_query);
-    $row = $GLOBALS['dbi']->fetchAssoc($res);
-    if ($row) {
-        $found = true;
+
+    $privMap = array();
+    while ($row = $GLOBALS['dbi']->fetchAssoc($res)) {
+        $user = $row['User'];
+        $host = $row['Host'];
+        if (! isset($privMap[$user])) {
+            $privMap[$user] = array();
+        }
+        if (! isset($privMap[$user][$host])) {
+            $privMap[$user][$host] = array();
+        }
+        $privMap[$user][$host][] = $row;
     }
-    $html_output .= PMA_getHtmlTableBodyForSpecificDbPrivs(
-        $db, $found, $row, $odd_row, $res
-    );
+
+    $html_output .= PMA_getHtmlTableBodyForSpecificDbOrTablePrivs($privMap, $db);
     $html_output .= '</table>'
         . '</fieldset>'
         . '</form>' . "\n";
@@ -1880,115 +1888,6 @@ function PMA_getHtmlForSpecificDbPrivileges($db)
 }
 
 /**
- * Get HTML snippet for table body of specific database privileges
- *
- * @param boolean $db      database
- * @param boolean $found   whether user found or not
- * @param array   $row     array of rows from mysql,
- *                         db table with list of privileges
- * @param boolean $odd_row whether odd or not
- * @param string  $res     ran sql query
- *
- * @return string $html_output
- */
-function PMA_getHtmlTableBodyForSpecificDbPrivs($db, $found, $row, $odd_row,
-    $res
-) {
-    $html_output = '<tbody>' . "\n";
-    if ($found) {
-        while (true) {
-            // prepare the current user
-            $current_privileges = array();
-            $current_user = $row['User'];
-            $current_host = $row['Host'];
-            while ($row
-                    && $current_user == $row['User']
-                    && $current_host == $row['Host']
-            ) {
-                $current_privileges[] = $row;
-                $row = $GLOBALS['dbi']->fetchAssoc($res);
-            }
-            $html_output .= '<tr '
-                . 'class="noclick ' . ($odd_row ? 'odd' : 'even')
-                . '">' . "\n"
-                . '<td';
-            if (count($current_privileges) > 1) {
-                $html_output .= ' rowspan="' . count($current_privileges) . '"';
-            }
-            $html_output .= '>'
-                . (empty($current_user)
-                    ? '<span style="color: #FF0000">' . __('Any') . '</span>'
-                    : htmlspecialchars($current_user)) . "\n"
-                . '</td>' . "\n";
-
-            $html_output .= '<td';
-            if (count($current_privileges) > 1) {
-                $html_output .= ' rowspan="' . count($current_privileges) . '"';
-            }
-            $html_output .= '>'
-                . htmlspecialchars($current_host) . '</td>' . "\n";
-            for ($i = 0; $i < count($current_privileges); $i++) {
-                $current = $current_privileges[$i];
-                $html_output .= '<td>' . "\n"
-                   . '            ';
-                if (! isset($current['Db']) || $current['Db'] == '*') {
-                    $html_output .= __('global');
-                } elseif ($current['Db'] == PMA_Util::escapeMysqlWildcards($db)) {
-                    $html_output .= __('database-specific');
-                } else {
-                    $html_output .= __('wildcard'). ': '
-                        . '<code>' . htmlspecialchars($current['Db']) . '</code>';
-                }
-                $html_output .= "\n"
-                   . '</td>' . "\n";
-
-                $html_output .='<td>' . "\n"
-                   . '<code>' . "\n"
-                   . ''
-                   . join(
-                       ',' . "\n" . '                ',
-                       PMA_extractPrivInfo($current, true)
-                   )
-                   . "\n"
-                   . '</code>' . "\n"
-                   . '</td>' . "\n";
-
-                $html_output .= '<td>' . "\n"
-                    . '' . ($current['Grant_priv'] == 'Y' ? __('Yes') : __('No'))
-                    . "\n"
-                    . '</td>' . "\n"
-                    . '<td>' . "\n";
-                $html_output .= PMA_getUserEditLink(
-                    $current_user, $current_host,
-                    (isset($current['Db']) && $current['Db'] != '*')
-                    ? $current['Db'] : ''
-                );
-                $html_output .= '</td>' . "\n"
-                   . '    </tr>' . "\n";
-                if (($i + 1) < count($current_privileges)) {
-                    $html_output .= '<tr '
-                        . 'class="noclick ' . ($odd_row ? 'odd' : 'even') . '">'
-                        . "\n";
-                }
-            }
-            if (empty($row)) {
-                break;
-            }
-            $odd_row = ! $odd_row;
-        }
-    } else {
-        $html_output .= '<tr class="odd">' . "\n"
-           . '<td colspan="6">' . "\n"
-           . '            ' . __('No user found.') . "\n"
-           . '</td>' . "\n"
-           . '</tr>' . "\n";
-    }
-    $html_output .= '</tbody>' . "\n";
-
-    return $html_output;
-}
-
-/**
  * Get the HTML for user form and check the privileges for a particular table.
  *
  * @param string $db    database name
@@ -1998,12 +1897,11 @@ function PMA_getHtmlTableBodyForSpecificDbPrivs($db, $found, $row, $odd_row,
  */
 function PMA_getHtmlForSpecificTablePrivileges($db, $table)
 {
-    // check the privileges for a particular database.
-    $html_output = '<form id="usersForm" action="server_privileges.php">'
-        . '<fieldset>';
+    // check the privileges for a particular table.
+    $html_output  = '<form id="usersForm" action="server_privileges.php">';
+    $html_output .= '<fieldset>';
     $html_output .= '<legend>'
         . PMA_Util::getIcon('b_usrcheck.png')
-        . '    '
         . sprintf(
             __('Users having access to &quot;%s&quot;'),
             '<a href="' . $GLOBALS['cfg']['DefaultTabTable']
@@ -2016,11 +1914,10 @@ function PMA_getHtmlForSpecificTablePrivileges($db, $table)
             .  htmlspecialchars($db) . '.' . htmlspecialchars($table)
             . '</a>'
         )
-        . "\n"
         . '</legend>';
 
-    $html_output .= '<table id="tablespecificuserrights" class="data">'
-        . '<thead>'
+    $html_output .= '<table id="tablespecificuserrights" class="data">';
+    $html_output .= '<thead>'
         . '<tr><th>' . __('User') . '</th>'
         . '<th>' . __('Host') . '</th>'
         . '<th>' . __('Type') . '</th>'
@@ -2042,7 +1939,7 @@ function PMA_getHtmlForSpecificTablePrivileges($db, $table)
         . "("
         . " SELECT " . $list_of_privileges . ", `Db`"
         . " FROM `mysql`.`db`"
-        . " WHERE `Db` LIKE '" . PMA_Util::sqlAddSlashes($db) . "'"
+        . " WHERE '" . PMA_Util::sqlAddSlashes($db) . "' LIKE `Db`"
         . "     AND NOT (" . $list_of_compared_privileges. ")"
         . ")"
         . " ORDER BY `User` ASC, `Host` ASC, `Db` ASC;";
@@ -2063,11 +1960,12 @@ function PMA_getHtmlForSpecificTablePrivileges($db, $table)
 
     $sql_query = "SELECT `User`, `Host`, `Db`, `Table_name`, `Table_priv`"
         . " FROM `mysql`.`tables_priv`"
-        . " WHERE `Db` LIKE '" . PMA_Util::sqlAddSlashes($db) . "'"
-        . "     AND `Table_name` LIKE '" . PMA_Util::sqlAddSlashes($table) . "'"
+        . " WHERE '" . PMA_Util::sqlAddSlashes($db) . "' LIKE `Db`"
+        . "     AND '" . PMA_Util::sqlAddSlashes($table) . "' LIKE `Table_name`"
         . "     AND NOT (`Table_priv` = '' AND Column_priv = '')"
         . " ORDER BY `User` ASC, `Host` ASC, `Db` ASC, `Table_priv` ASC;";
     $res = $GLOBALS['dbi']->query($sql_query);
+
     while ($row = $GLOBALS['dbi']->fetchAssoc($res)) {
         $user = $row['User'];
         $host = $row['Host'];
@@ -2080,10 +1978,10 @@ function PMA_getHtmlForSpecificTablePrivileges($db, $table)
         $privMap[$user][$host][] = $row;
     }
 
-    $html_output .= PMA_getHtmlTableBodyForSpecificTablePrivs($db, $table, $privMap);
-    $html_output .= '</table>'
-        . '</fieldset>'
-        . '</form>';
+    $html_output .= PMA_getHtmlTableBodyForSpecificDbOrTablePrivs($privMap, $db, $table);
+    $html_output .= '</table>';
+    $html_output .= '</fieldset>';
+    $html_output .= '</form>';
 
     // Offer to create a new user for the current database
     $html_output .= '<fieldset id="fieldset_add_user">'
@@ -2106,15 +2004,15 @@ function PMA_getHtmlForSpecificTablePrivileges($db, $table)
 }
 
 /**
- * Get HTML snippet for table body of specific table privileges
+ * Get HTML snippet for table body of specific database or table privileges
  *
- * @param boolean $db      database
- * @param boolean $db      table
  * @param boolean $privMap priviledge map
+ * @param boolean $db      database
+ * @param boolean $table   table
  *
  * @return string $html_output
  */
-function PMA_getHtmlTableBodyForSpecificTablePrivs($db, $table, $privMap) {
+function PMA_getHtmlTableBodyForSpecificDbOrTablePrivs($privMap, $db, $table = null) {
     $html_output = '<tbody>';
     $odd_row = true;
     if (! empty($privMap)) {
@@ -2189,7 +2087,7 @@ function PMA_getHtmlTableBodyForSpecificTablePrivs($db, $table, $privMap) {
                         $html_output .=  '<code>'
                            . join(
                                ',',
-                               PMA_extractPrivInfo($current, true)
+                               PMA_extractPrivInfo($current, true, false)
                            )
                            . '</code>';
                     }
@@ -2233,7 +2131,7 @@ function PMA_getHtmlTableBodyForSpecificTablePrivs($db, $table, $privMap) {
     } else {
         $html_output .= '<tr class="odd">'
            . '<td colspan="6">'
-           . '            ' . __('No user found.')
+           . __('No user found.')
            . '</td>'
            . '</tr>';
     }
