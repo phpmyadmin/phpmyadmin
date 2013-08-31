@@ -217,12 +217,12 @@ function PMA_getTableGrantsArray()
             $GLOBALS['strPrivDescAlter']
         ),
         array(
-            'Create view',
+            'Create View',
             'CREATE_VIEW',
             $GLOBALS['strPrivDescCreateView']
         ),
         array(
-            'Show viwew',
+            'Show view',
             'SHOW_VIEW',
             $GLOBALS['strPrivDescShowView']
         ),
