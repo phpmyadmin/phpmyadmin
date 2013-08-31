@@ -351,6 +351,9 @@ function PMA_showCurrentNavigation()
                if ($li.is('.' + clazz) && $li.children('a').text() == name) {
                    if (doSelect) {
                        $li.addClass('selected');
+                       if (! doOpen) { // if the node will be opened no point scrolling now
+                           scrollToView($li, $('#pma_navigation_tree_content'));
+                       }
                    }
                    if (doOpen) {
                        var $expander = $li.find('div:first').children('a.expander');
