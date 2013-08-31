@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-07-29 15:07+0200\n"
-"PO-Revision-Date: 2013-08-16 04:26+0200\n"
-"Last-Translator: philip lim <johndoe8908@gmail.com>\n"
+"PO-Revision-Date: 2013-08-31 12:56+0200\n"
+"Last-Translator: Myung Han Yu <greatymh@gmail.com>\n"
 "Language-Team: Korean <http://l10n.cihar.com/projects/phpmyadmin/4-0/ko/>\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
@@ -4572,7 +4572,7 @@ msgstr "데이터베이스 표시 선택사항"
 
 #: libraries/config/messages.inc.php:179 setup/frames/menu.inc.php:19
 msgid "Navigation panel"
-msgstr ""
+msgstr "네비게이션 패널"
 
 #: libraries/config/messages.inc.php:180
 msgid "Customize appearance of the navigation panel"
