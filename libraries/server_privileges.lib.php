@@ -3340,11 +3340,11 @@ function PMA_updatePrivileges($username, $hostname, $tablename, $dbname)
         // See https://sourceforge.net/p/phpmyadmin/bugs/3270/
         $sql_query0 = '';
     }
-    if (isset($sql_query1) && ! $GLOBALS['dbi']->tryQuery($sql_query1)) {
+    if (! empty($sql_query1) && ! $GLOBALS['dbi']->tryQuery($sql_query1)) {
         // this one may fail, too...
         $sql_query1 = '';
     }
-    if (isset($sql_query2)) {
+    if (! empty($sql_query2)) {
         $GLOBALS['dbi']->query($sql_query2);
     } else {
         $sql_query2 = '';
