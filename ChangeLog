@@ -38,6 +38,8 @@ phpMyAdmin - ChangeLog
 + rfe #1451 HTML5 input tag enhancements
 - bug #1193 Text field too small when editing a row longer than $cfg['LimitChars']
 + Change the proxy variable names in the config to remove the VersionCheck prefix from them
++ Added an Error Reporting Component
++ Javascript files are no longer uglified
 
 4.0.7.0 (not yet released)
 - bug #3993 Sorting in database overview with statistics doesn't work
