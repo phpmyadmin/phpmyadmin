@@ -64,7 +64,7 @@ function PMA_getHtmlForPrintViewFooter()
  * @return string
  */
 function PMA_getHtmlForPrintViewColumns(
-    $columns, $analyzed_sql, $pk_array, $have_rel, 
+    $columns, $analyzed_sql, $pk_array, $have_rel,
     $res_rel, $db, $table, $cfgRelation
 ) {
     $html = '';
@@ -165,7 +165,7 @@ function PMA_getHtmlForPrintViewColumns(
  */
 function PMA_getHtmlForRowStatistics(
     $showtable, $cell_align_left, $avg_size, $avg_unit, $mergetable
-) {   
+) {
     $html  = '<td width="20">&nbsp;</td>';
 
     // Rows Statistic
@@ -325,6 +325,7 @@ function PMA_getHtmlForSpaceUsageAndRowStatistics(
         list($tot_size, $tot_unit) = PMA_Util::formatByteDown(
             $showtable['Data_length'] + $showtable['Index_length']
         );
+        $num_rows     = (isset($showtable['Rows']) ? $showtable['Rows'] : 0);
         if ($num_rows > 0) {
             list($avg_size, $avg_unit)
                 = PMA_Util::formatByteDown(
@@ -388,7 +389,10 @@ function PMA_getHtmlForSpaceUsageAndRowStatistics(
         $html .= '</table>';
         $html .= '</td>';
         $html .= PMA_getHtmlForRowStatistics(
-            $showtable, $cell_align_left, $avg_size, $avg_unit, $mergetable
+            $showtable, $cell_align_left,
+            isset($avg_size)? $avg_size: 0,
+            isset($avg_unit)? $avg_unit: 0,
+            $mergetable
         );
         $html .= "\n";
         $html .= '</table>';
@@ -419,7 +423,7 @@ function PMA_getHtmlForSpaceUsageAndRowStatistics(
  */
 function PMA_getHtmlForTableStructure(
     $have_rel, $tbl_is_view, $columns, $analyzed_sql,
-    $pk_array, $res_rel, $db, $table, $cfgRelation, 
+    $pk_array, $res_rel, $db, $table, $cfgRelation,
     $cfg, $showtable, $cell_align_left
 ) {
     /**
@@ -443,7 +447,8 @@ function PMA_getHtmlForTableStructure(
     $html .= '</thead>';
     $html .= '<tbody>';
     $html .= PMA_getHtmlForPrintViewColumns(
-        $columns, $analyzed_sql, $pk_array, $have_rel, $res_rel, $db, $table, $cfgRelation
+        $columns, $analyzed_sql, $pk_array, $have_rel, 
+        $res_rel, $db, $table, $cfgRelation
     );
     $html .= '</tbody>';
     $html .= '</table>';
@@ -539,10 +544,10 @@ function PMA_getHtmlForTablesDetail(
 
         $html .= PMA_getHtmlForTableStructure(
             $have_rel, $tbl_is_view, $columns, $analyzed_sql,
-            $pk_array, $res_rel, $db, $table, $cfgRelation, 
+            $pk_array, $res_rel, $db, $table, $cfgRelation,
             $cfg, $showtable, $cell_align_left
         );
-        
+
         if ($multi_tables) {
             unset($num_rows, $show_comment);
             $html .= '<hr />' . "\n";
