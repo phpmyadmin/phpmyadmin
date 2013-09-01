@@ -35,6 +35,7 @@ class Node_Database extends Node
             'icon' => 'db_operations.php?server=' . $GLOBALS['server']
                     . '&amp;db=%1$s&amp;token=' . $GLOBALS['token']
         );
+        $this->classes = 'database';
     }
 
     /**

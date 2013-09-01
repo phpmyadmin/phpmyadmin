@@ -35,7 +35,8 @@ class Node_Table_Container extends Node
             $this->separator       = $GLOBALS['cfg']['NavigationTreeTableSeparator'];
             $this->separator_depth = (int)($GLOBALS['cfg']['NavigationTreeTableLevel']);
         }
-        $this->real_name       = 'tables';
+        $this->real_name = 'tables';
+        $this->classes   = 'tableContainer';
 
         $new        = PMA_NodeFactory::getInstance('Node', _pgettext('Create new table', 'New'));
         $new->isNew = true;

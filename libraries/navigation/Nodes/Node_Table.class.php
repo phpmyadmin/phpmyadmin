@@ -38,6 +38,7 @@ class Node_Table extends Node
                     . '?server=' . $GLOBALS['server']
                     . '&amp;db=%2$s&amp;table=%1$s&amp;token=' . $GLOBALS['token']
         );
+        $this->classes = 'table';
     }
 
     /**
