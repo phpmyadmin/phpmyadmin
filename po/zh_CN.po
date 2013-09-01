@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-08-18 06:16-0400\n"
-"PO-Revision-Date: 2013-08-30 16:07+0200\n"
+"PO-Revision-Date: 2013-08-31 03:56+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: Simplified Chinese "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/zh_CN/>\n"
@@ -4297,27 +4297,27 @@ msgstr "默认显示模式"
 
 #: libraries/config/messages.inc.php:50
 msgid "Tab that is displayed when entering a database"
-msgstr "当进入数据库时默认显示的选项卡"
+msgstr "当进入数据库时默认显示的标签页"
 
 #: libraries/config/messages.inc.php:51
 msgid "Default database tab"
-msgstr "数据库默认选项卡"
+msgstr "数据库默认标签页"
 
 #: libraries/config/messages.inc.php:52
 msgid "Tab that is displayed when entering a server"
-msgstr "当进入服务器时默认显示的选项卡"
+msgstr "当进入服务器时默认显示的标签页"
 
 #: libraries/config/messages.inc.php:53
 msgid "Default server tab"
-msgstr "服务器默认选项卡"
+msgstr "服务器默认标签页"
 
 #: libraries/config/messages.inc.php:54
 msgid "Tab that is displayed when entering a table"
-msgstr "当进入表时默认显示的选项卡"
+msgstr "当进入表时默认显示的标签页"
 
 #: libraries/config/messages.inc.php:55
 msgid "Default table tab"
-msgstr "表默认选项卡"
+msgstr "表默认标签页"
 
 #: libraries/config/messages.inc.php:56
 msgid "Whether the table structure actions should be hidden"
@@ -5097,7 +5097,7 @@ msgstr "SQL 最大显示长度"
 #: libraries/config/messages.inc.php:286 libraries/config/messages.inc.php:293
 #: libraries/config/messages.inc.php:349
 msgid "Users cannot set a higher value"
-msgstr "用户不能设置更大的值"
+msgstr "用户设置不能超过该值"
 
 #: libraries/config/messages.inc.php:287
 msgid "Maximum number of databases displayed in database list"
@@ -5110,20 +5110,18 @@ msgstr "最大数据库数量"
 #: libraries/config/messages.inc.php:289
 msgid ""
 "The number of items that can be displayed on each page of the navigation tree"
-msgstr "导航树上每页能显示的项目数量"
+msgstr "每页导航树所能显示的最大项数"
 
 #: libraries/config/messages.inc.php:290
 msgid "Maximum items in branch"
-msgstr "分支中最大项目数"
+msgstr "节点中最大项数"
 
 #: libraries/config/messages.inc.php:291
 msgid ""
 "Number of rows displayed when browsing a result set. If the result set "
 "contains more rows, &quot;Previous&quot; and &quot;Next&quot; links will be "
 "shown."
-msgstr ""
-"浏览一个结果集时一次显示的最多行数。如果结果集超过此值，将会显示 &quot;上一页"
-"&quot; 和 &quot;下一页&quot; 的链接。"
+msgstr "浏览结果集时显示的行数。若结果集总行数超过该值，将会显示 &quot;上一页&quot; 和 &quot;下一页&quot; 的链接。"
 
 #: libraries/config/messages.inc.php:292
 msgid "Maximum number of rows to display"
@@ -5131,11 +5129,11 @@ msgstr "显示的最多行数"
 
 #: libraries/config/messages.inc.php:294
 msgid "Maximum number of tables displayed in table list"
-msgstr "在数据表列表中最多显示的数据表个数"
+msgstr "在表列表中最多显示的表个数"
 
 #: libraries/config/messages.inc.php:295
 msgid "Maximum tables"
-msgstr "最大数据表数量"
+msgstr "最大表数量"
 
 #: libraries/config/messages.inc.php:296
 msgid ""
@@ -5151,7 +5149,7 @@ msgstr "mcrypt 警告"
 msgid ""
 "The number of bytes a script is allowed to allocate, eg. [kbd]32M[/kbd] "
 "([kbd]0[/kbd] for no limit)"
-msgstr "一个脚本可分配到的内存大小，例 [kbd]32MB[/kbd] ([kbd]0[/kbd]为不限制)"
+msgstr "一个脚本可分配的内存大小，如 [kbd]32MB[/kbd]（[kbd]0[/kbd] 为无限制）"
 
 #: libraries/config/messages.inc.php:299
 msgid "Memory limit"
@@ -5159,33 +5157,33 @@ msgstr "内存限制"
 
 #: libraries/config/messages.inc.php:300
 msgid "Show logo in navigation panel"
-msgstr "在导航面板中显示 logo"
+msgstr "在导航面板中显示徽标"
 
 #: libraries/config/messages.inc.php:301
 msgid "Display logo"
-msgstr "显示 logo"
+msgstr "显示徽标"
 
 #: libraries/config/messages.inc.php:302
 msgid "URL where logo in the navigation panel will point to"
-msgstr "导航面板中 logo 指向的链接地址"
+msgstr "导航面板中徽标指向的链接地址"
 
 #: libraries/config/messages.inc.php:303
 msgid "Logo link URL"
-msgstr "Logo 链接地址"
+msgstr "徽标链接地址"
 
 #: libraries/config/messages.inc.php:304
 msgid ""
 "Open the linked page in the main window ([kbd]main[/kbd]) or in a new one "
 "([kbd]new[/kbd])"
-msgstr "在主窗口 ([kbd]main[/kbd]) 或新窗口 ([kbd]new[/kbd]) 打开目标页面"
+msgstr "在主窗口（[kbd]main[/kbd]）或新窗口（[kbd]new[/kbd]）打开目标页面"
 
 #: libraries/config/messages.inc.php:305
 msgid "Logo link target"
-msgstr "Logo 链接目标"
+msgstr "徽标链接目标"
 
 #: libraries/config/messages.inc.php:306
 msgid "Display server choice at the top of the navigation panel"
-msgstr "在导航面板的顶部显示可选服务器"
+msgstr "在导航面板顶部显示可选的服务器"
 
 #: libraries/config/messages.inc.php:307
 msgid "Display servers selection"

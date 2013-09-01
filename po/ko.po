@@ -4,10 +4,9 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-08-18 06:16-0400\n"
-"PO-Revision-Date: 2013-08-16 04:26+0200\n"
-"Last-Translator: philip lim <johndoe8908@gmail.com>\n"
-"Language-Team: Korean <http://l10n.cihar.com/projects/phpmyadmin/master/ko/"
-">\n"
+"PO-Revision-Date: 2013-08-31 13:16+0200\n"
+"Last-Translator: Dong-bum Kim <dongbum@me.com>\n"
+"Language-Team: Korean <http://l10n.cihar.com/projects/phpmyadmin/master/ko/>\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -4830,7 +4829,7 @@ msgstr "데이터베이스 표시 선택사항"
 
 #: libraries/config/messages.inc.php:180 setup/frames/menu.inc.php:21
 msgid "Navigation panel"
-msgstr ""
+msgstr "네비게이션 패널"
 
 #: libraries/config/messages.inc.php:181
 msgid "Customize appearance of the navigation panel"
@@ -5165,7 +5164,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:273
 msgid "Limit column characters"
-msgstr ""
+msgstr "컬럼 문자 제한"
 
 #: libraries/config/messages.inc.php:274
 msgid ""
@@ -5224,7 +5223,7 @@ msgstr "LONGTEXT의 경우 더 큰 textarea를 사용"
 
 #: libraries/config/messages.inc.php:284
 msgid "Maximum number of characters used when a SQL query is displayed"
-msgstr ""
+msgstr "SQL 쿼리 출력시 사용할 문자수"
 
 #: libraries/config/messages.inc.php:285
 msgid "Maximum displayed SQL length"
@@ -5480,7 +5479,7 @@ msgstr "MySQL 예약어 경고"
 
 #: libraries/config/messages.inc.php:342
 msgid "How to display the menu tabs"
-msgstr ""
+msgstr "메뉴탭 보여주기 방식"
 
 #: libraries/config/messages.inc.php:344
 msgid "How to display various action links"
@@ -5488,7 +5487,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:345
 msgid "Disallow BLOB and BINARY columns from editing"
-msgstr ""
+msgstr "BLOB, 바이너리 컬럼 편집 허용 안함"
 
 #: libraries/config/messages.inc.php:346
 msgid "Protect binary columns"
@@ -5511,7 +5510,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:351
 msgid "Query history length"
-msgstr ""
+msgstr "쿼리 기록 길이"
 
 #: libraries/config/messages.inc.php:352
 msgid "Tab displayed when opening a new query window"
@@ -5584,7 +5583,7 @@ msgstr "사용하지 않으면 빈칸으로 두세요"
 
 #: libraries/config/messages.inc.php:370
 msgid "Host authorization order"
-msgstr ""
+msgstr "호스트 인증 지시"
 
 #: libraries/config/messages.inc.php:371
 msgid "Leave blank for defaults"
@@ -5752,7 +5751,7 @@ msgstr "SQL 쿼리 히스토리 테이블"
 
 #: libraries/config/messages.inc.php:406
 msgid "Hostname where MySQL server is running"
-msgstr ""
+msgstr "MySQL 서버가 구동중인 호스트의 이름"
 
 #: libraries/config/messages.inc.php:407
 msgid "Server hostname"
@@ -5959,10 +5958,9 @@ msgid "Defines the list of statements the auto-creation uses for new versions."
 msgstr ""
 
 #: libraries/config/messages.inc.php:449
-#, fuzzy
 #| msgid "Statements"
 msgid "Statements to track"
-msgstr "명세"
+msgstr "문장 추적"
 
 #: libraries/config/messages.inc.php:450
 msgid ""
@@ -6060,7 +6058,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:465
 msgid "Verbose name of this server"
-msgstr ""
+msgstr "이 서버 이름 보기"
 
 #: libraries/config/messages.inc.php:466
 msgid "Whether a user should be displayed a &quot;show all (rows)&quot; button"
@@ -6068,7 +6066,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:467
 msgid "Allow to display all the rows"
-msgstr ""
+msgstr "모든 행 보기 허용"
 
 #: libraries/config/messages.inc.php:468
 msgid ""
@@ -6186,7 +6184,7 @@ msgstr "질의 상자 숨기기"
 
 #: libraries/config/messages.inc.php:492
 msgid "Allow to display database and table statistics (eg. space usage)"
-msgstr ""
+msgstr "데이터베이스와 테이블 상태 출력 허용 (사용량 등)"
 
 #: libraries/config/messages.inc.php:493
 msgid "Show statistics"
