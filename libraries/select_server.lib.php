@@ -32,7 +32,7 @@ function PMA_selectServer($not_only_options, $ommit_fieldset)
     if ($not_only_options) {
         $retval .= '<form method="post" action="'
             . $GLOBALS['cfg']['DefaultTabServer'] . '" class="disableAjax">';
-        $retval .= PMA_generate_common_hidden_inputs();
+        $retval .= PMA_URL_getHiddenInputs();
 
         if (! $ommit_fieldset) {
             $retval .= '<fieldset>';
@@ -85,7 +85,7 @@ function PMA_selectServer($not_only_options, $ommit_fieldset)
 
                 $retval .= '<a class="disableAjax item" href="'
                     . $GLOBALS['cfg']['DefaultTabServer']
-                    . PMA_generate_common_url(array('server' => $key))
+                    . PMA_URL_getCommon(array('server' => $key))
                     . '" >' . htmlspecialchars($label) . '</a>';
             }
             $retval .= '</li>';

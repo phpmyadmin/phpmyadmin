@@ -40,7 +40,13 @@ $GLOBALS['runkit_internal_override'] = ini_get('runkit.internal_override');
 
 
 /**
- * Function to emulate headers() function by storing headers in GLOBAL array.
+ * Function to emulate headers() function by storing headers in GLOBAL array
+ * 
+ * @param string  $string             header string
+ * @param boolean $replace            .
+ * @param integer $http_response_code .
+ * 
+ * @return void
  */
 function test_header($string, $replace = true, $http_response_code = 200)
 {
@@ -53,6 +59,8 @@ function test_header($string, $replace = true, $http_response_code = 200)
 
 /**
  * Function to emulate headers_hest.
+ * 
+ * @return boolean false
  */
 function test_headers_sent()
 {

@@ -224,7 +224,54 @@ Server connection settings
     :type: boolean
     :default: false
 
-    Whether to enable SSL for connection to MySQL server.
+    Whether to enable SSL for the connection between phpMyAdmin and the MySQL server.
+
+    When using :config:option:`$cfg['Servers'][$i]['extension']` = ``'mysql'``,
+    none of the remaining ``'ssl...'`` configuration options apply.
+
+    We strongly recommend using :config:option:`$cfg['Servers'][$i]['extension']` = ``'mysqli'``
+    when using this option.
+
+.. config:option:: $cfg['Servers'][$i]['ssl_key']
+
+    :type: string
+    :default: NULL
+
+    Path to the key file when using SSL for connecting to the MySQL server.
+
+    For example:
+
+    .. code-block:: php
+
+        $cfg['Servers'][$i]['ssl_key'] = '/etc/mysql/server-key.pem';
+
+.. config:option:: $cfg['Servers'][$i]['ssl_cert']
+
+    :type: string
+    :default: NULL
+
+    Path to the cert file when using SSL for connecting to the MySQL server.
+
+.. config:option:: $cfg['Servers'][$i]['ssl_ca']
+
+    :type: string
+    :default: NULL
+
+    Path to the CA file when using SSL for connecting to the MySQL server.
+
+.. config:option:: $cfg['Servers'][$i]['ssl_ca_path']
+
+    :type: string
+    :default: NULL
+
+    Directory containing trusted SSL CA certificates in PEM format.
+
+.. config:option:: $cfg['Servers'][$i]['ssl_ciphers']
+
+    :type: string
+    :default: NULL
+
+    List of allowable ciphers for SSL connections to the MySQL server.
 
 .. config:option:: $cfg['Servers'][$i]['connect_type']
 
@@ -1122,7 +1169,7 @@ Generic settings
 .. config:option:: $cfg['MaxNavigationItems']
 
     :type: integer
-    :default: 25
+    :default: 250
 
     The number of items that can be displayed on each page of the
     navigation tree.
@@ -1197,10 +1244,10 @@ Generic settings
 .. config:option:: $cfg['MemoryLimit']
 
     :type: string [number of bytes]
-    :default: ``'0'``
+    :default: ``'-1'``
 
     Set the number of bytes a script is allowed to allocate. If set to
-    zero, no limit is imposed.
+    ``'-1'``, no limit is imposed.
 
     This setting is used while importing/exporting dump files and at some other
     places in phpMyAdmin so you definitely don't want to put here a too low
@@ -1428,14 +1475,6 @@ Navigation panel setup
 
     The maximum number of recently used tables shown in the navigation
     panel. Set this to 0 (zero) to disable the listing of recent tables.
-
-.. config:option:: $cfg['ShowTooltip']
-
-    :type: boolean
-    :default: true
-
-    Defines whether to display item comments as tooltips in navigation
-    panel or not.
 
 .. config:option:: $cfg['NavigationDisplayLogo']
 
@@ -1860,34 +1899,25 @@ Tabs display settings
     * ``tbl_change.php``
     * ``sql.php``
 
-Documentation
--------------
+PDF Options
+-----------
 
-.. config:option:: $cfg['MySQLManualBase']
+.. config:option:: $cfg['PDFPageSizes']
 
-    :type: string
-    :default: ``'http://dev.mysql.com/doc/refman'``
+    :type: array
+    :default: ``array('A3', 'A4', 'A5', 'letter', 'legal')``
 
-    If set to an :term:`URL` which points to
-    the MySQL documentation (type depends on
-    :config:option:`$cfg['MySQLManualType']`), appropriate help links are
-    generated.
+    Array of possible paper sizes for creating PDF pages.
 
-    See `MySQL Documentation page <http://dev.mysql.com/doc/>`_ for more
-    information about MySQL manuals and their types.
+    You should never need to change this.
 
-.. config:option:: $cfg['MySQLManualType']
+.. config:option:: $cfg['PDFDefaultPageSize']
 
     :type: string
-    :default: ``'viewable'``
+    :default: ``'A4'``
 
-    Type of MySQL documentation:
-
-    * viewable - "viewable online", current one used on MySQL website
-    * searchable - "Searchable, with user comments"
-    * chapters - "HTML, one page per chapter"
-    * big - "HTML, all on one page"
-    * none - do not show documentation links
+    Default page size to use when creating PDF pages. Valid values are any
+    listed in :config:option:`$cfg['PDFPageSizes']`.
 
 Languages
 ---------

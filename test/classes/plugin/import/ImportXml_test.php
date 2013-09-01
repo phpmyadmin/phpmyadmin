@@ -55,7 +55,8 @@ class ImportXml_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['ServerDefault'] = 0;
         $GLOBALS['cfg']['AllowUserDropDatabase'] = false;
         
-        $GLOBALS['import_file'] = 'test/test_data/phpmyadmin_importXML_For_Testing.xml';
+        $GLOBALS['import_file'] = 'test/test_data/phpmyadmin_importXML_'
+            . 'For_Testing.xml';
         $GLOBALS['import_text'] = 'ImportXml_Test';
         $GLOBALS['compression'] = 'none'; 
         $GLOBALS['read_multiply'] = 10;
@@ -129,9 +130,11 @@ class ImportXml_Test extends PHPUnit_Framework_TestCase
         //Test function called
         $this->object->doImport();
  
-        //If import successfully, PMA will show all databases and tables imported as following HTML Page
+        // If import successfully, PMA will show all databases and tables 
+        // imported as following HTML Page
         /*
-           The following structures have either been created or altered. Here you can:
+           The following structures have either been created or altered. Here you
+           can:
            View a structure's contents by clicking on its name
            Change any of its settings by clicking the corresponding "Options" link
            Edit structure by following the "Structure" link

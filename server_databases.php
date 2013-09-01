@@ -40,36 +40,7 @@ foreach ($post_params as $one_post_param) {
     }
 }
 
-/**
- * avoids 'undefined index' errors
- */
-if (empty($_REQUEST['sort_by'])) {
-    $sort_by = 'SCHEMA_NAME';
-} else {
-    $sort_by_whitelist = array(
-        'SCHEMA_NAME',
-        'DEFAULT_COLLATION_NAME',
-        'SCHEMA_TABLES',
-        'SCHEMA_TABLE_ROWS',
-        'SCHEMA_DATA_LENGTH',
-        'SCHEMA_INDEX_LENGTH',
-        'SCHEMA_LENGTH',
-        'SCHEMA_DATA_FREE'
-    );
-    if (in_array($_REQUEST['sort_by'], $sort_by_whitelist)) {
-        $sort_by = $_REQUEST['sort_by'];
-    } else {
-        $sort_by = 'SCHEMA_NAME';
-    }
-}
-
-if (isset($_REQUEST['sort_order'])
-    && strtolower($_REQUEST['sort_order']) == 'desc'
-) {
-    $sort_order = 'desc';
-} else {
-    $sort_order = 'asc';
-}
+list($sort_by, $sort_order) = PMA_getListForSortDatabase();
 
 $dbstats    = empty($_REQUEST['dbstats']) ? 0 : 1;
 $pos        = empty($_REQUEST['pos']) ? 0 : (int) $_REQUEST['pos'];
@@ -87,49 +58,7 @@ if (isset($_REQUEST['drop_selected_dbs_x'])) {
 if ((isset($_REQUEST['drop_selected_dbs']) || isset($_REQUEST['query_type']))
     && ($is_superuser || $cfg['AllowUserDropDatabase'])
 ) {
-    if (! isset($_REQUEST['selected_dbs']) && ! isset($_REQUEST['query_type'])) {
-        $message = PMA_Message::error(__('No databases selected.'));
-    } else {
-        $action = 'server_databases.php';
-        $submit_mult = 'drop_db';
-        $err_url = 'server_databases.php?' . PMA_generate_common_url();
-        if (isset($_REQUEST['selected_dbs'])
-            && !isset($_REQUEST['is_js_confirmed'])
-        ) {
-            $selected_db = $_REQUEST['selected_dbs'];
-        }
-        if (isset($_REQUEST['is_js_confirmed'])) {
-            $_REQUEST = array(
-                'query_type' => $submit_mult,
-                'selected' => $_REQUEST['selected_dbs'],
-                'mult_btn' => __('Yes'),
-                'db' => $GLOBALS['db'],
-                'table' => $GLOBALS['table']);
-        }
-        include 'libraries/mult_submits.inc.php';
-        unset($action, $submit_mult, $err_url, $selected_db, $GLOBALS['db']);
-        if (empty($message)) {
-            if ($mult_btn == __('Yes')) {
-                $number_of_databases = count($selected);
-            } else {
-                $number_of_databases = 0;
-            }
-            $message = PMA_Message::success(
-                _ngettext(
-                    '%1$d database has been dropped successfully.',
-                    '%1$d databases have been dropped successfully.',
-                    $number_of_databases
-                )
-            );
-            $message->addParam($number_of_databases);
-        }
-    }
-    if ($GLOBALS['is_ajax_request'] && $message instanceof PMA_Message) {
-        $response = PMA_Response::getInstance();
-        $response->isSuccess($message->isSuccess());
-        $response->addJSON('message', $message);
-        exit;
-    }
+    PMA_dropMultiDatabases();
 }
 
 /**

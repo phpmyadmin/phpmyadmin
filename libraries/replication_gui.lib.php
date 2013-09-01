@@ -60,7 +60,7 @@ function PMA_getHtmlForMasterReplication()
         $_url_params['repl_clear_scr'] = true;
 
         $html .= '  <li><a href="server_replication.php';
-        $html .= PMA_generate_common_url($_url_params)
+        $html .= PMA_URL_getCommon($_url_params)
             . '" id="master_addslaveuser_href">';
         $html .= __('Add slave replication user') . '</a></li>';
     }
@@ -117,7 +117,7 @@ function PMA_getHtmlForMasterConfiguration()
     $html .= '</fieldset>';
     $html .= '<fieldset class="tblFooters">';
     $html .= ' <form method="post" action="server_replication.php" >';
-    $html .= PMA_generate_common_hidden_inputs('', '');
+    $html .= PMA_URL_getHiddenInputs('', '');
     $html .= '  <input type="submit" value="' . __('Go') . '" id="goButton" />';
     $html .= ' </form>';
     $html .= '</fieldset>';
@@ -152,7 +152,7 @@ function PMA_getHtmlForSlaveConfiguration($server_slave_status, $server_slave_re
 
         $_url_params['sr_slave_control_parm'] = 'IO_THREAD';
         $slave_control_io_link = 'server_replication.php'
-            . PMA_generate_common_url($_url_params);
+            . PMA_URL_getCommon($_url_params);
 
         if ($server_slave_replication[0]['Slave_SQL_Running'] == 'No') {
             $_url_params['sr_slave_action'] = 'start';
@@ -162,7 +162,7 @@ function PMA_getHtmlForSlaveConfiguration($server_slave_status, $server_slave_re
 
         $_url_params['sr_slave_control_parm'] = 'SQL_THREAD';
         $slave_control_sql_link = 'server_replication.php'
-            . PMA_generate_common_url($_url_params);
+            . PMA_URL_getCommon($_url_params);
 
         if ($server_slave_replication[0]['Slave_IO_Running'] == 'No'
             || $server_slave_replication[0]['Slave_SQL_Running'] == 'No'
@@ -174,16 +174,16 @@ function PMA_getHtmlForSlaveConfiguration($server_slave_status, $server_slave_re
 
         $_url_params['sr_slave_control_parm'] = null;
         $slave_control_full_link = 'server_replication.php'
-            . PMA_generate_common_url($_url_params);
+            . PMA_URL_getCommon($_url_params);
 
         $_url_params['sr_slave_action'] = 'reset';
         $slave_control_reset_link = 'server_replication.php'
-            . PMA_generate_common_url($_url_params);
+            . PMA_URL_getCommon($_url_params);
 
         $_url_params = $GLOBALS['url_params'];
         $_url_params['sr_slave_skip_error'] = true;
         $slave_skip_error_link = 'server_replication.php'
-            . PMA_generate_common_url($_url_params);
+            . PMA_URL_getCommon($_url_params);
 
         if ($server_slave_replication[0]['Slave_SQL_Running'] == 'No') {
             $html .= PMA_Message::error(
@@ -201,7 +201,7 @@ function PMA_getHtmlForSlaveConfiguration($server_slave_status, $server_slave_re
         $_url_params['repl_clear_scr'] = true;
 
         $reconfiguremaster_link = 'server_replication.php'
-            . PMA_generate_common_url($_url_params);
+            . PMA_URL_getCommon($_url_params);
 
         $html .= __('Server is configured as slave in a replication process. Would you like to:');
         $html .= '<br />';
@@ -257,7 +257,7 @@ function PMA_getHtmlForSlaveConfiguration($server_slave_status, $server_slave_re
                 'This server is not configured as slave in a replication process. '
                 . 'Would you like to <a href="%s">configure</a> it?'
             ),
-            'server_replication.php' . PMA_generate_common_url($_url_params)
+            'server_replication.php' . PMA_URL_getCommon($_url_params)
         );
     }
     $html .= '</fieldset>';
@@ -285,7 +285,7 @@ function PMA_getHtmlForSlaveErrorManagement($slave_skip_error_link)
     $html .= __('Skip current error') . '</a></li>';
     $html .= '   <li>' . __('Skip next');
     $html .= '    <form method="post" action="server_replication.php">';
-    $html .= PMA_generate_common_hidden_inputs('', '');
+    $html .= PMA_URL_getHiddenInputs('', '');
     $html .= '      <input type="text" name="sr_skip_errors_count" value="1" ';
     $html .= 'style="width: 30px" />' . __('errors.');
     $html .= '              <input type="submit" name="sr_slave_skip_error" ';
@@ -314,7 +314,7 @@ function PMA_getHtmlForNotServerReplication()
             'This server is not configured as master in a replication process. '
             . 'Would you like to <a href="%s">configure</a> it?'
         ),
-        'server_replication.php' . PMA_generate_common_url($_url_params)
+        'server_replication.php' . PMA_URL_getCommon($_url_params)
     );
     $html .= '</fieldset>';
     return $html;
@@ -369,7 +369,7 @@ function PMA_getHtmlForReplicationChangeMaster($submitname)
         = PMA_replicationGetUsernameHostnameLength();
 
     $html .= '<form method="post" action="server_replication.php">';
-    $html .= PMA_generate_common_hidden_inputs('', '');
+    $html .= PMA_URL_getHiddenInputs('', '');
     $html .= ' <fieldset id="fieldset_add_user_login">';
     $html .= '  <legend>' . __('Slave configuration');
     $html .= ' - ' . __('Change or reconfigure master server') . '</legend>';
@@ -387,7 +387,8 @@ function PMA_getHtmlForReplicationChangeMaster($submitname)
             'name'=>'username',
             'id'=>'text_username',
             'maxlength'=>$username_length,
-            'title'=>__('User name')
+            'title'=>__('User name'),
+            'required'=>'required'
         )
     );
 
@@ -397,7 +398,8 @@ function PMA_getHtmlForReplicationChangeMaster($submitname)
             'type'=>'password',
             'name'=>'pma_pw',
             'id'=>'text_pma_pw',
-            'title'=>__('Password')
+            'title'=>__('Password'),
+            'required'=>'required'
         )
     );
 
@@ -408,18 +410,20 @@ function PMA_getHtmlForReplicationChangeMaster($submitname)
             'name'=>'hostname',
             'id'=>'text_hostname',
             'maxlength'=>$hostname_length,
-            'value'=>''
+            'value'=>'',
+            'required'=>'required'
         )
     );
 
     $html .= PMA_getHtmlForAddUserInputDiv(
         array('text'=>__('Port:'), 'for'=>"text_port"),
         array(
-            'type'=>'text',
+            'type'=>'number',
             'name'=>'text_port',
             'id'=>'text_port',
             'maxlength'=>6,
-            'value'=>'3306'
+            'value'=>'3306',
+            'required'=>'required'
          )
     );
 
@@ -662,7 +666,7 @@ function PMA_getHtmlForReplicationMasterAddSlaveuser()
     $html .= '<form autocomplete="off" method="post" ';
     $html .= 'action="server_privileges.php"';
     $html .= ' onsubmit="return checkAddUser(this);">';
-    $html .= PMA_generate_common_hidden_inputs('', '');
+    $html .= PMA_URL_getHiddenInputs('', '');
     $html .= '<fieldset id="fieldset_add_user_login">'
         . '<legend>' . __('Add slave replication user') . '</legend>'
         . PMA_getHtmlForAddUserLoginForm($username_length)
@@ -894,7 +898,7 @@ function PMA_handleControlRequest()
         if ($refresh) {
             Header(
                 "Location: server_replication.php"
-                . PMA_generate_common_url($GLOBALS['url_params'])
+                . PMA_URL_getCommon($GLOBALS['url_params'])
             );
         }
         unset($refresh);

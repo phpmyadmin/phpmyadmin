@@ -34,7 +34,7 @@ function PMA_getHtmlForChangePassword($username, $hostname)
         . 'name="chgPassword" '
         . 'class="ajax" >';
 
-    $html .= PMA_generate_common_hidden_inputs();
+    $html .= PMA_URL_getHiddenInputs();
 
     if (strpos($GLOBALS['PMA_PHP_SELF'], 'server_privileges') !== false) {
         $html .= '<input type="hidden" name="username" '

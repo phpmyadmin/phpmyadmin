@@ -28,7 +28,7 @@ if ((!empty($_POST['submit_mult']) && isset($_POST['selected_tbl']))
     || isset($_POST['mult_btn'])
 ) {
     $action = 'db_structure.php';
-    $err_url = 'db_structure.php?'. PMA_generate_common_url($db);
+    $err_url = 'db_structure.php?'. PMA_URL_getCommon($db);
 
     // see bug #2794840; in this case, code path is:
     // db_structure.php -> libraries/mult_submits.inc.php -> sql.php
@@ -111,7 +111,7 @@ $response->addHTML(
     . 'name="tablesForm" id="tablesForm">'
 );
 
-$response->addHTML(PMA_generate_common_hidden_inputs($db));
+$response->addHTML(PMA_URL_getHiddenInputs($db));
 
 $response->addHTML(
     PMA_tableHeader($db_is_information_schema, $server_slave_status)

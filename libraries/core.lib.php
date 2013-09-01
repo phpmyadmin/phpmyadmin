@@ -560,7 +560,7 @@ function PMA_sendHeaderLocation($uri, $use_refresh = false)
             if (strpos($uri, '?') === false) {
                 header('Location: ' . $uri . '?' . SID);
             } else {
-                $separator = PMA_get_arg_separator();
+                $separator = PMA_URL_getArgSeparator();
                 header('Location: ' . $uri . $separator . SID);
             }
         } else {
@@ -756,12 +756,12 @@ function PMA_linkURL($url)
     if (!preg_match('#^https?://#', $url) || defined('PMA_SETUP')) {
         return $url;
     } else {
-        if (!function_exists('PMA_generate_common_url')) {
+        if (!function_exists('PMA_URL_getCommon')) {
             include_once './libraries/url_generating.lib.php';
         }
         $params = array();
         $params['url'] = $url;
-        return './url.php' . PMA_generate_common_url($params);
+        return './url.php' . PMA_URL_getCommon($params);
     }
 }
 

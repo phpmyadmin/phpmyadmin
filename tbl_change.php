@@ -51,7 +51,7 @@ if (empty($GLOBALS['goto'])) {
 
 
 $_url_params = PMA_getUrlParameters($db, $table);
-$err_url = $GLOBALS['goto'] . PMA_generate_common_url($_url_params);
+$err_url = $GLOBALS['goto'] . PMA_URL_getCommon($_url_params);
 unset($_url_params);
 
 $comments_map = PMA_getCommentsMap($db, $table);
@@ -141,7 +141,7 @@ if ($is_upload) {
     $html_output .= ' enctype="multipart/form-data"';
 }
 $html_output .= '>';
-$html_output .= PMA_generate_common_hidden_inputs($_form_params);
+$html_output .= PMA_URL_getHiddenInputs($_form_params);
 
 $titles['Browse'] = PMA_Util::getIcon('b_browse.png', __('Browse foreign values'));
 
@@ -165,7 +165,6 @@ foreach ($rows as $row_id => $current_row) {
     }
 
     $jsvkey = $row_id;
-    $rownumber_param = '&amp;rownumber=' . $row_id;
     $vkey = '[multi_edit][' . $jsvkey . ']';
 
     $current_result = (isset($result) && is_array($result) && isset($result[$row_id])
@@ -209,14 +208,14 @@ foreach ($rows as $row_id => $current_row) {
                 $column['len'] = 30;
             }
         }
-        //Call validation when the form submited...
+        //Call validation when the form submitted...
         $unnullify_trigger = $chg_evt_handler
             . "=\"return verificationsAfterFieldChange('"
             . PMA_escapeJsString($column['Field_md5']) . "', '"
             . PMA_escapeJsString($jsvkey) . "','".$column['pma_type'] . "')\"";
 
         // Use an MD5 as an array index to avoid having special characters
-        // in the name atttibute (see bug #1746964 )
+        // in the name attribute (see bug #1746964 )
         $column_name_appendix = $vkey . '[' . $column['Field_md5'] . ']';
 
         if ($column['Type'] == 'datetime'
@@ -303,7 +302,7 @@ foreach ($rows as $row_id => $current_row) {
         $html_output .= PMA_getValueColumn(
             $column, $backup_field, $column_name_appendix, $unnullify_trigger,
             $tabindex, $tabindex_for_value, $idindex, $data, $special_chars,
-            $foreignData, $odd_row, array($table, $db), $rownumber_param, $titles,
+            $foreignData, $odd_row, array($table, $db), $row_id, $titles,
             $text_dir, $special_chars_encoded, $vkey, $is_upload,
             $biggest_max_file_size, $default_char_editing,
             $no_support_types, $gis_data_types, $extracted_columnspec

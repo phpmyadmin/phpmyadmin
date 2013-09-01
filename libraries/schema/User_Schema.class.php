@@ -131,7 +131,7 @@ class PMA_User_Schema
         <legend>
         <?php echo __('Create a page') . "\n"; ?>
         </legend>
-        <?php echo PMA_generate_common_hidden_inputs($db); ?>
+        <?php echo PMA_URL_getHiddenInputs($db); ?>
         <input type="hidden" name="do" value="createpage" />
         <table>
         <tr>
@@ -194,7 +194,7 @@ class PMA_User_Schema
             <legend>
             <?php echo __('Please choose a page to edit') . "\n"; ?>
             </legend>
-            <?php echo PMA_generate_common_hidden_inputs($db, $table); ?>
+            <?php echo PMA_URL_getHiddenInputs($db, $table); ?>
             <input type="hidden" name="do" value="selectpage" />
             <select name="chpage" id="chpage" class="autosubmit">
             <option value="0"><?php echo __('Select page'); ?></option>
@@ -291,7 +291,7 @@ class PMA_User_Schema
 
             echo '<form method="post" action="schema_edit.php" name="edcoord">';
 
-            echo PMA_generate_common_hidden_inputs($db, $table);
+            echo PMA_URL_getHiddenInputs($db, $table);
             echo '<input type="hidden" name="chpage" '
                 . 'value="' . htmlspecialchars($this->chosenPage) . '" />';
             echo '<input type="hidden" name="do" value="edcoord" />';
@@ -408,7 +408,7 @@ class PMA_User_Schema
             <fieldset>
             <legend>
             <?php
-            echo PMA_generate_common_hidden_inputs($db);
+            echo PMA_URL_getHiddenInputs($db);
             if (PMA_Util::showIcons('ActionLinksMode')) {
                 echo PMA_Util::getImage('b_views.png');
             }
@@ -519,7 +519,7 @@ class PMA_User_Schema
             return;
         }
         echo '<br /><form action="schema_edit.php" method="post">' . "\n"
-            . PMA_generate_common_hidden_inputs($db)
+            . PMA_URL_getHiddenInputs($db)
             . '<input type="hidden" name="do" value="delete_old_references" />'
             . "\n"
             . '<input type="hidden" name="chpage" value="'

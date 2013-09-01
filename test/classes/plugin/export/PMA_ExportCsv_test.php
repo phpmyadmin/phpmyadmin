@@ -34,7 +34,7 @@ class PMA_ExportCsv_Test extends PHPUnit_Framework_TestCase
 
     /**
      * tearDown for test cases
-     * 
+     *
      * @return void
      */
     public function tearDown()
@@ -44,7 +44,7 @@ class PMA_ExportCsv_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for ExportCsv::setProperties
-     * 
+     *
      * @return void
      */
     public function testSetProperties()
@@ -132,7 +132,7 @@ class PMA_ExportCsv_Test extends PHPUnit_Framework_TestCase
             'TextPropertyItem',
             $property
         );
-        
+
         $this->assertEquals(
             'enclosed',
             $property->getName()
@@ -149,7 +149,7 @@ class PMA_ExportCsv_Test extends PHPUnit_Framework_TestCase
             'TextPropertyItem',
             $property
         );
-        
+
         $this->assertEquals(
             'escaped',
             $property->getName()
@@ -166,7 +166,7 @@ class PMA_ExportCsv_Test extends PHPUnit_Framework_TestCase
             'TextPropertyItem',
             $property
         );
-        
+
         $this->assertEquals(
             'terminated',
             $property->getName()
@@ -183,7 +183,7 @@ class PMA_ExportCsv_Test extends PHPUnit_Framework_TestCase
             'TextPropertyItem',
             $property
         );
-        
+
         $this->assertEquals(
             'null',
             $property->getName()
@@ -200,7 +200,7 @@ class PMA_ExportCsv_Test extends PHPUnit_Framework_TestCase
             'BoolPropertyItem',
             $property
         );
-        
+
         $this->assertEquals(
             'removeCRLF',
             $property->getName()
@@ -217,7 +217,7 @@ class PMA_ExportCsv_Test extends PHPUnit_Framework_TestCase
             'BoolPropertyItem',
             $property
         );
-        
+
         $this->assertEquals(
             'columns',
             $property->getName()
@@ -234,7 +234,7 @@ class PMA_ExportCsv_Test extends PHPUnit_Framework_TestCase
             'HiddenPropertyItem',
             $property
         );
-        
+
         $this->assertEquals(
             'structure_or_data',
             $property->getName()
@@ -244,7 +244,7 @@ class PMA_ExportCsv_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for ExportCsv::exportHeader
-     * 
+     *
      * @return void
      */
     public function testExportHeader()
@@ -400,7 +400,7 @@ class PMA_ExportCsv_Test extends PHPUnit_Framework_TestCase
         );
 
         // case 7
-        
+
         $GLOBALS['csv_terminated'] = 'a\\rb\\nc\\t';
         $GLOBALS['csv_separator'] = 'a\\t';
 
@@ -421,7 +421,7 @@ class PMA_ExportCsv_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for ExportCsv::exportFooter
-     * 
+     *
      * @return void
      */
     public function testExportFooter()
@@ -433,7 +433,7 @@ class PMA_ExportCsv_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for ExportCsv::exportDBHeader
-     * 
+     *
      * @return void
      */
     public function testExportDBHeader()
@@ -445,7 +445,7 @@ class PMA_ExportCsv_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for ExportCsv::exportDBFooter
-     * 
+     *
      * @return void
      */
     public function testExportDBFooter()
@@ -457,7 +457,7 @@ class PMA_ExportCsv_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for ExportCsv::exportDBCreate
-     * 
+     *
      * @return void
      */
     public function testExportDBCreate()
@@ -469,7 +469,7 @@ class PMA_ExportCsv_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for ExportCsv::exportData
-     * 
+     *
      * @return void
      */
     public function testExportData()
@@ -533,8 +533,9 @@ class PMA_ExportCsv_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['what'] = 'UT';
         $GLOBALS['UT_null'] = 'customNull';
         $GLOBALS['output_kanji_conversion'] = false;
+        $GLOBALS['output_charset_conversion'] = false;
         $GLOBALS['buffer_needed'] = false;
-        $GLOBALS['asfile'] = false;
+        $GLOBALS['asfile'] = true;
         $GLOBALS['save_on_server'] = false;
 
         ob_start();
@@ -593,7 +594,7 @@ class PMA_ExportCsv_Test extends PHPUnit_Framework_TestCase
         $result = ob_get_clean();
 
         $this->assertEquals(
-            "&quot;foo&quot;bar;customNull;",
+            "\"foo\"bar;customNull;",
             $result
         );
 
@@ -633,7 +634,7 @@ class PMA_ExportCsv_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['what'] = 'excel';
         $GLOBALS['excel_removeCRLF'] = true;
         $GLOBALS['csv_escaped'] = '"';
-        
+
         ob_start();
         $this->assertTrue(
             $this->object->exportData(
@@ -643,7 +644,7 @@ class PMA_ExportCsv_Test extends PHPUnit_Framework_TestCase
         $result = ob_get_clean();
 
         $this->assertEquals(
-            "&quot;foo&quot;&quot;bar;&quot;test&quot;;",
+            "\"foo\"\"bar;\"test\";",
             $result
         );
 
@@ -682,7 +683,7 @@ class PMA_ExportCsv_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['csv_enclosed'] = '"';
         unset($GLOBALS['excel_removeCRLF']);
         $GLOBALS['csv_escaped'] = ';';
-        
+
         ob_start();
         $this->assertTrue(
             $this->object->exportData(
@@ -692,7 +693,7 @@ class PMA_ExportCsv_Test extends PHPUnit_Framework_TestCase
         $result = ob_get_clean();
 
         $this->assertEquals(
-            "&quot;foo;&quot;bar;&quot;test\n&quot;;",
+            "\"foo;\"bar;\"test\n\";",
             $result
         );
 
@@ -730,7 +731,7 @@ class PMA_ExportCsv_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['csv_enclosed'] = '"';
         $GLOBALS['csv_escaped'] = ';';
         $GLOBALS['csv_escaped'] = '#';
-        
+
         ob_start();
         $this->assertTrue(
             $this->object->exportData(
@@ -738,11 +739,11 @@ class PMA_ExportCsv_Test extends PHPUnit_Framework_TestCase
             )
         );
         $result = ob_get_clean();
-        
+
         $this->assertEquals(
-            "&quot;foo#&quot;bar&quot;&quot;foo#&quot;bar;&quot;test\n" .
-            "&quot;&quot;test\n" .
-            "&quot;;",
+            "\"foo#\"bar\"\"foo#\"bar;\"test\n" .
+            "\"\"test\n" .
+            "\";",
             $result
         );
     }

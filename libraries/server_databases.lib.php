@@ -53,11 +53,10 @@ function PMA_getHtmlForDatabase(
     );
 
     $_url_params['pos'] = $pos;
-    $_url_params['drop_selected_dbs'] = 1;
 
     $html .= '<form class="ajax" action="server_databases.php" ';
     $html .= 'method="post" name="dbStatsForm" id="dbStatsForm">' . "\n";
-    $html .= PMA_generate_common_hidden_inputs($_url_params);
+    $html .= PMA_URL_getHiddenInputs($_url_params);
 
     $_url_params['sort_by'] = 'SCHEMA_NAME';
     $_url_params['sort_order']
@@ -306,7 +305,7 @@ function PMA_getHtmlForColumnOrderWithSort(
         ? '        <th></th>' . "\n"
         : '')
         . '    <th><a href="server_databases.php'
-        . PMA_generate_common_url($_url_params) . '">' . "\n"
+        . PMA_URL_getCommon($_url_params) . '">' . "\n"
         . '            ' . __('Database') . "\n"
         . ($sort_by == 'SCHEMA_NAME'
             ? '                ' . PMA_Util::getImage(
@@ -331,7 +330,7 @@ function PMA_getHtmlForColumnOrderWithSort(
                 = ($sort_by == $stat_name && $sort_order == 'desc') ? 'asc' : 'desc';
             $html .= '    <th' . $colspan . '>'
                 . '<a href="server_databases.php'
-                . PMA_generate_common_url($_url_params) . '">' . "\n"
+                . PMA_URL_getCommon($_url_params) . '">' . "\n"
                 . '            ' . $stat['disp_name'] . "\n"
                 . ($sort_by == $stat_name
                     ? '            ' . PMA_Util::getImage(
@@ -406,4 +405,103 @@ function PMA_getHtmlForReplicationType(
     }
     return $html;
 }
+
+/**
+ * Returns the array about $sort_order and $sort_by
+ *
+ * @return Array
+ */
+function PMA_getListForSortDatabase()
+{
+    /**
+     * avoids 'undefined index' errors
+     */
+    $sort_by = '';
+    $sort_order = '';
+    if (empty($_REQUEST['sort_by'])) {
+        $sort_by = 'SCHEMA_NAME';
+    } else {
+        $sort_by_whitelist = array(
+            'SCHEMA_NAME',
+            'DEFAULT_COLLATION_NAME',
+            'SCHEMA_TABLES',
+            'SCHEMA_TABLE_ROWS',
+            'SCHEMA_DATA_LENGTH',
+            'SCHEMA_INDEX_LENGTH',
+            'SCHEMA_LENGTH',
+            'SCHEMA_DATA_FREE'
+        );
+        if (in_array($_REQUEST['sort_by'], $sort_by_whitelist)) {
+            $sort_by = $_REQUEST['sort_by'];
+        } else {
+            $sort_by = 'SCHEMA_NAME';
+        }
+    }
+    
+    if (isset($_REQUEST['sort_order'])
+        && strtolower($_REQUEST['sort_order']) == 'desc'
+    ) {
+        $sort_order = 'desc';
+    } else {
+        $sort_order = 'asc';
+    }
+    
+    return array($sort_by, $sort_order);
+}
+
+/**
+ * Deal with Drops multiple databases
+ *
+ * @return null
+ */
+function PMA_dropMultiDatabases()
+{
+    if (! isset($_REQUEST['selected_dbs']) && ! isset($_REQUEST['query_type'])) {
+        $message = PMA_Message::error(__('No databases selected.'));
+    } else {
+        $action = 'server_databases.php';
+        $submit_mult = 'drop_db';
+        $err_url = 'server_databases.php?' . PMA_URL_getCommon();
+        if (isset($_REQUEST['selected_dbs'])
+            && !isset($_REQUEST['is_js_confirmed'])
+        ) {
+            $selected_db = $_REQUEST['selected_dbs'];
+        }
+        if (isset($_REQUEST['is_js_confirmed'])) {
+            $_REQUEST = array(
+                'query_type' => $submit_mult,
+                'selected' => $_REQUEST['selected_dbs'],
+                'mult_btn' => __('Yes'),
+                'db' => $GLOBALS['db'],
+                'table' => $GLOBALS['table']);
+        }
+        //the following variables will be used on mult_submits.inc.php
+        global $query_type, $selected, $mult_btn;
+        
+        include 'libraries/mult_submits.inc.php';
+        unset($action, $submit_mult, $err_url, $selected_db, $GLOBALS['db']);
+        if (empty($message)) {
+            if ($mult_btn == __('Yes')) {
+                $number_of_databases = count($selected);
+            } else {
+                $number_of_databases = 0;
+            }
+            $message = PMA_Message::success(
+                _ngettext(
+                    '%1$d database has been dropped successfully.',
+                    '%1$d databases have been dropped successfully.',
+                    $number_of_databases
+                )
+            );
+            $message->addParam($number_of_databases);
+        }
+    }
+    if ($GLOBALS['is_ajax_request'] && $message instanceof PMA_Message) {
+        $response = PMA_Response::getInstance();
+        $response->isSuccess($message->isSuccess());
+        $response->addJSON('message', $message);
+        exit;
+    }
+}
+
 ?>

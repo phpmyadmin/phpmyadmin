@@ -31,7 +31,23 @@ class Node_Table extends Node_DatabaseChild
     public function __construct($name, $type = Node::OBJECT, $is_group = false)
     {
         parent::__construct($name, $type, $is_group);
-        $this->icon  = PMA_Util::getImage('b_browse.png');
+        switch($GLOBALS['cfg']['NavigationTreeDefaultTabTable']) {
+        case 'tbl_structure.php':
+            $this->icon  = PMA_Util::getImage('b_props.png');
+            break;
+        case 'tbl_select.php':
+            $this->icon  = PMA_Util::getImage('b_search.png');
+            break;
+        case 'tbl_change.php':
+            $this->icon  = PMA_Util::getImage('b_insrow.png');
+            break;
+        case 'tbl_sql.php':
+            $this->icon  = PMA_Util::getImage('b_sql.png');
+            break;
+        case 'sql.php':
+            $this->icon  = PMA_Util::getImage('b_browse.png');
+            break;
+        }
         $this->links = array(
             'text' => 'sql.php?server=' . $GLOBALS['server']
                     . '&amp;db=%2$s&amp;table=%1$s'
@@ -202,33 +218,6 @@ class Node_Table extends Node_DatabaseChild
             break;
         default:
             break;
-        }
-        return $retval;
-    }
-
-    /**
-     * Returns the comment associated with node
-     * This method should be overridden by specific type of nodes
-     *
-     * @return string
-     */
-    public function getComment()
-    {
-        $db    = $this->realParent()->real_name;
-        $table = PMA_Util::sqlAddSlashes($this->real_name);
-        if (! $GLOBALS['cfg']['Servers'][$GLOBALS['server']]['DisableIS']) {
-            $db     = PMA_Util::sqlAddSlashes($db);
-            $query  = "SELECT `TABLE_COMMENT` ";
-            $query .= "FROM `INFORMATION_SCHEMA`.`TABLES` ";
-            $query .= "WHERE `TABLE_SCHEMA`='$db' ";
-            $query .= "AND `TABLE_NAME`='$table' ";
-            $retval = $GLOBALS['dbi']->fetchValue($query);
-        } else {
-            $db     = PMA_Util::backquote($db);
-            $query  = "SHOW TABLE STATUS FROM $db ";
-            $query .= "WHERE Name = '$table'";
-            $arr = $GLOBALS['dbi']->fetchAssoc($GLOBALS['dbi']->tryQuery($query));
-            $retval = $arr['Comment'];
         }
         return $retval;
     }

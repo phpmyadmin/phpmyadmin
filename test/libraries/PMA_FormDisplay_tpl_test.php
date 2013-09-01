@@ -292,7 +292,8 @@ class PMA_FormDisplay_Tpl_Test extends PHPUnit_Framework_TestCase
 
         $this->assertTag(
             PMA_getTagArray(
-                '<span class="field-comment-mark field-comment-warning" title="testComment">',
+                '<span class="field-comment-mark field-comment-warning" '
+                . 'title="testComment">',
                 array('content' => 'i')
             ),
             $result
@@ -414,7 +415,7 @@ class PMA_FormDisplay_Tpl_Test extends PHPUnit_Framework_TestCase
 
         $this->assertTag(
             PMA_getTagArray(
-                '<input type="text" size="15" name="test/path" ' .
+                '<input type="number" size="15" name="test/path" ' .
                 'id="test/path" value="val" />'
             ),
             $result
@@ -744,8 +745,9 @@ class PMA_FormDisplay_Tpl_Test extends PHPUnit_Framework_TestCase
 
         $this->assertEquals(
             array(
-                'validateField(\'testID\', \'PMA_\\\';\', true, [\'\\\\r\\\\n\\\\\\\'' .
-                '<scrIpt></\\\' + \\\'script>\'])',
+                'validateField(\'testID\', \'PMA_\\\';\', true, '
+                    . '[\'\\\\r\\\\n\\\\\\\''
+                    . '<scrIpt></\\\' + \\\'script>\'])',
                 'validateField(\'testID\', \'PMA_\', true)'
             ),
             $js

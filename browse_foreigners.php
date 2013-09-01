@@ -13,8 +13,7 @@ require_once 'libraries/transformations.lib.php';
  * Sets globals from $_REQUEST
  */
 $request_params = array(
-    'field',
-    'fieldkey'
+    'field'
 );
 
 foreach ($request_params as $one_request_param) {
@@ -90,15 +89,22 @@ if (is_array($foreignData['disp_row'])) {
     }
 }
 
-
+// When coming from Table/Zoom search
+if (isset($_REQUEST['fromsearch'])) {
+    // In table or zoom search, input fields are named "criteriaValues"
+    $element_name = " var field = 'criteriaValues';\n";
+} else {
+    // In insert/edit, input fields are named "fields"
+    $element_name = " var field = 'fields';\n";
+}
 
 if (isset($_REQUEST['rownumber'])) {
-    $element_name  = "        var element_name = field + '[multi_edit]["
+    $element_name  .= "        var element_name = field + '[multi_edit]["
         . htmlspecialchars($_REQUEST['rownumber']) . "][' + fieldmd5 + ']';\n"
         . "        var null_name = field_null + '[multi_edit]["
         . htmlspecialchars($_REQUEST['rownumber']) . "][' + fieldmd5 + ']';\n";
 } else {
-    $element_name = "var element_name = field + '[]'";
+    $element_name .= "var element_name = field + '[]'";
 }
 $error = PMA_jsFormat(
     __(
@@ -110,8 +116,10 @@ $error = PMA_jsFormat(
 );
 
 
-if (! isset($fieldkey) || ! is_numeric($fieldkey)) {
+if (! isset($_REQUEST['fieldkey']) || ! is_numeric($_REQUEST['fieldkey'])) {
     $fieldkey = 0;
+} else {
+    $fieldkey = $_REQUEST['fieldkey'];
 }
 
 $code = <<<EOC
@@ -164,7 +172,7 @@ $header->getScripts()->addCode($code);
 // HTML output
 $output = '<form action="browse_foreigners.php" method="post">'
     . '<fieldset>'
-    . PMA_generate_common_hidden_inputs($db, $table)
+    . PMA_URL_getHiddenInputs($db, $table)
     . '<input type="hidden" name="field" value="' . htmlspecialchars($field) . '" />'
     . '<input type="hidden" name="fieldkey" value="'
     . (isset($fieldkey) ? htmlspecialchars($fieldkey) : '') . '" />';

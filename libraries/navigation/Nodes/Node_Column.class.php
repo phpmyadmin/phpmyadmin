@@ -41,30 +41,6 @@ class Node_Column extends Node
                     . '&amp;token=' . $GLOBALS['token']
         );
     }
-
-    /**
-     * Returns column comment.
-     *
-     * @return string column comment
-     */
-    public function getComment()
-    {
-        $db     = PMA_Util::sqlAddSlashes(
-            $this->realParent()->realParent()->real_name
-        );
-        $table  = PMA_Util::sqlAddSlashes(
-            $this->realParent()->real_name
-        );
-        $column = PMA_Util::sqlAddSlashes(
-            $this->real_name
-        );
-        $query  = "SELECT `COLUMN_COMMENT` ";
-        $query .= "FROM `INFORMATION_SCHEMA`.`COLUMNS` ";
-        $query .= "WHERE `TABLE_SCHEMA`='$db' ";
-        $query .= "AND `TABLE_NAME`='$table' ";
-        $query .= "AND `COLUMN_NAME`='$column' ";
-        return $GLOBALS['dbi']->fetchValue($query);
-    }
 }
 
 ?>

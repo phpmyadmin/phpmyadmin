@@ -123,7 +123,8 @@ class PMA_Footer_Test extends PHPUnit_Framework_TestCase
         );
 
         $this->assertRegExp(
-            '/<div id="session_debug">2 queries executed 2 times in 2.7 seconds<pre>/',
+            '/<div id="session_debug">2 queries executed 2 times in 2.7 seconds'
+            . '<pre>/',
             $this->_callPrivateFunction(
                 '_getDebugMessage',
                 array()
@@ -143,7 +144,10 @@ class PMA_Footer_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['ServerDefault'] = 1;
 
         $this->assertEquals(
-            '<div id="selflink" class="print_ignore"><a href="index.php?db=&amp;table=&amp;server=1&amp;target=&amp;lang=en&amp;collation_connection=utf8_general_ci&amp;token=token" title="Open new phpMyAdmin window" target="_blank">Open new phpMyAdmin window</a></div>',
+            '<div id="selflink" class="print_ignore"><a href="index.php?db=&amp;'
+            . 'table=&amp;server=1&amp;target=&amp;lang=en&amp;collation_connection='
+            . 'utf8_general_ci&amp;token=token" title="Open new phpMyAdmin window" '
+            . 'target="_blank">Open new phpMyAdmin window</a></div>',
             $this->_callPrivateFunction(
                 '_getSelfLink',
                 array(
@@ -167,7 +171,11 @@ class PMA_Footer_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['pmaThemeImage'] = 'image';
 
         $this->assertEquals(
-            '<div id="selflink" class="print_ignore"><a href="index.php?db=&amp;table=&amp;server=1&amp;target=&amp;lang=en&amp;collation_connection=utf8_general_ci&amp;token=token" title="Open new phpMyAdmin window" target="_blank"><img src="imagewindow-new.png" title="Open new phpMyAdmin window" alt="Open new phpMyAdmin window" /></a></div>',
+            '<div id="selflink" class="print_ignore"><a href="index.php?db=&amp;'
+            . 'table=&amp;server=1&amp;target=&amp;lang=en&amp;collation_connection='
+            . 'utf8_general_ci&amp;token=token" title="Open new phpMyAdmin window" '
+            . 'target="_blank"><img src="imagewindow-new.png" title="Open new '
+            . 'phpMyAdmin window" alt="Open new phpMyAdmin window" /></a></div>',
             $this->_callPrivateFunction(
                 '_getSelfLink',
                 array(

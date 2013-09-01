@@ -301,7 +301,6 @@ Todo now:
  6. send a short mail (with list of major changes) to
         phpmyadmin-devel@lists.sourceforge.net
         phpmyadmin-news@lists.sourceforge.net
-        phpmyadmin-users@lists.sourceforge.net
 
     Don't forget to update the Description section in the announcement,
     based on documentation.

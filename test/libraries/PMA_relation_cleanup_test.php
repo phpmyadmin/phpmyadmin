@@ -73,7 +73,7 @@ class PMA_Relation_Cleanup_Test extends PHPUnit_Framework_TestCase
      *
      * @return void
      */
-    public function testPMA_relationsCleanupColumn()
+    public function testPMARelationsCleanupColumn()
     {
         $db = "PMA";
         $table = "PMA_bookmark";
@@ -86,9 +86,22 @@ class PMA_Relation_Cleanup_Test extends PHPUnit_Framework_TestCase
             true,
             $cfgRelation['commwork']
         );
+        //validate PMA_getDbComments when commwork = true
+        $db_comments = PMA_getDbComments();
+        $this->assertEquals(
+            array('db_name0' => 'comment0','db_name1' => 'comment1'),
+            $db_comments
+        );
+        
         $this->assertEquals(
             true,
             $cfgRelation['displaywork']
+        );
+        //validate PMA_getDisplayField when displaywork = true
+        $display_field = PMA_getDisplayField($db, $table);
+        $this->assertEquals(
+            'PMA_display_field',
+            $display_field
         );
         $this->assertEquals(
             true,
@@ -140,7 +153,7 @@ class PMA_Relation_Cleanup_Test extends PHPUnit_Framework_TestCase
      *
      * @return void
      */
-    public function testPMA_relationsCleanupTable()
+    public function testPMARelationsCleanupTable()
     {
         $db = "PMA";
         $table = "PMA_bookmark";
@@ -218,7 +231,7 @@ class PMA_Relation_Cleanup_Test extends PHPUnit_Framework_TestCase
      *
      * @return void
      */
-    public function testPMA_relationsCleanupDatabase()
+    public function testPMARelationsCleanupDatabase()
     {
         $db = "PMA";
         $this->redefineRelation();
@@ -308,9 +321,10 @@ class PMA_Relation_Cleanup_Test extends PHPUnit_Framework_TestCase
 class DBI_PMA_Relation_Cleanup extends PMA_DatabaseInterface
 {
     var $index;
+    var $assocIndex;
+    var $totalNum;
     var $values = array();
     var $indexs = array();
-
 
     /**
      * Constructor
@@ -319,6 +333,8 @@ class DBI_PMA_Relation_Cleanup extends PMA_DatabaseInterface
     public function __construct()
     {
          $this->index = 0;
+         $this->assocIndex = 0;
+         $this->totalNum = 2;
          $this->values = array(
              'bookmark',
              'relation',
@@ -414,6 +430,7 @@ class DBI_PMA_Relation_Cleanup extends PMA_DatabaseInterface
         if (stripos($sql, "bookmark") !== false) {
             unset($GLOBALS [$this->indexs['bookmark']]);
         }
+        return true;
     }
 
     /**
@@ -455,5 +472,63 @@ class DBI_PMA_Relation_Cleanup extends PMA_DatabaseInterface
     public function freeResult($result)
     {
         return true;
+    }
+
+    /**
+     * returns only the first row from the result
+     *
+     * <code>
+     * $sql = 'SELECT * FROM `user` WHERE `id` = 123';
+     * $user = $GLOBALS['dbi']->fetchSingleRow($sql);
+     * // produces
+     * // $user = array('id' => 123, 'name' => 'John Doe')
+     * </code>
+     *
+     * @param string|mysql_result $result query or mysql result
+     * @param string              $type   NUM|ASSOC|BOTH
+     *                                    returned array should either numeric
+     *                                    associativ or booth
+     * @param resource            $link   mysql link
+     *
+     * @return array|boolean first row from result
+     *                       or false if result is empty
+     */
+    public function fetchSingleRow($result, $type = 'ASSOC', $link = null)
+    {
+        return array(
+            'display_field' => "PMA_display_field"
+        );
+    }
+
+    /**
+     * returns array of rows with associative keys from $result
+     *
+     * @param object $result result set identifier
+     *
+     * @return array
+     */
+    public function fetchAssoc($result)
+    {
+        if ($this->assocIndex < $this->totalNum) {
+            $assocResult['db_name'] = "db_name" . $this->assocIndex;
+            $assocResult['comment'] = "comment" . $this->assocIndex;
+            $this->assocIndex++;
+            return $assocResult;
+        }
+
+        $this->assocIndex = 0;
+        return false;
+    }
+
+    /**
+     * returns the number of rows returned by last query
+     *
+     * @param object $result result set identifier
+     *
+     * @return string|int
+     */
+    public function numRows($result)
+    {
+        return $this->totalNum;
     }
 }

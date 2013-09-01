@@ -167,6 +167,14 @@ class PMA_DBI_Mysqli implements PMA_DBI_Extension
 
         /* Optionally enable SSL */
         if ($cfg['Server']['ssl'] && defined('MYSQLI_CLIENT_SSL')) {
+            mysqli_ssl_set(
+                $link,
+                $cfg['Server']['ssl_key'],
+                $cfg['Server']['ssl_cert'],
+                $cfg['Server']['ssl_ca'],
+                $cfg['Server']['ssl_ca_path'],
+                $cfg['Server']['ssl_ciphers']
+            );
             $client_flags |= MYSQLI_CLIENT_SSL;
         }
 

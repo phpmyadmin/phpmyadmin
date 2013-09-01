@@ -10,8 +10,8 @@
  * Get the variables sent or posted to this script and a core script
  */
 if (!defined('TESTSUITE')) {
+    define('PMA_BYPASS_GET_INSTANCE', 1);
     require_once 'libraries/common.inc.php';
-
     require_once 'libraries/zip.lib.php';
     require_once 'libraries/plugin_interface.lib.php';
 
@@ -219,9 +219,9 @@ if (!defined('TESTSUITE')) {
 
     // Generate error url and check for needed variables
     if ($export_type == 'server') {
-        $err_url = 'server_export.php?' . PMA_generate_common_url();
+        $err_url = 'server_export.php?' . PMA_URL_getCommon();
     } elseif ($export_type == 'database' && strlen($db)) {
-        $err_url = 'db_export.php?' . PMA_generate_common_url($db);
+        $err_url = 'db_export.php?' . PMA_URL_getCommon($db);
         // Check if we have something to export
         if (isset($table_select)) {
             $tables = $table_select;
@@ -229,7 +229,7 @@ if (!defined('TESTSUITE')) {
             $tables = array();
         }
     } elseif ($export_type == 'table' && strlen($db) && strlen($table)) {
-        $err_url = 'tbl_export.php?' . PMA_generate_common_url($db, $table);
+        $err_url = 'tbl_export.php?' . PMA_URL_getCommon($db, $table);
     } else {
         PMA_fatalError(__('Bad parameters!'));
     }
@@ -268,13 +268,8 @@ function PMA_isGzHandlerEnabled()
  */
 function PMA_gzencodeNeeded()
 {
-    // Here, we detect Apache's mod_deflate so we bet that
-    // this module is active for this instance of phpMyAdmin
-    // and therefore, will gzip encode the content
     if (@function_exists('gzencode')
         && ! @ini_get('zlib.output_compression')
-        && ! (function_exists('apache_get_modules')
-        && in_array('mod_deflate', apache_get_modules()))
         && ! PMA_isGzHandlerEnabled()
     ) {
         return true;
@@ -576,11 +571,11 @@ if (!defined('TESTSUITE')) {
              */
             $back_button = '<p>[ <a href="';
             if ($export_type == 'server') {
-                $back_button .= 'server_export.php?' . PMA_generate_common_url();
+                $back_button .= 'server_export.php?' . PMA_URL_getCommon();
             } elseif ($export_type == 'database') {
-                $back_button .= 'db_export.php?' . PMA_generate_common_url($db);
+                $back_button .= 'db_export.php?' . PMA_URL_getCommon($db);
             } else {
-                $back_button .= 'tbl_export.php?' . PMA_generate_common_url($db, $table);
+                $back_button .= 'tbl_export.php?' . PMA_URL_getCommon($db, $table);
             }
 
             // Convert the multiple select elements from an array to a string

@@ -2277,8 +2277,6 @@ function PMA_SQP_format(
     $arr, $mode='text', $start_token=0,
     $number_of_tokens=-1
 ) {
-    global $PMA_SQPdata_operators_docs, $PMA_SQPdata_functions_docs;
-
     //DEBUG echo 'in Format<pre>'; print_r($arr); echo '</pre>';
     // then check for an array
     if (! is_array($arr)) {
@@ -2544,7 +2542,6 @@ function PMA_SQP_format(
             }
             break;
         case 'alpha_functionName':
-            $funcname = strtoupper($arr[$i]['data']);
             break;
         case 'alpha_reservedWord':
             // do not uppercase the reserved word if we are calling

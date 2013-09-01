@@ -58,7 +58,7 @@ $db_qbe = new PMA_DBQbe($GLOBALS['db']);
  * Displays the Query by example form
  */
 if ($cfgRelation['designerwork']) {
-    $url = 'pmd_general.php' . PMA_generate_common_url(
+    $url = 'pmd_general.php' . PMA_URL_getCommon(
         array_merge(
             $url_params,
             array('query' => 1)

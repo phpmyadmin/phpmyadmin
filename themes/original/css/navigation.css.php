@@ -21,7 +21,6 @@ if (! defined('PMA_MINIMUM_COMMON') && ! defined('TESTSUITE')) {
     color: <?php echo $GLOBALS['cfg']['NaviColor']; ?>;
     width: <?php echo $GLOBALS['cfg']['NaviWidth']; ?>px;
     overflow: hidden;
-    overflow-y: auto;
     position: fixed;
     top: 0;
     <?php echo $left; ?>: 0;
@@ -32,6 +31,7 @@ if (! defined('PMA_MINIMUM_COMMON') && ! defined('TESTSUITE')) {
 
 #pma_navigation_content {
     width: 100%;
+    height: 100%;
     position: absolute;
     top: 0;
     <?php echo $left; ?>: 0;
@@ -105,9 +105,18 @@ if (! defined('PMA_MINIMUM_COMMON') && ! defined('TESTSUITE')) {
 
 /* Navigation tree*/
 #pma_navigation_tree {
-    margin: 0.5em 0 0;
+    margin: 0;
     margin-<?php echo $left; ?>: 1em;
     color: #444;
+    height: 74%;
+    position: relative;
+}
+#pma_navigation_tree_content {
+    width: 100%;
+    overflow: hidden;
+    overflow-y: auto;
+    position: absolute;
+    height: 100%;
 }
 #pma_navigation_tree a {
     color: <?php echo $GLOBALS['cfg']['NaviColor']; ?>;

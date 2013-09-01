@@ -1,7 +1,13 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Validaition class for various validation functions
+ * Form validation for configuration editor
+ *
+ * @package PhpMyAdmin
+ */
+
+/**
+ * Validation class for various validation functions
  *
  * Validation function takes two argument: id for which it is called
  * and array of fields' values (usually values for entire formset, as defined
@@ -14,7 +20,6 @@
  *
  * @package PhpMyAdmin
  */
-
 class PMA_Validator
 {
     /**
@@ -22,7 +27,7 @@ class PMA_Validator
      *
      * @return array
      */
-    public static function config_get_validators()
+    public static function getValidators()
     {
         static $validators = null;
 
@@ -75,11 +80,11 @@ class PMA_Validator
      *
      * @return bool|array
      */
-    public static function config_validate($validator_id, &$values, $isPostSource)
-    {   
+    public static function validate($validator_id, &$values, $isPostSource)
+    {
         // find validators
         $validator_id = (array) $validator_id;
-        $validators = static::config_get_validators();
+        $validators = static::getValidators();
         $vids = array();
         $cf = ConfigFile::getInstance();
         foreach ($validator_id as &$vid) {
@@ -123,7 +128,9 @@ class PMA_Validator
                         if (! isset($result[$key])) {
                             $result[$key] = array();
                         }
-                        $result[$key] = array_merge($result[$key], (array)$error_list);
+                        $result[$key] = array_merge(
+                            $result[$key], (array)$error_list
+                        );
                     }
                 }
             }
@@ -143,7 +150,7 @@ class PMA_Validator
      *
      * @return bool
      */
-    public static function null_error_handler()
+    public static function nullErrorHandler()
     {
         return false;
     }
@@ -170,7 +177,7 @@ class PMA_Validator
             ini_set('html_errors', false);
             ini_set('track_errors', true);
             ini_set('display_errors', true);
-            set_error_handler("PMA_Validator", "null_error_handler");
+            set_error_handler(array("PMA_Validator", "nullErrorHandler"));
             ob_start();
         } else {
             ob_end_clean();
@@ -435,7 +442,7 @@ class PMA_Validator
             $matches = array();
             // we catch anything that may (or may not) be an IP
             if (!preg_match("/^(.+):(?:[ ]?)\\w+$/", $line, $matches)) {
-                $result[$path][] = __('Incorrect value:') . ' ' 
+                $result[$path][] = __('Incorrect value:') . ' '
                     . htmlspecialchars($line);
                 continue;
             }

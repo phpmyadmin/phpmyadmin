@@ -51,7 +51,6 @@ class PMA_ServerVariables_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['LimitChars'] = 100;
         $GLOBALS['cfg']['DBG']['sql'] = false;
         $GLOBALS['cfg']['Server']['host'] = "localhost";
-        $GLOBALS['cfg']['MySQLManualType'] = 'viewable';
         $GLOBALS['cfg']['ActionLinksMode'] = 'icons';
         $GLOBALS['PMA_PHP_SELF'] = PMA_getenv('PHP_SELF');
 
@@ -148,7 +147,7 @@ class PMA_ServerVariables_Test extends PHPUnit_Framework_TestCase
     {
         //Call the test function
         $html = PMA_getHtmlForLinkTemplates();
-        $url = htmlspecialchars('server_variables.php?' . PMA_generate_common_url());
+        $url = 'server_variables.php' . PMA_URL_getCommon(array());
 
         //validate 1: URL
         $this->assertContains(

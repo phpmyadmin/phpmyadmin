@@ -30,15 +30,16 @@ class PMA_ExportJson_Test extends PHPUnit_Framework_TestCase
     {
         $GLOBALS['server'] = 0;
         $GLOBALS['output_kanji_conversion'] = false;
+        $GLOBALS['output_charset_conversion'] = false;
         $GLOBALS['buffer_needed'] = false;
-        $GLOBALS['asfile'] = false;
+        $GLOBALS['asfile'] = true;
         $GLOBALS['save_on_server'] = false;
         $this->object = new ExportJson();
     }
 
     /**
      * tearDown for test cases
-     * 
+     *
      * @return void
      */
     public function tearDown()
@@ -48,7 +49,7 @@ class PMA_ExportJson_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for ExportJson::setProperties
-     * 
+     *
      * @return void
      */
     public function testSetProperties()
@@ -119,7 +120,7 @@ class PMA_ExportJson_Test extends PHPUnit_Framework_TestCase
             'HiddenPropertyItem',
             $property
         );
-        
+
         $this->assertEquals(
             'structure_or_data',
             $property->getName()
@@ -129,7 +130,7 @@ class PMA_ExportJson_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for ExportJson::exportHeader
-     * 
+     *
      * @return void
      */
     public function testExportHeader()
@@ -150,7 +151,7 @@ class PMA_ExportJson_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for ExportJson::exportFooter
-     * 
+     *
      * @return void
      */
     public function testExportFooter()
@@ -162,7 +163,7 @@ class PMA_ExportJson_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for ExportJson::exportDBHeader
-     * 
+     *
      * @return void
      */
     public function testExportDBHeader()
@@ -180,7 +181,7 @@ class PMA_ExportJson_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for ExportJson::exportDBFooter
-     * 
+     *
      * @return void
      */
     public function testExportDBFooter()
@@ -192,7 +193,7 @@ class PMA_ExportJson_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for ExportJson::exportDBCreate
-     * 
+     *
      * @return void
      */
     public function testExportDBCreate()
@@ -204,7 +205,7 @@ class PMA_ExportJson_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for ExportJson::exportData
-     * 
+     *
      * @return void
      */
     public function testExportData()
@@ -212,7 +213,7 @@ class PMA_ExportJson_Test extends PHPUnit_Framework_TestCase
         $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
-        
+
         $dbi->expects($this->once())
             ->method('numFields')
             ->with(null)
@@ -242,7 +243,7 @@ class PMA_ExportJson_Test extends PHPUnit_Framework_TestCase
 
         $this->expectOutputString(
             "// db.tbl\n\n" .
-            "[{&quot;f1&quot;:&quot;foo&quot;}, {&quot;f1&quot;:&quot;bar&quot;}]"
+            "[{\"f1\":\"foo\"}, {\"f1\":\"bar\"}]"
         );
 
         $this->assertTrue(

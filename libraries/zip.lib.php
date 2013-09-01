@@ -120,12 +120,7 @@ class ZipFile
     {
         $name     = str_replace('\\', '/', $name);
 
-        $dtime    = substr("00000000" . dechex($this->unix2DosTime($time)), -8);
-        $hexdtime = '\x' . $dtime[6] . $dtime[7]
-                  . '\x' . $dtime[4] . $dtime[5]
-                  . '\x' . $dtime[2] . $dtime[3]
-                  . '\x' . $dtime[0] . $dtime[1];
-        eval('$hexdtime = "' . $hexdtime . '";');
+        $hexdtime = pack('V', $this->unix2DosTime($time));
 
         $fr   = "\x50\x4b\x03\x04";
         $fr   .= "\x14\x00";            // ver needed to extract

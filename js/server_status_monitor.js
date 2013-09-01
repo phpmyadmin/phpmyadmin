@@ -2079,7 +2079,8 @@ AJAX.registerOnload('server_status_monitor.js', function () {
         var query = rowData.argument || rowData.sql_text;
 
         if (codemirror_editor) {
-            query = PMA_SQLPrettyPrint(query);
+            //TODO: somehow PMA_SQLPrettyPrint messes up the query, needs be fixed
+            //query = PMA_SQLPrettyPrint(query);
             codemirror_editor.setValue(query);
             // Codemirror is bugged, it doesn't refresh properly sometimes.
             // Following lines seem to fix that
@@ -2137,7 +2138,10 @@ AJAX.registerOnload('server_status_monitor.js', function () {
             var i;
             if (data.success === true) {
                 data = data.message;
-            } else {
+            }
+            if (data.error) {
+                if(data.error.indexOf('1146') != -1 || data.error.indexOf('1046') != -1)
+                    data.error = PMA_messages['strServerLogError'];
                 $('#queryAnalyzerDialog div.placeHolder').html('<div class="error">' + data.error + '</div>');
                 return;
             }

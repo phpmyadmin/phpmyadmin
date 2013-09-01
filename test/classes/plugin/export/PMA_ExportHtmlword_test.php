@@ -6,6 +6,7 @@
  * @package PhpMyAdmin-test
  */
 require_once 'libraries/plugins/export/ExportHtmlword.class.php';
+require_once 'libraries/DatabaseInterface.class.php';
 require_once 'libraries/Util.class.php';
 require_once 'libraries/Theme.class.php';
 require_once 'libraries/Config.class.php';
@@ -31,14 +32,15 @@ class PMA_ExportHtmlword_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['server'] = 0;
         $this->object = new ExportHtmlword();
         $GLOBALS['output_kanji_conversion'] = false;
+        $GLOBALS['output_charset_conversion'] = false;
         $GLOBALS['buffer_needed'] = false;
-        $GLOBALS['asfile'] = false;
+        $GLOBALS['asfile'] = true;
         $GLOBALS['save_on_server'] = false;
     }
 
     /**
      * tearDown for test cases
-     * 
+     *
      * @return void
      */
     public function tearDown()
@@ -48,7 +50,7 @@ class PMA_ExportHtmlword_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for ExportHtmlword::setProperties
-     * 
+     *
      * @return void
      */
     public function testSetProperties()
@@ -183,7 +185,7 @@ class PMA_ExportHtmlword_Test extends PHPUnit_Framework_TestCase
             'Replace NULL with:',
             $property->getText()
         );
-       
+
         $property = array_shift($generalProperties);
 
         $this->assertInstanceOf(
@@ -204,7 +206,7 @@ class PMA_ExportHtmlword_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for ExportHtmlword::exportHeader
-     * 
+     *
      * @return void
      */
     public function testExportHeader()
@@ -213,7 +215,7 @@ class PMA_ExportHtmlword_Test extends PHPUnit_Framework_TestCase
         $this->object->exportHeader();
         $result = ob_get_clean();
 
-        $expected = htmlspecialchars(
+        $expected =
             '<html xmlns:o="urn:schemas-microsoft-com:office:office"
             xmlns:x="urn:schemas-microsoft-com:office:word"
             xmlns="http://www.w3.org/TR/REC-html40">
@@ -225,9 +227,8 @@ class PMA_ExportHtmlword_Test extends PHPUnit_Framework_TestCase
                 <meta http-equiv="Content-type" content="text/html;charset='
             . 'utf-8' . '" />
             </head>
-            <body>'
-        );
-        
+            <body>';
+
         $this->assertEquals(
             $expected,
             $result
@@ -240,7 +241,7 @@ class PMA_ExportHtmlword_Test extends PHPUnit_Framework_TestCase
         $this->object->exportHeader();
         $result = ob_get_clean();
 
-        $expected = htmlspecialchars(
+        $expected =
             '<html xmlns:o="urn:schemas-microsoft-com:office:office"
             xmlns:x="urn:schemas-microsoft-com:office:word"
             xmlns="http://www.w3.org/TR/REC-html40">
@@ -252,8 +253,7 @@ class PMA_ExportHtmlword_Test extends PHPUnit_Framework_TestCase
                 <meta http-equiv="Content-type" content="text/html;charset='
             . 'ISO-8859-1' . '" />
             </head>
-            <body>'
-        );
+            <body>';
 
         $this->assertEquals(
             $expected,
@@ -263,7 +263,7 @@ class PMA_ExportHtmlword_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for ExportHtmlword::exportFooter
-     * 
+     *
      * @return void
      */
     public function testExportFooter()
@@ -275,14 +275,14 @@ class PMA_ExportHtmlword_Test extends PHPUnit_Framework_TestCase
         $result = ob_get_clean();
 
         $this->assertEquals(
-            htmlspecialchars('</body></html>'),
+            '</body></html>',
             $result
         );
     }
 
     /**
      * Test for ExportHtmlword::exportDBHeader
-     * 
+     *
      * @return void
      */
     public function testExportDBHeader()
@@ -294,14 +294,14 @@ class PMA_ExportHtmlword_Test extends PHPUnit_Framework_TestCase
         $result = ob_get_clean();
 
         $this->assertEquals(
-            '&lt;h1&gt;Database d&amp;quot;b&lt;/h1&gt;',
+            '<h1>Database d&quot;b</h1>',
             $result
         );
     }
 
     /**
      * Test for ExportHtmlword::exportDBFooter
-     * 
+     *
      * @return void
      */
     public function testExportDBFooter()
@@ -313,7 +313,7 @@ class PMA_ExportHtmlword_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for ExportHtmlword::exportDBCreate
-     * 
+     *
      * @return void
      */
     public function testExportDBCreate()
@@ -325,13 +325,13 @@ class PMA_ExportHtmlword_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for ExportHtmlword::exportData
-     * 
+     *
      * @return void
      */
     public function testExportData()
     {
         // case 1
- 
+
         $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
@@ -365,8 +365,9 @@ class PMA_ExportHtmlword_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['what'] = 'UT';
         $GLOBALS['UT_null'] = 'customNull';
         $GLOBALS['output_kanji_conversion'] = false;
+        $GLOBALS['output_charset_conversion'] = false;
         $GLOBALS['buffer_needed'] = false;
-        $GLOBALS['asfile'] = false;
+        $GLOBALS['asfile'] = true;
         $GLOBALS['save_on_server'] = false;
 
         ob_start();
@@ -379,8 +380,8 @@ class PMA_ExportHtmlword_Test extends PHPUnit_Framework_TestCase
 
         $this->assertEquals(
             '<h2>Dumping data for table testTable</h2>' .
-            '<table class="width100" cellspacing="1"><tr class="print-category">' . 
-            '<td class="print"><strong>foobar</strong></td>' . 
+            '<table class="width100" cellspacing="1"><tr class="print-category">' .
+            '<td class="print"><strong>foobar</strong></td>' .
             '<td class="print"><strong>foobar</strong></td>' .
             '<td class="print"><strong>foobar</strong></td>' .
             '<td class="print"><strong>foobar</strong></td>' .
@@ -394,7 +395,7 @@ class PMA_ExportHtmlword_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for ExportHtmlword::getTableDefStandIn
-     * 
+     *
      * @return void
      */
     public function testGetTableDefStandIn()
@@ -404,7 +405,7 @@ class PMA_ExportHtmlword_Test extends PHPUnit_Framework_TestCase
             ->getMock();
 
         // case 1
- 
+
         $keys = array(
             array(
                 'Non_unique' => 0,
@@ -450,7 +451,7 @@ class PMA_ExportHtmlword_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for ExportHtmlword::getTableDef
-     * 
+     *
      * @return void
      */
     public function testGetTableDef()
@@ -506,7 +507,7 @@ class PMA_ExportHtmlword_Test extends PHPUnit_Framework_TestCase
             ->method('getColumns')
             ->with('database', '')
             ->will($this->returnValue(array($columns)));
-        
+
         $dbi->expects($this->any())
             ->method('query')
             ->will($this->returnValue(true));
@@ -565,7 +566,7 @@ class PMA_ExportHtmlword_Test extends PHPUnit_Framework_TestCase
         );
 
         // case 2
-        
+
         $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
@@ -610,7 +611,7 @@ class PMA_ExportHtmlword_Test extends PHPUnit_Framework_TestCase
             ->method('getColumns')
             ->with('database', '')
             ->will($this->returnValue(array($columns)));
-        
+
         $dbi->expects($this->any())
             ->method('query')
             ->will($this->returnValue(true));
@@ -662,7 +663,7 @@ class PMA_ExportHtmlword_Test extends PHPUnit_Framework_TestCase
         );
 
          // case 3
-        
+
         $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
@@ -680,7 +681,7 @@ class PMA_ExportHtmlword_Test extends PHPUnit_Framework_TestCase
             ->method('getColumns')
             ->with('database', '')
             ->will($this->returnValue(array($columns)));
-        
+
         $dbi->expects($this->any())
             ->method('query')
             ->will($this->returnValue(true));
@@ -733,7 +734,7 @@ class PMA_ExportHtmlword_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for ExportHtmlword::getTriggers
-     * 
+     *
      * @return void
      */
     public function testGetTriggers()
@@ -750,7 +751,7 @@ class PMA_ExportHtmlword_Test extends PHPUnit_Framework_TestCase
                 'definition' => 'def'
             )
         );
-        
+
         $dbi->expects($this->once())
             ->method('getTriggers')
             ->with('database', 'table')
@@ -763,7 +764,7 @@ class PMA_ExportHtmlword_Test extends PHPUnit_Framework_TestCase
         $result = $method->invoke($this->object, 'database', 'table');
 
         $this->assertContains(
-            '<td class="print">tna&quot;me</td>' . 
+            '<td class="print">tna&quot;me</td>' .
             '<td class="print">ac&gt;t</td>' .
             '<td class="print">manip&amp;</td>' .
             '<td class="print">def</td>',
@@ -773,12 +774,12 @@ class PMA_ExportHtmlword_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for ExportHtmlword::exportStructure
-     * 
+     *
      * @return void
      */
     public function testExportStructure()
     {
-        
+
         $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
@@ -816,7 +817,7 @@ class PMA_ExportHtmlword_Test extends PHPUnit_Framework_TestCase
             ->will($this->returnValue('dumpText4'));
 
         $GLOBALS['dbi'] = $dbi;
-        
+
         ob_start();
         $this->assertTrue(
             $this->object->exportStructure(
@@ -826,7 +827,7 @@ class PMA_ExportHtmlword_Test extends PHPUnit_Framework_TestCase
         $result = ob_get_clean();
 
         $this->assertEquals(
-            '&lt;h2&gt;Table structure for table tbl&lt;/h2&gt;dumpText1',
+            '<h2>Table structure for table tbl</h2>dumpText1',
             $result
         );
 
@@ -839,7 +840,7 @@ class PMA_ExportHtmlword_Test extends PHPUnit_Framework_TestCase
         $result = ob_get_clean();
 
         $this->assertEquals(
-            '&lt;h2&gt;Triggers tbl&lt;/h2&gt;dumpText2',
+            '<h2>Triggers tbl</h2>dumpText2',
             $result
         );
 
@@ -850,9 +851,9 @@ class PMA_ExportHtmlword_Test extends PHPUnit_Framework_TestCase
             )
         );
         $result = ob_get_clean();
-        
+
         $this->assertEquals(
-            '&lt;h2&gt;Structure for view tbl&lt;/h2&gt;dumpText3',
+            '<h2>Structure for view tbl</h2>dumpText3',
             $result
         );
 
@@ -865,14 +866,14 @@ class PMA_ExportHtmlword_Test extends PHPUnit_Framework_TestCase
         $result = ob_get_clean();
 
         $this->assertEquals(
-            '&lt;h2&gt;Stand-in structure for view tbl&lt;/h2&gt;dumpText4',
+            '<h2>Stand-in structure for view tbl</h2>dumpText4',
             $result
         );
     }
 
     /**
      * Test for ExportHtmlword::formatOneColumnDefinition
-     * 
+     *
      * @return void
      */
     public function testFormatOneColumnDefinition()

@@ -18,6 +18,11 @@ require_once 'libraries/database_interface.inc.php';
  */
 class Node_Test extends PHPUnit_Framework_TestCase
 {
+    /**
+     * SetUp for test cases
+     * 
+     * @return void
+     */
     public function setup()
     {
         $GLOBALS['server'] = 0;
@@ -25,6 +30,11 @@ class Node_Test extends PHPUnit_Framework_TestCase
         $_SESSION['PMA_Theme'] = PMA_Theme::load('./themes/pmahomme');
     }
 
+    /**
+     * SetUp for AddNode
+     *
+     * @return void
+     */
     public function testAddNode()
     {
         $parent = PMA_NodeFactory::getInstance('Node', 'parent');
@@ -40,6 +50,11 @@ class Node_Test extends PHPUnit_Framework_TestCase
         );
     }
 
+    /**
+     * SetUp for getChild
+     *
+     * @return void
+     */
     public function testGetChildError()
     {
         $parent = PMA_NodeFactory::getInstance('Node', 'parent');
@@ -53,6 +68,11 @@ class Node_Test extends PHPUnit_Framework_TestCase
         );
     }
 
+    /**
+     * SetUp for getChild
+     *
+     * @return void
+     */
     public function testRemoveNode()
     {
         $parent = PMA_NodeFactory::getInstance('Node', 'parent');
@@ -69,10 +89,17 @@ class Node_Test extends PHPUnit_Framework_TestCase
         );
     }
 
+    /**
+     * SetUp for hasChildren
+     *
+     * @return void
+     */
     public function testNodeHasChildren()
     {
         $parent = PMA_NodeFactory::getInstance();
-        $empty_container = PMA_NodeFactory::getInstance('Node', 'empty', Node::CONTAINER);
+        $empty_container = PMA_NodeFactory::getInstance(
+            'Node', 'empty', Node::CONTAINER
+        );
         $child = PMA_NodeFactory::getInstance();
         // test with no children
         $this->assertEquals(
@@ -105,6 +132,11 @@ class Node_Test extends PHPUnit_Framework_TestCase
         );
     }
 
+    /**
+     * SetUp for numChildren
+     *
+     * @return void
+     */
     public function testNumChildren()
     {
         // start with root node only
@@ -119,7 +151,9 @@ class Node_Test extends PHPUnit_Framework_TestCase
         $child->addChild(PMA_NodeFactory::getInstance());
         $this->assertEquals($parent->numChildren(), 1);
         // add a container, this one doesn't count wither
-        $container = PMA_NodeFactory::getInstance('Node', 'default', Node::CONTAINER);
+        $container = PMA_NodeFactory::getInstance(
+            'Node', 'default', Node::CONTAINER
+        );
         $parent->addChild($container);
         $this->assertEquals($parent->numChildren(), 1);
         // add a grandchild to container, this one counts
@@ -130,6 +164,11 @@ class Node_Test extends PHPUnit_Framework_TestCase
         $this->assertEquals($parent->numChildren(), 3);
     }
 
+    /**
+     * SetUp for parents
+     *
+     * @return void
+     */
     public function testParents()
     {
         $parent = PMA_NodeFactory::getInstance();
@@ -140,9 +179,17 @@ class Node_Test extends PHPUnit_Framework_TestCase
         $parent->addChild($child);
 
         $this->assertEquals($child->parents(), array($parent)); // exclude self
-        $this->assertEquals($child->parents(true), array($child, $parent)); // include self
+        $this->assertEquals(
+            $child->parents(true),
+            array($child, $parent)
+        ); // include self
     }
 
+    /**
+     * SetUp for realParent
+     *
+     * @return void
+     */
     public function testRealParent()
     {
         $parent = PMA_NodeFactory::getInstance();
@@ -394,15 +441,6 @@ class Node_Test extends PHPUnit_Framework_TestCase
             ->with("SHOW DATABASES LIKE '%dbname%' ");
         $GLOBALS['dbi'] = $dbi;
         $node->getPresence('', 'dbname');
-    }
-
-    public function testComment()
-    {
-        // A non-qualified Node shouldn't have a comment
-        $this->assertEquals(
-            PMA_NodeFactory::getInstance()->getComment(),
-            ''
-        );
     }
 }
 ?>

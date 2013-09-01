@@ -91,7 +91,7 @@ class FormDisplay
             'error_invalid_value' => __('Incorrect value'),
             'error_value_lte' => __('Value must be equal or lower than %s'));
         // initialize validators
-        PMA_Validator::config_get_validators();
+        PMA_Validator::getValidators();
     }
 
     /**
@@ -164,7 +164,7 @@ class FormDisplay
         }
 
         // run validation
-        $errors = PMA_Validator::config_validate($paths, $values, false);
+        $errors = PMA_Validator::validate($paths, $values, false);
 
         // change error keys from canonical paths to work paths
         if (is_array($errors) && count($errors) > 0) {
@@ -198,7 +198,7 @@ class FormDisplay
         $js = array();
         $js_default = array();
         $tabbed_form = $tabbed_form && (count($this->_forms) > 1);
-        $validators = PMA_Validator::config_get_validators();
+        $validators = PMA_Validator::getValidators();
 
         PMA_displayFormTop();
 
@@ -210,7 +210,7 @@ class FormDisplay
             PMA_displayTabsTop($tabs);
         }
 
-        // valdiate only when we aren't displaying a "new server" form
+        // validate only when we aren't displaying a "new server" form
         $is_new_server = false;
         foreach ($this->_forms as $form) {
             /* @var $form Form */
@@ -371,6 +371,13 @@ class FormDisplay
             return;
         }
 
+        // detect password fields
+        if ($type === 'text'
+            && substr($translated_path, -9) === '-password'
+        ) {
+            $type = 'password';
+        }
+
         // TrustedProxies requires changes before displaying
         if ($system_path == 'TrustedProxies') {
             foreach ($value as $ip => &$v) {
@@ -387,6 +394,7 @@ class FormDisplay
         case 'text':
         case 'short_text':
         case 'number_text':
+        case 'password':
             $js_line .= '\'' . PMA_escapeJsString($value_default) . '\'';
             break;
         case 'checkbox':

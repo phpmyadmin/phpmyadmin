@@ -64,54 +64,14 @@ if (isset($_REQUEST['do_save_data'])) {
  *
  * submit_mult_*_x comes from IE if <input type="img" ...> is used
  */
-if (isset($_REQUEST['submit_mult_change_x'])) {
-    $submit_mult = 'change';
-} elseif (isset($_REQUEST['submit_mult_drop_x'])) {
-    $submit_mult = 'drop';
-} elseif (isset($_REQUEST['submit_mult_primary_x'])) {
-    $submit_mult = 'primary';
-} elseif (isset($_REQUEST['submit_mult_index_x'])) {
-    $submit_mult = 'index';
-} elseif (isset($_REQUEST['submit_mult_unique_x'])) {
-    $submit_mult = 'unique';
-} elseif (isset($_REQUEST['submit_mult_spatial_x'])) {
-    $submit_mult = 'spatial';
-} elseif (isset($_REQUEST['submit_mult_fulltext_x'])) {
-    $submit_mult = 'ftext';
-} elseif (isset($_REQUEST['submit_mult_browse_x'])) {
-    $submit_mult = 'browse';
-} elseif (isset($_REQUEST['submit_mult'])) {
-    $submit_mult = $_REQUEST['submit_mult'];
-} elseif (isset($_REQUEST['mult_btn']) && $_REQUEST['mult_btn'] == __('Yes')) {
-    $submit_mult = 'row_delete';
-    if (isset($_REQUEST['selected'])) {
-        $_REQUEST['selected_fld'] = $_REQUEST['selected'];
-    }
-}
+$submit_mult = PMA_getMultipleFieldCommandType();
+
 if (! empty($submit_mult)) {
     if (isset($_REQUEST['selected_fld'])) {
-        $err_url = 'tbl_structure.php?' . PMA_generate_common_url($db, $table);
         if ($submit_mult == 'browse') {
             // browsing the table displaying only selected columns
-            $GLOBALS['active_page'] = 'sql.php';
-            $sql_query = '';
-            foreach ($_REQUEST['selected_fld'] as $idx => $sval) {
-                if ($sql_query == '') {
-                    $sql_query .= 'SELECT ' . PMA_Util::backquote($sval);
-                } else {
-                    $sql_query .=  ', ' . PMA_Util::backquote($sval);
-                }
-            }
-            $sql_query .= ' FROM ' . PMA_Util::backquote($db)
-            . '.' . PMA_Util::backquote($table);
-
-            // Parse and analyze the query
-            include_once 'libraries/parse_analyze.inc.php';
-
-            PMA_executeQueryAndSendQueryResponse(
-                $analyzed_sql_results, false, $db, $table, null, null, null, false,
-                null, null, null, null, $goto, $pmaThemeImage, null, null,
-                null, $sql_query, null, null
+            PMA_displayTableBrowseForSelectedColumns(
+                $db, $table, $goto, $pmaThemeImage
             );
         } else {
             // handle multiple field commands
@@ -200,5 +160,5 @@ $titles = PMA_getActionTitlesArray();
 $hidden_titles = PMA_getHiddenTitlesArray();
 
 //display table structure
-require_once 'libraries/display_structure.lib.php';
+require_once 'libraries/display_structure.inc.php';
 ?>

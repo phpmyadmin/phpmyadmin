@@ -6,5 +6,10 @@ php:
 before_install:
   - sudo apt-get update -qq
   - sudo apt-get install -qq ant
-before_script: ./scripts/generate-mo --quiet
-script: ant phpunit-nocoverage lint
+before_script:
+  - git clone git://github.com/zenovich/runkit.git && cd runkit && phpize && ./configure && make && make install && cd ..
+  - echo "extension=runkit.so" >> `php --ini | grep "Loaded Configuration" | sed -e "s|.*:\s*||"`
+  - echo "runkit.internal_override=1" >> `php --ini | grep "Loaded Configuration" | sed -e "s|.*:\s*||"`
+script:
+  - ./scripts/generate-mo --quiet
+  - ant phpunit-nocoverage lint

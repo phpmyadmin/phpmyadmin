@@ -35,7 +35,7 @@ function PMA_displayFormTop($action = null, $method = 'post', $hidden_fields = n
         echo '<input type="hidden" name="check_page_refresh" '
             . ' id="check_page_refresh" value="" />' . "\n";
     }
-    echo PMA_generate_common_hidden_inputs('', '', 0, 'server') . "\n";
+    echo PMA_URL_getHiddenInputs('', '', 0, 'server') . "\n";
     echo PMA_getHiddenFields((array)$hidden_fields);
 }
 
@@ -239,12 +239,16 @@ function PMA_displayInput($path, $name, $type, $value, $description = '',
         echo '<input type="text" size="60" ' . $name_id . $field_class
             . ' value="' . htmlspecialchars($value) . '" />';
         break;
+    case 'password':
+        echo '<input type="password" size="60" ' . $name_id . $field_class
+            . ' value="' . htmlspecialchars($value) . '" />';
+        break;
     case 'short_text':
         echo '<input type="text" size="25" ' . $name_id . $field_class
             . ' value="' . htmlspecialchars($value) . '" />';
         break;
     case 'number_text':
-        echo '<input type="text" size="15" ' . $name_id . $field_class
+        echo '<input type="number" size="15" ' . $name_id . $field_class
             . ' value="' . htmlspecialchars($value) . '" />';
         break;
     case 'checkbox':

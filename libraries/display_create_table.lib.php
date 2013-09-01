@@ -46,14 +46,14 @@ if (PMA_Util::showIcons('ActionLinksMode')) {
 echo __('Create table');
 ?>
     </legend>
-    <?php echo PMA_generate_common_hidden_inputs($db); ?>
+    <?php echo PMA_URL_getHiddenInputs($db); ?>
     <div class="formelement">
         <?php echo __('Name'); ?>:
-        <input type="text" name="table" maxlength="64" size="30" />
+        <input type="text" name="table" maxlength="64" size="30" required />
     </div>
     <div class="formelement">
         <?php echo __('Number of columns'); ?>:
-        <input type="text" name="num_fields" size="2" />
+        <input type="number" min="1" name="num_fields" size="2" />
     </div>
     <div class="clearfloat"></div>
 </fieldset>

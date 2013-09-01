@@ -32,9 +32,13 @@ $back = 'db_sql.php';
 /**
  * Query box, bookmark, insert data from textfile
  */
-PMA_sqlQueryForm(
-    true, false,
-    isset($_REQUEST['delimiter']) ? htmlspecialchars($_REQUEST['delimiter']) : ';'
+$response->addHTML(
+    PMA_getHtmlForSqlQueryForm(
+        true, false,
+        isset($_REQUEST['delimiter']) 
+        ? htmlspecialchars($_REQUEST['delimiter']) 
+        : ';'
+    )
 );
 
 ?>

@@ -1,9 +1,9 @@
 <?php
 //============================================================+
 // File name   : tcpdf.php
-// Version     : 6.0.018
+// Version     : 6.0.023
 // Begin       : 2002-08-03
-// Last Update : 2013-05-19
+// Last Update : 2013-08-05
 // Author      : Nicola Asuni - Tecnick.com LTD - www.tecnick.com - info@tecnick.com
 // License     : GNU-LGPL v3 (http://www.gnu.org/copyleft/lesser.html)
 // -------------------------------------------------------------------
@@ -11,7 +11,7 @@
 //
 // This file is part of TCPDF software library.
 //
-// TCPDF is free software: you can redistribute it and/or modify it
+// TCPDF is free software: you can ioredistribute it and/or modify it
 // under the terms of the GNU Lesser General Public License as
 // published by the Free Software Foundation, either version 3 of the
 // License, or (at your option) any later version.
@@ -139,21 +139,21 @@
  * Tools to encode your unicode fonts are on fonts/utils directory.</p>
  * @package com.tecnick.tcpdf
  * @author Nicola Asuni
- * @version 6.0.018
+ * @version 6.0.023
  */
 
 // TCPDF configuration
-require_once(__DIR__.'/tcpdf_autoconfig.php');
+require_once(dirname(__FILE__).'/tcpdf_autoconfig.php');
 // TCPDF static font methods and data
-require_once(__DIR__.'/include/tcpdf_font_data.php');
+require_once(dirname(__FILE__).'/include/tcpdf_font_data.php');
 // TCPDF static font methods and data
-require_once(__DIR__.'/include/tcpdf_fonts.php');
+require_once(dirname(__FILE__).'/include/tcpdf_fonts.php');
 // TCPDF static color methods and data
-require_once(__DIR__.'/include/tcpdf_colors.php');
+require_once(dirname(__FILE__).'/include/tcpdf_colors.php');
 // TCPDF static image methods and data
-require_once(__DIR__.'/include/tcpdf_images.php');
+require_once(dirname(__FILE__).'/include/tcpdf_images.php');
 // TCPDF static methods and data
-require_once(__DIR__.'/include/tcpdf_static.php');
+require_once(dirname(__FILE__).'/include/tcpdf_static.php');
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -163,7 +163,7 @@ require_once(__DIR__.'/include/tcpdf_static.php');
  * TCPDF project (http://www.tcpdf.org) has been originally derived in 2002 from the Public Domain FPDF class by Olivier Plathey (http://www.fpdf.org), but now is almost entirely rewritten.<br>
  * @package com.tecnick.tcpdf
  * @brief PHP class for generating PDF documents without requiring external extensions.
- * @version 6.0.018
+ * @version 6.0.023
  * @author Nicola Asuni - info@tecnick.com
  */
 class TCPDF {
@@ -1850,6 +1850,9 @@ class TCPDF {
 	/**
 	 * This is the class constructor.
 	 * It allows to set up the page format, the orientation and the measure unit used in all the methods (except for the font sizes).
+	 * 
+	 * IMPORTANT: Please note that this method sets the mb_internal_encoding to ASCII, so if you are using the mbstring module functions with TCPDF you need to correctly set/unset the mb_internal_encoding when needed.
+	 * 
 	 * @param $orientation (string) page orientation. Possible values are (case insensitive):<ul><li>P or Portrait (default)</li><li>L or Landscape</li><li>'' (empty string) for automatic orientation</li></ul>
 	 * @param $unit (string) User measure unit. Possible values are:<ul><li>pt: point</li><li>mm: millimeter (default)</li><li>cm: centimeter</li><li>in: inch</li></ul><br />A point equals 1/72 of inch, that is to say about 0.35 mm (an inch being 2.54 cm). This is a very common unit in typography; font sizes are expressed in that unit.
 	 * @param $format (mixed) The format used for pages. It can be either: one of the string values specified at getPageSizeFromFormat() or an array of parameters specified at setPageFormat().
@@ -1973,7 +1976,7 @@ class TCPDF {
 		$this->ur['signature'] = '/Modify';
 		$this->ur['ef'] = '/Create/Delete/Modify/Import';
 		$this->ur['formex'] = '';
-		$this->signature_appearance = array('page' => 1, 'rect' => '0 0 0 0');
+		$this->signature_appearance = array('page' => 1, 'rect' => '0 0 0 0', 'name' => 'Signature');
 		$this->empty_signature_appearance = array();
 		// set default JPEG quality
 		$this->jpeg_quality = 75;
@@ -2925,9 +2928,8 @@ class TCPDF {
 	public function Error($msg) {
 		// unset all class variables
 		$this->_destroy(true);
-		$phpmainver = PHP_VERSION;
 		// exit program and print error
-		if ((intval($phpmainver[0]) < 5) OR !defined('K_TCPDF_THROW_EXCEPTION_ERROR') OR !K_TCPDF_THROW_EXCEPTION_ERROR) {
+		if (!K_TCPDF_THROW_EXCEPTION_ERROR) {
 			die('<strong>TCPDF ERROR: </strong>'.$msg);
 		} else {
 			throw new Exception('TCPDF ERROR: '.$msg);
@@ -4275,23 +4277,23 @@ class TCPDF {
 		}
 		$missing_style = false; // true when the font style variation is missing
 		// search and include font file
-		if (TCPDF_STATIC::empty_string($fontfile) OR (!file_exists($fontfile))) {
+		if (TCPDF_STATIC::empty_string($fontfile) OR (!@file_exists($fontfile))) {
 			// build a standard filenames for specified font
 			$tmp_fontfile = str_replace(' ', '', $family).strtolower($style).'.php';
 			// search files on various directories
-			if (($fontdir !== false) AND file_exists($fontdir.$tmp_fontfile)) {
+			if (($fontdir !== false) AND @file_exists($fontdir.$tmp_fontfile)) {
 				$fontfile = $fontdir.$tmp_fontfile;
-			} elseif (file_exists(TCPDF_FONTS::_getfontpath().$tmp_fontfile)) {
+			} elseif (@file_exists(TCPDF_FONTS::_getfontpath().$tmp_fontfile)) {
 				$fontfile = TCPDF_FONTS::_getfontpath().$tmp_fontfile;
-			} elseif (file_exists($tmp_fontfile)) {
+			} elseif (@file_exists($tmp_fontfile)) {
 				$fontfile = $tmp_fontfile;
 			} elseif (!TCPDF_STATIC::empty_string($style)) {
 				$missing_style = true;
 				// try to remove the style part
 				$tmp_fontfile = str_replace(' ', '', $family).'.php';
-				if (($fontdir !== false) AND file_exists($fontdir.$tmp_fontfile)) {
+				if (($fontdir !== false) AND @file_exists($fontdir.$tmp_fontfile)) {
 					$fontfile = $fontdir.$tmp_fontfile;
-				} elseif (file_exists(TCPDF_FONTS::_getfontpath().$tmp_fontfile)) {
+				} elseif (@file_exists(TCPDF_FONTS::_getfontpath().$tmp_fontfile)) {
 					$fontfile = TCPDF_FONTS::_getfontpath().$tmp_fontfile;
 				} else {
 					$fontfile = $tmp_fontfile;
@@ -4299,7 +4301,7 @@ class TCPDF {
 			}
 		}
 		// include font file
-		if (file_exists($fontfile)) {
+		if (@file_exists($fontfile)) {
 			include($fontfile);
 		} else {
 			$this->Error('Could not include font definition file: '.$family.'');
@@ -4827,19 +4829,19 @@ class TCPDF {
 		$this->PageAnnots[$page][] = array('n' => ++$this->n, 'x' => $x, 'y' => $y, 'w' => $w, 'h' => $h, 'txt' => $text, 'opt' => $opt, 'numspaces' => $spaces);
 		if (!$this->pdfa_mode) {
 			if ((($opt['Subtype'] == 'FileAttachment') OR ($opt['Subtype'] == 'Sound')) AND (!TCPDF_STATIC::empty_string($opt['FS']))
-				AND (file_exists($opt['FS']) OR TCPDF_STATIC::isValidURL($opt['FS']))
+				AND (@file_exists($opt['FS']) OR TCPDF_STATIC::isValidURL($opt['FS']))
 				AND (!isset($this->embeddedfiles[basename($opt['FS'])]))) {
 				$this->embeddedfiles[basename($opt['FS'])] = array('f' => ++$this->n, 'n' => ++$this->n, 'file' => $opt['FS']);
 			}
 		}
 		// Add widgets annotation's icons
-		if (isset($opt['mk']['i']) AND file_exists($opt['mk']['i'])) {
+		if (isset($opt['mk']['i']) AND @file_exists($opt['mk']['i'])) {
 			$this->Image($opt['mk']['i'], '', '', 10, 10, '', '', '', false, 300, '', false, false, 0, false, true);
 		}
-		if (isset($opt['mk']['ri']) AND file_exists($opt['mk']['ri'])) {
+		if (isset($opt['mk']['ri']) AND @file_exists($opt['mk']['ri'])) {
 			$this->Image($opt['mk']['ri'], '', '', 0, 0, '', '', '', false, 300, '', false, false, 0, false, true);
 		}
-		if (isset($opt['mk']['ix']) AND file_exists($opt['mk']['ix'])) {
+		if (isset($opt['mk']['ix']) AND @file_exists($opt['mk']['ix'])) {
 			$this->Image($opt['mk']['ix'], '', '', 0, 0, '', '', '', false, 300, '', false, false, 0, false, true);
 		}
 	}
@@ -4859,7 +4861,7 @@ class TCPDF {
 		foreach ($this->embeddedfiles as $filename => $filedata) {
 			// update name tree
 			$this->efnames[$filename] = $filedata['f'].' 0 R';
-			// embedded file specification  object
+			// embedded file specification object
 			$out = $this->_getobj($filedata['f'])."\n";
 			$out .= '<</Type /Filespec /F '.$this->_datastring($filename, $filedata['f']).' /EF <</F '.$filedata['n'].' 0 R>> >>';
 			$out .= "\n".'endobj';
@@ -6494,7 +6496,7 @@ class TCPDF {
 						}
 						// check the length of the next string
 						$strrest = TCPDF_FONTS::UniArrSubString($uchars, ($sep + $endspace));
-						$nextstr = preg_split('/'.$this->re_space['p'].'/'.$this->re_space['m'], $this->stringTrim($strrest));
+						$nextstr = TCPDF_STATIC::pregSplit('/'.$this->re_space['p'].'/', $this->re_space['m'], $this->stringTrim($strrest));
 						if (isset($nextstr[0]) AND ($this->GetStringWidth($nextstr[0]) > $pw)) {
 							// truncate the word because do not fit on a full page width
 							$tmpstr = TCPDF_FONTS::UniArrSubString($uchars, $j, $i);
@@ -7007,7 +7009,7 @@ class TCPDF {
 			if ((method_exists('TCPDF_IMAGES', $mtd)) AND (!($resize AND (function_exists($gdfunction) OR extension_loaded('imagick'))))) {
 				// TCPDF image functions
 				$info = TCPDF_IMAGES::$mtd($file);
-				if ($info == 'pngalpha') {
+				if (($info === 'pngalpha') OR (isset($info['trns']) AND !empty($info['trns']))) {
 					return $this->ImagePngAlpha($file, $x, $y, $pixw, $pixh, $w, $h, 'PNG', $link, $align, $resize, $dpi, $palign, $filehash);
 				}
 			}
@@ -7190,7 +7192,7 @@ class TCPDF {
 	}
 
 	/**
-	 * Extract info from a PNG image with alpha channel using the GD library.
+	 * Extract info from a PNG image with alpha channel using the Imagick or GD library.
 	 * @param $file (string) Name of the file containing the image.
 	 * @param $x (float) Abscissa of the upper-left corner.
 	 * @param $y (float) Ordinate of the upper-left corner.
@@ -8748,11 +8750,11 @@ class TCPDF {
 			$file = strtolower($file);
 			$fontfile = '';
 			// search files on various directories
-			if (($fontdir !== false) AND file_exists($fontdir.$file)) {
+			if (($fontdir !== false) AND @file_exists($fontdir.$file)) {
 				$fontfile = $fontdir.$file;
-			} elseif (file_exists(TCPDF_FONTS::_getfontpath().$file)) {
+			} elseif (@file_exists(TCPDF_FONTS::_getfontpath().$file)) {
 				$fontfile = TCPDF_FONTS::_getfontpath().$file;
-			} elseif (file_exists($file)) {
+			} elseif (@file_exists($file)) {
 				$fontfile = $file;
 			}
 			if (!TCPDF_STATIC::empty_string($fontfile)) {
@@ -8974,11 +8976,11 @@ class TCPDF {
 			// search and get ctg font file to embedd
 			$fontfile = '';
 			// search files on various directories
-			if (($fontdir !== false) AND file_exists($fontdir.$ctgfile)) {
+			if (($fontdir !== false) AND @file_exists($fontdir.$ctgfile)) {
 				$fontfile = $fontdir.$ctgfile;
-			} elseif (file_exists(TCPDF_FONTS::_getfontpath().$ctgfile)) {
+			} elseif (@file_exists(TCPDF_FONTS::_getfontpath().$ctgfile)) {
 				$fontfile = TCPDF_FONTS::_getfontpath().$ctgfile;
-			} elseif (file_exists($ctgfile)) {
+			} elseif (@file_exists($ctgfile)) {
 				$fontfile = $ctgfile;
 			}
 			if (TCPDF_STATIC::empty_string($fontfile)) {
@@ -9613,7 +9615,7 @@ class TCPDF {
 		// if required, add standard sRGB_IEC61966-2.1 blackscaled ICC colour profile
 		if ($this->pdfa_mode OR $this->force_srgb) {
 			$iccobj = $this->_newobj();
-			$icc = file_get_contents(__DIR__.'/include/sRGB.icc');
+			$icc = file_get_contents(dirname(__FILE__).'/include/sRGB.icc');
 			$filter = '';
 			if ($this->compress) {
 				$filter = ' /Filter /FlateDecode';
@@ -15051,7 +15053,7 @@ class TCPDF {
 		if (TCPDF_STATIC::empty_string(trim($code))) {
 			return;
 		}
-		require_once(__DIR__.'/tcpdf_barcodes_1d.php');
+		require_once(dirname(__FILE__).'/tcpdf_barcodes_1d.php');
 		// save current graphic settings
 		$gvars = $this->getGraphicVars();
 		// create new barcode object
@@ -15367,7 +15369,7 @@ class TCPDF {
 		if (TCPDF_STATIC::empty_string(trim($code))) {
 			return;
 		}
-		require_once(__DIR__.'/tcpdf_barcodes_2d.php');
+		require_once(dirname(__FILE__).'/tcpdf_barcodes_2d.php');
 		// save current graphic settings
 		$gvars = $this->getGraphicVars();
 		// create new barcode object
@@ -18149,7 +18151,7 @@ Putting 1 is equivalent to putting 0 and calling Ln() just after. Default value:
 									$tmp_fontsize = isset($dom[$nkey]['fontsize']) ? $dom[$nkey]['fontsize'] : $this->FontSizePt;
 									$same_textdir = ($dom[$nkey]['dir'] == $dom[$key]['dir']);
 								} else {
-									$nextstr = preg_split('/'.$this->re_space['p'].'+/'.$this->re_space['m'], $dom[$nkey]['value']);
+									$nextstr = TCPDF_STATIC::pregSplit('/'.$this->re_space['p'].'+/', $this->re_space['m'], $dom[$nkey]['value']);
 									if (isset($nextstr[0]) AND $same_textdir) {
 										$wadj += $this->GetStringWidth($nextstr[0], $tmp_fontname, $tmp_fontstyle, $tmp_fontsize);
 										if (isset($nextstr[1])) {
@@ -18162,7 +18164,7 @@ Putting 1 is equivalent to putting 0 and calling Ln() just after. Default value:
 						}
 						if (($wadj > 0) AND (($strlinelen + $wadj) >= $cwa)) {
 							$wadj = 0;
-							$nextstr = preg_split('/'.$this->re_space['p'].'/'.$this->re_space['m'], $dom[$key]['value']);
+							$nextstr = TCPDF_STATIC::pregSplit('/'.$this->re_space['p'].'/', $this->re_space['m'], $dom[$key]['value']);
 							$numblks = count($nextstr);
 							if ($numblks > 1) {
 								// try to split on blank spaces

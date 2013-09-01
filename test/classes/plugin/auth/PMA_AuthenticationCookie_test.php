@@ -40,7 +40,7 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
 
     /**
      * tearDown for test cases
-     * 
+     *
      * @return void
      */
     public function tearDown()
@@ -50,7 +50,7 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for AuthenticationConfig::auth
-     * 
+     *
      * @return void
      */
     public function testAuth()
@@ -83,7 +83,7 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
             );
 
         $attrInstance = new ReflectionProperty('PMA_Response', '_instance');
-        $attrInstance->setAccessible(true); 
+        $attrInstance->setAccessible(true);
         $attrInstance->setValue(null, $mockResponse);
         $GLOBALS['conn_error'] = true;
         $GLOBALS['cfg']['PmaAbsoluteUri'] = 'https://phpmyadmin.net/';
@@ -91,7 +91,7 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
             $this->object->auth()
         );
         // Case 2
-        
+
         $mockResponse = $this->getMockBuilder('PMA_Response')
             ->disableOriginalConstructor()
             ->setMethods(array('isAjax', 'isSuccess', 'addJSON'))
@@ -118,7 +118,7 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
             );
 
         $attrInstance = new ReflectionProperty('PMA_Response', '_instance');
-        $attrInstance->setAccessible(true); 
+        $attrInstance->setAccessible(true);
         $attrInstance->setValue(null, $mockResponse);
         $GLOBALS['conn_error'] = '';
 
@@ -127,7 +127,7 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
         );
 
         // case 3
-        
+
         $mockResponse = $this->getMockBuilder('PMA_Response')
             ->disableOriginalConstructor()
             ->setMethods(array('isAjax', 'getFooter', 'getHeader'))
@@ -138,7 +138,7 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
             ->with()
             ->will($this->returnValue(false));
 
-       
+
 
         $_REQUEST['old_usr'] = '';
         $GLOBALS['cfg']['LoginCookieRecall'] = true;
@@ -168,7 +168,7 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
         $mockHeader->expects($this->once())
             ->method('setBodyId')
             ->with('loginform');
-        
+
         $mockHeader->expects($this->once())
             ->method('setTitle')
             ->with('phpMyAdmin');
@@ -194,7 +194,7 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
             ->will($this->returnValue($mockHeader));
 
         $attrInstance = new ReflectionProperty('PMA_Response', '_instance');
-        $attrInstance->setAccessible(true); 
+        $attrInstance->setAccessible(true);
         $attrInstance->setValue(null, $mockResponse);
 
         $GLOBALS['pmaThemeImage'] = 'test';
@@ -210,7 +210,7 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
         file_put_contents('testlogo_right.png', '');
 
         // mock error handler
-        
+
         $mockErrorHandler = $this->getMockBuilder('PMA_Error_Handler')
             ->disableOriginalConstructor()
             ->setMethods(array('hasDisplayErrors', 'dispErrors'))
@@ -220,7 +220,7 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
             ->method('hasDisplayErrors')
             ->with()
             ->will($this->returnValue(true));
-        
+
         $mockErrorHandler->expects($this->once())
             ->method('dispErrors')
             ->with();
@@ -232,14 +232,14 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
         $result = ob_get_clean();
 
         // assertions
-        
+
         $this->assertTag(
             PMA_getTagArray(
                 '<img src="testlogo_right.png" id="imLogo"'
             ),
             $result
         );
-        
+
         $this->assertTag(
             PMA_getTagArray(
                 '<div class="error">'
@@ -282,7 +282,7 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
         $this->assertTag(
             PMA_getTagArray(
                 '<select name="server" id="select_server" ' .
-                'onchange="document.forms[\'login_form\'].' . 
+                'onchange="document.forms[\'login_form\'].' .
                 'elements[\'pma_servername\'].value = \'\'" >'
             ),
             $result
@@ -312,7 +312,7 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
         @unlink('testlogo_right.png');
 
         // case 4
-        
+
         $mockResponse = $this->getMockBuilder('PMA_Response')
             ->disableOriginalConstructor()
             ->setMethods(array('isAjax', 'getFooter', 'getHeader'))
@@ -337,7 +337,7 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['LoginCookieRecall'] = false;
 
         $attrInstance = new ReflectionProperty('PMA_Response', '_instance');
-        $attrInstance->setAccessible(true); 
+        $attrInstance->setAccessible(true);
         $attrInstance->setValue(null, $mockResponse);
 
         $GLOBALS['pmaThemeImage'] = 'test';
@@ -356,14 +356,14 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
         $result = ob_get_clean();
 
         // assertions
-        
+
         $this->assertTag(
             PMA_getTagArray(
                 '<img name="imLogo" id="imLogo" src="testpma_logo.png"'
             ),
             $result
         );
-        
+
         $this->assertTag(
             PMA_getTagArray(
                 '<select name="lang" class="autosubmit" lang="en" dir="ltr" ' .
@@ -393,7 +393,7 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
         );
 
         $this->assertContains(
-            'iframe src="https://www.google.com/recaptcha/api/noscript' . 
+            'iframe src="https://www.google.com/recaptcha/api/noscript' .
             '?k=testpubkey"',
             $result
         );
@@ -428,7 +428,7 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for AuthenticationConfig::auth with headers
-     * 
+     *
      * @return void
      */
     public function testAuthHeader()
@@ -452,7 +452,7 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
             ->will($this->returnValue(false));
 
         $attrInstance = new ReflectionProperty('PMA_Response', '_instance');
-        $attrInstance->setAccessible(true); 
+        $attrInstance->setAccessible(true);
         $attrInstance->setValue(null, $mockResponse);
 
         $_REQUEST['old_usr'] = 'user1';
@@ -472,7 +472,7 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for AuthenticationConfig::authCheck
-     * 
+     *
      * @return void
      */
     public function testAuthCheck()
@@ -491,7 +491,7 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
         }
 
         $GLOBALS['cfg']['Server']['auth_swekey_config'] = 'testConfigSwekey';
-        
+
         file_put_contents('testConfigSwekey', '');
         $this->assertFalse(
             $this->object->authCheck()
@@ -505,7 +505,7 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['CaptchaLoginPublicKey'] = 'testpubkey';
         $_POST["recaptcha_challenge_field"] = 'captcha1';
         $_POST["recaptcha_response_field"] = '';
-        
+
         $this->assertFalse(
             $this->object->authCheck()
         );
@@ -522,7 +522,7 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['CaptchaLoginPublicKey'] = 'testpubkey';
         $_POST["recaptcha_challenge_field"] = '';
         $_POST["recaptcha_response_field"] = '';
-        
+
         $this->assertFalse(
             $this->object->authCheck()
         );
@@ -577,7 +577,7 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
             'testPMAUser',
             $GLOBALS['PHP_AUTH_USER']
         );
-        
+
         $this->assertEquals(
             'testPMAPSWD',
             $GLOBALS['PHP_AUTH_PW']
@@ -598,7 +598,7 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['server'] = 1;
         $_COOKIE['pmaServer-1'] = 'pmaServ1';
         $_COOKIE['pmaUser-1'] = '';
-        
+
         $this->assertFalse(
             $this->object->authCheck()
         );
@@ -630,7 +630,7 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for AuthenticationConfig::authCheck with constant modifications
-     * 
+     *
      * @return void
      */
     public function testAuthCheckWithConstants()
@@ -640,14 +640,14 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
                 'Cannot redefine constant/function - missing runkit extension'
             );
         }
-        
+
         $remove = false;
 
         if (! defined('PMA_CLEAR_COOKIES')) {
             define('PMA_CLEAR_COOKIES', true);
             $remove = true;
         }
-        
+
         $GLOBALS['cfg']['Server']['auth_swekey_config'] = 'testConfigSwekey';
         $GLOBALS['cfg']['Servers'] = array(1);
         $_COOKIE['pmaPass-0'] = 1;
@@ -677,11 +677,11 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for AuthenticationConfig::authCheck (mock blowfish functions reqd)
-     * 
+     *
      * @return void
      */
     public function testAuthCheckBlowfishCase()
-    {   
+    {
         $GLOBALS['cfg']['Server']['auth_swekey_config'] = 'testConfigSwekey';
         $GLOBALS['server'] = 1;
         $_REQUEST['old_usr'] = '';
@@ -714,11 +714,11 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for AuthenticationConfig::authCheck (mocking blowfish functions)
-     * 
+     *
      * @return void
      */
     public function testAuthCheckBlowfishCaseSecond()
-    {   
+    {
         $GLOBALS['cfg']['Server']['auth_swekey_config'] = 'testConfigSwekey';
         $GLOBALS['server'] = 1;
         $_REQUEST['old_usr'] = '';
@@ -730,7 +730,7 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
         $_SESSION['last_valid_captcha'] = true;
         $_SESSION['last_access_time'] = time() - 1000;
         $GLOBALS['cfg']['LoginCookieValidity'] = 1440;
-        
+
         // mock for blowfish function
         $this->object = $this->getMockBuilder('AuthenticationCookie')
             ->disableOriginalConstructor()
@@ -758,11 +758,11 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for AuthenticationConfig::authCheck (mocking the object itself)
-     * 
+     *
      * @return void
      */
     public function testAuthCheckAuthFails()
-    {   
+    {
         $GLOBALS['cfg']['Server']['auth_swekey_config'] = 'testConfigSwekey';
         $GLOBALS['server'] = 1;
         $_REQUEST['old_usr'] = '';
@@ -794,7 +794,7 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for AuthenticationConfig::authSetUser
-     * 
+     *
      * @return void
      */
     public function testAuthSetUser()
@@ -849,7 +849,7 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for AuthenticationConfig::authSetUser (check for headers redirect)
-     * 
+     *
      * @return void
      */
     public function testAuthSetUserWithHeaders()
@@ -894,11 +894,11 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
             ->method('disable');
 
         $attrInstance = new ReflectionProperty('PMA_Response', '_instance');
-        $attrInstance->setAccessible(true); 
+        $attrInstance->setAccessible(true);
         $attrInstance->setValue(null, $mockResponse);
 
         $this->object->authSetUser();
-        
+
         $this->assertTrue(
             isset($_COOKIE['pmaServer-2'])
         );
@@ -914,7 +914,7 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for AuthenticationConfig::authFails
-     * 
+     *
      * @return void
      */
     public function testAuthFails()
@@ -1018,7 +1018,7 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for AuthenticationConfig::_getBlowfishSecret
-     * 
+     *
      * @return void
      */
     public function testGetBlowfishSecret()
@@ -1047,7 +1047,7 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
         );
 
         // case 2
-        
+
         $GLOBALS['cfg']['blowfish_secret'] = 'notEmpty';
 
         $result = $method->invoke($this->object, null);
@@ -1060,11 +1060,11 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for AuthenticationConfig::blowfishEncrypt
-     * 
+     *
      * @return void
      */
     public function testBlowfishEncrypt()
-    {   
+    {
         if (! function_exists('mcrypt_encrypt')) {
             $this->assertEquals(
                 '/xytF/kXKuBx7zHzGexkFw==',
@@ -1088,12 +1088,14 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for AuthenticationConfig::blowfishDecrypt
-     * 
+     *
      * @return void
      */
     public function testBlowfishDecrypt()
-    {   
-        if (! function_exists('mcrypt_encrypt')) {
+    {
+        if (function_exists('mcrypt_encrypt')) {
+            $this->markTestIncomplete('Not testing mcrypt support');
+        } else {
             $this->assertEquals(
                 'data123',
                 $this->object->blowfishDecrypt(

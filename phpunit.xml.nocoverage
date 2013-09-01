@@ -3,6 +3,7 @@
          backupGlobals="true"
          backupStaticAttributes="false"
          strict="true"
+         timeoutForSmallTests="3"
          colors="true"
          verbose="true">
 
@@ -27,6 +28,9 @@
         <testsuite name="Classes">
             <directory suffix="_test.php">test/classes</directory>
         </testsuite>
+        <testsuite name="Engines">
+            <directory suffix="_test.php">test/engines</directory>
+        </testsuite>
         <testsuite name="Unit">
             <file>test/Environment_test.php</file>
             <directory suffix="_test.php">test/libraries/core</directory>
@@ -42,6 +46,4 @@
     <logging>
         <log type="junit" target="build/logs/junit.xml" logIncompleteSkipped="false"/>
     </logging>
-
 </phpunit>
-

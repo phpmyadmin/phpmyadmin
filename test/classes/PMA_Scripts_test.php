@@ -12,7 +12,11 @@
 require_once 'libraries/Scripts.class.php';
 require_once 'libraries/js_escape.lib.php';
 
-
+/**
+ * Tests for Script.class.php
+ *
+ * @package PhpMyAdmin-test
+ */
 class PMA_Scripts_Test extends PHPUnit_Framework_TestCase
 {
     /**
@@ -73,7 +77,8 @@ class PMA_Scripts_Test extends PHPUnit_Framework_TestCase
     public function testIncludeFile()
     {
         $this->assertEquals(
-            '<script type="text/javascript" src="js/get_scripts.js.php?scripts[]=common.js"></script>',
+            '<script type="text/javascript" src="js/get_scripts.js.php?scripts[]'
+            . '=common.js"></script>',
             $this->_callPrivateFunction(
                 '_includeFiles',
                 array(
@@ -101,11 +106,13 @@ class PMA_Scripts_Test extends PHPUnit_Framework_TestCase
         $this->object->addEvent('onClick', 'doSomething');
 
         $this->assertRegExp(
-            '@<script type="text/javascript" src="js/get_scripts.js.php\\?scripts\\[\\]=common.js"></script><script type="text/javascript">// <!\\[CDATA\\[
-AJAX.scriptHandler.add\\("common.js",1\\);
-\\$\\(function\\(\\) \\{AJAX.fireOnload\\("common.js"\\);\\}\\);
-\\$\\(window\\).bind\\(\'onClick\', doSomething\\);
-// ]]></script>@',
+            '@<script type="text/javascript" src="js/get_scripts.js.php\\?scripts'
+            . '\\[\\]=common.js"></script><script type="text/javascript">// '
+            . '<!\\[CDATA\\[' . "\n"
+            . 'AJAX.scriptHandler.add\\("common.js",1\\);' . "\n"
+            . '\\$\\(function\\(\\) \\{AJAX.fireOnload\\("common.js"\\);\\}\\);'
+            . "\n" . '\\$\\(window\\).bind\\(\'onClick\', doSomething\\);' . "\n"
+            . '// ]]></script>@',
             $this->object->getDisplay()
         );
 
@@ -138,8 +145,9 @@ $(function() {});
      */
     public function testGetFiles()
     {
-
-        $this->object->addFile('codemirror/lib/codemirror.js'); // codemirror's onload event is blacklisted
+        // codemirror's onload event is blacklisted
+        $this->object->addFile('codemirror/lib/codemirror.js'); 
+        
         $this->object->addFile('common.js');
         $this->assertEquals(
             array(

@@ -52,7 +52,6 @@ class PMA_ServerEngines_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['TableNavigationLinksMode'] = 'icons';
         $GLOBALS['cfg']['LimitChars'] = 100;
         $GLOBALS['cfg']['DBG']['sql'] = false;
-        $GLOBALS['cfg']['MySQLManualType'] = 'viewable';
 
         $GLOBALS['table'] = "table";
         $GLOBALS['pmaThemeImage'] = 'image';

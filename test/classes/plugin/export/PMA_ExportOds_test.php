@@ -6,6 +6,7 @@
  * @package PhpMyAdmin-test
  */
 require_once 'libraries/plugins/export/ExportOds.class.php';
+require_once 'libraries/DatabaseInterface.class.php';
 require_once 'libraries/Util.class.php';
 require_once 'libraries/Theme.class.php';
 require_once 'libraries/Config.class.php';
@@ -30,15 +31,16 @@ class PMA_ExportOds_Test extends PHPUnit_Framework_TestCase
     {
         $GLOBALS['server'] = 0;
         $GLOBALS['output_kanji_conversion'] = false;
+        $GLOBALS['output_charset_conversion'] = false;
         $GLOBALS['buffer_needed'] = false;
-        $GLOBALS['asfile'] = false;
+        $GLOBALS['asfile'] = true;
         $GLOBALS['save_on_server'] = false;
         $this->object = new ExportOds();
     }
 
     /**
      * tearDown for test cases
-     * 
+     *
      * @return void
      */
     public function tearDown()
@@ -48,7 +50,7 @@ class PMA_ExportOds_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for ExportOds::setProperties
-     * 
+     *
      * @return void
      */
     public function testSetProperties()
@@ -123,7 +125,7 @@ class PMA_ExportOds_Test extends PHPUnit_Framework_TestCase
             'TextPropertyItem',
             $property
         );
-        
+
         $this->assertEquals(
             'null',
             $property->getName()
@@ -140,7 +142,7 @@ class PMA_ExportOds_Test extends PHPUnit_Framework_TestCase
             'BoolPropertyItem',
             $property
         );
-        
+
         $this->assertEquals(
             'columns',
             $property->getName()
@@ -157,7 +159,7 @@ class PMA_ExportOds_Test extends PHPUnit_Framework_TestCase
             'HiddenPropertyItem',
             $property
         );
-        
+
         $this->assertEquals(
             'structure_or_data',
             $property->getName()
@@ -167,7 +169,7 @@ class PMA_ExportOds_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for ExportOds::exportHeader
-     * 
+     *
      * @return void
      */
     public function testExportHeader()
@@ -183,12 +185,14 @@ class PMA_ExportOds_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for ExportOds::exportFooter
-     * 
+     *
      * @return void
      */
     public function testExportFooter()
     {
         $GLOBALS['ods_buffer'] = 'header';
+
+        $this->expectOutputRegex('/^PK.*content.xml/');
 
         $this->assertTrue(
             $this->object->exportFooter()
@@ -217,7 +221,7 @@ class PMA_ExportOds_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for ExportOds::exportDBHeader
-     * 
+     *
      * @return void
      */
     public function testExportDBHeader()
@@ -229,7 +233,7 @@ class PMA_ExportOds_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for ExportOds::exportDBFooter
-     * 
+     *
      * @return void
      */
     public function testExportDBFooter()
@@ -241,7 +245,7 @@ class PMA_ExportOds_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for ExportOds::exportDBCreate
-     * 
+     *
      * @return void
      */
     public function testExportDBCreate()
@@ -253,7 +257,7 @@ class PMA_ExportOds_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for ExportOds::exportData
-     * 
+     *
      * @return void
      */
     public function testExportData()
@@ -378,7 +382,7 @@ class PMA_ExportOds_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for ExportOds::exportData
-     * 
+     *
      * @return void
      */
     public function testExportDataWithFieldNames()
@@ -397,7 +401,7 @@ class PMA_ExportOds_Test extends PHPUnit_Framework_TestCase
         $dbi->expects($this->any())
             ->method('fieldFlags')
             ->will($this->returnValue('BINARYTEST'));
-        
+
         $dbi->expects($this->once())
             ->method('query')
             ->with('SELECT', null, PMA_DatabaseInterface::QUERY_UNBUFFERED)

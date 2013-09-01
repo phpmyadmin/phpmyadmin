@@ -42,8 +42,6 @@ class PMA_DbSearch_Test extends PHPUnit_Framework_TestCase
         $this->object = new PMA_DbSearch('pma_test');
         $GLOBALS['server'] = 0;
         $GLOBALS['cfg']['ServerDefault'] = 1;
-        $GLOBALS['cfg']['MySQLManualType'] = 'viewable';
-        $GLOBALS['cfg']['MySQLManualBase'] = 'http://dev.mysql.com/doc/refman';
         $GLOBALS['cfg']['ShowHint'] = true;
         $GLOBALS['db'] = 'pma';
     }
@@ -86,7 +84,8 @@ class PMA_DbSearch_Test extends PHPUnit_Framework_TestCase
         $this->assertEquals(
             array (
                 'select_columns' => 'SELECT *  FROM `pma`.`table1` WHERE FALSE',
-                'select_count' => 'SELECT COUNT(*) AS `count` FROM `pma`.`table1` WHERE FALSE',
+                'select_count' => 'SELECT COUNT(*) AS `count` FROM `pma`.`table1` ' .
+                    'WHERE FALSE',
                 'delete' => 'DELETE FROM `pma`.`table1` WHERE FALSE'
             ),
             $this->_callProtectedFunction(
@@ -104,7 +103,8 @@ class PMA_DbSearch_Test extends PHPUnit_Framework_TestCase
     public function testGetSearchResults()
     {
         $this->assertEquals(
-            '<br /><table class="data"><caption class="tblHeaders">Search results for "<i></i>" :</caption></table>',
+            '<br /><table class="data"><caption class="tblHeaders">Search results '
+            . 'for "<i></i>" :</caption></table>',
             $this->object->getSearchResults()
         );
     }
@@ -152,7 +152,22 @@ class PMA_DbSearch_Test extends PHPUnit_Framework_TestCase
                     'delete' => 'column2'
                 ),
                 true,
-                '<tr class="noclick odd"><td>2 matches in <strong>table1</strong></td><td><a name="browse_search" href="sql.php?db=pma&amp;table=table1&amp;goto=db_sql.php&amp;pos=0&amp;is_js_confirmed=0&amp;sql_query=column1&amp;server=0&amp;lang=en&amp;token=token" onclick="loadResult(\'sql.php?db=pma&amp;table=table1&amp;goto=db_sql.php&amp;pos=0&amp;is_js_confirmed=0&amp;sql_query=column1&amp;server=0&amp;lang=en&amp;token=token\',\'table1\',\'db=pma&amp;table=table1&amp;server=0&amp;lang=en&amp;token=token\');return false;" >Browse</a></td><td><a name="delete_search" href="sql.php?db=pma&amp;table=table1&amp;goto=db_sql.php&amp;pos=0&amp;is_js_confirmed=0&amp;sql_query=column2&amp;server=0&amp;lang=en&amp;token=token" onclick="deleteResult(\'sql.php?db=pma&amp;table=table1&amp;goto=db_sql.php&amp;pos=0&amp;is_js_confirmed=0&amp;sql_query=column2&amp;server=0&amp;lang=en&amp;token=token\' , \'Delete the matches for the table1 table?\');return false;">Delete</a></td></tr>'
+                '<tr class="noclick odd"><td>2 matches in <strong>table1</strong>'
+                . '</td><td><a name="browse_search" href="sql.php?db=pma&amp;table'
+                . '=table1&amp;goto=db_sql.php&amp;pos=0&amp;is_js_confirmed=0&amp;'
+                . 'sql_query=column1&amp;server=0&amp;lang=en&amp;token=token" '
+                . 'onclick="loadResult(\'sql.php?db=pma&amp;table=table1&amp;goto='
+                . 'db_sql.php&amp;pos=0&amp;is_js_confirmed=0&amp;sql_query=column1'
+                . '&amp;server=0&amp;lang=en&amp;token=token\',\'table1\',\'db=pma'
+                . '&amp;table=table1&amp;server=0&amp;lang=en&amp;token=token\');'
+                . 'return false;" >Browse</a></td><td><a name="delete_search" href'
+                . '="sql.php?db=pma&amp;table=table1&amp;goto=db_sql.php&amp;pos=0'
+                . '&amp;is_js_confirmed=0&amp;sql_query=column2&amp;server=0&amp;'
+                . 'lang=en&amp;token=token" onclick="deleteResult(\'sql.php?db=pma'
+                . '&amp;table=table1&amp;goto=db_sql.php&amp;pos=0&amp;is_js_'
+                . 'confirmed=0&amp;sql_query=column2&amp;server=0&amp;lang=en&amp;'
+                . 'token=token\' , \'Delete the matches for the table1 table?\');'
+                . 'return false;">Delete</a></td></tr>'
             )
         );
     }
@@ -168,15 +183,56 @@ class PMA_DbSearch_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['pmaThemeImage'] = 'themes/dot.gif';
         $url_params = array('param1', 'param2');
         $this->assertEquals(
-            '<a id="db_search"></a><form id="db_search_form" class="ajax" method="post" action="db_search.php" name="db_search"><input type="hidden" name="db" value="pma" /><input type="hidden" name="lang" value="en" /><input type="hidden" name="token" value="token" /><fieldset><legend>Search in database</legend><table class="formlayout"><tr><td>Words or values to search for (wildcard: "%"):</td><td><input type="text" name="criteriaSearchString" size="60" value="" /></td></tr><tr><td class="right vtop">Find:</td><td><input type="radio" name="criteriaSearchType" id="criteriaSearchType_1" value="1" checked="checked" />
-<label for="criteriaSearchType_1">at least one of the words<span class="pma_hint"><img src="themes/dot.gifb_help.png" title="" alt="" /><span class="hide">Words are separated by a space character (" ").</span></span></label><br />
-<input type="radio" name="criteriaSearchType" id="criteriaSearchType_2" value="2" />
-<label for="criteriaSearchType_2">all words<span class="pma_hint"><img src="themes/dot.gifb_help.png" title="" alt="" /><span class="hide">Words are separated by a space character (" ").</span></span></label><br />
-<input type="radio" name="criteriaSearchType" id="criteriaSearchType_3" value="3" />
-<label for="criteriaSearchType_3">the exact phrase</label><br />
-<input type="radio" name="criteriaSearchType" id="criteriaSearchType_4" value="4" />
-<label for="criteriaSearchType_4">as regular expression <a href="./url.php?url=http%3A%2F%2Fdev.mysql.com%2Fdoc%2Frefman%2F5.6%2Fen%2Fregexp.html&amp;server=0&amp;lang=en&amp;token=token" target="mysql_doc"><img src="themes/dot.gifb_help.png" title="Documentation" alt="Documentation" /></a></label><br />
-</td></tr><tr><td class="right vtop">Inside tables:</td><td rowspan="2"><select name="criteriaTables[]" size="6" multiple="multiple"><option value="table1">table1</option><option value="table2">table2</option></select></td></tr><tr><td class="right vbottom"><a href="#" onclick="setSelectOptions(\'db_search\', \'criteriaTables[]\', true); return false;">Select All</a> &nbsp;/&nbsp;<a href="#" onclick="setSelectOptions(\'db_search\', \'criteriaTables[]\', false); return false;">Unselect All</a></td></tr><tr><td class="right">Inside column:</td><td><input type="text" name="criteriaColumnName" size="60"value="" /></td></tr></table></fieldset><fieldset class="tblFooters"><input type="submit" name="submit_search" value="Go" id="buttonGo" /></fieldset></form><!-- These two table-image and table-link elements display the table name in browse search results  --><div id="table-info"><a class="item" id="table-link" ></a></div><div id="browse-results"><!-- this browse-results div is used to load the browse and delete results in the db search --></div><br class="clearfloat" /><div id="sqlqueryform"><!-- this sqlqueryform div is used to load the delete form in the db search --></div><!--  toggle query box link--><a id="togglequerybox"></a>',
+            '<a id="db_search"></a><form id="db_search_form" class="ajax" '
+            . 'method="post" action="db_search.php" name="db_search"><input type'
+            . '="hidden" name="db" value="pma" /><input type="hidden" name="lang" '
+            . 'value="en" /><input type="hidden" name="token" value="token" />'
+            . '<fieldset><legend>Search in database</legend><table class='
+            . '"formlayout"><tr><td>Words or values to search for (wildcard: "%"):'
+            . '</td><td><input type="text" name="criteriaSearchString" size="60" '
+            . 'value="" /></td></tr><tr><td class="right vtop">Find:</td><td><input '
+            . 'type="radio" name="criteriaSearchType" id="criteriaSearchType_1" '
+            . 'value="1" checked="checked" />' . "\n"
+            . '<label for="criteriaSearchType_1">at least one of the words<span '
+            . 'class="pma_hint"><img src="themes/dot.gifb_help.png" title="" alt="" '
+            . '/><span class="hide">Words are separated by a space character (" ").'
+            . '</span></span></label><br />' . "\n"
+            . '<input type="radio" name="criteriaSearchType" id="criteriaSearchType'
+            . '_2" value="2" />' . "\n"
+            . '<label for="criteriaSearchType_2">all words<span class="pma_hint">'
+            . '<img src="themes/dot.gifb_help.png" title="" alt="" /><span class'
+            . '="hide">Words are separated by a space character (" ").</span></span>'
+            . '</label><br />' . "\n"
+            . '<input type="radio" name="criteriaSearchType" id="criteriaSearchType'
+            . '_3" value="3" />' . "\n"
+            . '<label for="criteriaSearchType_3">the exact phrase</label><br />'
+            . "\n" . '<input type="radio" name="criteriaSearchType" id="criteria'
+            . 'SearchType_4" value="4" />' . "\n"
+            . '<label for="criteriaSearchType_4">as regular expression <a href='
+            . '"./url.php?url=http%3A%2F%2Fdev.mysql.com%2Fdoc%2Frefman%2F5.6%2Fen'
+            . '%2Fregexp.html&amp;server=0&amp;lang=en&amp;token=token" target='
+            . '"mysql_doc"><img src="themes/dot.gifb_help.png" title="Documentation"'
+            . ' alt="Documentation" /></a></label><br />' . "\n"
+            . '</td></tr><tr><td class="right vtop">Inside tables:</td>'
+            . '<td rowspan="2"><select name="criteriaTables[]" size="6" '
+            . 'multiple="multiple"><option value="table1">table1</option>'
+            . '<option value="table2">table2</option></select></td></tr><tr>'
+            . '<td class="right vbottom"><a href="#" onclick="setSelectOptions'
+            . '(\'db_search\', \'criteriaTables[]\', true); return false;">Select '
+            . 'All</a> &nbsp;/&nbsp;<a href="#" onclick="setSelectOptions'
+            . '(\'db_search\', \'criteriaTables[]\', false); return false;">Unselect'
+            . ' All</a></td></tr><tr><td class="right">Inside column:</td><td>'
+            . '<input type="text" name="criteriaColumnName" size="60"value="" />'
+            . '</td></tr></table></fieldset><fieldset class="tblFooters"><input '
+            . 'type="submit" name="submit_search" value="Go" id="buttonGo" />'
+            . '</fieldset></form><!-- These two table-image and table-link elements '
+            . 'display the table name in browse search results  --><div id="table-'
+            . 'info"><a class="item" id="table-link" ></a></div><div id="browse-'
+            . 'results"><!-- this browse-results div is used to load the browse and '
+            . 'delete results in the db search --></div><br class="clearfloat" />'
+            . '<div id="sqlqueryform"><!-- this sqlqueryform div is used to load '
+            . 'the delete form in the db search --></div><!--  toggle query box '
+            . 'link--><a id="togglequerybox"></a>',
             $this->object->getSelectionForm($url_params)
         );
     }
@@ -189,7 +245,14 @@ class PMA_DbSearch_Test extends PHPUnit_Framework_TestCase
     public function testGetResultDivs()
     {
         $this->assertEquals(
-            '<!-- These two table-image and table-link elements display the table name in browse search results  --><div id="table-info"><a class="item" id="table-link" ></a></div><div id="browse-results"><!-- this browse-results div is used to load the browse and delete results in the db search --></div><br class="clearfloat" /><div id="sqlqueryform"><!-- this sqlqueryform div is used to load the delete form in the db search --></div><!--  toggle query box link--><a id="togglequerybox"></a>',
+            '<!-- These two table-image and table-link elements display the '
+            . 'table name in browse search results  --><div id="table-info">'
+            . '<a class="item" id="table-link" ></a></div><div id="browse-results">'
+            . '<!-- this browse-results div is used to load the browse and delete '
+            . 'results in the db search --></div><br class="clearfloat" />'
+            . '<div id="sqlqueryform"><!-- this sqlqueryform div is used to load the'
+            . ' delete form in the db search --></div><!--  toggle query box link-->'
+            . '<a id="togglequerybox"></a>',
             $this->_callProtectedFunction(
                 '_getResultDivs',
                 array()

@@ -168,7 +168,7 @@ function PMA_getRelationsParamDiagnostic($cfgRelation)
         );
         if ($cfgRelation['commwork'] && ! $cfgRelation['mimework']) {
             $retval .= '<tr><td colspan=2 class="left">';
-            $retval .=  __('Please see the documentation on how to update your column_comments table');
+            $retval .=  __('Please see the documentation on how to update your column_comments table.');
             $retval .= '</td></tr>';
         }
         $retval .= PMA_getDiagMessageForParameter(
@@ -929,7 +929,7 @@ function PMA_getHistory($username)
      */
     if (! $GLOBALS['cfg']['QueryHistoryDB'] && isset($_SESSION['sql_history'])) {
             return array_reverse($_SESSION['sql_history']);
-    } 
+    }
 
     if (! $cfgRelation['historywork']) {
         return false;

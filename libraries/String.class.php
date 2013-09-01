@@ -88,7 +88,8 @@ class PMA_String
     public function isSqlIdentifier($c, $dot_is_valid = false)
     {
         return ($this->isAlnum($c)
-            || ($ord_c = ord($c)) && $ord_c >= 192 && $ord_c != 215 && $ord_c != 249
+            || ($ord_c = $this->ord($c)) && $ord_c >= 192 && $ord_c != 215 &&
+            $ord_c != 249
             || $c == '_'
             || $c == '$'
             || ($dot_is_valid != false && $c == '.'));
@@ -147,7 +148,19 @@ class PMA_String
         return $this->_byte->strtolower($string);
     }
 
-        /**
+    /**
+     * Get the ordinal value of a string
+     *
+     * @param string $string the string for which ord is required
+     *
+     * @return string the ord value
+     */
+    public function ord($string)
+    {
+        return $this->_byte->ord($string);
+    }
+
+    /**
      * Checks if a character is an alphanumeric one
      *
      * @param string $c character to check for

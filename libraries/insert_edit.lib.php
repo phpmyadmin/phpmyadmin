@@ -207,12 +207,12 @@ function PMA_showFunctionFieldsInEditMode($url_params, $showFuncFields)
     $this_url_params = array_merge($url_params, $params);
     if (! $showFuncFields) {
         return ' : <a href="tbl_change.php'
-            . PMA_generate_common_url($this_url_params) . '">'
+            . PMA_URL_getCommon($this_url_params) . '">'
             . __('Function')
             . '</a>' . "\n";
     }
     return '<th><a href="tbl_change.php'
-        . PMA_generate_common_url($this_url_params)
+        . PMA_URL_getCommon($this_url_params)
         . '" title="' . __('Hide') . '">'
         . __('Function')
         . '</a></th>' . "\n";
@@ -239,11 +239,11 @@ function PMA_showColumnTypesInDataEditView($url_params, $showColumnType)
     $this_other_url_params = array_merge($url_params, $params);
     if (! $showColumnType) {
         return ' : <a href="tbl_change.php'
-            . PMA_generate_common_url($this_other_url_params) . '">'
+            . PMA_URL_getCommon($this_other_url_params) . '">'
             . __('Type') . '</a>' . "\n";
     }
     return '<th><a href="tbl_change.php'
-        . PMA_generate_common_url($this_other_url_params)
+        . PMA_URL_getCommon($this_other_url_params)
         . '" title="' . __('Hide') . '">' . __('Type') . '</a></th>' . "\n";
 
 }
@@ -584,7 +584,7 @@ function PMA_getNullifyCodeForNullColumn($column, $foreigners, $foreignData)
  * @param array   $foreignData           data about the foreign keys
  * @param boolean $odd_row               whether row is odd
  * @param array   $paramTableDbArray     array containing $table and $db
- * @param array   $rownumber_param       &amp;rownumber=row_id
+ * @param array   $rownumber             the row number
  * @param array   $titles                An HTML IMG tag for a particular icon from
  *                                       a theme, which may be an actual file or
  *                                       an icon from a sprite
@@ -607,7 +607,7 @@ function PMA_getNullifyCodeForNullColumn($column, $foreigners, $foreignData)
  */
 function PMA_getValueColumn($column, $backup_field, $column_name_appendix,
     $unnullify_trigger, $tabindex, $tabindex_for_value, $idindex, $data,
-    $special_chars, $foreignData, $odd_row, $paramTableDbArray, $rownumber_param,
+    $special_chars, $foreignData, $odd_row, $paramTableDbArray, $rownumber,
     $titles, $text_dir, $special_chars_encoded, $vkey,
     $is_upload, $biggest_max_file_size,
     $default_char_editing, $no_support_types, $gis_data_types, $extracted_columnspec
@@ -618,7 +618,7 @@ function PMA_getValueColumn($column, $backup_field, $column_name_appendix,
         $html_output .= PMA_getForeignLink(
             $column, $backup_field, $column_name_appendix,
             $unnullify_trigger, $tabindex, $tabindex_for_value, $idindex, $data,
-            $paramTableDbArray, $rownumber_param, $titles
+            $paramTableDbArray, $rownumber, $titles
         );
 
     } elseif (is_array($foreignData['disp_row'])) {
@@ -705,7 +705,7 @@ function PMA_getValueColumn($column, $backup_field, $column_name_appendix,
  * @param integer $idindex              id index
  * @param array   $data                 data to edit
  * @param array   $paramTableDbArray    array containing $table and $db
- * @param array   $rownumber_param      &amp;rownumber=row_id
+ * @param array   $rownumber            the row number
  * @param array   $titles               An HTML IMG tag for a particular icon from
  *                                      a theme, which may be an actual file or
  *                                      an icon from a sprite
@@ -714,7 +714,7 @@ function PMA_getValueColumn($column, $backup_field, $column_name_appendix,
  */
 function PMA_getForeignLink($column, $backup_field, $column_name_appendix,
     $unnullify_trigger, $tabindex, $tabindex_for_value, $idindex, $data,
-    $paramTableDbArray, $rownumber_param, $titles
+    $paramTableDbArray, $rownumber, $titles
 ) {
     list($table, $db) = $paramTableDbArray;
     $html_output = '';
@@ -733,9 +733,15 @@ function PMA_getForeignLink($column, $backup_field, $column_name_appendix,
     $html_output .= '<a class="foreign_values_anchor" target="_blank" '
         . 'onclick="window.open(this.href,\'foreigners\', \'width=640,height=240,'
         . 'scrollbars=yes,resizable=yes\'); return false;" '
-        . 'href="browse_foreigners.php?'
-        . PMA_generate_common_url($db, $table) . '&amp;field='
-        . PMA_escapeJsString(urlencode($column['Field']) . $rownumber_param) . '">'
+        . 'href="browse_foreigners.php'
+        . PMA_URL_getCommon(
+            array(
+                'db' => $db,
+                'table' => $table,
+                'field' => $column['Field'],
+                'rownumber' => $rownumber
+            )
+        ) . '">'
         . str_replace("'", "\'", $titles['Browse']) . '</a>';
     return $html_output;
 }
@@ -804,6 +810,10 @@ function PMA_getTextarea($column, $backup_field, $column_name_appendix,
     $textareaCols = $GLOBALS['cfg']['TextareaCols'];
 
     if ($column['is_char']) {
+        /**
+         * @todo clarify the meaning of the "textfield" class and explain
+         *       why character columns have the "char" class instead
+         */
         $the_class = 'char';
         $textAreaRows = $GLOBALS['cfg']['CharTextareaRows'];
         $textareaCols = $GLOBALS['cfg']['CharTextareaCols'];
@@ -1091,14 +1101,16 @@ function PMA_getBinaryAndBlobColumn(
             $data_size = PMA_Util::formatByteDown(
                 strlen(stripslashes($data)), 3, 1
             );
-            $html_output .= ' ('. $data_size [0] . ' ' . $data_size[1] . ')';
+            $html_output .= ' ('. $data_size[0] . ' ' . $data_size[1] . ')';
             unset($data_size);
         }
         $html_output .= '<input type="hidden" name="fields_type'
             . $column_name_appendix . '" value="protected" />'
             . '<input type="hidden" name="fields'
             . $column_name_appendix . '" value="" />';
-    } elseif ($column['is_blob']) {
+    } elseif ($column['is_blob']
+        || ($column['len'] > $GLOBALS['cfg']['LimitChars'])
+    ) {
         $html_output .= "\n" . PMA_getTextarea(
             $column, $backup_field, $column_name_appendix, $unnullify_trigger,
             $tabindex, $tabindex_for_value, $idindex, $text_dir,
@@ -1136,7 +1148,7 @@ function PMA_getBinaryAndBlobColumn(
  * Get HTML input type
  *
  * @param array   $column               description of column in given table
- * @param string  $column_name_appendix the name atttibute
+ * @param string  $column_name_appendix the name attribute
  * @param array   $special_chars        special characters
  * @param integer $fieldsize            html field size
  * @param string  $unnullify_trigger    validation string
@@ -1149,16 +1161,53 @@ function PMA_getBinaryAndBlobColumn(
 function PMA_getHTMLinput($column, $column_name_appendix, $special_chars,
     $fieldsize, $unnullify_trigger, $tabindex, $tabindex_for_value, $idindex
 ) {
+    static $min_max_data = array(
+        'signed' => array(
+            'tinyint'   => array('0', '255'),
+            'smallint'  => array('0', '65535'),
+            'mediumint' => array('0', '16777215'),
+            'int'       => array('0', '4294967295'),
+            'bigint'    => array('0', '18446744073709551615')
+        ),
+        'unsigned' => array(
+            'tinyint'   => array('-128', '127'),
+            'smallint'  => array('-32768', '32767'),
+            'mediumint' => array('-8388608', '8388607'),
+            'int'       => array('-2147483648', '2147483647'),
+            'bigint'    => array('-9223372036854775808', '9223372036854775807')
+        )
+    );
+
+    $input_type = 'text';
     $the_class = 'textfield';
-    if ($column['pma_type'] == 'date') {
+    if ($column['pma_type'] === 'date') {
         $the_class .= ' datefield';
-    } elseif ($column['pma_type'] == 'datetime'
-        || substr($column['pma_type'], 0, 9) == 'timestamp'
+        $input_type = 'date';
+    } elseif ($column['pma_type'] === 'datetime'
+        || substr($column['pma_type'], 0, 9) === 'timestamp'
     ) {
         $the_class .= ' datetimefield';
+    } elseif ($column['pma_type'] === 'time') {
+        $input_type = 'time';
     }
-    return '<input type="text" name="fields' . $column_name_appendix . '"'
+    $input_min_max = false;
+    if (in_array(
+        $column['True_Type'],
+        array('tinyint', 'smallint', 'mediumint', 'int', 'bigint')
+    )) {
+        $input_type = 'number';
+        $is_unsigned = substr($column['pma_type'], -9) === ' unsigned';
+        $min_max_values
+            = $min_max_data[$is_unsigned ? 'unsigned' : 'signed']
+                [$column['True_Type']];
+        $input_min_max = 'min="' . $min_max_values[0] . '" '
+            . 'max="' . $min_max_values[1] . '" ';
+    }
+    return '<input type="' . $input_type . '"'
+        . ' name="fields'. $column_name_appendix . '"'
         . ' value="' . $special_chars . '" size="' . $fieldsize . '"'
+        . ($input_min_max !== false ? ' ' . $input_min_max : '')
+        . ($input_type === 'time' ? ' step="1"' : '')
         . ' class="' . $the_class . '" ' . $unnullify_trigger
         . ' tabindex="' . ($tabindex + $tabindex_for_value). '"'
         . ' id="field_' . ($idindex) . '_3" />';
@@ -1242,7 +1291,7 @@ function PMA_getMaxUploadSize($column, $biggest_max_file_size)
  * @param string  $column_name_appendix  the name atttibute
  * @param string  $unnullify_trigger     validation string
  * @param integer $tabindex              tab index
- * @param array   $special_chars         apecial characters
+ * @param array   $special_chars         special characters
  * @param integer $tabindex_for_value    offset for the values tabindex
  * @param integer $idindex               id index
  * @param string  $text_dir              text direction
@@ -1371,7 +1420,7 @@ function PMA_getContinueInsertionForm($table, $db, $where_clause_array, $err_url
 {
     $html_output = '<form id="continueForm" method="post"'
         . ' action="tbl_replace.php" name="continueForm">'
-        . PMA_generate_common_hidden_inputs($db, $table)
+        . PMA_URL_getHiddenInputs($db, $table)
         . '<input type="hidden" name="goto"'
         . ' value="' . htmlspecialchars($GLOBALS['goto']) . '" />'
         . '<input type="hidden" name="err_url"'
@@ -1485,7 +1534,7 @@ function PMA_getSubmitTypeDropDown($where_clause, $tabindex, $tabindex_for_value
  */
 function PMA_getAfterInsertDropDown($where_clause, $after_insert, $found_unique_key)
 {
-    $html_output = '<select name="after_insert">'
+    $html_output = '<select name="after_insert" class="control_at_footer">'
         . '<option value="back" '
         . ($after_insert == 'back' ? 'selected="selected"' : '') . '>'
         . __('Go back to previous page') . '</option>'
@@ -1547,9 +1596,9 @@ function PMA_getSumbitAndResetButtonForActionsPanel($tabindex, $tabindex_for_val
     . '</td>'
     . '<td colspan="3" class="right vmiddle">'
     . '<input type="submit" class="control_at_footer" value="' . __('Go') . '"'
-    . 'tabindex="' . ($tabindex + $tabindex_for_value + 6) . '" id="buttonYes" />'
+    . ' tabindex="' . ($tabindex + $tabindex_for_value + 6) . '" id="buttonYes" />'
     . '<input type="reset" class="control_at_footer" value="' . __('Reset') . '"'
-    . 'tabindex="' . ($tabindex + $tabindex_for_value + 7) . '" />'
+    . ' tabindex="' . ($tabindex + $tabindex_for_value + 7) . '" />'
     . '</td>';
 }
 
@@ -1608,6 +1657,7 @@ function PMA_getSpecialCharsAndBackupFieldForExistingRow(
     $real_null_value, $gis_data_types, $column_name_appendix
 ) {
     $special_chars_encoded = '';
+    $data = null;
     // (we are editing)
     if (is_null($current_row[$column['Field']])) {
         $real_null_value = true;
@@ -1618,6 +1668,11 @@ function PMA_getSpecialCharsAndBackupFieldForExistingRow(
         $special_chars = PMA_Util::printableBitValue(
             $current_row[$column['Field']], $extracted_columnspec['spec_in_brackets']
         );
+    } elseif (substr($column['True_Type'], 0, 9) == 'timestamp'
+        || $column['True_Type'] == 'datetime'
+        || $column['True_Type'] == 'time'
+    ) {
+        $special_chars = PMA_Util::addMicroseconds($current_row[$column['Field']]);
     } elseif (in_array($column['True_Type'], $gis_data_types)) {
         // Convert gis data to Well Know Text format
         $current_row[$column['Field']] = PMA_Util::asWKT(
@@ -1703,6 +1758,11 @@ function PMA_getSpecialCharsAndBackupFieldForInsertingMode(
 
     if ($column['True_Type'] == 'bit') {
         $special_chars = PMA_Util::convertBitDefaultValue($column['Default']);
+    } elseif (substr($column['True_Type'], 0, 9) == 'timestamp'
+        || $column['True_Type'] == 'datetime'
+        || $column['True_Type'] == 'time'
+    ) {
+        $special_chars = PMA_Util::addMicroseconds($column['Default']);
     } else {
         $special_chars = htmlspecialchars($column['Default']);
     }
@@ -1770,8 +1830,10 @@ function PMA_isInsertRow()
         $header = $response->getHeader();
         $scripts = $header->getScripts();
         $scripts->addFile('tbl_change.js');
-        include 'tbl_change.php';
-        exit;
+        if (!defined('TESTSUITE')) {
+            include 'tbl_change.php';
+            exit;
+        }
     }
 }
 
@@ -1854,7 +1916,7 @@ function PMA_getErrorUrl($url_params)
     if (isset($_REQUEST['err_url'])) {
         return $_REQUEST['err_url'];
     } else {
-        return 'tbl_change.php' . PMA_generate_common_url($url_params);
+        return 'tbl_change.php' . PMA_URL_getCommon($url_params);
     }
 }
 
@@ -2042,7 +2104,7 @@ function PMA_getLinkForRelationalDisplayField($map, $relation_field,
             . $where_comparison
     );
     $output = '<a href="sql.php'
-        . PMA_generate_common_url($_url_params) . '"' . $title . '>';
+        . PMA_URL_getCommon($_url_params) . '"' . $title . '>';
 
     if ('D' == $_SESSION['tmp_user_values']['relational_display']) {
         // user chose "relational display field" in the
@@ -2088,13 +2150,13 @@ function PMA_transformEditedValues($db, $table,
             if (file_exists($include_file)) {
                 include_once $include_file;
 
-                $transform_options  = PMA_transformation_getOptions(
+                $transform_options  = PMA_Transformation_getOptions(
                     isset($transformation['transformation_options'])
                     ? $transformation['transformation_options']
                     : ''
                 );
                 $transform_options['wrapper_link']
-                    = PMA_generate_common_url($_url_params);
+                    = PMA_URL_getCommon($_url_params);
                 $class_name = str_replace('.class.php', '', $file);
                 $plugin_manager = null;
                 $transformation_plugin = new $class_name(
@@ -2364,9 +2426,18 @@ function PMA_verifyWhetherValueCanBeTruncatedAndAppendExtraData(
         . PMA_Util::backquote($table)
         . ' WHERE ' . $_REQUEST['where_clause'][0];
 
-    if ($GLOBALS['dbi']->fetchValue($sql_for_real_value) !== false) {
-        $extra_data['truncatableFieldValue']
-            = $GLOBALS['dbi']->fetchValue($sql_for_real_value);
+    $result = $GLOBALS['dbi']->tryQuery($sql_for_real_value);
+    $fields_meta = $GLOBALS['dbi']->getFieldsMeta($result);
+    $meta = $fields_meta[0];
+    $new_value = $GLOBALS['dbi']->fetchValue($result);
+    if ($new_value !== false) {
+        if ((substr($meta->type, 0, 9) == 'timestamp')
+            || ($meta->type == 'datetime')
+            || ($meta->type == 'time')
+        ) {
+            $new_value = PMA_Util::addMicroseconds($new_value);
+        }
+        $extra_data['truncatableFieldValue'] = $new_value;
     } else {
         $extra_data['isNeedToRecheck'] = false;
     }
@@ -2375,26 +2446,26 @@ function PMA_verifyWhetherValueCanBeTruncatedAndAppendExtraData(
 
 /**
  * Function to get the columns of a table
- * 
+ *
  * @param string $db    current db
  * @param string $table current table
- * 
- * @return array 
+ *
+ * @return array
  */
 function PMA_getTableColumns($db, $table)
 {
     $GLOBALS['dbi']->selectDb($db);
     return array_values($GLOBALS['dbi']->getColumns($db, $table));
-    
+
 }
 
 /**
  * Function to determine Insert/Edit rows
- * 
+ *
  * @param string $where_clause where clause
  * @param string $db           current database
  * @param string $table        current table
- * 
+ *
  * @return mixed
  */
 function PMA_determineInsertOrEdit($where_clause, $db, $table)
@@ -2417,7 +2488,7 @@ function PMA_determineInsertOrEdit($where_clause, $db, $table)
     if (isset($_REQUEST['after_insert'])) {
         $after_insert = $_REQUEST['after_insert'];
     }
-    
+
     if (isset($where_clause)) {
         // we are editing
         $insert_mode = false;
@@ -2435,15 +2506,15 @@ function PMA_determineInsertOrEdit($where_clause, $db, $table)
         $where_clause_array = null;
         $found_unique_key = false;
     }
-    
+
     // Copying a row - fetched data will be inserted as a new row,
     // therefore the where clause is needless.
-    if (isset($_REQUEST['default_action']) 
+    if (isset($_REQUEST['default_action'])
         && $_REQUEST['default_action'] === 'insert'
     ) {
         $where_clause = $where_clauses = null;
     }
-    
+
     return array(
         $insert_mode, $where_clause, $where_clause_array, $where_clauses,
         $result, $rows, $found_unique_key,
@@ -2453,10 +2524,10 @@ function PMA_determineInsertOrEdit($where_clause, $db, $table)
 
 /**
  * Function to get comments for the table columns
- * 
+ *
  * @param string $db    current database
  * @param string $table current table
- * 
+ *
  * @return array $comments_map comments for columns
  */
 function PMA_getCommentsMap($db, $table)
@@ -2475,16 +2546,16 @@ function PMA_getCommentsMap($db, $table)
     if ($GLOBALS['cfg']['ShowPropertyComments']) {
         $comments_map = PMA_getComments($db, $table);
     }
-    
+
     return $comments_map;
 }
 
 /**
  * Function to get URL parameters
- * 
+ *
  * @param string $db    current database
  * @param string $table current table
- * 
+ *
  * @return array $url_params url parameters
  */
 function PMA_getUrlParameters($db, $table)
@@ -2500,7 +2571,7 @@ function PMA_getUrlParameters($db, $table)
     if (preg_match('@^tbl_@', $GLOBALS['goto'])) {
         $url_params['table'] = $table;
     }
-    
+
     return $url_params;
 }
 ?>

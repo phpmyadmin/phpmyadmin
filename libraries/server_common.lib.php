@@ -12,44 +12,55 @@ if (! defined('PHPMYADMIN')) {
 /**
  * Returns the html for the sub-page heading
  *
- * @param string $type Sub page type
- * @param string $link Link to the official MySQL documentation
+ * @param string $type     Sub page type
+ * @param string $link     Link to the official MySQL documentation
+ * @param bool   $is_image Display image or icon, true: image, false: icon
  *
  * @return string
  */
-function PMA_getHtmlForSubPageHeader($type, $link='')
+function PMA_getHtmlForSubPageHeader($type, $link='', $is_image=true)
 {
     //array contains Sub page icon and text
     $header = array();
 
-    $header['variables']['icon'] = 's_vars.png';
+    $header['variables']['image'] = 's_vars.png';
     $header['variables']['text'] = __('Server variables and settings');
 
-    $header['engines']['icon'] = 'b_engine.png';
+    $header['engines']['image'] = 'b_engine.png';
     $header['engines']['text'] = __('Storage Engines');
 
-    $header['plugins']['icon'] = 'b_engine.png';
+    $header['plugins']['image'] = 'b_engine.png';
     $header['plugins']['text'] = __('Plugins');
     
-    $header['binlog']['icon'] = 's_tbl.png';
+    $header['binlog']['image'] = 's_tbl.png';
     $header['binlog']['text'] = __('Binary log');
     
-    $header['collations']['icon'] = 's_asci.png';
+    $header['collations']['image'] = 's_asci.png';
     $header['collations']['text'] = __('Character Sets and Collations');
     
-    $header['replication']['icon'] = 's_replication.png';
+    $header['replication']['image'] = 's_replication.png';
     $header['replication']['text'] = __('Replication');
     
-    $header['database_statistics']['icon'] = 's_db.png';
+    $header['database_statistics']['image'] = 's_db.png';
     $header['database_statistics']['text'] = __('Databases statistics');
     
-    $header['databases']['icon'] = 's_db.png';
+    $header['databases']['image'] = 's_db.png';
     $header['databases']['text'] = __('Databases');
     
-    $html = '<h2>' . "\n"
-        . PMA_Util::getImage($header[$type]['icon'])
-        . '    ' . $header[$type]['text'] . "\n"
-        . $link . '</h2>' . "\n";
+    $header['privileges']['image'] = 'b_usrlist.png';
+    $header['privileges']['text'] = __('Privileges');
+    
+    if ($is_image) {
+        $html = '<h2>' . "\n"
+            . PMA_Util::getImage($header[$type]['image'])
+            . '    ' . $header[$type]['text'] . "\n"
+            . $link . '</h2>' . "\n";
+    } else {
+        $html = '<h2>' . "\n"
+            . PMA_Util::getIcon($header[$type]['image'])
+            . '    ' . $header[$type]['text'] . "\n"
+            . $link . '</h2>' . "\n";    	
+    }
     return $html;
 }
 

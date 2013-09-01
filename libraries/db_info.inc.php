@@ -82,7 +82,7 @@ if (true === $cfg['SkipLockedTables']) {
 
         if (isset($sot_cache)) {
             $db_info_result = $GLOBALS['dbi']->query(
-                'SHOW TABLES FROM ' . PMA_Util::backquote($db) . $tbl_group_sql . ';',
+                'SHOW TABLES FROM ' . PMA_Util::backquote($db) . $tbl_group_sql,
                 null, PMA_DatabaseInterface::QUERY_STORE
             );
             if ($db_info_result && $GLOBALS['dbi']->numRows($db_info_result) > 0) {
@@ -90,7 +90,8 @@ if (true === $cfg['SkipLockedTables']) {
                     if (! isset($sot_cache[$tmp[0]])) {
                         $sts_result  = $GLOBALS['dbi']->query(
                             'SHOW TABLE STATUS FROM ' . PMA_Util::backquote($db)
-                            . ' LIKE \'' . PMA_Util::sqlAddSlashes($tmp[0], true) . '\';'
+                            . ' LIKE \'' . PMA_Util::sqlAddSlashes($tmp[0], true)
+                            . '\';'
                         );
                         $sts_tmp     = $GLOBALS['dbi']->fetchAssoc($sts_result);
                         $GLOBALS['dbi']->freeResult($sts_result);
@@ -104,12 +105,6 @@ if (true === $cfg['SkipLockedTables']) {
                             && ! preg_match('@' . preg_quote($tbl_group, '@') . '@i', $sts_tmp['Comment'])
                         ) {
                             continue;
-                        }
-
-                        if ($cfg['ShowTooltip']) {
-                            PMA_Util::fillTooltip(
-                                $tooltip_truename, $tooltip_aliasname, $sts_tmp
-                            );
                         }
 
                         $tables[$sts_tmp['Name']]    = $sts_tmp;
@@ -187,14 +182,6 @@ if (! isset($sot_ready)) {
             // fetch the details for a possible limited subset
             $tables = $GLOBALS['dbi']->getTablesFull(
                 $db, false, false, null, $pos, true, $sort, $sort_order
-            );
-        }
-    }
-
-    if ($cfg['ShowTooltip']) {
-        foreach ($tables as $each_table) {
-            PMA_Util::fillTooltip(
-                $tooltip_truename, $tooltip_aliasname, $each_table
             );
         }
     }

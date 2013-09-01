@@ -48,7 +48,7 @@ function PMA_getLanguageSelectorHtml($use_fieldset = false, $show_doc = true)
             'db' => $GLOBALS['db'],
             'table' => $GLOBALS['table'],
         );
-        $retval .= PMA_generate_common_hidden_inputs($_form_params);
+        $retval .= PMA_URL_getHiddenInputs($_form_params);
 
         // For non-English, display "Language" with emphasis because it's
         // not a proper word in the current language; we show it to help

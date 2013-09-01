@@ -58,7 +58,6 @@ class ImportOds_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $GLOBALS['cfg']['ServerDefault'] = 0;
         $GLOBALS['cfg']['AllowUserDropDatabase'] = false;
-        $GLOBALS['cfg']['MySQLManualType'] = 'none';
 
         $GLOBALS['import_file'] = 'test/test_data/db_test.ods';
 
@@ -140,7 +139,8 @@ class ImportOds_Test extends PHPUnit_Framework_TestCase
 
         //asset that all sql are executed
         $this->assertContains(
-            'CREATE DATABASE IF NOT EXISTS `ODS_DB` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci',
+            'CREATE DATABASE IF NOT EXISTS `ODS_DB` DEFAULT CHARACTER SET '
+            . 'utf8 COLLATE utf8_general_ci',
             $sql_query
         );
         $this->assertContains(
@@ -148,7 +148,8 @@ class ImportOds_Test extends PHPUnit_Framework_TestCase
             $sql_query
         );
         $this->assertContains(
-            "INSERT INTO `ODS_DB`.`pma_bookmark` (`A`, `B`, `C`, `D`) VALUES (1, 'dbbase', NULL, 'ddd');",
+            "INSERT INTO `ODS_DB`.`pma_bookmark` (`A`, `B`, `C`, `D`) VALUES "
+            . "(1, 'dbbase', NULL, 'ddd');",
             $sql_query
         );
 

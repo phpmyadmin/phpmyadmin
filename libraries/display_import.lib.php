@@ -26,11 +26,11 @@ function PMA_getHtmlForHiddenInputs($import_type, $db, $table)
 {
     $html  = '';
     if ($import_type == 'server') {
-        $html .= PMA_generate_common_hidden_inputs('', '', 1);
+        $html .= PMA_URL_getHiddenInputs('', '', 1);
     } elseif ($import_type == 'database') {
-        $html .= PMA_generate_common_hidden_inputs($db, '', 1);
+        $html .= PMA_URL_getHiddenInputs($db, '', 1);
     } else {
-        $html .= PMA_generate_common_hidden_inputs($db, $table, 1);
+        $html .= PMA_URL_getHiddenInputs($db, $table, 1);
     }
     $html .= '    <input type="hidden" name="import_type" value="'
         . $import_type . '" />'."\n";
@@ -301,9 +301,9 @@ function PMA_getHtmlForImportOptionsPartialImport($timeout_passed, $offset)
         $html .= '            <label for="text_skip_queries">'
             .  __('Number of rows to skip, starting from the first row:')
             . '</label>';
-        $html .= '            <input type="text" name="skip_queries" value="'
+        $html .= '            <input type="number" name="skip_queries" value="'
             . PMA_pluginGetDefault('Import', 'skip_queries')
-            . '" id="text_skip_queries" />';
+            . '" id="text_skip_queries" min="0" />';
         $html .= '        </div>';
 
     } else {
@@ -441,7 +441,7 @@ function PMA_getHtmlForImportWithPlugin($upload_id)
 {
     //some variable for javasript
     $ajax_url = "import_status.php?id=" . $upload_id . "&"
-        . PMA_generate_common_url(array('import_status'=>1), '&');
+        . PMA_URL_getCommon(array('import_status'=>1), '&');
     $promot_str = PMA_jsFormat(
         __(
             'The file being uploaded is probably larger than '
@@ -459,7 +459,7 @@ function PMA_getHtmlForImportWithPlugin($upload_id)
         __('The file is being processed, please be patient.'),
         false
     );
-    $import_url = PMA_generate_common_url(array('import_status'=>1), '&');
+    $import_url = PMA_URL_getCommon(array('import_status'=>1), '&');
 
     //start output
     $html  = 'var finished = false; ';

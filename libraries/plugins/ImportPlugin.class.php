@@ -21,9 +21,9 @@ require_once 'PluginObserver.class.php';
 abstract class ImportPlugin extends PluginObserver
 {
     /**
-     * Array containing the import plugin properties
+     * ImportPluginProperties object containing the import plugin properties
      *
-     * @var type array
+     * @var ImportPluginProperties
      */
     protected $properties;
 

@@ -31,15 +31,16 @@ class PMA_ExportPdf_Test extends PHPUnit_Framework_TestCase
     {
         $GLOBALS['server'] = 0;
         $GLOBALS['output_kanji_conversion'] = false;
+        $GLOBALS['output_charset_conversion'] = false;
         $GLOBALS['buffer_needed'] = false;
-        $GLOBALS['asfile'] = false;
+        $GLOBALS['asfile'] = true;
         $GLOBALS['save_on_server'] = false;
         $this->object = new ExportPdf();
     }
 
     /**
      * tearDown for test cases
-     * 
+     *
      * @return void
      */
     public function tearDown()
@@ -49,7 +50,7 @@ class PMA_ExportPdf_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for ExportPdf::setProperties
-     * 
+     *
      * @return void
      */
     public function testSetProperties()
@@ -124,7 +125,7 @@ class PMA_ExportPdf_Test extends PHPUnit_Framework_TestCase
             'MessageOnlyPropertyItem',
             $property
         );
-        
+
         $this->assertEquals(
             'explanation',
             $property->getName()
@@ -136,7 +137,7 @@ class PMA_ExportPdf_Test extends PHPUnit_Framework_TestCase
             'TextPropertyItem',
             $property
         );
-        
+
         $this->assertEquals(
             'report_title',
             $property->getName()
@@ -152,7 +153,7 @@ class PMA_ExportPdf_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for ExportPdf::exportHeader
-     * 
+     *
      * @return void
      */
     public function testExportHeader()
@@ -160,7 +161,7 @@ class PMA_ExportPdf_Test extends PHPUnit_Framework_TestCase
         $pdf = $this->getMockBuilder('PMA_ExportPdf')
             ->disableOriginalConstructor()
             ->getMock();
-        
+
         $pdf->expects($this->once())
             ->method('Open');
 
@@ -181,7 +182,7 @@ class PMA_ExportPdf_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for ExportPdf::exportFooter
-     * 
+     *
      * @return void
      */
     public function testExportFooter()
@@ -189,7 +190,7 @@ class PMA_ExportPdf_Test extends PHPUnit_Framework_TestCase
         $pdf = $this->getMockBuilder('PMA_ExportPdf')
             ->disableOriginalConstructor()
             ->getMock();
-        
+
         $pdf->expects($this->once())
             ->method('getPDFData');
 
@@ -204,7 +205,7 @@ class PMA_ExportPdf_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for ExportPdf::exportDBHeader
-     * 
+     *
      * @return void
      */
     public function testExportDBHeader()
@@ -216,7 +217,7 @@ class PMA_ExportPdf_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for ExportPdf::exportDBFooter
-     * 
+     *
      * @return void
      */
     public function testExportDBFooter()
@@ -228,7 +229,7 @@ class PMA_ExportPdf_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for ExportPdf::exportDBCreate
-     * 
+     *
      * @return void
      */
     public function testExportDBCreate()
@@ -240,7 +241,7 @@ class PMA_ExportPdf_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for ExportPdf::exportData
-     * 
+     *
      * @return void
      */
     public function testExportData()
@@ -272,7 +273,7 @@ class PMA_ExportPdf_Test extends PHPUnit_Framework_TestCase
      * Test for
      *     - ExportPdf::_setPdf
      *     - ExportPdf::_getPdf
-     * 
+     *
      * @return void
      */
     public function testSetGetPdf()
@@ -293,7 +294,7 @@ class PMA_ExportPdf_Test extends PHPUnit_Framework_TestCase
      * Test for
      *     - ExportPdf::_setPdfReportTitle
      *     - ExportPdf::_getPdfReportTitle
-     * 
+     *
      * @return void
      */
     public function testSetGetPdfTitle()

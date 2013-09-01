@@ -35,12 +35,21 @@ $GLOBALS['is_superuser'] = $GLOBALS['dbi']->isSuperuser();
 function PMA_analyseShowGrant()
 {
     if (PMA_Util::cacheExists('is_create_db_priv', true)) {
-        $GLOBALS['is_create_db_priv']  = PMA_Util::cacheGet('is_create_db_priv', true);
-        $GLOBALS['is_process_priv']    = PMA_Util::cacheGet('is_process_priv', true);
-        $GLOBALS['is_reload_priv']     = PMA_Util::cacheGet('is_reload_priv', true);
-        $GLOBALS['db_to_create']       = PMA_Util::cacheGet('db_to_create', true);
-        $GLOBALS['dbs_where_create_table_allowed']
-            = PMA_Util::cacheGet('dbs_where_create_table_allowed', true);
+        $GLOBALS['is_create_db_priv'] = PMA_Util::cacheGet(
+            'is_create_db_priv', true
+        );
+        $GLOBALS['is_process_priv'] = PMA_Util::cacheGet(
+            'is_process_priv', true
+        );
+        $GLOBALS['is_reload_priv'] = PMA_Util::cacheGet(
+            'is_reload_priv', true
+        );
+        $GLOBALS['db_to_create'] = PMA_Util::cacheGet(
+            'db_to_create', true
+        );
+        $GLOBALS['dbs_where_create_table_allowed'] = PMA_Util::cacheGet(
+            'dbs_where_create_table_allowed', true
+        );
         return;
     }
 
