@@ -7,9 +7,16 @@
  */
 
 /**
+ * If we are sending the export file (as opposed to just displaying it
+ * as text), we have to bypass the usual PMA_Response mechanism 
+ */
+if ($_POST['output_format'] == 'sendit') {
+    define('PMA_BYPASS_GET_INSTANCE', 1);
+}
+
+/**
  * Get the variables sent or posted to this script and a core script
  */
-define('PMA_BYPASS_GET_INSTANCE', 1);
 require_once 'libraries/common.inc.php';
 require_once 'libraries/zip.lib.php';
 require_once 'libraries/plugin_interface.lib.php';
