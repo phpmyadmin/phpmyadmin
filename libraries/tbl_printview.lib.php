@@ -57,8 +57,8 @@ function PMA_getHtmlForPrintViewFooter()
  * @param array  $pk_array     primary key array
  * @param bool   $have_rel     have relation?
  * @param array  $res_rel      relations array
- * @param string $db           database
- * @param string $table        table
+ * @param string $db           database name
+ * @param string $table        table name
  * @param array  $cfgRelation  config from PMA_getRelationsParam
  *
  * @return string
@@ -271,6 +271,79 @@ function PMA_getHtmlForRowStatistics(
 }
 
 /**
+ * return html for Space Usage
+ *
+ * @param int  $data_size   data size
+ * @param int  $data_unit   data unit
+ * @param int  $index_size  index size
+ * @param int  $index_unit  index unit
+ * @param int  $free_size   free size
+ * @param int  $free_unit   free unit
+ * @param int  $effect_size effect size
+ * @param int  $effect_unit effect unit
+ * @param int  $tot_size    total size
+ * @param int  $tot_unit    total unit
+ * @param bool $mergetable  is merge table?
+ *
+ * @return string
+ */
+function PMA_getHtmlForSpaceUsage(
+    $data_size, $data_unit, $index_size, $index_unit,
+    $free_size, $free_unit, $effect_size, $effect_unit,
+    $tot_size, $tot_unit, $mergetable
+) {
+    $html  = '<table cellspacing="0" cellpadding="0">';
+    $html .= "\n";
+    $html .= '<tr>';
+
+    // Space usage
+    $html .= '<td class="vtop">';
+    $html .= '<big>' . __('Space usage:') . '</big>';
+    $html .= '<table width="100%">';
+    $html .= '<tr>';
+    $html .= '<td style="padding-right: 10px">' . __('Data') . '</td>';
+    $html .= '<td class="right">' . $data_size . '</td>';
+    $html .= '<td>' . $data_unit . '</td>';
+    $html .= '</tr>';
+    if (isset($index_size)) {
+        $html .= "\n";
+        $html .= '<tr>';
+        $html .= '<td style="padding-right: 10px">' . __('Index') . '</td>';
+        $html .= '<td class="right">' . $index_size . '</td>';
+        $html .= '<td>' . $index_unit. '</td>';
+        $html .= '</tr>';
+    }
+    if (isset($free_size)) {
+        $html .= "\n";
+        $html .= '<tr style="color: #bb0000">';
+        $html .= '<td style="padding-right: 10px">';
+        $html .= __('Overhead');
+        $html .= '</td>';
+        $html .= '<td class="right">' . $free_size . '</td>';
+        $html .= '<td>' . $free_unit . '</td>';
+        $html .= '</tr>';
+        $html .= '<tr>';
+        $html .= '<td style="padding-right: 10px">';
+        $html .= __('Effective');
+        $html .= '</td>';
+        $html .= '<td class="right">' . $effect_size . '</td>';
+        $html .= '<td>' . $effect_unit . '</td>';
+        $html .= '</tr>';
+    }
+    if (isset($tot_size) && $mergetable == false) {
+        $html .= "\n";
+        $html .= '<tr>';
+        $html .= '<td style="padding-right: 10px">' . __('Total') . '</td>';
+        $html .= '<td class="right">' . $tot_size . '</td>';
+        $html .= '<td>' . $tot_unit . '</td>';
+        $html .= '</tr>';
+    }
+    $html .= "\n";
+    $html .= '</table>';
+
+    return $html;
+}
+/**
  * return html for Space Usage And Row Statistic
  *
  * @param array  $showtable       showing table information
@@ -338,55 +411,19 @@ function PMA_getHtmlForSpaceUsageAndRowStatistics(
 
         // Displays them
         $html .= '<br /><br />';
+        $html .= PMA_getHtmlForSpaceUsage(
+            $data_size, $data_unit,
+            isset($index_size)? $index_size : null,
+            isset($index_unit)? $index_unit : null,
+            isset($free_size)? $free_size : null,
+            isset($free_unit)? $free_unit : null,
+            isset($effect_size)? $effect_size : null,
+            isset($effect_unit)? $effect_unit : null,
+            isset($tot_size)? $tot_size : null,
+            isset($tot_unit)? $tot_unit : null,
+            $mergetable
+        );
 
-        $html .= '<table cellspacing="0" cellpadding="0">';
-        $html .= "\n";
-        $html .= '<tr>';
-
-        // Space usage
-        $html .= '<td class="vtop">';
-        $html .= '<big>' . __('Space usage:') . '</big>';
-        $html .= '<table width="100%">';
-        $html .= '<tr>';
-        $html .= '<td style="padding-right: 10px">' . __('Data') . '</td>';
-        $html .= '<td class="right">' . $data_size . '</td>';
-        $html .= '<td>' . $data_unit . '</td>';
-        $html .= '</tr>';
-        if (isset($index_size)) {
-            $html .= "\n";
-            $html .= '<tr>';
-            $html .= '<td style="padding-right: 10px">' . __('Index') . '</td>';
-            $html .= '<td class="right">' . $index_size . '</td>';
-            $html .= '<td>' . $index_unit. '</td>';
-            $html .= '</tr>';
-        }
-        if (isset($free_size)) {
-            $html .= "\n";
-            $html .= '<tr style="color: #bb0000">';
-            $html .= '<td style="padding-right: 10px">';
-            $html .= __('Overhead');
-            $html .= '</td>';
-            $html .= '<td class="right">' . $free_size . '</td>';
-            $html .= '<td>' . $free_unit . '</td>';
-            $html .= '</tr>';
-            $html .= '<tr>';
-            $html .= '<td style="padding-right: 10px">';
-            $html .= __('Effective');
-            $html .= '</td>';
-            $html .= '<td class="right">' . $effect_size . '</td>';
-            $html .= '<td>' . $effect_unit . '</td>';
-            $html .= '</tr>';
-        }
-        if (isset($tot_size) && $mergetable == false) {
-            $html .= "\n";
-            $html .= '<tr>';
-            $html .= '<td style="padding-right: 10px">' . __('Total') . '</td>';
-            $html .= '<td class="right">' . $tot_size . '</td>';
-            $html .= '<td>' . $tot_unit . '</td>';
-            $html .= '</tr>';
-        }
-        $html .= "\n";
-        $html .= '</table>';
         $html .= '</td>';
         $html .= PMA_getHtmlForRowStatistics(
             $showtable, $cell_align_left,
@@ -403,6 +440,7 @@ function PMA_getHtmlForSpaceUsageAndRowStatistics(
 
     return $html;
 }
+
 /**
  * return html for Table Structure
  *
@@ -447,7 +485,7 @@ function PMA_getHtmlForTableStructure(
     $html .= '</thead>';
     $html .= '<tbody>';
     $html .= PMA_getHtmlForPrintViewColumns(
-        $columns, $analyzed_sql, $pk_array, $have_rel, 
+        $columns, $analyzed_sql, $pk_array, $have_rel,
         $res_rel, $db, $table, $cfgRelation
     );
     $html .= '</tbody>';
