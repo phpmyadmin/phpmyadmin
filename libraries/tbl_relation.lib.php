@@ -193,8 +193,8 @@ function PMA_getHtmlForCommonForm($db, $table, $columns, $cfgRelation,
  * @param array  $columns            columns
  * @param array  $cfgRelation        configuration relation
  * @param string $tbl_storage_engine table storage engine
- * @param array  $existrel           db, table, column
- * @param array  $existrel_foreign   db, table, column
+ * @param array  $existrel           existed relations
+ * @param array  $existrel_foreign   existed relations for foreign keys
  * @param array  $options_array      options array
  * @param string $db                 current database
  * @param string $table              current table
