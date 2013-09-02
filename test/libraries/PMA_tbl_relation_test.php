@@ -32,8 +32,8 @@ class PMA_TblRelationTest extends PHPUnit_Framework_TestCase
     {
         $GLOBALS['server'] = 0;
 
-        $GLOBALS['pma'] = new DataBasePMAMock();
-        $GLOBALS['pma']->databases = new DataBaseMock();
+        $GLOBALS['pma'] = new DataBasePMAMockForTblRelation();
+        $GLOBALS['pma']->databases = new DataBaseMockForTblRelation();
 
         $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
             ->disableOriginalConstructor()
@@ -400,7 +400,7 @@ class PMA_TblRelationTest extends PHPUnit_Framework_TestCase
  *
  * @package PhpMyAdmin-test
  */
-Class DataBasePMAMock
+Class DataBasePMAMockForTblRelation
 {
     var $databases;
 }
@@ -410,7 +410,7 @@ Class DataBasePMAMock
  *
  * @package PhpMyAdmin-test
  */
-Class DataBaseMock
+Class DataBaseMockForTblRelation
 {
     /**
      * mock function to return table is existed
