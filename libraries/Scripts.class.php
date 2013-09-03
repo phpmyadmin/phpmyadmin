@@ -77,7 +77,7 @@ class PMA_Scripts
         $static_scripts = sprintf(
             '<script type="text/javascript" '
             . 'src="js/get_scripts.js.php?%s&%s"></script>',
-            implode("&", $params), PMA_generate_common_url()
+            implode("&", $params), PMA_URL_getCommon(array(), 'none', '')
         );
         return $static_scripts . $dynamic_scripts;
     }
