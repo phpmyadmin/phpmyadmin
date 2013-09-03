@@ -265,7 +265,7 @@ function PMA_getErrorReportForm() {
         'table' => $table,
     );
 
-    $html .= PMA_generate_common_hidden_inputs($form_params);
+    $html .= PMA_URL_getHiddenInputs($form_params);
     $html .= PMA_getHiddenFields(PMA_getReportData(false));
 
     $html .= '</form>';
