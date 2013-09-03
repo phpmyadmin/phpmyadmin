@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-08-18 06:16-0400\n"
-"PO-Revision-Date: 2013-08-31 03:56+0200\n"
+"PO-Revision-Date: 2013-08-31 16:18+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: Simplified Chinese "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/zh_CN/>\n"
@@ -5197,49 +5197,49 @@ msgstr "快速访问图标的目标"
 msgid ""
 "Defines the minimum number of items (tables, views, routines and events) to "
 "display a filter box."
-msgstr "显示快速搜索框的最少项目（表，视图，例程和事件）数量。"
+msgstr "设置达到多少个项（表、视图、程序和事件）时将显示筛选框。"
 
 #: libraries/config/messages.inc.php:310
 msgid "Minimum number of items to display the filter box"
-msgstr "过滤框显示的最小条目数量"
+msgstr "显示筛选框的最少项数"
 
 #: libraries/config/messages.inc.php:311
 msgid "Minimum number of databases to display the database filter box"
-msgstr "数据库搜索框显示的最少数据表数量"
+msgstr "设置达到多少个数据库时将显示数据库筛选框"
 
 #: libraries/config/messages.inc.php:312
 msgid ""
 "Group items in the navigation tree (determined by the separator defined "
 "below)"
-msgstr "在导航列表中组合项目(以下述的分隔符来区分)"
+msgstr "将导航树中的项分组（根据下面设置的分隔符分组）"
 
 #: libraries/config/messages.inc.php:313
 msgid "Group items in the tree"
-msgstr "在树列表中组合项目"
+msgstr "分组树中的项"
 
 #: libraries/config/messages.inc.php:314
 msgid "String that separates databases into different tree levels"
-msgstr "将数据库分为不同树级的分割符"
+msgstr "将数据库分为不同层级的字符串"
 
 #: libraries/config/messages.inc.php:315
 msgid "Database tree separator"
-msgstr "树状数据库分隔符"
+msgstr "数据库树分隔符"
 
 #: libraries/config/messages.inc.php:316
 msgid "String that separates tables into different tree levels"
-msgstr "将表分为不同树级的分隔符"
+msgstr "将表分为不同层级的字符串"
 
 #: libraries/config/messages.inc.php:317
 msgid "Table tree separator"
-msgstr "树形表分隔符"
+msgstr "表树分隔符"
 
 #: libraries/config/messages.inc.php:318
 msgid "Maximum table tree depth"
-msgstr "数据表树最大深度"
+msgstr "表树最大深度"
 
 #: libraries/config/messages.inc.php:319
 msgid "Highlight server under the mouse cursor"
-msgstr "高亮显示鼠标所在位置的服务器"
+msgstr "高亮鼠标指针所在位置的服务器"
 
 #: libraries/config/messages.inc.php:320
 msgid "Enable highlighting"
@@ -5247,7 +5247,7 @@ msgstr "启用高亮"
 
 #: libraries/config/messages.inc.php:321
 msgid "Maximum number of recently used tables; set 0 to disable"
-msgstr "最近使用的表数的最大值；设为0则关闭"
+msgstr "最近使用的表的最大数量；设为 0 为禁用"
 
 #: libraries/config/messages.inc.php:322
 msgid "Recently used tables"
@@ -5259,11 +5259,11 @@ msgstr "它们是编辑、复制和删除链接"
 
 #: libraries/config/messages.inc.php:324
 msgid "Where to show the table row links"
-msgstr "表中每行数据操作链接位置"
+msgstr "表行链接显示位置"
 
 #: libraries/config/messages.inc.php:325
 msgid "Use natural order for sorting table and database names"
-msgstr "为数据库和数据表名使用自然排序"
+msgstr "为表和数据库名使用自然排序"
 
 #: libraries/config/messages.inc.php:326
 msgid "Natural order"
@@ -5272,13 +5272,12 @@ msgstr "自然排序"
 #: libraries/config/messages.inc.php:327 libraries/config/messages.inc.php:341
 #: libraries/config/messages.inc.php:343
 msgid "Use only icons, only text or both"
-msgstr "仅使用图标、文本或都使用"
+msgstr "仅使用图标、文字或都有"
 
 #: libraries/config/messages.inc.php:328
-#, fuzzy
 #| msgid "Iconic navigation bar"
 msgid "Table navigation bar"
-msgstr "导航条显示"
+msgstr "表导航条"
 
 #: libraries/config/messages.inc.php:329
 msgid "use GZip output buffering for increased speed in HTTP transfers"
@@ -5292,9 +5291,7 @@ msgstr "GZip 输出缓冲"
 msgid ""
 "[kbd]SMART[/kbd] - i.e. descending order for columns of type TIME, DATE, "
 "DATETIME and TIMESTAMP, ascending order otherwise"
-msgstr ""
-"[kbd]SMART[/kbd] - 如：对 TIME、DATE、DATETIME 和 TIMESTAMP 类型的字段递减排"
-"序，其他字段递增"
+msgstr "[kbd]SMART[/kbd] - 即对 TIME、DATE、DATETIME 和 TIMESTAMP 类型的字段递减排序，其它字段递增"
 
 #: libraries/config/messages.inc.php:332
 msgid "Default sorting order"
