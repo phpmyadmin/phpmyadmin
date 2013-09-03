@@ -37,15 +37,18 @@ var PMA_commonParams = (function () {
          */
         setAll: function (obj) {
             var reload = false;
+            var updateNavigation = false;
             for (var i in obj) {
                 if (params[i] !== undefined && params[i] !== obj[i]) {
                     reload = true;
                 }
-                // To expand the database in use and collapse the previous one
-                if(i == 'db' && obj[i] !== '') {
-                    PMA_autoExpandDatabaseInUse(params['db'], obj[i]);
+                if (i == 'db' || i == 'table') {
+                    updateNavigation = true;
                 }
                 params[i] = obj[i];
+            }
+            if (updateNavigation) {
+                PMA_showCurrentNavigation();
             }
             if (reload) {
                 PMA_querywindow.refresh();
@@ -75,10 +78,10 @@ var PMA_commonParams = (function () {
                 PMA_querywindow.refresh();
                 PMA_reloadNavigation();
             }
-            if(name == 'db' && value !== '') {
-                PMA_autoExpandDatabaseInUse(params['db'], value);
-            }
             params[name] = value;
+            if (name == 'db' || name == 'table') {
+                PMA_showCurrentNavigation();
+            }
             return this;
         },
         /**
@@ -115,11 +118,7 @@ var PMA_commonActions = {
      */
     setDb: function (new_db) {
         if (new_db != PMA_commonParams.get('db')) {
-            if(new_db !== '') {
-                PMA_autoExpandDatabaseInUse(PMA_commonParams.get('db'), new_db);
-            }
-            PMA_commonParams.set('db', new_db);
-            PMA_querywindow.refresh();
+            PMA_commonParams.setAll({'db': new_db, 'table': ''});
         }
     },
     /**

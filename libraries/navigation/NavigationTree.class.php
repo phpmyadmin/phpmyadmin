@@ -877,7 +877,6 @@ class PMA_NavigationTree
                 $retval .= "</div>";
             }
 
-            $dblinkclass = ' class="dbLink"';
             $linkClass = '';
             $haveAjax = array(
                 'functions',
@@ -922,7 +921,7 @@ class PMA_NavigationTree
                     $retval .= htmlspecialchars($node->name);
                     $retval .= "</a>";
                 } else {
-                    $retval .= "<a$dblinkclass$linkClass href='$link'>";
+                    $retval .= "<a$linkClass href='$link'>";
                     $retval .= htmlspecialchars($node->real_name);
                     $retval .= "</a>";
                 }
