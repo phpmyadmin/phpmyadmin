@@ -205,7 +205,7 @@ class PMA_DBI_Drizzle_Test extends PHPUnit_Framework_TestCase
      *
      * @group medium
      */
-    public function testConnect()
+    public function testDBIFunction()
     {
         $user = "PMA_user";
         $password = "pma_password";
@@ -241,9 +241,58 @@ class PMA_DBI_Drizzle_Test extends PHPUnit_Framework_TestCase
             "query" . $query,
             $this->object->realQuery($query, $link, $options)
         );
+
+        //fetchArray
+        $result = $link;
+        $this->assertEquals(
+            "fetchRow " . PMA_Drizzle::FETCH_BOTH,
+            $this->object->fetchArray($result)
+        );
+
+        //fetchAssoc
+        $result = $link;
+        $this->assertEquals(
+            "fetchRow " . PMA_Drizzle::FETCH_ASSOC,
+            $this->object->fetchAssoc($result)
+        );
+
+        //fetchRow
+        $result = $link;
+        $this->assertEquals(
+            "fetchRow " . PMA_Drizzle::FETCH_NUM,
+            $this->object->fetchRow($result)
+        );
+
+        //dataSeek
+        $result = $link;
+        $offset = 10;
+        $this->assertEquals(
+            "seek" . $offset,
+            $this->object->dataSeek($result, 10)
+        );
+
+        //numRows
+        $result = $link;
+        $this->assertEquals(
+            "numRows",
+            $this->object->numRows($result)
+        );
+
+        //numFields
+        $result = $link;
+        $this->assertEquals(
+            "numColumns",
+            $this->object->numFields($result)
+        );
+        
     }
 }
 
+/**
+ * Mock class for Drizzle
+ *
+ * @package PhpMyAdmin-test
+ */
 class Drizzle
 {
     /**
@@ -289,6 +338,11 @@ class Drizzle
 
 }
 
+/**
+ * Mock class for Mock_Connection
+ *
+ * @package PhpMyAdmin-test
+ */
 class Mock_Con
 {
     var $type;
@@ -337,6 +391,50 @@ class Mock_Con
     public function query($query, $buffer_mode)
     {
         return "query" . $query;
+    }
+
+    /**
+     * fetchRow
+     *
+     * @param string $mode fetch mode
+     *
+     * @return string
+     */
+    public function fetchRow($mode)
+    {
+        return "fetchRow " . $mode;
+    }
+
+    /**
+     * $offset
+     *
+     * @param int $offset offset
+     *
+     * @return string
+     */
+    public function seek($offset)
+    {
+        return "seek" . $offset;
+    }
+
+    /**
+     * numRows
+     *
+     * @return string
+     */
+    public function numRows()
+    {
+        return "numRows";
+    }
+
+    /**
+     * numColumns
+     *
+     * @return string
+     */
+    public function numColumns()
+    {
+        return "numColumns";
     }
 }
 
