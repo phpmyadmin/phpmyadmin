@@ -69,4 +69,5 @@ $response->addHTML(
  */
 $response->addHTML(PMA_getHtmlForPrintViewFooter());
 
+exit;
 ?>
