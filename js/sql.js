@@ -296,8 +296,17 @@ AJAX.registerOnload('sql.js', function () {
                 } else if (typeof data.reload != 'undefined') {
                     // this happens if a USE or DROP command was typed
                     PMA_commonActions.setDb(data.db);
-                    PMA_reloadNavigation();
-                    PMA_commonActions.refreshMain(false, function () {
+                    var url;
+                    if (data.db) {
+                        if (data.table) {
+                            url = 'table_sql.php';
+                        } else {
+                            url = 'db_sql.php';
+                        }
+                    } else {
+                        url = 'server_sql.php';
+                    }
+                    PMA_commonActions.refreshMain(url, function () {
                         if ($('#result_query').length) {
                             $('#result_query').remove();
                         }

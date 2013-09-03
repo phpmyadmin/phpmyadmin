@@ -37,7 +37,8 @@ class Node_Table_Container extends Node
                 $GLOBALS['cfg']['NavigationTreeTableLevel']
             );
         }
-        $this->real_name       = 'tables';
+        $this->real_name = 'tables';
+        $this->classes   = 'tableContainer';
 
         $new        = PMA_NodeFactory::getInstance(
             'Node', _pgettext('Create new table', 'New')
