@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-07-29 15:07+0200\n"
-"PO-Revision-Date: 2013-04-10 00:41+0200\n"
-"Last-Translator: Jakub S <jakub.st@gmail.com>\n"
+"PO-Revision-Date: 2013-09-03 23:11+0200\n"
+"Last-Translator: Tomasz Nowiński <spamgrinder@o2.pl>\n"
 "Language-Team: Polish <http://l10n.cihar.com/projects/phpmyadmin/4-0/pl/>\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 1.5-dev\n"
+"X-Generator: Weblate 1.7-dev\n"
 
 #: browse_foreigners.php:51 browse_foreigners.php:75 js/messages.php:344
 #: libraries/DisplayResults.class.php:813
@@ -1723,7 +1723,7 @@ msgstr "Pokaż okno zapytań"
 
 #: js/messages.php:274 tbl_row_action.php:21
 msgid "No rows selected"
-msgstr "Nie żadnych wybrano rekordów"
+msgstr "Nie wybrano żadnego rekordu"
 
 #: js/messages.php:275 libraries/DisplayResults.class.php:5052
 #: libraries/structure.lib.php:1378 libraries/structure.lib.php:2056
@@ -7483,9 +7483,9 @@ msgstr "Przeładuj ramki nawigacji"
 #, php-format
 msgid "%s other result found"
 msgid_plural "%s other results found"
-msgstr[0] "%s zanleziono inny wynik"
-msgstr[1] "%s zanleziono innych wyników"
-msgstr[2] "%s zanleziono inne wyniki"
+msgstr[0] "Znaleziono %s inny wynik"
+msgstr[1] "Znaleziono %s inne wyniki"
+msgstr[2] "Znaleziono %s innych wyników"
 
 #: libraries/navigation/NavigationTree.class.php:1043
 msgid "filter databases by name"
@@ -12353,15 +12353,14 @@ msgid "No index defined! Create one below"
 msgstr "Brak zdefiniowanego indeksu!"
 
 #: tbl_structure.php:125
-#, fuzzy
 #| msgid "No rows selected"
 msgid "No column selected."
-msgstr "Nie żadnych wybrano rekordów"
+msgstr "Nie wybrano żadnej kolumny."
 
 #: tbl_structure.php:149
 #, php-format
 msgid "The column name '%s' is a MySQL reserved keyword."
-msgstr ""
+msgstr "Nazwa kolumny '%s' jest słowem kluczowym MySQL."
 
 #: tbl_tracking.php:135
 #, php-format
