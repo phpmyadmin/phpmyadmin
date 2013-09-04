@@ -19,7 +19,7 @@ class Node_View_Test extends PHPUnit_Framework_TestCase
 {
     /**
      * SetUp for test cases
-     * 
+     *
      * @return void
      */
     public function setup()
@@ -46,6 +46,7 @@ class Node_View_Test extends PHPUnit_Framework_TestCase
             'sql.php',
             $parent->links['text']
         );
+        $this->assertContains('b_props', $node->icon);
     }
 }
 ?>
