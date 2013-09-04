@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-08-18 06:16-0400\n"
-"PO-Revision-Date: 2013-08-26 03:51+0200\n"
+"PO-Revision-Date: 2013-09-04 22:22+0200\n"
 "Last-Translator: Mauricio Bastos <msbmail@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/pt_BR/>\n"
@@ -10388,10 +10388,9 @@ msgid "Table level tabs"
 msgstr "Guias de Tabelas"
 
 #: libraries/server_privileges.lib.php:3663
-#, fuzzy
 #| msgid "Views"
 msgid "View users"
-msgstr "Views"
+msgstr "Ver usuários"
 
 #: libraries/server_privileges.lib.php:3700
 #: libraries/server_privileges.lib.php:3761
@@ -10415,22 +10414,19 @@ msgid "Group name:"
 msgstr "Nome do Grupo:"
 
 #: libraries/server_privileges.lib.php:3819
-#, fuzzy
 #| msgid "Server version"
 msgid "Server-level tabs"
-msgstr "Versão do servidor"
+msgstr "Guias do Servidor"
 
 #: libraries/server_privileges.lib.php:3822
-#, fuzzy
 #| msgid "Database server"
 msgid "Database-level tabs"
-msgstr "Servidor de banco de dados"
+msgstr "Guias do Banco de Dados"
 
 #: libraries/server_privileges.lib.php:3825
-#, fuzzy
 #| msgid "Table comments"
 msgid "Table-level tabs"
-msgstr "Comentários da tabela"
+msgstr "Guias de Tabelas"
 
 #: libraries/server_privileges.lib.php:3936
 msgid "The selected user was not found in the privilege table."
