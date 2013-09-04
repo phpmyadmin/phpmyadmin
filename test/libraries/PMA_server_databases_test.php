@@ -245,4 +245,42 @@ class PMA_ServerDatabases_Test extends PHPUnit_Framework_TestCase
             $sort_order
         );
     }
+
+    /**
+     * Test for PMA_getHtmlForColumnOrder
+     *
+     * @return void
+     */
+    public function testPMAGetHtmlForColumnOrder()
+    {
+        //Mock DBI
+        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+            ->disableOriginalConstructor()
+            ->getMock();
+
+        $GLOBALS['dbi'] = $dbi;
+
+        $column_order = array(
+            "first_database" => array(
+                'format' => 'byte',
+                'footer' => '10333',
+            )
+        );
+        $first_database = array(
+            "first_database" => "db1"
+        );
+        $html = PMA_getHtmlForColumnOrder($column_order, $first_database);
+        $stat = $column_order["first_database" ];
+        list($value, $unit)
+            = PMA_Util::formatByteDown($stat['footer'], 3, 1);
+        $this->assertContains(
+            $value,
+            $html
+        );
+        $this->assertContains(
+            $unit,
+            $html
+        );
+
+    }
 }
