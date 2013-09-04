@@ -47,6 +47,7 @@ class Node_View_Test extends PHPUnit_Framework_TestCase
             $parent->links['text']
         );
         $this->assertContains('b_props', $node->icon);
+        $this->assertContains('view', $parent->classes);
     }
 }
 ?>

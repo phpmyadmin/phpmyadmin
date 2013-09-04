@@ -46,6 +46,7 @@ class Node_Table_Test extends PHPUnit_Framework_TestCase
             'sql.php',
             $parent->links['text']
         );
+        $this->assertContains('table', $parent->classes);
     }
 
     /**
