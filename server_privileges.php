@@ -27,7 +27,7 @@ $header   = $response->getHeader();
 $scripts  = $header->getScripts();
 $scripts->addFile('server_privileges.js');
 
-if ((empty($_REQUEST['viewing_mode']) || $_REQUEST['viewing_mode'] != 'db')
+if ((isset($_REQUEST['viewing_mode']) && $_REQUEST['viewing_mode'] == 'server')
     && $GLOBALS['cfgRelation']['menuswork']
 ) {
     $response->addHTML('<div>');
@@ -273,7 +273,7 @@ if ($GLOBALS['is_ajax_request']
  * Displays the links
  */
 if (isset($_REQUEST['viewing_mode']) && $_REQUEST['viewing_mode'] == 'db') {
-    $_REQUEST['db'] = $_REQUEST['checkprivs'];
+    $_REQUEST['db'] = $_REQUEST['checkprivsdb'];
 
     $url_query .= '&amp;goto=db_operations.php';
 
@@ -322,10 +322,26 @@ if (isset($_REQUEST['export'])
     }
 }
 
-if (empty($_REQUEST['adduser'])
-    && (! isset($_REQUEST['checkprivs'])
-    || ! strlen($_REQUEST['checkprivs']))
-) {
+if (isset($_REQUEST['adduser'])) {
+    // Add user
+    $response->addHTML(
+        PMA_getHtmlForAddUser((isset($dbname) ? $dbname : ''))
+    );
+} elseif (isset($_REQUEST['checkprivsdb'])) {
+    if (isset($_REQUEST['checkprivstable'])) {
+        // check the privileges for a particular table.
+        $response->addHTML(
+            PMA_getHtmlForSpecificTablePrivileges(
+                $_REQUEST['checkprivsdb'], $_REQUEST['checkprivstable']
+            )
+        );
+    } else {
+        // check the privileges for a particular database.
+        $response->addHTML(
+            PMA_getHtmlForSpecificDbPrivileges($_REQUEST['checkprivsdb'])
+        );
+    }
+} else {
     if (! isset($username)) {
         // No username is given --> display the overview
         $response->addHTML(
@@ -352,19 +368,9 @@ if (empty($_REQUEST['adduser'])
             )
         );
     }
-} elseif (isset($_REQUEST['adduser'])) {
-    // Add user
-    $response->addHTML(
-        PMA_getHtmlForAddUser((isset($dbname) ? $dbname : ''))
-    );
-} else {
-    // check the privileges for a particular database.
-    $response->addHTML(
-        PMA_getHtmlForSpecificDbPrivileges()
-    );
-} // end if (empty($_REQUEST['adduser']) && empty($checkprivs))... elseif... else...
+}
 
-if ((empty($_REQUEST['viewing_mode']) || $_REQUEST['viewing_mode'] != 'db')
+if ((isset($_REQUEST['viewing_mode']) && $_REQUEST['viewing_mode'] == 'server')
     && $GLOBALS['cfgRelation']['menuswork']
 ) {
     $response->addHTML('</div>');
