@@ -24,9 +24,9 @@ $submission_url = "http://dev-reports.phpmyadmin.net/incidents/create";
  * returns the error report data collected from the current configuration or
  * from the request parameters sent by the error reporting js code.
  *
- * @param boolean $json_encode whether to encode the array as a json string
+ * @param boolean $json_encode whether to encode the report as a json string
  *
- * @return Array/String $report
+ * @return Array/String the report
  */
 function PMA_getReportData($json_encode = true) {
     $exception = $_REQUEST['exception'];
@@ -66,12 +66,12 @@ function PMA_getReportData($json_encode = true) {
  * Sanitize a url to remove the identifiable host name and extract the
  * current scriptname from the url fragment
  *
- * It returns two things in an array.
+ * It returns two things in an array. The first is the uri without the
+ * hostname and identifying query params. The second is the name of the
+ * php script in the url
  *
- * @param string $url the url to sanitize
- *
- * @return String $uri the uri without the hostname and identifying query params
- * @return String $scriptname the name of the php script in the url
+ * @param String the url to sanitize
+ * @return Array the uri and script name
  */
 function PMA_sanitizeUrl($url) {
     $components = parse_url($url);
@@ -103,7 +103,7 @@ function PMA_sanitizeUrl($url) {
  *
  * @param Array $report the report info to be sent
  *
- * @return String $response the reply of the server
+ * @return String the reply of the server
  */
 function PMA_sendErrorReport($report) {
     global $submission_url;
@@ -163,11 +163,12 @@ function PMA_sendErrorReport($report) {
  * @param Integer $cumulative_number the cumulative line number in the
  *    concatenated files
  *
- * returns two variables in an array
+ * returns two variables in an array:
+ * - A String $filename the filename where the requested cumulative number
+ *   exists
+ * - Integer $linenumber the translated line number in the returned file
  *
- * @return String $filename the filename where the requested cumulative number
- *    exists
- * @return Integer $linenumber the translated line number in the returned file
+ * @return Array the filename and linenumber
  */
 function PMA_getLineNumber($filenames, $cumulative_number) {
   global $LINE_COUNT;
@@ -224,7 +225,7 @@ function PMA_translateStacktrace($stack) {
  * generates the error report form to collect user description and preview the
  * report before being sent
  *
- * @return String $html the form
+ * @return String the form
  */
 function PMA_getErrorReportForm() {
     $html = "";
