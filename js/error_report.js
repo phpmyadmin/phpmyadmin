@@ -308,14 +308,6 @@ var ErrorReport = {
 
 }
 
-function PMA_exception() {
-    a()
-}
-
-function exception(){
-    a()
-}
-
 TraceKit.report.subscribe(ErrorReport.error_handler);
 ErrorReport.set_up_error_reporting();
 $(function(){
