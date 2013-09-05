@@ -37,6 +37,7 @@ phpMyAdmin - ChangeLog
 + [setup] rfe #1452 Use type="password" for server passwords
 + rfe #1451 HTML5 input tag enhancements
 - bug #1193 Text field too small when editing a row longer than $cfg['LimitChars']
++ Privileges tab for table level
 
 4.0.7.0 (not yet released)
 - bug #3993 Sorting in database overview with statistics doesn't work
