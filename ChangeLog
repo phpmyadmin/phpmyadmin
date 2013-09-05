@@ -1,7 +1,7 @@
 phpMyAdmin - ChangeLog
 ======================
 
-4.0.6.0 (not yet released)
+4.0.6.0 (2013-09-05)
 - bug #4036 Call to undefined function mb_detect_encoding (clarify the doc)
 - bug Missing hints when changing a column's structure
 - bug #4048 Cannot select foreign value in Search
