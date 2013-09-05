@@ -207,10 +207,11 @@ foreach ($tables as $table) {
         }
         $column_name = $row['Field'];
 
+        $tmp_column = $analyzed_sql[0]['create_table_fields'][$column_name];
         if (PMA_MYSQL_INT_VERSION < 50025
-            && ! empty($analyzed_sql[0]['create_table_fields'][$column_name]['type'])
-            && $analyzed_sql[0]['create_table_fields'][$column_name]['type'] == 'TIMESTAMP'
-            && $analyzed_sql[0]['create_table_fields'][$column_name]['timestamp_not_null']
+            && ! empty($tmp_column['type'])
+            && $tmp_column['type'] == 'TIMESTAMP'
+            && $tmp_column['timestamp_not_null']
         ) {
             // here, we have a TIMESTAMP that SHOW FULL COLUMNS reports as
             // having the NULL attribute, but SHOW CREATE TABLE says the

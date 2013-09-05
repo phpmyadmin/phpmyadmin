@@ -19,7 +19,7 @@ class Node_View_Container_Test extends PHPUnit_Framework_TestCase
 {
     /**
      * SetUp for test cases
-     * 
+     *
      * @return void
      */
     public function setup()
@@ -47,6 +47,7 @@ class Node_View_Container_Test extends PHPUnit_Framework_TestCase
             $parent->links['text']
         );
         $this->assertEquals('views', $parent->real_name);
+        $this->assertContains('viewContainer', $parent->classes);
     }
 }
 ?>

@@ -1199,6 +1199,28 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         );
 
         // case 5
+        $GLOBALS['cfg']['ProtectBinary'] = false;
+        $GLOBALS['cfg']['LongtextDoubleTextarea'] = true;
+        $GLOBALS['cfg']['LimitChars'] = 100;
+        $column['is_blob'] = false;
+        $column['len'] = 255;
+        $column['is_char'] = false;
+        $GLOBALS['cfg']['TextareaRows'] = 20;
+        $GLOBALS['cfg']['TextareaCols'] = 10;
+
+        $result = PMA_getBinaryAndBlobColumn(
+            $column, '1223', null, 20, 'a', 'b', 'c', 2, 1, 1, '/', null,
+            'foo', true
+        );
+
+        $this->assertEquals(
+            "\na\n"
+            . '<textarea name="fieldsb" class="" rows="20" cols="10" dir="/" '
+            . 'id="field_1_3" c tabindex="3"></textarea>',
+            $result
+        );
+
+        // case 6
         $column['is_blob'] = false;
         $column['len'] = 10;
         $GLOBALS['cfg']['LimitChars'] = 40;
