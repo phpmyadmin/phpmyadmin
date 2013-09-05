@@ -376,17 +376,19 @@ function PMA_showCurrentNavigation()
        var $dbItem = highlightLoadedItem(
            $('#pma_navigation_tree > div'), db, 'database', false, false
        );
-       // open the table in the tree and select it
-       var $expander = $dbItem.children('div:first').children('a.expander');
-       // if not loaded or loaded but collapsed
-       if (! $expander.hasClass('loaded')
-           || $expander.find('img').is('.ic_b_plus')
-       ) {
-           expandTreeNode($expander, function() {
+       if ($dbItem) {
+           // open the table in the tree and select it
+           var $expander = $dbItem.children('div:first').children('a.expander');
+           // if not loaded or loaded but collapsed
+           if (! $expander.hasClass('loaded')
+               || $expander.find('img').is('.ic_b_plus')
+           ) {
+               expandTreeNode($expander, function() {
+                   loadAndHighlightTableOrView($dbItem, table);
+               });
+           } else {
                loadAndHighlightTableOrView($dbItem, table);
-           });
-       } else {
-           loadAndHighlightTableOrView($dbItem, table);
+           }
        }
    } else if (db) { // if we are at the database level
        // open in the tree and select the database
