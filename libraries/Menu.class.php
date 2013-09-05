@@ -534,8 +534,8 @@ class PMA_Menu
                 basename($GLOBALS['PMA_PHP_SELF']),
                 array('server_privileges.php', 'server_user_groups.php')
             );
+            $tabs['rights']['args']['viewing_mode'] = 'server';
         }
-        $tabs['rights']['args']['viewing_mode'] = 'server';
 
         $tabs['export']['icon'] = 'b_export.png';
         $tabs['export']['link'] = 'server_export.php';
