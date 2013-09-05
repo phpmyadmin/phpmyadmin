@@ -46,7 +46,7 @@ class Node_View_Test extends PHPUnit_Framework_TestCase
             'sql.php',
             $parent->links['text']
         );
-        $this->assertContains('b_props', $node->icon);
+        $this->assertContains('b_props', $parent->icon);
         $this->assertContains('view', $parent->classes);
     }
 }
