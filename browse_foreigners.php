@@ -10,6 +10,19 @@ require_once 'libraries/common.inc.php';
 require_once 'libraries/transformations.lib.php';
 require_once 'libraries/browse_foreigners.lib.php';
 
+/**
+ * Sets globals from $_REQUEST
+ */
+$request_params = array(
+    'field'
+);
+
+foreach ($request_params as $one_request_param) {
+    if (isset($_REQUEST[$one_request_param])) {
+        $GLOBALS[$one_request_param] = $_REQUEST[$one_request_param];
+    }
+}
+
 PMA_Util::checkParameters(array('db', 'table', 'field'));
 
 $response = PMA_Response::getInstance();
