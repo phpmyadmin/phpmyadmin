@@ -207,11 +207,6 @@ function PMA_getTableGrantsArray()
             $GLOBALS['strPrivDescDropTbl']
         ),
         array(
-            'Grant',
-            'GRANT',
-            $GLOBALS['strPrivDescGrant']
-        ),
-        array(
             'Index',
             'INDEX',
             $GLOBALS['strPrivDescIndex']
