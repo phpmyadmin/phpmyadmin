@@ -152,64 +152,67 @@ function PMA_getHtmlForRelationalFieldSelection($db, $table, $field, $foreignDat
             $output .= '<tr class="noclick ' . ($odd_row ? 'odd' : 'even') . '">';
             $odd_row = ! $odd_row;
 
-            $output .= '<td class="nowrap">'
-                . ($key_ordered_current_equals_data ? '<strong>' : '')
-                . '<a href="#" title="' . __('Use this value')
-                . ($key_ordered_current_val_title != ''
-                    ? ': ' . $key_ordered_current_val_title
-                    : '') . '"'
-                . ' onclick="formupdate(\'' . md5($field) . '\', \''
-                . PMA_jsFormat($key_ordered_current_key, false)
-                . '\'); return false;">'
-                . htmlspecialchars($key_ordered_current_key)
-                . '</a>' . ($key_ordered_current_equals_data ? '</strong>' : '')
-                . '</td>';
-
-            $output .= '<td>'
-                . ($key_ordered_current_equals_data ? '<strong>' : '')
-                . '<a href="#" title="' . __('Use this value')
-                . ($key_ordered_current_val_title != '' ? ': '
-                . $key_ordered_current_val_title : '') . '" onclick="formupdate(\''
-                . md5($field) . '\', \''
-                . PMA_jsFormat($key_ordered_current_key, false)
-                . '\'); return false;">'
-                . $key_ordered_current_val . '</a>'
-                . ($key_ordered_current_equals_data ? '</strong>' : '')
-                . '</td>';
-
+            $output .= PMA_getHtmlForColumnElement(
+                'class="nowrap"', $key_ordered_current_equals_data,
+                $key_ordered_current_key, $key_ordered_current_val_title, $field
+            );
+            
+            $output .= PMA_getHtmlForColumnElement(
+                '', $key_ordered_current_equals_data,
+                $key_ordered_current_val, $key_ordered_current_val_title, $field
+            );
+            
             $output .= '<td width="20%">'
                 . '<img src="' . $GLOBALS['pmaThemeImage'] . 'spacer.png" alt=""'
                 . ' width="1" height="1" /></td>';
 
-            $output .= '<td>'
-                . ($val_ordered_current_equals_data ? '<strong>' : '')
-                . '<a href="#" title="' . __('Use this value')
-                .  ($val_ordered_current_val_title != '' ? ': '
-                . $val_ordered_current_val_title : '')
-                . '" onclick="formupdate(\''
-                . md5($field) . '\', \''
-                . PMA_jsFormat($val_ordered_current_key, false)
-                . '\'); return false;">'
-                . $val_ordered_current_val . '</a>'
-                . ($val_ordered_current_equals_data ? '</strong>' : '')
-                . '</td>';
+            $output .= PMA_getHtmlForColumnElement(
+                '', $val_ordered_current_equals_data,
+                $val_ordered_current_val, $val_ordered_current_val_title, $field
+            );
 
-            $output .= '<td class="nowrap">'
-                . ($val_ordered_current_equals_data ? '<strong>' : '')
-                . '<a href="#" title="' . __('Use this value')
-                . ($val_ordered_current_val_title != ''
-                    ? ': ' . $val_ordered_current_val_title : '')
-                . '" onclick="formupdate(\'' . md5($field) . '\', \''
-                . PMA_jsFormat($val_ordered_current_key, false)
-                . '\'); return false;">'
-                . htmlspecialchars($val_ordered_current_key)
-                . '</a>' . ($val_ordered_current_equals_data ? '</strong>' : '')
-                . '</td>';
+            $output .= PMA_getHtmlForColumnElement(
+                'class="nowrap"', $val_ordered_current_equals_data,
+                $val_ordered_current_key, $val_ordered_current_val_title, $field
+            );
             $output .= '</tr>';
         } // end while
     }
     $output .= '</tbody>'
         . '</table>';
+    
+    return $output;
+}
+
+/**
+ * Function to get html for each column element
+ * @param string $cssClass          class="nowrap" or ''
+ * @param bool   $currentEqualsData whether current equals data
+ * @param string $currentKey        current key
+ * @param string $currentTitle      current title
+ * @param string $field             field
+ * 
+ * @return string
+ */
+function PMA_getHtmlForColumnElement($cssClass, $currentEqualsData, $currentKey,
+    $currentTitle, $field
+){
+    $output = '<td ' . $cssClass . '>'
+        . ($currentEqualsData ? '<strong>' : '')
+        . '<a href="#" title="' . __('Use this value')
+        . ($currentTitle != ''
+            ? ': ' . $currentTitle
+            : '')
+        . '" onclick="formupdate(\'' . md5($field) . '\', \''
+        . PMA_jsFormat($currentKey, false)
+        . '\'); return false;">';
+    if ($cssClass == '') {
+        $currentKey = htmlspecialchars($currentKey);
+    }
+    
+    $output .= $currentKey . '</a>'
+        . ($currentEqualsData ? '</strong>' : '')
+        . '</td>';
     
     return $output;
 }
