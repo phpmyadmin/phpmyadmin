@@ -2656,7 +2656,7 @@ class PMA_Util
      * @param boolean $escape_label    whether to use htmlspecialchars() on label
      * @param string  $class           enclose each choice with a div of this class
      *
-     * @return string                  set of html radio fiels
+     * @return string                  set of html radio fields
      */
     public static function getRadioFields(
         $html_field_name, $choices, $checked_choice = '',
