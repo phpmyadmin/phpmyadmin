@@ -19,6 +19,7 @@ require_once 'libraries/Message.class.php';
 require_once 'libraries/sanitizing.lib.php';
 require_once 'libraries/sqlparser.lib.php';
 require_once 'libraries/js_escape.lib.php';
+require_once 'libraries/database_interface.inc.php';
 
 /**
  * PMA_ServerBinlog_Test class
@@ -199,6 +200,67 @@ class PMA_ServerBinlog_Test extends PHPUnit_Framework_TestCase
         );
         $this->assertContains(
             'Original position',
+            $html
+        );
+    }
+
+    /**
+     * Test for PMA_getAllLogItemInfo
+     *
+     * @return void
+     */
+    public function testPMAGetAllLogItemInfo()
+    {
+        //Mock DBI
+        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+            ->disableOriginalConstructor()
+            ->getMock();
+
+        $fetchAssoc = array(
+            'Info' => 'Info',
+            'Log_name' => 'Log_name',
+            'Pos' => 'Pos',
+            'Event_type' => 'Event_type',
+            'Server_id' => 'Server_id',
+            'Orig_log_pos' => 'Orig_log_pos',
+            'End_log_pos' => 'End_log_pos',
+        );
+        $dbi->expects($this->at(0))->method('fetchAssoc')
+            ->will($this->returnValue($fetchAssoc));
+
+        $dbi->expects($this->at(1))->method('fetchAssoc')
+            ->will($this->returnValue(false));
+
+        $GLOBALS['dbi'] = $dbi;
+        $GLOBALS['cfg']['LimitChars'] = 2;
+
+        $result = array();
+        $dontlimitchars = ";";
+
+        $html = PMA_getAllLogItemInfo($result, $dontlimitchars);
+        $value = $fetchAssoc;
+        $this->assertContains(
+            $value['Log_name'],
+            $html
+        );
+        $this->assertContains(
+            $value['Pos'],
+            $html
+        );
+        $this->assertContains(
+            $value['Event_type'],
+            $html
+        );
+        $this->assertContains(
+            $value['Server_id'],
+            $html
+        );
+        $this->assertContains(
+            $value['Orig_log_pos'],
+            $html
+        );
+        $this->assertContains(
+            htmlspecialchars($value['Info']),
             $html
         );
     }
