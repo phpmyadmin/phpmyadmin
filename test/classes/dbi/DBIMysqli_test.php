@@ -85,18 +85,36 @@ class PMA_DBI_Mysqli_Test extends PHPUnit_Framework_TestCase
         }
 
         //FOR UT, we just test the right mysql client API is called
-        runkit_function_redefine('mysqli_real_connect','','return "mysqli_real_connect";');
-        runkit_function_redefine('mysqli_init','','return "mysqli_init";');
-        runkit_function_redefine('mysqli_options','','return "mysqli_options";');
-        runkit_function_redefine('mysqli_query','','return "mysqli_query";');
-        runkit_function_redefine('mysqli_multi_query','','return "mysqli_multi_query";');
-        runkit_function_redefine('mysqli_fetch_array','','return "mysqli_fetch_array";');
-        runkit_function_redefine('mysqli_data_seek','','return "mysqli_data_seek";');
-        runkit_function_redefine('mysqli_more_results','','return "mysqli_more_results";');
-        runkit_function_redefine('mysqli_next_result','','return "mysqli_next_result";');
-        runkit_function_redefine('mysqli_get_host_info','','return "mysqli_get_host_info";');
-        runkit_function_redefine('mysqli_get_proto_info','','return "mysqli_get_proto_info";');
-        runkit_function_redefine('mysqli_get_client_info','','return "mysqli_get_client_info";');
+        runkit_function_redefine(
+            'mysqli_real_connect', '', 'return "mysqli_real_connect";'
+        );
+        runkit_function_redefine('mysqli_init', '', 'return "mysqli_init";');
+        runkit_function_redefine('mysqli_options', '', 'return "mysqli_options";');
+        runkit_function_redefine('mysqli_query', '', 'return "mysqli_query";');
+        runkit_function_redefine(
+            'mysqli_multi_query', '', 'return "mysqli_multi_query";'
+        );
+        runkit_function_redefine(
+            'mysqli_fetch_array', '', 'return "mysqli_fetch_array";'
+        );
+        runkit_function_redefine(
+            'mysqli_data_seek', '', 'return "mysqli_data_seek";'
+        );
+        runkit_function_redefine(
+            'mysqli_more_results', '', 'return "mysqli_more_results";'
+        );
+        runkit_function_redefine(
+            'mysqli_next_result', '', 'return "mysqli_next_result";'
+        );
+        runkit_function_redefine(
+            'mysqli_get_host_info', '', 'return "mysqli_get_host_info";'
+        );
+        runkit_function_redefine(
+            'mysqli_get_proto_info', '', 'return "mysqli_get_proto_info";'
+        );
+        runkit_function_redefine(
+            'mysqli_get_client_info', '', 'return "mysqli_get_client_info";'
+        );
 
         $user = 'PMA_user';
         $password = 'PMA_password';
