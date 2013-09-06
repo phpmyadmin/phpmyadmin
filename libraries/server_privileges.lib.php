@@ -2012,7 +2012,8 @@ function PMA_getHtmlForSpecificTablePrivileges($db, $table)
  *
  * @return string $html_output
  */
-function PMA_getHtmlTableBodyForSpecificDbOrTablePrivs($privMap, $db, $table = null) {
+function PMA_getHtmlTableBodyForSpecificDbOrTablePrivs($privMap, $db, $table = null)
+{
     $html_output = '<tbody>';
     $odd_row = true;
     if (! empty($privMap)) {
