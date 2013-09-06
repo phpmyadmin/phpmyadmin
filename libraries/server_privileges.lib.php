@@ -2069,7 +2069,7 @@ function PMA_getHtmlTableBodyForSpecificDbOrTablePrivs($privMap, $db, $table = n
                         $privList = explode(',', $current['Table_priv']);
                         $privs = array();
                         $grantsArr = PMA_getTableGrantsArray();
-                        foreach($grantsArr as $grant) {
+                        foreach ($grantsArr as $grant) {
                             $privs[$grant[0]] = 'N';
                             foreach ($privList as $priv) {
                                 if ($grant[0] == $priv) {
