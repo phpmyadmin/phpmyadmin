@@ -1957,7 +1957,8 @@ function PMA_getHtmlForSpecificTablePrivileges($db, $table)
         $privMap[$user][$host][] = $row;
     }
 
-    $sql_query = "SELECT `User`, `Host`, `Db`, 't' AS `Type`, `Table_name`, `Table_priv`"
+    $sql_query = "SELECT `User`, `Host`, `Db`,"
+        . " 't' AS `Type`, `Table_name`, `Table_priv`"
         . " FROM `mysql`.`tables_priv`"
         . " WHERE '" . PMA_Util::sqlAddSlashes($db) . "' LIKE `Db`"
         . "     AND '" . PMA_Util::sqlAddSlashes($table) . "' LIKE `Table_name`"
