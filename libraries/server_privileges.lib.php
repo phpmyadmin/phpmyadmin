@@ -1828,14 +1828,14 @@ function PMA_getHtmlForSpecificDbPrivileges($db)
     list($list_of_privileges, $list_of_compared_privileges)
         = PMA_getListOfPrivilegesAndComparedPrivileges();
 
-    $sql_query = '(SELECT ' . $list_of_privileges . ', `Db`'
+    $sql_query = '(SELECT ' . $list_of_privileges . ', `Db`, \'d\' AS `Type`'
         .' FROM `mysql`.`db`'
         .' WHERE \'' . PMA_Util::sqlAddSlashes($db)
         . "'"
         .' LIKE `Db`'
         .' AND NOT (' . $list_of_compared_privileges. ')) '
         .'UNION '
-        .'(SELECT ' . $list_of_privileges . ', \'*\' AS `Db`'
+        .'(SELECT ' . $list_of_privileges . ', \'*\' AS `Db`, \'g\' AS `Type`'
         .' FROM `mysql`.`user` '
         .' WHERE NOT (' . $list_of_compared_privileges . ')) '
         .' ORDER BY `User` ASC,'
@@ -1935,13 +1935,13 @@ function PMA_getHtmlForSpecificTablePrivileges($db, $table)
     list($list_of_privileges, $list_of_compared_privileges)
         = PMA_getListOfPrivilegesAndComparedPrivileges();
     $sql_query = "("
-        . " SELECT " . $list_of_privileges . ", '*' AS `Db`"
+        . " SELECT " . $list_of_privileges . ", '*' AS `Db`, 'g' AS `Type`"
         . " FROM `mysql`.`user`"
         . " WHERE NOT (" . $list_of_compared_privileges . ")"
         . ")"
         . " UNION "
         . "("
-        . " SELECT " . $list_of_privileges . ", `Db`"
+        . " SELECT " . $list_of_privileges . ", `Db`, 'd' AS `Type`"
         . " FROM `mysql`.`db`"
         . " WHERE '" . PMA_Util::sqlAddSlashes($db) . "' LIKE `Db`"
         . "     AND NOT (" . $list_of_compared_privileges. ")"
@@ -1962,7 +1962,7 @@ function PMA_getHtmlForSpecificTablePrivileges($db, $table)
         $privMap[$user][$host][] = $row;
     }
 
-    $sql_query = "SELECT `User`, `Host`, `Db`, `Table_name`, `Table_priv`"
+    $sql_query = "SELECT `User`, `Host`, `Db`, 't' AS `Type`, `Table_name`, `Table_priv`"
         . " FROM `mysql`.`tables_priv`"
         . " WHERE '" . PMA_Util::sqlAddSlashes($db) . "' LIKE `Db`"
         . "     AND '" . PMA_Util::sqlAddSlashes($table) . "' LIKE `Table_name`"
@@ -1991,7 +1991,7 @@ function PMA_getHtmlForSpecificTablePrivileges($db, $table)
 
     // Offer to create a new user for the current database
     $html_output .= '<fieldset id="fieldset_add_user">'
-       . '<legend>' . _pgettext('Create new user', 'New') . '</legend>';
+        . '<legend>' . _pgettext('Create new user', 'New') . '</legend>';
     $html_output .= '<a href="server_privileges.php'
         . PMA_URL_getCommon(
             array(
@@ -2057,21 +2057,19 @@ function PMA_getHtmlTableBodyForSpecificDbOrTablePrivs($privMap, $db, $table = n
 
                     // type
                     $html_output .= '<td>';
-                    if ($current['Db'] == '*') {
+                    if ($current['Type'] == 'g') {
                         $html_output .= __('global');
-                    } elseif ($current['Db'] == PMA_Util::escapeMysqlWildcards($db)) {
-                        if (isset($current['Table_name'])
-                            && $current['Table_name'] == $table
-                        ) {
-                            $html_output .= __('table-specific');
-                        } else {
+                    } elseif ($current['Type'] == 'd') {
+                        if ($current['Db'] == PMA_Util::escapeMysqlWildcards($db)) {
                             $html_output .= __('database-specific');
+                        } else {
+                            $html_output .= __('wildcard'). ': '
+                                . '<code>'
+                                . htmlspecialchars($current['Db'])
+                                . '</code>';
                         }
-                    } else {
-                        $html_output .= __('wildcard'). ': '
-                            . '<code>'
-                            . htmlspecialchars($current['Db'])
-                            . '</code>';
+                    } elseif ($current['Type'] == 't') {
+                        $html_output .= __('table-specific');
                     }
                     $html_output .= '</td>';
 
