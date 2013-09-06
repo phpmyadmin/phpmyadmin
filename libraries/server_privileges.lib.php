@@ -2000,8 +2000,9 @@ function PMA_getHtmlForSpecificTablePrivileges($db, $table)
                 'tablename' => $table
             )
         )
-        .'" rel="'
-        . PMA_URL_getCommon(array('checkprivsdb' => $db, 'checkprivstable' => $table))
+        . '" rel="' . PMA_URL_getCommon(
+            array('checkprivsdb' => $db, 'checkprivstable' => $table)
+        )
         . '" class="ajax" name="table_specific">'
         . PMA_Util::getIcon('b_usradd.png') . __('Add user') . '</a>';
 
@@ -2122,11 +2123,16 @@ function PMA_getHtmlTableBodyForSpecificDbOrTablePrivs($privMap, $db, $table = n
 
                     // action
                     $html_output .= '<td>';
+                    $specific_db = (isset($current['Db']) && $current['Db'] != '*')
+                        ? $current['Db'] : '';
+                    $specific_table = (isset($current['Table_name'])
+                        && $current['Table_name'] != '*')
+                        ? $current['Table_name'] : '';
                     $html_output .= PMA_getUserEditLink(
                         $current_user,
                         $current_host,
-                        (isset($current['Db']) && $current['Db'] != '*') ? $current['Db'] : '',
-                        (isset($current['Table_name']) && $current['Table_name'] != '*') ? $current['Table_name'] : ''
+                        $specific_db,
+                        $specific_table
                     );
                     $html_output .= '</td>';
 
