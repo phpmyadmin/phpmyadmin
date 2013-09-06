@@ -4526,11 +4526,13 @@ function PMA_getHtmlForSubMenusOnUsersPage($selfUrl)
     $items = array(
         array(
             'name' => __('Users overview'),
-            'url' => 'server_privileges.php'
+            'url' => 'server_privileges.php',
+            'specific_params' => '&viewing_mode=server'
         ),
         array(
             'name' => __('User groups'),
-            'url' => 'server_user_groups.php'
+            'url' => 'server_user_groups.php',
+            'specific_params' => ''
         )
     );
 
@@ -4542,7 +4544,8 @@ function PMA_getHtmlForSubMenusOnUsersPage($selfUrl)
         }
         $retval .= '<li>';
         $retval .= '<a' . $class;
-        $retval .= ' href="' . $item['url'] . '?' . $url_params . '">';
+        $retval .= ' href="' . $item['url']
+            . '?' . $url_params . $item['specific_params'] . '">';
         $retval .= $item['name'];
         $retval .= '</a>';
         $retval .= '</li>';
