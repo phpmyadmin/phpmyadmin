@@ -2060,7 +2060,7 @@ function PMA_getHtmlTableBodyForSpecificDbOrTablePrivs($privMap, $db, $table = n
                         $html_output .= __('global');
                     } elseif ($current['Db'] == PMA_Util::escapeMysqlWildcards($db)) {
                         if (isset($current['Table_name'])
-                            && $current['Table_name'] == PMA_Util::escapeMysqlWildcards($table)
+                            && $current['Table_name'] == $table
                         ) {
                             $html_output .= __('table-specific');
                         } else {
