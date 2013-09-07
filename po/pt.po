@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-07-29 15:07+0200\n"
-"PO-Revision-Date: 2013-08-11 13:38+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"PO-Revision-Date: 2013-09-07 12:12+0200\n"
+"Last-Translator: João Rodrigues <diogo2pt@gmail.com>\n"
 "Language-Team: Portuguese "
 "<http://l10n.cihar.com/projects/phpmyadmin/4-0/pt/>\n"
 "Language: pt\n"
@@ -36,9 +36,10 @@ msgid ""
 "parent window, or your browser's security settings are configured to block "
 "cross-window updates."
 msgstr ""
-"A janela de destino no seu browser não pode ser actualizada. Talvez tenha "
-"fechado a janela que a originou, ou as configurações de segurança do seu "
-"browser encontram-se definidas para não permitir actualizações entre janelas."
+"Não foi possível actualizar a janela de destino do seu navegador. Talvez "
+"você tenha fechado a janela que a originou, ou as configurações de segurança "
+"do seu navegador encontram-se definidas para não permitir actualizações "
+"entre janelas."
 
 #: browse_foreigners.php:182 libraries/Menu.class.php:280
 #: libraries/Menu.class.php:365 libraries/Util.class.php:3245
@@ -87,7 +88,7 @@ msgstr "Executar"
 #: browse_foreigners.php:197 browse_foreigners.php:201
 #: libraries/Index.class.php:561 tbl_tracking.php:381
 msgid "Keyname"
-msgstr "Nome do Índice"
+msgstr "Nome da chave"
 
 #: browse_foreigners.php:198 browse_foreigners.php:200
 #: server_collations.php:39 server_collations.php:51 server_engines.php:42
@@ -98,7 +99,7 @@ msgstr "Descrição"
 #: browse_foreigners.php:284 browse_foreigners.php:296
 #: browse_foreigners.php:312 browse_foreigners.php:324
 msgid "Use this value"
-msgstr "Usar este valor"
+msgstr "Utilizar este valor"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -106,8 +107,8 @@ msgid ""
 "The %s file is not available on this system, please visit www.phpmyadmin.net "
 "for more information."
 msgstr ""
-"O ficheiro %s não está disponível no seu sistema, por favor visite www."
-"phpmyadmin.net para mais informações."
+"O ficheiro %s não está disponível no seu sistema. Para mais informações, "
+"visite www.phpmyadmin.net."
 
 #: db_create.php:74
 #, php-format
@@ -116,7 +117,7 @@ msgstr "A base de dados %1$s foi criada."
 
 #: db_datadict.php:51 libraries/operations.lib.php:36
 msgid "Database comment: "
-msgstr "Comentário da Base de Dados: "
+msgstr "Comentário da base de dados: "
 
 #: db_datadict.php:157 libraries/operations.lib.php:808
 #: libraries/schema/Pdf_Relation_Schema.class.php:1339
@@ -196,7 +197,7 @@ msgstr "Nulo"
 #: libraries/tbl_columns_definition_form.inc.php:107 tbl_printview.php:133
 #: tbl_tracking.php:327
 msgid "Default"
-msgstr "Omissão"
+msgstr "Predefinido"
 
 #: db_datadict.php:174 libraries/plugins/export/ExportHtmlword.class.php:404
 #: libraries/plugins/export/ExportLatex.class.php:513
@@ -205,7 +206,7 @@ msgstr "Omissão"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1371
 #: libraries/schema/Pdf_Relation_Schema.class.php:1394 tbl_printview.php:135
 msgid "Links to"
-msgstr "Links para"
+msgstr "Ligações para"
 
 #: db_datadict.php:176 db_printview.php:107
 #: libraries/config/messages.inc.php:94 libraries/config/messages.inc.php:109
@@ -280,15 +281,15 @@ msgstr "Nenhuma tabela encontrada na base de dados."
 
 #: db_export.php:40 libraries/DbSearch.class.php:438 server_export.php:25
 msgid "Select All"
-msgstr "Selecciona Todas"
+msgstr "Seleccionar tudo"
 
 #: db_export.php:45 libraries/DbSearch.class.php:441 server_export.php:30
 msgid "Unselect All"
-msgstr "Limpa Todas as Selecções"
+msgstr "Desseleccionar tudo"
 
 #: db_operations.php:45 tbl_create.php:22
 msgid "The database name is empty!"
-msgstr "O nome da base de dados está vazia!"
+msgstr "O nome da base de dados está vazio!"
 
 #: db_operations.php:129
 #, php-format
@@ -306,8 +307,8 @@ msgid ""
 "The phpMyAdmin configuration storage has been deactivated. To find out why "
 "click %shere%s."
 msgstr ""
-"As configurações do phpMyAdmin para trabalhar com ligações entre Tabelas "
-"foram desactivadas. Para saber porquê carregue %shere%s."
+"O armazenamento da configuração do phpMyAdmin foi desactivado. Para saber "
+"porquê clique %shere%s."
 
 #: db_printview.php:99 db_tracking.php:79 db_tracking.php:204
 #: libraries/Menu.class.php:207 libraries/config/messages.inc.php:512
@@ -336,7 +337,7 @@ msgstr "Tamanho"
 #: db_printview.php:159 libraries/plugins/export/ExportSql.class.php:1032
 #: libraries/structure.lib.php:731
 msgid "in use"
-msgstr "em uso"
+msgstr "em utilização"
 
 #: db_printview.php:185 libraries/Util.class.php:4104
 #: libraries/plugins/export/ExportSql.class.php:958
@@ -2389,7 +2390,7 @@ msgstr "todas as palavras"
 
 #: libraries/DbSearch.class.php:100 libraries/DbSearch.class.php:406
 msgid "the exact phrase"
-msgstr "a frase exata"
+msgstr "a frase exacta"
 
 #: libraries/DbSearch.class.php:101 libraries/DbSearch.class.php:407
 msgid "as regular expression"
@@ -2623,16 +2624,16 @@ msgstr ""
 "%sdocumentação%s."
 
 #: libraries/DisplayResults.class.php:4927
-#, fuzzy, php-format
+#, php-format
 #| msgid "Showing rows"
 msgid "Showing rows %1s - %2s"
-msgstr "Mostrando registos"
+msgstr "A mostrar registos de %1s - %2s"
 
 #: libraries/DisplayResults.class.php:4939
-#, fuzzy, php-format
+#, php-format
 #| msgid "total"
 msgid "%d total"
-msgstr "total"
+msgstr "%d total"
 
 #: libraries/DisplayResults.class.php:4951 sql.php:945
 #, php-format
@@ -3018,9 +3019,8 @@ msgid "Temporary data"
 msgstr "Dados temporários"
 
 #: libraries/ServerStatusData.class.php:189
-#, fuzzy
 msgid "Delayed inserts"
-msgstr "Delayed inserts"
+msgstr "Inserções atrasadas"
 
 #: libraries/ServerStatusData.class.php:190
 msgid "Key cache"
@@ -3028,7 +3028,7 @@ msgstr "Chave da cache"
 
 #: libraries/ServerStatusData.class.php:191
 msgid "Joins"
-msgstr ""
+msgstr "Junções"
 
 #: libraries/ServerStatusData.class.php:193
 msgid "Sorting"
@@ -3060,24 +3060,24 @@ msgstr "Ver tabelas abertas"
 
 #: libraries/ServerStatusData.class.php:214
 msgid "Show slave hosts"
-msgstr ""
+msgstr "Mostrar anfitriões secundários"
 
 #: libraries/ServerStatusData.class.php:218 server_replication.php:170
 msgid "Show master status"
-msgstr ""
+msgstr "Ver estado do principal"
 
 #: libraries/ServerStatusData.class.php:221
 msgid "Show slave status"
-msgstr ""
+msgstr "Ver estado do secundário"
 
 #: libraries/ServerStatusData.class.php:226
 msgid "Flush query cache"
-msgstr ""
+msgstr "Libertar a cache da consulta"
 
 #: libraries/ServerStatusData.class.php:241
 #: libraries/engines/innodb.lib.php:148
 msgid "InnoDB Status"
-msgstr "Estado da InnoDB"
+msgstr "Estado do InnoDB"
 
 #: libraries/ServerStatusData.class.php:343
 msgid "Query statistics"
@@ -3085,15 +3085,15 @@ msgstr "Estatísticas de comandos"
 
 #: libraries/ServerStatusData.class.php:347
 msgid "All status variables"
-msgstr ""
+msgstr "Todas as variáveis de estado"
 
 #: libraries/ServerStatusData.class.php:351
 msgid "Monitor"
-msgstr ""
+msgstr "Monitor"
 
 #: libraries/ServerStatusData.class.php:355
 msgid "Advisor"
-msgstr ""
+msgstr "Conselheiro"
 
 #: libraries/StorageEngine.class.php:216
 msgid ""
@@ -3239,11 +3239,10 @@ msgid "Additional search criteria"
 msgstr "Critérios de pesquisa adicionais"
 
 #: libraries/TableSearch.class.php:1115
-#, fuzzy
 #| msgid "Do a \"query by example\" (wildcard: \"%\")"
 msgid "Do a \"query by example\" (wildcard: \"%\") for two different columns"
 msgstr ""
-"Faça uma \"pesquisa por formulário\" (caractere universal: \"%\") para duas "
+"Faça uma \"pesquisa por formulário\" (carácter universal: \"%\") para duas "
 "colunas diferentes"
 
 #: libraries/TableSearch.class.php:1125
@@ -3251,19 +3250,17 @@ msgid "Do a \"query by example\" (wildcard: \"%\")"
 msgstr "Faça uma \"pesquisa por formulário\" (caractere universal: \"%\")"
 
 #: libraries/TableSearch.class.php:1169
-#, fuzzy
 msgid "Browse/Edit the points"
-msgstr "Listar/Editar os pontos"
+msgstr "Navegar/editar os pontos"
 
 #: libraries/TableSearch.class.php:1176
 msgid "How to use"
 msgstr "Como usar"
 
 #: libraries/TableSearch.class.php:1181
-#, fuzzy
 #| msgid "Reset"
 msgid "Reset zoom"
-msgstr "Limpa"
+msgstr "Restaurar ampliação"
 
 #: libraries/Theme.class.php:170
 #, php-format
@@ -3301,30 +3298,41 @@ msgstr "Tema"
 msgid ""
 "A 1-byte integer, signed range is -128 to 127, unsigned range is 0 to 255"
 msgstr ""
+"Um inteiro de 1 byte, a gama atribuída é de -128 a 127, a gama não atribuída "
+"é de 0 a 255"
 
 #: libraries/Types.class.php:298
 msgid ""
 "A 2-byte integer, signed range is -32,768 to 32,767, unsigned range is 0 to "
 "65,535"
 msgstr ""
+"Um inteiro de 2 byte, a gama atribuída é de -32,768 a 32,767, a gama não "
+"atribuída é de 0 a 65,535"
 
 #: libraries/Types.class.php:300
 msgid ""
 "A 3-byte integer, signed range is -8,388,608 to 8,388,607, unsigned range is "
 "0 to 16,777,215"
 msgstr ""
+"Um inteiro de 3 byte, a gama atribuída é de -8,388,608 a 8,388,607, a gama "
+"não atribuída é de 0 a 16,777,215"
 
 #: libraries/Types.class.php:302
 msgid ""
 "A 4-byte integer, signed range is -2,147,483,648 to 2,147,483,647, unsigned "
 "range is 0 to 4,294,967,295."
 msgstr ""
+"Um inteiro de 4 byte, a gama atribuída é de -2,147,483,648 a 2,147,483,647, "
+"a gama não atribuída é de 0 a 4,294,967,295."
 
 #: libraries/Types.class.php:304
 msgid ""
 "An 8-byte integer, signed range is -9,223,372,036,854,775,808 to "
 "9,223,372,036,854,775,807, unsigned range is 0 to 18,446,744,073,709,551,615"
 msgstr ""
+"Um inteiro de 8 byte, a gama atribuída é de -9,223,372,036,854,775,808 a "
+"9,223,372,036,854,775,807, a gama não atribuída é de 0 a "
+"18,446,744,073,709,551,615"
 
 #: libraries/Types.class.php:306 libraries/Types.class.php:712
 msgid ""
@@ -3380,7 +3388,7 @@ msgstr "Uma data, intervalo suportado é %1$s até %2$s"
 #: libraries/Types.class.php:322 libraries/Types.class.php:724
 #, php-format
 msgid "A date and time combination, supported range is %1$s to %2$s"
-msgstr ""
+msgstr "Uma combinação de data e hora, o intervalo suportado é %1$s até %2$s"
 
 #: libraries/Types.class.php:324
 msgid ""
@@ -3536,25 +3544,22 @@ msgid "Numeric"
 msgstr ""
 
 #: libraries/Types.class.php:643 libraries/Types.class.php:977
-#, fuzzy
 #| msgid "Create an index"
 msgctxt "date and time types"
 msgid "Date and time"
-msgstr "Criar um novo índice"
+msgstr "Data e hora"
 
 #: libraries/Types.class.php:652 libraries/Types.class.php:980
-#, fuzzy
 #| msgid "Linestring"
 msgctxt "string types"
 msgid "String"
-msgstr "Segmento de Reta "
+msgstr "Segmento"
 
 #: libraries/Types.class.php:673
-#, fuzzy
 #| msgid "Total"
 msgctxt "spatial types"
 msgid "Spatial"
-msgstr "Total"
+msgstr "Espacial"
 
 #: libraries/Types.class.php:708
 msgid "A 4-byte integer, range is -2,147,483,648 to 2,147,483,647"
@@ -3791,7 +3796,6 @@ msgid "Could not load default configuration from: %1$s"
 msgstr "Não foi possível carregar configuração padrão de: \"%1$s\""
 
 #: libraries/common.inc.php:615
-#, fuzzy
 #| msgid ""
 #| "The <code>$cfg['PmaAbsoluteUri']</code> directive MUST be set in your "
 #| "configuration file!"
@@ -3799,7 +3803,7 @@ msgid ""
 "The [code]$cfg['PmaAbsoluteUri'][/code] directive MUST be set in your "
 "configuration file!"
 msgstr ""
-"A directiva <code>$cfg['PmaAbsoluteUri']</code> TEM que ser definida no "
+"A directiva [code]$cfg['PmaAbsoluteUri'][/code] TEM que ser definida no "
 "ficheiro de configuração!"
 
 #: libraries/common.inc.php:648
@@ -3842,12 +3846,12 @@ msgstr "Tecla numérica detectada"
 #: libraries/config.values.php:49 libraries/config.values.php:64
 #: libraries/config.values.php:69
 msgid "Icons"
-msgstr ""
+msgstr "Ícones"
 
 #: libraries/config.values.php:50 libraries/config.values.php:65
 #: libraries/config.values.php:70
 msgid "Text"
-msgstr ""
+msgstr "Texto"
 
 #: libraries/config.values.php:51 libraries/config.values.php:58
 #: libraries/config.values.php:66 libraries/config.values.php:71
@@ -6376,18 +6380,20 @@ msgid ""
 "The server is not responding (or the local server's socket is not correctly "
 "configured)."
 msgstr ""
+"O servidor não está a responder (ou o socket do servidor local está mal "
+"configurado)."
 
 #: libraries/database_interface.lib.php:2079
 msgid "The server is not responding."
-msgstr ""
+msgstr "O servidor não está a responder."
 
 #: libraries/database_interface.lib.php:2084
 msgid "Please check privileges of directory containing database."
-msgstr ""
+msgstr "Verifique quais os privilégios que o directório da base de dados tem."
 
 #: libraries/database_interface.lib.php:2094
 msgid "Details…"
-msgstr ""
+msgstr "Informações…"
 
 #: libraries/dbi/drizzle-wrappers.lib.php:387
 msgid "Can't seek in an unbuffered result set"
@@ -6523,10 +6529,9 @@ msgid "Dump some row(s)"
 msgstr ""
 
 #: libraries/display_export.lib.php:165
-#, fuzzy
 #| msgid "Number of rows per page"
 msgid "Number of rows:"
-msgstr "Número de registos por página"
+msgstr "Número de registos:"
 
 #: libraries/display_export.lib.php:177
 msgid "Row to begin at:"
@@ -12279,10 +12284,9 @@ msgid "No index defined! Create one below"
 msgstr "Nenhum indíce definido!"
 
 #: tbl_structure.php:125
-#, fuzzy
 #| msgid "No rows selected"
 msgid "No column selected."
-msgstr "Nenhum registo(linha) seleccionado"
+msgstr "Nenhuma coluna seleccionada."
 
 #: tbl_structure.php:149
 #, php-format
@@ -13383,10 +13387,9 @@ msgid "Slow launch time"
 msgstr ""
 
 #: libraries/advisory_rules.txt:386
-#, fuzzy
 #| msgid "long_query_time is set to %d second(s)."
 msgid "Slow_launch_threads is above 2s"
-msgstr "long_query_time está configurado para %d segundo(s)"
+msgstr "Slow_launch_threads está acima de 2s"
 
 #: libraries/advisory_rules.txt:387
 #, fuzzy
@@ -13397,10 +13400,10 @@ msgid ""
 msgstr "Tabelas em tracking"
 
 #: libraries/advisory_rules.txt:388
-#, fuzzy, php-format
+#, php-format
 #| msgid "long_query_time is set to %d second(s)."
 msgid "slow_launch_time is set to %s"
-msgstr "long_query_time está configurado para %d segundo(s)"
+msgstr "slow_launch_time está definido como %s"
 
 #: libraries/advisory_rules.txt:392
 #, fuzzy
@@ -13504,10 +13507,9 @@ msgid "Is InnoDB disabled?"
 msgstr ""
 
 #: libraries/advisory_rules.txt:432
-#, fuzzy
 #| msgid "Could not save recent table"
 msgid "You do not have InnoDB enabled."
-msgstr "Não foi possível salvar a tabela recente"
+msgstr "Não possui o InnoDB activo."
 
 #: libraries/advisory_rules.txt:433
 msgid "InnoDB is usually the better choice for table engines."
