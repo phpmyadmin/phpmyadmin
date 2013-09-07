@@ -1929,8 +1929,8 @@ function PMA_getHtmlForSpecificTablePrivileges($db, $table)
 
     list($list_of_privileges, $list_of_compared_privileges)
         = PMA_getListOfPrivilegesAndComparedPrivileges();
-    $sql_query =
-          "("
+    $sql_query
+        = "("
         . " SELECT " . $list_of_privileges . ", '*' AS `Db`"
         . " FROM `mysql`.`user`"
         . " WHERE NOT (" . $list_of_compared_privileges . ")"
