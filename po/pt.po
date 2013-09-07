@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-08-18 06:16-0400\n"
 "PO-Revision-Date: 2013-09-07 11:49+0200\n"
-"Last-Translator: João Rodrigues <diogo2pt@gmail.com>\n"
+"Last-Translator: Jonadabe PT <jonadabe@hotmail.com>\n"
 "Language-Team: Portuguese "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/pt/>\n"
 "Language: pt\n"
@@ -3409,10 +3409,9 @@ msgid "How to use"
 msgstr "Como usar"
 
 #: libraries/TableSearch.class.php:1222
-#, fuzzy
 #| msgid "Reset"
 msgid "Reset zoom"
-msgstr "Limpa"
+msgstr "Restaurar ampliação"
 
 #: libraries/TableSearch.class.php:1279
 #, fuzzy
