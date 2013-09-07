@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-08-18 06:16-0400\n"
-"PO-Revision-Date: 2013-09-07 11:20+0200\n"
-"Last-Translator: Jose Machado <jca_machado@msn.com>\n"
+"PO-Revision-Date: 2013-09-07 11:42+0200\n"
+"Last-Translator: João Rodrigues <diogo2pt@gmail.com>\n"
 "Language-Team: Portuguese "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/pt/>\n"
 "Language: pt\n"
@@ -197,7 +197,7 @@ msgstr "Nulo"
 #: libraries/tbl_columns_definition_form.lib.php:288 tbl_printview.php:133
 #: tbl_tracking.php:329
 msgid "Default"
-msgstr "Omissão"
+msgstr "Predefinido"
 
 #: db_datadict.php:173 libraries/plugins/export/ExportHtmlword.class.php:406
 #: libraries/plugins/export/ExportLatex.class.php:515
@@ -206,7 +206,7 @@ msgstr "Omissão"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1384
 #: libraries/schema/Pdf_Relation_Schema.class.php:1407 tbl_printview.php:135
 msgid "Links to"
-msgstr "Links para"
+msgstr "Ligações para"
 
 #: db_datadict.php:175 db_printview.php:53
 #: libraries/config/messages.inc.php:94 libraries/config/messages.inc.php:109
@@ -282,16 +282,16 @@ msgstr "Nenhuma tabela encontrada na base de dados."
 #: db_export.php:41 libraries/DbSearch.class.php:438
 #: libraries/display_export.lib.php:42
 msgid "Select All"
-msgstr "Selecciona Todas"
+msgstr "Seleccionar tudo"
 
 #: db_export.php:47 libraries/DbSearch.class.php:441
 #: libraries/display_export.lib.php:48
 msgid "Unselect All"
-msgstr "Limpa Todas as Selecções"
+msgstr "Desseleccionar tudo"
 
 #: db_operations.php:45 tbl_create.php:24
 msgid "The database name is empty!"
-msgstr "O nome da base de dados está vazia!"
+msgstr "O nome da base de dados está vazio!"
 
 #: db_operations.php:130
 #, php-format
@@ -309,8 +309,8 @@ msgid ""
 "The phpMyAdmin configuration storage has been deactivated. To find out why "
 "click %shere%s."
 msgstr ""
-"As configurações do phpMyAdmin para trabalhar com ligações entre Tabelas "
-"foram desactivadas. Para saber porquê carregue %shere%s."
+"O armazenamento da configuração do phpMyAdmin foi desactivado. Para saber "
+"porquê clique %shere%s."
 
 #: db_printview.php:47 db_tracking.php:81 db_tracking.php:204
 #: libraries/Menu.class.php:240 libraries/config/messages.inc.php:521
@@ -339,7 +339,7 @@ msgstr "Tamanho"
 #: db_printview.php:97 libraries/plugins/export/ExportSql.class.php:1115
 #: libraries/structure.lib.php:731
 msgid "in use"
-msgstr "em uso"
+msgstr "em utilização"
 
 #: db_printview.php:117 libraries/plugins/export/ExportSql.class.php:1041
 #: libraries/schema/Pdf_Relation_Schema.class.php:1357
@@ -349,12 +349,12 @@ msgstr "Criação:"
 #: db_printview.php:126 libraries/plugins/export/ExportSql.class.php:1054
 #: libraries/schema/Pdf_Relation_Schema.class.php:1362
 msgid "Last update:"
-msgstr "Última atualização:"
+msgstr "Última actualização:"
 
 #: db_printview.php:135 libraries/plugins/export/ExportSql.class.php:1067
 #: libraries/schema/Pdf_Relation_Schema.class.php:1367
 msgid "Last check:"
-msgstr "Última Verificação:"
+msgstr "Última verificação:"
 
 #: db_printview.php:149 libraries/structure.lib.php:176
 #, php-format
@@ -530,10 +530,10 @@ msgid "SRID:"
 msgstr "SRID:"
 
 #: gis_data_editor.php:184
-#, fuzzy, php-format
+#, php-format
 #| msgid "Geometry"
 msgid "Geometry %d:"
-msgstr "Geometria"
+msgstr "Geometria %d:"
 
 #: gis_data_editor.php:206
 msgid "Point:"
@@ -561,22 +561,21 @@ msgid "Add a point"
 msgstr "Adicionar um ponto"
 
 #: gis_data_editor.php:262
-#, fuzzy, php-format
+#, php-format
 #| msgid "Linestring"
 msgid "Linestring %d:"
-msgstr "Segmento de Reta"
+msgstr "Segmento de reta %d:"
 
 #: gis_data_editor.php:265 gis_data_editor.php:341
-#, fuzzy
 #| msgid "Outer Ring"
 msgid "Outer ring:"
-msgstr "Anel Exterior"
+msgstr "Anel exterior:"
 
 #: gis_data_editor.php:267 gis_data_editor.php:343
-#, fuzzy, php-format
+#, php-format
 #| msgid "Inner Ring"
 msgid "Inner ring %d:"
-msgstr "Anel Interior"
+msgstr "Anel interior %d:"
 
 #: gis_data_editor.php:303
 msgid "Add a linestring"
@@ -587,10 +586,10 @@ msgid "Add an inner ring"
 msgstr "Adicionar um anel interior"
 
 #: gis_data_editor.php:325
-#, fuzzy, php-format
+#, php-format
 #| msgid "Polygon"
 msgid "Polygon %d:"
-msgstr "Polígono"
+msgstr "Polígono %d:"
 
 #: gis_data_editor.php:384 js/messages.php:325
 msgid "Add a polygon"
@@ -701,9 +700,8 @@ msgid "Back"
 msgstr "Voltar"
 
 #: index.php:115 libraries/Footer.class.php:72
-#, fuzzy
 msgid "phpMyAdmin Demo Server"
-msgstr "Documentação do phpMyAdmin"
+msgstr "Servidor demonstrativo do phpMyAdmin"
 
 #: index.php:119
 #, php-format
@@ -712,6 +710,9 @@ msgid ""
 "change root, debian-sys-maint and pma users. More information is available "
 "at %s."
 msgstr ""
+"Está a utilizar um servidor demonstrativo. Pode fazer tudo o que quiser, "
+"excepto, alterar os utilizadores root, debian-sys-maint e pma. Para mais "
+"informações, veja %s."
 
 #: index.php:129
 msgid "General Settings"
@@ -743,62 +744,54 @@ msgid "Server:"
 msgstr "Servidor:"
 
 #: index.php:256
-#, fuzzy
 #| msgid "Server type"
 msgid "Server type:"
-msgstr "Tipo de servidor"
+msgstr "Tipo de servidor:"
 
 #: index.php:260 libraries/plugins/export/ExportLatex.class.php:225
 #: libraries/plugins/export/ExportSql.class.php:630
 #: libraries/plugins/export/ExportXml.class.php:198
-#, fuzzy
 #| msgid "Server version"
 msgid "Server version:"
-msgstr "Versão do servidor"
+msgstr "Versão do servidor:"
 
 #: index.php:264
-#, fuzzy
 #| msgid "Protocol version"
 msgid "Protocol version:"
-msgstr "Versão do protocolo"
+msgstr "Versão do protocolo:"
 
 #: index.php:268
-#, fuzzy
 #| msgid "User"
 msgid "User:"
-msgstr "Utilizador"
+msgstr "Utilizador:"
 
 #: index.php:273
-#, fuzzy
 #| msgid "Server charset"
 msgid "Server charset:"
-msgstr "Conjunto de caracteres do servidor"
+msgstr "Conjunto de caracteres do servidor:"
 
 #: index.php:285
 msgid "Web server"
 msgstr "Servidor web"
 
 #: index.php:298
-#, fuzzy
 #| msgid "Database client version"
 msgid "Database client version:"
-msgstr "Versão do cliente de base de dados"
+msgstr "Versão do cliente de base de dados:"
 
 #: index.php:302
-#, fuzzy
 #| msgid "PHP extension"
 msgid "PHP extension:"
-msgstr "Extensão de PHP"
+msgstr "Extensão de PHP:"
 
 #: index.php:316
 msgid "Show PHP information"
 msgstr "Mostra informação do PHP"
 
 #: index.php:339
-#, fuzzy
 #| msgid "Version information"
 msgid "Version information:"
-msgstr "Informação de Versão"
+msgstr "Informação da versão:"
 
 #: index.php:348 libraries/Util.class.php:429 libraries/Util.class.php:496
 #: libraries/config/FormDisplay.tpl.php:149
@@ -886,7 +879,6 @@ msgstr ""
 "(blowfish_secret)."
 
 #: index.php:491
-#, fuzzy
 #| msgid ""
 #| "Directory [code]config[/code], which is used by the setup script, still "
 #| "exists in your phpMyAdmin directory. You should remove it once phpMyAdmin "
@@ -897,9 +889,11 @@ msgid ""
 "once phpMyAdmin has been configured. Otherwise the security of your server "
 "may be compromised by unauthorized people downloading your configuration."
 msgstr ""
-"A pasta [code]config[/code], que é usado pelo script de instalação, ainda "
-"existe na sua pasta phpMyAdmin. Deverá remover esta pasta depois de ter "
-"configurado o phpMyAdmin."
+"A pasta [code]config[/code], que é utilizada pelo script de instalação, "
+"ainda existe na sua pasta phpMyAdmin. É altamente recomendado que remova "
+"esta pasta depois de ter configurado o phpMyAdmin. Caso contrário, a "
+"segurança do seu servidor pode ser comprometida por pessoas não autorizadas "
+"ao transferir a configuração."
 
 #: index.php:501
 #, php-format
@@ -935,7 +929,7 @@ msgstr "Os comandos \"DROP DATABASE\" estão inibidos."
 
 #: js/messages.php:35
 msgid "Confirm"
-msgstr ""
+msgstr "Confirmar"
 
 #: js/messages.php:36
 #, php-format
@@ -967,24 +961,23 @@ msgid "This operation could take a long time. Proceed anyway?"
 msgstr "Esta operação poderá demorar. Deseja prosseguir?"
 
 #: js/messages.php:44
-#, fuzzy, php-format
+#, php-format
 #| msgid "Do you really want to execute \"%s\"?"
 msgid "Do you really want to delete user group \"%s\"?"
-msgstr "Você realmente deseja executar \"%s\"?"
+msgstr "Deseja realmente eliminar o grupo de utilizadores \"%s\"?"
 
 #: js/messages.php:47
 msgid "Missing value in the form!"
 msgstr "Nº de dados insuficiente!"
 
 #: js/messages.php:48
-#, fuzzy
 #| msgid "Not a valid port number"
 msgid "Please enter a valid number"
-msgstr "Número de porta inválido"
+msgstr "Introduza um número válido"
 
 #: js/messages.php:49
 msgid "Please enter a valid length"
-msgstr ""
+msgstr "Introduza um comprimento válido"
 
 #: js/messages.php:50
 msgid "Add Index"
@@ -1781,16 +1774,14 @@ msgid "Show search criteria"
 msgstr "Mostrar critérios de busca"
 
 #: js/messages.php:286
-#, fuzzy
 #| msgid "Hide search criteria"
 msgid "Hide find and replace criteria"
-msgstr "Esconder critérios de buca"
+msgstr "Esconder critérios de localizar e substituir"
 
 #: js/messages.php:287
-#, fuzzy
 #| msgid "Show search criteria"
 msgid "Show find and replace criteria"
-msgstr "Mostrar critérios de busca"
+msgstr "Mostrar critérios de localizar e substituir"
 
 #: js/messages.php:290 libraries/TableSearch.class.php:212
 msgid "Zoom Search"
@@ -2003,10 +1994,9 @@ msgid "Hide Panel"
 msgstr "Esconder Painel"
 
 #: js/messages.php:379
-#, fuzzy
 #| msgid "Show logo in left frame"
 msgid "Show hidden navigation tree items"
-msgstr "Mostrar logotipo no quadro da esquerda"
+msgstr "Mostrar a navegação em árvore escondida"
 
 #: js/messages.php:382
 msgid "The requested page was not found in the history, it may have expired."
@@ -2335,12 +2325,12 @@ msgid "Unexpected characters on line %s."
 msgstr "Caracteres inesperados na linha %s."
 
 #: libraries/Advisor.class.php:437
-#, fuzzy, php-format
+#, php-format
 #| msgid "Unexpected character on line %1$s. Expected tab, but found \"%2$s\""
 msgid "Unexpected character on line %1$s. Expected tab, but found \"%2$s\"."
 msgstr ""
-"Caractere inesperado na linha %1$s. Esperada tabulação, mas encontrado \"%2$s"
-"\""
+"Carácter inesperado na linha %1$s. Era esperado uma tabulação, mas foi "
+"encontrado \"%2$s\"."
 
 #: libraries/Advisor.class.php:470
 msgid "per second"
@@ -2394,28 +2384,24 @@ msgid "Descending"
 msgstr "Descendente"
 
 #: libraries/DBQbe.class.php:364 libraries/TableSearch.class.php:1282
-#, fuzzy
 #| msgid "Column"
 msgid "Column:"
-msgstr "Coluna"
+msgstr "Coluna:"
 
 #: libraries/DBQbe.class.php:406
-#, fuzzy
 #| msgid "Sort"
 msgid "Sort:"
-msgstr "Ordenação"
+msgstr "Ordenação:"
 
 #: libraries/DBQbe.class.php:468
-#, fuzzy
 #| msgid "Show"
 msgid "Show:"
-msgstr "Mostrar"
+msgstr "Mostrar:"
 
 #: libraries/DBQbe.class.php:513
-#, fuzzy
 #| msgid "Criteria"
 msgid "Criteria:"
-msgstr "Critérios"
+msgstr "Critérios:"
 
 #: libraries/DBQbe.class.php:576
 msgid "Add/Delete criteria rows"
@@ -2434,14 +2420,13 @@ msgid "Use Tables"
 msgstr "Usar Tabelas"
 
 #: libraries/DBQbe.class.php:653 libraries/DBQbe.class.php:757
-#, fuzzy
 #| msgid "Or"
 msgid "Or:"
-msgstr "Ou"
+msgstr "Ou:"
 
 #: libraries/DBQbe.class.php:657 libraries/DBQbe.class.php:742
 msgid "And:"
-msgstr ""
+msgstr "E:"
 
 #: libraries/DBQbe.class.php:661
 msgid "Ins"
@@ -2452,18 +2437,17 @@ msgid "Del"
 msgstr "Elim"
 
 #: libraries/DBQbe.class.php:680
-#, fuzzy
 #| msgid "Modify"
 msgid "Modify:"
-msgstr "Modificar"
+msgstr "Modificar:"
 
 #: libraries/DBQbe.class.php:737
 msgid "Ins:"
-msgstr ""
+msgstr "Ins:"
 
 #: libraries/DBQbe.class.php:752
 msgid "Del:"
-msgstr ""
+msgstr "Elim:"
 
 #: libraries/DBQbe.class.php:1321
 #, php-format
@@ -2479,10 +2463,12 @@ msgid ""
 "The server is not responding (or the local server's socket is not correctly "
 "configured)."
 msgstr ""
+"O servidor não está a responder (ou o socket do servidor local está mal "
+"configurado)."
 
 #: libraries/DatabaseInterface.class.php:2033
 msgid "The server is not responding."
-msgstr ""
+msgstr "O servidor não está a responder."
 
 #: libraries/DatabaseInterface.class.php:2038
 msgid "Please check privileges of directory containing database."
@@ -2490,7 +2476,7 @@ msgstr ""
 
 #: libraries/DatabaseInterface.class.php:2048
 msgid "Details…"
-msgstr ""
+msgstr "Informações…"
 
 #: libraries/DbSearch.class.php:98 libraries/DbSearch.class.php:398
 msgid "at least one of the words"
@@ -2502,7 +2488,7 @@ msgstr "todas as palavras"
 
 #: libraries/DbSearch.class.php:100 libraries/DbSearch.class.php:406
 msgid "the exact phrase"
-msgstr "a frase exata"
+msgstr "a frase exacta"
 
 #: libraries/DbSearch.class.php:101 libraries/DbSearch.class.php:407
 msgid "as regular expression"
@@ -12421,10 +12407,9 @@ msgid "FOREIGN KEY relation added"
 msgstr "Relação FOREIGN KEY adicionada"
 
 #: pmd_relation_new.php:84
-#, fuzzy
 #| msgid "Error: Relation not added."
 msgid "Error: Relational features are disabled!"
-msgstr "Erro: Relação não adicionada."
+msgstr "Erro: as características relacionais estão desactivadas!"
 
 #: pmd_relation_new.php:100
 msgid "Internal relation added"
@@ -13045,10 +13030,9 @@ msgid "Choose column to display:"
 msgstr "Escolha a coluna para mostrar"
 
 #: tbl_structure.php:111
-#, fuzzy
 #| msgid "No rows selected"
 msgid "No column selected."
-msgstr "Nenhum registo(linha) seleccionado"
+msgstr "Nenhuma coluna seleccionada."
 
 #: tbl_tracking.php:136
 #, php-format
