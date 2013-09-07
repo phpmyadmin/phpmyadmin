@@ -1978,7 +1978,9 @@ function PMA_getHtmlForSpecificTablePrivileges($db, $table)
         $privMap[$user][$host][] = $row;
     }
 
-    $html_output .= PMA_getHtmlTableBodyForSpecificDbOrTablePrivs($privMap, $db, $table);
+    $html_output .= PMA_getHtmlTableBodyForSpecificDbOrTablePrivs(
+        $privMap, $db, $table
+    );
     $html_output .= '</table>';
     $html_output .= '</fieldset>';
     $html_output .= '</form>';
@@ -1995,7 +1997,9 @@ function PMA_getHtmlForSpecificTablePrivileges($db, $table)
             )
         )
         .'" rel="'
-        . PMA_URL_getCommon(array('checkprivsdb' => $db, 'checkprivstable' => $table))
+        . PMA_URL_getCommon(
+            array('checkprivsdb' => $db, 'checkprivstable' => $table)
+        )
         . '" class="ajax" name="table_specific">'
         . PMA_Util::getIcon('b_usradd.png') . __('Add user') . '</a>';
 
@@ -2019,7 +2023,8 @@ function PMA_getHtmlTableBodyForSpecificDbOrTablePrivs($privMap, $db, $table = n
     if (! empty($privMap)) {
         foreach ($privMap as $current_user => $val) {
             foreach ($val as $current_host => $current_privileges) {
-                $html_output .= '<tr class="noclick ' . ($odd_row ? 'odd' : 'even') . '">';
+                $html_output .= '<tr class="noclick '
+                    . ($odd_row ? 'odd' : 'even') . '">';
 
                 // user
                 $html_output .= '<td';
@@ -2028,7 +2033,8 @@ function PMA_getHtmlTableBodyForSpecificDbOrTablePrivs($privMap, $db, $table = n
                 }
                 $html_output .= '>';
                 if (empty($current_user)) {
-                    $html_output .= '<span style="color: #FF0000">' . __('Any') . '</span>';
+                    $html_output .= '<span style="color: #FF0000">'
+                        . __('Any') . '</span>';
                 } else {
                     $html_output .= htmlspecialchars($current_user);
                 }
@@ -2060,7 +2066,8 @@ function PMA_getHtmlTableBodyForSpecificDbOrTablePrivs($privMap, $db, $table = n
                         }
                     } else {
                         $html_output .= __('wildcard'). ': '
-                            . '<code>' . htmlspecialchars($current['Db']) . '</code>';
+                            . '<code>' . htmlspecialchars($current['Db'])
+                            . '</code>';
                     }
                     $html_output .= '</td>';
 
