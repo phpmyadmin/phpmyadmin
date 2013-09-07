@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-08-18 06:16-0400\n"
-"PO-Revision-Date: 2013-09-07 11:43+0200\n"
-"Last-Translator: Filipe Batista <geral@filipebatista.pt>\n"
+"PO-Revision-Date: 2013-09-07 11:49+0200\n"
+"Last-Translator: João Rodrigues <diogo2pt@gmail.com>\n"
 "Language-Team: Portuguese "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/pt/>\n"
 "Language: pt\n"
@@ -2597,16 +2597,14 @@ msgstr "Fim"
 
 #: libraries/DisplayResults.class.php:900 libraries/display_export.lib.php:322
 #: tbl_chart.php:245
-#, fuzzy
 #| msgid "Number of rows per page"
 msgid "Number of rows:"
-msgstr "Número de registos por página"
+msgstr "Número de registos:"
 
 #: libraries/DisplayResults.class.php:917
-#, fuzzy
 #| msgid "Mode"
 msgid "Mode:"
-msgstr "Modo"
+msgstr "Modo:"
 
 #: libraries/DisplayResults.class.php:919
 msgid "horizontal"
@@ -2730,16 +2728,16 @@ msgstr ""
 "%sdocumentação%s."
 
 #: libraries/DisplayResults.class.php:4865
-#, fuzzy, php-format
+#, php-format
 #| msgid "Showing rows"
 msgid "Showing rows %1s - %2s"
-msgstr "Mostrando registos"
+msgstr "A mostrar registos de %1s - %2s"
 
 #: libraries/DisplayResults.class.php:4877
-#, fuzzy, php-format
+#, php-format
 #| msgid "total"
 msgid "%d total"
-msgstr "total"
+msgstr "%d total"
 
 #: libraries/DisplayResults.class.php:4889 libraries/sql.lib.php:1641
 #, php-format
@@ -2871,10 +2869,9 @@ msgid "Currently running Git revision %1$s from the %2$s branch."
 msgstr ""
 
 #: libraries/Footer.class.php:83
-#, fuzzy
 #| msgid "Version information"
 msgid "Git information missing!"
-msgstr "Informação de Versão"
+msgstr "Falta informação!"
 
 #: libraries/Footer.class.php:163 libraries/Footer.class.php:167
 #: libraries/Footer.class.php:170
@@ -3160,9 +3157,8 @@ msgid "Temporary data"
 msgstr "Dados temporários"
 
 #: libraries/ServerStatusData.class.php:194
-#, fuzzy
 msgid "Delayed inserts"
-msgstr "Delayed inserts"
+msgstr "Inserções atrasadas"
 
 #: libraries/ServerStatusData.class.php:195
 msgid "Key cache"
@@ -3281,16 +3277,14 @@ msgid "Target database `%s` was not found!"
 msgstr "A base de dados de destino `%s` não foi encontrada!"
 
 #: libraries/Table.class.php:1239
-#, fuzzy
 #| msgid "Invalid database"
 msgid "Invalid database:"
-msgstr "Base de Dados inválida"
+msgstr "Base de dados inválida:"
 
 #: libraries/Table.class.php:1253
-#, fuzzy
 #| msgid "Invalid table name"
 msgid "Invalid table name:"
-msgstr "Nome de tabela inválido"
+msgstr "Nome da tabela inválido:"
 
 #: libraries/Table.class.php:1288
 #, php-format
@@ -3396,11 +3390,10 @@ msgid "Additional search criteria"
 msgstr "Critérios de pesquisa adicionais"
 
 #: libraries/TableSearch.class.php:1149
-#, fuzzy
 #| msgid "Do a \"query by example\" (wildcard: \"%\")"
 msgid "Do a \"query by example\" (wildcard: \"%\") for two different columns"
 msgstr ""
-"Faça uma \"pesquisa por formulário\" (caractere universal: \"%\") para duas "
+"Faça uma \"pesquisa por formulário\" (carácter universal: \"%\") para duas "
 "colunas diferentes"
 
 #: libraries/TableSearch.class.php:1159
@@ -3408,9 +3401,8 @@ msgid "Do a \"query by example\" (wildcard: \"%\")"
 msgstr "Faça uma \"pesquisa por formulário\" (caractere universal: \"%\")"
 
 #: libraries/TableSearch.class.php:1210
-#, fuzzy
 msgid "Browse/Edit the points"
-msgstr "Listar/Editar os pontos"
+msgstr "Navegar/editar os pontos"
 
 #: libraries/TableSearch.class.php:1217
 msgid "How to use"
@@ -14254,7 +14246,7 @@ msgstr ""
 #: libraries/advisory_rules.txt:432
 #| msgid "Could not save recent table"
 msgid "You do not have InnoDB enabled."
-msgstr "Não possui a opção InnoDB abilitada."
+msgstr "Não possui o InnoDB activo."
 
 #: libraries/advisory_rules.txt:433
 msgid "InnoDB is usually the better choice for table engines."
