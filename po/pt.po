@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-08-18 06:16-0400\n"
-"PO-Revision-Date: 2013-09-07 11:49+0200\n"
-"Last-Translator: Jonadabe PT <jonadabe@hotmail.com>\n"
+"PO-Revision-Date: 2013-09-07 11:59+0200\n"
+"Last-Translator: João Rodrigues <diogo2pt@gmail.com>\n"
 "Language-Team: Portuguese "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/pt/>\n"
 "Language: pt\n"
@@ -2472,7 +2472,7 @@ msgstr "O servidor não está a responder."
 
 #: libraries/DatabaseInterface.class.php:2038
 msgid "Please check privileges of directory containing database."
-msgstr ""
+msgstr "Verifique quais os privilégios que o directório da base de dados tem."
 
 #: libraries/DatabaseInterface.class.php:2048
 msgid "Details…"
@@ -3166,7 +3166,7 @@ msgstr "Chave da cache"
 
 #: libraries/ServerStatusData.class.php:196
 msgid "Joins"
-msgstr ""
+msgstr "Junções"
 
 #: libraries/ServerStatusData.class.php:198
 msgid "Sorting"
@@ -3199,16 +3199,16 @@ msgstr "Ver tabelas abertas"
 
 #: libraries/ServerStatusData.class.php:227
 msgid "Show slave hosts"
-msgstr ""
+msgstr "Mostrar anfitriões secundários"
 
 #: libraries/ServerStatusData.class.php:234
 #: libraries/replication_gui.lib.php:49
 msgid "Show master status"
-msgstr ""
+msgstr "Ver estado do principal"
 
 #: libraries/ServerStatusData.class.php:237
 msgid "Show slave status"
-msgstr ""
+msgstr "Ver estado do secundário"
 
 #: libraries/ServerStatusData.class.php:242
 msgid "Flush query cache"
@@ -3217,7 +3217,7 @@ msgstr ""
 #: libraries/ServerStatusData.class.php:261
 #: libraries/engines/innodb.lib.php:144
 msgid "InnoDB Status"
-msgstr "Estado da InnoDB"
+msgstr "Estado do InnoDB"
 
 #: libraries/ServerStatusData.class.php:368
 msgid "Query statistics"
@@ -3414,38 +3414,33 @@ msgid "Reset zoom"
 msgstr "Restaurar ampliação"
 
 #: libraries/TableSearch.class.php:1279
-#, fuzzy
 #| msgid "Replace NULL by"
 msgid "Replace with:"
-msgstr "Substituir NULL por"
+msgstr "Substituir por:"
 
 #: libraries/TableSearch.class.php:1339
 msgid "Find and replace - preview"
 msgstr ""
 
 #: libraries/TableSearch.class.php:1343
-#, fuzzy
 #| msgid "Column"
 msgid "Count"
-msgstr "Coluna"
+msgstr "Contagem"
 
 #: libraries/TableSearch.class.php:1344
-#, fuzzy
 #| msgid "Linestring"
 msgid "Original string"
-msgstr "Segmento de Reta"
+msgstr "Segmento original"
 
 #: libraries/TableSearch.class.php:1345
-#, fuzzy
 #| msgid "Relations"
 msgid "Replaced string"
-msgstr "Relações"
+msgstr "Segmento de substituição"
 
 #: libraries/TableSearch.class.php:1369
-#, fuzzy
 #| msgid "Replicated"
 msgid "Replace"
-msgstr "Replicado"
+msgstr "Substituir"
 
 #: libraries/Theme.class.php:170
 #, php-format
@@ -3476,10 +3471,9 @@ msgid "Theme path not found for theme %s!"
 msgstr "Encontrado caminho inválido para o tema %s!"
 
 #: libraries/Theme_Manager.class.php:370
-#, fuzzy
 #| msgid "Theme"
 msgid "Theme:"
-msgstr "Tema"
+msgstr "Tema:"
 
 #: libraries/Types.class.php:297
 msgid ""
@@ -3720,25 +3714,22 @@ msgid "Numeric"
 msgstr ""
 
 #: libraries/Types.class.php:645 libraries/Types.class.php:979
-#, fuzzy
 #| msgid "Create an index"
 msgctxt "date and time types"
 msgid "Date and time"
-msgstr "Criar um novo índice"
+msgstr "Data e hora"
 
 #: libraries/Types.class.php:654 libraries/Types.class.php:982
-#, fuzzy
 #| msgid "Linestring"
 msgctxt "string types"
 msgid "String"
-msgstr "Segmento de Reta "
+msgstr "Segmento"
 
 #: libraries/Types.class.php:675
-#, fuzzy
 #| msgid "Total"
 msgctxt "spatial types"
 msgid "Spatial"
-msgstr "Total"
+msgstr "Espacial"
 
 #: libraries/Types.class.php:710
 msgid "A 4-byte integer, range is -2,147,483,648 to 2,147,483,647"
@@ -3788,10 +3779,9 @@ msgid "Max: %s%s"
 msgstr "Tamanho máximo: %s%s"
 
 #: libraries/Util.class.php:642 libraries/sql.lib.php:429
-#, fuzzy
 #| msgid "SQL query"
 msgid "SQL query:"
-msgstr "Comando SQL"
+msgstr "Comando SQL:"
 
 #: libraries/Util.class.php:686 libraries/rte/rte_events.lib.php:114
 #: libraries/rte/rte_events.lib.php:123 libraries/rte/rte_events.lib.php:140
@@ -3997,7 +3987,6 @@ msgid "Could not load default configuration from: %1$s"
 msgstr "Não foi possível carregar configuração padrão de: \"%1$s\""
 
 #: libraries/common.inc.php:597
-#, fuzzy
 #| msgid ""
 #| "The <code>$cfg['PmaAbsoluteUri']</code> directive MUST be set in your "
 #| "configuration file!"
@@ -4005,7 +3994,7 @@ msgid ""
 "The [code]$cfg['PmaAbsoluteUri'][/code] directive MUST be set in your "
 "configuration file!"
 msgstr ""
-"A directiva <code>$cfg['PmaAbsoluteUri']</code> TEM que ser definida no "
+"A directiva [code]$cfg['PmaAbsoluteUri'][/code] TEM que ser definida no "
 "ficheiro de configuração!"
 
 #: libraries/common.inc.php:630
@@ -4021,10 +4010,10 @@ msgstr ""
 "configurações."
 
 #: libraries/common.inc.php:657
-#, fuzzy, php-format
+#, php-format
 #| msgid "Server"
 msgid "Server %d"
-msgstr "Servidor"
+msgstr "Servidor %d"
 
 #: libraries/common.inc.php:854
 msgid "Invalid authentication method set in configuration:"
@@ -4053,17 +4042,15 @@ msgstr "Tecla numérica detectada"
 
 #: libraries/config.values.php:49 libraries/config.values.php:65
 #: libraries/config.values.php:70
-#, fuzzy
 #| msgid "Ins"
 msgid "Icons"
-msgstr "Ins"
+msgstr "Ícones"
 
 #: libraries/config.values.php:50 libraries/config.values.php:66
 #: libraries/config.values.php:71
-#, fuzzy
 #| msgid "Test"
 msgid "Text"
-msgstr "Teste"
+msgstr "Texto"
 
 #: libraries/config.values.php:51 libraries/config.values.php:59
 #: libraries/config.values.php:67 libraries/config.values.php:72
