@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-08-18 06:16-0400\n"
-"PO-Revision-Date: 2013-08-23 11:34+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"PO-Revision-Date: 2013-09-07 11:19+0200\n"
+"Last-Translator: João Rodrigues <diogo2pt@gmail.com>\n"
 "Language-Team: Portuguese "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/pt/>\n"
 "Language: pt\n"
@@ -36,9 +36,10 @@ msgid ""
 "parent window, or your browser's security settings are configured to block "
 "cross-window updates."
 msgstr ""
-"A janela de destino no seu browser não pode ser actualizada. Talvez tenha "
-"fechado a janela que a originou, ou as configurações de segurança do seu "
-"browser encontram-se definidas para não permitir actualizações entre janelas."
+"Não foi possível actualizar a janela de destino do seu navegador. Talvez "
+"você tenha fechado a janela que a originou, ou as configurações de segurança "
+"do seu navegador encontram-se definidas para não permitir actualizações "
+"entre janelas."
 
 #: browse_foreigners.php:184
 msgid "Search:"
@@ -85,7 +86,7 @@ msgstr "Executar"
 #: browse_foreigners.php:202 browse_foreigners.php:206
 #: libraries/Index.class.php:560 tbl_tracking.php:383
 msgid "Keyname"
-msgstr "Nome do Índice"
+msgstr "Nome da chave"
 
 #: browse_foreigners.php:203 browse_foreigners.php:205
 #: libraries/server_collations.lib.php:36
@@ -98,7 +99,7 @@ msgstr "Descrição"
 #: browse_foreigners.php:289 browse_foreigners.php:301
 #: browse_foreigners.php:317 browse_foreigners.php:329
 msgid "Use this value"
-msgstr "Usar este valor"
+msgstr "Utilizar este valor"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -106,8 +107,8 @@ msgid ""
 "The %s file is not available on this system, please visit www.phpmyadmin.net "
 "for more information."
 msgstr ""
-"O ficheiro %s não está disponível no seu sistema, por favor visite www."
-"phpmyadmin.net para mais informações."
+"O ficheiro %s não está disponível no seu sistema. Para mais informações, "
+"visite www.phpmyadmin.net."
 
 #: db_create.php:61
 #, php-format
@@ -116,7 +117,7 @@ msgstr "A base de dados %1$s foi criada."
 
 #: db_datadict.php:52 libraries/operations.lib.php:32
 msgid "Database comment: "
-msgstr "Comentário da Base de Dados: "
+msgstr "Comentário da base de dados: "
 
 #: db_datadict.php:159 libraries/schema/Pdf_Relation_Schema.class.php:1352
 #: libraries/tbl_columns_definition_form.lib.php:70 tbl_printview.php:120
