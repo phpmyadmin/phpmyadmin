@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-08-18 06:16-0400\n"
-"PO-Revision-Date: 2013-09-07 11:19+0200\n"
-"Last-Translator: João Rodrigues <diogo2pt@gmail.com>\n"
+"PO-Revision-Date: 2013-09-07 11:20+0200\n"
+"Last-Translator: Jose Machado <jca_machado@msn.com>\n"
 "Language-Team: Portuguese "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/pt/>\n"
 "Language: pt\n"
@@ -121,10 +121,9 @@ msgstr "Comentário da base de dados: "
 
 #: db_datadict.php:159 libraries/schema/Pdf_Relation_Schema.class.php:1352
 #: libraries/tbl_columns_definition_form.lib.php:70 tbl_printview.php:120
-#, fuzzy
 #| msgid "Table comments"
 msgid "Table comments:"
-msgstr "Comentários da tabela"
+msgstr "Comentários da tabela:"
 
 #: db_datadict.php:168 libraries/Index.class.php:564
 #: libraries/TableSearch.class.php:185 libraries/TableSearch.class.php:1231
