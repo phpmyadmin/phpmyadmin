@@ -1027,7 +1027,7 @@ class ExportSql extends ExportPlugin
                 // in SHOW CREATE TABLE so we'll remove it below
                 // It's required for Drizzle because SHOW CREATE TABLE uses
                 // the value from table's creation time
-                if (isset($GLOBALS['sql_auto_increment'])
+                if (isset($_POST['sql_auto_increment'])
                     && ! empty($tmpres['Auto_increment'])
                 ) {
                     $auto_increment .= ' AUTO_INCREMENT='
