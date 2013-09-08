@@ -154,11 +154,12 @@ function PMA_getHtmlForRelationalFieldSelection($db, $table, $field, $foreignDat
 
             $output .= PMA_getHtmlForColumnElement(
                 'class="nowrap"', $key_ordered_current_equals_data,
-                $key_ordered_current_key, $key_ordered_current_val_title, $field
+                $key_ordered_current_key, $key_ordered_current_val,
+                $key_ordered_current_val_title, $field
             );
             
             $output .= PMA_getHtmlForColumnElement(
-                '', $key_ordered_current_equals_data,
+                '', $key_ordered_current_equals_data, $key_ordered_current_key,
                 $key_ordered_current_val, $key_ordered_current_val_title, $field
             );
             
@@ -167,13 +168,14 @@ function PMA_getHtmlForRelationalFieldSelection($db, $table, $field, $foreignDat
                 . ' width="1" height="1" /></td>';
 
             $output .= PMA_getHtmlForColumnElement(
-                '', $val_ordered_current_equals_data,
+                '', $val_ordered_current_equals_data, $key_ordered_current_key,
                 $val_ordered_current_val, $val_ordered_current_val_title, $field
             );
 
             $output .= PMA_getHtmlForColumnElement(
                 'class="nowrap"', $val_ordered_current_equals_data,
-                $val_ordered_current_key, $val_ordered_current_val_title, $field
+                $key_ordered_current_key, $val_ordered_current_key,
+                $val_ordered_current_val_title, $field
             );
             $output .= '</tr>';
         } // end while
@@ -195,7 +197,7 @@ function PMA_getHtmlForRelationalFieldSelection($db, $table, $field, $foreignDat
  * @return string
  */
 function PMA_getHtmlForColumnElement($cssClass, $currentEqualsData, $currentKey,
-    $currentTitle, $field
+    $currentVal, $currentTitle, $field
 ){
     $output = '<td ' . $cssClass . '>'
         . ($currentEqualsData ? '<strong>' : '')
@@ -206,13 +208,13 @@ function PMA_getHtmlForColumnElement($cssClass, $currentEqualsData, $currentKey,
         . '" onclick="formupdate(\'' . md5($field) . '\', \''
         . PMA_jsFormat($currentKey, false)
         . '\'); return false;">';
-    if ($cssClass == '') {
-        $currentKey = htmlspecialchars($currentKey);
+    if ($cssClass !== '') {
+        $output .= htmlspecialchars($currentKey);
+    } else {
+        $output .= $currentVal;
     }
     
-    $output .= $currentKey . '</a>'
-        . ($currentEqualsData ? '</strong>' : '')
-        . '</td>';
+    $output .=  '</a>' . ($currentEqualsData ? '</strong>' : '') . '</td>';
     
     return $output;
 }
