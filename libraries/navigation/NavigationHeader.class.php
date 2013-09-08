@@ -85,7 +85,8 @@ class PMA_NavigationHeader
                 // prevent XSS, see PMASA-2013-9
                 // if link has protocol, allow only http and https
                 if (preg_match('/^[a-z]+:/i', $logo_link)
-                    && ! preg_match('/^https?:/i', $logo_link)) {
+                    && ! preg_match('/^https?:/i', $logo_link)
+                ) {
                     $logo_link = 'index.php';
                 }
                 $retval .= '    <a href="' . $logo_link;
