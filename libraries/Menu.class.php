@@ -140,19 +140,16 @@ class PMA_Menu
             $userTable = PMA_Util::backquote($GLOBALS['cfg']['Server']['pmadb'])
                 . "." . PMA_Util::backquote($GLOBALS['cfg']['Server']['users']);
 
-            $sql_query = "SELECT * FROM " . $groupTable
-                . " WHERE `usergroup` = (SELECT usergroup FROM "
+            $sql_query = "SELECT `tab` FROM " . $groupTable
+                . " WHERE `allowed` = 'N' AND `usergroup` = (SELECT usergroup FROM "
                 . $userTable . " WHERE `username` = '"
                 . PMA_Util::sqlAddSlashes($GLOBALS['cfg']['Server']['user']) . "')";
 
             $result = PMA_queryAsControlUser($sql_query, false);
             if ($result) {
-                $row = $GLOBALS['dbi']->fetchAssoc($result);
-                foreach ($allowedTabs as $key => $tab) {
-                    $colName = $level . '_' . $key;
-                    if (isset($row[$colName]) && $row[$colName] == 'N') {
-                        unset($allowedTabs[$key]);
-                    }
+                while ($row = $GLOBALS['dbi']->fetchAssoc($result)) {
+                    $tabName = substr($row['tab'], strpos($row['tab'], '_') + 1);
+                    unset($allowedTabs[$tabName]);
                 }
             }
         }
