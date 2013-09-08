@@ -183,6 +183,11 @@ function PMA_extractPrivInfo($row = '', $enableHTML = false, $tablePrivs = false
     return $privs;
 } // end of the 'PMA_extractPrivInfo()' function
 
+/**
+ * Returns an array of table grants and their descriptions
+ *
+ * @return array array of table grants
+ */
 function PMA_getTableGrantsArray()
 {
     return array(
@@ -200,11 +205,6 @@ function PMA_getTableGrantsArray()
             'Drop',
             'DROP',
             $GLOBALS['strPrivDescDropTbl']
-        ),
-        array(
-            'Grant',
-            'GRANT',
-            $GLOBALS['strPrivDescGrant']
         ),
         array(
             'Index',
@@ -1823,14 +1823,14 @@ function PMA_getHtmlForSpecificDbPrivileges($db)
     list($list_of_privileges, $list_of_compared_privileges)
         = PMA_getListOfPrivilegesAndComparedPrivileges();
 
-    $sql_query = '(SELECT ' . $list_of_privileges . ', `Db`'
+    $sql_query = '(SELECT ' . $list_of_privileges . ', `Db`, \'d\' AS `Type`'
         .' FROM `mysql`.`db`'
         .' WHERE \'' . PMA_Util::sqlAddSlashes($db)
         . "'"
         .' LIKE `Db`'
         .' AND NOT (' . $list_of_compared_privileges. ')) '
         .'UNION '
-        .'(SELECT ' . $list_of_privileges . ', \'*\' AS `Db`'
+        .'(SELECT ' . $list_of_privileges . ', \'*\' AS `Db`, \'g\' AS `Type`'
         .' FROM `mysql`.`user` '
         .' WHERE NOT (' . $list_of_compared_privileges . ')) '
         .' ORDER BY `User` ASC,'
@@ -1929,15 +1929,15 @@ function PMA_getHtmlForSpecificTablePrivileges($db, $table)
 
     list($list_of_privileges, $list_of_compared_privileges)
         = PMA_getListOfPrivilegesAndComparedPrivileges();
-    $sql_query
+    $sql_query 
         = "("
-        . " SELECT " . $list_of_privileges . ", '*' AS `Db`"
+        . " SELECT " . $list_of_privileges . ", '*' AS `Db`, 'g' AS `Type`"
         . " FROM `mysql`.`user`"
         . " WHERE NOT (" . $list_of_compared_privileges . ")"
         . ")"
         . " UNION "
         . "("
-        . " SELECT " . $list_of_privileges . ", `Db`"
+        . " SELECT " . $list_of_privileges . ", `Db`, 'd' AS `Type`"
         . " FROM `mysql`.`db`"
         . " WHERE '" . PMA_Util::sqlAddSlashes($db) . "' LIKE `Db`"
         . "     AND NOT (" . $list_of_compared_privileges. ")"
@@ -1958,7 +1958,8 @@ function PMA_getHtmlForSpecificTablePrivileges($db, $table)
         $privMap[$user][$host][] = $row;
     }
 
-    $sql_query = "SELECT `User`, `Host`, `Db`, `Table_name`, `Table_priv`"
+    $sql_query = "SELECT `User`, `Host`, `Db`,"
+        . " 't' AS `Type`, `Table_name`, `Table_priv`"
         . " FROM `mysql`.`tables_priv`"
         . " WHERE '" . PMA_Util::sqlAddSlashes($db) . "' LIKE `Db`"
         . "     AND '" . PMA_Util::sqlAddSlashes($table) . "' LIKE `Table_name`"
@@ -1987,7 +1988,7 @@ function PMA_getHtmlForSpecificTablePrivileges($db, $table)
 
     // Offer to create a new user for the current database
     $html_output .= '<fieldset id="fieldset_add_user">'
-       . '<legend>' . _pgettext('Create new user', 'New') . '</legend>';
+        . '<legend>' . _pgettext('Create new user', 'New') . '</legend>';
     $html_output .= '<a href="server_privileges.php'
         . PMA_URL_getCommon(
             array(
@@ -1996,8 +1997,7 @@ function PMA_getHtmlForSpecificTablePrivileges($db, $table)
                 'tablename' => $table
             )
         )
-        .'" rel="'
-        . PMA_URL_getCommon(
+        . '" rel="' . PMA_URL_getCommon(
             array('checkprivsdb' => $db, 'checkprivstable' => $table)
         )
         . '" class="ajax" name="table_specific">'
@@ -2054,20 +2054,19 @@ function PMA_getHtmlTableBodyForSpecificDbOrTablePrivs($privMap, $db, $table = n
 
                     // type
                     $html_output .= '<td>';
-                    if ($current['Db'] == '*') {
+                    if ($current['Type'] == 'g') {
                         $html_output .= __('global');
-                    } elseif ($current['Db'] == PMA_Util::escapeMysqlWildcards($db)) {
-                        if (isset($current['Table_name'])
-                            && $current['Table_name'] == PMA_Util::escapeMysqlWildcards($table)
-                        ) {
-                            $html_output .= __('table-specific');
-                        } else {
+                    } elseif ($current['Type'] == 'd') {
+                        if ($current['Db'] == PMA_Util::escapeMysqlWildcards($db)) {
                             $html_output .= __('database-specific');
+                        } else {
+                            $html_output .= __('wildcard'). ': '
+                                . '<code>'
+                                . htmlspecialchars($current['Db'])
+                                . '</code>';
                         }
-                    } else {
-                        $html_output .= __('wildcard'). ': '
-                            . '<code>' . htmlspecialchars($current['Db'])
-                            . '</code>';
+                    } elseif ($current['Type'] == 't') {
+                        $html_output .= __('table-specific');
                     }
                     $html_output .= '</td>';
 
@@ -2119,11 +2118,16 @@ function PMA_getHtmlTableBodyForSpecificDbOrTablePrivs($privMap, $db, $table = n
 
                     // action
                     $html_output .= '<td>';
+                    $specific_db = (isset($current['Db']) && $current['Db'] != '*')
+                        ? $current['Db'] : '';
+                    $specific_table = (isset($current['Table_name'])
+                        && $current['Table_name'] != '*')
+                        ? $current['Table_name'] : '';
                     $html_output .= PMA_getUserEditLink(
                         $current_user,
                         $current_host,
-                        (isset($current['Db']) && $current['Db'] != '*') ? $current['Db'] : '',
-                        (isset($current['Table_name']) && $current['Table_name'] != '*') ? $current['Table_name'] : ''
+                        $specific_db,
+                        $specific_table
                     );
                     $html_output .= '</td>';
 
@@ -4530,11 +4534,13 @@ function PMA_getHtmlForSubMenusOnUsersPage($selfUrl)
     $items = array(
         array(
             'name' => __('Users overview'),
-            'url' => 'server_privileges.php'
+            'url' => 'server_privileges.php',
+            'specific_params' => '&viewing_mode=server'
         ),
         array(
             'name' => __('User groups'),
-            'url' => 'server_user_groups.php'
+            'url' => 'server_user_groups.php',
+            'specific_params' => ''
         )
     );
 
@@ -4546,7 +4552,8 @@ function PMA_getHtmlForSubMenusOnUsersPage($selfUrl)
         }
         $retval .= '<li>';
         $retval .= '<a' . $class;
-        $retval .= ' href="' . $item['url'] . '?' . $url_params . '">';
+        $retval .= ' href="' . $item['url']
+            . '?' . $url_params . $item['specific_params'] . '">';
         $retval .= $item['name'];
         $retval .= '</a>';
         $retval .= '</li>';
