@@ -502,7 +502,7 @@ if ($save_on_server) {
         . preg_replace('@[/\\\\]@', '_', $filename);
     unset($message);
     if (file_exists($save_filename)
-        && ((! $quick_export && empty($onserverover))
+        && ((! $quick_export && empty($_REQUEST['onserverover']))
         || ($quick_export
         && $_REQUEST['quick_export_onserverover'] != 'saveitover'))
     ) {
