@@ -69,13 +69,13 @@ class PMA_SetupIndex_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for messages_set
+     * Test for PMA_messagesSet
      *
      * @return void
      */
-    public function testMessagesSet()
+    public function testPMA_messagesSet()
     {
-        messages_set('type', '123', 'testTitle', 'msg');
+        PMA_messagesSet('type', '123', 'testTitle', 'msg');
 
         $this->assertEquals(
             array(

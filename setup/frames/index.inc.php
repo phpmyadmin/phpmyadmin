@@ -47,7 +47,7 @@ $config_writable = false;
 $config_exists = false;
 check_config_rw($config_readable, $config_writable, $config_exists);
 if (!$config_writable || !$config_readable) {
-    messages_set(
+    PMA_messagesSet(
         'error', 'config_rw', __('Cannot load or save configuration'),
         PMA_sanitize(
             __(
@@ -84,7 +84,7 @@ if (!$is_https) {
             )
         );
     }
-    messages_set('notice', 'no_https', __('Insecure connection'), $text);
+    PMA_messagesSet('notice', 'no_https', __('Insecure connection'), $text);
 }
 
 echo '<form id="select_lang" method="post" action="'
@@ -112,7 +112,7 @@ echo '</form>';
 switch ($action_done) {
 case 'config_saved':
     /* Use uniqid to display this message every time configuration is saved */
-    messages_set(
+    PMA_messagesSet(
         'notice', uniqid('config_saved'), __('Configuration saved.'),
         PMA_sanitize(
             __(

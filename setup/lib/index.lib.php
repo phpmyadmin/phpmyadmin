@@ -40,7 +40,7 @@ function PMA_messagesBegin()
  *
  * @return void
  */
-function messages_set($type, $id, $title, $message)
+function PMA_messagesSet($type, $id, $title, $message)
 {
     $fresh = ! isset($_SESSION['messages'][$type][$id]);
     $_SESSION['messages'][$type][$id] = array(
@@ -111,7 +111,7 @@ function PMA_version_check()
     $version_data = PMA_Util::getLatestVersion();
 
     if (empty($version_data)) {
-        messages_set(
+        PMA_messagesSet(
             'error',
             $message_id,
             __('Version check'),
@@ -125,7 +125,7 @@ function PMA_version_check()
 
     $version_upstream = PMA_Util::versionToInt($version);
     if ($version_upstream === false) {
-        messages_set(
+        PMA_messagesSet(
             'error',
             $message_id,
             __('Version check'),
@@ -136,7 +136,7 @@ function PMA_version_check()
 
     $version_local = PMA_Util::versionToInt($GLOBALS['PMA_Config']->get('PMA_VERSION'));
     if ($version_local === false) {
-        messages_set(
+        PMA_messagesSet(
             'error',
             $message_id,
             __('Version check'),
@@ -148,7 +148,7 @@ function PMA_version_check()
     if ($version_upstream > $version_local) {
         $version = htmlspecialchars($version);
         $date = htmlspecialchars($date);
-        messages_set(
+        PMA_messagesSet(
             'notice',
             $message_id,
             __('Version check'),
@@ -156,14 +156,14 @@ function PMA_version_check()
         );
     } else {
         if ($version_local % 100 == 0) {
-            messages_set(
+            PMA_messagesSet(
                 'notice',
                 $message_id,
                 __('Version check'),
                 PMA_sanitize(sprintf(__('You are using Git version, run [kbd]git pull[/kbd] :-)[br]The latest stable version is %s, released on %s.'), $version, $date))
             );
         } else {
-            messages_set(
+            PMA_messagesSet(
                 'notice',
                 $message_id,
                 __('Version check'),
@@ -259,7 +259,7 @@ function perform_config_checks()
         //
         if (!$cf->getValue("Servers/$i/ssl")) {
             $title = PMA_lang(PMA_langName('Servers/1/ssl')) . " ($server_name)";
-            messages_set(
+            PMA_messagesSet(
                 'notice',
                 "Servers/$i/ssl",
                 $title,
@@ -274,7 +274,7 @@ function perform_config_checks()
         if ($cf->getValue("Servers/$i/extension") == 'mysql') {
             $title = PMA_lang(PMA_langName('Servers/1/extension'))
                 . " ($server_name)";
-            messages_set(
+            PMA_messagesSet(
                 'notice',
                 "Servers/$i/extension",
                 $title,
@@ -292,7 +292,7 @@ function perform_config_checks()
         ) {
             $title = PMA_lang(PMA_langName('Servers/1/auth_type'))
                 . " ($server_name)";
-            messages_set(
+            PMA_messagesSet(
                 'notice',
                 "Servers/$i/auth_type",
                 $title,
@@ -311,7 +311,7 @@ function perform_config_checks()
         ) {
             $title = PMA_lang(PMA_langName('Servers/1/AllowNoPassword'))
                 . " ($server_name)";
-            messages_set(
+            PMA_messagesSet(
                 'notice',
                 "Servers/$i/AllowNoPassword",
                 $title,
@@ -328,7 +328,7 @@ function perform_config_checks()
     if ($cookie_auth_used) {
         if ($blowfish_secret_set) {
             // 'cookie' auth used, blowfish_secret was generated
-            messages_set(
+            PMA_messagesSet(
                 'notice',
                 'blowfish_secret_created',
                 PMA_lang(PMA_langName('blowfish_secret')),
@@ -349,7 +349,7 @@ function perform_config_checks()
                 $blowfish_warnings[] = PMA_lang(__('Key should contain letters, numbers [em]and[/em] special characters.'));
             }
             if (!empty($blowfish_warnings)) {
-                messages_set(
+                PMA_messagesSet(
                     'error',
                     'blowfish_warnings' . count($blowfish_warnings),
                     PMA_lang(PMA_langName('blowfish_secret')),
@@ -364,7 +364,7 @@ function perform_config_checks()
     // should be enabled if possible
     //
     if (!$cf->getValue('ForceSSL')) {
-        messages_set(
+        PMA_messagesSet(
             'notice',
             'ForceSSL',
             PMA_lang(PMA_langName('ForceSSL')),
@@ -377,7 +377,7 @@ function perform_config_checks()
     // should be disabled
     //
     if ($cf->getValue('AllowArbitraryServer')) {
-        messages_set(
+        PMA_messagesSet(
             'notice',
             'AllowArbitraryServer',
             PMA_lang(PMA_langName('AllowArbitraryServer')),
@@ -390,7 +390,7 @@ function perform_config_checks()
     // value greater than session.gc_maxlifetime will cause
     // random session invalidation after that time
     if ($cf->getValue('LoginCookieValidity') > ini_get('session.gc_maxlifetime')) {
-        messages_set(
+        PMA_messagesSet(
             'error',
             'LoginCookieValidity',
             PMA_lang(PMA_langName('LoginCookieValidity')),
@@ -403,7 +403,7 @@ function perform_config_checks()
     // should be at most 1800 (30 min)
     //
     if ($cf->getValue('LoginCookieValidity') > 1800) {
-        messages_set(
+        PMA_messagesSet(
             'notice',
             'LoginCookieValidity',
             PMA_lang(PMA_langName('LoginCookieValidity')),
@@ -419,7 +419,7 @@ function perform_config_checks()
     if ($cf->getValue('LoginCookieStore') != 0
         && $cf->getValue('LoginCookieValidity') > $cf->getValue('LoginCookieStore')
     ) {
-        messages_set(
+        PMA_messagesSet(
             'error',
             'LoginCookieValidity',
             PMA_lang(PMA_langName('LoginCookieValidity')),
@@ -432,7 +432,7 @@ function perform_config_checks()
     // should not be world-accessible
     //
     if ($cf->getValue('SaveDir') != '') {
-        messages_set(
+        PMA_messagesSet(
             'notice',
             'SaveDir',
             PMA_lang(PMA_langName('SaveDir')),
@@ -445,7 +445,7 @@ function perform_config_checks()
     // should not be world-accessible
     //
     if ($cf->getValue('TempDir') != '') {
-        messages_set(
+        PMA_messagesSet(
             'notice',
             'TempDir',
             PMA_lang(PMA_langName('TempDir')),
@@ -460,7 +460,7 @@ function perform_config_checks()
     if ($cf->getValue('GZipDump')
         && (@!function_exists('gzopen') || @!function_exists('gzencode'))
     ) {
-        messages_set(
+        PMA_messagesSet(
             'error',
             'GZipDump',
             PMA_lang(PMA_langName('GZipDump')),
@@ -481,7 +481,7 @@ function perform_config_checks()
         $functions .= @function_exists('bzcompress')
                 ? ''
                 : ($functions ? ', ' : '') . 'bzcompress';
-        messages_set(
+        PMA_messagesSet(
             'error',
             'BZipDump',
             PMA_lang(PMA_langName('BZipDump')),
@@ -494,7 +494,7 @@ function perform_config_checks()
     // requires zip_open in import
     //
     if ($cf->getValue('ZipDump') && !@function_exists('zip_open')) {
-        messages_set(
+        PMA_messagesSet(
             'error',
             'ZipDump_import',
             PMA_lang(PMA_langName('ZipDump')),
@@ -507,7 +507,7 @@ function perform_config_checks()
     // requires gzcompress in export
     //
     if ($cf->getValue('ZipDump') && !@function_exists('gzcompress')) {
-        messages_set(
+        PMA_messagesSet(
             'error',
             'ZipDump_export',
             PMA_lang(PMA_langName('ZipDump')),
