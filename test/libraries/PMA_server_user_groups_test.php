@@ -12,7 +12,7 @@ require_once 'libraries/relation.lib.php';
 /*
  * Include to test.
  */
-require_once 'libraries/server_privileges.lib.php';
+require_once 'libraries/server_user_groups.lib.php';
 
 /**
  * Tests for server_user_groups.lib.php
@@ -99,12 +99,8 @@ class PMA_ServerUserGroupsTest extends PHPUnit_Framework_TestCase
                 $this->returnValue(
                     array(
                         'usergroup' => 'usergroup',
-                        'server_sql' => 'Y',
-                        'server_databases' => 'N',
-                        'db_sql' => 'Y',
-                        'db_structure' => 'N',
-                        'table_sql' => 'Y',
-                        'table_browse' => 'N'
+                        'tab' => 'server_sql',
+                        'allowed' => 'Y'
                     )
                 )
             );
@@ -122,33 +118,33 @@ class PMA_ServerUserGroupsTest extends PHPUnit_Framework_TestCase
             $html
         );
         $url_tag = '<a class="" href="server_user_groups.php'
-                . PMA_URL_getCommon(
-                    array(
-                        'viewUsers'=>1, 'userGroup'=>htmlspecialchars('usergroup')
-                    )
-                );
+            . PMA_URL_getCommon(
+                array(
+                    'viewUsers'=>1, 'userGroup'=>htmlspecialchars('usergroup')
+                )
+            );
         $this->assertContains(
             $url_tag,
             $html
         );
         $url_tag = '<a class="" href="server_user_groups.php'
-                . PMA_URL_getCommon(
-                    array(
-                        'editUserGroup'=>1, 
-                        'userGroup'=>htmlspecialchars('usergroup')
-                    )
-                );
+            . PMA_URL_getCommon(
+                array(
+                    'editUserGroup'=>1,
+                    'userGroup'=>htmlspecialchars('usergroup')
+                )
+            );
         $this->assertContains(
             $url_tag,
             $html
         );
         $url_tag = '<a class="deleteUserGroup ajax" href="server_user_groups.php'
-                . PMA_URL_getCommon(
-                    array(
-                        'deleteUserGroup'=> 1, 
-                        'userGroup'=>htmlspecialchars('usergroup')
-                    )
-                );
+            . PMA_URL_getCommon(
+                array(
+                    'deleteUserGroup'=> 1,
+                    'userGroup'=>htmlspecialchars('usergroup')
+                )
+            );
         $this->assertContains(
             $url_tag,
             $html
@@ -208,22 +204,22 @@ class PMA_ServerUserGroupsTest extends PHPUnit_Framework_TestCase
             ->method('tryQuery')
             ->with($expectedQuery)
             ->will($this->returnValue(true));
-        $dbi->expects($this->once())
+        $dbi->expects($this->at(1))
             ->method('fetchAssoc')
             ->withAnyParameters()
             ->will(
                 $this->returnValue(
                     array(
                         'usergroup' => 'ug',
-                        'server_sql' => 'Y',
-                        'server_databases' => 'N',
-                        'db_sql' => 'Y',
-                        'db_structure' => 'N',
-                        'table_sql' => 'Y',
-                        'table_browse' => 'N'
+                        'tab' => 'server_sql',
+                        'allowed' => 'Y'
                     )
                 )
             );
+        $dbi->expects($this->at(2))
+            ->method('fetchAssoc')
+            ->withAnyParameters()
+            ->will($this->returnValue(false));
         $dbi->expects($this->once())
             ->method('freeResult');
         $GLOBALS['dbi'] = $dbi;

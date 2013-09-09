@@ -740,42 +740,6 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_getHtmlForSubMenusOnUsersPage
-     *
-     * @return void
-     */
-    public function testPMAGetHtmlForSubMenusOnUsersPage()
-    {
-        $html = PMA_getHtmlForSubMenusOnUsersPage('server_privileges.php');
-
-        //validate 1: topmenu2
-        $this->assertContains(
-            '<ul id="topmenu2">',
-            $html
-        );
-
-        //validate 2: tabactive for server_privileges.php
-        $this->assertContains(
-            '<a class="tabactive" href="server_privileges.php',
-            $html
-        );
-        $this->assertContains(
-            __('Users overview'),
-            $html
-        );
-
-        //validate 3: not-active for server_user_groups.php
-        $this->assertContains(
-            '<a href="server_user_groups.php',
-            $html
-        );
-        $this->assertContains(
-            __('User groups'),
-            $html
-        );
-    }
-
-    /**
      * Test for PMA_getSqlQueriesForDisplayAndAddUser
      *
      * @return void
