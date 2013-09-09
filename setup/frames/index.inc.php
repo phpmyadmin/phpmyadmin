@@ -31,7 +31,7 @@ PMA_messagesBegin();
 // Check phpMyAdmin version
 //
 if (isset($_GET['version_check'])) {
-    PMA_version_check();
+    PMA_versionCheck();
 }
 
 //

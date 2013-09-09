@@ -101,7 +101,7 @@ function PMA_messagesShowHtml()
  *
  * @return void
  */
-function PMA_version_check()
+function PMA_versionCheck()
 {
     // version check messages should always be visible so let's make
     // a unique message id each time we run it

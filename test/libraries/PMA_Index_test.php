@@ -162,7 +162,7 @@ class PMA_SetupIndex_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_version_check
+     * Test for PMA_versionCheck
      *
      * @return void
      */
@@ -179,7 +179,7 @@ class PMA_SetupIndex_Test extends PHPUnit_Framework_TestCase
 
         $GLOBALS['PMA_Config'] = $pmaconfig;
 
-        PMA_version_check();
+        PMA_versionCheck();
 
         $this->assertArrayHasKey(
             'notice',
@@ -210,7 +210,7 @@ class PMA_SetupIndex_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_version_check
+     * Test for PMA_versionCheck
      *
      * @return void
      */
@@ -227,7 +227,7 @@ class PMA_SetupIndex_Test extends PHPUnit_Framework_TestCase
 
         $GLOBALS['PMA_Config'] = $pmaconfig;
 
-        PMA_version_check();
+        PMA_versionCheck();
 
         $this->assertArrayHasKey(
             'notice',
@@ -258,7 +258,7 @@ class PMA_SetupIndex_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_version_check
+     * Test for PMA_versionCheck
      *
      * @return void
      */
@@ -275,7 +275,7 @@ class PMA_SetupIndex_Test extends PHPUnit_Framework_TestCase
 
         $GLOBALS['PMA_Config'] = $pmaconfig;
 
-        PMA_version_check();
+        PMA_versionCheck();
 
         $this->assertArrayHasKey(
             'notice',
