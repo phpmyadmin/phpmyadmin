@@ -118,11 +118,11 @@ class PMA_SetupIndex_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for messages_show_html
+     * Test for PMA_messagesShowHtml
      *
      * @return void
      */
-    public function testMessagesShowHTML()
+    public function testPMAMessagesShowHTML()
     {
         $_SESSION['messages'] = array(
             'type' => array(
@@ -132,7 +132,7 @@ class PMA_SetupIndex_Test extends PHPUnit_Framework_TestCase
         );
 
         ob_start();
-        messages_show_html();
+        PMA_messagesShowHtml();
         $result = ob_get_clean();
 
         $this->assertContains(

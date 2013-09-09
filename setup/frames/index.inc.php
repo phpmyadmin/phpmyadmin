@@ -131,7 +131,7 @@ echo '<h2>' . __('Overview') . '</h2>';
 
 // message handling
 PMA_messagesEnd();
-messages_show_html();
+PMA_messagesShowHtml();
 
 echo '<a href="#" id="show_hidden_messages" style="display:none">';
 echo __('Show hidden messages (#MSG_COUNT)');

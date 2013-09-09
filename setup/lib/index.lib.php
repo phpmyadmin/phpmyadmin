@@ -75,7 +75,7 @@ function PMA_messagesEnd()
  *
  * @return void
  */
-function messages_show_html()
+function PMA_messagesShowHtml()
 {
     $old_ids = array();
     foreach ($_SESSION['messages'] as $type => $messages) {
