@@ -199,9 +199,9 @@ function PMA_getHtmlForOptionsList($options, $select)
     $html = '';
     foreach ($options as $option) {
         $html .= '<option value="' . htmlspecialchars($option) . '"';
-    if ($option == $select) {
-        $html .= ' selected="selected"';
-    }
+        if ($option == $select) {
+            $html .= ' selected="selected"';
+        }
         $html .= '>' . htmlspecialchars($option) . '</option>';
     }
 
