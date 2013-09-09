@@ -198,7 +198,7 @@ function PMA_getHtmlForRelationalFieldSelection($db, $table, $field, $foreignDat
  */
 function PMA_getHtmlForColumnElement($cssClass, $currentEqualsData, $currentKey,
     $currentVal, $currentTitle, $field
-){
+) {
     $output = '<td ' . $cssClass . '>'
         . ($currentEqualsData ? '<strong>' : '')
         . '<a href="#" title="' . __('Use this value')
