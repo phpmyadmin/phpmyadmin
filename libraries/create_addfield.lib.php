@@ -51,13 +51,13 @@ function PMA_getIndexedColumns()
  * Initiate the column creation statement according to the table creation or
  * add columns to a existing table
  *
- * @param int     $field_cnt     number of columns
- * @param int     $field_primary primary index field
- * @param boolean $is_create_tbl true if requirement is to get the statement
- *                               for table creation
+ * @param int     $field_cnt      number of columns
+ * @param int     &$field_primary primary index field
+ * @param boolean $is_create_tbl  true if requirement is to get the statement
+ *                                for table creation
  *
- * @return array  $definitions   An array of initial sql statements
- *                               according to the request
+ * @return array  $definitions An array of initial sql statements
+ *                             according to the request
  */
 function PMA_buildColumnCreationStatement(
     $field_cnt, &$field_primary, $is_create_tbl = true

@@ -188,9 +188,11 @@ function PMA_getHtmlForRelationalFieldSelection($db, $table, $field, $foreignDat
 
 /**
  * Function to get html for each column element
+ *
  * @param string $cssClass          class="nowrap" or ''
  * @param bool   $currentEqualsData whether current equals data
  * @param string $currentKey        current key
+ * @param string $currentVal        current value
  * @param string $currentTitle      current title
  * @param string $field             field
  * 

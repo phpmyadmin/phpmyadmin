@@ -2181,6 +2181,7 @@ function PMA_transformEditedValues($db, $table,
  * @param array  $multi_edit_colummns     multiple edit column array
  * @param array  $multi_edit_columns_name multiple edit columns name array
  * @param array  $multi_edit_funcs        multiple edit functions array
+ * @param array  $multi_edit_salt         multiple edit array with encryption salt
  * @param array  $gis_from_text_functions array that contains gis from text functions
  * @param string $current_value           current value in the column
  * @param array  $gis_from_wkb_functions  initialy $val is $multi_edit_colummns[$key]
