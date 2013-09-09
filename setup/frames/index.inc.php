@@ -45,7 +45,7 @@ perform_config_checks();
 $config_readable = false;
 $config_writable = false;
 $config_exists = false;
-check_config_rw($config_readable, $config_writable, $config_exists);
+PMA_checkConfigRw($config_readable, $config_writable, $config_exists);
 if (!$config_writable || !$config_readable) {
     PMA_messagesSet(
         'error', 'config_rw', __('Cannot load or save configuration'),

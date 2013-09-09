@@ -182,7 +182,7 @@ function PMA_versionCheck()
  *
  * @return void
  */
-function check_config_rw(&$is_readable, &$is_writable, &$file_exists)
+function PMA_checkConfigRw(&$is_readable, &$is_writable, &$file_exists)
 {
     $file_path = ConfigFile::getInstance()->getFilePath();
     $file_dir = dirname($file_path);

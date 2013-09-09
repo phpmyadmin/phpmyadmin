@@ -306,11 +306,11 @@ class PMA_SetupIndex_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for check_config_rw
+     * Test for PMA_checkConfigRw
      *
      * @return void
      */
-    public function testCheckConfigRW()
+    public function testPMACheckConfigRw()
     {
         if (! PMA_HAS_RUNKIT) {
             $this->markTestSkipped('Cannot redefine constant');
@@ -331,7 +331,7 @@ class PMA_SetupIndex_Test extends PHPUnit_Framework_TestCase
         $is_writable = false;
         $file_exists = false;
 
-        check_config_rw($is_readable, $is_writable, $file_exists);
+        PMA_checkConfigRw($is_readable, $is_writable, $file_exists);
 
         $this->assertTrue(
             $is_readable
@@ -350,7 +350,7 @@ class PMA_SetupIndex_Test extends PHPUnit_Framework_TestCase
             'test/test_data/test.file'
         );
 
-        check_config_rw($is_readable, $is_writable, $file_exists);
+        PMA_checkConfigRw($is_readable, $is_writable, $file_exists);
 
         $this->assertTrue(
             $is_readable
