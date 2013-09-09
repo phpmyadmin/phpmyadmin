@@ -12,7 +12,7 @@ require_once 'libraries/relation.lib.php';
 /*
  * Include to test.
  */
-require_once 'libraries/server_privileges.lib.php';
+require_once 'libraries/server_user_groups.lib.php';
 
 /**
  * Tests for server_user_groups.lib.php
