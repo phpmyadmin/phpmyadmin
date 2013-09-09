@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-08-18 06:16-0400\n"
-"PO-Revision-Date: 2013-08-23 19:00+0200\n"
+"PO-Revision-Date: 2013-09-09 20:22+0200\n"
 "Last-Translator: Dadan Setia <da2n_s@yahoo.co.id>\n"
 "Language-Team: Indonesian "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/id/>\n"
@@ -4765,6 +4765,8 @@ msgid ""
 "Sort order for items in a foreign-key dropdown box; [kbd]content[/kbd] is "
 "the referenced data, [kbd]id[/kbd] is the key value"
 msgstr ""
+"Urutkan agar item dalam kotak dropdown foreign-key, [kbd]content[/kbd] "
+"adalah data direferensikan, [kbd]id[/kbd] adalah nilai kunci"
 
 #: libraries/config/messages.inc.php:152
 msgid "Foreign key dropdown order"
@@ -4910,6 +4912,9 @@ msgid ""
 "Specify browser's title bar text. Refer to [doc@cfg_TitleTable]documentation"
 "[/doc] for magic strings that can be used to get special values."
 msgstr ""
+"Tentukan judul teks bar browser. Lihat [doc@cfg_TitleTable]dokumentasi[/doc] "
+"untuk magic strings yang dapat digunakan untuk mendapatkan nilai-nilai "
+"khusus."
 
 #: libraries/config/messages.inc.php:195
 #: libraries/navigation/NavigationHeader.class.php:209
@@ -4970,6 +4975,9 @@ msgid ""
 "features, see [doc@linked-tables]phpMyAdmin configuration storage[/doc] in "
 "documentation"
 msgstr ""
+"Konfigurasi penyimpanan konfigurasi phpMyAdmin untuk mendapatkan akses ke "
+"berbagai fitur tambahan, lihat dokumentasi [doc@linked-tables]konfigurasi "
+"penyimpanan phpMyAdmin[/doc]"
 
 #: libraries/config/messages.inc.php:207
 msgid "Changes tracking"
@@ -5029,6 +5037,11 @@ msgid ""
 "strong].[br][em][a@http://sqlvalidator.mimer.com/]Mimer SQL Validator[/a], "
 "Copyright 2002 Upright Database Technology. All rights reserved.[/em]"
 msgstr ""
+"Jika Anda ingin menggunakan layanan Validator SQL,  Anda harus ingat bahwa "
+"[strong]semua pernyataan SQL disimpan anonim untuk keperluan "
+"statistik[/strong].[br][em][a@http://sqlvalidator.mimer.com/]Mimer SQL "
+"Validator[/a], Copyright 2002 Upright Database Technology. All rights "
+"reserved.[/em]"
 
 #: libraries/config/messages.inc.php:223
 msgid "Startup"
@@ -5220,6 +5233,8 @@ msgid ""
 "Define whether the previous login should be recalled or not in cookie "
 "authentication mode"
 msgstr ""
+"Tentukan apakah login sebelumnya harus diingat atau tidak dalam mode "
+"otentikasi cookie"
 
 #: libraries/config/messages.inc.php:277
 msgid "Recall user name"
