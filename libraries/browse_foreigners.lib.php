@@ -191,6 +191,7 @@ function PMA_getHtmlForRelationalFieldSelection($db, $table, $field, $foreignDat
  * @param string $cssClass          class="nowrap" or ''
  * @param bool   $currentEqualsData whether current equals data
  * @param string $currentKey        current key
+ * @param string $currentVal        current val
  * @param string $currentTitle      current title
  * @param string $field             field
  * 
