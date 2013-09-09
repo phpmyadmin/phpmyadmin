@@ -26,7 +26,7 @@ class PMA_SetupIndex_Test extends PHPUnit_Framework_TestCase
      *
      * @return void
      */
-    public function testPMA_messagesBegin()
+    public function testPMAmessagesBegin()
     {
         $_SESSION['messages'] = array(
             array(
@@ -73,7 +73,7 @@ class PMA_SetupIndex_Test extends PHPUnit_Framework_TestCase
      *
      * @return void
      */
-    public function testPMA_messagesSet()
+    public function testPMAmessagesSet()
     {
         PMA_messagesSet('type', '123', 'testTitle', 'msg');
 
@@ -89,11 +89,11 @@ class PMA_SetupIndex_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for messages_end
+     * Test for PMA_messagesEnd
      *
      * @return void
      */
-    public function testMessagesEnd()
+    public function testPMAmessagesEnd()
     {
         $_SESSION['messages'] = array(
             array(
@@ -102,7 +102,7 @@ class PMA_SetupIndex_Test extends PHPUnit_Framework_TestCase
             )
         );
 
-        messages_end();
+        PMA_messagesEnd();
 
         $this->assertEquals(
             array(

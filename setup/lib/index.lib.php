@@ -55,7 +55,7 @@ function PMA_messagesSet($type, $id, $title, $message)
  *
  * @return void
  */
-function messages_end()
+function PMA_messagesEnd()
 {
     foreach ($_SESSION['messages'] as &$messages) {
         $remove_ids = array();
@@ -71,7 +71,7 @@ function messages_end()
 }
 
 /**
- * Prints message list, must be called after messages_end()
+ * Prints message list, must be called after PMA_messagesEnd()
  *
  * @return void
  */
@@ -202,7 +202,7 @@ function check_config_rw(&$is_readable, &$is_writable, &$file_exists)
  * Performs various compatibility, security and consistency checks on current config
  *
  * Outputs results to message list, must be called between PMA_messagesBegin()
- * and messages_end()
+ * and PMA_messagesEnd()
  *
  * @return void
  */

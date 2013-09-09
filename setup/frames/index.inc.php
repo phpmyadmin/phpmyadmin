@@ -130,7 +130,7 @@ default:
 echo '<h2>' . __('Overview') . '</h2>';
 
 // message handling
-messages_end();
+PMA_messagesEnd();
 messages_show_html();
 
 echo '<a href="#" id="show_hidden_messages" style="display:none">';
