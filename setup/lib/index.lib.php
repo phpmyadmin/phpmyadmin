@@ -15,7 +15,7 @@ if (!defined('PHPMYADMIN')) {
  *
  * @return void
  */
-function messages_begin()
+function PMA_messagesBegin()
 {
     if (! isset($_SESSION['messages']) || !is_array($_SESSION['messages'])) {
         $_SESSION['messages'] = array('error' => array(), 'notice' => array());
@@ -201,7 +201,7 @@ function check_config_rw(&$is_readable, &$is_writable, &$file_exists)
 /**
  * Performs various compatibility, security and consistency checks on current config
  *
- * Outputs results to message list, must be called between messages_begin()
+ * Outputs results to message list, must be called between PMA_messagesBegin()
  * and messages_end()
  *
  * @return void

@@ -22,11 +22,11 @@ require_once 'libraries/Util.class.php';
 class PMA_SetupIndex_Test extends PHPUnit_Framework_TestCase
 {
     /**
-     * Test for messages_begin()
+     * Test for PMA_messagesBegin()
      *
      * @return void
      */
-    public function testMessagesBegin()
+    public function testPMA_messagesBegin()
     {
         $_SESSION['messages'] = array(
             array(
@@ -35,7 +35,7 @@ class PMA_SetupIndex_Test extends PHPUnit_Framework_TestCase
             )
         );
 
-        messages_begin();
+        PMA_messagesBegin();
 
         $this->assertEquals(
             array(
@@ -58,7 +58,7 @@ class PMA_SetupIndex_Test extends PHPUnit_Framework_TestCase
         // case 2
 
         unset($_SESSION['messages']);
-        messages_begin();
+        PMA_messagesBegin();
         $this->assertEquals(
             array(
                 'error' => array(),

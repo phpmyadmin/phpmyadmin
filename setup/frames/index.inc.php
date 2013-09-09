@@ -25,7 +25,7 @@ $cf = ConfigFile::getInstance();
 $separator = PMA_URL_getArgSeparator('html');
 
 // message handling
-messages_begin();
+PMA_messagesBegin();
 
 //
 // Check phpMyAdmin version
