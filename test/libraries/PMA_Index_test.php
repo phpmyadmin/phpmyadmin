@@ -372,11 +372,11 @@ class PMA_SetupIndex_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for perform_config_checks
+     * Test for PMA_performConfigChecks
      *
      * @return void
      */
-    public function testPerformConfigChecks()
+    public function testPMAPerformConfigChecks()
     {
 
         $GLOBALS['cfg']['AvailableCharsets'] = array();
@@ -442,7 +442,7 @@ class PMA_SetupIndex_Test extends PHPUnit_Framework_TestCase
             $errorArrayKeys[] = 'ZipDump_export';
         }
 
-        perform_config_checks();
+        PMA_performConfigChecks();
 
         foreach ($noticeArrayKeys as $noticeKey) {
             $this->assertArrayHasKey(
@@ -484,7 +484,7 @@ class PMA_SetupIndex_Test extends PHPUnit_Framework_TestCase
         $_SESSION[$sessionID]['BZipDump'] = false;
         $_SESSION[$sessionID]['ZipDump'] = false;
 
-        perform_config_checks();
+        PMA_performConfigChecks();
         $this->assertArrayHasKey(
             'blowfish_secret_created',
             $_SESSION['messages']['notice']
@@ -512,7 +512,7 @@ class PMA_SetupIndex_Test extends PHPUnit_Framework_TestCase
                 'auth_type' => 'cookie'
             )
         );
-        perform_config_checks();
+        PMA_performConfigChecks();
         $this->assertArrayHasKey(
             'blowfish_warnings2',
             $_SESSION['messages']['error']

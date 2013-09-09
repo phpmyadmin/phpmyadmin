@@ -206,7 +206,7 @@ function PMA_checkConfigRw(&$is_readable, &$is_writable, &$file_exists)
  *
  * @return void
  */
-function perform_config_checks()
+function PMA_performConfigChecks()
 {
     $cf = ConfigFile::getInstance();
     $blowfish_secret = $cf->get('blowfish_secret');

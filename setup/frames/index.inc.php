@@ -37,7 +37,7 @@ if (isset($_GET['version_check'])) {
 //
 // Perform various security, compatibility and consistency checks
 //
-perform_config_checks();
+PMA_performConfigChecks();
 
 //
 // Check whether we can read/write configuration
