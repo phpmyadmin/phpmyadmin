@@ -214,15 +214,33 @@ function PMA_performConfigChecks()
     $cookie_auth_used = false;
 
     $strAllowArbitraryServerWarning = __('This %soption%s should be disabled as it allows attackers to bruteforce login to any MySQL server. If you feel this is necessary, use %strusted proxies list%s. However, IP-based protection may not be reliable if your IP belongs to an ISP where thousands of users, including you, are connected to.');
-    $strAllowArbitraryServerWarning = sprintf($strAllowArbitraryServerWarning, '[a@?page=form&amp;formset=Features#tab_Security]', '[/a]', '[a@?page=form&amp;formset=Features#tab_Security]', '[/a]');
+    $strAllowArbitraryServerWarning = sprintf(
+        $strAllowArbitraryServerWarning,
+        '[a@?page=form&amp;formset=Features#tab_Security]',
+        '[/a]', '[a@?page=form&amp;formset=Features#tab_Security]',
+        '[/a]'
+    );
     $strBlowfishSecretMsg = __('You didn\'t have blowfish secret set and have enabled cookie authentication, so a key was automatically generated for you. It is used to encrypt cookies; you don\'t need to remember it.');
     $strBZipDumpWarning = __('%sBzip2 compression and decompression%s requires functions (%s) which are unavailable on this system.');
-    $strBZipDumpWarning = sprintf($strBZipDumpWarning, '[a@?page=form&amp;formset=Features#tab_Import_export]', '[/a]', '%s');
+    $strBZipDumpWarning = sprintf(
+        $strBZipDumpWarning,
+        '[a@?page=form&amp;formset=Features#tab_Import_export]',
+        '[/a]', '%s'
+    );
     $strDirectoryNotice = __('This value should be double checked to ensure that this directory is neither world accessible nor readable or writable by other users on your server.');
     $strForceSSLNotice = __('This %soption%s should be enabled if your web server supports it.');
-    $strForceSSLNotice = sprintf($strForceSSLNotice, '[a@?page=form&amp;formset=Features#tab_Security]', '[/a]');
+    $strForceSSLNotice = sprintf(
+        $strForceSSLNotice,
+        '[a@?page=form&amp;formset=Features#tab_Security]',
+        '[/a]'
+    );
     $strGZipDumpWarning = __('%sGZip compression and decompression%s requires functions (%s) which are unavailable on this system.');
-    $strGZipDumpWarning = sprintf($strGZipDumpWarning, '[a@?page=form&amp;formset=Features#tab_Import_export]', '[/a]', '%s');
+    $strGZipDumpWarning = sprintf(
+        $strGZipDumpWarning,
+        '[a@?page=form&amp;formset=Features#tab_Import_export]',
+        '[/a]',
+        '%s'
+    );
     $strLoginCookieValidityWarning = __('%sLogin cookie validity%s greater than %ssession.gc_maxlifetime%s may cause random session invalidation (currently session.gc_maxlifetime is %d).');
     $strLoginCookieValidityWarning = sprintf($strLoginCookieValidityWarning, '[a@?page=form&amp;formset=Features#tab_Security]', '[/a]', '[a@' . PMA_getPHPDocLink('session.configuration.php#ini.session.gc-maxlifetime') . ']', '[/a]', ini_get('session.gc_maxlifetime'));
     $strLoginCookieValidityWarning2 = __('%sLogin cookie validity%s should be set to 1800 seconds (30 minutes) at most. Values larger than 1800 may pose a security risk such as impersonation.');
