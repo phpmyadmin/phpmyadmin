@@ -15,9 +15,9 @@
  *
  * @package PhpMyAdmin-test
  */
-
-define("DRIZZLE_CAPABILITIES_COMPRESS", 2);
-define("DRIZZLE_CAPABILITIES_SSL", 4);
+if (!defined("DRIZZLE_CAPABILITIES_COMPRESS")) {
+    define("DRIZZLE_CAPABILITIES_COMPRESS", 2);
+}
 
 /**
  * function to return drizzle_version
