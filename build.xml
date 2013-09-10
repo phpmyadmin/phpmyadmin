@@ -125,7 +125,10 @@
    <arg value="-l" />
 
    <fileset dir="${basedir}">
-    <include name="**/*.php" />
+    <include name="libraries/**/*.php" />
+    <include name="setup/**/*.php" />
+    <include name="test/**/*.php" />
+    <include name="*.php" />
     <modified />
    </fileset>
   </apply>
