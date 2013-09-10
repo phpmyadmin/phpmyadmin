@@ -12,4 +12,4 @@ before_script:
   - echo "runkit.internal_override=1" >> `php --ini | grep "Loaded Configuration" | sed -e "s|.*:\s*||"`
 script:
   - ./scripts/generate-mo --quiet
-  - ant phpunit-nocoverage lint
+  - ant phpunit lint
