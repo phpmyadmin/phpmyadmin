@@ -102,7 +102,11 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
                 )
             );
 
-        $fetchSingleRow = array('password' => 'pma_password');
+        $fetchSingleRow = array(
+            'password' => 'pma_password',
+            'Table_priv' => 'pri1, pri2',
+            'Type' => 'Type',
+        );
         $dbi->expects($this->any())->method('fetchSingleRow')
             ->will($this->returnValue($fetchSingleRow));
 
@@ -225,6 +229,41 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
         $this->assertEquals(
             " WHERE `User` LIKE 'INIT%' OR `User` LIKE 'init%'",
             $ret
+        );
+    }
+
+    /**
+     * Test for PMA_getTableGrantsArray
+     *
+     * @return void
+     */
+    public function testPMAGetTableGrantsArray()
+    {
+        $GLOBALS['strPrivDescDelete'] = "strPrivDescDelete";
+        $GLOBALS['strPrivDescCreateTbl'] = "strPrivDescCreateTbl";
+        $GLOBALS['strPrivDescDropTbl'] = "strPrivDescDropTbl";
+        $GLOBALS['strPrivDescIndex'] = "strPrivDescIndex";
+        $GLOBALS['strPrivDescAlter'] = "strPrivDescAlter";
+        $GLOBALS['strPrivDescCreateView'] = "strPrivDescCreateView";
+        $GLOBALS['strPrivDescShowView'] = "strPrivDescShowView";
+        $GLOBALS['strPrivDescTrigger'] = "strPrivDescTrigger";
+
+        $ret = PMA_getTableGrantsArray();
+        $this->assertEquals(
+            array(
+                'Delete',
+                'DELETE',
+                $GLOBALS['strPrivDescDelete']
+            ),
+            $ret[0]
+        );
+        $this->assertEquals(
+            array(
+                'Create',
+                'CREATE',
+                $GLOBALS['strPrivDescCreateTbl']
+            ),
+            $ret[1]
         );
     }
 
@@ -616,6 +655,8 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
         $_POST['pred_username'] = 'any';
         $_POST['pred_hostname'] = 'localhost';
         $_REQUEST['createdb-3'] = true;
+        $_REQUEST['userGroup'] = "username";
+
         list(
             $ret_message, $ret_queries,
             $queries_for_display, $sql_query,
@@ -737,6 +778,139 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
             . "FROM 'pma_username'@'pma_hostname';  ",
             $sql_query
         );
+    }
+
+    /**
+     * Test for PMA_getHtmlToDisplayPrivilegesTable
+     *
+     * @return void
+     */
+    public function testPMAGetHtmlToDisplayPrivilegesTable()
+    {
+        $dbi_old = $GLOBALS['dbi'];
+        $GLOBALS['hostname'] = "hostname";
+        $GLOBALS['username'] = "username";
+
+        //Mock DBI
+        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+            ->disableOriginalConstructor()
+            ->getMock();
+
+        $fetchSingleRow = array(
+            'password' => 'pma_password',
+            'max_questions' => 'max_questions',
+            'max_updates' => 'max_updates',
+            'max_connections' => 'max_connections',
+            'max_user_connections' => 'max_user_connections',
+            'Table_priv' => 'Select,Insert,Update,Delete,File,Create,Alter,Index,'
+                . 'Drop,Super,Process,Reload,Shutdown,Create_routine,Alter_routine,'
+                . 'Show_db,Repl_slave,Create_tmp_table,Show_view,Execute,'
+                . 'Repl_client,Lock_tables,References,Grant,dd'
+                . 'Create_user,Repl_slave,Repl_client',
+            'Type' => "'Super1','Select','Insert','Update','Create','Alter','Index',"
+                . "'Drop','Delete','File','Super','Process','Reload','Shutdown','"
+                . "Show_db','Repl_slave','Create_tmp_table'," 
+                . "'Show_view','Create_routine','"
+                . "Repl_client','Lock_tables','References','Alter_routine','"
+                . "Create_user','Repl_slave','Repl_client','Execute','Grant','ddd",
+        );
+        $dbi->expects($this->any())->method('fetchSingleRow')
+            ->will($this->returnValue($fetchSingleRow));
+
+        $dbi->expects($this->any())->method('tryQuery')
+            ->will($this->returnValue(true));
+
+        $columns = array('val1', 'replace1', 5);
+        $dbi->expects($this->at(0))
+            ->method('fetchRow')
+            ->will($this->returnValue($columns));
+        $dbi->expects($this->at(1))
+            ->method('fetchRow')
+            ->will($this->returnValue(false));
+
+        $GLOBALS['dbi'] = $dbi;
+
+        $html = PMA_getHtmlToDisplayPrivilegesTable();
+        $GLOBALS['username'] = "username";
+
+        //validate 1: fieldset
+        $this->assertContains(
+            '<fieldset id="fieldset_user_privtable_footer" ',
+            $html
+        );
+
+        //validate 2: button
+        $this->assertContains(
+            __('Go'),
+            $html
+        );
+
+        //validate 3: PMA_getHtmlForGlobalOrDbSpecificPrivs
+        $this->assertContains(
+            '<fieldset id="fieldset_user_global_rights"><legend>',
+            $html
+        );
+        $this->assertContains(
+            __('Global privileges'),
+            $html
+        );
+        $this->assertContains(
+            __('Check All'),
+            $html
+        );
+        $this->assertContains(
+            __('Note: MySQL privilege names are expressed in English'),
+            $html
+        );
+
+        //validate 4: PMA_getHtmlForGlobalPrivTableWithCheckboxes items
+        //Select_priv
+        $this->assertContains(
+            '<input type="checkbox" class="checkall" name="Select_priv"',
+            $html
+        );
+        //Create_user_priv
+        $this->assertContains(
+            '<input type="checkbox" class="checkall" name="Create_user_priv"',
+            $html
+        );
+        //Insert_priv
+        $this->assertContains(
+            '<input type="checkbox" class="checkall" name="Insert_priv"',
+            $html
+        );
+        //Update_priv
+        $this->assertContains(
+            '<input type="checkbox" class="checkall" name="Update_priv"',
+            $html
+        );
+        //Create_priv
+        $this->assertContains(
+            '<input type="checkbox" class="checkall" name="Create_priv"',
+            $html
+        );
+        //Create_routine_priv
+        $this->assertContains(
+            '<input type="checkbox" class="checkall" name="Create_routine_priv"',
+            $html
+        );
+        //Execute_priv
+        $this->assertContains(
+            '<input type="checkbox" class="checkall" name="Execute_priv"',
+            $html
+        );
+
+        //validate 5: PMA_getHtmlForDisplayResourceLimits
+        $this->assertContains(
+            '<legend>' . __('Resource limits') . '</legend>',
+            $html
+        );
+        $this->assertContains(
+            __('Note: Setting these options to 0 (zero) removes the limit.'),
+            $html
+        );
+
+        $GLOBALS['dbi'] = $dbi_old;
     }
 
     /**
