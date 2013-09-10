@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-08-18 06:16-0400\n"
-"PO-Revision-Date: 2013-08-23 11:32+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"PO-Revision-Date: 2013-09-10 00:39+0200\n"
+"Last-Translator: Aputsiaq Niels Janussen <aj@isit.gl>\n"
 "Language-Team: Danish <http://l10n.cihar.com/projects/phpmyadmin/master/da/>\n"
 "Language: da\n"
 "MIME-Version: 1.0\n"
@@ -687,10 +687,9 @@ msgid "Back"
 msgstr "Tilbage"
 
 #: index.php:115 libraries/Footer.class.php:72
-#, fuzzy
 #| msgid "phpMyAdmin homepage"
 msgid "phpMyAdmin Demo Server"
-msgstr "phpMyAdmin hjemmeside"
+msgstr "phpMyAdmin - demoserver"
 
 #: index.php:119
 #, php-format
@@ -699,6 +698,8 @@ msgid ""
 "change root, debian-sys-maint and pma users. More information is available "
 "at %s."
 msgstr ""
+"Du anvender demoserveren. Du kan foretage alt her, men undlad venligst at "
+"rette root, debian-sys-maint og pma-brugere. Mere information fås på %s."
 
 #: index.php:129
 msgid "General Settings"
@@ -902,7 +903,7 @@ msgstr "\"DROP DATABASE\" erklæringer kan ikke bruges."
 
 #: js/messages.php:35
 msgid "Confirm"
-msgstr ""
+msgstr "Bekræft"
 
 #: js/messages.php:36
 #, php-format
@@ -934,26 +935,24 @@ msgid "This operation could take a long time. Proceed anyway?"
 msgstr "Denne operation kan tage lang tid. Fortsæt alligevel?"
 
 #: js/messages.php:44
-#, fuzzy, php-format
+#, php-format
 #| msgid "Do you really want to execute \"%s\"?"
 msgid "Do you really want to delete user group \"%s\"?"
-msgstr "Er du sikker på at du vil udføre \"%s\"?"
+msgstr "Er du sikker på at du vil slette brugergruppen \"%s\"?"
 
 #: js/messages.php:47
 msgid "Missing value in the form!"
 msgstr "Ingen værdi i formularen!"
 
 #: js/messages.php:48
-#, fuzzy
 #| msgid "Not a valid port number"
 msgid "Please enter a valid number"
-msgstr "Ikke et gyldigt portnummer"
+msgstr "Angiv venligst et gyldigt portnummer"
 
 #: js/messages.php:49
-#, fuzzy
 #| msgid "Please enter correct captcha!"
 msgid "Please enter a valid length"
-msgstr "Angiv venligst korrekt captcha!"
+msgstr "Angiv venligst en gyldig længde"
 
 #: js/messages.php:50
 msgid "Add Index"
@@ -1751,16 +1750,14 @@ msgid "Show search criteria"
 msgstr "Vis søgekriterie"
 
 #: js/messages.php:286
-#, fuzzy
 #| msgid "Hide search criteria"
 msgid "Hide find and replace criteria"
-msgstr "Skjul søgekriterie"
+msgstr "Skjul kriteriet for søg og erstat"
 
 #: js/messages.php:287
-#, fuzzy
 #| msgid "Show search criteria"
 msgid "Show find and replace criteria"
-msgstr "Vis søgekriterie"
+msgstr "Vis kriteriet for søg og erstat"
 
 #: js/messages.php:290 libraries/TableSearch.class.php:212
 msgid "Zoom Search"
@@ -1972,10 +1969,9 @@ msgid "Hide Panel"
 msgstr "Skjul panel"
 
 #: js/messages.php:379
-#, fuzzy
 #| msgid "Show logo in navigation panel"
 msgid "Show hidden navigation tree items"
-msgstr "Vis logoet i navigationspanel"
+msgstr "Vis skjulte elementer i navigationstræet"
 
 #: js/messages.php:382
 msgid "The requested page was not found in the history, it may have expired."
@@ -2694,16 +2690,16 @@ msgstr ""
 "Viewet har som minimum dette antal rækker. Se venligst %sdokumentationen%s."
 
 #: libraries/DisplayResults.class.php:4865
-#, fuzzy, php-format
+#, php-format
 #| msgid "Showing rows"
 msgid "Showing rows %1s - %2s"
-msgstr "Viser poster"
+msgstr "Viser rækkerne %1s - %2s"
 
 #: libraries/DisplayResults.class.php:4877
-#, fuzzy, php-format
+#, php-format
 #| msgid "total"
 msgid "%d total"
-msgstr "total"
+msgstr "%d i alt"
 
 #: libraries/DisplayResults.class.php:4889 libraries/sql.lib.php:1641
 #, php-format
@@ -2830,13 +2826,12 @@ msgstr "Kan ikke læse (flyttet) uploaded fil."
 #: libraries/Footer.class.php:76
 #, php-format
 msgid "Currently running Git revision %1$s from the %2$s branch."
-msgstr ""
+msgstr "Der køres i øjeblikket Git-revisionen %1$s fra grenen %2$s."
 
 #: libraries/Footer.class.php:83
-#, fuzzy
 #| msgid "Version information"
 msgid "Git information missing!"
-msgstr "Versionsinformation"
+msgstr "Information om Git mangler!"
 
 #: libraries/Footer.class.php:163 libraries/Footer.class.php:167
 #: libraries/Footer.class.php:170
@@ -3309,7 +3304,7 @@ msgstr "Tabelsøgning"
 
 #: libraries/TableSearch.class.php:217 libraries/TableSearch.class.php:1170
 msgid "Find and Replace"
-msgstr ""
+msgstr "Søg og erstat"
 
 #: libraries/TableSearch.class.php:239 libraries/insert_edit.lib.php:1357
 msgid "Edit/Insert"
@@ -3376,38 +3371,33 @@ msgid "Reset zoom"
 msgstr "Nulstil zoom"
 
 #: libraries/TableSearch.class.php:1279
-#, fuzzy
 #| msgid "Replace NULL with"
 msgid "Replace with:"
-msgstr "Erstat NULL med"
+msgstr "Erstat med:"
 
 #: libraries/TableSearch.class.php:1339
 msgid "Find and replace - preview"
-msgstr ""
+msgstr "Søg og erstat - forhåndsvisning"
 
 #: libraries/TableSearch.class.php:1343
-#, fuzzy
 #| msgid "Column"
 msgid "Count"
-msgstr "Kolonnenavn"
+msgstr "Antal"
 
 #: libraries/TableSearch.class.php:1344
-#, fuzzy
 #| msgid "Original position"
 msgid "Original string"
-msgstr "Original position"
+msgstr "Original tekststreng"
 
 #: libraries/TableSearch.class.php:1345
-#, fuzzy
 #| msgid "Related Links"
 msgid "Replaced string"
-msgstr "Relaterede links"
+msgstr "Erstattet tekststreng"
 
 #: libraries/TableSearch.class.php:1369
-#, fuzzy
 #| msgid "Replicated"
 msgid "Replace"
-msgstr "Replikeret"
+msgstr "Erstat"
 
 #: libraries/Theme.class.php:170
 #, php-format
@@ -4727,10 +4717,9 @@ msgstr "Slå fremmednøgle-checks fra"
 
 #: libraries/config/messages.inc.php:126
 #: libraries/plugins/export/ExportSql.class.php:154
-#, fuzzy
 #| msgid "Exporting rows from \"%s\" table"
 msgid "Export views as tables"
-msgstr "Eksporterer rækker fra tabellen \"%s\""
+msgstr "Eksportér visninger som tabeller"
 
 #: libraries/config/messages.inc.php:127 libraries/config/messages.inc.php:128
 #: libraries/config/messages.inc.php:130 libraries/config/messages.inc.php:136
@@ -6121,7 +6110,6 @@ msgid "User preferences storage table"
 msgstr "Bruger preference storage tabel"
 
 #: libraries/config/messages.inc.php:456
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no user preferences storage in database, suggested: [kbd]"
 #| "pma__userconfig[/kbd]"
@@ -6129,17 +6117,15 @@ msgid ""
 "Leave blank to disable configurable menus feature, suggested: [kbd]pma__users"
 "[/kbd]"
 msgstr ""
-"Efterlades tom for at undlade lagring af bruger-præferencer i database, "
-"forslag: [kbd]pma_userconfig[/kbd]"
+"Efterlades tom for at deaktivere muligheden for konfigurérbare menuer, "
+"forslag: [kbd]pma_users[/kbd]"
 
 #: libraries/config/messages.inc.php:457
-#, fuzzy
 #| msgid "Use Tables"
 msgid "Users table"
-msgstr "Benyt tabeller"
+msgstr "Brugertabel"
 
 #: libraries/config/messages.inc.php:458
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no user preferences storage in database, suggested: [kbd]"
 #| "pma__userconfig[/kbd]"
@@ -6147,17 +6133,15 @@ msgid ""
 "Leave blank to disable configurable menus feature, suggested: [kbd]"
 "pma__usergroups[/kbd]"
 msgstr ""
-"Efterlades tom for at undlade lagring af bruger-præferencer i database, "
-"forslag: [kbd]pma_userconfig[/kbd]"
+"Efterlades tom for at deaktivere muligheden for konfigurérbare menuer, "
+"forslag: [kbd]pma__usergroups[/kbd]"
 
 #: libraries/config/messages.inc.php:459
-#, fuzzy
 #| msgid "Use Host Table"
 msgid "User groups table"
-msgstr "Brug tabellen host"
+msgstr "Tabel for brugergrupper"
 
 #: libraries/config/messages.inc.php:460
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no user preferences storage in database, suggested: [kbd]"
 #| "pma__userconfig[/kbd]"
@@ -6165,12 +6149,12 @@ msgid ""
 "Leave blank to disable the feature to hide and show navigation items, "
 "suggested: [kbd]pma__navigationhiding[/kbd]"
 msgstr ""
-"Efterlades tom for at undlade lagring af bruger-præferencer i database, "
-"forslag: [kbd]pma_userconfig[/kbd]"
+"Efterlades tom for deaktivere muligheden for at skjule eller vise "
+"navigationselementer, forslag: [kbd]pma__navigationhiding[/kbd]"
 
 #: libraries/config/messages.inc.php:461
 msgid "Hidden navigation items table"
-msgstr ""
+msgstr "Tabel for skjulte navigationselementer"
 
 #: libraries/config/messages.inc.php:463
 msgid "User for config auth"
@@ -6958,7 +6942,6 @@ msgid "%s of %s"
 msgstr "%s af %s"
 
 #: libraries/display_import.lib.php:454
-#, fuzzy
 #| msgid "Uploading your import file…"
 msgid "Uploading your import file…"
 msgstr "Overfører din importfil …"
@@ -7726,34 +7709,29 @@ msgid "An error has occured while loading the navigation tree"
 msgstr "Der opstod en fejl under indlæsinng af navigationstræet"
 
 #: libraries/navigation/Navigation.class.php:172
-#, fuzzy
 #| msgid "Events"
 msgid "Events:"
-msgstr "Hændelser"
+msgstr "Hændelser:"
 
 #: libraries/navigation/Navigation.class.php:173
-#, fuzzy
 #| msgid "Functions"
 msgid "Functions:"
-msgstr "Funktioner"
+msgstr "Funktioner:"
 
 #: libraries/navigation/Navigation.class.php:174
-#, fuzzy
 #| msgid "Procedures"
 msgid "Procedures:"
-msgstr "Procedurer"
+msgstr "Procedurer:"
 
 #: libraries/navigation/Navigation.class.php:175
-#, fuzzy
 #| msgid "Tables"
 msgid "Tables:"
-msgstr "Tabeller"
+msgstr "Tabeller:"
 
 #: libraries/navigation/Navigation.class.php:176
-#, fuzzy
 #| msgid "Views"
 msgid "Views:"
-msgstr "Views"
+msgstr "Views:"
 
 #: libraries/navigation/NavigationHeader.class.php:183
 msgid "Home"
@@ -8504,10 +8482,10 @@ msgid "RELATIONS FOR TABLE"
 msgstr "RELATIONS FOR TABLE (Relationer for tabellen)"
 
 #: libraries/plugins/export/ExportSql.class.php:1512
-#, fuzzy, php-format
+#, php-format
 #| msgid "Structure for view"
 msgid "Structure for view %s exported as a table"
-msgstr "Struktur for visning"
+msgstr "Struktur for visningen %s blev eksporteret som en tabel"
 
 #: libraries/plugins/export/ExportSql.class.php:1600
 msgid "Error reading data:"
@@ -8855,16 +8833,14 @@ msgid "User preferences"
 msgstr "Brugerpræferencer"
 
 #: libraries/relation.lib.php:264
-#, fuzzy
 #| msgid "Configuration: %s"
 msgid "Configurable menus"
-msgstr "Konfiguration: %s"
+msgstr "Konfigurérbare menuer"
 
 #: libraries/relation.lib.php:275
-#, fuzzy
 #| msgid "Reload navigation frame"
 msgid "Hide/show navigation items"
-msgstr "Genindlæs navigationsramme"
+msgstr "Skjul/vis navigationselementer"
 
 #: libraries/relation.lib.php:281
 msgid "Quick steps to setup advanced features:"
@@ -10019,7 +9995,7 @@ msgstr "Ingen"
 #: libraries/server_privileges.lib.php:2623
 #: libraries/server_privileges.lib.php:3639
 msgid "User group"
-msgstr ""
+msgstr "Brugergruppe"
 
 #: libraries/server_privileges.lib.php:648
 msgid "Resource limits"
@@ -10255,10 +10231,9 @@ msgid "Add privileges on the following table:"
 msgstr "Tilføj privileges på følgende tabel:"
 
 #: libraries/server_privileges.lib.php:2761
-#, fuzzy
 #| msgid "Edit server"
 msgid "Edit user group"
-msgstr "Rediger server"
+msgstr "Redigér brugergruppe"
 
 #: libraries/server_privileges.lib.php:2798
 msgid "Remove selected users"
@@ -10337,84 +10312,73 @@ msgstr ""
 #: libraries/server_privileges.lib.php:3584
 #, php-format
 msgid "Users of '%s' user group"
-msgstr ""
+msgstr "Brugere fra brugergruppen \"%s\""
 
 #: libraries/server_privileges.lib.php:3595
 msgid "No users were found belonging to this user group."
-msgstr ""
+msgstr "Der blev ikke fundet brugere tilhørende denne brugergruppe."
 
 #: libraries/server_privileges.lib.php:3626
 #: libraries/server_privileges.lib.php:4302
-#, fuzzy
 #| msgid "Users"
 msgid "User groups"
-msgstr "Brugere"
+msgstr "Brugergrupper"
 
 #: libraries/server_privileges.lib.php:3640
-#, fuzzy
 #| msgid "Server version"
 msgid "Server level tabs"
-msgstr "Serverversion"
+msgstr "Faner på serverniveau"
 
 #: libraries/server_privileges.lib.php:3641
-#, fuzzy
 #| msgid "Database server"
 msgid "Database level tabs"
-msgstr "Database-server"
+msgstr "Faner på databaseniveau"
 
 #: libraries/server_privileges.lib.php:3642
-#, fuzzy
 #| msgid "Table comments"
 msgid "Table level tabs"
-msgstr "Tabel kommentarer"
+msgstr "Faner på tabelniveau"
 
 #: libraries/server_privileges.lib.php:3663
-#, fuzzy
 #| msgid "Views"
 msgid "View users"
-msgstr "Views"
+msgstr "Vis brugere"
 
 #: libraries/server_privileges.lib.php:3700
 #: libraries/server_privileges.lib.php:3761
-#, fuzzy
 #| msgid "Add user"
 msgid "Add user group"
-msgstr "Opret bruger"
+msgstr "Tilføj brugergruppe"
 
 #: libraries/server_privileges.lib.php:3764
 #, php-format
 msgid "Edit user group: '%s'"
-msgstr ""
+msgstr "Redigér brugergruppen: \"%s\""
 
 #: libraries/server_privileges.lib.php:3780
-#, fuzzy
 #| msgid "No privileges."
 msgid "User group menu assignments"
-msgstr "Ingen privilegier."
+msgstr "Menu-tildelinger for brugergruppe"
 
 #: libraries/server_privileges.lib.php:3787
-#, fuzzy
 #| msgid "Column names: "
 msgid "Group name:"
-msgstr "Kolonnenavne: "
+msgstr "Gruppenavn:"
 
 #: libraries/server_privileges.lib.php:3819
-#, fuzzy
 #| msgid "Server version"
 msgid "Server-level tabs"
-msgstr "Serverversion"
+msgstr "Faner på serverniveau"
 
 #: libraries/server_privileges.lib.php:3822
-#, fuzzy
 #| msgid "Database server"
 msgid "Database-level tabs"
-msgstr "Database-server"
+msgstr "Faner på databaseniveau"
 
 #: libraries/server_privileges.lib.php:3825
-#, fuzzy
 #| msgid "Table comments"
 msgid "Table-level tabs"
-msgstr "Tabel kommentarer"
+msgstr "Faner på tabelniveau"
 
 #: libraries/server_privileges.lib.php:3936
 msgid "The selected user was not found in the privilege table."
@@ -12587,7 +12551,7 @@ msgstr ""
 "tilgængelige på dette system."
 
 #: setup/lib/index.lib.php:226
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "%sLogin cookie validity%s greater than 1440 seconds may cause random "
 #| "session invalidation if %ssession.gc_maxlifetime%s is lower than its "
@@ -12596,9 +12560,9 @@ msgid ""
 "%sLogin cookie validity%s greater than %ssession.gc_maxlifetime%s may cause "
 "random session invalidation (currently session.gc_maxlifetime is %d)."
 msgstr ""
-"%sLogin cookie gyldighed%s større end 1440 sekunder kan forårsage tilfældig "
-"afslutning af session hvis %ssession.gc_maxlifetime%s er mindre end dens "
-"værdi (aktuelt %d)."
+"%sLogin cookie gyldighed%s større end %ssession.gc_maxlifetime%s kan "
+"forårsage tilfældig afslutning af session (session.gc_maxlifetime er i "
+"øjeblikket %d)."
 
 #: setup/lib/index.lib.php:228
 #, php-format

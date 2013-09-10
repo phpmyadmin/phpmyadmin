@@ -22,11 +22,11 @@ require_once 'libraries/Util.class.php';
 class PMA_SetupIndex_Test extends PHPUnit_Framework_TestCase
 {
     /**
-     * Test for messages_begin()
+     * Test for PMA_messagesBegin()
      *
      * @return void
      */
-    public function testMessagesBegin()
+    public function testPMAmessagesBegin()
     {
         $_SESSION['messages'] = array(
             array(
@@ -35,7 +35,7 @@ class PMA_SetupIndex_Test extends PHPUnit_Framework_TestCase
             )
         );
 
-        messages_begin();
+        PMA_messagesBegin();
 
         $this->assertEquals(
             array(
@@ -58,7 +58,7 @@ class PMA_SetupIndex_Test extends PHPUnit_Framework_TestCase
         // case 2
 
         unset($_SESSION['messages']);
-        messages_begin();
+        PMA_messagesBegin();
         $this->assertEquals(
             array(
                 'error' => array(),
@@ -69,13 +69,13 @@ class PMA_SetupIndex_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for messages_set
+     * Test for PMA_messagesSet
      *
      * @return void
      */
-    public function testMessagesSet()
+    public function testPMAmessagesSet()
     {
-        messages_set('type', '123', 'testTitle', 'msg');
+        PMA_messagesSet('type', '123', 'testTitle', 'msg');
 
         $this->assertEquals(
             array(
@@ -89,11 +89,11 @@ class PMA_SetupIndex_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for messages_end
+     * Test for PMA_messagesEnd
      *
      * @return void
      */
-    public function testMessagesEnd()
+    public function testPMAmessagesEnd()
     {
         $_SESSION['messages'] = array(
             array(
@@ -102,7 +102,7 @@ class PMA_SetupIndex_Test extends PHPUnit_Framework_TestCase
             )
         );
 
-        messages_end();
+        PMA_messagesEnd();
 
         $this->assertEquals(
             array(
@@ -118,11 +118,11 @@ class PMA_SetupIndex_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for messages_show_html
+     * Test for PMA_messagesShowHtml
      *
      * @return void
      */
-    public function testMessagesShowHTML()
+    public function testPMAMessagesShowHTML()
     {
         $_SESSION['messages'] = array(
             'type' => array(
@@ -132,7 +132,7 @@ class PMA_SetupIndex_Test extends PHPUnit_Framework_TestCase
         );
 
         ob_start();
-        messages_show_html();
+        PMA_messagesShowHtml();
         $result = ob_get_clean();
 
         $this->assertContains(
@@ -162,7 +162,7 @@ class PMA_SetupIndex_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_version_check
+     * Test for PMA_versionCheck
      *
      * @return void
      */
@@ -179,7 +179,7 @@ class PMA_SetupIndex_Test extends PHPUnit_Framework_TestCase
 
         $GLOBALS['PMA_Config'] = $pmaconfig;
 
-        PMA_version_check();
+        PMA_versionCheck();
 
         $this->assertArrayHasKey(
             'notice',
@@ -210,7 +210,7 @@ class PMA_SetupIndex_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_version_check
+     * Test for PMA_versionCheck
      *
      * @return void
      */
@@ -227,7 +227,7 @@ class PMA_SetupIndex_Test extends PHPUnit_Framework_TestCase
 
         $GLOBALS['PMA_Config'] = $pmaconfig;
 
-        PMA_version_check();
+        PMA_versionCheck();
 
         $this->assertArrayHasKey(
             'notice',
@@ -258,7 +258,7 @@ class PMA_SetupIndex_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_version_check
+     * Test for PMA_versionCheck
      *
      * @return void
      */
@@ -275,7 +275,7 @@ class PMA_SetupIndex_Test extends PHPUnit_Framework_TestCase
 
         $GLOBALS['PMA_Config'] = $pmaconfig;
 
-        PMA_version_check();
+        PMA_versionCheck();
 
         $this->assertArrayHasKey(
             'notice',
@@ -306,11 +306,11 @@ class PMA_SetupIndex_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for check_config_rw
+     * Test for PMA_checkConfigRw
      *
      * @return void
      */
-    public function testCheckConfigRW()
+    public function testPMACheckConfigRw()
     {
         if (! PMA_HAS_RUNKIT) {
             $this->markTestSkipped('Cannot redefine constant');
@@ -331,7 +331,7 @@ class PMA_SetupIndex_Test extends PHPUnit_Framework_TestCase
         $is_writable = false;
         $file_exists = false;
 
-        check_config_rw($is_readable, $is_writable, $file_exists);
+        PMA_checkConfigRw($is_readable, $is_writable, $file_exists);
 
         $this->assertTrue(
             $is_readable
@@ -350,7 +350,7 @@ class PMA_SetupIndex_Test extends PHPUnit_Framework_TestCase
             'test/test_data/test.file'
         );
 
-        check_config_rw($is_readable, $is_writable, $file_exists);
+        PMA_checkConfigRw($is_readable, $is_writable, $file_exists);
 
         $this->assertTrue(
             $is_readable
@@ -372,11 +372,11 @@ class PMA_SetupIndex_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for perform_config_checks
+     * Test for PMA_performConfigChecks
      *
      * @return void
      */
-    public function testPerformConfigChecks()
+    public function testPMAPerformConfigChecks()
     {
 
         $GLOBALS['cfg']['AvailableCharsets'] = array();
@@ -442,7 +442,7 @@ class PMA_SetupIndex_Test extends PHPUnit_Framework_TestCase
             $errorArrayKeys[] = 'ZipDump_export';
         }
 
-        perform_config_checks();
+        PMA_performConfigChecks();
 
         foreach ($noticeArrayKeys as $noticeKey) {
             $this->assertArrayHasKey(
@@ -484,7 +484,7 @@ class PMA_SetupIndex_Test extends PHPUnit_Framework_TestCase
         $_SESSION[$sessionID]['BZipDump'] = false;
         $_SESSION[$sessionID]['ZipDump'] = false;
 
-        perform_config_checks();
+        PMA_performConfigChecks();
         $this->assertArrayHasKey(
             'blowfish_secret_created',
             $_SESSION['messages']['notice']
@@ -512,7 +512,7 @@ class PMA_SetupIndex_Test extends PHPUnit_Framework_TestCase
                 'auth_type' => 'cookie'
             )
         );
-        perform_config_checks();
+        PMA_performConfigChecks();
         $this->assertArrayHasKey(
             'blowfish_warnings2',
             $_SESSION['messages']['error']

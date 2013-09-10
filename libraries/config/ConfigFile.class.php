@@ -128,7 +128,7 @@ class ConfigFile
      * Sets names of config options which will be placed in config file even if
      * they are set to their default values (use only full paths)
      *
-     * @param array $keys
+     * @param array $keys the names of the config options
      *
      * @return void
      */
@@ -173,7 +173,8 @@ class ConfigFile
      * {@link updateWithGlobalConfig()} or reading
      * by {@link getConfig()} or {@link getConfigArray()}
      *
-     * @param array $mapping
+     * @param array $mapping Contains the mapping of "Server/config options" 
+     *                       to "Server/1/config options" 
      *
      * @return void
      */
@@ -195,7 +196,7 @@ class ConfigFile
     /**
      * Sets configuration data (overrides old data)
      *
-     * @param array $cfg
+     * @param array $cfg Configuration options
      *
      * @return void
      */

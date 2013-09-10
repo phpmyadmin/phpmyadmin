@@ -2284,7 +2284,7 @@ function PMA_executeQueryAndSendQueryResponse($analyzed_sql_results,
         $sql_limit_to_append = '';
     }
 
-    $reload = PMA_hasCurrentDbChanged($db);
+    $GLOBALS['reload'] = PMA_hasCurrentDbChanged($db);
 
     // Execute the query
     list($result, $num_rows, $unlim_num_rows, $profiling_results,

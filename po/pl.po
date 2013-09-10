@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-08-18 06:16-0400\n"
-"PO-Revision-Date: 2013-09-03 19:11+0200\n"
+"PO-Revision-Date: 2013-09-03 23:11+0200\n"
 "Last-Translator: Tomasz Nowiński <spamgrinder@o2.pl>\n"
 "Language-Team: Polish <http://l10n.cihar.com/projects/phpmyadmin/master/pl/>\n"
 "Language: pl\n"
@@ -1755,7 +1755,7 @@ msgstr "Edytuj"
 
 #: js/messages.php:273
 msgid "No rows selected"
-msgstr "Nie żadnych wybrano rekordów"
+msgstr "Nie wybrano żadnego rekordu"
 
 #: js/messages.php:274 libraries/DisplayResults.class.php:4983
 #: libraries/structure.lib.php:1374 libraries/structure.lib.php:2062
@@ -12165,7 +12165,7 @@ msgstr "Kolumny przeniesiono pomyślnie."
 #: libraries/structure.lib.php:2571
 #, php-format
 msgid "The column name '%s' is a MySQL reserved keyword."
-msgstr ""
+msgstr "Nazwa kolumny '%s' jest słowem kluczowym MySQL."
 
 #: libraries/tbl_columns_definition_form.lib.php:72
 #, fuzzy
@@ -13173,10 +13173,9 @@ msgid "Choose column to display:"
 msgstr "Wybierz kolumny do wyświetlenia"
 
 #: tbl_structure.php:111
-#, fuzzy
 #| msgid "No rows selected"
 msgid "No column selected."
-msgstr "Nie żadnych wybrano rekordów"
+msgstr "Nie wybrano żadnej kolumny."
 
 #: tbl_tracking.php:136
 #, php-format

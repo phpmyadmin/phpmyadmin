@@ -37,12 +37,14 @@ phpMyAdmin - ChangeLog
 + [setup] rfe #1452 Use type="password" for server passwords
 + rfe #1451 HTML5 input tag enhancements
 - bug #1193 Text field too small when editing a row longer than $cfg['LimitChars']
++ Privileges tab for table level
 
 4.0.7.0 (not yet released)
 - bug #3993 Sorting in database overview with statistics doesn't work
 - bug Handle the situation where PHP_SELF is not set 
+- bug #4080 Overwrite existing file not obeyed
 
-4.0.6.0 (not yet released)
+4.0.6.0 (2013-09-05)
 - bug #4036 Call to undefined function mb_detect_encoding (clarify the doc)
 - bug Missing hints when changing a column's structure
 - bug #4048 Cannot select foreign value in Search

@@ -7,17 +7,16 @@
  */
 
 /**
- * If we are sending the export file (as opposed to just displaying it
- * as text), we have to bypass the usual PMA_Response mechanism 
- */
-if ($_POST['output_format'] == 'sendit') {
-    define('PMA_BYPASS_GET_INSTANCE', 1);
-}
-
-/**
  * Get the variables sent or posted to this script and a core script
  */
 if (!defined('TESTSUITE')) {
+    /**
+     * If we are sending the export file (as opposed to just displaying it
+     * as text), we have to bypass the usual PMA_Response mechanism 
+     */
+    if ($_POST['output_format'] == 'sendit') {
+        define('PMA_BYPASS_GET_INSTANCE', 1);
+    }
     require_once 'libraries/common.inc.php';
     require_once 'libraries/zip.lib.php';
     require_once 'libraries/plugin_interface.lib.php';
@@ -504,7 +503,7 @@ if (!defined('TESTSUITE')) {
             . preg_replace('@[/\\\\]@', '_', $filename);
         unset($message);
         if (file_exists($save_filename)
-            && ((! $quick_export && empty($onserverover))
+            && ((! $quick_export && empty($_REQUEST['onserverover']))
             || ($quick_export
             && $_REQUEST['quick_export_onserverover'] != 'saveitover'))
         ) {

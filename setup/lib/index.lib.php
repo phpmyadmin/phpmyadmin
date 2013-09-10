@@ -15,7 +15,7 @@ if (!defined('PHPMYADMIN')) {
  *
  * @return void
  */
-function messages_begin()
+function PMA_messagesBegin()
 {
     if (! isset($_SESSION['messages']) || !is_array($_SESSION['messages'])) {
         $_SESSION['messages'] = array('error' => array(), 'notice' => array());
@@ -40,7 +40,7 @@ function messages_begin()
  *
  * @return void
  */
-function messages_set($type, $id, $title, $message)
+function PMA_messagesSet($type, $id, $title, $message)
 {
     $fresh = ! isset($_SESSION['messages'][$type][$id]);
     $_SESSION['messages'][$type][$id] = array(
@@ -55,7 +55,7 @@ function messages_set($type, $id, $title, $message)
  *
  * @return void
  */
-function messages_end()
+function PMA_messagesEnd()
 {
     foreach ($_SESSION['messages'] as &$messages) {
         $remove_ids = array();
@@ -71,11 +71,11 @@ function messages_end()
 }
 
 /**
- * Prints message list, must be called after messages_end()
+ * Prints message list, must be called after PMA_messagesEnd()
  *
  * @return void
  */
-function messages_show_html()
+function PMA_messagesShowHtml()
 {
     $old_ids = array();
     foreach ($_SESSION['messages'] as $type => $messages) {
@@ -101,7 +101,7 @@ function messages_show_html()
  *
  * @return void
  */
-function PMA_version_check()
+function PMA_versionCheck()
 {
     // version check messages should always be visible so let's make
     // a unique message id each time we run it
@@ -111,7 +111,7 @@ function PMA_version_check()
     $version_data = PMA_Util::getLatestVersion();
 
     if (empty($version_data)) {
-        messages_set(
+        PMA_messagesSet(
             'error',
             $message_id,
             __('Version check'),
@@ -125,7 +125,7 @@ function PMA_version_check()
 
     $version_upstream = PMA_Util::versionToInt($version);
     if ($version_upstream === false) {
-        messages_set(
+        PMA_messagesSet(
             'error',
             $message_id,
             __('Version check'),
@@ -136,7 +136,7 @@ function PMA_version_check()
 
     $version_local = PMA_Util::versionToInt($GLOBALS['PMA_Config']->get('PMA_VERSION'));
     if ($version_local === false) {
-        messages_set(
+        PMA_messagesSet(
             'error',
             $message_id,
             __('Version check'),
@@ -148,7 +148,7 @@ function PMA_version_check()
     if ($version_upstream > $version_local) {
         $version = htmlspecialchars($version);
         $date = htmlspecialchars($date);
-        messages_set(
+        PMA_messagesSet(
             'notice',
             $message_id,
             __('Version check'),
@@ -156,14 +156,14 @@ function PMA_version_check()
         );
     } else {
         if ($version_local % 100 == 0) {
-            messages_set(
+            PMA_messagesSet(
                 'notice',
                 $message_id,
                 __('Version check'),
                 PMA_sanitize(sprintf(__('You are using Git version, run [kbd]git pull[/kbd] :-)[br]The latest stable version is %s, released on %s.'), $version, $date))
             );
         } else {
-            messages_set(
+            PMA_messagesSet(
                 'notice',
                 $message_id,
                 __('Version check'),
@@ -182,7 +182,7 @@ function PMA_version_check()
  *
  * @return void
  */
-function check_config_rw(&$is_readable, &$is_writable, &$file_exists)
+function PMA_checkConfigRw(&$is_readable, &$is_writable, &$file_exists)
 {
     $file_path = ConfigFile::getInstance()->getFilePath();
     $file_dir = dirname($file_path);
@@ -201,12 +201,12 @@ function check_config_rw(&$is_readable, &$is_writable, &$file_exists)
 /**
  * Performs various compatibility, security and consistency checks on current config
  *
- * Outputs results to message list, must be called between messages_begin()
- * and messages_end()
+ * Outputs results to message list, must be called between PMA_messagesBegin()
+ * and PMA_messagesEnd()
  *
  * @return void
  */
-function perform_config_checks()
+function PMA_performConfigChecks()
 {
     $cf = ConfigFile::getInstance();
     $blowfish_secret = $cf->get('blowfish_secret');
@@ -214,15 +214,33 @@ function perform_config_checks()
     $cookie_auth_used = false;
 
     $strAllowArbitraryServerWarning = __('This %soption%s should be disabled as it allows attackers to bruteforce login to any MySQL server. If you feel this is necessary, use %strusted proxies list%s. However, IP-based protection may not be reliable if your IP belongs to an ISP where thousands of users, including you, are connected to.');
-    $strAllowArbitraryServerWarning = sprintf($strAllowArbitraryServerWarning, '[a@?page=form&amp;formset=Features#tab_Security]', '[/a]', '[a@?page=form&amp;formset=Features#tab_Security]', '[/a]');
+    $strAllowArbitraryServerWarning = sprintf(
+        $strAllowArbitraryServerWarning,
+        '[a@?page=form&amp;formset=Features#tab_Security]',
+        '[/a]', '[a@?page=form&amp;formset=Features#tab_Security]',
+        '[/a]'
+    );
     $strBlowfishSecretMsg = __('You didn\'t have blowfish secret set and have enabled cookie authentication, so a key was automatically generated for you. It is used to encrypt cookies; you don\'t need to remember it.');
     $strBZipDumpWarning = __('%sBzip2 compression and decompression%s requires functions (%s) which are unavailable on this system.');
-    $strBZipDumpWarning = sprintf($strBZipDumpWarning, '[a@?page=form&amp;formset=Features#tab_Import_export]', '[/a]', '%s');
+    $strBZipDumpWarning = sprintf(
+        $strBZipDumpWarning,
+        '[a@?page=form&amp;formset=Features#tab_Import_export]',
+        '[/a]', '%s'
+    );
     $strDirectoryNotice = __('This value should be double checked to ensure that this directory is neither world accessible nor readable or writable by other users on your server.');
     $strForceSSLNotice = __('This %soption%s should be enabled if your web server supports it.');
-    $strForceSSLNotice = sprintf($strForceSSLNotice, '[a@?page=form&amp;formset=Features#tab_Security]', '[/a]');
+    $strForceSSLNotice = sprintf(
+        $strForceSSLNotice,
+        '[a@?page=form&amp;formset=Features#tab_Security]',
+        '[/a]'
+    );
     $strGZipDumpWarning = __('%sGZip compression and decompression%s requires functions (%s) which are unavailable on this system.');
-    $strGZipDumpWarning = sprintf($strGZipDumpWarning, '[a@?page=form&amp;formset=Features#tab_Import_export]', '[/a]', '%s');
+    $strGZipDumpWarning = sprintf(
+        $strGZipDumpWarning,
+        '[a@?page=form&amp;formset=Features#tab_Import_export]',
+        '[/a]',
+        '%s'
+    );
     $strLoginCookieValidityWarning = __('%sLogin cookie validity%s greater than %ssession.gc_maxlifetime%s may cause random session invalidation (currently session.gc_maxlifetime is %d).');
     $strLoginCookieValidityWarning = sprintf($strLoginCookieValidityWarning, '[a@?page=form&amp;formset=Features#tab_Security]', '[/a]', '[a@' . PMA_getPHPDocLink('session.configuration.php#ini.session.gc-maxlifetime') . ']', '[/a]', ini_get('session.gc_maxlifetime'));
     $strLoginCookieValidityWarning2 = __('%sLogin cookie validity%s should be set to 1800 seconds (30 minutes) at most. Values larger than 1800 may pose a security risk such as impersonation.');
@@ -259,7 +277,7 @@ function perform_config_checks()
         //
         if (!$cf->getValue("Servers/$i/ssl")) {
             $title = PMA_lang(PMA_langName('Servers/1/ssl')) . " ($server_name)";
-            messages_set(
+            PMA_messagesSet(
                 'notice',
                 "Servers/$i/ssl",
                 $title,
@@ -274,7 +292,7 @@ function perform_config_checks()
         if ($cf->getValue("Servers/$i/extension") == 'mysql') {
             $title = PMA_lang(PMA_langName('Servers/1/extension'))
                 . " ($server_name)";
-            messages_set(
+            PMA_messagesSet(
                 'notice',
                 "Servers/$i/extension",
                 $title,
@@ -292,7 +310,7 @@ function perform_config_checks()
         ) {
             $title = PMA_lang(PMA_langName('Servers/1/auth_type'))
                 . " ($server_name)";
-            messages_set(
+            PMA_messagesSet(
                 'notice',
                 "Servers/$i/auth_type",
                 $title,
@@ -311,7 +329,7 @@ function perform_config_checks()
         ) {
             $title = PMA_lang(PMA_langName('Servers/1/AllowNoPassword'))
                 . " ($server_name)";
-            messages_set(
+            PMA_messagesSet(
                 'notice',
                 "Servers/$i/AllowNoPassword",
                 $title,
@@ -328,7 +346,7 @@ function perform_config_checks()
     if ($cookie_auth_used) {
         if ($blowfish_secret_set) {
             // 'cookie' auth used, blowfish_secret was generated
-            messages_set(
+            PMA_messagesSet(
                 'notice',
                 'blowfish_secret_created',
                 PMA_lang(PMA_langName('blowfish_secret')),
@@ -349,7 +367,7 @@ function perform_config_checks()
                 $blowfish_warnings[] = PMA_lang(__('Key should contain letters, numbers [em]and[/em] special characters.'));
             }
             if (!empty($blowfish_warnings)) {
-                messages_set(
+                PMA_messagesSet(
                     'error',
                     'blowfish_warnings' . count($blowfish_warnings),
                     PMA_lang(PMA_langName('blowfish_secret')),
@@ -364,7 +382,7 @@ function perform_config_checks()
     // should be enabled if possible
     //
     if (!$cf->getValue('ForceSSL')) {
-        messages_set(
+        PMA_messagesSet(
             'notice',
             'ForceSSL',
             PMA_lang(PMA_langName('ForceSSL')),
@@ -377,7 +395,7 @@ function perform_config_checks()
     // should be disabled
     //
     if ($cf->getValue('AllowArbitraryServer')) {
-        messages_set(
+        PMA_messagesSet(
             'notice',
             'AllowArbitraryServer',
             PMA_lang(PMA_langName('AllowArbitraryServer')),
@@ -390,7 +408,7 @@ function perform_config_checks()
     // value greater than session.gc_maxlifetime will cause
     // random session invalidation after that time
     if ($cf->getValue('LoginCookieValidity') > ini_get('session.gc_maxlifetime')) {
-        messages_set(
+        PMA_messagesSet(
             'error',
             'LoginCookieValidity',
             PMA_lang(PMA_langName('LoginCookieValidity')),
@@ -403,7 +421,7 @@ function perform_config_checks()
     // should be at most 1800 (30 min)
     //
     if ($cf->getValue('LoginCookieValidity') > 1800) {
-        messages_set(
+        PMA_messagesSet(
             'notice',
             'LoginCookieValidity',
             PMA_lang(PMA_langName('LoginCookieValidity')),
@@ -419,7 +437,7 @@ function perform_config_checks()
     if ($cf->getValue('LoginCookieStore') != 0
         && $cf->getValue('LoginCookieValidity') > $cf->getValue('LoginCookieStore')
     ) {
-        messages_set(
+        PMA_messagesSet(
             'error',
             'LoginCookieValidity',
             PMA_lang(PMA_langName('LoginCookieValidity')),
@@ -432,7 +450,7 @@ function perform_config_checks()
     // should not be world-accessible
     //
     if ($cf->getValue('SaveDir') != '') {
-        messages_set(
+        PMA_messagesSet(
             'notice',
             'SaveDir',
             PMA_lang(PMA_langName('SaveDir')),
@@ -445,7 +463,7 @@ function perform_config_checks()
     // should not be world-accessible
     //
     if ($cf->getValue('TempDir') != '') {
-        messages_set(
+        PMA_messagesSet(
             'notice',
             'TempDir',
             PMA_lang(PMA_langName('TempDir')),
@@ -460,7 +478,7 @@ function perform_config_checks()
     if ($cf->getValue('GZipDump')
         && (@!function_exists('gzopen') || @!function_exists('gzencode'))
     ) {
-        messages_set(
+        PMA_messagesSet(
             'error',
             'GZipDump',
             PMA_lang(PMA_langName('GZipDump')),
@@ -481,7 +499,7 @@ function perform_config_checks()
         $functions .= @function_exists('bzcompress')
                 ? ''
                 : ($functions ? ', ' : '') . 'bzcompress';
-        messages_set(
+        PMA_messagesSet(
             'error',
             'BZipDump',
             PMA_lang(PMA_langName('BZipDump')),
@@ -494,7 +512,7 @@ function perform_config_checks()
     // requires zip_open in import
     //
     if ($cf->getValue('ZipDump') && !@function_exists('zip_open')) {
-        messages_set(
+        PMA_messagesSet(
             'error',
             'ZipDump_import',
             PMA_lang(PMA_langName('ZipDump')),
@@ -507,7 +525,7 @@ function perform_config_checks()
     // requires gzcompress in export
     //
     if ($cf->getValue('ZipDump') && !@function_exists('gzcompress')) {
-        messages_set(
+        PMA_messagesSet(
             'error',
             'ZipDump_export',
             PMA_lang(PMA_langName('ZipDump')),

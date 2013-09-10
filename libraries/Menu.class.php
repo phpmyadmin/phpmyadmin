@@ -140,19 +140,16 @@ class PMA_Menu
             $userTable = PMA_Util::backquote($GLOBALS['cfg']['Server']['pmadb'])
                 . "." . PMA_Util::backquote($GLOBALS['cfg']['Server']['users']);
 
-            $sql_query = "SELECT * FROM " . $groupTable
-                . " WHERE `usergroup` = (SELECT usergroup FROM "
+            $sql_query = "SELECT `tab` FROM " . $groupTable
+                . " WHERE `allowed` = 'N' AND `usergroup` = (SELECT usergroup FROM "
                 . $userTable . " WHERE `username` = '"
                 . PMA_Util::sqlAddSlashes($GLOBALS['cfg']['Server']['user']) . "')";
 
             $result = PMA_queryAsControlUser($sql_query, false);
             if ($result) {
-                $row = $GLOBALS['dbi']->fetchAssoc($result);
-                foreach ($allowedTabs as $key => $tab) {
-                    $colName = $level . '_' . $key;
-                    if (isset($row[$colName]) && $row[$colName] == 'N') {
-                        unset($allowedTabs[$key]);
-                    }
+                while ($row = $GLOBALS['dbi']->fetchAssoc($result)) {
+                    $tabName = substr($row['tab'], strpos($row['tab'], '_') + 1);
+                    unset($allowedTabs[$tabName]);
                 }
             }
         }
@@ -292,6 +289,7 @@ class PMA_Menu
     {
         $db_is_information_schema = $GLOBALS['dbi']->isSystemSchema($this->_db);
         $tbl_is_view = PMA_Table::isView($this->_db, $this->_table);
+        $is_superuser = $GLOBALS['dbi']->isSuperuser();
 
         $tabs = array();
 
@@ -328,14 +326,26 @@ class PMA_Menu
         $tabs['export']['text'] = __('Export');
 
         /**
-         * Don't display "Import" and "Operations"
-         * for views and information_schema
+         * Don't display "Import" for views and information_schema
          */
         if (! $tbl_is_view && ! $db_is_information_schema) {
             $tabs['import']['icon'] = 'b_tblimport.png';
             $tabs['import']['link'] = 'tbl_import.php';
             $tabs['import']['text'] = __('Import');
-
+        }
+        if ($is_superuser && ! PMA_DRIZZLE && ! $db_is_information_schema) {
+            $tabs['privileges']['link'] = 'server_privileges.php';
+            $tabs['privileges']['args']['checkprivsdb'] = $this->_db;
+            $tabs['privileges']['args']['checkprivstable'] = $this->_table;
+            // stay on table view
+            $tabs['privileges']['args']['viewing_mode'] = 'table';
+            $tabs['privileges']['text'] = __('Privileges');
+            $tabs['privileges']['icon'] = 's_rights.png';
+        }
+        /**
+         * Don't display "Operations" for views and information_schema
+         */
+        if (! $tbl_is_view && ! $db_is_information_schema) {
             $tabs['operation']['icon'] = 'b_tblops.png';
             $tabs['operation']['link'] = 'tbl_operations.php';
             $tabs['operation']['text'] = __('Operations');
@@ -425,7 +435,7 @@ class PMA_Menu
 
             if ($is_superuser && ! PMA_DRIZZLE) {
                 $tabs['privileges']['link'] = 'server_privileges.php';
-                $tabs['privileges']['args']['checkprivs'] = $this->_db;
+                $tabs['privileges']['args']['checkprivsdb'] = $this->_db;
                 // stay on database view
                 $tabs['privileges']['args']['viewing_mode'] = 'db';
                 $tabs['privileges']['text'] = __('Privileges');
@@ -521,6 +531,7 @@ class PMA_Menu
                 basename($GLOBALS['PMA_PHP_SELF']),
                 array('server_privileges.php', 'server_user_groups.php')
             );
+            $tabs['rights']['args']['viewing_mode'] = 'server';
         }
 
         $tabs['export']['icon'] = 'b_export.png';

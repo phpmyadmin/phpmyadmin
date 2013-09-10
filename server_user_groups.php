@@ -7,7 +7,8 @@
  */
 
 require_once 'libraries/common.inc.php';
-require_once 'libraries/server_privileges.lib.php';
+require_once 'libraries/server_users.lib.php';
+require_once 'libraries/server_user_groups.lib.php';
 
 PMA_getRelationsParam();
 if (! $GLOBALS['cfgRelation']['menuswork']) {

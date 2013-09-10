@@ -199,9 +199,9 @@ function PMA_getHtmlForOptionsList($options, $select)
     $html = '';
     foreach ($options as $option) {
         $html .= '<option value="' . htmlspecialchars($option) . '"';
-    if ($option == $select) {
-        $html .= ' selected="selected"';
-    }
+        if ($option == $select) {
+            $html .= ' selected="selected"';
+        }
         $html .= '>' . htmlspecialchars($option) . '</option>';
     }
 
@@ -274,7 +274,7 @@ function PMA_getHtmlForUseOpenStreetMaps($isSelected)
  * @param array   $visualizationSettings  visualization settings
  * @param String  $sql_query              the sql query
  * @param String  $visualization          html and js code for the visualization
- * @param boolean svg_support             whether svg download format is supported
+ * @param boolean $svg_support            whether svg download format is supported
  * @param array   $data                   array of visualizing data
  *
  * @return string $html                   html code for the GIS visualization

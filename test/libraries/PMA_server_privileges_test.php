@@ -57,18 +57,34 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['Server']['pmadb'] = 'pmadb';
         $GLOBALS['cfg']['Server']['usergroups'] = 'usergroups';
         $GLOBALS['cfg']['Server']['users'] = 'users';
+        $GLOBALS['cfg']['ActionLinksMode'] = "both";
+        $GLOBALS['cfg']['DefaultTabDatabase'] = 'db_structure.php';
+        $GLOBALS['cfg']['QueryWindowHeight'] = 100;
+        $GLOBALS['cfg']['QueryWindowWidth'] = 100;
+        $GLOBALS['cfg']['PmaAbsoluteUri'] = "PmaAbsoluteUri";
+        $GLOBALS['cfg']['DefaultTabTable'] = "db_structure.php";
+        $GLOBALS['cfg']['NavigationTreeDefaultTabTable'] = "db_structure.php";
+        $GLOBALS['cfg']['Confirm'] = "Confirm";
 
         $GLOBALS['table'] = "table";
         $GLOBALS['PMA_PHP_SELF'] = PMA_getenv('PHP_SELF');
         $GLOBALS['pmaThemeImage'] = 'image';
         $GLOBALS['server'] = 1;
         $GLOBALS['username'] = "pma_username";
+        $GLOBALS['collation_connection'] = "collation_connection";
+        $GLOBALS['text_dir'] = "text_dir";
 
         //$_POST
         $_POST['pred_password'] = 'none';
         //$_SESSION
         $_SESSION['PMA_Theme'] = PMA_Theme::load('./themes/pmahomme');
         $_SESSION['PMA_Theme'] = new PMA_Theme();
+
+        $pmaconfig = $this->getMockBuilder('PMA_Config')
+            ->disableOriginalConstructor()
+            ->getMock();
+
+        $GLOBALS['PMA_Config'] = $pmaconfig;
 
         //Mock DBI
         $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
@@ -295,6 +311,38 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test for PMA_getHtmlForUserGroupDialog
+     *
+     * @return void
+     */
+    public function testPMAGetHtmlForUserGroupDialog()
+    {
+        $username = "pma_username";
+        $is_menuswork = true;
+        $_REQUEST['edit_user_group_dialog'] = "edit_user_group_dialog";
+        $GLOBALS['is_ajax_request'] = false;
+
+        //PMA_getHtmlForUserGroupDialog
+        $html = PMA_getHtmlForUserGroupDialog($username, $is_menuswork);
+        $this->assertContains(
+            '<form class="ajax" id="changeUserGroupForm"',
+            $html
+        );
+        //PMA_URL_getHiddenInputs
+        $params = array('username' => $username);
+        $html_output = PMA_URL_getHiddenInputs($params);
+        $this->assertContains(
+            $html_output,
+            $html
+        );
+        //__('User group')
+        $this->assertContains(
+            __('User group'),
+            $html
+        );
+    }
+
+    /**
      * Test for PMA_getHtmlToChooseUserGroup
      *
      * @return void
@@ -320,6 +368,118 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
         $this->assertContains(
             __('User group'),
             $html
+        );
+    }
+
+    /**
+     * Test for PMA_getHtmlForDisplayResourceLimits
+     *
+     * @return void
+     */
+    public function testPMAGetHtmlForDisplayResourceLimits()
+    {
+        $row = array(
+            'max_questions' => 'max_questions',
+            'max_updates' => 'max_updates',
+            'max_connections' => 'max_connections',
+            'max_user_connections' => 'max_user_connections',
+        );
+
+        //PMA_getHtmlForDisplayResourceLimits
+        $html = PMA_getHtmlForDisplayResourceLimits($row);
+        $this->assertContains(
+            '<legend>' . __('Resource limits') . '</legend>',
+            $html
+        );
+        $this->assertContains(
+            __('Note: Setting these options to 0 (zero) removes the limit.'),
+            $html
+        );
+        $this->assertContains(
+            'MAX QUERIES PER HOUR',
+            $html
+        );
+        $this->assertContains(
+            $row['max_connections'],
+            $html
+        );
+        $this->assertContains(
+            $row['max_updates'],
+            $html
+        );
+        $this->assertContains(
+            $row['max_connections'],
+            $html
+        );
+        $this->assertContains(
+            $row['max_user_connections'],
+            $html
+        );
+        $this->assertContains(
+            __('Limits the number of simultaneous connections the user may have.'),
+            $html
+        );
+        $this->assertContains(
+            __('Limits the number of simultaneous connections the user may have.'),
+            $html
+        );
+    }
+
+    /**
+     * Test for PMA_getSqlQueryForDisplayPrivTable
+     *
+     * @return void
+     */
+    public function testPMAGetSqlQueryForDisplayPrivTable()
+    {
+        $username = "pma_username";
+        $db = '*';
+        $table = "pma_table";
+        $hostname = "pma_hostname";
+
+        //$db == '*'
+        $ret = PMA_getSqlQueryForDisplayPrivTable(
+            $db, $table, $username, $hostname
+        );
+        $sql = "SELECT * FROM `mysql`.`user`"
+            ." WHERE `User` = '" . PMA_Util::sqlAddSlashes($username) . "'"
+            ." AND `Host` = '" . PMA_Util::sqlAddSlashes($hostname) . "';";
+        $this->assertEquals(
+            $sql,
+            $ret
+        );
+
+        //$table == '*'
+        $db = "pma_db";
+        $table = "*";
+        $ret = PMA_getSqlQueryForDisplayPrivTable(
+            $db, $table, $username, $hostname
+        );
+        $sql = "SELECT * FROM `mysql`.`db`"
+            ." WHERE `User` = '" . PMA_Util::sqlAddSlashes($username) . "'"
+            ." AND `Host` = '" . PMA_Util::sqlAddSlashes($hostname) . "'"
+            ." AND '" . PMA_Util::unescapeMysqlWildcards($db) . "'"
+            ." LIKE `Db`;";
+        $this->assertEquals(
+            $sql,
+            $ret
+        );
+
+        //$table == 'pma_table'
+        $db = "pma_db";
+        $table = "pma_table";
+        $ret = PMA_getSqlQueryForDisplayPrivTable(
+            $db, $table, $username, $hostname
+        );
+        $sql = "SELECT `Table_priv`"
+            ." FROM `mysql`.`tables_priv`"
+            ." WHERE `User` = '" . PMA_Util::sqlAddSlashes($username) . "'"
+            ." AND `Host` = '" . PMA_Util::sqlAddSlashes($hostname) . "'"
+            ." AND `Db` = '" . PMA_Util::unescapeMysqlWildcards($db) . "'"
+            ." AND `Table_name` = '" . PMA_Util::sqlAddSlashes($table) . "';";
+        $this->assertEquals(
+            $sql,
+            $ret
         );
     }
 
@@ -576,42 +736,6 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
             "REVOKE ALL PRIVILEGES ON `pma_dbname`.`pma_tablename` "
             . "FROM 'pma_username'@'pma_hostname';  ",
             $sql_query
-        );
-    }
-
-    /**
-     * Test for PMA_getHtmlForSubMenusOnUsersPage
-     *
-     * @return void
-     */
-    public function testPMAGetHtmlForSubMenusOnUsersPage()
-    {
-        $html = PMA_getHtmlForSubMenusOnUsersPage('server_privileges.php');
-
-        //validate 1: topmenu2
-        $this->assertContains(
-            '<ul id="topmenu2">',
-            $html
-        );
-
-        //validate 2: tabactive for server_privileges.php
-        $this->assertContains(
-            '<a class="tabactive" href="server_privileges.php',
-            $html
-        );
-        $this->assertContains(
-            __('Users overview'),
-            $html
-        );
-
-        //validate 3: not-active for server_user_groups.php
-        $this->assertContains(
-            '<a href="server_user_groups.php',
-            $html
-        );
-        $this->assertContains(
-            __('User groups'),
-            $html
         );
     }
 
