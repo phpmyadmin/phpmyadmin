@@ -43,6 +43,7 @@ phpMyAdmin - ChangeLog
 - bug #3993 Sorting in database overview with statistics doesn't work
 - bug Handle the situation where PHP_SELF is not set 
 - bug #4080 Overwrite existing file not obeyed
+- bug #3929 Database-specific privileges are not copied when cloning user
 
 4.0.6.0 (2013-09-05)
 - bug #4036 Call to undefined function mb_detect_encoding (clarify the doc)
