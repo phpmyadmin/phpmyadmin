@@ -17,9 +17,9 @@ if (!defined('TESTSUITE')) {
     if ($_POST['output_format'] == 'sendit') {
         define('PMA_BYPASS_GET_INSTANCE', 1);
     }
-    require_once 'libraries/common.inc.php';
-    require_once 'libraries/zip.lib.php';
-    require_once 'libraries/plugin_interface.lib.php';
+    include_once 'libraries/common.inc.php';
+    include_once 'libraries/zip.lib.php';
+    include_once 'libraries/plugin_interface.lib.php';
 
     /**
      * Sets globals from $_POST
