@@ -143,7 +143,7 @@ $forms['Features']['Other_core_settings'] = array(
     'DisableMultiTableMaintenance',
     'UseDbSearch',
     'VersionCheck',
-    'ErrorReporting'
+    'ErrorReporting',
     'ProxyUrl',
     'ProxyUser',
     'ProxyPass',
