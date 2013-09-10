@@ -1198,6 +1198,12 @@ Generic settings
     :default: false
 
     Whether to force using https while accessing phpMyAdmin.
+    
+    .. note::
+
+        In some setups (like separate SSL proxy or loadballancer) you might
+        have to set :config:option:`$cfg['PmaAbsoluteUri']` for correct
+        redirection.
 
 .. config:option:: $cfg['ExecTimeLimit']
 
