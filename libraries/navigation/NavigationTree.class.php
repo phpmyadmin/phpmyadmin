@@ -1009,8 +1009,9 @@ class PMA_NavigationTree
     private function _fastFilterHtml($node)
     {
         $retval = '';
+        $filter_min = (int)$GLOBALS['cfg']['NavigationTreeDisplayDbFilterMinimum'];
         if ($node === $this->_tree
-            && $this->_tree->getPresence() >= (int)$GLOBALS['cfg']['NavigationTreeDisplayDbFilterMinimum']
+            && $this->_tree->getPresence() >= $filter_min 
         ) {
             $url_params = array(
                 'pos' => 0
@@ -1019,7 +1020,8 @@ class PMA_NavigationTree
             $retval .= '<li class="fast_filter db_fast_filter">';
             $retval .= '<form class="ajax fast_filter">';
             $retval .= PMA_getHiddenFields($url_params);
-            $retval .= '<input class="searchClause" name="searchClause" accesskey="q"';
+            $retval .= '<input class="searchClause" name="searchClause"';
+            $retval .= ' accesskey="q"';
             // allow html5 placeholder attribute
             $placeholder_key = 'value';
             if (PMA_USR_BROWSER_AGENT !== 'IE'
@@ -1027,7 +1029,8 @@ class PMA_NavigationTree
             ) {
                 $placeholder_key = 'placeholder';
             }
-            $retval .= " $placeholder_key='" . __('filter databases by name') . "' />";
+            $retval .= " $placeholder_key='" . __('filter databases by name');
+            $retval .= "' />";
             $retval .= '<span title="' . __('Clear Fast Filter') . '">X</span>';
             $retval .= "</form>";
             $retval .= "</li>";
@@ -1038,7 +1041,7 @@ class PMA_NavigationTree
             || $node->real_name == 'functions'
             || $node->real_name == 'procedures'
             || $node->real_name == 'events'))
-            && $node->realParent()->getPresence($node->real_name) >= (int)$GLOBALS['cfg']['NavigationTreeDisplayItemFilterMinimum']
+            && $node->realParent()->getPresence($node->real_name) >= $filter_min
         ) {
             $paths = $node->getPaths();
             $url_params = array(
