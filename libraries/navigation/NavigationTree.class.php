@@ -1015,11 +1015,11 @@ class PMA_NavigationTree
             $url_params = array(
                 'pos' => 0
             );
-            $retval .= "<ul>";
-            $retval .= "<li class='fast_filter db_fast_filter'>";
-            $retval .= "<form class='ajax fast_filter'>";
+            $retval .= '<ul>';
+            $retval .= '<li class="fast_filter db_fast_filter">';
+            $retval .= '<form class="ajax fast_filter">';
             $retval .= PMA_getHiddenFields($url_params);
-            $retval .= "<input class='searchClause' name='searchClause' accesskey='q'";
+            $retval .= '<input class="searchClause" name="searchClause" accesskey="q"';
             // allow html5 placeholder attribute
             $placeholder_key = 'value';
             if (PMA_USR_BROWSER_AGENT !== 'IE'
@@ -1028,7 +1028,7 @@ class PMA_NavigationTree
                 $placeholder_key = 'placeholder';
             }
             $retval .= " $placeholder_key='" . __('filter databases by name') . "' />";
-            $retval .= "<span title='" . __('Clear Fast Filter') . "'>X</span>";
+            $retval .= '<span title="' . __('Clear Fast Filter') . '">X</span>';
             $retval .= "</form>";
             $retval .= "</li>";
             $retval .= "</ul>";
