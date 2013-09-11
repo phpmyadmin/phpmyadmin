@@ -597,6 +597,10 @@ class PMA_Tracker_Test extends PHPUnit_Framework_TestCase
             )
         );
 
+        /* FIXME: This breaks sometimes
+         * (when the query is executed in different second than
+         * date is read).
+         */
         $sql_query_2 = " UPDATE pma_table_tracking" .
         " SET `data_sql` = '# log $date user1test_statement1\n" .
         "# log $date user2test_statement2\n' " .
