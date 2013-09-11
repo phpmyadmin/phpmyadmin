@@ -1034,11 +1034,10 @@ class PMA_NavigationTree
             $retval .= "</ul>";
         } else if (($node->type == Node::CONTAINER
             && (   $node->real_name == 'tables'
-                || $node->real_name == 'views'
-                || $node->real_name == 'functions'
-                || $node->real_name == 'procedures'
-                || $node->real_name == 'events')
-            )
+            || $node->real_name == 'views'
+            || $node->real_name == 'functions'
+            || $node->real_name == 'procedures'
+            || $node->real_name == 'events'))
             && $node->realParent()->getPresence($node->real_name) >= (int)$GLOBALS['cfg']['NavigationTreeDisplayItemFilterMinimum']
         ) {
             $paths = $node->getPaths();
