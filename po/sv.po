@@ -1351,7 +1351,7 @@ msgid "From general log"
 msgstr "Från allmän logg"
 
 #: js/messages.php:159
-msgid "The database name is not known for this query in the server's logs"
+msgid "The database name is not known for this query in the server's logs."
 msgstr ""
 
 #: js/messages.php:160
