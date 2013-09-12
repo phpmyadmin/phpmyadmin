@@ -1317,7 +1317,7 @@ msgid "From general log"
 msgstr "सामान्य पंजिका (general_log) से"
 
 #: js/messages.php:158
-msgid "The database name is not known for this query in the server's logs"
+msgid "The database name is not known for this query in the server's logs."
 msgstr ""
 
 #: js/messages.php:159

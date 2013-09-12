@@ -1269,7 +1269,7 @@ msgid "From general log"
 msgstr "从常规日志"
 
 #: js/messages.php:158
-msgid "The database name is not known for this query in the server's logs"
+msgid "The database name is not known for this query in the server's logs."
 msgstr ""
 
 #: js/messages.php:159

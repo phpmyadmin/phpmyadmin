@@ -1302,7 +1302,7 @@ msgid "From general log"
 msgstr "Üldisest logist"
 
 #: js/messages.php:158
-msgid "The database name is not known for this query in the server's logs"
+msgid "The database name is not known for this query in the server's logs."
 msgstr "See päring ei leidnud serveri logidest andmebaasi nime"
 
 #: js/messages.php:159
