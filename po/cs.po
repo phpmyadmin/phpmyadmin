@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.7-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-09-12 10:04+0200\n"
-"PO-Revision-Date: 2013-07-29 15:29+0200\n"
+"PO-Revision-Date: 2013-09-12 10:43+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Czech <http://l10n.cihar.com/projects/phpmyadmin/4-0/cs/>\n"
 "Language: cs\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Weblate 1.6\n"
+"X-Generator: Weblate 1.7-dev\n"
 
 #: browse_foreigners.php:51 browse_foreigners.php:75 js/messages.php:345
 #: libraries/DisplayResults.class.php:813
@@ -6270,7 +6270,7 @@ msgstr "možný útok rekurzí"
 #: libraries/database_interface.lib.php:63
 #, php-format
 msgid "See %sour documentation%s for more information."
-msgstr ""
+msgstr "Více informací naleznete %sv naší dokumentaci%s."
 
 #: libraries/database_interface.lib.php:2080
 msgid ""
