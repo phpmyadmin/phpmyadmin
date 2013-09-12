@@ -1,9 +1,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 4.0.6-dev\n"
+"Project-Id-Version: phpMyAdmin 4.0.7-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-07-29 15:07+0200\n"
+"POT-Creation-Date: 2013-09-12 10:04+0200\n"
 "PO-Revision-Date: 2013-07-15 21:08+0200\n"
 "Last-Translator: Bug Me Not <abcdefg@mailinator.com>\n"
 "Language-Team: Hebrew <http://l10n.cihar.com/projects/phpmyadmin/4-0/he/>\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 1.6-dev\n"
 
-#: browse_foreigners.php:51 browse_foreigners.php:75 js/messages.php:344
+#: browse_foreigners.php:51 browse_foreigners.php:75 js/messages.php:345
 #: libraries/DisplayResults.class.php:813
 #: libraries/server_privileges.lib.php:2605
 msgid "Show all"
@@ -29,7 +29,7 @@ msgstr "הצגת הכול"
 msgid "Page number:"
 msgstr "מספר העמוד:"
 
-#: browse_foreigners.php:110
+#: browse_foreigners.php:117
 msgid ""
 "The target browser window could not be updated. Maybe you have closed the "
 "parent window, or your browser's security settings are configured to block "
@@ -38,14 +38,14 @@ msgstr ""
 "לא ניתן לעדכן את חלון דפדפן היעד. יתכן שסגרת את חלון ההורה, או שהגדרות "
 "האבטחה של הדפדפן שלך מוגדרות כך שיחסמו עדכונים בין חלונות."
 
-#: browse_foreigners.php:182 libraries/Menu.class.php:280
+#: browse_foreigners.php:189 libraries/Menu.class.php:280
 #: libraries/Menu.class.php:365 libraries/Util.class.php:3245
 #: libraries/Util.class.php:3252 libraries/Util.class.php:3462
 #: libraries/Util.class.php:3463
 msgid "Search"
 msgstr "חיפוש"
 
-#: browse_foreigners.php:186 gis_data_editor.php:396 js/messages.php:218
+#: browse_foreigners.php:193 gis_data_editor.php:396 js/messages.php:219
 #: libraries/DbSearch.class.php:455 libraries/DisplayResults.class.php:1661
 #: libraries/TableSearch.class.php:1142 libraries/core.lib.php:556
 #: libraries/display_change_password.lib.php:94
@@ -77,24 +77,24 @@ msgstr "חיפוש"
 #: libraries/tbl_columns_definition_form.inc.php:754 pmd_pdf.php:158
 #: prefs_manage.php:266 prefs_manage.php:316 server_binlog.php:115
 #: server_replication.php:224 server_replication.php:327 tbl_chart.php:251
-#: tbl_indexes.php:352 tbl_tracking.php:520 tbl_tracking.php:685
+#: tbl_indexes.php:352 tbl_tracking.php:520 tbl_tracking.php:696
 #: view_create.php:225 view_operations.php:98
 msgid "Go"
 msgstr "ביצוע"
 
-#: browse_foreigners.php:197 browse_foreigners.php:201
+#: browse_foreigners.php:204 browse_foreigners.php:208
 #: libraries/Index.class.php:561 tbl_tracking.php:381
 msgid "Keyname"
 msgstr "שם מפתח"
 
-#: browse_foreigners.php:198 browse_foreigners.php:200
+#: browse_foreigners.php:205 browse_foreigners.php:207
 #: server_collations.php:39 server_collations.php:51 server_engines.php:42
 #: server_plugins.php:130 server_status_variables.php:234
 msgid "Description"
 msgstr "תיאור"
 
-#: browse_foreigners.php:284 browse_foreigners.php:296
-#: browse_foreigners.php:312 browse_foreigners.php:324
+#: browse_foreigners.php:291 browse_foreigners.php:303
+#: browse_foreigners.php:319 browse_foreigners.php:331
 msgid "Use this value"
 msgstr "שימוש בערך זה"
 
@@ -217,7 +217,7 @@ msgstr "קישורים אל"
 msgid "Comments"
 msgstr "הערות"
 
-#: db_datadict.php:240 js/messages.php:240 libraries/Index.class.php:431
+#: db_datadict.php:240 js/messages.php:241 libraries/Index.class.php:431
 #: libraries/Index.class.php:470 libraries/Index.class.php:838
 #: libraries/config/FormDisplay.tpl.php:258 libraries/mult_submits.inc.php:342
 #: libraries/mult_submits.inc.php:343
@@ -239,7 +239,7 @@ msgstr "הערות"
 msgid "No"
 msgstr "לא"
 
-#: db_datadict.php:240 js/messages.php:239 libraries/Index.class.php:432
+#: db_datadict.php:240 js/messages.php:240 libraries/Index.class.php:432
 #: libraries/Index.class.php:469 libraries/Index.class.php:838
 #: libraries/config/FormDisplay.tpl.php:258 libraries/mult_submits.inc.php:71
 #: libraries/mult_submits.inc.php:103 libraries/mult_submits.inc.php:112
@@ -270,7 +270,7 @@ msgstr "כן"
 msgid "View dump (schema) of database"
 msgstr "צפייה בשליפה (תבנית) של מסד נתונים"
 
-#: db_export.php:33 db_printview.php:92 db_tracking.php:49 export.php:558
+#: db_export.php:33 db_printview.php:92 db_tracking.php:49 export.php:561
 #: libraries/DBQbe.class.php:268
 msgid "No tables found in database."
 msgstr "לא נמצאו טבלאות במסד הנתונים."
@@ -305,7 +305,7 @@ msgid ""
 msgstr "אחסון התצורה של phpMyAdmin הופסקה. כדי לגלות מדוע יש ללחוץ %sכאן%s."
 
 #: db_printview.php:99 db_tracking.php:79 db_tracking.php:204
-#: libraries/Menu.class.php:207 libraries/config/messages.inc.php:512
+#: libraries/Menu.class.php:207 libraries/config/messages.inc.php:511
 #: libraries/plugins/export/ExportXml.class.php:457
 #: libraries/plugins/export/PMA_ExportPdf.class.php:116
 #: libraries/rte/rte_list.lib.php:65 libraries/rte/rte_triggers.lib.php:355
@@ -313,7 +313,7 @@ msgstr "אחסון התצורה של phpMyAdmin הופסקה. כדי לגלות 
 #: libraries/server_privileges.lib.php:1981
 #: libraries/server_privileges.lib.php:2212
 #: libraries/server_privileges.lib.php:2864 libraries/structure.lib.php:757
-#: tbl_tracking.php:764
+#: tbl_tracking.php:775
 msgid "Table"
 msgstr "טבלה"
 
@@ -390,7 +390,7 @@ msgid "Tracked tables"
 msgstr "טבלאות במעקב"
 
 #: db_tracking.php:78 libraries/Menu.class.php:180
-#: libraries/config/messages.inc.php:506
+#: libraries/config/messages.inc.php:505
 #: libraries/plugins/export/ExportHtmlword.class.php:158
 #: libraries/plugins/export/ExportLatex.class.php:251
 #: libraries/plugins/export/ExportOdt.class.php:203
@@ -400,8 +400,8 @@ msgstr "טבלאות במעקב"
 #: libraries/plugins/export/PMA_ExportPdf.class.php:115
 #: libraries/server_privileges.lib.php:1971
 #: libraries/server_privileges.lib.php:2212
-#: libraries/server_privileges.lib.php:2855 server_databases.php:201
-#: server_status.php:324 sql.php:1113 tbl_tracking.php:763
+#: libraries/server_privileges.lib.php:2855 server_databases.php:200
+#: server_status.php:324 sql.php:1113 tbl_tracking.php:774
 msgid "Database"
 msgstr "מסד נתונים"
 
@@ -409,17 +409,17 @@ msgstr "מסד נתונים"
 msgid "Last version"
 msgstr "הגרסה האחרונה"
 
-#: db_tracking.php:81 tbl_tracking.php:766
+#: db_tracking.php:81 tbl_tracking.php:777
 msgid "Created"
 msgstr "מועד היצירה"
 
-#: db_tracking.php:82 tbl_tracking.php:767
+#: db_tracking.php:82 tbl_tracking.php:778
 msgid "Updated"
 msgstr "עודכנה"
 
-#: db_tracking.php:83 js/messages.php:172 libraries/Menu.class.php:475
+#: db_tracking.php:83 js/messages.php:173 libraries/Menu.class.php:475
 #: libraries/rte/rte_events.lib.php:426 libraries/rte/rte_list.lib.php:78
-#: server_status.php:336 sql.php:1186 tbl_tracking.php:768
+#: server_status.php:336 sql.php:1186 tbl_tracking.php:779
 msgid "Status"
 msgstr "מצב"
 
@@ -428,13 +428,13 @@ msgstr "מצב"
 #: libraries/rte/rte_list.lib.php:79 libraries/server_privileges.lib.php:1571
 #: libraries/server_privileges.lib.php:2222
 #: libraries/server_privileges.lib.php:2387 libraries/structure.lib.php:765
-#: libraries/structure.lib.php:1202 server_databases.php:237
+#: libraries/structure.lib.php:1202 server_databases.php:236
 msgid "Action"
 msgstr "פעולה"
 
 #: db_tracking.php:85 libraries/DBQbe.class.php:468
 #: libraries/DisplayResults.class.php:907 tbl_change.php:235
-#: tbl_tracking.php:769
+#: tbl_tracking.php:780
 msgid "Show"
 msgstr "הצגה"
 
@@ -446,15 +446,15 @@ msgstr "מחיקת נתוני המעקב לטבלה זו"
 #: libraries/Util.class.php:3467 libraries/Util.class.php:3468
 #: libraries/structure.lib.php:307 libraries/structure.lib.php:1382
 #: libraries/structure.lib.php:2058 libraries/structure.lib.php:2060
-#: server_databases.php:328
+#: server_databases.php:327
 msgid "Drop"
 msgstr "השמטה"
 
-#: db_tracking.php:126 tbl_tracking.php:724 tbl_tracking.php:778
+#: db_tracking.php:126 tbl_tracking.php:735 tbl_tracking.php:789
 msgid "active"
 msgstr "פעיל"
 
-#: db_tracking.php:128 tbl_tracking.php:726 tbl_tracking.php:780
+#: db_tracking.php:128 tbl_tracking.php:737 tbl_tracking.php:791
 msgid "not active"
 msgstr "לא פעיל"
 
@@ -462,11 +462,11 @@ msgstr "לא פעיל"
 msgid "Versions"
 msgstr "גרסאות"
 
-#: db_tracking.php:145 tbl_tracking.php:488 tbl_tracking.php:800
+#: db_tracking.php:145 tbl_tracking.php:488 tbl_tracking.php:811
 msgid "Tracking report"
 msgstr "דוח המעקב"
 
-#: db_tracking.php:146 tbl_tracking.php:292 tbl_tracking.php:805
+#: db_tracking.php:146 tbl_tracking.php:292 tbl_tracking.php:816
 msgid "Structure snapshot"
 msgstr "העתק של המבנה"
 
@@ -482,35 +482,35 @@ msgstr "מעקב אחר טבלה"
 msgid "Database Log"
 msgstr "יומן מסד נתונים"
 
-#: export.php:152
+#: export.php:160
 msgid "Bad type!"
 msgstr "הסוג שגוי!"
 
-#: export.php:203
+#: export.php:211
 msgid "Selected export type has to be saved in file!"
 msgstr "סוג הייצוא הנבחר חייב להישמר לקובץ!"
 
-#: export.php:232
+#: export.php:240
 msgid "Bad parameters!"
 msgstr "פרמטרים שגויים!"
 
-#: export.php:336 export.php:367 export.php:929
+#: export.php:339 export.php:370 export.php:932
 #, php-format
 msgid "Insufficient space to save the file %s."
 msgstr "אין מספיק מקום לשמירת הקובץ %s."
 
-#: export.php:507
+#: export.php:510
 #, php-format
 msgid ""
 "File %s already exists on server, change filename or check overwrite option."
 msgstr "הקובץ %s כבר קיים בשרת, נא לשנות את שם הקובץ או לסמן את אפשרות השכתוב."
 
-#: export.php:513 export.php:519
+#: export.php:516 export.php:522
 #, php-format
 msgid "The web server does not have permission to save the file %s."
 msgstr "לשרת אין הרשאה לשמור את קובץ %s."
 
-#: export.php:935
+#: export.php:938
 #, php-format
 msgid "Dump has been saved to file %s."
 msgstr "השליפה נשמרה אל הקובץ %s."
@@ -532,45 +532,45 @@ msgstr "שימוש ב־OpenStreetMaps כשכבת הבסיס"
 msgid "SRID"
 msgstr "SRID"
 
-#: gis_data_editor.php:184 js/messages.php:315
+#: gis_data_editor.php:184 js/messages.php:316
 #: libraries/DisplayResults.class.php:1645
 msgid "Geometry"
 msgstr "פני השטח"
 
-#: gis_data_editor.php:206 js/messages.php:311
+#: gis_data_editor.php:206 js/messages.php:312
 msgid "Point"
 msgstr "נקודה"
 
 #: gis_data_editor.php:207 gis_data_editor.php:234 gis_data_editor.php:289
-#: gis_data_editor.php:362 js/messages.php:309
+#: gis_data_editor.php:362 js/messages.php:310
 msgid "X"
 msgstr "X"
 
 #: gis_data_editor.php:210 gis_data_editor.php:238 gis_data_editor.php:293
-#: gis_data_editor.php:366 js/messages.php:310
+#: gis_data_editor.php:366 js/messages.php:311
 msgid "Y"
 msgstr "Y"
 
 #: gis_data_editor.php:232 gis_data_editor.php:287 gis_data_editor.php:360
-#: js/messages.php:312
+#: js/messages.php:313
 #, php-format
 msgid "Point %d"
 msgstr "נקודה %d"
 
 #: gis_data_editor.php:245 gis_data_editor.php:300 gis_data_editor.php:373
-#: js/messages.php:318
+#: js/messages.php:319
 msgid "Add a point"
 msgstr "הוספת נקודה"
 
-#: gis_data_editor.php:262 js/messages.php:313
+#: gis_data_editor.php:262 js/messages.php:314
 msgid "Linestring"
 msgstr "מחרוזת שורה"
 
-#: gis_data_editor.php:265 gis_data_editor.php:341 js/messages.php:317
+#: gis_data_editor.php:265 gis_data_editor.php:341 js/messages.php:318
 msgid "Outer Ring"
 msgstr "טבעת חיצונית"
 
-#: gis_data_editor.php:267 gis_data_editor.php:343 js/messages.php:316
+#: gis_data_editor.php:267 gis_data_editor.php:343 js/messages.php:317
 msgid "Inner Ring"
 msgstr "טבעת פנימית"
 
@@ -578,15 +578,15 @@ msgstr "טבעת פנימית"
 msgid "Add a linestring"
 msgstr "הוספת מחרוזת שורה"
 
-#: gis_data_editor.php:304 gis_data_editor.php:378 js/messages.php:319
+#: gis_data_editor.php:304 gis_data_editor.php:378 js/messages.php:320
 msgid "Add an inner ring"
 msgstr "הוספת טבעת פנימית"
 
-#: gis_data_editor.php:325 js/messages.php:314
+#: gis_data_editor.php:325 js/messages.php:315
 msgid "Polygon"
 msgstr "מצולע"
 
-#: gis_data_editor.php:384 js/messages.php:320
+#: gis_data_editor.php:384 js/messages.php:321
 msgid "Add a polygon"
 msgstr "הוספת מצולע"
 
@@ -721,7 +721,7 @@ msgstr "שרת מסד נתונים"
 
 #: index.php:239 libraries/Menu.class.php:159
 #: libraries/ServerStatusData.class.php:339 libraries/common.inc.php:675
-#: libraries/config/messages.inc.php:510
+#: libraries/config/messages.inc.php:509
 msgid "Server"
 msgstr "שרת"
 
@@ -776,7 +776,7 @@ msgstr "מידע גרסאות"
 #: index.php:335 libraries/Util.class.php:444 libraries/Util.class.php:530
 #: libraries/config/FormDisplay.tpl.php:145
 #: libraries/display_export.lib.php:281 libraries/engines/pbxt.lib.php:116
-#: libraries/navigation/NavigationHeader.class.php:234
+#: libraries/navigation/NavigationHeader.class.php:236
 #: libraries/relation.lib.php:88 server_variables.php:137
 msgid "Documentation"
 msgstr "תיעוד"
@@ -988,11 +988,11 @@ msgstr "הסרת המשתמש הנבחרים"
 msgid "Close"
 msgstr "סגירה"
 
-#: js/messages.php:61 js/messages.php:273
+#: js/messages.php:61 js/messages.php:274
 #: libraries/DisplayResults.class.php:3318 libraries/Index.class.php:591
 #: libraries/Util.class.php:713 libraries/Util.class.php:1258
 #: libraries/Util.class.php:3471 libraries/Util.class.php:3472
-#: libraries/config/messages.inc.php:488
+#: libraries/config/messages.inc.php:487
 #: libraries/schema/User_Schema.class.php:216 server_variables.php:130
 #: setup/frames/index.inc.php:147
 msgid "Edit"
@@ -1017,7 +1017,7 @@ msgstr "נתונים סטטיים"
 #. l10n: Total number of queries
 #: js/messages.php:68 libraries/build_html_for_db.lib.php:46
 #: libraries/engines/innodb.lib.php:175 libraries/structure.lib.php:2198
-#: server_databases.php:272 server_status.php:186 server_status.php:276
+#: server_databases.php:271 server_status.php:186 server_status.php:276
 #: tbl_printview.php:331
 msgid "Total"
 msgstr "סה״כ"
@@ -1354,63 +1354,67 @@ msgid "From general log"
 msgstr ""
 
 #: js/messages.php:159
+msgid "The database name is not known for this query in the server's logs"
+msgstr ""
+
+#: js/messages.php:160
 #, fuzzy
 msgid "Analysing logs"
 msgstr "מקומי"
 
-#: js/messages.php:160
+#: js/messages.php:161
 msgid "Analysing & loading logs. This may take a while."
 msgstr ""
 
-#: js/messages.php:161
+#: js/messages.php:162
 #, fuzzy
 msgid "Cancel request"
 msgstr "בקשות כתיבה"
 
-#: js/messages.php:162
+#: js/messages.php:163
 msgid ""
 "This column shows the amount of identical queries that are grouped together. "
 "However only the SQL query itself has been used as a grouping criteria, so "
 "the other attributes of queries, such as start time, may differ."
 msgstr ""
 
-#: js/messages.php:163
+#: js/messages.php:164
 msgid ""
 "Since grouping of INSERTs queries has been selected, INSERT queries into the "
 "same table are also being grouped together, disregarding of the inserted "
 "data."
 msgstr ""
 
-#: js/messages.php:164
+#: js/messages.php:165
 msgid "Log data loaded. Queries executed in this time span:"
 msgstr ""
 
-#: js/messages.php:166
+#: js/messages.php:167
 #, fuzzy
 msgid "Jump to Log table"
 msgstr "אין מאגרי נתונים"
 
-#: js/messages.php:167
+#: js/messages.php:168
 #, fuzzy
 #| msgid "No databases"
 msgid "No data found"
 msgstr "אין מאגרי נתונים"
 
-#: js/messages.php:168
+#: js/messages.php:169
 msgid "Log analysed, but no data found in this time span."
 msgstr ""
 
-#: js/messages.php:170
+#: js/messages.php:171
 msgid "Analyzing…"
 msgstr ""
 
-#: js/messages.php:171
+#: js/messages.php:172
 #, fuzzy
 #| msgid "Explain SQL"
 msgid "Explain output"
 msgstr "הסברת SQL"
 
-#: js/messages.php:173 js/messages.php:524
+#: js/messages.php:174 js/messages.php:525
 #: libraries/plugins/export/ExportHtmlword.class.php:484
 #: libraries/plugins/export/ExportOdt.class.php:562
 #: libraries/plugins/export/ExportTexytext.class.php:435
@@ -1418,110 +1422,110 @@ msgstr "הסברת SQL"
 msgid "Time"
 msgstr "זמן"
 
-#: js/messages.php:174
+#: js/messages.php:175
 #, fuzzy
 #| msgid "Total"
 msgid "Total time:"
 msgstr "סה\"כ"
 
-#: js/messages.php:175
+#: js/messages.php:176
 #, fuzzy
 #| msgid "SQL result"
 msgid "Profiling results"
 msgstr "תוצאת SQL"
 
-#: js/messages.php:176
+#: js/messages.php:177
 #, fuzzy
 #| msgid "Table"
 msgctxt "Display format"
 msgid "Table"
 msgstr "טבלה"
 
-#: js/messages.php:177
+#: js/messages.php:178
 #, fuzzy
 #| msgid "Charset"
 msgid "Chart"
 msgstr "קידוד"
 
-#: js/messages.php:178
+#: js/messages.php:179
 #, fuzzy
 #| msgid "Add new field"
 msgid "Edit chart"
 msgstr "הוספת שדה חדש"
 
-#: js/messages.php:179
+#: js/messages.php:180
 #, fuzzy
 msgid "Series"
 msgstr "שאילתת SQL"
 
 #. l10n: A collection of available filters
-#: js/messages.php:182
+#: js/messages.php:183
 #, fuzzy
 #| msgid "Table options"
 msgid "Log table filter options"
 msgstr "אפשרויות טבלה"
 
 #. l10n: Filter as in "Start Filtering"
-#: js/messages.php:184
+#: js/messages.php:185
 msgid "Filter"
 msgstr ""
 
-#: js/messages.php:185
+#: js/messages.php:186
 msgid "Filter queries by word/regexp:"
 msgstr ""
 
-#: js/messages.php:186
+#: js/messages.php:187
 msgid "Group queries, ignoring variable data in WHERE clauses"
 msgstr ""
 
-#: js/messages.php:187
+#: js/messages.php:188
 #, fuzzy
 #| msgid "Number of fields"
 msgid "Sum of grouped rows:"
 msgstr "מספר שדות"
 
-#: js/messages.php:188
+#: js/messages.php:189
 #, fuzzy
 #| msgid "Total"
 msgid "Total:"
 msgstr "סה\"כ"
 
-#: js/messages.php:190
+#: js/messages.php:191
 #, fuzzy
 msgid "Loading logs"
 msgstr "מקומי"
 
-#: js/messages.php:191
+#: js/messages.php:192
 msgid "Monitor refresh failed"
 msgstr ""
 
-#: js/messages.php:192
+#: js/messages.php:193
 msgid ""
 "While requesting new chart data the server returned an invalid response. "
 "This is most likely because your session expired. Reloading the page and "
 "reentering your credentials should help."
 msgstr ""
 
-#: js/messages.php:193
+#: js/messages.php:194
 #, fuzzy
 #| msgid "Rename database to"
 msgid "Reload page"
 msgstr "שינוי שם מאגר נתונים אל"
 
-#: js/messages.php:195
+#: js/messages.php:196
 msgid "Affected rows:"
 msgstr ""
 
-#: js/messages.php:197
+#: js/messages.php:198
 msgid "Failed parsing config file. It doesn't seem to be valid JSON code."
 msgstr ""
 
-#: js/messages.php:198
+#: js/messages.php:199
 msgid ""
 "Failed building chart grid with imported config. Resetting to default config…"
 msgstr ""
 
-#: js/messages.php:199 libraries/Menu.class.php:305
+#: js/messages.php:200 libraries/Menu.class.php:305
 #: libraries/Menu.class.php:388 libraries/Menu.class.php:499
 #: libraries/config/messages.inc.php:170 libraries/display_import.lib.php:187
 #: prefs_manage.php:232 server_status_monitor.php:529
@@ -1530,269 +1534,269 @@ msgstr ""
 msgid "Import"
 msgstr "ייצוא"
 
-#: js/messages.php:200
+#: js/messages.php:201
 #, fuzzy
 #| msgid "Local monitor configuration incompatible"
 msgid "Import monitor configuration"
 msgstr "תצורת מעקב מקומית אינה נתמכת"
 
-#: js/messages.php:201
+#: js/messages.php:202
 msgid "Please select the file you want to import"
 msgstr ""
 
-#: js/messages.php:203
+#: js/messages.php:204
 #, fuzzy
 #| msgid "Update Query"
 msgid "Analyse Query"
 msgstr "עדכון שאילתה"
 
-#: js/messages.php:207
+#: js/messages.php:208
 msgid "Advisor system"
 msgstr ""
 
-#: js/messages.php:208
+#: js/messages.php:209
 msgid "Possible performance issues"
 msgstr ""
 
-#: js/messages.php:209
+#: js/messages.php:210
 msgid "Issue"
 msgstr ""
 
-#: js/messages.php:210
+#: js/messages.php:211
 #, fuzzy
 #| msgid "Documentation"
 msgid "Recommendation"
 msgstr "תיעוד"
 
-#: js/messages.php:211
+#: js/messages.php:212
 msgid "Rule details"
 msgstr ""
 
-#: js/messages.php:212
+#: js/messages.php:213
 #, fuzzy
 #| msgid "Documentation"
 msgid "Justification"
 msgstr "תיעוד"
 
-#: js/messages.php:213
+#: js/messages.php:214
 msgid "Used variable / formula"
 msgstr ""
 
-#: js/messages.php:214
+#: js/messages.php:215
 msgid "Test"
 msgstr ""
 
-#: js/messages.php:219 pmd_general.php:437 pmd_general.php:474
+#: js/messages.php:220 pmd_general.php:437 pmd_general.php:474
 #: pmd_general.php:594 pmd_general.php:642 pmd_general.php:718
 #: pmd_general.php:772 pmd_general.php:835 pmd_general.php:866
 #: server_variables.php:134
 msgid "Cancel"
 msgstr ""
 
-#: js/messages.php:222 libraries/navigation/NavigationHeader.class.php:54
+#: js/messages.php:223 libraries/navigation/NavigationHeader.class.php:55
 #: server_status_monitor.php:567
 #, fuzzy
 msgid "Loading"
 msgstr "מקומי"
 
-#: js/messages.php:223
+#: js/messages.php:224
 #, fuzzy
 #| msgid "Processes"
 msgid "Processing Request"
 msgstr "תהליכים"
 
-#: js/messages.php:224 libraries/rte/rte_export.lib.php:43
+#: js/messages.php:225 libraries/rte/rte_export.lib.php:43
 msgid "Error in Processing Request"
-msgstr ""
-
-#: js/messages.php:225
-#, php-format
-msgid "Error code: %s"
 msgstr ""
 
 #: js/messages.php:226
 #, php-format
+msgid "Error code: %s"
+msgstr ""
+
+#: js/messages.php:227
+#, php-format
 msgid "Error text: %s"
 msgstr ""
 
-#: js/messages.php:227 libraries/db_common.inc.php:58
+#: js/messages.php:228 libraries/db_common.inc.php:58
 #: libraries/db_table_exists.lib.php:28 server_databases.php:89
 msgid "No databases selected."
 msgstr "אף מאגר נתונים לא נבחר."
 
-#: js/messages.php:228
+#: js/messages.php:229
 msgid "Dropping Column"
 msgstr ""
 
-#: js/messages.php:229
+#: js/messages.php:230
 msgid "Adding Primary Key"
 msgstr ""
 
-#: js/messages.php:230 pmd_general.php:435 pmd_general.php:592
+#: js/messages.php:231 pmd_general.php:435 pmd_general.php:592
 #: pmd_general.php:640 pmd_general.php:716 pmd_general.php:770
 #: pmd_general.php:833
 msgid "OK"
 msgstr "אישור"
 
-#: js/messages.php:231
+#: js/messages.php:232
 msgid "Click to dismiss this notification"
 msgstr ""
 
-#: js/messages.php:234
+#: js/messages.php:235
 #, fuzzy
 #| msgid "Rename database to"
 msgid "Renaming Databases"
 msgstr "שינוי שם מאגר נתונים אל"
 
-#: js/messages.php:235
+#: js/messages.php:236
 #, fuzzy
 #| msgid "Rename database to"
 msgid "Reload Database"
 msgstr "שינוי שם מאגר נתונים אל"
 
-#: js/messages.php:236
+#: js/messages.php:237
 #, fuzzy
 #| msgid "Copy database to"
 msgid "Copying Database"
 msgstr "העתקת מאגר נתונים אל"
 
-#: js/messages.php:237
+#: js/messages.php:238
 #, fuzzy
 #| msgid "Charset"
 msgid "Changing Charset"
 msgstr "קידוד"
 
-#: js/messages.php:238
+#: js/messages.php:239
 #, fuzzy
 #| msgid "Table must have at least one field."
 msgid "Table must have at least one column"
 msgstr "טבלה חייבית להכיל לפחות שדה אחד."
 
-#: js/messages.php:243
+#: js/messages.php:244
 #, fuzzy
 #| msgid "Use Tables"
 msgid "Insert Table"
 msgstr "השתמש בטבלאות"
 
-#: js/messages.php:244
+#: js/messages.php:245
 #, fuzzy
 #| msgid "Add new field"
 msgid "Hide indexes"
 msgstr "הוספת שדה חדש"
 
-#: js/messages.php:245
+#: js/messages.php:246
 #, fuzzy
 #| msgid "Show grid"
 msgid "Show indexes"
 msgstr "הראה רשת"
 
-#: js/messages.php:246 libraries/mult_submits.inc.php:329
+#: js/messages.php:247 libraries/mult_submits.inc.php:329
 msgid "Foreign key check:"
 msgstr ""
 
-#: js/messages.php:247 libraries/mult_submits.inc.php:333
+#: js/messages.php:248 libraries/mult_submits.inc.php:333
 #, fuzzy
 #| msgid "Enabled"
 msgid "(Enabled)"
 msgstr "מופעל"
 
-#: js/messages.php:248 libraries/mult_submits.inc.php:333
+#: js/messages.php:249 libraries/mult_submits.inc.php:333
 #, fuzzy
 #| msgid "Disabled"
 msgid "(Disabled)"
 msgstr "מבוטל"
 
-#: js/messages.php:251
+#: js/messages.php:252
 #, fuzzy
 #| msgid "Search"
 msgid "Searching"
 msgstr "חיפוש"
 
-#: js/messages.php:252
+#: js/messages.php:253
 #, fuzzy
 msgid "Hide search results"
 msgstr "שאילתת SQL"
 
-#: js/messages.php:253
+#: js/messages.php:254
 #, fuzzy
 msgid "Show search results"
 msgstr "שאילתת SQL"
 
-#: js/messages.php:254
+#: js/messages.php:255
 #, fuzzy
 #| msgid "Browse"
 msgid "Browsing"
 msgstr "עיון"
 
-#: js/messages.php:255
+#: js/messages.php:256
 #, fuzzy
 #| msgid "Deleting %s"
 msgid "Deleting"
 msgstr "מוחק %s"
 
-#: js/messages.php:258
+#: js/messages.php:259
 msgid "The definition of a stored function must contain a RETURN statement!"
 msgstr ""
 
-#: js/messages.php:261 libraries/rte/rte_routines.lib.php:790
+#: js/messages.php:262 libraries/rte/rte_routines.lib.php:790
 msgid "ENUM/SET editor"
 msgstr ""
 
-#: js/messages.php:262
+#: js/messages.php:263
 #, fuzzy, php-format
 #| msgid "Number of fields"
 msgid "Values for column %s"
 msgstr "מספר שדות"
 
-#: js/messages.php:263
+#: js/messages.php:264
 msgid "Values for a new column"
 msgstr ""
 
-#: js/messages.php:264
+#: js/messages.php:265
 msgid "Enter each value in a separate field"
 msgstr ""
 
-#: js/messages.php:265
+#: js/messages.php:266
 #, fuzzy, php-format
 msgid "Add %d value(s)"
 msgstr "הוספת משתמש חדש"
 
-#: js/messages.php:268
+#: js/messages.php:269
 msgid ""
 "Note: If the file contains multiple tables, they will be combined into one"
 msgstr ""
 
-#: js/messages.php:271
+#: js/messages.php:272
 #, fuzzy
 msgid "Hide query box"
 msgstr "שאילתת SQL"
 
-#: js/messages.php:272
+#: js/messages.php:273
 #, fuzzy
 msgid "Show query box"
 msgstr "שאילתת SQL"
 
-#: js/messages.php:274 tbl_row_action.php:21
+#: js/messages.php:275 tbl_row_action.php:21
 msgid "No rows selected"
 msgstr "לא נבחרו שורות"
 
-#: js/messages.php:275 libraries/DisplayResults.class.php:5052
+#: js/messages.php:276 libraries/DisplayResults.class.php:5052
 #: libraries/structure.lib.php:1378 libraries/structure.lib.php:2056
 #: querywindow.php:85
 msgid "Change"
 msgstr "שינוי"
 
-#: js/messages.php:276
+#: js/messages.php:277
 msgid "Query execution time"
 msgstr ""
 
-#: js/messages.php:277 libraries/DisplayResults.class.php:725
+#: js/messages.php:278 libraries/DisplayResults.class.php:725
 #: libraries/DisplayResults.class.php:733
 #, php-format
 msgid "%d is not valid row number."
 msgstr "%d הוא לא מספר שורה תקין."
 
-#: js/messages.php:280 libraries/config/FormDisplay.tpl.php:392
+#: js/messages.php:281 libraries/config/FormDisplay.tpl.php:392
 #: libraries/insert_edit.lib.php:1460
 #: libraries/schema/User_Schema.class.php:383
 #: libraries/tbl_columns_definition_form.inc.php:898 server_variables.php:132
@@ -1801,221 +1805,221 @@ msgstr "%d הוא לא מספר שורה תקין."
 msgid "Save"
 msgstr "שמירה"
 
-#: js/messages.php:283
+#: js/messages.php:284
 #, fuzzy
 msgid "Hide search criteria"
 msgstr "שאילתת SQL"
 
-#: js/messages.php:284
+#: js/messages.php:285
 #, fuzzy
 msgid "Show search criteria"
 msgstr "שאילתת SQL"
 
-#: js/messages.php:287 libraries/TableSearch.class.php:210
+#: js/messages.php:288 libraries/TableSearch.class.php:210
 #, fuzzy
 #| msgid "Search"
 msgid "Zoom Search"
 msgstr "חיפוש"
 
-#: js/messages.php:289
+#: js/messages.php:290
 msgid "Each point represents a data row."
 msgstr ""
 
-#: js/messages.php:291
+#: js/messages.php:292
 msgid "Hovering over a point will show its label."
 msgstr ""
 
-#: js/messages.php:293
+#: js/messages.php:294
 msgid "To zoom in, select a section of the plot with the mouse."
 msgstr ""
 
-#: js/messages.php:295
+#: js/messages.php:296
 msgid "Click reset zoom button to come back to original state."
 msgstr ""
 
-#: js/messages.php:297
+#: js/messages.php:298
 msgid "Click a data point to view and possibly edit the data row."
 msgstr ""
 
-#: js/messages.php:299
+#: js/messages.php:300
 msgid "The plot can be resized by dragging it along the bottom right corner."
 msgstr ""
 
-#: js/messages.php:301
+#: js/messages.php:302
 #, fuzzy
 #| msgid "Add/Delete Field Columns"
 msgid "Select two columns"
 msgstr "הוספת/מחיקת עמודות שדה"
 
-#: js/messages.php:302
+#: js/messages.php:303
 msgid "Select two different columns"
 msgstr ""
 
-#: js/messages.php:303
+#: js/messages.php:304
 #, fuzzy
 #| msgid "SQL result"
 msgid "Query results"
 msgstr "תוצאת SQL"
 
-#: js/messages.php:304
+#: js/messages.php:305
 #, fuzzy
 #| msgid "Table of contents"
 msgid "Data point content"
 msgstr "תוכן עניניים"
 
-#: js/messages.php:307 tbl_change.php:263 tbl_indexes.php:279
+#: js/messages.php:308 tbl_change.php:263 tbl_indexes.php:279
 #: tbl_indexes.php:317
 msgid "Ignore"
 msgstr "התעלמות"
 
-#: js/messages.php:308 libraries/DisplayResults.class.php:3321
+#: js/messages.php:309 libraries/DisplayResults.class.php:3321
 msgid "Copy"
 msgstr "העתקה"
 
-#: js/messages.php:323
+#: js/messages.php:324
 #, fuzzy
 #| msgid "Add %s field(s)"
 msgid "Add columns"
 msgstr "הוספת %s תאים"
 
-#: js/messages.php:326
+#: js/messages.php:327
 msgid "Select referenced key"
 msgstr ""
 
-#: js/messages.php:327
+#: js/messages.php:328
 msgid "Select Foreign Key"
 msgstr ""
 
-#: js/messages.php:328
+#: js/messages.php:329
 msgid "Please select the primary key or a unique key"
 msgstr ""
 
-#: js/messages.php:329 pmd_general.php:109 tbl_relation.php:544
+#: js/messages.php:330 pmd_general.php:109 tbl_relation.php:544
 #, fuzzy
 #| msgid "Choose field to display"
 msgid "Choose column to display"
 msgstr "בחירת שדה להצגה"
 
-#: js/messages.php:330
+#: js/messages.php:331
 msgid ""
 "You haven't saved the changes in the layout. They will be lost if you don't "
 "save them. Do you want to continue?"
 msgstr ""
 
-#: js/messages.php:333
+#: js/messages.php:334
 msgid "Add an option for column "
 msgstr ""
 
-#: js/messages.php:334
+#: js/messages.php:335
 #, php-format
 msgid "%d object(s) created"
 msgstr ""
 
-#: js/messages.php:337
+#: js/messages.php:338
 msgid "Press escape to cancel editing"
 msgstr ""
 
-#: js/messages.php:338
+#: js/messages.php:339
 msgid ""
 "You have edited some data and they have not been saved. Are you sure you "
 "want to leave this page before saving the data?"
 msgstr ""
 
-#: js/messages.php:339
+#: js/messages.php:340
 msgid "Drag to reorder"
 msgstr ""
 
-#: js/messages.php:340
+#: js/messages.php:341
 msgid "Click to sort"
 msgstr ""
 
-#: js/messages.php:341
+#: js/messages.php:342
 msgid "Click to mark/unmark"
 msgstr ""
 
-#: js/messages.php:342
+#: js/messages.php:343
 msgid "Double-click to copy column name"
 msgstr ""
 
-#: js/messages.php:343
+#: js/messages.php:344
 msgid "Click the drop-down arrow<br />to toggle column's visibility"
 msgstr ""
 
-#: js/messages.php:345
+#: js/messages.php:346
 msgid ""
 "This table does not contain a unique column. Features related to the grid "
 "edit, checkbox, Edit, Copy and Delete links may not work after saving."
 msgstr ""
 
-#: js/messages.php:350
+#: js/messages.php:351
 msgid "You can also edit most values<br />by double-clicking directly on them."
 msgstr ""
 
-#: js/messages.php:353
+#: js/messages.php:354
 msgid "You can also edit most values<br />by clicking directly on them."
 msgstr ""
 
-#: js/messages.php:358
+#: js/messages.php:359
 msgid "Go to link"
 msgstr ""
 
-#: js/messages.php:359
+#: js/messages.php:360
 #, fuzzy
 #| msgid "Column names"
 msgid "Copy column name"
 msgstr "שמות עמודה"
 
-#: js/messages.php:360
+#: js/messages.php:361
 msgid "Right-click the column name to copy it to your clipboard."
 msgstr ""
 
-#: js/messages.php:361
+#: js/messages.php:362
 #, fuzzy
 #| msgid "Showing rows"
 msgid "Show data row(s)"
 msgstr "מראה שורות"
 
-#: js/messages.php:364
+#: js/messages.php:365
 #, fuzzy
 #| msgid "Generate Password"
 msgid "Generate password"
 msgstr "ייצור סיסמא"
 
-#: js/messages.php:365 libraries/replication_gui.lib.php:389
+#: js/messages.php:366 libraries/replication_gui.lib.php:389
 msgid "Generate"
 msgstr "ייצור"
 
-#: js/messages.php:366
+#: js/messages.php:367
 #, fuzzy
 #| msgid "Change password"
 msgid "Change Password"
 msgstr "שינוי סיסמא"
 
-#: js/messages.php:369
+#: js/messages.php:370
 #, fuzzy
 #| msgid "Mon"
 msgid "More"
 msgstr "יום שני"
 
-#: js/messages.php:372
+#: js/messages.php:373
 #, fuzzy
 #| msgid "Show all"
 msgid "Show Panel"
 msgstr "הצגת הכול"
 
-#: js/messages.php:373
+#: js/messages.php:374
 #, fuzzy
 #| msgid "Add new field"
 msgid "Hide Panel"
 msgstr "הוספת שדה חדש"
 
-#: js/messages.php:376
+#: js/messages.php:377
 #, fuzzy
 #| msgid "The selected user was not found in the privilege table."
 msgid "The requested page was not found in the history, it may have expired."
 msgstr "המשתמש שנבחר לא נמצא בטבלת ההרשאות."
 
-#: js/messages.php:379 setup/lib/index.lib.php:188
+#: js/messages.php:380 setup/lib/index.lib.php:188
 #, php-format
 msgid ""
 "A newer version of phpMyAdmin is available and you should consider "
@@ -2023,30 +2027,30 @@ msgid ""
 msgstr ""
 
 #. l10n: Latest available phpMyAdmin version
-#: js/messages.php:381
+#: js/messages.php:382
 msgid ", latest stable version:"
 msgstr ""
 
-#: js/messages.php:382
+#: js/messages.php:383
 #, fuzzy
 msgid "up to date"
 msgstr "אין מאגרי נתונים"
 
 #. l10n: Display text for calendar close link
-#: js/messages.php:401
+#: js/messages.php:402
 #, fuzzy
 #| msgid "None"
 msgid "Done"
 msgstr "ללא"
 
-#: js/messages.php:405
+#: js/messages.php:406
 #, fuzzy
 #| msgid "Previous"
 msgctxt "Previous month"
 msgid "Prev"
 msgstr "הקודם"
 
-#: js/messages.php:410
+#: js/messages.php:411
 #, fuzzy
 #| msgid "Next"
 msgctxt "Next month"
@@ -2054,96 +2058,96 @@ msgid "Next"
 msgstr "הבא"
 
 #. l10n: Display text for current month link in calendar
-#: js/messages.php:413
+#: js/messages.php:414
 #, fuzzy
 #| msgid "Total"
 msgid "Today"
 msgstr "סה\"כ"
 
-#: js/messages.php:417
+#: js/messages.php:418
 #, fuzzy
 #| msgid "Binary"
 msgid "January"
 msgstr "בינארי"
 
-#: js/messages.php:418
+#: js/messages.php:419
 msgid "February"
 msgstr ""
 
-#: js/messages.php:419
+#: js/messages.php:420
 #, fuzzy
 #| msgid "Mar"
 msgid "March"
 msgstr "מרץ"
 
-#: js/messages.php:420
+#: js/messages.php:421
 #, fuzzy
 #| msgid "Apr"
 msgid "April"
 msgstr "אפריל"
 
-#: js/messages.php:421
+#: js/messages.php:422
 msgid "May"
 msgstr "מאי"
 
-#: js/messages.php:422
+#: js/messages.php:423
 #, fuzzy
 #| msgid "Jun"
 msgid "June"
 msgstr "יוני"
 
-#: js/messages.php:423
+#: js/messages.php:424
 #, fuzzy
 #| msgid "Jul"
 msgid "July"
 msgstr "יולי"
 
-#: js/messages.php:424
+#: js/messages.php:425
 #, fuzzy
 #| msgid "Aug"
 msgid "August"
 msgstr "אוגוסט"
 
-#: js/messages.php:425
+#: js/messages.php:426
 msgid "September"
 msgstr ""
 
-#: js/messages.php:426
+#: js/messages.php:427
 #, fuzzy
 #| msgid "Oct"
 msgid "October"
 msgstr "אוקטובר"
 
-#: js/messages.php:427
+#: js/messages.php:428
 msgid "November"
 msgstr ""
 
-#: js/messages.php:428
+#: js/messages.php:429
 msgid "December"
 msgstr ""
 
 #. l10n: Short month name
-#: js/messages.php:435 libraries/Util.class.php:1684
+#: js/messages.php:436 libraries/Util.class.php:1684
 msgid "Jan"
 msgstr "ינואר"
 
 #. l10n: Short month name
-#: js/messages.php:437 libraries/Util.class.php:1686
+#: js/messages.php:438 libraries/Util.class.php:1686
 msgid "Feb"
 msgstr "פברואר"
 
 #. l10n: Short month name
-#: js/messages.php:439 libraries/Util.class.php:1688
+#: js/messages.php:440 libraries/Util.class.php:1688
 msgid "Mar"
 msgstr "מרץ"
 
 #. l10n: Short month name
-#: js/messages.php:441 libraries/Util.class.php:1690
+#: js/messages.php:442 libraries/Util.class.php:1690
 msgid "Apr"
 msgstr "אפריל"
 
 #. l10n: Short month name
-#: js/messages.php:443 libraries/Util.class.php:1692
+#: js/messages.php:444 libraries/Util.class.php:1692
 #, fuzzy
 #| msgid "May"
 msgctxt "Short month name"
@@ -2151,78 +2155,78 @@ msgid "May"
 msgstr "מאי"
 
 #. l10n: Short month name
-#: js/messages.php:445 libraries/Util.class.php:1694
+#: js/messages.php:446 libraries/Util.class.php:1694
 msgid "Jun"
 msgstr "יוני"
 
 #. l10n: Short month name
-#: js/messages.php:447 libraries/Util.class.php:1696
+#: js/messages.php:448 libraries/Util.class.php:1696
 msgid "Jul"
 msgstr "יולי"
 
 #. l10n: Short month name
-#: js/messages.php:449 libraries/Util.class.php:1698
+#: js/messages.php:450 libraries/Util.class.php:1698
 msgid "Aug"
 msgstr "אוגוסט"
 
 #. l10n: Short month name
-#: js/messages.php:451 libraries/Util.class.php:1700
+#: js/messages.php:452 libraries/Util.class.php:1700
 msgid "Sep"
 msgstr "ספטמבר"
 
 #. l10n: Short month name
-#: js/messages.php:453 libraries/Util.class.php:1702
+#: js/messages.php:454 libraries/Util.class.php:1702
 msgid "Oct"
 msgstr "אוקטובר"
 
 #. l10n: Short month name
-#: js/messages.php:455 libraries/Util.class.php:1704
+#: js/messages.php:456 libraries/Util.class.php:1704
 msgid "Nov"
 msgstr "נובמבר"
 
 #. l10n: Short month name
-#: js/messages.php:457 libraries/Util.class.php:1706
+#: js/messages.php:458 libraries/Util.class.php:1706
 msgid "Dec"
 msgstr "דצמבר"
 
-#: js/messages.php:463
+#: js/messages.php:464
 #, fuzzy
 #| msgid "Sun"
 msgid "Sunday"
 msgstr "יום ראשון"
 
-#: js/messages.php:464
+#: js/messages.php:465
 #, fuzzy
 #| msgid "Mon"
 msgid "Monday"
 msgstr "יום שני"
 
-#: js/messages.php:465
+#: js/messages.php:466
 #, fuzzy
 #| msgid "Tue"
 msgid "Tuesday"
 msgstr "יום שלישי"
 
-#: js/messages.php:466
+#: js/messages.php:467
 msgid "Wednesday"
 msgstr ""
 
-#: js/messages.php:467
+#: js/messages.php:468
 msgid "Thursday"
 msgstr ""
 
-#: js/messages.php:468
+#: js/messages.php:469
 #, fuzzy
 #| msgid "Fri"
 msgid "Friday"
 msgstr "יום שישי"
 
-#: js/messages.php:469
+#: js/messages.php:470
 msgid "Saturday"
 msgstr ""
 
 #. l10n: Short week day name
-#: js/messages.php:476
+#: js/messages.php:477
 #, fuzzy
 #| msgctxt "Short week day name"
 #| msgid "Sun"
@@ -2230,113 +2234,113 @@ msgid "Sun"
 msgstr "יום ראשון"
 
 #. l10n: Short week day name
-#: js/messages.php:478 libraries/Util.class.php:1711
+#: js/messages.php:479 libraries/Util.class.php:1711
 msgid "Mon"
 msgstr "יום שני"
 
 #. l10n: Short week day name
-#: js/messages.php:480 libraries/Util.class.php:1713
+#: js/messages.php:481 libraries/Util.class.php:1713
 msgid "Tue"
 msgstr "יום שלישי"
 
 #. l10n: Short week day name
-#: js/messages.php:482 libraries/Util.class.php:1715
+#: js/messages.php:483 libraries/Util.class.php:1715
 msgid "Wed"
 msgstr "יום רביעי"
 
 #. l10n: Short week day name
-#: js/messages.php:484 libraries/Util.class.php:1717
+#: js/messages.php:485 libraries/Util.class.php:1717
 msgid "Thu"
 msgstr "יום חמישי"
 
 #. l10n: Short week day name
-#: js/messages.php:486 libraries/Util.class.php:1719
+#: js/messages.php:487 libraries/Util.class.php:1719
 msgid "Fri"
 msgstr "יום שישי"
 
 #. l10n: Short week day name
-#: js/messages.php:488 libraries/Util.class.php:1721
+#: js/messages.php:489 libraries/Util.class.php:1721
 msgid "Sat"
 msgstr "שבת"
 
 #. l10n: Minimal week day name
-#: js/messages.php:495
+#: js/messages.php:496
 #, fuzzy
 #| msgid "Sun"
 msgid "Su"
 msgstr "יום ראשון"
 
 #. l10n: Minimal week day name
-#: js/messages.php:497
+#: js/messages.php:498
 #, fuzzy
 #| msgid "Mon"
 msgid "Mo"
 msgstr "יום שני"
 
 #. l10n: Minimal week day name
-#: js/messages.php:499
+#: js/messages.php:500
 #, fuzzy
 #| msgid "Tue"
 msgid "Tu"
 msgstr "יום שלישי"
 
 #. l10n: Minimal week day name
-#: js/messages.php:501
+#: js/messages.php:502
 #, fuzzy
 #| msgid "Wed"
 msgid "We"
 msgstr "יום רביעי"
 
 #. l10n: Minimal week day name
-#: js/messages.php:503
+#: js/messages.php:504
 #, fuzzy
 #| msgid "Thu"
 msgid "Th"
 msgstr "יום חמישי"
 
 #. l10n: Minimal week day name
-#: js/messages.php:505
+#: js/messages.php:506
 #, fuzzy
 #| msgid "Fri"
 msgid "Fr"
 msgstr "יום שישי"
 
 #. l10n: Minimal week day name
-#: js/messages.php:507
+#: js/messages.php:508
 #, fuzzy
 #| msgid "Sat"
 msgid "Sa"
 msgstr "שבת"
 
 #. l10n: Column header for week of the year in calendar
-#: js/messages.php:511
+#: js/messages.php:512
 msgid "Wk"
 msgstr ""
 
 #. l10n: Month-year order for calendar, use either "calendar-month-year" or "calendar-year-month".
-#: js/messages.php:514
+#: js/messages.php:515
 msgid "calendar-month-year"
 msgstr ""
 
 #. l10n: Year suffix for calendar, "none" is empty.
-#: js/messages.php:516
+#: js/messages.php:517
 #, fuzzy
 #| msgid "None"
 msgctxt "Year suffix"
 msgid "none"
 msgstr "ללא"
 
-#: js/messages.php:525
+#: js/messages.php:526
 msgid "Hour"
 msgstr ""
 
-#: js/messages.php:526
+#: js/messages.php:527
 #, fuzzy
 #| msgid "in use"
 msgid "Minute"
 msgstr "בשימוש"
 
-#: js/messages.php:527
+#: js/messages.php:528
 #, fuzzy
 #| msgid "per second"
 msgid "Second"
@@ -2414,7 +2418,7 @@ msgstr ""
 msgid "Wrong permissions on configuration file, should not be world writable!"
 msgstr ""
 
-#: libraries/Config.class.php:1715
+#: libraries/Config.class.php:1721
 msgid "Font size"
 msgstr ""
 
@@ -2422,8 +2426,8 @@ msgstr ""
 #: libraries/DisplayResults.class.php:2011
 #: libraries/DisplayResults.class.php:2019 libraries/TableSearch.class.php:812
 #: libraries/operations.lib.php:654 libraries/structure.lib.php:860
-#: libraries/structure.lib.php:877 server_databases.php:202
-#: server_databases.php:219 server_status.php:420
+#: libraries/structure.lib.php:877 server_databases.php:201
+#: server_databases.php:218 server_status.php:420
 msgid "Ascending"
 msgstr "עולה"
 
@@ -2431,8 +2435,8 @@ msgstr "עולה"
 #: libraries/DisplayResults.class.php:2006
 #: libraries/DisplayResults.class.php:2024 libraries/TableSearch.class.php:813
 #: libraries/operations.lib.php:655 libraries/structure.lib.php:865
-#: libraries/structure.lib.php:882 server_databases.php:202
-#: server_databases.php:219 server_status.php:417
+#: libraries/structure.lib.php:882 server_databases.php:201
+#: server_databases.php:218 server_status.php:417
 msgid "Descending"
 msgstr "יורד"
 
@@ -2546,7 +2550,7 @@ msgstr "האם למחוק את התוצאות עבור הטבלה %s?"
 #: libraries/schema/User_Schema.class.php:352
 #: libraries/sql_query_form.lib.php:419 pmd_general.php:472
 #: setup/frames/index.inc.php:148 setup/frames/index.inc.php:254
-#: tbl_tracking.php:539 tbl_tracking.php:559 tbl_tracking.php:621
+#: tbl_tracking.php:539 tbl_tracking.php:559 tbl_tracking.php:626
 msgid "Delete"
 msgstr "מחיקה"
 
@@ -2783,7 +2787,7 @@ msgstr "שאילתה לקחה %01.4f שניות"
 #: libraries/server_privileges.lib.php:2405 libraries/structure.lib.php:278
 #: libraries/structure.lib.php:293 libraries/structure.lib.php:295
 #: libraries/structure.lib.php:1361 libraries/structure.lib.php:1368
-#: server_databases.php:320 server_databases.php:323
+#: server_databases.php:319 server_databases.php:322
 msgid "With selected:"
 msgstr "עם הנבחרים:"
 
@@ -2793,8 +2797,8 @@ msgstr "עם הנבחרים:"
 #: libraries/server_privileges.lib.php:2403
 #: libraries/server_privileges.lib.php:2404 libraries/structure.lib.php:281
 #: libraries/structure.lib.php:282 libraries/structure.lib.php:1364
-#: libraries/structure.lib.php:1365 server_databases.php:321
-#: server_databases.php:322
+#: libraries/structure.lib.php:1365 server_databases.php:320
+#: server_databases.php:321
 msgid "Check All"
 msgstr "סימון הכול"
 
@@ -2903,7 +2907,7 @@ msgstr ""
 msgid "Click on the bar to scroll to top of page"
 msgstr ""
 
-#: libraries/Header.class.php:639
+#: libraries/Header.class.php:641
 #: libraries/plugins/auth/AuthenticationCookie.class.php:172
 #, fuzzy
 #| msgid "Cookies must be enabled past this point."
@@ -3750,7 +3754,7 @@ msgstr "MySQL אמר: "
 msgid "Failed to connect to SQL validator!"
 msgstr ""
 
-#: libraries/Util.class.php:1224 libraries/config/messages.inc.php:489
+#: libraries/Util.class.php:1224 libraries/config/messages.inc.php:488
 msgid "Explain SQL"
 msgstr "הסברת SQL"
 
@@ -3762,11 +3766,11 @@ msgstr ""
 msgid "Without PHP Code"
 msgstr "ללא קוד PHP"
 
-#: libraries/Util.class.php:1275 libraries/config/messages.inc.php:491
+#: libraries/Util.class.php:1275 libraries/config/messages.inc.php:490
 msgid "Create PHP Code"
 msgstr "ייצור קוד PHP"
 
-#: libraries/Util.class.php:1301 libraries/config/messages.inc.php:490
+#: libraries/Util.class.php:1301 libraries/config/messages.inc.php:489
 #: server_status_variables.php:80
 msgid "Refresh"
 msgstr "רענון"
@@ -3776,7 +3780,7 @@ msgstr "רענון"
 msgid "Skip Validate SQL"
 msgstr "בדיקת תקינות SQL"
 
-#: libraries/Util.class.php:1314 libraries/config/messages.inc.php:493
+#: libraries/Util.class.php:1314 libraries/config/messages.inc.php:492
 msgid "Validate SQL"
 msgstr "בדיקת תקינות SQL"
 
@@ -3941,28 +3945,28 @@ msgstr ""
 msgid "Invalid hostname for server %1$s. Please review your configuration."
 msgstr ""
 
-#: libraries/common.inc.php:868
+#: libraries/common.inc.php:865
 msgid "Invalid authentication method set in configuration:"
 msgstr ""
 
-#: libraries/common.inc.php:990
+#: libraries/common.inc.php:987
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "אתה צריך לשדרג אל %s %s לפחות."
 
-#: libraries/common.inc.php:1079
+#: libraries/common.inc.php:1078
 msgid "Error: Token mismatch"
 msgstr ""
 
-#: libraries/common.inc.php:1123
+#: libraries/common.inc.php:1122
 msgid "GLOBALS overwrite attempt"
 msgstr ""
 
-#: libraries/common.inc.php:1130
+#: libraries/common.inc.php:1129
 msgid "possible exploit"
 msgstr ""
 
-#: libraries/common.inc.php:1139
+#: libraries/common.inc.php:1138
 msgid "numeric key detected"
 msgstr ""
 
@@ -4826,7 +4830,7 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:194
-#: libraries/navigation/NavigationHeader.class.php:209
+#: libraries/navigation/NavigationHeader.class.php:211
 msgid "Query window"
 msgstr "חלון שאילתה"
 
@@ -6094,23 +6098,19 @@ msgid "Show statistics"
 msgstr "סטטיסטיקת שורה"
 
 #: libraries/config/messages.inc.php:485
-msgid "Display table comments in tooltips"
-msgstr ""
-
-#: libraries/config/messages.inc.php:486
 msgid ""
 "Mark used tables and make it possible to show databases with locked tables"
 msgstr ""
 
-#: libraries/config/messages.inc.php:487
+#: libraries/config/messages.inc.php:486
 msgid "Skip locked tables"
 msgstr ""
 
-#: libraries/config/messages.inc.php:492
+#: libraries/config/messages.inc.php:491
 msgid "Requires SQL Validator to be enabled"
 msgstr ""
 
-#: libraries/config/messages.inc.php:494
+#: libraries/config/messages.inc.php:493
 #: libraries/display_change_password.lib.php:61
 #: libraries/replication_gui.lib.php:64 libraries/replication_gui.lib.php:65
 #: libraries/replication_gui.lib.php:361 libraries/replication_gui.lib.php:365
@@ -6122,81 +6122,81 @@ msgstr ""
 msgid "Password"
 msgstr "סיסמא"
 
-#: libraries/config/messages.inc.php:495
+#: libraries/config/messages.inc.php:494
 msgid ""
 "[strong]Warning:[/strong] requires PHP SOAP extension or PEAR SOAP to be "
 "installed"
 msgstr ""
 
-#: libraries/config/messages.inc.php:496
+#: libraries/config/messages.inc.php:495
 msgid "Enable SQL Validator"
 msgstr ""
 
-#: libraries/config/messages.inc.php:497
+#: libraries/config/messages.inc.php:496
 msgid ""
 "If you have a custom username, specify it here (defaults to [kbd]anonymous[/"
 "kbd])"
 msgstr ""
 
-#: libraries/config/messages.inc.php:498 tbl_tracking.php:557
-#: tbl_tracking.php:619
+#: libraries/config/messages.inc.php:497 tbl_tracking.php:557
+#: tbl_tracking.php:624
 #, fuzzy
 msgid "Username"
 msgstr "שם משתמש:"
 
-#: libraries/config/messages.inc.php:499
+#: libraries/config/messages.inc.php:498
 msgid "A warning is displayed on the main page if Suhosin is detected"
 msgstr ""
 
-#: libraries/config/messages.inc.php:500
+#: libraries/config/messages.inc.php:499
 msgid "Suhosin warning"
 msgstr ""
 
-#: libraries/config/messages.inc.php:501
+#: libraries/config/messages.inc.php:500
 msgid ""
 "Textarea size (columns) in edit mode, this value will be emphasized for SQL "
 "query textareas (*2) and for query window (*1.25)"
 msgstr ""
 
-#: libraries/config/messages.inc.php:502
+#: libraries/config/messages.inc.php:501
 #, fuzzy
 #| msgid "Add/Delete Field Columns"
 msgid "Textarea columns"
 msgstr "הוספת/מחיקת עמודות שדה"
 
-#: libraries/config/messages.inc.php:503
+#: libraries/config/messages.inc.php:502
 msgid ""
 "Textarea size (rows) in edit mode, this value will be emphasized for SQL "
 "query textareas (*2) and for query window (*1.25)"
 msgstr ""
 
-#: libraries/config/messages.inc.php:504
+#: libraries/config/messages.inc.php:503
 msgid "Textarea rows"
 msgstr ""
 
-#: libraries/config/messages.inc.php:505
+#: libraries/config/messages.inc.php:504
 msgid "Title of browser window when a database is selected"
 msgstr ""
 
-#: libraries/config/messages.inc.php:507
+#: libraries/config/messages.inc.php:506
 msgid "Title of browser window when nothing is selected"
 msgstr ""
 
-#: libraries/config/messages.inc.php:508
+#: libraries/config/messages.inc.php:507
 #, fuzzy
 #| msgid "Default"
 msgid "Default title"
 msgstr "ברירת מחדל"
 
-#: libraries/config/messages.inc.php:509
+#: libraries/config/messages.inc.php:508
 msgid "Title of browser window when a server is selected"
 msgstr ""
 
-#: libraries/config/messages.inc.php:511
+#: libraries/config/messages.inc.php:510
 msgid "Title of browser window when a table is selected"
 msgstr ""
 
-#: libraries/config/messages.inc.php:513
+#: libraries/config/messages.inc.php:512
 msgid ""
 "Input proxies as [kbd]IP: trusted HTTP header[/kbd]. The following example "
 "specifies that phpMyAdmin should trust a HTTP_X_FORWARDED_FOR (X-Forwarded-"
@@ -6204,45 +6204,45 @@ msgid ""
 "HTTP_X_FORWARDED_FOR[/kbd]"
 msgstr ""
 
-#: libraries/config/messages.inc.php:514
+#: libraries/config/messages.inc.php:513
 msgid "List of trusted proxies for IP allow/deny"
 msgstr ""
 
-#: libraries/config/messages.inc.php:515
+#: libraries/config/messages.inc.php:514
 msgid "Directory on server where you can upload files for import"
 msgstr ""
 
-#: libraries/config/messages.inc.php:516
+#: libraries/config/messages.inc.php:515
 msgid "Upload directory"
 msgstr ""
 
-#: libraries/config/messages.inc.php:517
+#: libraries/config/messages.inc.php:516
 msgid "Allow for searching inside the entire database"
 msgstr ""
 
-#: libraries/config/messages.inc.php:518
+#: libraries/config/messages.inc.php:517
 msgid "Use database search"
 msgstr ""
 
-#: libraries/config/messages.inc.php:519
+#: libraries/config/messages.inc.php:518
 msgid ""
 "When disabled, users cannot set any of the options below, regardless of the "
 "checkbox on the right"
 msgstr ""
 
-#: libraries/config/messages.inc.php:520
+#: libraries/config/messages.inc.php:519
 msgid "Enable the Developer tab in settings"
 msgstr ""
 
-#: libraries/config/messages.inc.php:521 setup/frames/index.inc.php:275
+#: libraries/config/messages.inc.php:520 setup/frames/index.inc.php:275
 msgid "Check for latest version"
 msgstr ""
 
-#: libraries/config/messages.inc.php:522
+#: libraries/config/messages.inc.php:521
 msgid "Enables check for latest version on main phpMyAdmin page"
 msgstr ""
 
-#: libraries/config/messages.inc.php:523 setup/lib/index.lib.php:132
+#: libraries/config/messages.inc.php:522 setup/lib/index.lib.php:132
 #: setup/lib/index.lib.php:143 setup/lib/index.lib.php:164
 #: setup/lib/index.lib.php:175 setup/lib/index.lib.php:187
 #: setup/lib/index.lib.php:195 setup/lib/index.lib.php:202
@@ -6250,13 +6250,13 @@ msgstr ""
 msgid "Version check"
 msgstr ""
 
-#: libraries/config/messages.inc.php:524
+#: libraries/config/messages.inc.php:523
 msgid ""
 "Enable [a@http://en.wikipedia.org/wiki/ZIP_(file_format)]ZIP[/a] compression "
 "for import and export operations"
 msgstr ""
 
-#: libraries/config/messages.inc.php:525
+#: libraries/config/messages.inc.php:524
 msgid "ZIP"
 msgstr ""
 
@@ -6367,23 +6367,28 @@ msgstr ""
 msgid "possible deep recursion attack"
 msgstr ""
 
-#: libraries/database_interface.lib.php:2074
+#: libraries/database_interface.lib.php:63
+#, php-format
+msgid "See %sour documentation%s for more information."
+msgstr ""
+
+#: libraries/database_interface.lib.php:2080
 msgid ""
 "The server is not responding (or the local server's socket is not correctly "
 "configured)."
 msgstr ""
 
-#: libraries/database_interface.lib.php:2079
+#: libraries/database_interface.lib.php:2085
 #, fuzzy
 #| msgid "The server is not responding"
 msgid "The server is not responding."
 msgstr "השרת אינו מגיב"
 
-#: libraries/database_interface.lib.php:2084
+#: libraries/database_interface.lib.php:2090
 msgid "Please check privileges of directory containing database."
 msgstr ""
 
-#: libraries/database_interface.lib.php:2094
+#: libraries/database_interface.lib.php:2100
 msgid "Details…"
 msgstr ""
 
@@ -7446,19 +7451,19 @@ msgstr "לא ידוע"
 msgid "An error has occured while loading the navigation tree"
 msgstr ""
 
-#: libraries/navigation/NavigationHeader.class.php:183
+#: libraries/navigation/NavigationHeader.class.php:185
 msgid "Home"
 msgstr "בית"
 
-#: libraries/navigation/NavigationHeader.class.php:196
+#: libraries/navigation/NavigationHeader.class.php:198
 msgid "Log out"
 msgstr "יציאה"
 
-#: libraries/navigation/NavigationHeader.class.php:219
+#: libraries/navigation/NavigationHeader.class.php:221
 msgid "phpMyAdmin documentation"
 msgstr "תיעוד phpMyAdmin"
 
-#: libraries/navigation/NavigationHeader.class.php:243
+#: libraries/navigation/NavigationHeader.class.php:245
 msgid "Reload navigation frame"
 msgstr ""
 
@@ -7469,18 +7474,18 @@ msgid_plural "%s other results found"
 msgstr[0] ""
 msgstr[1] ""
 
-#: libraries/navigation/NavigationTree.class.php:1043
+#: libraries/navigation/NavigationTree.class.php:1033
 #, fuzzy
 #| msgid "Alter table order by"
 msgid "filter databases by name"
 msgstr "שינוי סדר הטבלה לפי"
 
-#: libraries/navigation/NavigationTree.class.php:1044
-#: libraries/navigation/NavigationTree.class.php:1070
+#: libraries/navigation/NavigationTree.class.php:1034
+#: libraries/navigation/NavigationTree.class.php:1060
 msgid "Clear Fast Filter"
 msgstr ""
 
-#: libraries/navigation/NavigationTree.class.php:1069
+#: libraries/navigation/NavigationTree.class.php:1059
 #, fuzzy
 #| msgid "Alter table order by"
 msgid "filter items by name"
@@ -7544,7 +7549,7 @@ msgctxt "Create new procedure"
 msgid "New"
 msgstr ""
 
-#: libraries/navigation/Nodes/Node_Table_Container.class.php:40
+#: libraries/navigation/Nodes/Node_Table_Container.class.php:41
 msgctxt "Create new table"
 msgid "New"
 msgstr ""
@@ -7559,7 +7564,7 @@ msgstr ""
 msgid "Views"
 msgstr ""
 
-#: libraries/navigation/Nodes/Node_View_Container.class.php:36
+#: libraries/navigation/Nodes/Node_View_Container.class.php:37
 msgctxt "Create new view"
 msgid "New"
 msgstr ""
@@ -10477,20 +10482,20 @@ msgstr[1] "%s מסדי נתונים נמחקו בהצלחה."
 msgid "Databases statistics"
 msgstr "סטטיסטיקת מסד הנתונים"
 
-#: server_databases.php:226 server_replication.php:167
+#: server_databases.php:225 server_replication.php:167
 #: server_replication.php:198
 msgid "Master replication"
 msgstr ""
 
-#: server_databases.php:228 server_replication.php:236
+#: server_databases.php:227 server_replication.php:236
 msgid "Slave replication"
 msgstr ""
 
-#: server_databases.php:335 server_databases.php:336
+#: server_databases.php:334 server_databases.php:335
 msgid "Enable Statistics"
 msgstr "הפעלת סטטיסטיקה"
 
-#: server_databases.php:339
+#: server_databases.php:338
 msgid ""
 "Note: Enabling the database statistics here might cause heavy traffic "
 "between the web server and the MySQL server."
@@ -10498,7 +10503,7 @@ msgstr ""
 "הערה: הפעלת סטטיסטיקות מאגר נתונים כאן יכולות לגרום לתעבורה כבדה בין השרת "
 "האינטרנט לשרת MySQL."
 
-#: server_databases.php:346
+#: server_databases.php:345
 msgid "No databases"
 msgstr "אין מאגרי נתונים"
 
@@ -10530,7 +10535,7 @@ msgstr ""
 msgid "Library"
 msgstr ""
 
-#: server_plugins.php:97 server_plugins.php:132 tbl_tracking.php:765
+#: server_plugins.php:97 server_plugins.php:132 tbl_tracking.php:776
 #, fuzzy
 msgid "Version"
 msgstr "Persian"
@@ -12307,7 +12312,7 @@ msgstr ""
 msgid "Tracking statements"
 msgstr ""
 
-#: tbl_tracking.php:523 tbl_tracking.php:673
+#: tbl_tracking.php:523 tbl_tracking.php:684
 #, php-format
 msgid "Show %1$s with dates from %2$s to %3$s by user %4$s %5$s"
 msgstr ""
@@ -12322,7 +12327,7 @@ msgstr ""
 msgid "No data"
 msgstr "אין מאגרי נתונים"
 
-#: tbl_tracking.php:556 tbl_tracking.php:618
+#: tbl_tracking.php:556 tbl_tracking.php:623
 #, fuzzy
 msgid "Date"
 msgstr "נתונים"
@@ -12331,67 +12336,67 @@ msgstr "נתונים"
 msgid "Data definition statement"
 msgstr ""
 
-#: tbl_tracking.php:620
+#: tbl_tracking.php:625
 msgid "Data manipulation statement"
 msgstr ""
 
-#: tbl_tracking.php:678
+#: tbl_tracking.php:689
 msgid "SQL dump (file download)"
 msgstr ""
 
-#: tbl_tracking.php:679
+#: tbl_tracking.php:690
 msgid "SQL dump"
 msgstr ""
 
-#: tbl_tracking.php:681
+#: tbl_tracking.php:692
 msgid "This option will replace your table and contained data."
 msgstr ""
 
-#: tbl_tracking.php:682
+#: tbl_tracking.php:693
 msgid "SQL execution"
 msgstr ""
 
-#: tbl_tracking.php:700
+#: tbl_tracking.php:711
 #, php-format
 msgid "Export as %s"
 msgstr ""
 
-#: tbl_tracking.php:737
+#: tbl_tracking.php:748
 msgid "Show versions"
 msgstr ""
 
-#: tbl_tracking.php:825
+#: tbl_tracking.php:836
 #, php-format
 msgid "Deactivate tracking for %s"
 msgstr ""
 
-#: tbl_tracking.php:831
+#: tbl_tracking.php:842
 msgid "Deactivate now"
 msgstr ""
 
-#: tbl_tracking.php:841
+#: tbl_tracking.php:852
 #, php-format
 msgid "Activate tracking for %s"
 msgstr ""
 
-#: tbl_tracking.php:847
+#: tbl_tracking.php:858
 msgid "Activate now"
 msgstr ""
 
-#: tbl_tracking.php:860
+#: tbl_tracking.php:871
 #, fuzzy, php-format
 msgid "Create version %1$s of %2$s"
 msgstr "גרסת שרת"
 
-#: tbl_tracking.php:868
+#: tbl_tracking.php:879
 msgid "Track these data definition statements:"
 msgstr ""
 
-#: tbl_tracking.php:876
+#: tbl_tracking.php:887
 msgid "Track these data manipulation statements:"
 msgstr ""
 
-#: tbl_tracking.php:886
+#: tbl_tracking.php:897
 #, fuzzy
 msgid "Create version"
 msgstr "גרסת שרת"
