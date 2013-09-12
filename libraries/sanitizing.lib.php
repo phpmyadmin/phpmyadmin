@@ -23,6 +23,7 @@ function PMA_checkLink($url)
         'https://',
         './url.php?url=http%3A%2F%2F',
         './url.php?url=https%3A%2F%2F',
+        './doc/html/',
     );
     if (defined('PMA_SETUP')) {
         $valid_starts[] = '?page=form&';
@@ -169,7 +170,7 @@ function PMA_sanitize($message, $escape = false, $safe = false)
  *    When exporting, avoiding generation of an unexpected double-extension file
  *
  * @param string  $filename    The filename
- * @param boolean $replaceDots Whether to also replace dots 
+ * @param boolean $replaceDots Whether to also replace dots
  *
  * @return string  the sanitized filename
  *
