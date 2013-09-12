@@ -3359,7 +3359,7 @@ msgstr "Usa iste columna pro etiquettar cata puncto"
 
 #: libraries/TableSearch.class.php:869
 msgid "Maximum rows to plot"
-msgstr ""
+msgstr "Maxime rangos de designar"
 
 #: libraries/TableSearch.class.php:898 libraries/TableSearch.class.php:1202
 #: libraries/sql.lib.php:371 tbl_change.php:146
