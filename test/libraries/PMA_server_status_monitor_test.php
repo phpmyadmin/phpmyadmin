@@ -55,9 +55,6 @@ class PMA_ServerStatusMonitor_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['SQP'] = array();
         $GLOBALS['cfg']['MaxCharactersInDisplayedSQL'] = 1000;
         $GLOBALS['cfg']['ShowSQL'] = true;
-        $GLOBALS['cfg']['TableNavigationLinksMode'] = 'icons';
-        $GLOBALS['cfg']['LimitChars'] = 100;
-        $GLOBALS['cfg']['DBG']['sql'] = false;
         $GLOBALS['cfg']['Server']['host'] = "localhost";
         $GLOBALS['cfg']['ShowHint'] = true;
         $GLOBALS['PMA_PHP_SELF'] = PMA_getenv('PHP_SELF');
@@ -230,6 +227,204 @@ class PMA_ServerStatusMonitor_Test extends PHPUnit_Framework_TestCase
         $this->assertContains(
             '<div id="explain_docu" class="hide">',
             $html
+        );
+    }
+
+    /**
+     * Test for PMA_getJsonForLogDataTypeSlow
+     *
+     * @return void
+     */
+    public function testPMAGetJsonForLogDataTypeSlow()
+    {
+        //Mock DBI
+        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+            ->disableOriginalConstructor()
+            ->getMock();
+
+        $value = array(
+            'sql_text' => 'insert sql_text',
+            '#' => 'types',
+        );
+
+        $value2 = array(
+            'sql_text' => 'update sql_text',
+            '#' => 'types2',
+        );
+
+        $dbi->expects($this->at(1))->method('fetchAssoc')
+            ->will($this->returnValue($value));
+        $dbi->expects($this->at(2))->method('fetchAssoc')
+            ->will($this->returnValue($value2));
+        $dbi->expects($this->at(3))->method('fetchAssoc')
+            ->will($this->returnValue(false));
+
+        $GLOBALS['dbi'] = $dbi;
+
+        //Call the test function
+        $start = 0;
+        $end = 10;
+        $ret = PMA_getJsonForLogDataTypeSlow($start, $end);
+
+        $result_rows = array(
+            array('sql_text' => 'insert sql_text', '#' => 'types'),
+            array('sql_text' => 'update sql_text', '#' => 'types2')
+        );
+        $result_sum = array('insert' =>0, 'TOTAL' =>0, 'update' => 0);
+        $this->assertEquals(
+            2,
+            $ret['numRows']
+        );
+        $this->assertEquals(
+            $result_rows,
+            $ret['rows']
+        );
+        $this->assertEquals(
+            $result_sum,
+            $ret['sum']
+        );
+    }
+
+    /**
+     * Test for PMA_getJsonForLogDataTypeGeneral
+     *
+     * @return void
+     */
+    public function testPMAGetJsonForLogDataTypeGeneral()
+    {
+        $_REQUEST['limitTypes'] = true;
+
+        //Mock DBI
+        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+            ->disableOriginalConstructor()
+            ->getMock();
+
+        $value = array(
+            'sql_text' => 'insert sql_text',
+            '#' => 'types',
+            'argument' => 'argument argument2',
+        );
+
+        $value2 = array(
+            'sql_text' => 'update sql_text',
+            '#' => 'types2',
+            'argument' => 'argument3 argument4',
+        );
+
+        $dbi->expects($this->at(1))->method('fetchAssoc')
+            ->will($this->returnValue($value));
+        $dbi->expects($this->at(2))->method('fetchAssoc')
+            ->will($this->returnValue($value2));
+        $dbi->expects($this->at(3))->method('fetchAssoc')
+            ->will($this->returnValue(false));
+
+        $GLOBALS['dbi'] = $dbi;
+
+        //Call the test function
+        $start = 0;
+        $end = 10;
+        $ret = PMA_getJsonForLogDataTypeGeneral($start, $end);
+
+        $result_rows = array(
+            $value,
+            $value2,
+        );
+        $result_sum = array('argument' =>0, 'TOTAL' =>0, 'argument3' => 0);
+
+        $this->assertEquals(
+            2,
+            $ret['numRows']
+        );
+        $this->assertEquals(
+            $result_rows,
+            $ret['rows']
+        );
+        $this->assertEquals(
+            $result_sum,
+            $ret['sum']
+        );
+    }
+
+    /**
+     * Test for PMA_getJsonForLoggingVars
+     *
+     * @return void
+     */
+    public function testPMAGetJsonForLoggingVars()
+    {
+        $_REQUEST['varName'] = "varName";
+
+        //Mock DBI
+        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+            ->disableOriginalConstructor()
+            ->getMock();
+
+        $value = array(
+            'sql_text' => 'insert sql_text',
+            '#' => 'types',
+            'argument' => 'argument argument2',
+        );
+
+        $dbi->expects($this->any())->method('fetchResult')
+            ->will($this->returnValue($value));
+
+        $GLOBALS['dbi'] = $dbi;
+
+        //Call the test function
+        $ret = PMA_getJsonForLoggingVars();
+
+        //validate that, the result is the same as fetchResult
+        $this->assertEquals(
+            $value,
+            $ret
+        );
+    }
+
+    /**
+     * Test for PMA_getJsonForQueryAnalyzer
+     *
+     * @return void
+     */
+    public function testPMAGetJsonForQueryAnalyzer()
+    {
+        $_REQUEST['database'] = "database";
+        $_REQUEST['query'] = 'query';
+        $GLOBALS['server'] = 'server';
+        $GLOBALS['cached_affected_rows'] = 'cached_affected_rows';
+        $_SESSION['cache']['server_server']['profiling_supported'] = true;
+
+        //Mock DBI
+        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+            ->disableOriginalConstructor()
+            ->getMock();
+
+        $value = array(
+            'sql_text' => 'insert sql_text',
+            '#' => 'types',
+            'argument' => 'argument argument2',
+        );
+
+        $dbi->expects($this->at(4))->method('fetchAssoc')
+            ->will($this->returnValue($value));
+        $dbi->expects($this->at(5))->method('fetchAssoc')
+            ->will($this->returnValue(false));
+
+        $GLOBALS['dbi'] = $dbi;
+
+        //Call the test function
+        $ret = PMA_getJsonForQueryAnalyzer();
+
+        $this->assertEquals(
+            'cached_affected_rows',
+            $ret['affectedRows']
+        );
+        $this->assertEquals(
+            array(),
+            $ret['profiling']
+        );
+        $this->assertEquals(
+            array($value),
+            $ret['explain']
         );
     }
 }
