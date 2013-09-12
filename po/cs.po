@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.7-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-09-12 10:04+0200\n"
-"PO-Revision-Date: 2013-09-12 10:43+0200\n"
+"PO-Revision-Date: 2013-09-12 10:55+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Czech <http://l10n.cihar.com/projects/phpmyadmin/4-0/cs/>\n"
 "Language: cs\n"
@@ -1353,7 +1353,7 @@ msgstr "Z obecného záznamu dotazů"
 
 #: js/messages.php:159
 msgid "The database name is not known for this query in the server's logs."
-msgstr ""
+msgstr "V záznamu server není pro tento dotaz známo jméno databáze."
 
 #: js/messages.php:160
 msgid "Analysing logs"
