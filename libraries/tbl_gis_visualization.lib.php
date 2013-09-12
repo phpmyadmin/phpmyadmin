@@ -242,11 +242,11 @@ function PMA_getHtmlForColumn($column, $columnCandidates, $visualizationSettings
 }
 
 /**
- * Function to get html for the option of using oprn street maps
+ * Function to get HTML for the option of using open street maps
  *
- * @param boolean $isSelected    the default value
+ * @param boolean $isSelected the default value
  *
- * @return string  $html
+ * @return string HTML string
  */
 function PMA_getHtmlForUseOpenStreetMaps($isSelected)
 {
@@ -266,18 +266,18 @@ function PMA_getHtmlForUseOpenStreetMaps($isSelected)
 }
 
 /**
- * Function to generate html for the GIS visualization page
+ * Function to generate HTML for the GIS visualization page
  *
- * @param array   $url_params             url parameters
- * @param array   $labelCandidates        list of candidates for the label
- * @param array   $spatialCandidates      list of candidates for the spatial column
- * @param array   $visualizationSettings  visualization settings
- * @param String  $sql_query              the sql query
- * @param String  $visualization          html and js code for the visualization
- * @param boolean $svg_support            whether svg download format is supported
- * @param array   $data                   array of visualizing data
+ * @param array   $url_params            url parameters
+ * @param array   $labelCandidates       list of candidates for the label
+ * @param array   $spatialCandidates     list of candidates for the spatial column
+ * @param array   $visualizationSettings visualization settings
+ * @param String  $sql_query             the sql query
+ * @param String  $visualization         HTML and js code for the visualization
+ * @param boolean $svg_support           whether svg download format is supported
+ * @param array   $data                  array of visualizing data
  *
- * @return string $html                   html code for the GIS visualization
+ * @return string HTML code for the GIS visualization
  */
 function PMA_getHtmlForGisVisualization(
     $url_params, $labelCandidates, $spatialCandidates, $visualizationSettings,
