@@ -4,10 +4,9 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-09-12 10:06+0200\n"
-"PO-Revision-Date: 2013-08-23 11:40+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: French <http://l10n.cihar.com/projects/phpmyadmin/master/fr/"
-">\n"
+"PO-Revision-Date: 2013-09-12 14:24+0200\n"
+"Last-Translator: Marc Delisle <marc@infomarc.info>\n"
+"Language-Team: French <http://l10n.cihar.com/projects/phpmyadmin/master/fr/>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1312,6 +1311,8 @@ msgstr "Depuis le journal général"
 #: js/messages.php:158
 msgid "The database name is not known for this query in the server's logs."
 msgstr ""
+"Le nom de la base de données n'est pas connu pour cette requête dans les "
+"logs du serveur."
 
 #: js/messages.php:159
 msgid "Analysing logs"
@@ -6662,7 +6663,7 @@ msgstr "possible attaque récursive"
 #: libraries/database_interface.inc.php:34
 #, php-format
 msgid "See %sour documentation%s for more information."
-msgstr ""
+msgstr "Voyez %snotre documentation%s pour plus de détails."
 
 #: libraries/dbi/DBIDrizzle.class.php:146 libraries/dbi/DBIMysql.class.php:170
 #: libraries/dbi/DBIMysqli.class.php:224
@@ -10255,10 +10256,9 @@ msgid "wildcard"
 msgstr "passepartout"
 
 #: libraries/server_privileges.lib.php:2069
-#, fuzzy
 #| msgid "database-specific"
 msgid "table-specific"
-msgstr "spécifique à cette base de données"
+msgstr "spécifique à cette table"
 
 #: libraries/server_privileges.lib.php:2146
 #: libraries/server_privileges.lib.php:3296
