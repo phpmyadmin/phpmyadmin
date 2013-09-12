@@ -32,7 +32,7 @@
  */
 
 /**
- * block attempts to directly run this script 
+ * block attempts to directly run this script
  */
 if (getcwd() == dirname(__FILE__)) {
     die('Attack stopped');
@@ -749,11 +749,6 @@ if (@file_exists($_SESSION['PMA_Theme']->getLayoutFile())) {
 }
 
 if (! defined('PMA_MINIMUM_COMMON')) {
-    if (! defined('PMA_BYPASS_GET_INSTANCE')) {
-        // get a dummy object to ensure that the class is instanciated
-        PMA_Response::getInstance();
-    }
-
     /**
      * Character set conversion.
      */
