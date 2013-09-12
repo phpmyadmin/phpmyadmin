@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.7-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-09-12 10:04+0200\n"
-"PO-Revision-Date: 2013-07-29 15:29+0200\n"
+"PO-Revision-Date: 2013-09-12 11:07+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: Greek <http://l10n.cihar.com/projects/phpmyadmin/4-0/el/>\n"
 "Language: el\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 1.6\n"
+"X-Generator: Weblate 1.7-dev\n"
 
 #: browse_foreigners.php:51 browse_foreigners.php:75 js/messages.php:345
 #: libraries/DisplayResults.class.php:813
@@ -1365,6 +1365,8 @@ msgstr "Από την γενική καταγραφή"
 #: js/messages.php:159
 msgid "The database name is not known for this query in the server's logs."
 msgstr ""
+"Το όνομα της βάσης δεδομένων δεν είναι γνωστό για αυτό το ερώτημα στα αρχεία "
+"καταγραφής του διακομιστή."
 
 #: js/messages.php:160
 msgid "Analysing logs"
@@ -6378,7 +6380,7 @@ msgstr "πιθανή βαθειά ανάδρομή επίθεση"
 #: libraries/database_interface.lib.php:63
 #, php-format
 msgid "See %sour documentation%s for more information."
-msgstr ""
+msgstr "Δείτε την %sτεκμηρίωσή μας%s για περισσότερες πληροφορίες."
 
 #: libraries/database_interface.lib.php:2080
 msgid ""
