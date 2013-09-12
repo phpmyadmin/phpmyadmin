@@ -55,9 +55,6 @@ class PMA_ServerStatusMonitor_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['SQP'] = array();
         $GLOBALS['cfg']['MaxCharactersInDisplayedSQL'] = 1000;
         $GLOBALS['cfg']['ShowSQL'] = true;
-        $GLOBALS['cfg']['TableNavigationLinksMode'] = 'icons';
-        $GLOBALS['cfg']['LimitChars'] = 100;
-        $GLOBALS['cfg']['DBG']['sql'] = false;
         $GLOBALS['cfg']['Server']['host'] = "localhost";
         $GLOBALS['cfg']['ShowHint'] = true;
         $GLOBALS['PMA_PHP_SELF'] = PMA_getenv('PHP_SELF');
