@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-09-12 10:06+0200\n"
-"PO-Revision-Date: 2013-09-12 14:02+0200\n"
+"PO-Revision-Date: 2013-09-12 14:10+0200\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/ia/>\n"
@@ -3300,6 +3300,9 @@ msgid ""
 "after you refresh this page. Please check if the table structure has been "
 "changed."
 msgstr ""
+"Il non pote salveguardar proprietate de UI \"%s\". Le modificationes non "
+"essera mantenite post que tu recarga iste pagina. Pro favor controla que le "
+"structura del tabella ha essite modificate."
 
 #: libraries/TableSearch.class.php:181 libraries/insert_edit.lib.php:211
 #: libraries/insert_edit.lib.php:217 libraries/rte/rte_routines.lib.php:1582
@@ -3364,39 +3367,41 @@ msgstr "Maxime rangos de designar"
 #: libraries/TableSearch.class.php:898 libraries/TableSearch.class.php:1202
 #: libraries/sql.lib.php:371 tbl_change.php:146
 msgid "Browse foreign values"
-msgstr ""
+msgstr "Naviga inter valores externe"
 
 #: libraries/TableSearch.class.php:989
 msgid "Additional search criteria"
-msgstr ""
+msgstr "Ulterior criterios de cerca"
 
 #: libraries/TableSearch.class.php:1150
 msgid "Do a \"query by example\" (wildcard: \"%\") for two different columns"
 msgstr ""
+"Executa un \"query ab exemplo\" (metacharacter \"%s\") pro duo columnas "
+"differente"
 
 #: libraries/TableSearch.class.php:1160
 msgid "Do a \"query by example\" (wildcard: \"%\")"
-msgstr ""
+msgstr "Executa un \"query ab exemplo\"(metacharacter: \"%\")"
 
 #: libraries/TableSearch.class.php:1211
 msgid "Browse/Edit the points"
-msgstr ""
+msgstr "Naviga/Modifica le punctos"
 
 #: libraries/TableSearch.class.php:1218
 msgid "How to use"
-msgstr ""
+msgstr "Como usar"
 
 #: libraries/TableSearch.class.php:1223
 msgid "Reset zoom"
-msgstr ""
+msgstr "Refixa le zoom"
 
 #: libraries/TableSearch.class.php:1280
 msgid "Replace with:"
-msgstr "Raimplacia con:"
+msgstr "Reimplacia con:"
 
 #: libraries/TableSearch.class.php:1340
 msgid "Find and replace - preview"
-msgstr ""
+msgstr "Trova e reimplacia - vista preliminar"
 
 #: libraries/TableSearch.class.php:1344
 msgid "Count"
@@ -3412,39 +3417,39 @@ msgstr "Catena reimplaciate"
 
 #: libraries/TableSearch.class.php:1370
 msgid "Replace"
-msgstr ""
+msgstr "Reimplacia"
 
 #: libraries/Theme.class.php:170
 #, php-format
 msgid "No valid image path for theme %s found!"
-msgstr ""
+msgstr "Il trovava necun valide percurso de imagine pro le thema %s!"
 
 #: libraries/Theme.class.php:402
 msgid "No preview available."
-msgstr ""
+msgstr "Necun vista preliminar disponibile."
 
 #: libraries/Theme.class.php:404
 msgid "take it"
-msgstr ""
+msgstr "prende lo"
 
 #: libraries/Theme_Manager.class.php:139
 #, php-format
 msgid "Default theme %s not found!"
-msgstr ""
+msgstr "Thema predefinite %s non trovate!"
 
 #: libraries/Theme_Manager.class.php:196
 #, php-format
 msgid "Theme %s not found!"
-msgstr ""
+msgstr "Thema %s non trovate!"
 
 #: libraries/Theme_Manager.class.php:276
 #, php-format
 msgid "Theme path not found for theme %s!"
-msgstr ""
+msgstr "Il non trovava le percurso pro le thema %s!"
 
 #: libraries/Theme_Manager.class.php:370
 msgid "Theme:"
-msgstr ""
+msgstr "Thema:"
 
 #: libraries/Types.class.php:297
 msgid ""
