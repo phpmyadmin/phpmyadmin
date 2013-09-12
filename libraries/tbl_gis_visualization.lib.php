@@ -301,7 +301,8 @@ function PMA_getHtmlForGisVisualization(
     );
 
     $html .= '<tr><td></td>';
-    $html .= '<td class="button"><input type="submit" name="displayVisualizationBtn" value="';
+    $html .= '<td class="button"><input type="submit"';
+    $html .= ' name="displayVisualizationBtn" value="';
     $html .= __('Redraw');
     $html .= '" /></td></tr>';
 
@@ -318,7 +319,8 @@ function PMA_getHtmlForGisVisualization(
     $html .= '</div>';
 
     $html .= '<div  style="float:left;">';
-    $html .= '<form method="post" class="disableAjax"  action="tbl_gis_visualization.php">';
+    $html .= '<form method="post" class="disableAjax"';
+    $html .= ' action="tbl_gis_visualization.php">';
     $html .= PMA_URL_getHiddenInputs($url_params);
     $html .= '<table class="gis_table">';
     $html .= '<tr><td><label for="fileName">';
