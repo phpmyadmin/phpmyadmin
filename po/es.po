@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-09-12 10:06+0200\n"
-"PO-Revision-Date: 2013-08-23 11:36+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Spanish <http://l10n.cihar.com/projects/phpmyadmin/master/es/"
-">\n"
+"PO-Revision-Date: 2013-09-12 14:23+0200\n"
+"Last-Translator: Guillermo Lisotti <guillermo.lisotti@gmail.com>\n"
+"Language-Team: Spanish "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/es/>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1320,6 +1320,8 @@ msgstr "Del registro general"
 #: js/messages.php:158
 msgid "The database name is not known for this query in the server's logs."
 msgstr ""
+"En los registros del servidor no se reconoce el nombre de la base de datos "
+"de esta consulta."
 
 #: js/messages.php:159
 msgid "Analysing logs"
@@ -6713,7 +6715,7 @@ msgstr "posible ataque de recursión extrema"
 #: libraries/database_interface.inc.php:34
 #, php-format
 msgid "See %sour documentation%s for more information."
-msgstr ""
+msgstr "Ver %sour documentation%s para más información."
 
 #: libraries/dbi/DBIDrizzle.class.php:146 libraries/dbi/DBIMysql.class.php:170
 #: libraries/dbi/DBIMysqli.class.php:224
