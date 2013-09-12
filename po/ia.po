@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-09-12 10:06+0200\n"
-"PO-Revision-Date: 2013-09-12 14:10+0200\n"
+"PO-Revision-Date: 2013-09-12 15:17+0200\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/ia/>\n"
@@ -3540,7 +3540,7 @@ msgstr ""
 #: libraries/Types.class.php:327 libraries/Types.class.php:730
 #, php-format
 msgid "A time, range is %1$s to %2$s"
-msgstr ""
+msgstr "Un tempore, extension es ab %1$s a %2$s"
 
 #: libraries/Types.class.php:329
 msgid ""
