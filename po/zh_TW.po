@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-08-18 06:16-0400\n"
-"PO-Revision-Date: 2013-09-12 03:30+0200\n"
+"PO-Revision-Date: 2013-09-12 03:33+0200\n"
 "Last-Translator: Tony Chen <tonychen@finenet.com.tw>\n"
 "Language-Team: Traditional Chinese "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/zh_TW/>\n"
@@ -12050,7 +12050,8 @@ msgid ""
 "%sLogin cookie validity%s greater than %ssession.gc_maxlifetime%s may cause "
 "random session invalidation (currently session.gc_maxlifetime is %d)."
 msgstr ""
-"如果%s登錄 cookie 有效期%s超過 %ssession.gc_maxlifetime%s 的值 (目前為 %d) 則可能導致連線隨機失效。"
+"如果%s登錄 cookie 有效期%s超過 %ssession.gc_maxlifetime%s 的值則可能導致連線隨機失效 (目前 "
+"session.gc_maxlifetime 值為 %d)。"
 
 #: setup/lib/index.lib.php:228
 #, php-format
