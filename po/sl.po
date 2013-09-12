@@ -4,17 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.7-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-09-12 10:04+0200\n"
-"PO-Revision-Date: 2013-07-29 18:20+0200\n"
+"PO-Revision-Date: 2013-09-12 21:45+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
-"Language-Team: Slovenian <http://l10n.cihar.com/projects/phpmyadmin/4-0/sl/"
-">\n"
+"Language-Team: Slovenian <http://l10n.cihar.com/projects/phpmyadmin/4-0/sl/>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
 "%100==4 ? 2 : 3;\n"
-"X-Generator: Weblate 1.6\n"
+"X-Generator: Weblate 1.7-dev\n"
 
 #: browse_foreigners.php:51 browse_foreigners.php:75 js/messages.php:345
 #: libraries/DisplayResults.class.php:813
@@ -1361,7 +1360,7 @@ msgstr "Iz splošnega dnevnika"
 
 #: js/messages.php:159
 msgid "The database name is not known for this query in the server's logs."
-msgstr ""
+msgstr "Ime zbirke podatkov ni znano za to poizvedbo v dnevnikih strežnika."
 
 #: js/messages.php:160
 msgid "Analysing logs"
@@ -6319,7 +6318,7 @@ msgstr "možen napad globoke rekurzije"
 #: libraries/database_interface.lib.php:63
 #, php-format
 msgid "See %sour documentation%s for more information."
-msgstr ""
+msgstr "Za več informacij si oglejte %snašo dokumentacijo%s."
 
 #: libraries/database_interface.lib.php:2080
 msgid ""
