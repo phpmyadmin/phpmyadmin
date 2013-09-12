@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-09-12 10:06+0200\n"
-"PO-Revision-Date: 2013-08-23 11:32+0200\n"
+"PO-Revision-Date: 2013-09-12 10:44+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Czech <http://l10n.cihar.com/projects/phpmyadmin/master/cs/>\n"
 "Language: cs\n"
@@ -1299,7 +1299,7 @@ msgstr "Z obecného záznamu dotazů"
 
 #: js/messages.php:158
 msgid "The database name is not known for this query in the server's logs."
-msgstr ""
+msgstr "V záznamu server není pro tento dotaz známo jméno databáze."
 
 #: js/messages.php:159
 msgid "Analysing logs"
@@ -6567,7 +6567,7 @@ msgstr "možný útok rekurzí"
 #: libraries/database_interface.inc.php:34
 #, php-format
 msgid "See %sour documentation%s for more information."
-msgstr ""
+msgstr "Více informací naleznete %sv naší dokumentaci%s."
 
 #: libraries/dbi/DBIDrizzle.class.php:146 libraries/dbi/DBIMysql.class.php:170
 #: libraries/dbi/DBIMysqli.class.php:224
@@ -10101,10 +10101,9 @@ msgid "wildcard"
 msgstr "maska"
 
 #: libraries/server_privileges.lib.php:2069
-#, fuzzy
 #| msgid "database-specific"
 msgid "table-specific"
-msgstr "závislé na databázi"
+msgstr "závislé na tabulce"
 
 #: libraries/server_privileges.lib.php:2146
 #: libraries/server_privileges.lib.php:3296
