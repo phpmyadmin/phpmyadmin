@@ -51,6 +51,7 @@ class ImportShp_Test extends PHPUnit_Framework_TestCase
             if (PMA_HAS_RUNKIT) {
                 runkit_constant_redefine("PMA_DRIZZLE", false);
             } else {
+                //Drizzle does not support GIS data types
                 $this->markTestSkipped("Drizzle does not support GIS data types");
             }
         }
