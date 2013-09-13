@@ -221,5 +221,89 @@ class PMA_ServerStatus_Test extends PHPUnit_Framework_TestCase
             $html
         );
     }
+
+    /**
+     * Test for PMA_getHtmlForServerProcessItem
+     *
+     * @return void
+     */
+    public function testPMAGetHtmlForServerProcessItem()
+    {
+        //parameters
+        $process = array(
+            "user" => "User1",
+            "host" => "Host1",
+            "id" => "Id1",
+            "db" => "db1",
+            "command" => "Command1",
+            "state" => "State1",
+            "info" => "Info1",
+            "state" => "State1",
+            "time" => "Time1",
+        );
+        $odd_row = true;
+        $show_full_sql = "show_full_sql";
+
+        $_REQUEST['sort_order'] = "desc";
+        $_REQUEST['order_by_field'] = "process";
+        $GLOBALS['cfg']['MaxCharactersInDisplayedSQL'] = 12;
+
+        //Call the test function
+        $html = PMA_getHtmlForServerProcessItem($process, $odd_row, $show_full_sql);
+
+        //validate 1: $kill_process
+        $url_params['kill'] = $process['id'];
+        $kill_process = 'server_status.php' . PMA_URL_getCommon($url_params);
+        $this->assertContains(
+            $kill_process,
+            $html
+        );
+        $this->assertContains(
+            __('Kill'),
+            $html
+        );
+
+        //validate 2: $process['User']
+        $this->assertContains(
+            htmlspecialchars($process['user']),
+            $html
+        );
+
+        //validate 3: $process['Host']
+        $this->assertContains(
+            htmlspecialchars($process['host']),
+            $html
+        );
+
+        //validate 4: $process['db']
+        $this->assertContains(
+            __('None'),
+            $html
+        );
+
+        //validate 5: $process['Command']
+        $this->assertContains(
+            htmlspecialchars($process['command']),
+            $html
+        );
+
+        //validate 6: $process['Time']
+        $this->assertContains(
+            $process['time'],
+            $html
+        );
+
+        //validate 7: $process['state']
+        $this->assertContains(
+            $process['state'],
+            $html
+        );
+
+        //validate 8: $process['info']
+        $this->assertContains(
+            $process['info'],
+            $html
+        );
+    }
 }
 
