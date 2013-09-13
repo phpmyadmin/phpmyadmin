@@ -1198,20 +1198,23 @@ function PMA_getDefaultSqlQueryForBrowse($db, $table)
 /**
  * Responds an error when an error happens when executing the query
  *
- * @param boolean $is_gotofile whether goto file or not
- * @param String  $error       error after executing the query
+ * @param boolean $is_gotofile    whether goto file or not
+ * @param String  $error          error after executing the query
+ * @param String  $full_sql_query full sql query
  *
  * @return void
  */
-function PMA_handleQueryExecuteError($is_gotofile, $error)
+function PMA_handleQueryExecuteError($is_gotofile, $error, $full_sql_query)
 {
     if ($is_gotofile) {
         $message = PMA_Message::rawError($error);
         $response = PMA_Response::getInstance();
         $response->isSuccess(false);
         $response->addJSON('message', $message);
-        exit;
+    } else {
+        PMA_Util::mysqlDie($error, $full_sql_query, '', '');
     }
+    exit;
 }
 
 /**
@@ -1502,7 +1505,7 @@ function PMA_executeTheQuery($analyzed_sql_results, $full_sql_query, $is_gotofil
         // Displays an error message if required and stop parsing the script
         $error = $GLOBALS['dbi']->getError();
         if ($error) {
-            PMA_handleQueryExecuteError($is_gotofile, $error);
+            PMA_handleQueryExecuteError($is_gotofile, $error, $full_sql_query);
         }
 
         // If there are no errors and bookmarklabel was given,
