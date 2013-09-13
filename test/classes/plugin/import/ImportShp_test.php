@@ -19,7 +19,6 @@ require_once 'libraries/Table.class.php';
 require_once 'libraries/Tracker.class.php';
 require_once 'libraries/database_interface.inc.php';
 require_once 'libraries/import.lib.php';
-require_once 'libraries/sanitizing.lib.php';
 require_once 'libraries/Message.class.php';
 
 /**
@@ -65,6 +64,12 @@ class ImportShp_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['ServerDefault'] = 0;
         $GLOBALS['cfg']['AllowUserDropDatabase'] = false;
         $GLOBALS['import_file'] = 'test/test_data/timezone.shp.zip';
+
+        //Mock DBI
+        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+            ->disableOriginalConstructor()
+            ->getMock();
+        $GLOBALS['dbi'] = $dbi;
 
         include_once 'libraries/plugins/import/ImportShp.class.php';
         $this->object = new ImportShp();
@@ -135,12 +140,6 @@ class ImportShp_Test extends PHPUnit_Framework_TestCase
         //$import_notice will show the import detail result
         global $import_notice, $sql_query, $sql_query_disabled;
         $sql_query_disabled = false;
-
-        //Mock DBI
-        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
-            ->disableOriginalConstructor()
-            ->getMock();
-        $GLOBALS['dbi'] = $dbi;
 
         //Test function called
         $this->object->doImport();
