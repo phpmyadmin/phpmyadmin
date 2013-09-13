@@ -2468,7 +2468,9 @@ function PMA_moveColumns($db, $table)
             unset($data['Extra']);
         }
         $current_timestamp = false;
-        if ($data['Type'] == 'timestamp' && $data['Default'] == 'CURRENT_TIMESTAMP') {
+        if (($data['Type'] == 'timestamp' || $data['Type'] == 'datetime')
+            && $data['Default'] == 'CURRENT_TIMESTAMP'
+        ) {
             $current_timestamp = true;
         }
         $default_type
@@ -2476,7 +2478,7 @@ function PMA_moveColumns($db, $table)
                 ? 'NULL'
                 : ($current_timestamp
                     ? 'CURRENT_TIMESTAMP'
-                    : ($data['Default'] == ''
+                    : ($data['Default'] === null
                         ? 'NONE'
                         : 'USER_DEFINED'));
 
