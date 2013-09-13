@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.7-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-09-12 10:04+0200\n"
-"PO-Revision-Date: 2013-09-12 10:15+0200\n"
+"PO-Revision-Date: 2013-09-13 08:27+0200\n"
 "Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
 "Language-Team: Estonian <http://l10n.cihar.com/projects/phpmyadmin/4-0/et/>\n"
 "Language: et\n"
@@ -112,7 +112,7 @@ msgstr ""
 #: db_create.php:74
 #, php-format
 msgid "Database %1$s has been created."
-msgstr "%1$s andmebaas on loodud."
+msgstr "Andmebaas %1$s on loodud."
 
 #: db_datadict.php:51 libraries/operations.lib.php:36
 msgid "Database comment: "
@@ -6361,7 +6361,7 @@ msgstr "Nimi"
 
 #: libraries/display_create_table.lib.php:59
 msgid "Number of columns"
-msgstr "Veergude hulk"
+msgstr "Veergude arv"
 
 #: libraries/display_export.lib.php:49
 msgid "Could not load export plugins, please check your installation!"
@@ -10989,7 +10989,7 @@ msgid ""
 "table with a given name. This is called discovery. Handler_discover "
 "indicates the number of time tables have been discovered."
 msgstr ""
-"MySQL server saab pärida NDB Cluster varundusmootorit, kui ta teab antud "
+"MySQL server saab küsida NDB Cluster varundusmootorilt, kui ta teab antud "
 "nimega tabelit. Seda nimetatakse avastamiseks. Handler_discover näitab, mitu "
 "korda on tabeleid avastatud."
 
