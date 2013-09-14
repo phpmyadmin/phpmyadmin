@@ -393,6 +393,12 @@ $GLOBALS['special_schema_links'] = array(
                 'default_page' => $GLOBALS['cfg']['DefaultTabDatabase']
             )
         ),
+        'views' => array(
+            'table_schema' => array(
+                'link_param' => 'db',
+                'default_page' => $GLOBALS['cfg']['DefaultTabDatabase']
+            )
+        )
     )
 );
 
