@@ -148,4 +148,70 @@ class PMA_ServerEngines_Test extends PHPUnit_Framework_TestCase
             $html
         );
     }
+
+    /**
+     * Test for PMA_getHtmlForSpecifiedServerEngines
+     *
+     * @return void
+     */
+    public function testPMAGetHtmlForSpecifiedServerEngines()
+    {
+        $_REQUEST['engine'] = "pbxt";
+        $_REQUEST['page'] = "page";
+
+        //Mock DBI
+        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+            ->disableOriginalConstructor()
+            ->getMock();
+
+        $GLOBALS['dbi'] = $dbi;
+
+        //test PMA_getHtmlForSpecifiedServerEngines
+        $html = PMA_getHtmlForSpecifiedServerEngines();
+        $engine_plugin = PMA_StorageEngine::getEngine($_REQUEST['engine']);
+
+        //validate 1: Engine title
+        $this->assertContains(
+            htmlspecialchars($engine_plugin->getTitle()),
+            $html
+        );
+
+        //validate 2: Engine Mysql Help Page
+        $this->assertContains(
+            PMA_Util::showMySQLDocu($engine_plugin->getMysqlHelpPage()),
+            $html
+        );
+
+        //validate 3: Engine Comment
+        $this->assertContains(
+            htmlspecialchars($engine_plugin->getComment()),
+            $html
+        );
+
+        //validate 4: Engine Info Pages
+        $this->assertContains(
+            __('Variables'),
+            $html
+        );
+        $this->assertContains(
+            PMA_URL_getCommon(
+                array('engine' => $_REQUEST['engine'], 'page' => "Documentation")
+            ),
+            $html
+        );
+
+        //validate 5: other items
+        $this->assertContains(
+            PMA_URL_getCommon(array('engine' => $_REQUEST['engine'])),
+            $html
+        );
+        $this->assertContains(
+            $engine_plugin->getSupportInformationMessage(),
+            $html
+        );
+        $this->assertContains(
+            $engine_plugin->getHtmlVariables(),
+            $html
+        );
+    }
 }
