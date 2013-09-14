@@ -2683,7 +2683,8 @@ function PMA_getHtmlForInsertEditFormHeader($has_blob_field, $is_upload)
  * @param bool   $insert_mode           whether insert mode
  * @param array  $current_row           current row
  * @param bool   $odd_row               whether odd row
- * @param int    $o_rows                row offset
+ * @param int    &$o_rows               row offset
+ * @param int    &$tabindex             tab index
  * @param int    $columns_cnt           columns count
  * @param bool   $is_upload             whether upload
  * @param int    $tabindex_for_function tab index offset for function
@@ -2703,7 +2704,7 @@ function PMA_getHtmlForInsertEditFormHeader($has_blob_field, $is_upload)
  */
 function PMA_getHtmlForInsertEditFormColumn($table_columns, $i, $column, $comments_map,
     $timestamp_seen, $current_result, $chg_evt_handler, $jsvkey, $vkey,
-    $insert_mode, $current_row, $odd_row, $o_rows, $columns_cnt, $is_upload,
+    $insert_mode, $current_row, $odd_row, &$o_rows, &$tabindex, $columns_cnt, $is_upload,
     $tabindex_for_function, $foreigners, $tabindex_for_null, $tabindex_for_value,
     $table, $db, $row_id, $titles, $biggest_max_file_size,
     $default_char_editing, $text_dir    
@@ -2848,6 +2849,7 @@ function PMA_getHtmlForInsertEditFormColumn($table_columns, $i, $column, $commen
  * @param bool   $insert_mode           whether insert mode
  * @param array  $current_row           current row
  * @param int    &$o_rows               row offset
+ * @param int    &$tabindex             tab index
  * @param int    $columns_cnt           columns count
  * @param bool   $is_upload             whether upload
  * @param int    $tabindex_for_function tab index offset for function
@@ -2865,17 +2867,13 @@ function PMA_getHtmlForInsertEditFormColumn($table_columns, $i, $column, $commen
  */
 function PMA_getHtmlForInsertEditRow($url_params, $table_columns,
     $column, $comments_map, $timestamp_seen, $current_result, $chg_evt_handler,
-    $jsvkey, $vkey, $insert_mode, $current_row, &$o_rows, $columns_cnt,
+    $jsvkey, $vkey, $insert_mode, $current_row, &$o_rows, &$tabindex, $columns_cnt,
     $is_upload, $tabindex_for_function, $foreigners, $tabindex_for_null,
     $tabindex_for_value, $table, $db, $row_id, $titles,
     $biggest_max_file_size, $text_dir    
 ) {
     $html_output = PMA_getHeadAndFootOfInsertRowTable($url_params)
         . '<tbody>';
-
-    // Sets a multiplier used for input-field counts
-    // (as zero cannot be used, advance the counter plus one)
-    $m_rows = $o_rows + 1;
     
     //store the default value for CharEditing
     $default_char_editing  = $GLOBALS['cfg']['CharEditing'];
@@ -2885,7 +2883,7 @@ function PMA_getHtmlForInsertEditRow($url_params, $table_columns,
         $html_output .= PMA_getHtmlForInsertEditFormColumn(
             $table_columns, $i, $column, $comments_map, $timestamp_seen,
             $current_result, $chg_evt_handler, $jsvkey, $vkey, $insert_mode,
-            $current_row, $odd_row, $o_rows, $columns_cnt, $is_upload,
+            $current_row, $odd_row, $o_rows, &$tabindex, $columns_cnt, $is_upload,
             $tabindex_for_function, $foreigners, $tabindex_for_null,
             $tabindex_for_value, $table, $db, $row_id, $titles,
             $biggest_max_file_size, $default_char_editing, $text_dir    
