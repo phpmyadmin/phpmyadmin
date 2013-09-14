@@ -2727,7 +2727,7 @@ function PMA_getHtmlForInsertEditFormColumn($table_columns, $i, $column, $commen
             $column['len'] = 30;
         }
     }
-    //Call validation when the form submited...
+    //Call validation when the form submitted...
     $unnullify_trigger = $chg_evt_handler
         . "=\"return verificationsAfterFieldChange('"
         . PMA_escapeJsString($column['Field_md5']) . "', '"
@@ -2835,7 +2835,7 @@ function PMA_getHtmlForInsertEditFormColumn($table_columns, $i, $column, $commen
 }
 
 /**
- * Function to get html for each inset/edit row
+ * Function to get html for each insert/edit row
  *
  * @param array  $url_params            url parameters
  * @param array  $table_columns         table columns
