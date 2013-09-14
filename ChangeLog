@@ -8,6 +8,8 @@ phpMyAdmin - ChangeLog
 - bug #3929 Database-specific privileges are not copied when cloning user
 - bug #3997 Error handling in case MySQL extension is missing
 - bug #4089 Moving Columns will alter column definition
+- bug #4091 Insert ignore option does not work
+- bug #4090 Downloading BLOB downloads page template
 
 4.0.6.0 (2013-09-05)
 - bug #4036 Call to undefined function mb_detect_encoding (clarify the doc)
