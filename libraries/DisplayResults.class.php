@@ -3144,10 +3144,10 @@ class PMA_DisplayResults
                     // Special case 1 - when executing routines, according
                     // to the type of the routine, url param changes
                     if (!empty($row_info['routine_type'])) {
-                        if (strtolower($row_info['routine_type']) == self::ROUTINE_PROCEDURE) {
-                            $linking_url_params['execute_routine'] = 1;
-                        } else if (strtolower($row_info['routine_type']) == self::ROUTINE_FUNCTION) {
-                            $linking_url_params['execute_dialog'] = 1;
+                        if (strtolower($row_info['routine_type']) == self::ROUTINE_PROCEDURE
+                            || strtolower($row_info['routine_type']) == self::ROUTINE_FUNCTION
+                        ) {
+                            $linking_url_params['edit_item'] = 1;
                         }
                     }
                 }
