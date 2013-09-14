@@ -295,4 +295,31 @@ function PMA_getNumberOfFieldsFromRequest()
 
     return $num_fields;
 }
+
+/**
+ * Function to execute the column creation statement
+ * 
+ * @param string $db      current database
+ * @param string $table   current table
+ * @param string $err_url error page url
+ * 
+ * @return array
+ */
+function PMA_tryColumnCreationQuery($db, $table, $err_url)
+{
+    // get column addition statements
+    $sql_statement = PMA_getColumnCreationStatements(false);
+
+    // To allow replication, we first select the db to use and then run queries
+    // on this db.
+    $GLOBALS['dbi']->selectDb($db)
+        or PMA_Util::mysqlDie(
+            $GLOBALS['dbi']->getError(),
+            'USE ' . PMA_Util::backquote($db), '',
+            $err_url
+        );
+    $sql_query    = 'ALTER TABLE ' .
+        PMA_Util::backquote($table) . ' ' . $sql_statement . ';';
+    return array($GLOBALS['dbi']->tryQuery($sql_query) , $sql_query);
+}
 ?>
