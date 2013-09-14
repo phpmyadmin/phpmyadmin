@@ -2631,13 +2631,13 @@ function PMA_getHtmlForFunctionOption($odd_row, $column, $column_name_appendix)
 }
 
 /**
- * Function to get html for the field type
+ * Function to get html for the column type
  * 
  * @param array $column column
  * 
  * @return string
  */
-function PMA_getHtmlForFieldType($column)
+function PMA_getHtmlForColumnType($column)
 {
     return '<td class="center' . $column['wrap'] . '">'
         . '<span class="column_type">' . $column['pma_type'] . '</span>'
@@ -2752,7 +2752,7 @@ function PMA_getHtmlForInsertEditFormColumn($table_columns, $i, $column, $commen
     );
 
     if ($GLOBALS['cfg']['ShowFieldTypesInDataEditView']) {
-        $html_output .= PMA_getHtmlForFieldType($column);
+        $html_output .= PMA_getHtmlForColumnType($column);
     } //End if
 
     // Get a list of GIS data types.
