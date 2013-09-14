@@ -2701,7 +2701,7 @@ function PMA_getHtmlForInsertEditFormHeader($has_blob_field, $is_upload)
  * 
  * @return string
  */
-function PMA_getHtmlForColumn($table_columns, $i, $column, $comments_map,
+function PMA_getHtmlForInsertEditFormColumn($table_columns, $i, $column, $comments_map,
     $timestamp_seen, $current_result, $chg_evt_handler, $jsvkey, $vkey,
     $insert_mode, $current_row, $odd_row, $o_rows, $columns_cnt, $is_upload,
     $tabindex_for_function, $foreigners, $tabindex_for_null, $tabindex_for_value,
@@ -2878,7 +2878,7 @@ function PMA_getHtmlForInsertEditRow($url_params, $table_columns,
 
     $odd_row = true;
     for ($i = 0; $i < $columns_cnt; $i++) {
-        $html_output .= PMA_getHtmlForColumn(
+        $html_output .= PMA_getHtmlForInsertEditFormColumn(
             $table_columns, $i, $column, $comments_map, $timestamp_seen,
             $current_result, $chg_evt_handler, $jsvkey, $vkey, $insert_mode,
             $current_row, $odd_row, $o_rows, $columns_cnt, $is_upload,
