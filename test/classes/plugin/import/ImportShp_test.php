@@ -161,7 +161,7 @@ class ImportShp_Test extends PHPUnit_Framework_TestCase
             $sql_query
         );
         $this->assertContains(
-            "GeomFromText('MULTIPOLYGON(((60.866302490234",
+            "GeomFromText('POINT(1294523.1759236",
             $sql_query
         );
 
