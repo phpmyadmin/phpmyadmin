@@ -4250,7 +4250,10 @@ class PMA_DisplayResults
     {
 
         $sql_md5 = md5($this->__get('sql_query'));
-        $query = $_SESSION['tmp_user_values']['query'][$sql_md5];
+        $query = array();
+        if (isset($_SESSION['tmp_user_values']['query'][$sql_md5])) {
+            $query = $_SESSION['tmp_user_values']['query'][$sql_md5];
+        }
 
         $query['sql'] = $this->__get('sql_query');
 
