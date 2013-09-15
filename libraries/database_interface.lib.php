@@ -1540,8 +1540,8 @@ function PMA_DBI_postConnect($link, $is_controluser = false)
             );
             // Detect Drizzle - it does not support character sets
             $charset_result = PMA_DBI_get_variable(
-                'character_set_results', 
-                PMA_DBI_GETVAR_GLOBAL, 
+                'character_set_results',
+                PMA_DBI_GETVAR_GLOBAL,
                 $link
             );
             if ($charset_result) {
@@ -2134,25 +2134,25 @@ function PMA_is_system_schema($schema_name, $test_for_mysql_schema = false)
  */
 function PMA_getFirstOccurringRegularExpression($regex_array, $query)
 {
-    
+
     $minimum_first_occurence_index = null;
     $regex = null;
-    
+
     for ($i = 0; $i < count($regex_array); $i++) {
         if (preg_match($regex_array[$i], $query, $matches, PREG_OFFSET_CAPTURE)) {
-            
+
             if (is_null($minimum_first_occurence_index)
                 || ($matches[0][1] < $minimum_first_occurence_index)
             ) {
                 $regex = $regex_array[$i];
                 $minimum_first_occurence_index = $matches[0][1];
             }
-            
+
         }
     }
-    
+
     return $regex;
-    
+
 }
 
 ?>
