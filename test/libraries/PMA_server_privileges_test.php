@@ -232,7 +232,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
             " WHERE `User` LIKE 'INIT%' OR `User` LIKE 'init%'",
             $ret
         );
-        
+
         $ret = PMA_rangeOfUsers();
         $this->assertEquals(
             '',
@@ -817,7 +817,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
                 . 'Create_user,Repl_slave,Repl_client',
             'Type' => "'Super1','Select','Insert','Update','Create','Alter','Index',"
                 . "'Drop','Delete','File','Super','Process','Reload','Shutdown','"
-                . "Show_db','Repl_slave','Create_tmp_table'," 
+                . "Show_db','Repl_slave','Create_tmp_table',"
                 . "'Show_view','Create_routine','"
                 . "Repl_client','Lock_tables','References','Alter_routine','"
                 . "Create_user','Repl_slave','Repl_client','Execute','Grant','ddd",
@@ -1077,11 +1077,11 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
         $fetchValue = "fetchValue";
         $dbi->expects($this->any())->method('fetchValue')
             ->will($this->returnValue($fetchValue));
-        
+
         $GLOBALS['dbi'] = $dbi;
 
         $html = PMA_getHtmlForDisplayLoginInformationFields();
-        list($username_length, $hostname_length) 
+        list($username_length, $hostname_length)
             = PMA_getUsernameAndHostnameLength();
 
         //validate 1: __('Login Information')
@@ -1101,7 +1101,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
             __('Use text field'),
             $html
         );
-        
+
         $output = PMA_Util::showHint(
             __(
                 'When Host table is used, this field is ignored '
@@ -1112,7 +1112,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
             $output,
             $html
         );
-        
+
         $GLOBALS['dbi'] = $dbi_old;
     }
 
@@ -1128,16 +1128,16 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
         $_POST['max_connections'] = 20;
         $_POST['max_updates'] = 30;
         $_POST['max_user_connections'] = 40;
-        
+
         $sql_query = PMA_getWithClauseForAddUserAndUpdatePrivs();
-        $expect = "WITH GRANT OPTION MAX_QUERIES_PER_HOUR 10 " 
-            . "MAX_CONNECTIONS_PER_HOUR 20" 
+        $expect = "WITH GRANT OPTION MAX_QUERIES_PER_HOUR 10 "
+            . "MAX_CONNECTIONS_PER_HOUR 20"
             . " MAX_UPDATES_PER_HOUR 30 MAX_USER_CONNECTIONS 40";
         $this->assertContains(
             $expect,
             $sql_query
         );
-        
+
     }
 
     /**
@@ -1163,7 +1163,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
         $this->assertContains(
             $expect,
             $list_of_compared_privileges
-        );        
+        );
     }
 
     /**
@@ -1186,9 +1186,9 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
         );
         $dbi->expects($this->any())->method('getColumns')
             ->will($this->returnValue($fields_info));
-        
+
         $GLOBALS['dbi'] = $dbi;
-        
+
         $dbname = "pma_dbname";
 
         $html = PMA_getHtmlForAddUser($dbname);
@@ -1210,7 +1210,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
             __('Database for user'),
             $html
         );
-        
+
         $item = PMA_Util::getCheckbox(
             'createdb-2',
             __('Grant all privileges on wildcard name (username\\_%).'),
@@ -1232,7 +1232,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
             __('Go'),
             $html
         );
-        
+
         $GLOBALS['dbi'] = $dbi_old;
     }
 
@@ -1256,9 +1256,9 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
         );
         $dbi->expects($this->any())->method('getColumns')
             ->will($this->returnValue($fields_info));
-        
+
         $GLOBALS['dbi'] = $dbi;
-        
+
         $db = "pma_dbname";
 
         $html = PMA_getHtmlForSpecificDbPrivileges($db);
@@ -1300,7 +1300,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
             __('Action'),
             $html
         );
-        
+
         //_pgettext('Create new user', 'New')
         $this->assertContains(
             _pgettext('Create new user', 'New'),
@@ -1310,7 +1310,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
             PMA_URL_getCommon(array('checkprivsdb' => $db)),
             $html
         );
-            
+
         $GLOBALS['dbi'] = $dbi_old;
     }
 
@@ -1334,9 +1334,9 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
         );
         $dbi->expects($this->any())->method('getColumns')
             ->will($this->returnValue($fields_info));
-        
+
         $GLOBALS['dbi'] = $dbi;
-        
+
         $db = "pma_dbname";
         $table = "pma_table";
 
@@ -1385,7 +1385,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
             __('Action'),
             $html
         );
-        
+
         //_pgettext('Create new user', 'New')
         $this->assertContains(
             _pgettext('Create new user', 'New'),
@@ -1397,7 +1397,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
             ),
             $html
         );
-            
+
         $GLOBALS['dbi'] = $dbi_old;
     }
 }
