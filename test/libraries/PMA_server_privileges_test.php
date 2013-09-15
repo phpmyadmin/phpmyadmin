@@ -65,12 +65,14 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['DefaultTabTable'] = "db_structure.php";
         $GLOBALS['cfg']['NavigationTreeDefaultTabTable'] = "db_structure.php";
         $GLOBALS['cfg']['Confirm'] = "Confirm";
+        $GLOBALS['cfg']['ShowHint'] = true;
 
         $GLOBALS['table'] = "table";
         $GLOBALS['PMA_PHP_SELF'] = PMA_getenv('PHP_SELF');
         $GLOBALS['pmaThemeImage'] = 'image';
         $GLOBALS['server'] = 1;
-        $GLOBALS['username'] = "pma_username";
+        $GLOBALS['hostname'] = "hostname";
+        $GLOBALS['username'] = "username";
         $GLOBALS['collation_connection'] = "collation_connection";
         $GLOBALS['text_dir'] = "text_dir";
 
@@ -228,6 +230,12 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
         $ret = PMA_rangeOfUsers("INIT");
         $this->assertEquals(
             " WHERE `User` LIKE 'INIT%' OR `User` LIKE 'init%'",
+            $ret
+        );
+        
+        $ret = PMA_rangeOfUsers();
+        $this->assertEquals(
+            '',
             $ret
         );
     }
@@ -969,5 +977,427 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
             "You have added a new user.",
             $message->getMessage()
         );
+    }
+
+    /**
+     * Test for PMA_getHtmlForTableSpecificPrivileges
+     *
+     * @return void
+     */
+    public function testPMAGetHtmlForTableSpecificPrivileges()
+    {
+        $GLOBALS['strPrivDescCreate_viewTbl'] = "strPrivDescCreate_viewTbl";
+        $GLOBALS['strPrivDescShowViewTbl'] = "strPrivDescShowViewTbl";
+        $username = "PMA_username";
+        $hostname = "PMA_hostname";
+        $db = "PMA_db";
+        $table = "PMA_table";
+        $columns = array(
+            'row1' => 'name1'
+        );
+        $row = array(
+            'Select_priv' => 'Y',
+            'Insert_priv' => 'Y',
+            'Update_priv' => 'Y',
+            'References_priv' => 'Y',
+            'Create_view_priv' => 'Y',
+            'ShowView_priv' => 'Y',
+        );
+
+        $html = PMA_getHtmlForTableSpecificPrivileges(
+            $username, $hostname, $db, $table, $columns, $row
+        );
+
+        //validate 1: PMA_getHtmlForAttachedPrivilegesToTableSpecificColumn
+        $item = PMA_getHtmlForAttachedPrivilegesToTableSpecificColumn(
+            $columns, $row
+        );
+        $this->assertContains(
+            $item,
+            $html
+        );
+        $this->assertContains(
+            __('Allows reading data.'),
+            $html
+        );
+        $this->assertContains(
+            __('Allows inserting and replacing data'),
+            $html
+        );
+        $this->assertContains(
+            __('Allows changing data.'),
+            $html
+        );
+        $this->assertContains(
+            __('Has no effect in this MySQL version.'),
+            $html
+        );
+
+        //validate 2: PMA_getHtmlForNotAttachedPrivilegesToTableSpecificColumn
+        $item = PMA_getHtmlForNotAttachedPrivilegesToTableSpecificColumn(
+            $row
+        );
+        $this->assertContains(
+            $item,
+            $html
+        );
+        $this->assertContains(
+            'Create_view_priv',
+            $html
+        );
+        $this->assertContains(
+            'ShowView_priv',
+            $html
+        );
+    }
+
+    /**
+     * Test for PMA_getHtmlForDisplayLoginInformationFields
+     *
+     * @return void
+     */
+    public function testPMAGetHtmlForDisplayLoginInformationFields()
+    {
+        $GLOBALS['username'] = 'pma_username';
+
+        $dbi_old = $GLOBALS['dbi'];
+        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+            ->disableOriginalConstructor()
+            ->getMock();
+        $fields_info = array(
+            "Host" => array(
+                "Field" => "host",
+                "Type" => "char(60)",
+                "Null" => "NO",
+            )
+        );
+        $dbi->expects($this->any())->method('getColumns')
+            ->will($this->returnValue($fields_info));
+
+        $fetchValue = "fetchValue";
+        $dbi->expects($this->any())->method('fetchValue')
+            ->will($this->returnValue($fetchValue));
+        
+        $GLOBALS['dbi'] = $dbi;
+
+        $html = PMA_getHtmlForDisplayLoginInformationFields();
+        list($username_length, $hostname_length) 
+            = PMA_getUsernameAndHostnameLength();
+
+        //validate 1: __('Login Information')
+        $this->assertContains(
+            __('Login Information'),
+            $html
+        );
+        $this->assertContains(
+            __('User name:'),
+            $html
+        );
+        $this->assertContains(
+            __('Any user'),
+            $html
+        );
+        $this->assertContains(
+            __('Use text field'),
+            $html
+        );
+        
+        $output = PMA_Util::showHint(
+            __(
+                'When Host table is used, this field is ignored '
+                . 'and values stored in Host table are used instead.'
+            )
+        );
+        $this->assertContains(
+            $output,
+            $html
+        );
+        
+        $GLOBALS['dbi'] = $dbi_old;
+    }
+
+    /**
+     * Test for PMA_getWithClauseForAddUserAndUpdatePrivs
+     *
+     * @return void
+     */
+    public function testPMAGetWithClauseForAddUserAndUpdatePrivs()
+    {
+        $_POST['Grant_priv'] = 'Y';
+        $_POST['max_questions'] = 10;
+        $_POST['max_connections'] = 20;
+        $_POST['max_updates'] = 30;
+        $_POST['max_user_connections'] = 40;
+        
+        $sql_query = PMA_getWithClauseForAddUserAndUpdatePrivs();
+        $expect = "WITH GRANT OPTION MAX_QUERIES_PER_HOUR 10 " 
+            . "MAX_CONNECTIONS_PER_HOUR 20" 
+            . " MAX_UPDATES_PER_HOUR 30 MAX_USER_CONNECTIONS 40";
+        $this->assertContains(
+            $expect,
+            $sql_query
+        );
+        
+    }
+
+    /**
+     * Test for PMA_getListOfPrivilegesAndComparedPrivileges
+     *
+     * @return void
+     */
+    public function testPMAGetListOfPrivilegesAndComparedPrivileges()
+    {
+        list($list_of_privileges, $list_of_compared_privileges)
+            = PMA_getListOfPrivilegesAndComparedPrivileges();
+        $expect = "`User`, `Host`, `Select_priv`, `Insert_priv`";
+        $this->assertContains(
+            $expect,
+            $list_of_privileges
+        );
+        $expect = "`Select_priv` = 'N' AND `Insert_priv` = 'N'";
+        $this->assertContains(
+            $expect,
+            $list_of_compared_privileges
+        );
+        $expect = "`Create_routine_priv` = 'N' AND `Alter_routine_priv` = 'N'";
+        $this->assertContains(
+            $expect,
+            $list_of_compared_privileges
+        );        
+    }
+
+    /**
+     * Test for PMA_getHtmlForAddUser
+     *
+     * @return void
+     */
+    public function testPMAGetHtmlForAddUser()
+    {
+        $dbi_old = $GLOBALS['dbi'];
+        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+            ->disableOriginalConstructor()
+            ->getMock();
+        $fields_info = array(
+            "Host" => array(
+                "Field" => "host",
+                "Type" => "char(60)",
+                "Null" => "NO",
+            )
+        );
+        $dbi->expects($this->any())->method('getColumns')
+            ->will($this->returnValue($fields_info));
+        
+        $GLOBALS['dbi'] = $dbi;
+        
+        $dbname = "pma_dbname";
+
+        $html = PMA_getHtmlForAddUser($dbname);
+
+        //validate 1: PMA_URL_getHiddenInputs
+        $this->assertContains(
+            PMA_URL_getHiddenInputs('', ''),
+            $html
+        );
+
+        //validate 2: PMA_getHtmlForDisplayLoginInformationFields
+        $this->assertContains(
+            PMA_getHtmlForDisplayLoginInformationFields('new'),
+            $html
+        );
+
+        //validate 3: Database for user
+        $this->assertContains(
+            __('Database for user'),
+            $html
+        );
+        
+        $item = PMA_Util::getCheckbox(
+            'createdb-2',
+            __('Grant all privileges on wildcard name (username\\_%).'),
+            false, false
+        );
+        $this->assertContains(
+            $item,
+            $html
+        );
+
+        //validate 4: PMA_getHtmlToDisplayPrivilegesTable
+        $this->assertContains(
+            PMA_getHtmlToDisplayPrivilegesTable('*', '*', false),
+            $html
+        );
+
+        //validate 5: button
+        $this->assertContains(
+            __('Go'),
+            $html
+        );
+        
+        $GLOBALS['dbi'] = $dbi_old;
+    }
+
+    /**
+     * Test for PMA_getHtmlForSpecificDbPrivileges
+     *
+     * @return void
+     */
+    public function testPMAGetHtmlForSpecificDbPrivileges()
+    {
+        $dbi_old = $GLOBALS['dbi'];
+        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+            ->disableOriginalConstructor()
+            ->getMock();
+        $fields_info = array(
+            "Host" => array(
+                "Field" => "host",
+                "Type" => "char(60)",
+                "Null" => "NO",
+            )
+        );
+        $dbi->expects($this->any())->method('getColumns')
+            ->will($this->returnValue($fields_info));
+        
+        $GLOBALS['dbi'] = $dbi;
+        
+        $db = "pma_dbname";
+
+        $html = PMA_getHtmlForSpecificDbPrivileges($db);
+
+        //validate 1: PMA_URL_getCommon
+        $this->assertContains(
+            PMA_URL_getCommon($db),
+            $html
+        );
+
+        //validate 2: htmlspecialchars
+        $this->assertContains(
+            htmlspecialchars($db),
+            $html
+        );
+
+        //validate 3: items
+        $this->assertContains(
+            __('User'),
+            $html
+        );
+        $this->assertContains(
+            __('Host'),
+            $html
+        );
+        $this->assertContains(
+            __('Type'),
+            $html
+        );
+        $this->assertContains(
+            __('Privileges'),
+            $html
+        );
+        $this->assertContains(
+            __('Grant'),
+            $html
+        );
+        $this->assertContains(
+            __('Action'),
+            $html
+        );
+        
+        //_pgettext('Create new user', 'New')
+        $this->assertContains(
+            _pgettext('Create new user', 'New'),
+            $html
+        );
+        $this->assertContains(
+            PMA_URL_getCommon(array('checkprivsdb' => $db)),
+            $html
+        );
+            
+        $GLOBALS['dbi'] = $dbi_old;
+    }
+
+    /**
+     * Test for PMA_getHtmlForSpecificTablePrivileges
+     *
+     * @return void
+     */
+    public function testPMAGetHtmlForSpecificTablePrivileges()
+    {
+        $dbi_old = $GLOBALS['dbi'];
+        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+            ->disableOriginalConstructor()
+            ->getMock();
+        $fields_info = array(
+            "Host" => array(
+                "Field" => "host",
+                "Type" => "char(60)",
+                "Null" => "NO",
+            )
+        );
+        $dbi->expects($this->any())->method('getColumns')
+            ->will($this->returnValue($fields_info));
+        
+        $GLOBALS['dbi'] = $dbi;
+        
+        $db = "pma_dbname";
+        $table = "pma_table";
+
+        $html = PMA_getHtmlForSpecificTablePrivileges($db, $table);
+
+        //validate 1: $db, $table
+        $this->assertContains(
+            htmlspecialchars($db) . '.' . htmlspecialchars($table),
+            $html
+        );
+
+        //validate 2: PMA_URL_getCommon
+        $item = PMA_URL_getCommon(
+            array(
+                'db' => $db,
+                'table' => $table,
+            )
+        );
+        $this->assertContains(
+            $item,
+            $html
+        );
+
+        //validate 3: items
+        $this->assertContains(
+            __('User'),
+            $html
+        );
+        $this->assertContains(
+            __('Host'),
+            $html
+        );
+        $this->assertContains(
+            __('Type'),
+            $html
+        );
+        $this->assertContains(
+            __('Privileges'),
+            $html
+        );
+        $this->assertContains(
+            __('Grant'),
+            $html
+        );
+        $this->assertContains(
+            __('Action'),
+            $html
+        );
+        
+        //_pgettext('Create new user', 'New')
+        $this->assertContains(
+            _pgettext('Create new user', 'New'),
+            $html
+        );
+        $this->assertContains(
+            PMA_URL_getCommon(
+                array('checkprivsdb' => $db, 'checkprivstable' => $table)
+            ),
+            $html
+        );
+            
+        $GLOBALS['dbi'] = $dbi_old;
     }
 }
