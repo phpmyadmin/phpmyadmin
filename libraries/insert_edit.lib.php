@@ -2214,7 +2214,7 @@ function PMA_getCurrentValueAsAnArrayForMultipleEdit($multi_edit_colummns,
         || ($current_value != "''"
         && in_array($multi_edit_funcs[$key], $func_optional_param))
     ) {
-        if (isset($multi_edit_salt[$key]) 
+        if (isset($multi_edit_salt[$key])
             && ($multi_edit_funcs[$key] == "AES_ENCRYPT")
         ) {
             return $multi_edit_funcs[$key] . '(' . $current_value . ",'"
