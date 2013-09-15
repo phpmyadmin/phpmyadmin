@@ -95,20 +95,25 @@ function PMA_getHtmlForAnalyseDialog()
     $retval  = '<div id="logAnalyseDialog" title="';
     $retval .= __('Log statistics') . '" style="display:none;">';
     $retval .= '<p>' . __('Selected time range:');
-    $retval .= '<input type="text" name="dateStart" class="datetimefield" value="" /> - ';
+    $retval .= '<input type="text" name="dateStart"'
+        . ' class="datetimefield" value="" /> - ';
     $retval .= '<input type="text" name="dateEnd" class="datetimefield" value="" />';
     $retval .= '</p>';
-    $retval .= '<input type="checkbox" id="limitTypes" value="1" checked="checked" />';
+    $retval .= '<input type="checkbox" id="limitTypes"'
+        . ' value="1" checked="checked" />';
     $retval .= '<label for="limitTypes">';
     $retval .= __('Only retrieve SELECT,INSERT,UPDATE and DELETE Statements');
     $retval .= '</label>';
     $retval .= '<br/>';
-    $retval .= '<input type="checkbox" id="removeVariables" value="1" checked="checked" />';
+    $retval .= '<input type="checkbox" id="removeVariables"'
+        . ' value="1" checked="checked" />';
     $retval .= '<label for="removeVariables">';
     $retval .= __('Remove variable data in INSERT statements for better grouping');
     $retval .= '</label>';
     $retval .= '<p>';
-    $retval .= __('Choose from which log you want the statistics to be generated from.');
+    $retval .= __(
+        'Choose from which log you want the statistics to be generated from.'
+    );
     $retval .= '</p>';
     $retval .= '<p>';
     $retval .= __('Results are grouped by query text.');
@@ -204,10 +209,13 @@ function PMA_getHtmlForInstructionsDialog()
  */
 function PMA_getHtmlForAddChartDialog()
 {
-    $retval  = '<div id="addChartDialog" title="' . __('Add chart') . '" style="display:none;">';
+    $retval  = '<div id="addChartDialog" title="'
+        . __('Add chart') . '" style="display:none;">';
     $retval .= '<div id="tabGridVariables">';
-    $retval .= '<p><input type="text" name="chartTitle" value="' . __('Chart Title') . '" /></p>';
-    $retval .= '<input type="radio" name="chartType" value="preset" id="chartPreset" />';
+    $retval .= '<p><input type="text" name="chartTitle" value="'
+        . __('Chart Title') . '" /></p>';
+    $retval .= '<input type="radio" name="chartType"'
+        . ' value="preset" id="chartPreset" />';
     $retval .= '<label for="chartPreset">' . __('Preset chart') . '</label>';
     $retval .= '<select name="presetCharts"></select><br/>';
     $retval .= '<input type="radio" name="chartType" value="variable" '
@@ -238,12 +246,13 @@ function PMA_getHtmlForAddChartDialog()
     $retval .= ' </label>';
     $retval .= '<input type="text" name="variableInput" id="variableInput" />';
     $retval .= '<p></p>';
-    $retval .= '<input type="checkbox" name="differentialValue"';
-    $retval .= ' id="differentialValue" value="differential" checked="checked" />';
+    $retval .= '<input type="checkbox" name="differentialValue"'
+        . ' id="differentialValue" value="differential" checked="checked" />';
     $retval .= '<label for="differentialValue">';
     $retval .= __('Display as differential value');
     $retval .= '</label><br />';
-    $retval .= '<input type="checkbox" id="useDivisor" name="useDivisor" value="1" />';
+    $retval .= '<input type="checkbox" id="useDivisor"'
+        . ' name="useDivisor" value="1" />';
     $retval .= '<label for="useDivisor">' . __('Apply a divisor') . '</label>';
     $retval .= '<span class="divisorInput" style="display:none;">';
     $retval .= '<input type="text" name="valueDivisor" size="4" value="1" />';
