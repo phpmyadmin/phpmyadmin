@@ -11,6 +11,7 @@ phpMyAdmin - ChangeLog
 - bug #4091 Insert ignore option does not work
 - bug #4090 Downloading BLOB downloads page template
 - bug #4092 Clicking on table name in view of information_schema redirects to wrong page
+- bug #4079 Copy Table Add AUTO_INCREMENT value checkbox not working
 - bug #4088 MySQL server version at index.php incorrect w/ controlhost
 
 4.0.6.0 (2013-09-05)
