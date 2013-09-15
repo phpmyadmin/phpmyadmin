@@ -1472,6 +1472,9 @@ function PMA_DBI_get_variable($var, $type = PMA_DBI_GETVAR_SESSION, $link = null
  */
 function PMA_DBI_postConnect($link, $is_controluser = false)
 {
+    if ($is_controluser) {
+        return;
+    }
     if (! defined('PMA_MYSQL_INT_VERSION')) {
         if (PMA_Util::cacheExists('PMA_MYSQL_INT_VERSION', true)) {
             define(
