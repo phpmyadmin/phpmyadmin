@@ -2214,7 +2214,9 @@ function PMA_getCurrentValueAsAnArrayForMultipleEdit($multi_edit_colummns,
         || ($current_value != "''"
         && in_array($multi_edit_funcs[$key], $func_optional_param))
     ) {
-        if (isset($multi_edit_salt[$key]) && ($multi_edit_funcs[$key] == "AES_ENCRYPT")) {
+        if (isset($multi_edit_salt[$key]) 
+            && ($multi_edit_funcs[$key] == "AES_ENCRYPT")
+        ) {
             return $multi_edit_funcs[$key] . '(' . $current_value . ",'"
                    . PMA_Util::sqlAddSlashes($multi_edit_salt[$key]) . "')";
         } else {
@@ -2702,10 +2704,11 @@ function PMA_getHtmlForInsertEditFormHeader($has_blob_field, $is_upload)
  * 
  * @return string
  */
-function PMA_getHtmlForInsertEditFormColumn($table_columns, $i, $column, $comments_map,
-    $timestamp_seen, $current_result, $chg_evt_handler, $jsvkey, $vkey,
-    $insert_mode, $current_row, $odd_row, &$o_rows, &$tabindex, $columns_cnt, $is_upload,
-    $tabindex_for_function, $foreigners, $tabindex_for_null, $tabindex_for_value,
+function PMA_getHtmlForInsertEditFormColumn($table_columns, $i, $column,
+    $comments_map, $timestamp_seen, $current_result, $chg_evt_handler,
+    $jsvkey, $vkey, $insert_mode, $current_row, $odd_row, &$o_rows,
+    &$tabindex, $columns_cnt, $is_upload, $tabindex_for_function,
+    $foreigners, $tabindex_for_null, $tabindex_for_value,
     $table, $db, $row_id, $titles, $biggest_max_file_size,
     $default_char_editing, $text_dir    
 ) {
