@@ -841,7 +841,7 @@ class PMA_Table
             $no_constraints_comments = true;
             $GLOBALS['sql_constraints_query'] = '';
             // set the value of global sql_auto_increment variable
-            if( isset($_POST['sql_auto_increment']) ) {
+            if (isset($_POST['sql_auto_increment'])) {
                 $GLOBALS['sql_auto_increment'] = $_POST['sql_auto_increment'];
             }
 
