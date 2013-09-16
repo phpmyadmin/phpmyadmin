@@ -81,10 +81,6 @@ class ImportShp extends ImportPlugin
         global $db, $error, $finished, $compression,
             $import_file, $local_import_file, $message;
 
-        if ((int) ini_get('memory_limit') < 512) {
-            @ini_set('memory_limit', '512M');
-        }
-
         $GLOBALS['finished'] = false;
 
         $shp = new PMA_ShapeFile(1);
