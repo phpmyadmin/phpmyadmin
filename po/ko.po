@@ -4,10 +4,9 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-09-12 10:06+0200\n"
-"PO-Revision-Date: 2013-08-31 13:16+0200\n"
-"Last-Translator: Dong-bum Kim <dongbum@me.com>\n"
-"Language-Team: Korean <http://l10n.cihar.com/projects/phpmyadmin/master/ko/"
-">\n"
+"PO-Revision-Date: 2013-09-16 08:26+0200\n"
+"Last-Translator: Myung Han Yu <greatymh@gmail.com>\n"
+"Language-Team: Korean <http://l10n.cihar.com/projects/phpmyadmin/master/ko/>\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -6485,10 +6484,9 @@ msgstr "Microsoft Word 2000"
 
 #: libraries/config/setup.forms.php:365
 #: libraries/config/user_preferences.forms.php:258
-#, fuzzy
 #| msgid "Open Document"
 msgid "OpenDocument Text"
-msgstr "Open Document 형식"
+msgstr "OpenDocument 형식"
 
 #: libraries/core.lib.php:287
 #, php-format
@@ -6628,10 +6626,9 @@ msgstr "테이블 :"
 
 #: libraries/display_export.lib.php:264 libraries/display_import.lib.php:333
 #: libraries/plugins/export/ExportCodegen.class.php:107
-#, fuzzy
 #| msgid "Format"
 msgid "Format:"
-msgstr "Format"
+msgstr "형식:"
 
 #: libraries/display_export.lib.php:269
 msgid "Format-specific options:"
@@ -6713,16 +6710,14 @@ msgid "Compression:"
 msgstr "압축:"
 
 #: libraries/display_export.lib.php:578
-#, fuzzy
 #| msgid "\"zipped\""
 msgid "zipped"
 msgstr "zip 압축"
 
 #: libraries/display_export.lib.php:585
-#, fuzzy
 #| msgid "\"gzipped\""
 msgid "gzipped"
-msgstr "gz 압축"
+msgstr "gzip 압축"
 
 #: libraries/display_export.lib.php:592
 msgid "bzipped"
@@ -7220,10 +7215,10 @@ msgid "Go to table: %s"
 msgstr "테이블 이동: %s"
 
 #: libraries/import.lib.php:1232
-#, fuzzy, php-format
+#, php-format
 #| msgid "Structure"
 msgid "Structure of %s"
-msgstr "구조"
+msgstr "%s 의 구조"
 
 #: libraries/import.lib.php:1240
 #, php-format
@@ -7231,10 +7226,10 @@ msgid "Go to view: %s"
 msgstr "뷰로 이동: %s"
 
 #: libraries/index.lib.php:34
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create an index on&nbsp;%s&nbsp;columns"
 msgid "Create an index on &nbsp;%s&nbsp;columns"
-msgstr "%s 개 열(칼럼)에 인덱스 만들기 "
+msgstr "%s 개 열(칼럼)에 인덱스 만들기"
 
 #: libraries/insert_edit.lib.php:216 libraries/insert_edit.lib.php:247
 #: pmd_general.php:183
