@@ -84,7 +84,6 @@ class ImportShp extends ImportPlugin
         if ((int) ini_get('memory_limit') < 512) {
             @ini_set('memory_limit', '512M');
         }
-        @set_time_limit(300);
 
         $GLOBALS['finished'] = false;
 
