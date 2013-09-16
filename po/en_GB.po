@@ -6,10 +6,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-09-12 10:06+0200\n"
-"PO-Revision-Date: 2013-08-24 15:18+0200\n"
-"Last-Translator: Patrick V <patrik_13@hotmail.com>\n"
-"Language-Team: English (United Kingdom) <http://l10n.cihar.com/projects/"
-"phpmyadmin/master/en_GB/>\n"
+"PO-Revision-Date: 2013-09-16 08:28+0200\n"
+"Last-Translator: Robert Readman <robert_readman@hotmail.com>\n"
+"Language-Team: English (United Kingdom) "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/en_GB/>\n"
 "Language: en_GB\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -659,10 +659,9 @@ msgid "Back"
 msgstr "Back"
 
 #: index.php:115 libraries/Footer.class.php:72
-#, fuzzy
 #| msgid "phpMyAdmin homepage"
 msgid "phpMyAdmin Demo Server"
-msgstr "phpMyAdmin homepage"
+msgstr "phpMyAdmin Demo Server"
 
 #: index.php:119
 #, php-format
@@ -671,6 +670,9 @@ msgid ""
 "change root, debian-sys-maint and pma users. More information is available "
 "at %s."
 msgstr ""
+"You are using the demo server. You can do anything here, but please do not "
+"change root, debian-sys-maint and pma users. More information is available "
+"at %s."
 
 #: index.php:129
 msgid "General Settings"
@@ -712,48 +714,42 @@ msgid "Server version:"
 msgstr "Server version:"
 
 #: index.php:264
-#, fuzzy
 #| msgid "Protocol version"
 msgid "Protocol version:"
-msgstr "Protocol version"
+msgstr "Protocol version:"
 
 #: index.php:268
-#, fuzzy
 #| msgid "User"
 msgid "User:"
-msgstr "User"
+msgstr "User:"
 
 #: index.php:273
-#, fuzzy
 #| msgid "Server charset"
 msgid "Server charset:"
-msgstr "Server charset"
+msgstr "Server charset:"
 
 #: index.php:285
 msgid "Web server"
 msgstr "Web server"
 
 #: index.php:301
-#, fuzzy
 #| msgid "Database client version"
 msgid "Database client version:"
-msgstr "Database client version"
+msgstr "Database client version:"
 
 #: index.php:305
-#, fuzzy
 #| msgid "PHP extension"
 msgid "PHP extension:"
-msgstr "PHP extension"
+msgstr "PHP extension:"
 
 #: index.php:319
 msgid "Show PHP information"
 msgstr "Show PHP information"
 
 #: index.php:342
-#, fuzzy
 #| msgid "Version information"
 msgid "Version information:"
-msgstr "Version information"
+msgstr "Version information:"
 
 #: index.php:351 libraries/Util.class.php:429 libraries/Util.class.php:496
 #: libraries/config/FormDisplay.tpl.php:149
@@ -841,7 +837,6 @@ msgstr ""
 "The configuration file now needs a secret passphrase (blowfish_secret)."
 
 #: index.php:494
-#, fuzzy
 #| msgid ""
 #| "Directory [code]config[/code], which is used by the setup script, still "
 #| "exists in your phpMyAdmin directory. You should remove it once phpMyAdmin "
@@ -853,8 +848,9 @@ msgid ""
 "may be compromised by unauthorized people downloading your configuration."
 msgstr ""
 "Directory [code]config[/code], which is used by the setup script, still "
-"exists in your phpMyAdmin directory. You should remove it once phpMyAdmin "
-"has been configured."
+"exists in your phpMyAdmin directory. It is strongly recommended to remove it "
+"once phpMyAdmin has been configured. Otherwise the security of your server "
+"may be compromised by unauthorised people downloading your configuration."
 
 #: index.php:504
 #, php-format
@@ -889,7 +885,7 @@ msgstr "\"DROP DATABASE\" statements are disabled."
 
 #: js/messages.php:35
 msgid "Confirm"
-msgstr ""
+msgstr "Confirm"
 
 #: js/messages.php:36
 #, php-format
@@ -921,24 +917,23 @@ msgid "This operation could take a long time. Proceed anyway?"
 msgstr "This operation could take a long time. Proceed anyway?"
 
 #: js/messages.php:44
-#, fuzzy, php-format
+#, php-format
 #| msgid "Do you really want to execute \"%s\"?"
 msgid "Do you really want to delete user group \"%s\"?"
-msgstr "Do you really want to execute \"%s\"?"
+msgstr "Do you really want to delete user group \"%s\"?"
 
 #: js/messages.php:47
 msgid "Missing value in the form!"
 msgstr "Missing value in the form!"
 
 #: js/messages.php:48
-#, fuzzy
 #| msgid "Not a valid port number"
 msgid "Please enter a valid number"
-msgstr "Not a valid port number"
+msgstr "Please enter a valid number"
 
 #: js/messages.php:49
 msgid "Please enter a valid length"
-msgstr ""
+msgstr "Please enter a valid length"
 
 #: js/messages.php:50
 msgid "Add Index"
@@ -1320,7 +1315,7 @@ msgstr "From general log"
 
 #: js/messages.php:158
 msgid "The database name is not known for this query in the server's logs."
-msgstr ""
+msgstr "The database name is not known for this query in the server's logs."
 
 #: js/messages.php:159
 msgid "Analysing logs"
@@ -1733,16 +1728,14 @@ msgid "Show search criteria"
 msgstr "Show search criteria"
 
 #: js/messages.php:287
-#, fuzzy
 #| msgid "Hide search criteria"
 msgid "Hide find and replace criteria"
-msgstr "Hide search criteria"
+msgstr "Hide find and replace criteria"
 
 #: js/messages.php:288
-#, fuzzy
 #| msgid "Show search criteria"
 msgid "Show find and replace criteria"
-msgstr "Show search criteria"
+msgstr "Show find and replace criteria"
 
 #: js/messages.php:291 libraries/TableSearch.class.php:212
 msgid "Zoom Search"
@@ -1955,10 +1948,9 @@ msgid "Hide Panel"
 msgstr "Hide Panel"
 
 #: js/messages.php:380
-#, fuzzy
 #| msgid "Show logo in navigation panel"
 msgid "Show hidden navigation tree items"
-msgstr "Show logo in navigation panel"
+msgstr "Show hidden navigation tree items"
 
 #: js/messages.php:383
 msgid "The requested page was not found in the history, it may have expired."
@@ -2285,10 +2277,10 @@ msgid "Unexpected characters on line %s."
 msgstr "Unexpected characters on line %s."
 
 #: libraries/Advisor.class.php:437
-#, fuzzy, php-format
+#, php-format
 #| msgid "Unexpected character on line %1$s. Expected tab, but found \"%2$s\""
 msgid "Unexpected character on line %1$s. Expected tab, but found \"%2$s\"."
-msgstr "Unexpected character on line %1$s. Expected tab, but found \"%2$s\""
+msgstr "Unexpected character on line %1$s. Expected tab, but found \"%2$s\"."
 
 #: libraries/Advisor.class.php:470
 msgid "per second"
@@ -2341,28 +2333,24 @@ msgid "Descending"
 msgstr "Descending"
 
 #: libraries/DBQbe.class.php:364 libraries/TableSearch.class.php:1283
-#, fuzzy
 #| msgid "Column"
 msgid "Column:"
-msgstr "Column"
+msgstr "Column:"
 
 #: libraries/DBQbe.class.php:406
-#, fuzzy
 #| msgid "Sort"
 msgid "Sort:"
-msgstr "Sort"
+msgstr "Sort:"
 
 #: libraries/DBQbe.class.php:468
-#, fuzzy
 #| msgid "Show"
 msgid "Show:"
-msgstr "Show"
+msgstr "Show:"
 
 #: libraries/DBQbe.class.php:513
-#, fuzzy
 #| msgid "Criteria"
 msgid "Criteria:"
-msgstr "Criteria"
+msgstr "Criteria:"
 
 #: libraries/DBQbe.class.php:576
 msgid "Add/Delete criteria rows"
@@ -2381,14 +2369,13 @@ msgid "Use Tables"
 msgstr "Use Tables"
 
 #: libraries/DBQbe.class.php:653 libraries/DBQbe.class.php:757
-#, fuzzy
 #| msgid "Or"
 msgid "Or:"
-msgstr "Or"
+msgstr "Or:"
 
 #: libraries/DBQbe.class.php:657 libraries/DBQbe.class.php:742
 msgid "And:"
-msgstr ""
+msgstr "And:"
 
 #: libraries/DBQbe.class.php:661
 msgid "Ins"
@@ -2399,18 +2386,17 @@ msgid "Del"
 msgstr "Del"
 
 #: libraries/DBQbe.class.php:680
-#, fuzzy
 #| msgid "Modify"
 msgid "Modify:"
-msgstr "Modify"
+msgstr "Modify:"
 
 #: libraries/DBQbe.class.php:737
 msgid "Ins:"
-msgstr ""
+msgstr "Ins:"
 
 #: libraries/DBQbe.class.php:752
 msgid "Del:"
-msgstr ""
+msgstr "Del:"
 
 #: libraries/DBQbe.class.php:1321
 #, php-format
@@ -2565,10 +2551,9 @@ msgid "Number of rows:"
 msgstr "Number of rows:"
 
 #: libraries/DisplayResults.class.php:918
-#, fuzzy
 #| msgid "Mode"
 msgid "Mode:"
-msgstr "Mode"
+msgstr "Mode:"
 
 #: libraries/DisplayResults.class.php:920
 msgid "horizontal"
@@ -2692,16 +2677,16 @@ msgstr ""
 "%s."
 
 #: libraries/DisplayResults.class.php:4871
-#, fuzzy, php-format
+#, php-format
 #| msgid "Showing rows"
 msgid "Showing rows %1s - %2s"
-msgstr "Showing rows"
+msgstr "Showing rows %1s - %2s"
 
 #: libraries/DisplayResults.class.php:4883
-#, fuzzy, php-format
+#, php-format
 #| msgid "total"
 msgid "%d total"
-msgstr "total"
+msgstr "%d total"
 
 #: libraries/DisplayResults.class.php:4895 libraries/sql.lib.php:1641
 #, php-format
@@ -2829,13 +2814,12 @@ msgstr "Cannot read (moved) upload file."
 #: libraries/Footer.class.php:76
 #, php-format
 msgid "Currently running Git revision %1$s from the %2$s branch."
-msgstr ""
+msgstr "Currently running Git revision %1$s from the %2$s branch."
 
 #: libraries/Footer.class.php:83
-#, fuzzy
 #| msgid "Version information"
 msgid "Git information missing!"
-msgstr "Version information"
+msgstr "Git information missing!"
 
 #: libraries/Footer.class.php:163 libraries/Footer.class.php:167
 #: libraries/Footer.class.php:170
@@ -3257,16 +3241,14 @@ msgid "Target database `%s` was not found!"
 msgstr "Target database `%s` was not found!"
 
 #: libraries/Table.class.php:1239
-#, fuzzy
 #| msgid "Invalid database"
 msgid "Invalid database:"
-msgstr "Invalid database"
+msgstr "Invalid database:"
 
 #: libraries/Table.class.php:1253
-#, fuzzy
 #| msgid "Invalid table name"
 msgid "Invalid table name:"
-msgstr "Invalid table name"
+msgstr "Invalid table name:"
 
 #: libraries/Table.class.php:1288
 #, php-format
@@ -3327,7 +3309,7 @@ msgstr "Table Search"
 
 #: libraries/TableSearch.class.php:217 libraries/TableSearch.class.php:1171
 msgid "Find and Replace"
-msgstr ""
+msgstr "Find and Replace"
 
 #: libraries/TableSearch.class.php:239 libraries/insert_edit.lib.php:1401
 msgid "Edit/Insert"
@@ -3392,38 +3374,33 @@ msgid "Reset zoom"
 msgstr "Reset zoom"
 
 #: libraries/TableSearch.class.php:1280
-#, fuzzy
 #| msgid "Replace NULL with:"
 msgid "Replace with:"
-msgstr "Replace NULL with:"
+msgstr "Replace with:"
 
 #: libraries/TableSearch.class.php:1340
 msgid "Find and replace - preview"
-msgstr ""
+msgstr "Find and replace - preview"
 
 #: libraries/TableSearch.class.php:1344
-#, fuzzy
 #| msgid "Column"
 msgid "Count"
-msgstr "Column"
+msgstr "Count"
 
 #: libraries/TableSearch.class.php:1345
-#, fuzzy
 #| msgid "Original position"
 msgid "Original string"
-msgstr "Original position"
+msgstr "Original string"
 
 #: libraries/TableSearch.class.php:1346
-#, fuzzy
 #| msgid "Related Links"
 msgid "Replaced string"
-msgstr "Related Links"
+msgstr "Replaced string"
 
 #: libraries/TableSearch.class.php:1370
-#, fuzzy
 #| msgid "Replicated"
 msgid "Replace"
-msgstr "Replicated"
+msgstr "Replace"
 
 #: libraries/Theme.class.php:170
 #, php-format
@@ -3454,10 +3431,9 @@ msgid "Theme path not found for theme %s!"
 msgstr "Theme path not found for theme %s!"
 
 #: libraries/Theme_Manager.class.php:370
-#, fuzzy
 #| msgid "Theme"
 msgid "Theme:"
-msgstr "Theme"
+msgstr "Theme:"
 
 #: libraries/Types.class.php:297
 msgid ""
@@ -3799,10 +3775,9 @@ msgid "Max: %s%s"
 msgstr "Max: %s%s"
 
 #: libraries/Util.class.php:642 libraries/sql.lib.php:429
-#, fuzzy
 #| msgid "SQL query"
 msgid "SQL query:"
-msgstr "SQL query"
+msgstr "SQL query:"
 
 #: libraries/Util.class.php:686 libraries/rte/rte_events.lib.php:114
 #: libraries/rte/rte_events.lib.php:123 libraries/rte/rte_events.lib.php:140
@@ -4053,10 +4028,10 @@ msgid "Invalid hostname for server %1$s. Please review your configuration."
 msgstr "Invalid hostname for server %1$s. Please review your configuration."
 
 #: libraries/common.inc.php:657
-#, fuzzy, php-format
+#, php-format
 #| msgid "Server"
 msgid "Server %d"
-msgstr "Server"
+msgstr "Server %d"
 
 #: libraries/common.inc.php:851
 msgid "Invalid authentication method set in configuration:"
@@ -4085,17 +4060,15 @@ msgstr "numeric key detected"
 
 #: libraries/config.values.php:49 libraries/config.values.php:65
 #: libraries/config.values.php:70
-#, fuzzy
 #| msgid "Ins"
 msgid "Icons"
-msgstr "Ins"
+msgstr "Icons"
 
 #: libraries/config.values.php:50 libraries/config.values.php:66
 #: libraries/config.values.php:71
-#, fuzzy
 #| msgid "Test"
 msgid "Text"
-msgstr "Test"
+msgstr "Text"
 
 #: libraries/config.values.php:51 libraries/config.values.php:59
 #: libraries/config.values.php:67 libraries/config.values.php:72
@@ -4240,16 +4213,16 @@ msgid "\"%s\" requires %s extension"
 msgstr "\"%s\" requires %s extension"
 
 #: libraries/config/FormDisplay.class.php:799
-#, fuzzy, php-format
+#, php-format
 #| msgid "import will not work, missing function (%s)"
 msgid "Compressed import will not work due to missing function %s."
-msgstr "import will not work, missing function (%s)"
+msgstr "Compressed import will not work due to missing function %s."
 
 #: libraries/config/FormDisplay.class.php:805
-#, fuzzy, php-format
+#, php-format
 #| msgid "export will not work, missing function (%s)"
 msgid "Compressed export will not work due to missing function %s."
-msgstr "export will not work, missing function (%s)"
+msgstr "Compressed export will not work due to missing function %s."
 
 #: libraries/config/FormDisplay.class.php:815
 msgid "SQL Validator is disabled"
@@ -4285,7 +4258,7 @@ msgstr "Allow users to customise this value"
 
 #: libraries/config/FormDisplay.tpl.php:400
 msgid "Apply"
-msgstr ""
+msgstr "Apply"
 
 #: libraries/config/FormDisplay.tpl.php:402 libraries/insert_edit.lib.php:1600
 #: libraries/schema/User_Schema.class.php:556 prefs_manage.php:326
@@ -4328,10 +4301,9 @@ msgid "Empty phpMyAdmin control user password while using pmadb"
 msgstr "Empty phpMyAdmin control user password while using pmadb"
 
 #: libraries/config/Validator.class.php:445
-#, fuzzy
 #| msgid "Incorrect value"
 msgid "Incorrect value:"
-msgstr "Incorrect value"
+msgstr "Incorrect value:"
 
 #: libraries/config/Validator.class.php:454
 #, php-format
@@ -4633,28 +4605,25 @@ msgstr "Put columns names in the first row"
 #: libraries/config/messages.inc.php:75 libraries/config/messages.inc.php:246
 #: libraries/config/messages.inc.php:253
 #: libraries/plugins/import/ImportCsv.class.php:150
-#, fuzzy
 #| msgid "Columns enclosed with:"
 msgid "Columns enclosed with"
-msgstr "Columns enclosed with:"
+msgstr "Columns enclosed with"
 
 #: libraries/config/messages.inc.php:76 libraries/config/messages.inc.php:247
 #: libraries/config/messages.inc.php:254
 #: libraries/plugins/import/ImportCsv.class.php:157
-#, fuzzy
 #| msgid "Columns escaped with:"
 msgid "Columns escaped with"
-msgstr "Columns escaped with:"
+msgstr "Columns escaped with"
 
 #: libraries/config/messages.inc.php:77 libraries/config/messages.inc.php:83
 #: libraries/config/messages.inc.php:90 libraries/config/messages.inc.php:99
 #: libraries/config/messages.inc.php:107 libraries/config/messages.inc.php:111
 #: libraries/config/messages.inc.php:143 libraries/config/messages.inc.php:146
 #: libraries/config/messages.inc.php:148
-#, fuzzy
 #| msgid "Replace NULL with:"
 msgid "Replace NULL with"
-msgstr "Replace NULL with:"
+msgstr "Replace NULL with"
 
 #: libraries/config/messages.inc.php:78 libraries/config/messages.inc.php:84
 msgid "Remove CRLF characters within columns"
@@ -4663,17 +4632,15 @@ msgstr "Remove CRLF characters within columns"
 #: libraries/config/messages.inc.php:79 libraries/config/messages.inc.php:250
 #: libraries/config/messages.inc.php:258
 #: libraries/plugins/import/ImportCsv.class.php:135
-#, fuzzy
 #| msgid "Columns terminated by"
 msgid "Columns terminated with"
-msgstr "Columns terminated by"
+msgstr "Columns terminated with"
 
 #: libraries/config/messages.inc.php:80 libraries/config/messages.inc.php:245
 #: libraries/plugins/import/ImportCsv.class.php:164
-#, fuzzy
 #| msgid "Lines terminated with:"
 msgid "Lines terminated with"
-msgstr "Lines terminated with:"
+msgstr "Lines terminated with"
 
 #: libraries/config/messages.inc.php:82
 msgid "Excel edition"
@@ -4782,10 +4749,9 @@ msgstr "Disable foreign key checks"
 
 #: libraries/config/messages.inc.php:126
 #: libraries/plugins/export/ExportSql.class.php:155
-#, fuzzy
 #| msgid "Exporting rows from \"%s\" table"
 msgid "Export views as tables"
-msgstr "Exporting rows from \"%s\" table"
+msgstr "Export views as tables"
 
 #: libraries/config/messages.inc.php:127 libraries/config/messages.inc.php:128
 #: libraries/config/messages.inc.php:130 libraries/config/messages.inc.php:136
@@ -5546,10 +5512,9 @@ msgid "Use only icons, only text or both"
 msgstr "Use only icons, only text or both"
 
 #: libraries/config/messages.inc.php:328
-#, fuzzy
 #| msgid "Iconic navigation bar"
 msgid "Table navigation bar"
-msgstr "Iconic navigation bar"
+msgstr "Table navigation bar"
 
 #: libraries/config/messages.inc.php:329
 msgid "use GZip output buffering for increased speed in HTTP transfers"
@@ -5618,14 +5583,13 @@ msgid "MySQL reserved word warning"
 msgstr "MySQL reserved word warning"
 
 #: libraries/config/messages.inc.php:342
-#, fuzzy
 #| msgid "Allow to display all the rows"
 msgid "How to display the menu tabs"
-msgstr "Allow to display all the rows"
+msgstr "How to display the menu tabs"
 
 #: libraries/config/messages.inc.php:344
 msgid "How to display various action links"
-msgstr ""
+msgstr "How to display various action links"
 
 #: libraries/config/messages.inc.php:345
 msgid "Disallow BLOB and BINARY columns from editing"
@@ -5845,7 +5809,6 @@ msgid "Control host"
 msgstr "Control host"
 
 #: libraries/config/messages.inc.php:394
-#, fuzzy
 #| msgid ""
 #| "An alternate host to hold the configuration storage; leave blank to use "
 #| "the already defined host"
@@ -5854,14 +5817,14 @@ msgid ""
 "storage; leave blank to use the default port, or the already defined port, "
 "if the controlhost equals host"
 msgstr ""
-"An alternate host to hold the configuration storage; leave blank to use the "
-"already defined host"
+"An alternate port to connect to the host that holds the configuration "
+"storage; leave blank to use the default port, or the already defined port, "
+"if the controlhost equals host"
 
 #: libraries/config/messages.inc.php:395
-#, fuzzy
 #| msgid "Control host"
 msgid "Control port"
-msgstr "Control host"
+msgstr "Control port"
 
 #: libraries/config/messages.inc.php:396
 msgid ""
@@ -6091,7 +6054,6 @@ msgid "Display columns table"
 msgstr "Display columns table"
 
 #: libraries/config/messages.inc.php:440
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no \"persistent\" tables'UI preferences across sessions, "
 #| "suggested: [kbd]pma__table_uiprefs[/kbd]"
@@ -6099,7 +6061,7 @@ msgid ""
 "Leave blank for no \"persistent\" tables' UI preferences across sessions, "
 "suggested: [kbd]pma__table_uiprefs[/kbd]"
 msgstr ""
-"Leave blank for no \"persistent\" tables'UI preferences across sessions, "
+"Leave blank for no \"persistent\" tables' UI preferences across sessions, "
 "suggested: [kbd]pma__table_uiprefs[/kbd]"
 
 #: libraries/config/messages.inc.php:441
@@ -6188,7 +6150,6 @@ msgid "User preferences storage table"
 msgstr "User preferences storage table"
 
 #: libraries/config/messages.inc.php:456
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no user preferences storage in database, suggested: "
 #| "[kbd]pma__userconfig[/kbd]"
@@ -6196,17 +6157,15 @@ msgid ""
 "Leave blank to disable configurable menus feature, suggested: "
 "[kbd]pma__users[/kbd]"
 msgstr ""
-"Leave blank for no user preferences storage in database, suggested: "
-"[kbd]pma__userconfig[/kbd]"
+"Leave blank to disable configurable menus feature, suggested: "
+"[kbd]pma__users[/kbd]"
 
 #: libraries/config/messages.inc.php:457
-#, fuzzy
 #| msgid "Use Tables"
 msgid "Users table"
-msgstr "Use Tables"
+msgstr "Users table"
 
 #: libraries/config/messages.inc.php:458
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no user preferences storage in database, suggested: "
 #| "[kbd]pma__userconfig[/kbd]"
@@ -6214,17 +6173,15 @@ msgid ""
 "Leave blank to disable configurable menus feature, suggested: "
 "[kbd]pma__usergroups[/kbd]"
 msgstr ""
-"Leave blank for no user preferences storage in database, suggested: "
-"[kbd]pma__userconfig[/kbd]"
+"Leave blank to disable configurable menus feature, suggested: "
+"[kbd]pma__usergroups[/kbd]"
 
 #: libraries/config/messages.inc.php:459
-#, fuzzy
 #| msgid "Use Host Table"
 msgid "User groups table"
-msgstr "Use Host Table"
+msgstr "User groups table"
 
 #: libraries/config/messages.inc.php:460
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no user preferences storage in database, suggested: "
 #| "[kbd]pma__userconfig[/kbd]"
@@ -6232,12 +6189,12 @@ msgid ""
 "Leave blank to disable the feature to hide and show navigation items, "
 "suggested: [kbd]pma__navigationhiding[/kbd]"
 msgstr ""
-"Leave blank for no user preferences storage in database, suggested: "
-"[kbd]pma__userconfig[/kbd]"
+"Leave blank to disable the feature to hide and show navigation items, "
+"suggested: [kbd]pma__navigationhiding[/kbd]"
 
 #: libraries/config/messages.inc.php:461
 msgid "Hidden navigation items table"
-msgstr ""
+msgstr "Hidden navigation items table"
 
 #: libraries/config/messages.inc.php:463
 msgid "User for config auth"
@@ -6559,6 +6516,10 @@ msgid ""
 "is installed does not have direct access to the internet. The format is: "
 "\"hostname:portnumber\""
 msgstr ""
+"The url of the proxy to be used when retrieving the information about the "
+"latest version of phpMyAdmin. You need this if the server where phpMyAdmin "
+"is installed does not have direct access to the internet. The format is: "
+"\"hostname:portnumber\""
 
 #: libraries/config/messages.inc.php:533
 #, fuzzy
@@ -12763,10 +12724,9 @@ msgid "All"
 msgstr "All"
 
 #: querywindow.php:154
-#, fuzzy
 #| msgid "SQL history"
 msgid "SQL history:"
-msgstr "SQL history"
+msgstr "SQL history:"
 
 #: schema_edit.php:37 schema_edit.php:43 schema_edit.php:49 schema_edit.php:54
 #, php-format
