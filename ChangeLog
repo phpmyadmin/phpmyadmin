@@ -54,6 +54,7 @@ phpMyAdmin - ChangeLog
 - bug #4079 Copy Table Add AUTO_INCREMENT value checkbox not working
 - bug #4088 MySQL server version at index.php incorrect w/ controlhost
 - bug #4001 Import error: Class 'ImportOds' not found
+- bug #3986 Missing DROP VIEW button
 
 4.0.6.0 (2013-09-05)
 - bug #4036 Call to undefined function mb_detect_encoding (clarify the doc)
