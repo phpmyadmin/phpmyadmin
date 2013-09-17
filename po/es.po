@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.7-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-09-17 10:36-0400\n"
-"PO-Revision-Date: 2013-09-17 17:01+0200\n"
-"Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
+"PO-Revision-Date: 2013-09-17 18:11+0200\n"
+"Last-Translator: Guillermo Lisotti <guillermo.lisotti@gmail.com>\n"
 "Language-Team: Spanish <http://l10n.cihar.com/projects/phpmyadmin/4-0/es/>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
@@ -12659,9 +12659,10 @@ msgid "Rename view to"
 msgstr "Cambiar el nombre de la vista a"
 
 #: view_operations.php:130
+#, fuzzy
 #| msgid "Delete the table (DROP)"
 msgid "Delete the view (DROP)"
-msgstr "Borrar la vista (DROP)"
+msgstr "Borrar la tabla (DROP)"
 
 #: libraries/advisory_rules.txt:49
 msgid "Uptime below one day"
