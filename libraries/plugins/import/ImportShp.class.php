@@ -12,6 +12,7 @@ if (! defined('PHPMYADMIN')) {
 
 // Drizzle does not support GIS data types
 if (PMA_DRIZZLE) {
+    $GLOBALS['skip_import'] = true;
     return;
 }
 
