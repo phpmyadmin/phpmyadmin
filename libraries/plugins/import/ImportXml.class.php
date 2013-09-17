@@ -15,7 +15,8 @@ if (! defined('PHPMYADMIN')) {
 /**
  * We need way to disable external XML entities processing.
  */
-if (!function_exists('libxml_disable_entity_loader')) {
+if (! function_exists('libxml_disable_entity_loader')) {
+    $GLOBALS['skip_import'] = true;
     return;
 }
 
