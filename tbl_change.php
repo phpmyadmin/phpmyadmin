@@ -30,8 +30,8 @@ list(
     $insert_mode, $where_clause, $where_clause_array, $where_clauses,
     $result, $rows, $found_unique_key, $after_insert
 ) = PMA_determineInsertOrEdit(
-        isset($where_clause) ? $where_clause : null, $db, $table
-    );
+    isset($where_clause) ? $where_clause : null, $db, $table
+);
 
 /**
  * file listing
