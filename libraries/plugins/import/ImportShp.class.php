@@ -209,7 +209,7 @@ class ImportShp extends ImportPlugin
                 $message = PMA_Message::error(
                     __('MySQL Spatial Extension does not support ESRI type "%s".')
                 );
-                $message->addParam($param);
+                $message->addParam($esri_types[$shp->shapeType]);
             }
             return;
         }
