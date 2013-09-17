@@ -13,7 +13,9 @@ if (! defined('PHPMYADMIN')) {
  * The generated file that contains the linenumbers for the js files
  * If you change any of the js files you can run the scripts/line-counts.sh
  */
-include_once 'js/line_counts.php';
+if (is_readable('js/line_counts.php')) {
+    include_once 'js/line_counts.php';
+}
 
 /**
  * the url where to submit reports to
