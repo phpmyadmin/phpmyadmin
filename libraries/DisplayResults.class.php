@@ -4979,7 +4979,7 @@ class PMA_DisplayResults
         $message->addMessage('(');
 
         if (!$message_view_warning) {
-            $message_total = PMA_Message::notice($precount . __('%d total'));
+            $message_total = PMA_Message::notice($pre_count . __('%d total'));
             $message_total->addParam($total);
 
             if (!empty($after_count)) {
