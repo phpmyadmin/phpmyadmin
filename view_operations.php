@@ -13,6 +13,11 @@ require_once './libraries/common.inc.php';
 $pma_table = new PMA_Table($GLOBALS['table'], $GLOBALS['db']);
 
 /**
+ * functions implementation for this script
+ */
+require_once 'libraries/operations.lib.php';
+
+/**
  * Runs common work
  */
 require './libraries/tbl_common.inc.php';
@@ -99,4 +104,33 @@ $url_params['back'] = 'view_operations.php';
 </fieldset>
 </form>
 </div>
+<?php
+$drop_view_url_params = array_merge(
+    $url_params,
+    array(
+        'sql_query' => 'DROP VIEW ' . PMA_Util::backquote($GLOBALS['table']),
+        'goto' => 'tbl_structure.php',
+        'reload' => '1',
+        'purge' => '1',
+        'message_to_show' => sprintf(
+            __('View %s has been dropped'),
+            htmlspecialchars($GLOBALS['table'])
+        ),
+        'table' => $GLOBALS['table']
+    )
+);
+echo '<div class="operations_half_width">';
+echo '<fieldset class="caution">';
+echo '<legend>' . __('Delete data or table') . '</legend>';
+
+echo '<ul>';
+echo PMA_getDeleteDataOrTableLink(
+    $drop_view_url_params,
+    'DROP VIEW',
+    __('Delete the view (DROP)'),
+    ''
+);
+echo '</ul>';
+echo '</fieldset>';
+echo '</div>';
 
