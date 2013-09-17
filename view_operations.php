@@ -129,7 +129,7 @@ echo PMA_getDeleteDataOrTableLink(
     $drop_view_url_params,
     'DROP VIEW',
     __('Delete the view (DROP)'),
-    ''
+    'drop_view_anchor'
 );
 echo '</ul>';
 echo '</fieldset>';
