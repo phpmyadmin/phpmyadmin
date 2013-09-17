@@ -4,13 +4,13 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-09-17 10:36-0400\n"
-"PO-Revision-Date: 2013-09-12 14:24+0200\n"
+"PO-Revision-Date: 2013-09-17 17:07+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: French <http://l10n.cihar.com/projects/phpmyadmin/4-0/fr/>\n"
+"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: fr\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 "X-Generator: Weblate 1.7-dev\n"
 
@@ -12564,10 +12564,9 @@ msgid "Rename view to"
 msgstr "Changer le nom de la vue pour"
 
 #: view_operations.php:130
-#, fuzzy
 #| msgid "Delete the table (DROP)"
 msgid "Delete the view (DROP)"
-msgstr "Supprimer la table (DROP)"
+msgstr "Supprimer la vue (DROP)"
 
 #: libraries/advisory_rules.txt:49
 msgid "Uptime below one day"
