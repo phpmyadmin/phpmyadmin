@@ -42,6 +42,8 @@ phpMyAdmin - ChangeLog
 - bug #4068 Headline in operations not readable in IE10
 - bug #4000 "Table does not contain unique column" message appears after adding a unique column
 
+4.0.8.0 (not yet released)
+
 4.0.7.0 (not yet released)
 - bug #3993 Sorting in database overview with statistics doesn't work
 - bug Handle the situation where PHP_SELF is not set 
