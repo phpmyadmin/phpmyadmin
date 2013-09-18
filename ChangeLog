@@ -43,6 +43,7 @@ phpMyAdmin - ChangeLog
 - bug #4000 "Table does not contain unique column" message appears after adding a unique column
 
 4.0.8.0 (not yet released)
+- bug #3988 Rename view is not working
 
 4.0.7.0 (not yet released)
 - bug #3993 Sorting in database overview with statistics doesn't work
