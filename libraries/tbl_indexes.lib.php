@@ -238,7 +238,7 @@ function PMA_getFormParameters($db, $table)
  * 
  * @return string
  */
-function PMA_getHtmlForIndexForm($fields, $index, $form_params,$add_fields)
+function PMA_getHtmlForIndexForm($fields, $index, $form_params, $add_fields)
 {
     $html = "";
     $html .= '<form action="tbl_indexes.php" method="post" name="index_frm" id="'
