@@ -18,7 +18,7 @@ phpMyAdmin - ChangeLog
 + [interface] rfe #1429 Better suggestion for database name
 + rfe #1433 Support relations with ndbcluster
 - bug #3962 Proper escaping of JSON export
-+ rfe #1328 Optional ReCAPTCHA support
++ rfe #1382 Optional ReCAPTCHA support
 + rfe #1434 Improvements to the table browsing navigation bar
 + rfe #1233 and rfe #1283 Improvements to Relation View interface
 + rfe #175 Allow cross-database relations
