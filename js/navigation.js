@@ -371,41 +371,51 @@ function PMA_showCurrentNavigation()
    $('#pma_navigation_tree')
        .find('li.selected')
        .removeClass('selected');
-   if (db && table) { // if we are at the table/view level
-       // open the database in the tree
-       var $dbItem = highlightLoadedItem(
-           $('#pma_navigation_tree > div'), db, 'database', false, false
+   if (db) {
+       var $dbItem = findLoadedItem(
+           $('#pma_navigation_tree > div'), db, 'database', !table
        );
        if ($dbItem) {
-           // open the table in the tree and select it
            var $expander = $dbItem.children('div:first').children('a.expander');
            // if not loaded or loaded but collapsed
            if (! $expander.hasClass('loaded')
                || $expander.find('img').is('.ic_b_plus')
            ) {
                expandTreeNode($expander, function() {
-                   loadAndHighlightTableOrView($dbItem, table);
+                   handleTableOrDb(table, $dbItem);
                });
            } else {
-               loadAndHighlightTableOrView($dbItem, table);
+               handleTableOrDb(table, $dbItem);
            }
        }
-   } else if (db) { // if we are at the database level
-       // open in the tree and select the database
-       highlightLoadedItem(
-           $('#pma_navigation_tree > div'), db, 'database', true, true
-       );
    }
 
-   function highlightLoadedItem($container, name, clazz, doSelect, doOpen) {
+   function handleTableOrDb(table, $dbItem) {
+       if (table) {
+           loadAndHighlightTableOrView($dbItem, table);
+       } else {
+           var $container = $dbItem.children('div.list_container');
+           var $tableContainer = $container.children('ul').children('li.tableContainer');
+           if ($tableContainer.length > 0) {
+               var $expander = $tableContainer.children('div:first').children('a.expander');
+               expandTreeNode($expander, function() {
+                   scrollToView($dbItem, $('#pma_navigation_tree_content'));
+               });
+           } else {
+               scrollToView($dbItem, $('#pma_navigation_tree_content'));
+           }
+       }
+   }
+
+   function findLoadedItem($container, name, clazz, doSelect) {
        var ret = false;
        $container.children('ul').children('li').each(function() {
            var $li = $(this);
            // this is a navigation group, recurse
            if ($li.is('.navGroup')) {
                var $container = $li.children('div.list_container');
-               var $childRet = highlightLoadedItem(
-                   $container, name, clazz, doSelect, doOpen
+               var $childRet = findLoadedItem(
+                   $container, name, clazz, doSelect
                );
                if ($childRet) {
                    ret = $childRet;
@@ -416,17 +426,6 @@ function PMA_showCurrentNavigation()
                if ($li.is('.' + clazz) && $li.children('a').text() == name) {
                    if (doSelect) {
                        $li.addClass('selected');
-                       if (! doOpen) { // if the node will be opened no point scrolling now
-                           scrollToView($li, $('#pma_navigation_tree_content'));
-                       }
-                   }
-                   if (doOpen) {
-                       var $expander = $li.find('div:first').children('a.expander');
-                       if ($expander.length > 0) {
-                           expandTreeNode($expander, function() {
-                               scrollToView($li, $('#pma_navigation_tree_content'));
-                           });
-                       }
                    }
                    // taverse up and expand and parent navigation groups
                    $li.parents('.navGroup').each(function() {
@@ -471,7 +470,8 @@ function PMA_showCurrentNavigation()
            highlightView($viewContainer, table);
        } else {
            // no containers, highlight the item
-           highlightLoadedItem($container, table, 'table', true, false);
+           var $table = findLoadedItem($container, table, 'table', true);
+           scrollToView($table, $('#pma_navigation_tree_content'));
        }
    }
 
@@ -484,10 +484,11 @@ function PMA_showCurrentNavigation()
            if ($expander.find('img').is('.ic_b_plus')) {
                expandTreeNode($expander);
            }
-           highlightLoadedItem(
+           var $table = findLoadedItem(
                $tableContainer.children('div.list_container'),
-               table, 'table', true, false
+               table, 'table', true
            );
+           scrollToView($table, $('#pma_navigation_tree_content'));
        } else if ($viewContainer.length > 0) {
            highlightView($viewContainer, table);
        }
@@ -514,16 +515,18 @@ function PMA_showCurrentNavigation()
            || $expander.find('img').is('.ic_b_plus')
        ) {
            expandTreeNode($expander, function() {
-               highlightLoadedItem(
+               var $view = findLoadedItem(
                    $viewContainer.children('div.list_container'),
-                   view, 'view', true, false
+                   view, 'view', true
                );
+               scrollToView($view, $('#pma_navigation_tree_content'));
            });
        } else {
-           highlightLoadedItem(
+           var $view = findLoadedItem(
                $viewContainer.children('div.list_container'),
-               view, 'view', true, false
+               view, 'view', true
            );
+           scrollToView($view, $('#pma_navigation_tree_content'));
        }
    }
 }
