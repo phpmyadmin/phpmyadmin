@@ -44,10 +44,31 @@ class PMA_TblIndexTest extends PHPUnit_Framework_TestCase
         $GLOBALS['pmaThemeImage'] = 'theme/';
         $GLOBALS['cfg']['ServerDefault'] = "server";
         $GLOBALS['cfg']['ShowHint'] = true;
-        
+
         $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
+
+        $indexs = array(
+            array(
+                "Schema" => "Schema1",
+                "Key_name"=>"Key_name1",
+                "Column_name"=>"Column_name1"
+            ),
+            array(
+                "Schema" => "Schema2",
+                "Key_name"=>"Key_name2",
+                "Column_name"=>"Column_name2"
+            ),
+            array(
+                "Schema" => "Schema3",
+                "Key_name"=>"Key_name3",
+                "Column_name"=>"Column_name3"
+            ),
+        );
+
+        $dbi->expects($this->any())->method('getTableIndexes')
+            ->will($this->returnValue($indexs));
 
         $GLOBALS['dbi'] = $dbi;
 
@@ -55,7 +76,7 @@ class PMA_TblIndexTest extends PHPUnit_Framework_TestCase
         $_SESSION['PMA_Theme'] = PMA_Theme::load('./themes/pmahomme');
         $_SESSION['PMA_Theme'] = new PMA_Theme();
     }
-    
+
     /**
      * Tests for PMA_getSqlQueryForIndexCreateOrEdit() method.
      *
@@ -68,7 +89,7 @@ class PMA_TblIndexTest extends PHPUnit_Framework_TestCase
         $table = "pma_table";
         $index = new PMA_Index();
         $error = false;
-        
+
         $_REQUEST['old_index'] = "PRIMARY";
 
         $sql = PMA_getSqlQueryForIndexCreateOrEdit(
@@ -80,7 +101,7 @@ class PMA_TblIndexTest extends PHPUnit_Framework_TestCase
             $sql
         );
     }
-    
+
     /**
      * Tests for PMA_getNumberOfFieldsForForm() method.
      *
@@ -107,7 +128,7 @@ class PMA_TblIndexTest extends PHPUnit_Framework_TestCase
             $add_fields
         );
     }
-    
+
     /**
      * Tests for PMA_getFormParameters() method.
      *
@@ -163,6 +184,90 @@ class PMA_TblIndexTest extends PHPUnit_Framework_TestCase
         $this->assertEquals(
             $expect,
             $form_params
+        );
+    }
+
+    /**
+     * Tests for PMA_getHtmlForIndexForm() method.
+     *
+     * @return void
+     * @test
+     */
+    public function testPMAGetHtmlForIndexForm()
+    {
+        $fields = array("field_name" => "field_type");
+        $index = new PMA_Index();
+        $form_params = array(
+            'db' => 'db',
+            'table' => 'table',
+            'create_index' => 1,
+        );
+        $add_fields = 3;
+
+        $html = PMA_getHtmlForIndexForm($fields, $index, $form_params, $add_fields);
+
+        //PMA_URL_getHiddenInputs
+        $this->assertContains(
+            PMA_URL_getHiddenInputs($form_params),
+            $html
+        );
+
+        //Index name
+        $this->assertContains(
+            __('Index name:'),
+            $html
+        );
+        $doc_html = PMA_Util::showHint(
+            PMA_Message::notice(
+                __(
+                    '"PRIMARY" <b>must</b> be the name of'
+                    . ' and <b>only of</b> a primary key!'
+                )
+            )
+        );
+        $this->assertContains(
+            $doc_html,
+            $html
+        );
+
+        //Index name
+        $this->assertContains(
+            __('Index name:'),
+            $html
+        );
+        $this->assertContains(
+            PMA_Util::showMySQLDocu('ALTER_TABLE'),
+            $html
+        );
+
+        //generateIndexSelector
+        $this->assertContains(
+            $index->generateIndexSelector(),
+            $html
+        );
+
+        //items
+        $this->assertContains(
+            __('Column'),
+            $html
+        );
+        $this->assertContains(
+            __('Size'),
+            $html
+        );
+        $this->assertContains(
+            sprintf(__('Add %s column(s) to index'), 1),
+            $html
+        );
+
+        //$field_name & $field_type
+        $this->assertContains(
+            "field_name",
+            $html
+        );
+        $this->assertContains(
+            "field_type",
+            $html
         );
     }
 }
