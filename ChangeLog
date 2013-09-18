@@ -1,6 +1,8 @@
 phpMyAdmin - ChangeLog
 ======================
 
+4.0.8.0 (not yet released)
+
 4.0.7.0 (not yet released)
 - bug #3993 Sorting in database overview with statistics doesn't work
 - bug Handle the situation where PHP_SELF is not set
