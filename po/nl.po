@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-09-12 10:06+0200\n"
-"PO-Revision-Date: 2013-09-12 17:07+0200\n"
+"POT-Creation-Date: 2013-09-17 11:03-0400\n"
+"PO-Revision-Date: 2013-09-18 10:04+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: Dutch <http://l10n.cihar.com/projects/phpmyadmin/master/nl/>\n"
 "Language: nl\n"
@@ -185,7 +185,7 @@ msgstr "Nee"
 #: libraries/server_privileges.lib.php:2609
 #: libraries/server_privileges.lib.php:2939
 #: libraries/server_privileges.lib.php:2964 libraries/structure.lib.php:1268
-#: libraries/structure.lib.php:2609 libraries/tbl_printview.lib.php:115
+#: libraries/structure.lib.php:2611 libraries/tbl_printview.lib.php:115
 #: libraries/tbl_tracking.lib.php:772 libraries/tbl_tracking.lib.php:847
 #: libraries/tbl_tracking.lib.php:852 libraries/user_preferences.lib.php:293
 #: prefs_manage.php:136
@@ -234,7 +234,7 @@ msgstr ""
 "De configuratie-opslag van phpMyAdmin is uitgeschakeld. Om te weten te komen "
 "waarom klik %shier%s."
 
-#: db_printview.php:47 db_tracking.php:81 db_tracking.php:204
+#: db_printview.php:47 db_tracking.php:81 db_tracking.php:208
 #: libraries/Menu.class.php:237 libraries/config/messages.inc.php:520
 #: libraries/plugins/export/ExportXml.class.php:459
 #: libraries/rte/rte_list.lib.php:65 libraries/rte/rte_triggers.lib.php:355
@@ -353,7 +353,7 @@ msgid "Action"
 msgstr "Actie"
 
 #: db_tracking.php:87 libraries/navigation/Navigation.class.php:198
-#: libraries/tbl_tracking.lib.php:201 tbl_change.php:151
+#: libraries/tbl_tracking.lib.php:201 tbl_change.php:147
 msgid "Show"
 msgstr "Toon"
 
@@ -379,29 +379,29 @@ msgstr "ingeschakeld"
 msgid "not active"
 msgstr "niet actief"
 
-#: db_tracking.php:142
+#: db_tracking.php:143
 msgid "Versions"
 msgstr "Versies"
 
-#: db_tracking.php:144 libraries/tbl_tracking.lib.php:234
+#: db_tracking.php:146 libraries/tbl_tracking.lib.php:234
 #: libraries/tbl_tracking.lib.php:352
 msgid "Tracking report"
 msgstr "Tracking-rapport"
 
-#: db_tracking.php:146 libraries/tbl_tracking.lib.php:241
+#: db_tracking.php:149 libraries/tbl_tracking.lib.php:241
 #: libraries/tbl_tracking.lib.php:676
 msgid "Structure snapshot"
 msgstr "Structuur-snapshot"
 
-#: db_tracking.php:199
+#: db_tracking.php:203
 msgid "Untracked tables"
 msgstr "Tabellen zonder tracker"
 
-#: db_tracking.php:218 libraries/structure.lib.php:1529
+#: db_tracking.php:222 libraries/structure.lib.php:1529
 msgid "Track table"
 msgstr "Tabel tracken"
 
-#: db_tracking.php:245
+#: db_tracking.php:249
 msgid "Database Log"
 msgstr "Databank-log"
 
@@ -527,7 +527,7 @@ msgid "Add geometry"
 msgstr "Een geometrie toevoegen"
 
 #: gis_data_editor.php:397 js/messages.php:218
-#: libraries/DbSearch.class.php:455 libraries/DisplayResults.class.php:1646
+#: libraries/DbSearch.class.php:455 libraries/DisplayResults.class.php:1689
 #: libraries/TableSearch.class.php:1184 libraries/browse_foreigners.lib.php:51
 #: libraries/core.lib.php:554 libraries/display_change_password.lib.php:94
 #: libraries/display_create_table.lib.php:61
@@ -560,7 +560,7 @@ msgstr "Een geometrie toevoegen"
 #: libraries/tbl_columns_definition_form.lib.php:174
 #: libraries/tbl_tracking.lib.php:386 libraries/tbl_tracking.lib.php:454
 #: pmd_pdf.php:158 prefs_manage.php:272 prefs_manage.php:322
-#: view_create.php:273 view_operations.php:99
+#: view_create.php:273 view_operations.php:104
 msgid "Go"
 msgstr "Start"
 
@@ -579,11 +579,11 @@ msgstr ""
 #: import.php:109
 #, php-format
 msgid ""
-"You probably tried to upload a file that is too large. Please refer to "
-"%sdocumentation%s for a workaround for this limit."
+"You probably tried to upload a file that is too large. Please refer to %"
+"sdocumentation%s for a workaround for this limit."
 msgstr ""
-"U probeerde waarschijnlijk een bestand up te loaden dat te groot is. Zie "
-"%sdocumentatie%s voor oplossingen voor deze beperking."
+"U probeerde waarschijnlijk een bestand up te loaden dat te groot is. Zie %"
+"sdocumentatie%s voor oplossingen voor deze beperking."
 
 #: import.php:270 import.php:536
 msgid "Showing bookmark"
@@ -633,7 +633,7 @@ msgstr ""
 "De plugins voor het importeren konden niet worden geladen, controleer uw "
 "installatie!"
 
-#: import.php:539 libraries/sql.lib.php:1021 libraries/sql.lib.php:1801
+#: import.php:539 libraries/sql.lib.php:1021 libraries/sql.lib.php:1804
 #, php-format
 msgid "Bookmark %s created"
 msgstr "Bladwijzer %s aangemaakt"
@@ -754,7 +754,7 @@ msgstr "Versie-informatie:"
 #: index.php:351 libraries/Util.class.php:429 libraries/Util.class.php:496
 #: libraries/config/FormDisplay.tpl.php:149
 #: libraries/display_export.lib.php:461 libraries/engines/pbxt.lib.php:112
-#: libraries/navigation/NavigationHeader.class.php:237
+#: libraries/navigation/NavigationHeader.class.php:241
 #: libraries/relation.lib.php:88 libraries/server_variables.lib.php:162
 msgid "Documentation"
 msgstr "Documentatie"
@@ -1113,13 +1113,13 @@ msgstr "B"
 
 #. l10n: shortcuts for Kilobyte
 #: js/messages.php:108 libraries/Util.class.php:1392
-#: libraries/server_status_monitor.lib.php:250
+#: libraries/server_status_monitor.lib.php:259
 msgid "KiB"
 msgstr "KiB"
 
 #. l10n: shortcuts for Megabyte
 #: js/messages.php:109 libraries/Util.class.php:1394
-#: libraries/server_status_monitor.lib.php:251
+#: libraries/server_status_monitor.lib.php:260
 msgid "MiB"
 msgstr "MiB"
 
@@ -1158,7 +1158,7 @@ msgid "Traffic"
 msgstr "Verkeer"
 
 #: js/messages.php:119 libraries/Menu.class.php:547
-#: libraries/Util.class.php:4086 libraries/server_status_monitor.lib.php:290
+#: libraries/Util.class.php:4086 libraries/server_status_monitor.lib.php:299
 msgid "Settings"
 msgstr "Instellingen"
 
@@ -1178,13 +1178,13 @@ msgstr "Grafiek toevoegen aan raster"
 msgid "Please add at least one variable to the series"
 msgstr "Gelieve tenminste één variabele toe te voegen aan de reeks"
 
-#: js/messages.php:125 libraries/DisplayResults.class.php:1284
+#: js/messages.php:125 libraries/DisplayResults.class.php:1327
 #: libraries/TableSearch.class.php:850 libraries/TableSearch.class.php:997
 #: libraries/display_export.lib.php:572
 #: libraries/plugins/export/ExportSql.class.php:1578
 #: libraries/server_privileges.lib.php:2579
 #: libraries/server_status.lib.php:525
-#: libraries/server_status_monitor.lib.php:269
+#: libraries/server_status_monitor.lib.php:278
 #: libraries/tbl_columns_definition_form.lib.php:694 pmd_general.php:545
 msgid "None"
 msgstr "Geen"
@@ -1285,7 +1285,7 @@ msgstr "Instellingen wijzigen"
 msgid "Current settings"
 msgstr "Huidige instellingen"
 
-#: js/messages.php:150 libraries/server_status_monitor.lib.php:209
+#: js/messages.php:150 libraries/server_status_monitor.lib.php:216
 msgid "Chart Title"
 msgstr "Grafiektitel"
 
@@ -1479,7 +1479,7 @@ msgstr ""
 #: libraries/Util.class.php:4085 libraries/Util.class.php:4100
 #: libraries/Util.class.php:4116 libraries/config/messages.inc.php:171
 #: libraries/display_import.lib.php:108
-#: libraries/server_status_monitor.lib.php:355 prefs_manage.php:238
+#: libraries/server_status_monitor.lib.php:364 prefs_manage.php:238
 #: setup/frames/menu.inc.php:25
 msgid "Import"
 msgstr "Importeren"
@@ -1536,7 +1536,7 @@ msgid "Cancel"
 msgstr "Annuleren"
 
 #: js/messages.php:222 libraries/navigation/NavigationHeader.class.php:55
-#: libraries/server_status_monitor.lib.php:159
+#: libraries/server_status_monitor.lib.php:164
 msgid "Loading…"
 msgstr "Laden…"
 
@@ -1687,7 +1687,7 @@ msgstr "SQL-queryveld verbergen"
 msgid "Show query box"
 msgstr "SQL-queryveld tonen"
 
-#: js/messages.php:273 libraries/DisplayResults.class.php:3304
+#: js/messages.php:273 libraries/DisplayResults.class.php:3347
 #: libraries/Index.class.php:590 libraries/Util.class.php:667
 #: libraries/Util.class.php:1212 libraries/Util.class.php:3392
 #: libraries/Util.class.php:3393 libraries/config/messages.inc.php:496
@@ -1701,7 +1701,7 @@ msgstr "Wijzigen"
 msgid "No rows selected"
 msgstr "Geen rijen geselecteerd"
 
-#: js/messages.php:275 libraries/DisplayResults.class.php:4989
+#: js/messages.php:275 libraries/DisplayResults.class.php:5035
 #: libraries/structure.lib.php:1374 libraries/structure.lib.php:2063
 #: querywindow.php:85
 msgid "Change"
@@ -1711,8 +1711,8 @@ msgstr "Veranderen"
 msgid "Query execution time"
 msgstr "Query-uitvoertijd"
 
-#: js/messages.php:277 libraries/DisplayResults.class.php:718
-#: libraries/DisplayResults.class.php:726
+#: js/messages.php:277 libraries/DisplayResults.class.php:761
+#: libraries/DisplayResults.class.php:769
 #, php-format
 msgid "%d is not valid row number."
 msgstr "%d is geen geldig rijnummer."
@@ -1790,12 +1790,12 @@ msgstr "Queryresultaten"
 msgid "Data point content"
 msgstr "Inhoud gegevenspunt"
 
-#: js/messages.php:313 libraries/tbl_indexes.lib.php:333
-#: libraries/tbl_indexes.lib.php:369 tbl_change.php:178
+#: js/messages.php:313 libraries/insert_edit.lib.php:2605
+#: libraries/tbl_indexes.lib.php:333 libraries/tbl_indexes.lib.php:369
 msgid "Ignore"
 msgstr "Negeren"
 
-#: js/messages.php:314 libraries/DisplayResults.class.php:3307
+#: js/messages.php:314 libraries/DisplayResults.class.php:3350
 msgid "Copy"
 msgstr "Kopiëren"
 
@@ -1811,7 +1811,7 @@ msgstr "Lijnstuk definitie"
 msgid "Polygon"
 msgstr "Polygoon"
 
-#: js/messages.php:321 libraries/DisplayResults.class.php:1630
+#: js/messages.php:321 libraries/DisplayResults.class.php:1673
 msgid "Geometry"
 msgstr "Geometrie"
 
@@ -1894,7 +1894,7 @@ msgstr "Dubbelklik om kolomnaam te kopiëren"
 msgid "Click the drop-down arrow<br />to toggle column's visibility"
 msgstr "Klik op het pijltje<br />om de zichtbaarheid van de kolom te wijzigen"
 
-#: js/messages.php:350 libraries/DisplayResults.class.php:806
+#: js/messages.php:350 libraries/DisplayResults.class.php:849
 #: libraries/browse_foreigners.lib.php:359
 #: libraries/browse_foreigners.lib.php:409
 #: libraries/server_privileges.lib.php:3109
@@ -1988,7 +1988,7 @@ msgstr ", meest recente versie:"
 msgid "up to date"
 msgstr "Recent bijgewerkt"
 
-#: js/messages.php:391 libraries/DisplayResults.class.php:5104
+#: js/messages.php:391 libraries/DisplayResults.class.php:5150
 #: view_create.php:178
 msgid "Create view"
 msgstr "VIEW aanmaken"
@@ -2329,18 +2329,18 @@ msgstr ""
 msgid "Font size"
 msgstr "Lettertypegrootte"
 
-#: libraries/DBQbe.class.php:346 libraries/DisplayResults.class.php:1268
-#: libraries/DisplayResults.class.php:1996
-#: libraries/DisplayResults.class.php:2004 libraries/TableSearch.class.php:821
+#: libraries/DBQbe.class.php:346 libraries/DisplayResults.class.php:1311
+#: libraries/DisplayResults.class.php:2039
+#: libraries/DisplayResults.class.php:2047 libraries/TableSearch.class.php:821
 #: libraries/operations.lib.php:643 libraries/server_databases.lib.php:313
 #: libraries/server_databases.lib.php:338 libraries/server_status.lib.php:452
 #: libraries/structure.lib.php:860 libraries/structure.lib.php:877
 msgid "Ascending"
 msgstr "Oplopend"
 
-#: libraries/DBQbe.class.php:349 libraries/DisplayResults.class.php:1280
-#: libraries/DisplayResults.class.php:1991
-#: libraries/DisplayResults.class.php:2009 libraries/TableSearch.class.php:822
+#: libraries/DBQbe.class.php:349 libraries/DisplayResults.class.php:1323
+#: libraries/DisplayResults.class.php:2034
+#: libraries/DisplayResults.class.php:2052 libraries/TableSearch.class.php:822
 #: libraries/operations.lib.php:646 libraries/server_databases.lib.php:313
 #: libraries/server_databases.lib.php:338 libraries/server_status.lib.php:449
 #: libraries/structure.lib.php:865 libraries/structure.lib.php:882
@@ -2482,8 +2482,8 @@ msgstr "Verkennen"
 msgid "Delete the matches for the %s table?"
 msgstr "Verwijder gevonden rijen voor de tabel %s?"
 
-#: libraries/DbSearch.class.php:357 libraries/DisplayResults.class.php:3376
-#: libraries/DisplayResults.class.php:4972
+#: libraries/DbSearch.class.php:357 libraries/DisplayResults.class.php:3419
+#: libraries/DisplayResults.class.php:5018
 #: libraries/schema/User_Schema.class.php:219
 #: libraries/schema/User_Schema.class.php:301
 #: libraries/schema/User_Schema.class.php:354
@@ -2519,66 +2519,66 @@ msgstr "In de tabellen:"
 msgid "Inside column:"
 msgstr "In de kolom:"
 
-#: libraries/DisplayResults.class.php:695
+#: libraries/DisplayResults.class.php:738
 msgid "Save edited data"
 msgstr "Sla aangepaste gegevens op"
 
-#: libraries/DisplayResults.class.php:701
+#: libraries/DisplayResults.class.php:744
 msgid "Restore column order"
 msgstr "Kolomvolgorde herstellen"
 
-#: libraries/DisplayResults.class.php:772 libraries/Util.class.php:2488
+#: libraries/DisplayResults.class.php:815 libraries/Util.class.php:2488
 #: libraries/Util.class.php:2492
 msgctxt "First page"
 msgid "Begin"
 msgstr "Begin"
 
-#: libraries/DisplayResults.class.php:775 libraries/Util.class.php:2490
+#: libraries/DisplayResults.class.php:818 libraries/Util.class.php:2490
 #: libraries/Util.class.php:2493 libraries/server_bin_log.lib.php:171
 #: libraries/server_bin_log.lib.php:173
 msgctxt "Previous page"
 msgid "Previous"
 msgstr "Vorige"
 
-#: libraries/DisplayResults.class.php:832 libraries/Util.class.php:2525
+#: libraries/DisplayResults.class.php:875 libraries/Util.class.php:2525
 #: libraries/Util.class.php:2528 libraries/server_bin_log.lib.php:205
 #: libraries/server_bin_log.lib.php:207
 msgctxt "Next page"
 msgid "Next"
 msgstr "Volgende"
 
-#: libraries/DisplayResults.class.php:860 libraries/Util.class.php:2526
+#: libraries/DisplayResults.class.php:903 libraries/Util.class.php:2526
 #: libraries/Util.class.php:2529
 msgctxt "Last page"
 msgid "End"
 msgstr "Einde"
 
-#: libraries/DisplayResults.class.php:901 libraries/display_export.lib.php:322
+#: libraries/DisplayResults.class.php:944 libraries/display_export.lib.php:322
 #: libraries/tbl_chart.lib.php:210
 msgid "Number of rows:"
 msgstr "Aantal rijen:"
 
-#: libraries/DisplayResults.class.php:918
+#: libraries/DisplayResults.class.php:961
 msgid "Mode:"
 msgstr "Modus:"
 
-#: libraries/DisplayResults.class.php:920
+#: libraries/DisplayResults.class.php:963
 msgid "horizontal"
 msgstr "horizontale"
 
-#: libraries/DisplayResults.class.php:921
+#: libraries/DisplayResults.class.php:964
 msgid "horizontal (rotated headers)"
 msgstr "horizontale (omgedraaide headers)"
 
-#: libraries/DisplayResults.class.php:922
+#: libraries/DisplayResults.class.php:965
 msgid "vertical"
 msgstr "verticale"
 
-#: libraries/DisplayResults.class.php:1226
+#: libraries/DisplayResults.class.php:1269
 msgid "Sort by key"
 msgstr "Sorteren op sleutel"
 
-#: libraries/DisplayResults.class.php:1567 libraries/TableSearch.class.php:764
+#: libraries/DisplayResults.class.php:1610 libraries/TableSearch.class.php:764
 #: libraries/import.lib.php:1201 libraries/import.lib.php:1227
 #: libraries/plugins/export/ExportCodegen.class.php:90
 #: libraries/plugins/export/ExportCsv.class.php:51
@@ -2597,108 +2597,108 @@ msgstr "Sorteren op sleutel"
 #: libraries/plugins/export/ExportYaml.class.php:50
 #: libraries/plugins/import/AbstractImportCsv.class.php:40
 #: libraries/plugins/import/ImportMediawiki.class.php:60
-#: libraries/plugins/import/ImportOds.class.php:58
-#: libraries/plugins/import/ImportShp.class.php:56
+#: libraries/plugins/import/ImportOds.class.php:59
+#: libraries/plugins/import/ImportShp.class.php:57
 #: libraries/plugins/import/ImportSql.class.php:50
-#: libraries/plugins/import/ImportXml.class.php:57
+#: libraries/plugins/import/ImportXml.class.php:58
 #: libraries/rte/rte_routines.lib.php:970 libraries/structure.lib.php:1708
 msgid "Options"
 msgstr "Opties"
 
-#: libraries/DisplayResults.class.php:1573
-#: libraries/DisplayResults.class.php:1679
+#: libraries/DisplayResults.class.php:1616
+#: libraries/DisplayResults.class.php:1722
 msgid "Partial texts"
 msgstr "Gedeeltelijke teksten"
 
-#: libraries/DisplayResults.class.php:1574
-#: libraries/DisplayResults.class.php:1683
+#: libraries/DisplayResults.class.php:1617
+#: libraries/DisplayResults.class.php:1726
 msgid "Full texts"
 msgstr "Volledige teksten"
 
-#: libraries/DisplayResults.class.php:1588
+#: libraries/DisplayResults.class.php:1631
 msgid "Relational key"
 msgstr "Relationele sleutel"
 
-#: libraries/DisplayResults.class.php:1589
+#: libraries/DisplayResults.class.php:1632
 msgid "Relational display column"
 msgstr "Relationele weergave-kolom"
 
-#: libraries/DisplayResults.class.php:1601
+#: libraries/DisplayResults.class.php:1644
 msgid "Show binary contents"
 msgstr "Toon binaire inhoud"
 
-#: libraries/DisplayResults.class.php:1606
+#: libraries/DisplayResults.class.php:1649
 msgid "Show BLOB contents"
 msgstr "Toon BLOB-inhoud"
 
-#: libraries/DisplayResults.class.php:1611
+#: libraries/DisplayResults.class.php:1654
 #: libraries/config/messages.inc.php:59
 msgid "Show binary contents as HEX"
 msgstr "Toon binaire-inhoud als HEX"
 
-#: libraries/DisplayResults.class.php:1622
+#: libraries/DisplayResults.class.php:1665
 msgid "Hide browser transformation"
 msgstr "Browsertransformaties verbergen"
 
-#: libraries/DisplayResults.class.php:1631
+#: libraries/DisplayResults.class.php:1674
 msgid "Well Known Text"
 msgstr "Goed bekende tekst"
 
-#: libraries/DisplayResults.class.php:1632
+#: libraries/DisplayResults.class.php:1675
 msgid "Well Known Binary"
 msgstr "Goed gekende binaire waarde"
 
-#: libraries/DisplayResults.class.php:3349
-#: libraries/DisplayResults.class.php:3365
+#: libraries/DisplayResults.class.php:3392
+#: libraries/DisplayResults.class.php:3408
 msgid "The row has been deleted"
 msgstr "De regel werd verwijderd"
 
-#: libraries/DisplayResults.class.php:3403
-#: libraries/DisplayResults.class.php:4972 libraries/server_status.lib.php:520
+#: libraries/DisplayResults.class.php:3446
+#: libraries/DisplayResults.class.php:5018 libraries/server_status.lib.php:520
 msgid "Kill"
 msgstr "stop proces"
 
-#: libraries/DisplayResults.class.php:4430 libraries/structure.lib.php:771
+#: libraries/DisplayResults.class.php:4476 libraries/structure.lib.php:771
 msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]"
 msgstr "Bij benadering. Zie [doc@faq3-11]FAQ 3.11[/doc]"
 
-#: libraries/DisplayResults.class.php:4484 libraries/Message.class.php:180
+#: libraries/DisplayResults.class.php:4530 libraries/Message.class.php:180
 #: libraries/rte/rte_routines.lib.php:1427
 #: libraries/sql_query_form.lib.php:117 libraries/tbl_relation.lib.php:848
 #: tbl_find_replace.php:49 tbl_operations.php:185 tbl_row_action.php:111
-#: view_operations.php:57
+#: view_operations.php:62
 msgid "Your SQL query has been executed successfully"
 msgstr "Uw SQL-query is succesvol uitgevoerd"
 
-#: libraries/DisplayResults.class.php:4821
+#: libraries/DisplayResults.class.php:4867
 msgid "in query"
 msgstr "in de query"
 
-#: libraries/DisplayResults.class.php:4858 libraries/structure.lib.php:653
+#: libraries/DisplayResults.class.php:4904 libraries/structure.lib.php:653
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation"
-"%s."
+"This view has at least this number of rows. Please refer to %sdocumentation%"
+"s."
 msgstr ""
 "Deze view heeft minimaal deze hoeveelheid aan rijen. Zie de %sdocumentatie%s."
 
-#: libraries/DisplayResults.class.php:4871
+#: libraries/DisplayResults.class.php:4917
 #, php-format
 msgid "Showing rows %1s - %2s"
 msgstr "Weergave van records %1s - %2s"
 
-#: libraries/DisplayResults.class.php:4883
+#: libraries/DisplayResults.class.php:4929
 #, php-format
 msgid "%d total"
 msgstr "%d totaal"
 
-#: libraries/DisplayResults.class.php:4895 libraries/sql.lib.php:1641
+#: libraries/DisplayResults.class.php:4941 libraries/sql.lib.php:1644
 #, php-format
 msgid "Query took %01.4f sec"
 msgstr "query duurde %01.4f sec"
 
-#: libraries/DisplayResults.class.php:4979
-#: libraries/DisplayResults.class.php:4985 libraries/mult_submits.inc.php:46
+#: libraries/DisplayResults.class.php:5025
+#: libraries/DisplayResults.class.php:5031 libraries/mult_submits.inc.php:46
 #: libraries/server_databases.lib.php:145
 #: libraries/server_databases.lib.php:149
 #: libraries/server_privileges.lib.php:2860
@@ -2708,8 +2708,8 @@ msgstr "query duurde %01.4f sec"
 msgid "With selected:"
 msgstr "Met geselecteerd:"
 
-#: libraries/DisplayResults.class.php:4983
-#: libraries/DisplayResults.class.php:4984
+#: libraries/DisplayResults.class.php:5029
+#: libraries/DisplayResults.class.php:5030
 #: libraries/server_databases.lib.php:147
 #: libraries/server_databases.lib.php:148
 #: libraries/server_privileges.lib.php:1005
@@ -2722,8 +2722,8 @@ msgstr "Met geselecteerd:"
 msgid "Check All"
 msgstr "Selecteer alles"
 
-#: libraries/DisplayResults.class.php:5002
-#: libraries/DisplayResults.class.php:5272 libraries/Menu.class.php:326
+#: libraries/DisplayResults.class.php:5048
+#: libraries/DisplayResults.class.php:5318 libraries/Menu.class.php:326
 #: libraries/Menu.class.php:420 libraries/Menu.class.php:539
 #: libraries/Util.class.php:3394 libraries/Util.class.php:3395
 #: libraries/Util.class.php:4084 libraries/Util.class.php:4099
@@ -2731,34 +2731,34 @@ msgstr "Selecteer alles"
 #: libraries/display_export.lib.php:163
 #: libraries/server_privileges.lib.php:2231
 #: libraries/server_privileges.lib.php:2868
-#: libraries/server_status_monitor.lib.php:359 libraries/structure.lib.php:297
+#: libraries/server_status_monitor.lib.php:368 libraries/structure.lib.php:297
 #: prefs_manage.php:295 setup/frames/menu.inc.php:27
 msgid "Export"
 msgstr "Exporteren"
 
-#: libraries/DisplayResults.class.php:5160
+#: libraries/DisplayResults.class.php:5206
 msgid "Query results operations"
 msgstr "Handelingen voor queryresultaat"
 
-#: libraries/DisplayResults.class.php:5196 libraries/Header.class.php:341
+#: libraries/DisplayResults.class.php:5242 libraries/Header.class.php:341
 #: libraries/structure.lib.php:299 libraries/structure.lib.php:362
 #: libraries/structure.lib.php:1497
 msgid "Print view"
 msgstr "Afdrukken"
 
-#: libraries/DisplayResults.class.php:5214
+#: libraries/DisplayResults.class.php:5260
 msgid "Print view (with full texts)"
 msgstr "Afdrukken (met volledige teksten)"
 
-#: libraries/DisplayResults.class.php:5285 libraries/tbl_chart.lib.php:266
+#: libraries/DisplayResults.class.php:5331 libraries/tbl_chart.lib.php:266
 msgid "Display chart"
 msgstr "Grafiek weergeven"
 
-#: libraries/DisplayResults.class.php:5310
+#: libraries/DisplayResults.class.php:5356
 msgid "Visualize GIS data"
 msgstr "GIS-gegevens visualiseren"
 
-#: libraries/DisplayResults.class.php:5527
+#: libraries/DisplayResults.class.php:5573
 msgid "Link not found"
 msgstr "Link niet gevonden"
 
@@ -2807,8 +2807,8 @@ msgstr "Onbekende fout bij het uploaden."
 #: libraries/File.class.php:476
 msgid "Error moving the uploaded file, see [doc@faq1-11]FAQ 1.11[/doc]"
 msgstr ""
-"Fout bij het verplaatsen van het geüploade bestand, zie [doc@faq1-11]FAQ "
-"1.11[/doc]"
+"Fout bij het verplaatsen van het geüploade bestand, zie [doc@faq1-11]FAQ 1.11"
+"[/doc]"
 
 #: libraries/File.class.php:494
 msgid "Error while moving uploaded file."
@@ -2965,7 +2965,7 @@ msgstr "Rechten"
 #: libraries/Menu.class.php:351 libraries/Menu.class.php:374
 #: libraries/Menu.class.php:433 libraries/Util.class.php:3172
 #: libraries/Util.class.php:4101 libraries/Util.class.php:4118
-#: view_operations.php:87
+#: view_operations.php:92
 msgid "Operations"
 msgstr "Handelingen"
 
@@ -3056,7 +3056,7 @@ msgstr "Engines"
 #: libraries/Message.class.php:199 libraries/Util.class.php:629
 #: libraries/core.lib.php:229 libraries/import.lib.php:174
 #: libraries/insert_edit.lib.php:1231 tbl_chart.php:24 tbl_operations.php:187
-#: view_operations.php:58
+#: view_operations.php:63
 msgid "Error"
 msgstr "Fout"
 
@@ -3247,29 +3247,29 @@ msgstr "Brondatabank `%s` werd niet gevonden!"
 msgid "Target database `%s` was not found!"
 msgstr "Doeldatabank `%s` niet gevonden!"
 
-#: libraries/Table.class.php:1239
+#: libraries/Table.class.php:1243
 msgid "Invalid database:"
 msgstr "Ongeldige databank:"
 
-#: libraries/Table.class.php:1253
+#: libraries/Table.class.php:1257
 msgid "Invalid table name:"
 msgstr "Ongeldige tabelnaam:"
 
-#: libraries/Table.class.php:1288
+#: libraries/Table.class.php:1292
 #, php-format
 msgid "Error renaming table %1$s to %2$s"
 msgstr "Fout bij het hernoemen van de tabel %1$s naar %2$s"
 
-#: libraries/Table.class.php:1307
+#: libraries/Table.class.php:1311
 #, php-format
 msgid "Table %1$s has been renamed to %2$s."
 msgstr "Tabel %1$s is hernoemd naar %2$s."
 
-#: libraries/Table.class.php:1453
+#: libraries/Table.class.php:1457
 msgid "Could not save table UI preferences"
 msgstr "Tabelinterfacevoorkeuren konden niet worden opgeslagen"
 
-#: libraries/Table.class.php:1482
+#: libraries/Table.class.php:1486
 #, php-format
 msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
@@ -3278,7 +3278,7 @@ msgstr ""
 "Opkuisen van tabelinterfacevoorkeuren is mislukt (zie $cfg['Servers'][$i]"
 "['MaxTableUiprefs'] %s)"
 
-#: libraries/Table.class.php:1622
+#: libraries/Table.class.php:1626
 #, php-format
 msgid ""
 "Cannot save UI property \"%s\". The changes made will not be persistent "
@@ -3350,7 +3350,7 @@ msgid "Maximum rows to plot"
 msgstr "Maximum aantal af te drukken regels"
 
 #: libraries/TableSearch.class.php:898 libraries/TableSearch.class.php:1202
-#: libraries/sql.lib.php:371 tbl_change.php:146
+#: libraries/sql.lib.php:371 tbl_change.php:142
 msgid "Browse foreign values"
 msgstr "Bekijk vreemde waarden"
 
@@ -3486,17 +3486,17 @@ msgstr ""
 
 #: libraries/Types.class.php:309
 msgid ""
-"A small floating-point number, allowable values are -3.402823466E+38 to "
-"-1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
+"A small floating-point number, allowable values are -3.402823466E+38 to -"
+"1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
 msgstr ""
-"Een klein getal met variabele kommapositie, toegelaten waarden zijn "
-"-3,402823466E+38 tot -1,175494351E-38, 0, en 1,175494351E-38 tot 3.402823466E"
+"Een klein getal met variabele kommapositie, toegelaten waarden zijn -"
+"3,402823466E+38 tot -1,175494351E-38, 0, en 1,175494351E-38 tot 3.402823466E"
 "+38"
 
 #: libraries/Types.class.php:311
 msgid ""
-"A double-precision floating-point number, allowable values are "
-"-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
+"A double-precision floating-point number, allowable values are -"
+"1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
 "2.2250738585072014E-308 to 1.7976931348623157E+308"
 msgstr ""
 "Een getal met variabele kommapositie met dubbel nauwkeurigheid, toegelaten "
@@ -4342,9 +4342,9 @@ msgid ""
 "cross-frame scripting attacks"
 msgstr ""
 "Door deze optie in te schakelen is het toegestaan om phpMyAdmin vanuit een "
-"pagina op een ander domein in een frame te openen. Een potentieel "
-"[strong]beveiligingslek[/strong] wat cross-frame scripting aanvallen "
-"mogelijk kan maken"
+"pagina op een ander domein in een frame te openen. Een potentieel [strong]"
+"beveiligingslek[/strong] wat cross-frame scripting aanvallen mogelijk kan "
+"maken"
 
 #: libraries/config/messages.inc.php:20
 msgid "Allow third party framing"
@@ -4359,8 +4359,8 @@ msgid ""
 "Secret passphrase used for encrypting cookies in [kbd]cookie[/kbd] "
 "authentication"
 msgstr ""
-"Geheime sleutelzin gebruikt voor de versleuteling van cookies in "
-"[kbd]cookie[/kbd]-authenticatie"
+"Geheime sleutelzin gebruikt voor de versleuteling van cookies in [kbd]cookie"
+"[/kbd]-authenticatie"
 
 #: libraries/config/messages.inc.php:23
 msgid "Blowfish secret"
@@ -4411,8 +4411,8 @@ msgstr "CHAR-kolommen bewerken"
 
 #: libraries/config/messages.inc.php:32
 msgid ""
-"Use user-friendly editor for editing SQL queries ([a@http://codemirror."
-"net/]CodeMirror[/a]) with syntax highlighting and line numbers"
+"Use user-friendly editor for editing SQL queries ([a@http://codemirror.net/]"
+"CodeMirror[/a]) with syntax highlighting and line numbers"
 msgstr ""
 "Gebruik de gebruiksvriendelijk editor voor SQL queries ([a@http://codemirror."
 "net/]CodeMirror[/a]) met syntaxmarkering en lijnnummers"
@@ -4597,7 +4597,7 @@ msgstr "Karakterset voor het bestand"
 
 #: libraries/config/messages.inc.php:72 libraries/config/messages.inc.php:88
 #: libraries/structure.lib.php:1697
-#: libraries/tbl_gis_visualization.lib.php:329
+#: libraries/tbl_gis_visualization.lib.php:331
 #: libraries/tbl_printview.lib.php:179
 msgid "Format"
 msgstr "Opmaak"
@@ -4816,8 +4816,8 @@ msgid ""
 "Sort order for items in a foreign-key dropdown box; [kbd]content[/kbd] is "
 "the referenced data, [kbd]id[/kbd] is the key value"
 msgstr ""
-"Sorteer volgorde van elementen in een vreemdesleutel-afrolmenu; "
-"[kbd]content[/kbd] is de gerefereerde data, [kbd]id[/kbd] is de sleutelwaarde"
+"Sorteer volgorde van elementen in een vreemdesleutel-afrolmenu; [kbd]content"
+"[/kbd] is de gerefereerde data, [kbd]id[/kbd] is de sleutelwaarde"
 
 #: libraries/config/messages.inc.php:152
 msgid "Foreign key dropdown order"
@@ -4957,15 +4957,14 @@ msgstr "Paginatitels"
 
 #: libraries/config/messages.inc.php:194
 msgid ""
-"Specify browser's title bar text. Refer to "
-"[doc@cfg_TitleTable]documentation[/doc] for magic strings that can be used "
-"to get special values."
+"Specify browser's title bar text. Refer to [doc@cfg_TitleTable]documentation"
+"[/doc] for magic strings that can be used to get special values."
 msgstr ""
 "Browser titel balk tekst. Zie [doc@cfg_TitleTable]documentatie[/doc] voor "
 "bruikbare codes."
 
 #: libraries/config/messages.inc.php:195
-#: libraries/navigation/NavigationHeader.class.php:212
+#: libraries/navigation/NavigationHeader.class.php:216
 msgid "Query window"
 msgstr "Query-venster"
 
@@ -5024,8 +5023,8 @@ msgid ""
 "documentation"
 msgstr ""
 "Configureer de phpMyAdmin-configuratie-opslag om toegang te krijgen tot "
-"extra functionaliteit, zie [doc@linked-tables]phpMyAdmin-configuratie-"
-"opslag[/doc] in de documentatie"
+"extra functionaliteit, zie [doc@linked-tables]phpMyAdmin-configuratie-opslag"
+"[/doc] in de documentatie"
 
 #: libraries/config/messages.inc.php:207
 msgid "Changes tracking"
@@ -5218,7 +5217,7 @@ msgid "Column names in first row"
 msgstr "Kolomnamen in eerste rij"
 
 #: libraries/config/messages.inc.php:260
-#: libraries/plugins/import/ImportOds.class.php:82
+#: libraries/plugins/import/ImportOds.class.php:83
 msgid "Do not import empty rows"
 msgstr "Lege rijen niet importeren"
 
@@ -5423,8 +5422,8 @@ msgid ""
 "Open the linked page in the main window ([kbd]main[/kbd]) or in a new one "
 "([kbd]new[/kbd])"
 msgstr ""
-"Open de pagina in het hoofdvenster ([kbd]main[/kbd]) of in een nieuwe "
-"([kbd]new[/kbd])"
+"Open de pagina in het hoofdvenster ([kbd]main[/kbd]) of in een nieuwe ([kbd]"
+"new[/kbd])"
 
 #: libraries/config/messages.inc.php:305
 msgid "Logo link target"
@@ -5765,8 +5764,8 @@ msgid ""
 "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/bookmark]bookmark[/a] "
 "support, suggested: [kbd]pma__bookmark[/kbd]"
 msgstr ""
-"Laat dit veld leeg om geen [a@http://wiki.phpmyadmin.net/pma/"
-"bookmark]bladwijzers[/a] te gebruiken, suggestie: [kbd]pma__bookmark[/kbd]"
+"Laat dit veld leeg om geen [a@http://wiki.phpmyadmin.net/pma/bookmark]"
+"bladwijzers[/a] te gebruiken, suggestie: [kbd]pma__bookmark[/kbd]"
 
 #: libraries/config/messages.inc.php:382
 msgid "Bookmark table"
@@ -5774,8 +5773,8 @@ msgstr "Bladwijzertabel"
 
 #: libraries/config/messages.inc.php:383
 msgid ""
-"Leave blank for no column comments/mime types, suggested: "
-"[kbd]pma__column_info[/kbd]"
+"Leave blank for no column comments/mime types, suggested: [kbd]"
+"pma__column_info[/kbd]"
 msgstr ""
 "Laat dit veld leeg om geen kolomopmerkingen en mimetypes te ondersteunen, "
 "suggestie: [kbd]pma__column_info[/kbd]"
@@ -5847,8 +5846,8 @@ msgid ""
 "Leave blank for no Designer support, suggested: [kbd]pma__designer_coords[/"
 "kbd]"
 msgstr ""
-"Laat dit veld leeg om de Designer niet te gebruiken, suggestie: "
-"[kbd]pma__designer_coords[/kbd]"
+"Laat dit veld leeg om de Designer niet te gebruiken, suggestie: [kbd]"
+"pma__designer_coords[/kbd]"
 
 #: libraries/config/messages.inc.php:397
 msgid "Designer table"
@@ -5859,9 +5858,8 @@ msgid ""
 "More information on [a@https://sourceforge.net/p/phpmyadmin/bugs/2606/]PMA "
 "bug tracker[/a] and [a@http://bugs.mysql.com/19588]MySQL Bugs[/a]"
 msgstr ""
-"Zie voor meer informatie: [a@https://sourceforge.net/p/phpmyadmin/"
-"bugs/2606/]PMA-bugtracker[/a] en [a@http://bugs.mysql.com/19588]MySQL Bugs[/"
-"a]"
+"Zie voor meer informatie: [a@https://sourceforge.net/p/phpmyadmin/bugs/2606/]"
+"PMA-bugtracker[/a] en [a@http://bugs.mysql.com/19588]MySQL Bugs[/a]"
 
 #: libraries/config/messages.inc.php:399
 msgid "Disable use of INFORMATION_SCHEMA"
@@ -5891,8 +5889,8 @@ msgid ""
 "Leave blank for no SQL query history support, suggested: [kbd]pma__history[/"
 "kbd]"
 msgstr ""
-"Laat dit veld leeg om geen SQL-geschiedenis te ondersteunen, suggestie: "
-"[kbd]pma__history[/kbd]"
+"Laat dit veld leeg om geen SQL-geschiedenis te ondersteunen, suggestie: [kbd]"
+"pma__history[/kbd]"
 
 #: libraries/config/messages.inc.php:405
 msgid "SQL query history table"
@@ -5972,8 +5970,8 @@ msgid ""
 msgstr ""
 "Databank die wordt gebruikt om relaties, bladwijzers en PDF-eigenschappen op "
 "te slaan. Zie [a@http://wiki.phpmyadmin.net/pma/pmadb]pmadb[/a] voor meer "
-"informatie. Laat dit veld leeg om dit uit te schakelen, suggestie: "
-"[kbd]phpmyadmin[/kbd]"
+"informatie. Laat dit veld leeg om dit uit te schakelen, suggestie: [kbd]"
+"phpmyadmin[/kbd]"
 
 #: libraries/config/messages.inc.php:420
 #: libraries/display_create_database.lib.php:31
@@ -6004,12 +6002,11 @@ msgstr "Recent gebruikte tabel"
 
 #: libraries/config/messages.inc.php:425
 msgid ""
-"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
-"links[/a] support, suggested: [kbd]pma__relation[/kbd]"
+"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-links"
+"[/a] support, suggested: [kbd]pma__relation[/kbd]"
 msgstr ""
-"Laat dit veld leeg om geen [a@http://wiki.phpmyadmin.net/pma/"
-"relation]relation-links[/a] te ondersteunen, suggestie: [kbd]pma__relation[/"
-"kbd]"
+"Laat dit veld leeg om geen [a@http://wiki.phpmyadmin.net/pma/relation]"
+"relation-links[/a] te ondersteunen, suggestie: [kbd]pma__relation[/kbd]"
 
 #: libraries/config/messages.inc.php:426
 msgid "Relation table"
@@ -6025,8 +6022,8 @@ msgstr "Opdracht SHOW DATABASES"
 
 #: libraries/config/messages.inc.php:429
 msgid ""
-"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
-"types[/a] for an example"
+"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication types"
+"[/a] for an example"
 msgstr ""
 "Zie [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authenticatietypes[/"
 "a] voor een voorbeeld"
@@ -6062,8 +6059,8 @@ msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__table_coords[/"
 "kbd]"
 msgstr ""
-"Laat dit veld leeg om geen PDF-schema te ondersteunen, suggestie: "
-"[kbd]pma__table_coords[/kbd]"
+"Laat dit veld leeg om geen PDF-schema te ondersteunen, suggestie: [kbd]"
+"pma__table_coords[/kbd]"
 
 #: libraries/config/messages.inc.php:437
 msgid "PDF schema: table coordinates"
@@ -6142,8 +6139,8 @@ msgstr "Bij te houden opdrachten"
 
 #: libraries/config/messages.inc.php:450
 msgid ""
-"Leave blank for no SQL query tracking support, suggested: "
-"[kbd]pma__tracking[/kbd]"
+"Leave blank for no SQL query tracking support, suggested: [kbd]pma__tracking"
+"[/kbd]"
 msgstr ""
 "Laat dit veld leeg om het opvolgen van SQL queries niet te ondersteunen, "
 "suggestie: [kbd]pma__tracking[/kbd]"
@@ -6166,8 +6163,8 @@ msgstr "Automatisch versies aanmaken"
 
 #: libraries/config/messages.inc.php:454
 msgid ""
-"Leave blank for no user preferences storage in database, suggested: "
-"[kbd]pma__userconfig[/kbd]"
+"Leave blank for no user preferences storage in database, suggested: [kbd]"
+"pma__userconfig[/kbd]"
 msgstr ""
 "Laat dit veld leeg om geen gebruikersvoorkeuren op te slaan in de databank, "
 "suggestie: [kbd]pma__userconfig[/kbd]"
@@ -6178,8 +6175,8 @@ msgstr "Opslagtabel voor gebruikersvoorkeuren"
 
 #: libraries/config/messages.inc.php:456
 msgid ""
-"Leave blank to disable configurable menus feature, suggested: "
-"[kbd]pma__users[/kbd]"
+"Leave blank to disable configurable menus feature, suggested: [kbd]pma__users"
+"[/kbd]"
 msgstr ""
 "Laat dit veld leeg om configureerbare menu's uit te schakelen, suggestie: "
 "[kbd]pma__users[/kbd]"
@@ -6190,8 +6187,8 @@ msgstr "Gebruikerstabel"
 
 #: libraries/config/messages.inc.php:458
 msgid ""
-"Leave blank to disable configurable menus feature, suggested: "
-"[kbd]pma__usergroups[/kbd]"
+"Leave blank to disable configurable menus feature, suggested: [kbd]"
+"pma__usergroups[/kbd]"
 msgstr ""
 "Laat dit veld leeg om configureerbare menu's uit te schakelen , suggestie: "
 "[kbd]pma__usergroups[/kbd]"
@@ -6331,8 +6328,8 @@ msgid ""
 "Shows link to [a@http://php.net/manual/function.phpinfo.php]phpinfo()[/a] "
 "output"
 msgstr ""
-"Toon link naar de uitvoer van [a@http://php.net/manual/function.phpinfo."
-"php]phpinfo()[/a]"
+"Toon link naar de uitvoer van [a@http://php.net/manual/function.phpinfo.php]"
+"phpinfo()[/a]"
 
 #: libraries/config/messages.inc.php:486
 msgid "Show phpinfo() link"
@@ -6859,13 +6856,13 @@ msgstr ", @TABLE@ wordt vervangen door de tabelnaam"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: "
-"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: %"
+"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Deze waarde wordt geïnterpreteerd met behulp van %1$sstrftime%2$s, het "
 "gebruik van opmaakcodes is dan ook toegestaan. Daarnaast worden de volgende "
-"vertalingen toegepast: %3$s. Overige tekst zal gelijk blijven. Zie %4$sFAQ"
-"%5$s voor meer details."
+"vertalingen toegepast: %3$s. Overige tekst zal gelijk blijven. Zie %4$sFAQ%5"
+"$s voor meer details."
 
 #: libraries/display_export.lib.php:510
 msgid "use this for future exports"
@@ -7377,11 +7374,11 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:131
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the "
-"%sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the %"
+"sPrimeBase XT Home Page%s."
 msgstr ""
-"Documentatie en meer informatie over PBXT kan gevonden worden op de "
-"%sPrimeBase XT home pagina%s."
+"Documentatie en meer informatie over PBXT kan gevonden worden op de %"
+"sPrimeBase XT home pagina%s."
 
 #: libraries/engines/pbxt.lib.php:133
 msgid "Related Links"
@@ -7392,8 +7389,8 @@ msgid "The PrimeBase XT Blog by Paul McCullagh"
 msgstr "De PrimeBase XT Blog door Paul McCullagh"
 
 #: libraries/import.lib.php:190 libraries/insert_edit.lib.php:122
-#: libraries/rte/rte_routines.lib.php:1446 libraries/sql.lib.php:1636
-#: tbl_get_field.php:41
+#: libraries/rte/rte_routines.lib.php:1446 libraries/sql.lib.php:1639
+#: tbl_get_field.php:43
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL gaf een lege resultatenset terug (0 rijen)."
 
@@ -7512,11 +7509,11 @@ msgstr ""
 "Gebruik de TAB-toets om van waarde naar waarde te navigeren of CTRL+pijltjes "
 "om vrijuit te navigeren"
 
-#: libraries/insert_edit.lib.php:1976 libraries/sql.lib.php:1631
+#: libraries/insert_edit.lib.php:1975 libraries/sql.lib.php:1634
 msgid "Showing SQL query"
 msgstr "Toont SQL-query"
 
-#: libraries/insert_edit.lib.php:2001 libraries/sql.lib.php:1611
+#: libraries/insert_edit.lib.php:2000 libraries/sql.lib.php:1614
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "Toegevoegd rijnummer: %1$d"
@@ -7781,20 +7778,20 @@ msgstr "Tabellen:"
 msgid "Views:"
 msgstr "Views:"
 
-#: libraries/navigation/NavigationHeader.class.php:186
+#: libraries/navigation/NavigationHeader.class.php:190
 msgid "Home"
 msgstr "Startpagina"
 
-#: libraries/navigation/NavigationHeader.class.php:199
+#: libraries/navigation/NavigationHeader.class.php:203
 msgid "Log out"
 msgstr "Aanmelden"
 
-#: libraries/navigation/NavigationHeader.class.php:222
+#: libraries/navigation/NavigationHeader.class.php:226
 msgid "phpMyAdmin documentation"
 msgstr "phpMyAdmin-documentatie"
 
 # Zowel "frame" als "window" vertalen naar "venster".
-#: libraries/navigation/NavigationHeader.class.php:246
+#: libraries/navigation/NavigationHeader.class.php:250
 msgid "Reload navigation frame"
 msgstr "Navigatievenster herladen"
 
@@ -8015,7 +8012,7 @@ msgstr "Tabel %s is geschoond"
 msgid "Flush the table (FLUSH)"
 msgstr "De tabel leegmaken (FLUSH)"
 
-#: libraries/operations.lib.php:1246
+#: libraries/operations.lib.php:1246 view_operations.php:125
 msgid "Delete data or table"
 msgstr "Gegevens of tabel verwijderen"
 
@@ -8082,8 +8079,8 @@ msgstr "Welkom bij %s"
 #: libraries/plugins/auth/AuthenticationConfig.class.php:102
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the "
-"%1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the %"
+"1$ssetup script%2$s to create one."
 msgstr ""
 "U heeft waarschijnlijk geen configuratiebestand aangemaakt. Het beste kunt u "
 "%1$ssetup script%2$s gebruiken om een te maken."
@@ -8552,7 +8549,7 @@ msgid "Table:"
 msgstr "Tabel:"
 
 #: libraries/plugins/import/ImportCsv.class.php:63
-#: libraries/plugins/import/ImportOds.class.php:74
+#: libraries/plugins/import/ImportOds.class.php:75
 msgid ""
 "The first line of the file contains the table column names <i>(if this is "
 "unchecked, the first line will become part of the data)</i>"
@@ -8617,17 +8614,17 @@ msgstr "MediaWiki-tabel"
 msgid "Invalid format of mediawiki input on line: <br />%s."
 msgstr "Ongeldig formaat van mediawiki-invoer op regel: <br />%s."
 
-#: libraries/plugins/import/ImportOds.class.php:88
+#: libraries/plugins/import/ImportOds.class.php:89
 msgid "Import percentages as proper decimals <i>(ex. 12.00% to .12)</i>"
 msgstr "Percentages als decimalen importeren <i>(12.00% naar ,12)</i>"
 
-#: libraries/plugins/import/ImportOds.class.php:94
+#: libraries/plugins/import/ImportOds.class.php:95
 msgid "Import currencies <i>(ex. $5.00 to 5.00)</i>"
 msgstr "Valuta importeren <i>($5.00 naar 5.00)</i>"
 
-#: libraries/plugins/import/ImportOds.class.php:172
-#: libraries/plugins/import/ImportXml.class.php:131
-#: libraries/plugins/import/ImportXml.class.php:193
+#: libraries/plugins/import/ImportOds.class.php:173
+#: libraries/plugins/import/ImportXml.class.php:132
+#: libraries/plugins/import/ImportXml.class.php:194
 msgid ""
 "The XML file specified was either malformed or incomplete. Please correct "
 "the issue and try again."
@@ -8635,22 +8632,22 @@ msgstr ""
 "Het XML-bestand was beschadigd of onvolledig. Repareer het bestand en "
 "probeer opnieuw."
 
-#: libraries/plugins/import/ImportOds.class.php:182
+#: libraries/plugins/import/ImportOds.class.php:183
 msgid "Could not parse OpenDocument Spreadsheet!"
 msgstr "Kon OpenDocument-rekenblad niet inlezen!"
 
-#: libraries/plugins/import/ImportShp.class.php:53
+#: libraries/plugins/import/ImportShp.class.php:54
 msgid "ESRI Shape File"
 msgstr "ESRI-vormbestand"
 
-#: libraries/plugins/import/ImportShp.class.php:152
+#: libraries/plugins/import/ImportShp.class.php:148
 #, php-format
 msgid "There was an error importing the ESRI shape file: \"%s\"."
 msgstr ""
 "Er is een fout opgetreden bij het importeren van het ESRI-vormbestand: \"%s"
 "\"."
 
-#: libraries/plugins/import/ImportShp.class.php:208
+#: libraries/plugins/import/ImportShp.class.php:204
 msgid ""
 "You tried to import an invalid file or the imported file contains invalid "
 "data"
@@ -8658,12 +8655,12 @@ msgstr ""
 "U probeerde een ongeldig bestand te importeren, of het geïmporteerde bestand "
 "bevat ongeldige gegevens"
 
-#: libraries/plugins/import/ImportShp.class.php:214
+#: libraries/plugins/import/ImportShp.class.php:210
 #, php-format
 msgid "MySQL Spatial Extension does not support ESRI type \"%s\"."
 msgstr "De extensie MySQL Spatial ondersteunt ESRI-type \"%s\" niet."
 
-#: libraries/plugins/import/ImportShp.class.php:262
+#: libraries/plugins/import/ImportShp.class.php:258
 msgid "The imported file does not contain any data"
 msgstr "Het geïmporteerde bestand bevat geen gegevens"
 
@@ -8675,7 +8672,7 @@ msgstr "SQL-compatibiliteitsmodus:"
 msgid "Do not use <code>AUTO_INCREMENT</code> for zero values"
 msgstr "Gebruik geen <code>AUTO_INCREMENT</code> voor 0-waarden"
 
-#: libraries/plugins/import/ImportXml.class.php:53
+#: libraries/plugins/import/ImportXml.class.php:54
 msgid "XML"
 msgstr "XML"
 
@@ -10258,7 +10255,6 @@ msgid "wildcard"
 msgstr "jokerteken"
 
 #: libraries/server_privileges.lib.php:2069
-#| msgid "database-specific"
 msgid "table-specific"
 msgstr "tabel-specifiek"
 
@@ -10392,8 +10388,8 @@ msgstr "Gebruikers overzicht"
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should "
-"%sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should %"
+"sreload the privileges%s before you continue."
 msgstr ""
 "Opmerking: phpMyAdmin krijgt de rechten voor de gebruikers uit de MySQL-"
 "privilegestabel. De inhoud van deze tabel kan verschillen met de rechten van "
@@ -10544,33 +10540,33 @@ msgstr "Logstatistieken"
 msgid "Selected time range:"
 msgstr "Geselecteerde tijdspanne:"
 
-#: libraries/server_status_monitor.lib.php:103
+#: libraries/server_status_monitor.lib.php:105
 msgid "Only retrieve SELECT,INSERT,UPDATE and DELETE Statements"
 msgstr "Enkel de opdrachten SELECT, INSERT, UPDATE en DELETE opvragen"
 
-#: libraries/server_status_monitor.lib.php:108
+#: libraries/server_status_monitor.lib.php:111
 msgid "Remove variable data in INSERT statements for better grouping"
 msgstr ""
 "Variabelegegevens verwijderen uit INSERT-opdrachten om beter te kunnen "
 "groeperen"
 
-#: libraries/server_status_monitor.lib.php:111
+#: libraries/server_status_monitor.lib.php:115
 msgid "Choose from which log you want the statistics to be generated from."
 msgstr "Kies het logbestand waarvan u de statistieken wil genereren."
 
-#: libraries/server_status_monitor.lib.php:114
+#: libraries/server_status_monitor.lib.php:119
 msgid "Results are grouped by query text."
 msgstr "Resultaten worden gegroepeerd door de tekst van de SQL-query."
 
-#: libraries/server_status_monitor.lib.php:118
+#: libraries/server_status_monitor.lib.php:123
 msgid "Query analyzer"
 msgstr "Query-analyser"
 
-#: libraries/server_status_monitor.lib.php:135
+#: libraries/server_status_monitor.lib.php:140
 msgid "Monitor Instructions"
 msgstr "Bewakingsinstructies"
 
-#: libraries/server_status_monitor.lib.php:137
+#: libraries/server_status_monitor.lib.php:142
 msgid ""
 "The phpMyAdmin Monitor can assist you in optimizing the server configuration "
 "and track down time intensive queries. For the latter you will need to set "
@@ -10585,7 +10581,7 @@ msgstr ""
 "dat general_log veel gegevens genereert en dat de belasting van de server "
 "tot 15% kan stijgen."
 
-#: libraries/server_status_monitor.lib.php:149
+#: libraries/server_status_monitor.lib.php:154
 msgid ""
 "Unfortunately your Database server does not support logging to table, which "
 "is a requirement for analyzing the database logs with phpMyAdmin. Logging to "
@@ -10597,11 +10593,11 @@ msgstr ""
 "Loggen naar een tabel wordt ondersteund vanaf MySQL 5.1.6. U kunt wel de "
 "grafiekfunctionaliteit gebruiken."
 
-#: libraries/server_status_monitor.lib.php:164
+#: libraries/server_status_monitor.lib.php:169
 msgid "Using the monitor:"
 msgstr "Gebruik van de monitor:"
 
-#: libraries/server_status_monitor.lib.php:167
+#: libraries/server_status_monitor.lib.php:172
 msgid ""
 "Your browser will refresh all displayed charts in a regular interval. You "
 "may add charts and change the refresh rate under 'Settings', or remove any "
@@ -10612,7 +10608,7 @@ msgstr ""
 "'Instellingen', of gelijk welke grafiek verwijderen via het tandwielicoon "
 "bij iedere grafiek."
 
-#: libraries/server_status_monitor.lib.php:173
+#: libraries/server_status_monitor.lib.php:178
 msgid ""
 "To display queries from the logs, select the relevant time span on any chart "
 "by holding down the left mouse button and panning over the chart. Once "
@@ -10625,101 +10621,101 @@ msgstr ""
 "geladen, daar kunt u op één van de SELECT-statements klikken om deze verder "
 "te analyseren."
 
-#: libraries/server_status_monitor.lib.php:183
+#: libraries/server_status_monitor.lib.php:188
 msgid "Please note:"
 msgstr "Hou rekening met:"
 
-#: libraries/server_status_monitor.lib.php:186
+#: libraries/server_status_monitor.lib.php:191
 msgid ""
 "Enabling the general_log may increase the server load by 5-15%. Also be "
 "aware that generating statistics from the logs is a load intensive task, so "
 "it is advisable to select only a small time span and to disable the "
 "general_log and empty its table once monitoring is not required any more."
 msgstr ""
-"Het inschakelen van de general_log kan de serverbelasting verhogen met "
-"5-15%. Wees er ook bewust van dat het genereren van statistieken uit de "
+"Het inschakelen van de general_log kan de serverbelasting verhogen met 5-"
+"15%. Wees er ook bewust van dat het genereren van statistieken uit de "
 "logboeken een belastende taak is, daarom is het aan te raden om alleen een "
 "kleine periode te selecteren, en de general_log uit te schakelen en de tabel "
 "te legen zodra het monitoren niet meer nodig is."
 
-#: libraries/server_status_monitor.lib.php:207
-#: libraries/server_status_monitor.lib.php:314
+#: libraries/server_status_monitor.lib.php:213
+#: libraries/server_status_monitor.lib.php:323
 msgid "Add chart"
 msgstr "Een grafiek toevoegen"
 
-#: libraries/server_status_monitor.lib.php:211
+#: libraries/server_status_monitor.lib.php:219
 msgid "Preset chart"
 msgstr "Grafiek instellen"
 
-#: libraries/server_status_monitor.lib.php:216
+#: libraries/server_status_monitor.lib.php:224
 msgid "Status variable(s)"
 msgstr "Statusvariabele(n)"
 
-#: libraries/server_status_monitor.lib.php:219
+#: libraries/server_status_monitor.lib.php:227
 msgid "Select series:"
 msgstr "Selecteer series:"
 
-#: libraries/server_status_monitor.lib.php:221
+#: libraries/server_status_monitor.lib.php:229
 msgid "Commonly monitored"
 msgstr "Algemeen bewaakt"
 
-#: libraries/server_status_monitor.lib.php:237
+#: libraries/server_status_monitor.lib.php:245
 msgid "or type variable name:"
 msgstr "of geef variabelenaam op:"
 
-#: libraries/server_status_monitor.lib.php:244
+#: libraries/server_status_monitor.lib.php:252
 msgid "Display as differential value"
 msgstr "Verschil weergeven"
 
-#: libraries/server_status_monitor.lib.php:247
+#: libraries/server_status_monitor.lib.php:256
 msgid "Apply a divisor"
 msgstr "Een scheiding toepassen"
 
-#: libraries/server_status_monitor.lib.php:255
+#: libraries/server_status_monitor.lib.php:264
 msgid "Append unit to data values"
 msgstr "Eenheid toevoegen aan gegevenswaarden"
 
-#: libraries/server_status_monitor.lib.php:261
+#: libraries/server_status_monitor.lib.php:270
 msgid "Add this series"
 msgstr "Deze serie toevoegen"
 
-#: libraries/server_status_monitor.lib.php:263
+#: libraries/server_status_monitor.lib.php:272
 msgid "Clear series"
 msgstr "Reeks leegmaken"
 
-#: libraries/server_status_monitor.lib.php:266
+#: libraries/server_status_monitor.lib.php:275
 msgid "Series in Chart:"
 msgstr "Series in grafiek:"
 
-#: libraries/server_status_monitor.lib.php:287
+#: libraries/server_status_monitor.lib.php:296
 msgid "Start Monitor"
 msgstr "Start bewaking"
 
-#: libraries/server_status_monitor.lib.php:294
+#: libraries/server_status_monitor.lib.php:303
 msgid "Instructions/Setup"
 msgstr "Instructies/Setup"
 
-#: libraries/server_status_monitor.lib.php:298
+#: libraries/server_status_monitor.lib.php:307
 msgid "Done dragging (rearranging) charts"
 msgstr "Klaar met slepen (herschikken) van de grafieken"
 
-#: libraries/server_status_monitor.lib.php:317
+#: libraries/server_status_monitor.lib.php:326
 msgid "Enable charts dragging"
 msgstr "Grafieken verslepen ingeschakeld"
 
-#: libraries/server_status_monitor.lib.php:321
+#: libraries/server_status_monitor.lib.php:330
 msgid "Refresh rate"
 msgstr "Vernieuwingsfrequentie"
 
-#: libraries/server_status_monitor.lib.php:330
+#: libraries/server_status_monitor.lib.php:339
 msgid "Chart columns"
 msgstr "Grafiekkolommen"
 
-#: libraries/server_status_monitor.lib.php:346
+#: libraries/server_status_monitor.lib.php:355
 msgid "Chart arrangement"
 msgstr "Grafiekschikking"
 
-#: libraries/server_status_monitor.lib.php:349
+#: libraries/server_status_monitor.lib.php:358
 msgid ""
 "The arrangement of the charts is stored to the browsers local storage. You "
 "may want to export it if you have a complicated set up."
@@ -10728,7 +10724,7 @@ msgstr ""
 "browser. Eventueel kan u dit exporteren, als u een ingewikkelde configuratie "
 "heeft."
 
-#: libraries/server_status_monitor.lib.php:363
+#: libraries/server_status_monitor.lib.php:372
 msgid "Reset to default"
 msgstr "Standaardwaarde herstellen"
 
@@ -11623,24 +11619,27 @@ msgstr "Bladwijzer niet aangemaakt"
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr "Bladwijzer \"%s\" wordt gebruikt als standaard browsequery."
 
-#: libraries/sql.lib.php:1628
+#: libraries/sql.lib.php:1631
 msgid "Showing as PHP code"
 msgstr "Getoond als PHP-code"
 
-#: libraries/sql.lib.php:1633
+#: libraries/sql.lib.php:1636
 msgid "Validated SQL"
 msgstr "Gevalideerde SQL"
 
-#: libraries/sql.lib.php:1911
-#, php-format
+#: libraries/sql.lib.php:1914
+#| msgid ""
+#| "Table %s does not contain a unique column. Grid edit, checkbox, Edit, "
+#| "Copy and Delete features are not available."
 msgid ""
-"Table %s does not contain a unique column. Grid edit, checkbox, Edit, Copy "
-"and Delete features are not available."
+"Current selection does not contain a unique column. Grid edit, checkbox, "
+"Edit, Copy and Delete features are not available."
 msgstr ""
-"Tabel %s bevat geen unieke kolom. Functies zoals rasterbewerkingen, "
-"checkboxen, Bewerken, Kopiëren en Verwijderen, zijn niet beschikbaar."
+"De huidige selectie bevat geen unieke kolom. Functies zoals "
+"rasterbewerkingen, checkboxen, Bewerken, Kopiëren en Verwijderen, zijn niet "
+"beschikbaar."
 
-#: libraries/sql.lib.php:1949
+#: libraries/sql.lib.php:1951
 #, php-format
 msgid "Problems with indexes of table `%s`"
 msgstr "Problemen met de indexen van de tabel `%s`"
@@ -11753,8 +11752,8 @@ msgid ""
 "installed the necessary PHP extensions as described in the %sdocumentation%s."
 msgstr ""
 "De SQL-validatie kon niet worden geïnitialiseerd. Controleer of u de nodige "
-"PHP-uitbreidingen heeft geïnstalleerd, zoals beschreven in de %sdocumentatie"
-"%s."
+"PHP-uitbreidingen heeft geïnstalleerd, zoals beschreven in de %sdocumentatie%"
+"s."
 
 #: libraries/structure.lib.php:68 tbl_operations.php:312
 #, php-format
@@ -11770,6 +11769,7 @@ msgid "Tracking is not active."
 msgstr "Tracking is niet actief."
 
 #: libraries/structure.lib.php:129 tbl_operations.php:330
+#: view_operations.php:117
 #, php-format
 msgid "View %s has been dropped"
 msgstr "View %s is verwijderd"
@@ -11955,7 +11955,7 @@ msgid "Effective"
 msgstr "Effectief"
 
 #: libraries/structure.lib.php:2380 libraries/tbl_indexes.lib.php:56
-#: tbl_addfield.php:96
+#: tbl_addfield.php:84
 #, php-format
 msgid "Table %1$s has been altered successfully"
 msgstr "Tabel %1$s is bijgewerkt"
@@ -11965,11 +11965,11 @@ msgstr "Tabel %1$s is bijgewerkt"
 msgid "Query error"
 msgstr "Fout in query"
 
-#: libraries/structure.lib.php:2524
+#: libraries/structure.lib.php:2526
 msgid "The columns have been moved successfully."
 msgstr "De geselecteerde kolommen zijn met succes verplaatst."
 
-#: libraries/structure.lib.php:2572
+#: libraries/structure.lib.php:2574
 #, php-format
 msgid "The column name '%s' is a MySQL reserved keyword."
 msgstr "De kolomnaam '%s' is een gereserveerd MySQL sleutelwoord."
@@ -12160,15 +12160,15 @@ msgstr "-- Geen --"
 msgid "Display GIS Visualization"
 msgstr "GIS-visualisatie tonen"
 
-#: libraries/tbl_gis_visualization.lib.php:305
+#: libraries/tbl_gis_visualization.lib.php:306
 msgid "Redraw"
 msgstr "Hertekenen"
 
-#: libraries/tbl_gis_visualization.lib.php:325
+#: libraries/tbl_gis_visualization.lib.php:327
 msgid "File name"
 msgstr "Bestandsnaam"
 
-#: libraries/tbl_gis_visualization.lib.php:341 setup/frames/config.inc.php:41
+#: libraries/tbl_gis_visualization.lib.php:343 setup/frames/config.inc.php:41
 #: setup/frames/index.inc.php:275
 msgid "Download"
 msgstr "Download"
@@ -12908,10 +12908,10 @@ msgid ""
 msgstr ""
 "Deze %soptie%s zou uitgeschakeld moeten zijn gezien het de mogelijkheid "
 "geeft aan kwaadwillenden om op grote schaal aanmeldinspogingen uit te voeren "
-"op willekeurige MySQL-servers. Indien toch noodzakelijk gebruik dan "
-"%strusted proxies list%s. Echter, IP-adres gebaseerde beveiliging is "
-"mogelijk niet betrouwbaar wanneer uw IP-adres uit het netwerk van uw "
-"provider komt waar ook vele andere klanten gebruik van maken."
+"op willekeurige MySQL-servers. Indien toch noodzakelijk gebruik dan %"
+"strusted proxies list%s. Echter, IP-adres gebaseerde beveiliging is mogelijk "
+"niet betrouwbaar wanneer uw IP-adres uit het netwerk van uw provider komt "
+"waar ook vele andere klanten gebruik van maken."
 
 #: setup/lib/index.lib.php:225
 msgid ""
@@ -13005,14 +13005,14 @@ msgid ""
 "You set the [kbd]config[/kbd] authentication type and included username and "
 "password for auto-login, which is not a desirable option for live hosts. "
 "Anyone who knows or guesses your phpMyAdmin URL can directly access your "
-"phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or "
-"[kbd]http[/kbd]."
+"phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or [kbd]"
+"http[/kbd]."
 msgstr ""
 "U gebruikt het [kbd]config[/kbd]-authenticatietype en heeft de te gebruiken "
 "gebruikersnaam en wachtwoord hierbij opgegeven voor automatisch aanmelden. "
 "Dit is niet aanbevolen voor productiesystemen gezien iemand die het URL van "
-"phpMyAdmin achterhaald direct toegang heeft. Gebruik het %sauthenticatietype"
-"%s [kbd]cookie[/kbd] of [kbd]http[/kbd]."
+"phpMyAdmin achterhaald direct toegang heeft. Gebruik het %sauthenticatietype%"
+"s [kbd]cookie[/kbd] of [kbd]http[/kbd]."
 
 #: setup/lib/index.lib.php:284
 #, php-format
@@ -13070,7 +13070,7 @@ msgid "No numeric columns present in the table to plot."
 msgstr ""
 "Geen numerieke kolommen aanwezig om weer te kunnen geven in de grafiek."
 
-#: tbl_create.php:30 tbl_get_field.php:23
+#: tbl_create.php:30 tbl_get_field.php:25
 #, php-format
 msgid "'%s' database does not exist."
 msgstr "Databank '%s' bestaat niet."
@@ -13084,7 +13084,7 @@ msgstr "Tabel %s bestaat reeds!"
 msgid "View dump (schema) of table"
 msgstr "Een dump (schema) van tabel bekijken"
 
-#: tbl_get_field.php:30
+#: tbl_get_field.php:32
 msgid "Invalid table name"
 msgstr "Ongeldige tabelnaam"
 
@@ -13147,9 +13147,14 @@ msgstr "Het profiel is aangepast."
 msgid "VIEW name"
 msgstr "VIEW-naam"
 
-#: view_operations.php:91
+#: view_operations.php:96
 msgid "Rename view to"
 msgstr "View hernoemen naar"
+
+#: view_operations.php:131
+#| msgid "Delete the table (DROP)"
+msgid "Delete the view (DROP)"
+msgstr "De VIEW verwijderen (DROP)"
 
 #: libraries/advisory_rules.txt:49
 msgid "Uptime below one day"
@@ -13512,8 +13517,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:179
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s"
-"%%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s%"
+"%. It should be above 80%%"
 msgstr ""
 "De huidige verhouding van vrij querycachegeheugen tot de totale "
 "querycachegrootte is %s%%. Dit zou meer dan 80%% moeten zijn"
@@ -13670,8 +13675,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:216
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than "
-"10%%."
+"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
+"%."
 msgstr ""
 "%s%% van alle sorteeracties veroorzaken tijdelijke tabellen, deze waarde zou "
 "lager moeten zijn dan 10%%."
@@ -14761,9 +14766,9 @@ msgstr "concurrent_insert is ingesteld op 0"
 
 #~ msgid ""
 #~ "When setting this to [kbd]nested[/kbd], the alias of the table name is "
-#~ "only used to split/nest the tables according to the "
-#~ "$cfg['LeftFrameTableSeparator'] directive, so only the folder is called "
-#~ "like the alias, the table name itself stays unchanged"
+#~ "only used to split/nest the tables according to the $cfg"
+#~ "['LeftFrameTableSeparator'] directive, so only the folder is called like "
+#~ "the alias, the table name itself stays unchanged"
 #~ msgstr ""
 #~ "Indien ingesteld op [kbd]nested[/kbd] wordt de opmerking enkel op basis "
 #~ "van $cfg['LeftFrameTableSeparator'] gesplitst. Hierdoor krijgt enkel de "

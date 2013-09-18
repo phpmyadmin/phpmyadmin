@@ -18,9 +18,10 @@ phpMyAdmin - ChangeLog
 + [interface] rfe #1429 Better suggestion for database name
 + rfe #1433 Support relations with ndbcluster
 - bug #3962 Proper escaping of JSON export
-+ rfe #1328 Optional ReCAPTCHA support
++ rfe #1382 Optional ReCAPTCHA support
 + rfe #1434 Improvements to the table browsing navigation bar
 + rfe #1233 and rfe #1283 Improvements to Relation View interface
++ rfe #1397 Use fractional seconds in time, datetime, and timestamp
 + rfe #175 Allow cross-database relations
 - [core] Dropped support for PHP 5.2.
 + rfe #487 and rfe #1405 Find and Replacing column wise
@@ -38,6 +39,10 @@ phpMyAdmin - ChangeLog
 + rfe #1451 HTML5 input tag enhancements
 - bug #1193 Text field too small when editing a row longer than $cfg['LimitChars']
 + Privileges tab for table level
+- bug #4068 Headline in operations not readable in IE10
+- bug #4000 "Table does not contain unique column" message appears after adding a unique column
+
+4.0.8.0 (not yet released)
 
 4.0.7.0 (not yet released)
 - bug #3993 Sorting in database overview with statistics doesn't work
@@ -47,6 +52,12 @@ phpMyAdmin - ChangeLog
 - bug #3997 Error handling in case MySQL extension is missing
 - bug #4089 Moving Columns will alter column definition
 - bug #4091 Insert ignore option does not work
+- bug #4090 Downloading BLOB downloads page template
+- bug #4092 Clicking on table name in view of information_schema redirects to wrong page
+- bug #4079 Copy Table Add AUTO_INCREMENT value checkbox not working
+- bug #4088 MySQL server version at index.php incorrect w/ controlhost
+- bug #4001 Import error: Class 'ImportOds' not found
+- bug #3986 Missing DROP VIEW button
 
 4.0.6.0 (2013-09-05)
 - bug #4036 Call to undefined function mb_detect_encoding (clarify the doc)

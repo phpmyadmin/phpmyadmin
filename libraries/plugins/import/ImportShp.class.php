@@ -12,6 +12,7 @@ if (! defined('PHPMYADMIN')) {
 
 // Drizzle does not support GIS data types
 if (PMA_DRIZZLE) {
+    $GLOBALS['skip_import'] = true;
     return;
 }
 
@@ -80,11 +81,6 @@ class ImportShp extends ImportPlugin
     {
         global $db, $error, $finished, $compression,
             $import_file, $local_import_file, $message;
-
-        if ((int) ini_get('memory_limit') < 512) {
-            @ini_set('memory_limit', '512M');
-        }
-        @set_time_limit(300);
 
         $GLOBALS['finished'] = false;
 
@@ -213,7 +209,7 @@ class ImportShp extends ImportPlugin
                 $message = PMA_Message::error(
                     __('MySQL Spatial Extension does not support ESRI type "%s".')
                 );
-                $message->addParam($param);
+                $message->addParam($esri_types[$shp->shapeType]);
             }
             return;
         }

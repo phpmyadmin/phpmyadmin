@@ -1911,12 +1911,11 @@ function PMA_getMessageIfMissingColumnIndex($table, $db, $editable, $disp_mode)
     if (!empty($table) && ($GLOBALS['dbi']->isSystemSchema($db) || !$editable)) {
         $missing_unique_column_msg = PMA_message::notice(
             __(
-                'Table %s does not contain a unique column.'
+                'Current selection does not contain a unique column.'
                 . ' Grid edit, checkbox, Edit, Copy and Delete features'
                 . ' are not available.'
             )
         );
-        $missing_unique_column_msg->addParam($table);
     } else {
         $missing_unique_column_msg = null;
     }
