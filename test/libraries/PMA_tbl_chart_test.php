@@ -44,7 +44,7 @@ class PMA_TblChartTest extends PHPUnit_Framework_TestCase
         $GLOBALS['pmaThemeImage'] = 'theme/';
         $GLOBALS['cfg']['ServerDefault'] = "server";
         $GLOBALS['cfg']['ShowHint'] = true;
-        
+
         $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
@@ -55,7 +55,7 @@ class PMA_TblChartTest extends PHPUnit_Framework_TestCase
         $_SESSION['PMA_Theme'] = PMA_Theme::load('./themes/pmahomme');
         $_SESSION['PMA_Theme'] = new PMA_Theme();
     }
-    
+
     /**
      * Tests for PMA_getHtmlForPmaTokenAndUrlQuery() method.
      *
@@ -66,7 +66,7 @@ class PMA_TblChartTest extends PHPUnit_Framework_TestCase
     {
         $url_query = "url_query";
         $_SESSION[' PMA_token '] = "PMA_token";
-        
+
         $html = PMA_getHtmlForPmaTokenAndUrlQuery($url_query);
 
         $this->assertContains(
@@ -78,7 +78,7 @@ class PMA_TblChartTest extends PHPUnit_Framework_TestCase
             $html
         );
     }
-    
+
     /**
      * Tests for PMA_getHtmlForChartTypeOptions() method.
      *
@@ -86,7 +86,7 @@ class PMA_TblChartTest extends PHPUnit_Framework_TestCase
      * @test
      */
     public function testPMAGetHtmlForChartTypeOptions()
-    {  
+    {
         $html = PMA_getHtmlForChartTypeOptions();
 
         $this->assertContains(
@@ -118,7 +118,7 @@ class PMA_TblChartTest extends PHPUnit_Framework_TestCase
             $html
         );
     }
-    
+
     /**
      * Tests for PMA_getHtmlForStackedOption() method.
      *
@@ -134,7 +134,7 @@ class PMA_TblChartTest extends PHPUnit_Framework_TestCase
             $html
         );
     }
-    
+
     /**
      * Tests for PMA_getHtmlForChartXAxisOptions() method.
      *
@@ -148,14 +148,14 @@ class PMA_TblChartTest extends PHPUnit_Framework_TestCase
             "x2" => "value2",
         );
         $yaxis = null;
-        
+
         $html = PMA_getHtmlForChartXAxisOptions($keys, $yaxis);
 
         $this->assertContains(
             __('X-Axis:'),
             $html
         );
-        
+
         //x-Axis values
         $this->assertContains(
             "x1",
