@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-09-19 06:34-0400\n"
-"PO-Revision-Date: 2013-09-18 10:04+0200\n"
+"PO-Revision-Date: 2013-09-19 14:49+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: Dutch <http://l10n.cihar.com/projects/phpmyadmin/master/nl/>\n"
 "Language: nl\n"
@@ -7838,12 +7838,11 @@ msgid "New"
 msgstr "Nieuwe kolom aanmaken"
 
 #: libraries/navigation/Nodes/Node_Database_Container.class.php:31
-#, fuzzy
 #| msgctxt "Create new column"
 #| msgid "New"
 msgctxt "Create new database"
 msgid "New"
-msgstr "Nieuwe kolom aanmaken"
+msgstr "Nieuw"
 
 #: libraries/navigation/Nodes/Node_Event_Container.class.php:37
 msgctxt "Create new event"
