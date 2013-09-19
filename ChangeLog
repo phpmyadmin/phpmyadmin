@@ -44,6 +44,7 @@ phpMyAdmin - ChangeLog
 
 4.0.8.0 (not yet released)
 - bug #3988 Rename view is not working
+- bug #4041 Interaction between linkified fields and grid editing
 
 4.0.7.0 (not yet released)
 - bug #3993 Sorting in database overview with statistics doesn't work
