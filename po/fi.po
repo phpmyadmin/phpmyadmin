@@ -3,15 +3,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-09-17 11:03-0400\n"
+"POT-Creation-Date: 2013-09-19 06:34-0400\n"
 "PO-Revision-Date: 2013-08-23 11:35+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Finnish <http://l10n.cihar.com/projects/phpmyadmin/master/fi/"
 ">\n"
+"Language: fi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: fi\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 1.7-dev\n"
 
@@ -558,7 +558,7 @@ msgstr "Lisää geometria"
 #: libraries/tbl_columns_definition_form.lib.php:174
 #: libraries/tbl_tracking.lib.php:386 libraries/tbl_tracking.lib.php:454
 #: pmd_pdf.php:158 prefs_manage.php:272 prefs_manage.php:322
-#: view_create.php:273 view_operations.php:104
+#: view_create.php:273 view_operations.php:105
 msgid "Go"
 msgstr "Siirry"
 
@@ -577,11 +577,11 @@ msgstr ""
 #: import.php:109
 #, php-format
 msgid ""
-"You probably tried to upload a file that is too large. Please refer to %"
-"sdocumentation%s for a workaround for this limit."
+"You probably tried to upload a file that is too large. Please refer to "
+"%sdocumentation%s for a workaround for this limit."
 msgstr ""
-"Yritit ehkä lähettää palvelimelle liian suurta tiedostoa. Katso %sohjeista%"
-"s, kuinka tämän rajoituksen voi poistaa."
+"Yritit ehkä lähettää palvelimelle liian suurta tiedostoa. Katso %sohjeista"
+"%s, kuinka tämän rajoituksen voi poistaa."
 
 #: import.php:270 import.php:536
 msgid "Showing bookmark"
@@ -2256,8 +2256,8 @@ msgstr "Merkkijonon muotoilu epäonnistui '%s' säännöllä."
 msgid ""
 "Invalid rule declaration on line %1$s, expected line %2$s of previous rule."
 msgstr ""
-"Epäkelpo säännön määrittely rivillä %1$s, odotti edellisen säännön riviä %2"
-"$s."
+"Epäkelpo säännön määrittely rivillä %1$s, odotti edellisen säännön riviä "
+"%2$s."
 
 #: libraries/Advisor.class.php:415
 #, php-format
@@ -2660,11 +2660,11 @@ msgstr "lauseessa"
 #: libraries/DisplayResults.class.php:4904 libraries/structure.lib.php:653
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 msgstr ""
-"Tässä näkymässä on vähintään tämän luvun verran rivejä. Katso lisätietoja %"
-"sohjeista%s."
+"Tässä näkymässä on vähintään tämän luvun verran rivejä. Katso lisätietoja "
+"%sohjeista%s."
 
 #: libraries/DisplayResults.class.php:4917
 #, fuzzy, php-format
@@ -3468,20 +3468,20 @@ msgstr ""
 
 #: libraries/Types.class.php:309
 msgid ""
-"A small floating-point number, allowable values are -3.402823466E+38 to -"
-"1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
+"A small floating-point number, allowable values are -3.402823466E+38 to "
+"-1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
 msgstr ""
-"Pieni liukuluku, mahdolliset arvot ovat välillä -3.402823466E+38 - -"
-"1.175494351E-38, 0 ja 1.175494351E-38 - 3.402823466E+38"
+"Pieni liukuluku, mahdolliset arvot ovat välillä -3.402823466E+38 - "
+"-1.175494351E-38, 0 ja 1.175494351E-38 - 3.402823466E+38"
 
 #: libraries/Types.class.php:311
 msgid ""
-"A double-precision floating-point number, allowable values are -"
-"1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
+"A double-precision floating-point number, allowable values are "
+"-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
 "2.2250738585072014E-308 to 1.7976931348623157E+308"
 msgstr ""
-"Kaksoistarkkuuksinen liukuluku, mahdolliset arvot ovat välillä -"
-"1.7976931348623157E+308 - -2.2250738585072014E-308, 0, ja "
+"Kaksoistarkkuuksinen liukuluku, mahdolliset arvot ovat välillä "
+"-1.7976931348623157E+308 - -2.2250738585072014E-308, 0, ja "
 "2.2250738585072014E-308 - 1.7976931348623157E+308"
 
 #: libraries/Types.class.php:313
@@ -6733,8 +6733,8 @@ msgstr ""
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Tämä arvo on tukittu %1$sstrftime%2$s mukaan, joten voi käyttää "
 "ajanmuodostostusmerkkijonoja. Lisäksi tapahtuu seuraavat muutokset: %3$s. "
@@ -7240,8 +7240,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:131
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the %"
-"sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the "
+"%sPrimeBase XT Home Page%s."
 msgstr ""
 
 #: libraries/engines/pbxt.lib.php:133
@@ -7730,6 +7730,11 @@ msgctxt "Create new column"
 msgid "New"
 msgstr ""
 
+#: libraries/navigation/Nodes/Node_Database_Container.class.php:31
+msgctxt "Create new database"
+msgid "New"
+msgstr ""
+
 #: libraries/navigation/Nodes/Node_Event_Container.class.php:37
 msgctxt "Create new event"
 msgid "New"
@@ -7911,7 +7916,7 @@ msgstr "Taulun %s välimuisti on tyhjennetty"
 msgid "Flush the table (FLUSH)"
 msgstr "Tyhjennä taulun välimuisti (\"FLUSH\")"
 
-#: libraries/operations.lib.php:1246 view_operations.php:125
+#: libraries/operations.lib.php:1246 view_operations.php:126
 #, fuzzy
 #| msgid "Delete tracking data for this table"
 msgid "Delete data or table"
@@ -7984,11 +7989,11 @@ msgstr "Tervetuloa, toivottaa %s"
 #: libraries/plugins/auth/AuthenticationConfig.class.php:102
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 msgstr ""
-"Et liene luonut asetustiedostoa. Voit luoda asetustiedoston %1"
-"$sasetusskriptillä%2$s."
+"Et liene luonut asetustiedostoa. Voit luoda asetustiedoston "
+"%1$sasetusskriptillä%2$s."
 
 #: libraries/plugins/auth/AuthenticationConfig.class.php:122
 msgid ""
@@ -10459,8 +10464,8 @@ msgstr "Käyttäjien yleiskatsaus"
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 msgstr ""
 "Huom: PhpMyAdmin hakee käyttäjien käyttöoikeudet suoraan MySQL-palvelimen "
 "käyttöoikeustauluista. Näiden taulujen sisältö saattaa poiketa palvelimen "
@@ -11887,7 +11892,7 @@ msgid "Tracking is not active."
 msgstr "Seuranta ei ole käytössä."
 
 #: libraries/structure.lib.php:129 tbl_operations.php:330
-#: view_operations.php:117
+#: view_operations.php:118
 #, php-format
 msgid "View %s has been dropped"
 msgstr "Näkymä %s on poistettu"
@@ -13441,7 +13446,7 @@ msgstr "VIEW-arvon nimi"
 msgid "Rename view to"
 msgstr "Nimeä taulu uudelleen"
 
-#: view_operations.php:131
+#: view_operations.php:132
 #, fuzzy
 #| msgid "Go to database"
 msgid "Delete the view (DROP)"
@@ -13794,8 +13799,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:179
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s%"
-"%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s"
+"%%. It should be above 80%%"
 msgstr ""
 
 #: libraries/advisory_rules.txt:181
@@ -13930,8 +13935,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:216
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
-"%."
+"%s%% of all sorts cause temporary tables, this value should be lower than "
+"10%%."
 msgstr ""
 
 #: libraries/advisory_rules.txt:218
@@ -15036,8 +15041,8 @@ msgstr "concurrent_insert on asetettu 0"
 #~ "No description is available for this transformation.<br />Please ask the "
 #~ "author what %s does."
 #~ msgstr ""
-#~ "Tälle muunnokselle ei ole saatavilla kuvausta.<br />Kysy tekijältä, mitä %"
-#~ "s tekee."
+#~ "Tälle muunnokselle ei ole saatavilla kuvausta.<br />Kysy tekijältä, mitä "
+#~ "%s tekee."
 
 #~ msgid ""
 #~ "MIME types printed in italics do not have a separate transformation "
@@ -15163,8 +15168,8 @@ msgstr "concurrent_insert on asetettu 0"
 #~ msgid ""
 #~ "Are you sure you want to disable all BLOB references for database %s?"
 #~ msgstr ""
-#~ "Haluatko varmasti poistaa käytöstä kaikki BLOB-viittaukset tietokannasta %"
-#~ "s?"
+#~ "Haluatko varmasti poistaa käytöstä kaikki BLOB-viittaukset tietokannasta "
+#~ "%s?"
 
 #, fuzzy
 #~ msgid "Unknown error while uploading."
