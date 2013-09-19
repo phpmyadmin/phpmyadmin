@@ -53,9 +53,9 @@ $tables = array();
 
 // When used in Nested table group mode,
 // only show tables matching the given groupname
-if (PMA_isValid($tbl_group)) {
+if (PMA_isValid($_REQUEST['tbl_group'])) {
     $tbl_group_sql = ' LIKE "'
-        . PMA_Util::escapeMysqlWildcards($tbl_group)
+        . PMA_Util::escapeMysqlWildcards($_REQUEST['tbl_group'])
         . '%"';
 } else {
     $tbl_group_sql = '';
@@ -100,8 +100,8 @@ if (true === $cfg['SkipLockedTables']) {
                             $sts_tmp['Type'] =& $sts_tmp['Engine'];
                         }
 
-                        if (! empty($tbl_group)
-                            && ! preg_match('@' . preg_quote($tbl_group, '@') . '@i', $sts_tmp['Comment'])
+                        if (! empty($_REQUEST['tbl_group'])
+                            && ! preg_match('@' . preg_quote($_REQUEST['tbl_group'], '@') . '@i', $sts_tmp['Comment'])
                         ) {
                             continue;
                         }
@@ -155,10 +155,10 @@ if (! isset($sot_ready)) {
         }
     }
 
-    if (! empty($tbl_group)) {
+    if (! empty($_REQUEST['tbl_group'])) {
         // only tables for selected group
         $tables = PMA_DBI_get_tables_full(
-            $db, $tbl_group, true, null, 0, false, $sort, $sort_order
+            $db, $_REQUEST['tbl_group'], true, null, 0, false, $sort, $sort_order
         );
     } else {
         // all tables in db
