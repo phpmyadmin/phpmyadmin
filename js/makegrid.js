@@ -361,7 +361,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
          * Send column preferences (column order and visibility) to the server.
          */
         sendColPrefs: function() {
-            if ($(g.t).is('.ajax')) {   // only send preferences if ajax class 
+            if ($(g.t).is('.ajax')) {   // only send preferences if ajax class
                 var post_params = {
                     ajax_request: true,
                     db: g.db,
@@ -716,12 +716,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                 if ($td.find('a').length > 0) {
                     var gotoLink = document.createElement('div');
                     gotoLink.className = 'goto_link';
-                    $(gotoLink).append(g.gotoLinkText + ': ')
-                        .append($td.find('a').clone().click(
-                            function (event) {
-                                event.preventDefault();
-                                window.open(this.href);
-                            }));
+                    $(gotoLink).append(g.gotoLinkText + ': ').append($td.find('a').clone());
                     $editArea.append(gotoLink);
                 }
 
@@ -983,13 +978,13 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
 
                     // force to restore modified $input_field value after adding datepicker
                     // (after adding a datepicker, the input field doesn't display the time anymore, only the date)
-                    if (is_null 
-                        || current_datetime_value == '0000-00-00' 
+                    if (is_null
+                        || current_datetime_value == '0000-00-00'
                         || current_datetime_value == '0000-00-00 00:00:00'
                     ) {
                         $input_field.val(current_datetime_value);
                     } else {
-                        $editArea.datetimepicker('setDate', current_datetime_value);                        
+                        $editArea.datetimepicker('setDate', current_datetime_value);
                     }
                     $editArea.append('<div class="cell_edit_hint">' + g.cellEditHint + '</div>');
 
@@ -1212,7 +1207,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                         }
                         if (data.success == true) {
                             PMA_ajaxShowMessage(data.message);
-                            
+
                             // update where_clause related data in each edited row
                             $('td.to_be_saved').parents('tr').each(function() {
                                 var new_clause = $(this).data('new_clause');
@@ -1589,7 +1584,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
 
             function startGridEditing(e, cell) {
                 if (g.isCellEditActive) {
-                    g.saveOrPostEditedCell();                    
+                    g.saveOrPostEditedCell();
                 } else {
                     g.showEditCell(cell);
                 }
@@ -1627,7 +1622,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
             $(t).find('td.data.click2')
                 .click(function(e) {
                     $cell = $(this);
-                    // In the case of relational link, We want single click on the link 
+                    // In the case of relational link, We want single click on the link
                     // to goto the link and double click to start grid-editing.
                     var $link = $(e.target);
                     if ($link.is('.grid_edit.relation a')) {
@@ -1637,7 +1632,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                         clicks = (clicks == null) ? 1 : clicks + 1;
 
                         if (clicks == 1) {
-                            // if there are no previous clicks, 
+                            // if there are no previous clicks,
                             // start the single click timer
                             timer = setTimeout(function() {
                                 // temporarily remove ajax class so the page loader will not handle it,
@@ -1807,13 +1802,13 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
             g.showSortHint = true;
             $(t).find("th.draggable").tooltip("option", {
                 content: g.updateHint()
-            }); 
+            });
         })
         .mouseleave(function(e) {
             g.showSortHint = false;
             $(t).find("th.draggable").tooltip("option", {
                 content: g.updateHint()
-            }); 
+            });
         });
 
     // register events for dragging-related feature

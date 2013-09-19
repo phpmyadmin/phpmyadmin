@@ -128,7 +128,7 @@ var AJAX = {
         // leave the browser deal with it natively (e.g: file download)
         // or leave an existing ajax event handler present elsewhere deal with it
         var href = $(this).attr('href');
-        if (event.shiftKey || event.ctrlKey) {
+        if (typeof event != 'undefined' && (event.shiftKey || event.ctrlKey)) {
             return true;
         } else if ($(this).attr('target')) {
             return true;
@@ -138,7 +138,7 @@ var AJAX = {
             return true;
         } else if (href && href.match(/^mailto/)) {
             return true;
-        } else if ($(this).hasClass('ui-datepicker-next') || 
+        } else if ($(this).hasClass('ui-datepicker-next') ||
                    $(this).hasClass('ui-datepicker-prev')
                   ) {
             return true;
