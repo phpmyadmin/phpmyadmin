@@ -135,8 +135,10 @@ if [ -f ./scripts/compress-js ] ; then
     ./scripts/compress-js
 fi
 
-echo "* Generating line counts"
-./scripts/line-counts.sh
+if [ -f ./scripts/line-counts.sh ] ; then
+    echo "* Generating line counts"
+    ./scripts/line-counts.sh
+fi
 
 echo "* Removing unneeded files"
 
