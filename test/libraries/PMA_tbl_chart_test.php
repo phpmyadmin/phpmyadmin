@@ -174,5 +174,121 @@ class PMA_TblChartTest extends PHPUnit_Framework_TestCase
             $html
         );
     }
+
+    /**
+     * Tests for PMA_getHtmlForTableChartDisplay() method.
+     *
+     * @return void
+     * @test
+     */
+    public function testPMAGetHtmlForTableChartDisplay()
+    {
+        $_SESSION[' PMA_token '] = "PMA_token";
+        $_SESSION['tmp_user_values']['pos'] = "pos";
+        $_SESSION['tmp_user_values']['max_rows'] = "all";
+        $GLOBALS['cfg']['MaxRows'] = 10;
+
+        $url_query = "url_query";
+        $url_params = array("url" => "url_params");
+        $keys = array(
+            "x1" => "value1",
+            "x2" => "value2",
+        );
+        $fields_meta = array(
+            "x1" => new Mock_Meta("type1"),
+            "x2" => new Mock_Meta("type3"),
+        );
+        $numeric_types = array("type1", "type2");
+        $numeric_column_count = 2;
+        $sql_query = "sql_query";
+        $yaxis = null;
+
+        $html = PMA_getHtmlForTableChartDisplay(
+            $url_query, $url_params, $keys,
+            $fields_meta, $numeric_types,
+            $numeric_column_count, $sql_query
+        );
+
+        //case 1: PMA_getHtmlForPmaTokenAndUrlQuery
+        $this->assertContains(
+            PMA_getHtmlForPmaTokenAndUrlQuery($url_query),
+            $html
+        );
+
+        //case 2: PMA_getHtmlForPmaTokenAndUrlQuery
+        $this->assertContains(
+            PMA_URL_getHiddenInputs($url_params),
+            $html
+        );
+
+        //case 3: options
+        $this->assertContains(
+            PMA_getHtmlForChartTypeOptions(),
+            $html
+        );
+        $this->assertContains(
+            PMA_getHtmlForStackedOption(),
+            $html
+        );
+
+        //case 4: options
+        $this->assertContains(
+            __('Chart title'),
+            $html
+        );
+
+        //case 5: options
+        $this->assertContains(
+            PMA_getHtmlForChartXAxisOptions($keys, $yaxis),
+            $html
+        );
+        $this->assertContains(
+            PMA_getHtmlForChartSeriesOptions(
+                $keys, $fields_meta, $numeric_types, $yaxis, $numeric_column_count
+            ),
+            $html
+        );
+
+        //case 6: PMA_getHtmlForDateTimeCols
+        $this->assertContains(
+            PMA_getHtmlForDateTimeCols($keys, $fields_meta),
+            $html
+        );
+        $this->assertContains(
+            PMA_getHtmlForTableAxisLabelOptions($yaxis, $keys),
+            $html
+        );
+        $this->assertContains(
+            PMA_getHtmlForStartAndNumberOfRowsOptions($sql_query),
+            $html
+        );
+        $this->assertContains(
+            PMA_getHtmlForChartAreaDiv(),
+            $html
+        );
+    }
 }
+
+/**
+ * Mock class for Meta Field
+ *
+ * @package PhpMyAdmin-test
+ */
+class Mock_Meta
+{
+    var $type;
+
+    /**
+     * Constructor
+     *
+     * @param string $type1 meta type
+     *
+     * @return object
+     */
+    public function __construct($type1)
+    {
+        $type = $type1;
+    }
+}
+
 ?>
