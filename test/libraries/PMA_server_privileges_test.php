@@ -1400,4 +1400,286 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
 
         $GLOBALS['dbi'] = $dbi_old;
     }
+
+    /**
+     * Test for PMA_getHtmlTableBodyForSpecificDbOrTablePrivs
+     *
+     * @return void
+     */
+    public function testPMAGetHtmlTableBodyForSpecificDbOrTablePrivss()
+    {
+        $privMap = null;
+        $db = "pma_dbname";
+        $table = "pma_table";
+
+        //$privMap = null
+        $html = PMA_getHtmlTableBodyForSpecificDbOrTablePrivs($privMap, $db, $table);
+        $this->assertContains(
+            __('No user found.'),
+            $html
+        );
+
+        //$privMap != null
+        $privMap = array(
+            "user1" => array(
+                "hostname1" => array(
+                    array('Type'=>'g', 'Grant_priv'=>'Y'),
+                    array('Type'=>'d', 'Db'=>"dbname", 'Grant_priv'=>'Y'),
+                    array('Type'=>'t', 'Grant_priv'=>'N'),
+                )
+            )
+        );
+
+        $html = PMA_getHtmlTableBodyForSpecificDbOrTablePrivs($privMap, $db, $table);
+
+        //validate 1: $current_privileges
+        $current_privileges = $privMap["user1"]["hostname1"];
+        $current_user = "user1";
+        $current_host = "hostname1";
+        $this->assertContains(
+            count($current_privileges) . "",
+            $html
+        );
+        $this->assertContains(
+            htmlspecialchars($current_user),
+            $html
+        );
+        $this->assertContains(
+            htmlspecialchars($current_host),
+            $html
+        );
+
+        //validate 2: privileges[0]
+        $current = $current_privileges[0];
+        $this->assertContains(
+            __('global'),
+            $html
+        );
+
+        //validate 3: privileges[1]
+        $current = $current_privileges[1];
+        $this->assertContains(
+            __('wildcard'),
+            $html
+        );
+        $this->assertContains(
+            htmlspecialchars($current['Db']),
+            $html
+        );
+
+        //validate 4: privileges[2]
+        $current = $current_privileges[2];
+        $this->assertContains(
+            __('table-specific'),
+            $html
+        );
+    }
+
+    /**
+     * Test for PMA_getUserEditLink
+     *
+     * @return void
+     */
+    public function testPMAGetUserEditLink()
+    {
+        $username = "pma_username";
+        $hostname = "pma_hostname";
+        $dbname = "pma_dbname";
+        $tablename = "pma_tablename";
+
+        //PMA_getUserEditLink
+        $html = PMA_getUserEditLink($username, $hostname, $dbname, $tablename);
+
+        $url_html = PMA_URL_getCommon(
+            array(
+                'username' => $username,
+                'hostname' => $hostname,
+                'dbname' => $dbname,
+                'tablename' => $tablename,
+            )
+        );
+        $this->assertContains(
+            $url_html,
+            $html
+        );
+        $this->assertContains(
+            __('Edit Privileges'),
+            $html
+        );
+
+        //PMA_getUserRevokeLink
+        $html = PMA_getUserRevokeLink($username, $hostname, $dbname, $tablename);
+
+        $url_html = PMA_URL_getCommon(
+            array(
+                'username' => $username,
+                'hostname' => $hostname,
+                'dbname' => $dbname,
+                'tablename' => $tablename,
+                'revokeall' => 1,
+            )
+        );
+        $this->assertContains(
+            $url_html,
+            $html
+        );
+        $this->assertContains(
+            __('Revoke'),
+            $html
+        );
+
+        //PMA_getUserExportLink
+        $html = PMA_getUserExportLink($username, $hostname);
+
+        $url_html = PMA_URL_getCommon(
+            array(
+                'username' => $username,
+                'hostname' => $hostname,
+                'initial' => "",
+                'export' => 1,
+            )
+        );
+        $this->assertContains(
+            $url_html,
+            $html
+        );
+        $this->assertContains(
+            __('Export'),
+            $html
+        );
+    }
+
+    /**
+     * Test for PMA_getExtraDataForAjaxBehavior
+     *
+     * @return void
+     */
+    public function testPMAGetExtraDataForAjaxBehavior()
+    {
+        $password = "pma_password";
+        $sql_query = "pma_sql_query";
+        $username = "pma_username";
+        $hostname = "pma_hostname";
+        $GLOBALS['dbname'] = "pma_dbname";
+        $_REQUEST['adduser_submit'] = "adduser_submit";
+        $_REQUEST['change_copy'] = "change_copy";
+        $_REQUEST['validate_username'] = "validate_username";
+        $_REQUEST['username'] = "username";
+        $_POST['update_privs'] = "update_privs";
+
+        //PMA_getExtraDataForAjaxBehavior
+        $extra_data = PMA_getExtraDataForAjaxBehavior(
+            $password, $sql_query, $hostname, $username
+        );
+
+        //user_exists
+        $this->assertEquals(
+            false,
+            $extra_data['user_exists']
+        );
+
+        //db_wildcard_privs
+        $this->assertEquals(
+            true,
+            $extra_data['db_wildcard_privs']
+        );
+
+        //user_exists
+        $this->assertEquals(
+            false,
+            $extra_data['db_specific_privs']
+        );
+
+        //new_user_initial
+        $this->assertEquals(
+            'P',
+            $extra_data['new_user_initial']
+        );
+
+        //sql_query
+        $this->assertEquals(
+            PMA_Util::getMessage(null, $sql_query),
+            $extra_data['sql_query']
+        );
+
+        //new_user_string
+        $this->assertContains(
+            htmlspecialchars($hostname),
+            $extra_data['new_user_string']
+        );
+        $this->assertContains(
+            htmlspecialchars($username),
+            $extra_data['new_user_string']
+        );
+
+        //new_privileges
+        $this->assertContains(
+            join(', ', PMA_extractPrivInfo('', true)),
+            $extra_data['new_privileges']
+        );
+    }
+
+    /**
+     * Test for PMA_getChangeLoginInformationHtmlForm
+     *
+     * @return void
+     */
+    public function testPMAGetChangeLoginInformationHtmlForm()
+    {
+        $username = "pma_username";
+        $hostname = "pma_hostname";
+
+        $dbi_old = $GLOBALS['dbi'];
+        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+            ->disableOriginalConstructor()
+            ->getMock();
+        $fields_info = array(
+            "Host" => array(
+                "Field" => "host",
+                "Type" => "char(60)",
+                "Null" => "NO",
+            )
+        );
+        $dbi->expects($this->any())->method('getColumns')
+            ->will($this->returnValue($fields_info));
+
+        $fetchValue = "fetchValue";
+        $dbi->expects($this->any())->method('fetchValue')
+            ->will($this->returnValue($fetchValue));
+
+        $GLOBALS['dbi'] = $dbi;
+
+        //PMA_getChangeLoginInformationHtmlForm
+        $html = PMA_getChangeLoginInformationHtmlForm($username, $hostname);
+
+        //PMA_URL_getHiddenInputs
+        $this->assertContains(
+            PMA_URL_getHiddenInputs('', ''),
+            $html
+        );
+
+        //$username & $username
+        $this->assertContains(
+            htmlspecialchars($username),
+            $html
+        );
+        $this->assertContains(
+            htmlspecialchars($username),
+            $html
+        );
+
+        //PMA_getHtmlForDisplayLoginInformationFields
+        $this->assertContains(
+            PMA_getHtmlForDisplayLoginInformationFields('change'),
+            $html
+        );
+
+        //Create a new user with the same privileges
+        $this->assertContains(
+            "Create a new user with the same privileges",
+            $html
+        );
+
+        $GLOBALS['dbi'] = $dbi_old;
+    }
 }
