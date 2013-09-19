@@ -139,7 +139,7 @@ class PMA_NavigationTree
             $this->_searchClause2 = $_REQUEST['searchClause2'];
         }
         // Initialise the tree by creating a root node
-        $node = PMA_NodeFactory::getInstance('Node', 'root', Node::CONTAINER);
+        $node = PMA_NodeFactory::getInstance('Node_Database_Container', 'root');
         $this->_tree = $node;
         if ($GLOBALS['cfg']['NavigationTreeEnableGrouping']) {
             $this->_tree->separator = $GLOBALS['cfg']['NavigationTreeDbSeparator'];
@@ -1011,7 +1011,7 @@ class PMA_NavigationTree
         $retval = '';
         $filter_min = (int)$GLOBALS['cfg']['NavigationTreeDisplayDbFilterMinimum'];
         if ($node === $this->_tree
-            && $this->_tree->getPresence() >= $filter_min 
+            && $this->_tree->getPresence() >= $filter_min
         ) {
             $url_params = array(
                 'pos' => 0
