@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-09-19 06:34-0400\n"
-"PO-Revision-Date: 2013-07-31 10:21+0200\n"
-"Last-Translator: Deven Bhooshan <devenbhooshan@gmail.com>\n"
+"PO-Revision-Date: 2013-09-19 18:30+0200\n"
+"Last-Translator: Ghanshyam Bagul <ghanshyambagul@gmail.com>\n"
 "Language-Team: Hindi <http://l10n.cihar.com/projects/phpmyadmin/master/hi/>\n"
 "Language: hi\n"
 "MIME-Version: 1.0\n"
@@ -20,8 +20,8 @@ msgid ""
 "The %s file is not available on this system, please visit www.phpmyadmin.net "
 "for more information."
 msgstr ""
-"ये %s फ़ाइल तंत्र में उपलब्ध नहीं है, कृपया अधिक जानकारी के लिए www.phpmyadmin.net "
-"वेबसाईट पर जाएँ।"
+"%s ये फ़ाइल तंत्र में उपलब्ध नहीं है, कृपया अधिक जानकारी के लिए "
+"www.phpmyadmin.net वेबसाईट पर जाएँ।"
 
 #: db_create.php:61
 #, php-format
@@ -273,17 +273,15 @@ msgstr "रचना"
 
 #: db_printview.php:126 libraries/plugins/export/ExportSql.class.php:1055
 #: libraries/schema/Pdf_Relation_Schema.class.php:1362
-#, fuzzy
 #| msgid "Last update"
 msgid "Last update:"
-msgstr "पिछला नवीनीकरण"
+msgstr "पिछला नवीनीकरण:"
 
 #: db_printview.php:135 libraries/plugins/export/ExportSql.class.php:1068
 #: libraries/schema/Pdf_Relation_Schema.class.php:1367
-#, fuzzy
 #| msgid "Last check"
 msgid "Last check:"
-msgstr "पिछली जाँच"
+msgstr "पिछली जाँच:"
 
 #: db_printview.php:149 libraries/structure.lib.php:176
 #, php-format
@@ -461,19 +459,18 @@ msgstr "बेस परत के रूप में OpenStreetMaps का प
 #. l10n: Spatial Reference System Identifier
 #: gis_data_editor.php:162
 msgid "SRID:"
-msgstr ""
+msgstr "अक्र:"
 
 #: gis_data_editor.php:185
-#, fuzzy, php-format
+#, php-format
 #| msgid "Geometry"
 msgid "Geometry %d:"
-msgstr "ज्यामिति"
+msgstr "रेखागणित %d:"
 
 #: gis_data_editor.php:207
-#, fuzzy
 #| msgid "Point"
 msgid "Point:"
-msgstr "बिन्दु"
+msgstr "बिन्दु:"
 
 #: gis_data_editor.php:208 gis_data_editor.php:235 gis_data_editor.php:290
 #: gis_data_editor.php:363 js/messages.php:315
@@ -497,22 +494,21 @@ msgid "Add a point"
 msgstr "एक बिंदु जोड़ें"
 
 #: gis_data_editor.php:263
-#, fuzzy, php-format
+#, php-format
 #| msgid "Lines terminated by"
 msgid "Linestring %d:"
 msgstr "लाईन समाप्त होता है"
 
 #: gis_data_editor.php:266 gis_data_editor.php:342
-#, fuzzy
 #| msgid "Outer Ring"
 msgid "Outer ring:"
-msgstr "बाहरी वृत्त"
+msgstr "बाहरी वृत्त:"
 
 #: gis_data_editor.php:268 gis_data_editor.php:344
-#, fuzzy, php-format
+#, php-format
 #| msgid "Inner Ring"
 msgid "Inner ring %d:"
-msgstr "आंतरिक वृत्त"
+msgstr "आंतरिक वृत्त %d:"
 
 #: gis_data_editor.php:304
 msgid "Add a linestring"
@@ -523,10 +519,10 @@ msgid "Add an inner ring"
 msgstr "नया आंतरिक वृत्त जोडें"
 
 #: gis_data_editor.php:326
-#, fuzzy, php-format
+#, php-format
 #| msgid "Polygon"
 msgid "Polygon %d:"
-msgstr "बहुभुज"
+msgstr "बहुभुज %d:"
 
 #: gis_data_editor.php:385 js/messages.php:326
 msgid "Add a polygon"
@@ -667,10 +663,9 @@ msgid "Back"
 msgstr "वापस"
 
 #: index.php:115 libraries/Footer.class.php:72
-#, fuzzy
 #| msgid "phpMyAdmin homepage"
 msgid "phpMyAdmin Demo Server"
-msgstr "phpMyAdmin मुखपृष्ठ"
+msgstr "phpMyAdmin डेमो सर्वर"
 
 #: index.php:119
 #, php-format
