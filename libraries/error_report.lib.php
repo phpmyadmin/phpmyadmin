@@ -275,3 +275,15 @@ function PMA_getErrorReportForm() {
 
     return $html;
 }
+
+/**
+ * generates the error report form to collect user description and preview the
+ * report before being sent
+ *
+ * @return String the form
+ */
+function PMA_hasLatestLineCounts() {
+    $line_counts_time = filemtime("js/line_counts.php");
+    $js_time = filemtime("js");
+    return $line_counts_time >= $js_time;
+}
