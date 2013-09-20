@@ -10,7 +10,7 @@ require_once 'libraries/error_report.lib.php';
 
 $response = PMA_Response::getInstance();
 
-// Fail sgracefully if this is not a release version of phpMyAdmin
+// Fail gracefully if this is not a release version of phpMyAdmin
 if(!$GLOBALS['PMA_Config']->isGitRevision()) {
     $response->addJSON('message', PMA_Message::error(
         __('An error has been detected however you seem to be running on a git '
