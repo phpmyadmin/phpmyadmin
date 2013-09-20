@@ -10,8 +10,30 @@ require_once 'libraries/error_report.lib.php';
 
 $response = PMA_Response::getInstance();
 
+// Fail sgracefully if this is not a release version of phpMyAdmin
+if(!$GLOBALS['PMA_Config']->isGitRevision()) {
+    $response->addJSON('message', PMA_Message::error(
+        __('An error has been detected however you seem to be running on a git '
+            . 'version of phpMyAdmin.')
+            . __('Automatic report submission cannot be used. Please submit a '
+            . 'manual error report on the bug tracker.')
+        . '<br />'
+        . __('You may want to refresh the page.')));
+    $response->isSuccess(false);
+    exit;
+} elseif (!defined('LINE_COUNTS')) {
+    $response->addJSON('message', PMA_Message::error(
+        __('An error has been detected however the js line counts file does not '
+            . 'seam to exist in this phpMyAdmin installation. ')
+        . __('Automatic report submission cannot be used. Please submit a '
+            . 'manual error report on the bug tracker.')
+        . '<br />'
+        . __('You may want to refresh the page.')));
+    $response->isSuccess(false);
+    exit;
+}
+
 if ($_REQUEST['send_error_report'] == true) {
-    $response->addJSON('test', PMA_sendErrorReport(PMA_getReportData(false)));
     if ($_REQUEST['automatic'] === "true") {
         $response->addJSON('message', PMA_Message::error(
             __('An error has been detected and an error report has been '

@@ -21,7 +21,11 @@ var ErrorReport = {
             token: PMA_commonParams.get('token'),
             get_settings: true,
         }, function(data) {
-            if(data.report_setting == "ask") {
+            if (!data.success === true) {
+                PMA_ajaxShowMessage(data.error, false);
+                return;
+            }
+            if (data.report_setting == "ask") {
                 ErrorReport._showErrorNotification();
             } else if(data.report_setting == "always") {
                 report_data = ErrorReport._get_report_data(exception);
