@@ -588,11 +588,11 @@ class PMA_NavigationTree
                     $groups[$key]->pos2 = $node->pos2;
                     $groups[$key]->pos3 = $node->pos3;
                     if ($node instanceof Node_Table_Container) {
+                        $tblGroup = '&amp;tbl_group='
+                            . urlencode($key . $node->separator);
                         $groups[$key]->links = array(
-                            'text' => $node->links['text']
-                                . '&amp;tbl_group=' . urlencode($key),
-                            'icon' => $node->links['icon']
-                                . '&amp;tbl_group=' . urlencode($key)
+                            'text' => $node->links['text'] . $tblGroup,
+                            'icon' => $node->links['icon'] . $tblGroup
                         );
                     }
                     $node->addChild($groups[$key]);
