@@ -157,12 +157,12 @@ class PMA_DisplayResults
     );
 
     /**
-     * This global variable represent the columns which needs to be syntax
-     * highlighted in each database tables
+     * This variable contains the column transformation information
+     * for some of the system databases.
      * One element of this array represent all relavant columns in all tables in
      * one specific database
      */
-    public $syntax_highlighting_column_info;
+    public $transformation_info;
 
 
     /**
@@ -208,18 +208,7 @@ class PMA_DisplayResults
      */
     public function __construct($db, $table, $goto, $sql_query)
     {
-        $this->syntax_highlighting_column_info = array(
-            'information_schema' => array(
-                'processlist' => array(
-                    'info' => array(
-                        'libraries/plugins/transformations/'
-                            . 'Text_Plain_Formatted.class.php',
-                        'Text_Plain_Formatted',
-                        'Text_Plain'
-                    )
-                )
-            )
-        );
+        $this->_setDefaultTransformations();
 
         $this->__set('db', $db);
         $this->__set('table', $table);
@@ -227,6 +216,60 @@ class PMA_DisplayResults
         $this->__set('sql_query', $sql_query);
     }
 
+    /**
+     * Sets default transformations for some columns
+     *
+     * @return void
+     */
+    private  function _setDefaultTransformations()
+    {
+        $sql_highlighting_data = array(
+            'libraries/plugins/transformations/Text_Plain_Formatted.class.php',
+            'Text_Plain_Formatted',
+            'Text_Plain'
+        );
+        $this->transformation_info = array(
+            'information_schema' => array(
+                'events' => array(
+                    'event_definition' => $sql_highlighting_data
+                ),
+                'processlist' => array(
+                    'info' => $sql_highlighting_data
+                ),
+                'routines' => array(
+                    'routine_definition' => $sql_highlighting_data
+                ),
+                'triggers' => array(
+                    'action_statement' => $sql_highlighting_data
+                ),
+                'views' => array(
+                    'view_definition' => $sql_highlighting_data
+                )
+            )
+        );
+
+        $cfgRelation = PMA_getRelationsParam();
+        if ($cfgRelation['db']) {
+            $this->transformation_info[$cfgRelation['db']] = array();
+            $relDb = &$this->transformation_info[$cfgRelation['db']];
+            if ($cfgRelation['history']) {
+                $relDb[$cfgRelation['history']] = array(
+                    'sqlquery' => $sql_highlighting_data
+                );
+            }
+            if ($cfgRelation['bookmark']) {
+                $relDb[$cfgRelation['bookmark']] = array(
+                    'query' => $sql_highlighting_data
+                );
+            }
+            if ($cfgRelation['tracking']) {
+                $relDb[$cfgRelation['tracking']] = array(
+                    'schema_sql' => $sql_highlighting_data,
+                    'data_sql' => $sql_highlighting_data
+                );
+            }
+        }
+    }
 
     /**
      * Set properties which were not initialized at the constructor
@@ -2791,8 +2834,8 @@ class PMA_DisplayResults
             ) {
 
                 $row[$i] = PMA_Util::formatSql($row[$i]);
-                include_once $this->syntax_highlighting_column_info[strtolower($this->__get('db'))][strtolower($this->__get('table'))][strtolower($meta->name)][0];
-                $transformation_plugin = new $this->syntax_highlighting_column_info
+                include_once $this->transformation_info[strtolower($this->__get('db'))][strtolower($this->__get('table'))][strtolower($meta->name)][0];
+                $transformation_plugin = new $this->transformation_info
                     [strtolower($this->__get('db'))]
                     [strtolower($this->__get('table'))]
                     [strtolower($meta->name)][1](null);
@@ -2805,7 +2848,7 @@ class PMA_DisplayResults
 
                 $meta->mimetype = str_replace(
                     '_', '/',
-                    $this->syntax_highlighting_column_info[strtolower($this->__get('db'))][strtolower($this->__get('table'))][strtolower($meta->name)][2]
+                    $this->transformation_info[strtolower($this->__get('db'))][strtolower($this->__get('table'))][strtolower($meta->name)][2]
                 );
 
             }
@@ -3032,7 +3075,7 @@ class PMA_DisplayResults
      */
     private function _isNeedToSyntaxHighlight($field)
     {
-        if (! empty($this->syntax_highlighting_column_info[strtolower($this->__get('db'))][strtolower($this->__get('table'))][strtolower($field)])) {
+        if (! empty($this->transformation_info[strtolower($this->__get('db'))][strtolower($this->__get('table'))][strtolower($field)])) {
             return true;
         }
         return false;
@@ -3101,10 +3144,10 @@ class PMA_DisplayResults
                     // Special case 1 - when executing routines, according
                     // to the type of the routine, url param changes
                     if (!empty($row_info['routine_type'])) {
-                        if (strtolower($row_info['routine_type']) == self::ROUTINE_PROCEDURE) {
-                            $linking_url_params['execute_routine'] = 1;
-                        } else if (strtolower($row_info['routine_type']) == self::ROUTINE_FUNCTION) {
-                            $linking_url_params['execute_dialog'] = 1;
+                        if (strtolower($row_info['routine_type']) == self::ROUTINE_PROCEDURE
+                            || strtolower($row_info['routine_type']) == self::ROUTINE_FUNCTION
+                        ) {
+                            $linking_url_params['edit_item'] = 1;
                         }
                     }
                 }
@@ -4207,7 +4250,10 @@ class PMA_DisplayResults
     {
 
         $sql_md5 = md5($this->__get('sql_query'));
-        $query = $_SESSION['tmp_user_values']['query'][$sql_md5];
+        $query = array();
+        if (isset($_SESSION['tmp_user_values']['query'][$sql_md5])) {
+            $query = $_SESSION['tmp_user_values']['query'][$sql_md5];
+        }
 
         $query['sql'] = $this->__get('sql_query');
 

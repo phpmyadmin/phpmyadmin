@@ -29,6 +29,12 @@ if (defined('TESTSUITE')) {
 
         // if it fails try alternative extension ...
         // and display an error ...
+        $docurl = PMA_Util::getDocuLink('faq', 'faqmysql');
+        $doclink = sprintf(
+            __('See %sour documentation%s for more information.'),
+            '[a@' . $docurl  . '@documentation]',
+            '[/a]'
+        );
 
         /**
          * @todo add different messages for alternative extension
@@ -37,7 +43,7 @@ if (defined('TESTSUITE')) {
         PMA_warnMissingExtension(
             $extensionName,
             false,
-            PMA_Util::showDocu('faq', 'faqmysql')
+            $doclink
         );
 
         if ($extensionName === 'mysql') {
@@ -51,7 +57,7 @@ if (defined('TESTSUITE')) {
             PMA_warnMissingExtension(
                 $extensionName,
                 true,
-                PMA_Util::showDocu('faq', 'faqmysql')
+                $doclink
             );
         }
 

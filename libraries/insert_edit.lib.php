@@ -1799,7 +1799,6 @@ function PMA_getParamsForUpdateOrInsert()
         $is_insert  = $_REQUEST['submit_type'] == 'insert'
                       || $_REQUEST['submit_type'] == 'showinsert'
                       || $_REQUEST['submit_type'] == 'insertignore';
-        $is_insertignore  = $_REQUEST['submit_type'] == 'insertignore';
     } else {
         // new row => use indexes
         $loop_array = array();
@@ -1808,8 +1807,8 @@ function PMA_getParamsForUpdateOrInsert()
         }
         $using_key  = false;
         $is_insert  = true;
-        $is_insertignore = false;
     }
+    $is_insertignore  = $_REQUEST['submit_type'] == 'insertignore';
     return array($loop_array, $using_key, $is_insert, $is_insertignore);
 }
 
@@ -2181,6 +2180,7 @@ function PMA_transformEditedValues($db, $table,
  * @param array  $multi_edit_colummns     multiple edit column array
  * @param array  $multi_edit_columns_name multiple edit columns name array
  * @param array  $multi_edit_funcs        multiple edit functions array
+ * @param array  $multi_edit_salt         multiple edit array with encryption salt
  * @param array  $gis_from_text_functions array that contains gis from text functions
  * @param string $current_value           current value in the column
  * @param array  $gis_from_wkb_functions  initialy $val is $multi_edit_colummns[$key]
@@ -2214,7 +2214,9 @@ function PMA_getCurrentValueAsAnArrayForMultipleEdit($multi_edit_colummns,
         || ($current_value != "''"
         && in_array($multi_edit_funcs[$key], $func_optional_param))
     ) {
-        if (isset($multi_edit_salt[$key]) && ($multi_edit_funcs[$key] == "AES_ENCRYPT")) {
+        if (isset($multi_edit_salt[$key])
+            && ($multi_edit_funcs[$key] == "AES_ENCRYPT")
+        ) {
             return $multi_edit_funcs[$key] . '(' . $current_value . ",'"
                    . PMA_Util::sqlAddSlashes($multi_edit_salt[$key]) . "')";
         } else {
@@ -2573,5 +2575,328 @@ function PMA_getUrlParameters($db, $table)
     }
 
     return $url_params;
+}
+
+/**
+ * Function to get html for the gis editor div
+ * 
+ * @return string
+ */
+function PMA_getHtmlForGisEditor()
+{
+    return '<div id="gis_editor"></div>'
+        . '<div id="popup_background"></div>'
+        . '<br />';
+}
+
+/**
+ * Function to get html for the ignore option in insert mode
+ * 
+ * @param int $row_id row id
+ * 
+ * @return string
+ */
+function PMA_getHtmlForIgnoreOption($row_id)
+{
+    return '<input type="checkbox" checked="checked"'
+            . ' name="insert_ignore_' . $row_id . '"'
+            . ' id="insert_ignore_' . $row_id . '" />'
+            .'<label for="insert_ignore_' . $row_id . '">'
+            . __('Ignore')
+            . '</label><br />' . "\n";
+}
+
+/**
+ * Function to get html for the function option
+ * 
+ * @param bool   $odd_row              whether odd row or not
+ * @param array  $column               column
+ * @param string $column_name_appendix column name appendix
+ * 
+ * @return String
+ */
+function PMA_getHtmlForFunctionOption($odd_row, $column, $column_name_appendix)
+{
+    $longDoubleTextArea = $GLOBALS['cfg']['LongtextDoubleTextarea'];
+    return '<tr class="noclick ' . ($odd_row ? 'odd' : 'even' ) . '">'
+        . '<td ' 
+        . ($longDoubleTextArea && strstr($column['True_Type'], 'longtext')
+            ? 'rowspan="2"' 
+            : ''
+        )
+        . 'class="center">'
+        . $column['Field_title']
+        . '<input type="hidden" name="fields_name' . $column_name_appendix
+        . '" value="' . $column['Field_html'] . '"/>'
+        . '</td>';
+        
+}
+
+/**
+ * Function to get html for the column type
+ * 
+ * @param array $column column
+ * 
+ * @return string
+ */
+function PMA_getHtmlForInsertEditColumnType($column)
+{
+    return '<td class="center' . $column['wrap'] . '">'
+        . '<span class="column_type">' . $column['pma_type'] . '</span>'
+        . '</td>';
+
+}
+
+/**
+ * Function to get html for the insert edit form header
+ * 
+ * @param bool $has_blob_field whether has blob field
+ * @param bool $is_upload      whether is upload
+ * 
+ * @return string
+ */
+function PMA_getHtmlForInsertEditFormHeader($has_blob_field, $is_upload)
+{
+    $html_output ='<form id="insertForm" ';
+    if ($has_blob_field && $is_upload) {
+        $html_output .='class="disableAjax" ';
+    }
+    $html_output .='method="post" action="tbl_replace.php" name="insertForm" ';
+    if ($is_upload) {
+        $html_output .= ' enctype="multipart/form-data"';
+    }
+    $html_output .= '>';
+    
+    return $html_output;
+}
+
+/**
+ * Function to get html for each insert/edit column
+ * 
+ * @param array  $table_columns         table columns
+ * @param int    $i                     row counter
+ * @param array  $column                column
+ * @param array  $comments_map          comments map
+ * @param bool   $timestamp_seen        whether timestamp seen
+ * @param array  $current_result        current result
+ * @param string $chg_evt_handler       javascript change event handler
+ * @param string $jsvkey                javascript validation key
+ * @param string $vkey                  validation key
+ * @param bool   $insert_mode           whether insert mode
+ * @param array  $current_row           current row
+ * @param bool   $odd_row               whether odd row
+ * @param int    &$o_rows               row offset
+ * @param int    &$tabindex             tab index
+ * @param int    $columns_cnt           columns count
+ * @param bool   $is_upload             whether upload
+ * @param int    $tabindex_for_function tab index offset for function
+ * @param array  $foreigners            foreigners
+ * @param int    $tabindex_for_null     tab index offset for null
+ * @param int    $tabindex_for_value    tab index offset for value
+ * @param string $table                 table
+ * @param string $db                    database
+ * @param int    $row_id                row id
+ * @param array  $titles                titles
+ * @param int    $biggest_max_file_size biggest max file size
+ * @param string $default_char_editing  default char editing mode which is stroe
+ *                                      in the config.inc.php script
+ * @param string $text_dir              text direction
+ * 
+ * @return string
+ */
+function PMA_getHtmlForInsertEditFormColumn($table_columns, $i, $column,
+    $comments_map, $timestamp_seen, $current_result, $chg_evt_handler,
+    $jsvkey, $vkey, $insert_mode, $current_row, $odd_row, &$o_rows,
+    &$tabindex, $columns_cnt, $is_upload, $tabindex_for_function,
+    $foreigners, $tabindex_for_null, $tabindex_for_value,
+    $table, $db, $row_id, $titles, $biggest_max_file_size,
+    $default_char_editing, $text_dir    
+) {
+    if (! isset($table_columns[$i]['processed'])) {
+        $column = $table_columns[$i];
+        $column = PMA_analyzeTableColumnsArray(
+            $column, $comments_map, $timestamp_seen
+        );
+    }
+
+    $extracted_columnspec
+        = PMA_Util::extractColumnSpec($column['Type']);
+
+    if (-1 === $column['len']) {
+        $column['len'] = $GLOBALS['dbi']->fieldLen($current_result, $i);
+        // length is unknown for geometry fields,
+        // make enough space to edit very simple WKTs
+        if (-1 === $column['len']) {
+            $column['len'] = 30;
+        }
+    }
+    //Call validation when the form submitted...
+    $unnullify_trigger = $chg_evt_handler
+        . "=\"return verificationsAfterFieldChange('"
+        . PMA_escapeJsString($column['Field_md5']) . "', '"
+        . PMA_escapeJsString($jsvkey) . "','".$column['pma_type'] . "')\"";
+
+    // Use an MD5 as an array index to avoid having special characters
+    // in the name atttibute (see bug #1746964 )
+    $column_name_appendix = $vkey . '[' . $column['Field_md5'] . ']';
+
+    if ($column['Type'] == 'datetime'
+        && ! isset($column['Default'])
+        && ! is_null($column['Default'])
+        && ($insert_mode || ! isset($current_row[$column['Field']]))
+    ) {
+        // INSERT case or
+        // UPDATE case with an NULL value
+        $current_row[$column['Field']] = date('Y-m-d H:i:s', time());
+    }
+
+    $html_output = PMA_getHtmlForFunctionOption(
+        $odd_row, $column, $column_name_appendix
+    );
+
+    if ($GLOBALS['cfg']['ShowFieldTypesInDataEditView']) {
+        $html_output .= PMA_getHtmlForInsertEditColumnType($column);
+    } //End if
+
+    // Get a list of GIS data types.
+    $gis_data_types = PMA_Util::getGISDatatypes();
+
+    // Prepares the field value
+    $real_null_value = false;
+    $special_chars_encoded = '';
+    if (isset($current_row)) {
+        // (we are editing)
+        list(
+            $real_null_value, $special_chars_encoded, $special_chars,
+            $data, $backup_field
+        )
+            = PMA_getSpecialCharsAndBackupFieldForExistingRow(
+                $current_row, $column, $extracted_columnspec,
+                $real_null_value, $gis_data_types, $column_name_appendix
+            );
+    } else {
+        // (we are inserting)
+        // display default values
+        list($real_null_value, $data, $special_chars, $backup_field,
+            $special_chars_encoded
+        ) 
+            = PMA_getSpecialCharsAndBackupFieldForInsertingMode(
+                $column, $real_null_value
+            );
+    }
+
+    $idindex = ($o_rows * $columns_cnt) + $i + 1;
+    $tabindex = $idindex;
+
+    // Get a list of data types that are not yet supported.
+    $no_support_types = PMA_Util::unsupportedDatatypes();
+
+    // The function column
+    // -------------------
+    if ($GLOBALS['cfg']['ShowFunctionFields']) {
+        $html_output .= PMA_getFunctionColumn(
+            $column, $is_upload, $column_name_appendix,
+            $unnullify_trigger, $no_support_types, $tabindex_for_function,
+            $tabindex, $idindex, $insert_mode
+        );
+    }
+
+    // The null column
+    // ---------------
+    $foreignData = PMA_getForeignData(
+        $foreigners, $column['Field'], false, '', ''
+    );
+    $html_output .= PMA_getNullColumn(
+        $column, $column_name_appendix, $real_null_value,
+        $tabindex, $tabindex_for_null, $idindex, $vkey, $foreigners,
+        $foreignData
+    );
+
+    // The value column (depends on type)
+    // ----------------
+    // See bug #1667887 for the reason why we don't use the maxlength
+    // HTML attribute
+    $html_output .= '        <td>' . "\n";
+    // Will be used by js/tbl_change.js to set the default value
+    // for the "Continue insertion" feature
+    $html_output .= '<span class="default_value hide">'
+        . $special_chars . '</span>';
+
+    $html_output .= PMA_getValueColumn(
+        $column, $backup_field, $column_name_appendix, $unnullify_trigger,
+        $tabindex, $tabindex_for_value, $idindex, $data, $special_chars,
+        $foreignData, $odd_row, array($table, $db), $row_id, $titles,
+        $text_dir, $special_chars_encoded, $vkey, $is_upload,
+        $biggest_max_file_size, $default_char_editing,
+        $no_support_types, $gis_data_types, $extracted_columnspec
+    );
+
+    $html_output .= '</td>'
+    . '</tr>';
+    
+    return $html_output;
+}
+
+/**
+ * Function to get html for each insert/edit row
+ *
+ * @param array  $url_params            url parameters
+ * @param array  $table_columns         table columns
+ * @param array  $column                column
+ * @param array  $comments_map          comments map
+ * @param bool   $timestamp_seen        whether timestamp seen
+ * @param array  $current_result        current result
+ * @param string $chg_evt_handler       javascript change event handler
+ * @param string $jsvkey                javascript validation key
+ * @param string $vkey                  validation key
+ * @param bool   $insert_mode           whether insert mode
+ * @param array  $current_row           current row
+ * @param int    &$o_rows               row offset
+ * @param int    &$tabindex             tab index
+ * @param int    $columns_cnt           columns count
+ * @param bool   $is_upload             whether upload
+ * @param int    $tabindex_for_function tab index offset for function
+ * @param array  $foreigners            foreigners
+ * @param int    $tabindex_for_null     tab index offset for null
+ * @param int    $tabindex_for_value    tab index offset for value
+ * @param string $table                 table
+ * @param string $db                    database
+ * @param int    $row_id                row id
+ * @param array  $titles                titles
+ * @param int    $biggest_max_file_size biggest max file size
+ * @param string $text_dir              text direction
+ * 
+ * @return string
+ */
+function PMA_getHtmlForInsertEditRow($url_params, $table_columns,
+    $column, $comments_map, $timestamp_seen, $current_result, $chg_evt_handler,
+    $jsvkey, $vkey, $insert_mode, $current_row, &$o_rows, &$tabindex, $columns_cnt,
+    $is_upload, $tabindex_for_function, $foreigners, $tabindex_for_null,
+    $tabindex_for_value, $table, $db, $row_id, $titles,
+    $biggest_max_file_size, $text_dir    
+) {
+    $html_output = PMA_getHeadAndFootOfInsertRowTable($url_params)
+        . '<tbody>';
+    
+    //store the default value for CharEditing
+    $default_char_editing  = $GLOBALS['cfg']['CharEditing'];
+
+    $odd_row = true;
+    for ($i = 0; $i < $columns_cnt; $i++) {
+        $html_output .= PMA_getHtmlForInsertEditFormColumn(
+            $table_columns, $i, $column, $comments_map, $timestamp_seen,
+            $current_result, $chg_evt_handler, $jsvkey, $vkey, $insert_mode,
+            $current_row, $odd_row, $o_rows, $tabindex, $columns_cnt, $is_upload,
+            $tabindex_for_function, $foreigners, $tabindex_for_null,
+            $tabindex_for_value, $table, $db, $row_id, $titles,
+            $biggest_max_file_size, $default_char_editing, $text_dir    
+        );
+        $odd_row = !$odd_row;
+    } // end for
+    $o_rows++;
+    $html_output .= '  </tbody>'
+        . '</table><br />';   
+    
+    return $html_output;
 }
 ?>

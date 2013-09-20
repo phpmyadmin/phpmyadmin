@@ -269,6 +269,10 @@ class PMA_Tracker_Test extends PHPUnit_Framework_TestCase
      */
     public function testGetLogComment()
     {
+        if (!setupForTestsUsingDate()) {
+            $this->markTestSkipped("Cannot override internal function date()");
+        }
+
         $date = date('Y-m-d H:i:s');
         $GLOBALS['cfg']['Server']['user'] = "pma_test_user";
 
@@ -276,6 +280,8 @@ class PMA_Tracker_Test extends PHPUnit_Framework_TestCase
             "# log $date pma_test_user\n",
             PMA_Tracker::getLogComment()
         );
+
+        tearDownForTestsUsingDate();
     }
 
     /**
@@ -286,6 +292,10 @@ class PMA_Tracker_Test extends PHPUnit_Framework_TestCase
      */
     public function testCreateVersion()
     {
+        if (!setupForTestsUsingDate()) {
+            $this->markTestSkipped("Cannot override internal function date()");
+        }
+
         $GLOBALS['cfg']['Server']['tracking_add_drop_table'] = true;
         $GLOBALS['cfg']['Server']['tracking_add_drop_view'] = true;
         $GLOBALS['cfg']['Server']['user'] = "pma_test_user";
@@ -406,6 +416,8 @@ class PMA_Tracker_Test extends PHPUnit_Framework_TestCase
             'executed',
             PMA_Tracker::createVersion('pma_test', 'pma_tbl', '1', '11', true)
         );
+
+        tearDownForTestsUsingDate();
     }
 
     /**
@@ -449,6 +461,10 @@ class PMA_Tracker_Test extends PHPUnit_Framework_TestCase
      */
     public function testCreateDatabaseVersion()
     {
+        if (!setupForTestsUsingDate()) {
+            $this->markTestSkipped("Cannot override internal function date()");
+        }
+
         $GLOBALS['cfg']['Server']['tracking_add_drop_table'] = true;
         $GLOBALS['cfg']['Server']['tracking_add_drop_view'] = true;
         $GLOBALS['cfg']['Server']['user'] = "pma_test_user";
@@ -491,6 +507,8 @@ class PMA_Tracker_Test extends PHPUnit_Framework_TestCase
             'executed',
             PMA_Tracker::createDatabaseVersion('pma_test', '1', 'SHOW DATABASES')
         );
+
+        tearDownForTestsUsingDate();
     }
 
     /**
@@ -564,6 +582,10 @@ class PMA_Tracker_Test extends PHPUnit_Framework_TestCase
      */
     public function testChangeTrackingData()
     {
+        if (!setupForTestsUsingDate()) {
+            $this->markTestSkipped("Cannot override internal function date()");
+        }
+
         $reflection = new \ReflectionProperty('PMA_Tracker', 'pma_table');
         $reflection->setAccessible(true);
         $reflection->setValue(null, 'pma_table_tracking');
@@ -637,6 +659,8 @@ class PMA_Tracker_Test extends PHPUnit_Framework_TestCase
                 $new_data
             )
         );
+
+        tearDownForTestsUsingDate();
     }
 
     /**

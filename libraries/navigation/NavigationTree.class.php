@@ -139,7 +139,7 @@ class PMA_NavigationTree
             $this->_searchClause2 = $_REQUEST['searchClause2'];
         }
         // Initialise the tree by creating a root node
-        $node = PMA_NodeFactory::getInstance('Node', 'root', Node::CONTAINER);
+        $node = PMA_NodeFactory::getInstance('Node_Database_Container', 'root');
         $this->_tree = $node;
         if ($GLOBALS['cfg']['NavigationTreeEnableGrouping']) {
             $this->_tree->separator = $GLOBALS['cfg']['NavigationTreeDbSeparator'];
@@ -583,6 +583,14 @@ class PMA_NavigationTree
                     }
                     $groups[$key]->pos2 = $node->pos2;
                     $groups[$key]->pos3 = $node->pos3;
+                    if ($node instanceof Node_Table_Container) {
+                        $tblGroup = '&amp;tbl_group='
+                            . urlencode($key . $node->separator);
+                        $groups[$key]->links = array(
+                            'text' => $node->links['text'] . $tblGroup,
+                            'icon' => $node->links['icon'] . $tblGroup
+                        );
+                    }
                     $node->addChild($groups[$key]);
                     foreach ($separators as $separator) {
                         // FIXME: this could be more efficient
@@ -1009,17 +1017,19 @@ class PMA_NavigationTree
     private function _fastFilterHtml($node)
     {
         $retval = '';
+        $filter_min = (int)$GLOBALS['cfg']['NavigationTreeDisplayDbFilterMinimum'];
         if ($node === $this->_tree
-            && $this->_tree->getPresence() >= (int)$GLOBALS['cfg']['NavigationTreeDisplayDbFilterMinimum']
+            && $this->_tree->getPresence() >= $filter_min
         ) {
             $url_params = array(
                 'pos' => 0
             );
-            $retval .= "<ul>";
-            $retval .= "<li class='fast_filter db_fast_filter'>";
-            $retval .= "<form class='ajax fast_filter'>";
+            $retval .= '<ul>';
+            $retval .= '<li class="fast_filter db_fast_filter">';
+            $retval .= '<form class="ajax fast_filter">';
             $retval .= PMA_getHiddenFields($url_params);
-            $retval .= "<input class='searchClause' name='searchClause' accesskey='q'";
+            $retval .= '<input class="searchClause" name="searchClause"';
+            $retval .= ' accesskey="q"';
             // allow html5 placeholder attribute
             $placeholder_key = 'value';
             if (PMA_USR_BROWSER_AGENT !== 'IE'
@@ -1027,19 +1037,19 @@ class PMA_NavigationTree
             ) {
                 $placeholder_key = 'placeholder';
             }
-            $retval .= " $placeholder_key='" . __('filter databases by name') . "' />";
-            $retval .= "<span title='" . __('Clear Fast Filter') . "'>X</span>";
+            $retval .= " $placeholder_key='" . __('filter databases by name');
+            $retval .= "' />";
+            $retval .= '<span title="' . __('Clear Fast Filter') . '">X</span>';
             $retval .= "</form>";
             $retval .= "</li>";
             $retval .= "</ul>";
         } else if (($node->type == Node::CONTAINER
             && (   $node->real_name == 'tables'
-                || $node->real_name == 'views'
-                || $node->real_name == 'functions'
-                || $node->real_name == 'procedures'
-                || $node->real_name == 'events')
-            )
-            && $node->realParent()->getPresence($node->real_name) >= (int)$GLOBALS['cfg']['NavigationTreeDisplayItemFilterMinimum']
+            || $node->real_name == 'views'
+            || $node->real_name == 'functions'
+            || $node->real_name == 'procedures'
+            || $node->real_name == 'events'))
+            && $node->realParent()->getPresence($node->real_name) >= $filter_min
         ) {
             $paths = $node->getPaths();
             $url_params = array(

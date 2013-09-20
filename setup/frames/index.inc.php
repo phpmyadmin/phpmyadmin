@@ -25,19 +25,19 @@ $cf = ConfigFile::getInstance();
 $separator = PMA_URL_getArgSeparator('html');
 
 // message handling
-messages_begin();
+PMA_messagesBegin();
 
 //
 // Check phpMyAdmin version
 //
 if (isset($_GET['version_check'])) {
-    PMA_version_check();
+    PMA_versionCheck();
 }
 
 //
 // Perform various security, compatibility and consistency checks
 //
-perform_config_checks();
+PMA_performConfigChecks();
 
 //
 // Check whether we can read/write configuration
@@ -45,9 +45,9 @@ perform_config_checks();
 $config_readable = false;
 $config_writable = false;
 $config_exists = false;
-check_config_rw($config_readable, $config_writable, $config_exists);
+PMA_checkConfigRw($config_readable, $config_writable, $config_exists);
 if (!$config_writable || !$config_readable) {
-    messages_set(
+    PMA_messagesSet(
         'error', 'config_rw', __('Cannot load or save configuration'),
         PMA_sanitize(
             __(
@@ -84,7 +84,7 @@ if (!$is_https) {
             )
         );
     }
-    messages_set('notice', 'no_https', __('Insecure connection'), $text);
+    PMA_messagesSet('notice', 'no_https', __('Insecure connection'), $text);
 }
 
 echo '<form id="select_lang" method="post" action="'
@@ -112,7 +112,7 @@ echo '</form>';
 switch ($action_done) {
 case 'config_saved':
     /* Use uniqid to display this message every time configuration is saved */
-    messages_set(
+    PMA_messagesSet(
         'notice', uniqid('config_saved'), __('Configuration saved.'),
         PMA_sanitize(
             __(
@@ -130,8 +130,8 @@ default:
 echo '<h2>' . __('Overview') . '</h2>';
 
 // message handling
-messages_end();
-messages_show_html();
+PMA_messagesEnd();
+PMA_messagesShowHtml();
 
 echo '<a href="#" id="show_hidden_messages" style="display:none">';
 echo __('Show hidden messages (#MSG_COUNT)');

@@ -20,7 +20,7 @@ require_once './setup/lib/ConfigGenerator.class.php';
 $config_readable = false;
 $config_writable = false;
 $config_exists = false;
-check_config_rw($config_readable, $config_writable, $config_exists);
+PMA_checkConfigRw($config_readable, $config_writable, $config_exists);
 echo '<h2>' . __('Configuration file') . '</h2>';
 
 PMA_displayFormTop('config.php');

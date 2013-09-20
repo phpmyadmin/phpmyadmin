@@ -1198,20 +1198,23 @@ function PMA_getDefaultSqlQueryForBrowse($db, $table)
 /**
  * Responds an error when an error happens when executing the query
  *
- * @param boolean $is_gotofile whether goto file or not
- * @param String  $error       error after executing the query
+ * @param boolean $is_gotofile    whether goto file or not
+ * @param String  $error          error after executing the query
+ * @param String  $full_sql_query full sql query
  *
  * @return void
  */
-function PMA_handleQueryExecuteError($is_gotofile, $error)
+function PMA_handleQueryExecuteError($is_gotofile, $error, $full_sql_query)
 {
     if ($is_gotofile) {
         $message = PMA_Message::rawError($error);
         $response = PMA_Response::getInstance();
         $response->isSuccess(false);
         $response->addJSON('message', $message);
-        exit;
+    } else {
+        PMA_Util::mysqlDie($error, $full_sql_query, '', '');
     }
+    exit;
 }
 
 /**
@@ -1502,7 +1505,7 @@ function PMA_executeTheQuery($analyzed_sql_results, $full_sql_query, $is_gotofil
         // Displays an error message if required and stop parsing the script
         $error = $GLOBALS['dbi']->getError();
         if ($error) {
-            PMA_handleQueryExecuteError($is_gotofile, $error);
+            PMA_handleQueryExecuteError($is_gotofile, $error, $full_sql_query);
         }
 
         // If there are no errors and bookmarklabel was given,
@@ -1908,12 +1911,11 @@ function PMA_getMessageIfMissingColumnIndex($table, $db, $editable, $disp_mode)
     if (!empty($table) && ($GLOBALS['dbi']->isSystemSchema($db) || !$editable)) {
         $missing_unique_column_msg = PMA_message::notice(
             __(
-                'Table %s does not contain a unique column.'
+                'Current selection does not contain a unique column.'
                 . ' Grid edit, checkbox, Edit, Copy and Delete features'
                 . ' are not available.'
             )
         );
-        $missing_unique_column_msg->addParam($table);
     } else {
         $missing_unique_column_msg = null;
     }
@@ -2284,7 +2286,7 @@ function PMA_executeQueryAndSendQueryResponse($analyzed_sql_results,
         $sql_limit_to_append = '';
     }
 
-    $reload = PMA_hasCurrentDbChanged($db);
+    $GLOBALS['reload'] = PMA_hasCurrentDbChanged($db);
 
     // Execute the query
     list($result, $num_rows, $unlim_num_rows, $profiling_results,

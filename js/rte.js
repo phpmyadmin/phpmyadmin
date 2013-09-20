@@ -143,7 +143,8 @@ RTE.COMMON = {
                     lineNumbers: true,
                     matchBrackets: true,
                     indentUnit: 4,
-                    mode: "text/x-mysql"
+                    mode: "text/x-mysql",
+                    lineWrapping: true
                 };
                 CodeMirror.fromTextArea($elm[0], opts);
             } else {
@@ -331,7 +332,8 @@ RTE.COMMON = {
                     lineNumbers: true,
                     matchBrackets: true,
                     indentUnit: 4,
-                    mode: "text/x-mysql"
+                    mode: "text/x-mysql",
+                    lineWrapping: true
                 };
                 if (typeof CodeMirror != 'undefined') {
                     that.syntaxHiglighter = CodeMirror.fromTextArea($elm[0], opts);

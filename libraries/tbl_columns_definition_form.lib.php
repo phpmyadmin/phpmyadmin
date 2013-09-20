@@ -391,18 +391,18 @@ function PMA_getRowDataForRegeneration($columnNumber, $submit_fulltext)
         $parts = explode($_REQUEST['field_key'][$columnNumber], '_', 2);
         if (count($parts) == 2 && $parts[1] == $columnNumber) {
             switch ($parts[0]) {
-                case 'primary':
-                    $columnMeta['Key'] = 'PRI';
-                    break;
-                case 'index':
-                    $columnMeta['Key'] = 'MUL';
-                    break;
-                case 'unique':
-                    $columnMeta['Key'] = 'UNI';
-                    break;
-                case 'fulltext':
-                    $columnMeta['Key'] = 'FULLTEXT';
-                    break;
+            case 'primary':
+                $columnMeta['Key'] = 'PRI';
+                break;
+            case 'index':
+                $columnMeta['Key'] = 'MUL';
+                break;
+            case 'unique':
+                $columnMeta['Key'] = 'UNI';
+                break;
+            case 'fulltext':
+                $columnMeta['Key'] = 'FULLTEXT';
+                break;
             }
         }
     }

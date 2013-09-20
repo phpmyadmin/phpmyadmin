@@ -1,9 +1,9 @@
 <?php
 //============================================================+
 // File name   : tcpdf.php
-// Version     : 6.0.023
+// Version     : 6.0.024
 // Begin       : 2002-08-03
-// Last Update : 2013-08-05
+// Last Update : 2013-09-02
 // Author      : Nicola Asuni - Tecnick.com LTD - www.tecnick.com - info@tecnick.com
 // License     : GNU-LGPL v3 (http://www.gnu.org/copyleft/lesser.html)
 // -------------------------------------------------------------------
@@ -139,7 +139,7 @@
  * Tools to encode your unicode fonts are on fonts/utils directory.</p>
  * @package com.tecnick.tcpdf
  * @author Nicola Asuni
- * @version 6.0.023
+ * @version 6.0.024
  */
 
 // TCPDF configuration
@@ -163,7 +163,7 @@ require_once(dirname(__FILE__).'/include/tcpdf_static.php');
  * TCPDF project (http://www.tcpdf.org) has been originally derived in 2002 from the Public Domain FPDF class by Olivier Plathey (http://www.fpdf.org), but now is almost entirely rewritten.<br>
  * @package com.tecnick.tcpdf
  * @brief PHP class for generating PDF documents without requiring external extensions.
- * @version 6.0.023
+ * @version 6.0.024
  * @author Nicola Asuni - info@tecnick.com
  */
 class TCPDF {
@@ -6254,7 +6254,7 @@ class TCPDF {
 	 * @param $stretch (int) font stretch mode: <ul><li>0 = disabled</li><li>1 = horizontal scaling only if text is larger than cell width</li><li>2 = forced horizontal scaling to fit cell width</li><li>3 = character spacing only if text is larger than cell width</li><li>4 = forced character spacing to fit cell width</li></ul> General font stretching and scaling values will be preserved when possible.
 	 * @param $firstline (boolean) if true prints only the first line and return the remaining string.
 	 * @param $firstblock (boolean) if true the string is the starting of a line.
-	 * @param $maxh (float) maximum height. The remaining unprinted text will be returned. It should be >= $h and less then remaining space to the bottom of the page, or 0 for disable this feature.
+	 * @param $maxh (float) maximum height. It should be >= $h and less then remaining space to the bottom of the page, or 0 for disable this feature.
 	 * @param $wadj (float) first line width will be reduced by this amount (used in HTML mode).
 	 * @param $margin (array) margin array of the parent container
 	 * @return mixed Return the number of cells or the remaining string if $firstline = true.
@@ -9722,7 +9722,9 @@ class TCPDF {
 			$out .= ' >>';
 		}
 		// AcroForm
-		if (!empty($this->form_obj_id) OR ($this->sign AND isset($this->signature_data['cert_type']))) {
+		if (!empty($this->form_obj_id)
+			OR ($this->sign AND isset($this->signature_data['cert_type']))
+			OR !empty($this->empty_signature_appearance)) {
 			$out .= ' /AcroForm <<';
 			$objrefs = '';
 			if ($this->sign AND isset($this->signature_data['cert_type'])) {

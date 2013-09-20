@@ -16,9 +16,11 @@ require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/relation.lib.php';
 require_once 'libraries/url_generating.lib.php';
 require_once 'libraries/Tracker.class.php';
+require_once 'libraries/transformations.lib.php';
 require_once 'libraries/Message.class.php';
 require_once 'libraries/Table.class.php';
 require_once 'libraries/js_escape.lib.php';
+require_once 'libraries/sqlparser.lib.php';
 
 /**
  * Tests for libraries/tbl_printview.lib.php
@@ -39,9 +41,32 @@ class PMA_TblPrintViewTest extends PHPUnit_Framework_TestCase
         /**
          * SET these to avoid undefined index error
          */
+        $GLOBALS['server'] = 1;
+        $GLOBALS['cfg']['TableNavigationLinksMode'] = 'icons';
+        $GLOBALS['cfg']['LimitChars'] = 100;
+        $_SESSION['relation'][$GLOBALS['server']] = array(
+            'table_coords' => "table_name",
+            'displaywork' => 'displaywork',
+            'db' => "information_schema",
+            'table_info' => 'table_info',
+            'column_info' => 'column_info',
+            'relwork' => 'relwork',
+            'relation' => 'relation',
+            'commwork' => 'commwork',
+            'bookmarkwork' => 'bookmarkwork',
+        );
+
         $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
+
+        $fetchResult = array(
+            'column1' => array('mimetype' => 'value1', 'transformation'=> 'pdf'),
+            'column2' => array('mimetype' => 'value2', 'transformation'=> 'xml'),
+        );
+
+        $dbi->expects($this->any())->method('fetchResult')
+            ->will($this->returnValue($fetchResult));
 
         $GLOBALS['dbi'] = $dbi;
     }
@@ -323,7 +348,7 @@ class PMA_TblPrintViewTest extends PHPUnit_Framework_TestCase
         $db = "pma_db";
         $table = "pma_table";
         $cell_align_left = "cell_align_left";
- 
+
         $html = PMA_getHtmlForSpaceUsageAndRowStatistics(
             $showtable, $db, $table, $cell_align_left
         );
@@ -341,7 +366,7 @@ class PMA_TblPrintViewTest extends PHPUnit_Framework_TestCase
             $html
         );
 
-        //validation 2 : $data_size, $data_unit        
+        //validation 2 : $data_size, $data_unit
         list($index_size, $index_unit)
             = PMA_Util::formatByteDown(
                 $showtable['Index_length']
@@ -384,7 +409,7 @@ class PMA_TblPrintViewTest extends PHPUnit_Framework_TestCase
             $html
         );
 
-        //validation 5 : $effect_size, $effect_unit       
+        //validation 5 : $effect_size, $effect_unit
         list($tot_size, $tot_unit) = PMA_Util::formatByteDown(
             $showtable['Data_length'] + $showtable['Index_length']
         );
@@ -394,6 +419,75 @@ class PMA_TblPrintViewTest extends PHPUnit_Framework_TestCase
         );
         $this->assertContains(
             $tot_unit,
+            $html
+        );
+    }
+
+    /**
+     * Tests for PMA_getHtmlForPrintViewColumns() method.
+     *
+     * @return void
+     * @test
+     */
+    public function testPMAGetHtmlForPrintViewColumns()
+    {
+        $columns = array(
+            array(
+                "Type" => "Type1",
+                "Default" => "Default1",
+                "Null" => "Null1",
+                "Field" => "Field1",
+            )
+        );
+        $analyzed_sql = array(
+            array(
+                'create_table_fields' => array(
+                     "Field1" => array(
+                         "type" => "TIMESTAMP",
+                         "timestamp_not_null" => true
+                     )
+                 )
+            )
+        );
+        $pk_array = array(
+            "Field1" => "pk_array"
+        );
+        $have_rel = false;
+        $res_rel = array();
+        $db = "pma_db";
+        $table = "pma_table";
+        $cfgRelation = array('mimework' => true);
+
+        $html = PMA_getHtmlForPrintViewColumns(
+            $columns, $analyzed_sql, $pk_array, $have_rel,
+            $res_rel, $db, $table, $cfgRelation
+        );
+
+        //validation 1 : $row
+        $row = $columns[0];
+        $this->assertContains(
+            htmlspecialchars($row['Default']),
+            $html
+        );
+        $this->assertContains(
+            htmlspecialchars($row['Field']),
+            $html
+        );
+
+        //validation 2 : $pk_array
+        $field_name = htmlspecialchars($row['Field']);
+        $comments = PMA_getComments($db, $table);
+        $this->assertContains(
+            $field_name,
+            $html
+        );
+
+        //validation 3 : $extracted_columnspec
+        $extracted_columnspec = PMA_Util::extractColumnSpec($row['Type']);
+        $type = $extracted_columnspec['print_type'];
+        $attribute = $extracted_columnspec['attribute'];
+        $this->assertContains(
+            $type,
             $html
         );
     }

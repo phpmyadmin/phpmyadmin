@@ -81,11 +81,14 @@ class PMA_NavigationHeader
             }
             $retval .= '<div id="pmalogo">';
             if ($GLOBALS['cfg']['NavigationLogoLink']) {
-                $logo_link = trim(htmlspecialchars($GLOBALS['cfg']['NavigationLogoLink']));
+                $logo_link = trim(
+                    htmlspecialchars($GLOBALS['cfg']['NavigationLogoLink'])
+                );
                 // prevent XSS, see PMASA-2013-9
                 // if link has protocol, allow only http and https
                 if (preg_match('/^[a-z]+:/i', $logo_link)
-                    && ! preg_match('/^https?:/i', $logo_link)) {
+                    && ! preg_match('/^https?:/i', $logo_link)
+                ) {
                     $logo_link = 'index.php';
                 }
                 $retval .= '    <a href="' . $logo_link;
@@ -95,7 +98,9 @@ class PMA_NavigationHeader
                     break;
                 case 'main':
                     // do not add our parameters for an external link
-                    if (substr(strtolower($GLOBALS['cfg']['NavigationLogoLink']), 0, 4) !== '://') {
+                    if (substr(
+                        strtolower($GLOBALS['cfg']['NavigationLogoLink']), 0, 4
+                    ) !== '://') {
                         $retval .= '?' . $GLOBALS['url_query'] . '"';
                     } else {
                         $retval .= '" target="_blank"';

@@ -51,13 +51,13 @@ function PMA_getIndexedColumns()
  * Initiate the column creation statement according to the table creation or
  * add columns to a existing table
  *
- * @param int     $field_cnt     number of columns
- * @param int     $field_primary primary index field
- * @param boolean $is_create_tbl true if requirement is to get the statement
- *                               for table creation
+ * @param int     $field_cnt      number of columns
+ * @param int     &$field_primary primary index field
+ * @param boolean $is_create_tbl  true if requirement is to get the statement
+ *                                for table creation
  *
- * @return array  $definitions   An array of initial sql statements
- *                               according to the request
+ * @return array  $definitions An array of initial sql statements
+ *                             according to the request
  */
 function PMA_buildColumnCreationStatement(
     $field_cnt, &$field_primary, $is_create_tbl = true
@@ -294,5 +294,32 @@ function PMA_getNumberOfFieldsFromRequest()
     }
 
     return $num_fields;
+}
+
+/**
+ * Function to execute the column creation statement
+ * 
+ * @param string $db      current database
+ * @param string $table   current table
+ * @param string $err_url error page url
+ * 
+ * @return array
+ */
+function PMA_tryColumnCreationQuery($db, $table, $err_url)
+{
+    // get column addition statements
+    $sql_statement = PMA_getColumnCreationStatements(false);
+
+    // To allow replication, we first select the db to use and then run queries
+    // on this db.
+    $GLOBALS['dbi']->selectDb($db)
+        or PMA_Util::mysqlDie(
+            $GLOBALS['dbi']->getError(),
+            'USE ' . PMA_Util::backquote($db), '',
+            $err_url
+        );
+    $sql_query    = 'ALTER TABLE ' .
+        PMA_Util::backquote($table) . ' ' . $sql_statement . ';';
+    return array($GLOBALS['dbi']->tryQuery($sql_query) , $sql_query);
 }
 ?>

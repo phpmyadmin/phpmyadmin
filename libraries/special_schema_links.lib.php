@@ -49,7 +49,7 @@ $GLOBALS['special_schema_links'] = array(
         'db' => array(
             'db' => array(
                 'link_param' => 'db',
-                'default_page' => 'index.php'
+                'default_page' => $GLOBALS['cfg']['DefaultTabDatabase']
             ),
             'user' => array(
                 'link_param' => 'username',
@@ -65,9 +65,8 @@ $GLOBALS['special_schema_links'] = array(
         'proc' => array(
             'db' => array(
                 'link_param' => 'db',
-                'default_page' => 'index.php'
+                'default_page' => $GLOBALS['cfg']['DefaultTabDatabase']
             )
-
         ),
         'user' => array(
             'user' => array(
@@ -80,11 +79,14 @@ $GLOBALS['special_schema_links'] = array(
                 ),
                 'default_page' => 'server_privileges.php'
             )
-
         )
     ),
     'information_schema' => array(
         'columns' => array(
+            'table_schema' => array(
+                'link_param' => 'db',
+                'default_page' => $GLOBALS['cfg']['DefaultTabDatabase']
+            ),
             'table_name' => array(
                 'link_param' => 'table',
                 'link_dependancy_params' => array(
@@ -93,7 +95,7 @@ $GLOBALS['special_schema_links'] = array(
                         'column_name' => 'table_schema'
                     )
                 ),
-                'default_page' => 'index.php'
+                'default_page' => $GLOBALS['cfg']['DefaultTabTable']
             ),
             'column_name' => array(
                 'link_param' => array(
@@ -111,7 +113,25 @@ $GLOBALS['special_schema_links'] = array(
                         'column_name' => 'table_name'
                     )
                 ),
-                'default_page' => 'index.php'
+                'default_page' => 'sql.php'
+            )
+        ),
+        'column_privileges' => array(
+            'table_schema' => array(
+                'link_param' => 'db',
+                'default_page' => $GLOBALS['cfg']['DefaultTabDatabase']
+            )
+        ),
+        'events' => array(
+            'event_schema' => array(
+                'link_param' => 'db',
+                'default_page' => $GLOBALS['cfg']['DefaultTabDatabase']
+            )
+        ),
+        'files' => array(
+            'table_schema' => array(
+                'link_param' => 'db',
+                'default_page' => $GLOBALS['cfg']['DefaultTabDatabase']
             )
         ),
         'key_column_usage' => array(
@@ -123,7 +143,7 @@ $GLOBALS['special_schema_links'] = array(
                         'column_name' => 'constraint_schema'
                     )
                 ),
-                'default_page' => 'index.php'
+                'default_page' => $GLOBALS['cfg']['DefaultTabTable']
             ),
             'column_name' => array(
                 'link_param' => array(
@@ -141,11 +161,19 @@ $GLOBALS['special_schema_links'] = array(
                         'column_name' => 'table_name'
                     )
                 ),
-                'default_page' => 'index.php'
+                'default_page' => 'sql.php'
+            ),
+            'constraint_schema' => array(
+                'link_param' => 'db',
+                'default_page' => $GLOBALS['cfg']['DefaultTabDatabase']
+            ),
+            'table_schema' => array(
+                'link_param' => 'db',
+                'default_page' => $GLOBALS['cfg']['DefaultTabDatabase']
             ),
             'referenced_table_schema' => array(
                 'link_param' => 'db',
-                'default_page' => 'index.php'
+                'default_page' => $GLOBALS['cfg']['DefaultTabDatabase']
             ),
             'referenced_table_name' => array(
                 'link_param' => 'table',
@@ -155,7 +183,7 @@ $GLOBALS['special_schema_links'] = array(
                         'column_name' => 'referenced_table_schema'
                     )
                 ),
-                'default_page' => 'index.php'
+                'default_page' => $GLOBALS['cfg']['DefaultTabTable']
             ),
             'referenced_column_name' => array(
                 'link_param' => array(
@@ -173,13 +201,19 @@ $GLOBALS['special_schema_links'] = array(
                         'column_name' => 'referenced_table_name'
                     )
                 ),
-                'default_page' => 'index.php'
+                'default_page' => 'sql.php'
+            )
+        ),
+        'parameters' => array(
+            'specific_schema' => array(
+                'link_param' => 'db',
+                'default_page' => $GLOBALS['cfg']['DefaultTabDatabase']
             )
         ),
         'partitions' => array(
             'table_schema' => array(
                 'link_param' => 'db',
-                'default_page' => 'index.php'
+                'default_page' => $GLOBALS['cfg']['DefaultTabDatabase']
             ),
             'table_name' => array(
                 'link_param' => 'table',
@@ -189,13 +223,13 @@ $GLOBALS['special_schema_links'] = array(
                         'column_name' => 'table_schema'
                     )
                 ),
-                'default_page' => 'index.php'
+                'default_page' => $GLOBALS['cfg']['DefaultTabTable']
             )
         ),
         'processlist' => array(
             'db' => array(
                 'link_param' => 'db',
-                'default_page' => 'index.php'
+                'default_page' => $GLOBALS['cfg']['DefaultTabDatabase']
             ),
             'user' => array(
                 'link_param' => 'username',
@@ -211,11 +245,11 @@ $GLOBALS['special_schema_links'] = array(
         'referential_constraints' => array(
             'constraint_schema' => array(
                 'link_param' => 'db',
-                'default_page' => 'index.php'
+                'default_page' => $GLOBALS['cfg']['DefaultTabDatabase']
             ),
             'unique_constraint_schema' => array(
                 'link_param' => 'db',
-                'default_page' => 'index.php'
+                'default_page' => $GLOBALS['cfg']['DefaultTabDatabase']
             ),
             'table_name' => array(
                 'link_param' => 'table',
@@ -225,7 +259,7 @@ $GLOBALS['special_schema_links'] = array(
                         'column_name' => 'constraint_schema'
                     )
                 ),
-                'default_page' => 'index.php'
+                'default_page' => $GLOBALS['cfg']['DefaultTabTable']
             ),
             'referenced_table_name' => array(
                 'link_param' => 'table',
@@ -235,7 +269,7 @@ $GLOBALS['special_schema_links'] = array(
                         'column_name' => 'constraint_schema'
                     )
                 ),
-                'default_page' => 'index.php'
+                'default_page' => $GLOBALS['cfg']['DefaultTabTable']
             )
         ),
         'routines' => array(
@@ -252,18 +286,32 @@ $GLOBALS['special_schema_links'] = array(
                     )
                 ),
                 'default_page' => 'db_routines.php'
-            )
+            ),
+            'routine_schema' => array(
+                'link_param' => 'db',
+                'default_page' => $GLOBALS['cfg']['DefaultTabDatabase']
+            ),
         ),
         'schemata' => array(
             'schema_name' => array(
                 'link_param' => 'db',
-                'default_page' => 'index.php'
+                'default_page' => $GLOBALS['cfg']['DefaultTabDatabase']
+            )
+        ),
+        'schema_privileges' => array(
+            'table_schema' => array(
+                'link_param' => 'db',
+                'default_page' => $GLOBALS['cfg']['DefaultTabDatabase']
             )
         ),
         'statistics' => array(
             'table_schema' => array(
                 'link_param' => 'db',
-                'default_page' => 'index.php'
+                'default_page' => $GLOBALS['cfg']['DefaultTabDatabase']
+            ),
+            'index_schema' => array(
+                'link_param' => 'db',
+                'default_page' => $GLOBALS['cfg']['DefaultTabDatabase']
             ),
             'table_name' => array(
                 'link_param' => 'table',
@@ -273,7 +321,7 @@ $GLOBALS['special_schema_links'] = array(
                         'column_name' => 'table_schema'
                     )
                 ),
-                'default_page' => 'index.php'
+                'default_page' => $GLOBALS['cfg']['DefaultTabTable']
             ),
             'column_name' => array(
                 'link_param' => array(
@@ -291,7 +339,7 @@ $GLOBALS['special_schema_links'] = array(
                         'column_name' => 'table_name'
                     )
                 ),
-                'default_page' => 'index.php'
+                'default_page' => 'sql.php'
             )
         ),
         'tables' => array(
@@ -303,7 +351,11 @@ $GLOBALS['special_schema_links'] = array(
                         'column_name' => 'table_schema'
                     )
                 ),
-                'default_page' => 'index.php'
+                'default_page' => $GLOBALS['cfg']['DefaultTabTable']
+            ),
+            'table_schema' => array(
+                'link_param' => 'db',
+                'default_page' => $GLOBALS['cfg']['DefaultTabDatabase']
             )
         ),
         'table_constraints' => array(
@@ -315,7 +367,37 @@ $GLOBALS['special_schema_links'] = array(
                         'column_name' => 'table_schema'
                     )
                 ),
-                'default_page' => 'index.php'
+                'default_page' => $GLOBALS['cfg']['DefaultTabTable']
+            ),
+            'constraint_schema' => array(
+                'link_param' => 'db',
+                'default_page' => $GLOBALS['cfg']['DefaultTabDatabase']
+            ),
+            'table_schema' => array(
+                'link_param' => 'db',
+                'default_page' => $GLOBALS['cfg']['DefaultTabDatabase']
+            )
+        ),
+        'table_privileges' => array(
+            'table_schema' => array(
+                'link_param' => 'db',
+                'default_page' => $GLOBALS['cfg']['DefaultTabDatabase']
+            )
+        ),
+        'triggers' => array(
+            'trigger_schema' => array(
+                'link_param' => 'db',
+                'default_page' => $GLOBALS['cfg']['DefaultTabDatabase']
+            ),
+            'event_object_schema' => array(
+                'link_param' => 'db',
+                'default_page' => $GLOBALS['cfg']['DefaultTabDatabase']
+            )
+        ),
+        'views' => array(
+            'table_schema' => array(
+                'link_param' => 'db',
+                'default_page' => $GLOBALS['cfg']['DefaultTabDatabase']
             )
         )
     )

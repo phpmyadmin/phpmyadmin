@@ -183,6 +183,11 @@ function PMA_extractPrivInfo($row = '', $enableHTML = false, $tablePrivs = false
     return $privs;
 } // end of the 'PMA_extractPrivInfo()' function
 
+/**
+ * Returns an array of table grants and their descriptions
+ *
+ * @return array array of table grants
+ */
 function PMA_getTableGrantsArray()
 {
     return array(
@@ -200,11 +205,6 @@ function PMA_getTableGrantsArray()
             'Drop',
             'DROP',
             $GLOBALS['strPrivDescDropTbl']
-        ),
-        array(
-            'Grant',
-            'GRANT',
-            $GLOBALS['strPrivDescGrant']
         ),
         array(
             'Index',
@@ -500,7 +500,7 @@ function PMA_getHtmlToChooseUserGroup($username)
         . "." . PMA_Util::backquote($GLOBALS['cfg']['Server']['users']);
 
     $userGroups = array();
-    $sql_query = "SELECT `usergroup` FROM " . $groupTable;
+    $sql_query = "SELECT DISTINCT `usergroup` FROM " . $groupTable;
     $result = PMA_queryAsControlUser($sql_query, false);
     if ($result) {
         while ($row = $GLOBALS['dbi']->fetchRow($result)) {
@@ -1679,7 +1679,7 @@ function PMA_getHtmlForAddUser($dbname)
        . PMA_Util::getIcon('b_usradd.png') . __('Add user') . "\n"
        . '</h2>' . "\n"
        . '<form name="usersForm" class="ajax" id="addUsersForm"'
-       . ' action="server_privileges.php" method="post">' . "\n"
+       . ' action="server_privileges.php" method="post" autocomplete="off" >' . "\n"
        . PMA_URL_getHiddenInputs('', '')
        . PMA_getHtmlForDisplayLoginInformationFields('new');
 
@@ -1823,14 +1823,14 @@ function PMA_getHtmlForSpecificDbPrivileges($db)
     list($list_of_privileges, $list_of_compared_privileges)
         = PMA_getListOfPrivilegesAndComparedPrivileges();
 
-    $sql_query = '(SELECT ' . $list_of_privileges . ', `Db`'
+    $sql_query = '(SELECT ' . $list_of_privileges . ', `Db`, \'d\' AS `Type`'
         .' FROM `mysql`.`db`'
         .' WHERE \'' . PMA_Util::sqlAddSlashes($db)
         . "'"
         .' LIKE `Db`'
         .' AND NOT (' . $list_of_compared_privileges. ')) '
         .'UNION '
-        .'(SELECT ' . $list_of_privileges . ', \'*\' AS `Db`'
+        .'(SELECT ' . $list_of_privileges . ', \'*\' AS `Db`, \'g\' AS `Type`'
         .' FROM `mysql`.`user` '
         .' WHERE NOT (' . $list_of_compared_privileges . ')) '
         .' ORDER BY `User` ASC,'
@@ -1929,15 +1929,15 @@ function PMA_getHtmlForSpecificTablePrivileges($db, $table)
 
     list($list_of_privileges, $list_of_compared_privileges)
         = PMA_getListOfPrivilegesAndComparedPrivileges();
-    $sql_query =
-          "("
-        . " SELECT " . $list_of_privileges . ", '*' AS `Db`"
+    $sql_query
+        = "("
+        . " SELECT " . $list_of_privileges . ", '*' AS `Db`, 'g' AS `Type`"
         . " FROM `mysql`.`user`"
         . " WHERE NOT (" . $list_of_compared_privileges . ")"
         . ")"
         . " UNION "
         . "("
-        . " SELECT " . $list_of_privileges . ", `Db`"
+        . " SELECT " . $list_of_privileges . ", `Db`, 'd' AS `Type`"
         . " FROM `mysql`.`db`"
         . " WHERE '" . PMA_Util::sqlAddSlashes($db) . "' LIKE `Db`"
         . "     AND NOT (" . $list_of_compared_privileges. ")"
@@ -1958,7 +1958,8 @@ function PMA_getHtmlForSpecificTablePrivileges($db, $table)
         $privMap[$user][$host][] = $row;
     }
 
-    $sql_query = "SELECT `User`, `Host`, `Db`, `Table_name`, `Table_priv`"
+    $sql_query = "SELECT `User`, `Host`, `Db`,"
+        . " 't' AS `Type`, `Table_name`, `Table_priv`"
         . " FROM `mysql`.`tables_priv`"
         . " WHERE '" . PMA_Util::sqlAddSlashes($db) . "' LIKE `Db`"
         . "     AND '" . PMA_Util::sqlAddSlashes($table) . "' LIKE `Table_name`"
@@ -1978,14 +1979,16 @@ function PMA_getHtmlForSpecificTablePrivileges($db, $table)
         $privMap[$user][$host][] = $row;
     }
 
-    $html_output .= PMA_getHtmlTableBodyForSpecificDbOrTablePrivs($privMap, $db, $table);
+    $html_output .= PMA_getHtmlTableBodyForSpecificDbOrTablePrivs(
+        $privMap, $db, $table
+    );
     $html_output .= '</table>';
     $html_output .= '</fieldset>';
     $html_output .= '</form>';
 
     // Offer to create a new user for the current database
     $html_output .= '<fieldset id="fieldset_add_user">'
-       . '<legend>' . _pgettext('Create new user', 'New') . '</legend>';
+        . '<legend>' . _pgettext('Create new user', 'New') . '</legend>';
     $html_output .= '<a href="server_privileges.php'
         . PMA_URL_getCommon(
             array(
@@ -1994,8 +1997,9 @@ function PMA_getHtmlForSpecificTablePrivileges($db, $table)
                 'tablename' => $table
             )
         )
-        .'" rel="'
-        . PMA_URL_getCommon(array('checkprivsdb' => $db, 'checkprivstable' => $table))
+        . '" rel="' . PMA_URL_getCommon(
+            array('checkprivsdb' => $db, 'checkprivstable' => $table)
+        )
         . '" class="ajax" name="table_specific">'
         . PMA_Util::getIcon('b_usradd.png') . __('Add user') . '</a>';
 
@@ -2012,13 +2016,15 @@ function PMA_getHtmlForSpecificTablePrivileges($db, $table)
  *
  * @return string $html_output
  */
-function PMA_getHtmlTableBodyForSpecificDbOrTablePrivs($privMap, $db, $table = null) {
+function PMA_getHtmlTableBodyForSpecificDbOrTablePrivs($privMap, $db, $table = null)
+{
     $html_output = '<tbody>';
     $odd_row = true;
     if (! empty($privMap)) {
         foreach ($privMap as $current_user => $val) {
             foreach ($val as $current_host => $current_privileges) {
-                $html_output .= '<tr class="noclick ' . ($odd_row ? 'odd' : 'even') . '">';
+                $html_output .= '<tr class="noclick '
+                    . ($odd_row ? 'odd' : 'even') . '">';
 
                 // user
                 $html_output .= '<td';
@@ -2027,7 +2033,8 @@ function PMA_getHtmlTableBodyForSpecificDbOrTablePrivs($privMap, $db, $table = n
                 }
                 $html_output .= '>';
                 if (empty($current_user)) {
-                    $html_output .= '<span style="color: #FF0000">' . __('Any') . '</span>';
+                    $html_output .= '<span style="color: #FF0000">'
+                        . __('Any') . '</span>';
                 } else {
                     $html_output .= htmlspecialchars($current_user);
                 }
@@ -2047,19 +2054,19 @@ function PMA_getHtmlTableBodyForSpecificDbOrTablePrivs($privMap, $db, $table = n
 
                     // type
                     $html_output .= '<td>';
-                    if ($current['Db'] == '*') {
+                    if ($current['Type'] == 'g') {
                         $html_output .= __('global');
-                    } elseif ($current['Db'] == PMA_Util::escapeMysqlWildcards($db)) {
-                        if (isset($current['Table_name'])
-                            && $current['Table_name'] == PMA_Util::escapeMysqlWildcards($table)
-                        ) {
-                            $html_output .= __('table-specific');
-                        } else {
+                    } elseif ($current['Type'] == 'd') {
+                        if ($current['Db'] == PMA_Util::escapeMysqlWildcards($db)) {
                             $html_output .= __('database-specific');
+                        } else {
+                            $html_output .= __('wildcard'). ': '
+                                . '<code>'
+                                . htmlspecialchars($current['Db'])
+                                . '</code>';
                         }
-                    } else {
-                        $html_output .= __('wildcard'). ': '
-                            . '<code>' . htmlspecialchars($current['Db']) . '</code>';
+                    } elseif ($current['Type'] == 't') {
+                        $html_output .= __('table-specific');
                     }
                     $html_output .= '</td>';
 
@@ -2069,7 +2076,7 @@ function PMA_getHtmlTableBodyForSpecificDbOrTablePrivs($privMap, $db, $table = n
                         $privList = explode(',', $current['Table_priv']);
                         $privs = array();
                         $grantsArr = PMA_getTableGrantsArray();
-                        foreach($grantsArr as $grant) {
+                        foreach ($grantsArr as $grant) {
                             $privs[$grant[0]] = 'N';
                             foreach ($privList as $priv) {
                                 if ($grant[0] == $priv) {
@@ -2111,11 +2118,16 @@ function PMA_getHtmlTableBodyForSpecificDbOrTablePrivs($privMap, $db, $table = n
 
                     // action
                     $html_output .= '<td>';
+                    $specific_db = (isset($current['Db']) && $current['Db'] != '*')
+                        ? $current['Db'] : '';
+                    $specific_table = (isset($current['Table_name'])
+                        && $current['Table_name'] != '*')
+                        ? $current['Table_name'] : '';
                     $html_output .= PMA_getUserEditLink(
                         $current_user,
                         $current_host,
-                        (isset($current['Db']) && $current['Db'] != '*') ? $current['Db'] : '',
-                        (isset($current['Table_name']) && $current['Table_name'] != '*') ? $current['Table_name'] : ''
+                        $specific_db,
+                        $specific_table
                     );
                     $html_output .= '</td>';
 
@@ -3790,342 +3802,6 @@ function PMA_getHtmlForDisplayUserOverviewPage($pmaThemeImage, $text_dir)
 }
 
 /**
- * Return HTML to list the users belonging to a given user group
- *
- * @param string $userGroup user group name
- *
- * @return HTML to list the users belonging to a given user group
- */
-function PMA_getHtmlForListingUsersofAGroup($userGroup)
-{
-    $html_output  = '<h2>'
-        . sprintf(__('Users of \'%s\' user group'), htmlspecialchars($userGroup))
-        . '</h2>';
-
-    $usersTable = PMA_Util::backquote($GLOBALS['cfg']['Server']['pmadb'])
-        . "." . PMA_Util::backquote($GLOBALS['cfg']['Server']['users']);
-    $sql_query = "SELECT `username` FROM " . $usersTable
-        . " WHERE `usergroup`='" . PMA_Util::sqlAddSlashes($userGroup) . "'";
-    $result = PMA_queryAsControlUser($sql_query, false);
-    if ($result) {
-        if ($GLOBALS['dbi']->numRows($result) == 0) {
-            $html_output .= '<p>'
-                . __('No users were found belonging to this user group.')
-                . '</p>';
-        } else {
-            $html_output .= '<table>'
-                . '<thead><tr><th>#</th><th>' . __('User') . '</th></tr></thead>'
-                . '<tbody>';
-            $i = 0;
-            while ($row = $GLOBALS['dbi']->fetchRow($result)) {
-                $i++;
-                $html_output .= '<tr>'
-                    . '<td>' . $i . ' </td>'
-                    . '<td>' . htmlspecialchars($row[0]) . '</td>'
-                    . '</tr>';
-            }
-            $html_output .= '</tbody>'
-                . '</table>';
-        }
-    }
-    $GLOBALS['dbi']->freeResult($result);
-    return $html_output;
-}
-
-/**
- * Returns HTML for the 'user groups' table
- *
- * @return string HTML for the 'user groups' table
- */
-function PMA_getHtmlForUserGroupsTable()
-{
-    $tabs = PMA_Util::getMenuTabList();
-
-    $html_output  = '<h2>' . __('User groups') . '</h2>';
-    $groupTable = PMA_Util::backquote($GLOBALS['cfg']['Server']['pmadb'])
-        . "." . PMA_Util::backquote($GLOBALS['cfg']['Server']['usergroups']);
-    $sql_query = "SELECT * FROM " . $groupTable . " ORDER BY `usergroup` ASC";
-    $result = PMA_queryAsControlUser($sql_query, false);
-
-    if ($result && $GLOBALS['dbi']->numRows($result)) {
-        $html_output .= '<form name="userGroupsForm" id="userGroupsForm"'
-            . ' action="server_privileges.php" method="post">';
-        $html_output .= PMA_URL_getHiddenInputs();
-        $html_output .= '<table id="userGroupsTable">';
-        $html_output .= '<thead><tr>';
-        $html_output .= '<th style="white-space: nowrap">'
-            . __('User group') . '</th>';
-        $html_output .= '<th>' . __('Server level tabs') . '</th>';
-        $html_output .= '<th>' . __('Database level tabs') . '</th>';
-        $html_output .= '<th>' . __('Table level tabs') . '</th>';
-        $html_output .= '<th>' . __('Action') . '</th>';
-        $html_output .= '</tr></thead>';
-        $html_output .= '<tbody>';
-
-        $odd = true;
-        while ($row = $GLOBALS['dbi']->fetchAssoc($result)) {
-            $html_output .= '<tr class="' . ($odd ? 'odd' : 'even') . '">';
-            $html_output .= '<td>' . htmlspecialchars($row['usergroup']) . '</td>';
-            $html_output .= '<td>' . _getAllowedTabNames($row, 'server') . '</td>';
-            $html_output .= '<td>' . _getAllowedTabNames($row, 'db') . '</td>';
-            $html_output .= '<td>' . _getAllowedTabNames($row, 'table') . '</td>';
-
-            $html_output .= '<td>';
-            $html_output .= '<a class="" href="server_user_groups.php'
-                . PMA_URL_getCommon(
-                    array(
-                        'viewUsers' => 1, 'userGroup' => $row['usergroup']
-                    )
-                )
-                . '">'
-                . PMA_Util::getIcon('b_usrlist.png', __('View users')) . '</a>';
-            $html_output .= '&nbsp;&nbsp;';
-            $html_output .= '<a class="" href="server_user_groups.php'
-                . PMA_URL_getCommon(
-                    array(
-                        'editUserGroup' => 1, 'userGroup' => $row['usergroup']
-                    )
-                )
-                . '">'
-                . PMA_Util::getIcon('b_edit.png', __('Edit')) . '</a>';
-            $html_output .= '&nbsp;&nbsp;';
-            $html_output .= '<a class="deleteUserGroup ajax"'
-                . ' href="server_user_groups.php'
-                . PMA_URL_getCommon(
-                    array(
-                        'deleteUserGroup' => 1, 'userGroup' => $row['usergroup']
-                    )
-                )
-                . '">'
-                . PMA_Util::getIcon('b_drop.png', __('Delete')) . '</a>';
-            $html_output .= '</td>';
-
-            $html_output .= '</tr>';
-
-            $odd = ! $odd;
-        }
-
-        $html_output .= '</tbody>';
-        $html_output .= '</table>';
-        $html_output .= '</form>';
-    }
-    $GLOBALS['dbi']->freeResult($result);
-
-    $html_output .= '<fieldset id="fieldset_add_user_group">';
-    $html_output .= '<a href="server_user_groups.php'
-        . PMA_URL_getCommon(array('addUserGroup' => 1)) . '">'
-        . PMA_Util::getIcon('b_usradd.png')
-        . __('Add user group') . '</a>';
-    $html_output .= '</fieldset>';
-
-    return $html_output;
-}
-
-/**
- * Returns the list of allowed menu tab names
- * based on a data row from usergroup table.
- *
- * @param array  $row   row of usergroup table
- * @param string $level 'server', 'db' or 'table'
- *
- * @return string comma seperated list of allowed menu tab names
- */
-function _getAllowedTabNames($row, $level)
-{
-    $tabNames = array();
-    $tabs = PMA_Util::getMenuTabList($level);
-    foreach ($tabs as $tab => $tabName) {
-        if (! isset($row[$level . '_' . $tab])
-            || $row[$level . '_' . $tab] == 'Y'
-        ) {
-            $tabNames[] = $tabName;
-        }
-    }
-    return implode(', ', $tabNames);
-}
-
-/**
- * Deletes a user group
- *
- * @param string $userGroup user group name
- *
- * @return void
- */
-function PMA_deleteUserGroup($userGroup)
-{
-    $userTable = PMA_Util::backquote($GLOBALS['cfg']['Server']['pmadb'])
-        . "." . PMA_Util::backquote($GLOBALS['cfg']['Server']['users']);
-    $groupTable = PMA_Util::backquote($GLOBALS['cfg']['Server']['pmadb'])
-        . "." . PMA_Util::backquote($GLOBALS['cfg']['Server']['usergroups']);
-    $sql_query = "DELETE FROM " . $userTable
-        . " WHERE `usergroup`='" . PMA_Util::sqlAddSlashes($userGroup) . "'";
-    PMA_queryAsControlUser($sql_query, true);
-    $sql_query = "DELETE FROM " . $groupTable
-        . " WHERE `usergroup`='" . PMA_Util::sqlAddSlashes($userGroup) . "'";
-    PMA_queryAsControlUser($sql_query, true);
-}
-
-/**
- * Returns HTML for add/edit user group dialog
- *
- * @param string $userGroup name of the user group in case of editing
- *
- * @return string HTML for add/edit user group dialog
- */
-function PMA_getHtmlToEditUserGroup($userGroup = null)
-{
-    $html_output = '';
-    if ($userGroup == null) {
-        $html_output .= '<h2>' . __('Add user group') . '</h2>';
-    } else {
-        $html_output .= '<h2>'
-            . sprintf(__('Edit user group: \'%s\''), htmlspecialchars($userGroup))
-            . '</h2>';
-    }
-
-    $html_output .= '<form name="userGroupForm" id="userGroupForm"'
-        . ' action="server_user_groups.php" method="post">';
-    $urlParams = array();
-    if ($userGroup != null) {
-        $urlParams['userGroup'] = $userGroup;
-        $urlParams['editUserGroupSubmit'] = '1';
-    } else {
-        $urlParams['addUserGroupSubmit'] = '1';
-    }
-    $html_output .= PMA_URL_getHiddenInputs($urlParams);
-
-    $html_output .= '<fieldset id="fieldset_user_group_rights">';
-    $html_output .= '<legend>' . __('User group menu assignments')
-        . '&nbsp;&nbsp;&nbsp;'
-        . '<input type="checkbox" class="checkall_box" title="Check All">'
-        . '<label for="addUsersForm_checkall">' . __('Check All') .'</label>'
-        . '</legend>';
-
-    if ($userGroup == null) {
-        $html_output .= '<label for="userGroup">' . __('Group name:') . '</label>';
-        $html_output .= '<input type="text" name="userGroup" '
-            . 'autocomplete="off" required="required" />';
-        $html_output .= '<div class="clearfloat"></div>';
-    }
-
-    $allowedTabs = array(
-        'server' => array(),
-        'db'     => array(),
-        'table'	 => array()
-    );
-    if ($userGroup != null) {
-        $groupTable = PMA_Util::backquote($GLOBALS['cfg']['Server']['pmadb'])
-            . "." . PMA_Util::backquote($GLOBALS['cfg']['Server']['usergroups']);
-        $sql_query = "SELECT * FROM " . $groupTable
-            . " WHERE `usergroup`='" . PMA_Util::sqlAddSlashes($userGroup) . "'";
-        $result = PMA_queryAsControlUser($sql_query, false);
-        if ($result) {
-            $row = $GLOBALS['dbi']->fetchAssoc($result);
-            foreach ($row as $key => $value) {
-                if (substr($key, 0, 7) == 'server_' && $value == 'Y') {
-                    $allowedTabs['server'][] = substr($key, 7);
-                } elseif (substr($key, 0, 3) == 'db_' && $value == 'Y') {
-                    $allowedTabs['db'][] = substr($key, 3);
-                } elseif (substr($key, 0, 6) == 'table_' && $value == 'Y') {
-                    $allowedTabs['table'][] = substr($key, 6);
-                }
-            }
-        }
-        $GLOBALS['dbi']->freeResult($result);
-    }
-
-    $html_output .= _getTabList(
-        __('Server-level tabs'), 'server', $allowedTabs['server']
-    );
-    $html_output .= _getTabList(
-        __('Database-level tabs'), 'db', $allowedTabs['db']
-    );
-    $html_output .= _getTabList(
-        __('Table-level tabs'), 'table', $allowedTabs['table']
-    );
-
-    $html_output .= '</fieldset>';
-
-    $html_output .= '<fieldset id="fieldset_user_group_rights_footer"'
-        . ' class="tblFooters">';
-    $html_output .= '<input type="submit" name="update_privs" value="Go">';
-    $html_output .= '</fieldset>';
-
-    return $html_output;
-}
-
-/**
- * Returns HTML for checkbox groups to choose
- * tabs of 'server', 'db' or 'table' levels.
- *
- * @param string $title    title of the checkbox group
- * @param string $level    'server', 'db' or 'table'
- * @param array  $selected array of selected allowed tabs
- *
- * @return string HTML for checkbox groups
- */
-function _getTabList($title, $level, $selected)
-{
-    $tabs = PMA_Util::getMenuTabList($level);
-    $html_output = '<fieldset>';
-    $html_output .= '<legend>' . $title . '</legend>';
-    foreach ($tabs as $tab => $tabName) {
-        $html_output .= '<div class="item">';
-        $html_output .= '<input type="checkbox" class="checkall"'
-            . (in_array($tab, $selected) ? ' checked="checked"' : '')
-            . ' name="' . $level . '_' . $tab .  '" value="Y" />';
-        $html_output .= '<label for="' . $level . '_' . $tab .  '">'
-            . '<code>' . $tabName . '</code>'
-            . '</label>';
-        $html_output .= '</div>';
-    }
-    $html_output .= '</fieldset>';
-    return $html_output;
-}
-
-/**
- * Add/update a user group with allowed menu tabs.
- *
- * @param string  $userGroup user group name
- * @param boolean $new       whether this is a new user group
- *
- * @return void
- */
-function PMA_editUserGroup($userGroup, $new = false)
-{
-    $tabs = PMA_Util::getMenuTabList();
-    $groupTable = PMA_Util::backquote($GLOBALS['cfg']['Server']['pmadb'])
-        . "." . PMA_Util::backquote($GLOBALS['cfg']['Server']['usergroups']);
-
-    $cols = "";
-    $vals = "";
-    $colsNvals = "";
-    foreach ($tabs as $tabGroupName => $tabGroup) {
-        foreach ($tabs[$tabGroupName] as $tab => $tabName) {
-            $colName = $tabGroupName . '_' . $tab;
-            $cols .= "," . PMA_Util::backquote($colName);
-            if (isset($_REQUEST[$colName])&& $_REQUEST[$colName] == 'Y') {
-                $vals .= ",'Y'";
-                $colsNvals .= "," . PMA_Util::backquote($colName) . "='Y'";
-            } else {
-                $vals .= ",'N'";
-                $colsNvals .= "," . PMA_Util::backquote($colName) . "='N'";
-            }
-        }
-    }
-    if ($new) {
-        $sql_query = "INSERT INTO " . $groupTable
-            . "(`usergroup`" . $cols . ")"
-            . " VALUES"
-            . " ('" . PMA_Util::sqlAddSlashes($userGroup) . "'" . $vals . ")";
-    } else {
-        $sql_query = "UPDATE " . $groupTable . " SET " . substr($colsNvals, 1)
-            . " WHERE `usergroup`='" . PMA_Util::sqlAddSlashes($userGroup) . "'";
-    }
-    PMA_queryAsControlUser($sql_query, true);
-}
-
-/**
  * Get HTML snippet for display user properties
  *
  * @param boolean $dbname_is_wildcard whether database name is wildcard or not
@@ -4330,7 +4006,7 @@ function PMA_getDbSpecificPrivsQueriesForChangeOrCopyUser(
     $user_host_condition = ' WHERE `User`'
         .' = \'' . PMA_Util::sqlAddSlashes($_REQUEST['old_username']) . "'"
         .' AND `Host`'
-        .' = \'' . PMA_Util::sqlAddSlashes($_REQUEST['old_username']) . '\';';
+        .' = \'' . PMA_Util::sqlAddSlashes($_REQUEST['old_hostname']) . '\';';
 
     $res = $GLOBALS['dbi']->query(
         'SELECT * FROM `mysql`.`db`' . $user_host_condition
@@ -4500,45 +4176,5 @@ function PMA_getSqlQueriesForDisplayAndAddUser($username, $hostname, $password)
         $real_sql_query,
         $sql_query
     );
-}
-
-/**
- * Get HTML for secondary level menu tabs on 'Users' page
- *
- * @param string $selfUrl Url of the file
- *
- * @return string HTML for secondary level menu tabs on 'Users' page
- */
-function PMA_getHtmlForSubMenusOnUsersPage($selfUrl)
-{
-    $url_params = PMA_URL_getCommon();
-    $items = array(
-        array(
-            'name' => __('Users overview'),
-            'url' => 'server_privileges.php'
-        ),
-        array(
-            'name' => __('User groups'),
-            'url' => 'server_user_groups.php'
-        )
-    );
-
-    $retval  = '<ul id="topmenu2">';
-    foreach ($items as $item) {
-        $class = '';
-        if ($item['url'] === $selfUrl) {
-            $class = ' class="tabactive"';
-        }
-        $retval .= '<li>';
-        $retval .= '<a' . $class;
-        $retval .= ' href="' . $item['url'] . '?' . $url_params . '">';
-        $retval .= $item['name'];
-        $retval .= '</a>';
-        $retval .= '</li>';
-    }
-    $retval .= '</ul>';
-    $retval .= '<div class="clearfloat"></div>';
-
-    return $retval;
 }
 ?>

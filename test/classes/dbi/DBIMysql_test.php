@@ -85,18 +85,36 @@ class PMA_DBI_Mysql_Test extends PHPUnit_Framework_TestCase
             $this->markTestSkipped("Cannot redefine function");
         }
         //FOR UT, we just test the right mysql client API is called
-        runkit_function_redefine('mysql_pconnect','','return "mysql_pconnect";');
-        runkit_function_redefine('mysql_connect','','return "mysql_connect";');
-        runkit_function_redefine('mysql_query','','return "mysql_query";');
-        runkit_function_redefine('mysql_fetch_array','','return "mysql_fetch_array";');
-        runkit_function_redefine('mysql_data_seek','','return "mysql_data_seek";');
-        runkit_function_redefine('mysql_get_host_info','','return "mysql_get_host_info";');
-        runkit_function_redefine('mysql_get_proto_info','','return "mysql_get_proto_info";');
-        runkit_function_redefine('mysql_field_flags','','return "mysql_field_flags";');
-        runkit_function_redefine('mysql_field_name','','return "mysql_field_name";');
-        runkit_function_redefine('mysql_field_len','','return "mysql_field_len";');
-        runkit_function_redefine('mysql_num_fields','','return "mysql_num_fields";');
-        runkit_function_redefine('mysql_affected_rows','','return "mysql_affected_rows";');
+        runkit_function_redefine('mysql_pconnect', '', 'return "mysql_pconnect";');
+        runkit_function_redefine('mysql_connect', '', 'return "mysql_connect";');
+        runkit_function_redefine('mysql_query', '', 'return "mysql_query";');
+        runkit_function_redefine(
+            'mysql_fetch_array', '', 'return "mysql_fetch_array";'
+        );
+        runkit_function_redefine(
+            'mysql_data_seek', '', 'return "mysql_data_seek";'
+        );
+        runkit_function_redefine(
+            'mysql_get_host_info', '', 'return "mysql_get_host_info";'
+        );
+        runkit_function_redefine(
+            'mysql_get_proto_info', '', 'return "mysql_get_proto_info";'
+        );
+        runkit_function_redefine(
+            'mysql_field_flags', '', 'return "mysql_field_flags";'
+        );
+        runkit_function_redefine(
+            'mysql_field_name', '', 'return "mysql_field_name";'
+        );
+        runkit_function_redefine(
+            'mysql_field_len', '', 'return "mysql_field_len";'
+        );
+        runkit_function_redefine(
+            'mysql_num_fields', '', 'return "mysql_num_fields";'
+        );
+        runkit_function_redefine(
+            'mysql_affected_rows', '', 'return "mysql_affected_rows";'
+        );
 
         //test for fieldFlags
         $result = array("table1", "table2");

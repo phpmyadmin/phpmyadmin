@@ -215,8 +215,8 @@ class PMA_ExportHtmlword_Test extends PHPUnit_Framework_TestCase
         $this->object->exportHeader();
         $result = ob_get_clean();
 
-        $expected =
-            '<html xmlns:o="urn:schemas-microsoft-com:office:office"
+        $expected
+            = '<html xmlns:o="urn:schemas-microsoft-com:office:office"
             xmlns:x="urn:schemas-microsoft-com:office:word"
             xmlns="http://www.w3.org/TR/REC-html40">
 
@@ -241,8 +241,8 @@ class PMA_ExportHtmlword_Test extends PHPUnit_Framework_TestCase
         $this->object->exportHeader();
         $result = ob_get_clean();
 
-        $expected =
-            '<html xmlns:o="urn:schemas-microsoft-com:office:office"
+        $expected
+            = '<html xmlns:o="urn:schemas-microsoft-com:office:office"
             xmlns:x="urn:schemas-microsoft-com:office:word"
             xmlns="http://www.w3.org/TR/REC-html40">
 

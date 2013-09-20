@@ -115,6 +115,10 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {color: #f22;}
   height: <?php echo ceil($GLOBALS['cfg']['TextareaRows'] * 1.2); ?>em;
 }
 
+#inline_editor_outer .CodeMirror {
+    height: <?php echo ceil($GLOBALS['cfg']['TextareaRows'] * 0.4); ?>em;
+}
+
 .CodeMirror-scroll {
   /* 30px is the magic margin used to hide the element's real scrollbars */
   /* See overflow: hidden in .CodeMirror */

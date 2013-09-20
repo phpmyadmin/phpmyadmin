@@ -150,35 +150,35 @@ $cfg['Servers'][$i]['ssl'] = false;
  *
  * @global string $cfg['Servers'][$i]['ssl_key']
  */
-$cfg['Servers'][$i]['ssl_key'] = NULL;
+$cfg['Servers'][$i]['ssl_key'] = null;
 
 /**
  * Path to the cert file when using SSL for connecting to the MySQL server
  *
  * @global string $cfg['Servers'][$i]['ssl_cert']
  */
-$cfg['Servers'][$i]['ssl_cert'] = NULL;
+$cfg['Servers'][$i]['ssl_cert'] = null;
 
 /**
  * Path to the CA file when using SSL for connecting to the MySQL server
  *
  * @global string $cfg['Servers'][$i]['ssl_ca']
  */
-$cfg['Servers'][$i]['ssl_ca'] = NULL;
+$cfg['Servers'][$i]['ssl_ca'] = null;
 
 /**
  * Directory containing trusted SSL CA certificates in PEM format
  *
  * @global string $cfg['Servers'][$i]['ssl_ca_path']
  */
-$cfg['Servers'][$i]['ssl_ca_path'] = NULL;
+$cfg['Servers'][$i]['ssl_ca_path'] = null;
 
 /**
  * List of allowable ciphers for SSL connections to the MySQL server
  *
  * @global string $cfg['Servers'][$i]['ssl_ciphers']
  */
-$cfg['Servers'][$i]['ssl_ciphers'] = NULL;
+$cfg['Servers'][$i]['ssl_ciphers'] = null;
 
 /**
  * How to connect to MySQL server ('tcp' or 'socket')
