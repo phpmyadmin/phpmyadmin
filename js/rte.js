@@ -100,7 +100,7 @@ RTE.COMMON = {
     }, // end validateCustom()
     /**
      * Execute some code after the ajax
-     * dialog for the ditor is shown.
+     * dialog for the editor is shown.
      * This function can be overridden by
      * other files in this folder
      */
