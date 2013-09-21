@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.7-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-09-17 10:36-0400\n"
-"PO-Revision-Date: 2013-07-18 14:40+0200\n"
-"Last-Translator: Ballen Abdulkarim <ballen.angel@yahoo.com>\n"
-"Language-Team: Kurdish Sorani <http://l10n.cihar.com/projects/phpmyadmin/4-0/"
-"ckb/>\n"
+"PO-Revision-Date: 2013-09-21 02:26+0200\n"
+"Last-Translator: yad taha <jwtyar12@gmail.com>\n"
+"Language-Team: Kurdish Sorani "
+"<http://l10n.cihar.com/projects/phpmyadmin/4-0/ckb/>\n"
+"Language: ckb\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ckb\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 1.6-dev\n"
+"X-Generator: Weblate 1.7-dev\n"
 
 #: browse_foreigners.php:51 browse_foreigners.php:75 js/messages.php:345
 #: libraries/DisplayResults.class.php:856
@@ -534,9 +534,8 @@ msgid "Value for the column \"%s\""
 msgstr "نرخی ستوون \"%s\""
 
 #: gis_data_editor.php:140 tbl_gis_visualization.php:163
-#, fuzzy
 msgid "Use OpenStreetMaps as Base Layer"
-msgstr "Use OpenStreetMaps as Base Layer"
+msgstr "بەکارهێنانی بە ڕێگایەکی کراوەی نەخشەی وەک خەتكی سادە"
 
 #: gis_data_editor.php:161
 msgid "SRID"
