@@ -97,9 +97,9 @@ if (true === $cfg['SkipLockedTables']) {
                 while ($tmp = $GLOBALS['dbi']->fetchRow($db_info_result)) {
                     if (! isset($sot_cache[$tmp[0]])) {
                         $sts_result  = $GLOBALS['dbi']->query(
-                            'SHOW TABLE STATUS FROM ' . PMA_Util::backquote($db)
-                            . ' LIKE \'' . PMA_Util::sqlAddSlashes($tmp[0], true)
-                            . '\';'
+                            "SHOW TABLE STATUS FROM " . PMA_Util::backquote($db)
+                            . " LIKE '" . PMA_Util::sqlAddSlashes($tmp[0], true)
+                            . "';"
                         );
                         $sts_tmp     = $GLOBALS['dbi']->fetchAssoc($sts_result);
                         $GLOBALS['dbi']->freeResult($sts_result);
