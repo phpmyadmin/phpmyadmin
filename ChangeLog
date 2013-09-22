@@ -48,6 +48,7 @@ phpMyAdmin - ChangeLog
 - bug #4041 Interaction between linkified fields and grid editing
 - bug #3975 Table grouping isn't implemented properly
 - bug #4060 Browser tries to remember wrong password when creating new user
+- bug #4002 Edit Index on big table doesn't show "Loading" or any message
 
 4.0.7.0 (not yet released)
 - bug #3993 Sorting in database overview with statistics doesn't work
