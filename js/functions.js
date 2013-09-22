@@ -2795,6 +2795,7 @@ function indexEditorDialog(url, title, callback_success, callback_failure)
          * @var    the_form    object referring to the export form
          */
         var $form = $("#index_frm");
+        var $msgbox = PMA_ajaxShowMessage(PMA_messages['strProcessingRequest']);
         PMA_prepareForAjaxRequest($form);
         //User wants to submit the form
         $.post($form.attr('action'), $form.serialize()+"&do_save_data=1", function(data) {
