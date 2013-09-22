@@ -27,9 +27,11 @@ class Node_View_Container extends Node
         $this->icon  = PMA_Util::getImage('b_views.png', '');
         $this->links = array(
             'text' => 'db_structure.php?server=' . $GLOBALS['server']
-                    . '&amp;db=%1$s&amp;token=' . $GLOBALS['token'],
+                    . '&amp;db=%1$s&amp;tbl_type=view'
+                    . '&amp;token=' . $GLOBALS['token'],
             'icon' => 'db_structure.php?server=' . $GLOBALS['server']
-                    . '&amp;db=%1$s&amp;token=' . $GLOBALS['token'],
+                    . '&amp;db=%1$s&amp;tbl_type=view'
+                    . '&amp;token=' . $GLOBALS['token'],
         );
         $this->classes   = 'viewContainer';
         $this->real_name = 'views';

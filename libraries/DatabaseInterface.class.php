@@ -306,6 +306,7 @@ class PMA_DatabaseInterface
      * @param boolean|integer $limit_count  number of tables to return
      * @param string          $sort_by      table attribute to sort by
      * @param string          $sort_order   direction to sort (ASC or DESC)
+     * @param string          $tble_type    whether table or view
      *
      * @todo    move into PMA_Table
      *
@@ -313,7 +314,8 @@ class PMA_DatabaseInterface
      */
     public function getTablesFull($database, $table = false,
         $tbl_is_group = false,  $link = null, $limit_offset = 0,
-        $limit_count = false, $sort_by = 'Name', $sort_order = 'ASC'
+        $limit_count = false, $sort_by = 'Name', $sort_order = 'ASC',
+        $tble_type = null
     ) {
         if (true === $limit_count) {
             $limit_count = $GLOBALS['cfg']['MaxTableList'];
@@ -348,6 +350,14 @@ class PMA_DatabaseInterface
                 }
             } else {
                 $sql_where_table = '';
+            }
+
+            if ($tble_type) {
+                if ($tble_type == 'view') {
+                    $sql_where_table .= " AND t.`TABLE_TYPE` = 'VIEW'";
+                } else if ($tble_type == 'table') {
+                    $sql_where_table .= " AND t.`TABLE_TYPE` != 'VIEW'";
+                }
             }
 
             // for PMA bc:
@@ -482,14 +492,29 @@ class PMA_DatabaseInterface
         // this is why we fall back to SHOW TABLE STATUS even for MySQL >= 50002
         if (empty($tables) && !PMA_DRIZZLE) {
             foreach ($databases as $each_database) {
-                if ($table || (true === $tbl_is_group)) {
+                if ($table || (true === $tbl_is_group) || $tble_type) {
                     $sql = 'SHOW TABLE STATUS FROM '
                         . PMA_Util::backquote($each_database)
-                        .' LIKE \''
-                        . PMA_Util::escapeMysqlWildcards(
-                            PMA_Util::sqlAddSlashes($table, true)
-                        )
-                        . '%\'';
+                        .' WHERE';
+                    $needAnd = false;
+                    if ($table || (true === $tbl_is_group)) {
+                        $sql .= " `Name` LIKE '"
+                            . PMA_Util::escapeMysqlWildcards(
+                                PMA_Util::sqlAddSlashes($table, true)
+                            )
+                            . "%'";
+                        $needAnd = true;
+                    }
+                    if ($tble_type) {
+                        if ($needAnd) {
+                            $sql .= " AND";
+                        }
+                        if ($tble_type == 'view') {
+                            $sql .= " `Comment` = 'VIEW'";
+                        } else if ($tble_type == 'table') {
+                            $sql .= " `Comment` != 'VIEW'";
+                        }
+                    }
                 } else {
                     $sql = 'SHOW TABLE STATUS FROM '
                         . PMA_Util::backquote($each_database);

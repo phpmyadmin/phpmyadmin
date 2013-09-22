@@ -53,12 +53,20 @@ $tables = array();
 
 // When used in Nested table group mode,
 // only show tables matching the given groupname
+$tbl_group_sql = "";
+$whereAdded = false;
 if (PMA_isValid($_REQUEST['tbl_group'])) {
-    $tbl_group_sql = ' LIKE "'
-        . PMA_Util::escapeMysqlWildcards($_REQUEST['tbl_group'])
-        . '%"';
-} else {
-    $tbl_group_sql = '';
+    $tbl_group_sql .= " WHERE " . PMA_Util::backquote('Tables_in_' . $db) . " LIKE "
+        . "'" . PMA_Util::escapeMysqlWildcards($_REQUEST['tbl_group']) . "%'";
+    $whereAdded = true;
+}
+if (PMA_isValid($_REQUEST['tbl_type'], array('table', 'view'))) {
+    $tbl_group_sql .= $whereAdded ? " AND" : " WHERE";
+    if ($_REQUEST['tbl_type'] == 'view') {
+         $tbl_group_sql .= " `Table_type` = 'VIEW'";
+    } else {
+        $tbl_group_sql .= " `Table_type` != 'VIEW'";
+    }
 }
 
 $tooltip_truename = array();
@@ -82,7 +90,7 @@ if (true === $cfg['SkipLockedTables']) {
 
         if (isset($sot_cache)) {
             $db_info_result = $GLOBALS['dbi']->query(
-                'SHOW TABLES FROM ' . PMA_Util::backquote($db) . $tbl_group_sql,
+                'SHOW FULL TABLES FROM ' . PMA_Util::backquote($db) . $tbl_group_sql,
                 null, PMA_DatabaseInterface::QUERY_STORE
             );
             if ($db_info_result && $GLOBALS['dbi']->numRows($db_info_result) > 0) {
@@ -156,11 +164,20 @@ if (! isset($sot_ready)) {
         }
     }
 
-    if (! empty($_REQUEST['tbl_group'])) {
-        // only tables for selected group
-        $tables = $GLOBALS['dbi']->getTablesFull(
-            $db, $_REQUEST['tbl_group'], true, null, 0, false, $sort, $sort_order
-        );
+    $tbl_group = false;
+    $tbl_type = null;
+    $limit_offset = 0;
+    $limit_count = false;
+
+    if (! empty($_REQUEST['tbl_group']) || ! empty($_REQUEST['tbl_type'])) {
+        if (! empty($_REQUEST['tbl_group'])) {
+            // only tables for selected group
+            $tbl_group = $_REQUEST['tbl_group'];
+        }
+        if (! empty($_REQUEST['tbl_type'])) {
+            // only tables for selected type
+            $tbl_type = $_REQUEST['tbl_type'];
+        }
     } else {
         // all tables in db
         // - get the total number of tables
@@ -175,16 +192,16 @@ if (! isset($sot_ready)) {
              *
              * @todo Page selector for table names?
              */
-            $tables = $GLOBALS['dbi']->getTablesFull(
-                $db, false, false, null, 0, false, $sort, $sort_order
-            );
         } else {
             // fetch the details for a possible limited subset
-            $tables = $GLOBALS['dbi']->getTablesFull(
-                $db, false, false, null, $pos, true, $sort, $sort_order
-            );
+            $limit_offset = $pos;
+            $limit_count = true;
         }
     }
+    $tables = $GLOBALS['dbi']->getTablesFull(
+        $db, $tbl_group, ($tbl_group != false), null, $limit_offset,
+        $limit_count, $sort, $sort_order, $tbl_type
+    );
 }
 
 /**
