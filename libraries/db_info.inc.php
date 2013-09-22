@@ -80,10 +80,10 @@ if (true === $cfg['SkipLockedTables']) {
 
     // Blending out tables in use
     if ($db_info_result && $GLOBALS['dbi']->numRows($db_info_result) > 0) {
-        while ($tmp = $GLOBALS['dbi']->fetchRow($db_info_result)) {
-            // if in use memorize tablename
-            if (preg_match('@in_use=[1-9]+@i', $tmp[1])) {
-                $sot_cache[$tmp[0]] = true;
+        while ($tmp = $GLOBALS['dbi']->fetchAssoc($db_info_result)) {
+            // if in use, memorize table name
+            if ($tmp['In_use'] > 0) {
+                $sot_cache[$tmp['Table']] = true;
             }
         }
         $GLOBALS['dbi']->freeResult($db_info_result);
