@@ -289,18 +289,16 @@ class PMA_DatabaseInterface
      * WRONG: `my_database`
      * WRONG: my\_database
      * if $tbl_is_group is true, $table is used as filter for table names
-     * if $tbl_is_group is 'comment, $table is used as filter for table comments
      *
      * <code>
      * $GLOBALS['dbi']->getTablesFull('my_database');
      * $GLOBALS['dbi']->getTablesFull('my_database', 'my_table'));
      * $GLOBALS['dbi']->getTablesFull('my_database', 'my_tables_', true));
-     * $GLOBALS['dbi']->getTablesFull('my_database', 'my_tables_', 'comment'));
      * </code>
      *
      * @param string          $database     database
      * @param string|bool     $table        table or false
-     * @param boolean|string  $tbl_is_group $table is a table group
+     * @param boolean         $tbl_is_group $table is a table group
      * @param mixed           $link         mysql link
      * @param integer         $limit_offset zero-based offset for the count
      * @param boolean|integer $limit_count  number of tables to return
@@ -334,12 +332,6 @@ class PMA_DatabaseInterface
             if ($table) {
                 if (true === $tbl_is_group) {
                     $sql_where_table = 'AND t.`TABLE_NAME` LIKE \''
-                        . PMA_Util::escapeMysqlWildcards(
-                            PMA_Util::sqlAddSlashes($table)
-                        )
-                        . '%\'';
-                } elseif ('comment' === $tbl_is_group) {
-                    $sql_where_table = 'AND t.`TABLE_COMMENT` LIKE \''
                         . PMA_Util::escapeMysqlWildcards(
                             PMA_Util::sqlAddSlashes($table)
                         )
@@ -596,14 +588,6 @@ class PMA_DatabaseInterface
                 }
 
                 foreach ($each_tables as $table_name => $each_table) {
-                    if ('comment' === $tbl_is_group
-                        && 0 === strpos($each_table['Comment'], $table)
-                    ) {
-                        // remove table from list
-                        unset($each_tables[$table_name]);
-                        continue;
-                    }
-
                     if (! isset($each_tables[$table_name]['Type'])
                         && isset($each_tables[$table_name]['Engine'])
                     ) {
