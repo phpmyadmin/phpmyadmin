@@ -108,13 +108,6 @@ if (true === $cfg['SkipLockedTables']) {
                         if (! isset($sts_tmp['Type']) && isset($sts_tmp['Engine'])) {
                             $sts_tmp['Type'] =& $sts_tmp['Engine'];
                         }
-
-                        if (! empty($_REQUEST['tbl_group'])
-                            && ! preg_match('@' . preg_quote($_REQUEST['tbl_group'], '@') . '@i', $sts_tmp['Comment'])
-                        ) {
-                            continue;
-                        }
-
                         $tables[$sts_tmp['Name']]    = $sts_tmp;
                     } else { // table in use
                         $tables[$tmp[0]]    = array('Name' => $tmp[0]);
