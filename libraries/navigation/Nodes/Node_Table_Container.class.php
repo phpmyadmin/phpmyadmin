@@ -27,9 +27,11 @@ class Node_Table_Container extends Node
         $this->icon  = PMA_Util::getImage('b_browse.png', '');
         $this->links = array(
             'text' => 'db_structure.php?server=' . $GLOBALS['server']
-                    . '&amp;db=%1$s&amp;token=' . $GLOBALS['token'],
+                    . '&amp;db=%1$s&amp;tbl_type=table'
+                    . '&amp;token=' . $GLOBALS['token'],
             'icon' => 'db_structure.php?server=' . $GLOBALS['server']
-                    . '&amp;db=%1$s&amp;token=' . $GLOBALS['token'],
+                    . '&amp;db=%1$s&amp;tbl_type=table'
+                    . '&amp;token=' . $GLOBALS['token'],
         );
         if ($GLOBALS['cfg']['NavigationTreeEnableGrouping']) {
             $this->separator       = $GLOBALS['cfg']['NavigationTreeTableSeparator'];
