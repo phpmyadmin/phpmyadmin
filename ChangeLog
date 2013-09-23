@@ -1,7 +1,7 @@
 phpMyAdmin - ChangeLog
 ======================
 
-4.0.7.0 (not yet released)
+4.0.7.0 (2013-09-23)
 - bug #3993 Sorting in database overview with statistics doesn't work
 - bug Handle the situation where PHP_SELF is not set
 - bug #4080 Overwrite existing file not obeyed
