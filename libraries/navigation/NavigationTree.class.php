@@ -583,7 +583,9 @@ class PMA_NavigationTree
                     }
                     $groups[$key]->pos2 = $node->pos2;
                     $groups[$key]->pos3 = $node->pos3;
-                    if ($node instanceof Node_Table_Container) {
+                    if ($node instanceof Node_Table_Container
+                        || $node instanceof Node_View_Container
+                    ) {
                         $tblGroup = '&amp;tbl_group='
                             . urlencode($key . $node->separator);
                         $groups[$key]->links = array(

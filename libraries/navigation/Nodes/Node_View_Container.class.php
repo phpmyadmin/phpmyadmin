@@ -33,6 +33,12 @@ class Node_View_Container extends Node
                     . '&amp;db=%1$s&amp;tbl_type=view'
                     . '&amp;token=' . $GLOBALS['token'],
         );
+        if ($GLOBALS['cfg']['NavigationTreeEnableGrouping']) {
+            $this->separator       = $GLOBALS['cfg']['NavigationTreeTableSeparator'];
+            $this->separator_depth = (int)(
+                $GLOBALS['cfg']['NavigationTreeTableLevel']
+            );
+        }
         $this->classes   = 'viewContainer';
         $this->real_name = 'views';
 
