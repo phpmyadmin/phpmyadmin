@@ -7,6 +7,7 @@ phpMyAdmin - ChangeLog
 - bug #3975 Table grouping isn't implemented properly
 - bug #4060 Browser tries to remember wrong password when creating new user
 - bug #4002 Edit Index on big table doesn't show "Loading" or any message
+- bug #4098 Default table tab is ignored
 
 4.0.7.0 (not yet released)
 - bug #3993 Sorting in database overview with statistics doesn't work

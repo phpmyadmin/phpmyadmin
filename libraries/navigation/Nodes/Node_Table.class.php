@@ -31,7 +31,8 @@ class Node_Table extends Node
         parent::__construct($name, $type, $is_group);
         $this->icon  = PMA_Util::getImage('b_browse.png');
         $this->links = array(
-            'text' => 'sql.php?server=' . $GLOBALS['server']
+            'text' => $GLOBALS['cfg']['DefaultTabTable']
+                    . '?server=' . $GLOBALS['server']
                     . '&amp;db=%2$s&amp;table=%1$s'
                     . '&amp;pos=0&amp;token=' . $GLOBALS['token'],
             'icon' => $GLOBALS['cfg']['NavigationTreeDefaultTabTable']
