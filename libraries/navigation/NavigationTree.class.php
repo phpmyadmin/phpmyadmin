@@ -600,7 +600,8 @@ class PMA_NavigationTree
                             $name_substring = substr(
                                 $child->name, 0, strlen($key) + strlen($separator)
                             );
-                            if ($name_substring == $key . $separator
+                            if (($name_substring == $key . $separator
+                                || $child->name == $key)
                                 && $child->type == Node::OBJECT
                             ) {
                                 $class = get_class($child);

@@ -51,6 +51,7 @@ phpMyAdmin - ChangeLog
 - bug #4002 Edit Index on big table doesn't show "Loading" or any message
 - bug #4098 Default table tab is ignored
 - bug #4099 Server/library difference warning: setting is ignored
+- bug #4100 table tree group strategy
 
 4.0.7.0 (2013-09-23)
 - bug #3993 Sorting in database overview with statistics doesn't work
