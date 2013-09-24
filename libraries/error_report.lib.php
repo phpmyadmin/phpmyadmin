@@ -20,7 +20,7 @@ if (is_readable('js/line_counts.php')) {
 /**
  * the url where to submit reports to
  */
-$submission_url = "http://dev-reports.phpmyadmin.net/incidents/create";
+define('SUBMISSION_URL', "http://reports.phpmyadmin.net/incidents/create");
 
 /**
  * returns the error report data collected from the current configuration or
@@ -108,7 +108,6 @@ function PMA_sanitizeUrl($url) {
  * @return String the reply of the server
  */
 function PMA_sendErrorReport($report) {
-    global $submission_url;
     $data_string = json_encode($report);
     if (ini_get('allow_url_fopen') && false) {
         $context = array("http" =>
@@ -130,12 +129,12 @@ function PMA_sendErrorReport($report) {
             }
         }
         $response = file_get_contents(
-            $submission_url,
+            SUBMISSION_URL,
             false,
             stream_context_create($context)
         );
     } else if (function_exists('curl_init')) {
-        $curl_handle = curl_init($submission_url);
+        $curl_handle = curl_init(SUBMISSION_URL);
         if (strlen($GLOBALS['cfg']['ProxyUrl'])) {
             curl_setopt($curl_handle, CURLOPT_PROXY, $GLOBALS['cfg']['ProxyUrl']);
             if (strlen($GLOBALS['cfg']['ProxyUser'])) {
