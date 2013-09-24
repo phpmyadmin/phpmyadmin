@@ -525,7 +525,10 @@ if ($server > 0) {
  * Drizzle can speak MySQL protocol, so don't warn about version mismatch for
  * Drizzle servers.
  */
-if (isset($GLOBALS['dbi']) && !PMA_DRIZZLE) {
+if (isset($GLOBALS['dbi'])
+    && !PMA_DRIZZLE
+    && $cfg['ServerLibraryDifference_DisableWarning'] == false
+) {
     $_client_info = $GLOBALS['dbi']->getClientInfo();
     if ($server > 0
         && strpos($_client_info, 'mysqlnd') === false
