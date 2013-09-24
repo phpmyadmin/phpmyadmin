@@ -52,6 +52,7 @@ class PMA_DisplayCreateTable_Test extends PHPUnit_Framework_TestCase
         //$_SESSION
         $_SESSION['PMA_Theme'] = PMA_Theme::load('./themes/pmahomme');
         $_SESSION['PMA_Theme'] = new PMA_Theme();
+        $GLOBALS['server'] = 0;
         $_SESSION['relation'][$GLOBALS['server']] = "relation";
     }
 
