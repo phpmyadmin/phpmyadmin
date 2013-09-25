@@ -583,7 +583,7 @@ if (isset($_REQUEST['report']) || isset($_REQUEST['report_export'])) {
                 echo '<td><small>' . htmlspecialchars($entry['date']) . '</small></td>';
                 echo '<td><small>' . htmlspecialchars($entry['username']) . '</small></td>';
                 echo '<td>' . $statement . '</td>';
-                echo '<td class="nowrap"><a href="tbl_tracking.php?'
+                echo '<td class="nowrap"><a href="tbl_tracking.php'
                     . PMA_generate_common_url(
                         $url_params + array(
                             'report' => 'true',

@@ -11,6 +11,7 @@ phpMyAdmin - ChangeLog
 - bug #4099 Server/library difference warning: setting is ignored
 - bug #4100 table tree group strategy
 - bug #4102 ALTER TABLE ORDER BY and InnoDB
+- bug #4103 Tracking report: cannot delete a statement
 
 4.0.7.0 (2013-09-23)
 - bug #3993 Sorting in database overview with statistics doesn't work
