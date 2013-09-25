@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-09-19 06:34-0400\n"
-"PO-Revision-Date: 2013-09-18 09:17+0200\n"
+"PO-Revision-Date: 2013-09-25 09:09+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Czech <http://l10n.cihar.com/projects/phpmyadmin/master/cs/>\n"
 "Language: cs\n"
@@ -7716,12 +7716,11 @@ msgid "New"
 msgstr "Nové"
 
 #: libraries/navigation/Nodes/Node_Database_Container.class.php:31
-#, fuzzy
 #| msgctxt "Create new column"
 #| msgid "New"
 msgctxt "Create new database"
 msgid "New"
-msgstr "Nové"
+msgstr "Nová"
 
 #: libraries/navigation/Nodes/Node_Event_Container.class.php:37
 msgctxt "Create new event"
