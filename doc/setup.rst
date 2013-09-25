@@ -19,7 +19,7 @@ page can be used for this.
 Linux distributions
 +++++++++++++++++++
 
-phpMyAdmin is included in most of Linux distributions. It is recommended to use
+phpMyAdmin is included in most Linux distributions. It is recommended to use
 distribution packages when possible - they usually provide integration to your
 distribution and you will automatically get security updates from your distribution.
 
