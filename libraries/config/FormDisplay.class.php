@@ -97,8 +97,8 @@ class FormDisplay
     /**
      * Registers form in form manager
      *
-     * @param string $form_name
-     * @param array  $form
+     * @param string $form_name Form name
+     * @param array  $form      Form data
      * @param int    $server_id 0 if new server, validation; >= 1 if editing a server
      *
      * @return void
@@ -185,7 +185,7 @@ class FormDisplay
     /**
      * Outputs HTML for forms
      *
-     * @param bool $tabbed_form
+     * @param bool $tabbed_form          if true, use a form with tabs
      * @param bool $show_restore_default whether show "restore default" button
      *                                   besides the input field
      *
@@ -292,7 +292,7 @@ class FormDisplay
     /**
      * Prepares data for input field display and outputs HTML code
      *
-     * @param Form   $form
+     * @param Form   $form                 Form object
      * @param string $field                field name as it appears in $form
      * @param string $system_path          field path, eg. Servers/1/verbose
      * @param string $work_path            work path, eg. Servers/4/verbose
@@ -676,7 +676,7 @@ class FormDisplay
     /**
      * Returns link to documentation
      *
-     * @param string $path
+     * @param string $path Path to documentation
      *
      * @return string
      */
@@ -695,7 +695,7 @@ class FormDisplay
     /**
      * Returns link to wiki
      *
-     * @param string $path
+     * @param string $path Path to wiki
      *
      * @return string
      */
@@ -724,7 +724,7 @@ class FormDisplay
     /**
      * Changes path so it can be used in URLs
      *
-     * @param string $path
+     * @param string $path Path
      *
      * @return string
      */
