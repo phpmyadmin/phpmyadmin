@@ -233,28 +233,33 @@ $columns = PMA_DBI_get_columns($GLOBALS['db'], $GLOBALS['table']);
 /**
  * Order the table
  */
-require_once 'libraries/Index.class.php';
-$indexes = PMA_Index::getFromTable($GLOBALS['table'], $GLOBALS['db']);
-$hasNotNullUniqueIdx = false;
-foreach ($indexes as $name => $idx) {
-    if ($name == 'PRIMARY') {
-        $hasNotNullUniqueIdx = true;
-    } elseif (! $idx->getNonUnique()) {
-        $hasNotNullUniqueIdx = true;
-        foreach ($idx->getColumns() as $column) {
-            if ($column->getNull()) {
-                $hasNotNullUniqueIdx = false;
-            }
-        }
-    }
-    if ($hasNotNullUniqueIdx) {
-        break;
-    }
-}
+$hideOrderTable = false;
 // `ALTER TABLE ORDER BY` does not make sense for InnoDB tables that contain
 // a user-defined clustered index (PRIMARY KEY or NOT NULL UNIQUE index).
 // InnoDB always orders table rows according to such an index if one is present.
-if (! ($tbl_storage_engine == 'INNODB' && $hasNotNullUniqueIdx)) {
+if ($tbl_storage_engine == 'INNODB') {
+    include_once 'libraries/Index.class.php';
+    $indexes = PMA_Index::getFromTable($GLOBALS['table'], $GLOBALS['db']);
+    foreach ($indexes as $name => $idx) {
+        if ($name == 'PRIMARY') {
+            $hideOrderTable = true;
+            break;
+        } elseif (! $idx->getNonUnique()) {
+            $notNull = true;
+            foreach ($idx->getColumns() as $column) {
+                if ($column->getNull()) {
+                    $notNull = false;
+                    break;
+                }
+            }
+            if ($notNull) {
+                $hideOrderTable = true;
+                break;
+            }
+        }
+    }
+}
+if (! $hideOrderTable) {
     $response->addHTML(PMA_getHtmlForOrderTheTable($columns));
 }
 
