@@ -77,6 +77,14 @@ But be aware that the configuration file is maintained in
 official phpMyAdmin documentation.
 
 
+Installing on Windows
++++++++++++++++++++++
+
+The easiest way to get phpMyAdmin on Windows is using third party products
+which include phpMyAdmin together with a database and web server such as 
+`XAMPP <http://www.apachefriends.org/en/xampp.html>`_.
+
+
 .. _quick_install:
 
 Quick Install
