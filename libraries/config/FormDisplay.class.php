@@ -280,10 +280,12 @@ class FormDisplay
             foreach ($this->_jsLangStrings as $strName => $strValue) {
                 $js_lang[] = "'$strName': '" . PMA_jsFormat($strValue, false) . '\'';
             }
-            $js[] = "$.extend(PMA_messages, {\n\t" . implode(",\n\t", $js_lang) . '})';
+            $js[] = "$.extend(PMA_messages, {\n\t"
+                . implode(",\n\t", $js_lang) . '})';
         }
 
-        $js[] = "$.extend(defaultValues, {\n\t" . implode(",\n\t", $js_default) . '})';
+        $js[] = "$.extend(defaultValues, {\n\t"
+            . implode(",\n\t", $js_default) . '})';
         PMA_displayJavascript($js);
     }
 
