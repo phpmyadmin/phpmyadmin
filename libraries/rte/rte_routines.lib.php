@@ -1134,17 +1134,17 @@ function PMA_RTN_getQueryFromRequest()
     $warned_about_name   = false;
     $warned_about_length = false;
 
-    $item_param_name = $_REQUEST['item_param_name'];
-    $item_param_type = $_REQUEST['item_param_type'];
-    $item_param_length = $_REQUEST['item_param_length'];
-
-    if (   ! empty($item_param_name)
-        && ! empty($item_param_type)
-        && ! empty($item_param_length)
-        && is_array($item_param_name)
-        && is_array($item_param_type)
-        && is_array($item_param_length)
+    if (   ! empty($_REQUEST['item_param_name'])
+        && ! empty($_REQUEST['item_param_type'])
+        && ! empty($_REQUEST['item_param_length'])
+        && is_array($_REQUEST['item_param_name'])
+        && is_array($_REQUEST['item_param_type'])
+        && is_array($_REQUEST['item_param_length'])
     ) {
+        $item_param_name = $_REQUEST['item_param_name'];
+        $item_param_type = $_REQUEST['item_param_type'];
+        $item_param_length = $_REQUEST['item_param_length'];
+
         for ($i=0; $i < count($item_param_name); $i++) {
             if (! empty($item_param_name[$i])
                 && ! empty($item_param_type[$i])
