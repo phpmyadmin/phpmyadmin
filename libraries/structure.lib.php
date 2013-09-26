@@ -1131,6 +1131,8 @@ function PMA_getValuesForAriaTable($db_is_information_schema, $current_table,
  */
 function PMA_getValuesForPbmsTable($current_table, $is_show_stats, $sum_size)
 {
+    $formatted_size = $unit = '';
+
     if (($current_table['ENGINE'] == 'InnoDB'
         && $current_table['TABLE_ROWS'] < $GLOBALS['cfg']['MaxExactCount'])
         || !isset($current_table['TABLE_ROWS'])
