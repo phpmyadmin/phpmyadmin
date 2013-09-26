@@ -1031,7 +1031,7 @@ function PMA_getStuffForEngineTypeTable($current_table, $db_is_information_schem
         // PBMS table in Drizzle: TABLE_ROWS is taken from table cache,
         // so it may be unavailable
         list($current_table, $formatted_size, $unit, $sum_size)
-            = PMA_getValuesForPbmsTable($current_table, $is_show_stats, $sum_size);
+            = PMA_getValuesForInnodbTable($current_table, $is_show_stats, $sum_size);
         //$display_rows                   =  ' - ';
         break;
     // Mysql 5.0.x (and lower) uses MRG_MyISAM
@@ -1120,7 +1120,7 @@ function PMA_getValuesForAriaTable($db_is_information_schema, $current_table,
 }
 
 /**
- * Get values for PBMS table
+ * Get values for InnoDB table
  * $current_table, $formatted_size, $unit, $sum_size
  *
  * @param array   $current_table current table
@@ -1129,7 +1129,7 @@ function PMA_getValuesForAriaTable($db_is_information_schema, $current_table,
  *
  * @return array
  */
-function PMA_getValuesForPbmsTable($current_table, $is_show_stats, $sum_size)
+function PMA_getValuesForInnodbTable($current_table, $is_show_stats, $sum_size)
 {
     $formatted_size = $unit = '';
 
