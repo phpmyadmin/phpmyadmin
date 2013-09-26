@@ -1120,7 +1120,7 @@ function PMA_getValuesForAriaTable($db_is_information_schema, $current_table,
 }
 
 /**
- * Get valuse for PBMS table
+ * Get values for PBMS table
  * $current_table, $formatted_size, $unit, $sum_size
  *
  * @param array   $current_table current table
