@@ -56,7 +56,7 @@ class Node_Database extends Node
         $db     = $this->real_name;
         switch ($type) {
         case 'tables':
-            if (! $GLOBALS['cfg']['Servers'][$GLOBALS['server']]['DisableIS']) {
+            if (! $GLOBALS['cfg']['Server']['DisableIS']) {
                 $db     = PMA_Util::sqlAddSlashes($db);
                 $query  = "SELECT COUNT(*) ";
                 $query .= "FROM `INFORMATION_SCHEMA`.`TABLES` ";
@@ -89,7 +89,7 @@ class Node_Database extends Node
             }
             break;
         case 'views':
-            if (! $GLOBALS['cfg']['Servers'][$GLOBALS['server']]['DisableIS']) {
+            if (! $GLOBALS['cfg']['Server']['DisableIS']) {
                 $db     = PMA_Util::sqlAddSlashes($db);
                 $query  = "SELECT COUNT(*) ";
                 $query .= "FROM `INFORMATION_SCHEMA`.`TABLES` ";
@@ -122,7 +122,7 @@ class Node_Database extends Node
             }
             break;
         case 'procedures':
-            if (! $GLOBALS['cfg']['Servers'][$GLOBALS['server']]['DisableIS']) {
+            if (! $GLOBALS['cfg']['Server']['DisableIS']) {
                 $db     = PMA_Util::sqlAddSlashes($db);
                 $query  = "SELECT COUNT(*) ";
                 $query .= "FROM `INFORMATION_SCHEMA`.`ROUTINES` ";
@@ -152,7 +152,7 @@ class Node_Database extends Node
             }
             break;
         case 'functions':
-            if (! $GLOBALS['cfg']['Servers'][$GLOBALS['server']]['DisableIS']) {
+            if (! $GLOBALS['cfg']['Server']['DisableIS']) {
                 $db     = PMA_Util::sqlAddSlashes($db);
                 $query  = "SELECT COUNT(*) ";
                 $query .= "FROM `INFORMATION_SCHEMA`.`ROUTINES` ";
@@ -182,7 +182,7 @@ class Node_Database extends Node
             }
             break;
         case 'events':
-            if (! $GLOBALS['cfg']['Servers'][$GLOBALS['server']]['DisableIS']) {
+            if (! $GLOBALS['cfg']['Server']['DisableIS']) {
                 $db     = PMA_Util::sqlAddSlashes($db);
                 $query  = "SELECT COUNT(*) ";
                 $query .= "FROM `INFORMATION_SCHEMA`.`EVENTS` ";
@@ -234,7 +234,7 @@ class Node_Database extends Node
         $db       = $this->real_name;
         switch ($type) {
         case 'tables':
-            if (! $GLOBALS['cfg']['Servers'][$GLOBALS['server']]['DisableIS']) {
+            if (! $GLOBALS['cfg']['Server']['DisableIS']) {
                 $escdDb = PMA_Util::sqlAddSlashes($db);
                 $query  = "SELECT `TABLE_NAME` AS `name` ";
                 $query .= "FROM `INFORMATION_SCHEMA`.`TABLES` ";
@@ -277,7 +277,7 @@ class Node_Database extends Node
             }
             break;
         case 'views':
-            if (! $GLOBALS['cfg']['Servers'][$GLOBALS['server']]['DisableIS']) {
+            if (! $GLOBALS['cfg']['Server']['DisableIS']) {
                 $escdDb = PMA_Util::sqlAddSlashes($db);
                 $query  = "SELECT `TABLE_NAME` AS `name` ";
                 $query .= "FROM `INFORMATION_SCHEMA`.`TABLES` ";
@@ -320,7 +320,7 @@ class Node_Database extends Node
             }
             break;
         case 'procedures':
-            if (! $GLOBALS['cfg']['Servers'][$GLOBALS['server']]['DisableIS']) {
+            if (! $GLOBALS['cfg']['Server']['DisableIS']) {
                 $escdDb = PMA_Util::sqlAddSlashes($db);
                 $query  = "SELECT `ROUTINE_NAME` AS `name` ";
                 $query .= "FROM `INFORMATION_SCHEMA`.`ROUTINES` ";
@@ -360,7 +360,7 @@ class Node_Database extends Node
             }
             break;
         case 'functions':
-            if (! $GLOBALS['cfg']['Servers'][$GLOBALS['server']]['DisableIS']) {
+            if (! $GLOBALS['cfg']['Server']['DisableIS']) {
                 $escdDb = PMA_Util::sqlAddSlashes($db);
                 $query  = "SELECT `ROUTINE_NAME` AS `name` ";
                 $query .= "FROM `INFORMATION_SCHEMA`.`ROUTINES` ";
@@ -400,7 +400,7 @@ class Node_Database extends Node
             }
             break;
         case 'events':
-            if (! $GLOBALS['cfg']['Servers'][$GLOBALS['server']]['DisableIS']) {
+            if (! $GLOBALS['cfg']['Server']['DisableIS']) {
                 $escdDb = PMA_Util::sqlAddSlashes($db);
                 $query  = "SELECT `EVENT_NAME` AS `name` ";
                 $query .= "FROM `INFORMATION_SCHEMA`.`EVENTS` ";
