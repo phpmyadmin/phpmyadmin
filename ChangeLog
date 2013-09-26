@@ -13,6 +13,7 @@ phpMyAdmin - ChangeLog
 - bug #4102 ALTER TABLE ORDER BY and InnoDB
 - bug #4103 Tracking report: cannot delete a statement
 - bug #3996 Drizzle navigation doesn't expand
+- bug #4074 GIS column editor: point not displayed
 
 4.0.7.0 (2013-09-23)
 - bug #3993 Sorting in database overview with statistics doesn't work
