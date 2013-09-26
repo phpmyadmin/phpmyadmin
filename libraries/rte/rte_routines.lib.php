@@ -1215,7 +1215,9 @@ function PMA_RTN_getQueryFromRequest()
     }
     $query .= "(" . $params . ") ";
     if ($_REQUEST['item_type'] == 'FUNCTION') {
-        $item_returntype = $_REQUEST['item_returntype'];
+        $item_returntype = isset($_REQUEST['item_returntype'])
+            ? $_REQUEST['item_returntype']
+            : null;
 
         if (! empty($item_returntype)
             && in_array(
