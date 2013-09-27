@@ -143,7 +143,8 @@ class PMA_User_Schema
         <tr>
         <td><?php echo __('Automatic layout based on'); ?></td>
         <td>
-        <input type="checkbox" name="auto_layout_internal" id="id_auto_layout_internal" /><label for="id_auto_layout_internal">
+        <input type="checkbox" name="auto_layout_internal"
+            id="id_auto_layout_internal" /><label for="id_auto_layout_internal">
         <?php echo __('Internal relations'); ?></label><br />
         <?php
         /*
@@ -152,9 +153,12 @@ class PMA_User_Schema
          * If available, then provide AutoLayout for Foreign Keys in Schema View
          */
 
-        if (PMA_StorageEngine::isValid('InnoDB') || PMA_StorageEngine::isValid('PBXT')) {
+        if (PMA_StorageEngine::isValid('InnoDB')
+            || PMA_StorageEngine::isValid('PBXT')
+        ) {
             ?>
-            <input type="checkbox" name="auto_layout_foreign" id="id_auto_layout_foreign" /><label for="id_auto_layout_foreign">
+            <input type="checkbox" name="auto_layout_foreign"
+                id="id_auto_layout_foreign" /><label for="id_auto_layout_foreign">
             <?php echo __('FOREIGN KEY'); ?></label><br />
             <?php
         }
@@ -425,12 +429,16 @@ class PMA_User_Schema
             <?php
             if (isset($test_rs)) {
             ?>
-            <label for="pdf_page_number_opt"><?php echo __('Page number:'); ?></label>
+            <label for="pdf_page_number_opt">
+            <?php echo __('Page number:'); ?>
+            </label>
             <select name="pdf_page_number" id="pdf_page_number_opt">
                 <?php
                 while ($pages = @$GLOBALS['dbi']->fetchAssoc($test_rs)) {
                     echo '                <option value="' . $pages['page_nr'] . '">'
-                        . $pages['page_nr'] . ': ' . htmlspecialchars($pages['page_descr']) . '</option>' . "\n";
+                        . $pages['page_nr'] . ': '
+                        . htmlspecialchars($pages['page_descr'])
+                        . '</option>' . "\n";
                 } // end while
                 $GLOBALS['dbi']->freeResult($test_rs);
                 unset($test_rs);
@@ -439,7 +447,8 @@ class PMA_User_Schema
             <?php
             } else {
             ?>
-            <input type="hidden" name="pdf_page_number" value="<?php echo htmlspecialchars($this->chosenPage); ?>" />
+            <input type="hidden" name="pdf_page_number"
+                value="<?php echo htmlspecialchars($this->chosenPage); ?>" />
             <?php
             }
             ?>
@@ -447,14 +456,17 @@ class PMA_User_Schema
             <input type="hidden" name="chpage" value="<?php echo $chpage; ?>" />
             <input type="checkbox" name="show_grid" id="show_grid_opt" />
             <label for="show_grid_opt"><?php echo __('Show grid'); ?></label><br />
-            <input type="checkbox" name="show_color" id="show_color_opt" checked="checked" />
+            <input type="checkbox" name="show_color"
+                id="show_color_opt" checked="checked" />
             <label for="show_color_opt"><?php echo __('Show color'); ?></label>
             <br />
-            <input type="checkbox" name="show_table_dimension" id="show_table_dim_opt" />
+            <input type="checkbox" name="show_table_dimension"
+                id="show_table_dim_opt" />
             <label for="show_table_dim_opt">
             <?php echo __('Show dimension of tables'); ?>
             </label><br />
-            <input type="checkbox" name="all_tables_same_width" id="all_tables_same_width" />
+            <input type="checkbox" name="all_tables_same_width"
+                id="all_tables_same_width" />
             <label for="all_tables_same_width">
             <?php echo __('Same width for all tables'); ?>
             </label><br />
@@ -469,15 +481,15 @@ class PMA_User_Schema
             <label for="orientation_opt"><?php echo __('Orientation'); ?></label>
             <br />
             <select name="paper" id="paper_opt" class="paper-change">
-                <?php
-                foreach ($cfg['PDFPageSizes'] as $val) {
-                        echo '<option value="' . $val . '"';
-                        if ($val == $cfg['PDFDefaultPageSize']) {
-                            echo ' selected="selected"';
-                        }
-                        echo ' >' . $val . '</option>' . "\n";
-                }
-                ?>
+        <?php
+        foreach ($cfg['PDFPageSizes'] as $val) {
+            echo '<option value="' . $val . '"';
+            if ($val == $cfg['PDFDefaultPageSize']) {
+                echo ' selected="selected"';
+            }
+            echo ' >' . $val . '</option>' . "\n";
+        }
+        ?>
             </select>
             <label for="paper_opt"><?php echo __('Paper size'); ?></label>
             </fieldset>
@@ -574,7 +586,9 @@ class PMA_User_Schema
                 . '</u>';
 
             if (isset($with_field_names)) {
-                $fields = $GLOBALS['dbi']->getColumns($db, $temp_sh_page['table_name']);
+                $fields = $GLOBALS['dbi']->getColumns(
+                    $db, $temp_sh_page['table_name']
+                );
                 // if the table has been dropped from outside phpMyAdmin,
                 // we can no longer obtain its columns list
                 if ($fields) {
@@ -758,12 +772,16 @@ class PMA_User_Schema
             $master_tables_rs = PMA_queryAsControlUser(
                 $master_tables, false, PMA_DatabaseInterface::QUERY_STORE
             );
-            if ($master_tables_rs && $GLOBALS['dbi']->numRows($master_tables_rs) > 0) {
+            if ($master_tables_rs
+                && $GLOBALS['dbi']->numRows($master_tables_rs) > 0
+            ) {
                 /* first put all the master tables at beginning
                  * of the list, so they are near the center of
                  * the schema
                  */
-                while (list(, $master_table) = $GLOBALS['dbi']->fetchRow($master_tables_rs)) {
+                while (list(, $master_table)
+                    = $GLOBALS['dbi']->fetchRow($master_tables_rs)
+                ) {
                        $all_tables[] = $master_table;
                 }
 
@@ -777,7 +795,9 @@ class PMA_User_Schema
                 foreach ($all_tables as $master_table) {
                     $foreigners = PMA_getForeigners($db, $master_table);
                     foreach ($foreigners as $foreigner) {
-                        if (! in_array($foreigner['foreign_table'], $foreign_tables)) {
+                        if (! in_array(
+                            $foreigner['foreign_table'], $foreign_tables
+                        )) {
                             $foreign_tables[] = $foreigner['foreign_table'];
                         }
                     }
