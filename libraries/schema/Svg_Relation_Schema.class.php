@@ -1,6 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
+ * Classes to create relation schema in SVG format.
  *
  * @package PhpMyAdmin
  */
@@ -212,8 +213,9 @@ class PMA_SVG extends XMLWriter
      * @see XMLWriter::startElement(), XMLWriter::writeAttribute(),
      * XMLWriter::text(), XMLWriter::endElement()
      */
-    function printElement($name, $x, $y, $width = '', $height = '', $text = '', $styles = '')
-    {
+    function printElement($name, $x, $y, $width = '', $height = '',
+        $text = '', $styles = ''
+    ) {
         $this->startElement($name);
         $this->writeAttribute('width', $width);
         $this->writeAttribute('height', $height);
@@ -481,7 +483,8 @@ class Table_Stats_Svg
     private function _getTitle()
     {
         return ($this->_showInfo
-            ? sprintf('%.0f', $this->width) . 'x' . sprintf('%.0f', $this->heightCell)
+            ? sprintf('%.0f', $this->width) . 'x'
+            . sprintf('%.0f', $this->heightCell)
             : ''
         ) . ' ' . $this->_tableName;
     }
@@ -515,7 +518,9 @@ class Table_Stats_Svg
          * it is unknown what value must be added, because
          * table title is affected by the tabe width value
          */
-        while ($this->width < $svg->getStringWidth($this->_getTitle(), $font, $fontSize)) {
+        while ($this->width
+            < $svg->getStringWidth($this->_getTitle(), $font, $fontSize)
+        ) {
             $this->width += 7;
         }
     }
@@ -617,8 +622,9 @@ class Relation_Stats_Svg
      *
      * @see Relation_Stats_Svg::_getXy
      */
-    function __construct($master_table, $master_field, $foreign_table, $foreign_field)
-    {
+    function __construct($master_table, $master_field, $foreign_table,
+        $foreign_field
+    ) {
         $src_pos  = $this->_getXy($master_table, $master_field);
         $dest_pos = $this->_getXy($foreign_table, $foreign_field);
         /*
@@ -905,7 +911,8 @@ class PMA_Svg_Relation_Schema extends PMA_Export_Relation_Schema
      * @access private
      * @return void
      *
-     * @see _setMinMax,Table_Stats_Svg::__construct(),Relation_Stats_Svg::__construct()
+     * @see _setMinMax,Table_Stats_Svg::__construct(),
+     *       Relation_Stats_Svg::__construct()
      */
     private function _addRelation(
         $masterTable,$font,$fontSize, $masterField,
