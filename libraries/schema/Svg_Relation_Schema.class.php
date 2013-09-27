@@ -265,7 +265,7 @@ class PMA_SVG extends XMLWriter
     /**
      * get width of string/text
      *
-     * Svg text element width is calcualted depending on font name
+     * Svg text element width is calculated depending on font name
      * and font size. It is very important to know the width of text
      * because rectangle is drawn around it.
      *
