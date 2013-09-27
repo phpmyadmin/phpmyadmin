@@ -125,28 +125,29 @@ class PMA_User_Schema
      */
     public function showCreatePageDialog($db)
     {
-        ?>
-        <form method="post" action="schema_edit.php" name="frm_create_page">
-        <fieldset>
-        <legend>
-        <?php echo __('Create a page') . "\n"; ?>
-        </legend>
-        <?php echo PMA_URL_getHiddenInputs($db); ?>
-        <input type="hidden" name="do" value="createpage" />
-        <table>
-        <tr>
-        <td><label for="id_newpage"><?php echo __('Page name'); ?></label></td>
-        <td>
-        <input type="text" name="newpage" id="id_newpage" size="20" maxlength="50" />
-        </td>
-        </tr>
-        <tr>
-        <td><?php echo __('Automatic layout based on'); ?></td>
-        <td>
-        <input type="checkbox" name="auto_layout_internal"
-            id="id_auto_layout_internal" /><label for="id_auto_layout_internal">
-        <?php echo __('Internal relations'); ?></label><br />
-        <?php
+        $htmlString = '<form method="post" action="schema_edit.php"'
+            . ' name="frm_create_page">'
+            . '<fieldset>'
+            . '<legend>'
+            .  __('Create a page')
+            . '</legend>'
+            . PMA_URL_getHiddenInputs($db)
+            . '<input type="hidden" name="do" value="createpage" />'
+            . '<table>'
+            . '<tr>'
+            . '<td><label for="id_newpage">' . __('Page name') . '</label></td>'
+            . '<td>'
+            . '<input type="text" name="newpage" id="id_newpage"'
+            . ' size="20" maxlength="50" />'
+            . '</td>'
+            . '</tr>'
+            . '<tr>'
+            . __('Automatic layout based on') . '</td>'
+            . '<td>'
+            . '<input type="checkbox" name="auto_layout_internal"'
+            . ' id="id_auto_layout_internal" /><label for="id_auto_layout_internal">'
+            . __('Internal relations') . '</label><br />';
+
         /*
          * Check to see whether INNODB and PBXT storage engines
          * are Available in MYSQL PACKAGE
@@ -156,21 +157,21 @@ class PMA_User_Schema
         if (PMA_StorageEngine::isValid('InnoDB')
             || PMA_StorageEngine::isValid('PBXT')
         ) {
-            ?>
-            <input type="checkbox" name="auto_layout_foreign"
-                id="id_auto_layout_foreign" /><label for="id_auto_layout_foreign">
-            <?php echo __('FOREIGN KEY'); ?></label><br />
-            <?php
+            $htmlString .= '<input type="checkbox" name="auto_layout_foreign"'
+                . ' id="id_auto_layout_foreign" />'
+                . '<label for="id_auto_layout_foreign">'
+                .  __('FOREIGN KEY') . '</label><br />';
         }
-        ?>
-        </td></tr>
-        </table>
-        </fieldset>
-        <fieldset class="tblFooters">
-        <input type="submit" value="<?php echo __('Go'); ?>" />
-        </fieldset>
-        </form>
-        <?php
+
+        $htmlString .= '</td></tr>'
+            . '</table>'
+            . '</fieldset>'
+            . '<fieldset class="tblFooters">'
+            . '<input type="submit" value="' . __('Go') . '" />'
+            . '</fieldset>'
+            . '</form>';
+
+        echo $htmlString;
     }
 
     /**
