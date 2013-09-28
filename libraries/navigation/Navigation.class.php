@@ -195,7 +195,7 @@ class PMA_Navigation
                             . '&itemName=' . urldecode($hiddenItem)
                             . '&dbName=' . urldecode($dbName) . '"'
                             . ' class="unhideNavItem ajax">'
-                            . PMA_Util::getIcon('b_undo.png', __('Show'))
+                            . PMA_Util::getIcon('lightbulb.png', __('Show'))
                             .  '</a></td>';
                         $odd = ! $odd;
                     }

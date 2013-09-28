@@ -497,7 +497,7 @@ class Node_Database extends Node
                     . '&showUnhideDialog=true'
                     . '&dbName=' . urldecode($db) . '"'
                     . ' class="showUnhide ajax">'
-                    . PMA_Util::getImage('b_undo.png', 'Show hidden items')
+                    . PMA_Util::getImage('lightbulb.png', 'Show hidden items')
                     . '</a></span>';
             }
         }
