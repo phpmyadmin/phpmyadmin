@@ -42,6 +42,7 @@ phpMyAdmin - ChangeLog
 - bug #4068 Headline in operations not readable in IE10
 - bug #4000 "Table does not contain unique column" message appears after adding a unique column
 + rfe #1428 add 'new database' entry to nav tree
++ rfe #1457 Stone Age icon found
 
 4.0.8.0 (not yet released)
 - bug #3988 Rename view is not working
