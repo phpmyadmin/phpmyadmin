@@ -56,12 +56,16 @@ class Node_Database extends Node
         $db     = $this->real_name;
         switch ($type) {
         case 'tables':
-            if (! $GLOBALS['cfg']['Server']['DisableIS']) {
+            if (! $GLOBALS['cfg']['Server']['DisableIS'] || PMA_DRIZZLE) {
                 $db     = PMA_Util::sqlAddSlashes($db);
                 $query  = "SELECT COUNT(*) ";
                 $query .= "FROM `INFORMATION_SCHEMA`.`TABLES` ";
                 $query .= "WHERE `TABLE_SCHEMA`='$db' ";
-                $query .= "AND `TABLE_TYPE`='BASE TABLE' ";
+                if (PMA_DRIZZLE) {
+                    $query .= "AND `TABLE_TYPE`='BASE' ";
+                } else {
+                    $query .= "AND `TABLE_TYPE`='BASE TABLE' ";
+                }
                 if (! empty($searchClause)) {
                     $query .= "AND `TABLE_NAME` LIKE '%";
                     $query .= PMA_Util::sqlAddSlashes(
@@ -89,12 +93,16 @@ class Node_Database extends Node
             }
             break;
         case 'views':
-            if (! $GLOBALS['cfg']['Server']['DisableIS']) {
+            if (! $GLOBALS['cfg']['Server']['DisableIS'] || PMA_DRIZZLE) {
                 $db     = PMA_Util::sqlAddSlashes($db);
                 $query  = "SELECT COUNT(*) ";
                 $query .= "FROM `INFORMATION_SCHEMA`.`TABLES` ";
                 $query .= "WHERE `TABLE_SCHEMA`='$db' ";
-                $query .= "AND `TABLE_TYPE`!='BASE TABLE' ";
+                if (PMA_DRIZZLE) {
+                    $query .= "AND `TABLE_TYPE`!='BASE' ";
+                } else {
+                    $query .= "AND `TABLE_TYPE`!='BASE TABLE' ";
+                }
                 if (! empty($searchClause)) {
                     $query .= "AND `TABLE_NAME` LIKE '%";
                     $query .= PMA_Util::sqlAddSlashes(
@@ -234,12 +242,16 @@ class Node_Database extends Node
         $db       = $this->real_name;
         switch ($type) {
         case 'tables':
-            if (! $GLOBALS['cfg']['Server']['DisableIS']) {
+            if (! $GLOBALS['cfg']['Server']['DisableIS'] || PMA_DRIZZLE) {
                 $escdDb = PMA_Util::sqlAddSlashes($db);
                 $query  = "SELECT `TABLE_NAME` AS `name` ";
                 $query .= "FROM `INFORMATION_SCHEMA`.`TABLES` ";
                 $query .= "WHERE `TABLE_SCHEMA`='$escdDb' ";
-                $query .= "AND `TABLE_TYPE`='BASE TABLE' ";
+                if (PMA_DRIZZLE) {
+                    $query .= "AND `TABLE_TYPE`='BASE' ";
+                } else {
+                    $query .= "AND `TABLE_TYPE`='BASE TABLE' ";
+                }
                 if (! empty($searchClause)) {
                     $query .= "AND `TABLE_NAME` LIKE '%";
                     $query .= PMA_Util::sqlAddSlashes(
@@ -277,12 +289,16 @@ class Node_Database extends Node
             }
             break;
         case 'views':
-            if (! $GLOBALS['cfg']['Server']['DisableIS']) {
+            if (! $GLOBALS['cfg']['Server']['DisableIS'] || PMA_DRIZZLE) {
                 $escdDb = PMA_Util::sqlAddSlashes($db);
                 $query  = "SELECT `TABLE_NAME` AS `name` ";
                 $query .= "FROM `INFORMATION_SCHEMA`.`TABLES` ";
                 $query .= "WHERE `TABLE_SCHEMA`='$escdDb' ";
-                $query .= "AND `TABLE_TYPE`!='BASE TABLE' ";
+                if (PMA_DRIZZLE) {
+                    $query .= "AND `TABLE_TYPE`!='BASE' ";
+                } else {
+                    $query .= "AND `TABLE_TYPE`!='BASE TABLE' ";
+                }
                 if (! empty($searchClause)) {
                     $query .= "AND `TABLE_NAME` LIKE '%";
                     $query .= PMA_Util::sqlAddSlashes(
