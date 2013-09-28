@@ -346,9 +346,17 @@ class PMA_DatabaseInterface
 
             if ($tble_type) {
                 if ($tble_type == 'view') {
-                    $sql_where_table .= " AND t.`TABLE_TYPE` = 'VIEW'";
+                    if (PMA_DRIZZLE) {
+                        $sql_where_table .= " AND t.`TABLE_TYPE` != 'BASE'";
+                    } else {
+                        $sql_where_table .= " AND t.`TABLE_TYPE` != 'BASE TABLE'";
+                    }
                 } else if ($tble_type == 'table') {
-                    $sql_where_table .= " AND t.`TABLE_TYPE` != 'VIEW'";
+                    if (PMA_DRIZZLE) {
+                        $sql_where_table .= " AND t.`TABLE_TYPE` = 'BASE'";
+                    } else {
+                        $sql_where_table .= " AND t.`TABLE_TYPE` = 'BASE TABLE'";
+                    }
                 }
             }
 

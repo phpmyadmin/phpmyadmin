@@ -63,9 +63,17 @@ if (PMA_isValid($_REQUEST['tbl_group'])) {
 if (PMA_isValid($_REQUEST['tbl_type'], array('table', 'view'))) {
     $tbl_group_sql .= $whereAdded ? " AND" : " WHERE";
     if ($_REQUEST['tbl_type'] == 'view') {
-         $tbl_group_sql .= " `Table_type` = 'VIEW'";
+        if (PMA_DRIZZLE) {
+            $tbl_group_sql .= " `Table_type` != 'BASE'";
+        } else {
+            $tbl_group_sql .= " `Table_type` != 'BASE TABLE'";
+        }
     } else {
-        $tbl_group_sql .= " `Table_type` != 'VIEW'";
+        if (PMA_DRIZZLE) {
+            $tbl_group_sql .= " `Table_type` = 'BASE'";
+        } else {
+            $tbl_group_sql .= " `Table_type` = 'BASE TABLE'";
+        }
     }
 }
 
