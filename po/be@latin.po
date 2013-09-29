@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-09-19 06:34-0400\n"
+"POT-Creation-Date: 2013-09-29 07:22-0400\n"
 "PO-Revision-Date: 2013-08-23 11:41+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Belarusian (latin) <http://l10n.cihar.com/projects/phpmyadmin/"
@@ -74,14 +74,14 @@ msgstr "Nazvy kalonak"
 #: libraries/plugins/export/ExportTexytext.class.php:272
 #: libraries/plugins/export/ExportTexytext.class.php:372
 #: libraries/rte/rte_list.lib.php:54 libraries/rte/rte_list.lib.php:80
-#: libraries/rte/rte_routines.lib.php:939
-#: libraries/rte/rte_routines.lib.php:968
-#: libraries/rte/rte_routines.lib.php:1580
+#: libraries/rte/rte_routines.lib.php:944
+#: libraries/rte/rte_routines.lib.php:973
+#: libraries/rte/rte_routines.lib.php:1598
 #: libraries/schema/Pdf_Relation_Schema.class.php:1379
 #: libraries/schema/Pdf_Relation_Schema.class.php:1402
 #: libraries/server_privileges.lib.php:1815
 #: libraries/server_privileges.lib.php:1923 libraries/structure.lib.php:776
-#: libraries/structure.lib.php:1180
+#: libraries/structure.lib.php:1182
 #: libraries/tbl_columns_definition_form.lib.php:276
 #: libraries/tbl_printview.lib.php:474 libraries/tbl_tracking.lib.php:728
 #: libraries/tbl_tracking.lib.php:811
@@ -99,7 +99,7 @@ msgstr "Typ"
 #: libraries/plugins/export/ExportTexytext.class.php:373
 #: libraries/schema/Pdf_Relation_Schema.class.php:1381
 #: libraries/schema/Pdf_Relation_Schema.class.php:1404
-#: libraries/structure.lib.php:1183
+#: libraries/structure.lib.php:1185
 #: libraries/tbl_columns_definition_form.lib.php:297
 #: libraries/tbl_printview.lib.php:475 libraries/tbl_tracking.lib.php:730
 #: libraries/tbl_tracking.lib.php:817
@@ -115,7 +115,7 @@ msgstr "Nul"
 #: libraries/plugins/export/ExportTexytext.class.php:374
 #: libraries/schema/Pdf_Relation_Schema.class.php:1382
 #: libraries/schema/Pdf_Relation_Schema.class.php:1405
-#: libraries/structure.lib.php:210 libraries/structure.lib.php:1184
+#: libraries/structure.lib.php:210 libraries/structure.lib.php:1186
 #: libraries/tbl_columns_definition_form.lib.php:288
 #: libraries/tbl_printview.lib.php:476 libraries/tbl_tracking.lib.php:731
 msgid "Default"
@@ -160,7 +160,7 @@ msgstr "Kamentary"
 #: libraries/server_privileges.lib.php:2605
 #: libraries/server_privileges.lib.php:2611
 #: libraries/server_privileges.lib.php:2942
-#: libraries/server_privileges.lib.php:2964 libraries/structure.lib.php:1268
+#: libraries/server_privileges.lib.php:2964 libraries/structure.lib.php:1270
 #: libraries/tbl_printview.lib.php:114 libraries/tbl_tracking.lib.php:772
 #: libraries/tbl_tracking.lib.php:849 libraries/tbl_tracking.lib.php:854
 #: libraries/user_preferences.lib.php:295 prefs_manage.php:138
@@ -188,8 +188,8 @@ msgstr "Nie"
 #: libraries/server_privileges.lib.php:2604
 #: libraries/server_privileges.lib.php:2609
 #: libraries/server_privileges.lib.php:2939
-#: libraries/server_privileges.lib.php:2964 libraries/structure.lib.php:1268
-#: libraries/structure.lib.php:2611 libraries/tbl_printview.lib.php:115
+#: libraries/server_privileges.lib.php:2964 libraries/structure.lib.php:1270
+#: libraries/structure.lib.php:2613 libraries/tbl_printview.lib.php:115
 #: libraries/tbl_tracking.lib.php:772 libraries/tbl_tracking.lib.php:847
 #: libraries/tbl_tracking.lib.php:852 libraries/user_preferences.lib.php:293
 #: prefs_manage.php:136
@@ -245,9 +245,9 @@ msgstr ""
 
 #: db_printview.php:47 db_tracking.php:81 db_tracking.php:208
 #: libraries/Menu.class.php:237 libraries/config/messages.inc.php:520
-#: libraries/plugins/export/ExportXml.class.php:459
+#: libraries/plugins/export/ExportXml.class.php:467
 #: libraries/rte/rte_list.lib.php:65 libraries/rte/rte_triggers.lib.php:355
-#: libraries/schema/User_Schema.class.php:300
+#: libraries/schema/User_Schema.class.php:305
 #: libraries/server_privileges.lib.php:2442
 #: libraries/server_privileges.lib.php:2670
 #: libraries/server_privileges.lib.php:3677 libraries/structure.lib.php:757
@@ -258,8 +258,8 @@ msgstr "Tablica"
 
 #: db_printview.php:48 libraries/Table.class.php:351
 #: libraries/build_html_for_db.lib.php:32 libraries/import.lib.php:184
-#: libraries/structure.lib.php:768 libraries/structure.lib.php:1723
-#: libraries/structure.lib.php:1916 libraries/tbl_printview.lib.php:194
+#: libraries/structure.lib.php:768 libraries/structure.lib.php:1725
+#: libraries/structure.lib.php:1918 libraries/tbl_printview.lib.php:194
 msgid "Rows"
 msgstr "Radki"
 
@@ -315,7 +315,7 @@ msgstr "Pierajści da skapijavanaj tablicy"
 
 #: db_search.php:30 libraries/plugins/auth/AuthenticationConfig.class.php:81
 #: libraries/plugins/auth/AuthenticationConfig.class.php:96
-#: libraries/plugins/auth/AuthenticationCookie.class.php:681
+#: libraries/plugins/auth/AuthenticationCookie.class.php:683
 #: libraries/plugins/auth/AuthenticationHttp.class.php:69
 #: libraries/plugins/auth/AuthenticationSignon.class.php:268
 msgid "Access denied"
@@ -366,7 +366,7 @@ msgstr "Stan"
 #: libraries/server_privileges.lib.php:2680
 #: libraries/server_privileges.lib.php:2847
 #: libraries/server_user_groups.lib.php:82 libraries/structure.lib.php:765
-#: libraries/structure.lib.php:1198
+#: libraries/structure.lib.php:1200
 msgid "Action"
 msgstr "Dziejańnie"
 
@@ -382,8 +382,8 @@ msgstr ""
 #: db_tracking.php:103 libraries/Index.class.php:624
 #: libraries/Util.class.php:3388 libraries/Util.class.php:3389
 #: libraries/server_databases.lib.php:154 libraries/structure.lib.php:307
-#: libraries/structure.lib.php:1378 libraries/structure.lib.php:2065
-#: libraries/structure.lib.php:2067
+#: libraries/structure.lib.php:1380 libraries/structure.lib.php:2067
+#: libraries/structure.lib.php:2069
 msgid "Drop"
 msgstr "Vydalić"
 
@@ -415,7 +415,7 @@ msgstr ""
 msgid "Untracked tables"
 msgstr ""
 
-#: db_tracking.php:222 libraries/structure.lib.php:1529
+#: db_tracking.php:222 libraries/structure.lib.php:1531
 msgid "Track table"
 msgstr ""
 
@@ -468,100 +468,100 @@ msgstr "Damp zachavany ŭ fajł %s."
 msgid "Invalid export type"
 msgstr "Ekspart"
 
-#: gis_data_editor.php:112
+#: gis_data_editor.php:113
 #, php-format
 msgid "Value for the column \"%s\""
 msgstr ""
 
-#: gis_data_editor.php:140 libraries/tbl_gis_visualization.lib.php:261
+#: gis_data_editor.php:141 libraries/tbl_gis_visualization.lib.php:261
 msgid "Use OpenStreetMaps as Base Layer"
 msgstr ""
 
 #. l10n: Spatial Reference System Identifier
-#: gis_data_editor.php:162
+#: gis_data_editor.php:163
 msgid "SRID:"
 msgstr ""
 
-#: gis_data_editor.php:185
+#: gis_data_editor.php:186
 #, php-format
 msgid "Geometry %d:"
 msgstr ""
 
-#: gis_data_editor.php:207
+#: gis_data_editor.php:208
 msgid "Point:"
 msgstr ""
 
-#: gis_data_editor.php:208 gis_data_editor.php:235 gis_data_editor.php:290
-#: gis_data_editor.php:363 js/messages.php:315
+#: gis_data_editor.php:209 gis_data_editor.php:236 gis_data_editor.php:291
+#: gis_data_editor.php:364 js/messages.php:315
 msgid "X"
 msgstr ""
 
-#: gis_data_editor.php:211 gis_data_editor.php:239 gis_data_editor.php:294
-#: gis_data_editor.php:367 js/messages.php:316
+#: gis_data_editor.php:212 gis_data_editor.php:240 gis_data_editor.php:295
+#: gis_data_editor.php:368 js/messages.php:316
 msgid "Y"
 msgstr ""
 
-#: gis_data_editor.php:233 gis_data_editor.php:288 gis_data_editor.php:361
+#: gis_data_editor.php:234 gis_data_editor.php:289 gis_data_editor.php:362
 #: js/messages.php:318
 #, php-format
 msgid "Point %d"
 msgstr ""
 
-#: gis_data_editor.php:246 gis_data_editor.php:301 gis_data_editor.php:374
+#: gis_data_editor.php:247 gis_data_editor.php:302 gis_data_editor.php:375
 #: js/messages.php:324
 #, fuzzy
 #| msgid "Add new field"
 msgid "Add a point"
 msgstr "Dadać novaje pole"
 
-#: gis_data_editor.php:263
+#: gis_data_editor.php:264
 #, fuzzy, php-format
 #| msgid "Lines terminated by"
 msgid "Linestring %d:"
 msgstr "Radki padzielenyja"
 
-#: gis_data_editor.php:266 gis_data_editor.php:342
+#: gis_data_editor.php:267 gis_data_editor.php:343
 msgid "Outer ring:"
 msgstr ""
 
-#: gis_data_editor.php:268 gis_data_editor.php:344
+#: gis_data_editor.php:269 gis_data_editor.php:345
 #, php-format
 msgid "Inner ring %d:"
 msgstr ""
 
-#: gis_data_editor.php:304
+#: gis_data_editor.php:305
 #, fuzzy
 #| msgid "Add constraints"
 msgid "Add a linestring"
 msgstr "Dadać abmiežavańni"
 
-#: gis_data_editor.php:305 gis_data_editor.php:379 js/messages.php:325
+#: gis_data_editor.php:306 gis_data_editor.php:380 js/messages.php:325
 msgid "Add an inner ring"
 msgstr ""
 
-#: gis_data_editor.php:326
+#: gis_data_editor.php:327
 #, fuzzy, php-format
 #| msgid "Add %s field(s)"
 msgid "Polygon %d:"
 msgstr "Dadać %s novyja pali"
 
-#: gis_data_editor.php:385 js/messages.php:326
+#: gis_data_editor.php:386 js/messages.php:326
 #, fuzzy
 #| msgid "Add %s field(s)"
 msgid "Add a polygon"
 msgstr "Dadać %s novyja pali"
 
-#: gis_data_editor.php:391
+#: gis_data_editor.php:392
 #, fuzzy
 #| msgid "Add a new User"
 msgid "Add geometry"
 msgstr "Dadać novaha karystalnika"
 
-#: gis_data_editor.php:397 js/messages.php:218
+#: gis_data_editor.php:398 js/messages.php:218
 #: libraries/DbSearch.class.php:455 libraries/DisplayResults.class.php:1689
 #: libraries/TableSearch.class.php:1184 libraries/browse_foreigners.lib.php:51
 #: libraries/core.lib.php:554 libraries/display_change_password.lib.php:94
-#: libraries/display_create_table.lib.php:61
+#: libraries/display_create_table.lib.php:71
 #: libraries/display_export.lib.php:294 libraries/display_import.lib.php:368
 #: libraries/index.lib.php:40 libraries/insert_edit.lib.php:1598
 #: libraries/insert_edit.lib.php:1633 libraries/operations.lib.php:39
@@ -569,24 +569,24 @@ msgstr "Dadać novaha karystalnika"
 #: libraries/operations.lib.php:254 libraries/operations.lib.php:650
 #: libraries/operations.lib.php:703 libraries/operations.lib.php:752
 #: libraries/operations.lib.php:1066 libraries/operations.lib.php:1343
-#: libraries/plugins/auth/AuthenticationCookie.class.php:282
+#: libraries/plugins/auth/AuthenticationCookie.class.php:284
 #: libraries/replication_gui.lib.php:121 libraries/replication_gui.lib.php:292
 #: libraries/replication_gui.lib.php:435 libraries/replication_gui.lib.php:875
 #: libraries/rte/rte_events.lib.php:542
-#: libraries/rte/rte_routines.lib.php:1081
-#: libraries/rte/rte_routines.lib.php:1667
+#: libraries/rte/rte_routines.lib.php:1086
+#: libraries/rte/rte_routines.lib.php:1688
 #: libraries/rte/rte_triggers.lib.php:420
-#: libraries/schema/User_Schema.class.php:166
-#: libraries/schema/User_Schema.class.php:228
-#: libraries/schema/User_Schema.class.php:485
-#: libraries/schema/User_Schema.class.php:535
+#: libraries/schema/User_Schema.class.php:170
+#: libraries/schema/User_Schema.class.php:233
+#: libraries/schema/User_Schema.class.php:495
+#: libraries/schema/User_Schema.class.php:546
 #: libraries/server_bin_log.lib.php:61 libraries/server_privileges.lib.php:688
 #: libraries/server_privileges.lib.php:1722
 #: libraries/server_privileges.lib.php:2408
 #: libraries/server_privileges.lib.php:3050
 #: libraries/server_privileges.lib.php:3885
 #: libraries/sql_query_form.lib.php:379 libraries/sql_query_form.lib.php:438
-#: libraries/sql_query_form.lib.php:507 libraries/structure.lib.php:1597
+#: libraries/sql_query_form.lib.php:507 libraries/structure.lib.php:1599
 #: libraries/tbl_chart.lib.php:216
 #: libraries/tbl_columns_definition_form.lib.php:174
 #: libraries/tbl_tracking.lib.php:386 libraries/tbl_tracking.lib.php:454
@@ -595,11 +595,11 @@ msgstr "Dadać novaha karystalnika"
 msgid "Go"
 msgstr "Paniesłasia"
 
-#: gis_data_editor.php:400
+#: gis_data_editor.php:401
 msgid "Output"
 msgstr ""
 
-#: gis_data_editor.php:403
+#: gis_data_editor.php:404
 msgid ""
 "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
 "below into the \"Value\" field"
@@ -833,7 +833,7 @@ msgstr ""
 msgid "List of changes"
 msgstr "Niama źmienaŭ"
 
-#: index.php:412
+#: index.php:410
 msgid ""
 "Your configuration file contains settings (root with no password) that "
 "correspond to the default MySQL privileged account. Your MySQL server is "
@@ -846,7 +846,7 @@ msgstr ""
 "źniešniaha ŭryvańnia, i tamu vam abaviazkova treba vypravić hetuju chibu ŭ "
 "biaśpiecy."
 
-#: index.php:429
+#: index.php:427
 msgid ""
 "You have enabled mbstring.func_overload in your PHP configuration. This "
 "option is incompatible with phpMyAdmin and might cause some data to be "
@@ -855,7 +855,7 @@ msgstr ""
 "Vy ŭklučyli mbstring.func_overload u vašym kanfihuracyjnym fajle PHP. Hetaja "
 "opcyja niesumiaščalnaja z phpMyAdmin i moža vyklikać paškodžańnie dadzienych!"
 
-#: index.php:444
+#: index.php:442
 msgid ""
 "The mbstring PHP extension was not found and you seem to be using a "
 "multibyte charset. Without the mbstring extension phpMyAdmin is unable to "
@@ -865,7 +865,7 @@ msgstr ""
 "šmatbajtavuju kadyroŭku. Biez pašyreńnia mbstring phpMyAdmin nia moža "
 "padzialać radki karektna, i heta moža pryvieści da niečakanych vynikaŭ."
 
-#: index.php:459
+#: index.php:457
 msgid ""
 "Your PHP parameter [a@http://php.net/manual/en/session.configuration.php#ini."
 "session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower than "
@@ -873,18 +873,18 @@ msgid ""
 "expire sooner than configured in phpMyAdmin."
 msgstr ""
 
-#: index.php:471
+#: index.php:469
 msgid ""
 "Login cookie store is lower than cookie validity configured in phpMyAdmin, "
 "because of this, your login will expire sooner than configured in phpMyAdmin."
 msgstr ""
 
-#: index.php:483
+#: index.php:481
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
 msgstr ""
 "Kanfihuracyjnamu fajłu zaraz patrebnaja sakretnaja fraza (blowfish_secret)."
 
-#: index.php:494
+#: index.php:492
 msgid ""
 "Directory [code]config[/code], which is used by the setup script, still "
 "exists in your phpMyAdmin directory. It is strongly recommended to remove it "
@@ -892,7 +892,7 @@ msgid ""
 "may be compromised by unauthorized people downloading your configuration."
 msgstr ""
 
-#: index.php:504
+#: index.php:502
 #, fuzzy, php-format
 #| msgid ""
 #| " additional features for working with linked tables have been ctivated. "
@@ -904,7 +904,7 @@ msgstr ""
 "Dadatkovyja mahčymaści raboty z źviazanymi tablicami byli adklučanyja. Kab "
 "vyśvietlić čamu, naciśnicie %stut%s."
 
-#: index.php:537
+#: index.php:538
 #, php-format
 msgid ""
 "Your PHP MySQL library version %s differs from your MySQL server version %s. "
@@ -913,7 +913,7 @@ msgstr ""
 "Versija vašaj biblijateki MySQL dla PHP %s adroźnivajecca ad versii vašaha "
 "servera MySQL %s. Heta moža vyklikać niepradkazalnyja pavodziny."
 
-#: index.php:561
+#: index.php:562
 #, php-format
 msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
@@ -1653,7 +1653,7 @@ msgstr ""
 #: js/messages.php:219 libraries/server_variables.lib.php:159
 #: pmd_general.php:423 pmd_general.php:460 pmd_general.php:580
 #: pmd_general.php:628 pmd_general.php:704 pmd_general.php:758
-#: pmd_general.php:821 pmd_general.php:852
+#: pmd_general.php:821 pmd_general.php:854
 msgid "Cancel"
 msgstr "Skasavać"
 
@@ -1807,7 +1807,7 @@ msgstr "Vydaleńnie %s"
 msgid "The definition of a stored function must contain a RETURN statement!"
 msgstr ""
 
-#: js/messages.php:261 libraries/rte/rte_routines.lib.php:790
+#: js/messages.php:261 libraries/rte/rte_routines.lib.php:795
 msgid "ENUM/SET editor"
 msgstr ""
 
@@ -1852,7 +1852,7 @@ msgstr "U vyhladzie SQL-zapytu"
 #: libraries/Index.class.php:590 libraries/Util.class.php:667
 #: libraries/Util.class.php:1212 libraries/Util.class.php:3392
 #: libraries/Util.class.php:3393 libraries/config/messages.inc.php:496
-#: libraries/schema/User_Schema.class.php:218
+#: libraries/schema/User_Schema.class.php:223
 #: libraries/server_user_groups.lib.php:119
 #: libraries/server_variables.lib.php:154 setup/frames/index.inc.php:176
 msgid "Edit"
@@ -1863,7 +1863,7 @@ msgid "No rows selected"
 msgstr "Nivodny radok nia vybrany"
 
 #: js/messages.php:275 libraries/DisplayResults.class.php:5035
-#: libraries/structure.lib.php:1374 libraries/structure.lib.php:2063
+#: libraries/structure.lib.php:1376 libraries/structure.lib.php:2065
 #: querywindow.php:85
 msgid "Change"
 msgstr "Źmianić"
@@ -1879,7 +1879,7 @@ msgid "%d is not valid row number."
 msgstr "%d nie źjaŭlajecca karektnym numaram radka."
 
 #: js/messages.php:280 libraries/insert_edit.lib.php:1511
-#: libraries/schema/User_Schema.class.php:385
+#: libraries/schema/User_Schema.class.php:390
 #: libraries/server_variables.lib.php:157
 #: libraries/tbl_columns_definition_form.lib.php:141
 #: libraries/tbl_relation.lib.php:368 setup/frames/config.inc.php:42
@@ -2670,7 +2670,7 @@ msgstr "SQL-zapyt da BD <b>%s</b>:"
 msgid "Submit Query"
 msgstr "Vykanać zapyt"
 
-#: libraries/DatabaseInterface.class.php:2031
+#: libraries/DatabaseInterface.class.php:2048
 #, fuzzy
 #| msgid "(or the local MySQL server's socket is not correctly configured)"
 msgid ""
@@ -2678,17 +2678,17 @@ msgid ""
 "configured)."
 msgstr "(abo sokiet lakalnaha servera MySQL nie skanfihuravany pravilna)"
 
-#: libraries/DatabaseInterface.class.php:2036
+#: libraries/DatabaseInterface.class.php:2053
 #, fuzzy
 #| msgid "The server is not responding"
 msgid "The server is not responding."
 msgstr "Server nie adkazvaje"
 
-#: libraries/DatabaseInterface.class.php:2041
+#: libraries/DatabaseInterface.class.php:2058
 msgid "Please check privileges of directory containing database."
 msgstr ""
 
-#: libraries/DatabaseInterface.class.php:2051
+#: libraries/DatabaseInterface.class.php:2068
 msgid "Details…"
 msgstr "Padrabiaźniej…"
 
@@ -2734,7 +2734,7 @@ msgstr[2] "%s supadzieńniaŭ u tablicy %s"
 #: libraries/DbSearch.class.php:346 libraries/Menu.class.php:297
 #: libraries/Util.class.php:3166 libraries/Util.class.php:3381
 #: libraries/Util.class.php:3382 libraries/Util.class.php:4110
-#: libraries/structure.lib.php:1368
+#: libraries/structure.lib.php:1370
 msgid "Browse"
 msgstr "Prahlad"
 
@@ -2746,9 +2746,9 @@ msgstr "Damp dadzienych tablicy"
 
 #: libraries/DbSearch.class.php:357 libraries/DisplayResults.class.php:3419
 #: libraries/DisplayResults.class.php:5018
-#: libraries/schema/User_Schema.class.php:219
-#: libraries/schema/User_Schema.class.php:301
-#: libraries/schema/User_Schema.class.php:354
+#: libraries/schema/User_Schema.class.php:224
+#: libraries/schema/User_Schema.class.php:306
+#: libraries/schema/User_Schema.class.php:359
 #: libraries/server_user_groups.lib.php:129
 #: libraries/sql_query_form.lib.php:430 libraries/tbl_tracking.lib.php:401
 #: libraries/tbl_tracking.lib.php:502 libraries/tbl_tracking.lib.php:598
@@ -2883,7 +2883,7 @@ msgstr "Sartavać pa klučy"
 #: libraries/plugins/import/ImportShp.class.php:57
 #: libraries/plugins/import/ImportSql.class.php:50
 #: libraries/plugins/import/ImportXml.class.php:58
-#: libraries/rte/rte_routines.lib.php:970 libraries/structure.lib.php:1708
+#: libraries/rte/rte_routines.lib.php:975 libraries/structure.lib.php:1710
 msgid "Options"
 msgstr "Nałady"
 
@@ -2953,7 +2953,7 @@ msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]"
 msgstr "Značeńnie moža być prybliznym. Hł. [doc@faq3-11]FAQ 3.11[/doc]"
 
 #: libraries/DisplayResults.class.php:4530 libraries/Message.class.php:180
-#: libraries/rte/rte_routines.lib.php:1427
+#: libraries/rte/rte_routines.lib.php:1445
 #: libraries/sql_query_form.lib.php:117 libraries/tbl_relation.lib.php:848
 #: tbl_find_replace.php:49 tbl_operations.php:185 tbl_row_action.php:111
 #: view_operations.php:62
@@ -2997,7 +2997,7 @@ msgstr "Zapyt vykonvaŭsia %01.4f sek"
 #: libraries/server_privileges.lib.php:2860
 #: libraries/server_privileges.lib.php:2864 libraries/structure.lib.php:278
 #: libraries/structure.lib.php:293 libraries/structure.lib.php:295
-#: libraries/structure.lib.php:1357 libraries/structure.lib.php:1364
+#: libraries/structure.lib.php:1359 libraries/structure.lib.php:1366
 msgid "With selected:"
 msgstr "Z adznačanymi:"
 
@@ -3010,8 +3010,8 @@ msgstr "Z adznačanymi:"
 #: libraries/server_privileges.lib.php:2862
 #: libraries/server_privileges.lib.php:2863
 #: libraries/server_user_groups.lib.php:230 libraries/structure.lib.php:281
-#: libraries/structure.lib.php:282 libraries/structure.lib.php:1360
-#: libraries/structure.lib.php:1361
+#: libraries/structure.lib.php:282 libraries/structure.lib.php:1362
+#: libraries/structure.lib.php:1363
 msgid "Check All"
 msgstr "Adznačyć usio"
 
@@ -3035,7 +3035,7 @@ msgstr "Dziejańni z vynikami zapytaŭ"
 
 #: libraries/DisplayResults.class.php:5242 libraries/Header.class.php:341
 #: libraries/structure.lib.php:299 libraries/structure.lib.php:362
-#: libraries/structure.lib.php:1497
+#: libraries/structure.lib.php:1499
 msgid "Print view"
 msgstr "Versija dla druku"
 
@@ -3156,8 +3156,8 @@ msgstr "Indeksy"
 msgid "Keyname"
 msgstr "Imia kluča"
 
-#: libraries/Index.class.php:562 libraries/structure.lib.php:1387
-#: libraries/structure.lib.php:2073 libraries/structure.lib.php:2083
+#: libraries/Index.class.php:562 libraries/structure.lib.php:1389
+#: libraries/structure.lib.php:2075 libraries/structure.lib.php:2085
 #: libraries/tbl_tracking.lib.php:812
 msgid "Unique"
 msgstr "Unikalnaje"
@@ -3175,14 +3175,14 @@ msgstr "Kolkaść elementaŭ"
 #: libraries/operations.lib.php:240 libraries/operations.lib.php:818
 #: libraries/server_collations.lib.php:35
 #: libraries/server_collations.lib.php:47 libraries/structure.lib.php:780
-#: libraries/structure.lib.php:1181 libraries/structure.lib.php:1716
+#: libraries/structure.lib.php:1183 libraries/structure.lib.php:1718
 #: libraries/tbl_columns_definition_form.lib.php:295
 #: libraries/tbl_tracking.lib.php:729 libraries/tbl_tracking.lib.php:816
 msgid "Collation"
 msgstr "Supastaŭleńnie"
 
 #: libraries/Index.class.php:569 libraries/rte/rte_events.lib.php:529
-#: libraries/rte/rte_routines.lib.php:1068 libraries/tbl_tracking.lib.php:733
+#: libraries/rte/rte_routines.lib.php:1073 libraries/tbl_tracking.lib.php:733
 #: libraries/tbl_tracking.lib.php:818
 msgid "Comment"
 msgstr "Kamentar"
@@ -3211,7 +3211,7 @@ msgid "Server"
 msgstr "Server"
 
 #: libraries/Menu.class.php:237 libraries/structure.lib.php:677
-#: libraries/structure.lib.php:707 libraries/structure.lib.php:1188
+#: libraries/structure.lib.php:707 libraries/structure.lib.php:1190
 #: libraries/tbl_info.inc.php:59
 msgid "View"
 msgstr "Vyhlad"
@@ -3389,7 +3389,7 @@ msgstr[1] "Ustaŭlena radkoŭ: %1$d."
 #: libraries/browse_foreigners.lib.php:393
 #: libraries/schema/Pdf_Relation_Schema.class.php:1203
 #: libraries/schema/Pdf_Relation_Schema.class.php:1227
-#: libraries/schema/User_Schema.class.php:428
+#: libraries/schema/User_Schema.class.php:434
 #: libraries/select_lang.lib.php:533
 msgid "Page number:"
 msgstr "Staronka:"
@@ -3607,7 +3607,7 @@ msgid ""
 msgstr ""
 
 #: libraries/TableSearch.class.php:181 libraries/insert_edit.lib.php:211
-#: libraries/insert_edit.lib.php:217 libraries/rte/rte_routines.lib.php:1582
+#: libraries/insert_edit.lib.php:217 libraries/rte/rte_routines.lib.php:1600
 msgid "Function"
 msgstr "Funkcyja"
 
@@ -3619,7 +3619,7 @@ msgstr "Aperatar"
 
 #: libraries/TableSearch.class.php:189 libraries/TableSearch.class.php:1234
 #: libraries/insert_edit.lib.php:1627 libraries/replication_gui.lib.php:513
-#: libraries/rte/rte_routines.lib.php:1584
+#: libraries/rte/rte_routines.lib.php:1602
 #: libraries/server_status_variables.lib.php:220 pmd_general.php:511
 #: pmd_general.php:570 pmd_general.php:693 pmd_general.php:810
 msgid "Value"
@@ -4071,11 +4071,11 @@ msgstr "SQL-zapyt"
 
 #: libraries/Util.class.php:686 libraries/rte/rte_events.lib.php:114
 #: libraries/rte/rte_events.lib.php:123 libraries/rte/rte_events.lib.php:140
-#: libraries/rte/rte_events.lib.php:161 libraries/rte/rte_routines.lib.php:300
-#: libraries/rte/rte_routines.lib.php:309
-#: libraries/rte/rte_routines.lib.php:328
-#: libraries/rte/rte_routines.lib.php:350
-#: libraries/rte/rte_routines.lib.php:1459
+#: libraries/rte/rte_events.lib.php:161 libraries/rte/rte_routines.lib.php:304
+#: libraries/rte/rte_routines.lib.php:313
+#: libraries/rte/rte_routines.lib.php:332
+#: libraries/rte/rte_routines.lib.php:355
+#: libraries/rte/rte_routines.lib.php:1477
 #: libraries/rte/rte_triggers.lib.php:86 libraries/rte/rte_triggers.lib.php:95
 #: libraries/rte/rte_triggers.lib.php:112
 #: libraries/rte/rte_triggers.lib.php:133
@@ -4199,17 +4199,17 @@ msgid "Print"
 msgstr "Druk"
 
 #: libraries/Util.class.php:4025 libraries/structure.lib.php:798
-#: libraries/structure.lib.php:1769 libraries/tbl_printview.lib.php:239
+#: libraries/structure.lib.php:1771 libraries/tbl_printview.lib.php:239
 msgid "Creation"
 msgstr "Stvoranaja"
 
 #: libraries/Util.class.php:4031 libraries/structure.lib.php:805
-#: libraries/structure.lib.php:1777 libraries/tbl_printview.lib.php:250
+#: libraries/structure.lib.php:1779 libraries/tbl_printview.lib.php:250
 msgid "Last update"
 msgstr "Apošniaje abnaŭleńnie"
 
 #: libraries/Util.class.php:4037 libraries/structure.lib.php:812
-#: libraries/structure.lib.php:1785 libraries/tbl_printview.lib.php:261
+#: libraries/structure.lib.php:1787 libraries/tbl_printview.lib.php:261
 msgid "Last check"
 msgstr "Apošniaja pravierka"
 
@@ -4253,20 +4253,20 @@ msgstr ""
 #: libraries/config/user_preferences.forms.php:242
 #: libraries/config/user_preferences.forms.php:265
 #: libraries/config/user_preferences.forms.php:270
-#: libraries/server_privileges.lib.php:975 libraries/structure.lib.php:2183
+#: libraries/server_privileges.lib.php:975 libraries/structure.lib.php:2185
 #: libraries/tbl_printview.lib.php:304
 msgid "Data"
 msgstr "Dadzienyja"
 
 #: libraries/build_html_for_db.lib.php:47 libraries/engines/innodb.lib.php:171
 #: libraries/server_databases.lib.php:181 libraries/server_status.lib.php:180
-#: libraries/server_status.lib.php:291 libraries/structure.lib.php:2205
+#: libraries/server_status.lib.php:291 libraries/structure.lib.php:2207
 #: libraries/tbl_printview.lib.php:336
 msgid "Total"
 msgstr "Ahułam"
 
 #: libraries/build_html_for_db.lib.php:52 libraries/structure.lib.php:791
-#: libraries/structure.lib.php:2196 libraries/tbl_printview.lib.php:320
+#: libraries/structure.lib.php:2198 libraries/tbl_printview.lib.php:320
 msgid "Overhead"
 msgstr "Vykarystańnie resursaŭ"
 
@@ -4504,7 +4504,7 @@ msgid "Not a valid port number"
 msgstr ""
 
 #: libraries/config/FormDisplay.class.php:91
-#: libraries/config/FormDisplay.class.php:587
+#: libraries/config/FormDisplay.class.php:589
 #: libraries/config/Validator.class.php:577
 msgid "Incorrect value"
 msgstr ""
@@ -4515,47 +4515,47 @@ msgstr ""
 msgid "Value must be equal or lower than %s"
 msgstr ""
 
-#: libraries/config/FormDisplay.class.php:549
+#: libraries/config/FormDisplay.class.php:551
 #, php-format
 msgid "Missing data for %s"
 msgstr ""
 
-#: libraries/config/FormDisplay.class.php:765
-#: libraries/config/FormDisplay.class.php:771
-#: libraries/config/FormDisplay.class.php:778
+#: libraries/config/FormDisplay.class.php:767
+#: libraries/config/FormDisplay.class.php:773
+#: libraries/config/FormDisplay.class.php:780
 #, fuzzy
 #| msgid "Variable"
 msgid "unavailable"
 msgstr "Źmiennaja"
 
-#: libraries/config/FormDisplay.class.php:767
-#: libraries/config/FormDisplay.class.php:773
-#: libraries/config/FormDisplay.class.php:780
+#: libraries/config/FormDisplay.class.php:769
+#: libraries/config/FormDisplay.class.php:775
+#: libraries/config/FormDisplay.class.php:782
 #, php-format
 msgid "\"%s\" requires %s extension"
 msgstr ""
 
-#: libraries/config/FormDisplay.class.php:799
+#: libraries/config/FormDisplay.class.php:801
 #, php-format
 msgid "Compressed import will not work due to missing function %s."
 msgstr ""
 
-#: libraries/config/FormDisplay.class.php:805
+#: libraries/config/FormDisplay.class.php:807
 #, php-format
 msgid "Compressed export will not work due to missing function %s."
 msgstr ""
 
-#: libraries/config/FormDisplay.class.php:815
+#: libraries/config/FormDisplay.class.php:817
 msgid "SQL Validator is disabled"
 msgstr ""
 
-#: libraries/config/FormDisplay.class.php:822
+#: libraries/config/FormDisplay.class.php:824
 #, fuzzy
 #| msgid "Link not found"
 msgid "SOAP extension not found"
 msgstr "Suviaź nia znojdzienaja"
 
-#: libraries/config/FormDisplay.class.php:832
+#: libraries/config/FormDisplay.class.php:834
 #, php-format
 msgid "maximum %s"
 msgstr ""
@@ -4583,8 +4583,8 @@ msgid "Apply"
 msgstr ""
 
 #: libraries/config/FormDisplay.tpl.php:402 libraries/insert_edit.lib.php:1600
-#: libraries/schema/User_Schema.class.php:556 prefs_manage.php:326
-#: prefs_manage.php:331
+#: libraries/schema/User_Schema.class.php:567 prefs_manage.php:327
+#: prefs_manage.php:334
 msgid "Reset"
 msgstr "Skinuć"
 
@@ -4888,7 +4888,7 @@ msgid "Character set of the file"
 msgstr ""
 
 #: libraries/config/messages.inc.php:72 libraries/config/messages.inc.php:88
-#: libraries/structure.lib.php:1697
+#: libraries/structure.lib.php:1699
 #: libraries/tbl_gis_visualization.lib.php:331
 #: libraries/tbl_printview.lib.php:179
 msgid "Format"
@@ -5504,7 +5504,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:248 libraries/config/messages.inc.php:255
 #: libraries/plugins/import/ImportCsv.class.php:89
-#: libraries/plugins/import/ImportLdi.class.php:71
+#: libraries/plugins/import/ImportLdi.class.php:73
 msgid "Do not abort on INSERT error"
 msgstr ""
 
@@ -5524,7 +5524,7 @@ msgid "Format of imported file"
 msgstr "Farmat impartavanaha fajła"
 
 #: libraries/config/messages.inc.php:256
-#: libraries/plugins/import/ImportLdi.class.php:76
+#: libraries/plugins/import/ImportLdi.class.php:78
 msgid "Use LOCAL keyword"
 msgstr "Vykarystoŭvać klučavoje słova LOCAL"
 
@@ -6970,23 +6970,23 @@ msgstr "Stvaryć novuju bazu dadzienych"
 msgid "No Privileges"
 msgstr "Biez pryvilejaŭ"
 
-#: libraries/display_create_table.lib.php:46 pmd_general.php:86
+#: libraries/display_create_table.lib.php:55 pmd_general.php:86
 msgid "Create table"
 msgstr "Stvaryć tablicu"
 
-#: libraries/display_create_table.lib.php:51
+#: libraries/display_create_table.lib.php:60
 #: libraries/plugins/export/ExportHtmlword.class.php:485
 #: libraries/plugins/export/ExportOdt.class.php:561
 #: libraries/plugins/export/ExportTexytext.class.php:436
 #: libraries/rte/rte_list.lib.php:52 libraries/rte/rte_list.lib.php:63
-#: libraries/rte/rte_list.lib.php:77 libraries/rte/rte_routines.lib.php:967
-#: libraries/rte/rte_routines.lib.php:1579 libraries/structure.lib.php:1179
+#: libraries/rte/rte_list.lib.php:77 libraries/rte/rte_routines.lib.php:972
+#: libraries/rte/rte_routines.lib.php:1597 libraries/structure.lib.php:1181
 #: libraries/tbl_columns_definition_form.lib.php:275
 #: setup/frames/index.inc.php:159
 msgid "Name"
 msgstr "Nazva"
 
-#: libraries/display_create_table.lib.php:55
+#: libraries/display_create_table.lib.php:65
 #, fuzzy
 #| msgid "Number of fields"
 msgid "Number of columns"
@@ -7656,25 +7656,25 @@ msgstr ""
 "značeńnie, staryja fajły łogu buduć vydalenyja. U inšym vypadku jany buduć "
 "pierajmienavanyja i im budzie dadzieny čarhovy najvyšejšy numar."
 
-#: libraries/engines/pbxt.lib.php:131
+#: libraries/engines/pbxt.lib.php:132
 #, php-format
 msgid ""
 "Documentation and further information about PBXT can be found on the "
 "%sPrimeBase XT Home Page%s."
 msgstr ""
 
-#: libraries/engines/pbxt.lib.php:133
+#: libraries/engines/pbxt.lib.php:139
 #, fuzzy
 #| msgid "Relations"
 msgid "Related Links"
 msgstr "Suviazi"
 
-#: libraries/engines/pbxt.lib.php:135
+#: libraries/engines/pbxt.lib.php:142
 msgid "The PrimeBase XT Blog by Paul McCullagh"
 msgstr ""
 
 #: libraries/import.lib.php:190 libraries/insert_edit.lib.php:122
-#: libraries/rte/rte_routines.lib.php:1446 libraries/sql.lib.php:1639
+#: libraries/rte/rte_routines.lib.php:1464 libraries/sql.lib.php:1639
 #: tbl_get_field.php:43
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL viarnuła pusty vynik (to bok nul radkoŭ)."
@@ -8110,7 +8110,7 @@ msgstr "Dakumentacyja pa phpMyAdmin"
 msgid "Reload navigation frame"
 msgstr ""
 
-#: libraries/navigation/NavigationTree.class.php:708
+#: libraries/navigation/NavigationTree.class.php:719
 #, php-format
 msgid "%s other result found"
 msgid_plural "%s other results found"
@@ -8118,21 +8118,21 @@ msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: libraries/navigation/NavigationTree.class.php:1032
+#: libraries/navigation/NavigationTree.class.php:1043
 #, fuzzy
 #| msgid "table name"
-msgid "filter databases by name"
+msgid "filter databases by name or regex"
 msgstr "imia tablicy"
 
-#: libraries/navigation/NavigationTree.class.php:1034
-#: libraries/navigation/NavigationTree.class.php:1066
+#: libraries/navigation/NavigationTree.class.php:1045
+#: libraries/navigation/NavigationTree.class.php:1077
 msgid "Clear Fast Filter"
 msgstr ""
 
-#: libraries/navigation/NavigationTree.class.php:1065
+#: libraries/navigation/NavigationTree.class.php:1076
 #, fuzzy
 #| msgid "table name"
-msgid "filter items by name"
+msgid "filter by name or regex"
 msgstr "imia tablicy"
 
 #. l10n: The word "Node" must not be translated here
@@ -8196,7 +8196,7 @@ msgctxt "Create new procedure"
 msgid "New"
 msgstr ""
 
-#: libraries/navigation/Nodes/Node_Table_Container.class.php:44
+#: libraries/navigation/Nodes/Node_Table_Container.class.php:46
 msgctxt "Create new table"
 msgid "New"
 msgstr ""
@@ -8213,7 +8213,7 @@ msgstr ""
 msgid "Views"
 msgstr "Vyhlad"
 
-#: libraries/navigation/Nodes/Node_View_Container.class.php:38
+#: libraries/navigation/Nodes/Node_View_Container.class.php:46
 msgctxt "Create new view"
 msgid "New"
 msgstr ""
@@ -8337,7 +8337,7 @@ msgid "Repair table"
 msgstr "Ramantavać tablicu"
 
 #: libraries/operations.lib.php:1182 libraries/structure.lib.php:312
-#: libraries/structure.lib.php:1640
+#: libraries/structure.lib.php:1642
 msgid "Optimize table"
 msgstr "Aptymizavać tablicu"
 
@@ -8475,21 +8475,21 @@ msgstr "Imia karystalnika:"
 msgid "Server Choice:"
 msgstr "Vybar servera"
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:396
+#: libraries/plugins/auth/AuthenticationCookie.class.php:398
 msgid "Entered captcha is wrong, try again!"
 msgstr ""
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:405
+#: libraries/plugins/auth/AuthenticationCookie.class.php:407
 msgid "Please enter correct captcha!"
 msgstr ""
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:677
+#: libraries/plugins/auth/AuthenticationCookie.class.php:679
 #: libraries/plugins/auth/AuthenticationSignon.class.php:264
 msgid ""
 "Login without a password is forbidden by configuration (see AllowNoPassword)"
 msgstr ""
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:684
+#: libraries/plugins/auth/AuthenticationCookie.class.php:686
 #: libraries/plugins/auth/AuthenticationSignon.class.php:271
 #, php-format
 msgid "No activity within %s seconds; please log in again."
@@ -8497,8 +8497,8 @@ msgstr ""
 "Nie było anijakaj aktyŭnaści na praciahu %s sekundaŭ. Kali łaska, uvajdzicie "
 "znoŭ."
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:689
 #: libraries/plugins/auth/AuthenticationCookie.class.php:691
+#: libraries/plugins/auth/AuthenticationCookie.class.php:693
 #: libraries/plugins/auth/AuthenticationSignon.class.php:280
 msgid "Cannot log in to the MySQL server"
 msgstr "Niemahčyma załahavacca na server MySQL"
@@ -8610,7 +8610,7 @@ msgstr "Padzieja"
 #: libraries/plugins/export/ExportOdt.class.php:570
 #: libraries/plugins/export/ExportTexytext.class.php:439
 #: libraries/rte/rte_events.lib.php:513
-#: libraries/rte/rte_routines.lib.php:1031
+#: libraries/rte/rte_routines.lib.php:1036
 #: libraries/rte/rte_triggers.lib.php:401
 #, fuzzy
 #| msgid "Description"
@@ -8740,7 +8740,7 @@ msgstr "Versija PHP"
 
 #: libraries/plugins/export/ExportLatex.class.php:251
 #: libraries/plugins/export/ExportSql.class.php:783
-#: libraries/plugins/export/ExportXml.class.php:390
+#: libraries/plugins/export/ExportXml.class.php:398
 #: libraries/plugins/export/PMA_ExportPdf.class.php:115
 #: libraries/sql.lib.php:423
 #, fuzzy
@@ -8954,7 +8954,7 @@ msgid ""
 msgstr ""
 
 #: libraries/plugins/import/ImportCsv.class.php:81
-#: libraries/plugins/import/ImportLdi.class.php:66
+#: libraries/plugins/import/ImportLdi.class.php:68
 #, fuzzy
 #| msgid "Column names"
 msgid "Column names: "
@@ -8987,7 +8987,7 @@ msgstr "Niekarektny farmat CSV-dadzienych u radku %d."
 msgid "Invalid column count in CSV input on line %d."
 msgstr "Niapravilnaja kolkaść paloŭ u CSV-dadzienych u radku %d."
 
-#: libraries/plugins/import/ImportLdi.class.php:110
+#: libraries/plugins/import/ImportLdi.class.php:112
 msgid "This plugin does not support compressed imports!"
 msgstr "Hety płahin nie padtrymlivaje ścisnutyja dadzienyja!"
 
@@ -9646,10 +9646,10 @@ msgid "Master server changed successfully to %s"
 msgstr "Pryvilei byli paśpiachova pierazahružanyja."
 
 #: libraries/rte/rte_events.lib.php:110 libraries/rte/rte_events.lib.php:119
-#: libraries/rte/rte_events.lib.php:157 libraries/rte/rte_routines.lib.php:296
-#: libraries/rte/rte_routines.lib.php:305
-#: libraries/rte/rte_routines.lib.php:346
-#: libraries/rte/rte_routines.lib.php:1455
+#: libraries/rte/rte_events.lib.php:157 libraries/rte/rte_routines.lib.php:300
+#: libraries/rte/rte_routines.lib.php:309
+#: libraries/rte/rte_routines.lib.php:351
+#: libraries/rte/rte_routines.lib.php:1473
 #: libraries/rte/rte_triggers.lib.php:82 libraries/rte/rte_triggers.lib.php:91
 #: libraries/rte/rte_triggers.lib.php:129
 #, php-format
@@ -9660,7 +9660,7 @@ msgstr ""
 msgid "Sorry, we failed to restore the dropped event."
 msgstr ""
 
-#: libraries/rte/rte_events.lib.php:137 libraries/rte/rte_routines.lib.php:325
+#: libraries/rte/rte_events.lib.php:137 libraries/rte/rte_routines.lib.php:329
 #: libraries/rte/rte_triggers.lib.php:109
 msgid "The backed up query was:"
 msgstr ""
@@ -9677,7 +9677,7 @@ msgstr "Tablica %s była vydalenaja"
 msgid "Event %1$s has been created."
 msgstr "Tablica %1$s stvoranaja."
 
-#: libraries/rte/rte_events.lib.php:175 libraries/rte/rte_routines.lib.php:366
+#: libraries/rte/rte_events.lib.php:175 libraries/rte/rte_routines.lib.php:371
 #: libraries/rte/rte_triggers.lib.php:147
 msgid "<b>One or more errors have occured while processing your request:</b>"
 msgstr ""
@@ -9689,16 +9689,16 @@ msgid "Edit event"
 msgstr "Padzieja"
 
 #: libraries/rte/rte_events.lib.php:255 libraries/rte/rte_export.lib.php:43
-#: libraries/rte/rte_routines.lib.php:464
-#: libraries/rte/rte_routines.lib.php:1481
-#: libraries/rte/rte_routines.lib.php:1521
+#: libraries/rte/rte_routines.lib.php:469
+#: libraries/rte/rte_routines.lib.php:1499
+#: libraries/rte/rte_routines.lib.php:1539
 #: libraries/rte/rte_triggers.lib.php:230
 #, fuzzy
 #| msgid "Processes"
 msgid "Error in processing request:"
 msgstr "Pracesy"
 
-#: libraries/rte/rte_events.lib.php:417 libraries/rte/rte_routines.lib.php:931
+#: libraries/rte/rte_events.lib.php:417 libraries/rte/rte_routines.lib.php:936
 #: libraries/rte/rte_triggers.lib.php:347 view_create.php:177
 #, fuzzy
 #| msgid "Details…"
@@ -9715,7 +9715,7 @@ msgstr "Typ padziei"
 msgid "Event type"
 msgstr "Typ padziei"
 
-#: libraries/rte/rte_events.lib.php:463 libraries/rte/rte_routines.lib.php:954
+#: libraries/rte/rte_events.lib.php:463 libraries/rte/rte_routines.lib.php:959
 #, fuzzy, php-format
 #| msgid "Change"
 msgid "Change to %s"
@@ -9750,13 +9750,13 @@ msgid "On completion preserve"
 msgstr "Poŭnaja ŭstaŭka"
 
 #: libraries/rte/rte_events.lib.php:524
-#: libraries/rte/rte_routines.lib.php:1042
+#: libraries/rte/rte_routines.lib.php:1047
 #: libraries/rte/rte_triggers.lib.php:407 view_create.php:206
 msgid "Definer"
 msgstr ""
 
 #: libraries/rte/rte_events.lib.php:567
-#: libraries/rte/rte_routines.lib.php:1109
+#: libraries/rte/rte_routines.lib.php:1114
 #: libraries/rte/rte_triggers.lib.php:445
 msgid "The definer must be in the \"username@hostname\" format"
 msgstr ""
@@ -9807,133 +9807,133 @@ msgid ""
 "problems."
 msgstr ""
 
-#: libraries/rte/rte_routines.lib.php:281
-#: libraries/rte/rte_routines.lib.php:1118
+#: libraries/rte/rte_routines.lib.php:285
+#: libraries/rte/rte_routines.lib.php:1123
 #, fuzzy, php-format
 #| msgid "Invalid server index: \"%s\""
 msgid "Invalid routine type: \"%s\""
 msgstr "Niekarektny indeks servera: \"%s\""
 
-#: libraries/rte/rte_routines.lib.php:321
+#: libraries/rte/rte_routines.lib.php:325
 msgid "Sorry, we failed to restore the dropped routine."
 msgstr ""
 
-#: libraries/rte/rte_routines.lib.php:332
+#: libraries/rte/rte_routines.lib.php:337
 #, fuzzy, php-format
 #| msgid "Table %s has been dropped"
 msgid "Routine %1$s has been modified."
 msgstr "Tablica %s była vydalenaja"
 
-#: libraries/rte/rte_routines.lib.php:353
+#: libraries/rte/rte_routines.lib.php:358
 #, fuzzy, php-format
 #| msgid "Table %1$s has been created."
 msgid "Routine %1$s has been created."
 msgstr "Tablica %1$s stvoranaja."
 
-#: libraries/rte/rte_routines.lib.php:434
+#: libraries/rte/rte_routines.lib.php:439
 #, fuzzy
 #| msgid "Routines"
 msgid "Edit routine"
 msgstr "Pracedury"
 
-#: libraries/rte/rte_routines.lib.php:934
+#: libraries/rte/rte_routines.lib.php:939
 #, fuzzy
 #| msgid "Routines"
 msgid "Routine name"
 msgstr "Pracedury"
 
-#: libraries/rte/rte_routines.lib.php:960
+#: libraries/rte/rte_routines.lib.php:965
 msgid "Parameters"
 msgstr ""
 
-#: libraries/rte/rte_routines.lib.php:966
+#: libraries/rte/rte_routines.lib.php:971
 #, fuzzy
 #| msgid "Direct links"
 msgid "Direction"
 msgstr "Pramyja linii suviaziaŭ"
 
-#: libraries/rte/rte_routines.lib.php:969
+#: libraries/rte/rte_routines.lib.php:974
 #: libraries/tbl_columns_definition_form.lib.php:278
 msgid "Length/Values"
 msgstr "Daŭžynia/Značeńni*"
 
-#: libraries/rte/rte_routines.lib.php:984
+#: libraries/rte/rte_routines.lib.php:989
 #, fuzzy
 #| msgid "Add new field"
 msgid "Add parameter"
 msgstr "Dadać novaje pole"
 
-#: libraries/rte/rte_routines.lib.php:988
+#: libraries/rte/rte_routines.lib.php:993
 #, fuzzy
 #| msgid "Rename database to"
 msgid "Remove last parameter"
 msgstr "Pierajmienavać bazu dadzienych u"
 
-#: libraries/rte/rte_routines.lib.php:993
+#: libraries/rte/rte_routines.lib.php:998
 msgid "Return type"
 msgstr "Typ pracedury"
 
-#: libraries/rte/rte_routines.lib.php:1000
+#: libraries/rte/rte_routines.lib.php:1005
 #, fuzzy
 #| msgid "Length/Values"
 msgid "Return length/values"
 msgstr "Daŭžynia/Značeńni*"
 
-#: libraries/rte/rte_routines.lib.php:1006
+#: libraries/rte/rte_routines.lib.php:1011
 #, fuzzy
 #| msgid "Table options"
 msgid "Return options"
 msgstr "Opcyi tablicy"
 
-#: libraries/rte/rte_routines.lib.php:1037
+#: libraries/rte/rte_routines.lib.php:1042
 msgid "Is deterministic"
 msgstr ""
 
-#: libraries/rte/rte_routines.lib.php:1047
+#: libraries/rte/rte_routines.lib.php:1052
 #, fuzzy
 #| msgid "Query type"
 msgid "Security type"
 msgstr "Typ zapytu"
 
-#: libraries/rte/rte_routines.lib.php:1056
+#: libraries/rte/rte_routines.lib.php:1061
 msgid "SQL data access"
 msgstr ""
 
-#: libraries/rte/rte_routines.lib.php:1125
+#: libraries/rte/rte_routines.lib.php:1130
 msgid "You must provide a routine name"
 msgstr ""
 
-#: libraries/rte/rte_routines.lib.php:1155
+#: libraries/rte/rte_routines.lib.php:1165
 #, php-format
 msgid "Invalid direction \"%s\" given for parameter."
 msgstr ""
 
-#: libraries/rte/rte_routines.lib.php:1175
-#: libraries/rte/rte_routines.lib.php:1230
+#: libraries/rte/rte_routines.lib.php:1187
+#: libraries/rte/rte_routines.lib.php:1247
 msgid ""
 "You must provide length/values for routine parameters of type ENUM, SET, "
 "VARCHAR and VARBINARY."
 msgstr ""
 
-#: libraries/rte/rte_routines.lib.php:1198
+#: libraries/rte/rte_routines.lib.php:1210
 msgid "You must provide a name and a type for each routine parameter."
 msgstr ""
 
-#: libraries/rte/rte_routines.lib.php:1213
+#: libraries/rte/rte_routines.lib.php:1229
 msgid "You must provide a valid return type for the routine."
 msgstr ""
 
-#: libraries/rte/rte_routines.lib.php:1272
+#: libraries/rte/rte_routines.lib.php:1289
 msgid "You must provide a routine definition."
 msgstr ""
 
-#: libraries/rte/rte_routines.lib.php:1370
+#: libraries/rte/rte_routines.lib.php:1387
 #, fuzzy, php-format
 #| msgid "Allows executing stored routines."
 msgid "Execution results of routine %s"
 msgstr "Dazvalaje vykanańnie pragramaŭ, jakija zachoŭvajucca."
 
-#: libraries/rte/rte_routines.lib.php:1435
+#: libraries/rte/rte_routines.lib.php:1453
 #, php-format
 msgid "%d row affected by the last statement inside the procedure"
 msgid_plural "%d rows affected by the last statement inside the procedure"
@@ -9941,13 +9941,13 @@ msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: libraries/rte/rte_routines.lib.php:1508
-#: libraries/rte/rte_routines.lib.php:1516
+#: libraries/rte/rte_routines.lib.php:1526
+#: libraries/rte/rte_routines.lib.php:1534
 msgid "Execute routine"
 msgstr ""
 
-#: libraries/rte/rte_routines.lib.php:1572
-#: libraries/rte/rte_routines.lib.php:1575
+#: libraries/rte/rte_routines.lib.php:1590
+#: libraries/rte/rte_routines.lib.php:1593
 #, fuzzy
 #| msgid "Routines"
 msgid "Routine parameters"
@@ -10113,7 +10113,7 @@ msgstr ""
 #: libraries/schema/Dia_Relation_Schema.class.php:240
 #: libraries/schema/Eps_Relation_Schema.class.php:429
 #: libraries/schema/Pdf_Relation_Schema.class.php:419
-#: libraries/schema/Svg_Relation_Schema.class.php:396
+#: libraries/schema/Svg_Relation_Schema.class.php:439
 #, fuzzy, php-format
 #| msgid "The \"%s\" table doesn't exist!"
 msgid "The %s table doesn't exist!"
@@ -10122,14 +10122,14 @@ msgstr "Tablicy \"%s\" nie isnuje!"
 #: libraries/schema/Dia_Relation_Schema.class.php:278
 #: libraries/schema/Eps_Relation_Schema.class.php:480
 #: libraries/schema/Pdf_Relation_Schema.class.php:461
-#: libraries/schema/Svg_Relation_Schema.class.php:449
+#: libraries/schema/Svg_Relation_Schema.class.php:492
 #, php-format
 msgid "Please configure the coordinates for table %s"
 msgstr "Kali łaska, skanfihurujcie kaardynaty dla tablicy %s"
 
 #: libraries/schema/Eps_Relation_Schema.class.php:836
 #: libraries/schema/Pdf_Relation_Schema.class.php:876
-#: libraries/schema/Svg_Relation_Schema.class.php:812
+#: libraries/schema/Svg_Relation_Schema.class.php:859
 #, fuzzy, php-format
 #| msgid "Schema of the \"%s\" database - Page %s"
 msgid "Schema of the %s database - Page %s"
@@ -10156,14 +10156,14 @@ msgstr "Źmiest"
 
 #: libraries/schema/Pdf_Relation_Schema.class.php:1380
 #: libraries/schema/Pdf_Relation_Schema.class.php:1403
-#: libraries/structure.lib.php:1182
+#: libraries/structure.lib.php:1184
 #: libraries/tbl_columns_definition_form.lib.php:296
 msgid "Attributes"
 msgstr "Atrybuty"
 
 #: libraries/schema/Pdf_Relation_Schema.class.php:1383
 #: libraries/schema/Pdf_Relation_Schema.class.php:1406
-#: libraries/structure.lib.php:1185 libraries/tbl_tracking.lib.php:732
+#: libraries/structure.lib.php:1187 libraries/tbl_tracking.lib.php:732
 msgid "Extra"
 msgstr "Dadatkova"
 
@@ -10177,91 +10177,91 @@ msgstr "Stvaryć novuju staronku"
 msgid "Page name"
 msgstr "Staronka:"
 
-#: libraries/schema/User_Schema.class.php:144
+#: libraries/schema/User_Schema.class.php:145
 #, fuzzy
 #| msgid "Automatic layout"
 msgid "Automatic layout based on"
 msgstr "Aŭtamatyčnaje raźmiaščeńnie"
 
-#: libraries/schema/User_Schema.class.php:147
+#: libraries/schema/User_Schema.class.php:149
 msgid "Internal relations"
 msgstr "Unutranyja suviazi"
 
-#: libraries/schema/User_Schema.class.php:158
+#: libraries/schema/User_Schema.class.php:163
 msgid "FOREIGN KEY"
 msgstr ""
 
-#: libraries/schema/User_Schema.class.php:195
+#: libraries/schema/User_Schema.class.php:200
 msgid "Please choose a page to edit"
 msgstr "Kali łaska, vybierycie staronku dla redagavańnia"
 
-#: libraries/schema/User_Schema.class.php:200
+#: libraries/schema/User_Schema.class.php:205
 #, fuzzy
 #| msgid "Select All"
 msgid "Select page"
 msgstr "Vybrać usio"
 
-#: libraries/schema/User_Schema.class.php:267
+#: libraries/schema/User_Schema.class.php:272
 msgid "Select Tables"
 msgstr "Vybierycie tablicu(y)"
 
-#: libraries/schema/User_Schema.class.php:384 view_create.php:236
+#: libraries/schema/User_Schema.class.php:389 view_create.php:236
 msgid "Column names"
 msgstr "Nazvy kalonak"
 
-#: libraries/schema/User_Schema.class.php:415
+#: libraries/schema/User_Schema.class.php:422
 #, fuzzy
 #| msgid "Relational schema"
 msgid "Display relational schema"
 msgstr "Relacyjnaja schiema"
 
-#: libraries/schema/User_Schema.class.php:424
+#: libraries/schema/User_Schema.class.php:431
 msgid "Select Export Relational Type"
 msgstr ""
 
-#: libraries/schema/User_Schema.class.php:449
+#: libraries/schema/User_Schema.class.php:455
 msgid "Show grid"
 msgstr "Pakazać sietku"
 
-#: libraries/schema/User_Schema.class.php:451
+#: libraries/schema/User_Schema.class.php:458
 msgid "Show color"
 msgstr "Pakazać koler"
 
-#: libraries/schema/User_Schema.class.php:455
+#: libraries/schema/User_Schema.class.php:463
 msgid "Show dimension of tables"
 msgstr "Pakazać raźmiernaść tablic"
 
-#: libraries/schema/User_Schema.class.php:459
+#: libraries/schema/User_Schema.class.php:468
 msgid "Same width for all tables"
 msgstr ""
 
-#: libraries/schema/User_Schema.class.php:462 libraries/structure.lib.php:379
+#: libraries/schema/User_Schema.class.php:472 libraries/structure.lib.php:379
 msgid "Data Dictionary"
 msgstr "Słoŭnik dadzienych"
 
-#: libraries/schema/User_Schema.class.php:464
+#: libraries/schema/User_Schema.class.php:474
 msgid "Only show keys"
 msgstr ""
 
-#: libraries/schema/User_Schema.class.php:466
+#: libraries/schema/User_Schema.class.php:476
 msgid "Landscape"
 msgstr "Krajavid"
 
-#: libraries/schema/User_Schema.class.php:467
+#: libraries/schema/User_Schema.class.php:477
 msgid "Portrait"
 msgstr "Partret"
 
-#: libraries/schema/User_Schema.class.php:469
+#: libraries/schema/User_Schema.class.php:479
 #, fuzzy
 #| msgid "Creation"
 msgid "Orientation"
 msgstr "Stvoranaja"
 
-#: libraries/schema/User_Schema.class.php:482
+#: libraries/schema/User_Schema.class.php:492
 msgid "Paper size"
 msgstr "Pamier papiery"
 
-#: libraries/schema/User_Schema.class.php:528
+#: libraries/schema/User_Schema.class.php:539
 msgid ""
 "The current page has references to tables that no longer exist. Would you "
 "like to delete those references?"
@@ -10269,11 +10269,11 @@ msgstr ""
 "Biahučaja staronka ŭtrymlivaje spasyłki na tablicy, jakija bolš nie isnujuć. "
 "Ci žadajecie vy vydalić hetyja spasyłki?"
 
-#: libraries/schema/User_Schema.class.php:554
+#: libraries/schema/User_Schema.class.php:565
 msgid "Toggle scratchboard"
 msgstr "Pakazać papiaredni prahlad"
 
-#: libraries/schema/User_Schema.class.php:650
+#: libraries/schema/User_Schema.class.php:663
 #, fuzzy
 #| msgid "The \"%s\" table doesn't exist!"
 msgid "File doesn't exist"
@@ -10307,7 +10307,7 @@ msgstr "Pazycyja"
 msgid "Original position"
 msgstr "Pieršapačatkovaja pazycyja"
 
-#: libraries/server_bin_log.lib.php:134 libraries/structure.lib.php:2174
+#: libraries/server_bin_log.lib.php:134 libraries/structure.lib.php:2176
 msgid "Information"
 msgstr "Infarmacyja"
 
@@ -12293,7 +12293,7 @@ msgstr ""
 "ŭstalavanyja ŭ vas nieabchodnyja pašyreńni PHP, jak heta apisana ŭ "
 "%sdakumentacyi%s."
 
-#: libraries/structure.lib.php:68 tbl_operations.php:312
+#: libraries/structure.lib.php:68 tbl_operations.php:340
 #, php-format
 msgid "Table %s has been emptied"
 msgstr "Tablica %s była ačyščanaja"
@@ -12306,13 +12306,13 @@ msgstr ""
 msgid "Tracking is not active."
 msgstr ""
 
-#: libraries/structure.lib.php:129 tbl_operations.php:330
+#: libraries/structure.lib.php:129 tbl_operations.php:358
 #: view_operations.php:118
 #, php-format
 msgid "View %s has been dropped"
 msgstr "Vyhlad %s byŭ vydaleny"
 
-#: libraries/structure.lib.php:130 tbl_operations.php:331
+#: libraries/structure.lib.php:130 tbl_operations.php:359
 #, php-format
 msgid "Table %s has been dropped"
 msgstr "Tablica %s była vydalenaja"
@@ -12345,197 +12345,197 @@ msgstr "Adznačyć tyja, što patrabujuć aptymizacyi"
 msgid "Sort"
 msgstr "Paradak"
 
-#: libraries/structure.lib.php:1279 libraries/tbl_tracking.lib.php:786
+#: libraries/structure.lib.php:1281 libraries/tbl_tracking.lib.php:786
 #, fuzzy
 #| msgid "None"
 msgctxt "None for default"
 msgid "None"
 msgstr "Nijakaja"
 
-#: libraries/structure.lib.php:1329
+#: libraries/structure.lib.php:1331
 #, fuzzy, php-format
 #| msgid "Table %s has been dropped"
 msgid "Column %s has been dropped"
 msgstr "Tablica %s była vydalenaja"
 
-#: libraries/structure.lib.php:1383 libraries/structure.lib.php:2069
-#: libraries/structure.lib.php:2079
+#: libraries/structure.lib.php:1385 libraries/structure.lib.php:2071
+#: libraries/structure.lib.php:2081
 msgid "Primary"
 msgstr "Pieršasny"
 
-#: libraries/structure.lib.php:1391 libraries/structure.lib.php:2071
-#: libraries/structure.lib.php:2081 libraries/structure.lib.php:2189
+#: libraries/structure.lib.php:1393 libraries/structure.lib.php:2073
+#: libraries/structure.lib.php:2083 libraries/structure.lib.php:2191
 #: libraries/tbl_columns_definition_form.lib.php:303
 #: libraries/tbl_printview.lib.php:311
 msgid "Index"
 msgstr "Indeks"
 
-#: libraries/structure.lib.php:1398 libraries/structure.lib.php:2075
-#: libraries/structure.lib.php:2085
+#: libraries/structure.lib.php:1400 libraries/structure.lib.php:2077
+#: libraries/structure.lib.php:2087
 msgid "Spatial"
 msgstr ""
 
-#: libraries/structure.lib.php:1408 libraries/structure.lib.php:2077
-#: libraries/structure.lib.php:2087
+#: libraries/structure.lib.php:1410 libraries/structure.lib.php:2079
+#: libraries/structure.lib.php:2089
 msgid "Fulltext"
 msgstr "Poŭnatekstekstavaje"
 
-#: libraries/structure.lib.php:1423 libraries/structure.lib.php:1533
+#: libraries/structure.lib.php:1425 libraries/structure.lib.php:1535
 #, fuzzy
 #| msgid "Add %s field(s)"
 msgid "Move columns"
 msgstr "Dadać %s novyja pali"
 
-#: libraries/structure.lib.php:1426
+#: libraries/structure.lib.php:1428
 msgid "Move the columns by dragging them up and down."
 msgstr ""
 
-#: libraries/structure.lib.php:1476 view_create.php:178
+#: libraries/structure.lib.php:1478 view_create.php:178
 #, fuzzy
 #| msgid "Print view"
 msgid "Edit view"
 msgstr "Versija dla druku"
 
-#: libraries/structure.lib.php:1509
+#: libraries/structure.lib.php:1511
 msgid "Relation view"
 msgstr "Prahlad zaležnaściaŭ"
 
-#: libraries/structure.lib.php:1521
+#: libraries/structure.lib.php:1523
 msgid "Propose table structure"
 msgstr "Prapanavanaja struktura tablicy"
 
-#: libraries/structure.lib.php:1555
+#: libraries/structure.lib.php:1557
 #: libraries/tbl_columns_definition_form.lib.php:178
 #, fuzzy
 #| msgid "You have to add at least one field."
 msgid "You have to add at least one column."
 msgstr "Treba dadać prynamsi adno pole."
 
-#: libraries/structure.lib.php:1566
+#: libraries/structure.lib.php:1568
 #, fuzzy
 #| msgid "Add %s field(s)"
 msgid "Add column"
 msgstr "Dadać %s novyja pali"
 
-#: libraries/structure.lib.php:1572
+#: libraries/structure.lib.php:1574
 #: libraries/tbl_columns_definition_form.lib.php:168
 #, fuzzy, php-format
 #| msgid "Add %s field(s)"
 msgid "Add %s column(s)"
 msgstr "Dadać %s novyja pali"
 
-#: libraries/structure.lib.php:1589
+#: libraries/structure.lib.php:1591
 msgid "At End of Table"
 msgstr "U kancy tablicy"
 
-#: libraries/structure.lib.php:1590
+#: libraries/structure.lib.php:1592
 msgid "At Beginning of Table"
 msgstr "U pačatku tablicy"
 
-#: libraries/structure.lib.php:1591
+#: libraries/structure.lib.php:1593
 #, php-format
 msgid "After %s"
 msgstr "Paśla %s"
 
-#: libraries/structure.lib.php:1685
+#: libraries/structure.lib.php:1687
 #, fuzzy
 #| msgid "Row Statistics"
 msgid "Row statistics"
 msgstr "Statystyka radku"
 
-#: libraries/structure.lib.php:1690 libraries/tbl_printview.lib.php:182
+#: libraries/structure.lib.php:1692 libraries/tbl_printview.lib.php:182
 msgid "static"
 msgstr ""
 
-#: libraries/structure.lib.php:1692 libraries/tbl_printview.lib.php:184
+#: libraries/structure.lib.php:1694 libraries/tbl_printview.lib.php:184
 msgid "dynamic"
 msgstr "dynamičny"
 
-#: libraries/structure.lib.php:1703
+#: libraries/structure.lib.php:1705
 msgid "partitioned"
 msgstr "padzielenaja na sekcyi"
 
-#: libraries/structure.lib.php:1740 libraries/tbl_printview.lib.php:205
+#: libraries/structure.lib.php:1742 libraries/tbl_printview.lib.php:205
 msgid "Row length"
 msgstr "Daŭžynia radka"
 
-#: libraries/structure.lib.php:1753 libraries/tbl_printview.lib.php:219
+#: libraries/structure.lib.php:1755 libraries/tbl_printview.lib.php:219
 msgid "Row size"
 msgstr "Pamier radka"
 
-#: libraries/structure.lib.php:1761 libraries/tbl_printview.lib.php:228
+#: libraries/structure.lib.php:1763 libraries/tbl_printview.lib.php:228
 msgid "Next autoindex"
 msgstr ""
 
-#: libraries/structure.lib.php:1887 libraries/structure.lib.php:1968
-#: libraries/structure.lib.php:1976 libraries/structure.lib.php:1993
+#: libraries/structure.lib.php:1889 libraries/structure.lib.php:1970
+#: libraries/structure.lib.php:1978 libraries/structure.lib.php:1995
 #, php-format
 msgid "An index has been added on %s"
 msgstr "Byŭ dadadzieny indeks dla %s"
 
-#: libraries/structure.lib.php:1958
+#: libraries/structure.lib.php:1960
 #, php-format
 msgid "A primary key has been added on %s"
 msgstr "Pieršasny kluč byŭ dadadzieny da %s"
 
-#: libraries/structure.lib.php:2018 libraries/structure.lib.php:2089
+#: libraries/structure.lib.php:2020 libraries/structure.lib.php:2091
 #, fuzzy
 #| msgid "Browse distinct values"
 msgid "Distinct values"
 msgstr "Prahlad roznych značeńniaŭ"
 
-#: libraries/structure.lib.php:2021 libraries/structure.lib.php:2024
+#: libraries/structure.lib.php:2023 libraries/structure.lib.php:2026
 msgid "Add primary key"
 msgstr ""
 
-#: libraries/structure.lib.php:2027 libraries/structure.lib.php:2030
+#: libraries/structure.lib.php:2029 libraries/structure.lib.php:2032
 #, fuzzy
 #| msgid "Add new field"
 msgid "Add index"
 msgstr "Dadać novaje pole"
 
-#: libraries/structure.lib.php:2033 libraries/structure.lib.php:2036
+#: libraries/structure.lib.php:2035 libraries/structure.lib.php:2038
 msgid "Add unique index"
 msgstr ""
 
-#: libraries/structure.lib.php:2039 libraries/structure.lib.php:2042
+#: libraries/structure.lib.php:2041 libraries/structure.lib.php:2044
 #, fuzzy
 #| msgid "Add new field"
 msgid "Add SPATIAL index"
 msgstr "Dadać novaje pole"
 
-#: libraries/structure.lib.php:2045 libraries/structure.lib.php:2048
+#: libraries/structure.lib.php:2047 libraries/structure.lib.php:2050
 msgid "Add FULLTEXT index"
 msgstr ""
 
-#: libraries/structure.lib.php:2179
+#: libraries/structure.lib.php:2181
 msgid "Space usage"
 msgstr "Vykarystańnie prastory"
 
-#: libraries/structure.lib.php:2199 libraries/tbl_printview.lib.php:327
+#: libraries/structure.lib.php:2201 libraries/tbl_printview.lib.php:327
 msgid "Effective"
 msgstr "Efektyŭnaść"
 
-#: libraries/structure.lib.php:2380 libraries/tbl_indexes.lib.php:56
+#: libraries/structure.lib.php:2382 libraries/tbl_indexes.lib.php:56
 #: tbl_addfield.php:84
 #, php-format
 msgid "Table %1$s has been altered successfully"
 msgstr "Tablica %1$s była paśpiachova źmienienaja"
 
-#: libraries/structure.lib.php:2428 libraries/tbl_tracking.lib.php:916
+#: libraries/structure.lib.php:2430 libraries/tbl_tracking.lib.php:916
 #: libraries/tbl_tracking.lib.php:946
 #, fuzzy
 #| msgid "Query type"
 msgid "Query error"
 msgstr "Typ zapytu"
 
-#: libraries/structure.lib.php:2526
+#: libraries/structure.lib.php:2528
 #, fuzzy
 #| msgid "The selected users have been deleted successfully."
 msgid "The columns have been moved successfully."
 msgstr "Vybranyja karystalniki byli paśpiachova vydalenyja."
 
-#: libraries/structure.lib.php:2574
+#: libraries/structure.lib.php:2576
 #, php-format
 msgid "The column name '%s' is a MySQL reserved keyword."
 msgstr ""
@@ -13057,7 +13057,7 @@ msgstr "Pamyłka ŭ ZIP-archivie:"
 msgid "Fatal error: The navigation can only be accessed via AJAX"
 msgstr ""
 
-#: pmd_display_field.php:49 pmd_save_pos.php:87
+#: pmd_display_field.php:60 pmd_save_pos.php:87
 msgid "Modifications have been saved"
 msgstr "Madyfikacyi byli zachavanyja"
 
@@ -13337,7 +13337,7 @@ msgstr ""
 msgid "Existing settings will be overwritten!"
 msgstr ""
 
-#: prefs_manage.php:329
+#: prefs_manage.php:331
 msgid "You can reset all your settings and restore them to default values."
 msgstr ""
 
