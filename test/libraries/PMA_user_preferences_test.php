@@ -92,7 +92,8 @@ class PMA_User_Preferences_Test extends PHPUnit_Framework_TestCase
         $this->assertEquals(
             time(),
             $result['mtime'],
-            10
+            '',
+            2
         );
 
         $this->assertEquals(
@@ -166,10 +167,12 @@ class PMA_User_Preferences_Test extends PHPUnit_Framework_TestCase
             $_SESSION['userconfig']['db']
         );
 
+        /* TODO: This breaks sometimes as there might be time difference! */
         $this->assertEquals(
             time(),
             $_SESSION['userconfig']['ts'],
-            10
+            '',
+            2
         );
 
         $assert = true;

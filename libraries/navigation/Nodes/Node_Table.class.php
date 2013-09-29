@@ -49,7 +49,8 @@ class Node_Table extends Node_DatabaseChild
             break;
         }
         $this->links = array(
-            'text' => 'sql.php?server=' . $GLOBALS['server']
+            'text' => $GLOBALS['cfg']['DefaultTabTable']
+                    . '?server=' . $GLOBALS['server']
                     . '&amp;db=%2$s&amp;table=%1$s'
                     . '&amp;pos=0&amp;token=' . $GLOBALS['token'],
             'icon' => $GLOBALS['cfg']['NavigationTreeDefaultTabTable']

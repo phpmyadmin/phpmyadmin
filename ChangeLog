@@ -42,6 +42,8 @@ phpMyAdmin - ChangeLog
 - bug #4068 Headline in operations not readable in IE10
 - bug #4000 "Table does not contain unique column" message appears after adding a unique column
 + rfe #1428 add 'new database' entry to nav tree
++ rfe #1457 Stone Age icon found
++ rfe #1463 Filter tables and databases by regular expression
 + Change the proxy variable names in the config to remove the VersionCheck prefix from them
 + Added an Error Reporting Component
 + Javascript files are no longer uglified
@@ -51,8 +53,18 @@ phpMyAdmin - ChangeLog
 - bug #4041 Interaction between linkified fields and grid editing
 - bug #3975 Table grouping isn't implemented properly
 - bug #4060 Browser tries to remember wrong password when creating new user
+- bug #4002 Edit Index on big table doesn't show "Loading" or any message
+- bug #4098 Default table tab is ignored
+- bug #4099 Server/library difference warning: setting is ignored
+- bug #4100 table tree group strategy
+- bug #4102 ALTER TABLE ORDER BY and InnoDB
+- bug #4103 Tracking report: cannot delete a statement
+- bug #3996 Drizzle navigation doesn't expand
+- bug #4074 GIS column editor: point not displayed
+- bug #4109 Drizzle tables in navigation are shown as views
+- bug #4095 NUL symbols added to the end of database dump file
 
-4.0.7.0 (not yet released)
+4.0.7.0 (2013-09-23)
 - bug #3993 Sorting in database overview with statistics doesn't work
 - bug Handle the situation where PHP_SELF is not set 
 - bug #4080 Overwrite existing file not obeyed

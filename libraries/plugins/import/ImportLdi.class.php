@@ -46,7 +46,9 @@ class ImportLdi extends AbstractImportCsv
         if ($GLOBALS['cfg']['Import']['ldi_local_option'] == 'auto') {
             $GLOBALS['cfg']['Import']['ldi_local_option'] = false;
 
-            $result = $GLOBALS['dbi']->tryQuery('SHOW VARIABLES LIKE \'local\\_infile\';');
+            $result = $GLOBALS['dbi']->tryQuery(
+                'SHOW VARIABLES LIKE \'local\\_infile\';'
+            );
             if ($result != false && $GLOBALS['dbi']->numRows($result) > 0) {
                 $tmp = $GLOBALS['dbi']->fetchRow($result);
                 if ($tmp[1] == 'ON') {
@@ -98,8 +100,8 @@ class ImportLdi extends AbstractImportCsv
     public function doImport()
     {
         global $finished, $import_file, $compression, $charset_conversion, $table;
-        global $ldi_local_option, $ldi_replace, $ldi_ignore, $ldi_terminated, $ldi_enclosed,
-            $ldi_escaped, $ldi_new_line, $skip_queries, $ldi_columns;
+        global $ldi_local_option, $ldi_replace, $ldi_ignore, $ldi_terminated,
+            $ldi_enclosed, $ldi_escaped, $ldi_new_line, $skip_queries, $ldi_columns;
 
         if ($import_file == 'none'
             || $compression != 'none'

@@ -262,7 +262,7 @@ class PMA_FormDisplay_Tpl_Test extends PHPUnit_Framework_TestCase
 
         $this->assertTag(
             PMA_getTagArray(
-                '<img src="testImageb_info.png" title="Wiki" alt="Wiki" />'
+                '<img src="testImages_info.png" title="Wiki" alt="Wiki" />'
             ),
             $result
         );

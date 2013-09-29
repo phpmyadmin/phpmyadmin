@@ -583,7 +583,9 @@ class PMA_NavigationTree
                     }
                     $groups[$key]->pos2 = $node->pos2;
                     $groups[$key]->pos3 = $node->pos3;
-                    if ($node instanceof Node_Table_Container) {
+                    if ($node instanceof Node_Table_Container
+                        || $node instanceof Node_View_Container
+                    ) {
                         $tblGroup = '&amp;tbl_group='
                             . urlencode($key . $node->separator);
                         $groups[$key]->links = array(
@@ -598,7 +600,8 @@ class PMA_NavigationTree
                             $name_substring = substr(
                                 $child->name, 0, strlen($key) + strlen($separator)
                             );
-                            if ($name_substring == $key . $separator
+                            if (($name_substring == $key . $separator
+                                || $child->name == $key)
                                 && $child->type == Node::OBJECT
                             ) {
                                 $class = get_class($child);
@@ -1037,7 +1040,7 @@ class PMA_NavigationTree
             ) {
                 $placeholder_key = 'placeholder';
             }
-            $retval .= " $placeholder_key='" . __('filter databases by name');
+            $retval .= " $placeholder_key='" . __('filter databases by name or regex');
             $retval .= "' />";
             $retval .= '<span title="' . __('Clear Fast Filter') . '">X</span>';
             $retval .= "</form>";
@@ -1070,7 +1073,7 @@ class PMA_NavigationTree
             ) {
                 $placeholder_key = 'placeholder';
             }
-            $retval .= " $placeholder_key='" . __('filter items by name') . "' />";
+            $retval .= " $placeholder_key='" . __('filter by name or regex') . "' />";
             $retval .= "<span title='" . __('Clear Fast Filter') . "'>X</span>";
             $retval .= "</form>";
             $retval .= "</li>";

@@ -323,14 +323,17 @@ PMA_printJsValue("PMA_messages['strSavedOn']", __('Saved on: @DATE@'));
             </form>
         </div>
         <div class="group">
-            <h2><?php echo __('Reset') ?></h2>
-            <form class="group-cnt prefs-form disableAjax" name="prefs_reset" action="prefs_manage.php" method="post">
-            <?php echo PMA_URL_getHiddenInputs() . "\n" ?>
-                <?php echo __('You can reset all your settings and restore them to default values.') ?>
-                <br /><br />
-                <input type="submit" name="submit_clear" value="<?php echo __('Reset') ?>" />
-            </form>
-
+<?php
+echo '<h2>' . __('Reset') . '</h2>'
+    . '<form class="group-cnt prefs-form disableAjax" name="prefs_reset"'
+    . ' action="prefs_manage.php" method="post">'
+    . PMA_URL_getHiddenInputs()
+    . __('You can reset all your settings and restore them to default values.')
+    . '<br /><br />'
+    . '<input type="submit" name="submit_clear" value="'
+    . __('Reset') . '" />'
+    . '</form>';
+?>
         </div>
     </div>
     <br class="clearfloat" />

@@ -63,6 +63,10 @@ function getDropdownValues($dropdown) {
         + (foreignTable !== null ?
             '&foreignTable=' + encodeURIComponent(foreignTable) : ''
         );
+    var $server = $form.find('input[name="server"]');
+    if ($server.length > 0) {
+        url += '&server=' + $form.find('input[name="server"]').val();
+    }
     $.ajax({
         url: url,
         datatype: 'json',
@@ -92,7 +96,7 @@ function setDropdownValues($dropdown, values) {
     values.unshift('');
     $.each(values, function () {
         optionsAsString += "<option value='" + this + "'>" + this + "</option>";
-    })
+    });
     $dropdown.append($(optionsAsString));
 }
 

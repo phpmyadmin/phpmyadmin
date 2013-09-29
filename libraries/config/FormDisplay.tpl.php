@@ -147,7 +147,7 @@ function PMA_displayInput($path, $name, $type, $value, $description = '',
         $icon_init = array(
             'edit'   => array('b_edit.png',   ''),
             'help'   => array('b_help.png',   __('Documentation')),
-            'info'   => array('b_info.png',   __('Wiki')),
+            'info'   => array('s_info.png',   __('Wiki')),
             'reload' => array('s_reload.png', ''),
             'tblops' => array('b_tblops.png', '')
         );

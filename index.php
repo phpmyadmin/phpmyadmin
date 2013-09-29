@@ -255,8 +255,8 @@ if ($server > 0 && $GLOBALS['cfg']['ShowServerInfo']) {
         'li_server_type'
     );
     PMA_printListItem(
-        __('Server version:') 
-        . ' ' 
+        __('Server version:')
+        . ' '
         . PMA_MYSQL_STR_VERSION . ' - ' . PMA_MYSQL_VERSION_COMMENT,
         'li_server_version'
     );
@@ -391,15 +391,13 @@ PMA_printListItem(
     null,
     '_blank'
 );
-?>
-    </ul>
- </div>
+echo '    </ul>';
+echo ' </div>';
 
-</div>
+echo '</div>';
 
-</div>
+echo '</div>';
 
-<?php
 /**
  * Warning if using the default MySQL privileged account
  */
@@ -503,7 +501,7 @@ if ($server > 0) {
     ) {
         $msg = PMA_Message::notice(__('The phpMyAdmin configuration storage is not completely configured, some extended features have been deactivated. To find out why click %shere%s.'));
         $msg->addParam(
-            '<a href="' . $cfg['PmaAbsoluteUri'] . 'chk_rel.php?' 
+            '<a href="' . $cfg['PmaAbsoluteUri'] . 'chk_rel.php?'
             . $common_url_query . '">',
             false
         );
@@ -525,7 +523,10 @@ if ($server > 0) {
  * Drizzle can speak MySQL protocol, so don't warn about version mismatch for
  * Drizzle servers.
  */
-if (isset($GLOBALS['dbi']) && !PMA_DRIZZLE) {
+if (isset($GLOBALS['dbi'])
+    && !PMA_DRIZZLE
+    && $cfg['ServerLibraryDifference_DisableWarning'] == false
+) {
     $_client_info = $GLOBALS['dbi']->getClientInfo();
     if ($server > 0
         && strpos($_client_info, 'mysqlnd') === false

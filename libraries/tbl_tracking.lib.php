@@ -649,7 +649,7 @@ function PMA_getHtmlForDataDefinitionStatement($entry, $filter_users,
         $html .= '<td><small>'
             . htmlspecialchars($entry['username']) . '</small></td>';
         $html .= '<td>' . $statement . '</td>';
-        $html .= '<td class="nowrap"><a href="tbl_tracking.php?'
+        $html .= '<td class="nowrap"><a href="tbl_tracking.php'
             . PMA_URL_getCommon(
                 $url_params + array(
                     'report' => 'true',
