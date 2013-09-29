@@ -211,7 +211,7 @@ function PMA_getHtmlForTableFooter(
  */
 function PMA_getHtmlForDatabaseList(
     $databases, $is_superuser, $url_query,
-    $column_order, $replication_types, $replication_info
+    &$column_order, $replication_types, $replication_info
 ) {
     $odd_row = true;
     $html = '<tbody>' . "\n";
