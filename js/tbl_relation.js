@@ -56,6 +56,7 @@ function getDropdownValues($dropdown) {
     var $form = $dropdown.parents('form');
     var url = 'tbl_relation.php?getDropdownValues=true&ajax_request=true'
         + '&token=' + $form.find('input[name="token"]').val()
+        + '&server=' + $form.find('input[name="server"]').val()
         + '&db=' + $form.find('input[name="db"]').val()
         + '&table=' + $form.find('input[name="table"]').val()
         + '&foreign=' + (foreign != '')
