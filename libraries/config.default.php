@@ -644,13 +644,14 @@ if (defined('VERSION_CHECK_DEFAULT')) {
 
 /**
  * The url of the proxy to be used when retrieving the information about
- * the latest version of phpMyAdmin. You need this if the server where
- * phpMyAdmin is installed does not have direct access to the internet.
+ * the latest version of phpMyAdmin or error reporting. You need this if
+ * the server where phpMyAdmin is installed does not have direct access to
+ * the internet.
  * The format is: "hostname:portnumber"
  *
- * @global string $cfg['VersionCheckProxyUrl']
+ * @global string $cfg['ProxyUrl']
  */
-$cfg['VersionCheckProxyUrl'] = "";
+$cfg['ProxyUrl'] = "";
 
 /**
  * The username for authenticating with the proxy. By default, no
@@ -658,16 +659,16 @@ $cfg['VersionCheckProxyUrl'] = "";
  * Authentication will be performed. No other types of authentication
  * are currently supported.
  *
- * @global string $cfg['VersionCheckProxyUser']
+ * @global string $cfg['ProxyUser']
  */
-$cfg['VersionCheckProxyUser'] = "";
+$cfg['ProxyUser'] = "";
 
 /**
  * The password for authenticating with the proxy.
  *
- * @global string $cfg['VersionCheckProxyPass']
+ * @global string $cfg['ProxyPass']
  */
-$cfg['VersionCheckProxyPass'] = "";
+$cfg['ProxyPass'] = "";
 
 /**
  * maximum number of db's displayed in database list
@@ -2832,6 +2833,23 @@ $cfg['LinkLengthLimit'] = 1000;
  */
 $cfg['DisableMultiTableMaintenance'] = false;
 
+/**
+ * Enable Error reporting by default in phpmyadmin installations
+ *
+ * @global boolean $cfg['ErrorReporting']
+ */
+$cfg['ErrorReporting'] = true;
+
+/**
+ * Whether or not to query the user before sending the error report to
+ * phpmyadmin
+ *
+ * Available options
+ * (ask | always | never)
+ *
+ * @global string $cfg['SendErrorReports']
+ */
+$cfg['SendErrorReports'] = 'ask';
 
 /*******************************************************************************
  * If you wish to use the SQL Validator service, you should be aware of the

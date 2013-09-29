@@ -129,6 +129,11 @@ if [ -d po ] ; then
     rm -rf po
 fi
 
+if [ -f ./scripts/line-counts.sh ] ; then
+    echo "* Generating line counts"
+    ./scripts/line-counts.sh
+fi
+
 echo "* Removing unneeded files"
 
 # Remove test directory from package to avoid Path disclosure messages
@@ -168,7 +173,11 @@ for kit in $KITS ; do
         rm -rf scripts/google-javascript-compiler/
 
         # Remove scripts which are not useful for user
+<<<<<<< HEAD
+        for s in compress-js create-release.sh generate-mo mergepo.py php2gettext.sh remove_control_m.sh update-po upload-release pending-po pendingpo.py line-counts.sh ; do
+=======
         for s in generate-sprites advisor2po lang-cleanup.sh locales-contributors remove-incomplete-mo compress-js create-release.sh generate-mo remove_control_m.sh update-po upload-release ; do
+>>>>>>> 81bd6d4a02be69a6a96c85dea71a78f25ba029e9
             rm -f scripts/$s
         done
     fi

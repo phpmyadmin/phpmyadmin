@@ -30,6 +30,8 @@ web.config
 *~
 # Javascript sources
 /sources/
+# Javascript line counts
+/js/line_counts.php
 # API documentation
 /apidoc/
 # Demo server

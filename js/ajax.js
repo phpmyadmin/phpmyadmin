@@ -274,7 +274,7 @@ var AJAX = {
                     $('#selflink > a').attr('href', data._selflink);
                 }
                 if (data._scripts) {
-                    AJAX.scriptHandler.load(data._scripts);
+                    AJAX.scriptHandler.load(data._scripts, data._params.token);
                 }
                 if (data._selflink && data._scripts && data._menuHash && data._params) {
                     AJAX.cache.add(
@@ -355,7 +355,7 @@ var AJAX = {
          *
          * @return void
          */
-        load: function (files) {
+        load: function (files, token) {
             var self = this;
             self._scriptsToBeLoaded = [];
             self._scriptsToBeFired = [];
@@ -377,16 +377,11 @@ var AJAX = {
                     request.push("scripts[]=" + script);
                 }
             }
+            request.push("token=" + token);
+            request.push("call_done=1");
             // Download the composite js file, if necessary
             if (needRequest) {
-                $.ajax({
-                    url: "js/get_scripts.js.php?" + request.join("&"),
-                    cache: true,
-                    success: function () {
-                        self.done();
-                    },
-                    dataType: "script"
-                });
+                this.appendScript("js/get_scripts.js.php?" + request.join("&"));
             } else {
                 self.done();
             }
@@ -397,10 +392,23 @@ var AJAX = {
          * @return void
          */
         done: function () {
+            ErrorReport.wrap_global_functions();
             for (var i in this._scriptsToBeFired) {
                 AJAX.fireOnload(this._scriptsToBeFired[i]);
             }
             AJAX.active = false;
+        },
+        /**
+         * Appends a script element to the head to load the scripts
+         *
+         * @return void
+         */
+        appendScript: function (url) {
+            var head = document.head || document.getElementsByTagName('head')[0];
+            var script = document.createElement('script');
+            script.type = 'text/javascript';
+            script.src = url;
+            head.appendChild(script);
         },
         /**
          * Fires all the teardown event handlers for the current page
@@ -545,7 +553,7 @@ AJAX.cache = {
                 $('#selflink').html(record.selflink);
                 AJAX.cache.menus.replace(AJAX.cache.menus.get(record.menu));
                 PMA_commonParams.setAll(record.params);
-                AJAX.scriptHandler.load(record.scripts);
+                AJAX.scriptHandler.load(record.scripts, record.params.token);
                 AJAX.cache.current = ++index;
             });
         }
