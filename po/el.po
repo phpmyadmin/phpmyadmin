@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-09-29 07:22-0400\n"
-"PO-Revision-Date: 2013-09-19 15:21+0200\n"
+"PO-Revision-Date: 2013-09-29 21:53+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: Greek <http://l10n.cihar.com/projects/phpmyadmin/master/el/>\n"
 "Language: el\n"
@@ -7811,10 +7811,9 @@ msgstr[0] "%s άλλο αποτέλεσμα βρέθηκε"
 msgstr[1] "%s άλλα αποτελέσματα βρέθηκαν"
 
 #: libraries/navigation/NavigationTree.class.php:1043
-#, fuzzy
 #| msgid "filter databases by name"
 msgid "filter databases by name or regex"
-msgstr "φιλτράρισμα βάσεων δεδομενων κατά όνομα"
+msgstr "φιλτράρισμα βάσεων δεδομενων κατά όνομα ή κανονική έκφραση"
 
 #: libraries/navigation/NavigationTree.class.php:1045
 #: libraries/navigation/NavigationTree.class.php:1077
@@ -7822,10 +7821,9 @@ msgid "Clear Fast Filter"
 msgstr "Εκκαθάριση Γρήγορου Φίλτρου"
 
 #: libraries/navigation/NavigationTree.class.php:1076
-#, fuzzy
 #| msgid "filter items by name"
 msgid "filter by name or regex"
-msgstr "φιλτράρισμα αντικειμένων κατά όνομα"
+msgstr "φιλτράρισμα κατά όνομα ή κανονική έκφραση"
 
 #. l10n: The word "Node" must not be translated here
 #: libraries/navigation/NodeFactory.class.php:41
