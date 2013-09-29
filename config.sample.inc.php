@@ -138,6 +138,13 @@ $cfg['SaveDir'] = '';
  */
 //$cfg['QueryHistoryMax'] = 100;
 
+/**
+ * Should error reporting be enabled for javascript errors
+ *
+ * default = true
+ */
+//$cfg['ErrorReporting'] = true;
+
 /*
  * You can find more configuration options in the documentation
  * in the doc/ folder or at <http://docs.phpmyadmin.net/>.

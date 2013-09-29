@@ -4161,12 +4161,12 @@ class PMA_Util
                         'timeout' => $connection_timeout,
                     )
                 );
-                if (strlen($cfg['VersionCheckProxyUrl'])) {
-                    $context['http']['proxy'] = $cfg['VersionCheckProxyUrl'];
-                    if (strlen($cfg['VersionCheckProxyUser'])) {
+                if (strlen($cfg['ProxyUrl'])) {
+                    $context['http']['proxy'] = $cfg['ProxyUrl'];
+                    if (strlen($cfg['ProxyUser'])) {
                         $auth = base64_encode(
-                            $cfg['VersionCheckProxyUser'] . ':'
-                            . $cfg['VersionCheckProxyPass']
+                            $cfg['ProxyUser'] . ':'
+                            . $cfg['ProxyPass']
                         );
                         $context['http']['header']
                             = 'Proxy-Authorization: Basic ' . $auth;
@@ -4179,18 +4179,18 @@ class PMA_Util
                 );
             } else if (function_exists('curl_init')) {
                 $curl_handle = curl_init($file);
-                if (strlen($cfg['VersionCheckProxyUrl'])) {
+                if (strlen($cfg['ProxyUrl'])) {
                     curl_setopt(
                         $curl_handle,
                         CURLOPT_PROXY,
-                        $cfg['VersionCheckProxyUrl']
+                        $cfg['ProxyUrl']
                     );
-                    if (strlen($cfg['VersionCheckProxyUser'])) {
+                    if (strlen($cfg['ProxyUser'])) {
                         curl_setopt(
                             $curl_handle,
                             CURLOPT_PROXYUSERPWD,
-                            $cfg['VersionCheckProxyUser']
-                            . ':' . $cfg['VersionCheckProxyPass']
+                            $cfg['ProxyUser']
+                            . ':' . $cfg['ProxyPass']
                         );
                     }
                 }

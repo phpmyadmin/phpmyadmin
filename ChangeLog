@@ -44,6 +44,9 @@ phpMyAdmin - ChangeLog
 + rfe #1428 add 'new database' entry to nav tree
 + rfe #1457 Stone Age icon found
 + rfe #1463 Filter tables and databases by regular expression
++ Change the proxy variable names in the config to remove the VersionCheck prefix from them
++ Added an Error Reporting Component
++ Javascript files are no longer uglified
 
 4.0.8.0 (not yet released)
 - bug #3988 Rename view is not working
