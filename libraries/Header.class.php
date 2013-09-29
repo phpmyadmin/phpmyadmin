@@ -165,6 +165,10 @@ class PMA_Header
         }
 
         $this->_scripts->addFile('rte.js');
+        if ($GLOBALS['cfg']['ErrorReporting'] == true) {
+            $this->_scripts->addFile('tracekit.js');
+            $this->_scripts->addFile('error_report.js');
+        }
 
         // Here would not be a good place to add CodeMirror because
         // the user preferences have not been merged at this point

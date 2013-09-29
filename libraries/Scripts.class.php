@@ -67,7 +67,7 @@ class PMA_Scripts
                     }
                 }
                 if ($include) {
-                    $params[] = "scripts[]=" . $value['filename'];
+                    $scripts[] = "scripts[]=" . $value['filename'];
                 }
             } else {
                 $dynamic_scripts .= "<script type='text/javascript' src='js/"
@@ -76,8 +76,8 @@ class PMA_Scripts
         }
         $static_scripts = sprintf(
             '<script type="text/javascript" '
-            . 'src="js/get_scripts.js.php?%s"></script>',
-            implode("&", $params)
+            . 'src="js/get_scripts.js.php%s&%s"></script>',
+            PMA_URL_getCommon(array(), 'none'), implode("&", $scripts)
         );
         return $static_scripts . $dynamic_scripts;
     }

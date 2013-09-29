@@ -529,12 +529,12 @@ $strConfigUserprefsDeveloperTab_name = __('Enable the Developer tab in settings'
 $strConfigVersionCheckLink = __('Check for latest version');
 $strConfigVersionCheck_desc = __('Enables check for latest version on main phpMyAdmin page');
 $strConfigVersionCheck_name = __('Version check');
-$strConfigVersionCheckProxyUrl_desc = __('The url of the proxy to be used when retrieving the information about the latest version of phpMyAdmin. You need this if the server where phpMyAdmin is installed does not have direct access to the internet. The format is: "hostname:portnumber"');
-$strConfigVersionCheckProxyUrl_name = __('Version check proxy url');
-$strConfigVersionCheckProxyUser_desc = __('The username for authenticating with the proxy. By default, no authentication is performed. If a username is supplied, Basic Authentication will be performed. No other types of authentication are currently supported.');
-$strConfigVersionCheckProxyUser_name = __('Version check proxy username');
-$strConfigVersionCheckProxyPass_desc = __('The password for authenticating with the proxy');
-$strConfigVersionCheckProxyPass_name = __('Version check proxy password');
+$strConfigProxyUrl_desc = __('The url of the proxy to be used when retrieving the information about the latest version of phpMyAdmin or when submitting error reports. You need this if the server where phpMyAdmin is installed does not have direct access to the internet. The format is: "hostname:portnumber"');
+$strConfigProxyUrl_name = __('Proxy url');
+$strConfigProxyUser_desc = __('The username for authenticating with the proxy. By default, no authentication is performed. If a username is supplied, Basic Authentication will be performed. No other types of authentication are currently supported.');
+$strConfigProxyUser_name = __('Proxy username');
+$strConfigProxyPass_desc = __('The password for authenticating with the proxy');
+$strConfigProxyPass_name = __('Proxy password');
 
 $strConfigZipDump_desc = __('Enable [a@http://en.wikipedia.org/wiki/ZIP_(file_format)]ZIP[/a] compression for import and export operations');
 $strConfigZipDump_name = __('ZIP');
@@ -542,5 +542,10 @@ $strConfigCaptchaLoginPublicKey_desc  = __('Enter your public key for your domai
 $strConfigCaptchaLoginPublicKey_name  = __('Public key for reCaptcha');
 $strConfigCaptchaLoginPrivateKey_desc = __('Enter your private key for your domain reCaptcha service');
 $strConfigCaptchaLoginPrivateKey_name = __('Private key for reCaptcha');
+
+$strConfigErrorReporting_desc = __('Uncheck this to prevent the sending of error reports for javascript errors');
+$strConfigErrorReporting_name = __('Enable javascript error reporting');
+$strConfigSendErrorReports_desc = __('Choose the default action when sending error reports');
+$strConfigSendErrorReports_name = __('Send error reports');
 
 ?>

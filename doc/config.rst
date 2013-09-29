@@ -123,6 +123,29 @@ Basic settings
 
     Show warning about incomplete translations on certain threshold.
 
+.. config:option:: $cfg['ErrorReporting']
+
+    :type: boolean
+    :default: true
+
+    Whenever an error is detected in the javascript execution. A an error report
+    may be sent to phpmyadmin if user agrees.
+
+    You can set this parameter to ``false`` to never send error reports.
+
+.. config:option:: $cfg['SendErrorReports']
+
+    :type: string
+    :default: ``'ask'``
+
+    Whenever an error is detected in the javascript execution. A an error report
+    may be sent to phpmyadmin. This setting sets the default behavior.
+
+    The default setting of ``'ask'`` will ask the user everytime there is a new
+    error report. However you can set this parameter to ``'always'`` to send error
+    reports without asking for confirmation or you can set it to ``'never'`` to
+    never send error reports.
+
 .. config:option:: $cfg['AllowThirdPartyFraming']
 
     :type: boolean
@@ -1111,17 +1134,18 @@ Generic settings
 
         This setting can be adjusted by your vendor.
 
-.. config:option:: $cfg['VersionCheckProxyUrl']
+.. config:option:: $cfg['ProxyUrl']
 
     :type: string
     :default: ""
 
-    The url of the proxy to be used when retrieving the information about
-    the latest version of phpMyAdmin. You need this if the server where
-    phpMyAdmin is installed does not have direct access to the internet.
+    The url of the proxy to be used when phpmyadmin needs to access the outside
+    intenet such as when retrieving the latest version info or submitting error
+    reports.  You need this if the server where phpMyAdmin is installed does not
+    have direct access to the internet.
     The format is: "hostname:portnumber"
 
-.. config:option:: $cfg['VersionCheckProxyUser']
+.. config:option:: $cfg['ProxyUser']
 
     :type: string
     :default: ""
@@ -1131,7 +1155,7 @@ Generic settings
     Authentication will be performed. No other types of authentication
     are currently supported.
 
-.. config:option:: $cfg['VersionCheckProxyPass']
+.. config:option:: $cfg['ProxyPass']
 
     :type: string
     :default: ""
