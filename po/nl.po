@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-09-29 07:22-0400\n"
-"PO-Revision-Date: 2013-09-19 14:49+0200\n"
+"PO-Revision-Date: 2013-09-29 14:34+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: Dutch <http://l10n.cihar.com/projects/phpmyadmin/master/nl/>\n"
 "Language: nl\n"
@@ -7803,10 +7803,9 @@ msgstr[0] "%s ander resultaat gevonden"
 msgstr[1] "%s andere resultaten gevonden"
 
 #: libraries/navigation/NavigationTree.class.php:1043
-#, fuzzy
 #| msgid "filter databases by name"
 msgid "filter databases by name or regex"
-msgstr "databanken filteren op naam"
+msgstr "databanken filteren op naam of regex"
 
 #: libraries/navigation/NavigationTree.class.php:1045
 #: libraries/navigation/NavigationTree.class.php:1077
@@ -7814,10 +7813,9 @@ msgid "Clear Fast Filter"
 msgstr "Snelle filter leegmaken"
 
 #: libraries/navigation/NavigationTree.class.php:1076
-#, fuzzy
 #| msgid "filter items by name"
 msgid "filter by name or regex"
-msgstr "elementen filteren op naam"
+msgstr "filter op naam of regex"
 
 #. l10n: The word "Node" must not be translated here
 #: libraries/navigation/NodeFactory.class.php:41
