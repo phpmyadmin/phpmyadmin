@@ -1040,7 +1040,7 @@ class PMA_NavigationTree
             ) {
                 $placeholder_key = 'placeholder';
             }
-            $retval .= " $placeholder_key='" . __('filter databases by name');
+            $retval .= " $placeholder_key='" . __('filter databases by name or regex');
             $retval .= "' />";
             $retval .= '<span title="' . __('Clear Fast Filter') . '">X</span>';
             $retval .= "</form>";
