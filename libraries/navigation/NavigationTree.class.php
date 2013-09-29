@@ -1073,7 +1073,7 @@ class PMA_NavigationTree
             ) {
                 $placeholder_key = 'placeholder';
             }
-            $retval .= " $placeholder_key='" . __('filter items by name') . "' />";
+            $retval .= " $placeholder_key='" . __('filter items by name or regex') . "' />";
             $retval .= "<span title='" . __('Clear Fast Filter') . "'>X</span>";
             $retval .= "</form>";
             $retval .= "</li>";
