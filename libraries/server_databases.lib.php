@@ -203,7 +203,7 @@ function PMA_getHtmlForTableFooter(
  * @param bool   $databases         GBI return databases
  * @param bool   $is_superuser      User status
  * @param Array  $url_query         Url query
- * @param string $column_order      column order
+ * @param string &$column_order     column order
  * @param string $replication_types replication types
  * @param string $replication_info  replication info
  *
@@ -211,7 +211,7 @@ function PMA_getHtmlForTableFooter(
  */
 function PMA_getHtmlForDatabaseList(
     $databases, $is_superuser, $url_query,
-    $column_order, $replication_types, $replication_info
+    &$column_order, $replication_types, $replication_info
 ) {
     $odd_row = true;
     $html = '<tbody>' . "\n";
