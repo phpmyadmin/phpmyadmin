@@ -93,7 +93,7 @@ function setDropdownValues($dropdown, values) {
     values.unshift('');
     $.each(values, function () {
         optionsAsString += "<option value='" + this + "'>" + this + "</option>";
-    })
+    });
     $dropdown.append($(optionsAsString));
 }
 
