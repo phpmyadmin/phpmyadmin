@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-09-29 07:22-0400\n"
-"PO-Revision-Date: 2013-09-19 13:00+0200\n"
-"Last-Translator: Guillermo Lisotti <guillermo.lisotti@gmail.com>\n"
-"Language-Team: Spanish <http://l10n.cihar.com/projects/phpmyadmin/master/es/"
-">\n"
+"PO-Revision-Date: 2013-09-29 20:05+0200\n"
+"Last-Translator: Matías Bellone <matiasbellone+weblate@gmail.com>\n"
+"Language-Team: Spanish "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/es/>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -7864,10 +7864,9 @@ msgid "Clear Fast Filter"
 msgstr "Vaciar filtro rápido"
 
 #: libraries/navigation/NavigationTree.class.php:1076
-#, fuzzy
 #| msgid "filter items by name"
 msgid "filter by name or regex"
-msgstr "filtrar elementos por nombre"
+msgstr "filtrar por nombre o expresión regular"
 
 #. l10n: The word "Node" must not be translated here
 #: libraries/navigation/NodeFactory.class.php:41
