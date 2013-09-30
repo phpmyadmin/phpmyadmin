@@ -16,7 +16,7 @@ var ErrorReport = {
      */
     error_handler: function (exception) {
         ErrorReport._last_exception = exception;
-        $.get("error_report.php",{
+        $.get("error_report.php", {
             ajax_request: true,
             token: PMA_commonParams.get('token'),
             get_settings: true,
