@@ -94,6 +94,7 @@ function PMA_getHtmlForDatabase(
         $replication_info
     );
     $html .= $output;
+    unset($output);
 
     $html .= PMA_getHtmlForTableFooter(
         $cfg['AllowUserDropDatabase'],
