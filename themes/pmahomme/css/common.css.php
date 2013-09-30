@@ -1386,7 +1386,7 @@ p.notice {
     border-radius: 5px;
     -moz-box-shadow: 0 1px 2px #fff inset;
     -webkit-box-shadow: 0 1px 2px #fff inset;
-    box-shadow: 0 1px 2px #fff; inset;
+    box-shadow: 0 1px 2px #fff inset;
     background: #555;
     color: #d4fb6a;
 }
