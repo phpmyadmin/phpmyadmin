@@ -19,7 +19,7 @@ var ErrorReport = {
         $.get("error_report.php", {
             ajax_request: true,
             token: PMA_commonParams.get('token'),
-            get_settings: true,
+            get_settings: true
         }, function (data) {
             if (!data.success === true) {
                 PMA_ajaxShowMessage(data.error, false);
@@ -31,7 +31,7 @@ var ErrorReport = {
                 report_data = ErrorReport._get_report_data(exception);
                 post_data = $.extend(report_data, {
                     send_error_report: true,
-                    automatic: true,
+                    automatic: true
                 });
                 $.post("error_report.php", post_data, function (data) {
                     if (data.success === false) {
@@ -67,7 +67,7 @@ var ErrorReport = {
             post_data = $.extend(report_data, {
                 send_error_report: true,
                 description: $("#report_description").val(),
-                always_send: $("#always_send_checkbox")[0].checked,
+                always_send: $("#always_send_checkbox")[0].checked
             })
             $.post("error_report.php", post_data, function (data) {
                 $dialog.dialog('close')
@@ -165,7 +165,7 @@ var ErrorReport = {
         return {
             pages: cached_pages.map(function (page) {
                 simplepage = {
-                    hash: page.hash,
+                    hash: page.hash
                 };
 
                 if (page.params) {
@@ -212,7 +212,7 @@ var ErrorReport = {
                 function (script) {
                     return script.name;
                 }
-            ),
+            )
         };
         return report_data;
     },
