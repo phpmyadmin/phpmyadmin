@@ -27,7 +27,7 @@ var ErrorReport = {
             }
             if (data.report_setting == "ask") {
                 ErrorReport._showErrorNotification();
-            } else if(data.report_setting == "always") {
+            } else if (data.report_setting == "always") {
                 report_data = ErrorReport._get_report_data(exception);
                 post_data = $.extend(report_data, {
                     send_error_report: true,
@@ -113,7 +113,7 @@ var ErrorReport = {
         ErrorReport._removeErrorNotification();
 
         $div = $('<div style="position:fixed;bottom:0px;left:5px;right:5px;'
-                +'z-index:1000" class="error" id="error_notification"></div>');
+                + 'z-index:1000" class="error" id="error_notification"></div>');
         html = '';
         html += '<img src="themes/dot.gif" title="" alt="" class="icon ic_s_error">';
         html += PMA_messages.strErrorOccured;
@@ -121,11 +121,11 @@ var ErrorReport = {
 
         $buttons = $('<div style="float:right"></div>');
         button_html = '';
-        button_html += '<button id="change_error_settings">'+
+        button_html += '<button id="change_error_settings">' +
                         PMA_messages.strChangeReportSettings + '</button>';
-        button_html += '<button id="show_error_report">'+
+        button_html += '<button id="show_error_report">' +
                         PMA_messages.strShowReportDetails + '</button>';
-        button_html += '<button id="ignore_error">'+
+        button_html += '<button id="ignore_error">' +
                         PMA_messages.strIgnore + '</button>';
         $buttons.html(button_html);
 
@@ -171,7 +171,7 @@ var ErrorReport = {
                 if (page.params) {
                     simplepage.params = $.extend({}, page.params);
                     $.each(simplepage.params, function (param) {
-                        if($.inArray(param, remove) != -1) {
+                        if ($.inArray(param, remove) != -1) {
                             delete simplepage.params[param];
                         }
                     });
@@ -208,7 +208,7 @@ var ErrorReport = {
             "exception": exception,
             "current_url": window.location.href,
             "microhistory": ErrorReport._get_microhistory(),
-            "scripts": AJAX.cache.pages[AJAX.cache.current-1].scripts.map(
+            "scripts": AJAX.cache.pages[AJAX.cache.current - 1].scripts.map(
                 function (script) {
                     return script.name;
                 }
@@ -240,10 +240,10 @@ var ErrorReport = {
      * @return void
      */
     wrap_global_functions: function () {
-        for(var key in window) {
+        for (var key in window) {
             var global = window[key];
-            if(typeof(global) === "function" && key.indexOf("PMA_") === 0) {
-                window[key] = ErrorReport.wrap_function (global);
+            if (typeof(global) === "function" && key.indexOf("PMA_") === 0) {
+                window[key] = ErrorReport.wrap_function(global);
             }
         }
     },
@@ -259,7 +259,7 @@ var ErrorReport = {
             var new_func = function () {
                 try {
                     return func.apply(this, arguments);
-                } catch(x) {
+                } catch (x) {
                     TraceKit.report(x);
                 }
             };
@@ -277,7 +277,7 @@ var ErrorReport = {
     _wrap_ajax_onload_callback: function () {
         var oldOnload = AJAX.registerOnload;
         AJAX.registerOnload = function (file, func) {
-            func = ErrorReport.wrap_function (func);
+            func = ErrorReport.wrap_function(func);
             oldOnload.call(this, file, func);
         };
     },
@@ -290,8 +290,8 @@ var ErrorReport = {
         var oldOn = $.fn.on;
         $.fn.on = function () {
             for (var i = 1; i <= 3; i++) {
-                if(typeof(arguments[i]) === "function") {
-                    arguments[i] = ErrorReport.wrap_function (arguments[i]);
+                if (typeof(arguments[i]) === "function") {
+                    arguments[i] = ErrorReport.wrap_function(arguments[i]);
                     break;
                 }
             }
