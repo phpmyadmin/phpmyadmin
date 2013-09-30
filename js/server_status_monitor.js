@@ -1208,9 +1208,9 @@ AJAX.registerOnload('server_status_monitor.js', function () {
             settings.axes.yaxis.tickOptions = {
                 formatter: function (format, val) {
                     if (Math.abs(val) >= 1000000) {
-                        return $.jqplot.sprintf("%.3g M", val/1000000);
+                        return $.jqplot.sprintf("%.3g M", val / 1000000);
                     } else if (Math.abs(val) >= 1000) {
-                        return $.jqplot.sprintf("%.3g k", val/1000);
+                        return $.jqplot.sprintf("%.3g k", val / 1000);
                     } else {
                         return $.jqplot.sprintf("%d", val);
                     }
@@ -2142,7 +2142,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
                 data = data.message;
             }
             if (data.error) {
-                if(data.error.indexOf('1146') != -1 || data.error.indexOf('1046') != -1) {
+                if (data.error.indexOf('1146') != -1 || data.error.indexOf('1046') != -1) {
                     data.error = PMA_messages['strServerLogError'];
                 }
                 $('#queryAnalyzerDialog div.placeHolder').html('<div class="error">' + data.error + '</div>');
