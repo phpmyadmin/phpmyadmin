@@ -166,7 +166,7 @@ class PMA_Header
 
         $this->_scripts->addFile('rte.js');
         if ($GLOBALS['cfg']['ErrorReporting'] == true) {
-            $this->_scripts->addFile('tracekit.js');
+            $this->_scripts->addFile('tracekit/tracekit.js');
             $this->_scripts->addFile('error_report.js');
         }
 
