@@ -1771,12 +1771,12 @@ function PMA_createProfilingChartJqplot(target, data)
                 }
             },
             highlighter: {
-                show:true,
+                show: true,
                 tooltipLocation: 'se',
                 sizeAdjust: 0,
                 tooltipAxes: 'pieref',
                 useAxesFormatters: false,
-                formatString:'%s, %.9Ps'
+                formatString: '%s, %.9Ps'
             },
             legend: {
                 show: true,
