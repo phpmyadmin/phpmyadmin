@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-09-30 14:06+0200\n"
-"PO-Revision-Date: 2013-09-29 23:01+0200\n"
+"PO-Revision-Date: 2013-09-30 17:37+0200\n"
 "Last-Translator: Helder Santana <helder.bs.santana@gmail.com>\n"
-"Language-Team: Portuguese (Brazil) <http://l10n.cihar.com/projects/"
-"phpmyadmin/master/pt_BR/>\n"
+"Language-Team: Portuguese (Brazil) "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/pt_BR/>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -6692,10 +6692,9 @@ msgid "Choose the default action when sending error reports"
 msgstr ""
 
 #: libraries/config/messages.inc.php:549
-#, fuzzy
 #| msgid "Server port"
 msgid "Send error reports"
-msgstr "Porta do servidor"
+msgstr "Enviar relatório de erros"
 
 #: libraries/config/setup.forms.php:41
 msgid "Config authentication"
@@ -11722,7 +11721,6 @@ msgid "Validated SQL"
 msgstr "SQL validado"
 
 #: libraries/sql.lib.php:1914
-#, fuzzy
 #| msgid ""
 #| "Table %s does not contain a unique column. Grid edit, checkbox, Edit, "
 #| "Copy and Delete features are not available."
@@ -11730,8 +11728,8 @@ msgid ""
 "Current selection does not contain a unique column. Grid edit, checkbox, "
 "Edit, Copy and Delete features are not available."
 msgstr ""
-"A tabela %s não contém uma coluna única. As opções edição em grade, "
-"checkbox, Editar, Copiar e Apagar não estão disponíveis."
+"A seleção atual não contém uma única coluna. As funções edição em grade, "
+"checkbox, editar, copiar e apagar não estão disponíveis."
 
 #: libraries/sql.lib.php:1951
 #, php-format
