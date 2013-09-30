@@ -17,19 +17,14 @@ if (! defined('PHPMYADMIN')) {
 class PMA_Font
 {
     /**
-     * Get width of string/text
+     * Get list with characters and the corresponding width modifiers.
      *
-     * The text element width is calculated depending on font name
-     * and font size. 
+     * @param string $font name of the font like Arial,sans-serif etc
      *
-     * @param string  $text     string of which the width will be calculated
-     * @param integer $font     name of the font like Arial,sans-serif etc
-     * @param integer $fontSize size of font
-     *
-     * @return integer width of the text
+     * @return array with characters and corresponding width modifier
      * @access public
      */
-    public static function getStringWidth($text, $font, $fontSize)
+    public static function getCharLists($font)
     {
         // list of characters and their width modifiers
         $charLists = array();
@@ -77,6 +72,32 @@ class PMA_Font
         $charLists[] = array("chars" => array("W"), "modifier" => 0.95);
         //" "
         $charLists[] = array("chars" => array(" "), "modifier" => 0.28);
+
+        return $charLists;
+    }
+
+    /**
+     * Get width of string/text
+     *
+     * The text element width is calculated depending on font name
+     * and font size.
+     *
+     * @param string  $text      string of which the width will be calculated
+     * @param string  $font      name of the font like Arial,sans-serif etc
+     * @param integer $fontSize  size of font
+     * @param array   $charLists list of characters and their width modifiers
+     *
+     * @return integer width of the text
+     * @access public
+     */
+    public static function getStringWidth($text, $font, $fontSize, $charLists = null)
+    {
+        if (empty($charLists) || !is_array($charLists)
+            || !isset($charLists[0]["chars"]) || !is_array($charLists[0]["chars"])
+            || !isset($charLists[0]["modifier"])
+        ) {
+            $charLists = self::getCharLists($font);
+        }
 
         /*
          * Start by counting the width, giving each character a modifying value
