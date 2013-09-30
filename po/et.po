@@ -6,10 +6,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-09-29 07:22-0400\n"
-"PO-Revision-Date: 2013-09-19 19:57+0200\n"
+"PO-Revision-Date: 2013-09-30 11:39+0200\n"
 "Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
-"Language-Team: Estonian <http://l10n.cihar.com/projects/phpmyadmin/master/et/"
-">\n"
+"Language-Team: Estonian "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/et/>\n"
 "Language: et\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -7679,10 +7679,9 @@ msgstr[0] "%s muu tulemus leitud"
 msgstr[1] "%s muud tulemust leitud"
 
 #: libraries/navigation/NavigationTree.class.php:1043
-#, fuzzy
 #| msgid "filter databases by name"
 msgid "filter databases by name or regex"
-msgstr "filtreeri andmebaase nime alusel"
+msgstr "filtreeri andmebaase nime või regulaaravaldise alusel"
 
 #: libraries/navigation/NavigationTree.class.php:1045
 #: libraries/navigation/NavigationTree.class.php:1077
@@ -7690,10 +7689,9 @@ msgid "Clear Fast Filter"
 msgstr "Puhasta kiire filter"
 
 #: libraries/navigation/NavigationTree.class.php:1076
-#, fuzzy
 #| msgid "filter items by name"
 msgid "filter by name or regex"
-msgstr "filtreeri tabeleid nime alusel"
+msgstr "filtreeri nime või regulaaravaldise alusel"
 
 #. l10n: The word "Node" must not be translated here
 #: libraries/navigation/NodeFactory.class.php:41
