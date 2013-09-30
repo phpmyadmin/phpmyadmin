@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-09-29 07:22-0400\n"
+"POT-Creation-Date: 2013-09-30 14:06+0200\n"
 "PO-Revision-Date: 2013-05-07 09:20+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Tamil <http://l10n.cihar.com/projects/phpmyadmin/4-0/ta/>\n"
@@ -179,8 +179,8 @@ msgstr "இல்லை"
 #: libraries/plugins/export/ExportOdt.class.php:727
 #: libraries/plugins/export/ExportTexytext.class.php:568
 #: libraries/schema/Pdf_Relation_Schema.class.php:1435
-#: libraries/server_databases.lib.php:474
-#: libraries/server_databases.lib.php:484
+#: libraries/server_databases.lib.php:476
+#: libraries/server_databases.lib.php:486
 #: libraries/server_privileges.lib.php:2116
 #: libraries/server_privileges.lib.php:2283
 #: libraries/server_privileges.lib.php:2298
@@ -323,7 +323,7 @@ msgstr ""
 #: libraries/plugins/export/ExportHtmlword.class.php:158
 #: libraries/plugins/export/ExportOdt.class.php:203
 #: libraries/plugins/export/ExportTexytext.class.php:142
-#: libraries/server_databases.lib.php:309
+#: libraries/server_databases.lib.php:311
 #: libraries/server_privileges.lib.php:2426
 #: libraries/server_privileges.lib.php:2670
 #: libraries/server_privileges.lib.php:3663
@@ -353,7 +353,7 @@ msgstr "தகுநிலை"
 
 #: db_tracking.php:86 libraries/Index.class.php:558
 #: libraries/rte/rte_list.lib.php:53 libraries/rte/rte_list.lib.php:67
-#: libraries/rte/rte_list.lib.php:79 libraries/server_databases.lib.php:403
+#: libraries/rte/rte_list.lib.php:79 libraries/server_databases.lib.php:405
 #: libraries/server_privileges.lib.php:1818
 #: libraries/server_privileges.lib.php:1926
 #: libraries/server_privileges.lib.php:2680
@@ -374,7 +374,7 @@ msgstr ""
 
 #: db_tracking.php:103 libraries/Index.class.php:624
 #: libraries/Util.class.php:3388 libraries/Util.class.php:3389
-#: libraries/server_databases.lib.php:154 libraries/structure.lib.php:307
+#: libraries/server_databases.lib.php:156 libraries/structure.lib.php:307
 #: libraries/structure.lib.php:1380 libraries/structure.lib.php:2067
 #: libraries/structure.lib.php:2069
 msgid "Drop"
@@ -415,6 +415,39 @@ msgstr "அட்டவணைத் தடம்"
 #: db_tracking.php:249
 msgid "Database Log"
 msgstr "தரவுத்தளப்பதிகை"
+
+#: error_report.php:16
+msgid ""
+"An error has been detected however you seem to be running on a git version "
+"of phpMyAdmin."
+msgstr ""
+
+#: error_report.php:18 error_report.php:28
+msgid ""
+"Automatic report submission cannot be used. Please submit a manual error "
+"report on the bug tracker."
+msgstr ""
+
+#: error_report.php:21 error_report.php:31 error_report.php:42
+#: error_report.php:47
+msgid "You may want to refresh the page."
+msgstr ""
+
+#: error_report.php:26
+msgid ""
+"An error has been detected however the js line counts file does not seam to "
+"exist in this phpMyAdmin installation. "
+msgstr ""
+
+#: error_report.php:39
+msgid ""
+"An error has been detected and an error report has been automatically "
+"submitted based on your settings."
+msgstr ""
+
+#: error_report.php:45
+msgid "Thank you for submitting this report."
+msgstr ""
 
 #: export.php:160
 #, fuzzy
@@ -1359,7 +1392,7 @@ msgstr "ஆரய்தல்"
 msgid "Explain output"
 msgstr ""
 
-#: js/messages.php:173 js/messages.php:537
+#: js/messages.php:173 js/messages.php:546
 #: libraries/plugins/export/ExportHtmlword.class.php:486
 #: libraries/plugins/export/ExportOdt.class.php:564
 #: libraries/plugins/export/ExportTexytext.class.php:437
@@ -1554,7 +1587,7 @@ msgid "Error text: %s"
 msgstr ""
 
 #: js/messages.php:227 libraries/db_common.inc.php:58
-#: libraries/db_table_exists.lib.php:28 libraries/server_databases.lib.php:460
+#: libraries/db_table_exists.lib.php:28 libraries/server_databases.lib.php:462
 msgid "No databases selected."
 msgstr ""
 
@@ -1794,7 +1827,7 @@ msgstr "தேடல் முடிவுகளை மறை"
 msgid "Data point content"
 msgstr ""
 
-#: js/messages.php:313 libraries/insert_edit.lib.php:2605
+#: js/messages.php:313 js/messages.php:400 libraries/insert_edit.lib.php:2605
 #: libraries/tbl_indexes.lib.php:333 libraries/tbl_indexes.lib.php:369
 msgid "Ignore"
 msgstr "புறக்கணி"
@@ -1988,100 +2021,122 @@ msgstr ""
 msgid "Create view"
 msgstr ""
 
+#: js/messages.php:394
+msgid "Send Error Report"
+msgstr ""
+
+#: js/messages.php:395
+msgid "Submit Error Report"
+msgstr ""
+
+#: js/messages.php:396
+msgid "An error has occured. Do you want to send an error report?"
+msgstr ""
+
+#: js/messages.php:398
+#, fuzzy
+#| msgid "Change settings"
+msgid "Change Report Settings"
+msgstr "அமைப்புக்களை மாற்று"
+
+#: js/messages.php:399
+msgid "Show Report Details"
+msgstr ""
+
 #. l10n: Display text for calendar close link
-#: js/messages.php:411
+#: js/messages.php:420
 msgid "Done"
 msgstr "முடிந்த"
 
-#: js/messages.php:415
+#: js/messages.php:424
 msgctxt "Previous month"
 msgid "Prev"
 msgstr "பின்"
 
-#: js/messages.php:420
+#: js/messages.php:429
 msgctxt "Next month"
 msgid "Next"
 msgstr "அடுத்த"
 
 #. l10n: Display text for current month link in calendar
-#: js/messages.php:423
+#: js/messages.php:432
 msgid "Today"
 msgstr "இன்று"
 
-#: js/messages.php:427
+#: js/messages.php:436
 msgid "January"
 msgstr "ஜனவரி"
 
-#: js/messages.php:428
+#: js/messages.php:437
 msgid "February"
 msgstr "பெப்ரவரி"
 
-#: js/messages.php:429
+#: js/messages.php:438
 msgid "March"
 msgstr "மார்ச்"
 
-#: js/messages.php:430
+#: js/messages.php:439
 #, fuzzy
 #| msgid "Apr"
 msgid "April"
 msgstr "ஏப்ரல்"
 
-#: js/messages.php:431
+#: js/messages.php:440
 msgid "May"
 msgstr "மே"
 
-#: js/messages.php:432
+#: js/messages.php:441
 msgid "June"
 msgstr "ஜூன்"
 
-#: js/messages.php:433
+#: js/messages.php:442
 msgid "July"
 msgstr "ஜூலை"
 
-#: js/messages.php:434
+#: js/messages.php:443
 msgid "August"
 msgstr "ஆகஸ்ட்"
 
-#: js/messages.php:435
+#: js/messages.php:444
 msgid "September"
 msgstr "செப்டம்பர்"
 
-#: js/messages.php:436
+#: js/messages.php:445
 #, fuzzy
 #| msgid "Oct"
 msgid "October"
 msgstr "அக்டோபர்"
 
-#: js/messages.php:437
+#: js/messages.php:446
 msgid "November"
 msgstr "நவம்பர்"
 
-#: js/messages.php:438
+#: js/messages.php:447
 msgid "December"
 msgstr "டிசம்பர்"
 
 #. l10n: Short month name
-#: js/messages.php:445 libraries/Util.class.php:1601
+#: js/messages.php:454 libraries/Util.class.php:1601
 msgid "Jan"
 msgstr "தை"
 
 #. l10n: Short month name
-#: js/messages.php:447 libraries/Util.class.php:1603
+#: js/messages.php:456 libraries/Util.class.php:1603
 msgid "Feb"
 msgstr "மாசி"
 
 #. l10n: Short month name
-#: js/messages.php:449 libraries/Util.class.php:1605
+#: js/messages.php:458 libraries/Util.class.php:1605
 msgid "Mar"
 msgstr "பங்குனி"
 
 #. l10n: Short month name
-#: js/messages.php:451 libraries/Util.class.php:1607
+#: js/messages.php:460 libraries/Util.class.php:1607
 msgid "Apr"
 msgstr "சித்திரை"
 
 #. l10n: Short month name
-#: js/messages.php:453 libraries/Util.class.php:1609
+#: js/messages.php:462 libraries/Util.class.php:1609
 #, fuzzy
 #| msgid "May"
 msgctxt "Short month name"
@@ -2089,78 +2144,78 @@ msgid "May"
 msgstr "வைகாசி"
 
 #. l10n: Short month name
-#: js/messages.php:455 libraries/Util.class.php:1611
+#: js/messages.php:464 libraries/Util.class.php:1611
 msgid "Jun"
 msgstr "ஆணி"
 
 #. l10n: Short month name
-#: js/messages.php:457 libraries/Util.class.php:1613
+#: js/messages.php:466 libraries/Util.class.php:1613
 msgid "Jul"
 msgstr "ஆடி"
 
 #. l10n: Short month name
-#: js/messages.php:459 libraries/Util.class.php:1615
+#: js/messages.php:468 libraries/Util.class.php:1615
 msgid "Aug"
 msgstr "ஆவணி"
 
 #. l10n: Short month name
-#: js/messages.php:461 libraries/Util.class.php:1617
+#: js/messages.php:470 libraries/Util.class.php:1617
 msgid "Sep"
 msgstr "புரட்டாதி"
 
 #. l10n: Short month name
-#: js/messages.php:463 libraries/Util.class.php:1619
+#: js/messages.php:472 libraries/Util.class.php:1619
 msgid "Oct"
 msgstr "ஐப்பசி"
 
 #. l10n: Short month name
-#: js/messages.php:465 libraries/Util.class.php:1621
+#: js/messages.php:474 libraries/Util.class.php:1621
 msgid "Nov"
 msgstr "காத்திகை"
 
 #. l10n: Short month name
-#: js/messages.php:467 libraries/Util.class.php:1623
+#: js/messages.php:476 libraries/Util.class.php:1623
 msgid "Dec"
 msgstr "மார்கழி"
 
-#: js/messages.php:473
+#: js/messages.php:482
 #, fuzzy
 #| msgid "Sun"
 msgid "Sunday"
 msgstr "ஞாயிறு"
 
-#: js/messages.php:474
+#: js/messages.php:483
 #, fuzzy
 #| msgid "Mon"
 msgid "Monday"
 msgstr "திங்கள்"
 
-#: js/messages.php:475
+#: js/messages.php:484
 #, fuzzy
 #| msgid "Tue"
 msgid "Tuesday"
 msgstr "செவ்வாய்"
 
-#: js/messages.php:476
+#: js/messages.php:485
 msgid "Wednesday"
 msgstr "புதன்"
 
-#: js/messages.php:477
+#: js/messages.php:486
 msgid "Thursday"
 msgstr "வியாழன்"
 
-#: js/messages.php:478
+#: js/messages.php:487
 #, fuzzy
 #| msgid "Fri"
 msgid "Friday"
 msgstr "வெள்ளி"
 
-#: js/messages.php:479
+#: js/messages.php:488
 msgid "Saturday"
 msgstr "சனி"
 
 #. l10n: Short week day name
-#: js/messages.php:486
+#: js/messages.php:495
 #, fuzzy
 #| msgctxt "Short week day name"
 #| msgid "Sun"
@@ -2168,97 +2223,97 @@ msgid "Sun"
 msgstr "ஞாயி"
 
 #. l10n: Short week day name
-#: js/messages.php:488 libraries/Util.class.php:1628
+#: js/messages.php:497 libraries/Util.class.php:1628
 msgid "Mon"
 msgstr "திங்"
 
 #. l10n: Short week day name
-#: js/messages.php:490 libraries/Util.class.php:1630
+#: js/messages.php:499 libraries/Util.class.php:1630
 msgid "Tue"
 msgstr "செவ்"
 
 #. l10n: Short week day name
-#: js/messages.php:492 libraries/Util.class.php:1632
+#: js/messages.php:501 libraries/Util.class.php:1632
 msgid "Wed"
 msgstr "புத"
 
 #. l10n: Short week day name
-#: js/messages.php:494 libraries/Util.class.php:1634
+#: js/messages.php:503 libraries/Util.class.php:1634
 msgid "Thu"
 msgstr "வியா"
 
 #. l10n: Short week day name
-#: js/messages.php:496 libraries/Util.class.php:1636
+#: js/messages.php:505 libraries/Util.class.php:1636
 msgid "Fri"
 msgstr "வெள்"
 
 #. l10n: Short week day name
-#: js/messages.php:498 libraries/Util.class.php:1638
+#: js/messages.php:507 libraries/Util.class.php:1638
 msgid "Sat"
 msgstr "சனி"
 
 #. l10n: Minimal week day name
-#: js/messages.php:505
+#: js/messages.php:514
 msgid "Su"
 msgstr "ஞாயி"
 
 #. l10n: Minimal week day name
-#: js/messages.php:507
+#: js/messages.php:516
 msgid "Mo"
 msgstr "திங்"
 
 #. l10n: Minimal week day name
-#: js/messages.php:509
+#: js/messages.php:518
 msgid "Tu"
 msgstr "செவ்"
 
 #. l10n: Minimal week day name
-#: js/messages.php:511
+#: js/messages.php:520
 msgid "We"
 msgstr "புத"
 
 #. l10n: Minimal week day name
-#: js/messages.php:513
+#: js/messages.php:522
 msgid "Th"
 msgstr "வியா"
 
 #. l10n: Minimal week day name
-#: js/messages.php:515
+#: js/messages.php:524
 msgid "Fr"
 msgstr "வெள்"
 
 #. l10n: Minimal week day name
-#: js/messages.php:517
+#: js/messages.php:526
 msgid "Sa"
 msgstr "சனி"
 
 #. l10n: Column header for week of the year in calendar
-#: js/messages.php:521
+#: js/messages.php:530
 msgid "Wk"
 msgstr "கிழமை"
 
 #. l10n: Month-year order for calendar, use either "calendar-month-year" or "calendar-year-month".
-#: js/messages.php:524
+#: js/messages.php:533
 msgid "calendar-month-year"
 msgstr ""
 
 #. l10n: Year suffix for calendar, "none" is empty.
-#: js/messages.php:526
+#: js/messages.php:535
 #, fuzzy
 #| msgid "None"
 msgctxt "Year suffix"
 msgid "none"
 msgstr "எதுவுமில்லை"
 
-#: js/messages.php:538
+#: js/messages.php:547
 msgid "Hour"
 msgstr "மணித்தியாலம்"
 
-#: js/messages.php:539
+#: js/messages.php:548
 msgid "Minute"
 msgstr "நிமிடம்"
 
-#: js/messages.php:540
+#: js/messages.php:549
 msgid "Second"
 msgstr "வினாடிகள்"
 
@@ -2342,8 +2397,8 @@ msgstr "எழுத்துரு அளவு"
 #: libraries/DBQbe.class.php:346 libraries/DisplayResults.class.php:1311
 #: libraries/DisplayResults.class.php:2039
 #: libraries/DisplayResults.class.php:2047 libraries/TableSearch.class.php:821
-#: libraries/operations.lib.php:643 libraries/server_databases.lib.php:313
-#: libraries/server_databases.lib.php:338 libraries/server_status.lib.php:452
+#: libraries/operations.lib.php:643 libraries/server_databases.lib.php:315
+#: libraries/server_databases.lib.php:340 libraries/server_status.lib.php:452
 #: libraries/structure.lib.php:860 libraries/structure.lib.php:877
 msgid "Ascending"
 msgstr "ஏறுவரிசை"
@@ -2351,8 +2406,8 @@ msgstr "ஏறுவரிசை"
 #: libraries/DBQbe.class.php:349 libraries/DisplayResults.class.php:1323
 #: libraries/DisplayResults.class.php:2034
 #: libraries/DisplayResults.class.php:2052 libraries/TableSearch.class.php:822
-#: libraries/operations.lib.php:646 libraries/server_databases.lib.php:313
-#: libraries/server_databases.lib.php:338 libraries/server_status.lib.php:449
+#: libraries/operations.lib.php:646 libraries/server_databases.lib.php:315
+#: libraries/server_databases.lib.php:340 libraries/server_status.lib.php:449
 #: libraries/structure.lib.php:865 libraries/structure.lib.php:882
 msgid "Descending"
 msgstr "இறங்குவரிசை"
@@ -2727,8 +2782,8 @@ msgstr ""
 
 #: libraries/DisplayResults.class.php:5025
 #: libraries/DisplayResults.class.php:5031 libraries/mult_submits.inc.php:46
-#: libraries/server_databases.lib.php:145
-#: libraries/server_databases.lib.php:149
+#: libraries/server_databases.lib.php:147
+#: libraries/server_databases.lib.php:151
 #: libraries/server_privileges.lib.php:2860
 #: libraries/server_privileges.lib.php:2864 libraries/structure.lib.php:278
 #: libraries/structure.lib.php:293 libraries/structure.lib.php:295
@@ -2738,8 +2793,8 @@ msgstr "உடன் தெரிவுசெய்யப்பட்டது:"
 
 #: libraries/DisplayResults.class.php:5029
 #: libraries/DisplayResults.class.php:5030
-#: libraries/server_databases.lib.php:147
-#: libraries/server_databases.lib.php:148
+#: libraries/server_databases.lib.php:149
+#: libraries/server_databases.lib.php:150
 #: libraries/server_privileges.lib.php:1005
 #: libraries/server_privileges.lib.php:1006
 #: libraries/server_privileges.lib.php:2862
@@ -2768,7 +2823,7 @@ msgstr "ஏற்றுமதி"
 msgid "Query results operations"
 msgstr ""
 
-#: libraries/DisplayResults.class.php:5242 libraries/Header.class.php:341
+#: libraries/DisplayResults.class.php:5242 libraries/Header.class.php:345
 #: libraries/structure.lib.php:299 libraries/structure.lib.php:362
 #: libraries/structure.lib.php:1499
 msgid "Print view"
@@ -2856,11 +2911,11 @@ msgstr ""
 msgid "Open new phpMyAdmin window"
 msgstr ""
 
-#: libraries/Header.class.php:399
+#: libraries/Header.class.php:403
 msgid "Click on the bar to scroll to top of page"
 msgstr ""
 
-#: libraries/Header.class.php:651
+#: libraries/Header.class.php:655
 #: libraries/plugins/auth/AuthenticationCookie.class.php:178
 msgid "Javascript must be enabled past this point"
 msgstr ""
@@ -2942,11 +2997,11 @@ msgstr "நோக்கு"
 #: libraries/Menu.class.php:303 libraries/Menu.class.php:399
 #: libraries/Util.class.php:3162 libraries/Util.class.php:3169
 #: libraries/Util.class.php:3387 libraries/Util.class.php:4095
-#: libraries/Util.class.php:4111 libraries/config/setup.forms.php:304
-#: libraries/config/setup.forms.php:341 libraries/config/setup.forms.php:367
-#: libraries/config/user_preferences.forms.php:197
-#: libraries/config/user_preferences.forms.php:234
-#: libraries/config/user_preferences.forms.php:260
+#: libraries/Util.class.php:4111 libraries/config/setup.forms.php:305
+#: libraries/config/setup.forms.php:342 libraries/config/setup.forms.php:368
+#: libraries/config/user_preferences.forms.php:198
+#: libraries/config/user_preferences.forms.php:235
+#: libraries/config/user_preferences.forms.php:261
 #: libraries/import.lib.php:1227 libraries/server_privileges.lib.php:976
 #: libraries/tbl_columns_definition_form.lib.php:199
 #: libraries/tbl_tracking.lib.php:723 pmd_general.php:174
@@ -3932,20 +3987,20 @@ msgstr ""
 "மூடியிருக்க வேண்டும், அல்லது உங்கள் உலாவி பாதுகாப்பு அமைப்புகள் குறுக்கு-சாளர "
 "மேம்படுத்தல்களை தடுக்க உள்ளமைக்கப்பட்டிருக்கின்றன."
 
-#: libraries/build_html_for_db.lib.php:37 libraries/config/setup.forms.php:313
-#: libraries/config/setup.forms.php:349 libraries/config/setup.forms.php:372
-#: libraries/config/setup.forms.php:377
-#: libraries/config/user_preferences.forms.php:206
-#: libraries/config/user_preferences.forms.php:242
-#: libraries/config/user_preferences.forms.php:265
-#: libraries/config/user_preferences.forms.php:270
+#: libraries/build_html_for_db.lib.php:37 libraries/config/setup.forms.php:314
+#: libraries/config/setup.forms.php:350 libraries/config/setup.forms.php:373
+#: libraries/config/setup.forms.php:378
+#: libraries/config/user_preferences.forms.php:207
+#: libraries/config/user_preferences.forms.php:243
+#: libraries/config/user_preferences.forms.php:266
+#: libraries/config/user_preferences.forms.php:271
 #: libraries/server_privileges.lib.php:975 libraries/structure.lib.php:2185
 #: libraries/tbl_printview.lib.php:304
 msgid "Data"
 msgstr "தரவு"
 
 #: libraries/build_html_for_db.lib.php:47 libraries/engines/innodb.lib.php:171
-#: libraries/server_databases.lib.php:181 libraries/server_status.lib.php:180
+#: libraries/server_databases.lib.php:183 libraries/server_status.lib.php:180
 #: libraries/server_status.lib.php:291 libraries/structure.lib.php:2207
 #: libraries/tbl_printview.lib.php:336
 msgid "Total"
@@ -4092,7 +4147,19 @@ msgstr "திற"
 msgid "Closed"
 msgstr "மூடப்பட்டது"
 
-#: libraries/config.values.php:137
+#: libraries/config.values.php:111
+msgid "Ask before sending error reports"
+msgstr ""
+
+#: libraries/config.values.php:112
+msgid "Always send error reports"
+msgstr ""
+
+#: libraries/config.values.php:113
+msgid "Never send error reports"
+msgstr ""
+
+#: libraries/config.values.php:142
 #: libraries/plugins/export/ExportHtmlword.class.php:69
 #: libraries/plugins/export/ExportLatex.class.php:103
 #: libraries/plugins/export/ExportMediawiki.class.php:73
@@ -4102,7 +4169,7 @@ msgstr "மூடப்பட்டது"
 msgid "structure"
 msgstr "கட்டமைப்பு"
 
-#: libraries/config.values.php:138
+#: libraries/config.values.php:143
 #: libraries/plugins/export/ExportHtmlword.class.php:70
 #: libraries/plugins/export/ExportLatex.class.php:104
 #: libraries/plugins/export/ExportMediawiki.class.php:74
@@ -4112,7 +4179,7 @@ msgstr "கட்டமைப்பு"
 msgid "data"
 msgstr "தரவு"
 
-#: libraries/config.values.php:139
+#: libraries/config.values.php:144
 #: libraries/plugins/export/ExportHtmlword.class.php:71
 #: libraries/plugins/export/ExportLatex.class.php:105
 #: libraries/plugins/export/ExportMediawiki.class.php:75
@@ -4122,31 +4189,31 @@ msgstr "தரவு"
 msgid "structure and data"
 msgstr "கட்டமைப்பும் தரவும்"
 
-#: libraries/config.values.php:142
+#: libraries/config.values.php:147
 msgid "Quick - display only the minimal options to configure"
 msgstr ""
 
-#: libraries/config.values.php:143
+#: libraries/config.values.php:148
 msgid "Custom - display all possible options to configure"
 msgstr ""
 
-#: libraries/config.values.php:144
+#: libraries/config.values.php:149
 msgid "Custom - like above, but without the quick/custom choice"
 msgstr ""
 
-#: libraries/config.values.php:172
+#: libraries/config.values.php:177
 msgid "complete inserts"
 msgstr ""
 
-#: libraries/config.values.php:173
+#: libraries/config.values.php:178
 msgid "extended inserts"
 msgstr ""
 
-#: libraries/config.values.php:174
+#: libraries/config.values.php:179
 msgid "both of the above"
 msgstr ""
 
-#: libraries/config.values.php:175
+#: libraries/config.values.php:180
 msgid "neither of the above"
 msgstr ""
 
@@ -4362,8 +4429,8 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:32
 msgid ""
-"Use user-friendly editor for editing SQL queries ([a@http://codemirror.net/]"
-"CodeMirror[/a]) with syntax highlighting and line numbers"
+"Use user-friendly editor for editing SQL queries ([a@http://codemirror."
+"net/]CodeMirror[/a]) with syntax highlighting and line numbers"
 msgstr ""
 
 #: libraries/config/messages.inc.php:33
@@ -4785,10 +4852,10 @@ msgstr ""
 msgid "Customize default options"
 msgstr ""
 
-#: libraries/config/messages.inc.php:159 libraries/config/setup.forms.php:250
-#: libraries/config/setup.forms.php:324
-#: libraries/config/user_preferences.forms.php:145
-#: libraries/config/user_preferences.forms.php:217
+#: libraries/config/messages.inc.php:159 libraries/config/setup.forms.php:251
+#: libraries/config/setup.forms.php:325
+#: libraries/config/user_preferences.forms.php:146
+#: libraries/config/user_preferences.forms.php:218
 msgid "CSV"
 msgstr ""
 
@@ -4898,8 +4965,9 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:194
 msgid ""
-"Specify browser's title bar text. Refer to [doc@cfg_TitleTable]documentation"
-"[/doc] for magic strings that can be used to get special values."
+"Specify browser's title bar text. Refer to "
+"[doc@cfg_TitleTable]documentation[/doc] for magic strings that can be used "
+"to get special values."
 msgstr ""
 
 #: libraries/config/messages.inc.php:195
@@ -5651,8 +5719,8 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:383
 msgid ""
-"Leave blank for no column comments/mime types, suggested: [kbd]"
-"pma__column_info[/kbd]"
+"Leave blank for no column comments/mime types, suggested: "
+"[kbd]pma__column_info[/kbd]"
 msgstr ""
 
 #: libraries/config/messages.inc.php:384
@@ -5846,8 +5914,8 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:425
 msgid ""
-"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-links"
-"[/a] support, suggested: [kbd]pma__relation[/kbd]"
+"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
+"links[/a] support, suggested: [kbd]pma__relation[/kbd]"
 msgstr ""
 
 #: libraries/config/messages.inc.php:426
@@ -5864,8 +5932,8 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:429
 msgid ""
-"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication types"
-"[/a] for an example"
+"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
+"types[/a] for an example"
 msgstr ""
 
 #: libraries/config/messages.inc.php:430
@@ -5962,8 +6030,8 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:450
 msgid ""
-"Leave blank for no SQL query tracking support, suggested: [kbd]pma__tracking"
-"[/kbd]"
+"Leave blank for no SQL query tracking support, suggested: "
+"[kbd]pma__tracking[/kbd]"
 msgstr ""
 
 #: libraries/config/messages.inc.php:451
@@ -5982,8 +6050,8 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:454
 msgid ""
-"Leave blank for no user preferences storage in database, suggested: [kbd]"
-"pma__userconfig[/kbd]"
+"Leave blank for no user preferences storage in database, suggested: "
+"[kbd]pma__userconfig[/kbd]"
 msgstr ""
 
 #: libraries/config/messages.inc.php:455
@@ -5992,8 +6060,8 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:456
 msgid ""
-"Leave blank to disable configurable menus feature, suggested: [kbd]pma__users"
-"[/kbd]"
+"Leave blank to disable configurable menus feature, suggested: "
+"[kbd]pma__users[/kbd]"
 msgstr ""
 
 #: libraries/config/messages.inc.php:457
@@ -6004,8 +6072,8 @@ msgstr "அட்டவணைகளை பயன்படுத்துக"
 
 #: libraries/config/messages.inc.php:458
 msgid ""
-"Leave blank to disable configurable menus feature, suggested: [kbd]"
-"pma__usergroups[/kbd]"
+"Leave blank to disable configurable menus feature, suggested: "
+"[kbd]pma__usergroups[/kbd]"
 msgstr ""
 
 #: libraries/config/messages.inc.php:459
@@ -6310,13 +6378,13 @@ msgstr ""
 #: libraries/config/messages.inc.php:532
 msgid ""
 "The url of the proxy to be used when retrieving the information about the "
-"latest version of phpMyAdmin. You need this if the server where phpMyAdmin "
-"is installed does not have direct access to the internet. The format is: "
-"\"hostname:portnumber\""
+"latest version of phpMyAdmin or when submitting error reports. You need this "
+"if the server where phpMyAdmin is installed does not have direct access to "
+"the internet. The format is: \"hostname:portnumber\""
 msgstr ""
 
 #: libraries/config/messages.inc.php:533
-msgid "Version check proxy url"
+msgid "Proxy url"
 msgstr ""
 
 #: libraries/config/messages.inc.php:534
@@ -6327,16 +6395,20 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:535
-msgid "Version check proxy username"
-msgstr ""
+#, fuzzy
+#| msgid "Username:"
+msgid "Proxy username"
+msgstr "பயனாளர்:"
 
 #: libraries/config/messages.inc.php:536
 msgid "The password for authenticating with the proxy"
 msgstr ""
 
 #: libraries/config/messages.inc.php:537
-msgid "Version check proxy password"
-msgstr ""
+#, fuzzy
+#| msgid "Password:"
+msgid "Proxy password"
+msgstr "கடவுச்சொல்"
 
 #: libraries/config/messages.inc.php:539
 msgid ""
@@ -6364,6 +6436,23 @@ msgstr ""
 msgid "Private key for reCaptcha"
 msgstr ""
 
+#: libraries/config/messages.inc.php:546
+msgid ""
+"Uncheck this to prevent the sending of error reports for javascript errors"
+msgstr ""
+
+#: libraries/config/messages.inc.php:547
+msgid "Enable javascript error reporting"
+msgstr ""
+
+#: libraries/config/messages.inc.php:548
+msgid "Choose the default action when sending error reports"
+msgstr ""
+
+#: libraries/config/messages.inc.php:549
+msgid "Send error reports"
+msgstr ""
+
 #: libraries/config/setup.forms.php:41
 msgid "Config authentication"
 msgstr ""
@@ -6380,44 +6469,44 @@ msgstr ""
 msgid "Signon authentication"
 msgstr ""
 
-#: libraries/config/setup.forms.php:258
-#: libraries/config/user_preferences.forms.php:153
+#: libraries/config/setup.forms.php:259
+#: libraries/config/user_preferences.forms.php:154
 msgid "CSV using LOAD DATA"
 msgstr ""
 
-#: libraries/config/setup.forms.php:267 libraries/config/setup.forms.php:361
-#: libraries/config/user_preferences.forms.php:161
-#: libraries/config/user_preferences.forms.php:254
+#: libraries/config/setup.forms.php:268 libraries/config/setup.forms.php:362
+#: libraries/config/user_preferences.forms.php:162
+#: libraries/config/user_preferences.forms.php:255
 msgid "OpenDocument Spreadsheet"
 msgstr ""
 
-#: libraries/config/setup.forms.php:274
-#: libraries/config/user_preferences.forms.php:168
+#: libraries/config/setup.forms.php:275
+#: libraries/config/user_preferences.forms.php:169
 msgid "Quick"
 msgstr ""
 
-#: libraries/config/setup.forms.php:278
-#: libraries/config/user_preferences.forms.php:172
+#: libraries/config/setup.forms.php:279
+#: libraries/config/user_preferences.forms.php:173
 msgid "Custom"
 msgstr ""
 
-#: libraries/config/setup.forms.php:300
-#: libraries/config/user_preferences.forms.php:193
+#: libraries/config/setup.forms.php:301
+#: libraries/config/user_preferences.forms.php:194
 msgid "Database export options"
 msgstr ""
 
-#: libraries/config/setup.forms.php:333
-#: libraries/config/user_preferences.forms.php:226
+#: libraries/config/setup.forms.php:334
+#: libraries/config/user_preferences.forms.php:227
 msgid "CSV for MS Excel"
 msgstr ""
 
-#: libraries/config/setup.forms.php:356
-#: libraries/config/user_preferences.forms.php:249
+#: libraries/config/setup.forms.php:357
+#: libraries/config/user_preferences.forms.php:250
 msgid "Microsoft Word 2000"
 msgstr ""
 
-#: libraries/config/setup.forms.php:365
-#: libraries/config/user_preferences.forms.php:258
+#: libraries/config/setup.forms.php:366
+#: libraries/config/user_preferences.forms.php:259
 #, fuzzy
 #| msgid "Documentation"
 msgid "OpenDocument Text"
@@ -7084,6 +7173,25 @@ msgstr ""
 
 #: libraries/engines/pbxt.lib.php:142
 msgid "The PrimeBase XT Blog by Paul McCullagh"
+msgstr ""
+
+#: libraries/error_report.lib.php:238
+msgid ""
+"Phpmyadmin has encountered an error. We have collected data about this error "
+"as well as information about relevant configuration settings to send to "
+"phpmyadmin for processing to help us in debugging the problem"
+msgstr ""
+
+#: libraries/error_report.lib.php:245
+msgid "You may examine the data in the error report:"
+msgstr ""
+
+#: libraries/error_report.lib.php:252
+msgid "Please explain the steps that lead to the error:"
+msgstr ""
+
+#: libraries/error_report.lib.php:260
+msgid "Automatically send report next time"
 msgstr ""
 
 #: libraries/import.lib.php:190 libraries/insert_edit.lib.php:122
@@ -8582,7 +8690,7 @@ msgid "no description"
 msgstr ""
 
 #: libraries/replication_gui.lib.php:45 libraries/replication_gui.lib.php:311
-#: libraries/server_databases.lib.php:392
+#: libraries/server_databases.lib.php:394
 msgid "Master replication"
 msgstr ""
 
@@ -8637,7 +8745,7 @@ msgid ""
 msgstr ""
 
 #: libraries/replication_gui.lib.php:139
-#: libraries/server_databases.lib.php:394
+#: libraries/server_databases.lib.php:396
 msgid "Slave replication"
 msgstr ""
 
@@ -9492,18 +9600,18 @@ msgstr ""
 msgid "Databases statistics"
 msgstr ""
 
-#: libraries/server_databases.lib.php:361
+#: libraries/server_databases.lib.php:363
 msgid ""
 "Note: Enabling the database statistics here might cause heavy traffic "
 "between the web server and the MySQL server."
 msgstr ""
 
-#: libraries/server_databases.lib.php:369
-#: libraries/server_databases.lib.php:370
+#: libraries/server_databases.lib.php:371
+#: libraries/server_databases.lib.php:372
 msgid "Enable Statistics"
 msgstr ""
 
-#: libraries/server_databases.lib.php:491
+#: libraries/server_databases.lib.php:493
 #, fuzzy, php-format
 #| msgid "Database %s has been dropped."
 msgid "%1$d database has been dropped successfully."
@@ -12435,8 +12543,8 @@ msgid ""
 "You set the [kbd]config[/kbd] authentication type and included username and "
 "password for auto-login, which is not a desirable option for live hosts. "
 "Anyone who knows or guesses your phpMyAdmin URL can directly access your "
-"phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or [kbd]"
-"http[/kbd]."
+"phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or "
+"[kbd]http[/kbd]."
 msgstr ""
 
 #: setup/lib/index.lib.php:284

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-09-29 07:22-0400\n"
+"POT-Creation-Date: 2013-09-30 14:06+0200\n"
 "PO-Revision-Date: 2013-08-23 09:14+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Welsh <http://l10n.cihar.com/projects/phpmyadmin/master/cy/>\n"
@@ -181,8 +181,8 @@ msgstr "Na"
 #: libraries/plugins/export/ExportOdt.class.php:727
 #: libraries/plugins/export/ExportTexytext.class.php:568
 #: libraries/schema/Pdf_Relation_Schema.class.php:1435
-#: libraries/server_databases.lib.php:474
-#: libraries/server_databases.lib.php:484
+#: libraries/server_databases.lib.php:476
+#: libraries/server_databases.lib.php:486
 #: libraries/server_privileges.lib.php:2116
 #: libraries/server_privileges.lib.php:2283
 #: libraries/server_privileges.lib.php:2298
@@ -325,7 +325,7 @@ msgstr "Tablau a draciwyd"
 #: libraries/plugins/export/ExportHtmlword.class.php:158
 #: libraries/plugins/export/ExportOdt.class.php:203
 #: libraries/plugins/export/ExportTexytext.class.php:142
-#: libraries/server_databases.lib.php:309
+#: libraries/server_databases.lib.php:311
 #: libraries/server_privileges.lib.php:2426
 #: libraries/server_privileges.lib.php:2670
 #: libraries/server_privileges.lib.php:3663
@@ -355,7 +355,7 @@ msgstr "Statws"
 
 #: db_tracking.php:86 libraries/Index.class.php:558
 #: libraries/rte/rte_list.lib.php:53 libraries/rte/rte_list.lib.php:67
-#: libraries/rte/rte_list.lib.php:79 libraries/server_databases.lib.php:403
+#: libraries/rte/rte_list.lib.php:79 libraries/server_databases.lib.php:405
 #: libraries/server_privileges.lib.php:1818
 #: libraries/server_privileges.lib.php:1926
 #: libraries/server_privileges.lib.php:2680
@@ -376,7 +376,7 @@ msgstr "Dilëwch data tracio ar gyfer y tabl hwn"
 
 #: db_tracking.php:103 libraries/Index.class.php:624
 #: libraries/Util.class.php:3388 libraries/Util.class.php:3389
-#: libraries/server_databases.lib.php:154 libraries/structure.lib.php:307
+#: libraries/server_databases.lib.php:156 libraries/structure.lib.php:307
 #: libraries/structure.lib.php:1380 libraries/structure.lib.php:2067
 #: libraries/structure.lib.php:2069
 msgid "Drop"
@@ -417,6 +417,39 @@ msgstr "Tracio tabl"
 #: db_tracking.php:249
 msgid "Database Log"
 msgstr "Log cronfa ddata"
+
+#: error_report.php:16
+msgid ""
+"An error has been detected however you seem to be running on a git version "
+"of phpMyAdmin."
+msgstr ""
+
+#: error_report.php:18 error_report.php:28
+msgid ""
+"Automatic report submission cannot be used. Please submit a manual error "
+"report on the bug tracker."
+msgstr ""
+
+#: error_report.php:21 error_report.php:31 error_report.php:42
+#: error_report.php:47
+msgid "You may want to refresh the page."
+msgstr ""
+
+#: error_report.php:26
+msgid ""
+"An error has been detected however the js line counts file does not seam to "
+"exist in this phpMyAdmin installation. "
+msgstr ""
+
+#: error_report.php:39
+msgid ""
+"An error has been detected and an error report has been automatically "
+"submitted based on your settings."
+msgstr ""
+
+#: error_report.php:45
+msgid "Thank you for submitting this report."
+msgstr ""
 
 #: export.php:160
 #, fuzzy
@@ -1440,7 +1473,7 @@ msgstr "Dadansoddi"
 msgid "Explain output"
 msgstr "Esbonio SQL"
 
-#: js/messages.php:173 js/messages.php:537
+#: js/messages.php:173 js/messages.php:546
 #: libraries/plugins/export/ExportHtmlword.class.php:486
 #: libraries/plugins/export/ExportOdt.class.php:564
 #: libraries/plugins/export/ExportTexytext.class.php:437
@@ -1653,7 +1686,7 @@ msgid "Error text: %s"
 msgstr ""
 
 #: js/messages.php:227 libraries/db_common.inc.php:58
-#: libraries/db_table_exists.lib.php:28 libraries/server_databases.lib.php:460
+#: libraries/db_table_exists.lib.php:28 libraries/server_databases.lib.php:462
 msgid "No databases selected."
 msgstr "Dim cronfeydd data wedi'u dewis."
 
@@ -1932,7 +1965,7 @@ msgstr "Gweithrediadau canlyniadau ymholiad"
 msgid "Data point content"
 msgstr "Datganiad diffiniad data"
 
-#: js/messages.php:313 libraries/insert_edit.lib.php:2605
+#: js/messages.php:313 js/messages.php:400 libraries/insert_edit.lib.php:2605
 #: libraries/tbl_indexes.lib.php:333 libraries/tbl_indexes.lib.php:369
 msgid "Ignore"
 msgstr "Anwybyddu"
@@ -2146,19 +2179,43 @@ msgstr "Neidiwch i'r gronfa ddata"
 msgid "Create view"
 msgstr "Crëwch fersiwn"
 
+#: js/messages.php:394
+msgid "Send Error Report"
+msgstr ""
+
+#: js/messages.php:395
+msgid "Submit Error Report"
+msgstr ""
+
+#: js/messages.php:396
+msgid "An error has occured. Do you want to send an error report?"
+msgstr ""
+
+#: js/messages.php:398
+#, fuzzy
+#| msgid "General relation features"
+msgid "Change Report Settings"
+msgstr "Nodweddion perthynas cyffredinol"
+
+#: js/messages.php:399
+#, fuzzy
+#| msgid "Report title"
+msgid "Show Report Details"
+msgstr "Teitl yr adroddiad"
+
 #. l10n: Display text for calendar close link
-#: js/messages.php:411
+#: js/messages.php:420
 msgid "Done"
 msgstr "Gorffen"
 
-#: js/messages.php:415
+#: js/messages.php:424
 #, fuzzy
 #| msgid "Prev"
 msgctxt "Previous month"
 msgid "Prev"
 msgstr "Cynt"
 
-#: js/messages.php:420
+#: js/messages.php:429
 #, fuzzy
 #| msgid "Next"
 msgctxt "Next month"
@@ -2166,149 +2223,149 @@ msgid "Next"
 msgstr "Nesaf"
 
 #. l10n: Display text for current month link in calendar
-#: js/messages.php:423
+#: js/messages.php:432
 msgid "Today"
 msgstr "Heddiw"
 
-#: js/messages.php:427
+#: js/messages.php:436
 msgid "January"
 msgstr "Ionawr"
 
-#: js/messages.php:428
+#: js/messages.php:437
 msgid "February"
 msgstr "Chwefror"
 
-#: js/messages.php:429
+#: js/messages.php:438
 msgid "March"
 msgstr "Mawrth"
 
-#: js/messages.php:430
+#: js/messages.php:439
 msgid "April"
 msgstr "Ebrill"
 
-#: js/messages.php:431
+#: js/messages.php:440
 msgid "May"
 msgstr "Mai"
 
-#: js/messages.php:432
+#: js/messages.php:441
 msgid "June"
 msgstr "Mehefin"
 
-#: js/messages.php:433
+#: js/messages.php:442
 msgid "July"
 msgstr "Gorffennaf"
 
-#: js/messages.php:434
+#: js/messages.php:443
 msgid "August"
 msgstr "Awst"
 
-#: js/messages.php:435
+#: js/messages.php:444
 msgid "September"
 msgstr "Medi"
 
-#: js/messages.php:436
+#: js/messages.php:445
 msgid "October"
 msgstr "Hydref"
 
-#: js/messages.php:437
+#: js/messages.php:446
 msgid "November"
 msgstr "Tachwedd"
 
-#: js/messages.php:438
+#: js/messages.php:447
 msgid "December"
 msgstr "Rhagfyr"
 
 #. l10n: Short month name
-#: js/messages.php:445 libraries/Util.class.php:1601
+#: js/messages.php:454 libraries/Util.class.php:1601
 msgid "Jan"
 msgstr "Ion"
 
 #. l10n: Short month name
-#: js/messages.php:447 libraries/Util.class.php:1603
+#: js/messages.php:456 libraries/Util.class.php:1603
 msgid "Feb"
 msgstr "Chwe"
 
 #. l10n: Short month name
-#: js/messages.php:449 libraries/Util.class.php:1605
+#: js/messages.php:458 libraries/Util.class.php:1605
 msgid "Mar"
 msgstr "Maw"
 
 #. l10n: Short month name
-#: js/messages.php:451 libraries/Util.class.php:1607
+#: js/messages.php:460 libraries/Util.class.php:1607
 msgid "Apr"
 msgstr "Ebr"
 
 #. l10n: Short month name
-#: js/messages.php:453 libraries/Util.class.php:1609
+#: js/messages.php:462 libraries/Util.class.php:1609
 msgctxt "Short month name"
 msgid "May"
 msgstr "Mai"
 
 #. l10n: Short month name
-#: js/messages.php:455 libraries/Util.class.php:1611
+#: js/messages.php:464 libraries/Util.class.php:1611
 msgid "Jun"
 msgstr "Meh"
 
 #. l10n: Short month name
-#: js/messages.php:457 libraries/Util.class.php:1613
+#: js/messages.php:466 libraries/Util.class.php:1613
 msgid "Jul"
 msgstr "Gor"
 
 #. l10n: Short month name
-#: js/messages.php:459 libraries/Util.class.php:1615
+#: js/messages.php:468 libraries/Util.class.php:1615
 msgid "Aug"
 msgstr "Aws"
 
 #. l10n: Short month name
-#: js/messages.php:461 libraries/Util.class.php:1617
+#: js/messages.php:470 libraries/Util.class.php:1617
 msgid "Sep"
 msgstr "Med"
 
 #. l10n: Short month name
-#: js/messages.php:463 libraries/Util.class.php:1619
+#: js/messages.php:472 libraries/Util.class.php:1619
 msgid "Oct"
 msgstr "Hyd"
 
 #. l10n: Short month name
-#: js/messages.php:465 libraries/Util.class.php:1621
+#: js/messages.php:474 libraries/Util.class.php:1621
 msgid "Nov"
 msgstr "Tach"
 
 #. l10n: Short month name
-#: js/messages.php:467 libraries/Util.class.php:1623
+#: js/messages.php:476 libraries/Util.class.php:1623
 msgid "Dec"
 msgstr "Rhag"
 
-#: js/messages.php:473
+#: js/messages.php:482
 msgid "Sunday"
 msgstr "Dydd Sul"
 
-#: js/messages.php:474
+#: js/messages.php:483
 msgid "Monday"
 msgstr "Dydd Llun"
 
-#: js/messages.php:475
+#: js/messages.php:484
 msgid "Tuesday"
 msgstr "Dydd Mawrth"
 
-#: js/messages.php:476
+#: js/messages.php:485
 msgid "Wednesday"
 msgstr "DYdd Mercher"
 
-#: js/messages.php:477
+#: js/messages.php:486
 msgid "Thursday"
 msgstr "Dydd Iau"
 
-#: js/messages.php:478
+#: js/messages.php:487
 msgid "Friday"
 msgstr "Dydd Gwener"
 
-#: js/messages.php:479
+#: js/messages.php:488
 msgid "Saturday"
 msgstr "Dydd Sadwrn"
 
 #. l10n: Short week day name
-#: js/messages.php:486
+#: js/messages.php:495
 #, fuzzy
 #| msgctxt "Short week day name"
 #| msgid "Sun"
@@ -2316,97 +2373,97 @@ msgid "Sun"
 msgstr "Sul"
 
 #. l10n: Short week day name
-#: js/messages.php:488 libraries/Util.class.php:1628
+#: js/messages.php:497 libraries/Util.class.php:1628
 msgid "Mon"
 msgstr "Llun"
 
 #. l10n: Short week day name
-#: js/messages.php:490 libraries/Util.class.php:1630
+#: js/messages.php:499 libraries/Util.class.php:1630
 msgid "Tue"
 msgstr "Maw"
 
 #. l10n: Short week day name
-#: js/messages.php:492 libraries/Util.class.php:1632
+#: js/messages.php:501 libraries/Util.class.php:1632
 msgid "Wed"
 msgstr "Mer"
 
 #. l10n: Short week day name
-#: js/messages.php:494 libraries/Util.class.php:1634
+#: js/messages.php:503 libraries/Util.class.php:1634
 msgid "Thu"
 msgstr "Iau"
 
 #. l10n: Short week day name
-#: js/messages.php:496 libraries/Util.class.php:1636
+#: js/messages.php:505 libraries/Util.class.php:1636
 msgid "Fri"
 msgstr "Gwe"
 
 #. l10n: Short week day name
-#: js/messages.php:498 libraries/Util.class.php:1638
+#: js/messages.php:507 libraries/Util.class.php:1638
 msgid "Sat"
 msgstr "Sad"
 
 #. l10n: Minimal week day name
-#: js/messages.php:505
+#: js/messages.php:514
 msgid "Su"
 msgstr "Su"
 
 #. l10n: Minimal week day name
-#: js/messages.php:507
+#: js/messages.php:516
 msgid "Mo"
 msgstr "Llu"
 
 #. l10n: Minimal week day name
-#: js/messages.php:509
+#: js/messages.php:518
 msgid "Tu"
 msgstr "Ma"
 
 #. l10n: Minimal week day name
-#: js/messages.php:511
+#: js/messages.php:520
 msgid "We"
 msgstr "Me"
 
 #. l10n: Minimal week day name
-#: js/messages.php:513
+#: js/messages.php:522
 msgid "Th"
 msgstr "Ia"
 
 #. l10n: Minimal week day name
-#: js/messages.php:515
+#: js/messages.php:524
 msgid "Fr"
 msgstr "Gw"
 
 #. l10n: Minimal week day name
-#: js/messages.php:517
+#: js/messages.php:526
 msgid "Sa"
 msgstr "Sa"
 
 #. l10n: Column header for week of the year in calendar
-#: js/messages.php:521
+#: js/messages.php:530
 msgid "Wk"
 msgstr "Wy"
 
 #. l10n: Month-year order for calendar, use either "calendar-month-year" or "calendar-year-month".
-#: js/messages.php:524
+#: js/messages.php:533
 msgid "calendar-month-year"
 msgstr ""
 
 #. l10n: Year suffix for calendar, "none" is empty.
-#: js/messages.php:526
+#: js/messages.php:535
 #, fuzzy
 #| msgid "None"
 msgctxt "Year suffix"
 msgid "none"
 msgstr "Dim"
 
-#: js/messages.php:538
+#: js/messages.php:547
 msgid "Hour"
 msgstr "Awr"
 
-#: js/messages.php:539
+#: js/messages.php:548
 msgid "Minute"
 msgstr "Munud"
 
-#: js/messages.php:540
+#: js/messages.php:549
 msgid "Second"
 msgstr "Eiliad"
 
@@ -2491,8 +2548,8 @@ msgstr "Maint ffont"
 #: libraries/DBQbe.class.php:346 libraries/DisplayResults.class.php:1311
 #: libraries/DisplayResults.class.php:2039
 #: libraries/DisplayResults.class.php:2047 libraries/TableSearch.class.php:821
-#: libraries/operations.lib.php:643 libraries/server_databases.lib.php:313
-#: libraries/server_databases.lib.php:338 libraries/server_status.lib.php:452
+#: libraries/operations.lib.php:643 libraries/server_databases.lib.php:315
+#: libraries/server_databases.lib.php:340 libraries/server_status.lib.php:452
 #: libraries/structure.lib.php:860 libraries/structure.lib.php:877
 msgid "Ascending"
 msgstr "Esgynnol"
@@ -2500,8 +2557,8 @@ msgstr "Esgynnol"
 #: libraries/DBQbe.class.php:349 libraries/DisplayResults.class.php:1323
 #: libraries/DisplayResults.class.php:2034
 #: libraries/DisplayResults.class.php:2052 libraries/TableSearch.class.php:822
-#: libraries/operations.lib.php:646 libraries/server_databases.lib.php:313
-#: libraries/server_databases.lib.php:338 libraries/server_status.lib.php:449
+#: libraries/operations.lib.php:646 libraries/server_databases.lib.php:315
+#: libraries/server_databases.lib.php:340 libraries/server_status.lib.php:449
 #: libraries/structure.lib.php:865 libraries/structure.lib.php:882
 msgid "Descending"
 msgstr "Disgynnol"
@@ -2898,8 +2955,8 @@ msgstr "Cymerodd yr ymholiad %01.4f eiliad"
 
 #: libraries/DisplayResults.class.php:5025
 #: libraries/DisplayResults.class.php:5031 libraries/mult_submits.inc.php:46
-#: libraries/server_databases.lib.php:145
-#: libraries/server_databases.lib.php:149
+#: libraries/server_databases.lib.php:147
+#: libraries/server_databases.lib.php:151
 #: libraries/server_privileges.lib.php:2860
 #: libraries/server_privileges.lib.php:2864 libraries/structure.lib.php:278
 #: libraries/structure.lib.php:293 libraries/structure.lib.php:295
@@ -2909,8 +2966,8 @@ msgstr "Gyda'r dewis:"
 
 #: libraries/DisplayResults.class.php:5029
 #: libraries/DisplayResults.class.php:5030
-#: libraries/server_databases.lib.php:147
-#: libraries/server_databases.lib.php:148
+#: libraries/server_databases.lib.php:149
+#: libraries/server_databases.lib.php:150
 #: libraries/server_privileges.lib.php:1005
 #: libraries/server_privileges.lib.php:1006
 #: libraries/server_privileges.lib.php:2862
@@ -2939,7 +2996,7 @@ msgstr "Allforio"
 msgid "Query results operations"
 msgstr "Gweithrediadau canlyniadau ymholiad"
 
-#: libraries/DisplayResults.class.php:5242 libraries/Header.class.php:341
+#: libraries/DisplayResults.class.php:5242 libraries/Header.class.php:345
 #: libraries/structure.lib.php:299 libraries/structure.lib.php:362
 #: libraries/structure.lib.php:1499
 msgid "Print view"
@@ -3029,11 +3086,11 @@ msgstr "Gwybodaeth y fersiwn"
 msgid "Open new phpMyAdmin window"
 msgstr ""
 
-#: libraries/Header.class.php:399
+#: libraries/Header.class.php:403
 msgid "Click on the bar to scroll to top of page"
 msgstr ""
 
-#: libraries/Header.class.php:651
+#: libraries/Header.class.php:655
 #: libraries/plugins/auth/AuthenticationCookie.class.php:178
 #, fuzzy
 #| msgid "Cookies must be enabled past this point."
@@ -3119,11 +3176,11 @@ msgstr "Dangos"
 #: libraries/Menu.class.php:303 libraries/Menu.class.php:399
 #: libraries/Util.class.php:3162 libraries/Util.class.php:3169
 #: libraries/Util.class.php:3387 libraries/Util.class.php:4095
-#: libraries/Util.class.php:4111 libraries/config/setup.forms.php:304
-#: libraries/config/setup.forms.php:341 libraries/config/setup.forms.php:367
-#: libraries/config/user_preferences.forms.php:197
-#: libraries/config/user_preferences.forms.php:234
-#: libraries/config/user_preferences.forms.php:260
+#: libraries/Util.class.php:4111 libraries/config/setup.forms.php:305
+#: libraries/config/setup.forms.php:342 libraries/config/setup.forms.php:368
+#: libraries/config/user_preferences.forms.php:198
+#: libraries/config/user_preferences.forms.php:235
+#: libraries/config/user_preferences.forms.php:261
 #: libraries/import.lib.php:1227 libraries/server_privileges.lib.php:976
 #: libraries/tbl_columns_definition_form.lib.php:199
 #: libraries/tbl_tracking.lib.php:723 pmd_general.php:174
@@ -4135,20 +4192,20 @@ msgstr ""
 "ffenest y rhiant, neu bod gosodiadau diogelwch eich porwr yn gwrthod "
 "caniatáu diweddariadau traws-ffenest."
 
-#: libraries/build_html_for_db.lib.php:37 libraries/config/setup.forms.php:313
-#: libraries/config/setup.forms.php:349 libraries/config/setup.forms.php:372
-#: libraries/config/setup.forms.php:377
-#: libraries/config/user_preferences.forms.php:206
-#: libraries/config/user_preferences.forms.php:242
-#: libraries/config/user_preferences.forms.php:265
-#: libraries/config/user_preferences.forms.php:270
+#: libraries/build_html_for_db.lib.php:37 libraries/config/setup.forms.php:314
+#: libraries/config/setup.forms.php:350 libraries/config/setup.forms.php:373
+#: libraries/config/setup.forms.php:378
+#: libraries/config/user_preferences.forms.php:207
+#: libraries/config/user_preferences.forms.php:243
+#: libraries/config/user_preferences.forms.php:266
+#: libraries/config/user_preferences.forms.php:271
 #: libraries/server_privileges.lib.php:975 libraries/structure.lib.php:2185
 #: libraries/tbl_printview.lib.php:304
 msgid "Data"
 msgstr "Data"
 
 #: libraries/build_html_for_db.lib.php:47 libraries/engines/innodb.lib.php:171
-#: libraries/server_databases.lib.php:181 libraries/server_status.lib.php:180
+#: libraries/server_databases.lib.php:183 libraries/server_status.lib.php:180
 #: libraries/server_status.lib.php:291 libraries/structure.lib.php:2207
 #: libraries/tbl_printview.lib.php:336
 msgid "Total"
@@ -4302,7 +4359,19 @@ msgstr ""
 msgid "Closed"
 msgstr "Cau"
 
-#: libraries/config.values.php:137
+#: libraries/config.values.php:111
+msgid "Ask before sending error reports"
+msgstr ""
+
+#: libraries/config.values.php:112
+msgid "Always send error reports"
+msgstr ""
+
+#: libraries/config.values.php:113
+msgid "Never send error reports"
+msgstr ""
+
+#: libraries/config.values.php:142
 #: libraries/plugins/export/ExportHtmlword.class.php:69
 #: libraries/plugins/export/ExportLatex.class.php:103
 #: libraries/plugins/export/ExportMediawiki.class.php:73
@@ -4312,7 +4381,7 @@ msgstr "Cau"
 msgid "structure"
 msgstr ""
 
-#: libraries/config.values.php:138
+#: libraries/config.values.php:143
 #: libraries/plugins/export/ExportHtmlword.class.php:70
 #: libraries/plugins/export/ExportLatex.class.php:104
 #: libraries/plugins/export/ExportMediawiki.class.php:74
@@ -4322,7 +4391,7 @@ msgstr ""
 msgid "data"
 msgstr ""
 
-#: libraries/config.values.php:139
+#: libraries/config.values.php:144
 #: libraries/plugins/export/ExportHtmlword.class.php:71
 #: libraries/plugins/export/ExportLatex.class.php:105
 #: libraries/plugins/export/ExportMediawiki.class.php:75
@@ -4334,33 +4403,33 @@ msgstr ""
 msgid "structure and data"
 msgstr "Strwythur a data"
 
-#: libraries/config.values.php:142
+#: libraries/config.values.php:147
 msgid "Quick - display only the minimal options to configure"
 msgstr ""
 
-#: libraries/config.values.php:143
+#: libraries/config.values.php:148
 msgid "Custom - display all possible options to configure"
 msgstr ""
 
-#: libraries/config.values.php:144
+#: libraries/config.values.php:149
 msgid "Custom - like above, but without the quick/custom choice"
 msgstr ""
 
-#: libraries/config.values.php:172
+#: libraries/config.values.php:177
 msgid "complete inserts"
 msgstr ""
 
-#: libraries/config.values.php:173
+#: libraries/config.values.php:178
 #, fuzzy
 #| msgid "Autoextend increment"
 msgid "extended inserts"
 msgstr "Cynyddiad awtoestyn"
 
-#: libraries/config.values.php:174
+#: libraries/config.values.php:179
 msgid "both of the above"
 msgstr ""
 
-#: libraries/config.values.php:175
+#: libraries/config.values.php:180
 msgid "neither of the above"
 msgstr ""
 
@@ -4584,8 +4653,8 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:32
 msgid ""
-"Use user-friendly editor for editing SQL queries ([a@http://codemirror.net/]"
-"CodeMirror[/a]) with syntax highlighting and line numbers"
+"Use user-friendly editor for editing SQL queries ([a@http://codemirror."
+"net/]CodeMirror[/a]) with syntax highlighting and line numbers"
 msgstr ""
 
 #: libraries/config/messages.inc.php:33
@@ -5044,10 +5113,10 @@ msgstr ""
 msgid "Customize default options"
 msgstr "Gweithrediadau canlyniadau ymholiad"
 
-#: libraries/config/messages.inc.php:159 libraries/config/setup.forms.php:250
-#: libraries/config/setup.forms.php:324
-#: libraries/config/user_preferences.forms.php:145
-#: libraries/config/user_preferences.forms.php:217
+#: libraries/config/messages.inc.php:159 libraries/config/setup.forms.php:251
+#: libraries/config/setup.forms.php:325
+#: libraries/config/user_preferences.forms.php:146
+#: libraries/config/user_preferences.forms.php:218
 msgid "CSV"
 msgstr "CSV"
 
@@ -5163,8 +5232,9 @@ msgstr "Enw'r dudalen"
 
 #: libraries/config/messages.inc.php:194
 msgid ""
-"Specify browser's title bar text. Refer to [doc@cfg_TitleTable]documentation"
-"[/doc] for magic strings that can be used to get special values."
+"Specify browser's title bar text. Refer to "
+"[doc@cfg_TitleTable]documentation[/doc] for magic strings that can be used "
+"to get special values."
 msgstr ""
 
 #: libraries/config/messages.inc.php:195
@@ -5936,8 +6006,8 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:383
 msgid ""
-"Leave blank for no column comments/mime types, suggested: [kbd]"
-"pma__column_info[/kbd]"
+"Leave blank for no column comments/mime types, suggested: "
+"[kbd]pma__column_info[/kbd]"
 msgstr ""
 
 #: libraries/config/messages.inc.php:384
@@ -6146,8 +6216,8 @@ msgstr "Dadansoddi tabl"
 
 #: libraries/config/messages.inc.php:425
 msgid ""
-"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-links"
-"[/a] support, suggested: [kbd]pma__relation[/kbd]"
+"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
+"links[/a] support, suggested: [kbd]pma__relation[/kbd]"
 msgstr ""
 
 #: libraries/config/messages.inc.php:426
@@ -6164,8 +6234,8 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:429
 msgid ""
-"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication types"
-"[/a] for an example"
+"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
+"types[/a] for an example"
 msgstr ""
 
 #: libraries/config/messages.inc.php:430
@@ -6262,8 +6332,8 @@ msgstr "Datganiadau i'w tracio"
 
 #: libraries/config/messages.inc.php:450
 msgid ""
-"Leave blank for no SQL query tracking support, suggested: [kbd]pma__tracking"
-"[/kbd]"
+"Leave blank for no SQL query tracking support, suggested: "
+"[kbd]pma__tracking[/kbd]"
 msgstr ""
 
 #: libraries/config/messages.inc.php:451
@@ -6282,8 +6352,8 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:454
 msgid ""
-"Leave blank for no user preferences storage in database, suggested: [kbd]"
-"pma__userconfig[/kbd]"
+"Leave blank for no user preferences storage in database, suggested: "
+"[kbd]pma__userconfig[/kbd]"
 msgstr ""
 
 #: libraries/config/messages.inc.php:455
@@ -6292,8 +6362,8 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:456
 msgid ""
-"Leave blank to disable configurable menus feature, suggested: [kbd]pma__users"
-"[/kbd]"
+"Leave blank to disable configurable menus feature, suggested: "
+"[kbd]pma__users[/kbd]"
 msgstr ""
 
 #: libraries/config/messages.inc.php:457
@@ -6304,8 +6374,8 @@ msgstr "Defnyddiwch Dablau"
 
 #: libraries/config/messages.inc.php:458
 msgid ""
-"Leave blank to disable configurable menus feature, suggested: [kbd]"
-"pma__usergroups[/kbd]"
+"Leave blank to disable configurable menus feature, suggested: "
+"[kbd]pma__usergroups[/kbd]"
 msgstr ""
 
 #: libraries/config/messages.inc.php:459
@@ -6436,8 +6506,8 @@ msgid ""
 "Shows link to [a@http://php.net/manual/function.phpinfo.php]phpinfo()[/a] "
 "output"
 msgstr ""
-"Dangos cysylltiad i allbwn [a@http://php.net/manual/function.phpinfo.php]"
-"phpinfo()[/a]"
+"Dangos cysylltiad i allbwn [a@http://php.net/manual/function.phpinfo."
+"php]phpinfo()[/a]"
 
 #: libraries/config/messages.inc.php:486
 msgid "Show phpinfo() link"
@@ -6624,16 +6694,14 @@ msgstr "Gwirio fersiwn"
 #: libraries/config/messages.inc.php:532
 msgid ""
 "The url of the proxy to be used when retrieving the information about the "
-"latest version of phpMyAdmin. You need this if the server where phpMyAdmin "
-"is installed does not have direct access to the internet. The format is: "
-"\"hostname:portnumber\""
+"latest version of phpMyAdmin or when submitting error reports. You need this "
+"if the server where phpMyAdmin is installed does not have direct access to "
+"the internet. The format is: \"hostname:portnumber\""
 msgstr ""
 
 #: libraries/config/messages.inc.php:533
-#, fuzzy
-#| msgid "Version check"
-msgid "Version check proxy url"
-msgstr "Gwirio fersiwn"
+msgid "Proxy url"
+msgstr ""
 
 #: libraries/config/messages.inc.php:534
 msgid ""
@@ -6644,9 +6712,9 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:535
 #, fuzzy
-#| msgid "Version check"
-msgid "Version check proxy username"
-msgstr "Gwirio fersiwn"
+#| msgid "Username"
+msgid "Proxy username"
+msgstr "Enw defnyddiwr"
 
 #: libraries/config/messages.inc.php:536
 msgid "The password for authenticating with the proxy"
@@ -6654,9 +6722,9 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:537
 #, fuzzy
-#| msgid "Version check"
-msgid "Version check proxy password"
-msgstr "Gwirio fersiwn"
+#| msgid "Password"
+msgid "Proxy password"
+msgstr "Cyfrinair"
 
 #: libraries/config/messages.inc.php:539
 msgid ""
@@ -6684,6 +6752,23 @@ msgstr ""
 msgid "Private key for reCaptcha"
 msgstr ""
 
+#: libraries/config/messages.inc.php:546
+msgid ""
+"Uncheck this to prevent the sending of error reports for javascript errors"
+msgstr ""
+
+#: libraries/config/messages.inc.php:547
+msgid "Enable javascript error reporting"
+msgstr ""
+
+#: libraries/config/messages.inc.php:548
+msgid "Choose the default action when sending error reports"
+msgstr ""
+
+#: libraries/config/messages.inc.php:549
+msgid "Send error reports"
+msgstr ""
+
 #: libraries/config/setup.forms.php:41
 #, fuzzy
 #| msgid "Authenticating…"
@@ -6708,50 +6793,50 @@ msgstr "Yn dilysu…"
 msgid "Signon authentication"
 msgstr "Yn dilysu…"
 
-#: libraries/config/setup.forms.php:258
-#: libraries/config/user_preferences.forms.php:153
+#: libraries/config/setup.forms.php:259
+#: libraries/config/user_preferences.forms.php:154
 msgid "CSV using LOAD DATA"
 msgstr ""
 
-#: libraries/config/setup.forms.php:267 libraries/config/setup.forms.php:361
-#: libraries/config/user_preferences.forms.php:161
-#: libraries/config/user_preferences.forms.php:254
+#: libraries/config/setup.forms.php:268 libraries/config/setup.forms.php:362
+#: libraries/config/user_preferences.forms.php:162
+#: libraries/config/user_preferences.forms.php:255
 #, fuzzy
 #| msgid "Open Document Spreadsheet"
 msgid "OpenDocument Spreadsheet"
 msgstr "Taenlen Open Document"
 
-#: libraries/config/setup.forms.php:274
-#: libraries/config/user_preferences.forms.php:168
+#: libraries/config/setup.forms.php:275
+#: libraries/config/user_preferences.forms.php:169
 msgid "Quick"
 msgstr ""
 
-#: libraries/config/setup.forms.php:278
-#: libraries/config/user_preferences.forms.php:172
+#: libraries/config/setup.forms.php:279
+#: libraries/config/user_preferences.forms.php:173
 #, fuzzy
 #| msgid "Custom color"
 msgid "Custom"
 msgstr "Lliw cwstwm"
 
-#: libraries/config/setup.forms.php:300
-#: libraries/config/user_preferences.forms.php:193
+#: libraries/config/setup.forms.php:301
+#: libraries/config/user_preferences.forms.php:194
 #, fuzzy
 #| msgid "Databases statistics"
 msgid "Database export options"
 msgstr "Ystadegau cronfeydd data"
 
-#: libraries/config/setup.forms.php:333
-#: libraries/config/user_preferences.forms.php:226
+#: libraries/config/setup.forms.php:334
+#: libraries/config/user_preferences.forms.php:227
 msgid "CSV for MS Excel"
 msgstr "CSV ar gyfer MS Excel"
 
-#: libraries/config/setup.forms.php:356
-#: libraries/config/user_preferences.forms.php:249
+#: libraries/config/setup.forms.php:357
+#: libraries/config/user_preferences.forms.php:250
 msgid "Microsoft Word 2000"
 msgstr "Microsoft Word 2000"
 
-#: libraries/config/setup.forms.php:365
-#: libraries/config/user_preferences.forms.php:258
+#: libraries/config/setup.forms.php:366
+#: libraries/config/user_preferences.forms.php:259
 #, fuzzy
 #| msgid "Open Document Text"
 msgid "OpenDocument Text"
@@ -7467,6 +7552,25 @@ msgstr "Perthnasau"
 
 #: libraries/engines/pbxt.lib.php:142
 msgid "The PrimeBase XT Blog by Paul McCullagh"
+msgstr ""
+
+#: libraries/error_report.lib.php:238
+msgid ""
+"Phpmyadmin has encountered an error. We have collected data about this error "
+"as well as information about relevant configuration settings to send to "
+"phpmyadmin for processing to help us in debugging the problem"
+msgstr ""
+
+#: libraries/error_report.lib.php:245
+msgid "You may examine the data in the error report:"
+msgstr ""
+
+#: libraries/error_report.lib.php:252
+msgid "Please explain the steps that lead to the error:"
+msgstr ""
+
+#: libraries/error_report.lib.php:260
+msgid "Automatically send report next time"
 msgstr ""
 
 #: libraries/import.lib.php:190 libraries/insert_edit.lib.php:122
@@ -9025,7 +9129,7 @@ msgid "no description"
 msgstr ""
 
 #: libraries/replication_gui.lib.php:45 libraries/replication_gui.lib.php:311
-#: libraries/server_databases.lib.php:392
+#: libraries/server_databases.lib.php:394
 msgid "Master replication"
 msgstr ""
 
@@ -9080,7 +9184,7 @@ msgid ""
 msgstr ""
 
 #: libraries/replication_gui.lib.php:139
-#: libraries/server_databases.lib.php:394
+#: libraries/server_databases.lib.php:396
 msgid "Slave replication"
 msgstr ""
 
@@ -9993,18 +10097,18 @@ msgstr "Setiau nod a Choladiadau"
 msgid "Databases statistics"
 msgstr "Ystadegau cronfeydd data"
 
-#: libraries/server_databases.lib.php:361
+#: libraries/server_databases.lib.php:363
 msgid ""
 "Note: Enabling the database statistics here might cause heavy traffic "
 "between the web server and the MySQL server."
 msgstr ""
 
-#: libraries/server_databases.lib.php:369
-#: libraries/server_databases.lib.php:370
+#: libraries/server_databases.lib.php:371
+#: libraries/server_databases.lib.php:372
 msgid "Enable Statistics"
 msgstr "Galluogi Ystadegau"
 
-#: libraries/server_databases.lib.php:491
+#: libraries/server_databases.lib.php:493
 #, fuzzy, php-format
 #| msgid "Database %s has been dropped."
 msgid "%1$d database has been dropped successfully."
@@ -13039,8 +13143,8 @@ msgid ""
 "You set the [kbd]config[/kbd] authentication type and included username and "
 "password for auto-login, which is not a desirable option for live hosts. "
 "Anyone who knows or guesses your phpMyAdmin URL can directly access your "
-"phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or [kbd]"
-"http[/kbd]."
+"phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or "
+"[kbd]http[/kbd]."
 msgstr ""
 
 #: setup/lib/index.lib.php:284
@@ -14372,6 +14476,21 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr ""
+
+#, fuzzy
+#~| msgid "Version check"
+#~ msgid "Version check proxy url"
+#~ msgstr "Gwirio fersiwn"
+
+#, fuzzy
+#~| msgid "Version check"
+#~ msgid "Version check proxy username"
+#~ msgstr "Gwirio fersiwn"
+
+#, fuzzy
+#~| msgid "Version check"
+#~ msgid "Version check proxy password"
+#~ msgstr "Gwirio fersiwn"
 
 #, fuzzy
 #~| msgid "Print view"
