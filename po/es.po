@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-09-30 14:06+0200\n"
-"PO-Revision-Date: 2013-09-29 20:05+0200\n"
-"Last-Translator: Matías Bellone <matiasbellone+weblate@gmail.com>\n"
-"Language-Team: Spanish <http://l10n.cihar.com/projects/phpmyadmin/master/es/"
-">\n"
+"PO-Revision-Date: 2013-09-30 17:06+0200\n"
+"Last-Translator: Guillermo Lisotti <guillermo.lisotti@gmail.com>\n"
+"Language-Team: Spanish "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/es/>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -6738,13 +6738,12 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:548
 msgid "Choose the default action when sending error reports"
-msgstr ""
+msgstr "Elija la acción predefinida en el envio de reportes de error"
 
 #: libraries/config/messages.inc.php:549
-#, fuzzy
 #| msgid "Server port"
 msgid "Send error reports"
-msgstr "Puerto del servidor"
+msgstr "Enviar reportes de error"
 
 #: libraries/config/setup.forms.php:41
 msgid "Config authentication"
@@ -7541,25 +7540,28 @@ msgid "The PrimeBase XT Blog by Paul McCullagh"
 msgstr "Blog de PrimeBase por Paul McCullagh"
 
 #: libraries/error_report.lib.php:238
+#, fuzzy
 msgid ""
 "Phpmyadmin has encountered an error. We have collected data about this error "
 "as well as information about relevant configuration settings to send to "
 "phpmyadmin for processing to help us in debugging the problem"
 msgstr ""
+"Phpmyadmin encontro un error. Hemos recolectado datos sobre este error asi "
+"como información relevante a ajustes de configuración para enviar a procesar "
+"a phpmyadmin"
 
 #: libraries/error_report.lib.php:245
 msgid "You may examine the data in the error report:"
-msgstr ""
+msgstr "Usted puede examinar los datos en el reporte de error:"
 
 #: libraries/error_report.lib.php:252
 msgid "Please explain the steps that lead to the error:"
-msgstr ""
+msgstr "Por favor explique los pasos que llevan al error:"
 
 #: libraries/error_report.lib.php:260
-#, fuzzy
 #| msgid "Automatically create versions"
 msgid "Automatically send report next time"
-msgstr "Crear versiones automáticamente"
+msgstr "Enviar reporte automáticamente la proxima vez"
 
 #: libraries/import.lib.php:190 libraries/insert_edit.lib.php:122
 #: libraries/rte/rte_routines.lib.php:1464 libraries/sql.lib.php:1639
@@ -7977,10 +7979,9 @@ msgstr[0] "Se encontró %s resultado adicional"
 msgstr[1] "Se encontraron %s resultados adicionales"
 
 #: libraries/navigation/NavigationTree.class.php:1043
-#, fuzzy
 #| msgid "filter databases by name"
 msgid "filter databases by name or regex"
-msgstr "filtrar bases de datos por nombre"
+msgstr "filtrar bases de datos por nombre o expresión regular"
 
 #: libraries/navigation/NavigationTree.class.php:1045
 #: libraries/navigation/NavigationTree.class.php:1077
