@@ -14,13 +14,13 @@ var ErrorReport = {
      *
      * @return void
      */
-    error_handler: function(exception) {
+    error_handler: function (exception) {
         ErrorReport._last_exception = exception;
         $.get("error_report.php",{
             ajax_request: true,
             token: PMA_commonParams.get('token'),
             get_settings: true,
-        }, function(data) {
+        }, function (data) {
             if (!data.success === true) {
                 PMA_ajaxShowMessage(data.error, false);
                 return;
@@ -51,7 +51,7 @@ var ErrorReport = {
      *
      * @return void
      */
-    _showReportDialog: function(exception) {
+    _showReportDialog: function (exception) {
         var report_data = ErrorReport._get_report_data(exception);
 
         /*Remove the hidden dialogs if there are*/
@@ -109,7 +109,7 @@ var ErrorReport = {
      *
      * @return void
      */
-    _showErrorNotification: function(){
+    _showErrorNotification: function () {
         ErrorReport._removeErrorNotification();
 
         $div = $('<div style="position:fixed;bottom:0px;left:5px;right:5px;'
@@ -140,8 +140,8 @@ var ErrorReport = {
      *
      * @return void
      */
-    _removeErrorNotification: function() {
-        $("#error_notification").fadeOut( function() {
+    _removeErrorNotification: function () {
+        $("#error_notification").fadeOut(function () {
             $(this).remove();
         });
     },
@@ -150,7 +150,7 @@ var ErrorReport = {
      *
      * @return void
      */
-    _createReportDialog: function() {
+    _createReportDialog: function () {
         ErrorReport._removeErrorNotification();
         ErrorReport._showReportDialog(ErrorReport._last_exception);
     },
@@ -159,18 +159,18 @@ var ErrorReport = {
      *
      * @return object
      */
-    _get_microhistory: function() {
+    _get_microhistory: function () {
         cached_pages = AJAX.cache.pages.slice(-7);
         remove = ["common_query", "table", "db", "token", "pma_absolute_uri"];
         return {
-            pages: cached_pages.map(function(page) {
+            pages: cached_pages.map(function (page) {
                 simplepage = {
                     hash: page.hash,
                 };
 
                 if (page.params) {
                     simplepage.params = $.extend({}, page.params)
-                    $.each(simplepage.params, function(param) {
+                    $.each(simplepage.params, function (param) {
                         if($.inArray(param, remove) != -1) {
                             delete simplepage.params[param];
                         };
@@ -189,17 +189,17 @@ var ErrorReport = {
      *
      * @return void
      */
-    _redirect_to_settings: function() {
+    _redirect_to_settings: function () {
         window.location.href = "prefs_forms.php?token=" + PMA_commonParams.get('token');
     },
     /**
      * Returns the report data to send to the server
      *
      * @param object exception info
-     * 
+     *
      * @return object
      */
-    _get_report_data: function(exception) {
+    _get_report_data: function (exception) {
         var token = PMA_commonParams.get('token');
 
         var report_data = {
@@ -209,7 +209,7 @@ var ErrorReport = {
             "current_url": window.location.href,
             "microhistory": ErrorReport._get_microhistory(),
             "scripts": AJAX.cache.pages[AJAX.cache.current-1].scripts.map(
-                function(script) {
+                function (script) {
                     return script.name;
                 }
             ),
@@ -221,11 +221,11 @@ var ErrorReport = {
      * concatenating the context
      *
      * @param object exception info
-     * 
+     *
      * @return object
      */
-    _simplify_exception: function(exception) {
-        exception.stack = exception.stack.map(function(level) {
+    _simplify_exception: function (exception) {
+        exception.stack = exception.stack.map(function (level) {
             if (/get_scripts\.js\.php/.test(level.url)) {
                 level.url = "get_scripts.js.php";
             }
@@ -236,14 +236,14 @@ var ErrorReport = {
     },
     /**
      * Wraps all global functions that start with PMA_
-     * 
+     *
      * @return void
      */
-    wrap_global_functions: function() {
+    wrap_global_functions: function () {
         for(var key in window) {
             var global = window[key];
             if(typeof(global) === "function" && key.indexOf("PMA_") === 0) {
-                window[key] = ErrorReport.wrap_function(global);
+                window[key] = ErrorReport.wrap_function (global);
             }
         }
     },
@@ -251,12 +251,12 @@ var ErrorReport = {
      * Wraps given function in error reporting code and returns wrapped function
      *
      * @param function function to be wrapped
-     * 
+     *
      * @return function
      */
-    wrap_function: function(func) {
+    wrap_function: function (func) {
         if (!func.wrapped) {
-            var new_func = function(){
+            var new_func = function () {
                 try {
                     return func.apply(this, arguments)
                 } catch(x) {
@@ -274,10 +274,10 @@ var ErrorReport = {
      *
      * @return void
      */
-    _wrap_ajax_onload_callback: function() {
+    _wrap_ajax_onload_callback: function () {
         var oldOnload = AJAX.registerOnload;
-        AJAX.registerOnload = function(file, func) {
-            func = ErrorReport.wrap_function(func);
+        AJAX.registerOnload = function (file, func) {
+            func = ErrorReport.wrap_function (func);
             oldOnload.call(this, file, func);
         }
     },
@@ -286,12 +286,12 @@ var ErrorReport = {
      *
      * @return void
      */
-    _wrap_$_on_callback: function() {
+    _wrap_$_on_callback: function () {
         var oldOn = $.fn.on;
-        $.fn.on = function() {
-            for( var i = 1; i<=3; i++) {
+        $.fn.on = function () {
+            for (var i = 1; i <= 3; i++) {
                 if(typeof(arguments[i]) === "function") {
-                    arguments[i] = ErrorReport.wrap_function(arguments[i]);
+                    arguments[i] = ErrorReport.wrap_function (arguments[i]);
                     break;
                 }
             }
@@ -301,7 +301,7 @@ var ErrorReport = {
     /**
      * Wraps all global functions that start with PMA_
      * also automatically wraps the callback in AJAX.registerOnload
-     * 
+     *
      * @return void
      */
     set_up_error_reporting: function () {
@@ -314,6 +314,6 @@ var ErrorReport = {
 
 TraceKit.report.subscribe(ErrorReport.error_handler);
 ErrorReport.set_up_error_reporting();
-$(function(){
+$(function () {
     ErrorReport.wrap_global_functions();
 })
