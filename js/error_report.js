@@ -68,17 +68,17 @@ var ErrorReport = {
                 send_error_report: true,
                 description: $("#report_description").val(),
                 always_send: $("#always_send_checkbox")[0].checked
-            })
+            });
             $.post("error_report.php", post_data, function (data) {
-                $dialog.dialog('close')
+                $dialog.dialog('close');
                 if (data.success === false) {
                     //in the case of an error, show the error message returned.
                     PMA_ajaxShowMessage(data.error, false);
                 } else {
                     PMA_ajaxShowMessage(data.message, 3000);
                 }
-            })
-        }
+            });
+        };
 
         button_options[PMA_messages.strCancel] = function () {
             $(this).dialog('close');
@@ -169,11 +169,11 @@ var ErrorReport = {
                 };
 
                 if (page.params) {
-                    simplepage.params = $.extend({}, page.params)
+                    simplepage.params = $.extend({}, page.params);
                     $.each(simplepage.params, function (param) {
                         if($.inArray(param, remove) != -1) {
                             delete simplepage.params[param];
-                        };
+                        }
                     });
                 }
 
@@ -258,7 +258,7 @@ var ErrorReport = {
         if (!func.wrapped) {
             var new_func = function () {
                 try {
-                    return func.apply(this, arguments)
+                    return func.apply(this, arguments);
                 } catch(x) {
                     TraceKit.report(x);
                 }
@@ -279,7 +279,7 @@ var ErrorReport = {
         AJAX.registerOnload = function (file, func) {
             func = ErrorReport.wrap_function (func);
             oldOnload.call(this, file, func);
-        }
+        };
     },
     /**
      * Automatically wraps the callback in $.fn.on
@@ -296,7 +296,7 @@ var ErrorReport = {
                 }
             }
             return oldOn.apply(this, arguments);
-        }
+        };
     },
     /**
      * Wraps all global functions that start with PMA_
@@ -310,10 +310,10 @@ var ErrorReport = {
         ErrorReport._wrap_$_on_callback();
     }
 
-}
+};
 
 TraceKit.report.subscribe(ErrorReport.error_handler);
 ErrorReport.set_up_error_reporting();
 $(function () {
     ErrorReport.wrap_global_functions();
-})
+});
