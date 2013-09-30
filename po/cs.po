@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-09-30 14:06+0200\n"
+"POT-Creation-Date: 2013-09-30 17:38+0200\n"
 "PO-Revision-Date: 2013-09-30 15:54+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Czech <http://l10n.cihar.com/projects/phpmyadmin/master/cs/>\n"
@@ -427,7 +427,7 @@ msgstr ""
 
 #: error_report.php:26
 msgid ""
-"An error has been detected however the js line counts file does not seam to "
+"An error has been detected however the js line counts file does not seem to "
 "exist in this phpMyAdmin installation. "
 msgstr ""
 
@@ -4036,8 +4036,8 @@ msgid ""
 "The [code]$cfg['PmaAbsoluteUri'][/code] directive MUST be set in your "
 "configuration file!"
 msgstr ""
-"V konfiguračním souboru musí být nastaven parametr "
-"[code]$cfg['PmaAbsoluteUri'][/code]!"
+"V konfiguračním souboru musí být nastaven parametr [code]$cfg"
+"['PmaAbsoluteUri'][/code]!"
 
 #: libraries/common.inc.php:630
 #, php-format
@@ -4372,8 +4372,8 @@ msgid ""
 "Secret passphrase used for encrypting cookies in [kbd]cookie[/kbd] "
 "authentication"
 msgstr ""
-"Tajné heslo používané pro šifrování cookies při přihlašování pomocí "
-"[kbd]cookie[/kbd]"
+"Tajné heslo používané pro šifrování cookies při přihlašování pomocí [kbd]"
+"cookie[/kbd]"
 
 #: libraries/config/messages.inc.php:23
 msgid "Blowfish secret"
@@ -4414,8 +4414,8 @@ msgid ""
 "kbd] - allows newlines in columns"
 msgstr ""
 "Definuje, který typ ovládacích prvků má být použit při úpravách polí typu "
-"CHAR a VARCHAR; [kbd]input[/kbd] - umožňuje omezit délku vstupu, "
-"[kbd]textarea[/kbd] - umožní použít odřádkování"
+"CHAR a VARCHAR; [kbd]input[/kbd] - umožňuje omezit délku vstupu, [kbd]"
+"textarea[/kbd] - umožní použít odřádkování"
 
 #: libraries/config/messages.inc.php:31
 msgid "CHAR columns editing"
@@ -4423,8 +4423,8 @@ msgstr "Úprava polí typu CHAR"
 
 #: libraries/config/messages.inc.php:32
 msgid ""
-"Use user-friendly editor for editing SQL queries ([a@http://codemirror."
-"net/]CodeMirror[/a]) with syntax highlighting and line numbers"
+"Use user-friendly editor for editing SQL queries ([a@http://codemirror.net/]"
+"CodeMirror[/a]) with syntax highlighting and line numbers"
 msgstr ""
 "Použít uživatelsky přívětivý editor pro úpravu SQL dotazů ([a@http://"
 "codemirror.net/]CodeMirror[/a]) se zvýrazněním syntaxe a čísly řádek"
@@ -4964,9 +4964,8 @@ msgstr "Jména stránek"
 
 #: libraries/config/messages.inc.php:194
 msgid ""
-"Specify browser's title bar text. Refer to "
-"[doc@cfg_TitleTable]documentation[/doc] for magic strings that can be used "
-"to get special values."
+"Specify browser's title bar text. Refer to [doc@cfg_TitleTable]documentation"
+"[/doc] for magic strings that can be used to get special values."
 msgstr ""
 "Zadejte titulek který zobrazí prohlížeč. V [doc@cfg_TitleTable]dokumentaci[/"
 "doc] naleznete jaké proměnné můžete použít."
@@ -5768,8 +5767,8 @@ msgstr "Tabulka záložek"
 
 #: libraries/config/messages.inc.php:383
 msgid ""
-"Leave blank for no column comments/mime types, suggested: "
-"[kbd]pma__column_info[/kbd]"
+"Leave blank for no column comments/mime types, suggested: [kbd]"
+"pma__column_info[/kbd]"
 msgstr ""
 "Nechte prázdné pro žádné komentáře či mime typy polí, výchozí nastavení: "
 "[kbd]pma__column_info[/kbd]"
@@ -5840,8 +5839,8 @@ msgid ""
 "Leave blank for no Designer support, suggested: [kbd]pma__designer_coords[/"
 "kbd]"
 msgstr ""
-"Nechte prázdné pro vypnutí návrháře, výchozí nastavení: "
-"[kbd]pma__designer_coords[/kbd]"
+"Nechte prázdné pro vypnutí návrháře, výchozí nastavení: [kbd]"
+"pma__designer_coords[/kbd]"
 
 #: libraries/config/messages.inc.php:397
 msgid "Designer table"
@@ -5944,8 +5943,8 @@ msgstr "Heslo pro přihlašování config"
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__pdf_pages[/kbd]"
 msgstr ""
-"Nechte prázdné pro vypnutí podpory pro PDF schémata, výchozí nastavení: "
-"[kbd]pma__table_pages[/kbd]"
+"Nechte prázdné pro vypnutí podpory pro PDF schémata, výchozí nastavení: [kbd]"
+"pma__table_pages[/kbd]"
 
 #: libraries/config/messages.inc.php:418
 msgid "PDF schema: pages table"
@@ -5959,8 +5958,8 @@ msgid ""
 msgstr ""
 "Databáze používaná pro relace, záložky a PDF stránky. Více informací "
 "naleznete na [a@http://wiki.phpmyadmin.net/pma/pmadb]pmadb[/a]. Pokud "
-"ponecháte prázdné, budou tyto funkce vypnuté. Doporučená hodnota: "
-"[kbd]phpmyadmin[/kbd]"
+"ponecháte prázdné, budou tyto funkce vypnuté. Doporučená hodnota: [kbd]"
+"phpmyadmin[/kbd]"
 
 #: libraries/config/messages.inc.php:420
 #: libraries/display_create_database.lib.php:31
@@ -5990,8 +5989,8 @@ msgstr "Naposledy použité tabulky"
 
 #: libraries/config/messages.inc.php:425
 msgid ""
-"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
-"links[/a] support, suggested: [kbd]pma__relation[/kbd]"
+"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-links"
+"[/a] support, suggested: [kbd]pma__relation[/kbd]"
 msgstr ""
 "Nechte prázdné pro vypnutí podpory pro [a@http://wiki.phpmyadmin.net/pma/"
 "relation]relace[/a], výchozí nastavení: [kbd]pma__relation[/kbd]"
@@ -6010,11 +6009,11 @@ msgstr "Příkaz SHOW DATABASES"
 
 #: libraries/config/messages.inc.php:429
 msgid ""
-"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
-"types[/a] for an example"
+"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication types"
+"[/a] for an example"
 msgstr ""
-"Příklad můžete nalézt na [a@http://wiki.phpmyadmin.net/pma/"
-"auth_types#signon]authentication types[/a]"
+"Příklad můžete nalézt na [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]"
+"authentication types[/a]"
 
 #: libraries/config/messages.inc.php:430
 msgid "Signon session name"
@@ -6046,8 +6045,8 @@ msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__table_coords[/"
 "kbd]"
 msgstr ""
-"Nechte prázdné pro vypnutí podpory pro PDF schémata, výchozí nastavení: "
-"[kbd]pma__table_coords[/kbd]"
+"Nechte prázdné pro vypnutí podpory pro PDF schémata, výchozí nastavení: [kbd]"
+"pma__table_coords[/kbd]"
 
 #: libraries/config/messages.inc.php:437
 msgid "PDF schema: table coordinates"
@@ -6123,8 +6122,8 @@ msgstr "Sledované příkazy"
 
 #: libraries/config/messages.inc.php:450
 msgid ""
-"Leave blank for no SQL query tracking support, suggested: "
-"[kbd]pma__tracking[/kbd]"
+"Leave blank for no SQL query tracking support, suggested: [kbd]pma__tracking"
+"[/kbd]"
 msgstr ""
 "Nechte prázdné pro vypnutí podpory pro sledování SQL dotazů, výchozí "
 "nastavení: [kbd]pma__tracking[/kbd]"
@@ -6146,8 +6145,8 @@ msgstr "Automaticky vytvářet verze"
 
 #: libraries/config/messages.inc.php:454
 msgid ""
-"Leave blank for no user preferences storage in database, suggested: "
-"[kbd]pma__userconfig[/kbd]"
+"Leave blank for no user preferences storage in database, suggested: [kbd]"
+"pma__userconfig[/kbd]"
 msgstr ""
 "Nechte prázdné pro vypnutí podpory pro uživatelské nastavení v databázi, "
 "výchozí nastavení: [kbd]pma__userconfig[/kbd]"
@@ -6158,8 +6157,8 @@ msgstr "Tabulka pro uživatelská nastavení"
 
 #: libraries/config/messages.inc.php:456
 msgid ""
-"Leave blank to disable configurable menus feature, suggested: "
-"[kbd]pma__users[/kbd]"
+"Leave blank to disable configurable menus feature, suggested: [kbd]pma__users"
+"[/kbd]"
 msgstr ""
 "Nechte prázdné pro vypnutí podpory pro nastavitelné menu, výchozí nastavení: "
 "[kbd]pma__users[/kbd]"
@@ -6170,8 +6169,8 @@ msgstr "Tabulka uživatelů"
 
 #: libraries/config/messages.inc.php:458
 msgid ""
-"Leave blank to disable configurable menus feature, suggested: "
-"[kbd]pma__usergroups[/kbd]"
+"Leave blank to disable configurable menus feature, suggested: [kbd]"
+"pma__usergroups[/kbd]"
 msgstr ""
 "Nechte prázdné pro vypnutí podpory pro nastavitelné menu, výchozí nastavení: "
 "[kbd]pma__usergroups[/kbd]"
@@ -6308,8 +6307,8 @@ msgid ""
 "Shows link to [a@http://php.net/manual/function.phpinfo.php]phpinfo()[/a] "
 "output"
 msgstr ""
-"Zobrazí link na výstup funkce [a@http://php.net/manual/function.phpinfo."
-"php]phpinfo()[/a]"
+"Zobrazí link na výstup funkce [a@http://php.net/manual/function.phpinfo.php]"
+"phpinfo()[/a]"
 
 #: libraries/config/messages.inc.php:486
 msgid "Show phpinfo() link"
@@ -6384,8 +6383,8 @@ msgid ""
 "If you have a custom username, specify it here (defaults to [kbd]anonymous[/"
 "kbd])"
 msgstr ""
-"Pokud máte vlastní užvatelské jméno, zadejte ho zde (jinak se použije "
-"[kbd]anonymous[/kbd])"
+"Pokud máte vlastní užvatelské jméno, zadejte ho zde (jinak se použije [kbd]"
+"anonymous[/kbd])"
 
 #: libraries/config/messages.inc.php:506 libraries/tbl_tracking.lib.php:500
 #: libraries/tbl_tracking.lib.php:596
@@ -6548,7 +6547,6 @@ msgid "The password for authenticating with the proxy"
 msgstr "Heslo pro přihlášení k serveru proxy"
 
 #: libraries/config/messages.inc.php:537
-#| msgid "Password"
 msgid "Proxy password"
 msgstr "Heslo proxy"
 
@@ -7805,7 +7803,6 @@ msgstr[1] "nalezeny %s další výsledky"
 msgstr[2] "nalezeno %s dalších výsledků"
 
 #: libraries/navigation/NavigationTree.class.php:1043
-#| msgid "filter databases by name"
 msgid "filter databases by name or regex"
 msgstr "filtrovat databáze podle jména nebo regexu"
 
@@ -7815,7 +7812,6 @@ msgid "Clear Fast Filter"
 msgstr "Vymazat filtr"
 
 #: libraries/navigation/NavigationTree.class.php:1076
-#| msgid "filter items by name"
 msgid "filter by name or regex"
 msgstr "filtrovat položky podle jména nebo regexu"
 
@@ -12647,9 +12643,8 @@ msgid ""
 "Otherwise you will be only able to download or display it."
 msgstr ""
 "Prosím, vytvořte adresář [em]config[/em] zapisovatelný pro web server v "
-"kořenovém adresáři phpMyAdmina, jak je popsáno v "
-"[doc@setup_script]dokumentaci[/doc]. Jinak budete moci nastavení pouze "
-"stáhnout nebo zobrazit."
+"kořenovém adresáři phpMyAdmina, jak je popsáno v [doc@setup_script]"
+"dokumentaci[/doc]. Jinak budete moci nastavení pouze stáhnout nebo zobrazit."
 
 #: setup/frames/index.inc.php:68
 msgid ""
@@ -12791,8 +12786,8 @@ msgid ""
 "You are using Git version, run [kbd]git pull[/kbd] :-)[br]The latest stable "
 "version is %s, released on %s."
 msgstr ""
-"Používáte verzi z Gitu, pro aktualizaci spusťte [kbd]git pull[/kbd] :-)"
-"[br]Poslední stabilní verze je %s a byla vydána %s."
+"Používáte verzi z Gitu, pro aktualizaci spusťte [kbd]git pull[/kbd] :-)[br]"
+"Poslední stabilní verze je %s a byla vydána %s."
 
 #: setup/lib/index.lib.php:172
 msgid "No newer stable version is available"
@@ -12903,8 +12898,8 @@ msgid ""
 "You set the [kbd]config[/kbd] authentication type and included username and "
 "password for auto-login, which is not a desirable option for live hosts. "
 "Anyone who knows or guesses your phpMyAdmin URL can directly access your "
-"phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or "
-"[kbd]http[/kbd]."
+"phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or [kbd]"
+"http[/kbd]."
 msgstr ""
 "Nastavil jste typ přihlašování [kbd]config[/kbd] a zadal jste uživatelské "
 "jméno a heslo pro automatické přihlášení, což není doporučená volba pro "
@@ -14615,9 +14610,9 @@ msgstr "concurrent_insert je nastaveno na 0"
 
 #~ msgid ""
 #~ "When setting this to [kbd]nested[/kbd], the alias of the table name is "
-#~ "only used to split/nest the tables according to the "
-#~ "$cfg['LeftFrameTableSeparator'] directive, so only the folder is called "
-#~ "like the alias, the table name itself stays unchanged"
+#~ "only used to split/nest the tables according to the $cfg"
+#~ "['LeftFrameTableSeparator'] directive, so only the folder is called like "
+#~ "the alias, the table name itself stays unchanged"
 #~ msgstr ""
 #~ "Při nastavení na [kbd]nested[/kbd], bude komentář použit pro zanoření a "
 #~ "rozdělení podle nastavení $cfg['LeftFrameTableSeparator']. Takže komentář "

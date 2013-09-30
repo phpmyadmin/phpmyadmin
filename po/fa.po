@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-09-30 14:06+0200\n"
+"POT-Creation-Date: 2013-09-30 17:38+0200\n"
 "PO-Revision-Date: 2013-07-01 02:18+0200\n"
 "Last-Translator: Hamid Rohani <tazzeh2004@yahoo.com>\n"
 "Language-Team: Persian <http://l10n.cihar.com/projects/phpmyadmin/master/fa/"
@@ -433,7 +433,7 @@ msgstr ""
 
 #: error_report.php:26
 msgid ""
-"An error has been detected however the js line counts file does not seam to "
+"An error has been detected however the js line counts file does not seem to "
 "exist in this phpMyAdmin installation. "
 msgstr ""
 
@@ -4470,8 +4470,8 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:32
 msgid ""
-"Use user-friendly editor for editing SQL queries ([a@http://codemirror."
-"net/]CodeMirror[/a]) with syntax highlighting and line numbers"
+"Use user-friendly editor for editing SQL queries ([a@http://codemirror.net/]"
+"CodeMirror[/a]) with syntax highlighting and line numbers"
 msgstr ""
 
 #: libraries/config/messages.inc.php:33
@@ -5012,9 +5012,8 @@ msgstr "عنوان صفحه"
 
 #: libraries/config/messages.inc.php:194
 msgid ""
-"Specify browser's title bar text. Refer to "
-"[doc@cfg_TitleTable]documentation[/doc] for magic strings that can be used "
-"to get special values."
+"Specify browser's title bar text. Refer to [doc@cfg_TitleTable]documentation"
+"[/doc] for magic strings that can be used to get special values."
 msgstr ""
 
 #: libraries/config/messages.inc.php:195
@@ -5771,8 +5770,8 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:383
 msgid ""
-"Leave blank for no column comments/mime types, suggested: "
-"[kbd]pma__column_info[/kbd]"
+"Leave blank for no column comments/mime types, suggested: [kbd]"
+"pma__column_info[/kbd]"
 msgstr ""
 
 #: libraries/config/messages.inc.php:384
@@ -5968,8 +5967,8 @@ msgstr "جدول هایی که به تازگی استفاده شده"
 
 #: libraries/config/messages.inc.php:425
 msgid ""
-"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
-"links[/a] support, suggested: [kbd]pma__relation[/kbd]"
+"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-links"
+"[/a] support, suggested: [kbd]pma__relation[/kbd]"
 msgstr ""
 
 #: libraries/config/messages.inc.php:426
@@ -5986,8 +5985,8 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:429
 msgid ""
-"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
-"types[/a] for an example"
+"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication types"
+"[/a] for an example"
 msgstr ""
 
 #: libraries/config/messages.inc.php:430
@@ -6084,8 +6083,8 @@ msgstr "جملاتی که باید ردگیری شوند"
 
 #: libraries/config/messages.inc.php:450
 msgid ""
-"Leave blank for no SQL query tracking support, suggested: "
-"[kbd]pma__tracking[/kbd]"
+"Leave blank for no SQL query tracking support, suggested: [kbd]pma__tracking"
+"[/kbd]"
 msgstr ""
 
 #: libraries/config/messages.inc.php:451
@@ -6104,8 +6103,8 @@ msgstr "به صورت خودکار نسخه ایجاد شود"
 
 #: libraries/config/messages.inc.php:454
 msgid ""
-"Leave blank for no user preferences storage in database, suggested: "
-"[kbd]pma__userconfig[/kbd]"
+"Leave blank for no user preferences storage in database, suggested: [kbd]"
+"pma__userconfig[/kbd]"
 msgstr ""
 
 #: libraries/config/messages.inc.php:455
@@ -6114,8 +6113,8 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:456
 msgid ""
-"Leave blank to disable configurable menus feature, suggested: "
-"[kbd]pma__users[/kbd]"
+"Leave blank to disable configurable menus feature, suggested: [kbd]pma__users"
+"[/kbd]"
 msgstr ""
 
 #: libraries/config/messages.inc.php:457
@@ -6126,8 +6125,8 @@ msgstr "بكارگيري جدولها"
 
 #: libraries/config/messages.inc.php:458
 msgid ""
-"Leave blank to disable configurable menus feature, suggested: "
-"[kbd]pma__usergroups[/kbd]"
+"Leave blank to disable configurable menus feature, suggested: [kbd]"
+"pma__usergroups[/kbd]"
 msgstr ""
 
 #: libraries/config/messages.inc.php:459
@@ -11899,10 +11898,9 @@ msgid ""
 "example '\\\\xyz' or 'a\\'b')."
 msgstr ""
 "اگر نوع ستون \"enum\" يا \"set\" مي‌باشد ، لطفا براي ورود مقادير از اين قالب "
-"استفاده نماييد : 'a','b','c'…<br /> اگر احتياج داشتيد كه از علامت مميز "
-"برعكس(بك‌اسلش) (\" \\ \") يا نقل‌قول تكي (\" ' \") در آن مقادير استفاده "
-"نماييد ، قبل از آنها علامت (\" \\ \") را بگذاريد<br /> (براي مثال'\\\\xyz' "
-"يا 'a\\'b')"
+"استفاده نماييد : 'a','b','c'…<br /> اگر احتياج داشتيد كه از علامت مميز برعكس"
+"(بك‌اسلش) (\" \\ \") يا نقل‌قول تكي (\" ' \") در آن مقادير استفاده نماييد ، "
+"قبل از آنها علامت (\" \\ \") را بگذاريد<br /> (براي مثال'\\\\xyz' يا 'a\\'b')"
 
 #: libraries/tbl_columns_definition_form.lib.php:291
 msgid ""
@@ -11936,10 +11934,9 @@ msgid ""
 "'\\\\xyz' or 'a\\'b')."
 msgstr ""
 "اگر نوع ستون \"enum\" يا \"set\" مي‌باشد ، لطفا براي ورود مقادير از اين قالب "
-"استفاده نماييد : 'a','b','c'…<br /> اگر احتياج داشتيد كه از علامت مميز "
-"برعكس(بك‌اسلش) (\" \\ \") يا نقل‌قول تكي (\" ' \") در آن مقادير استفاده "
-"نماييد ، قبل از آنها علامت (\" \\ \") را بگذاريد<br /> (براي مثال'\\\\xyz' "
-"يا 'a\\'b')"
+"استفاده نماييد : 'a','b','c'…<br /> اگر احتياج داشتيد كه از علامت مميز برعكس"
+"(بك‌اسلش) (\" \\ \") يا نقل‌قول تكي (\" ' \") در آن مقادير استفاده نماييد ، "
+"قبل از آنها علامت (\" \\ \") را بگذاريد<br /> (براي مثال'\\\\xyz' يا 'a\\'b')"
 
 #: libraries/tbl_columns_definition_form.lib.php:752
 msgid "first"
@@ -12818,8 +12815,8 @@ msgid ""
 "You set the [kbd]config[/kbd] authentication type and included username and "
 "password for auto-login, which is not a desirable option for live hosts. "
 "Anyone who knows or guesses your phpMyAdmin URL can directly access your "
-"phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or "
-"[kbd]http[/kbd]."
+"phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or [kbd]"
+"http[/kbd]."
 msgstr ""
 
 #: setup/lib/index.lib.php:284
