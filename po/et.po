@@ -6,10 +6,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-09-30 17:38+0200\n"
-"PO-Revision-Date: 2013-09-30 11:39+0200\n"
+"PO-Revision-Date: 2013-09-30 22:49+0200\n"
 "Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
-"Language-Team: Estonian <http://l10n.cihar.com/projects/phpmyadmin/master/et/"
-">\n"
+"Language-Team: Estonian "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/et/>\n"
 "Language: et\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -412,34 +412,38 @@ msgstr "Andmebaasi logi"
 msgid ""
 "An error has been detected however you seem to be running on a git version "
 "of phpMyAdmin."
-msgstr ""
+msgstr "Tuvastati viga kuigi tundub, et kasutad phpMyAdmini giti versiooni."
 
 #: error_report.php:18 error_report.php:28
 msgid ""
 "Automatic report submission cannot be used. Please submit a manual error "
 "report on the bug tracker."
 msgstr ""
+"Automaatset raportite saatmist ei saa kasutada. Palun lisa veateade käsitsi "
+"vigade haldussüsteemi."
 
 #: error_report.php:21 error_report.php:31 error_report.php:42
 #: error_report.php:47
 msgid "You may want to refresh the page."
-msgstr ""
+msgstr "Sa võiksid lehekülje uuesti laadida."
 
 #: error_report.php:26
 msgid ""
 "An error has been detected however the js line counts file does not seem to "
 "exist in this phpMyAdmin installation. "
 msgstr ""
+"Tuvastati viga, kuid JavaScripti ridade arvu faili ei paista olevat "
+"phpMyAdmini paigalduses. "
 
 #: error_report.php:39
 msgid ""
 "An error has been detected and an error report has been automatically "
 "submitted based on your settings."
-msgstr ""
+msgstr "Tuvastati viga, mis raporteeriti automaatselt vastavalt su seadetele."
 
 #: error_report.php:45
 msgid "Thank you for submitting this report."
-msgstr ""
+msgstr "Täname, et saatsid raporti."
 
 #: export.php:160
 msgid "Bad type!"
@@ -2000,32 +2004,28 @@ msgid "Create view"
 msgstr "Loo vaade"
 
 #: js/messages.php:394
-#, fuzzy
 #| msgid "Server port"
 msgid "Send Error Report"
-msgstr "Serveri port"
+msgstr "Saada vearaport"
 
 #: js/messages.php:395
 msgid "Submit Error Report"
-msgstr ""
+msgstr "Saada vearaport"
 
 #: js/messages.php:396
-#, fuzzy
 #| msgid "An error has occured while loading the navigation tree"
 msgid "An error has occured. Do you want to send an error report?"
-msgstr "Navigeerimispuu laadimisel juhtus viga"
+msgstr "Juhtus viga; kas sa soovid saata vearaporti?"
 
 #: js/messages.php:398
-#, fuzzy
 #| msgid "Change settings"
 msgid "Change Report Settings"
-msgstr "Muuda sätteid"
+msgstr "Muuda raporteerimise sätteid"
 
 #: js/messages.php:399
-#, fuzzy
 #| msgid "Show open tables"
 msgid "Show Report Details"
-msgstr "Näita avatud tabeleid"
+msgstr "Näita raporteerimise detaile"
 
 #. l10n: Display text for calendar close link
 #: js/messages.php:420
@@ -4130,15 +4130,15 @@ msgstr "Suletud"
 
 #: libraries/config.values.php:111
 msgid "Ask before sending error reports"
-msgstr ""
+msgstr "Küsi enne vearaportite saatmist"
 
 #: libraries/config.values.php:112
 msgid "Always send error reports"
-msgstr ""
+msgstr "Saada vearaport alati"
 
 #: libraries/config.values.php:113
 msgid "Never send error reports"
-msgstr ""
+msgstr "Ära saada vearaportit mitte kunagi"
 
 #: libraries/config.values.php:142
 #: libraries/plugins/export/ExportHtmlword.class.php:69
@@ -6506,7 +6506,6 @@ msgid "Version check"
 msgstr "Versiooni kontroll"
 
 #: libraries/config/messages.inc.php:532
-#, fuzzy
 #| msgid ""
 #| "The url of the proxy to be used when retrieving the information about the "
 #| "latest version of phpMyAdmin. You need this if the server where "
@@ -6518,13 +6517,13 @@ msgid ""
 "if the server where phpMyAdmin is installed does not have direct access to "
 "the internet. The format is: \"hostname:portnumber\""
 msgstr ""
-"phpMyAdmin'i versiooniuuendusteks kasutatava proksiserveri aadress. See on "
-"vajalik siis, kui server, kuhu on phpMyAdmin on paigaldatud, ei oma "
-"otseühendust Internetiga. Formaat on \"hostinimi:port\""
+"phpMyAdmin'i versiooniuuendusteks ja vearaportite saatmiseks kasutatava "
+"proksiserveri aadress. See on vajalik siis, kui server, kuhu on phpMyAdmin "
+"on paigaldatud, ei oma otseühendust Internetiga. Formaat on \"hostinimi:port\""
 
 #: libraries/config/messages.inc.php:533
 msgid "Proxy url"
-msgstr ""
+msgstr "Proksi aadress"
 
 #: libraries/config/messages.inc.php:534
 msgid ""
@@ -6537,20 +6536,18 @@ msgstr ""
 "Authentication) meetodit. Muud meetodid ei ole hetkel toetatud."
 
 #: libraries/config/messages.inc.php:535
-#, fuzzy
 #| msgid "Username"
 msgid "Proxy username"
-msgstr "Kasutajanimi"
+msgstr "Proksi kasutajanimi"
 
 #: libraries/config/messages.inc.php:536
 msgid "The password for authenticating with the proxy"
 msgstr "Salasõna proksi serveris autentimiseks"
 
 #: libraries/config/messages.inc.php:537
-#, fuzzy
 #| msgid "Password"
 msgid "Proxy password"
-msgstr "Parool"
+msgstr "Proksi parool"
 
 #: libraries/config/messages.inc.php:539
 msgid ""
@@ -6584,20 +6581,20 @@ msgstr "reCaptcha salajane võti"
 msgid ""
 "Uncheck this to prevent the sending of error reports for javascript errors"
 msgstr ""
+"Eemalda linnuke, et vältida vearaportite saatmist JavaScripti vigade korral"
 
 #: libraries/config/messages.inc.php:547
 msgid "Enable javascript error reporting"
-msgstr ""
+msgstr "Luba JavaScripti vigade raporteerimine"
 
 #: libraries/config/messages.inc.php:548
 msgid "Choose the default action when sending error reports"
-msgstr ""
+msgstr "Vali vaikimisi tegevus vearaportite saatmisel"
 
 #: libraries/config/messages.inc.php:549
-#, fuzzy
 #| msgid "Server port"
 msgid "Send error reports"
-msgstr "Serveri port"
+msgstr "Saada vearaport"
 
 #: libraries/config/setup.forms.php:41
 msgid "Config authentication"
@@ -7375,20 +7372,22 @@ msgid ""
 "as well as information about relevant configuration settings to send to "
 "phpmyadmin for processing to help us in debugging the problem"
 msgstr ""
+"phpMyAdminis juhtus viga. Me kogusime andmeid selle vea kohta ja samuti "
+"olulist informatsiooni seadistustest, et saata phpMyAdmini arendajatele "
+"probleemist paremini arusaamiseks"
 
 #: libraries/error_report.lib.php:245
 msgid "You may examine the data in the error report:"
-msgstr ""
+msgstr "Sa võid tutvuda vearaportis olevate andmetega:"
 
 #: libraries/error_report.lib.php:252
 msgid "Please explain the steps that lead to the error:"
-msgstr ""
+msgstr "Palun kirjelda samme, mis põhjustasid vea:"
 
 #: libraries/error_report.lib.php:260
-#, fuzzy
 #| msgid "Automatically create versions"
 msgid "Automatically send report next time"
-msgstr "Loo versioonid automaatselt"
+msgstr "Saada järgmisel korral raport automaatselt"
 
 #: libraries/import.lib.php:190 libraries/insert_edit.lib.php:122
 #: libraries/rte/rte_routines.lib.php:1464 libraries/sql.lib.php:1639
