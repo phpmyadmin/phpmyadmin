@@ -264,7 +264,7 @@ function expandTreeNode($expandElem, callback)
         $icon.hide();
         $throbber.insertBefore($icon);
 
-        loadChildNodes($expandElem, function(data) {
+        loadChildNodes($expandElem, function (data) {
             if (data.success === true) {
                 var $destination = $expandElem.closest('li');
                 $icon.removeClass('ic_b_plus').addClass('ic_b_minus');
@@ -381,7 +381,7 @@ function PMA_showCurrentNavigation()
             if (! $expander.hasClass('loaded')
                 || $expander.find('img').is('.ic_b_plus')
             ) {
-                expandTreeNode($expander, function() {
+                expandTreeNode($expander, function () {
                     handleTableOrDb(table, $dbItem);
                 });
             } else {
@@ -398,7 +398,7 @@ function PMA_showCurrentNavigation()
             var $tableContainer = $container.children('ul').children('li.tableContainer');
             if ($tableContainer.length > 0) {
                 var $expander = $tableContainer.children('div:first').children('a.expander');
-                expandTreeNode($expander, function() {
+                expandTreeNode($expander, function () {
                     scrollToView($dbItem, $('#pma_navigation_tree_content'));
                 });
             } else {
@@ -409,7 +409,7 @@ function PMA_showCurrentNavigation()
 
     function findLoadedItem($container, name, clazz, doSelect) {
         var ret = false;
-        $container.children('ul').children('li').each(function() {
+        $container.children('ul').children('li').each(function () {
             var $li = $(this);
             // this is a navigation group, recurse
             if ($li.is('.navGroup')) {
@@ -428,7 +428,7 @@ function PMA_showCurrentNavigation()
                         $li.addClass('selected');
                     }
                     // taverse up and expand and parent navigation groups
-                    $li.parents('.navGroup').each(function() {
+                    $li.parents('.navGroup').each(function () {
                         $cont = $(this).children('div.list_container');
                         if (! $cont.is(':visible')) {
                             $(this)
@@ -460,7 +460,7 @@ function PMA_showCurrentNavigation()
                 .children('a.expander');
 
             if (! $expander.hasClass('loaded') ) {
-                loadChildNodes($expander, function(data) {
+                loadChildNodes($expander, function (data) {
                     highlightTableOrView($tableContainer, $viewContainer, table);
                 });
             } else {
@@ -498,7 +498,7 @@ function PMA_showCurrentNavigation()
     {
         $items = $container.find('li.' + clazz);
         var found = false;
-        $items.each(function() {
+        $items.each(function () {
             if ($(this).children('a').text() == name) {
                 found = true;
                 return false;
@@ -514,7 +514,7 @@ function PMA_showCurrentNavigation()
         if (! $expander.hasClass('loaded')
             || $expander.find('img').is('.ic_b_plus')
         ) {
-            expandTreeNode($expander, function() {
+            expandTreeNode($expander, function () {
                 var $view = findLoadedItem(
                     $viewContainer.children('div.list_container'),
                     view, 'view', true
