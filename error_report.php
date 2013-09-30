@@ -24,7 +24,7 @@ if(!$GLOBALS['PMA_Config']->isGitRevision()) {
 } elseif (!defined('LINE_COUNTS')) {
     $response->addJSON('message', PMA_Message::error(
         __('An error has been detected however the js line counts file does not '
-            . 'seam to exist in this phpMyAdmin installation. ')
+            . 'seem to exist in this phpMyAdmin installation. ')
         . __('Automatic report submission cannot be used. Please submit a '
             . 'manual error report on the bug tracker.')
         . '<br />'
