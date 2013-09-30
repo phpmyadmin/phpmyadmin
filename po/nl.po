@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-09-30 17:38+0200\n"
-"PO-Revision-Date: 2013-09-30 17:28+0200\n"
+"PO-Revision-Date: 2013-09-30 17:44+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: Dutch <http://l10n.cihar.com/projects/phpmyadmin/master/nl/>\n"
 "Language: nl\n"
@@ -2033,7 +2033,7 @@ msgstr "VIEW aanmaken"
 #: js/messages.php:394
 #| msgid "Server port"
 msgid "Send Error Report"
-msgstr "Foutmelding verzenden"
+msgstr "Foutmeldingsverslag verzenden"
 
 #: js/messages.php:395
 msgid "Submit Error Report"
@@ -2042,17 +2042,17 @@ msgstr ""
 #: js/messages.php:396
 #| msgid "An error has occured while loading the navigation tree"
 msgid "An error has occured. Do you want to send an error report?"
-msgstr "Er is een fout opgetreden. Wil u een foutmeldingsrapport verzenden?"
+msgstr "Er is een fout opgetreden. Wil u een foutmeldingsverslag verzenden?"
 
 #: js/messages.php:398
 #| msgid "Change settings"
 msgid "Change Report Settings"
-msgstr "Rapportinstellingen wijzigen"
+msgstr "Verslaginstellingen wijzigen"
 
 #: js/messages.php:399
 #| msgid "Show open tables"
 msgid "Show Report Details"
-msgstr "Toon rapport details"
+msgstr "Toon verslag details"
 
 #. l10n: Display text for calendar close link
 #: js/messages.php:420
@@ -6617,7 +6617,7 @@ msgid ""
 msgstr ""
 "De url voor de proxy die gebruikt moet worden bij het ophalen van de "
 "informatie over de meest recente versie van phpMyAdmin of bij het verzenden "
-"van foutmeldingsrapporten. U heeft dit nodig als de server waarop phpMyAdmin "
+"van foutmeldingsverslagen. U heeft dit nodig als de server waarop phpMyAdmin "
 "geïnstalleerd is geen directe toegang tot het internet heeft. Het formaat "
 "is: \"servernaam:poortnummer\""
 
@@ -6694,7 +6694,7 @@ msgstr ""
 #: libraries/config/messages.inc.php:549
 #| msgid "Server port"
 msgid "Send error reports"
-msgstr "Verzend foutmeldingsrapporten"
+msgstr "Verzend foutmeldingsverslagen"
 
 #: libraries/config/setup.forms.php:41
 msgid "Config authentication"
@@ -7505,7 +7505,7 @@ msgstr ""
 #: libraries/error_report.lib.php:260
 #| msgid "Automatically create versions"
 msgid "Automatically send report next time"
-msgstr "Rapport voortaan automatisch verzenden"
+msgstr "Verslag voortaan automatisch verzenden"
 
 #: libraries/import.lib.php:190 libraries/insert_edit.lib.php:122
 #: libraries/rte/rte_routines.lib.php:1464 libraries/sql.lib.php:1639
