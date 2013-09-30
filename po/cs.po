@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-09-30 14:06+0200\n"
-"PO-Revision-Date: 2013-09-25 09:09+0200\n"
+"PO-Revision-Date: 2013-09-30 15:54+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Czech <http://l10n.cihar.com/projects/phpmyadmin/master/cs/>\n"
 "Language: cs\n"
@@ -4134,11 +4134,11 @@ msgstr ""
 
 #: libraries/config.values.php:112
 msgid "Always send error reports"
-msgstr ""
+msgstr "Vždy odesílat hlášení o chybě"
 
 #: libraries/config.values.php:113
 msgid "Never send error reports"
-msgstr ""
+msgstr "Nikdy neodesílat hlášení o chybě"
 
 #: libraries/config.values.php:142
 #: libraries/plugins/export/ExportHtmlword.class.php:69
@@ -6524,7 +6524,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:533
 msgid "Proxy url"
-msgstr ""
+msgstr "Adresa proxy"
 
 #: libraries/config/messages.inc.php:534
 msgid ""
@@ -6548,10 +6548,9 @@ msgid "The password for authenticating with the proxy"
 msgstr "Heslo pro přihlášení k serveru proxy"
 
 #: libraries/config/messages.inc.php:537
-#, fuzzy
 #| msgid "Password"
 msgid "Proxy password"
-msgstr "Heslo"
+msgstr "Heslo proxy"
 
 #: libraries/config/messages.inc.php:539
 msgid ""
@@ -7806,10 +7805,9 @@ msgstr[1] "nalezeny %s další výsledky"
 msgstr[2] "nalezeno %s dalších výsledků"
 
 #: libraries/navigation/NavigationTree.class.php:1043
-#, fuzzy
 #| msgid "filter databases by name"
 msgid "filter databases by name or regex"
-msgstr "filtrovat databáze podle jména"
+msgstr "filtrovat databáze podle jména nebo regexu"
 
 #: libraries/navigation/NavigationTree.class.php:1045
 #: libraries/navigation/NavigationTree.class.php:1077
@@ -7817,10 +7815,9 @@ msgid "Clear Fast Filter"
 msgstr "Vymazat filtr"
 
 #: libraries/navigation/NavigationTree.class.php:1076
-#, fuzzy
 #| msgid "filter items by name"
 msgid "filter by name or regex"
-msgstr "filtrovat položky podle jména"
+msgstr "filtrovat položky podle jména nebo regexu"
 
 #. l10n: The word "Node" must not be translated here
 #: libraries/navigation/NodeFactory.class.php:41
