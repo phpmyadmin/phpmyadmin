@@ -203,4 +203,64 @@ class PMA_Font_Test extends PHPUnit_Framework_TestCase
             PMA_Font::getStringWidth("phpMyAdmin", "arial", "20")
         );
     }
+
+    /**
+     * Test getStringWidth with a custom charList.
+     *
+     * @return void
+     */
+    function testGetStringWidthCharLists()
+    {
+        // string "a", with invalid charlist (= string)
+        $this->assertEquals(
+            6,
+            PMA_Font::getStringWidth("a", "arial", "10", "list")
+        );
+
+        // string "a", with invalid charlist (= array without proper structure)
+        $this->assertEquals(
+            6,
+            PMA_Font::getStringWidth("a", "arial", "10", array("list"))
+        );
+
+        // string "a", with invalid charlist (= array without proper structure :
+        // modifier is missing
+        $this->assertEquals(
+            6,
+            PMA_Font::getStringWidth(
+                "a", "arial", "10",
+                array(array("chars" => "a"))
+            )
+        );
+
+        // string "a", with invalid charlist (= array without proper structure :
+        // chars is missing
+        $this->assertEquals(
+            6,
+            PMA_Font::getStringWidth(
+                "a", "arial", "10",
+                array(array("modifier" => 0.61))
+            )
+        );
+
+        // string "a", with invalid charlist (= array without proper structure :
+        // chars is not an array
+        $this->assertEquals(
+            6,
+            PMA_Font::getStringWidth(
+                "a", "arial", "10",
+                array(array("chars" => "a", "modifier" => 0.61))
+            )
+        );
+
+        // string "a", with valid charlist
+        $this->assertEquals(
+            7,
+            PMA_Font::getStringWidth(
+                "a", "arial", "10",
+                array(array("chars" => array("a"), "modifier" => 0.61))
+            )
+        );
+    }
 }
+?>
