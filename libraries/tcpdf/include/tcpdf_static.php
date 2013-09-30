@@ -1,9 +1,9 @@
 <?php
 //============================================================+
 // File name   : tcpdf_static.php
-// Version     : 1.0.000
+// Version     : 1.0.002
 // Begin       : 2002-08-03
-// Last Update : 2013-04-01
+// Last Update : 2013-09-14
 // Author      : Nicola Asuni - Tecnick.com LTD - www.tecnick.com - info@tecnick.com
 // License     : GNU-LGPL v3 (http://www.gnu.org/copyleft/lesser.html)
 // -------------------------------------------------------------------
@@ -38,7 +38,7 @@
  * This is a PHP class that contains static methods for the TCPDF class.<br>
  * @package com.tecnick.tcpdf
  * @author Nicola Asuni
- * @version 1.0.000
+ * @version 1.0.002
  */
 
 /**
@@ -46,7 +46,7 @@
  * Static methods used by the TCPDF class.
  * @package com.tecnick.tcpdf
  * @brief PHP class for generating PDF documents without requiring external extensions.
- * @version 1.0.000
+ * @version 1.0.002
  * @author Nicola Asuni - info@tecnick.com
  */
 class TCPDF_STATIC {
@@ -55,7 +55,7 @@ class TCPDF_STATIC {
 	 * Current TCPDF version.
 	 * @private static
 	 */
-	private static $tcpdf_version = '6.0.024';
+	private static $tcpdf_version = '6.0.036';
 
 	/**
 	 * String alias for total number of pages.
@@ -1428,7 +1428,7 @@ class TCPDF_STATIC {
 	 * @public static
 	 */
 	public static function _RC4($key, $text, &$last_enc_key, &$last_enc_key_c) {
-		if (function_exists('mcrypt_decrypt') AND ($out = @mcrypt_decrypt(MCRYPT_ARCFOUR, $key, $text, MCRYPT_MODE_STREAM, ''))) {
+		if (function_exists('mcrypt_encrypt') AND ($out = @mcrypt_encrypt(MCRYPT_ARCFOUR, $key, $text, MCRYPT_MODE_STREAM, ''))) {
 			// try to use mcrypt function if exist
 			return $out;
 		}
@@ -2748,8 +2748,84 @@ class TCPDF_STATIC {
 			$ret[] = "\n";
 			$subject = substr($subject, ($nl + 1));
 		}
-		if (!empty($subject)) {
+		if (strlen($subject) > 0) {
 			$ret = array_merge($ret, preg_split($pattern.$modifiers, $subject, $limit, $flags));
+		}
+		return $ret;
+	}
+
+	/**
+	 * Reads entire file into a string.
+	 * The file can be also an URL.
+	 * @param $file (string) Name of the file or URL to read.
+	 * @return The function returns the read data or FALSE on failure. 
+	 * @author Nicola Asuni
+	 * @since 6.0.025
+	 * @public static
+	 */
+	public static function fileGetContents($file) {
+		// array of possible alternative paths/URLs
+		$alt = array($file);
+		// replace URL relative path with full real server path
+		if ((strlen($file) > 1)
+			AND ($file[0] == '/')
+			AND ($file[1] != '/')
+			AND !empty($_SERVER['DOCUMENT_ROOT'])
+			AND ($_SERVER['DOCUMENT_ROOT'] != '/')) {
+			$findroot = strpos($file, $_SERVER['DOCUMENT_ROOT']);
+			if (($findroot === false) OR ($findroot > 1)) {
+				if (substr($_SERVER['DOCUMENT_ROOT'], -1) == '/') {
+					$tmp = substr($_SERVER['DOCUMENT_ROOT'], 0, -1).$file;
+				} else {
+					$tmp = $_SERVER['DOCUMENT_ROOT'].$file;
+				}
+				$alt[] = htmlspecialchars_decode(urldecode($tmp));
+			}
+		}
+		// URL mode
+		$url = $file;
+		// check for missing protocol
+		if (preg_match('%^/{2}%', $url)) {
+			if (preg_match('%^([^:]+:)//%i', K_PATH_URL, $match)) {
+				$url = $match[1].str_replace(' ', '%20', $url);
+				$alt[] = $url;
+			}
+		}
+		$urldata = @parse_url($url);
+		if (!isset($urldata['query']) OR (strlen($urldata['query']) <= 0)) {
+			if (strpos($url, K_PATH_URL) === 0) {
+				// convert URL to full server path
+				$tmp = str_replace(K_PATH_URL, K_PATH_MAIN, $url);
+				$tmp = htmlspecialchars_decode(urldecode($tmp));
+				$alt[] = $tmp;
+			}
+		}
+		foreach ($alt as $f) {
+			$ret = @file_get_contents($f);
+			if (($ret === FALSE)
+				AND !ini_get('allow_url_fopen')
+				AND function_exists('curl_init')
+				AND preg_match('%^(https?|ftp)://%', $f)) {
+				// try to get remote file data using cURL
+				$cs = curl_init(); // curl session
+				curl_setopt($cs, CURLOPT_URL, $file);
+				curl_setopt($cs, CURLOPT_BINARYTRANSFER, true);
+				curl_setopt($cs, CURLOPT_FAILONERROR, true);
+				curl_setopt($cs, CURLOPT_RETURNTRANSFER, true);
+				if ((ini_get('open_basedir') == '') AND (!ini_get('safe_mode'))) {
+					curl_setopt($cs, CURLOPT_FOLLOWLOCATION, true);
+				}
+				curl_setopt($cs, CURLOPT_CONNECTTIMEOUT, 5);
+				curl_setopt($cs, CURLOPT_TIMEOUT, 30);
+				curl_setopt($cs, CURLOPT_SSL_VERIFYPEER, false);
+				curl_setopt($cs, CURLOPT_SSL_VERIFYHOST, false);
+				curl_setopt($cs, CURLOPT_USERAGENT, 'TCPDF');
+				$ret = curl_exec($cs);
+				curl_close($cs);
+			}
+			if ($ret !== FALSE) {
+				break;
+			}
 		}
 		return $ret;
 	}

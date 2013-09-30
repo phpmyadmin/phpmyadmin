@@ -1,9 +1,9 @@
 <?php
 //============================================================+
 // File name   : tcpdf_colors.php
-// Version     : 1.0.000
+// Version     : 1.0.001
 // Begin       : 2002-04-09
-// Last Update : 2013-03-25
+// Last Update : 2013-09-29
 // Author      : Nicola Asuni - Tecnick.com LTD - www.tecnick.com - info@tecnick.com
 // License     : GNU-LGPL v3 (http://www.gnu.org/copyleft/lesser.html)
 // -------------------------------------------------------------------
@@ -42,7 +42,7 @@
  * @class TCPDF_COLORS
  * PHP color class for TCPDF
  * @package com.tecnick.tcpdf
- * @version 1.0.000
+ * @version 1.0.001
  * @author Nicola Asuni - info@tecnick.com
  */
 class TCPDF_COLORS {
@@ -217,6 +217,21 @@ class TCPDF_COLORS {
 	 * @public static
 	 */
 	public static $spotcolor = array (
+		// special registration colors
+		'none'    => array(  0,   0,   0,   0, 'None'),
+		'all'     => array(100, 100, 100, 100, 'All'),
+		// standard CMYK colors
+		'cyan'    => array(100,   0,   0,   0, 'Cyan'),
+		'magenta' => array(  0, 100,   0,   0, 'Magenta'),
+		'yellow'  => array(  0,   0, 100,   0, 'Yellow'),
+		'key'     => array(  0,   0,   0, 100, 'Key'),
+		// alias
+		'white'   => array(  0,   0,   0,   0, 'White'),
+		'black'   => array(  0,   0,   0, 100, 'Black'),
+		// standard RGB colors
+		'red'     => array(  0, 100, 100,   0, 'Red'),
+		'green'   => array(100,   0, 100,   0, 'Green'),
+		'blue'    => array(100, 100,   0,   0, 'Blue'),
 		// the following are just examples, fill the array with your own values
 		'mytcpdfblack' => array(0, 0, 0, 100, 'My TCPDF Black'),
 		'mytcpdfred' => array(30, 100, 90, 10, 'My TCPDF Red'),
