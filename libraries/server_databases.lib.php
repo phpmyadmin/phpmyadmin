@@ -85,7 +85,7 @@ function PMA_getHtmlForDatabase(
     $html .= '</tr>' . "\n"
         . '</thead>' . "\n";
 
-    $html .= PMA_getHtmlForDatabaseList(
+    list($output, $column_order) = PMA_getHtmlAndColumnOrderForDatabaseList(
         $databases,
         $is_superuser,
         $url_query,
@@ -93,6 +93,7 @@ function PMA_getHtmlForDatabase(
         $replication_types,
         $replication_info
     );
+    $html .= $output;
 
     $html .= PMA_getHtmlForTableFooter(
         $cfg['AllowUserDropDatabase'],
@@ -198,7 +199,7 @@ function PMA_getHtmlForTableFooter(
 }
 
 /**
- * Returns the html for Database List with Column order
+ * Returns the html for Database List and Column order
  *
  * @param bool   $databases         GBI return databases
  * @param bool   $is_superuser      User status
@@ -207,9 +208,9 @@ function PMA_getHtmlForTableFooter(
  * @param string $replication_types replication types
  * @param string $replication_info  replication info
  *
- * @return string
+ * @return Array
  */
-function PMA_getHtmlForDatabaseList(
+function PMA_getHtmlAndColumnOrderForDatabaseList(
     $databases, $is_superuser, $url_query,
     $column_order, $replication_types, $replication_info
 ) {
@@ -239,7 +240,7 @@ function PMA_getHtmlForDatabaseList(
     } // end foreach ($databases as $key => $current)
     unset($current, $odd_row);
     $html .= '</tbody>';
-    return $html;
+    return array($html, $column_order);
 }
 
 /**
