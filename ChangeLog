@@ -16,6 +16,7 @@ phpMyAdmin - ChangeLog
 - bug #4074 GIS column editor: point not displayed
 - bug #4109 Drizzle tables in navigation are shown as views
 - bug #4095 NUL symbols added to the end of database dump file
+- bug #4105 More disappears in table Structure
 
 4.0.7.0 (2013-09-23)
 - bug #3993 Sorting in database overview with statistics doesn't work

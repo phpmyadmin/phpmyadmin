@@ -67,6 +67,7 @@ AJAX.registerOnload('tbl_structure.js', function() {
                         .append(data.sql_query)
                         .show();
                     $("#result_query .notice").remove();
+                    reloadFieldForm();
                     $form.remove();
                     PMA_ajaxRemoveMessage($msg);
                     PMA_reloadNavigation();
@@ -362,9 +363,6 @@ function reloadFieldForm(message) {
         $("#moveColumns").removeClass("move-active");
         /* reinitialise the more options in table */
         $('#fieldsForm ul.table-structure-actions').menuResizer(PMA_tbl_structure_menu_resizer_callback);
-        setTimeout(function() {
-            PMA_ajaxShowMessage(message);
-        }, 500);
     });
     $('#page_content').show();
 }
