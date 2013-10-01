@@ -1,13 +1,13 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 4.1-dev\n"
+"Project-Id-Version: phpMyAdmin 4.1.0-alpha1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-09-30 17:38+0200\n"
+"POT-Creation-Date: 2013-10-01 21:11+0200\n"
 "PO-Revision-Date: 2013-09-30 17:37+0200\n"
 "Last-Translator: Helder Santana <helder.bs.santana@gmail.com>\n"
-"Language-Team: Portuguese (Brazil) "
-"<http://l10n.cihar.com/projects/phpmyadmin/master/pt_BR/>\n"
+"Language-Team: Portuguese (Brazil) <http://l10n.cihar.com/projects/"
+"phpmyadmin/master/pt_BR/>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -408,7 +408,7 @@ msgstr "Registro de log do banco de dados"
 
 #: error_report.php:16
 msgid ""
-"An error has been detected however you seem to be running on a git version "
+"An error has been detected, however, you seem to be running on a git version "
 "of phpMyAdmin."
 msgstr ""
 
@@ -425,8 +425,8 @@ msgstr ""
 
 #: error_report.php:26
 msgid ""
-"An error has been detected however the js line counts file does not seem to "
-"exist in this phpMyAdmin installation. "
+"An error has been detected, however, the JavaScript line count file does not "
+"seem to exist in this phpMyAdmin installation."
 msgstr ""
 
 #: error_report.php:39
@@ -6691,7 +6691,6 @@ msgid "Choose the default action when sending error reports"
 msgstr ""
 
 #: libraries/config/messages.inc.php:549
-#| msgid "Server port"
 msgid "Send error reports"
 msgstr "Enviar relatório de erros"
 
@@ -11720,9 +11719,6 @@ msgid "Validated SQL"
 msgstr "SQL validado"
 
 #: libraries/sql.lib.php:1914
-#| msgid ""
-#| "Table %s does not contain a unique column. Grid edit, checkbox, Edit, "
-#| "Copy and Delete features are not available."
 msgid ""
 "Current selection does not contain a unique column. Grid edit, checkbox, "
 "Edit, Copy and Delete features are not available."

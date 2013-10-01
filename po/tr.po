@@ -1,13 +1,13 @@
 # Automatically generated <>, 2010.
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 4.1-dev\n"
+"Project-Id-Version: phpMyAdmin 4.1.0-alpha1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-09-30 17:38+0200\n"
+"POT-Creation-Date: 2013-10-01 21:11+0200\n"
 "PO-Revision-Date: 2013-10-01 12:47+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
-"Language-Team: Turkish "
-"<http://l10n.cihar.com/projects/phpmyadmin/master/tr/>\n"
+"Language-Team: Turkish <http://l10n.cihar.com/projects/phpmyadmin/master/tr/"
+">\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -406,8 +406,12 @@ msgid "Database Log"
 msgstr "Veritabanı Günlüğü"
 
 #: error_report.php:16
+#, fuzzy
+#| msgid ""
+#| "An error has been detected however you seem to be running on a git "
+#| "version of phpMyAdmin."
 msgid ""
-"An error has been detected however you seem to be running on a git version "
+"An error has been detected, however, you seem to be running on a git version "
 "of phpMyAdmin."
 msgstr ""
 "Bir hata algılandı halbuki phpMyAdmin'in bir git sürümünde çalışıyor "
@@ -427,9 +431,13 @@ msgid "You may want to refresh the page."
 msgstr "Sayfayı yenilemek isteyebilirsiniz."
 
 #: error_report.php:26
+#, fuzzy
+#| msgid ""
+#| "An error has been detected however the js line counts file does not seem "
+#| "to exist in this phpMyAdmin installation. "
 msgid ""
-"An error has been detected however the js line counts file does not seem to "
-"exist in this phpMyAdmin installation. "
+"An error has been detected, however, the JavaScript line count file does not "
+"seem to exist in this phpMyAdmin installation."
 msgstr ""
 "Bir hata algılandı halbuki js satır sayısı dosyası bu phpMyAdmin kurulumunda "
 "mevcut görünmüyor. "
@@ -2023,7 +2031,6 @@ msgid "Create view"
 msgstr "Görünüm oluştur"
 
 #: js/messages.php:394
-#| msgid "Server port"
 msgid "Send Error Report"
 msgstr "Hata Raporu Gönder"
 
@@ -2032,17 +2039,14 @@ msgid "Submit Error Report"
 msgstr "Hata Raporu Gönder"
 
 #: js/messages.php:396
-#| msgid "An error has occured while loading the navigation tree"
 msgid "An error has occured. Do you want to send an error report?"
 msgstr "Bir hata meydana geldi. Bir hata raporu göndermek istiyor musunuz?"
 
 #: js/messages.php:398
-#| msgid "Change settings"
 msgid "Change Report Settings"
 msgstr "Rapor Ayarlarını Değiştir"
 
 #: js/messages.php:399
-#| msgid "Show open tables"
 msgid "Show Report Details"
 msgstr "Rapor Ayrıntılarını Göster"
 
@@ -6570,11 +6574,6 @@ msgid "Version check"
 msgstr "Sürüm kontrolü"
 
 #: libraries/config/messages.inc.php:532
-#| msgid ""
-#| "The url of the proxy to be used when retrieving the information about the "
-#| "latest version of phpMyAdmin. You need this if the server where "
-#| "phpMyAdmin is installed does not have direct access to the internet. The "
-#| "format is: \"hostname:portnumber\""
 msgid ""
 "The url of the proxy to be used when retrieving the information about the "
 "latest version of phpMyAdmin or when submitting error reports. You need this "
@@ -6601,7 +6600,6 @@ msgstr ""
 "yapılacaktır. Kimlik doğrulamasının şu an desteklenen diğer türleri yoktur."
 
 #: libraries/config/messages.inc.php:535
-#| msgid "Username"
 msgid "Proxy username"
 msgstr "Proksi kullanıcı adı"
 
@@ -6610,7 +6608,6 @@ msgid "The password for authenticating with the proxy"
 msgstr "Proksi ile kimlik doğrulaması için parola"
 
 #: libraries/config/messages.inc.php:537
-#| msgid "Password"
 msgid "Proxy password"
 msgstr "Proksi parolası"
 
@@ -6658,7 +6655,6 @@ msgid "Choose the default action when sending error reports"
 msgstr "Hata raporlarını gönderirken varsayılan eylemi seçin"
 
 #: libraries/config/messages.inc.php:549
-#| msgid "Server port"
 msgid "Send error reports"
 msgstr "Hata raporlarını gönder"
 
@@ -7464,7 +7460,6 @@ msgid "Please explain the steps that lead to the error:"
 msgstr "Lütfen hataya neden adımları açıklayın:"
 
 #: libraries/error_report.lib.php:260
-#| msgid "Automatically create versions"
 msgid "Automatically send report next time"
 msgstr "Raporu bir dahaki sefere otomatik olarak gönder"
 

@@ -1,9 +1,9 @@
 # Automatically generated <>, 2010.
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 4.1-dev\n"
+"Project-Id-Version: phpMyAdmin 4.1.0-alpha1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-09-30 17:38+0200\n"
+"POT-Creation-Date: 2013-10-01 21:11+0200\n"
 "PO-Revision-Date: 2013-08-23 11:32+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Italian <http://l10n.cihar.com/projects/phpmyadmin/master/it/"
@@ -416,7 +416,7 @@ msgstr "Log database"
 
 #: error_report.php:16
 msgid ""
-"An error has been detected however you seem to be running on a git version "
+"An error has been detected, however, you seem to be running on a git version "
 "of phpMyAdmin."
 msgstr ""
 
@@ -433,8 +433,8 @@ msgstr ""
 
 #: error_report.php:26
 msgid ""
-"An error has been detected however the js line counts file does not seem to "
-"exist in this phpMyAdmin installation. "
+"An error has been detected, however, the JavaScript line count file does not "
+"seem to exist in this phpMyAdmin installation."
 msgstr ""
 
 #: error_report.php:39

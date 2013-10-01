@@ -1,9 +1,9 @@
 # Automatically generated <>, 2010.
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 4.1-dev\n"
+"Project-Id-Version: phpMyAdmin 4.1.0-alpha1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-09-30 17:38+0200\n"
+"POT-Creation-Date: 2013-10-01 21:11+0200\n"
 "PO-Revision-Date: 2013-09-30 17:44+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: Dutch <http://l10n.cihar.com/projects/phpmyadmin/master/nl/>\n"
@@ -406,8 +406,12 @@ msgid "Database Log"
 msgstr "Databank-log"
 
 #: error_report.php:16
+#, fuzzy
+#| msgid ""
+#| "An error has been detected however you seem to be running on a git "
+#| "version of phpMyAdmin."
 msgid ""
-"An error has been detected however you seem to be running on a git version "
+"An error has been detected, however, you seem to be running on a git version "
 "of phpMyAdmin."
 msgstr ""
 "Er is een fout ontdekt, maar je lijkt een git versie van phpMyAdmin te "
@@ -427,10 +431,16 @@ msgid "You may want to refresh the page."
 msgstr "Misschien wilt u de pagina vernieuwen."
 
 #: error_report.php:26
+#, fuzzy
+#| msgid ""
+#| "An error has been detected however you seem to be running on a git "
+#| "version of phpMyAdmin."
 msgid ""
-"An error has been detected however the js line counts file does not seem to "
-"exist in this phpMyAdmin installation. "
+"An error has been detected, however, the JavaScript line count file does not "
+"seem to exist in this phpMyAdmin installation."
 msgstr ""
+"Er is een fout ontdekt, maar je lijkt een git versie van phpMyAdmin te "
+"gebruiken."
 
 #: error_report.php:39
 msgid ""
@@ -2031,7 +2041,6 @@ msgid "Create view"
 msgstr "VIEW aanmaken"
 
 #: js/messages.php:394
-#| msgid "Server port"
 msgid "Send Error Report"
 msgstr "Foutmeldingsverslag verzenden"
 
@@ -2040,17 +2049,14 @@ msgid "Submit Error Report"
 msgstr ""
 
 #: js/messages.php:396
-#| msgid "An error has occured while loading the navigation tree"
 msgid "An error has occured. Do you want to send an error report?"
 msgstr "Er is een fout opgetreden. Wil u een foutmeldingsverslag verzenden?"
 
 #: js/messages.php:398
-#| msgid "Change settings"
 msgid "Change Report Settings"
 msgstr "Verslaginstellingen wijzigen"
 
 #: js/messages.php:399
-#| msgid "Show open tables"
 msgid "Show Report Details"
 msgstr "Toon verslag details"
 
@@ -6604,11 +6610,6 @@ msgid "Version check"
 msgstr "Versiecontrole"
 
 #: libraries/config/messages.inc.php:532
-#| msgid ""
-#| "The url of the proxy to be used when retrieving the information about the "
-#| "latest version of phpMyAdmin. You need this if the server where "
-#| "phpMyAdmin is installed does not have direct access to the internet. The "
-#| "format is: \"hostname:portnumber\""
 msgid ""
 "The url of the proxy to be used when retrieving the information about the "
 "latest version of phpMyAdmin or when submitting error reports. You need this "
@@ -6637,7 +6638,6 @@ msgstr ""
 "ondersteund."
 
 #: libraries/config/messages.inc.php:535
-#| msgid "Username"
 msgid "Proxy username"
 msgstr "Proxy gebruikersnaam"
 
@@ -6646,7 +6646,6 @@ msgid "The password for authenticating with the proxy"
 msgstr "Het wachtwoord voor de authenticatie met de proxy"
 
 #: libraries/config/messages.inc.php:537
-#| msgid "Password"
 msgid "Proxy password"
 msgstr "Proxy wachtwoord"
 
@@ -6692,7 +6691,6 @@ msgid "Choose the default action when sending error reports"
 msgstr ""
 
 #: libraries/config/messages.inc.php:549
-#| msgid "Server port"
 msgid "Send error reports"
 msgstr "Verzend foutmeldingsverslagen"
 
@@ -7503,7 +7501,6 @@ msgid "Please explain the steps that lead to the error:"
 msgstr ""
 
 #: libraries/error_report.lib.php:260
-#| msgid "Automatically create versions"
 msgid "Automatically send report next time"
 msgstr "Verslag voortaan automatisch verzenden"
 
