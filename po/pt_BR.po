@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.0-alpha1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-10-01 21:11+0200\n"
-"PO-Revision-Date: 2013-10-01 22:12+0200\n"
-"Last-Translator: Helder Santana <helder.bs.santana@gmail.com>\n"
+"PO-Revision-Date: 2013-10-01 22:21+0200\n"
+"Last-Translator: Rodrigo Souza <rodrigo.chrome@outlook.com>\n"
 "Language-Team: Portuguese (Brazil) "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -4194,15 +4194,15 @@ msgstr "Fechado"
 
 #: libraries/config.values.php:111
 msgid "Ask before sending error reports"
-msgstr ""
+msgstr "Pergunte antes de enviar relatórios de erro"
 
 #: libraries/config.values.php:112
 msgid "Always send error reports"
-msgstr ""
+msgstr "Sempre enviar relatórios de erro"
 
 #: libraries/config.values.php:113
 msgid "Never send error reports"
-msgstr ""
+msgstr "Nunca enviar relatórios de erro"
 
 #: libraries/config.values.php:142
 #: libraries/plugins/export/ExportHtmlword.class.php:69
@@ -6606,7 +6606,6 @@ msgid "Version check"
 msgstr "Verificação de versão"
 
 #: libraries/config/messages.inc.php:532
-#, fuzzy
 #| msgid ""
 #| "The url of the proxy to be used when retrieving the information about the "
 #| "latest version of phpMyAdmin. You need this if the server where "
@@ -6618,14 +6617,14 @@ msgid ""
 "if the server where phpMyAdmin is installed does not have direct access to "
 "the internet. The format is: \"hostname:portnumber\""
 msgstr ""
-"A url do proxy a ser usado para recuperar inormações sobre a última versão "
-"do phpMyAdmin. Voce precisará disto se o servidor onde o phpMyAdmin está "
-"instalado não tiver acesso direto à internet. O formato é: \"hostname:"
-"portnumber\""
+"A url do proxy a ser usada para recuperar informações sobre a última versão "
+"do phpMyAdmin ou para enviar relatórios de erro. Voce precisa disto se o "
+"servidor onde o phpMyAdmin está instalado não tiver acesso direto à "
+"internet. O formato é: \"hostname:portnumber\""
 
 #: libraries/config/messages.inc.php:533
 msgid "Proxy url"
-msgstr ""
+msgstr "URL de Proxy"
 
 #: libraries/config/messages.inc.php:534
 msgid ""
@@ -6638,20 +6637,18 @@ msgstr ""
 "Básica. Nenhum outro tipo de autenticação é suportado atualmente."
 
 #: libraries/config/messages.inc.php:535
-#, fuzzy
 #| msgid "Username"
 msgid "Proxy username"
-msgstr "Nome de usuário"
+msgstr "Usuário de Proxy"
 
 #: libraries/config/messages.inc.php:536
 msgid "The password for authenticating with the proxy"
 msgstr "A senha para autenticação com o proxy"
 
 #: libraries/config/messages.inc.php:537
-#, fuzzy
 #| msgid "Password"
 msgid "Proxy password"
-msgstr "Senha"
+msgstr "Senha de Proxy"
 
 #: libraries/config/messages.inc.php:539
 msgid ""
@@ -6685,14 +6682,16 @@ msgstr "Chave privada do reCaptcha"
 msgid ""
 "Uncheck this to prevent the sending of error reports for javascript errors"
 msgstr ""
+"Desmarque isso para impedir o envio de relatórios de erro de erros de "
+"javascript"
 
 #: libraries/config/messages.inc.php:547
 msgid "Enable javascript error reporting"
-msgstr ""
+msgstr "Ativar o envio de relatórios de erro de javascript"
 
 #: libraries/config/messages.inc.php:548
 msgid "Choose the default action when sending error reports"
-msgstr ""
+msgstr "Escolha a ação padrão ao enviar relatórios de erro"
 
 #: libraries/config/messages.inc.php:549
 msgid "Send error reports"
@@ -7489,20 +7488,22 @@ msgid ""
 "as well as information about relevant configuration settings to send to "
 "phpmyadmin for processing to help us in debugging the problem"
 msgstr ""
+"O phpMyAdmin encontrou um erro. Nós juntamos dados sobre este erro, junto "
+"com informação sobre configurações relevantes para enviar ao phpMyAdmin, "
+"para nos ajudar a debugar o problema"
 
 #: libraries/error_report.lib.php:245
 msgid "You may examine the data in the error report:"
-msgstr ""
+msgstr "Você pode examinar os dados no relatório de erros:"
 
 #: libraries/error_report.lib.php:252
 msgid "Please explain the steps that lead to the error:"
-msgstr ""
+msgstr "Favor explique os passos que levaram ao erro:"
 
 #: libraries/error_report.lib.php:260
-#, fuzzy
 #| msgid "Automatically create versions"
 msgid "Automatically send report next time"
-msgstr "Criar versões automaticamente"
+msgstr "Enviar automaticamente o relatório na próxima vez"
 
 #: libraries/import.lib.php:190 libraries/insert_edit.lib.php:122
 #: libraries/rte/rte_routines.lib.php:1464 libraries/sql.lib.php:1639
@@ -7954,12 +7955,11 @@ msgid "New"
 msgstr "Nova coluna"
 
 #: libraries/navigation/Nodes/Node_Database_Container.class.php:31
-#, fuzzy
 #| msgctxt "Create new column"
 #| msgid "New"
 msgctxt "Create new database"
 msgid "New"
-msgstr "Nova coluna"
+msgstr "Novo BD"
 
 #: libraries/navigation/Nodes/Node_Event_Container.class.php:37
 msgctxt "Create new event"
@@ -10360,10 +10360,9 @@ msgid "wildcard"
 msgstr "coringa"
 
 #: libraries/server_privileges.lib.php:2069
-#, fuzzy
 #| msgid "database-specific"
 msgid "table-specific"
-msgstr "específico de banco de dados"
+msgstr "específico de tabela"
 
 #: libraries/server_privileges.lib.php:2146
 #: libraries/server_privileges.lib.php:3296
