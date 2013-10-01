@@ -1,4 +1,4 @@
-#! /usr/bin/bash
+#!/bin/sh
 cat > js/line_counts.php <<EOF
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
