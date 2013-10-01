@@ -994,7 +994,12 @@ var PMA_fastFilter = {
                 str = $(this).val().toLowerCase();
             }
             $obj.find('li > a').not('.container').each(function () {
-                var regex = new RegExp(str, 'i');
+                try {
+                    var regex = new RegExp(str, 'i');
+                } catch (err) {
+                    // if the filter regexp is not valid exit the .each() loop
+                    return false;
+                }
                 if (regex.test($(this).text())) {
                     $(this).parent().show().removeClass('hidden');
                 } else {
