@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.0-alpha1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-10-01 21:11+0200\n"
-"PO-Revision-Date: 2013-09-30 17:44+0200\n"
+"PO-Revision-Date: 2013-10-01 21:32+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: Dutch <http://l10n.cihar.com/projects/phpmyadmin/master/nl/>\n"
 "Language: nl\n"
@@ -406,7 +406,6 @@ msgid "Database Log"
 msgstr "Databank-log"
 
 #: error_report.php:16
-#, fuzzy
 #| msgid ""
 #| "An error has been detected however you seem to be running on a git "
 #| "version of phpMyAdmin."
@@ -431,7 +430,6 @@ msgid "You may want to refresh the page."
 msgstr "Misschien wilt u de pagina vernieuwen."
 
 #: error_report.php:26
-#, fuzzy
 #| msgid ""
 #| "An error has been detected however you seem to be running on a git "
 #| "version of phpMyAdmin."
@@ -439,18 +437,20 @@ msgid ""
 "An error has been detected, however, the JavaScript line count file does not "
 "seem to exist in this phpMyAdmin installation."
 msgstr ""
-"Er is een fout ontdekt, maar je lijkt een git versie van phpMyAdmin te "
-"gebruiken."
+"Er is een fout ontdekt, maar het bestand met het aantal regels JavaScript "
+"code lijkt niet te bestaan in deze phpMyAdmin installatie."
 
 #: error_report.php:39
 msgid ""
 "An error has been detected and an error report has been automatically "
 "submitted based on your settings."
 msgstr ""
+"Er is een fout ontdekt en een foutmeldingsverslag werd automatisch verstuurd "
+"op basis van je instellingen."
 
 #: error_report.php:45
 msgid "Thank you for submitting this report."
-msgstr ""
+msgstr "Bedankt om dit verslag te versturen."
 
 #: export.php:160
 msgid "Bad type!"
@@ -2046,7 +2046,7 @@ msgstr "Foutmeldingsverslag verzenden"
 
 #: js/messages.php:395
 msgid "Submit Error Report"
-msgstr ""
+msgstr "Verstuur foutmeldingsverslag"
 
 #: js/messages.php:396
 msgid "An error has occured. Do you want to send an error report?"
@@ -4189,15 +4189,15 @@ msgstr "Gesloten"
 
 #: libraries/config.values.php:111
 msgid "Ask before sending error reports"
-msgstr ""
+msgstr "Vragen alvorens foutmeldingsverslagen te verzenden"
 
 #: libraries/config.values.php:112
 msgid "Always send error reports"
-msgstr ""
+msgstr "Foutmeldingsverslagen altijd verzenden"
 
 #: libraries/config.values.php:113
 msgid "Never send error reports"
-msgstr ""
+msgstr "Foutmeldingsverslagen nooit verzenden"
 
 #: libraries/config.values.php:142
 #: libraries/plugins/export/ExportHtmlword.class.php:69
@@ -6624,7 +6624,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:533
 msgid "Proxy url"
-msgstr ""
+msgstr "Proxy url"
 
 #: libraries/config/messages.inc.php:534
 msgid ""
