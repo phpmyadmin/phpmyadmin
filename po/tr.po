@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.0-alpha1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-10-01 21:11+0200\n"
-"PO-Revision-Date: 2013-10-01 12:47+0200\n"
+"PO-Revision-Date: 2013-10-01 21:31+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
-"Language-Team: Turkish <http://l10n.cihar.com/projects/phpmyadmin/master/tr/"
-">\n"
+"Language-Team: Turkish "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/tr/>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -406,7 +406,6 @@ msgid "Database Log"
 msgstr "Veritabanı Günlüğü"
 
 #: error_report.php:16
-#, fuzzy
 #| msgid ""
 #| "An error has been detected however you seem to be running on a git "
 #| "version of phpMyAdmin."
@@ -414,7 +413,7 @@ msgid ""
 "An error has been detected, however, you seem to be running on a git version "
 "of phpMyAdmin."
 msgstr ""
-"Bir hata algılandı halbuki phpMyAdmin'in bir git sürümünde çalışıyor "
+"Bir hata algılandı, halbuki, phpMyAdmin'in bir git sürümünde çalışıyor "
 "görünüyorsunuz."
 
 #: error_report.php:18 error_report.php:28
@@ -431,7 +430,6 @@ msgid "You may want to refresh the page."
 msgstr "Sayfayı yenilemek isteyebilirsiniz."
 
 #: error_report.php:26
-#, fuzzy
 #| msgid ""
 #| "An error has been detected however the js line counts file does not seem "
 #| "to exist in this phpMyAdmin installation. "
@@ -439,8 +437,8 @@ msgid ""
 "An error has been detected, however, the JavaScript line count file does not "
 "seem to exist in this phpMyAdmin installation."
 msgstr ""
-"Bir hata algılandı halbuki js satır sayısı dosyası bu phpMyAdmin kurulumunda "
-"mevcut görünmüyor. "
+"Bir hata algılandı, halbuki, JavaScript satır sayısı dosyası bu phpMyAdmin "
+"kurulumunda mevcut görünmüyor."
 
 #: error_report.php:39
 msgid ""
