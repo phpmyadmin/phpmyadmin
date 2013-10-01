@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-09-30 17:38+0200\n"
-"PO-Revision-Date: 2013-09-30 21:36+0200\n"
+"PO-Revision-Date: 2013-10-01 12:31+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/tr/>\n"
@@ -7451,10 +7451,13 @@ msgid ""
 "as well as information about relevant configuration settings to send to "
 "phpmyadmin for processing to help us in debugging the problem"
 msgstr ""
+"Phpmyadmin bir hatayla karşılaştı. Bu hata hakkındaki verilerin yanı sıra "
+"ilgili yapılandırma hakkındaki bilgiyi de sorunun hatasını ayıklamada bize "
+"yardımcı olması için phpmyadmin'e işlemeye göndermek amacıyla bilgi topladık"
 
 #: libraries/error_report.lib.php:245
 msgid "You may examine the data in the error report:"
-msgstr ""
+msgstr "Hata raporundaki verileri inceleyebilirsiniz:"
 
 #: libraries/error_report.lib.php:252
 msgid "Please explain the steps that lead to the error:"
