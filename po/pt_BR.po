@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-10-01 21:11+0200\n"
 "PO-Revision-Date: 2013-10-01 22:21+0200\n"
-"Last-Translator: Rodrigo Souza <rodrigo.chrome@outlook.com>\n"
+"Last-Translator: Helder Santana <helder.bs.santana@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -13226,10 +13226,9 @@ msgid "Rename view to"
 msgstr "Renomear view para"
 
 #: view_operations.php:132
-#, fuzzy
 #| msgid "Delete the table (DROP)"
 msgid "Delete the view (DROP)"
-msgstr "Remover a tabela (DROP)"
+msgstr "Remover view (DROP)"
 
 #: libraries/advisory_rules.txt:49
 msgid "Uptime below one day"
