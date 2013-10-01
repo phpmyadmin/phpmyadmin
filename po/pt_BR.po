@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.0-alpha1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-10-01 21:11+0200\n"
-"PO-Revision-Date: 2013-09-30 17:37+0200\n"
-"Last-Translator: Helder Santana <helder.bs.santana@gmail.com>\n"
-"Language-Team: Portuguese (Brazil) <http://l10n.cihar.com/projects/"
-"phpmyadmin/master/pt_BR/>\n"
+"PO-Revision-Date: 2013-10-01 22:11+0200\n"
+"Last-Translator: Rodrigo Souza <rodrigo.chrome@outlook.com>\n"
+"Language-Team: Portuguese (Brazil) "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/pt_BR/>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -411,33 +411,41 @@ msgid ""
 "An error has been detected, however, you seem to be running on a git version "
 "of phpMyAdmin."
 msgstr ""
+"Um erro foi detectado, embora, você parece estar rodando uma versão git do "
+"phpMyAdmin."
 
 #: error_report.php:18 error_report.php:28
 msgid ""
 "Automatic report submission cannot be used. Please submit a manual error "
 "report on the bug tracker."
 msgstr ""
+"Envio automático de relatório não pode ser usado. Favor enviar um relatório "
+"de erro manual no rastreador de bugs."
 
 #: error_report.php:21 error_report.php:31 error_report.php:42
 #: error_report.php:47
 msgid "You may want to refresh the page."
-msgstr ""
+msgstr "Você pode querer atualizar a página."
 
 #: error_report.php:26
 msgid ""
 "An error has been detected, however, the JavaScript line count file does not "
 "seem to exist in this phpMyAdmin installation."
 msgstr ""
+"Um erro foi detectado, embora, o arquivo contador de linhas JavaScript não "
+"parece existir nessa instalação do phpMyAdmin."
 
 #: error_report.php:39
 msgid ""
 "An error has been detected and an error report has been automatically "
 "submitted based on your settings."
 msgstr ""
+"Um erro foi detectado e um relatório de erro foi automaticamente enviado "
+"baseado em suas configurações."
 
 #: error_report.php:45
 msgid "Thank you for submitting this report."
-msgstr ""
+msgstr "Obrigado por enviar este relatório."
 
 #: export.php:160
 msgid "Bad type!"
@@ -2032,20 +2040,18 @@ msgid "Create view"
 msgstr "Criar view"
 
 #: js/messages.php:394
-#, fuzzy
 #| msgid "Server port"
 msgid "Send Error Report"
-msgstr "Porta do servidor"
+msgstr "Enviar Relatório de Erro"
 
 #: js/messages.php:395
 msgid "Submit Error Report"
-msgstr ""
+msgstr "Cadastrar Relatório de Erro"
 
 #: js/messages.php:396
-#, fuzzy
 #| msgid "An error has occured while loading the navigation tree"
 msgid "An error has occured. Do you want to send an error report?"
-msgstr "Um erro ocorreu enquanto carregava a árvore de navegação"
+msgstr "Um erro ocorreu. Você quer enviar um relatório de erro?"
 
 #: js/messages.php:398
 #, fuzzy
