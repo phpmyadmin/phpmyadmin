@@ -354,7 +354,7 @@ AJAX.registerOnload('tbl_structure.js', function() {
 /**
  * Reload fields table
  */
-function reloadFieldForm(message) {
+function reloadFieldForm() {
     $.post($("#fieldsForm").attr('action'), $("#fieldsForm").serialize()+"&ajax_request=true", function(form_data) {
         var $temp_div = $("<div id='temp_div'><div>").append(form_data.message);
         $("#fieldsForm").replaceWith($temp_div.find("#fieldsForm"));
