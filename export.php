@@ -507,19 +507,28 @@ if (!defined('TESTSUITE')) {
             && $_REQUEST['quick_export_onserverover'] != 'saveitover'))
         ) {
             $message = PMA_Message::error(
-                __('File %s already exists on server, change filename or check overwrite option.')
+                __(
+                    'File %s already exists on server, '
+                    . 'change filename or check overwrite option.'
+                )
             );
             $message->addParam($save_filename);
         } else {
             if (is_file($save_filename) && ! is_writable($save_filename)) {
                 $message = PMA_Message::error(
-                    __('The web server does not have permission to save the file %s.')
+                    __(
+                        'The web server does not have permission '
+                        . 'to save the file %s.'
+                    )
                 );
                 $message->addParam($save_filename);
             } else {
                 if (! $file_handle = @fopen($save_filename, 'w')) {
                     $message = PMA_Message::error(
-                        __('The web server does not have permission to save the file %s.')
+                        __(
+                            'The web server does not have permission '
+                            . 'to save the file %s.'
+                        )
                     );
                     $message->addParam($save_filename);
                 }
@@ -558,7 +567,9 @@ if (!defined('TESTSUITE')) {
             if ($export_type == 'database') {
                 $num_tables = count($tables);
                 if ($num_tables == 0) {
-                    $message = PMA_Message::error(__('No tables found in database.'));
+                    $message = PMA_Message::error(
+                        __('No tables found in database.')
+                    );
                     $active_page = 'db_export.php';
                     include 'db_export.php';
                     exit();
