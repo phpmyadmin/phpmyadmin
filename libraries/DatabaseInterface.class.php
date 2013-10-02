@@ -1355,12 +1355,15 @@ class PMA_DatabaseInterface
                 WHERE table_schema = '" . PMA_Util::sqlAddSlashes($database) . "'
                     AND table_name = '" . PMA_Util::sqlAddSlashes($table) . "'
             ";
+            if ($where) {
+                $sql = "SELECT * FROM (" . $sql . ") A WHERE (" . $where . ")";
+            }
         } else {
             $sql = 'SHOW INDEXES FROM ' . PMA_Util::backquote($database) . '.'
                 . PMA_Util::backquote($table);
-        }
-        if ($where) {
-            $sql .= (PMA_DRIZZLE ? ' AND (' : ' WHERE (') . $where . ')';
+            if ($where) {
+                $sql .= ' WHERE (' . $where . ')';
+            }
         }
         return $sql;
     }
