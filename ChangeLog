@@ -63,6 +63,8 @@ phpMyAdmin - ChangeLog
 - bug #4074 GIS column editor: point not displayed
 - bug #4109 Drizzle tables in navigation are shown as views
 - bug #4095 NUL symbols added to the end of database dump file
+- bug #4105 More disappears in table Structure
+- bug #3992 Multi-row edit doesn't clear values when checking NULL
 
 4.0.7.0 (2013-09-23)
 - bug #3993 Sorting in database overview with statistics doesn't work
@@ -268,7 +270,7 @@ VerboseMultiSubmit, ReplaceHelpImg
 + Removed the "Synchronize" feature
 + Improved layout of server variables page
 + rfe #1052091 [config] Double-underscores in PMA table names
-+ Improved the "More" dropdown on the table structure page
++ Improved the "" dropdown on the table structure page
 + [interface] Added "scroll to top" link in menubar
 + [designer] Fullscreen mode for the designer
 + Upgraded jquery to v1.8.3 and jquery-ui to v1.9.2
