@@ -15,7 +15,7 @@ require_once 'libraries/core.lib.php';
 
 class PMA_Array_Test extends PHPUnit_Framework_TestCase
 {
-    function testPMA_arrayRead()
+    function testRead()
     {
         $arr = array(
             "int" => 1,
@@ -98,7 +98,7 @@ class PMA_Array_Test extends PHPUnit_Framework_TestCase
         );
     }
 
-    function testPMA_arrayWrite()
+    function testWrite()
     {
         $arr = array(
             "int" => 1,
@@ -147,7 +147,7 @@ class PMA_Array_Test extends PHPUnit_Framework_TestCase
         $this->assertNull($arr['sarr'][0][2]);
     }
 
-    function testPMA_arrayRemove()
+    function testRemove()
     {
         $arr = array(
             "int" => 1,
@@ -204,7 +204,7 @@ class PMA_Array_Test extends PHPUnit_Framework_TestCase
         $this->assertEmpty($arr);
     }
 
-    function testPMA_arrayMergeRecursive()
+    function testMergeRecursive()
     {
         $arr1 = array('key1' => 1, 'key2' => 2.3, 'key3' => 'str3');
         $arr2 = array('key1' => 4, 'key2' => 5, 'key3' => 6);
@@ -252,7 +252,7 @@ class PMA_Array_Test extends PHPUnit_Framework_TestCase
     }
 
 
-    function testPMA_arrayWalkRecursive()
+    function testWalkRecursive()
     {
         function fConcat($var)
         {
@@ -272,9 +272,9 @@ class PMA_Array_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @depends testPMA_arrayWalkRecursive
+     * @depends testWalkRecursive
      */
-    function testPMA_arrayWalkRecursiveNotProcessIntKeys()
+    function testWalkRecursiveNotProcessIntKeys()
     {
         function fAdd($var)
         {
@@ -289,9 +289,9 @@ class PMA_Array_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @depends testPMA_arrayWalkRecursiveNotProcessIntKeys
+     * @depends testWalkRecursiveNotProcessIntKeys
      */
-    function testPMA_arrayWalkRecursiveSubArray()
+    function testWalkRecursiveSubArray()
     {
         $arr = array(
             "key1"=>'val1',
@@ -310,7 +310,7 @@ class PMA_Array_Test extends PHPUnit_Framework_TestCase
         $this->assertEquals($arr, $target);
     }
 
-    function testPMA_arrayWalkRecursiveApplyToKeysStripSlashes()
+    function testWalkRecursiveApplyToKeysStripSlashes()
     {
         $arr = array(
             "key\\1"=>'v\\\\al1',

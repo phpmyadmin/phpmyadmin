@@ -77,7 +77,7 @@ function PMA_detectCompression($filepath)
  * @param string $sql         query to run
  * @param string $full        query to display, this might be commented
  * @param bool   $controluser whether to use control user for queries
- * @param array  &$sql_data
+ * @param array  &$sql_data   SQL parse data storage
  *
  * @return void
  * @access public
