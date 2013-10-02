@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.0-alpha1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-10-01 21:11+0200\n"
-"PO-Revision-Date: 2013-10-02 12:07+0200\n"
+"PO-Revision-Date: 2013-10-02 12:15+0200\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/ia/>\n"
@@ -415,33 +415,41 @@ msgid ""
 "An error has been detected, however, you seem to be running on a git version "
 "of phpMyAdmin."
 msgstr ""
+"Un error ha essite relevate, totevia, ilsembla que tu es executante un "
+"version de git de phpMyAdmin."
 
 #: error_report.php:18 error_report.php:28
 msgid ""
 "Automatic report submission cannot be used. Please submit a manual error "
 "report on the bug tracker."
 msgstr ""
+"Submission automatic de reporto non pote esser usate. Pro favor tu submitte "
+"un reporto de error manual sur le traciator de errores (bug)."
 
 #: error_report.php:21 error_report.php:31 error_report.php:42
 #: error_report.php:47
 msgid "You may want to refresh the page."
-msgstr ""
+msgstr "Tu poterea voler refrescar le pagina."
 
 #: error_report.php:26
 msgid ""
 "An error has been detected, however, the JavaScript line count file does not "
 "seem to exist in this phpMyAdmin installation."
 msgstr ""
+"Un error ha essite relevate totevia, le file de computo de rango de "
+"JavaScript non sembla exister in iste installation de phpMyAdmin."
 
 #: error_report.php:39
 msgid ""
 "An error has been detected and an error report has been automatically "
 "submitted based on your settings."
 msgstr ""
+"Un error ha essite relevate e un reporto de error ha essite submittite "
+"automaticamente basate sur tu preferentias."
 
 #: error_report.php:45
 msgid "Thank you for submitting this report."
-msgstr ""
+msgstr "Gratias pro submitter iste reporto."
 
 #: export.php:160
 msgid "Bad type!"
@@ -2039,15 +2047,15 @@ msgstr "Crea vista"
 
 #: js/messages.php:394
 msgid "Send Error Report"
-msgstr ""
+msgstr "Invia reporto de error"
 
 #: js/messages.php:395
 msgid "Submit Error Report"
-msgstr ""
+msgstr "Submitte reporto de error"
 
 #: js/messages.php:396
 msgid "An error has occured. Do you want to send an error report?"
-msgstr ""
+msgstr "Un error ha occurrite. Tu vole inviar un reporto de error?"
 
 #: js/messages.php:398
 #| msgid "Change settings"
@@ -3510,6 +3518,8 @@ msgstr "Thema:"
 msgid ""
 "A 1-byte integer, signed range is -128 to 127, unsigned range is 0 to 255"
 msgstr ""
+"Le extension de un integer de 1 byte, signate es ex -128 a 127, si non "
+"signate es ex 0 a 255"
 
 #: libraries/Types.class.php:299
 msgid ""
@@ -11004,7 +11014,6 @@ msgid "Validated SQL"
 msgstr ""
 
 #: libraries/sql.lib.php:1914
-#, fuzzy
 #| msgid ""
 #| "This table does not contain a unique column. Features related to the grid "
 #| "edit, checkbox, Edit, Copy and Delete links may not work after saving."
@@ -11012,9 +11021,8 @@ msgid ""
 "Current selection does not contain a unique column. Grid edit, checkbox, "
 "Edit, Copy and Delete features are not available."
 msgstr ""
-"Iste tabula non contine un unic columna. Functionalitates ligate al "
-"modificar, copiar, marcar, deler le grillia poterea non functionar post "
-"salveguardar."
+"Selection currente non contine un unic columna. Functionalitates ligate al "
+"modificar grillia, modificar, copiar, marcar, deler non es disponibile."
 
 #: libraries/sql.lib.php:1951
 #, php-format
