@@ -819,11 +819,11 @@ $(document).ajaxError(function (event, request, settings) {
         var errorCode = $.sprintf(PMA_messages.strErrorCode, request.status);
         var errorText = $.sprintf(PMA_messages.strErrorText, request.statusText);
         PMA_ajaxShowMessage(
-            '<div class="error">'
-            + PMA_messages.strErrorProcessingRequest
-            + '<div>' + errorCode + '</div>'
-            + '<div>' + errorText + '</div>'
-            + '</div>',
+            '<div class="error">' +
+            PMA_messages.strErrorProcessingRequest +
+            '<div>' + errorCode + '</div>' +
+            '<div>' + errorText + '</div>' +
+            '</div>',
             false
         );
         AJAX.active = false;

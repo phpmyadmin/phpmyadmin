@@ -209,10 +209,10 @@ var PMA_querywindow = (function ($, window) {
                 querywindow = window.open(
                     url + '&init=1',
                     '',
-                    'toolbar=0,location=0,directories=0,status=1,'
-                    + 'menubar=0,scrollbars=yes,resizable=yes,'
-                    + 'width=' + PMA_commonParams.get('querywindow_width') + ','
-                    + 'height=' + PMA_commonParams.get('querywindow_height')
+                    'toolbar=0,location=0,directories=0,status=1,' +
+                    'menubar=0,scrollbars=yes,resizable=yes,' +
+                    'width=' + PMA_commonParams.get('querywindow_width') + ',' +
+                    'height=' + PMA_commonParams.get('querywindow_height')
                 );
             }
             if (! querywindow.opener) {
