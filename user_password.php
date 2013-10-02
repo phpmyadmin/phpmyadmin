@@ -120,8 +120,8 @@ function PMA_setChangePasswordMsg()
 /**
  * Change the password
  *
- * @param string $password
- * @param string $message
+ * @param string $password                New password
+ * @param string $message                 Message
  * @param array  $change_password_message Message to show
  *
  * @return void

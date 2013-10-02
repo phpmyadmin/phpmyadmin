@@ -160,16 +160,15 @@ function PMA_sendErrorReport($report) {
  *
  * uses the $LINE_COUNT global array of file names and line numbers
  *
- * @param Array $filenames list of files in order of concatenation
+ * @param Array   $filenames         list of files in order of concatenation
  * @param Integer $cumulative_number the cumulative line number in the
- *    concatenated files
+ *                                   concatenated files
  *
- * returns two variables in an array:
+ * @return Array the filename and linenumber
+ * Returns two variables in an array:
  * - A String $filename the filename where the requested cumulative number
  *   exists
  * - Integer $linenumber the translated line number in the returned file
- *
- * @return Array the filename and linenumber
  */
 function PMA_getLineNumber($filenames, $cumulative_number) {
   global $LINE_COUNT;
