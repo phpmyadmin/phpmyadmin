@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.0-alpha1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-10-01 21:11+0200\n"
-"PO-Revision-Date: 2013-09-12 15:17+0200\n"
+"PO-Revision-Date: 2013-10-02 12:07+0200\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
-"Language-Team: Interlingua <http://l10n.cihar.com/projects/phpmyadmin/master/"
-"ia/>\n"
+"Language-Team: Interlingua "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/ia/>\n"
 "Language: ia\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2050,16 +2050,14 @@ msgid "An error has occured. Do you want to send an error report?"
 msgstr ""
 
 #: js/messages.php:398
-#, fuzzy
 #| msgid "Change settings"
 msgid "Change Report Settings"
-msgstr "Modifica preferentias"
+msgstr "Modifica preferentias de reporto"
 
 #: js/messages.php:399
-#, fuzzy
 #| msgid "Show open tables"
 msgid "Show Report Details"
-msgstr "Monstra tabellas aperite"
+msgstr "Monstra detalios de reporto"
 
 #. l10n: Display text for calendar close link
 #: js/messages.php:420
@@ -6348,10 +6346,9 @@ msgid "The password for authenticating with the proxy"
 msgstr ""
 
 #: libraries/config/messages.inc.php:537
-#, fuzzy
 #| msgid "Generate password"
 msgid "Proxy password"
-msgstr "Genera contrasigno"
+msgstr "Contrasigno de proxy"
 
 #: libraries/config/messages.inc.php:539
 msgid ""
@@ -7537,10 +7534,9 @@ msgstr[0] ""
 msgstr[1] ""
 
 #: libraries/navigation/NavigationTree.class.php:1043
-#, fuzzy
 #| msgid "Filter queries by word/regexp:"
 msgid "filter databases by name or regex"
-msgstr "Filtra query per parola/regexp:"
+msgstr "Filtra base de datos per nomine o regex"
 
 #: libraries/navigation/NavigationTree.class.php:1045
 #: libraries/navigation/NavigationTree.class.php:1077
@@ -7548,10 +7544,9 @@ msgid "Clear Fast Filter"
 msgstr ""
 
 #: libraries/navigation/NavigationTree.class.php:1076
-#, fuzzy
 #| msgid "Filter queries by word/regexp:"
 msgid "filter by name or regex"
-msgstr "Filtra query per parola/regexp:"
+msgstr "filtra per nomine o regex"
 
 #. l10n: The word "Node" must not be translated here
 #: libraries/navigation/NodeFactory.class.php:41
