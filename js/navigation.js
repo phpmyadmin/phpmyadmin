@@ -459,7 +459,7 @@ function PMA_showCurrentNavigation()
                 .children('div:first')
                 .children('a.expander');
 
-            if (! $expander.hasClass('loaded') ) {
+            if (! $expander.hasClass('loaded')) {
                 loadChildNodes($expander, function (data) {
                     highlightTableOrView($tableContainer, $viewContainer, table);
                 });
