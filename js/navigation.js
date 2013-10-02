@@ -379,8 +379,8 @@ function PMA_showCurrentNavigation()
         if ($dbItem) {
             var $expander = $dbItem.children('div:first').children('a.expander');
             // if not loaded or loaded but collapsed
-            if (! $expander.hasClass('loaded')
-                || $expander.find('img').is('.ic_b_plus')
+            if (! $expander.hasClass('loaded') ||
+                $expander.find('img').is('.ic_b_plus')
             ) {
                 expandTreeNode($expander, function () {
                     handleTableOrDb(table, $dbItem);
@@ -512,8 +512,8 @@ function PMA_showCurrentNavigation()
         var $expander = $viewContainer
             .children('div:first')
             .children('a.expander');
-        if (! $expander.hasClass('loaded')
-            || $expander.find('img').is('.ic_b_plus')
+        if (! $expander.hasClass('loaded') ||
+            $expander.find('img').is('.ic_b_plus')
         ) {
             expandTreeNode($expander, function () {
                 var $view = findLoadedItem(
@@ -554,8 +554,8 @@ function PMA_reloadNavigation(callback) {
     // various levels, if necessary.
     var count = 0;
     $('#pma_navigation_tree').find('a.expander:visible').each(function () {
-        if ($(this).find('img').is('.ic_b_minus')
-            && $(this).closest('li').find('div.list_container .ic_b_minus').length === 0
+        if ($(this).find('img').is('.ic_b_minus') &&
+            $(this).closest('li').find('div.list_container .ic_b_minus').length === 0
         ) {
             params['n' + count + '_aPath'] = $(this).find('span.aPath').text();
             params['n' + count + '_vPath'] = $(this).find('span.vPath').text();
@@ -910,9 +910,9 @@ var PMA_fastFilter = {
         this.timeout = null;
 
         var $filterInput = $this.find('li.fast_filter input.searchClause');
-        if ($filterInput.length !== 0
-            && $filterInput.val() !== ''
-            && $filterInput.val() != $filterInput[0].defaultValue
+        if ($filterInput.length !== 0 &&
+            $filterInput.val() !== '' &&
+            $filterInput.val() != $filterInput[0].defaultValue
         ) {
             this.request();
         }
@@ -952,8 +952,8 @@ var PMA_fastFilter = {
                 .closest('div.list_container');
         }
         var searchClause2 = '';
-        if ($filterInput.length !== 0
-            && $filterInput.first().val() != $filterInput[0].defaultValue
+        if ($filterInput.length !== 0 &&
+            $filterInput.first().val() != $filterInput[0].defaultValue
         ) {
             searchClause2 = $filterInput.val();
         }

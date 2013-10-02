@@ -340,9 +340,12 @@ function confirmQuery(theForm1, sqlQuery1)
         do_confirm_re_1.test(sqlQuery1.value) ||
         do_confirm_re_2.test(sqlQuery1.value) ||
         do_confirm_re_3.test(sqlQuery1.value)) {
-        var message      = (sqlQuery1.value.length > 100)
-                         ? sqlQuery1.value.substr(0, 100) + '\n    ...'
-                         : sqlQuery1.value;
+        var message;
+        if (sqlQuery1.value.length > 100) {
+            message = sqlQuery1.value.substr(0, 100) + '\n    ...';
+        } else {
+            message = sqlQuery1.value;
+        }
         var is_confirmed = confirm($.sprintf(PMA_messages.strDoYouReally, message));
         // statement is confirmed -> update the
         // "is_js_confirmed" form field so the confirm test won't be

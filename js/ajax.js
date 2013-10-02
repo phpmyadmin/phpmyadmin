@@ -146,8 +146,8 @@ var AJAX = {
             return true;
         } else if (href && href.match(/^mailto/)) {
             return true;
-        } else if ($(this).hasClass('ui-datepicker-next')
-            || $(this).hasClass('ui-datepicker-prev')
+        } else if ($(this).hasClass('ui-datepicker-next') ||
+            $(this).hasClass('ui-datepicker-prev')
         ) {
             return true;
         }
@@ -513,8 +513,7 @@ AJAX.cache = {
         if (rel === 'newpage' ||
             (
                 typeof rel === 'undefined' && (
-                    typeof this.pages[this.current - 1] === 'undefined'
-                    ||
+                    typeof this.pages[this.current - 1] === 'undefined' ||
                     this.pages[this.current - 1].hash !== hash
                 )
             )

@@ -6,6 +6,135 @@ var temp_chart_title;
 var currentChart = null;
 var currentSettings = null;
 
+function extractDate(dateString) {
+    var matches, match;
+    var dateTimeRegExp = /[0-9]{4}-[0-9]{2}-[0-9]{2} [0-9]{2}:[0-9]{2}:[0-9]{2}/;
+    var dateRegExp = /[0-9]{4}-[0-9]{2}-[0-9]{2}/;
+
+    matches = dateTimeRegExp.exec(dateString);
+    if (matches !== null && matches.length > 0) {
+        match = matches[0];
+        return new Date(match.substr(0, 4), match.substr(5, 2), match.substr(8, 2), match.substr(11, 2), match.substr(14, 2), match.substr(17, 2));
+    } else {
+        matches = dateRegExp.exec(dateString);
+        if (matches !== null && matches.length > 0) {
+            match = matches[0];
+            return new Date(match.substr(0, 4), match.substr(5, 2), match.substr(8, 2));
+        }
+    }
+    return null;
+}
+
+function PMA_queryChart(data, columnNames, settings) {
+    if ($('#querychart').length === 0) {
+        return;
+    }
+
+    var jqPlotSettings = {
+        title : {
+            text : settings.title,
+            escapeHtml: true
+        },
+        grid : {
+            drawBorder : false,
+            shadow : false,
+            background : 'rgba(0,0,0,0)'
+        },
+        legend : {
+            show : true,
+            placement : 'outsideGrid',
+            location : 'e'
+        },
+        axes : {
+            xaxis : {
+                label : settings.xaxisLabel
+            },
+            yaxis : {
+                label : settings.yaxisLabel
+            }
+        },
+        stackSeries : settings.stackSeries,
+        highlighter: {
+            show: true,
+            showTooltip: true,
+            tooltipAxes: 'xy'
+        }
+    };
+
+    // create the chart
+    var factory = new JQPlotChartFactory();
+    var chart = factory.createChart(settings.type, "querychart");
+
+    // create the data table and add columns
+    var dataTable = new DataTable();
+    if (settings.type == 'timeline') {
+        dataTable.addColumn(ColumnType.DATE, columnNames[settings.mainAxis]);
+    } else {
+        dataTable.addColumn(ColumnType.STRING, columnNames[settings.mainAxis]);
+    }
+    $.each(settings.selectedSeries, function (index, element) {
+        dataTable.addColumn(ColumnType.NUMBER, columnNames[element]);
+    });
+
+    // set data to the data table
+    var columnsToExtract = [ settings.mainAxis ];
+    $.each(settings.selectedSeries, function (index, element) {
+        columnsToExtract.push(element);
+    });
+    var values = [], newRow, row, col;
+    for (var i = 0; i < data.length; i++) {
+        row = data[i];
+        newRow = [];
+        for (var j = 0; j < columnsToExtract.length; j++) {
+            col = columnNames[columnsToExtract[j]];
+            if (j === 0) {
+                if (settings.type == 'timeline') { // first column is date type
+                    newRow.push(extractDate(row[col]));
+                } else { // first column is string type
+                    newRow.push(row[col]);
+                }
+            } else { // subsequent columns are of type, number
+                newRow.push(parseFloat(row[col]));
+            }
+        }
+        values.push(newRow);
+    }
+    dataTable.setData(values);
+
+    // draw the chart and return the chart object
+    chart.draw(dataTable, jqPlotSettings);
+    return chart;
+}
+
+function drawChart() {
+    currentSettings.width = $('#resizer').width() - 20;
+    currentSettings.height = $('#resizer').height() - 20;
+
+    // todo: a better way using .redraw() ?
+    if (currentChart !== null) {
+        currentChart.destroy();
+    }
+
+    var columnNames = [];
+    $('select[name="chartXAxis"] option').each(function () {
+        columnNames.push($(this).text());
+    });
+    try {
+        currentChart = PMA_queryChart(chart_data, columnNames, currentSettings);
+    } catch (err) {
+        PMA_ajaxShowMessage(err.message, false);
+    }
+}
+
+function getSelectedSeries() {
+    var val = $('select[name="chartSeries"]').val() || [];
+    var ret = [];
+    $.each(val, function (i, v) {
+        ret.push(parseInt(v, 10));
+    });
+    return ret;
+}
+
 /**
  * Unbind all event handlers before tearing down a page
  */
@@ -191,132 +320,3 @@ $("#tblchartform").live('submit', function (event) {
 
     return false;
 }); // end
-
-function drawChart() {
-    currentSettings.width = $('#resizer').width() - 20;
-    currentSettings.height = $('#resizer').height() - 20;
-
-    // todo: a better way using .redraw() ?
-    if (currentChart !== null) {
-        currentChart.destroy();
-    }
-
-    var columnNames = [];
-    $('select[name="chartXAxis"] option').each(function () {
-        columnNames.push($(this).text());
-    });
-    try {
-        currentChart = PMA_queryChart(chart_data, columnNames, currentSettings);
-    } catch (err) {
-        PMA_ajaxShowMessage(err.message, false);
-    }
-}
-
-function getSelectedSeries() {
-    var val = $('select[name="chartSeries"]').val() || [];
-    var ret = [];
-    $.each(val, function (i, v) {
-        ret.push(parseInt(v, 10));
-    });
-    return ret;
-}
-
-function extractDate(dateString) {
-    var matches, match;
-    var dateTimeRegExp = /[0-9]{4}-[0-9]{2}-[0-9]{2} [0-9]{2}:[0-9]{2}:[0-9]{2}/;
-    var dateRegExp = /[0-9]{4}-[0-9]{2}-[0-9]{2}/;
-
-    matches = dateTimeRegExp.exec(dateString);
-    if (matches !== null && matches.length > 0) {
-        match = matches[0];
-        return new Date(match.substr(0, 4), match.substr(5, 2), match.substr(8, 2), match.substr(11, 2), match.substr(14, 2), match.substr(17, 2));
-    } else {
-        matches = dateRegExp.exec(dateString);
-        if (matches !== null && matches.length > 0) {
-            match = matches[0];
-            return new Date(match.substr(0, 4), match.substr(5, 2), match.substr(8, 2));
-        }
-    }
-    return null;
-}
-
-function PMA_queryChart(data, columnNames, settings) {
-    if ($('#querychart').length === 0) {
-        return;
-    }
-
-    var jqPlotSettings = {
-        title : {
-            text : settings.title,
-            escapeHtml: true
-        },
-        grid : {
-            drawBorder : false,
-            shadow : false,
-            background : 'rgba(0,0,0,0)'
-        },
-        legend : {
-            show : true,
-            placement : 'outsideGrid',
-            location : 'e'
-        },
-        axes : {
-            xaxis : {
-                label : settings.xaxisLabel
-            },
-            yaxis : {
-                label : settings.yaxisLabel
-            }
-        },
-        stackSeries : settings.stackSeries,
-        highlighter: {
-            show: true,
-            showTooltip: true,
-            tooltipAxes: 'xy'
-        }
-    };
-
-    // create the chart
-    var factory = new JQPlotChartFactory();
-    var chart = factory.createChart(settings.type, "querychart");
-
-    // create the data table and add columns
-    var dataTable = new DataTable();
-    if (settings.type == 'timeline') {
-        dataTable.addColumn(ColumnType.DATE, columnNames[settings.mainAxis]);
-    } else {
-        dataTable.addColumn(ColumnType.STRING, columnNames[settings.mainAxis]);
-    }
-    $.each(settings.selectedSeries, function (index, element) {
-        dataTable.addColumn(ColumnType.NUMBER, columnNames[element]);
-    });
-
-    // set data to the data table
-    var columnsToExtract = [ settings.mainAxis ];
-    $.each(settings.selectedSeries, function (index, element) {
-        columnsToExtract.push(element);
-    });
-    var values = [], newRow, row, col;
-    for (var i = 0; i < data.length; i++) {
-        row = data[i];
-        newRow = [];
-        for (var j = 0; j < columnsToExtract.length; j++) {
-            col = columnNames[columnsToExtract[j]];
-            if (j === 0) {
-                if (settings.type == 'timeline') { // first column is date type
-                    newRow.push(extractDate(row[col]));
-                } else { // first column is string type
-                    newRow.push(row[col]);
-                }
-            } else { // subsequent columns are of type, number
-                newRow.push(parseFloat(row[col]));
-            }
-        }
-        values.push(newRow);
-    }
-    dataTable.setData(values);
-
-    // draw the chart and return the chart object
-    chart.draw(dataTable, jqPlotSettings);
-    return chart;
-}
