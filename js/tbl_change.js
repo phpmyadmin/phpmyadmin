@@ -153,8 +153,8 @@ function verificationsAfterFieldChange(urlField, multi_edit, theType)
     var target = evt.target || evt.srcElement;
 
     //To generate the textbox that can take the salt
-    var new_salt_box = "<br><input type=text name=salt[multi_edit][" + multi_edit + "][" + urlField + "]"
-    + " id=salt_" + target.id + " placeholder='enter Salt'>";
+    var new_salt_box = "<br><input type=text name=salt[multi_edit][" + multi_edit + "][" + urlField + "]" +
+        " id=salt_" + target.id + " placeholder='enter Salt'>";
 
     //If AES_ENCRYPT is Selected then append the new textbox for salt
     if (target.value == "AES_ENCRYPT" && !($("#salt_" + target.id).length)) {

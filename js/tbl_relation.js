@@ -54,13 +54,13 @@ function getDropdownValues($dropdown) {
     }
     var $msgbox = PMA_ajaxShowMessage();
     var $form = $dropdown.parents('form');
-    var url = 'tbl_relation.php?getDropdownValues=true&ajax_request=true'
-        + '&token=' + $form.find('input[name="token"]').val()
-        + '&db=' + $form.find('input[name="db"]').val()
-        + '&table=' + $form.find('input[name="table"]').val()
-        + '&foreign=' + (foreign !== '')
-        + '&foreignDb=' + encodeURIComponent(foreignDb)
-        + (foreignTable !== null ?
+    var url = 'tbl_relation.php?getDropdownValues=true&ajax_request=true' +
+        '&token=' + $form.find('input[name="token"]').val() +
+        '&db=' + $form.find('input[name="db"]').val() +
+        '&table=' + $form.find('input[name="table"]').val() +
+        '&foreign=' + (foreign !== '') +
+        '&foreignDb=' + encodeURIComponent(foreignDb) +
+        (foreignTable !== null ?
             '&foreignTable=' + encodeURIComponent(foreignTable) : ''
         );
     var $server = $form.find('input[name="server"]');
@@ -105,10 +105,11 @@ function setDropdownValues($dropdown, values) {
  */
 AJAX.registerTeardown('tbl_relation.js', function () {
     $('select[name^="destination_foreign"]').unbind('change');
-    $('select[name^="destination_db"],'
-            + ' select[name^="destination_table"],'
-            + ' select[name^="destination_foreign_db"],'
-            + ' select[name^="destination_foreign_table"]').unbind('change');
+    $('select[name^="destination_db"],' +
+        ' select[name^="destination_table"],' +
+        ' select[name^="destination_foreign_db"],' +
+        ' select[name^="destination_foreign_table"]'
+        ).unbind('change');
 });
 
 AJAX.registerOnload('tbl_relation.js', function () {
@@ -121,11 +122,11 @@ AJAX.registerOnload('tbl_relation.js', function () {
         show_hide_clauses($(this));
     });
 
-    $('select[name^="destination_db"],'
-            + ' select[name^="destination_table"],'
-            + ' select[name^="destination_foreign_db"],'
-            + ' select[name^="destination_foreign_table"]')
-        .change(function () {
+    $('select[name^="destination_db"],' +
+        ' select[name^="destination_table"],' +
+        ' select[name^="destination_foreign_db"],' +
+        ' select[name^="destination_foreign_table"]'
+        ).change(function () {
             getDropdownValues($(this));
         });
 });

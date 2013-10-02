@@ -133,10 +133,11 @@ $(function () {
     });
 
     /** Export Routines, Triggers and Events */
-    $('li.procedure div:eq(1) a.ajax img,'
-        + ' li.function div:eq(1) a.ajax img,'
-        + ' li.trigger div:eq(1) a.ajax img,'
-        + ' li.event div:eq(1) a.ajax img').live('click', function (event) {
+    $('li.procedure div:eq(1) a.ajax img,' +
+        ' li.function div:eq(1) a.ajax img,' +
+        ' li.trigger div:eq(1) a.ajax img,' +
+        ' li.event div:eq(1) a.ajax img'
+        ).live('click', function (event) {
         event.preventDefault();
         var dialog = new RTE.object();
         dialog.exportDialog($(this).parent());

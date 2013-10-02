@@ -112,8 +112,10 @@ var ErrorReport = {
     _showErrorNotification: function () {
         ErrorReport._removeErrorNotification();
 
-        $div = $('<div style="position:fixed;bottom:0px;left:5px;right:5px;'
-                + 'z-index:1000" class="error" id="error_notification"></div>');
+        $div = $(
+            '<div style="position:fixed;bottom:0px;left:5px;right:5px;' +
+            'z-index:1000" class="error" id="error_notification"></div>'
+        );
         html = '';
         html += '<img src="themes/dot.gif" title="" alt="" class="icon ic_s_error">';
         html += PMA_messages.strErrorOccured;

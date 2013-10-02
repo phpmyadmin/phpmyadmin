@@ -1227,9 +1227,11 @@ AJAX.registerOnload('server_status_monitor.js', function () {
                 $('#chartGrid').append('<tr></tr>');
             }
 
-            $('#chartGrid tr:last').append('<td><div id="gridChartContainer'
-                + runtime.chartAI + '" class=""><div class="ui-state-default monitorChart" id="'
-                + 'gridchart' + runtime.chartAI + '"></div></div></td>');
+            $('#chartGrid tr:last').append(
+                '<td><div id="gridChartContainer' + runtime.chartAI + '" class="">' +
+                '<div class="ui-state-default monitorChart" id="' +
+                'gridchart' + runtime.chartAI + '"></div></div></td>'
+            );
         }
 
         // Set series' data as [0,0], smooth lines won't plot with data array having null values.
