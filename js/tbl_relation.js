@@ -15,6 +15,20 @@ function show_hide_clauses($thisDropdown)
 }
 
 /**
+ * Sets dropdown options to values
+ */
+function setDropdownValues($dropdown, values) {
+    $dropdown.empty();
+    var optionsAsString = '';
+    // add an empty string to the beginning for empty selection
+    values.unshift('');
+    $.each(values, function () {
+        optionsAsString += "<option value='" + this + "'>" + this + "</option>";
+    });
+    $dropdown.append($(optionsAsString));
+}
+
+/**
  * Retrieves and populates dropdowns to the left based on the selected value
  *
  * @param $dropdown the dropdown whose value got changed
@@ -87,17 +101,6 @@ function getDropdownValues($dropdown) {
             }
         }
     });
-}
-
-function setDropdownValues($dropdown, values) {
-    $dropdown.empty();
-    var optionsAsString = '';
-    // add an empty string to the beginning for empty selection
-    values.unshift('');
-    $.each(values, function () {
-        optionsAsString += "<option value='" + this + "'>" + this + "</option>";
-    });
-    $dropdown.append($(optionsAsString));
 }
 
 /**
