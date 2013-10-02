@@ -5,7 +5,7 @@
  */
 function show_hide_clauses($thisDropdown)
 {
-    if ($thisDropdown.val() == '') {
+    if ($thisDropdown.val() === '') {
         $thisDropdown.parent().nextAll('span').hide();
     } else {
         if ($thisDropdown.is('select[name^="destination_foreign_column"]')) {
@@ -37,7 +37,7 @@ function getDropdownValues($dropdown) {
     if ($dropdown.is('select[name^="destination' + foreign + '_db"]')) {
         foreignDb = $dropdown.val();
         // if no database is selected empty table and column dropdowns
-        if (foreignDb == '') {
+        if (foreignDb === '') {
             setDropdownValues($tableDd, []);
             setDropdownValues($columnDd, []);
             return;
@@ -47,7 +47,7 @@ function getDropdownValues($dropdown) {
             .find('select[name^="destination' + foreign + '_db"]').val();
         foreignTable = $dropdown.val();
          // if no table is selected empty the column dropdown
-        if (foreignTable == '') {
+        if (foreignTable === '') {
             setDropdownValues($columnDd, []);
             return;
         }
@@ -58,7 +58,7 @@ function getDropdownValues($dropdown) {
         + '&token=' + $form.find('input[name="token"]').val()
         + '&db=' + $form.find('input[name="db"]').val()
         + '&table=' + $form.find('input[name="table"]').val()
-        + '&foreign=' + (foreign != '')
+        + '&foreign=' + (foreign !== '')
         + '&foreignDb=' + encodeURIComponent(foreignDb)
         + (foreignTable !== null ?
             '&foreignTable=' + encodeURIComponent(foreignTable) : ''
@@ -74,7 +74,7 @@ function getDropdownValues($dropdown) {
             PMA_ajaxRemoveMessage($msgbox);
             if (data.success) {
                 // if the changed dropdown is a database selector
-                if (foreignTable == null) {
+                if (foreignTable === null) {
                     // set values for table and column dropdowns
                     setDropdownValues($tableDd, data.tables);
                     setDropdownValues($columnDd, []);

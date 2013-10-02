@@ -368,7 +368,7 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function () {
                 // other
                 } else {
                     // type explicitly identified
-                    if (sqlTypes[key] != null) {
+                    if (sqlTypes[key] !== null) {
                         if (sqlTypes[key] == 'bit') {
                             sql_query += "b'" + value + "', ";
                         }
