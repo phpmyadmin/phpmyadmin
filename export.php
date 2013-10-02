@@ -953,7 +953,6 @@ if (! empty($asfile)) {
         }
         exit();
     } else {
-        PMA_Response::getInstance()->disable();
         echo $dump_buffer;
     }
 } else {
