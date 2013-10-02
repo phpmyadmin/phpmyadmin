@@ -12,7 +12,7 @@
 if (!defined('TESTSUITE')) {
     /**
      * If we are sending the export file (as opposed to just displaying it
-     * as text), we have to bypass the usual PMA_Response mechanism 
+     * as text), we have to bypass the usual PMA_Response mechanism
      */
     if ($_POST['output_format'] == 'sendit') {
         define('PMA_BYPASS_GET_INSTANCE', 1);
@@ -414,9 +414,7 @@ if (!defined('TESTSUITE')) {
         // 2 MB as default
         if (empty($memory_limit)) {
             $memory_limit = 2 * 1024 * 1024;
-        }
-
-        if (strtolower(substr($memory_limit, -1)) == 'm') {
+        } elseif (strtolower(substr($memory_limit, -1)) == 'm') {
             $memory_limit = (int)substr($memory_limit, 0, -1) * 1024 * 1024;
         } elseif (strtolower(substr($memory_limit, -1)) == 'k') {
             $memory_limit = (int)substr($memory_limit, 0, -1) * 1024;
