@@ -195,8 +195,8 @@ var PMA_querywindow = (function ($, window) {
 
             if (! querywindow.closed && querywindow.location) {
                 var href = querywindow.location.href;
-                if (href != url
-                    && href != PMA_commonParams.get('pma_absolute_uri') + url
+                if (href != url &&
+                    href != PMA_commonParams.get('pma_absolute_uri') + url
                 ) {
                     if (PMA_commonParams.get('safari_browser')) {
                         querywindow.location.href = targeturl;

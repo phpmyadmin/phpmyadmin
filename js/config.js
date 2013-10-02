@@ -681,8 +681,9 @@ AJAX.registerOnload('config.js', function () {
         var disabled = false;
         if (!ls_supported) {
             disabled = form.find('input[type=radio][value$=local_storage]').prop('checked');
-        } else if (!ls_exists && form.attr('name') == 'prefs_import'
-                && $('#import_local_storage')[0].checked) {
+        } else if (!ls_exists && form.attr('name') == 'prefs_import' &&
+            $('#import_local_storage')[0].checked
+            ) {
             disabled = true;
         }
         form.find('input[type=submit]').prop('disabled', disabled);
