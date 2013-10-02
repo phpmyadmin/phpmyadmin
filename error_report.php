@@ -13,7 +13,7 @@ $response = PMA_Response::getInstance();
 // Fail gracefully if this is not a release version of phpMyAdmin
 if(!$GLOBALS['PMA_Config']->isGitRevision()) {
     $response->addJSON('message', PMA_Message::error(
-        __('An error has been detected however you seem to be running on a git '
+        __('An error has been detected, however, you seem to be running on a git '
             . 'version of phpMyAdmin.')
             . __('Automatic report submission cannot be used. Please submit a '
             . 'manual error report on the bug tracker.')
@@ -23,8 +23,8 @@ if(!$GLOBALS['PMA_Config']->isGitRevision()) {
     exit;
 } elseif (!defined('LINE_COUNTS')) {
     $response->addJSON('message', PMA_Message::error(
-        __('An error has been detected however the js line counts file does not '
-            . 'seem to exist in this phpMyAdmin installation. ')
+        __('An error has been detected, however, the JavaScript line count file '
+            . 'does not seem to exist in this phpMyAdmin installation.')
         . __('Automatic report submission cannot be used. Please submit a '
             . 'manual error report on the bug tracker.')
         . '<br />'

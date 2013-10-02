@@ -1,10 +1,10 @@
 # Automatically generated <>, 2010.
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 4.1-dev\n"
+"Project-Id-Version: phpMyAdmin 4.1.0-alpha1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-09-30 17:38+0200\n"
-"PO-Revision-Date: 2013-09-29 21:53+0200\n"
+"POT-Creation-Date: 2013-10-01 21:11+0200\n"
+"PO-Revision-Date: 2013-10-01 22:51+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: Greek <http://l10n.cihar.com/projects/phpmyadmin/master/el/>\n"
 "Language: el\n"
@@ -407,36 +407,44 @@ msgstr "Καταγραφή Βάσης Δεδομένων"
 
 #: error_report.php:16
 msgid ""
-"An error has been detected however you seem to be running on a git version "
+"An error has been detected, however, you seem to be running on a git version "
 "of phpMyAdmin."
 msgstr ""
+"Ανιχνεύτηκε ένα σφάλμα, ωστόσο, φαίνεται να τρέχει σε μια έκδοση git του "
+"phpMyAdmin."
 
 #: error_report.php:18 error_report.php:28
 msgid ""
 "Automatic report submission cannot be used. Please submit a manual error "
 "report on the bug tracker."
 msgstr ""
+"Η αυτόματη υποβολή αναφοράς δεν μπορεί να χρησιμοποιηθεί. Υποβάλετε μια "
+"αναφορά σφάλματος χειροκίνητα στον ιχνηλάτη σφαλμάτων."
 
 #: error_report.php:21 error_report.php:31 error_report.php:42
 #: error_report.php:47
 msgid "You may want to refresh the page."
-msgstr ""
+msgstr "Ίσως θέλετε να ανανεώσετε τη σελίδα."
 
 #: error_report.php:26
 msgid ""
-"An error has been detected however the js line counts file does not seem to "
-"exist in this phpMyAdmin installation. "
+"An error has been detected, however, the JavaScript line count file does not "
+"seem to exist in this phpMyAdmin installation."
 msgstr ""
+"Ανιχνεύτηκε ένα σφάλμα, ωστόσο, το αρχείο μέτρησης γραμμής JavaScript δεν "
+"φαίνεται να υπάρχει σε αυτή την εγκατάστασή της phpMyAdmin."
 
 #: error_report.php:39
 msgid ""
 "An error has been detected and an error report has been automatically "
 "submitted based on your settings."
 msgstr ""
+"Ανιχνεύτηκε ένα σφάλμα και μια αναφορά σφάλματος έχει υποβληθεί αυτόματα "
+"σύμφωνα με τις ρυθμίσεις σας."
 
 #: error_report.php:45
 msgid "Thank you for submitting this report."
-msgstr ""
+msgstr "Ευχαριστούμε που υποβάλλατε αυτή την αναφορά."
 
 #: export.php:160
 msgid "Bad type!"
@@ -2025,32 +2033,28 @@ msgid "Create view"
 msgstr "Δημιουργία προβολής"
 
 #: js/messages.php:394
-#, fuzzy
 #| msgid "Server port"
 msgid "Send Error Report"
-msgstr "Θύρα διακομιστή"
+msgstr "Αποστολή Αναφοράς Σφάλματος"
 
 #: js/messages.php:395
 msgid "Submit Error Report"
-msgstr ""
+msgstr "Υποβολή Αναφοράς Σφάλματος"
 
 #: js/messages.php:396
-#, fuzzy
 #| msgid "An error has occured while loading the navigation tree"
 msgid "An error has occured. Do you want to send an error report?"
-msgstr "Ένα σφάλμα συμβαίνει κατά τη φόρτωση του δέντρου πλοήγησης"
+msgstr "Ένα σφάλμα έχει συμβεί. Θέλετε να στείλετε μια αναφορά σφάλματος;"
 
 #: js/messages.php:398
-#, fuzzy
 #| msgid "Change settings"
 msgid "Change Report Settings"
-msgstr "Αλλαγή ρυθμίσεων"
+msgstr "Αλλαγή Ρυθμίσεων Αναφοράς"
 
 #: js/messages.php:399
-#, fuzzy
 #| msgid "Show open tables"
 msgid "Show Report Details"
-msgstr "Εμφάνιση ανοιχτών πινάκων"
+msgstr "Εμφάνιση Λεπτομερειών Αναφοράς"
 
 #. l10n: Display text for calendar close link
 #: js/messages.php:420
@@ -4183,15 +4187,15 @@ msgstr "Κλεισμένο"
 
 #: libraries/config.values.php:111
 msgid "Ask before sending error reports"
-msgstr ""
+msgstr "Ερώτηση πριν την αποστολή αναφορών σφάλματος"
 
 #: libraries/config.values.php:112
 msgid "Always send error reports"
-msgstr ""
+msgstr "Πάντα αποστολή αναφορών σφάλματος"
 
 #: libraries/config.values.php:113
 msgid "Never send error reports"
-msgstr ""
+msgstr "Ποτέ αποστολή αναφορών σφάλματος"
 
 #: libraries/config.values.php:142
 #: libraries/plugins/export/ExportHtmlword.class.php:69
@@ -6617,7 +6621,6 @@ msgid "Version check"
 msgstr "Έλεγχος έκδοσης"
 
 #: libraries/config/messages.inc.php:532
-#, fuzzy
 #| msgid ""
 #| "The url of the proxy to be used when retrieving the information about the "
 #| "latest version of phpMyAdmin. You need this if the server where "
@@ -6630,13 +6633,14 @@ msgid ""
 "the internet. The format is: \"hostname:portnumber\""
 msgstr ""
 "Το url του διακομιστή για χρήση όταν λαμβάνονται οι πληροφορίες για την "
-"τελευταία έκδοση του phpMyAdmin. Το χρειάζεστε αν ο διακομιστής που έχει "
-"εγκατασταθεί το phpMyAdmin δεν έχει άμεση πρόσβαση στο διαδίκτυο. Η σύνταξη "
-"είναι: «όνομαδιακομιστή:αριθμόςθύρας»"
+"τελευταία έκδοση του phpMyAdmin ή όταν υποβάλλονται αναφορές σφάλματος. Το "
+"χρειάζεστε αν ο διακομιστής που έχει εγκατασταθεί το phpMyAdmin δεν έχει "
+"άμεση πρόσβαση στο διαδίκτυο. Η σύνταξη είναι: "
+"«όνομαδιακομιστή:αριθμόςθύρας»"
 
 #: libraries/config/messages.inc.php:533
 msgid "Proxy url"
-msgstr ""
+msgstr "Διεύθυνση διακομιστή"
 
 #: libraries/config/messages.inc.php:534
 msgid ""
@@ -6650,20 +6654,18 @@ msgstr ""
 "παρόν."
 
 #: libraries/config/messages.inc.php:535
-#, fuzzy
 #| msgid "Username"
 msgid "Proxy username"
-msgstr "Όνομα χρήστη"
+msgstr "Όνομα χρήστη διακομιστή"
 
 #: libraries/config/messages.inc.php:536
 msgid "The password for authenticating with the proxy"
 msgstr "Ο κωδικός πρόσβασης για πιστοποίηση με τον διακομιστή"
 
 #: libraries/config/messages.inc.php:537
-#, fuzzy
 #| msgid "Password"
 msgid "Proxy password"
-msgstr "Κωδικός πρόσβασης"
+msgstr "Κωδικός πρόσβασης διακομιστή"
 
 #: libraries/config/messages.inc.php:539
 msgid ""
@@ -6697,20 +6699,21 @@ msgstr "Ιδιωτικό κλειδί για reCaptcha"
 msgid ""
 "Uncheck this to prevent the sending of error reports for javascript errors"
 msgstr ""
+"Μη το επιλέξετε για να αποφύγετε να αποστείλετε αναφορές σφάλματος για "
+"σφάλματα javascript"
 
 #: libraries/config/messages.inc.php:547
 msgid "Enable javascript error reporting"
-msgstr ""
+msgstr "Ενεργοποίηση αναφορών σφάλματος javascript"
 
 #: libraries/config/messages.inc.php:548
 msgid "Choose the default action when sending error reports"
-msgstr ""
+msgstr "Επιλέξτε την προεπιλεγμένη ενέργεια όταν αποστέλετε αναφορές σφάλματος"
 
 #: libraries/config/messages.inc.php:549
-#, fuzzy
 #| msgid "Server port"
 msgid "Send error reports"
-msgstr "Θύρα διακομιστή"
+msgstr "Αποστολή αναφορών σφάλματος"
 
 #: libraries/config/setup.forms.php:41
 msgid "Config authentication"
@@ -7505,20 +7508,23 @@ msgid ""
 "as well as information about relevant configuration settings to send to "
 "phpmyadmin for processing to help us in debugging the problem"
 msgstr ""
+"Το Phpmyadmin παρουσίασε ένα σφάλμα. Συλλέξαμε δεδομένα για αυτό το σφάλμα "
+"καθώς και πληροφορίες για τις σχετικές ρυθμίσεις για να τα στείλουμε στο "
+"phpmyadmin για περαιτέρω ενέργειες ώστε να μας βοηθήσει να διορθώσουμε το "
+"πρόβλημα"
 
 #: libraries/error_report.lib.php:245
 msgid "You may examine the data in the error report:"
-msgstr ""
+msgstr "Μπορείτε να εξετάστε τα δεδομένα στην αναφορά σφάλματος:"
 
 #: libraries/error_report.lib.php:252
 msgid "Please explain the steps that lead to the error:"
-msgstr ""
+msgstr "Εξηγείστε τα βήματα που οδήγησαν στο σφάλμα:"
 
 #: libraries/error_report.lib.php:260
-#, fuzzy
 #| msgid "Automatically create versions"
 msgid "Automatically send report next time"
-msgstr "Αυτόματη δημιουργία εκδόσεων"
+msgstr "Αυτόματη αποστολή αναφοράς την επόμενη φορά"
 
 #: libraries/import.lib.php:190 libraries/insert_edit.lib.php:122
 #: libraries/rte/rte_routines.lib.php:1464 libraries/sql.lib.php:1639
