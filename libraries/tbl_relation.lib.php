@@ -606,11 +606,10 @@ function PMA_sendHtmlForColumnDropdownList()
 function PMA_sendHtmlForTableDropdownList()
 {
     $response = PMA_Response::getInstance();
+    $tables = array();
 
     $foreign = isset($_REQUEST['foreign']) && $_REQUEST['foreign'] === 'true';
     if ($foreign) {
-        $query = 'SHOW TABLE STATUS FROM '
-            . PMA_Util::backquote($_REQUEST['foreignDb']);
         $tbl_storage_engine = strtoupper(
             PMA_Table::sGetStatusInfo(
                 $_REQUEST['db'],
@@ -618,25 +617,48 @@ function PMA_sendHtmlForTableDropdownList()
                 'Engine'
             )
         );
-    } else {
-        $query = 'SHOW TABLES FROM '
-            . PMA_Util::backquote($_REQUEST['foreignDb']);
     }
-    $tables_rs = $GLOBALS['dbi']->query(
-        $query,
-        null,
-        PMA_DatabaseInterface::QUERY_STORE
-    );
-    $tables = array();
-    while ($row = $GLOBALS['dbi']->fetchArray($tables_rs)) {
-        if ($foreign) {
+
+    // In Drizzle, 'SHOW TABLE STATUS' will show the status only  for the tables
+    // which are currently in the table cache. Hence we have to use 'SHOW TABLES'
+    // and manully retrieve table engine values.
+    if ($foreign && ! PMA_DRIZZLE) {
+        $query = 'SHOW TABLE STATUS FROM '
+            . PMA_Util::backquote($_REQUEST['foreignDb']);
+        $tables_rs = $GLOBALS['dbi']->query(
+            $query,
+            null,
+            PMA_DatabaseInterface::QUERY_STORE
+        );
+
+        while ($row = $GLOBALS['dbi']->fetchArray($tables_rs)) {
             if (isset($row['Engine'])
                 && strtoupper($row['Engine']) == $tbl_storage_engine
             ) {
                 $tables[] = htmlspecialchars($row['Name']);
             }
-        } else {
-            $tables[] = htmlspecialchars($row[0]);
+        }
+    } else {
+        $query = 'SHOW TABLES FROM '
+            . PMA_Util::backquote($_REQUEST['foreignDb']);
+        $tables_rs = $GLOBALS['dbi']->query(
+            $query,
+            null,
+            PMA_DatabaseInterface::QUERY_STORE
+        );
+        while ($row = $GLOBALS['dbi']->fetchArray($tables_rs)) {
+            if (PMA_DRIZZLE) {
+                $engine = PMA_Table::sGetStatusInfo(
+                    $_REQUEST['foreignDb'],
+                    $row[0],
+                    'Engine'
+                );
+                if (isset($engine) && $engine == $tbl_storage_engine) {
+                    $tables[] = htmlspecialchars($row[0]);
+                }
+            } else {
+                $tables[] = htmlspecialchars($row[0]);
+            }
         }
     }
     $response->addJSON('tables', $tables);
