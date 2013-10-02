@@ -36,14 +36,6 @@ if (! empty($_GET['scripts']) && is_array($_GET['scripts'])) {
                 $script_name .= DIRECTORY_SEPARATOR . $filename;
             }
         }
-        // if error reporting is enabled serve the unminified files
-        if($GLOBALS['cfg']['ErrorReporting']) {
-            $unminified = "sources" . DIRECTORY_SEPARATOR .  $script_name;
-            // only serve the unminified files if they exist
-            if (is_readable($unminified)) {
-                $script_name = $unminified;
-            }
-        }
 
         // Output file contents
         if (preg_match("@\.js$@", $script_name) && is_readable($script_name)) {
