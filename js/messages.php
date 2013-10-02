@@ -235,7 +235,9 @@ $js_messages['strRenamingDatabases'] = __('Renaming Databases');
 $js_messages['strReloadDatabase'] = __('Reload Database');
 $js_messages['strCopyingDatabase'] = __('Copying Database');
 $js_messages['strChangingCharset'] = __('Changing Charset');
-$js_messages['strTableMustHaveAtleastOneColumn'] = __('Table must have at least one column');
+$js_messages['strTableMustHaveAtleastOneColumn'] = __(
+    'Table must have at least one column'
+);
 $js_messages['strYes'] = __('Yes');
 $js_messages['strNo'] = __('No');
 
@@ -393,8 +395,9 @@ $js_messages['strCreateView'] = __('Create view');
 /* Error Reporting */
 $js_messages['strSendErrorReport'] = __("Send Error Report");
 $js_messages['strSubmitErrorReport'] = __("Submit Error Report");
-$js_messages['strErrorOccured'] = __("An error has occured. Do you want to " .
-                                        "send an error report?");
+$js_messages['strErrorOccured'] = __(
+    "An error has occured. Do you want to send an error report?"
+);
 $js_messages['strChangeReportSettings'] = __("Change Report Settings");
 $js_messages['strShowReportDetails'] = __("Show Report Details");
 $js_messages['strIgnore'] = __("Ignore");
@@ -405,7 +408,8 @@ foreach ($js_messages as $name => $js_message) {
 }
 
 /* Calendar */
-echo "var themeCalendarImage = '" . $GLOBALS['pmaThemeImage'] . 'b_calendar.png' . "';\n";
+echo "var themeCalendarImage = '" . $GLOBALS['pmaThemeImage']
+    . 'b_calendar.png' . "';\n";
 
 /* Image path */
 echo "var pmaThemeImage = '" . $GLOBALS['pmaThemeImage'] . "';\n";
