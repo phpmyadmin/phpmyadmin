@@ -608,10 +608,6 @@ if (!defined('TESTSUITE')) {
 
             echo $back_button;
             echo '    <form name="nofunction">' . "\n"
-               // remove auto-select for now: there is no way to select
-               // only a part of the text; anyway, it should obey
-               // $cfg['TextareaAutoSelect']
-               //. '        <textarea name="sqldump" cols="50" rows="30" onclick="this.select();" id="textSQLDUMP" wrap="OFF">' . "\n";
                . '        <textarea name="sqldump" cols="50" rows="30" id="textSQLDUMP" wrap="OFF">' . "\n";
         } // end download
     }
