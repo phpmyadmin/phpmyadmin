@@ -607,8 +607,9 @@ if (!defined('TESTSUITE')) {
             $back_button .= '&amp;repopulate=1">Back</a> ]</p>';
 
             echo $back_button;
-            echo '    <form name="nofunction">' . "\n"
-               . '        <textarea name="sqldump" cols="50" rows="30" id="textSQLDUMP" wrap="OFF">' . "\n";
+            echo '<form name="nofunction">' . "\n";
+            echo '<textarea name="sqldump" cols="50" rows="30" '
+                . 'id="textSQLDUMP" wrap="OFF">' . "\n";
         } // end download
     }
 
