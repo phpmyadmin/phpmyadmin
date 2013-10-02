@@ -48,6 +48,8 @@ phpMyAdmin - ChangeLog
 + Added an Error Reporting Component
 + Javascript files are no longer uglified
 
+4.0.9.0 (not yet released)
+
 4.0.8.0 (not yet released)
 - bug #3988 Rename view is not working
 - bug #4041 Interaction between linkified fields and grid editing
