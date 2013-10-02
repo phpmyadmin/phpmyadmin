@@ -223,7 +223,7 @@ function verificationsAfterFieldChange(urlField, multi_edit, theType)
 AJAX.registerTeardown('tbl_change.js', function() {
     $('span.open_gis_editor').die('click');
     $("input[name='gis_data[save]']").die('click');
-    $('input.checkbox_null').unbind('click');
+    $('input.checkbox_null').die('click');
     $('select[name="submit_type"]').unbind('change');
     $("#insert_rows").die('change');
 });
@@ -276,7 +276,7 @@ AJAX.registerOnload('tbl_change.js', function() {
      * "Continue insertion" are handled in the "Continue insertion" code
      *
      */
-    $('input.checkbox_null').bind('click', function(e) {
+    $('input.checkbox_null').live('click', function(e) {
             nullify(
                 // use hidden fields populated by tbl_change.php
                 $(this).siblings('.nullify_code').val(),
