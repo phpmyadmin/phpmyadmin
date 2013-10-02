@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.0-alpha1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-10-01 21:11+0200\n"
-"PO-Revision-Date: 2013-10-01 17:10+0200\n"
+"PO-Revision-Date: 2013-10-02 18:22+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
-"Language-Team: Slovenian <http://l10n.cihar.com/projects/phpmyadmin/master/"
-"sl/>\n"
+"Language-Team: Slovenian "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/sl/>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -410,7 +410,6 @@ msgid "Database Log"
 msgstr "Dnevnik zbirke podatkov"
 
 #: error_report.php:16
-#, fuzzy
 #| msgid ""
 #| "An error has been detected however you seem to be running on a git "
 #| "version of phpMyAdmin."
@@ -418,7 +417,7 @@ msgid ""
 "An error has been detected, however, you seem to be running on a git version "
 "of phpMyAdmin."
 msgstr ""
-"Zaznali smo napako, vendar se zdi, da poganjate različico git phpMyAdmina."
+"Zaznali smo napako, vendar se zdi, da poganjate phpMyAdmin različice git."
 
 #: error_report.php:18 error_report.php:28
 msgid ""
@@ -434,7 +433,6 @@ msgid "You may want to refresh the page."
 msgstr "Morda boste želeli osvežiti stran."
 
 #: error_report.php:26
-#, fuzzy
 #| msgid ""
 #| "An error has been detected however the js line counts file does not seem "
 #| "to exist in this phpMyAdmin installation. "
@@ -442,8 +440,8 @@ msgid ""
 "An error has been detected, however, the JavaScript line count file does not "
 "seem to exist in this phpMyAdmin installation."
 msgstr ""
-"Zaznali smo napako, vendar se zdi, da datoteka s številom vrstic js ne "
-"obstaja v tej namestitvi phpMyAdmina. "
+"Zaznali smo napako, vendar se zdi, da datoteka s številom vrstic JavaScripta "
+"ne obstaja v tej namestitvi phpMyAdmina."
 
 #: error_report.php:39
 msgid ""
