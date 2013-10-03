@@ -164,7 +164,21 @@ function PMA_sendErrorReport($report) {
 function PMA_countLines($filename)
 {
     global $LINE_COUNT;
-    return $LINE_COUNT[$filename];
+    if (!defined('LINE_COUNTS')) {
+        $linecount = 0;
+        $handle = fopen('./js/' . $filename, 'r');
+        while (!feof($handle)){
+            $line = fgets($handle);
+            if ($line === false) {
+                break;
+            }
+            $linecount++;
+        }
+        fclose($handle);
+        return $linecount;
+    } else {
+        return $LINE_COUNT[$filename];
+    }
 }
 
 /**
