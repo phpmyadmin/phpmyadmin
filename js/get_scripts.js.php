@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Concatenates reveral js files to reduce the number of
+ * Concatenates several js files to reduce the number of
  * http requests sent to the server
  *
  * @package PhpMyAdmin
