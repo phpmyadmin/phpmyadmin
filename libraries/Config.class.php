@@ -991,30 +991,32 @@ class PMA_Config
         }
 
         // save connection collation
-        if (isset($_COOKIE['pma_collation_connection'])
-            || isset($_POST['collation_connection'])
-        ) {
-            if ((! isset($config_data['collation_connection'])
-                && $GLOBALS['collation_connection'] != 'utf8_general_ci')
-                || isset($config_data['collation_connection'])
-                && $GLOBALS['collation_connection'] != $config_data['collation_connection']
+        if (!PMA_DRIZZLE) {
+            if (isset($_COOKIE['pma_collation_connection'])
+                || isset($_POST['collation_connection'])
             ) {
-                $this->setUserValue(
-                    null,
-                    'collation_connection',
-                    $GLOBALS['collation_connection'],
-                    'utf8_general_ci'
-                );
-            }
-        } else {
-            // read collation from settings
-            if (isset($config_data['collation_connection'])) {
-                $GLOBALS['collation_connection']
-                    = $config_data['collation_connection'];
-                $this->setCookie(
-                    'pma_collation_connection',
+                if ((! isset($config_data['collation_connection'])
+                    && $GLOBALS['collation_connection'] != 'utf8_general_ci')
+                    || isset($config_data['collation_connection'])
+                    && $GLOBALS['collation_connection'] != $config_data['collation_connection']
+                ) {
+                    $this->setUserValue(
+                        null,
+                        'collation_connection',
+                        $GLOBALS['collation_connection'],
+                        'utf8_general_ci'
+                    );
+                }
+            } else {
+                // read collation from settings
+                if (isset($config_data['collation_connection'])) {
                     $GLOBALS['collation_connection']
-                );
+                        = $config_data['collation_connection'];
+                    $this->setCookie(
+                        'pma_collation_connection',
+                        $GLOBALS['collation_connection']
+                    );
+                }
             }
         }
     }
@@ -1288,7 +1290,7 @@ class PMA_Config
                 // And finally the path could be already set from REQUEST_URI
                 if (empty($url['path'])) {
                     // we got a case with nginx + php-fpm where PHP_SELF
-                    // was not set, so PMA_PHP_SELF was not set as well 
+                    // was not set, so PMA_PHP_SELF was not set as well
                     if (isset($GLOBALS['PMA_PHP_SELF'])) {
                         $path = parse_url($GLOBALS['PMA_PHP_SELF']);
                     } else {
