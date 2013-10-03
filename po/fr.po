@@ -3,14 +3,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-10-03 17:03+0200\n"
+"POT-Creation-Date: 2013-10-03 12:58-0400\n"
 "PO-Revision-Date: 2013-10-03 18:50+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
-"Language-Team: French <http://l10n.cihar.com/projects/phpmyadmin/master/fr/>\n"
-"Language: fr\n"
+"Language-Team: French <http://l10n.cihar.com/projects/phpmyadmin/master/fr/"
+">\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: fr\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 "X-Generator: Weblate 1.7-dev\n"
 
@@ -2029,7 +2030,6 @@ msgid "Create view"
 msgstr "Créer une vue"
 
 #: js/messages.php:396
-#| msgid "Server port"
 msgid "Send Error Report"
 msgstr "Envoyer le rapport d'erreurs"
 
@@ -2038,17 +2038,14 @@ msgid "Submit Error Report"
 msgstr "Soumettre un rapport d'erreurs"
 
 #: js/messages.php:399
-#| msgid "An error has occured while loading the navigation tree"
 msgid "An error has occurred. Do you want to send an error report?"
 msgstr "Une erreur s'est produite. Désirez-vous envoyer un rapport d'erreur ?"
 
 #: js/messages.php:401
-#| msgid "Change settings"
 msgid "Change Report Settings"
 msgstr "Changer les paramètres du rapport"
 
 #: js/messages.php:402
-#| msgid "Show open tables"
 msgid "Show Report Details"
 msgstr "Montrer les détails du rapport"
 
@@ -6604,11 +6601,6 @@ msgid "Version check"
 msgstr "Vérification de version"
 
 #: libraries/config/messages.inc.php:532
-#| msgid ""
-#| "The url of the proxy to be used when retrieving the information about the "
-#| "latest version of phpMyAdmin. You need this if the server where "
-#| "phpMyAdmin is installed does not have direct access to the internet. The "
-#| "format is: \"hostname:portnumber\""
 msgid ""
 "The url of the proxy to be used when retrieving the information about the "
 "latest version of phpMyAdmin or when submitting error reports. You need this "
@@ -6618,8 +6610,8 @@ msgstr ""
 "L'URL du serveur mandataire à utiliser pour récupérer l'information au sujet "
 "de la plus récente version de phpMyAdmin ou lors de l'envoi de rapports "
 "d'erreurs. Ceci est nécessaire si le serveur sur lequel phpMyAdmin est "
-"installé n'a pas d'accès direct à Internet. Le format est «nom de "
-"serveur:numéro de port»"
+"installé n'a pas d'accès direct à Internet. Le format est «nom de serveur:"
+"numéro de port»"
 
 #: libraries/config/messages.inc.php:533
 msgid "Proxy url"
@@ -6637,7 +6629,6 @@ msgstr ""
 "d'authentification n'est permis pour le moment."
 
 #: libraries/config/messages.inc.php:535
-#| msgid "Username"
 msgid "Proxy username"
 msgstr "Utilisateur du serveur mandataire"
 
@@ -6646,7 +6637,6 @@ msgid "The password for authenticating with the proxy"
 msgstr "Le mot de passe pour s'authentifier sur le serveur mandataire"
 
 #: libraries/config/messages.inc.php:537
-#| msgid "Password"
 msgid "Proxy password"
 msgstr "Mot de passe du serveur mandataire"
 
@@ -6694,7 +6684,6 @@ msgid "Choose the default action when sending error reports"
 msgstr "Choisissez l'action par défaut lors de l'envoi des rapports d'erreurs"
 
 #: libraries/config/messages.inc.php:549
-#| msgid "Server port"
 msgid "Send error reports"
 msgstr "Envoyer le rapport d'erreurs"
 
@@ -7485,10 +7474,15 @@ msgid "The PrimeBase XT Blog by Paul McCullagh"
 msgstr "Le blogue de PrimeBase XT par Paul McCullagh"
 
 #: libraries/error_report.lib.php:237
+#, fuzzy
+#| msgid ""
+#| "phpMyAdmin has encountered an error. We have collected data about this "
+#| "error as well as information about relevant configuration settings to "
+#| "send to phpMyAdmin for processing to help us in debugging the problem"
 msgid ""
 "phpMyAdmin has encountered an error. We have collected data about this error "
-"as well as information about relevant configuration settings to send to "
-"phpMyAdmin for processing to help us in debugging the problem"
+"as well as information about relevant configuration settings to send to the "
+"phpMyAdmin team to help us in debugging the problem"
 msgstr ""
 "phpMyAdmin a rencontré une erreur. Nous avons recueilli des données sur "
 "cette erreur, ainsi que des informations sur les paramètres de configuration "
@@ -7504,7 +7498,6 @@ msgid "Please explain the steps that lead to the error:"
 msgstr "Veuillez expliquez les étapes qui mènent à l'erreur :"
 
 #: libraries/error_report.lib.php:259
-#| msgid "Automatically create versions"
 msgid "Automatically send report next time"
 msgstr "La prochaine fois, envoyer automatiquement le rapport"
 
@@ -7517,7 +7510,8 @@ msgstr "MySQL a retourné un résultat vide (aucune ligne)."
 #: libraries/import.lib.php:1196
 msgid ""
 "The following structures have either been created or altered. Here you can:"
-msgstr "Les structures suivantes ont été créées ou modifiées. Ici vous pouvez :"
+msgstr ""
+"Les structures suivantes ont été créées ou modifiées. Ici vous pouvez :"
 
 #: libraries/import.lib.php:1197
 msgid "View a structure's contents by clicking on its name"
@@ -7876,7 +7870,6 @@ msgid "unknown"
 msgstr "inconnu"
 
 #: libraries/navigation/Navigation.class.php:61
-#| msgid "An error has occured while loading the navigation tree"
 msgid "An error has occurred while loading the navigation tree"
 msgstr ""
 "Une erreur s'est produite lors du chargement de l'arborescence de navigation"
@@ -9395,8 +9388,6 @@ msgstr "L'événement %1$s a été créé."
 
 #: libraries/rte/rte_events.lib.php:175 libraries/rte/rte_routines.lib.php:371
 #: libraries/rte/rte_triggers.lib.php:147
-#| msgid ""
-#| "<b>One or more errors have occured while processing your request:</b>"
 msgid "<b>One or more errors have occurred while processing your request:</b>"
 msgstr ""
 "<b>Au moins une erreur s'est produite lors du traitement de la requête :</b>"
