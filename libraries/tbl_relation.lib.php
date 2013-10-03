@@ -484,16 +484,39 @@ function PMA_getHtmlForForeignKey($save_row, $i, $existrel_foreign, $myfield, $d
             if (isset($existrel_foreign[$myfield])) {
                 $foreign_table = $existrel_foreign[$myfield]['foreign_table'];
             }
-            $tables_rs = $GLOBALS['dbi']->query(
-                'SHOW TABLE STATUS FROM ' . PMA_Util::backquote($foreign_db),
-                null,
-                PMA_DatabaseInterface::QUERY_STORE
-            );
-            while ($row = $GLOBALS['dbi']->fetchRow($tables_rs)) {
-                if (isset($row[1])
-                    && strtoupper($row[1]) == $tbl_storage_engine
-                ) {
-                    $tables[] = $row[0];
+            // In Drizzle, 'SHOW TABLE STATUS' will show status only for the tables
+            // which are currently in the table cache. Hence we have to use
+            // 'SHOW TABLES' and manully retrieve table engine values.
+            if (PMA_DRIZZLE) {
+                $tables_rs = $GLOBALS['dbi']->query(
+                    'SHOW TABLES FROM ' . PMA_Util::backquote($foreign_db),
+                    null,
+                    PMA_DatabaseInterface::QUERY_STORE
+                );
+                while ($row = $GLOBALS['dbi']->fetchArray($tables_rs)) {
+                    $engine = PMA_Table::sGetStatusInfo(
+                        $foreign_db,
+                        $row[0],
+                        'Engine'
+                    );
+                    if (isset($engine)
+                        && strtoupper($engine) == $tbl_storage_engine
+                    ) {
+                        $tables[] = $row[0];
+                    }
+                }
+            } else {
+                $tables_rs = $GLOBALS['dbi']->query(
+                    'SHOW TABLE STATUS FROM ' . PMA_Util::backquote($foreign_db),
+                    null,
+                    PMA_DatabaseInterface::QUERY_STORE
+                );
+                while ($row = $GLOBALS['dbi']->fetchRow($tables_rs)) {
+                    if (isset($row[1])
+                        && strtoupper($row[1]) == $tbl_storage_engine
+                    ) {
+                        $tables[] = $row[0];
+                    }
                 }
             }
         }
