@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.0-alpha1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-10-01 21:11+0200\n"
-"PO-Revision-Date: 2013-10-03 14:30+0200\n"
+"PO-Revision-Date: 2013-10-03 15:30+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Czech <http://l10n.cihar.com/projects/phpmyadmin/master/cs/>\n"
 "Language: cs\n"
@@ -443,7 +443,7 @@ msgstr ""
 
 #: error_report.php:45
 msgid "Thank you for submitting this report."
-msgstr ""
+msgstr "Děkujeme vám za odeslání tohoto hlášení."
 
 #: export.php:160
 msgid "Bad type!"
@@ -4130,7 +4130,7 @@ msgstr "Uzavřené"
 
 #: libraries/config.values.php:111
 msgid "Ask before sending error reports"
-msgstr ""
+msgstr "Zeptat se před odesláním hlášení o chybě"
 
 #: libraries/config.values.php:112
 msgid "Always send error reports"
@@ -6504,7 +6504,6 @@ msgid "Version check"
 msgstr "Kontrola verze"
 
 #: libraries/config/messages.inc.php:532
-#, fuzzy
 #| msgid ""
 #| "The url of the proxy to be used when retrieving the information about the "
 #| "latest version of phpMyAdmin. You need this if the server where "
@@ -6517,9 +6516,9 @@ msgid ""
 "the internet. The format is: \"hostname:portnumber\""
 msgstr ""
 "Adresa URL proxy serveru, který má být použit při načítání informací o "
-"nejnovější verzi phpMyAdmina. Toto potřebujete pokud na serveru, kde je "
-"nainstalován phpMyAdmin, nemí přímý přístup k internetu. Formát je: "
-"\"hostname:portnumber\""
+"nejnovější verzi phpMyAdmina nebo při odesílání chybových hlášení. Toto "
+"potřebujete pokud na serveru, kde je nainstalován phpMyAdmin, nemá přímý "
+"přístup k internetu. Formát je: \"hostname:portnumber\""
 
 #: libraries/config/messages.inc.php:533
 msgid "Proxy url"
@@ -6537,10 +6536,9 @@ msgstr ""
 "ověřování."
 
 #: libraries/config/messages.inc.php:535
-#, fuzzy
 #| msgid "Username"
 msgid "Proxy username"
-msgstr "Uživatel"
+msgstr "Uživatel proxy"
 
 #: libraries/config/messages.inc.php:536
 msgid "The password for authenticating with the proxy"
