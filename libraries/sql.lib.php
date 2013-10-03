@@ -2068,6 +2068,7 @@ function PMA_sendQueryResponseForResultsReturned($result, $justBrowsing,
     if (isset($_REQUEST['table_maintenance'])) {
         $scripts->addFile('makegrid.js');
         $scripts->addFile('sql.js');
+        $table_maintenance_html = '';
         if (isset($message)) {
             $message = PMA_Message::success($message);
             $table_maintenance_html = PMA_Util::getMessage(
@@ -2077,8 +2078,8 @@ function PMA_sendQueryResponseForResultsReturned($result, $justBrowsing,
         $table_maintenance_html .= PMA_getHtmlForSqlQueryResultsTable(
             isset($sql_data) ? $sql_data : null, $displayResultsObject, $db, $goto,
             $pmaThemeImage, $url_query, $disp_mode, $sql_limit_to_append,
-            false, $unlim_num_rows, $num_rows, $showtable, $result, $querytime,
-            $analyzed_sql_results, false
+            false, $unlim_num_rows, $num_rows, $showtable, $result,
+            $analyzed_sql_results
         );
         if (empty($sql_data) || ($sql_data['valid_queries'] = 1)) {
             $response->addHTML($table_maintenance_html);
