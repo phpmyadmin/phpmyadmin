@@ -9,10 +9,6 @@
 
 chdir('..');
 
-// Avoid loading the full common.inc.php because this would add many
-// non-js-compatible stuff like DOCTYPE
-define('PMA_MINIMUM_COMMON', true);
-require_once './libraries/common.inc.php';
 // Close session early as we won't write anything there
 session_write_close();
 
@@ -28,11 +24,9 @@ if (! empty($_GET['scripts']) && is_array($_GET['scripts'])) {
 
         $path = explode("/", $script);
         foreach ($path as $index => $filename) {
-            if (! preg_match("@^\.+$@", $filename)
-                && preg_match("@^[\w\.-]+$@", $filename)
-            ) {
-                // Disallow "." and ".." alone
-                // Allow alphanumeric, "." and "-" chars only
+            // Allow alphanumeric, "." and "-" chars only, no files starting
+            // with .
+            if (preg_match("@^[\w][\w\.-]+$@", $filename)) {
                 $script_name .= DIRECTORY_SEPARATOR . $filename;
             }
         }
@@ -45,7 +39,7 @@ if (! empty($_GET['scripts']) && is_array($_GET['scripts'])) {
     }
 }
 
-if ($_GET['call_done']) {
+if (isset($_GET['call_done'])) {
     echo "AJAX.scriptHandler.done();";
 }
 ?>
