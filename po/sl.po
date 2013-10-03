@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.0-alpha1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-10-03 12:58-0400\n"
-"PO-Revision-Date: 2013-10-02 18:22+0200\n"
+"PO-Revision-Date: 2013-10-03 19:33+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
-"Language-Team: Slovenian <http://l10n.cihar.com/projects/phpmyadmin/master/"
-"sl/>\n"
+"Language-Team: Slovenian "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/sl/>\n"
+"Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: sl\n"
-"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%"
-"100==4 ? 2 : 3;\n"
+"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
+"%100==4 ? 2 : 3;\n"
 "X-Generator: Weblate 1.7-dev\n"
 
 #: changelog.php:36 license.php:28
@@ -2026,7 +2026,6 @@ msgid "Submit Error Report"
 msgstr "Oddaj poročilo o napaki"
 
 #: js/messages.php:399
-#, fuzzy
 #| msgid "An error has occured. Do you want to send an error report?"
 msgid "An error has occurred. Do you want to send an error report?"
 msgstr "Prišlo je do napake. Želite poslati poročilo o napaki?"
@@ -7419,7 +7418,6 @@ msgid "The PrimeBase XT Blog by Paul McCullagh"
 msgstr "Blog PrimeBase XT avtorja Paula McCullagha"
 
 #: libraries/error_report.lib.php:237
-#, fuzzy
 #| msgid ""
 #| "Phpmyadmin has encountered an error. We have collected data about this "
 #| "error as well as information about relevant configuration settings to "
@@ -7429,9 +7427,9 @@ msgid ""
 "as well as information about relevant configuration settings to send to the "
 "phpMyAdmin team to help us in debugging the problem"
 msgstr ""
-"Phpmyadmin je naletel na napako. Zbrali smo podatke o napaki, kakor tudi "
+"phpMyAdmin je naletel na napako. Zbrali smo podatke o napaki, kakor tudi "
 "informacije o bistvenih konfiguracijskih nastavitvah, za pošiljanje "
-"phpMyAdminu v obdelavo, da nam pomaga pri odpravljanju napake"
+"administratorski skupini, ki nam bo pomagala pri odpravljanju težave"
 
 #: libraries/error_report.lib.php:244
 msgid "You may examine the data in the error report:"
@@ -7813,7 +7811,6 @@ msgid "unknown"
 msgstr "neznano"
 
 #: libraries/navigation/Navigation.class.php:61
-#, fuzzy
 #| msgid "An error has occured while loading the navigation tree"
 msgid "An error has occurred while loading the navigation tree"
 msgstr "Med nalaganjem navigacijskega drevesa je prišlo do napake"
@@ -9317,7 +9314,6 @@ msgstr "Dogodek %1$s je ustvarjen."
 
 #: libraries/rte/rte_events.lib.php:175 libraries/rte/rte_routines.lib.php:371
 #: libraries/rte/rte_triggers.lib.php:147
-#, fuzzy
 #| msgid ""
 #| "<b>One or more errors have occured while processing your request:</b>"
 msgid "<b>One or more errors have occurred while processing your request:</b>"
