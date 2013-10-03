@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-09-17 10:36-0400\n"
-"PO-Revision-Date: 2013-09-17 17:07+0200\n"
+"PO-Revision-Date: 2013-10-03 18:18+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: French <http://l10n.cihar.com/projects/phpmyadmin/4-0/fr/>\n"
 "Language: fr\n"
@@ -7101,8 +7101,7 @@ msgstr "MySQL a retourné un résultat vide (aucune ligne)."
 #: libraries/import.lib.php:1190
 msgid ""
 "The following structures have either been created or altered. Here you can:"
-msgstr ""
-"Les structures suivanates ont été créées ou modifiées. Ici vous pouvez : "
+msgstr "Les structures suivantes ont été créées ou modifiées. Ici vous pouvez :"
 
 #: libraries/import.lib.php:1191
 msgid "View a structure's contents by clicking on its name"
