@@ -24,11 +24,9 @@ if (! empty($_GET['scripts']) && is_array($_GET['scripts'])) {
 
         $path = explode("/", $script);
         foreach ($path as $index => $filename) {
-            if (! preg_match("@^\.+$@", $filename)
-                && preg_match("@^[\w\.-]+$@", $filename)
-            ) {
-                // Disallow "." and ".." alone
-                // Allow alphanumeric, "." and "-" chars only
+            // Allow alphanumeric, "." and "-" chars only, no files starting
+            // with .
+            if (preg_match("@^[\w][\w\.-]+$@", $filename)) {
                 $script_name .= DIRECTORY_SEPARATOR . $filename;
             }
         }
