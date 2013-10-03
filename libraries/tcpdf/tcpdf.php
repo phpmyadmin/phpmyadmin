@@ -1,9 +1,9 @@
 <?php
 //============================================================+
 // File name   : tcpdf.php
-// Version     : 6.0.036
+// Version     : 6.0.037
 // Begin       : 2002-08-03
-// Last Update : 2013-09-29
+// Last Update : 2013-09-30
 // Author      : Nicola Asuni - Tecnick.com LTD - www.tecnick.com - info@tecnick.com
 // License     : GNU-LGPL v3 (http://www.gnu.org/copyleft/lesser.html)
 // -------------------------------------------------------------------
@@ -104,7 +104,7 @@
  * Tools to encode your unicode fonts are on fonts/utils directory.</p>
  * @package com.tecnick.tcpdf
  * @author Nicola Asuni
- * @version 6.0.036
+ * @version 6.0.037
  */
 
 // TCPDF configuration
@@ -128,7 +128,7 @@ require_once(dirname(__FILE__).'/include/tcpdf_static.php');
  * TCPDF project (http://www.tcpdf.org) has been originally derived in 2002 from the Public Domain FPDF class by Olivier Plathey (http://www.fpdf.org), but now is almost entirely rewritten.<br>
  * @package com.tecnick.tcpdf
  * @brief PHP class for generating PDF documents without requiring external extensions.
- * @version 6.0.036
+ * @version 6.0.037
  * @author Nicola Asuni - info@tecnick.com
  */
 class TCPDF {
@@ -3650,6 +3650,16 @@ class TCPDF {
 	 */
 	public function PageNo() {
 		return $this->page;
+	}
+
+	/**
+	 * Returns the array of spot colors.
+	 * @return (array) Spot colors array.
+	 * @public
+	 * @since 6.0.037 (2013-09-30)
+	 */
+	public function getAllSpotColors() {
+		return $this->spot_colors;
 	}
 
 	/**
@@ -7838,6 +7848,7 @@ class TCPDF {
 		$groupnum = 0;
 		$ptgu = 1;
 		$ptga = 1;
+		$ptg_num_chars = 1;
 		for ($n = 1; $n <= $num_pages; ++$n) {
 			// get current page
 			$temppage = $this->getPageBuffer($n);
@@ -13919,12 +13930,25 @@ class TCPDF {
 	 * @param $h (float) height of the rectangle.
 	 * @param $transition (boolean) if true prints tcolor transitions to white.
 	 * @param $vertical (boolean) if true prints bar vertically.
-	 * @param $colors (string) colors to print, one letter per color separated by comma (for example 'A,W,R,G,B,C,M,Y,K,RGB,CMYK,ALL'): A = grayscale black, W = grayscale white, R = RGB red, G RGB green, B RGB blue, C = CMYK cyan, M = CMYK magenta, Y = CMYK yellow, K = CMYK key/black, RGB = RGB registration color, CMYK = CMYK registration color, ALL = Spot registration color.
+	 * @param $colors (string) colors to print separated by comma. Valid values are: A,W,R,G,B,C,M,Y,K,RGB,CMYK,ALL,ALLSPOT,<SPOT_COLOR_NAME>. Where: A = grayscale black, W = grayscale white, R = RGB red, G RGB green, B RGB blue, C = CMYK cyan, M = CMYK magenta, Y = CMYK yellow, K = CMYK key/black, RGB = RGB registration color, CMYK = CMYK registration color, ALL = Spot registration color, ALLSPOT = print all defined spot colors, <SPOT_COLOR_NAME> = name of the spot color to print.
 	 * @author Nicola Asuni
 	 * @since 4.9.000 (2010-03-26)
 	 * @public
 	 */
 	public function colorRegistrationBar($x, $y, $w, $h, $transition=true, $vertical=false, $colors='A,R,G,B,C,M,Y,K') {
+		if (strpos($colors, 'ALLSPOT') !== false) {
+			// expand spot colors
+			$spot_colors = '';
+			foreach ($this->spot_colors as $spot_color_name => $v) {
+				$spot_colors .= ','.$spot_color_name;
+			}
+			if (!empty($spot_colors)) {
+				$spot_colors = substr($spot_colors, 1);
+				$colors = str_replace('ALLSPOT', $spot_colors, $colors);
+			} else {
+				$colors = str_replace('ALLSPOT', 'NONE', $colors);
+			}
+		}
 		$bars = explode(',', $colors);
 		$numbars = count($bars); // number of bars to print
 		if ($numbars <= 0) {
@@ -14004,23 +14028,38 @@ class TCPDF {
 					$col_b = array(100,100,100,100);
 					break;
 				}
-				case 'ALL':
-				default: { // SPOT COLOR REGISTRATION
+				case 'ALL': { // SPOT COLOR REGISTRATION
 					$col_a = array(0,0,0,0,'None');
 					$col_b = array(100,100,100,100,'All');
 					break;
 				}
+				case 'NONE': { // SKIP THIS COLOR
+					$col_a = array(0,0,0,0,'None');
+					$col_b = array(0,0,0,0,'None');
+					break;
+				}
+				default: { // SPECIFIC SPOT COLOR NAME
+					$col_a = array(0,0,0,0,'None');
+					$col_b = TCPDF_COLORS::getSpotColor($col, $this->spot_colors);
+					if ($col_b === false) {
+						// in case of error defaults to the registration color
+						$col_b = array(100,100,100,100,'All');
+					}
+					break;
+				}
 			}
-			if ($transition) {
-				// color gradient
-				$this->LinearGradient($xb, $yb, $wb, $hb, $col_a, $col_b, $coords);
-			} else {
-				$this->SetFillColorArray($col_b);
-				// colored rectangle
-				$this->Rect($xb, $yb, $wb, $hb, 'F', array());
+			if ($col != 'NONE') {
+				if ($transition) {
+					// color gradient
+					$this->LinearGradient($xb, $yb, $wb, $hb, $col_a, $col_b, $coords);
+				} else {
+					$this->SetFillColorArray($col_b);
+					// colored rectangle
+					$this->Rect($xb, $yb, $wb, $hb, 'F', array());
+				}
+				$xb += $xd;
+				$yb += $yd;
 			}
-			$xb += $xd;
-			$yb += $yd;
 		}
 	}
 
@@ -14108,21 +14147,61 @@ class TCPDF {
 	 * @public
 	 */
 	public function registrationMark($x, $y, $r, $double=false, $cola=array(100,100,100,100,'All'), $colb=array(0,0,0,0,'None')) {
-		$line_style = array('width' => (0.5 / $this->k), 'cap' => 'butt', 'join' => 'miter', 'dash' => 0, 'color' => $cola);
+		$line_style = array('width' => max((0.5 / $this->k),($r / 30)), 'cap' => 'butt', 'join' => 'miter', 'dash' => 0, 'color' => $cola);
 		$this->SetFillColorArray($cola);
 		$this->PieSector($x, $y, $r, 90, 180, 'F');
 		$this->PieSector($x, $y, $r, 270, 360, 'F');
 		$this->Circle($x, $y, $r, 0, 360, 'C', $line_style, array(), 8);
 		if ($double) {
-			$r2 = $r * 0.5;
+			$ri = $r * 0.5;
 			$this->SetFillColorArray($colb);
-			$this->PieSector($x, $y, $r2, 90, 180, 'F');
-			$this->PieSector($x, $y, $r2, 270, 360, 'F');
+			$this->PieSector($x, $y, $ri, 90, 180, 'F');
+			$this->PieSector($x, $y, $ri, 270, 360, 'F');
 			$this->SetFillColorArray($cola);
-			$this->PieSector($x, $y, $r2, 0, 90, 'F');
-			$this->PieSector($x, $y, $r2, 180, 270, 'F');
-			$this->Circle($x, $y, $r2, 0, 360, 'C', $line_style, array(), 8);
+			$this->PieSector($x, $y, $ri, 0, 90, 'F');
+			$this->PieSector($x, $y, $ri, 180, 270, 'F');
+			$this->Circle($x, $y, $ri, 0, 360, 'C', $line_style, array(), 8);
 		}
+	}
+
+	/**
+	 * Paints a CMYK registration mark
+	 * @param $x (float) abscissa of the registration mark center.
+	 * @param $y (float) ordinate of the registration mark center.
+	 * @param $r (float) radius of the crop mark.
+	 * @author Nicola Asuni
+	 * @since 6.0.037 (2013-09-30)
+	 * @public
+	 */
+	public function registrationMarkCMYK($x, $y, $r) {
+		// line width
+		$lw = max((0.5 / $this->k),($r / 8));
+		// internal radius
+		$ri = ($r * 0.6);
+		// external radius
+		$re = ($r * 1.3);
+		// Cyan
+		$this->SetFillColorArray(array(100,0,0,0));
+		$this->PieSector($x, $y, $ri, 270, 360, 'F');
+		// Magenta
+		$this->SetFillColorArray(array(0,100,0,0));
+		$this->PieSector($x, $y, $ri, 0, 90, 'F');
+		// Yellow
+		$this->SetFillColorArray(array(0,0,100,0));
+		$this->PieSector($x, $y, $ri, 90, 180, 'F');
+		// Key - black
+		$this->SetFillColorArray(array(0,0,0,100));
+		$this->PieSector($x, $y, $ri, 180, 270, 'F');
+		// registration color
+		$line_style = array('width' => $lw, 'cap' => 'butt', 'join' => 'miter', 'dash' => 0, 'color' => array(100,100,100,100,'All'));
+		$this->SetFillColorArray(array(100,100,100,100,'All'));
+		// external circle
+		$this->Circle($x, $y, $r, 0, 360, 'C', $line_style, array(), 8);
+		// cross lines
+		$this->Line($x, ($y - $re), $x, ($y - $ri));
+		$this->Line($x, ($y + $ri), $x, ($y + $re));
+		$this->Line(($x - $re), $y, ($x - $ri), $y);
+		$this->Line(($x + $ri), $y, ($x + $re), $y);
 	}
 
 	/**
@@ -14328,7 +14407,7 @@ class TCPDF {
 				}
 				break;
 			}
-			case 1: { // Gray scale
+			case 1: { // GRAY SCALE
 				$this->gradients[$n]['colspace'] = 'DeviceGray';
 				if (!empty($background)) {
 					$this->gradients[$n]['background'] = sprintf('%F', $bcolor[0]/255);
@@ -14370,6 +14449,7 @@ class TCPDF {
 			// set colors
 			$color = array_values($stop['color']);
 			switch($numcolspace) {
+				case 5:   // SPOT
 				case 4: { // CMYK
 					$this->gradients[$n]['colors'][$key]['color'] = sprintf('%F %F %F %F', $color[0]/100, $color[1]/100, $color[2]/100, $color[3]/100);
 					break;
@@ -14378,7 +14458,7 @@ class TCPDF {
 					$this->gradients[$n]['colors'][$key]['color'] = sprintf('%F %F %F', $color[0]/255, $color[1]/255, $color[2]/255);
 					break;
 				}
-				case 1: { // Gray scale
+				case 1: { // GRAY SCALE
 					$this->gradients[$n]['colors'][$key]['color'] = sprintf('%F', $color[0]/255);
 					break;
 				}
