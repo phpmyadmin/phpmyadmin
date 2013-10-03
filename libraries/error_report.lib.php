@@ -155,6 +155,19 @@ function PMA_sendErrorReport($report) {
 }
 
 /**
+ * Returns number of lines in given javascript file.
+ *
+ * @param string $filename javascript filename
+ *
+ * @return Number of lines
+ */
+function PMA_countLines($filename)
+{
+    global $LINE_COUNT;
+    return $LINE_COUNT[$filename];
+}
+
+/**
  * returns the translated linenumber and the file name from the cumulative line
  * number and an array of files
  *
@@ -171,10 +184,9 @@ function PMA_sendErrorReport($report) {
  * - Integer $linenumber the translated line number in the returned file
  */
 function PMA_getLineNumber($filenames, $cumulative_number) {
-  global $LINE_COUNT;
   $cumulative_sum = 0;
   foreach($filenames as $filename) {
-    $filecount = $LINE_COUNT[$filename];
+    $filecount = PMA_countLines($filename);
     if ($cumulative_number <= $cumulative_sum + $filecount + 2) {
       $linenumber = $cumulative_number - $cumulative_sum;
       break;
