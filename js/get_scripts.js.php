@@ -9,10 +9,6 @@
 
 chdir('..');
 
-// Avoid loading the full common.inc.php because this would add many
-// non-js-compatible stuff like DOCTYPE
-define('PMA_MINIMUM_COMMON', true);
-require_once './libraries/common.inc.php';
 // Close session early as we won't write anything there
 session_write_close();
 
