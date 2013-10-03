@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.0-alpha1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-10-01 21:11+0200\n"
-"PO-Revision-Date: 2013-10-02 10:46+0200\n"
+"PO-Revision-Date: 2013-10-03 14:30+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Czech <http://l10n.cihar.com/projects/phpmyadmin/master/cs/>\n"
 "Language: cs\n"
@@ -412,24 +412,28 @@ msgstr "Záznam databáze"
 msgid ""
 "An error has been detected, however, you seem to be running on a git version "
 "of phpMyAdmin."
-msgstr ""
+msgstr "Byla zjištěna chyba, ale bohužel používáte verzi z gitu."
 
 #: error_report.php:18 error_report.php:28
 msgid ""
 "Automatic report submission cannot be used. Please submit a manual error "
 "report on the bug tracker."
 msgstr ""
+"Chybové hlášení nelze automaticky odeslat. Prosím nahlaste chybu do systému "
+"sledování chyb."
 
 #: error_report.php:21 error_report.php:31 error_report.php:42
 #: error_report.php:47
 msgid "You may want to refresh the page."
-msgstr ""
+msgstr "Možná budete potřebovat obnovit tuto stránku."
 
 #: error_report.php:26
 msgid ""
 "An error has been detected, however, the JavaScript line count file does not "
 "seem to exist in this phpMyAdmin installation."
 msgstr ""
+"Byla zjištěna chyba, ale bohužel neexistuje soubor s informacemi o číslech "
+"řádek javascriptu."
 
 #: error_report.php:39
 msgid ""
