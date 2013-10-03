@@ -368,7 +368,7 @@ function PMA_RTN_handleEditor()
         if (count($errors)) {
             $message = PMA_Message::error(
                 __(
-                    '<b>One or more errors have occured while'
+                    '<b>One or more errors have occurred while'
                     . ' processing your request:</b>'
                 )
             );

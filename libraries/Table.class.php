@@ -57,7 +57,7 @@ class PMA_Table
     var $uiprefs;
 
     /**
-     * @var array errors occured
+     * @var array errors occurred
      */
     var $errors = array();
 

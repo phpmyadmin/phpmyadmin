@@ -379,7 +379,7 @@ class PMA_File
      * Checks whether there was any error.
      *
      * @access  public
-     * @return boolean whether an error occured or not
+     * @return boolean whether an error occurred or not
      */
     public function isError()
     {

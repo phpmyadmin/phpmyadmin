@@ -141,11 +141,11 @@ class PMA_RecentTable
     public function trim()
     {
         $max = max($GLOBALS['cfg']['NumRecentTables'], 0);
-        $trimming_occured = count($this->tables) > $max;
+        $trimming_occurred = count($this->tables) > $max;
         while (count($this->tables) > $max) {
             array_pop($this->tables);
         }
-        return $trimming_occured;
+        return $trimming_occurred;
     }
 
     /**

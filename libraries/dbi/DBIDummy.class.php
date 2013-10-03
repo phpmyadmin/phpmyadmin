@@ -745,7 +745,7 @@ class PMA_DBI_Dummy implements PMA_DBI_Extension
     }
 
     /**
-     * returns last error message or false if no errors occured
+     * returns last error message or false if no errors occurred
      *
      * @param object $link connection link
      *

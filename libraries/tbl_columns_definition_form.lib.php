@@ -364,7 +364,7 @@ function PMA_getMoveColumns($db, $table)
 }
 
 /**
- * Function to get row data for regenerating previous when error occured.
+ * Function to get row data for regenerating previous when error occurred.
  *
  * @param int   $columnNumber    coulmn number
  * @param array $submit_fulltext submit full text
@@ -444,7 +444,7 @@ function PMA_getRowDataForRegeneration($columnNumber, $submit_fulltext)
 }
 
 /**
- * Function to get submit properties for regenerating previous when error occured.
+ * Function to get submit properties for regenerating previous when error occurred.
  *
  * @param int $columnNumber coulmn number
  *
