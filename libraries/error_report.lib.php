@@ -219,10 +219,6 @@ function PMA_getLineNumber($filenames, $cumulative_number) {
  * @return Array $stack the modified stacktrace
  */
 function PMA_translateStacktrace($stack) {
-    if(!defined('LINE_COUNTS')) {
-        return $stack;
-    }
-
     foreach ($stack as &$level) {
         foreach ($level["context"] as &$line) {
             if (strlen($line) > 80) {
