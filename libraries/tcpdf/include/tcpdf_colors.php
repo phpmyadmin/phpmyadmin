@@ -1,9 +1,9 @@
 <?php
 //============================================================+
 // File name   : tcpdf_colors.php
-// Version     : 1.0.001
+// Version     : 1.0.002
 // Begin       : 2002-04-09
-// Last Update : 2013-09-29
+// Last Update : 2013-09-30
 // Author      : Nicola Asuni - Tecnick.com LTD - www.tecnick.com - info@tecnick.com
 // License     : GNU-LGPL v3 (http://www.gnu.org/copyleft/lesser.html)
 // -------------------------------------------------------------------
@@ -42,7 +42,7 @@
  * @class TCPDF_COLORS
  * PHP color class for TCPDF
  * @package com.tecnick.tcpdf
- * @version 1.0.001
+ * @version 1.0.002
  * @author Nicola Asuni - info@tecnick.com
  */
 class TCPDF_COLORS {
@@ -232,12 +232,7 @@ class TCPDF_COLORS {
 		'red'     => array(  0, 100, 100,   0, 'Red'),
 		'green'   => array(100,   0, 100,   0, 'Green'),
 		'blue'    => array(100, 100,   0,   0, 'Blue'),
-		// the following are just examples, fill the array with your own values
-		'mytcpdfblack' => array(0, 0, 0, 100, 'My TCPDF Black'),
-		'mytcpdfred' => array(30, 100, 90, 10, 'My TCPDF Red'),
-		'mytcpdfgreen' => array(100, 30, 100, 0, 'My TCPDF Green'),
-		'mytcpdfblue' => array(100, 60, 10, 5, 'My TCPDF Blue'),
-		'mytcpdfyellow' => array(0, 20, 100, 0, 'My TCPDF Yellow'),
+		// Add here standard spot colors or dynamically define them with AddSpotColor()
 		// ...
 	); // end of spot colors
 
