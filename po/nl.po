@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.0-alpha1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-10-01 21:11+0200\n"
-"PO-Revision-Date: 2013-10-01 21:32+0200\n"
+"PO-Revision-Date: 2013-10-03 16:58+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: Dutch <http://l10n.cihar.com/projects/phpmyadmin/master/nl/>\n"
 "Language: nl\n"
@@ -6681,14 +6681,16 @@ msgstr "Private sleutel voor reCaptcha"
 msgid ""
 "Uncheck this to prevent the sending of error reports for javascript errors"
 msgstr ""
+"Vik dit af om te voorkomen dat foutmeldingsverslagen voor JavaScript fouten "
+"verstuurd worden"
 
 #: libraries/config/messages.inc.php:547
 msgid "Enable javascript error reporting"
-msgstr ""
+msgstr "JavaScript foutmeldingsverslagen inschakelen"
 
 #: libraries/config/messages.inc.php:548
 msgid "Choose the default action when sending error reports"
-msgstr ""
+msgstr "Kies de standaard actie bij het verzenden van foutmeldingsverslagen"
 
 #: libraries/config/messages.inc.php:549
 msgid "Send error reports"
@@ -7491,14 +7493,18 @@ msgid ""
 "as well as information about relevant configuration settings to send to "
 "phpmyadmin for processing to help us in debugging the problem"
 msgstr ""
+"Er is een fout opgetreden in phpMyAdmin. We hebben gegevens verzameld over "
+"deze fout en ook informatie over relevante configuratie-instellingen om te "
+"verzenden naar phpMyAdmin voor verwerking, wat ons kan helpen bij het "
+"debuggen van het probleem"
 
 #: libraries/error_report.lib.php:245
 msgid "You may examine the data in the error report:"
-msgstr ""
+msgstr "U kan de gegevens in het foutmeldingsverslag bekijken:"
 
 #: libraries/error_report.lib.php:252
 msgid "Please explain the steps that lead to the error:"
-msgstr ""
+msgstr "Gelieve de stappen die tot de fout leiden op te lijsten:"
 
 #: libraries/error_report.lib.php:260
 msgid "Automatically send report next time"
