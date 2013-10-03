@@ -619,7 +619,7 @@ function PMA_sendHtmlForTableDropdownList()
         );
     }
 
-    // In Drizzle, 'SHOW TABLE STATUS' will show the status only  for the tables
+    // In Drizzle, 'SHOW TABLE STATUS' will show status only for the tables
     // which are currently in the table cache. Hence we have to use 'SHOW TABLES'
     // and manully retrieve table engine values.
     if ($foreign && ! PMA_DRIZZLE) {
@@ -647,11 +647,13 @@ function PMA_sendHtmlForTableDropdownList()
             PMA_DatabaseInterface::QUERY_STORE
         );
         while ($row = $GLOBALS['dbi']->fetchArray($tables_rs)) {
-            if (PMA_DRIZZLE) {
-                $engine = PMA_Table::sGetStatusInfo(
-                    $_REQUEST['foreignDb'],
-                    $row[0],
-                    'Engine'
+            if ($foreign && PMA_DRIZZLE) {
+                $engine = strtoupper(
+                    PMA_Table::sGetStatusInfo(
+                        $_REQUEST['foreignDb'],
+                        $row[0],
+                        'Engine'
+                    )
                 );
                 if (isset($engine) && $engine == $tbl_storage_engine) {
                     $tables[] = htmlspecialchars($row[0]);
