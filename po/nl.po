@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.0-alpha1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-10-03 17:03+0200\n"
-"PO-Revision-Date: 2013-10-03 16:58+0200\n"
+"PO-Revision-Date: 2013-10-03 17:11+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: Dutch <http://l10n.cihar.com/projects/phpmyadmin/master/nl/>\n"
 "Language: nl\n"
@@ -7482,7 +7482,6 @@ msgid "The PrimeBase XT Blog by Paul McCullagh"
 msgstr "De PrimeBase XT Blog door Paul McCullagh"
 
 #: libraries/error_report.lib.php:237
-#, fuzzy
 #| msgid ""
 #| "Phpmyadmin has encountered an error. We have collected data about this "
 #| "error as well as information about relevant configuration settings to "
