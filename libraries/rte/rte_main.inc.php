@@ -68,7 +68,7 @@ $ajax_class = array(
 $titles = PMA_Util::buildActionTitles();
 
 /**
- * Keep a list of errors that occured while
+ * Keep a list of errors that occurred while
  * processing an 'Add' or 'Edit' operation.
  */
 $errors = array();

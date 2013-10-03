@@ -118,7 +118,7 @@ var ErrorReport = {
         );
         html = '';
         html += '<img src="themes/dot.gif" title="" alt="" class="icon ic_s_error">';
-        html += PMA_messages.strErrorOccured;
+        html += PMA_messages.strErrorOccurred;
         $div.html(html);
 
         $buttons = $('<div style="float:right"></div>');

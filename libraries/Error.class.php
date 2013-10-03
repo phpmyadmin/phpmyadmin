@@ -67,14 +67,14 @@ class PMA_Error extends PMA_Message
     );
 
     /**
-     * The file in which the error occured
+     * The file in which the error occurred
      *
      * @var string
      */
     protected $file = '';
 
     /**
-     * The line in which the error occured
+     * The line in which the error occurred
      *
      * @var integer
      */

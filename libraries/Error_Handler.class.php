@@ -106,7 +106,7 @@ class PMA_Error_Handler
     }
 
     /**
-     * Error handler - called when errors are triggered/occured
+     * Error handler - called when errors are triggered/occurred
      *
      * This calls the addError() function, escaping the error string
      *
@@ -404,7 +404,7 @@ class PMA_Error_Handler
     }
 
     /**
-     * whether use errors occured or not
+     * whether use errors occurred or not
      *
      * @return boolean
      */
@@ -414,7 +414,7 @@ class PMA_Error_Handler
     }
 
     /**
-     * whether errors occured or not
+     * whether errors occurred or not
      *
      * @return boolean
      */

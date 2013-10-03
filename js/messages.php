@@ -395,8 +395,8 @@ $js_messages['strCreateView'] = __('Create view');
 /* Error Reporting */
 $js_messages['strSendErrorReport'] = __("Send Error Report");
 $js_messages['strSubmitErrorReport'] = __("Submit Error Report");
-$js_messages['strErrorOccured'] = __(
-    "An error has occured. Do you want to send an error report?"
+$js_messages['strErrorOccurred'] = __(
+    "An error has occurred. Do you want to send an error report?"
 );
 $js_messages['strChangeReportSettings'] = __("Change Report Settings");
 $js_messages['strShowReportDetails'] = __("Show Report Details");

@@ -2296,7 +2296,7 @@ class PMA_DatabaseInterface
     }
 
     /**
-     * returns last error message or false if no errors occured
+     * returns last error message or false if no errors occurred
      *
      * @param object $link connection link
      *
