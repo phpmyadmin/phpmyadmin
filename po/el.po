@@ -4,13 +4,13 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.0-alpha1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-10-03 12:58-0400\n"
-"PO-Revision-Date: 2013-10-02 04:56+0200\n"
-"Last-Translator: jef suris <jefaraz@gmail.com>\n"
+"PO-Revision-Date: 2013-10-04 07:28+0200\n"
+"Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: Greek <http://l10n.cihar.com/projects/phpmyadmin/master/el/>\n"
+"Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: el\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 1.7-dev\n"
 
@@ -2041,7 +2041,6 @@ msgid "Submit Error Report"
 msgstr "Υποβολή Αναφοράς Σφάλματος"
 
 #: js/messages.php:399
-#, fuzzy
 #| msgid "An error has occured. Do you want to send an error report?"
 msgid "An error has occurred. Do you want to send an error report?"
 msgstr "Ένα σφάλμα έχει συμβεί. Θέλετε να στείλετε μια αναφορά σφάλματος;"
@@ -7492,7 +7491,6 @@ msgid "The PrimeBase XT Blog by Paul McCullagh"
 msgstr "Το Ιστολόγιο του PrimeBase XT από τον Paul McCullagh"
 
 #: libraries/error_report.lib.php:237
-#, fuzzy
 #| msgid ""
 #| "Phpmyadmin has encountered an error. We have collected data about this "
 #| "error as well as information about relevant configuration settings to "
@@ -7503,9 +7501,8 @@ msgid ""
 "phpMyAdmin team to help us in debugging the problem"
 msgstr ""
 "Το Phpmyadmin παρουσίασε ένα σφάλμα. Συλλέξαμε δεδομένα για αυτό το σφάλμα "
-"καθώς και πληροφορίες για τις σχετικές ρυθμίσεις για να τα στείλουμε στο "
-"phpmyadmin για περαιτέρω ενέργειες ώστε να μας βοηθήσει να διορθώσουμε το "
-"πρόβλημα"
+"καθώς και πληροφορίες για τις σχετικές ρυθμίσεις για να τα στείλουμε στη "
+"ομάδα του phpmyadmin για να μας βοηθήσει να διορθώσουμε το πρόβλημα"
 
 #: libraries/error_report.lib.php:244
 msgid "You may examine the data in the error report:"
@@ -7886,7 +7883,6 @@ msgid "unknown"
 msgstr "άγνωστο"
 
 #: libraries/navigation/Navigation.class.php:61
-#, fuzzy
 #| msgid "An error has occured while loading the navigation tree"
 msgid "An error has occurred while loading the navigation tree"
 msgstr "Ένα σφάλμα συμβαίνει κατά τη φόρτωση του δέντρου πλοήγησης"
@@ -9410,7 +9406,6 @@ msgstr "Το συμβάν %1$s έχει δημιουργηθεί."
 
 #: libraries/rte/rte_events.lib.php:175 libraries/rte/rte_routines.lib.php:371
 #: libraries/rte/rte_triggers.lib.php:147
-#, fuzzy
 #| msgid ""
 #| "<b>One or more errors have occured while processing your request:</b>"
 msgid "<b>One or more errors have occurred while processing your request:</b>"
