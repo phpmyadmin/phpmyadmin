@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.0-alpha1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-10-03 12:58-0400\n"
-"PO-Revision-Date: 2013-10-04 11:36+0200\n"
+"PO-Revision-Date: 2013-10-04 11:37+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: Dutch <http://l10n.cihar.com/projects/phpmyadmin/master/nl/>\n"
 "Language: nl\n"
@@ -7483,7 +7483,6 @@ msgid "The PrimeBase XT Blog by Paul McCullagh"
 msgstr "De PrimeBase XT Blog door Paul McCullagh"
 
 #: libraries/error_report.lib.php:237
-#, fuzzy
 #| msgid ""
 #| "phpMyAdmin has encountered an error. We have collected data about this "
 #| "error as well as information about relevant configuration settings to "
@@ -7495,8 +7494,8 @@ msgid ""
 msgstr ""
 "Er is een fout opgetreden in phpMyAdmin. We hebben gegevens verzameld over "
 "deze fout en ook informatie over relevante configuratie-instellingen om te "
-"verzenden naar phpMyAdmin voor verwerking, wat ons kan helpen bij het "
-"debuggen van het probleem"
+"verzenden naar het phpMyAdmin team om ons te helpen bij het debuggen van het "
+"probleem"
 
 #: libraries/error_report.lib.php:244
 msgid "You may examine the data in the error report:"
@@ -7877,7 +7876,6 @@ msgid "unknown"
 msgstr "onbekend"
 
 #: libraries/navigation/Navigation.class.php:61
-#, fuzzy
 #| msgid "An error has occured while loading the navigation tree"
 msgid "An error has occurred while loading the navigation tree"
 msgstr "Er is een fout opgetreden bij het laden van de navigatieboom"
@@ -9396,13 +9394,12 @@ msgstr "Gebeurtenis %1$s werd aangemaakt."
 
 #: libraries/rte/rte_events.lib.php:175 libraries/rte/rte_routines.lib.php:371
 #: libraries/rte/rte_triggers.lib.php:147
-#, fuzzy
 #| msgid ""
 #| "<b>One or more errors have occured while processing your request:</b>"
 msgid "<b>One or more errors have occurred while processing your request:</b>"
 msgstr ""
-"<b>Een of meer fouten zijn opgetreden tijdens het uitvoeren van uw opdracht:"
-"</b>"
+"<b>Een of meer fouten zijn opgetreden tijdens het uitvoeren van uw "
+"opdracht:</b>"
 
 #: libraries/rte/rte_events.lib.php:228
 msgid "Edit event"
