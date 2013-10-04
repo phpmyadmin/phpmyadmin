@@ -4,14 +4,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.0-alpha1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-10-03 12:58-0400\n"
-"PO-Revision-Date: 2013-10-02 01:56+0200\n"
+"PO-Revision-Date: 2013-10-04 02:05+0200\n"
 "Last-Translator: Helder Santana <helder.bs.santana@gmail.com>\n"
-"Language-Team: Portuguese (Brazil) <http://l10n.cihar.com/projects/"
-"phpmyadmin/master/pt_BR/>\n"
+"Language-Team: Portuguese (Brazil) "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/pt_BR/>\n"
+"Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: pt_BR\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 1.7-dev\n"
 
@@ -2048,10 +2048,9 @@ msgid "Submit Error Report"
 msgstr "Cadastrar Relatório de Erro"
 
 #: js/messages.php:399
-#, fuzzy
 #| msgid "An error has occured. Do you want to send an error report?"
 msgid "An error has occurred. Do you want to send an error report?"
-msgstr "Um erro ocorreu. Você quer enviar um relatório de erro?"
+msgstr "Um erro ocorreu. Deseja enviar relatório de erros?"
 
 #: js/messages.php:401
 msgid "Change Report Settings"
@@ -7867,10 +7866,9 @@ msgid "unknown"
 msgstr "desconhecido"
 
 #: libraries/navigation/Navigation.class.php:61
-#, fuzzy
 #| msgid "An error has occured while loading the navigation tree"
 msgid "An error has occurred while loading the navigation tree"
-msgstr "Um erro ocorreu enquanto carregava a árvore de navegação"
+msgstr "Um erro ocorreu ao carregar a árvore de navegação"
 
 #: libraries/navigation/Navigation.class.php:172
 msgid "Events:"
@@ -9380,12 +9378,12 @@ msgstr "O evento %1$s foi criado."
 
 #: libraries/rte/rte_events.lib.php:175 libraries/rte/rte_routines.lib.php:371
 #: libraries/rte/rte_triggers.lib.php:147
-#, fuzzy
 #| msgid ""
 #| "<b>One or more errors have occured while processing your request:</b>"
 msgid "<b>One or more errors have occurred while processing your request:</b>"
 msgstr ""
-"<b>Um ou mais erros ocorreram durante o processamento do seu pedido:</b>"
+"<b>Um ou mais erros ocorreram durante o processamento da sua "
+"solicitação:</b>"
 
 #: libraries/rte/rte_events.lib.php:228
 msgid "Edit event"
