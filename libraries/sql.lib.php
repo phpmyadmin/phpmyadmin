@@ -399,7 +399,7 @@ function PMA_getHtmlForPrintViewHeader($db, $sql_query, $num_rows)
     $response = PMA_Response::getInstance();
     $header = $response->getHeader();
     if (isset($_REQUEST['printview']) && $_REQUEST['printview'] == '1') {
-        PMA_Util::checkParameters(array('db', 'full_sql_query'));
+        PMA_Util::checkParameters(array('db', 'sql_query'));
         $header->enablePrintView();
         $hostname = '';
         if ( $GLOBALS['cfg']['Server']['verbose']) {
