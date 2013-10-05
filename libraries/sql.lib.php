@@ -2038,12 +2038,11 @@ function PMA_sendQueryResponseForResultsReturned($result, $justBrowsing,
     // hide edit and delete links:
     // - for information_schema
     // - if the result set does not contain all the columns of a unique key
-    //   and we are not just browing all the columns of an updatable view
+    //   (unless this is an updatable view)
 
     $sele_exp_cls = $analyzed_sql_results['analyzed_sql'][0]['select_expr_clause'];
     $updatableView
-        = $justBrowsing
-        && trim($sele_exp_cls) == '*'
+        = trim($sele_exp_cls) == '*'
         && PMA_Table::isUpdatableView($db, $table);
 
     $has_unique = PMA_resultSetContainsUniqueKey(

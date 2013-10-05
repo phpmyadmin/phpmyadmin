@@ -49,6 +49,7 @@ phpMyAdmin - ChangeLog
 + Javascript files are no longer uglified
 
 4.0.9.0 (not yet released)
+- bug #4104 Can't edit updatable view when searching
 
 4.0.8.0 (not yet released)
 - bug #3988 Rename view is not working
