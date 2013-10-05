@@ -1237,10 +1237,9 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
     // hide edit and delete links:
     // - for information_schema
     // - if the result set does not contain all the columns of a unique key
-    //   and we are not just browing all the columns of an updatable view
+    //   (unless this is an updatable view)
     $updatableView
-        = $justBrowsing
-        && trim($analyzed_sql[0]['select_expr_clause']) == '*'
+        = trim($analyzed_sql[0]['select_expr_clause']) == '*'
         && PMA_Table::isUpdatableView($db, $table);
     $editable = $resultSetContainsUniqueKey || $updatableView;
     if (!empty($table) && (PMA_is_system_schema($db) || !$editable)) {
