@@ -52,7 +52,7 @@ phpMyAdmin - ChangeLog
 - bug #4104 Can't edit updatable view when searching
 - bug #4108 Missing refresh by deleting databases
 
-4.0.8.0 (not yet released)
+4.0.8.0 (2013-10-06)
 - bug #3988 Rename view is not working
 - bug #4041 Interaction between linkified fields and grid editing
 - bug #3975 Table grouping isn't implemented properly
