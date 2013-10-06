@@ -43,7 +43,7 @@ require_once './libraries/sqlparser.data.php';
 /**
  * Charset information
  */
-if (!defined('TESTSUITE')) {
+if (!defined('TESTSUITE') && ! PMA_DRIZZLE) {
     include_once './libraries/mysql_charsets.lib.php';
 }
 if (! isset($mysql_charsets)) {
