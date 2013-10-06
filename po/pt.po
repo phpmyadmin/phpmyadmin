@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-10-03 12:58-0400\n"
 "PO-Revision-Date: 2013-10-06 19:51+0200\n"
-"Last-Translator: João Rodrigues <diogo2pt@gmail.com>\n"
+"Last-Translator: Filipe Batista <geral@filipebatista.pt>\n"
 "Language-Team: Portuguese "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/pt/>\n"
 "Language: pt\n"
@@ -12789,7 +12789,7 @@ msgstr ""
 
 #: pmd_pdf.php:152
 msgid "recommended"
-msgstr ""
+msgstr "recomendado"
 
 #: pmd_relation_new.php:36
 msgid "Error: relation already exists."
