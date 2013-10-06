@@ -4,14 +4,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.0-alpha1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-10-03 12:58-0400\n"
-"PO-Revision-Date: 2013-09-07 12:12+0200\n"
+"PO-Revision-Date: 2013-10-06 19:51+0200\n"
 "Last-Translator: João Rodrigues <diogo2pt@gmail.com>\n"
-"Language-Team: Portuguese <http://l10n.cihar.com/projects/phpmyadmin/master/"
-"pt/>\n"
+"Language-Team: Portuguese "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/pt/>\n"
+"Language: pt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: pt\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 1.7-dev\n"
 
@@ -387,7 +387,7 @@ msgstr "Versões"
 #: db_tracking.php:146 libraries/tbl_tracking.lib.php:234
 #: libraries/tbl_tracking.lib.php:352
 msgid "Tracking report"
-msgstr "Relatório de tracking"
+msgstr "Relatório do acompanhamento"
 
 #: db_tracking.php:149 libraries/tbl_tracking.lib.php:241
 #: libraries/tbl_tracking.lib.php:676
@@ -396,48 +396,56 @@ msgstr "Snapshot da estrutura"
 
 #: db_tracking.php:203
 msgid "Untracked tables"
-msgstr "Tabelas sem tracking"
+msgstr "Tabelas sem acompanhamento"
 
 #: db_tracking.php:222 libraries/structure.lib.php:1531
 msgid "Track table"
-msgstr "Tracking à tabela"
+msgstr "Acompanhar tabela"
 
 #: db_tracking.php:249
 msgid "Database Log"
-msgstr "Log da Base de Dados"
+msgstr "Registos da base de dados"
 
 #: error_report.php:16
 msgid ""
 "An error has been detected, however, you seem to be running on a git version "
 "of phpMyAdmin."
 msgstr ""
+"Foi detectado um erro, no entanto, parece estar a executar uma versão git do "
+"phpMyAdmin."
 
 #: error_report.php:18 error_report.php:28
 msgid ""
 "Automatic report submission cannot be used. Please submit a manual error "
 "report on the bug tracker."
 msgstr ""
+"Não foi possível enviar automaticamente o relatório. Envie manualmente o "
+"relatório de erro pelo acompanhamento de bugs."
 
 #: error_report.php:21 error_report.php:31 error_report.php:42
 #: error_report.php:47
 msgid "You may want to refresh the page."
-msgstr ""
+msgstr "Poderá querer actualizar esta página."
 
 #: error_report.php:26
 msgid ""
 "An error has been detected, however, the JavaScript line count file does not "
 "seem to exist in this phpMyAdmin installation."
 msgstr ""
+"Foi detectado um erro, no entanto, parece que o ficheiro contador de linhas "
+"em JavaScript não existe nesta instalação do phpMyAdmin."
 
 #: error_report.php:39
 msgid ""
 "An error has been detected and an error report has been automatically "
 "submitted based on your settings."
 msgstr ""
+"Foi detectado um erro e enviado automaticamente um relatório de erro com "
+"base nas suas configurações."
 
 #: error_report.php:45
 msgid "Thank you for submitting this report."
-msgstr ""
+msgstr "Obrigado por enviar este relatório."
 
 #: export.php:160
 msgid "Bad type!"
@@ -1342,6 +1350,8 @@ msgstr "Do registo geral"
 #: js/messages.php:158
 msgid "The database name is not known for this query in the server's logs."
 msgstr ""
+"O nome da base de dados não é reconhecido por esta consulta nos registos do "
+"servidor."
 
 #: js/messages.php:159
 msgid "Analysing logs"
@@ -2016,30 +2026,27 @@ msgid "Create view"
 msgstr "Criar visualização"
 
 #: js/messages.php:396
-#, fuzzy
 #| msgid "Server port"
 msgid "Send Error Report"
-msgstr "Porta do servidor"
+msgstr "Enviar relatório de erro"
 
 #: js/messages.php:397
 msgid "Submit Error Report"
-msgstr ""
+msgstr "Enviar relatório de erro"
 
 #: js/messages.php:399
 msgid "An error has occurred. Do you want to send an error report?"
-msgstr ""
+msgstr "Ocorreu um erro. Pretende enviar um relatório de erro?"
 
 #: js/messages.php:401
-#, fuzzy
 #| msgid "Change settings"
 msgid "Change Report Settings"
-msgstr "Modificar configurações"
+msgstr "Alterar as definições dos relatórios"
 
 #: js/messages.php:402
-#, fuzzy
 #| msgid "Show open tables"
 msgid "Show Report Details"
-msgstr "Ver tabelas abertas"
+msgstr "Ver os detalhes do relatório"
 
 #. l10n: Display text for calendar close link
 #: js/messages.php:424
@@ -2871,7 +2878,7 @@ msgstr "Não pode ler (movido) arquivo carregado."
 #: libraries/Footer.class.php:76
 #, php-format
 msgid "Currently running Git revision %1$s from the %2$s branch."
-msgstr ""
+msgstr "A executar o Git revisão %1$s do ramo %2$s."
 
 #: libraries/Footer.class.php:83
 msgid "Git information missing!"
@@ -3513,6 +3520,8 @@ msgid ""
 "A 4-byte integer, signed range is -2,147,483,648 to 2,147,483,647, unsigned "
 "range is 0 to 4,294,967,295"
 msgstr ""
+"Um inteiro de 4 byte, a gama atribuída é de -2,147,483,648 a 2,147,483,647, "
+"a gama não atribuída é de 0 a 4,294,967,295"
 
 #: libraries/Types.class.php:305
 msgid ""
@@ -14460,10 +14469,9 @@ msgid "MyISAM concurrent inserts"
 msgstr "Inserções concorrentes no MyISAM"
 
 #: libraries/advisory_rules.txt:462
-#, fuzzy
 #| msgid "Enable concurrent_insert by setting it to 1"
 msgid "Enable {concurrent_insert} by setting it to 1"
-msgstr "Active o concurrent_insert atribuindo o valor 1"
+msgstr "Activar {concurrent_insert} atribuindo o valor 1"
 
 #: libraries/advisory_rules.txt:463
 msgid ""
