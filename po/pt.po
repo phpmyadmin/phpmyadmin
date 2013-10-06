@@ -4,14 +4,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.7-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-09-17 10:36-0400\n"
-"PO-Revision-Date: 2013-09-07 12:12+0200\n"
+"PO-Revision-Date: 2013-10-06 20:11+0200\n"
 "Last-Translator: João Rodrigues <diogo2pt@gmail.com>\n"
-"Language-Team: Portuguese <http://l10n.cihar.com/projects/phpmyadmin/4-0/pt/"
-">\n"
+"Language-Team: Portuguese "
+"<http://l10n.cihar.com/projects/phpmyadmin/4-0/pt/>\n"
+"Language: pt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: pt\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 1.7-dev\n"
 
@@ -470,7 +470,7 @@ msgstr "Versões"
 
 #: db_tracking.php:145 tbl_tracking.php:488 tbl_tracking.php:811
 msgid "Tracking report"
-msgstr "Relatório de tracking"
+msgstr "Relatório do acompanhamento"
 
 #: db_tracking.php:146 tbl_tracking.php:292 tbl_tracking.php:816
 msgid "Structure snapshot"
@@ -478,15 +478,15 @@ msgstr "Snapshot da estrutura"
 
 #: db_tracking.php:199
 msgid "Untracked tables"
-msgstr "Tabelas sem tracking"
+msgstr "Tabelas sem acompanhamento"
 
 #: db_tracking.php:218 libraries/structure.lib.php:1519
 msgid "Track table"
-msgstr "Tracking à tabela"
+msgstr "Acompanhar tabela"
 
 #: db_tracking.php:246
 msgid "Database Log"
-msgstr "Log da Base de Dados"
+msgstr "Registos da base de dados"
 
 #: export.php:160
 msgid "Bad type!"
@@ -1362,6 +1362,8 @@ msgstr "Do registo geral"
 #: js/messages.php:159
 msgid "The database name is not known for this query in the server's logs."
 msgstr ""
+"O nome da base de dados não é reconhecido por esta consulta nos registos do "
+"servidor."
 
 #: js/messages.php:160
 msgid "Analysing logs"
@@ -4240,10 +4242,9 @@ msgid "Whether the table structure actions should be hidden"
 msgstr ""
 
 #: libraries/config/messages.inc.php:57
-#, fuzzy
 #| msgid "Propose table structure"
 msgid "Hide table structure actions"
-msgstr "Propor uma estrutura de tabela"
+msgstr "Ocultar as acções estruturais da tabela"
 
 #: libraries/config/messages.inc.php:58
 msgid "Show binary contents as HEX by default"
@@ -4626,16 +4627,14 @@ msgid "Databases display options"
 msgstr "Exibir as opções das Bases de dados"
 
 #: libraries/config/messages.inc.php:179 setup/frames/menu.inc.php:19
-#, fuzzy
 #| msgid "Navigation frame"
 msgid "Navigation panel"
-msgstr "Quadro de navegação"
+msgstr "Painel de navegação"
 
 #: libraries/config/messages.inc.php:180
-#, fuzzy
 #| msgid "Customize appearance of the navigation frame"
 msgid "Customize appearance of the navigation panel"
-msgstr "Personaliza aparência do quadro de navegação"
+msgstr "Personalizar a aparência do painel de navegação"
 
 #: libraries/config/messages.inc.php:181 libraries/select_server.lib.php:42
 #: setup/frames/index.inc.php:117
@@ -4651,10 +4650,9 @@ msgid "Tables display options"
 msgstr "Opções de exibição de tabelas"
 
 #: libraries/config/messages.inc.php:185 setup/frames/menu.inc.php:20
-#, fuzzy
 #| msgid "Main frame"
 msgid "Main panel"
-msgstr "Quadro principal"
+msgstr "Painel principal"
 
 #: libraries/config/messages.inc.php:186
 msgid "Microsoft Office"
@@ -4759,16 +4757,14 @@ msgid "Customize import defaults"
 msgstr "Personalizar os padrões de importação"
 
 #: libraries/config/messages.inc.php:211
-#, fuzzy
 #| msgid "Customize navigation frame"
 msgid "Customize navigation panel"
-msgstr "Personalizar quadro de navegação"
+msgstr "Personalizar o painel de navegação"
 
 #: libraries/config/messages.inc.php:212
-#, fuzzy
 #| msgid "Customize main frame"
 msgid "Customize main panel"
-msgstr "Personalizar quadro principal"
+msgstr "Personalizar o painel principal"
 
 #: libraries/config/messages.inc.php:213 libraries/config/messages.inc.php:218
 #: setup/frames/menu.inc.php:18
@@ -4813,20 +4809,18 @@ msgid "Customize startup page"
 msgstr "Personalizar página inicial"
 
 #: libraries/config/messages.inc.php:224
-#, fuzzy
 #| msgid "Databases"
 msgid "Database structure"
-msgstr "Base de Dados"
+msgstr "Estrutura da base de dados"
 
 #: libraries/config/messages.inc.php:225
 msgid "Choose which details to show in the database structure (list of tables)"
 msgstr ""
 
 #: libraries/config/messages.inc.php:226
-#, fuzzy
 #| msgid "Databases"
 msgid "Table structure"
-msgstr "Base de Dados"
+msgstr "Estrutura da tabela"
 
 #: libraries/config/messages.inc.php:227
 msgid "Settings for the table structure (list of columns)"
@@ -5057,10 +5051,9 @@ msgid "Users cannot set a higher value"
 msgstr "Os utilizadores não podem definir um valor maior"
 
 #: libraries/config/messages.inc.php:286
-#, fuzzy
 #| msgid "Maximum number of tables displayed in table list"
 msgid "Maximum number of databases displayed in database list"
-msgstr "Número máximo de tabelas exibidas na lista de tabelas"
+msgstr "Número máximo de base de dados exibidas na lista de base de dados"
 
 #: libraries/config/messages.inc.php:287
 msgid "Maximum databases"
@@ -5122,20 +5115,18 @@ msgid "Memory limit"
 msgstr "Limite de memória"
 
 #: libraries/config/messages.inc.php:299
-#, fuzzy
 #| msgid "Show logo in left frame"
 msgid "Show logo in navigation panel"
-msgstr "Mostrar logotipo no quadro da esquerda"
+msgstr "Mostrar o logótipo no painel de navegação"
 
 #: libraries/config/messages.inc.php:300
 msgid "Display logo"
 msgstr "Mostrar logotipo"
 
 #: libraries/config/messages.inc.php:301
-#, fuzzy
 #| msgid "URL where logo in the navigation frame will point to"
 msgid "URL where logo in the navigation panel will point to"
-msgstr "URL para onde irá apontar o logótipo do quadro de navegação"
+msgstr "URL para onde irá apontar o logótipo do painel de navegação"
 
 #: libraries/config/messages.inc.php:302
 msgid "Logo link URL"
@@ -5154,10 +5145,9 @@ msgid "Logo link target"
 msgstr "Destino da ligação do logótipo"
 
 #: libraries/config/messages.inc.php:305
-#, fuzzy
 #| msgid "Display server choice at the top of the left frame"
 msgid "Display server choice at the top of the navigation panel"
-msgstr "Exibir servidor escolhido no topo do quadro esquerdo"
+msgstr "Apresentar o servidor escolhido no topo do painel de navegação"
 
 #: libraries/config/messages.inc.php:306
 msgid "Display servers selection"
@@ -5168,18 +5158,18 @@ msgid "Target for quick access icon"
 msgstr "Alvo para ícone de acesso rápido"
 
 #: libraries/config/messages.inc.php:308
-#, fuzzy
 #| msgid "Minimum number of tables to display the table filter box"
 msgid ""
 "Defines the minimum number of items (tables, views, routines and events) to "
 "display a filter box."
-msgstr "Número mínimo de tabelas para mostrar a caixa de filtro de tabelas"
+msgstr ""
+"Define o número mínimo de itens (tabelas, vistas, rotinas e eventos) a "
+"apresentar numa caixa de filtragem."
 
 #: libraries/config/messages.inc.php:309
-#, fuzzy
 #| msgid "Minimum number of tables to display the table filter box"
 msgid "Minimum number of items to display the filter box"
-msgstr "Número mínimo de tabelas para mostrar a caixa de filtro de tabelas"
+msgstr "Número mínimo de itens a apresentar na caixa de filtragem"
 
 #: libraries/config/messages.inc.php:310
 msgid "Minimum number of databases to display the database filter box"
@@ -10233,23 +10223,21 @@ msgid "Import/Export coordinates for PDF schema"
 msgstr ""
 
 #: pmd_general.php:154
-#, fuzzy
 #| msgid "Submit Query"
 msgid "Build Query"
-msgstr "Executa Comando SQL"
+msgstr "Construir a consulta"
 
 #: pmd_general.php:161
 msgid "Move Menu"
-msgstr ""
+msgstr "Mover o menu"
 
 #: pmd_general.php:174
-#, fuzzy
 msgid "Hide/Show all"
-msgstr "Mostrar tudo"
+msgstr "Ocultar/mostrar tudo"
 
 #: pmd_general.php:178
 msgid "Hide/Show Tables with no relation"
-msgstr ""
+msgstr "Ocultar/mostrar as tabelas sem relações"
 
 #: pmd_general.php:218
 msgid "Number of tables"
@@ -10257,7 +10245,7 @@ msgstr ""
 
 #: pmd_general.php:467
 msgid "Delete relation"
-msgstr ""
+msgstr "Eliminar relação"
 
 #: pmd_general.php:509 pmd_general.php:568
 #, fuzzy
@@ -10302,13 +10290,12 @@ msgid "Active options"
 msgstr "Opções da tabela"
 
 #: pmd_pdf.php:57
-#, fuzzy
 msgid "Page has been created"
-msgstr "A tabela %s foi eliminada"
+msgstr "A página foi criada"
 
 #: pmd_pdf.php:60
 msgid "Page creation failed"
-msgstr ""
+msgstr "Erro ao criar página"
 
 #: pmd_pdf.php:120
 #, fuzzy
@@ -10317,26 +10304,23 @@ msgid "Page"
 msgstr "Utilização"
 
 #: pmd_pdf.php:130
-#, fuzzy
 #| msgid "Import files"
 msgid "Import from selected page"
-msgstr "Importar"
+msgstr "Importar da página seleccionada"
 
 #: pmd_pdf.php:131
 msgid "Export to selected page"
-msgstr ""
+msgstr "Exportar para a página seleccionada"
 
 #: pmd_pdf.php:133
-#, fuzzy
 #| msgid "Create a new index"
 msgid "Create a page and export to it"
-msgstr "Criar um novo índice"
+msgstr "Criar e exportar uma página"
 
 #: pmd_pdf.php:145
-#, fuzzy
 #| msgid "User name"
 msgid "New page name: "
-msgstr "Nome do Utilizador"
+msgstr "Nome da nova página: "
 
 #: pmd_pdf.php:148
 msgid "Export/Import to scale"
@@ -10344,7 +10328,7 @@ msgstr ""
 
 #: pmd_pdf.php:153
 msgid "recommended"
-msgstr ""
+msgstr "recomendado"
 
 #: pmd_relation_new.php:35
 msgid "Error: relation already exists."
@@ -13634,10 +13618,9 @@ msgid "MyISAM concurrent inserts"
 msgstr "Inserções concorrentes no MyISAM"
 
 #: libraries/advisory_rules.txt:462
-#, fuzzy
 #| msgid "Enable concurrent_insert by setting it to 1"
 msgid "Enable {concurrent_insert} by setting it to 1"
-msgstr "Active o concurrent_insert atribuindo o valor 1"
+msgstr "Activar {concurrent_insert} atribuindo o valor 1"
 
 #: libraries/advisory_rules.txt:463
 msgid ""
