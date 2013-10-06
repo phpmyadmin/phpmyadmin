@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.0-alpha1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-10-03 12:58-0400\n"
-"PO-Revision-Date: 2013-10-06 19:52+0200\n"
-"Last-Translator: João Rodrigues <diogo2pt@gmail.com>\n"
+"PO-Revision-Date: 2013-10-06 19:53+0200\n"
+"Last-Translator: Filipe Batista <geral@filipebatista.pt>\n"
 "Language-Team: Portuguese "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/pt/>\n"
 "Language: pt\n"
@@ -12769,7 +12769,7 @@ msgstr "Importar"
 
 #: pmd_pdf.php:129
 msgid "Export to selected page"
-msgstr ""
+msgstr "Exportar para a página selecionada"
 
 #: pmd_pdf.php:131
 #| msgid "Create a new index"
