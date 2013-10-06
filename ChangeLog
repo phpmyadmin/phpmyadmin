@@ -51,6 +51,7 @@ phpMyAdmin - ChangeLog
 4.0.9.0 (not yet released)
 - bug #4104 Can't edit updatable view when searching
 - bug #4108 Missing refresh by deleting databases
+- bug #3995 Drizzle server charset notice
 
 4.0.8.0 (2013-10-06)
 - bug #3988 Rename view is not working
