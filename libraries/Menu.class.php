@@ -357,7 +357,11 @@ class PMA_Menu
         }
         if (! $db_is_information_schema
             && ! PMA_DRIZZLE
-            && PMA_Util::currentUserHasPrivilege('TRIGGER', $this->_db, $this->_table)
+            && PMA_Util::currentUserHasPrivilege(
+                'TRIGGER',
+                $this->_db,
+                $this->_table
+            )
             && ! $tbl_is_view
         ) {
             $tabs['triggers']['link'] = 'tbl_triggers.php';
