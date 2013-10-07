@@ -276,7 +276,17 @@ function PMA_getHtmlForRenderVariables($ServerStatusData, $alerts, $strShowStatu
         }
         $retval .= '</span>';
         $retval .= '<span style="display:none;" class="original">';
+        if (isset($alerts[$name])) {
+            if ($value > $alerts[$name]) {
+                $retval .= '<span class="attention">';
+            } else {
+                $retval .= '<span class="allfine">';
+            }
+        }
         $retval .= $value;
+        if (isset($alerts[$name])) {
+            $retval .= '</span>';
+        }
         $retval .= '</span>';
         $retval .= '</td>';
         $retval .= '<td class="descr">';
