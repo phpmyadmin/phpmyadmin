@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.0-alpha1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-10-03 12:58-0400\n"
-"PO-Revision-Date: 2013-10-04 02:05+0200\n"
-"Last-Translator: Helder Santana <helder.bs.santana@gmail.com>\n"
+"PO-Revision-Date: 2013-10-06 20:15+0200\n"
+"Last-Translator: João Rodrigues <diogo2pt@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -4840,7 +4840,7 @@ msgstr "Desabilitar verificação de chaves estrangeiras"
 #: libraries/config/messages.inc.php:126
 #: libraries/plugins/export/ExportSql.class.php:155
 msgid "Export views as tables"
-msgstr "Exportando views como tabelas"
+msgstr "Exportar vistas como tabelas"
 
 #: libraries/config/messages.inc.php:127 libraries/config/messages.inc.php:128
 #: libraries/config/messages.inc.php:130 libraries/config/messages.inc.php:136
