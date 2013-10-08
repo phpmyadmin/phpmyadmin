@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-10-03 12:58-0400\n"
 "PO-Revision-Date: 2013-10-08 23:11+0200\n"
-"Last-Translator: Filipe Batista <geral@filipebatista.pt>\n"
+"Last-Translator: João Rodrigues <diogo2pt@gmail.com>\n"
 "Language-Team: Portuguese "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/pt/>\n"
 "Language: pt\n"
@@ -14346,7 +14346,7 @@ msgstr "have_innodb está definido como 'valor'"
 
 #: libraries/advisory_rules.txt:436
 msgid "InnoDB log size"
-msgstr "Tamanho do registro de atividade InnoDB"
+msgstr "Tamanho dos registos do InnoDB"
 
 #: libraries/advisory_rules.txt:439
 msgid ""
