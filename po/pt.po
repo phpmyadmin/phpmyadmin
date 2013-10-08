@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-10-03 12:58-0400\n"
 "PO-Revision-Date: 2013-10-08 23:03+0200\n"
-"Last-Translator: João Rodrigues <diogo2pt@gmail.com>\n"
+"Last-Translator: Filipe Batista <geral@filipebatista.pt>\n"
 "Language-Team: Portuguese "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/pt/>\n"
 "Language: pt\n"
@@ -10103,11 +10103,11 @@ msgstr "versão do PHP"
 
 #: libraries/server_plugins.lib.php:79 libraries/server_plugins.lib.php:136
 msgid "Author"
-msgstr ""
+msgstr "Autor"
 
 #: libraries/server_plugins.lib.php:80 libraries/server_plugins.lib.php:137
 msgid "License"
-msgstr ""
+msgstr "Licença"
 
 #: libraries/server_plugins.lib.php:189
 #, fuzzy
