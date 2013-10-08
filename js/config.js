@@ -61,6 +61,7 @@ function setFieldValue(field, field_type, value)
     field = $(field);
     switch (field_type) {
     case 'text':
+    case 'number':
         //TODO: replace to .val()
         field.attr('value', (value !== undefined ? value : field.attr('defaultValue')));
         break;
@@ -102,6 +103,7 @@ function getFieldValue(field, field_type)
     field = $(field);
     switch (field_type) {
     case 'text':
+    case 'number':
         return field.prop('value');
     case 'checkbox':
         return field.prop('checked');
@@ -415,7 +417,7 @@ function validate_field(field, isKeyUp, errors)
     errors[field_id] = [];
     var functions = getFieldValidators(field_id, isKeyUp);
     for (var i = 0; i < functions.length; i++) {
-        if (functions[i][1] !== null) {
+        if (typeof functions[i][1] !== 'undefined' && functions[i][1] !== null) {
             args = functions[i][1].slice(0);
         } else {
             args = [];
