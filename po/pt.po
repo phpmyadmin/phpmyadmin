@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.0-alpha1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-10-03 12:58-0400\n"
-"PO-Revision-Date: 2013-10-08 23:02+0200\n"
-"Last-Translator: João Rodrigues <diogo2pt@gmail.com>\n"
+"PO-Revision-Date: 2013-10-08 23:03+0200\n"
+"Last-Translator: Filipe Batista <geral@filipebatista.pt>\n"
 "Language-Team: Portuguese "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/pt/>\n"
 "Language: pt\n"
@@ -10077,7 +10077,7 @@ msgstr[1] "As Bases de Dados %s foram apagadas com sucesso."
 
 #: libraries/server_plugins.lib.php:32
 msgid "Modules"
-msgstr ""
+msgstr "Módulos"
 
 #: libraries/server_plugins.lib.php:68
 msgid "Begin"
@@ -10085,11 +10085,11 @@ msgstr "Inicio"
 
 #: libraries/server_plugins.lib.php:75
 msgid "Plugin"
-msgstr ""
+msgstr "Plugin"
 
 #: libraries/server_plugins.lib.php:76 libraries/server_plugins.lib.php:132
 msgid "Module"
-msgstr ""
+msgstr "Módulo"
 
 #: libraries/server_plugins.lib.php:77 libraries/server_plugins.lib.php:134
 msgid "Library"
