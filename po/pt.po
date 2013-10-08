@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.0-alpha1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-10-03 12:58-0400\n"
-"PO-Revision-Date: 2013-10-08 23:05+0200\n"
-"Last-Translator: João Rodrigues <diogo2pt@gmail.com>\n"
+"PO-Revision-Date: 2013-10-08 23:06+0200\n"
+"Last-Translator: Filipe Batista <geral@filipebatista.pt>\n"
 "Language-Team: Portuguese "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/pt/>\n"
 "Language: pt\n"
@@ -10236,7 +10236,7 @@ msgstr "Permite criar novas tabelas."
 #: libraries/server_privileges.lib.php:353
 #: libraries/server_privileges.lib.php:1118 server_privileges.php:71
 msgid "Allows to set up events for the event scheduler"
-msgstr ""
+msgstr "Permite definir eventos para o organizador de eventos"
 
 #: libraries/server_privileges.lib.php:358
 #: libraries/server_privileges.lib.php:1122 server_privileges.php:111
@@ -10265,7 +10265,7 @@ msgstr "Permite criar e apagar indexes."
 #: libraries/server_privileges.lib.php:390
 #: libraries/server_privileges.lib.php:1192 server_privileges.php:66
 msgid "Allows creating, dropping and renaming user accounts."
-msgstr ""
+msgstr "Permite criar, apagar e renomear contas de utiliazadores."
 
 #: libraries/server_privileges.lib.php:395
 #: libraries/server_privileges.lib.php:1098 server_privileges.php:72
