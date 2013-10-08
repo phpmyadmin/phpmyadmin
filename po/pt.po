@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.0-alpha1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-10-03 12:58-0400\n"
-"PO-Revision-Date: 2013-10-06 20:11+0200\n"
+"PO-Revision-Date: 2013-10-08 22:56+0200\n"
 "Last-Translator: João Rodrigues <diogo2pt@gmail.com>\n"
 "Language-Team: Portuguese "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/pt/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 1.7-dev\n"
+"X-Generator: Weblate 1.7\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -917,7 +917,7 @@ msgstr ""
 
 #: js/messages.php:29 libraries/import.lib.php:118 sql.php:138
 msgid "\"DROP DATABASE\" statements are disabled."
-msgstr "Os comandos \"DROP DATABASE\" estão inibidos."
+msgstr "Os comandos \"DROP DATABASE\" estão desactivados."
 
 #: js/messages.php:35
 msgid "Confirm"
@@ -3173,7 +3173,7 @@ msgstr "Manipulador (handler)"
 
 #: libraries/ServerStatusData.class.php:194
 msgid "Query cache"
-msgstr "Cache de queries"
+msgstr "Cache de consultas"
 
 #: libraries/ServerStatusData.class.php:195
 msgid "Threads"
