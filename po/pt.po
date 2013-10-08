@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.0-alpha1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-10-03 12:58-0400\n"
-"PO-Revision-Date: 2013-10-08 23:00+0200\n"
-"Last-Translator: João Rodrigues <diogo2pt@gmail.com>\n"
+"PO-Revision-Date: 2013-10-08 23:01+0200\n"
+"Last-Translator: Filipe Batista <geral@filipebatista.pt>\n"
 "Language-Team: Portuguese "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/pt/>\n"
 "Language: pt\n"
@@ -9859,7 +9859,7 @@ msgstr "Esquema da base de dados \"%s\" - Página %s"
 
 #: libraries/schema/Export_Relation_Schema.class.php:208
 msgid "This page does not contain any tables!"
-msgstr ""
+msgstr "Esta página não contém tabelas!"
 
 #: libraries/schema/Export_Relation_Schema.class.php:236
 msgid "SCHEMA ERROR: "
@@ -9961,15 +9961,15 @@ msgstr "Dicionario de dados"
 
 #: libraries/schema/User_Schema.class.php:474
 msgid "Only show keys"
-msgstr ""
+msgstr "Mostrar apenas chaves"
 
 #: libraries/schema/User_Schema.class.php:476
 msgid "Landscape"
-msgstr "Paisagem/ao baixo"
+msgstr "Paisagem"
 
 #: libraries/schema/User_Schema.class.php:477
 msgid "Portrait"
-msgstr "Retrato/Ao alto"
+msgstr "Retrato"
 
 #: libraries/schema/User_Schema.class.php:479
 msgid "Orientation"
@@ -10019,11 +10019,11 @@ msgstr ""
 
 #: libraries/server_bin_log.lib.php:130
 msgid "Position"
-msgstr ""
+msgstr "Posição"
 
 #: libraries/server_bin_log.lib.php:133
 msgid "Original position"
-msgstr ""
+msgstr "Posição original"
 
 #: libraries/server_bin_log.lib.php:134 libraries/structure.lib.php:2176
 #, fuzzy
@@ -10044,7 +10044,7 @@ msgstr "Variáveis do servidor e configurações"
 
 #: libraries/server_common.lib.php:30
 msgid "Storage Engines"
-msgstr ""
+msgstr "Motores de Armazenamento"
 
 #: libraries/server_common.lib.php:39
 msgid "Character Sets and Collations"
