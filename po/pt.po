@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.0-alpha1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-10-03 12:58-0400\n"
-"PO-Revision-Date: 2013-10-08 23:06+0200\n"
-"Last-Translator: João Rodrigues <diogo2pt@gmail.com>\n"
+"PO-Revision-Date: 2013-10-08 23:09+0200\n"
+"Last-Translator: Filipe Batista <geral@filipebatista.pt>\n"
 "Language-Team: Portuguese "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/pt/>\n"
 "Language: pt\n"
@@ -10352,7 +10352,7 @@ msgstr "Permite criar novas tabelas."
 
 #: libraries/server_privileges.lib.php:1079 server_privileges.php:70
 msgid "Allows dropping tables."
-msgstr "Permite apagar Bases de Dados."
+msgstr "Permite apagar tabelas."
 
 #: libraries/server_privileges.lib.php:1141 server_privileges.php:75
 msgid ""
@@ -12842,23 +12842,24 @@ msgstr "Importar"
 
 #: prefs_manage.php:252
 msgid "Import from browser's storage"
-msgstr ""
+msgstr "Importar do armazenamento do seu browser"
 
 #: prefs_manage.php:255
 msgid "Settings will be imported from your browser's local storage."
 msgstr ""
+"As configurações vão ser importadas do armazenamento local do seu browser."
 
 #: prefs_manage.php:261
 msgid "You have no saved settings!"
-msgstr ""
+msgstr "Não dispõe de configurações guardadas!"
 
 #: prefs_manage.php:265 prefs_manage.php:318
 msgid "This feature is not supported by your web browser"
-msgstr ""
+msgstr "Esta funcionalidade não é suportada pelo seu browser"
 
 #: prefs_manage.php:270
 msgid "Merge with current configuration"
-msgstr ""
+msgstr "Combinar com a configuração atual"
 
 #: prefs_manage.php:284
 #, php-format
@@ -12869,19 +12870,21 @@ msgstr ""
 
 #: prefs_manage.php:308
 msgid "Save to browser's storage"
-msgstr ""
+msgstr "Gravar para o armazenamento do seu browser"
 
 #: prefs_manage.php:312
 msgid "Settings will be saved in your browser's local storage."
-msgstr ""
+msgstr "As configurações serão gravadas no armazenamento local do seu browser."
 
 #: prefs_manage.php:314
 msgid "Existing settings will be overwritten!"
-msgstr ""
+msgstr "As configurações existentes serão sobre-escritas!"
 
 #: prefs_manage.php:331
 msgid "You can reset all your settings and restore them to default values."
 msgstr ""
+"Pode apagar todas as suas configurações e repô-las com os valores por "
+"defeito"
 
 #: querywindow.php:64
 msgid "Import files"
