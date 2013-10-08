@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.0-alpha1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-10-03 12:58-0400\n"
-"PO-Revision-Date: 2013-10-08 23:12+0200\n"
-"Last-Translator: Filipe Batista <geral@filipebatista.pt>\n"
+"PO-Revision-Date: 2013-10-08 23:21+0200\n"
+"Last-Translator: João Rodrigues <diogo2pt@gmail.com>\n"
 "Language-Team: Portuguese "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/pt/>\n"
 "Language: pt\n"
@@ -3537,12 +3537,16 @@ msgid ""
 "A fixed-point number (M, D) - the maximum number of digits (M) is 65 "
 "(default 10), the maximum number of decimals (D) is 30 (default 0)"
 msgstr ""
+"Um número de ponto fixo (M, D), o número máximo de dígitos (M) é de 65 (por "
+"defeito 10), o número máximo de decimais (D) é de 30 (por defeito 0)"
 
 #: libraries/Types.class.php:309
 msgid ""
 "A small floating-point number, allowable values are -3.402823466E+38 to -"
 "1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
 msgstr ""
+"Um pequeno número de ponto flutuante, os valores permitidos são "
+"-3.402823466E+38 a -1.175494351E-38, 0 e 1.175494351E-38 a 3.402823466E+38"
 
 #: libraries/Types.class.php:311
 msgid ""
@@ -3550,6 +3554,9 @@ msgid ""
 "1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
 "2.2250738585072014E-308 to 1.7976931348623157E+308"
 msgstr ""
+"Um número de ponto flutuante com dupla precisão, os valores permitidos são "
+"-1.7976931348623157E+308 a -2.2250738585072014E-308, 0 e "
+"2.2250738585072014E-308 a 1.7976931348623157E+308"
 
 #: libraries/Types.class.php:313
 msgid ""
@@ -3564,6 +3571,8 @@ msgid ""
 "A bit-field type (M), storing M of bits per value (default is 1, maximum is "
 "64)"
 msgstr ""
+"Um tipo de campo bit (M), armazena M de bits por valor (o padrão é 1 e o "
+"máximo é 64)"
 
 #: libraries/Types.class.php:317
 msgid ""
@@ -3710,6 +3719,9 @@ msgid ""
 "A BLOB column with a maximum length of 4,294,967,295 or 4GiB (2^32 - 1) "
 "bytes, stored with a four-byte prefix indicating the length of the value"
 msgstr ""
+"Uma coluna BLOB com um comprimento máximo de 4.294.967.295 ou 4GB (2^32 - 1) "
+"bytes, armazenados com um prefixo de quatro bytes indicando o comprimento "
+"do valor"
 
 #: libraries/Types.class.php:355
 msgid ""
@@ -3722,17 +3734,14 @@ msgid "A single value chosen from a set of up to 64 members"
 msgstr ""
 
 #: libraries/Types.class.php:359
-#, fuzzy
 msgid "A type that can store a geometry of any type"
 msgstr "Um tipo que pode armazenar uma geometria de qualquer tipo"
 
 #: libraries/Types.class.php:361
-#, fuzzy
 msgid "A point in 2-dimensional space"
 msgstr "Um ponto no espaço de 2 dimensões"
 
 #: libraries/Types.class.php:363
-#, fuzzy
 msgid "A curve with linear interpolation between points"
 msgstr "Uma curva com uma interpolação linear entre os pontos"
 
@@ -10065,7 +10074,7 @@ msgstr ""
 #: libraries/server_databases.lib.php:371
 #: libraries/server_databases.lib.php:372
 msgid "Enable Statistics"
-msgstr "Activar Estatísticas"
+msgstr "Activar as estatísticas"
 
 #: libraries/server_databases.lib.php:493
 #, fuzzy, php-format
