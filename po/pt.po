@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.0-alpha1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-10-03 12:58-0400\n"
-"PO-Revision-Date: 2013-10-08 22:56+0200\n"
-"Last-Translator: João Rodrigues <diogo2pt@gmail.com>\n"
+"PO-Revision-Date: 2013-10-08 22:58+0200\n"
+"Last-Translator: Jonadabe PT <jonadabe@hotmail.com>\n"
 "Language-Team: Portuguese "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/pt/>\n"
 "Language: pt\n"
@@ -3615,6 +3615,8 @@ msgid ""
 "A fixed-length (0-255, default 1) string that is always right-padded with "
 "spaces to the specified length when stored"
 msgstr ""
+"Uma string de comprimento fixo (0-255, padrão 1) que é sempre preenchida à "
+"direita com espaços até o tamanho especificado quando guardada"
 
 #: libraries/Types.class.php:333 libraries/Types.class.php:732
 #, php-format
@@ -3622,24 +3624,35 @@ msgid ""
 "A variable-length (%s) string, the effective maximum length is subject to "
 "the maximum row size"
 msgstr ""
+"Uma variável de comprimento (%s) do tipo string, o comprimento máximo "
+"efectivo está sujeito ao tamanho máximo de linha"
 
 #: libraries/Types.class.php:335
 msgid ""
 "A TEXT column with a maximum length of 255 (2^8 - 1) characters, stored with "
 "a one-byte prefix indicating the length of the value in bytes"
 msgstr ""
+"Uma coluna de texto com um comprimento máximo de 255 (2^8 - 1) caracteres, "
+"guardados com um prefixo de um byte indicando o comprimento do valor em "
+"bytes"
 
 #: libraries/Types.class.php:337 libraries/Types.class.php:734
 msgid ""
 "A TEXT column with a maximum length of 65,535 (2^16 - 1) characters, stored "
 "with a two-byte prefix indicating the length of the value in bytes"
 msgstr ""
+"Uma coluna de texto com um comprimento máximo de 65.535 (2^16 - 1) "
+"caracteres, guardada com um prefixo de dois bytes indicando o comprimento do "
+"valor em bytes"
 
 #: libraries/Types.class.php:339
 msgid ""
 "A TEXT column with a maximum length of 16,777,215 (2^24 - 1) characters, "
 "stored with a three-byte prefix indicating the length of the value in bytes"
 msgstr ""
+"Uma coluna de texto com um comprimento máximo de 16.777.215 (2^24 - 1) "
+"caracteres, guardada com um prefixo de três bytes que indica o comprimento "
+"do valor em bytes"
 
 #: libraries/Types.class.php:341
 msgid ""
@@ -3647,18 +3660,25 @@ msgid ""
 "characters, stored with a four-byte prefix indicating the length of the "
 "value in bytes"
 msgstr ""
+"Uma coluna de texto com um comprimento máximo de 4.294.967.295 ou 4Gb (2^32 "
+"- 1) caracteres, guardada com um prefixo de quatro bytes que indica o "
+"comprimento do valor em bytes"
 
 #: libraries/Types.class.php:343
 msgid ""
 "Similar to the CHAR type, but stores binary byte strings rather than non-"
 "binary character strings"
 msgstr ""
+"Semelhante ao tipo CHAR, mas armazena strings de bytes binários em vez de "
+"strings de caracteres não-binários"
 
 #: libraries/Types.class.php:345
 msgid ""
 "Similar to the VARCHAR type, but stores binary byte strings rather than non-"
 "binary character strings"
 msgstr ""
+"Semelhante ao tipo VARCHAR, mas armazena strings de bytes binários em vez de "
+"strings de caracteres não-binários"
 
 #: libraries/Types.class.php:347
 msgid ""
