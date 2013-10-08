@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.7-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-09-17 10:36-0400\n"
-"PO-Revision-Date: 2013-10-06 20:11+0200\n"
+"PO-Revision-Date: 2013-10-08 23:21+0200\n"
 "Last-Translator: João Rodrigues <diogo2pt@gmail.com>\n"
 "Language-Team: Portuguese "
 "<http://l10n.cihar.com/projects/phpmyadmin/4-0/pt/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 1.7-dev\n"
+"X-Generator: Weblate 1.7\n"
 
 #: browse_foreigners.php:51 browse_foreigners.php:75 js/messages.php:345
 #: libraries/DisplayResults.class.php:856
@@ -910,7 +910,7 @@ msgstr ""
 
 #: js/messages.php:27 libraries/import.lib.php:118 sql.php:342
 msgid "\"DROP DATABASE\" statements are disabled."
-msgstr "Os comandos \"DROP DATABASE\" estão inibidos."
+msgstr "Os comandos \"DROP DATABASE\" estão desactivados."
 
 #: js/messages.php:30
 #, php-format
@@ -3012,7 +3012,7 @@ msgstr "Manipulador (handler)"
 
 #: libraries/ServerStatusData.class.php:185
 msgid "Query cache"
-msgstr "Cache de queries"
+msgstr "Cache de consultas"
 
 #: libraries/ServerStatusData.class.php:186
 msgid "Threads"
@@ -3341,12 +3341,16 @@ msgid ""
 "A fixed-point number (M, D) - the maximum number of digits (M) is 65 "
 "(default 10), the maximum number of decimals (D) is 30 (default 0)"
 msgstr ""
+"Um número de ponto fixo (M, D), o número máximo de dígitos (M) é de 65 (por "
+"defeito 10), o número máximo de decimais (D) é de 30 (por defeito 0)"
 
 #: libraries/Types.class.php:308
 msgid ""
 "A small floating-point number, allowable values are -3.402823466E+38 to -"
 "1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
 msgstr ""
+"Um pequeno número de ponto flutuante, os valores permitidos são "
+"-3.402823466E+38 a -1.175494351E-38, 0 e 1.175494351E-38 a 3.402823466E+38"
 
 #: libraries/Types.class.php:310
 msgid ""
@@ -3354,6 +3358,9 @@ msgid ""
 "1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
 "2.2250738585072014E-308 to 1.7976931348623157E+308"
 msgstr ""
+"Um número de ponto flutuante com dupla precisão, os valores permitidos são "
+"-1.7976931348623157E+308 a -2.2250738585072014E-308, 0 e "
+"2.2250738585072014E-308 a 1.7976931348623157E+308"
 
 #: libraries/Types.class.php:312
 msgid ""
@@ -3368,6 +3375,8 @@ msgid ""
 "A bit-field type (M), storing M of bits per value (default is 1, maximum is "
 "64)"
 msgstr ""
+"Um tipo de campo bit (M), armazena M de bits por valor (o padrão é 1 e o "
+"máximo é 64)"
 
 #: libraries/Types.class.php:316
 msgid ""
@@ -3419,6 +3428,8 @@ msgid ""
 "A fixed-length (0-255, default 1) string that is always right-padded with "
 "spaces to the specified length when stored"
 msgstr ""
+"Uma string de comprimento fixo (0-255, padrão 1) que é sempre preenchida à "
+"direita com espaços até o tamanho especificado quando guardada"
 
 #: libraries/Types.class.php:332 libraries/Types.class.php:730
 #, php-format
@@ -3426,24 +3437,35 @@ msgid ""
 "A variable-length (%s) string, the effective maximum length is subject to "
 "the maximum row size"
 msgstr ""
+"Uma variável de comprimento (%s) do tipo string, o comprimento máximo "
+"efectivo está sujeito ao tamanho máximo de linha"
 
 #: libraries/Types.class.php:334
 msgid ""
 "A TEXT column with a maximum length of 255 (2^8 - 1) characters, stored with "
 "a one-byte prefix indicating the length of the value in bytes"
 msgstr ""
+"Uma coluna de texto com um comprimento máximo de 255 (2^8 - 1) caracteres, "
+"guardados com um prefixo de um byte indicando o comprimento do valor em "
+"bytes"
 
 #: libraries/Types.class.php:336 libraries/Types.class.php:732
 msgid ""
 "A TEXT column with a maximum length of 65,535 (2^16 - 1) characters, stored "
 "with a two-byte prefix indicating the length of the value in bytes"
 msgstr ""
+"Uma coluna de texto com um comprimento máximo de 65.535 (2^16 - 1) "
+"caracteres, guardada com um prefixo de dois bytes indicando o comprimento do "
+"valor em bytes"
 
 #: libraries/Types.class.php:338
 msgid ""
 "A TEXT column with a maximum length of 16,777,215 (2^24 - 1) characters, "
 "stored with a three-byte prefix indicating the length of the value in bytes"
 msgstr ""
+"Uma coluna de texto com um comprimento máximo de 16.777.215 (2^24 - 1) "
+"caracteres, guardada com um prefixo de três bytes que indica o comprimento "
+"do valor em bytes"
 
 #: libraries/Types.class.php:340
 msgid ""
@@ -3451,18 +3473,25 @@ msgid ""
 "characters, stored with a four-byte prefix indicating the length of the "
 "value in bytes"
 msgstr ""
+"Uma coluna de texto com um comprimento máximo de 4.294.967.295 ou 4Gb (2^32 "
+"- 1) caracteres, guardada com um prefixo de quatro bytes que indica o "
+"comprimento do valor em bytes"
 
 #: libraries/Types.class.php:342
 msgid ""
 "Similar to the CHAR type, but stores binary byte strings rather than non-"
 "binary character strings"
 msgstr ""
+"Semelhante ao tipo CHAR, mas armazena strings de bytes binários em vez de "
+"strings de caracteres não-binários"
 
 #: libraries/Types.class.php:344
 msgid ""
 "Similar to the VARCHAR type, but stores binary byte strings rather than non-"
 "binary character strings"
 msgstr ""
+"Semelhante ao tipo VARCHAR, mas armazena strings de bytes binários em vez de "
+"strings de caracteres não-binários"
 
 #: libraries/Types.class.php:346
 msgid ""
@@ -3494,6 +3523,9 @@ msgid ""
 "A BLOB column with a maximum length of 4,294,967,295 or 4GiB (2^32 - 1) "
 "bytes, stored with a four-byte prefix indicating the length of the value"
 msgstr ""
+"Uma coluna BLOB com um comprimento máximo de 4.294.967.295 ou 4GB (2^32 - 1) "
+"bytes, armazenados com um prefixo de quatro bytes indicando o comprimento "
+"do valor"
 
 #: libraries/Types.class.php:354
 msgid ""
@@ -3506,17 +3538,14 @@ msgid "A single value chosen from a set of up to 64 members"
 msgstr ""
 
 #: libraries/Types.class.php:358
-#, fuzzy
 msgid "A type that can store a geometry of any type"
 msgstr "Um tipo que pode armazenar uma geometria de qualquer tipo"
 
 #: libraries/Types.class.php:360
-#, fuzzy
 msgid "A point in 2-dimensional space"
 msgstr "Um ponto no espaço de 2 dimensões"
 
 #: libraries/Types.class.php:362
-#, fuzzy
 msgid "A curve with linear interpolation between points"
 msgstr "Uma curva com uma interpolação linear entre os pontos"
 
@@ -5865,8 +5894,8 @@ msgid ""
 "Whether a DROP TABLE IF EXISTS statement will be added as first line to the "
 "log when creating a table."
 msgstr ""
-"Se será acrescentada uma instrução DROP tabela IF EXISTS como primeira linha "
-"para o log ao criar uma tabela."
+"Será acrescentada uma instrução DROP TABLE IF EXISTS na primeira linha para "
+"o registo ao criar uma tabela."
 
 #: libraries/config/messages.inc.php:442
 msgid "Add DROP TABLE"
@@ -9099,7 +9128,7 @@ msgstr "Esquema da base de dados \"%s\" - Página %s"
 
 #: libraries/schema/Export_Relation_Schema.class.php:204
 msgid "This page does not contain any tables!"
-msgstr ""
+msgstr "Esta página não contém tabelas!"
 
 #: libraries/schema/Export_Relation_Schema.class.php:230
 msgid "SCHEMA ERROR: "
@@ -9201,15 +9230,15 @@ msgstr "Dicionario de dados"
 
 #: libraries/schema/User_Schema.class.php:466
 msgid "Only show keys"
-msgstr ""
+msgstr "Mostrar apenas chaves"
 
 #: libraries/schema/User_Schema.class.php:468
 msgid "Landscape"
-msgstr "Paisagem/ao baixo"
+msgstr "Paisagem"
 
 #: libraries/schema/User_Schema.class.php:469
 msgid "Portrait"
-msgstr "Retrato/Ao alto"
+msgstr "Retrato"
 
 #: libraries/schema/User_Schema.class.php:471
 msgid "Orientation"
@@ -9247,7 +9276,7 @@ msgstr "Sem privilégios."
 
 #: libraries/server_privileges.lib.php:145 server_privileges.php:59
 msgid "Includes all privileges except GRANT."
-msgstr "inclui todos os privilégios excepto Conceção - GRANT."
+msgstr "Inclui todos os privilégios excepto GRANT."
 
 #: libraries/server_privileges.lib.php:167
 #: libraries/server_privileges.lib.php:635
@@ -9300,7 +9329,7 @@ msgstr ""
 #: libraries/server_privileges.lib.php:203
 #: libraries/server_privileges.lib.php:822 server_privileges.php:73
 msgid "Allows importing data from and exporting data into files."
-msgstr "Permite importar dados deportar e exportar dados para ficheiros."
+msgstr "Permite importar ou exportar dados de e para ficheiros."
 
 #: libraries/server_privileges.lib.php:207
 #: libraries/server_privileges.lib.php:650
@@ -9362,7 +9391,7 @@ msgstr "Permite criar novas tabelas."
 #: libraries/server_privileges.lib.php:247
 #: libraries/server_privileges.lib.php:894 server_privileges.php:71
 msgid "Allows to set up events for the event scheduler"
-msgstr ""
+msgstr "Permite definir eventos para o organizador de eventos"
 
 #: libraries/server_privileges.lib.php:251
 #: libraries/server_privileges.lib.php:898 server_privileges.php:92
@@ -9391,7 +9420,7 @@ msgstr "Permite criar e apagar indexes."
 #: libraries/server_privileges.lib.php:277
 #: libraries/server_privileges.lib.php:960 server_privileges.php:66
 msgid "Allows creating, dropping and renaming user accounts."
-msgstr ""
+msgstr "Permite criar, apagar e mudar o nome das contas dos utilizadores."
 
 #: libraries/server_privileges.lib.php:281
 #: libraries/server_privileges.lib.php:874 server_privileges.php:72
@@ -9471,7 +9500,7 @@ msgstr "Permite criar novas tabelas."
 
 #: libraries/server_privileges.lib.php:855 server_privileges.php:70
 msgid "Allows dropping tables."
-msgstr "Permite apagar Bases de Dados."
+msgstr "Permite apagar tabelas."
 
 #: libraries/server_privileges.lib.php:916 server_privileges.php:74
 msgid ""
@@ -10384,23 +10413,24 @@ msgstr "Importar"
 
 #: prefs_manage.php:246
 msgid "Import from browser's storage"
-msgstr ""
+msgstr "Importar do armazenamento do seu browser"
 
 #: prefs_manage.php:249
 msgid "Settings will be imported from your browser's local storage."
 msgstr ""
+"As configurações vão ser importadas do armazenamento local do seu browser."
 
 #: prefs_manage.php:255
 msgid "You have no saved settings!"
-msgstr ""
+msgstr "Não dispõe de configurações guardadas!"
 
 #: prefs_manage.php:259 prefs_manage.php:312
 msgid "This feature is not supported by your web browser"
-msgstr ""
+msgstr "Esta funcionalidade não é suportada pelo seu browser"
 
 #: prefs_manage.php:264
 msgid "Merge with current configuration"
-msgstr ""
+msgstr "Combinar com a configuração atual"
 
 #: prefs_manage.php:278
 #, php-format
@@ -10411,19 +10441,20 @@ msgstr ""
 
 #: prefs_manage.php:302
 msgid "Save to browser's storage"
-msgstr ""
+msgstr "Gravar para o armazenamento do seu browser"
 
 #: prefs_manage.php:306
 msgid "Settings will be saved in your browser's local storage."
-msgstr ""
+msgstr "As configurações serão gravadas no armazenamento local do seu browser."
 
 #: prefs_manage.php:308
 msgid "Existing settings will be overwritten!"
-msgstr ""
+msgstr "As configurações existentes serão sobre-escritas!"
 
 #: prefs_manage.php:323
 msgid "You can reset all your settings and restore them to default values."
 msgstr ""
+"Pode eliminar todas as definições e restaurá-las para os valores padrão."
 
 #: querywindow.php:64
 msgid "Import files"
@@ -10462,11 +10493,11 @@ msgstr ""
 
 #: server_binlog.php:193
 msgid "Position"
-msgstr ""
+msgstr "Posição"
 
 #: server_binlog.php:196
 msgid "Original position"
-msgstr ""
+msgstr "Posição original"
 
 #: server_collations.php:24
 msgid "Character Sets and Collations"
@@ -10495,7 +10526,7 @@ msgstr ""
 
 #: server_databases.php:334 server_databases.php:335
 msgid "Enable Statistics"
-msgstr "Activar Estatísticas"
+msgstr "Activar as estatísticas"
 
 #: server_databases.php:338
 msgid ""
@@ -10503,7 +10534,7 @@ msgid ""
 "between the web server and the MySQL server."
 msgstr ""
 "Nota: Activar as estatísticas aqui pode causar um grande volume de tráfego "
-"entre o servidor web e o de MySQL."
+"entre os servidores web e MySQL."
 
 #: server_databases.php:345
 msgid "No databases"
@@ -10511,7 +10542,7 @@ msgstr "Sem bases de dados"
 
 #: server_engines.php:32
 msgid "Storage Engines"
-msgstr ""
+msgstr "Motores de armazenamento"
 
 #: server_export.php:20
 #, fuzzy
@@ -10520,7 +10551,7 @@ msgstr "Ver o esquema da base de dados"
 
 #: server_plugins.php:66
 msgid "Modules"
-msgstr ""
+msgstr "Módulos"
 
 #: server_plugins.php:87
 msgid "Begin"
@@ -10528,15 +10559,15 @@ msgstr "Inicio"
 
 #: server_plugins.php:94
 msgid "Plugin"
-msgstr ""
+msgstr "Plugin"
 
 #: server_plugins.php:95 server_plugins.php:129
 msgid "Module"
-msgstr ""
+msgstr "Módulo"
 
 #: server_plugins.php:96 server_plugins.php:131
 msgid "Library"
-msgstr ""
+msgstr "Biblioteca"
 
 #: server_plugins.php:97 server_plugins.php:132 tbl_tracking.php:776
 #, fuzzy
@@ -10545,11 +10576,11 @@ msgstr "versão do PHP"
 
 #: server_plugins.php:98 server_plugins.php:133
 msgid "Author"
-msgstr ""
+msgstr "Autor"
 
 #: server_plugins.php:99 server_plugins.php:134
 msgid "License"
-msgstr ""
+msgstr "Licença"
 
 #: server_plugins.php:165
 #, fuzzy
@@ -13492,15 +13523,15 @@ msgstr "Não possui o InnoDB activo."
 
 #: libraries/advisory_rules.txt:433
 msgid "InnoDB is usually the better choice for table engines."
-msgstr ""
+msgstr "InnoDB é normalmente a melhor escolha para motor de tabelas."
 
 #: libraries/advisory_rules.txt:434
 msgid "have_innodb is set to 'value'"
-msgstr ""
+msgstr "have_innodb está definido como 'valor'"
 
 #: libraries/advisory_rules.txt:436
 msgid "InnoDB log size"
-msgstr ""
+msgstr "Tamanho dos registos do InnoDB"
 
 #: libraries/advisory_rules.txt:439
 msgid ""
@@ -13634,7 +13665,7 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
-msgstr "concurrent_insert está definida com o valor 0"
+msgstr "concurrent_insert é definido como 0"
 
 #~ msgid "Iconic table operations"
 #~ msgstr "Tabela de operações em ícones"
