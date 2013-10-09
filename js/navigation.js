@@ -928,18 +928,23 @@ var PMA_fastFilter = {
                 }
             });
             var container_filter = function ($curr, str) {
-                $curr.children('li').children('a.container').each(function () {
-                    var $group = $(this).parent().children('ul');
-                    if ($group.children('li').children('a.container').length > 0) {
-                        container_filter($group); // recursive
-                    }
-                    $group.parent().show().removeClass('hidden');
-                    if ($group.children().not('.hidden').length == 0) {
-                        $group.parent().hide().addClass('hidden');
+                $curr.children('ul').children('li.navGroup').each(function() {
+                    var $group = $(this);
+                    $group.children('div.list_container').each(function() {
+                        container_filter($(this)); // recursive
+                    });
+                    $group.show().removeClass('hidden');
+                    if ($group.children('div.list_container').children('ul')
+                            .children('li').not('.hidden').length === 0) {
+                        $group.hide().addClass('hidden');
                     }
                 });
             };
-            container_filter($obj, str);
+            if ($(this).closest('li.fast_filter').is('.db_fast_filter')) {
+                container_filter($('#pma_navigation_tree_content'), str);
+            } else {
+                container_filter($obj, str);
+            }
             if ($(this).val() != this.defaultValue && $(this).val() != '') {
                 if (! $obj.data('fastFilter')) {
                     $obj.data(
