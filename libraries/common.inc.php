@@ -700,6 +700,12 @@ if (isset($_REQUEST['set_theme'])) {
     $_SESSION['PMA_Theme_Manager']->setActiveTheme($_REQUEST['set_theme']);
 }
 
+if (isset($_REQUEST['set_audio'])) {
+
+    // if user change audio state (on/off)
+    $_SESSION['PMA_Theme_Manager']->setAudio($_REQUEST['set_audio']);
+}
+$GLOBALS['PMA_Audio'] = $_SESSION['PMA_Theme_Manager']->audio_state;
 /**
  * the theme object
  * @global PMA_Theme $_SESSION['PMA_Theme']
@@ -722,6 +728,11 @@ $GLOBALS['pmaThemePath']    = $_SESSION['PMA_Theme']->getPath();
  * @global string $GLOBALS['pmaThemeImage']
  */
 $GLOBALS['pmaThemeImage']   = $_SESSION['PMA_Theme']->getImgPath();
+/**
+ * the theme audio path
+ * @global string $GLOBALS['pmaThemeAudio']
+ */
+$GLOBALS['pmaThemeAudio']   = $_SESSION['PMA_Theme']->getAudioPath();
 
 /**
  * load layout file if exists

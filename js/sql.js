@@ -113,7 +113,8 @@ AJAX.registerOnload('sql.js', function () {
             $.get(url, {'ajax_request': true, 'is_js_confirmed': true}, function (data) {
                 if (data.success) {
                     PMA_ajaxShowMessage(data.message);
-                    $link.closest('tr').remove();
+                    soundNotification();
+					$link.closest('tr').remove();
                 } else {
                     PMA_ajaxShowMessage(data.error, false);
                 }
@@ -128,6 +129,7 @@ AJAX.registerOnload('sql.js', function () {
         $.post($(this).attr('action'), 'ajax_request=1&' + $(this).serialize(), function (data) {
             if (data.success) {
                 PMA_ajaxShowMessage(data.message);
+				soundNotification();
             } else {
                 PMA_ajaxShowMessage(data.error, false);
             }
@@ -272,6 +274,7 @@ AJAX.registerOnload('sql.js', function () {
                     $sqlqueryresults
                      .show()
                      .html(data.message);
+				
                 } else if (typeof data.sql_query != 'undefined') {
                     $('<div class="sqlquery_message"></div>')
                      .html(data.sql_query)
@@ -330,6 +333,8 @@ AJAX.registerOnload('sql.js', function () {
                         }
                     }
                 }
+				soundNotification();
+				
             } else if (data.success === false) {
                 // show an error message that stays on screen
                 $('#sqlqueryform').before(data.error);
@@ -460,6 +465,7 @@ AJAX.registerOnload('sql.js', function () {
         $.post($form.attr('action'), $form.serialize(), function (data) {
             if (data.success === true) {
                 PMA_ajaxShowMessage(data.message);
+				soundNotification();
                 if ($("#pageselector").length !== 0) {
                     $("#pageselector").trigger('change');
                 } else {
@@ -504,6 +510,7 @@ AJAX.registerOnload('sql.js', function () {
         $.post($form.attr('action'), $form.serialize(), function (data) {
             if (data.success === true) {
                 PMA_ajaxShowMessage(data.message);
+				soundNotification();
                 if (selected_submit_type == "showinsert") {
                     $("#sqlqueryresults").prepend(data.sql_query);
                     $("#result_query .notice").remove();
@@ -655,3 +662,18 @@ AJAX.registerOnload('sql.js', function () {
     makeProfilingChart();
     initProfilingTables();
 });
+
+/**
+ * Sound notification
+ */
+var soundNotification = function(){
+	if(localStorage.getItem('audio')!=null && localStorage.getItem('audio')=='1'){
+		aExt = 'wav';
+		if(navigator.appName=='Microsoft Internet Explorer'){
+			aExt = 'mp3';
+		}
+		var notification = new Audio(pmaThemeAudio + 'pin.' + aExt);
+		notification.play();
+	}
+};	
+

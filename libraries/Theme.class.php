@@ -50,6 +50,12 @@ class PMA_Theme
      */
     var $img_path = '';
 
+	/**
+     * @var string audio path
+     * @access  protected
+     */
+    var $audio_path = '';
+
     /**
      * @var integer last modification time for info file
      * @access  protected
@@ -137,6 +143,7 @@ class PMA_Theme
         }
 
         $theme->checkImgPath();
+		$theme->checkAudioPath();
 
         return $theme;
     }
@@ -175,6 +182,41 @@ class PMA_Theme
         return false;
     }
 
+	 /**
+     * checks audio path for existance - if not found use file from fallback theme
+     *
+     * @access public
+     * @return bool
+     */
+    public function checkAudioPath()
+    {
+	
+        // try current theme first
+        if (is_dir($this->getPath() . '/audio/')) {
+            $this->setAudioPath($this->getPath() . '/audio/');
+            return true;
+        }
+
+        // try fallback theme
+        $fallback = $GLOBALS['cfg']['ThemePath'] . '/'
+            . PMA_Theme_Manager::FALLBACK_THEME
+            . '/audio/';
+        if (is_dir($fallback)) {
+            $this->setAudioPath($fallback);
+            return true;
+        }
+
+        // we failed
+        trigger_error(
+            sprintf(
+                __('No valid audio path for theme %s found!'),
+                $this->getName()
+            ),
+            E_USER_ERROR
+        );
+        return false;
+    }
+	
     /**
      * returns path to theme
      *
@@ -333,6 +375,44 @@ class PMA_Theme
         }
     }
 
+	 /**
+     * Sets path to audio files for the theme
+     *
+     * @param string $path path to audio files for this theme
+     *
+     * @return void
+     * @access public
+     */
+    public function setAudioPath($path)
+    {
+        $this->audio_path = $path;
+    }
+
+    /**
+     * Returns the path to audio for the theme.
+     * If filename is given, it possibly fallbacks to fallback
+     * theme for it if audio does not exist.
+     *
+     * @param string $file file name for audio
+     *
+     * @access public
+     * @return string audio path for this theme
+     */
+    public function getAudioPath($file = null)
+    {
+        if (is_null($file)) {
+            return $this->audio_path;
+        } else {
+            if (is_readable($this->audio_path . $file)) {
+                return $this->audio_path . $file;
+            } else {
+                return $GLOBALS['cfg']['ThemePath'] . '/'
+                    . PMA_Theme_Manager::FALLBACK_THEME . '/audio/' . $file;
+            }
+        }
+    }
+
+	
     /**
      * load css (send to stdout, normally the browser)
      *

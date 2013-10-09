@@ -52,6 +52,11 @@ class PMA_Theme_Manager
      */
     var $theme_default;
 
+	/**
+     * @var boolean
+     */
+	var $audio_state = false;
+	
     /**
      * @const string The name of the fallback theme
      */
@@ -399,6 +404,7 @@ class PMA_Theme_Manager
         $GLOBALS['theme']           = $this->theme->getId();
         $GLOBALS['pmaThemePath']    = $this->theme->getPath();
         $GLOBALS['pmaThemeImage']   = $this->theme->getImgPath();
+		$GLOBALS['pmaThemeAudio']   = $this->theme->getAudioPath();
 
         /**
          * load layout file if exists
@@ -457,6 +463,33 @@ class PMA_Theme_Manager
         }
 
         return false;
+    }
+	
+	/**
+     * Sets audio on off
+     *
+     * @param bool $state 1 on 0 off
+     *
+     * @access public
+     * @return bool true on success
+     */
+    public function setAudio($state)
+    {
+	
+        $this->audio_state = $state;
+		$GLOBALS['PMA_Audio'] = $state;
+        return true;
+    }
+	
+	/**
+     * Get audio state
+     *
+     * @access public
+     * @return bool true for on false for off
+     */
+    public function getAudio()
+    {
+        return  $this->audio_state;
     }
 }
 ?>

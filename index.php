@@ -216,6 +216,10 @@ echo '<li id="li_select_fontsize">';
 echo PMA_Config::getFontsizeForm();
 echo '</li>';
 
+echo '<li id="li_set_audio"><a href="#" id="clickAudioSetting" name="'.($GLOBALS['PMA_Audio']).'">Turn Audio ';
+echo ($GLOBALS['PMA_Audio'] == false ? 'On' : 'Off');
+echo '</a></li>';
+
 echo '</ul>';
 
 // User preferences
