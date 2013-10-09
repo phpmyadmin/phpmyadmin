@@ -52,6 +52,7 @@ phpMyAdmin - ChangeLog
 - bug #4104 Can't edit updatable view when searching
 - bug #4108 Missing refresh by deleting databases
 - bug #3995 Drizzle server charset notice
+- bug #3911 Filtering database names includes empty groupings
 
 4.0.8.0 (2013-10-06)
 - bug #3988 Rename view is not working
