@@ -1550,7 +1550,11 @@ class PMA_Table
                 $avail_columns = $this->getColumns();
                 foreach ($avail_columns as $each_col) {
                     // check if $each_col ends with $colname
-                    if (substr_compare($each_col, $colname, strlen($each_col) - strlen($colname)) === 0) {
+                    if (substr_compare(
+                        $each_col,
+                        $colname,
+                        strlen($each_col) - strlen($colname)
+                    ) === 0) {
                         return $this->uiprefs[$property];
                     }
                 }
@@ -1567,7 +1571,10 @@ class PMA_Table
                 && isset($this->uiprefs[$property])
             ) {
                 // check if the table has not been modified
-                if (self::sGetStatusInfo($this->db_name, $this->name, 'Create_time') == $this->uiprefs['CREATE_TIME']) {
+                if (self::sGetStatusInfo(
+                    $this->db_name,
+                    $this->name, 'Create_time'
+                ) == $this->uiprefs['CREATE_TIME']) {
                     return $this->uiprefs[$property];
                 } else {
                     // remove the property, since the table has been modified
