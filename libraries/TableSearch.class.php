@@ -1035,7 +1035,8 @@ EOT;
             $html_output .= '</tr>';
             //Displays hidden fields
             $html_output .= '<tr><td>';
-            $html_output .= '<input type="hidden" name="criteriaColumnTypes[' . $i . ']"'
+            $html_output
+                .= '<input type="hidden" name="criteriaColumnTypes[' . $i . ']"'
                 . ' id="types_' . $i . '" ';
             if (isset($_POST['criteriaColumnTypes'][$i])) {
                 $html_output .= 'value="' . $_POST['criteriaColumnTypes'][$i] . '" ';
@@ -1199,13 +1200,17 @@ EOT;
     public function getZoomResultsForm($goto, $data)
     {
         $html_output = '';
-        $titles['Browse'] = PMA_Util::getIcon('b_browse.png', __('Browse foreign values'));
+        $titles['Browse'] = PMA_Util::getIcon(
+            'b_browse.png',
+            __('Browse foreign values')
+        );
         $html_output .= '<form method="post" action="tbl_zoom_select.php"'
             . ' name="displayResultForm" id="zoom_display_form"'
             . ' class="ajax"' . '>';
         $html_output .= PMA_URL_getHiddenInputs($this->_db, $this->_table);
         $html_output .= '<input type="hidden" name="goto" value="' . $goto . '" />';
-        $html_output .= '<input type="hidden" name="back" value="tbl_zoom_select.php" />';
+        $html_output
+            .= '<input type="hidden" name="back" value="tbl_zoom_select.php" />';
 
         $html_output .= '<fieldset id="displaySection">';
         $html_output .= '<legend>' . __('Browse/Edit the points') . '</legend>';
@@ -1237,16 +1242,29 @@ EOT;
 
         $html_output .= '<tbody>';
         $odd_row = true;
-        for ($column_index = 0; $column_index < count($this->_columnNames); $column_index++) {
+        for (
+            $column_index = 0;
+            $column_index < count($this->_columnNames);
+            $column_index++
+        ) {
             $fieldpopup = $this->_columnNames[$column_index];
-            $foreignData = PMA_getForeignData($this->_foreigners, $fieldpopup, false, '', '');
-            $html_output .= '<tr class="noclick ' . ($odd_row ? 'odd' : 'even') . '">';
+            $foreignData = PMA_getForeignData(
+                $this->_foreigners,
+                $fieldpopup,
+                false,
+                '',
+                ''
+            );
+            $html_output
+                .= '<tr class="noclick ' . ($odd_row ? 'odd' : 'even') . '">';
             $odd_row = ! $odd_row;
             //Display column Names
-            $html_output .= '<th>' . htmlspecialchars($this->_columnNames[$column_index])
+            $html_output
+                .= '<th>' . htmlspecialchars($this->_columnNames[$column_index])
                 . '</th>';
             //Null checkbox if column can be null
-            $html_output .= '<th>' . (($this->_columnNullFlags[$column_index] == 'YES')
+            $html_output .= '<th>'
+                . (($this->_columnNullFlags[$column_index] == 'YES')
                 ? '<input type="checkbox" class="checkbox_null"'
                     . ' name="criteriaColumnNullFlags[' . $column_index . ']"'
                     . ' id="edit_fields_null_id_' . $column_index . '" />'
