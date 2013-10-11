@@ -34,6 +34,7 @@ if(!$GLOBALS['PMA_Config']->isGitRevision()) {
 }
 
 if ($_REQUEST['send_error_report'] == true) {
+    PMA_sendErrorReport(PMA_getReportData(false));
     if ($_REQUEST['automatic'] === "true") {
         $response->addJSON('message', PMA_Message::error(
             __('An error has been detected and an error report has been '
