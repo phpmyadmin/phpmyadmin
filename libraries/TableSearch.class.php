@@ -231,7 +231,8 @@ class PMA_TableSearch
      */
     private function _getGeometricalInputBox($column_index, $in_fbs)
     {
-        $html_output = '<input type="text" name="criteriaValues[' . $column_index . ']"'
+        $html_output = '<input type="text" name="criteriaValues['
+            . $column_index . ']"'
             . ' size="40" class="textfield" id="field_' . $column_index . '" />';
 
         if ($in_fbs) {
@@ -276,7 +277,8 @@ class PMA_TableSearch
             $html_output .= '</select>';
 
         } elseif ($foreignData['foreign_link'] == true) {
-            $html_output .= '<input type="text" id="' . $column_id . $column_index . '"'
+            $html_output .= '<input type="text" id="' . $column_id
+                . $column_index . '"'
                 . ' name="criteriaValues[' . $column_index . ']" id="field_'
                 . md5($column_name) . '[' . $column_index .']" class="textfield"'
                 . (isset($criteriaValues[$column_index])
@@ -500,7 +502,8 @@ EOT;
             // If the function takes two parameters
             // create gis data from the criteria input
             $gis_data = PMA_Util::createGISData($criteriaValues);
-            $where = $geom_func . '(' . PMA_Util::backquote($names) . ',' . $gis_data . ')';
+            $where = $geom_func . '(' . PMA_Util::backquote($names)
+                . ',' . $gis_data . ')';
             return $where;
         }
 
@@ -677,7 +680,9 @@ EOT;
         // else continue to form the where clause from column criteria values
         $fullWhereClause = $charsets = array();
         reset($_POST['criteriaColumnOperators']);
-        while (list($column_index, $operator) = each($_POST['criteriaColumnOperators'])) {
+        while (list($column_index, $operator) = each(
+            $_POST['criteriaColumnOperators']
+        )) {
             list($charsets[$column_index]) = explode(
                 '_', $_POST['criteriaColumnCollations'][$column_index]
             );
@@ -780,7 +785,8 @@ EOT;
                 . '</option>' . "\n";
         } // end for
         $html_output .= '</select>'
-            . '<input type="checkbox" name="distinct" value="DISTINCT" id="oDistinct" />'
+            . '<input type="checkbox" name="distinct" value="DISTINCT"'
+            . ' id="oDistinct" />'
             . '<label for="oDistinct">DISTINCT</label></fieldset>';
 
         /**
@@ -853,8 +859,10 @@ EOT;
                 && $dataLabel == htmlspecialchars($this->_columnNames[$j])
             ) {
                 $html_output .= '<option value="'
-                    . htmlspecialchars($this->_columnNames[$j]) . '" selected="selected">'
-                    . htmlspecialchars($this->_columnNames[$j]) . '</option>';
+                    . htmlspecialchars($this->_columnNames[$j])
+                    . '" selected="selected">'
+                    . htmlspecialchars($this->_columnNames[$j])
+                    . '</option>';
             } else {
                 $html_output .= '<option value="'
                     . htmlspecialchars($this->_columnNames[$j]) . '" >'
@@ -934,8 +942,14 @@ EOT;
         $odd_row = true;
         $html_output = '';
         // for every column present in table
-        for ($column_index = 0; $column_index < count($this->_columnNames); $column_index++) {
-            $html_output .= '<tr class="noclick ' . ($odd_row ? 'odd' : 'even') . '">';
+        for (
+            $column_index = 0;
+            $column_index < count($this->_columnNames);
+            $column_index++
+        ) {
+            $html_output .= '<tr class="noclick '
+                . ($odd_row ? 'odd' : 'even')
+                . '">';
             $odd_row = !$odd_row;
             //If 'Function' column is present
             $html_output .= $this->_getGeomFuncHtml($column_index);
@@ -989,7 +1003,9 @@ EOT;
                 $html_output .= __("Additional search criteria");
                 $html_output .= '</td></tr>';
             }
-            $html_output .= '<tr class="noclick ' . ($odd_row ? 'odd' : 'even') . '">';
+            $html_output .= '<tr class="noclick '
+                . ($odd_row ? 'odd' : 'even')
+                . '">';
             $odd_row = ! $odd_row;
             //Select options for column names
             $html_output .= '<th><select name="criteriaColumnNames[]" id="'
@@ -1001,8 +1017,10 @@ EOT;
                     && $_POST['criteriaColumnNames'][$i] == htmlspecialchars($this->_columnNames[$j])
                 ) {
                     $html_output .= '<option value="'
-                        . htmlspecialchars($this->_columnNames[$j]) . '" selected="selected">'
-                        . htmlspecialchars($this->_columnNames[$j]) . '</option>';
+                        . htmlspecialchars($this->_columnNames[$j])
+                        . '" selected="selected">'
+                        . htmlspecialchars($this->_columnNames[$j])
+                        . '</option>';
                 } else {
                     $html_output .= '<option value="'
                         . htmlspecialchars($this->_columnNames[$j]) . '">'
