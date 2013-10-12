@@ -1825,7 +1825,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
             ->with('res')
             ->will(
                 $this->returnValue(
-                    array(null, 'test', '10', 'foo', "\x00\x0a\x0d\x1a")
+                    array(null, 'test', '10', '6', "\x00\x0a\x0d\x1a")
                 )
             );
 
@@ -1866,7 +1866,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
         );
 
         $this->assertContains(
-            "(NULL, test, 0x3130, b'10', " . '\'\0\n\r\Z\');',
+            "(NULL, test, 0x3130, b'110', " . '\'\0\n\r\Z\');',
             $result
         );
 
