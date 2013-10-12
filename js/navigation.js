@@ -992,22 +992,51 @@ var PMA_fastFilter = {
             var str = '';
             if ($(this).val() != this.defaultValue && $(this).val() !== '') {
                 $obj.find('div.pageselector').hide();
-                str = $(this).val().toLowerCase();
+                str = $(this).val();
             }
-            $obj.find('li > a').not('.container').each(function () {
-                try {
-                    var regex = new RegExp(str, 'i');
-                } catch (err) {
-                    // if the filter regexp is not valid exit the .each() loop
-                    return false;
-                }
-                if (regex.test($(this).text())) {
-                    $(this).parent().show().removeClass('hidden');
-                } else {
-                    $(this).parent().hide().addClass('hidden');
-                }
-            });
-            var container_filter = function ($curr, str) {
+
+            /**
+             * FIXME at the server level a value match is done while on
+             * the client side it is a regex match. These two should be aligned
+             */
+
+            // regex used for filtering.
+            var regex;
+            try {
+                regex = new RegExp(str, 'i');
+            } catch (err) {
+                return;
+            }
+
+            // this is the div that houses the items to be filtered by this filter.
+            var outerContainer;
+            if ($(this).closest('li.fast_filter').is('.db_fast_filter')) {
+                outerContainer = $('#pma_navigation_tree_content');
+            } else {
+                outerContainer = $obj;
+            }
+
+            // filters items that are directly under the div as well as grouped in
+            // groups. Does not filter child items (i.e. a database search does
+            // not filter tables)
+            var item_filter = function($curr) {
+                $curr.children('ul').children('li.navGroup').each(function() {
+                    $(this).children('div.list_container').each(function() {
+                        item_filter($(this)); // recursive
+                    });
+                });
+                $curr.children('ul').children('li').children('a').not('.container').each(function() {
+                    if (regex.test($(this).text())) {
+                        $(this).parent().show().removeClass('hidden');
+                    } else {
+                        $(this).parent().hide().addClass('hidden');
+                    }
+                });
+            };
+            item_filter(outerContainer);
+
+            // hides containers that does not have any visible children
+            var container_filter = function ($curr) {
                 $curr.children('ul').children('li.navGroup').each(function() {
                     var $group = $(this);
                     $group.children('div.list_container').each(function() {
@@ -1020,11 +1049,8 @@ var PMA_fastFilter = {
                     }
                 });
             };
-            if ($(this).closest('li.fast_filter').is('.db_fast_filter')) {
-                container_filter($('#pma_navigation_tree_content'), str);
-            } else {
-                container_filter($obj, str);
-            }
+            container_filter(outerContainer);
+
             if ($(this).val() != this.defaultValue && $(this).val() !== '') {
                 if (! $obj.data('fastFilter')) {
                     $obj.data(
