@@ -889,11 +889,12 @@ class PMA_DisplayResults
             $input_for_real_end = $onclick = '';
         }
 
+        $maxRows = $_SESSION['tmp_user_values']['max_rows'];
         $onsubmit = 'onsubmit="return '
             . ($_SESSION['tmp_user_values']['pos']
-                + $_SESSION['tmp_user_values']['max_rows']
+                + $maxRows 
                 < $this->__get('unlim_num_rows')
-                && $this->__get('num_rows') >= $_SESSION['tmp_user_values']['max_rows'])
+                && $this->__get('num_rows') >= $maxRows)
             ? 'true'
             : 'false' . '"';
 
@@ -904,7 +905,7 @@ class PMA_DisplayResults
             @((ceil(
                 $this->__get('unlim_num_rows')
                 / $_SESSION['tmp_user_values']['max_rows']
-            )- 1) * $_SESSION['tmp_user_values']['max_rows']),
+            )- 1) * $maxRows),
             $html_sql_query, $onsubmit, $input_for_real_end, $onclick
         );
 
@@ -5435,9 +5436,9 @@ class PMA_DisplayResults
 
         $result .= ']';
 
+        // if we want to use a text transformation on a BLOB column
         if (gettype($transformation_plugin) == "object"
             && (strpos($transformation_plugin->getMIMESubtype(), 'Octetstream')
-            // if we want to use a text transformation on a BLOB column
             || strpos($transformation_plugin->getMIMEtype(), 'Text') !== false)
         ) {
             $result = $content;
@@ -5511,6 +5512,7 @@ class PMA_DisplayResults
         $transform_options, $is_field_truncated
     ) {
 
+        $relational_display = $_SESSION['tmp_user_values']['relational_display'];
         $printview = $this->__get('printview');
         $result = '<td class="'
             . $this->_addClass(
@@ -5591,7 +5593,7 @@ class PMA_DisplayResults
 
             } else {
 
-                if ($_SESSION['tmp_user_values']['relational_display'] == self::RELATIONAL_KEY) {
+                if ($relational_display == self::RELATIONAL_KEY) {
 
                     // user chose "relational key" in the display options, so
                     // the title contains the display field
@@ -5635,7 +5637,7 @@ class PMA_DisplayResults
                     );
                 } else {
 
-                    if ($_SESSION['tmp_user_values']['relational_display'] == self::RELATIONAL_DISPLAY_COLUMN) {
+                    if ($relational_display == self::RELATIONAL_DISPLAY_COLUMN) {
                         // user chose "relational display field" in the
                         // display options, so show display field in the cell
                         $result .= $this->$default_function($dispval);
