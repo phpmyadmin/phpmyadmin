@@ -1041,9 +1041,9 @@ class PMA_NavigationTree
                 $placeholder_key = 'placeholder';
             }
             $retval .= " $placeholder_key='"
-                . __('filter databases by name or regex');
+                . __('Filter databases by name or regex');
             $retval .= "' />";
-            $retval .= '<span title="' . __('Clear Fast Filter') . '">X</span>';
+            $retval .= '<span title="' . __('Clear fast filter') . '">X</span>';
             $retval .= "</form>";
             $retval .= "</li>";
             $retval .= "</ul>";
@@ -1075,8 +1075,8 @@ class PMA_NavigationTree
                 $placeholder_key = 'placeholder';
             }
             $retval .= " $placeholder_key='"
-                . __('filter by name or regex') . "' />";
-            $retval .= "<span title='" . __('Clear Fast Filter') . "'>X</span>";
+                . __('Filter by name or regex') . "' />";
+            $retval .= "<span title='" . __('Clear fast filter') . "'>X</span>";
             $retval .= "</form>";
             $retval .= "</li>";
         }
