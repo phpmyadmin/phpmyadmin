@@ -939,31 +939,29 @@ class PMA_DisplayResults
             . '" />'
             . '<input type="hidden" name="pos" size="3" value="'
             // Do not change the position when changing the number of rows
-            . $_SESSION['tmp_user_values']['pos']
-            . '" />'
-            . __('Number of rows:') . ' '
-            . '<select name="session_max_rows" class="autosubmit">';
+            . $_SESSION['tmp_user_values']['pos'] . '" />';
 
-        $numberOfRowsChoices = array(25, 50, 100, 250, 500);
-        foreach ($numberOfRowsChoices as $oneNumberOfRowsChoice) {
-            $additional_fields_html .= '<option value="'
-                . $oneNumberOfRowsChoice . '"';
-
-            if ($oneNumberOfRowsChoice == $_SESSION['tmp_user_values']['max_rows']) {
-                $additional_fields_html .= ' selected="selected"';
-            }
-            $additional_fields_html .= '>' . $oneNumberOfRowsChoice . '</option>';
-        }
-        $additional_fields_html .= '</select>';
+        $numberOfRowsChoices = array(
+            '25'  => 25,
+            '50'  => 50,
+            '100' => 100,
+            '250' => 250,
+            '500' => 500
+        );
+        $additional_fields_html .= __('Number of rows:') . ' ';
+        $additional_fields_html .= PMA_Util::getDropdown(
+            'session_max_rows', $numberOfRowsChoices,
+            $_SESSION['tmp_user_values']['max_rows'], '', 'autosubmit'
+        );
 
         if ($GLOBALS['cfg']['ShowDisplayDirection']) {
             // Display mode (horizontal/vertical)
             $additional_fields_html .= __('Mode:') . ' ' . "\n";
             $choices = array(
-                    'horizontal'        => __('horizontal'),
-                    'horizontalflipped' => __('horizontal (rotated headers)'),
-                    'vertical'          => __('vertical')
-                );
+                'horizontal'        => __('horizontal'),
+                'horizontalflipped' => __('horizontal (rotated headers)'),
+                'vertical'          => __('vertical')
+            );
 
             $additional_fields_html .= PMA_Util::getDropdown(
                 'disp_direction', $choices,
