@@ -2717,8 +2717,11 @@ class PMA_Util
     public static function getDropdown(
         $select_name, $choices, $active_choice, $id, $class = ''
     ) {
-        $result = '<select name="' . htmlspecialchars($select_name) . '" id="'
-            . htmlspecialchars($id) . '" class="' . htmlspecialchars($class) . '">';
+        $result = '<select'
+            . ' name="' . htmlspecialchars($select_name) . '"'
+            . ' id="' . htmlspecialchars($id) . '"'
+            . (! empty($class) ? ' class="' . htmlspecialchars($class) . '"' : '')
+            . '>';
 
         foreach ($choices as $one_choice_value => $one_choice_label) {
             $result .= '<option value="' . htmlspecialchars($one_choice_value) . '"';
