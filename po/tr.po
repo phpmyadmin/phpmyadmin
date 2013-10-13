@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.0-alpha2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-10-13 06:55-0400\n"
-"PO-Revision-Date: 2013-10-03 20:52+0200\n"
+"PO-Revision-Date: 2013-10-13 13:31+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
-"Language-Team: Turkish <http://l10n.cihar.com/projects/phpmyadmin/master/tr/"
-">\n"
+"Language-Team: Turkish "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/tr/>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 1.7-dev\n"
+"X-Generator: Weblate 1.7\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -7867,23 +7867,20 @@ msgid_plural "%s other results found"
 msgstr[0] "%s diğer sonuç bulundu"
 
 #: libraries/navigation/NavigationTree.class.php:1044
-#, fuzzy
 #| msgid "filter databases by name or regex"
 msgid "Filter databases by name or regex"
-msgstr "veritabanlarını adına ya da düzenli ifadesine göre süz"
+msgstr "Veritabanlarını adına ya da düzenli ifadesine göre süz"
 
 #: libraries/navigation/NavigationTree.class.php:1046
 #: libraries/navigation/NavigationTree.class.php:1079
-#, fuzzy
 #| msgid "Clear Fast Filter"
 msgid "Clear fast filter"
-msgstr "Hızlı Süzgeci Temizle"
+msgstr "Hızlı süzgeci temizle"
 
 #: libraries/navigation/NavigationTree.class.php:1078
-#, fuzzy
 #| msgid "filter by name or regex"
 msgid "Filter by name or regex"
-msgstr "adına ya da düzenli ifadesine göre süz"
+msgstr "Adına ya da düzenli ifadesine göre süz"
 
 #. l10n: The word "Node" must not be translated here
 #: libraries/navigation/NodeFactory.class.php:41
