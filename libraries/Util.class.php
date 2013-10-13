@@ -2708,15 +2708,17 @@ class PMA_Util
      * @param string $id            id of the select element; can be different in
      *                              case the dropdown is present more than once
      *                              on the page
+     * @param string $class         class for the select element
      *
      * @return string               html content
      *
      * @todo    support titles
      */
-    public static function getDropdown($select_name, $choices, $active_choice, $id)
-    {
+    public static function getDropdown(
+        $select_name, $choices, $active_choice, $id, $class = ''
+    ) {
         $result = '<select name="' . htmlspecialchars($select_name) . '" id="'
-            . htmlspecialchars($id) . '">';
+            . htmlspecialchars($id) . '" class="' . htmlspecialchars($class) . '">';
 
         foreach ($choices as $one_choice_value => $one_choice_label) {
             $result .= '<option value="' . htmlspecialchars($one_choice_value) . '"';

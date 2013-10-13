@@ -968,7 +968,7 @@ class PMA_DisplayResults
             $additional_fields_html .= PMA_Util::getDropdown(
                 'disp_direction', $choices,
                 $_SESSION['tmp_user_values']['disp_direction'],
-                $id_for_direction_dropdown
+                $id_for_direction_dropdown, 'autosubmit'
             );
             unset($choices);
         }
