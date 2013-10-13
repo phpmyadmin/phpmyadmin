@@ -267,7 +267,9 @@ class PMA_Table
             }
         } else {
             $show_create_table = $GLOBALS['dbi']->fetchValue(
-                'SHOW CREATE TABLE ' . PMA_Util::backquote($db) . '.' . PMA_Util::backquote($table),
+                'SHOW CREATE TABLE '
+                . PMA_Util::backquote($db)
+                . '.' . PMA_Util::backquote($table),
                 0,
                 1
             );
@@ -487,7 +489,8 @@ class PMA_Table
                         . PMA_Util::sqlAddSlashes($default_value) . '\'';
                 }
             } else {
-                $query .= ' DEFAULT \'' . PMA_Util::sqlAddSlashes($default_value) . '\'';
+                $query .= ' DEFAULT \''
+                    . PMA_Util::sqlAddSlashes($default_value) . '\'';
             }
             break;
         case 'NULL' :
@@ -739,12 +742,13 @@ class PMA_Table
 
                 $new_table_query = 'INSERT IGNORE INTO '
                     . PMA_Util::backquote($GLOBALS['cfgRelation']['db'])
-                    . '.' . PMA_Util::backquote($GLOBALS['cfgRelation'][$pma_table]) . '
-                    (' . implode(', ', $select_parts) . ',
-                     ' . implode(', ', $new_parts) . ')
-                    VALUES
-                    (\'' . implode('\', \'', $value_parts) . '\',
-                     \'' . implode('\', \'', $new_value_parts) . '\')';
+                    . '.'
+                    . PMA_Util::backquote($GLOBALS['cfgRelation'][$pma_table])
+                    . ' (' . implode(', ', $select_parts)
+                    . ', ' . implode(', ', $new_parts)
+                    . ') VALUES (\''
+                    . implode('\', \'', $value_parts) . '\', \''
+                    . implode('\', \'', $new_value_parts) . '\')';
 
                 PMA_queryAsControlUser($new_table_query);
                 $last_id = $GLOBALS['dbi']->insertId();
@@ -1038,13 +1042,19 @@ class PMA_Table
                     // Get all comments and MIME-Types for current table
                     $comments_copy_rs = PMA_queryAsControlUser(
                         'SELECT column_name, comment'
-                        . ($GLOBALS['cfgRelation']['mimework'] ? ', mimetype, transformation, transformation_options' : '')
-                        . ' FROM ' . PMA_Util::backquote($GLOBALS['cfgRelation']['db'])
-                        . '.' . PMA_Util::backquote($GLOBALS['cfgRelation']['column_info'])
+                        . ($GLOBALS['cfgRelation']['mimework']
+                        ? ', mimetype, transformation, transformation_options'
+                        : '')
+                        . ' FROM '
+                        . PMA_Util::backquote($GLOBALS['cfgRelation']['db'])
+                        . '.'
+                        . PMA_Util::backquote($GLOBALS['cfgRelation']['column_info'])
                         . ' WHERE '
-                        . ' db_name = \'' . PMA_Util::sqlAddSlashes($source_db) . '\''
+                        . ' db_name = \''
+                        . PMA_Util::sqlAddSlashes($source_db) . '\''
                         . ' AND '
-                        . ' table_name = \'' . PMA_Util::sqlAddSlashes($source_table) . '\''
+                        . ' table_name = \''
+                        . PMA_Util::sqlAddSlashes($source_table) . '\''
                     );
 
                     // Write every comment as new copied entry. [MIME]
