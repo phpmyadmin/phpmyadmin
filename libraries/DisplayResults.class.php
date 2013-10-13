@@ -853,11 +853,11 @@ class PMA_DisplayResults
 
 
     /**
-     * Prepare move farward buttons - next and last
+     * Prepare move forward buttons - next and last
      *
-     * @param string  $html_sql_query the sql encoded by html special characters
+     * @param string  $html_sql_query the sql encoded by htmlspecialchars()
      * @param integer $pos_next       the offset for the "next" page
-     * @param boolean $is_innodb      whether its InnoDB or not
+     * @param boolean $is_innodb      whether it's InnoDB or not
      *
      * @return  string  $buttons_html   html content
      *
@@ -918,8 +918,7 @@ class PMA_DisplayResults
      * Prepare fields for table navigation
      * Number of rows
      *
-     * @param string $html_sql_query            the sql encoded by html special
-     *                                          characters
+     * @param string $html_sql_query            the sql encoded by htmlspecialchars()
      * @param string $id_for_direction_dropdown the id for the direction dropdown
      *
      * @return  string  $additional_fields_html html content
