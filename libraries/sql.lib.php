@@ -1322,7 +1322,6 @@ function PMA_hasCurrentDbChanged($db)
         if ($db !== $current_db) {
             $reload = 1;
         }
-        $GLOBALS['dbi']->selectDb($db);
     }
 
     return $reload;
