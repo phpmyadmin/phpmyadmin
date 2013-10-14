@@ -74,13 +74,17 @@ var PMA_commonParams = (function () {
          * @return self For chainability
          */
         set: function (name, value) {
+            var updateNavigation = false;
             if (params[name] !== undefined && params[name] !== value) {
                 PMA_querywindow.refresh();
                 if (name == 'db' || name == 'table') {
-                    PMA_showCurrentNavigation();
+                    updateNavigation = true;
                 }
             }
             params[name] = value;
+            if (updateNavigation) {
+                PMA_showCurrentNavigation();
+            }
             return this;
         },
         /**
