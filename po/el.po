@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.0-alpha2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-10-13 06:55-0400\n"
-"PO-Revision-Date: 2013-10-04 07:28+0200\n"
+"PO-Revision-Date: 2013-10-14 07:25+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: Greek <http://l10n.cihar.com/projects/phpmyadmin/master/el/>\n"
 "Language: el\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 1.7-dev\n"
+"X-Generator: Weblate 1.7\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -7924,23 +7924,20 @@ msgstr[0] "%s άλλο αποτέλεσμα βρέθηκε"
 msgstr[1] "%s άλλα αποτελέσματα βρέθηκαν"
 
 #: libraries/navigation/NavigationTree.class.php:1044
-#, fuzzy
 #| msgid "filter databases by name or regex"
 msgid "Filter databases by name or regex"
-msgstr "φιλτράρισμα βάσεων δεδομενων κατά όνομα ή κανονική έκφραση"
+msgstr "Φιλτράρισμα βάσεων δεδομενων κατά όνομα ή κανονική έκφραση"
 
 #: libraries/navigation/NavigationTree.class.php:1046
 #: libraries/navigation/NavigationTree.class.php:1079
-#, fuzzy
 #| msgid "Clear Fast Filter"
 msgid "Clear fast filter"
-msgstr "Εκκαθάριση Γρήγορου Φίλτρου"
+msgstr "Εκκαθάριση γρήγορου φίλτρου"
 
 #: libraries/navigation/NavigationTree.class.php:1078
-#, fuzzy
 #| msgid "filter by name or regex"
 msgid "Filter by name or regex"
-msgstr "φιλτράρισμα κατά όνομα ή κανονική έκφραση"
+msgstr "Φιλτράρισμα κατά όνομα ή κανονική έκφραση"
 
 #. l10n: The word "Node" must not be translated here
 #: libraries/navigation/NodeFactory.class.php:41
