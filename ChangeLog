@@ -7,6 +7,7 @@ phpMyAdmin - ChangeLog
 - bug #3995 Drizzle server charset notice
 - bug #3911 Filtering database names includes empty groupings
 - bug #3678 Does not display or manipulate bit(64) fields appropriately
+- bug #4129 Unneeded navi panel refresh
 
 4.0.8.0 (2013-10-06)
 - bug #3988 Rename view is not working

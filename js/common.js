@@ -41,9 +41,9 @@ var PMA_commonParams = (function () {
             for (var i in obj) {
                 if (params[i] !== undefined && params[i] !== obj[i]) {
                     reload = true;
-                }
-                if (i == 'db' || i == 'table') {
-                    updateNavigation = true;
+                    if (i == 'db' || i == 'table') {
+                        updateNavigation = true;
+                    }
                 }
                 params[i] = obj[i];
             }
@@ -76,11 +76,11 @@ var PMA_commonParams = (function () {
         set: function (name, value) {
             if (params[name] !== undefined && params[name] !== value) {
                 PMA_querywindow.refresh();
+                if (name == 'db' || name == 'table') {
+                    PMA_showCurrentNavigation();
+                }
             }
             params[name] = value;
-            if (name == 'db' || name == 'table') {
-                PMA_showCurrentNavigation();
-            }
             return this;
         },
         /**
