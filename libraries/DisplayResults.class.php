@@ -3142,8 +3142,9 @@ class PMA_DisplayResults
                     // Special case 1 - when executing routines, according
                     // to the type of the routine, url param changes
                     if (!empty($row_info['routine_type'])) {
-                        if (strtolower($row_info['routine_type']) == self::ROUTINE_PROCEDURE
-                            || strtolower($row_info['routine_type']) == self::ROUTINE_FUNCTION
+                        $lowerRoutineType = strtolower($row_info['routine_type']);
+                        if ($lowerRoutineType == self::ROUTINE_PROCEDURE
+                            || $lowerRoutineType == self::ROUTINE_FUNCTION
                         ) {
                             $linking_url_params['edit_item'] = 1;
                         }
@@ -3522,7 +3523,8 @@ class PMA_DisplayResults
         $class = 'data ' . $grid_edit_class . ' ' . $not_null_class . ' '
             . $relation_class . ' ' . $hide_class . ' ' . $field_type_class;
 
-        if (($_SESSION['tmp_user_values']['disp_direction'] == self::DISP_DIR_VERTICAL)
+        $disp_direction = $_SESSION['tmp_user_values']['disp_direction'];
+        if (($disp_direction == self::DISP_DIR_VERTICAL)
             && (! isset($printview) || ($printview != '1'))
         ) {
             // the row number corresponds to a data row, not HTML table row
