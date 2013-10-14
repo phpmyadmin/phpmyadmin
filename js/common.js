@@ -41,9 +41,9 @@ var PMA_commonParams = (function () {
             for (var i in obj) {
                 if (params[i] !== undefined && params[i] !== obj[i]) {
                     reload = true;
-                }
-                if (i == 'db' || i == 'table') {
-                    updateNavigation = true;
+                    if (i == 'db' || i == 'table') {
+                        updateNavigation = true;
+                    }
                 }
                 params[i] = obj[i];
             }
@@ -74,12 +74,15 @@ var PMA_commonParams = (function () {
          * @return self For chainability
          */
         set: function (name, value) {
+            var updateNavigation = false;
             if (params[name] !== undefined && params[name] !== value) {
                 PMA_querywindow.refresh();
-                PMA_reloadNavigation();
+                if (name == 'db' || name == 'table') {
+                    updateNavigation = true;
+                }
             }
             params[name] = value;
-            if (name == 'db' || name == 'table') {
+            if (updateNavigation) {
                 PMA_showCurrentNavigation();
             }
             return this;
