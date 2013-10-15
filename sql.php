@@ -173,7 +173,6 @@ if ($goto == 'sql.php') {
     );
 } // end if
 
-$GLOBALS['dbi']->selectDb($db);
 PMA_executeQueryAndSendQueryResponse(
     $analyzed_sql_results,
     $is_gotofile,

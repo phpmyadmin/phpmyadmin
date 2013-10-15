@@ -1319,7 +1319,8 @@ function PMA_hasCurrentDbChanged($db)
     $reload = 0;
     if (strlen($db)) {
         $current_db = $GLOBALS['dbi']->fetchValue('SELECT DATABASE()');
-        if ($db !== $current_db) {
+        // $current_db is false, except when a USE statement was sent
+        if ($current_db != false && $db !== $current_db) {
             $reload = 1;
         }
     }
@@ -2286,6 +2287,7 @@ function PMA_executeQueryAndSendQueryResponse($analyzed_sql_results,
     }
 
     $GLOBALS['reload'] = PMA_hasCurrentDbChanged($db);
+    $GLOBALS['dbi']->selectDb($db);
 
     // Execute the query
     list($result, $num_rows, $unlim_num_rows, $profiling_results,
