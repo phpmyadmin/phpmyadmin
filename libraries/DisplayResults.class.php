@@ -3753,6 +3753,8 @@ class PMA_DisplayResults
         $is_field_truncated, $analyzed_sql
     ) {
 
+        $displayText = $_SESSION['tmp_user_values']['display_text'];
+
         if (! isset($column) || is_null($column)) {
 
             $cell = $this->_buildNullDisplay($class, $condition_field, $meta);
@@ -3781,12 +3783,13 @@ class PMA_DisplayResults
 
                 // Convert to WKT format
                 $wktval = PMA_Util::asWKT($column);
+                $limitChars = $GLOBALS['cfg']['LimitChars'];
 
-                if (($GLOBALS['PMA_String']->strlen($wktval) > $GLOBALS['cfg']['LimitChars'])
-                    && ($_SESSION['tmp_user_values']['display_text'] == self::DISPLAY_PARTIAL_TEXT)
+                if (($GLOBALS['PMA_String']->strlen($wktval) > $limitChars)
+                    && ($displayText == self::DISPLAY_PARTIAL_TEXT)
                 ) {
                     $wktval = $GLOBALS['PMA_String']->substr(
-                        $wktval, 0, $GLOBALS['cfg']['LimitChars']
+                        $wktval, 0, $limitChars
                     ) . '...';
                     $is_field_truncated = true;
                 }
@@ -3808,7 +3811,7 @@ class PMA_DisplayResults
                     $wkbval = $this->_displayBinaryAsPrintable($column, 'binary', 8);
 
                     if (($GLOBALS['PMA_String']->strlen($wkbval) > $GLOBALS['cfg']['LimitChars'])
-                        && ($_SESSION['tmp_user_values']['display_text'] == self::DISPLAY_PARTIAL_TEXT)
+                        && ($displayText == self::DISPLAY_PARTIAL_TEXT)
                     ) {
                         $wkbval = $GLOBALS['PMA_String']->substr(
                             $wkbval, 0, $GLOBALS['cfg']['LimitChars']
