@@ -2291,24 +2291,42 @@ function PMA_executeQueryAndSendQueryResponse($analyzed_sql_results,
     list($result, $num_rows, $unlim_num_rows, $profiling_results,
         $justBrowsing, $extra_data
     ) = PMA_executeTheQuery(
-        $analyzed_sql_results, $full_sql_query, $is_gotofile, $db, $table,
+        $analyzed_sql_results,
+        $full_sql_query,
+        $is_gotofile,
+        $db,
+        $table,
         isset($find_real_end) ? $find_real_end : null,
         isset($import_text) ? $import_text : null,
         isset($extra_data) ? $extra_data : null
     );
 
     PMA_sendQueryResponse(
-        $num_rows, $unlim_num_rows, $is_affected, $db, $table,
+        $num_rows,
+        $unlim_num_rows,
+        $is_affected,
+        $db,
+        $table,
         isset($message_to_show) ? $message_to_show : null,
-        $analyzed_sql_results, $displayResultsObject, $extra_data,
-        isset($result) ? $result : null, $justBrowsing,
-        isset($disp_mode) ? $disp_mode : null, isset($message) ? $message : null,
+        $analyzed_sql_results,
+        $displayResultsObject,
+        $extra_data,
+        isset($result) ? $result : null,
+        $justBrowsing,
+        isset($disp_mode) ? $disp_mode : null,
+        isset($message) ? $message : null,
         isset($sql_data) ? $sql_data : null,
-        $goto, $pmaThemeImage, $sql_limit_to_append, $full_sql_query,
+        $goto,
+        $pmaThemeImage,
+        $sql_limit_to_append,
+        $full_sql_query,
         isset($disp_query) ? $disp_query : null,
-        isset($disp_message) ? $disp_message : null, $profiling_results,
-        isset($query_type) ? $query_type : null, isset($selected) ? $selected : null,
-        $sql_query, isset($complete_query) ? $complete_query : null
+        isset($disp_message) ? $disp_message : null,
+        $profiling_results,
+        isset($query_type) ? $query_type : null,
+        isset($selected) ? $selected : null,
+        $sql_query,
+        isset($complete_query) ? $complete_query : null
     );
 }
 ?>
