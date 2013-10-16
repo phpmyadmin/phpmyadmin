@@ -155,6 +155,33 @@ function PMA_sendErrorReport($report) {
 }
 
 /**
+ * Returns number of lines in given javascript file.
+ *
+ * @param string $filename javascript filename
+ *
+ * @return Number of lines
+ */
+function PMA_countLines($filename)
+{
+    global $LINE_COUNT;
+    if (!defined('LINE_COUNTS')) {
+        $linecount = 0;
+        $handle = fopen('./js/' . $filename, 'r');
+        while (!feof($handle)){
+            $line = fgets($handle);
+            if ($line === false) {
+                break;
+            }
+            $linecount++;
+        }
+        fclose($handle);
+        return $linecount;
+    } else {
+        return $LINE_COUNT[$filename];
+    }
+}
+
+/**
  * returns the translated linenumber and the file name from the cumulative line
  * number and an array of files
  *
@@ -171,10 +198,9 @@ function PMA_sendErrorReport($report) {
  * - Integer $linenumber the translated line number in the returned file
  */
 function PMA_getLineNumber($filenames, $cumulative_number) {
-  global $LINE_COUNT;
   $cumulative_sum = 0;
   foreach($filenames as $filename) {
-    $filecount = $LINE_COUNT[$filename];
+    $filecount = PMA_countLines($filename);
     if ($cumulative_number <= $cumulative_sum + $filecount + 2) {
       $linenumber = $cumulative_number - $cumulative_sum;
       break;
@@ -193,10 +219,6 @@ function PMA_getLineNumber($filenames, $cumulative_number) {
  * @return Array $stack the modified stacktrace
  */
 function PMA_translateStacktrace($stack) {
-    if(!defined('LINE_COUNTS')) {
-        return $stack;
-    }
-
     foreach ($stack as &$level) {
         foreach ($level["context"] as &$line) {
             if (strlen($line) > 80) {
