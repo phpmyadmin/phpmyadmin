@@ -1229,7 +1229,7 @@ Generic settings
     
     .. note::
 
-        In some setups (like separate SSL proxy or loadballancer) you might
+        In some setups (like separate SSL proxy or load balancer) you might
         have to set :config:option:`$cfg['PmaAbsoluteUri']` for correct
         redirection.
 
