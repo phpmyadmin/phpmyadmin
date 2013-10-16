@@ -4,15 +4,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.7-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-09-17 10:36-0400\n"
-"PO-Revision-Date: 2013-10-02 13:20+0200\n"
-"Last-Translator: Manuel Dalla Lana <endelwar@aregar.it>\n"
+"PO-Revision-Date: 2013-10-16 11:02+0200\n"
+"Last-Translator: Marcello Romani <marcello.romani@libero.it>\n"
 "Language-Team: Italian <http://l10n.cihar.com/projects/phpmyadmin/4-0/it/>\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 1.7-dev\n"
+"X-Generator: Weblate 1.7\n"
 
 #: browse_foreigners.php:51 browse_foreigners.php:75 js/messages.php:345
 #: libraries/DisplayResults.class.php:856
@@ -608,7 +608,6 @@ msgid "Output"
 msgstr "Output"
 
 #: gis_data_editor.php:402
-#, fuzzy
 #| msgid ""
 #| "Chose \"GeomFromText\" from the \"Function\" column and paste the below "
 #| "string into the \"Value\" field"
@@ -813,7 +812,7 @@ msgstr "Contribuisci"
 
 #: index.php:365
 msgid "Get support"
-msgstr "Ricevi Auito"
+msgstr "Ricevi auito"
 
 #: index.php:372
 msgid "List of changes"
@@ -1541,10 +1540,9 @@ msgid "Import"
 msgstr "Importa"
 
 #: js/messages.php:201
-#, fuzzy
 #| msgid "Could not import configuration"
 msgid "Import monitor configuration"
-msgstr "Importa la configurazione monitor"
+msgstr "Importa la configurazione del monitor"
 
 #: js/messages.php:202
 msgid "Please select the file you want to import"
@@ -2647,10 +2645,10 @@ msgstr ""
 "controlla la %sdocumentazione%s."
 
 #: libraries/DisplayResults.class.php:4970
-#, fuzzy, php-format
+#, php-format
 #| msgid "Showing rows"
 msgid "Showing rows %1s - %2s"
-msgstr "Mostrando le righe"
+msgstr "Mostro le righe %1s - %2s"
 
 #: libraries/DisplayResults.class.php:4982
 #, fuzzy, php-format
@@ -3323,18 +3321,24 @@ msgstr "Tema"
 msgid ""
 "A 1-byte integer, signed range is -128 to 127, unsigned range is 0 to 255"
 msgstr ""
+"Intero di un byte, con segno l'intervallo va da -128 a 127, senza segno "
+"l'intervallo va da 0 a 255"
 
 #: libraries/Types.class.php:298
 msgid ""
 "A 2-byte integer, signed range is -32,768 to 32,767, unsigned range is 0 to "
 "65,535"
 msgstr ""
+"Intero di due byte, con segno l'intervallo va da -32.768 a 32767, senza "
+"segno l'intervallo va da 0 a 65.535"
 
 #: libraries/Types.class.php:300
 msgid ""
 "A 3-byte integer, signed range is -8,388,608 to 8,388,607, unsigned range is "
 "0 to 16,777,215"
 msgstr ""
+"Intero di 3 byte, con segno l'intervallo va da -8.388.608 a 8.388.607, senza "
+"segno l'intervallo va da 0 a 16.777.215"
 
 #: libraries/Types.class.php:302
 msgid ""
@@ -3347,12 +3351,17 @@ msgid ""
 "An 8-byte integer, signed range is -9,223,372,036,854,775,808 to "
 "9,223,372,036,854,775,807, unsigned range is 0 to 18,446,744,073,709,551,615"
 msgstr ""
+"Intero di 8 byte, con segno l'intervallo va da -9.223.372.036.854.775.808 a "
+"9.223.372.036.854.775.807, senza segno l'intervallo va da 0 a "
+"18.446.744.073.709.551.615"
 
 #: libraries/Types.class.php:306 libraries/Types.class.php:712
 msgid ""
 "A fixed-point number (M, D) - the maximum number of digits (M) is 65 "
 "(default 10), the maximum number of decimals (D) is 30 (default 0)"
 msgstr ""
+"Un numero in virgola fissa (M, D) - il numero massimo di cifre (M) è 65 "
+"(default 10), il numero massimo di decimali (D) è 30 (default 0)"
 
 #: libraries/Types.class.php:308
 msgid ""
@@ -3392,12 +3401,13 @@ msgstr ""
 #: libraries/Types.class.php:320 libraries/Types.class.php:722
 #, php-format
 msgid "A date, supported range is %1$s to %2$s"
-msgstr "Una data, il rage va da %1$s a %2$s"
+msgstr "Una data, l'intervallo supportato va da %1$s a %2$s"
 
 #: libraries/Types.class.php:322 libraries/Types.class.php:724
 #, php-format
 msgid "A date and time combination, supported range is %1$s to %2$s"
 msgstr ""
+"Una combinazione di data e ora, l'intervallo supportato va da %1$s a %2$s"
 
 #: libraries/Types.class.php:324
 msgid ""
@@ -3406,10 +3416,10 @@ msgid ""
 msgstr ""
 
 #: libraries/Types.class.php:326 libraries/Types.class.php:728
-#, fuzzy, php-format
+#, php-format
 #| msgid "Error renaming table %1$s to %2$s"
 msgid "A time, range is %1$s to %2$s"
-msgstr "Errore nel rinominare la tabella %1$s in %2$s"
+msgstr "Un orario, l'intervallo va da %1$s a %2$s"
 
 #: libraries/Types.class.php:328
 msgid ""
@@ -3539,18 +3549,16 @@ msgid "Numeric"
 msgstr ""
 
 #: libraries/Types.class.php:643 libraries/Types.class.php:977
-#, fuzzy
 #| msgid "Create an index"
 msgctxt "date and time types"
 msgid "Date and time"
-msgstr "Crea un nuovo indice"
+msgstr "Data e ora"
 
 #: libraries/Types.class.php:652 libraries/Types.class.php:980
-#, fuzzy
 #| msgid "Linestring"
 msgctxt "string types"
 msgid "String"
-msgstr "Linestring"
+msgstr "Stringa"
 
 #: libraries/Types.class.php:673
 #, fuzzy
@@ -3840,12 +3848,12 @@ msgstr "chiave numerica rilevata"
 #: libraries/config.values.php:49 libraries/config.values.php:64
 #: libraries/config.values.php:69
 msgid "Icons"
-msgstr ""
+msgstr "Icone"
 
 #: libraries/config.values.php:50 libraries/config.values.php:65
 #: libraries/config.values.php:70
 msgid "Text"
-msgstr ""
+msgstr "Testo"
 
 #: libraries/config.values.php:51 libraries/config.values.php:58
 #: libraries/config.values.php:66 libraries/config.values.php:71
@@ -4242,10 +4250,9 @@ msgid "Whether the table structure actions should be hidden"
 msgstr ""
 
 #: libraries/config/messages.inc.php:57
-#, fuzzy
 #| msgid "Propose table structure"
 msgid "Hide table structure actions"
-msgstr "Proponi la struttura della tabella"
+msgstr "Nascondi le azioni relative alla struttura della tabella"
 
 #: libraries/config/messages.inc.php:58
 msgid "Show binary contents as HEX by default"
@@ -4812,7 +4819,6 @@ msgid "Customize startup page"
 msgstr "Personalizza la pagina di avvio"
 
 #: libraries/config/messages.inc.php:224
-#, fuzzy
 #| msgid "Database server"
 msgid "Database structure"
 msgstr "Struttura del database"
@@ -4822,7 +4828,6 @@ msgid "Choose which details to show in the database structure (list of tables)"
 msgstr ""
 
 #: libraries/config/messages.inc.php:226
-#, fuzzy
 #| msgid "Database server"
 msgid "Table structure"
 msgstr "Struttura della tabella"
@@ -5066,13 +5071,12 @@ msgid "Maximum databases"
 msgstr "Massimi numero dei database"
 
 #: libraries/config/messages.inc.php:288
-#, fuzzy
 #| msgid "The number of joins that did a full scan of the first table."
 msgid ""
 "The number of items that can be displayed on each page of the navigation tree"
 msgstr ""
-"Il numero di elementi da visualizzare in ogni pagina dell'albero della "
-"navigazione"
+"Il numero di elementi che possono essere visualizzati in ogni pagina "
+"dell'albero di navigazione"
 
 #: libraries/config/messages.inc.php:289
 msgid "Maximum items in branch"
@@ -5257,10 +5261,9 @@ msgid "Use only icons, only text or both"
 msgstr "Utilizza solo icone, solo testo o entrambi"
 
 #: libraries/config/messages.inc.php:327
-#, fuzzy
 #| msgid "Iconic navigation bar"
 msgid "Table navigation bar"
-msgstr "Barra di navigazione iconica"
+msgstr "Barra di navigazione delle tabelle"
 
 #: libraries/config/messages.inc.php:328
 msgid "use GZip output buffering for increased speed in HTTP transfers"
@@ -5307,7 +5310,6 @@ msgid "Missing phpMyAdmin configuration storage tables"
 msgstr "Mancano le tabelle di configurazione di phpMyAdmin"
 
 #: libraries/config/messages.inc.php:336
-#, fuzzy
 #| msgid ""
 #| "Disable the default warning that is displayed if mcrypt is missing for "
 #| "cookie authentication"
@@ -5315,15 +5317,14 @@ msgid ""
 "Disable the default warning that is displayed if a difference between the "
 "MySQL library and server is detected"
 msgstr ""
-"Disabilita l'avviso predefinito che viene visualizzato se mcrypt é mancante "
-"per autenticazione via cookie"
+"Disabilita l'avviso predefinito che viene visualizzato se è rilevata una "
+"differenza tra la libreria MySQL e il server"
 
 #: libraries/config/messages.inc.php:337
 msgid "Server/library difference warning"
 msgstr ""
 
 #: libraries/config/messages.inc.php:338
-#, fuzzy
 #| msgid ""
 #| "Disable the default warning that is displayed on the database details "
 #| "Structure page if any of the required tables for the phpMyAdmin "
@@ -5333,18 +5334,17 @@ msgid ""
 "column names in a table are reserved MySQL words"
 msgstr ""
 "Disabilita l'avviso predefinito che viene visualizzato sulla pagina dei "
-"dettagli della Struttura dei database, se qualche tabella necessaria per la "
-"memorizzazzione della configurazione di phpMyAdmin non viene trovata"
+"dettagli della Struttura dei database se una tabella contiene colonne i cui "
+"nomi sono parole chiave MySQL"
 
 #: libraries/config/messages.inc.php:339
 msgid "MySQL reserved word warning"
 msgstr ""
 
 #: libraries/config/messages.inc.php:341
-#, fuzzy
 #| msgid "Allow to display all the rows"
 msgid "How to display the menu tabs"
-msgstr "Consenti la visualizzazione di tutte le righe"
+msgstr "Come visualizzare le linguette dei menu"
 
 #: libraries/config/messages.inc.php:343
 msgid "How to display various action links"
@@ -12507,10 +12507,9 @@ msgid "No index defined! Create one below"
 msgstr "Nessun indice definito!"
 
 #: tbl_structure.php:125
-#, fuzzy
 #| msgid "No rows selected"
 msgid "No column selected."
-msgstr "Nessuna riga selezionata"
+msgstr "Nessuna colonna selezionata."
 
 #: tbl_structure.php:149
 #, php-format
