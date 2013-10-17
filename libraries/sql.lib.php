@@ -2127,13 +2127,17 @@ function PMA_sendQueryResponseForResultsReturned($result, $justBrowsing,
         isset($selected) ? $selected : null, $db
     );
 
-    $bookmark_support_html = PMA_getHtmlForBookmark(
-        $disp_mode,
-        isset($GLOBALS['cfg']['Bookmark']) ? $GLOBALS['cfg']['Bookmark'] : '',
-        $sql_query, $db, $table,
-        isset($complete_query) ? $complete_query : $sql_query,
-        $GLOBALS['cfg']['Bookmark']['user']
-    );
+    if (isset($GLOBALS['cfg']['Bookmark'])) {
+        $bookmark_support_html = PMA_getHtmlForBookmark(
+            $disp_mode,
+            $GLOBALS['cfg']['Bookmark'],
+            $sql_query, $db, $table,
+            isset($complete_query) ? $complete_query : $sql_query,
+            $GLOBALS['cfg']['Bookmark']['user']
+        );
+    } else {
+        $bookmark_support_html = '';
+    }
 
     $print_button_html = PMA_getHtmlForPrintButton();
 
