@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-10-17 12:58+0200\n"
-"PO-Revision-Date: 2013-10-17 13:30+0200\n"
+"PO-Revision-Date: 2013-10-17 16:02+0200\n"
 "Last-Translator: Patrik Kernstock <patschimail@gmail.com>\n"
 "Language-Team: German <http://l10n.cihar.com/projects/phpmyadmin/master/de/>\n"
 "Language: de\n"
@@ -923,7 +923,7 @@ msgstr "\"DROP DATABASE\" - Anweisungen wurden deaktiviert."
 
 #: js/messages.php:35
 msgid "Confirm"
-msgstr ""
+msgstr "Fortfahren"
 
 #: js/messages.php:36
 #, php-format
@@ -972,7 +972,7 @@ msgstr "Bitte geben Sie eine gültige Nummer ein"
 
 #: js/messages.php:49
 msgid "Please enter a valid length"
-msgstr ""
+msgstr "Bitte geben Sie eine gültige Länge ein"
 
 #: js/messages.php:50
 msgid "Add Index"
