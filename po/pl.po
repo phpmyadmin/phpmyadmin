@@ -4,17 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-10-17 12:58+0200\n"
-"PO-Revision-Date: 2013-09-03 23:11+0200\n"
-"Last-Translator: Tomasz Nowiński <spamgrinder@o2.pl>\n"
-"Language-Team: Polish <http://l10n.cihar.com/projects/phpmyadmin/master/pl/"
-">\n"
+"PO-Revision-Date: 2013-10-17 15:59+0200\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"Language-Team: Polish <http://l10n.cihar.com/projects/phpmyadmin/master/pl/>\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 1.7-dev\n"
+"X-Generator: Weblate 1.7\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -4183,17 +4182,15 @@ msgstr "wykryty klawisz numeryczny"
 
 #: libraries/config.values.php:49 libraries/config.values.php:65
 #: libraries/config.values.php:70
-#, fuzzy
 #| msgid "Ins"
 msgid "Icons"
-msgstr "Wstaw"
+msgstr "Ikony"
 
 #: libraries/config.values.php:50 libraries/config.values.php:66
 #: libraries/config.values.php:71
-#, fuzzy
 #| msgid "Test"
 msgid "Text"
-msgstr "Testuj"
+msgstr "Tekst"
 
 #: libraries/config.values.php:51 libraries/config.values.php:59
 #: libraries/config.values.php:67 libraries/config.values.php:72
@@ -5733,7 +5730,6 @@ msgid "Server/library difference warning"
 msgstr "Ostrzeżenie różnicy serwera/biblioteki"
 
 #: libraries/config/messages.inc.php:339
-#, fuzzy
 #| msgid ""
 #| "Disable the default warning that is displayed on the database details "
 #| "Structure page if any of the required tables for the phpMyAdmin "
@@ -5742,9 +5738,8 @@ msgid ""
 "Disable the default warning that is displayed on the Structure page if "
 "column names in a table are reserved MySQL words"
 msgstr ""
-"Wyłącz ostrzeżenia domyślne wyświetlane w szczegółach bazy struktury strony, "
-"jeśli którekolwiek z tabel do przechowywania konfiguracji phpMyAdmin nie "
-"można znaleźć"
+"Wyłącz domyślne ostrzeżenia na stronie Struktura, które są wyświetlane, "
+"jeśli jakiekolwiek ze słów w nazwach kolumn są zastrzeżone dla MySQL"
 
 #: libraries/config/messages.inc.php:340
 msgid "MySQL reserved word warning"
@@ -6086,7 +6081,6 @@ msgid "Connect without password"
 msgstr "Łącz się bez hasła"
 
 #: libraries/config/messages.inc.php:413
-#, fuzzy
 #| msgid ""
 #| "You can use MySQL wildcard characters (% and _), escape them if you want "
 #| "to use their literal instances, i.e. use [kbd]'my\\_db'[/kbd] and not "
@@ -6098,11 +6092,9 @@ msgid ""
 "use their literal instances, i.e. use [kbd]'my\\_db'[/kbd] and not "
 "[kbd]'my_db'[/kbd]."
 msgstr ""
-"Możesz używać MySQL symboli wieloznacznych (% i _), od nich uciec, jeśli "
-"chcesz używać ich dosłownych, czyli użyć [kbd]'my\\_db'[/kbd] i nie "
-"[kbd]'my_db'[/kbd]. Za pomocą tej opcji możesz sortować listy bazy danych, "
-"wystarczy wpisać ich nazwiska w porządku i użyć [kbd]*[/kbd] na końcu by "
-"pokazać resztę w porządku alfabetycznym."
+"Możesz używać w MySQL wieloznaczników (% i _). Skorzystaj ze znaków "
+"modyfikacji, jeśli chcesz używać tych znaków w niesymbolicznym znaczeniu, "
+"np. [kbd]'my\\_db'[/kbd], a nie [kbd]'my_db'[/kbd]."
 
 #: libraries/config/messages.inc.php:414
 msgid "Show only listed databases"
