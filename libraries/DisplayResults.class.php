@@ -1615,9 +1615,10 @@ class PMA_DisplayResults
             'F'   => __('Full texts')
         );
 
+        // pftext means "partial or full texts" (done to reduce line lengths)
         $options_html .= PMA_Util::getRadioFields(
-            'display_text', $choices,
-            $_SESSION['tmpval']['display_text']
+            'pftext', $choices,
+            $_SESSION['tmpval']['pftext']
         )
         . '</div>';
 
@@ -1714,15 +1715,15 @@ class PMA_DisplayResults
             'full_text_button' => 1
         );
 
-        if ($_SESSION['tmpval']['display_text'] == self::DISPLAY_FULL_TEXT) {
+        if ($_SESSION['tmpval']['pftext'] == self::DISPLAY_FULL_TEXT) {
             // currently in fulltext mode so show the opposite link
             $tmp_image_file = $this->__get('pma_theme_image') . 's_partialtext.png';
             $tmp_txt = __('Partial texts');
-            $url_params_full_text['display_text'] = self::DISPLAY_PARTIAL_TEXT;
+            $url_params_full_text['pftext'] = self::DISPLAY_PARTIAL_TEXT;
         } else {
             $tmp_image_file = $this->__get('pma_theme_image') . 's_fulltext.png';
             $tmp_txt = __('Full texts');
-            $url_params_full_text['display_text'] = self::DISPLAY_FULL_TEXT;
+            $url_params_full_text['pftext'] = self::DISPLAY_FULL_TEXT;
         }
 
         $tmp_image = '<img class="fulltext" src="' . $tmp_image_file . '" alt="'
@@ -3691,7 +3692,7 @@ class PMA_DisplayResults
                 // if a transform function for blob is set, none of these
                 // replacements will be made
                 if (($GLOBALS['PMA_String']->strlen($column) > $GLOBALS['cfg']['LimitChars'])
-                    && ($_SESSION['tmpval']['display_text'] == self::DISPLAY_PARTIAL_TEXT)
+                    && ($_SESSION['tmpval']['pftext'] == self::DISPLAY_PARTIAL_TEXT)
                     && ! $this->_isNeedToSyntaxHighlight(strtolower($meta->name))
                 ) {
                     $column = $GLOBALS['PMA_String']->substr(
@@ -3753,7 +3754,7 @@ class PMA_DisplayResults
         $is_field_truncated, $analyzed_sql
     ) {
 
-        $displayText = $_SESSION['tmpval']['display_text'];
+        $pftext = $_SESSION['tmpval']['pftext'];
 
         if (! isset($column) || is_null($column)) {
 
@@ -3786,7 +3787,7 @@ class PMA_DisplayResults
                 $limitChars = $GLOBALS['cfg']['LimitChars'];
 
                 if (($GLOBALS['PMA_String']->strlen($wktval) > $limitChars)
-                    && ($displayText == self::DISPLAY_PARTIAL_TEXT)
+                    && ($pftext == self::DISPLAY_PARTIAL_TEXT)
                 ) {
                     $wktval = $GLOBALS['PMA_String']->substr(
                         $wktval, 0, $limitChars
@@ -3811,7 +3812,7 @@ class PMA_DisplayResults
                     $wkbval = $this->_displayBinaryAsPrintable($column, 'binary', 8);
 
                     if (($GLOBALS['PMA_String']->strlen($wkbval) > $GLOBALS['cfg']['LimitChars'])
-                        && ($displayText == self::DISPLAY_PARTIAL_TEXT)
+                        && ($pftext == self::DISPLAY_PARTIAL_TEXT)
                     ) {
                         $wkbval = $GLOBALS['PMA_String']->substr(
                             $wkbval, 0, $GLOBALS['cfg']['LimitChars']
@@ -3898,7 +3899,7 @@ class PMA_DisplayResults
             // Cut all fields to $GLOBALS['cfg']['LimitChars']
             // (unless it's a link-type transformation)
             if ($GLOBALS['PMA_String']->strlen($column) > $GLOBALS['cfg']['LimitChars']
-                && ($_SESSION['tmpval']['display_text'] == self::DISPLAY_PARTIAL_TEXT)
+                && ($_SESSION['tmpval']['pftext'] == self::DISPLAY_PARTIAL_TEXT)
                 && ! (gettype($transformation_plugin) == "object"
                 && strpos($transformation_plugin->getName(), 'Link') !== false)
             ) {
@@ -4298,16 +4299,16 @@ class PMA_DisplayResults
         }
 
         if (PMA_isValid(
-            $_REQUEST['display_text'],
+            $_REQUEST['pftext'],
             array(
                 self::DISPLAY_PARTIAL_TEXT, self::DISPLAY_FULL_TEXT
             )
         )
         ) {
-            $query['display_text'] = $_REQUEST['display_text'];
-            unset($_REQUEST['display_text']);
-        } elseif (empty($query['display_text'])) {
-            $query['display_text'] = self::DISPLAY_PARTIAL_TEXT;
+            $query['pftext'] = $_REQUEST['pftext'];
+            unset($_REQUEST['pftext']);
+        } elseif (empty($query['pftext'])) {
+            $query['pftext'] = self::DISPLAY_PARTIAL_TEXT;
         }
 
         if (PMA_isValid(
@@ -4398,8 +4399,8 @@ class PMA_DisplayResults
         }
 
         // populate query configuration
-        $_SESSION['tmpval']['display_text']
-            = $query['display_text'];
+        $_SESSION['tmpval']['pftext']
+            = $query['pftext'];
         $_SESSION['tmpval']['relational_display']
             = $query['relational_display'];
         $_SESSION['tmpval']['geometry_display']
@@ -5251,9 +5252,9 @@ class PMA_DisplayResults
                     )
                     . "\n";
 
-                if ($_SESSION['tmpval']['display_text']) {
+                if ($_SESSION['tmpval']['pftext']) {
 
-                    $_url_params['display_text'] = self::DISPLAY_FULL_TEXT;
+                    $_url_params['pftext'] = self::DISPLAY_FULL_TEXT;
 
                     $results_operations_html
                         .= PMA_Util::linkOrButton(
@@ -5268,7 +5269,7 @@ class PMA_DisplayResults
                             'print_view'
                         )
                         . "\n";
-                    unset($_url_params['display_text']);
+                    unset($_url_params['pftext']);
                 }
             } // end displays "printable view"
         }
