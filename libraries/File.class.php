@@ -100,7 +100,7 @@ class PMA_File
     }
 
     /**
-     * deletes file if it is temporary, usally from a moved upload file
+     * deletes file if it is temporary, usually from a moved upload file
      *
      * @access  public
      * @return boolean success

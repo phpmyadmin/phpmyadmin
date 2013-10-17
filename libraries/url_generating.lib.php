@@ -268,7 +268,7 @@ function PMA_URL_getCommon()
  * @param string $encode whether to encode separator or not,
  * currently 'none' or 'html'
  *
- * @return string  character used for separating url parts usally ; or &
+ * @return string  character used for separating url parts usually ; or &
  * @access  public
  */
 function PMA_URL_getArgSeparator($encode = 'none')

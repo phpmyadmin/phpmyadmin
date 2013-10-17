@@ -100,7 +100,7 @@ class PMA_List_Database extends PMA_List
     /**
      * retrieves database list from server
      *
-     * @param string $like_db_name usally a db_name containing wildcards
+     * @param string $like_db_name usually a db_name containing wildcards
      *
      * @return array
      * @todo   we could also search mysql tables if all fail?

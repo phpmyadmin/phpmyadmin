@@ -776,7 +776,7 @@ class PMA_Config
     }
 
     /**
-     * loads configuration from $source, usally the config file
+     * loads configuration from $source, usually the config file
      * should be called on object creation
      *
      * @param string $source config file

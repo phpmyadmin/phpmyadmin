@@ -198,7 +198,7 @@ class PMA_DatabaseInterface
 
     /**
      * converts charset of a mysql message, usually coming from mysql_error(),
-     * into PMA charset, usally UTF-8
+     * into PMA charset, usually UTF-8
      * uses language to charset mapping from mysql/share/errmsg.txt
      * and charset names to ISO charset from information_schema.CHARACTER_SETS
      *
