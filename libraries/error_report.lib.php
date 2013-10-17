@@ -58,7 +58,12 @@ function PMA_getReportData($json_encode = true) {
     }
 
     if($json_encode) {
-        return json_encode($report, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
+        /* JSON_PRETTY_PRINT available since PHP 5.4 */
+        if (defined('JSON_PRETTY_PRINT')) {
+            return json_encode($report, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
+        } else {
+            return json_encode($report);
+        }
     } else {
         return $report;
     }
