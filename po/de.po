@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-10-17 12:58+0200\n"
 "PO-Revision-Date: 2013-10-17 13:14+0200\n"
-"Last-Translator: Patrik Kernstock <patschimail@gmail.com>\n"
+"Last-Translator: Elvio Petillo <elvio.petillo@nanowaris.com>\n"
 "Language-Team: German <http://l10n.cihar.com/projects/phpmyadmin/master/de/>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
@@ -6851,7 +6851,7 @@ msgstr "Microsoft Word 2000"
 #: libraries/config/user_preferences.forms.php:259
 #| msgid "Open Document Text"
 msgid "OpenDocument Text"
-msgstr "OpenDocument Text"
+msgstr "OpenDocument-Text"
 
 #: libraries/core.lib.php:287
 #, php-format
