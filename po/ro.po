@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.7-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-09-17 10:36-0400\n"
-"PO-Revision-Date: 2013-04-03 09:45+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"PO-Revision-Date: 2013-10-17 08:24+0200\n"
+"Last-Translator: Arthur Țițeică <arthur.titeica@gmail.com>\n"
 "Language-Team: Romanian <http://l10n.cihar.com/projects/phpmyadmin/4-0/ro/>\n"
+"Language: ro\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ro\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
 "20)) ? 1 : 2;\n"
-"X-Generator: Weblate 1.5-dev\n"
+"X-Generator: Weblate 1.7\n"
 
 #: browse_foreigners.php:51 browse_foreigners.php:75 js/messages.php:345
 #: libraries/DisplayResults.class.php:856
@@ -445,9 +445,8 @@ msgid "Show"
 msgstr "Afișează"
 
 #: db_tracking.php:101 js/messages.php:34
-#, fuzzy
 msgid "Delete tracking data for this table"
-msgstr "Șterge datele urmărite din acest tabel"
+msgstr "Șterge datele urmărite pentru acest tabel"
 
 #: db_tracking.php:109 libraries/Index.class.php:625
 #: libraries/Util.class.php:3467 libraries/Util.class.php:3468
@@ -554,7 +553,7 @@ msgstr ""
 #: gis_data_editor.php:207 gis_data_editor.php:234 gis_data_editor.php:289
 #: gis_data_editor.php:362 js/messages.php:310
 msgid "X"
-msgstr ""
+msgstr "X"
 
 #: gis_data_editor.php:210 gis_data_editor.php:238 gis_data_editor.php:293
 #: gis_data_editor.php:366 js/messages.php:311
