@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.0-alpha2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-10-13 06:55-0400\n"
-"PO-Revision-Date: 2013-10-03 15:30+0200\n"
+"PO-Revision-Date: 2013-10-17 12:56+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Czech <http://l10n.cihar.com/projects/phpmyadmin/master/cs/>\n"
 "Language: cs\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Weblate 1.7-dev\n"
+"X-Generator: Weblate 1.7\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -440,6 +440,8 @@ msgid ""
 "An error has been detected and an error report has been automatically "
 "submitted based on your settings."
 msgstr ""
+"Byla zjištěna chyba a hlášení o ní bylo automaticky odesláno jak máte "
+"nastaveno."
 
 #: error_report.php:45
 msgid "Thank you for submitting this report."
@@ -2010,7 +2012,6 @@ msgid "Submit Error Report"
 msgstr "Odeslat chybové hlášení"
 
 #: js/messages.php:411
-#, fuzzy
 #| msgid "An error has occured. Do you want to send an error report?"
 msgid "An error has occurred. Do you want to send an error report?"
 msgstr "Došlo k chybě při běhu. Přejete si odeslat chybové hlášení?"
@@ -6570,21 +6571,20 @@ msgstr "Soukromý klíč reCaptcha"
 #: libraries/config/messages.inc.php:546
 msgid ""
 "Uncheck this to prevent the sending of error reports for javascript errors"
-msgstr ""
+msgstr "Odškrtněte pro vypnutí odesílání hlášení o chybách v javascriptu"
 
 #: libraries/config/messages.inc.php:547
 msgid "Enable javascript error reporting"
-msgstr ""
+msgstr "Zapnout hlášení chyb v javascriptu"
 
 #: libraries/config/messages.inc.php:548
 msgid "Choose the default action when sending error reports"
-msgstr ""
+msgstr "Zvolte výchozí akci při odesílání hlášení o chybě"
 
 #: libraries/config/messages.inc.php:549
-#, fuzzy
 #| msgid "Server port"
 msgid "Send error reports"
-msgstr "Port serveru"
+msgstr "Odeslat chybová hlášení"
 
 #: libraries/config/setup.forms.php:41
 msgid "Config authentication"
@@ -7364,14 +7364,17 @@ msgid ""
 "as well as information about relevant configuration settings to send to the "
 "phpMyAdmin team to help us in debugging the problem"
 msgstr ""
+"phpMyAdmin zjistil chybu. Posbírali jsme informace o této chybě a "
+"souvisejících nastavení aby jsme je mohli odeslat vývojářům phpMyAdmina pro "
+"její opravení."
 
 #: libraries/error_report.lib.php:244
 msgid "You may examine the data in the error report:"
-msgstr ""
+msgstr "Prohlédněte si informace v hlášení:"
 
 #: libraries/error_report.lib.php:251
 msgid "Please explain the steps that lead to the error:"
-msgstr ""
+msgstr "Prosím popište co předcházelo této chybě:"
 
 #: libraries/error_report.lib.php:259
 msgid "Automatically send report next time"
@@ -7742,7 +7745,6 @@ msgid "unknown"
 msgstr "neznámý"
 
 #: libraries/navigation/Navigation.class.php:61
-#, fuzzy
 #| msgid "An error has occured while loading the navigation tree"
 msgid "An error has occurred while loading the navigation tree"
 msgstr "Došlo k chybě při nahrávání navigačního stromu"
@@ -7792,23 +7794,20 @@ msgstr[1] "nalezeny %s další výsledky"
 msgstr[2] "nalezeno %s dalších výsledků"
 
 #: libraries/navigation/NavigationTree.class.php:1044
-#, fuzzy
 #| msgid "filter databases by name or regex"
 msgid "Filter databases by name or regex"
-msgstr "filtrovat databáze podle jména nebo regexu"
+msgstr "Filtrovat databáze podle jména nebo regexu"
 
 #: libraries/navigation/NavigationTree.class.php:1046
 #: libraries/navigation/NavigationTree.class.php:1079
-#, fuzzy
 #| msgid "Clear Fast Filter"
 msgid "Clear fast filter"
 msgstr "Vymazat filtr"
 
 #: libraries/navigation/NavigationTree.class.php:1078
-#, fuzzy
 #| msgid "filter by name or regex"
 msgid "Filter by name or regex"
-msgstr "filtrovat položky podle jména nebo regexu"
+msgstr "Filtrovat položky podle jména nebo regexu"
 
 #. l10n: The word "Node" must not be translated here
 #: libraries/navigation/NodeFactory.class.php:41
@@ -9244,7 +9243,6 @@ msgstr "Byla vytvořena událost %1$s."
 
 #: libraries/rte/rte_events.lib.php:175 libraries/rte/rte_routines.lib.php:371
 #: libraries/rte/rte_triggers.lib.php:147
-#, fuzzy
 #| msgid ""
 #| "<b>One or more errors have occured while processing your request:</b>"
 msgid "<b>One or more errors have occurred while processing your request:</b>"
