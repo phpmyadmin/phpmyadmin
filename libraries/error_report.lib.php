@@ -265,7 +265,7 @@ function PMA_getErrorReportForm() {
             . __('phpMyAdmin has encountered an error. We have collected data about'
             .' this error as well as information about relevant configuration'
             .' settings to send to the phpMyAdmin team to help us in'
-            .' debugging the problem')
+            .' debugging the problem.')
             .'</p>';
 
     $html .= '<div class="label"><label><p>'

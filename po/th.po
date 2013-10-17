@@ -7297,7 +7297,7 @@ msgstr ""
 msgid ""
 "phpMyAdmin has encountered an error. We have collected data about this error "
 "as well as information about relevant configuration settings to send to the "
-"phpMyAdmin team to help us in debugging the problem"
+"phpMyAdmin team to help us in debugging the problem."
 msgstr ""
 
 #: libraries/error_report.lib.php:244
