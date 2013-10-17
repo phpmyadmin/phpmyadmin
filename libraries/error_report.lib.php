@@ -146,6 +146,7 @@ function PMA_sendErrorReport($report) {
             }
         }
         curl_setopt($curl_handle, CURLOPT_CUSTOMREQUEST, "POST");
+        curl_setopt($curl_handle, CURLOPT_HTTPHEADER, array('Expect:'));
         curl_setopt($curl_handle, CURLOPT_POSTFIELDS, $data_string);
         curl_setopt($curl_handle, CURLOPT_RETURNTRANSFER, 1);
         $response = curl_exec($curl_handle);
