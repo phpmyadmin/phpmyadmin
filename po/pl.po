@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.7-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-09-17 10:36-0400\n"
-"PO-Revision-Date: 2013-10-17 15:58+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"PO-Revision-Date: 2013-10-17 15:59+0200\n"
+"Last-Translator: Jakub Stepniak <jakub.st@gmail.com>\n"
 "Language-Team: Polish <http://l10n.cihar.com/projects/phpmyadmin/4-0/pl/>\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
@@ -5333,7 +5333,6 @@ msgid "Server/library difference warning"
 msgstr "Ostrzeżenie różnicy serwera/biblioteki"
 
 #: libraries/config/messages.inc.php:338
-#, fuzzy
 #| msgid ""
 #| "Disable the default warning that is displayed on the database details "
 #| "Structure page if any of the required tables for the phpMyAdmin "
@@ -5342,9 +5341,8 @@ msgid ""
 "Disable the default warning that is displayed on the Structure page if "
 "column names in a table are reserved MySQL words"
 msgstr ""
-"Wyłącz ostrzeżenia domyślne wyświetlane w szczegółach bazy struktury strony, "
-"jeśli którekolwiek z tabel do przechowywania konfiguracji phpMyAdmin nie "
-"można znaleźć"
+"Wyłącz domyślne ostrzeżenia na stronie Struktura, które są wyświetlane, "
+"jeśli jakiekolwiek ze słów w nazwach kolumn są zastrzeżone dla MySQL"
 
 #: libraries/config/messages.inc.php:339
 msgid "MySQL reserved word warning"
@@ -5667,7 +5665,6 @@ msgid "Connect without password"
 msgstr "Łącz się bez hasła"
 
 #: libraries/config/messages.inc.php:410
-#, fuzzy
 #| msgid ""
 #| "You can use MySQL wildcard characters (% and _), escape them if you want "
 #| "to use their literal instances, i.e. use [kbd]'my\\_db'[/kbd] and not "
@@ -5679,11 +5676,9 @@ msgid ""
 "use their literal instances, i.e. use [kbd]'my\\_db'[/kbd] and not "
 "[kbd]'my_db'[/kbd]."
 msgstr ""
-"Możesz używać MySQL symboli wieloznacznych (% i _), od nich uciec, jeśli "
-"chcesz używać ich dosłownych, czyli użyć [kbd]'my\\_db'[/kbd] i nie "
-"[kbd]'my_db'[/kbd]. Za pomocą tej opcji możesz sortować listy bazy danych, "
-"wystarczy wpisać ich nazwiska w porządku i użyć [kbd]*[/kbd] na końcu by "
-"pokazać resztę w porządku alfabetycznym."
+"Możesz używać w MySQL wieloznaczników (% i _). Skorzystaj ze znaków "
+"modyfikacji, jeśli chcesz używać tych znaków w niesymbolicznym znaczeniu, "
+"np. [kbd]'my\\_db'[/kbd], a nie [kbd]'my_db'[/kbd]."
 
 #: libraries/config/messages.inc.php:411
 msgid "Show only listed databases"
