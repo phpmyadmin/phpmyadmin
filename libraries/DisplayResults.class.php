@@ -257,7 +257,7 @@ class PMA_DisplayResults
                     'sqlquery' => $sql_highlighting_data
                 );
             }
-            if ($cfgRelation['bookmark']) {
+            if (isset($cfgRelation['bookmark']) && $cfgRelation['bookmark']) {
                 $relDb[$cfgRelation['bookmark']] = array(
                     'query' => $sql_highlighting_data
                 );
