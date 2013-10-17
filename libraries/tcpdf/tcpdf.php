@@ -1,9 +1,9 @@
 <?php
 //============================================================+
 // File name   : tcpdf.php
-// Version     : 6.0.037
+// Version     : 6.0.039
 // Begin       : 2002-08-03
-// Last Update : 2013-09-30
+// Last Update : 2013-10-13
 // Author      : Nicola Asuni - Tecnick.com LTD - www.tecnick.com - info@tecnick.com
 // License     : GNU-LGPL v3 (http://www.gnu.org/copyleft/lesser.html)
 // -------------------------------------------------------------------
@@ -104,7 +104,7 @@
  * Tools to encode your unicode fonts are on fonts/utils directory.</p>
  * @package com.tecnick.tcpdf
  * @author Nicola Asuni
- * @version 6.0.037
+ * @version 6.0.039
  */
 
 // TCPDF configuration
@@ -128,7 +128,7 @@ require_once(dirname(__FILE__).'/include/tcpdf_static.php');
  * TCPDF project (http://www.tcpdf.org) has been originally derived in 2002 from the Public Domain FPDF class by Olivier Plathey (http://www.fpdf.org), but now is almost entirely rewritten.<br>
  * @package com.tecnick.tcpdf
  * @brief PHP class for generating PDF documents without requiring external extensions.
- * @version 6.0.037
+ * @version 6.0.039
  * @author Nicola Asuni - info@tecnick.com
  */
 class TCPDF {
@@ -3656,7 +3656,7 @@ class TCPDF {
 	 * Returns the array of spot colors.
 	 * @return (array) Spot colors array.
 	 * @public
-	 * @since 6.0.037 (2013-09-30)
+	 * @since 6.0.038 (2013-09-30)
 	 */
 	public function getAllSpotColors() {
 		return $this->spot_colors;
@@ -11671,6 +11671,9 @@ class TCPDF {
 	 * @since 4.9.019 (2010-04-26)
 	 */
 	protected function _outellipticalarc($xc, $yc, $rx, $ry, $xang=0, $angs=0, $angf=360, $pie=false, $nc=2, $startpoint=true, $ccw=true, $svg=false) {
+		if (($rx <= 0) OR ($ry < 0)) {
+			return;
+		}
 		$k = $this->k;
 		if ($nc < 2) {
 			$nc = 2;
@@ -14170,7 +14173,7 @@ class TCPDF {
 	 * @param $y (float) ordinate of the registration mark center.
 	 * @param $r (float) radius of the crop mark.
 	 * @author Nicola Asuni
-	 * @since 6.0.037 (2013-09-30)
+	 * @since 6.0.038 (2013-09-30)
 	 * @public
 	 */
 	public function registrationMarkCMYK($x, $y, $r) {
@@ -16290,6 +16293,8 @@ class TCPDF {
 		$html = preg_replace('/'.$this->re_space['p'].'+/'.$this->re_space['m'], chr(32), $html); // replace multiple spaces with a single space
 		// trim string
 		$html = $this->stringTrim($html);
+		// fix br tag after li
+		$html = preg_replace('/<li><br([^\>]*)>/', '<li> <br\\1>', $html);
 		// fix first image tag alignment
 		$html = preg_replace('/^<img/', '<span style="font-size:0"><br /></span> <img', $html, 1);
 		// pattern for generic tag
@@ -17276,9 +17281,9 @@ Putting 1 is equivalent to putting 0 and calling Ln() just after. Default value:
 					$pfontname = $curfontname;
 					$pfontstyle = $curfontstyle;
 					$pfontsize = $curfontsize;
-					$fontname = isset($dom[$key]['fontname']) ? $dom[$key]['fontname'] : $curfontname;
-					$fontstyle = isset($dom[$key]['fontstyle']) ? $dom[$key]['fontstyle'] : $curfontstyle;
-					$fontsize = isset($dom[$key]['fontsize']) ? $dom[$key]['fontsize'] : $curfontsize;
+					$fontname = (isset($dom[$key]['fontname']) ? $dom[$key]['fontname'] : $curfontname);
+					$fontstyle = (isset($dom[$key]['fontstyle']) ? $dom[$key]['fontstyle'] : $curfontstyle);
+					$fontsize = (isset($dom[$key]['fontsize']) ? $dom[$key]['fontsize'] : $curfontsize);
 					$fontascent = $this->getFontAscent($fontname, $fontstyle, $fontsize);
 					$fontdescent = $this->getFontDescent($fontname, $fontstyle, $fontsize);
 					if (($fontname != $curfontname) OR ($fontstyle != $curfontstyle) OR ($fontsize != $curfontsize)
@@ -18128,7 +18133,9 @@ Putting 1 is equivalent to putting 0 and calling Ln() just after. Default value:
 					$this->resetLastH();
 					$minstartliney = $this->y;
 					$maxbottomliney = ($startliney + ($this->FontSize * $this->cell_height_ratio));
-					$this->putHtmlListBullet($this->listnum, $this->lispacer, $pfontsize);
+					if (is_numeric($pfontsize) AND ($pfontsize > 0)) {
+						$this->putHtmlListBullet($this->listnum, $this->lispacer, $pfontsize);
+					}
 					$this->SetFont($curfontname, $curfontstyle, $curfontsize);
 					$this->resetLastH();
 					if (is_numeric($pfontsize) AND ($pfontsize > 0) AND is_numeric($curfontsize) AND ($curfontsize > 0) AND ($pfontsize != $curfontsize)) {
@@ -19928,32 +19935,11 @@ Putting 1 is equivalent to putting 0 and calling Ln() just after. Default value:
 			return;
 		}
 		$symbol = strtolower($symbol);
-		switch ($symbol) {
-			case '!' :
-			case '#' :
-			case 'disc' :
-			case 'circle' :
-			case 'square' :
-			case '1':
-			case 'decimal':
-			case 'decimal-leading-zero':
-			case 'i':
-			case 'lower-roman':
-			case 'I':
-			case 'upper-roman':
-			case 'a':
-			case 'lower-alpha':
-			case 'lower-latin':
-			case 'A':
-			case 'upper-alpha':
-			case 'upper-latin':
-			case 'lower-greek': {
-				$this->lisymbol = $symbol;
-				break;
-			}
-			default : {
-				$this->lisymbol = '';
-			}
+		$valid_symbols = array('!', '#', 'disc', 'circle', 'square', '1', 'decimal', 'decimal-leading-zero', 'i', 'lower-roman', 'I', 'upper-roman', 'a', 'lower-alpha', 'lower-latin', 'A', 'upper-alpha', 'upper-latin', 'lower-greek');
+		if (in_array($symbol, $valid_symbols)) {
+			$this->lisymbol = $symbol;
+		} else {
+			$this->lisymbol = '';
 		}
 	}
 
