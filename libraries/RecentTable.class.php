@@ -60,11 +60,11 @@ class PMA_RecentTable
                 . PMA_Util::backquote($GLOBALS['cfg']['Server']['recent']);
         }
         $server_id = $GLOBALS['server'];
-        if (! isset($_SESSION['tmp_user_values']['recent_tables'][$server_id])) {
-            $_SESSION['tmp_user_values']['recent_tables'][$server_id]
+        if (! isset($_SESSION['tmpval']['recent_tables'][$server_id])) {
+            $_SESSION['tmpval']['recent_tables'][$server_id]
                 = isset($this->_pmaTable) ? $this->getFromDb() : array();
         }
-        $this->tables =& $_SESSION['tmp_user_values']['recent_tables'][$server_id];
+        $this->tables =& $_SESSION['tmpval']['recent_tables'][$server_id];
     }
 
     /**

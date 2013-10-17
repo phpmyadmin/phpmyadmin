@@ -646,8 +646,8 @@ class PMA_DisplayResults
             . '<td class="navigation_separator"></td>';
 
         // Move to the beginning or to the previous page
-        if ($_SESSION['tmp_user_values']['pos']
-            && ($_SESSION['tmp_user_values']['max_rows'] != self::ALL_ROWS)
+        if ($_SESSION['tmpval']['pos']
+            && ($_SESSION['tmpval']['max_rows'] != self::ALL_ROWS)
         ) {
 
             $table_navigation_html
@@ -660,16 +660,16 @@ class PMA_DisplayResults
         $nbTotalPage = 1;
         //page redirection
         // (unless we are showing all records)
-        if ($_SESSION['tmp_user_values']['max_rows'] != self::ALL_ROWS) { //if1
+        if ($_SESSION['tmpval']['max_rows'] != self::ALL_ROWS) { //if1
 
             $pageNow = @floor(
-                $_SESSION['tmp_user_values']['pos']
-                / $_SESSION['tmp_user_values']['max_rows']
+                $_SESSION['tmpval']['pos']
+                / $_SESSION['tmpval']['max_rows']
             ) + 1;
 
             $nbTotalPage = @ceil(
                 $this->__get('unlim_num_rows')
-                / $_SESSION['tmp_user_values']['max_rows']
+                / $_SESSION['tmpval']['max_rows']
             );
 
             if ($nbTotalPage > 1) { //if2
@@ -690,7 +690,7 @@ class PMA_DisplayResults
 
                 $table_navigation_html .= PMA_Util::pageselector(
                     'pos',
-                    $_SESSION['tmp_user_values']['max_rows'],
+                    $_SESSION['tmpval']['max_rows'],
                     $pageNow, $nbTotalPage, 200, 5, 5, 20, 10
                 );
 
@@ -712,12 +712,12 @@ class PMA_DisplayResults
         } // end show all
 
         // Move to the next page or to the last one
-        $endpos = $_SESSION['tmp_user_values']['pos']
-            + $_SESSION['tmp_user_values']['max_rows'];
+        $endpos = $_SESSION['tmpval']['pos']
+            + $_SESSION['tmpval']['max_rows'];
 
         if (($endpos < $this->__get('unlim_num_rows'))
-            && ($this->__get('num_rows') >= $_SESSION['tmp_user_values']['max_rows'])
-            && ($_SESSION['tmp_user_values']['max_rows'] != self::ALL_ROWS)
+            && ($this->__get('num_rows') >= $_SESSION['tmpval']['max_rows'])
+            && ($_SESSION['tmpval']['max_rows'] != self::ALL_ROWS)
         ) {
 
             $table_navigation_html
@@ -889,9 +889,9 @@ class PMA_DisplayResults
             $input_for_real_end = $onclick = '';
         }
 
-        $maxRows = $_SESSION['tmp_user_values']['max_rows'];
+        $maxRows = $_SESSION['tmpval']['max_rows'];
         $onsubmit = 'onsubmit="return '
-            . ($_SESSION['tmp_user_values']['pos']
+            . ($_SESSION['tmpval']['pos']
                 + $maxRows 
                 < $this->__get('unlim_num_rows')
                 && $this->__get('num_rows') >= $maxRows)
@@ -904,7 +904,7 @@ class PMA_DisplayResults
             _pgettext('Last page', 'End'),
             @((ceil(
                 $this->__get('unlim_num_rows')
-                / $_SESSION['tmp_user_values']['max_rows']
+                / $_SESSION['tmpval']['max_rows']
             )- 1) * $maxRows),
             $html_sql_query, $onsubmit, $input_for_real_end, $onclick
         );
@@ -939,7 +939,7 @@ class PMA_DisplayResults
             . '" />'
             . '<input type="hidden" name="pos" size="3" value="'
             // Do not change the position when changing the number of rows
-            . $_SESSION['tmp_user_values']['pos'] . '" />';
+            . $_SESSION['tmpval']['pos'] . '" />';
 
         $numberOfRowsChoices = array(
             '25'  => 25,
@@ -951,7 +951,7 @@ class PMA_DisplayResults
         $additional_fields_html .= __('Number of rows:') . ' ';
         $additional_fields_html .= PMA_Util::getDropdown(
             'session_max_rows', $numberOfRowsChoices,
-            $_SESSION['tmp_user_values']['max_rows'], '', 'autosubmit'
+            $_SESSION['tmpval']['max_rows'], '', 'autosubmit'
         );
 
         if ($GLOBALS['cfg']['ShowDisplayDirection']) {
@@ -965,7 +965,7 @@ class PMA_DisplayResults
 
             $additional_fields_html .= PMA_Util::getDropdown(
                 'disp_direction', $choices,
-                $_SESSION['tmp_user_values']['disp_direction'],
+                $_SESSION['tmpval']['disp_direction'],
                 $id_for_direction_dropdown, 'autosubmit'
             );
             unset($choices);
@@ -1011,10 +1011,10 @@ class PMA_DisplayResults
         $sql_md5 = md5($this->__get('sql_query'));
         $session_max_rows = $is_limited_display
             ? 0
-            : $_SESSION['tmp_user_values']['query'][$sql_md5]['max_rows'];
+            : $_SESSION['tmpval']['query'][$sql_md5]['max_rows'];
 
-        $direction = isset($_SESSION['tmp_user_values']['disp_direction'])
-            ? $_SESSION['tmp_user_values']['disp_direction']
+        $direction = isset($_SESSION['tmpval']['disp_direction'])
+            ? $_SESSION['tmpval']['disp_direction']
             : '';
 
         if ($analyzed_sql == '') {
@@ -1093,7 +1093,7 @@ class PMA_DisplayResults
         if ($GLOBALS['cfgRelation']['commwork']
             && $GLOBALS['cfgRelation']['mimework']
             && $GLOBALS['cfg']['BrowseMIME']
-            && ! $_SESSION['tmp_user_values']['hide_transformation']
+            && ! $_SESSION['tmpval']['hide_transformation']
         ) {
             include_once './libraries/transformations.lib.php';
             $this->__set(
@@ -1394,7 +1394,7 @@ class PMA_DisplayResults
 
                 $span = $this->__get('num_rows') + 1 + floor(
                     $this->__get('num_rows')
-                    / $_SESSION['tmp_user_values']['repeat_cells']
+                    / $_SESSION['tmpval']['repeat_cells']
                 );
                 $button_html .= '<tr><th colspan="' . $span . '"></th></tr>';
 
@@ -1617,7 +1617,7 @@ class PMA_DisplayResults
 
         $options_html .= PMA_Util::getRadioFields(
             'display_text', $choices,
-            $_SESSION['tmp_user_values']['display_text']
+            $_SESSION['tmpval']['display_text']
         )
         . '</div>';
 
@@ -1632,7 +1632,7 @@ class PMA_DisplayResults
 
             $options_html .= PMA_Util::getRadioFields(
                 'relational_display', $choices,
-                $_SESSION['tmp_user_values']['relational_display']
+                $_SESSION['tmpval']['relational_display']
             )
             . '</div>';
         }
@@ -1640,17 +1640,17 @@ class PMA_DisplayResults
         $options_html .= '<div class="formelement">'
             . PMA_Util::getCheckbox(
                 'display_binary', __('Show binary contents'),
-                ! empty($_SESSION['tmp_user_values']['display_binary']), false
+                ! empty($_SESSION['tmpval']['display_binary']), false
             )
             . '<br />'
             . PMA_Util::getCheckbox(
                 'display_blob', __('Show BLOB contents'),
-                ! empty($_SESSION['tmp_user_values']['display_blob']), false
+                ! empty($_SESSION['tmpval']['display_blob']), false
             )
             . '<br />'
             . PMA_Util::getCheckbox(
                 'display_binary_as_hex', __('Show binary contents as HEX'),
-                ! empty($_SESSION['tmp_user_values']['display_binary_as_hex']), false
+                ! empty($_SESSION['tmpval']['display_binary_as_hex']), false
             )
             . '</div>';
 
@@ -1661,7 +1661,7 @@ class PMA_DisplayResults
         $options_html .= '<div class="formelement">'
             . PMA_Util::getCheckbox(
                 'hide_transformation', __('Hide browser transformation'),
-                ! empty($_SESSION['tmp_user_values']['hide_transformation']), false
+                ! empty($_SESSION['tmpval']['hide_transformation']), false
             )
             . '</div>';
 
@@ -1675,7 +1675,7 @@ class PMA_DisplayResults
 
             $options_html .= PMA_Util::getRadioFields(
                 'geometry_display', $choices,
-                $_SESSION['tmp_user_values']['geometry_display']
+                $_SESSION['tmpval']['geometry_display']
             )
                 . '</div>';
         }
@@ -1714,7 +1714,7 @@ class PMA_DisplayResults
             'full_text_button' => 1
         );
 
-        if ($_SESSION['tmp_user_values']['display_text'] == self::DISPLAY_FULL_TEXT) {
+        if ($_SESSION['tmpval']['display_text'] == self::DISPLAY_FULL_TEXT) {
             // currently in fulltext mode so show the opposite link
             $tmp_image_file = $this->__get('pma_theme_image') . 's_partialtext.png';
             $tmp_txt = __('Partial texts');
@@ -2534,9 +2534,9 @@ class PMA_DisplayResults
 
         $odd_row = true;
         $directionCondition
-            = ($_SESSION['tmp_user_values']['disp_direction']
+            = ($_SESSION['tmpval']['disp_direction']
                 == self::DISP_DIR_HORIZONTAL)
-            || ($_SESSION['tmp_user_values']['disp_direction']
+            || ($_SESSION['tmpval']['disp_direction']
                 == self::DISP_DIR_HORIZONTAL_FLIPPED);
 
         while ($row = $GLOBALS['dbi']->fetchRow($dt_result)) {
@@ -2740,7 +2740,7 @@ class PMA_DisplayResults
             $relation_class = isset($map[$meta->name]) ? 'relation' : '';
             $hide_class = ($col_visib && ! $col_visib[$currentColumn]
                 // hide per <td> only if the display dir is not vertical
-                && ($_SESSION['tmp_user_values']['disp_direction']
+                && ($_SESSION['tmpval']['disp_direction']
                     != self::DISP_DIR_VERTICAL))
                 ? 'hide'
                 : '';
@@ -3270,8 +3270,8 @@ class PMA_DisplayResults
 
         $support_html = '';
 
-        if ((($row_no != 0) && ($_SESSION['tmp_user_values']['repeat_cells'] != 0))
-            && !($row_no % $_SESSION['tmp_user_values']['repeat_cells'])
+        if ((($row_no != 0) && ($_SESSION['tmpval']['repeat_cells'] != 0))
+            && !($row_no % $_SESSION['tmpval']['repeat_cells'])
             && $directionCondition
         ) {
 
@@ -3523,7 +3523,7 @@ class PMA_DisplayResults
         $class = 'data ' . $grid_edit_class . ' ' . $not_null_class . ' '
             . $relation_class . ' ' . $hide_class . ' ' . $field_type_class;
 
-        $disp_direction = $_SESSION['tmp_user_values']['disp_direction'];
+        $disp_direction = $_SESSION['tmpval']['disp_direction'];
         if (($disp_direction == self::DISP_DIR_VERTICAL)
             && (! isset($printview) || ($printview != '1'))
         ) {
@@ -3691,7 +3691,7 @@ class PMA_DisplayResults
                 // if a transform function for blob is set, none of these
                 // replacements will be made
                 if (($GLOBALS['PMA_String']->strlen($column) > $GLOBALS['cfg']['LimitChars'])
-                    && ($_SESSION['tmp_user_values']['display_text'] == self::DISPLAY_PARTIAL_TEXT)
+                    && ($_SESSION['tmpval']['display_text'] == self::DISPLAY_PARTIAL_TEXT)
                     && ! $this->_isNeedToSyntaxHighlight(strtolower($meta->name))
                 ) {
                     $column = $GLOBALS['PMA_String']->substr(
@@ -3753,7 +3753,7 @@ class PMA_DisplayResults
         $is_field_truncated, $analyzed_sql
     ) {
 
-        $displayText = $_SESSION['tmp_user_values']['display_text'];
+        $displayText = $_SESSION['tmpval']['display_text'];
 
         if (! isset($column) || is_null($column)) {
 
@@ -3762,7 +3762,7 @@ class PMA_DisplayResults
         } elseif ($column != '') {
 
             // Display as [GEOMETRY - (size)]
-            if ($_SESSION['tmp_user_values']['geometry_display'] == self::GEOMETRY_DISP_GEOM) {
+            if ($_SESSION['tmpval']['geometry_display'] == self::GEOMETRY_DISP_GEOM) {
 
                 $geometry_text = $this->_handleNonPrintableContents(
                     strtoupper(self::GEOMETRY_FIELD),
@@ -3774,7 +3774,7 @@ class PMA_DisplayResults
                     $class, $condition_field, $geometry_text
                 );
 
-            } elseif ($_SESSION['tmp_user_values']['geometry_display']
+            } elseif ($_SESSION['tmpval']['geometry_display']
                 == self::GEOMETRY_DISP_WKT
             ) {
                 // Prepare in Well Known Text(WKT) format.
@@ -3804,7 +3804,7 @@ class PMA_DisplayResults
             } else {
                 // Prepare in  Well Known Binary (WKB) format.
 
-                if ($_SESSION['tmp_user_values']['display_binary']) {
+                if ($_SESSION['tmpval']['display_binary']) {
 
                     $where_comparison = ' = ' . $column;
 
@@ -3898,7 +3898,7 @@ class PMA_DisplayResults
             // Cut all fields to $GLOBALS['cfg']['LimitChars']
             // (unless it's a link-type transformation)
             if ($GLOBALS['PMA_String']->strlen($column) > $GLOBALS['cfg']['LimitChars']
-                && ($_SESSION['tmp_user_values']['display_text'] == self::DISPLAY_PARTIAL_TEXT)
+                && ($_SESSION['tmpval']['display_text'] == self::DISPLAY_PARTIAL_TEXT)
                 && ! (gettype($transformation_plugin) == "object"
                 && strpos($transformation_plugin->getName(), 'Link') !== false)
             ) {
@@ -3923,7 +3923,7 @@ class PMA_DisplayResults
                 && !(isset($is_analyse) && $is_analyse)
             ) {
 
-                if ($_SESSION['tmp_user_values']['display_binary']) {
+                if ($_SESSION['tmpval']['display_binary']) {
 
                     // user asked to see the real contents of BINARY
                     // fields
@@ -4078,8 +4078,8 @@ class PMA_DisplayResults
             foreach ($vertical_display['rowdata'][$key] as $subval) {
 
                 if (($cell_displayed != 0)
-                    && ($_SESSION['tmp_user_values']['repeat_cells'] != 0)
-                    && ! ($cell_displayed % $_SESSION['tmp_user_values']['repeat_cells'])
+                    && ($_SESSION['tmpval']['repeat_cells'] != 0)
+                    && ! ($cell_displayed % $_SESSION['tmpval']['repeat_cells'])
                 ) {
                     $vertical_table_html .= $val;
                 }
@@ -4212,8 +4212,8 @@ class PMA_DisplayResults
         foreach ($vertical_display['row_delete'] as $val) {
 
             if (($cell_displayed != 0)
-                && ($_SESSION['tmp_user_values']['repeat_cells'] != 0)
-                && !($cell_displayed % $_SESSION['tmp_user_values']['repeat_cells'])
+                && ($_SESSION['tmpval']['repeat_cells'] != 0)
+                && !($cell_displayed % $_SESSION['tmpval']['repeat_cells'])
             ) {
 
                 $checkBoxes_html .= '<th'
@@ -4254,8 +4254,8 @@ class PMA_DisplayResults
 
         $sql_md5 = md5($this->__get('sql_query'));
         $query = array();
-        if (isset($_SESSION['tmp_user_values']['query'][$sql_md5])) {
-            $query = $_SESSION['tmp_user_values']['query'][$sql_md5];
+        if (isset($_SESSION['tmpval']['query'][$sql_md5])) {
+            $query = $_SESSION['tmpval']['query'][$sql_md5];
         }
 
         $query['sql'] = $this->__get('sql_query');
@@ -4388,41 +4388,41 @@ class PMA_DisplayResults
         // move current query to the last position, to be removed last
         // so only least executed query will be removed if maximum remembered
         // queries limit is reached
-        unset($_SESSION['tmp_user_values']['query'][$sql_md5]);
-        $_SESSION['tmp_user_values']['query'][$sql_md5] = $query;
+        unset($_SESSION['tmpval']['query'][$sql_md5]);
+        $_SESSION['tmpval']['query'][$sql_md5] = $query;
 
         // do not exceed a maximum number of queries to remember
-        if (count($_SESSION['tmp_user_values']['query']) > 10) {
-            array_shift($_SESSION['tmp_user_values']['query']);
+        if (count($_SESSION['tmpval']['query']) > 10) {
+            array_shift($_SESSION['tmpval']['query']);
             //echo 'deleting one element ...';
         }
 
         // populate query configuration
-        $_SESSION['tmp_user_values']['display_text']
+        $_SESSION['tmpval']['display_text']
             = $query['display_text'];
-        $_SESSION['tmp_user_values']['relational_display']
+        $_SESSION['tmpval']['relational_display']
             = $query['relational_display'];
-        $_SESSION['tmp_user_values']['geometry_display']
+        $_SESSION['tmpval']['geometry_display']
             = $query['geometry_display'];
-        $_SESSION['tmp_user_values']['display_binary'] = isset(
+        $_SESSION['tmpval']['display_binary'] = isset(
             $query['display_binary']
         );
-        $_SESSION['tmp_user_values']['display_binary_as_hex'] = isset(
+        $_SESSION['tmpval']['display_binary_as_hex'] = isset(
             $query['display_binary_as_hex']
         );
-        $_SESSION['tmp_user_values']['display_blob'] = isset(
+        $_SESSION['tmpval']['display_blob'] = isset(
             $query['display_blob']
         );
-        $_SESSION['tmp_user_values']['hide_transformation'] = isset(
+        $_SESSION['tmpval']['hide_transformation'] = isset(
             $query['hide_transformation']
         );
-        $_SESSION['tmp_user_values']['pos']
+        $_SESSION['tmpval']['pos']
             = $query['pos'];
-        $_SESSION['tmp_user_values']['max_rows']
+        $_SESSION['tmpval']['max_rows']
             = $query['max_rows'];
-        $_SESSION['tmp_user_values']['repeat_cells']
+        $_SESSION['tmpval']['repeat_cells']
             = $query['repeat_cells'];
-        $_SESSION['tmp_user_values']['disp_direction']
+        $_SESSION['tmpval']['disp_direction']
             = $query['disp_direction'];
 
     }
@@ -4602,7 +4602,7 @@ class PMA_DisplayResults
         );
 
         // vertical output case
-        if ($_SESSION['tmp_user_values']['disp_direction'] == self::DISP_DIR_VERTICAL) {
+        if ($_SESSION['tmpval']['disp_direction'] == self::DISP_DIR_VERTICAL) {
             $table_html .= $this->_getVerticalTable($analyzed_sql, $is_display);
         } // end if
 
@@ -4660,16 +4660,16 @@ class PMA_DisplayResults
     private function _getOffsets()
     {
 
-        if ($_SESSION['tmp_user_values']['max_rows'] == self::ALL_ROWS) {
+        if ($_SESSION['tmpval']['max_rows'] == self::ALL_ROWS) {
             $pos_next     = 0;
             $pos_prev     = 0;
         } else {
 
-            $pos_next     = $_SESSION['tmp_user_values']['pos']
-                            + $_SESSION['tmp_user_values']['max_rows'];
+            $pos_next     = $_SESSION['tmpval']['pos']
+                            + $_SESSION['tmpval']['max_rows'];
 
-            $pos_prev     = $_SESSION['tmp_user_values']['pos']
-                            - $_SESSION['tmp_user_values']['max_rows'];
+            $pos_prev     = $_SESSION['tmpval']['pos']
+                            - $_SESSION['tmpval']['max_rows'];
 
             if ($pos_prev < 0) {
                 $pos_prev = 0;
@@ -4884,16 +4884,16 @@ class PMA_DisplayResults
                 $last_shown_rec = $limit_data['start'] + $total - 1;
             }
 
-        } elseif (($_SESSION['tmp_user_values']['max_rows'] == self::ALL_ROWS)
+        } elseif (($_SESSION['tmpval']['max_rows'] == self::ALL_ROWS)
             || ($pos_next > $total)
         ) {
 
-            $first_shown_rec = $_SESSION['tmp_user_values']['pos'];
+            $first_shown_rec = $_SESSION['tmpval']['pos'];
             $last_shown_rec  = $total - 1;
 
         } else {
 
-            $first_shown_rec = $_SESSION['tmp_user_values']['pos'];
+            $first_shown_rec = $_SESSION['tmpval']['pos'];
             $last_shown_rec  = $pos_next - 1;
 
         }
@@ -5020,7 +5020,7 @@ class PMA_DisplayResults
         $url_query = $this->__get('url_query');
         $delete_text = ($del_link == self::DELETE_ROW) ? __('Delete') : __('Kill');
 
-        if ($_SESSION['tmp_user_values']['disp_direction'] != self::DISP_DIR_VERTICAL) {
+        if ($_SESSION['tmpval']['disp_direction'] != self::DISP_DIR_VERTICAL) {
 
             $links_html .= '<img class="selectallarrow" width="38" height="22"'
                 . ' src="' . $this->__get('pma_theme_image') . 'arrow_'
@@ -5251,7 +5251,7 @@ class PMA_DisplayResults
                     )
                     . "\n";
 
-                if ($_SESSION['tmp_user_values']['display_text']) {
+                if ($_SESSION['tmpval']['display_text']) {
 
                     $_url_params['display_text'] = self::DISPLAY_FULL_TEXT;
 
@@ -5460,7 +5460,7 @@ class PMA_DisplayResults
 
                 $result = $this->$default_function($result, array(), $meta);
                 if (stristr($meta->type, self::BLOB_FIELD)
-                    && $_SESSION['tmp_user_values']['display_blob']
+                    && $_SESSION['tmpval']['display_blob']
                 ) {
                     // in this case, restart from the original $content
                     $result = $this->_displayBinaryAsPrintable($content, 'blob');
@@ -5516,7 +5516,7 @@ class PMA_DisplayResults
         $transform_options, $is_field_truncated
     ) {
 
-        $relational_display = $_SESSION['tmp_user_values']['relational_display'];
+        $relational_display = $_SESSION['tmpval']['relational_display'];
         $printview = $this->__get('printview');
         $result = '<td class="'
             . $this->_addClass(
@@ -6001,7 +6001,7 @@ class PMA_DisplayResults
     ) {
         if ((PMA_PHP_INT_VERSION < 50400)
             || (($binary_or_blob === 'binary')
-            && $_SESSION['tmp_user_values']['display_binary_as_hex']
+            && $_SESSION['tmpval']['display_binary_as_hex']
             && PMA_Util::containsNonPrintableAscii($content))
         ) {
             $content = bin2hex($content);

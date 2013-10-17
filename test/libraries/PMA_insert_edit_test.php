@@ -1722,7 +1722,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         $current_row['f'] = "11001";
         $extracted_columnspec['spec_in_brackets'] = 20;
         $column['True_Type'] = 'char';
-        $_SESSION['tmp_user_values']['display_binary_as_hex'] = true;
+        $_SESSION['tmpval']['display_binary_as_hex'] = true;
         $GLOBALS['cfg']['ShowFunctionFields'] = true;
 
         $result = PMA_getSpecialCharsAndBackupFieldForExistingRow(
@@ -1742,7 +1742,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
 
         // Case 5 (false display_binary_as_hex)
         $current_row['f'] = "11001\x00";
-        $_SESSION['tmp_user_values']['display_binary_as_hex'] = false;
+        $_SESSION['tmpval']['display_binary_as_hex'] = false;
 
         $result = PMA_getSpecialCharsAndBackupFieldForExistingRow(
             $current_row, $column, $extracted_columnspec, false, array('int'), 'a'
@@ -1771,7 +1771,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         $column['Default'] = b'101';
         $column['is_binary'] = true;
         $GLOBALS['cfg']['ProtectBinary'] = false;
-        $_SESSION['tmp_user_values']['display_binary_as_hex'] = true;
+        $_SESSION['tmpval']['display_binary_as_hex'] = true;
         $GLOBALS['cfg']['ShowFunctionFields'] = true;
 
         $result = PMA_getSpecialCharsAndBackupFieldForInsertingMode($column, false);
@@ -2273,7 +2273,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
     public function testGetLinkForRelationalDisplayField()
     {
         $GLOBALS['cfg']['ServerDefault'] = 1;
-        $_SESSION['tmp_user_values']['relational_display'] = 'K';
+        $_SESSION['tmpval']['relational_display'] = 'K';
         $map['f']['foreign_db'] = 'information_schema';
         $map['f']['foreign_table'] = 'TABLES';
         $map['f']['foreign_field'] = 'f';
@@ -2287,7 +2287,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
             $result
         );
 
-        $_SESSION['tmp_user_values']['relational_display'] = 'D';
+        $_SESSION['tmpval']['relational_display'] = 'D';
         $result = PMA_getLinkForRelationalDisplayField($map, 'f', "=1", "a>", "b<");
 
         $this->assertEquals(

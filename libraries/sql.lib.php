@@ -149,15 +149,15 @@ function PMA_getTableHtmlForMultipleQueries(
             }
 
             // Do append a "LIMIT" clause?
-            if (($_SESSION['tmp_user_values']['max_rows'] != 'all')
+            if (($_SESSION['tmpval']['max_rows'] != 'all')
                 && ! ($is_count || $is_export || $is_func || $is_analyse)
                 && isset($analyzed_sql[0]['queryflags']['select_from'])
                 && ! isset($analyzed_sql[0]['queryflags']['offset'])
                 && empty($analyzed_sql[0]['limit_clause'])
             ) {
                 $sql_limit_to_append = ' LIMIT '
-                    . $_SESSION['tmp_user_values']['pos']
-                    . ', ' . $_SESSION['tmp_user_values']['max_rows'] . " ";
+                    . $_SESSION['tmpval']['pos']
+                    . ', ' . $_SESSION['tmpval']['max_rows'] . " ";
                 $sql_data['valid_sql'][$sql_no] = PMA_getSqlWithLimitClause(
                     $sql_data['valid_sql'][$sql_no],
                     $analyzed_sql,
@@ -831,7 +831,7 @@ function PMA_isAppendLimitClause($analyzed_sql_results)
     $select_from = isset(
         $analyzed_sql_results['analyzed_sql'][0]['queryflags']['select_from']
     );
-    if (($_SESSION['tmp_user_values']['max_rows'] != 'all')
+    if (($_SESSION['tmpval']['max_rows'] != 'all')
         && ! ($analyzed_sql_results['is_count']
         || $analyzed_sql_results['is_export']
         || $analyzed_sql_results['is_func']
@@ -1050,9 +1050,9 @@ function PMA_addBookmark($pmaAbsoluteUri, $goto)
 function PMA_findRealEndOfRows($db, $table)
 {
     $unlim_num_rows = PMA_Table::countRecords($db, $table, true);
-    $_SESSION['tmp_user_values']['pos'] = @((ceil(
-        $unlim_num_rows / $_SESSION['tmp_user_values']['max_rows']
-    ) - 1) * $_SESSION['tmp_user_values']['max_rows']);
+    $_SESSION['tmpval']['pos'] = @((ceil(
+        $unlim_num_rows / $_SESSION['tmpval']['max_rows']
+    ) - 1) * $_SESSION['tmpval']['max_rows']);
 
     return $unlim_num_rows;
 }
@@ -1069,7 +1069,7 @@ function PMA_findRealEndOfRows($db, $table)
 function PMA_getRelationalValues($db, $table, $display_field)
 {
     $column = $_REQUEST['column'];
-    if ($_SESSION['tmp_user_values']['relational_display'] == 'D'
+    if ($_SESSION['tmpval']['relational_display'] == 'D'
         && isset($display_field)
         && strlen($display_field)
         && isset($_REQUEST['relation_key_or_display_column'])
@@ -1124,8 +1124,8 @@ function PMA_getEnumOrSetValues($db, $table, $columnType)
  */
 function PMA_appendLimitClause($full_sql_query, $analyzed_sql, $display_query)
 {
-    $sql_limit_to_append = ' LIMIT ' . $_SESSION['tmp_user_values']['pos']
-        . ', ' . $_SESSION['tmp_user_values']['max_rows'] . " ";
+    $sql_limit_to_append = ' LIMIT ' . $_SESSION['tmpval']['pos']
+        . ', ' . $_SESSION['tmpval']['max_rows'] . " ";
     $full_sql_query = PMA_getSqlWithLimitClause(
         $full_sql_query,
         $analyzed_sql,
@@ -1388,7 +1388,7 @@ function PMA_countQueryResults(
     if (!PMA_isAppendLimitClause($analyzed_sql_results)) {
         // if we did not append a limit, set this to get a correct
         // "Showing rows..." message
-        // $_SESSION['tmp_user_values']['max_rows'] = 'all';
+        // $_SESSION['tmpval']['max_rows'] = 'all';
         $unlim_num_rows         = $num_rows;
     } elseif ($is_select) {
         //    c o u n t    q u e r y

@@ -1684,7 +1684,7 @@ function PMA_getSpecialCharsAndBackupFieldForExistingRow(
         if ($column['is_binary']
             || ($column['is_blob'] && ! $GLOBALS['cfg']['ProtectBinary'])
         ) {
-            if ($_SESSION['tmp_user_values']['display_binary_as_hex']
+            if ($_SESSION['tmpval']['display_binary_as_hex']
                 && $GLOBALS['cfg']['ShowFunctionFields']
             ) {
                 $current_row[$column['Field']] = bin2hex(
@@ -1771,8 +1771,8 @@ function PMA_getSpecialCharsAndBackupFieldForInsertingMode(
     // this will select the UNHEX function while inserting
     if (($column['is_binary']
         || ($column['is_blob'] && ! $GLOBALS['cfg']['ProtectBinary']))
-        && (isset($_SESSION['tmp_user_values']['display_binary_as_hex'])
-        && $_SESSION['tmp_user_values']['display_binary_as_hex'])
+        && (isset($_SESSION['tmpval']['display_binary_as_hex'])
+        && $_SESSION['tmpval']['display_binary_as_hex'])
         && $GLOBALS['cfg']['ShowFunctionFields']
     ) {
         $column['display_binary_as_hex'] = true;
@@ -2083,7 +2083,7 @@ function PMA_getDisplayValueForForeignTableColumn($where_comparison,
 function PMA_getLinkForRelationalDisplayField($map, $relation_field,
     $where_comparison, $dispval, $relation_field_value
 ) {
-    if ('K' == $_SESSION['tmp_user_values']['relational_display']) {
+    if ('K' == $_SESSION['tmpval']['relational_display']) {
         // user chose "relational key" in the display options, so
         // the title contains the display field
         $title = (! empty($dispval))
@@ -2105,7 +2105,7 @@ function PMA_getLinkForRelationalDisplayField($map, $relation_field,
     $output = '<a href="sql.php'
         . PMA_URL_getCommon($_url_params) . '"' . $title . '>';
 
-    if ('D' == $_SESSION['tmp_user_values']['relational_display']) {
+    if ('D' == $_SESSION['tmpval']['relational_display']) {
         // user chose "relational display field" in the
         // display options, so show display field in the cell
         $output .= (!empty($dispval)) ? htmlspecialchars($dispval) : '';

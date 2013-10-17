@@ -184,8 +184,8 @@ class PMA_TblChartTest extends PHPUnit_Framework_TestCase
     public function testPMAGetHtmlForTableChartDisplay()
     {
         $_SESSION[' PMA_token '] = "PMA_token";
-        $_SESSION['tmp_user_values']['pos'] = "pos";
-        $_SESSION['tmp_user_values']['max_rows'] = "all";
+        $_SESSION['tmpval']['pos'] = "pos";
+        $_SESSION['tmpval']['max_rows'] = "all";
         $GLOBALS['cfg']['MaxRows'] = 10;
 
         $url_query = "url_query";

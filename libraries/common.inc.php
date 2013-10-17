@@ -1032,12 +1032,12 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         /**
          * some resetting has to be done when switching servers
          */
-        if (isset($_SESSION['tmp_user_values']['previous_server'])
-            && $_SESSION['tmp_user_values']['previous_server'] != $GLOBALS['server']
+        if (isset($_SESSION['tmpval']['previous_server'])
+            && $_SESSION['tmpval']['previous_server'] != $GLOBALS['server']
         ) {
-            unset($_SESSION['tmp_user_values']['navi_limit_offset']);
+            unset($_SESSION['tmpval']['navi_limit_offset']);
         }
-        $_SESSION['tmp_user_values']['previous_server'] = $GLOBALS['server'];
+        $_SESSION['tmpval']['previous_server'] = $GLOBALS['server'];
 
     } // end server connecting
 
