@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-10-17 12:58+0200\n"
-"PO-Revision-Date: 2013-10-17 13:03+0200\n"
+"PO-Revision-Date: 2013-10-17 13:11+0200\n"
 "Last-Translator: Patrik Kernstock <patschimail@gmail.com>\n"
 "Language-Team: German <http://l10n.cihar.com/projects/phpmyadmin/master/de/>\n"
 "Language: de\n"
@@ -268,21 +268,19 @@ msgstr "in Benutzung"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1357
 #| msgid "Creation"
 msgid "Creation:"
-msgstr "Erstellt am"
+msgstr "Erstellt am:"
 
 #: db_printview.php:126 libraries/plugins/export/ExportSql.class.php:1055
 #: libraries/schema/Pdf_Relation_Schema.class.php:1362
-#, fuzzy
 #| msgid "Last update"
 msgid "Last update:"
-msgstr "Aktualisiert am"
+msgstr "Zuletzt aktualisiert:"
 
 #: db_printview.php:135 libraries/plugins/export/ExportSql.class.php:1068
 #: libraries/schema/Pdf_Relation_Schema.class.php:1367
-#, fuzzy
 #| msgid "Last check"
 msgid "Last check:"
-msgstr "Letzter Check am"
+msgstr "Letzte Prüfung:"
 
 #: db_printview.php:149 libraries/structure.lib.php:176
 #, php-format
@@ -2809,7 +2807,7 @@ msgstr "Zeige Datensätze %1s - %2s"
 #: libraries/DisplayResults.class.php:4933
 #, php-format
 msgid "%d total"
-msgstr "%d total"
+msgstr "%d insgesamt"
 
 # (s is the abbreviation of "Sekunde", sec is it not (according to
 # International System of Units), so we wrote the complete one.)
@@ -4212,15 +4210,14 @@ msgstr "Numerischer Schlüssel entdeckt"
 
 #: libraries/config.values.php:49 libraries/config.values.php:65
 #: libraries/config.values.php:70
-#, fuzzy
 #| msgid "Ins"
 msgid "Icons"
-msgstr "Einf"
+msgstr "Symbole"
 
 #: libraries/config.values.php:50 libraries/config.values.php:66
 #: libraries/config.values.php:71
 msgid "Text"
-msgstr ""
+msgstr "Text"
 
 #: libraries/config.values.php:51 libraries/config.values.php:59
 #: libraries/config.values.php:67 libraries/config.values.php:72
@@ -5764,10 +5761,9 @@ msgid "MySQL reserved word warning"
 msgstr "Warnung wegen reservierter MySQL-Wörter"
 
 #: libraries/config/messages.inc.php:342
-#, fuzzy
 #| msgid "Allow to display all the rows"
 msgid "How to display the menu tabs"
-msgstr "Erlaube es alle Datensätze anzuzeigen"
+msgstr "Wie sollen die Menüpunkte dargestellt werden"
 
 #: libraries/config/messages.inc.php:344
 msgid "How to display various action links"
@@ -6822,10 +6818,9 @@ msgstr "CSV mit LOAD DATA"
 #: libraries/config/setup.forms.php:268 libraries/config/setup.forms.php:362
 #: libraries/config/user_preferences.forms.php:162
 #: libraries/config/user_preferences.forms.php:255
-#, fuzzy
 #| msgid "Open Document Spreadsheet"
 msgid "OpenDocument Spreadsheet"
-msgstr "Open Document Kalkulationstabelle"
+msgstr "Open-Document Kalkulationstabelle"
 
 #: libraries/config/setup.forms.php:275
 #: libraries/config/user_preferences.forms.php:169
@@ -6854,10 +6849,9 @@ msgstr "Microsoft Word 2000"
 
 #: libraries/config/setup.forms.php:366
 #: libraries/config/user_preferences.forms.php:259
-#, fuzzy
 #| msgid "Open Document Text"
 msgid "OpenDocument Text"
-msgstr "Open Document Text"
+msgstr "OpenDocument Text"
 
 #: libraries/core.lib.php:287
 #, php-format
@@ -13040,7 +13034,7 @@ msgstr "FOREIGN KEY Relation hinzugefügt"
 #, fuzzy
 #| msgid "Error: Relation not added."
 msgid "Error: Relational features are disabled!"
-msgstr "Fehler: Verknüpfung nicht hinzugefügt."
+msgstr "Fehler: Zusammenhängende Funktionen wurden deaktiviert!"
 
 #: pmd_relation_new.php:100
 msgid "Internal relation added"
@@ -13556,10 +13550,9 @@ msgid "The table name is empty!"
 msgstr "Der Tabellenname ist leer!"
 
 #: tbl_structure.php:93
-#, fuzzy
 #| msgid "No rows selected"
 msgid "No column selected."
-msgstr "Es wurden keine Datensätze ausgewählt"
+msgstr "Es wurden keine Datensätze ausgewählt."
 
 #: themes.php:17 themes.php:22
 msgid "Theme"
