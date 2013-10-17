@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-10-17 12:58+0200\n"
-"PO-Revision-Date: 2013-10-04 13:31+0200\n"
+"PO-Revision-Date: 2013-10-17 15:32+0200\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
-"Language-Team: Interlingua <http://l10n.cihar.com/projects/phpmyadmin/master/"
-"ia/>\n"
+"Language-Team: Interlingua "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/ia/>\n"
 "Language: ia\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 1.7-dev\n"
+"X-Generator: Weblate 1.7\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -25,7 +25,7 @@ msgid ""
 "The %s file is not available on this system, please visit www.phpmyadmin.net "
 "for more information."
 msgstr ""
-"Le %s file non es disponibile sur le sistema, tu visita phpmyadmin.net pro "
+"Le %s file non es disponibile sur iste systema, tu visita phpmyadmin.net pro "
 "ulterior informationes."
 
 #: db_create.php:61
@@ -3729,55 +3729,55 @@ msgstr "Un singule valor, seligite ex un insimul usque 64 membros"
 
 #: libraries/Types.class.php:359
 msgid "A type that can store a geometry of any type"
-msgstr ""
+msgstr "Un typo pote immagazinar un geometria de omne typo"
 
 #: libraries/Types.class.php:361
 msgid "A point in 2-dimensional space"
-msgstr ""
+msgstr "Un puncto in un spatio a duo dimensiones"
 
 #: libraries/Types.class.php:363
 msgid "A curve with linear interpolation between points"
-msgstr ""
+msgstr "Un curva con interpolation linear inter punctos"
 
 #: libraries/Types.class.php:365
 msgid "A polygon"
-msgstr ""
+msgstr "Un polygono"
 
 #: libraries/Types.class.php:367
 msgid "A collection of points"
-msgstr ""
+msgstr "Un collection de punctos"
 
 #: libraries/Types.class.php:369
 msgid "A collection of curves with linear interpolation between points"
-msgstr ""
+msgstr "Un collection de curvas con interpolation linear inter punctos"
 
 #: libraries/Types.class.php:371
 msgid "A collection of polygons"
-msgstr ""
+msgstr "Un collection de polygonos"
 
 #: libraries/Types.class.php:373
 msgid "A collection of geometry objects of any type"
-msgstr ""
+msgstr "Un collection de objectos de geometria de omne typo"
 
 #: libraries/Types.class.php:626 libraries/Types.class.php:976
 msgctxt "numeric types"
 msgid "Numeric"
-msgstr ""
+msgstr "Numeric"
 
 #: libraries/Types.class.php:645 libraries/Types.class.php:979
 msgctxt "date and time types"
 msgid "Date and time"
-msgstr ""
+msgstr "Data e tempore"
 
 #: libraries/Types.class.php:654 libraries/Types.class.php:982
 msgctxt "string types"
 msgid "String"
-msgstr ""
+msgstr "Catena"
 
 #: libraries/Types.class.php:675
 msgctxt "spatial types"
 msgid "Spatial"
-msgstr ""
+msgstr "Spatial"
 
 #: libraries/Types.class.php:710
 msgid "A 4-byte integer, range is -2,147,483,648 to 2,147,483,647"
@@ -7574,7 +7574,6 @@ msgstr[0] ""
 msgstr[1] ""
 
 #: libraries/navigation/NavigationTree.class.php:1044
-#, fuzzy
 #| msgid "filter databases by name or regex"
 msgid "Filter databases by name or regex"
 msgstr "Filtra base de datos per nomine o regex"
@@ -7585,10 +7584,9 @@ msgid "Clear fast filter"
 msgstr ""
 
 #: libraries/navigation/NavigationTree.class.php:1078
-#, fuzzy
 #| msgid "filter by name or regex"
 msgid "Filter by name or regex"
-msgstr "filtra per nomine o regex"
+msgstr "Filtra per nomine o regex"
 
 #. l10n: The word "Node" must not be translated here
 #: libraries/navigation/NodeFactory.class.php:41
