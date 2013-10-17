@@ -1,9 +1,9 @@
 # Automatically generated <>, 2010.
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 4.1.0-alpha2\n"
+"Project-Id-Version: phpMyAdmin 4.1.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-10-13 06:55-0400\n"
+"POT-Creation-Date: 2013-10-17 12:58+0200\n"
 "PO-Revision-Date: 2013-08-23 11:41+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Catalan <http://l10n.cihar.com/projects/phpmyadmin/master/ca/"
@@ -414,36 +414,17 @@ msgstr "Segueix taula"
 msgid "Database Log"
 msgstr "Registre de la base de dades"
 
-#: error_report.php:16
-msgid ""
-"An error has been detected, however, you seem to be running on a git version "
-"of phpMyAdmin."
-msgstr ""
-
-#: error_report.php:18 error_report.php:28
-msgid ""
-"Automatic report submission cannot be used. Please submit a manual error "
-"report on the bug tracker."
-msgstr ""
-
-#: error_report.php:21 error_report.php:31 error_report.php:42
-#: error_report.php:47
-msgid "You may want to refresh the page."
-msgstr ""
-
-#: error_report.php:26
-msgid ""
-"An error has been detected, however, the JavaScript line count file does not "
-"seem to exist in this phpMyAdmin installation."
-msgstr ""
-
-#: error_report.php:39
+#: error_report.php:17
 msgid ""
 "An error has been detected and an error report has been automatically "
 "submitted based on your settings."
 msgstr ""
 
-#: error_report.php:45
+#: error_report.php:20 error_report.php:25
+msgid "You may want to refresh the page."
+msgstr ""
+
+#: error_report.php:23
 msgid "Thank you for submitting this report."
 msgstr ""
 
@@ -576,7 +557,7 @@ msgid "Add geometry"
 msgstr "Afegir geometria"
 
 #: gis_data_editor.php:398 js/messages.php:225
-#: libraries/DbSearch.class.php:465 libraries/DisplayResults.class.php:1687
+#: libraries/DbSearch.class.php:465 libraries/DisplayResults.class.php:1688
 #: libraries/TableSearch.class.php:1203 libraries/browse_foreigners.lib.php:51
 #: libraries/core.lib.php:554 libraries/display_change_password.lib.php:94
 #: libraries/display_create_table.lib.php:71
@@ -1753,7 +1734,7 @@ msgstr "Amagar quadre de consultes"
 msgid "Show query box"
 msgstr "Mostrar quadre de consultes"
 
-#: js/messages.php:282 libraries/DisplayResults.class.php:3345
+#: js/messages.php:282 libraries/DisplayResults.class.php:3347
 #: libraries/Index.class.php:592 libraries/Util.class.php:667
 #: libraries/Util.class.php:1212 libraries/Util.class.php:3419
 #: libraries/Util.class.php:3420 libraries/config/messages.inc.php:496
@@ -1767,7 +1748,7 @@ msgstr "Edita"
 msgid "No rows selected"
 msgstr "No s'han triat arxius"
 
-#: js/messages.php:284 libraries/DisplayResults.class.php:5033
+#: js/messages.php:284 libraries/DisplayResults.class.php:5039
 #: libraries/structure.lib.php:1376 libraries/structure.lib.php:2065
 #: querywindow.php:85
 msgid "Change"
@@ -1863,7 +1844,7 @@ msgstr "Contingut del punter de dades"
 msgid "Ignore"
 msgstr "Ignora"
 
-#: js/messages.php:323 libraries/DisplayResults.class.php:3348
+#: js/messages.php:323 libraries/DisplayResults.class.php:3350
 msgid "Copy"
 msgstr "Còpia"
 
@@ -1879,7 +1860,7 @@ msgstr "Cadena de línies"
 msgid "Polygon"
 msgstr "Polígon"
 
-#: js/messages.php:330 libraries/DisplayResults.class.php:1671
+#: js/messages.php:330 libraries/DisplayResults.class.php:1672
 msgid "Geometry"
 msgstr "Geometria"
 
@@ -2057,7 +2038,7 @@ msgstr ", darrera versió estable:"
 msgid "up to date"
 msgstr "actualitzat"
 
-#: js/messages.php:405 libraries/DisplayResults.class.php:5148
+#: js/messages.php:405 libraries/DisplayResults.class.php:5154
 #: view_create.php:178
 msgid "Create view"
 msgstr "Crea una vista"
@@ -2429,8 +2410,8 @@ msgid "Font size"
 msgstr "Tamany de lletra"
 
 #: libraries/DBQbe.class.php:346 libraries/DisplayResults.class.php:1309
-#: libraries/DisplayResults.class.php:2037
-#: libraries/DisplayResults.class.php:2045 libraries/TableSearch.class.php:827
+#: libraries/DisplayResults.class.php:2038
+#: libraries/DisplayResults.class.php:2046 libraries/TableSearch.class.php:827
 #: libraries/operations.lib.php:643 libraries/server_databases.lib.php:315
 #: libraries/server_databases.lib.php:340 libraries/server_status.lib.php:452
 #: libraries/structure.lib.php:860 libraries/structure.lib.php:877
@@ -2438,8 +2419,8 @@ msgid "Ascending"
 msgstr "Ascendent"
 
 #: libraries/DBQbe.class.php:349 libraries/DisplayResults.class.php:1321
-#: libraries/DisplayResults.class.php:2032
-#: libraries/DisplayResults.class.php:2050 libraries/TableSearch.class.php:828
+#: libraries/DisplayResults.class.php:2033
+#: libraries/DisplayResults.class.php:2051 libraries/TableSearch.class.php:828
 #: libraries/operations.lib.php:646 libraries/server_databases.lib.php:315
 #: libraries/server_databases.lib.php:340 libraries/server_status.lib.php:449
 #: libraries/structure.lib.php:865 libraries/structure.lib.php:882
@@ -2594,8 +2575,8 @@ msgstr "Navega"
 msgid "Delete the matches for the %s table?"
 msgstr "Esborrar les coincidències per a la taula %s?"
 
-#: libraries/DbSearch.class.php:361 libraries/DisplayResults.class.php:3417
-#: libraries/DisplayResults.class.php:5016
+#: libraries/DbSearch.class.php:361 libraries/DisplayResults.class.php:3419
+#: libraries/DisplayResults.class.php:5022
 #: libraries/schema/User_Schema.class.php:224
 #: libraries/schema/User_Schema.class.php:306
 #: libraries/schema/User_Schema.class.php:359
@@ -2659,7 +2640,7 @@ msgctxt "Next page"
 msgid "Next"
 msgstr "Pàgina següent"
 
-#: libraries/DisplayResults.class.php:903 libraries/Util.class.php:2526
+#: libraries/DisplayResults.class.php:904 libraries/Util.class.php:2526
 #: libraries/Util.class.php:2529
 msgctxt "Last page"
 msgid "End"
@@ -2720,63 +2701,63 @@ msgid "Options"
 msgstr "Opcions"
 
 #: libraries/DisplayResults.class.php:1614
-#: libraries/DisplayResults.class.php:1720
+#: libraries/DisplayResults.class.php:1721
 msgid "Partial texts"
 msgstr "Textos parcials"
 
 #: libraries/DisplayResults.class.php:1615
-#: libraries/DisplayResults.class.php:1724
+#: libraries/DisplayResults.class.php:1725
 msgid "Full texts"
 msgstr "Textos sencers"
 
-#: libraries/DisplayResults.class.php:1629
+#: libraries/DisplayResults.class.php:1630
 msgid "Relational key"
 msgstr "Clau relacional"
 
-#: libraries/DisplayResults.class.php:1630
+#: libraries/DisplayResults.class.php:1631
 msgid "Relational display column"
 msgstr "Columna relacional a mostrar"
 
-#: libraries/DisplayResults.class.php:1642
+#: libraries/DisplayResults.class.php:1643
 msgid "Show binary contents"
 msgstr "Mostra continguts binaris"
 
-#: libraries/DisplayResults.class.php:1647
+#: libraries/DisplayResults.class.php:1648
 msgid "Show BLOB contents"
 msgstr "Mostra contingut BLOB"
 
-#: libraries/DisplayResults.class.php:1652
+#: libraries/DisplayResults.class.php:1653
 #: libraries/config/messages.inc.php:59
 msgid "Show binary contents as HEX"
 msgstr "Mostra el contingut binari com HEX"
 
-#: libraries/DisplayResults.class.php:1663
+#: libraries/DisplayResults.class.php:1664
 msgid "Hide browser transformation"
 msgstr "Amagar transformació del navegador"
 
-#: libraries/DisplayResults.class.php:1672
+#: libraries/DisplayResults.class.php:1673
 msgid "Well Known Text"
 msgstr "Text conegut"
 
-#: libraries/DisplayResults.class.php:1673
+#: libraries/DisplayResults.class.php:1674
 msgid "Well Known Binary"
 msgstr "Binari conegut"
 
-#: libraries/DisplayResults.class.php:3390
-#: libraries/DisplayResults.class.php:3406
+#: libraries/DisplayResults.class.php:3392
+#: libraries/DisplayResults.class.php:3408
 msgid "The row has been deleted"
 msgstr "S'ha esborrat la fila"
 
-#: libraries/DisplayResults.class.php:3444
-#: libraries/DisplayResults.class.php:5016 libraries/server_status.lib.php:520
+#: libraries/DisplayResults.class.php:3446
+#: libraries/DisplayResults.class.php:5022 libraries/server_status.lib.php:520
 msgid "Kill"
 msgstr "Finalitzar"
 
-#: libraries/DisplayResults.class.php:4474 libraries/structure.lib.php:771
+#: libraries/DisplayResults.class.php:4480 libraries/structure.lib.php:771
 msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]"
 msgstr "Pot ser aproximat. Veieu [doc@faq3-11]PCF -FAQ- 3.11[/doc]"
 
-#: libraries/DisplayResults.class.php:4528 libraries/Message.class.php:180
+#: libraries/DisplayResults.class.php:4534 libraries/Message.class.php:180
 #: libraries/rte/rte_routines.lib.php:1445
 #: libraries/sql_query_form.lib.php:117 libraries/tbl_relation.lib.php:895
 #: tbl_find_replace.php:49 tbl_operations.php:185 tbl_row_action.php:111
@@ -2784,11 +2765,11 @@ msgstr "Pot ser aproximat. Veieu [doc@faq3-11]PCF -FAQ- 3.11[/doc]"
 msgid "Your SQL query has been executed successfully"
 msgstr "La vostra comanda SQL ha estat executada amb èxit"
 
-#: libraries/DisplayResults.class.php:4865
+#: libraries/DisplayResults.class.php:4871
 msgid "in query"
 msgstr "en consulta"
 
-#: libraries/DisplayResults.class.php:4902 libraries/structure.lib.php:653
+#: libraries/DisplayResults.class.php:4908 libraries/structure.lib.php:653
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to %sdocumentation"
@@ -2796,25 +2777,25 @@ msgid ""
 msgstr ""
 "Aquesta vista té al menys aques nombre de files. Consulta %sdocumentation%s."
 
-#: libraries/DisplayResults.class.php:4915
+#: libraries/DisplayResults.class.php:4921
 #, fuzzy, php-format
 #| msgid "Showing rows"
 msgid "Showing rows %1s - %2s"
 msgstr "Mostrant registres"
 
-#: libraries/DisplayResults.class.php:4927
+#: libraries/DisplayResults.class.php:4933
 #, fuzzy, php-format
 #| msgid "total"
 msgid "%d total"
 msgstr "total"
 
-#: libraries/DisplayResults.class.php:4939 libraries/sql.lib.php:1644
+#: libraries/DisplayResults.class.php:4945 libraries/sql.lib.php:1644
 #, php-format
 msgid "Query took %01.4f sec"
 msgstr "La consulta tarda %01.4f seg"
 
-#: libraries/DisplayResults.class.php:5023
-#: libraries/DisplayResults.class.php:5029 libraries/mult_submits.inc.php:46
+#: libraries/DisplayResults.class.php:5029
+#: libraries/DisplayResults.class.php:5035 libraries/mult_submits.inc.php:46
 #: libraries/server_databases.lib.php:147
 #: libraries/server_databases.lib.php:151
 #: libraries/server_privileges.lib.php:2860
@@ -2824,8 +2805,8 @@ msgstr "La consulta tarda %01.4f seg"
 msgid "With selected:"
 msgstr "Amb marca:"
 
-#: libraries/DisplayResults.class.php:5027
-#: libraries/DisplayResults.class.php:5028
+#: libraries/DisplayResults.class.php:5033
+#: libraries/DisplayResults.class.php:5034
 #: libraries/server_databases.lib.php:149
 #: libraries/server_databases.lib.php:150
 #: libraries/server_privileges.lib.php:1005
@@ -2838,8 +2819,8 @@ msgstr "Amb marca:"
 msgid "Check All"
 msgstr "Marcar-ho tot"
 
-#: libraries/DisplayResults.class.php:5046
-#: libraries/DisplayResults.class.php:5316 libraries/Menu.class.php:326
+#: libraries/DisplayResults.class.php:5052
+#: libraries/DisplayResults.class.php:5322 libraries/Menu.class.php:326
 #: libraries/Menu.class.php:424 libraries/Menu.class.php:543
 #: libraries/Util.class.php:3421 libraries/Util.class.php:3422
 #: libraries/Util.class.php:4111 libraries/Util.class.php:4126
@@ -2852,29 +2833,29 @@ msgstr "Marcar-ho tot"
 msgid "Export"
 msgstr "Exporta"
 
-#: libraries/DisplayResults.class.php:5204
+#: libraries/DisplayResults.class.php:5210
 msgid "Query results operations"
 msgstr "Operacions de resultats de consultes"
 
-#: libraries/DisplayResults.class.php:5240 libraries/Header.class.php:345
+#: libraries/DisplayResults.class.php:5246 libraries/Header.class.php:345
 #: libraries/structure.lib.php:299 libraries/structure.lib.php:362
 #: libraries/structure.lib.php:1499
 msgid "Print view"
 msgstr "Imprimeix vista"
 
-#: libraries/DisplayResults.class.php:5258
+#: libraries/DisplayResults.class.php:5264
 msgid "Print view (with full texts)"
 msgstr "Vista d'impresió (amb texts sencers)"
 
-#: libraries/DisplayResults.class.php:5329 libraries/tbl_chart.lib.php:266
+#: libraries/DisplayResults.class.php:5335 libraries/tbl_chart.lib.php:266
 msgid "Display chart"
 msgstr "Mostra el gràfic"
 
-#: libraries/DisplayResults.class.php:5354
+#: libraries/DisplayResults.class.php:5360
 msgid "Visualize GIS data"
 msgstr "Visualitzar dades GIS"
 
-#: libraries/DisplayResults.class.php:5571
+#: libraries/DisplayResults.class.php:5578
 msgid "Link not found"
 msgstr "No s'ha trobat l'enllaç"
 
@@ -4545,8 +4526,8 @@ msgid ""
 "kbd] - allows newlines in columns"
 msgstr ""
 "Defineix quin tipus de control d'edició es farà servir per a columnes CHAR i "
-"VARCHAR; [kbd]input[/kbd] - permet limitar el tamany de l'entrada, [kbd]"
-"textarea[/kbd] - permet varies línies dintre dels camps"
+"VARCHAR; [kbd]input[/kbd] - permet limitar el tamany de l'entrada, "
+"[kbd]textarea[/kbd] - permet varies línies dintre dels camps"
 
 #: libraries/config/messages.inc.php:31
 msgid "CHAR columns editing"
@@ -4554,8 +4535,8 @@ msgstr "Edició de columnes CHAR"
 
 #: libraries/config/messages.inc.php:32
 msgid ""
-"Use user-friendly editor for editing SQL queries ([a@http://codemirror.net/]"
-"CodeMirror[/a]) with syntax highlighting and line numbers"
+"Use user-friendly editor for editing SQL queries ([a@http://codemirror."
+"net/]CodeMirror[/a]) with syntax highlighting and line numbers"
 msgstr ""
 "Fer servir l'editor SQL ([a@http://codemirror.net/]CodeMirror[/a]) amb "
 "resaltat de sintaxi i números de línia"
@@ -5113,8 +5094,9 @@ msgstr "Títols de pàgina"
 
 #: libraries/config/messages.inc.php:194
 msgid ""
-"Specify browser's title bar text. Refer to [doc@cfg_TitleTable]documentation"
-"[/doc] for magic strings that can be used to get special values."
+"Specify browser's title bar text. Refer to "
+"[doc@cfg_TitleTable]documentation[/doc] for magic strings that can be used "
+"to get special values."
 msgstr ""
 "Especifica el títol del navegador. Consulta [doc@cfg_TitleTable]la "
 "documentació[/doc]  per a cadenes màgiques que poden usar-se per obtenir "
@@ -5180,8 +5162,8 @@ msgid ""
 "documentation"
 msgstr ""
 "Configura la base de dades phpMyAdmin per tenir accés a característiques "
-"adiccionals, consulta [doc@linked-tables]infraestructura de taules enllaçades"
-"[/doc] a la documentació"
+"adiccionals, consulta [doc@linked-tables]infraestructura de taules "
+"enllaçades[/doc] a la documentació"
 
 #: libraries/config/messages.inc.php:207
 msgid "Changes tracking"
@@ -5926,8 +5908,8 @@ msgid ""
 "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/bookmark]bookmark[/a] "
 "support, suggested: [kbd]pma__bookmark[/kbd]"
 msgstr ""
-"Deixa en blanc per desactivar les [a@http://wiki.phpmyadmin.net/pma/bookmark]"
-"consultes desades[/a], suggerit: [kbd]pma__bookmark[/kbd]"
+"Deixa en blanc per desactivar les [a@http://wiki.phpmyadmin.net/pma/"
+"bookmark]consultes desades[/a], suggerit: [kbd]pma__bookmark[/kbd]"
 
 #: libraries/config/messages.inc.php:382
 msgid "Bookmark table"
@@ -5935,8 +5917,8 @@ msgstr "Taula de consultes desades"
 
 #: libraries/config/messages.inc.php:383
 msgid ""
-"Leave blank for no column comments/mime types, suggested: [kbd]"
-"pma__column_info[/kbd]"
+"Leave blank for no column comments/mime types, suggested: "
+"[kbd]pma__column_info[/kbd]"
 msgstr ""
 "Deixa en blanc per no usar comentaris de columna o tipus mime, suggerit: "
 "[kbd]pma__column_info[/kbd]"
@@ -6013,8 +5995,8 @@ msgid ""
 "Leave blank for no Designer support, suggested: [kbd]pma__designer_coords[/"
 "kbd]"
 msgstr ""
-"Deixa en blanc per desactivar el suport del Dissenyador, suggerit: [kbd]"
-"pma__designer_coords[/kbd]"
+"Deixa en blanc per desactivar el suport del Dissenyador, suggerit: "
+"[kbd]pma__designer_coords[/kbd]"
 
 #: libraries/config/messages.inc.php:397
 msgid "Designer table"
@@ -6120,8 +6102,8 @@ msgstr "Contrasenya autenticació config"
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__pdf_pages[/kbd]"
 msgstr ""
-"Deixa en blanc per desactivar el suport d'esquemes PDF, suggerit: [kbd]"
-"pma__pdf_pages[/kbd]"
+"Deixa en blanc per desactivar el suport d'esquemes PDF, suggerit: "
+"[kbd]pma__pdf_pages[/kbd]"
 
 #: libraries/config/messages.inc.php:418
 msgid "PDF schema: pages table"
@@ -6166,11 +6148,11 @@ msgstr "Taula usada recentment"
 
 #: libraries/config/messages.inc.php:425
 msgid ""
-"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-links"
-"[/a] support, suggested: [kbd]pma__relation[/kbd]"
+"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
+"links[/a] support, suggested: [kbd]pma__relation[/kbd]"
 msgstr ""
-"Deixa en blanc per desactivar els [a@http://wiki.phpmyadmin.net/pma/relation]"
-"enllaços de relacions[/a], suggerit: [kbd]pma__relation[/kbd]"
+"Deixa en blanc per desactivar els [a@http://wiki.phpmyadmin.net/pma/"
+"relation]enllaços de relacions[/a], suggerit: [kbd]pma__relation[/kbd]"
 
 #: libraries/config/messages.inc.php:426
 msgid "Relation table"
@@ -6186,8 +6168,8 @@ msgstr "Ordre SHOW DATABASES"
 
 #: libraries/config/messages.inc.php:429
 msgid ""
-"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication types"
-"[/a] for an example"
+"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
+"types[/a] for an example"
 msgstr ""
 "Consulta [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]tipus "
 "d'autenticació[/a] per veure exemples"
@@ -6223,8 +6205,8 @@ msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__table_coords[/"
 "kbd]"
 msgstr ""
-"Deixa en blanc per desactivar el suport d'esquemes PDF, suggerit: [kbd]"
-"pma__table_coords[/kbd]"
+"Deixa en blanc per desactivar el suport d'esquemes PDF, suggerit: "
+"[kbd]pma__table_coords[/kbd]"
 
 #: libraries/config/messages.inc.php:437
 msgid "PDF schema: table coordinates"
@@ -6306,8 +6288,8 @@ msgstr "Instruccions a seguir"
 
 #: libraries/config/messages.inc.php:450
 msgid ""
-"Leave blank for no SQL query tracking support, suggested: [kbd]pma__tracking"
-"[/kbd]"
+"Leave blank for no SQL query tracking support, suggested: "
+"[kbd]pma__tracking[/kbd]"
 msgstr ""
 "Deixa en blanc per desactivar el suport de seguiment de consultes SQL, "
 "suggerit: [kbd]pma__tracking[/kbd]"
@@ -6330,8 +6312,8 @@ msgstr "Crear versions automàticament"
 
 #: libraries/config/messages.inc.php:454
 msgid ""
-"Leave blank for no user preferences storage in database, suggested: [kbd]"
-"pma__userconfig[/kbd]"
+"Leave blank for no user preferences storage in database, suggested: "
+"[kbd]pma__userconfig[/kbd]"
 msgstr ""
 "Deixa en blanc per no desar les preferències de l'usuari en base de dades, "
 "suggerit: [kbd]pma__userconfig[/kbd]"
@@ -6343,11 +6325,11 @@ msgstr "Taula de preferències de l'usuari"
 #: libraries/config/messages.inc.php:456
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no user preferences storage in database, suggested: [kbd]"
-#| "pma__userconfig[/kbd]"
+#| "Leave blank for no user preferences storage in database, suggested: "
+#| "[kbd]pma__userconfig[/kbd]"
 msgid ""
-"Leave blank to disable configurable menus feature, suggested: [kbd]pma__users"
-"[/kbd]"
+"Leave blank to disable configurable menus feature, suggested: "
+"[kbd]pma__users[/kbd]"
 msgstr ""
 "Deixa en blanc per no desar les preferències de l'usuari en base de dades, "
 "suggerit: [kbd]pma__userconfig[/kbd]"
@@ -6361,11 +6343,11 @@ msgstr "Usa Taules"
 #: libraries/config/messages.inc.php:458
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no user preferences storage in database, suggested: [kbd]"
-#| "pma__userconfig[/kbd]"
+#| "Leave blank for no user preferences storage in database, suggested: "
+#| "[kbd]pma__userconfig[/kbd]"
 msgid ""
-"Leave blank to disable configurable menus feature, suggested: [kbd]"
-"pma__usergroups[/kbd]"
+"Leave blank to disable configurable menus feature, suggested: "
+"[kbd]pma__usergroups[/kbd]"
 msgstr ""
 "Deixa en blanc per no desar les preferències de l'usuari en base de dades, "
 "suggerit: [kbd]pma__userconfig[/kbd]"
@@ -6379,8 +6361,8 @@ msgstr "Utilitza la Taula de Hosts"
 #: libraries/config/messages.inc.php:460
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no user preferences storage in database, suggested: [kbd]"
-#| "pma__userconfig[/kbd]"
+#| "Leave blank for no user preferences storage in database, suggested: "
+#| "[kbd]pma__userconfig[/kbd]"
 msgid ""
 "Leave blank to disable the feature to hide and show navigation items, "
 "suggested: [kbd]pma__navigationhiding[/kbd]"
@@ -6411,8 +6393,8 @@ msgstr "Nom explicatiu d'aquest servidor"
 #: libraries/config/messages.inc.php:466
 msgid "Whether a user should be displayed a &quot;show all (rows)&quot; button"
 msgstr ""
-"Si a un usuari se l'hauria de mostrar el botó &quot;mostrar totes (les files)"
-"&quot;"
+"Si a un usuari se l'hauria de mostrar el botó &quot;mostrar totes (les "
+"files)&quot;"
 
 #: libraries/config/messages.inc.php:467
 msgid "Allow to display all the rows"
@@ -6662,8 +6644,8 @@ msgid ""
 msgstr ""
 "Entra els proxies com [kbd]IP: capçaleta HTTP confiable[/kbd]. El següent "
 "exemple mostra cóm phpMyAdmin hauria de validar la capçalera "
-"HTTP_X_FORWARDED_FOR (X-Forwarded-For) procedent del proxy 1.2.3.4:[br][kbd]"
-"1.2.3.4: HTTP_X_FORWARDED_FOR[/kbd]"
+"HTTP_X_FORWARDED_FOR (X-Forwarded-For) procedent del proxy 1.2.3.4:[br]"
+"[kbd]1.2.3.4: HTTP_X_FORWARDED_FOR[/kbd]"
 
 #: libraries/config/messages.inc.php:522
 msgid "List of trusted proxies for IP allow/deny"
@@ -7598,22 +7580,22 @@ msgstr "Enllaços relacionats"
 msgid "The PrimeBase XT Blog by Paul McCullagh"
 msgstr "El Blog de PrimeBase XT per Paul McCullagh"
 
-#: libraries/error_report.lib.php:237
+#: libraries/error_report.lib.php:265
 msgid ""
 "phpMyAdmin has encountered an error. We have collected data about this error "
 "as well as information about relevant configuration settings to send to the "
 "phpMyAdmin team to help us in debugging the problem."
 msgstr ""
 
-#: libraries/error_report.lib.php:244
+#: libraries/error_report.lib.php:272
 msgid "You may examine the data in the error report:"
 msgstr ""
 
-#: libraries/error_report.lib.php:251
+#: libraries/error_report.lib.php:279
 msgid "Please explain the steps that lead to the error:"
 msgstr ""
 
-#: libraries/error_report.lib.php:259
+#: libraries/error_report.lib.php:287
 #, fuzzy
 #| msgid "Automatically create versions"
 msgid "Automatically send report next time"
@@ -8844,8 +8826,8 @@ msgid ""
 "The first line of the file contains the table column names <i>(if this is "
 "unchecked, the first line will become part of the data)</i>"
 msgstr ""
-"La primera línia de l'arxiu conté els noms de les columnes de la taula <i>"
-"(si no es marca això, la primera línia formarà part de les dades)</i>"
+"La primera línia de l'arxiu conté els noms de les columnes de la taula "
+"<i>(si no es marca això, la primera línia formarà part de les dades)</i>"
 
 #: libraries/plugins/import/ImportCsv.class.php:72
 msgid ""
@@ -13100,8 +13082,9 @@ msgid ""
 "Otherwise you will be only able to download or display it."
 msgstr ""
 "Si us plau, crea una carpeta modificable pel servidor web [em]config[/em] al "
-"directori principal de phpMyAdmin tal com s'explica a la [doc@setup_script]"
-"documentació[/doc]. En cas contrari només podràs descarregar o mostrar."
+"directori principal de phpMyAdmin tal com s'explica a la "
+"[doc@setup_script]documentació[/doc]. En cas contrari només podràs "
+"descarregar o mostrar."
 
 #: setup/frames/index.inc.php:68
 msgid ""
@@ -13361,8 +13344,8 @@ msgid ""
 "You set the [kbd]config[/kbd] authentication type and included username and "
 "password for auto-login, which is not a desirable option for live hosts. "
 "Anyone who knows or guesses your phpMyAdmin URL can directly access your "
-"phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or [kbd]"
-"http[/kbd]."
+"phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or "
+"[kbd]http[/kbd]."
 msgstr ""
 "Has triat el tipus d'autenticació [kbd]config[/kbd] i has inclós el nom "
 "d'usuari i la contrasenya per connexions automàtiques, que es una opció no "
@@ -15151,9 +15134,9 @@ msgstr "{concurrent_insert} està establert a 0"
 
 #~ msgid ""
 #~ "When setting this to [kbd]nested[/kbd], the alias of the table name is "
-#~ "only used to split/nest the tables according to the $cfg"
-#~ "['LeftFrameTableSeparator'] directive, so only the folder is called like "
-#~ "the alias, the table name itself stays unchanged"
+#~ "only used to split/nest the tables according to the "
+#~ "$cfg['LeftFrameTableSeparator'] directive, so only the folder is called "
+#~ "like the alias, the table name itself stays unchanged"
 #~ msgstr ""
 #~ "Quan s'estableix aixó a [kbd]anidat[/kbd], el àlies del nom de la taula "
 #~ "només es fa servir per a separar/anidar les taules segons la directiva "

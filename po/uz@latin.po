@@ -1,9 +1,9 @@
 # Automatically generated <>, 2010.
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 4.1.0-alpha2\n"
+"Project-Id-Version: phpMyAdmin 4.1.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-10-13 06:55-0400\n"
+"POT-Creation-Date: 2013-10-17 12:58+0200\n"
 "PO-Revision-Date: 2013-08-23 11:34+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Uzbek (latin) <http://l10n.cihar.com/projects/phpmyadmin/"
@@ -421,36 +421,17 @@ msgstr "Jadvalni kuzatish"
 msgid "Database Log"
 msgstr "Baza log faylini"
 
-#: error_report.php:16
-msgid ""
-"An error has been detected, however, you seem to be running on a git version "
-"of phpMyAdmin."
-msgstr ""
-
-#: error_report.php:18 error_report.php:28
-msgid ""
-"Automatic report submission cannot be used. Please submit a manual error "
-"report on the bug tracker."
-msgstr ""
-
-#: error_report.php:21 error_report.php:31 error_report.php:42
-#: error_report.php:47
-msgid "You may want to refresh the page."
-msgstr ""
-
-#: error_report.php:26
-msgid ""
-"An error has been detected, however, the JavaScript line count file does not "
-"seem to exist in this phpMyAdmin installation."
-msgstr ""
-
-#: error_report.php:39
+#: error_report.php:17
 msgid ""
 "An error has been detected and an error report has been automatically "
 "submitted based on your settings."
 msgstr ""
 
-#: error_report.php:45
+#: error_report.php:20 error_report.php:25
+msgid "You may want to refresh the page."
+msgstr ""
+
+#: error_report.php:23
 msgid "Thank you for submitting this report."
 msgstr ""
 
@@ -591,7 +572,7 @@ msgid "Add geometry"
 msgstr "Yangi foydalanuvchi qo‘shish"
 
 #: gis_data_editor.php:398 js/messages.php:225
-#: libraries/DbSearch.class.php:465 libraries/DisplayResults.class.php:1687
+#: libraries/DbSearch.class.php:465 libraries/DisplayResults.class.php:1688
 #: libraries/TableSearch.class.php:1203 libraries/browse_foreigners.lib.php:51
 #: libraries/core.lib.php:554 libraries/display_change_password.lib.php:94
 #: libraries/display_create_table.lib.php:71
@@ -938,8 +919,9 @@ msgstr ""
 #: index.php:483
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
 msgstr ""
-"cookie-autentifikatsiya ishlatilganda, konfiguratsion fayldagi $cfg"
-"[\"blowfish_secret\"] direktivasi qiymatini o‘rnatib parol belgilash kerak."
+"cookie-autentifikatsiya ishlatilganda, konfiguratsion fayldagi "
+"$cfg[\"blowfish_secret\"] direktivasi qiymatini o‘rnatib parol belgilash "
+"kerak."
 
 #: index.php:494
 #, fuzzy
@@ -975,8 +957,8 @@ msgid ""
 "Your PHP MySQL library version %s differs from your MySQL server version %s. "
 "This may cause unpredictable behavior."
 msgstr ""
-"MySQL-kliyent versiyasi (\"%s\") o‘rnatilgan MySQL-server  versiyasi(\"%s\")"
-"dan farq qilmoqda. Bu holat noxush oqibatlarga olib kelishi mumkin."
+"MySQL-kliyent versiyasi (\"%s\") o‘rnatilgan MySQL-server  versiyasi(\"%s"
+"\")dan farq qilmoqda. Bu holat noxush oqibatlarga olib kelishi mumkin."
 
 #: index.php:564
 #, php-format
@@ -1918,7 +1900,7 @@ msgstr "SQL so‘rovlari qutisi"
 msgid "Show query box"
 msgstr "SQL so‘rovlari qutisi"
 
-#: js/messages.php:282 libraries/DisplayResults.class.php:3345
+#: js/messages.php:282 libraries/DisplayResults.class.php:3347
 #: libraries/Index.class.php:592 libraries/Util.class.php:667
 #: libraries/Util.class.php:1212 libraries/Util.class.php:3419
 #: libraries/Util.class.php:3420 libraries/config/messages.inc.php:496
@@ -1933,7 +1915,7 @@ msgid "No rows selected"
 msgstr ""
 "Amalni amalga oshirish uchun bitta yoki bir nechta qatorni tanlash kerak"
 
-#: js/messages.php:284 libraries/DisplayResults.class.php:5033
+#: js/messages.php:284 libraries/DisplayResults.class.php:5039
 #: libraries/structure.lib.php:1376 libraries/structure.lib.php:2065
 #: querywindow.php:85
 msgid "Change"
@@ -2041,7 +2023,7 @@ msgstr "Ma`lumotlar fayli ko‘rsatgichi hajmi"
 msgid "Ignore"
 msgstr "E`tibor bermaslik"
 
-#: js/messages.php:323 libraries/DisplayResults.class.php:3348
+#: js/messages.php:323 libraries/DisplayResults.class.php:3350
 msgid "Copy"
 msgstr ""
 
@@ -2059,7 +2041,7 @@ msgstr "Qatorlar bo‘luvchisi"
 msgid "Polygon"
 msgstr ""
 
-#: js/messages.php:330 libraries/DisplayResults.class.php:1671
+#: js/messages.php:330 libraries/DisplayResults.class.php:1672
 msgid "Geometry"
 msgstr ""
 
@@ -2255,7 +2237,7 @@ msgstr "Oxirgi versiyani tekshirish"
 msgid "up to date"
 msgstr "Ushbu bazaga o‘tish"
 
-#: js/messages.php:405 libraries/DisplayResults.class.php:5148
+#: js/messages.php:405 libraries/DisplayResults.class.php:5154
 #: view_create.php:178
 #, fuzzy
 #| msgid "Create version"
@@ -2680,8 +2662,8 @@ msgid "Font size"
 msgstr "Shrift o‘lchami"
 
 #: libraries/DBQbe.class.php:346 libraries/DisplayResults.class.php:1309
-#: libraries/DisplayResults.class.php:2037
-#: libraries/DisplayResults.class.php:2045 libraries/TableSearch.class.php:827
+#: libraries/DisplayResults.class.php:2038
+#: libraries/DisplayResults.class.php:2046 libraries/TableSearch.class.php:827
 #: libraries/operations.lib.php:643 libraries/server_databases.lib.php:315
 #: libraries/server_databases.lib.php:340 libraries/server_status.lib.php:452
 #: libraries/structure.lib.php:860 libraries/structure.lib.php:877
@@ -2689,8 +2671,8 @@ msgid "Ascending"
 msgstr "O‘sish tartibida"
 
 #: libraries/DBQbe.class.php:349 libraries/DisplayResults.class.php:1321
-#: libraries/DisplayResults.class.php:2032
-#: libraries/DisplayResults.class.php:2050 libraries/TableSearch.class.php:828
+#: libraries/DisplayResults.class.php:2033
+#: libraries/DisplayResults.class.php:2051 libraries/TableSearch.class.php:828
 #: libraries/operations.lib.php:646 libraries/server_databases.lib.php:315
 #: libraries/server_databases.lib.php:340 libraries/server_status.lib.php:449
 #: libraries/structure.lib.php:865 libraries/structure.lib.php:882
@@ -2854,8 +2836,8 @@ msgstr "Ko‘rib chiqish"
 msgid "Delete the matches for the %s table?"
 msgstr "Ushbu jadval uchun kuzatuv ma’lumotlari o‘chirish"
 
-#: libraries/DbSearch.class.php:361 libraries/DisplayResults.class.php:3417
-#: libraries/DisplayResults.class.php:5016
+#: libraries/DbSearch.class.php:361 libraries/DisplayResults.class.php:3419
+#: libraries/DisplayResults.class.php:5022
 #: libraries/schema/User_Schema.class.php:224
 #: libraries/schema/User_Schema.class.php:306
 #: libraries/schema/User_Schema.class.php:359
@@ -2936,7 +2918,7 @@ msgctxt "Next page"
 msgid "Next"
 msgstr "Keyingi"
 
-#: libraries/DisplayResults.class.php:903 libraries/Util.class.php:2526
+#: libraries/DisplayResults.class.php:904 libraries/Util.class.php:2526
 #: libraries/Util.class.php:2529
 #, fuzzy
 #| msgid "End"
@@ -3001,71 +2983,71 @@ msgid "Options"
 msgstr "Parametrlar"
 
 #: libraries/DisplayResults.class.php:1614
-#: libraries/DisplayResults.class.php:1720
+#: libraries/DisplayResults.class.php:1721
 #, fuzzy
 #| msgid "Partial Texts"
 msgid "Partial texts"
 msgstr "Ma`lumotlarni qisqartirib ko‘rsatish"
 
 #: libraries/DisplayResults.class.php:1615
-#: libraries/DisplayResults.class.php:1724
+#: libraries/DisplayResults.class.php:1725
 #, fuzzy
 #| msgid "Full Texts"
 msgid "Full texts"
 msgstr "Ma`lumotlarni kengaytirilgan holda ko‘rsatish"
 
-#: libraries/DisplayResults.class.php:1629
+#: libraries/DisplayResults.class.php:1630
 msgid "Relational key"
 msgstr "Aloqador kalit"
 
-#: libraries/DisplayResults.class.php:1630
+#: libraries/DisplayResults.class.php:1631
 #, fuzzy
 #| msgid "Relational display field"
 msgid "Relational display column"
 msgstr "Aloqador maydon qiymati"
 
-#: libraries/DisplayResults.class.php:1642
+#: libraries/DisplayResults.class.php:1643
 msgid "Show binary contents"
 msgstr "Ikkilik ma`lumotlarni ko‘rsatish"
 
-#: libraries/DisplayResults.class.php:1647
+#: libraries/DisplayResults.class.php:1648
 msgid "Show BLOB contents"
 msgstr "BLOB turidagi ma`lumotlarni ko‘rsatish"
 
-#: libraries/DisplayResults.class.php:1652
+#: libraries/DisplayResults.class.php:1653
 #: libraries/config/messages.inc.php:59
 msgid "Show binary contents as HEX"
 msgstr "Ikkilik ma’lumotlarni o‘n oltilik shaklda ko‘rsatish"
 
-#: libraries/DisplayResults.class.php:1663
+#: libraries/DisplayResults.class.php:1664
 #, fuzzy
 #| msgid "Browser transformation"
 msgid "Hide browser transformation"
 msgstr "O‘girish"
 
-#: libraries/DisplayResults.class.php:1672
+#: libraries/DisplayResults.class.php:1673
 msgid "Well Known Text"
 msgstr ""
 
-#: libraries/DisplayResults.class.php:1673
+#: libraries/DisplayResults.class.php:1674
 msgid "Well Known Binary"
 msgstr ""
 
-#: libraries/DisplayResults.class.php:3390
-#: libraries/DisplayResults.class.php:3406
+#: libraries/DisplayResults.class.php:3392
+#: libraries/DisplayResults.class.php:3408
 msgid "The row has been deleted"
 msgstr "Yozuv o‘chirildi"
 
-#: libraries/DisplayResults.class.php:3444
-#: libraries/DisplayResults.class.php:5016 libraries/server_status.lib.php:520
+#: libraries/DisplayResults.class.php:3446
+#: libraries/DisplayResults.class.php:5022 libraries/server_status.lib.php:520
 msgid "Kill"
 msgstr "Tugatish"
 
-#: libraries/DisplayResults.class.php:4474 libraries/structure.lib.php:771
+#: libraries/DisplayResults.class.php:4480 libraries/structure.lib.php:771
 msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]"
 msgstr "Taxminiy bo‘lishi mumkin. [doc@faq3-11]\"FAQ 3.11\"[/doc]ga qarang"
 
-#: libraries/DisplayResults.class.php:4528 libraries/Message.class.php:180
+#: libraries/DisplayResults.class.php:4534 libraries/Message.class.php:180
 #: libraries/rte/rte_routines.lib.php:1445
 #: libraries/sql_query_form.lib.php:117 libraries/tbl_relation.lib.php:895
 #: tbl_find_replace.php:49 tbl_operations.php:185 tbl_row_action.php:111
@@ -3073,11 +3055,11 @@ msgstr "Taxminiy bo‘lishi mumkin. [doc@faq3-11]\"FAQ 3.11\"[/doc]ga qarang"
 msgid "Your SQL query has been executed successfully"
 msgstr "SQL so‘rovi muvaffaqiyatli bajarildi"
 
-#: libraries/DisplayResults.class.php:4865
+#: libraries/DisplayResults.class.php:4871
 msgid "in query"
 msgstr "so‘rov bo‘yicha"
 
-#: libraries/DisplayResults.class.php:4902 libraries/structure.lib.php:653
+#: libraries/DisplayResults.class.php:4908 libraries/structure.lib.php:653
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to %sdocumentation"
@@ -3086,25 +3068,25 @@ msgstr ""
 "Ushbu namoyish kamida ko‘rsatilgan miqdorda qatorlarga ega. Batafsil "
 "ma`lumot uchun %sdokumentatsiyaga%s qarang."
 
-#: libraries/DisplayResults.class.php:4915
+#: libraries/DisplayResults.class.php:4921
 #, fuzzy, php-format
 #| msgid "Showing rows"
 msgid "Showing rows %1s - %2s"
 msgstr "Yozuvlarni ko‘rsatish"
 
-#: libraries/DisplayResults.class.php:4927
+#: libraries/DisplayResults.class.php:4933
 #, fuzzy, php-format
 #| msgid "total"
 msgid "%d total"
 msgstr "jami"
 
-#: libraries/DisplayResults.class.php:4939 libraries/sql.lib.php:1644
+#: libraries/DisplayResults.class.php:4945 libraries/sql.lib.php:1644
 #, php-format
 msgid "Query took %01.4f sec"
 msgstr "So‘rov %01.4f sekund vaqt oldi"
 
-#: libraries/DisplayResults.class.php:5023
-#: libraries/DisplayResults.class.php:5029 libraries/mult_submits.inc.php:46
+#: libraries/DisplayResults.class.php:5029
+#: libraries/DisplayResults.class.php:5035 libraries/mult_submits.inc.php:46
 #: libraries/server_databases.lib.php:147
 #: libraries/server_databases.lib.php:151
 #: libraries/server_privileges.lib.php:2860
@@ -3114,8 +3096,8 @@ msgstr "So‘rov %01.4f sekund vaqt oldi"
 msgid "With selected:"
 msgstr "Belgilanganlarni:"
 
-#: libraries/DisplayResults.class.php:5027
-#: libraries/DisplayResults.class.php:5028
+#: libraries/DisplayResults.class.php:5033
+#: libraries/DisplayResults.class.php:5034
 #: libraries/server_databases.lib.php:149
 #: libraries/server_databases.lib.php:150
 #: libraries/server_privileges.lib.php:1005
@@ -3128,8 +3110,8 @@ msgstr "Belgilanganlarni:"
 msgid "Check All"
 msgstr "Barchasini belgilash"
 
-#: libraries/DisplayResults.class.php:5046
-#: libraries/DisplayResults.class.php:5316 libraries/Menu.class.php:326
+#: libraries/DisplayResults.class.php:5052
+#: libraries/DisplayResults.class.php:5322 libraries/Menu.class.php:326
 #: libraries/Menu.class.php:424 libraries/Menu.class.php:543
 #: libraries/Util.class.php:3421 libraries/Util.class.php:3422
 #: libraries/Util.class.php:4111 libraries/Util.class.php:4126
@@ -3142,31 +3124,31 @@ msgstr "Barchasini belgilash"
 msgid "Export"
 msgstr "Eksport"
 
-#: libraries/DisplayResults.class.php:5204
+#: libraries/DisplayResults.class.php:5210
 msgid "Query results operations"
 msgstr "So‘rov natijalarini ishlatish"
 
-#: libraries/DisplayResults.class.php:5240 libraries/Header.class.php:345
+#: libraries/DisplayResults.class.php:5246 libraries/Header.class.php:345
 #: libraries/structure.lib.php:299 libraries/structure.lib.php:362
 #: libraries/structure.lib.php:1499
 msgid "Print view"
 msgstr "Chop etish versiyasi"
 
-#: libraries/DisplayResults.class.php:5258
+#: libraries/DisplayResults.class.php:5264
 msgid "Print view (with full texts)"
 msgstr "Chop etish versiyasi (to‘la)"
 
-#: libraries/DisplayResults.class.php:5329 libraries/tbl_chart.lib.php:266
+#: libraries/DisplayResults.class.php:5335 libraries/tbl_chart.lib.php:266
 #, fuzzy
 #| msgid "Display PDF schema"
 msgid "Display chart"
 msgstr "PDF-sxemani ko‘rsatish"
 
-#: libraries/DisplayResults.class.php:5354
+#: libraries/DisplayResults.class.php:5360
 msgid "Visualize GIS data"
 msgstr ""
 
-#: libraries/DisplayResults.class.php:5571
+#: libraries/DisplayResults.class.php:5578
 msgid "Link not found"
 msgstr "Aloqa topilmadi"
 
@@ -3215,8 +3197,8 @@ msgstr "Fayl yuklanayotgan vaqtda noma`lum xatolik yuz berdi."
 #: libraries/File.class.php:476
 msgid "Error moving the uploaded file, see [doc@faq1-11]FAQ 1.11[/doc]"
 msgstr ""
-"Yuklangan fayl joyini o‘zgartirishda xatolik, [doc@faq1-11]\"FAQ 1.11\"[/doc]"
-"ga qarang"
+"Yuklangan fayl joyini o‘zgartirishda xatolik, [doc@faq1-11]\"FAQ 1.11\"[/"
+"doc]ga qarang"
 
 #: libraries/File.class.php:494
 msgid "Error while moving uploaded file."
@@ -4842,8 +4824,8 @@ msgid ""
 "Enable [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] compression for "
 "import and export operations"
 msgstr ""
-"Import va eksport operatsiyalarida    [a@http://en.wikipedia.org/wiki/Bzip2]"
-"bzip2[/a] yordamida siqishni yoqish"
+"Import va eksport operatsiyalarida    [a@http://en.wikipedia.org/wiki/"
+"Bzip2]bzip2[/a] yordamida siqishni yoqish"
 
 #: libraries/config/messages.inc.php:29
 msgid "Bzip2"
@@ -4873,8 +4855,8 @@ msgstr "CHAR maydonlarini tahrirlash"
 
 #: libraries/config/messages.inc.php:32
 msgid ""
-"Use user-friendly editor for editing SQL queries ([a@http://codemirror.net/]"
-"CodeMirror[/a]) with syntax highlighting and line numbers"
+"Use user-friendly editor for editing SQL queries ([a@http://codemirror."
+"net/]CodeMirror[/a]) with syntax highlighting and line numbers"
 msgstr ""
 
 #: libraries/config/messages.inc.php:33
@@ -5468,8 +5450,9 @@ msgstr "Sahifa raqami: "
 
 #: libraries/config/messages.inc.php:194
 msgid ""
-"Specify browser's title bar text. Refer to [doc@cfg_TitleTable]documentation"
-"[/doc] for magic strings that can be used to get special values."
+"Specify browser's title bar text. Refer to "
+"[doc@cfg_TitleTable]documentation[/doc] for magic strings that can be used "
+"to get special values."
 msgstr ""
 
 #: libraries/config/messages.inc.php:195
@@ -5677,8 +5660,8 @@ msgid ""
 "Enable [a@http://en.wikipedia.org/wiki/Gzip]gzip[/a] compression for import "
 "and export operations"
 msgstr ""
-"Import va eksport operatsiyalarida    [a@http://en.wikipedia.org/wiki/Gzip]"
-"gzip[/a] yordamida siqishni yoqish"
+"Import va eksport operatsiyalarida    [a@http://en.wikipedia.org/wiki/"
+"Gzip]gzip[/a] yordamida siqishni yoqish"
 
 #: libraries/config/messages.inc.php:238
 msgid "GZip"
@@ -5969,8 +5952,8 @@ msgid ""
 "Open the linked page in the main window ([kbd]main[/kbd]) or in a new one "
 "([kbd]new[/kbd])"
 msgstr ""
-"Bog‘langan sahifani bosh oynada ([kbd]bosh[/kbd]) yoki yangi oynada ([kbd]"
-"yangi[/kbd]) ochish"
+"Bog‘langan sahifani bosh oynada ([kbd]bosh[/kbd]) yoki yangi oynada "
+"([kbd]yangi[/kbd]) ochish"
 
 #: libraries/config/messages.inc.php:305
 msgid "Logo link target"
@@ -6362,11 +6345,11 @@ msgstr "Xatcho‘plar jadvali"
 #: libraries/config/messages.inc.php:383
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no column comments/mime types, suggested: [kbd]"
-#| "pma_column_info[/kbd]"
+#| "Leave blank for no column comments/mime types, suggested: "
+#| "[kbd]pma_column_info[/kbd]"
 msgid ""
-"Leave blank for no column comments/mime types, suggested: [kbd]"
-"pma__column_info[/kbd]"
+"Leave blank for no column comments/mime types, suggested: "
+"[kbd]pma__column_info[/kbd]"
 msgstr ""
 "Ustun izohlari/\"mime\"-turlari haqidagi ma`lumotlarni ishlatmaslik uchun "
 "bo‘sh qoldiring, asli: [kbd]pma_column_info[/kbd]"
@@ -6401,8 +6384,8 @@ msgid ""
 "available on [a@http://wiki.phpmyadmin.net/pma/controluser]wiki[/a]"
 msgstr ""
 "Cheklangan huquqlarga ega bo‘lgan maxsus \"MySQL\" foydalanuvchisi tuzilgan, "
-"batafsil ma`lumot [a@http://wiki.phpmyadmin.net/pma/controluser]\"wiki\"[/a]"
-"da mavjud"
+"batafsil ma`lumot [a@http://wiki.phpmyadmin.net/pma/controluser]\"wiki\"[/"
+"a]da mavjud"
 
 #: libraries/config/messages.inc.php:391
 msgid "Control user"
@@ -6442,8 +6425,8 @@ msgid ""
 "Leave blank for no Designer support, suggested: [kbd]pma__designer_coords[/"
 "kbd]"
 msgstr ""
-"Dizayner ishlatmaslik uchun bo‘sh qoldiring, asl qiymati: [kbd]"
-"pma_designer_coords[/kbd]"
+"Dizayner ishlatmaslik uchun bo‘sh qoldiring, asl qiymati: "
+"[kbd]pma_designer_coords[/kbd]"
 
 #: libraries/config/messages.inc.php:397
 msgid "Designer table"
@@ -6484,8 +6467,8 @@ msgstr "Bazalarni yashirish"
 #: libraries/config/messages.inc.php:404
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no SQL query history support, suggested: [kbd]pma_history"
-#| "[/kbd]"
+#| "Leave blank for no SQL query history support, suggested: "
+#| "[kbd]pma_history[/kbd]"
 msgid ""
 "Leave blank for no SQL query history support, suggested: [kbd]pma__history[/"
 "kbd]"
@@ -6577,8 +6560,8 @@ msgid ""
 "no support. Suggested: [kbd]phpmyadmin[/kbd]"
 msgstr ""
 "Aloqalar, xatcho‘plar va PDF imkoniyatlari uchun ishlatiladigan baza.  "
-"Batafsil ma`lumot uchun [a@http://wiki.phpmyadmin.net/pma/pmadb]\"pmadb\"[/a]"
-"ga qarang. Agar foydalanmasangiz, bo‘sh qoldiring. Asl qiymati: "
+"Batafsil ma`lumot uchun [a@http://wiki.phpmyadmin.net/pma/pmadb]\"pmadb\"[/"
+"a]ga qarang. Agar foydalanmasangiz, bo‘sh qoldiring. Asl qiymati: "
 "[kbd]\"phpmyadmin\"[/kbd]"
 
 #: libraries/config/messages.inc.php:420
@@ -6620,8 +6603,8 @@ msgstr "Foydalanuvchi nomini chaqirib olish"
 #| "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
 #| "links[/a] support, suggested: [kbd]pma_relation[/kbd]"
 msgid ""
-"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-links"
-"[/a] support, suggested: [kbd]pma__relation[/kbd]"
+"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
+"links[/a] support, suggested: [kbd]pma__relation[/kbd]"
 msgstr ""
 "[a@http://wiki.phpmyadmin.net/pma/relation]Aloqa bog‘lanishlari[/a]ni "
 "ishlatmaslik uchun, bo‘sh qoldiring, asl qiymati: [kbd]\"pma_relation\"[/kbd]"
@@ -6640,11 +6623,11 @@ msgstr "SHOW DATABASES buyrug‘i"
 
 #: libraries/config/messages.inc.php:429
 msgid ""
-"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication types"
-"[/a] for an example"
+"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
+"types[/a] for an example"
 msgstr ""
-"Namuna  uchun [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]"
-"autentifikatsiya usullari[/a]ga qarang"
+"Namuna  uchun [a@http://wiki.phpmyadmin.net/pma/"
+"auth_types#signon]autentifikatsiya usullari[/a]ga qarang"
 
 #: libraries/config/messages.inc.php:430
 msgid "Signon session name"
@@ -6768,8 +6751,8 @@ msgstr "Tavsif"
 #| msgid ""
 #| "ve blank for no SQL query history support, suggested: [kbd]pma_historybd]"
 msgid ""
-"Leave blank for no SQL query tracking support, suggested: [kbd]pma__tracking"
-"[/kbd]"
+"Leave blank for no SQL query tracking support, suggested: "
+"[kbd]pma__tracking[/kbd]"
 msgstr ""
 "Agar SQL so‘rovlar tarixidan foydalanmoqchi bo‘lmasangiz, bo‘sh qoldiring, "
 "asl qiymati: [kbd]\"pma_history\"[/kbd]"
@@ -6797,8 +6780,8 @@ msgstr "Avtomatik tiklash rejimi"
 #| msgid ""
 #| "ve blank for no SQL query history support, suggested: [kbd]pma_historybd]"
 msgid ""
-"Leave blank for no user preferences storage in database, suggested: [kbd]"
-"pma__userconfig[/kbd]"
+"Leave blank for no user preferences storage in database, suggested: "
+"[kbd]pma__userconfig[/kbd]"
 msgstr ""
 "Agar SQL so‘rovlar tarixidan foydalanmoqchi bo‘lmasangiz, bo‘sh qoldiring, "
 "asl qiymati: [kbd]\"pma_history\"[/kbd]"
@@ -6812,8 +6795,8 @@ msgstr ""
 #| msgid ""
 #| "ve blank for no SQL query history support, suggested: [kbd]pma_historybd]"
 msgid ""
-"Leave blank to disable configurable menus feature, suggested: [kbd]pma__users"
-"[/kbd]"
+"Leave blank to disable configurable menus feature, suggested: "
+"[kbd]pma__users[/kbd]"
 msgstr ""
 "Agar SQL so‘rovlar tarixidan foydalanmoqchi bo‘lmasangiz, bo‘sh qoldiring, "
 "asl qiymati: [kbd]\"pma_history\"[/kbd]"
@@ -6829,8 +6812,8 @@ msgstr "Jadvallarni ishlatish"
 #| msgid ""
 #| "ve blank for no SQL query history support, suggested: [kbd]pma_historybd]"
 msgid ""
-"Leave blank to disable configurable menus feature, suggested: [kbd]"
-"pma__usergroups[/kbd]"
+"Leave blank to disable configurable menus feature, suggested: "
+"[kbd]pma__usergroups[/kbd]"
 msgstr ""
 "Agar SQL so‘rovlar tarixidan foydalanmoqchi bo‘lmasangiz, bo‘sh qoldiring, "
 "asl qiymati: [kbd]\"pma_history\"[/kbd]"
@@ -7215,8 +7198,8 @@ msgid ""
 "Enable [a@http://en.wikipedia.org/wiki/ZIP_(file_format)]ZIP[/a] compression "
 "for import and export operations"
 msgstr ""
-"Import va eksport operatsiyalari uchun  [a@http://en.wikipedia.org/wiki/ZIP_"
-"(file_format)]ZIP[/a] qisishni yoqish"
+"Import va eksport operatsiyalari uchun  [a@http://en.wikipedia.org/wiki/"
+"ZIP_(file_format)]ZIP[/a] qisishni yoqish"
 
 #: libraries/config/messages.inc.php:540
 msgid "ZIP"
@@ -8125,22 +8108,22 @@ msgstr "Aloqalar"
 msgid "The PrimeBase XT Blog by Paul McCullagh"
 msgstr ""
 
-#: libraries/error_report.lib.php:237
+#: libraries/error_report.lib.php:265
 msgid ""
 "phpMyAdmin has encountered an error. We have collected data about this error "
 "as well as information about relevant configuration settings to send to the "
 "phpMyAdmin team to help us in debugging the problem."
 msgstr ""
 
-#: libraries/error_report.lib.php:244
+#: libraries/error_report.lib.php:272
 msgid "You may examine the data in the error report:"
 msgstr ""
 
-#: libraries/error_report.lib.php:251
+#: libraries/error_report.lib.php:279
 msgid "Please explain the steps that lead to the error:"
 msgstr ""
 
-#: libraries/error_report.lib.php:259
+#: libraries/error_report.lib.php:287
 #, fuzzy
 #| msgid "Automatic recovery mode"
 msgid "Automatically send report next time"
@@ -12361,8 +12344,8 @@ msgstr "Ochiq fayllar soni."
 #: libraries/server_status_variables.lib.php:641
 msgid "The number of streams that are open (used mainly for logging)."
 msgstr ""
-"Ochiq oqimlar soni (jurnal fayllarida ko‘llaniladi). <b>Oqim</b> deb \"fopen"
-"()\" funksiyasi yordamida ochilgan faylga aytiladi."
+"Ochiq oqimlar soni (jurnal fayllarida ko‘llaniladi). <b>Oqim</b> deb "
+"\"fopen()\" funksiyasi yordamida ochilgan faylga aytiladi."
 
 #: libraries/server_status_variables.lib.php:644
 msgid "The number of tables that are open."
@@ -14006,17 +13989,18 @@ msgstr "Konfiguratsiyani yuklab yoki saqlab bo‘lmadi"
 #, fuzzy
 #| msgid ""
 #| "ase create web server writable folder [em]config[/em] in phpMyAdmin  "
-#| "level directory as described in [a@../Documentation.html#setup_script]"
-#| "umentation[/a]. Otherwise you will be only able to download or display "
+#| "level directory as described in [a@../Documentation."
+#| "html#setup_script]umentation[/a]. Otherwise you will be only able to "
+#| "download or display "
 msgid ""
 "Please create web server writable folder [em]config[/em] in phpMyAdmin top "
 "level directory as described in [doc@setup_script]documentation[/doc]. "
 "Otherwise you will be only able to download or display it."
 msgstr ""
 "[a@../Documentation.html#setup_script]Dokumentatsiya[/a]da ko‘rsatilganidek, "
-"phpMyAdmin joylashgan katalogda ver-server yozishi mumkin bo‘lgan [em]config"
-"[/em] nomli katalog oching. Aks holda, Siz uni faqat yuklab olishingiz yoki "
-"ko‘rishingiz mumkin bo‘ladi."
+"phpMyAdmin joylashgan katalogda ver-server yozishi mumkin bo‘lgan "
+"[em]config[/em] nomli katalog oching. Aks holda, Siz uni faqat yuklab "
+"olishingiz yoki ko‘rishingiz mumkin bo‘ladi."
 
 #: setup/frames/index.inc.php:68
 msgid ""
@@ -14172,10 +14156,10 @@ msgstr "Yangiroq versiya hali mavjud emas"
 #| msgid ""
 #| "s [a@?page=form&amp;formset=features#tab_Security]option[/a] should be "
 #| "abled as it allows attackers to bruteforce login to any MySQL server. you "
-#| "feel this is necessary, use [a@?page=form&amp;mset=features#tab_Security]"
-#| "trusted proxies list[/a]. However, IP-based tection may not be reliable "
-#| "if your IP belongs to an ISP where usands of users, including you, are "
-#| "connected to."
+#| "feel this is necessary, use [a@?page=form&amp;"
+#| "mset=features#tab_Security]trusted proxies list[/a]. However, IP-based "
+#| "tection may not be reliable if your IP belongs to an ISP where usands of "
+#| "users, including you, are connected to."
 msgid ""
 "This %soption%s should be disabled as it allows attackers to bruteforce "
 "login to any MySQL server. If you feel this is necessary, use %strusted "
@@ -14300,14 +14284,15 @@ msgstr ""
 #| " set the [kbd]config[/kbd] authentication type and included username  "
 #| "password for auto-login, which is not a desirable option for live ts. "
 #| "Anyone who knows or guesses your phpMyAdmin URL can directly ess your "
-#| "phpMyAdmin panel. Set [a@?page=servers&amp;mode=edit&amp;id=d#tab_Server]"
-#| "authentication type[/a] to [kbd]cookie[/kbd] or [kbd]httpbd]."
+#| "phpMyAdmin panel. Set [a@?page=servers&amp;mode=edit&amp;"
+#| "id=d#tab_Server]authentication type[/a] to [kbd]cookie[/kbd] or "
+#| "[kbd]httpbd]."
 msgid ""
 "You set the [kbd]config[/kbd] authentication type and included username and "
 "password for auto-login, which is not a desirable option for live hosts. "
 "Anyone who knows or guesses your phpMyAdmin URL can directly access your "
-"phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or [kbd]"
-"http[/kbd]."
+"phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or "
+"[kbd]http[/kbd]."
 msgstr ""
 "Siz [kbd]config[/kbd] autentifikatsiya usulini tanlab, o‘z loginva "
 "parolingizni konfiguratsion faylga yozib qo‘ydingiz va u Sizga avtomatik "
@@ -14316,8 +14301,8 @@ msgstr ""
 "adresini bilgan yoki taxmin qilgan har kim ushbu dasturga bemalol kirib, "
 "serverdagi ma`lumotlar bazalari bilan istalgan operatsiyalarni amalga "
 "oshirishi mumkin. Server [a@?page=servers&amp;mode=edit&amp;id="
-"%1$d#tab_Server]autentifikatsiya usuli[/a]ni [kbd]cookie[/kbd] yoki [kbd]http"
-"[/kbd] deb belgilash tavsiya etiladi."
+"%1$d#tab_Server]autentifikatsiya usuli[/a]ni [kbd]cookie[/kbd] yoki "
+"[kbd]http[/kbd] deb belgilash tavsiya etiladi."
 
 #: setup/lib/index.lib.php:284
 #, fuzzy, php-format
@@ -16015,9 +16000,9 @@ msgstr "Maksimal ulanishlar soni "
 
 #~ msgid ""
 #~ "When setting this to [kbd]nested[/kbd], the alias of the table name is "
-#~ "only used to split/nest the tables according to the $cfg"
-#~ "['LeftFrameTableSeparator'] directive, so only the folder is called like "
-#~ "the alias, the table name itself stays unchanged"
+#~ "only used to split/nest the tables according to the "
+#~ "$cfg['LeftFrameTableSeparator'] directive, so only the folder is called "
+#~ "like the alias, the table name itself stays unchanged"
 #~ msgstr ""
 #~ "Agar ushbu tanlovni [kbd]\"nested\"[/kbd] deb belgilasangiz, faqat jadval "
 #~ "nomining taxallusi konfiguratsion fayldagi $cfg[\"LeftFrameTableSeparator"
