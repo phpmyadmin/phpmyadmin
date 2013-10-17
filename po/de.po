@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-09-17 10:36-0400\n"
-"PO-Revision-Date: 2013-10-15 11:40+0200\n"
-"Last-Translator: Elvio Petillo <elvio.petillo@nanowaris.com>\n"
+"PO-Revision-Date: 2013-10-17 13:14+0200\n"
+"Last-Translator: Patrik Kernstock <patschimail@gmail.com>\n"
 "Language-Team: German <http://l10n.cihar.com/projects/phpmyadmin/4-0/de/>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
@@ -2659,7 +2659,7 @@ msgstr "Zeige Datensätze %1s - %2s"
 #, php-format
 #| msgid "total"
 msgid "%d total"
-msgstr "%d total"
+msgstr "%d insgesamt"
 
 # (s is the abbreviation of "Sekunde", sec is it not (according to
 # International System of Units), so we wrote the complete one.)
@@ -3906,12 +3906,12 @@ msgstr "Numerischer Schlüssel entdeckt"
 #: libraries/config.values.php:49 libraries/config.values.php:64
 #: libraries/config.values.php:69
 msgid "Icons"
-msgstr ""
+msgstr "Symbole"
 
 #: libraries/config.values.php:50 libraries/config.values.php:65
 #: libraries/config.values.php:70
 msgid "Text"
-msgstr ""
+msgstr "Text"
 
 #: libraries/config.values.php:51 libraries/config.values.php:58
 #: libraries/config.values.php:66 libraries/config.values.php:71
@@ -5376,10 +5376,9 @@ msgid "MySQL reserved word warning"
 msgstr "Warnung wegen reservierter MySQL-Wörter"
 
 #: libraries/config/messages.inc.php:341
-#, fuzzy
 #| msgid "Allow to display all the rows"
 msgid "How to display the menu tabs"
-msgstr "Erlaube es alle Datensätze anzuzeigen"
+msgstr "Wie sollen die Menüpunkte dargestellt werden"
 
 #: libraries/config/messages.inc.php:343
 msgid "How to display various action links"
@@ -6292,10 +6291,9 @@ msgstr "CSV mit LOAD DATA"
 #: libraries/config/setup.forms.php:257 libraries/config/setup.forms.php:350
 #: libraries/config/user_preferences.forms.php:161
 #: libraries/config/user_preferences.forms.php:253
-#, fuzzy
 #| msgid "Open Document Spreadsheet"
 msgid "OpenDocument Spreadsheet"
-msgstr "Open Document Kalkulationstabelle"
+msgstr "OpenDocument Kalkulationstabelle"
 
 #: libraries/config/setup.forms.php:264
 #: libraries/config/user_preferences.forms.php:168
@@ -6324,10 +6322,9 @@ msgstr "Microsoft Word 2000"
 
 #: libraries/config/setup.forms.php:354
 #: libraries/config/user_preferences.forms.php:257
-#, fuzzy
 #| msgid "Open Document Text"
 msgid "OpenDocument Text"
-msgstr "Open Document Text"
+msgstr "OpenDocument-Text"
 
 #: libraries/config/validate.lib.php:214
 msgid "Could not initialize Drizzle connection library"
@@ -12465,10 +12462,9 @@ msgid "No index defined! Create one below"
 msgstr "Kein Index definiert! Erstellen Sie unten einen"
 
 #: tbl_structure.php:125
-#, fuzzy
 #| msgid "No rows selected"
 msgid "No column selected."
-msgstr "Es wurden keine Datensätze ausgewählt"
+msgstr "Es wurden keine Datensätze ausgewählt."
 
 #: tbl_structure.php:149
 #, php-format
@@ -12653,10 +12649,9 @@ msgid "Rename view to"
 msgstr "View umbenennen in"
 
 #: view_operations.php:130
-#, fuzzy
 #| msgid "Delete the table (DROP)"
 msgid "Delete the view (DROP)"
-msgstr "Tabelle löschen (DROP)"
+msgstr "Ansicht löschen (DROP)"
 
 #: libraries/advisory_rules.txt:49
 msgid "Uptime below one day"
