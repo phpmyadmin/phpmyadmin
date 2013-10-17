@@ -109,7 +109,7 @@ function PMA_sanitizeUrl($url) {
  */
 function PMA_sendErrorReport($report) {
     $data_string = json_encode($report);
-    if (ini_get('allow_url_fopen') && false) {
+    if (ini_get('allow_url_fopen')) {
         $context = array("http" =>
             array(
                 'method'  => 'POST',
