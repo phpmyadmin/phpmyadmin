@@ -252,17 +252,17 @@ class PMA_DisplayResults
         if ($cfgRelation['db']) {
             $this->transformation_info[$cfgRelation['db']] = array();
             $relDb = &$this->transformation_info[$cfgRelation['db']];
-            if ($cfgRelation['history']) {
+            if (! empty($cfgRelation['history'])) {
                 $relDb[$cfgRelation['history']] = array(
                     'sqlquery' => $sql_highlighting_data
                 );
             }
-            if (isset($cfgRelation['bookmark']) && $cfgRelation['bookmark']) {
+            if (! empty($cfgRelation['bookmark'])) {
                 $relDb[$cfgRelation['bookmark']] = array(
                     'query' => $sql_highlighting_data
                 );
             }
-            if ($cfgRelation['tracking']) {
+            if (! empty($cfgRelation['tracking'])) {
                 $relDb[$cfgRelation['tracking']] = array(
                     'schema_sql' => $sql_highlighting_data,
                     'data_sql' => $sql_highlighting_data
@@ -892,7 +892,7 @@ class PMA_DisplayResults
         $maxRows = $_SESSION['tmpval']['max_rows'];
         $onsubmit = 'onsubmit="return '
             . ($_SESSION['tmpval']['pos']
-                + $maxRows 
+                + $maxRows
                 < $this->__get('unlim_num_rows')
                 && $this->__get('num_rows') >= $maxRows)
             ? 'true'
