@@ -146,7 +146,7 @@ function PMA_getHtmlForSqlQueryForm(
     // print an empty div, which will be later filled with
     // the sql query results by ajax
     $html .= '<div id="sqlqueryresults"></div>';
-    
+
     return $html;
 }
 
@@ -346,10 +346,10 @@ function PMA_getHtmlForSqlQueryFormInsert(
     $html .= '<div class="formelement">' . "\n";
 
     if ($is_querywindow) {
-        $html .= '<input type="checkbox" ' 
-            . 'name="LockFromUpdate" checked="checked" tabindex="120" ' 
-            . 'id="checkbox_lock" /> <label for="checkbox_lock">' 
-            . __('Do not overwrite this query from outside the window') 
+        $html .= '<input type="checkbox" '
+            . 'name="LockFromUpdate" checked="checked" tabindex="120" '
+            . 'id="checkbox_lock" /> <label for="checkbox_lock">'
+            . __('Do not overwrite this query from outside the window')
             . '</label>';
     }
     $html .= '</div>' . "\n";
@@ -379,7 +379,7 @@ function PMA_getHtmlForSqlQueryFormInsert(
         . ' tabindex="200" value="' . __('Go') . '" />' . "\n";
     $html .= '<div class="clearfloat"></div>' . "\n";
     $html .= '</fieldset>' . "\n";
-    
+
     return $html;
 }
 
@@ -397,7 +397,7 @@ function PMA_getHtmlForSqlQueryFormBookmark()
         return;
     }
 
-    $html  = '<fieldset id="bookmarkoptions">';
+    $html  = '<fieldset id="fieldsetBookmarkOptions">';
     $html .= '<legend>';
     $html .= __('Bookmarked SQL query') . '</legend>' . "\n";
     $html .= '<div class="formelement">';
@@ -433,12 +433,12 @@ function PMA_getHtmlForSqlQueryFormBookmark()
     $html .= '<div class="clearfloat"></div>' . "\n";
     $html .= '</fieldset>' . "\n";
 
-    $html .= '<fieldset id="bookmarkoptionsfooter" class="tblFooters">' . "\n";
-    $html .= '<input type="submit" name="SQL" id="button_submit_bookmark" value="' 
+    $html .= '<fieldset id="fieldsetBookmarkOptionsFooter" class="tblFooters">' . "\n";
+    $html .= '<input type="submit" name="SQL" id="button_submit_bookmark" value="'
         . __('Go') . '" />';
     $html .= '<div class="clearfloat"></div>' . "\n";
     $html .= '</fieldset>' . "\n";
-    
+
     return $html;
 }
 
@@ -512,7 +512,7 @@ function PMA_getHtmlForSqlQueryFormUpload()
     foreach ($errors as $error) {
         $html .= $error->getDisplay();
     }
-    
+
     return $html;
 }
 ?>

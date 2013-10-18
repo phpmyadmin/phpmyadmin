@@ -398,8 +398,7 @@ function checkSqlQuery(theForm)
     }
     if (isEmpty && typeof(theForm.elements['id_bookmark']) != 'undefined' &&
             (theForm.elements['id_bookmark'].value !== null || theForm.elements['id_bookmark'].value !== '') &&
-            theForm.elements['id_bookmark'].selectedIndex !== 0
-            ) {
+            theForm.elements['id_bookmark'].selectedIndex !== 0) {
         return true;
     }
     // Checks for "DROP/DELETE/ALTER" statements

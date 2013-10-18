@@ -268,6 +268,12 @@ AJAX.registerOnload('sql.js', function () {
                     // delete
                     if ('2' == data.action_bookmark) {
                         $("#id_bookmark option[value='" + data.id_bookmark + "']").remove();
+                        // if there are no bookmarked queries now (only the empty option),
+                        // remove the bookmark section
+                        if ($('#id_bookmark option').length == 1) {
+                            $('#fieldsetBookmarkOptions').hide();
+                            $('#fieldsetBookmarkOptionsFooter').hide();
+                        }
                     }
                     $sqlqueryresults
                      .show()
