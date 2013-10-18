@@ -3882,6 +3882,7 @@ class PMA_DisplayResults
         $is_field_truncated, $analyzed_sql, &$dt_result, $col_index
     ) {
 
+        $limitChars = $GLOBALS['cfg']['LimitChars'];
         $is_analyse = $this->__get('is_analyse');
         $field_flags = $GLOBALS['dbi']->fieldFlags($dt_result, $col_index);
         if (stristr($field_flags, self::BINARY_FIELD)
@@ -3899,7 +3900,7 @@ class PMA_DisplayResults
 
             // Cut all fields to $GLOBALS['cfg']['LimitChars']
             // (unless it's a link-type transformation)
-            if ($GLOBALS['PMA_String']->strlen($column) > $GLOBALS['cfg']['LimitChars']
+            if ($GLOBALS['PMA_String']->strlen($column) > $limitChars
                 && ($_SESSION['tmpval']['pftext'] == self::DISPLAY_PARTIAL_TEXT)
                 && ! (gettype($transformation_plugin) == "object"
                 && strpos($transformation_plugin->getName(), 'Link') !== false)
