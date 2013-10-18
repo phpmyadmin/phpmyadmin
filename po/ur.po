@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-10-17 12:58+0200\n"
-"PO-Revision-Date: 2013-07-02 10:26+0200\n"
+"PO-Revision-Date: 2013-10-18 16:20+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Urdu <http://l10n.cihar.com/projects/phpmyadmin/master/ur/>\n"
 "Language: ur\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Weblate 1.6-dev\n"
+"X-Generator: Weblate 1.8-dev\n"
 
 # changelog.php:32 license.php:28
 #: changelog.php:36 license.php:28
@@ -754,7 +754,7 @@ msgstr "سرور نسخہ:"
 
 #: index.php:264
 msgid "Protocol version:"
-msgstr "پروٹوکول نسخہ"
+msgstr "پروٹوکول نسخہ:"
 
 #: index.php:268
 msgid "User:"
@@ -762,7 +762,7 @@ msgstr "صارف:"
 
 #: index.php:273
 msgid "Server charset:"
-msgstr "سرور حروف سیٹ"
+msgstr "سرور حروف سیٹ:"
 
 #: index.php:287
 msgid "Web server"
@@ -981,17 +981,17 @@ msgstr "ہوسٹ نام خالی ہے!"
 
 #: js/messages.php:60
 msgid "The user name is empty!"
-msgstr "صارف کا نام خالی ہے"
+msgstr "صارف کا نام خالی ہے!"
 
 #: js/messages.php:61 libraries/server_privileges.lib.php:1553
 #: user_password.php:110
 msgid "The password is empty!"
-msgstr "پاس ورڈ خالی ہے"
+msgstr "پاس ورڈ خالی ہے!"
 
 #: js/messages.php:62 libraries/server_privileges.lib.php:1551
 #: user_password.php:113
 msgid "The passwords aren't the same!"
-msgstr "پاس ورڈ ایک جیسے نہیں ہیں"
+msgstr "پاس ورڈ ایک جیسے نہیں ہیں!"
 
 #: js/messages.php:63 libraries/server_privileges.lib.php:1679
 #: libraries/server_privileges.lib.php:1883
@@ -2562,7 +2562,7 @@ msgstr ""
 #: libraries/DBQbe.class.php:1321
 #, php-format
 msgid "SQL query on database <b>%s</b>:"
-msgstr "کوائفیہ کے لیے <b>%s</b> SQL طلب"
+msgstr "کوائفیہ کے لیے <b>%s</b> SQL طلب:"
 
 #: libraries/DBQbe.class.php:1335 libraries/Util.class.php:1241
 msgid "Submit Query"
@@ -2605,7 +2605,7 @@ msgstr "بطور باقاعدہ اظہار"
 #: libraries/DbSearch.class.php:271
 #, php-format
 msgid "Search results for \"<i>%s</i>\" %s:"
-msgstr "تلاش نتائج برائے \"<i>%s</i>\" %s"
+msgstr "تلاش نتائج برائے \"<i>%s</i>\" %s:"
 
 #: libraries/DbSearch.class.php:298
 #, php-format
@@ -4075,7 +4075,7 @@ msgstr "حصہ دارانہ"
 
 #: libraries/browse_foreigners.lib.php:43
 msgid "Search:"
-msgstr "تلاش کريں"
+msgstr "تلاش کريں:"
 
 #: libraries/browse_foreigners.lib.php:63
 #: libraries/browse_foreigners.lib.php:65
@@ -8391,7 +8391,7 @@ msgstr "مسل %s کلید آئی ڈی کا حامل نہیں ہے"
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:180
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:200
 msgid "Hardware authentication failed!"
-msgstr "ہارڈویئر ‏‏توثيق ناکام ہوا"
+msgstr "ہارڈویئر ‏‏توثيق ناکام ہوا!"
 
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:187
 msgid "No valid authentication key plugged"
