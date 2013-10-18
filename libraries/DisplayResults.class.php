@@ -1675,8 +1675,8 @@ class PMA_DisplayResults
             );
 
             $options_html .= PMA_Util::getRadioFields(
-                'geometry_display', $choices,
-                $_SESSION['tmpval']['geometry_display']
+                'geoOption', $choices,
+                $_SESSION['tmpval']['geoOption']
             )
                 . '</div>';
         }
@@ -3690,7 +3690,8 @@ class PMA_DisplayResults
 
                 // if a transform function for blob is set, none of these
                 // replacements will be made
-                if (($GLOBALS['PMA_String']->strlen($column) > $GLOBALS['cfg']['LimitChars'])
+                $limitChars = $GLOBALS['cfg']['LimitChars'];
+                if (($GLOBALS['PMA_String']->strlen($column) > $limitChars)
                     && ($_SESSION['tmpval']['pftext'] == self::DISPLAY_PARTIAL_TEXT)
                     && ! $this->_isNeedToSyntaxHighlight(strtolower($meta->name))
                 ) {
@@ -3754,6 +3755,7 @@ class PMA_DisplayResults
     ) {
 
         $pftext = $_SESSION['tmpval']['pftext'];
+        $limitChars = $GLOBALS['cfg']['LimitChars'];
 
         if (! isset($column) || is_null($column)) {
 
@@ -3762,7 +3764,7 @@ class PMA_DisplayResults
         } elseif ($column != '') {
 
             // Display as [GEOMETRY - (size)]
-            if ($_SESSION['tmpval']['geometry_display'] == self::GEOMETRY_DISP_GEOM) {
+            if ($_SESSION['tmpval']['geoOption'] == self::GEOMETRY_DISP_GEOM) {
 
                 $geometry_text = $this->_handleNonPrintableContents(
                     strtoupper(self::GEOMETRY_FIELD),
@@ -3774,7 +3776,7 @@ class PMA_DisplayResults
                     $class, $condition_field, $geometry_text
                 );
 
-            } elseif ($_SESSION['tmpval']['geometry_display']
+            } elseif ($_SESSION['tmpval']['geoOption']
                 == self::GEOMETRY_DISP_WKT
             ) {
                 // Prepare in Well Known Text(WKT) format.
@@ -3783,7 +3785,6 @@ class PMA_DisplayResults
 
                 // Convert to WKT format
                 $wktval = PMA_Util::asWKT($column);
-                $limitChars = $GLOBALS['cfg']['LimitChars'];
 
                 if (($GLOBALS['PMA_String']->strlen($wktval) > $limitChars)
                     && ($pftext == self::DISPLAY_PARTIAL_TEXT)
@@ -3810,7 +3811,7 @@ class PMA_DisplayResults
 
                     $wkbval = $this->_displayBinaryAsPrintable($column, 'binary', 8);
 
-                    if (($GLOBALS['PMA_String']->strlen($wkbval) > $GLOBALS['cfg']['LimitChars'])
+                    if (($GLOBALS['PMA_String']->strlen($wkbval) > $limitChars)
                         && ($pftext == self::DISPLAY_PARTIAL_TEXT)
                     ) {
                         $wkbval = $GLOBALS['PMA_String']->substr(
@@ -3880,6 +3881,7 @@ class PMA_DisplayResults
         $is_field_truncated, $analyzed_sql, &$dt_result, $col_index
     ) {
 
+        $limitChars = $GLOBALS['cfg']['LimitChars'];
         $is_analyse = $this->__get('is_analyse');
         $field_flags = $GLOBALS['dbi']->fieldFlags($dt_result, $col_index);
         if (stristr($field_flags, self::BINARY_FIELD)
@@ -3897,7 +3899,7 @@ class PMA_DisplayResults
 
             // Cut all fields to $GLOBALS['cfg']['LimitChars']
             // (unless it's a link-type transformation)
-            if ($GLOBALS['PMA_String']->strlen($column) > $GLOBALS['cfg']['LimitChars']
+            if ($GLOBALS['PMA_String']->strlen($column) > $limitChars
                 && ($_SESSION['tmpval']['pftext'] == self::DISPLAY_PARTIAL_TEXT)
                 && ! (gettype($transformation_plugin) == "object"
                 && strpos($transformation_plugin->getName(), 'Link') !== false)
@@ -4324,17 +4326,17 @@ class PMA_DisplayResults
         }
 
         if (PMA_isValid(
-            $_REQUEST['geometry_display'],
+            $_REQUEST['geoOption'],
             array(
                 self::GEOMETRY_DISP_WKT, self::GEOMETRY_DISP_WKB,
                 self::GEOMETRY_DISP_GEOM
             )
         )
         ) {
-            $query['geometry_display'] = $_REQUEST['geometry_display'];
-            unset($_REQUEST['geometry_display']);
-        } elseif (empty($query['geometry_display'])) {
-            $query['geometry_display'] = self::GEOMETRY_DISP_GEOM;
+            $query['geoOption'] = $_REQUEST['geoOption'];
+            unset($_REQUEST['geoOption']);
+        } elseif (empty($query['geoOption'])) {
+            $query['geoOption'] = self::GEOMETRY_DISP_GEOM;
         }
 
         if (isset($_REQUEST['display_binary'])) {
@@ -4402,8 +4404,8 @@ class PMA_DisplayResults
             = $query['pftext'];
         $_SESSION['tmpval']['relational_display']
             = $query['relational_display'];
-        $_SESSION['tmpval']['geometry_display']
-            = $query['geometry_display'];
+        $_SESSION['tmpval']['geoOption']
+            = $query['geoOption'];
         $_SESSION['tmpval']['display_binary'] = isset(
             $query['display_binary']
         );
