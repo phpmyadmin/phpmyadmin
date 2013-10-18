@@ -424,7 +424,8 @@ function PMA_showCurrentNavigation()
                 }
             } else { // this is a real navigation item
                 // name and class matches
-                if ($li.is('.' + clazz) && $li.children('a').text() == name) {
+                if (((clazz && $li.is('.' + clazz)) || ! clazz) &&
+                        $li.children('a').text() == name) {
                     if (doSelect) {
                         $li.addClass('selected');
                     }
@@ -471,8 +472,8 @@ function PMA_showCurrentNavigation()
             highlightView($viewContainer, table);
         } else {
             // no containers, highlight the item
-            var $table = findLoadedItem($container, table, 'table', true);
-            scrollToView($table, $('#pma_navigation_tree_content'));
+            var $tableOrView = findLoadedItem($container, table, null, true);
+            scrollToView($tableOrView, $('#pma_navigation_tree_content'));
         }
     }
 
