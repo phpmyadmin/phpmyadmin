@@ -3691,7 +3691,8 @@ class PMA_DisplayResults
 
                 // if a transform function for blob is set, none of these
                 // replacements will be made
-                if (($GLOBALS['PMA_String']->strlen($column) > $GLOBALS['cfg']['LimitChars'])
+                $limitChars = $GLOBALS['cfg']['LimitChars'];
+                if (($GLOBALS['PMA_String']->strlen($column) > $limitChars)
                     && ($_SESSION['tmpval']['pftext'] == self::DISPLAY_PARTIAL_TEXT)
                     && ! $this->_isNeedToSyntaxHighlight(strtolower($meta->name))
                 ) {
@@ -3755,6 +3756,7 @@ class PMA_DisplayResults
     ) {
 
         $pftext = $_SESSION['tmpval']['pftext'];
+        $limitChars = $GLOBALS['cfg']['LimitChars'];
 
         if (! isset($column) || is_null($column)) {
 
@@ -3784,7 +3786,6 @@ class PMA_DisplayResults
 
                 // Convert to WKT format
                 $wktval = PMA_Util::asWKT($column);
-                $limitChars = $GLOBALS['cfg']['LimitChars'];
 
                 if (($GLOBALS['PMA_String']->strlen($wktval) > $limitChars)
                     && ($pftext == self::DISPLAY_PARTIAL_TEXT)
@@ -3811,7 +3812,7 @@ class PMA_DisplayResults
 
                     $wkbval = $this->_displayBinaryAsPrintable($column, 'binary', 8);
 
-                    if (($GLOBALS['PMA_String']->strlen($wkbval) > $GLOBALS['cfg']['LimitChars'])
+                    if (($GLOBALS['PMA_String']->strlen($wkbval) > $limitChars)
                         && ($pftext == self::DISPLAY_PARTIAL_TEXT)
                     ) {
                         $wkbval = $GLOBALS['PMA_String']->substr(
