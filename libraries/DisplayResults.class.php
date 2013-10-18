@@ -1675,8 +1675,8 @@ class PMA_DisplayResults
             );
 
             $options_html .= PMA_Util::getRadioFields(
-                'geometry_display', $choices,
-                $_SESSION['tmpval']['geometry_display']
+                'geoOption', $choices,
+                $_SESSION['tmpval']['geoOption']
             )
                 . '</div>';
         }
@@ -3765,7 +3765,7 @@ class PMA_DisplayResults
         } elseif ($column != '') {
 
             // Display as [GEOMETRY - (size)]
-            if ($_SESSION['tmpval']['geometry_display'] == self::GEOMETRY_DISP_GEOM) {
+            if ($_SESSION['tmpval']['geoOption'] == self::GEOMETRY_DISP_GEOM) {
 
                 $geometry_text = $this->_handleNonPrintableContents(
                     strtoupper(self::GEOMETRY_FIELD),
@@ -3777,7 +3777,7 @@ class PMA_DisplayResults
                     $class, $condition_field, $geometry_text
                 );
 
-            } elseif ($_SESSION['tmpval']['geometry_display']
+            } elseif ($_SESSION['tmpval']['geoOption']
                 == self::GEOMETRY_DISP_WKT
             ) {
                 // Prepare in Well Known Text(WKT) format.
@@ -4326,17 +4326,17 @@ class PMA_DisplayResults
         }
 
         if (PMA_isValid(
-            $_REQUEST['geometry_display'],
+            $_REQUEST['geoOption'],
             array(
                 self::GEOMETRY_DISP_WKT, self::GEOMETRY_DISP_WKB,
                 self::GEOMETRY_DISP_GEOM
             )
         )
         ) {
-            $query['geometry_display'] = $_REQUEST['geometry_display'];
-            unset($_REQUEST['geometry_display']);
-        } elseif (empty($query['geometry_display'])) {
-            $query['geometry_display'] = self::GEOMETRY_DISP_GEOM;
+            $query['geoOption'] = $_REQUEST['geoOption'];
+            unset($_REQUEST['geoOption']);
+        } elseif (empty($query['geoOption'])) {
+            $query['geoOption'] = self::GEOMETRY_DISP_GEOM;
         }
 
         if (isset($_REQUEST['display_binary'])) {
@@ -4404,8 +4404,8 @@ class PMA_DisplayResults
             = $query['pftext'];
         $_SESSION['tmpval']['relational_display']
             = $query['relational_display'];
-        $_SESSION['tmpval']['geometry_display']
-            = $query['geometry_display'];
+        $_SESSION['tmpval']['geoOption']
+            = $query['geoOption'];
         $_SESSION['tmpval']['display_binary'] = isset(
             $query['display_binary']
         );
