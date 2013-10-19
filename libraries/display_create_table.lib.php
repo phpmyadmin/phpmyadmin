@@ -44,7 +44,7 @@ $is_create_table_priv = true;
  */
 function PMA_getHtmlForCreateTable($db)
 {
-    $html  = '<form id="create_table_form_minimal" method="post" ' 
+    $html  = '<form id="create_table_form_minimal" method="post" '
         . 'action="tbl_create.php">';
     $html .= '<fieldset>';
     $html .= '<legend>';
@@ -58,7 +58,7 @@ function PMA_getHtmlForCreateTable($db)
     $html .= PMA_URL_getHiddenInputs($db);
     $html .= '<div class="formelement">';
     $html .= __('Name') . ":";
-    $html .= '  <input type="text" name="table" maxlength="64" ' 
+    $html .= '  <input type="text" name="table" maxlength="64" '
         . 'size="30" required />';
     $html .= ' </div>';
     $html .= '  <div class="formelement">';

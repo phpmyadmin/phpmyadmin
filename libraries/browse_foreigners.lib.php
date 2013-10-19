@@ -11,14 +11,14 @@ if (! defined('PHPMYADMIN')) {
 
 /**
  * Function to get html for relational field selection
- * 
+ *
  * @param string $db          current database
  * @param string $table       current table
  * @param string $field       field
  * @param array  $foreignData foreign column data
  * @param string $fieldkey    field key
  * @param array  $data        data
- * 
+ *
  * @return string
  */
 function PMA_getHtmlForRelationalFieldSelection($db, $table, $field, $foreignData,
@@ -26,7 +26,7 @@ function PMA_getHtmlForRelationalFieldSelection($db, $table, $field, $foreignDat
 ) {
     $gotopage = PMA_getHtmlForGotoPage($foreignData);
     $showall = PMA_getHtmlForShowAll($foreignData);
-    
+
     $output = '<form action="browse_foreigners.php" method="post">'
         . '<fieldset>'
         . PMA_URL_getHiddenInputs($db, $table)
@@ -43,9 +43,9 @@ function PMA_getHtmlForRelationalFieldSelection($db, $table, $field, $foreignDat
         . '<label for="input_foreign_filter">' . __('Search:') . '</label>'
         . '<input type="text" name="foreign_filter" '
         . 'id="input_foreign_filter" value="'
-        . (isset($_REQUEST['foreign_filter']) 
-        ? htmlspecialchars($_REQUEST['foreign_filter']) 
-        : '') 
+        . (isset($_REQUEST['foreign_filter'])
+        ? htmlspecialchars($_REQUEST['foreign_filter'])
+        : '')
         . '" />'
         . '<input type="submit" name="submit_foreign_filter" value="'
         .  __('Go') . '" />'
@@ -157,12 +157,12 @@ function PMA_getHtmlForRelationalFieldSelection($db, $table, $field, $foreignDat
                 $key_ordered_current_key, $key_ordered_current_val,
                 $key_ordered_current_val_title, $field
             );
-            
+
             $output .= PMA_getHtmlForColumnElement(
                 '', $key_ordered_current_equals_data, $key_ordered_current_key,
                 $key_ordered_current_val, $key_ordered_current_val_title, $field
             );
-            
+
             $output .= '<td width="20%">'
                 . '<img src="' . $GLOBALS['pmaThemeImage'] . 'spacer.png" alt=""'
                 . ' width="1" height="1" /></td>';
@@ -182,7 +182,7 @@ function PMA_getHtmlForRelationalFieldSelection($db, $table, $field, $foreignDat
     }
     $output .= '</tbody>'
         . '</table>';
-    
+
     return $output;
 }
 
@@ -195,7 +195,7 @@ function PMA_getHtmlForRelationalFieldSelection($db, $table, $field, $foreignDat
  * @param string $currentVal        current value
  * @param string $currentTitle      current title
  * @param string $field             field
- * 
+ *
  * @return string
  */
 function PMA_getHtmlForColumnElement($cssClass, $currentEqualsData, $currentKey,
@@ -215,16 +215,16 @@ function PMA_getHtmlForColumnElement($cssClass, $currentEqualsData, $currentKey,
     } else {
         $output .= $currentVal;
     }
-    
+
     $output .=  '</a>' . ($currentEqualsData ? '</strong>' : '') . '</td>';
-    
+
     return $output;
 }
 
 /**
  * Function to get javascript code to handle display selection for relational
  * field values
- * 
+ *
  * @return string
  */
 function PMA_getJsScriptToHandleSelectRelationalFields()
@@ -282,7 +282,7 @@ EOC;
 
 /**
  * Function to get formatted error message for javascript
- * 
+ *
  * @return string
  */
 function PMA_getJsError()
@@ -299,7 +299,7 @@ function PMA_getJsError()
 
 /**
  * Function to get the field key
- * 
+ *
  * @return string
  */
 function PMA_getFieldKey()
@@ -309,13 +309,13 @@ function PMA_getFieldKey()
     } else {
         $fieldkey = $_REQUEST['fieldkey'];
     }
-    
+
     return $fieldkey;
 }
 
 /**
  * Function to get the element name
- * 
+ *
  * @return string
  */
 function PMA_getElementName()
@@ -337,15 +337,15 @@ function PMA_getElementName()
     } else {
         $element_name .= "var element_name = field + '[]'";
     }
-    
+
     return $element_name;
 }
 
 /**
  * Function to get html for show all case
- * 
+ *
  * @param array $foreignData foreign data
- * 
+ *
  * @return string
  */
 function PMA_getHtmlForShowAll($foreignData)
@@ -359,15 +359,15 @@ function PMA_getHtmlForShowAll($foreignData)
                      . __('Show all') . '" />';
         }
     }
-    
+
     return $showall;
 }
 
 /**
  * Function to get html for the goto page option
- * 
+ *
  * @param array $foreignData foreign data
- * 
+ *
  * @return string
  */
 function PMA_getHtmlForGotoPage($foreignData)
@@ -399,9 +399,9 @@ function PMA_getHtmlForGotoPage($foreignData)
 
 /**
  * Function to get foreign limit
- * 
+ *
  * @param string $foreign_navig foreign navigation
- * 
+ *
  * @return string
  */
 function PMA_getForeignLimit($foreign_navig)

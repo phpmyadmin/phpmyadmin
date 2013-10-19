@@ -5,7 +5,7 @@
  * functions for displaying server plugins
  *
  * @usedby  server_plugins.php
- *  
+ *
  * @package PhpMyAdmin
  */
 if (! defined('PHPMYADMIN')) {
@@ -48,20 +48,20 @@ function PMA_getPluginTab($plugins)
 {
     $html  = '<div id="plugins_plugins">';
     $html .= '<div id="sectionlinks">';
-    
+
     foreach ($plugins as $plugin_type => $plugin_list) {
         $key = 'plugins-' . preg_replace('/[^a-z]/', '', strtolower($plugin_type));
-        $html .= '<a href="#' . $key . '">' 
+        $html .= '<a href="#' . $key . '">'
             . htmlspecialchars($plugin_type) . '</a>' . "\n";
     }
-    
+
     $html .= '</div>';
     $html .= '<br />';
-    
+
     foreach ($plugins as $plugin_type => $plugin_list) {
         $key = 'plugins-' . preg_replace('/[^a-z]/', '', strtolower($plugin_type));
         sort($plugin_list);
-        
+
         $html .= '<table class="data_full_width" id="' . $key . '">';
         $html .= '<caption class="tblHeaders">';
         $html .= '<a class="top" href="#serverinfo">';
@@ -81,9 +81,9 @@ function PMA_getPluginTab($plugins)
         $html .= '</tr>';
         $html .= '</thead>';
         $html .= '<tbody>';
-    
+
         $html .= PMA_getPluginList($plugin_list);
-        
+
         $html .= '</tbody>';
         $html .= '</table>';
     }
@@ -161,7 +161,7 @@ function PMA_getModuleList($modules)
         $odd_row = !$odd_row;
         $html .= '<tr class="noclick ' . ($odd_row ? 'odd' : 'even') . '">';
         $html .= '<th rowspan="2">' . htmlspecialchars($module_name) . '</th>';
-        $html .= '<td>' . htmlspecialchars($module['info']['module_description']) 
+        $html .= '<td>' . htmlspecialchars($module['info']['module_description'])
             .    '</td>';
         $html .= '<td>' . htmlspecialchars($module['info']['module_library'])
             .    '</td>';
@@ -176,24 +176,24 @@ function PMA_getModuleList($modules)
         $html .= '<td colspan="5">';
         $html .= '<table>';
         $html .= '<tbody>';
-                            
+
         foreach ($module['plugins'] as $plugin_type => $plugin_list) {
             $html .= '<tr class="noclick">';
-            $html .= '<td><b class="plugin-type">' 
+            $html .= '<td><b class="plugin-type">'
                 . htmlspecialchars($plugin_type) . '</b></td>';
-            $html .= '<td>';                                          
+            $html .= '<td>';
             for ($i = 0; $i < count($plugin_list); $i++) {
-                $html .= ($i != 0 ? '<br />' : '') 
+                $html .= ($i != 0 ? '<br />' : '')
                     . htmlspecialchars($plugin_list[$i]['plugin_name']);
                 if (!$plugin_list[$i]['is_active']) {
-                    $html .= ' <small class="attention">' . __('disabled') 
+                    $html .= ' <small class="attention">' . __('disabled')
                         .    '</small>';
                 }
-            }                                      
+            }
             $html .= '</td>';
-            $html .= '</tr>';                         
+            $html .= '</tr>';
         }
-        
+
         $html .= '</tbody>';
         $html .= '</table>';
         $html .= '</td>';

@@ -5,7 +5,7 @@
  * functions for displaying chart
  *
  * @usedby  tbl_chart.php
- *  
+ *
  * @package PhpMyAdmin
  */
 if (! defined('PHPMYADMIN')) {
@@ -14,9 +14,9 @@ if (! defined('PHPMYADMIN')) {
 
 /**
  * Function to get html for pma_token and url_query
- * 
+ *
  * @param string $url_query url query
- * 
+ *
  * @return string
  */
 function PMA_getHtmlForPmaTokenAndUrlQuery($url_query)
@@ -30,7 +30,7 @@ function PMA_getHtmlForPmaTokenAndUrlQuery($url_query)
 
 /**
  * Function to get html for the chart type options
- * 
+ *
  * @return string
  */
 function PMA_getHtmlForChartTypeOptions()
@@ -59,13 +59,13 @@ function PMA_getHtmlForChartTypeOptions()
         . '</label>'
         . '</span>'
         . '<br /><br />';
-    
+
     return $html;
 }
 
 /**
  * Function to get html for the bar stacked option
- * 
+ *
  * @return string
  */
 function PMA_getHtmlForStackedOption()
@@ -74,18 +74,18 @@ function PMA_getHtmlForStackedOption()
     . '<input type="checkbox" name="barStacked" value="1"'
     . ' id="checkbox_barStacked" />'
     . '<label for ="checkbox_barStacked">' . __('Stacked') . '</label>'
-    . '</span>'    
+    . '</span>'
     . '<br /><br />';
-    
+
     return $html;
 }
 
 /**
  * Function to get html for the chart x axis options
- * 
+ *
  * @param array $keys   keys
  * @param int   &$yaxis y axis
- * 
+ *
  * @return string
  */
 function PMA_getHtmlForChartXAxisOptions($keys, &$yaxis)
@@ -105,20 +105,20 @@ function PMA_getHtmlForChartXAxisOptions($keys, &$yaxis)
         }
     }
     $htmlString .= '</select>';
-    
+
     return $htmlString;
 }
 
 
 /**
  * Function to get html for chart series options
- * 
+ *
  * @param array $keys                 keys
  * @param array $fields_meta          fields meta
  * @param array $numeric_types        numeric types
  * @param int   $yaxis                y axis
  * @param int   $numeric_column_count numeric column count
- * 
+ *
  * @return string
  */
 function PMA_getHtmlForChartSeriesOptions($keys, $fields_meta, $numeric_types,
@@ -146,10 +146,10 @@ function PMA_getHtmlForChartSeriesOptions($keys, $fields_meta, $numeric_types,
 
 /**
  * Function to get html for date time columns
- * 
+ *
  * @param array $keys        keys
  * @param array $fields_meta fields meta
- * 
+ *
  * @return string
  */
 function PMA_getHtmlForDateTimeCols($keys, $fields_meta)
@@ -163,16 +163,16 @@ function PMA_getHtmlForDateTimeCols($keys, $fields_meta)
         }
     }
     $htmlString .= '" />';
-    
+
     return $htmlString;
 }
 
 /**
  * Function to get html for the table axis label options
- * 
+ *
  * @param int   $yaxis y axis
  * @param array $keys  keys
- * 
+ *
  * @return string
  */
 function PMA_getHtmlForTableAxisLabelOptions($yaxis, $keys)
@@ -187,15 +187,15 @@ function PMA_getHtmlForTableAxisLabelOptions($yaxis, $keys)
     . '<input type="text" name="yaxis_label" id="yaxis_label" value="'
     . __('Y Values') . '" /><br />'
     . '</div>';
-    
+
     return $htmlString;
 }
 
 /**
  * Function to get html for the start row and number of rows options
- * 
+ *
  * @param string $sql_query sql query
- * 
+ *
  * @return string
  */
 function PMA_getHtmlForStartAndNumberOfRowsOptions($sql_query)
@@ -219,13 +219,13 @@ function PMA_getHtmlForStartAndNumberOfRowsOptions($sql_query)
         . htmlspecialchars($sql_query) . '" />'
         . '</div>'
         . '</fieldset>';
-    
+
     return $htmlString;
 }
 
 /**
  * Function to get html for the chart area div
- * 
+ *
  * @return string
  */
 function PMA_getHtmlForChartAreaDiv()
@@ -235,13 +235,13 @@ function PMA_getHtmlForChartAreaDiv()
         . '<div id="querychart">'
         . '</div>'
         . '</div>';
-    
+
     return $htmlString;
 }
 
 /**
  * Function to get html for displaying table chart
- * 
+ *
  * @param string $url_query            url query
  * @param array  $url_params           url parameters
  * @param array  $keys                 keys
@@ -249,7 +249,7 @@ function PMA_getHtmlForChartAreaDiv()
  * @param array  $numeric_types        numeric types
  * @param int    $numeric_column_count numeric column count
  * @param string $sql_query            sql query
- * 
+ *
  * @return string
  */
 function PMA_getHtmlForTableChartDisplay($url_query, $url_params, $keys,
@@ -288,7 +288,7 @@ function PMA_getHtmlForTableChartDisplay($url_query, $url_params, $keys,
     $htmlString .= '</fieldset>'
         . '</form>'
         . '</div>';
-    
+
     return $htmlString;
 }
 ?>

@@ -2585,13 +2585,13 @@ function PMA_getReservedWordColumnNameMessages($db ,$table)
 
 /**
  * Function to get the type of command for multiple field handling
- * 
+ *
  * @return string
  */
 function PMA_getMultipleFieldCommandType()
 {
     $submit_mult = null;
-    
+
     if (isset($_REQUEST['submit_mult_change_x'])) {
         $submit_mult = 'change';
     } elseif (isset($_REQUEST['submit_mult_drop_x'])) {
@@ -2616,18 +2616,18 @@ function PMA_getMultipleFieldCommandType()
             $_REQUEST['selected_fld'] = $_REQUEST['selected'];
         }
     }
-    
+
     return $submit_mult;
 }
 
 /**
  * Function to display table browse for selected columns
- * 
+ *
  * @param string $db            current database
  * @param string $table         current table
  * @param string $goto          goto page url
  * @param string $pmaThemeImage URI of the pma theme image
- * 
+ *
  * @return void
  */
 function PMA_displayTableBrowseForSelectedColumns($db, $table, $goto,
@@ -2649,7 +2649,7 @@ function PMA_displayTableBrowseForSelectedColumns($db, $table, $goto,
     include_once 'libraries/parse_analyze.inc.php';
 
     include_once 'libraries/sql.lib.php';
-    
+
     PMA_executeQueryAndSendQueryResponse(
         $analyzed_sql_results, false, $db, $table, null, null, null, false,
         null, null, null, null, $goto, $pmaThemeImage, null, null,

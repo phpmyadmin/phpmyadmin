@@ -898,7 +898,7 @@ class PMA_Eps_Relation_Schema extends PMA_Export_Relation_Schema
         global $eps,$db;
         $eps->showOutput($db . '-' . $this->pageNumber);
     }
-    
+
     /**
      * Defines relation objects
      *

@@ -10,7 +10,7 @@ if (! defined('PHPMYADMIN')) {
 }
 
 /**
- * block attempts to directly run this script 
+ * block attempts to directly run this script
  */
 if (getcwd() == dirname(__FILE__)) {
     die('Attack stopped');
@@ -986,7 +986,7 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
     {
         $this->_showOutput($this->pageNumber);
     }
-    
+
     /**
      * Sets X and Y minimum and maximum for a table cell
      *

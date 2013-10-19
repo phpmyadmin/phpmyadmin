@@ -401,7 +401,7 @@ class PMA_Index
             }
             $html_options .= '<option value="' . $each_index_choice . '"'
                  . (($this->_choice == $each_index_choice)
-                 ? ' selected="selected"' 
+                 ? ' selected="selected"'
                  : '')
                  . '>'. $each_index_choice . '</option>' . "\n";
         }
@@ -894,10 +894,10 @@ class PMA_Index_Column
     }
 
     /**
-     * Returns the number of indexed characters if the column is only 
+     * Returns the number of indexed characters if the column is only
      * partly indexed
      *
-     * @return int the number of indexed characters 
+     * @return int the number of indexed characters
      */
     public function getSubPart()
     {

@@ -11,10 +11,10 @@ if (! defined('PHPMYADMIN')) {
 
 /**
  * Function to get the name and type of the columns of a table
- * 
+ *
  * @param string $db    current database
  * @param string $table current table
- * 
+ *
  * @return array
  */
 function PMA_getNameAndTypeOfTheColumns($db, $table)
@@ -37,11 +37,11 @@ function PMA_getNameAndTypeOfTheColumns($db, $table)
 
 /**
  * Function to handle the creation or edit of an index
- * 
+ *
  * @param string $db    current db
  * @param string $table current table
  * @param Object $index current index
- * 
+ *
  * @return void
  */
 function PMA_handleCreateOrEditIndex($db, $table, $index)
@@ -80,12 +80,12 @@ function PMA_handleCreateOrEditIndex($db, $table, $index)
 
 /**
  * Function to get the sql query for index creation or edit
- * 
+ *
  * @param string $db     current db
  * @param string $table  current table
  * @param Object $index  current index
  * @param bool   &$error whether error occoured or not
- * 
+ *
  * @return string
  */
 function PMA_getSqlQueryForIndexCreateOrEdit($db, $table, $index, &$error)
@@ -143,21 +143,21 @@ function PMA_getSqlQueryForIndexCreateOrEdit($db, $table, $index, &$error)
     }
 
     if (PMA_MYSQL_INT_VERSION > 50500) {
-        $sql_query .= "COMMENT '" 
-            . PMA_Util::sqlAddSlashes($index->getComment()) 
+        $sql_query .= "COMMENT '"
+            . PMA_Util::sqlAddSlashes($index->getComment())
             . "'";
     }
     $sql_query .= ';';
-    
+
     return $sql_query;
 }
 
 /**
  * Function to prepare the form values for index
- * 
+ *
  * @param string $db    curent database
  * @param string $table current table
- * 
+ *
  * @return PMA_Index
  */
 function PMA_prepareFormValues($db, $table)
@@ -172,15 +172,15 @@ function PMA_prepareFormValues($db, $table)
     } else {
         $index = new PMA_Index;
     }
-    
+
     return $index;
 }
 
 /**
  * Function to get the number of fields for the form
- * 
+ *
  * @param Object $index index
- * 
+ *
  * @return int
  */
 function PMA_getNumberOfFieldsForForm($index)
@@ -198,16 +198,16 @@ function PMA_getNumberOfFieldsForForm($index)
     } else {
         $add_fields = 1;
     }// end preparing form values
-    
+
     return $add_fields;
 }
 
 /**
  * Function to get form parameters
- * 
+ *
  * @param string $db    current db
  * @param string $table current table
- * 
+ *
  * @return array
  */
 function PMA_getFormParameters($db, $table)
@@ -224,18 +224,18 @@ function PMA_getFormParameters($db, $table)
     } elseif (isset($_REQUEST['index'])) {
         $form_params['old_index'] = $_REQUEST['index'];
     }
-    
+
     return $form_params;
 }
 
 /**
  * Function to get html for displaying the index form
- * 
+ *
  * @param array  $fields      fields
  * @param Object $index       index
  * @param array  $form_params form parameters
  * @param int    $add_fields  number of fields in the form
- * 
+ *
  * @return string
  */
 function PMA_getHtmlForIndexForm($fields, $index, $form_params, $add_fields)
@@ -400,7 +400,7 @@ function PMA_getHtmlForIndexForm($fields, $index, $form_params, $add_fields)
     $html .= '</fieldset>';
 
     $html .= '</form>';
-    
+
     return $html;
 }
 ?>

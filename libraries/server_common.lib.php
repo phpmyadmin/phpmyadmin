@@ -31,25 +31,25 @@ function PMA_getHtmlForSubPageHeader($type, $link='', $is_image=true)
 
     $header['plugins']['image'] = 'b_engine.png';
     $header['plugins']['text'] = __('Plugins');
-    
+
     $header['binlog']['image'] = 's_tbl.png';
     $header['binlog']['text'] = __('Binary log');
-    
+
     $header['collations']['image'] = 's_asci.png';
     $header['collations']['text'] = __('Character Sets and Collations');
-    
+
     $header['replication']['image'] = 's_replication.png';
     $header['replication']['text'] = __('Replication');
-    
+
     $header['database_statistics']['image'] = 's_db.png';
     $header['database_statistics']['text'] = __('Databases statistics');
-    
+
     $header['databases']['image'] = 's_db.png';
     $header['databases']['text'] = __('Databases');
-    
+
     $header['privileges']['image'] = 'b_usrlist.png';
     $header['privileges']['text'] = __('Privileges');
-    
+
     if ($is_image) {
         $html = '<h2>' . "\n"
             . PMA_Util::getImage($header[$type]['image'])
@@ -59,7 +59,7 @@ function PMA_getHtmlForSubPageHeader($type, $link='', $is_image=true)
         $html = '<h2>' . "\n"
             . PMA_Util::getIcon($header[$type]['image'])
             . '    ' . $header[$type]['text'] . "\n"
-            . $link . '</h2>' . "\n";    	
+            . $link . '</h2>' . "\n";
     }
     return $html;
 }

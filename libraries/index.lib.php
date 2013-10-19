@@ -20,7 +20,7 @@ require_once 'libraries/Index.class.php';
 function PMA_getHtmlForDisplayIndexes()
 {
     $html_output = '<div id="index_div" class="ajax" >';
-    
+
     $html_output .= PMA_Util::getDivForSliderEffect(
         'indexes', __('Indexes')
     );

@@ -439,7 +439,7 @@ function PMA_getListForSortDatabase()
             $sort_by = 'SCHEMA_NAME';
         }
     }
-    
+
     if (isset($_REQUEST['sort_order'])
         && strtolower($_REQUEST['sort_order']) == 'desc'
     ) {
@@ -447,7 +447,7 @@ function PMA_getListForSortDatabase()
     } else {
         $sort_order = 'asc';
     }
-    
+
     return array($sort_by, $sort_order);
 }
 
@@ -479,7 +479,7 @@ function PMA_dropMultiDatabases()
         }
         //the following variables will be used on mult_submits.inc.php
         global $query_type, $selected, $mult_btn;
-        
+
         include 'libraries/mult_submits.inc.php';
         unset($action, $submit_mult, $err_url, $selected_db, $GLOBALS['db']);
         if (empty($message)) {

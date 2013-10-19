@@ -173,8 +173,8 @@ class ConfigFile
      * {@link updateWithGlobalConfig()} or reading
      * by {@link getConfig()} or {@link getConfigArray()}
      *
-     * @param array $mapping Contains the mapping of "Server/config options" 
-     *                       to "Server/1/config options" 
+     * @param array $mapping Contains the mapping of "Server/config options"
+     *                       to "Server/1/config options"
      *
      * @return void
      */

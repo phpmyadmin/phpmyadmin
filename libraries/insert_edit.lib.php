@@ -2579,7 +2579,7 @@ function PMA_getUrlParameters($db, $table)
 
 /**
  * Function to get html for the gis editor div
- * 
+ *
  * @return string
  */
 function PMA_getHtmlForGisEditor()
@@ -2591,9 +2591,9 @@ function PMA_getHtmlForGisEditor()
 
 /**
  * Function to get html for the ignore option in insert mode
- * 
+ *
  * @param int $row_id row id
- * 
+ *
  * @return string
  */
 function PMA_getHtmlForIgnoreOption($row_id)
@@ -2608,20 +2608,20 @@ function PMA_getHtmlForIgnoreOption($row_id)
 
 /**
  * Function to get html for the function option
- * 
+ *
  * @param bool   $odd_row              whether odd row or not
  * @param array  $column               column
  * @param string $column_name_appendix column name appendix
- * 
+ *
  * @return String
  */
 function PMA_getHtmlForFunctionOption($odd_row, $column, $column_name_appendix)
 {
     $longDoubleTextArea = $GLOBALS['cfg']['LongtextDoubleTextarea'];
     return '<tr class="noclick ' . ($odd_row ? 'odd' : 'even' ) . '">'
-        . '<td ' 
+        . '<td '
         . ($longDoubleTextArea && strstr($column['True_Type'], 'longtext')
-            ? 'rowspan="2"' 
+            ? 'rowspan="2"'
             : ''
         )
         . 'class="center">'
@@ -2629,14 +2629,14 @@ function PMA_getHtmlForFunctionOption($odd_row, $column, $column_name_appendix)
         . '<input type="hidden" name="fields_name' . $column_name_appendix
         . '" value="' . $column['Field_html'] . '"/>'
         . '</td>';
-        
+
 }
 
 /**
  * Function to get html for the column type
- * 
+ *
  * @param array $column column
- * 
+ *
  * @return string
  */
 function PMA_getHtmlForInsertEditColumnType($column)
@@ -2649,10 +2649,10 @@ function PMA_getHtmlForInsertEditColumnType($column)
 
 /**
  * Function to get html for the insert edit form header
- * 
+ *
  * @param bool $has_blob_field whether has blob field
  * @param bool $is_upload      whether is upload
- * 
+ *
  * @return string
  */
 function PMA_getHtmlForInsertEditFormHeader($has_blob_field, $is_upload)
@@ -2666,13 +2666,13 @@ function PMA_getHtmlForInsertEditFormHeader($has_blob_field, $is_upload)
         $html_output .= ' enctype="multipart/form-data"';
     }
     $html_output .= '>';
-    
+
     return $html_output;
 }
 
 /**
  * Function to get html for each insert/edit column
- * 
+ *
  * @param array  $table_columns         table columns
  * @param int    $i                     row counter
  * @param array  $column                column
@@ -2701,7 +2701,7 @@ function PMA_getHtmlForInsertEditFormHeader($has_blob_field, $is_upload)
  * @param string $default_char_editing  default char editing mode which is stroe
  *                                      in the config.inc.php script
  * @param string $text_dir              text direction
- * 
+ *
  * @return string
  */
 function PMA_getHtmlForInsertEditFormColumn($table_columns, $i, $column,
@@ -2710,7 +2710,7 @@ function PMA_getHtmlForInsertEditFormColumn($table_columns, $i, $column,
     &$tabindex, $columns_cnt, $is_upload, $tabindex_for_function,
     $foreigners, $tabindex_for_null, $tabindex_for_value,
     $table, $db, $row_id, $titles, $biggest_max_file_size,
-    $default_char_editing, $text_dir    
+    $default_char_editing, $text_dir
 ) {
     if (! isset($table_columns[$i]['processed'])) {
         $column = $table_columns[$i];
@@ -2779,7 +2779,7 @@ function PMA_getHtmlForInsertEditFormColumn($table_columns, $i, $column,
         // display default values
         list($real_null_value, $data, $special_chars, $backup_field,
             $special_chars_encoded
-        ) 
+        )
             = PMA_getSpecialCharsAndBackupFieldForInsertingMode(
                 $column, $real_null_value
             );
@@ -2833,7 +2833,7 @@ function PMA_getHtmlForInsertEditFormColumn($table_columns, $i, $column,
 
     $html_output .= '</td>'
     . '</tr>';
-    
+
     return $html_output;
 }
 
@@ -2865,7 +2865,7 @@ function PMA_getHtmlForInsertEditFormColumn($table_columns, $i, $column,
  * @param array  $titles                titles
  * @param int    $biggest_max_file_size biggest max file size
  * @param string $text_dir              text direction
- * 
+ *
  * @return string
  */
 function PMA_getHtmlForInsertEditRow($url_params, $table_columns,
@@ -2873,11 +2873,11 @@ function PMA_getHtmlForInsertEditRow($url_params, $table_columns,
     $jsvkey, $vkey, $insert_mode, $current_row, &$o_rows, &$tabindex, $columns_cnt,
     $is_upload, $tabindex_for_function, $foreigners, $tabindex_for_null,
     $tabindex_for_value, $table, $db, $row_id, $titles,
-    $biggest_max_file_size, $text_dir    
+    $biggest_max_file_size, $text_dir
 ) {
     $html_output = PMA_getHeadAndFootOfInsertRowTable($url_params)
         . '<tbody>';
-    
+
     //store the default value for CharEditing
     $default_char_editing  = $GLOBALS['cfg']['CharEditing'];
 
@@ -2889,14 +2889,14 @@ function PMA_getHtmlForInsertEditRow($url_params, $table_columns,
             $current_row, $odd_row, $o_rows, $tabindex, $columns_cnt, $is_upload,
             $tabindex_for_function, $foreigners, $tabindex_for_null,
             $tabindex_for_value, $table, $db, $row_id, $titles,
-            $biggest_max_file_size, $default_char_editing, $text_dir    
+            $biggest_max_file_size, $default_char_editing, $text_dir
         );
         $odd_row = !$odd_row;
     } // end for
     $o_rows++;
     $html_output .= '  </tbody>'
-        . '</table><br />';   
-    
+        . '</table><br />';
+
     return $html_output;
 }
 ?>

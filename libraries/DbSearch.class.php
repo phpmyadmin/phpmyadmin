@@ -453,7 +453,7 @@ class PMA_DbSearch
         $html_output .= '<td class="right">' . __('Inside column:') . '</td>';
         $html_output .= '<td><input type="text" name="criteriaColumnName" size="60"'
             . 'value="'
-            . (! empty($this->_criteriaColumnName) 
+            . (! empty($this->_criteriaColumnName)
                 ? htmlspecialchars($this->_criteriaColumnName)
                 : '')
             . '" /></td>';

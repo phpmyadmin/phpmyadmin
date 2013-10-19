@@ -5,7 +5,7 @@
  * functions for displaying server, database and table export
  *
  * @usedby display_export.inc.php
- *  
+ *
  * @package PhpMyAdmin
  */
 if (! defined('PHPMYADMIN')) {
@@ -37,27 +37,27 @@ function PMA_getHtmlForExportSelectOptions($tmp_select = '')
 {
     $multi_values  = '<div style="text-align: left">';
     $multi_values .= '<a href="#"';
-    $multi_values .= ' onclick="setSelectOptions' 
+    $multi_values .= ' onclick="setSelectOptions'
         . '(\'dump\', \'db_select[]\', true); return false;">';
     $multi_values .= __('Select All');
     $multi_values .= '</a>';
     $multi_values .= ' / ';
     $multi_values .= '<a href="#"';
-    $multi_values .= ' onclick="setSelectOptions' 
+    $multi_values .= ' onclick="setSelectOptions'
         . '(\'dump\', \'db_select[]\', false); return false;">';
     $multi_values .= __('Unselect All') . '</a><br />';
-    
-    $multi_values .= '<select name="db_select[]" ' 
+
+    $multi_values .= '<select name="db_select[]" '
         . 'id="db_select" size="10" multiple="multiple">';
     $multi_values .= "\n";
-    
-    // Check if the selected databases are defined in $_GET 
+
+    // Check if the selected databases are defined in $_GET
     // (from clicking Back button on export.php)
     if (isset($_GET['db_select'])) {
         $_GET['db_select'] = urldecode($_GET['db_select']);
         $_GET['db_select'] = explode(",", $_GET['db_select']);
     }
-    
+
     foreach ($GLOBALS['pma']->databases as $current_db) {
         if ($current_db == 'information_schema'
             || $current_db == 'performance_schema'
@@ -113,18 +113,18 @@ function PMA_getHtmlForHiddenInput(
     } else {
         $html .= PMA_URL_getHiddenInputs($db, $table, 1);
     }
-    
+
     // just to keep this value for possible next display of this form after saving
     // on server
     if (!empty($single_table)) {
         $html .= '<input type="hidden" name="single_table" value="TRUE" />'
             . "\n";
     }
-    
+
     $html .= '<input type="hidden" name="export_type" value="'
         . $export_type . '" />';
     $html .= "\n";
-    
+
     // If the export method was not set, the default is quick
     if (isset($_GET['export_method'])) {
         $cfg['Export']['method'] = $_GET['export_method'];
@@ -134,8 +134,8 @@ function PMA_getHtmlForHiddenInput(
     // The export method (quick, custom or custom-no-form)
     $html .= '<input type="hidden" name="export_method" value="'
         . htmlspecialchars($cfg['Export']['method']) . '" />';
-    
-    
+
+
     if (isset($_GET['sql_query'])) {
         $html .= '<input type="hidden" name="sql_query" value="'
             . htmlspecialchars($_GET['sql_query']) . '" />' . "\n";
@@ -143,7 +143,7 @@ function PMA_getHtmlForHiddenInput(
         $html .= '<input type="hidden" name="sql_query" value="'
             . htmlspecialchars($sql_query) . '" />' . "\n";
     }
-    
+
     return $html;
 }
 
@@ -176,7 +176,7 @@ function PMA_getHtmlForExportOptionHeader($export_type, $db, $table)
     }
     $html .= '</h2>';
     $html .= '</div>';
-    
+
     return $html;
 }
 
@@ -193,7 +193,7 @@ function PMA_getHtmlForExportOptionsMethod()
     } else {
         $export_method = $cfg['Export']['method'];
     }
-    
+
     $html  = '<div class="exportoptions" id="quick_or_custom">';
     $html .= '<h3>' . __('Export Method:') . '</h3>';
     $html .= '<ul>';
@@ -208,7 +208,7 @@ function PMA_getHtmlForExportOptionsMethod()
     $html .= __('Quick - display only the minimal options');
     $html .= '</label>';
     $html .= '</li>';
-    
+
     $html .= '<li>';
     $html .= '<input type="radio" name="quick_or_custom" value="custom" '
         . ' id="radio_custom_export"';
@@ -220,10 +220,10 @@ function PMA_getHtmlForExportOptionsMethod()
     $html .= __('Custom - display all possible options');
     $html .= '</label>';
     $html .= '</li>';
-    
+
     $html .= '</ul>';
     $html .= '</div>';
-    
+
     return $html;
 }
 
@@ -247,7 +247,7 @@ function PMA_getHtmlForExportOptionsSelection($export_type, $multi_values)
         $html .= $multi_values;
     }
     $html .= '</div>';
-    
+
     return $html;
 }
 
@@ -264,18 +264,18 @@ function PMA_getHtmlForExportOptionsFormat($export_list)
     $html .= '<h3>' . __('Format:') . '</h3>';
     $html .= PMA_pluginGetChoice('Export', 'what', $export_list, 'format');
     $html .= '</div>';
-    
+
     $html .= '<div class="exportoptions" id="format_specific_opts">';
     $html .= '<h3>' . __('Format-specific options:') . '</h3>';
     $html .= '<p class="no_js_msg" id="scroll_to_options_msg">';
     $html .= __(
-        'Scroll down to fill in the options for the selected format ' 
+        'Scroll down to fill in the options for the selected format '
         . 'and ignore the options for other formats.'
     );
     $html .= '</p>';
     $html .= PMA_pluginGetOptions('Export', $export_list);
     $html .= '</div>';
-    
+
     if (function_exists('PMA_Kanji_encodingForm')) {
         // Encoding setting form appended by Y.Kawada
         // Japanese encoding setting
@@ -284,16 +284,16 @@ function PMA_getHtmlForExportOptionsFormat($export_list)
         $html .= PMA_Kanji_encodingForm();
         $html .= '</div>';
     }
-    
+
     $html .= '<div class="exportoptions" id="submit">';
-    
+
     $html .= PMA_Util::getExternalBug(
         __('SQL compatibility mode'), 'mysql', '50027', '14515'
     );
-    
+
     $html .= '<input type="submit" value="' . __('Go') . '" id="buttonGo" />';
     $html .= '</div>';
-    
+
     return $html;
 }
 /**
@@ -389,7 +389,7 @@ function PMA_getHtmlForExportOptionsQuickExport()
     $html .= '</li>';
     $html .= '</ul>';
     $html .= '</div>';
-    
+
     return $html;
 }
 
@@ -422,7 +422,7 @@ function PMA_getHtmlForExportOptionsOutputSaveDir()
     $html .= __('Overwrite existing file(s)');
     $html .= '</label>';
     $html .= '</li>';
-        
+
     return $html;
 }
 
@@ -447,12 +447,12 @@ function PMA_getHtmlForExportOptionsOutputFormat($export_type)
             $trans->addMessage(__(', @TABLE@ will become the table name'));
         }
     }
-    
+
     $msg = new PMA_Message(
         __(
-            'This value is interpreted using %1$sstrftime%2$s, ' 
-            . 'so you can use time formatting strings. ' 
-            . 'Additionally the following transformations will happen: %3$s. ' 
+            'This value is interpreted using %1$sstrftime%2$s, '
+            . 'so you can use time formatting strings. '
+            . 'Additionally the following transformations will happen: %3$s. '
             . 'Other text will be kept as is. See the %4$sFAQ%5$s for details.'
         )
     );
@@ -469,7 +469,7 @@ function PMA_getHtmlForExportOptionsOutputFormat($export_type)
         false
     );
     $msg->addParam('</a>', false);
-    
+
     $html .= PMA_Util::showHint($msg);
     $html .= '</label>';
     $html .= '<input type="text" name="filename_template" id="filename_template" ';
@@ -538,10 +538,10 @@ function PMA_getHtmlForExportOptionsOutputCharset()
         }
         $html .= '>' . $temp_charset . '</option>';
     } // end foreach
-    $html .= '</select></li>'; 
-    
-    return $html;    
-}   
+    $html .= '</select></li>';
+
+    return $html;
+}
 
 /**
  * Prints Html For Export Options Compression
@@ -558,7 +558,7 @@ function PMA_getHtmlForExportOptionsOutputCompression()
     } else {
         $selected_compression = "none";
     }
-    
+
     $html = "";
     // zip, gzip and bzip2 encode features
     $is_zip  = ($cfg['ZipDump']  && @function_exists('gzcompress'));
@@ -597,7 +597,7 @@ function PMA_getHtmlForExportOptionsOutputCompression()
         $html .= '<input type="hidden" name="compression" value="'
             . htmlspecialchars($selected_compression) . '" />';
     }
-  
+
     return $html;
 }
 
@@ -648,22 +648,22 @@ function PMA_getHtmlForExportOptionsOutput($export_type)
     }
 
     $html .= PMA_getHtmlForExportOptionsOutputFormat($export_type);
-  
+
     // charset of file
     if ($GLOBALS['PMA_recoding_engine'] != PMA_CHARSET_NONE) {
         $html .= PMA_getHtmlForExportOptionsOutputCharset();
     } // end if
-    
+
     $html .= PMA_getHtmlForExportOptionsOutputCompression();
- 
+
     $html .= '</ul>';
     $html .= '</li>';
-    
+
     $html .= PMA_getHtmlForExportOptionsOutputRadio();
 
     $html .= '</ul>';
     $html .= '</div>';
-    
+
     return $html;
 }
 
@@ -681,24 +681,24 @@ function PMA_getHtmlForExportOptionsOutput($export_type)
  * @return string
  */
 function PMA_getHtmlForExportOptions(
-    $export_type, $db, $table, $multi_values, 
+    $export_type, $db, $table, $multi_values,
     $num_tables, $export_list, $unlim_num_rows
 ) {
     global $cfg;
     $html  = PMA_getHtmlForExportOptionHeader($export_type, $db, $table);
     $html .= PMA_getHtmlForExportOptionsMethod();
     $html .= PMA_getHtmlForExportOptionsSelection($export_type, $multi_values);
-  
+
     if (strlen($table) && empty($num_tables) && ! PMA_Table::isMerge($db, $table)) {
         $html .= PMA_getHtmlForExportOptionsRows($db, $table, $unlim_num_rows);
     }
-    
+
     if (isset($cfg['SaveDir']) && !empty($cfg['SaveDir'])) {
         $html .= PMA_getHtmlForExportOptionsQuickExport();
     }
 
     $html .= PMA_getHtmlForExportOptionsOutput($export_type);
- 
+
     $html .= PMA_getHtmlForExportOptionsFormat($export_list);
     return $html;
 }

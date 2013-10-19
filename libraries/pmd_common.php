@@ -4,7 +4,7 @@
  * @package PhpMyAdmin-Designer
  */
 /**
- * block attempts to directly run this script 
+ * block attempts to directly run this script
  */
 if (getcwd() == dirname(__FILE__)) {
     die('Attack stopped');

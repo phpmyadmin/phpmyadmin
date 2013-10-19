@@ -763,7 +763,7 @@ class PMA_Dia_Relation_Schema extends PMA_Export_Relation_Schema
         }
         $dia->endDiaDoc();
     }
-    
+
     /**
      * Output Dia Document for download
      *
