@@ -4,16 +4,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-10-17 12:58+0200\n"
-"PO-Revision-Date: 2013-09-16 08:26+0200\n"
-"Last-Translator: Myung Han Yu <greatymh@gmail.com>\n"
-"Language-Team: Korean <http://l10n.cihar.com/projects/phpmyadmin/master/ko/"
-">\n"
+"PO-Revision-Date: 2013-10-18 16:18+0200\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"Language-Team: Korean <http://l10n.cihar.com/projects/phpmyadmin/master/ko/>\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 1.7-dev\n"
+"X-Generator: Weblate 1.8-dev\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -506,7 +505,7 @@ msgstr "포인트 추가"
 #: gis_data_editor.php:264
 #, php-format
 msgid "Linestring %d:"
-msgstr "문자열 %d"
+msgstr "문자열 %d:"
 
 #: gis_data_editor.php:267 gis_data_editor.php:343
 #, fuzzy
@@ -517,7 +516,7 @@ msgstr "외륜"
 #: gis_data_editor.php:269 gis_data_editor.php:345
 #, php-format
 msgid "Inner ring %d:"
-msgstr "내부 원 %d"
+msgstr "내부 원 %d:"
 
 #: gis_data_editor.php:305
 msgid "Add a linestring"
