@@ -1327,7 +1327,7 @@ div.sqlvalidate {
     overflow:           auto;
 }
 
-#result_query code.sql,
+#result_query div.sqlOuter,
 div.sqlvalidate  {
     border:             <?php echo $GLOBALS['cfg']['MainColor']; ?> solid 1px;
     border-top:         0;

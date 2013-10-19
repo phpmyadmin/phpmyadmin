@@ -533,15 +533,7 @@ function PMA_getHtmlForServerProcessItem($process, $odd_row, $show_full_sql)
     if (empty($process['Info'])) {
         $retval .= '---';
     } else {
-        $cfg_maxDisplaySQL = $GLOBALS['cfg']['MaxCharactersInDisplayedSQL'];
-        if (! $show_full_sql && strlen($process['Info']) > $cfg_maxDisplaySQL) {
-            $info = substr($process['Info'], 0, $cfg_maxDisplaySQL);
-            $retval .= htmlspecialchars($info) . '[...]';
-        } else {
-            $retval .= '<code class="sql"><pre>'
-                    . $process['Info']
-                    . '</pre></code>';
-        }
+        $retval .= PMA_Util::formatSql($process['Info'], ! $show_full_sql);
     }
     $retval .= '</td>';
     $retval .= '</tr>';
