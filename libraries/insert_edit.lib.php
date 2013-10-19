@@ -571,6 +571,7 @@ function PMA_getNullifyCodeForNullColumn($column, $foreigners, $foreignData)
 
 /**
  * Get the HTML elements for value column in insert form
+ * (here, "column" is used in the sense of HTML column in HTML table)
  *
  * @param array   $column                description of column in given table
  * @param string  $backup_field          hidden input field
@@ -678,7 +679,7 @@ function PMA_getValueColumn($column, $backup_field, $column_name_appendix,
         );
 
     } elseif (! in_array($column['pma_type'], $no_support_types)) {
-        $html_output .= PMA_getNoSupportTypes(
+        $html_output .= PMA_getValueColumnForOtherDatatypes(
             $column, $default_char_editing, $backup_field,
             $column_name_appendix, $unnullify_trigger, $tabindex, $special_chars,
             $tabindex_for_value, $idindex, $text_dir, $special_chars_encoded,
@@ -1282,7 +1283,8 @@ function PMA_getMaxUploadSize($column, $biggest_max_file_size)
 }
 
 /**
- * Get HTML for pma no support types
+ * Get HTML for the Value column of other datatypes 
+ * (here, "column" is used in the sense of HTML column in HTML table)
  *
  * @param array   $column                description of column in given table
  * @param string  $default_char_editing  default char editing mode which is stroe
@@ -1304,7 +1306,8 @@ function PMA_getMaxUploadSize($column, $biggest_max_file_size)
  *
  * @return string an html snippet
  */
-function PMA_getNoSupportTypes($column, $default_char_editing, $backup_field,
+function PMA_getValueColumnForOtherDatatypes($column, $default_char_editing,
+    $backup_field,
     $column_name_appendix, $unnullify_trigger, $tabindex, $special_chars,
     $tabindex_for_value, $idindex, $text_dir, $special_chars_encoded, $data,
     $extracted_columnspec
