@@ -34,7 +34,7 @@ class Text_Plain_Sql_Test extends PHPUnit_Framework_TestCase
      */
     protected function setUp()
     {
-        $this->object = new Text_Plain_Sql(new PluginManager()); 
+        $this->object = new Text_Plain_Sql(new PluginManager());
     }
 
     /**
@@ -48,7 +48,7 @@ class Text_Plain_Sql_Test extends PHPUnit_Framework_TestCase
     {
         unset($this->object);
     }
-    
+
     /**
      * Test for getInfo
      *
@@ -58,12 +58,12 @@ class Text_Plain_Sql_Test extends PHPUnit_Framework_TestCase
      */
     public function testGetInfo()
     {
-        $info = 'Formats text as SQL query with syntax highlighting.';     
+        $info = 'Formats text as SQL query with syntax highlighting.';
         $this->assertEquals(
             $info,
             Text_Plain_Sql::getInfo()
-        );  
-    
+        );
+
     }
 
     /**
@@ -74,11 +74,11 @@ class Text_Plain_Sql_Test extends PHPUnit_Framework_TestCase
      * @group medium
      */
     public function testGetName()
-    {       
+    {
         $this->assertEquals(
             "SQL",
             Text_Plain_Sql::getName()
-        );    
+        );
     }
 
     /**
@@ -89,11 +89,11 @@ class Text_Plain_Sql_Test extends PHPUnit_Framework_TestCase
      * @group medium
      */
     public function testGetMIMEType()
-    {       
+    {
         $this->assertEquals(
             "Text",
             Text_Plain_Sql::getMIMEType()
-        );    
+        );
     }
 
     /**
@@ -104,11 +104,11 @@ class Text_Plain_Sql_Test extends PHPUnit_Framework_TestCase
      * @group medium
      */
     public function testGetMIMESubtype()
-    {       
+    {
         $this->assertEquals(
             "Plain",
             Text_Plain_Sql::getMIMESubtype()
-        );    
+        );
     }
 
     /**
@@ -122,10 +122,12 @@ class Text_Plain_Sql_Test extends PHPUnit_Framework_TestCase
     {
         $buffer = "select *";
         $options = array("option1", "option2");
-        $result = '<code class="sql"><pre>select *</pre></code>';
+        $result = '<code class="sql"><pre>' . "\n"
+            . 'select *' . "\n"
+            . '</pre></code>';
         $this->assertEquals(
             $result,
             $this->object->applyTransformation($buffer, $options)
-        );    
+        );
     }
 }
