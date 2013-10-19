@@ -1355,8 +1355,7 @@ AJAX.registerOnload('functions.js', function () {
 
         var $form = $(this).prev('form');
         var sql_query  = $form.find("input[name='sql_query']").val();
-        var $inner_sql = $(this).parent().prev().find('.inner_sql');
-        var $sql_highlight = $(this).parent().prev().find('.sql-highlight');
+        var $inner_sql = $(this).parent().prev().find('code.sql');
         var old_text   = $inner_sql.html();
 
         var new_content = "<textarea name=\"sql_query_edit\" id=\"sql_query_edit\">" + sql_query + "</textarea>\n";
@@ -1369,7 +1368,6 @@ AJAX.registerOnload('functions.js', function () {
         }
         $editor_area.html(new_content);
         $inner_sql.hide();
-        $sql_highlight.hide();
 
         bindCodeMirrorToInlineEditor();
         return false;
@@ -1392,8 +1390,7 @@ AJAX.registerOnload('functions.js', function () {
     });
 
     $("input#sql_query_edit_discard").live('click', function () {
-        $('div#inline_editor_outer')
-            .siblings('.sql-highlight').show();
+        $('div#inline_editor_outer').siblings('code.sql').show();
         $('div#inline_editor_outer').remove();
     });
 
@@ -3423,7 +3420,13 @@ function PMA_slidingMessage(msg, $obj)
             .children()
             .remove();
             $obj
-            .append('<div style="display: none;">' + msg + '</div>')
+            .append('<div>' + msg + '</div>');
+            // highlight any sql before taking height;
+            PMA_highlightSQL($obj);
+            $obj.find('div')
+                .first()
+                .hide();
+            $obj
             .animate({
                 height: $obj.find('div').first().height()
             })
@@ -3434,12 +3437,15 @@ function PMA_slidingMessage(msg, $obj)
     } else {
         // Object does not already have a message
         // inside it, so we simply slide it down
+        $obj.width('100%')
+            .html('<div>' + msg + '</div>');
+        // highlight any sql before taking height;
+        PMA_highlightSQL($obj);
         var h = $obj
-                .width('100%')
-                .html('<div style="display: none;">' + msg + '</div>')
-                .find('div')
-                .first()
-                .height();
+            .find('div')
+            .first()
+            .hide()
+            .height();
         $obj
         .find('div')
         .first()

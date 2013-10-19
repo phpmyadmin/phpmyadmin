@@ -408,9 +408,9 @@ class PMA_Util
                 $cfg['MaxCharactersInDisplayedSQL']
             ) . '[...]';
         }
-        return '<span class="inner_sql"><pre>' . "\n"
+        return '<code class="sql"><pre>' . "\n"
             . htmlspecialchars($sql_query) . "\n"
-            . '</pre></span>';
+            . '</pre></code>';
     } // end of the "formatSql()" function
 
     /**
@@ -1279,7 +1279,7 @@ class PMA_Util
             if (! empty($GLOBALS['validatequery'])) {
                 $retval .= '<div class="sqlvalidate">';
             } else {
-                $retval .= '<code class="sql">';
+                $retval .= '<div class="sqlOuter">';
             }
             if ($query_too_big) {
                 $retval .= $shortened_query_base;
@@ -1291,11 +1291,7 @@ class PMA_Util
             if (! empty($GLOBALS['show_as_php'])) {
                 $retval .= '";';
             }
-            if (! empty($GLOBALS['validatequery'])) {
-                $retval .= '</div>';
-            } else {
-                $retval .= '</code>';
-            }
+            $retval .= '</div>';
 
             $retval .= '<div class="tools">';
             $retval .= '<form action="sql.php" method="post">';

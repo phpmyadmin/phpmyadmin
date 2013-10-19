@@ -225,14 +225,6 @@ function PMA_getAllLogItemInfo($result, $dontlimitchars)
     $html = "";
     $odd_row = true;
     while ($value = $GLOBALS['dbi']->fetchAssoc($result)) {
-        $len_info = $GLOBALS['PMA_String']->strlen($value['Info']);
-        $len_limitChars = $GLOBALS['cfg']['LimitChars'];
-        if (! $dontlimitchars && $len_info > $len_limitChars) {
-            $value['Info'] = $GLOBALS['PMA_String']->substr(
-                $value['Info'], 0, $GLOBALS['cfg']['LimitChars']
-            ) . '...';
-        }
-
         $html .= '<tr class="noclick ' . ($odd_row ? 'odd' : 'even') . '">'
             . '<td>&nbsp;' . $value['Log_name'] . '&nbsp;</td>'
             . '<td class="right">&nbsp;' . $value['Pos'] . '&nbsp;</td>'
@@ -242,9 +234,8 @@ function PMA_getAllLogItemInfo($result, $dontlimitchars)
             . (isset($value['Orig_log_pos'])
             ? $value['Orig_log_pos'] : $value['End_log_pos'])
             . '&nbsp;</td>'
-            . '<td><code class="sql"><pre>&nbsp;' . htmlspecialchars($value['Info'])
-            . '&nbsp;</pre></code></td>'
-            . '</tr>';
+            . '<td>&nbsp;' . PMA_Util::formatSql($value['Info'], ! $dontlimitchars)
+            . '&nbsp;</td></tr>';
 
         $odd_row = !$odd_row;
     }

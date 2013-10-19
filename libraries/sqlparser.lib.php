@@ -2297,12 +2297,6 @@ function PMA_SQP_format(
         $html_line_break                    = '<br />';
         break;
     } // end switch
-    // inner_sql is a span that exists for all cases, except query_only
-    // to make possible a replacement
-    // for inline editing
-    if ($mode!='query_only') {
-        $str .= '<span class="inner_sql">';
-    }
     $indent                                     = 0;
     $bracketlevel                               = 0;
     $functionlevel                              = 0;
@@ -2738,10 +2732,6 @@ function PMA_SQP_format(
     while ($indent > 0) {
         $indent--;
         $str .= ($mode != 'query_only' ? '</div>' : ' ');
-    }
-    if ($mode!='query_only') {
-        // close inner_sql span
-            $str .= '</span>';
     }
 
     return $str;

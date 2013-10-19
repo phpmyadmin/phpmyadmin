@@ -1689,7 +1689,11 @@ div.sqlvalidate {
     overflow: auto;
 }
 
-#result_query code.sql,
+#result_query div.sqlOuter {
+    background: <?php echo $GLOBALS['cfg']['BgOne']; ?>;
+    padding: 1em;
+}
+
 #PMA_slidingMessage code.sql,
 div.sqlvalidate {
     background: <?php echo $GLOBALS['cfg']['BgOne']; ?>;

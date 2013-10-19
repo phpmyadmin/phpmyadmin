@@ -2831,7 +2831,7 @@ class PMA_DisplayResults
             if ($this->_isNeedToSyntaxHighlight($meta->name)
                 && (trim($row[$i]) != '')
             ) {
-                $row[$i] = '<code class="sql">' . PMA_Util::formatSql($row[$i]) . '</code>';
+                $row[$i] = PMA_Util::formatSql($row[$i]);
                 include_once $this->transformation_info[strtolower($this->__get('db'))][strtolower($this->__get('table'))][strtolower($meta->name)][0];
                 $transformation_plugin = new $this->transformation_info
                     [strtolower($this->__get('db'))]
