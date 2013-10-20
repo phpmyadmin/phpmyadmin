@@ -27,9 +27,11 @@ class Node_Procedure_Container extends Node
         $this->icon  = PMA_Util::getImage('b_routines.png');
         $this->links = array(
             'text' => 'db_routines.php?server=' . $GLOBALS['server']
-                    . '&amp;db=%1$s&amp;token=' . $GLOBALS['token'],
+                    . '&amp;db=%1$s&amp;token=' . $GLOBALS['token']
+                    . '&amp;type=PROCEDURE',
             'icon' => 'db_routines.php?server=' . $GLOBALS['server']
-                    . '&amp;db=%1$s&amp;token=' . $GLOBALS['token'],
+                    . '&amp;db=%1$s&amp;token=' . $GLOBALS['token']
+                    . '&amp;type=PROCEDURE',
         );
         $this->real_name = 'procedures';
 

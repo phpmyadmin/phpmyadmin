@@ -27,9 +27,11 @@ class Node_Function_Container extends Node
         $this->icon  = PMA_Util::getImage('b_routines.png');
         $this->links = array(
             'text' => 'db_routines.php?server=' . $GLOBALS['server']
-                    . '&amp;db=%1$s&amp;token=' . $GLOBALS['token'],
+                    . '&amp;db=%1$s&amp;token=' . $GLOBALS['token']
+                    . '&amp;type=FUNCTION',
             'icon' => 'db_routines.php?server=' . $GLOBALS['server']
-                    . '&amp;db=%1$s&amp;token=' . $GLOBALS['token'],
+                    . '&amp;db=%1$s&amp;token=' . $GLOBALS['token']
+                    . '&amp;type=FUNCTION',
         );
         $this->real_name = 'functions';
 

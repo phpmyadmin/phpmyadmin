@@ -79,7 +79,11 @@ $errors = array();
  */
 switch ($_PMA_RTE) {
 case 'RTN':
-    PMA_RTN_main();
+    $type = null;
+    if (isset($_REQUEST['type'])) {
+        $type = $_REQUEST['type'];
+    }
+    PMA_RTN_main($type);
     break;
 case 'TRI':
     PMA_TRI_main();

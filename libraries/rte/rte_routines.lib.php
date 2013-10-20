@@ -33,9 +33,13 @@ function PMA_RTN_setGlobals()
 /**
  * Main function for the routines functionality
  *
+ * @param string $type 'FUNCTION' for functions,
+ *                     'PROCEDURE' for procedures,
+ *                     null for both
+ *
  * @return nothing
  */
-function PMA_RTN_main()
+function PMA_RTN_main($type)
 {
     global $db;
 
@@ -52,6 +56,9 @@ function PMA_RTN_main()
     $columns  = "`SPECIFIC_NAME`, `ROUTINE_NAME`, `ROUTINE_TYPE`, ";
     $columns .= "`DTD_IDENTIFIER`, `ROUTINE_DEFINITION`";
     $where    = "ROUTINE_SCHEMA='" . PMA_Util::sqlAddSlashes($db) . "'";
+    if (PMA_isValid($type, array('FUNCTION','PROCEDURE'))) {
+        $where .= " AND `ROUTINE_TYPE`='" . $type . "'";
+    }
     $items    = $GLOBALS['dbi']->fetchResult(
         "SELECT $columns FROM `INFORMATION_SCHEMA`.`ROUTINES` WHERE $where;"
     );
