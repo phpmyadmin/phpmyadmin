@@ -1311,11 +1311,11 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_getNoSupportTypes
+     * Test for PMA_getValueColumnForOtherDatatypes
      *
      * @return void
      */
-    public function testGetNoSupportTypes()
+    public function testGetValueColumnForOtherDatatypes()
     {
         $column['len'] = 20;
         $column['is_char'] = true;
@@ -1328,7 +1328,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['CharTextareaCols'] = 1;
 
         $extracted_columnspec['spec_in_brackets'] = 25;
-        $result = PMA_getNoSupportTypes(
+        $result = PMA_getValueColumnForOtherDatatypes(
             $column, 'defchar', 'a', 'b', 'c', 22, '&lt;', 12, 1, "/", "&lt;",
             "foo\nbar", $extracted_columnspec
         );
@@ -1345,7 +1345,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         $column['Extra'] = 'auto_increment';
         $column['pma_type'] = 'timestamp';
         $column['True_Type'] = 'bit';
-        $result = PMA_getNoSupportTypes(
+        $result = PMA_getValueColumnForOtherDatatypes(
             $column, 'defchar', 'a', 'b', 'c', 22, '&lt;', 12, 1, "/", "&lt;",
             "foo\nbar", $extracted_columnspec
         );
@@ -1362,7 +1362,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
 
         // case 3: (else -> datetime)
         $column['pma_type'] = 'datetime';
-        $result = PMA_getNoSupportTypes(
+        $result = PMA_getValueColumnForOtherDatatypes(
             $column, 'defchar', 'a', 'b', 'c', 22, '&lt;', 12, 1, "/", "&lt;",
             "foo\nbar", $extracted_columnspec
         );

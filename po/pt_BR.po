@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-10-17 12:58+0200\n"
-"PO-Revision-Date: 2013-10-11 19:35+0200\n"
+"PO-Revision-Date: 2013-10-20 03:13+0200\n"
 "Last-Translator: Rodrigo Souza <rodrigo.chrome@outlook.com>\n"
-"Language-Team: Portuguese (Brazil) <http://l10n.cihar.com/projects/"
-"phpmyadmin/master/pt_BR/>\n"
+"Language-Team: Portuguese (Brazil) "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/pt_BR/>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 1.7\n"
+"X-Generator: Weblate 1.8-dev\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -7882,23 +7882,20 @@ msgstr[0] "%s outro resultado encontrado"
 msgstr[1] "%s outros resultados encontrados"
 
 #: libraries/navigation/NavigationTree.class.php:1044
-#, fuzzy
 #| msgid "filter databases by name or regex"
 msgid "Filter databases by name or regex"
-msgstr "filtrar bancos de dados por nome ou expressão regular"
+msgstr "Filtrar bancos de dados por nome ou expressão regular"
 
 #: libraries/navigation/NavigationTree.class.php:1046
 #: libraries/navigation/NavigationTree.class.php:1079
-#, fuzzy
 #| msgid "Clear Fast Filter"
 msgid "Clear fast filter"
 msgstr "Limpar o filtro rápido"
 
 #: libraries/navigation/NavigationTree.class.php:1078
-#, fuzzy
 #| msgid "filter by name or regex"
 msgid "Filter by name or regex"
-msgstr "filtrar por nome ou expressão regular"
+msgstr "Filtrar por nome ou expressão regular"
 
 #. l10n: The word "Node" must not be translated here
 #: libraries/navigation/NodeFactory.class.php:41
