@@ -998,7 +998,7 @@ function PMA_handleUpdateForForeignKey($multi_edit_columns_name, $master_field_m
                     __('Error creating foreign key on %1$s (check data types)')
                 );
                 $message->addParam($master_field);
-                $message->display();
+                $html_output .= $message->getDisplay();
             } else {
                 $html_output .= PMA_Util::mysqlDie(
                     $tmp_error_create, $create_query, false, '', false
