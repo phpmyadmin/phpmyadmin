@@ -115,7 +115,7 @@ if (isset($_REQUEST['report']) || isset($_REQUEST['report_export'])) {
     $html .= PMA_getHtmlForTrackingReport(
         $url_query, $data, $url_params, $selection_schema, $selection_data,
         $selection_both, $filter_ts_to, $filter_ts_from, $filter_users
-    ); 
+    );
 } // end of report
 
 

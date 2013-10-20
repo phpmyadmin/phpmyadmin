@@ -43,8 +43,8 @@ $foreign_limit = PMA_getForeignLimit(
 
 $foreignData = PMA_getForeignData(
     $foreigners, $_REQUEST['field'], true,
-    isset($_REQUEST['foreign_filter']) 
-    ? $_REQUEST['foreign_filter'] 
+    isset($_REQUEST['foreign_filter'])
+    ? $_REQUEST['foreign_filter']
     : '',
     isset($foreign_limit) ? $foreign_limit : null
 );
