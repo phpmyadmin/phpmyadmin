@@ -96,16 +96,16 @@ if ($server > 0) {
  */
 if ($databases_count > 0) {
     $html .= PMA_getHtmlForDatabase(
-        $databases, 
-        $databases_count, 
-        $pos, 
-        $dbstats, 
-        $sort_by, 
-        $sort_order, 
-        $is_superuser, 
-        $cfg, 
-        $replication_types, 
-        $replication_info, 
+        $databases,
+        $databases_count,
+        $pos,
+        $dbstats,
+        $sort_by,
+        $sort_order,
+        $is_superuser,
+        $cfg,
+        $replication_types,
+        $replication_info,
         $url_query
     );
 } else {

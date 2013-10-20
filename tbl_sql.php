@@ -42,8 +42,8 @@ require_once 'libraries/tbl_info.inc.php';
 $response->addHTML(
     PMA_getHtmlForSqlQueryForm(
         true, false,
-        isset($_REQUEST['delimiter']) 
-        ? htmlspecialchars($_REQUEST['delimiter']) 
+        isset($_REQUEST['delimiter'])
+        ? htmlspecialchars($_REQUEST['delimiter'])
         : ';'
     )
 );

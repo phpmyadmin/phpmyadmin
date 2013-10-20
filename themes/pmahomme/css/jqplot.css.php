@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Styles for jqplot 
+ * Styles for jqplot
  * for the pmahomme theme
  *
  * @package    PhpMyAdmin-theme
@@ -236,7 +236,7 @@ table.jqplot-cursor-tooltip {
     font-size: 0.75em;
     z-index: 2;
 }
-      
+
 td.jqplot-cursor-legend-swatch {
     vertical-align: middle;
     text-align: center;

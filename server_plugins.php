@@ -29,8 +29,8 @@ require 'libraries/server_plugins.lib.php';
 /**
  * Prepare plugin list
  */
-$sql = "SELECT p.plugin_name, p.plugin_type, p.is_active, m.module_name, 
-        m.module_library, m.module_version, m.module_author, 
+$sql = "SELECT p.plugin_name, p.plugin_type, p.is_active, m.module_name,
+        m.module_library, m.module_version, m.module_author,
         m.module_description, m.module_license
     FROM data_dictionary.plugins p
         JOIN data_dictionary.modules m USING (module_name)
