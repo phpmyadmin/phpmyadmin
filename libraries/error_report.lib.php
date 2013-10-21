@@ -30,7 +30,8 @@ define('SUBMISSION_URL', "http://reports.phpmyadmin.net/incidents/create");
  *
  * @return Array/String the report
  */
-function PMA_getReportData($json_encode = true) {
+function PMA_getReportData($json_encode = true)
+{
     $exception = $_REQUEST['exception'];
     $exception["stack"] = PMA_translateStacktrace($exception["stack"]);
     List($uri, $script_name) = PMA_sanitizeUrl($exception["url"]);
@@ -80,7 +81,8 @@ function PMA_getReportData($json_encode = true) {
  * @param String the url to sanitize
  * @return Array the uri and script name
  */
-function PMA_sanitizeUrl($url) {
+function PMA_sanitizeUrl($url)
+{
     $components = parse_url($url);
     if (isset($components["fragment"]) && preg_match("<PMAURL-\d+:>",
             $components["fragment"], $matches)) {
@@ -112,7 +114,8 @@ function PMA_sanitizeUrl($url) {
  *
  * @return String the reply of the server
  */
-function PMA_sendErrorReport($report) {
+function PMA_sendErrorReport($report)
+{
     $data_string = json_encode($report);
     if (ini_get('allow_url_fopen')) {
         $context = array("http" =>
@@ -203,7 +206,8 @@ function PMA_countLines($filename)
  *   exists
  * - Integer $linenumber the translated line number in the returned file
  */
-function PMA_getLineNumber($filenames, $cumulative_number) {
+function PMA_getLineNumber($filenames, $cumulative_number)
+{
   $cumulative_sum = 0;
   foreach($filenames as $filename) {
     $filecount = PMA_countLines($filename);
@@ -224,7 +228,8 @@ function PMA_getLineNumber($filenames, $cumulative_number) {
  *
  * @return Array $stack the modified stacktrace
  */
-function PMA_translateStacktrace($stack) {
+function PMA_translateStacktrace($stack)
+{
     foreach ($stack as &$level) {
         foreach ($level["context"] as &$line) {
             if (strlen($line) > 80) {
@@ -255,7 +260,8 @@ function PMA_translateStacktrace($stack) {
  *
  * @return String the form
  */
-function PMA_getErrorReportForm() {
+function PMA_getErrorReportForm()
+{
     $html = "";
     $html .= '<form action="error_report.php" method="post" name="report_frm"'
             .' id="report_frm" class="ajax">'
@@ -308,7 +314,8 @@ function PMA_getErrorReportForm() {
  *
  * @return String the form
  */
-function PMA_hasLatestLineCounts() {
+function PMA_hasLatestLineCounts()
+{
     $line_counts_time = filemtime("js/line_counts.php");
     $js_time = filemtime("js");
     return $line_counts_time >= $js_time;
