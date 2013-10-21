@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-10-17 12:58+0200\n"
-"PO-Revision-Date: 2013-09-12 03:33+0200\n"
-"Last-Translator: Tony Chen <tonychen@finenet.com.tw>\n"
-"Language-Team: Traditional Chinese <http://l10n.cihar.com/projects/"
-"phpmyadmin/master/zh_TW/>\n"
+"PO-Revision-Date: 2013-10-21 12:28+0200\n"
+"Last-Translator: Chien Wei Lin <cwlin0416@gmail.com>\n"
+"Language-Team: Traditional Chinese "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/zh_TW/>\n"
 "Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 1.7-dev\n"
+"X-Generator: Weblate 1.8-dev\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -29,7 +29,7 @@ msgstr "建立資料庫 %1$s 成功。"
 
 #: db_datadict.php:52 libraries/operations.lib.php:32
 msgid "Database comment: "
-msgstr "資料庫註釋： "
+msgstr "資料庫說明： "
 
 #: db_datadict.php:159 libraries/schema/Pdf_Relation_Schema.class.php:1352
 #: libraries/tbl_columns_definition_form.lib.php:70
@@ -138,7 +138,7 @@ msgstr "連結到"
 #: libraries/tbl_columns_definition_form.lib.php:307
 #: libraries/tbl_printview.lib.php:480
 msgid "Comments"
-msgstr "註釋"
+msgstr "說明"
 
 #: db_datadict.php:240 js/messages.php:249 libraries/Index.class.php:434
 #: libraries/Index.class.php:473 libraries/Index.class.php:882
@@ -450,7 +450,7 @@ msgstr "備份資料已儲存至檔案 %s."
 
 #: file_echo.php:22
 msgid "Invalid export type"
-msgstr "無效的輸出類型"
+msgstr "無效的匯出類型"
 
 #: gis_data_editor.php:113
 #, php-format
@@ -808,18 +808,18 @@ msgid ""
 "cookie validity configured in phpMyAdmin, because of this, your login will "
 "expire sooner than configured in phpMyAdmin."
 msgstr ""
-"您的 PHP 設定參數 [a@http://php.net/manual/en/session.configuration.php#ini."
-"session.gc-maxlifetime@_blank]session.gc_maxlifetime [/a] 短於您在 "
-"phpMyAdmin 中設定的 Cookies 有效期，因此您的登錄連線有效期將會比您在 "
-"phpMyAdmin 中設定的時間要更短。"
+"您的 PHP 設定參數 "
+"[a@http://php.net/manual/en/session.configuration.php#ini.session.gc-"
+"maxlifetime@_blank]session.gc_maxlifetime [/a] 短於您在 phpMyAdmin 中設定的 Cookies "
+"有效期，因此您的登入連線有效期將會比您在 phpMyAdmin 中設定的時間要更短。"
 
 #: index.php:471
 msgid ""
 "Login cookie store is lower than cookie validity configured in phpMyAdmin, "
 "because of this, your login will expire sooner than configured in phpMyAdmin."
 msgstr ""
-"phpMyAdmin 中所設定的登錄 cookie 儲存小於 cookie 有效期，因此您的登錄過期時間"
-"將會比您在 phpMyAdmin 中設定的時間要更短。"
+"phpMyAdmin 中所設定的登入 cookie 儲存小於 cookie 有效期，因此您的登錄過期時間將會比您在 phpMyAdmin "
+"中設定的時間要更短。"
 
 #: index.php:483
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
@@ -841,8 +841,7 @@ msgstr ""
 msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
 "extended features have been deactivated. To find out why click %shere%s."
-msgstr ""
-"phpMyAdmin 高級功能未全部設定，部分功能不可用。要查出原因請%s點這裡%s。"
+msgstr "尚未設定 phpMyAdmin 資料庫，某些進階功能將無法使用。請點選 %s此處%s 取得詳細資訊。"
 
 #: index.php:540
 #, php-format
@@ -1207,13 +1206,13 @@ msgid ""
 "than %d seconds. It is advisable to set this long_query_time 0-2 seconds, "
 "depending on your system."
 msgstr ""
-"slow_query_log 已經被啟用，但是伺服器仍然只為執行時間大於 %d 秒的查詢做記錄。"
-"建議根據您的系統將 long_query_time 設定為 0-2 秒。"
+"slow_query_log 已啟用，但伺服器只記錄執行時間超過 %d 秒的查詢。建議根據您的系統狀況將 long_query_time 設定為 0-2 "
+"秒之間。"
 
 #: js/messages.php:136
 #, php-format
 msgid "long_query_time is set to %d second(s)."
-msgstr "long_query_time 被指定為 %d 秒。"
+msgstr "long_query_time 已設定為 %d 秒。"
 
 #: js/messages.php:137
 msgid ""
@@ -1287,7 +1286,7 @@ msgstr "從普通的查詢記錄檔"
 
 #: js/messages.php:162
 msgid "The database name is not known for this query in the server's logs."
-msgstr ""
+msgstr "此伺服器記錄中的查詢所使用的資料庫名稱不存在。"
 
 #: js/messages.php:164
 msgid "Analysing logs"
@@ -1463,7 +1462,7 @@ msgstr "分析查詢"
 
 #: js/messages.php:214
 msgid "Advisor system"
-msgstr "輔導系統"
+msgstr "建議系統"
 
 #: js/messages.php:215
 msgid "Possible performance issues"
@@ -1935,7 +1934,7 @@ msgstr "最新"
 #: js/messages.php:405 libraries/DisplayResults.class.php:5154
 #: view_create.php:178
 msgid "Create view"
-msgstr "新建視表"
+msgstr "新增檢視表"
 
 #: js/messages.php:408
 #, fuzzy
@@ -2527,7 +2526,7 @@ msgstr "最末頁"
 #: libraries/DisplayResults.class.php:951 libraries/display_export.lib.php:322
 #: libraries/tbl_chart.lib.php:210
 msgid "Number of rows:"
-msgstr "記錄數："
+msgstr "資料列數："
 
 #: libraries/DisplayResults.class.php:959
 msgid "Mode:"
@@ -2655,7 +2654,7 @@ msgstr "這個檢視至少需包含這個數目的資料，請參考%sdocumentat
 #: libraries/DisplayResults.class.php:4921
 #, php-format
 msgid "Showing rows %1s - %2s"
-msgstr "顯示行 %1s-%2s"
+msgstr "顯示列 %1s-%2s"
 
 #: libraries/DisplayResults.class.php:4933
 #, php-format
@@ -2877,7 +2876,7 @@ msgstr "伺服器"
 #: libraries/structure.lib.php:707 libraries/structure.lib.php:1190
 #: libraries/tbl_info.inc.php:59
 msgid "View"
-msgstr "視表"
+msgstr "檢視表"
 
 #: libraries/Menu.class.php:303 libraries/Menu.class.php:403
 #: libraries/Util.class.php:3189 libraries/Util.class.php:3196
@@ -2994,7 +2993,7 @@ msgstr "二進制日誌"
 #: libraries/Util.class.php:4115 libraries/server_common.lib.php:42
 #: libraries/structure.lib.php:182 libraries/structure.lib.php:761
 msgid "Replication"
-msgstr "複製"
+msgstr "備援"
 
 #: libraries/Menu.class.php:571 libraries/ServerStatusData.class.php:263
 #: libraries/Util.class.php:4116 libraries/server_engines.lib.php:109
@@ -3129,16 +3128,16 @@ msgstr "顯示開啟的表"
 
 #: libraries/ServerStatusData.class.php:231
 msgid "Show slave hosts"
-msgstr "顯示從伺服器"
+msgstr "顯示次要(Slave)伺服器"
 
 #: libraries/ServerStatusData.class.php:238
 #: libraries/replication_gui.lib.php:49
 msgid "Show master status"
-msgstr "查看主伺服器狀態"
+msgstr "顯示主要(Master)伺服器狀態"
 
 #: libraries/ServerStatusData.class.php:241
 msgid "Show slave status"
-msgstr "顯示從伺服器狀態"
+msgstr "顯示次要(Slave)伺服器狀態"
 
 #: libraries/ServerStatusData.class.php:246
 msgid "Flush query cache"
@@ -3163,7 +3162,7 @@ msgstr "監測器"
 
 #: libraries/ServerStatusData.class.php:384
 msgid "Advisor"
-msgstr "輔導"
+msgstr "建議"
 
 #: libraries/StorageEngine.class.php:216
 msgid ""
@@ -3183,7 +3182,7 @@ msgstr "MySQL 伺服器支援 %s。"
 #: libraries/StorageEngine.class.php:358
 #, php-format
 msgid "%s has been disabled for this MySQL server."
-msgstr "%s 在此 MySQL 伺服器上被禁用。"
+msgstr "%s 在此 MySQL 伺服器上被停用。"
 
 #: libraries/StorageEngine.class.php:362
 #, php-format
@@ -3303,7 +3302,7 @@ msgstr "使用這個欄位來標記每個點"
 
 #: libraries/TableSearch.class.php:877
 msgid "Maximum rows to plot"
-msgstr "最多可顯示行數"
+msgstr "圖表最多可顯示的列數"
 
 #: libraries/TableSearch.class.php:906 libraries/TableSearch.class.php:1223
 #: libraries/sql.lib.php:371 tbl_change.php:142
@@ -4232,7 +4231,7 @@ msgstr "使用 singon 認證方式時 Signon 連線名不能爲空"
 
 #: libraries/config/Validator.class.php:308
 msgid "Empty signon URL while using signon authentication method"
-msgstr "使用 singon 認證方式時登錄網址不能爲空"
+msgstr "使用 singon 認證方式時登入網址不能爲空"
 
 #: libraries/config/Validator.class.php:356
 msgid "Empty phpMyAdmin control user while using pmadb"
@@ -4258,7 +4257,7 @@ msgstr "如果啓用，使用者可以在 cookie 認證方式中輸入任意 MyS
 
 #: libraries/config/messages.inc.php:18
 msgid "Allow login to any MySQL server"
-msgstr "允許登錄到任意 MySQL 伺服器"
+msgstr "允許登入到任意 MySQL 伺服器"
 
 #: libraries/config/messages.inc.php:19
 msgid ""
@@ -4699,16 +4698,16 @@ msgstr "建立查詢指令最大長度"
 
 #: libraries/config/messages.inc.php:139
 msgid "Export type"
-msgstr "輸出類型"
+msgstr "匯出類型"
 
 #: libraries/config/messages.inc.php:140
 #: libraries/plugins/export/ExportSql.class.php:129
 msgid "Enclose export in a transaction"
-msgstr "使用封裝輸出方式"
+msgstr "匯出資料使用交易(Transcation)的方式包裝"
 
 #: libraries/config/messages.inc.php:141
 msgid "Export time in UTC"
-msgstr "以協和標準時間 (UTC) 輸出時間"
+msgstr "匯出時間使用世界協調時間(UTC)"
 
 #: libraries/config/messages.inc.php:149
 msgid "Force secured connection while using phpMyAdmin"
@@ -4941,7 +4940,7 @@ msgstr "追蹤資料庫的修改。需要 phpMyAdmin 進階功能。"
 
 #: libraries/config/messages.inc.php:209
 msgid "Customize export options"
-msgstr "自定輸出選項"
+msgstr "自訂匯出選項"
 
 #: libraries/config/messages.inc.php:211
 msgid "Customize import defaults"
@@ -5162,9 +5161,7 @@ msgid ""
 "If TRUE, logout deletes cookies for all servers; when set to FALSE, logout "
 "only occurs for the current server. Setting this to FALSE makes it easy to "
 "forget to log out from other servers when connected to multiple servers."
-msgstr ""
-"如果設爲 TRUE，在登出時將會自動刪除所有伺服器的 Cookies。如果設爲 FALSE，在您"
-"登錄多臺伺服器的時候，很可能會使您忘記登出。"
+msgstr "如果設爲 TRUE，在登出時將會自動刪除所有伺服器的 Cookies。如果設爲 FALSE，在您登入多台伺服器的時候，很可能會使您忘記登出。"
 
 #: libraries/config/messages.inc.php:275
 msgid "Delete all cookies on logout"
@@ -5174,11 +5171,11 @@ msgstr "登出時刪除所有 cookies"
 msgid ""
 "Define whether the previous login should be recalled or not in cookie "
 "authentication mode"
-msgstr "定義在 cookie 認證方式中是否顯示上次登錄的帳號"
+msgstr "定義在 cookie 認證方式中是否顯示上次登入的帳號"
 
 #: libraries/config/messages.inc.php:277
 msgid "Recall user name"
-msgstr "顯示上次登錄的帳號"
+msgstr "顯示上次登入的帳號"
 
 #: libraries/config/messages.inc.php:278
 msgid ""
@@ -5192,15 +5189,15 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:279
 msgid "Login cookie store"
-msgstr "登錄 cookie 儲存"
+msgstr "登入 cookie 儲存"
 
 #: libraries/config/messages.inc.php:280
 msgid "Define how long (in seconds) a login cookie is valid"
-msgstr "定義登錄 cookie 的有效期 (單位：秒)"
+msgstr "定義登入 cookie 的有效期 (單位：秒)"
 
 #: libraries/config/messages.inc.php:281
 msgid "Login cookie validity"
-msgstr "登錄 cookie 有效期"
+msgstr "登入 cookie 有效期"
 
 #: libraries/config/messages.inc.php:282
 msgid "Double size of textarea for LONGTEXT columns"
@@ -5324,7 +5321,7 @@ msgstr "快速訪問圖示的目標"
 msgid ""
 "Defines the minimum number of items (tables, views, routines and events) to "
 "display a filter box."
-msgstr "定義最少的項目數 (資料表、視表、程序和事件) 以顯示在篩選框。"
+msgstr "定義最少的項目數 (資料表、檢視表、程序和事件) 以顯示在篩選框。"
 
 #: libraries/config/messages.inc.php:310
 msgid "Minimum number of items to display the filter box"
@@ -5448,7 +5445,7 @@ msgstr "丟失 phpMyAdmin 進階功能資料表"
 msgid ""
 "Disable the default warning that is displayed if a difference between the "
 "MySQL library and server is detected"
-msgstr "如果偵測到 MySQL 函式庫和伺服器有所不同時禁用預設的警告顯示"
+msgstr "停用偵測到 MySQL 函式庫和伺服器有所不同時的預設警告訊息"
 
 #: libraries/config/messages.inc.php:338
 msgid "Server/library difference warning"
@@ -5458,7 +5455,7 @@ msgstr "伺服器和函式庫不同的警告"
 msgid ""
 "Disable the default warning that is displayed on the Structure page if "
 "column names in a table are reserved MySQL words"
-msgstr "如果資料表欄位是 MySQL 保留字時，在顯示結構頁面禁用預設警告"
+msgstr "停用如果資料表欄位是 MySQL 保留字時，在結構頁面顯示的預設警告訊息"
 
 #: libraries/config/messages.inc.php:340
 msgid "MySQL reserved word warning"
@@ -5583,11 +5580,11 @@ msgstr "主機認證規則"
 
 #: libraries/config/messages.inc.php:373
 msgid "Allow logins without a password"
-msgstr "允許空密碼登錄"
+msgstr "允許空密碼登入"
 
 #: libraries/config/messages.inc.php:374
 msgid "Allow root login"
-msgstr "允許 root 使用者登錄"
+msgstr "允許 root 使用者登入"
 
 #: libraries/config/messages.inc.php:375
 msgid "HTTP Basic Auth Realm name to display when doing HTTP Auth"
@@ -5867,7 +5864,7 @@ msgstr "Signon 連線名"
 
 #: libraries/config/messages.inc.php:431
 msgid "Signon URL"
-msgstr "登錄網址"
+msgstr "登入網址"
 
 #: libraries/config/messages.inc.php:432
 msgid "Socket on which MySQL server is listening, leave empty for default"
@@ -5940,7 +5937,7 @@ msgstr "新增 DROP TABLE"
 msgid ""
 "Whether a DROP VIEW IF EXISTS statement will be added as first line to the "
 "log when creating a view."
-msgstr "設定當視表建立時，是否在記錄檔前面加上 DROP 視表 IF EXISTS 命令。"
+msgstr "設定當檢視表建立時，是否在記錄檔前面加上 DROP 視表 IF EXISTS 命令。"
 
 #: libraries/config/messages.inc.php:447
 msgid "Add DROP VIEW"
@@ -5968,7 +5965,7 @@ msgstr "SQL 查詢追蹤表"
 msgid ""
 "Whether the tracking mechanism creates versions for tables and views "
 "automatically."
-msgstr "設定追蹤系統是否自動爲資料表和視表建立版本。"
+msgstr "設定追蹤系統是否自動爲資料表和檢視表建立版本。"
 
 #: libraries/config/messages.inc.php:453
 msgid "Automatically create versions"
@@ -6467,7 +6464,7 @@ msgstr "您可能遭遇多層遞迴攻擊"
 #: libraries/database_interface.inc.php:34
 #, php-format
 msgid "See %sour documentation%s for more information."
-msgstr ""
+msgstr "請參考 %sour 文件 %s 以取得更多的資訊。"
 
 #: libraries/dbi/DBIDrizzle.class.php:146 libraries/dbi/DBIMysql.class.php:170
 #: libraries/dbi/DBIMysqli.class.php:224
@@ -6563,7 +6560,7 @@ msgstr "正在匯出資料庫“%s”中的資料表"
 #: libraries/display_export.lib.php:173
 #, php-format
 msgid "Exporting rows from \"%s\" table"
-msgstr "正在匯出資料表“%s”中的記錄"
+msgstr "正在匯出資料表 “%s” 中的資料"
 
 #: libraries/display_export.lib.php:198
 msgid "Export Method:"
@@ -6592,7 +6589,7 @@ msgstr "格式："
 
 #: libraries/display_export.lib.php:269
 msgid "Format-specific options:"
-msgstr "格式特定選項："
+msgstr "格式選項："
 
 #: libraries/display_export.lib.php:272
 msgid ""
@@ -6602,7 +6599,7 @@ msgstr "請下拉至所選格式並設定選項，其它格式請忽略。"
 
 #: libraries/display_export.lib.php:283 libraries/display_import.lib.php:350
 msgid "Encoding Conversion:"
-msgstr "編碼轉換："
+msgstr "轉換編碼："
 
 #: libraries/display_export.lib.php:311 libraries/sql.lib.php:433
 msgid "Rows:"
@@ -6610,15 +6607,15 @@ msgstr "記錄："
 
 #: libraries/display_export.lib.php:319
 msgid "Dump some row(s)"
-msgstr "匯出部分記錄"
+msgstr "只匯出部份資料列"
 
 #: libraries/display_export.lib.php:334
 msgid "Row to begin at:"
-msgstr "起始行數："
+msgstr "起始列數："
 
 #: libraries/display_export.lib.php:351
 msgid "Dump all rows"
-msgstr "匯出所有行"
+msgstr "匯出所有資料列"
 
 #: libraries/display_export.lib.php:367 libraries/display_export.lib.php:634
 msgid "Output:"
@@ -6631,19 +6628,19 @@ msgstr "儲存到伺服器上的 <b>%s</b> 資料夾中"
 
 #: libraries/display_export.lib.php:441
 msgid "File name template:"
-msgstr "檔案名稱模板："
+msgstr "檔案名稱樣版："
 
 #: libraries/display_export.lib.php:443
 msgid "@SERVER@ will become the server name"
-msgstr "@SERVER@ 將變成伺服器名稱"
+msgstr "@SERVER@ 會替換為伺服器名稱"
 
 #: libraries/display_export.lib.php:445
 msgid ", @DATABASE@ will become the database name"
-msgstr "，@DATABASE@ 將變成資料庫名"
+msgstr "，@DATABASE@ 會替換為資料庫名稱"
 
 #: libraries/display_export.lib.php:447
 msgid ", @TABLE@ will become the table name"
-msgstr "，@TABLE@ 將變成資料資料表名稱"
+msgstr "，@TABLE@ 會替換為資料表名稱"
 
 #: libraries/display_export.lib.php:453
 #, php-format
@@ -6652,8 +6649,8 @@ msgid ""
 "formatting strings. Additionally the following transformations will happen: "
 "%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
-"這個值是使用 %1$sstrftime%2$s 來解析的，所以您能用時間格式的字元串。另外，下"
-"列內容也將被轉換：%3$s。其他文字將保持原樣。參見%4$s常見問題 (FAQ)%5$s。"
+"此參數會使用 %1$sstrftime%2$s 來解析，因此您能用時間格式的字元串。除此之外，下列關鍵字也將被轉換：%3$s。其他文字則會保持原樣。參見"
+"%4$s常見問題 (FAQ)%5$s。"
 
 #: libraries/display_export.lib.php:510
 msgid "use this for future exports"
@@ -6682,7 +6679,7 @@ msgstr "bzip 壓縮"
 
 #: libraries/display_export.lib.php:619
 msgid "View output as text"
-msgstr "直接顯示為文本"
+msgstr "直接使用文字區塊顯示"
 
 #: libraries/display_export.lib.php:644
 msgid "Save output to a file"
@@ -6775,7 +6772,7 @@ msgstr "從首行起要跳過的行數："
 
 #: libraries/display_import.lib.php:339
 msgid "Format-Specific Options:"
-msgstr "格式特定選項："
+msgstr "格式選項："
 
 #: libraries/display_import.lib.php:447
 msgid ""
@@ -6783,8 +6780,7 @@ msgid ""
 "this is a known bug in webkit based (Safari, Google Chrome, Arora etc.) "
 "browsers."
 msgstr ""
-"上傳的檔案可能超過了最大大小，也可能是一個基於 webkit 瀏覽器 (Safari, Google "
-"Chrome, Arora 等) 的已知缺陷 (bug)."
+"上傳的檔案可能超過了限制的大小，也可能是以 webkit 為基礎的瀏覽器 (Safari, Google Chrome, Arora 等) 的已知問題。"
 
 #: libraries/display_import.lib.php:453
 #, php-format
@@ -7660,7 +7656,7 @@ msgstr "新增"
 #: libraries/navigation/Nodes/Node_View_Container.class.php:26
 #: libraries/plugins/export/ExportXml.class.php:125
 msgid "Views"
-msgstr "視表"
+msgstr "檢視表"
 
 #: libraries/navigation/Nodes/Node_View_Container.class.php:46
 msgctxt "Create new view"
@@ -7741,7 +7737,7 @@ msgstr "將表改名爲"
 
 #: libraries/operations.lib.php:798
 msgid "Table comments"
-msgstr "表註釋"
+msgstr "資料表說明"
 
 #: libraries/operations.lib.php:807 libraries/server_engines.lib.php:49
 msgid "Storage Engine"
@@ -7883,11 +7879,11 @@ msgstr ""
 #: libraries/plugins/auth/AuthenticationCookie.class.php:82
 #: libraries/plugins/auth/AuthenticationCookie.class.php:196
 msgid "Log in"
-msgstr "登錄"
+msgstr "登入"
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:100
 msgid "Your session has expired. Please log in again."
-msgstr "您的連線已過期，請重新登錄。"
+msgstr "您的連線已過期，請重新登入。"
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:204
 #: libraries/plugins/auth/AuthenticationCookie.class.php:214
@@ -7914,7 +7910,7 @@ msgstr "請輸入正確的驗證碼！"
 #: libraries/plugins/auth/AuthenticationSignon.class.php:264
 msgid ""
 "Login without a password is forbidden by configuration (see AllowNoPassword)"
-msgstr "空密碼登錄被禁止 (參見 允許空密碼)"
+msgstr "空密碼登入被禁止 (參見 允許空密碼)"
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:686
 #: libraries/plugins/auth/AuthenticationSignon.class.php:271
@@ -7926,7 +7922,7 @@ msgstr "登錄超時 (%s 秒未操作)，請重新登錄。"
 #: libraries/plugins/auth/AuthenticationCookie.class.php:693
 #: libraries/plugins/auth/AuthenticationSignon.class.php:280
 msgid "Cannot log in to the MySQL server"
-msgstr "無法登錄 MySQL 伺服器"
+msgstr "無法登入 MySQL 伺服器"
 
 #: libraries/plugins/auth/AuthenticationHttp.class.php:79
 msgid "Wrong username/password. Access denied."
@@ -8036,14 +8032,14 @@ msgstr "表的結構"
 #: libraries/plugins/export/ExportSql.class.php:1496
 #: libraries/plugins/export/ExportTexytext.class.php:513
 msgid "Structure for view"
-msgstr "視表結構"
+msgstr "檢視表結構"
 
 #: libraries/plugins/export/ExportHtmlword.class.php:581
 #: libraries/plugins/export/ExportOdt.class.php:679
 #: libraries/plugins/export/ExportSql.class.php:1531
 #: libraries/plugins/export/ExportTexytext.class.php:520
 msgid "Stand-in structure for view"
-msgstr "替換視表以便查看"
+msgstr "替換檢視表以便查看"
 
 #: libraries/plugins/export/ExportLatex.class.php:43
 msgid "Content of table @TABLE@"
@@ -8087,7 +8083,7 @@ msgstr "顯示外部鍵的關聯"
 #: libraries/plugins/export/ExportLatex.class.php:142
 #: libraries/plugins/export/ExportOdt.class.php:108
 msgid "Display comments"
-msgstr "顯示註釋"
+msgstr "顯示說明"
 
 #: libraries/plugins/export/ExportLatex.class.php:147
 #: libraries/plugins/export/ExportOdt.class.php:113
@@ -8156,11 +8152,11 @@ msgstr "報告標題："
 msgid ""
 "Display comments <i>(includes info such as export timestamp, PHP version, "
 "and server version)</i>"
-msgstr "顯示註釋 <i>(包括匯出時間、PHP 版本和伺服器版本等資訊)</i>"
+msgstr "顯示說明 <i>(包括匯出時間、PHP 版本和伺服器版本等資訊)</i>"
 
 #: libraries/plugins/export/ExportSql.class.php:100
 msgid "Additional custom header comment (\\n splits lines):"
-msgstr "在檔案頭新增自訂註釋 (\\n 爲換行)："
+msgstr "在檔案檔頭新增自訂說明 (\\n 爲換行)："
 
 #: libraries/plugins/export/ExportSql.class.php:107
 msgid ""
@@ -8171,7 +8167,7 @@ msgstr "包含資料庫建立、最後更新和最後檢查的時間"
 #: libraries/plugins/export/ExportSql.class.php:170
 msgid ""
 "Database system or older MySQL server to maximize output compatibility with:"
-msgstr "最大程度相容資料庫系統或舊版本的 MySQL 伺服器："
+msgstr "相容其他資料庫系統或舊版本的 MySQL 伺服器："
 
 #: libraries/plugins/export/ExportSql.class.php:191
 #: libraries/plugins/export/ExportSql.class.php:234
@@ -8582,7 +8578,7 @@ msgstr "建立 PDF"
 
 #: libraries/relation.lib.php:159
 msgid "Displaying Column Comments"
-msgstr "顯示欄位註釋"
+msgstr "顯示欄位說明"
 
 #: libraries/relation.lib.php:165
 #: libraries/tbl_columns_definition_form.lib.php:328
@@ -8634,19 +8630,19 @@ msgstr "透過 <code>examples/create_tables.sql</code> 建立必需的資料表�
 
 #: libraries/relation.lib.php:291
 msgid "Create a pma user and give access to these tables."
-msgstr "建立一個使用者並授予其訪問上一步操作中建立的資料表的權限。"
+msgstr "建立一個 pma 使用者並授權存取上一步操作中所建立的資料表的權限。"
 
 #: libraries/relation.lib.php:296
 msgid ""
 "Enable advanced features in configuration file (<code>config.inc.php</"
 "code>), for example by starting from <code>config.sample.inc.php</code>."
 msgstr ""
-"在設定檔案 (<code>config.inc.php</code>) 中啓用進階功能，參見 <code>config."
-"sample.inc.php</code> 中的範例。"
+"在設定檔 (<code>config.inc.php</code>) 中啓用進階功能，請參考 "
+"<code>config.sample.inc.php</code> 中的範例。"
 
 #: libraries/relation.lib.php:304
 msgid "Re-login to phpMyAdmin to load the updated configuration file."
-msgstr "請重新登錄 phpMyAdmin 以載入新設定並使其生效。"
+msgstr "請重新登入 phpMyAdmin 以載入新設定並使其生效。"
 
 #: libraries/relation.lib.php:1478
 msgid "no description"
@@ -8655,11 +8651,11 @@ msgstr "無說明"
 #: libraries/replication_gui.lib.php:45 libraries/replication_gui.lib.php:311
 #: libraries/server_databases.lib.php:394
 msgid "Master replication"
-msgstr "主複製"
+msgstr "備援主要(Master)伺服器"
 
 #: libraries/replication_gui.lib.php:46
 msgid "This server is configured as master in a replication process."
-msgstr "此伺服器已被設定爲一個複製程序中的主伺服器。"
+msgstr "此伺服器已被設定爲一個備援程序中的主要(Master)伺服器。"
 
 #: libraries/replication_gui.lib.php:54
 msgid "Show connected slaves"
@@ -8667,7 +8663,7 @@ msgstr "查看已連線的從伺服器"
 
 #: libraries/replication_gui.lib.php:65 libraries/replication_gui.lib.php:671
 msgid "Add slave replication user"
-msgstr "新增 slave replication 使用者"
+msgstr "新增備援次要(Slave)伺服器使用者"
 
 #: libraries/replication_gui.lib.php:87
 msgid "Master configuration"
@@ -8681,8 +8677,8 @@ msgid ""
 "ignore all databases by default and allow only certain databases to be "
 "replicated. Please select the mode:"
 msgstr ""
-"此伺服器尚未設定爲一個複製程序中的主伺服器。您可以選擇複製所有但忽略某些資料"
-"庫 (當您想複製大多數資料庫時很有用) 或者僅複製某些資料庫。請選擇模式:"
+"此伺服器尚未設定爲一個備援程序中的主要(Master)伺服器。您可以選擇複製所有但忽略某些資料庫 (當您想備援大多數資料庫時很有用) "
+"或者僅備援某些資料庫。請選擇模式:"
 
 #: libraries/replication_gui.lib.php:98
 msgid "Replicate all databases; Ignore:"
@@ -8715,7 +8711,7 @@ msgstr ""
 #: libraries/replication_gui.lib.php:139
 #: libraries/server_databases.lib.php:396
 msgid "Slave replication"
-msgstr "從複製"
+msgstr "備援次要(Slave)伺服器"
 
 #: libraries/replication_gui.lib.php:190
 msgid "Slave SQL Thread not running!"
@@ -8728,7 +8724,7 @@ msgstr "從 IO 程序未啓動！"
 #: libraries/replication_gui.lib.php:206
 msgid ""
 "Server is configured as slave in a replication process. Would you like to:"
-msgstr "伺服器已被設定爲一個複製程序中的從伺服器。您是否要:"
+msgstr "伺服器已被設定爲一個備援程序中的次要(Slave)伺服器。您是否要:"
 
 #: libraries/replication_gui.lib.php:210
 msgid "See slave status table"
@@ -8775,9 +8771,7 @@ msgstr "修改或重新設定主伺服器"
 msgid ""
 "This server is not configured as slave in a replication process. Would you "
 "like to <a href=\"%s\">configure</a> it?"
-msgstr ""
-"此伺服器尚未設定爲一個複製程序中的從伺服器。您想現在<a href=\"%s\">設定</a>"
-"嗎？"
+msgstr "此伺服器尚未設定爲一個備援程序中的次要(Slave)伺服器。您想現在<a href=\"%s\">設定</a>嗎？"
 
 #: libraries/replication_gui.lib.php:278
 msgid "Error management:"
@@ -8804,9 +8798,7 @@ msgstr "個錯誤。"
 msgid ""
 "This server is not configured as master in a replication process. Would you "
 "like to <a href=\"%s\">configure</a> it?"
-msgstr ""
-"此伺服器尚未設定爲一個複製程序中的主伺服器。您想現在<a href=\"%s\">設定</a>"
-"嗎？"
+msgstr "此伺服器尚未設定爲一個備援程序中的主要(Master)伺服器。您想現在<a href=\"%s\">設定</a>嗎？"
 
 #: libraries/replication_gui.lib.php:352
 msgid "Uncheck All"
@@ -9709,7 +9701,7 @@ msgstr "允許鎖定目前程序的資料表。"
 #: libraries/server_privileges.lib.php:338
 #: libraries/server_privileges.lib.php:1188 server_privileges.php:101
 msgid "Needed for the replication slaves."
-msgstr "replication slaves所需。"
+msgstr "備援次要(Slave)伺服器所需項目。"
 
 #: libraries/server_privileges.lib.php:343
 #: libraries/server_privileges.lib.php:1184 server_privileges.php:99
@@ -9844,13 +9836,13 @@ msgstr "允許新增使用者和權限，但不允許重新載入權限表。"
 
 #: libraries/server_privileges.lib.php:1256
 msgid "Login Information"
-msgstr "登錄資訊"
+msgstr "登入資訊"
 
 #: libraries/server_privileges.lib.php:1288
 #: libraries/server_privileges.lib.php:1456
 #: libraries/server_privileges.lib.php:2792
 msgid "Use text field"
-msgstr "使用文字域"
+msgstr "使用文字方塊"
 
 #: libraries/server_privileges.lib.php:1310
 msgid ""
@@ -9980,7 +9972,7 @@ msgstr "… 從使用者資料表中刪除舊使用者，然後重新載入權�
 
 #: libraries/server_privileges.lib.php:2391
 msgid "Change Login Information / Copy User"
-msgstr "修改登錄資訊/複製使用者"
+msgstr "修改登入資訊/複製使用者"
 
 #: libraries/server_privileges.lib.php:2397
 msgid "Create a new user with the same privileges and …"
@@ -10062,7 +10054,7 @@ msgstr "編輯權限："
 
 #: libraries/server_privileges.lib.php:3706 libraries/server_users.lib.php:25
 msgid "Users overview"
-msgstr "查看使用者"
+msgstr "檢視使用者"
 
 #: libraries/server_privileges.lib.php:3781
 #, php-format
@@ -10072,9 +10064,9 @@ msgid ""
 "server uses, if they have been changed manually. In this case, you should "
 "%sreload the privileges%s before you continue."
 msgstr ""
-"注意：phpMyAdmin 直接由 MySQL 權限表取得使用者權限。如果使用者手動更改表，表"
-"內容將可能與伺服器使用的使用者權限有異。在這種情況下，您應在繼續前%s重新載入"
-"權限%s。"
+"注意：phpMyAdmin 直接由 MySQL "
+"權限表取得使用者權限。若有使用者中途手動更改權限，則表中顯示的內容可能與伺服器實際使用的使用者權限有異。在這種情況下，您應在繼續前 %s重新載入權限%"
+"s。"
 
 #: libraries/server_privileges.lib.php:3831
 msgid "The selected user was not found in the privilege table."
@@ -10098,19 +10090,20 @@ msgstr "此 MySQL 伺服器已經運行了 %1$s，啓動時間爲 %2$s。"
 msgid ""
 "This MySQL server works as <b>master</b> and <b>slave</b> in <b>replication</"
 "b> process."
-msgstr "此 MySQL 伺服器正以<b>主</b>和<b>從</b>伺服器運行於<b>複製</b>程序中。"
+msgstr ""
+"此 MySQL 伺服器在<b>備援</b>程序中同時扮演<b>主要(Master)伺服器</b>和<b>次要(Slave)伺服器</b>的身份。"
 
 #: libraries/server_status.lib.php:84
 msgid "This MySQL server works as <b>master</b> in <b>replication</b> process."
-msgstr "此 MySQL 伺服器正以<b>主</b>伺服器運行於<b>複製</b>程序中。"
+msgstr "此 MySQL 伺服器在<b>備援</b>程序中扮演<b>主要(Master)伺服器</b>的身份。"
 
 #: libraries/server_status.lib.php:89
 msgid "This MySQL server works as <b>slave</b> in <b>replication</b> process."
-msgstr "此 MySQL 伺服器正以<b>從</b>伺服器運行於<b>複製</b>程序中。"
+msgstr "此 MySQL 伺服器在<b>備援</b>程序中扮演<b>次要(Slave)伺服器</b>的身份。"
 
 #: libraries/server_status.lib.php:103
 msgid "Replication status"
-msgstr "複製狀態"
+msgstr "備援狀態"
 
 #: libraries/server_status.lib.php:132
 msgid ""
@@ -10156,7 +10149,7 @@ msgstr "說明"
 msgid ""
 "The Advisor system can provide recommendations on server variables by "
 "analyzing the server status variables."
-msgstr "輔導系統可以在分析伺服器狀態值後，提供伺服器變數的設定建議。"
+msgstr "建議系統可以在分析伺服器狀態後，提供伺服器參數的設定建議。"
 
 #: libraries/server_status_advisor.lib.php:35
 msgid ""
@@ -10927,7 +10920,7 @@ msgstr "查詢快取中的總塊數。"
 
 #: libraries/server_status_variables.lib.php:678
 msgid "The status of failsafe replication (not yet implemented)."
-msgstr "失敗保護器的狀態 (尚未實作)。"
+msgstr "備援失敗保護器的狀態 (尚未實作)。"
 
 #: libraries/server_status_variables.lib.php:681
 msgid ""
@@ -10969,7 +10962,7 @@ msgstr "目前由從 SQL 程序開啟的臨時表的數量。"
 msgid ""
 "Total (since startup) number of times the replication slave SQL thread has "
 "retried transactions."
-msgstr "從 SQL 程序總共重試交易複製數。"
+msgstr "自伺服器啟動開始備援從伺服所接收到的交易總數。"
 
 #: libraries/server_status_variables.lib.php:708
 msgid "This is ON if this server is a slave that is connected to a master."
@@ -10984,7 +10977,7 @@ msgstr "使用了比 slow_launch_time 更多的時間來啓動的程序數量。
 #: libraries/server_status_variables.lib.php:715
 msgid ""
 "The number of queries that have taken more than long_query_time seconds."
-msgstr "使用了比 long_query_time 更多時間的查詢數。"
+msgstr "查詢時間超過 long_query_time 設定值的查詢筆數。"
 
 #: libraries/server_status_variables.lib.php:719
 msgid ""
@@ -11017,9 +11010,7 @@ msgid ""
 "a wait was needed. If this is high, and you have performance problems, you "
 "should first optimize your queries, and then either split your table or "
 "tables or use replication."
-msgstr ""
-"無法立即取得鎖定表而必須等待的次數。如果該值很高，且您遇到了性能方面的問題，"
-"則應該首先檢查您的查詢指令，然後使用複製操作來分開表。"
+msgstr "無法立即取得鎖定表而必須等待的次數。如果該值很高，且您遇到了性能方面的問題，則應該首先檢查您的查詢指令，然後使用備援操作來分開表。"
 
 #: libraries/server_status_variables.lib.php:742
 msgid ""
@@ -11330,7 +11321,7 @@ msgstr "追蹤已停用。"
 #: view_operations.php:119
 #, php-format
 msgid "View %s has been dropped"
-msgstr "已刪除視表 %s"
+msgstr "已刪除檢視表 %s"
 
 #: libraries/structure.lib.php:130 tbl_operations.php:359
 #, php-format
@@ -11403,7 +11394,7 @@ msgstr "通過上下拖拉來移動欄位。"
 
 #: libraries/structure.lib.php:1478 view_create.php:178
 msgid "Edit view"
-msgstr "編輯視表"
+msgstr "編輯檢視表"
 
 #: libraries/structure.lib.php:1511
 msgid "Relation view"
@@ -12470,18 +12461,14 @@ msgstr ""
 msgid ""
 "%sLogin cookie validity%s should be set to 1800 seconds (30 minutes) at "
 "most. Values larger than 1800 may pose a security risk such as impersonation."
-msgstr ""
-"%s登錄 cookie 有效期%s不應超過 1800 秒 (30 分鐘)。如果有效期大於 1800 秒，將"
-"會增加安全風險。"
+msgstr "%s登入 cookie 有效期%s不應超過 1800 秒 (30 分鐘)。如果有效期大於 1800 秒，將會增加安全風險。"
 
 #: setup/lib/index.lib.php:263
 #, php-format
 msgid ""
 "If using cookie authentication and %sLogin cookie store%s is not 0, %sLogin "
 "cookie validity%s must be set to a value less or equal to it."
-msgstr ""
-"如果使用 cookie 認證且%s登錄 cookie 儲存時間%s不爲 0，%s登錄 cookie 有效期%s"
-"的值不能超過前者。"
+msgstr "如果使用 cookie 認證且%s登入 cookie 儲存時間%s不爲 0，%s登入 cookie 有效期%s的值不能超過前者。"
 
 #: setup/lib/index.lib.php:270
 #, php-format
@@ -12503,9 +12490,8 @@ msgid ""
 "phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or "
 "[kbd]http[/kbd]."
 msgstr ""
-"您設定了 [kbd]config[/kbd] 認證方式，且爲了能夠自動登錄而儲存了帳號和密碼，但"
-"在常用主機上不建議這樣設定。如果有人知道 phpMyAdmin 的網址，他們就能夠進入 "
-"phpMyAdmin 的管理界面。建議將%s認證方式%s設定爲 [kbd]cookie 認證[/kbd]或 "
+"您設定了 [kbd]config[/kbd] 認證方式，且爲了能夠自動登入而儲存了帳號和密碼，但在常用主機上不建議這樣設定。如果有人知道 "
+"phpMyAdmin 的網址，他們就能夠進入 phpMyAdmin 的管理界面。建議將%s認證方式%s設定爲 [kbd]cookie 認證[/kbd]或 "
 "[kbd]HTTP 認證[/kbd]。"
 
 #: setup/lib/index.lib.php:284
@@ -12532,7 +12518,7 @@ msgstr "您可以使用 mysqli 以取得更高的性能。"
 
 #: setup/lib/index.lib.php:376
 msgid "You allow for connecting to the server without a password."
-msgstr "該伺服器現在允許空密碼登錄。"
+msgstr "該伺服器現在允許空密碼登入。"
 
 #: setup/lib/index.lib.php:400
 msgid "Key is too short, it should have at least 8 characters."
@@ -12633,17 +12619,16 @@ msgstr "設定檔案己更新。"
 
 #: view_create.php:225
 msgid "VIEW name"
-msgstr "視表名稱"
+msgstr "檢視表名稱"
 
 #: view_operations.php:96
 msgid "Rename view to"
-msgstr "將視表更名為"
+msgstr "將檢視表更名為"
 
 #: view_operations.php:133
-#, fuzzy
 #| msgid "Delete the table (DROP)"
 msgid "Delete the view (DROP)"
-msgstr "刪除資料表 (DROP)"
+msgstr "刪除檢視表 (DROP)"
 
 #: libraries/advisory_rules.txt:49
 msgid "Uptime below one day"
@@ -12729,13 +12714,13 @@ msgstr "超長查詢時間"
 msgid ""
 "{long_query_time} is set to 10 seconds or more, thus only slow queries that "
 "take above 10 seconds are logged."
-msgstr "{long_query_time} 設為 10 秒或更多，因此只會記錄超過 10 秒的緩慢查詢。"
+msgstr "{long_query_time} 設定超過 10 秒，因此只會記錄超過 10 秒的緩慢查詢。"
 
 #: libraries/advisory_rules.txt:81
 msgid ""
 "It is suggested to set {long_query_time} to a lower value, depending on your "
 "environment. Usually a value of 1-5 seconds is suggested."
-msgstr "根據您的環境將 {long_query_time} 設定調低，通常建議設為 1-5 秒。"
+msgstr "建議您依據您的環境將 {long_query_time} 設定值調低，通常建議設在 1-5 秒之間。"
 
 #: libraries/advisory_rules.txt:82
 #, php-format
@@ -12748,7 +12733,7 @@ msgstr "緩慢查詢記錄"
 
 #: libraries/advisory_rules.txt:87 libraries/advisory_rules.txt:94
 msgid "The slow query log is disabled."
-msgstr "已禁用緩慢查詢。"
+msgstr "緩慢查詢日誌未啟用。"
 
 #: libraries/advisory_rules.txt:88
 msgid ""
@@ -12872,9 +12857,7 @@ msgid ""
 "Your memory capacity is above 3 GiB (assuming the Server is on localhost), "
 "so MySQL might not be able to access all of your memory. You might want to "
 "consider installing the 64-bit version of MySQL."
-msgstr ""
-"您的記憶體容量是以上 3 GB (假設伺服器是在本機上)，所以 MySQL 可能無法使用所有"
-"的記憶。您最好考慮安裝 64 位元版本的 MySQL。"
+msgstr "您的記憶體空間超過 3 GB (若伺服器是在本機上)，MySQL 可能無法使用所有的記憶體空間。請考慮安裝 64 位元版本的 MySQL。"
 
 #: libraries/advisory_rules.txt:147
 #, php-format
@@ -12883,11 +12866,11 @@ msgstr "此主機上的可用記憶體: %s"
 
 #: libraries/advisory_rules.txt:153
 msgid "Query cache disabled"
-msgstr "查詢快取已被禁用"
+msgstr "查詢快取未啟用"
 
 #: libraries/advisory_rules.txt:156
 msgid "The query cache is not enabled."
-msgstr "查詢快取並未啟用。"
+msgstr "未啟用查詢快取。"
 
 #: libraries/advisory_rules.txt:157
 msgid ""
@@ -12896,13 +12879,12 @@ msgid ""
 "and setting {query_cache_type} to 'ON'. <b>Note:</b> If you are using "
 "memcached, ignore this recommendation."
 msgstr ""
-"如果查詢快取設定正確的話，可以大幅增進效能。設定 {query_cache_size} 為兩位數"
-"的 MB 值，及 {query_cache_type} 為 'ON'，即可啟用之。<b>注意:</b> 如果您已使"
-"用 memcached 的話，那麼請忽略這個建議。"
+"正確的設定查詢快取可以大幅增進效能。將 {query_cache_size} 設定為兩位數的 MiB 值，並將 {query_cache_type} "
+"設定為 'ON'，即可啟用查詢快取。<b>注意:</b> 若您已啟用 memcached，則可忽略這個建議。"
 
 #: libraries/advisory_rules.txt:158
 msgid "query_cache_size is set to 0 or query_cache_type is set to 'OFF'"
-msgstr "query_cache_size 設為 0 或 query_cache_type 設為 'OFF'"
+msgstr "query_cache_size 已設為 0 或 query_cache_type 已設為 'OFF'"
 
 #: libraries/advisory_rules.txt:160
 msgid "Query caching method"
@@ -13142,24 +13124,22 @@ msgstr "平均排序筆數: %s"
 
 #: libraries/advisory_rules.txt:233
 msgid "Rate of joins without indexes"
-msgstr "無索引的結合比率"
+msgstr "未使用索引的資料表合併(Join)比率"
 
 #: libraries/advisory_rules.txt:236
 msgid "There are too many joins without indexes."
-msgstr "有太多的結合未使用索引。"
+msgstr "有太多的資料表合併(Join)未使用索引。"
 
 #: libraries/advisory_rules.txt:237
 msgid ""
 "This means that joins are doing full table scans. Adding indexes for the "
 "columns being used in the join conditions will greatly speed up table joins"
-msgstr ""
-"這意味著結合將會掃描整個資料表，在結合條件中使用索引欄位將可大幅加快資料表的"
-"處理"
+msgstr "這代表資料表合併(Join)時會掃描完整的資料表內容，,將合併條件中所使用的欄位設定為索引欄位可大幅加快資料表合併時的速度"
 
 #: libraries/advisory_rules.txt:238
 #, php-format
 msgid "Table joins average: %s, this value should be less than 1 per hour"
-msgstr "平均資料表結合: %s，此值應每小時小於 1"
+msgstr "平均資料表合併(Join): %s，此值應每小時小於 1"
 
 #: libraries/advisory_rules.txt:240
 msgid "Rate of reading first index entry"
@@ -13178,10 +13158,8 @@ msgid ""
 "scans. Other than that full index scans can only be reduced by rewriting "
 "queries."
 msgstr ""
-"這通常表示頻繁的掃描整個索引。整個索引掃描會比資料表掃描速度快，但在大資料表"
-"還是要消耗不少 CPU 時間，如果那些資料表有大量的更新和刪除操作，執行 "
-"'OPTIMIZE TABLE' 可以減少整個索引掃描次數或提升速度。致於其他只能靠重寫查詢來"
-"減少掃描整個索引。"
+"這通常表示頻繁的掃描整個索引。整個索引掃描會比資料表掃描速度快，但在大型的資料表還是要消耗不少 CPU 時間，如果那些資料表有大量的更新和刪除操作，執行 "
+"'OPTIMIZE TABLE' 可以減少整個索引掃描次數或提升速度。至於其他只能靠重寫查詢來減少掃描整個索引。"
 
 #: libraries/advisory_rules.txt:245
 #, php-format
@@ -13201,9 +13179,7 @@ msgid ""
 "This indicates that many queries need to sort results and/or do a full table "
 "scan, including join queries that do not use indexes. Add indexes where "
 "applicable."
-msgstr ""
-"這表示許多查詢結果需要排序或做整個資料表掃描，包括未使用索引的結合查詢。請在"
-"適當的地方增加索引。"
+msgstr "這表示許多查詢結果需要排序或做整個資料表掃描，包括未使用索引的資料表合併(Join)查詢。請在適當的地方增加索引。"
 
 #: libraries/advisory_rules.txt:252
 #, php-format
@@ -13476,7 +13452,7 @@ msgstr "執行緒快取"
 msgid ""
 "Thread cache is disabled, resulting in more overhead from new connections to "
 "MySQL."
-msgstr "執行緒快取已被禁用，因而有更多開銷要重新連接到 MySQL。"
+msgstr "執行緒快取未啟用，在新連線到 MySQL 時消耗更多額外資源。"
 
 #: libraries/advisory_rules.txt:366
 msgid "Enable the thread cache by setting {thread_cache_size} > 0."
@@ -13634,7 +13610,7 @@ msgstr "客端中斷率為 %s，這個值應該每小時低於 1"
 
 #: libraries/advisory_rules.txt:429
 msgid "Is InnoDB disabled?"
-msgstr "是不是 InnoDB 被禁用？"
+msgstr "是不是 InnoDB 已停用？"
 
 #: libraries/advisory_rules.txt:432
 msgid "You do not have InnoDB enabled."
