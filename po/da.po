@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-10-17 12:58+0200\n"
-"PO-Revision-Date: 2013-10-22 21:42+0200\n"
+"PO-Revision-Date: 2013-10-22 21:43+0200\n"
 "Last-Translator: Aputsiaq Niels Janussen <aj@isit.gl>\n"
 "Language-Team: Danish <http://l10n.cihar.com/projects/phpmyadmin/master/da/>\n"
 "Language: da\n"
@@ -2002,7 +2002,7 @@ msgstr "Indsend fejlrapport"
 #: js/messages.php:411
 #| msgid "An error has occured while loading the navigation tree"
 msgid "An error has occurred. Do you want to send an error report?"
-msgstr "Der er opstået en fejl. Vil du sende en fejlrapport?"
+msgstr "Der opstod en fejl. Ønsker du at sende en fejlrapport?"
 
 #: js/messages.php:413
 #| msgid "Change settings"
@@ -7411,7 +7411,7 @@ msgstr "Forklar venligst de trin som førte til fejlen:"
 #: libraries/error_report.lib.php:287
 #| msgid "Automatically create versions"
 msgid "Automatically send report next time"
-msgstr "Send rapport automatisk næste gang"
+msgstr "Send automatisk rapport næste gang"
 
 #: libraries/import.lib.php:190 libraries/insert_edit.lib.php:122
 #: libraries/rte/rte_routines.lib.php:1464 libraries/sql.lib.php:1639
@@ -7835,7 +7835,7 @@ msgstr "Filtrér databaser efter navn eller regex"
 #: libraries/navigation/NavigationTree.class.php:1079
 #| msgid "Clear Fast Filter"
 msgid "Clear fast filter"
-msgstr "Ryd hurtigfilter"
+msgstr "Ryd hurtig-filter"
 
 #: libraries/navigation/NavigationTree.class.php:1078
 #| msgid "filter items by name"
