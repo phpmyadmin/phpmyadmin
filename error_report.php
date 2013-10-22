@@ -13,17 +13,27 @@ $response = PMA_Response::getInstance();
 if ($_REQUEST['send_error_report'] == true) {
     PMA_sendErrorReport(PMA_getReportData(false));
     if ($_REQUEST['automatic'] === "true") {
-        $response->addJSON('message', PMA_Message::error(
-            __('An error has been detected and an error report has been '
-                .'automatically submitted based on your settings.')
-            . '<br />'
-            . __('You may want to refresh the page.')));
+        $response->addJSON(
+            'message',
+            PMA_Message::error(
+                __(
+                    'An error has been detected and an error report has been '
+                    .'automatically submitted based on your settings.'
+                )
+                . '<br />'
+                . __('You may want to refresh the page.')
+            )
+        );
     } else {
-        $response->addJSON('message', PMA_Message::success(
-            __('Thank you for submitting this report.')
-            . '<br />'
-            . __('You may want to refresh the page.')));
-        if($_REQUEST['always_send'] === "true") {
+        $response->addJSON(
+            'message',
+            PMA_Message::success(
+                __('Thank you for submitting this report.')
+                . '<br />'
+                . __('You may want to refresh the page.')
+            )
+        );
+        if ($_REQUEST['always_send'] === "true") {
             PMA_persistOption("SendErrorReports", "always", "ask");
         }
     }
