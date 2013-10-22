@@ -4,16 +4,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-10-17 12:58+0200\n"
-"PO-Revision-Date: 2013-09-21 16:05+0200\n"
+"PO-Revision-Date: 2013-10-22 21:42+0200\n"
 "Last-Translator: Aputsiaq Niels Janussen <aj@isit.gl>\n"
-"Language-Team: Danish <http://l10n.cihar.com/projects/phpmyadmin/master/da/"
-">\n"
+"Language-Team: Danish <http://l10n.cihar.com/projects/phpmyadmin/master/da/>\n"
 "Language: da\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 1.7-dev\n"
+"X-Generator: Weblate 1.8-dev\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -409,14 +408,16 @@ msgid ""
 "An error has been detected and an error report has been automatically "
 "submitted based on your settings."
 msgstr ""
+"Der er opdaget en fejl, og der er automatisk blevet sendt en fejlrapport, "
+"baseret på dine indstillinger."
 
 #: error_report.php:20 error_report.php:25
 msgid "You may want to refresh the page."
-msgstr ""
+msgstr "Du skal muligvis genindlæse siden."
 
 #: error_report.php:23
 msgid "Thank you for submitting this report."
-msgstr ""
+msgstr "Tak for indsendelsen af denne rapport."
 
 #: export.php:160
 msgid "Bad type!"
@@ -1990,32 +1991,28 @@ msgid "Create view"
 msgstr "Opret view"
 
 #: js/messages.php:408
-#, fuzzy
 #| msgid "Server port"
 msgid "Send Error Report"
-msgstr "Serverport"
+msgstr "Send fejlrapport"
 
 #: js/messages.php:409
 msgid "Submit Error Report"
-msgstr ""
+msgstr "Indsend fejlrapport"
 
 #: js/messages.php:411
-#, fuzzy
 #| msgid "An error has occured while loading the navigation tree"
 msgid "An error has occurred. Do you want to send an error report?"
-msgstr "Der opstod en fejl under indlæsinng af navigationstræet"
+msgstr "Der er opstået en fejl. Vil du sende en fejlrapport?"
 
 #: js/messages.php:413
-#, fuzzy
 #| msgid "Change settings"
 msgid "Change Report Settings"
-msgstr "Ændre indstillinger"
+msgstr "Tilpas indstillinger for rapportering"
 
 #: js/messages.php:414
-#, fuzzy
 #| msgid "Show open tables"
 msgid "Show Report Details"
-msgstr "Vis åbne tabeller"
+msgstr "Vis detaljer for rapport"
 
 #. l10n: Display text for calendar close link
 #: js/messages.php:436
@@ -4132,15 +4129,15 @@ msgstr "Lukket"
 
 #: libraries/config.values.php:111
 msgid "Ask before sending error reports"
-msgstr ""
+msgstr "Spørg før der sendes fejlrapporter"
 
 #: libraries/config.values.php:112
 msgid "Always send error reports"
-msgstr ""
+msgstr "Send altid fejlrapporter"
 
 #: libraries/config.values.php:113
 msgid "Never send error reports"
-msgstr ""
+msgstr "Send aldrig fejlrapporter"
 
 #: libraries/config.values.php:142
 #: libraries/plugins/export/ExportHtmlword.class.php:69
@@ -6526,7 +6523,6 @@ msgid "Version check"
 msgstr "Versionscheck"
 
 #: libraries/config/messages.inc.php:532
-#, fuzzy
 #| msgid ""
 #| "The url of the proxy to be used when retrieving the information about the "
 #| "latest version of phpMyAdmin. You need this if the server where "
@@ -6539,13 +6535,13 @@ msgid ""
 "the internet. The format is: \"hostname:portnumber\""
 msgstr ""
 "Den url for proxy, som bruges når der hentes information om den seneste "
-"version af phpMyAdmin. Du har brug for denne, hvis server hvorpå phpMyAdmin "
-"er installeret, ikke har direkte adgang til internettet. Formater er: "
-"\"værtsnavn:portnummer\""
+"version af phpMyAdmin eller ved indsendelse af fejlrapporter. Du har brug "
+"for denne, hvis server hvorpå phpMyAdmin er installeret, ikke har direkte "
+"adgang til internettet. Formater er: \"værtsnavn:portnummer\""
 
 #: libraries/config/messages.inc.php:533
 msgid "Proxy url"
-msgstr ""
+msgstr "Proxy-url"
 
 #: libraries/config/messages.inc.php:534
 msgid ""
@@ -6559,20 +6555,18 @@ msgstr ""
 "tidspunkt understøttes der ikke andre godkendelsestjek."
 
 #: libraries/config/messages.inc.php:535
-#, fuzzy
 #| msgid "Username"
 msgid "Proxy username"
-msgstr "Brugernavn"
+msgstr "Brugernavn for proxy"
 
 #: libraries/config/messages.inc.php:536
 msgid "The password for authenticating with the proxy"
 msgstr "Adgangskoden til godkendelsestjek på proxyen"
 
 #: libraries/config/messages.inc.php:537
-#, fuzzy
 #| msgid "Password"
 msgid "Proxy password"
-msgstr "Adgangskode"
+msgstr "Adgangskode for proxy"
 
 #: libraries/config/messages.inc.php:539
 msgid ""
@@ -6606,20 +6600,21 @@ msgstr "Privat nøgle for reCaptcha"
 msgid ""
 "Uncheck this to prevent the sending of error reports for javascript errors"
 msgstr ""
+"Fravælg dette for at forhindre, at der afsendes fejlrapport for javascript-"
+"fejl"
 
 #: libraries/config/messages.inc.php:547
 msgid "Enable javascript error reporting"
-msgstr ""
+msgstr "Aktivér rapportering for javascript-fejl"
 
 #: libraries/config/messages.inc.php:548
 msgid "Choose the default action when sending error reports"
-msgstr ""
+msgstr "Vælg standardhandlingen for afsendelse af fejlrapporter"
 
 #: libraries/config/messages.inc.php:549
-#, fuzzy
 #| msgid "Server port"
 msgid "Send error reports"
-msgstr "Serverport"
+msgstr "Send fejlrapporter"
 
 #: libraries/config/setup.forms.php:41
 msgid "Config authentication"
@@ -7401,20 +7396,22 @@ msgid ""
 "as well as information about relevant configuration settings to send to the "
 "phpMyAdmin team to help us in debugging the problem."
 msgstr ""
+"phyMyAdmin er stødt på en fejl. Vi har indsamlet data om denne fejl, såvel "
+"som information om relevante konfigurationsindstillinger til phpMyAdmin-"
+"holdet, til hjælp for vores fejlsøgning af problemet."
 
 #: libraries/error_report.lib.php:272
 msgid "You may examine the data in the error report:"
-msgstr ""
+msgstr "Du kan gennemse indholdet i fejlrapporten:"
 
 #: libraries/error_report.lib.php:279
 msgid "Please explain the steps that lead to the error:"
-msgstr ""
+msgstr "Forklar venligst de trin som førte til fejlen:"
 
 #: libraries/error_report.lib.php:287
-#, fuzzy
 #| msgid "Automatically create versions"
 msgid "Automatically send report next time"
-msgstr "Opret versioner automatisk"
+msgstr "Send rapport automatisk næste gang"
 
 #: libraries/import.lib.php:190 libraries/insert_edit.lib.php:122
 #: libraries/rte/rte_routines.lib.php:1464 libraries/sql.lib.php:1639
@@ -7782,10 +7779,9 @@ msgid "unknown"
 msgstr "ukendt"
 
 #: libraries/navigation/Navigation.class.php:61
-#, fuzzy
 #| msgid "An error has occured while loading the navigation tree"
 msgid "An error has occurred while loading the navigation tree"
-msgstr "Der opstod en fejl under indlæsinng af navigationstræet"
+msgstr "Der opstod en fejl under indlæsning af navigationstræet"
 
 #: libraries/navigation/Navigation.class.php:172
 msgid "Events:"
@@ -7831,23 +7827,20 @@ msgstr[0] "Fandt %s andet resultat"
 msgstr[1] "Fandt %s andre resultater"
 
 #: libraries/navigation/NavigationTree.class.php:1044
-#, fuzzy
 #| msgid "filter databases by name"
 msgid "Filter databases by name or regex"
-msgstr "filtrér databaser efter navn"
+msgstr "Filtrér databaser efter navn eller regex"
 
 #: libraries/navigation/NavigationTree.class.php:1046
 #: libraries/navigation/NavigationTree.class.php:1079
-#, fuzzy
 #| msgid "Clear Fast Filter"
 msgid "Clear fast filter"
-msgstr "Ryd Hurtig/Fast-filter"
+msgstr "Ryd hurtigfilter"
 
 #: libraries/navigation/NavigationTree.class.php:1078
-#, fuzzy
 #| msgid "filter items by name"
 msgid "Filter by name or regex"
-msgstr "filtrér elementer efter navn"
+msgstr "Filtrér efter navn eller regex"
 
 #. l10n: The word "Node" must not be translated here
 #: libraries/navigation/NodeFactory.class.php:41
@@ -9289,7 +9282,6 @@ msgstr "Hændelse %1$s er oprettet."
 
 #: libraries/rte/rte_events.lib.php:175 libraries/rte/rte_routines.lib.php:371
 #: libraries/rte/rte_triggers.lib.php:147
-#, fuzzy
 #| msgid ""
 #| "<b>One or more errors have occured while processing your request:</b>"
 msgid "<b>One or more errors have occurred while processing your request:</b>"
