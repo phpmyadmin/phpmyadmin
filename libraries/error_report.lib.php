@@ -54,11 +54,11 @@ function PMA_getReportData($json_encode = true)
         "microhistory" => $_REQUEST['microhistory'],
     );
 
-    if(!empty($_REQUEST['description'])) {
+    if (! empty($_REQUEST['description'])) {
         $report['steps'] = $_REQUEST['description'];
     }
 
-    if($json_encode) {
+    if ($json_encode) {
         /* JSON_PRETTY_PRINT available since PHP 5.4 */
         if (defined('JSON_PRETTY_PRINT')) {
             return json_encode($report, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
@@ -78,14 +78,16 @@ function PMA_getReportData($json_encode = true)
  * hostname and identifying query params. The second is the name of the
  * php script in the url
  *
- * @param String the url to sanitize
+ * @param String $url the url to sanitize
+ *
  * @return Array the uri and script name
  */
 function PMA_sanitizeUrl($url)
 {
     $components = parse_url($url);
-    if (isset($components["fragment"]) && preg_match("<PMAURL-\d+:>",
-            $components["fragment"], $matches)) {
+    if (isset($components["fragment"])
+        && preg_match("<PMAURL-\d+:>", $components["fragment"], $matches)
+    ) {
         $uri = str_replace($matches[0], "", $components["fragment"]);
         $url = "http://dummy_host/" . $uri;
         $components = parse_url($url);
@@ -176,7 +178,7 @@ function PMA_countLines($filename)
     if (!defined('LINE_COUNTS')) {
         $linecount = 0;
         $handle = fopen('./js/' . $filename, 'r');
-        while (!feof($handle)){
+        while (!feof($handle)) {
             $line = fgets($handle);
             if ($line === false) {
                 break;
@@ -208,16 +210,16 @@ function PMA_countLines($filename)
  */
 function PMA_getLineNumber($filenames, $cumulative_number)
 {
-  $cumulative_sum = 0;
-  foreach($filenames as $filename) {
-    $filecount = PMA_countLines($filename);
-    if ($cumulative_number <= $cumulative_sum + $filecount + 2) {
-      $linenumber = $cumulative_number - $cumulative_sum;
-      break;
+    $cumulative_sum = 0;
+    foreach ($filenames as $filename) {
+        $filecount = PMA_countLines($filename);
+        if ($cumulative_number <= $cumulative_sum + $filecount + 2) {
+            $linenumber = $cumulative_number - $cumulative_sum;
+            break;
+        }
+        $cumulative_sum += $filecount + 2;
     }
-    $cumulative_sum += $filecount + 2;
-  }
-  return array($filename, $linenumber);
+    return array($filename, $linenumber);
 }
 
 /**
@@ -236,10 +238,11 @@ function PMA_translateStacktrace($stack)
                 $line = substr($line, 0, 75) . "//...";
             }
         }
-        if(preg_match("<js/get_scripts.js.php\?(.*)>", $level["url"], $matches)) {
+        if (preg_match("<js/get_scripts.js.php\?(.*)>", $level["url"], $matches)) {
             parse_str($matches[1], $vars);
-            List($file_name, $line_number) =
-                    PMA_getLineNumber($vars["scripts"], $level["line"]);
+            List($file_name, $line_number) = PMA_getLineNumber(
+                $vars["scripts"], $level["line"]
+            );
             $level["filename"] = $file_name;
             $level["line"] = $line_number;
         } else {
@@ -267,12 +270,12 @@ function PMA_getErrorReportForm()
             .' id="report_frm" class="ajax">'
             .'<fieldset style="padding-top:0px">';
 
-    $html .= '<p>'
-            . __('phpMyAdmin has encountered an error. We have collected data about'
-            .' this error as well as information about relevant configuration'
-            .' settings to send to the phpMyAdmin team to help us in'
-            .' debugging the problem.')
-            .'</p>';
+    $html .= '<p>' . __(
+        'phpMyAdmin has encountered an error. We have collected data about'
+        .' this error as well as information about relevant configuration'
+        .' settings to send to the phpMyAdmin team to help us in'
+        .' debugging the problem.'
+    ) .'</p>';
 
     $html .= '<div class="label"><label><p>'
             . __('You may examine the data in the error report:')

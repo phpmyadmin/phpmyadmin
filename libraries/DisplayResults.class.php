@@ -3776,9 +3776,7 @@ class PMA_DisplayResults
                     $class, $condition_field, $geometry_text
                 );
 
-            } elseif ($_SESSION['tmpval']['geoOption']
-                == self::GEOMETRY_DISP_WKT
-            ) {
+            } elseif ($_SESSION['tmpval']['geoOption'] == self::GEOMETRY_DISP_WKT) {
                 // Prepare in Well Known Text(WKT) format.
 
                 $where_comparison = ' = ' . $column;
