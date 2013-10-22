@@ -321,8 +321,9 @@ class PMA_Response
             if (empty($GLOBALS['error_message'])) {
                 // set current db, table and sql query in the querywindow
                 $query = '';
+                $maxChars = $GLOBALS['cfg']['MaxCharactersInDisplayedSQL'];
                 if (isset($GLOBALS['sql_query'])
-                    && strlen($GLOBALS['sql_query']) < $GLOBALS['cfg']['MaxCharactersInDisplayedSQL']
+                    && strlen($GLOBALS['sql_query']) < $maxChars
                 ) {
                     $query = PMA_escapeJsString($GLOBALS['sql_query']);
                 }
