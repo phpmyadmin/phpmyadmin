@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.7-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-09-17 10:36-0400\n"
-"PO-Revision-Date: 2013-10-22 07:46+0200\n"
+"PO-Revision-Date: 2013-10-22 17:34+0200\n"
 "Last-Translator: Chien Wei Lin <cwlin0416@gmail.com>\n"
 "Language-Team: Traditional Chinese "
 "<http://l10n.cihar.com/projects/phpmyadmin/4-0/zh_TW/>\n"
@@ -3207,7 +3207,7 @@ msgstr "3 位元組整數，有號數範圍由 -8,388,608 至 8,388,607，無號
 msgid ""
 "A 4-byte integer, signed range is -2,147,483,648 to 2,147,483,647, unsigned "
 "range is 0 to 4,294,967,295."
-msgstr "4 位元組整數，有號數範圍由 -2,147,483,648 至 2,147,483,647，無號數範圍由 0 至 4,294,967,295"
+msgstr "4 位元組整數，有號數範圍由 -2,147,483,648 至 2,147,483,647，無號數範圍由 0 至 4,294,967,295."
 
 #: libraries/Types.class.php:304
 msgid ""
@@ -3932,7 +3932,7 @@ msgstr "顯示 &quot;刪除資料庫&quot; 連結給普通使用者"
 msgid ""
 "Secret passphrase used for encrypting cookies in [kbd]cookie[/kbd] "
 "authentication"
-msgstr "加密密碼用在當使用 [kbd]cookie[/kbd] 認證方式時，加密 cookie 使用 "
+msgstr "加密密碼用在當使用 [kbd]cookie[/kbd] 認證方式時，加密 cookie 使用"
 
 #: libraries/config/messages.inc.php:23
 msgid "Blowfish secret"
@@ -4405,7 +4405,7 @@ msgstr "CSV"
 
 #: libraries/config/messages.inc.php:160
 msgid "Developer"
-msgstr "開發"
+msgstr "開發人員"
 
 #: libraries/config/messages.inc.php:161
 msgid "Settings for phpMyAdmin developers"
@@ -4487,7 +4487,7 @@ msgstr "資料表顯示選項"
 
 #: libraries/config/messages.inc.php:185 setup/frames/menu.inc.php:20
 msgid "Main panel"
-msgstr "主面板"
+msgstr "主頁面"
 
 #: libraries/config/messages.inc.php:186
 msgid "Microsoft Office"
@@ -4522,7 +4522,7 @@ msgstr "自訂查詢視窗選項"
 
 #: libraries/config/messages.inc.php:196
 msgid "Security"
-msgstr "安全"
+msgstr "安全性"
 
 #: libraries/config/messages.inc.php:197
 msgid ""
@@ -5669,7 +5669,7 @@ msgstr "文字方向"
 msgid ""
 "Defines whether or not type fields should be initially displayed in edit/"
 "insert mode"
-msgstr "定義在編輯/新增模式中是否顯示欄位類型一列"
+msgstr "定義在編輯/新增模式中是否顯示欄位型態"
 
 #: libraries/config/messages.inc.php:471
 msgid "Show field types"
@@ -5677,7 +5677,7 @@ msgstr "顯示欄位類型"
 
 #: libraries/config/messages.inc.php:472
 msgid "Display the function fields in edit/insert mode"
-msgstr "在編輯/新增模式中顯示函數列"
+msgstr "在編輯/新增模式中顯示函數欄位"
 
 #: libraries/config/messages.inc.php:473
 msgid "Show function fields"
@@ -12222,7 +12222,7 @@ msgid ""
 "want to make sure that the queries which require a lot of sorting use "
 "indexed columns in the ORDER BY clause, as this will result in much faster "
 "sorting"
-msgstr "大量的排序不是什麼嚴重的問題，但請您確保在 ORDER BY 子句中使用索引欄位來排序，以加速排序的執行速度。"
+msgstr "大量的排序不是什麼嚴重的問題，但請您確保在 ORDER BY 子句中使用索引欄位來排序，以加速排序的執行速度"
 
 #: libraries/advisory_rules.txt:230
 #, php-format
@@ -12361,7 +12361,7 @@ msgstr ""
 "增加 {max_heap_table_size} 和 {tmp_table_size} "
 "可能有所幫助，但某些暫存資料表仍然會寫到磁碟與這些變數無關。要解決這個問題您必須重寫查詢條件避免在暫存資料表中儲存 BLOB 或 TEXT "
 "型態的欄位或者使用長度大於 512 位元組的欄位，如 <a href=\"HTTP://www.facebook.com/note.php?note_id"
-"=10150111255065841&comments\">Pythian 小組文章</a> 文中所提到的狀況。"
+"=10150111255065841&comments\">Pythian 小組文章</a> 文中所提到的狀況"
 
 #: libraries/advisory_rules.txt:274
 #, php-format
@@ -12387,7 +12387,7 @@ msgstr ""
 "增加 {max_heap_table_size} 和 {tmp_table_size} "
 "可能有所幫助，但某些暫存資料表仍然會寫到磁碟與這些變數無關。要解決這個問題您必須重寫查詢條件避免在暫存資料表中儲存 BLOB 或 TEXT "
 "型態的欄位或者使用長度大於 512 位元組的欄位，如 <a href=\"http://dev.mysql.com/doc/refman/5.5/en"
-"/internal-temporary-tables.html\">MySQL 說明文件</a> 中所提到的狀況。"
+"/internal-temporary-tables.html\">MySQL 說明文件</a> 中所提到的狀況"
 
 #: libraries/advisory_rules.txt:281
 #, php-format
