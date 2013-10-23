@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-10-17 12:58+0200\n"
-"PO-Revision-Date: 2013-10-22 07:46+0200\n"
+"PO-Revision-Date: 2013-10-22 17:34+0200\n"
 "Last-Translator: Chien Wei Lin <cwlin0416@gmail.com>\n"
 "Language-Team: Traditional Chinese "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/zh_TW/>\n"
@@ -4217,7 +4217,7 @@ msgstr "顯示 &quot;刪除資料庫&quot; 連結給普通使用者"
 msgid ""
 "Secret passphrase used for encrypting cookies in [kbd]cookie[/kbd] "
 "authentication"
-msgstr "加密密碼用在當使用 [kbd]cookie[/kbd] 認證方式時，加密 cookie 使用 "
+msgstr "加密密碼用在當使用 [kbd]cookie[/kbd] 認證方式時，加密 cookie 使用"
 
 #: libraries/config/messages.inc.php:23
 msgid "Blowfish secret"
@@ -4691,7 +4691,7 @@ msgstr "CSV"
 
 #: libraries/config/messages.inc.php:161
 msgid "Developer"
-msgstr "開發"
+msgstr "開發人員"
 
 #: libraries/config/messages.inc.php:162
 msgid "Settings for phpMyAdmin developers"
@@ -4773,7 +4773,7 @@ msgstr "資料表顯示選項"
 
 #: libraries/config/messages.inc.php:186 setup/frames/menu.inc.php:23
 msgid "Main panel"
-msgstr "主面板"
+msgstr "主頁面"
 
 #: libraries/config/messages.inc.php:187
 msgid "Microsoft Office"
@@ -4809,7 +4809,7 @@ msgstr "自訂查詢視窗選項"
 
 #: libraries/config/messages.inc.php:197
 msgid "Security"
-msgstr "安全"
+msgstr "安全性"
 
 #: libraries/config/messages.inc.php:198
 msgid ""
@@ -5999,7 +5999,7 @@ msgstr "文字方向"
 msgid ""
 "Defines whether or not type fields should be initially displayed in edit/"
 "insert mode"
-msgstr "定義在編輯/新增模式中是否顯示欄位類型一列"
+msgstr "定義在編輯/新增模式中是否顯示欄位型態"
 
 #: libraries/config/messages.inc.php:480
 msgid "Show field types"
@@ -6007,7 +6007,7 @@ msgstr "顯示欄位類型"
 
 #: libraries/config/messages.inc.php:481
 msgid "Display the function fields in edit/insert mode"
-msgstr "在編輯/新增模式中顯示函數列"
+msgstr "在編輯/新增模式中顯示函數欄位"
 
 #: libraries/config/messages.inc.php:482
 msgid "Show function fields"
@@ -6231,9 +6231,7 @@ msgid ""
 "The username for authenticating with the proxy. By default, no "
 "authentication is performed. If a username is supplied, Basic Authentication "
 "will be performed. No other types of authentication are currently supported."
-msgstr ""
-"使用代理伺服器進行身份驗證的使用者名稱，預設無身份驗證。如果提供了使用者名"
-"稱，則會執行基本驗證。目前不支援其他類型的身份驗證。"
+msgstr "使用代理伺服器進行身份驗證的使用者名稱，預設無身份驗證。如果提供了使用者名稱，則會執行基本驗證。目前不支援其他類型的身份驗證。"
 
 #: libraries/config/messages.inc.php:535
 #, fuzzy
@@ -12900,7 +12898,7 @@ msgid ""
 "want to make sure that the queries which require a lot of sorting use "
 "indexed columns in the ORDER BY clause, as this will result in much faster "
 "sorting"
-msgstr "大量的排序不是什麼嚴重的問題，但請您確保在 ORDER BY 子句中使用索引欄位來排序，以加速排序的執行速度。"
+msgstr "大量的排序不是什麼嚴重的問題，但請您確保在 ORDER BY 子句中使用索引欄位來排序，以加速排序的執行速度"
 
 #: libraries/advisory_rules.txt:230
 #, php-format
@@ -13039,7 +13037,7 @@ msgstr ""
 "增加 {max_heap_table_size} 和 {tmp_table_size} "
 "可能有所幫助，但某些暫存資料表仍然會寫到磁碟與這些變數無關。要解決這個問題您必須重寫查詢條件避免在暫存資料表中儲存 BLOB 或 TEXT "
 "型態的欄位或者使用長度大於 512 位元組的欄位，如 <a href=\"HTTP://www.facebook.com/note.php?note_id"
-"=10150111255065841&comments\">Pythian 小組文章</a> 文中所提到的狀況。"
+"=10150111255065841&comments\">Pythian 小組文章</a> 文中所提到的狀況"
 
 #: libraries/advisory_rules.txt:274
 #, php-format
@@ -13065,7 +13063,7 @@ msgstr ""
 "增加 {max_heap_table_size} 和 {tmp_table_size} "
 "可能有所幫助，但某些暫存資料表仍然會寫到磁碟與這些變數無關。要解決這個問題您必須重寫查詢條件避免在暫存資料表中儲存 BLOB 或 TEXT "
 "型態的欄位或者使用長度大於 512 位元組的欄位，如 <a href=\"http://dev.mysql.com/doc/refman/5.5/en"
-"/internal-temporary-tables.html\">MySQL 說明文件</a> 中所提到的狀況。"
+"/internal-temporary-tables.html\">MySQL 說明文件</a> 中所提到的狀況"
 
 #: libraries/advisory_rules.txt:281
 #, php-format
