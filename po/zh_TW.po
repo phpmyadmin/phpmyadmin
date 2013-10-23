@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-10-17 12:58+0200\n"
-"PO-Revision-Date: 2013-10-22 17:34+0200\n"
+"PO-Revision-Date: 2013-10-23 12:28+0200\n"
 "Last-Translator: Chien Wei Lin <cwlin0416@gmail.com>\n"
 "Language-Team: Traditional Chinese "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/zh_TW/>\n"
@@ -405,15 +405,15 @@ msgstr "資料庫記錄"
 msgid ""
 "An error has been detected and an error report has been automatically "
 "submitted based on your settings."
-msgstr ""
+msgstr "已偵測到問題發生，根據你的系統設定錯誤報告已自動傳送給開發團隊。"
 
 #: error_report.php:20 error_report.php:25
 msgid "You may want to refresh the page."
-msgstr ""
+msgstr "您需要重新整理頁面。"
 
 #: error_report.php:23
 msgid "Thank you for submitting this report."
-msgstr ""
+msgstr "非常感謝您回報此錯誤。"
 
 #: export.php:160
 msgid "Bad type!"
@@ -1915,32 +1915,28 @@ msgid "Create view"
 msgstr "新增檢視表"
 
 #: js/messages.php:408
-#, fuzzy
 #| msgid "Server port"
 msgid "Send Error Report"
-msgstr "伺服器端口"
+msgstr "傳送錯誤報告"
 
 #: js/messages.php:409
 msgid "Submit Error Report"
-msgstr ""
+msgstr "送出錯誤報告"
 
 #: js/messages.php:411
-#, fuzzy
 #| msgid "An error has occured while loading the navigation tree"
 msgid "An error has occurred. Do you want to send an error report?"
-msgstr "載入導覽樹時出錯"
+msgstr "發生錯誤，您是否要傳送錯誤報告?"
 
 #: js/messages.php:413
-#, fuzzy
 #| msgid "Change settings"
 msgid "Change Report Settings"
-msgstr "管理我的設定"
+msgstr "更改報告設定"
 
 #: js/messages.php:414
-#, fuzzy
 #| msgid "Show open tables"
 msgid "Show Report Details"
-msgstr "顯示開啟的表"
+msgstr "顯示報告詳細資訊"
 
 #. l10n: Display text for calendar close link
 #: js/messages.php:436
@@ -3980,15 +3976,15 @@ msgstr "關閉"
 
 #: libraries/config.values.php:111
 msgid "Ask before sending error reports"
-msgstr ""
+msgstr "在傳送錯誤報告前詢問"
 
 #: libraries/config.values.php:112
 msgid "Always send error reports"
-msgstr ""
+msgstr "往後不詢問直接傳送錯誤報告"
 
 #: libraries/config.values.php:113
 msgid "Never send error reports"
-msgstr ""
+msgstr "永不傳送錯誤報告"
 
 #: libraries/config.values.php:142
 #: libraries/plugins/export/ExportHtmlword.class.php:69
@@ -6207,7 +6203,6 @@ msgid "Version check"
 msgstr "檢查更新"
 
 #: libraries/config/messages.inc.php:532
-#, fuzzy
 #| msgid ""
 #| "The url of the proxy to be used when retrieving the information about the "
 #| "latest version of phpMyAdmin. You need this if the server where "
@@ -6219,12 +6214,12 @@ msgid ""
 "if the server where phpMyAdmin is installed does not have direct access to "
 "the internet. The format is: \"hostname:portnumber\""
 msgstr ""
-"這個 url 是取得 phpMyAdmin 最新版本資訊時所用。如果 phpMyAdmin 伺服器並沒有直"
-"接連結網際網路的話，您就需要它。格式為: \"hostname:portnumber\""
+"代理伺服器(Proxy)的 URL 是用來取得 phpMyAdmin "
+"版本的最新資訊或傳送錯誤報告使用。若您的伺服器所在位置無法直接存取網際網路的話，將會需要此設定。格式為：\"主機名稱:埠號\""
 
 #: libraries/config/messages.inc.php:533
 msgid "Proxy url"
-msgstr ""
+msgstr "代理伺服器網址"
 
 #: libraries/config/messages.inc.php:534
 msgid ""
@@ -6234,20 +6229,18 @@ msgid ""
 msgstr "使用代理伺服器進行身份驗證的使用者名稱，預設無身份驗證。如果提供了使用者名稱，則會執行基本驗證。目前不支援其他類型的身份驗證。"
 
 #: libraries/config/messages.inc.php:535
-#, fuzzy
 #| msgid "Username"
 msgid "Proxy username"
-msgstr "使用者名"
+msgstr "代理伺服器使用者名稱"
 
 #: libraries/config/messages.inc.php:536
 msgid "The password for authenticating with the proxy"
 msgstr "使用代理伺服器進行身份驗證的密碼"
 
 #: libraries/config/messages.inc.php:537
-#, fuzzy
 #| msgid "Password"
 msgid "Proxy password"
-msgstr "密碼"
+msgstr "代理伺服器密碼"
 
 #: libraries/config/messages.inc.php:539
 msgid ""
@@ -6279,21 +6272,20 @@ msgstr "驗證碼的私密金鑰"
 #: libraries/config/messages.inc.php:546
 msgid ""
 "Uncheck this to prevent the sending of error reports for javascript errors"
-msgstr ""
+msgstr "取消勾選此項目以避免傳送有關 JavaScript 的錯誤報告"
 
 #: libraries/config/messages.inc.php:547
 msgid "Enable javascript error reporting"
-msgstr ""
+msgstr "啟動 JavaScript 錯誤回報"
 
 #: libraries/config/messages.inc.php:548
 msgid "Choose the default action when sending error reports"
-msgstr ""
+msgstr "請選擇傳送錯誤報告的預設動作"
 
 #: libraries/config/messages.inc.php:549
-#, fuzzy
 #| msgid "Server port"
 msgid "Send error reports"
-msgstr "伺服器端口"
+msgstr "傳送錯誤報告"
 
 #: libraries/config/setup.forms.php:41
 msgid "Config authentication"
@@ -7022,21 +7014,20 @@ msgid ""
 "phpMyAdmin has encountered an error. We have collected data about this error "
 "as well as information about relevant configuration settings to send to the "
 "phpMyAdmin team to help us in debugging the problem."
-msgstr ""
+msgstr "phpMyAdmin 已發生錯誤，系統已收集錯誤資訊與相關的系統設定並傳送給 phpMyAdmin 開發團隊以協助問題的解決。"
 
 #: libraries/error_report.lib.php:272
 msgid "You may examine the data in the error report:"
-msgstr ""
+msgstr "您可以檢視錯誤報告內的資料："
 
 #: libraries/error_report.lib.php:279
 msgid "Please explain the steps that lead to the error:"
-msgstr ""
+msgstr "請說明造成此問題的原因："
 
 #: libraries/error_report.lib.php:287
-#, fuzzy
 #| msgid "Automatically create versions"
 msgid "Automatically send report next time"
-msgstr "自動建立版本"
+msgstr "下次自動回傳錯誤報告"
 
 #: libraries/import.lib.php:190 libraries/insert_edit.lib.php:122
 #: libraries/rte/rte_routines.lib.php:1464 libraries/sql.lib.php:1639
@@ -7401,10 +7392,9 @@ msgid "unknown"
 msgstr "未知"
 
 #: libraries/navigation/Navigation.class.php:61
-#, fuzzy
 #| msgid "An error has occured while loading the navigation tree"
 msgid "An error has occurred while loading the navigation tree"
-msgstr "載入導覽樹時出錯"
+msgstr "讀取導覽樹時發生錯誤"
 
 #: libraries/navigation/Navigation.class.php:172
 msgid "Events:"
@@ -7449,23 +7439,20 @@ msgid_plural "%s other results found"
 msgstr[0] "找到 %s 個其他結果"
 
 #: libraries/navigation/NavigationTree.class.php:1044
-#, fuzzy
 #| msgid "filter databases by name"
 msgid "Filter databases by name or regex"
-msgstr "依資料庫名稱篩選"
+msgstr "依名稱或正規表示法篩選資料庫"
 
 #: libraries/navigation/NavigationTree.class.php:1046
 #: libraries/navigation/NavigationTree.class.php:1079
-#, fuzzy
 #| msgid "Clear Fast Filter"
 msgid "Clear fast filter"
 msgstr "清除快速篩選器"
 
 #: libraries/navigation/NavigationTree.class.php:1078
-#, fuzzy
 #| msgid "filter items by name"
 msgid "Filter by name or regex"
-msgstr "依項目名稱篩選"
+msgstr "依名稱或正規表示法篩選"
 
 #. l10n: The word "Node" must not be translated here
 #: libraries/navigation/NodeFactory.class.php:41
@@ -7489,7 +7476,6 @@ msgid "New"
 msgstr "新增"
 
 #: libraries/navigation/Nodes/Node_Database_Container.class.php:31
-#, fuzzy
 #| msgctxt "Create new column"
 #| msgid "New"
 msgctxt "Create new database"
@@ -8834,11 +8820,10 @@ msgstr "建立事件 %1$s 成功。"
 
 #: libraries/rte/rte_events.lib.php:175 libraries/rte/rte_routines.lib.php:371
 #: libraries/rte/rte_triggers.lib.php:147
-#, fuzzy
 #| msgid ""
 #| "<b>One or more errors have occured while processing your request:</b>"
 msgid "<b>One or more errors have occurred while processing your request:</b>"
-msgstr "<b>處理您的請求時出現一個或多個錯誤:</b>"
+msgstr "<b>在處理您的請求時發生錯誤：</b>"
 
 #: libraries/rte/rte_events.lib.php:228
 msgid "Edit event"
@@ -9793,10 +9778,9 @@ msgid "wildcard"
 msgstr "萬用字元"
 
 #: libraries/server_privileges.lib.php:2069
-#, fuzzy
 #| msgid "database-specific"
 msgid "table-specific"
-msgstr "按資料庫指定"
+msgstr "指定資料表"
 
 #: libraries/server_privileges.lib.php:2146
 #: libraries/server_privileges.lib.php:3296
@@ -10997,14 +10981,13 @@ msgid "Validated SQL"
 msgstr "已校驗的 SQL"
 
 #: libraries/sql.lib.php:1914
-#, fuzzy
 #| msgid ""
 #| "Table %s does not contain a unique column. Grid edit, checkbox, Edit, "
 #| "Copy and Delete features are not available."
 msgid ""
 "Current selection does not contain a unique column. Grid edit, checkbox, "
 "Edit, Copy and Delete features are not available."
-msgstr "資料表 %s 不含唯一的資料欄位，將無法執行修改、複製、刪除等相關的功能。"
+msgstr "目前選擇的項目不含唯一(Unique)的資料欄位，將無法執行修改、複製、刪除等相關的功能。"
 
 #: libraries/sql.lib.php:1951
 #, php-format
