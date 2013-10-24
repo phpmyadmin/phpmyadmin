@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-10-17 12:58+0200\n"
-"PO-Revision-Date: 2013-10-14 07:25+0200\n"
+"PO-Revision-Date: 2013-10-24 07:53+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: Greek <http://l10n.cihar.com/projects/phpmyadmin/master/el/>\n"
 "Language: el\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 1.7\n"
+"X-Generator: Weblate 1.8-dev\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -7472,7 +7472,7 @@ msgid ""
 msgstr ""
 "Το Phpmyadmin παρουσίασε ένα σφάλμα. Συλλέξαμε δεδομένα για αυτό το σφάλμα "
 "καθώς και πληροφορίες για τις σχετικές ρυθμίσεις για να τα στείλουμε στη "
-"ομάδα του phpmyadmin για να μας βοηθήσει να διορθώσουμε το πρόβλημα"
+"ομάδα του phpmyadmin για να μας βοηθήσει να διορθώσουμε το πρόβλημα."
 
 #: libraries/error_report.lib.php:272
 msgid "You may examine the data in the error report:"
