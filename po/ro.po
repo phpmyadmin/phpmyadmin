@@ -4,17 +4,17 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-10-17 12:58+0200\n"
-"PO-Revision-Date: 2013-10-17 08:24+0200\n"
-"Last-Translator: Arthur Țițeică <arthur.titeica@gmail.com>\n"
-"Language-Team: Romanian <http://l10n.cihar.com/projects/phpmyadmin/master/ro/"
-">\n"
+"PO-Revision-Date: 2013-10-24 20:31+0200\n"
+"Last-Translator: Sergiu Bivol <sergiu@ase.md>\n"
+"Language-Team: Romanian "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/ro/>\n"
 "Language: ro\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
 "20)) ? 1 : 2;\n"
-"X-Generator: Weblate 1.7\n"
+"X-Generator: Weblate 1.8-dev\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -1348,7 +1348,7 @@ msgstr "Diferențial"
 #: js/messages.php:156
 #, php-format
 msgid "Divided by %s"
-msgstr "Împărțit la %1"
+msgstr "Împărțit la %s"
 
 #: js/messages.php:157
 msgid "Unit"
@@ -1704,10 +1704,9 @@ msgid "Show search results"
 msgstr "Afișează rezultatele căutării"
 
 #: js/messages.php:263
-#, fuzzy
 #| msgid "Browse"
 msgid "Browsing"
-msgstr "Navigare"
+msgstr "Răsfoire"
 
 #: js/messages.php:264
 msgid "Deleting"
@@ -1737,7 +1736,7 @@ msgstr "Introduceți fiecare valoare într-un câmp separat"
 #: js/messages.php:274
 #, php-format
 msgid "Add %d value(s)"
-msgstr "Adaugă %d valori"
+msgstr "Se adaugă %d valori"
 
 #: js/messages.php:277
 msgid ""
@@ -1748,11 +1747,11 @@ msgstr ""
 
 #: js/messages.php:280
 msgid "Hide query box"
-msgstr "Ascunde casuță interogare"
+msgstr "Ascunde caseta de interogare"
 
 #: js/messages.php:281
 msgid "Show query box"
-msgstr "Afișează casuță interogare"
+msgstr "Arată caseta de interogare"
 
 #: js/messages.php:282 libraries/DisplayResults.class.php:3347
 #: libraries/Index.class.php:592 libraries/Util.class.php:667
@@ -1772,7 +1771,7 @@ msgstr "Niciun rând selectat"
 #: libraries/structure.lib.php:1376 libraries/structure.lib.php:2065
 #: querywindow.php:85
 msgid "Change"
-msgstr "Schimbare"
+msgstr "Schimbă"
 
 #: js/messages.php:285
 msgid "Query execution time"
@@ -1791,7 +1790,7 @@ msgstr "%d nu este un număr valid de rînduri."
 #: libraries/tbl_relation.lib.php:368 setup/frames/config.inc.php:42
 #: setup/frames/index.inc.php:278
 msgid "Save"
-msgstr "Salveaza"
+msgstr "Salvează"
 
 #: js/messages.php:292
 msgid "Hide search criteria"
@@ -1841,7 +1840,7 @@ msgstr ""
 #: js/messages.php:310
 msgid "Click a data point to view and possibly edit the data row."
 msgstr ""
-"Click pe un punct de date pentru a vedea sau chiar a edita rândul de date."
+"Apăsați pe un punct de date pentru a vedea sau chiar a edita rândul de date."
 
 #: js/messages.php:312
 msgid "The plot can be resized by dragging it along the bottom right corner."
@@ -1849,17 +1848,16 @@ msgstr ""
 
 #: js/messages.php:314
 msgid "Select two columns"
-msgstr "Selectează două coloane"
+msgstr "Alege două coloane"
 
 #: js/messages.php:316
 msgid "Select two different columns"
-msgstr "Selectează două coloane diferite"
+msgstr "Alege două coloane diferite"
 
 #: js/messages.php:318
-#, fuzzy
 #| msgid "Query results operations"
 msgid "Query results"
-msgstr "Operațiuni asupra rezultatelor interogării"
+msgstr "Rezultatele interogării"
 
 #: js/messages.php:319
 #, fuzzy
@@ -1957,11 +1955,11 @@ msgstr "Drag and drop pentru reordonare"
 
 #: js/messages.php:358
 msgid "Click to sort"
-msgstr "Click pentru a sorta"
+msgstr "Apăsați pentru a sorta"
 
 #: js/messages.php:359
 msgid "Click to mark/unmark"
-msgstr "Click pentru a selecta/deselecta"
+msgstr "Apăsați pentru a selecta/deselecta"
 
 #: js/messages.php:360
 msgid "Double-click to copy column name"
@@ -1970,7 +1968,7 @@ msgstr ""
 #: js/messages.php:362
 msgid "Click the drop-down arrow<br />to toggle column's visibility"
 msgstr ""
-"Click pe săgeata de drop-down<br />pentru a alterna vizibilitatea coloanei"
+"Apăsați pe săgeata de drop-down<br />pentru a alterna vizibilitatea coloanei"
 
 #: js/messages.php:364 libraries/DisplayResults.class.php:849
 #: libraries/browse_foreigners.lib.php:359
@@ -2806,11 +2804,11 @@ msgstr "Relational display field"
 
 #: libraries/DisplayResults.class.php:1643
 msgid "Show binary contents"
-msgstr "Afişează conținut binar"
+msgstr "Afișează conținut binar"
 
 #: libraries/DisplayResults.class.php:1648
 msgid "Show BLOB contents"
-msgstr "Afişează conținut BLOB"
+msgstr "Afișează conținut BLOB"
 
 #: libraries/DisplayResults.class.php:1653
 #: libraries/config/messages.inc.php:59
@@ -4594,7 +4592,7 @@ msgid ""
 "columns; [kbd]input[/kbd] - allows limiting of input length, [kbd]textarea[/"
 "kbd] - allows newlines in columns"
 msgstr ""
-"Defineşte ce tip de controale de editare ar trebui să fie utilizate pentru "
+"Definește ce tip de controale de editare ar trebui să fie utilizate pentru "
 "coloanele CHAR și VARCHAR; [kbd]input[/kbd] - permite limitarea lungimii "
 "input-ului, [kbd]textarea[/kbd] - permite separatori de rând în coloane"
 
@@ -5110,7 +5108,7 @@ msgstr "Generează"
 
 #: libraries/config/messages.inc.php:170
 msgid "Set some commonly used options"
-msgstr "Setați unele opțiuni utilizate în mod obişnuit"
+msgstr "Setați unele opțiuni utilizate în mod obișnuit"
 
 #: libraries/config/messages.inc.php:172
 msgid "Import defaults"
@@ -5216,7 +5214,7 @@ msgid ""
 "limit MySQL"
 msgstr ""
 "Vă rugăm să rețineți faptul că phpMyAdmin este doar o interfață de "
-"utilizator şi caracteristicile sale nu limitează MySQL"
+"utilizator și caracteristicile sale nu limitează MySQL"
 
 #: libraries/config/messages.inc.php:199
 msgid "Basic settings"
@@ -5244,7 +5242,7 @@ msgid ""
 "what they are for"
 msgstr ""
 "Configurarea avansată a serverului, nu schimbați aceste opțiuni decât dacă "
-"ştiți pentru ce sunt acestea"
+"știți pentru ce sunt acestea"
 
 #: libraries/config/messages.inc.php:204
 msgid "Enter server connection parameters"
@@ -5330,7 +5328,7 @@ msgid ""
 "Copyright 2002 Upright Database Technology. All rights reserved.[/em]"
 msgstr ""
 "Dacă doriți să utilizați serviciul de Validare SQL, ar trebui să fiți "
-"conştienți de faptul că [strong] toate declarațiile SQL sunt stocate anonim "
+"conștienți de faptul că [strong] toate declarațiile SQL sunt stocate anonim "
 "cu scopuri statistice [/strong]. [br] [em] "
 "[a@http://sqlvalidator.mimer.com/] Mimer SQL Validator [/a], Copyright 2002 "
 "Upright Database Technology. Toate drepturile rezervate.[/em]"
@@ -5393,7 +5391,7 @@ msgstr "Avertismente"
 
 #: libraries/config/messages.inc.php:236
 msgid "Disable some of the warnings shown by phpMyAdmin"
-msgstr "Dezactivează unele dintre avertismentele afişate de phpMyAdmin"
+msgstr "Dezactivează unele dintre avertismentele afișate de phpMyAdmin"
 
 #: libraries/config/messages.inc.php:237
 msgid ""
@@ -5415,7 +5413,7 @@ msgid ""
 "if one of the queries failed"
 msgstr ""
 "Dacă opțiunea este activată, phpMyAdmin continuă calcularea interogărilor cu "
-"mai multe declarații, chiar dacă una dintre interogări nu a reuşit"
+"mai multe declarații, chiar dacă una dintre interogări nu a reușit"
 
 #: libraries/config/messages.inc.php:241
 msgid "Ignore multiple statement errors"
@@ -5452,8 +5450,8 @@ msgid ""
 "Default format; be aware that this list depends on location (database, "
 "table) and only SQL is always available"
 msgstr ""
-"Formatul implicit; fiți conştienți de faptul că această listă depinde de "
-"locație (bază de date, tabel) şi numai SQL este întotdeauna disponibil"
+"Formatul implicit; fiți conștienți de faptul că această listă depinde de "
+"locație (bază de date, tabel) și numai SQL este întotdeauna disponibil"
 
 #: libraries/config/messages.inc.php:252
 msgid "Format of imported file"
@@ -6525,7 +6523,7 @@ msgid ""
 "Whether the tracking mechanism creates versions for tables and views "
 "automatically."
 msgstr ""
-"Dacă mecanismul de urmărire creează versiuni pentru tabele şi vizualizări în "
+"Dacă mecanismul de urmărire creează versiuni pentru tabele și vizualizări în "
 "mod automat."
 
 #: libraries/config/messages.inc.php:453
@@ -6612,7 +6610,7 @@ msgid ""
 "hostname instead."
 msgstr ""
 "O descriere user-friendly a acestui server. Lăsați necompletat pentru a "
-"afişa numele de gazdă în loc."
+"afișa numele de gazdă în loc."
 
 # Numele "pe larg" al acestui server
 #: libraries/config/messages.inc.php:465
@@ -6636,8 +6634,8 @@ msgid ""
 "file; this does not limit the ability to execute the same command directly"
 msgstr ""
 "Vă rugăm să rețineți faptul această permisiune nu are niciun efect în modul "
-"de autentificare  [kbd]config[/kbd], deoarece parola hardcodată în fişierul "
-"de configurare; nu se limitează capacitatea de a executa aceeaşi comandă "
+"de autentificare  [kbd]config[/kbd], deoarece parola hardcodată în fișierul "
+"de configurare; nu se limitează capacitatea de a executa aceeași comandă "
 "direct"
 
 #: libraries/config/messages.inc.php:469
@@ -6741,8 +6739,8 @@ msgstr "Afișează informații detaliate despre serverul MySQL"
 #: libraries/config/messages.inc.php:488
 msgid "Defines whether SQL queries generated by phpMyAdmin should be displayed"
 msgstr ""
-"Defineşte dacă interogările SQL generate de phpMyAdmin ar trebui să fie "
-"afişate"
+"Definește dacă interogările SQL generate de phpMyAdmin ar trebui să fie "
+"afișate"
 
 #: libraries/config/messages.inc.php:489
 msgid "Show SQL queries"
@@ -6752,7 +6750,7 @@ msgstr "Afișează interogările SQL"
 msgid ""
 "Defines whether the query box should stay on-screen after its submission"
 msgstr ""
-"Defineşte dacă după submit, casuța de interogare ar trebui să rămână pe "
+"Definește dacă după submit, casuța de interogare ar trebui să rămână pe "
 "ecran"
 
 #: libraries/config/messages.inc.php:491 libraries/sql_query_form.lib.php:374
@@ -7243,7 +7241,7 @@ msgid ""
 "Scroll down to fill in the options for the selected format and ignore the "
 "options for other formats."
 msgstr ""
-"Faceți scroll în jos pentru a completa opțiunile pentru formatul selectat şi "
+"Faceți scroll în jos pentru a completa opțiunile pentru formatul selectat și "
 "ignorați opțiunile pentru alte formate."
 
 #: libraries/display_export.lib.php:283 libraries/display_import.lib.php:350
@@ -7381,7 +7379,7 @@ msgid ""
 "Please be patient, the file is being uploaded. Details about the upload are "
 "not available."
 msgstr ""
-"Vă rugăm să aveți răbdare, fişierul este uploadat. Nu sunt disponibile "
+"Vă rugăm să aveți răbdare, fișierul este uploadat. Nu sunt disponibile "
 "detalii despre upload."
 
 #: libraries/display_import.lib.php:111
@@ -7401,14 +7399,14 @@ msgstr "Se importă în tabela \"%s\""
 #: libraries/display_import.lib.php:156
 #, php-format
 msgid "File may be compressed (%s) or uncompressed."
-msgstr "Fişierul poate fi comprimat (%s) sau necomprimat."
+msgstr "Fișierul poate fi comprimat (%s) sau necomprimat."
 
 #: libraries/display_import.lib.php:162
 msgid ""
 "A compressed file's name must end in <b>.[format].[compression]</b>. "
 "Example: <b>.sql.zip</b>"
 msgstr ""
-"Numele unui fişier comprimat trebuie să se termine în "
+"Numele unui fișier comprimat trebuie să se termine în "
 "<b>.[format].[compresie]</b>. Exemplu: <b>.sql.zip</b>"
 
 #: libraries/display_import.lib.php:225
@@ -7464,7 +7462,7 @@ msgid ""
 "this is a known bug in webkit based (Safari, Google Chrome, Arora etc.) "
 "browsers."
 msgstr ""
-"Fişierul care este uploadat este probabil mai mare decât mărimea maximă "
+"Fișierul care este uploadat este probabil mai mare decât mărimea maximă "
 "permisă sau acesta este un bug cunoscut în browser-ele bazate pe webkit "
 "(Safari, Google Chrome, Arora etc.)."
 
@@ -7494,7 +7492,7 @@ msgstr ""
 
 #: libraries/display_import.lib.php:459
 msgid "The file is being processed, please be patient."
-msgstr "Fişierul este procesat, vă rugăm să aveți răbdare."
+msgstr "Fișierul este procesat, vă rugăm să aveți răbdare."
 
 #: libraries/display_select_lang.lib.php:56
 #: libraries/display_select_lang.lib.php:57 setup/frames/index.inc.php:94
@@ -12230,25 +12228,23 @@ msgid "Let every user access this bookmark"
 msgstr "Permite tuturor utilizatorilor să acceseze acest semn de carte"
 
 #: libraries/sql.lib.php:1025
-#, fuzzy
 #| msgid "Bookmark %s created"
 msgid "Bookmark not created"
-msgstr "Semnul de carte %s a fost creat"
+msgstr "Semnul de carte nu a fost creat"
 
 #: libraries/sql.lib.php:1183
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
-msgstr ""
+msgstr "Se folosește semnul de carte „%s” ca interogare de răsfoire implicită."
 
 #: libraries/sql.lib.php:1631
 msgid "Showing as PHP code"
-msgstr "Afișare ca și cod PHP"
+msgstr "Afișare ca cod PHP"
 
 #: libraries/sql.lib.php:1636
-#, fuzzy
 #| msgid "Validate SQL"
 msgid "Validated SQL"
-msgstr "Validează SQL"
+msgstr "SQL validat"
 
 #: libraries/sql.lib.php:1914
 #, fuzzy
@@ -12266,7 +12262,7 @@ msgstr ""
 #: libraries/sql.lib.php:1951
 #, php-format
 msgid "Problems with indexes of table `%s`"
-msgstr "Probleme cu indexul tabelului `%s`"
+msgstr "Probleme cu indexul tabelului „%s”"
 
 #: libraries/sql_query_form.lib.php:190
 #, php-format
@@ -12619,23 +12615,21 @@ msgid "The column name '%s' is a MySQL reserved keyword."
 msgstr ""
 
 #: libraries/tbl_chart.lib.php:39
-#, fuzzy
 #| msgid "Mar"
 msgctxt "Chart type"
 msgid "Bar"
-msgstr "Mar"
+msgstr "Bară"
 
 #: libraries/tbl_chart.lib.php:41
-#, fuzzy
 #| msgid "Column names"
 msgctxt "Chart type"
 msgid "Column"
-msgstr "Denumirile coloanelor"
+msgstr "Coloană"
 
 #: libraries/tbl_chart.lib.php:45
 msgctxt "Chart type"
 msgid "Line"
-msgstr ""
+msgstr "Linie"
 
 #: libraries/tbl_chart.lib.php:47
 #, fuzzy
@@ -12647,21 +12641,19 @@ msgstr "Motoare"
 #: libraries/tbl_chart.lib.php:50
 msgctxt "Chart type"
 msgid "Area"
-msgstr ""
+msgstr "Suprafață"
 
 #: libraries/tbl_chart.lib.php:53
-#, fuzzy
 #| msgid "PiB"
 msgctxt "Chart type"
 msgid "Pie"
-msgstr "PiO"
+msgstr "Diagramă circulară"
 
 #: libraries/tbl_chart.lib.php:58
-#, fuzzy
 #| msgid "Time"
 msgctxt "Chart type"
 msgid "Timeline"
-msgstr "Timp"
+msgstr "Cronologie"
 
 #: libraries/tbl_chart.lib.php:76
 #, fuzzy
@@ -12671,22 +12663,20 @@ msgstr "Împachetat"
 
 #: libraries/tbl_chart.lib.php:94
 msgid "X-Axis:"
-msgstr ""
+msgstr "Axa X:"
 
 #: libraries/tbl_chart.lib.php:128
-#, fuzzy
 msgid "Series:"
-msgstr "Comanda SQL"
+msgstr "Serii:"
 
 #: libraries/tbl_chart.lib.php:181
 msgid "X-Axis label:"
 msgstr ""
 
 #: libraries/tbl_chart.lib.php:184
-#, fuzzy
 #| msgid "Value"
 msgid "X Values"
-msgstr "Valoare"
+msgstr "Valori X"
 
 #: libraries/tbl_chart.lib.php:186
 msgid "Y-Axis label:"
@@ -12699,10 +12689,9 @@ msgid "Start row:"
 msgstr "Dum"
 
 #: libraries/tbl_chart.lib.php:272
-#, fuzzy
 #| msgid "Report title"
 msgid "Chart title"
-msgstr "Titlu raport"
+msgstr "Titlul diagramei"
 
 #: libraries/tbl_columns_definition_form.lib.php:72
 #, fuzzy
@@ -12836,7 +12825,7 @@ msgstr "Număr de fișiere-jurnal"
 
 #: libraries/tbl_gis_visualization.lib.php:231
 msgid "-- None --"
-msgstr ""
+msgstr "-- Niciunul --"
 
 #: libraries/tbl_gis_visualization.lib.php:288
 msgid "Display GIS Visualization"
@@ -12847,10 +12836,9 @@ msgid "Redraw"
 msgstr "Redesenează"
 
 #: libraries/tbl_gis_visualization.lib.php:327
-#, fuzzy
 #| msgid "Table name"
 msgid "File name"
-msgstr "Denumire tabel"
+msgstr "Denumire fișier"
 
 #: libraries/tbl_gis_visualization.lib.php:343 setup/frames/config.inc.php:41
 #: setup/frames/index.inc.php:275
@@ -12863,7 +12851,7 @@ msgstr "Numele cheii primare trebuie să fie \"PRIMARY\"!"
 
 #: libraries/tbl_indexes.lib.php:124
 msgid "Can't rename index to PRIMARY!"
-msgstr "Nu puteți redenumi index-ul la un nume PRIMARY!"
+msgstr "Nu puteți redenumi indexul în PRIMARY!"
 
 #: libraries/tbl_indexes.lib.php:140
 msgid "No index parts defined!"
@@ -12871,7 +12859,7 @@ msgstr "Nu sînt definite părți din index!"
 
 #: libraries/tbl_indexes.lib.php:260
 msgid "Index name:"
-msgstr "Nume index&nbsp;:"
+msgstr "Denumire index:"
 
 #: libraries/tbl_indexes.lib.php:264
 msgid ""
@@ -12879,14 +12867,13 @@ msgid ""
 msgstr "Numele „PRIMARY” <b>trebuie</b> să fie <b>numai</b> la cheia primară!"
 
 #: libraries/tbl_indexes.lib.php:283
-#, fuzzy
 #| msgid "Comment"
 msgid "Comment:"
-msgstr "Comentariu"
+msgstr "Comentariu:"
 
 #: libraries/tbl_indexes.lib.php:298
 msgid "Index type:"
-msgstr "Tip index&nbsp;:"
+msgstr "Tip index:"
 
 #: libraries/tbl_printview.lib.php:30
 #, fuzzy
@@ -12913,10 +12900,9 @@ msgid "Choose column to display:"
 msgstr "Selectează coloana pentru afișare"
 
 #: libraries/tbl_relation.lib.php:419
-#, fuzzy
 #| msgid "Internal relations"
 msgid "Internal relation"
-msgstr "Relații interne"
+msgstr "Relație internă"
 
 #: libraries/tbl_relation.lib.php:423
 msgid ""
@@ -12927,15 +12913,13 @@ msgstr ""
 "corespondentă."
 
 #: libraries/tbl_relation.lib.php:433
-#, fuzzy
 msgid "Foreign key constraint"
-msgstr "Constrângeri ale cheii străine"
+msgstr "Constrîngere de cheie străină"
 
 #: libraries/tbl_relation.lib.php:553
-#, fuzzy
 #| msgid "Constraints for table"
 msgid "Constraint name"
-msgstr "Restrictii pentru tabele"
+msgstr "Denumire constrîngere"
 
 #: libraries/tbl_relation.lib.php:584
 #, fuzzy
@@ -12962,9 +12946,8 @@ msgid "Track these data manipulation statements:"
 msgstr ""
 
 #: libraries/tbl_tracking.lib.php:95
-#, fuzzy
 msgid "Create version"
-msgstr "Creare relație"
+msgstr "Creează versiune"
 
 #: libraries/tbl_tracking.lib.php:119
 #, php-format
@@ -12973,7 +12956,7 @@ msgstr ""
 
 #: libraries/tbl_tracking.lib.php:125
 msgid "Activate now"
-msgstr ""
+msgstr "Activează acum"
 
 #: libraries/tbl_tracking.lib.php:148
 #, fuzzy, php-format
@@ -12982,11 +12965,11 @@ msgstr "Șterge datele urmărite din acest tabel"
 
 #: libraries/tbl_tracking.lib.php:154
 msgid "Deactivate now"
-msgstr ""
+msgstr "Dezactivează acum"
 
 #: libraries/tbl_tracking.lib.php:327
 msgid "Show versions"
-msgstr ""
+msgstr "Arată versiunile"
 
 #: libraries/tbl_tracking.lib.php:356
 msgid "Tracking statements"
@@ -13003,10 +12986,9 @@ msgid "Delete tracking data row from report"
 msgstr "Șterge datele urmărite din acest tabel"
 
 #: libraries/tbl_tracking.lib.php:408
-#, fuzzy
 #| msgid "No databases"
 msgid "No data"
-msgstr "Nu sînt baze de date"
+msgstr "Nu sînt date"
 
 #: libraries/tbl_tracking.lib.php:444
 msgid "SQL dump (file download)"
@@ -13022,17 +13004,16 @@ msgstr ""
 
 #: libraries/tbl_tracking.lib.php:451
 msgid "SQL execution"
-msgstr ""
+msgstr "Execuție SQL"
 
 #: libraries/tbl_tracking.lib.php:470
-#, fuzzy, php-format
+#, php-format
 msgid "Export as %s"
-msgstr "Modul de export"
+msgstr "Exportă ca %s"
 
 #: libraries/tbl_tracking.lib.php:499 libraries/tbl_tracking.lib.php:595
-#, fuzzy
 msgid "Date"
-msgstr "Date"
+msgstr "Dată"
 
 #: libraries/tbl_tracking.lib.php:501
 msgid "Data manipulation statement"
@@ -13724,16 +13705,14 @@ msgid "Key should contain letters, numbers [em]and[/em] special characters."
 msgstr ""
 
 #: setup/validate.php:22
-#, fuzzy
 #| msgid "No databases"
 msgid "Wrong data"
-msgstr "Nu sînt baze de date"
+msgstr "Date greșite"
 
 #: tbl_chart.php:38
-#, fuzzy
 #| msgid "No databases"
 msgid "No data to display"
-msgstr "Nu sînt baze de date"
+msgstr "Nu sînt date de afișat"
 
 #: tbl_chart.php:62 tbl_gis_visualization.php:24
 msgid "No SQL query was set to fetch data."
@@ -13746,7 +13725,7 @@ msgstr ""
 #: tbl_create.php:30 tbl_get_field.php:25
 #, php-format
 msgid "'%s' database does not exist."
-msgstr ""
+msgstr "Baza de date „%s” nu există."
 
 #: tbl_create.php:40
 #, php-format
@@ -13763,11 +13742,11 @@ msgstr "Denumire de tabel nevalidă"
 
 #: tbl_move_copy.php:44
 msgid "Can't move table to same one!"
-msgstr "Nu se poate copia tabelul peste cel existent pentru că este același!"
+msgstr "Nu se poate muta tabelul în el însuși!"
 
 #: tbl_move_copy.php:46
 msgid "Can't copy table to same one!"
-msgstr "Nu se poate copia tabelul, pentru ca este acelasi!"
+msgstr "Nu se poate copia tabelul în el însuși!"
 
 #: tbl_move_copy.php:56
 #, php-format
@@ -13781,13 +13760,12 @@ msgstr "Tabelul %s a fost copiat la %s."
 
 #: tbl_move_copy.php:80
 msgid "The table name is empty!"
-msgstr "Numele de tabel este gol!"
+msgstr "Denumirea tabelului e goală!"
 
 #: tbl_structure.php:93
-#, fuzzy
 #| msgid "No rows selected"
 msgid "No column selected."
-msgstr "Niciun rând selectat"
+msgstr "Nicio coloană aleasă."
 
 #: themes.php:17 themes.php:22
 msgid "Theme"
@@ -13795,7 +13773,7 @@ msgstr "Temă"
 
 #: themes.php:25
 msgid "Get more themes!"
-msgstr ""
+msgstr "Obține mai multe teme!"
 
 #: transformation_overview.php:22
 msgid "Available MIME types"
@@ -13803,7 +13781,7 @@ msgstr "Tipuri MIME disponibile"
 
 #: transformation_overview.php:35
 msgid "Available transformations"
-msgstr "Informații disponibile"
+msgstr "Transformări disponibile"
 
 #: transformation_overview.php:40
 msgctxt "for MIME transformation"
@@ -13852,10 +13830,9 @@ msgid "The uptime is only %s"
 msgstr ""
 
 #: libraries/advisory_rules.txt:56
-#, fuzzy
 #| msgid "Versions"
 msgid "Questions below 1,000"
-msgstr "Versiuni"
+msgstr "Întrebări sub 1000"
 
 #: libraries/advisory_rules.txt:59
 msgid ""
@@ -13870,14 +13847,13 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:61
-#, fuzzy, php-format
+#, php-format
 msgid "Current amount of Questions: %s"
-msgstr "Comprimă conexiunea"
+msgstr "Cantitatea curentă de întrebări: %s"
 
 #: libraries/advisory_rules.txt:63
-#, fuzzy
 msgid "Percentage of slow queries"
-msgstr "Afișare comandă întreagă"
+msgstr "Procentajul de interogări lente"
 
 #: libraries/advisory_rules.txt:66
 msgid ""
@@ -13896,10 +13872,9 @@ msgid "The slow query rate should be below 5%%, your value is %s%%."
 msgstr ""
 
 #: libraries/advisory_rules.txt:70
-#, fuzzy
 #| msgid "Flush query cache"
 msgid "Slow query rate"
-msgstr "Reinițializare cache interogare"
+msgstr "Rata interogărilor lente"
 
 #: libraries/advisory_rules.txt:73
 msgid ""
@@ -13914,9 +13889,8 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:77
-#, fuzzy
 msgid "Long query time"
-msgstr "Comanda SQL"
+msgstr "Durata interogării lente"
 
 #: libraries/advisory_rules.txt:80
 msgid ""
@@ -13937,9 +13911,8 @@ msgid "long_query_time is currently set to %ds."
 msgstr "long_query_time este setat la %d secunde."
 
 #: libraries/advisory_rules.txt:84 libraries/advisory_rules.txt:91
-#, fuzzy
 msgid "Slow query logging"
-msgstr "Comanda SQL"
+msgstr "Jurnalizarea interogărilor lente"
 
 #: libraries/advisory_rules.txt:87 libraries/advisory_rules.txt:94
 #, fuzzy
@@ -13989,14 +13962,13 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:105 libraries/advisory_rules.txt:112
 #: libraries/advisory_rules.txt:119
-#, fuzzy, php-format
+#, php-format
 msgid "Current version: %s"
-msgstr "Creare relație"
+msgstr "Versiunea actuală: %s"
 
 #: libraries/advisory_rules.txt:107 libraries/advisory_rules.txt:114
-#, fuzzy
 msgid "Minor Version"
-msgstr "Persană"
+msgstr "Versiune minoră"
 
 #: libraries/advisory_rules.txt:110
 msgid "Version less than 5.1.30 (the first GA release of 5.1)."
@@ -14020,10 +13992,9 @@ msgstr "Ar trebui sa reactualizati serverul %s %s la o versiune mai noua."
 
 #: libraries/advisory_rules.txt:121 libraries/advisory_rules.txt:128
 #: libraries/advisory_rules.txt:135
-#, fuzzy
 #| msgid "Description"
 msgid "Distribution"
-msgstr "Descriere"
+msgstr "Distribuție"
 
 #: libraries/advisory_rules.txt:124
 msgid "Version is compiled from source, not a MySQL official binary."
@@ -14052,7 +14023,7 @@ msgstr ""
 #: libraries/advisory_rules.txt:132
 msgid "Percona documentation is at http://www.percona.com/docs/wiki/"
 msgstr ""
-"Documentația pentru Percona se găseşte la adresa "
+"Documentația pentru Percona se găsește la adresa "
 "http://www.percona.com/docs/wiki/"
 
 #: libraries/advisory_rules.txt:133
@@ -14062,14 +14033,14 @@ msgstr "'percona' gasită în version_comment"
 #: libraries/advisory_rules.txt:139
 msgid "Drizzle documentation is at http://docs.drizzle.org/"
 msgstr ""
-"Documentația pentru Drizzle se găseşte la adresa http://docs.drizzle.org/"
+"Documentația pentru Drizzle se găsește la adresa http://docs.drizzle.org/"
 
 #: libraries/advisory_rules.txt:140
 #, php-format
 msgid "Version string (%s) matches Drizzle versioning scheme"
 msgstr ""
-"Versiunea şirului de caractere (%s) se potriveşte modalității de versionare "
-"specifică Drizzle"
+"Șirul de versiune (%s) se potrivește modalității de versionare specifice "
+"Drizzle"
 
 #: libraries/advisory_rules.txt:142
 msgid "MySQL Architecture"
@@ -14085,8 +14056,8 @@ msgid ""
 "so MySQL might not be able to access all of your memory. You might want to "
 "consider installing the 64-bit version of MySQL."
 msgstr ""
-"Capacitatea de memorie depăşeşte 3 GiB (presupunând că serverul de bază de "
-"date este pe server-ul, PC-ul, propriu), aşa că este posibil ca MySQL sa nu "
+"Capacitatea de memorie depășește 3 GiB (presupunând că serverul de bază de "
+"date este pe server-ul, PC-ul, propriu), așa că este posibil ca MySQL sa nu "
 "poată accesa toată memoria RAM a sistemului. Ați putea lua în considerare "
 "instalarea versiunii de MySQL pe 64 de biți."
 
@@ -14110,7 +14081,7 @@ msgid ""
 "and setting {query_cache_type} to 'ON'. <b>Note:</b> If you are using "
 "memcached, ignore this recommendation."
 msgstr ""
-"Păstrarea în memoria cache a interogărilor se ştie că îmbunătățește "
+"Păstrarea în memoria cache a interogărilor se știe că îmbunătățește "
 "performanța dacă este configurată corect. Această opțiune poate fi activată "
 "prin setarea parametrului {query_cache_size} cu o valoare de 2 MiB și prin "
 "setarea parametrului {query_cache_type} cu valoarea 'ON'. <b>Notă:</b> Dacă "
@@ -14227,11 +14198,11 @@ msgid ""
 "using this formula: (query_cache_size - qcache_free_memory) / "
 "qcache_queries_in_cache"
 msgstr ""
-"Fragmentarea severă este probabil (mai degrabă) să necesite creşterea "
+"Fragmentarea severă este probabil (mai degrabă) să necesite creșterea "
 "valorii parametrului Qcache_lowmem_prunes. Acest lucru ar putea fi cauzat de "
 "prea multe stergeri ale memoriei cache a interogărilor din cauza unei "
 "valori prea mici a parametrului {query_cache_size}. Pentru o soluționare "
-"imediată, dar de scurtă durata puteti goli (şterge) memoria cache a "
+"imediată, dar de scurtă durata puteti goli (șterge) memoria cache a "
 "interogărilor (această acțiune ar putea bloca memoria cache a interogărilor "
 "pentru o perioadă lungă de timp). Ajustarea atentă a valorii parametrului "
 "{query_cache_min_res_unit}, la o valoare inferioară v-ar putea ajuta de "
@@ -14293,7 +14264,7 @@ msgid ""
 "The query cache size is above 128 MiB. Big query caches may cause "
 "significant overhead that is required to maintain the cache."
 msgstr ""
-"Dimensiunea memoriei cache a interogărilor depăşeşte 128 MiB. Dimensiunile "
+"Dimensiunea memoriei cache a interogărilor depășește 128 MiB. Dimensiunile "
 "mari ale memoriei cache a interogărilor poate provoca încărcări "
 "semnificative deoarece este necesar un efort suplimentar pentru a întreține "
 "memoria cache."
@@ -14340,9 +14311,9 @@ msgstr ""
 "care depășesc dimensiunea de 1 MiB care sunt bune de păstrat în memorie "
 "(multe citiri, puține scrieri), atunci creșterea valorii parametrului "
 "{query_cache_limit} va crește eficiența. Întrucât în cazul în care mai multe "
-"rezultate ale interogărilor depășesc 1 MiB şi nu sunt foarte bune de "
+"rezultate ale interogărilor depășesc 1 MiB și nu sunt foarte bune de "
 "păstrat în memorie (de multe ori invalidate de actualizări ale tabelului) "
-"creşterea valorii parametrului {query_cache_limit} ar putea reduce "
+"creșterea valorii parametrului {query_cache_limit} ar putea reduce "
 "eficiența."
 
 #: libraries/advisory_rules.txt:207
@@ -15124,10 +15095,9 @@ msgstr "concurrent_insert este setat cu 0"
 #~ msgid "Display table comments in tooltips"
 #~ msgstr "Afișează comentariile tabelurilor în tooltip-uri"
 
-#, fuzzy
 #~| msgid "Edit mode"
 #~ msgid "Edit index"
-#~ msgstr "Regim de redactare"
+#~ msgstr "Modifică index"
 
 #~ msgid "Table %1$s has been created."
 #~ msgstr "Tabelul %1$s a fost creat."
