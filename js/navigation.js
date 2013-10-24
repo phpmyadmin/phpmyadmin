@@ -473,7 +473,9 @@ function PMA_showCurrentNavigation()
         } else {
             // no containers, highlight the item
             var $tableOrView = findLoadedItem($container, table, null, true);
-            scrollToView($tableOrView, $('#pma_navigation_tree_content'));
+            if ($tableOrView){
+                scrollToView($tableOrView, $('#pma_navigation_tree_content'));
+            }
         }
     }
 
@@ -490,7 +492,9 @@ function PMA_showCurrentNavigation()
                 $tableContainer.children('div.list_container'),
                 table, 'table', true
             );
-            scrollToView($table, $('#pma_navigation_tree_content'));
+            if ($table) {
+                scrollToView($table, $('#pma_navigation_tree_content'));
+            }
         } else if ($viewContainer.length > 0) {
             highlightView($viewContainer, table);
         }
@@ -521,14 +525,18 @@ function PMA_showCurrentNavigation()
                     $viewContainer.children('div.list_container'),
                     view, 'view', true
                 );
-                scrollToView($view, $('#pma_navigation_tree_content'));
+                if ($view) {
+                    scrollToView($view, $('#pma_navigation_tree_content'));
+                }
             });
         } else {
             var $view = findLoadedItem(
                 $viewContainer.children('div.list_container'),
                 view, 'view', true
             );
-            scrollToView($view, $('#pma_navigation_tree_content'));
+            if ($view) {
+                scrollToView($view, $('#pma_navigation_tree_content'));
+            }
         }
     }
 }
