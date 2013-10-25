@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-10-17 12:58+0200\n"
-"PO-Revision-Date: 2013-10-23 12:28+0200\n"
-"Last-Translator: Chien Wei Lin <cwlin0416@gmail.com>\n"
+"PO-Revision-Date: 2013-10-25 17:10+0200\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Traditional Chinese "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/zh_TW/>\n"
 "Language: zh_TW\n"
@@ -29,7 +29,7 @@ msgstr "建立資料庫 %1$s 成功。"
 
 #: db_datadict.php:52 libraries/operations.lib.php:32
 msgid "Database comment: "
-msgstr "資料庫說明:  "
+msgstr "資料庫說明: "
 
 #: db_datadict.php:159 libraries/schema/Pdf_Relation_Schema.class.php:1352
 #: libraries/tbl_columns_definition_form.lib.php:70
@@ -692,7 +692,7 @@ msgstr "資料庫伺服器"
 
 #: index.php:250 libraries/plugins/auth/AuthenticationCookie.class.php:207
 msgid "Server:"
-msgstr "伺服器: "
+msgstr "伺服器:"
 
 #: index.php:254
 msgid "Server type:"
@@ -1203,7 +1203,7 @@ msgstr "long_query_time 目前設定為 %d 秒。"
 msgid ""
 "Following settings will be applied globally and reset to default on server "
 "restart:"
-msgstr "下設定將會套用至資料庫的全域設定直到系統重新啟動後還原預設值: "
+msgstr "下設定將會套用至資料庫的全域設定直到系統重新啟動後還原預設值:"
 
 #. l10n: %s is FILE or TABLE
 #: js/messages.php:139
@@ -1301,7 +1301,7 @@ msgstr "當您選擇將新增(INSERT)查詢分群組顯示，則所有新增至�
 
 #: js/messages.php:169
 msgid "Log data loaded. Queries executed in this time span:"
-msgstr "已讀取記錄資料，在此時間區間已執行查詢指令: "
+msgstr "已讀取記錄資料，在此時間區間已執行查詢指令:"
 
 #: js/messages.php:171
 msgid "Jump to Log table"
@@ -1334,7 +1334,7 @@ msgstr "時間"
 
 #: js/messages.php:179
 msgid "Total time:"
-msgstr "總計時間: "
+msgstr "總計時間:"
 
 #: js/messages.php:180
 msgid "Profiling results"
@@ -1371,7 +1371,7 @@ msgstr "篩選"
 msgid "Filter queries by word/regexp:"
 msgstr ""
 "使用純文字或 <a href=\"http://dev.mysql.com/doc/refman/5.1/en/regexp.html\" "
-"target=\"_blank\">正規表式法(REGEXP)</a> 進行篩選: "
+"target=\"_blank\">正規表式法(REGEXP)</a> 進行篩選:"
 
 #: js/messages.php:191
 msgid "Group queries, ignoring variable data in WHERE clauses"
@@ -1379,11 +1379,11 @@ msgstr "依查詢分群顯示，忽略 WHERE 的條件中的變數資料"
 
 #: js/messages.php:192
 msgid "Sum of grouped rows:"
-msgstr "已分組的列數總計: "
+msgstr "已分組的列數總計:"
 
 #: js/messages.php:193
 msgid "Total:"
-msgstr "總計: "
+msgstr "總計:"
 
 #: js/messages.php:195
 msgid "Loading logs"
@@ -1406,7 +1406,7 @@ msgstr "重新整理頁面"
 
 #: js/messages.php:200
 msgid "Affected rows:"
-msgstr "已影響的列數: "
+msgstr "已影響的列數:"
 
 #: js/messages.php:203
 msgid "Failed parsing config file. It doesn't seem to be valid JSON code."
@@ -2352,7 +2352,7 @@ msgstr "刪除："
 #: libraries/DBQbe.class.php:1321
 #, php-format
 msgid "SQL query on database <b>%s</b>:"
-msgstr "在資料庫 <b>%s</b> 執行 SQL 指令: "
+msgstr "在資料庫 <b>%s</b> 執行 SQL 指令:"
 
 #: libraries/DBQbe.class.php:1335 libraries/Util.class.php:1241
 msgid "Submit Query"
@@ -2395,7 +2395,7 @@ msgstr "使用正則表示法(Regular Expression)"
 #: libraries/DbSearch.class.php:271
 #, php-format
 msgid "Search results for \"<i>%s</i>\" %s:"
-msgstr "\"<i>%s</i>\" 的搜尋結果 %s: "
+msgstr "\"<i>%s</i>\" 的搜尋結果 %s:"
 
 #: libraries/DbSearch.class.php:298
 #, php-format
@@ -2440,11 +2440,11 @@ msgstr "搜尋資料庫"
 
 #: libraries/DbSearch.class.php:390
 msgid "Words or values to search for (wildcard: \"%\"):"
-msgstr "要搜尋的文字或欄位值 (萬用字元:  \"% \"): "
+msgstr "要搜尋的文字或欄位值 (萬用字元:  \"% \"):"
 
 #: libraries/DbSearch.class.php:399 libraries/TableSearch.class.php:1314
 msgid "Find:"
-msgstr "搜尋: "
+msgstr "搜尋:"
 
 #: libraries/DbSearch.class.php:404 libraries/DbSearch.class.php:408
 msgid "Words are separated by a space character (\" \")."
@@ -2452,7 +2452,7 @@ msgstr "每個單詞用空格「 」分隔。"
 
 #: libraries/DbSearch.class.php:423
 msgid "Inside tables:"
-msgstr "於下列資料表中: "
+msgstr "於下列資料表中:"
 
 #: libraries/DbSearch.class.php:453
 msgid "Inside column:"
@@ -2496,7 +2496,7 @@ msgstr "最末頁"
 #: libraries/DisplayResults.class.php:951 libraries/display_export.lib.php:322
 #: libraries/tbl_chart.lib.php:210
 msgid "Number of rows:"
-msgstr "資料列數: "
+msgstr "資料列數:"
 
 #: libraries/DisplayResults.class.php:959
 msgid "Mode:"
@@ -2645,7 +2645,7 @@ msgstr "查詢花費 %01.4f 秒"
 #: libraries/structure.lib.php:293 libraries/structure.lib.php:295
 #: libraries/structure.lib.php:1359 libraries/structure.lib.php:1366
 msgid "With selected:"
-msgstr "已選擇項目: "
+msgstr "已選擇項目:"
 
 #: libraries/DisplayResults.class.php:5033
 #: libraries/DisplayResults.class.php:5034
@@ -3016,11 +3016,11 @@ msgstr[0] "新增了 %1$d 行。"
 #: libraries/schema/User_Schema.class.php:434
 #: libraries/select_lang.lib.php:533
 msgid "Page number:"
-msgstr "頁碼: "
+msgstr "頁碼:"
 
 #: libraries/PDF.class.php:127
 msgid "Error while creating PDF:"
-msgstr "在產生 PDF 檔案時發生錯誤: "
+msgstr "在產生 PDF 檔案時發生錯誤:"
 
 #: libraries/RecentTable.class.php:124
 msgid "Could not save recent table"
@@ -3161,7 +3161,7 @@ msgstr "此 MySQL 伺服器不支援 %s 儲存引擎。"
 
 #: libraries/Table.class.php:397
 msgid "unknown table status: "
-msgstr "未知的資料表狀態:  "
+msgstr "未知的資料表狀態: "
 
 #: libraries/Table.class.php:802
 #, php-format
@@ -3243,7 +3243,7 @@ msgstr "修改/新增"
 
 #: libraries/TableSearch.class.php:776
 msgid "Select columns (at least one):"
-msgstr "選擇欄位 (至少一個): "
+msgstr "選擇欄位 (至少一個):"
 
 #: libraries/TableSearch.class.php:796 libraries/insert_edit.lib.php:1235
 #: libraries/server_privileges.lib.php:438
@@ -3252,7 +3252,7 @@ msgstr "或"
 
 #: libraries/TableSearch.class.php:797
 msgid "Add search conditions (body of the \"where\" clause):"
-msgstr "新增搜尋條件 (\"where\" 子句的內容): "
+msgstr "新增搜尋條件 (\"where\" 子句的內容):"
 
 #: libraries/TableSearch.class.php:807
 msgid "Number of rows per page"
@@ -3260,7 +3260,7 @@ msgstr "每頁列數"
 
 #: libraries/TableSearch.class.php:818
 msgid "Display order:"
-msgstr "顯示順序: "
+msgstr "顯示順序:"
 
 #: libraries/TableSearch.class.php:854
 msgid "Use this column to label each point"
@@ -3665,7 +3665,7 @@ msgstr "SQL 查詢："
 #: libraries/rte/rte_triggers.lib.php:112
 #: libraries/rte/rte_triggers.lib.php:133
 msgid "MySQL said: "
-msgstr "MySQL 回應:  "
+msgstr "MySQL 回應: "
 
 #: libraries/Util.class.php:1137
 msgid "Failed to connect to SQL validator!"
@@ -3728,7 +3728,7 @@ msgstr "%s 天 %s 小時，%s 分 %s 秒"
 
 #: libraries/Util.class.php:2078
 msgid "Missing parameter:"
-msgstr "未填寫必要的參數: "
+msgstr "未填寫必要的參數:"
 
 #: libraries/Util.class.php:2598
 #, php-format
@@ -3747,12 +3747,12 @@ msgstr "點此切換"
 #: libraries/Util.class.php:3327 libraries/sql_query_form.lib.php:475
 #: prefs_manage.php:248
 msgid "Browse your computer:"
-msgstr "由電腦上傳: "
+msgstr "由電腦上傳:"
 
 #: libraries/Util.class.php:3352
 #, php-format
 msgid "Select from the web server upload directory <b>%s</b>:"
-msgstr "由網頁伺服器上傳目錄中選擇 <b>%s</b>: "
+msgstr "由網頁伺服器上傳目錄中選擇 <b>%s</b>:"
 
 #: libraries/Util.class.php:3381 libraries/insert_edit.lib.php:1232
 #: libraries/sql_query_form.lib.php:485
@@ -3902,7 +3902,7 @@ msgstr "伺服器 %d"
 
 #: libraries/common.inc.php:851
 msgid "Invalid authentication method set in configuration:"
-msgstr "在設定檔中設定的認證方式無效: "
+msgstr "在設定檔中設定的認證方式無效:"
 
 #: libraries/common.inc.php:992
 #, php-format
@@ -4580,7 +4580,7 @@ msgstr "SQL 相容模式"
 #: libraries/config/messages.inc.php:122
 #: libraries/plugins/export/ExportSql.class.php:278
 msgid "<code>CREATE TABLE</code> options:"
-msgstr "<code>CREATE TABLE</code> 選項: "
+msgstr "<code>CREATE TABLE</code> 選項:"
 
 #: libraries/config/messages.inc.php:123
 msgid "Creation/Update/Check dates"
@@ -5105,7 +5105,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:279
 msgid "Login cookie store"
-msgstr "儲存登入 cookie "
+msgstr "儲存登入 cookie"
 
 #: libraries/config/messages.inc.php:280
 msgid "Define how long (in seconds) a login cookie is valid"
@@ -6384,7 +6384,7 @@ msgstr "無密碼"
 #: libraries/replication_gui.lib.php:396 libraries/replication_gui.lib.php:831
 #: libraries/server_privileges.lib.php:1433
 msgid "Password:"
-msgstr "密碼: "
+msgstr "密碼:"
 
 #: libraries/display_change_password.lib.php:67
 #: libraries/replication_gui.lib.php:855
@@ -6458,7 +6458,7 @@ msgstr "正在匯出資料表  \"%s \" 中的資料列"
 
 #: libraries/display_export.lib.php:198
 msgid "Export Method:"
-msgstr "匯出方式: "
+msgstr "匯出方式:"
 
 #: libraries/display_export.lib.php:208
 msgid "Quick - display only the minimal options"
@@ -6470,20 +6470,20 @@ msgstr "自訂 - 顯示所有可用的選項"
 
 #: libraries/display_export.lib.php:242
 msgid "Database(s):"
-msgstr "資料庫: "
+msgstr "資料庫:"
 
 #: libraries/display_export.lib.php:244
 msgid "Table(s):"
-msgstr "資料表: "
+msgstr "資料表:"
 
 #: libraries/display_export.lib.php:264 libraries/display_import.lib.php:333
 #: libraries/plugins/export/ExportCodegen.class.php:107
 msgid "Format:"
-msgstr "格式: "
+msgstr "格式:"
 
 #: libraries/display_export.lib.php:269
 msgid "Format-specific options:"
-msgstr "格式選項: "
+msgstr "格式選項:"
 
 #: libraries/display_export.lib.php:272
 msgid ""
@@ -6493,11 +6493,11 @@ msgstr "請下拉至所選格式並設定選項，其它格式請忽略。"
 
 #: libraries/display_export.lib.php:283 libraries/display_import.lib.php:350
 msgid "Encoding Conversion:"
-msgstr "轉換編碼: "
+msgstr "轉換編碼:"
 
 #: libraries/display_export.lib.php:311 libraries/sql.lib.php:433
 msgid "Rows:"
-msgstr "記錄: "
+msgstr "記錄:"
 
 #: libraries/display_export.lib.php:319
 msgid "Dump some row(s)"
@@ -6505,7 +6505,7 @@ msgstr "只匯出部份資料列"
 
 #: libraries/display_export.lib.php:334
 msgid "Row to begin at:"
-msgstr "起始列數: "
+msgstr "起始列數:"
 
 #: libraries/display_export.lib.php:351
 msgid "Dump all rows"
@@ -6513,7 +6513,7 @@ msgstr "匯出所有資料列"
 
 #: libraries/display_export.lib.php:367 libraries/display_export.lib.php:634
 msgid "Output:"
-msgstr "輸出: "
+msgstr "輸出:"
 
 #: libraries/display_export.lib.php:376 libraries/display_export.lib.php:411
 #, php-format
@@ -6522,7 +6522,7 @@ msgstr "儲存到伺服器上的 <b>%s</b> 資料夾中"
 
 #: libraries/display_export.lib.php:441
 msgid "File name template:"
-msgstr "檔案名稱樣版: "
+msgstr "檔案名稱樣版:"
 
 #: libraries/display_export.lib.php:443
 msgid "@SERVER@ will become the server name"
@@ -6553,11 +6553,11 @@ msgstr "以後也使用此設定"
 #: libraries/display_export.lib.php:525 libraries/display_import.lib.php:182
 #: libraries/display_import.lib.php:197 libraries/sql_query_form.lib.php:502
 msgid "Character set of the file:"
-msgstr "檔案編碼: "
+msgstr "檔案編碼:"
 
 #: libraries/display_export.lib.php:570
 msgid "Compression:"
-msgstr "壓縮: "
+msgstr "壓縮:"
 
 #: libraries/display_export.lib.php:578
 msgid "zipped"
@@ -6635,7 +6635,7 @@ msgstr "壓縮檔案名稱必須以 <b>.[格式].[壓縮方式]</b> 結尾。如
 
 #: libraries/display_import.lib.php:225
 msgid "File to Import:"
-msgstr "要匯入的檔案: "
+msgstr "要匯入的檔案:"
 
 #: libraries/display_import.lib.php:248
 msgid "File uploads are not allowed on this server."
@@ -6643,7 +6643,7 @@ msgstr "此伺服器不允許上傳檔案。"
 
 #: libraries/display_import.lib.php:272
 msgid "Partial Import:"
-msgstr "部分匯入: "
+msgstr "部分匯入:"
 
 #: libraries/display_import.lib.php:279
 #, php-format
@@ -6662,11 +6662,11 @@ msgstr ""
 
 #: libraries/display_import.lib.php:302
 msgid "Number of rows to skip, starting from the first row:"
-msgstr "從首列起要跳過的列數: "
+msgstr "從首列起要跳過的列數:"
 
 #: libraries/display_import.lib.php:339
 msgid "Format-Specific Options:"
-msgstr "格式選項: "
+msgstr "格式選項:"
 
 #: libraries/display_import.lib.php:447
 msgid ""
@@ -7599,7 +7599,7 @@ msgstr "(單一)"
 
 #: libraries/operations.lib.php:675
 msgid "Move table to (database<b>.</b>table):"
-msgstr "將資料表移動到(資料庫名<b>.</b>資料表名稱): "
+msgstr "將資料表移動到(資料庫名<b>.</b>資料表名稱):"
 
 #: libraries/operations.lib.php:786
 msgid "Table options"
@@ -7619,7 +7619,7 @@ msgstr "儲存引擎"
 
 #: libraries/operations.lib.php:1007
 msgid "Copy table to (database<b>.</b>table):"
-msgstr "將資料表複製到(資料庫名稱<b>.</b>資料表名稱): "
+msgstr "將資料表複製到(資料庫名稱<b>.</b>資料表名稱):"
 
 #: libraries/operations.lib.php:1062
 msgid "Switch to copied table"
@@ -7706,7 +7706,7 @@ msgstr "刪除分區"
 
 #: libraries/operations.lib.php:1364
 msgid "Check referential integrity:"
-msgstr "檢查引用完整性: "
+msgstr "檢查引用完整性:"
 
 #: libraries/plugin_interface.lib.php:502
 msgid "This format has no options"
@@ -7766,7 +7766,7 @@ msgstr "您可以輸入以空格分隔的 主機名/IP網址 和 連結埠。"
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:219
 msgid "Username:"
-msgstr "使用者名稱: "
+msgstr "使用者名稱:"
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:231
 msgid "Server Choice:"
@@ -7804,7 +7804,7 @@ msgstr "帳號/密碼錯誤，拒絕訪問。"
 
 #: libraries/plugins/auth/AuthenticationSignon.class.php:107
 msgid "Can not find signon authentication script:"
-msgstr "無法找到對應的認證指令: "
+msgstr "無法找到對應的認證指令:"
 
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:138
 #, php-format
@@ -7827,22 +7827,22 @@ msgstr "正在認證…"
 #: libraries/plugins/export/ExportCsv.class.php:65
 #: libraries/plugins/import/AbstractImportCsv.class.php:59
 msgid "Columns separated with:"
-msgstr "欄位分隔符號: "
+msgstr "欄位分隔符號:"
 
 #: libraries/plugins/export/ExportCsv.class.php:69
 #: libraries/plugins/import/AbstractImportCsv.class.php:65
 msgid "Columns enclosed with:"
-msgstr "內容分隔符號: "
+msgstr "內容分隔符號:"
 
 #: libraries/plugins/export/ExportCsv.class.php:73
 #: libraries/plugins/import/AbstractImportCsv.class.php:71
 msgid "Columns escaped with:"
-msgstr "內容跳脫符號: "
+msgstr "內容跳脫符號:"
 
 #: libraries/plugins/export/ExportCsv.class.php:77
 #: libraries/plugins/import/AbstractImportCsv.class.php:77
 msgid "Lines terminated with:"
-msgstr "換行符號: "
+msgstr "換行符號:"
 
 #: libraries/plugins/export/ExportCsv.class.php:81
 #: libraries/plugins/export/ExportExcel.class.php:58
@@ -7852,7 +7852,7 @@ msgstr "換行符號: "
 #: libraries/plugins/export/ExportOdt.class.php:132
 #: libraries/plugins/export/ExportTexytext.class.php:89
 msgid "Replace NULL with:"
-msgstr "將 NULL 替換爲: "
+msgstr "將 NULL 替換爲:"
 
 #: libraries/plugins/export/ExportCsv.class.php:86
 #: libraries/plugins/export/ExportExcel.class.php:63
@@ -7861,7 +7861,7 @@ msgstr "刪除欄位中的回車換行符號"
 
 #: libraries/plugins/export/ExportExcel.class.php:79
 msgid "Excel edition:"
-msgstr "Excel 版本: "
+msgstr "Excel 版本:"
 
 #: libraries/plugins/export/ExportHtmlword.class.php:81
 #: libraries/plugins/export/ExportLatex.class.php:157
@@ -8020,7 +8020,7 @@ msgstr "(根據一個資料表的資料產生報告)"
 
 #: libraries/plugins/export/ExportPdf.class.php:102
 msgid "Report title:"
-msgstr "報告標題: "
+msgstr "報告標題:"
 
 #: libraries/plugins/export/ExportSql.class.php:91
 msgid ""
@@ -8030,7 +8030,7 @@ msgstr "顯示說明 <i>(包括匯出時間、PHP 版本和伺服器版本等資
 
 #: libraries/plugins/export/ExportSql.class.php:100
 msgid "Additional custom header comment (\\n splits lines):"
-msgstr "在檔案檔頭新增自訂說明 (\\n 爲換行): "
+msgstr "在檔案檔頭新增自訂說明 (\\n 爲換行):"
 
 #: libraries/plugins/export/ExportSql.class.php:107
 msgid ""
@@ -8041,7 +8041,7 @@ msgstr "包含資料庫建立、最後更新和最後檢查的時間"
 #: libraries/plugins/export/ExportSql.class.php:170
 msgid ""
 "Database system or older MySQL server to maximize output compatibility with:"
-msgstr "相容其他資料庫系統或舊版本的 MySQL 伺服器: "
+msgstr "相容其他資料庫系統或舊版本的 MySQL 伺服器:"
 
 #: libraries/plugins/export/ExportSql.class.php:191
 #: libraries/plugins/export/ExportSql.class.php:234
@@ -8053,7 +8053,7 @@ msgstr "加入 %s 指令"
 
 #: libraries/plugins/export/ExportSql.class.php:227
 msgid "Add statements:"
-msgstr "加入指令(Statement): "
+msgstr "加入指令(Statement):"
 
 #: libraries/plugins/export/ExportSql.class.php:295
 msgid ""
@@ -8072,7 +8072,7 @@ msgstr "資料表新增前先清除舊資料"
 
 #: libraries/plugins/export/ExportSql.class.php:321
 msgid "Instead of <code>INSERT</code> statements, use:"
-msgstr "使用以下方式代替新增指令 <code>INSERT</code>: "
+msgstr "使用以下方式代替新增指令 <code>INSERT</code>:"
 
 #: libraries/plugins/export/ExportSql.class.php:327
 msgid "<code>INSERT DELAYED</code> statements"
@@ -8085,11 +8085,11 @@ msgstr "使用忽略錯誤的新增 <code>INSERT IGNORE</code> 指令"
 
 #: libraries/plugins/export/ExportSql.class.php:351
 msgid "Function to use when dumping data:"
-msgstr "匯出資料時使用的函數: "
+msgstr "匯出資料時使用的函數:"
 
 #: libraries/plugins/export/ExportSql.class.php:364
 msgid "Syntax to use when inserting data:"
-msgstr "新增資料時使用的語法: "
+msgstr "新增資料時使用的語法:"
 
 #: libraries/plugins/export/ExportSql.class.php:372
 msgid ""
@@ -8160,7 +8160,7 @@ msgstr "將視表 %s 結構匯出成資料表"
 
 #: libraries/plugins/export/ExportSql.class.php:1601
 msgid "Error reading data:"
-msgstr "讀取資料錯誤: "
+msgstr "讀取資料錯誤:"
 
 #: libraries/plugins/export/ExportXml.class.php:102
 msgid "Object creation options (all are recommended)"
@@ -8191,7 +8191,7 @@ msgstr "若檔案每行的資料和資料庫中的順序不一致，請在此列
 #: libraries/plugins/import/ImportCsv.class.php:81
 #: libraries/plugins/import/ImportLdi.class.php:68
 msgid "Column names: "
-msgstr "欄位名稱:  "
+msgstr "欄位名稱: "
 
 #: libraries/plugins/import/ImportCsv.class.php:133
 #: libraries/plugins/import/ImportCsv.class.php:148
@@ -8280,7 +8280,7 @@ msgstr "匯入的檔案中沒有包含任何資料"
 
 #: libraries/plugins/import/ImportSql.class.php:71
 msgid "SQL compatibility mode:"
-msgstr "SQL 相容模式: "
+msgstr "SQL 相容模式:"
 
 #: libraries/plugins/import/ImportSql.class.php:83
 msgid "Do not use <code>AUTO_INCREMENT</code> for zero values"
@@ -8808,7 +8808,7 @@ msgstr "抱歉，系統回復被刪除的事件時失敗。"
 #: libraries/rte/rte_events.lib.php:137 libraries/rte/rte_routines.lib.php:329
 #: libraries/rte/rte_triggers.lib.php:109
 msgid "The backed up query was:"
-msgstr "備份用的查詢是: "
+msgstr "備份用的查詢是:"
 
 #: libraries/rte/rte_events.lib.php:144
 #, php-format
@@ -10034,7 +10034,7 @@ msgstr "記錄統計"
 
 #: libraries/server_status_monitor.lib.php:97
 msgid "Selected time range:"
-msgstr "選擇時間範圍: "
+msgstr "選擇時間範圍:"
 
 #: libraries/server_status_monitor.lib.php:105
 msgid "Only retrieve SELECT,INSERT,UPDATE and DELETE Statements"
@@ -10084,7 +10084,7 @@ msgstr ""
 
 #: libraries/server_status_monitor.lib.php:169
 msgid "Using the monitor:"
-msgstr "使用即時監控: "
+msgstr "使用即時監控:"
 
 #: libraries/server_status_monitor.lib.php:172
 msgid ""
@@ -10105,7 +10105,7 @@ msgstr ""
 
 #: libraries/server_status_monitor.lib.php:188
 msgid "Please note:"
-msgstr "請注意: "
+msgstr "請注意:"
 
 #: libraries/server_status_monitor.lib.php:191
 msgid ""
@@ -10132,7 +10132,7 @@ msgstr "變數狀態"
 
 #: libraries/server_status_monitor.lib.php:227
 msgid "Select series:"
-msgstr "選擇序列: "
+msgstr "選擇序列:"
 
 #: libraries/server_status_monitor.lib.php:229
 msgid "Commonly monitored"
@@ -10140,7 +10140,7 @@ msgstr "常用的即時監控"
 
 #: libraries/server_status_monitor.lib.php:245
 msgid "or type variable name:"
-msgstr "或變數型態名稱: "
+msgstr "或變數型態名稱:"
 
 #: libraries/server_status_monitor.lib.php:252
 msgid "Display as differential value"
@@ -10164,7 +10164,7 @@ msgstr "清除序列"
 
 #: libraries/server_status_monitor.lib.php:275
 msgid "Series in Chart:"
-msgstr "圖表中的序列: "
+msgstr "圖表中的序列:"
 
 #: libraries/server_status_monitor.lib.php:296
 msgid "Start Monitor"
@@ -10238,7 +10238,7 @@ msgstr "篩選"
 #: libraries/server_status_variables.lib.php:44
 #: libraries/server_variables.lib.php:187
 msgid "Containing the word:"
-msgstr "包含這個字: "
+msgstr "包含這個字:"
 
 #: libraries/server_status_variables.lib.php:52
 msgid "Show only alert values"
@@ -10254,7 +10254,7 @@ msgstr "顯示未格式化的值"
 
 #: libraries/server_status_variables.lib.php:98
 msgid "Related links:"
-msgstr "相關連結: "
+msgstr "相關連結:"
 
 #: libraries/server_status_variables.lib.php:329
 msgid ""
@@ -11058,7 +11058,7 @@ msgstr ""
 "(bug)。請仔細檢查您的查詢，包括引號是否正確及是否符合。其它可能的失敗原因也許由於您上傳了超過引號文字外的二進位資料。您還可以在 MySQL "
 "指令行界面試一下您的查詢。如果可能的話，以下會列出 MySQL "
 "服務器的錯誤輸出，這可能對您解決問題有一定的幫助。如果您仍然有問題，或者命令行界面執行成功而解析器出錯，請將您的 SQL "
-"查詢縮減到導致問題的某一條指令，然後和下面剪切區中的資料一起送出一個缺陷 (bug) 報告: "
+"查詢縮減到導致問題的某一條指令，然後和下面剪切區中的資料一起送出一個缺陷 (bug) 報告:"
 
 #: libraries/sqlparser.lib.php:191
 msgid "BEGIN CUT"
@@ -11359,15 +11359,15 @@ msgstr "堆疊圖"
 
 #: libraries/tbl_chart.lib.php:94
 msgid "X-Axis:"
-msgstr "X 軸座標: "
+msgstr "X 軸座標:"
 
 #: libraries/tbl_chart.lib.php:128
 msgid "Series:"
-msgstr "資料序列: "
+msgstr "資料序列:"
 
 #: libraries/tbl_chart.lib.php:181
 msgid "X-Axis label:"
-msgstr "X 軸標籤: "
+msgstr "X 軸標籤:"
 
 #: libraries/tbl_chart.lib.php:184
 msgid "X Values"
@@ -11375,7 +11375,7 @@ msgstr "X 軸值"
 
 #: libraries/tbl_chart.lib.php:186
 msgid "Y-Axis label:"
-msgstr "Y 軸標籤: "
+msgstr "Y 軸標籤:"
 
 #: libraries/tbl_chart.lib.php:206
 msgid "Start row:"
@@ -11466,7 +11466,7 @@ msgstr "無"
 
 #: libraries/tbl_columns_definition_form.lib.php:1077
 msgid "As defined:"
-msgstr "定義: "
+msgstr "定義:"
 
 #: libraries/tbl_common.inc.php:54
 #, php-format
@@ -11520,7 +11520,7 @@ msgstr "沒有定義的索引部分！"
 
 #: libraries/tbl_indexes.lib.php:260
 msgid "Index name:"
-msgstr "索引名稱: "
+msgstr "索引名稱:"
 
 #: libraries/tbl_indexes.lib.php:264
 msgid ""
@@ -11529,11 +11529,11 @@ msgstr "“PRIMARY”<b>必須</b>而且<b>只能</b>作爲主鍵的名稱！"
 
 #: libraries/tbl_indexes.lib.php:283
 msgid "Comment:"
-msgstr "說明: "
+msgstr "說明:"
 
 #: libraries/tbl_indexes.lib.php:298
 msgid "Index type:"
-msgstr "索引類型: "
+msgstr "索引類型:"
 
 #: libraries/tbl_printview.lib.php:30
 msgid "Showing tables:"
@@ -12739,7 +12739,7 @@ msgstr "查詢快取片段狀況"
 
 #: libraries/advisory_rules.txt:184
 msgid "The query cache is considerably fragmented."
-msgstr "查詢快取資料過於分散"
+msgstr "查詢快取資料過於分散。"
 
 #: libraries/advisory_rules.txt:185
 msgid ""
