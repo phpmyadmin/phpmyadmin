@@ -913,14 +913,19 @@ class PMA_DbQbe
     {
         $where_clause = '';
         $criteria_cnt = 0;
-        for ($column_index = 0; $column_index < $this->_criteria_column_count; $column_index++) {
+        for (
+        $column_index = 0;
+        $column_index < $this->_criteria_column_count;
+        $column_index++
+        ) {
             if (! empty($this->_curField[$column_index])
                 && ! empty($this->_curCriteria[$column_index])
                 && $column_index
                 && isset($last_where)
                 && isset($this->_curAndOrCol)
             ) {
-                $where_clause .= ' ' . strtoupper($this->_curAndOrCol[$last_where]) . ' ';
+                $where_clause .= ' '
+                    . strtoupper($this->_curAndOrCol[$last_where]) . ' ';
             }
             if (! empty($this->_curField[$column_index])
                 && ! empty($this->_curCriteria[$column_index])
@@ -938,16 +943,25 @@ class PMA_DbQbe
         if (! isset($this->_curAndOrRow)) {
             $this->_curAndOrRow = array();
         }
-        for ($row_index = 0; $row_index <= $this->_criteria_row_count; $row_index++) {
+        for (
+        $row_index = 0;
+        $row_index <= $this->_criteria_row_count;
+        $row_index++
+        ) {
             $criteria_cnt = 0;
             $qry_orwhere = '';
             $last_orwhere = '';
-            for ($column_index = 0; $column_index < $this->_criteria_column_count; $column_index++) {
+            for (
+            $column_index = 0;
+            $column_index < $this->_criteria_column_count;
+            $column_index++
+            ) {
                 if (! empty($this->_curField[$column_index])
                     && ! empty(${'curOr' . $row_index}[$column_index])
                     && $column_index
                 ) {
-                    $qry_orwhere .= ' ' . strtoupper($this->_curAndOrCol[$last_orwhere]) . ' ';
+                    $qry_orwhere .= ' '
+                        . strtoupper($this->_curAndOrCol[$last_orwhere]) . ' ';
                 }
                 if (! empty($this->_curField[$column_index])
                     && ! empty(${'curOr' . $row_index}[$column_index])
