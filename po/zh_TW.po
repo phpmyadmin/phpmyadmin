@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.7-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-09-17 10:36-0400\n"
-"PO-Revision-Date: 2013-10-25 17:10+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"PO-Revision-Date: 2013-10-26 05:23+0200\n"
+"Last-Translator: Chien Wei Lin <cwlin0416@gmail.com>\n"
 "Language-Team: Traditional Chinese "
 "<http://l10n.cihar.com/projects/phpmyadmin/4-0/zh_TW/>\n"
 "Language: zh_TW\n"
@@ -266,7 +266,7 @@ msgstr "是"
 
 #: db_export.php:29
 msgid "View dump (schema) of database"
-msgstr "檢視資料庫匯出結構(Schema)"
+msgstr "檢視資料庫結構的匯出資料"
 
 #: db_export.php:33 db_printview.php:92 db_tracking.php:49 export.php:561
 #: libraries/DBQbe.class.php:268
@@ -691,7 +691,7 @@ msgstr "修改密碼"
 
 #: index.php:159
 msgid "Server connection collation"
-msgstr "伺服器連線字元編碼與排序"
+msgstr "伺服器連線編碼與排序"
 
 #: index.php:185
 msgid "Appearance Settings"
@@ -2712,7 +2712,7 @@ msgstr "基數"
 #: libraries/tbl_columns_definition_form.inc.php:842 server_collations.php:38
 #: server_collations.php:50 tbl_tracking.php:325 tbl_tracking.php:387
 msgid "Collation"
-msgstr "字元編碼與排序"
+msgstr "編碼與排序"
 
 #: libraries/Index.class.php:570 libraries/rte/rte_events.lib.php:529
 #: libraries/rte/rte_routines.lib.php:1068 tbl_tracking.php:329
@@ -2947,7 +2947,7 @@ msgstr "資料表"
 
 #: libraries/ServerStatusData.class.php:195
 msgid "Transaction coordinator"
-msgstr "交易協調"
+msgstr "交易協調器"
 
 #: libraries/ServerStatusData.class.php:196 server_binlog.php:107
 msgid "Files"
@@ -3136,7 +3136,7 @@ msgstr "進階搜尋條件"
 
 #: libraries/TableSearch.class.php:1115
 msgid "Do a \"query by example\" (wildcard: \"%\") for two different columns"
-msgstr "對兩個欄位執行 \"QBE 查詢\" (萬用字元: \"%\")"
+msgstr "請選擇兩個不同欄位使用 \"QBE 查詢\" (萬用字元: \"%\")"
 
 #: libraries/TableSearch.class.php:1125
 msgid "Do a \"query by example\" (wildcard: \"%\")"
@@ -3468,7 +3468,7 @@ msgstr ""
 msgid ""
 "A variable-length (0-65,535) string, uses binary collation for all "
 "comparisons"
-msgstr "可變長度 (0-65,535) 字串，使用二進位排序規則的比對"
+msgstr "可變長度 (0-65,535) 字串，使用二進位編碼與排序做資料比對"
 
 #: libraries/Types.class.php:738
 msgid "An enumeration, chosen from the list of defined values"
@@ -3691,7 +3691,7 @@ msgstr "您應升級到 %s %s 或更新版本。"
 
 #: libraries/common.inc.php:1078
 msgid "Error: Token mismatch"
-msgstr "錯誤: 字符不符"
+msgstr "錯誤: 連線資訊失效，請重新連線"
 
 #: libraries/common.inc.php:1122
 msgid "GLOBALS overwrite attempt"
@@ -4707,7 +4707,8 @@ msgid ""
 "Allow interrupt of import in case script detects it is close to time limit. "
 "This might be a good way to import large files, however it can break "
 "transactions."
-msgstr "允許在程式偵測到執行時間快到上限時自動中斷匯入。這功能在導入大檔案時是個很好的方法，但是這會破壞 transactions（交易）。"
+msgstr ""
+"允許在程式偵測到執行時間快到上限時自動中斷匯入。若要匯入大型檔案這是很好的方法之一，不過使用這種方法會破壞指令中的交易(Trnsaction)動作。"
 
 #: libraries/config/messages.inc.php:242
 msgid "Partial import: allow interrupt"
@@ -6133,7 +6134,7 @@ msgstr "記錄:"
 
 #: libraries/display_export.lib.php:162
 msgid "Dump some row(s)"
-msgstr "只匯出部份資料列"
+msgstr "匯出部份資料列"
 
 #: libraries/display_export.lib.php:165
 msgid "Number of rows:"
@@ -6347,7 +6348,7 @@ msgid ""
 "files, however it can break transactions.)</i>"
 msgstr ""
 "允許中斷匯入的動作，當偵測到執行時間已接近 PHP "
-"執行時間的限制時。<i>(在匯入大型檔案時這是較好的辦法，不過這樣會中斷交易(Transaction)動作。)</i>"
+"執行時間的限制時。<i>(若要匯入大型檔案這是很好的方法之一，不過使用這種方法會破壞指令中的交易(Trnsaction)動作。)</i>"
 
 #: libraries/display_import.lib.php:296
 msgid "Number of rows to skip, starting from the first row:"
@@ -6553,7 +6554,7 @@ msgstr "記錄快取大小"
 msgid ""
 "The amount of memory allocated to the transaction log cache used to cache on "
 "transaction log data. The default is 16MB."
-msgstr "用於快取交易記錄的記憶體大小。預設值爲 16MB。"
+msgstr "用於快取交易(Transaction)記錄的記憶體大小。預設值爲 16MB。"
 
 #: libraries/engines/pbxt.lib.php:47
 msgid "Log file threshold"
@@ -6563,7 +6564,7 @@ msgstr "記錄檔案門檻值"
 msgid ""
 "The size of a transaction log before rollover, and a new log is created. The "
 "default value is 16MB."
-msgstr "新記錄建立及回滾(Rollover)之前的交易記錄大小。預設值爲 16MB。"
+msgstr "新記錄建立及回滾(Rollover)之前的交易(Transaction)記錄大小。預設值爲 16MB。"
 
 #: libraries/engines/pbxt.lib.php:52
 msgid "Transaction buffer size"
@@ -6573,7 +6574,7 @@ msgstr "交易快取大小"
 msgid ""
 "The size of the global transaction log buffer (the engine allocates 2 "
 "buffers of this size). The default is 1MB."
-msgstr "全域交易記錄快取 (資料引擎會分配兩個該大小的快取區)。預設值爲 1MB。"
+msgstr "全域交易記錄緩衝區大小(資料庫引擎會分配此值兩倍大小的緩衝區)。預設值爲 1MB。"
 
 #: libraries/engines/pbxt.lib.php:57
 msgid "Checkpoint frequency"
@@ -6583,7 +6584,7 @@ msgstr "檢查點頻率"
 msgid ""
 "The amount of data written to the transaction log before a checkpoint is "
 "performed. The default value is 24MB."
-msgstr "在檢查點前最大可以寫入交易記錄的最大資料大小。預設值爲 24MB。"
+msgstr "在執行檢查點(Checkpoint)之前最大可以寫入交易(Transaction)記錄的資料大小。預設值爲 24MB。"
 
 #: libraries/engines/pbxt.lib.php:62
 msgid "Data log threshold"
@@ -6645,7 +6646,7 @@ msgid ""
 "system will maintain. If the number of logs exceeds this value then old logs "
 "will be deleted, otherwise they are renamed and given the next highest "
 "number."
-msgstr "系統維護的交易記錄數量 (pbxt/system/*.xt)。如果記錄數量大於此值，舊的記錄將會被刪除，或者被以升序數字序列重命名。"
+msgstr "系統會維護的交易記錄檔(pbxt/system/*.xt)數量 。如果記錄檔數量大於此值，舊的記錄將會被刪除或者使用下一個編號重新命名。"
 
 #: libraries/engines/pbxt.lib.php:135
 #, php-format
@@ -7201,7 +7202,7 @@ msgstr "(單一)"
 
 #: libraries/operations.lib.php:685
 msgid "Move table to (database<b>.</b>table):"
-msgstr "將資料表移動到(資料庫名<b>.</b>資料表名稱):"
+msgstr "移動資料表到 (資料庫名<b>.</b>資料表名稱):"
 
 #: libraries/operations.lib.php:796
 msgid "Table options"
@@ -7218,7 +7219,7 @@ msgstr "儲存引擎"
 
 #: libraries/operations.lib.php:1019
 msgid "Copy table to (database<b>.</b>table):"
-msgstr "將資料表複製到(資料庫名稱<b>.</b>資料表名稱):"
+msgstr "複製資料表到 (資料庫名稱<b>.</b>資料表名稱):"
 
 #: libraries/operations.lib.php:1074
 msgid "Switch to copied table"
@@ -7475,7 +7476,7 @@ msgstr "資料匯出選項"
 #: libraries/plugins/export/ExportSql.class.php:1717
 #: libraries/plugins/export/ExportTexytext.class.php:185
 msgid "Dumping data for table"
-msgstr "轉存資料表中的資料"
+msgstr "資料表的匯出資料"
 
 #: libraries/plugins/export/ExportHtmlword.class.php:485
 #: libraries/plugins/export/ExportOdt.class.php:565
@@ -7498,7 +7499,7 @@ msgstr "定義"
 #: libraries/plugins/export/ExportSql.class.php:1467
 #: libraries/plugins/export/ExportTexytext.class.php:496
 msgid "Table structure for table"
-msgstr "表的結構"
+msgstr "資料表結構"
 
 #: libraries/plugins/export/ExportHtmlword.class.php:570
 #: libraries/plugins/export/ExportOdt.class.php:665
@@ -7524,7 +7525,7 @@ msgstr "(持續的)"
 
 #: libraries/plugins/export/ExportLatex.class.php:45
 msgid "Structure of table @TABLE@"
-msgstr "@TABLE@ 表的結構"
+msgstr "@TABLE@ 資料表結構"
 
 #: libraries/plugins/export/ExportLatex.class.php:116
 #: libraries/plugins/export/ExportOdt.class.php:97
@@ -7572,7 +7573,7 @@ msgstr "主機"
 #: libraries/plugins/export/ExportSql.class.php:617
 #: libraries/plugins/export/ExportXml.class.php:196 sql.php:1115
 msgid "Generation Time"
-msgstr "產生日期"
+msgstr "建立日期"
 
 #: libraries/plugins/export/ExportLatex.class.php:226
 #: libraries/plugins/export/ExportSql.class.php:623
@@ -7703,17 +7704,17 @@ msgstr ""
 msgid ""
 "Dump binary columns in hexadecimal notation <i>(for example, \"abc\" becomes "
 "0x616263)</i>"
-msgstr "匯出二進位(BIN)欄位時用 16 進位(HEX)表示 <i>(例: \"abc\" 將使用 0x616263 表示)</i>"
+msgstr "匯出二進位欄位時用 16 進位(HEX)表示法 <i>(例: \"abc\" 將使用 0x616263 表示)</i>"
 
 #: libraries/plugins/export/ExportSql.class.php:412
 msgid ""
 "Dump TIMESTAMP columns in UTC <i>(enables TIMESTAMP columns to be dumped and "
 "reloaded between servers in different time zones)</i>"
-msgstr "匯出 TIMESTAMP 欄位時用 UTC 時區 <i>(這可讓 TIMESTAMP 欄位的資料匯入並重新載入到不同時區的伺服器)</i>"
+msgstr "匯出 TIMESTAMP 欄位時用 UTC 時區 <i>(可讓 TIMESTAMP 欄位匯出的資料並重新載入到不同時區的伺服器)</i>"
 
 #: libraries/plugins/export/ExportSql.class.php:1209
 msgid "Constraints for dumped tables"
-msgstr "匯出資料表的 Constraints"
+msgstr "已匯出資料表的限制(Constraint)"
 
 #: libraries/plugins/export/ExportSql.class.php:1220
 msgid "Constraints for table"
@@ -9381,7 +9382,7 @@ msgstr "資料列大小"
 
 #: libraries/structure.lib.php:1754 tbl_printview.php:399
 msgid "Next autoindex"
-msgstr "下個自動索引編號"
+msgstr "下個自動索引"
 
 #: libraries/structure.lib.php:1880 libraries/structure.lib.php:1961
 #: libraries/structure.lib.php:1969 libraries/structure.lib.php:1986
@@ -9396,7 +9397,7 @@ msgstr "已將 %s 設爲主鍵(Primary key)"
 
 #: libraries/structure.lib.php:2011 libraries/structure.lib.php:2082
 msgid "Distinct values"
-msgstr "去除重複"
+msgstr "顯示相異值"
 
 #: libraries/structure.lib.php:2014 libraries/structure.lib.php:2017
 msgid "Add primary key"
@@ -9889,7 +9890,7 @@ msgstr "儲存引擎"
 
 #: server_export.php:20
 msgid "View dump (schema) of databases"
-msgstr "查看資料庫的轉存(大綱)"
+msgstr "檢視資料庫結構的匯出資料"
 
 #: server_plugins.php:66
 msgid "Modules"
@@ -10444,11 +10445,11 @@ msgid ""
 "The number of transactions that used the temporary binary log cache but that "
 "exceeded the value of binlog_cache_size and used a temporary file to store "
 "statements from the transaction."
-msgstr "因交易使用的臨時二進位記錄快取超出 binlog_cache_size 的設定而使用臨時檔案儲存的數量。"
+msgstr "使用暫存二進位記錄快取的交易，但因超出 binlog_cache_size 限制而採用暫存檔案儲存交易指令的數量。"
 
 #: server_status_variables.php:343
 msgid "The number of transactions that used the temporary binary log cache."
-msgstr "交易所用的臨時二進位記錄快取的數量。"
+msgstr "交易使用暫存二進位記錄快取的數量。"
 
 #: server_status_variables.php:346
 msgid ""
@@ -10935,7 +10936,7 @@ msgstr "目前由從 SQL 程序開啟的臨時表的數量。"
 msgid ""
 "Total (since startup) number of times the replication slave SQL thread has "
 "retried transactions."
-msgstr "自伺服器啟動開始備援從伺服所接收到的交易總數。"
+msgstr "自伺服器啟動開始從次要(Slave)備援伺服所接收到的交易(Transaction)總數。"
 
 #: server_status_variables.php:710
 msgid "This is ON if this server is a slave that is connected to a master."
@@ -11453,7 +11454,7 @@ msgstr "建立資料表 %1$s 成功。"
 
 #: tbl_export.php:27
 msgid "View dump (schema) of table"
-msgstr "查看資料表的轉存(大綱)"
+msgstr "檢視資料表結構的匯出資料"
 
 #: tbl_gis_visualization.php:114
 msgid "Display GIS Visualization"
@@ -11606,7 +11607,7 @@ msgstr "SQL 指令已執行。"
 msgid ""
 "You can execute the dump by creating and using a temporary database. Please "
 "ensure that you have the privileges to do so."
-msgstr "您可以透過建立一個臨時資料庫來執行這個匯出。請確保您有足夠的權限。"
+msgstr "您可以透過建立與使用暫存資料庫來執行資料匯出，請先確認您是否有足夠的權限。"
 
 #: tbl_tracking.php:262
 msgid "Comment out these two lines if you do not need them."
@@ -11614,7 +11615,7 @@ msgstr "如果您不需要，請註解以下兩行。"
 
 #: tbl_tracking.php:272
 msgid "SQL statements exported. Please copy the dump or execute it."
-msgstr "SQL 指令已匯出。請複製或執行它。"
+msgstr "SQL 指令已匯出，您可以複製或者執行。"
 
 #: tbl_tracking.php:309
 #, php-format
@@ -11668,7 +11669,7 @@ msgstr "SQL 匯出"
 
 #: tbl_tracking.php:692
 msgid "This option will replace your table and contained data."
-msgstr "該選項將導致目前表的結構和資料被替換。"
+msgstr "此選項將會替換您的資料表與內容資料。"
 
 #: tbl_tracking.php:693
 msgid "SQL execution"
