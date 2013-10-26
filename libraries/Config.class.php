@@ -1379,12 +1379,7 @@ class PMA_Config
         }
 
         // Reconstruct URL using parsed parts
-        if ($this->get('SSLPort')) {
-            $port_number = $this->get('SSLPort');
-        } else {
-            $port_number = 443;
-        }
-        return 'https://' . $parsed['host'] . ':' . $port_number . $parsed['path'];
+        return 'https://' . $parsed['host'] . ':443' . $parsed['path'];
     }
 
     /**
