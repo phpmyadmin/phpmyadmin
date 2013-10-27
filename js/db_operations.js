@@ -79,13 +79,13 @@ AJAX.registerOnload('db_operations.js', function() {
             // use messages that stay on screen
             $('div.success, div.error').fadeOut();
             if (data.success == true) {
-                PMA_commonParams.set('db', data.newname);
                 if ( $("#checkbox_switch").is(":checked")) {
                     PMA_commonParams.set('db', data.newname);
                     PMA_commonActions.refreshMain(false, function () {
                         PMA_ajaxShowMessage(data.message);
                     });
                 } else {
+                    PMA_commonParams.set('db', data.db);
                     PMA_ajaxShowMessage(data.message);
                 }
                 PMA_reloadNavigation();
