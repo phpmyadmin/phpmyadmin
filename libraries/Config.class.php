@@ -1351,6 +1351,13 @@ class PMA_Config
             }
             $pma_absolute_uri .= $path;
 
+            // This is to handle the case of a reverse proxy
+            if ($this->get('ForceSSL')) {
+               $this->set('PmaAbsoluteUri', $pma_absolute_uri);
+               $pma_absolute_uri = $this->getSSLUri();
+               $this->checkIsHttps();
+            }
+
             // We used to display a warning if PmaAbsoluteUri wasn't set, but now
             // the autodetect code works well enough that we don't display the
             // warning at all. The user can still set PmaAbsoluteUri manually.
