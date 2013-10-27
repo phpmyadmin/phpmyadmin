@@ -610,7 +610,7 @@ if ($go_sql) {
     include_once 'libraries/parse_analyze.inc.php';
 
     PMA_executeQueryAndSendQueryResponse(
-        $analyzed_sql_results, false, $db, $table, null, null, null, false, null,
+        $analyzed_sql_results, false, $db, $table, null, $import_text, null, false, null,
         null, null, null, $goto, $pmaThemeImage, null, null, null, $sql_query,
         null, null
     );
