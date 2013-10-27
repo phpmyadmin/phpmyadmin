@@ -85,7 +85,7 @@ AJAX.registerOnload('db_operations.js', function () {
                         PMA_ajaxShowMessage(data.message);
                     });
                 } else {
-					PMA_commonParams.set('db', data.db);
+                    PMA_commonParams.set('db', data.db);
                     PMA_ajaxShowMessage(data.message);
                 }
                 PMA_reloadNavigation();
