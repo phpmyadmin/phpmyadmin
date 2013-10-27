@@ -9,6 +9,7 @@ phpMyAdmin - ChangeLog
 - bug #3678 Does not display or manipulate bit(64) fields appropriately
 - bug #4129 Unneeded navi panel refresh
 - bug #4120 SSL redirects to port 80
+- bug #4144 DROP DATABASE displays wrong database name
 
 4.0.8.0 (2013-10-06)
 - bug #3988 Rename view is not working
