@@ -168,6 +168,7 @@ if (strlen($db)
             'sql_query',
             PMA_Util::getMessage(null, $sql_query)
         );
+        $response->addJSON('db', $db);
         exit;
     }
 }
