@@ -474,6 +474,8 @@ class PMA_Header
                 . "img-src 'self' data: "
                 . $GLOBALS['cfg']['CSPAllow']
                 . ($https ? "" : $mapTilesUrls)
+                // for reCAPTCHA
+                . " https://www.google.com"
                 . ";"
             );
             if (PMA_USR_BROWSER_AGENT == 'SAFARI'
@@ -487,6 +489,8 @@ class PMA_Header
                     . "img-src 'self' data: "
                     . $GLOBALS['cfg']['CSPAllow']
                     . ($https ? "" : $mapTilesUrls)
+                    // for reCAPTCHA
+                    . " https://www.google.com"
                     . ";"
                 );
             } else {
@@ -504,6 +508,8 @@ class PMA_Header
                     . "img-src 'self' data: "
                     . $GLOBALS['cfg']['CSPAllow']
                     . ($https ? "" : $mapTilesUrls)
+                    // for reCAPTCHA
+                    . " https://www.google.com"
                     . ";"
                 );
             }
