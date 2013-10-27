@@ -518,6 +518,7 @@ if ($do_confirm) {
     $output .='</fieldset>';
     $output .= '';
 
+    $message = '';
     PMA_Response::getInstance()->addHTML($output);
 
     exit;

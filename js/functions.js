@@ -1384,7 +1384,11 @@ AJAX.registerOnload('functions.js', function() {
         var $fake_form = $('<form>', {action: 'import.php', method: 'post'})
                 .append($form.find("input[name=server], input[name=db], input[name=table], input[name=token]").clone())
                 .append($('<input/>', {type: 'hidden', name: 'show_query', value: 1}))
+                .append($('<input/>', {type: 'hidden', name: 'is_js_confirmed', value: 0}))
                 .append($('<input/>', {type: 'hidden', name: 'sql_query', value: sql_query}));
+        if (! checkSqlQuery($fake_form[0])) {
+            return false;
+        }
         $fake_form.appendTo($('body')).submit();
     });
 
