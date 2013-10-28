@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-10-28 12:21-0400\n"
-"PO-Revision-Date: 2013-10-17 16:12+0200\n"
+"PO-Revision-Date: 2013-10-28 19:31+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
-"Language-Team: Turkish <http://l10n.cihar.com/projects/phpmyadmin/master/tr/"
-">\n"
+"Language-Team: Turkish "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/tr/>\n"
+"Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: tr\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 1.7\n"
+"X-Generator: Weblate 1.8-dev\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -2006,12 +2006,13 @@ msgid "Submit Error Report"
 msgstr "Hata Raporu Gönder"
 
 #: js/messages.php:411
-#, fuzzy
 #| msgid "An error has occurred. Do you want to send an error report?"
 msgid ""
 "A fatal JavaScript error has occurred. Would you like to send an error "
 "report?"
-msgstr "Bir hata meydana geldi. Bir hata raporu göndermek istiyor musunuz?"
+msgstr ""
+"Önemli bir JavaScript hatası meydana geldi. Bir hata raporu göndermek ister "
+"misiniz?"
 
 #: js/messages.php:413
 msgid "Change Report Settings"
