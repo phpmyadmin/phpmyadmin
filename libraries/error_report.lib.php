@@ -292,9 +292,9 @@ function PMA_getErrorReportForm()
 
     $html .= '<input type="checkbox" name="always_send"'
             .' id="always_send_checkbox"/>'
-            .'<span>'
+            .'<label for="always_send_checkbox">'
             . __('Automatically send report next time')
-            .'</span>';
+            .'</label>';
 
     $html .= '</fieldset>';
 
