@@ -1220,22 +1220,22 @@ function PMA_handleQueryExecuteError($is_gotofile, $error, $full_sql_query)
 /**
  * Function to store the query as a bookmark
  *
- * @param String  $db          the current database
- * @param String  $bkm_user    the bookmarking user
- * @param String  $import_text import text
- * @param String  $bkm_label   bookmark label
- * @param boolean $bkm_replace whether to replace existing bookmarks
+ * @param String  $db                     the current database
+ * @param String  $bkm_user               the bookmarking user
+ * @param String  $sql_query_for_bookmark the query to be stored in bookmark 
+ * @param String  $bkm_label              bookmark label
+ * @param boolean $bkm_replace            whether to replace existing bookmarks
  *
  * @return void
  */
-function PMA_storeTheQueryAsBookmark($db, $bkm_user, $import_text,
+function PMA_storeTheQueryAsBookmark($db, $bkm_user, $sql_query_for_bookmark,
     $bkm_label, $bkm_replace
 ) {
     include_once 'libraries/bookmark.lib.php';
     $bfields = array(
                  'bkm_database' => $db,
                  'bkm_user'  => $bkm_user,
-                 'bkm_sql_query' => urlencode($import_text),
+                 'bkm_sql_query' => urlencode($sql_query_for_bookmark),
                  'bkm_label' => $bkm_label
     );
 
@@ -1476,19 +1476,19 @@ function PMA_countQueryResults(
 /**
  * Function to handle all aspects relating to executing the query
  *
- * @param array   $analyzed_sql_results analyzed sql results
- * @param String  $full_sql_query       full sql query
- * @param boolean $is_gotofile          whether to go to a file
- * @param String  $db                   current database
- * @param String  $table                current table
- * @param boolean $find_real_end        whether to find the real end
- * @param String  $import_text          sql command
- * @param array   $extra_data           extra data
+ * @param array   $analyzed_sql_results   analyzed sql results
+ * @param String  $full_sql_query         full sql query
+ * @param boolean $is_gotofile            whether to go to a file
+ * @param String  $db                     current database
+ * @param String  $table                  current table
+ * @param boolean $find_real_end          whether to find the real end
+ * @param String  $sql_query_for_bookmark sql query to be stored as bookmark
+ * @param array   $extra_data             extra data
  *
  * @return mixed
  */
 function PMA_executeTheQuery($analyzed_sql_results, $full_sql_query, $is_gotofile,
-    $db, $table, $find_real_end, $import_text, $extra_data
+    $db, $table, $find_real_end, $sql_query_for_bookmark, $extra_data
 ) {
     // Only if we ask to see the php code
     if (isset($GLOBALS['show_as_php']) || ! empty($GLOBALS['validatequery'])) {
@@ -1510,10 +1510,10 @@ function PMA_executeTheQuery($analyzed_sql_results, $full_sql_query, $is_gotofil
 
         // If there are no errors and bookmarklabel was given,
         // store the query as a bookmark
-        if (! empty($_POST['bkm_label']) && ! empty($import_text)) {
+        if (! empty($_POST['bkm_label']) && ! empty($sql_query_for_bookmark)) {
             PMA_storeTheQueryAsBookmark(
                 $db, $GLOBALS['cfg']['Bookmark']['user'],
-                $import_text, $_POST['bkm_label'],
+                $sql_query_for_bookmark, $_POST['bkm_label'],
                 isset($_POST['bkm_replace']) ? $_POST['bkm_replace'] : null
             );
         } // end store bookmarks
@@ -2232,7 +2232,7 @@ function PMA_sendQueryResponse($num_rows, $unlim_num_rows, $is_affected,
  * @param string $db                   current database
  * @param string $table                current table
  * @param bool   $find_real_end        whether to find real end or not
- * @param string $import_text          import text
+ * @param string $sql_query_for_bookmark the sql query to be stored as bookmark 
  * @param array  $extra_data           extra data
  * @param bool   $is_affected          whether affected or not
  * @param string $message_to_show      message to show
@@ -2254,9 +2254,9 @@ function PMA_sendQueryResponse($num_rows, $unlim_num_rows, $is_affected,
  * @return void
  */
 function PMA_executeQueryAndSendQueryResponse($analyzed_sql_results,
-    $is_gotofile, $db, $table, $find_real_end, $import_text, $extra_data,
-    $is_affected, $message_to_show, $disp_mode, $message, $sql_data, $goto,
-    $pmaThemeImage, $disp_query, $disp_message,
+    $is_gotofile, $db, $table, $find_real_end, $sql_query_for_bookmark,
+    $extra_data, $is_affected, $message_to_show, $disp_mode, $message,
+    $sql_data, $goto, $pmaThemeImage, $disp_query, $disp_message,
     $query_type, $sql_query, $selected, $complete_query
 ) {
     // Include PMA_Index class for use in PMA_DisplayResults class
@@ -2303,7 +2303,7 @@ function PMA_executeQueryAndSendQueryResponse($analyzed_sql_results,
         $db,
         $table,
         isset($find_real_end) ? $find_real_end : null,
-        isset($import_text) ? $import_text : null,
+        isset($sql_query_for_bookmark) ? $sql_query_for_bookmark : null,
         isset($extra_data) ? $extra_data : null
     );
 
