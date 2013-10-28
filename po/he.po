@@ -4,16 +4,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-10-17 12:58+0200\n"
-"PO-Revision-Date: 2013-07-15 21:08+0200\n"
-"Last-Translator: Bug Me Not <abcdefg@mailinator.com>\n"
-"Language-Team: Hebrew <http://l10n.cihar.com/projects/phpmyadmin/master/he/"
-">\n"
+"PO-Revision-Date: 2013-10-28 14:45+0200\n"
+"Last-Translator: Luz Paz <david.yoga@gmail.com>\n"
+"Language-Team: Hebrew <http://l10n.cihar.com/projects/phpmyadmin/master/he/>\n"
 "Language: he\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 1.6-dev\n"
+"X-Generator: Weblate 1.8-dev\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -1176,7 +1175,7 @@ msgstr ""
 
 #: js/messages.php:124
 msgid "Please add at least one variable to the series"
-msgstr ""
+msgstr "אנא הוסף לפחות משתנה אחד לסידרה"
 
 #: js/messages.php:125 libraries/DisplayResults.class.php:1325
 #: libraries/TableSearch.class.php:856 libraries/TableSearch.class.php:1013
@@ -1219,7 +1218,7 @@ msgstr ""
 
 #: js/messages.php:134
 msgid "log_output is set to TABLE."
-msgstr ""
+msgstr "log_output מוגדר ל-TABLE."
 
 #: js/messages.php:135
 #, php-format
