@@ -71,13 +71,20 @@ if (! empty($sql_query)) {
     }
 
     // refresh navigation panel only
-    if (preg_match('/^(CREATE|ALTER)\s+(VIEW|TABLE|DATABASE|SCHEMA)\s+/i', $sql_query)) {
+    if (preg_match(
+        '/^(CREATE|ALTER)\s+(VIEW|TABLE|DATABASE|SCHEMA)\s+/i',
+        $sql_query
+    )) {
         $ajax_reload['reload'] = true;
     }
 
     // do a dynamic reload if table is RENAMED
     // (by sending the instruction to the AJAX response handler)
-    if (preg_match('/^RENAME\s+TABLE\s+(.*?)\s+TO\s+(.*?)($|;|\s)/i', $sql_query, $rename_table_names)) {
+    if (preg_match(
+        '/^RENAME\s+TABLE\s+(.*?)\s+TO\s+(.*?)($|;|\s)/i',
+        $sql_query,
+        $rename_table_names
+    )) {
         $ajax_reload['table_name'] = PMA_Util::unQuote($rename_table_names[2]);
         $ajax_reload['reload'] = true;
     }
@@ -255,12 +262,19 @@ if (! empty($id_bookmark)) {
         }
 
         // refresh navigation and main panels
-        if (preg_match('/^(DROP)\s+(VIEW|TABLE|DATABASE|SCHEMA)\s+/i', $import_text)) {
+        if (preg_match(
+            '/^(DROP)\s+(VIEW|TABLE|DATABASE|SCHEMA)\s+/i',
+            $import_text
+        )) {
             $GLOBALS['reload'] = true;
         }
 
         // refresh navigation panel only
-        if (preg_match('/^(CREATE|ALTER)\s+(VIEW|TABLE|DATABASE|SCHEMA)\s+/i', $import_text)) {
+        if (preg_match(
+            '/^(CREATE|ALTER)\s+(VIEW|TABLE|DATABASE|SCHEMA)\s+/i',
+            $import_text
+        )
+        ) {
             $ajax_reload['reload'] = true;
         }
         break;
@@ -610,7 +624,8 @@ if ($go_sql) {
     include_once 'libraries/parse_analyze.inc.php';
 
     PMA_executeQueryAndSendQueryResponse(
-        $analyzed_sql_results, false, $db, $table, null, $import_text, null, false, null,
+        $analyzed_sql_results, false, $db, $table, null, $import_text, null,
+        false, null,
         null, null, null, $goto, $pmaThemeImage, null, null, null, $sql_query,
         null, null
     );
