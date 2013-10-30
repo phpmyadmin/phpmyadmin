@@ -35,11 +35,10 @@ class Node_Index_Container extends Node
         );
         $this->real_name = 'indexes';
 
-        $new        = PMA_NodeFactory::getInstance(
-            'Node', _pgettext('Create new index', 'New')
-        );
+        $new_label = _pgettext('Create new index', 'New');
+        $new        = PMA_NodeFactory::getInstance('Node', $new_label);
         $new->isNew = true;
-        $new->icon  = PMA_Util::getImage('b_index_add.png', __('New'));
+        $new->icon  = PMA_Util::getImage('b_index_add.png', $new_label);
         $new->links = array(
             'text' => 'tbl_indexes.php?server=' . $GLOBALS['server']
                     . '&amp;create_index=1&amp;added_fields=2'
