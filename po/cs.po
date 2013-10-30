@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.9-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-10-30 13:52+0100\n"
-"PO-Revision-Date: 2013-10-30 13:46+0200\n"
+"PO-Revision-Date: 2013-10-30 14:01+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Czech <http://l10n.cihar.com/projects/phpmyadmin/4-0/cs/>\n"
 "Language: cs\n"
@@ -7429,10 +7429,9 @@ msgid "New"
 msgstr "Nové"
 
 #: libraries/navigation/Nodes/Node_Database.class.php:32
-#, fuzzy
 #| msgid "Database export options"
 msgid "Database operations"
-msgstr "Nastavení exportu databází"
+msgstr "Operace s databází"
 
 #: libraries/navigation/Nodes/Node_Event_Container.class.php:36
 msgctxt "Create new event"
@@ -7465,10 +7464,9 @@ msgid "New"
 msgstr "Nový"
 
 #: libraries/navigation/Nodes/Node_Procedure.class.php:32
-#, fuzzy
 #| msgid "Procedures"
 msgid "Procedure"
-msgstr "Procedury"
+msgstr "Procedura"
 
 #: libraries/navigation/Nodes/Node_Procedure_Container.class.php:26
 #: libraries/navigation/Nodes/Node_Procedure_Container.class.php:27
