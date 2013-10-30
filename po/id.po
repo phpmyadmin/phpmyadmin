@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-10-28 12:21-0400\n"
+"POT-Creation-Date: 2013-10-30 08:10-0400\n"
 "PO-Revision-Date: 2013-09-09 20:22+0200\n"
 "Last-Translator: Dadan Setia <da2n_s@yahoo.co.id>\n"
 "Language-Team: Indonesian <http://l10n.cihar.com/projects/phpmyadmin/master/"
@@ -43,6 +43,7 @@ msgstr "Komentar tabel:"
 #: db_datadict.php:168 libraries/Index.class.php:566
 #: libraries/TableSearch.class.php:185 libraries/TableSearch.class.php:1255
 #: libraries/insert_edit.lib.php:1620
+#: libraries/navigation/Nodes/Node_Column.class.php:32
 #: libraries/plugins/export/ExportHtmlword.class.php:278
 #: libraries/plugins/export/ExportHtmlword.class.php:393
 #: libraries/plugins/export/ExportLatex.class.php:510
@@ -2501,6 +2502,7 @@ msgstr[0] "%1$s cocok dengan <strong>%2$s</strong>"
 #: libraries/DbSearch.class.php:350 libraries/Menu.class.php:297
 #: libraries/Util.class.php:3189 libraries/Util.class.php:3404
 #: libraries/Util.class.php:3405 libraries/Util.class.php:4133
+#: libraries/navigation/Nodes/Node_Table.class.php:48
 #: libraries/structure.lib.php:1370
 msgid "Browse"
 msgstr "Jelajahi"
@@ -2873,6 +2875,7 @@ msgstr "Indeks belum ditentukan!"
 #: libraries/Index.class.php:539 libraries/Index.class.php:550
 #: libraries/build_html_for_db.lib.php:42 libraries/index.lib.php:25
 #: libraries/navigation/Nodes/Node_Index_Container.class.php:26
+#: libraries/navigation/Nodes/Node_Index_Container.class.php:27
 #: libraries/tbl_tracking.lib.php:806
 msgid "Indexes"
 msgstr "Indeks"
@@ -2936,9 +2939,10 @@ msgstr ""
 msgid "Server"
 msgstr "Server"
 
-#: libraries/Menu.class.php:237 libraries/structure.lib.php:677
-#: libraries/structure.lib.php:707 libraries/structure.lib.php:1190
-#: libraries/tbl_info.inc.php:59
+#: libraries/Menu.class.php:237
+#: libraries/navigation/Nodes/Node_View.class.php:34
+#: libraries/structure.lib.php:677 libraries/structure.lib.php:707
+#: libraries/structure.lib.php:1190 libraries/tbl_info.inc.php:59
 msgid "View"
 msgstr "Gambarkan"
 
@@ -2950,7 +2954,9 @@ msgstr "Gambarkan"
 #: libraries/config/user_preferences.forms.php:198
 #: libraries/config/user_preferences.forms.php:235
 #: libraries/config/user_preferences.forms.php:261
-#: libraries/import.lib.php:1235 libraries/server_privileges.lib.php:976
+#: libraries/import.lib.php:1235
+#: libraries/navigation/Nodes/Node_Table.class.php:36
+#: libraries/server_privileges.lib.php:976
 #: libraries/tbl_columns_definition_form.lib.php:199
 #: libraries/tbl_tracking.lib.php:723 pmd_general.php:174
 msgid "Structure"
@@ -2960,7 +2966,8 @@ msgstr "Struktur"
 #: libraries/Menu.class.php:514 libraries/Util.class.php:3186
 #: libraries/Util.class.php:3193 libraries/Util.class.php:4104
 #: libraries/Util.class.php:4119 libraries/Util.class.php:4135
-#: libraries/config/messages.inc.php:215 querywindow.php:59
+#: libraries/config/messages.inc.php:215
+#: libraries/navigation/Nodes/Node_Table.class.php:45 querywindow.php:59
 msgid "SQL"
 msgstr "SQL"
 
@@ -2968,13 +2975,15 @@ msgstr "SQL"
 #: libraries/Util.class.php:3187 libraries/Util.class.php:3194
 #: libraries/Util.class.php:3406 libraries/Util.class.php:3407
 #: libraries/Util.class.php:4120 libraries/Util.class.php:4136
+#: libraries/navigation/Nodes/Node_Table.class.php:39
 msgid "Search"
 msgstr "Cari"
 
 #: libraries/Menu.class.php:320 libraries/Util.class.php:3188
 #: libraries/Util.class.php:3408 libraries/Util.class.php:3409
-#: libraries/Util.class.php:4137 libraries/sql_query_form.lib.php:305
-#: libraries/sql_query_form.lib.php:308
+#: libraries/Util.class.php:4137
+#: libraries/navigation/Nodes/Node_Table.class.php:42
+#: libraries/sql_query_form.lib.php:305 libraries/sql_query_form.lib.php:308
 msgid "Insert"
 msgstr "Tambahkan"
 
@@ -3175,6 +3184,7 @@ msgstr "Pengurutan"
 #: libraries/build_html_for_db.lib.php:27
 #: libraries/config/messages.inc.php:184
 #: libraries/navigation/Nodes/Node_Table_Container.class.php:26
+#: libraries/navigation/Nodes/Node_Table_Container.class.php:27
 #: libraries/plugins/export/ExportXml.class.php:116
 msgid "Tables"
 msgstr "Tabel"
@@ -3316,7 +3326,9 @@ msgstr ""
 "struktur tabel telah berubah."
 
 #: libraries/TableSearch.class.php:181 libraries/insert_edit.lib.php:211
-#: libraries/insert_edit.lib.php:217 libraries/rte/rte_routines.lib.php:1602
+#: libraries/insert_edit.lib.php:217
+#: libraries/navigation/Nodes/Node_Function.class.php:34
+#: libraries/rte/rte_routines.lib.php:1602
 msgid "Function"
 msgstr "Fungsi"
 
@@ -4069,28 +4081,28 @@ msgstr ""
 msgid "Server %d"
 msgstr "Server %d"
 
-#: libraries/common.inc.php:851
+#: libraries/common.inc.php:854
 msgid "Invalid authentication method set in configuration:"
 msgstr "Metode autentikasi dalam konfigurasi tidak sah:"
 
-#: libraries/common.inc.php:992
+#: libraries/common.inc.php:997
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "Anda harus memperbarui ke %s %s atau lebih baru."
 
-#: libraries/common.inc.php:1085
+#: libraries/common.inc.php:1090
 msgid "Error: Token mismatch"
 msgstr "Error: Token tidak cocok"
 
-#: libraries/common.inc.php:1117
+#: libraries/common.inc.php:1122
 msgid "GLOBALS overwrite attempt"
 msgstr "upaya penimpaan GLOBALS"
 
-#: libraries/common.inc.php:1124
+#: libraries/common.inc.php:1129
 msgid "possible exploit"
 msgstr "memungkinkan mengeksploitasi"
 
-#: libraries/common.inc.php:1133
+#: libraries/common.inc.php:1138
 msgid "numeric key detected"
 msgstr "tombol angka terdeteksi"
 
@@ -7823,6 +7835,10 @@ msgid "%s other result found"
 msgid_plural "%s other results found"
 msgstr[0] ""
 
+#: libraries/navigation/NavigationTree.class.php:828
+msgid "Expand/Collapse"
+msgstr ""
+
 #: libraries/navigation/NavigationTree.class.php:1044
 #, fuzzy
 #| msgid "Filter tables by name"
@@ -7854,6 +7870,7 @@ msgid "Could not include class \"%1$s\", file \"%2$s\" not found"
 msgstr ""
 
 #: libraries/navigation/Nodes/Node_Column_Container.class.php:26
+#: libraries/navigation/Nodes/Node_Column_Container.class.php:27
 #: libraries/sql_query_form.lib.php:285
 msgid "Columns"
 msgstr "Kolom"
@@ -7864,6 +7881,23 @@ msgstr "Kolom"
 msgctxt "Create new column"
 msgid "New"
 msgstr "Baru"
+
+#: libraries/navigation/Nodes/Node_Column_Container.class.php:43
+#: libraries/navigation/Nodes/Node_Function_Container.class.php:42
+#: libraries/navigation/Nodes/Node_Index_Container.class.php:42
+#: libraries/navigation/Nodes/Node_Procedure_Container.class.php:42
+#: libraries/navigation/Nodes/Node_Table_Container.class.php:49
+#: libraries/navigation/Nodes/Node_View_Container.class.php:49
+#, fuzzy
+#| msgid "New"
+msgid "New"
+msgstr "Baru"
+
+#: libraries/navigation/Nodes/Node_Database.class.php:34
+#, fuzzy
+#| msgid "Database export options"
+msgid "Database operations"
+msgstr "Opsi ekspor basis data"
 
 #: libraries/navigation/Nodes/Node_Database_Container.class.php:31
 #, fuzzy
@@ -7880,6 +7914,7 @@ msgid "New"
 msgstr "Baru"
 
 #: libraries/navigation/Nodes/Node_Function_Container.class.php:26
+#: libraries/navigation/Nodes/Node_Function_Container.class.php:27
 #: libraries/plugins/export/ExportSql.class.php:493
 #: libraries/plugins/export/ExportXml.class.php:107
 msgid "Functions"
@@ -7892,6 +7927,14 @@ msgctxt "Create new function"
 msgid "New"
 msgstr "Baru"
 
+#: libraries/navigation/Nodes/Node_Index.class.php:32
+#: libraries/structure.lib.php:1393 libraries/structure.lib.php:2073
+#: libraries/structure.lib.php:2083 libraries/structure.lib.php:2191
+#: libraries/tbl_columns_definition_form.lib.php:303
+#: libraries/tbl_printview.lib.php:311
+msgid "Index"
+msgstr "Indeks"
+
 #: libraries/navigation/Nodes/Node_Index_Container.class.php:39
 #, fuzzy
 #| msgid "New"
@@ -7899,7 +7942,14 @@ msgctxt "Create new index"
 msgid "New"
 msgstr "Baru"
 
+#: libraries/navigation/Nodes/Node_Procedure.class.php:34
+#, fuzzy
+#| msgid "Procedures"
+msgid "Procedure"
+msgstr "Prosedur"
+
 #: libraries/navigation/Nodes/Node_Procedure_Container.class.php:26
+#: libraries/navigation/Nodes/Node_Procedure_Container.class.php:27
 #: libraries/plugins/export/ExportSql.class.php:475
 #: libraries/plugins/export/ExportXml.class.php:111
 msgid "Procedures"
@@ -7928,6 +7978,7 @@ msgid "New"
 msgstr "Baru"
 
 #: libraries/navigation/Nodes/Node_View_Container.class.php:26
+#: libraries/navigation/Nodes/Node_View_Container.class.php:27
 #: libraries/plugins/export/ExportXml.class.php:125
 msgid "Views"
 msgstr "View"
@@ -11772,13 +11823,6 @@ msgstr "Kolom %s telah dihapus"
 #: libraries/structure.lib.php:2081
 msgid "Primary"
 msgstr "Kunci Utama"
-
-#: libraries/structure.lib.php:1393 libraries/structure.lib.php:2073
-#: libraries/structure.lib.php:2083 libraries/structure.lib.php:2191
-#: libraries/tbl_columns_definition_form.lib.php:303
-#: libraries/tbl_printview.lib.php:311
-msgid "Index"
-msgstr "Indeks"
 
 #: libraries/structure.lib.php:1400 libraries/structure.lib.php:2077
 #: libraries/structure.lib.php:2087
