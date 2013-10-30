@@ -3,15 +3,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-10-30 08:10-0400\n"
+"POT-Creation-Date: 2013-10-30 13:55+0100\n"
 "PO-Revision-Date: 2013-09-26 20:35+0200\n"
 "Last-Translator: Hao Luo <haoluo.ca@gmail.com>\n"
 "Language-Team: Simplified Chinese <http://l10n.cihar.com/projects/phpmyadmin/"
 "master/zh_CN/>\n"
+"Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: zh_CN\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 1.7-dev\n"
 
@@ -583,8 +583,8 @@ msgstr "从“函数”列中选择“GeomFromText”并粘贴下列内容到“
 #: import.php:116
 #, php-format
 msgid ""
-"You probably tried to upload a file that is too large. Please refer to %"
-"sdocumentation%s for a workaround for this limit."
+"You probably tried to upload a file that is too large. Please refer to "
+"%sdocumentation%s for a workaround for this limit."
 msgstr "您想要上传的文件可能太大了，请参考%s文档%s来寻找解决方法。"
 
 #: import.php:284 import.php:550
@@ -2648,8 +2648,8 @@ msgstr "查询中"
 #: libraries/DisplayResults.class.php:4907 libraries/structure.lib.php:653
 #, fuzzy, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 msgstr "该视图最少包含的行数，参见%s文档%s。"
 
 #: libraries/DisplayResults.class.php:4920
@@ -3442,20 +3442,21 @@ msgstr ""
 
 #: libraries/Types.class.php:309
 msgid ""
-"A small floating-point number, allowable values are -3.402823466E+38 to -"
-"1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
+"A small floating-point number, allowable values are -3.402823466E+38 to "
+"-1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
 msgstr ""
 "单精度浮点数，取值范围从 -3.402823466E+38 到 -1.175494351E-38、0 以及从 "
 "1.175494351E-38 到 3.402823466E+38"
 
 #: libraries/Types.class.php:311
 msgid ""
-"A double-precision floating-point number, allowable values are -"
-"1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
+"A double-precision floating-point number, allowable values are "
+"-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
 "2.2250738585072014E-308 to 1.7976931348623157E+308"
 msgstr ""
-"双精度浮点数，取值范围从 -1.7976931348623157E+308 到 -2.2250738585072014E-"
-"308、0 以及从 2.2250738585072014E-308 到 1.7976931348623157E+308"
+"双精度浮点数，取值范围从 -1.7976931348623157E+308 到 "
+"-2.2250738585072014E-308、0 以及从 2.2250738585072014E-308 到 "
+"1.7976931348623157E+308"
 
 #: libraries/Types.class.php:313
 msgid ""
@@ -3693,8 +3694,8 @@ msgid ""
 "A timestamp, range is '0001-01-01 00:00:00' UTC to '9999-12-31 23:59:59' "
 "UTC; TIMESTAMP(6) can store microseconds"
 msgstr ""
-"时间戳，范围从‘0001-01-01 00:00:00’UTC 到‘9999-12-31 23:59:59’UTC；TIMESTAMP"
-"(6) 可以存储微秒"
+"时间戳，范围从‘0001-01-01 00:00:00’UTC 到‘9999-12-31 23:59:59’UTC；"
+"TIMESTAMP(6) 可以存储微秒"
 
 #: libraries/Types.class.php:736
 msgid ""
@@ -4326,8 +4327,8 @@ msgstr "编辑 CHAR 类型字段"
 
 #: libraries/config/messages.inc.php:32
 msgid ""
-"Use user-friendly editor for editing SQL queries ([a@http://codemirror.net/]"
-"CodeMirror[/a]) with syntax highlighting and line numbers"
+"Use user-friendly editor for editing SQL queries ([a@http://codemirror."
+"net/]CodeMirror[/a]) with syntax highlighting and line numbers"
 msgstr ""
 "使用带有语法高亮及行号显示的人性化编辑器来编辑 SQL 语句（[a@http://"
 "codemirror.net/]CodeMirror[/a]）"
@@ -4860,8 +4861,9 @@ msgstr "页面标题"
 
 #: libraries/config/messages.inc.php:194
 msgid ""
-"Specify browser's title bar text. Refer to [doc@cfg_TitleTable]documentation"
-"[/doc] for magic strings that can be used to get special values."
+"Specify browser's title bar text. Refer to "
+"[doc@cfg_TitleTable]documentation[/doc] for magic strings that can be used "
+"to get special values."
 msgstr ""
 "设置浏览器标题栏所显示的文字。参见[doc@cfg_TitleTable]文档[/doc]中关于可以取"
 "得特殊值的魔术字符串。"
@@ -4921,8 +4923,8 @@ msgid ""
 "features, see [doc@linked-tables]phpMyAdmin configuration storage[/doc] in "
 "documentation"
 msgstr ""
-"设置 phpMyAdmin 高级功能以获得更多功能，参见文档 [doc@linked-tables]"
-"phpMyAdmin 高级功能[/doc]"
+"设置 phpMyAdmin 高级功能以获得更多功能，参见文档 [doc@linked-"
+"tables]phpMyAdmin 高级功能[/doc]"
 
 #: libraries/config/messages.inc.php:207
 msgid "Changes tracking"
@@ -5629,8 +5631,8 @@ msgstr "书签表"
 
 #: libraries/config/messages.inc.php:383
 msgid ""
-"Leave blank for no column comments/mime types, suggested: [kbd]"
-"pma__column_info[/kbd]"
+"Leave blank for no column comments/mime types, suggested: "
+"[kbd]pma__column_info[/kbd]"
 msgstr "留空则不使用列信息和MIME类型。推荐: [kbd]pma__column_info[/kbd]"
 
 #: libraries/config/messages.inc.php:384
@@ -5839,8 +5841,8 @@ msgstr "最近使用的表"
 
 #: libraries/config/messages.inc.php:425
 msgid ""
-"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-links"
-"[/a] support, suggested: [kbd]pma__relation[/kbd]"
+"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
+"links[/a] support, suggested: [kbd]pma__relation[/kbd]"
 msgstr ""
 "不使用[a@http://wiki.phpmyadmin.net/pma/relation]关系链接 (外链，英文)[/a]功"
 "能请留空，推荐: [kbd]pma__relation[/kbd]"
@@ -5859,8 +5861,8 @@ msgstr "显示数据库(SHOW DATABASES)命令"
 
 #: libraries/config/messages.inc.php:429
 msgid ""
-"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication types"
-"[/a] for an example"
+"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
+"types[/a] for an example"
 msgstr ""
 "参见[a@http://wiki.phpmyadmin.net/pma/auth_types#signon]认证方式 (外链，英文)"
 "[/a]中的例子"
@@ -5963,8 +5965,8 @@ msgstr "要追踪的命令"
 
 #: libraries/config/messages.inc.php:450
 msgid ""
-"Leave blank for no SQL query tracking support, suggested: [kbd]pma__tracking"
-"[/kbd]"
+"Leave blank for no SQL query tracking support, suggested: "
+"[kbd]pma__tracking[/kbd]"
 msgstr "不使用 SQL 查询追踪功能请留空，推荐: [kbd]pma__tracking[/kbd]"
 
 #: libraries/config/messages.inc.php:451
@@ -5983,8 +5985,8 @@ msgstr "自动创建版本"
 
 #: libraries/config/messages.inc.php:454
 msgid ""
-"Leave blank for no user preferences storage in database, suggested: [kbd]"
-"pma__userconfig[/kbd]"
+"Leave blank for no user preferences storage in database, suggested: "
+"[kbd]pma__userconfig[/kbd]"
 msgstr "不在数据库中保存用户偏好请留空，推荐: [kbd]pma__userconfig[/kbd]"
 
 #: libraries/config/messages.inc.php:455
@@ -5994,11 +5996,11 @@ msgstr "用户偏好表"
 #: libraries/config/messages.inc.php:456
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no user preferences storage in database, suggested: [kbd]"
-#| "pma__userconfig[/kbd]"
+#| "Leave blank for no user preferences storage in database, suggested: "
+#| "[kbd]pma__userconfig[/kbd]"
 msgid ""
-"Leave blank to disable configurable menus feature, suggested: [kbd]pma__users"
-"[/kbd]"
+"Leave blank to disable configurable menus feature, suggested: "
+"[kbd]pma__users[/kbd]"
 msgstr "不在数据库中保存用户偏好请留空，推荐: [kbd]pma__userconfig[/kbd]"
 
 #: libraries/config/messages.inc.php:457
@@ -6010,11 +6012,11 @@ msgstr "使用表"
 #: libraries/config/messages.inc.php:458
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no user preferences storage in database, suggested: [kbd]"
-#| "pma__userconfig[/kbd]"
+#| "Leave blank for no user preferences storage in database, suggested: "
+#| "[kbd]pma__userconfig[/kbd]"
 msgid ""
-"Leave blank to disable configurable menus feature, suggested: [kbd]"
-"pma__usergroups[/kbd]"
+"Leave blank to disable configurable menus feature, suggested: "
+"[kbd]pma__usergroups[/kbd]"
 msgstr "不在数据库中保存用户偏好请留空，推荐: [kbd]pma__userconfig[/kbd]"
 
 #: libraries/config/messages.inc.php:459
@@ -6026,8 +6028,8 @@ msgstr "使用主机表"
 #: libraries/config/messages.inc.php:460
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no user preferences storage in database, suggested: [kbd]"
-#| "pma__userconfig[/kbd]"
+#| "Leave blank for no user preferences storage in database, suggested: "
+#| "[kbd]pma__userconfig[/kbd]"
 msgid ""
 "Leave blank to disable the feature to hide and show navigation items, "
 "suggested: [kbd]pma__navigationhiding[/kbd]"
@@ -6672,8 +6674,8 @@ msgstr "，@TABLE@ 将变成数据表名"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "这个值是使用 %1$sstrftime%2$s 来解析的，所以你能用时间格式的字符串。另外，下"
 "列内容也将被转换：%3$s。其他文本将保持原样。参见%4$s常见问题 (FAQ)%5$s。"
@@ -6791,8 +6793,8 @@ msgid ""
 "to the PHP timeout limit. <i>(This might be a good way to import large "
 "files, however it can break transactions.)</i>"
 msgstr ""
-"在导入时脚本若检测到可能需要花费很长时间（接近PHP超时的限定）则允许中断。<i>"
-"(尽管这会中断事务，但在导入大文件时是个很好的方法。)</i>"
+"在导入时脚本若检测到可能需要花费很长时间（接近PHP超时的限定）则允许中断。"
+"<i>(尽管这会中断事务，但在导入大文件时是个很好的方法。)</i>"
 
 #: libraries/display_import.lib.php:302
 msgid "Number of rows to skip, starting from the first row:"
@@ -7150,8 +7152,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:132
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the %"
-"sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the "
+"%sPrimeBase XT Home Page%s."
 msgstr "关于 PBXT 的文档和更多信息请参见 %sPrimeBase XT 主页%s。"
 
 #: libraries/engines/pbxt.lib.php:139
@@ -7651,20 +7653,8 @@ msgstr "无法包含类 \"%1$s\"， 文件\"%2$s\" 没有找到"
 msgid "Columns"
 msgstr "字段"
 
-#: libraries/navigation/Nodes/Node_Column_Container.class.php:40
+#: libraries/navigation/Nodes/Node_Column_Container.class.php:38
 msgctxt "Create new column"
-msgid "New"
-msgstr "新建"
-
-#: libraries/navigation/Nodes/Node_Column_Container.class.php:43
-#: libraries/navigation/Nodes/Node_Function_Container.class.php:42
-#: libraries/navigation/Nodes/Node_Index_Container.class.php:42
-#: libraries/navigation/Nodes/Node_Procedure_Container.class.php:42
-#: libraries/navigation/Nodes/Node_Table_Container.class.php:49
-#: libraries/navigation/Nodes/Node_View_Container.class.php:49
-#, fuzzy
-#| msgctxt "Create new column"
-#| msgid "New"
 msgid "New"
 msgstr "新建"
 
@@ -7694,7 +7684,7 @@ msgstr "新建"
 msgid "Functions"
 msgstr "函数"
 
-#: libraries/navigation/Nodes/Node_Function_Container.class.php:39
+#: libraries/navigation/Nodes/Node_Function_Container.class.php:38
 msgctxt "Create new function"
 msgid "New"
 msgstr "新建"
@@ -7707,7 +7697,7 @@ msgstr "新建"
 msgid "Index"
 msgstr "索引"
 
-#: libraries/navigation/Nodes/Node_Index_Container.class.php:39
+#: libraries/navigation/Nodes/Node_Index_Container.class.php:38
 msgctxt "Create new index"
 msgid "New"
 msgstr "新建"
@@ -7725,13 +7715,13 @@ msgstr "存储过程"
 msgid "Procedures"
 msgstr "存储过程"
 
-#: libraries/navigation/Nodes/Node_Procedure_Container.class.php:39
+#: libraries/navigation/Nodes/Node_Procedure_Container.class.php:38
 #: libraries/rte/rte_footer.lib.php:29
 msgctxt "Create new procedure"
 msgid "New"
 msgstr "新建"
 
-#: libraries/navigation/Nodes/Node_Table_Container.class.php:46
+#: libraries/navigation/Nodes/Node_Table_Container.class.php:45
 msgctxt "Create new table"
 msgid "New"
 msgstr "新建"
@@ -7747,7 +7737,7 @@ msgstr "新建"
 msgid "Views"
 msgstr "视图"
 
-#: libraries/navigation/Nodes/Node_View_Container.class.php:46
+#: libraries/navigation/Nodes/Node_View_Container.class.php:45
 msgctxt "Create new view"
 msgid "New"
 msgstr "新建"
@@ -7945,8 +7935,8 @@ msgstr "欢迎使用 %s"
 #: libraries/plugins/auth/AuthenticationConfig.class.php:102
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 msgstr ""
 "你可能还没有创建配置文件。你可以使用 %1$s设置脚本%2$s 来创建一个配置文件。"
 
@@ -10208,12 +10198,12 @@ msgstr "用户概况"
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 msgstr ""
 "注意：phpMyAdmin 直接由 MySQL 权限表取得用户权限。如果用户手动更改表，表内容"
-"将可能与服务器使用的用户权限有异。在这种情况下，您应在继续前%s重新载入权限%"
-"s。"
+"将可能与服务器使用的用户权限有异。在这种情况下，您应在继续前%s重新载入权"
+"限%s。"
 
 #: libraries/server_privileges.lib.php:3831
 msgid "The selected user was not found in the privilege table."
@@ -12722,8 +12712,8 @@ msgid ""
 "You set the [kbd]config[/kbd] authentication type and included username and "
 "password for auto-login, which is not a desirable option for live hosts. "
 "Anyone who knows or guesses your phpMyAdmin URL can directly access your "
-"phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or [kbd]"
-"http[/kbd]."
+"phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or "
+"[kbd]http[/kbd]."
 msgstr ""
 "您设置了 [kbd]config[/kbd] 认证方式，且为了能够自动登录而保存了用户名和密码，"
 "但在常用主机上不建议这样设置。如果有人知道 phpMyAdmin 的地址，他们就能够进入 "
@@ -13190,8 +13180,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:179
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s%"
-"%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s"
+"%%. It should be above 80%%"
 msgstr "当前空闲查询缓存内存为总查询缓存大小的 %s%%。此值应高于 80%%"
 
 #: libraries/advisory_rules.txt:181
@@ -13322,8 +13312,8 @@ msgstr "根据系统内存，考虑增加 {sort_buffer_siz}e 和/或 {read_rnd_b
 #: libraries/advisory_rules.txt:216
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
-"%."
+"%s%% of all sorts cause temporary tables, this value should be lower than "
+"10%%."
 msgstr "%s%% 的排序引发临时表创建，该值应低于 10%%。"
 
 #: libraries/advisory_rules.txt:218
@@ -13994,6 +13984,12 @@ msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert 被设为 0"
 
 #, fuzzy
+#~| msgctxt "Create new column"
+#~| msgid "New"
+#~ msgid "New"
+#~ msgstr "新建"
+
+#, fuzzy
 #~| msgid "Version check"
 #~ msgid "Version check proxy url"
 #~ msgstr "检查更新"
@@ -14306,13 +14302,13 @@ msgstr "concurrent_insert 被设为 0"
 
 #~ msgid ""
 #~ "When setting this to [kbd]nested[/kbd], the alias of the table name is "
-#~ "only used to split/nest the tables according to the $cfg"
-#~ "['LeftFrameTableSeparator'] directive, so only the folder is called like "
-#~ "the alias, the table name itself stays unchanged"
+#~ "only used to split/nest the tables according to the "
+#~ "$cfg['LeftFrameTableSeparator'] directive, so only the folder is called "
+#~ "like the alias, the table name itself stays unchanged"
 #~ msgstr ""
-#~ "当设为 [kbd]nested[/kbd] 时，数据表的别名仅根据 $cfg"
-#~ "['LeftFrameTableSeparator'] 作分割/层叠用，所有只有目录的名字像别名，数据"
-#~ "表自己的名字并不改变"
+#~ "当设为 [kbd]nested[/kbd] 时，数据表的别名仅根据 "
+#~ "$cfg['LeftFrameTableSeparator'] 作分割/层叠用，所有只有目录的名字像别名，"
+#~ "数据表自己的名字并不改变"
 
 #~ msgid "Display table comment instead of its name"
 #~ msgstr "显示表备注而不显示表名"
@@ -14884,8 +14880,8 @@ msgstr "concurrent_insert 被设为 0"
 #~ "Note that not every result table can be put to the chart. See <a href=\"./"
 #~ "Documentation.html#faq6-29\" target=\"Documentation\">FAQ 6.29</a>"
 #~ msgstr ""
-#~ "请注意不是所有的结果表都能绘图。参见<a href=\"./Documentation.html#faq6-29"
-#~ "\" target=\"Documentation\">常见问题 (FAQ) 6.29</a>"
+#~ "请注意不是所有的结果表都能绘图。参见<a href=\"./Documentation."
+#~ "html#faq6-29\" target=\"Documentation\">常见问题 (FAQ) 6.29</a>"
 
 #~ msgid "Add a New User"
 #~ msgstr "添加新用户"

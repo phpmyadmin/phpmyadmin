@@ -3,15 +3,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-10-30 08:10-0400\n"
+"POT-Creation-Date: 2013-10-30 13:55+0100\n"
 "PO-Revision-Date: 2013-10-22 21:43+0200\n"
 "Last-Translator: Aputsiaq Niels Janussen <aj@isit.gl>\n"
 "Language-Team: Danish <http://l10n.cihar.com/projects/phpmyadmin/master/da/"
 ">\n"
+"Language: da\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: da\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 1.8-dev\n"
 
@@ -592,8 +592,8 @@ msgstr ""
 #: import.php:116
 #, php-format
 msgid ""
-"You probably tried to upload a file that is too large. Please refer to %"
-"sdocumentation%s for a workaround for this limit."
+"You probably tried to upload a file that is too large. Please refer to "
+"%sdocumentation%s for a workaround for this limit."
 msgstr ""
 "Du har sandsynligvis forsøgt at overføre en fil som er for stor. Se venligst "
 "%sdokumentationen%s for måder at omgå denne begrænsning."
@@ -865,8 +865,8 @@ msgid ""
 "extended features have been deactivated. To find out why click %shere%s."
 msgstr ""
 "phpMyAdmin configuration storage er ikke fuldstændigt konfigureret; nogle "
-"udvidede funktioner er blevet deaktiverede. For at finde ud af hvorfor klik %"
-"sher%s."
+"udvidede funktioner er blevet deaktiverede. For at finde ud af hvorfor klik "
+"%sher%s."
 
 #: index.php:540
 #, php-format
@@ -2700,8 +2700,8 @@ msgstr "i forespørgsel"
 #: libraries/DisplayResults.class.php:4907 libraries/structure.lib.php:653
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 msgstr ""
 "Viewet har som minimum dette antal rækker. Se venligst %sdokumentationen%s."
 
@@ -3515,20 +3515,20 @@ msgstr ""
 
 #: libraries/Types.class.php:309
 msgid ""
-"A small floating-point number, allowable values are -3.402823466E+38 to -"
-"1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
+"A small floating-point number, allowable values are -3.402823466E+38 to "
+"-1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
 msgstr ""
-"Et lille, flydende decimaltal. Tilladte værdier er -3.402823466E+38 til -"
-"1.175494351E-38, 0, samt 1.175494351E-38 til 3.402823466E+38"
+"Et lille, flydende decimaltal. Tilladte værdier er -3.402823466E+38 til "
+"-1.175494351E-38, 0, samt 1.175494351E-38 til 3.402823466E+38"
 
 #: libraries/Types.class.php:311
 msgid ""
-"A double-precision floating-point number, allowable values are -"
-"1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
+"A double-precision floating-point number, allowable values are "
+"-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
 "2.2250738585072014E-308 to 1.7976931348623157E+308"
 msgstr ""
-"Et dobbeltpræcisions, flydende decimaltal. Tilladte værdier er -"
-"1.7976931348623157E+308 til -2.2250738585072014E-308, 0, samt "
+"Et dobbeltpræcisions, flydende decimaltal. Tilladte værdier er "
+"-1.7976931348623157E+308 til -2.2250738585072014E-308, 0, samt "
 "2.2250738585072014E-308 til 1.7976931348623157E+308"
 
 #: libraries/Types.class.php:313
@@ -4371,9 +4371,9 @@ msgid ""
 "cross-frame scripting attacks"
 msgstr ""
 "Aktivering indebærer, at en side, som ligger på et andet domæne, har adgang "
-"til at kalde phpMyAdmin fra en ramme. Det er en potentiel [strong]"
-"sikkerhedsrisiko[/strong], fordi det åbner op for cross-frame scripting "
-"angreb"
+"til at kalde phpMyAdmin fra en ramme. Det er en potentiel "
+"[strong]sikkerhedsrisiko[/strong], fordi det åbner op for cross-frame "
+"scripting angreb"
 
 #: libraries/config/messages.inc.php:20
 msgid "Allow third party framing"
@@ -4439,8 +4439,8 @@ msgstr "Redigering af CHAR-kolonner"
 
 #: libraries/config/messages.inc.php:32
 msgid ""
-"Use user-friendly editor for editing SQL queries ([a@http://codemirror.net/]"
-"CodeMirror[/a]) with syntax highlighting and line numbers"
+"Use user-friendly editor for editing SQL queries ([a@http://codemirror."
+"net/]CodeMirror[/a]) with syntax highlighting and line numbers"
 msgstr ""
 "Brug en brugervenlig redigering til redigering af SQL-forespørgsler, "
 "([a@http://codemirror.net/]CodeMirror[/a]) med fremhævelse af syntaks og "
@@ -4844,8 +4844,8 @@ msgid ""
 "Sort order for items in a foreign-key dropdown box; [kbd]content[/kbd] is "
 "the referenced data, [kbd]id[/kbd] is the key value"
 msgstr ""
-"Sorteringsrækkefølge for elementer i valgboks med fremmede nøgler; [kbd]"
-"content[/kbd] er de refererede data, [kbd]id[/kbd] er nøglens værdi"
+"Sorteringsrækkefølge for elementer i valgboks med fremmede nøgler; "
+"[kbd]content[/kbd] er de refererede data, [kbd]id[/kbd] er nøglens værdi"
 
 #: libraries/config/messages.inc.php:152
 msgid "Foreign key dropdown order"
@@ -4987,8 +4987,9 @@ msgstr "Sidetitler"
 
 #: libraries/config/messages.inc.php:194
 msgid ""
-"Specify browser's title bar text. Refer to [doc@cfg_TitleTable]documentation"
-"[/doc] for magic strings that can be used to get special values."
+"Specify browser's title bar text. Refer to "
+"[doc@cfg_TitleTable]documentation[/doc] for magic strings that can be used "
+"to get special values."
 msgstr ""
 "Angiv browserens tekst i titelbaren. Se [doc@cfg_TitleTable]dokumentationen[/"
 "doc] for tekststrenge der indeholder særlige værdier."
@@ -5112,10 +5113,10 @@ msgid ""
 "strong].[br][em][a@http://sqlvalidator.mimer.com/]Mimer SQL Validator[/a], "
 "Copyright 2002 Upright Database Technology. All rights reserved.[/em]"
 msgstr ""
-"Hvis du ønsker at bruge servicen SQL Validator, skal du huske på, at [strong]"
-"alle SQL forespørgsler lagres anonymt til statistiske formål[/strong].[br]"
-"[em][a@http://sqlvalidator.mimer.com/]Mimer SQL Validator[/a], Copyright "
-"2002 Upright Database Technology. All rights reserved.[/em]"
+"Hvis du ønsker at bruge servicen SQL Validator, skal du huske på, at "
+"[strong]alle SQL forespørgsler lagres anonymt til statistiske formål[/"
+"strong].[br][em][a@http://sqlvalidator.mimer.com/]Mimer SQL Validator[/a], "
+"Copyright 2002 Upright Database Technology. All rights reserved.[/em]"
 
 #: libraries/config/messages.inc.php:223
 msgid "Startup"
@@ -5449,8 +5450,8 @@ msgid ""
 "Open the linked page in the main window ([kbd]main[/kbd]) or in a new one "
 "([kbd]new[/kbd])"
 msgstr ""
-"Åbn den linkede side i hovedvinduet ([kbd]main[/kbd]) eller i et nyt ([kbd]"
-"new[/kbd])"
+"Åbn den linkede side i hovedvinduet ([kbd]main[/kbd]) eller i et nyt "
+"([kbd]new[/kbd])"
 
 #: libraries/config/messages.inc.php:305
 msgid "Logo link target"
@@ -5794,11 +5795,11 @@ msgstr "Bogmærketabel"
 
 #: libraries/config/messages.inc.php:383
 msgid ""
-"Leave blank for no column comments/mime types, suggested: [kbd]"
-"pma__column_info[/kbd]"
+"Leave blank for no column comments/mime types, suggested: "
+"[kbd]pma__column_info[/kbd]"
 msgstr ""
-"Efterlades tom for ingen kolonnekommentar-/mime-typer, forslag: [kbd]"
-"pma_column_info[/kbd]"
+"Efterlades tom for ingen kolonnekommentar-/mime-typer, forslag: "
+"[kbd]pma_column_info[/kbd]"
 
 #: libraries/config/messages.inc.php:384
 msgid "Column information table"
@@ -5868,8 +5869,8 @@ msgid ""
 "Leave blank for no Designer support, suggested: [kbd]pma__designer_coords[/"
 "kbd]"
 msgstr ""
-"Efterlades tom for at undlade Designer-understøttelse, forslag: [kbd]"
-"pma_designer_coords[/kbd]"
+"Efterlades tom for at undlade Designer-understøttelse, forslag: "
+"[kbd]pma_designer_coords[/kbd]"
 
 #: libraries/config/messages.inc.php:397
 msgid "Designer table"
@@ -5973,8 +5974,8 @@ msgstr "Adgangskode for config auth"
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__pdf_pages[/kbd]"
 msgstr ""
-"Efterlades tom for at undlade understøttelse af PDF-skematik, forslag: [kbd]"
-"pma_pdf_pages[/kbd]"
+"Efterlades tom for at undlade understøttelse af PDF-skematik, forslag: "
+"[kbd]pma_pdf_pages[/kbd]"
 
 #: libraries/config/messages.inc.php:418
 msgid "PDF schema: pages table"
@@ -6017,8 +6018,8 @@ msgstr "Senest benyttede tabel"
 
 #: libraries/config/messages.inc.php:425
 msgid ""
-"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-links"
-"[/a] support, suggested: [kbd]pma__relation[/kbd]"
+"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
+"links[/a] support, suggested: [kbd]pma__relation[/kbd]"
 msgstr ""
 "Efterlades tom for at undlade understøttelse af [a@http://wiki.phpmyadmin."
 "net/pma/relation]relation-links[/a], forslag: [kbd]pma_relation[/kbd]"
@@ -6037,8 +6038,8 @@ msgstr "SHOW DATABASES kommando"
 
 #: libraries/config/messages.inc.php:429
 msgid ""
-"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication types"
-"[/a] for an example"
+"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
+"types[/a] for an example"
 msgstr ""
 "Se [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication types[/"
 "a] for et eksempel"
@@ -6072,8 +6073,8 @@ msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__table_coords[/"
 "kbd]"
 msgstr ""
-"Efterlades tom for at undlade understøttelse af PDF-skematik, forslag: [kbd]"
-"pma_table_coords[/kbd]"
+"Efterlades tom for at undlade understøttelse af PDF-skematik, forslag: "
+"[kbd]pma_table_coords[/kbd]"
 
 #: libraries/config/messages.inc.php:437
 msgid "PDF schema: table coordinates"
@@ -6150,8 +6151,8 @@ msgstr "Forespørgsler, der skal spores"
 
 #: libraries/config/messages.inc.php:450
 msgid ""
-"Leave blank for no SQL query tracking support, suggested: [kbd]pma__tracking"
-"[/kbd]"
+"Leave blank for no SQL query tracking support, suggested: "
+"[kbd]pma__tracking[/kbd]"
 msgstr ""
 "Efterlades tom for at undlade understøttelse af sporing på SQL-forspørgsler, "
 "forslag: [kbd]pma_tracking[/kbd]"
@@ -6173,8 +6174,8 @@ msgstr "Opret versioner automatisk"
 
 #: libraries/config/messages.inc.php:454
 msgid ""
-"Leave blank for no user preferences storage in database, suggested: [kbd]"
-"pma__userconfig[/kbd]"
+"Leave blank for no user preferences storage in database, suggested: "
+"[kbd]pma__userconfig[/kbd]"
 msgstr ""
 "Efterlades tom for at undlade lagring af bruger-præferencer i database, "
 "forslag: [kbd]pma_userconfig[/kbd]"
@@ -6185,8 +6186,8 @@ msgstr "Bruger preference storage tabel"
 
 #: libraries/config/messages.inc.php:456
 msgid ""
-"Leave blank to disable configurable menus feature, suggested: [kbd]pma__users"
-"[/kbd]"
+"Leave blank to disable configurable menus feature, suggested: "
+"[kbd]pma__users[/kbd]"
 msgstr ""
 "Efterlades tom for at deaktivere muligheden for konfigurérbare menuer, "
 "forslag: [kbd]pma_users[/kbd]"
@@ -6197,8 +6198,8 @@ msgstr "Brugertabel"
 
 #: libraries/config/messages.inc.php:458
 msgid ""
-"Leave blank to disable configurable menus feature, suggested: [kbd]"
-"pma__usergroups[/kbd]"
+"Leave blank to disable configurable menus feature, suggested: "
+"[kbd]pma__usergroups[/kbd]"
 msgstr ""
 "Efterlades tom for at deaktivere muligheden for konfigurérbare menuer, "
 "forslag: [kbd]pma__usergroups[/kbd]"
@@ -6874,8 +6875,8 @@ msgstr ", @TABLE@ vil blive tabelnavnet"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Denne værdi fortolkes via %1$sstrftime%2$s, så du kan bruge tidsformatterede "
 "strenge. Ydermere vil følgende transformationer foregå: %3$s. Anden tekst "
@@ -7380,8 +7381,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:132
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the %"
-"sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the "
+"%sPrimeBase XT Home Page%s."
 msgstr ""
 "Dokumentation og yderligere information om PBXT kan findes på %sPrimeBase XT "
 "hjemmeside%s."
@@ -7863,20 +7864,8 @@ msgstr ""
 msgid "Columns"
 msgstr "Kolonner"
 
-#: libraries/navigation/Nodes/Node_Column_Container.class.php:40
+#: libraries/navigation/Nodes/Node_Column_Container.class.php:38
 msgctxt "Create new column"
-msgid "New"
-msgstr "Ny"
-
-#: libraries/navigation/Nodes/Node_Column_Container.class.php:43
-#: libraries/navigation/Nodes/Node_Function_Container.class.php:42
-#: libraries/navigation/Nodes/Node_Index_Container.class.php:42
-#: libraries/navigation/Nodes/Node_Procedure_Container.class.php:42
-#: libraries/navigation/Nodes/Node_Table_Container.class.php:49
-#: libraries/navigation/Nodes/Node_View_Container.class.php:49
-#, fuzzy
-#| msgctxt "Create new column"
-#| msgid "New"
 msgid "New"
 msgstr "Ny"
 
@@ -7903,7 +7892,7 @@ msgstr "Ny"
 msgid "Functions"
 msgstr "Funktioner"
 
-#: libraries/navigation/Nodes/Node_Function_Container.class.php:39
+#: libraries/navigation/Nodes/Node_Function_Container.class.php:38
 msgctxt "Create new function"
 msgid "New"
 msgstr "Ny"
@@ -7916,7 +7905,7 @@ msgstr "Ny"
 msgid "Index"
 msgstr "Indeks"
 
-#: libraries/navigation/Nodes/Node_Index_Container.class.php:39
+#: libraries/navigation/Nodes/Node_Index_Container.class.php:38
 msgctxt "Create new index"
 msgid "New"
 msgstr "Nyt"
@@ -7934,13 +7923,13 @@ msgstr "Procedurer"
 msgid "Procedures"
 msgstr "Procedurer"
 
-#: libraries/navigation/Nodes/Node_Procedure_Container.class.php:39
+#: libraries/navigation/Nodes/Node_Procedure_Container.class.php:38
 #: libraries/rte/rte_footer.lib.php:29
 msgctxt "Create new procedure"
 msgid "New"
 msgstr "Ny"
 
-#: libraries/navigation/Nodes/Node_Table_Container.class.php:46
+#: libraries/navigation/Nodes/Node_Table_Container.class.php:45
 msgctxt "Create new table"
 msgid "New"
 msgstr "Ny"
@@ -7956,7 +7945,7 @@ msgstr "Ny"
 msgid "Views"
 msgstr "Views"
 
-#: libraries/navigation/Nodes/Node_View_Container.class.php:46
+#: libraries/navigation/Nodes/Node_View_Container.class.php:45
 msgctxt "Create new view"
 msgid "New"
 msgstr "Ny"
@@ -8150,8 +8139,8 @@ msgstr "Velkommen til %s"
 #: libraries/plugins/auth/AuthenticationConfig.class.php:102
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 msgstr ""
 "Sandsynlig årsag til dette er at du ikke har oprettet en konfigurationsfil. "
 "Du kan bruge %1$sopsætningsscriptet%2$s til at oprette en."
@@ -10427,14 +10416,14 @@ msgstr "Oversigt over brugere"
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 msgstr ""
 "Bemærk: phpMyAdmin henter brugernes privilegier direkte fra MySQLs "
 "privilegietabeller. Indholdet af disse tabeller kan være forskelligt fra "
 "privilegierne serveren i øjeblikket bruger hvis der er lavet manuelle "
-"ændringer i den. Hvis dette er tilfældet, bør du %sgenindlæse privilegierne%"
-"s før du fortsætter."
+"ændringer i den. Hvis dette er tilfældet, bør du %sgenindlæse privilegierne"
+"%s før du fortsætter."
 
 #: libraries/server_privileges.lib.php:3831
 msgid "The selected user was not found in the privilege table."
@@ -12980,10 +12969,10 @@ msgid ""
 "protection may not be reliable if your IP belongs to an ISP where thousands "
 "of users, including you, are connected to."
 msgstr ""
-"Hvis du føler, at dette er nødvendigt, brug yderligere sikring -  %"
-"sværtsautentifikation%s indstillinger og %sbetroet proxy liste%s. IP-baseret "
-"beskyttelse er næppe pålidelig, hvis din IP-adresse hører til en udbyder med "
-"mange tusinde brugere."
+"Hvis du føler, at dette er nødvendigt, brug yderligere sikring -  "
+"%sværtsautentifikation%s indstillinger og %sbetroet proxy liste%s. IP-"
+"baseret beskyttelse er næppe pålidelig, hvis din IP-adresse hører til en "
+"udbyder med mange tusinde brugere."
 
 #: setup/lib/index.lib.php:278
 #, php-format
@@ -12991,14 +12980,14 @@ msgid ""
 "You set the [kbd]config[/kbd] authentication type and included username and "
 "password for auto-login, which is not a desirable option for live hosts. "
 "Anyone who knows or guesses your phpMyAdmin URL can directly access your "
-"phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or [kbd]"
-"http[/kbd]."
+"phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or "
+"[kbd]http[/kbd]."
 msgstr ""
 "Du har sat  [kbd]config[/kbd] autentifikation og inkluderet brugernavn og "
 "adgangskode for auto-login, hvilket er ikke en ønskværdig konfiguration for "
 "produktionssystemer. Enhver som kender eller gætter din phpMyAdmin URL kan "
-"direkte få adgang til dit phpMyAdmin panel for denne server. Sæt %"
-"sautentifikationstype%s til [kbd]cookie[/kbd] eller [kbd]http[/kbd]."
+"direkte få adgang til dit phpMyAdmin panel for denne server. Sæt "
+"%sautentifikationstype%s til [kbd]cookie[/kbd] eller [kbd]http[/kbd]."
 
 #: setup/lib/index.lib.php:284
 #, php-format
@@ -13499,8 +13488,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:179
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s%"
-"%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s"
+"%%. It should be above 80%%"
 msgstr ""
 "Det aktuelle forhold mellem ledig og total forespørgselsmellemlager er %s%%. "
 "Det bør være over 80%%"
@@ -13654,8 +13643,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:216
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
-"%."
+"%s%% of all sorts cause temporary tables, this value should be lower than "
+"10%%."
 msgstr ""
 "%s%% af alle sorteringer bruger midlertidige tabeller. Denne værdi bør være "
 "mindre end 10%%."
@@ -14405,6 +14394,12 @@ msgstr ""
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert er sat til 0"
 
+#, fuzzy
+#~| msgctxt "Create new column"
+#~| msgid "New"
+#~ msgid "New"
+#~ msgstr "Ny"
+
 #~ msgid "Version check proxy url"
 #~ msgstr "Proxy-url til versionscheck"
 
@@ -14726,13 +14721,13 @@ msgstr "concurrent_insert er sat til 0"
 
 #~ msgid ""
 #~ "When setting this to [kbd]nested[/kbd], the alias of the table name is "
-#~ "only used to split/nest the tables according to the $cfg"
-#~ "['LeftFrameTableSeparator'] directive, so only the folder is called like "
-#~ "the alias, the table name itself stays unchanged"
+#~ "only used to split/nest the tables according to the "
+#~ "$cfg['LeftFrameTableSeparator'] directive, so only the folder is called "
+#~ "like the alias, the table name itself stays unchanged"
 #~ msgstr ""
 #~ "Når denne sættes til [kbd]nested[/kbd] bruges alias for tabelnavnet kun "
-#~ "til at splitte/samle tabellerne i henhold til direktivet $cfg"
-#~ "['LeftFrameTableSeparator'], så kun mappen benævnes som aliaset; "
+#~ "til at splitte/samle tabellerne i henhold til direktivet "
+#~ "$cfg['LeftFrameTableSeparator'], så kun mappen benævnes som aliaset; "
 #~ "tabelnavnet selv forbliver uændret"
 
 #~ msgid "Display table comment instead of its name"

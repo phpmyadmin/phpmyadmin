@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-10-30 08:10-0400\n"
+"POT-Creation-Date: 2013-10-30 13:55+0100\n"
 "PO-Revision-Date: 2013-10-30 13:46+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Czech <http://l10n.cihar.com/projects/phpmyadmin/master/cs/>\n"
@@ -594,8 +594,8 @@ msgstr "Z funkcí zvolte „GeomFromText“ a vložte níže uvedený text jako 
 #: import.php:116
 #, php-format
 msgid ""
-"You probably tried to upload a file that is too large. Please refer to %"
-"sdocumentation%s for a workaround for this limit."
+"You probably tried to upload a file that is too large. Please refer to "
+"%sdocumentation%s for a workaround for this limit."
 msgstr ""
 "Pravděpodobně jste se pokusili nahrát příliš velký soubor. Přečtěte si "
 "prosím %sdokumentaci%s, jak toto omezení obejít."
@@ -2692,8 +2692,8 @@ msgstr "v dotazu"
 #: libraries/DisplayResults.class.php:4907 libraries/structure.lib.php:653
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 msgstr ""
 "Tento pohled má alespoň tolik řádek. Podrobnosti naleznete v %sdokumentaci%s."
 
@@ -3506,20 +3506,20 @@ msgstr ""
 
 #: libraries/Types.class.php:309
 msgid ""
-"A small floating-point number, allowable values are -3.402823466E+38 to -"
-"1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
+"A small floating-point number, allowable values are -3.402823466E+38 to "
+"-1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
 msgstr ""
 "Číslo s pohyblivou desetinnou čárkou, podporované rozsahy od -3.402823466E"
 "+38 od -1.175494351E-38, 0, a od 1.175494351E-38 do 3.402823466E+38"
 
 #: libraries/Types.class.php:311
 msgid ""
-"A double-precision floating-point number, allowable values are -"
-"1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
+"A double-precision floating-point number, allowable values are "
+"-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
 "2.2250738585072014E-308 to 1.7976931348623157E+308"
 msgstr ""
-"Číslo s pohyblivou desetinnou čárkou, podporované rozsahy od -"
-"1.7976931348623157E+308 do -2.2250738585072014E-308, 0, a od "
+"Číslo s pohyblivou desetinnou čárkou, podporované rozsahy od "
+"-1.7976931348623157E+308 do -2.2250738585072014E-308, 0, a od "
 "2.2250738585072014E-308 do 1.7976931348623157E+308"
 
 #: libraries/Types.class.php:313
@@ -4025,8 +4025,8 @@ msgid ""
 "The [code]$cfg['PmaAbsoluteUri'][/code] directive MUST be set in your "
 "configuration file!"
 msgstr ""
-"V konfiguračním souboru musí být nastaven parametr [code]$cfg"
-"['PmaAbsoluteUri'][/code]!"
+"V konfiguračním souboru musí být nastaven parametr "
+"[code]$cfg['PmaAbsoluteUri'][/code]!"
 
 #: libraries/common.inc.php:630
 #, php-format
@@ -4361,8 +4361,8 @@ msgid ""
 "Secret passphrase used for encrypting cookies in [kbd]cookie[/kbd] "
 "authentication"
 msgstr ""
-"Tajné heslo používané pro šifrování cookies při přihlašování pomocí [kbd]"
-"cookie[/kbd]"
+"Tajné heslo používané pro šifrování cookies při přihlašování pomocí "
+"[kbd]cookie[/kbd]"
 
 #: libraries/config/messages.inc.php:23
 msgid "Blowfish secret"
@@ -4403,8 +4403,8 @@ msgid ""
 "kbd] - allows newlines in columns"
 msgstr ""
 "Definuje, který typ ovládacích prvků má být použit při úpravách polí typu "
-"CHAR a VARCHAR; [kbd]input[/kbd] - umožňuje omezit délku vstupu, [kbd]"
-"textarea[/kbd] - umožní použít odřádkování"
+"CHAR a VARCHAR; [kbd]input[/kbd] - umožňuje omezit délku vstupu, "
+"[kbd]textarea[/kbd] - umožní použít odřádkování"
 
 #: libraries/config/messages.inc.php:31
 msgid "CHAR columns editing"
@@ -4412,8 +4412,8 @@ msgstr "Úprava polí typu CHAR"
 
 #: libraries/config/messages.inc.php:32
 msgid ""
-"Use user-friendly editor for editing SQL queries ([a@http://codemirror.net/]"
-"CodeMirror[/a]) with syntax highlighting and line numbers"
+"Use user-friendly editor for editing SQL queries ([a@http://codemirror."
+"net/]CodeMirror[/a]) with syntax highlighting and line numbers"
 msgstr ""
 "Použít uživatelsky přívětivý editor pro úpravu SQL dotazů ([a@http://"
 "codemirror.net/]CodeMirror[/a]) se zvýrazněním syntaxe a čísly řádek"
@@ -4953,8 +4953,9 @@ msgstr "Jména stránek"
 
 #: libraries/config/messages.inc.php:194
 msgid ""
-"Specify browser's title bar text. Refer to [doc@cfg_TitleTable]documentation"
-"[/doc] for magic strings that can be used to get special values."
+"Specify browser's title bar text. Refer to "
+"[doc@cfg_TitleTable]documentation[/doc] for magic strings that can be used "
+"to get special values."
 msgstr ""
 "Zadejte titulek který zobrazí prohlížeč. V [doc@cfg_TitleTable]dokumentaci[/"
 "doc] naleznete jaké proměnné můžete použít."
@@ -5756,8 +5757,8 @@ msgstr "Tabulka záložek"
 
 #: libraries/config/messages.inc.php:383
 msgid ""
-"Leave blank for no column comments/mime types, suggested: [kbd]"
-"pma__column_info[/kbd]"
+"Leave blank for no column comments/mime types, suggested: "
+"[kbd]pma__column_info[/kbd]"
 msgstr ""
 "Nechte prázdné pro žádné komentáře či mime typy polí, výchozí nastavení: "
 "[kbd]pma__column_info[/kbd]"
@@ -5828,8 +5829,8 @@ msgid ""
 "Leave blank for no Designer support, suggested: [kbd]pma__designer_coords[/"
 "kbd]"
 msgstr ""
-"Nechte prázdné pro vypnutí návrháře, výchozí nastavení: [kbd]"
-"pma__designer_coords[/kbd]"
+"Nechte prázdné pro vypnutí návrháře, výchozí nastavení: "
+"[kbd]pma__designer_coords[/kbd]"
 
 #: libraries/config/messages.inc.php:397
 msgid "Designer table"
@@ -5932,8 +5933,8 @@ msgstr "Heslo pro přihlašování config"
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__pdf_pages[/kbd]"
 msgstr ""
-"Nechte prázdné pro vypnutí podpory pro PDF schémata, výchozí nastavení: [kbd]"
-"pma__table_pages[/kbd]"
+"Nechte prázdné pro vypnutí podpory pro PDF schémata, výchozí nastavení: "
+"[kbd]pma__table_pages[/kbd]"
 
 #: libraries/config/messages.inc.php:418
 msgid "PDF schema: pages table"
@@ -5947,8 +5948,8 @@ msgid ""
 msgstr ""
 "Databáze používaná pro relace, záložky a PDF stránky. Více informací "
 "naleznete na [a@http://wiki.phpmyadmin.net/pma/pmadb]pmadb[/a]. Pokud "
-"ponecháte prázdné, budou tyto funkce vypnuté. Doporučená hodnota: [kbd]"
-"phpmyadmin[/kbd]"
+"ponecháte prázdné, budou tyto funkce vypnuté. Doporučená hodnota: "
+"[kbd]phpmyadmin[/kbd]"
 
 #: libraries/config/messages.inc.php:420
 #: libraries/display_create_database.lib.php:31
@@ -5978,8 +5979,8 @@ msgstr "Naposledy použité tabulky"
 
 #: libraries/config/messages.inc.php:425
 msgid ""
-"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-links"
-"[/a] support, suggested: [kbd]pma__relation[/kbd]"
+"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
+"links[/a] support, suggested: [kbd]pma__relation[/kbd]"
 msgstr ""
 "Nechte prázdné pro vypnutí podpory pro [a@http://wiki.phpmyadmin.net/pma/"
 "relation]relace[/a], výchozí nastavení: [kbd]pma__relation[/kbd]"
@@ -5998,11 +5999,11 @@ msgstr "Příkaz SHOW DATABASES"
 
 #: libraries/config/messages.inc.php:429
 msgid ""
-"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication types"
-"[/a] for an example"
+"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
+"types[/a] for an example"
 msgstr ""
-"Příklad můžete nalézt na [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]"
-"authentication types[/a]"
+"Příklad můžete nalézt na [a@http://wiki.phpmyadmin.net/pma/"
+"auth_types#signon]authentication types[/a]"
 
 #: libraries/config/messages.inc.php:430
 msgid "Signon session name"
@@ -6034,8 +6035,8 @@ msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__table_coords[/"
 "kbd]"
 msgstr ""
-"Nechte prázdné pro vypnutí podpory pro PDF schémata, výchozí nastavení: [kbd]"
-"pma__table_coords[/kbd]"
+"Nechte prázdné pro vypnutí podpory pro PDF schémata, výchozí nastavení: "
+"[kbd]pma__table_coords[/kbd]"
 
 #: libraries/config/messages.inc.php:437
 msgid "PDF schema: table coordinates"
@@ -6111,8 +6112,8 @@ msgstr "Sledované příkazy"
 
 #: libraries/config/messages.inc.php:450
 msgid ""
-"Leave blank for no SQL query tracking support, suggested: [kbd]pma__tracking"
-"[/kbd]"
+"Leave blank for no SQL query tracking support, suggested: "
+"[kbd]pma__tracking[/kbd]"
 msgstr ""
 "Nechte prázdné pro vypnutí podpory pro sledování SQL dotazů, výchozí "
 "nastavení: [kbd]pma__tracking[/kbd]"
@@ -6134,8 +6135,8 @@ msgstr "Automaticky vytvářet verze"
 
 #: libraries/config/messages.inc.php:454
 msgid ""
-"Leave blank for no user preferences storage in database, suggested: [kbd]"
-"pma__userconfig[/kbd]"
+"Leave blank for no user preferences storage in database, suggested: "
+"[kbd]pma__userconfig[/kbd]"
 msgstr ""
 "Nechte prázdné pro vypnutí podpory pro uživatelské nastavení v databázi, "
 "výchozí nastavení: [kbd]pma__userconfig[/kbd]"
@@ -6146,8 +6147,8 @@ msgstr "Tabulka pro uživatelská nastavení"
 
 #: libraries/config/messages.inc.php:456
 msgid ""
-"Leave blank to disable configurable menus feature, suggested: [kbd]pma__users"
-"[/kbd]"
+"Leave blank to disable configurable menus feature, suggested: "
+"[kbd]pma__users[/kbd]"
 msgstr ""
 "Nechte prázdné pro vypnutí podpory pro nastavitelné menu, výchozí nastavení: "
 "[kbd]pma__users[/kbd]"
@@ -6158,8 +6159,8 @@ msgstr "Tabulka uživatelů"
 
 #: libraries/config/messages.inc.php:458
 msgid ""
-"Leave blank to disable configurable menus feature, suggested: [kbd]"
-"pma__usergroups[/kbd]"
+"Leave blank to disable configurable menus feature, suggested: "
+"[kbd]pma__usergroups[/kbd]"
 msgstr ""
 "Nechte prázdné pro vypnutí podpory pro nastavitelné menu, výchozí nastavení: "
 "[kbd]pma__usergroups[/kbd]"
@@ -6296,8 +6297,8 @@ msgid ""
 "Shows link to [a@http://php.net/manual/function.phpinfo.php]phpinfo()[/a] "
 "output"
 msgstr ""
-"Zobrazí link na výstup funkce [a@http://php.net/manual/function.phpinfo.php]"
-"phpinfo()[/a]"
+"Zobrazí link na výstup funkce [a@http://php.net/manual/function.phpinfo."
+"php]phpinfo()[/a]"
 
 #: libraries/config/messages.inc.php:486
 msgid "Show phpinfo() link"
@@ -6372,8 +6373,8 @@ msgid ""
 "If you have a custom username, specify it here (defaults to [kbd]anonymous[/"
 "kbd])"
 msgstr ""
-"Pokud máte vlastní užvatelské jméno, zadejte ho zde (jinak se použije [kbd]"
-"anonymous[/kbd])"
+"Pokud máte vlastní užvatelské jméno, zadejte ho zde (jinak se použije "
+"[kbd]anonymous[/kbd])"
 
 #: libraries/config/messages.inc.php:506 libraries/tbl_tracking.lib.php:500
 #: libraries/tbl_tracking.lib.php:596
@@ -6831,8 +6832,8 @@ msgstr ", @TABLE@ bude nahrazen jménem tabulky"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Tato hodnota je interpretována pomocí %1$sstrftime%2$s, takže můžete použít "
 "libovolné řetězce pro formátování data a času. Dále budou provedena "
@@ -7334,8 +7335,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:132
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the %"
-"sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the "
+"%sPrimeBase XT Home Page%s."
 msgstr ""
 "Dokumentace a další informace o PBXT můžete nalézt na %sstránkách PrimeBase "
 "XT%s."
@@ -7816,20 +7817,8 @@ msgstr "Nelze načíst třídu \"%1$s\", soubor \"%2$s\" nebyl nenalezen"
 msgid "Columns"
 msgstr "Pole"
 
-#: libraries/navigation/Nodes/Node_Column_Container.class.php:40
+#: libraries/navigation/Nodes/Node_Column_Container.class.php:38
 msgctxt "Create new column"
-msgid "New"
-msgstr "Nové"
-
-#: libraries/navigation/Nodes/Node_Column_Container.class.php:43
-#: libraries/navigation/Nodes/Node_Function_Container.class.php:42
-#: libraries/navigation/Nodes/Node_Index_Container.class.php:42
-#: libraries/navigation/Nodes/Node_Procedure_Container.class.php:42
-#: libraries/navigation/Nodes/Node_Table_Container.class.php:49
-#: libraries/navigation/Nodes/Node_View_Container.class.php:49
-#, fuzzy
-#| msgctxt "Create new column"
-#| msgid "New"
 msgid "New"
 msgstr "Nové"
 
@@ -7856,7 +7845,7 @@ msgstr "Nová"
 msgid "Functions"
 msgstr "Funkce"
 
-#: libraries/navigation/Nodes/Node_Function_Container.class.php:39
+#: libraries/navigation/Nodes/Node_Function_Container.class.php:38
 msgctxt "Create new function"
 msgid "New"
 msgstr "Nová"
@@ -7869,7 +7858,7 @@ msgstr "Nová"
 msgid "Index"
 msgstr "Klíč"
 
-#: libraries/navigation/Nodes/Node_Index_Container.class.php:39
+#: libraries/navigation/Nodes/Node_Index_Container.class.php:38
 msgctxt "Create new index"
 msgid "New"
 msgstr "Nový"
@@ -7887,13 +7876,13 @@ msgstr "Procedury"
 msgid "Procedures"
 msgstr "Procedury"
 
-#: libraries/navigation/Nodes/Node_Procedure_Container.class.php:39
+#: libraries/navigation/Nodes/Node_Procedure_Container.class.php:38
 #: libraries/rte/rte_footer.lib.php:29
 msgctxt "Create new procedure"
 msgid "New"
 msgstr "Nová"
 
-#: libraries/navigation/Nodes/Node_Table_Container.class.php:46
+#: libraries/navigation/Nodes/Node_Table_Container.class.php:45
 msgctxt "Create new table"
 msgid "New"
 msgstr "Nová"
@@ -7909,7 +7898,7 @@ msgstr "Nová"
 msgid "Views"
 msgstr "Pohledy"
 
-#: libraries/navigation/Nodes/Node_View_Container.class.php:46
+#: libraries/navigation/Nodes/Node_View_Container.class.php:45
 msgctxt "Create new view"
 msgid "New"
 msgstr "Nový"
@@ -8103,8 +8092,8 @@ msgstr "Vítejte v %s"
 #: libraries/plugins/auth/AuthenticationConfig.class.php:102
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 msgstr ""
 "Pravděpodobná příčina je, že nemáte vytvořený konfigurační soubor. Pro jeho "
 "vytvoření by se vám mohl hodit %1$snastavovací skript%2$s."
@@ -10374,8 +10363,8 @@ msgstr "Přehled uživatelů"
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 msgstr ""
 "Poznámka: phpMyAdmin získává oprávnění přímo z tabulek MySQL. Obsah těchto "
 "tabulek se může lišit od oprávnění, která server právě používá, pokud byly "
@@ -12013,8 +12002,8 @@ msgid ""
 "For a list of available transformation options and their MIME type "
 "transformations, click on %stransformation descriptions%s"
 msgstr ""
-"Pro seznam dostupných parametrů transformací a jejich MIME typů klikněte na %"
-"spopisy transformací%s"
+"Pro seznam dostupných parametrů transformací a jejich MIME typů klikněte na "
+"%spopisy transformací%s"
 
 #: libraries/tbl_columns_definition_form.lib.php:329
 msgid "Transformation options"
@@ -12582,8 +12571,8 @@ msgid ""
 "You can set more settings by modifying config.inc.php, eg. by using %sSetup "
 "script%s."
 msgstr ""
-"Více věcí můžete nastavit úpravou config.inc.php, např. použitím %"
-"sNastavovacího skriptu%s."
+"Více věcí můžete nastavit úpravou config.inc.php, např. použitím "
+"%sNastavovacího skriptu%s."
 
 #: prefs_manage.php:308
 msgid "Save to browser's storage"
@@ -12656,8 +12645,9 @@ msgid ""
 "Otherwise you will be only able to download or display it."
 msgstr ""
 "Prosím, vytvořte adresář [em]config[/em] zapisovatelný pro web server v "
-"kořenovém adresáři phpMyAdmina, jak je popsáno v [doc@setup_script]"
-"dokumentaci[/doc]. Jinak budete moci nastavení pouze stáhnout nebo zobrazit."
+"kořenovém adresáři phpMyAdmina, jak je popsáno v "
+"[doc@setup_script]dokumentaci[/doc]. Jinak budete moci nastavení pouze "
+"stáhnout nebo zobrazit."
 
 #: setup/frames/index.inc.php:68
 msgid ""
@@ -12799,8 +12789,8 @@ msgid ""
 "You are using Git version, run [kbd]git pull[/kbd] :-)[br]The latest stable "
 "version is %s, released on %s."
 msgstr ""
-"Používáte verzi z Gitu, pro aktualizaci spusťte [kbd]git pull[/kbd] :-)[br]"
-"Poslední stabilní verze je %s a byla vydána %s."
+"Používáte verzi z Gitu, pro aktualizaci spusťte [kbd]git pull[/kbd] :-)"
+"[br]Poslední stabilní verze je %s a byla vydána %s."
 
 #: setup/lib/index.lib.php:172
 msgid "No newer stable version is available"
@@ -12888,8 +12878,8 @@ msgid ""
 "If using cookie authentication and %sLogin cookie store%s is not 0, %sLogin "
 "cookie validity%s must be set to a value less or equal to it."
 msgstr ""
-"Při použití přihlašování přes cookies a při %sUkládádání přihlašovaci cookie%"
-"s vyšší než 0 musí být %sPlatnost přihlašovací cookie%s nastavena na vyšší "
+"Při použití přihlašování přes cookies a při %sUkládádání přihlašovaci cookie"
+"%s vyšší než 0 musí být %sPlatnost přihlašovací cookie%s nastavena na vyšší "
 "hodnotu než je tato."
 
 #: setup/lib/index.lib.php:270
@@ -12900,8 +12890,8 @@ msgid ""
 "protection may not be reliable if your IP belongs to an ISP where thousands "
 "of users, including you, are connected to."
 msgstr ""
-"Pokud to považujete za nutné, použijte další možnosti zabezpečení - %"
-"somezení počítačů%s a %sseznam důvěryhodných proxy%s. Nicméně zabezpečení "
+"Pokud to považujete za nutné, použijte další možnosti zabezpečení - "
+"%somezení počítačů%s a %sseznam důvěryhodných proxy%s. Nicméně zabezpečení "
 "založené na IP adresách nemusí být spolehlivé, pokud je vaše IP adresa "
 "dynamicky přidělována poskytovatelem spolu s mnoha dalšími uživateli."
 
@@ -12911,8 +12901,8 @@ msgid ""
 "You set the [kbd]config[/kbd] authentication type and included username and "
 "password for auto-login, which is not a desirable option for live hosts. "
 "Anyone who knows or guesses your phpMyAdmin URL can directly access your "
-"phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or [kbd]"
-"http[/kbd]."
+"phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or "
+"[kbd]http[/kbd]."
 msgstr ""
 "Nastavil jste typ přihlašování [kbd]config[/kbd] a zadal jste uživatelské "
 "jméno a heslo pro automatické přihlášení, což není doporučená volba pro "
@@ -13140,8 +13130,8 @@ msgid ""
 "You have a slow query rate of %s per hour, you should have less than 1%% per "
 "hour."
 msgstr ""
-"Četnost pomalých dotazů na tomto serveru je %s za hodinu, měla by být pod 1%"
-"%."
+"Četnost pomalých dotazů na tomto serveru je %s za hodinu, měla by být pod "
+"1%%."
 
 #: libraries/advisory_rules.txt:77
 msgid "Long query time"
@@ -13406,8 +13396,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:179
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s%"
-"%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s"
+"%%. It should be above 80%%"
 msgstr ""
 "V současné době je volno %s%% mezipaměti. Tato hodnota by se měla držet nad "
 "80%%"
@@ -13555,11 +13545,11 @@ msgstr ""
 #: libraries/advisory_rules.txt:216
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
-"%."
+"%s%% of all sorts cause temporary tables, this value should be lower than "
+"10%%."
 msgstr ""
-"%s%% všech řazení využilo dočasných tabulek, tato hodnota by měla být pod 10%"
-"%."
+"%s%% všech řazení využilo dočasných tabulek, tato hodnota by měla být pod "
+"10%%."
 
 #: libraries/advisory_rules.txt:218
 msgid "Rate of sorts that cause temporary tables"
@@ -14306,6 +14296,12 @@ msgstr ""
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert je nastaveno na 0"
 
+#, fuzzy
+#~| msgctxt "Create new column"
+#~| msgid "New"
+#~ msgid "New"
+#~ msgstr "Nové"
+
 #~ msgid ""
 #~ "An error has been detected, however, you seem to be running on a git "
 #~ "version of phpMyAdmin."
@@ -14642,9 +14638,9 @@ msgstr "concurrent_insert je nastaveno na 0"
 
 #~ msgid ""
 #~ "When setting this to [kbd]nested[/kbd], the alias of the table name is "
-#~ "only used to split/nest the tables according to the $cfg"
-#~ "['LeftFrameTableSeparator'] directive, so only the folder is called like "
-#~ "the alias, the table name itself stays unchanged"
+#~ "only used to split/nest the tables according to the "
+#~ "$cfg['LeftFrameTableSeparator'] directive, so only the folder is called "
+#~ "like the alias, the table name itself stays unchanged"
 #~ msgstr ""
 #~ "Při nastavení na [kbd]nested[/kbd], bude komentář použit pro zanoření a "
 #~ "rozdělení podle nastavení $cfg['LeftFrameTableSeparator']. Takže komentář "

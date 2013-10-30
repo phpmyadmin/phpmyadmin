@@ -3,15 +3,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-10-30 08:10-0400\n"
+"POT-Creation-Date: 2013-10-30 13:55+0100\n"
 "PO-Revision-Date: 2013-08-23 11:41+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Catalan <http://l10n.cihar.com/projects/phpmyadmin/master/ca/"
 ">\n"
+"Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ca\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 1.7-dev\n"
 
@@ -610,11 +610,11 @@ msgstr ""
 #: import.php:116
 #, php-format
 msgid ""
-"You probably tried to upload a file that is too large. Please refer to %"
-"sdocumentation%s for a workaround for this limit."
+"You probably tried to upload a file that is too large. Please refer to "
+"%sdocumentation%s for a workaround for this limit."
 msgstr ""
-"Probablement has triat d'enviar un arxiu que és massa gran. Consulta la %"
-"sdocumentació%s per trobar formes de modificar aquest límit."
+"Probablement has triat d'enviar un arxiu que és massa gran. Consulta la "
+"%sdocumentació%s per trobar formes de modificar aquest límit."
 
 #: import.php:284 import.php:550
 msgid "Showing bookmark"
@@ -2776,8 +2776,8 @@ msgstr "en consulta"
 #: libraries/DisplayResults.class.php:4907 libraries/structure.lib.php:653
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 msgstr ""
 "Aquesta vista té al menys aques nombre de files. Consulta %sdocumentation%s."
 
@@ -3612,20 +3612,20 @@ msgstr ""
 
 #: libraries/Types.class.php:309
 msgid ""
-"A small floating-point number, allowable values are -3.402823466E+38 to -"
-"1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
+"A small floating-point number, allowable values are -3.402823466E+38 to "
+"-1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
 msgstr ""
 "Un nombre de coma flotant petit, els valors permesos són de -3.402823466E+38 "
 "a -1.175494351E-38, 0, i de 1.175494351E-38 a 3.402823466E+38"
 
 #: libraries/Types.class.php:311
 msgid ""
-"A double-precision floating-point number, allowable values are -"
-"1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
+"A double-precision floating-point number, allowable values are "
+"-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
 "2.2250738585072014E-308 to 1.7976931348623157E+308"
 msgstr ""
-"Un nombre de coma flotant de doble precisió, els valors permesos són de -"
-"1.7976931348623157E+308 a -2.2250738585072014E-308, 0, i de "
+"Un nombre de coma flotant de doble precisió, els valors permesos són de "
+"-1.7976931348623157E+308 a -2.2250738585072014E-308, 0, i de "
 "2.2250738585072014E-308 a 1.7976931348623157E+308"
 
 #: libraries/Types.class.php:313
@@ -4540,8 +4540,8 @@ msgid ""
 "kbd] - allows newlines in columns"
 msgstr ""
 "Defineix quin tipus de control d'edició es farà servir per a columnes CHAR i "
-"VARCHAR; [kbd]input[/kbd] - permet limitar el tamany de l'entrada, [kbd]"
-"textarea[/kbd] - permet varies línies dintre dels camps"
+"VARCHAR; [kbd]input[/kbd] - permet limitar el tamany de l'entrada, "
+"[kbd]textarea[/kbd] - permet varies línies dintre dels camps"
 
 #: libraries/config/messages.inc.php:31
 msgid "CHAR columns editing"
@@ -4549,8 +4549,8 @@ msgstr "Edició de columnes CHAR"
 
 #: libraries/config/messages.inc.php:32
 msgid ""
-"Use user-friendly editor for editing SQL queries ([a@http://codemirror.net/]"
-"CodeMirror[/a]) with syntax highlighting and line numbers"
+"Use user-friendly editor for editing SQL queries ([a@http://codemirror."
+"net/]CodeMirror[/a]) with syntax highlighting and line numbers"
 msgstr ""
 "Fer servir l'editor SQL ([a@http://codemirror.net/]CodeMirror[/a]) amb "
 "resaltat de sintaxi i números de línia"
@@ -5108,8 +5108,9 @@ msgstr "Títols de pàgina"
 
 #: libraries/config/messages.inc.php:194
 msgid ""
-"Specify browser's title bar text. Refer to [doc@cfg_TitleTable]documentation"
-"[/doc] for magic strings that can be used to get special values."
+"Specify browser's title bar text. Refer to "
+"[doc@cfg_TitleTable]documentation[/doc] for magic strings that can be used "
+"to get special values."
 msgstr ""
 "Especifica el títol del navegador. Consulta [doc@cfg_TitleTable]la "
 "documentació[/doc]  per a cadenes màgiques que poden usar-se per obtenir "
@@ -5175,8 +5176,8 @@ msgid ""
 "documentation"
 msgstr ""
 "Configura la base de dades phpMyAdmin per tenir accés a característiques "
-"adiccionals, consulta [doc@linked-tables]infraestructura de taules enllaçades"
-"[/doc] a la documentació"
+"adiccionals, consulta [doc@linked-tables]infraestructura de taules "
+"enllaçades[/doc] a la documentació"
 
 #: libraries/config/messages.inc.php:207
 msgid "Changes tracking"
@@ -5921,8 +5922,8 @@ msgid ""
 "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/bookmark]bookmark[/a] "
 "support, suggested: [kbd]pma__bookmark[/kbd]"
 msgstr ""
-"Deixa en blanc per desactivar les [a@http://wiki.phpmyadmin.net/pma/bookmark]"
-"consultes desades[/a], suggerit: [kbd]pma__bookmark[/kbd]"
+"Deixa en blanc per desactivar les [a@http://wiki.phpmyadmin.net/pma/"
+"bookmark]consultes desades[/a], suggerit: [kbd]pma__bookmark[/kbd]"
 
 #: libraries/config/messages.inc.php:382
 msgid "Bookmark table"
@@ -5930,8 +5931,8 @@ msgstr "Taula de consultes desades"
 
 #: libraries/config/messages.inc.php:383
 msgid ""
-"Leave blank for no column comments/mime types, suggested: [kbd]"
-"pma__column_info[/kbd]"
+"Leave blank for no column comments/mime types, suggested: "
+"[kbd]pma__column_info[/kbd]"
 msgstr ""
 "Deixa en blanc per no usar comentaris de columna o tipus mime, suggerit: "
 "[kbd]pma__column_info[/kbd]"
@@ -6008,8 +6009,8 @@ msgid ""
 "Leave blank for no Designer support, suggested: [kbd]pma__designer_coords[/"
 "kbd]"
 msgstr ""
-"Deixa en blanc per desactivar el suport del Dissenyador, suggerit: [kbd]"
-"pma__designer_coords[/kbd]"
+"Deixa en blanc per desactivar el suport del Dissenyador, suggerit: "
+"[kbd]pma__designer_coords[/kbd]"
 
 #: libraries/config/messages.inc.php:397
 msgid "Designer table"
@@ -6115,8 +6116,8 @@ msgstr "Contrasenya autenticació config"
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__pdf_pages[/kbd]"
 msgstr ""
-"Deixa en blanc per desactivar el suport d'esquemes PDF, suggerit: [kbd]"
-"pma__pdf_pages[/kbd]"
+"Deixa en blanc per desactivar el suport d'esquemes PDF, suggerit: "
+"[kbd]pma__pdf_pages[/kbd]"
 
 #: libraries/config/messages.inc.php:418
 msgid "PDF schema: pages table"
@@ -6161,11 +6162,11 @@ msgstr "Taula usada recentment"
 
 #: libraries/config/messages.inc.php:425
 msgid ""
-"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-links"
-"[/a] support, suggested: [kbd]pma__relation[/kbd]"
+"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
+"links[/a] support, suggested: [kbd]pma__relation[/kbd]"
 msgstr ""
-"Deixa en blanc per desactivar els [a@http://wiki.phpmyadmin.net/pma/relation]"
-"enllaços de relacions[/a], suggerit: [kbd]pma__relation[/kbd]"
+"Deixa en blanc per desactivar els [a@http://wiki.phpmyadmin.net/pma/"
+"relation]enllaços de relacions[/a], suggerit: [kbd]pma__relation[/kbd]"
 
 #: libraries/config/messages.inc.php:426
 msgid "Relation table"
@@ -6181,8 +6182,8 @@ msgstr "Ordre SHOW DATABASES"
 
 #: libraries/config/messages.inc.php:429
 msgid ""
-"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication types"
-"[/a] for an example"
+"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
+"types[/a] for an example"
 msgstr ""
 "Consulta [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]tipus "
 "d'autenticació[/a] per veure exemples"
@@ -6218,8 +6219,8 @@ msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__table_coords[/"
 "kbd]"
 msgstr ""
-"Deixa en blanc per desactivar el suport d'esquemes PDF, suggerit: [kbd]"
-"pma__table_coords[/kbd]"
+"Deixa en blanc per desactivar el suport d'esquemes PDF, suggerit: "
+"[kbd]pma__table_coords[/kbd]"
 
 #: libraries/config/messages.inc.php:437
 msgid "PDF schema: table coordinates"
@@ -6301,8 +6302,8 @@ msgstr "Instruccions a seguir"
 
 #: libraries/config/messages.inc.php:450
 msgid ""
-"Leave blank for no SQL query tracking support, suggested: [kbd]pma__tracking"
-"[/kbd]"
+"Leave blank for no SQL query tracking support, suggested: "
+"[kbd]pma__tracking[/kbd]"
 msgstr ""
 "Deixa en blanc per desactivar el suport de seguiment de consultes SQL, "
 "suggerit: [kbd]pma__tracking[/kbd]"
@@ -6325,8 +6326,8 @@ msgstr "Crear versions automàticament"
 
 #: libraries/config/messages.inc.php:454
 msgid ""
-"Leave blank for no user preferences storage in database, suggested: [kbd]"
-"pma__userconfig[/kbd]"
+"Leave blank for no user preferences storage in database, suggested: "
+"[kbd]pma__userconfig[/kbd]"
 msgstr ""
 "Deixa en blanc per no desar les preferències de l'usuari en base de dades, "
 "suggerit: [kbd]pma__userconfig[/kbd]"
@@ -6338,11 +6339,11 @@ msgstr "Taula de preferències de l'usuari"
 #: libraries/config/messages.inc.php:456
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no user preferences storage in database, suggested: [kbd]"
-#| "pma__userconfig[/kbd]"
+#| "Leave blank for no user preferences storage in database, suggested: "
+#| "[kbd]pma__userconfig[/kbd]"
 msgid ""
-"Leave blank to disable configurable menus feature, suggested: [kbd]pma__users"
-"[/kbd]"
+"Leave blank to disable configurable menus feature, suggested: "
+"[kbd]pma__users[/kbd]"
 msgstr ""
 "Deixa en blanc per no desar les preferències de l'usuari en base de dades, "
 "suggerit: [kbd]pma__userconfig[/kbd]"
@@ -6356,11 +6357,11 @@ msgstr "Usa Taules"
 #: libraries/config/messages.inc.php:458
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no user preferences storage in database, suggested: [kbd]"
-#| "pma__userconfig[/kbd]"
+#| "Leave blank for no user preferences storage in database, suggested: "
+#| "[kbd]pma__userconfig[/kbd]"
 msgid ""
-"Leave blank to disable configurable menus feature, suggested: [kbd]"
-"pma__usergroups[/kbd]"
+"Leave blank to disable configurable menus feature, suggested: "
+"[kbd]pma__usergroups[/kbd]"
 msgstr ""
 "Deixa en blanc per no desar les preferències de l'usuari en base de dades, "
 "suggerit: [kbd]pma__userconfig[/kbd]"
@@ -6374,8 +6375,8 @@ msgstr "Utilitza la Taula de Hosts"
 #: libraries/config/messages.inc.php:460
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no user preferences storage in database, suggested: [kbd]"
-#| "pma__userconfig[/kbd]"
+#| "Leave blank for no user preferences storage in database, suggested: "
+#| "[kbd]pma__userconfig[/kbd]"
 msgid ""
 "Leave blank to disable the feature to hide and show navigation items, "
 "suggested: [kbd]pma__navigationhiding[/kbd]"
@@ -6406,8 +6407,8 @@ msgstr "Nom explicatiu d'aquest servidor"
 #: libraries/config/messages.inc.php:466
 msgid "Whether a user should be displayed a &quot;show all (rows)&quot; button"
 msgstr ""
-"Si a un usuari se l'hauria de mostrar el botó &quot;mostrar totes (les files)"
-"&quot;"
+"Si a un usuari se l'hauria de mostrar el botó &quot;mostrar totes (les "
+"files)&quot;"
 
 #: libraries/config/messages.inc.php:467
 msgid "Allow to display all the rows"
@@ -6657,8 +6658,8 @@ msgid ""
 msgstr ""
 "Entra els proxies com [kbd]IP: capçaleta HTTP confiable[/kbd]. El següent "
 "exemple mostra cóm phpMyAdmin hauria de validar la capçalera "
-"HTTP_X_FORWARDED_FOR (X-Forwarded-For) procedent del proxy 1.2.3.4:[br][kbd]"
-"1.2.3.4: HTTP_X_FORWARDED_FOR[/kbd]"
+"HTTP_X_FORWARDED_FOR (X-Forwarded-For) procedent del proxy 1.2.3.4:[br]"
+"[kbd]1.2.3.4: HTTP_X_FORWARDED_FOR[/kbd]"
 
 #: libraries/config/messages.inc.php:522
 msgid "List of trusted proxies for IP allow/deny"
@@ -7061,12 +7062,12 @@ msgstr ", @TABLE@ serà el nom de la taula"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Aquest valor s'interpreta usant %1$sstrftime%2$s, pel que podeu usar les "
-"cadenes de formateig de temps. A més, es faran aquestes transformacions: %3"
-"$s. Altre text es deixarà sense variació. Consulteu les %4$sPFC -FAQ- %5$s "
+"cadenes de formateig de temps. A més, es faran aquestes transformacions: "
+"%3$s. Altre text es deixarà sense variació. Consulteu les %4$sPFC -FAQ- %5$s "
 "per a més detalls."
 
 #: libraries/display_export.lib.php:510
@@ -7579,8 +7580,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:132
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the %"
-"sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the "
+"%sPrimeBase XT Home Page%s."
 msgstr ""
 "Pots trobar la documentació i més informació sobre PBXT a la pàgina "
 "principal de %sPrimeBase XT%s."
@@ -8088,20 +8089,8 @@ msgstr ""
 msgid "Columns"
 msgstr "Columnes"
 
-#: libraries/navigation/Nodes/Node_Column_Container.class.php:40
+#: libraries/navigation/Nodes/Node_Column_Container.class.php:38
 msgctxt "Create new column"
-msgid "New"
-msgstr "Nou"
-
-#: libraries/navigation/Nodes/Node_Column_Container.class.php:43
-#: libraries/navigation/Nodes/Node_Function_Container.class.php:42
-#: libraries/navigation/Nodes/Node_Index_Container.class.php:42
-#: libraries/navigation/Nodes/Node_Procedure_Container.class.php:42
-#: libraries/navigation/Nodes/Node_Table_Container.class.php:49
-#: libraries/navigation/Nodes/Node_View_Container.class.php:49
-#, fuzzy
-#| msgctxt "Create new column"
-#| msgid "New"
 msgid "New"
 msgstr "Nou"
 
@@ -8131,7 +8120,7 @@ msgstr "Nou"
 msgid "Functions"
 msgstr "Funcions"
 
-#: libraries/navigation/Nodes/Node_Function_Container.class.php:39
+#: libraries/navigation/Nodes/Node_Function_Container.class.php:38
 msgctxt "Create new function"
 msgid "New"
 msgstr "Nova"
@@ -8144,7 +8133,7 @@ msgstr "Nova"
 msgid "Index"
 msgstr "Índex"
 
-#: libraries/navigation/Nodes/Node_Index_Container.class.php:39
+#: libraries/navigation/Nodes/Node_Index_Container.class.php:38
 msgctxt "Create new index"
 msgid "New"
 msgstr "Nou"
@@ -8162,13 +8151,13 @@ msgstr "Procediments"
 msgid "Procedures"
 msgstr "Procediments"
 
-#: libraries/navigation/Nodes/Node_Procedure_Container.class.php:39
+#: libraries/navigation/Nodes/Node_Procedure_Container.class.php:38
 #: libraries/rte/rte_footer.lib.php:29
 msgctxt "Create new procedure"
 msgid "New"
 msgstr "Nou"
 
-#: libraries/navigation/Nodes/Node_Table_Container.class.php:46
+#: libraries/navigation/Nodes/Node_Table_Container.class.php:45
 msgctxt "Create new table"
 msgid "New"
 msgstr "Nou"
@@ -8184,7 +8173,7 @@ msgstr "Nou"
 msgid "Views"
 msgstr "Vistes"
 
-#: libraries/navigation/Nodes/Node_View_Container.class.php:46
+#: libraries/navigation/Nodes/Node_View_Container.class.php:45
 msgctxt "Create new view"
 msgid "New"
 msgstr "Nova"
@@ -8382,8 +8371,8 @@ msgstr "Benvingut a %s"
 #: libraries/plugins/auth/AuthenticationConfig.class.php:102
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 msgstr ""
 "La raó més probable d'aixó és que no heu creat l'arxiu de configuració. "
 "Podreu voler utilitzar %1$ssetup script%2$s per crear-ne un."
@@ -8879,8 +8868,8 @@ msgid ""
 "The first line of the file contains the table column names <i>(if this is "
 "unchecked, the first line will become part of the data)</i>"
 msgstr ""
-"La primera línia de l'arxiu conté els noms de les columnes de la taula <i>"
-"(si no es marca això, la primera línia formarà part de les dades)</i>"
+"La primera línia de l'arxiu conté els noms de les columnes de la taula "
+"<i>(si no es marca això, la primera línia formarà part de les dades)</i>"
 
 #: libraries/plugins/import/ImportCsv.class.php:72
 msgid ""
@@ -10718,8 +10707,8 @@ msgstr "Vista global d'usuaris"
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 msgstr ""
 "Nota: phpMyAdmin obté els permisos de l'usuari directament de les taules de "
 "permisos de MySQL. El contingut d'aquestes taules pot ser diferent dels "
@@ -12126,8 +12115,8 @@ msgid ""
 "installed the necessary PHP extensions as described in the %sdocumentation%s."
 msgstr ""
 "No s'ha pogut iniciar el validador SQL. Si us plau, comproveu que teniu "
-"instal·lats els mòduls de PHP necessaris tal i com s'indica a la %"
-"sdocumentació%s."
+"instal·lats els mòduls de PHP necessaris tal i com s'indica a la "
+"%sdocumentació%s."
 
 #: libraries/structure.lib.php:68 tbl_operations.php:340
 #, php-format
@@ -13128,8 +13117,9 @@ msgid ""
 "Otherwise you will be only able to download or display it."
 msgstr ""
 "Si us plau, crea una carpeta modificable pel servidor web [em]config[/em] al "
-"directori principal de phpMyAdmin tal com s'explica a la [doc@setup_script]"
-"documentació[/doc]. En cas contrari només podràs descarregar o mostrar."
+"directori principal de phpMyAdmin tal com s'explica a la "
+"[doc@setup_script]documentació[/doc]. En cas contrari només podràs "
+"descarregar o mostrar."
 
 #: setup/frames/index.inc.php:68
 msgid ""
@@ -13366,8 +13356,8 @@ msgid ""
 "If using cookie authentication and %sLogin cookie store%s is not 0, %sLogin "
 "cookie validity%s must be set to a value less or equal to it."
 msgstr ""
-"Si s'utilitza la autenticació per cookies i el valor de %sLogin cookie store%"
-"s no és  0, %sLogin cookie validity%s ha d'establir-se a un valor menor o "
+"Si s'utilitza la autenticació per cookies i el valor de %sLogin cookie store"
+"%s no és  0, %sLogin cookie validity%s ha d'establir-se a un valor menor o "
 "igual a ell."
 
 #: setup/lib/index.lib.php:270
@@ -13389,14 +13379,14 @@ msgid ""
 "You set the [kbd]config[/kbd] authentication type and included username and "
 "password for auto-login, which is not a desirable option for live hosts. "
 "Anyone who knows or guesses your phpMyAdmin URL can directly access your "
-"phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or [kbd]"
-"http[/kbd]."
+"phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or "
+"[kbd]http[/kbd]."
 msgstr ""
 "Has triat el tipus d'autenticació [kbd]config[/kbd] i has inclós el nom "
 "d'usuari i la contrasenya per connexions automàtiques, que es una opció no "
 "recomanable per a servidors actius. Qualsevol que conegui la teva URL de "
-"phpMyAdmin pot accedir al teu panel directament. Estableix el %"
-"sauthentication type%s a [kbd]cookie[/kbd] o [kbd]http[/kbd]."
+"phpMyAdmin pot accedir al teu panel directament. Estableix el "
+"%sauthentication type%s a [kbd]cookie[/kbd] o [kbd]http[/kbd]."
 
 #: setup/lib/index.lib.php:284
 #, php-format
@@ -13910,8 +13900,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:179
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s%"
-"%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s"
+"%%. It should be above 80%%"
 msgstr ""
 "La taxa actual de memòria lluire del cau de consultes respecte la mida total "
 "és de %s%%. Hauria de estar per sobre de 80%%"
@@ -14069,8 +14059,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:216
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
-"%."
+"%s%% of all sorts cause temporary tables, this value should be lower than "
+"10%%."
 msgstr ""
 "%s%% de totes les ordenacions causen taules temporals, aquest valor ha de "
 "ser inferior al 10%%."
@@ -14479,8 +14469,8 @@ msgstr ""
 #, php-format
 msgid "Immediate table locks: %s%%, this value should be above 95%%"
 msgstr ""
-"Bloquejos immediats de taula: %s%%, aquest valor ha d'estar per sobre del 95%"
-"%"
+"Bloquejos immediats de taula: %s%%, aquest valor ha d'estar per sobre del "
+"95%%"
 
 #: libraries/advisory_rules.txt:355
 msgid "Table lock wait rate"
@@ -14853,6 +14843,12 @@ msgid "concurrent_insert is set to 0"
 msgstr "{concurrent_insert} està establert a 0"
 
 #, fuzzy
+#~| msgctxt "Create new column"
+#~| msgid "New"
+#~ msgid "New"
+#~ msgstr "Nou"
+
+#, fuzzy
 #~| msgid "Version check"
 #~ msgid "Version check proxy url"
 #~ msgstr "Comprovació de versió"
@@ -15179,9 +15175,9 @@ msgstr "{concurrent_insert} està establert a 0"
 
 #~ msgid ""
 #~ "When setting this to [kbd]nested[/kbd], the alias of the table name is "
-#~ "only used to split/nest the tables according to the $cfg"
-#~ "['LeftFrameTableSeparator'] directive, so only the folder is called like "
-#~ "the alias, the table name itself stays unchanged"
+#~ "only used to split/nest the tables according to the "
+#~ "$cfg['LeftFrameTableSeparator'] directive, so only the folder is called "
+#~ "like the alias, the table name itself stays unchanged"
 #~ msgstr ""
 #~ "Quan s'estableix aixó a [kbd]anidat[/kbd], el àlies del nom de la taula "
 #~ "només es fa servir per a separar/anidar les taules segons la directiva "
