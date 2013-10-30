@@ -33,19 +33,19 @@ class Node_Table extends Node_DatabaseChild
         parent::__construct($name, $type, $is_group);
         switch($GLOBALS['cfg']['NavigationTreeDefaultTabTable']) {
         case 'tbl_structure.php':
-            $this->icon  = PMA_Util::getImage('b_props.png');
+            $this->icon  = PMA_Util::getImage('b_props.png', __('Structure'));
             break;
         case 'tbl_select.php':
-            $this->icon  = PMA_Util::getImage('b_search.png');
+            $this->icon  = PMA_Util::getImage('b_search.png', __('Search'));
             break;
         case 'tbl_change.php':
-            $this->icon  = PMA_Util::getImage('b_insrow.png');
+            $this->icon  = PMA_Util::getImage('b_insrow.png', __('Insert'));
             break;
         case 'tbl_sql.php':
-            $this->icon  = PMA_Util::getImage('b_sql.png');
+            $this->icon  = PMA_Util::getImage('b_sql.png',  __('SQL'));
             break;
         case 'sql.php':
-            $this->icon  = PMA_Util::getImage('b_browse.png');
+            $this->icon  = PMA_Util::getImage('b_browse.png', __('Browse'));
             break;
         }
         $this->links = array(
