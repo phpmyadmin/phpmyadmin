@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.9-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-10-30 13:52+0100\n"
-"PO-Revision-Date: 2013-09-17 19:58+0200\n"
+"PO-Revision-Date: 2013-10-30 14:24+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone+weblate@gmail.com>\n"
 "Language-Team: Spanish <http://l10n.cihar.com/projects/phpmyadmin/4-0/es/>\n"
 "Language: es\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 1.7-dev\n"
+"X-Generator: Weblate 1.8-dev\n"
 
 #: browse_foreigners.php:51 browse_foreigners.php:75 js/messages.php:345
 #: libraries/DisplayResults.class.php:856
@@ -7557,7 +7557,7 @@ msgstr[1] "Se encontraron %s resultados adicionales"
 
 #: libraries/navigation/NavigationTree.class.php:830
 msgid "Expand/Collapse"
-msgstr ""
+msgstr "Expandir/Colapsar"
 
 #: libraries/navigation/NavigationTree.class.php:1042
 msgid "filter databases by name"
@@ -7597,10 +7597,9 @@ msgid "New"
 msgstr "Nueva"
 
 #: libraries/navigation/Nodes/Node_Database.class.php:32
-#, fuzzy
 #| msgid "Database export options"
 msgid "Database operations"
-msgstr "Opciones de exportación de la base de datos"
+msgstr "Opciones de la base de datos"
 
 #: libraries/navigation/Nodes/Node_Event_Container.class.php:36
 msgctxt "Create new event"
@@ -7633,10 +7632,9 @@ msgid "New"
 msgstr "Nuevo"
 
 #: libraries/navigation/Nodes/Node_Procedure.class.php:32
-#, fuzzy
 #| msgid "Procedures"
 msgid "Procedure"
-msgstr "Procedimientos"
+msgstr "Procedimiento"
 
 #: libraries/navigation/Nodes/Node_Procedure_Container.class.php:26
 #: libraries/navigation/Nodes/Node_Procedure_Container.class.php:27
