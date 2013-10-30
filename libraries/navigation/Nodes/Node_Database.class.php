@@ -27,7 +27,10 @@ class Node_Database extends Node
     public function __construct($name, $type = Node::OBJECT, $is_group = false)
     {
         parent::__construct($name, $type, $is_group);
-        $this->icon  = PMA_Util::getImage('s_db.png');
+        $this->icon  = PMA_Util::getImage(
+            's_db.png',
+            __('Database operations')
+        );
         $this->links = array(
             'text' => $GLOBALS['cfg']['DefaultTabDatabase']
                     . '?server=' . $GLOBALS['server']

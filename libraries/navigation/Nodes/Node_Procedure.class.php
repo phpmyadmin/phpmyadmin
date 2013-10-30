@@ -29,7 +29,7 @@ class Node_Procedure extends Node
     public function __construct($name, $type = Node::OBJECT, $is_group = false)
     {
         parent::__construct($name, $type, $is_group);
-        $this->icon  = PMA_Util::getImage('b_routines.png');
+        $this->icon  = PMA_Util::getImage('b_routines.png', __('Procedure'));
         $this->links = array(
             'text' => 'db_routines.php?server=' . $GLOBALS['server']
                     . '&amp;db=%2$s&amp;item_name=%1$s&amp;item_type=PROCEDURE'
