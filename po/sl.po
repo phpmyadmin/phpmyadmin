@@ -4,17 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.9-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-10-30 13:52+0100\n"
-"PO-Revision-Date: 2013-09-17 21:39+0200\n"
-"Last-Translator: Domen <dbc334@gmail.com>\n"
-"Language-Team: Slovenian <http://l10n.cihar.com/projects/phpmyadmin/4-0/sl/"
-">\n"
+"PO-Revision-Date: 2013-10-30 18:34+0200\n"
+"Last-Translator: Domen <mitenem@outlook.com>\n"
+"Language-Team: Slovenian <http://l10n.cihar.com/projects/phpmyadmin/4-0/sl/>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
 "%100==4 ? 2 : 3;\n"
-"X-Generator: Weblate 1.7-dev\n"
+"X-Generator: Weblate 1.8-dev\n"
 
 #: browse_foreigners.php:51 browse_foreigners.php:75 js/messages.php:345
 #: libraries/DisplayResults.class.php:856
@@ -7453,7 +7452,7 @@ msgstr[3] "najdenih %s drugih rezultatov"
 
 #: libraries/navigation/NavigationTree.class.php:830
 msgid "Expand/Collapse"
-msgstr ""
+msgstr "Razširi/Skrči"
 
 #: libraries/navigation/NavigationTree.class.php:1042
 msgid "filter databases by name"
@@ -7491,10 +7490,9 @@ msgid "New"
 msgstr "Nov"
 
 #: libraries/navigation/Nodes/Node_Database.class.php:32
-#, fuzzy
 #| msgid "Database export options"
 msgid "Database operations"
-msgstr "Možnosti izvoza zbirke podatkov"
+msgstr "Posegi zbirke podatkov"
 
 #: libraries/navigation/Nodes/Node_Event_Container.class.php:36
 msgctxt "Create new event"
@@ -7527,10 +7525,9 @@ msgid "New"
 msgstr "Nov"
 
 #: libraries/navigation/Nodes/Node_Procedure.class.php:32
-#, fuzzy
 #| msgid "Procedures"
 msgid "Procedure"
-msgstr "Procedure"
+msgstr "Procedura"
 
 #: libraries/navigation/Nodes/Node_Procedure_Container.class.php:26
 #: libraries/navigation/Nodes/Node_Procedure_Container.class.php:27
