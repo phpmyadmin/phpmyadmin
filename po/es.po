@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-10-30 13:55+0100\n"
-"PO-Revision-Date: 2013-10-29 04:53+0200\n"
+"PO-Revision-Date: 2013-10-30 14:25+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone+weblate@gmail.com>\n"
-"Language-Team: Spanish <http://l10n.cihar.com/projects/phpmyadmin/master/es/"
-">\n"
+"Language-Team: Spanish "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/es/>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -7958,7 +7958,7 @@ msgstr[1] "Se encontraron %s resultados adicionales"
 
 #: libraries/navigation/NavigationTree.class.php:828
 msgid "Expand/Collapse"
-msgstr ""
+msgstr "Expandir/Colapsar"
 
 #: libraries/navigation/NavigationTree.class.php:1044
 msgid "Filter databases by name or regex"
@@ -7998,10 +7998,9 @@ msgid "New"
 msgstr "Nueva"
 
 #: libraries/navigation/Nodes/Node_Database.class.php:34
-#, fuzzy
 #| msgid "Database export options"
 msgid "Database operations"
-msgstr "Opciones de exportación de la base de datos"
+msgstr "Opciones de la base de datos"
 
 #: libraries/navigation/Nodes/Node_Database_Container.class.php:31
 msgctxt "Create new database"
@@ -8039,10 +8038,9 @@ msgid "New"
 msgstr "Nuevo"
 
 #: libraries/navigation/Nodes/Node_Procedure.class.php:34
-#, fuzzy
 #| msgid "Procedures"
 msgid "Procedure"
-msgstr "Procedimientos"
+msgstr "Procedimiento"
 
 #: libraries/navigation/Nodes/Node_Procedure_Container.class.php:26
 #: libraries/navigation/Nodes/Node_Procedure_Container.class.php:27
@@ -14659,11 +14657,10 @@ msgstr ""
 msgid "concurrent_insert is set to 0"
 msgstr "«concurrent_insert» está definido como 0"
 
-#, fuzzy
 #~| msgctxt "Create new column"
 #~| msgid "New"
 #~ msgid "New"
-#~ msgstr "Nueva"
+#~ msgstr "Nuevo"
 
 #~ msgid ""
 #~ "An error has been detected, however, you seem to be running on a git "
