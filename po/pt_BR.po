@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.9-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-10-30 08:09-0400\n"
-"PO-Revision-Date: 2013-10-02 01:56+0200\n"
+"PO-Revision-Date: 2013-10-30 13:43+0200\n"
 "Last-Translator: Helder Santana <helder.bs.santana@gmail.com>\n"
-"Language-Team: Portuguese (Brazil) <http://l10n.cihar.com/projects/"
-"phpmyadmin/4-0/pt_BR/>\n"
+"Language-Team: Portuguese (Brazil) "
+"<http://l10n.cihar.com/projects/phpmyadmin/4-0/pt_BR/>\n"
+"Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: pt_BR\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 1.7-dev\n"
+"X-Generator: Weblate 1.8-dev\n"
 
 #: browse_foreigners.php:51 browse_foreigners.php:75 js/messages.php:345
 #: libraries/DisplayResults.class.php:856
@@ -7496,7 +7496,7 @@ msgstr[1] "%s outros resultados encontrados"
 
 #: libraries/navigation/NavigationTree.class.php:830
 msgid "Expand/Collapse"
-msgstr ""
+msgstr "Expandir/Recolher"
 
 #: libraries/navigation/NavigationTree.class.php:1042
 msgid "filter databases by name"
@@ -7541,17 +7541,15 @@ msgstr "Nova coluna"
 #: libraries/navigation/Nodes/Node_Procedure_Container.class.php:38
 #: libraries/navigation/Nodes/Node_Table_Container.class.php:43
 #: libraries/navigation/Nodes/Node_View_Container.class.php:39
-#, fuzzy
 #| msgctxt "Create new column"
 #| msgid "New"
 msgid "New"
-msgstr "Nova coluna"
+msgstr "Novo"
 
 #: libraries/navigation/Nodes/Node_Database.class.php:32
-#, fuzzy
 #| msgid "Database export options"
 msgid "Database operations"
-msgstr "Opções de exportação do banco de dados"
+msgstr "Operações com banco de dados"
 
 #: libraries/navigation/Nodes/Node_Event_Container.class.php:36
 msgctxt "Create new event"
@@ -7584,10 +7582,9 @@ msgid "New"
 msgstr "Novo índice"
 
 #: libraries/navigation/Nodes/Node_Procedure.class.php:32
-#, fuzzy
 #| msgid "Procedures"
 msgid "Procedure"
-msgstr "Procedimentos"
+msgstr "Procedimento"
 
 #: libraries/navigation/Nodes/Node_Procedure_Container.class.php:26
 #: libraries/navigation/Nodes/Node_Procedure_Container.class.php:27
