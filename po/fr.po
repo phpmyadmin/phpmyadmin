@@ -4,15 +4,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-10-30 08:09-0400\n"
-"PO-Revision-Date: 2013-10-03 18:18+0200\n"
+"PO-Revision-Date: 2013-10-30 13:31+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: French <http://l10n.cihar.com/projects/phpmyadmin/4-0/fr/>\n"
+"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: fr\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 1.7-dev\n"
+"X-Generator: Weblate 1.8-dev\n"
 
 #: browse_foreigners.php:51 browse_foreigners.php:75 js/messages.php:345
 #: libraries/DisplayResults.class.php:856
@@ -7500,7 +7500,7 @@ msgstr[1] "%s autres résultats trouvés"
 
 #: libraries/navigation/NavigationTree.class.php:830
 msgid "Expand/Collapse"
-msgstr ""
+msgstr "Développer/réduire"
 
 #: libraries/navigation/NavigationTree.class.php:1042
 msgid "filter databases by name"
@@ -7543,17 +7543,15 @@ msgstr "Nouvelle colonne"
 #: libraries/navigation/Nodes/Node_Procedure_Container.class.php:38
 #: libraries/navigation/Nodes/Node_Table_Container.class.php:43
 #: libraries/navigation/Nodes/Node_View_Container.class.php:39
-#, fuzzy
 #| msgctxt "Create new column"
 #| msgid "New"
 msgid "New"
-msgstr "Nouvelle colonne"
+msgstr "Créer"
 
 #: libraries/navigation/Nodes/Node_Database.class.php:32
-#, fuzzy
 #| msgid "Database export options"
 msgid "Database operations"
-msgstr "Options d'exportation des bases de données"
+msgstr "Opérations sur base de données"
 
 #: libraries/navigation/Nodes/Node_Event_Container.class.php:36
 msgctxt "Create new event"
@@ -7586,10 +7584,9 @@ msgid "New"
 msgstr "Nouvel index"
 
 #: libraries/navigation/Nodes/Node_Procedure.class.php:32
-#, fuzzy
 #| msgid "Procedures"
 msgid "Procedure"
-msgstr "Procédures"
+msgstr "Procédure"
 
 #: libraries/navigation/Nodes/Node_Procedure_Container.class.php:26
 #: libraries/navigation/Nodes/Node_Procedure_Container.class.php:27
