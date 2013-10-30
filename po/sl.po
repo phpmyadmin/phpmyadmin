@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-10-30 13:55+0100\n"
-"PO-Revision-Date: 2013-10-28 18:25+0200\n"
-"Last-Translator: Domen - <mitenem@outlook.com>\n"
-"Language-Team: Slovenian <http://l10n.cihar.com/projects/phpmyadmin/master/"
-"sl/>\n"
+"PO-Revision-Date: 2013-10-30 18:34+0200\n"
+"Last-Translator: Domen <mitenem@outlook.com>\n"
+"Language-Team: Slovenian "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/sl/>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -7849,7 +7849,7 @@ msgstr[3] "najdenih %s drugih rezultatov"
 
 #: libraries/navigation/NavigationTree.class.php:828
 msgid "Expand/Collapse"
-msgstr ""
+msgstr "Razširi/Skrči"
 
 #: libraries/navigation/NavigationTree.class.php:1044
 msgid "Filter databases by name or regex"
@@ -7887,10 +7887,9 @@ msgid "New"
 msgstr "Nov"
 
 #: libraries/navigation/Nodes/Node_Database.class.php:34
-#, fuzzy
 #| msgid "Database export options"
 msgid "Database operations"
-msgstr "Možnosti izvoza zbirke podatkov"
+msgstr "Posegi zbirke podatkov"
 
 #: libraries/navigation/Nodes/Node_Database_Container.class.php:31
 msgctxt "Create new database"
@@ -7928,10 +7927,9 @@ msgid "New"
 msgstr "Nov"
 
 #: libraries/navigation/Nodes/Node_Procedure.class.php:34
-#, fuzzy
 #| msgid "Procedures"
 msgid "Procedure"
-msgstr "Procedure"
+msgstr "Procedura"
 
 #: libraries/navigation/Nodes/Node_Procedure_Container.class.php:26
 #: libraries/navigation/Nodes/Node_Procedure_Container.class.php:27
