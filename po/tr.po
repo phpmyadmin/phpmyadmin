@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-10-30 13:55+0100\n"
-"PO-Revision-Date: 2013-10-28 19:31+0200\n"
+"PO-Revision-Date: 2013-10-30 17:46+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
-"Language-Team: Turkish <http://l10n.cihar.com/projects/phpmyadmin/master/tr/"
-">\n"
+"Language-Team: Turkish "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/tr/>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -7861,7 +7861,7 @@ msgstr[0] "%s diğer sonuç bulundu"
 
 #: libraries/navigation/NavigationTree.class.php:828
 msgid "Expand/Collapse"
-msgstr ""
+msgstr "Genişlet/Daralt"
 
 #: libraries/navigation/NavigationTree.class.php:1044
 msgid "Filter databases by name or regex"
@@ -7899,10 +7899,9 @@ msgid "New"
 msgstr "Yeni"
 
 #: libraries/navigation/Nodes/Node_Database.class.php:34
-#, fuzzy
 #| msgid "Database export options"
 msgid "Database operations"
-msgstr "Veritabanı dışa aktarma seçenekleri"
+msgstr "Veritabanı işlemleri"
 
 #: libraries/navigation/Nodes/Node_Database_Container.class.php:31
 msgctxt "Create new database"
@@ -7940,10 +7939,9 @@ msgid "New"
 msgstr "Yeni"
 
 #: libraries/navigation/Nodes/Node_Procedure.class.php:34
-#, fuzzy
 #| msgid "Procedures"
 msgid "Procedure"
-msgstr "Yordamlar"
+msgstr "Yordam"
 
 #: libraries/navigation/Nodes/Node_Procedure_Container.class.php:26
 #: libraries/navigation/Nodes/Node_Procedure_Container.class.php:27
