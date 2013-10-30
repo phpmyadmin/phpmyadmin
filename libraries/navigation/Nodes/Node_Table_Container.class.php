@@ -24,7 +24,7 @@ class Node_Table_Container extends Node
     public function __construct()
     {
         parent::__construct(__('Tables'), Node::CONTAINER);
-        $this->icon  = PMA_Util::getImage('b_browse.png', '');
+        $this->icon  = PMA_Util::getImage('b_browse.png', __('Tables'));
         $this->links = array(
             'text' => 'db_structure.php?server=' . $GLOBALS['server']
                     . '&amp;db=%1$s&amp;token=' . $GLOBALS['token'],
