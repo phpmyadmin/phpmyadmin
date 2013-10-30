@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.9-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-10-30 13:52+0100\n"
-"PO-Revision-Date: 2013-09-18 19:50+0200\n"
+"PO-Revision-Date: 2013-10-30 15:29+0200\n"
 "Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
 "Language-Team: Estonian <http://l10n.cihar.com/projects/phpmyadmin/4-0/et/>\n"
 "Language: et\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 1.7-dev\n"
+"X-Generator: Weblate 1.8-dev\n"
 
 #: browse_foreigners.php:51 browse_foreigners.php:75 js/messages.php:345
 #: libraries/DisplayResults.class.php:856
@@ -7390,7 +7390,7 @@ msgstr[1] "%s muud tulemust leitud"
 
 #: libraries/navigation/NavigationTree.class.php:830
 msgid "Expand/Collapse"
-msgstr ""
+msgstr "Laienda/ahenda"
 
 #: libraries/navigation/NavigationTree.class.php:1042
 msgid "filter databases by name"
@@ -7428,10 +7428,9 @@ msgid "New"
 msgstr "Uus"
 
 #: libraries/navigation/Nodes/Node_Database.class.php:32
-#, fuzzy
 #| msgid "Database export options"
 msgid "Database operations"
-msgstr "Andmebaasi eksportimise valikud"
+msgstr "Toimingud andmebaasiga"
 
 #: libraries/navigation/Nodes/Node_Event_Container.class.php:36
 msgctxt "Create new event"
@@ -7464,10 +7463,9 @@ msgid "New"
 msgstr "Uus"
 
 #: libraries/navigation/Nodes/Node_Procedure.class.php:32
-#, fuzzy
 #| msgid "Procedures"
 msgid "Procedure"
-msgstr "Toimingud"
+msgstr "Protseduur"
 
 #: libraries/navigation/Nodes/Node_Procedure_Container.class.php:26
 #: libraries/navigation/Nodes/Node_Procedure_Container.class.php:27
