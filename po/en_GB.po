@@ -3,17 +3,17 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 4.0.7-dev\n"
+"Project-Id-Version: phpMyAdmin 4.0.9-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-09-17 10:36-0400\n"
+"POT-Creation-Date: 2013-10-30 08:09-0400\n"
 "PO-Revision-Date: 2013-09-24 01:27+0200\n"
 "Last-Translator: Robert Readman <robert_readman@hotmail.com>\n"
-"Language-Team: English (United Kingdom) "
-"<http://l10n.cihar.com/projects/phpmyadmin/4-0/en_GB/>\n"
-"Language: en_GB\n"
+"Language-Team: English (United Kingdom) <http://l10n.cihar.com/projects/"
+"phpmyadmin/4-0/en_GB/>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: en_GB\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 1.7-dev\n"
 
@@ -43,9 +43,10 @@ msgstr ""
 "cross-window updates."
 
 #: browse_foreigners.php:189 libraries/Menu.class.php:280
-#: libraries/Menu.class.php:365 libraries/Util.class.php:3245
-#: libraries/Util.class.php:3252 libraries/Util.class.php:3462
-#: libraries/Util.class.php:3463
+#: libraries/Menu.class.php:365 libraries/Util.class.php:3267
+#: libraries/Util.class.php:3274 libraries/Util.class.php:3484
+#: libraries/Util.class.php:3485
+#: libraries/navigation/Nodes/Node_Table.class.php:40
 msgid "Search"
 msgstr "Search"
 
@@ -77,12 +78,12 @@ msgstr "Search"
 #: libraries/server_privileges.lib.php:2545
 #: libraries/server_privileges.lib.php:3068
 #: libraries/sql_query_form.lib.php:369 libraries/sql_query_form.lib.php:426
-#: libraries/sql_query_form.lib.php:491 libraries/structure.lib.php:1590
+#: libraries/sql_query_form.lib.php:491 libraries/structure.lib.php:1592
 #: libraries/tbl_columns_definition_form.inc.php:754 pmd_pdf.php:158
 #: prefs_manage.php:266 prefs_manage.php:316 server_binlog.php:115
 #: server_replication.php:224 server_replication.php:327 tbl_chart.php:251
 #: tbl_indexes.php:352 tbl_tracking.php:520 tbl_tracking.php:696
-#: view_create.php:225 view_operations.php:103
+#: view_create.php:225 view_operations.php:104
 msgid "Go"
 msgstr "Go"
 
@@ -129,6 +130,7 @@ msgstr "Table comments"
 #: db_datadict.php:166 libraries/DBQbe.class.php:364
 #: libraries/Index.class.php:565 libraries/TableSearch.class.php:183
 #: libraries/TableSearch.class.php:1190 libraries/insert_edit.lib.php:1566
+#: libraries/navigation/Nodes/Node_Column.class.php:32
 #: libraries/plugins/export/ExportHtmlword.class.php:276
 #: libraries/plugins/export/ExportHtmlword.class.php:391
 #: libraries/plugins/export/ExportLatex.class.php:508
@@ -162,7 +164,7 @@ msgstr "Column"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1366
 #: libraries/schema/Pdf_Relation_Schema.class.php:1389
 #: libraries/server_privileges.lib.php:1568 libraries/structure.lib.php:776
-#: libraries/structure.lib.php:1180
+#: libraries/structure.lib.php:1182
 #: libraries/tbl_columns_definition_form.inc.php:96 tbl_printview.php:131
 #: tbl_tracking.php:324 tbl_tracking.php:382
 msgid "Type"
@@ -179,7 +181,7 @@ msgstr "Type"
 #: libraries/plugins/export/ExportTexytext.class.php:371
 #: libraries/schema/Pdf_Relation_Schema.class.php:1368
 #: libraries/schema/Pdf_Relation_Schema.class.php:1391
-#: libraries/structure.lib.php:1183
+#: libraries/structure.lib.php:1185
 #: libraries/tbl_columns_definition_form.inc.php:116 tbl_printview.php:132
 #: tbl_tracking.php:326 tbl_tracking.php:388
 msgid "Null"
@@ -194,7 +196,7 @@ msgstr "Null"
 #: libraries/plugins/export/ExportTexytext.class.php:372
 #: libraries/schema/Pdf_Relation_Schema.class.php:1369
 #: libraries/schema/Pdf_Relation_Schema.class.php:1392
-#: libraries/structure.lib.php:210 libraries/structure.lib.php:1184
+#: libraries/structure.lib.php:210 libraries/structure.lib.php:1186
 #: libraries/tbl_columns_definition_form.inc.php:107 tbl_printview.php:133
 #: tbl_tracking.php:327
 msgid "Default"
@@ -237,7 +239,7 @@ msgstr "Comments"
 #: libraries/server_privileges.lib.php:2139
 #: libraries/server_privileges.lib.php:2145
 #: libraries/server_privileges.lib.php:2465
-#: libraries/server_privileges.lib.php:2479 libraries/structure.lib.php:1272
+#: libraries/server_privileges.lib.php:2479 libraries/structure.lib.php:1274
 #: libraries/user_preferences.lib.php:282 prefs_manage.php:131 sql.php:417
 #: sql.php:512 sql.php:513 tbl_printview.php:186 tbl_tracking.php:344
 #: tbl_tracking.php:398 tbl_tracking.php:403
@@ -263,7 +265,7 @@ msgstr "No"
 #: libraries/server_privileges.lib.php:2138
 #: libraries/server_privileges.lib.php:2143
 #: libraries/server_privileges.lib.php:2462
-#: libraries/server_privileges.lib.php:2479 libraries/structure.lib.php:1272
+#: libraries/server_privileges.lib.php:2479 libraries/structure.lib.php:1274
 #: libraries/user_preferences.lib.php:280 prefs_manage.php:130
 #: server_databases.php:103 server_databases.php:110 sql.php:510 sql.php:511
 #: tbl_printview.php:187 tbl_structure.php:84 tbl_tracking.php:344
@@ -302,7 +304,7 @@ msgstr "Database %1$s has been renamed to %2$s"
 msgid "Database %1$s has been copied to %2$s"
 msgstr "Database %1$s has been copied to %2$s"
 
-#: db_operations.php:259
+#: db_operations.php:260
 #, php-format
 msgid ""
 "The phpMyAdmin configuration storage has been deactivated. To find out why "
@@ -326,8 +328,8 @@ msgstr "Table"
 
 #: db_printview.php:100 libraries/Table.class.php:351
 #: libraries/build_html_for_db.lib.php:31 libraries/import.lib.php:181
-#: libraries/structure.lib.php:768 libraries/structure.lib.php:1716
-#: libraries/structure.lib.php:1909 sql.php:1122 tbl_printview.php:365
+#: libraries/structure.lib.php:768 libraries/structure.lib.php:1718
+#: libraries/structure.lib.php:1911 sql.php:1123 tbl_printview.php:365
 msgid "Rows"
 msgstr "Rows"
 
@@ -340,26 +342,26 @@ msgstr "Size"
 msgid "in use"
 msgstr "in use"
 
-#: db_printview.php:185 libraries/Util.class.php:4104
+#: db_printview.php:185 libraries/Util.class.php:4126
 #: libraries/plugins/export/ExportSql.class.php:958
 #: libraries/schema/Pdf_Relation_Schema.class.php:1344
-#: libraries/structure.lib.php:798 libraries/structure.lib.php:1762
+#: libraries/structure.lib.php:798 libraries/structure.lib.php:1764
 #: tbl_printview.php:410
 msgid "Creation"
 msgstr "Creation"
 
-#: db_printview.php:194 libraries/Util.class.php:4110
+#: db_printview.php:194 libraries/Util.class.php:4132
 #: libraries/plugins/export/ExportSql.class.php:971
 #: libraries/schema/Pdf_Relation_Schema.class.php:1349
-#: libraries/structure.lib.php:805 libraries/structure.lib.php:1770
+#: libraries/structure.lib.php:805 libraries/structure.lib.php:1772
 #: tbl_printview.php:421
 msgid "Last update"
 msgstr "Last update"
 
-#: db_printview.php:203 libraries/Util.class.php:4116
+#: db_printview.php:203 libraries/Util.class.php:4138
 #: libraries/plugins/export/ExportSql.class.php:984
 #: libraries/schema/Pdf_Relation_Schema.class.php:1354
-#: libraries/structure.lib.php:812 libraries/structure.lib.php:1778
+#: libraries/structure.lib.php:812 libraries/structure.lib.php:1780
 #: tbl_printview.php:432
 msgid "Last check"
 msgstr "Last check"
@@ -408,7 +410,7 @@ msgstr "Tracked tables"
 #: libraries/server_privileges.lib.php:1971
 #: libraries/server_privileges.lib.php:2212
 #: libraries/server_privileges.lib.php:2855 server_databases.php:200
-#: server_status.php:324 sql.php:1113 tbl_tracking.php:774
+#: server_status.php:324 sql.php:1114 tbl_tracking.php:774
 msgid "Database"
 msgstr "Database"
 
@@ -426,7 +428,7 @@ msgstr "Updated"
 
 #: db_tracking.php:83 js/messages.php:173 libraries/Menu.class.php:475
 #: libraries/rte/rte_events.lib.php:426 libraries/rte/rte_list.lib.php:78
-#: server_status.php:336 sql.php:1186 tbl_tracking.php:779
+#: server_status.php:336 sql.php:1187 tbl_tracking.php:779
 msgid "Status"
 msgstr "Status"
 
@@ -435,7 +437,7 @@ msgstr "Status"
 #: libraries/rte/rte_list.lib.php:79 libraries/server_privileges.lib.php:1571
 #: libraries/server_privileges.lib.php:2222
 #: libraries/server_privileges.lib.php:2387 libraries/structure.lib.php:765
-#: libraries/structure.lib.php:1202 server_databases.php:236
+#: libraries/structure.lib.php:1204 server_databases.php:236
 msgid "Action"
 msgstr "Action"
 
@@ -450,9 +452,9 @@ msgid "Delete tracking data for this table"
 msgstr "Delete tracking data for this table"
 
 #: db_tracking.php:109 libraries/Index.class.php:625
-#: libraries/Util.class.php:3467 libraries/Util.class.php:3468
-#: libraries/structure.lib.php:307 libraries/structure.lib.php:1382
-#: libraries/structure.lib.php:2058 libraries/structure.lib.php:2060
+#: libraries/Util.class.php:3489 libraries/Util.class.php:3490
+#: libraries/structure.lib.php:307 libraries/structure.lib.php:1384
+#: libraries/structure.lib.php:2060 libraries/structure.lib.php:2062
 #: server_databases.php:327
 msgid "Drop"
 msgstr "Drop"
@@ -481,7 +483,7 @@ msgstr "Structure snapshot"
 msgid "Untracked tables"
 msgstr "Untracked tables"
 
-#: db_tracking.php:218 libraries/structure.lib.php:1519
+#: db_tracking.php:218 libraries/structure.lib.php:1521
 msgid "Track table"
 msgstr "Track table"
 
@@ -760,27 +762,27 @@ msgstr "User"
 msgid "Server charset"
 msgstr "Server charset"
 
-#: index.php:272
+#: index.php:274
 msgid "Web server"
 msgstr "Web server"
 
-#: index.php:285
+#: index.php:287
 msgid "Database client version"
 msgstr "Database client version"
 
-#: index.php:289
+#: index.php:291
 msgid "PHP extension"
 msgstr "PHP extension"
 
-#: index.php:303
+#: index.php:305
 msgid "Show PHP information"
 msgstr "Show PHP information"
 
-#: index.php:326 libraries/engines/bdb.lib.php:29
+#: index.php:328 libraries/engines/bdb.lib.php:29
 msgid "Version information"
 msgstr "Version information"
 
-#: index.php:335 libraries/Util.class.php:444 libraries/Util.class.php:530
+#: index.php:337 libraries/Util.class.php:444 libraries/Util.class.php:530
 #: libraries/config/FormDisplay.tpl.php:145
 #: libraries/display_export.lib.php:281 libraries/engines/pbxt.lib.php:116
 #: libraries/navigation/NavigationHeader.class.php:236
@@ -788,27 +790,27 @@ msgstr "Version information"
 msgid "Documentation"
 msgstr "Documentation"
 
-#: index.php:342 libraries/config/FormDisplay.tpl.php:146
+#: index.php:344 libraries/config/FormDisplay.tpl.php:146
 msgid "Wiki"
 msgstr "Wiki"
 
-#: index.php:351
+#: index.php:353
 msgid "Official Homepage"
 msgstr "Official Homepage"
 
-#: index.php:358
+#: index.php:360
 msgid "Contribute"
 msgstr "Contribute"
 
-#: index.php:365
+#: index.php:367
 msgid "Get support"
 msgstr "Get support"
 
-#: index.php:372
+#: index.php:374
 msgid "List of changes"
 msgstr "List of changes"
 
-#: index.php:395
+#: index.php:397
 msgid ""
 "Your configuration file contains settings (root with no password) that "
 "correspond to the default MySQL privileged account. Your MySQL server is "
@@ -820,7 +822,7 @@ msgstr ""
 "running with this default, is open to intrusion, and you really should fix "
 "this security hole by setting a password for user 'root'."
 
-#: index.php:406
+#: index.php:408
 msgid ""
 "You have enabled mbstring.func_overload in your PHP configuration. This "
 "option is incompatible with phpMyAdmin and might cause some data to be "
@@ -830,7 +832,7 @@ msgstr ""
 "option is incompatible with phpMyAdmin and might cause some data to be "
 "corrupted!"
 
-#: index.php:417
+#: index.php:419
 msgid ""
 "The mbstring PHP extension was not found and you seem to be using a "
 "multibyte charset. Without the mbstring extension phpMyAdmin is unable to "
@@ -840,7 +842,7 @@ msgstr ""
 "multibyte charset. Without the mbstring extension phpMyAdmin is unable to "
 "split strings correctly and it may result in unexpected results."
 
-#: index.php:428
+#: index.php:430
 msgid ""
 "Your PHP parameter [a@http://php.net/manual/en/session.configuration.php#ini."
 "session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower than "
@@ -852,7 +854,7 @@ msgstr ""
 "cookie validity configured in phpMyAdmin, because of this, your login will "
 "expire sooner than configured in phpMyAdmin."
 
-#: index.php:440
+#: index.php:442
 msgid ""
 "Login cookie store is lower than cookie validity configured in phpMyAdmin, "
 "because of this, your login will expire sooner than configured in phpMyAdmin."
@@ -860,12 +862,12 @@ msgstr ""
 "Login cookie store is lower than cookie validity configured in phpMyAdmin, "
 "because of this, your login will expire sooner than configured in phpMyAdmin."
 
-#: index.php:452
+#: index.php:454
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
 msgstr ""
 "The configuration file now needs a secret passphrase (blowfish_secret)."
 
-#: index.php:463
+#: index.php:465
 msgid ""
 "Directory [code]config[/code], which is used by the setup script, still "
 "exists in your phpMyAdmin directory. You should remove it once phpMyAdmin "
@@ -875,7 +877,7 @@ msgstr ""
 "exists in your phpMyAdmin directory. You should remove it once phpMyAdmin "
 "has been configured."
 
-#: index.php:473
+#: index.php:475
 #, php-format
 msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
@@ -884,7 +886,7 @@ msgstr ""
 "The phpMyAdmin configuration storage is not completely configured, some "
 "extended features have been deactivated. To find out why click %shere%s."
 
-#: index.php:505
+#: index.php:510
 #, php-format
 msgid ""
 "Your PHP MySQL library version %s differs from your MySQL server version %s. "
@@ -893,7 +895,7 @@ msgstr ""
 "Your PHP MySQL library version %s differs from your MySQL server version %s. "
 "This may cause unpredictable behaviour."
 
-#: index.php:530
+#: index.php:535
 #, php-format
 msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
@@ -1002,7 +1004,7 @@ msgstr "Close"
 #: js/messages.php:61 js/messages.php:274
 #: libraries/DisplayResults.class.php:3361 libraries/Index.class.php:591
 #: libraries/Util.class.php:713 libraries/Util.class.php:1258
-#: libraries/Util.class.php:3471 libraries/Util.class.php:3472
+#: libraries/Util.class.php:3493 libraries/Util.class.php:3494
 #: libraries/config/messages.inc.php:487
 #: libraries/schema/User_Schema.class.php:216 server_variables.php:130
 #: setup/frames/index.inc.php:147
@@ -1027,7 +1029,7 @@ msgstr "Static data"
 
 #. l10n: Total number of queries
 #: js/messages.php:68 libraries/build_html_for_db.lib.php:46
-#: libraries/engines/innodb.lib.php:175 libraries/structure.lib.php:2198
+#: libraries/engines/innodb.lib.php:175 libraries/structure.lib.php:2200
 #: server_databases.php:271 server_status.php:186 server_status.php:276
 #: tbl_printview.php:331
 msgid "Total"
@@ -1417,7 +1419,7 @@ msgstr "Explain output"
 #: libraries/plugins/export/ExportHtmlword.class.php:484
 #: libraries/plugins/export/ExportOdt.class.php:562
 #: libraries/plugins/export/ExportTexytext.class.php:435
-#: libraries/rte/rte_list.lib.php:68 server_status.php:332 sql.php:1191
+#: libraries/rte/rte_list.lib.php:68 server_status.php:332 sql.php:1192
 msgid "Time"
 msgstr "Time"
 
@@ -1722,7 +1724,7 @@ msgid "No rows selected"
 msgstr "No rows selected"
 
 #: js/messages.php:276 libraries/DisplayResults.class.php:5095
-#: libraries/structure.lib.php:1378 libraries/structure.lib.php:2056
+#: libraries/structure.lib.php:1380 libraries/structure.lib.php:2058
 #: querywindow.php:85
 msgid "Change"
 msgstr "Change"
@@ -2284,7 +2286,7 @@ msgid "Wrong permissions on configuration file, should not be world writable!"
 msgstr ""
 "Wrong permissions on configuration file, should not be world writeable!"
 
-#: libraries/Config.class.php:1721
+#: libraries/Config.class.php:1723
 msgid "Font size"
 msgstr "Font size"
 
@@ -2397,8 +2399,10 @@ msgstr[0] "%1$s match in <strong>%2$s</strong>"
 msgstr[1] "%1$s matches in <strong>%2$s</strong>"
 
 #: libraries/DbSearch.class.php:346 libraries/Menu.class.php:267
-#: libraries/Util.class.php:3247 libraries/Util.class.php:3460
-#: libraries/Util.class.php:3461 libraries/structure.lib.php:1372
+#: libraries/Util.class.php:3269 libraries/Util.class.php:3482
+#: libraries/Util.class.php:3483
+#: libraries/navigation/Nodes/Node_Table.class.php:46
+#: libraries/structure.lib.php:1374
 msgid "Browse"
 msgstr "Browse"
 
@@ -2530,7 +2534,7 @@ msgstr "Sort by key"
 #: libraries/plugins/import/ImportShp.class.php:57
 #: libraries/plugins/import/ImportSql.class.php:50
 #: libraries/plugins/import/ImportXml.class.php:58
-#: libraries/rte/rte_routines.lib.php:970 libraries/structure.lib.php:1701
+#: libraries/rte/rte_routines.lib.php:970 libraries/structure.lib.php:1703
 msgid "Options"
 msgstr "Options"
 
@@ -2614,7 +2618,7 @@ msgstr "Showing rows %1s - %2s"
 msgid "%d total"
 msgstr "%d total"
 
-#: libraries/DisplayResults.class.php:4994 sql.php:945
+#: libraries/DisplayResults.class.php:4994 sql.php:946
 #, php-format
 msgid "Query took %01.4f sec"
 msgstr "Query took %01.4f sec"
@@ -2624,7 +2628,7 @@ msgstr "Query took %01.4f sec"
 #: libraries/server_privileges.lib.php:2402
 #: libraries/server_privileges.lib.php:2405 libraries/structure.lib.php:278
 #: libraries/structure.lib.php:293 libraries/structure.lib.php:295
-#: libraries/structure.lib.php:1361 libraries/structure.lib.php:1368
+#: libraries/structure.lib.php:1363 libraries/structure.lib.php:1370
 #: server_databases.php:319 server_databases.php:322
 msgid "With selected:"
 msgstr "With selected:"
@@ -2634,8 +2638,8 @@ msgstr "With selected:"
 #: libraries/server_privileges.lib.php:779
 #: libraries/server_privileges.lib.php:2403
 #: libraries/server_privileges.lib.php:2404 libraries/structure.lib.php:281
-#: libraries/structure.lib.php:282 libraries/structure.lib.php:1364
-#: libraries/structure.lib.php:1365 server_databases.php:320
+#: libraries/structure.lib.php:282 libraries/structure.lib.php:1366
+#: libraries/structure.lib.php:1367 server_databases.php:320
 #: server_databases.php:321
 msgid "Check All"
 msgstr "Check All"
@@ -2643,7 +2647,7 @@ msgstr "Check All"
 #: libraries/DisplayResults.class.php:5108
 #: libraries/DisplayResults.class.php:5307 libraries/Menu.class.php:296
 #: libraries/Menu.class.php:379 libraries/Menu.class.php:495
-#: libraries/Util.class.php:3473 libraries/Util.class.php:3474
+#: libraries/Util.class.php:3495 libraries/Util.class.php:3496
 #: libraries/config/messages.inc.php:164 libraries/display_export.lib.php:94
 #: libraries/server_privileges.lib.php:1786
 #: libraries/server_privileges.lib.php:2409 libraries/structure.lib.php:297
@@ -2658,7 +2662,7 @@ msgstr "Query results operations"
 
 #: libraries/DisplayResults.class.php:5231 libraries/Header.class.php:340
 #: libraries/structure.lib.php:299 libraries/structure.lib.php:362
-#: libraries/structure.lib.php:1485
+#: libraries/structure.lib.php:1487
 msgid "Print view"
 msgstr "Print view"
 
@@ -2756,12 +2760,13 @@ msgstr "No index defined!"
 #: libraries/Index.class.php:536 libraries/Index.class.php:549
 #: libraries/build_html_for_db.lib.php:41 libraries/index.lib.php:23
 #: libraries/navigation/Nodes/Node_Index_Container.class.php:26
+#: libraries/navigation/Nodes/Node_Index_Container.class.php:27
 #: tbl_tracking.php:377
 msgid "Indexes"
 msgstr "Indexes"
 
-#: libraries/Index.class.php:563 libraries/structure.lib.php:1391
-#: libraries/structure.lib.php:2066 libraries/structure.lib.php:2076
+#: libraries/Index.class.php:563 libraries/structure.lib.php:1393
+#: libraries/structure.lib.php:2068 libraries/structure.lib.php:2078
 #: libraries/tbl_columns_definition_form.inc.php:569 tbl_tracking.php:383
 msgid "Unique"
 msgstr "Unique"
@@ -2777,8 +2782,8 @@ msgstr "Cardinality"
 #: libraries/Index.class.php:567 libraries/TableSearch.class.php:185
 #: libraries/build_html_for_db.lib.php:20 libraries/mysql_charsets.lib.php:130
 #: libraries/operations.lib.php:260 libraries/operations.lib.php:830
-#: libraries/structure.lib.php:780 libraries/structure.lib.php:1181
-#: libraries/structure.lib.php:1709
+#: libraries/structure.lib.php:780 libraries/structure.lib.php:1183
+#: libraries/structure.lib.php:1711
 #: libraries/tbl_columns_definition_form.inc.php:114
 #: libraries/tbl_columns_definition_form.inc.php:842 server_collations.php:38
 #: server_collations.php:50 tbl_tracking.php:325 tbl_tracking.php:387
@@ -2809,20 +2814,22 @@ msgstr ""
 "The indexes %1$s and %2$s seem to be equal and one of them could possibly be "
 "removed."
 
-#: libraries/Menu.class.php:207 libraries/structure.lib.php:677
-#: libraries/structure.lib.php:707 libraries/structure.lib.php:1188
-#: libraries/tbl_info.inc.php:59
+#: libraries/Menu.class.php:207
+#: libraries/navigation/Nodes/Node_View.class.php:32
+#: libraries/structure.lib.php:677 libraries/structure.lib.php:707
+#: libraries/structure.lib.php:1190 libraries/tbl_info.inc.php:59
 msgid "View"
 msgstr "View"
 
 #: libraries/Menu.class.php:273 libraries/Menu.class.php:357
-#: libraries/Util.class.php:3243 libraries/Util.class.php:3250
-#: libraries/Util.class.php:3466 libraries/config/setup.forms.php:293
+#: libraries/Util.class.php:3265 libraries/Util.class.php:3272
+#: libraries/Util.class.php:3488 libraries/config/setup.forms.php:293
 #: libraries/config/setup.forms.php:330 libraries/config/setup.forms.php:356
 #: libraries/config/user_preferences.forms.php:196
 #: libraries/config/user_preferences.forms.php:233
 #: libraries/config/user_preferences.forms.php:259
 #: libraries/import.lib.php:1221
+#: libraries/navigation/Nodes/Node_Table.class.php:34
 #: libraries/plugins/export/ExportLatex.class.php:485
 #: libraries/server_privileges.lib.php:749
 #: libraries/tbl_columns_definition_form.inc.php:771 pmd_general.php:188
@@ -2831,20 +2838,21 @@ msgid "Structure"
 msgstr "Structure"
 
 #: libraries/Menu.class.php:277 libraries/Menu.class.php:362
-#: libraries/Menu.class.php:471 libraries/Util.class.php:3244
-#: libraries/Util.class.php:3251 libraries/config/messages.inc.php:214
-#: querywindow.php:59
+#: libraries/Menu.class.php:471 libraries/Util.class.php:3266
+#: libraries/Util.class.php:3273 libraries/config/messages.inc.php:214
+#: libraries/navigation/Nodes/Node_Table.class.php:37 querywindow.php:59
 msgid "SQL"
 msgstr "SQL"
 
-#: libraries/Menu.class.php:290 libraries/Util.class.php:3246
-#: libraries/Util.class.php:3464 libraries/Util.class.php:3465
+#: libraries/Menu.class.php:290 libraries/Util.class.php:3268
+#: libraries/Util.class.php:3486 libraries/Util.class.php:3487
+#: libraries/navigation/Nodes/Node_Table.class.php:43
 #: libraries/sql_query_form.lib.php:295 libraries/sql_query_form.lib.php:298
 msgid "Insert"
 msgstr "Insert"
 
 #: libraries/Menu.class.php:309 libraries/Menu.class.php:332
-#: libraries/Menu.class.php:392 libraries/Util.class.php:3253
+#: libraries/Menu.class.php:392 libraries/Util.class.php:3275
 #: view_operations.php:91
 msgid "Operations"
 msgstr "Operations"
@@ -2977,7 +2985,7 @@ msgid "There are no recent tables"
 msgstr "There are no recent tables"
 
 #: libraries/ServerStatusData.class.php:181 libraries/Util.class.php:688
-#: server_status.php:340 sql.php:1118
+#: server_status.php:340 sql.php:1119
 msgid "SQL query"
 msgstr "SQL query"
 
@@ -3017,6 +3025,7 @@ msgstr "Sorting"
 #: libraries/build_html_for_db.lib.php:26
 #: libraries/config/messages.inc.php:183
 #: libraries/navigation/Nodes/Node_Table_Container.class.php:26
+#: libraries/navigation/Nodes/Node_Table_Container.class.php:27
 #: libraries/plugins/export/ExportXml.class.php:116
 msgid "Tables"
 msgstr "Tables"
@@ -3157,7 +3166,9 @@ msgstr ""
 "changed."
 
 #: libraries/TableSearch.class.php:179 libraries/insert_edit.lib.php:209
-#: libraries/insert_edit.lib.php:215 libraries/rte/rte_routines.lib.php:1579
+#: libraries/insert_edit.lib.php:215
+#: libraries/navigation/Nodes/Node_Function.class.php:32
+#: libraries/rte/rte_routines.lib.php:1579
 msgid "Function"
 msgstr "Function"
 
@@ -3662,7 +3673,7 @@ msgctxt "Inline edit query"
 msgid "Inline"
 msgstr "Inline"
 
-#: libraries/Util.class.php:1446 sql.php:1182
+#: libraries/Util.class.php:1446 sql.php:1183
 msgid "Profiling"
 msgstr "Profiling"
 
@@ -3701,35 +3712,35 @@ msgstr "The %s functionality is affected by a known bug, see %s"
 msgid "Click to toggle"
 msgstr "Click to toggle"
 
-#: libraries/Util.class.php:3379 libraries/sql_query_form.lib.php:461
+#: libraries/Util.class.php:3401 libraries/sql_query_form.lib.php:461
 #: prefs_manage.php:242
 msgid "Browse your computer:"
 msgstr "Browse your computer:"
 
-#: libraries/Util.class.php:3404
+#: libraries/Util.class.php:3426
 #, php-format
 msgid "Select from the web server upload directory <b>%s</b>:"
 msgstr "Select from the web server upload directory <b>%s</b>:"
 
-#: libraries/Util.class.php:3433 libraries/insert_edit.lib.php:1181
+#: libraries/Util.class.php:3455 libraries/insert_edit.lib.php:1181
 #: libraries/sql_query_form.lib.php:470
 msgid "The directory you set for upload work cannot be reached"
 msgstr "The directory you set for upload work cannot be reached"
 
-#: libraries/Util.class.php:3444
+#: libraries/Util.class.php:3466
 msgid "There are no files to upload"
 msgstr "There are no files to upload"
 
-#: libraries/Util.class.php:3469 libraries/Util.class.php:3470
+#: libraries/Util.class.php:3491 libraries/Util.class.php:3492
 #: libraries/structure.lib.php:305
 msgid "Empty"
 msgstr "Empty"
 
-#: libraries/Util.class.php:3475 libraries/Util.class.php:3476
+#: libraries/Util.class.php:3497 libraries/Util.class.php:3498
 msgid "Execute"
 msgstr "Execute"
 
-#: libraries/Util.class.php:4003
+#: libraries/Util.class.php:4025
 msgid "Print"
 msgstr "Print"
 
@@ -3746,13 +3757,13 @@ msgstr "shared"
 #: libraries/config/user_preferences.forms.php:269
 #: libraries/plugins/export/ExportLatex.class.php:301
 #: libraries/plugins/export/ExportSql.class.php:1557
-#: libraries/server_privileges.lib.php:748 libraries/structure.lib.php:2176
+#: libraries/server_privileges.lib.php:748 libraries/structure.lib.php:2178
 #: tbl_printview.php:299
 msgid "Data"
 msgstr "Data"
 
 #: libraries/build_html_for_db.lib.php:51 libraries/structure.lib.php:791
-#: libraries/structure.lib.php:2189 tbl_printview.php:315
+#: libraries/structure.lib.php:2191 tbl_printview.php:315
 msgid "Overhead"
 msgstr "Overhead"
 
@@ -4302,7 +4313,7 @@ msgid "Character set of the file"
 msgstr "Character set of the file"
 
 #: libraries/config/messages.inc.php:72 libraries/config/messages.inc.php:88
-#: libraries/structure.lib.php:1690 tbl_gis_visualization.php:181
+#: libraries/structure.lib.php:1692 tbl_gis_visualization.php:181
 #: tbl_printview.php:350
 msgid "Format"
 msgstr "Format"
@@ -6357,7 +6368,7 @@ msgstr "Create table"
 #: libraries/plugins/export/ExportTexytext.class.php:434
 #: libraries/rte/rte_list.lib.php:52 libraries/rte/rte_list.lib.php:63
 #: libraries/rte/rte_list.lib.php:77 libraries/rte/rte_routines.lib.php:967
-#: libraries/rte/rte_routines.lib.php:1576 libraries/structure.lib.php:1179
+#: libraries/rte/rte_routines.lib.php:1576 libraries/structure.lib.php:1181
 #: libraries/tbl_columns_definition_form.inc.php:95
 #: setup/frames/index.inc.php:135
 msgid "Name"
@@ -6997,7 +7008,7 @@ msgid "No data found for GIS visualization."
 msgstr "No data found for GIS visualisation."
 
 #: libraries/import.lib.php:187 libraries/insert_edit.lib.php:120
-#: libraries/rte/rte_routines.lib.php:1443 sql.php:940 tbl_get_field.php:57
+#: libraries/rte/rte_routines.lib.php:1443 sql.php:941 tbl_get_field.php:57
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL returned an empty result set (i.e. zero rows)."
 
@@ -7116,11 +7127,11 @@ msgid ""
 msgstr ""
 "Use TAB key to move from value to value, or CTRL+arrows to move anywhere"
 
-#: libraries/insert_edit.lib.php:1911 sql.php:935
+#: libraries/insert_edit.lib.php:1911 sql.php:936
 msgid "Showing SQL query"
 msgstr "Showing SQL query"
 
-#: libraries/insert_edit.lib.php:1936 sql.php:915
+#: libraries/insert_edit.lib.php:1936 sql.php:916
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "Inserted row id: %1$d"
@@ -7379,23 +7390,27 @@ msgstr "phpMyAdmin documentation"
 msgid "Reload navigation frame"
 msgstr "Reload navigation frame"
 
-#: libraries/navigation/NavigationTree.class.php:712
+#: libraries/navigation/NavigationTree.class.php:721
 #, php-format
 msgid "%s other result found"
 msgid_plural "%s other results found"
 msgstr[0] "%s other result found"
 msgstr[1] "%s other results found"
 
-#: libraries/navigation/NavigationTree.class.php:1033
+#: libraries/navigation/NavigationTree.class.php:830
+msgid "Expand/Collapse"
+msgstr ""
+
+#: libraries/navigation/NavigationTree.class.php:1042
 msgid "filter databases by name"
 msgstr "filter databases by name"
 
-#: libraries/navigation/NavigationTree.class.php:1034
-#: libraries/navigation/NavigationTree.class.php:1060
+#: libraries/navigation/NavigationTree.class.php:1043
+#: libraries/navigation/NavigationTree.class.php:1069
 msgid "Clear Fast Filter"
 msgstr "Clear Fast Filter"
 
-#: libraries/navigation/NavigationTree.class.php:1059
+#: libraries/navigation/NavigationTree.class.php:1068
 msgid "filter items by name"
 msgstr "Filter tables by name"
 
@@ -7411,6 +7426,7 @@ msgid "Could not include class \"%1$s\", file \"%2$s\" not found"
 msgstr "Could not include class \"%1$s\", file \"%2$s\" not found"
 
 #: libraries/navigation/Nodes/Node_Column_Container.class.php:26
+#: libraries/navigation/Nodes/Node_Column_Container.class.php:27
 #: libraries/sql_query_form.lib.php:271
 msgid "Columns"
 msgstr "Columns"
@@ -7420,12 +7436,31 @@ msgctxt "Create new column"
 msgid "New"
 msgstr "New"
 
+#: libraries/navigation/Nodes/Node_Column_Container.class.php:40
+#: libraries/navigation/Nodes/Node_Function_Container.class.php:38
+#: libraries/navigation/Nodes/Node_Index_Container.class.php:40
+#: libraries/navigation/Nodes/Node_Procedure_Container.class.php:38
+#: libraries/navigation/Nodes/Node_Table_Container.class.php:43
+#: libraries/navigation/Nodes/Node_View_Container.class.php:39
+#, fuzzy
+#| msgctxt "Create new column"
+#| msgid "New"
+msgid "New"
+msgstr "New"
+
+#: libraries/navigation/Nodes/Node_Database.class.php:32
+#, fuzzy
+#| msgid "Database export options"
+msgid "Database operations"
+msgstr "Database export options"
+
 #: libraries/navigation/Nodes/Node_Event_Container.class.php:36
 msgctxt "Create new event"
 msgid "New"
 msgstr "New"
 
 #: libraries/navigation/Nodes/Node_Function_Container.class.php:26
+#: libraries/navigation/Nodes/Node_Function_Container.class.php:27
 #: libraries/plugins/export/ExportSql.class.php:484
 #: libraries/plugins/export/ExportXml.class.php:107
 msgid "Functions"
@@ -7436,12 +7471,27 @@ msgctxt "Create new function"
 msgid "New"
 msgstr "New"
 
+#: libraries/navigation/Nodes/Node_Index.class.php:32
+#: libraries/structure.lib.php:1397 libraries/structure.lib.php:2066
+#: libraries/structure.lib.php:2076 libraries/structure.lib.php:2184
+#: libraries/tbl_columns_definition_form.inc.php:123
+#: libraries/tbl_columns_definition_form.inc.php:576 tbl_printview.php:306
+msgid "Index"
+msgstr "Index"
+
 #: libraries/navigation/Nodes/Node_Index_Container.class.php:38
 msgctxt "Create new index"
 msgid "New"
 msgstr "New"
 
+#: libraries/navigation/Nodes/Node_Procedure.class.php:32
+#, fuzzy
+#| msgid "Procedures"
+msgid "Procedure"
+msgstr "Procedures"
+
 #: libraries/navigation/Nodes/Node_Procedure_Container.class.php:26
+#: libraries/navigation/Nodes/Node_Procedure_Container.class.php:27
 #: libraries/plugins/export/ExportSql.class.php:467
 #: libraries/plugins/export/ExportXml.class.php:111
 msgid "Procedures"
@@ -7464,6 +7514,7 @@ msgid "New"
 msgstr "New"
 
 #: libraries/navigation/Nodes/Node_View_Container.class.php:26
+#: libraries/navigation/Nodes/Node_View_Container.class.php:27
 #: libraries/plugins/export/ExportXml.class.php:125
 msgid "Views"
 msgstr "Views"
@@ -7579,7 +7630,7 @@ msgid "Repair table"
 msgstr "Repair table"
 
 #: libraries/operations.lib.php:1194 libraries/structure.lib.php:312
-#: libraries/structure.lib.php:1633
+#: libraries/structure.lib.php:1635
 msgid "Optimize table"
 msgstr "Optimise table"
 
@@ -7592,7 +7643,7 @@ msgstr "Table %s has been flushed"
 msgid "Flush the table (FLUSH)"
 msgstr "Flush the table (FLUSH)"
 
-#: libraries/operations.lib.php:1260 view_operations.php:124
+#: libraries/operations.lib.php:1260 view_operations.php:125
 msgid "Delete data or table"
 msgstr "Delete data or table"
 
@@ -7901,13 +7952,13 @@ msgstr "Display MIME types"
 #: libraries/server_privileges.lib.php:1081
 #: libraries/server_privileges.lib.php:1177
 #: libraries/server_privileges.lib.php:1567
-#: libraries/server_privileges.lib.php:2379 server_status.php:320 sql.php:1112
+#: libraries/server_privileges.lib.php:2379 server_status.php:320 sql.php:1113
 msgid "Host"
 msgstr "Host"
 
 #: libraries/plugins/export/ExportLatex.class.php:223
 #: libraries/plugins/export/ExportSql.class.php:617
-#: libraries/plugins/export/ExportXml.class.php:196 sql.php:1115
+#: libraries/plugins/export/ExportXml.class.php:196 sql.php:1116
 msgid "Generation Time"
 msgstr "Generation Time"
 
@@ -8173,7 +8224,6 @@ msgstr ""
 "the issue and try again."
 
 #: libraries/plugins/import/ImportOds.class.php:183
-#| msgid "OpenDocument Spreadsheet"
 msgid "Could not parse OpenDocument Spreadsheet!"
 msgstr "Could not parse OpenDocument Spreadsheet!"
 
@@ -8999,14 +9049,14 @@ msgstr "Table of contents"
 
 #: libraries/schema/Pdf_Relation_Schema.class.php:1367
 #: libraries/schema/Pdf_Relation_Schema.class.php:1390
-#: libraries/structure.lib.php:1182
+#: libraries/structure.lib.php:1184
 #: libraries/tbl_columns_definition_form.inc.php:115
 msgid "Attributes"
 msgstr "Attributes"
 
 #: libraries/schema/Pdf_Relation_Schema.class.php:1370
 #: libraries/schema/Pdf_Relation_Schema.class.php:1393
-#: libraries/structure.lib.php:1185 tbl_tracking.php:328
+#: libraries/structure.lib.php:1187 tbl_tracking.php:328
 msgid "Extra"
 msgstr "Extra"
 
@@ -9658,7 +9708,7 @@ msgstr ""
 "The SQL validator could not be initialised. Please check if you have "
 "installed the necessary PHP extensions as described in the %sdocumentation%s."
 
-#: libraries/structure.lib.php:68 tbl_operations.php:311
+#: libraries/structure.lib.php:68 tbl_operations.php:339
 #, php-format
 msgid "Table %s has been emptied"
 msgstr "Table %s has been emptied"
@@ -9671,13 +9721,13 @@ msgstr "Tracking is active."
 msgid "Tracking is not active."
 msgstr "Tracking is not active."
 
-#: libraries/structure.lib.php:129 tbl_operations.php:329
-#: view_operations.php:116
+#: libraries/structure.lib.php:129 tbl_operations.php:357
+#: view_operations.php:117
 #, php-format
 msgid "View %s has been dropped"
 msgstr "View %s has been dropped"
 
-#: libraries/structure.lib.php:130 tbl_operations.php:330
+#: libraries/structure.lib.php:130 tbl_operations.php:358
 #, php-format
 msgid "Table %s has been dropped"
 msgstr "Table %s has been dropped"
@@ -9694,175 +9744,167 @@ msgstr "Add prefix to table"
 msgid "Check tables having overhead"
 msgstr "Check tables having overhead"
 
-#: libraries/structure.lib.php:1283 tbl_tracking.php:358
+#: libraries/structure.lib.php:1285 tbl_tracking.php:358
 msgctxt "None for default"
 msgid "None"
 msgstr "None"
 
-#: libraries/structure.lib.php:1333
+#: libraries/structure.lib.php:1335
 #, php-format
 msgid "Column %s has been dropped"
 msgstr "Column %s has been dropped"
 
-#: libraries/structure.lib.php:1387 libraries/structure.lib.php:2062
-#: libraries/structure.lib.php:2072
+#: libraries/structure.lib.php:1389 libraries/structure.lib.php:2064
+#: libraries/structure.lib.php:2074
 #: libraries/tbl_columns_definition_form.inc.php:562
 msgid "Primary"
 msgstr "Primary"
 
-#: libraries/structure.lib.php:1395 libraries/structure.lib.php:2064
-#: libraries/structure.lib.php:2074 libraries/structure.lib.php:2182
-#: libraries/tbl_columns_definition_form.inc.php:123
-#: libraries/tbl_columns_definition_form.inc.php:576 tbl_printview.php:306
-msgid "Index"
-msgstr "Index"
-
-#: libraries/structure.lib.php:1402 libraries/structure.lib.php:2068
-#: libraries/structure.lib.php:2078
+#: libraries/structure.lib.php:1404 libraries/structure.lib.php:2070
+#: libraries/structure.lib.php:2080
 msgid "Spatial"
 msgstr "Spatial"
 
-#: libraries/structure.lib.php:1412 libraries/structure.lib.php:2070
-#: libraries/structure.lib.php:2080
+#: libraries/structure.lib.php:1414 libraries/structure.lib.php:2072
+#: libraries/structure.lib.php:2082
 #: libraries/tbl_columns_definition_form.inc.php:584
 msgid "Fulltext"
 msgstr "Fulltext"
 
-#: libraries/structure.lib.php:1427 libraries/structure.lib.php:1523
+#: libraries/structure.lib.php:1429 libraries/structure.lib.php:1525
 msgid "Move columns"
 msgstr "Move columns"
 
-#: libraries/structure.lib.php:1430
+#: libraries/structure.lib.php:1432
 msgid "Move the columns by dragging them up and down."
 msgstr "Move the columns by dragging them up and down."
 
-#: libraries/structure.lib.php:1464
+#: libraries/structure.lib.php:1466
 msgid "Edit view"
 msgstr "Edit view"
 
-#: libraries/structure.lib.php:1497
+#: libraries/structure.lib.php:1499
 msgid "Relation view"
 msgstr "Relation view"
 
-#: libraries/structure.lib.php:1509
+#: libraries/structure.lib.php:1511
 msgid "Propose table structure"
 msgstr "Propose table structure"
 
-#: libraries/structure.lib.php:1545
+#: libraries/structure.lib.php:1547
 #: libraries/tbl_columns_definition_form.inc.php:758
 msgid "You have to add at least one column."
 msgstr "You have to add at least one column."
 
-#: libraries/structure.lib.php:1560
+#: libraries/structure.lib.php:1562
 msgid "Add column"
 msgstr "Add column"
 
-#: libraries/structure.lib.php:1565
+#: libraries/structure.lib.php:1567
 #: libraries/tbl_columns_definition_form.inc.php:748
 #, php-format
 msgid "Add %s column(s)"
 msgstr "Add %s column(s)"
 
-#: libraries/structure.lib.php:1582
+#: libraries/structure.lib.php:1584
 msgid "At End of Table"
 msgstr "At End of Table"
 
-#: libraries/structure.lib.php:1583
+#: libraries/structure.lib.php:1585
 msgid "At Beginning of Table"
 msgstr "At Beginning of Table"
 
-#: libraries/structure.lib.php:1584
+#: libraries/structure.lib.php:1586
 #, php-format
 msgid "After %s"
 msgstr "After %s"
 
-#: libraries/structure.lib.php:1678
-#| msgid "Row Statistics"
+#: libraries/structure.lib.php:1680
 msgid "Row statistics"
 msgstr "Row statistics"
 
-#: libraries/structure.lib.php:1683 tbl_printview.php:353
+#: libraries/structure.lib.php:1685 tbl_printview.php:353
 msgid "static"
 msgstr "static"
 
-#: libraries/structure.lib.php:1685 tbl_printview.php:355
+#: libraries/structure.lib.php:1687 tbl_printview.php:355
 msgid "dynamic"
 msgstr "dynamic"
 
-#: libraries/structure.lib.php:1696
+#: libraries/structure.lib.php:1698
 msgid "partitioned"
 msgstr "partitioned"
 
-#: libraries/structure.lib.php:1733 tbl_printview.php:376
+#: libraries/structure.lib.php:1735 tbl_printview.php:376
 msgid "Row length"
 msgstr "Row length"
 
-#: libraries/structure.lib.php:1746 tbl_printview.php:390
+#: libraries/structure.lib.php:1748 tbl_printview.php:390
 msgid "Row size"
 msgstr "Row size"
 
-#: libraries/structure.lib.php:1754 tbl_printview.php:399
+#: libraries/structure.lib.php:1756 tbl_printview.php:399
 msgid "Next autoindex"
 msgstr "Next autoindex"
 
-#: libraries/structure.lib.php:1880 libraries/structure.lib.php:1961
-#: libraries/structure.lib.php:1969 libraries/structure.lib.php:1986
+#: libraries/structure.lib.php:1882 libraries/structure.lib.php:1963
+#: libraries/structure.lib.php:1971 libraries/structure.lib.php:1988
 #, php-format
 msgid "An index has been added on %s"
 msgstr "An index has been added on %s"
 
-#: libraries/structure.lib.php:1951
+#: libraries/structure.lib.php:1953
 #, php-format
 msgid "A primary key has been added on %s"
 msgstr "A primary key has been added on %s"
 
-#: libraries/structure.lib.php:2011 libraries/structure.lib.php:2082
+#: libraries/structure.lib.php:2013 libraries/structure.lib.php:2084
 msgid "Distinct values"
 msgstr "Distinct values"
 
-#: libraries/structure.lib.php:2014 libraries/structure.lib.php:2017
+#: libraries/structure.lib.php:2016 libraries/structure.lib.php:2019
 msgid "Add primary key"
 msgstr "Add primary key"
 
-#: libraries/structure.lib.php:2020 libraries/structure.lib.php:2023
+#: libraries/structure.lib.php:2022 libraries/structure.lib.php:2025
 #: tbl_indexes.php:195
 msgid "Add index"
 msgstr "Add index"
 
-#: libraries/structure.lib.php:2026 libraries/structure.lib.php:2029
+#: libraries/structure.lib.php:2028 libraries/structure.lib.php:2031
 msgid "Add unique index"
 msgstr "Add unique index"
 
-#: libraries/structure.lib.php:2032 libraries/structure.lib.php:2035
+#: libraries/structure.lib.php:2034 libraries/structure.lib.php:2037
 msgid "Add SPATIAL index"
 msgstr "Add SPATIAL index"
 
-#: libraries/structure.lib.php:2038 libraries/structure.lib.php:2041
+#: libraries/structure.lib.php:2040 libraries/structure.lib.php:2043
 msgid "Add FULLTEXT index"
 msgstr "Add FULLTEXT index"
 
-#: libraries/structure.lib.php:2167 server_binlog.php:197
+#: libraries/structure.lib.php:2169 server_binlog.php:197
 msgid "Information"
 msgstr "Information"
 
-#: libraries/structure.lib.php:2172 tbl_printview.php:296
+#: libraries/structure.lib.php:2174 tbl_printview.php:296
 msgid "Space usage"
 msgstr "Space usage"
 
-#: libraries/structure.lib.php:2192 tbl_printview.php:322
+#: libraries/structure.lib.php:2194 tbl_printview.php:322
 msgid "Effective"
 msgstr "Effective"
 
-#: libraries/structure.lib.php:2373 tbl_addfield.php:197 tbl_indexes.php:112
+#: libraries/structure.lib.php:2375 tbl_addfield.php:197 tbl_indexes.php:112
 #, php-format
 msgid "Table %1$s has been altered successfully"
 msgstr "Table %1$s has been altered successfully"
 
-#: libraries/structure.lib.php:2420 tbl_tracking.php:456 tbl_tracking.php:480
+#: libraries/structure.lib.php:2422 tbl_tracking.php:456 tbl_tracking.php:480
 msgid "Query error"
 msgstr "Query error"
 
-#: libraries/structure.lib.php:2516
+#: libraries/structure.lib.php:2518
 msgid "The columns have been moved successfully."
 msgstr "The columns have been moved successfully."
 
@@ -11951,19 +11993,19 @@ msgstr "Using bookmark \"%s\" as default browse query."
 msgid "Bookmark not created"
 msgstr "Bookmark not created"
 
-#: sql.php:932
+#: sql.php:933
 msgid "Showing as PHP code"
 msgstr "Showing as PHP code"
 
-#: sql.php:937
+#: sql.php:938
 msgid "Validated SQL"
 msgstr "Validated SQL"
 
-#: sql.php:1110
+#: sql.php:1111
 msgid "SQL result"
 msgstr "SQL result"
 
-#: sql.php:1117
+#: sql.php:1118
 msgid "Generated by"
 msgstr "Generated by"
 
@@ -12379,8 +12421,7 @@ msgstr "VIEW name"
 msgid "Rename view to"
 msgstr "Rename view to"
 
-#: view_operations.php:130
-#| msgid "Delete the table (DROP)"
+#: view_operations.php:131
 msgid "Delete the view (DROP)"
 msgstr "Delete the view (DROP)"
 
