@@ -14347,11 +14347,6 @@ msgstr "concurrent_insert je nastaveno na 0"
 #~ msgstr ""
 #~ "Není dostupný přístup na URL ani CURL, proto není možné kontrolovat verzi."
 
-#, fuzzy
-#~| msgid "Find:"
-#~ msgid "Find"
-#~ msgstr "Najít:"
-
 #~ msgid "Display all tables with the same width"
 #~ msgstr "Použít pro všechny tabulky stejnou šířku"
 
@@ -14360,11 +14355,6 @@ msgstr "concurrent_insert je nastaveno na 0"
 
 #~ msgid "Headers every %s rows"
 #~ msgstr "Záhlaví opakovat každých %s řádek"
-
-#, fuzzy
-#~| msgid "Table Search"
-#~ msgid "Enable reCaptcha"
-#~ msgstr "Vyhledávání v tabulce"
 
 #~ msgid "Cookies must be enabled past this point."
 #~ msgstr "Přihlášení vyžaduje povolené cookies."
@@ -14741,11 +14731,6 @@ msgstr "concurrent_insert je nastaveno na 0"
 #~ msgid "Verbose multiple statements"
 #~ msgstr "Podrobné víceprvkové dotazy"
 
-#, fuzzy
-#~| msgid "Data only"
-#~ msgid "Dates only."
-#~ msgstr "Jen data"
-
 #~ msgid ""
 #~ "Suggest a database name on the &quot;Create Database&quot; form (if "
 #~ "possible) or keep the text field empty"
@@ -14804,19 +14789,6 @@ msgstr "concurrent_insert je nastaveno na 0"
 
 #~ msgid "Tracking for %1$s, version %2$s is activated."
 #~ msgstr "Sledování pro %1$s, verze %2$s je zapnuté."
-
-#, fuzzy
-#~ msgctxt "Correctly setup"
-#~ msgid "OK"
-#~ msgstr "OK"
-
-#, fuzzy
-#~ msgid "All users"
-#~ msgstr "Přidat uživatele"
-
-#, fuzzy
-#~ msgid "All hosts"
-#~ msgstr "Jakýkoliv počítač"
 
 #~ msgid "No blob streaming server configured!"
 #~ msgstr "Není nastaven žádný streamovací server!"

@@ -14724,11 +14724,6 @@ msgstr "«concurrent_insert» está definido como 0"
 #~ msgid "Headers every %s rows"
 #~ msgstr "Cabeceras cada %s filas"
 
-#, fuzzy
-#~| msgid "Table Search"
-#~ msgid "Enable reCaptcha"
-#~ msgstr "Búsqueda de tablas"
-
 #~ msgid "Cookies must be enabled past this point."
 #~ msgstr "Las cookies deben estar activadas."
 
