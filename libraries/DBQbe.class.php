@@ -548,7 +548,9 @@ class PMA_DbQbe
             $html_output .= '<td class="center">';
             $html_output .= '<input type="hidden"'
                 . ' name="prev_criteria[' . $new_column_count . ']"'
-                . ' value="' . htmlspecialchars($this->_curCriteria[$new_column_count]) . '" />';
+                . ' value="'
+                . htmlspecialchars($this->_curCriteria[$new_column_count])
+                . '" />';
             $html_output .= '<input type="text"'
                 . ' name="criteria[' . $new_column_count . ']"'
                 . ' value="' . htmlspecialchars($tmp_criteria) . '"'
@@ -679,7 +681,11 @@ class PMA_DbQbe
         $html_output = '<tr class="even noclick">';
         $html_output .= '<th>' . __('Modify:') . '</th>';
         $new_column_count = 0;
-        for ($column_index = 0; $column_index < $this->_criteria_column_count; $column_index++) {
+        for (
+        $column_index = 0;
+        $column_index < $this->_criteria_column_count;
+        $column_index++
+        ) {
             if (! empty($this->_criteriaColumnInsert)
                 && isset($this->_criteriaColumnInsert[$column_index])
                 && $this->_criteriaColumnInsert[$column_index] == 'on'
