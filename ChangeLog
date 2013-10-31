@@ -1,6 +1,8 @@
 phpMyAdmin - ChangeLog
 ======================
 
+4.0.10.0 (not yet released)
+
 4.0.9.0 (not yet released)
 - bug #4104 Can't edit updatable view when searching
 - bug #4108 Missing refresh by deleting databases
