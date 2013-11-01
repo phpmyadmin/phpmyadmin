@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-10-30 13:55+0100\n"
-"PO-Revision-Date: 2013-11-01 12:22+0200\n"
-"Last-Translator: Piotr Przybylski <piotrprz@gmail.com>\n"
+"PO-Revision-Date: 2013-11-01 12:23+0200\n"
+"Last-Translator: Marta moja <marta.mojapoczta1@onet.pl>\n"
 "Language-Team: Polish <http://l10n.cihar.com/projects/phpmyadmin/master/pl/>\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
@@ -477,10 +477,9 @@ msgstr "Użyj OpenStreetMaps jako Podstawowej Warstwy"
 
 #. l10n: Spatial Reference System Identifier
 #: gis_data_editor.php:163
-#, fuzzy
 #| msgid "SRID"
 msgid "SRID:"
-msgstr "SRID"
+msgstr "SRID:"
 
 #: gis_data_editor.php:186
 #, fuzzy, php-format
@@ -489,10 +488,9 @@ msgid "Geometry %d:"
 msgstr "Geometria"
 
 #: gis_data_editor.php:208
-#, fuzzy
 #| msgid "Point"
 msgid "Point:"
-msgstr "Punkt"
+msgstr "Punkt:"
 
 #: gis_data_editor.php:209 gis_data_editor.php:236 gis_data_editor.php:291
 #: gis_data_editor.php:364 js/messages.php:324
