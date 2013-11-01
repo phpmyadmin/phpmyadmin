@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-10-30 13:55+0100\n"
-"PO-Revision-Date: 2013-11-01 12:18+0200\n"
-"Last-Translator: Piotr Przybylski <piotrprz@gmail.com>\n"
+"PO-Revision-Date: 2013-11-01 12:21+0200\n"
+"Last-Translator: Marta moja <marta.mojapoczta1@onet.pl>\n"
 "Language-Team: Polish <http://l10n.cihar.com/projects/phpmyadmin/master/pl/>\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
@@ -36,10 +36,9 @@ msgstr "Komentarz bazy danych: "
 #: db_datadict.php:159 libraries/schema/Pdf_Relation_Schema.class.php:1352
 #: libraries/tbl_columns_definition_form.lib.php:70
 #: libraries/tbl_printview.lib.php:579
-#, fuzzy
 #| msgid "Table comments"
 msgid "Table comments:"
-msgstr "Komentarze tabeli"
+msgstr "Komentarze tabeli:"
 
 #: db_datadict.php:168 libraries/Index.class.php:566
 #: libraries/TableSearch.class.php:185 libraries/TableSearch.class.php:1255
@@ -270,24 +269,21 @@ msgstr "w użyciu"
 
 #: db_printview.php:117 libraries/plugins/export/ExportSql.class.php:1042
 #: libraries/schema/Pdf_Relation_Schema.class.php:1357
-#, fuzzy
 #| msgid "Creation"
 msgid "Creation:"
-msgstr "Data utworzenia"
+msgstr "Data utworzenia:"
 
 #: db_printview.php:126 libraries/plugins/export/ExportSql.class.php:1055
 #: libraries/schema/Pdf_Relation_Schema.class.php:1362
-#, fuzzy
 #| msgid "Last update"
 msgid "Last update:"
-msgstr "Ostatnia aktualizacja"
+msgstr "Ostatnia aktualizacja:"
 
 #: db_printview.php:135 libraries/plugins/export/ExportSql.class.php:1068
 #: libraries/schema/Pdf_Relation_Schema.class.php:1367
-#, fuzzy
 #| msgid "Last check"
 msgid "Last check:"
-msgstr "Ostatnie sprawdzanie"
+msgstr "Ostatnie sprawdzanie:"
 
 #: db_printview.php:149 libraries/structure.lib.php:176
 #, php-format
@@ -421,10 +417,11 @@ msgid ""
 "An error has been detected and an error report has been automatically "
 "submitted based on your settings."
 msgstr ""
+"Wykryto błąd. Raport błędu został przesłany zgodnie z Twoimi ustawieniami."
 
 #: error_report.php:24 error_report.php:33
 msgid "You may want to refresh the page."
-msgstr ""
+msgstr "Możesz odświeżyć stronę."
 
 #: error_report.php:31
 msgid "Thank you for submitting this report."
