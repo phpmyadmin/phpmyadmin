@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-10-30 13:55+0100\n"
-"PO-Revision-Date: 2013-11-01 12:25+0200\n"
-"Last-Translator: Marta moja <marta.mojapoczta1@onet.pl>\n"
+"PO-Revision-Date: 2013-11-01 12:48+0200\n"
+"Last-Translator: Piotr Przybylski <piotrprz@gmail.com>\n"
 "Language-Team: Polish <http://l10n.cihar.com/projects/phpmyadmin/master/pl/>\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
@@ -417,7 +417,8 @@ msgid ""
 "An error has been detected and an error report has been automatically "
 "submitted based on your settings."
 msgstr ""
-"Wykryto błąd. Raport błędu został przesłany zgodnie z Twoimi ustawieniami."
+"Wykryto błąd. Zgłoszenie błędu zostało automatycznie wysłane, zgodnie z "
+"Twoimi ustawieniami."
 
 #: error_report.php:24 error_report.php:33
 msgid "You may want to refresh the page."
@@ -482,10 +483,10 @@ msgid "SRID:"
 msgstr "SRID:"
 
 #: gis_data_editor.php:186
-#, fuzzy, php-format
+#, php-format
 #| msgid "Geometry"
 msgid "Geometry %d:"
-msgstr "Geometria"
+msgstr "Geometria %d:"
 
 #: gis_data_editor.php:208
 #| msgid "Point"
@@ -514,36 +515,35 @@ msgid "Add a point"
 msgstr "Dodaj punkt"
 
 #: gis_data_editor.php:264
-#, fuzzy, php-format
+#, php-format
 #| msgid "Linestring"
 msgid "Linestring %d:"
-msgstr "Linia ciągu"
+msgstr "Linia łamana %d:"
 
 #: gis_data_editor.php:267 gis_data_editor.php:343
-#, fuzzy
 #| msgid "Outer Ring"
 msgid "Outer ring:"
-msgstr "Pierścień zewnętrzny"
+msgstr "Pierścień zewnętrzny:"
 
 #: gis_data_editor.php:269 gis_data_editor.php:345
-#, fuzzy, php-format
+#, php-format
 #| msgid "Inner Ring"
 msgid "Inner ring %d:"
-msgstr "Pierścień wewnętrzny"
+msgstr "Pierścień wewnętrzny %d:"
 
 #: gis_data_editor.php:305
 msgid "Add a linestring"
-msgstr "Dodaj linestring"
+msgstr "Dodaj linię łamaną"
 
 #: gis_data_editor.php:306 gis_data_editor.php:380 js/messages.php:334
 msgid "Add an inner ring"
 msgstr "Dodaj pierścień wewnętrzny"
 
 #: gis_data_editor.php:327
-#, fuzzy, php-format
+#, php-format
 #| msgid "Polygon"
 msgid "Polygon %d:"
-msgstr "Wielokąt"
+msgstr "Wielokąt %d:"
 
 #: gis_data_editor.php:386 js/messages.php:335
 msgid "Add a polygon"
@@ -600,8 +600,8 @@ msgid ""
 "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
 "below into the \"Value\" field"
 msgstr ""
-"Wybierz \"GeomFromText\" z kolumny \"Function\" i wklej poniższy ciąg znaków "
-"do pola \"Value\""
+"Wybierz \"GeomFromText\" z kolumny \"Funkcja\" i wklej poniższy ciąg znaków do "
+"pola \"Wartość\""
 
 #: import.php:116
 #, php-format
@@ -609,8 +609,8 @@ msgid ""
 "You probably tried to upload a file that is too large. Please refer to "
 "%sdocumentation%s for a workaround for this limit."
 msgstr ""
-"Prawdopodobnie próbował załadować plik, który jest zbyt duży. Proszę "
-"zapoznać się %sdokumentacją%s, aby obejść te ograniczenia."
+"Prawdopodobnie nastąpiła próba załadowania zbyt dużego pliku. Proszę "
+"zapoznać się %sdokumentacją%s, aby obejść to ograniczenie."
 
 #: import.php:284 import.php:550
 msgid "Showing bookmark"
@@ -976,7 +976,7 @@ msgstr "Nieprawidłowy numer portu"
 
 #: js/messages.php:49
 msgid "Please enter a valid length"
-msgstr ""
+msgstr "Wprowadź poprawną długość"
 
 #: js/messages.php:50
 msgid "Add Index"
@@ -1358,7 +1358,7 @@ msgstr "Z dziennika ogólnego"
 
 #: js/messages.php:162
 msgid "The database name is not known for this query in the server's logs."
-msgstr ""
+msgstr "Nazwa bazy danych dla tego zapytania nie występuje w logach serwera."
 
 #: js/messages.php:164
 msgid "Analysing logs"
@@ -2046,7 +2046,7 @@ msgstr "Port serwera"
 
 #: js/messages.php:409
 msgid "Submit Error Report"
-msgstr ""
+msgstr "Wyślij zgłoszenie błędu"
 
 #: js/messages.php:411
 #, fuzzy
@@ -2470,7 +2470,7 @@ msgstr "Lub"
 
 #: libraries/DBQbe.class.php:657 libraries/DBQbe.class.php:742
 msgid "And:"
-msgstr ""
+msgstr "Oraz:"
 
 #: libraries/DBQbe.class.php:661
 msgid "Ins"
@@ -3425,7 +3425,7 @@ msgstr "Tabela szukania"
 
 #: libraries/TableSearch.class.php:217 libraries/TableSearch.class.php:1190
 msgid "Find and Replace"
-msgstr ""
+msgstr "Znajdź i zamień"
 
 #: libraries/TableSearch.class.php:240 libraries/insert_edit.lib.php:1404
 msgid "Edit/Insert"
@@ -3492,10 +3492,9 @@ msgid "Reset zoom"
 msgstr "Reset powiększenia"
 
 #: libraries/TableSearch.class.php:1316
-#, fuzzy
 #| msgid "Replace NULL with:"
 msgid "Replace with:"
-msgstr "Zamiana NULL na:"
+msgstr "Zamień na:"
 
 #: libraries/TableSearch.class.php:1376
 msgid "Find and replace - preview"
@@ -6900,10 +6899,9 @@ msgid "Re-type:"
 msgstr "Ponownie"
 
 #: libraries/display_change_password.lib.php:74
-#, fuzzy
 #| msgid "Password Hashing"
 msgid "Password Hashing:"
-msgstr "Sposób kodowania haseł"
+msgstr "Sposób kodowania haseł:"
 
 #: libraries/display_change_password.lib.php:87
 msgid "MySQL 4.0 compatible"
@@ -12963,10 +12961,9 @@ msgid "FOREIGN KEY relation added"
 msgstr "Relacja FOREIGN KEY została dodana"
 
 #: pmd_relation_new.php:84
-#, fuzzy
 #| msgid "Error: Relation not added."
 msgid "Error: Relational features are disabled!"
-msgstr "Błąd: relacja nie została dodana."
+msgstr "Błąd: funkcjonalność relacyjna jest wyłączona!"
 
 #: pmd_relation_new.php:100
 msgid "Internal relation added"
