@@ -1956,37 +1956,22 @@ class PMA_DatabaseInterface
         }
 
         $result = array();
-        if (! $GLOBALS['cfg']['Server']['DisableIS']) {
-            // Note: in http://dev.mysql.com/doc/refman/5.0/en/faqs-triggers.html
-            // their example uses WHERE TRIGGER_SCHEMA='dbname' so let's use this
-            // instead of WHERE EVENT_OBJECT_SCHEMA='dbname'
-            $query = 'SELECT TRIGGER_SCHEMA, TRIGGER_NAME, EVENT_MANIPULATION'
-                . ', EVENT_OBJECT_TABLE, ACTION_TIMING, ACTION_STATEMENT'
-                . ', EVENT_OBJECT_SCHEMA, EVENT_OBJECT_TABLE, DEFINER'
-                . ' FROM information_schema.TRIGGERS'
-                . ' WHERE TRIGGER_SCHEMA= \'' . PMA_Util::sqlAddSlashes($db) . '\'';
+        // Note: in http://dev.mysql.com/doc/refman/5.0/en/faqs-triggers.html
+        // their example uses WHERE TRIGGER_SCHEMA='dbname' so let's use this
+        // instead of WHERE EVENT_OBJECT_SCHEMA='dbname'
+        $query = 'SELECT TRIGGER_SCHEMA, TRIGGER_NAME, EVENT_MANIPULATION'
+            . ', EVENT_OBJECT_TABLE, ACTION_TIMING, ACTION_STATEMENT'
+            . ', EVENT_OBJECT_SCHEMA, EVENT_OBJECT_TABLE, DEFINER'
+            . ' FROM information_schema.TRIGGERS'
+            . ' WHERE TRIGGER_SCHEMA= \'' . PMA_Util::sqlAddSlashes($db) . '\'';
 
-            if (! empty($table)) {
-                $query .= " AND EVENT_OBJECT_TABLE = '"
-                    . PMA_Util::sqlAddSlashes($table) . "';";
-            }
-        } else {
-            $query = "SHOW TRIGGERS FROM " . PMA_Util::backquote($db);
-            if (! empty($table)) {
-                $query .= " LIKE '" . PMA_Util::sqlAddSlashes($table, true) . "';";
-            }
+        if (! empty($table)) {
+            $query .= " AND EVENT_OBJECT_TABLE = '"
+                . PMA_Util::sqlAddSlashes($table) . "';";
         }
 
         if ($triggers = $this->fetchResult($query)) {
             foreach ($triggers as $trigger) {
-                if ($GLOBALS['cfg']['Server']['DisableIS']) {
-                    $trigger['TRIGGER_NAME'] = $trigger['Trigger'];
-                    $trigger['ACTION_TIMING'] = $trigger['Timing'];
-                    $trigger['EVENT_MANIPULATION'] = $trigger['Event'];
-                    $trigger['EVENT_OBJECT_TABLE'] = $trigger['Table'];
-                    $trigger['ACTION_STATEMENT'] = $trigger['Statement'];
-                    $trigger['DEFINER'] = $trigger['Definer'];
-                }
                 $one_result = array();
                 $one_result['name'] = $trigger['TRIGGER_NAME'];
                 $one_result['table'] = $trigger['EVENT_OBJECT_TABLE'];
