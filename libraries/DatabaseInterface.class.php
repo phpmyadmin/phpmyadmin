@@ -327,165 +327,164 @@ class PMA_DatabaseInterface
 
         $tables = array();
 
-        if (! $GLOBALS['cfg']['Server']['DisableIS']) {
-            // get table information from information_schema
-            if ($table) {
-                if (true === $tbl_is_group) {
-                    $sql_where_table = 'AND t.`TABLE_NAME` LIKE \''
-                        . PMA_Util::escapeMysqlWildcards(
-                            PMA_Util::sqlAddSlashes($table)
-                        )
-                        . '%\'';
+        // get table information from information_schema
+        if ($table) {
+            if (true === $tbl_is_group) {
+                $sql_where_table = 'AND t.`TABLE_NAME` LIKE \''
+                    . PMA_Util::escapeMysqlWildcards(
+                        PMA_Util::sqlAddSlashes($table)
+                    )
+                    . '%\'';
+            } else {
+                $sql_where_table = 'AND t.`TABLE_NAME` = \''
+                    . PMA_Util::sqlAddSlashes($table) . '\'';
+            }
+        } else {
+            $sql_where_table = '';
+        }
+
+        if ($tble_type) {
+            if ($tble_type == 'view') {
+                if (PMA_DRIZZLE) {
+                    $sql_where_table .= " AND t.`TABLE_TYPE` != 'BASE'";
                 } else {
-                    $sql_where_table = 'AND t.`TABLE_NAME` = \''
-                        . PMA_Util::sqlAddSlashes($table) . '\'';
+                    $sql_where_table .= " AND t.`TABLE_TYPE` != 'BASE TABLE'";
                 }
-            } else {
-                $sql_where_table = '';
-            }
-
-            if ($tble_type) {
-                if ($tble_type == 'view') {
-                    if (PMA_DRIZZLE) {
-                        $sql_where_table .= " AND t.`TABLE_TYPE` != 'BASE'";
-                    } else {
-                        $sql_where_table .= " AND t.`TABLE_TYPE` != 'BASE TABLE'";
-                    }
-                } else if ($tble_type == 'table') {
-                    if (PMA_DRIZZLE) {
-                        $sql_where_table .= " AND t.`TABLE_TYPE` = 'BASE'";
-                    } else {
-                        $sql_where_table .= " AND t.`TABLE_TYPE` = 'BASE TABLE'";
-                    }
+            } else if ($tble_type == 'table') {
+                if (PMA_DRIZZLE) {
+                    $sql_where_table .= " AND t.`TABLE_TYPE` = 'BASE'";
+                } else {
+                    $sql_where_table .= " AND t.`TABLE_TYPE` = 'BASE TABLE'";
                 }
             }
+        }
 
-            // for PMA bc:
-            // `SCHEMA_FIELD_NAME` AS `SHOW_TABLE_STATUS_FIELD_NAME`
-            //
-            // on non-Windows servers,
-            // added BINARY in the WHERE clause to force a case sensitive
-            // comparison (if we are looking for the db Aa we don't want
-            // to find the db aa)
-            $this_databases = array_map('PMA_Util::sqlAddSlashes', $databases);
+        // for PMA bc:
+        // `SCHEMA_FIELD_NAME` AS `SHOW_TABLE_STATUS_FIELD_NAME`
+        //
+        // on non-Windows servers,
+        // added BINARY in the WHERE clause to force a case sensitive
+        // comparison (if we are looking for the db Aa we don't want
+        // to find the db aa)
+        $this_databases = array_map('PMA_Util::sqlAddSlashes', $databases);
 
-            if (PMA_DRIZZLE) {
-                $engine_info = PMA_Util::cacheGet('drizzle_engines', true);
-                $stats_join = "LEFT JOIN (SELECT 0 NUM_ROWS) AS stat ON false";
-                if (isset($engine_info['InnoDB'])
-                    && $engine_info['InnoDB']['module_library'] == 'innobase'
-                ) {
-                    $stats_join = "LEFT JOIN data_dictionary.INNODB_SYS_TABLESTATS"
-                        . " stat ON (t.ENGINE = 'InnoDB' AND stat.NAME"
-                        . " = (t.TABLE_SCHEMA || '/') || t.TABLE_NAME)";
-                }
-
-                // data_dictionary.table_cache may not contain any data
-                // for some tables, it's just a table cache
-                // auto_increment == 0 is cast to NULL because currently
-                // (2011.03.13 GA)
-                // Drizzle doesn't provide correct value
-                $sql = "
-                    SELECT t.*,
-                        t.TABLE_SCHEMA        AS `Db`,
-                        t.TABLE_NAME          AS `Name`,
-                        t.TABLE_TYPE          AS `TABLE_TYPE`,
-                        t.ENGINE              AS `Engine`,
-                        t.ENGINE              AS `Type`,
-                        t.TABLE_VERSION       AS `Version`,-- VERSION
-                        t.ROW_FORMAT          AS `Row_format`,
-                        coalesce(tc.ROWS, stat.NUM_ROWS)
-                                              AS `Rows`,-- TABLE_ROWS,
-                        coalesce(tc.ROWS, stat.NUM_ROWS)
-                                              AS `TABLE_ROWS`,
-                        tc.AVG_ROW_LENGTH     AS `Avg_row_length`, -- AVG_ROW_LENGTH
-                        tc.TABLE_SIZE         AS `Data_length`, -- DATA_LENGTH
-                        NULL                  AS `Max_data_length`, -- MAX_DATA_LENGTH
-                        NULL                  AS `Index_length`, -- INDEX_LENGTH
-                        NULL                  AS `Data_free`, -- DATA_FREE
-                        nullif(t.AUTO_INCREMENT, 0)
-                                              AS `Auto_increment`,
-                        t.TABLE_CREATION_TIME AS `Create_time`, -- CREATE_TIME
-                        t.TABLE_UPDATE_TIME   AS `Update_time`, -- UPDATE_TIME
-                        NULL                  AS `Check_time`, -- CHECK_TIME
-                        t.TABLE_COLLATION     AS `Collation`,
-                        NULL                  AS `Checksum`, -- CHECKSUM
-                        NULL                  AS `Create_options`, -- CREATE_OPTIONS
-                        t.TABLE_COMMENT       AS `Comment`
-                    FROM data_dictionary.TABLES t
-                        LEFT JOIN data_dictionary.TABLE_CACHE tc
-                            ON tc.TABLE_SCHEMA = t.TABLE_SCHEMA AND tc.TABLE_NAME
-                            = t.TABLE_NAME
-                        $stats_join
-                    WHERE t.TABLE_SCHEMA IN ('" . implode("', '", $this_databases) . "')
-                        " . $sql_where_table;
-            } else {
-                $sql = '
-                    SELECT *,
-                        `TABLE_SCHEMA`       AS `Db`,
-                        `TABLE_NAME`         AS `Name`,
-                        `TABLE_TYPE`         AS `TABLE_TYPE`,
-                        `ENGINE`             AS `Engine`,
-                        `ENGINE`             AS `Type`,
-                        `VERSION`            AS `Version`,
-                        `ROW_FORMAT`         AS `Row_format`,
-                        `TABLE_ROWS`         AS `Rows`,
-                        `AVG_ROW_LENGTH`     AS `Avg_row_length`,
-                        `DATA_LENGTH`        AS `Data_length`,
-                        `MAX_DATA_LENGTH`    AS `Max_data_length`,
-                        `INDEX_LENGTH`       AS `Index_length`,
-                        `DATA_FREE`          AS `Data_free`,
-                        `AUTO_INCREMENT`     AS `Auto_increment`,
-                        `CREATE_TIME`        AS `Create_time`,
-                        `UPDATE_TIME`        AS `Update_time`,
-                        `CHECK_TIME`         AS `Check_time`,
-                        `TABLE_COLLATION`    AS `Collation`,
-                        `CHECKSUM`           AS `Checksum`,
-                        `CREATE_OPTIONS`     AS `Create_options`,
-                        `TABLE_COMMENT`      AS `Comment`
-                    FROM `information_schema`.`TABLES` t
-                    WHERE ' . (PMA_IS_WINDOWS ? '' : 'BINARY') . ' `TABLE_SCHEMA`
-                        IN (\'' . implode("', '", $this_databases) . '\')
-                        ' . $sql_where_table;
+        if (PMA_DRIZZLE) {
+            $engine_info = PMA_Util::cacheGet('drizzle_engines', true);
+            $stats_join = "LEFT JOIN (SELECT 0 NUM_ROWS) AS stat ON false";
+            if (isset($engine_info['InnoDB'])
+                && $engine_info['InnoDB']['module_library'] == 'innobase'
+            ) {
+                $stats_join = "LEFT JOIN data_dictionary.INNODB_SYS_TABLESTATS"
+                    . " stat ON (t.ENGINE = 'InnoDB' AND stat.NAME"
+                    . " = (t.TABLE_SCHEMA || '/') || t.TABLE_NAME)";
             }
 
-            // Sort the tables
-            $sql .= " ORDER BY $sort_by $sort_order";
+            // data_dictionary.table_cache may not contain any data
+            // for some tables, it's just a table cache
+            // auto_increment == 0 is cast to NULL because currently
+            // (2011.03.13 GA)
+            // Drizzle doesn't provide correct value
+            $sql = "
+                SELECT t.*,
+                    t.TABLE_SCHEMA        AS `Db`,
+                    t.TABLE_NAME          AS `Name`,
+                    t.TABLE_TYPE          AS `TABLE_TYPE`,
+                    t.ENGINE              AS `Engine`,
+                    t.ENGINE              AS `Type`,
+                    t.TABLE_VERSION       AS `Version`,-- VERSION
+                    t.ROW_FORMAT          AS `Row_format`,
+                    coalesce(tc.ROWS, stat.NUM_ROWS)
+                                          AS `Rows`,-- TABLE_ROWS,
+                    coalesce(tc.ROWS, stat.NUM_ROWS)
+                                          AS `TABLE_ROWS`,
+                    tc.AVG_ROW_LENGTH     AS `Avg_row_length`, -- AVG_ROW_LENGTH
+                    tc.TABLE_SIZE         AS `Data_length`, -- DATA_LENGTH
+                    NULL                  AS `Max_data_length`, -- MAX_DATA_LENGTH
+                    NULL                  AS `Index_length`, -- INDEX_LENGTH
+                    NULL                  AS `Data_free`, -- DATA_FREE
+                    nullif(t.AUTO_INCREMENT, 0)
+                                          AS `Auto_increment`,
+                    t.TABLE_CREATION_TIME AS `Create_time`, -- CREATE_TIME
+                    t.TABLE_UPDATE_TIME   AS `Update_time`, -- UPDATE_TIME
+                    NULL                  AS `Check_time`, -- CHECK_TIME
+                    t.TABLE_COLLATION     AS `Collation`,
+                    NULL                  AS `Checksum`, -- CHECKSUM
+                    NULL                  AS `Create_options`, -- CREATE_OPTIONS
+                    t.TABLE_COMMENT       AS `Comment`
+                FROM data_dictionary.TABLES t
+                    LEFT JOIN data_dictionary.TABLE_CACHE tc
+                        ON tc.TABLE_SCHEMA = t.TABLE_SCHEMA AND tc.TABLE_NAME
+                        = t.TABLE_NAME
+                    $stats_join
+                WHERE t.TABLE_SCHEMA IN ('" . implode("', '", $this_databases) . "')
+                    " . $sql_where_table;
+        } else {
+            $sql = '
+                SELECT *,
+                    `TABLE_SCHEMA`       AS `Db`,
+                    `TABLE_NAME`         AS `Name`,
+                    `TABLE_TYPE`         AS `TABLE_TYPE`,
+                    `ENGINE`             AS `Engine`,
+                    `ENGINE`             AS `Type`,
+                    `VERSION`            AS `Version`,
+                    `ROW_FORMAT`         AS `Row_format`,
+                    `TABLE_ROWS`         AS `Rows`,
+                    `AVG_ROW_LENGTH`     AS `Avg_row_length`,
+                    `DATA_LENGTH`        AS `Data_length`,
+                    `MAX_DATA_LENGTH`    AS `Max_data_length`,
+                    `INDEX_LENGTH`       AS `Index_length`,
+                    `DATA_FREE`          AS `Data_free`,
+                    `AUTO_INCREMENT`     AS `Auto_increment`,
+                    `CREATE_TIME`        AS `Create_time`,
+                    `UPDATE_TIME`        AS `Update_time`,
+                    `CHECK_TIME`         AS `Check_time`,
+                    `TABLE_COLLATION`    AS `Collation`,
+                    `CHECKSUM`           AS `Checksum`,
+                    `CREATE_OPTIONS`     AS `Create_options`,
+                    `TABLE_COMMENT`      AS `Comment`
+                FROM `information_schema`.`TABLES` t
+                WHERE ' . (PMA_IS_WINDOWS ? '' : 'BINARY') . ' `TABLE_SCHEMA`
+                    IN (\'' . implode("', '", $this_databases) . '\')
+                    ' . $sql_where_table;
+        }
 
-            if ($limit_count) {
-                $sql .= ' LIMIT ' . $limit_count . ' OFFSET ' . $limit_offset;
-            }
+        // Sort the tables
+        $sql .= " ORDER BY $sort_by $sort_order";
 
-            $tables = $this->fetchResult(
-                $sql, array('TABLE_SCHEMA', 'TABLE_NAME'), null, $link
-            );
-            unset($sql_where_table, $sql);
+        if ($limit_count) {
+            $sql .= ' LIMIT ' . $limit_count . ' OFFSET ' . $limit_offset;
+        }
 
-            if (PMA_DRIZZLE) {
-                // correct I_S and D_D names returned by D_D.TABLES -
-                // Drizzle generally uses lower case for them,
-                // but TABLES returns uppercase
-                foreach ((array)$database as $db) {
-                    $db_upper = strtoupper($db);
-                    if (!isset($tables[$db]) && isset($tables[$db_upper])) {
-                        $tables[$db] = $tables[$db_upper];
-                        unset($tables[$db_upper]);
-                    }
-                }
-            }
+        $tables = $this->fetchResult(
+            $sql, array('TABLE_SCHEMA', 'TABLE_NAME'), null, $link
+        );
+        unset($sql_where_table, $sql);
 
-            if ($sort_by == 'Name' && $GLOBALS['cfg']['NaturalOrder']) {
-                // here, the array's first key is by schema name
-                foreach ($tables as $one_database_name => $one_database_tables) {
-                    uksort($one_database_tables, 'strnatcasecmp');
-
-                    if ($sort_order == 'DESC') {
-                        $one_database_tables = array_reverse($one_database_tables);
-                    }
-                    $tables[$one_database_name] = $one_database_tables;
+        if (PMA_DRIZZLE) {
+            // correct I_S and D_D names returned by D_D.TABLES -
+            // Drizzle generally uses lower case for them,
+            // but TABLES returns uppercase
+            foreach ((array)$database as $db) {
+                $db_upper = strtoupper($db);
+                if (!isset($tables[$db]) && isset($tables[$db_upper])) {
+                    $tables[$db] = $tables[$db_upper];
+                    unset($tables[$db_upper]);
                 }
             }
-        } // end (get information from table schema)
+        }
+
+        if ($sort_by == 'Name' && $GLOBALS['cfg']['NaturalOrder']) {
+            // here, the array's first key is by schema name
+            foreach ($tables as $one_database_name => $one_database_tables) {
+                uksort($one_database_tables, 'strnatcasecmp');
+
+                if ($sort_order == 'DESC') {
+                    $one_database_tables = array_reverse($one_database_tables);
+                }
+                $tables[$one_database_name] = $one_database_tables;
+            }
+        }
+        // end (get information from table schema)
 
         // If permissions are wrong on even one database directory,
         // information_schema does not return any table info for any database
