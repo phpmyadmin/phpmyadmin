@@ -219,8 +219,9 @@ function PMA_sqlQueryFormInsert(
         $tmp_db_link = '<a href="' . $GLOBALS['cfg']['DefaultTabDatabase']
             . '?' . PMA_generate_common_url($db) . '"';
         if ($is_querywindow) {
-            $tmp_db_link .= ' target="_self"'
-                . ' onclick="this.target=window.opener.frame_content.name"';
+            $tmp_db_link .= 'target="_parent" '
+            .'onclick="window.opener.location.href = \''.$GLOBALS['cfg']['DefaultTabDatabase']
+            . '?' . PMA_generate_common_url($db).'\';return false;"';
         }
         $tmp_db_link .= '>'
             . htmlspecialchars($db) . '</a>';
