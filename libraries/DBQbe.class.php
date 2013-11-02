@@ -836,7 +836,11 @@ class PMA_DbQbe
         $html_output = '';
         $new_row_count = 0;
         $odd_row = true;
-        for ($row_index = 0; $row_index <= $this->_criteria_row_count; $row_index++) {
+        for (
+        $row_index = 0;
+        $row_index <= $this->_criteria_row_count;
+        $row_index++
+        ) {
             if (isset($this->_criteriaRowInsert[$row_index])
                 && $this->_criteriaRowInsert[$row_index] == 'on'
             ) {
