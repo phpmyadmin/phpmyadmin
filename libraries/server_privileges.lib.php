@@ -2246,8 +2246,7 @@ function PMA_getUserGroupEditLink($username)
         . PMA_URL_getCommon(array('username' => $username))
         . '">'
         . PMA_Util::getIcon('b_usrlist.png', __('Edit user group'))
-        . '</a>'
-        . '</td>';
+        . '</a>';
 }
 
 /**
@@ -3007,7 +3006,8 @@ function PMA_getTableBodyForUserRightsTable($db_rights)
                     $html_output .= '<td class="center"></td>';
                 } else {
                     $html_output .= '<td class="center">'
-                        . PMA_getUserGroupEditLink($host['User']);
+                        . PMA_getUserGroupEditLink($host['User'])
+                        .'</td>';
                 }
             }
             $html_output .= '<td class="center">'
