@@ -2315,9 +2315,9 @@ function PMA_getExtraDataForAjaxBehavior(
         if (isset($cfgRelation['users']) && isset($cfgRelation['usergroups'])) {
             $new_user_string .= '<td class="usrGroup"></td>';
         }
-        
+
         $new_user_string .= '<td>';
-        
+
         if ((isset($_POST['Grant_priv']) && $_POST['Grant_priv'] == 'Y')) {
             $new_user_string .= __('Yes');
         } else {
