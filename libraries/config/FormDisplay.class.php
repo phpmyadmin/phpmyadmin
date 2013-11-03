@@ -28,6 +28,12 @@ require_once './libraries/js_escape.lib.php';
 class FormDisplay
 {
     /**
+     * ConfigFile instance
+     * @var ConfigFile
+     */
+    private $_configFile;
+
+    /**
      * Form list
      * @var Form[]
      */
@@ -81,8 +87,10 @@ class FormDisplay
 
     /**
      * Constructor
+     *
+     * @param ConfigFile $cf Config file instance
      */
-    public function __construct()
+    public function __construct(ConfigFile $cf)
     {
         $this->_jsLangStrings = array(
             'error_nan_p' => __('Not a positive number'),
@@ -90,8 +98,19 @@ class FormDisplay
             'error_incorrect_port' => __('Not a valid port number'),
             'error_invalid_value' => __('Incorrect value'),
             'error_value_lte' => __('Value must be equal or lower than %s'));
+        $this->_configFile = $cf;
         // initialize validators
-        PMA_Validator::getValidators();
+        PMA_Validator::getValidators($this->_configFile);
+    }
+
+    /**
+     * Returns {@link ConfigFile} associated with this instance
+     *
+     * @return ConfigFile
+     */
+    public function getConfigFile()
+    {
+        return $this->_configFile;
     }
 
     /**
@@ -105,7 +124,7 @@ class FormDisplay
      */
     public function registerForm($form_name, array $form, $server_id = null)
     {
-        $this->_forms[$form_name] = new Form($form_name, $form, $server_id);
+        $this->_forms[$form_name] = new Form($form_name, $form, $this->_configFile, $server_id);
         $this->_isValidated = false;
         foreach ($this->_forms[$form_name]->fields as $path) {
             $work_path = $server_id === null
@@ -149,7 +168,6 @@ class FormDisplay
             return;
         }
 
-        $cf = ConfigFile::getInstance();
         $paths = array();
         $values = array();
         foreach ($this->_forms as $form) {
@@ -158,13 +176,13 @@ class FormDisplay
             // collect values and paths
             foreach ($form->fields as $path) {
                 $work_path = array_search($path, $this->_systemPaths);
-                $values[$path] = $cf->getValue($work_path);
+                $values[$path] = $this->_configFile->getValue($work_path);
                 $paths[] = $path;
             }
         }
 
         // run validation
-        $errors = PMA_Validator::validate($paths, $values, false);
+        $errors = PMA_Validator::validate($this->_configFile, $paths, $values, false);
 
         // change error keys from canonical paths to work paths
         if (is_array($errors) && count($errors) > 0) {
@@ -198,7 +216,7 @@ class FormDisplay
         $js = array();
         $js_default = array();
         $tabbed_form = $tabbed_form && (count($this->_forms) > 1);
-        $validators = PMA_Validator::getValidators();
+        $validators = PMA_Validator::getValidators($this->_configFile);
 
         PMA_displayFormTop();
 
@@ -315,9 +333,8 @@ class FormDisplay
         $name = PMA_langName($system_path);
         $description = PMA_langName($system_path, 'desc', '');
 
-        $cf = ConfigFile::getInstance();
-        $value = $cf->get($work_path);
-        $value_default = $cf->getDefault($system_path);
+        $value = $this->_configFile->get($work_path);
+        $value_default = $this->_configFile->getDefault($system_path);
         $value_is_default = false;
         if ($value === null || $value === $value_default) {
             $value = $value_default;
@@ -456,7 +473,7 @@ class FormDisplay
             return;
         }
 
-        $cf = ConfigFile::getInstance();
+        $cf = $this->_configFile;
         foreach (array_keys($this->_errors) as $work_path) {
             if (!isset($this->_systemPaths[$work_path])) {
                 continue;
@@ -508,7 +525,6 @@ class FormDisplay
     public function save($forms, $allow_partial_save = true)
     {
         $result = true;
-        $cf = ConfigFile::getInstance();
         $forms = (array) $forms;
 
         $values = array();
@@ -528,7 +544,7 @@ class FormDisplay
             }
             // get current server id
             $change_index = $form->index === 0
-                ? $cf->getServerCount() + 1
+                ? $this->_configFile->getServerCount() + 1
                 : false;
             // grab POST values
             foreach ($form->fields as $field => $system_path) {
@@ -646,10 +662,10 @@ class FormDisplay
                     }
                     $values[$path] = $proxies;
                 }
-                $cf->set($work_path, $values[$path], $path);
+                $this->_configFile->set($work_path, $values[$path], $path);
             }
             if ($is_setup_script) {
-                $cf->set(
+                $this->_configFile->set(
                     'UserprefsDisallow',
                     array_keys($this->_userprefsDisallow)
                 );
@@ -744,7 +760,7 @@ class FormDisplay
             $this->_userprefsKeys = array_flip(PMA_readUserprefsFieldNames());
             // read real config for user preferences display
             $userprefs_disallow = defined('PMA_SETUP')
-                ? ConfigFile::getInstance()->get('UserprefsDisallow', array())
+                ? $this->_configFile->get('UserprefsDisallow', array())
                 : $GLOBALS['cfg']['UserprefsDisallow'];
             $this->_userprefsDisallow = array_flip($userprefs_disallow);
         }

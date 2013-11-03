@@ -7,7 +7,9 @@
  */
 
 require_once 'libraries/config/ConfigFile.class.php';
+require_once 'libraries/config/Form.class.php';
 require_once 'libraries/config/FormDisplay.class.php';
+require_once 'libraries/config/config_functions.lib.php';
 require_once 'libraries/Util.class.php';
 require_once 'libraries/Theme.class.php';
 require_once 'libraries/Config.class.php';
@@ -21,6 +23,9 @@ require_once 'libraries/user_preferences.lib.php';
  */
 class PMA_FormDisplay_Test extends PHPUnit_Framework_TestCase
 {
+    /**
+     * @var FormDisplay
+     */
     protected $object;
 
     /**
@@ -36,7 +41,7 @@ class PMA_FormDisplay_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['PMA_Config'] = new PMA_Config();
         $GLOBALS['PMA_Config']->enableBc();
         $GLOBALS['server'] = 0;
-        $this->object = new FormDisplay();
+        $this->object = new FormDisplay(new ConfigFile());
     }
 
     /**
@@ -512,7 +517,7 @@ class PMA_FormDisplay_Test extends PHPUnit_Framework_TestCase
         );
 
         $comment = '';
-        if (!function_exists("gzopen")) {
+        if (!function_exists("bzopen")) {
             $comment = 'Compressed import will not work due to missing function ' .
                 'bzopen.';
         }

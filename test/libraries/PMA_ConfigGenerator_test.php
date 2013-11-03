@@ -30,15 +30,10 @@ class PMA_ConfigGenerator_Test extends PHPUnit_Framework_TestCase
     public function testGetConfigFile()
     {
         $GLOBALS['cfg']['AvailableCharsets'] = array();
-        $GLOBALS['PMA_Config'] = new PMA_Config();
         unset($_SESSION['eol']);
 
-        $attr_instance = new ReflectionProperty("ConfigFile", "_instance");
-        $attr_instance->setAccessible(true);
-        $attr_instance->setValue(null, null);
-
         $GLOBALS['server'] = 0;
-        $cf = ConfigFile::getInstance();
+        $cf = new ConfigFile();
         $_SESSION['ConfigFile0'] = array('a', 'b', 'c');
         $_SESSION['ConfigFile0']['Servers'] = array(
             array(1, 2, 3)
@@ -46,7 +41,7 @@ class PMA_ConfigGenerator_Test extends PHPUnit_Framework_TestCase
 
         $cf->setPersistKeys(array("1/", 2));
 
-        $result = ConfigGenerator::getConfigFile();
+        $result = ConfigGenerator::getConfigFile($cf);
 
         $this->assertContains(
             "<?php\n" .

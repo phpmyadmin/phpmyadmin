@@ -19,6 +19,16 @@ require_once 'libraries/php-gettext/gettext.inc';
  */
 class PMA_ConfigFile_Test extends PHPUnit_Framework_TestCase
 {
+    /**
+     * Any valid key that exists in config.default.php and isn't empty
+     * @var string
+     */
+    const SIMPLE_KEY_WITH_DEFAULT_VALUE = 'DefaultQueryTable';
+
+    /**
+     * Object under test
+     * @var ConfigFile
+     */
     protected $object;
 
     /**
@@ -29,9 +39,9 @@ class PMA_ConfigFile_Test extends PHPUnit_Framework_TestCase
      */
     protected function setUp()
     {
-        $GLOBALS['cfg']['AvailableCharsets'] = array();
         $GLOBALS['server'] = 1;
-        $this->object = ConfigFile::getInstance();
+        $GLOBALS['cfg']['AvailableCharsets'] = array();
+        $this->object = new ConfigFile();
     }
 
     /**
@@ -41,14 +51,8 @@ class PMA_ConfigFile_Test extends PHPUnit_Framework_TestCase
      */
     protected function tearDown()
     {
-
         unset($_SESSION[$this->readAttribute($this->object, "_id")]);
         unset($this->object);
-
-        // reset the instance
-        $attr_instance = new ReflectionProperty("ConfigFile", "_instance");
-        $attr_instance->setAccessible(true);
-        $attr_instance->setValue(null, null);
     }
 
     /**
@@ -57,22 +61,12 @@ class PMA_ConfigFile_Test extends PHPUnit_Framework_TestCase
      * @return void
      * @test
      */
-    public function testConfigFileConstructor()
+    public function testNewObjectState()
     {
-        $attr_instance = new ReflectionProperty("ConfigFile", "_instance");
-        $attr_instance->setAccessible(true);
-        $attr_instance->setValue(null, null);
-        $this->object = ConfigFile::getInstance();
-        $cfg = $this->readAttribute($this->object, '_cfg');
-
+        // Check default dynamic values
         $this->assertEquals(
             "82%",
-            $cfg['fontsize']
-        );
-
-        $this->assertInstanceOf(
-            "PMA_Config",
-            $this->readAttribute($this->object, '_orgCfgObject')
+            $this->object->getDefault('fontsize')
         );
 
         if (extension_loaded('mysqli')) {
@@ -83,48 +77,22 @@ class PMA_ConfigFile_Test extends PHPUnit_Framework_TestCase
 
         $this->assertEquals(
             $expect,
-            $cfg['Servers'][1]['extension']
+            $this->object->getDefault('Servers/1/extension')
+        );
+        $this->assertEquals(
+            array(),
+            $this->object->getConfig()
         );
 
+        // Check environment state
         $this->assertEquals(
             array(),
             $_SESSION["ConfigFile1"]
         );
 
-        $this->assertAttributeEquals(
-            "ConfigFile1",
-            "_id",
-            $this->object
-        );
-
-    }
-
-    /**
-     * Test for ConfigFile::getInstance()
-     *
-     * @return void
-     * @test
-     */
-    public function testGetInstance()
-    {
-        $this->assertInstanceOf(
-            "ConfigFile",
-            $this->object
-        );
-    }
-
-    /**
-     * Test for ConfigFile::getOrgConfigObj()
-     *
-     * @return void
-     * @test
-     */
-    public function testGetOrgConfigObj()
-    {
-        $this->assertEquals(
-            $this->readAttribute($this->object, '_orgCfgObject'),
-            $this->object->getOrgConfigObj()
-        );
+        // Validate default value used in tests
+        $default_value = $this->object->getDefault(self::SIMPLE_KEY_WITH_DEFAULT_VALUE);
+        $this->assertNotNull($default_value);
     }
 
     /**
@@ -133,26 +101,42 @@ class PMA_ConfigFile_Test extends PHPUnit_Framework_TestCase
      * @return void
      * @test
      */
-    public function testSetPersistKeys()
+    public function testPersistentKeys()
     {
-        $this->object->setPersistKeys(array("a" => 1, "b" => 1, "c" => 2));
-        $this->assertEquals(
-            array("1" => "b", "2" => "c"),
-            $this->readAttribute($this->object, '_persistKeys')
-        );
-    }
+        $default_simple_value = $this->object->getDefault(self::SIMPLE_KEY_WITH_DEFAULT_VALUE);
+        $default_host = $this->object->getDefault('Servers/1/host');
+        $default_config = array(
+            self::SIMPLE_KEY_WITH_DEFAULT_VALUE => $default_simple_value,
+            'Servers/1/host' => $default_host,
+            'Servers/2/host' => $default_host);
 
-    /**
-     * Test for ConfigFile::getPersistKeysMap
-     *
-     * @return void
-     * @test
-     */
-    public function testGetPersistKeysMap()
-    {
+        /**
+         * Case 1: set default value, key should not be persisted
+         */
+        $this->object->set(self::SIMPLE_KEY_WITH_DEFAULT_VALUE, $default_simple_value);
+        $this->object->set('Servers/1/host', $default_host);
+        $this->object->set('Servers/2/host', $default_host);
+        $this->assertEmpty($this->object->getConfig());
+
+        /**
+         * Case 2: persistent keys should be always present in flat array, even if not explicitly set
+         * (unless they are Server entries)
+         */
+        $this->object->setPersistKeys(array_keys($default_config));
+        $this->object->resetConfigData();
+        $this->assertEmpty($this->object->getConfig());
         $this->assertEquals(
-            $this->readAttribute($this->object, '_persistKeys'),
-            $this->object->getPersistKeysMap()
+            $default_config,
+            $this->object->getConfigArray()
+        );
+
+        /**
+         * Case 3: persistent keys should be always saved, even if set to default values
+         */
+        $this->object->set('Servers/2/host', $default_host);
+        $this->assertEquals(
+            array('Servers' => array(2 => array('host' => $default_host))),
+            $this->object->getConfig()
         );
     }
 
@@ -162,18 +146,31 @@ class PMA_ConfigFile_Test extends PHPUnit_Framework_TestCase
      * @return void
      * @test
      */
-    public function testSetAllowedKeys()
+    public function testAllowedKeys()
     {
-        $this->object->setAllowedKeys(array("a" => 1, "c" => 2));
+        /**
+         * Case 1: filter should not allow to set b
+         */
+        $this->object->setAllowedKeys(array('a', 'c'));
+        $this->object->set('a', 1);
+        $this->object->set('b', 2);
+        $this->object->set('c', 3);
+
         $this->assertEquals(
-            array("1" => "a", "2" => "c"),
-            $this->readAttribute($this->object, '_setFilter')
+            array('a' => 1, 'c' => 3),
+            $this->object->getConfig()
         );
 
+
+        /**
+         * Case 2: disabling filter should allow to set b
+         */
         $this->object->setAllowedKeys(null);
+        $this->object->set('b', 2);
+
         $this->assertEquals(
-            null,
-            $this->readAttribute($this->object, '_setFilter')
+            array('a' => 1, 'b' => 2, 'c' => 3),
+            $this->object->getConfig()
         );
     }
 
@@ -183,12 +180,26 @@ class PMA_ConfigFile_Test extends PHPUnit_Framework_TestCase
      * @return void
      * @test
      */
-    public function testSetCfgUpdateReadMapping()
+    public function testConfigReadMapping()
     {
-        $this->object->setCfgUpdateReadMapping(array(1, 2, 3));
+        $this->object->setCfgUpdateReadMapping(array(
+                'Servers/value1' => 'Servers/1/value1',
+                'Servers/value2' => 'Servers/1/value2'));
+        $this->object->set('Servers/1/passthrough1', 1);
+        $this->object->set('Servers/1/passthrough2', 2);
+        $this->object->updateWithGlobalConfig(array('Servers/value1' => 3));
+
         $this->assertEquals(
-            array(1, 2, 3),
-            $this->readAttribute($this->object, '_cfgUpdateReadMapping')
+            array('Servers' => array(
+                1 => array(
+                    'passthrough1' => 1,
+                    'passthrough2' => 2,
+                    'value1' => 3))),
+            $this->object->getConfig()
+        );
+        $this->assertEquals(
+            3,
+            $this->object->get('Servers/1/value1')
         );
     }
 
@@ -200,15 +211,12 @@ class PMA_ConfigFile_Test extends PHPUnit_Framework_TestCase
      */
     public function testResetConfigData()
     {
-        $selfid = $this->readAttribute($this->object, '_id');
-        $_SESSION[$selfid] = "foo";
+        $this->object->set('key', 'value');
 
         $this->object->resetConfigData();
 
-        $this->assertEquals(
-            array(),
-            $_SESSION[$selfid]
-        );
+        $this->assertEmpty($this->object->getConfig());
+        $this->assertEmpty($this->object->getConfigArray());
     }
 
     /**
@@ -219,168 +227,99 @@ class PMA_ConfigFile_Test extends PHPUnit_Framework_TestCase
      */
     public function testSetConfigData()
     {
-        $selfid = $this->readAttribute($this->object, '_id');
-
-        $this->object->setConfigData(array("foo"));
+        $this->object->set('abc', 'should be deleted by setConfigData');
+        $this->object->setConfigData(array('a' => 'b'));
 
         $this->assertEquals(
-            array("foo"),
-            $_SESSION[$selfid]
+            array('a' => 'b'),
+            $this->object->getConfig()
+        );
+        $this->assertEquals(
+            array('a' => 'b'),
+            $this->object->getConfigArray()
         );
     }
 
     /**
-     * Test for ConfigFile::set
+     * Test for ConfigFile::set and ConfigFile::get
      *
      * @return void
      * @test
      */
-    public function testConfigFileSet()
+    public function testBasicSetUsage()
     {
-        if (! PMA_HAS_RUNKIT) {
-            $this->markTestSkipped("Cannot redefine constant");
-        }
+        $default_host = $this->object->getDefault('Servers/1/host');
+        $nondefault_host = $default_host . '.abc';
 
-        $reflection = new \ReflectionClass("ConfigFile");
+        $this->object->set('Servers/4/host', $nondefault_host);
+        $this->object->set('Servers/5/host', $default_host);
+        $this->object->set('Servers/6/host', $default_host, 'Servers/6/host');
+        $this->assertEquals(
+            $nondefault_host,
+            $this->object->get('Servers/4/host')
+        );
+        $this->assertEquals(
+            null,
+            $this->object->get('Servers/5/host')
+        );
+        $this->assertEquals(
+            $default_host,
+            $this->object->get('Servers/6/host')
+        );
 
-        $attrSetFilter = $reflection->getProperty("_setFilter");
-        $attrSetFilter->setAccessible(true);
-
-        $attrCfg = $reflection->getProperty('_cfg');
-        $attrCfg->setAccessible(true);
-
-        $attrCfgObject = $reflection->getProperty('_orgCfgObject');
-        $attrCfgObject->setAccessible(true);
-
-        $attrConfigProperty = new \ReflectionProperty("PMA_Config", "settings");
-        $attrConfigProperty->setAccessible(true);
-
-        /**
-         * Case 1
-         */
-        $attrSetFilter->setValue($this->object, array());
-
+        // return default value for nonexistent keys
         $this->assertNull(
-            $this->object->set("a", "b")
+            $this->object->get('key not excist')
         );
-
-        /**
-         * Case 2
-         */
-        $this->object->setPersistKeys(array("Servers/1/test" => 1));
-        $attrSetFilter->setValue($this->object, array("Servers/1/test" => 1));
-        $this->object->set("Servers/42/test", "val");
-
-        $expectedArr = array("Servers" => array("42" => array("test" => "val")));
-
         $this->assertEquals(
-            $expectedArr,
-            $_SESSION[$this->readAttribute($this->object, "_id")]
+            array(1),
+            $this->object->get('key not excist', array(1))
         );
-
-        $expectedArr = array("Servers" => array("42" => "val"));
-
-        /**
-         * Case 3
-         */
-        $attrSetFilter->setValue($this->object, array("Servers/42" => 1));
-        $attrCfg->setValue($this->object, $expectedArr);
-        $attrConfigProperty->setValue(
-            $attrCfgObject->getValue($this->object),
-            array()
+        $default = new stdClass();
+        $this->assertInstanceOf(
+            'stdClass',
+            $this->object->get('key not excist', $default)
         );
-
-        $pma_setup = null;
-
-        if (!defined('PMA_SETUP')) {
-            define('PMA_SETUP', true);
-        } else {
-            $pma_setup = PMA_SETUP;
-            runkit_constant_redefine('PMA_SETUP', true);
-        }
-
-        $this->object->setPersistKeys(array("Servers/42" => 1));
-        $this->object->set("Servers/42", "val");
-
-        $this->assertEquals(
-            array(),
-            $_SESSION[$this->readAttribute($this->object, "_id")]
-        );
-
-        /**
-         * Case 4
-         */
-        $attrConfigProperty->setValue(
-            $attrCfgObject->getValue($this->object),
-            $expectedArr
-        );
-
-        $this->object->set("Servers/42", "val");
-        $this->assertEquals(
-            array(),
-            $_SESSION[$this->readAttribute($this->object, "_id")]
-        );
-
-        /**
-         * Case 5
-         */
-        $attrCfg->setValue($this->object, array());
-
-        $this->object->set("Servers/42", "");
-        $this->assertEquals(
-            array(),
-            $_SESSION[$this->readAttribute($this->object, "_id")]
-        );
-
-        /**
-         * Case 6
-         */
-        $this->object->set("Servers/42", "foobar");
-        runkit_constant_redefine('PMA_SETUP', false);
-
-        $this->assertEquals(
-            array("Servers" => array("42" => "foobar")),
-            $_SESSION[$this->readAttribute($this->object, "_id")]
-        );
-
-        if ($pma_setup) {
-            runkit_constant_redefine("PMA_SETUP", $pma_setup);
-        } else {
-            runkit_constant_remove("PMA_SETUP");
-        }
     }
 
     /**
-     * Test for ConfigFile::_flattenArray
+     * Test for ConfigFile::set - in PMA Setup
      *
      * @return void
      * @test
      */
-    public function testFlattenArray()
+    public function testConfigFileSetInSetup()
     {
-        $method = new \ReflectionMethod("ConfigFile", "_flattenArray");
-        $method->setAccessible(true);
+        $default_value = $this->object->getDefault(self::SIMPLE_KEY_WITH_DEFAULT_VALUE);
 
-        $method->invoke(
-            $this->object,
-            array(
-                "one" => array("foo" => "bar"),
-                "two" => array(1, 2, 3),
-                "three" => 3
-            ),
-            "one",
-            "foobar"
-        );
+        // default values are not written
+        $this->object->set(self::SIMPLE_KEY_WITH_DEFAULT_VALUE, $default_value);
+        $this->assertEmpty($this->object->getConfig());
+    }
 
-        $expectArr = array(
-            "foobarone/one/foo" => "bar",
-            "foobarone/two" => array(1, 2, 3),
-            "foobarone/three" => 3
-        );
+    /**
+     * Test for ConfigFile::set - in user preferences
+     *
+     * @return void
+     * @test
+     */
+    public function testConfigFileSetInUserPreferences()
+    {
+        $default_value = $this->object->getDefault(self::SIMPLE_KEY_WITH_DEFAULT_VALUE);
 
+        // values are not written when they are the same as in config.inc.php
+        $this->object = new ConfigFile(array(self::SIMPLE_KEY_WITH_DEFAULT_VALUE => $default_value));
+        $this->object->set(self::SIMPLE_KEY_WITH_DEFAULT_VALUE, $default_value);
+        $this->assertEmpty($this->object->getConfig());
+
+        // but if config.inc.php differs from config.default.php, allow to overwrite with
+        // value from config.default.php
+        $config_inc_php_value = $default_value . 'suffix';
+        $this->object = new ConfigFile(array(self::SIMPLE_KEY_WITH_DEFAULT_VALUE => $config_inc_php_value));
+        $this->object->set(self::SIMPLE_KEY_WITH_DEFAULT_VALUE, $default_value);
         $this->assertEquals(
-            $expectArr,
-            $this->readAttribute($this->object, "_flattenArrayResult")
+            array(self::SIMPLE_KEY_WITH_DEFAULT_VALUE => $default_value),
+            $this->object->getConfig()
         );
     }
 
@@ -392,27 +331,19 @@ class PMA_ConfigFile_Test extends PHPUnit_Framework_TestCase
      */
     public function testGetFlatDefaultConfig()
     {
-        $attrCfg = new \ReflectionProperty('ConfigFile', '_cfg');
-        $attrCfg->setAccessible(true);
-        $attrCfg->setValue(
-            $this->object,
-            array(
-                "one" => array("foo" => "bar"),
-                "two" => array(1, 2, 3),
-                "three" => 3
-            )
-        );
+        $flat_default_config = $this->object->getFlatDefaultConfig();
 
-        $expectArr = array(
-            "one/foo" => "bar",
-            "two" => array(1, 2, 3),
-            "three" => 3
-        );
+        $default_value = $this->object->getDefault(self::SIMPLE_KEY_WITH_DEFAULT_VALUE);
+        $this->assertEquals($default_value, $flat_default_config[self::SIMPLE_KEY_WITH_DEFAULT_VALUE]);
 
-        $this->assertEquals(
-            $expectArr,
-            $this->object->getFlatDefaultConfig()
-        );
+        $localhost_value = $this->object->getDefault('Servers/1/host');
+        $this->assertEquals($localhost_value, $flat_default_config['Servers/1/host']);
+
+        $cfg = array();
+        include './libraries/config.default.php';
+        // verify that $cfg read from config.default.php is valid
+        $this->assertGreaterThanOrEqual(100, count($cfg));
+        $this->assertGreaterThanOrEqual(count($cfg), count($flat_default_config));
     }
 
     /**
@@ -423,133 +354,13 @@ class PMA_ConfigFile_Test extends PHPUnit_Framework_TestCase
      */
     public function testUpdateWithGlobalConfig()
     {
-        $this->object = $this->getMockBuilder('ConfigFile')
-            ->setMethods(array("set"))
-            ->disableOriginalConstructor()
-            ->getMock();
-
-        $reflection = new \ReflectionClass('ConfigFile');
-
-        $attrReadMapping = $reflection->getProperty('_cfgUpdateReadMapping');
-        $attrReadMapping->setAccessible(true);
-        $attrReadMapping->setValue(
-            $this->object,
-            array("one/foo" => "one/foobar")
-        );
-
-
-        $this->object
-            ->expects($this->at(0))
-            ->method('set')
-            ->with("one/foobar", "bar", "one/foobar");
-
-        $this->object
-            ->expects($this->at(1))
-            ->method('set')
-            ->with("two", array(1, 2, 3), "two");
-
-        $this->object->updateWithGlobalConfig(
-            array(
-                "one" => array("foo" => "bar"),
-                "two" => array(1, 2, 3)
-            )
-        );
-    }
-
-    /**
-     * Test for ConfigFile::get
-     *
-     * @return void
-     * @test
-     */
-    public function testConfigFileGet()
-    {
-        $_SESSION[$this->readAttribute($this->object, "_id")] = array(
-            "1" => array("2" => "val")
-        );
+        $this->object->set('key', 'value');
+        $this->object->set('key2', 'value');
+        $this->object->updateWithGlobalConfig(array('key' => 'ABC'));
 
         $this->assertEquals(
-            "val",
-            $this->object->get("1/2")
-        );
-
-        $_SESSION[$this->readAttribute($this->object, "_id")] = array(
-            "1" => array()
-        );
-
-        $this->assertEquals(
-            "foobar",
-            $this->object->get("1/2", "foobar")
-        );
-    }
-
-    /**
-     * Test for ConfigFile::getValue
-     *
-     * @return void
-     * @test
-     */
-    public function testGetValue()
-    {
-        $_SESSION[$this->readAttribute($this->object, "_id")] = array(
-            "Servers" => array("2" => "val")
-        );
-
-        $this->assertEquals(
-            "val",
-            $this->object->getValue("Servers/2")
-        );
-
-        $_SESSION[$this->readAttribute($this->object, "_id")] = array();
-
-        $reflection = new \ReflectionClass('ConfigFile');
-        $attrCfg = $reflection->getProperty('_cfg');
-        $attrCfg->setAccessible(true);
-        $attrCfg->setValue(
-            $this->object,
-            array(
-                "Servers" => array("1" => array("test" => "val"))
-            )
-        );
-
-        $this->assertEquals(
-            "val",
-            $this->object->getValue("Servers/2/test")
-        );
-    }
-
-    /**
-     * Test for ConfigFile::getDefault
-     *
-     * @return void
-     * @test
-     */
-    public function testGetDefault()
-    {
-
-        $reflection = new \ReflectionClass('ConfigFile');
-        $attrCfg = $reflection->getProperty('_cfg');
-        $attrCfg->setAccessible(true);
-        $attrCfg->setValue(
-            $this->object,
-            array(
-                "Servers" => array("1" => array("test" => "val"))
-            )
-        );
-        $this->assertEquals(
-            "val",
-            $this->object->getDefault("Servers/1/test")
-        );
-
-        $attrCfg->setValue(
-            $this->object,
-            array(
-                "Servers" => array()
-            )
-        );
-        $this->assertEquals(
-            "val",
-            $this->object->getDefault("Servers/1/test", "val")
+            array('key' => 'ABC', 'key2' => 'value'),
+            $this->object->getConfig()
         );
     }
 
@@ -580,30 +391,18 @@ class PMA_ConfigFile_Test extends PHPUnit_Framework_TestCase
      */
     public function testGetDbEntry()
     {
-        $reflection = new \ReflectionClass('ConfigFile');
-        $attrCfg = $reflection->getProperty('_cfgDb');
-        $attrCfg->setAccessible(true);
-        $attrCfg->setValue(
-            $this->object,
-            array(
-                "Servers" => array("1" => array("test" => "val"))
-            )
-        );
-        $this->assertEquals(
-            "val",
-            $this->object->getDbEntry("Servers/1/test")
-        );
+        $cfg_db = array();
+        include './libraries/config.values.php';
+        // verify that $cfg_db read from config.values.php is valid
+        $this->assertGreaterThanOrEqual(20, count($cfg_db));
 
-        $attrCfg->setValue(
-            $this->object,
-            array(
-                "Servers" => array()
-            )
-        );
         $this->assertEquals(
-            "val",
-            $this->object->getDbEntry("Servers/1/test", "val")
-        );
+            $cfg_db['Servers'][1]['port'],
+            $this->object->getDbEntry('Servers/1/port'));
+        $this->assertNull($this->object->getDbEntry('no such key'));
+        $this->assertEquals(
+            array(1),
+            $this->object->getDbEntry('no such key', array(1)));
     }
 
     /**
@@ -614,20 +413,36 @@ class PMA_ConfigFile_Test extends PHPUnit_Framework_TestCase
      */
     public function testGetServerCount()
     {
-        $_SESSION[$this->readAttribute($this->object, '_id')]['Servers'] = array(
-            1, 2, 3, 4
-        );
+        $this->object->set('Servers/1/x', 1);
+        $this->object->set('Servers/2/x', 2);
+        $this->object->set('Servers/3/x', 3);
+        $this->object->set('Servers/4/x', 4);
+        $this->object->set('ServerDefault', 3);
 
         $this->assertEquals(
             4,
             $this->object->getServerCount()
         );
 
-        unset($_SESSION[$this->readAttribute($this->object, '_id')]['Servers']);
+        $this->object->removeServer(2);
+        $this->object->removeServer(2);
 
         $this->assertEquals(
-            0,
+            2,
             $this->object->getServerCount()
+        );
+
+        $this->assertLessThanOrEqual(
+            2,
+            $this->object->get('ServerDefault')
+        );
+        $this->assertEquals(
+            array('Servers' => array(1 => array('x' => 1), 2 => array('x' => 4))),
+            $this->object->getConfig()
+        );
+        $this->assertEquals(
+            array('Servers/1/x' => 1, 'Servers/2/x' => 4),
+            $this->object->getConfigArray()
         );
     }
 
@@ -639,20 +454,12 @@ class PMA_ConfigFile_Test extends PHPUnit_Framework_TestCase
      */
     public function testGetServers()
     {
-        $_SESSION[$this->readAttribute($this->object, '_id')]['Servers'] = array(
-            1, 2, 3, 4
-        );
+        $this->object->set('Servers/1/x', 'a');
+        $this->object->set('Servers/2/x', 'b');
 
         $this->assertEquals(
-            array(1, 2, 3, 4),
+            array(1 => array('x' => 'a'), 2 => array('x' => 'b')),
             $this->object->getServers()
-        );
-
-        unset($_SESSION[$this->readAttribute($this->object, '_id')]['Servers']);
-
-        $this->assertEquals(
-            null,
-            $this->object->getServerCount()
         );
     }
 
@@ -666,38 +473,43 @@ class PMA_ConfigFile_Test extends PHPUnit_Framework_TestCase
     {
         $this->assertEquals(
             '',
-            $this->object->getServerDSN('foobar123')
+            $this->object->getServerDSN(1)
         );
 
-        $objectID = $this->readAttribute($this->object, "_id");
-        $_SESSION[$objectID]['Servers']['foobar123'] = array(
-            "extension" => "mysqli",
-            "auth_type" => "config",
-            "user" => "testUser",
-            "connect_type" => "tcp",
-            "host" => "example.com",
-            "port" => "21"
-        );
-
+        $this->object->updateWithGlobalConfig(array(
+            'Servers' => array(
+                1 => array(
+                    "extension" => "mysqli",
+                    "auth_type" => "config",
+                    "user" => "testUser",
+                    "connect_type" => "tcp",
+                    "host" => "example.com",
+                    "port" => "21"
+                )
+            )
+        ));
         $this->assertEquals(
             "mysqli://testUser:***@example.com:21",
-            $this->object->getServerDSN("foobar123")
+            $this->object->getServerDSN(1)
         );
 
-        $_SESSION[$objectID]['Servers']['foobar123'] = array(
-            "extension" => "mysqli",
-            "auth_type" => "config",
-            "user" => "testUser",
-            "connect_type" => "ssh",
-            "host" => "example.com",
-            "port" => "21",
-            "nopassword" => "yes",
-            "socket" => "123"
-        );
-
+        $this->object->updateWithGlobalConfig(array(
+            'Servers' => array(
+                1 => array(
+                    "extension" => "mysql",
+                    "auth_type" => "config",
+                    "user" => "testUser",
+                    "connect_type" => "socket",
+                    "host" => "example.com",
+                    "port" => "21",
+                    "nopassword" => "yes",
+                    "socket" => "123"
+                )
+            )
+        ));
         $this->assertEquals(
-            "mysqli://testUser@123",
-            $this->object->getServerDSN("foobar123")
+            "mysql://testUser@123",
+            $this->object->getServerDSN(1)
         );
     }
 
@@ -711,103 +523,19 @@ class PMA_ConfigFile_Test extends PHPUnit_Framework_TestCase
     {
         $this->assertEquals(
             '',
-            $this->object->getServerName('foobar123')
+            $this->object->getServerName(1)
         );
 
-        $objectID = $this->readAttribute($this->object, "_id");
-        $_SESSION[$objectID]['Servers']['foobar123'] = array(
-            "verbose" => "testData"
-        );
-
+        $this->object->set('Servers/1/host', 'example.com');
         $this->assertEquals(
-            "testData",
-            $this->object->getServerName("foobar123")
+            'example.com',
+            $this->object->getServerName(1)
         );
 
-        $_SESSION[$objectID]['Servers']['foobar123'] = array(
-            "host" => "example.com"
-        );
-
+        $this->object->set('Servers/1/verbose', 'testData');
         $this->assertEquals(
-            "example.com",
-            $this->object->getServerName("foobar123")
-        );
-
-        $_SESSION[$objectID]['Servers']['foobar123'] = array(
-            "host" => ""
-        );
-
-        $this->assertEquals(
-            "localhost",
-            $this->object->getServerName("foobar123")
-        );
-    }
-
-    /**
-     * Test for ConfigFile::removeServer
-     *
-     * @return void
-     * @test
-     */
-    public function testRemoveServer()
-    {
-        $this->assertEquals(
-            null,
-            $this->object->removeServer(1)
-        );
-
-        $objectID = $this->readAttribute($this->object, "_id");
-        $_SESSION[$objectID]['Servers'] = array(
-            "1" => array(),
-            "2" => array("test" => "val"),
-            "3" => array()
-        );
-
-        $this->object->removeServer(2);
-
-        $this->assertEquals(
-            array(
-                "1" => array(),
-                "2" => array()
-            ),
-            $_SESSION[$objectID]['Servers']
-        );
-
-        $_SESSION[$objectID]['Servers'] = array(
-            "1" => array()
-        );
-
-        $this->object->removeServer(1);
-
-        $this->assertEmpty(
-            $_SESSION[$objectID]['Servers']
-        );
-
-        $_SESSION[$objectID]['Servers'] = array(
-            "1" => array(),
-            "2" => array("test" => "val"),
-            "3" => array()
-        );
-
-        $_SESSION[$objectID]['ServerDefault'] = 5;
-
-        $this->object->removeServer(3);
-
-        $this->assertEquals(
-            array(
-                "1" => array(),
-                "2" => array("test" => "val")
-            ),
-            $_SESSION[$objectID]['Servers']
-        );
-
-        if (isset($_SESSION[$objectID]['ServerDefault'])) {
-            $success = false;
-        } else {
-            $success = true;
-        }
-        $this->assertTrue(
-            $success
+            'testData',
+            $this->object->getServerName(1)
         );
     }
 
@@ -819,51 +547,7 @@ class PMA_ConfigFile_Test extends PHPUnit_Framework_TestCase
      */
     public function testGetFilePath()
     {
-        $result = $this->object->getFilePath();
-
-        $this->assertEquals(
-            SETUP_CONFIG_FILE,
-            $result
-        );
-    }
-
-    /**
-     * Test for ConfigFile::getConfig
-     *
-     * @return void
-     * @test
-     */
-    public function testGetConfig()
-    {
-        $objectID = $this->readAttribute($this->object, "_id");
-
-        $_SESSION[$objectID] = array(
-            "foo" => array(
-                "bar" => array(1, 2, 3)
-            )
-        );
-
-        $attrReadMapping = new \ReflectionProperty(
-            "ConfigFile",
-            "_cfgUpdateReadMapping"
-        );
-
-        $attrReadMapping->setAccessible(true);
-        $attrReadMapping->setValue(
-            $this->object,
-            array(
-                "key" => "foo/bar"
-            )
-        );
-
-        $expect = array(
-            "key" => array(1, 2, 3)
-        );
-
-        $this->assertEquals(
-            $expect,
-            $this->object->getConfig()
-        );
+        $this->assertNotEmpty($this->object->getFilePath());
     }
 
     /**
@@ -874,54 +558,17 @@ class PMA_ConfigFile_Test extends PHPUnit_Framework_TestCase
      */
     public function testGetConfigArray()
     {
-        $objectID = $this->readAttribute($this->object, "_id");
-        $reflection = new \ReflectionClass('ConfigFile');
-
-        $_SESSION[$objectID] = array(
-            "two" => array(1, 2, 3)
-        );
-
-        $attrPersistKeys = $reflection->getProperty('_persistKeys');
-        $attrPersistKeys->setAccessible(true);
-        $attrPersistKeys->setValue(
-            $this->object,
-            array(
-                "one/foo" => array(),
-                "two" => array(1, 2, 3),
-                "three" => 3
-            )
-        );
-
-        $attrCfg = $reflection->getProperty('_cfg');
-        $attrCfg->setAccessible(true);
-        $attrCfg->setValue(
-            $this->object,
-            array(
-                "one" => array("foo" => "val"),
-                "three" => "val2"
-            )
-        );
-
-        $attrReadMapping = $reflection->getProperty("_cfgUpdateReadMapping");
-        $attrReadMapping->setAccessible(true);
-        $attrReadMapping->setValue(
-            $this->object,
-            array(
-                "2" => "two",
-                "3" => "foobar"
-            )
-        );
+        $this->object->setPersistKeys(array(self::SIMPLE_KEY_WITH_DEFAULT_VALUE));
+        $this->object->set('Array/test', array('x', 'y'));
+        $default_value = $this->object->getDefault(self::SIMPLE_KEY_WITH_DEFAULT_VALUE);
 
         $this->assertEquals(
             array(
-                "one/foo" => "val",
-                "three" => "val2",
-                "2" => array(1, 2, 3)
+                self::SIMPLE_KEY_WITH_DEFAULT_VALUE => $default_value,
+                'Array/test' => array('x', 'y')
             ),
             $this->object->getConfigArray()
         );
-
-
     }
 }
 ?>

@@ -22,6 +22,9 @@ require_once 'libraries/Error_Handler.class.php';
  */
 class PMA_AuthenticationHttp_Test extends PHPUnit_Framework_TestCase
 {
+    /**
+     * @var AuthenticationHttp
+     */
     protected $object;
 
     /**

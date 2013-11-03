@@ -12,12 +12,12 @@ if (! defined('PHPMYADMIN')) {
 /**
  * Common initialization for user preferences modification pages
  *
+ * @param ConfigFile $cf Config file instance
  * @return void
  */
-function PMA_userprefsPageInit()
+function PMA_userprefsPageInit(ConfigFile $cf)
 {
     $forms_all_keys = PMA_readUserprefsFieldNames($GLOBALS['forms']);
-    $cf = ConfigFile::getInstance();
     $cf->resetConfigData(); // start with a clean instance
     $cf->setAllowedKeys($forms_all_keys);
     $cf->setCfgUpdateReadMapping(

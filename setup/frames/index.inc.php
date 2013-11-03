@@ -21,7 +21,7 @@ require_once './setup/lib/index.lib.php';
 $all_languages = PMA_langList();
 uasort($all_languages, 'PMA_languageCmp');
 
-$cf = ConfigFile::getInstance();
+$cf = $GLOBALS['ConfigFile'];
 $separator = PMA_URL_getArgSeparator('html');
 
 // message handling
@@ -211,7 +211,7 @@ echo '<fieldset class="simple"><legend>' . __('Configuration file') . '</legend>
 //
 // Display config file settings and load/save form
 //
-$form_display = new FormDisplay();
+$form_display = new FormDisplay($cf);
 
 PMA_displayFormTop('config.php');
 echo '<table width="100%" cellspacing="0">';

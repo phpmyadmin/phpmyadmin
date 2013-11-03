@@ -25,21 +25,20 @@ class PMA_Validator
     /**
      * Returns validator list
      *
+     * @param ConfigFile $cf Config file instance
      * @return array
      */
-    public static function getValidators()
+    public static function getValidators(ConfigFile $cf)
     {
         static $validators = null;
 
         if ($validators === null) {
-            $cf = ConfigFile::getInstance();
             $validators = $cf->getDbEntry('_validators', array());
             if (!defined('PMA_SETUP')) {
                 // not in setup script: load additional validators for user
                 // preferences we need original config values not overwritten
                 // by user preferences, creating a new PMA_Config instance is a
                 // better idea than hacking into its code
-                $org_cfg = $cf->getOrgConfigObj();
                 $uvs = $cf->getDbEntry('_userValidators', array());
                 foreach ($uvs as $field => $uv_list) {
                     $uv_list = (array)$uv_list;
@@ -50,7 +49,7 @@ class PMA_Validator
                         for ($i = 1; $i < count($uv); $i++) {
                             if (substr($uv[$i], 0, 6) == 'value:') {
                                 $uv[$i] = PMA_arrayRead(
-                                    substr($uv[$i], 6), $org_cfg->settings
+                                    substr($uv[$i], 6), $GLOBALS['PMA_Config']->base_settings
                                 );
                             }
                         }
@@ -73,6 +72,7 @@ class PMA_Validator
      *   cleanup in HTML documen
      * o false - when no validators match name(s) given by $validator_id
      *
+     * @param ConfigFile $cf Config file instance
      * @param string|array $validator_id ID of validator(s) to run
      * @param array        &$values      Values to validate
      * @param bool         $isPostSource tells whether $values are directly from
@@ -80,13 +80,12 @@ class PMA_Validator
      *
      * @return bool|array
      */
-    public static function validate($validator_id, &$values, $isPostSource)
+    public static function validate(ConfigFile $cf, $validator_id, &$values, $isPostSource)
     {
         // find validators
         $validator_id = (array) $validator_id;
-        $validators = static::getValidators();
+        $validators = static::getValidators($cf);
         $vids = array();
-        $cf = ConfigFile::getInstance();
         foreach ($validator_id as &$vid) {
             $vid = $cf->getCanonicalPath($vid);
             if (isset($validators[$vid])) {

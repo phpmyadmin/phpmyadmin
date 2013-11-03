@@ -20,6 +20,9 @@ require_once 'libraries/php-gettext/gettext.inc';
  */
 class PMA_Form_Test extends PHPUnit_Framework_TestCase
 {
+    /**
+     * @var Form
+     */
     protected $object;
 
     /**
@@ -35,7 +38,7 @@ class PMA_Form_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['PMA_Config'] = new PMA_Config();
         $GLOBALS['PMA_Config']->enableBc();
         $GLOBALS['server'] = 0;
-        $this->object = new Form('pma_form_name', array('pma_form1','pma_form2'), 1);
+        $this->object = new Form('pma_form_name', array('pma_form1','pma_form2'), new ConfigFile(), 1);
     }
 
     /**

@@ -654,6 +654,28 @@ function PMA_downloadHeader($filename, $mimetype, $length = 0, $no_cache = true)
     }
 }
 
+/**
+ * Checks whether element given by $path exists in $array.
+ * $path is a string describing position of an element in an associative array,
+ * eg. Servers/1/host refers to $array[Servers][1][host]
+ *
+ * @param string $path    path in the arry
+ * @param array  $array   the array
+ *
+ * @return mixed    array element or $default
+ */
+function PMA_arrayKeyExists($path, $array)
+{
+    $keys = explode('/', $path);
+    $value =& $array;
+    foreach ($keys as $key) {
+        if (! isset($value[$key])) {
+            return false;
+        }
+        $value =& $value[$key];
+    }
+    return true;
+}
 
 /**
  * Returns value of an element in $array given by $path.
