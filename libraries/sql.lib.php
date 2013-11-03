@@ -2338,15 +2338,17 @@ function PMA_executeQueryAndSendQueryResponse($analyzed_sql_results,
  * Function to define pos to display a row
  *
  * @param Int $number_of_line Number of the line to display
+ * @param Int $max_rows Number of rows by page
  *
  * @return Int Start position to display the line
  */
-function PMA_getStartPosToDisplayRow($number_of_line)
+function PMA_getStartPosToDisplayRow($number_of_line, $max_rows = null)
 {
-    return @(
-        (ceil($number_of_line / $_SESSION['tmpval']['max_rows']) - 1)
-        * $_SESSION['tmpval']['max_rows']
-    );
+    if (null === $max_rows) {
+        $max_rows = $_SESSION['tmpval']['max_rows'];
+    }
+
+    return @((ceil($number_of_line / $max_rows) - 1) * $max_rows);
 }
 
 /**
@@ -2358,11 +2360,15 @@ function PMA_getStartPosToDisplayRow($number_of_line)
  *
  * @return Int Number of pos to display last page
  */
-function PMA_calculatePosForLastPage($db, $table, $pos = 0)
+function PMA_calculatePosForLastPage($db, $table, $pos)
 {
+    if (null === $pos) {
+        $pos = $_SESSION['tmpval']['pos'];
+    }
+
     $unlim_num_rows = PMA_Table::countRecords($db, $table, true);
     //If position is higher than number of rows
-    if ($unlim_num_rows <= $_SESSION['tmpval']['pos']) {
+    if ($unlim_num_rows <= $pos && 0 != $pos) {
         $pos = PMA_getStartPosToDisplayRow($unlim_num_rows);
     }
 
