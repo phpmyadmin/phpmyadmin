@@ -50,6 +50,7 @@ phpMyAdmin - ChangeLog
 - bug #4145 Config screen fails to validate MemoryLimit = -1 (new default)
 
 4.0.10.0 (not yet released)
+- bug #4150 Clicking database name in query window opens a new tab
 
 4.0.9.0 (not yet released)
 - bug #4104 Can't edit updatable view when searching
