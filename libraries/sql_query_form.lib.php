@@ -229,7 +229,7 @@ function PMA_getHtmlForSqlQueryFormInsert(
         if ($is_querywindow) {
             $tmp_db_link .= 'target="_parent" '
             .'onclick="window.opener.location.href = \''.$GLOBALS['cfg']['DefaultTabDatabase']
-            . '?' . PMA_generate_common_url($db).'\';return false;"';
+            . '?' . PMA_URL_getCommon($db).'\';return false;"';
         }
         $tmp_db_link .= '>'
             . htmlspecialchars($db) . '</a>';
