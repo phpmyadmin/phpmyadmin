@@ -17,11 +17,14 @@ class ConfigGenerator
      * Creates config file
      *
      * @param ConfigFile $cf Config file instance
+     *
      * @return string
      */
     public static function getConfigFile(ConfigFile $cf)
     {
-        $crlf = (isset($_SESSION['eol']) && $_SESSION['eol'] == 'win') ? "\r\n" : "\n";
+        $crlf = (isset($_SESSION['eol']) && $_SESSION['eol'] == 'win')
+            ? "\r\n"
+            : "\n";
         $c = $cf->getConfig();
 
         // header
@@ -38,7 +41,9 @@ class ConfigGenerator
         if ($cf->getServerCount() > 0) {
             $ret .= "/* Servers configuration */$crlf\$i = 0;" . $crlf . $crlf;
             foreach ($c['Servers'] as $id => $server) {
-                $ret .= '/* Server: ' . strtr($cf->getServerName($id) . " [$id] ", '*/', '-') . "*/" . $crlf
+                $ret .= '/* Server: '
+                    . strtr($cf->getServerName($id) . " [$id] ", '*/', '-')
+                    . "*/" . $crlf
                     . '$i++;' . $crlf;
                 foreach ($server as $k => $v) {
                     $k = preg_replace('/[^A-Za-z0-9_]/', '_', $k);
@@ -88,17 +93,20 @@ class ConfigGenerator
     private static function _getVarExport($var_name, $var_value, $crlf)
     {
         if (!is_array($var_value) || empty($var_value)) {
-            return "\$cfg['$var_name'] = " . var_export($var_value, true) . ';' . $crlf;
+            return "\$cfg['$var_name'] = "
+                . var_export($var_value, true) . ';' . $crlf;
         }
         $ret = '';
         if (self::_isZeroBasedArray($var_value)) {
-            $ret = "\$cfg['$var_name'] = " . self::_exportZeroBasedArray($var_value, $crlf)
+            $ret = "\$cfg['$var_name'] = "
+                . self::_exportZeroBasedArray($var_value, $crlf)
                 . ';' . $crlf;
         } else {
             // string keys: $cfg[key][subkey] = value
             foreach ($var_value as $k => $v) {
                 $k = preg_replace('/[^A-Za-z0-9_]/', '_', $k);
-                $ret .= "\$cfg['$var_name']['$k'] = " . var_export($v, true) . ';' . $crlf;
+                $ret .= "\$cfg['$var_name']['$k'] = "
+                    . var_export($v, true) . ';' . $crlf;
             }
         }
         return $ret;

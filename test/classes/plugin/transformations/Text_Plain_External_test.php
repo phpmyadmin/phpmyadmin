@@ -156,8 +156,8 @@ class Text_Plain_External_Test extends PHPUnit_Framework_TestCase
             $this->object->applyTransformationNoWrap($options)
         );
         $options = array(
-            "/dev/null -i -wrap -q", 
-            "/dev/null -i -wrap -q", 
+            "/dev/null -i -wrap -q",
+            "/dev/null -i -wrap -q",
             "/dev/null -i -wrap -q", 1
         );
         $this->assertEquals(
@@ -165,8 +165,8 @@ class Text_Plain_External_Test extends PHPUnit_Framework_TestCase
             $this->object->applyTransformationNoWrap($options)
         );
         $options = array(
-            "/dev/null -i -wrap -q", 
-            "/dev/null -i -wrap -q", 
+            "/dev/null -i -wrap -q",
+            "/dev/null -i -wrap -q",
             "/dev/null -i -wrap -q", "1"
         );
         $this->assertEquals(
@@ -174,9 +174,9 @@ class Text_Plain_External_Test extends PHPUnit_Framework_TestCase
             $this->object->applyTransformationNoWrap($options)
         );
         $options = array(
-            "/dev/null -i -wrap -q", 
-            "/dev/null -i -wrap -q", 
-            "/dev/null -i -wrap -q", 
+            "/dev/null -i -wrap -q",
+            "/dev/null -i -wrap -q",
+            "/dev/null -i -wrap -q",
             2
         );
         $this->assertEquals(

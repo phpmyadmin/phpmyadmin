@@ -28,17 +28,17 @@ class PMA_OptionsPropertySubgroup_Test extends PHPUnit_Framework_TestCase
 
     /**
      * tearDown for test cases
-     * 
+     *
      * @return void
      */
     protected function tearDown()
     {
         unset($this->object);
     }
-    
+
     /**
      * Test for OptionsPropertySubgroup::getItemType
-     * 
+     *
      * @return void
      */
     public function testGetItemType()
@@ -52,8 +52,8 @@ class PMA_OptionsPropertySubgroup_Test extends PHPUnit_Framework_TestCase
     /**
      * Test for
      *     - OptionsPropertySubgroup::getSubgroupHeader
-     *     - OptionsPropertySubgroup::setSubgroupHeader    
-     * 
+     *     - OptionsPropertySubgroup::setSubgroupHeader
+     *
      * @return void
      */
     public function testGetSetSubgroupHeader()

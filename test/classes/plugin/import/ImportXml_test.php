@@ -4,7 +4,7 @@
  *
  * @package PhpMyAdmin-test
  */
- 
+
 /*
  * we must set $GLOBALS['server'] here
  * since 'check_user_privileges.lib.php' will use it globally
@@ -44,21 +44,21 @@ class ImportXml_Test extends PHPUnit_Framework_TestCase
      * @return void
      */
     protected function setUp()
-    {      
-        $this->object = new ImportXml();    
+    {
+        $this->object = new ImportXml();
 
-        //setting        
+        //setting
         $GLOBALS['finished'] = false;
         $GLOBALS['read_limit'] = 100000000;
         $GLOBALS['offset'] = 0;
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $GLOBALS['cfg']['ServerDefault'] = 0;
         $GLOBALS['cfg']['AllowUserDropDatabase'] = false;
-        
+
         $GLOBALS['import_file'] = 'test/test_data/phpmyadmin_importXML_'
             . 'For_Testing.xml';
         $GLOBALS['import_text'] = 'ImportXml_Test';
-        $GLOBALS['compression'] = 'none'; 
+        $GLOBALS['compression'] = 'none';
         $GLOBALS['read_multiply'] = 10;
         $GLOBALS['import_type'] = 'Xml';
         $GLOBALS['import_handle'] = @fopen($GLOBALS['import_file'], 'r');
@@ -75,7 +75,7 @@ class ImportXml_Test extends PHPUnit_Framework_TestCase
     {
         unset($this->object);
     }
-    
+
     /**
      * Test for getProperties
      *
@@ -89,26 +89,26 @@ class ImportXml_Test extends PHPUnit_Framework_TestCase
         $this->assertEquals(
             __('XML'),
             $properties->getText()
-        );  
+        );
         $this->assertEquals(
             'xml',
             $properties->getExtension()
-        ); 
+        );
         $this->assertEquals(
             'text/xml',
             $properties->getMimeType()
-        ); 
+        );
         $this->assertEquals(
             array(),
             $properties->getOptions()
-        ); 
+        );
         $this->assertEquals(
             __('Options'),
             $properties->getOptionsText()
-        ); 
-    
+        );
+
     }
-    
+
     /**
      * Test for doImport
      *
@@ -119,18 +119,18 @@ class ImportXml_Test extends PHPUnit_Framework_TestCase
     public function testDoImport()
     {
         //$import_notice will show the import detail result
-        global $import_notice;        
-        
+        global $import_notice;
+
         //Mock DBI
         $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
         $GLOBALS['dbi'] = $dbi;
-        
+
         //Test function called
         $this->object->doImport();
- 
-        // If import successfully, PMA will show all databases and tables 
+
+        // If import successfully, PMA will show all databases and tables
         // imported as following HTML Page
         /*
            The following structures have either been created or altered. Here you
@@ -141,25 +141,25 @@ class ImportXml_Test extends PHPUnit_Framework_TestCase
 
            phpmyadmintest (Options)
            pma_bookmarktest (Structure) (Options)
-        */  
-         
+        */
+
         //asset that all databases and tables are imported
         $this->assertContains(
             'The following structures have either been created or altered.',
             $import_notice
-        );           
+        );
         $this->assertContains(
             'Go to database: `phpmyadmintest`',
             $import_notice
-        );          
+        );
         $this->assertContains(
             'Edit settings for `phpmyadmintest`',
             $import_notice
-        );          
+        );
         $this->assertContains(
             'Go to table: `pma_bookmarktest`',
             $import_notice
-        );          
+        );
         $this->assertContains(
             'Edit settings for `pma_bookmarktest`',
             $import_notice
@@ -167,8 +167,8 @@ class ImportXml_Test extends PHPUnit_Framework_TestCase
         $this->assertEquals(
             true,
             $GLOBALS['finished']
-        ); 
-    
+        );
+
     }
 }
 

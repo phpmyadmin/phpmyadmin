@@ -26,6 +26,7 @@ class PMA_Validator
      * Returns validator list
      *
      * @param ConfigFile $cf Config file instance
+     *
      * @return array
      */
     public static function getValidators(ConfigFile $cf)
@@ -49,7 +50,8 @@ class PMA_Validator
                         for ($i = 1; $i < count($uv); $i++) {
                             if (substr($uv[$i], 0, 6) == 'value:') {
                                 $uv[$i] = PMA_arrayRead(
-                                    substr($uv[$i], 6), $GLOBALS['PMA_Config']->base_settings
+                                    substr($uv[$i], 6),
+                                    $GLOBALS['PMA_Config']->base_settings
                                 );
                             }
                         }
@@ -72,7 +74,7 @@ class PMA_Validator
      *   cleanup in HTML documen
      * o false - when no validators match name(s) given by $validator_id
      *
-     * @param ConfigFile $cf Config file instance
+     * @param ConfigFile   $cf           Config file instance
      * @param string|array $validator_id ID of validator(s) to run
      * @param array        &$values      Values to validate
      * @param bool         $isPostSource tells whether $values are directly from
@@ -80,8 +82,9 @@ class PMA_Validator
      *
      * @return bool|array
      */
-    public static function validate(ConfigFile $cf, $validator_id, &$values, $isPostSource)
-    {
+    public static function validate(
+        ConfigFile $cf, $validator_id, &$values, $isPostSource
+    ) {
         // find validators
         $validator_id = (array) $validator_id;
         $validators = static::getValidators($cf);

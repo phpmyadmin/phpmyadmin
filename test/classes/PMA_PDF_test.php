@@ -24,7 +24,7 @@ class PMA_PDF_Test extends PHPUnit_Framework_TestCase
 {
     /**
      * SetUp for test cases
-     * 
+     *
      * @return void
      */
     public function setup()
@@ -35,7 +35,7 @@ class PMA_PDF_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for PMA_PDF::getPDFData
-     * 
+     *
      * @group large
      * @return void
      */
@@ -47,7 +47,7 @@ class PMA_PDF_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for PMA_PDF::getPDFData
-     * 
+     *
      * @group large
      * @return void
      */
@@ -60,7 +60,7 @@ class PMA_PDF_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for PMA_PDF::getPDFData
-     * 
+     *
      * @group large
      * @return void
      */

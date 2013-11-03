@@ -13,6 +13,7 @@ if (! defined('PHPMYADMIN')) {
  * Common initialization for user preferences modification pages
  *
  * @param ConfigFile $cf Config file instance
+ *
  * @return void
  */
 function PMA_userprefsPageInit(ConfigFile $cf)

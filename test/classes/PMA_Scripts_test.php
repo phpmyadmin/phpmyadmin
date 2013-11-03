@@ -146,8 +146,8 @@ $(function() {});
     public function testGetFiles()
     {
         // codemirror's onload event is blacklisted
-        $this->object->addFile('codemirror/lib/codemirror.js'); 
-        
+        $this->object->addFile('codemirror/lib/codemirror.js');
+
         $this->object->addFile('common.js');
         $this->assertEquals(
             array(

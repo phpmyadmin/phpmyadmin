@@ -91,7 +91,9 @@ class PMA_ConfigFile_Test extends PHPUnit_Framework_TestCase
         );
 
         // Validate default value used in tests
-        $default_value = $this->object->getDefault(self::SIMPLE_KEY_WITH_DEFAULT_VALUE);
+        $default_value = $this->object->getDefault(
+            self::SIMPLE_KEY_WITH_DEFAULT_VALUE
+        );
         $this->assertNotNull($default_value);
     }
 
@@ -103,7 +105,9 @@ class PMA_ConfigFile_Test extends PHPUnit_Framework_TestCase
      */
     public function testPersistentKeys()
     {
-        $default_simple_value = $this->object->getDefault(self::SIMPLE_KEY_WITH_DEFAULT_VALUE);
+        $default_simple_value = $this->object->getDefault(
+            self::SIMPLE_KEY_WITH_DEFAULT_VALUE
+        );
         $default_host = $this->object->getDefault('Servers/1/host');
         $default_config = array(
             self::SIMPLE_KEY_WITH_DEFAULT_VALUE => $default_simple_value,
@@ -113,14 +117,16 @@ class PMA_ConfigFile_Test extends PHPUnit_Framework_TestCase
         /**
          * Case 1: set default value, key should not be persisted
          */
-        $this->object->set(self::SIMPLE_KEY_WITH_DEFAULT_VALUE, $default_simple_value);
+        $this->object->set(
+            self::SIMPLE_KEY_WITH_DEFAULT_VALUE, $default_simple_value
+        );
         $this->object->set('Servers/1/host', $default_host);
         $this->object->set('Servers/2/host', $default_host);
         $this->assertEmpty($this->object->getConfig());
 
         /**
-         * Case 2: persistent keys should be always present in flat array, even if not explicitly set
-         * (unless they are Server entries)
+         * Case 2: persistent keys should be always present in flat array,
+         * even if not explicitly set (unless they are Server entries)
          */
         $this->object->setPersistKeys(array_keys($default_config));
         $this->object->resetConfigData();
@@ -131,7 +137,8 @@ class PMA_ConfigFile_Test extends PHPUnit_Framework_TestCase
         );
 
         /**
-         * Case 3: persistent keys should be always saved, even if set to default values
+         * Case 3: persistent keys should be always saved,
+         * even if set to default values
          */
         $this->object->set('Servers/2/host', $default_host);
         $this->assertEquals(
@@ -182,9 +189,12 @@ class PMA_ConfigFile_Test extends PHPUnit_Framework_TestCase
      */
     public function testConfigReadMapping()
     {
-        $this->object->setCfgUpdateReadMapping(array(
+        $this->object->setCfgUpdateReadMapping(
+            array(
                 'Servers/value1' => 'Servers/1/value1',
-                'Servers/value2' => 'Servers/1/value2'));
+                'Servers/value2' => 'Servers/1/value2'
+            )
+        );
         $this->object->set('Servers/1/passthrough1', 1);
         $this->object->set('Servers/1/passthrough2', 2);
         $this->object->updateWithGlobalConfig(array('Servers/value1' => 3));
@@ -290,7 +300,9 @@ class PMA_ConfigFile_Test extends PHPUnit_Framework_TestCase
      */
     public function testConfigFileSetInSetup()
     {
-        $default_value = $this->object->getDefault(self::SIMPLE_KEY_WITH_DEFAULT_VALUE);
+        $default_value = $this->object->getDefault(
+            self::SIMPLE_KEY_WITH_DEFAULT_VALUE
+        );
 
         // default values are not written
         $this->object->set(self::SIMPLE_KEY_WITH_DEFAULT_VALUE, $default_value);
@@ -305,17 +317,23 @@ class PMA_ConfigFile_Test extends PHPUnit_Framework_TestCase
      */
     public function testConfigFileSetInUserPreferences()
     {
-        $default_value = $this->object->getDefault(self::SIMPLE_KEY_WITH_DEFAULT_VALUE);
+        $default_value = $this->object->getDefault(
+            self::SIMPLE_KEY_WITH_DEFAULT_VALUE
+        );
 
         // values are not written when they are the same as in config.inc.php
-        $this->object = new ConfigFile(array(self::SIMPLE_KEY_WITH_DEFAULT_VALUE => $default_value));
+        $this->object = new ConfigFile(
+            array(self::SIMPLE_KEY_WITH_DEFAULT_VALUE => $default_value)
+        );
         $this->object->set(self::SIMPLE_KEY_WITH_DEFAULT_VALUE, $default_value);
         $this->assertEmpty($this->object->getConfig());
 
-        // but if config.inc.php differs from config.default.php, allow to overwrite with
-        // value from config.default.php
+        // but if config.inc.php differs from config.default.php,
+        // allow to overwrite with value from config.default.php
         $config_inc_php_value = $default_value . 'suffix';
-        $this->object = new ConfigFile(array(self::SIMPLE_KEY_WITH_DEFAULT_VALUE => $config_inc_php_value));
+        $this->object = new ConfigFile(
+            array(self::SIMPLE_KEY_WITH_DEFAULT_VALUE => $config_inc_php_value)
+        );
         $this->object->set(self::SIMPLE_KEY_WITH_DEFAULT_VALUE, $default_value);
         $this->assertEquals(
             array(self::SIMPLE_KEY_WITH_DEFAULT_VALUE => $default_value),
@@ -333,11 +351,17 @@ class PMA_ConfigFile_Test extends PHPUnit_Framework_TestCase
     {
         $flat_default_config = $this->object->getFlatDefaultConfig();
 
-        $default_value = $this->object->getDefault(self::SIMPLE_KEY_WITH_DEFAULT_VALUE);
-        $this->assertEquals($default_value, $flat_default_config[self::SIMPLE_KEY_WITH_DEFAULT_VALUE]);
+        $default_value = $this->object->getDefault(
+            self::SIMPLE_KEY_WITH_DEFAULT_VALUE
+        );
+        $this->assertEquals(
+            $default_value, $flat_default_config[self::SIMPLE_KEY_WITH_DEFAULT_VALUE]
+        );
 
         $localhost_value = $this->object->getDefault('Servers/1/host');
-        $this->assertEquals($localhost_value, $flat_default_config['Servers/1/host']);
+        $this->assertEquals(
+            $localhost_value, $flat_default_config['Servers/1/host']
+        );
 
         $cfg = array();
         include './libraries/config.default.php';
@@ -398,11 +422,13 @@ class PMA_ConfigFile_Test extends PHPUnit_Framework_TestCase
 
         $this->assertEquals(
             $cfg_db['Servers'][1]['port'],
-            $this->object->getDbEntry('Servers/1/port'));
+            $this->object->getDbEntry('Servers/1/port')
+        );
         $this->assertNull($this->object->getDbEntry('no such key'));
         $this->assertEquals(
             array(1),
-            $this->object->getDbEntry('no such key', array(1)));
+            $this->object->getDbEntry('no such key', array(1))
+        );
     }
 
     /**
@@ -476,37 +502,41 @@ class PMA_ConfigFile_Test extends PHPUnit_Framework_TestCase
             $this->object->getServerDSN(1)
         );
 
-        $this->object->updateWithGlobalConfig(array(
-            'Servers' => array(
-                1 => array(
-                    "extension" => "mysqli",
-                    "auth_type" => "config",
-                    "user" => "testUser",
-                    "connect_type" => "tcp",
-                    "host" => "example.com",
-                    "port" => "21"
+        $this->object->updateWithGlobalConfig(
+            array(
+                'Servers' => array(
+                    1 => array(
+                        "extension" => "mysqli",
+                        "auth_type" => "config",
+                        "user" => "testUser",
+                        "connect_type" => "tcp",
+                        "host" => "example.com",
+                        "port" => "21"
+                    )
                 )
             )
-        ));
+        );
         $this->assertEquals(
             "mysqli://testUser:***@example.com:21",
             $this->object->getServerDSN(1)
         );
 
-        $this->object->updateWithGlobalConfig(array(
-            'Servers' => array(
-                1 => array(
-                    "extension" => "mysql",
-                    "auth_type" => "config",
-                    "user" => "testUser",
-                    "connect_type" => "socket",
-                    "host" => "example.com",
-                    "port" => "21",
-                    "nopassword" => "yes",
-                    "socket" => "123"
+        $this->object->updateWithGlobalConfig(
+            array(
+                'Servers' => array(
+                    1 => array(
+                        "extension" => "mysql",
+                        "auth_type" => "config",
+                        "user" => "testUser",
+                        "connect_type" => "socket",
+                        "host" => "example.com",
+                        "port" => "21",
+                        "nopassword" => "yes",
+                        "socket" => "123"
+                    )
                 )
             )
-        ));
+        );
         $this->assertEquals(
             "mysql://testUser@123",
             $this->object->getServerDSN(1)
@@ -560,7 +590,9 @@ class PMA_ConfigFile_Test extends PHPUnit_Framework_TestCase
     {
         $this->object->setPersistKeys(array(self::SIMPLE_KEY_WITH_DEFAULT_VALUE));
         $this->object->set('Array/test', array('x', 'y'));
-        $default_value = $this->object->getDefault(self::SIMPLE_KEY_WITH_DEFAULT_VALUE);
+        $default_value = $this->object->getDefault(
+            self::SIMPLE_KEY_WITH_DEFAULT_VALUE
+        );
 
         $this->assertEquals(
             array(

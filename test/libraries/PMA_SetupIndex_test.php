@@ -9,8 +9,8 @@
 /*
  * Include to test
  */
-include_once 'libraries/php-gettext/gettext.inc';
-include_once 'libraries/sanitizing.lib.php';
+require_once 'libraries/php-gettext/gettext.inc';
+require_once 'libraries/sanitizing.lib.php';
 require_once 'libraries/config/config_functions.lib.php';
 require_once 'libraries/config/ConfigFile.class.php';
 require_once 'libraries/core.lib.php';

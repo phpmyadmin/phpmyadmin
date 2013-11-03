@@ -53,13 +53,14 @@ class Form
     /**
      * Constructor, reads default config values
      *
-     * @param string $form_name Form name
-     * @param array  $form      Form data
-     * @param ConfigFile $cf Config file instance
-     * @param int    $index     arbitrary index, stored in Form::$index
+     * @param string     $form_name Form name
+     * @param array      $form      Form data
+     * @param ConfigFile $cf        Config file instance
+     * @param int        $index     arbitrary index, stored in Form::$index
      */
-    public function __construct($form_name, array $form, ConfigFile $cf, $index = null)
-    {
+    public function __construct(
+        $form_name, array $form, ConfigFile $cf, $index = null
+    ) {
         $this->index = $index;
         $this->_configFile = $cf;
         $this->loadForm($form_name, $form);

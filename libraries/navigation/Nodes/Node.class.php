@@ -379,22 +379,10 @@ class Node
      */
     public function getPresence($type = '', $searchClause = '')
     {
-        if (! $GLOBALS['cfg']['Servers'][$GLOBALS['server']]['DisableIS']) {
-            $query  = "SELECT COUNT(*) ";
-            $query .= "FROM `INFORMATION_SCHEMA`.`SCHEMATA` ";
-            $query .= $this->_getWhereClause($searchClause);
-            $retval = (int)$GLOBALS['dbi']->fetchValue($query);
-        } else {
-            $query = "SHOW DATABASES ";
-            if (! empty($searchClause)) {
-                $query .= "LIKE '%";
-                $query .= PMA_Util::sqlAddSlashes(
-                    $searchClause, true
-                );
-                $query .= "%' ";
-            }
-            $retval = $GLOBALS['dbi']->numRows($GLOBALS['dbi']->tryQuery($query));
-        }
+        $query  = "SELECT COUNT(*) ";
+        $query .= "FROM `INFORMATION_SCHEMA`.`SCHEMATA` ";
+        $query .= $this->_getWhereClause($searchClause);
+        $retval = (int)$GLOBALS['dbi']->fetchValue($query);
         return $retval;
     }
 

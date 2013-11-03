@@ -10,7 +10,7 @@ require_once 'libraries/properties/plugins/PluginPropertyItem.class.php';
 
 /**
  * Tests for PluginPropertyItem class
- * 
+ *
  * @package PhpMyAdmin-test
  */
 class PMA_PluginPropertyItem_Test extends PHPUnit_Framework_TestCase
@@ -29,7 +29,7 @@ class PMA_PluginPropertyItem_Test extends PHPUnit_Framework_TestCase
 
     /**
      * tearDown for test cases
-     * 
+     *
      * @return void
      */
     public function tearDown()
@@ -39,7 +39,7 @@ class PMA_PluginPropertyItem_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for PluginPropertyItem::getPropertyType
-     * 
+     *
      * @return void
      */
     public function testGetPropertyType()

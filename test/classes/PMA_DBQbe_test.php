@@ -19,7 +19,7 @@ require_once 'libraries/relation.lib.php';
 
 /**
  * Tests for PMA_DBQbe class
- * 
+ *
  *  @package PhpMyAdmin-test
  */
 class PMA_DBQbe_Test extends PHPUnit_Framework_TestCase

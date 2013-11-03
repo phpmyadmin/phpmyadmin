@@ -494,7 +494,7 @@ class PMA_Table_Test extends PHPUnit_Framework_TestCase
             $field_primary, $move_to
         );
         $this->assertEquals(
-            "`PMA_name` BIT(12) PMA_attribute NULL DEFAULT b'10' " 
+            "`PMA_name` BIT(12) PMA_attribute NULL DEFAULT b'10' "
             . "AUTO_INCREMENT COMMENT 'PMA_comment' FIRST",
             $query
         );
@@ -507,7 +507,7 @@ class PMA_Table_Test extends PHPUnit_Framework_TestCase
             $field_primary, $move_to
         );
         $this->assertEquals(
-            "`PMA_name` BOOLEAN PMA_attribute NULL DEFAULT TRUE " 
+            "`PMA_name` BOOLEAN PMA_attribute NULL DEFAULT TRUE "
             . "AUTO_INCREMENT COMMENT 'PMA_comment' FIRST",
             $query
         );
@@ -520,7 +520,7 @@ class PMA_Table_Test extends PHPUnit_Framework_TestCase
             $field_primary, $move_to
         );
         $this->assertEquals(
-            "`PMA_name` BOOLEAN PMA_attribute NULL DEFAULT NULL " 
+            "`PMA_name` BOOLEAN PMA_attribute NULL DEFAULT NULL "
             . "AUTO_INCREMENT COMMENT 'PMA_comment' FIRST",
             $query
         );
@@ -533,7 +533,7 @@ class PMA_Table_Test extends PHPUnit_Framework_TestCase
             $field_primary, $move_to
         );
         $this->assertEquals(
-            "`PMA_name` BOOLEAN PMA_attribute NULL DEFAULT CURRENT_TIMESTAMP " 
+            "`PMA_name` BOOLEAN PMA_attribute NULL DEFAULT CURRENT_TIMESTAMP "
             . "AUTO_INCREMENT COMMENT 'PMA_comment' FIRST",
             $query
         );
@@ -548,7 +548,7 @@ class PMA_Table_Test extends PHPUnit_Framework_TestCase
             $field_primary, $move_to
         );
         $this->assertEquals(
-            "`PMA_name` BOOLEAN PMA_attribute NULL INCREMENT " 
+            "`PMA_name` BOOLEAN PMA_attribute NULL INCREMENT "
             . "COMMENT 'PMA_comment' FIRST",
             $query
         );

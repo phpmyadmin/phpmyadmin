@@ -37,7 +37,7 @@ class PMA_AuthenticationConfig_Test extends PHPUnit_Framework_TestCase
 
     /**
      * tearDown for test cases
-     * 
+     *
      * @return void
      */
     public function tearDown()
@@ -47,7 +47,7 @@ class PMA_AuthenticationConfig_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for AuthenticationConfig::auth
-     * 
+     *
      * @return void
      */
     public function testAuth()
@@ -59,7 +59,7 @@ class PMA_AuthenticationConfig_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for AuthenticationConfig::authCheck
-     * 
+     *
      * @return void
      */
     public function testAuthCheck()
@@ -71,7 +71,7 @@ class PMA_AuthenticationConfig_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for AuthenticationConfig::authSetUser
-     * 
+     *
      * @return void
      */
     public function testAuthSetUser()
@@ -83,7 +83,7 @@ class PMA_AuthenticationConfig_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for AuthenticationConfig::authFails
-     * 
+     *
      * @return void
      */
     public function testAuthFails()
@@ -94,7 +94,7 @@ class PMA_AuthenticationConfig_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['allowDeny_forbidden'] = false;
         if (!defined('PMA_USR_BROWSER_AGENT')) {
             define('PMA_USR_BROWSER_AGENT', 'chrome');
-            
+
             $removeConstant = true;
 
             if (! PMA_HAS_RUNKIT) {

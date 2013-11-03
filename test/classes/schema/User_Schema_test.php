@@ -55,14 +55,14 @@ class PMA_User_Schema_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfgRelation']['table_coords'] = "table_name";
         $GLOBALS['cfgRelation']['pdf_pages'] = "pdf_pages";
         $GLOBALS['cfgRelation']['relation'] = "relation";
-        
+
         $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
-        
+
         $dbi->expects($this->any())
             ->method('insertId')
-            ->will($this->returnValue(10));  
+            ->will($this->returnValue(10));
 
         $databases = array();
         $database_name = 'PMA';
@@ -73,13 +73,13 @@ class PMA_User_Schema_Test extends PHPUnit_Framework_TestCase
         $databases[$database_name]['SCHEMA_INDEX_LENGTH'] = 10;
         $databases[$database_name]['SCHEMA_LENGTH'] = 10;
         $databases[$database_name]['ENGINE'] = "InnerDB";
-        
+
         $dbi->expects($this->any())->method('getTablesFull')
-            ->will($this->returnValue($databases));   
+            ->will($this->returnValue($databases));
 
         $GLOBALS['dbi'] = $dbi;
-        
-        $this->object = new PMA_User_Schema(); 
+
+        $this->object = new PMA_User_Schema();
     }
 
     /**
@@ -106,48 +106,48 @@ class PMA_User_Schema_Test extends PHPUnit_Framework_TestCase
         //action: selectpage
         $_REQUEST['chpage'] = 10;
         $_REQUEST['action_choose'] = '2';
-        $this->object->setAction("selectpage"); 
-        $this->object->processUserChoice();        
+        $this->object->setAction("selectpage");
+        $this->object->processUserChoice();
         $this->assertEquals(
             "selectpage",
             $this->object->action
-        );     
+        );
         $this->assertEquals(
             10,
             $this->object->chosenPage
         );
-        
+
         $_REQUEST['action_choose'] = '1';
-        $this->object->processUserChoice(); 
+        $this->object->processUserChoice();
         //deleteCoordinates successfully
         $this->assertEquals(
             0,
             $this->object->chosenPage
         );
-        
+
         //action: createpage
         $_POST['newpage'] = "3";
         $_POST['auto_layout_foreign'] = true;
         $_POST['auto_layout_internal'] = true;
         $_POST['delrow'] = array("row1", "row2");
         $_POST['chpage'] = "chpage";
-        $this->object->setAction("delete_old_references"); 
-        $this->object->processUserChoice(); 
-        $this->object->setAction("createpage"); 
-        $this->object->processUserChoice();        
+        $this->object->setAction("delete_old_references");
+        $this->object->processUserChoice();
+        $this->object->setAction("createpage");
+        $this->object->processUserChoice();
         $this->assertEquals(
             10,
             $this->object->pageNumber
-        );       
+        );
         $this->assertEquals(
             "1",
             $this->object->autoLayoutForeign
-        );       
+        );
         $this->assertEquals(
             "1",
             $this->object->autoLayoutInternal
         );
-        
+
         //action: edcoord
         $_POST['chpage'] = "3";
         $_POST['c_table_rows'] = 1;
@@ -158,15 +158,15 @@ class PMA_User_Schema_Test extends PHPUnit_Framework_TestCase
             'delete' => 'delete0',
             'x' => 'x0',
         );
-        $this->object->setAction("edcoord"); 
-        $this->object->processUserChoice();        
+        $this->object->setAction("edcoord");
+        $this->object->processUserChoice();
         $this->assertEquals(
             '3',
             $this->object->chosenPage
-        );          
+        );
         $this->assertEquals(
             1,
             $this->object->c_table_rows
-        );   
+        );
     }
 }

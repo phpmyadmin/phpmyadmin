@@ -35,7 +35,7 @@ class Text_Plain_Substring_Test extends PHPUnit_Framework_TestCase
      */
     protected function setUp()
     {
-        $this->object = new Text_Plain_Substring(new PluginManager()); 
+        $this->object = new Text_Plain_Substring(new PluginManager());
     }
 
     /**
@@ -63,11 +63,11 @@ class Text_Plain_Substring_Test extends PHPUnit_Framework_TestCase
             . ' characters to skip from the beginning of the string (Default 0).'
             . ' The second option is the number of characters to return (Default:'
             . ' until end of string). The third option is the string to append';
-        
+
         $this->assertContains(
             $info,
             Text_Plain_Substring::getInfo()
-        );    
+        );
     }
 
     /**
@@ -78,11 +78,11 @@ class Text_Plain_Substring_Test extends PHPUnit_Framework_TestCase
      * @group medium
      */
     public function testGetName()
-    {       
+    {
         $this->assertEquals(
             "Substring",
             Text_Plain_Substring::getName()
-        );    
+        );
     }
 
     /**
@@ -93,11 +93,11 @@ class Text_Plain_Substring_Test extends PHPUnit_Framework_TestCase
      * @group medium
      */
     public function testGetMIMEType()
-    {       
+    {
         $this->assertEquals(
             "Text",
             Text_Plain_Substring::getMIMEType()
-        );    
+        );
     }
 
     /**
@@ -108,11 +108,11 @@ class Text_Plain_Substring_Test extends PHPUnit_Framework_TestCase
      * @group medium
      */
     public function testGetMIMESubtype()
-    {       
+    {
         $this->assertEquals(
             "Plain",
             Text_Plain_Substring::getMIMESubtype()
-        );    
+        );
     }
 
     /**
@@ -129,6 +129,6 @@ class Text_Plain_Substring_Test extends PHPUnit_Framework_TestCase
         $this->assertEquals(
             "suffixMA_suffix",
             $this->object->applyTransformation($buffer, $options)
-        );    
+        );
     }
 }
