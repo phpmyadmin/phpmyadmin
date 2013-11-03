@@ -903,7 +903,8 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
             isset($_COOKIE['pmaServer-2'])
         );
 
-        // target can be "phpunit" or "ide-phpunut.php", depending on testing environment
+        // target can be "phpunit" or "ide-phpunut.php",
+        // depending on testing environment
         $this->assertStringStartsWith(
             'Location: http://phpmyadmin.net/index.php?target=',
             $GLOBALS['header'][0]

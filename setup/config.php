@@ -45,7 +45,10 @@ if (PMA_ifSetOr($_POST['submit_clear'], '')) {
     //
     // Save generated config file on the server
     //
-    file_put_contents($config_file_path, ConfigGenerator::getConfigFile($GLOBALS['ConfigFile']));
+    file_put_contents(
+        $config_file_path,
+        ConfigGenerator::getConfigFile($GLOBALS['ConfigFile'])
+    );
     header('HTTP/1.1 303 See Other');
     header('Location: index.php?action_done=config_saved');
     exit;

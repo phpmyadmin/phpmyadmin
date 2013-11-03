@@ -124,7 +124,9 @@ class FormDisplay
      */
     public function registerForm($form_name, array $form, $server_id = null)
     {
-        $this->_forms[$form_name] = new Form($form_name, $form, $this->_configFile, $server_id);
+        $this->_forms[$form_name] = new Form(
+            $form_name, $form, $this->_configFile, $server_id
+        );
         $this->_isValidated = false;
         foreach ($this->_forms[$form_name]->fields as $path) {
             $work_path = $server_id === null
@@ -182,7 +184,9 @@ class FormDisplay
         }
 
         // run validation
-        $errors = PMA_Validator::validate($this->_configFile, $paths, $values, false);
+        $errors = PMA_Validator::validate(
+            $this->_configFile, $paths, $values, false
+        );
 
         // change error keys from canonical paths to work paths
         if (is_array($errors) && count($errors) > 0) {
