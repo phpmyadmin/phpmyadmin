@@ -727,20 +727,25 @@ function savePrefsToLocalStorage(form)
         type: 'POST',
         data: {
             ajax_request: true,
+            server: form.find('input[name=server]').val(),
             token: form.find('input[name=token]').val(),
             submit_get_json: true
         },
-        success: function (response) {
-            window.localStorage['config'] = response.prefs;
-            window.localStorage['config_mtime'] = response.mtime;
-            window.localStorage['config_mtime_local'] = (new Date()).toUTCString();
-            updatePrefsDate();
-            $('div.localStorage-empty').hide();
-            $('div.localStorage-exists').show();
-            var group = form.parent('.group');
-            group.css('height', group.height() + 'px');
-            form.hide('fast');
-            form.prev('.click-hide-message').show('fast');
+        success: function (data) {
+            if (data.success === true) {
+                window.localStorage['config'] = data.prefs;
+                window.localStorage['config_mtime'] = data.mtime;
+                window.localStorage['config_mtime_local'] = (new Date()).toUTCString();
+                updatePrefsDate();
+                $('div.localStorage-empty').hide();
+                $('div.localStorage-exists').show();
+                var group = form.parent('.group');
+                group.css('height', group.height() + 'px');
+                form.hide('fast');
+                form.prev('.click-hide-message').show('fast');
+            } else {
+                PMA_ajaxShowMessage(data.error);
+            }
         },
         complete: function () {
             submit.prop('disabled', false);
