@@ -40,7 +40,7 @@ function process_formset(FormDisplay $form_display)
             $id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
             if ($id === null && $page == 'servers') {
                 // we've just added a new server, get it's id
-                $id = ConfigFile::getInstance()->getServerCount();
+                $id = $form_display->getConfigFile()->getServerCount();
             }
             $id = $id ? "{$separator}id=$id" : '';
             ?>

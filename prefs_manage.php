@@ -18,7 +18,8 @@ require_once 'libraries/config/Form.class.php';
 require_once 'libraries/config/FormDisplay.class.php';
 require 'libraries/config/user_preferences.forms.php';
 
-PMA_userprefsPageInit();
+$cf = new ConfigFile($GLOBALS['PMA_Config']->base_settings);
+PMA_userprefsPageInit($cf);
 
 $error = '';
 if (isset($_POST['submit_export'])
@@ -82,13 +83,12 @@ if (isset($_POST['submit_export'])
     } else {
         // sanitize input values: treat them as though
         // they came from HTTP POST request
-        $form_display = new FormDisplay();
+        $form_display = new FormDisplay($cf);
         foreach ($forms as $formset_id => $formset) {
             foreach ($formset as $form_name => $form) {
                 $form_display->registerForm($formset_id . ': ' . $form_name, $form);
             }
         }
-        $cf = ConfigFile::getInstance();
         $new_config = $cf->getFlatDefaultConfig();
         if (!empty($_POST['import_merge'])) {
             $new_config = array_merge($new_config, $cf->getConfigArray());
@@ -238,7 +238,7 @@ PMA_printJsValue("PMA_messages['strSavedOn']", __('Saved on: @DATE@'));
             <h2><?php echo __('Import') ?></h2>
             <form class="group-cnt prefs-form disableAjax" name="prefs_import" action="prefs_manage.php" method="post" enctype="multipart/form-data">
                 <?php
-                echo PMA_Util::generateHiddenMaxFileSize($max_upload_size) . "\n";
+                echo PMA_Util::generateHiddenMaxFileSize($GLOBALS['max_upload_size']) . "\n";
                 echo PMA_URL_getHiddenInputs() . "\n";
                 ?>
                 <input type="hidden" name="json" value="" />

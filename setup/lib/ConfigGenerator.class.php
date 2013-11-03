@@ -16,12 +16,11 @@ class ConfigGenerator
     /**
      * Creates config file
      *
+     * @param ConfigFile $cf Config file instance
      * @return string
      */
-    public static function getConfigFile()
+    public static function getConfigFile(ConfigFile $cf)
     {
-        $cf = ConfigFile::getInstance();
-
         $crlf = (isset($_SESSION['eol']) && $_SESSION['eol'] == 'win') ? "\r\n" : "\n";
         $c = $cf->getConfig();
 

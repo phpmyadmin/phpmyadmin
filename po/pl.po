@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-10-30 13:55+0100\n"
-"PO-Revision-Date: 2013-11-01 12:48+0200\n"
+"PO-Revision-Date: 2013-11-03 12:06+0200\n"
 "Last-Translator: Piotr Przybylski <piotrprz@gmail.com>\n"
 "Language-Team: Polish <http://l10n.cihar.com/projects/phpmyadmin/master/pl/>\n"
 "Language: pl\n"
@@ -5159,7 +5159,7 @@ msgstr "Podaj parametry dla połączenia z serwerem"
 
 #: libraries/config/messages.inc.php:205
 msgid "Configuration storage"
-msgstr "Konfiguracja magazynowania"
+msgstr "Przechowywanie konfiguracji"
 
 #: libraries/config/messages.inc.php:206
 msgid ""
@@ -5167,9 +5167,9 @@ msgid ""
 "features, see [doc@linked-tables]phpMyAdmin configuration storage[/doc] in "
 "documentation"
 msgstr ""
-"Konfiguracja pamięcimagazywnowania konfiguracji phpMyAdmin, aby uzyskać "
-"dostęp do dodatkowych opcji, patrz [doc@linked-tables]przechowywanie "
-"konfiguracji phpMyAdmin[/doc] w dokumentacji"
+"Ustaw przechowywanie konfiguracji phpMyAdmin aby uzyskać dostęp do "
+"dodatkowych opcji, patrz [doc@linked-tables]przechowywanie konfiguracji "
+"phpMyAdmin[/doc] w dokumentacji"
 
 #: libraries/config/messages.inc.php:207
 msgid "Changes tracking"
@@ -5972,15 +5972,14 @@ msgid ""
 "An alternate host to hold the configuration storage; leave blank to use the "
 "already defined host"
 msgstr ""
-"Alternatywny hosta do trzymania konfiguracji magazynowania, pozostawić "
-"puste, aby użyć już zdefiniowany host"
+"Alternatywny host do trzymania konfiguracji phpMyAdmin, pozostaw puste aby "
+"użyć już zdefiniowanego hosta"
 
 #: libraries/config/messages.inc.php:393
 msgid "Control host"
 msgstr "Kontrola hosta"
 
 #: libraries/config/messages.inc.php:394
-#, fuzzy
 #| msgid ""
 #| "An alternate host to hold the configuration storage; leave blank to use "
 #| "the already defined host"
@@ -5989,8 +5988,8 @@ msgid ""
 "storage; leave blank to use the default port, or the already defined port, "
 "if the controlhost equals host"
 msgstr ""
-"Alternatywny hosta do trzymania konfiguracji magazynowania, pozostawić "
-"puste, aby użyć już zdefiniowany host"
+"Alternatywny port dla hosta trzymającego konfigurację phpMyAdmin, pozostaw "
+"puste aby użyć ustawienia domyślnego lub z controlhost"
 
 #: libraries/config/messages.inc.php:395
 #, fuzzy
@@ -12764,7 +12763,7 @@ msgid ""
 "permanently requires %sphpMyAdmin configuration storage%s."
 msgstr ""
 "Preferencje są zapisywane tylko w bieżącej sesji. Przechowywanie ich na "
-"stałe wymaga %skonfiguracja magazynowania phpMyAdmin%s."
+"stałe wymaga skonfiguraowania %sprzechowwyania konfiguracji phpMyAdmin%s."
 
 #: libraries/user_preferences.lib.php:128
 msgid "Could not save configuration"

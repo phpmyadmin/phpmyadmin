@@ -33,6 +33,11 @@ class PMA_Config
     var $default = array();
 
     /**
+     * @var array   configuration settings, without user preferences applied
+     */
+    var $base_settings = array();
+
+    /**
      * @var array   configuration settings
      */
     var $settings = array();
@@ -93,6 +98,8 @@ class PMA_Config
         $this->checkSystem();
 
         $this->isHttps();
+
+        $this->base_settings = $this->settings;
     }
 
     /**

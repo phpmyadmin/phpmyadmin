@@ -53,7 +53,7 @@ class PMA_User_Preferences_Test extends PHPUnit_Framework_TestCase
             )
         );
 
-        PMA_userprefsPageInit();
+        PMA_userprefsPageInit(new ConfigFile());
 
         $this->assertEquals(
             array(

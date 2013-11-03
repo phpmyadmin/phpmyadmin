@@ -22,7 +22,7 @@ require './libraries/config/setup.forms.php';
 $mode = filter_input(INPUT_GET, 'mode');
 $id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
 
-$cf = ConfigFile::getInstance();
+$cf = $GLOBALS['ConfigFile'];
 $server_exists = !empty($id) && $cf->get("Servers/$id") !== null;
 
 if ($mode == 'edit' && $server_exists) {
@@ -42,7 +42,7 @@ if ($mode == 'edit' && $server_exists) {
 if (isset($page_title)) {
     echo '<h2>' . $page_title . '</h2>';
 }
-$form_display = new FormDisplay();
+$form_display = new FormDisplay($cf);
 foreach ($forms['Servers'] as $form_name => $form) {
     $form_display->registerForm($form_name, $form, $id);
 }
