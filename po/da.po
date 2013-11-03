@@ -4,10 +4,9 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-10-30 13:55+0100\n"
-"PO-Revision-Date: 2013-10-22 21:43+0200\n"
+"PO-Revision-Date: 2013-11-03 06:47+0200\n"
 "Last-Translator: Aputsiaq Niels Janussen <aj@isit.gl>\n"
-"Language-Team: Danish <http://l10n.cihar.com/projects/phpmyadmin/master/da/"
-">\n"
+"Language-Team: Danish <http://l10n.cihar.com/projects/phpmyadmin/master/da/>\n"
 "Language: da\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2001,12 +2000,12 @@ msgid "Submit Error Report"
 msgstr "Indsend fejlrapport"
 
 #: js/messages.php:411
-#, fuzzy
 #| msgid "An error has occurred. Do you want to send an error report?"
 msgid ""
 "A fatal JavaScript error has occurred. Would you like to send an error "
 "report?"
-msgstr "Der opstod en fejl. Ønsker du at sende en fejlrapport?"
+msgstr ""
+"Der opstod en alvorlig JavaScript-fejl. Vil du at indsende en fejlrapport?"
 
 #: js/messages.php:413
 msgid "Change Report Settings"
@@ -7831,7 +7830,7 @@ msgstr[1] "Fandt %s andre resultater"
 
 #: libraries/navigation/NavigationTree.class.php:828
 msgid "Expand/Collapse"
-msgstr ""
+msgstr "Fold ud/sammen"
 
 #: libraries/navigation/NavigationTree.class.php:1044
 msgid "Filter databases by name or regex"
@@ -7870,10 +7869,9 @@ msgid "New"
 msgstr "Ny"
 
 #: libraries/navigation/Nodes/Node_Database.class.php:34
-#, fuzzy
 #| msgid "Database export options"
 msgid "Database operations"
-msgstr "Database eksportindstillinger"
+msgstr "Databasehandlinger"
 
 #: libraries/navigation/Nodes/Node_Database_Container.class.php:31
 msgctxt "Create new database"
@@ -7911,10 +7909,9 @@ msgid "New"
 msgstr "Nyt"
 
 #: libraries/navigation/Nodes/Node_Procedure.class.php:34
-#, fuzzy
 #| msgid "Procedures"
 msgid "Procedure"
-msgstr "Procedurer"
+msgstr "Procedure"
 
 #: libraries/navigation/Nodes/Node_Procedure_Container.class.php:26
 #: libraries/navigation/Nodes/Node_Procedure_Container.class.php:27
