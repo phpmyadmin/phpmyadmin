@@ -343,7 +343,6 @@ class FormDisplay
 
         $opts = array(
             'doc' => $this->getDocLink($system_path),
-            'wiki' =>  $this->getWikiLink($system_path),
             'show_restore_default' => $show_restore_default,
             'userprefs_allow' => $userprefs_allow,
             'userprefs_comment' => PMA_langName($system_path, 'cmt', ''));
@@ -706,35 +705,6 @@ class FormDisplay
             'config',
             'cfg_' .  $this->_getOptName($path)
         );
-    }
-
-    /**
-     * Returns link to wiki
-     *
-     * @param string $path Path to wiki
-     *
-     * @return string
-     */
-    public function getWikiLink($path)
-    {
-        $opt_name = $this->_getOptName($path);
-        if (substr($opt_name, 0, 7) == 'Servers') {
-            $opt_name = substr($opt_name, 8);
-            if (strpos($opt_name, 'AllowDeny') === 0) {
-                $opt_name = str_replace('_', '_.28', $opt_name) . '.29';
-            }
-        }
-        $test = substr($path, 0, 6);
-        if ($test == 'Import') {
-            $opt_name = substr($opt_name, 7);
-            if ($opt_name == 'format') {
-                $opt_name = 'format_2';
-            }
-        }
-        if ($test == 'Export') {
-            $opt_name = substr($opt_name, 7);
-        }
-        return PMA_linkURL('http://wiki.phpmyadmin.net/pma/Config#' . $opt_name);
     }
 
     /**

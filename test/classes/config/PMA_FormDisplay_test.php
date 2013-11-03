@@ -350,33 +350,6 @@ class PMA_FormDisplay_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for FormDisplay::getWikiLink
-     *
-     * @return void
-     */
-    public function testGetWikiLink()
-    {
-        $this->assertEquals(
-            "./url.php?url=http%3A%2F%2Fwiki.phpmyadmin.net%2Fpma%2FConfig%23" .
-            "AllowDeny.29&amp;server=0&amp;lang=en&amp;token=token",
-            $this->object->getWikiLink('Servers/1/AllowDeny')
-        );
-
-        $this->assertEquals(
-            "./url.php?url=http%3A%2F%2Fwiki.phpmyadmin.net%2Fpma%2FConfig%23" .
-            "format_2&amp;server=0&amp;lang=en&amp;token=token",
-            $this->object->getWikiLink('Import/format')
-        );
-
-        $this->assertEquals(
-            "./url.php?url=http%3A%2F%2Fwiki.phpmyadmin.net%2Fpma%2FConfig%23" .
-            "test&amp;server=0&amp;lang=en&amp;token=token",
-            $this->object->getWikiLink('Export/test')
-        );
-
-    }
-
-    /**
      * Test for FormDisplay::_getOptName
      *
      * @return void

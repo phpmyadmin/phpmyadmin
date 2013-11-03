@@ -219,7 +219,6 @@ echo '<table width="100%" cellspacing="0">';
 // Display language list
 $opts = array(
     'doc' => $form_display->getDocLink('DefaultLang'),
-    'wiki' => $form_display->getWikiLink('DefaultLang'),
     'values' => array(),
     'values_escaped' => true);
 foreach ($all_languages as $each_lang_key => $each_lang) {
@@ -234,7 +233,6 @@ PMA_displayInput(
 // Display server list
 $opts = array(
     'doc' => $form_display->getDocLink('ServerDefault'),
-    'wiki' => $form_display->getWikiLink('ServerDefault'),
     'values' => array(),
     'values_disabled' => array());
 if ($cf->getServerCount() > 0) {

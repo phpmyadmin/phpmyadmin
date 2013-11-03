@@ -115,7 +115,6 @@ function PMA_displayFieldsetTop($title = '', $description = '', $errors = null,
  * o values_disabled -  (array)list of disabled values (keys from values)
  * o comment - (string) tooltip comment
  * o comment_warning - (bool) whether this comments warns about something
- * o wiki - (string) wiki link
  *
  * @param string $path             config option path
  * @param string $name             config option name
@@ -147,7 +146,6 @@ function PMA_displayInput($path, $name, $type, $value, $description = '',
         $icon_init = array(
             'edit'   => array('b_edit.png',   ''),
             'help'   => array('b_help.png',   __('Documentation')),
-            'info'   => array('s_info.png',   __('Wiki')),
             'reload' => array('s_reload.png', ''),
             'tblops' => array('b_tblops.png', '')
         );
@@ -204,18 +202,11 @@ function PMA_displayInput($path, $name, $type, $value, $description = '',
     echo '<th>';
     echo '<label for="' . htmlspecialchars($path) . '">' . $name . '</label>';
 
-    if (! empty($opts['doc']) || ! empty($opts['wiki'])) {
+    if (! empty($opts['doc'])) {
         echo '<span class="doc">';
-        if (! empty($opts['doc'])) {
-            echo '<a href="' . $opts['doc']
-                . '" target="documentation">' . $icons['help'] . '</a>';
-            echo "\n";
-        }
-        if (! empty($opts['wiki'])) {
-            echo '<a href="' . $opts['wiki']
-                . '" target="wiki">' . $icons['info'] . '</a>';
-            echo "\n";
-        }
+        echo '<a href="' . $opts['doc']
+            . '" target="documentation">' . $icons['help'] . '</a>';
+        echo "\n";
         echo '</span>';
     }
 
