@@ -203,7 +203,6 @@ class PMA_FormDisplay_Tpl_Test extends PHPUnit_Framework_TestCase
         $opts['userprefs_allow'] = false;
         $opts['setvalue'] = ':group';
         $opts['doc'] = "http://doclink";
-        $opts['wiki'] = "http://wikilink";
         $opts['comment'] = "testComment";
         $opts['comment_warning'] = true;
         $opts['show_restore_default'] = true;
@@ -249,13 +248,6 @@ class PMA_FormDisplay_Tpl_Test extends PHPUnit_Framework_TestCase
                 array(
                     'parent' => array('tag' => 'a')
                 )
-            ),
-            $result
-        );
-
-        $this->assertTag(
-            PMA_getTagArray(
-                '<img src="testImages_info.png" title="Wiki" alt="Wiki" />'
             ),
             $result
         );
