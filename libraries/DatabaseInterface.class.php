@@ -951,107 +951,81 @@ class PMA_DatabaseInterface
     ) {
         $columns = array();
 
-        if (! $GLOBALS['cfg']['Server']['DisableIS']) {
-            $sql_wheres = array();
-            $array_keys = array();
+        $sql_wheres = array();
+        $array_keys = array();
 
-            // get columns information from information_schema
-            if (null !== $database) {
-                $sql_wheres[] = '`TABLE_SCHEMA` = \''
-                    . PMA_Util::sqlAddSlashes($database) . '\' ';
-            } else {
-                $array_keys[] = 'TABLE_SCHEMA';
-            }
-            if (null !== $table) {
-                $sql_wheres[] = '`TABLE_NAME` = \''
-                    . PMA_Util::sqlAddSlashes($table) . '\' ';
-            } else {
-                $array_keys[] = 'TABLE_NAME';
-            }
-            if (null !== $column) {
-                $sql_wheres[] = '`COLUMN_NAME` = \''
-                    . PMA_Util::sqlAddSlashes($column) . '\' ';
-            } else {
-                $array_keys[] = 'COLUMN_NAME';
-            }
-
-            // for PMA bc:
-            // `[SCHEMA_FIELD_NAME]` AS `[SHOW_FULL_COLUMNS_FIELD_NAME]`
-            if (PMA_DRIZZLE) {
-                $sql = "SELECT TABLE_SCHEMA, TABLE_NAME, COLUMN_NAME,
-                    column_name        AS `Field`,
-                    (CASE
-                        WHEN character_maximum_length > 0
-                        THEN concat(lower(data_type), '(', character_maximum_length, ')')
-                        WHEN numeric_precision > 0 OR numeric_scale > 0
-                        THEN concat(lower(data_type), '(', numeric_precision,
-                            ',', numeric_scale, ')')
-                        WHEN enum_values IS NOT NULL
-                            THEN concat(lower(data_type), '(', enum_values, ')')
-                        ELSE lower(data_type) END)
-                                       AS `Type`,
-                    collation_name     AS `Collation`,
-                    (CASE is_nullable
-                        WHEN 1 THEN 'YES'
-                        ELSE 'NO' END) AS `Null`,
-                    (CASE
-                        WHEN is_used_in_primary THEN 'PRI'
-                        ELSE '' END)   AS `Key`,
-                    column_default     AS `Default`,
-                    (CASE
-                        WHEN is_auto_increment THEN 'auto_increment'
-                        WHEN column_default_update
-                        THEN 'on update ' || column_default_update
-                        ELSE '' END)   AS `Extra`,
-                    NULL               AS `Privileges`,
-                    column_comment     AS `Comment`
-                FROM data_dictionary.columns";
-            } else {
-                $sql = '
-                     SELECT *,
-                            `COLUMN_NAME`       AS `Field`,
-                            `COLUMN_TYPE`       AS `Type`,
-                            `COLLATION_NAME`    AS `Collation`,
-                            `IS_NULLABLE`       AS `Null`,
-                            `COLUMN_KEY`        AS `Key`,
-                            `COLUMN_DEFAULT`    AS `Default`,
-                            `EXTRA`             AS `Extra`,
-                            `PRIVILEGES`        AS `Privileges`,
-                            `COLUMN_COMMENT`    AS `Comment`
-                       FROM `information_schema`.`COLUMNS`';
-            }
-            if (count($sql_wheres)) {
-                $sql .= "\n" . ' WHERE ' . implode(' AND ', $sql_wheres);
-            }
-
-            $columns = $this->fetchResult($sql, $array_keys, null, $link);
-            unset($sql_wheres, $sql);
+        // get columns information from information_schema
+        if (null !== $database) {
+            $sql_wheres[] = '`TABLE_SCHEMA` = \''
+                . PMA_Util::sqlAddSlashes($database) . '\' ';
         } else {
-            if (null === $database) {
-                foreach ($GLOBALS['pma']->databases as $database) {
-                    $columns[$database] = $this->getColumnsFull(
-                        $database, null, null, $link
-                    );
-                }
-                return $columns;
-            } elseif (null === $table) {
-                $tables = $this->getTables($database);
-                foreach ($tables as $table) {
-                    $columns[$table] = $this->getColumnsFull(
-                        $database, $table, null, $link
-                    );
-                }
-                return $columns;
-            }
-
-            $sql = 'SHOW FULL COLUMNS FROM '
-                . PMA_Util::backquote($database) . '.' . PMA_Util::backquote($table);
-            if (null !== $column) {
-                $sql .= " LIKE '" . PMA_Util::sqlAddSlashes($column, true) . "'";
-            }
-
-            $columns = $this->fetchResult($sql, 'Field', null, $link);
+            $array_keys[] = 'TABLE_SCHEMA';
         }
+        if (null !== $table) {
+            $sql_wheres[] = '`TABLE_NAME` = \''
+                . PMA_Util::sqlAddSlashes($table) . '\' ';
+        } else {
+            $array_keys[] = 'TABLE_NAME';
+        }
+        if (null !== $column) {
+            $sql_wheres[] = '`COLUMN_NAME` = \''
+                . PMA_Util::sqlAddSlashes($column) . '\' ';
+        } else {
+            $array_keys[] = 'COLUMN_NAME';
+        }
+
+        // for PMA bc:
+        // `[SCHEMA_FIELD_NAME]` AS `[SHOW_FULL_COLUMNS_FIELD_NAME]`
+        if (PMA_DRIZZLE) {
+            $sql = "SELECT TABLE_SCHEMA, TABLE_NAME, COLUMN_NAME,
+                column_name        AS `Field`,
+                (CASE
+                    WHEN character_maximum_length > 0
+                    THEN concat(lower(data_type), '(', character_maximum_length, ')')
+                    WHEN numeric_precision > 0 OR numeric_scale > 0
+                    THEN concat(lower(data_type), '(', numeric_precision,
+                        ',', numeric_scale, ')')
+                    WHEN enum_values IS NOT NULL
+                        THEN concat(lower(data_type), '(', enum_values, ')')
+                    ELSE lower(data_type) END)
+                                   AS `Type`,
+                collation_name     AS `Collation`,
+                (CASE is_nullable
+                    WHEN 1 THEN 'YES'
+                    ELSE 'NO' END) AS `Null`,
+                (CASE
+                    WHEN is_used_in_primary THEN 'PRI'
+                    ELSE '' END)   AS `Key`,
+                column_default     AS `Default`,
+                (CASE
+                    WHEN is_auto_increment THEN 'auto_increment'
+                    WHEN column_default_update
+                    THEN 'on update ' || column_default_update
+                    ELSE '' END)   AS `Extra`,
+                NULL               AS `Privileges`,
+                column_comment     AS `Comment`
+            FROM data_dictionary.columns";
+        } else {
+            $sql = '
+                 SELECT *,
+                        `COLUMN_NAME`       AS `Field`,
+                        `COLUMN_TYPE`       AS `Type`,
+                        `COLLATION_NAME`    AS `Collation`,
+                        `IS_NULLABLE`       AS `Null`,
+                        `COLUMN_KEY`        AS `Key`,
+                        `COLUMN_DEFAULT`    AS `Default`,
+                        `EXTRA`             AS `Extra`,
+                        `PRIVILEGES`        AS `Privileges`,
+                        `COLUMN_COMMENT`    AS `Comment`
+                   FROM `information_schema`.`COLUMNS`';
+        }
+        if (count($sql_wheres)) {
+            $sql .= "\n" . ' WHERE ' . implode(' AND ', $sql_wheres);
+        }
+
+        $columns = $this->fetchResult($sql, $array_keys, null, $link);
+        unset($sql_wheres, $sql);
+
         $ordinal_position = 1;
         foreach ($columns as $column_name => $each_column) {
 
