@@ -2233,6 +2233,23 @@ function PMA_getUserExportLink($username, $hostname, $initial = '')
 }
 
 /**
+ * Returns user group edit link
+ * 
+ * @param string $username User name
+ * 
+ * @return HTML code with link
+ */
+function PMA_getUserGroupEditLink($username)
+{
+     return '<a class="edit_user_group_anchor ajax"'
+        . ' href="server_privileges.php'
+        . PMA_URL_getCommon(array('username' => $username))
+        . '">'
+        . PMA_Util::getIcon('b_usrlist.png', __('Edit user group'))
+        . '</a>';
+}
+
+/**
  * This function return the extra data array for the ajax behavior
  *
  * @param string $password  password
@@ -2291,7 +2308,14 @@ function PMA_getExtraDataForAjaxBehavior(
         $new_user_string .= '<td>'
             . '<code>' . join(', ', PMA_extractPrivInfo('', true)) . '</code>'
             . '</td>'; //Fill in privileges here
-        $new_user_string .= '<td class="usrGroup"></td>';
+        
+        // if $cfg['Servers'][$i]['users'] and $cfg['Servers'][$i]['usergroups'] are
+        // enabled
+        $cfgRelation = PMA_getRelationsParam();
+        if (isset($cfgRelation['users']) && isset($cfgRelation['usergroups'])) {
+            $new_user_string .= '<td class="usrGroup"></td>';
+        }
+
         $new_user_string .= '<td>';
 
         if ((isset($_POST['Grant_priv']) && $_POST['Grant_priv'] == 'Y')) {
@@ -2305,6 +2329,13 @@ function PMA_getExtraDataForAjaxBehavior(
         $new_user_string .= '<td>'
             . PMA_getUserEditLink($username, $hostname)
             . '</td>' . "\n";
+        
+        if (isset($cfgRelation['users']) && isset($cfgRelation['usergroups'])) {
+            $new_user_string .= '<td>'
+                . PMA_getUserGroupEditLink($username)
+                . '</td>' . "\n";
+        }
+        
         $new_user_string .= '<td>'
             . PMA_getUserExportLink(
                 $username,
@@ -2975,13 +3006,8 @@ function PMA_getTableBodyForUserRightsTable($db_rights)
                     $html_output .= '<td class="center"></td>';
                 } else {
                     $html_output .= '<td class="center">'
-                        . '<a class="edit_user_group_anchor ajax"'
-                        . ' href="server_privileges.php'
-                        . PMA_URL_getCommon(array('username' => $host['User']))
-                        . '">'
-                        . PMA_Util::getIcon('b_usrlist.png', __('Edit user group'))
-                        . '</a>'
-                        . '</td>';
+                        . PMA_getUserGroupEditLink($host['User'])
+                        .'</td>';
                 }
             }
             $html_output .= '<td class="center">'
