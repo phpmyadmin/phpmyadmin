@@ -139,15 +139,15 @@ class PMA_DBI_Mysql_Test extends PHPUnit_Framework_TestCase
             'mysql_fetch_array',
             $ret
         );
-        
+
         //test for affectedRows
         $link = "PMA_link";
-        $get_from_cache = false;  
+        $get_from_cache = false;
         $ret = $this->object->affectedRows($link, $get_from_cache);
         $this->assertEquals(
             "mysql_affected_rows",
             $ret
-        );       
+        );
 
         //test for connect
         $user = 'PMA_user';

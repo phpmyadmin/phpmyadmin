@@ -42,7 +42,7 @@ class PMA_ExportTexytext_Test extends PHPUnit_Framework_TestCase
 
     /**
      * tearDown for test cases
-     * 
+     *
      * @return void
      */
     public function tearDown()
@@ -52,7 +52,7 @@ class PMA_ExportTexytext_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for ExportTexytext::setProperties
-     * 
+     *
      * @return void
      */
     public function testSetProperties()
@@ -124,7 +124,7 @@ class PMA_ExportTexytext_Test extends PHPUnit_Framework_TestCase
             'RadioPropertyItem',
             $property
         );
-        
+
         $generalOptions = array_shift($generalOptionsArray);
 
         $this->assertInstanceOf(
@@ -145,7 +145,7 @@ class PMA_ExportTexytext_Test extends PHPUnit_Framework_TestCase
             'BoolPropertyItem',
             $property
         );
-        
+
         $this->assertEquals(
             'columns',
             $property->getName()
@@ -157,7 +157,7 @@ class PMA_ExportTexytext_Test extends PHPUnit_Framework_TestCase
             'TextPropertyItem',
             $property
         );
-        
+
         $this->assertEquals(
             'null',
             $property->getName()
@@ -166,7 +166,7 @@ class PMA_ExportTexytext_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for ExportTexytext::exportHeader
-     * 
+     *
      * @return void
      */
     public function testExportHeader()
@@ -178,7 +178,7 @@ class PMA_ExportTexytext_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for ExportTexytext::exportFooter
-     * 
+     *
      * @return void
      */
     public function testExportFooter()
@@ -190,7 +190,7 @@ class PMA_ExportTexytext_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for ExportTexytext::exportDBHeader
-     * 
+     *
      * @return void
      */
     public function testExportDBHeader()
@@ -205,7 +205,7 @@ class PMA_ExportTexytext_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for ExportTexytext::exportDBFooter
-     * 
+     *
      * @return void
      */
     public function testExportDBFooter()
@@ -217,7 +217,7 @@ class PMA_ExportTexytext_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for ExportTexytext::exportDBCreate
-     * 
+     *
      * @return void
      */
     public function testExportDBCreate()
@@ -229,7 +229,7 @@ class PMA_ExportTexytext_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for ExportTexytext::exportData
-     * 
+     *
      * @return void
      */
     public function testExportData()
@@ -287,12 +287,12 @@ class PMA_ExportTexytext_Test extends PHPUnit_Framework_TestCase
             "|&amp;gt;|0|test",
             $result
         );
-        
+
     }
 
     /**
      * Test for ExportTexytext::getTableDefStandIn
-     * 
+     *
      * @return void
      */
     public function testGetTableDefStandIn()
@@ -353,7 +353,7 @@ class PMA_ExportTexytext_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for ExportTexytext::getTableDef
-     * 
+     *
      * @return void
      */
     public function testGetTableDef()
@@ -419,7 +419,7 @@ class PMA_ExportTexytext_Test extends PHPUnit_Framework_TestCase
                 )
             );
 
-        
+
         $columns = array(
             'Field' => 'fname',
             'Comment' => 'comm'
@@ -429,7 +429,7 @@ class PMA_ExportTexytext_Test extends PHPUnit_Framework_TestCase
             ->method('getColumns')
             ->with('db', 'table')
             ->will($this->returnValue(array($columns)));
-        
+
         $GLOBALS['dbi'] = $dbi;
 
         $this->object->expects($this->exactly(1))
@@ -465,7 +465,7 @@ class PMA_ExportTexytext_Test extends PHPUnit_Framework_TestCase
 
      /**
      * Test for ExportTexytext::getTriggers
-     * 
+     *
      * @return void
      */
     public function testGetTriggers()
@@ -482,7 +482,7 @@ class PMA_ExportTexytext_Test extends PHPUnit_Framework_TestCase
                 'definition' => 'def'
             )
         );
-        
+
         $dbi->expects($this->once())
             ->method('getTriggers')
             ->with('database', 'ta<ble')
@@ -506,12 +506,12 @@ class PMA_ExportTexytext_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for ExportTexytext::exportStructure
-     * 
+     *
      * @return void
      */
     public function testExportStructure()
     {
-        
+
         $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
@@ -549,7 +549,7 @@ class PMA_ExportTexytext_Test extends PHPUnit_Framework_TestCase
             ->will($this->returnValue('dumpText4'));
 
         $GLOBALS['dbi'] = $dbi;
-        
+
         // case 1
         ob_start();
         $this->assertTrue(
@@ -609,7 +609,7 @@ class PMA_ExportTexytext_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for ExportTexytext::formatOneColumnDefinition
-     * 
+     *
      * @return void
      */
     public function testFormatOneColumnDefinition()

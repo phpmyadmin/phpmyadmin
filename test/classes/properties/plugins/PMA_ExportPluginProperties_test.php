@@ -11,9 +11,9 @@ require_once 'libraries/properties/options/groups/OptionsPropertyRootGroup.class
 require_once 'test/classes/properties/plugins/PMA_ImportPluginProperties_test.php';
 
 /**
- * Tests for ExportPluginProperties class. Extends PMA_ImportPluginProperties_Tests 
+ * Tests for ExportPluginProperties class. Extends PMA_ImportPluginProperties_Tests
  * and adds tests for methods that are not common to both
- * 
+ *
  * @package PhpMyAdmin-test
  */
 class PMA_ExportPluginProperties_Test extends PMA_ImportPluginProperties_Test
@@ -32,7 +32,7 @@ class PMA_ExportPluginProperties_Test extends PMA_ImportPluginProperties_Test
 
     /**
      * tearDown for test cases
-     * 
+     *
      * @return void
      */
     public function tearDown()
@@ -42,7 +42,7 @@ class PMA_ExportPluginProperties_Test extends PMA_ImportPluginProperties_Test
 
     /**
      * Test for ExportPluginProperties::getItemType
-     * 
+     *
      * @return void
      */
     public function testGetItemType()
@@ -57,7 +57,7 @@ class PMA_ExportPluginProperties_Test extends PMA_ImportPluginProperties_Test
      * Test for
      *     - ExportPluginProperties::getForceFile
      *     - ExportPluginProperties::setForceFile
-     * 
+     *
      * @return void
      */
     public function testSetGetForceFile()

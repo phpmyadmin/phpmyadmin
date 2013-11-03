@@ -21,7 +21,7 @@ class PMA_File_Test extends PHPUnit_Framework_TestCase
 {
     /**
      * Setup function for test cases
-     * 
+     *
      * @return void
      */
     public function setup()
@@ -34,10 +34,10 @@ class PMA_File_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for PMA_File::getCompression
-     * 
+     *
      * @param string $file file string
      * @param string $mime expected mime
-     * 
+     *
      * @return void
      * @dataProvider compressedFiles
      */
@@ -49,10 +49,10 @@ class PMA_File_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for PMA_File::getNextChunk
-     * 
+     *
      * @param string $file file string
      * @param string $mime expected mime
-     * 
+     *
      * @return void
      * @dataProvider compressedFiles
      */
@@ -71,10 +71,10 @@ class PMA_File_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for PMA_File::getContent
-     * 
+     *
      * @param string $file file string
      * @param string $mime expected mime
-     * 
+     *
      * @return void
      * @dataProvider compressedFiles
      */
@@ -87,7 +87,7 @@ class PMA_File_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Data provider for tests
-     * 
+     *
      * @return array Test data
      */
     public function compressedFiles()

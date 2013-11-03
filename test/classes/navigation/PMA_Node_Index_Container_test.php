@@ -19,7 +19,7 @@ class Node_Index_Container_Test extends PHPUnit_Framework_TestCase
 {
     /**
      * SetUp for test cases
-     * 
+     *
      * @return void
      */
     public function setup()
@@ -31,7 +31,7 @@ class Node_Index_Container_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for __construct
-     * 
+     *
      * @return void
      */
     public function testConstructor()

@@ -29,7 +29,7 @@ class PMA_Types_Drizzle_Test extends PHPUnit_Framework_TestCase
     /**
      * Sets up the fixture, for example, opens a network connection.
      * This method is called before a test is executed.
-     * 
+     *
      * @return void
      */
     protected function setUp()
@@ -56,7 +56,7 @@ class PMA_Types_Drizzle_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Provider for testGetTypeDescription
-     * 
+     *
      * @return array
      */
     public function providerForTestGetTypeDescription()
@@ -162,7 +162,7 @@ class PMA_Types_Drizzle_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Data provider
-     * 
+     *
      * @return array Test-data
      */
     public function providerFortTestGetTypeClass()
@@ -211,7 +211,7 @@ class PMA_Types_Drizzle_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Provider for testGetFunctionsClass
-     * 
+     *
      * @return array
      */
     public function providerFortTestGetFunctionsClass()
@@ -332,7 +332,7 @@ class PMA_Types_Drizzle_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for getAttributes
-     * 
+     *
      * @return void
      */
     public function testGetAttributes()
@@ -348,7 +348,7 @@ class PMA_Types_Drizzle_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for getColumns
-     * 
+     *
      * @return void
      */
     public function testGetColumns()

@@ -43,7 +43,7 @@ class PMA_ExportXml_Test extends PHPUnit_Framework_TestCase
 
     /**
      * tearDown for test cases
-     * 
+     *
      * @return void
      */
     public function tearDown()
@@ -53,7 +53,7 @@ class PMA_ExportXml_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for ExportXml::setProperties
-     * 
+     *
      * @return void
      */
     public function testSetProperties()
@@ -133,7 +133,7 @@ class PMA_ExportXml_Test extends PHPUnit_Framework_TestCase
             'HiddenPropertyItem',
             $property
         );
-        
+
         $generalOptions = array_shift($generalOptionsArray);
 
         $this->assertInstanceOf(
@@ -194,7 +194,7 @@ class PMA_ExportXml_Test extends PHPUnit_Framework_TestCase
             'data',
             $generalOptions->getName()
         );
-        
+
         $generalProperties = $generalOptions->getProperties();
 
         $property = array_shift($generalProperties);
@@ -203,7 +203,7 @@ class PMA_ExportXml_Test extends PHPUnit_Framework_TestCase
             'BoolPropertyItem',
             $property
         );
-        
+
         if ($restoreDrizzle !== "PMANORESTORE") {
             runkit_constant_redefine('PMA_DRIZZLE', $restoreDrizzle);
         }
@@ -211,7 +211,7 @@ class PMA_ExportXml_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for ExportXml::exportHeader
-     * 
+     *
      * @return void
      */
     public function testExportHeaderWithoutDrizzle()
@@ -447,7 +447,7 @@ class PMA_ExportXml_Test extends PHPUnit_Framework_TestCase
             '&lt;pma:structure_schemas&gt;' . "\n" .
             '        &lt;pma:database name=&quot;d&amp;lt;&amp;quot;b&quot; collat' .
             'ion=&quot;utf8_general_ci&quot; charset=&quot;utf-8&quot;&gt;' . "\n" .
-            '        &lt;/pma:database&gt;' . "\n" . 
+            '        &lt;/pma:database&gt;' . "\n" .
             '    &lt;/pma:structure_schemas&gt;',
             $result
         );
@@ -459,7 +459,7 @@ class PMA_ExportXml_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for ExportXml::exportHeader
-     * 
+     *
      * @return void
      */
     public function testExportHeaderWithDrizzle()
@@ -521,7 +521,7 @@ class PMA_ExportXml_Test extends PHPUnit_Framework_TestCase
             ->method('fetchResult')
             ->will($this->returnValue(false));
 
-       
+
         $GLOBALS['dbi'] = $dbi;
 
         $GLOBALS['tables'] = array();
@@ -540,7 +540,7 @@ class PMA_ExportXml_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for ExportXml::exportFooter
-     * 
+     *
      * @return void
      */
     public function testExportFooter()
@@ -555,7 +555,7 @@ class PMA_ExportXml_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for ExportXml::exportDBHeader
-     * 
+     *
      * @return void
      */
     public function testExportDBHeader()
@@ -582,7 +582,7 @@ class PMA_ExportXml_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for ExportXml::exportDBFooter
-     * 
+     *
      * @return void
      */
     public function testExportDBFooter()
@@ -609,7 +609,7 @@ class PMA_ExportXml_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for ExportXml::exportDBCreate
-     * 
+     *
      * @return void
      */
     public function testExportDBCreate()
@@ -621,7 +621,7 @@ class PMA_ExportXml_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for ExportXml::exportData
-     * 
+     *
      * @return void
      */
     public function testExportData()
@@ -678,23 +678,23 @@ class PMA_ExportXml_Test extends PHPUnit_Framework_TestCase
             "&lt;table name=&quot;ta&amp;lt;ble&quot;&gt;",
             $result
         );
-        
+
         $this->assertContains(
             "&lt;column name=&quot;fName1&quot;&gt;NULL&lt;/column&gt;",
             $result
         );
-        
+
         $this->assertContains(
             "&lt;column name=&quot;fNa&amp;quot;me2&quot;&gt;&amp;lt;a&amp;gt;" .
             "&lt;/column&gt;",
             $result
         );
-        
+
         $this->assertContains(
             "&lt;column name=&quot;fName3&quot;&gt;NULL&lt;/column&gt;",
             $result
         );
-        
+
         $this->assertContains(
             "&lt;/table&gt;",
             $result

@@ -10,7 +10,7 @@ require_once 'libraries/properties/options/OptionsPropertyGroup.class.php';
 
 /**
  * Tests for OptionsPropertyGroup class
- * 
+ *
  * @package PhpMyAdmin-test
  */
 class PMA_OptionsPropertyGroup_Test extends PHPUnit_Framework_TestCase
@@ -29,7 +29,7 @@ class PMA_OptionsPropertyGroup_Test extends PHPUnit_Framework_TestCase
 
     /**
      * tearDown for test cases
-     * 
+     *
      * @return void
      */
     public function tearDown()
@@ -39,7 +39,7 @@ class PMA_OptionsPropertyGroup_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for OptionsPropertyGroup::addProperty
-     * 
+     *
      * @return void
      */
     public function testAddProperty()
@@ -63,7 +63,7 @@ class PMA_OptionsPropertyGroup_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for OptionsPropertyGroup::removeProperty
-     * 
+     *
      * @return void
      */
     public function testRemoveProperty()
@@ -95,7 +95,7 @@ class PMA_OptionsPropertyGroup_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for OptionsPropertyGroup::getGroup
-     * 
+     *
      * @return void
      */
     public function testGetGroup()
@@ -108,7 +108,7 @@ class PMA_OptionsPropertyGroup_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for OptionsPropertyGroup::getProperties
-     * 
+     *
      * @return void
      */
     public function testGetProperties()
@@ -125,7 +125,7 @@ class PMA_OptionsPropertyGroup_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for OptionsPropertyGroup::getProperties
-     * 
+     *
      * @return void
      */
     public function testGetNrOfProperties()

@@ -10,7 +10,7 @@ require_once 'libraries/properties/PropertyItem.class.php';
 
 /**
  * Tests for PropertyItem class
- * 
+ *
  * @package PhpMyAdmin-test
  */
 class PMA_PropertyItem_Test extends PHPUnit_Framework_TestCase
@@ -29,7 +29,7 @@ class PMA_PropertyItem_Test extends PHPUnit_Framework_TestCase
 
     /**
      * tearDown for test cases
-     * 
+     *
      * @return void
      */
     public function tearDown()
@@ -39,7 +39,7 @@ class PMA_PropertyItem_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for PropertyItem::getGroup
-     * 
+     *
      * @return void
      */
     public function testGetGroup()

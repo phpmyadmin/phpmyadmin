@@ -26,7 +26,7 @@ class PMA_Theme_Manager_Test extends PHPUnit_Framework_TestCase
 {
     /**
      * SetUp for test cases
-     * 
+     *
      * @return void
      */
     public function setup()
@@ -42,7 +42,7 @@ class PMA_Theme_Manager_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for PMA_Theme_Manager::getThemeCookieName
-     * 
+     *
      * @return void
      */
     public function testCookieName()
@@ -53,7 +53,7 @@ class PMA_Theme_Manager_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for PMA_Theme_Manager::getThemeCookieName
-     * 
+     *
      * @return void
      */
     public function testPerServerCookieName()
@@ -65,7 +65,7 @@ class PMA_Theme_Manager_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for PMA_Theme_Manager::getHtmlSelectBox
-     * 
+     *
      * @return void
      */
     public function testHtmlSelectBox()

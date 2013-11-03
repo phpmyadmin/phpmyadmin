@@ -42,7 +42,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
 
     /**
      * tearDown for test cases
-     * 
+     *
      * @return void
      */
     public function tearDown()
@@ -52,7 +52,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for ExportSql::setProperties
-     * 
+     *
      * @return void
      */
     public function testSetProperties()
@@ -71,7 +71,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
                 }
                 if (PMA_MYSQL_INT_VERSION <= 50100) {
                     $restoreMySQLIntVersion = PMA_MYSQL_INT_VERSION;
-                    runkit_constant_redefine('PMA_MYSQL_INT_VERSION', 50111);   
+                    runkit_constant_redefine('PMA_MYSQL_INT_VERSION', 50111);
                 }
             }
         }
@@ -261,7 +261,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
         );
 
         $this->assertEquals(
-            'Add <code>DROP TABLE / VIEW / PROCEDURE / FUNCTION</code>' . 
+            'Add <code>DROP TABLE / VIEW / PROCEDURE / FUNCTION</code>' .
             '<code> / EVENT</code> statement',
             $leaf->getText()
         );
@@ -326,13 +326,13 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for ExportSql::setProperties
-     * 
+     *
      * @return void
      */
     public function testSetPropertiesWithDrizzle()
     {
         $restoreDrizzle = $restoreMySQLIntVersion = 'PMANORESTORE';
-        
+
         if (!PMA_DRIZZLE || PMA_MYSQL_INT_VERSION > 50100) {
             if (!PMA_HAS_RUNKIT) {
                 $this->markTestSkipped(
@@ -345,7 +345,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
                 }
                 if (PMA_MYSQL_INT_VERSION > 50100) {
                     $restoreMySQLIntVersion = PMA_MYSQL_INT_VERSION;
-                    runkit_constant_redefine('PMA_MYSQL_INT_VERSION', 50000);   
+                    runkit_constant_redefine('PMA_MYSQL_INT_VERSION', 50000);
                 }
             }
         }
@@ -364,9 +364,9 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
         $properties = $attrProperties->getValue($this->object);
 
         $options = $properties->getOptions();
-        
+
         $generalOptionsArray = $options->getProperties();
-        
+
         $this->assertCount(
             3,
             $generalOptionsArray
@@ -435,7 +435,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
         $structOption = $generalOptionsArray[1];
         $properties = $structOption->getProperties();
         $subgroupProps = $properties[0]->getProperties();
-        
+
         $this->assertContains(
             '<code>DROP TABLE</code>',
             $subgroupProps[0]->getText()
@@ -454,7 +454,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for ExportSql::exportRoutines
-     * 
+     *
      * @return void
      */
     public function testExportRoutines()
@@ -504,14 +504,14 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for ExportSql::_exportComment
-     * 
+     *
      * @return void
      */
     public function testExportComment()
     {
         $method = new ReflectionMethod('ExportSql', '_exportComment');
         $method->setAccessible(true);
-    
+
         $GLOBALS['crlf'] = '##';
         $GLOBALS['sql_include_comments'] = true;
 
@@ -526,7 +526,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
         );
 
         $GLOBALS['sql_include_comments'] = false;
-        
+
         $this->assertEquals(
             '',
             $method->invoke($this->object, 'Comment')
@@ -542,14 +542,14 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for ExportSql::_possibleCRLF
-     * 
+     *
      * @return void
      */
     public function testPossibleCRLF()
     {
         $method = new ReflectionMethod('ExportSql', '_possibleCRLF');
         $method->setAccessible(true);
-    
+
         $GLOBALS['crlf'] = '##';
         $GLOBALS['sql_include_comments'] = true;
 
@@ -564,7 +564,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
         );
 
         $GLOBALS['sql_include_comments'] = false;
-        
+
         $this->assertEquals(
             '',
             $method->invoke($this->object, 'Comment')
@@ -580,7 +580,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for ExportSql::exportFooter
-     * 
+     *
      * @return void
      */
     public function testExportFooter()
@@ -614,7 +614,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
         $dbi->expects($this->once())
             ->method('query')
             ->with('SET time_zone = "GMT"');
-        
+
         $GLOBALS['dbi'] = $dbi;
 
         $this->expectOutputString(
@@ -636,7 +636,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for ExportSql::exportHeader
-     * 
+     *
      * @return void
      */
     public function testExportHeader()
@@ -686,7 +686,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
         $dbi->expects($this->once())
             ->method('query')
             ->with('SET time_zone = "+00:00"');
-        
+
         $GLOBALS['dbi'] = $dbi;
 
         ob_start();
@@ -704,12 +704,12 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
             'h2C',
             $result
         );
-        
+
         $this->assertContains(
             "SET FOREIGN_KEY_CHECKS=0;\n",
             $result
         );
-        
+
         $this->assertContains(
             "40101 SET",
             $result
@@ -719,7 +719,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
             "SET FOREIGN_KEY_CHECKS=0;\n" .
             "SET SQL_MODE = \"NO_AUTO_VALUE_ON_ZERO\";\n" .
             "SET AUTOCOMMIT = 0;\n" .
-            "START TRANSACTION;\n" . 
+            "START TRANSACTION;\n" .
             "SET time_zone = \"+00:00\";\n",
             $result
         );
@@ -732,7 +732,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for ExportSql::exportDBCreate
-     * 
+     *
      * @return void
      */
     public function testExportDBCreate()
@@ -816,7 +816,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for ExportSql::exportDBHeader
-     * 
+     *
      * @return void
      */
     public function testExportDBHeader()
@@ -825,7 +825,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['sql_backquotes'] = '';
         $GLOBALS['sql_include_comments'] = true;
         $GLOBALS['crlf'] = "\n";
-        
+
         ob_start();
         $this->assertTrue(
             $this->object->exportDBHeader('testDB')
@@ -840,7 +840,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
         // case 2
         unset($GLOBALS['sql_compatibility']);
         unset($GLOBALS['sql_backquotes']);
-        
+
         ob_start();
         $this->assertTrue(
             $this->object->exportDBHeader('testDB')
@@ -855,7 +855,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for ExportSql::exportDBFooter
-     * 
+     *
      * @return void
      */
     public function testExportDBFooterWithNewerMySQLVersion()
@@ -940,7 +940,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for ExportSql::exportDBFooter
-     * 
+     *
      * @return void
      */
     public function testExportDBFooterWithOlderMySQLVersion()
@@ -987,7 +987,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for ExportSql::getTableDefStandIn
-     * 
+     *
      * @return void
      */
     public function testGetTableDefStandIn()
@@ -1025,7 +1025,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for ExportSql::_getTableDefForView
-     * 
+     *
      * @return void
      */
     public function testGetTableDefForView()
@@ -1105,7 +1105,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for ExportSql::getTableDef
-     * 
+     *
      * @return void
      */
     public function testGetTableDefWithoutDrizzle()
@@ -1189,7 +1189,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
             "CREATE TABLE `db`.`table`,\n CONSTRAINT KEYS \nFOREIGN  KEY\n) " .
             "unsigned NOT NULL\n(\r\n"
         );
-        
+
         $dbi->expects($this->once())
             ->method('fetchRow')
             ->with('res')
@@ -1241,7 +1241,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
             '-- Constraints for table "table"',
             $GLOBALS['sql_constraints']
         );
-        
+
         $this->assertContains(
             'ALTER TABLE "table"' . "\n",
             $GLOBALS['sql_constraints']
@@ -1271,7 +1271,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
             'ALTER TABLE "db"."table"' . "\n",
             $GLOBALS['sql_drop_foreign_keys']
         );
-        
+
         $this->assertContains(
             'DROP FOREIGN KEY KEYS',
             $GLOBALS['sql_drop_foreign_keys']
@@ -1284,7 +1284,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for ExportSql::getTableDef
-     * 
+     *
      * @return void
      */
     public function testGetTableDefWithDrizzle()
@@ -1366,7 +1366,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
             "CREATE TABLE `db`.`table` ROW_FORMAT='row',\n CONSTRAINT "
              . "KEYS \nFOREIGN  KEY\n) unsigned NOT NULL\n(\r"
         );
-        
+
         $dbi->expects($this->once())
             ->method('fetchRow')
             ->with('res')
@@ -1398,7 +1398,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
             '-- Constraints for table',
             $GLOBALS['sql_constraints']
         );
-       
+
         $this->assertNotContains(
             '-- Constraints for table "table"',
             $GLOBALS['sql_constraints']
@@ -1411,7 +1411,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for ExportSql::getTableDef
-     * 
+     *
      * @return void
      */
     public function testGetTableDefWithError()
@@ -1514,7 +1514,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for ExportSql::_getTableComments
-     * 
+     *
      * @return void
      */
     public function testGetTableComments()
@@ -1585,12 +1585,12 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for ExportSql::exportStructure
-     * 
+     *
      * @return void
      */
     public function testExportStructure()
     {
-        
+
         $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
@@ -1651,7 +1651,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
             'dumpText1',
             $result
         );
-        
+
         // case 2
         unset($GLOBALS['sql_compatibility']);
         unset($GLOBALS['sql_backquotes']);
@@ -1747,7 +1747,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for ExportSql::exportData
-     * 
+     *
      * @return void
      */
     public function testExportData()
@@ -1879,7 +1879,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for ExportSql::exportData
-     * 
+     *
      * @return void
      */
     public function testExportDataWithUpdate()
@@ -1973,7 +1973,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for ExportSql::exportData
-     * 
+     *
      * @return void
     */
     public function testExportDataWithIsView()
@@ -2011,7 +2011,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for ExportSql::exportData
-     * 
+     *
      * @return void
     */
     public function testExportDataWithError()
@@ -2044,12 +2044,12 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for ExportSql::_makeCreateTableMSSQLCompatible
-     * 
+     *
      * @return void
      */
     public function testMakeCreateTableMSSQLCompatible()
     {
-        
+
         $query = "CREATE TABLE IF NOT EXISTS (\" date DEFAULT NULL,\n" .
             "\" date DEFAULT NULL\n\" date NOT NULL,\n\" date NOT NULL\n," .
             " \" date NOT NULL DEFAULT 'asd'," .
@@ -2066,7 +2066,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
             " \" float(22,2,) NOT NULL,\n" .
             " \" double NOT NULL\n" .
             " \" double NOT NULL DEFAULT '213'\n";
-        
+
         $method = new ReflectionMethod(
             'ExportSql', '_makeCreateTableMSSQLCompatible'
         );

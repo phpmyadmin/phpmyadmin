@@ -35,7 +35,7 @@ class PMA_TableProperty_Test extends PHPUnit_Framework_TestCase
 
     /**
      * tearDown for test cases
-     * 
+     *
      * @return void
      */
     public function tearDown()
@@ -83,7 +83,7 @@ class PMA_TableProperty_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for TableProperty::getPureType
-     * 
+     *
      * @return void
     */
     public function testGetPureType()
@@ -105,10 +105,10 @@ class PMA_TableProperty_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for TableProperty::isNotNull
-     * 
+     *
      * @param string $nullable nullable value
      * @param string $expected expected output
-     * 
+     *
      * @return void
      * @dataProvider isNotNullProvider
      */
@@ -124,7 +124,7 @@ class PMA_TableProperty_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Data provider for testIsNotNull
-     * 
+     *
      * @return array Test Data
      */
     public function isNotNullProvider()
@@ -138,10 +138,10 @@ class PMA_TableProperty_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for TableProperty::isUnique
-     * 
+     *
      * @param string $key      key value
      * @param string $expected expected output
-     * 
+     *
      * @return void
      * @dataProvider isUniqueProvider
      */
@@ -157,7 +157,7 @@ class PMA_TableProperty_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Data provider for testIsUnique
-     * 
+     *
      * @return array Test Data
      */
     public function isUniqueProvider()
@@ -173,10 +173,10 @@ class PMA_TableProperty_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for TableProperty::getDotNetPrimitiveType
-     * 
+     *
      * @param string $type     type value
      * @param string $expected expected output
-     * 
+     *
      * @return void
      * @dataProvider getDotNetPrimitiveTypeProvider
      */
@@ -192,7 +192,7 @@ class PMA_TableProperty_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Data provider for testGetDotNetPrimitiveType
-     * 
+     *
      * @return array Test Data
      */
     public function getDotNetPrimitiveTypeProvider()
@@ -214,10 +214,10 @@ class PMA_TableProperty_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for TableProperty::getDotNetObjectType
-     * 
+     *
      * @param string $type     type value
      * @param string $expected expected output
-     * 
+     *
      * @return void
      * @dataProvider getDotNetObjectTypeProvider
      */
@@ -233,7 +233,7 @@ class PMA_TableProperty_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Data provider for testGetDotNetObjectType
-     * 
+     *
      * @return array Test Data
      */
     public function getDotNetObjectTypeProvider()
@@ -255,7 +255,7 @@ class PMA_TableProperty_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for TableProperty::getIndexName
-     * 
+     *
      * @return void
      */
     public function testGetIndexName()
@@ -278,7 +278,7 @@ class PMA_TableProperty_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for TableProperty::isPK
-     * 
+     *
      * @return void
      */
     public function testIsPK()
@@ -298,7 +298,7 @@ class PMA_TableProperty_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for TableProperty::formatCs
-     * 
+     *
      * @return void
     */
     public function testFormatCs()
@@ -313,7 +313,7 @@ class PMA_TableProperty_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for TableProperty::formatXml
-     * 
+     *
      * @return void
     */
     public function testFormatXml()
@@ -328,7 +328,7 @@ class PMA_TableProperty_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for TableProperty::format
-     * 
+     *
      * @return void
     */
     public function testFormat()

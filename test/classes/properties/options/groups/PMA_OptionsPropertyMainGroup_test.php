@@ -28,17 +28,17 @@ class PMA_OptionsPropertyMainGroup_Test extends PHPUnit_Framework_TestCase
 
     /**
      * tearDown for test cases
-     * 
+     *
      * @return void
      */
     protected function tearDown()
     {
         unset($this->object);
     }
-    
+
     /**
      * Test for OptionsPropertyMainGroup::getItemType
-     * 
+     *
      * @return void
      */
     public function testGetItemType()
