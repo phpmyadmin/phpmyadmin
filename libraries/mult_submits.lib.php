@@ -98,10 +98,12 @@ function PMA_getQueryStrFromSelected(
     }
 
     $selected_cnt   = count($selected);
+    $deletes = false;
 
     for ($i = 0; $i < $selected_cnt; $i++) {
         switch ($query_type) {
         case 'row_delete':
+            $deletes = true;
             $a_query = $selected[$i];
             $run_parts = true;
             break;
@@ -153,6 +155,7 @@ function PMA_getQueryStrFromSelected(
             break;
 
         case 'empty_tbl':
+            $deletes = true;
             $a_query = 'TRUNCATE ';
             $a_query .= PMA_Util::backquote($selected[$i]);
             $run_parts = true;
@@ -267,11 +270,13 @@ function PMA_getQueryStrFromSelected(
                 PMA_clearTransformations($db, $selected[$i]);
             } else if ($query_type == 'drop_fld') {
                 PMA_clearTransformations($db, $table, $selected[$i]);
-            } elseif ($query_type == 'row_delete') {
-                //PMA_updatePos($db, $table);
             }
         } // end if
     } // end for
+
+    if ($deletes) {
+        $_REQUEST['pos'] = PMA_calculatePosForLastPage($db, $table, $_REQUEST['pos']);
+    }
 
     return array(
         $result, $rebuild_database_list, $reload,

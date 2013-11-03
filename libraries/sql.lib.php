@@ -1050,9 +1050,7 @@ function PMA_addBookmark($pmaAbsoluteUri, $goto)
 function PMA_findRealEndOfRows($db, $table)
 {
     $unlim_num_rows = PMA_Table::countRecords($db, $table, true);
-    $_SESSION['tmpval']['pos'] = @((ceil(
-        $unlim_num_rows / $_SESSION['tmpval']['max_rows']
-    ) - 1) * $_SESSION['tmpval']['max_rows']);
+    $_SESSION['tmpval']['pos'] = PMA_getStartPosToDisplayRow($unlim_num_rows);
 
     return $unlim_num_rows;
 }
@@ -2337,22 +2335,38 @@ function PMA_executeQueryAndSendQueryResponse($analyzed_sql_results,
 }
 
 /**
- * Update pos if pos is higher than number of rows of displayed table
+ * Function to define pos to display a row
+ *
+ * @param Int $number_of_line Number of the line to display
+ *
+ * @return Int Start position to display the line
+ */
+function PMA_getStartPosToDisplayRow($number_of_line)
+{
+    return @(
+        (ceil($number_of_line / $_SESSION['tmpval']['max_rows']) - 1)
+        * $_SESSION['tmpval']['max_rows']
+    );
+}
+
+/**
+ * Function to calculate new pos if pos is higher than number of rows of displayed table
  *
  * @param String $db    Database name
  * @param String $table Table name
+ * @param Int    $pos   Initial position
  *
- * @return Int Number of rows
+ * @return Int Number of pos to display last page
  */
-function PMA_updatePos($db, $table)
+function PMA_calculatePosForLastPage($db, $table, $pos = 0)
 {
     $unlim_num_rows = PMA_Table::countRecords($db, $table, true);
     //If position is higher than number of rows
     if ($unlim_num_rows <= $_SESSION['tmpval']['pos']) {
-        PMA_findRealEndOfRows($db, $table);
+        $pos = PMA_getStartPosToDisplayRow($unlim_num_rows);
     }
 
-    return $unlim_num_rows;
+    return $pos;
 }
 
 ?>
