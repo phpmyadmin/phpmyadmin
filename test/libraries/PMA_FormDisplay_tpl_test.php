@@ -255,13 +255,6 @@ class PMA_FormDisplay_Tpl_Test extends PHPUnit_Framework_TestCase
 
         $this->assertTag(
             PMA_getTagArray(
-                '<a href="http://wikilink" target="wiki">'
-            ),
-            $result
-        );
-
-        $this->assertTag(
-            PMA_getTagArray(
                 '<img src="testImages_info.png" title="Wiki" alt="Wiki" />'
             ),
             $result
