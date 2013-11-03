@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.9-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-10-30 13:52+0100\n"
-"PO-Revision-Date: 2013-10-17 15:59+0200\n"
-"Last-Translator: Jakub Stepniak <jakub.st@gmail.com>\n"
+"PO-Revision-Date: 2013-11-01 12:48+0200\n"
+"Last-Translator: Piotr Przybylski <piotrprz@gmail.com>\n"
 "Language-Team: Polish <http://l10n.cihar.com/projects/phpmyadmin/4-0/pl/>\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 1.7\n"
+"X-Generator: Weblate 1.8-dev\n"
 
 #: browse_foreigners.php:51 browse_foreigners.php:75 js/messages.php:345
 #: libraries/DisplayResults.class.php:856
@@ -586,7 +586,7 @@ msgstr "Pierścień wewnętrzny"
 
 #: gis_data_editor.php:303
 msgid "Add a linestring"
-msgstr "Dodaj linestring"
+msgstr "Dodaj linię łamaną"
 
 #: gis_data_editor.php:304 gis_data_editor.php:378 js/messages.php:320
 msgid "Add an inner ring"
@@ -613,8 +613,8 @@ msgid ""
 "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
 "below into the \"Value\" field"
 msgstr ""
-"Wybierz \"GeomFromText\" z kolumny \"Function\" i wklej poniższy ciąg znaków "
-"do pola \"Value\""
+"Wybierz \"GeomFromText\" z kolumny \"Funkcja\" i wklej poniższy ciąg znaków do "
+"pola \"Wartość\""
 
 #: import.php:107
 #, php-format
@@ -622,8 +622,8 @@ msgid ""
 "You probably tried to upload a file that is too large. Please refer to "
 "%sdocumentation%s for a workaround for this limit."
 msgstr ""
-"Prawdopodobnie próbował załadować plik, który jest zbyt duży. Proszę "
-"zapoznać się %sdokumentacją%s, aby obejść te ograniczenia."
+"Prawdopodobnie nastąpiła próba załadowania zbyt dużego pliku. Proszę "
+"zapoznać się %sdokumentacją%s, aby obejść to ograniczenie."
 
 #: import.php:268 import.php:534
 msgid "Showing bookmark"
@@ -840,7 +840,7 @@ msgid ""
 "split strings correctly and it may result in unexpected results."
 msgstr ""
 "Rozszerzenie PHP o nazwie mbstring nie zostało znalezione, a wygląda na to, "
-"że używasz wielobajtowego kodowania napisów. Bez rozszerzenia mbstring "
+"że używasz wielobajtowego kodowania znaków. Bez rozszerzenia mbstring "
 "phpMyAdmin nie ma możliwości poprawnego rozbijania napisów, co może "
 "skutkować niespodziewanymi rezultatami."
 
@@ -1361,7 +1361,7 @@ msgstr "Z dziennika ogólnego"
 
 #: js/messages.php:159
 msgid "The database name is not known for this query in the server's logs."
-msgstr ""
+msgstr "Nazwa bazy danych dla tego zapytania nie występuje w logach serwera."
 
 #: js/messages.php:160
 msgid "Analysing logs"
