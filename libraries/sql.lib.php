@@ -1222,7 +1222,7 @@ function PMA_handleQueryExecuteError($is_gotofile, $error, $full_sql_query)
  *
  * @param String  $db                     the current database
  * @param String  $bkm_user               the bookmarking user
- * @param String  $sql_query_for_bookmark the query to be stored in bookmark 
+ * @param String  $sql_query_for_bookmark the query to be stored in bookmark
  * @param String  $bkm_label              bookmark label
  * @param boolean $bkm_replace            whether to replace existing bookmarks
  *
@@ -2232,7 +2232,7 @@ function PMA_sendQueryResponse($num_rows, $unlim_num_rows, $is_affected,
  * @param string $db                   current database
  * @param string $table                current table
  * @param bool   $find_real_end        whether to find real end or not
- * @param string $sql_query_for_bookmark the sql query to be stored as bookmark 
+ * @param string $sql_query_for_bookmark the sql query to be stored as bookmark
  * @param array  $extra_data           extra data
  * @param bool   $is_affected          whether affected or not
  * @param string $message_to_show      message to show
@@ -2335,4 +2335,24 @@ function PMA_executeQueryAndSendQueryResponse($analyzed_sql_results,
         isset($complete_query) ? $complete_query : null
     );
 }
+
+/**
+ * Update pos if pos is higher than number of rows of displayed table
+ *
+ * @param String $db    Database name
+ * @param String $table Table name
+ *
+ * @return Int Number of rows
+ */
+function PMA_updatePos($db, $table)
+{
+    $unlim_num_rows = PMA_Table::countRecords($db, $table, true);
+    //If position is higher than number of rows
+    if ($unlim_num_rows <= $_SESSION['tmpval']['pos']) {
+        PMA_findRealEndOfRows($db, $table);
+    }
+
+    return $unlim_num_rows;
+}
+
 ?>

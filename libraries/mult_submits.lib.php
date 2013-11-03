@@ -267,6 +267,8 @@ function PMA_getQueryStrFromSelected(
                 PMA_clearTransformations($db, $selected[$i]);
             } else if ($query_type == 'drop_fld') {
                 PMA_clearTransformations($db, $table, $selected[$i]);
+            } elseif ($query_type == 'row_delete') {
+                //PMA_updatePos($db, $table);
             }
         } // end if
     } // end for
