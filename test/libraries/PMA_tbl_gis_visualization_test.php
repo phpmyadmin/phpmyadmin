@@ -57,7 +57,7 @@ class PMA_TblGisVisualizaionTest extends PHPUnit_Framework_TestCase
     public function testPMAGetHtmlForOptionsList()
     {
         $options= array("option1", "option2");
-        $select = "option2";
+        $select = array("option2");
 
         $html = PMA_getHtmlForOptionsList($options, $select);
 
@@ -117,7 +117,7 @@ class PMA_TblGisVisualizaionTest extends PHPUnit_Framework_TestCase
         );
 
         $output = PMA_getHtmlForOptionsList(
-            $columnCandidates, $visualizationSettings[$column]
+            $columnCandidates, array($visualizationSettings[$column])
         );
         $this->assertContains(
             $output,
@@ -149,7 +149,7 @@ class PMA_TblGisVisualizaionTest extends PHPUnit_Framework_TestCase
         $data = "data";
 
         $html = PMA_getHtmlForGisVisualization(
-            $url_params, $labelCandidates, $spatialCandidates, 
+            $url_params, $labelCandidates, $spatialCandidates,
             $visualizationSettings, $sql_query,
             $visualization, $svg_support, $data
         );

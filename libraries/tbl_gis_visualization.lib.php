@@ -213,7 +213,7 @@ function PMA_getHtmlForColumn($column, $columnCandidates, $visualizationSettings
     }
 
     $html .= PMA_getHtmlForOptionsList(
-        $columnCandidates, $visualizationSettings[$column]
+        $columnCandidates, array($visualizationSettings[$column])
     );
 
     $html .= '</select></td>';
