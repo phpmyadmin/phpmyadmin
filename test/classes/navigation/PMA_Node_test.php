@@ -365,12 +365,12 @@ class Node_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Tests the getPresence method when DisableIS is false
+     * Tests the getPresence method
      *
      * @return void
      * @test
      */
-    public function testGetPresenceWithEnabledIS()
+    public function testGetPresence()
     {
         if (! isset($GLOBALS['cfg'])) {
             $GLOBALS['cfg'] = array();
@@ -381,14 +381,13 @@ class Node_Test extends PHPUnit_Framework_TestCase
         if (! isset($GLOBALS['cfg']['Servers'][0])) {
             $GLOBALS['cfg']['Servers'][0] = array();
         }
-        $GLOBALS['cfg']['Servers'][0]['DisableIS'] = false;
 
         $query  = "SELECT COUNT(*) ";
         $query .= "FROM `INFORMATION_SCHEMA`.`SCHEMATA` ";
         $query .= "WHERE TRUE ";
 
         // It would have been better to mock _getWhereClause method
-        // but stangely, mocking private methods is not supported in PHPUnit
+        // but strangely, mocking private methods is not supported in PHPUnit
         $node = PMA_NodeFactory::getInstance();
 
         $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
@@ -399,48 +398,6 @@ class Node_Test extends PHPUnit_Framework_TestCase
             ->with($query);
         $GLOBALS['dbi'] = $dbi;
         $node->getPresence();
-    }
-
-    /**
-     * Tests the getPresence method when DisableIS is true
-     *
-     * @return void
-     * @test
-     */
-    public function testGetPresenceWithDisabledIS()
-    {
-        if (! isset($GLOBALS['cfg'])) {
-            $GLOBALS['cfg'] = array();
-        }
-        if (! isset($GLOBALS['cfg']['Servers'])) {
-            $GLOBALS['cfg']['Servers'] = array();
-        }
-        if (! isset($GLOBALS['cfg']['Servers'][0])) {
-            $GLOBALS['cfg']['Servers'][0] = array();
-        }
-        $GLOBALS['cfg']['Servers'][0]['DisableIS'] = true;
-
-        $node = PMA_NodeFactory::getInstance();
-
-        // test with no search clause
-        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
-            ->disableOriginalConstructor()
-            ->getMock();
-        $dbi->expects($this->once())
-            ->method('tryQuery')
-            ->with("SHOW DATABASES ");
-        $GLOBALS['dbi'] = $dbi;
-        $node->getPresence();
-
-        // test with a search clause
-        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
-            ->disableOriginalConstructor()
-            ->getMock();
-        $dbi->expects($this->once())
-            ->method('tryQuery')
-            ->with("SHOW DATABASES LIKE '%dbname%' ");
-        $GLOBALS['dbi'] = $dbi;
-        $node->getPresence('', 'dbname');
     }
 }
 ?>
