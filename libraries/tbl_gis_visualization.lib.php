@@ -5,8 +5,9 @@
  *
  * @package PhpMyAdmin
  */
-
-
+if (!defined('PHPMYADMIN')) {
+    exit;
+}
 
 /**
  * Returns a modified sql query with only the label column
