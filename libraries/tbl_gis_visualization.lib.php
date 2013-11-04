@@ -9,6 +9,8 @@ if (!defined('PHPMYADMIN')) {
     exit;
 }
 
+require_once 'libraries/sql.lib.php';
+
 /**
  * Returns a modified sql query with only the label column
  * and spatial column(wrapped with 'ASTEXT()' function).
@@ -185,28 +187,6 @@ function PMA_GIS_saveToFile($data, $visualizationSettings, $format, $fileName)
             $visualization->toFileAsPdf($fileName);
         }
     }
-}
-
-/**
- * Function to get html for the options lists
- *
- * @param array  $options array of options
- * @param string $select  the item that shoul be selected by default
- *
- * @return string $html   the html for the options lists
- */
-function PMA_getHtmlForOptionsList($options, $select)
-{
-    $html = '';
-    foreach ($options as $option) {
-        $html .= '<option value="' . htmlspecialchars($option) . '"';
-        if ($option == $select) {
-            $html .= ' selected="selected"';
-        }
-        $html .= '>' . htmlspecialchars($option) . '</option>';
-    }
-
-    return $html;
 }
 
 /**
