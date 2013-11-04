@@ -63,7 +63,7 @@ class PMA_TblGisVisualizaionTest extends PHPUnit_Framework_TestCase
 
         $this->assertEquals(
             '<option value="option1">option1</option>'
-            . '<option value="option2" selected="selected">option2</option>',
+            . '<option value="option2" selected="selected" >option2</option>',
             $html
         );
     }
