@@ -149,7 +149,7 @@ class PMA_TblGisVisualizaionTest extends PHPUnit_Framework_TestCase
         $data = "data";
 
         $html = PMA_getHtmlForGisVisualization(
-            $url_params, $labelCandidates, $spatialCandidates, 
+            $url_params, $labelCandidates, $spatialCandidates,
             $visualizationSettings, $sql_query,
             $visualization, $svg_support, $data
         );

@@ -60,11 +60,11 @@ class PMA_Ip_Allow_Deny_Test extends PHPUnit_Framework_TestCase
             "101.0.0.25",
             PMA_getIp()
         );
-        
+
         //proxy
         $var_name = "direct_ip";
         $direct_ip = $_SERVER['REMOTE_ADDR'];
-        $GLOBALS['cfg']['TrustedProxies'][$direct_ip] = $var_name; 
+        $GLOBALS['cfg']['TrustedProxies'][$direct_ip] = $var_name;
         $_SERVER[$var_name] = "192.168.0.1";
         $this->assertEquals(
             "192.168.0.1",

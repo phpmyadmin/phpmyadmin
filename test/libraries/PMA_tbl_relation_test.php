@@ -373,7 +373,7 @@ class PMA_TblRelationTest extends PHPUnit_Framework_TestCase
         $query = PMA_getQueryForDisplayUpdate(
             $disp, $display_field, $db, $table, $cfgRelation
         );
-        $query_expect = "INSERT INTO `global_db`.`table_info`" 
+        $query_expect = "INSERT INTO `global_db`.`table_info`"
             . "(db_name, table_name, display_field)"
             . " VALUES('pma_db','pma_table','display_field')";
         $this->assertEquals(

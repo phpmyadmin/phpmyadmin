@@ -10,7 +10,7 @@
  * Include to test.
  */
 define('PMA_MYSQL_STR_VERSION', "5.00.15");
-//it will be used before setup on libraries/sqlvalidator.lib.php 
+//it will be used before setup on libraries/sqlvalidator.lib.php
 global $cfg;
 $cfg['SQLValidator']['use'] = false;
 
@@ -54,10 +54,10 @@ class PMA_SQLValidator_Test extends PHPUnit_Framework_TestCase
             '',
             PMA_validateSQL($sql)
         );
-        
+
         //$cfg['SQLValidator']['use'] = true
         $GLOBALS['cfg']['SQLValidator']['use'] = true;
-        
+
         //the sql validatior is not loaded
         $GLOBALS['sqlvalidator_error'] = true;
         $this->assertContains(
@@ -81,7 +81,7 @@ class PMA_SQLValidator_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['SQLValidator']['use'] = true;
         $GLOBALS['sqlvalidator_soap'] = 'PEAR';
         $GLOBALS['sqlvalidator_error'] = false;
-        
+
         //validate that the result is the same as SOAP_Client return
         //SOAP_Client is mocked with simple logic
         $this->assertTrue(
@@ -132,7 +132,7 @@ class Session
     var $target          = null;
     var $username        = null;
     var $password        = null;
-    var $calling_program = null;    
+    var $calling_program = null;
     var $sessionId       = null;
     var $sessionKey      = null;
     var $data            = null;

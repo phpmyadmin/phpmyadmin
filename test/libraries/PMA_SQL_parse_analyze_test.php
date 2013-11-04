@@ -32,7 +32,7 @@ class PMA_SQLParserAnalyze_Test extends PHPUnit_Framework_TestCase
         $sql_query = "select * from PMA.PMAParse";
         $db = "PMA";
         $data = PMA_SQP_getParserAnalyzeMap($sql_query, $db);
-        
+
         $this->assertEquals(
             array(
                 'type' => 'alpha_reservedWord',
@@ -50,12 +50,12 @@ class PMA_SQLParserAnalyze_Test extends PHPUnit_Framework_TestCase
         $this->assertTrue($data['is_select']);
         $this->assertFalse($data['is_group']);
         $this->assertFalse($data['is_show']);
-        
+
         //update statement
         $sql_query = "UPDATE `11`.`pma_bookmark` SET `id` = '2' WHERE `pma_bookmark`.`id` = 1;";
         $db = "PMA";
         $data = PMA_SQP_getParserAnalyzeMap($sql_query, $db);
-        
+
         $this->assertEquals(
             array(
                 'type' => 'alpha_reservedWord',
@@ -72,7 +72,7 @@ class PMA_SQLParserAnalyze_Test extends PHPUnit_Framework_TestCase
         $this->assertFalse($data['is_group']);
         $this->assertFalse($data['is_show']);
         $this->assertTrue($data['is_affected']);
-        $this->assertFalse($data['is_select']);        
+        $this->assertFalse($data['is_select']);
     }
 }
 
