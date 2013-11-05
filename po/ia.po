@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-10-30 13:55+0100\n"
-"PO-Revision-Date: 2013-10-18 11:26+0200\n"
+"PO-Revision-Date: 2013-11-05 14:00+0200\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
-"Language-Team: Interlingua <http://l10n.cihar.com/projects/phpmyadmin/master/"
-"ia/>\n"
+"Language-Team: Interlingua "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/ia/>\n"
 "Language: ia\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 1.7\n"
+"X-Generator: Weblate 1.8-dev\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -2030,12 +2030,13 @@ msgid "Submit Error Report"
 msgstr "Submitte reporto de error"
 
 #: js/messages.php:411
-#, fuzzy
 #| msgid "An error has occurred. Do you want to send an error report?"
 msgid ""
 "A fatal JavaScript error has occurred. Would you like to send an error "
 "report?"
-msgstr "Un error ha occurrite. Tu vole inviar un reporto de error?"
+msgstr ""
+"Un error fatal de JavaScript ha occurrite. Tu vole inviar un reporto de "
+"error?"
 
 #: js/messages.php:413
 msgid "Change Report Settings"
@@ -4315,66 +4316,71 @@ msgstr ""
 
 #: libraries/config/FormDisplay.class.php:817
 msgid "SQL Validator is disabled"
-msgstr ""
+msgstr "Le validator SQL es dishabilitate"
 
 #: libraries/config/FormDisplay.class.php:824
 msgid "SOAP extension not found"
-msgstr ""
+msgstr "Il no ha trovate le extension SOAP"
 
 #: libraries/config/FormDisplay.class.php:834
 #, php-format
 msgid "maximum %s"
-msgstr ""
+msgstr "maxime %s"
 
 #: libraries/config/FormDisplay.tpl.php:225
 msgid "This setting is disabled, it will not be applied to your configuration."
 msgstr ""
+"Iste preferentia es dishabilitate, illo non essera applicate a tu "
+"configuration."
 
 #: libraries/config/FormDisplay.tpl.php:317
 #, php-format
 msgid "Set value: %s"
-msgstr ""
+msgstr "Fixa valor: %s"
 
 #: libraries/config/FormDisplay.tpl.php:322
 #: libraries/config/messages.inc.php:364
 msgid "Restore default value"
-msgstr ""
+msgstr "Restabili valor predefinite"
 
 #: libraries/config/FormDisplay.tpl.php:336
 msgid "Allow users to customize this value"
-msgstr ""
+msgstr "Permitte a usatores personalisar iste valor"
 
 #: libraries/config/FormDisplay.tpl.php:400
 msgid "Apply"
-msgstr ""
+msgstr "Applica"
 
 #: libraries/config/FormDisplay.tpl.php:402 libraries/insert_edit.lib.php:1603
 #: libraries/schema/User_Schema.class.php:567 prefs_manage.php:327
 #: prefs_manage.php:334
 msgid "Reset"
-msgstr ""
+msgstr "Refixa"
 
 #: libraries/config/Validator.class.php:224
 msgid "Could not initialize Drizzle connection library"
-msgstr ""
+msgstr "Il non pote initialisar bibliotheca de connexion Drizzle"
 
 #: libraries/config/Validator.class.php:233
 #: libraries/config/Validator.class.php:241
 msgid "Could not connect to Drizzle server"
-msgstr ""
+msgstr "Il non pote connecter a servitor Drizzle"
 
 #: libraries/config/Validator.class.php:252
 #: libraries/config/Validator.class.php:259
 msgid "Could not connect to MySQL server"
-msgstr ""
+msgstr "Il non pote connecter a servitor MySQL"
 
 #: libraries/config/Validator.class.php:292
 msgid "Empty username while using config authentication method"
 msgstr ""
+"Vacua nomine de usator quando on usa methodo de authentication de configurar"
 
 #: libraries/config/Validator.class.php:299
 msgid "Empty signon session name while using signon authentication method"
 msgstr ""
+"Vacua nomine de session de signon quando on usa methodo de authentication "
+"signon"
 
 #: libraries/config/Validator.class.php:308
 msgid "Empty signon URL while using signon authentication method"
@@ -4382,20 +4388,22 @@ msgstr ""
 
 #: libraries/config/Validator.class.php:356
 msgid "Empty phpMyAdmin control user while using pmadb"
-msgstr ""
+msgstr "Vacua le usator de controlo de phpMyAdmin quando on usa pmadb"
 
 #: libraries/config/Validator.class.php:361
 msgid "Empty phpMyAdmin control user password while using pmadb"
 msgstr ""
+"Vacua contrasigno de usator de controlo de phpMyAdmin durante que on usa "
+"pmadb"
 
 #: libraries/config/Validator.class.php:445
 msgid "Incorrect value:"
-msgstr ""
+msgstr "Valor incorrecte:"
 
 #: libraries/config/Validator.class.php:454
 #, php-format
 msgid "Incorrect IP address: %s"
-msgstr ""
+msgstr "Adresse de IP incorrecte: %s"
 
 #: libraries/config/messages.inc.php:17
 msgid ""
@@ -4404,7 +4412,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:18
 msgid "Allow login to any MySQL server"
-msgstr ""
+msgstr "Permitte le accesso de authentication a ulle servitor MySQL"
 
 #: libraries/config/messages.inc.php:19
 msgid ""
@@ -4419,33 +4427,35 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:21
 msgid "Show &quot;Drop database&quot; link to normal users"
-msgstr ""
+msgstr "Monstra le ligamine &quot;Drop database&quot; a usatores normal"
 
 #: libraries/config/messages.inc.php:22
 msgid ""
 "Secret passphrase used for encrypting cookies in [kbd]cookie[/kbd] "
 "authentication"
 msgstr ""
+"Le passphrase (phrase de cryptation) usate pro cryptar cookies in le "
+"authentication [kbd]cookie[/kbd]"
 
 #: libraries/config/messages.inc.php:23
 msgid "Blowfish secret"
-msgstr ""
+msgstr "Secreto Blowfish"
 
 #: libraries/config/messages.inc.php:24
 msgid "Highlight selected rows"
-msgstr ""
+msgstr "Evidentia rangos selectionate"
 
 #: libraries/config/messages.inc.php:25
 msgid "Row marker"
-msgstr ""
+msgstr "Marcator de rango"
 
 #: libraries/config/messages.inc.php:26
 msgid "Highlight row pointed by the mouse cursor"
-msgstr ""
+msgstr "Evidentia rangos punctate per le cursor del mus"
 
 #: libraries/config/messages.inc.php:27
 msgid "Highlight pointer"
-msgstr ""
+msgstr "Evidentia le punctator"
 
 #: libraries/config/messages.inc.php:28
 msgid ""
@@ -4455,7 +4465,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:29
 msgid "Bzip2"
-msgstr ""
+msgstr "Bzip2"
 
 #: libraries/config/messages.inc.php:30
 msgid ""
@@ -4466,37 +4476,44 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:31
 msgid "CHAR columns editing"
-msgstr ""
+msgstr "Modifica columnas de CHAR"
 
 #: libraries/config/messages.inc.php:32
 msgid ""
 "Use user-friendly editor for editing SQL queries ([a@http://codemirror."
 "net/]CodeMirror[/a]) with syntax highlighting and line numbers"
 msgstr ""
+"Usa editor facile pro usatores pro modificar queries SQL "
+"([a@http://codemirror.net/]CodeMirror[/a]) con evidentia de syntaxe e "
+"numeros de rango"
 
 #: libraries/config/messages.inc.php:33
 msgid "Enable CodeMirror"
-msgstr ""
+msgstr "Habilita CodeMirror"
 
 #: libraries/config/messages.inc.php:34
 msgid ""
 "Defines the minimum size for input fields generated for CHAR and VARCHAR "
 "columns"
 msgstr ""
+"Il defini le grandor minime del campos de insertar generate pro columnas de "
+"CHAR e de VARCHAR"
 
 #: libraries/config/messages.inc.php:35
 msgid "Minimum size for input field"
-msgstr ""
+msgstr "Grandor minime del campo de insertar"
 
 #: libraries/config/messages.inc.php:36
 msgid ""
 "Defines the maximum size for input fields generated for CHAR and VARCHAR "
 "columns"
 msgstr ""
+"Il defini le grandor maxime del campos generate pro columnas de CHAR e "
+"VARCHAR"
 
 #: libraries/config/messages.inc.php:37
 msgid "Maximum size for input field"
-msgstr ""
+msgstr "Maxime grandor del campo de insertar"
 
 #: libraries/config/messages.inc.php:38
 msgid "Number of columns for CHAR/VARCHAR textareas"
@@ -7648,10 +7665,9 @@ msgid "New"
 msgstr ""
 
 #: libraries/navigation/Nodes/Node_Database.class.php:34
-#, fuzzy
 #| msgid "Database client version:"
 msgid "Database operations"
-msgstr "Version del cliente de base de datos:"
+msgstr "Operationes de base de datos"
 
 #: libraries/navigation/Nodes/Node_Database_Container.class.php:31
 msgctxt "Create new database"
@@ -7689,10 +7705,9 @@ msgid "New"
 msgstr ""
 
 #: libraries/navigation/Nodes/Node_Procedure.class.php:34
-#, fuzzy
 #| msgid "Procedures:"
 msgid "Procedure"
-msgstr "Procedimentos:"
+msgstr "Procedimento"
 
 #: libraries/navigation/Nodes/Node_Procedure_Container.class.php:26
 #: libraries/navigation/Nodes/Node_Procedure_Container.class.php:27
