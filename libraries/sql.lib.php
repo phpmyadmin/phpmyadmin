@@ -1050,9 +1050,7 @@ function PMA_addBookmark($pmaAbsoluteUri, $goto)
 function PMA_findRealEndOfRows($db, $table)
 {
     $unlim_num_rows = PMA_Table::countRecords($db, $table, true);
-    $_SESSION['tmpval']['pos'] = @((ceil(
-        $unlim_num_rows / $_SESSION['tmpval']['max_rows']
-    ) - 1) * $_SESSION['tmpval']['max_rows']);
+    $_SESSION['tmpval']['pos'] = PMA_getStartPosToDisplayRow($unlim_num_rows);
 
     return $unlim_num_rows;
 }
@@ -1222,7 +1220,7 @@ function PMA_handleQueryExecuteError($is_gotofile, $error, $full_sql_query)
  *
  * @param String  $db                     the current database
  * @param String  $bkm_user               the bookmarking user
- * @param String  $sql_query_for_bookmark the query to be stored in bookmark 
+ * @param String  $sql_query_for_bookmark the query to be stored in bookmark
  * @param String  $bkm_label              bookmark label
  * @param boolean $bkm_replace            whether to replace existing bookmarks
  *
@@ -2232,7 +2230,7 @@ function PMA_sendQueryResponse($num_rows, $unlim_num_rows, $is_affected,
  * @param string $db                   current database
  * @param string $table                current table
  * @param bool   $find_real_end        whether to find real end or not
- * @param string $sql_query_for_bookmark the sql query to be stored as bookmark 
+ * @param string $sql_query_for_bookmark the sql query to be stored as bookmark
  * @param array  $extra_data           extra data
  * @param bool   $is_affected          whether affected or not
  * @param string $message_to_show      message to show
@@ -2335,4 +2333,46 @@ function PMA_executeQueryAndSendQueryResponse($analyzed_sql_results,
         isset($complete_query) ? $complete_query : null
     );
 }
+
+/**
+ * Function to define pos to display a row
+ *
+ * @param Int $number_of_line Number of the line to display
+ * @param Int $max_rows Number of rows by page
+ *
+ * @return Int Start position to display the line
+ */
+function PMA_getStartPosToDisplayRow($number_of_line, $max_rows = null)
+{
+    if (null === $max_rows) {
+        $max_rows = $_SESSION['tmpval']['max_rows'];
+    }
+
+    return @((ceil($number_of_line / $max_rows) - 1) * $max_rows);
+}
+
+/**
+ * Function to calculate new pos if pos is higher than number of rows of displayed table
+ *
+ * @param String $db    Database name
+ * @param String $table Table name
+ * @param Int    $pos   Initial position
+ *
+ * @return Int Number of pos to display last page
+ */
+function PMA_calculatePosForLastPage($db, $table, $pos)
+{
+    if (null === $pos) {
+        $pos = $_SESSION['tmpval']['pos'];
+    }
+
+    $unlim_num_rows = PMA_Table::countRecords($db, $table, true);
+    //If position is higher than number of rows
+    if ($unlim_num_rows <= $pos && 0 != $pos) {
+        $pos = PMA_getStartPosToDisplayRow($unlim_num_rows);
+    }
+
+    return $pos;
+}
+
 ?>

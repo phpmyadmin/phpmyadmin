@@ -98,10 +98,12 @@ function PMA_getQueryStrFromSelected(
     }
 
     $selected_cnt   = count($selected);
+    $deletes = false;
 
     for ($i = 0; $i < $selected_cnt; $i++) {
         switch ($query_type) {
         case 'row_delete':
+            $deletes = true;
             $a_query = $selected[$i];
             $run_parts = true;
             break;
@@ -153,6 +155,7 @@ function PMA_getQueryStrFromSelected(
             break;
 
         case 'empty_tbl':
+            $deletes = true;
             $a_query = 'TRUNCATE ';
             $a_query .= PMA_Util::backquote($selected[$i]);
             $run_parts = true;
@@ -270,6 +273,10 @@ function PMA_getQueryStrFromSelected(
             }
         } // end if
     } // end for
+
+    if ($deletes) {
+        $_REQUEST['pos'] = PMA_calculatePosForLastPage($db, $table, $_REQUEST['pos']);
+    }
 
     return array(
         $result, $rebuild_database_list, $reload,
